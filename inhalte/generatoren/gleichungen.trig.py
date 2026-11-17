@@ -738,3 +738,200 @@ DS.fuer_sebastian('gleichungen.trig (Reihenfolge 13) steht vor trigo.allgemein (
 
 if __name__ == '__main__':
     durchsicht('gleichungen.trig', DS)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('gleichungen.trig', 20_9_13)
+Z, A, L = ST.Z, ST.A, ST.L
+B = 'im Bereich 0° ≤ x < 360°'
+
+# sinus
+ST.stufenleiter('sinus', 'Aus einer Lösung von sin x = v die zweite mit x₂ = 180° − x₁ bestimmen.',
+                'Ganze Gleichung lösen, auch mit negativem v und Runden, Riesenrad, Wert v aus einer Lösung.',
+                'Ohne Taschenrechner, mehrere Umdrehungen, Abstand der Lösungen, Fehler „360° − x₁“, Bedingung für zwei Lösungen, Begründung mit dem Vorzeichen.')
+ST.typ('sinus', '/^/', 'direkt', s=1)
+ST.typ('sinus', '/^/', 'mehrschritt', s=2)
+ST.typ('sinus', 'Jemand', 'fehler')
+ST.typ('sinus', 'Ein Dreieck hat die Seiten 6 cm', 'transfer')
+ST.typ('sinus', '/^/', 'verknuepfen', s=3)
+ST.neu('sinus', 'erkennen', A('Wie bekommt man bei sin x = v aus der ersten Lösung x₁ die zweite Lösung?', 'x₂ = 180° − x₁', ['x₂ = 360° − x₁', 'x₂ = x₁ + 180°', 'x₂ = −x₁'],
+       'Am Riesenrad ist die Gondel bei x₁ und bei 180° − x₁ gleich hoch (Spiegelung an der senkrechten Achse).', 'Wo ist die Gondel gleich hoch?'))
+ST.neu('sinus', 'einkleidung', L(f'Eine Gondel ist y = 10 · sin x Meter über der Achse des Riesenrads (x Drehwinkel). Bei welchen Winkeln {B} ist sie 8 m über der Achse? Runde auf ganze Grad.',
+       'x₁ ≈ □°; x₂ ≈ □°', [53, 127], ['round(53.13010235415599, 0)', 'round(180 - 53.13010235415599, 0)'],
+       '10 sin x = 8 ⇒ sin x = 0,8 ⇒ x₁ ≈ 53,1° ≈ 53°, x₂ = 180° − 53,1° ≈ 126,9° ≈ 127°.', 'Teile zuerst durch 10.', hinweis='kleinerer Winkel zuerst'))
+ST.neu('sinus', 'direkt', Z('Bestimme mit dem Taschenrechner die Lösung von sin x = 0,25 zwischen 0° und 90°. Runde auf eine Nachkommastelle.', 14.5, '14.477512185929925',
+       'sin⁻¹(0,25) ≈ 14,5°. (Die zweite Lösung wäre 180° − 14,5° = 165,5°.)', 'Taste sin⁻¹, Rechner auf DEG.', einheit='°', toleranz=0.1))
+ST.neu('sinus', 'umkehr', Z(f'Die Gleichung sin x = v hat {B} die Lösung x = 210°. Wie groß ist v?', -0.5, '-0.5',
+       '210° = 180° + 30°: Die Gondel steht so tief unter der Achse wie bei 30° darüber. sin 210° = −sin 30° = −0,5.', 'Vergleiche 210° mit 30°.'))
+ST.neu('sinus', 'parameter', A(f'Für welche Werte v hat sin x = v {B} genau zwei Lösungen?', 'für −1 < v < 1', ['für −1 ≤ v ≤ 1', 'für alle v', 'für v > 1'],
+       'Bei |v| > 1 gibt es keine Lösung, bei v = 1 oder v = −1 genau eine (90° bzw. 270°), dazwischen immer zwei.', 'Was passiert bei v = 1?'))
+ST.neu('sinus', 'begruenden', A(f'Stimmt: Hat sin x = v die Lösung 40°, dann hat sin x = −v {B} die Lösungen 220° und 320°?', 'Ja: 220° = 40° + 180° und 320° = 360° − 40° liegen so tief unter der Achse wie 40° darüber.',
+       ['Nein, die Lösungen sind −40° und 140°.', 'Nein, sin x = −v hat keine Lösung.', 'Nur wenn v größer als 0,5 ist.'],
+       'Eine halbe Drehung weiter (x + 180°) und die Spiegelung 360° − x kehren das Vorzeichen des Sinus um: sin 220° = sin 320° = −sin 40°.', 'Zeichne die Gondel bei 40°, 220° und 320°.'))
+ST.neu('sinus', 'rueckwaerts', L('Die beiden Lösungen einer Gleichung sin x = v liegen zwischen 0° und 180° und sind 100° voneinander entfernt. Wie heißen sie?',
+       'x₁ = □°; x₂ = □°', [40, 140], ['(180 - 100) // 2', '(180 + 100) // 2'],
+       'Es gilt x₂ = 180° − x₁ und x₂ − x₁ = 100°. Also 180° − 2x₁ = 100°, x₁ = 40°, x₂ = 140°.', 'Nutze x₂ = 180° − x₁.', hinweis='kleinere Lösung zuerst'))
+ST.neu('sinus', 'pruefung', L(f'Löse ohne Taschenrechner {B}: a) sin x = 1, b) sin x = 0, c) sin x = −1.', 'a) x = □°; b) x₁ = □°, x₂ = □°; c) x = □°', [90, 0, 180, 270],
+       ['90', '0', '180', '270'], 'a) ganz oben: 90°. b) auf Höhe der Achse: 0° und 180°. c) ganz unten: 270°.', 'Denk an die Gondel ganz oben, auf Achsenhöhe und ganz unten.'))
+ST.knobel('sinus', Z('Wie viele Lösungen hat sin x = 0,2 im Bereich 0° ≤ x < 1 080°?', 6, '3 * 2',
+          'Bei jeder vollen Drehung um 360° ist die Gondel zweimal auf der Höhe 0,2 (einmal aufwärts, einmal abwärts). 1 080° sind 3 volle Drehungen, also 3 · 2 = 6 Lösungen.',
+          'Wie viele volle Drehungen sind 1 080°?'))
+ST.knobel('sinus', L(f'Für welche x {B} gilt sin x = sin(x + 180°)?', 'x₁ = □°; x₂ = □°', [0, 180], ['0', '180'],
+          'Eine halbe Drehung weiter ist die Gondel genau gegenüber: sin(x + 180°) = −sin x. Aus sin x = −sin x folgt sin x = 0, also x = 0° oder x = 180°.',
+          'Wo ist die Gondel eine halbe Drehung später?', hinweis='kleinere Lösung zuerst'))
+
+# kosinus
+ST.stufenleiter('kosinus', 'Aus einer Lösung von cos x = v die zweite mit x₂ = 360° − x₁ bestimmen.',
+                'Ganze Gleichung lösen, negative Werte, mehrere Umdrehungen, waagrechter Abstand am Riesenrad, Wert v aus einer Lösung.',
+                'Ohne Taschenrechner, cos x = cos 40°, Fehler „180° − x₁“, genau eine Lösung bis 180°, Begründung bei cos x = 0, mehrteilige Aufgabe.')
+ST.typ('kosinus', '/^/', 'direkt', s=1)
+ST.typ('kosinus', '/^/', 'mehrschritt', s=2)
+ST.typ('kosinus', 'Löse cos x = 1 im Bereich 0° ≤ x ≤ 720°', 'mehrschritt')
+ST.typ('kosinus', 'Eine Strecke', 'transfer')
+ST.typ('kosinus', '/^/', 'verknuepfen', s=3)
+ST.neu('kosinus', 'erkennen', A('Wie bekommt man bei cos x = v aus der ersten Lösung x₁ die zweite Lösung?', 'x₂ = 360° − x₁', ['x₂ = 180° − x₁', 'x₂ = x₁ + 180°', 'x₂ = x₁ − 90°'],
+       'Der waagrechte Abstand von der Achse ist bei x₁ und bei 360° − x₁ gleich (Spiegelung an der waagrechten Achse).', 'Wo ist die Gondel gleich weit rechts?'))
+ST.neu('kosinus', 'einkleidung', L(f'Der waagrechte Abstand einer Gondel von der Achse des Riesenrads ist d = 10 · cos x (in m, rechts positiv). Bei welchen Drehwinkeln {B} ist sie 6 m rechts der Achse? Runde auf ganze Grad.',
+       'x₁ ≈ □°; x₂ ≈ □°', [53, 307], ['round(53.13010235415599, 0)', 'round(360 - 53.13010235415599, 0)'],
+       '10 cos x = 6 ⇒ cos x = 0,6 ⇒ x₁ ≈ 53,1° ≈ 53°, x₂ = 360° − 53,1° ≈ 306,9° ≈ 307°.', 'Teile zuerst durch 10.', hinweis='kleinerer Winkel zuerst'))
+ST.neu('kosinus', 'umkehr', Z(f'Die Gleichung cos x = v hat {B} die Lösung x = 300°. Wie groß ist v?', 0.5, '0.5',
+       '300° = 360° − 60°, also cos 300° = cos 60° = 0,5. Die zweite Lösung ist 60°.', 'Welcher Winkel gehört zu 300° als Partner?'))
+ST.neu('kosinus', 'fehler', A(f'Jemand löst cos x = 0,2 {B} und gibt 78,5° und 101,5° an. Was stimmt?', 'Falsch: Beim Kosinus ist x₂ = 360° − 78,5° = 281,5°.',
+       ['Richtig.', 'Falsch: x₂ = 78,5° + 180° = 258,5°.', 'Falsch: Es gibt nur eine Lösung.'],
+       'x₂ = 180° − x₁ ist die Regel für den Sinus. Probe: cos 101,5° ist negativ, cos 281,5° ≈ 0,2.', 'Mache die Probe mit cos 101,5°.'))
+ST.neu('kosinus', 'parameter', A('Für welche Werte v hat cos x = v im Bereich 0° ≤ x ≤ 180° genau eine Lösung?', 'für alle v mit −1 ≤ v ≤ 1', ['nur für v = 1 und v = −1', 'für keinen Wert v', 'für alle v'],
+       'Von 0° bis 180° fährt die Gondel von ganz rechts nach ganz links, cos x fällt dabei von 1 auf −1 und nimmt jeden Wert dazwischen genau einmal an.', 'Wie ändert sich cos x von 0° bis 180°?'))
+ST.neu('kosinus', 'begruenden', A(f'Stimmt: cos x = 0 hat {B} genau die Lösungen 90° und 270°?', 'Ja: Ganz oben und ganz unten ist der waagrechte Abstand 0; dazu passt 270° = 360° − 90°.',
+       ['Nein, nur 90°.', 'Nein, die Lösungen sind 0° und 180°.', 'Nein, die Lösungen sind 90° und 180°.'],
+       'cos x ist der waagrechte Abstand von der Achse. Er ist 0, wenn die Gondel senkrecht über oder unter der Achse steht: 90° und 270°.', 'Wo ist die Gondel direkt über oder unter der Achse?'))
+ST.neu('kosinus', 'pruefung', L(f'Löse {B}: a) cos x = −0,3 (ganze Grad), b) cos x = −1, c) Wie viele Lösungen hat 2 cos x = 3?', 'a) x₁ ≈ □°, x₂ ≈ □°; b) x = □°; c) □ Lösungen', [107, 253, 180, 0],
+       ['round(107.4576031237221, 0)', 'round(360 - 107.4576031237221, 0)', '180', '0'],
+       'a) cos⁻¹(−0,3) ≈ 107,5° ≈ 107°, x₂ = 360° − 107,5° ≈ 252,5° ≈ 253°. b) ganz links: 180°. c) cos x = 1,5 > 1: keine Lösung.', 'Bei c) erst durch 2 teilen.'))
+ST.knobel('kosinus', L(f'Die beiden Lösungen einer Gleichung cos x = v {B} liegen genau 100° auseinander. Wie heißen sie?', 'x₁ = □°; x₂ = □°', [130, 230], ['(360 - 100) // 2', '(360 + 100) // 2'],
+          'Es gilt x₂ = 360° − x₁ und x₂ − x₁ = 100°. Also 360° − 2x₁ = 100°, x₁ = 130°, x₂ = 230°. Probe: cos 130° = cos 230° ≈ −0,64. (Mit x₁ = 50° wären es 260° Abstand.)',
+          'Nutze x₂ = 360° − x₁.', hinweis='kleinere Lösung zuerst'))
+ST.knobel('kosinus', Z('Wie viele Lösungen hat cos x = 0,3 im Bereich −360° < x < 360°?', 4, '2 + 2',
+          'Von 0° bis 360° gibt es zwei Lösungen (≈ 72,5° und ≈ 287,5°). Rückwärts gedreht (−360° bis 0°) wiederholt sich alles: ≈ −72,5° und ≈ −287,5°. Zusammen 4.',
+          'Ein negativer Winkel heißt: im Uhrzeigersinn drehen.'))
+
+# tangens
+ST.stufenleiter('tangens', 'Aus einer Lösung von tan x = v die zweite mit x₂ = x₁ + 180° bestimmen, Steigungswinkel.',
+                'Ganze Gleichung mit negativem v lösen, Zeiger auf einer Geraden, Wert v aus einer Lösung.',
+                'Ohne Taschenrechner, Volumen über tan, viele Lösungen, Fehler „180° − x₁“, Lösungen für jedes v, Lage der Lösungen begründen.')
+ST.typ('tangens', '/^/', 'direkt', s=1)
+ST.typ('tangens', '/^/', 'mehrschritt', s=2)
+ST.typ('tangens', 'Das Volumen', 'transfer')
+ST.typ('tangens', '/^/', 'verknuepfen', s=3)
+ST.neu('tangens', 'erkennen', A('Nach wie viel Grad wiederholen sich die Werte des Tangens?', 'nach 180°', ['nach 360°', 'nach 90°', 'nach 45°'],
+       'Die Gegenspeiche eine halbe Drehung weiter hat dieselbe Steigung: tan(x + 180°) = tan x.', 'Denk an die Gegenspeiche.'))
+ST.neu('tangens', 'darstellung', L(f'Ein Zeiger zeigt vom Ursprung auf einen Punkt der Geraden y = 3x. Welchen Winkel kann er mit der positiven x-Achse bilden ({B})? Runde auf ganze Grad.',
+       'x₁ ≈ □°; x₂ ≈ □°', [72, 252], ['round(71.56505117707799, 0)', 'round(71.56505117707799 + 180, 0)'],
+       'Die Steigung der Geraden ist tan x = 3 ⇒ x₁ ≈ 71,6° ≈ 72°. Auf die andere Seite der Geraden zeigt x₂ ≈ 251,6° ≈ 252°.', 'Steigung = tan x.', hinweis='kleinerer Winkel zuerst'))
+ST.neu('tangens', 'umkehr', Z(f'Die Gleichung tan x = v hat {B} die Lösung x = 225°. Wie groß ist v?', 1, '1',
+       '225° = 45° + 180°. Der Tangens wiederholt sich alle 180°: tan 225° = tan 45° = 1.', 'Ziehe 180° ab.'))
+ST.neu('tangens', 'fehler', A(f'Jemand löst tan x = 3 {B} und gibt 71,6° und 108,4° an. Was stimmt?', 'Falsch: Beim Tangens ist x₂ = 71,6° + 180° = 251,6°.',
+       ['Richtig.', 'Falsch: x₂ = 360° − 71,6° = 288,4°.', 'Falsch: Es gibt nur eine Lösung.'],
+       '180° − x₁ ist die Regel für den Sinus. Probe: tan 108,4° ist negativ, tan 251,6° ≈ 3.', 'Mache die Probe mit tan 108,4°.'))
+ST.neu('tangens', 'parameter', A(f'Für welche Werte v hat tan x = v {B} genau zwei Lösungen?', 'für alle v', ['nur für −1 ≤ v ≤ 1', 'nur für v > 0', 'für keinen Wert v'],
+       'Der Tangens nimmt jeden Wert an (jede Steigung ist möglich), und zwar alle 180° wieder. Im Bereich bis 360° also immer zweimal.', 'Gibt es eine Steigung, die keine Gerade hat?'))
+ST.neu('tangens', 'begruenden', A(f'Stimmt: tan x = −2 hat {B} eine Lösung zwischen 90° und 180° und eine zwischen 270° und 360°?', 'Ja: tan⁻¹(−2) ≈ −63,4°; plus 180° gibt 116,6°, plus 360° gibt 296,6°.',
+       ['Nein, beide liegen zwischen 0° und 90°.', 'Nein, es gibt keine Lösung.', 'Nein, die Lösungen sind 63,4° und 243,4°.'],
+       'Negative Steigung heißt: Der Zeiger zeigt nach links oben oder nach rechts unten. Das sind die Bereiche 90° bis 180° und 270° bis 360°.', 'In welchen Bereichen ist die Steigung negativ?'))
+ST.neu('tangens', 'pruefung', L(f'Löse {B} (ganze Grad): a) tan x = 1, b) tan x = −1, c) tan x = 0,4.', 'a) □° und □°; b) □° und □°; c) □° und □°', [45, 225, 135, 315, 22, 202],
+       ['45', '45 + 180', '135', '135 + 180', 'round(21.80140948635181, 0)', 'round(21.80140948635181 + 180, 0)'],
+       'a) 45°, 225°. b) tan⁻¹(−1) = −45° ⇒ 135° und 315°. c) tan⁻¹(0,4) ≈ 21,8° ≈ 22° und 201,8° ≈ 202°.', 'Immer x₂ = x₁ + 180°.'))
+ST.knobel('tangens', Z('Wie viele Lösungen hat tan x = 2 im Bereich 0° ≤ x < 1 000°?', 6, '6',
+          'tan⁻¹(2) ≈ 63,4°. Alle 180° kommt eine Lösung dazu: 63,4°, 243,4°, 423,4°, 603,4°, 783,4°, 963,4°. Die nächste, 1 143,4°, ist zu groß. Also 6 Lösungen.',
+          'Zähle 63,4° + k · 180° ab.'))
+ST.knobel('tangens', Z('Für einen spitzen Winkel x gilt tan x = 4 · tan(90° − x). Wie groß ist x? Runde auf eine Nachkommastelle.', 63.4, '63.43494882292201',
+          'Im rechtwinkligen Dreieck tauschen für 90° − x Gegen- und Ankathete die Rollen: tan(90° − x) = 1 : tan x. Also tan x = 4 : tan x, (tan x)² = 4, tan x = 2 (x spitz), x ≈ 63,4°.',
+          'Was ist tan(90° − x) im rechtwinkligen Dreieck?', einheit='°', toleranz=0.1))
+
+# anzahl
+ST.stufenleiter('anzahl', 'Am Wert v ablesen: keine, eine oder zwei Lösungen.',
+                'Sonderfälle v = ±1 und |v| > 1, Graph mit Gerade, Wert v zu genau einer Lösung, Gondel zu hoch.',
+                'Parameter für keine oder genau eine Lösung, sin x = cos x und Quadrate, Fehler bei ±1 und |v| > 1, mehrteilige Aufgabe.')
+ST.typ('anzahl', '/^/', 'erkennen', s=1)
+ST.typ('anzahl', 'Im Bild', 'darstellung')
+ST.typ('anzahl', '/^/', 'mehrschritt', s=2)
+ST.typ('anzahl', 'Jemand', 'fehler')
+ST.typ('anzahl', '/^(Für welche|4 cos x)/', 'parameter')
+ST.typ('anzahl', '/^/', 'verknuepfen', s=3)
+ST.neu('anzahl', 'direkt', Z(f'sin x = 1 hat {B} genau eine Lösung. Gib sie an.', 90, '90',
+       'sin x = 1 heißt: Die Gondel ist ganz oben. Das ist nur bei x = 90° so.', 'Wo ist die Gondel ganz oben?', einheit='°'))
+ST.neu('anzahl', 'umkehr', A(f'Für welchen Wert v hat cos x = v {B} genau eine Lösung, nämlich x = 0°?', 'v = 1', ['v = 0', 'v = −1', 'v = 0,5'],
+       'Bei x = 0° steht die Gondel ganz rechts: cos 0° = 1, und nur dort.', 'Wo steht die Gondel bei 0°?'))
+ST.neu('anzahl', 'einkleidung', A('Eine Gondel hat die Höhe h(x) = 13 − 10 · cos x (in m). Wie oft während einer Umdrehung (0° ≤ x < 360°) ist sie genau 25 m hoch?', 'nie', ['einmal', 'zweimal', 'viermal'],
+       '13 − 10 cos x = 25 ⇒ cos x = −1,2 < −1: keine Lösung. Höchstens ist die Gondel 13 + 10 = 23 m hoch.', 'Stelle nach cos x um.'))
+ST.neu('anzahl', 'pruefung', L(f'Wie viele Lösungen haben die Gleichungen {B}? a) sin x = 0,9 b) cos x = −1 c) tan x = 7 d) 2 sin x = 3', 'a) □; b) □; c) □; d) □', [2, 1, 2, 0],
+       ['2', '1', '2', '0'], 'a) |0,9| < 1: zwei. b) v = −1: eine (180°). c) Tangens: immer zwei. d) sin x = 1,5 > 1: keine.', 'Erst prüfen: Liegt v zwischen −1 und 1?'))
+ST.knobel('anzahl', Z(f'Wie viele Lösungen hat (cos x)² = 0,25 {B}?', 4, '2 + 2',
+          '(cos x)² = 0,25 heißt cos x = 0,5 oder cos x = −0,5. Jede der beiden Gleichungen hat zwei Lösungen: 60°, 300° und 120°, 240°. Zusammen 4.',
+          'Welche Zahlen ergeben quadriert 0,25?'))
+ST.knobel('anzahl', Z(f'Für wie viele ganze Zahlen a mit −5 ≤ a ≤ 5 hat a · sin x = 2 {B} genau zwei Lösungen?', 6, '6',
+          'Für a = 0 steht 0 = 2 da: keine Lösung. Sonst sin x = 2 : a. Genau zwei Lösungen gibt es bei −1 < 2 : a < 1, also bei |a| > 2: a = ±3, ±4, ±5. Das sind 6 Zahlen. (a = ±2 ergibt sin x = ±1: nur eine Lösung.)',
+          'Teile durch a. Was ist mit a = 0 und a = ±2?'))
+
+# umformen
+ST.stufenleiter('umformen', 'a · sin x = b durch Teilen auf sin x = v bringen und lösen.',
+                'Erst Zahl auf die andere Seite, sin x auf beiden Seiten, Kolben, Zahl in der Gleichung rückwärts.',
+                'Durch cos x teilen, Quadrate, Produkt gleich null, Fehler beim Umstellen, wann lösbar, mehrteilige Aufgabe.')
+ST.typ('umformen', '/^/', 'direkt', s=1)
+ST.typ('umformen', '/^/', 'mehrschritt', s=2)
+ST.typ('umformen', '/· cos x = 0|\\(sin x\\)² = sin x/', 'transfer')
+ST.typ('umformen', '/^/', 'verknuepfen', s=3)
+ST.neu('umformen', 'erkennen', A('Was ist bei 4 sin x − 1 = 1 der erste Umformungsschritt?', 'auf beiden Seiten 1 addieren', ['durch sin teilen', 'sin⁻¹ auf die 4 anwenden', 'mit 4 multiplizieren'],
+       'Erst die Zahl ohne sin wegschaffen: 4 sin x = 2. Dann durch 4 teilen: sin x = 0,5.', 'Wie bei einer linearen Gleichung.'))
+ST.neu('umformen', 'umkehr', Z('Für welche Zahl c hat 2 sin x + c = 3 die Lösung x = 90°?', 1, '3 - 2',
+       'sin 90° = 1, also 2 · 1 + c = 3 und c = 1.', 'Setze x = 90° ein.'))
+ST.neu('umformen', 'einkleidung', L(f'Ein Kolben steht beim Drehwinkel x bei s = 5 + 4 · cos x (in cm). Bei welchen Winkeln {B} steht er bei 3 cm?', 'x₁ = □°; x₂ = □°', [120, 240], ['180 - 60', '360 - 120'],
+       '5 + 4 cos x = 3 ⇒ 4 cos x = −2 ⇒ cos x = −0,5 ⇒ x = 120° oder x = 240°.', 'Stelle nach cos x um.', hinweis='kleinerer Winkel zuerst'))
+ST.neu('umformen', 'fehler', A('Jemand löst 3 sin x + 2 = 5 so: sin x = 5 − 2 − 3 = 0, also x = 0° oder 180°. Was stimmt?', 'Falsch: 3 sin x = 3, also sin x = 1 und x = 90°.',
+       ['Richtig.', 'Falsch: sin x = 7 : 3, keine Lösung.', 'Falsch: x = 30° oder 150°.'],
+       'Die 3 ist ein Faktor und wird durch Teilen entfernt, nicht durch Abziehen: 3 sin x = 3 ⇒ sin x = 1.', 'Ist die 3 ein Summand oder ein Faktor?'))
+ST.neu('umformen', 'parameter', A(f'Für welche Zahlen c hat 2 cos x + 3 = c {B} Lösungen?', 'für 1 ≤ c ≤ 5', ['für −1 ≤ c ≤ 1', 'für 0 ≤ c ≤ 3', 'für alle c'],
+       'cos x = (c − 3) : 2 muss zwischen −1 und 1 liegen: −2 ≤ c − 3 ≤ 2, also 1 ≤ c ≤ 5.', 'Stelle nach cos x um.'))
+ST.neu('umformen', 'pruefung', L(f'Löse {B}: a) 2 sin x + 3 = 4, b) 5 tan x = 5, c) 4 cos x = 4.', 'a) □° und □°; b) □° und □°; c) □°', [30, 150, 45, 225, 0],
+       ['30', '180 - 30', '45', '45 + 180', '0'], 'a) sin x = 0,5: 30°, 150°. b) tan x = 1: 45°, 225°. c) cos x = 1: 0°.', 'Immer zuerst sin x, tan x oder cos x allein stellen.'))
+ST.knobel('umformen', L(f'Löse 2 (sin x)² + sin x − 1 = 0 {B}.', 'x₁ = □°; x₂ = □°; x₃ = □°', [30, 150, 270], ['30', '180 - 30', '270'],
+          'Setze u = sin x: 2u² + u − 1 = 0, also u = (−1 ± 3) : 4, u = 0,5 oder u = −1. sin x = 0,5 gibt 30° und 150°, sin x = −1 gibt 270°.',
+          'Ersetze sin x durch u und löse die quadratische Gleichung.', hinweis='der Größe nach'))
+ST.knobel('umformen', L(f'Löse (sin x)² = 3 · (cos x)² {B}.', 'x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°', [60, 120, 240, 300], ['60', '180 - 60', '180 + 60', '360 - 60'],
+          'Teile durch (cos x)² (cos x = 0 ist keine Lösung, denn dann wäre auch sin x = 0): (tan x)² = 3, tan x = √3 oder tan x = −√3. tan x = √3: 60°, 240°. tan x = −√3: 120°, 300°.',
+          'Teile durch (cos x)².', hinweis='der Größe nach'))
+
+# anwendung
+ST.stufenleiter('anwendung', 'Riesenrad-Höhe auf cos x = v umstellen und lösen.',
+                'Hafen, Tageslänge, Pendel, Winkel im Dreieck über die Winkelsumme prüfen, Faktor aus einem Wert bestimmen.',
+                'Größter oder stumpfer Winkel, Flächenformel, Drehwinkel-Bereiche, Fehler „nur eine Lösung“, Bedingung an α, mehrteilige Gondel-Aufgabe.')
+ST.typ('anwendung', '/^/', 'direkt', s=1)
+ST.typ('anwendung', '/^In einem Dreieck/', 'mehrschritt', s=2)
+ST.typ('anwendung', '/^/', 'einkleidung', s=2)
+ST.typ('anwendung', 'Die Wassertiefe', 'einkleidung', s=3)
+ST.typ('anwendung', 'In einem Dreieck', 'verknuepfen', s=3)
+ST.typ('anwendung', '/^/', 'transfer', s=3)
+ST.neu('anwendung', 'erkennen', A('Im Dreieck gilt sin β = 0,6. Welche Winkel kommen für β zunächst in Frage?', 'etwa 36,9° und 143,1°', ['nur etwa 36,9°', 'etwa 36,9° und 323,1°', 'etwa 53,1° und 126,9°'],
+       'sin⁻¹(0,6) ≈ 36,9°, dazu 180° − 36,9° = 143,1°. Ein Dreieckswinkel liegt zwischen 0° und 180°, darum kommt 323,1° nicht in Frage.', 'Zweite Lösung beim Sinus: 180° − x₁.'))
+ST.neu('anwendung', 'direkt', L('Die Gondel eines Riesenrads ist h(x) = 15 − 10 · cos x Meter hoch (x Drehwinkel). Bei welchen Winkeln 0° ≤ x < 360° ist sie genau 15 m hoch?', 'x₁ = □°; x₂ = □°', [90, 270], ['90', '360 - 90'],
+       '15 − 10 cos x = 15 ⇒ cos x = 0 ⇒ x = 90° oder x = 270°.', 'Stelle nach cos x um.', hinweis='kleinerer Winkel zuerst'))
+ST.neu('anwendung', 'umkehr', Z('Die Wassertiefe ist t(x) = 8 + a · sin x (in m). Bei x = 90° ist das Wasser 11 m tief. Wie groß ist a?', 3, '11 - 8',
+       'sin 90° = 1, also 8 + a = 11 und a = 3 m.', 'Setze x = 90° ein.', einheit='m'))
+ST.neu('anwendung', 'fehler', A('In einem Dreieck ist α = 30° und sin β = 0,8. Jemand gibt nur β ≈ 53,1° an. Was stimmt?', 'Unvollständig: Auch β ≈ 126,9° passt, denn 30° + 126,9° < 180°.',
+       ['Richtig, nur 53,1° ist möglich.', 'Falsch: nur 126,9° ist möglich.', 'Falsch: Es gibt kein solches Dreieck.'],
+       'sin β = 0,8 ⇒ β ≈ 53,1° oder β ≈ 126,9°. Beide lassen mit α = 30° noch Platz für γ: γ ≈ 96,9° oder γ ≈ 23,1°.', 'Prüfe beide Winkel mit der Winkelsumme.'))
+ST.neu('anwendung', 'parameter', A('In einem Dreieck ist sin β = 0,8, also β ≈ 53,1° oder β ≈ 126,9°. Für welche Winkel α sind beide Werte möglich?', 'für α < 53,1°', ['für α < 126,9°', 'für alle α', 'für α > 53,1°'],
+       'Auch der stumpfe Wert muss passen: α + 126,9° < 180°, also α < 53,1°.', 'Wann hat der stumpfe Wert noch Platz?'))
+ST.neu('anwendung', 'pruefung', L('Eine Gondel hat die Höhe h(x) = 25 − 20 · cos x (in m). a) Wie hoch ist sie bei x = 0°? b) Wie hoch ist sie höchstens? c) Bei welchen Winkeln 0° ≤ x < 360° ist sie 35 m hoch?',
+       'a) □ m; b) □ m; c) □° und □°', [5, 45, 120, 240], ['25 - 20', '25 + 20', '180 - 60', '360 - 120'],
+       'a) cos 0° = 1: 25 − 20 = 5 m. b) bei cos x = −1: 25 + 20 = 45 m. c) 25 − 20 cos x = 35 ⇒ cos x = −0,5 ⇒ 120° und 240°.', 'Für c) nach cos x umstellen.'))
+ST.knobel('anwendung', Z('Die Tageslänge an einem Ort ist d(x) = 12 + 4 · sin x Stunden (x in Grad, 360° entsprechen einem Jahr). Über wie viele Grad des Jahres ist der Tag länger als 14 Stunden?', 120, '150 - 30',
+          '12 + 4 sin x > 14 heißt sin x > 0,5. Die Grenzen sind 30° und 150°; dazwischen ist sin x größer als 0,5. Das sind 150° − 30° = 120°, also ein Drittel des Jahres.',
+          'Bestimme erst, wann der Tag genau 14 Stunden lang ist.', einheit='°'))
+ST.knobel('anwendung', Z('In einem Dreieck gilt sin α = 0,5 und sin β = 0,5. Wie groß ist γ?', 120, '180 - 30 - 30',
+          'α und β sind jeweils 30° oder 150°. Zweimal 150° ist zu viel. 30° und 150° ergeben schon 180°, dann bleibt für γ nichts. Also α = β = 30° und γ = 120°.',
+          'Probiere alle Paare aus 30° und 150°.', einheit='°'))
+
+if __name__ == '__main__':
+    stufen('gleichungen.trig', ST)

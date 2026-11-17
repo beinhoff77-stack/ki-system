@@ -711,3 +711,222 @@ DS_KARTEN = {
 
 if __name__ == '__main__':
     durchsicht('zahlen.wurzeln_basis', DS, DS_KARTEN)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('zahlen.wurzeln_basis', 20_9_1)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# quadratwurzel
+ST.stufenleiter('quadratwurzel', 'Quadratwurzel einer Quadratzahl angeben und Quadratzahlen erkennen.',
+                'Wurzeln in Rechenketten, rückwärts (√x = a) und in einfachen Sachsituationen.',
+                'Ganzzahligkeit begründen, Fehler beim Wurzelziehen finden, Bedingungen für k suchen, mehrteilige Aufgaben.')
+ST.typ('quadratwurzel', 'Für welche Zahl x gilt √x = √36', 'rueckwaerts')
+ST.typ('quadratwurzel', 'Für welche Zahl x gilt √x =', 'umkehr')
+ST.typ('quadratwurzel', 'Berechne ohne Taschenrechner', 'verknuepfen')
+ST.typ('quadratwurzel', '/^Berechne √\\d/', 'direkt')
+ST.typ('quadratwurzel', '/^Berechne (\\d+ · )?√/', 'mehrschritt')
+
+ST.typ('quadratwurzel', 'Wie viele natürliche Zahlen n', 'transfer')
+ST.neu('quadratwurzel', 'erkennen', A('Welche der Zahlen ist eine Quadratzahl?', '196', ['160', '200', '96'],
+       '196 = 14 · 14. Bei 160, 200 und 96 gibt es keine natürliche Zahl, die mit sich selbst malgenommen genau diese Zahl ergibt.', 'Probiere: Welche Zahl mal sich selbst liegt in der Nähe?'))
+ST.neu('quadratwurzel', 'erkennen', A('Welcher Wert ist √121?', '11', ['60,5', '12,1', '−11']
+       , '11 · 11 = 121. √ meint die Zahl ohne Minus; 60,5 wäre die Hälfte.', 'Welche Zahl mal sich selbst ergibt 121?'))
+ST.neu('quadratwurzel', 'einkleidung', Z('Ein quadratischer Platz ist mit 324 gleich großen quadratischen Platten belegt. Wie viele Platten liegen an einer Seite?', 18, '324 // 18',
+       'Die Platten bilden ein Quadrat: n · n = 324, also n = √324 = 18.', 'Die Plattenzahl ist eine Quadratzahl.'))
+ST.neu('quadratwurzel', 'fehler', A('Jemand rechnet: √1 600 = 400, weil √16 = 4 ist und man die zwei Nullen anhängt. Was stimmt?',
+       'Falsch: Die Nullen werden halbiert, √1 600 = 40.', ['Richtig.', 'Falsch: √1 600 = 4 000.', 'Falsch: √1 600 = 800.'],
+       '40 · 40 = 1 600, aber 400 · 400 = 160 000. Beim Wurzelziehen wird aus zwei Nullen eine.', 'Mach die Probe: Quadriere das Ergebnis.'))
+ST.neu('quadratwurzel', 'begruenden', A('Stimmt die Aussage: „Ist n eine Quadratzahl, dann ist auch 4 · n eine Quadratzahl.“?',
+       'Ja, denn √(4n) = 2 · √n ist wieder natürlich.', ['Nein, zum Beispiel ist 4 · 9 = 36 keine Quadratzahl.', 'Nur wenn n gerade ist.', 'Nur für n = 1.'],
+       'Ist n = m · m, dann ist 4n = (2m) · (2m). Beispiel: 4 · 9 = 36 = 6 · 6.', 'Schreibe n = m · m und 4 = 2 · 2.'))
+ST.neu('quadratwurzel', 'parameter', Z('Für welche kleinste natürliche Zahl k > 0 ist √(12 · k) eine natürliche Zahl?', 3, '36 // 12',
+       '12 = 4 · 3. Damit 12k eine Quadratzahl ist, muss noch der Faktor 3 dazu: k = 3, √36 = 6.', 'Zerlege 12 in Faktoren. Welcher Faktor fehlt zur Quadratzahl?'))
+ST.neu('quadratwurzel', 'pruefung', L('Ein quadratischer Spielplatz hat 400 m² Fläche. Er wird zu einem größeren Quadrat erweitert, jede Seite wird 5 m länger. a) Wie lang ist eine Seite vorher? b) Um wie viele m² wächst die Fläche?',
+       'a) □ m; b) □ m²', [20, 225], ['400 // 20', '25 ** 2 - 400'],
+       'a) √400 = 20 m. b) Neue Seite 25 m, neue Fläche 625 m², Zuwachs 625 − 400 = 225 m².', 'Erst die Seite, dann die neue Fläche ausrechnen.', hinweis='Je Lücke eine ganze Zahl.'))
+ST.knobel('quadratwurzel', Z('Wie viele Quadratzahlen liegen zwischen 2 000 und 3 000?', 10, '54 - 45 + 1',
+          'Grenzen über Wurzeln: 44² = 1 936 < 2 000 < 2 025 = 45², und 54² = 2 916 < 3 000 < 3 025 = 55². Die Quadratzahlen dazwischen sind 45², 46², …, 54². Das sind 54 − 45 + 1 = 10 Zahlen.',
+          'Du musst nicht alle Zahlen prüfen. Was weißt du über die Zahl, deren Quadrat knapp über 2 000 liegt?'))
+ST.knobel('quadratwurzel', Z('Eine Zahl x ist größer als 0. Zieht man aus x die Wurzel und zählt 3 dazu, kommt dasselbe heraus, wie wenn man von x die Zahl 39 abzieht. Welche Zahl ist x?', 49, '7 ** 2',
+          'Gesucht: √x + 3 = x − 39. Setze w = √x, dann ist x = w · w: w + 3 = w · w − 39, also w · w − w = 42. Probieren: 7 · 7 − 7 = 42. Also w = 7 und x = 49. Probe: √49 + 3 = 10 und 49 − 39 = 10.',
+          'Gib der Wurzel einen eigenen Namen. Was ist dann x?'))
+
+# wurzel_dezimal
+ST.stufenleiter('wurzel_dezimal', 'Wurzel aus einer Dezimalzahl mit gerader Stellenzahl oder aus einem Bruch ziehen.',
+                'Mehrere Wurzeln verrechnen, rückwärts (√x = 0,03) und Flächen in Metern und Zentimetern.',
+                'Erkennen, wann die Wurzel keine endliche Dezimalzahl ist, Fehler finden, Bedingung für n, mehrteilige Sachaufgabe.')
+ST.typ('wurzel_dezimal', 'Was ergibt √4,9', 'begruenden')
+ST.typ('wurzel_dezimal', 'Was ergibt', 'erkennen')
+ST.typ('wurzel_dezimal', '/^Berechne √\\d+,\\d+\\.$/', 'direkt')
+ST.typ('wurzel_dezimal', 'Für welche Zahl x gilt', 'umkehr')
+ST.typ('wurzel_dezimal', 'Berechne ohne Taschenrechner √(1', 'verknuepfen')
+ST.typ('wurzel_dezimal', 'Bei welcher Zahl hat', 'begruenden')
+ST.typ('wurzel_dezimal', 'Ein quadratisches Solarmodul', 'einkleidung')
+ST.typ('wurzel_dezimal', '/^Berechne/', 'mehrschritt')
+ST.neu('wurzel_dezimal', 'erkennen', A('Wie viele Nachkommastellen hat √0,0081?', 'zwei', ['eine', 'vier', 'drei'],
+       '√0,0081 = 0,09, denn 0,09 · 0,09 = 0,0081. Vier Nachkommastellen unter der Wurzel, halb so viele im Ergebnis.', 'Die Wurzel hat halb so viele Nachkommastellen.'))
+ST.neu('wurzel_dezimal', 'einkleidung', Z('Ein quadratisches Tischtuch hat 1,21 m² Fläche. Wie lang ist eine Seite in Zentimetern?', 110, '11 * 10',
+       '√1,21 = 1,1, denn 1,1 · 1,1 = 1,21. 1,1 m = 110 cm.', 'Erst die Wurzel in Metern, dann umrechnen.', einheit='cm'))
+ST.neu('wurzel_dezimal', 'einkleidung', Z('Quadratische Fliesen bedecken je 0,09 m². Wie viele Fliesen passen in einer Reihe nebeneinander an eine 3,6 m lange Wand?', 12, '36 // 3',
+       'Seite einer Fliese: √0,09 = 0,3 m. 3,6 : 0,3 = 12 Fliesen.', 'Wie lang ist eine Fliese?'))
+ST.neu('wurzel_dezimal', 'mehrschritt', Z('Berechne √0,04 + √0,0009.', 0.23, '0.2 + 0.03',
+       '√0,04 = 0,2 und √0,0009 = 0,03. Zusammen 0,23.', 'Ziehe jede Wurzel einzeln.'))
+ST.neu('wurzel_dezimal', 'umkehr', L('Für welche Zahl x gilt √x = 2/7? Gib x als Bruch an.', '□/□', [4, 49], ['2 ** 2', '7 ** 2'],
+       'x = (2/7)² = 4/49, denn √(4/49) = 2/7.', 'Die Umkehrung der Wurzel ist das Quadrieren.'))
+ST.neu('wurzel_dezimal', 'fehler', A('Jemand rechnet: √0,9 = 0,3. Was stimmt?', 'Falsch: 0,3 · 0,3 = 0,09, also ist √0,09 = 0,3.', ['Richtig.', 'Falsch: √0,9 = 0,03.', 'Falsch: √0,9 = 0,45.'],
+       'Probe: 0,3² = 0,09 ≠ 0,9. √0,9 ≈ 0,95 ist keine endliche Dezimalzahl.', 'Quadriere das Ergebnis zur Probe.'))
+ST.neu('wurzel_dezimal', 'parameter', Z('Für welche kleinste natürliche Zahl n > 0 ist √(n/50) eine endliche Dezimalzahl?', 2, '100 // 50',
+       'n = 2: n/50 = 0,04 und √0,04 = 0,2. n = 1: 1/50 = 0,02, aber 0,02 ist keine Quadratzahl einer Dezimalzahl (zwei Nachkommastellen, 2 ist keine Quadratzahl).',
+       'Schreibe n/50 als Dezimalzahl mit zwei Nachkommastellen.'))
+ST.neu('wurzel_dezimal', 'rueckwaerts', Z('Aus einer Zahl wird die Wurzel gezogen und das Ergebnis durch 4 geteilt. Heraus kommt 0,15. Welche Zahl war es?', 0.36, '(0.15 * 4) ** 2',
+       'Rückwärts: 0,15 · 4 = 0,6, dann quadrieren: 0,6 · 0,6 = 0,36.', 'Mach die Schritte rückwärts, in umgekehrter Reihenfolge.'))
+ST.neu('wurzel_dezimal', 'transfer', Z('Ein quadratisches Blatt hat 625 cm² Fläche. Es wird zweimal so gefaltet, dass wieder ein Quadrat entsteht, das ein Viertel so groß ist. Wie lang ist dessen Seite?', 12.5, '25 / 2',
+       'Ein Viertel: 625 : 4 = 156,25 cm². √156,25 = 12,5 cm (halb so lang wie 25 cm).', 'Wie groß ist die Fläche des kleinen Quadrats?', einheit='cm'))
+ST.neu('wurzel_dezimal', 'pruefung', L('Ein quadratischer Gartenteich hat 6,25 m² Fläche. a) Wie lang ist eine Seite in dm? b) Wie viele dm Randsteine braucht man rundherum?', 'a) □ dm; b) □ dm', [25, 100], ['25', '4 * 25'],
+       'a) √6,25 = 2,5 m = 25 dm. b) Umfang 4 · 25 = 100 dm.', 'Erst die Seite, dann der Umfang.'))
+ST.knobel('wurzel_dezimal', Z('Wie groß ist √(0,1 · 0,4) + √(0,9 · 0,4)?', 0.8, '0.2 + 0.6',
+          'Unter der Wurzel steht jeweils ein Produkt: 0,1 · 0,4 = 0,04 und 0,9 · 0,4 = 0,36. √0,04 = 0,2, √0,36 = 0,6. Zusammen 0,8.',
+          'Rechne zuerst unter jeder Wurzel aus.'))
+ST.knobel('wurzel_dezimal', Z('Für wie viele natürliche Zahlen n von 1 bis 100 ist √(n/100) eine endliche Dezimalzahl?', 10, '100 // 10',
+          'Es gilt √(n/100) = √n : 10. Durch 10 teilen verschiebt nur das Komma. Also muss √n selbst eine endliche Dezimalzahl sein. Das klappt bei natürlichem n nur, wenn n eine Quadratzahl ist (sonst geht die Dezimalzahl nie zu Ende, z. B. √2 = 1,414…). Quadratzahlen von 1 bis 100: 1, 4, 9, …, 100 – das sind 10.',
+          'Zieh die Wurzel aus Zähler und Nenner getrennt.'))
+
+# kubikwurzel
+ST.stufenleiter('kubikwurzel', 'Dritte Wurzel einer Kubikzahl angeben, Kubikzahlen erkennen.',
+                'Dritte Wurzeln aus Dezimalzahlen und Brüchen, in Rechenketten, rückwärts und bei Würfeln im Alltag.',
+                'Würfel aus Würfelchen zählen, Wachstum der Kante, Fehler 8 · 8 statt 8 · 8 · 8, Bedingung für k, mehrteilige Aufgabe.')
+ST.typ('kubikwurzel', 'Für welche Zahl x gilt ∛x', 'umkehr')
+ST.typ('kubikwurzel', '/^Berechne ∛\\d+( \\d{3})*\\.$/', 'direkt')
+ST.typ('kubikwurzel', '/^Berechne/', 'mehrschritt')
+ST.typ('kubikwurzel', '/^(Ein Würfel hat das Volumen|125 gleich|Ein voller Würfel)/', 'transfer')
+ST.neu('kubikwurzel', 'erkennen', A('Welche der Zahlen ist eine Kubikzahl (dritte Potenz einer natürlichen Zahl)?', '125', ['100', '150', '36'],
+       '125 = 5 · 5 · 5. 100 und 36 sind Quadratzahlen, aber keine Kubikzahlen; 150 ist keines von beiden.', 'Probiere 2 · 2 · 2, 3 · 3 · 3, 4 · 4 · 4, …'))
+ST.neu('kubikwurzel', 'direkt', Z('Welche Zahl ergibt mit sich selbst malgenommen und dann noch einmal mit sich selbst malgenommen 512?', 8, '512 // 64',
+       '8 · 8 = 64 und 64 · 8 = 512. Also ∛512 = 8.', 'Probiere Zahlen zwischen 5 und 10.'))
+ST.neu('kubikwurzel', 'einkleidung', Z('Ein würfelförmiges Aquarium fasst innen 125 Liter. Wie lang ist eine Innenkante in dm?', 5, '125 // 25',
+       '125 Liter = 125 dm³. ∛125 = 5, denn 5 · 5 · 5 = 125. Die Kante ist 5 dm lang.', '1 Liter = 1 dm³.', einheit='dm'))
+ST.neu('kubikwurzel', 'fehler', A('Jemand rechnet: ∛64 = 8, weil 8 · 8 = 64. Was stimmt?', 'Falsch: Es muss dreimal dieselbe Zahl sein, ∛64 = 4.', ['Richtig.', 'Falsch: ∛64 = 21,3.', 'Falsch: ∛64 = 16.'],
+       '8 · 8 = 64 gehört zu √64. Für ∛64 gilt 4 · 4 · 4 = 64.', 'Wie oft muss die Zahl bei der dritten Wurzel vorkommen?'))
+ST.neu('kubikwurzel', 'begruenden', A('Stimmt die Gleichung ∛(8 · 27) = ∛8 · ∛27?', 'Ja, beide Seiten ergeben 6.', ['Nein, links steht 216 und rechts 6.', 'Nein, rechts muss ∛8 + ∛27 stehen.', 'Nur ungefähr.'],
+       '8 · 27 = 216 und ∛216 = 6. Rechts: ∛8 · ∛27 = 2 · 3 = 6. Denn (2 · 3)³ = 2³ · 3³.', 'Rechne beide Seiten aus.'))
+ST.neu('kubikwurzel', 'parameter', Z('Für welche kleinste natürliche Zahl k > 0 ist ∛(4 · k) eine natürliche Zahl?', 2, '8 // 4',
+       '4 = 2 · 2. Für eine Kubikzahl fehlt noch ein Faktor 2: k = 2, dann ist 4 · 2 = 8 und ∛8 = 2.', 'Zerlege 4 in Faktoren. Wie viele gleiche Faktoren braucht eine Kubikzahl?'))
+ST.neu('kubikwurzel', 'rueckwaerts', Z('Ein Würfel wird an jeder Kante um 2 cm verlängert. Danach hat er 343 cm³ Volumen. Wie groß war sein Volumen vorher?', 125, '(7 - 2) ** 3',
+       'Neue Kante: ∛343 = 7 cm. Alte Kante: 7 − 2 = 5 cm. Altes Volumen: 5 · 5 · 5 = 125 cm³.', 'Erst die neue Kante, dann die alte.', einheit='cm³'))
+ST.neu('kubikwurzel', 'pruefung', L('Ein würfelförmiger Karton fasst 27 Liter. a) Wie lang ist eine Kante in cm? b) Wie viel cm² Pappe braucht man für alle sechs Flächen (ohne Klebelaschen)?',
+       'a) □ cm; b) □ cm²', [30, 5400], ['3 * 10', '6 * 30 ** 2'],
+       'a) 27 Liter = 27 dm³, ∛27 = 3 dm = 30 cm. b) Eine Fläche 30 · 30 = 900 cm², sechs Flächen 5 400 cm².', 'Liter in dm³ umrechnen, dann die Kante.'))
+ST.knobel('kubikwurzel', Z('Zwei Würfel haben zusammen 9 cm³ Volumen. Die Kante des einen ist doppelt so lang wie die des anderen. Wie lang ist die längere Kante?', 2, '2 * 1',
+          'Kleine Kante a, große Kante 2a. Volumen: a³ + (2a)³ = a³ + 8a³ = 9a³ = 9. Also a³ = 1 und a = 1 cm. Die längere Kante ist 2 cm. Probe: 1 + 8 = 9.',
+          'Wie verändert sich das Volumen, wenn die Kante doppelt so lang wird?', einheit='cm'))
+ST.knobel('kubikwurzel', Z('Ein großer Würfel besteht aus 1 000 gleichen Würfelchen und wird außen angemalt. Wie viele Würfelchen haben genau eine bemalte Fläche?', 384, '6 * (10 - 2) ** 2',
+          'Kante: ∛1 000 = 10 Würfelchen. Genau eine bemalte Fläche haben nur die Würfelchen innen auf einer Seitenfläche, nicht an Kanten oder Ecken: je Seite (10 − 2) · (10 − 2) = 64. Sechs Seiten: 6 · 64 = 384.',
+          'Welche Würfelchen haben zwei oder drei bemalte Flächen? Lass sie weg.'))
+
+# abschaetzen
+ST.stufenleiter('abschaetzen', 'Die zwei Quadratzahlen um a finden und √a zwischen zwei natürliche Zahlen setzen.',
+                'Auf Zehntel genau eingrenzen, rückwärts passende n suchen, Seitenlängen von Flächen schätzen.',
+                'Dritte Wurzeln eingrenzen, nächste natürliche Zahl begründen, Fehler „halbieren“ finden, Zahlen vergleichen, mehrteilige Aufgabe.')
+ST.typ('abschaetzen', 'Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt √', 'direkt')
+ST.typ('abschaetzen', 'Zwischen welchen aufeinanderfolgenden natürlichen Zahlen liegt ∛', 'verknuepfen')
+ST.typ('abschaetzen', 'Zwischen welchen Zehnteln', 'mehrschritt')
+ST.typ('abschaetzen', 'Die Abbildung zeigt die Parabel', 'darstellung')
+ST.typ('abschaetzen', 'Welche natürliche Zahl liegt am nächsten', 'begruenden')
+ST.neu('abschaetzen', 'erkennen', A('Welche Wurzel liegt zwischen 7 und 8?', '√50', ['√48', '√65', '√15'],
+       '7 · 7 = 49 und 8 · 8 = 64. Nur 50 liegt zwischen 49 und 64.', 'Quadriere 7 und 8.'))
+ST.neu('abschaetzen', 'direkt', Z('Gib die größte natürliche Zahl an, die kleiner als √40 ist.', 6, '40 // 6 - 0',
+       '6 · 6 = 36 < 40 < 49 = 7 · 7. Also 6 < √40 < 7, die gesuchte Zahl ist 6.', 'Suche die Quadratzahl knapp unter 40.'))
+ST.neu('abschaetzen', 'einkleidung', L('Ein quadratischer Raum hat 30 m² Fläche. Zwischen welchen ganzen Metern liegt seine Seitenlänge?', '□ m bis □ m', [5, 6], ['5', '6'],
+       '5 · 5 = 25 < 30 < 36 = 6 · 6. Die Seite liegt zwischen 5 m und 6 m.', 'Seite = √Fläche.'))
+ST.neu('abschaetzen', 'einkleidung', A('Eine quadratische Wiese hat 1 000 m² Fläche. Reicht ein 120 m langer Zaun rundherum?', 'Nein, die Seite ist länger als 31 m, der Umfang also mehr als 124 m.',
+       ['Ja, die Seite ist kürzer als 30 m.', 'Ja, genau, denn 1 000 : 4 = 250.', 'Das kann man ohne Taschenrechner nicht sagen.'],
+       '31 · 31 = 961 < 1 000, also ist die Seite länger als 31 m. Umfang mehr als 4 · 31 = 124 m > 120 m.', 'Grenze die Seite ein: Welche Quadratzahl liegt knapp unter 1 000?'))
+ST.neu('abschaetzen', 'umkehr', L('Für welche natürlichen Zahlen n gilt 6 < √n < 7? Gib die kleinste und die größte an.', 'kleinste □; größte □', [37, 48], ['6 ** 2 + 1', '7 ** 2 - 1'],
+       '6 < √n < 7 heißt 36 < n < 49. Kleinste 37, größte 48.', 'Quadriere die Grenzen.'))
+ST.neu('abschaetzen', 'mehrschritt', Z('Welche ganze Zahl liegt zwischen √10 und √20?', 4, '16 // 4',
+       '3 · 3 = 9 < 10, also √10 > 3. 4 · 4 = 16 < 20 < 25, also liegt 4 zwischen √10 ≈ 3,2 und √20 ≈ 4,5.', 'Grenze beide Wurzeln ein.'))
+ST.neu('abschaetzen', 'fehler', A('Jemand sagt: „√50 liegt zwischen 25 und 26, denn 50 : 2 = 25.“ Was stimmt?', 'Falsch: Wurzelziehen ist nicht halbieren; √50 liegt zwischen 7 und 8.',
+       ['Richtig.', 'Falsch: √50 liegt zwischen 12 und 13.', 'Falsch: √50 = 5.'], '7 · 7 = 49 < 50 < 64 = 8 · 8. 25 · 25 = 625 wäre viel zu groß.', 'Mach die Probe durch Quadrieren.'))
+ST.neu('abschaetzen', 'parameter', Z('Wie viele natürliche Zahlen a ≥ 1 erfüllen a < √50?', 7, '7',
+       'a < √50 heißt a · a < 50 (a positiv). 7 · 7 = 49 < 50, 8 · 8 = 64 > 50. Also a = 1, 2, …, 7: sieben Zahlen.', 'Quadriere beide Seiten.'))
+ST.neu('abschaetzen', 'transfer', Z('Ein quadratisches Bild soll höchstens 2 000 cm² groß sein. Seine Seite soll eine ganze Zahl von Zentimetern sein. Wie lang darf sie höchstens sein?', 44, '44',
+       '44 · 44 = 1 936 ≤ 2 000, aber 45 · 45 = 2 025 > 2 000. Höchstens 44 cm.', 'Grenze √2 000 ein.', einheit='cm'))
+ST.neu('abschaetzen', 'verknuepfen', A('Welche Zahl ist am größten: 3,2; √10 oder ∛30?', '3,2', ['√10', '∛30', 'Alle sind gleich groß.'],
+       '3,2² = 10,24 > 10, also 3,2 > √10. 3,2³ = 32,768 > 30, also 3,2 > ∛30. Damit ist 3,2 am größten.', 'Vergleiche Quadrate bzw. dritte Potenzen.'))
+ST.neu('abschaetzen', 'pruefung', L('Eine quadratische Terrasse hat 45 m² Fläche. a) Zwischen welchen ganzen Metern liegt ihre Seite? b) Zwischen welchen ganzen Dezimetern liegt sie?',
+       'a) □ m bis □ m; b) □ dm bis □ dm', [6, 7, 67, 68], ['6', '7', '67', '68'],
+       'a) 36 < 45 < 49: zwischen 6 m und 7 m. b) 6,7² = 44,89 < 45 < 46,24 = 6,8²: zwischen 67 dm und 68 dm.', 'In b) probiere 6,7 und 6,8.'))
+ST.knobel('abschaetzen', Z('Welche natürliche Zahl liegt am nächsten an √9 900?', 99, '99',
+          '9 900 = 99 · 100 = 99 · 99 + 99. Es gilt 99² = 9 801 < 9 900. Und 99,5² = 9 900,25 > 9 900. Also liegt √9 900 zwischen 99 und 99,5, die nächste natürliche Zahl ist 99.',
+          'Schreibe 9 900 als Produkt zweier benachbarter Zahlen. Wo liegt die Mitte zwischen zwei Quadratzahlen?'))
+ST.knobel('abschaetzen', Z('Wie viele natürliche Zahlen n erfüllen gleichzeitig √n < 10 und ∛n > 4?', 35, '99 - 65 + 1',
+          '√n < 10 heißt n < 100. ∛n > 4 heißt n > 64. Also n = 65, 66, …, 99. Das sind 99 − 65 + 1 = 35 Zahlen.',
+          'Übersetze beide Bedingungen in Grenzen für n.'))
+
+# wurzel_deuten
+ST.stufenleiter('wurzel_deuten', 'Wissen, dass √a nie negativ ist, (√a)² = a, und x² = a zwei Lösungen hat.',
+                'Lösungen von x² = c bei Dezimalzahlen, Quadrate von Wurzeln verrechnen, Lösungen am Graphen.',
+                'Fehler wie √(a + b) = √a + √b finden, Bedingungen (für welche x erklärt), Aussagen über √(a²) prüfen, Fachsprache.')
+ST.typ('wurzel_deuten', '/^(Welche Lösungen hat|Welchen Wert hat|Was gilt für|Welche Aussage über)/', 'erkennen')
+ST.typ('wurzel_deuten', '/^Jemand rechnet: √\\(/', 'fehler')
+ST.typ('wurzel_deuten', 'Jemand sagt: „√64', 'fehler')
+ST.typ('wurzel_deuten', 'Jemand behauptet', 'begruenden')
+ST.typ('wurzel_deuten', '/^(Welche Zahlen lösen|Berechne \\(√)/', 'mehrschritt')
+ST.typ('wurzel_deuten', '/^Für welche Zahlen/', 'parameter')
+ST.typ('wurzel_deuten', 'Berechne (−√7)', 'verknuepfen')
+ST.typ('wurzel_deuten', '/^(Welcher Satz verwendet|Wie viele Lösungen haben)/', 'begruenden')
+ST.neu('wurzel_deuten', 'direkt', L('Gib beide Lösungen der Gleichung x² = 36 an.', 'x₁ = □; x₂ = □', [-6, 6], ['-6', '6'],
+       '6 · 6 = 36 und (−6) · (−6) = 36. Also x₁ = −6 und x₂ = 6.', 'Denk an Minus mal Minus.'))
+ST.neu('wurzel_deuten', 'umkehr', Z('Die Gleichung x² = c hat die Lösungen −0,4 und 0,4. Wie groß ist c?', 0.16, '0.4 ** 2',
+       'c = 0,4 · 0,4 = 0,16. Probe: (−0,4)² = 0,16 auch.', 'Setze eine Lösung ein.'))
+ST.neu('wurzel_deuten', 'einkleidung', A('Eine Zahl mal sich selbst ergibt 2,25. Welche Zahlen kommen in Frage?', '1,5 und −1,5', ['nur 1,5', '1,125 und −1,125', 'nur 0,15'],
+       '1,5 · 1,5 = 2,25 und (−1,5) · (−1,5) = 2,25.', 'Es kann zwei Zahlen geben.'))
+ST.neu('wurzel_deuten', 'darstellung', L('Die Parabel y = x² und die waagrechte Linie y = 49 schneiden sich in zwei Punkten. Welche x-Werte haben sie?', 'x₁ = □; x₂ = □', [-7, 7], ['-7', '7'],
+       'Gleichsetzen: x² = 49. Lösungen x = −7 und x = 7. Die Parabel ist symmetrisch zur y-Achse.', 'Welche Gleichung beschreibt die Schnittpunkte?'))
+ST.neu('wurzel_deuten', 'mehrschritt', Z('Berechne √(3²) + √((−3)²).', 6, '3 + 3',
+       '3² = 9 und (−3)² = 9. √9 = 3 in beiden Fällen. Zusammen 6.', 'Rechne erst unter der Wurzel.'))
+ST.knobel('wurzel_deuten', Z('Für wie viele ganze Zahlen x gilt x² < 30?', 11, '2 * 5 + 1',
+          'x² < 30 gilt für 0, ±1, ±2, ±3, ±4, ±5, denn 5² = 25 < 30 und 6² = 36 > 30. Das sind 1 + 2 · 5 = 11 ganze Zahlen. Die negativen Zahlen nicht vergessen!',
+          'Auch negative Zahlen haben ein Quadrat.'))
+ST.knobel('wurzel_deuten', Z('Berechne √(2 · √(4 · √256)).', 4, '4',
+          'Von innen nach außen: √256 = 16. 4 · 16 = 64, √64 = 8. 2 · 8 = 16, √16 = 4.', 'Fang ganz innen an.'))
+
+# wurzel_sache
+ST.stufenleiter('wurzel_sache', 'Seite eines Quadrats aus der Fläche (oder Kante eines Würfels aus dem Volumen) berechnen.',
+                'Mit Einheiten umrechnen, Umfang oder Oberfläche als Zwischenschritt, Fläche aus Umfang.',
+                'Runden, Wassertank in Litern, Zaun mit Einfahrt, Vergrößern, Fehler V : 6, Bedingung a³ = 6a², mehrteilige Aufgabe.')
+ST.typ('wurzel_sache', 'Ein quadratisches Beet', 'direkt')
+ST.typ('wurzel_sache', '/^Ein Würfel hat eine Oberfläche von [\\d ]+ cm². Wie lang/', 'mehrschritt')
+ST.typ('wurzel_sache', 'Ein quadratischer Platz', 'mehrschritt')
+ST.typ('wurzel_sache', 'Ein Würfel hat ein Volumen von 0,027', 'mehrschritt')
+ST.typ('wurzel_sache', 'Ein quadratischer Bilderrahmen', 'mehrschritt')
+ST.typ('wurzel_sache', '/^(Ein würfelförmiger Behälter hat|Ein Würfel aus Ton|Ein Spielwürfel|Ein Würfel hat ein Volumen von)/', 'einkleidung')
+ST.typ('wurzel_sache', '/^(Ein würfelförmiger Behälter fasst|Ein Würfel hat eine Oberfläche von 150)/', 'verknuepfen')
+ST.typ('wurzel_sache', '/^(Ein würfelförmiger Wassertank|Ein quadratisches Grundstück)/', 'transfer')
+ST.typ('wurzel_sache', 'Ein Quadrat wird vergrößert', 'begruenden')
+ST.neu('wurzel_sache', 'direkt', Z('Ein würfelförmiger Karton hat 216 dm³ Volumen. Wie lang ist eine Kante?', 6, '216 // 36',
+       '6 · 6 · 6 = 216, also a = ∛216 = 6 dm.', 'Welche Zahl dreimal malgenommen ergibt 216?', einheit='dm'))
+ST.neu('wurzel_sache', 'erkennen', A('Ein Quadrat hat 49 cm² Fläche. Welche Rechnung liefert seine Seitenlänge?', '√49', ['49 : 4', '49 : 2', '49 · 49'],
+       'Fläche = Seite · Seite, also Seite = √49 = 7 cm. 49 : 4 wäre der Weg vom Umfang zur Seite.', 'Wie hängen Fläche und Seite zusammen?'))
+ST.neu('wurzel_sache', 'umkehr', Z('Ein Quadrat hat 36 cm Umfang. Wie groß ist seine Fläche?', 81, '(36 // 4) ** 2',
+       'Seite: 36 : 4 = 9 cm. Fläche: 9 · 9 = 81 cm².', 'Erst die Seite aus dem Umfang.', einheit='cm²'))
+ST.neu('wurzel_sache', 'fehler', A('Jemand rechnet: „Ein Würfel hat 64 cm³ Volumen. Eine Kante ist 64 : 6 ≈ 10,7 cm lang.“ Was stimmt?', 'Falsch: Die Kante ist ∛64 = 4 cm.',
+       ['Richtig, ein Würfel hat 6 Flächen.', 'Falsch: Die Kante ist √64 = 8 cm.', 'Falsch: Die Kante ist 64 : 12 ≈ 5,3 cm.'],
+       'Volumen = a · a · a. 4 · 4 · 4 = 64. Durch 6 teilen gehört zur Oberfläche, nicht zum Volumen.', 'Welche Formel gehört zum Volumen?'))
+ST.neu('wurzel_sache', 'parameter', Z('Ein Würfel hat die Kante a cm. Für welches a hat sein Volumen in cm³ dieselbe Maßzahl wie seine Oberfläche in cm²?', 6, '6 ** 3 // 6 ** 2',
+       'Volumen a³, Oberfläche 6a². a³ = 6a² heißt (a > 0, durch a² teilen) a = 6. Probe: 216 cm³ und 6 · 36 = 216 cm².', 'Stelle die Gleichung auf und teile durch a².'))
+ST.neu('wurzel_sache', 'pruefung', L('Ein quadratisches Gemüsebeet hat 12,25 m² Fläche. Außen herum wird ein 0,5 m breiter Weg angelegt. a) Wie lang ist eine Beetseite in dm? b) Wie groß ist die Fläche des Weges in dm²?',
+       'a) □ dm; b) □ dm²', [35, 800], ['35', '45 ** 2 - 35 ** 2'],
+       'a) √12,25 = 3,5 m = 35 dm. b) Mit Weg ist die Seite 3,5 + 2 · 0,5 = 4,5 m = 45 dm. Weg: 45² − 35² = 2 025 − 1 225 = 800 dm².', 'Der Weg kommt an beiden Seiten dazu.'))
+ST.knobel('wurzel_sache', Z('Acht gleiche Würfel mit je 27 cm³ Volumen werden zu einem großen Würfel zusammengesetzt. Wie groß ist die Oberfläche des großen Würfels?', 216, '6 * (2 * 3) ** 2',
+          'Ein kleiner Würfel hat die Kante ∛27 = 3 cm. Acht Würfel bilden einen Würfel mit 2 · 2 · 2, also die Kante 6 cm. Oberfläche: 6 · 6 · 6 = 216 cm².',
+          'Wie viele kleine Würfel liegen an einer Kante des großen?', einheit='cm²'))
+ST.knobel('wurzel_sache', Z('Ein quadratisches Grundstück wird in 4 gleich große quadratische Gärten geteilt, jeder mit 225 m². Außen herum und an allen Trennlinien kommt ein Zaun. Wie viele Meter Zaun sind das?', 180, '4 * 30 + 2 * 30',
+          'Ein Garten hat die Seite √225 = 15 m, das Grundstück 30 m. Außen: 4 · 30 = 120 m. Innen: zwei Trennlinien quer durch, je 30 m = 60 m. Zusammen 180 m.',
+          'Zeichne eine Skizze mit den vier Gärten.', einheit='m'))
+
+if __name__ == '__main__':
+    stufen('zahlen.wurzeln_basis', ST)

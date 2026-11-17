@@ -646,3 +646,175 @@ DS.stufe('sachaufgabe', 'Ein Quader (2 cm × 2 cm × 16 cm) wird eingeschmolzen 
 
 if __name__ == '__main__':
     durchsicht('gleichungen.potenz', DS)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('gleichungen.potenz', 20_9_9)
+Z, A, L = ST.Z, ST.A, ST.L
+_X2 = 'x₁ = □; x₂ = □'
+
+# gerade
+ST.stufenleiter('gerade', 'xⁿ = c mit geradem n und c > 0: beide Lösungen angeben.',
+                'Exakte Wurzel-Lösungen, c = 0 und c < 0, c rückwärts aus einer Lösung, Schnitt mit einer Waagrechten.',
+                'Fehler bei negativem c und vergessener negativer Lösung finden, Symmetrie begründen, Bedingung für eine Lösung, Flächenfaktor.')
+ST.typ('gerade', '/^(Löse x[²⁴⁶] [−=]|Bestimme alle Lösungen)/', 'direkt')
+ST.typ('gerade', '/^(Löse x² = 125|Welche Lösungsmenge hat (\\dx|x⁴ \\+))/', 'mehrschritt')
+ST.typ('gerade', 'Löse 2x⁴', 'mehrschritt')
+ST.typ('gerade', 'Die Graphen von', 'darstellung')
+ST.typ('gerade', 'Jemand löst', 'fehler')
+ST.typ('gerade', '/^(Wie viele Lösungen hat|Welche Lösungsmenge hat x⁶ = 0)/', 'verknuepfen')
+ST.neu('gerade', 'erkennen', A('Welche Zahl ist eine Lösung von x⁴ = 81?', '−3', ['9', '20,25', '−9'],
+       '(−3)⁴ = 81, denn die vier Minuszeichen heben sich paarweise auf. 9⁴ wäre 6 561.', 'Probiere, welche Zahl hoch 4 genau 81 ergibt.'))
+ST.neu('gerade', 'umkehr', Z('Die Gleichung x⁴ = c hat die Lösung x = −3. Wie groß ist c?', 81, '(-3) ** 4',
+       'c = (−3)⁴ = 81. Dann ist auch 3 eine Lösung.', 'Setze die Lösung ein.'))
+ST.neu('gerade', 'darstellung', L('Der Graph von y = x⁶ und die Gerade y = 1 schneiden sich. Gib die x-Werte an.', _X2, [-1, 1], ['-1', '1'],
+       'x⁶ = 1 hat die Lösungen −1 und 1.', 'Welche Gleichung beschreibt die Schnittpunkte?'))
+ST.neu('gerade', 'begruenden', A('Stimmt: Ist x₁ eine Lösung von xⁿ = c mit geradem n, dann ist auch −x₁ eine Lösung?', 'Ja, denn (−x₁)ⁿ = x₁ⁿ bei geradem n.', ['Nein, nur bei c > 100.', 'Nur bei n = 2.', 'Nein, nie.'],
+       'Bei geradem Exponenten heben sich die Minuszeichen paarweise auf. Darum kommen Lösungen (außer 0) immer als Paar ±x₁.', 'Was passiert mit dem Minus bei einer geraden Potenz?'))
+ST.neu('gerade', 'parameter', A('Für welche Zahl c hat x⁴ = c genau eine Lösung?', 'c = 0', ['c = 1', 'für alle c < 0', 'für alle c > 0'],
+       'Für c > 0 gibt es zwei Lösungen, für c < 0 keine, für c = 0 nur x = 0.', 'Denk an die waagrechte Linie y = c.'))
+ST.neu('gerade', 'transfer', Z('Ein quadratisches Grundstück wird so vergrößert, dass seine Fläche 2,56-mal so groß ist. Mit welchem Faktor wächst seine Seite?', 1.6, '1.6',
+       'Faktor k mit k² = 2,56, positiv: k = 1,6, denn 1,6 · 1,6 = 2,56.', 'Fläche wächst mit dem Quadrat des Faktors.'))
+ST.knobel('gerade', Z('Wie viele ganze Zahlen x erfüllen x⁴ ≤ 100?', 7, '2 * 3 + 1',
+          'x⁴ ≤ 100 heißt x² ≤ 10. Ganze Zahlen: 0, ±1, ±2, ±3 (3⁴ = 81 ≤ 100, 4⁴ = 256). Das sind 7.', 'Auch negative Zahlen zählen.'))
+ST.knobel('gerade', Z('Die Gleichung (x − 2)⁴ = 16 hat zwei Lösungen. Wie groß ist ihre Summe?', 4, '0 + 4',
+          'x − 2 = 2 oder x − 2 = −2, also x = 4 oder x = 0. Summe 4 – das ist doppelt die Mitte 2, um die die Lösungen symmetrisch liegen.',
+          'Löse zuerst nach x − 2 auf.'))
+
+# ungerade
+ST.stufenleiter('ungerade', 'xⁿ = c mit ungeradem n: genau eine Lösung, auch für negatives c.',
+                'Negative Dezimalzahlen, rückwärts c aus der Lösung, Kühlschrank-Volumen, Klammern umformen.',
+                'Fehler ±3 bei x³ finden, „immer genau eine Lösung“ begründen, Bedingung für gleiche Lösungen, Wachstumsfaktor, mehrteilige Aufgabe.')
+ST.typ('ungerade', '/^Löse x[³⁵] = [\\d ]+\\.$/', 'direkt')
+ST.typ('ungerade', '/^Löse (x[³⁵⁷] = −|4x³)/', 'mehrschritt')
+ST.typ('ungerade', 'Die Graphen von', 'darstellung')
+ST.typ('ungerade', 'Für welche Zahl a', 'umkehr')
+ST.typ('ungerade', '/^Löse \\(/', 'verknuepfen')
+ST.neu('ungerade', 'erkennen', A('Welche Zahl löst x³ = −8?', '−2', ['2', '−2 und 2', 'keine Zahl'],
+       '(−2) · (−2) · (−2) = −8. Bei ungeradem Exponenten bleibt ein Minus übrig, also genau eine Lösung.', 'Wie viele Minuszeichen bleiben bei drei Faktoren?'))
+ST.neu('ungerade', 'einkleidung', Z('Der Innenraum eines würfelförmigen Kühlschranks fasst 0,125 m³. Wie lang ist eine Innenkante in cm?', 50, '0.5 * 100',
+       '∛0,125 = 0,5 m, denn 0,5³ = 0,125. 0,5 m = 50 cm.', 'Erst die Kante in m.', einheit='cm'))
+ST.neu('ungerade', 'fehler', A('Jemand löst x³ = −27 mit x = ±3. Was stimmt?', 'Falsch: Nur x = −3 ist Lösung, denn 3³ = 27.', ['Richtig.', 'Falsch: Es gibt keine Lösung.', 'Falsch: x = −9.'],
+       '(−3)³ = −27, aber 3³ = +27. Bei ungeradem Exponenten gibt es genau eine Lösung.', 'Mach die Probe mit +3.'))
+ST.neu('ungerade', 'begruenden', A('Stimmt: x³ = c hat für jede Zahl c genau eine Lösung?', 'Ja: Der Graph von x³ steigt von links unten nach rechts oben und trifft jede Waagrechte genau einmal.', ['Nein, für c < 0 gibt es keine.', 'Nein, für c > 0 gibt es zwei.', 'Nur für c = 0.'],
+       'y = x³ nimmt jeden Wert genau einmal an. Darum hat x³ = c immer genau eine Lösung.', 'Denk an den Graphen von y = x³.'))
+ST.neu('ungerade', 'parameter', A('Für welche Werte von k haben x³ = k und x⁵ = k dieselbe Lösung?', 'für k = −1, k = 0 und k = 1', ['nur für k = 0', 'für jedes k', 'für k = 1 und k = 8'],
+       'Dieselbe Lösung x heißt x³ = x⁵, also x³(x² − 1) = 0: x = 0, 1 oder −1. Dazu gehören k = 0, 1, −1.', 'Setze die beiden Potenzen gleich.'))
+ST.neu('ungerade', 'transfer', Z('Eine Geldanlage wächst in 3 Jahren auf das 1,331-Fache, jedes Jahr mit demselben Faktor. Wie groß ist der Faktor pro Jahr?', 1.1, '1.1',
+       'q³ = 1,331. 1,1³ = 1,331, also q = 1,1: 10 % pro Jahr.', 'Probiere 1,1.'))
+ST.neu('ungerade', 'pruefung', L('Löse a) x³ = −125, b) x⁵ = 243, c) (x + 1)³ = 8.', 'a) □; b) □; c) □', [-5, 3, 1], ['-5', '3', '2 - 1'],
+       'a) (−5)³ = −125. b) 3⁵ = 243. c) x + 1 = 2, x = 1.', 'Bei c) zuerst die Klammer.'))
+ST.knobel('ungerade', Z('Für welche ganze Zahl x gilt x³ + x = −10?', -2, '-2',
+          'Probiere negative Zahlen: x = −2 ergibt −8 − 2 = −10. Weil x³ + x immer steigt, wenn x wächst, gibt es keine weitere Lösung.', 'Die Lösung ist klein und negativ.'))
+ST.knobel('ungerade', Z('Welche natürliche Zahl n erfüllt n³ < 2 000 < (n + 1)³?', 12, '12',
+          '10³ = 1 000, 12³ = 1 728, 13³ = 2 197. Also liegt 2 000 zwischen 12³ und 13³, n = 12. Das heißt: ∛2 000 liegt zwischen 12 und 13.', 'Rechne einige Kubikzahlen aus.'))
+
+# anzahl
+ST.stufenleiter('anzahl', 'Am Exponenten und am Vorzeichen von c die Lösungsanzahl angeben.',
+                'Mit Graph und Waagrechter begründen, Sonderfall c = 0, Sachfrage „hoch 6 ergibt 0“.',
+                'Parameter c für genau zwei Lösungen, Fehler „aus Negativem keine Wurzel“, Folgerungen aus Bildern, Anzahl bei x³ = x.')
+ST.typ('anzahl', 'Wie viele Lösungen hat x', 'erkennen', s=1)
+ST.typ('anzahl', 'Im Bild siehst du', 'darstellung')
+ST.typ('anzahl', 'Jemand sagt', 'fehler')
+ST.typ('anzahl', 'Wie viele Lösungen hat die Gleichung x³ = x', 'verknuepfen')
+ST.typ('anzahl', 'Wie viele Lösungen hat', 'mehrschritt')
+ST.typ('anzahl', '/^(Für welche Werte|Für wie viele ganze)/', 'parameter')
+ST.typ('anzahl', 'Die Abbildung zeigt', 'begruenden')
+ST.neu('anzahl', 'direkt', L('Gleichung x⁴ = 81: Wie viele Lösungen hat sie, und welche sind es?', 'Anzahl □; x₁ = □; x₂ = □', [2, -3, 3], ['2', '-3', '3'],
+       'Gerader Exponent, c > 0: zwei Lösungen, ±3, denn 3⁴ = 81.', 'Gerade oder ungerade?'))
+ST.neu('anzahl', 'einkleidung', A('Eine Zahl hoch 6 soll genau 0 ergeben. Wie viele solche Zahlen gibt es?', 'genau eine (die 0)', ['keine', 'zwei', 'sechs'],
+       'Ein Produkt ist nur 0, wenn ein Faktor 0 ist. x⁶ = 0 nur für x = 0.', 'Wann ist ein Produkt null?'))
+ST.knobel('anzahl', Z('Wie viele Lösungen hat x⁴ − 5x² + 4 = 0?', 4, '2 + 2',
+          'Mit u = x²: u² − 5u + 4 = 0, also (u − 1)(u − 4) = 0. x² = 1 liefert ±1, x² = 4 liefert ±2. Vier Lösungen.', 'Gib x² einen eigenen Namen.'))
+ST.knobel('anzahl', Z('Wie viele Lösungen hat x⁶ = x²?', 3, '1 + 2',
+          'x⁶ − x² = 0 ⇒ x²(x⁴ − 1) = 0 ⇒ x = 0 oder x⁴ = 1, also x = ±1. Drei Lösungen. Wer durch x² teilt, verliert die 0.', 'Nicht teilen – ausklammern.'))
+
+# umformen
+ST.stufenleiter('umformen', 'Bei a · xⁿ = c durch a teilen und die Wurzel ziehen.',
+                'Erst eine Zahl abziehen, dann teilen; negative Faktoren; Würfelsumme; c rückwärts.',
+                'Klammern, Vorgänge rückwärts machen, ausklammern, Ersetzen bei (x² − 5)², Fehler „minus statt teilen“, Parameter a.')
+ST.typ('umformen', '/^Löse \\dx[²³] = \\d+\\.$/', 'direkt')
+ST.typ('umformen', '/^Löse (\\dx[³⁴] [+−]|\\dx⁴ =|x³ −|2 − 3x³)/', 'mehrschritt')
+ST.typ('umformen', '/^Löse (3\\(x|0,5)/', 'rueckwaerts')
+ST.typ('umformen', 'Löse (x² − 5)²', 'transfer')
+ST.typ('umformen', '/^Löse (\\(x|x⁵)/', 'verknuepfen')
+ST.neu('umformen', 'erkennen', A('Was ist bei 2x³ + 7 = 61 der erste Schritt?', '7 auf beiden Seiten abziehen', ['durch 2 teilen', 'die dritte Wurzel ziehen', '61 durch 7 teilen'],
+       'Zuerst muss 2x³ allein stehen: 2x³ = 54. Dann durch 2 teilen, dann die Wurzel.', 'Rückwärts rechnen: Was wurde zuletzt gemacht?'))
+ST.neu('umformen', 'einkleidung', Z('Fünf gleiche Würfel haben zusammen 40 cm³ Volumen. Wie lang ist eine Kante?', 2, '2',
+       '5x³ = 40 ⇒ x³ = 8 ⇒ x = 2 cm.', 'Stelle die Gleichung für ein Würfelvolumen x³ auf.', einheit='cm'))
+ST.neu('umformen', 'umkehr', Z('Bei 2x³ + c = 61 ist x = 3 eine Lösung. Wie groß ist c?', 7, '61 - 2 * 27',
+       '2 · 27 + c = 61 ⇒ c = 7.', 'Setze die Lösung ein.'))
+ST.neu('umformen', 'fehler', A('Jemand löst 2x³ + 7 = 61 so: x³ = 61 − 7 − 2 = 52. Was stimmt?', 'Falsch: Die 2 ist ein Faktor, also teilen: x³ = 27, x = 3.', ['Richtig.', 'Falsch: x³ = 68.', 'Falsch: x³ = 54.'],
+       '2x³ = 54, dann durch 2: x³ = 27. Ein Faktor wird durch Teilen entfernt, nicht durch Abziehen.', 'Wie entfernt man einen Faktor?'))
+ST.neu('umformen', 'parameter', Z('Für welche Zahl a hat a · x⁴ − 32 = 0 die Lösungen −2 und 2?', 2, '32 // 16',
+       'Einsetzen von 2: 16a − 32 = 0 ⇒ a = 2.', 'Setze x = 2 ein.'))
+ST.knobel('umformen', Z('Löse (x³ − 7)² = 400. Gib die positive Lösung an.', 3, '3',
+          'x³ − 7 = 20 oder x³ − 7 = −20. Also x³ = 27 (x = 3) oder x³ = −13 (x negativ). Positiv: x = 3.', 'Welche Zahlen ergeben quadriert 400?'))
+ST.knobel('umformen', Z('Löse x⁴ − 13x² + 36 = 0. Gib die größte Lösung an.', 3, '3',
+          'Mit u = x²: u² − 13u + 36 = 0 ⇒ (u − 4)(u − 9) = 0. x² = 4 oder x² = 9: Lösungen ±2 und ±3. Größte: 3.', 'Gib x² einen eigenen Namen.'))
+
+# naeherung
+ST.stufenleiter('naeherung', 'ⁿ√c mit dem Taschenrechner bestimmen und sinnvoll runden.',
+                'Erst umformen, negative Lösungen, zwischen ganzen Zahlen eingrenzen, Tank in cm, c rückwärts.',
+                'Fehler „nur eine Lösung“, Schätzungen begründen, Bedingung für k, vom gerundeten Wert zurückschließen, Wachstum, mehrteilige Aufgabe.')
+ST.typ('naeherung', 'Löse x³ = 83', 'direkt')
+ST.typ('naeherung', '/^Löse x³ = \\d+\\. Runde auf zwei/', 'direkt')
+ST.typ('naeherung', '/^(Löse|Zwischen welchen)/', 'mehrschritt')
+ST.typ('naeherung', 'Ein würfelförmiger Behälter', 'transfer')
+ST.typ('naeherung', 'Das Volumen eines Würfels', 'verknuepfen')
+ST.neu('naeherung', 'erkennen', A('Welche Eingabe liefert die positive Lösung von x⁴ = 50?', '⁴√50', ['50 : 4', '50⁴', '4 · √50'],
+       'x⁴ = 50 heißt x = ⁴√50 ≈ 2,66 (und −2,66). 50 : 4 = 12,5 wäre viel zu groß.', 'Was macht hoch 4 rückgängig?'))
+ST.neu('naeherung', 'erkennen', A('Ist ³√40 eher 3,1 oder 3,4?', '3,4', ['3,1', 'genau 3,5', 'größer als 4'],
+       '3³ = 27 und 4³ = 64. 40 liegt näher an 27, aber ³√40 ≈ 3,42. 3,1³ ≈ 29,8 wäre zu klein.', 'Rechne 3,1³ und 3,4³ grob.'))
+ST.neu('naeherung', 'einkleidung', Z('Ein würfelförmiger Tank soll 2 m³ fassen. Wie lang ist eine Kante, auf ganze cm gerundet?', 126, '125.99210498949',
+       '∛2 ≈ 1,2599 m ≈ 126 cm.', 'Erst in m, dann in cm.', einheit='cm', toleranz=1))
+ST.neu('naeherung', 'umkehr', Z('Für welche Zahl c hat x⁴ = c die positive Lösung 1,5?', 5.0625, '1.5 ** 4',
+       'c = 1,5⁴ = 2,25 · 2,25 = 5,0625.', 'Rechne rückwärts: hoch 4.'))
+ST.neu('naeherung', 'fehler', A('Jemand löst x⁴ = 20 mit dem Taschenrechner: x ≈ 2,11 und sagt: „Das ist die einzige Lösung.“ Was stimmt?', 'Falsch: Auch x ≈ −2,11 ist Lösung.',
+       ['Richtig.', 'Falsch: x ≈ 5.', 'Falsch: Es gibt vier Lösungen.'], 'Gerader Exponent, c > 0: zwei Lösungen ±⁴√20 ≈ ±2,11.', 'Gerader oder ungerader Exponent?'))
+ST.neu('naeherung', 'begruenden', A('Stimmt: ³√2 liegt näher an 1 als an 2?', 'Ja, denn 1,5³ = 3,375 > 2, also ist ³√2 < 1,5.', ['Nein, ³√2 ≈ 1,7.', 'Nein, genau in der Mitte.', 'Das kann man ohne Taschenrechner nicht sagen.'],
+       'Die Mitte zwischen 1 und 2 ist 1,5. 1,5³ = 3,375 ist schon größer als 2, also liegt ³√2 ≈ 1,26 unter 1,5.', 'Prüfe die Mitte 1,5.'))
+ST.neu('naeherung', 'parameter', Z('Die positive Lösung von x⁴ = k soll zwischen 2 und 2,1 liegen. Welches ist die kleinste ganze Zahl k, für die das gilt?', 17, '2 ** 4 + 1',
+       '2⁴ = 16 und 2,1⁴ = 19,4481. Also 16 < k < 19,45: k = 17, 18, 19. Kleinste: 17.', 'Rechne 2⁴ und 2,1⁴.'))
+ST.neu('naeherung', 'rueckwaerts', L('Die Kante eines Würfels ist auf eine Nachkommastelle gerundet 2,2 cm. Welche ganzzahligen Werte (in cm³) kann sein Volumen haben?', '□ oder □', [10, 11], ['10', '11'],
+       'Die Kante liegt zwischen 2,15 und 2,25 cm. 2,15³ ≈ 9,94 und 2,25³ ≈ 11,39. Ganze Zahlen dazwischen: 10 und 11.', 'Welche Kanten werden auf 2,2 gerundet?'))
+ST.neu('naeherung', 'pruefung', L('x⁵ = 200. a) Zwischen welchen ganzen Zahlen liegt x? b) Gib x auf eine Nachkommastelle in Zehnteln an (2,9 schreibst du als 29).', 'a) □ bis □; b) □', [2, 3, 29], ['2', '3', '29'],
+       'a) 2⁵ = 32 < 200 < 243 = 3⁵. b) ⁵√200 ≈ 2,885 ≈ 2,9.', 'a) ohne, b) mit Taschenrechner.'))
+ST.neu('naeherung', 'transfer', Z('Bakterien werden pro Stunde mit demselben Faktor mehr. Nach 4 Stunden sind es 5-mal so viele. Wie groß ist der Faktor pro Stunde? Runde auf zwei Nachkommastellen.', 1.5, '1.4953487812212',
+       'q⁴ = 5 ⇒ q = ⁴√5 ≈ 1,495 ≈ 1,50.', 'Stelle q⁴ = 5 auf.', toleranz=0.01))
+ST.knobel('naeherung', A('Welche Zahl ist größer: ⁴√5 oder ³√3?', '⁴√5', ['³√3', 'Beide sind gleich.', 'Das kann man nicht entscheiden.'],
+          'Beide hoch 12 nehmen: (⁴√5)¹² = 5³ = 125 und (³√3)¹² = 3⁴ = 81. Wegen 125 > 81 ist ⁴√5 größer (≈ 1,495 gegen ≈ 1,442).', 'Mit welcher Potenz verschwinden beide Wurzeln?'))
+ST.knobel('naeherung', Z('Die Kante eines Würfels wird um 10 % länger. Um wie viel Prozent wächst sein Volumen? Gib eine Nachkommastelle an.', 33.1, '(1.1 ** 3 - 1) * 100',
+          'Neue Kante 1,1a, neues Volumen 1,1³ · a³ = 1,331 · a³. Das Volumen wächst um 33,1 %, nicht um 30 %.', 'Rechne mit dem Faktor 1,1.', einheit='%'))
+
+# sachaufgabe
+ST.stufenleiter('sachaufgabe', 'Die Kante eines Würfels aus dem Volumen bestimmen.',
+                'Zinsfaktor über zwei Jahre, Platten zählen, Kisten und Quader umschmelzen, Endbetrag mit Zinseszins.',
+                'Glasfläche, Kugelmasse, wachsende Kanten, Fehler V : 3, Unmöglichkeit begründen, Quader mit Kanten a, 2a, 4a, mehrteilige Aufgabe.')
+ST.typ('sachaufgabe', '/^(Ein Würfel aus Beton|Ein würfelförmiger Karton|Ein Holzwürfel)/', 'direkt')
+ST.typ('sachaufgabe', '/^(Ein Guthaben|Ein Würfel hat)/', 'mehrschritt')
+ST.typ('sachaufgabe', '/^(Eine quadratische Terrasse|Eine Kiste|Ein Quader \\(|Ein quadratisches Feld)/', 'einkleidung')
+ST.typ('sachaufgabe', '/^(Ein Aquarium|Die Masse|Ein quaderförmiger)/', 'transfer')
+ST.typ('sachaufgabe', 'Jede Kante', 'verknuepfen')
+ST.neu('sachaufgabe', 'erkennen', A('Ein Würfel hat 343 cm³ Volumen. Welche Gleichung gilt für die Kante a?', 'a³ = 343', ['3a = 343', 'a² = 343', '6a² = 343'],
+       'Volumen eines Würfels: a · a · a = a³.', 'Wie berechnet man das Volumen eines Würfels?'))
+ST.neu('sachaufgabe', 'umkehr', Z('Ein Kapital von 2 000 € wird 2 Jahre mit 5 % Zinseszins angelegt. Wie groß ist es danach?', 2205, '2000 * 1.05 ** 2',
+       '2 000 · 1,05² = 2 000 · 1,1025 = 2 205 €.', 'Jedes Jahr mal 1,05.', einheit='€'))
+ST.neu('sachaufgabe', 'fehler', A('Jemand berechnet die Kante eines Würfels mit 27 dm³ Volumen als 27 : 3 = 9 dm. Was stimmt?', 'Falsch: a³ = 27 ⇒ a = 3 dm.', ['Richtig.', 'Falsch: a = 27 : 6 = 4,5 dm.', 'Falsch: a = √27 dm.'],
+       'Kante hoch 3 ergibt das Volumen: 3 · 3 · 3 = 27. 9 · 9 · 9 = 729.', 'Mach die Probe mit a³.'))
+ST.neu('sachaufgabe', 'begruenden', A('Kann ein Würfel mit ganzzahliger Kante (in cm) genau 100 cm³ Volumen haben?', 'Nein, 4³ = 64 und 5³ = 125; 100 ist keine Kubikzahl.', ['Ja, mit 10 cm Kante.', 'Ja, mit 5 cm Kante.', 'Ja, mit 4 cm Kante.'],
+       'Kubikzahlen in der Nähe: 64 und 125. Dazwischen gibt es keine ganzzahlige Kante.', 'Rechne 4³ und 5³.'))
+ST.neu('sachaufgabe', 'parameter', Z('Ein Quader hat die Kanten a, 2a und 4a. Für welches a ist sein Volumen 64 cm³?', 2, '2',
+       'V = a · 2a · 4a = 8a³ = 64 ⇒ a³ = 8 ⇒ a = 2 cm.', 'Multipliziere die drei Kanten.', einheit='cm'))
+ST.neu('sachaufgabe', 'pruefung', L('Ein würfelförmiger Wassertank fasst 1 000 Liter. a) Wie lang ist eine Innenkante in cm? b) Wie viele Liter fasst ein Tank mit doppelt so langer Kante?', 'a) □ cm; b) □ Liter', [100, 8000],
+       ['10 * 10', '1000 * 2 ** 3'], 'a) 1 000 Liter = 1 000 dm³, Kante 10 dm = 100 cm. b) Doppelte Kante: Volumen mal 8 = 8 000 Liter.', '1 Liter = 1 dm³.'))
+ST.knobel('sachaufgabe', Z('Ein Würfel wird in 64 gleich große kleine Würfel zersägt. Um wie viel Prozent ist die Oberfläche aller kleinen Würfel zusammen größer als die des großen?', 300, '(64 * 6 / 16 / 6 - 1) * 100',
+          'Kante a; kleine Kante a/4 (4 · 4 · 4 = 64). Eine kleine Oberfläche: 6 · (a/4)² = 6a²/16. Alle 64: 64 · 6a²/16 = 4 · 6a². Das ist 4-mal so viel, also 300 % mehr.',
+          'Wie lang ist die Kante eines kleinen Würfels?', einheit='%'))
+ST.knobel('sachaufgabe', Z('Drei Würfel mit 3 cm, 4 cm und 5 cm Kante werden eingeschmolzen und zu einem einzigen Würfel gegossen. Wie lang ist seine Kante?', 6, '6',
+          'Volumen: 27 + 64 + 125 = 216 cm³. ∛216 = 6 cm. (Eine schöne Eigenschaft: 3³ + 4³ + 5³ = 6³.)', 'Addiere die Volumen, nicht die Kanten.', einheit='cm'))
+
+if __name__ == '__main__':
+    stufen('gleichungen.potenz', ST)

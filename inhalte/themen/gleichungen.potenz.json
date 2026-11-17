@@ -620,7 +620,30 @@
    "c": [
     "-(121 / 11 ** 1)",
     "121 / 11 ** 1"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 5x² = 0?"
+   },
+   "a": [
+    "L = {−5; 5}",
+    "L = {0; 1}",
+    "L = { }",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x² = 0, und nur 0 hoch 2 ergibt 0.",
+   "h": "Welche Zahl hoch n ergibt 0?",
+   "g": "mehrschritt"
   },
   {
    "l": "gerade",
@@ -644,7 +667,30 @@
    "c": [
     "-(36 / 6 ** 1)",
     "36 / 6 ** 1"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 4x⁸ = 0?"
+   },
+   "a": [
+    "L = {0}",
+    "L = {0; 1}",
+    "L = {−4; 4}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x⁸ = 0, und nur 0 hoch 8 ergibt 0.",
+   "h": "Welche Zahl hoch n ergibt 0?",
+   "g": "mehrschritt"
   },
   {
    "l": "gerade",
@@ -668,7 +714,30 @@
    "c": [
     "-(64 / 8 ** 1)",
     "64 / 8 ** 1"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x⁴ = 256 mit x = 4. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Richtig ist nur x = −4.",
+    "Unvollständig: Auch −4 ist Lösung, denn (−4)⁴ = 256.",
+    "Falsch: Es gibt keine Lösung.",
+    "Richtig, das ist die einzige Lösung."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gerader Exponent, c > 0: zwei Lösungen ±4.",
+   "h": "Mache die Probe mit der Gegenzahl.",
+   "g": "fehler"
   },
   {
    "l": "gerade",
@@ -692,7 +761,33 @@
    "c": [
     "-(1 / 1 ** 1)",
     "1 / 1 ** 1"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Graphen von y = x⁴ und y = 16 schneiden sich in zwei Punkten. Gib die x-Koordinaten an.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "Gleichsetzen: x⁴ = 16, also x = 2 oder x = −2. Die Schnittpunkte sind (−2 | 16) und (2 | 16).",
+   "h": "Setze die beiden Terme gleich. Denke an beide Vorzeichen.",
+   "c": [
+    "-2",
+    "2"
+   ],
+   "g": "darstellung"
   },
   {
    "l": "gerade",
@@ -716,37 +811,39 @@
    "c": [
     "-(49 / 7 ** 1)",
     "49 / 7 ** 1"
-   ]
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Bestimme alle Lösungen von 121 = x².",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -11,
-     11
-    ]
-   },
-   "w": "n = 2 gerade, c > 0: x = ±√121 = ±11.",
-   "h": "Gerader Exponent: Denke an beide Vorzeichen.",
-   "c": [
-    "-(121 / 11 ** 1)",
-    "121 / 11 ** 1"
-   ]
+   ],
+   "g": "direkt"
   },
   {
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
    "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x⁴ − 30 = 132.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "2x⁴ = 162 ⇒ x⁴ = 81 ⇒ x = ±3.",
+   "h": "Erst 30 addieren, dann durch 2 teilen.",
+   "c": [
+    "-3",
+    "3"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Löse x² = 125. Gib die Lösungen exakt an."
@@ -761,7 +858,30 @@
     "index": 3
    },
    "w": "x = ±√125 = ±√(25 · 5) = ±5√5. Bei x² gibt es zwei Lösungen.",
-   "h": "Ziehe teilweise die Wurzel und denke an beide Vorzeichen."
+   "h": "Ziehe teilweise die Wurzel und denke an beide Vorzeichen.",
+   "g": "direkt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x⁴ = −625 mit x = ±5. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Nur x = −5 ist Lösung.",
+    "Falsch: Keine Lösung, denn x⁴ ist nie negativ; (±5)⁴ = 625.",
+    "Falsch: Nur x = 5 ist Lösung.",
+    "Richtig, wie bei positiven Zahlen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei geradem Exponenten ist jede Potenz ≥ 0. Probe: (−5)⁴ = 625 ≠ −625.",
+   "h": "Mache die Probe mit beiden Zahlen.",
+   "g": "fehler"
   },
   {
    "l": "gerade",
@@ -785,7 +905,25 @@
    "c": [
     "-(64 / 2 ** 5)",
     "64 / 2 ** 5"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat die Gleichung x⁴ = x²?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "1 + 2",
+   "w": "x⁴ − x² = 0 ⇔ x²(x² − 1) = 0. Also x = 0 oder x² = 1, d. h. x = 1 oder x = −1: drei Lösungen. Falle: Durch x² teilen verliert die 0.",
+   "h": "Nicht durch x² teilen! Bringe alles auf eine Seite und klammere aus.",
+   "g": "verknuepfen"
   },
   {
    "l": "gerade",
@@ -809,13 +947,36 @@
    "c": [
     "-(81 / 3 ** 3)",
     "81 / 3 ** 3"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist eine Lösung von x⁴ = 81?"
+   },
+   "a": [
+    "−9",
+    "9",
+    "20,25",
+    "−3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(−3)⁴ = 81, denn die vier Minuszeichen heben sich paarweise auf. 9⁴ wäre 6 561.",
+   "h": "Probiere, welche Zahl hoch 4 genau 81 ergibt.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "gerade",
    "t": "gerade",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Löse x² = 80. Gib die Lösungen exakt an."
@@ -830,97 +991,8 @@
     "index": 3
    },
    "w": "x = ±√80 = ±√(16 · 5) = ±4√5. Bei x² gibt es zwei Lösungen.",
-   "h": "Ziehe teilweise die Wurzel und denke an beide Vorzeichen."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 256 = 0.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -4,
-     4
-    ]
-   },
-   "w": "n = 4 gerade, c > 0: x = ±⁴√256 = ±4.",
-   "h": "Gerader Exponent: Denke an beide Vorzeichen.",
-   "c": [
-    "-(256 / 4 ** 3)",
-    "256 / 4 ** 3"
-   ]
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Bestimme alle Lösungen von 729 = x⁶.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -3,
-     3
-    ]
-   },
-   "w": "n = 6 gerade, c > 0: x = ±⁶√729 = ±3.",
-   "h": "Gerader Exponent: Denke an beide Vorzeichen.",
-   "c": [
-    "-(729 / 3 ** 5)",
-    "729 / 3 ** 5"
-   ]
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst x⁴ = 256 mit x = 4. Was stimmt?"
-   },
-   "a": [
-    "Falsch: Richtig ist nur x = −4.",
-    "Unvollständig: Auch −4 ist Lösung, denn (−4)⁴ = 256.",
-    "Falsch: Es gibt keine Lösung.",
-    "Richtig, das ist die einzige Lösung."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gerader Exponent, c > 0: zwei Lösungen ±4.",
-   "h": "Mache die Probe mit der Gegenzahl."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst x⁴ = −625 mit x = ±5. Was stimmt?"
-   },
-   "a": [
-    "Falsch: Nur x = −5 ist Lösung.",
-    "Falsch: Keine Lösung, denn x⁴ ist nie negativ; (±5)⁴ = 625.",
-    "Falsch: Nur x = 5 ist Lösung.",
-    "Richtig, wie bei positiven Zahlen."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Bei geradem Exponenten ist jede Potenz ≥ 0. Probe: (−5)⁴ = 625 ≠ −625.",
-   "h": "Mache die Probe mit beiden Zahlen."
+   "h": "Ziehe teilweise die Wurzel und denke an beide Vorzeichen.",
+   "g": "direkt"
   },
   {
    "l": "gerade",
@@ -929,82 +1001,20 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Lösungsmenge hat 5x² = 0?"
+    "text": "Welche Lösungsmenge hat x⁴ + 1 = 0?"
    },
    "a": [
-    "L = {−5; 5}",
-    "L = {0; 1}",
+    "L = {−1}",
     "L = { }",
-    "L = {0}"
+    "L = {−1; 1}",
+    "L = {1}"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "x² = 0, und nur 0 hoch 2 ergibt 0.",
-   "h": "Welche Zahl hoch n ergibt 0?"
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst x⁶ = −729 mit x = ±3. Was stimmt?"
-   },
-   "a": [
-    "Falsch: Nur x = 3 ist Lösung.",
-    "Falsch: Nur x = −3 ist Lösung.",
-    "Falsch: Keine Lösung, denn x⁶ ist nie negativ; (±3)⁶ = 729.",
-    "Richtig, wie bei positiven Zahlen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei geradem Exponenten ist jede Potenz ≥ 0. Probe: (−3)⁶ = 729 ≠ −729.",
-   "h": "Mache die Probe mit beiden Zahlen."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösungsmenge hat 4x⁸ = 0?"
-   },
-   "a": [
-    "L = {0}",
-    "L = {0; 1}",
-    "L = {−4; 4}",
-    "L = { }"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x⁸ = 0, und nur 0 hoch 8 ergibt 0.",
-   "h": "Welche Zahl hoch n ergibt 0?"
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst x⁴ = −81 mit x = ±3. Was stimmt?"
-   },
-   "a": [
-    "Richtig, wie bei positiven Zahlen.",
-    "Falsch: Nur x = −3 ist Lösung.",
-    "Falsch: Keine Lösung, denn x⁴ ist nie negativ; (±3)⁴ = 81.",
-    "Falsch: Nur x = 3 ist Lösung."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei geradem Exponenten ist jede Potenz ≥ 0. Probe: (−3)⁴ = 81 ≠ −81.",
-   "h": "Mache die Probe mit beiden Zahlen."
+   "w": "x⁴ = −1, aber x⁴ ist nie negativ: keine Lösung.",
+   "h": "Stelle x⁴ allein. Kann eine gerade Potenz negativ sein?",
+   "g": "mehrschritt"
   },
   {
    "l": "gerade",
@@ -1219,42 +1229,311 @@
    ]
   },
   {
-   "l": "ungerade",
-   "t": "ungerade",
+   "l": "gerade",
+   "t": "gerade",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Löse x³ = 216."
+    "text": "Löse x⁴ − 256 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
-    "wert": 6
+    "werte": [
+     -4,
+     4
+    ]
    },
-   "c": "(216) / (6) ** 2",
-   "w": "n = 3 ungerade: genau eine Lösung x = ³√216 = 6.",
-   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
+   "w": "n = 4 gerade, c > 0: x = ±⁴√256 = ±4.",
+   "h": "Gerader Exponent: Denke an beide Vorzeichen.",
+   "c": [
+    "-(256 / 4 ** 3)",
+    "256 / 4 ** 3"
+   ],
+   "g": "direkt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung x⁴ = c hat die Lösung x = −3. Wie groß ist c?"
+   },
+   "o": {
+    "wert": 81
+   },
+   "c": "(-3) ** 4",
+   "w": "c = (−3)⁴ = 81. Dann ist auch 3 eine Lösung.",
+   "h": "Setze die Lösung ein.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Lösungen von 729 = x⁶.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "n = 6 gerade, c > 0: x = ±⁶√729 = ±3.",
+   "h": "Gerader Exponent: Denke an beide Vorzeichen.",
+   "c": [
+    "-(729 / 3 ** 5)",
+    "729 / 3 ** 5"
+   ],
+   "g": "direkt"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von y = x⁶ und die Gerade y = 1 schneiden sich. Gib die x-Werte an.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "c": [
+    "-1",
+    "1"
+   ],
+   "w": "x⁶ = 1 hat die Lösungen −1 und 1.",
+   "h": "Welche Gleichung beschreibt die Schnittpunkte?",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ = 10 000.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -10,
+     10
+    ]
+   },
+   "w": "x = ±⁴√10 000 = ±10, denn 10⁴ = 10 000.",
+   "h": "Zähle die Nullen.",
+   "c": [
+    "-10",
+    "10"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Lösungen von 121 = x².",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -11,
+     11
+    ]
+   },
+   "w": "n = 2 gerade, c > 0: x = ±√121 = ±11.",
+   "h": "Gerader Exponent: Denke an beide Vorzeichen.",
+   "c": [
+    "-(121 / 11 ** 1)",
+    "121 / 11 ** 1"
+   ]
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x⁶ = −729 mit x = ±3. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Nur x = 3 ist Lösung.",
+    "Falsch: Nur x = −3 ist Lösung.",
+    "Falsch: Keine Lösung, denn x⁶ ist nie negativ; (±3)⁶ = 729.",
+    "Richtig, wie bei positiven Zahlen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei geradem Exponenten ist jede Potenz ≥ 0. Probe: (−3)⁶ = 729 ≠ −729.",
+   "h": "Mache die Probe mit beiden Zahlen.",
+   "g": "fehler"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat x⁶ = 0,000064?"
+   },
+   "a": [
+    "L = {−0,02; 0,02}",
+    "L = {0,2}",
+    "L = { }",
+    "L = {−0,2; 0,2}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "0,2⁶ = 0,000064 (2⁶ = 64, sechs Nachkommastellen). Gerader Exponent: auch −0,2 ist Lösung.",
+   "h": "Denke an 2⁶ = 64 und zähle die Nachkommastellen.",
+   "g": "verknuepfen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: Ist x₁ eine Lösung von xⁿ = c mit geradem n, dann ist auch −x₁ eine Lösung?"
+   },
+   "a": [
+    "Ja, denn (−x₁)ⁿ = x₁ⁿ bei geradem n.",
+    "Nein, nie.",
+    "Nein, nur bei c > 100.",
+    "Nur bei n = 2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei geradem Exponenten heben sich die Minuszeichen paarweise auf. Darum kommen Lösungen (außer 0) immer als Paar ±x₁.",
+   "h": "Was passiert mit dem Minus bei einer geraden Potenz?",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahl c hat x⁴ = c genau eine Lösung?"
+   },
+   "a": [
+    "für alle c < 0",
+    "für alle c > 0",
+    "c = 1",
+    "c = 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für c > 0 gibt es zwei Lösungen, für c < 0 keine, für c = 0 nur x = 0.",
+   "h": "Denk an die waagrechte Linie y = c.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Grundstück wird so vergrößert, dass seine Fläche 2,56-mal so groß ist. Mit welchem Faktor wächst seine Seite?"
+   },
+   "o": {
+    "wert": 1.6
+   },
+   "c": "1.6",
+   "w": "Faktor k mit k² = 2,56, positiv: k = 1,6, denn 1,6 · 1,6 = 2,56.",
+   "h": "Fläche wächst mit dem Quadrat des Faktors.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "l": "gerade",
+   "t": "gerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x⁴ = −81 mit x = ±3. Was stimmt?"
+   },
+   "a": [
+    "Richtig, wie bei positiven Zahlen.",
+    "Falsch: Nur x = −3 ist Lösung.",
+    "Falsch: Keine Lösung, denn x⁴ ist nie negativ; (±3)⁴ = 81.",
+    "Falsch: Nur x = 3 ist Lösung."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei geradem Exponenten ist jede Potenz ≥ 0. Probe: (−3)⁴ = 81 ≠ −81.",
+   "h": "Mache die Probe mit beiden Zahlen."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen x erfüllen x⁴ ≤ 100?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "2 * 3 + 1",
+   "w": "x⁴ ≤ 100 heißt x² ≤ 10. Ganze Zahlen: 0, ±1, ±2, ±3 (3⁴ = 81 ≤ 100, 4⁴ = 256). Das sind 7.",
+   "h": "Auch negative Zahlen zählen.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung (x − 2)⁴ = 16 hat zwei Lösungen. Wie groß ist ihre Summe?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "0 + 4",
+   "w": "x − 2 = 2 oder x − 2 = −2, also x = 4 oder x = 0. Summe 4 – das ist doppelt die Mitte 2, um die die Lösungen symmetrisch liegen.",
+   "h": "Löse zuerst nach x − 2 auf.",
+   "l": "gerade",
+   "t": "gerade",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
    "l": "ungerade",
    "t": "ungerade",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x³ = 27."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "(27) / (3) ** 2",
-   "w": "n = 3 ungerade: genau eine Lösung x = ³√27 = 3.",
-   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse x³ = −216."
@@ -1264,71 +1543,8 @@
    },
    "c": "(-216) / (-6) ** 2",
    "w": "n = 3 ungerade: genau eine Lösung x = −³√216 = −6.",
-   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x³ = 8."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "(8) / (2) ** 2",
-   "w": "n = 3 ungerade: genau eine Lösung x = ³√8 = 2.",
-   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x³ = −8."
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "(-8) / (-2) ** 2",
-   "w": "n = 3 ungerade: genau eine Lösung x = −³√8 = −2.",
-   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x³ = 125."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "(125) / (5) ** 2",
-   "w": "n = 3 ungerade: genau eine Lösung x = ³√125 = 5.",
-   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x³ = 1."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(1) / (1) ** 2",
-   "w": "n = 3 ungerade: genau eine Lösung x = ³√1 = 1.",
-   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
+   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten.",
+   "g": "mehrschritt"
   },
   {
    "l": "ungerade",
@@ -1344,7 +1560,42 @@
    },
    "c": "(32) / (2) ** 4",
    "w": "n = 5 ungerade: genau eine Lösung x = ⁵√32 = 2.",
-   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
+   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten.",
+   "g": "direkt"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = −8."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-8) / (-2) ** 2",
+   "w": "n = 3 ungerade: genau eine Lösung x = −³√8 = −2.",
+   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x − 3)³ = −64."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "3 + (-64) / (-4) ** 2",
+   "w": "x − 3 = −4, denn (−4)³ = −64. Also x = −1.",
+   "h": "Löse zuerst nach der Klammer auf.",
+   "g": "verknuepfen"
   },
   {
    "l": "ungerade",
@@ -1360,7 +1611,59 @@
    },
    "c": "-0.00032 / (-0.2) ** 4",
    "w": "n = 5 ungerade: genau eine Lösung x = −0,2, denn (−0,2)⁵ = −0,00032.",
-   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Achte auf die Nachkommastellen."
+   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Achte auf die Nachkommastellen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = 216."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(216) / (6) ** 2",
+   "w": "n = 3 ungerade: genau eine Lösung x = ³√216 = 6.",
+   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten.",
+   "g": "direkt"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁵ = −32."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-32) / (-2) ** 4",
+   "w": "n = 5 ungerade: genau eine Lösung x = −⁵√32 = −2.",
+   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 8)³ = −8."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "-8 + (-8) / (-2) ** 2",
+   "w": "x + 8 = −2, denn (−2)³ = −8. Also x = −10.",
+   "h": "Löse zuerst nach der Klammer auf.",
+   "g": "verknuepfen"
   },
   {
    "l": "ungerade",
@@ -1385,13 +1688,101 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x⁵ = −32."
+    "text": "Löse 4x³ + 32 = 0."
    },
    "o": {
     "wert": -2
    },
-   "c": "(-32) / (-2) ** 4",
-   "w": "n = 5 ungerade: genau eine Lösung x = −⁵√32 = −2.",
+   "c": "-8 / 4",
+   "w": "4x³ = −32 ⇒ x³ = −8 ⇒ x = −2.",
+   "h": "Erst 32 abziehen, dann durch 4 teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = 27."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(27) / (3) ** 2",
+   "w": "n = 3 ungerade: genau eine Lösung x = ³√27 = 3.",
+   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten.",
+   "g": "direkt"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = 1."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(1) / (1) ** 2",
+   "w": "n = 3 ungerade: genau eine Lösung x = ³√1 = 1.",
+   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl löst x³ = −8?"
+   },
+   "a": [
+    "−2 und 2",
+    "2",
+    "−2",
+    "keine Zahl"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(−2) · (−2) · (−2) = −8. Bei ungeradem Exponenten bleibt ein Minus übrig, also genau eine Lösung.",
+   "h": "Wie viele Minuszeichen bleiben bei drei Faktoren?",
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = 8."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(8) / (2) ** 2",
+   "w": "n = 3 ungerade: genau eine Lösung x = ³√8 = 2.",
+   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = 125."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(125) / (5) ** 2",
+   "w": "n = 3 ungerade: genau eine Lösung x = ³√125 = 5.",
    "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
   },
   {
@@ -1401,14 +1792,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x³ = −512."
+    "text": "Die Graphen von y = x³ und y = −27 schneiden sich in genau einem Punkt. Welche x-Koordinate hat er?"
    },
    "o": {
-    "wert": -8
+    "wert": -3
    },
-   "c": "(-512) / (-8) ** 2",
-   "w": "n = 3 ungerade: genau eine Lösung x = −³√512 = −8.",
-   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
+   "c": "-27 / 9",
+   "w": "x³ = −27 ⇒ x = −3, denn (−3)³ = −27. Ungerader Exponent: genau ein Schnittpunkt (−3 | −27).",
+   "h": "Setze gleich und denke daran, dass ein Minus bei ungeradem Exponenten bleibt.",
+   "g": "darstellung"
   },
   {
    "l": "ungerade",
@@ -1417,94 +1809,32 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x⁵ = −0,03125."
+    "text": "Für welche Zahl a hat die Gleichung x⁵ = a die Lösung x = −0,1?"
    },
    "o": {
-    "wert": -0.5
+    "wert": -1e-05
    },
-   "c": "-0.03125 / (-0.5) ** 4",
-   "w": "n = 5 ungerade: genau eine Lösung, negativ: x = −0,5, denn (−0,5)⁵ = −0,03125.",
-   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Ziehe die Wurzel ohne Komma."
+   "c": "(-0.1) ** 5",
+   "w": "Einsetzen: a = (−0,1)⁵ = −0,00001 (ungerader Exponent, Minus bleibt; fünf Nachkommastellen).",
+   "h": "Rückwärts: Setze x = −0,1 ein.",
+   "g": "umkehr"
   },
   {
    "l": "ungerade",
    "t": "ungerade",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse (x − 3)³ = −64."
+    "text": "Löse x⁷ = −1."
    },
    "o": {
     "wert": -1
    },
-   "c": "3 + (-64) / (-4) ** 2",
-   "w": "x − 3 = −4, denn (−4)³ = −64. Also x = −1.",
-   "h": "Löse zuerst nach der Klammer auf."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x + 8)³ = −8."
-   },
-   "o": {
-    "wert": -10
-   },
-   "c": "-8 + (-8) / (-2) ** 2",
-   "w": "x + 8 = −2, denn (−2)³ = −8. Also x = −10.",
-   "h": "Löse zuerst nach der Klammer auf."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x⁵ = −7,59375."
-   },
-   "o": {
-    "wert": -1.5
-   },
-   "c": "-7.59375 / (-1.5) ** 4",
-   "w": "n = 5 ungerade: genau eine Lösung, negativ: x = −1,5, denn (−1,5)⁵ = −7,59375.",
-   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Ziehe die Wurzel ohne Komma."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x³ = −3,375."
-   },
-   "o": {
-    "wert": -1.5
-   },
-   "c": "-3.375 / (-1.5) ** 2",
-   "w": "n = 3 ungerade: genau eine Lösung, negativ: x = −1,5, denn (−1,5)³ = −3,375.",
-   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Ziehe die Wurzel ohne Komma."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x⁵ = −0,00243."
-   },
-   "o": {
-    "wert": -0.3
-   },
-   "c": "-0.00243 / (-0.3) ** 4",
-   "w": "n = 5 ungerade: genau eine Lösung, negativ: x = −0,3, denn (−0,3)⁵ = −0,00243.",
-   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Ziehe die Wurzel ohne Komma."
+   "c": "(-1) ** 7",
+   "w": "x = −1, denn (−1)⁷ = −1 (ungerade viele Minus).",
+   "h": "Welche Zahl hoch 7 ergibt −1?",
+   "g": "mehrschritt"
   },
   {
    "l": "ungerade",
@@ -1657,6 +1987,281 @@
    "w": "n = 5 ungerade: genau eine Lösung x = ⁵√243 = 3."
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Der Innenraum eines würfelförmigen Kühlschranks fasst 0,125 m³. Wie lang ist eine Innenkante in cm?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "cm"
+   },
+   "c": "0.5 * 100",
+   "w": "∛0,125 = 0,5 m, denn 0,5³ = 0,125. 0,5 m = 50 cm.",
+   "h": "Erst die Kante in m.",
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = −512."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(-512) / (-8) ** 2",
+   "w": "n = 3 ungerade: genau eine Lösung x = −³√512 = −8.",
+   "h": "Ungerader Exponent: Das Vorzeichen von c bleibt erhalten."
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁵ = −0,03125."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-0.03125 / (-0.5) ** 4",
+   "w": "n = 5 ungerade: genau eine Lösung, negativ: x = −0,5, denn (−0,5)⁵ = −0,03125.",
+   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Ziehe die Wurzel ohne Komma."
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = −3,375."
+   },
+   "o": {
+    "wert": -1.5
+   },
+   "c": "-3.375 / (-1.5) ** 2",
+   "w": "n = 3 ungerade: genau eine Lösung, negativ: x = −1,5, denn (−1,5)³ = −3,375.",
+   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Ziehe die Wurzel ohne Komma."
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁵ = −0,00243."
+   },
+   "o": {
+    "wert": -0.3
+   },
+   "c": "-0.00243 / (-0.3) ** 4",
+   "w": "n = 5 ungerade: genau eine Lösung, negativ: x = −0,3, denn (−0,3)⁵ = −0,00243.",
+   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Ziehe die Wurzel ohne Komma."
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = −1 000."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "-1000 / 100",
+   "w": "x = −10, denn (−10)³ = −1 000.",
+   "h": "Ungerader Exponent: genau eine Lösung, hier negativ."
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (2x − 1)³ = 125."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(5 + 1) / 2",
+   "w": "2x − 1 = ³√125 = 5 ⇒ 2x = 6 ⇒ x = 3.",
+   "h": "Erst die dritte Wurzel aus 125, dann die lineare Gleichung lösen.",
+   "g": "verknuepfen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x³ = −27 mit x = ±3. Was stimmt?"
+   },
+   "a": [
+    "Falsch: x = −9.",
+    "Richtig.",
+    "Falsch: Es gibt keine Lösung.",
+    "Falsch: Nur x = −3 ist Lösung, denn 3³ = 27."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(−3)³ = −27, aber 3³ = +27. Bei ungeradem Exponenten gibt es genau eine Lösung.",
+   "h": "Mach die Probe mit +3.",
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: x³ = c hat für jede Zahl c genau eine Lösung?"
+   },
+   "a": [
+    "Nein, für c < 0 gibt es keine.",
+    "Nein, für c > 0 gibt es zwei.",
+    "Nur für c = 0.",
+    "Ja: Der Graph von x³ steigt von links unten nach rechts oben und trifft jede Waagrechte genau einmal."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "y = x³ nimmt jeden Wert genau einmal an. Darum hat x³ = c immer genau eine Lösung.",
+   "h": "Denk an den Graphen von y = x³.",
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Werte von k haben x³ = k und x⁵ = k dieselbe Lösung?"
+   },
+   "a": [
+    "für k = −1, k = 0 und k = 1",
+    "nur für k = 0",
+    "für jedes k",
+    "für k = 1 und k = 8"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Dieselbe Lösung x heißt x³ = x⁵, also x³(x² − 1) = 0: x = 0, 1 oder −1. Dazu gehören k = 0, 1, −1.",
+   "h": "Setze die beiden Potenzen gleich.",
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Eine Geldanlage wächst in 3 Jahren auf das 1,331-Fache, jedes Jahr mit demselben Faktor. Wie groß ist der Faktor pro Jahr?"
+   },
+   "o": {
+    "wert": 1.1
+   },
+   "c": "1.1",
+   "w": "q³ = 1,331. 1,1³ = 1,331, also q = 1,1: 10 % pro Jahr.",
+   "h": "Probiere 1,1.",
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse a) x³ = −125, b) x⁵ = 243, c) (x + 1)³ = 8.",
+    "schablone": "a) □; b) □; c) □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -5,
+     3,
+     1
+    ]
+   },
+   "c": [
+    "-5",
+    "3",
+    "2 - 1"
+   ],
+   "w": "a) (−5)³ = −125. b) 3⁵ = 243. c) x + 1 = 2, x = 1.",
+   "h": "Bei c) zuerst die Klammer.",
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁵ = −7,59375."
+   },
+   "o": {
+    "wert": -1.5
+   },
+   "c": "-7.59375 / (-1.5) ** 4",
+   "w": "n = 5 ungerade: genau eine Lösung, negativ: x = −1,5, denn (−1,5)⁵ = −7,59375.",
+   "h": "Ungerader Exponent: Vorzeichen bleibt erhalten. Ziehe die Wurzel ohne Komma."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für welche ganze Zahl x gilt x³ + x = −10?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Probiere negative Zahlen: x = −2 ergibt −8 − 2 = −10. Weil x³ + x immer steigt, wenn x wächst, gibt es keine weitere Lösung.",
+   "h": "Die Lösung ist klein und negativ.",
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Welche natürliche Zahl n erfüllt n³ < 2 000 < (n + 1)³?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "10³ = 1 000, 12³ = 1 728, 13³ = 2 197. Also liegt 2 000 zwischen 12³ und 13³, n = 12. Das heißt: ∛2 000 liegt zwischen 12 und 13.",
+   "h": "Rechne einige Kubikzahlen aus.",
+   "l": "ungerade",
+   "t": "ungerade",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "anzahl",
    "t": "anzahl",
    "p": "uebung",
@@ -1674,107 +2279,8 @@
     "index": 2
    },
    "w": "n = 6 ist gerade und c > 0: zwei Lösungen.",
-   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x³ = 8?"
-   },
-   "a": [
-    "keine Lösung",
-    "zwei Lösungen",
-    "genau eine Lösung"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "n = 3 ist ungerade: genau eine Lösung.",
-   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x⁵ = −32?"
-   },
-   "a": [
-    "zwei Lösungen",
-    "keine Lösung",
-    "genau eine Lösung"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "n = 5 ist ungerade: genau eine Lösung.",
-   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x⁹ = −512?"
-   },
-   "a": [
-    "keine Lösung",
-    "genau eine Lösung",
-    "zwei Lösungen"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "n = 9 ist ungerade: genau eine Lösung.",
-   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x² = −16?"
-   },
-   "a": [
-    "genau eine Lösung",
-    "keine Lösung",
-    "zwei Lösungen"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "n = 2 ist gerade und c < 0: keine Lösung.",
-   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x⁴ = −16?"
-   },
-   "a": [
-    "keine Lösung",
-    "genau eine Lösung",
-    "zwei Lösungen"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "n = 4 ist gerade und c < 0: keine Lösung.",
-   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?"
+   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?",
+   "g": "erkennen"
   },
   {
    "l": "anzahl",
@@ -1794,7 +2300,29 @@
     "index": 0
    },
    "w": "n = 9 ist ungerade: genau eine Lösung.",
-   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?"
+   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x³ = 8?"
+   },
+   "a": [
+    "keine Lösung",
+    "zwei Lösungen",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "n = 3 ist ungerade: genau eine Lösung.",
+   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?",
+   "g": "erkennen"
   },
   {
    "l": "anzahl",
@@ -1814,7 +2342,29 @@
     "index": 1
    },
    "w": "n = 4 ist gerade und c < 0: keine Lösung.",
-   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?"
+   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x⁵ = −32?"
+   },
+   "a": [
+    "zwei Lösungen",
+    "keine Lösung",
+    "genau eine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "n = 5 ist ungerade: genau eine Lösung.",
+   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?",
+   "g": "erkennen"
   },
   {
    "l": "anzahl",
@@ -1834,7 +2384,29 @@
     "index": 2
    },
    "w": "n = 8 ist gerade und c > 0: zwei Lösungen.",
-   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?"
+   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x⁹ = −512?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "n = 9 ist ungerade: genau eine Lösung.",
+   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?",
+   "g": "erkennen"
   },
   {
    "l": "anzahl",
@@ -1876,7 +2448,73 @@
     "index": 2
    },
    "w": "Die Gerade y = 3 trifft den Graphen zweimal: zwei Lösungen.",
-   "h": "Zähle die Schnittpunkte der Geraden mit dem Graphen."
+   "h": "Zähle die Schnittpunkte der Geraden mit dem Graphen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Werte von c hat x⁴ = c genau zwei Lösungen?"
+   },
+   "a": [
+    "für alle c",
+    "für alle c ≥ 0",
+    "für alle c > 0",
+    "für alle c < 0"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "n = 4 gerade: Für c > 0 schneidet y = c den Graphen zweimal (z. B. c = 4), für c = 0 einmal, für c < 0 nie.",
+   "h": "Denke an den Graphen von y = x⁴ und waagrechte Geraden.",
+   "g": "parameter"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „x⁵ = −32 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig, negative Radikanden sind verboten.",
+    "Falsch: Es gibt zwei Lösungen ±2.",
+    "Falsch: x = −2 ist Lösung, denn (−2)⁵ = −32.",
+    "Falsch: x = 2 ist Lösung."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei ungeradem Exponenten gibt es immer genau eine Lösung. Hier x = −⁵√32 = −2.",
+   "h": "Prüfe, ob eine negative Zahl die Gleichung erfüllt.",
+   "g": "fehler"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x² = −16?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "n = 2 ist gerade und c < 0: keine Lösung.",
+   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?",
+   "g": "erkennen"
   },
   {
    "l": "anzahl",
@@ -1918,7 +2556,8 @@
     "index": 2
    },
    "w": "Die Gerade y = −3 trifft den Graphen nie: keine Lösung.",
-   "h": "Zähle die Schnittpunkte der Geraden mit dem Graphen."
+   "h": "Zähle die Schnittpunkte der Geraden mit dem Graphen.",
+   "g": "darstellung"
   },
   {
    "l": "anzahl",
@@ -1927,29 +2566,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Im Bild siehst du den Graphen von y = x² und die Gerade y = −1. Wie viele Lösungen hat x² = −1?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -3,
-      3
-     ],
-     "y": [
-      -4,
-      6
-     ],
-     "graphen": [
-      {
-       "art": "potenz",
-       "a": 1,
-       "n": 2,
-       "name": "y = x²"
-      }
-     ],
-     "waagrecht": [
-      -1
-     ]
-    }
+    "text": "Wie viele Lösungen hat x¹⁰ = 0?"
    },
    "a": [
     "zwei Lösungen",
@@ -1957,52 +2574,11 @@
     "keine Lösung"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "Die Gerade y = −1 trifft den Graphen nie: keine Lösung.",
-   "h": "Zähle die Schnittpunkte der Geraden mit dem Graphen."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche Werte von c hat x⁴ = c genau zwei Lösungen?"
-   },
-   "a": [
-    "für alle c",
-    "für alle c ≥ 0",
-    "für alle c > 0",
-    "für alle c < 0"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "n = 4 gerade: Für c > 0 schneidet y = c den Graphen zweimal (z. B. c = 4), für c = 0 einmal, für c < 0 nie.",
-   "h": "Denke an den Graphen von y = x⁴ und waagrechte Geraden."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „x⁵ = −32 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?"
-   },
-   "a": [
-    "Richtig, negative Radikanden sind verboten.",
-    "Falsch: Es gibt zwei Lösungen ±2.",
-    "Falsch: x = −2 ist Lösung, denn (−2)⁵ = −32.",
-    "Falsch: x = 2 ist Lösung."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei ungeradem Exponenten gibt es immer genau eine Lösung. Hier x = −⁵√32 = −2.",
-   "h": "Prüfe, ob eine negative Zahl die Gleichung erfüllt."
+   "w": "Nur 0 hoch 10 ergibt 0, also genau eine Lösung x = 0.",
+   "h": "Welche Zahl hoch 10 ergibt 0?",
+   "g": "mehrschritt"
   },
   {
    "l": "anzahl",
@@ -2023,28 +2599,8 @@
     "index": 2
    },
    "w": "Bei ungeradem Exponenten gibt es immer genau eine Lösung. Hier x = −⁷√128 = −2.",
-   "h": "Prüfe, ob eine negative Zahl die Gleichung erfüllt."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „x³ = −64 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: x = −4 ist Lösung, denn (−4)³ = −64.",
-    "Falsch: Es gibt zwei Lösungen ±4.",
-    "Richtig, negative Radikanden sind verboten.",
-    "Falsch: x = 4 ist Lösung."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei ungeradem Exponenten gibt es immer genau eine Lösung. Hier x = −³√64 = −4.",
-   "h": "Prüfe, ob eine negative Zahl die Gleichung erfüllt."
+   "h": "Prüfe, ob eine negative Zahl die Gleichung erfüllt.",
+   "g": "fehler"
   },
   {
    "l": "anzahl",
@@ -2065,7 +2621,8 @@
     "index": 1
    },
    "w": "n = 6 gerade: Für c > 0 schneidet y = c den Graphen zweimal (z. B. c = 19), für c = 0 einmal, für c < 0 nie.",
-   "h": "Denke an den Graphen von y = x⁶ und waagrechte Geraden."
+   "h": "Denke an den Graphen von y = x⁶ und waagrechte Geraden.",
+   "g": "parameter"
   },
   {
    "l": "anzahl",
@@ -2074,19 +2631,90 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „x⁵ = 243 hat die Lösungen 3 und −3.“ Was stimmt?"
+    "text": "Die Abbildung zeigt den Graphen von y = x⁴ und die Linie y = 3. Was folgt daraus für die Gleichung x⁴ = 3?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 4,
+       "name": "y = x⁴"
+      }
+     ],
+     "waagrecht": [
+      3
+     ]
+    }
    },
    "a": [
-    "Falsch: Es gibt keine Lösung.",
-    "Falsch: (−3)⁵ = −243, nur x = 3 ist Lösung.",
-    "Falsch: Nur x = −3 ist Lösung.",
-    "Richtig, wie bei x² gibt es zwei Lösungen."
+    "Sie hat zwei Lösungen, eine positive und eine negative.",
+    "Sie hat keine Lösung, weil 3 keine vierte Potenz einer ganzen Zahl ist.",
+    "Sie hat vier Lösungen, weil der Exponent 4 ist.",
+    "Sie hat genau eine Lösung."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Bei ungeradem Exponenten wird eine negative Zahl hoch 5 negativ. Probe: (−3)⁵ = −243 ≠ 243.",
-   "h": "Mache die Probe mit der negativen Zahl."
+   "w": "Die Linie y = 3 schneidet den Graphen zweimal, symmetrisch zur y-Achse: x = ±⁴√3 ≈ ±1,32.",
+   "h": "Zähle die Schnittpunkte der Linie mit dem Graphen.",
+   "g": "begruenden"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x⁴ = −16?"
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "n = 4 ist gerade und c < 0: keine Lösung.",
+   "h": "Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?",
+   "g": "erkennen"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Gleichung x⁴ = 81: Wie viele Lösungen hat sie, und welche sind es?",
+    "schablone": "Anzahl □; x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     2,
+     -3,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "-3",
+    "3"
+   ],
+   "w": "Gerader Exponent, c > 0: zwei Lösungen, ±3, denn 3⁴ = 81.",
+   "h": "Gerade oder ungerade?",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "anzahl",
@@ -2301,6 +2929,277 @@
    "w": "n = 2 ist gerade und c < 0: keine Lösung."
   },
   {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Bild siehst du den Graphen von y = x² und die Gerade y = −1. Wie viele Lösungen hat x² = −1?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "y = x²"
+      }
+     ],
+     "waagrecht": [
+      -1
+     ]
+    }
+   },
+   "a": [
+    "zwei Lösungen",
+    "genau eine Lösung",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Gerade y = −1 trifft den Graphen nie: keine Lösung.",
+   "h": "Zähle die Schnittpunkte der Geraden mit dem Graphen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x⁷ = −5?"
+   },
+   "a": [
+    "genau eine Lösung",
+    "keine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungerader Exponent: immer genau eine Lösung, hier x = −⁷√5.",
+   "h": "Ist der Exponent gerade oder ungerade?",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl hoch 6 soll genau 0 ergeben. Wie viele solche Zahlen gibt es?"
+   },
+   "a": [
+    "keine",
+    "sechs",
+    "zwei",
+    "genau eine (die 0)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Produkt ist nur 0, wenn ein Faktor 0 ist. x⁶ = 0 nur für x = 0.",
+   "h": "Wann ist ein Produkt null?",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „x³ = −64 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: x = −4 ist Lösung, denn (−4)³ = −64.",
+    "Falsch: Es gibt zwei Lösungen ±4.",
+    "Richtig, negative Radikanden sind verboten.",
+    "Falsch: x = 4 ist Lösung."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei ungeradem Exponenten gibt es immer genau eine Lösung. Hier x = −³√64 = −4.",
+   "h": "Prüfe, ob eine negative Zahl die Gleichung erfüllt.",
+   "g": "fehler"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Abbildung zeigt den Graphen von y = x³ und die Linie y = −2. Was folgt daraus für die Gleichung x³ = −2?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 3,
+       "name": "y = x³"
+      }
+     ],
+     "waagrecht": [
+      -2
+     ]
+    }
+   },
+   "a": [
+    "Sie hat keine Lösung.",
+    "Sie hat zwei Lösungen.",
+    "Sie hat genau eine Lösung, und die ist negativ.",
+    "Sie hat genau eine Lösung, und die ist positiv."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Linie y = −2 schneidet den Graphen genau einmal, links von der y-Achse: x = −³√2 ≈ −1,26.",
+   "h": "Zähle die Schnittpunkte und schau, auf welcher Seite der y-Achse sie liegen.",
+   "g": "begruenden"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen c von −5 bis 5 hat die Gleichung x⁴ = c genau zwei Lösungen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5 - 1 + 1",
+   "w": "Zwei Lösungen gibt es nur für c > 0, also für c = 1, 2, 3, 4, 5: fünf Zahlen. (c = 0: eine Lösung, c < 0: keine.)",
+   "h": "Überlege getrennt für c > 0, c = 0 und c < 0.",
+   "g": "parameter"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat die Gleichung x³ = x?"
+   },
+   "a": [
+    "keine",
+    "eine",
+    "zwei",
+    "drei"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x³ − x = 0 ⇔ x(x² − 1) = 0: x = 0, x = 1, x = −1.",
+   "h": "Nicht durch x teilen – ausklammern.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „x⁵ = 243 hat die Lösungen 3 und −3.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es gibt keine Lösung.",
+    "Falsch: (−3)⁵ = −243, nur x = 3 ist Lösung.",
+    "Falsch: Nur x = −3 ist Lösung.",
+    "Richtig, wie bei x² gibt es zwei Lösungen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei ungeradem Exponenten wird eine negative Zahl hoch 5 negativ. Probe: (−3)⁵ = −243 ≠ 243.",
+   "h": "Mache die Probe mit der negativen Zahl."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x⁴ − 5x² + 4 = 0?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 + 2",
+   "w": "Mit u = x²: u² − 5u + 4 = 0, also (u − 1)(u − 4) = 0. x² = 1 liefert ±1, x² = 4 liefert ±2. Vier Lösungen.",
+   "h": "Gib x² einen eigenen Namen.",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x⁶ = x²?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "1 + 2",
+   "w": "x⁶ − x² = 0 ⇒ x²(x⁴ − 1) = 0 ⇒ x = 0 oder x⁴ = 1, also x = ±1. Drei Lösungen. Wer durch x² teilt, verliert die 0.",
+   "h": "Nicht teilen – ausklammern.",
+   "l": "anzahl",
+   "t": "anzahl",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x⁴ + 9 = 57.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "3x⁴ = 48 ⇒ x⁴ = 16 ⇒ x = ±2.",
+   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
+   "c": [
+    "-((57 - (9)) / 3) / 2 ** 3",
+    "((57 - (9)) / 3) / 2 ** 3"
+   ],
+   "g": "mehrschritt"
+  },
+  {
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
@@ -2322,7 +3221,33 @@
    "c": [
     "-(12 / 3) / 2",
     "(12 / 3) / 2"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x⁴ + 6 = 1 881.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     5
+    ]
+   },
+   "w": "3x⁴ = 1 875 ⇒ x⁴ = 625 ⇒ x = ±5.",
+   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
+   "c": [
+    "-((1881 - (6)) / 3) / 5 ** 3",
+    "((1881 - (6)) / 3) / 5 ** 3"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -2346,7 +3271,67 @@
    "c": [
     "-(75 / 3) / 5",
     "(75 / 3) / 5"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x³ + 6 = 22."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "((22 - (6)) / 2) / (2) ** 2",
+   "w": "2x³ = 16 ⇒ x³ = 8 ⇒ x = 2.",
+   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x − 4)³ = 27."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "4 + (27) / (3) ** 2",
+   "w": "x − 4 = ³√27 = 3, also x = 7.",
+   "h": "Löse zuerst nach der Klammer auf, dann nach x.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4x⁴ − 8 = 56.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "4x⁴ = 64 ⇒ x⁴ = 16 ⇒ x = ±2.",
+   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
+   "c": [
+    "-((56 - (-8)) / 4) / 2 ** 3",
+    "((56 - (-8)) / 4) / 2 ** 3"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -2362,7 +3347,148 @@
    },
    "c": "(648 / 3) / 6 ** 2",
    "w": "x³ = 648 : 3 = 216, x = 6.",
-   "h": "Teile zuerst durch den Faktor vor x³."
+   "h": "Teile zuerst durch den Faktor vor x³.",
+   "g": "direkt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x³ + 3 = −125."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "((-125 - (3)) / 2) / (-4) ** 2",
+   "w": "2x³ = −128 ⇒ x³ = −64 ⇒ x = −4.",
+   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 5)⁴ = 81.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     -2
+    ]
+   },
+   "w": "x + 5 = ±3, also x₁ = −8, x₂ = −2.",
+   "h": "Gerader Exponent: Die Klammer ist ±⁴√….",
+   "c": [
+    "-5 - 81 / 3 ** 3",
+    "-5 + 81 / 3 ** 3"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2 − 3x³ = 26."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-8 / 4",
+   "w": "−3x³ = 24 ⇒ x³ = −8 ⇒ x = −2.",
+   "h": "Erst 2 abziehen, dann durch −3 teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3(x + 4)³ = −81."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "-4 + (-81 / 3) / (-3) ** 2",
+   "w": "Erst durch 3: (x + 4)³ = −27. Klammer = −3, also x = −7.",
+   "h": "Teile zuerst durch den Faktor, dann löse nach der Klammer auf.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5x⁴ = 80.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "x⁴ = 16 ⇒ x = ±2.",
+   "h": "Erst durch 5 teilen.",
+   "c": [
+    "-2",
+    "2"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3x³ = 24."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(24 / 3) / 2 ** 2",
+   "w": "x³ = 24 : 3 = 8, x = 2.",
+   "h": "Teile zuerst durch den Faktor vor x³.",
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist bei 2x³ + 7 = 61 der erste Schritt?"
+   },
+   "a": [
+    "7 auf beiden Seiten abziehen",
+    "durch 2 teilen",
+    "die dritte Wurzel ziehen",
+    "61 durch 7 teilen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Zuerst muss 2x³ allein stehen: 2x³ = 54. Dann durch 2 teilen, dann die Wurzel.",
+   "h": "Rückwärts rechnen: Was wurde zuletzt gemacht?",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "umformen",
@@ -2395,22 +3521,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 3x³ = 24."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "(24 / 3) / 2 ** 2",
-   "w": "x³ = 24 : 3 = 8, x = 2.",
-   "h": "Teile zuerst durch den Faktor vor x³."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "Löse 4x³ = 256."
    },
    "o": {
@@ -2425,256 +3535,17 @@
    "t": "umformen",
    "p": "uebung",
    "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3x⁴ + 9 = 57.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -2,
-     2
-    ]
-   },
-   "w": "3x⁴ = 48 ⇒ x⁴ = 16 ⇒ x = ±2.",
-   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
-   "c": [
-    "-((57 - (9)) / 3) / 2 ** 3",
-    "((57 - (9)) / 3) / 2 ** 3"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3x⁴ + 6 = 1 881.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -5,
-     5
-    ]
-   },
-   "w": "3x⁴ = 1 875 ⇒ x⁴ = 625 ⇒ x = ±5.",
-   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
-   "c": [
-    "-((1881 - (6)) / 3) / 5 ** 3",
-    "((1881 - (6)) / 3) / 5 ** 3"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 2x³ + 6 = 22."
+    "text": "Löse x³ − 4 = 60."
    },
    "o": {
-    "wert": 2
+    "wert": 4
    },
-   "c": "((22 - (6)) / 2) / (2) ** 2",
-   "w": "2x³ = 16 ⇒ x³ = 8 ⇒ x = 2.",
-   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 4x⁴ − 8 = 56.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -2,
-     2
-    ]
-   },
-   "w": "4x⁴ = 64 ⇒ x⁴ = 16 ⇒ x = ±2.",
-   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
-   "c": [
-    "-((56 - (-8)) / 4) / 2 ** 3",
-    "((56 - (-8)) / 4) / 2 ** 3"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2x⁴ + 1 = 163.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -3,
-     3
-    ]
-   },
-   "w": "2x⁴ = 162 ⇒ x⁴ = 81 ⇒ x = ±3.",
-   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
-   "c": [
-    "-((163 - (1)) / 2) / 3 ** 3",
-    "((163 - (1)) / 2) / 3 ** 3"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2x³ + 3 = −125."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "((-125 - (3)) / 2) / (-4) ** 2",
-   "w": "2x³ = −128 ⇒ x³ = −64 ⇒ x = −4.",
-   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x − 4)³ = 27."
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "4 + (27) / (3) ** 2",
-   "w": "x − 4 = ³√27 = 3, also x = 7.",
-   "h": "Löse zuerst nach der Klammer auf, dann nach x."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 5)⁴ = 81.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -8,
-     -2
-    ]
-   },
-   "w": "x + 5 = ±3, also x₁ = −8, x₂ = −2.",
-   "h": "Gerader Exponent: Die Klammer ist ±⁴√….",
-   "c": [
-    "-5 - 81 / 3 ** 3",
-    "-5 + 81 / 3 ** 3"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x − 1)⁴ = 1.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     2
-    ]
-   },
-   "w": "x − 1 = ±1, also x₁ = 0, x₂ = 2.",
-   "h": "Gerader Exponent: Die Klammer ist ±⁴√….",
-   "c": [
-    "1 - 1 / 1 ** 3",
-    "1 + 1 / 1 ** 3"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x − 3)⁴ = 256.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -1,
-     7
-    ]
-   },
-   "w": "x − 3 = ±4, also x₁ = −1, x₂ = 7.",
-   "h": "Gerader Exponent: Die Klammer ist ±⁴√….",
-   "c": [
-    "3 - 256 / 4 ** 3",
-    "3 + 256 / 4 ** 3"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 1)² = 49.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -8,
-     6
-    ]
-   },
-   "w": "x + 1 = ±7, also x₁ = −8, x₂ = 6.",
-   "h": "Gerader Exponent: Die Klammer ist ±√….",
-   "c": [
-    "-1 - 49 / 7 ** 1",
-    "-1 + 49 / 7 ** 1"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3(x + 4)³ = −81."
-   },
-   "o": {
-    "wert": -7
-   },
-   "c": "-4 + (-81 / 3) / (-3) ** 2",
-   "w": "Erst durch 3: (x + 4)³ = −27. Klammer = −3, also x = −7.",
-   "h": "Teile zuerst durch den Faktor, dann löse nach der Klammer auf."
+   "c": "64 / 16",
+   "w": "x³ = 64 ⇒ x = 4.",
+   "h": "Erst 4 addieren.",
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -2859,6 +3730,301 @@
    "w": "4x⁵ = 128 ⇒ x⁵ = 32 ⇒ x = 2."
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Fünf gleiche Würfel haben zusammen 40 cm³ Volumen. Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "2",
+   "w": "5x³ = 40 ⇒ x³ = 8 ⇒ x = 2 cm.",
+   "h": "Stelle die Gleichung für ein Würfelvolumen x³ auf.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Bei 2x³ + c = 61 ist x = 3 eine Lösung. Wie groß ist c?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "61 - 2 * 27",
+   "w": "2 · 27 + c = 61 ⇒ c = 7.",
+   "h": "Setze die Lösung ein.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x⁴ + 1 = 163.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "2x⁴ = 162 ⇒ x⁴ = 81 ⇒ x = ±3.",
+   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
+   "c": [
+    "-((163 - (1)) / 2) / 3 ** 3",
+    "((163 - (1)) / 2) / 3 ** 3"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 1)⁴ = 1.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     2
+    ]
+   },
+   "w": "x − 1 = ±1, also x₁ = 0, x₂ = 2.",
+   "h": "Gerader Exponent: Die Klammer ist ±⁴√….",
+   "c": [
+    "1 - 1 / 1 ** 3",
+    "1 + 1 / 1 ** 3"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 0,5 · (x − 2)³ + 4 = 0."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "2 + (-2)",
+   "w": "0,5(x − 2)³ = −4 ⇒ (x − 2)³ = −8 ⇒ x − 2 = −2 ⇒ x = 0.",
+   "h": "Rückwärts: erst 4 abziehen, dann mal 2, dann dritte Wurzel.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x² − 5)² = 16.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "der Größe nach"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -1,
+     1,
+     3
+    ]
+   },
+   "w": "x² − 5 = 4 oder x² − 5 = −4. Also x² = 9 (x = ±3) oder x² = 1 (x = ±1): vier Lösungen.",
+   "h": "Die Klammer ist 4 oder −4. Löse dann beide Gleichungen.",
+   "c": [
+    "-3",
+    "-1",
+    "1",
+    "3"
+   ],
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 2x³ + 7 = 61 so: x³ = 61 − 7 − 2 = 52. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Die 2 ist ein Faktor, also teilen: x³ = 27, x = 3.",
+    "Falsch: x³ = 54.",
+    "Falsch: x³ = 68."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2x³ = 54, dann durch 2: x³ = 27. Ein Faktor wird durch Teilen entfernt, nicht durch Abziehen.",
+   "h": "Wie entfernt man einen Faktor?",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a hat a · x⁴ − 32 = 0 die Lösungen −2 und 2?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "32 // 16",
+   "w": "Einsetzen von 2: 16a − 32 = 0 ⇒ a = 2.",
+   "h": "Setze x = 2 ein.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 3)⁴ = 256.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     7
+    ]
+   },
+   "w": "x − 3 = ±4, also x₁ = −1, x₂ = 7.",
+   "h": "Gerader Exponent: Die Klammer ist ±⁴√….",
+   "c": [
+    "3 - 256 / 4 ** 3",
+    "3 + 256 / 4 ** 3"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 1)² = 49.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     6
+    ]
+   },
+   "w": "x + 1 = ±7, also x₁ = −8, x₂ = 6.",
+   "h": "Gerader Exponent: Die Klammer ist ±√….",
+   "c": [
+    "-1 - 49 / 7 ** 1",
+    "-1 + 49 / 7 ** 1"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁵ − 16x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "der Größe nach"
+   },
+   "o": {
+    "werte": [
+     -2,
+     0,
+     2
+    ]
+   },
+   "w": "x(x⁴ − 16) = 0. Also x = 0 oder x⁴ = 16, d. h. x = ±2.",
+   "h": "Klammere x aus. Nicht durch x teilen.",
+   "c": [
+    "-2",
+    "0",
+    "2"
+   ]
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x³ − 7)² = 400. Gib die positive Lösung an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "x³ − 7 = 20 oder x³ − 7 = −20. Also x³ = 27 (x = 3) oder x³ = −13 (x negativ). Positiv: x = 3.",
+   "h": "Welche Zahlen ergeben quadriert 400?",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁴ − 13x² + 36 = 0. Gib die größte Lösung an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Mit u = x²: u² − 13u + 36 = 0 ⇒ (u − 4)(u − 9) = 0. x² = 4 oder x² = 9: Lösungen ±2 und ±3. Größte: 3.",
+   "h": "Gib x² einen eigenen Namen.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁴ = 194. Gib die positive Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 3.73,
+    "toleranz": 0.01
+   },
+   "c": "round(3.732075599071, 2)",
+   "w": "x = ±⁴√194 ≈ ±3,73; positiv: 3,73.",
+   "h": "Gerader Exponent: zwei Lösungen ±ⁿ√c.",
+   "g": "mehrschritt"
+  },
+  {
    "l": "naeherung",
    "t": "naeherung",
    "p": "uebung",
@@ -2873,7 +4039,107 @@
    },
    "c": "round(4.362070671455, 2)",
    "w": "x = ³√83 ≈ 4,36.",
-   "h": "Nutze die Wurzeltaste des Taschenrechners."
+   "h": "Nutze die Wurzeltaste des Taschenrechners.",
+   "g": "direkt"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁴ = 285. Gib die positive Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 4.11,
+    "toleranz": 0.01
+   },
+   "c": "round(4.108764171394, 2)",
+   "w": "x = ±⁴√285 ≈ ±4,11; positiv: 4,11.",
+   "h": "Gerader Exponent: zwei Lösungen ±ⁿ√c.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Eingabe liefert die positive Lösung von x⁴ = 50?"
+   },
+   "a": [
+    "50⁴",
+    "4 · √50",
+    "50 : 4",
+    "⁴√50"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x⁴ = 50 heißt x = ⁴√50 ≈ 2,66 (und −2,66). 50 : 4 = 12,5 wäre viel zu groß.",
+   "h": "Was macht hoch 4 rückgängig?",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = −220. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": -6.04,
+    "toleranz": 0.01
+   },
+   "c": "round(-6.036810736798, 2)",
+   "w": "Ungerader Exponent: x = −³√220 ≈ −6,04.",
+   "h": "Vorzeichen von c beachten.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein würfelförmiger Behälter soll innen genau 50 Liter fassen. Wie lang muss eine Innenkante sein? Gib das Ergebnis in cm auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 36.8,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(36.840314986404, 1)",
+   "w": "50 Liter = 50 dm³. a = ³√50 dm ≈ 3,684 dm ≈ 36,8 cm.",
+   "h": "Erst in dm³ rechnen (1 Liter = 1 dm³), dann in cm umrechnen.",
+   "g": "transfer"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen ganzen Zahlen liegt die positive Lösung von x⁴ = 108?"
+   },
+   "a": [
+    "2 und 3",
+    "3 und 4",
+    "4 und 5",
+    "27 und 28"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "3⁴ = 81 < 108 < 256 = 4⁴.",
+   "h": "Probiere ganze Zahlen hoch 4.",
+   "g": "mehrschritt"
   },
   {
    "l": "naeherung",
@@ -2890,7 +4156,8 @@
    },
    "c": "round(5.241482788418, 2)",
    "w": "x = ³√144 ≈ 5,24.",
-   "h": "Nutze die Wurzeltaste des Taschenrechners."
+   "h": "Nutze die Wurzeltaste des Taschenrechners.",
+   "g": "direkt"
   },
   {
    "l": "naeherung",
@@ -2899,15 +4166,37 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse x³ = 179. Runde auf zwei Nachkommastellen."
+    "text": "Löse x³ = 153. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 5.64,
+    "wert": 5.35,
     "toleranz": 0.01
    },
-   "c": "round(5.635740794544, 2)",
-   "w": "x = ³√179 ≈ 5,64.",
+   "c": "round(5.348481241239, 2)",
+   "w": "x = ³√153 ≈ 5,35.",
    "h": "Nutze die Wurzeltaste des Taschenrechners."
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen ganzen Zahlen liegt ³√76?"
+   },
+   "a": [
+    "4 und 5",
+    "5 und 6",
+    "25 und 26",
+    "3 und 4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "4³ = 64 < 76 < 125 = 5³.",
+   "h": "Probiere ganze Zahlen hoch 3.",
+   "g": "mehrschritt"
   },
   {
    "l": "naeherung",
@@ -2944,114 +4233,43 @@
    "h": "Nutze die Wurzeltaste des Taschenrechners."
   },
   {
+   "y": "auswahl",
+   "f": {
+    "text": "Ist ³√40 eher 3,1 oder 3,4?"
+   },
+   "a": [
+    "genau 3,5",
+    "3,4",
+    "größer als 4",
+    "3,1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "3³ = 27 und 4³ = 64. 40 liegt näher an 27, aber ³√40 ≈ 3,42. 3,1³ ≈ 29,8 wäre zu klein.",
+   "h": "Rechne 3,1³ und 3,4³ grob.",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
    "l": "naeherung",
    "t": "naeherung",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse x³ = 153. Runde auf zwei Nachkommastellen."
+    "text": "Löse x³ = 179. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 5.35,
+    "wert": 5.64,
     "toleranz": 0.01
    },
-   "c": "round(5.348481241239, 2)",
-   "w": "x = ³√153 ≈ 5,35.",
+   "c": "round(5.635740794544, 2)",
+   "w": "x = ³√179 ≈ 5,64.",
    "h": "Nutze die Wurzeltaste des Taschenrechners."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x⁴ = 194. Gib die positive Lösung auf zwei Nachkommastellen an."
-   },
-   "o": {
-    "wert": 3.73,
-    "toleranz": 0.01
-   },
-   "c": "round(3.732075599071, 2)",
-   "w": "x = ±⁴√194 ≈ ±3,73; positiv: 3,73.",
-   "h": "Gerader Exponent: zwei Lösungen ±ⁿ√c."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x³ = −220. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": -6.04,
-    "toleranz": 0.01
-   },
-   "c": "round(-6.036810736798, 2)",
-   "w": "Ungerader Exponent: x = −³√220 ≈ −6,04.",
-   "h": "Vorzeichen von c beachten."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x⁴ = 285. Gib die positive Lösung auf zwei Nachkommastellen an."
-   },
-   "o": {
-    "wert": 4.11,
-    "toleranz": 0.01
-   },
-   "c": "round(4.108764171394, 2)",
-   "w": "x = ±⁴√285 ≈ ±4,11; positiv: 4,11.",
-   "h": "Gerader Exponent: zwei Lösungen ±ⁿ√c."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwischen welchen ganzen Zahlen liegt die positive Lösung von x⁴ = 108?"
-   },
-   "a": [
-    "2 und 3",
-    "3 und 4",
-    "4 und 5",
-    "27 und 28"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "3⁴ = 81 < 108 < 256 = 4⁴.",
-   "h": "Probiere ganze Zahlen hoch 4."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwischen welchen ganzen Zahlen liegt ³√76?"
-   },
-   "a": [
-    "4 und 5",
-    "5 und 6",
-    "25 und 26",
-    "3 und 4"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "4³ = 64 < 76 < 125 = 5³.",
-   "h": "Probiere ganze Zahlen hoch 3."
   },
   {
    "l": "naeherung",
@@ -3068,13 +4286,33 @@
    },
    "c": "round(-4.447960181139, 2)",
    "w": "Ungerader Exponent: x = −³√88 ≈ −4,45.",
-   "h": "Vorzeichen von c beachten."
+   "h": "Vorzeichen von c beachten.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein würfelförmiger Tank soll 2 m³ fassen. Wie lang ist eine Kante, auf ganze cm gerundet?"
+   },
+   "o": {
+    "wert": 126,
+    "einheit": "cm",
+    "toleranz": 1
+   },
+   "c": "round(125.99210498949)",
+   "w": "∛2 ≈ 1,2599 m ≈ 126 cm.",
+   "h": "Erst in m, dann in cm.",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
   },
   {
    "l": "naeherung",
    "t": "naeherung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 4x³ − 7 = 697. Runde auf zwei Nachkommastellen."
@@ -3085,92 +4323,25 @@
    },
    "c": "round(5.604078661311, 2)",
    "w": "4x³ = 704 ⇒ x³ = 176 ⇒ x = ³√176 ≈ 5,60.",
-   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen."
+   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
+   "g": "mehrschritt"
   },
   {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 2x⁵ − 2 = −182. Runde auf zwei Nachkommastellen."
+    "text": "Für welche Zahl c hat x⁴ = c die positive Lösung 1,5?"
    },
    "o": {
-    "wert": -2.46,
-    "toleranz": 0.01
+    "wert": 5.0625
    },
-   "c": "round(-2.459509485849, 2)",
-   "w": "2x⁵ = −180 ⇒ x⁵ = −90 ⇒ x = −⁵√90 ≈ −2,46.",
-   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5x⁵ − 3 = 402. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 2.41,
-    "toleranz": 0.01
-   },
-   "c": "round(2.408224685281, 2)",
-   "w": "5x⁵ = 405 ⇒ x⁵ = 81 ⇒ x = ⁵√81 ≈ 2,41.",
-   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3x⁶ = 378. Gib die negative Lösung auf zwei Nachkommastellen an."
-   },
-   "o": {
-    "wert": -2.24,
-    "toleranz": 0.01
-   },
-   "c": "round(-2.239039511702, 2)",
-   "w": "x⁶ = 126, x = ±⁶√126 ≈ ±2,24; negativ: −2,24.",
-   "h": "Erst durch den Faktor teilen."
-  },
-  {
+   "c": "1.5 ** 4",
+   "w": "c = 1,5⁴ = 2,25 · 2,25 = 5,0625.",
+   "h": "Rechne rückwärts: hoch 4.",
    "l": "naeherung",
    "t": "naeherung",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5x⁶ = 30. Gib die negative Lösung auf zwei Nachkommastellen an."
-   },
-   "o": {
-    "wert": -1.35,
-    "toleranz": 0.01
-   },
-   "c": "round(-1.348006154597, 2)",
-   "w": "x⁶ = 6, x = ±⁶√6 ≈ ±1,35; negativ: −1,35.",
-   "h": "Erst durch den Faktor teilen."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 4x⁶ = 820. Gib die negative Lösung auf zwei Nachkommastellen an."
-   },
-   "o": {
-    "wert": -2.43,
-    "toleranz": 0.01
-   },
-   "c": "round(-2.428243921020, 2)",
-   "w": "x⁶ = 205, x = ±⁶√205 ≈ ±2,43; negativ: −2,43.",
-   "h": "Erst durch den Faktor teilen."
+   "g": "umkehr"
   },
   {
    "l": "naeherung",
@@ -3337,6 +4508,374 @@
    "w": "x = ±⁴√21 ≈ ±2,14; positiv: 2,14."
   },
   {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x⁵ − 2 = −182. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": -2.46,
+    "toleranz": 0.01
+   },
+   "c": "round(-2.459509485849, 2)",
+   "w": "2x⁵ = −180 ⇒ x⁵ = −90 ⇒ x = −⁵√90 ≈ −2,46.",
+   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Volumen eines Würfels wird verdoppelt. Um wie viel Prozent wird dabei seine Kante länger? Runde auf ganze Prozent."
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "%",
+    "toleranz": 1
+   },
+   "c": "round(25.992104989487, 0)",
+   "w": "Neue Kante: ∛2 ≈ 1,26-mal so lang. Das ist ein Zuwachs von etwa 26 % – nicht 100 %.",
+   "h": "Nimm einen Würfel mit Kante 1. Welche Kante hat ein Würfel mit Volumen 2?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5x⁵ − 3 = 402. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 2.41,
+    "toleranz": 0.01
+   },
+   "c": "round(2.408224685281, 2)",
+   "w": "5x⁵ = 405 ⇒ x⁵ = 81 ⇒ x = ⁵√81 ≈ 2,41.",
+   "h": "Erst die Zahl, dann den Faktor auf die andere Seite bringen.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x⁴ = 20 mit dem Taschenrechner: x ≈ 2,11 und sagt: „Das ist die einzige Lösung.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: x ≈ 5.",
+    "Falsch: Auch x ≈ −2,11 ist Lösung.",
+    "Richtig.",
+    "Falsch: Es gibt vier Lösungen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gerader Exponent, c > 0: zwei Lösungen ±⁴√20 ≈ ±2,11.",
+   "h": "Gerader oder ungerader Exponent?",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3x⁶ = 378. Gib die negative Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": -2.24,
+    "toleranz": 0.01
+   },
+   "c": "round(-2.239039511702, 2)",
+   "w": "x⁶ = 126, x = ±⁶√126 ≈ ±2,24; negativ: −2,24.",
+   "h": "Erst durch den Faktor teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: ³√2 liegt näher an 1 als an 2?"
+   },
+   "a": [
+    "Nein, genau in der Mitte.",
+    "Nein, ³√2 ≈ 1,7.",
+    "Das kann man ohne Taschenrechner nicht sagen.",
+    "Ja, denn 1,5³ = 3,375 > 2, also ist ³√2 < 1,5."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Mitte zwischen 1 und 2 ist 1,5. 1,5³ = 3,375 ist schon größer als 2, also liegt ³√2 ≈ 1,26 unter 1,5.",
+   "h": "Prüfe die Mitte 1,5.",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5x⁶ = 30. Gib die negative Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": -1.35,
+    "toleranz": 0.01
+   },
+   "c": "round(-1.348006154597, 2)",
+   "w": "x⁶ = 6, x = ±⁶√6 ≈ ±1,35; negativ: −1,35.",
+   "h": "Erst durch den Faktor teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die positive Lösung von x⁴ = k soll zwischen 2 und 2,1 liegen. Welches ist die kleinste ganze Zahl k, für die das gilt?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "2 ** 4 + 1",
+   "w": "2⁴ = 16 und 2,1⁴ = 19,4481. Also 16 < k < 19,45: k = 17, 18, 19. Kleinste: 17.",
+   "h": "Rechne 2⁴ und 2,1⁴.",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3x⁴ − 5 = 70. Gib die positive Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 2.24,
+    "toleranz": 0.01
+   },
+   "c": "round(2.236067977500, 2)",
+   "w": "3x⁴ = 75 ⇒ x⁴ = 25 ⇒ x = ⁴√25 = √5 ≈ 2,24.",
+   "h": "Erst umformen bis x⁴ = … dasteht.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Die Kante eines Würfels ist auf eine Nachkommastelle gerundet 2,2 cm. Welche ganzzahligen Werte (in cm³) kann sein Volumen haben?",
+    "schablone": "□ oder □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     10,
+     11
+    ]
+   },
+   "c": [
+    "10",
+    "11"
+   ],
+   "w": "Die Kante liegt zwischen 2,15 und 2,25 cm. 2,15³ ≈ 9,94 und 2,25³ ≈ 11,39. Ganze Zahlen dazwischen: 10 und 11.",
+   "h": "Welche Kanten werden auf 2,2 gerundet?",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁵ + 100 = 0. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": -2.51,
+    "toleranz": 0.01
+   },
+   "c": "round(-2.511886431510, 2)",
+   "w": "x⁵ = −100 ⇒ x = −⁵√100 ≈ −2,51.",
+   "h": "Ungerader Exponent: Das Minus bleibt.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "x⁵ = 200. a) Zwischen welchen ganzen Zahlen liegt x? b) Gib x auf eine Nachkommastelle in Zehnteln an (2,9 schreibst du als 29).",
+    "schablone": "a) □ bis □; b) □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     2,
+     3,
+     29
+    ]
+   },
+   "c": [
+    "2",
+    "3",
+    "29"
+   ],
+   "w": "a) 2⁵ = 32 < 200 < 243 = 3⁵. b) ⁵√200 ≈ 2,885 ≈ 2,9.",
+   "h": "a) ohne, b) mit Taschenrechner.",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ = 500. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 7.9,
+    "toleranz": 0.1
+   },
+   "c": "round(7.937005259841, 1)",
+   "w": "x = ³√500 ≈ 7,9. Schätzung: 7³ = 343, 8³ = 512.",
+   "h": "Erst schätzen, dann Taschenrechner.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4x⁶ = 820. Gib die negative Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": -2.43,
+    "toleranz": 0.01
+   },
+   "c": "round(-2.428243921020, 2)",
+   "w": "x⁶ = 205, x = ±⁶√205 ≈ ±2,43; negativ: −2,43.",
+   "h": "Erst durch den Faktor teilen."
+  },
+  {
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁴ = 50. Gib die positive Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 2.66,
+    "toleranz": 0.01
+   },
+   "c": "round(2.659147948472, 2)",
+   "w": "x = ⁴√50 ≈ 2,66.",
+   "h": "Vierte Wurzel mit dem Taschenrechner."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Bakterien werden pro Stunde mit demselben Faktor mehr. Nach 4 Stunden sind es 5-mal so viele. Wie groß ist der Faktor pro Stunde? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.5,
+    "toleranz": 0.01
+   },
+   "c": "round(1.4953487812212, 2)",
+   "w": "q⁴ = 5 ⇒ q = ⁴√5 ≈ 1,495 ≈ 1,50.",
+   "h": "Stelle q⁴ = 5 auf.",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: ⁴√5 oder ³√3?"
+   },
+   "a": [
+    "³√3",
+    "Das kann man nicht entscheiden.",
+    "⁴√5",
+    "Beide sind gleich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beide hoch 12 nehmen: (⁴√5)¹² = 5³ = 125 und (³√3)¹² = 3⁴ = 81. Wegen 125 > 81 ist ⁴√5 größer (≈ 1,495 gegen ≈ 1,442).",
+   "h": "Mit welcher Potenz verschwinden beide Wurzeln?",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Kante eines Würfels wird um 10 % länger. Um wie viel Prozent wächst sein Volumen? Gib eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 33.1,
+    "einheit": "%"
+   },
+   "c": "(1.1 ** 3 - 1) * 100",
+   "w": "Neue Kante 1,1a, neues Volumen 1,1³ · a³ = 1,331 · a³. Das Volumen wächst um 33,1 %, nicht um 30 %.",
+   "h": "Rechne mit dem Faktor 1,1.",
+   "l": "naeherung",
+   "t": "naeherung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Terrasse ist mit 100 quadratischen Platten mit 50 cm Seitenlänge belegt. Wie lang ist eine Seite der Terrasse in m?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m"
+   },
+   "c": "(100 / 10) * 50 / 100",
+   "w": "Platten je Seite: n² = 100 ⇒ n = 10 (nur positiv). Seite: 10 · 0,5 m = 5 m.",
+   "h": "Wie viele Platten liegen an einer Seite? Stelle n² = … auf.",
+   "g": "einkleidung"
+  },
+  {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
@@ -3351,7 +4890,26 @@
    },
    "c": "1331 / 11 ** 2",
    "w": "a³ = 1 331 ⇒ a = ³√1 331 = 11 dm.",
-   "h": "Stelle die Volumenformel des Würfels auf."
+   "h": "Stelle die Volumenformel des Würfels auf.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Terrasse ist mit 225 quadratischen Platten mit 50 cm Seitenlänge belegt. Wie lang ist eine Seite der Terrasse in m?"
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "m"
+   },
+   "c": "(225 / 15) * 50 / 100",
+   "w": "Platten je Seite: n² = 225 ⇒ n = 15 (nur positiv). Seite: 15 · 0,5 m = 7,5 m.",
+   "h": "Wie viele Platten liegen an einer Seite? Stelle n² = … auf.",
+   "g": "einkleidung"
   },
   {
    "l": "sachaufgabe",
@@ -3368,7 +4926,26 @@
    },
    "c": "64 / 4 ** 2",
    "w": "a³ = 64 ⇒ a = ³√64 = 4 dm.",
-   "h": "Stelle die Volumenformel des Würfels auf."
+   "h": "Stelle die Volumenformel des Würfels auf.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kiste hat eine quadratische Grundfläche. Sie ist 3-mal so hoch wie breit und hat 81 cm³ Volumen. Wie breit ist sie?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "(81 / 3) / 3 ** 2",
+   "w": "V = x · x · 3x = 3x³ = 81 ⇒ x³ = 27 ⇒ x = 3 cm.",
+   "h": "Breite x, Höhe 3x. Stelle das Volumen auf.",
+   "g": "einkleidung"
   },
   {
    "l": "sachaufgabe",
@@ -3385,7 +4962,190 @@
    },
    "c": "1728 / 12 ** 2",
    "w": "a³ = 1 728 ⇒ a = ³√1 728 = 12 dm.",
-   "h": "Stelle die Volumenformel des Würfels auf."
+   "h": "Stelle die Volumenformel des Würfels auf.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader (3 cm × 9 cm × 8 cm) wird eingeschmolzen und zu einem Würfel mit gleichem Volumen gegossen. Wie lang ist eine Würfelkante?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "(3 * 9 * 8) / 6 ** 2",
+   "w": "V = 3 · 9 · 8 = 216 cm³. a³ = 216 ⇒ a = 6 cm.",
+   "h": "Das Volumen bleibt gleich.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von 1 000 € auf 1 060,90 €. Wie hoch ist der Zinssatz in Prozent?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "((1.0609) / 1.03 - 1) * 100",
+   "w": "1 000 · q² = 1 060,90 ⇒ q² = 1,0609 ⇒ q = 1,03 (positiv). Zinssatz 3 %.",
+   "h": "Wachstumsfaktor q pro Jahr: Anfangswert · q · q = Endwert.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader (2 cm × 9 cm × 12 cm) wird eingeschmolzen und zu einem Würfel mit gleichem Volumen gegossen. Wie lang ist eine Würfelkante?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "(2 * 9 * 12) / 6 ** 2",
+   "w": "V = 2 · 9 · 12 = 216 cm³. a³ = 216 ⇒ a = 6 cm.",
+   "h": "Das Volumen bleibt gleich.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium hat die Form eines Würfels und fasst 125 Liter. Wie viele cm² Glas braucht man für Boden und vier Seitenwände (ohne Deckel)?"
+   },
+   "o": {
+    "wert": 12500,
+    "einheit": "cm²"
+   },
+   "c": "5 * 50 ** 2",
+   "w": "125 Liter = 125 dm³, Kante ∛125 dm = 5 dm = 50 cm. Eine Fläche: 50 · 50 = 2 500 cm². Fünf Flächen: 12 500 cm².",
+   "h": "Kante bestimmen, dann zählen: Wie viele Quadrate braucht man ohne Deckel?",
+   "g": "transfer"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Holzwürfel hat 512 dm³ Volumen. Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "dm"
+   },
+   "c": "512 / 8 ** 2",
+   "w": "a³ = 512 ⇒ a = ³√512 = 8 dm.",
+   "h": "Stelle die Volumenformel des Würfels auf.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von 4 000 € auf 4 326,40 €. Wie hoch ist der Zinssatz in Prozent?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "((1.0816) / 1.04 - 1) * 100",
+   "w": "4 000 · q² = 4 326,40 ⇒ q² = 1,0816 ⇒ q = 1,04 (positiv). Zinssatz 4 %.",
+   "h": "Wachstumsfaktor q pro Jahr: Anfangswert · q · q = Endwert.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kiste hat eine quadratische Grundfläche. Sie ist 2-mal so hoch wie breit und hat 54 cm³ Volumen. Wie breit ist sie?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "(54 / 2) / 3 ** 2",
+   "w": "V = x · x · 2x = 2x³ = 54 ⇒ x³ = 27 ⇒ x = 3 cm.",
+   "h": "Breite x, Höhe 2x. Stelle das Volumen auf.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Masse einer Metallkugel ist proportional zu r³. Eine Kugel mit 2 cm Radius wiegt 270 g. Welchen Radius hat eine Kugel aus demselben Metall mit 2 160 g?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "2 * 2",
+   "w": "2 160 : 270 = 8. Die Masse ist 8-mal so groß, also r³ 8-mal so groß und r = ∛8 = 2-mal so groß: 4 cm.",
+   "h": "Um welchen Faktor ist die Masse größer? Welcher Faktor beim Radius gehört dazu?",
+   "g": "transfer"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel aus Beton hat 8 dm³ Volumen. Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "dm"
+   },
+   "c": "8 / 2 ** 2",
+   "w": "a³ = 8 ⇒ a = ³√8 = 2 dm.",
+   "h": "Stelle die Volumenformel des Würfels auf.",
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel hat 343 cm³ Volumen. Welche Gleichung gilt für die Kante a?"
+   },
+   "a": [
+    "6a² = 343",
+    "3a = 343",
+    "a² = 343",
+    "a³ = 343"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Volumen eines Würfels: a · a · a = a³.",
+   "h": "Wie berechnet man das Volumen eines Würfels?",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "sachaufgabe",
@@ -3408,236 +5168,19 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Holzwürfel hat 512 dm³ Volumen. Wie lang ist eine Kante?"
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "dm"
-   },
-   "c": "512 / 8 ** 2",
-   "w": "a³ = 512 ⇒ a = ³√512 = 8 dm.",
-   "h": "Stelle die Volumenformel des Würfels auf."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel aus Beton hat 8 dm³ Volumen. Wie lang ist eine Kante?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "dm"
-   },
-   "c": "8 / 2 ** 2",
-   "w": "a³ = 8 ⇒ a = ³√8 = 2 dm.",
-   "h": "Stelle die Volumenformel des Würfels auf."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von 1 000 € auf 1 060,90 €. Wie hoch ist der Zinssatz in Prozent?"
+    "text": "Ein Würfel hat 343 cm³ Volumen. Wie groß ist seine Oberfläche?"
    },
    "o": {
-    "wert": 3
+    "wert": 294,
+    "einheit": "cm²"
    },
-   "c": "((1.0609) / 1.03 - 1) * 100",
-   "w": "1 000 · q² = 1 060,90 ⇒ q² = 1,0609 ⇒ q = 1,03 (positiv). Zinssatz 3 %.",
-   "h": "Wachstumsfaktor q pro Jahr: Anfangswert · q · q = Endwert."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von 4 000 € auf 4 326,40 €. Wie hoch ist der Zinssatz in Prozent?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "((1.0816) / 1.04 - 1) * 100",
-   "w": "4 000 · q² = 4 326,40 ⇒ q² = 1,0816 ⇒ q = 1,04 (positiv). Zinssatz 4 %.",
-   "h": "Wachstumsfaktor q pro Jahr: Anfangswert · q · q = Endwert."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von 20 000 € auf 20 808 €. Wie hoch ist der Zinssatz in Prozent?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "((1.0404) / 1.02 - 1) * 100",
-   "w": "20 000 · q² = 20 808 ⇒ q² = 1,0404 ⇒ q = 1,02 (positiv). Zinssatz 2 %.",
-   "h": "Wachstumsfaktor q pro Jahr: Anfangswert · q · q = Endwert."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Terrasse ist mit 100 quadratischen Platten mit 50 cm Seitenlänge belegt. Wie lang ist eine Seite der Terrasse in m?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "m"
-   },
-   "c": "(100 / 10) * 50 / 100",
-   "w": "Platten je Seite: n² = 100 ⇒ n = 10 (nur positiv). Seite: 10 · 0,5 m = 5 m.",
-   "h": "Wie viele Platten liegen an einer Seite? Stelle n² = … auf."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Terrasse ist mit 225 quadratischen Platten mit 50 cm Seitenlänge belegt. Wie lang ist eine Seite der Terrasse in m?"
-   },
-   "o": {
-    "wert": 7.5,
-    "einheit": "m"
-   },
-   "c": "(225 / 15) * 50 / 100",
-   "w": "Platten je Seite: n² = 225 ⇒ n = 15 (nur positiv). Seite: 15 · 0,5 m = 7,5 m.",
-   "h": "Wie viele Platten liegen an einer Seite? Stelle n² = … auf."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Terrasse ist mit 361 quadratischen Platten mit 40 cm Seitenlänge belegt. Wie lang ist eine Seite der Terrasse in m?"
-   },
-   "o": {
-    "wert": 7.6,
-    "einheit": "m"
-   },
-   "c": "(361 / 19) * 40 / 100",
-   "w": "Platten je Seite: n² = 361 ⇒ n = 19 (nur positiv). Seite: 19 · 0,4 m = 7,6 m.",
-   "h": "Wie viele Platten liegen an einer Seite? Stelle n² = … auf."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kiste hat eine quadratische Grundfläche. Sie ist 3-mal so hoch wie breit und hat 81 cm³ Volumen. Wie breit ist sie?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "(81 / 3) / 3 ** 2",
-   "w": "V = x · x · 3x = 3x³ = 81 ⇒ x³ = 27 ⇒ x = 3 cm.",
-   "h": "Breite x, Höhe 3x. Stelle das Volumen auf."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader (3 cm × 9 cm × 8 cm) wird eingeschmolzen und zu einem Würfel mit gleichem Volumen gegossen. Wie lang ist eine Würfelkante?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "(3 * 9 * 8) / 6 ** 2",
-   "w": "V = 3 · 9 · 8 = 216 cm³. a³ = 216 ⇒ a = 6 cm.",
-   "h": "Das Volumen bleibt gleich."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader (2 cm × 9 cm × 12 cm) wird eingeschmolzen und zu einem Würfel mit gleichem Volumen gegossen. Wie lang ist eine Würfelkante?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "(2 * 9 * 12) / 6 ** 2",
-   "w": "V = 2 · 9 · 12 = 216 cm³. a³ = 216 ⇒ a = 6 cm.",
-   "h": "Das Volumen bleibt gleich."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kiste hat eine quadratische Grundfläche. Sie ist 2-mal so hoch wie breit und hat 54 cm³ Volumen. Wie breit ist sie?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "(54 / 2) / 3 ** 2",
-   "w": "V = x · x · 2x = 2x³ = 54 ⇒ x³ = 27 ⇒ x = 3 cm.",
-   "h": "Breite x, Höhe 2x. Stelle das Volumen auf."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kiste hat eine quadratische Grundfläche. Sie ist 2-mal so hoch wie breit und hat 128 cm³ Volumen. Wie breit ist sie?"
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "cm"
-   },
-   "c": "(128 / 2) / 4 ** 2",
-   "w": "V = x · x · 2x = 2x³ = 128 ⇒ x³ = 64 ⇒ x = 4 cm.",
-   "h": "Breite x, Höhe 2x. Stelle das Volumen auf."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader (2 cm × 2 cm × 16 cm) wird eingeschmolzen und zu einem Würfel mit gleichem Volumen gegossen. Wie lang ist eine Würfelkante?"
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "cm"
-   },
-   "c": "(2 * 2 * 16) / 4 ** 2",
-   "w": "V = 2 · 2 · 16 = 64 cm³. a³ = 64 ⇒ a = 4 cm.",
-   "h": "Das Volumen bleibt gleich."
+   "c": "6 * 7 ** 2",
+   "w": "a = ³√343 = 7 cm. O = 6 · 7² = 294 cm².",
+   "h": "Erst die Kante, dann sechs Quadrate.",
+   "g": "mehrschritt"
   },
   {
    "l": "sachaufgabe",
@@ -3793,657 +5336,90 @@
    "w": "10 000 · q² = 12 100 ⇒ q² = 1,21 ⇒ q = 1,1 (positiv). Zinssatz 10 %."
   },
   {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Graphen von y = x⁴ und y = 16 schneiden sich in zwei Punkten. Gib die x-Koordinaten an.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -2,
-     2
-    ]
-   },
-   "w": "Gleichsetzen: x⁴ = 16, also x = 2 oder x = −2. Die Schnittpunkte sind (−2 | 16) und (2 | 16).",
-   "h": "Setze die beiden Terme gleich. Denke an beide Vorzeichen.",
-   "c": [
-    "-2",
-    "2"
-   ]
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2x⁴ − 30 = 132.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -3,
-     3
-    ]
-   },
-   "w": "2x⁴ = 162 ⇒ x⁴ = 81 ⇒ x = ±3.",
-   "h": "Erst 30 addieren, dann durch 2 teilen.",
-   "c": [
-    "-3",
-    "3"
-   ]
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Lösungen hat die Gleichung x⁴ = x²?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "1 + 2",
-   "w": "x⁴ − x² = 0 ⇔ x²(x² − 1) = 0. Also x = 0 oder x² = 1, d. h. x = 1 oder x = −1: drei Lösungen. Falle: Durch x² teilen verliert die 0.",
-   "h": "Nicht durch x² teilen! Bringe alles auf eine Seite und klammere aus."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösungsmenge hat x⁶ = 0,000064?"
-   },
-   "a": [
-    "L = {−0,02; 0,02}",
-    "L = {0,2}",
-    "L = { }",
-    "L = {−0,2; 0,2}"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "0,2⁶ = 0,000064 (2⁶ = 64, sechs Nachkommastellen). Gerader Exponent: auch −0,2 ist Lösung.",
-   "h": "Denke an 2⁶ = 64 und zähle die Nachkommastellen."
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ = 10 000.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -10,
-     10
-    ]
-   },
-   "w": "x = ±⁴√10 000 = ±10, denn 10⁴ = 10 000.",
-   "h": "Zähle die Nullen.",
-   "c": [
-    "-10",
-    "10"
-   ]
-  },
-  {
-   "l": "gerade",
-   "t": "gerade",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösungsmenge hat x⁴ + 1 = 0?"
-   },
-   "a": [
-    "L = {−1}",
-    "L = { }",
-    "L = {−1; 1}",
-    "L = {1}"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "x⁴ = −1, aber x⁴ ist nie negativ: keine Lösung.",
-   "h": "Stelle x⁴ allein. Kann eine gerade Potenz negativ sein?"
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Graphen von y = x³ und y = −27 schneiden sich in genau einem Punkt. Welche x-Koordinate hat er?"
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "-27 / 9",
-   "w": "x³ = −27 ⇒ x = −3, denn (−3)³ = −27. Ungerader Exponent: genau ein Schnittpunkt (−3 | −27).",
-   "h": "Setze gleich und denke daran, dass ein Minus bei ungeradem Exponenten bleibt."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 4x³ + 32 = 0."
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "-8 / 4",
-   "w": "4x³ = −32 ⇒ x³ = −8 ⇒ x = −2.",
-   "h": "Erst 32 abziehen, dann durch 4 teilen."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für welche Zahl a hat die Gleichung x⁵ = a die Lösung x = −0,1?"
-   },
-   "o": {
-    "wert": -1e-05
-   },
-   "c": "(-0.1) ** 5",
-   "w": "Einsetzen: a = (−0,1)⁵ = −0,00001 (ungerader Exponent, Minus bleibt; fünf Nachkommastellen).",
-   "h": "Rückwärts: Setze x = −0,1 ein."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (2x − 1)³ = 125."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "(5 + 1) / 2",
-   "w": "2x − 1 = ³√125 = 5 ⇒ 2x = 6 ⇒ x = 3.",
-   "h": "Erst die dritte Wurzel aus 125, dann die lineare Gleichung lösen."
-  },
-  {
-   "l": "ungerade",
-   "t": "ungerade",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
    "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x³ = −1 000."
+    "text": "Ein quadratisches Feld hat 2,25 ha Fläche (1 ha = 10 000 m²). Wie lang ist eine Seite?"
    },
    "o": {
-    "wert": -10
+    "wert": 150,
+    "einheit": "m"
    },
-   "c": "-1000 / 100",
-   "w": "x = −10, denn (−10)³ = −1 000.",
-   "h": "Ungerader Exponent: genau eine Lösung, hier negativ."
+   "c": "22500 / 150",
+   "w": "2,25 ha = 22 500 m². a = √22 500 m = 150 m.",
+   "h": "Erst in m² umrechnen.",
+   "g": "einkleidung"
   },
   {
-   "l": "ungerade",
-   "t": "ungerade",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital von 2 000 € wird 2 Jahre mit 5 % Zinseszins angelegt. Wie groß ist es danach?"
+   },
+   "o": {
+    "wert": 2205,
+    "einheit": "€"
+   },
+   "c": "2000 * 1.05 ** 2",
+   "w": "2 000 · 1,05² = 2 000 · 1,1025 = 2 205 €.",
+   "h": "Jedes Jahr mal 1,05.",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x⁷ = −1."
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "(-1) ** 7",
-   "w": "x = −1, denn (−1)⁷ = −1 (ungerade viele Minus).",
-   "h": "Welche Zahl hoch 7 ergibt −1?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Abbildung zeigt den Graphen von y = x⁴ und die Linie y = 3. Was folgt daraus für die Gleichung x⁴ = 3?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -2,
-      2
-     ],
-     "y": [
-      -1,
-      5
-     ],
-     "graphen": [
-      {
-       "art": "potenz",
-       "a": 1,
-       "n": 4,
-       "name": "y = x⁴"
-      }
-     ],
-     "waagrecht": [
-      3
-     ]
-    }
-   },
-   "a": [
-    "Sie hat zwei Lösungen, eine positive und eine negative.",
-    "Sie hat keine Lösung, weil 3 keine vierte Potenz einer ganzen Zahl ist.",
-    "Sie hat vier Lösungen, weil der Exponent 4 ist.",
-    "Sie hat genau eine Lösung."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Linie y = 3 schneidet den Graphen zweimal, symmetrisch zur y-Achse: x = ±⁴√3 ≈ ±1,32.",
-   "h": "Zähle die Schnittpunkte der Linie mit dem Graphen."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Abbildung zeigt den Graphen von y = x³ und die Linie y = −2. Was folgt daraus für die Gleichung x³ = −2?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -2,
-      2
-     ],
-     "y": [
-      -4,
-      4
-     ],
-     "graphen": [
-      {
-       "art": "potenz",
-       "a": 1,
-       "n": 3,
-       "name": "y = x³"
-      }
-     ],
-     "waagrecht": [
-      -2
-     ]
-    }
-   },
-   "a": [
-    "Sie hat keine Lösung.",
-    "Sie hat zwei Lösungen.",
-    "Sie hat genau eine Lösung, und die ist negativ.",
-    "Sie hat genau eine Lösung, und die ist positiv."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Linie y = −2 schneidet den Graphen genau einmal, links von der y-Achse: x = −³√2 ≈ −1,26.",
-   "h": "Zähle die Schnittpunkte und schau, auf welcher Seite der y-Achse sie liegen."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für wie viele ganze Zahlen c von −5 bis 5 hat die Gleichung x⁴ = c genau zwei Lösungen?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5 - 1 + 1",
-   "w": "Zwei Lösungen gibt es nur für c > 0, also für c = 1, 2, 3, 4, 5: fünf Zahlen. (c = 0: eine Lösung, c < 0: keine.)",
-   "h": "Überlege getrennt für c > 0, c = 0 und c < 0."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat die Gleichung x³ = x?"
-   },
-   "a": [
-    "keine",
-    "eine",
-    "zwei",
-    "drei"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "x³ − x = 0 ⇔ x(x² − 1) = 0: x = 0, x = 1, x = −1.",
-   "h": "Nicht durch x teilen – ausklammern."
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x¹⁰ = 0?"
-   },
-   "a": [
-    "zwei Lösungen",
-    "genau eine Lösung",
-    "keine Lösung"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Nur 0 hoch 10 ergibt 0, also genau eine Lösung x = 0.",
-   "h": "Welche Zahl hoch 10 ergibt 0?"
-  },
-  {
-   "l": "anzahl",
-   "t": "anzahl",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x⁷ = −5?"
-   },
-   "a": [
-    "genau eine Lösung",
-    "keine Lösung",
-    "zwei Lösungen"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Ungerader Exponent: immer genau eine Lösung, hier x = −⁷√5.",
-   "h": "Ist der Exponent gerade oder ungerade?"
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁵ − 16x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "der Größe nach"
-   },
-   "o": {
-    "werte": [
-     -2,
-     0,
-     2
-    ]
-   },
-   "w": "x(x⁴ − 16) = 0. Also x = 0 oder x⁴ = 16, d. h. x = ±2.",
-   "h": "Klammere x aus. Nicht durch x teilen.",
-   "c": [
-    "-2",
-    "0",
-    "2"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 0,5 · (x − 2)³ + 4 = 0."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "2 + (-2)",
-   "w": "0,5(x − 2)³ = −4 ⇒ (x − 2)³ = −8 ⇒ x − 2 = −2 ⇒ x = 0.",
-   "h": "Rückwärts: erst 4 abziehen, dann mal 2, dann dritte Wurzel."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x² − 5)² = 16.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "der Größe nach"
-   },
-   "o": {
-    "werte": [
-     -3,
-     -1,
-     1,
-     3
-    ]
-   },
-   "w": "x² − 5 = 4 oder x² − 5 = −4. Also x² = 9 (x = ±3) oder x² = 1 (x = ±1): vier Lösungen.",
-   "h": "Die Klammer ist 4 oder −4. Löse dann beide Gleichungen.",
-   "c": [
-    "-3",
-    "-1",
-    "1",
-    "3"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2 − 3x³ = 26."
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "-8 / 4",
-   "w": "−3x³ = 24 ⇒ x³ = −8 ⇒ x = −2.",
-   "h": "Erst 2 abziehen, dann durch −3 teilen."
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 5x⁴ = 80.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -2,
-     2
-    ]
-   },
-   "w": "x⁴ = 16 ⇒ x = ±2.",
-   "h": "Erst durch 5 teilen.",
-   "c": [
-    "-2",
-    "2"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x³ − 4 = 60."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "64 / 16",
-   "w": "x³ = 64 ⇒ x = 4.",
-   "h": "Erst 4 addieren."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein würfelförmiger Behälter soll innen genau 50 Liter fassen. Wie lang muss eine Innenkante sein? Gib das Ergebnis in cm auf eine Nachkommastelle an."
-   },
-   "o": {
-    "wert": 36.8,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(36.840314986404, 1)",
-   "w": "50 Liter = 50 dm³. a = ³√50 dm ≈ 3,684 dm ≈ 36,8 cm.",
-   "h": "Erst in dm³ rechnen (1 Liter = 1 dm³), dann in cm umrechnen."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3x⁴ − 5 = 70. Gib die positive Lösung auf zwei Nachkommastellen an."
-   },
-   "o": {
-    "wert": 2.24,
-    "toleranz": 0.01
-   },
-   "c": "round(2.236067977500, 2)",
-   "w": "3x⁴ = 75 ⇒ x⁴ = 25 ⇒ x = ⁴√25 = √5 ≈ 2,24.",
-   "h": "Erst umformen bis x⁴ = … dasteht."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Volumen eines Würfels wird verdoppelt. Um wie viel Prozent wird dabei seine Kante länger? Runde auf ganze Prozent."
-   },
-   "o": {
-    "wert": 26,
-    "einheit": "%",
-    "toleranz": 1
-   },
-   "c": "round(25.992104989487, 0)",
-   "w": "Neue Kante: ∛2 ≈ 1,26-mal so lang. Das ist ein Zuwachs von etwa 26 % – nicht 100 %.",
-   "h": "Nimm einen Würfel mit Kante 1. Welche Kante hat ein Würfel mit Volumen 2?"
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x⁵ + 100 = 0. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": -2.51,
-    "toleranz": 0.01
-   },
-   "c": "round(-2.511886431510, 2)",
-   "w": "x⁵ = −100 ⇒ x = −⁵√100 ≈ −2,51.",
-   "h": "Ungerader Exponent: Das Minus bleibt."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x³ = 500. Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 7.9,
-    "toleranz": 0.1
-   },
-   "c": "round(7.937005259841, 1)",
-   "w": "x = ³√500 ≈ 7,9. Schätzung: 7³ = 343, 8³ = 512.",
-   "h": "Erst schätzen, dann Taschenrechner."
-  },
-  {
-   "l": "naeherung",
-   "t": "naeherung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x⁴ = 50. Gib die positive Lösung auf zwei Nachkommastellen an."
-   },
-   "o": {
-    "wert": 2.66,
-    "toleranz": 0.01
-   },
-   "c": "round(2.659147948472, 2)",
-   "w": "x = ⁴√50 ≈ 2,66.",
-   "h": "Vierte Wurzel mit dem Taschenrechner."
+   "g": "umkehr"
   },
   {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Aquarium hat die Form eines Würfels und fasst 125 Liter. Wie viele cm² Glas braucht man für Boden und vier Seitenwände (ohne Deckel)?"
+    "text": "Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von 20 000 € auf 20 808 €. Wie hoch ist der Zinssatz in Prozent?"
    },
    "o": {
-    "wert": 12500,
-    "einheit": "cm²"
+    "wert": 2
    },
-   "c": "5 * 50 ** 2",
-   "w": "125 Liter = 125 dm³, Kante ∛125 dm = 5 dm = 50 cm. Eine Fläche: 50 · 50 = 2 500 cm². Fünf Flächen: 12 500 cm².",
-   "h": "Kante bestimmen, dann zählen: Wie viele Quadrate braucht man ohne Deckel?"
+   "c": "((1.0404) / 1.02 - 1) * 100",
+   "w": "20 000 · q² = 20 808 ⇒ q² = 1,0404 ⇒ q = 1,02 (positiv). Zinssatz 2 %.",
+   "h": "Wachstumsfaktor q pro Jahr: Anfangswert · q · q = Endwert."
   },
   {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Masse einer Metallkugel ist proportional zu r³. Eine Kugel mit 2 cm Radius wiegt 270 g. Welchen Radius hat eine Kugel aus demselben Metall mit 2 160 g?"
+    "text": "Eine quadratische Terrasse ist mit 361 quadratischen Platten mit 40 cm Seitenlänge belegt. Wie lang ist eine Seite der Terrasse in m?"
+   },
+   "o": {
+    "wert": 7.6,
+    "einheit": "m"
+   },
+   "c": "(361 / 19) * 40 / 100",
+   "w": "Platten je Seite: n² = 361 ⇒ n = 19 (nur positiv). Seite: 19 · 0,4 m = 7,6 m.",
+   "h": "Wie viele Platten liegen an einer Seite? Stelle n² = … auf."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader (2 cm × 2 cm × 16 cm) wird eingeschmolzen und zu einem Würfel mit gleichem Volumen gegossen. Wie lang ist eine Würfelkante?"
    },
    "o": {
     "wert": 4,
     "einheit": "cm"
    },
-   "c": "2 * 2",
-   "w": "2 160 : 270 = 8. Die Masse ist 8-mal so groß, also r³ 8-mal so groß und r = ∛8 = 2-mal so groß: 4 cm.",
-   "h": "Um welchen Faktor ist die Masse größer? Welcher Faktor beim Radius gehört dazu?"
+   "c": "(2 * 2 * 16) / 4 ** 2",
+   "w": "V = 2 · 2 · 16 = 64 cm³. a³ = 64 ⇒ a = 4 cm.",
+   "h": "Das Volumen bleibt gleich."
   },
   {
    "l": "sachaufgabe",
@@ -4460,7 +5436,8 @@
    },
    "c": "(-1 + 9) / 2",
    "w": "(a + 1)³ − a³ = 3a² + 3a + 1 = 61 ⇔ a² + a − 20 = 0 ⇔ a = 4 (oder −5, passt nicht). Probe: 5³ − 4³ = 125 − 64 = 61.",
-   "h": "Probieren geht auch: Vergleiche 2³ und 3³, 3³ und 4³, …"
+   "h": "Probieren geht auch: Vergleiche 2³ und 3³, 3³ und 4³, …",
+   "g": "verknuepfen"
   },
   {
    "l": "sachaufgabe",
@@ -4477,41 +5454,148 @@
    },
    "c": "2 * 10",
    "w": "Breite x (in dm): x · 2x · x = 2x³ = 16 ⇒ x³ = 8 ⇒ x = 2 dm = 20 cm.",
-   "h": "Rechne in dm (1 Liter = 1 dm³)."
+   "h": "Rechne in dm (1 Liter = 1 dm³).",
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet die Kante eines Würfels mit 27 dm³ Volumen als 27 : 3 = 9 dm. Was stimmt?"
+   },
+   "a": [
+    "Falsch: a = √27 dm.",
+    "Falsch: a³ = 27 ⇒ a = 3 dm.",
+    "Richtig.",
+    "Falsch: a = 27 : 6 = 4,5 dm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Kante hoch 3 ergibt das Volumen: 3 · 3 · 3 = 27. 9 · 9 · 9 = 729.",
+   "h": "Mach die Probe mit a³.",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Kann ein Würfel mit ganzzahliger Kante (in cm) genau 100 cm³ Volumen haben?"
+   },
+   "a": [
+    "Ja, mit 5 cm Kante.",
+    "Nein, 4³ = 64 und 5³ = 125; 100 ist keine Kubikzahl.",
+    "Ja, mit 10 cm Kante.",
+    "Ja, mit 4 cm Kante."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Kubikzahlen in der Nähe: 64 und 125. Dazwischen gibt es keine ganzzahlige Kante.",
+   "h": "Rechne 4³ und 5³.",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat die Kanten a, 2a und 4a. Für welches a ist sein Volumen 64 cm³?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "2",
+   "w": "V = a · 2a · 4a = 8a³ = 64 ⇒ a³ = 8 ⇒ a = 2 cm.",
+   "h": "Multipliziere die drei Kanten.",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein würfelförmiger Wassertank fasst 1 000 Liter. a) Wie lang ist eine Innenkante in cm? b) Wie viele Liter fasst ein Tank mit doppelt so langer Kante?",
+    "schablone": "a) □ cm; b) □ Liter",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     100,
+     8000
+    ]
+   },
+   "c": [
+    "10 * 10",
+    "1000 * 2 ** 3"
+   ],
+   "w": "a) 1 000 Liter = 1 000 dm³, Kante 10 dm = 100 cm. b) Doppelte Kante: Volumen mal 8 = 8 000 Liter.",
+   "h": "1 Liter = 1 dm³.",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
   },
   {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel hat 343 cm³ Volumen. Wie groß ist seine Oberfläche?"
+    "text": "Eine Kiste hat eine quadratische Grundfläche. Sie ist 2-mal so hoch wie breit und hat 128 cm³ Volumen. Wie breit ist sie?"
    },
    "o": {
-    "wert": 294,
-    "einheit": "cm²"
+    "wert": 4,
+    "einheit": "cm"
    },
-   "c": "6 * 7 ** 2",
-   "w": "a = ³√343 = 7 cm. O = 6 · 7² = 294 cm².",
-   "h": "Erst die Kante, dann sechs Quadrate."
+   "c": "(128 / 2) / 4 ** 2",
+   "w": "V = x · x · 2x = 2x³ = 128 ⇒ x³ = 64 ⇒ x = 4 cm.",
+   "h": "Breite x, Höhe 2x. Stelle das Volumen auf."
   },
   {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratisches Feld hat 2,25 ha Fläche (1 ha = 10 000 m²). Wie lang ist eine Seite?"
+    "text": "Ein Würfel wird in 64 gleich große kleine Würfel zersägt. Um wie viel Prozent ist die Oberfläche aller kleinen Würfel zusammen größer als die des großen?"
    },
    "o": {
-    "wert": 150,
-    "einheit": "m"
+    "wert": 300,
+    "einheit": "%"
    },
-   "c": "22500 / 150",
-   "w": "2,25 ha = 22 500 m². a = √22 500 m = 150 m.",
-   "h": "Erst in m² umrechnen."
+   "c": "(64 * 6 / 16 / 6 - 1) * 100",
+   "w": "Kante a; kleine Kante a/4 (4 · 4 · 4 = 64). Eine kleine Oberfläche: 6 · (a/4)² = 6a²/16. Alle 64: 64 · 6a²/16 = 4 · 6a². Das ist 4-mal so viel, also 300 % mehr.",
+   "h": "Wie lang ist die Kante eines kleinen Würfels?",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Drei Würfel mit 3 cm, 4 cm und 5 cm Kante werden eingeschmolzen und zu einem einzigen Würfel gegossen. Wie lang ist seine Kante?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "6",
+   "w": "Volumen: 27 + 64 + 125 = 216 cm³. ∛216 = 6 cm. (Eine schöne Eigenschaft: 3³ + 4³ + 5³ = 6³.)",
+   "h": "Addiere die Volumen, nicht die Kanten.",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   }
  ],
  "offen": [

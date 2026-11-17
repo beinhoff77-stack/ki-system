@@ -845,3 +845,224 @@ DS_KARTEN = {
 
 if __name__ == '__main__':
     durchsicht('zahlen.reell', DS, DS_KARTEN)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('zahlen.reell', 20_9_2)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# zahlarten
+ST.stufenleiter('zahlarten', 'Eine einzelne Wurzel als rational oder irrational einordnen.',
+                'Aus einer Liste die irrationale Zahl wählen, periodische Dezimalzahlen und negative Wurzeln einordnen.',
+                'Aussagen über Zahlenmengen prüfen, Fehler bei periodischen Zahlen finden, zählen, wie viele Wurzeln rational sind, Produkte von Wurzeln einordnen.')
+ST.typ('zahlarten', 'Ist √2 · √8', 'verknuepfen')
+ST.typ('zahlarten', '/^(Zu welcher kleinsten Zahlenmenge gehört √|Ist √)/', 'erkennen')
+ST.typ('zahlarten', 'Welche Zahl ist irrational?', 'erkennen', s=1)
+ST.typ('zahlarten', 'Welche Zahl ist irrational?', 'mehrschritt', s=2)
+ST.typ('zahlarten', 'Welche Zahl ist irrational?', 'verknuepfen', s=3)
+ST.typ('zahlarten', '/^(Welche der Zahlen ist irrational|Zu welcher kleinsten Zahlenmenge gehört −)/', 'mehrschritt')
+ST.typ('zahlarten', 'Ist 0,7', 'darstellung')
+ST.typ('zahlarten', '/^(Ist 0,6|Welche Aussage)/', 'begruenden')
+ST.typ('zahlarten', 'Jemand sagt', 'fehler')
+ST.typ('zahlarten', 'Welche der Zahlen ist rational', 'verknuepfen')
+ST.typ('zahlarten', 'Wie viele der 50 Zahlen', 'transfer')
+ST.neu('zahlarten', 'direkt', L('Schreibe √0,25 als gekürzten Bruch.', '□/□', [1, 2], ['1', '2'],
+       '√0,25 = 0,5 = 1/2. Weil sich die Wurzel als Bruch schreiben lässt, ist sie rational.', 'Erst die Wurzel als Dezimalzahl, dann als Bruch.'))
+ST.neu('zahlarten', 'einkleidung', A('Ein quadratisches Beet hat 20 m² Fläche. Was gilt für seine Seitenlänge in Metern?', 'Sie ist irrational.', ['Sie ist rational, denn 20 ist eine natürliche Zahl.', 'Sie ist genau 4,5.', 'Sie ist genau 5.'],
+       'Seite = √20. 20 liegt zwischen den Quadratzahlen 16 und 25, ist also keine Quadratzahl. √20 ≈ 4,47… ist irrational.', 'Ist 20 eine Quadratzahl?'))
+ST.neu('zahlarten', 'umkehr', Z('Für welche natürliche Zahl n zwischen 40 und 50 ist √n rational?', 49, '7 ** 2',
+       'Rational ist √n bei natürlichem n nur, wenn n eine Quadratzahl ist. Zwischen 40 und 50 liegt nur 49 = 7².', 'Welche Quadratzahl liegt zwischen 40 und 50?'))
+ST.knobel('zahlarten', A('Kann die Summe von zwei irrationalen Zahlen rational sein?', 'Ja, zum Beispiel (5 + √2) + (5 − √2) = 10.',
+          ['Nein, irrational plus irrational ist immer irrational.', 'Nur wenn beide Zahlen gleich sind.', 'Nein, außer eine der Zahlen ist 0.'],
+          '5 + √2 und 5 − √2 sind beide irrational (√2 geht nie glatt auf). Addiert heben sich +√2 und −√2 auf: Es bleibt 10, eine rationale Zahl. Also kann die Summe rational sein.',
+          'Probiere zwei Zahlen, in denen dieselbe Wurzel einmal mit Plus und einmal mit Minus steht.'))
+ST.knobel('zahlarten', L('Die Zahl x = 0,121212… (der Block 12 wiederholt sich immer) ist rational. Schreibe sie als gekürzten Bruch.', '□/□', [4, 33], ['4', '33'],
+          'Rechne 100 · x = 12,121212… Davon x = 0,121212… abziehen: 99 · x = 12. Also x = 12/99 = 4/33. Probe: 4 : 33 = 0,1212…',
+          'Was passiert, wenn du x mit 100 malnimmst und dann x abziehst?'))
+
+# eingrenzen
+ST.stufenleiter('eingrenzen', 'Zehntel quadrieren und eine Wurzel auf Zehntel genau eingrenzen.',
+                'Auf Hundertstel eingrenzen, Wurzel mit Dezimalzahl vergleichen, rückwärts passende Zahlen n finden.',
+                'Zahlen zwischen zwei Wurzeln finden, Sachfragen mit Mindestmaß, Fehler „1,4 ist √2“, Bedingungen für eine Ziffer, mehrteilige Aufgabe.')
+ST.typ('eingrenzen', 'Berechne', 'direkt')
+ST.typ('eingrenzen', '/^(Zwischen welchen Zahlen mit|Welche Zahl ist größer)/', 'mehrschritt', s=2)
+ST.typ('eingrenzen', 'Zwischen welchen Zahlen mit einer Nachkommastelle liegt √0,9', 'verknuepfen')
+ST.typ('eingrenzen', '/^(Welche Zahl liegt zwischen|Wie viele ganze Zahlen)/', 'verknuepfen')
+ST.typ('eingrenzen', '/^(Ein quadratischer Tisch|Ein Stein fällt)/', 'transfer')
+ST.neu('eingrenzen', 'erkennen', A('Welche Rechnung zeigt, dass √30 größer als 5,4 ist?', '5,4² = 29,16 < 30', ['5,4 · 2 = 10,8 < 30', '30 : 5,4 ≈ 5,6', '5,4 + 5,4 = 10,8'],
+       'Eine Zahl ist kleiner als √30, wenn ihr Quadrat kleiner als 30 ist. 5,4² = 29,16 < 30.', 'Vergleiche Quadrate.'))
+ST.neu('eingrenzen', 'direkt', A('Es gilt 4,5² = 20,25. Was folgt daraus für √20?', '√20 ist kleiner als 4,5.', ['√20 ist größer als 4,5.', '√20 = 4,5.', 'Daraus folgt nichts.'],
+       '20 < 20,25 = 4,5². Also ist √20 < 4,5.', 'Liegt 20 über oder unter 20,25?'))
+ST.neu('eingrenzen', 'einkleidung', Z('Ein quadratischer Teppich soll höchstens 7 m² groß sein. Seine Seite soll ganze Dezimeter lang sein. Wie viele dm darf sie höchstens haben?', 26, '26',
+       '2,6² = 6,76 ≤ 7, aber 2,7² = 7,29 > 7. Also höchstens 2,6 m = 26 dm.', 'Grenze √7 auf Zehntel ein.', einheit='dm'))
+ST.neu('eingrenzen', 'umkehr', Z('Für welche natürliche Zahl n gilt 7,1 < √n < 7,2?', 51, '51',
+       '7,1² = 50,41 und 7,2² = 51,84. Gesucht ist n mit 50,41 < n < 51,84: nur n = 51.', 'Quadriere die Grenzen.'))
+ST.neu('eingrenzen', 'fehler', A('Jemand sagt: „1,4² = 1,96, also ist √2 = 1,4.“ Was stimmt?', 'Falsch: 1,96 ist nicht 2, also ist 1,4 nur eine Näherung (√2 liegt zwischen 1,41 und 1,42).',
+       ['Richtig.', 'Falsch: √2 = 1,5.', 'Falsch: √2 = 1,96.'], '1,4² = 1,96 < 2 < 2,25 = 1,5². Genauer: 1,41² = 1,9881 und 1,42² = 2,0164. √2 ist irrational und hat keinen genauen Dezimalwert.',
+       'Ist 1,96 genau 2?'))
+ST.neu('eingrenzen', 'parameter', Z('Die zweistellige Zahl mit der Zehnerziffer z und der Einerziffer 0 heißt „z0“. Für welche Ziffer z liegt √(z0) zwischen 7 und 7,5?', 5, '50 // 10',
+       '7² = 49 und 7,5² = 56,25. Die Zahl z0 muss zwischen 49 und 56,25 liegen. Von 10, 20, …, 90 passt nur 50, also z = 5.', 'Quadriere 7 und 7,5.'))
+ST.neu('eingrenzen', 'pruefung', L('a) Zwischen welchen aufeinanderfolgenden ganzen Zahlen liegt √75? b) Grenze √75 auf Zehntel ein und gib die Grenzen in Zehnteln an (z. B. 8,1 als 81).',
+       'a) □ bis □; b) □ bis □ Zehntel', [8, 9, 86, 87], ['8', '9', '86', '87'],
+       'a) 64 < 75 < 81, also 8 < √75 < 9. b) 8,6² = 73,96 < 75 < 75,69 = 8,7², also 8,6 < √75 < 8,7.', 'In b) probiere 8,6 und 8,7.'))
+ST.knobel('eingrenzen', Z('Die Wurzel aus einer natürlichen Zahl beginnt mit 3,1… Welche Zahl ist es?', 10, '10',
+          '√n beginnt mit 3,1 heißt 3,1 ≤ √n < 3,2, also 3,1² = 9,61 ≤ n < 10,24 = 3,2². Die einzige natürliche Zahl dazwischen ist 10. Probe: √10 ≈ 3,16.',
+          'Übersetze „beginnt mit 3,1“ in zwei Ungleichungen.'))
+ST.knobel('eingrenzen', Z('Wie viele natürliche Zahlen n erfüllen 9,9 < √n < 10,1?', 4, '102 - 99 + 1',
+          'Quadrieren: 9,9² = 98,01 < n < 102,01 = 10,1². Also n = 99, 100, 101, 102. Das sind 4 Zahlen.',
+          'Quadriere die Grenzen.'))
+
+# wurzel_mal
+ST.stufenleiter('wurzel_mal', 'Zwei Wurzeln mit √a · √b = √(a · b) malnehmen und erkennen, wann die Regel passt.',
+                'Wurzeln teilen, Rechenketten, Quadrate unter der Wurzel mit Betrag, Flächen von Rechtecken.',
+                'Terme mit Variablen, Bedingung √(x²) = x, kleinstes n für eine natürliche Wurzel, Fehler √a · √b = √(a + b), Sachformeln.')
+ST.typ('wurzel_mal', '/^Berechne √\\d+ · √\\d+\\.$/', 'direkt')
+ST.typ('wurzel_mal', 'Ist √4 · √9', 'erkennen')
+ST.typ('wurzel_mal', '/^Berechne √[\\d ]+ : √/', 'umkehr')
+ST.typ('wurzel_mal', '/^(Berechne √\\d+ · √\\d+ − |Berechne √\\(\\(|Berechne √\\(x²\\)|Berechne ohne Taschenrechner)/', 'mehrschritt')
+ST.typ('wurzel_mal', '/^Vereinfache √\\(\\d+[xa]\\) ·/', 'verknuepfen')
+ST.typ('wurzel_mal', 'Vereinfache √(49a²)', 'begruenden')
+ST.typ('wurzel_mal', '/^(Welche kleinste natürliche Zahl|Für welche Zahlen x)/', 'parameter')
+ST.typ('wurzel_mal', 'Ein Rechteck ist √8', 'einkleidung')
+ST.typ('wurzel_mal', 'Aus einer Bremsspur', 'transfer')
+ST.neu('wurzel_mal', 'erkennen', A('Welcher Term ist gleich √(5 · 7)?', '√5 · √7', ['√5 + √7', '5 · √7', '√5 · 7'],
+       'Die Regel √a · √b = √(a · b) gilt für a, b ≥ 0: √(5 · 7) = √5 · √7. Für Summen gibt es keine solche Regel.', 'Lies die Regel von rechts nach links.'))
+ST.neu('wurzel_mal', 'einkleidung', Z('Ein Rechteck ist √5 cm breit und √20 cm lang. Wie groß ist sein Flächeninhalt?', 10, '100 // 10',
+       'A = √5 · √20 = √100 = 10 cm².', 'Fläche = Breite · Länge, dann die Regel benutzen.', einheit='cm²'))
+ST.neu('wurzel_mal', 'fehler', A('Jemand rechnet: √9 · √16 = √25 = 5. Was stimmt?', 'Falsch: Unter der Wurzel wird malgenommen: √(9 · 16) = √144 = 12.',
+       ['Richtig.', 'Falsch: Das Ergebnis ist 25.', 'Falsch: Das Ergebnis ist 7.'], '√9 · √16 = 3 · 4 = 12 = √144. Addiert wird bei dieser Regel nicht.', 'Rechne zur Probe √9 und √16 einzeln aus.'))
+ST.knobel('wurzel_mal', Z('Berechne √2 · √8 · √32 · √128.', 256, '2 ** 8',
+          'Alles unter eine Wurzel: √(2 · 8 · 32 · 128). Das sind Zweierpotenzen: 2¹ · 2³ · 2⁵ · 2⁷ = 2¹⁶. √(2¹⁶) = 2⁸ = 256, denn 2⁸ · 2⁸ = 2¹⁶.',
+          'Schreibe alle Zahlen als Zweierpotenzen.'))
+ST.knobel('wurzel_mal', Z('Für wie viele natürliche Zahlen n von 1 bis 100 ist √(2n) · √8 eine natürliche Zahl?', 10, '100 // 10',
+          '√(2n) · √8 = √(16n) = 4 · √n. Das ist genau dann natürlich, wenn √n natürlich ist, also n eine Quadratzahl. Quadratzahlen von 1 bis 100: 1, 4, …, 100 – zehn Stück.',
+          'Fasse zuerst zu einer Wurzel zusammen und ziehe heraus, was geht.'))
+
+# teilweise
+ST.stufenleiter('teilweise', 'Die größte Quadratzahl im Radikanden finden und teilweise die Wurzel ziehen.',
+                'Umgekehrt a√b als eine Wurzel schreiben, Seitenlängen exakt angeben, Produkte unter der Wurzel vereinfachen.',
+                'Terme mit Variablen, Zahlen mit Wurzeln vergleichen, Fehler √50 = 25√2 finden, besondere Zahlen suchen, mehrteilige Aufgabe.')
+ST.typ('teilweise', '/^Ziehe teilweise die Wurzel, so weit wie möglich: √\\d/', 'direkt')
+ST.typ('teilweise', '/^(Schreibe \\d+√|Ergänze die Lücke)/', 'umkehr')
+ST.typ('teilweise', '/^(Ein Quadrat hat den|Ein quadratischer Platz)/', 'einkleidung')
+ST.typ('teilweise', '/^Ziehe teilweise die Wurzel, so weit wie möglich: √\\(/', 'verknuepfen')
+ST.typ('teilweise', 'Welche Zahl ist am größten', 'begruenden')
+ST.neu('teilweise', 'erkennen', A('Welche größte Quadratzahl steckt als Faktor in 48?', '16', ['4', '8', '24'],
+       '48 = 16 · 3. 4 steckt auch drin, ist aber nicht die größte; 8 und 24 sind keine Quadratzahlen.', 'Teste 4, 9, 16, 25, …'))
+ST.neu('teilweise', 'erkennen', A('Welcher Term ist schon so weit wie möglich vereinfacht?', '3√5', ['√20', '2√12', '√45'],
+       '√20 = 2√5, 2√12 = 4√3 und √45 = 3√5 lassen sich noch vereinfachen. In 3√5 steckt unter der Wurzel keine Quadratzahl mehr.', 'Steckt unter der Wurzel noch eine Quadratzahl?'))
+ST.neu('teilweise', 'mehrschritt', L('Vereinfache √(3 · 75 · 2).', '□√□', [15, 2], ['15', '2'],
+       '3 · 75 · 2 = 450 = 225 · 2. Also √450 = 15√2.', 'Erst das Produkt, dann die größte Quadratzahl suchen.'))
+ST.neu('teilweise', 'fehler', A('Jemand vereinfacht: √50 = 25√2. Was stimmt?', 'Falsch: √50 = √25 · √2 = 5√2.', ['Richtig.', 'Falsch: √50 = 2√25.', 'Falsch: √50 = 10√5.'],
+       'Aus 25 wird die Wurzel gezogen: √25 = 5. Probe: (5√2)² = 25 · 2 = 50, aber (25√2)² = 1 250.', 'Mach die Probe durch Quadrieren.'))
+ST.neu('teilweise', 'parameter', Z('Welche kleinste natürliche Zahl m > 1 ist keine Quadratzahl, aber bei √m kann man trotzdem teilweise die Wurzel ziehen?', 8, '4 * 2',
+       '2, 3, 5, 6, 7 enthalten keine Quadratzahl größer als 1. 4 ist selbst Quadratzahl. 8 = 4 · 2: √8 = 2√2.', 'In m muss eine Quadratzahl größer als 1 als Faktor stecken.'))
+ST.neu('teilweise', 'transfer', L('Ein Quadrat hat dreimal so viel Fläche wie ein Quadrat mit 4 cm Seitenlänge. Gib seine Seitenlänge exakt an.', '□√□ cm', [4, 3], ['4', '3'],
+       'Fläche: 3 · 16 = 48 cm². Seite √48 = √(16 · 3) = 4√3 cm.', 'Erst die Fläche, dann die Wurzel teilweise ziehen.'))
+ST.neu('teilweise', 'pruefung', L('Ein quadratisches Stück Stoff hat 288 cm² Fläche. a) Gib die Seitenlänge exakt an. b) Gib den Umfang exakt an.', 'a) □√□ cm; b) □√□ cm', [12, 2, 48, 2], ['12', '2', '4 * 12', '2'],
+       'a) 288 = 144 · 2, also √288 = 12√2 cm. b) Umfang 4 · 12√2 = 48√2 cm.', 'Größte Quadratzahl in 288?'))
+ST.knobel('teilweise', L('Vereinfache √(2 · 2 · 3 · 3 · 3 · 5 · 5 · 5 · 5).', '□√□', [150, 3], ['2 * 3 * 25', '3'],
+          'Paare gleicher Faktoren kommen vor die Wurzel: 2 · 2 → 2, 3 · 3 → 3, 5 · 5 · 5 · 5 → 25. Übrig bleibt eine 3. Ergebnis: 2 · 3 · 25 · √3 = 150√3.',
+          'Du musst das Produkt nicht ausrechnen. Was passiert mit Paaren?'))
+ST.knobel('teilweise', Z('Bei wie vielen natürlichen Zahlen n von 2 bis 50 lässt sich √n weder ganz noch teilweise ziehen?', 30, '49 - 19',
+          'Ziehen lässt sich etwas, wenn eine Quadratzahl 4, 9, 25 oder 49 als Faktor steckt. Vielfache von 4 bis 50: 12; von 9: 5; von 25: 2; von 49: 1; doppelt gezählt ist 36 (Vielfaches von 4 und 9): 12 + 5 + 2 + 1 − 1 = 19. Von den 49 Zahlen 2 bis 50 bleiben 49 − 19 = 30.',
+          'Zähle lieber die Zahlen, bei denen es geht. Achtung, keine Zahl doppelt zählen.'))
+
+# zusammenfassen
+ST.stufenleiter('zusammenfassen', 'Vielfache derselben Wurzel addieren und subtrahieren, erkennen, wann es nicht geht.',
+                'Erst teilweise die Wurzel ziehen, dann zusammenfassen; eine fehlende Wurzel ergänzen; Zaunlängen exakt.',
+                'Binomische Formeln mit Wurzeln, Fehler √2 + √8 = √10, Aussagen prüfen, Bedingung für a, mehrteilige Aufgabe.')
+ST.typ('zusammenfassen', '/^Fasse zusammen: \\d+√/', 'direkt')
+ST.typ('zusammenfassen', 'Kann man √2 + √7', 'erkennen')
+ST.typ('zusammenfassen', '/^Fasse zusammen: √/', 'mehrschritt')
+ST.typ('zusammenfassen', '/^Berechne \\(√6|^Multipliziere aus und vereinfache/', 'mehrschritt')
+ST.typ('zusammenfassen', 'Zwei quadratische Beete', 'einkleidung')
+ST.typ('zusammenfassen', '/^(Berechne \\(\\d+ \\+ √|Multipliziere aus und fasse)/', 'verknuepfen')
+ST.typ('zusammenfassen', 'Berechne geschickt', 'transfer')
+ST.neu('zusammenfassen', 'umkehr', Z('Ergänze die Lücke: √□ + √12 = 5√3.', 27, '9 * 3',
+       '√12 = 2√3. Es fehlen 5√3 − 2√3 = 3√3 = √(9 · 3) = √27.', 'Schreibe √12 als Vielfaches von √3.'))
+ST.neu('zusammenfassen', 'fehler', A('Jemand rechnet: √2 + √8 = √10. Was stimmt?', 'Falsch: √8 = 2√2, also √2 + √8 = 3√2.', ['Richtig.', 'Falsch: √2 + √8 = 4.', 'Falsch: √2 + √8 = √16.'],
+       'Wurzeln darf man nicht einfach addieren. √8 = 2√2, also √2 + 2√2 = 3√2 ≈ 4,24, aber √10 ≈ 3,16.', 'Ziehe bei √8 teilweise die Wurzel.'))
+ST.neu('zusammenfassen', 'begruenden', A('Stimmt für alle Zahlen a > 0 und b > 0: √a + √b ist größer als √(a + b)?', 'Ja: (√a + √b)² = a + b + 2√a√b ist größer als a + b.',
+       ['Nein, beide sind immer gleich.', 'Nein, √(a + b) ist immer größer.', 'Nur wenn a = b.'],
+       'Beide Seiten sind positiv. Quadriert: (√a + √b)² = a + 2√(ab) + b > a + b. Beispiel: √9 + √16 = 7 > 5 = √25.', 'Vergleiche die Quadrate beider Seiten.'))
+ST.neu('zusammenfassen', 'parameter', Z('Für welche Zahl a gilt √a + √12 = 3√3?', 3, '3',
+       '√12 = 2√3. Dann muss √a = 3√3 − 2√3 = √3 sein, also a = 3.', 'Schreibe √12 als Vielfaches von √3.'))
+ST.neu('zusammenfassen', 'pruefung', L('Ein Rechteck hat die Seiten √50 cm und √8 cm. a) Gib den Umfang exakt an. b) Berechne den Flächeninhalt.', 'a) □√□ cm; b) □ cm²', [14, 2, 20], ['2 * (5 + 2)', '2', '5 * 2 * 2'],
+       'a) √50 = 5√2, √8 = 2√2. Umfang 2 · (5√2 + 2√2) = 14√2 cm. b) √50 · √8 = √400 = 20 cm².', 'Erst teilweise die Wurzeln ziehen.'))
+ST.knobel('zusammenfassen', A('Welche Zahl ist √(3 + 2√2)?', '1 + √2', ['√5', '3 + √2', '√3 + √2'],
+          'Probiere ein Quadrat: (1 + √2)² = 1 + 2√2 + 2 = 3 + 2√2. Weil 1 + √2 positiv ist, gilt √(3 + 2√2) = 1 + √2. Die anderen: (√3 + √2)² = 5 + 2√6, (3 + √2)² = 11 + 6√2.',
+          'Der Term unter der Wurzel sieht aus wie ein ausmultipliziertes Quadrat.'))
+ST.knobel('zusammenfassen', Z('Berechne (√2 + √3)² + (√2 − √3)².', 10, '2 * (2 + 3)',
+          'Ausmultiplizieren: (√2 + √3)² = 2 + 2√6 + 3 und (√2 − √3)² = 2 − 2√6 + 3. Die Terme mit √6 heben sich auf: 5 + 5 = 10.',
+          'Schreib beide Quadrate aus, ohne sie auszurechnen. Was fällt weg?'))
+
+# nenner_rational
+ST.stufenleiter('nenner_rational', 'Bei a/√b mit √b erweitern und kürzen.',
+                'Nenner wie 4√7 oder √m − n, Brüche aus zwei Wurzeln, rückwärts zum alten Bruch.',
+                'Summen mit zwei Wurzeln im Nenner, Fehler „nur den Nenner malnehmen“, Vergleich mit Dezimalzahl, Bedingung für a, mehrteilige Aufgabe.')
+ST.typ('nenner_rational', '/^Mache den Nenner rational: \\d+\\/√\\d+\\.$/', 'direkt')
+ST.typ('nenner_rational', '/^Mache den Nenner rational: \\d+\\/\\(\\d+√/', 'mehrschritt')
+ST.typ('nenner_rational', '/^Mache den Nenner rational: \\d+\\/\\(√\\d+ − \\d+\\)/', 'mehrschritt')
+ST.typ('nenner_rational', 'Mache den Nenner rational und vereinfache', 'mehrschritt')
+ST.typ('nenner_rational', 'Ein Rechteck hat 6 m²', 'einkleidung')
+ST.typ('nenner_rational', 'Ein Schüler sagt', 'fehler')
+ST.typ('nenner_rational', '/^(Mache den Nenner rational: \\d+\\/\\(√\\d+ \\+|Berechne 1\\/|Mache den Nenner rational: \\d+\\/\\(\\d+ \\+)/', 'verknuepfen')
+ST.neu('nenner_rational', 'erkennen', A('Womit erweiterst du 5/√2, damit im Nenner keine Wurzel mehr steht?', 'mit √2', ['mit 2', 'mit 5', 'mit √5'],
+       '√2 · √2 = 2. Also 5/√2 = 5√2/2.', 'Was ergibt √2 · √2?'))
+ST.neu('nenner_rational', 'direkt', L('Schreibe 10/√5 ohne Wurzel im Nenner.', '□√□', [2, 5], ['2', '5'],
+       '10/√5 = 10√5/5 = 2√5.', 'Erweitere mit √5 und kürze.'))
+ST.neu('nenner_rational', 'umkehr', Z('Nach dem Rationalmachen steht da 2√a/a. Vorher hieß der Bruch 2/√a. Jetzt steht 2√5/5. Wie groß ist a?', 5, '5',
+       '2/√a = 2√a/a. Vergleich mit 2√5/5: a = 5. Der alte Bruch war 2/√5.', 'Mach das Erweitern rückgängig.'))
+ST.neu('nenner_rational', 'begruenden', A('Welche Zahl ist größer: 1/√2 oder 0,7?', '1/√2', ['0,7', 'Beide sind gleich.', 'Das lässt sich nicht entscheiden.'],
+       '1/√2 = √2/2. Wegen 1,4² = 1,96 < 2 ist √2 > 1,4, also √2/2 > 0,7.', 'Mache den Nenner rational und schätze √2.'))
+ST.neu('nenner_rational', 'parameter', Z('Für welche natürliche Zahl a gilt 6/√a = 2√3?', 3, '36 // 12',
+       '6/√a = 2√3 heißt √a = 6/(2√3) = 3/√3 = √3. Also a = 3. Probe: 6/√3 = 6√3/3 = 2√3.', 'Löse nach √a auf.'))
+ST.neu('nenner_rational', 'rueckwaerts', Z('Nach dem Rationalmachen von 6/(□ − √3) steht da 3 + √3. Welche Zahl gehört in das Kästchen?', 3, '(6 + 6) // 4',
+       'Mit □ = 3: 6/(3 − √3) · (3 + √3)/(3 + √3) = 6(3 + √3)/(9 − 3) = 3 + √3. Rückwärts: Der Nenner muss 9 − 3 = 6 werden, damit sich die 6 wegkürzt, also □² − 3 = 6 und □ = 3.',
+       'Was ergibt (□ − √3)(□ + √3)?'))
+ST.neu('nenner_rational', 'pruefung', L('Gegeben ist 8/(√5 + 1). a) Womit erweiterst du? b) Gib das Ergebnis an.', 'a) √5 − □; b) □√5 − □', [1, 2, 2], ['1', '8 // 4', '8 // 4'],
+       'a) Mit √5 − 1, dann steht unten (√5 + 1)(√5 − 1) = 5 − 1 = 4. b) 8(√5 − 1)/4 = 2√5 − 2.', 'Dritte binomische Formel im Nenner.'))
+ST.knobel('nenner_rational', Z('Berechne 1/(1 + √2) + 1/(√2 + √3) + 1/(√3 + 2).', 1, '2 - 1',
+          'Jeden Nenner rational machen: 1/(1 + √2) = √2 − 1, 1/(√2 + √3) = √3 − √2, 1/(√3 + 2) = 2 − √3 (die Nenner werden jeweils 1). Summe: √2 − 1 + √3 − √2 + 2 − √3 = 2 − 1 = 1.',
+          'Mache jeden Bruch einzeln rational und schau, was übrig bleibt.'))
+ST.knobel('nenner_rational', Z('Berechne (√3 + √2)/(√3 − √2) + (√3 − √2)/(√3 + √2).', 10, '(5 + 5) // 1',
+          'Gemeinsamer Nenner (√3 − √2)(√3 + √2) = 3 − 2 = 1. Zähler: (√3 + √2)² + (√3 − √2)² = (5 + 2√6) + (5 − 2√6) = 10. Ergebnis 10.',
+          'Bring beide Brüche auf einen gemeinsamen Nenner.'))
+
+# heron
+ST.stufenleiter('heron', 'Einen Heron-Schritt ausführen: a : x und den Mittelwert bilden.',
+                'Zwei Schritte nacheinander, Tabellen lesen, aus einem Ergebnis die Zahl a zurückgewinnen.',
+                'Aus einem Schritt rückwärts schließen, Fehler im Verfahren finden, begründen, warum es funktioniert, Startwerte deuten, mehrteilige Aufgabe.')
+ST.typ('heron', '/^(Heron-Verfahren für √7|Berechne für √\\d+ mit dem Startwert)/', 'direkt')
+ST.typ('heron', 'Welcher Startwert liegt am nächsten', 'erkennen')
+ST.typ('heron', '/^(Berechne für √5 mit dem Startwert 2 zwei|Bestimme √17)/', 'mehrschritt')
+ST.typ('heron', '/^Die Tabelle zeigt/', 'darstellung')
+ST.typ('heron', 'Ein quadratisches Fenster', 'einkleidung')
+ST.typ('heron', 'Jemand rechnet einen Heron-Schritt mit dem Startwert 3', 'rueckwaerts')
+ST.typ('heron', 'Warum liegt', 'begruenden')
+ST.typ('heron', '/^(Jemand bestimmt √100|Ein quadratischer Platz)/', 'transfer')
+ST.typ('heron', 'Jemand rechnet für √8', 'fehler')
+ST.typ('heron', 'Nach wie vielen Heron-Schritten', 'verknuepfen')
+ST.neu('heron', 'erkennen', A('Was rechnet man in jedem Schritt des Heron-Verfahrens für √a?', 'den Mittelwert aus x und a : x', ['x · x', 'a : 2', 'den Mittelwert aus x und a'],
+       'x und a : x sind die Seiten eines Rechtecks mit Fläche a. Ihr Mittelwert ist die neue, bessere Seite.', 'Denk an das Rechteck mit der Fläche a.'))
+ST.neu('heron', 'umkehr', Z('Ein Heron-Schritt mit dem Startwert 5 liefert x₁ = 5,1. Aus welcher Zahl a sollte die Wurzel bestimmt werden?', 26, '(5.1 * 2 - 5) * 5',
+       '(5 + a : 5) : 2 = 5,1 ⇒ 5 + a : 5 = 10,2 ⇒ a : 5 = 5,2 ⇒ a = 26.', 'Rechne den Mittelwert rückwärts.'))
+ST.neu('heron', 'mehrschritt', L('Heron-Verfahren für √2 mit dem Startwert 1: Rechne zwei Schritte und gib x₂ als Bruch an.', '□/□', [17, 12], ['17', '12'],
+       'x₁ = (1 + 2 : 1) : 2 = 3/2. x₂ = (3/2 + 2 : (3/2)) : 2 = (3/2 + 4/3) : 2 = (17/6) : 2 = 17/12.', 'Rechne mit Brüchen, nicht gerundet.'))
+ST.neu('heron', 'parameter', Z('Jemand nimmt bei √a als Startwert x₀ = a. Für welches a liefert der erste Heron-Schritt x₁ = 5?', 9, '5 * 2 - 1',
+       'x₁ = (a + a : a) : 2 = (a + 1) : 2 = 5 ⇒ a = 9. (Dann ist √9 = 3, x₁ = 5 ist also noch weit weg.)', 'Was ist a : a?'))
+ST.neu('heron', 'pruefung', L('Heron-Verfahren für √60 mit dem Startwert 8. a) Wie lang ist die andere Rechteckseite 60 : 8? b) Wie groß ist x₁?', 'a) □,□; b) □,□', [7, 5, 7, 75], ['60 // 8', '(600 // 8) % 10', '(8 * 8 + 60) // 16', '(8 * 8 + 60) * 100 // 16 % 100'],
+       'a) 60 : 8 = 7,5. b) x₁ = (8 + 7,5) : 2 = 7,75. Probe: 7,75² ≈ 60,06.', 'Erst teilen, dann den Mittelwert.'))
+ST.knobel('heron', L('Heron für √2 mit dem Startwert 1 liefert 3/2, dann 17/12. Welcher Bruch kommt als nächster (x₃)?', '□/□', [577, 408], ['577', '408'],
+          'x₃ = (17/12 + 2 : (17/12)) : 2 = (17/12 + 24/17) : 2. Gemeinsamer Nenner 204: 17/12 = 289/204, 24/17 = 288/204. Summe 577/204, halbiert 577/408. Probe: 577/408 ≈ 1,414216, √2 ≈ 1,414214.',
+          'Ein gemeinsamer Nenner hilft; 12 · 17 = 204.'))
+ST.knobel('heron', A('Ist der Wert x₁ nach einem Heron-Schritt immer mindestens so groß wie √a (bei positivem Startwert)?', 'Ja, denn (x + a : x) : 2 ≥ √a gilt immer.',
+          ['Nein, nur wenn der Startwert zu groß war.', 'Nein, x₁ ist immer kleiner als √a.', 'Das hängt von a ab.'],
+          'Mit y = a : x gilt x · y = a. Es ist (x − y)² ≥ 0, also x² + y² ≥ 2xy und (x + y)² ≥ 4xy = 4a. Damit (x + y) : 2 ≥ √a. Ab dem ersten Schritt nähert sich das Verfahren also von oben.',
+          'Nenne die zweite Seite y. Was weißt du über (x − y)²?'))
+
+if __name__ == '__main__':
+    stufen('zahlen.reell', ST)

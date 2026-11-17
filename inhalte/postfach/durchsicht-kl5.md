@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 16:35 – STATUS: stochastik.kombinatorik fertig
+Umgestuft 8 (Stufe 3 → 2: „Wörter aus KATZE/HUND/MAUS“ = n · (n−1) · … wie Stufe 1, Eisbecher und Code-Anzahl wie Stufe 2, je eine Wiederholung bei Mützen, geraden Zahlen, Münzbaum). Prüfskript OK, Nachweis OK (230 von 238 unverändert).
+
 ## 2026-11-17 16:20 – STATUS: zahlen.teilbarkeit fertig
 Dünnster Flug der Klasse (je Karte nur 4/5/4 Übungen, je Stufe meist eine Vorlage). Umgestuft 11 (Stufe 3 → 2: Teiler zählen, je zweimal wiederholte „Jemand sagt“-Aufgaben, Standard-Zerlegung, „kleinste Primzahl über 29“),
 neu 11 Stufe-3-Übungen (teiler 3, vielfache 2, endziffer 2, primzahl 2, primfaktoren 2: rückwärts, Bedingungen, Ziffernkarten, Knobel). Danach je Karte mindestens 4 Übungen je Stufe.

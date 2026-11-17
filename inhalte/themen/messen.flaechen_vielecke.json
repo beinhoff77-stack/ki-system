@@ -2381,6 +2381,24 @@
    "s": 1,
    "y": "zahl",
    "f": {
+    "text": "Ein Parallelogramm hat die Grundseite 12 m, die zugehörige Höhe 9 m und die schräge Seite 11 m. Wie groß ist sein Flächeninhalt?"
+   },
+   "o": {
+    "wert": 108,
+    "einheit": "m²"
+   },
+   "c": "12 * 9",
+   "w": "Die schräge Seite brauchst du nicht. A = 12 m · 9 m = 108 m².",
+   "h": "Welche Länge steht senkrecht auf g?",
+   "g": "direkt"
+  },
+  {
+   "l": "parallelogramm",
+   "t": "parallelogramm",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
     "text": "Berechne den Flächeninhalt des Parallelogramms mit g = 7 dm und h = 4 dm.",
     "grafik": {
      "typ": "figur",
@@ -2467,7 +2485,8 @@
    },
    "c": "7 * 4",
    "w": "A = g · h = 7 dm · 4 dm = 28 dm².",
-   "h": "Grundseite mal Höhe."
+   "h": "Grundseite mal Höhe.",
+   "g": "erkennen"
   },
   {
    "l": "parallelogramm",
@@ -2476,15 +2495,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Parallelogramm hat die Grundseite 12 m, die zugehörige Höhe 9 m und die schräge Seite 11 m. Wie groß ist sein Flächeninhalt?"
+    "text": "Ein Parallelogramm hat die Grundseite 8 m, die zugehörige Höhe 2 m und die schräge Seite 3 m. Wie groß ist sein Flächeninhalt?"
    },
    "o": {
-    "wert": 108,
+    "wert": 16,
     "einheit": "m²"
    },
-   "c": "12 * 9",
-   "w": "Die schräge Seite brauchst du nicht. A = 12 m · 9 m = 108 m².",
-   "h": "Welche Länge steht senkrecht auf g?"
+   "c": "8 * 2",
+   "w": "Die schräge Seite brauchst du nicht. A = 8 m · 2 m = 16 m².",
+   "h": "Welche Länge steht senkrecht auf g?",
+   "g": "direkt"
   },
   {
    "l": "parallelogramm",
@@ -2579,24 +2599,26 @@
    },
    "c": "10 * 4",
    "w": "A = g · h = 10 m · 4 m = 40 m².",
-   "h": "Grundseite mal Höhe."
+   "h": "Grundseite mal Höhe.",
+   "g": "erkennen"
   },
   {
    "l": "parallelogramm",
    "t": "parallelogramm",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Parallelogramm hat die Grundseite 8 m, die zugehörige Höhe 2 m und die schräge Seite 3 m. Wie groß ist sein Flächeninhalt?"
+    "text": "Ein Parallelogramm hat die Seiten a = 9 cm und b = 4 cm. Die Höhe, die senkrecht auf b steht, ist 3 cm lang. Wie groß ist der Flächeninhalt?"
    },
    "o": {
-    "wert": 16,
-    "einheit": "m²"
+    "wert": 12,
+    "einheit": "cm²"
    },
-   "c": "8 * 2",
-   "w": "Die schräge Seite brauchst du nicht. A = 8 m · 2 m = 16 m².",
-   "h": "Welche Länge steht senkrecht auf g?"
+   "c": "4 * 3",
+   "w": "Hier ist b die Grundseite und 3 cm die zugehörige Höhe: A = 4 cm · 3 cm = 12 cm².",
+   "h": "Welche Seite gehört zu der angegebenen Höhe?",
+   "g": "mehrschritt"
   },
   {
    "l": "parallelogramm",
@@ -2613,24 +2635,8 @@
    },
    "c": "3 * 100 * 70",
    "w": "Erst in eine Einheit: 3 m = 300 cm. A = 300 cm · 70 cm = 21 000 cm².",
-   "h": "Rechne zuerst beide Längen in cm um."
-  },
-  {
-   "l": "parallelogramm",
-   "t": "parallelogramm",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Auf einem Parkplatz ist jedes Feld ein Parallelogramm mit g = 3 m und h = 5,5 m. Wie viel Fläche haben 8 solche Felder zusammen?"
-   },
-   "o": {
-    "wert": 132,
-    "einheit": "m²"
-   },
-   "c": "8 * 3 * 5.5",
-   "w": "Ein Feld: 3 m · 5,5 m = 16,5 m². 8 Felder: 8 · 16,5 m² = 132 m².",
-   "h": "Erst ein Feld berechnen."
+   "h": "Rechne zuerst beide Längen in cm um.",
+   "g": "einkleidung"
   },
   {
    "l": "parallelogramm",
@@ -2729,7 +2735,26 @@
     "index": 3
    },
    "w": "Grundseite mal zugehörige Höhe: 7 cm · 4 cm = 28 cm². Die schräge Seite ist nicht die Höhe; 2 · g + 2 · s wäre der Umfang.",
-   "h": "Die Höhe steht senkrecht auf der Grundseite."
+   "h": "Die Höhe steht senkrecht auf der Grundseite.",
+   "g": "darstellung"
+  },
+  {
+   "l": "parallelogramm",
+   "t": "parallelogramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Parkplatz ist jedes Feld ein Parallelogramm mit g = 3 m und h = 5,5 m. Wie viel Fläche haben 8 solche Felder zusammen?"
+   },
+   "o": {
+    "wert": 132,
+    "einheit": "m²"
+   },
+   "c": "8 * 3 * 5.5",
+   "w": "Ein Feld: 3 m · 5,5 m = 16,5 m². 8 Felder: 8 · 16,5 m² = 132 m².",
+   "h": "Erst ein Feld berechnen.",
+   "g": "einkleidung"
   },
   {
    "l": "parallelogramm",
@@ -2824,24 +2849,8 @@
    },
    "c": "3.5 * 2",
    "w": "A = 3,5 m · 2 m = 7 m².",
-   "h": "Grundseite mal Höhe, auch mit Kommazahlen."
-  },
-  {
-   "l": "parallelogramm",
-   "t": "parallelogramm",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Parallelogramm hat die Seiten a = 9 cm und b = 4 cm. Die Höhe, die senkrecht auf b steht, ist 3 cm lang. Wie groß ist der Flächeninhalt?"
-   },
-   "o": {
-    "wert": 12,
-    "einheit": "cm²"
-   },
-   "c": "4 * 3",
-   "w": "Hier ist b die Grundseite und 3 cm die zugehörige Höhe: A = 4 cm · 3 cm = 12 cm².",
-   "h": "Welche Seite gehört zu der angegebenen Höhe?"
+   "h": "Grundseite mal Höhe, auch mit Kommazahlen.",
+   "g": "darstellung"
   },
   {
    "l": "parallelogramm",
@@ -2858,7 +2867,8 @@
    },
    "c": "7 * 4",
    "w": "Hier ist b die Grundseite und 4 cm die zugehörige Höhe: A = 7 cm · 4 cm = 28 cm².",
-   "h": "Welche Seite gehört zu der angegebenen Höhe?"
+   "h": "Welche Seite gehört zu der angegebenen Höhe?",
+   "g": "mehrschritt"
   },
   {
    "l": "parallelogramm",
@@ -2956,7 +2966,8 @@
    },
    "c": "(6 - 1) * (4 - 1)",
    "w": "Grundseite [AB]: von x = 1 bis x = 6, also 5 cm. Höhe: von y = 1 bis y = 4, also 3 cm. A = 5 · 3 = 15 cm².",
-   "h": "Lies g und h an den Kästchen ab."
+   "h": "Lies g und h an den Kästchen ab.",
+   "g": "verknuepfen"
   },
   {
    "l": "parallelogramm",
@@ -2973,7 +2984,8 @@
    },
    "c": "10 * 4.5 / 6",
    "w": "A = 10 cm · 4,5 cm = 45 cm². Mit b als Grundseite: 45 : 6 = 7,5. Die Höhe zu b ist 7,5 cm.",
-   "h": "Die Fläche ist mit beiden Seiten gleich."
+   "h": "Die Fläche ist mit beiden Seiten gleich.",
+   "g": "pruefung"
   },
   {
    "l": "parallelogramm",
@@ -2990,7 +3002,8 @@
    },
    "c": "12 * 3",
    "w": "Die Leisten bleiben gleich lang, die Höhe zur 12-cm-Seite ist jetzt 3 cm: A = 12 · 3 = 36 cm² statt vorher 60 cm². Der Umfang ist gleich geblieben.",
-   "h": "Welche Länge ist jetzt die Höhe?"
+   "h": "Welche Länge ist jetzt die Höhe?",
+   "g": "transfer"
   },
   {
    "l": "parallelogramm",
@@ -3007,7 +3020,8 @@
    },
    "c": "27 * 2 * 1",
    "w": "A = g · h. Mal 2 bei g und mal 1 bei h macht mal 2: 27 cm² · 2 = 54 cm².",
-   "h": "Wie oft steckt das alte Parallelogramm im neuen?"
+   "h": "Wie oft steckt das alte Parallelogramm im neuen?",
+   "g": "begruenden"
   },
   {
    "l": "parallelogramm",
@@ -3024,7 +3038,8 @@
    },
    "c": "20 * 1.4 * 0.5 * 18",
    "w": "Eine Platte: 1,4 m · 0,5 m = 0,7 m². 20 Platten: 14 m². Preis: 14 · 18 € = 252 €.",
-   "h": "Fläche einer Platte, dann alle Platten, dann der Preis."
+   "h": "Fläche einer Platte, dann alle Platten, dann der Preis.",
+   "g": "transfer"
   },
   {
    "l": "parallelogramm",
@@ -3041,7 +3056,8 @@
    },
    "c": "10 * 2 / 4",
    "w": "Flächeninhalt mit a: 10 cm · 2 cm = 20 cm². Dieselbe Fläche mit b: 20 : 4 = 5. Die Höhe zu b ist 5 cm.",
-   "h": "Berechne zuerst die Fläche. Sie ist für beide Seiten gleich."
+   "h": "Berechne zuerst die Fläche. Sie ist für beide Seiten gleich.",
+   "g": "rueckwaerts"
   },
   {
    "l": "parallelogramm",
@@ -3058,7 +3074,8 @@
    },
    "c": "2 * 24",
    "w": "Die beiden Dreiecke sind gleich groß (eins ist das gedrehte andere). Also A = 2 · 24 cm² = 48 cm².",
-   "h": "Sind die beiden Dreiecke gleich groß?"
+   "h": "Sind die beiden Dreiecke gleich groß?",
+   "g": "transfer"
   },
   {
    "l": "parallelogramm",
@@ -3075,7 +3092,8 @@
    },
    "c": "6 * 7",
    "w": "Jonas hat die schräge Seite statt der Höhe genommen. Richtig: 6 cm · 7 cm = 42 cm².",
-   "h": "Welche Länge steht senkrecht auf g?"
+   "h": "Welche Länge steht senkrecht auf g?",
+   "g": "fehler"
   },
   {
    "l": "parallelogramm",
@@ -3640,6 +3658,42 @@
    "w": "Grundseite mal zugehörige Höhe: 6 cm · 6 cm = 36 cm². Die schräge Seite ist nicht die Höhe; 2 · g + 2 · s wäre der Umfang."
   },
   {
+   "l": "parallelogramm",
+   "t": "parallelogramm",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Parallelogramm hat die Seiten 8 cm und 5 cm. Wie groß kann sein Flächeninhalt höchstens sein?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "cm²"
+   },
+   "c": "8 * 5",
+   "w": "A = g · h. Mit g = 8 cm kann die Höhe höchstens so lang sein wie die andere Seite, 5 cm – dann steht sie senkrecht und das Parallelogramm ist ein Rechteck. Größter Flächeninhalt: 40 cm².",
+   "h": "Wie lang kann die Höhe höchstens werden?"
+  },
+  {
+   "l": "parallelogramm",
+   "t": "parallelogramm",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Parallelogramm mit 60 cm² verbindet man die Mittelpunkte der vier Seiten. Wie groß ist das innere Viereck?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm²"
+   },
+   "c": "60 / 2",
+   "w": "Die Verbindungen der Mitten zerlegen das Parallelogramm in das innere Viereck und vier Eckdreiecke. Jedes Eckdreieck ist so groß wie ein Viertel eines kleinen Parallelogramms, zusammen die Hälfte. Innen bleiben 30 cm².",
+   "h": "Zeichne die Mittellinien parallel zu den Seiten ein."
+  },
+  {
    "l": "dreieck",
    "t": "dreieck",
    "p": "uebung",
@@ -3722,7 +3776,29 @@
    },
    "c": "11 * 3 / 2",
    "w": "A = g · h : 2 = 11 dm · 3 dm : 2 = 16,5 dm².",
-   "h": "Grundseite mal Höhe, dann halbieren."
+   "h": "Grundseite mal Höhe, dann halbieren.",
+   "g": "direkt"
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über die Höhe eines Dreiecks stimmt?"
+   },
+   "a": [
+    "Sie ist immer eine der drei Seiten.",
+    "Sie ist immer die längste Seite.",
+    "Sie steht senkrecht auf der Grundseite und geht durch die gegenüberliegende Ecke."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Höhe ist der Abstand der Spitze von der Grundseite – senkrecht gemessen. Nur im rechtwinkligen Dreieck kann sie eine Seite sein.",
+   "h": "Wie misst man einen Abstand?"
   },
   {
    "l": "dreieck",
@@ -3807,7 +3883,30 @@
    },
    "c": "6 * 10 / 2",
    "w": "A = g · h : 2 = 6 m · 10 m : 2 = 30 m².",
-   "h": "Grundseite mal Höhe, dann halbieren."
+   "h": "Grundseite mal Höhe, dann halbieren.",
+   "g": "direkt"
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat g = 7 cm, die zugehörige Höhe 7 cm und eine schräge Seite 8 cm. Welche Rechnung gibt den Flächeninhalt?"
+   },
+   "a": [
+    "7 · 8 : 2",
+    "7 · 7",
+    "7 · 7 : 2",
+    "7 + 7 + 8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grundseite mal zugehörige Höhe, halbiert: 7 · 7 : 2 = 24,5 cm².",
+   "h": "Die Hälfte von Grundseite mal Höhe.",
+   "g": "mehrschritt"
   },
   {
    "l": "dreieck",
@@ -3892,7 +3991,26 @@
    },
    "c": "11 * 8 / 2",
    "w": "A = g · h : 2 = 11 cm · 8 cm : 2 = 44 cm².",
-   "h": "Grundseite mal Höhe, dann halbieren."
+   "h": "Grundseite mal Höhe, dann halbieren.",
+   "g": "direkt"
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein dreieckiger Wimpel hat die Grundseite 1,9 m und die Höhe 40 cm. Wie groß ist er in cm²?"
+   },
+   "o": {
+    "wert": 3800,
+    "einheit": "cm²"
+   },
+   "c": "1.9 * 100 * 40 / 2",
+   "w": "1,9 m = 190 cm. A = 190 · 40 : 2 = 3 800 cm².",
+   "h": "Erst beide Längen in cm.",
+   "g": "einkleidung"
   },
   {
    "l": "dreieck",
@@ -3977,24 +4095,8 @@
    },
    "c": "11 * 9 / 2",
    "w": "A = g · h : 2 = 11 dm · 9 dm : 2 = 49,5 dm².",
-   "h": "Grundseite mal Höhe, dann halbieren."
-  },
-  {
-   "l": "dreieck",
-   "t": "dreieck",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein dreieckiger Wimpel hat die Grundseite 1,9 m und die Höhe 40 cm. Wie groß ist er in cm²?"
-   },
-   "o": {
-    "wert": 3800,
-    "einheit": "cm²"
-   },
-   "c": "1.9 * 100 * 40 / 2",
-   "w": "1,9 m = 190 cm. A = 190 · 40 : 2 = 3 800 cm².",
-   "h": "Erst beide Längen in cm."
+   "h": "Grundseite mal Höhe, dann halbieren.",
+   "g": "direkt"
   },
   {
    "l": "dreieck",
@@ -4085,7 +4187,30 @@
    },
    "c": "7 * 2 / 2",
    "w": "Auch wenn die Höhe außen liegt: A = g · h : 2 = 7 · 2 : 2 = 7 cm².",
-   "h": "Die Formel gilt auch, wenn die Höhe außen liegt."
+   "h": "Die Formel gilt auch, wenn die Höhe außen liegt.",
+   "g": "darstellung"
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat g = 7 cm, die zugehörige Höhe 6 cm und eine schräge Seite 7 cm. Welche Rechnung gibt den Flächeninhalt?"
+   },
+   "a": [
+    "7 · 7 : 2",
+    "7 · 6 : 2",
+    "7 + 6 + 7",
+    "7 · 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Grundseite mal zugehörige Höhe, halbiert: 7 · 6 : 2 = 21 cm².",
+   "h": "Die Hälfte von Grundseite mal Höhe.",
+   "g": "mehrschritt"
   },
   {
    "l": "dreieck",
@@ -4156,7 +4281,84 @@
    },
    "c": "11 * 4 / 2",
    "w": "Die beiden Seiten am rechten Winkel stehen senkrecht aufeinander: eine ist g, die andere h. A = 11 · 4 : 2 = 22 cm².",
-   "h": "Welche Seiten stehen senkrecht aufeinander?"
+   "h": "Welche Seiten stehen senkrecht aufeinander?",
+   "g": "darstellung"
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Rechteck (12 cm lang, 5 cm breit) wird ein Dreieck gezeichnet. Seine Grundseite ist die untere Rechteckseite, seine Spitze liegt auf der oberen. Wie groß ist die Fläche außerhalb des Dreiecks?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       12.0,
+       0.0
+      ],
+      "_C": [
+       12.0,
+       5.0
+      ],
+      "_D": [
+       0.0,
+       5.0
+      ],
+      "S": [
+       4.8,
+       5.0
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "12 cm"
+      ],
+      [
+       "B",
+       "_C",
+       "5 cm"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "A"
+      ],
+      [
+       "A",
+       "S"
+      ],
+      [
+       "S",
+       "B"
+      ]
+     ],
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ]
+    }
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm²"
+   },
+   "c": "12 * 5 - 12 * 5 / 2",
+   "w": "Rechteck: 60 cm². Dreieck: 12 · 5 : 2 = 30 cm². Rest: 30 cm² – genau die Hälfte.",
+   "h": "Wie hoch ist das Dreieck?",
+   "g": "transfer"
   },
   {
    "l": "dreieck",
@@ -4241,49 +4443,8 @@
    },
    "c": "5.5 * 10 / 2",
    "w": "A = 5,5 cm · 10 cm : 2 = 55 cm² : 2 = 27,5 cm².",
-   "h": "Erst g · h, dann durch 2."
-  },
-  {
-   "l": "dreieck",
-   "t": "dreieck",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat g = 7 cm, die zugehörige Höhe 7 cm und eine schräge Seite 8 cm. Welche Rechnung gibt den Flächeninhalt?"
-   },
-   "a": [
-    "7 · 8 : 2",
-    "7 · 7",
-    "7 · 7 : 2",
-    "7 + 7 + 8"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Grundseite mal zugehörige Höhe, halbiert: 7 · 7 : 2 = 24,5 cm².",
-   "h": "Die Hälfte von Grundseite mal Höhe."
-  },
-  {
-   "l": "dreieck",
-   "t": "dreieck",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat g = 7 cm, die zugehörige Höhe 6 cm und eine schräge Seite 7 cm. Welche Rechnung gibt den Flächeninhalt?"
-   },
-   "a": [
-    "7 · 7 : 2",
-    "7 · 6 : 2",
-    "7 + 6 + 7",
-    "7 · 6"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Grundseite mal zugehörige Höhe, halbiert: 7 · 6 : 2 = 21 cm².",
-   "h": "Die Hälfte von Grundseite mal Höhe."
+   "h": "Erst g · h, dann durch 2.",
+   "g": "darstellung"
   },
   {
    "l": "dreieck",
@@ -4300,7 +4461,8 @@
    },
    "c": "2 * 27 / 6",
    "w": "Das Dreieck ist 6 cm hoch (so hoch wie das Rechteck). g · 6 : 2 = 27, also g · 6 = 54 und g = 9 cm.",
-   "h": "Wie hoch ist das Dreieck?"
+   "h": "Wie hoch ist das Dreieck?",
+   "g": "rueckwaerts"
   },
   {
    "l": "dreieck",
@@ -4398,7 +4560,8 @@
    },
    "c": "2 * (5 - 1) * (4 - 1) / (5 - 1)",
    "w": "Parallelogramm: 4 · 3 = 12 cm². Dreieck mit g = 4 cm: 4 · h : 2 = 12, also h = 6 cm. E liegt auf der Linie y = 7.",
-   "h": "Das Dreieck braucht die doppelte Höhe."
+   "h": "Das Dreieck braucht die doppelte Höhe.",
+   "g": "verknuepfen"
   },
   {
    "l": "dreieck",
@@ -4415,7 +4578,8 @@
    },
    "c": "10 * 10 / 2",
    "w": "Grundseite 10 cm (untere Seite), Höhe 10 cm (P liegt immer oben). A = 10 · 10 : 2 = 50 cm² – immer die Hälfte des Quadrats.",
-   "h": "Ändert sich die Höhe, wenn P wandert?"
+   "h": "Ändert sich die Höhe, wenn P wandert?",
+   "g": "transfer"
   },
   {
    "l": "dreieck",
@@ -4432,7 +4596,8 @@
    },
    "c": "7 * 7 / 2",
    "w": "Lea hat das Parallelogramm berechnet. Das Dreieck ist die Hälfte: 49 : 2 = 24,5 cm².",
-   "h": "Wie viele solche Dreiecke passen in das Parallelogramm?"
+   "h": "Wie viele solche Dreiecke passen in das Parallelogramm?",
+   "g": "fehler"
   },
   {
    "l": "dreieck",
@@ -4453,7 +4618,8 @@
     "index": 0
    },
    "w": "Dreieck 1: 7 · 8 : 2 = 28 cm². Dreieck 2: 14 · 4 : 2 = 28 cm². Gleich groß.",
-   "h": "Rechne beide aus."
+   "h": "Rechne beide aus.",
+   "g": "begruenden"
   },
   {
    "l": "dreieck",
@@ -4470,157 +4636,8 @@
    },
    "c": "16 * 5 / 2 + 16 * 7 / 2",
    "w": "Dreieck 1: 16 · 5 : 2 = 40 dm². Dreieck 2: 16 · 7 : 2 = 56 dm². Zusammen 96 dm².",
-   "h": "Zwei Dreiecke mit derselben Grundseite."
-  },
-  {
-   "l": "dreieck",
-   "t": "dreieck",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In ein Rechteck (12 cm lang, 5 cm breit) wird ein Dreieck gezeichnet. Seine Grundseite ist die untere Rechteckseite, seine Spitze liegt auf der oberen. Wie groß ist die Fläche außerhalb des Dreiecks?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0.0,
-       0.0
-      ],
-      "B": [
-       12.0,
-       0.0
-      ],
-      "_C": [
-       12.0,
-       5.0
-      ],
-      "_D": [
-       0.0,
-       5.0
-      ],
-      "S": [
-       4.8,
-       5.0
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "12 cm"
-      ],
-      [
-       "B",
-       "_C",
-       "5 cm"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "A"
-      ],
-      [
-       "A",
-       "S"
-      ],
-      [
-       "S",
-       "B"
-      ]
-     ],
-     "flaeche": [
-      "A",
-      "B",
-      "S"
-     ]
-    }
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "cm²"
-   },
-   "c": "12 * 5 - 12 * 5 / 2",
-   "w": "Rechteck: 60 cm². Dreieck: 12 · 5 : 2 = 30 cm². Rest: 30 cm² – genau die Hälfte.",
-   "h": "Wie hoch ist das Dreieck?"
-  },
-  {
-   "l": "dreieck",
-   "t": "dreieck",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In ein Rechteck (7 cm lang, 9 cm breit) wird ein Dreieck gezeichnet. Seine Grundseite ist die untere Rechteckseite, seine Spitze liegt auf der oberen. Wie groß ist die Fläche außerhalb des Dreiecks?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0.0,
-       0.0
-      ],
-      "B": [
-       7.0,
-       0.0
-      ],
-      "_C": [
-       7.0,
-       9.0
-      ],
-      "_D": [
-       0.0,
-       9.0
-      ],
-      "S": [
-       2.8,
-       9.0
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "7 cm"
-      ],
-      [
-       "B",
-       "_C",
-       "9 cm"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "A"
-      ],
-      [
-       "A",
-       "S"
-      ],
-      [
-       "S",
-       "B"
-      ]
-     ],
-     "flaeche": [
-      "A",
-      "B",
-      "S"
-     ]
-    }
-   },
-   "o": {
-    "wert": 31.5,
-    "einheit": "cm²"
-   },
-   "c": "7 * 9 - 7 * 9 / 2",
-   "w": "Rechteck: 63 cm². Dreieck: 7 · 9 : 2 = 31,5 cm². Rest: 31,5 cm² – genau die Hälfte.",
-   "h": "Wie hoch ist das Dreieck?"
+   "h": "Zwei Dreiecke mit derselben Grundseite.",
+   "g": "pruefung"
   },
   {
    "l": "dreieck",
@@ -5247,6 +5264,118 @@
    "w": "A = 11,5 m · 8 m : 2 = 92 m² : 2 = 46 m²."
   },
   {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Rechteck (7 cm lang, 9 cm breit) wird ein Dreieck gezeichnet. Seine Grundseite ist die untere Rechteckseite, seine Spitze liegt auf der oberen. Wie groß ist die Fläche außerhalb des Dreiecks?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       7.0,
+       0.0
+      ],
+      "_C": [
+       7.0,
+       9.0
+      ],
+      "_D": [
+       0.0,
+       9.0
+      ],
+      "S": [
+       2.8,
+       9.0
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "7 cm"
+      ],
+      [
+       "B",
+       "_C",
+       "9 cm"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "A"
+      ],
+      [
+       "A",
+       "S"
+      ],
+      [
+       "S",
+       "B"
+      ]
+     ],
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ]
+    }
+   },
+   "o": {
+    "wert": 31.5,
+    "einheit": "cm²"
+   },
+   "c": "7 * 9 - 7 * 9 / 2",
+   "w": "Rechteck: 63 cm². Dreieck: 7 · 9 : 2 = 31,5 cm². Rest: 31,5 cm² – genau die Hälfte.",
+   "h": "Wie hoch ist das Dreieck?",
+   "g": "transfer"
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Die Grundseite AB eines Dreiecks ist 6 cm lang. Die Spitze C liegt irgendwo auf einer Linie, die 4 cm über AB parallel zu AB verläuft. Wie groß ist der Flächeninhalt, egal wo C liegt?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm²"
+   },
+   "c": "6 * 4 / 2",
+   "w": "Wo C auch liegt: Die Höhe ist immer der Abstand der Linie von AB, also 4 cm. A = 6 cm · 4 cm : 2 = 12 cm². Alle diese Dreiecke sind gleich groß.",
+   "h": "Was ändert sich, wenn C wandert – und was nicht?"
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Seiten 6 cm und 8 cm am rechten Winkel und die längste Seite 10 cm. Wie lang ist die Höhe auf die längste Seite?"
+   },
+   "o": {
+    "wert": 4.8,
+    "einheit": "cm"
+   },
+   "c": "6 * 8 / 10",
+   "w": "Fläche mit den Seiten am rechten Winkel: 6 · 8 : 2 = 24 cm². Dieselbe Fläche mit der langen Seite als Grundseite: 10 · h : 2 = 24, also h = 4,8 cm.",
+   "h": "Berechne die Fläche auf zwei Arten."
+  },
+  {
    "l": "trapez",
    "t": "trapez",
    "p": "uebung",
@@ -5339,7 +5468,29 @@
    },
    "c": "(9 + 2) * 6 / 2",
    "w": "A = (a + c) · h : 2 = (9 + 2) · 6 : 2 = 11 · 6 : 2 = 33 dm².",
-   "h": "Erst a + c, dann mal h, dann halbieren."
+   "h": "Erst a + c, dann mal h, dann halbieren.",
+   "g": "direkt"
+  },
+  {
+   "l": "trapez",
+   "t": "trapez",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Seiten eines Trapezes sind parallel?"
+   },
+   "a": [
+    "die beiden Grundseiten a und c",
+    "alle vier Seiten",
+    "die beiden Schenkel b und d"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Trapez hat (mindestens) ein Paar paralleler Seiten: a und c. Ihr Abstand ist die Höhe.",
+   "h": "Welche Seiten kommen in der Formel vor?"
   },
   {
    "l": "trapez",
@@ -5434,7 +5585,104 @@
    },
    "c": "(5 + 2) * 8 / 2",
    "w": "A = (a + c) · h : 2 = (5 + 2) · 8 : 2 = 7 · 8 : 2 = 28 dm².",
-   "h": "Erst a + c, dann mal h, dann halbieren."
+   "h": "Erst a + c, dann mal h, dann halbieren.",
+   "g": "direkt"
+  },
+  {
+   "l": "trapez",
+   "t": "trapez",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Grundstück hat die parallelen Seiten 80 m und 20 m. Ihr Abstand ist 25 m. Wie groß ist der Flächeninhalt?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0.0,
+       0.0
+      ],
+      "_B": [
+       80.0,
+       0.0
+      ],
+      "_C": [
+       40.0,
+       25.0
+      ],
+      "_D": [
+       20.0,
+       25.0
+      ],
+      "_F": [
+       32.0,
+       0.0
+      ],
+      "_H": [
+       32.0,
+       25.0
+      ],
+      "_ht": [
+       37.429,
+       12.5
+      ]
+     },
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "a = 80 m"
+      ],
+      [
+       "_B",
+       "_C"
+      ],
+      [
+       "_C",
+       "_D",
+       "c = 20 m"
+      ],
+      [
+       "_D",
+       "_A"
+      ],
+      [
+       "_F",
+       "_H",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_ht",
+       "_ht",
+       "h",
+       "gestrichelt"
+      ]
+     ],
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "rechter_winkel": [
+      [
+       "_F",
+       "_H",
+       "_B"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1250,
+    "einheit": "m²"
+   },
+   "c": "(80 + 20) * 25 / 2",
+   "w": "A = (80 + 20) · 25 : 2 = 1 250 m².",
+   "h": "Der Abstand der parallelen Seiten ist die Höhe.",
+   "g": "einkleidung"
   },
   {
    "l": "trapez",
@@ -5529,7 +5777,8 @@
    },
    "c": "(9 + 6) * 5 / 2",
    "w": "A = (a + c) · h : 2 = (9 + 6) · 5 : 2 = 15 · 5 : 2 = 37,5 m².",
-   "h": "Erst a + c, dann mal h, dann halbieren."
+   "h": "Erst a + c, dann mal h, dann halbieren.",
+   "g": "direkt"
   },
   {
    "l": "trapez",
@@ -5633,101 +5882,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Grundstück hat die parallelen Seiten 80 m und 20 m. Ihr Abstand ist 25 m. Wie groß ist der Flächeninhalt?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0.0,
-       0.0
-      ],
-      "_B": [
-       80.0,
-       0.0
-      ],
-      "_C": [
-       40.0,
-       25.0
-      ],
-      "_D": [
-       20.0,
-       25.0
-      ],
-      "_F": [
-       32.0,
-       0.0
-      ],
-      "_H": [
-       32.0,
-       25.0
-      ],
-      "_ht": [
-       37.429,
-       12.5
-      ]
-     },
-     "linien": [
-      [
-       "_A",
-       "_B",
-       "a = 80 m"
-      ],
-      [
-       "_B",
-       "_C"
-      ],
-      [
-       "_C",
-       "_D",
-       "c = 20 m"
-      ],
-      [
-       "_D",
-       "_A"
-      ],
-      [
-       "_F",
-       "_H",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_ht",
-       "_ht",
-       "h",
-       "gestrichelt"
-      ]
-     ],
-     "flaeche": [
-      "_A",
-      "_B",
-      "_C",
-      "_D"
-     ],
-     "rechter_winkel": [
-      [
-       "_F",
-       "_H",
-       "_B"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 1250,
-    "einheit": "m²"
-   },
-   "c": "(80 + 20) * 25 / 2",
-   "w": "A = (80 + 20) · 25 : 2 = 1 250 m².",
-   "h": "Der Abstand der parallelen Seiten ist die Höhe."
-  },
-  {
-   "l": "trapez",
-   "t": "trapez",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Ein Trapez hat zwei rechte Winkel: a = 11 cm, c = 2 cm, h = 3 cm. Berechne den Flächeninhalt.",
     "grafik": {
      "typ": "figur",
@@ -5814,7 +5968,8 @@
    },
    "c": "(11 + 2) * 3 / 2",
    "w": "Die senkrechte Seite ist die Höhe. A = (11 + 2) · 3 : 2 = 19,5 cm².",
-   "h": "Welche Seite steht senkrecht auf a und c?"
+   "h": "Welche Seite steht senkrecht auf a und c?",
+   "g": "darstellung"
   },
   {
    "l": "trapez",
@@ -5831,28 +5986,8 @@
    },
    "c": "(1.3 * 10 + 0.6 * 10) * 4 / 2",
    "w": "In dm: a = 13 dm, c = 6 dm. A = (13 + 6) · 4 : 2 = 38 dm².",
-   "h": "Alle Längen zuerst in dm."
-  },
-  {
-   "l": "trapez",
-   "t": "trapez",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Trapez hat a = 8 cm, c = 3 cm und h = 2 cm. Welche Rechnung gibt den Flächeninhalt?"
-   },
-   "a": [
-    "(8 + 3) · 2",
-    "8 · 3 · 2 : 2",
-    "(8 + 3) · 2 : 2",
-    "8 · 2 : 2 + 3"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "A = (a + c) · h : 2 = (8 + 3) · 2 : 2 = 11 cm².",
-   "h": "Zuerst die beiden parallelen Seiten addieren."
+   "h": "Alle Längen zuerst in dm.",
+   "g": "mehrschritt"
   },
   {
    "l": "trapez",
@@ -5947,7 +6082,30 @@
    },
    "c": "(7 + 2) * 2.5 / 2",
    "w": "A = (7 + 2) · 2,5 : 2 = 11,25 m².",
-   "h": "Der Abstand der parallelen Seiten ist die Höhe."
+   "h": "Der Abstand der parallelen Seiten ist die Höhe.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "trapez",
+   "t": "trapez",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Trapez hat a = 8 cm, c = 3 cm und h = 2 cm. Welche Rechnung gibt den Flächeninhalt?"
+   },
+   "a": [
+    "(8 + 3) · 2",
+    "8 · 3 · 2 : 2",
+    "(8 + 3) · 2 : 2",
+    "8 · 2 : 2 + 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A = (a + c) · h : 2 = (8 + 3) · 2 : 2 = 11 cm².",
+   "h": "Zuerst die beiden parallelen Seiten addieren.",
+   "g": "mehrschritt"
   },
   {
    "l": "trapez",
@@ -6042,7 +6200,8 @@
    },
    "c": "(80 + 30) * 40 / 2",
    "w": "A = (80 + 30) · 40 : 2 = 2 200 m².",
-   "h": "Der Abstand der parallelen Seiten ist die Höhe."
+   "h": "Der Abstand der parallelen Seiten ist die Höhe.",
+   "g": "einkleidung"
   },
   {
    "l": "trapez",
@@ -6063,7 +6222,8 @@
     "index": 2
    },
    "w": "Legt man ein gedrehtes, gleiches Trapez an, entsteht ein Parallelogramm mit Grundseite a + c und Höhe h. Das Trapez ist die Hälfte davon.",
-   "h": "Denke an die Herleitung mit zwei Trapezen."
+   "h": "Denke an die Herleitung mit zwei Trapezen.",
+   "g": "begruenden"
   },
   {
    "l": "trapez",
@@ -6161,7 +6321,8 @@
    },
    "c": "((9 - 1) + (7 - 3)) * (5 - 1) / 2",
    "w": "a = 8 cm (von x = 1 bis 9), c = 4 cm (von x = 3 bis 7), h = 4 cm. A = (8 + 4) · 4 : 2 = 24 cm².",
-   "h": "Lies a, c und h an den Kästchen ab."
+   "h": "Lies a, c und h an den Kästchen ab.",
+   "g": "verknuepfen"
   },
   {
    "l": "trapez",
@@ -6178,24 +6339,8 @@
    },
    "c": "10 * 4 - 2 * 2 * 4 / 2",
    "w": "Rechteck 40 cm² minus zwei Dreiecke je 4 cm²: 32 cm². Probe mit der Formel: c = 10 − 2 − 2 = 6 cm, (10 + 6) · 4 : 2 = 32 cm².",
-   "h": "Ergänzen oder die Formel – beide Wege gehen."
-  },
-  {
-   "l": "trapez",
-   "t": "trapez",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Dachfläche ist ein Trapez: unten 14 m, oben 8 m lang; die Höhe des Trapezes (die Dachschräge hinauf) ist 5 m. Wie viele m² Dachziegel braucht man für beide gleich großen Dachseiten?"
-   },
-   "o": {
-    "wert": 110,
-    "einheit": "m²"
-   },
-   "c": "2 * (14 + 8) * 5 / 2",
-   "w": "Eine Seite: (14 + 8) · 5 : 2 = 55 m². Zwei Seiten: 110 m².",
-   "h": "Erst eine Dachseite."
+   "h": "Ergänzen oder die Formel – beide Wege gehen.",
+   "g": "transfer"
   },
   {
    "l": "trapez",
@@ -6212,7 +6357,8 @@
    },
    "c": "(16 + 10) * 6 / 2 * 5",
    "w": "A = (16 + 10) · 6 : 2 = 78 m². Samen: 78 · 5 g = 390 g.",
-   "h": "Erst die Fläche, dann mal die Menge pro m²."
+   "h": "Erst die Fläche, dann mal die Menge pro m².",
+   "g": "pruefung"
   },
   {
    "l": "trapez",
@@ -6221,15 +6367,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Trapez ist a = 13 cm und c = 5 cm. Die Strecke genau in halber Höhe, parallel zu a, ist so lang wie der Mittelwert von a und c. Das Trapez ist 7 cm hoch. Wie groß ist es?"
+    "text": "Eine Dachfläche ist ein Trapez: unten 14 m, oben 8 m lang; die Höhe des Trapezes (die Dachschräge hinauf) ist 5 m. Wie viele m² Dachziegel braucht man für beide gleich großen Dachseiten?"
    },
    "o": {
-    "wert": 63,
-    "einheit": "cm²"
+    "wert": 110,
+    "einheit": "m²"
    },
-   "c": "(13 + 5) / 2 * 7",
-   "w": "Mittelwert: (13 + 5) : 2 = 9 cm. Das Trapez ist so groß wie ein Rechteck 9 cm · 7 cm = 63 cm².",
-   "h": "(a + c) : 2 ist der Mittelwert."
+   "c": "2 * (14 + 8) * 5 / 2",
+   "w": "Eine Seite: (14 + 8) · 5 : 2 = 55 m². Zwei Seiten: 110 m².",
+   "h": "Erst eine Dachseite.",
+   "g": "transfer"
   },
   {
    "l": "trapez",
@@ -6328,7 +6475,8 @@
    },
    "c": "6 * 4 + 2 * 4 / 2 + 4 * 4 / 2",
    "w": "Rechteck 24 cm², Dreiecke 4 cm² und 8 cm². Zusammen 36 cm². Probe mit der Formel: (12 + 6) · 4 : 2 = 36 cm².",
-   "h": "Drei Teilflächen addieren."
+   "h": "Drei Teilflächen addieren.",
+   "g": "rueckwaerts"
   },
   {
    "l": "trapez",
@@ -6337,15 +6485,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Tim rechnet für ein Trapez (a = 9 cm, c = 4 cm, h = 8 cm): 9 + 4 · 8 : 2 = 25 cm². Wie groß ist das Trapez wirklich?"
+    "text": "Bei einem Trapez ist a = 13 cm und c = 5 cm. Die Strecke genau in halber Höhe, parallel zu a, ist so lang wie der Mittelwert von a und c. Das Trapez ist 7 cm hoch. Wie groß ist es?"
    },
    "o": {
-    "wert": 52,
+    "wert": 63,
     "einheit": "cm²"
    },
-   "c": "(9 + 4) * 8 / 2",
-   "w": "Tim hat die Klammer vergessen und nur c mit h multipliziert. Richtig: (9 + 4) · 8 : 2 = 52 cm².",
-   "h": "Was muss zuerst gerechnet werden?"
+   "c": "(13 + 5) / 2 * 7",
+   "w": "Mittelwert: (13 + 5) : 2 = 9 cm. Das Trapez ist so groß wie ein Rechteck 9 cm · 7 cm = 63 cm².",
+   "h": "(a + c) : 2 ist der Mittelwert.",
+   "g": "transfer"
   },
   {
    "l": "trapez",
@@ -6910,6 +7059,60 @@
    "w": "A = (a + c) · h : 2 = (7 + 5) · 2 : 2 = 12 cm²."
   },
   {
+   "l": "trapez",
+   "t": "trapez",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Tim rechnet für ein Trapez (a = 9 cm, c = 4 cm, h = 8 cm): 9 + 4 · 8 : 2 = 25 cm². Wie groß ist das Trapez wirklich?"
+   },
+   "o": {
+    "wert": 52,
+    "einheit": "cm²"
+   },
+   "c": "(9 + 4) * 8 / 2",
+   "w": "Tim hat die Klammer vergessen und nur c mit h multipliziert. Richtig: (9 + 4) · 8 : 2 = 52 cm².",
+   "h": "Was muss zuerst gerechnet werden?",
+   "g": "fehler"
+  },
+  {
+   "l": "trapez",
+   "t": "trapez",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Trapez hat a = 10 cm, c = 4 cm und h = 6 cm. Eine Diagonale teilt es in zwei Dreiecke. Wie groß ist das größere Dreieck?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm²"
+   },
+   "c": "10 * 6 / 2",
+   "w": "Beide Dreiecke haben die Höhe 6 cm. Das eine hat die Grundseite a = 10 cm (30 cm²), das andere c = 4 cm (12 cm²). Zusammen 42 cm² = Trapezfläche. Das größere hat 30 cm².",
+   "h": "Welche Grundseite und welche Höhe hat jedes Dreieck?"
+  },
+  {
+   "l": "trapez",
+   "t": "trapez",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Trapez hat a = 12 cm und h = 5 cm. Es soll doppelt so groß sein wie ein Dreieck mit der Grundseite 12 cm und der Höhe 5 cm. Wie lang muss c sein?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "2 * 12 * 5 / 2 * 2 / 5 - 12",
+   "w": "Dreieck: 12 · 5 : 2 = 30 cm², doppelt 60 cm². (12 + c) · 5 : 2 = 60 ergibt 12 + c = 24, also c = 12 cm. Das „Trapez“ ist dann sogar ein Parallelogramm.",
+   "h": "Wie groß muss das Trapez sein?"
+  },
+  {
    "l": "rueckwaerts",
    "t": "rueckwaerts",
    "p": "uebung",
@@ -7002,7 +7205,8 @@
    },
    "c": "64 / 8",
    "w": "Rückwärts: Welche Zahl mal 8 ergibt 64? 64 : 8 = 8. Die Höhe ist 8 cm.",
-   "h": "Teile die Fläche durch die Grundseite."
+   "h": "Teile die Fläche durch die Grundseite.",
+   "g": "erkennen"
   },
   {
    "l": "rueckwaerts",
@@ -7019,7 +7223,8 @@
    },
    "c": "21 / 7",
    "w": "21 : 7 = 3. Die Grundseite ist 3 m lang.",
-   "h": "Welche Zahl mal die Höhe ergibt die Fläche?"
+   "h": "Welche Zahl mal die Höhe ergibt die Fläche?",
+   "g": "direkt"
   },
   {
    "l": "rueckwaerts",
@@ -7114,7 +7319,8 @@
    },
    "c": "45 / 9",
    "w": "Rückwärts: Welche Zahl mal 9 ergibt 45? 45 : 9 = 5. Die Höhe ist 5 cm.",
-   "h": "Teile die Fläche durch die Grundseite."
+   "h": "Teile die Fläche durch die Grundseite.",
+   "g": "erkennen"
   },
   {
    "l": "rueckwaerts",
@@ -7131,7 +7337,26 @@
    },
    "c": "35 / 5",
    "w": "35 : 5 = 7. Die Grundseite ist 7 m lang.",
-   "h": "Welche Zahl mal die Höhe ergibt die Fläche?"
+   "h": "Welche Zahl mal die Höhe ergibt die Fläche?",
+   "g": "direkt"
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Parallelogramm hat 25,6 m² und die Grundseite 8 m. Wie hoch ist es?"
+   },
+   "o": {
+    "wert": 3.2,
+    "einheit": "m"
+   },
+   "c": "25.6 / 8",
+   "w": "25,6 : 8 = 3,2. Die Höhe ist 3,2 m.",
+   "h": "Fläche durch Grundseite.",
+   "g": "einkleidung"
   },
   {
    "l": "rueckwaerts",
@@ -7148,7 +7373,8 @@
    },
    "c": "2 * 45 / (10 + 5)",
    "w": "Verdoppeln: 90. Das ist (a + c) · h = 15 · h. 90 : 15 = 6. h = 6 cm.",
-   "h": "Verdoppeln, dann durch a + c teilen."
+   "h": "Verdoppeln, dann durch a + c teilen.",
+   "g": "mehrschritt"
   },
   {
    "l": "rueckwaerts",
@@ -7233,7 +7459,8 @@
    },
    "c": "2 * 20 / 8",
    "w": "Verdoppeln: 2 · 20 = 40 (das ganze Parallelogramm). Dann 40 : 8 = 5. h = 5 cm.",
-   "h": "Zuerst verdoppeln, dann durch g teilen."
+   "h": "Zuerst verdoppeln, dann durch g teilen.",
+   "g": "darstellung"
   },
   {
    "l": "rueckwaerts",
@@ -7250,7 +7477,26 @@
    },
    "c": "2 * 8 / 2",
    "w": "2 · 8 = 16. 16 : 2 = 8. g = 8 cm.",
-   "h": "Zuerst verdoppeln, dann durch h teilen."
+   "h": "Zuerst verdoppeln, dann durch h teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Parallelogramm hat 9,5 m² und die Grundseite 5 m. Wie hoch ist es?"
+   },
+   "o": {
+    "wert": 1.9,
+    "einheit": "m"
+   },
+   "c": "9.5 / 5",
+   "w": "9,5 : 5 = 1,9. Die Höhe ist 1,9 m.",
+   "h": "Fläche durch Grundseite.",
+   "g": "einkleidung"
   },
   {
    "l": "rueckwaerts",
@@ -7271,41 +7517,8 @@
     "index": 3
    },
    "w": "Das Dreieck ist die Hälfte von g · h. Also g · h = 2 · 54, und h = 2 · 54 : 9 = 12 cm.",
-   "h": "Beim Dreieck musst du vorher verdoppeln."
-  },
-  {
-   "l": "rueckwaerts",
-   "t": "rueckwaerts",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Parallelogramm hat 25,6 m² und die Grundseite 8 m. Wie hoch ist es?"
-   },
-   "o": {
-    "wert": 3.2,
-    "einheit": "m"
-   },
-   "c": "25.6 / 8",
-   "w": "25,6 : 8 = 3,2. Die Höhe ist 3,2 m.",
-   "h": "Fläche durch Grundseite."
-  },
-  {
-   "l": "rueckwaerts",
-   "t": "rueckwaerts",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Parallelogramm hat 9,5 m² und die Grundseite 5 m. Wie hoch ist es?"
-   },
-   "o": {
-    "wert": 1.9,
-    "einheit": "m"
-   },
-   "c": "9.5 / 5",
-   "w": "9,5 : 5 = 1,9. Die Höhe ist 1,9 m.",
-   "h": "Fläche durch Grundseite."
+   "h": "Beim Dreieck musst du vorher verdoppeln.",
+   "g": "mehrschritt"
   },
   {
    "l": "rueckwaerts",
@@ -7322,7 +7535,8 @@
    },
    "c": "5 * 6.4 / 8",
    "w": "A = 5 cm · 6,4 cm = 32 cm². Mit a als Grundseite: 32 : 8 = 4. Die Höhe zu a ist 4 cm.",
-   "h": "Berechne zuerst die Fläche mit b."
+   "h": "Berechne zuerst die Fläche mit b.",
+   "g": "pruefung"
   },
   {
    "l": "rueckwaerts",
@@ -7339,7 +7553,8 @@
    },
    "c": "2 * 7 * 4 / 7",
    "w": "Parallelogramm: 28 cm². Dreieck: 7 · h : 2 = 28, also 7 · h = 56 und h = 8 cm.",
-   "h": "Das Dreieck braucht eine größere Höhe."
+   "h": "Das Dreieck braucht eine größere Höhe.",
+   "g": "verknuepfen"
   },
   {
    "l": "rueckwaerts",
@@ -7356,7 +7571,8 @@
    },
    "c": "6 * 4 / 8",
    "w": "A = 6 · 4 : 2 = 12 cm². Mit b als Grundseite: 8 · h : 2 = 12, also 8 · h = 24 und h = 3 cm.",
-   "h": "Die Fläche bleibt gleich, egal welche Seite unten liegt."
+   "h": "Die Fläche bleibt gleich, egal welche Seite unten liegt.",
+   "g": "transfer"
   },
   {
    "l": "rueckwaerts",
@@ -7373,7 +7589,8 @@
    },
    "c": "2 * 10 * 10 / 8",
    "w": "Quadrat: 100 cm². Dreieck: g · h = 2 · 100 = 200. h = 200 : 8 = 25 cm.",
-   "h": "Wie groß ist das Quadrat? Dann rückwärts beim Dreieck."
+   "h": "Wie groß ist das Quadrat? Dann rückwärts beim Dreieck.",
+   "g": "verknuepfen"
   },
   {
    "l": "rueckwaerts",
@@ -7390,7 +7607,8 @@
    },
    "c": "7 * 8 / 8",
    "w": "Fläche: 7 · 8 = 56 cm². Zweites: 56 : 8 = 7 cm.",
-   "h": "Erst die Fläche des ersten."
+   "h": "Erst die Fläche des ersten.",
+   "g": "transfer"
   },
   {
    "l": "rueckwaerts",
@@ -7407,7 +7625,8 @@
    },
    "c": "0.14 / (20 / 100)",
    "w": "20 cm = 0,2 m. h = 0,14 : 0,2 = 0,7 m.",
-   "h": "Grundseite zuerst in m umrechnen."
+   "h": "Grundseite zuerst in m umrechnen.",
+   "g": "verknuepfen"
   },
   {
    "l": "rueckwaerts",
@@ -7424,7 +7643,8 @@
    },
    "c": "2 * 38 / 4 - 13",
    "w": "Verdoppeln: 76. Durch h: 76 : 4 = 19 = a + c. Also c = 19 − 13 = 6 cm.",
-   "h": "Zuerst a + c bestimmen."
+   "h": "Zuerst a + c bestimmen.",
+   "g": "rueckwaerts"
   },
   {
    "l": "rueckwaerts",
@@ -7441,7 +7661,8 @@
    },
    "c": "2 * 30 / (12 + 8)",
    "w": "2 · 30 = 60. a + c = 20. 60 : 20 = 3 m.",
-   "h": "Der Abstand der parallelen Seiten ist die Höhe."
+   "h": "Der Abstand der parallelen Seiten ist die Höhe.",
+   "g": "rueckwaerts"
   },
   {
    "l": "rueckwaerts",
@@ -7748,6 +7969,41 @@
    "w": "Verdoppeln: 88. Das ist (a + c) · h = 11 · h. 88 : 11 = 8. h = 8 cm."
   },
   {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Trapez ist 4 cm hoch und hat 30 cm². Die Seite a ist 3 cm länger als die Seite c. Wie lang ist a?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "(30 * 2 / 4 + 3) / 2",
+   "w": "(a + c) · 4 : 2 = 30 ergibt a + c = 15. Wenn a um 3 länger ist: c + 3 + c = 15, also 2c = 12, c = 6 und a = 9 cm.",
+   "h": "Bestimme zuerst a + c."
+  },
+  {
+   "l": "rueckwaerts",
+   "t": "rueckwaerts",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat 36 cm². Grundseite und Höhe sind ganze Zentimeter. Wie viele Möglichkeiten gibt es für die Länge der Grundseite?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "g · h : 2 = 36 heißt g · h = 72. g kann jeder Teiler von 72 sein: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72 – das sind 12 Möglichkeiten.",
+   "h": "Was muss g · h ergeben?"
+  },
+  {
    "l": "zusammengesetzt",
    "t": "zusammengesetzt",
    "p": "uebung",
@@ -7855,7 +8111,29 @@
    },
    "c": "7 * 5 + 7 * 4 / 2",
    "w": "Rechteck: 35 cm². Dreieck: 7 · 4 : 2 = 14 cm². Zusammen 49 cm².",
-   "h": "Zerlege in Rechteck und Dreieck."
+   "h": "Zerlege in Rechteck und Dreieck.",
+   "g": "direkt"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "In welche Teilflächen zerlegst du eine L-förmige Figur am einfachsten?"
+   },
+   "a": [
+    "in zwei Rechtecke",
+    "in ein Rechteck und ein Dreieck",
+    "in zwei Dreiecke"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein L hat nur rechte Winkel. Ein Schnitt zerlegt es in zwei Rechtecke.",
+   "h": "Welche Winkel hat ein L?"
   },
   {
    "l": "zusammengesetzt",
@@ -7941,7 +8219,26 @@
    },
    "c": "9 * 3 + 2 * (9 - 3)",
    "w": "Unterer Streifen: 9 · 3 = 27 m². Darüber: 2 · (9 − 3) = 12 m². Zusammen 39 m².",
-   "h": "Zerlege in zwei Rechtecke."
+   "h": "Zerlege in zwei Rechtecke.",
+   "g": "direkt"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pfeil besteht aus einem Rechteck (9 cm lang, 2 cm breit) und einer Dreiecksspitze (Grundseite 6 cm, Höhe 2 cm). Wie groß ist der Pfeil?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm²"
+   },
+   "c": "9 * 2 + 6 * 2 / 2",
+   "w": "Rechteck: 18 cm². Spitze: 6 · 2 : 2 = 6 cm². Zusammen 24 cm².",
+   "h": "Zerlege in Rechteck und Dreieck.",
+   "g": "einkleidung"
   },
   {
    "l": "zusammengesetzt",
@@ -8051,127 +8348,8 @@
    },
    "c": "10 * 6 + 10 * 5 / 2",
    "w": "Rechteck: 60 cm². Dreieck: 10 · 5 : 2 = 25 cm². Zusammen 85 cm².",
-   "h": "Zerlege in Rechteck und Dreieck."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Die L-Form ist unten 8 m breit und links 9 m hoch. Der untere Streifen ist 3 m hoch, der linke Streifen 4 m breit. Wie groß ist die Fläche?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0.0,
-       0.0
-      ],
-      "B": [
-       8.0,
-       0.0
-      ],
-      "C": [
-       8.0,
-       3.0
-      ],
-      "D": [
-       4.0,
-       3.0
-      ],
-      "E": [
-       4.0,
-       9.0
-      ],
-      "F": [
-       0.0,
-       9.0
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "8 m"
-      ],
-      [
-       "B",
-       "C",
-       "3 m"
-      ],
-      [
-       "C",
-       "D",
-       ""
-      ],
-      [
-       "D",
-       "E",
-       ""
-      ],
-      [
-       "E",
-       "F",
-       "4 m"
-      ],
-      [
-       "F",
-       "A",
-       "9 m"
-      ]
-     ],
-     "flaeche": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F"
-     ]
-    }
-   },
-   "o": {
-    "wert": 48,
-    "einheit": "m²"
-   },
-   "c": "8 * 3 + 4 * (9 - 3)",
-   "w": "Unterer Streifen: 8 · 3 = 24 m². Darüber: 4 · (9 − 3) = 24 m². Zusammen 48 m².",
-   "h": "Zerlege in zwei Rechtecke."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Von einem Rechteck (11 cm · 10 cm) werden zwei Ecken abgeschnitten. Jede Ecke ist ein rechtwinkliges Dreieck mit 3 cm und 6 cm am rechten Winkel. Wie groß ist die Restfläche?"
-   },
-   "o": {
-    "wert": 92,
-    "einheit": "cm²"
-   },
-   "c": "11 * 10 - 2 * 3 * 6 / 2",
-   "w": "Rechteck: 110 cm². Eine Ecke: 3 · 6 : 2 = 9 cm². Zwei Ecken: 18 cm². Rest: 92 cm².",
-   "h": "Ergänzen: Rechteck minus Ecken."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Pfeil besteht aus einem Rechteck (9 cm lang, 2 cm breit) und einer Dreiecksspitze (Grundseite 6 cm, Höhe 2 cm). Wie groß ist der Pfeil?"
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "cm²"
-   },
-   "c": "9 * 2 + 6 * 2 / 2",
-   "w": "Rechteck: 18 cm². Spitze: 6 · 2 : 2 = 6 cm². Zusammen 24 cm².",
-   "h": "Zerlege in Rechteck und Dreieck."
+   "h": "Zerlege in Rechteck und Dreieck.",
+   "g": "direkt"
   },
   {
    "l": "zusammengesetzt",
@@ -8286,7 +8464,113 @@
    },
    "c": "10 * 6 - 6 * 3 / 2",
    "w": "Rechteck: 60 cm². Dreieck: 6 · 3 : 2 = 9 cm². Rest: 60 − 9 = 51 cm².",
-   "h": "Ganzes Rechteck minus Ausschnitt."
+   "h": "Ganzes Rechteck minus Ausschnitt.",
+   "g": "darstellung"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die L-Form ist unten 8 m breit und links 9 m hoch. Der untere Streifen ist 3 m hoch, der linke Streifen 4 m breit. Wie groß ist die Fläche?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0.0,
+       0.0
+      ],
+      "B": [
+       8.0,
+       0.0
+      ],
+      "C": [
+       8.0,
+       3.0
+      ],
+      "D": [
+       4.0,
+       3.0
+      ],
+      "E": [
+       4.0,
+       9.0
+      ],
+      "F": [
+       0.0,
+       9.0
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "8 m"
+      ],
+      [
+       "B",
+       "C",
+       "3 m"
+      ],
+      [
+       "C",
+       "D",
+       ""
+      ],
+      [
+       "D",
+       "E",
+       ""
+      ],
+      [
+       "E",
+       "F",
+       "4 m"
+      ],
+      [
+       "F",
+       "A",
+       "9 m"
+      ]
+     ],
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ]
+    }
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "m²"
+   },
+   "c": "8 * 3 + 4 * (9 - 3)",
+   "w": "Unterer Streifen: 8 · 3 = 24 m². Darüber: 4 · (9 − 3) = 24 m². Zusammen 48 m².",
+   "h": "Zerlege in zwei Rechtecke.",
+   "g": "direkt"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Rechteck (11 cm · 10 cm) werden zwei Ecken abgeschnitten. Jede Ecke ist ein rechtwinkliges Dreieck mit 3 cm und 6 cm am rechten Winkel. Wie groß ist die Restfläche?"
+   },
+   "o": {
+    "wert": 92,
+    "einheit": "cm²"
+   },
+   "c": "11 * 10 - 2 * 3 * 6 / 2",
+   "w": "Rechteck: 110 cm². Eine Ecke: 3 · 6 : 2 = 9 cm². Zwei Ecken: 18 cm². Rest: 92 cm².",
+   "h": "Ergänzen: Rechteck minus Ecken.",
+   "g": "mehrschritt"
   },
   {
    "l": "zusammengesetzt",
@@ -8406,7 +8690,26 @@
    },
    "c": "6 * 3 + (6 + 2) * 3 / 2",
    "w": "Rechteck: 18 m². Trapez: (6 + 2) · 3 : 2 = 12 m². Zusammen 30 m².",
-   "h": "Die Trennlinie ist die untere Seite des Trapezes."
+   "h": "Die Trennlinie ist die untere Seite des Trapezes.",
+   "g": "darstellung"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pfeil besteht aus einem Rechteck (9 cm lang, 3 cm breit) und einer Dreiecksspitze (Grundseite 5 cm, Höhe 4 cm). Wie groß ist der Pfeil?"
+   },
+   "o": {
+    "wert": 37,
+    "einheit": "cm²"
+   },
+   "c": "9 * 3 + 5 * 4 / 2",
+   "w": "Rechteck: 27 cm². Spitze: 5 · 4 : 2 = 10 cm². Zusammen 37 cm².",
+   "h": "Zerlege in Rechteck und Dreieck.",
+   "g": "einkleidung"
   },
   {
    "l": "zusammengesetzt",
@@ -8521,24 +8824,8 @@
    },
    "c": "14 * 8 - 10 * 3 / 2",
    "w": "Rechteck: 112 cm². Dreieck: 10 · 3 : 2 = 15 cm². Rest: 112 − 15 = 97 cm².",
-   "h": "Ganzes Rechteck minus Ausschnitt."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Pfeil besteht aus einem Rechteck (9 cm lang, 3 cm breit) und einer Dreiecksspitze (Grundseite 5 cm, Höhe 4 cm). Wie groß ist der Pfeil?"
-   },
-   "o": {
-    "wert": 37,
-    "einheit": "cm²"
-   },
-   "c": "9 * 3 + 5 * 4 / 2",
-   "w": "Rechteck: 27 cm². Spitze: 5 · 4 : 2 = 10 cm². Zusammen 37 cm².",
-   "h": "Zerlege in Rechteck und Dreieck."
+   "h": "Ganzes Rechteck minus Ausschnitt.",
+   "g": "darstellung"
   },
   {
    "l": "zusammengesetzt",
@@ -8636,7 +8923,8 @@
    },
    "c": "7 * 5 - 5 * 2 / 2 - 2 * 3 / 2 - 5 * 2 / 2 - 2 * 3 / 2",
    "w": "Ergänzen zum Rechteck von x = 1 bis 8 und y = 1 bis 6: 7 · 5 = 35 cm². Vier rechtwinklige Eckdreiecke abziehen: 5 · 2 : 2 = 5, 2 · 3 : 2 = 3, 5 · 2 : 2 = 5, 2 · 3 : 2 = 3, zusammen 16 cm². Viereck: 35 − 16 = 19 cm².",
-   "h": "Umgib das Viereck mit einem Rechteck und ziehe die Ecken ab."
+   "h": "Umgib das Viereck mit einem Rechteck und ziehe die Ecken ab.",
+   "g": "verknuepfen"
   },
   {
    "l": "zusammengesetzt",
@@ -8653,7 +8941,8 @@
    },
    "c": "2 * (12 * 8 / 4) / 8",
    "w": "Rechteck 96 cm², ein Viertel: 24 cm². Dreieck: 8 · h : 2 = 24, also 8 · h = 48 und h = 6 cm.",
-   "h": "Wie groß soll das Loch sein?"
+   "h": "Wie groß soll das Loch sein?",
+   "g": "rueckwaerts"
   },
   {
    "l": "zusammengesetzt",
@@ -8670,41 +8959,8 @@
    },
    "c": "8 * 8 - 4 * 4 * 4 / 2",
    "w": "Außen 64 cm². In jeder Ecke bleibt ein rechtwinkliges Dreieck mit 4 cm und 4 cm: 8 cm². Vier Ecken: 32 cm². Innen: 64 − 32 = 32 cm² – genau die Hälfte.",
-   "h": "Ergänzen: Was bleibt in den vier Ecken übrig?"
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Auf jede Seite eines Quadrats (Seite 4 cm) wird außen ein Dreieck gesetzt, das 4 cm hoch ist. Wie groß ist der ganze Stern?"
-   },
-   "o": {
-    "wert": 48,
-    "einheit": "cm²"
-   },
-   "c": "4 * 4 + 4 * 4 * 4 / 2",
-   "w": "Quadrat: 16 cm². Ein Dreieck: 4 · 4 : 2 = 8 cm². Vier Dreiecke: 32 cm². Zusammen 48 cm².",
-   "h": "Quadrat plus vier gleiche Dreiecke."
-  },
-  {
-   "l": "zusammengesetzt",
-   "t": "zusammengesetzt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bilderrahmen ist außen 20 cm · 9 cm groß und überall 3 cm breit. Wie groß ist die Fläche des Rahmens?"
-   },
-   "o": {
-    "wert": 138,
-    "einheit": "cm²"
-   },
-   "c": "20 * 9 - (20 - 2 * 3) * (9 - 2 * 3)",
-   "w": "Außen: 180 cm². Innen: 14 · 3 = 42 cm². Rahmen: 138 cm².",
-   "h": "Innen ist jede Seite um zweimal die Rahmenbreite kürzer."
+   "h": "Ergänzen: Was bleibt in den vier Ecken übrig?",
+   "g": "transfer"
   },
   {
    "l": "zusammengesetzt",
@@ -8817,7 +9073,26 @@
    },
    "c": "(9 - 3) * (5 - 1) + (9 - 3) * 2 / 2",
    "w": "Rechteck ABCE: 6 · 4 = 24 cm². Dreieck ECD: Grundseite 6, Höhe 2: 6 cm². Zusammen 30 cm².",
-   "h": "Zerlege in ein Rechteck und ein Dreieck."
+   "h": "Zerlege in ein Rechteck und ein Dreieck.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf jede Seite eines Quadrats (Seite 4 cm) wird außen ein Dreieck gesetzt, das 4 cm hoch ist. Wie groß ist der ganze Stern?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm²"
+   },
+   "c": "4 * 4 + 4 * 4 * 4 / 2",
+   "w": "Quadrat: 16 cm². Ein Dreieck: 4 · 4 : 2 = 8 cm². Vier Dreiecke: 32 cm². Zusammen 48 cm².",
+   "h": "Quadrat plus vier gleiche Dreiecke.",
+   "g": "transfer"
   },
   {
    "l": "zusammengesetzt",
@@ -8834,7 +9109,8 @@
    },
    "c": "8 * 3 + 8 * 2 / 2 - 1 * 2",
    "w": "Rechteck: 24 m². Dreieck: 8 · 2 : 2 = 8 m². Tür: 2 m². Wand: 30 m².",
-   "h": "Zerlegen, dann die Tür abziehen."
+   "h": "Zerlegen, dann die Tür abziehen.",
+   "g": "pruefung"
   },
   {
    "l": "zusammengesetzt",
@@ -8843,15 +9119,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Fünfeck aus Rechteck (9 cm · 4 cm) und Dreieck darauf hat 45 cm². Wie hoch ist das Dreieck?"
+    "text": "Ein Bilderrahmen ist außen 20 cm · 9 cm groß und überall 3 cm breit. Wie groß ist die Fläche des Rahmens?"
    },
    "o": {
-    "wert": 2,
-    "einheit": "cm"
+    "wert": 138,
+    "einheit": "cm²"
    },
-   "c": "2 * (45 - 9 * 4) / 9",
-   "w": "Dreieck: 45 − 36 = 9 cm². Rückwärts: 2 · 9 : 9 = 2 cm.",
-   "h": "Ziehe zuerst das Rechteck ab."
+   "c": "20 * 9 - (20 - 2 * 3) * (9 - 2 * 3)",
+   "w": "Außen: 180 cm². Innen: 14 · 3 = 42 cm². Rahmen: 138 cm².",
+   "h": "Innen ist jede Seite um zweimal die Rahmenbreite kürzer.",
+   "g": "transfer"
   },
   {
    "l": "zusammengesetzt",
@@ -9519,20 +9796,58 @@
    "w": "Rechteck: 112 cm². Eine Ecke: 1 · 2 : 2 = 1 cm². Zwei Ecken: 2 cm². Rest: 110 cm²."
   },
   {
-   "l": "oberflaeche",
-   "t": "oberflaeche",
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
    "p": "uebung",
-   "s": 1,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Körper hat vorn und hinten je ein gleiches Dreieck. Dazwischen liegen nur Rechtecke. Aus wie vielen Flächen besteht seine Oberfläche?"
+    "text": "Ein Fünfeck aus Rechteck (9 cm · 4 cm) und Dreieck darauf hat 45 cm². Wie hoch ist das Dreieck?"
    },
    "o": {
-    "wert": 5
+    "wert": 2,
+    "einheit": "cm"
    },
-   "c": "3 + 2",
-   "w": "Jede Seite des Dreiecks gehört zu einem Rechteck: 3 Rechtecke. Dazu vorn und hinten: 3 + 2 = 5 Flächen.",
-   "h": "Zähle die Rechtecke und die beiden Enden."
+   "c": "2 * (45 - 9 * 4) / 9",
+   "w": "Dreieck: 45 − 36 = 9 cm². Rückwärts: 2 · 9 : 9 = 2 cm.",
+   "h": "Ziehe zuerst das Rechteck ab.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreuz besteht aus 5 gleichen Quadraten (eines in der Mitte, an jeder Seite eines). Sein Umfang ist 48 cm. Wie groß ist sein Flächeninhalt?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "cm²"
+   },
+   "c": "5 * (48 / 12) ** 2",
+   "w": "Der Rand des Kreuzes besteht aus 12 Quadratseiten. 48 cm : 12 = 4 cm. Ein Quadrat hat 16 cm², fünf Quadrate 80 cm².",
+   "h": "Zähle, wie viele Quadratseiten den Rand bilden."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Rechteck (12 cm · 8 cm) verbindet man die Mittelpunkte der vier Seiten. Wie groß ist das entstehende Viereck?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm²"
+   },
+   "c": "12 * 8 / 2",
+   "w": "Die Verbindungen schneiden vier gleiche rechtwinklige Dreiecke (6 cm · 4 cm : 2 = 12 cm²) ab. 96 cm² − 4 · 12 cm² = 48 cm² – genau die Hälfte.",
+   "h": "Was wird an den Ecken abgeschnitten?"
   },
   {
    "l": "oberflaeche",
@@ -9633,7 +9948,8 @@
    },
    "c": "2 * 3 * 4 / 2 + (3 + 4 + 5) * 10",
    "w": "Zwei Dreiecke: 2 · 3 · 4 : 2 = 12 cm². Drei Rechtecke: 3 · 10 + 4 · 10 + 5 · 10 = 120 cm². Oberfläche: 132 cm².",
-   "h": "Zwei Dreiecke und drei Rechtecke."
+   "h": "Zwei Dreiecke und drei Rechtecke.",
+   "g": "erkennen"
   },
   {
    "l": "oberflaeche",
@@ -9642,14 +9958,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Körper hat vorn und hinten je ein gleiches Sechseck. Dazwischen liegen nur Rechtecke. Aus wie vielen Flächen besteht seine Oberfläche?"
+    "text": "Ein Körper hat vorn und hinten je ein gleiches Dreieck. Dazwischen liegen nur Rechtecke. Aus wie vielen Flächen besteht seine Oberfläche?"
    },
    "o": {
-    "wert": 8
+    "wert": 5
    },
-   "c": "6 + 2",
-   "w": "Jede Seite des Sechsecks gehört zu einem Rechteck: 6 Rechtecke. Dazu vorn und hinten: 6 + 2 = 8 Flächen.",
-   "h": "Zähle die Rechtecke und die beiden Enden."
+   "c": "3 + 2",
+   "w": "Jede Seite des Dreiecks gehört zu einem Rechteck: 3 Rechtecke. Dazu vorn und hinten: 3 + 2 = 5 Flächen.",
+   "h": "Zähle die Rechtecke und die beiden Enden.",
+   "g": "direkt"
   },
   {
    "l": "oberflaeche",
@@ -9750,7 +10067,145 @@
    },
    "c": "2 * 6 * 8 / 2 + (6 + 8 + 10) * 15",
    "w": "Zwei Dreiecke: 2 · 6 · 8 : 2 = 48 cm². Drei Rechtecke: 6 · 15 + 8 · 15 + 10 · 15 = 360 cm². Oberfläche: 408 cm².",
-   "h": "Zwei Dreiecke und drei Rechtecke."
+   "h": "Zwei Dreiecke und drei Rechtecke.",
+   "g": "erkennen"
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Körper hat vorn und hinten je ein gleiches Sechseck. Dazwischen liegen nur Rechtecke. Aus wie vielen Flächen besteht seine Oberfläche?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "6 + 2",
+   "w": "Jede Seite des Sechsecks gehört zu einem Rechteck: 6 Rechtecke. Dazu vorn und hinten: 6 + 2 = 8 Flächen.",
+   "h": "Zähle die Rechtecke und die beiden Enden.",
+   "g": "direkt"
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Schachtel hat vorn und hinten ein gleichschenkliges Dreieck (Grundseite 6 cm, Höhe 4 cm, schräge Seiten je 5 cm). Sie ist 20 cm lang. Wie groß ist ihre Oberfläche?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       7.071,
+       7.071
+      ],
+      "_v1": [
+       6.0,
+       0.0
+      ],
+      "_h1": [
+       13.071,
+       7.071
+      ],
+      "_v2": [
+       3.0,
+       4.0
+      ],
+      "_h2": [
+       10.071,
+       11.071
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "6 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       "5 cm"
+      ],
+      [
+       "_v2",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "20 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2"
+     ]
+    }
+   },
+   "o": {
+    "wert": 344,
+    "einheit": "cm²"
+   },
+   "c": "2 * 6 * 4 / 2 + (6 + 2 * 5) * 20",
+   "w": "Dreiecke: 2 · 6 · 4 : 2 = 24 cm². Rechtecke: (6 + 5 + 5) · 20 = 320 cm². Zusammen 344 cm².",
+   "h": "Die drei Rechtecke sind alle gleich lang.",
+   "g": "darstellung"
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zelt hat vorn und hinten ein Dreieck (Grundseite 3,2 m, Höhe 1,2 m) und zwei schräge Rechteckseiten (2 m breit, 2 m lang). Den Boden gibt es nicht. Wie viel Stoff braucht man?"
+   },
+   "o": {
+    "wert": 11.84,
+    "einheit": "m²"
+   },
+   "c": "2 * 3.2 * 1.2 / 2 + 2 * 2 * 2",
+   "w": "Dreiecke: 2 · 3,2 · 1,2 : 2 = 3,84 m². Seiten: 2 · 2 · 2 = 8 m². Ohne Boden: 11,84 m².",
+   "h": "Welche Flächen hat das Zelt wirklich?",
+   "g": "einkleidung"
   },
   {
    "l": "oberflaeche",
@@ -9875,125 +10330,8 @@
    },
    "c": "2 * (12 + 6) * 4 / 2 + (12 + 6 + 2 * 5) * 40",
    "w": "Zwei Trapeze: 2 · (12 + 6) · 4 : 2 = 72 cm². Rechtecke: (12 + 6 + 5 + 5) · 40 = 1120 cm². Oberfläche: 1192 cm².",
-   "h": "Zwei Trapeze und vier Rechtecke."
-  },
-  {
-   "l": "oberflaeche",
-   "t": "oberflaeche",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schachtel hat vorn und hinten ein gleichschenkliges Dreieck (Grundseite 6 cm, Höhe 4 cm, schräge Seiten je 5 cm). Sie ist 20 cm lang. Wie groß ist ihre Oberfläche?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_v0": [
-       0.0,
-       0.0
-      ],
-      "_h0": [
-       7.071,
-       7.071
-      ],
-      "_v1": [
-       6.0,
-       0.0
-      ],
-      "_h1": [
-       13.071,
-       7.071
-      ],
-      "_v2": [
-       3.0,
-       4.0
-      ],
-      "_h2": [
-       10.071,
-       11.071
-      ]
-     },
-     "linien": [
-      [
-       "_v0",
-       "_v1",
-       "6 cm"
-      ],
-      [
-       "_v1",
-       "_v2",
-       "5 cm"
-      ],
-      [
-       "_v2",
-       "_v0",
-       ""
-      ],
-      [
-       "_h0",
-       "_h1",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_h1",
-       "_h2",
-       ""
-      ],
-      [
-       "_h2",
-       "_h0",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_v0",
-       "_h0",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_v1",
-       "_h1",
-       "20 cm"
-      ],
-      [
-       "_v2",
-       "_h2",
-       ""
-      ]
-     ],
-     "flaeche": [
-      "_v0",
-      "_v1",
-      "_v2"
-     ]
-    }
-   },
-   "o": {
-    "wert": 344,
-    "einheit": "cm²"
-   },
-   "c": "2 * 6 * 4 / 2 + (6 + 2 * 5) * 20",
-   "w": "Dreiecke: 2 · 6 · 4 : 2 = 24 cm². Rechtecke: (6 + 5 + 5) · 20 = 320 cm². Zusammen 344 cm².",
-   "h": "Die drei Rechtecke sind alle gleich lang."
-  },
-  {
-   "l": "oberflaeche",
-   "t": "oberflaeche",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zelt hat vorn und hinten ein Dreieck (Grundseite 3,2 m, Höhe 1,2 m) und zwei schräge Rechteckseiten (2 m breit, 2 m lang). Den Boden gibt es nicht. Wie viel Stoff braucht man?"
-   },
-   "o": {
-    "wert": 11.84,
-    "einheit": "m²"
-   },
-   "c": "2 * 3.2 * 1.2 / 2 + 2 * 2 * 2",
-   "w": "Dreiecke: 2 · 3,2 · 1,2 : 2 = 3,84 m². Seiten: 2 · 2 · 2 = 8 m². Ohne Boden: 11,84 m².",
-   "h": "Welche Flächen hat das Zelt wirklich?"
+   "h": "Zwei Trapeze und vier Rechtecke.",
+   "g": "mehrschritt"
   },
   {
    "l": "oberflaeche",
@@ -10126,7 +10464,8 @@
    },
    "c": "(3 + 4 + 5) * 9 + 2 * 3 * 4 / 2",
    "w": "Streifen: (3 + 4 + 5) · 9 = 108 cm². Dreiecke: 2 · 3 · 4 : 2 = 12 cm². Zusammen 120 cm².",
-   "h": "Streifen plus zwei Dreiecke."
+   "h": "Streifen plus zwei Dreiecke.",
+   "g": "darstellung"
   },
   {
    "l": "oberflaeche",
@@ -10143,7 +10482,8 @@
    },
    "c": "2 * 2.4 * 0.9 / 2 + 2 * 1.5 * 3",
    "w": "Dreiecke: 2 · 2,4 · 0,9 : 2 = 2,16 m². Seiten: 2 · 1,5 · 3 = 9 m². Ohne Boden: 11,16 m².",
-   "h": "Welche Flächen hat das Zelt wirklich?"
+   "h": "Welche Flächen hat das Zelt wirklich?",
+   "g": "einkleidung"
   },
   {
    "l": "oberflaeche",
@@ -10242,7 +10582,8 @@
    },
    "c": "2 * 8 * 3 / 2 + (8 + 2 * 5) * 18",
    "w": "Dreiecke: 2 · 8 · 3 : 2 = 24 cm². Rechtecke: (8 + 5 + 5) · 18 = 324 cm². Zusammen 348 cm².",
-   "h": "Die drei Rechtecke sind alle gleich lang."
+   "h": "Die drei Rechtecke sind alle gleich lang.",
+   "g": "darstellung"
   },
   {
    "l": "oberflaeche",
@@ -10259,7 +10600,8 @@
    },
    "c": "6 * 6 * 6",
    "w": "Es fallen außen drei Quadrate (je 4 cm²) weg, aber innen kommen drei gleich große Quadrate dazu. Die Oberfläche bleibt 6 · 6 · 6 = 216 cm².",
-   "h": "Welche Flächen fallen weg, welche kommen dazu?"
+   "h": "Welche Flächen fallen weg, welche kommen dazu?",
+   "g": "begruenden"
   },
   {
    "l": "oberflaeche",
@@ -10276,7 +10618,8 @@
    },
    "c": "(4 * 6 - 2 * 3) * 2 * 2",
    "w": "Vier Würfel hätten 4 · 6 = 24 Quadrate. Drei Klebestellen verdecken je 2 Quadrate: 24 − 6 = 18 Quadrate zu je 4 cm²: 72 cm².",
-   "h": "Zähle die sichtbaren Quadrate."
+   "h": "Zähle die sichtbaren Quadrate.",
+   "g": "pruefung"
   },
   {
    "l": "oberflaeche",
@@ -10293,7 +10636,8 @@
    },
    "c": "2 * (6 * 8 + 6 * 12 + 8 * 12)",
    "w": "Quader 6 cm · 8 cm · 12 cm: 2 · (48 + 72 + 96) = 432 cm². Probe: zwei Keile je 48 + 288 = 336, zusammen 672, minus die zwei inneren Rechtecke 2 · 120 = 240 → 432 cm².",
-   "h": "Welcher Quader entsteht?"
+   "h": "Welcher Quader entsteht?",
+   "g": "transfer"
   },
   {
    "l": "oberflaeche",
@@ -10310,7 +10654,8 @@
    },
    "c": "2 * (3 + 4 + 5) + 3 * 8",
    "w": "Zwei Dreiecke: 2 · (3 + 4 + 5) = 24 cm. Drei Längskanten: 3 · 8 = 24 cm. Zusammen 48 cm.",
-   "h": "Kanten sind Linien, keine Flächen."
+   "h": "Kanten sind Linien, keine Flächen.",
+   "g": "verknuepfen"
   },
   {
    "l": "oberflaeche",
@@ -10327,7 +10672,8 @@
    },
    "c": "2 * 13 * 8",
    "w": "Beim Zusammensetzen liegen die beiden schrägen Rechtecke (13 cm · 8 cm) aufeinander und sind innen. Sie fehlen außen: 2 · 13 · 8 = 208 cm².",
-   "h": "Welche Flächen verschwinden beim Zusammensetzen im Inneren?"
+   "h": "Welche Flächen verschwinden beim Zusammensetzen im Inneren?",
+   "g": "transfer"
   },
   {
    "l": "oberflaeche",
@@ -10344,7 +10690,8 @@
    },
    "c": "(6 * 4 + (6 + 2 * 5) * 15) * 1.1",
    "w": "Oberfläche: 6 · 4 + (6 + 5 + 5) · 15 = 264 cm². 10 % dazu: 264 + 26,4 = 290,4 cm².",
-   "h": "10 % sind ein Zehntel."
+   "h": "10 % sind ein Zehntel.",
+   "g": "pruefung"
   },
   {
    "l": "oberflaeche",
@@ -10361,7 +10708,8 @@
    },
    "c": "2 * 6 * 3 + 2 * 8 * 3 + 2 * 6 * 4 / 2 + 2 * 5 * 8",
    "w": "Wände: 2 · 6 · 3 + 2 · 8 · 3 = 84 dm². Giebel: 2 · 6 · 4 : 2 = 24 dm². Dach: 2 · 5 · 8 = 80 dm². Zusammen 188 dm².",
-   "h": "Wände, Giebel und Dach einzeln berechnen."
+   "h": "Wände, Giebel und Dach einzeln berechnen.",
+   "g": "verknuepfen"
   },
   {
    "l": "oberflaeche",
@@ -10378,7 +10726,8 @@
    },
    "c": "2 * (12 + 6) * 4 / 2 + (6 + 2 * 5) * 80",
    "w": "Zwei Trapeze: 72 cm². Boden: 6 · 80 = 480 cm². Schräge Seiten: 2 · 5 · 80 = 800 cm². Oben offen. Zusammen 1352 cm².",
-   "h": "Welche Fläche fehlt, weil der Trog offen ist?"
+   "h": "Welche Fläche fehlt, weil der Trog offen ist?",
+   "g": "transfer"
   },
   {
    "l": "oberflaeche",
@@ -11377,6 +11726,42 @@
    "w": "Dreiecke: 2 · 2,4 · 0,9 : 2 = 2,16 m². Seiten: 2 · 1,5 · 2 = 6 m². Ohne Boden: 8,16 m²."
   },
   {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 3 cm Kante wird in 27 Würfel mit 1 cm Kante zersägt. Um wie viele cm² ist die Oberfläche aller kleinen Würfel zusammen größer als die des großen Würfels?"
+   },
+   "o": {
+    "wert": 108,
+    "einheit": "cm²"
+   },
+   "c": "27 * 6 - 6 * 9",
+   "w": "Großer Würfel: 6 · 9 cm² = 54 cm². Kleine Würfel: 27 · 6 cm² = 162 cm². Unterschied: 108 cm² – so viel Fläche entsteht durch die Schnitte.",
+   "h": "Rechne beide Oberflächen aus."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "12 Würfel mit 1 cm Kante werden zu einem Quader zusammengelegt. Wie groß ist die kleinstmögliche Oberfläche?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "cm²"
+   },
+   "c": "2 * (2 * 2 + 2 * 3 + 2 * 3)",
+   "w": "Möglich sind 1 · 1 · 12 (50 cm²), 1 · 2 · 6 (40 cm²), 1 · 3 · 4 (38 cm²) und 2 · 2 · 3 (32 cm²). Je „würfelähnlicher“, desto kleiner: 32 cm².",
+   "h": "Schreibe alle Quader mit 12 Würfeln auf."
+  },
+  {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
@@ -11395,7 +11780,26 @@
     "index": 0
    },
    "w": "Rechteck: 6 cm². Parallelogramm mit gleicher Grundseite und Höhe: auch 6 cm². Das Dreieck hat nur die Hälfte; mit schräger Seite ist das Parallelogramm kleiner.",
-   "h": "Gleiche Grundseite und gleiche Höhe?"
+   "h": "Gleiche Grundseite und gleiche Höhe?",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 6 cm lang und 4,5 cm breit. Wie groß ist sein Flächeninhalt?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm²"
+   },
+   "c": "6 * 4.5",
+   "w": "A = 6 cm · 4,5 cm = 27 cm².",
+   "h": "Länge mal Breite."
   },
   {
    "l": "verstehen",
@@ -11416,7 +11820,26 @@
     "index": 3
    },
    "w": "A = g · h = 20 cm² hängt nur von g und h ab, nicht davon, wie schief die Figur ist.",
-   "h": "Welche Längen stehen in der Formel?"
+   "h": "Welche Längen stehen in der Formel?",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Teich ist ungefähr ein Trapez: die parallelen Ufer sind etwa 90 m und 70 m lang, ihr Abstand etwa 50 m. Wie groß ist der Teich ungefähr?"
+   },
+   "o": {
+    "wert": 4000,
+    "einheit": "m²"
+   },
+   "c": "(90 + 70) * 50 / 2",
+   "w": "Modell Trapez: (90 + 70) · 50 : 2 = 4 000 m². Der echte Teich ist ungefähr so groß.",
+   "h": "Rechne mit dem Trapez als Modell.",
+   "g": "einkleidung"
   },
   {
    "l": "verstehen",
@@ -11437,7 +11860,26 @@
     "index": 0
    },
    "w": "Rechteck: 24 cm². Parallelogramm mit gleicher Grundseite und Höhe: auch 24 cm². Das Dreieck hat nur die Hälfte; mit schräger Seite ist das Parallelogramm kleiner.",
-   "h": "Gleiche Grundseite und gleiche Höhe?"
+   "h": "Gleiche Grundseite und gleiche Höhe?",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck (5 cm · 4 cm) wird zu einem Parallelogramm schief gedrückt; die Seiten bleiben gleich lang, die Höhe ist dann nur noch 1 cm. Um wie viel cm² ist die Fläche kleiner geworden?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm²"
+   },
+   "c": "5 * 4 - 5 * 1",
+   "w": "Vorher 20 cm², nachher 5 · 1 = 5 cm². Unterschied: 15 cm². Der Umfang ist gleich geblieben.",
+   "h": "Rechne vorher und nachher.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
@@ -11458,41 +11900,8 @@
     "index": 1
    },
    "w": "A = g · h = 12 cm² hängt nur von g und h ab, nicht davon, wie schief die Figur ist.",
-   "h": "Welche Längen stehen in der Formel?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck (5 cm · 4 cm) wird zu einem Parallelogramm schief gedrückt; die Seiten bleiben gleich lang, die Höhe ist dann nur noch 1 cm. Um wie viel cm² ist die Fläche kleiner geworden?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "cm²"
-   },
-   "c": "5 * 4 - 5 * 1",
-   "w": "Vorher 20 cm², nachher 5 · 1 = 5 cm². Unterschied: 15 cm². Der Umfang ist gleich geblieben.",
-   "h": "Rechne vorher und nachher."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Teich ist ungefähr ein Trapez: die parallelen Ufer sind etwa 90 m und 70 m lang, ihr Abstand etwa 50 m. Wie groß ist der Teich ungefähr?"
-   },
-   "o": {
-    "wert": 4000,
-    "einheit": "m²"
-   },
-   "c": "(90 + 70) * 50 / 2",
-   "w": "Modell Trapez: (90 + 70) · 50 : 2 = 4 000 m². Der echte Teich ist ungefähr so groß.",
-   "h": "Rechne mit dem Trapez als Modell."
+   "h": "Welche Längen stehen in der Formel?",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
@@ -11513,41 +11922,8 @@
     "index": 3
    },
    "w": "Der Flächeninhalt hängt nur von Grundseite und Höhe ab. Gleicher Umfang heißt nicht gleiche Fläche, und ein schiefes Parallelogramm ist kleiner als das Rechteck mit gleichen Seiten.",
-   "h": "Denke an die Formel A = g · h : 2."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Parallelogramm und ein Dreieck haben dieselbe Grundseite (8 cm) und dieselbe Höhe (4 cm). Wie viel cm² ist das Parallelogramm größer?"
-   },
-   "o": {
-    "wert": 16,
-    "einheit": "cm²"
-   },
-   "c": "8 * 4 - 8 * 4 / 2",
-   "w": "Parallelogramm 32 cm², Dreieck 16 cm². Unterschied 16 cm² – das Dreieck ist genau die Hälfte.",
-   "h": "Das Dreieck ist die Hälfte."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat g = 7 cm und h = 6 cm. Grundseite und Höhe werden beide verdoppelt. Wie groß ist das neue Dreieck?"
-   },
-   "o": {
-    "wert": 84,
-    "einheit": "cm²"
-   },
-   "c": "2 * 7 * 2 * 6 / 2",
-   "w": "Neu: 14 · 12 : 2 = 84 cm². Das ist das Vierfache von 21 cm² – nicht das Doppelte.",
-   "h": "Rechne mit den neuen Längen."
+   "h": "Denke an die Formel A = g · h : 2.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
@@ -11564,7 +11940,62 @@
    },
    "c": "(120 + 60) * 40 / 2",
    "w": "Modell Trapez: (120 + 60) · 40 : 2 = 3 600 m². Der echte Teich ist ungefähr so groß.",
-   "h": "Rechne mit dem Trapez als Modell."
+   "h": "Rechne mit dem Trapez als Modell.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Parallelogramm und ein Dreieck haben dieselbe Grundseite (8 cm) und dieselbe Höhe (4 cm). Wie viel cm² ist das Parallelogramm größer?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "cm²"
+   },
+   "c": "8 * 4 - 8 * 4 / 2",
+   "w": "Parallelogramm 32 cm², Dreieck 16 cm². Unterschied 16 cm² – das Dreieck ist genau die Hälfte.",
+   "h": "Das Dreieck ist die Hälfte.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat 48 cm² und ist 8 cm lang. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "48 / 8",
+   "w": "48 cm² : 8 cm = 6 cm.",
+   "h": "Welche Zahl mal 8 ergibt 48?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat g = 7 cm und h = 6 cm. Grundseite und Höhe werden beide verdoppelt. Wie groß ist das neue Dreieck?"
+   },
+   "o": {
+    "wert": 84,
+    "einheit": "cm²"
+   },
+   "c": "2 * 7 * 2 * 6 / 2",
+   "w": "Neu: 14 · 12 : 2 = 84 cm². Das ist das Vierfache von 21 cm² – nicht das Doppelte.",
+   "h": "Rechne mit den neuen Längen.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
@@ -11585,7 +12016,8 @@
     "index": 1
    },
    "w": "Ein Gegenbeispiel genügt: 2 · 8 = 4 · 4 = 16 cm², die Umfänge sind 2 · (2 + 8) = 20 cm und 4 · 4 = 16 cm.",
-   "h": "Suche ein Gegenbeispiel."
+   "h": "Suche ein Gegenbeispiel.",
+   "g": "begruenden"
   },
   {
    "l": "verstehen",
@@ -11602,7 +12034,8 @@
    },
    "c": "4 * 0.5 * 2 * 0.5",
    "w": "1 cm auf der Karte sind 50 000 cm = 500 m = 0,5 km. Der See ist etwa 2 km · 1 km = 2 km² groß.",
-   "h": "Rechne die Seiten zuerst in km um."
+   "h": "Rechne die Seiten zuerst in km um.",
+   "g": "pruefung"
   },
   {
    "l": "verstehen",
@@ -11623,28 +12056,8 @@
     "index": 0
    },
    "w": "g · h_D : 2 = g · h_P. Also h_D : 2 = h_P, das heißt h_D = 2 · h_P.",
-   "h": "Setze beide Formeln gleich."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Spielplatz hat ungefähr die Form eines Dreiecks mit leicht gebogenen Seiten. Welches Vorgehen gibt einen guten Näherungswert?"
-   },
-   "a": [
-    "Alle Seiten addieren.",
-    "Die längste Seite mal sich selbst nehmen.",
-    "Ein Dreieck einzeichnen, Grundseite und Höhe abmessen und g · h : 2 rechnen.",
-    "Das umgebende Rechteck berechnen und nicht abziehen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ein passendes Modell (hier ein Dreieck) liefert einen Näherungswert. Der Umfang ist keine Fläche, und das ganze Rechteck wäre viel zu groß.",
-   "h": "Welche Figur passt am besten?"
+   "h": "Setze beide Formeln gleich.",
+   "g": "transfer"
   },
   {
    "l": "verstehen",
@@ -11665,7 +12078,30 @@
     "index": 3
    },
    "w": "6 · 4 = 24 cm², 5 · 5 = 25 cm². Gleicher Umfang heißt nicht gleicher Flächeninhalt.",
-   "h": "Rechne beide Flächen aus."
+   "h": "Rechne beide Flächen aus.",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Spielplatz hat ungefähr die Form eines Dreiecks mit leicht gebogenen Seiten. Welches Vorgehen gibt einen guten Näherungswert?"
+   },
+   "a": [
+    "Alle Seiten addieren.",
+    "Die längste Seite mal sich selbst nehmen.",
+    "Ein Dreieck einzeichnen, Grundseite und Höhe abmessen und g · h : 2 rechnen.",
+    "Das umgebende Rechteck berechnen und nicht abziehen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein passendes Modell (hier ein Dreieck) liefert einen Näherungswert. Der Umfang ist keine Fläche, und das ganze Rechteck wäre viel zu groß.",
+   "h": "Welche Figur passt am besten?",
+   "g": "transfer"
   },
   {
    "l": "verstehen",
@@ -11686,45 +12122,8 @@
     "index": 1
    },
    "w": "Parallelogramm: 60 cm². Dreieck: g · h : 2 = 60 → g · h = 120 → h = 12 cm. Das Dreieck ist doppelt so hoch.",
-   "h": "Das Dreieck braucht die doppelte Höhe, um gleich groß zu sein."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Mara sagt: „Ein Trapez mit a = 6 cm, c = 5 cm und h = 6 cm hat 36 cm², denn ich nehme das Rechteck a · h.“ Was stimmt?"
-   },
-   "a": [
-    "Zu groß: Das Trapez ist oben schmaler; richtig sind 33 cm².",
-    "Zu groß: Richtig ist 6 · 6 : 2 = 18 cm².",
-    "Richtig, denn a ist die längste Seite.",
-    "Zu klein: Man muss 11 · 6 rechnen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "A = (a + c) · h : 2 = (6 + 5) · 6 : 2 = 33 cm². a · h ist das Rechteck um das Trapez – zu viel.",
-   "h": "Rechne mit der Trapezformel nach."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Auf einer Karte im Maßstab 1 : 10 000 ist ein Feld ungefähr ein Trapez (a = 3 cm, c = 1 cm, h = 4 cm). Wie viel km² hat es in Wirklichkeit ungefähr?"
-   },
-   "o": {
-    "wert": 0.08,
-    "einheit": "km²"
-   },
-   "c": "(3 + 1) * 4 / 2 * 0.1 * 0.1",
-   "w": "1 cm auf der Karte sind 10 000 cm = 0,1 km. 1 cm² auf der Karte sind 0,1 · 0,1 = 0,01 km². Karte: (3 + 1) · 4 : 2 = 8 cm², also 0,08 km².",
-   "h": "Wie viel km² ist 1 cm² auf der Karte?"
+   "h": "Das Dreieck braucht die doppelte Höhe, um gleich groß zu sein.",
+   "g": "rueckwaerts"
   },
   {
    "l": "verstehen",
@@ -11889,6 +12288,81 @@
    },
    "c": "7 * 2 - 7 * 2 / 2",
    "w": "Parallelogramm 14 cm², Dreieck 7 cm². Unterschied 7 cm² – das Dreieck ist genau die Hälfte."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mara sagt: „Ein Trapez mit a = 6 cm, c = 5 cm und h = 6 cm hat 36 cm², denn ich nehme das Rechteck a · h.“ Was stimmt?"
+   },
+   "a": [
+    "Zu groß: Das Trapez ist oben schmaler; richtig sind 33 cm².",
+    "Zu groß: Richtig ist 6 · 6 : 2 = 18 cm².",
+    "Richtig, denn a ist die längste Seite.",
+    "Zu klein: Man muss 11 · 6 rechnen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A = (a + c) · h : 2 = (6 + 5) · 6 : 2 = 33 cm². a · h ist das Rechteck um das Trapez – zu viel.",
+   "h": "Rechne mit der Trapezformel nach.",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Karte im Maßstab 1 : 10 000 ist ein Feld ungefähr ein Trapez (a = 3 cm, c = 1 cm, h = 4 cm). Wie viel km² hat es in Wirklichkeit ungefähr?"
+   },
+   "o": {
+    "wert": 0.08,
+    "einheit": "km²"
+   },
+   "c": "(3 + 1) * 4 / 2 * 0.1 * 0.1",
+   "w": "1 cm auf der Karte sind 10 000 cm = 0,1 km. 1 cm² auf der Karte sind 0,1 · 0,1 = 0,01 km². Karte: (3 + 1) · 4 : 2 = 8 cm², also 0,08 km².",
+   "h": "Wie viel km² ist 1 cm² auf der Karte?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 24 cm und ganzzahlige Seiten. Wie groß kann sein Flächeninhalt höchstens sein?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm²"
+   },
+   "c": "6 * 6",
+   "w": "Länge + Breite = 12 cm. Möglich: 1 · 11, 2 · 10, 3 · 9, 4 · 8, 5 · 7, 6 · 6. Die Flächen 11, 20, 27, 32, 35, 36 cm² – am größten beim Quadrat: 36 cm².",
+   "h": "Wie groß ist Länge plus Breite?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele verschiedene Rechtecke mit ganzzahligen Seiten (in cm) haben den Flächeninhalt 36 cm²? (Gedrehte zählen nicht doppelt.)"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "36 = 1 · 36 = 2 · 18 = 3 · 12 = 4 · 9 = 6 · 6. Das sind 5 Rechtecke (das letzte ist ein Quadrat).",
+   "h": "Zerlege 36 in zwei Faktoren."
   }
  ],
  "offen": [

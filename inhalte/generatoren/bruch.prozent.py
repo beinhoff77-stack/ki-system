@@ -815,5 +815,125 @@ befunde_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
 
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('bruch.prozent', 20_6_6)
+SZ, SA, SN, SK, STB = ST.Z, ST.A, ST.neu, ST.knobel, ST.typ_bau
+
+lz = 'prozent_bedeutung'
+ST.leiter(lz, 'Hundertstel als Prozent lesen und schreiben, Prozent am Hunderterfeld erkennen.', 'Brüche, Dezimalzahlen und Prozent ineinander umwandeln, vergleichen, Anteile in Bildern und Sachsituationen.',
+          'Rest-Anteile, fehlender Tabellenwert, Prozentpunkte, Fehler deuten, über 100 % begründen, rückwärts, passender Nenner, Prüfungsaufgabe.')
+STB(lz, 2, 'Schreibe 45 %', 'darstellung')
+STB(lz, 3, 'Wie viel Prozent sind 2/3', 'mehrschritt', neu_s=2)
+SN(lz, SZ('einkleidung', 'In einer Klasse sind 25 Kinder. 4 davon sind Linkshänder. Wie viel Prozent sind das?', 16, '4 * 4', '4/25 = 16/100 = 16 %.', 'Erweitere auf den Nenner 100.', einheit='%'))
+SN(lz, SA('fehler', 'Ein Kind schreibt 3/4 = 34 %. Was ist richtig?', '75 %', ['34 % stimmt.', '3,4 %', '43 %'], 'Das Kind hat Zähler und Nenner nebeneinander geschrieben. 3/4 = 75/100 = 75 %.', 'Erweitere 3/4 auf Hundertstel.'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „150 % von etwas ist mehr als das Ganze.“', 'Ja: 100 % ist das Ganze, 150 % sind anderthalbmal so viel.', ['Nein, mehr als 100 % gibt es nicht.', 'Nein, 150 % sind die Hälfte.'],
+        '150 % = 1,5-mal das Ganze, z. B. 150 % von 20 € = 30 €.', 'Was bedeutet 100 %?'))
+SN(lz, SZ('rueckwaerts', 'Von einem Kuchen sind noch 35 % übrig, nachdem zwei Kinder gleich viel gegessen haben. Wie viel Prozent hat jedes Kind gegessen?', 32.5, '(100 - 35) / 2',
+          'Gegessen wurden 100 % − 35 % = 65 %, jedes Kind die Hälfte: 32,5 %.', 'Wie viel Prozent wurden insgesamt gegessen?', einheit='%'))
+SN(lz, SZ('parameter', 'Für welchen Nenner n ist der Bruch 1/n genau 4 %?', 25, '100 / 4', '4 % = 4/100 = 1/25. Also n = 25.', 'Schreibe 4 % als Bruch und kürze.'))
+SN(lz, SA('pruefung', 'Welche Zahl ist die größte: 0,6; 5/8 oder 62 %?', '5/8', ['0,6', '62 %'], '0,6 = 60 %, 5/8 = 62,5 %, 62 %. Am größten ist 5/8.', 'Schreibe alle in Prozent.'))
+SK(lz, SZ('knobel', 'Eine Zahl ist um 25 % größer als eine zweite Zahl. Um wie viel Prozent ist die zweite kleiner als die erste?', 20, '25 / 125 * 100',
+          'Nimm als zweite Zahl 100, dann ist die erste 125. Der Unterschied 25 bezogen auf 125 ist 25/125 = 1/5 = 20 %. Die Antwort ist also nicht 25 %, weil der Grundwert wechselt.', 'Probiere es mit 100 als zweiter Zahl.', einheit='%'))
+SK(lz, SZ('knobel', 'In einer Klasse sind mehr als 30 und weniger als 40 Kinder. Genau 12,5 % kommen mit dem Rad. Wie viele Kinder hat die Klasse?', 32, '32',
+          '12,5 % = 1/8. Die Zahl der Kinder muss also durch 8 teilbar sein. Zwischen 30 und 40 geht das nur bei 32 (davon 4 mit dem Rad).', 'Welcher Bruch ist 12,5 %?'))
+
+lz = 'prozentwert'
+ST.leiter(lz, 'Prozentwert mit einfachen Prozentsätzen berechnen; die passende Rechnung erkennen.', 'Krumme Prozentsätze, über 100 %, Sachsituationen, Überschlag, Prozentstreifen.',
+          'Überschlag begründen, Anteil vom Anteil, Rest, Schluss von einem Prozentsatz auf einen anderen, Fehler deuten, Prozentsatz zu einem Wert finden, mehrteilige Aufgabe.')
+STB(lz, 3, 'Etwa wie viel sind 24', 'transfer'); STB(lz, 3, '70 %', 'verknuepfen'); STB(lz, 3, '15 %', 'rueckwaerts')
+SN(lz, SA('erkennen', 'Mit welcher Rechnung bekommst du 20 % von 80 €?', '80 € : 5', ['80 € : 20', '80 € · 20', '80 € − 20'], '20 % = 1/5. Ein Fünftel von 80 € sind 16 €.', 'Welcher Bruch ist 20 %?'))
+SN(lz, SZ('darstellung', 'Ein Prozentstreifen mit 60 Kästchen steht für 100 %. Wie viele Kästchen sind 35 %?', 21, '60 * 35 / 100', '10 % sind 6 Kästchen, 5 % sind 3. 35 % = 18 + 3 = 21 Kästchen.', 'Wie viele Kästchen sind 10 %?'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „30 % von 50 sind genauso viel wie 50 % von 30.“', 'Ja, beides ist 15.', ['Nein, 30 % von 50 ist mehr.', 'Nein, 50 % von 30 ist mehr.'],
+        '30/100 · 50 = 15 und 50/100 · 30 = 15. Man darf Prozentsatz und Grundwert vertauschen.', 'Rechne beides aus.'))
+SN(lz, SZ('parameter', 'Für welchen Prozentsatz p sind p % von 240 genau 60?', 25, '60 / 240 * 100', '60 von 240 ist ein Viertel, also p = 25.', 'Welcher Bruchteil von 240 ist 60?', einheit='%'))
+SN(lz, SZ('pruefung', 'Eine Schule hat 640 Kinder. 45 % sind Mädchen. Von den Mädchen spielen 25 % Fußball. Wie viele Mädchen spielen Fußball?', 72, '640 * 45 / 100 * 25 / 100',
+          'Mädchen: 45 % von 640 = 288. Davon 25 %: 72.', 'Rechne zuerst die Zahl der Mädchen aus.'))
+SK(lz, SZ('knobel', 'Wie viel ist 1 % von 1 % von 1 000 000?', 100, '1000000 / 100 / 100', '1 % von 1 000 000 = 10 000, davon 1 % = 100. Zusammen ist 1 % von 1 % ein Zehntausendstel.', 'Rechne in zwei Schritten.'))
+SK(lz, SA('knobel', 'Was ist mehr: 37 % von 82 oder 82 % von 37?', 'Beide sind gleich groß.', ['37 % von 82', '82 % von 37'],
+          '37 % von 82 = 37 · 82 : 100 und 82 % von 37 = 82 · 37 : 100. Beide Male steht dasselbe Produkt 37 · 82 = 3 034 da, geteilt durch 100: 30,34.', 'Schreibe beide als Rechnung mit : 100.'))
+
+lz = 'prozentsatz'
+ST.leiter(lz, 'Prozentsatz bei Grundwert 100 oder einem einfachen Grundwert bestimmen; einfache Anteile in Prozent erkennen.', 'Prozentsatz in Sachsituationen, mit Einheiten, Rest-Anteil, Preisänderung, am Hunderterfeld.',
+          'Änderung bezogen auf den alten Wert, steigen gegen sinken, Fläche, Fehler deuten, Aussage begründen, wie viele Punkte reichen, Wahl.')
+STB(lz, 3, 'Ein Preis sinkt von 120', 'transfer'); STB(lz, 3, 'Beim Spendenlauf', 'transfer'); STB(lz, 3, 'Ein Quadrat', 'verknuepfen')
+SN(lz, SZ('direkt', 'Schreibe „9 von 100“ in Prozent.', 9, '9', '9 von 100 sind 9 Hundertstel = 9 %.', 'Prozent heißt „von hundert“.', einheit='%'))
+SN(lz, SA('erkennen', 'Wie viel Prozent sind 50 von 200?', '25 %', ['50 %', '75 %'], '50 ist ein Viertel von 200, also 25 %.', 'Welcher Bruchteil von 200 ist 50?'))
+SN(lz, SZ('darstellung', 'In einem Hunderterfeld sind 3 ganze Reihen und 4 einzelne Kästchen gefärbt. Wie viel Prozent sind gefärbt?', 34, '3 * 10 + 4', '3 Reihen = 30 Kästchen, dazu 4: 34 von 100 = 34 %.', 'Wie viele Kästchen hat eine Reihe?', einheit='%'))
+SN(lz, SZ('fehler', 'Ein Kind rechnet: „15 von 60 sind 60 : 15 = 4 %.“ Wie viel Prozent sind es richtig?', 25, '15 / 60 * 100', 'Es hat Grundwert durch Prozentwert geteilt. Richtig: 15/60 = 1/4 = 25 %.', 'Was steht beim Anteil oben, was unten?', einheit='%'))
+SN(lz, SA('begruenden', 'Ein Preis steigt von 50 € auf 60 € und sinkt danach wieder auf 50 €. Stimmt: „Steigung und Senkung waren gleich viel Prozent.“?', 'Nein: Er stieg um 20 % (10 von 50), sank aber nur um etwa 16,7 % (10 von 60).',
+        ['Ja, beide Male 10 €, also gleich viel Prozent.', 'Ja, beide Male 20 %.'], 'Der Grundwert ist verschieden: einmal 50 €, einmal 60 €.', 'Worauf bezieht sich jede Änderung?'))
+SN(lz, SZ('parameter', 'Für wie viele Punktzahlen x von 0 bis 40 ist x von 40 Punkten mindestens 75 %?', 11, '40 - 30 + 1', '75 % von 40 = 30. Mindestens 30 Punkte: 30, 31, …, 40 – das sind 11.', 'Wie viele Punkte sind 75 %?'))
+SN(lz, SZ('pruefung', 'Bei einer Wahl stimmen 168 von 280 Kindern für Kandidat A, der Rest für Kandidat B. Wie viel Prozent bekommt B?', 40, '(280 - 168) / 280 * 100', 'B: 280 − 168 = 112. 112/280 = 2/5 = 40 %.', 'Berechne zuerst die Stimmen für B.', einheit='%'))
+SK(lz, SZ('knobel', 'Wie viel Prozent der Zahlen von 1 bis 100 enthalten mindestens eine Ziffer 7?', 19, '10 + 10 - 1',
+          'Mit 7 an der Einerstelle: 7, 17, …, 97 (10 Zahlen). Mit 7 an der Zehnerstelle: 70 bis 79 (10 Zahlen). 77 wurde doppelt gezählt: 19 Zahlen von 100 = 19 %.', 'Zähle Einer und Zehner getrennt. Was zählst du doppelt?', einheit='%'))
+SK(lz, SZ('knobel', 'Ein Rechteck wird um 20 % länger und um 20 % schmaler. Um wie viel Prozent wird seine Fläche kleiner?', 4, '100 - 120 * 80 / 100',
+          'Nimm ein Rechteck 10 cm · 10 cm (100 cm²). Neu: 12 cm · 8 cm = 96 cm². Das sind 4 % weniger – nicht gleich viel, obwohl beide Seiten um 20 % geändert wurden.', 'Rechne mit einem Beispiel.', einheit='%'))
+
+lz = 'grundwert'
+ST.leiter(lz, 'Vom Prozentwert über 1 % oder 10 % zum Grundwert; die passende Rechnung erkennen.', 'Grundwert bei krummen Prozentsätzen, in Sachsituationen, Preis vor dem Rabatt aus der Ersparnis.',
+          'Rest gegeben, „20 % weniger als“, Preis nach Rabatt, Restseiten, Fehler deuten, Aussage prüfen, Grundwert für gleiche Werte, Bruch und Prozent verknüpfen.')
+STB(lz, 2, '75 % des Grundwerts', 'mehrschritt'); STB(lz, 2, '80 % des', 'mehrschritt'); STB(lz, 2, '30 % des', 'mehrschritt'); STB(lz, 2, '16 % des', 'mehrschritt')
+STB(lz, 2, '35 % sind', 'mehrschritt'); STB(lz, 2, '12,5 % sind', 'mehrschritt')
+SN(lz, SA('erkennen', '10 % sind 7 €. Mit welcher Rechnung bekommst du 100 %?', '7 € · 10', ['7 € : 10', '7 € + 10', '7 € · 100'], '100 % sind zehnmal so viel wie 10 %: 70 €.', 'Wie oft passen 10 % in 100 %?'))
+SN(lz, SZ('fehler', 'Ein Kind rechnet: „20 % sind 30 €, also sind 100 % 30 € · 20 = 600 €.“ Wie viel sind 100 % richtig?', 150, '30 / 20 * 100', 'Richtig: 1 % = 30 € : 20 = 1,50 €, 100 % = 150 €. Oder: 20 % ist ein Fünftel, also mal 5.', 'Wie oft passen 20 % in 100 %?', einheit='€'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Wenn 40 % einer Klasse 12 Kinder sind, dann sind 60 % mehr als 20 Kinder.“', 'Nein: 10 % sind 3 Kinder, 60 % also 18.', ['Ja, 60 % sind 24 Kinder.', 'Ja, die Klasse hat 30 Kinder, also sind 60 % 20 Kinder.'],
+        'Grundwert: 12 : 40 · 100 = 30 Kinder. 60 % davon sind 18 – weniger als 20.', 'Bestimme erst die ganze Klasse.'))
+SN(lz, SZ('parameter', 'Für welchen Grundwert G sind 15 % von G genauso viel wie 25 % von 60?', 100, '0.25 * 60 / 0.15', '25 % von 60 = 15. 15 % von G = 15 heißt G = 100.', 'Rechne zuerst 25 % von 60 aus.'))
+SN(lz, SZ('verknuepfen', 'Ein Tank ist zu 3/5 gefüllt, das sind 42 l. Wie viele Liter fehlen noch bis zum vollen Tank?', 28, '42 / 3 * 5 - 42', '3/5 = 60 % sind 42 l, also 1/5 = 14 l und der volle Tank 70 l. Es fehlen 28 l (40 %).', 'Wie viel ist 1/5 des Tanks?', einheit='l'))
+SK(lz, SZ('knobel', 'Ein Preis wird erst um 10 % gesenkt und danach um 10 % erhöht. Jetzt kostet die Ware 99 €. Wie viel kostete sie am Anfang?', 100, '99 / 1.1 / 0.9',
+          'Rückwärts: 99 € sind 110 % des gesenkten Preises, also war dieser 90 €. 90 € sind 90 % des Anfangspreises, also 100 €.', 'Rechne vom Ende zurück, Schritt für Schritt.', einheit='€'))
+SK(lz, SZ('knobel', 'Ein Kind gibt 20 % seines Geldes aus und danach 25 % vom Rest. Es hat noch 30 €. Wie viel Geld hatte es am Anfang?', 50, '30 / 0.75 / 0.8',
+          'Nach dem ersten Kauf bleiben 80 %, davon nach dem zweiten 75 %: 0,8 · 0,75 = 0,6. 60 % sind 30 €, also 100 % = 50 €.', 'Welcher Anteil des Anfangsgeldes bleibt übrig?', einheit='€'))
+
+lz = 'rabatt_aufschlag'
+ST.leiter(lz, 'Neuen Preis nach Rabatt oder Aufschlag berechnen; den Faktor erkennen.', 'Rabatt und Preiserhöhung in Sachsituationen, Angebote vergleichen, Rabatt in Prozent aus altem und neuem Preis.',
+          'Läden und Gutscheine vergleichen, rückwärts über zwei Änderungen, Mengenrabatt, doppelter Rabatt, ab welchem Preis sich ein Gutschein lohnt.')
+STB(lz, 2, 'Laden A', 'mehrschritt'); STB(lz, 2, 'Ein Paar Schuhe kostet 120', 'mehrschritt')
+STB(lz, 3, 'Laden A: Die Spielkonsole', 'transfer'); STB(lz, 3, 'Ein Fahrrad', 'transfer'); STB(lz, 3, 'Laden A: Das Zelt', 'transfer'); STB(lz, 3, 'Eine Packung', 'pruefung')
+SN(lz, SA('erkennen', 'Ein Preis sinkt um 25 %. Mit welcher Zahl nimmst du den alten Preis mal, um den neuen zu erhalten?', '0,75', ['0,25', '1,25', '25'], 'Es bleiben 100 % − 25 % = 75 % = 0,75 des alten Preises.', 'Wie viel Prozent bleiben übrig?'))
+SN(lz, SZ('umkehr', 'Ein Rucksack kostet im Angebot 51 € statt 60 €. Wie viel Prozent Rabatt gibt es?', 15, '(60 - 51) / 60 * 100', 'Ersparnis 9 €. 9 von 60 = 15 %.', 'Wie viel Euro spart man?', einheit='%'))
+SN(lz, SZ('parameter', 'Ein Gutschein über 15 % oder ein Gutschein über 12 €: Ab welchem Preis (in ganzen Euro) spart der Prozent-Gutschein mehr?', 81, '81',
+          '15 % = 12 € gilt bei 12 : 0,15 = 80 €. Erst darüber bringen 15 % mehr: ab 81 €.', 'Bei welchem Preis sind 15 % genau 12 €?', einheit='€'))
+SK(lz, SZ('knobel', 'Ein Händler erhöht einen Preis um 25 % und gibt danach 20 % Rabatt. Wie viel Prozent des Anfangspreises zahlt der Kunde?', 100, '125 * 80 / 100',
+          'Nimm 100 € als Anfangspreis: +25 % ergibt 125 €. 20 % von 125 € sind 25 €, also wieder 100 €. Der Kunde zahlt 100 % – genau den alten Preis.', 'Rechne mit 100 € als Beispiel.', einheit='%'))
+SK(lz, SA('knobel', 'Du kaufst 6 gleiche Stücke. Angebot A: 3 zum Preis von 2. Angebot B: 30 % Rabatt auf alles. Angebot C: jedes zweite Stück zum halben Preis. Welches Angebot ist am günstigsten?', 'Angebot A',
+          ['Angebot B', 'Angebot C', 'Alle kosten gleich viel.'],
+          'A: Du zahlst 4 von 6 Stücken, also etwa 66,7 %. B: 70 %. C: 3 ganze und 3 halbe Stücke = 4,5 von 6, also 75 %. A ist am günstigsten.', 'Rechne für jedes Angebot aus, wie viel Prozent des Normalpreises du zahlst.'))
+
+lz = 'zinsen'
+ST.leiter(lz, 'Jahreszinsen aus Kapital und Zinssatz berechnen; wissen, was Zinsen sind.', 'Zinssatz bestimmen, Guthaben nach einem Jahr, Zinsen für Monate, Banken vergleichen.',
+          'Kapital rückwärts, Guthaben rückwärts, Kredit für Monate, Zinseszins, Fehler deuten, Aussage begründen, ab welchem Zinssatz, mehrteilige Aufgabe.')
+STB(lz, 2, 'Für ', 'umkehr'); STB(lz, 2, 'Ein Guthaben wächst', 'umkehr'); STB(lz, 2, 'Bank A', 'mehrschritt')
+STB(lz, 3, '900 €', 'einkleidung', neu_s=2); STB(lz, 3, 'Bank A', 'mehrschritt', neu_s=2)
+STB(lz, 3, 'Bei einem Zinssatz', 'rueckwaerts'); STB(lz, 3, 'Ein Kredit', 'transfer'); STB(lz, 3, '1 000 €', 'verknuepfen')
+SN(lz, SA('erkennen', 'Was sind „Zinsen“?', 'das Geld, das die Bank zusätzlich zum Kapital zahlt', ['der Prozentsatz, den die Bank verspricht', 'das Geld, das man einzahlt'], 'Kapital: eingezahltes Geld. Zinssatz: Prozentsatz. Zinsen: der Betrag in Euro, der dazukommt.', 'Zinsen sind ein Betrag in Euro.'))
+SN(lz, SZ('direkt', 'Wie viel Euro Zinsen bringen 500 € in einem Jahr bei 2 %?', 10, '500 * 2 / 100', '1 % von 500 € sind 5 €, 2 % sind 10 €.', 'Rechne erst 1 % aus.', einheit='€'))
+SN(lz, SZ('fehler', 'Ein Kind rechnet: „4 % Zinsen auf 750 € sind 750 : 4 = 187,50 €.“ Wie viel Euro sind es richtig?', 30, '750 * 4 / 100', 'Es hat durch 4 geteilt statt 4 % zu nehmen. 1 % = 7,50 €, 4 % = 30 €.', 'Wie viel ist 1 % von 750 €?', einheit='€'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Doppelt so viel Kapital bei halbem Zinssatz bringt dieselben Zinsen.“', 'Ja, z. B. 1 000 € zu 4 % und 2 000 € zu 2 % bringen beide 40 €.', ['Nein, mehr Kapital bringt immer mehr Zinsen.', 'Nein, der höhere Zinssatz gewinnt immer.'],
+        'Zinsen = Kapital · Zinssatz. Wird ein Faktor verdoppelt und der andere halbiert, bleibt das Produkt gleich.', 'Rechne ein Beispiel.'))
+SN(lz, SZ('parameter', 'Bei welchem ganzzahligen Zinssatz p bringen 2 000 € in einem Jahr zum ersten Mal mehr als 50 € Zinsen?', 3, '3', '2 % bringen 40 €, 3 % bringen 60 €. Ab 3 % sind es mehr als 50 €.', 'Wie viel bringt 1 %?', einheit='%'))
+SN(lz, SZ('pruefung', 'Eine Familie leiht sich 4 800 € zu 5 % Jahreszins und zahlt nach 6 Monaten alles zurück. Wie viel Euro zahlt sie insgesamt?', 4920, '4800 + 4800 * 5 / 100 / 2',
+          'Jahreszinsen: 240 €, für ein halbes Jahr 120 €. Zurück: 4 800 € + 120 € = 4 920 €.', 'Rechne zuerst die Jahreszinsen aus.', einheit='€'))
+SK(lz, SZ('knobel', 'Ein Kapital wird mit 10 % Zinsen im Jahr angelegt, die Zinsen bleiben auf dem Konto und werden mitverzinst. Nach wie vielen vollen Jahren hat es sich zum ersten Mal mehr als verdoppelt?', 8, '8',
+          'Mit 100 €: 110, 121, 133,10, 146,41, 161,05, 177,16, 194,87 (7 Jahre, noch nicht doppelt), 214,36 (8 Jahre). Also nach 8 Jahren – nicht nach 10, weil auch die Zinsen Zinsen bringen.', 'Rechne mit 100 € Jahr für Jahr.'))
+SK(lz, SA('knobel', 'Konto A: 1 000 € zu 3 %. Konto B: 2 000 € zu 1,5 %. Welches Konto bringt in einem Jahr mehr Zinsen?', 'Beide bringen gleich viel.', ['Konto A', 'Konto B'],
+          'A: 1 000 € · 3 % = 30 €. B: 2 000 € · 1,5 % = 30 €. Doppeltes Kapital, halber Zinssatz – gleiche Zinsen.', 'Rechne beide Zinsen aus.'))
+
+lz = 'verstehen'
+ST.leiter(lz, 'Einfache Aussagen über Prozent prüfen; einfache Prozentwerte ausrechnen.', 'Aussagen über Rabatte, Zinsen, Prozentpunkte und Anteile in Sachsituationen prüfen; „jeder Vierte“ in Prozent.',
+          'Prozent gegen Prozentpunkte, Bezugsgröße bei Gruppen, Fehler in Zeitungsaussagen deuten, Prozent von Prozent, rückwärts zum alten Anteil.')
+STB(lz, 2, 'In einem Text steht', 'darstellung')
+for t, g in (('Stimmt die Aussage? „Sinkt', 'fehler'), ('Bei einer Umfrage', 'begruenden'), ('In Klasse A', 'verknuepfen'), ('Der Anteil der Radfahrer', 'fehler'),
+             ('Stimmt die Aussage? „10 %', 'begruenden'), ('Der Anteil der Kinder', 'transfer'), ('Eine Quote', 'fehler')):
+    STB(lz, 3, t, g)
+SN(lz, SZ('direkt', 'Wie viel sind 50 % von 64?', 32, '64 / 2', '50 % ist die Hälfte: 32.', '50 % ist welcher Bruch?'))
+SK(lz, SZ('knobel', 'Ein Preis steigt um 50 % und sinkt danach um 50 %. Um wie viel Prozent ist er am Ende niedriger als am Anfang?', 25, '100 - 150 * 50 / 100',
+          'Mit 100 €: +50 % ergibt 150 €. −50 % von 150 € ergibt 75 €. Das sind 25 % weniger als am Anfang.', 'Rechne mit 100 € als Beispiel.', einheit='%'))
+SK(lz, SZ('knobel', 'In einer Schule sind 60 % der Kinder Mädchen. 50 % der Mädchen und 25 % der Jungen singen im Chor. Wie viel Prozent aller Kinder singen im Chor?', 40, '60 * 50 / 100 + 40 * 25 / 100',
+          'Mädchen im Chor: 50 % von 60 % = 30 % aller Kinder. Jungen sind 40 %, davon 25 % = 10 % aller Kinder. Zusammen 40 %.', 'Rechne mit 100 Kindern.', einheit='%'))
+
 if __name__ == '__main__':
     schreibe(DATEI)
+    stufen_datei('bruch.prozent', ST)

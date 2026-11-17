@@ -497,7 +497,8 @@
    },
    "c": "3 / 4 * 100",
    "w": "Auf Hundertstel erweitern: 3/4 = 75/100 = 75 %.",
-   "h": "Erweitere den Bruch auf den Nenner 100."
+   "h": "Erweitere den Bruch auf den Nenner 100.",
+   "g": "direkt"
   },
   {
    "l": "prozent_bedeutung",
@@ -790,7 +791,26 @@
    },
    "c": "24 / 100 * 100",
    "w": "Volle Spalten zählen (je 10 Kästchen), dann den Rest: 24 von 100 Kästchen = 24/100 = 24 %.",
-   "h": "Jede volle Spalte hat 10 Kästchen. Jedes Kästchen ist 1 %."
+   "h": "Jede volle Spalte hat 10 Kästchen. Jedes Kästchen ist 1 %.",
+   "g": "erkennen"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 0,93 in Prozent."
+   },
+   "o": {
+    "wert": 93,
+    "einheit": "%"
+   },
+   "c": "0.93 * 100",
+   "w": "0,93 = 93/100 = 93 %.",
+   "h": "Mal 100: Komma um zwei Stellen nach rechts.",
+   "g": "direkt"
   },
   {
    "l": "prozent_bedeutung",
@@ -1083,40 +1103,8 @@
    },
    "c": "88 / 100 * 100",
    "w": "Volle Spalten zählen (je 10 Kästchen), dann den Rest: 88 von 100 Kästchen = 88/100 = 88 %.",
-   "h": "Jede volle Spalte hat 10 Kästchen. Jedes Kästchen ist 1 %."
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 0,93 in Prozent."
-   },
-   "o": {
-    "wert": 93,
-    "einheit": "%"
-   },
-   "c": "0.93 * 100",
-   "w": "0,93 = 93/100 = 93 %.",
-   "h": "Mal 100: Komma um zwei Stellen nach rechts."
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 57 % als Dezimalzahl."
-   },
-   "o": {
-    "wert": 0.57
-   },
-   "c": "57 / 100",
-   "w": "57 % = 57/100 = 0,57.",
-   "h": "Prozent heißt Hundertstel: durch 100 teilen."
+   "h": "Jede volle Spalte hat 10 Kästchen. Jedes Kästchen ist 1 %.",
+   "g": "erkennen"
   },
   {
    "l": "prozent_bedeutung",
@@ -1133,7 +1121,139 @@
    },
    "c": "9 / 10 * 100",
    "w": "Auf Hundertstel erweitern: 9/10 = 90/100 = 90 %.",
-   "h": "Erweitere den Bruch auf den Nenner 100."
+   "h": "Erweitere den Bruch auf den Nenner 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 0,976 in Prozent."
+   },
+   "o": {
+    "wert": 97.6,
+    "einheit": "%"
+   },
+   "c": "0.976 * 100",
+   "w": "0,976 · 100 = 97,6, also 97,6 %.",
+   "h": "Komma um zwei Stellen nach rechts.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 57 % als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.57
+   },
+   "c": "57 / 100",
+   "w": "57 % = 57/100 = 0,57.",
+   "h": "Prozent heißt Hundertstel: durch 100 teilen.",
+   "g": "direkt"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Prozent sind 49/50?"
+   },
+   "o": {
+    "wert": 98,
+    "einheit": "%"
+   },
+   "c": "49 / 50 * 100",
+   "w": "49/50 = 0,98 = 98 %.",
+   "h": "Wandle zuerst in eine Dezimalzahl um, dann mal 100.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 45 % als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     9,
+     20
+    ]
+   },
+   "c": [
+    "45 / 100 * 20",
+    "20"
+   ],
+   "w": "45 % = 45/100 = 9/20.",
+   "h": "Schreibe p/100 und kürze.",
+   "g": "darstellung"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Prozent sind 3/25?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "%"
+   },
+   "c": "3 / 25 * 100",
+   "w": "3/25 = 0,12 = 12 %.",
+   "h": "Wandle zuerst in eine Dezimalzahl um, dann mal 100.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 2,44 in Prozent."
+   },
+   "o": {
+    "wert": 244,
+    "einheit": "%"
+   },
+   "c": "2.44 * 100",
+   "w": "2,44 · 100 = 244, also 244 %. Mehr als ein Ganzes ergibt mehr als 100 %.",
+   "h": "1 = 100 %. Was ist mehr als 1?"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Prozent sind 2/3? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 66.7,
+    "einheit": "%"
+   },
+   "c": "(2 / 3 * 1000 + 1/2) // 1 / 10",
+   "w": "2 : 3 ≈ 0,667, also etwa 66,7 %.",
+   "h": "Teile den Zähler durch den Nenner, nimm mal 100 und runde.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozent_bedeutung",
@@ -1936,65 +2056,47 @@
    },
    "c": "15 / 20 * 100",
    "w": "15 von 20 Teilen: 15/20 = 75/100 = 75 %.",
-   "h": "Ein Teil ist 100 % : 20 = 5 %."
+   "h": "Ein Teil ist 100 % : 20 = 5 %.",
+   "g": "darstellung"
   },
   {
    "l": "prozent_bedeutung",
    "t": "prozent_bedeutung",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 0,976 in Prozent."
-   },
-   "o": {
-    "wert": 97.6,
-    "einheit": "%"
-   },
-   "c": "0.976 * 100",
-   "w": "0,976 · 100 = 97,6, also 97,6 %.",
-   "h": "Komma um zwei Stellen nach rechts."
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viel Prozent sind 49/50?"
-   },
-   "o": {
-    "wert": 98,
-    "einheit": "%"
-   },
-   "c": "49 / 50 * 100",
-   "w": "49/50 = 0,98 = 98 %.",
-   "h": "Wandle zuerst in eine Dezimalzahl um, dann mal 100."
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe 45 % als vollständig gekürzten Bruch.",
-    "schablone": "□/□",
-    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
-   },
-   "o": {
-    "werte": [
-     9,
-     20
-    ]
-   },
-   "c": [
-    "45 / 100 * 20",
-    "20"
+   "y": "auswahl",
+   "a": [
+    "15 %",
+    "Beide sind gleich groß",
+    "1/10"
    ],
-   "w": "45 % = 45/100 = 9/20.",
-   "h": "Schreibe p/100 und kürze."
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Was ist mehr: 1/10 oder 15 %?"
+   },
+   "w": "1/10 = 10 %. Vergleich mit 15 %: 15 % ist mehr.",
+   "h": "Wandle den Bruch in Prozent um.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse sind 25 Kinder. 4 davon sind Linkshänder. Wie viel Prozent sind das?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "4 * 4",
+   "w": "4/25 = 16/100 = 16 %.",
+   "h": "Erweitere auf den Nenner 100."
   },
   {
    "l": "prozent_bedeutung",
@@ -2018,7 +2120,8 @@
     "2"
    ],
    "w": "250 % = 250/100 = 5/2.",
-   "h": "Schreibe p/100 und kürze."
+   "h": "Schreibe p/100 und kürze.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozent_bedeutung",
@@ -2027,15 +2130,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viel Prozent sind 3/25?"
+    "text": "Wie viel Prozent sind 7/25?"
    },
    "o": {
-    "wert": 12,
+    "wert": 28,
     "einheit": "%"
    },
-   "c": "3 / 25 * 100",
-   "w": "3/25 = 0,12 = 12 %.",
-   "h": "Wandle zuerst in eine Dezimalzahl um, dann mal 100."
+   "c": "7 / 25 * 100",
+   "h": "Erweitere auf den Nenner 100.",
+   "w": "7/25 = 28/100 = 28 %."
   },
   {
    "l": "prozent_bedeutung",
@@ -2052,98 +2155,8 @@
    },
    "c": "1.87 * 100",
    "w": "1,87 · 100 = 187, also 187 %. Mehr als ein Ganzes ergibt mehr als 100 %.",
-   "h": "1 = 100 %. Was ist mehr als 1?"
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viel Prozent sind 2/3? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 66.7,
-    "einheit": "%"
-   },
-   "c": "(2 / 3 * 1000 + 1/2) // 1 / 10",
-   "w": "2 : 3 ≈ 0,667, also etwa 66,7 %.",
-   "h": "Teile den Zähler durch den Nenner, nimm mal 100 und runde."
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "15 %",
-    "Beide sind gleich groß",
-    "1/10"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Was ist mehr: 1/10 oder 15 %?"
-   },
-   "w": "1/10 = 10 %. Vergleich mit 15 %: 15 % ist mehr.",
-   "h": "Wandle den Bruch in Prozent um."
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 2,44 in Prozent."
-   },
-   "o": {
-    "wert": 244,
-    "einheit": "%"
-   },
-   "c": "2.44 * 100",
-   "w": "2,44 · 100 = 244, also 244 %. Mehr als ein Ganzes ergibt mehr als 100 %.",
-   "h": "1 = 100 %. Was ist mehr als 1?"
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viel Prozent sind 2/7? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 28.6,
-    "einheit": "%"
-   },
-   "c": "(2 / 7 * 1000 + 1/2) // 1 / 10",
-   "w": "2 : 7 ≈ 0,286, also etwa 28,6 %.",
-   "h": "Teile den Zähler durch den Nenner, nimm mal 100 und runde."
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "3/20",
-    "20 %",
-    "Beide sind gleich groß"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Was ist mehr: 3/20 oder 20 %?"
-   },
-   "w": "3/20 = 15 %. Vergleich mit 20 %: 20 % ist mehr.",
-   "h": "Wandle den Bruch in Prozent um."
+   "h": "1 = 100 %. Was ist mehr als 1?",
+   "g": "mehrschritt"
   },
   {
    "l": "prozent_bedeutung",
@@ -2774,7 +2787,30 @@
    },
    "c": "40 * 25 / 100",
    "w": "1 % von 40 € = 40 € : 100 = 0,4 €. 25 %: 25 · 0,4 = 10 €.",
-   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl."
+   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl.",
+   "g": "direkt"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Rechnung bekommst du 20 % von 80 €?"
+   },
+   "a": [
+    "80 € : 5",
+    "80 € : 20",
+    "80 € − 20",
+    "80 € · 20"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "20 % = 1/5. Ein Fünftel von 80 € sind 16 €.",
+   "h": "Welcher Bruch ist 20 %?"
   },
   {
    "l": "prozentwert",
@@ -2791,143 +2827,8 @@
    },
    "c": "120 * 1 / 100",
    "w": "1 % ist der hundertste Teil: 120 l : 100 = 1,2 l.",
-   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl."
-  },
-  {
-   "l": "prozentwert",
-   "t": "prozentwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 5 % von 200 l."
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "l"
-   },
-   "c": "200 * 5 / 100",
-   "w": "1 % von 200 l = 200 l : 100 = 2 l. 5 %: 5 · 2 = 10 l.",
-   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl."
-  },
-  {
-   "l": "prozentwert",
-   "t": "prozentwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 25 % von 200 kg."
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "kg"
-   },
-   "c": "200 * 25 / 100",
-   "w": "1 % von 200 kg = 200 kg : 100 = 2 kg. 25 %: 25 · 2 = 50 kg.",
-   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl."
-  },
-  {
-   "l": "prozentwert",
-   "t": "prozentwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 20 % von 100 m."
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "m"
-   },
-   "c": "100 * 20 / 100",
-   "w": "1 % von 100 m = 100 m : 100 = 1 m. 20 %: 20 · 1 = 20 m.",
-   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl."
-  },
-  {
-   "l": "prozentwert",
-   "t": "prozentwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 20 % von 60 m."
-   },
-   "o": {
-    "wert": 12,
-    "einheit": "m"
-   },
-   "c": "60 * 20 / 100",
-   "w": "1 % von 60 m = 60 m : 100 = 0,6 m. 20 %: 20 · 0,6 = 12 m.",
-   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl."
-  },
-  {
-   "l": "prozentwert",
-   "t": "prozentwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 10 % von 380 km."
-   },
-   "o": {
-    "wert": 38,
-    "einheit": "km"
-   },
-   "c": "380 * 10 / 100",
-   "w": "W = G · p % = 380 · 0,1 = 38 km.",
-   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal."
-  },
-  {
-   "l": "prozentwert",
-   "t": "prozentwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 71 % von 150 l."
-   },
-   "o": {
-    "wert": 106.5,
-    "einheit": "l"
-   },
-   "c": "150 * 71 / 100",
-   "w": "W = G · p % = 150 · 0,71 = 106,5 l.",
-   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal."
-  },
-  {
-   "l": "prozentwert",
-   "t": "prozentwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 82 % von 1 040 km."
-   },
-   "o": {
-    "wert": 852.8,
-    "einheit": "km"
-   },
-   "c": "1040 * 82 / 100",
-   "w": "W = G · p % = 1 040 · 0,82 = 852,8 km.",
-   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal."
-  },
-  {
-   "l": "prozentwert",
-   "t": "prozentwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 59 % von 1 000 km."
-   },
-   "o": {
-    "wert": 590,
-    "einheit": "km"
-   },
-   "c": "1000 * 59 / 100",
-   "w": "W = G · p % = 1 000 · 0,59 = 590 km.",
-   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal."
+   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl.",
+   "g": "direkt"
   },
   {
    "l": "prozentwert",
@@ -2944,24 +2845,26 @@
    },
    "c": "150 * 94 / 100",
    "w": "W = G · p % = 150 · 0,94 = 141 €.",
-   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal."
+   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozentwert",
    "t": "prozentwert",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 63 % von 305 kg."
+    "text": "Berechne 25 % von 200 kg."
    },
    "o": {
-    "wert": 192.15,
+    "wert": 50,
     "einheit": "kg"
    },
-   "c": "305 * 63 / 100",
-   "w": "W = G · p % = 305 · 0,63 = 192,15 kg.",
-   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal."
+   "c": "200 * 25 / 100",
+   "w": "1 % von 200 kg = 200 kg : 100 = 2 kg. 25 %: 25 · 2 = 50 kg.",
+   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl.",
+   "g": "direkt"
   },
   {
    "l": "prozentwert",
@@ -2978,7 +2881,62 @@
    },
    "c": "1360 * 7.5 / 100",
    "w": "1 360 · 0,075 = 102 €.",
-   "h": "7,5 % = 0,075 als Dezimalzahl."
+   "h": "7,5 % = 0,075 als Dezimalzahl.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5 % von 200 l."
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "l"
+   },
+   "c": "200 * 5 / 100",
+   "w": "1 % von 200 l = 200 l : 100 = 2 l. 5 %: 5 · 2 = 10 l.",
+   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl.",
+   "g": "direkt"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 10 % von 380 km."
+   },
+   "o": {
+    "wert": 38,
+    "einheit": "km"
+   },
+   "c": "380 * 10 / 100",
+   "w": "W = G · p % = 380 · 0,1 = 38 km.",
+   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 20 % von 100 m."
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "m"
+   },
+   "c": "100 * 20 / 100",
+   "w": "1 % von 100 m = 100 m : 100 = 1 m. 20 %: 20 · 1 = 20 m.",
+   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl.",
+   "g": "direkt"
   },
   {
    "l": "prozentwert",
@@ -2996,6 +2954,42 @@
    "c": "360 * 1.5 / 100",
    "w": "360 · 0,015 = 5,4 €.",
    "h": "1,5 % = 0,015 als Dezimalzahl."
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 20 % von 60 m."
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "m"
+   },
+   "c": "60 * 20 / 100",
+   "w": "1 % von 60 m = 60 m : 100 = 0,6 m. 20 %: 20 · 0,6 = 12 m.",
+   "h": "Rechne erst 1 % aus, dann mal die Prozentzahl.",
+   "g": "direkt"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 82 % von 1 040 km."
+   },
+   "o": {
+    "wert": 852.8,
+    "einheit": "km"
+   },
+   "c": "1040 * 82 / 100",
+   "w": "W = G · p % = 1 040 · 0,82 = 852,8 km.",
+   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozentwert",
@@ -3021,6 +3015,24 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "Berechne 63 % von 305 kg."
+   },
+   "o": {
+    "wert": 192.15,
+    "einheit": "kg"
+   },
+   "c": "305 * 63 / 100",
+   "w": "W = G · p % = 305 · 0,63 = 192,15 kg.",
+   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "24 % der Kinder einer Schule mit 200 Kindern – wie viele Kinder sind das?"
    },
    "o": {
@@ -3028,28 +3040,26 @@
    },
    "c": "200 * 24 / 100",
    "w": "200 · 0,24 = 48 Kinder.",
-   "h": "Der Grundwert ist die Gesamtzahl. W = G · p %."
+   "h": "Der Grundwert ist die Gesamtzahl. W = G · p %.",
+   "g": "einkleidung"
   },
   {
    "l": "prozentwert",
    "t": "prozentwert",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "etwa 24 €",
-    "etwa 150 €",
-    "etwa 750 €",
-    "etwa 75 €"
-   ],
-   "o": {
-    "index": 3
-   },
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Etwa wie viel sind 24 % von 299 €? Überschlage im Kopf."
+    "text": "Berechne 71 % von 150 l."
    },
-   "w": "24 % ≈ 25 % = 1/4, 299 € ≈ 300 €. 1/4 von 300 € = 75 €.",
-   "h": "Runde 24 % auf einen einfachen Prozentsatz und 299 auf eine runde Zahl."
+   "o": {
+    "wert": 106.5,
+    "einheit": "l"
+   },
+   "c": "150 * 71 / 100",
+   "w": "W = G · p % = 150 · 0,71 = 106,5 l.",
+   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozentwert",
@@ -3070,7 +3080,26 @@
     "text": "Etwa wie viel sind 76 % von 206 kg? Überschlage im Kopf."
    },
    "w": "76 % ≈ 75 % = 3/4, 206 kg ≈ 200 kg. 3/4 von 200 kg = 150 kg.",
-   "h": "Runde 76 % auf einen einfachen Prozentsatz und 206 auf eine runde Zahl."
+   "h": "Runde 76 % auf einen einfachen Prozentsatz und 206 auf eine runde Zahl.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 12,5 % von 64 kg."
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "kg"
+   },
+   "c": "64 * 12.5 / 100",
+   "h": "12,5 % sind 1/8.",
+   "w": "12,5 % = 1/8. 64 kg : 8 = 8 kg.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozentwert",
@@ -3247,7 +3276,26 @@
    },
    "c": "8 / 20 * 100",
    "w": "8 : 20 = 0,4 = 40 %.",
-   "h": "Teil durch Ganzes, dann mal 100."
+   "h": "Teil durch Ganzes, dann mal 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Preis sinkt von 60 € auf 45 €. Um wie viel Prozent wurde er gesenkt?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "(60 - 45) / 60 * 100",
+   "w": "Senkung: 60 − 45 = 15 €. 15 : 60 = 0,25 = 25 %.",
+   "h": "Grundwert ist der alte Preis. Berechne zuerst den Unterschied.",
+   "g": "einkleidung"
   },
   {
    "l": "prozentsatz",
@@ -3264,7 +3312,65 @@
    },
    "c": "16 / 20 * 100",
    "w": "16 : 20 = 0,8 = 80 %.",
-   "h": "Teil durch Ganzes, dann mal 100."
+   "h": "Teil durch Ganzes, dann mal 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Klassenarbeit gibt es 48 Punkte. Ein Kind erreicht 30 Punkte. Wie viel Prozent der Punkte sind das?"
+   },
+   "o": {
+    "wert": 62.5,
+    "einheit": "%"
+   },
+   "c": "30 / 48 * 100",
+   "w": "Teil durch Ganzes: 30 : 48 = 0,625 = 62,5 %.",
+   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viel Prozent sind 50 von 200?"
+   },
+   "a": [
+    "25 %",
+    "50 %",
+    "75 %"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "50 ist ein Viertel von 200, also 25 %.",
+   "h": "Welcher Bruchteil von 200 ist 50?"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe „9 von 100“ in Prozent."
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "%"
+   },
+   "c": "9",
+   "w": "9 von 100 sind 9 Hundertstel = 9 %.",
+   "h": "Prozent heißt „von hundert“."
   },
   {
    "l": "prozentsatz",
@@ -3287,6 +3393,24 @@
    "l": "prozentsatz",
    "t": "prozentsatz",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse mit 22 Kindern tragen 11 eine Brille. Wie viel Prozent der Kinder sind das?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "11 / 22 * 100",
+   "w": "Teil durch Ganzes: 11 : 22 = 0,5 = 50 %.",
+   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -3304,6 +3428,24 @@
    "l": "prozentsatz",
    "t": "prozentsatz",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Preis sinkt von 150 € auf 120 €. Um wie viel Prozent wurde er gesenkt?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "(150 - 120) / 150 * 100",
+   "w": "Senkung: 150 − 120 = 30 €. 30 : 150 = 0,2 = 20 %.",
+   "h": "Grundwert ist der alte Preis. Berechne zuerst den Unterschied.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -3316,6 +3458,24 @@
    "c": "19 / 20 * 100",
    "w": "19 : 20 = 0,95 = 95 %.",
    "h": "Teil durch Ganzes, dann mal 100."
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Prozent einer Stunde sind 30 Minuten?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "30 / 60 * 100",
+   "w": "1 h = 60 min. 30 : 60 = 0,5 = 50 %.",
+   "h": "Grundwert: 60 Minuten.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozentsatz",
@@ -3341,23 +3501,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bei einer Klassenarbeit gibt es 48 Punkte. Ein Kind erreicht 30 Punkte. Wie viel Prozent der Punkte sind das?"
-   },
-   "o": {
-    "wert": 62.5,
-    "einheit": "%"
-   },
-   "c": "30 / 48 * 100",
-   "w": "Teil durch Ganzes: 30 : 48 = 0,625 = 62,5 %.",
-   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G."
-  },
-  {
-   "l": "prozentsatz",
-   "t": "prozentsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Von 80 gesäten Samen keimen 42. Wie viel Prozent der Samen keimen?"
    },
    "o": {
@@ -3366,24 +3509,8 @@
    },
    "c": "42 / 80 * 100",
    "w": "Teil durch Ganzes: 42 : 80 = 0,525 = 52,5 %.",
-   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G."
-  },
-  {
-   "l": "prozentsatz",
-   "t": "prozentsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Klasse mit 22 Kindern tragen 11 eine Brille. Wie viel Prozent der Kinder sind das?"
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "%"
-   },
-   "c": "11 / 22 * 100",
-   "w": "Teil durch Ganzes: 11 : 22 = 0,5 = 50 %.",
-   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G."
+   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozentsatz",
@@ -3400,126 +3527,8 @@
    },
    "c": "16 / 32 * 100",
    "w": "Teil durch Ganzes: 16 : 32 = 0,5 = 50 %.",
-   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G."
-  },
-  {
-   "l": "prozentsatz",
-   "t": "prozentsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einer Klassenarbeit gibt es 50 Punkte. Ein Kind erreicht 49 Punkte. Wie viel Prozent der Punkte sind das?"
-   },
-   "o": {
-    "wert": 98,
-    "einheit": "%"
-   },
-   "c": "49 / 50 * 100",
-   "w": "Teil durch Ganzes: 49 : 50 = 0,98 = 98 %. Oder erweitern: 49/50 = 98/100.",
-   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G."
-  },
-  {
-   "l": "prozentsatz",
-   "t": "prozentsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Von 50 Freiwürfen trifft ein Kind 35. Wie hoch ist die Trefferquote in Prozent?"
-   },
-   "o": {
-    "wert": 70,
-    "einheit": "%"
-   },
-   "c": "35 / 50 * 100",
-   "w": "Teil durch Ganzes: 35 : 50 = 0,7 = 70 %. Oder erweitern: 35/50 = 70/100.",
-   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G."
-  },
-  {
-   "l": "prozentsatz",
-   "t": "prozentsatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Preis sinkt von 120 € auf 102 €. Um wie viel Prozent wurde er gesenkt?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "%"
-   },
-   "c": "(120 - 102) / 120 * 100",
-   "w": "Senkung: 120 − 102 = 18 €. 18 : 120 = 0,15 = 15 %.",
-   "h": "Grundwert ist der alte Preis. Berechne zuerst den Unterschied."
-  },
-  {
-   "l": "prozentsatz",
-   "t": "prozentsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einer Umfrage unter 25 Kindern wählen 7 Fußball, 6 Schwimmen und der Rest Tanzen. Wie viel Prozent wählen Tanzen?"
-   },
-   "o": {
-    "wert": 48,
-    "einheit": "%"
-   },
-   "c": "(25 - 7 - 6) / 25 * 100",
-   "w": "Tanzen: 25 − 7 − 6 = 12. 12 : 25 = 0,48 = 48 %.",
-   "h": "Berechne zuerst, wie viele Kinder Tanzen wählen."
-  },
-  {
-   "l": "prozentsatz",
-   "t": "prozentsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Preis sinkt von 60 € auf 45 €. Um wie viel Prozent wurde er gesenkt?"
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "(60 - 45) / 60 * 100",
-   "w": "Senkung: 60 − 45 = 15 €. 15 : 60 = 0,25 = 25 %.",
-   "h": "Grundwert ist der alte Preis. Berechne zuerst den Unterschied."
-  },
-  {
-   "l": "prozentsatz",
-   "t": "prozentsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Preis sinkt von 150 € auf 120 €. Um wie viel Prozent wurde er gesenkt?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "%"
-   },
-   "c": "(150 - 120) / 150 * 100",
-   "w": "Senkung: 150 − 120 = 30 €. 30 : 150 = 0,2 = 20 %.",
-   "h": "Grundwert ist der alte Preis. Berechne zuerst den Unterschied."
-  },
-  {
-   "l": "prozentsatz",
-   "t": "prozentsatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viel Prozent einer Stunde sind 30 Minuten?"
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "%"
-   },
-   "c": "30 / 60 * 100",
-   "w": "1 h = 60 min. 30 : 60 = 0,5 = 50 %.",
-   "h": "Grundwert: 60 Minuten."
+   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G.",
+   "g": "einkleidung"
   },
   {
    "l": "prozentsatz",
@@ -3536,7 +3545,44 @@
    },
    "c": "36 / 60 * 100",
    "w": "1 h = 60 min. 36 : 60 = 0,6 = 60 %.",
-   "h": "Grundwert: 60 Minuten."
+   "h": "Grundwert: 60 Minuten.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Klassenarbeit gibt es 50 Punkte. Ein Kind erreicht 49 Punkte. Wie viel Prozent der Punkte sind das?"
+   },
+   "o": {
+    "wert": 98,
+    "einheit": "%"
+   },
+   "c": "49 / 50 * 100",
+   "w": "Teil durch Ganzes: 49 : 50 = 0,98 = 98 %. Oder erweitern: 49/50 = 98/100.",
+   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 40 Aufgaben sind 34 richtig. Wie viel Prozent sind richtig?"
+   },
+   "o": {
+    "wert": 85,
+    "einheit": "%"
+   },
+   "c": "34 / 40 * 100",
+   "h": "Teil durch Ganzes, mal 100.",
+   "w": "34/40 = 85/100 = 85 %.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozentsatz",
@@ -3713,7 +3759,30 @@
    },
    "c": "176.0 / 20 * 100",
    "w": "1 %: 176 : 20 = 8,8 €. 100 %: 8,8 · 100 = 880 €.",
-   "h": "Rechne erst 1 % aus, dann mal 100."
+   "h": "Rechne erst 1 % aus, dann mal 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "10 % sind 7 €. Mit welcher Rechnung bekommst du 100 %?"
+   },
+   "a": [
+    "7 € : 10",
+    "7 € + 10",
+    "7 € · 100",
+    "7 € · 10"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "100 % sind zehnmal so viel wie 10 %: 70 €.",
+   "h": "Wie oft passen 10 % in 100 %?"
   },
   {
    "l": "grundwert",
@@ -3730,41 +3799,26 @@
    },
    "c": "20.0 / 20 * 100",
    "w": "1 %: 20 : 20 = 1 €. 100 %: 1 · 100 = 100 €.",
-   "h": "Rechne erst 1 % aus, dann mal 100."
+   "h": "Rechne erst 1 % aus, dann mal 100.",
+   "g": "direkt"
   },
   {
    "l": "grundwert",
    "t": "grundwert",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "1 % sind 10 kg. Wie viel sind 100 %?"
+    "text": "75 % des Grundwerts sind 330 l. Berechne den Grundwert."
    },
    "o": {
-    "wert": 1000,
-    "einheit": "kg"
+    "wert": 440,
+    "einheit": "l"
    },
-   "c": "10.0 / 1 * 100",
-   "w": "1 %: 10 : 1 = 10 kg. 100 %: 10 · 100 = 1 000 kg.",
-   "h": "Rechne erst 1 % aus, dann mal 100."
-  },
-  {
-   "l": "grundwert",
-   "t": "grundwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "20 % sind 40 m. Wie viel sind 100 %?"
-   },
-   "o": {
-    "wert": 200,
-    "einheit": "m"
-   },
-   "c": "40.0 / 20 * 100",
-   "w": "1 %: 40 : 20 = 2 m. 100 %: 2 · 100 = 200 m.",
-   "h": "Rechne erst 1 % aus, dann mal 100."
+   "c": "330.0 / (75 / 100)",
+   "w": "G = W : p % = 330 : 0,75 = 440 l.",
+   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100).",
+   "g": "mehrschritt"
   },
   {
    "l": "grundwert",
@@ -3790,6 +3844,24 @@
    "s": 1,
    "y": "zahl",
    "f": {
+    "text": "1 % sind 10 kg. Wie viel sind 100 %?"
+   },
+   "o": {
+    "wert": 1000,
+    "einheit": "kg"
+   },
+   "c": "10.0 / 1 * 100",
+   "w": "1 %: 10 : 1 = 10 kg. 100 %: 10 · 100 = 1 000 kg.",
+   "h": "Rechne erst 1 % aus, dann mal 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
     "text": "10 % sind 52 €. Wie viel sind 100 %?"
    },
    "o": {
@@ -3804,103 +3876,19 @@
    "l": "grundwert",
    "t": "grundwert",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "75 % des Grundwerts sind 330 l. Berechne den Grundwert."
+    "text": "20 % sind 40 m. Wie viel sind 100 %?"
    },
    "o": {
-    "wert": 440,
-    "einheit": "l"
+    "wert": 200,
+    "einheit": "m"
    },
-   "c": "330.0 / (75 / 100)",
-   "w": "G = W : p % = 330 : 0,75 = 440 l.",
-   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100)."
-  },
-  {
-   "l": "grundwert",
-   "t": "grundwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "80 % des Grundwerts sind 256 €. Berechne den Grundwert."
-   },
-   "o": {
-    "wert": 320,
-    "einheit": "€"
-   },
-   "c": "256.0 / (80 / 100)",
-   "w": "G = W : p % = 256 : 0,8 = 320 €.",
-   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100)."
-  },
-  {
-   "l": "grundwert",
-   "t": "grundwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "4 % des Grundwerts sind 14,8 l. Berechne den Grundwert."
-   },
-   "o": {
-    "wert": 370,
-    "einheit": "l"
-   },
-   "c": "14.8 / (4 / 100)",
-   "w": "G = W : p % = 14,8 : 0,04 = 370 l.",
-   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100)."
-  },
-  {
-   "l": "grundwert",
-   "t": "grundwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "30 % des Grundwerts sind 93 km. Berechne den Grundwert."
-   },
-   "o": {
-    "wert": 310,
-    "einheit": "km"
-   },
-   "c": "93.0 / (30 / 100)",
-   "w": "G = W : p % = 93 : 0,3 = 310 km.",
-   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100)."
-  },
-  {
-   "l": "grundwert",
-   "t": "grundwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "15 % des Grundwerts sind 234 l. Berechne den Grundwert."
-   },
-   "o": {
-    "wert": 1560,
-    "einheit": "l"
-   },
-   "c": "234.0 / (15 / 100)",
-   "w": "G = W : p % = 234 : 0,15 = 1 560 l.",
-   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100)."
-  },
-  {
-   "l": "grundwert",
-   "t": "grundwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "16 % des Grundwerts sind 40,8 kg. Berechne den Grundwert."
-   },
-   "o": {
-    "wert": 255,
-    "einheit": "kg"
-   },
-   "c": "40.8 / (16 / 100)",
-   "w": "G = W : p % = 40,8 : 0,16 = 255 kg.",
-   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100)."
+   "c": "40.0 / 20 * 100",
+   "w": "1 %: 40 : 20 = 2 m. 100 %: 2 · 100 = 200 m.",
+   "h": "Rechne erst 1 % aus, dann mal 100.",
+   "g": "direkt"
   },
   {
    "l": "grundwert",
@@ -3916,7 +3904,8 @@
    },
    "c": "108 / 20 * 100",
    "w": "108 : 0,2 = 540 Kinder.",
-   "h": "Gesucht ist das Ganze, also der Grundwert."
+   "h": "Gesucht ist das Ganze, also der Grundwert.",
+   "g": "einkleidung"
   },
   {
    "l": "grundwert",
@@ -3933,23 +3922,8 @@
    },
    "c": "40 / 10 * 100",
    "w": "10 % entsprechen 40 €. 1 %: 4 €. 100 %: 400 €.",
-   "h": "Die Ersparnis ist der Prozentwert. Gesucht ist der alte Preis (Grundwert)."
-  },
-  {
-   "l": "grundwert",
-   "t": "grundwert",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "75 % der Kinder einer Schule kommen mit dem Bus. Die übrigen 35 Kinder kommen zu Fuß oder mit dem Rad. Wie viele Kinder hat die Schule?"
-   },
-   "o": {
-    "wert": 140
-   },
-   "c": "35 / (100 - 75) * 100",
-   "w": "Die übrigen Kinder sind 100 % − 75 % = 25 %. 1 %: 35 : 25 = 1,4. 100 %: 140 Kinder.",
-   "h": "Zu welchem Prozentsatz gehören die 35 Kinder? Es sind nicht 75 %."
+   "h": "Die Ersparnis ist der Prozentwert. Gesucht ist der alte Preis (Grundwert).",
+   "g": "umkehr"
   },
   {
    "l": "grundwert",
@@ -3958,31 +3932,16 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "88 Kinder einer Schule fahren mit dem Bus. Das sind 20 % aller Kinder. Wie viele Kinder hat die Schule?"
+    "text": "4 % des Grundwerts sind 14,8 l. Berechne den Grundwert."
    },
    "o": {
-    "wert": 440
+    "wert": 370,
+    "einheit": "l"
    },
-   "c": "88 / 20 * 100",
-   "w": "88 : 0,2 = 440 Kinder.",
-   "h": "Gesucht ist das Ganze, also der Grundwert."
-  },
-  {
-   "l": "grundwert",
-   "t": "grundwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einem Rabatt von 40 % spart man 88 €. Wie viel kostete die Ware vorher?"
-   },
-   "o": {
-    "wert": 220,
-    "einheit": "€"
-   },
-   "c": "88 / 40 * 100",
-   "w": "40 % entsprechen 88 €. 1 %: 2,2 €. 100 %: 220 €.",
-   "h": "Die Ersparnis ist der Prozentwert. Gesucht ist der alte Preis (Grundwert)."
+   "c": "14.8 / (4 / 100)",
+   "w": "G = W : p % = 14,8 : 0,04 = 370 l.",
+   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100).",
+   "g": "einkleidung"
   },
   {
    "l": "grundwert",
@@ -3999,6 +3958,113 @@
    "c": "60 / 25 * 100",
    "w": "60 : 0,25 = 240 Kinder.",
    "h": "Gesucht ist das Ganze, also der Grundwert."
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "80 % des Grundwerts sind 256 €. Berechne den Grundwert."
+   },
+   "o": {
+    "wert": 320,
+    "einheit": "€"
+   },
+   "c": "256.0 / (80 / 100)",
+   "w": "G = W : p % = 256 : 0,8 = 320 €.",
+   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100).",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "15 % des Grundwerts sind 234 l. Berechne den Grundwert."
+   },
+   "o": {
+    "wert": 1560,
+    "einheit": "l"
+   },
+   "c": "234.0 / (15 / 100)",
+   "w": "G = W : p % = 234 : 0,15 = 1 560 l.",
+   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100).",
+   "g": "einkleidung"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "30 % des Grundwerts sind 93 km. Berechne den Grundwert."
+   },
+   "o": {
+    "wert": 310,
+    "einheit": "km"
+   },
+   "c": "93.0 / (30 / 100)",
+   "w": "G = W : p % = 93 : 0,3 = 310 km.",
+   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100).",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "88 Kinder einer Schule fahren mit dem Bus. Das sind 20 % aller Kinder. Wie viele Kinder hat die Schule?"
+   },
+   "o": {
+    "wert": 440
+   },
+   "c": "88 / 20 * 100",
+   "w": "88 : 0,2 = 440 Kinder.",
+   "h": "Gesucht ist das Ganze, also der Grundwert.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "16 % des Grundwerts sind 40,8 kg. Berechne den Grundwert."
+   },
+   "o": {
+    "wert": 255,
+    "einheit": "kg"
+   },
+   "c": "40.8 / (16 / 100)",
+   "w": "G = W : p % = 40,8 : 0,16 = 255 kg.",
+   "h": "G = W : p %. Der Grundwert muss größer als W sein (wenn p < 100).",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Rabatt von 40 % spart man 88 €. Wie viel kostete die Ware vorher?"
+   },
+   "o": {
+    "wert": 220,
+    "einheit": "€"
+   },
+   "c": "88 / 40 * 100",
+   "w": "40 % entsprechen 88 €. 1 %: 2,2 €. 100 %: 220 €.",
+   "h": "Die Ersparnis ist der Prozentwert. Gesucht ist der alte Preis (Grundwert).",
+   "g": "umkehr"
   },
   {
    "l": "grundwert",
@@ -4175,58 +4241,30 @@
    },
    "c": "950 * 20 / 100",
    "w": "20 % von 950 € = 190 €.",
-   "h": "Die Ersparnis ist der Prozentwert."
+   "h": "Die Ersparnis ist der Prozentwert.",
+   "g": "direkt"
   },
   {
    "l": "rabatt_aufschlag",
    "t": "rabatt_aufschlag",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
+   "g": "erkennen",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Paar Schuhe kostet 140 €. Es gibt 10 % Rabatt. Wie viel Euro spart man?"
+    "text": "Ein Preis sinkt um 25 %. Mit welcher Zahl nimmst du den alten Preis mal, um den neuen zu erhalten?"
    },
+   "a": [
+    "1,25",
+    "0,25",
+    "25",
+    "0,75"
+   ],
    "o": {
-    "wert": 14,
-    "einheit": "€"
+    "index": 3
    },
-   "c": "140 * 10 / 100",
-   "w": "10 % von 140 € = 14 €.",
-   "h": "Die Ersparnis ist der Prozentwert."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Fahrrad kostet 910 €. Es gibt 10 % Rabatt. Wie viel Euro spart man?"
-   },
-   "o": {
-    "wert": 91,
-    "einheit": "€"
-   },
-   "c": "910 * 10 / 100",
-   "w": "10 % von 910 € = 91 €.",
-   "h": "Die Ersparnis ist der Prozentwert."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Spielkonsole kostet 340 €. Es gibt 30 % Rabatt. Wie viel Euro spart man?"
-   },
-   "o": {
-    "wert": 102,
-    "einheit": "€"
-   },
-   "c": "340 * 30 / 100",
-   "w": "30 % von 340 € = 102 €.",
-   "h": "Die Ersparnis ist der Prozentwert."
+   "w": "Es bleiben 100 % − 25 % = 75 % = 0,75 des alten Preises.",
+   "h": "Wie viel Prozent bleiben übrig?"
   },
   {
    "l": "rabatt_aufschlag",
@@ -4243,147 +4281,8 @@
    },
    "c": "180 * 20 / 100",
    "w": "20 % von 180 € = 36 €.",
-   "h": "Die Ersparnis ist der Prozentwert."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zelt kostet 380 €. Es gibt 25 % Rabatt. Wie viel Euro spart man?"
-   },
-   "o": {
-    "wert": 95,
-    "einheit": "€"
-   },
-   "c": "380 * 25 / 100",
-   "w": "25 % von 380 € = 95 €.",
-   "h": "Die Ersparnis ist der Prozentwert."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Spielkonsole kostete 355 €. Der Preis steigt um 10 %. Wie viel kostet die Spielkonsole jetzt?"
-   },
-   "o": {
-    "wert": 390.5,
-    "einheit": "€"
-   },
-   "c": "355 * (100 + 10) / 100",
-   "w": "Neuer Preis = 110 % des alten: 355 · 1,1 = 390,50 €.",
-   "h": "Rechne mit 100 % + Aufschlag."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rucksack kostet 135 €. Es gibt 25 % Rabatt. Was kostet der Rucksack jetzt?"
-   },
-   "o": {
-    "wert": 101.25,
-    "einheit": "€"
-   },
-   "c": "135 * (100 - 25) / 100",
-   "w": "Man zahlt 75 %: 135 · 0,75 = 101,25 €.",
-   "h": "Rechne mit 100 % − Rabatt."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Spielkonsole kostet 200 €. Es gibt 35 % Rabatt. Was kostet die Spielkonsole jetzt?"
-   },
-   "o": {
-    "wert": 130,
-    "einheit": "€"
-   },
-   "c": "200 * (100 - 35) / 100",
-   "w": "Man zahlt 65 %: 200 · 0,65 = 130 €.",
-   "h": "Rechne mit 100 % − Rabatt."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Paar Schuhe kostet 60 €. Es gibt 15 % Rabatt. Was kostet das Paar Schuhe jetzt?"
-   },
-   "o": {
-    "wert": 51,
-    "einheit": "€"
-   },
-   "c": "60 * (100 - 15) / 100",
-   "w": "Man zahlt 85 %: 60 · 0,85 = 51 €.",
-   "h": "Rechne mit 100 % − Rabatt."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rucksack kostet 60 €. Es gibt 15 % Rabatt. Was kostet der Rucksack jetzt?"
-   },
-   "o": {
-    "wert": 51,
-    "einheit": "€"
-   },
-   "c": "60 * (100 - 15) / 100",
-   "w": "Man zahlt 85 %: 60 · 0,85 = 51 €.",
-   "h": "Rechne mit 100 % − Rabatt."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Paar Schuhe kostete 115 €. Der Preis steigt um 15 %. Wie viel kostet das Paar Schuhe jetzt?"
-   },
-   "o": {
-    "wert": 132.25,
-    "einheit": "€"
-   },
-   "c": "115 * (100 + 15) / 100",
-   "w": "Neuer Preis = 115 % des alten: 115 · 1,15 = 132,25 €.",
-   "h": "Rechne mit 100 % + Aufschlag."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Laden A, weil der Preis kleiner ist",
-    "Laden A (333 € gegen 330 €)",
-    "Beide sind gleich teuer",
-    "Laden B (330 € gegen 333 €)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Laden A: Die Spielkonsole kostet 370 € mit 10 % Rabatt. Laden B: Sie kostet 440 € mit 25 % Rabatt. Wo ist sie billiger?"
-   },
-   "w": "A: 90 % von 370 € = 333 €. B: 75 % von 440 € = 330 €. Billiger ist Laden B.",
-   "h": "Berechne in beiden Läden den Preis nach dem Rabatt."
+   "h": "Die Ersparnis ist der Prozentwert.",
+   "g": "direkt"
   },
   {
    "l": "rabatt_aufschlag",
@@ -4404,69 +4303,62 @@
     "text": "Laden A: Die Spielkonsole kostet 460 € mit 10 % Rabatt. Laden B: Sie kostet 510 € mit 20 % Rabatt. Wo ist sie billiger?"
    },
    "w": "A: 90 % von 460 € = 414 €. B: 80 % von 510 € = 408 €. Billiger ist Laden B.",
-   "h": "Berechne in beiden Läden den Preis nach dem Rabatt."
+   "h": "Berechne in beiden Läden den Preis nach dem Rabatt.",
+   "g": "mehrschritt"
   },
   {
    "l": "rabatt_aufschlag",
    "t": "rabatt_aufschlag",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Der Prozent-Gutschein",
-    "Beide sparen gleich viel",
-    "Der Euro-Gutschein"
-   ],
-   "o": {
-    "index": 0
-   },
+   "s": 1,
+   "y": "zahl",
    "f": {
-    "text": "Ein Fahrrad kostet 560 €. Du darfst einen Gutschein einlösen: 20 % Rabatt oder 109 € Rabatt. Welcher spart mehr?"
+    "text": "Ein Paar Schuhe kostet 140 €. Es gibt 10 % Rabatt. Wie viel Euro spart man?"
    },
-   "w": "20 % von 560 € = 112 €. Der andere Gutschein spart 109 €. Besser ist der 20 %-Gutschein (112 € gespart).",
-   "h": "Rechne den Prozent-Rabatt in Euro um und vergleiche."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Laden A (198 € gegen 195 €)",
-    "Laden A, weil der Preis kleiner ist",
-    "Laden B (195 € gegen 198 €)",
-    "Beide sind gleich teuer"
-   ],
    "o": {
-    "index": 2
+    "wert": 14,
+    "einheit": "€"
    },
-   "f": {
-    "text": "Laden A: Das Zelt kostet 220 € mit 10 % Rabatt. Laden B: Es kostet 260 € mit 25 % Rabatt. Wo ist es billiger?"
-   },
-   "w": "A: 90 % von 220 € = 198 €. B: 75 % von 260 € = 195 €. Billiger ist Laden B.",
-   "h": "Berechne in beiden Läden den Preis nach dem Rabatt."
+   "c": "140 * 10 / 100",
+   "w": "10 % von 140 € = 14 €.",
+   "h": "Die Ersparnis ist der Prozentwert.",
+   "g": "direkt"
   },
   {
    "l": "rabatt_aufschlag",
    "t": "rabatt_aufschlag",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "a": [
-    "24 €",
-    "96 €",
-    "100 €",
-    "144 €"
-   ],
-   "o": {
-    "index": 1
-   },
+   "y": "zahl",
    "f": {
-    "text": "Ein Paar Schuhe kostet 120 €, es gibt 20 % Rabatt. Welcher neue Preis ist richtig?"
+    "text": "Ein Rucksack kostet 135 €. Es gibt 25 % Rabatt. Was kostet der Rucksack jetzt?"
    },
-   "w": "80 % von 120 € = 96 €. 100 € wäre falsch (dann hätte man 20 Euro statt 20 % abgezogen).",
-   "h": "Rabatt in Prozent ist nicht dasselbe wie Rabatt in Euro."
+   "o": {
+    "wert": 101.25,
+    "einheit": "€"
+   },
+   "c": "135 * (100 - 25) / 100",
+   "w": "Man zahlt 75 %: 135 · 0,75 = 101,25 €.",
+   "h": "Rechne mit 100 % − Rabatt.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fahrrad kostet 910 €. Es gibt 10 % Rabatt. Wie viel Euro spart man?"
+   },
+   "o": {
+    "wert": 91,
+    "einheit": "€"
+   },
+   "c": "910 * 10 / 100",
+   "w": "10 % von 910 € = 91 €.",
+   "h": "Die Ersparnis ist der Prozentwert.",
+   "g": "direkt"
   },
   {
    "l": "rabatt_aufschlag",
@@ -4487,7 +4379,196 @@
     "text": "Laden A: Die Spielkonsole kostet 560 € mit 50 % Rabatt. Laden B: Sie kostet 470 € mit 40 % Rabatt. Wo ist sie billiger?"
    },
    "w": "A: 50 % von 560 € = 280 €. B: 60 % von 470 € = 282 €. Billiger ist Laden A.",
-   "h": "Berechne in beiden Läden den Preis nach dem Rabatt."
+   "h": "Berechne in beiden Läden den Preis nach dem Rabatt.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Spielkonsole kostet 340 €. Es gibt 30 % Rabatt. Wie viel Euro spart man?"
+   },
+   "o": {
+    "wert": 102,
+    "einheit": "€"
+   },
+   "c": "340 * 30 / 100",
+   "w": "30 % von 340 € = 102 €.",
+   "h": "Die Ersparnis ist der Prozentwert.",
+   "g": "direkt"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Spielkonsole kostete 355 €. Der Preis steigt um 10 %. Wie viel kostet die Spielkonsole jetzt?"
+   },
+   "o": {
+    "wert": 390.5,
+    "einheit": "€"
+   },
+   "c": "355 * (100 + 10) / 100",
+   "w": "Neuer Preis = 110 % des alten: 355 · 1,1 = 390,50 €.",
+   "h": "Rechne mit 100 % + Aufschlag.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zelt kostet 380 €. Es gibt 25 % Rabatt. Wie viel Euro spart man?"
+   },
+   "o": {
+    "wert": 95,
+    "einheit": "€"
+   },
+   "c": "380 * 25 / 100",
+   "w": "25 % von 380 € = 95 €.",
+   "h": "Die Ersparnis ist der Prozentwert.",
+   "g": "direkt"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Spielkonsole kostet 200 €. Es gibt 35 % Rabatt. Was kostet die Spielkonsole jetzt?"
+   },
+   "o": {
+    "wert": 130,
+    "einheit": "€"
+   },
+   "c": "200 * (100 - 35) / 100",
+   "w": "Man zahlt 65 %: 200 · 0,65 = 130 €.",
+   "h": "Rechne mit 100 % − Rabatt.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "24 €",
+    "96 €",
+    "100 €",
+    "144 €"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Paar Schuhe kostet 120 €, es gibt 20 % Rabatt. Welcher neue Preis ist richtig?"
+   },
+   "w": "80 % von 120 € = 96 €. 100 € wäre falsch (dann hätte man 20 Euro statt 20 % abgezogen).",
+   "h": "Rabatt in Prozent ist nicht dasselbe wie Rabatt in Euro.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Paar Schuhe kostet 60 €. Es gibt 15 % Rabatt. Was kostet das Paar Schuhe jetzt?"
+   },
+   "o": {
+    "wert": 51,
+    "einheit": "€"
+   },
+   "c": "60 * (100 - 15) / 100",
+   "w": "Man zahlt 85 %: 60 · 0,85 = 51 €.",
+   "h": "Rechne mit 100 % − Rabatt.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rucksack kostet im Angebot 51 € statt 60 €. Wie viel Prozent Rabatt gibt es?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "%"
+   },
+   "c": "(60 - 51) / 60 * 100",
+   "w": "Ersparnis 9 €. 9 von 60 = 15 %.",
+   "h": "Wie viel Euro spart man?"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rucksack kostet 60 €. Es gibt 15 % Rabatt. Was kostet der Rucksack jetzt?"
+   },
+   "o": {
+    "wert": 51,
+    "einheit": "€"
+   },
+   "c": "60 * (100 - 15) / 100",
+   "w": "Man zahlt 85 %: 60 · 0,85 = 51 €.",
+   "h": "Rechne mit 100 % − Rabatt.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Laden A, weil der Preis kleiner ist",
+    "Laden A (333 € gegen 330 €)",
+    "Beide sind gleich teuer",
+    "Laden B (330 € gegen 333 €)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Laden A: Die Spielkonsole kostet 370 € mit 10 % Rabatt. Laden B: Sie kostet 440 € mit 25 % Rabatt. Wo ist sie billiger?"
+   },
+   "w": "A: 90 % von 370 € = 333 €. B: 75 % von 440 € = 330 €. Billiger ist Laden B.",
+   "h": "Berechne in beiden Läden den Preis nach dem Rabatt.",
+   "g": "transfer"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Paar Schuhe kostete 115 €. Der Preis steigt um 15 %. Wie viel kostet das Paar Schuhe jetzt?"
+   },
+   "o": {
+    "wert": 132.25,
+    "einheit": "€"
+   },
+   "c": "115 * (100 + 15) / 100",
+   "w": "Neuer Preis = 115 % des alten: 115 · 1,15 = 132,25 €.",
+   "h": "Rechne mit 100 % + Aufschlag.",
+   "g": "einkleidung"
   },
   {
    "l": "rabatt_aufschlag",
@@ -4664,7 +4745,29 @@
    },
    "c": "500 * 4 / 100",
    "w": "Z = K · p % = 500 · 0,04 = 20 €.",
-   "h": "Zinsen sind der Prozentwert: Kapital mal Zinssatz."
+   "h": "Zinsen sind der Prozentwert: Kapital mal Zinssatz.",
+   "g": "direkt"
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was sind „Zinsen“?"
+   },
+   "a": [
+    "der Prozentsatz, den die Bank verspricht",
+    "das Geld, das die Bank zusätzlich zum Kapital zahlt",
+    "das Geld, das man einzahlt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Kapital: eingezahltes Geld. Zinssatz: Prozentsatz. Zinsen: der Betrag in Euro, der dazukommt.",
+   "h": "Zinsen sind ein Betrag in Euro."
   },
   {
    "l": "zinsen",
@@ -4681,7 +4784,26 @@
    },
    "c": "2000 * 2 / 100",
    "w": "Z = K · p % = 2 000 · 0,02 = 40 €.",
-   "h": "Zinsen sind der Prozentwert: Kapital mal Zinssatz."
+   "h": "Zinsen sind der Prozentwert: Kapital mal Zinssatz.",
+   "g": "direkt"
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 2 300 € zahlt eine Bank in einem Jahr 23 € Zinsen. Wie hoch ist der Zinssatz?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "%"
+   },
+   "c": "23.0 / 2300 * 100",
+   "w": "p % = Z : K = 23 : 2 300 = 0,01 = 1 %.",
+   "h": "Der Zinssatz ist ein Prozentsatz: Zinsen geteilt durch Kapital.",
+   "g": "umkehr"
   },
   {
    "l": "zinsen",
@@ -4705,6 +4827,24 @@
    "t": "zinsen",
    "p": "uebung",
    "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Euro Zinsen bringen 500 € in einem Jahr bei 2 %?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "€"
+   },
+   "c": "500 * 2 / 100",
+   "w": "1 % von 500 € sind 5 €, 2 % sind 10 €.",
+   "h": "Rechne erst 1 % aus."
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Kapital von 300 € wird ein Jahr lang zu 4 % angelegt. Wie viel Euro Zinsen gibt es?"
@@ -4716,6 +4856,24 @@
    "c": "300 * 4 / 100",
    "w": "Z = K · p % = 300 · 0,04 = 12 €.",
    "h": "Zinsen sind der Prozentwert: Kapital mal Zinssatz."
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 2 300 € zahlt eine Bank in einem Jahr 57,5 € Zinsen. Wie hoch ist der Zinssatz?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "%"
+   },
+   "c": "57.5 / 2300 * 100",
+   "w": "p % = Z : K = 57,5 : 2 300 = 0,025 = 2,5 %.",
+   "h": "Der Zinssatz ist ein Prozentsatz: Zinsen geteilt durch Kapital.",
+   "g": "umkehr"
   },
   {
    "l": "zinsen",
@@ -4733,6 +4891,24 @@
    "c": "2000 * 1 / 100",
    "w": "Z = K · p % = 2 000 · 0,01 = 20 €.",
    "h": "Zinsen sind der Prozentwert: Kapital mal Zinssatz."
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "900 € werden nur 6 Monate lang zu 6 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "€"
+   },
+   "c": "900 * 6 / 100 * 6 / 12",
+   "w": "Jahreszinsen: 54 €. Für 6 von 12 Monaten: 54 · 6/12 = 27 €.",
+   "h": "Berechne zuerst die Jahreszinsen. Dann nimm den passenden Bruchteil des Jahres.",
+   "g": "einkleidung"
   },
   {
    "l": "zinsen",
@@ -4758,49 +4934,16 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für 2 300 € zahlt eine Bank in einem Jahr 23 € Zinsen. Wie hoch ist der Zinssatz?"
+    "text": "Bank A zahlt 3 %, Bank B zahlt 1 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 5 500 € in einem Jahr?"
    },
    "o": {
-    "wert": 1,
-    "einheit": "%"
-   },
-   "c": "23.0 / 2300 * 100",
-   "w": "p % = Z : K = 23 : 2 300 = 0,01 = 1 %.",
-   "h": "Der Zinssatz ist ein Prozentsatz: Zinsen geteilt durch Kapital."
-  },
-  {
-   "l": "zinsen",
-   "t": "zinsen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für 2 300 € zahlt eine Bank in einem Jahr 57,5 € Zinsen. Wie hoch ist der Zinssatz?"
-   },
-   "o": {
-    "wert": 2.5,
-    "einheit": "%"
-   },
-   "c": "57.5 / 2300 * 100",
-   "w": "p % = Z : K = 57,5 : 2 300 = 0,025 = 2,5 %.",
-   "h": "Der Zinssatz ist ein Prozentsatz: Zinsen geteilt durch Kapital."
-  },
-  {
-   "l": "zinsen",
-   "t": "zinsen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "1 650 € werden ein Jahr lang zu 1,5 % angelegt. Wie hoch ist das Guthaben nach einem Jahr?"
-   },
-   "o": {
-    "wert": 1674.75,
+    "wert": 110,
     "einheit": "€"
    },
-   "c": "1650 + 1650 * 1.5 / 100",
-   "w": "Zinsen: 1 650 · 0,015 = 24,75 €. Guthaben: 1 650 + 24,75 = 1 674,75 €.",
-   "h": "Erst die Zinsen ausrechnen, dann zum Kapital addieren."
+   "c": "5500 * 3 / 100 - 5500 * 1 / 100",
+   "w": "Bank A: 165 €, Bank B: 55 €. Unterschied: 110 €.",
+   "h": "Berechne die Zinsen für beide Banken und vergleiche.",
+   "g": "mehrschritt"
   },
   {
    "l": "zinsen",
@@ -4826,6 +4969,42 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "5 100 € werden nur 3 Monate lang zu 3 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?"
+   },
+   "o": {
+    "wert": 38.25,
+    "einheit": "€"
+   },
+   "c": "5100 * 3 / 100 * 3 / 12",
+   "w": "Jahreszinsen: 153 €. Für 3 von 12 Monaten: 153 · 3/12 = 38,25 €.",
+   "h": "Berechne zuerst die Jahreszinsen. Dann nimm den passenden Bruchteil des Jahres.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bank A zahlt 4 %, Bank B zahlt 1 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 7 500 € in einem Jahr?"
+   },
+   "o": {
+    "wert": 225,
+    "einheit": "€"
+   },
+   "c": "7500 * 4 / 100 - 7500 * 1 / 100",
+   "w": "Bank A: 300 €, Bank B: 75 €. Unterschied: 225 €.",
+   "h": "Berechne die Zinsen für beide Banken und vergleiche.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Für 700 € zahlt eine Bank in einem Jahr 28 € Zinsen. Wie hoch ist der Zinssatz?"
    },
    "o": {
@@ -4843,117 +5022,34 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für 3 000 € zahlt eine Bank in einem Jahr 60 € Zinsen. Wie hoch ist der Zinssatz?"
+    "text": "1 650 € werden ein Jahr lang zu 1,5 % angelegt. Wie hoch ist das Guthaben nach einem Jahr?"
    },
    "o": {
-    "wert": 2,
+    "wert": 1674.75,
+    "einheit": "€"
+   },
+   "c": "1650 + 1650 * 1.5 / 100",
+   "w": "Zinsen: 1 650 · 0,015 = 24,75 €. Guthaben: 1 650 + 24,75 = 1 674,75 €.",
+   "h": "Erst die Zinsen ausrechnen, dann zum Kapital addieren.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Guthaben wächst in einem Jahr durch Zinsen von 800 € auf 820 €. Wie hoch ist der Zinssatz?"
+   },
+   "o": {
+    "wert": 2.5,
     "einheit": "%"
    },
-   "c": "60.0 / 3000 * 100",
-   "w": "p % = Z : K = 60 : 3 000 = 0,02 = 2 %.",
-   "h": "Der Zinssatz ist ein Prozentsatz: Zinsen geteilt durch Kapital."
-  },
-  {
-   "l": "zinsen",
-   "t": "zinsen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "900 € werden nur 6 Monate lang zu 6 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?"
-   },
-   "o": {
-    "wert": 27,
-    "einheit": "€"
-   },
-   "c": "900 * 6 / 100 * 6 / 12",
-   "w": "Jahreszinsen: 54 €. Für 6 von 12 Monaten: 54 · 6/12 = 27 €.",
-   "h": "Berechne zuerst die Jahreszinsen. Dann nimm den passenden Bruchteil des Jahres."
-  },
-  {
-   "l": "zinsen",
-   "t": "zinsen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bank A zahlt 3 %, Bank B zahlt 1 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 5 500 € in einem Jahr?"
-   },
-   "o": {
-    "wert": 110,
-    "einheit": "€"
-   },
-   "c": "5500 * 3 / 100 - 5500 * 1 / 100",
-   "w": "Bank A: 165 €, Bank B: 55 €. Unterschied: 110 €.",
-   "h": "Berechne die Zinsen für beide Banken und vergleiche."
-  },
-  {
-   "l": "zinsen",
-   "t": "zinsen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "5 100 € werden nur 3 Monate lang zu 3 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?"
-   },
-   "o": {
-    "wert": 38.25,
-    "einheit": "€"
-   },
-   "c": "5100 * 3 / 100 * 3 / 12",
-   "w": "Jahreszinsen: 153 €. Für 3 von 12 Monaten: 153 · 3/12 = 38,25 €.",
-   "h": "Berechne zuerst die Jahreszinsen. Dann nimm den passenden Bruchteil des Jahres."
-  },
-  {
-   "l": "zinsen",
-   "t": "zinsen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bank A zahlt 4 %, Bank B zahlt 1 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 7 500 € in einem Jahr?"
-   },
-   "o": {
-    "wert": 225,
-    "einheit": "€"
-   },
-   "c": "7500 * 4 / 100 - 7500 * 1 / 100",
-   "w": "Bank A: 300 €, Bank B: 75 €. Unterschied: 225 €.",
-   "h": "Berechne die Zinsen für beide Banken und vergleiche."
-  },
-  {
-   "l": "zinsen",
-   "t": "zinsen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bank A zahlt 2 %, Bank B zahlt 3 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 2 000 € in einem Jahr?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "€"
-   },
-   "c": "2000 * 3 / 100 - 2000 * 2 / 100",
-   "w": "Bank A: 40 €, Bank B: 60 €. Unterschied: 20 €.",
-   "h": "Berechne die Zinsen für beide Banken und vergleiche."
-  },
-  {
-   "l": "zinsen",
-   "t": "zinsen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "2 600 € werden nur 3 Monate lang zu 3 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?"
-   },
-   "o": {
-    "wert": 19.5,
-    "einheit": "€"
-   },
-   "c": "2600 * 3 / 100 * 3 / 12",
-   "w": "Jahreszinsen: 78 €. Für 3 von 12 Monaten: 78 · 3/12 = 19,50 €.",
-   "h": "Berechne zuerst die Jahreszinsen. Dann nimm den passenden Bruchteil des Jahres."
+   "c": "(820 - 800) / 800 * 100",
+   "h": "Wie viel Euro Zinsen gab es? Teile durch das Kapital.",
+   "w": "Zinsen 20 €. 20/800 = 2,5/100 = 2,5 %.",
+   "g": "umkehr"
   },
   {
    "l": "zinsen",
@@ -5133,7 +5229,25 @@
     "text": "Stimmt die Aussage? „25 % sind dasselbe wie 1/4.“"
    },
    "w": "Ja, 25/100 = 1/4.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel sind 50 % von 64?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "64 / 2",
+   "w": "50 % ist die Hälfte: 32.",
+   "h": "50 % ist welcher Bruch?"
   },
   {
    "l": "verstehen",
@@ -5153,227 +5267,8 @@
     "text": "Stimmt die Aussage? „0,1 sind 1 %.“"
    },
    "w": "Nein, mal 100 ergibt die Prozentzahl: 0,1 = 10 %.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Nein, das Ganze sind 1 %.",
-    "Ja, 100 % = 100/100 = 1 Ganzes.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „100 % sind das Ganze.“"
-   },
-   "w": "Ja, 100 % = 100/100 = 1 Ganzes.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Stimmt die Aussage? „10 % von 500 € ist mehr als 10 % von 1 000 €.“"
-   },
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Ja, weil 500 € weniger Geld ist und man davon mehr Prozent bekommt.",
-    "Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 50 € < 100 €."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 10 % von 500 € sind 50 €, 10 % von 1 000 € sind 100 €.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Nein, mal 100 ergibt die Prozentzahl: 0,25 = 25 %.",
-    "Ja, man lässt einfach die Null vor dem Komma weg."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „0,25 sind 2,5 %.“"
-   },
-   "w": "Nein, mal 100 ergibt die Prozentzahl: 0,25 = 25 %.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Nein, 50 % sind 50/10.",
-    "Ja, 50/100 = 1/2.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „50 % sind dasselbe wie 1/2.“"
-   },
-   "w": "Ja, 50/100 = 1/2.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Nein, Beispiel 100 €: → 75 € → 93,75 €.",
-    "Ja, weil − 25 % und + 25 % zusammen 0 % ergeben."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Erst 25 % billiger, dann 25 % teurer – dann kostet es wieder gleich viel.“"
-   },
-   "w": "Nein, Beispiel 100 €: → 75 € → 93,75 €.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Nein, man spart 50 € und zahlt 450 €.",
-    "Ja, 10 % Rabatt heißt 10 € weniger."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „10 % Rabatt auf 500 € heißt: Man zahlt 490 €.“"
-   },
-   "w": "Nein, man spart 50 € und zahlt 450 €.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja: 80/100 · 50 = 50/100 · 80 = 40.",
-    "Nein, die Aussage ist falsch.",
-    "Nein, weil 80 % mehr ist als 50 %."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „80 % von 50 ist dasselbe wie 50 % von 80.“"
-   },
-   "w": "Ja: 80/100 · 50 = 50/100 · 80 = 40.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, 50 % Rabatt heißt 50 € weniger.",
-    "Ja, die Aussage stimmt.",
-    "Nein, man spart 40 € und zahlt 40 €."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „50 % Rabatt auf 80 € heißt: Man zahlt 30 €.“"
-   },
-   "w": "Nein, man spart 40 € und zahlt 40 €.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, wenn der Prozentsatz über 100 % liegt, z. B. 150 % von 20 = 30.",
-    "Nein, die Aussage ist falsch.",
-    "Nein, ein Teil kann nie größer sein als das Ganze."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Ein Prozentwert kann größer sein als der Grundwert.“"
-   },
-   "w": "Ja, wenn der Prozentsatz über 100 % liegt, z. B. 150 % von 20 = 30.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, die Aussage ist falsch.",
-    "Nein, weil 60 % mehr ist als 30 %.",
-    "Ja: 30/100 · 60 = 60/100 · 30 = 18."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „30 % von 60 ist dasselbe wie 60 % von 30.“"
-   },
-   "w": "Ja: 30/100 · 60 = 60/100 · 30 = 18.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Ja, weil Verdoppeln + 100 % ist, ist Halbieren − 100 %.",
-    "Nein, die Senkung ist 200 € von 400 € = 50 %."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Sinkt ein Preis von 400 € auf 200 €, ist er um 100 % gesunken.“"
-   },
-   "w": "Nein, die Senkung ist 200 € von 400 € = 50 %.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
@@ -5393,7 +5288,29 @@
     "text": "Stimmt die Aussage? „Bei 3 % Zinsen bekommt man für 800 € in einem Jahr 24 € Zinsen.“"
    },
    "w": "Ja: 800 · 0,03 = 24 €.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, das Ganze sind 1 %.",
+    "Ja, 100 % = 100/100 = 1 Ganzes.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „100 % sind das Ganze.“"
+   },
+   "w": "Ja, 100 % = 100/100 = 1 Ganzes.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
@@ -5413,7 +5330,113 @@
     "text": "Stimmt die Aussage? „Sinkt ein Preis von 80 € auf 40 €, ist er um 100 % gesunken.“"
    },
    "w": "Nein, die Senkung ist 40 € von 80 € = 50 %.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „10 % von 500 € ist mehr als 10 % von 1 000 €.“"
+   },
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Ja, weil 500 € weniger Geld ist und man davon mehr Prozent bekommt.",
+    "Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 50 € < 100 €."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nein, gleicher Prozentsatz, aber kleinerer Grundwert: 10 % von 500 € sind 50 €, 10 % von 1 000 € sind 100 €.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Nein, man spart 50 € und zahlt 450 €.",
+    "Ja, 10 % Rabatt heißt 10 € weniger."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „10 % Rabatt auf 500 € heißt: Man zahlt 490 €.“"
+   },
+   "w": "Nein, man spart 50 € und zahlt 450 €.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Nein, mal 100 ergibt die Prozentzahl: 0,25 = 25 %.",
+    "Ja, man lässt einfach die Null vor dem Komma weg."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „0,25 sind 2,5 %.“"
+   },
+   "w": "Nein, mal 100 ergibt die Prozentzahl: 0,25 = 25 %.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja: 80/100 · 50 = 50/100 · 80 = 40.",
+    "Nein, die Aussage ist falsch.",
+    "Nein, weil 80 % mehr ist als 50 %."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „80 % von 50 ist dasselbe wie 50 % von 80.“"
+   },
+   "w": "Ja: 80/100 · 50 = 50/100 · 80 = 40.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, 50 % sind 50/10.",
+    "Ja, 50/100 = 1/2.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „50 % sind dasselbe wie 1/2.“"
+   },
+   "w": "Ja, 50/100 = 1/2.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
@@ -5433,7 +5456,8 @@
     "text": "Stimmt die Aussage? „Bei 3 % Zinsen bekommt man für 2 000 € in einem Jahr 60 € Zinsen.“"
    },
    "w": "Ja: 2 000 · 0,03 = 60 €.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "einkleidung"
   },
   {
    "l": "verstehen",
@@ -5442,18 +5466,19 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Ja: 5 000 · 0,03 = 150 €.",
+    "Ja, wenn der Prozentsatz über 100 % liegt, z. B. 150 % von 20 = 30.",
     "Nein, die Aussage ist falsch.",
-    "Nein, bei 3 % bekommt man 3 € Zinsen."
+    "Nein, ein Teil kann nie größer sein als das Ganze."
    ],
    "o": {
     "index": 0
    },
    "f": {
-    "text": "Stimmt die Aussage? „Bei 3 % Zinsen bekommt man für 5 000 € in einem Jahr 150 € Zinsen.“"
+    "text": "Stimmt die Aussage? „Ein Prozentwert kann größer sein als der Grundwert.“"
    },
-   "w": "Ja: 5 000 · 0,03 = 150 €.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
+   "w": "Ja, wenn der Prozentsatz über 100 % liegt, z. B. 150 % von 20 = 30.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
@@ -5473,7 +5498,92 @@
     "index": 2
    },
    "w": "Nein. Gesunken ist der Preis um 500 €. Grundwert ist der alte Preis 1 000 €: 500 : 1 000 = 0,5 = 50 %. Um 100 % gesunken hieße: Der Preis ist 0 €.",
-   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, die Aussage ist falsch.",
+    "Nein, weil 60 % mehr ist als 30 %.",
+    "Ja: 30/100 · 60 = 60/100 · 30 = 18."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „30 % von 60 ist dasselbe wie 60 % von 30.“"
+   },
+   "w": "Ja: 30/100 · 60 = 60/100 · 30 = 18.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Nein, Beispiel 100 €: → 75 € → 93,75 €.",
+    "Ja, weil − 25 % und + 25 % zusammen 0 % ergeben."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Erst 25 % billiger, dann 25 % teurer – dann kostet es wieder gleich viel.“"
+   },
+   "w": "Nein, Beispiel 100 €: → 75 € → 93,75 €.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „200 % von 15 sind 30.“"
+   },
+   "a": [
+    "Nein, 200 % von 15 sind 3 000.",
+    "Ja: 200 % heißt das Doppelte, 2 · 15 = 30.",
+    "Nein, mehr als 100 % gibt es nicht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Frag dich: Prozent wovon? Das ist der Grundwert.",
+   "w": "200 % = 2. 2 · 15 = 30.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, 50 % Rabatt heißt 50 € weniger.",
+    "Ja, die Aussage stimmt.",
+    "Nein, man spart 40 € und zahlt 40 €."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „50 % Rabatt auf 80 € heißt: Man zahlt 30 €.“"
+   },
+   "w": "Nein, man spart 40 € und zahlt 40 €.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "einkleidung"
   },
   {
    "l": "verstehen",
@@ -5669,44 +5779,6 @@
    "l": "prozent_bedeutung",
    "t": "prozent_bedeutung",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Angabe ist am größten: 0,35; 3/8; 36 % oder 7/20?"
-   },
-   "a": [
-    "7/20",
-    "36 %",
-    "3/8",
-    "0,35"
-   ],
-   "o": {
-    "index": 2
-   },
-   "h": "Schreibe alle Angaben in Prozent.",
-   "w": "0,35 = 35 %; 3/8 = 0,375 = 37,5 %; 36 %; 7/20 = 35/100 = 35 %. Am größten: 3/8."
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viel Prozent sind 7/25?"
-   },
-   "o": {
-    "wert": 28,
-    "einheit": "%"
-   },
-   "c": "7 / 25 * 100",
-   "h": "Erweitere auf den Nenner 100.",
-   "w": "7/25 = 28/100 = 28 %."
-  },
-  {
-   "l": "prozent_bedeutung",
-   "t": "prozent_bedeutung",
-   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
@@ -5718,7 +5790,26 @@
    },
    "c": "100 - 45 - 100 / 4",
    "h": "Schreibe 1/4 in Prozent. Alles zusammen sind 100 %.",
-   "w": "1/4 = 25 %. 100 % − 45 % − 25 % = 30 %."
+   "w": "1/4 = 25 %. 100 % − 45 % − 25 % = 30 %.",
+   "g": "begruenden"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Prozent sind 2/7? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 28.6,
+    "einheit": "%"
+   },
+   "c": "(2 / 7 * 1000 + 1/2) // 1 / 10",
+   "w": "2 : 7 ≈ 0,286, also etwa 28,6 %.",
+   "h": "Teile den Zähler durch den Nenner, nimm mal 100 und runde.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozent_bedeutung",
@@ -5754,7 +5845,29 @@
    },
    "c": "100 - 35 - 100 / 5 - 0.15 * 100",
    "h": "Rechne alle Angaben in Prozent um. Zusammen müssen es 100 % sein.",
-   "w": "Rad 1/5 = 20 %, Auto 0,15 = 15 %. 100 % − 35 % − 20 % − 15 % = 30 %."
+   "w": "Rad 1/5 = 20 %, Auto 0,15 = 15 %. 100 % − 35 % − 20 % − 15 % = 30 %.",
+   "g": "transfer"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "3/20",
+    "20 %",
+    "Beide sind gleich groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Was ist mehr: 3/20 oder 20 %?"
+   },
+   "w": "3/20 = 15 %. Vergleich mit 20 %: 20 % ist mehr.",
+   "h": "Wandle den Bruch in Prozent um.",
+   "g": "mehrschritt"
   },
   {
    "l": "prozent_bedeutung",
@@ -5771,7 +5884,52 @@
    },
    "c": "50 - 40",
    "h": "Prozentpunkte sind der Unterschied zwischen zwei Prozentangaben.",
-   "w": "50 % − 40 % = 10 Prozentpunkte."
+   "w": "50 % − 40 % = 10 Prozentpunkte.",
+   "g": "transfer"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angabe ist am größten: 0,35; 3/8; 36 % oder 7/20?"
+   },
+   "a": [
+    "7/20",
+    "36 %",
+    "3/8",
+    "0,35"
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Schreibe alle Angaben in Prozent.",
+   "w": "0,35 = 35 %; 3/8 = 0,375 = 37,5 %; 36 %; 7/20 = 35/100 = 35 %. Am größten: 3/8.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind schreibt 3/4 = 34 %. Was ist richtig?"
+   },
+   "a": [
+    "3,4 %",
+    "34 % stimmt.",
+    "75 %",
+    "43 %"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Kind hat Zähler und Nenner nebeneinander geschrieben. 3/4 = 75/100 = 75 %.",
+   "h": "Erweitere 3/4 auf Hundertstel."
   },
   {
    "l": "prozent_bedeutung",
@@ -5788,7 +5946,137 @@
    },
    "c": "(1 + 1/4) * 100",
    "h": "Ein Ganzes sind 100 %. Wie viel Prozent ist 1/4?",
-   "w": "1 = 100 % und 1/4 = 25 %. Zusammen 125 %. Prozentangaben über 100 % sind möglich."
+   "w": "1 = 100 % und 1/4 = 25 %. Zusammen 125 %. Prozentangaben über 100 % sind möglich.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „150 % von etwas ist mehr als das Ganze.“"
+   },
+   "a": [
+    "Nein, 150 % sind die Hälfte.",
+    "Ja: 100 % ist das Ganze, 150 % sind anderthalbmal so viel.",
+    "Nein, mehr als 100 % gibt es nicht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "150 % = 1,5-mal das Ganze, z. B. 150 % von 20 € = 30 €.",
+   "h": "Was bedeutet 100 %?"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Kuchen sind noch 35 % übrig, nachdem zwei Kinder gleich viel gegessen haben. Wie viel Prozent hat jedes Kind gegessen?"
+   },
+   "o": {
+    "wert": 32.5,
+    "einheit": "%"
+   },
+   "c": "(100 - 35) / 2",
+   "w": "Gegessen wurden 100 % − 35 % = 65 %, jedes Kind die Hälfte: 32,5 %.",
+   "h": "Wie viel Prozent wurden insgesamt gegessen?"
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Nenner n ist der Bruch 1/n genau 4 %?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "100 / 4",
+   "w": "4 % = 4/100 = 1/25. Also n = 25.",
+   "h": "Schreibe 4 % als Bruch und kürze."
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist die größte: 0,6; 5/8 oder 62 %?"
+   },
+   "a": [
+    "62 %",
+    "5/8",
+    "0,6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "0,6 = 60 %, 5/8 = 62,5 %, 62 %. Am größten ist 5/8.",
+   "h": "Schreibe alle in Prozent."
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl ist um 25 % größer als eine zweite Zahl. Um wie viel Prozent ist die zweite kleiner als die erste?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "25 / 125 * 100",
+   "w": "Nimm als zweite Zahl 100, dann ist die erste 125. Der Unterschied 25 bezogen auf 125 ist 25/125 = 1/5 = 20 %. Die Antwort ist also nicht 25 %, weil der Grundwert wechselt.",
+   "h": "Probiere es mit 100 als zweiter Zahl."
+  },
+  {
+   "l": "prozent_bedeutung",
+   "t": "prozent_bedeutung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse sind mehr als 30 und weniger als 40 Kinder. Genau 12,5 % kommen mit dem Rad. Wie viele Kinder hat die Klasse?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "32",
+   "w": "12,5 % = 1/8. Die Zahl der Kinder muss also durch 8 teilbar sein. Zwischen 30 und 40 geht das nur bei 32 (davon 4 mit dem Rad).",
+   "h": "Welcher Bruch ist 12,5 %?"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prozentstreifen mit 60 Kästchen steht für 100 %. Wie viele Kästchen sind 35 %?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "60 * 35 / 100",
+   "w": "10 % sind 6 Kästchen, 5 % sind 3. 35 % = 18 + 3 = 21 Kästchen.",
+   "h": "Wie viele Kästchen sind 10 %?"
   },
   {
    "l": "prozentwert",
@@ -5797,15 +6085,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 12,5 % von 64 kg."
+    "text": "Berechne 59 % von 1 000 km."
    },
    "o": {
-    "wert": 8,
-    "einheit": "kg"
+    "wert": 590,
+    "einheit": "km"
    },
-   "c": "64 * 12.5 / 100",
-   "h": "12,5 % sind 1/8.",
-   "w": "12,5 % = 1/8. 64 kg : 8 = 8 kg."
+   "c": "1000 * 59 / 100",
+   "w": "W = G · p % = 1 000 · 0,59 = 590 km.",
+   "h": "Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal."
   },
   {
    "l": "prozentwert",
@@ -5829,6 +6117,28 @@
    "t": "prozentwert",
    "p": "uebung",
    "s": 3,
+   "y": "auswahl",
+   "a": [
+    "etwa 24 €",
+    "etwa 150 €",
+    "etwa 750 €",
+    "etwa 75 €"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Etwa wie viel sind 24 % von 299 €? Überschlage im Kopf."
+   },
+   "w": "24 % ≈ 25 % = 1/4, 299 € ≈ 300 €. 1/4 von 300 € = 75 €.",
+   "h": "Runde 24 % auf einen einfachen Prozentsatz und 299 auf eine runde Zahl.",
+   "g": "transfer"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
     "text": "70 % der Besucher eines Konzerts sind Erwachsene. 40 % dieser Erwachsenen sind älter als 50 Jahre. Wie viel Prozent aller Besucher sind Erwachsene über 50?"
@@ -5839,7 +6149,8 @@
    },
    "c": "70 * 40 / 100",
    "h": "Die 40 % beziehen sich nur auf die Erwachsenen. Rechne mit 100 Besuchern.",
-   "w": "Bei 100 Besuchern: 70 Erwachsene. 40 % von 70 = 28. Also 28 % aller Besucher."
+   "w": "Bei 100 Besuchern: 70 Erwachsene. 40 % von 70 = 28. Also 28 % aller Besucher.",
+   "g": "verknuepfen"
   },
   {
    "l": "prozentwert",
@@ -5855,7 +6166,8 @@
    },
    "c": "5000000 * 1 / 100",
    "h": "Wie viel Prozent bleiben übrig?",
-   "w": "Es bleibt 1 % übrig. 1 % von 5 000 000 = 50 000."
+   "w": "Es bleibt 1 % übrig. 1 % von 5 000 000 = 50 000.",
+   "g": "transfer"
   },
   {
    "l": "prozentwert",
@@ -5871,7 +6183,8 @@
    },
    "c": "9 / 15 * 35",
    "h": "Rechne zuerst 1 % oder 5 % der Zahl aus.",
-   "w": "15 % = 9, also 5 % = 3. 35 % = 7 · 5 % = 21."
+   "w": "15 % = 9, also 5 % = 3. 35 % = 7 · 5 % = 21.",
+   "g": "rueckwaerts"
   },
   {
    "l": "prozentwert",
@@ -5888,7 +6201,102 @@
    },
    "c": "250 * 4 / 100",
    "h": "4 % sind 4 Hundertstel, nicht ein Viertel.",
-   "w": "1 % von 250 € = 2,50 €. 4 % = 10 €. Das Kind hat 25 % ausgerechnet."
+   "w": "1 % von 250 € = 2,50 €. 4 % = 10 €. Das Kind hat 25 % ausgerechnet.",
+   "g": "fehler"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „30 % von 50 sind genauso viel wie 50 % von 30.“"
+   },
+   "a": [
+    "Ja, beides ist 15.",
+    "Nein, 30 % von 50 ist mehr.",
+    "Nein, 50 % von 30 ist mehr."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "30/100 · 50 = 15 und 50/100 · 30 = 15. Man darf Prozentsatz und Grundwert vertauschen.",
+   "h": "Rechne beides aus."
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Prozentsatz p sind p % von 240 genau 60?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "60 / 240 * 100",
+   "w": "60 von 240 ist ein Viertel, also p = 25.",
+   "h": "Welcher Bruchteil von 240 ist 60?"
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Schule hat 640 Kinder. 45 % sind Mädchen. Von den Mädchen spielen 25 % Fußball. Wie viele Mädchen spielen Fußball?"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "640 * 45 / 100 * 25 / 100",
+   "w": "Mädchen: 45 % von 640 = 288. Davon 25 %: 72.",
+   "h": "Rechne zuerst die Zahl der Mädchen aus."
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel ist 1 % von 1 % von 1 000 000?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "1000000 / 100 / 100",
+   "w": "1 % von 1 000 000 = 10 000, davon 1 % = 100. Zusammen ist 1 % von 1 % ein Zehntausendstel.",
+   "h": "Rechne in zwei Schritten."
+  },
+  {
+   "l": "prozentwert",
+   "t": "prozentwert",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist mehr: 37 % von 82 oder 82 % von 37?"
+   },
+   "a": [
+    "37 % von 82",
+    "82 % von 37",
+    "Beide sind gleich groß."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "37 % von 82 = 37 · 82 : 100 und 82 % von 37 = 82 · 37 : 100. Beide Male steht dasselbe Produkt 37 · 82 = 3 034 da, geteilt durch 100: 30,34.",
+   "h": "Schreibe beide als Rechnung mit : 100."
   },
   {
    "l": "prozentsatz",
@@ -5897,15 +6305,16 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Von 40 Aufgaben sind 34 richtig. Wie viel Prozent sind richtig?"
+    "text": "Von 50 Freiwürfen trifft ein Kind 35. Wie hoch ist die Trefferquote in Prozent?"
    },
    "o": {
-    "wert": 85,
+    "wert": 70,
     "einheit": "%"
    },
-   "c": "34 / 40 * 100",
-   "h": "Teil durch Ganzes, mal 100.",
-   "w": "34/40 = 85/100 = 85 %."
+   "c": "35 / 50 * 100",
+   "w": "Teil durch Ganzes: 35 : 50 = 0,7 = 70 %. Oder erweitern: 35/50 = 70/100.",
+   "h": "Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G.",
+   "g": "einkleidung"
   },
   {
    "l": "prozentsatz",
@@ -5922,7 +6331,80 @@
    },
    "c": "450 / 1500 * 100",
    "h": "Rechne beide in Gramm.",
-   "w": "1,5 kg = 1 500 g. 450/1 500 = 30/100 = 30 %."
+   "w": "1,5 kg = 1 500 g. 450/1 500 = 30/100 = 30 %.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Umfrage unter 25 Kindern wählen 7 Fußball, 6 Schwimmen und der Rest Tanzen. Wie viel Prozent wählen Tanzen?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "%"
+   },
+   "c": "(25 - 7 - 6) / 25 * 100",
+   "w": "Tanzen: 25 − 7 − 6 = 12. 12 : 25 = 0,48 = 48 %.",
+   "h": "Berechne zuerst, wie viele Kinder Tanzen wählen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Hunderterfeld sind 3 ganze Reihen und 4 einzelne Kästchen gefärbt. Wie viel Prozent sind gefärbt?"
+   },
+   "o": {
+    "wert": 34,
+    "einheit": "%"
+   },
+   "c": "3 * 10 + 4",
+   "w": "3 Reihen = 30 Kästchen, dazu 4: 34 von 100 = 34 %.",
+   "h": "Wie viele Kästchen hat eine Reihe?"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Preis sinkt von 120 € auf 102 €. Um wie viel Prozent wurde er gesenkt?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "%"
+   },
+   "c": "(120 - 102) / 120 * 100",
+   "w": "Senkung: 120 − 102 = 18 €. 18 : 120 = 0,15 = 15 %.",
+   "h": "Grundwert ist der alte Preis. Berechne zuerst den Unterschied.",
+   "g": "transfer"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat 10 cm Seitenlänge. Jede Seite wird um 10 % länger. Um wie viel Prozent wächst der Flächeninhalt?"
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "%"
+   },
+   "c": "(11 * 11 - 10 * 10) / (10 * 10) * 100",
+   "h": "Rechne den alten und den neuen Flächeninhalt aus.",
+   "w": "Neue Seite 11 cm. Alt 100 cm², neu 121 cm². Zunahme 21 cm² von 100 cm² = 21 % (nicht 10 %).",
+   "g": "verknuepfen"
   },
   {
    "l": "prozentsatz",
@@ -5939,7 +6421,26 @@
    },
    "c": "(50 - 40) / 40 * 100",
    "h": "Grundwert ist der alte Wert 40.",
-   "w": "Zunahme 10 Kinder. 10 von 40 = 25 %."
+   "w": "Zunahme 10 Kinder. 10 von 40 = 25 %.",
+   "g": "transfer"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: „15 von 60 sind 60 : 15 = 4 %.“ Wie viel Prozent sind es richtig?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "15 / 60 * 100",
+   "w": "Es hat Grundwert durch Prozentwert geteilt. Richtig: 15/60 = 1/4 = 25 %.",
+   "h": "Was steht beim Anteil oben, was unten?"
   },
   {
    "l": "prozentsatz",
@@ -5956,7 +6457,64 @@
    },
    "c": "(50 - 40) / 50 * 100",
    "h": "Grundwert ist der alte Wert 50 – nicht 40.",
-   "w": "Abnahme 10 Kinder. 10 von 50 = 20 %. (Umgekehrt waren es 25 %.)"
+   "w": "Abnahme 10 Kinder. 10 von 50 = 20 %. (Umgekehrt waren es 25 %.)",
+   "g": "transfer"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Preis steigt von 50 € auf 60 € und sinkt danach wieder auf 50 €. Stimmt: „Steigung und Senkung waren gleich viel Prozent.“?"
+   },
+   "a": [
+    "Ja, beide Male 20 %.",
+    "Ja, beide Male 10 €, also gleich viel Prozent.",
+    "Nein: Er stieg um 20 % (10 von 50), sank aber nur um etwa 16,7 % (10 von 60)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Grundwert ist verschieden: einmal 50 €, einmal 60 €.",
+   "h": "Worauf bezieht sich jede Änderung?"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele Punktzahlen x von 0 bis 40 ist x von 40 Punkten mindestens 75 %?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "40 - 30 + 1",
+   "w": "75 % von 40 = 30. Mindestens 30 Punkte: 30, 31, …, 40 – das sind 11.",
+   "h": "Wie viele Punkte sind 75 %?"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Wahl stimmen 168 von 280 Kindern für Kandidat A, der Rest für Kandidat B. Wie viel Prozent bekommt B?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "%"
+   },
+   "c": "(280 - 168) / 280 * 100",
+   "w": "B: 280 − 168 = 112. 112/280 = 2/5 = 40 %.",
+   "h": "Berechne zuerst die Stimmen für B."
   },
   {
    "l": "prozentsatz",
@@ -5978,19 +6536,38 @@
   {
    "l": "prozentsatz",
    "t": "prozentsatz",
-   "p": "uebung",
+   "p": "bonus",
    "s": 3,
+   "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Ein Quadrat hat 10 cm Seitenlänge. Jede Seite wird um 10 % länger. Um wie viel Prozent wächst der Flächeninhalt?"
+    "text": "Wie viel Prozent der Zahlen von 1 bis 100 enthalten mindestens eine Ziffer 7?"
    },
    "o": {
-    "wert": 21,
+    "wert": 19,
     "einheit": "%"
    },
-   "c": "(11 * 11 - 10 * 10) / (10 * 10) * 100",
-   "h": "Rechne den alten und den neuen Flächeninhalt aus.",
-   "w": "Neue Seite 11 cm. Alt 100 cm², neu 121 cm². Zunahme 21 cm² von 100 cm² = 21 % (nicht 10 %)."
+   "c": "10 + 10 - 1",
+   "w": "Mit 7 an der Einerstelle: 7, 17, …, 97 (10 Zahlen). Mit 7 an der Zehnerstelle: 70 bis 79 (10 Zahlen). 77 wurde doppelt gezählt: 19 Zahlen von 100 = 19 %.",
+   "h": "Zähle Einer und Zehner getrennt. Was zählst du doppelt?"
+  },
+  {
+   "l": "prozentsatz",
+   "t": "prozentsatz",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck wird um 20 % länger und um 20 % schmaler. Um wie viel Prozent wird seine Fläche kleiner?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "%"
+   },
+   "c": "100 - 120 * 80 / 100",
+   "w": "Nimm ein Rechteck 10 cm · 10 cm (100 cm²). Neu: 12 cm · 8 cm = 96 cm². Das sind 4 % weniger – nicht gleich viel, obwohl beide Seiten um 20 % geändert wurden.",
+   "h": "Rechne mit einem Beispiel."
   },
   {
    "l": "grundwert",
@@ -6007,7 +6584,25 @@
    },
    "c": "49 / 35 * 100",
    "h": "Rechne zuerst 1 % oder 5 % aus.",
-   "w": "5 % = 7 kg. 100 % = 20 · 7 kg = 140 kg."
+   "w": "5 % = 7 kg. 100 % = 20 · 7 kg = 140 kg.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Untersuchung waren 63 Kinder sichere Schwimmer. Das sind 45 % aller untersuchten Kinder. Wie viele Kinder wurden untersucht?"
+   },
+   "o": {
+    "wert": 140
+   },
+   "c": "63 / 45 * 100",
+   "h": "63 Kinder sind der Prozentwert. Rechne über 5 % auf 100 %.",
+   "w": "45 % = 63, also 5 % = 7 und 100 % = 140 Kinder.",
+   "g": "einkleidung"
   },
   {
    "l": "grundwert",
@@ -6024,7 +6619,8 @@
    },
    "c": "15 / 12.5 * 100",
    "h": "12,5 % sind 1/8.",
-   "w": "1/8 sind 15 €, das Ganze 8 · 15 € = 120 €."
+   "w": "1/8 sind 15 €, das Ganze 8 · 15 € = 120 €.",
+   "g": "mehrschritt"
   },
   {
    "l": "grundwert",
@@ -6033,30 +6629,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einem Chor sind 20 % weniger Jungen als Mädchen. Es singen 24 Jungen. Wie viele Mädchen singen im Chor?"
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "24 / 80 * 100",
-   "h": "Die Mädchen sind der Grundwert (100 %). Wie viel Prozent davon sind die Jungen?",
-   "w": "Jungen = 80 % der Mädchen = 24. 1 % = 0,3, also 100 % = 30 Mädchen. (24 + 20 % von 24 = 28,8 wäre falsch.)"
-  },
-  {
-   "l": "grundwert",
-   "t": "grundwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einer Untersuchung waren 63 Kinder sichere Schwimmer. Das sind 45 % aller untersuchten Kinder. Wie viele Kinder wurden untersucht?"
+    "text": "75 % der Kinder einer Schule kommen mit dem Bus. Die übrigen 35 Kinder kommen zu Fuß oder mit dem Rad. Wie viele Kinder hat die Schule?"
    },
    "o": {
     "wert": 140
    },
-   "c": "63 / 45 * 100",
-   "h": "63 Kinder sind der Prozentwert. Rechne über 5 % auf 100 %.",
-   "w": "45 % = 63, also 5 % = 7 und 100 % = 140 Kinder."
+   "c": "35 / (100 - 75) * 100",
+   "w": "Die übrigen Kinder sind 100 % − 75 % = 25 %. 1 %: 35 : 25 = 1,4. 100 %: 140 Kinder.",
+   "h": "Zu welchem Prozentsatz gehören die 35 Kinder? Es sind nicht 75 %.",
+   "g": "transfer"
   },
   {
    "l": "grundwert",
@@ -6073,7 +6654,43 @@
    },
    "c": "64 / 80 * 100",
    "h": "64 € sind nicht 100 %, sondern 100 % − 20 %.",
-   "w": "64 € = 80 %. 10 % = 8 €, 100 % = 80 €. (64 € + 20 % = 76,80 € wäre falsch.)"
+   "w": "64 € = 80 %. 10 % = 8 €, 100 % = 80 €. (64 € + 20 % = 76,80 € wäre falsch.)",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Chor sind 20 % weniger Jungen als Mädchen. Es singen 24 Jungen. Wie viele Mädchen singen im Chor?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "24 / 80 * 100",
+   "h": "Die Mädchen sind der Grundwert (100 %). Wie viel Prozent davon sind die Jungen?",
+   "w": "Jungen = 80 % der Mädchen = 24. 1 % = 0,3, also 100 % = 30 Mädchen. (24 + 20 % von 24 = 28,8 wäre falsch.)",
+   "g": "transfer"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: „20 % sind 30 €, also sind 100 % 30 € · 20 = 600 €.“ Wie viel sind 100 % richtig?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "€"
+   },
+   "c": "30 / 20 * 100",
+   "w": "Richtig: 1 % = 30 € : 20 = 1,50 €, 100 % = 150 €. Oder: 20 % ist ein Fünftel, also mal 5.",
+   "h": "Wie oft passen 20 % in 100 %?"
   },
   {
    "l": "grundwert",
@@ -6089,7 +6706,121 @@
    },
    "c": "154 / 70 * 100",
    "h": "Wie viel Prozent fehlen noch?",
-   "w": "Es fehlen 70 % = 154 Seiten. 10 % = 22 Seiten, 100 % = 220 Seiten."
+   "w": "Es fehlen 70 % = 154 Seiten. 10 % = 22 Seiten, 100 % = 220 Seiten.",
+   "g": "transfer"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Wenn 40 % einer Klasse 12 Kinder sind, dann sind 60 % mehr als 20 Kinder.“"
+   },
+   "a": [
+    "Ja, die Klasse hat 30 Kinder, also sind 60 % 20 Kinder.",
+    "Ja, 60 % sind 24 Kinder.",
+    "Nein: 10 % sind 3 Kinder, 60 % also 18."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grundwert: 12 : 40 · 100 = 30 Kinder. 60 % davon sind 18 – weniger als 20.",
+   "h": "Bestimme erst die ganze Klasse."
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Grundwert G sind 15 % von G genauso viel wie 25 % von 60?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "0.25 * 60 / 0.15",
+   "w": "25 % von 60 = 15. 15 % von G = 15 heißt G = 100.",
+   "h": "Rechne zuerst 25 % von 60 aus."
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank ist zu 3/5 gefüllt, das sind 42 l. Wie viele Liter fehlen noch bis zum vollen Tank?"
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "l"
+   },
+   "c": "42 / 3 * 5 - 42",
+   "w": "3/5 = 60 % sind 42 l, also 1/5 = 14 l und der volle Tank 70 l. Es fehlen 28 l (40 %).",
+   "h": "Wie viel ist 1/5 des Tanks?"
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Preis wird erst um 10 % gesenkt und danach um 10 % erhöht. Jetzt kostet die Ware 99 €. Wie viel kostete sie am Anfang?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "€"
+   },
+   "c": "99 / 1.1 / 0.9",
+   "w": "Rückwärts: 99 € sind 110 % des gesenkten Preises, also war dieser 90 €. 90 € sind 90 % des Anfangspreises, also 100 €.",
+   "h": "Rechne vom Ende zurück, Schritt für Schritt."
+  },
+  {
+   "l": "grundwert",
+   "t": "grundwert",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind gibt 20 % seines Geldes aus und danach 25 % vom Rest. Es hat noch 30 €. Wie viel Geld hatte es am Anfang?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "€"
+   },
+   "c": "30 / 0.75 / 0.8",
+   "w": "Nach dem ersten Kauf bleiben 80 %, davon nach dem zweiten 75 %: 0,8 · 0,75 = 0,6. 60 % sind 30 €, also 100 % = 50 €.",
+   "h": "Welcher Anteil des Anfangsgeldes bleibt übrig?"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Der Prozent-Gutschein",
+    "Beide sparen gleich viel",
+    "Der Euro-Gutschein"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Fahrrad kostet 560 €. Du darfst einen Gutschein einlösen: 20 % Rabatt oder 109 € Rabatt. Welcher spart mehr?"
+   },
+   "w": "20 % von 560 € = 112 €. Der andere Gutschein spart 109 €. Besser ist der 20 %-Gutschein (112 € gespart).",
+   "h": "Rechne den Prozent-Rabatt in Euro um und vergleiche.",
+   "g": "transfer"
   },
   {
    "l": "rabatt_aufschlag",
@@ -6106,7 +6837,30 @@
    },
    "c": "240 * 85 / 100",
    "h": "Man zahlt 100 % − 15 % = 85 %.",
-   "w": "15 % von 240 € = 36 €. 240 € − 36 € = 204 €."
+   "w": "15 % von 240 € = 36 €. 240 € − 36 € = 204 €.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Laden A (198 € gegen 195 €)",
+    "Laden A, weil der Preis kleiner ist",
+    "Laden B (195 € gegen 198 €)",
+    "Beide sind gleich teuer"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Laden A: Das Zelt kostet 220 € mit 10 % Rabatt. Laden B: Es kostet 260 € mit 25 % Rabatt. Wo ist es billiger?"
+   },
+   "w": "A: 90 % von 220 € = 198 €. B: 75 % von 260 € = 195 €. Billiger ist Laden B.",
+   "h": "Berechne in beiden Läden den Preis nach dem Rabatt.",
+   "g": "transfer"
   },
   {
    "l": "rabatt_aufschlag",
@@ -6123,7 +6877,8 @@
    },
    "c": "48 * 112.5 / 100",
    "h": "12,5 % sind 1/8.",
-   "w": "1/8 von 48 € = 6 €. 48 € + 6 € = 54 €."
+   "w": "1/8 von 48 € = 6 €. 48 € + 6 € = 54 €.",
+   "g": "einkleidung"
   },
   {
    "l": "rabatt_aufschlag",
@@ -6140,24 +6895,8 @@
    },
    "c": "96 / (1.2 * 0.8)",
    "h": "Probiere mit 100 € als Anfangspreis.",
-   "w": "100 € → +20 % → 120 € → −20 % (von 120 €) → 96 €. Der Anfangspreis war 100 €."
-  },
-  {
-   "l": "rabatt_aufschlag",
-   "t": "rabatt_aufschlag",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Nach einer Preiserhöhung um 25 % kostet ein Buch 15 €. Wie viel kostete es vorher?"
-   },
-   "o": {
-    "wert": 12,
-    "einheit": "€"
-   },
-   "c": "15 / 125 * 100",
-   "h": "15 € sind 125 % des alten Preises.",
-   "w": "125 % = 15 €, also 25 % = 3 € und 100 % = 12 €."
+   "w": "100 € → +20 % → 120 € → −20 % (von 120 €) → 96 €. Der Anfangspreis war 100 €.",
+   "g": "rueckwaerts"
   },
   {
    "l": "rabatt_aufschlag",
@@ -6174,7 +6913,26 @@
    },
    "c": "3 * 4.5 * 0.7 - 2 * 4.5",
    "h": "Rechne für beide Angebote den Preis für 3 Packungen aus.",
-   "w": "A: 2 · 4,50 € = 9,00 €. B: 3 · 4,50 € = 13,50 €, davon 70 % = 9,45 €. A ist um 0,45 € günstiger."
+   "w": "A: 2 · 4,50 € = 9,00 €. B: 3 · 4,50 € = 13,50 €, davon 70 % = 9,45 €. A ist um 0,45 € günstiger.",
+   "g": "pruefung"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einer Preiserhöhung um 25 % kostet ein Buch 15 €. Wie viel kostete es vorher?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "€"
+   },
+   "c": "15 / 125 * 100",
+   "h": "15 € sind 125 % des alten Preises.",
+   "w": "125 % = 15 €, also 25 % = 3 € und 100 % = 12 €.",
+   "g": "rueckwaerts"
   },
   {
    "l": "rabatt_aufschlag",
@@ -6191,7 +6949,66 @@
    },
    "c": "100 - 100 * 0.8 * 0.9",
    "h": "Rechne mit 100 €. Die zweiten 10 % gelten vom schon reduzierten Preis.",
-   "w": "100 € → 80 € → 10 % von 80 € = 8 € → 72 €. Man spart 28 €, also 28 %."
+   "w": "100 € → 80 € → 10 % von 80 € = 8 € → 72 €. Man spart 28 €, also 28 %.",
+   "g": "begruenden"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Gutschein über 15 % oder ein Gutschein über 12 €: Ab welchem Preis (in ganzen Euro) spart der Prozent-Gutschein mehr?"
+   },
+   "o": {
+    "wert": 81,
+    "einheit": "€"
+   },
+   "c": "81",
+   "w": "15 % = 12 € gilt bei 12 : 0,15 = 80 €. Erst darüber bringen 15 % mehr: ab 81 €.",
+   "h": "Bei welchem Preis sind 15 % genau 12 €?"
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Händler erhöht einen Preis um 25 % und gibt danach 20 % Rabatt. Wie viel Prozent des Anfangspreises zahlt der Kunde?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "%"
+   },
+   "c": "125 * 80 / 100",
+   "w": "Nimm 100 € als Anfangspreis: +25 % ergibt 125 €. 20 % von 125 € sind 25 €, also wieder 100 €. Der Kunde zahlt 100 % – genau den alten Preis.",
+   "h": "Rechne mit 100 € als Beispiel."
+  },
+  {
+   "l": "rabatt_aufschlag",
+   "t": "rabatt_aufschlag",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Du kaufst 6 gleiche Stücke. Angebot A: 3 zum Preis von 2. Angebot B: 30 % Rabatt auf alles. Angebot C: jedes zweite Stück zum halben Preis. Welches Angebot ist am günstigsten?"
+   },
+   "a": [
+    "Angebot A",
+    "Alle kosten gleich viel.",
+    "Angebot B",
+    "Angebot C"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A: Du zahlst 4 von 6 Stücken, also etwa 66,7 %. B: 70 %. C: 3 ganze und 3 halbe Stücke = 4,5 von 6, also 75 %. A ist am günstigsten.",
+   "h": "Rechne für jedes Angebot aus, wie viel Prozent des Normalpreises du zahlst."
   },
   {
    "l": "zinsen",
@@ -6208,7 +7025,8 @@
    },
    "c": "1250 * 2.4 / 100",
    "h": "Rechne 1 % von 1 250 € aus.",
-   "w": "1 % = 12,50 €. 2,4 % = 2,4 · 12,50 € = 30 €."
+   "w": "1 % = 12,50 €. 2,4 % = 2,4 · 12,50 € = 30 €.",
+   "g": "einkleidung"
   },
   {
    "l": "zinsen",
@@ -6217,15 +7035,49 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Guthaben wächst in einem Jahr durch Zinsen von 800 € auf 820 €. Wie hoch ist der Zinssatz?"
+    "text": "Für 3 000 € zahlt eine Bank in einem Jahr 60 € Zinsen. Wie hoch ist der Zinssatz?"
    },
    "o": {
-    "wert": 2.5,
+    "wert": 2,
     "einheit": "%"
    },
-   "c": "(820 - 800) / 800 * 100",
-   "h": "Wie viel Euro Zinsen gab es? Teile durch das Kapital.",
-   "w": "Zinsen 20 €. 20/800 = 2,5/100 = 2,5 %."
+   "c": "60.0 / 3000 * 100",
+   "w": "p % = Z : K = 60 : 3 000 = 0,02 = 2 %.",
+   "h": "Der Zinssatz ist ein Prozentsatz: Zinsen geteilt durch Kapital."
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bank A zahlt 2 %, Bank B zahlt 3 % Zinsen im Jahr. Wie viel Euro mehr Zinsen bringt die bessere Bank für 2 000 € in einem Jahr?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "€"
+   },
+   "c": "2000 * 3 / 100 - 2000 * 2 / 100",
+   "w": "Bank A: 40 €, Bank B: 60 €. Unterschied: 20 €.",
+   "h": "Berechne die Zinsen für beide Banken und vergleiche."
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 600 € werden nur 3 Monate lang zu 3 % (pro Jahr) angelegt. Wie viel Euro Zinsen gibt es?"
+   },
+   "o": {
+    "wert": 19.5,
+    "einheit": "€"
+   },
+   "c": "2600 * 3 / 100 * 3 / 12",
+   "w": "Jahreszinsen: 78 €. Für 3 von 12 Monaten: 78 · 3/12 = 19,50 €.",
+   "h": "Berechne zuerst die Jahreszinsen. Dann nimm den passenden Bruchteil des Jahres."
   },
   {
    "l": "zinsen",
@@ -6242,24 +7094,8 @@
    },
    "c": "36 / 2 * 100",
    "h": "Die Zinsen sind der Prozentwert, das Kapital ist der Grundwert.",
-   "w": "2 % = 36 €, 1 % = 18 €, 100 % = 1 800 €."
-  },
-  {
-   "l": "zinsen",
-   "t": "zinsen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Nach einem Jahr mit 3 % Zinsen sind 1 545 € auf dem Konto. Wie viel Geld wurde eingezahlt?"
-   },
-   "o": {
-    "wert": 1500,
-    "einheit": "€"
-   },
-   "c": "1545 / 103 * 100",
-   "h": "Das neue Guthaben sind 103 % des eingezahlten Betrags.",
-   "w": "103 % = 1 545 €, 1 % = 15 €, 100 % = 1 500 €."
+   "w": "2 % = 36 €, 1 % = 18 €, 100 % = 1 800 €.",
+   "g": "rueckwaerts"
   },
   {
    "l": "zinsen",
@@ -6276,7 +7112,26 @@
    },
    "c": "600 * 9 / 100 * 8 / 12",
    "h": "Rechne erst die Zinsen für ein ganzes Jahr, dann den Anteil für 8 von 12 Monaten.",
-   "w": "Jahreszinsen: 9 % von 600 € = 54 €. 8 Monate sind 8/12 = 2/3 Jahr: 54 € : 3 · 2 = 36 €."
+   "w": "Jahreszinsen: 9 % von 600 € = 54 €. 8 Monate sind 8/12 = 2/3 Jahr: 54 € : 3 · 2 = 36 €.",
+   "g": "transfer"
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 3 % Zinsen sind 1 545 € auf dem Konto. Wie viel Geld wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 1500,
+    "einheit": "€"
+   },
+   "c": "1545 / 103 * 100",
+   "h": "Das neue Guthaben sind 103 % des eingezahlten Betrags.",
+   "w": "103 % = 1 545 €, 1 % = 15 €, 100 % = 1 500 €.",
+   "g": "rueckwaerts"
   },
   {
    "l": "zinsen",
@@ -6293,27 +7148,121 @@
    },
    "c": "1000 * 1.1 * 1.1",
    "h": "Im zweiten Jahr ist der Grundwert das Guthaben nach dem ersten Jahr.",
-   "w": "Nach 1 Jahr: 1 100 €. Nach 2 Jahren: 1 100 € + 110 € = 1 210 € (nicht 1 200 €)."
+   "w": "Nach 1 Jahr: 1 100 €. Nach 2 Jahren: 1 100 € + 110 € = 1 210 € (nicht 1 200 €).",
+   "g": "verknuepfen"
   },
   {
-   "l": "verstehen",
-   "t": "verstehen",
+   "l": "zinsen",
+   "t": "zinsen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "g": "fehler",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: „4 % Zinsen auf 750 € sind 750 : 4 = 187,50 €.“ Wie viel Euro sind es richtig?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "€"
+   },
+   "c": "750 * 4 / 100",
+   "w": "Es hat durch 4 geteilt statt 4 % zu nehmen. 1 % = 7,50 €, 4 % = 30 €.",
+   "h": "Wie viel ist 1 % von 750 €?"
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Stimmt die Aussage? „200 % von 15 sind 30.“"
+    "text": "Stimmt die Aussage? „Doppelt so viel Kapital bei halbem Zinssatz bringt dieselben Zinsen.“"
    },
    "a": [
-    "Nein, 200 % von 15 sind 3 000.",
-    "Ja: 200 % heißt das Doppelte, 2 · 15 = 30.",
-    "Nein, mehr als 100 % gibt es nicht."
+    "Ja, z. B. 1 000 € zu 4 % und 2 000 € zu 2 % bringen beide 40 €.",
+    "Nein, mehr Kapital bringt immer mehr Zinsen.",
+    "Nein, der höhere Zinssatz gewinnt immer."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "h": "Frag dich: Prozent wovon? Das ist der Grundwert.",
-   "w": "200 % = 2. 2 · 15 = 30."
+   "w": "Zinsen = Kapital · Zinssatz. Wird ein Faktor verdoppelt und der andere halbiert, bleibt das Produkt gleich.",
+   "h": "Rechne ein Beispiel."
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Bei welchem ganzzahligen Zinssatz p bringen 2 000 € in einem Jahr zum ersten Mal mehr als 50 € Zinsen?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "%"
+   },
+   "c": "3",
+   "w": "2 % bringen 40 €, 3 % bringen 60 €. Ab 3 % sind es mehr als 50 €.",
+   "h": "Wie viel bringt 1 %?"
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Familie leiht sich 4 800 € zu 5 % Jahreszins und zahlt nach 6 Monaten alles zurück. Wie viel Euro zahlt sie insgesamt?"
+   },
+   "o": {
+    "wert": 4920,
+    "einheit": "€"
+   },
+   "c": "4800 + 4800 * 5 / 100 / 2",
+   "w": "Jahreszinsen: 240 €, für ein halbes Jahr 120 €. Zurück: 4 800 € + 120 € = 4 920 €.",
+   "h": "Rechne zuerst die Jahreszinsen aus."
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird mit 10 % Zinsen im Jahr angelegt, die Zinsen bleiben auf dem Konto und werden mitverzinst. Nach wie vielen vollen Jahren hat es sich zum ersten Mal mehr als verdoppelt?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "Mit 100 €: 110, 121, 133,10, 146,41, 161,05, 177,16, 194,87 (7 Jahre, noch nicht doppelt), 214,36 (8 Jahre). Also nach 8 Jahren – nicht nach 10, weil auch die Zinsen Zinsen bringen.",
+   "h": "Rechne mit 100 € Jahr für Jahr."
+  },
+  {
+   "l": "zinsen",
+   "t": "zinsen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Konto A: 1 000 € zu 3 %. Konto B: 2 000 € zu 1,5 %. Welches Konto bringt in einem Jahr mehr Zinsen?"
+   },
+   "a": [
+    "Beide bringen gleich viel.",
+    "Konto B",
+    "Konto A"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A: 1 000 € · 3 % = 30 €. B: 2 000 € · 1,5 % = 30 €. Doppeltes Kapital, halber Zinssatz – gleiche Zinsen.",
+   "h": "Rechne beide Zinsen aus."
   },
   {
    "l": "verstehen",
@@ -6333,91 +7282,8 @@
     "index": 2
    },
    "h": "Schreibe 3/5 in Prozent.",
-   "w": "3/5 = 60/100 = 60 %. 60 % > 55 %."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei einer Umfrage nannten 31 % Sport als Hobby. Jemand sagt: „Das ist mehr als ein Drittel.“ Stimmt das?"
-   },
-   "a": [
-    "Nein: Ein Drittel sind etwa 33,3 %, 31 % ist weniger.",
-    "Es ist genau ein Drittel.",
-    "Ja: 31 % ist mehr als 30 %.",
-    "Ja: Ein Drittel sind 30 %."
-   ],
-   "o": {
-    "index": 0
-   },
-   "h": "Wie viel Prozent ist 1/3?",
-   "w": "1/3 = 100 % : 3 ≈ 33,3 %. 31 % < 33,3 %."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "In Klasse A spielen 50 % der 20 Kinder ein Instrument, in Klasse B 40 % der 30 Kinder. Jemand sagt: „In A spielen mehr Kinder ein Instrument.“ Stimmt das?"
-   },
-   "a": [
-    "Beide Klassen haben gleich viele.",
-    "Ja: In A 10 Kinder, in B 8 Kinder.",
-    "Ja, denn 50 % ist mehr als 40 %.",
-    "Nein: In A sind es 10 Kinder, in B 12 Kinder."
-   ],
-   "o": {
-    "index": 3
-   },
-   "h": "Rechne die Anzahlen aus. Die Klassen sind verschieden groß.",
-   "w": "50 % von 20 = 10. 40 % von 30 = 12. Der größere Prozentsatz gehört zur kleineren Klasse."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Der Anteil der Radfahrer steigt von 20 % auf 30 %. Jemand sagt: „Er ist um 10 % gestiegen.“ Was stimmt?"
-   },
-   "a": [
-    "Er ist um 30 % gestiegen.",
-    "Er ist um 10 Prozentpunkte gestiegen. Das sind 50 % mehr Radfahrer-Anteil.",
-    "Die Aussage stimmt genau.",
-    "Er ist um 10 Prozentpunkte gestiegen, das sind 10 % mehr."
-   ],
-   "o": {
-    "index": 1
-   },
-   "h": "Unterscheide Prozentpunkte (Differenz) und Prozent (Veränderung im Vergleich zum alten Wert).",
-   "w": "30 % − 20 % = 10 Prozentpunkte. Im Vergleich zum alten Wert: 10 von 20 = 50 % mehr."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Stimmt die Aussage? „10 % von 10 % sind 1 %.“"
-   },
-   "a": [
-    "Nein, es sind 10 %.",
-    "Nein, es sind 100 %.",
-    "Nein, es sind 20 %.",
-    "Ja: 1/10 von 1/10 sind 1/100 = 1 %."
-   ],
-   "o": {
-    "index": 3
-   },
-   "h": "Rechne mit 1 000 €: 10 % davon, dann davon wieder 10 %.",
-   "w": "10 % von 1 000 € = 100 €. 10 % von 100 € = 10 € = 1 % von 1 000 €."
+   "w": "3/5 = 60/100 = 60 %. 60 % > 55 %.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
@@ -6434,7 +7300,8 @@
    },
    "c": "36 - 30",
    "h": "Prozentpunkte: Differenz der beiden Prozentangaben. Prozent: Differenz im Vergleich zum alten Wert.",
-   "w": "36 % − 30 % = 6 Prozentpunkte."
+   "w": "36 % − 30 % = 6 Prozentpunkte.",
+   "g": "einkleidung"
   },
   {
    "l": "verstehen",
@@ -6455,24 +7322,8 @@
     "index": 1
    },
    "h": "Jedes vierte heißt: 1 von 4.",
-   "w": "1 von 4 = 1/4 = 25/100 = 25 %."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Anteil der Kinder mit Fahrradhelm steigt von 30 % auf 36 %. Um wie viel Prozent ist der Anteil gestiegen?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "%"
-   },
-   "c": "(36 - 30) / 30 * 100",
-   "h": "Prozentpunkte: Differenz der beiden Prozentangaben. Prozent: Differenz im Vergleich zum alten Wert.",
-   "w": "Der Anteil wächst um 6 Prozentpunkte. 6 von 30 sind 1/5 = 20 %."
+   "w": "1 von 4 = 1/4 = 25/100 = 25 %.",
+   "g": "darstellung"
   },
   {
    "l": "verstehen",
@@ -6493,7 +7344,155 @@
     "index": 0
    },
    "h": "Schreibe „drei von fünf“ als Bruch und dann in Prozent.",
-   "w": "3/5 = 60/100 = 60 %. Die Hälfte wären 50 %."
+   "w": "3/5 = 60/100 = 60 %. Die Hälfte wären 50 %.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja: 5 000 · 0,03 = 150 €.",
+    "Nein, die Aussage ist falsch.",
+    "Nein, bei 3 % bekommt man 3 € Zinsen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Bei 3 % Zinsen bekommt man für 5 000 € in einem Jahr 150 € Zinsen.“"
+   },
+   "w": "Ja: 5 000 · 0,03 = 150 €.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Ja, weil Verdoppeln + 100 % ist, ist Halbieren − 100 %.",
+    "Nein, die Senkung ist 200 € von 400 € = 50 %."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Sinkt ein Preis von 400 € auf 200 €, ist er um 100 % gesunken.“"
+   },
+   "w": "Nein, die Senkung ist 200 € von 400 € = 50 %.",
+   "h": "Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Umfrage nannten 31 % Sport als Hobby. Jemand sagt: „Das ist mehr als ein Drittel.“ Stimmt das?"
+   },
+   "a": [
+    "Nein: Ein Drittel sind etwa 33,3 %, 31 % ist weniger.",
+    "Es ist genau ein Drittel.",
+    "Ja: 31 % ist mehr als 30 %.",
+    "Ja: Ein Drittel sind 30 %."
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Wie viel Prozent ist 1/3?",
+   "w": "1/3 = 100 % : 3 ≈ 33,3 %. 31 % < 33,3 %.",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In Klasse A spielen 50 % der 20 Kinder ein Instrument, in Klasse B 40 % der 30 Kinder. Jemand sagt: „In A spielen mehr Kinder ein Instrument.“ Stimmt das?"
+   },
+   "a": [
+    "Beide Klassen haben gleich viele.",
+    "Ja: In A 10 Kinder, in B 8 Kinder.",
+    "Ja, denn 50 % ist mehr als 40 %.",
+    "Nein: In A sind es 10 Kinder, in B 12 Kinder."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Rechne die Anzahlen aus. Die Klassen sind verschieden groß.",
+   "w": "50 % von 20 = 10. 40 % von 30 = 12. Der größere Prozentsatz gehört zur kleineren Klasse.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Anteil der Radfahrer steigt von 20 % auf 30 %. Jemand sagt: „Er ist um 10 % gestiegen.“ Was stimmt?"
+   },
+   "a": [
+    "Er ist um 30 % gestiegen.",
+    "Er ist um 10 Prozentpunkte gestiegen. Das sind 50 % mehr Radfahrer-Anteil.",
+    "Die Aussage stimmt genau.",
+    "Er ist um 10 Prozentpunkte gestiegen, das sind 10 % mehr."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Unterscheide Prozentpunkte (Differenz) und Prozent (Veränderung im Vergleich zum alten Wert).",
+   "w": "30 % − 20 % = 10 Prozentpunkte. Im Vergleich zum alten Wert: 10 von 20 = 50 % mehr.",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „10 % von 10 % sind 1 %.“"
+   },
+   "a": [
+    "Nein, es sind 10 %.",
+    "Nein, es sind 100 %.",
+    "Nein, es sind 20 %.",
+    "Ja: 1/10 von 1/10 sind 1/100 = 1 %."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Rechne mit 1 000 €: 10 % davon, dann davon wieder 10 %.",
+   "w": "10 % von 1 000 € = 100 €. 10 % von 100 € = 10 € = 1 % von 1 000 €.",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Anteil der Kinder mit Fahrradhelm steigt von 30 % auf 36 %. Um wie viel Prozent ist der Anteil gestiegen?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "(36 - 30) / 30 * 100",
+   "h": "Prozentpunkte: Differenz der beiden Prozentangaben. Prozent: Differenz im Vergleich zum alten Wert.",
+   "w": "Der Anteil wächst um 6 Prozentpunkte. 6 von 30 sind 1/5 = 20 %.",
+   "g": "transfer"
   },
   {
    "l": "verstehen",
@@ -6514,7 +7513,8 @@
     "index": 1
    },
    "h": "Prozentpunkte: Differenz der beiden Prozentangaben. Prozent: Differenz im Vergleich zum alten Wert.",
-   "w": "40 % − 30 % = 10 Prozentpunkte. Im Vergleich zum alten Wert: 10 von 40 = 1/4 = 25 % weniger."
+   "w": "40 % − 30 % = 10 Prozentpunkte. Im Vergleich zum alten Wert: 10 von 40 = 1/4 = 25 % weniger.",
+   "g": "fehler"
   },
   {
    "l": "verstehen",
@@ -6531,7 +7531,44 @@
    },
    "c": "10 / 50 * 100",
    "h": "10 Prozentpunkte sind die Hälfte des alten Anteils.",
-   "w": "50 % mehr heißt: Die 10 Prozentpunkte sind die Hälfte des alten Werts. Also war er 20 %."
+   "w": "50 % mehr heißt: Die 10 Prozentpunkte sind die Hälfte des alten Werts. Also war er 20 %.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Preis steigt um 50 % und sinkt danach um 50 %. Um wie viel Prozent ist er am Ende niedriger als am Anfang?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "100 - 150 * 50 / 100",
+   "w": "Mit 100 €: +50 % ergibt 150 €. −50 % von 150 € ergibt 75 €. Das sind 25 % weniger als am Anfang.",
+   "h": "Rechne mit 100 € als Beispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Schule sind 60 % der Kinder Mädchen. 50 % der Mädchen und 25 % der Jungen singen im Chor. Wie viel Prozent aller Kinder singen im Chor?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "%"
+   },
+   "c": "60 * 50 / 100 + 40 * 25 / 100",
+   "w": "Mädchen im Chor: 50 % von 60 % = 30 % aller Kinder. Jungen sind 40 %, davon 25 % = 10 % aller Kinder. Zusammen 40 %.",
+   "h": "Rechne mit 100 Kindern."
   }
  ],
  "offen": [

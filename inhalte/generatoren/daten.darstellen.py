@@ -778,5 +778,97 @@ befunde_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
 
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('daten.darstellen', 20_6_8)
+SZ, SA, SL, SN, SK, STB = ST.Z, ST.A, ST.L, ST.neu, ST.knobel, ST.typ_bau
+
+lz = 'absolute_haeufigkeit'
+ST.leiter(lz, 'Striche und Nennungen zählen, eine Strichliste lesen.', 'Summen, Unterschiede und „oder“/„weder noch“ aus Listen und Strichlisten, häufigsten Wert finden.',
+          'Fehlender Wert, Rangfolge erschließen, Bedingungen kombinieren, Würfelsummen begründen, doppelt so oft, Zählfehler deuten, Fünferbündel, mehrteilige Umfrage.')
+STB(lz, 3, 'Es wurden 38', 'rueckwaerts'); STB(lz, 3, 'Ein Würfel wird 20', 'begruenden'); STB(lz, 3, 'Bei 50 Würfen', 'verknuepfen')
+SN(lz, SZ('fehler', 'In der Liste „rot, blau, rot, rot, gelb, blau, rot“ zählt ein Kind „rot“ und schreibt 3. Wie oft kommt „rot“ wirklich vor?', 4, '4', 'Rot steht an 1., 3., 4. und 7. Stelle: 4-mal. Beim Zählen hilft es, jeden gezählten Wert abzuhaken.', 'Zähle langsam und hake ab.'))
+SN(lz, SZ('pruefung', 'In einer Klasse mit 28 Kindern nennen 9 Fußball, 7 Schwimmen, 5 Tanzen und der Rest Reiten. Wie viele Kinder mehr nennen Fußball als Reiten?', 2, '9 - (28 - 9 - 7 - 5)', 'Reiten: 28 − 9 − 7 − 5 = 7. Fußball hat 9 − 7 = 2 mehr.', 'Berechne zuerst „Reiten“.'))
+SN(lz, SZ('transfer', 'In einer Strichliste stehen bei „ja“ 3 volle Fünferbündel und 4 einzelne Striche. Wie viele Striche fehlen noch bis 25?', 6, '25 - (3 * 5 + 4)', '3 · 5 + 4 = 19. Bis 25 fehlen 6.', 'Wie viel ist ein Fünferbündel?'))
+SK(lz, SZ('knobel', 'Ein Würfel wird 30-mal geworfen. Jede Augenzahl ist mindestens dreimal gefallen. Wie oft kann die 6 höchstens gefallen sein?', 15, '30 - 5 * 3',
+          'Die Augenzahlen 1 bis 5 brauchen zusammen mindestens 5 · 3 = 15 Würfe. Für die 6 bleiben höchstens 30 − 15 = 15.', 'Wie viele Würfe brauchen die anderen fünf Augenzahlen mindestens?'))
+SK(lz, SZ('knobel', 'Bei einer Umfrage nannte jedes Kind genau zwei Lieblingsfarben. Rot wurde 18-mal, Blau 14-mal und Grün 10-mal genannt. Wie viele Kinder wurden befragt?', 21, '(18 + 14 + 10) // 2',
+          'Zusammen gab es 18 + 14 + 10 = 42 Nennungen. Jedes Kind hat zwei Nennungen abgegeben, also 42 : 2 = 21 Kinder.', 'Wie viele Nennungen gibt jedes Kind ab?'))
+
+lz = 'relative_haeufigkeit'
+ST.leiter(lz, 'Relative Häufigkeit als Bruch „Anzahl durch Gesamtzahl“ angeben; wissen, was sie bedeutet.', 'In Prozent und gekürzt angeben, rückwärts zur Anzahl, Rest-Anteile.',
+          'Gruppen verschiedener Größe vergleichen, Diagramm mit Bruch verknüpfen, Buchstaben zählen, neue Kinder kommen dazu, Fehler deuten, wie oft muss es fallen.')
+STB(lz, 2, '18 von 45', 'darstellung'); STB(lz, 2, 'Haustier', 'umkehr')
+STB(lz, 3, 'Lieblingsobst', 'umkehr', neu_s=2); STB(lz, 3, 'In Gruppe A', 'begruenden'); STB(lz, 3, 'Das Diagramm', 'verknuepfen'); STB(lz, 3, 'In einer Klasse', 'rueckwaerts')
+SN(lz, SA('erkennen', 'Was gibt die relative Häufigkeit an?', 'den Anteil an allen Ergebnissen', ['die Anzahl, wie oft etwas vorkam', 'den größten Wert'], 'Relativ heißt: bezogen auf alle. 6 von 24 sind 6/24 = 1/4.', 'Wovon hängt „relativ“ ab?'))
+SN(lz, SZ('parameter', 'Wie oft muss bei 40 Münzwürfen „Kopf“ fallen, damit die relative Häufigkeit genau 0,35 ist?', 14, '40 * 0.35', '0,35 · 40 = 14.', 'Relative Häufigkeit mal Gesamtzahl.'))
+SN(lz, SZ('pruefung', 'Von 250 befragten Kindern lesen 40 % jeden Tag. Von den übrigen liest die Hälfte nur am Wochenende. Wie viele Kinder lesen nur am Wochenende?', 75, '250 * 0.6 / 2', 'Täglich: 100 Kinder. Übrig 150, davon die Hälfte: 75.', 'Berechne zuerst die Kinder, die nicht täglich lesen.'))
+SN(lz, SZ('transfer', 'Ein Würfel wird 60-mal geworfen. Die relative Häufigkeit der 6 ist 0,15, die der 1 doppelt so groß. Wie oft fiel die 1?', 18, '60 * 0.15 * 2', 'Die 1 hat 0,3. 0,3 · 60 = 18.', 'Wie groß ist die relative Häufigkeit der 1?'))
+SK(lz, SZ('knobel', 'Nach 20 Würfen auf ein Tor ist die relative Häufigkeit der Treffer 0,4. Wie viele Treffer hintereinander braucht man mindestens, damit sie auf 0,5 steigt?', 4, '4',
+          'Bisher 8 Treffer bei 20 Würfen. Mit k weiteren Treffern: (8 + k)/(20 + k). Für k = 4: 12/24 = 0,5. Mit k = 3 wären es 11/23 – weniger als die Hälfte.', 'Probiere k = 1, 2, 3, … aus.'))
+SK(lz, SL('knobel', 'In einer Klasse haben 3/8 der Kinder einen Hund und 1/4 eine Katze. 1/8 hat beides. Welcher Anteil hat weder Hund noch Katze?', '□/□', [1, 2], ['1', '2'],
+          'Hund oder Katze: 3/8 + 2/8 − 1/8 = 4/8 (wer beides hat, wurde doppelt gezählt). Weder noch: 1 − 4/8 = 1/2.', 'Wer beides hat, steckt in beiden Anteilen.'))
+
+lz = 'tabelle_auswerten'
+ST.leiter(lz, 'Einen Wert aus einer Häufigkeitstabelle ablesen.', 'Summen, „nicht“, Prozent und Rangfolge aus Tabellen, Teilgruppen, Rest ohne Tabelle.',
+          'Kopiergeld gewichtet, fehlende Werte rückwärts, zwei Klassen vergleichen, Fehler beim Prozent deuten, fehlender Wert mit Bedingung, Vierfeldertafel, Prüfungsaufgabe.')
+for t in ('Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Wie viel', 'Die Tabelle zeigt eine Umfrage zum Thema Lieblingsfach. Wie viel', 'Die Tabelle zeigt, wie viele Kinder einer Klasse ein Haustier haben. Wie viel'):
+    STB(lz, 2, t, 'mehrschritt')
+STB(lz, 3, 'Die Tabelle zeigt eine Umfrage', 'darstellung', neu_s=2)
+STB(lz, 3, 'Eine Schule', 'verknuepfen'); STB(lz, 3, 'In der Tabelle', 'rueckwaerts'); STB(lz, 3, 'Die Tabelle zeigt den Schulweg in zwei Klassen. Welche', 'begruenden')
+SN(lz, SZ('direkt', 'Eine Tabelle zeigt: Bus 12, Rad 8, zu Fuß 5. Wie viele Kinder kommen mit dem Bus oder mit dem Rad?', 20, '12 + 8', 'Bus oder Rad heißt: beide Werte zusammenzählen. 12 + 8 = 20 Kinder.', 'Zähle die beiden Werte zusammen.'))
+SN(lz, SZ('einkleidung', 'Die 6a hat 26 Kinder. 9 kommen mit dem Bus und 7 mit dem Rad. Wie viele Kinder kommen auf andere Weise?', 10, '26 - 9 - 7', '26 − 9 − 7 = 10.', 'Ziehe ab, was du kennst.'))
+SN(lz, SZ('fehler', 'In einer Tabelle stehen 10 Mädchen und 15 Jungen; mit dem Rad kommen 4 Mädchen und 6 Jungen. Ein Kind sagt: „10 % fahren Rad.“ Wie viel Prozent sind es wirklich?', 40, '(4 + 6) / (10 + 15) * 100',
+          'Es hat die Anzahl 10 als Prozent gelesen. Richtig: 10 von 25 Kindern = 40 %.', 'Wie viele Kinder sind es insgesamt?', einheit='%'))
+SN(lz, SZ('parameter', 'Eine Tabelle zeigt für drei Sorten 12, x und 18 Stimmen. Die mittlere Sorte hat genau ein Drittel aller Stimmen. Wie groß ist x?', 15, '(12 + 18) / 2',
+          'x ist ein Drittel der Summe, also sind die anderen beiden zusammen zwei Drittel: 12 + 18 = 30 = 2x. Also x = 15.', 'Wenn x ein Drittel ist, was sind dann 12 + 18?'))
+SN(lz, SZ('pruefung', 'In der 6a sind 14 Mädchen und 12 Jungen, in der 6b 11 Mädchen und 15 Jungen. Wie viel Prozent aller Kinder beider Klassen sind Mädchen? Runde auf ganze Prozent.', 48, 'round(25 / 52 * 100)',
+          'Mädchen: 14 + 11 = 25, alle Kinder: 52. 25 : 52 ≈ 0,48 = 48 %.', 'Zähle zuerst alle Mädchen und alle Kinder.', einheit='%'))
+SN(lz, SZ('transfer', 'In einer Klasse mit 30 Kindern haben 18 ein Haustier. Es sind 12 Mädchen, davon haben 8 ein Haustier. Wie viele Jungen haben kein Haustier?', 8, '(30 - 12) - (18 - 8)',
+          'Jungen: 18. Jungen mit Haustier: 18 − 8 = 10. Jungen ohne Haustier: 18 − 10 = 8.', 'Lege eine Tabelle mit vier Feldern an.'))
+SK(lz, SZ('knobel', 'Eine Tabelle zeigt die Stimmen für A, B und C. A hat 3 mehr als B, C hat doppelt so viele wie B. Zusammen sind es 43 Stimmen. Wie viele hat C?', 20, '2 * (43 - 3) // 4',
+          'Schreibe B als Kästchen: A = □ + 3, C = □ + □. Zusammen 4 Kästchen + 3 = 43, also ein Kästchen 10. C = 20.', 'Drücke alles durch die Stimmen von B aus.'))
+SK(lz, SZ('knobel', 'Eine Klasse hat 25 Kinder. 1/3 der Mädchen und 1/2 der Jungen fahren Rad – das sind gleich viele Mädchen wie Jungen. Wie viele Mädchen hat die Klasse?', 15, '15',
+          'Ein Drittel der Mädchen = die Hälfte der Jungen. Probiere: 15 Mädchen und 10 Jungen: 5 und 5. Andere Aufteilungen von 25 passen nicht.', 'Die Zahl der Mädchen muss durch 3, die der Jungen durch 2 teilbar sein.'))
+
+lz = 'saeulendiagramm'
+ST.leiter(lz, 'Säulenhöhe mit Maßstab in Anzahl umrechnen; eine Säule ablesen.', 'Summen, Unterschiede, Prozent aus Diagrammen, Säulenhöhe aus Tabelle mit Maßstab.',
+          'Maßstab wählen, fehlende Säule rückwärts, Gesamtzahl aus Prozent, Verhältnis der Höhen, Anteil eines Tages, Fehler beim Maßstab.')
+STB(lz, 2, 'Das Säulendiagramm zeigt eine Umfrage zum Thema Schulweg. Wie viel', 'mehrschritt'); STB(lz, 2, 'Das Säulendiagramm zeigt eine Umfrage zum Thema Haustier. Wie viel', 'mehrschritt')
+STB(lz, 3, 'Der größte Wert', 'parameter'); STB(lz, 3, 'Das Diagramm zeigt die Noten', 'rueckwaerts'); STB(lz, 3, 'Das Diagramm zeigt in Prozent', 'rueckwaerts'); STB(lz, 3, 'Das Säulendiagramm zeigt verkaufte', 'verknuepfen')
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Steht 1 cm für doppelt so viele Kinder wie vorher, werden alle Säulen halb so hoch.“', 'Ja: Jede Säule braucht nur noch halb so viele Zentimeter.', ['Nein, sie werden doppelt so hoch.', 'Nein, die Höhen bleiben gleich.'], 'Höhe = Anzahl : Kinder je cm. Wird der Teiler doppelt so groß, wird die Höhe halb so groß.', 'Rechne ein Beispiel mit 20 Kindern.'))
+SN(lz, SZ('fehler', 'Maßstab: 1 cm steht für 5 Kinder. Ein Kind zeichnet für 15 Kinder eine 5 cm hohe Säule. Wie hoch müsste sie sein?', 3, '15 / 5', 'Es hat die Zahl 5 aus dem Maßstab genommen. Richtig: 15 : 5 = 3 cm.', 'Wie viele Zentimeter für 15 Kinder?', einheit='cm'))
+SK(lz, SZ('knobel', 'In einem Säulendiagramm ist Säule A 4,5 cm und Säule B 3 cm hoch. A steht für 27 Kinder. Für wie viele Kinder steht B?', 18, '27 / 4.5 * 3', 'Aus Säule A folgt der Maßstab: 27 Kinder auf 4,5 cm, also 1 cm für 27 : 4,5 = 6 Kinder. Säule B ist 3 cm hoch: 3 · 6 = 18 Kinder.', 'Bestimme zuerst den Maßstab.'))
+SK(lz, SZ('knobel', 'Fünf Säulen stehen zusammen für 100 Stimmen. Die kleinste ist 2 cm hoch, jede weitere ist 1 cm höher als die vorige. Für wie viele Stimmen steht 1 cm?', 5, '100 / (2 + 3 + 4 + 5 + 6)',
+          'Die Höhen sind 2, 3, 4, 5 und 6 cm, zusammen 20 cm. 100 Stimmen : 20 cm = 5 Stimmen je cm.', 'Wie hoch sind alle Säulen zusammen?'))
+
+lz = 'kreisdiagramm'
+ST.leiter(lz, 'Winkel für einen Prozentsatz oder Anteil berechnen.', 'Anzahlen aus dem Kreisdiagramm ablesen, Winkel aus Anzahlen, Prozent aus Winkeln, dritter Teil.',
+          'Anzahl aus Winkel, Gesamtzahl rückwärts, Teile in Beziehung, Noten-Diagramm, Fehler deuten, Winkelsumme begründen, Befragtenzahl für einen Winkel.')
+STB(lz, 2, 'Es wurden 40', 'einkleidung')
+STB(lz, 3, 'In einem Kreisdiagramm über 60', 'rueckwaerts'); STB(lz, 3, 'Im Kreisdiagramm hat', 'rueckwaerts'); STB(lz, 3, 'Das Kreisdiagramm zeigt', 'pruefung'); STB(lz, 3, 'Ein Kind zeichnet', 'fehler')
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Ein Kreisdiagramm mit genau drei Teilen von 90°, 120° und 140° kann stimmen.“', 'Nein, zusammen sind es nur 350°, nicht 360°.', ['Ja, das stimmt.', 'Nein, ein Kreis hat 180°.'],
+          '90 + 120 + 140 = 350. Alle Teile eines Kreisdiagramms ergeben 360°.', 'Addiere die Winkel.'))
+SN(lz, SZ('parameter', 'Bei wie vielen Befragten steht im Kreisdiagramm jede einzelne Person für genau 7,5°?', 48, '360 / 7.5', '360° : 7,5° = 48 Personen.', 'Teile den ganzen Kreis durch 7,5°.'))
+SK(lz, SZ('knobel', 'In einem Kreisdiagramm sind die Winkel für A, B und C im Verhältnis 1 : 2 : 3. Wie groß ist der Winkel für C?', 180, '360 * 3 / 6', 'Das Verhältnis 1 : 2 : 3 teilt den Kreis in 1 + 2 + 3 = 6 gleiche Teile. Ein Teil hat 360° : 6 = 60°, C hat 3 Teile = 180°.', 'In wie viele gleiche Teile zerfällt der Kreis?', einheit='°'))
+SK(lz, SZ('knobel', 'Ein Kreisdiagramm zeigt 90 Kinder. Teil A hat einen Winkel von 100°. Wie viele Kinder sind das?', 25, '90 * 100 / 360', 'Der ganze Kreis hat 360° für 90 Kinder, also steht jedes Kind für 360° : 90 = 4°. 100° : 4° = 25 Kinder – es geht genau auf.', 'Wie viel Grad steht ein Kind?'))
+
+lz = 'irrefuehrend'
+ST.leiter(lz, 'Achsenanfang und Teile eines Kreisdiagramms erkennen; ein ehrliches Diagramm ablesen.', 'Wirkung eines abgeschnittenen Achsenanfangs ausrechnen, Summe 100 % prüfen, Bildflächen, Sachsituationen.',
+          'Irreführende Aussagen begründen, Fläche und Volumen bei Bild-Diagrammen, fehlende Säulen, Prozentpunkte gegen Verdoppeln, rückwärts zum verdeckten Wert.')
+STB(lz, 2, 'Ein Diagramm zeigt 200', 'mehrschritt')
+STB(lz, 3, 'Ein Diagramm zur Wahl', 'begruenden'); STB(lz, 3, 'Der Anteil der Kinder', 'fehler'); STB(lz, 3, 'Ein Bild-Diagramm zeigt den doppelten', 'verknuepfen')
+SN(lz, SZ('direkt', 'Ein Säulendiagramm zeigt 30 und 60 Besucher, die Hochachse beginnt bei 0. Wie viel Mal so hoch ist die zweite Säule?', 2, '60 / 30', '60 : 30 = 2. Bei Achsenanfang 0 stimmt das Bild.', 'Teile die Werte.'))
+SN(lz, SZ('einkleidung', 'Eine Firma zeigt ihren Umsatz: 96 und 104 Millionen €. Die Hochachse beginnt bei 92. Wie viel Mal so hoch wirkt die zweite Säule?', 3, '(104 - 92) / (96 - 92)',
+          'Sichtbar sind 96 − 92 = 4 und 104 − 92 = 12. Die zweite Säule wirkt dreimal so hoch, obwohl der Umsatz nur um etwa 8 % größer ist.', 'Rechne nur mit dem sichtbaren Teil der Säulen.'))
+SN(lz, SZ('rueckwaerts', 'Die Hochachse eines Diagramms beginnt bei 100. Die Säule für 160 wirkt dreimal so hoch wie die andere. Für welchen Wert steht die andere Säule?', 120, '100 + (160 - 100) / 3',
+          'Sichtbar sind 60 bei der großen Säule. Die kleine zeigt ein Drittel davon: 20 über 100, also 120.', 'Wie viel ist von der großen Säule sichtbar?'))
+SK(lz, SZ('knobel', 'Zwei Säulen stehen für 50 und 60. Bei welchem Achsenanfang wirkt die zweite Säule genau doppelt so hoch wie die erste?', 40, '2 * 50 - 60',
+          'Sichtbar sind 50 − s und 60 − s. Doppelt heißt 60 − s = 2 · (50 − s). Probieren: s = 40 ergibt 10 und 20.', 'Probiere verschiedene Achsenanfänge aus.'))
+SK(lz, SZ('knobel', 'In einem Bild-Diagramm soll ein Wert doppelt so groß dargestellt werden. Statt eines doppelt so hohen Bildes wird ein Quadrat in Länge und Breite verdoppelt. Um wie viel Prozent ist die Fläche größer, als sie sein sollte?', 100, '(4 - 2) / 2 * 100',
+          'Richtig wäre die doppelte Fläche. Das Quadrat hat aber 2 · 2 = 4-fache Fläche – doppelt so viel wie richtig, also 100 % zu viel.', 'Wie verändert sich die Fläche eines Quadrats, wenn beide Seiten doppelt so lang werden?', einheit='%'))
+
 if __name__ == '__main__':
     schreibe(DATEI)
+    stufen_datei('daten.darstellen', ST)

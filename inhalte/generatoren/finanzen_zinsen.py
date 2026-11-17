@@ -394,6 +394,157 @@ DS.fuer_sebastian('finanzen.zinsen überschneidet sich mit bruch.prozent / zinse
 baue = mit_befunden(baue, DS)
 # ---- DURCHSICHT ENDE ----
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('finanzen.zinsen', 20_6_7)
+SZ, SA, SN, SK, STB = ST.Z, ST.A, ST.neu, ST.knobel, ST.typ_bau
+E = '€'
+
+lz = 'begriffe'
+ST.leiter(lz, 'Kapital, Zinssatz und Zinsen in einem Text erkennen und den Kontostand nach einem Jahr angeben.', 'Kontostand vorwärts und rückwärts, zwei Jahre, Zinsen aus der Differenz.',
+          'Ungenaue Sprache begründen, Zinssätze vergleichen, Grundwert-Falle deuten, doppeltes Kapital, Zinsen aus dem Endstand rückwärts, Bruch als Zinssatz.')
+STB(lz, 2, 'Auf einem Konto liegen 1 200', 'mehrschritt'); STB(lz, 2, 'Jemand hat 3 500', 'umkehr')
+STB(lz, 3, 'Jemand sagt', 'begruenden'); STB(lz, 3, 'Eine Bank zahlt 2', 'fehler')
+SN(lz, SZ('einkleidung', 'Auf einem Sparbuch lagen 600 €. Am Jahresende schreibt die Bank 12 € Zinsen gut. Wie viel Geld ist jetzt darauf?', 612, '600 + 12', '600 € + 12 € = 612 €.', 'Die Zinsen kommen zum Kapital dazu.', einheit=E))
+SN(lz, SZ('direkt', 'Auf einem Sparbuch liegen 1 000 €. Nach einem Jahr kommen 20 € Zinsen dazu. Wie viel Geld ist dann darauf?', 1020, '1000 + 20', '1 000 € + 20 € = 1 020 €.', 'Kapital plus Zinsen.', einheit=E))
+SN(lz, SA('erkennen', 'Welche Angabe ist ein Zinssatz?', '2,5 %', ['2,50 €', '250 €'], 'Der Zinssatz ist ein Prozentsatz. Kapital und Zinsen sind Beträge in Euro.', 'Ein Zinssatz hat das Zeichen %.'))
+SN(lz, SZ('rueckwaerts', 'Nach einem Jahr mit 2 % Zinsen sind 3 060 € auf dem Konto. Wie viel Euro Zinsen gab es?', 60, '3060 - 3060 / 1.02', '3 060 € sind 102 % des Kapitals, also Kapital 3 000 € und Zinsen 60 €.', 'Wie viel Prozent sind 3 060 €?', einheit=E))
+SN(lz, SZ('parameter', 'Bei welchem Zinssatz bringt jedes Kapital in einem Jahr genau ein Zwanzigstel des Kapitals als Zinsen?', 5, '100 / 20', '1/20 = 5/100 = 5 %.', 'Schreibe 1/20 als Prozent.', einheit='%'))
+SN(lz, SA('pruefung', 'Auf einem Konto liegen 4 000 €, die Bank zahlt 3 % im Jahr, am Jahresende kommen 120 € dazu. Welche Zuordnung stimmt?', 'Kapital 4 000 €, Zinssatz 3 %, Zinsen 120 €',
+          ['Kapital 120 €, Zinssatz 4 000 €, Zinsen 3 %', 'Kapital 4 000 €, Zinssatz 120 €, Zinsen 3 %'], 'Das eingezahlte Geld ist das Kapital, der Prozentsatz der Zinssatz, der Betrag, der dazukommt, die Zinsen.', 'Welche Angabe ist ein Prozentsatz?'))
+SN(lz, SZ('verknuepfen', 'Die Zinsen eines Jahres sind 1/40 des Kapitals. Wie hoch ist der Zinssatz?', 2.5, '100 / 40', '1/40 = 2,5/100 = 2,5 %.', 'Erweitere 1/40 auf den Nenner 100.', einheit='%'))
+SK(lz, SZ('knobel', 'Zwei Geschwister haben zusammen 3 000 € auf zwei Konten zu 2 % und zu 3 %. Zusammen bekommen sie 75 € Zinsen. Wie viel Euro liegen auf dem 3-%-Konto?', 1500, '(75 - 3000 * 0.02) / 0.01',
+          'Lägen alle 3 000 € zu 2 %, gäbe es 60 €. Die 15 € mehr kommen vom 1 % Unterschied auf dem 3-%-Konto: 15 € sind 1 % von 1 500 €.', 'Rechne zuerst so, als läge alles zu 2 %.', einheit=E))
+SK(lz, SZ('knobel', 'Ein Konto bringt 50 € Zinsen im Jahr. Wäre der Zinssatz um 1 Prozentpunkt höher, wären es 75 €. Wie groß ist das Kapital?', 2500, '25 * 100',
+          '1 Prozentpunkt mehr bringt 25 € mehr. 1 % des Kapitals sind also 25 €, das Kapital 2 500 € (und der Zinssatz 2 %).', 'Wie viel Euro ist 1 % des Kapitals?', einheit=E))
+
+lz = 'rollen'
+ST.leiter(lz, 'Erkennen, wer in einer Situation Zinsen zahlt oder bekommt.', 'Situationen mit Freunden, Krediten und Angeboten beurteilen, Zinsen aus Rückzahlung.',
+          'Warum Banken zahlen können, Zinsspanne, Fehlvorstellung beim Kredit, Sparen und Kredit gleichzeitig, rückwärts zum Kredit, Ratenkauf, Prüfungsfrage.')
+STB(lz, 2, 'Du leihst dir', 'umkehr'); STB(lz, 3, 'Die Bank zahlt dir', 'begruenden'); STB(lz, 3, 'Ein Kind sagt', 'fehler'); STB(lz, 3, 'Jemand hat 1 000', 'verknuepfen')
+SN(lz, SZ('direkt', 'Du leihst dir 200 € und zahlst 210 € zurück. Wie viel Euro Zinsen zahlst du?', 10, '210 - 200', '210 € − 200 € = 10 € Zinsen.', 'Was zahlst du mehr zurück?', einheit=E))
+SN(lz, SZ('rueckwaerts', 'Jemand zahlt für einen Kredit nach einem Jahr 5 % Zinsen und insgesamt 2 100 € zurück. Wie hoch war der Kredit?', 2000, '2100 / 1.05', '2 100 € sind 105 % des Kredits, also 1 % = 20 € und der Kredit 2 000 €.', 'Wie viel Prozent des Kredits sind 2 100 €?', einheit=E))
+SN(lz, SZ('parameter', 'Eine Bank zahlt Sparern 1 % und verlangt für Kredite p %. Verleiht sie 10 000 € Spargeld, sollen ihr 300 € bleiben. Wie groß ist p?', 4, '(300 + 100) / 100',
+          'An die Sparer gehen 100 €. Die Bank braucht 300 € + 100 € = 400 € Kreditzinsen, das sind 4 % von 10 000 €.', 'Wie viel muss die Bank insgesamt einnehmen?', einheit='%'))
+SN(lz, SA('pruefung', 'Ein Kind legt Geld aufs Sparbuch, ein Vater nimmt einen Kredit auf. Was stimmt?', 'Das Kind bekommt Zinsen, der Vater zahlt Zinsen.', ['Das Kind zahlt, der Vater bekommt Zinsen.', 'Beide bekommen Zinsen.', 'Beide zahlen Zinsen.'],
+          'Die Bank benutzt das Geld des Kindes (sie zahlt), der Vater benutzt das Geld der Bank (er zahlt).', 'Wer benutzt wessen Geld?'))
+SN(lz, SZ('transfer', 'Ein Fahrrad kostet 600 €. Beim Ratenkauf zahlt man 12 Raten zu je 53 €. Wie viel Euro kostet der Ratenkauf mehr?', 36, '12 * 53 - 600', '12 · 53 € = 636 €. 636 € − 600 € = 36 € – das sind die Zinsen.', 'Rechne alle Raten zusammen.', einheit=E))
+SK(lz, SZ('knobel', 'Ein Kredit über 1 000 € kostet 10 % Zinsen im Jahr. Nach einem Jahr zahlt man 500 € zurück. Der Rest wird im zweiten Jahr wieder mit 10 % verzinst. Wie viel schuldet man nach zwei Jahren?', 660, '(1000 * 1.1 - 500) * 1.1',
+          'Nach einem Jahr: 1 100 €. Nach der Zahlung: 600 €. Im zweiten Jahr 10 % dazu: 660 €.', 'Rechne Jahr für Jahr.', einheit=E))
+SK(lz, SZ('knobel', 'Ein Kind möchte in einem Jahr genau 300 € haben. Das Sparbuch zahlt 2 %. Wie viel muss es heute einzahlen? Runde auf Cent.', 294.12, 'round(300 / 1.02, 2)',
+          '300 € sollen 102 % sein. 1 % = 300 € : 102 ≈ 2,941 €, 100 % ≈ 294,12 €. (Nicht 300 € − 6 €, denn die 2 % beziehen sich auf den kleineren Betrag.)', 'Wie viel Prozent des eingezahlten Geldes sind 300 €?', einheit=E))
+
+lz = 'jahreszinsen'
+ST.leiter(lz, 'Jahreszinsen mit Z = K · p/100 berechnen; die Formel erkennen.', 'Guthaben und Rückzahlung, zusammengelegtes Kapital, mehrere Jahre mit Abheben, Zinssatz aus Zinsen.',
+          'Fehler deuten, Zinssatz für gleiche Zinsen, Vertauschen von Kapital und Zinssatz begründen, rückwärts zum Kapital, Bruchteile verknüpfen, Hochrechnen, Prüfungsaufgabe.')
+STB(lz, 2, 'Berechne die Jahreszinsen', 'direkt', neu_s=1); STB(lz, 2, 'Zwei Geschwister', 'mehrschritt'); STB(lz, 2, 'Jemand legt 5', 'mehrschritt')
+STB(lz, 3, 'Bank A', 'mehrschritt', neu_s=2); STB(lz, 3, 'Bei welchem Zinssatz', 'parameter'); STB(lz, 3, 'Herr A', 'begruenden')
+SN(lz, SA('erkennen', 'Welche Formel gibt die Jahreszinsen Z aus Kapital K und Zinssatz p?', 'Z = K · p/100', ['Z = K : p', 'Z = K + p'], 'Zinsen sind p Prozent vom Kapital: K · p/100.', 'Zinsen sind ein Prozentwert.'))
+SN(lz, SZ('direkt', 'Wie viel Euro Zinsen bringen 600 € bei 3 % in einem Jahr?', 18, '600 * 3 / 100', '1 % = 6 €, 3 % = 18 €.', 'Rechne erst 1 % aus.', einheit=E))
+SN(lz, SZ('umkehr', 'Welcher Zinssatz bringt für 800 € in einem Jahr genau 24 € Zinsen?', 3, '24 / 800 * 100', '1 % von 800 € sind 8 €. 24 € sind 3 %.', 'Wie viel ist 1 %?', einheit='%'))
+SN(lz, SZ('rueckwaerts', 'Nach einem Jahr zu 5 % sind 2 625 € auf dem Konto. Wie viel wurde eingezahlt?', 2500, '2625 / 1.05', '2 625 € sind 105 %. 1 % = 25 €, eingezahlt 2 500 €.', 'Wie viel Prozent sind 2 625 €?', einheit=E))
+SN(lz, SZ('verknuepfen', 'Von 2 400 € Erspartem liegen 3/4 zu 2 %, der Rest zu 4 %. Wie viel Euro Zinsen gibt es zusammen in einem Jahr?', 60, '1800 * 2 / 100 + 600 * 4 / 100', '3/4 = 1 800 € bringen 36 €, 600 € bringen 24 €. Zusammen 60 €.', 'Teile zuerst das Geld auf.', einheit=E))
+SN(lz, SZ('pruefung', 'Ein Kind hat 1 200 € gespart. Es legt 2/3 davon ein Jahr lang zu 3 % an, den Rest behält es. Wie viel Geld hat es nach dem Jahr insgesamt?', 1224, '800 * 1.03 + 400',
+          'Angelegt: 800 €, Zinsen 24 €. Zusammen 800 € + 24 € + 400 € = 1 224 €.', 'Berechne zuerst den angelegten Betrag.', einheit=E))
+SN(lz, SZ('transfer', 'Bei einer Bank bringen 4 000 € in einem Jahr 120 € Zinsen. Wie viel Euro Zinsen brächten 6 500 € bei derselben Bank?', 195, '6500 * 120 / 4000', 'Zinssatz: 120 : 4 000 = 3 %. 3 % von 6 500 € = 195 €.', 'Bestimme zuerst den Zinssatz.', einheit=E))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Bei 1 % Zinsen bekommt man für je 100 € einen Euro im Jahr.“', 'Ja: 1 % heißt 1 von 100.', ['Nein, 10 €.', 'Nein, 1 % sind immer 1 € – egal wie viel Kapital.'], '1 % = 1/100. Je 100 € gibt es 1 €.', 'Was heißt „Prozent“?'))
+SK(lz, SZ('knobel', 'Ein Kapital bringt bei 3 % in einem Jahr 36 € mehr Zinsen als bei 2 %. Wie groß ist das Kapital?', 3600, '36 * 100', 'Der Unterschied ist 1 % des Kapitals. 1 % sind 36 €, also 3 600 €.', 'Was bedeutet der Unterschied zwischen 3 % und 2 %?', einheit=E))
+SK(lz, SZ('knobel', 'Lea legt 1 000 € zu 2 % an, Tom 900 € zu 3 %. Nach einem Jahr: Um wie viel Euro hat Lea mehr auf dem Konto als Tom?', 93, '1000 * 1.02 - 900 * 1.03',
+          'Lea: 1 020 €. Tom: 927 €. Tom bekommt zwar mehr Zinsen (27 € gegen 20 €), aber Lea hatte 100 € mehr Kapital. Lea hat 93 € mehr.', 'Vergleiche die Endstände, nicht nur die Zinsen.', einheit=E))
+
+lz = 'jahreszinsen_komma'
+ST.leiter(lz, 'Jahreszinsen bei Zinssätzen mit Komma berechnen; den Zinssatz als Rechenzahl erkennen.', 'Bankvergleich, Kredit, Guthaben, Zinssatz mit Komma aus Zinsen bestimmen.',
+          'Fehler beim Malnehmen mit dem Prozentsatz deuten, Kapital rückwärts, Überschlag begründen, gleicher Ertrag, Gebühren, Zinssatzerhöhung, kleines Kapital für 1 €.')
+STB(lz, 2, 'Berechne die Jahreszinsen', 'direkt', neu_s=1); STB(lz, 2, 'Bank A', 'mehrschritt')
+STB(lz, 3, 'Bei 2,5 %', 'rueckwaerts'); STB(lz, 3, 'Für 4 000 €', 'umkehr', neu_s=2); STB(lz, 3, 'Ohne genau', 'begruenden')
+SN(lz, SA('erkennen', 'Mit welcher Zahl nimmst du das Kapital mal, um 2,5 % Zinsen zu erhalten?', '0,025', ['2,5', '0,25', '25'], '2,5 % = 2,5/100 = 0,025.', 'Prozent heißt „durch 100“.'))
+SN(lz, SZ('direkt', 'Wie viel Euro Zinsen bringen 2 000 € bei 1,5 % in einem Jahr?', 30, '2000 * 1.5 / 100', '1 % = 20 €, 1,5 % = 30 €.', 'Rechne erst 1 %, dann mal 1,5.', einheit=E))
+SN(lz, SZ('umkehr', 'Welcher Zinssatz bringt für 400 € in einem Jahr genau 9 € Zinsen?', 2.25, '9 / 400 * 100', '1 % = 4 €. 9 € : 4 € = 2,25, also 2,25 %.', 'Wie viel ist 1 % von 400 €?', einheit='%'))
+SN(lz, SZ('parameter', 'Für welchen Zinssatz bringen 800 € genauso viel Zinsen wie 600 € bei 2 %?', 1.5, '600 * 2 / 800', '600 € bei 2 % bringen 12 €. 12 € von 800 € sind 1,5 %.', 'Rechne zuerst die Zinsen für 600 € aus.', einheit='%'))
+SN(lz, SZ('verknuepfen', 'Ein Kind bekommt 2,5 % Zinsen auf 1 600 € und gibt davon 3/4 aus. Wie viel Euro der Zinsen bleiben übrig?', 10, '1600 * 2.5 / 100 / 4', 'Zinsen: 40 €. Übrig ist 1/4 davon: 10 €.', 'Berechne zuerst die Zinsen.', einheit=E))
+SN(lz, SZ('pruefung', 'Bank A zahlt 2,25 %, verlangt aber 5 € Gebühr im Jahr. Bank B zahlt 1,75 % ohne Gebühr. Wie viel Euro mehr bekommt man für 1 600 € bei der besseren Bank?', 3, '(1600 * 2.25 / 100 - 5) - 1600 * 1.75 / 100',
+          'A: 36 € − 5 € = 31 €. B: 28 €. A ist besser, um 3 €.', 'Ziehe bei A die Gebühr ab.', einheit=E))
+SN(lz, SZ('transfer', 'Eine Bank erhöht den Zinssatz von 1,2 % auf 1,5 %. Wie viel Euro mehr Zinsen gibt es dadurch für 5 000 € im Jahr?', 15, '5000 * 0.3 / 100', 'Der Unterschied sind 0,3 Prozentpunkte. 1 % = 50 €, 0,3 % = 15 €.', 'Rechne nur mit dem Unterschied.', einheit=E))
+SN(lz, SZ('transfer', 'Wie viel Euro muss man zu 0,5 % anlegen, um im Jahr genau 1 € Zinsen zu bekommen?', 200, '1 / 0.5 * 100', '0,5 % sind 1 €, also 1 % = 2 € und 100 % = 200 €.', 'Wie viel Euro wären 1 %?', einheit=E))
+SK(lz, SZ('knobel', 'Bank A zahlt 1,8 % ohne Gebühr, Bank B 2,3 % bei 10 € Gebühr im Jahr. Ab welchem Kapital (in vollen 100 €) bekommt man bei Bank B mehr?', 2100, '2100',
+          'B bringt 0,5 Prozentpunkte mehr, muss aber 10 € Gebühr ausgleichen. 0,5 % = 10 € gilt bei 2 000 €. Erst darüber lohnt sich B: ab 2 100 €.', 'Wann gleichen die 0,5 Prozentpunkte genau die Gebühr aus?', einheit=E))
+SK(lz, SZ('knobel', 'Ein Kapital ist in einem Jahr mit 2,5 % Zinsen auf 820 € gewachsen. Wie groß war es am Anfang?', 800, '820 / 1.025', 'Am Ende sind Kapital und Zinsen zusammen 102,5 % des Anfangskapitals. 820 € : 102,5 = 8 € sind 1 %, also war das Kapital 800 € (Probe: 2,5 % von 800 € sind 20 €).', 'Wie viel Prozent des Anfangskapitals sind 820 €?', einheit=E))
+
+lz = 'zinssatz'
+ST.leiter(lz, 'Zinssatz = Zinsen durch Kapital mal 100 bei glatten Zahlen; die Rechnung erkennen.', 'Zinssatz aus Kontostand oder Rückzahlung, Banken vergleichen, Zinsen zu anderem Kapital.',
+          'Fehler deuten, halbes Jahr, Zinsen ohne Zinseszins über Jahre, Prozentpunkte, Aussage begründen, rückwärts über zwei Jahre, Bruchteile, Prüfungsaufgabe.')
+STB(lz, 2, '1 700', 'direkt', neu_s=1); STB(lz, 2, 'Ein Konto wächst', 'mehrschritt'); STB(lz, 2, 'Bank A', 'mehrschritt')
+STB(lz, 3, 'Für 5 000', 'verknuepfen')
+SN(lz, SZ('einkleidung', 'Ein Sparbuch mit 900 € bringt im Jahr 13,50 € Zinsen. Wie hoch ist der Zinssatz?', 1.5, '13.5 / 900 * 100', '1 % von 900 € sind 9 €. 13,50 € : 9 € = 1,5, also 1,5 %.', 'Wie viel ist 1 % von 900 €?', einheit='%'))
+SN(lz, SA('erkennen', 'Wie berechnest du den Zinssatz aus Zinsen und Kapital?', 'Zinsen : Kapital · 100', ['Kapital : Zinsen · 100', 'Zinsen · Kapital'], 'Der Zinssatz ist der Anteil der Zinsen am Kapital in Prozent.', 'Was steht beim Anteil oben?'))
+SN(lz, SZ('direkt', 'Für 100 € gibt es im Jahr 3 € Zinsen. Wie hoch ist der Zinssatz?', 3, '3 / 100 * 100', '3 € von 100 € sind 3 %.', 'Prozent heißt „von hundert“.', einheit='%'))
+SN(lz, SZ('umkehr', 'Ein Kapital von 2 500 € bringt 3 % Zinsen. Welches Kapital bringt bei diesem Zinssatz 45 € Zinsen?', 1500, '45 / 3 * 100', '3 % sind 45 €, also 1 % = 15 € und das Kapital 1 500 €.', 'Der Zinssatz bleibt gleich – gesucht ist das Kapital.', einheit=E))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Eine Bank, die mehr Euro Zinsen zahlt, hat auch den höheren Zinssatz.“', 'Nein, das hängt vom Kapital ab.', ['Ja, immer.', 'Ja, außer bei Krediten.'],
+          'Beispiel: 60 € für 2 000 € sind 3 %, 75 € für 3 000 € nur 2,5 %.', 'Suche ein Gegenbeispiel mit verschiedenem Kapital.'))
+SN(lz, SZ('rueckwaerts', 'Jemand hebt die Zinsen jedes Jahr ab. Nach zwei Jahren hat er für 1 600 € insgesamt 96 € Zinsen bekommen. Wie hoch war der Zinssatz?', 3, '96 / 2 / 1600 * 100', 'Ein Jahr: 48 €. 48 € von 1 600 € = 3 %.', 'Wie viel gab es in einem Jahr?', einheit='%'))
+SN(lz, SZ('parameter', 'Bei welchem Zinssatz sind die Zinsen eines Jahres genau ein Viertel von 10 % des Kapitals?', 2.5, '10 / 4', 'Ein Viertel von 10 % ist 2,5 %.', 'Was ist ein Viertel von 10?', einheit='%'))
+SN(lz, SZ('pruefung', 'Herr A legt 2 400 € an und erhält 60 € Zinsen. Frau B legt 3 200 € an und erhält 72 € Zinsen. Um wie viele Prozentpunkte ist der bessere Zinssatz höher?', 0.25, '60 / 2400 * 100 - 72 / 3200 * 100',
+          'A: 60 : 2 400 = 2,5 %. B: 72 : 3 200 = 2,25 %. Unterschied 0,25 Prozentpunkte.', 'Berechne beide Zinssätze.'))
+SK(lz, SZ('knobel', 'Die Zinsen werden jedes Jahr abgehoben. Bei welchem Zinssatz sind sie nach 25 Jahren zusammen so viel wie das Kapital?', 4, '100 / 25',
+          'In 25 Jahren sollen die Zinsen 100 % des Kapitals ergeben. Jedes Jahr also 100 % : 25 = 4 %.', 'Wie viel Prozent muss es pro Jahr sein?', einheit='%'))
+SK(lz, SZ('knobel', '2 000 € bringen in 8 Monaten 40 € Zinsen. Wie hoch ist der Jahreszinssatz?', 3, '40 / 8 * 12 / 2000 * 100', 'Für 8 Monate 40 €, also je Monat 5 € und für ein ganzes Jahr 12 · 5 € = 60 €. 60 € von 2 000 € sind 3 % – das ist der Jahreszinssatz.', 'Rechne zuerst die Zinsen für ein ganzes Jahr aus.', einheit='%'))
+
+lz = 'kapital'
+ST.leiter(lz, 'Kapital aus Zinsen und Zinssatz über 1 % bestimmen; die Rechnung erkennen.', 'Kredit aus Zinsen, Zinssatz mit Komma, gewünschte Zinsen, Zinsen zu anderem Kapital.',
+          'Fehler deuten, Kapital aus dem Endstand, Banken vergleichen, halbes Jahr, Aussage begründen, gleiche Zinsen, Monatszinsen als Ziel, Zinsen aus dem Endstand.')
+STB(lz, 2, 'Bei 6 %', 'direkt', neu_s=1); STB(lz, 2, 'Bei 2,5 %', 'mehrschritt'); STB(lz, 2, 'Jemand möchte', 'einkleidung')
+STB(lz, 3, 'Bank A', 'transfer'); STB(lz, 3, 'Ein Kapital bringt', 'verknuepfen')
+SN(lz, SA('erkennen', 'Wie berechnest du das Kapital K aus den Zinsen Z und dem Zinssatz p?', 'K = Z · 100 : p', ['K = Z · p : 100', 'K = Z + p'], 'Über 1 %: Z : p ist 1 %, mal 100 ergibt das Kapital.', 'Gehe über 1 %.'))
+SN(lz, SZ('direkt', '1 % Zinsen sind 8 €. Wie groß ist das Kapital?', 800, '8 * 100', '1 % = 8 €, also 100 % = 800 €.', '100 % sind hundertmal so viel.', einheit=E))
+SN(lz, SZ('umkehr', '2 400 € bringen 72 € Zinsen. Wie viel Euro Zinsen brächten 3 000 € beim gleichen Zinssatz?', 90, '3000 * 72 / 2400', 'Zinssatz: 72 : 2 400 = 3 %. 3 % von 3 000 € = 90 €.', 'Bestimme zuerst den Zinssatz.', einheit=E))
+SN(lz, SZ('mehrschritt', 'Bei 1,5 % bekommt man in einem Jahr 33 € Zinsen. Wie groß ist das Kapital?', 2200, '33 / 1.5 * 100', '1 % = 33 € : 1,5 = 22 €, Kapital 2 200 €.', 'Teile durch 1,5, um 1 % zu erhalten.', einheit=E))
+SN(lz, SZ('einkleidung', 'Oma bekommt für ihr Sparbuch bei 0,5 % genau 15 € Zinsen im Jahr. Wie viel Geld liegt darauf?', 3000, '15 / 0.5 * 100', '0,5 % = 15 €, also 1 % = 30 € und das Kapital 3 000 €.', 'Wie viel ist 1 %?', einheit=E))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Bei einem kleineren Zinssatz braucht man mehr Kapital für dieselben Zinsen.“', 'Ja, z. B. 30 € Zinsen: bei 3 % braucht man 1 000 €, bei 2 % 1 500 €.', ['Nein, man braucht weniger.', 'Nein, das Kapital ist immer gleich.'],
+          'Kapital = Zinsen · 100 : p. Wird p kleiner, wird das Kapital größer.', 'Rechne ein Beispiel mit zwei Zinssätzen.'))
+SN(lz, SZ('parameter', 'Für welches Kapital K sind 3 % von K genauso viel wie 5 % von 1 500 €?', 2500, '1500 * 5 / 3', '5 % von 1 500 € = 75 €. 3 % von K = 75 € ergibt K = 2 500 €.', 'Rechne zuerst 5 % von 1 500 € aus.', einheit=E))
+SN(lz, SZ('pruefung', 'Jemand möchte jeden Monat 25 € Zinsen bekommen. Die Bank zahlt 2 % im Jahr. Wie viel Geld muss er anlegen?', 15000, '25 * 12 / 2 * 100', 'Im Jahr 300 €. 2 % = 300 € heißt 1 % = 150 €, Kapital 15 000 €.', 'Wie viel Zinsen braucht er im Jahr?', einheit=E))
+SN(lz, SZ('transfer', 'Ein Konto ist in einem Jahr mit 2,5 % Zinsen auf 1 230 € angewachsen. Wie viel Euro Zinsen waren es?', 30, '1230 - 1230 / 1.025', '1 230 € sind 102,5 %. Kapital 1 200 €, Zinsen 30 €.', 'Bestimme zuerst das Kapital.', einheit=E))
+SK(lz, SZ('knobel', 'Zwei Beträge ergeben zusammen 6 000 €. Der eine liegt zu 2 %, der andere zu 4 %. Beide bringen gleich viele Zinsen. Wie groß ist der größere Betrag?', 4000, '6000 * 2 / 3',
+          'Der Betrag zu 2 % muss doppelt so groß sein wie der zu 4 %. Also 4 000 € und 2 000 € (beide bringen 80 €).', 'Wie müssen sich die Beträge verhalten, wenn ein Zinssatz doppelt so groß ist?', einheit=E))
+SK(lz, SZ('knobel', 'Ein Kapital bringt in 3 Monaten bei 2,4 % Jahreszins 18 € Zinsen. Wie groß ist das Kapital?', 3000, '18 * 4 / 2.4 * 100', 'Ein Jahr brächte 4 · 18 € = 72 €. 2,4 % = 72 € ergibt 1 % = 30 € und das Kapital 3 000 €.', 'Rechne zuerst die Jahreszinsen aus.', einheit=E))
+
+lz = 'monatszinsen'
+ST.leiter(lz, 'Zinsen für ganze Monate mit Jahreszinsen · m/12; den Zeitanteil erkennen.', 'Monatszinsen bei großem Kapital, Zeitraum aus Daten, Rückzahlung eines Kredits, Kapital aus Monatszinsen.',
+          'Fehler deuten, Monate rückwärts, Angebote vergleichen, Hochrechnen, höchstens erlaubte Monate, Bruchteil eines Jahres, Prüfungsaufgabe mit Daten.')
+STB(lz, 2, 'Berechne die Zinsen für 7 200', 'direkt', neu_s=1); STB(lz, 2, 'Berechne die Zinsen für 10', 'mehrschritt')
+STB(lz, 3, 'Wie viele Monate', 'rueckwaerts'); STB(lz, 3, 'Was bringt mehr', 'begruenden')
+SN(lz, SA('erkennen', 'Welcher Bruchteil eines Jahres sind 5 Monate?', '5/12', ['5/10', '1/5', '5/100'], 'Ein Jahr hat 12 Monate, 5 Monate sind 5/12.', 'Wie viele Monate hat ein Jahr?'))
+SN(lz, SZ('direkt', 'Die Jahreszinsen sind 60 €. Wie viel Zinsen gibt es für einen Monat?', 5, '60 / 12', '60 € : 12 = 5 €.', 'Teile durch die Zahl der Monate eines Jahres.', einheit=E))
+SN(lz, SZ('umkehr', 'Für 4 Monate gab es bei 3 % Jahreszins 12 € Zinsen. Wie groß ist das Kapital?', 1200, '12 * 3 / 3 * 100', 'Ein Jahr brächte 3 · 12 € = 36 €. 3 % = 36 €, also Kapital 1 200 €.', 'Rechne zuerst die Jahreszinsen aus.', einheit=E))
+SN(lz, SZ('parameter', '2 400 € liegen zu 5 % Jahreszins. Wie viele volle Monate darf das Geld höchstens liegen, damit es nicht mehr als 40 € Zinsen gibt?', 4, '40 // (2400 * 5 / 100 / 12)',
+          'Im Jahr 120 €, im Monat 10 €. 40 € reichen für 4 Monate.', 'Wie viel bringt ein Monat?'))
+SN(lz, SZ('verknuepfen', 'Ein Kredit über 1 800 € zu 6 % Jahreszins läuft 2/3 eines Jahres. Wie viel Euro Zinsen fallen an?', 72, '1800 * 6 / 100 * 2 / 3', 'Jahreszinsen: 108 €. Davon 2/3: 72 €.', 'Wie viel sind die Jahreszinsen?', einheit=E))
+SN(lz, SZ('pruefung', 'Ein Kind legt am 1. Februar 1 500 € zu 2,4 % Jahreszins an und hebt am 1. Dezember alles ab. Wie viel Euro bekommt es?', 1530, '1500 + 1500 * 2.4 / 100 * 10 / 12',
+          'Februar bis Dezember sind 10 Monate. Jahreszinsen 36 €, für 10 Monate 30 €. Ausgezahlt: 1 530 €.', 'Zähle zuerst die Monate.', einheit=E))
+SN(lz, SZ('transfer', 'Für 7 Monate gibt es 14 € Zinsen. Wie viel Euro wären es für 1 1/2 Jahre, wenn die Zinsen nicht mitverzinst werden?', 36, '14 / 7 * 18', 'Je Monat 2 €. 1 1/2 Jahre sind 18 Monate: 36 €.', 'Wie viel bringt ein Monat?', einheit=E))
+SK(lz, SZ('knobel', 'Jemand legt 3 600 € zu 4 % Jahreszins an. Nach wie vielen vollen Monaten hat er zum ersten Mal mehr als 100 € Zinsen?', 9, '9', 'Je Monat 3 600 € · 4 % : 12 = 12 €. Nach 8 Monaten 96 €, nach 9 Monaten 108 €.', 'Wie viel bringt ein Monat?'))
+SK(lz, SA('knobel', 'Was bringt mehr Zinsen: 6 Monate zu 4 % oder 8 Monate zu 3 % (gleiches Kapital)?', 'Beide bringen gleich viel.', ['6 Monate zu 4 %', '8 Monate zu 3 %'],
+          '6/12 von 4 % sind 2 %, 8/12 von 3 % sind auch 2 % des Kapitals. Kürzere Zeit wird durch den höheren Zinssatz genau ausgeglichen.', 'Rechne aus, wie viel Prozent des Kapitals es jeweils sind.'))
+
+lz = 'zeitanteil'
+ST.leiter(lz, 'Zinsen für ein halbes Jahr und ein Vierteljahr; wissen, wie viele Monate das sind.', 'Dreivierteljahr, Guthaben und Kredite für Teile eines Jahres, Kapital aus Halbjahreszinsen, anderthalb Jahre.',
+          'Fehler deuten, Halbjahr auf Vierteljahr umrechnen, Angebote begründen, Dauer rückwärts, Zinssatz für 1 % im Vierteljahr, Drittel und Dreiviertel, Prüfungsaufgabe.')
+STB(lz, 2, '5 000 €', 'mehrschritt'); STB(lz, 2, '500 €', 'direkt', neu_s=1)
+STB(lz, 3, 'Ein Kapital bringt', 'transfer'); STB(lz, 3, 'Angebot A', 'begruenden'); STB(lz, 3, '2 000 €', 'rueckwaerts')
+SN(lz, SZ('umkehr', 'Ein halbes Jahr bringt bei 4 % Jahreszins genau 50 € Zinsen. Wie groß ist das Kapital?', 2500, '50 * 2 / 4 * 100', 'Ein Jahr: 100 €. 4 % = 100 €, Kapital 2 500 €.', 'Rechne zuerst die Jahreszinsen aus.', einheit=E))
+SN(lz, SZ('mehrschritt', '3 000 € liegen 1 1/2 Jahre zu 2 % Jahreszins, die Zinsen werden jedes Jahr abgehoben. Wie viel Euro Zinsen gibt es insgesamt?', 90, '3000 * 2 / 100 * 1.5', 'Ein Jahr: 60 €, ein halbes Jahr: 30 €. Zusammen 90 €.', 'Zerlege in 1 Jahr und 1/2 Jahr.', einheit=E))
+SN(lz, SZ('einkleidung', 'Ein Kind legt 800 € Geburtstagsgeld für ein Vierteljahr zu 2 % Jahreszins an. Wie viel Euro Zinsen bekommt es?', 4, '800 * 2 / 100 / 4', 'Jahreszinsen 16 €, ein Viertel davon 4 €.', 'Ein Vierteljahr ist ein Viertel der Jahreszinsen.', einheit=E))
+SN(lz, SZ('parameter', 'Bei welchem Jahreszinssatz bringt ein Vierteljahr genau 1 % des Kapitals?', 4, '1 * 4', 'Ein Vierteljahr bringt ein Viertel der Jahreszinsen. Ein Viertel von 4 % ist 1 %.', 'Wie oft passt ein Vierteljahr in ein Jahr?', einheit='%'))
+SN(lz, SZ('verknuepfen', 'Ein Kapital bringt in 1/3 Jahr 16 € Zinsen. Wie viel Euro bringt es in 3/4 Jahr?', 36, '16 * 3 * 3 / 4', 'Ein Jahr: 3 · 16 € = 48 €. 3/4 davon: 36 €.', 'Rechne über ein ganzes Jahr.', einheit=E))
+SN(lz, SZ('pruefung', 'Eine Firma leiht sich 24 000 € zu 5 % Jahreszins für ein Vierteljahr. Wie viel muss sie zurückzahlen?', 24300, '24000 + 24000 * 5 / 100 / 4', 'Jahreszinsen 1 200 €, für ein Vierteljahr 300 €. Zurück: 24 300 €.', 'Kredit plus Zinsen.', einheit=E))
+SN(lz, SA('transfer', 'Was bringt mehr: ein Vierteljahr zu 8 % oder ein halbes Jahr zu 3 % (gleiches Kapital)?', 'ein Vierteljahr zu 8 %', ['ein halbes Jahr zu 3 %', 'Beide bringen gleich viel.'],
+          'Vierteljahr zu 8 %: 2 % des Kapitals. Halbes Jahr zu 3 %: 1,5 %.', 'Wie viel Prozent des Kapitals sind es jeweils?'))
+SK(lz, SZ('knobel', '2 000 € liegen erst ein Vierteljahr zu 6 % Jahreszins und danach (ohne die Zinsen) noch ein halbes Jahr zu 4 % Jahreszins. Wie viel Euro Zinsen gibt es insgesamt?', 70, '2000 * 6 / 100 / 4 + 2000 * 4 / 100 / 2',
+         'Vierteljahr zu 6 %: Jahreszinsen 120 €, ein Viertel davon 30 €. Halbes Jahr zu 4 %: Jahreszinsen 80 €, die Hälfte 40 €. Zusammen 70 €.', 'Rechne beide Zeitabschnitte getrennt.', einheit=E))
+SK(lz, SZ('knobel', 'Wie viele Tage muss ein Kapital von 36 000 € zu 5 % Jahreszins liegen, damit es 100 € Zinsen gibt? (Rechne mit 360 Tagen im Jahr.)', 20, '100 / (36000 * 5 / 100 / 360)',
+          'Jahreszinsen: 1 800 €. Je Tag 1 800 € : 360 = 5 €. Für 100 € braucht es 20 Tage.', 'Wie viel bringt ein Tag?'))
+
 
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
@@ -406,3 +557,4 @@ if __name__ == '__main__':
          offen=['Runde 9: Thema stammt aus der Zeit vor dem Bausatz; die bisherigen Aufgaben liegen nur in der Datenbank. Dieser Generator erzeugt neue Aufgaben, '
                 'die beim Einspielen mit einheit_abgleichen(…, \'lassen\') dazukommen. Dubletten zu den alten Aufgaben ließen sich hier nicht prüfen, weil diese nicht im Repository liegen.',
                 'Modell wie auf den Karten: fester Jahreszinssatz, gleichbleibendes Kapital, keine Zinsen auf Zinsen (Zinseszins ist ein eigenes Thema).'])
+    stufen_datei('finanzen.zinsen', ST)

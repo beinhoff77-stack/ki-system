@@ -8104,41 +8104,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Nach einer Abbuchung von 200 € steht ein Konto bei −30 €. Löse x − 200 = −30: Wie hoch war der Kontostand vorher?"
-   },
-   "o": {
-    "wert": 170,
-    "einheit": "€"
-   },
-   "c": "(-30) + 200",
-   "w": "Umkehraufgabe von minus 200 ist plus 200: x = −30 + 200 = 170. Probe: 170 − 200 = −30 ✓",
-   "h": "Kehre minus mit plus um: Die abgebuchten Euro wieder dazu.",
-   "g": "einkleidung"
-  },
-  {
-   "l": "umkehraufgabe",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Gleichung x + (−10) = −29. Wie groß ist x?"
-   },
-   "o": {
-    "wert": -19
-   },
-   "c": "(-29) - (-10)",
-   "w": "Umkehraufgabe von plus (−10) ist minus (−10): x = −29 − (−10) = −19. Probe: (−19) + (−10) = −29 ✓",
-   "h": "Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl.",
-   "g": "direkt"
-  },
-  {
-   "l": "umkehraufgabe",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Löse die Gleichung 184 + x = 72. Wie groß ist x?"
    },
    "o": {
@@ -8165,6 +8130,131 @@
    "w": "Von 1 205 340 wird x abgezogen und es bleiben 386 917. Also ist x der Unterschied: 1 205 340 − 386 917 = 818 423. Probe: 1 205 340 − 818 423 = 386 917 ✓",
    "h": "Was muss man von 1 205 340 abziehen, damit 386 917 übrig bleibt? Rechne schriftlich.",
    "g": "verknuepfen"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x + (−10) = −29. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -19
+   },
+   "c": "(-29) - (-10)",
+   "w": "Umkehraufgabe von plus (−10) ist minus (−10): x = −29 − (−10) = −19. Probe: (−19) + (−10) = −29 ✓",
+   "h": "Kehre plus mit minus um: Rechne das Ergebnis minus die bekannte Zahl.",
+   "g": "direkt"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einer Abbuchung von 200 € steht ein Konto bei −30 €. Löse x − 200 = −30: Wie hoch war der Kontostand vorher?"
+   },
+   "o": {
+    "wert": 170,
+    "einheit": "€"
+   },
+   "c": "(-30) + 200",
+   "w": "Umkehraufgabe von minus 200 ist plus 200: x = −30 + 200 = 170. Probe: 170 − 200 = −30 ✓",
+   "h": "Kehre minus mit plus um: Die abgebuchten Euro wieder dazu.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung 181 − x = −33. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 214
+   },
+   "c": "(181) - (-33)",
+   "w": "Von 181 wird x abgezogen und es bleibt −33. Also ist x der Unterschied: x = 181 − (−33) = 214. Probe: 181 − 214 = −33 ✓",
+   "h": "Frage: Wie viel muss ich von der ersten Zahl abziehen, damit das Ergebnis herauskommt?",
+   "g": "umkehr"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche ganze Zahl x gilt x + x = x − 5? Probiere aus."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-5",
+   "w": "Probieren: x = −5 ergibt links (−5) + (−5) = −10 und rechts (−5) − 5 = −10 ✓. Links steht x zweimal, rechts einmal und dazu „− 5“: Das zweite x muss −5 sein.",
+   "h": "Probiere auch negative Zahlen. Links wird x zweimal genommen, rechts nur einmal.",
+   "g": "transfer"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Die Lösung von x − 6 = a ist immer größer als a.“"
+   },
+   "a": [
+    "Nein: x ist immer a − 6.",
+    "Nein: Bei negativem a ist x kleiner.",
+    "Ja: x = a + 6 ist immer um 6 größer.",
+    "Ja, aber nur für positive a."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Umkehraufgabe: x = a + 6. Das ist für jedes a um 6 größer als a.",
+   "h": "Löse die Gleichung allgemein mit der Umkehraufgabe."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Denke dir eine Zahl. Subtrahiere 48 und addiere dann 30. Du erhältst −25. Welche Zahl hast du gedacht?"
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "-25 - 30 + 48",
+   "w": "Rückwärts: −25 − 30 = −55; −55 + 48 = −7. Probe: −7 − 48 + 30 = −25.",
+   "h": "Rechne vom Ergebnis aus rückwärts."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x + 4 999 = 2 001. Rechne geschickt."
+   },
+   "o": {
+    "wert": -2998
+   },
+   "c": "2001 - 4999",
+   "w": "x = 2 001 − 4 999. Geschickt: 2 001 − 5 000 = −2 999, dann + 1: x = −2 998.",
+   "h": "Ersetze 4 999 durch 5 000 − 1."
   },
   {
    "l": "umkehraufgabe",
@@ -8227,23 +8317,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse die Gleichung 181 − x = −33. Wie groß ist x?"
-   },
-   "o": {
-    "wert": 214
-   },
-   "c": "(181) - (-33)",
-   "w": "Von 181 wird x abgezogen und es bleibt −33. Also ist x der Unterschied: x = 181 − (−33) = 214. Probe: 181 − 214 = −33 ✓",
-   "h": "Frage: Wie viel muss ich von der ersten Zahl abziehen, damit das Ergebnis herauskommt?",
-   "g": "umkehr"
-  },
-  {
-   "l": "umkehraufgabe",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Bis zum Abend wurde es um 4 Grad wärmer. Jetzt sind es −8 °C. Löse x + 4 = −8: Wie warm war es morgens?"
    },
    "o": {
@@ -8276,6 +8349,45 @@
    "l": "umkehraufgabe",
    "t": "gleichungen",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Rechnung führt zur Lösung von x − 177 = 362?"
+   },
+   "a": [
+    "362 + 177",
+    "177 − 362",
+    "362 − 177",
+    "177 + 177"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Von x wurde 177 abgezogen. Rückwärts wird 177 wieder addiert: x = 362 + 177 = 539.",
+   "h": "Was ist die Umkehrung von Minus?",
+   "g": "darstellung"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 63 = x − 28."
+   },
+   "o": {
+    "wert": 91
+   },
+   "c": "63 + 28",
+   "w": "Umkehrung von minus ist plus: x = 63 + 28 = 91. Probe: 91 − 28 = 63.",
+   "h": "Es ist egal, auf welcher Seite x steht.",
+   "g": "umkehr"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
    "s": 3,
    "y": "luecken",
    "f": {
@@ -8294,23 +8406,6 @@
    "w": "Rückwärts, den letzten Schritt zuerst: −3 − 8 = −11. Dann −11 + 15 = 4. Probe: (4 − 15) + 8 = −11 + 8 = −3 ✓",
    "h": "Kehre zuerst das „+ 8“ um, danach das „− 15“.",
    "g": "rueckwaerts"
-  },
-  {
-   "l": "umkehraufgabe",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für welche ganze Zahl x gilt x + x = x − 5? Probiere aus."
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "-5",
-   "w": "Probieren: x = −5 ergibt links (−5) + (−5) = −10 und rechts (−5) − 5 = −10 ✓. Links steht x zweimal, rechts einmal und dazu „− 5“: Das zweite x muss −5 sein.",
-   "h": "Probiere auch negative Zahlen. Links wird x zweimal genommen, rechts nur einmal.",
-   "g": "transfer"
   },
   {
    "l": "umkehraufgabe",
@@ -8339,62 +8434,6 @@
    "t": "gleichungen",
    "p": "uebung",
    "s": 3,
-   "g": "begruenden",
-   "y": "auswahl",
-   "f": {
-    "text": "Stimmt die Aussage? „Die Lösung von x − 6 = a ist immer größer als a.“"
-   },
-   "a": [
-    "Nein: x ist immer a − 6.",
-    "Nein: Bei negativem a ist x kleiner.",
-    "Ja: x = a + 6 ist immer um 6 größer.",
-    "Ja, aber nur für positive a."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Umkehraufgabe: x = a + 6. Das ist für jedes a um 6 größer als a.",
-   "h": "Löse die Gleichung allgemein mit der Umkehraufgabe."
-  },
-  {
-   "l": "umkehraufgabe",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "zahl",
-   "f": {
-    "text": "Denke dir eine Zahl. Subtrahiere 48 und addiere dann 30. Du erhältst −25. Welche Zahl hast du gedacht?"
-   },
-   "o": {
-    "wert": -7
-   },
-   "c": "-25 - 30 + 48",
-   "w": "Rückwärts: −25 − 30 = −55; −55 + 48 = −7. Probe: −7 − 48 + 30 = −25.",
-   "h": "Rechne vom Ergebnis aus rückwärts."
-  },
-  {
-   "l": "umkehraufgabe",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 3,
-   "g": "verknuepfen",
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Gleichung x + 4 999 = 2 001. Rechne geschickt."
-   },
-   "o": {
-    "wert": -2998
-   },
-   "c": "2001 - 4999",
-   "w": "x = 2 001 − 4 999. Geschickt: 2 001 − 5 000 = −2 999, dann + 1: x = −2 998.",
-   "h": "Ersetze 4 999 durch 5 000 − 1."
-  },
-  {
-   "l": "umkehraufgabe",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 3,
    "g": "parameter",
    "y": "zahl",
    "f": {
@@ -8406,6 +8445,78 @@
    "c": "-10 - 4",
    "w": "Setze x = 4 ein: 4 + a = −10, also a = −14.",
    "h": "Setze die Lösung für x ein."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Rechnung führt zur Lösung von 47 − x = 18?"
+   },
+   "a": [
+    "47 − 18",
+    "18 − 47",
+    "47 + 18"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x ist das, was von 47 weggenommen wird, damit 18 bleibt: x = 47 − 18 = 29. Mit 47 + 18 = 65 wäre 47 − 65 gar nicht 18.",
+   "h": "Probiere mit kleinen Zahlen: 10 − x = 3. Welche Zahl ist x, und wie hast du sie gerechnet?",
+   "g": "begruenden"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x + 44 = 52 + 64."
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "52 + 64 - 44",
+   "w": "Erst die rechte Seite ausrechnen: 52 + 64 = 116. Dann x = 116 − 44 = 72.",
+   "h": "Rechne zuerst aus, was rechts steht.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss man von 1 000 subtrahieren, um 2 026 zu erhalten?"
+   },
+   "o": {
+    "wert": -1026
+   },
+   "c": "1000 - 2026",
+   "w": "1 000 − x = 2 026. Das Ergebnis ist größer, also ist x negativ: x = 1 000 − 2 026 = −1 026. Probe: 1 000 − (−1 026) = 2 026.",
+   "h": "Schreibe die Gleichung 1 000 − x = 2 026 auf. Was muss x sein, damit das Ergebnis größer wird?",
+   "g": "transfer"
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Fülle die Lücke: 2 345 − □ + 160 = 1 900. Welche Zahl gehört in die Lücke?"
+   },
+   "o": {
+    "wert": 605
+   },
+   "c": "2345 + 160 - 1900",
+   "w": "2 345 + 160 = 2 505. Davon muss man 605 abziehen, damit 1 900 herauskommt.",
+   "h": "Was muss von 2 505 abgezogen werden?"
   },
   {
    "l": "umkehraufgabe",
@@ -8440,6 +8551,23 @@
    "c": "-9 + 17 + 17",
    "w": "Die Zahl ist −9 + 17 = 8. Richtig wäre 8 + 17 = 25. Kurz: Das richtige Ergebnis ist um 2 · 17 = 34 größer als das falsche.",
    "h": "Finde zuerst die Zahl."
+  },
+  {
+   "l": "umkehraufgabe",
+   "t": "gleichungen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl. Ziehe ich 99 davon ab, erhalte ich dasselbe, wie wenn ich meine Zahl von 301 abziehe. Welche Zahl ist es?"
+   },
+   "o": {
+    "wert": 200
+   },
+   "c": "(301 + 99) // 2",
+   "w": "Die Zahl liegt genau in der Mitte zwischen 99 und 301: Sie ist von beiden gleich weit entfernt. Mitte: (99 + 301) : 2 = 200. Probe: 200 − 99 = 101 = 301 − 200.",
+   "h": "Wo liegt eine Zahl, die von 99 und von 301 gleich weit entfernt ist?"
   },
   {
    "l": "umkehraufgabe",

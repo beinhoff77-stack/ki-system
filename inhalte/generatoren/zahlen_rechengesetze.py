@@ -1474,3 +1474,10 @@ stufen_anwenden(DATEI, 'zahlen.rechengesetze')
 
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.rechengesetze.json')
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('zahlen.rechengesetze')
+# ---- BEREINIGEN ENDE ----

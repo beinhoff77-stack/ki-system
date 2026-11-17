@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:53 – STATUS: groessen.proportional fertig
+7 Lernkarten: 39 neue Übungen, 14 Knobel-Bordkarten, 48 umgestuft, 18 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
+
 ## 2026-11-17 14:50 – STATUS: groessen.einheiten fertig
 8 Lernkarten: 33 neue Übungen, 16 Knobel-Bordkarten, 29 umgestuft, 25 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK. Hinweis: massstab/„Zimmer m²“ verlangt Flächeneinheiten, die erst in messen.flaechen kommen (Reihenfolge der Themenliste) – nur gemeldet.
 

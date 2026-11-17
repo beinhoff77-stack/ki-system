@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(5903)
 
@@ -30,6 +31,7 @@ def korrelation(xs, ys):
 def daten(sach, art, n=None):
     """art: stark_pos, schwach_pos, stark_neg, schwach_neg, kein. Gibt xs, ys zurück."""
     xn, xe, yn, ye, (x0, x1), m, t, st, _ = sach
+    if ('pos' in art and m < 0) or ('neg' in art and m > 0): return None  # Durchsicht 19: Richtung passt zur Sache (Autowert fällt mit dem Alter)
     n = n or R.randint(8, 11)
     for _ in range(400):
         xs = sorted(R.sample(range(x0, x1 + 1), n)) if x1 - x0 + 1 >= n else None
@@ -109,7 +111,10 @@ def g_ablesen(s):
     bild = streubild(sach, xs, ys)
     st = bild['schritt_y']
     if any(y % (st // 2 or 1) for y in ys) and s == 1: return None
-    art = R.choice({1: ['y_bei', 'anzahl'], 2: ['y_bei', 'groesste', 'ueber'], 3: ['differenz', 'ueber', 'x_bei']}[s])
+    # Durchsicht 19: Stufe 2 = umgekehrt ablesen / zwei Werte; Stufe 3 = zwei Bedingungen, Einheit, mit Mittelwert oder Prozent verknüpfen
+    art = R.choice({1: ['y_bei', 'anzahl'], 2: ['groesste', 'ueber', 'differenz', 'x_bei']}[s]) if s < 3 else art3('zwei_bed', 'einheit', 'mittel', ['zwei_bed', 'einheit', 'mittel', 'anteil'])
+    if art in ('zwei_bed', 'einheit', 'mittel', 'anteil'):
+        return ablesen3(art, sach, xs, ys, bild, st)
     ein = f' {ye}' if ye else ''
     if art == 'y_bei':
         i = R.randrange(len(xs))
@@ -135,7 +140,7 @@ def g_ablesen(s):
                                f'y-Werte: etwa {ys[i]} und {ys[j]}. Unterschied: {abs(ys[j] - ys[i])} (Ablesen auf ±{dz(st)} genau genügt).', 'Lies beide y-Werte ab und ziehe den kleineren vom größeren ab.',
                                abs(ys[j] - ys[i]), f'abs({ys[j]} - {ys[i]})', tol=st), bild)
     i = R.randrange(len(xs))
-    if ys.count(ys[i]) > 1: return None
+    if any(abs(y - ys[i]) < st for k, y in enumerate(ys) if k != i): return None  # Durchsicht 19: sonst nicht eindeutig ablesbar
     return mit_grafik(zahl(f'Das Streudiagramm zeigt {xn} und {yn}. Ein Punkt liegt auf der Höhe y = {ys[i]}. Welchen x-Wert hat er?', f'Auf Höhe {ys[i]} liegt der Punkt bei x = {xs[i]}.',
                            'Suche den Punkt auf der passenden Höhe und gehe senkrecht nach unten zur x-Achse.', xs[i], f'{xs[i]}'), bild)
 
@@ -354,7 +359,294 @@ def g_kausal(s):
                    'Die Stärke sagt nur, wie eng die Punkte an einer Geraden liegen – nicht, warum.', 'Was sagt die Stärke einer Korrelation aus – und was nicht?')
 
 
-GEN = {'ablesen': g_ablesen, 'zusammenhang': g_zusammenhang, 'gerade': g_gerade, 'ausreisser': g_ausreisser, 'kausal': g_kausal}
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Neue Stufe-3-Arten je Lernkarte (Platz 0/1 nach Prüfungsvorbild, Platz 2 Knobelaufgabe; siehe _rsib2.art3).
+# Prüfungsvorbilder: IB MYP eAssessment / MYP-Fragenbanken (Streudiagramm lesen mit zwei Bedingungen, „Describe the correlation“,
+# Ausgleichsgerade durch zwei Punkte, Abweichung vom Trend, Einfluss eines Ausreißers, Experiment planen). Eigene Zahlen und Einkleidungen.
+def ablesen3(art, sach, xs, ys, bild, st):
+    xn, xe, yn, ye = sach[:4]
+    n = len(xs)
+    if art == 'einheit':
+        if ye != 'Tausend €': return None
+        i = R.randrange(n)
+        if ys[i] % (st // 2 or 1): return None
+        return mit_grafik(zahl(f'Das Streudiagramm zeigt das Alter von Autos und ihren Wert in Tausend €. Wie viel Euro ist das Auto wert, das {xs[i]} Jahre alt ist? Gib den Betrag in € an.',
+                               f'Bei x = {xs[i]} liegt der Punkt bei y = {ys[i]}. Die Achse zählt in Tausend €: {ys[i]} · 1000 € = {dz(ys[i] * 1000)} €.',
+                               'Lies den y-Wert ab und achte auf die Einheit an der y-Achse.', ys[i] * 1000, f'{ys[i]} * 1000', einheit='€', tol=st / 2 * 1000), bild)
+    # Grenze in y für „über/unter der Höhe g“: kein Punkt näher als eine halbe Kästchenhöhe
+    g = sorted(ys)[n // 2] // st * st
+    if any(abs(y - g) < st / 2 for y in ys): return None
+    ueber = [k for k in range(n) if ys[k] > g]
+    if art == 'zwei_bed':
+        frei = [v for v in range(min(xs) + 1, max(xs)) if v not in xs]
+        if not frei: return None
+        gx = R.choice(frei)
+        oben = R.random() < .5
+        rechts = [k for k in range(n) if xs[k] > gx]
+        treffer = [k for k in rechts if (ys[k] > g) == oben]
+        if not treffer or len(treffer) == len(rechts): return None
+        return mit_grafik(zahl(f'Das Streudiagramm zeigt {xn} und {yn}. Bei wie vielen Punkten ist der x-Wert größer als {gx} und zugleich der y-Wert {"größer" if oben else "kleiner"} als {dz(g)}?',
+                               f'Rechts von x = {gx} liegen {len(rechts)} Punkte. Davon liegen {len(treffer)} {"über" if oben else "unter"} der Höhe {dz(g)}.',
+                               f'Denke dir eine senkrechte Linie bei x = {gx} und eine waagrechte bei y = {dz(g)}. Zähle nur im passenden Viertel.', len(treffer), f'{len(treffer)}'), bild)
+    if art == 'mittel':
+        if len(ueber) < 2: return None
+        q = Fr(sum(xs[k] for k in ueber), len(ueber))
+        if not endlich(q) or q * 10 != int(q * 10): return None
+        return mit_grafik(zahl(f'Das Streudiagramm zeigt {xn} und {yn}. Berechne den Mittelwert der x-Werte aller Punkte, deren y-Wert größer als {dz(g)} ist.',
+                               f'Über der Höhe {dz(g)} liegen {len(ueber)} Punkte mit den x-Werten {", ".join(str(xs[k]) for k in ueber)}. Mittelwert: {sum(xs[k] for k in ueber)} : {len(ueber)} = {dz(q)}.',
+                               'Erst die Punkte über der Höhe finden, dann ihre x-Werte addieren und durch ihre Anzahl teilen.', q,
+                               f'({" + ".join(str(xs[k]) for k in ueber)}) / {len(ueber)}'), bild)
+    # anteil
+    q = Fr(100 * len(ueber), n)
+    if not endlich(q) or q * 10 != int(q * 10): return None
+    return mit_grafik(zahl(f'Das Streudiagramm zeigt {xn} und {yn}. Wie viel Prozent der Punkte haben einen y-Wert größer als {dz(g)}?',
+                           f'{len(ueber)} von {n} Punkten liegen über der Höhe {dz(g)}: {len(ueber)} : {n} = {dz(q / 100)} = {dz(q)} %.',
+                           'Zähle die Punkte über der Höhe und teile durch die Zahl aller Punkte.', q, f'{len(ueber)} / {n} * 100', einheit='%'), bild)
+
+
+SATZ = {  # Deutung in Worten: (Satzanfang, Ende bei steigend, Ende bei fallend)
+    'Lernzeit': ('Wer länger lernt, hat', 'mehr Punkte', 'weniger Punkte'),
+    'Tagestemperatur': ('An wärmeren Tagen werden', 'mehr Eiskugeln verkauft', 'weniger Eiskugeln verkauft'),
+    'Alter des Autos': ('Ältere Autos sind', 'mehr wert', 'weniger wert'),
+    'Körpergröße': ('Größere Personen haben', 'größere Schuhe', 'kleinere Schuhe'),
+    'Trainingsstunden pro Woche': ('Wer mehr trainiert, läuft die 1000 m in', 'längerer Zeit', 'kürzerer Zeit'),
+    'Fahrstrecke': ('Längere Fahrten kosten', 'mehr', 'weniger'),
+}
+PAARE = {'pos': ['Körpergröße (x) und Schuhgröße (y)', 'Fahrstrecke (x) und Taxipreis (y)', 'Lernzeit (x) und Testpunkte (y)'],
+         'neg': ['Alter eines Autos (x) und sein Wert (y)', 'Höhe auf dem Berg (x) und Temperatur (y)', 'Benutzungsdauer (x) und Akkustand (y)'],
+         'kein': ['Hausnummer (x) und Körpergröße (y)', 'Geburtsmonat (x) und Mathenote (y)', 'Schuhgröße (x) und Lieblingszahl (y)']}
+
+
+def zusammenhang3(art):
+    if art == 'deuten':
+        a = R.choice(['schwach_pos', 'schwach_neg'])
+        sach = R.choice([x for x in SACH if (x[5] > 0) == ('pos' in a)])
+        d = daten(sach, a)
+        if not d: return None
+        xs, ys = d
+        if not any(xs[i] < xs[j] and (ys[i] > ys[j] if 'pos' in a else ys[i] < ys[j]) for i in range(len(xs)) for j in range(len(xs))): return None
+        anf, auf, ab = SATZ[sach[0]]
+        r = f'{anf} meistens {auf if "pos" in a else ab}.'
+        return mit_grafik(auswahl(f'Das Streudiagramm zeigt {sach[0]} (x) und {sach[2]} (y). Welche Aussage beschreibt es richtig?', r,
+                                  [f'{anf} meistens {ab if "pos" in a else auf}.', f'{anf} immer {auf if "pos" in a else ab}.', 'Man kann keinen Zusammenhang erkennen.'],
+                                  f'Die Punkte {"steigen" if "pos" in a else "fallen"}, streuen aber: Es ist eine Tendenz („meistens“). Einzelne Punkte passen nicht – darum ist „immer“ falsch.',
+                                  'Erst die Richtung bestimmen. Dann prüfen: Gilt sie für jeden einzelnen Punkt oder nur meistens?'), streubild(sach, xs, ys))
+    if art == 'kontext':
+        a = R.choice(['stark_pos', 'stark_neg', 'kein'])
+        k = 'pos' if 'pos' in a else 'neg' if 'neg' in a else 'kein'
+        sach = ('x', '', 'y', '', (1, 10), 5 if k != 'neg' else -5, 10 if k != 'neg' else 60, 2 if k != 'kein' else 3, '')
+        d = daten(sach, a, n=R.randint(8, 10))
+        if not d: return None
+        b = streubild(sach, *d)
+        b['name_x'], b['name_y'] = 'x', 'y'
+        r = R.choice(PAARE[k])
+        falsch = [R.choice(PAARE[o]) for o in PAARE if o != k] + [R.choice(PAARE[R.choice([o for o in PAARE if o != k])])]
+        return mit_grafik(auswahl('Die Achsen des Streudiagramms sind nicht beschriftet. Zu welchem Größenpaar passt es am besten?', r, falsch,
+                                  f'Die Punkte {"steigen eng an" if k == "pos" else "fallen eng ab" if k == "neg" else "bilden eine Wolke ohne Richtung"}. '
+                                  f'Das passt zu {r}: {"je mehr x, desto mehr y" if k == "pos" else "je mehr x, desto weniger y" if k == "neg" else "die beiden Größen haben nichts miteinander zu tun"}.',
+                                  'Bestimme zuerst die Art des Zusammenhangs. Überlege dann bei jedem Paar, welche Art du erwartest.'), b)
+    if art == 'tendenz':
+        a = R.choice(['schwach_pos', 'schwach_neg'])
+        sach = R.choice([x for x in SACH[:3] if (x[5] > 0) == ('pos' in a)])
+        d = daten(sach, a, n=R.randint(8, 10))
+        if not d: return None
+        xs, ys = d
+        paare = [(i, j) for i in range(len(xs)) for j in range(len(xs)) if xs[i] < xs[j] and (ys[i] > ys[j] if 'pos' in a else ys[i] < ys[j])]
+        if not paare: return None
+        i, j = R.choice(paare)
+        b = streubild(sach, xs, ys)
+        b['punkte'][i]['name'], b['punkte'][j]['name'] = 'A', 'B'
+        ri = 'positiv' if 'pos' in a else 'negativ'
+        r = 'Nichts Besonderes: Ein Zusammenhang ist eine Tendenz, nicht eine Regel für jedes Paar.'
+        return mit_grafik(auswahl(f'Der Zusammenhang im Streudiagramm ist {ri}. A hat den kleineren x-Wert, aber den {"größeren" if ri == "positiv" else "kleineren"} y-Wert. Was folgt daraus?', r,
+                                  [f'Der Zusammenhang kann doch nicht {ri} sein.', 'A oder B muss ein Messfehler sein.', f'Der Zusammenhang ist {"negativ" if ri == "positiv" else "positiv"}.'],
+                                  'Die Richtung beschreibt, was meistens passiert. Bei einem schwachen Zusammenhang gibt es viele Paare, die „gegen“ die Richtung laufen.',
+                                  'Beschreibt ein Zusammenhang jedes einzelne Paar oder die ganze Punktwolke?'), b)
+    return None
+
+
+def gerade3(art):
+    if art == 'zwei_punkte':
+        m = R.choice([2, 3, 4, 5, 6, -2, -3, -4])
+        t = R.choice([10, 20, 30, 40]) if m > 0 else R.choice([60, 70, 80])
+        x1, x2 = sorted(R.sample(range(1, 11), 2))
+        if x2 - x1 < 3: return None
+        x3 = R.choice([v for v in range(1, 11) if v not in (x1, x2)])
+        y1, y2, y3 = m * x1 + t, m * x2 + t, m * x3 + t
+        return zahl(f'Eine Ausgleichsgerade geht durch die Punkte ({x1} | {y1}) und ({x2} | {y2}). Schätze mit ihr den y-Wert für x = {x3}.',
+                    f'Steigung: ({y2} − {kl(y1)}) : ({x2} − {x1}) = {y2 - y1} : {x2 - x1} = {m}. Von x = {x1} nach x = {x3}: y = {y1} {"+" if (x3 - x1) * m >= 0 else "−"} {abs(m * (x3 - x1))} = {y3}.',
+                    'Bestimme zuerst, um wie viel y pro Schritt in x wächst oder fällt.', y3, f'{y1} + ({y2} - {y1}) / ({x2} - {x1}) * ({x3} - {x1})')
+    if art == 'abweichung':
+        m, t = R.choice([(5, 40), (4, 30), (6, 20), (3, 50)])
+        x = R.randint(2, 9)
+        e = m * x + t
+        y = e + R.choice([-12, -9, -7, -6, 6, 8, 11])
+        return zahl(f'Die Ausgleichsgerade y = {m}x + {t} schätzt die Testpunkte (y) aus der Lernzeit in Stunden (x). Ein Schüler hat {x} Stunden gelernt und {y} Punkte erreicht. '
+                    f'Um wie viele Punkte liegt er {"über" if y > e else "unter"} der Schätzung?',
+                    f'Schätzung: {m} · {x} + {t} = {e}. Unterschied: {max(y, e)} − {min(y, e)} = {abs(y - e)}.',
+                    'Berechne zuerst, was die Gerade für diese Lernzeit vorhersagt.', abs(y - e), f'abs({y} - ({m} * {x} + {t}))')
+    # grenze: ab wann sagt die Gerade Unmögliches voraus?
+    if R.random() < .5:
+        m, t = R.choice([(6, 40), (7, 30), (8, 25), (9, 20), (6, 35)])
+        x = next(v for v in range(1, 100) if m * v + t > 100)
+        return zahl(f'Die Ausgleichsgerade y = {m}x + {t} schätzt die Testpunkte (y) aus der Übungszeit in Stunden (x). Der Test hat höchstens 100 Punkte. '
+                    'Ab welcher ganzen Stundenzahl sagt die Gerade mehr als 100 Punkte voraus?',
+                    f'{m}x + {t} > 100 ⇒ {m}x > {100 - t} ⇒ x > {dz(round((100 - t) / m, 2))}. Die kleinste ganze Zahl ist {x}. Spätestens dort taugt die Gerade nicht mehr (Extrapolation).',
+                    'Stelle die Ungleichung „Schätzung > 100“ auf und löse sie nach x.', x, f'({100 - t}) // {m} + 1')
+    m, t = R.choice([(-8, 100), (-7, 95), (-9, 100), (-6, 90), (-12, 100)])
+    x = next(v for v in range(1, 100) if m * v + t < 0)
+    return zahl(f'Die Ausgleichsgerade y = {poly(m, t)} schätzt den Akkustand in % (y) aus der Nutzungsdauer in Stunden (x). '
+                'Ab welcher ganzen Stundenzahl sagt sie einen Akkustand unter 0 % voraus?',
+                f'{poly(m, t)} < 0 ⇒ {abs(m)}x > {t} ⇒ x > {dz(round(t / abs(m), 2))}. Die kleinste ganze Zahl ist {x}. Ein Akku unter 0 % ist unmöglich: Die Gerade gilt dort nicht mehr.',
+                'Stelle die Ungleichung „Schätzung < 0“ auf und löse sie nach x.', x, f'{t} // {abs(m)} + 1')
+
+
+def ausreisser3(art):
+    m = R.choice([4, 5, 6, -4, -5])
+    t = 20 if m > 0 else 80
+    n = R.randint(6, 8)
+    xs = sorted(R.sample(range(1, 11), n))
+    ys = [m * x + t + R.choice([-2, -1, 0, 1, 2]) for x in xs]
+    k = R.randrange(1, n - 1)
+    weg = R.choice([25, 30, 35]) * R.choice([1, -1])
+    if ys[k] + weg < 5: weg = abs(weg)
+    ys[k] += weg
+    namen = 'ABCDEFGH'[:n]
+    bild = streubild(('x', '', 'y', '', (0, 11), m, t, 2, ''), xs, ys, namen=list(namen), x_rand=(0, 11))
+    p = namen[k]
+    if art == 'effekt':
+        r = f'Sie wird in der Nähe von {p} nach {"oben" if weg > 0 else "unten"} gezogen.'
+        return mit_grafik(auswahl(f'Punkt {p} ist ein Ausreißer. Was passiert mit der Ausgleichsgeraden, wenn man {p} beim Zeichnen mitnimmt?', r,
+                                  [f'Sie wird in der Nähe von {p} nach {"unten" if weg > 0 else "oben"} gezogen.', 'Sie ändert sich überhaupt nicht.', 'Sie muss genau durch Punkt ' + p + ' gehen.'],
+                                  f'Die Gerade soll etwa gleich viele Punkte darüber und darunter haben. {p} liegt weit {"über" if weg > 0 else "unter"} dem Muster und zieht sie zu sich hin.',
+                                  'Die Ausgleichsgerade liegt mitten zwischen allen Punkten, die man mitnimmt.'), bild)
+    e = m * xs[k] + t
+    if art == 'abstand':
+        return mit_grafik(zahl(f'Die Punkte außer {p} liegen fast genau auf y = {poly(m, t)}. Um wie viel liegt Punkt {p} {"über" if ys[k] > e else "unter"} dem Wert, den dieses Muster bei x = {xs[k]} erwarten lässt?',
+                               f'Erwartet: {kl(m)} · {xs[k]} + {t} = {e}. Abgelesen: {ys[k]}. Unterschied: {abs(ys[k] - e)}.',
+                               f'Berechne zuerst den erwarteten y-Wert bei x = {xs[k]}, dann den Abstand zum Punkt.', abs(ys[k] - e), f'abs({ys[k]} - ({m} * {xs[k]} + {t}))'),
+                          {**bild, 'punkte': [dict(q, name=f'{q["name"]} ({q["x"]} | {q["y"]})') if q['name'] == p else q for q in bild['punkte']]})
+    # mittelwert: Wirkung des Ausreißers auf den Mittelwert der y-Werte
+    mit = Fr(sum(ys), n)
+    ohne = Fr(sum(ys) - ys[k], n - 1)
+    dif = abs(mit - ohne)
+    gr = gerundet(float(dif), 1)
+    if gr is None or gr == 0: return None
+    tab_ = tabelle(['Punkt'] + list(namen), [['y-Wert'] + ys])
+    return mit_grafik(zahl(f'Die Tabelle zeigt die y-Werte aller Punkte; {p} ist ein Ausreißer. Um wie viel {"sinkt" if ohne < mit else "steigt"} der Mittelwert der y-Werte, wenn man {p} weglässt? Runde auf eine Stelle nach dem Komma.',
+                           f'Mit {p}: {sum(ys)} : {n} ≈ {dz(round(float(mit), 2))}. Ohne {p}: {sum(ys) - ys[k]} : {n - 1} ≈ {dz(round(float(ohne), 2))}. Unterschied ≈ {dz(gr)}.',
+                           f'Rechne den Mittelwert zweimal: mit allen {n} Werten und ohne {p}.', gr, f'round(abs({sum(ys)} / {n} - {sum(ys) - ys[k]} / {n - 1}), 1)', tol=0.1), tab_)
+
+
+EXPERIMENTE = [
+    ('Eine Schule vermutet: „Tägliches Kopfrechentraining verbessert die Mathenoten.“',
+     'Zwei gleich starke Gruppen bilden, nur eine Gruppe übt täglich 10 Minuten zusätzlich, dann beide Ergebnisse vergleichen.',
+     ['Die Kinder mit den besten Noten fragen, ob sie Kopfrechnen üben.', 'Ein Streudiagramm Übungszeit gegen Note zeichnen – zeigt es einen Zusammenhang, ist es bewiesen.',
+      'Alle Kinder üben, und man schaut, ob die Noten im nächsten Jahr gut sind.']),
+    ('Ein Sportverein vermutet: „Dehnübungen vor dem Training verhindern Verletzungen.“',
+     'Zwei gleich zusammengesetzte Gruppen bilden; nur eine dehnt vorher. Nach einer Saison die Verletzungen vergleichen.',
+     ['Die Spieler fragen, ob sie sich nach dem Dehnen besser fühlen.', 'Alle Spieler dehnen; gibt es danach wenige Verletzungen, ist es bewiesen.',
+      'Ein Streudiagramm Dehnzeit gegen Verletzungen zeichnen – ein Zusammenhang beweist es.']),
+    ('Eine Gärtnerei vermutet: „Der neue Dünger lässt Tomaten schneller wachsen.“',
+     'Gleiche Pflanzen unter gleichen Bedingungen in zwei Gruppen teilen; nur eine bekommt Dünger. Dann das Wachstum vergleichen.',
+     ['Die größten Pflanzen düngen und sehen, ob sie weiter wachsen.', 'Alle Pflanzen düngen und messen, ob sie wachsen.', 'Nachlesen, wie viel Dünger andere Gärtner nehmen.']),
+]
+RICHTUNG = [
+    ('In einer Umfrage treiben gesündere Menschen mehr Sport. Jemand folgert: „Sport macht gesund.“', 'Es könnte auch umgekehrt sein: Wer gesund ist, kann mehr Sport treiben.',
+     ['Es gibt keinen Zusammenhang zwischen Sport und Gesundheit.', 'Die Korrelation ist negativ.', 'Eine Umfrage kann keine Zahlen liefern.']),
+    ('Kinder, die mehr lesen, kennen mehr Wörter. Jemand folgert: „Lesen vergrößert den Wortschatz.“', 'Es könnte auch umgekehrt sein: Wer viele Wörter kennt, liest lieber und mehr.',
+     ['Es gibt keinen Zusammenhang zwischen Lesen und Wortschatz.', 'Die Korrelation ist negativ.', 'Kinder darf man nicht befragen.']),
+    ('Fröhliche Menschen lächeln öfter. Jemand folgert: „Lächeln macht fröhlich.“', 'Es könnte auch umgekehrt sein: Wer fröhlich ist, lächelt deshalb öfter.',
+     ['Lächeln und Fröhlichkeit haben nichts miteinander zu tun.', 'Die Korrelation ist negativ.', 'Fröhlichkeit kann man nicht beobachten.']),
+]
+FEHLDESIGN = [
+    ('Um ein Lernprogramm zu testen, melden sich Kinder freiwillig. Die Freiwilligen schneiden danach besser ab als die anderen. Warum beweist das noch nicht, dass das Programm hilft?',
+     'Freiwillige sind vielleicht ohnehin fleißiger – die Gruppen waren nicht gleich.', ['Weil zu wenige Kinder mitgemacht haben.', 'Weil ein Programm nie helfen kann.', 'Weil die Korrelation negativ ist.']),
+    ('Ein Café testet Musik: In der Woche mit Musik ist es sonnig, in der Woche ohne Musik regnet es. Mit Musik kommen mehr Gäste. Was ist das Problem?',
+     'Das Wetter war anders – es könnte die Gäste angelockt haben, nicht die Musik.', ['Eine Woche ist zu lang.', 'Musik kann man nicht messen.', 'Es gibt kein Problem, die Musik ist die Ursache.']),
+    ('Ein Arzt testet ein Mittel gegen Erkältung. Alle Kranken bekommen es, nach einer Woche sind fast alle gesund. Was fehlt, um eine Wirkung zu zeigen?',
+     'Eine Vergleichsgruppe ohne Mittel – vielleicht wären sie auch so gesund geworden.', ['Eine längere Wartezeit.', 'Ein Streudiagramm der Tage.', 'Nichts, die Wirkung ist bewiesen.']),
+]
+ZUFALL = [
+    ('Über zehn Jahre stiegen in einer Stadt die Zahl der Handyverträge und die Zahl der Hunde fast gleich an. Was ist die beste Deutung?',
+     'Beide sind mit der Zeit gewachsen; ein Grund für eine direkte Ursache ist nicht erkennbar.', ['Handys machen Lust auf Hunde.', 'Hunde brauchen Handyverträge.', 'Die Daten müssen falsch sein.']),
+    ('In einem Land stieg über Jahre der Käseverbrauch, gleichzeitig wurden mehr Fahrräder verkauft. Was ist die beste Deutung?',
+     'Beide Zahlen steigen mit der Zeit; das kann Zufall sein oder an einer dritten Größe wie dem Einkommen liegen.', ['Käse macht sportlich.', 'Radfahrer essen mehr Käse, das ist bewiesen.', 'Es gibt keine Korrelation.']),
+]
+
+
+def kausal3(art):
+    if art == 'experiment':
+        v, r, fs = R.choice(EXPERIMENTE)
+        return auswahl(f'{v} Wie kann man das am besten überprüfen?', r, fs, 'Nur ein Vergleich mit einer Gruppe, in der sonst alles gleich ist, zeigt eine Ursache.',
+                       'Wie kannst du andere Einflüsse ausschließen?')
+    if art == 'richtung':
+        v, r, fs = R.choice(RICHTUNG)
+        return auswahl(f'{v} Welcher Einwand ist berechtigt?', r, fs, 'Aus den Daten sieht man nicht, was Ursache und was Folge ist. Vielleicht wirkt es umgekehrt.',
+                       'Könnte die Ursache auch in die andere Richtung wirken?')
+    if art == 'fehldesign':
+        v, r, fs = R.choice(FEHLDESIGN)
+        return auswahl(v, r, fs, 'Ein Versuch zeigt eine Ursache nur, wenn sich die Gruppen allein in dem Punkt unterscheiden, den man prüft.',
+                       'Unterscheiden sich die Gruppen noch in etwas anderem?')
+    if art == 'zufall':
+        v, r, fs = R.choice(ZUFALL)
+        return auswahl(v, r, fs, 'Zwei Zahlen, die beide mit der Zeit wachsen, korrelieren fast immer – auch ohne jede Ursache.', 'Was ist beiden Zahlen gemeinsam, außer dass sie steigen?')
+    r = 'Nein. Auch ein sehr starker Zusammenhang kann durch eine dritte Größe oder Zufall entstehen.'
+    return auswahl('Ein Streudiagramm zeigt einen sehr starken positiven Zusammenhang zwischen zwei Größen. Ist damit eine Ursache bewiesen?', r,
+                   ['Ja, bei einem sehr starken Zusammenhang immer.', 'Ja, wenn mehr als 10 Punkte gemessen wurden.', 'Nein, weil starke Zusammenhänge immer Zufall sind.'],
+                   'Die Stärke sagt nur, wie eng die Punkte an einer Geraden liegen – nicht, warum.', 'Was sagt die Stärke einer Korrelation aus – und was nicht?')
+
+
+def g2_zusammenhang(s):
+    if s < 3: return g_zusammenhang(s)
+    art = art3('genau', 'deuten', 'tendenz', ['genau', 'gruppen', 'deuten', 'kontext', 'tendenz'])
+    if art in ('genau', 'gruppen'):
+        for _ in range(50):
+            a = g_zusammenhang(3)
+            if a and (('möglichst genau' in a['f']['text']) == (art == 'genau')): return a
+        return None
+    return zusammenhang3(art)
+
+
+def g2_gerade(s):
+    if s == 1: return g_gerade(1)
+    if s == 2:
+        for _ in range(50):  # Stufe 2: einsetzen, ablesen, Steigung deuten, umgekehrt rechnen
+            a = g_gerade(R.choice([2, 3]))
+            if a and 'verlässlich' not in a['f']['text']: return a
+        return None
+    art = art3('zwei_punkte', 'abweichung', 'grenze', ['extrapol', 'zwei_punkte', 'abweichung', 'grenze'])
+    if art == 'extrapol':
+        for _ in range(50):
+            a = g_gerade(3)
+            if a and 'verlässlich' in a['f']['text']: return a
+        return None
+    return gerade3(art)
+
+
+def g2_ausreisser(s):
+    if s == 1: return g_ausreisser(1)
+    if s == 2:  # Stufe 2: Ausreißer mitten im Muster finden oder den erwarteten Wert berechnen
+        for _ in range(50):
+            a = g_ausreisser(R.choice([2, 3]))
+            if a and 'sinnvoll' not in a['f']['text']: return a
+        return None
+    art = art3('effekt', 'abstand', 'mittelwert', ['wirkung', 'effekt', 'abstand', 'mittelwert'])
+    if art == 'wirkung':
+        for _ in range(50):
+            a = g_ausreisser(3)
+            if a and 'sinnvoll' in a['f']['text']: return a
+        return None
+    return ausreisser3(art)
+
+
+def g2_kausal(s):
+    if s == 1: return g_kausal(1)
+    if s == 2: return g_kausal(2)
+    return kausal3(art3('experiment', 'richtung', 'fehldesign', ['experiment', 'richtung', 'fehldesign', 'zufall', 'stark']))
+
+
+GEN = {'ablesen': g_ablesen, 'zusammenhang': g2_zusammenhang, 'gerade': g2_gerade, 'ausreisser': g2_ausreisser, 'kausal': g2_kausal}
 
 # ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
 # Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
@@ -419,6 +711,7 @@ UMBAU = {
         'schritte': [
             {'text': 'Die Ausgleichsgerade hat die Gleichung y = 5x + 40.',
              'bild': {'graphen': [{'art': 'linear', 'm': 5, 't': 40, 'bereich': [0, 11]}]}},
+            {'text': 'Die 5 heißt: Jede Stunde mehr bringt etwa ⟦5 Punkte⟧ mehr.'},
             {'text': 'Für 6 Stunden: y = 5 · 6 + 40 = ⟦70 Punkte⟧.',
              'bild': {'punkte': _anon(_G) + pkte({'Schätzung': (6, 70)}), 'strecken': [[6, 0, 6, 70, 'gestrichelt']]}},
             {'text': 'Für 20 Stunden wären es 140 Punkte: Extrapolation, hier unsinnig.'},
@@ -437,6 +730,7 @@ UMBAU = {
              'bild': {'graphen': [{'art': 'linear', 'm': 5, 't': 40, 'bereich': [0, 9]}]}},
             {'text': 'Die Nachbarn B und D liegen bei etwa 50 und 60.'},
             {'text': 'C bei (3 | 90) liegt weit darüber: ⟦C ist ein Ausreißer⟧.', 'bild': {'strecken': [[3, 55, 3, 90, 'gestrichelt']]}},
+            {'text': 'Nimmt man C mit, zieht er die Ausgleichsgerade zu sich nach oben.'},
         ],
         'fehler': 'Nicht automatisch den Punkt mit dem ⟦größten y-Wert⟧ nehmen. Rechts oben passt ein hoher Wert zum Muster.',
         'regel': 'Ein Ausreißer liegt ⟦weit weg vom Muster⟧. Prüfe ihn, bevor du eine Ausgleichsgerade zeichnest.',
@@ -445,13 +739,15 @@ UMBAU = {
         'einstieg': 'Im Sommer verkauft ein Laden mehr Eis und mehr Sonnencreme. Macht Eis Sonnenbrand? Nein, beides hängt am Wetter. '
                     'So ein Zusammenhang heißt ⟦Korrelation⟧.',
         'woerter': [['Korrelation', 'ein Zusammenhang in den Daten; er beweist keine Ursache'],
-                    ['dritte Größe', 'etwas Drittes, das beide Werte beeinflusst']],
+                    ['dritte Größe', 'etwas Drittes, das beide Werte beeinflusst'],
+                    ['Experiment', 'Versuch mit zwei gleichen Gruppen; nur eine Sache ist verschieden']],
         'bild': ko([0, 10], [0, 12], _anon(_EIS), schritt=0, schritt_x=2, schritt_y=2, name_x='Eis', name_y='Creme'),
         'schritte': [
             {'text': 'Die Punkte steigen: positive Korrelation zwischen Eis und Sonnencreme.'},
             {'text': 'Eis verursacht aber keine Sonnencreme.'},
             {'text': 'Die dritte Größe ist das ⟦sonnige, warme Wetter⟧.',
              'bild': tab(['Monat', 'Wetter', 'Eis', 'Creme'], ['Januar', 'kalt', 'wenig', 'wenig'], ['Juli', 'heiß', 'viel', 'viel'])},
+            {'text': 'Ob etwas wirklich die Ursache ist, prüft erst ein ⟦Experiment⟧.'},
         ],
         'fehler': '„Größere Füße lesen besser, also machen Füße schlau“ ist falsch. Beides wächst mit dem ⟦Alter⟧.',
         'regel': '⟦Korrelation ist keine Ursache⟧. Suche nach einer dritten Größe, die beides erklärt.',
@@ -473,5 +769,5 @@ d = bauen('daten.zweidimensional',
       ETAPPEN, GEN,
       offen=['Ausgleichsgerade wird gegeben (Gleichung und Zeichnung), nicht selbst berechnet: Regressionsrechnung ist nicht Stoff von MYP 3. Den Korrelationskoeffizienten r nur im Lösungsweg einer Vergleichsaufgabe erwähnt.',
              'App-Wunsch (optional): Das Kind kann die Ausgleichsgerade noch nicht selbst einzeichnen; Aufgaben dazu fehlen deshalb.'],
-      vertiefung=[])
+      vertiefung=[], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

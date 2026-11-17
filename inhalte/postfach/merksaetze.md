@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 02:32 – STATUS
+gleichungen.ungleichungen fertig: grafisch – „Geld“ (name_x 1,5) und „Ausgaben“ (name_x 2,5) versetzt (überdeckten „S(4 | 17)“ bzw. im Fehlerbild „zu teuer“, 0,51 Einheiten). Aufgaben 210 von 210 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
+
+## 2026-11-17 02:32 – STATUS
 gleichungen.exponential fertig: wachstum – Schritt 5 zeigt einen Ausschnitt (x 8 … 13, y 1 300 … 1 700), damit „10 J.: 1 480 €“ und „11 J.: 1 539 €“ nicht übereinander stehen (Punktnamen lassen sich nicht verschieben, ohne die Punkte zu ändern). fehler_bild setzt den vollen Ausschnitt (x 0 … 15, y 0 … 2 000) und leere Punkte wieder selbst, weil es sonst den Zustand von Schritt 5 erbt. Aufgaben 204 von 204 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
 
 ## 2026-11-17 02:32 – STATUS

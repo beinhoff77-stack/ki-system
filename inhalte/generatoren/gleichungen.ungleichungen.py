@@ -599,7 +599,7 @@ UMBAU = {
  'grafisch': {
   'einstieg': 'Du zeichnest zwei Linien: deine Ausgaben im Freizeitpark und dein Geld, 17 €. Solange die Ausgaben unter dem Geld liegen, reicht es. Die Grenze ist der ⟦Schnittpunkt⟧.',
   'woerter': [['Schnittpunkt', 'der Punkt, an dem sich zwei Linien treffen'], ['y = 3x + 5', 'die Ausgaben: 5 € Eintritt plus 3 € je Fahrt'], ['waagrecht', 'flach von links nach rechts, wie der Horizont']],
-  'bild': {'typ': 'koordinaten', 'x': [-1, 6], 'y': [0, 22], 'graphen': [{'art': 'linear', 'm': 3, 't': 5, 'name': 'Ausgaben'}, {'art': 'linear', 'm': 0, 't': 17, 'name': 'Geld'}], 'schritt_y': 2},
+  'bild': {'typ': 'koordinaten', 'x': [-1, 6], 'y': [0, 22], 'graphen': [{'art': 'linear', 'm': 3, 't': 5, 'name': 'Ausgaben', 'name_x': 2.5}, {'art': 'linear', 'm': 0, 't': 17, 'name': 'Geld', 'name_x': 1.5}], 'schritt_y': 2},
   'schritte': [{'text': 'Die Ausgaben-Gerade y = 3x + 5 steigt mit jeder Fahrt.'},
                {'text': 'Die Geld-Linie y = 17 ist waagrecht. Sie schneiden sich bei x = 4.', 'bild': {'punkte': [{'x': 4, 'y': 17, 'name': 'S(4 | 17)'}], 'senkrecht': [4]}},
                {'text': 'Links davon liegen die Ausgaben unter 17 €: ⟦x < 4⟧.', 'bild': {'flaechen': [{'punkte': [[0, 0], [4, 0], [4, 17], [0, 17]]}]}}],

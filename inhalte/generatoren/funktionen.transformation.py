@@ -306,8 +306,131 @@ def g_punkte(s):
 GEN = {'nach_oben': g_nach_oben, 'nach_rechts': g_nach_rechts, 'strecken': g_strecken, 'spiegeln': g_spiegeln,
        'kombiniert': g_kombiniert, 'punkte': g_punkte}
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import ko, pkte  # noqa: E402
+
+
+def _p(k, name=None):
+    g = {'art': 'poly', 'k': list(k)}
+    if name:
+        g['name'] = name
+    return g
+
+
+_N = _p([0, 0, 1], 'y = x²')
+UMBAU = {
+    'nach_oben': {
+        'einstieg': 'Eine Schablone in Form der Normalparabel liegt auf Karopapier. Du schiebst sie 3 Kästchen nach oben. '
+                    'Jeder Punkt wandert gleich weit mit. Das ist eine ⟦Verschiebung⟧.',
+        'woerter': [['Normalparabel', 'der Graph von y = x², Scheitel im Ursprung'],
+                    ['Scheitel', 'der tiefste (oder höchste) Punkt der Parabel']],
+        'bild': ko([-4, 4], [-1, 9], schritt=0, graphen=[_N], punkte=pkte({'S': (0, 0)})),
+        'schritte': [
+            {'text': 'Die Normalparabel y = x² hat den Scheitel S(0 | 0).'},
+            {'text': '3 nach oben: Zu jedem y-Wert kommt 3 dazu.',
+             'bild': {'graphen': [_N, _p([3, 0, 1], 'y = x² + 3')], 'pfeile': [[0, 0, 0, 3], [2, 4, 2, 7], [-2, 4, -2, 7]]}},
+            {'text': 'Neue Gleichung: ⟦y = x² + 3⟧, Scheitel ⟦S(0 | 3)⟧.',
+             'bild': {'pfeile': None, 'punkte': pkte({'S': (0, 0), 'S′': (0, 3)})}},
+        ],
+        'fehler': 'y = (x + 3)² ist nicht „3 nach oben“. Eine Zahl ⟦in der Klammer⟧ verschiebt nach links. Nach oben wird hinten addiert.',
+        'fehler_bild': {'graphen': [_N, _p([9, 6, 1], 'falsch')], 'punkte': None},
+        'regel': 'Plus e hinten schiebt die Parabel um e nach oben. Scheitel: ⟦S(0 | e)⟧, bei e < 0 geht es nach unten.',
+    },
+    'nach_rechts': {
+        'einstieg': 'Jetzt schiebst du die Schablone 2 Kästchen nach rechts. Der Scheitel liegt dann bei x = 2. '
+                    'Überraschung: In der Gleichung steht dafür ⟦x − 2⟧, mit Minus.',
+        'woerter': [['Klammer wird 0', 'an dieser Stelle x liegt der Scheitel; bei (x − 2) ist das x = 2']],
+        'bild': ko([-5, 5], [-1, 9], schritt=0, graphen=[_N], punkte=pkte({'S': (0, 0)})),
+        'schritte': [
+            {'text': 'Bei y = (x − 2)²: Die Klammer wird 0 für x = 2.'},
+            {'text': 'Dort liegt der tiefste Punkt: ⟦S(2 | 0)⟧.',
+             'bild': {'graphen': [_N, _p([4, -4, 1], 'neu')], 'punkte': pkte({'S′': (2, 0)})}},
+            {'text': 'Die Parabel ist also um 2 ⟦nach rechts⟧ verschoben.', 'bild': {'pfeile': [[0, 0, 2, 0], [-2, 4, 0, 4]]}},
+        ],
+        'fehler': 'y = (x + 4)² heißt nicht „4 nach rechts“. Die Klammer wird 0 für x = −4, also ⟦4 nach links⟧.',
+        'fehler_bild': {'graphen': [_N, _p([16, 8, 1], '(x + 4)²')], 'pfeile': [[0, 0, -4, 0]], 'punkte': pkte({'S′': (-4, 0)})},
+        'regel': 'Die Zahl in der Klammer schiebt nach links oder rechts. Bei ⟦(x − d)²⟧ liegt der Scheitel bei S(d | 0).',
+    },
+    'strecken': {
+        'einstieg': 'Nun nimmst du eine Schablone, die doppelt so steil ist. Jeder y-Wert ist doppelt so groß wie bei x². '
+                    'Die Parabel wird enger, sie ist ⟦gestreckt⟧.',
+        'woerter': [['gestreckt', 'enger und steiler: alle y-Werte mal eine Zahl größer als 1'],
+                    ['gestaucht', 'weiter und flacher: alle y-Werte mal eine Zahl zwischen 0 und 1'],
+                    ['nach unten geöffnet', 'bei negativem a hängt die Parabel wie ein Bogen nach unten']],
+        'bild': ko([-4, 4], [-9, 9], schritt=0, graphen=[_N]),
+        'schritte': [
+            {'text': 'Bei y = 2x² und x = 2: 2 · 4 = ⟦8⟧ statt 4.',
+             'bild': {'graphen': [_N, _p([0, 0, 2], 'y = 2x²')], 'punkte': pkte({'(2|4)': (2, 4), '(2|8)': (2, 8)})}},
+            {'text': 'Doppelt so hoch, also enger: Die Parabel ist gestreckt.'},
+            {'text': 'y = −0,5x²: Für x = 4 ist y = −0,5 · 16 = ⟦−8⟧.',
+             'bild': {'graphen': [_N, _p([0, 0, 2], 'y = 2x²'), _p([0, 0, -0.5], '−0,5x²')], 'punkte': pkte({'_R': (4, -8)})}},
+            {'text': 'Halb so hoch, also gestaucht, und nach unten geöffnet.'},
+        ],
+        'fehler': 'y = 2x² für x = 2 nicht als (2 · 2)² = 16 rechnen. Erst ⟦quadrieren⟧, dann mal 2: 2 · 4 = 8.',
+        'regel': 'Mal a streckt oder staucht die Parabel. ⟦|a| > 1⟧ heißt enger, |a| < 1 weiter, negatives a nach unten geöffnet.',
+    },
+    'spiegeln': {
+        'einstieg': 'Drehst du die Schablone um wie eine Buchseite, wird sie gespiegelt. Klappst du um die senkrechte Achse, '
+                    'tauschen links und rechts. Das heißt ⟦Spiegeln an der y-Achse⟧.',
+        'woerter': [['Spiegeln an der y-Achse', 'links und rechts tauschen: (x | y) wird (−x | y)'],
+                    ['Spiegeln an der x-Achse', 'oben und unten tauschen: (x | y) wird (x | −y)']],
+        'bild': ko([-5, 5], [-2, 8], schritt=0, graphen=[_p([5, -4, 1], 'f')], punkte=pkte({'S': (2, 1)})),
+        'schritte': [
+            {'text': 'Die Parabel y = (x − 2)² + 1 hat den Scheitel S(2 | 1).'},
+            {'text': 'Spiegeln an der y-Achse: x durch −x ersetzen.'},
+            {'text': '(−x − 2)² = (x + 2)², also ⟦y = (x + 2)² + 1⟧.',
+             'bild': {'graphen': [_p([5, -4, 1], 'f'), _p([5, 4, 1], 'Bild')]}},
+            {'text': 'Neuer Scheitel ⟦S′(−2 | 1)⟧. Spiegeln an der x-Achse ändert dagegen nur y.',
+             'bild': {'punkte': pkte({'S': (2, 1), 'S′': (-2, 1)})}},
+        ],
+        'fehler': 'S′(−2 | −1) ist falsch. An der ⟦y-Achse⟧ ändert sich nur x, die Höhe bleibt gleich.',
+        'fehler_bild': {'punkte': pkte({'S': (2, 1), 'S′': (-2, 1), 'falsch': (-2, -1)})},
+        'regel': 'An der y-Achse spiegeln: x wird −x. An der ⟦x-Achse⟧ spiegeln: y wird −y.',
+    },
+    'kombiniert': {
+        'einstieg': 'Jetzt machst du alles nacheinander: Schablone tauschen, umdrehen, verschieben. '
+                    'Die Gleichung y = a(x − d)² + e erzählt das ganze Rezept. Sie heißt ⟦Scheitelform⟧.',
+        'woerter': [['Scheitelform', 'y = a(x − d)² + e; daraus liest man S(d | e) und die Form a ab']],
+        'bild': ko([-3, 7], [-5, 6], schritt=0, graphen=[_N]),
+        'schritte': [
+            {'text': 'In y = −0,5(x − 3)² + 4 ist a = −0,5.'},
+            {'text': 'Also gestaucht und nach unten geöffnet.', 'bild': {'graphen': [_N, _p([0, 0, -0.5], 'a = −0,5')]}},
+            {'text': 'Dann 3 nach rechts und 4 nach oben.',
+             'bild': {'graphen': [_N, _p([0, 0, -0.5], 'a = −0,5'), _p([-0.5, 3, -0.5], 'fertig')], 'pfeile': [[0, 0, 3, 4]]}},
+            {'text': 'Der Scheitel ist ⟦S(3 | 4)⟧.', 'bild': {'pfeile': None, 'punkte': pkte({'S': (3, 4)})}},
+        ],
+        'fehler': 'Bei y = 2(x + 1)² − 5 ist S(1 | −5) falsch. Die Klammer wird 0 für ⟦x = −1⟧, also S(−1 | −5).',
+        'regel': 'Scheitelform: den ⟦Scheitel S(d | e)⟧ direkt ablesen. Dann sagt a, ob gestreckt, gestaucht oder nach unten geöffnet.',
+    },
+    'punkte': {
+        'einstieg': 'Auf der Schablone ist ein Punkt P markiert. Verschiebst du die Schablone, wandert P mit. '
+                    'Sein Ziel kannst du ausrechnen, ohne die Gleichung zu kennen. Es heißt ⟦Bildpunkt⟧.',
+        'woerter': [['Bildpunkt', 'wohin P nach dem Abbilden kommt; geschrieben P′'],
+                    ['f(x − 3)', 'der Graph von f, um 3 nach rechts verschoben']],
+        'bild': ko([-1, 6], [-1, 9], punkte=pkte({'P': (1, 4)})),
+        'schritte': [
+            {'text': 'Gegeben: P(1 | 4) und g(x) = 2 · f(x − 3) − 1.'},
+            {'text': 'x: f(x − 3) heißt 3 nach rechts, 1 + 3 = 4.',
+             'bild': {'punkte': pkte({'P': (1, 4), '_Q': (4, 4)}), 'pfeile': [[1, 4, 4, 4]]}},
+            {'text': 'y: erst mal 2, dann minus 1: 2 · 4 − 1 = 7.',
+             'bild': {'punkte': pkte({'P': (1, 4), '_Q': (4, 4), 'P′': (4, 7)}), 'pfeile': [[1, 4, 4, 4], [4, 4, 4, 7]]}},
+            {'text': 'Der Bildpunkt ist ⟦P′(4 | 7)⟧.'},
+        ],
+        'fehler': 'f(x − 3) schiebt nicht nach links. Es heißt ⟦3 nach rechts⟧, also x + 3, wie bei (x − 3)².',
+        'fehler_bild': {'punkte': pkte({'P': (1, 4), 'falsch': (-2, 7)}), 'pfeile': [[1, 4, -2, 7]]},
+        'regel': 'x-Wert plus d, y-Wert mal a plus e. So wird P(x | y) zu ⟦P′(x + d | a · y + e)⟧.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
 if __name__ == '__main__':
-    bauen('funktionen.transformation',
+    d = bauen('funktionen.transformation',
           'Graphen verschieben, strecken und an den Achsen spiegeln – an der Normalparabel und an beliebigen Graphen über Bildpunkte.',
           ['f(x) + e: um e nach oben (e < 0: nach unten).', 'f(x − d): um d nach rechts – das Vorzeichen in der Klammer ist umgekehrt.',
            'a · f(x): |a| > 1 gestreckt, |a| < 1 gestaucht, a < 0 zusätzlich an der x-Achse gespiegelt.',
@@ -316,3 +439,4 @@ if __name__ == '__main__':
            ('Alles zusammen', ['kombiniert', 'punkte'])],
           ETAPPEN, GEN,
           offen=['Klasse laut Liste RS 9; gebaut an Normalparabel und allgemeinen Graphen (Bildpunkte). Die RS-10-Erweiterung (transformierte Potenz-, Exponential- und Logarithmusfunktionen, Spiegelung an y = x) ist weggelassen; die Spiegelung an y = x steht im Thema funktionen.umkehr.'])
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

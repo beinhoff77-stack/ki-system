@@ -1,5 +1,9 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 01:59 – STATUS
+funktionen.transformation umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/funktionen.transformation.json`: 168 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: strecken (Rechenfehler beim Quadrieren), kombiniert (Vorzeichenfehler beim Ablesen; das Bild würde nur den richtigen Scheitel zeigen). Beispiel strecken: x = 2 statt x = 3 (y = 8 statt 18), damit der Punkt im Bild liegt.
+
 ## 2026-11-17 01:58 – STATUS
 terme.quadratische_extreme umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/terme.quadratische_extreme.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: ergaenzen (die Zeichnung zeigt die richtige Ecke schon; eine 6 · 6-Ecke passt nicht ins Bild), extremwert (Vorzeichenfehler beim Ablesen), optimierung (Deutungsfehler Stelle/Wert). Wie bisher ohne Graphen (Thema ohne Parabellehre); Bilder sind Flächenmodell, Umformungs- und Wertetabellen. Alter Hinweis „flaeche“ für die Ecke nach Schritt 2 verlegt.

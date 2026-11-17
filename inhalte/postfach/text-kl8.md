@@ -2,6 +2,33 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 02:32 – STATUS terme.bruchterme
+
+### terme.bruchterme
+
+Anteil Textaufgaben an den Übungen mit g: vorher 10% (nur einkleidung/transfer) bzw. 10% (mit anerkannten Sachaufgaben anderer Typen) → nachher **40%**.
+
+| Lernkarte | vorher S1/S2/S3 (Lehrer) | vorher S1/S2/S3 (mit anderen Typen) | nachher S1/S2/S3 | neu Übung | neu Sicherung/Korrektur | überzählig | Sicherung/Korrektur Text nachher |
+|---|---|---|---|---|---|---|---|
+| definitionsmenge | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 7 | 2/1 |
+| termwert | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 5 | 2/1 |
+| kuerzen | 0/1/0 | 0/1/0 | 1/3/4 = 8 | 7 | 2/1 | 5 | 2/1 |
+| erweitern | 0/0/3 | 0/0/3 | 1/3/5 = 9 | 6 | 2/1 | 3 | 2/1 |
+| addieren | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 4 | 2/1 |
+| multiplizieren | 0/1/0 | 0/1/0 | 1/3/4 = 8 | 7 | 2/1 | 5 | 2/1 |
+| fehler_finden | 0/1/1 | 0/1/1 | 1/3/4 = 8 | 6 | 2/1 | 4 | 2/1 |
+
+Beispiele (je Stufe eine neue Textaufgabe, Wortlaut):
+
+- Stufe 1 (definitionsmenge): „Bei einer Feier zahlen die 2 Gastgeber nichts; die anderen teilen 360 €. Jeder zahlt 360/(x − 2) Euro (x = alle Personen). Für welches x ist der Term nicht definiert?“
+- Stufe 2 (erweitern): „Zwei Pumpen leeren pro Stunde 1/x und 1/(3x) eines Beckens. Bringe beide Anteile auf den Nenner 3x.“
+- Stufe 3 (fehler_finden): „Ein Radfahrer (Rad 12 kg) fährt 24 km mit v km/h hin und mit (v + 4) km/h zurück. Jemand schreibt für die Gesamtzeit 48/(2v + 4). Was stimmt?“
+
+Überzählig (g entfernt, Aufgabe bleibt): 33 – definitionsmenge S2 mehrschritt (Anteil 40 %); definitionsmenge S2 mehrschritt (Anteil 40 %); multiplizieren S3 verknuepfen (Anteil 40 %); kuerzen S3 verknuepfen (Anteil 40 %); definitionsmenge S2 mehrschritt (Anteil 40 %); termwert S2 mehrschritt (Anteil 40 %); fehler_finden S3 begruenden (Anteil 40 %); definitionsmenge S3 begruenden (Anteil 40 %); multiplizieren S3 begruenden (Anteil 40 %); addieren S3 fehler (Anteil 40 %); kuerzen S3 pruefung (Anteil 40 %); termwert S3 begruenden (Anteil 40 %) …
+Als Sachaufgabe anerkannte alte Aufgaben anderer Typen: 0 Übungen, 0 Sicherung/Korrektur.
+Sachkontexte: Kosten pro Person, Fahrzeiten Hin/Rück, gemeinsame Arbeit (Pumpen, Maler), Flächen/Längen; 33 überzählige alte Rechenaufgaben verlieren g, damit der Anteil 40 % erreicht.
+
+
 ## 2026-11-18 02:30 – STATUS funktionen.gebrochen
 
 ### funktionen.gebrochen

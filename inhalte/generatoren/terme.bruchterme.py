@@ -951,6 +951,169 @@ ST.knobel('fehler_finden', SA('Jemand „kürzt“ 16/64, indem er die beiden Se
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('terme.bruchterme', 22_8_3)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+# --- definitionsmenge ---
+TX.u('definitionsmenge', 'direkt', TZ('Bei einer Feier zahlen die 2 Gastgeber nichts; die anderen teilen 360 €. Jeder zahlt 360/(x − 2) Euro (x = alle Personen). Für welches x ist der Term nicht definiert?', '2',
+    TW('Nenner x − 2.', 'ausgeschlossenes x.', 'Nenner = 0.', 'x − 2 = 0 ⇒ x = 2.', 'Für x = 2 ist der Term nicht definiert.'), 'Wann wird der Nenner 0?'))
+TX.u('definitionsmenge', 'einkleidung', TZ('Ein Radfahrer fährt 30 km gegen den Wind, der ihn um 5 km/h bremst. Seine Fahrzeit ist 30/(v − 5) Stunden. Welches v ist ausgeschlossen?', '5',
+    TW('Nenner v − 5.', 'ausgeschlossenes v.', 'Nenner = 0.', 'v = 5.', 'v = 5 km/h ist ausgeschlossen.'), 'Setze den Nenner gleich 0.', einheit='km/h'))
+TX.u('definitionsmenge', 'mehrschritt', TX.A('Für Hin- und Rückweg gilt die Gesamtzeit 40/v + 40/(v − 8) Stunden. Welche Zahlen sind ausgeschlossen?', '0 und 8', ['nur 0', 'nur 8', '0 und −8'],
+    TW('Nenner v und v − 8.', 'ausgeschlossene Zahlen.', 'Jeden Nenner = 0 setzen.', 'v = 0, v = 8.', 'D = ℝ \\ {0; 8}.'), 'Es gibt zwei Nenner.'))
+TX.u('definitionsmenge', 'pruefung', TZ('Ein 2 m tiefer Teich wird mit zwei Pumpen geleert; die zweite braucht 3 Stunden länger. Pro Stunde schaffen sie zusammen 1/x + 1/(x + 3) des Teichs. Welche negative Zahl ist ausgeschlossen?', '-3',
+    TW('Nenner x und x + 3; die Tiefe spielt keine Rolle.', 'negative ausgeschlossene Zahl.', 'Nenner = 0.', 'x + 3 = 0 ⇒ x = −3.', 'x = −3 ist ausgeschlossen.'), 'Welche Angabe gehört nicht zum Term?'), huerde='ueberfluessig')
+TX.u('definitionsmenge', 'fehler', TX.A('Pro Kind kostet ein Ausflug (240 + 4x)/x Euro. Jemand sagt: „x = −60 ist ausgeschlossen, weil dann 240 + 4x = 0 ist.“ Was stimmt?',
+    'Falsch: Nur der Nenner zählt; ausgeschlossen ist x = 0.', ['Richtig.', 'Falsch: x = 240 ist ausgeschlossen.', 'Falsch: Es ist nichts ausgeschlossen.'],
+    TW('(240 + 4x)/x.', 'ausgeschlossene Zahl.', 'Nur der Nenner darf nicht 0 sein.', 'x = 0.', 'Die Aussage ist falsch.'), 'Darf ein Zähler 0 sein?'), huerde='entscheidung')
+TX.u('definitionsmenge', 'transfer', TX.A('Eine Gruppe teilt 300 € Hüttenmiete; 4 Betreuer zahlen nichts: Jeder andere zahlt 300/(x − 4) Euro (x = alle Personen). In die Hütte passen höchstens 30 Personen. Welche Definitionsmenge ist sinnvoll?',
+    '{5; 6; …; 30}', ['ℝ \\ {4}', '{4; 5; …; 30}', '{0; 1; …; 30}'],
+    TW('Nenner x − 4, ganze Personen, höchstens 30.', 'D.', 'Nenner ≠ 0, mindestens ein Zahler, Obergrenze.', '5 ≤ x ≤ 30.', 'D = {5; 6; …; 30}.'), 'Welche Bedingungen gibt die Situation zusätzlich zum Nenner?'), huerde='zwei')
+TX.s('definitionsmenge', TZ('Jeder zahlt 150/(x + 1) Euro. Welche Zahl ist ausgeschlossen?', '-1',
+    TW('Nenner x + 1.', 'ausgeschlossene Zahl.', 'x + 1 = 0.', 'x = −1.', 'x = −1.')))
+TX.s('definitionsmenge', TZ('Mit Rückenwind gilt für die Fahrzeit 50/(v + 10) Stunden. Welche Zahl ist ausgeschlossen?', '-10',
+    TW('Nenner v + 10.', 'ausgeschlossene Zahl.', 'v + 10 = 0.', 'v = −10.', 'v = −10.')))
+TX.k('definitionsmenge', TZ('Gegen die Strömung gilt für die Fahrzeit 24/(v − 6) Stunden. Welches v ist ausgeschlossen?', '6',
+    TW('Nenner v − 6.', 'ausgeschlossenes v.', 'v − 6 = 0.', 'v = 6.', 'v = 6.')))
+
+# --- termwert ---
+TX.u('termwert', 'direkt', TZ('Ein Flyer kostet pro Stück (50 + 0,1x)/x Euro bei x Flyern. Was kostet ein Flyer bei 500 Stück?', '(50 + 0.1 * 500) / 500',
+    TW('x = 500.', 'Termwert.', 'Einsetzen.', '(50 + 50) : 500 = 0,2.', 'Ein Flyer kostet 0,20 €.'), 'Setze 500 für x ein.', einheit='€'))
+TX.u('termwert', 'einkleidung', TZ('Für Hin- und Rückweg gilt die Gesamtzeit 60/v + 60/(v + 20) Stunden. Wie lange dauert es bei v = 40 km/h?', '60 / 40 + 60 / 60',
+    TW('v = 40.', 'Gesamtzeit.', 'Einsetzen.', '1,5 + 1 = 2,5.', 'Es dauert 2,5 Stunden.'), 'Berechne beide Brüche einzeln.', einheit='h'))
+TX.u('termwert', 'mehrschritt', TZ('Zwei Kinder streichen einen Zaun. Das erste schafft 1/6, das zweite 1/x des Zauns pro Stunde. Für x = 3: Wie viele Stunden brauchen sie zusammen?', '1 / (1/6 + 1/3)',
+    TW('1/6 + 1/x, x = 3.', 'Zeit zusammen.', 'Anteil pro Stunde, dann Kehrwert.', '1/6 + 2/6 = 1/2 ⇒ 2 h.', 'Zusammen brauchen sie 2 Stunden.'), 'Welcher Anteil wird zusammen in einer Stunde fertig?', einheit='h'))
+TX.u('termwert', 'pruefung', TZ('Ein Kurs findet dienstags statt. Er kostet pro Person (420 + 15x)/x Euro bei x Teilnehmern. Was zahlt jeder bei 12 Personen?', '(420 + 15 * 12) / 12',
+    TW('x = 12; der Wochentag spielt keine Rolle.', 'Termwert.', 'Einsetzen.', '600 : 12 = 50.', 'Jeder zahlt 50 €.'), 'Welche Angabe brauchst du nicht?', einheit='€'), huerde='ueberfluessig')
+TX.u('termwert', 'transfer', TZ('Für eine Klassenfahrt gilt pro Person (600 + 8x)/x Euro. Ab wie vielen Personen sind es höchstens 20 €?', '600 / (20 - 8)',
+    TW('(600 + 8x)/x ≤ 20.', 'kleinste Personenzahl.', 'Aufteilen: 600/x + 8 ≤ 20.', '600/x ≤ 12 ⇒ x ≥ 50.', 'Ab 50 Personen.'), 'Teile den Bruch in 600/x + 8 auf.'), huerde='deuten')
+TX.u('termwert', 'fehler', TX.A('Der Durchschnittspreis ist (36 + 2x)/x Euro. Jemand rechnet für x = 6: „(36 + 2 · 6)/6 = 36 + 2 = 38 €.“ Was stimmt?',
+    'Falsch: (36 + 12) : 6 = 8 €.', ['Richtig.', 'Falsch: 36 : 6 + 2 = 8, aber man muss mit 6 malnehmen.', 'Falsch: 48 €.'],
+    TW('x = 6.', 'richtiger Wert.', 'Erst Zähler ausrechnen, dann teilen.', '48 : 6 = 8.', 'Es sind 8 €, nicht 38 €.'), 'Darf man nur den Teil 2x durch x teilen?'), huerde='entscheidung')
+TX.s('termwert', TZ('Pro Stück gilt (80 + 3x)/x Euro. Berechne den Wert für x = 20.', '(80 + 3 * 20) / 20',
+    TW('x = 20.', 'Termwert.', 'Einsetzen.', '140 : 20 = 7.', '7 €.'), einheit='€'))
+TX.s('termwert', TZ('Die Fahrzeit für 120 km ist 120/v Stunden. Wie lange dauert es bei 80 km/h?', '120 / 80',
+    TW('v = 80.', 'Termwert.', 'Einsetzen.', '1,5.', '1,5 Stunden.'), einheit='h'))
+TX.k('termwert', TZ('Pro Person gilt (200 + 5x)/x Euro. Berechne den Wert für x = 40.', '(200 + 5 * 40) / 40',
+    TW('x = 40.', 'Termwert.', 'Einsetzen.', '400 : 40 = 10.', '10 €.'), einheit='€'))
+
+# --- kuerzen ---
+TX.u('kuerzen', 'direkt', TX.A('Eine Rechnung über (12x + 36) € wird auf 12 Personen verteilt. Welcher gekürzte Term gibt an, was jeder zahlt?', 'x + 3', ['12x + 3', 'x + 36', 'x + 36/12x'],
+    TW('(12x + 36)/12.', 'gekürzter Term.', '12 ausklammern, kürzen.', '12(x + 3)/12 = x + 3.', 'Jeder zahlt x + 3 Euro.'), 'Klammere im Zähler 12 aus.'))
+TX.u('kuerzen', 'einkleidung', TZ('Ein Rechteck hat die Fläche (6x² + 9x) cm² und die Breite 3x cm. Kürze Fläche : Breite und berechne die Länge für x = 4.', '2 * 4 + 3',
+    TW('(6x² + 9x)/(3x).', 'Länge bei x = 4.', '3x ausklammern, kürzen.', '2x + 3 = 11.', 'Die Länge ist 11 cm.'), 'Klammere 3x im Zähler aus.', einheit='cm'))
+TX.u('kuerzen', 'mehrschritt', TX.A('Die Kosten von (5x² + 10x) € werden gleich auf 5x Personen verteilt. Was zahlt jeder?', 'x + 2 Euro', ['x² + 2 Euro', '5x + 2 Euro', 'x + 10 Euro'],
+    TW('(5x² + 10x)/(5x).', 'Betrag pro Person.', '5x ausklammern, kürzen.', '5x(x + 2)/(5x) = x + 2.', 'Jeder zahlt x + 2 Euro.'), 'Welcher gemeinsame Faktor steckt in beiden Summanden?'))
+TX.u('kuerzen', 'pruefung', TZ('Eine Wiese hat die Fläche (8x² + 4x) m² und die Breite 4x m. Ein Zaun kostet 12 € pro Meter. Wie lang ist die Wiese für x = 5?', '2 * 5 + 1',
+    TW('(8x² + 4x)/(4x); der Zaunpreis spielt keine Rolle.', 'Länge bei x = 5.', 'Kürzen, einsetzen.', '2x + 1 = 11.', 'Die Wiese ist 11 m lang.'), 'Welche Angabe gehört nicht zur Länge?', einheit='m'), huerde='ueberfluessig')
+TX.u('kuerzen', 'fehler', TX.A('Kosten von (4x + 8) € werden auf 4 Personen verteilt. Jemand kürzt: (4x + 8)/4 = x + 8. Was stimmt?',
+    'Falsch: Beide Summanden durch 4 teilen – x + 2.', ['Richtig.', 'Falsch: 4x + 2.', 'Falsch: x + 4.'],
+    TW('(4x + 8)/4.', 'richtiger Term.', '4 ausklammern.', '4(x + 2)/4 = x + 2.', 'Jeder zahlt x + 2 Euro.'), 'Wurde auch die 8 durch 4 geteilt?'), huerde='entscheidung')
+TX.u('kuerzen', 'begruenden', TX.A('Für eine Durchschnittsgeschwindigkeit ergibt sich (2x² + 6x)/(2x) km/h. Jemand sagt: „Das ist für jedes x > 0 dasselbe wie x + 3.“ Was stimmt?',
+    'Richtig: 2x ausklammern und kürzen.', ['Falsch: Es ist x² + 3.', 'Falsch: Man darf nur x² kürzen.', 'Falsch: Es ist 2x + 6.'],
+    TW('(2x² + 6x)/(2x).', 'Ist x + 3 richtig?', '2x ausklammern.', '2x(x + 3)/(2x) = x + 3.', 'Die Aussage stimmt.'), 'Klammere 2x aus.'))
+TX.u('kuerzen', 'transfer', TZ('Ein Becken enthält (9x² + 3x) Liter und wird mit 3x Litern pro Minute geleert. Wie viele Minuten dauert es für x = 10?', '3 * 10 + 1',
+    TW('(9x² + 3x)/(3x).', 'Zeit bei x = 10.', 'Kürzen, einsetzen.', '3x + 1 = 31.', 'Es dauert 31 Minuten.'), 'Klammere 3x aus.', einheit='min'))
+TX.s('kuerzen', TZ('Kosten von (10x + 20) € werden auf 10 Personen verteilt. Wie viel zahlt jeder für x = 7?', '7 + 2',
+    TW('(10x + 20)/10 = x + 2.', 'Wert bei 7.', 'Kürzen, einsetzen.', '9.', '9 €.'), einheit='€'))
+TX.s('kuerzen', TZ('Ein Beet hat die Fläche (4x² + 2x) m² und die Breite 2x m. Wie lang ist es für x = 3?', '2 * 3 + 1',
+    TW('(4x² + 2x)/(2x) = 2x + 1.', 'Länge.', 'Kürzen, einsetzen.', '7.', '7 m.'), einheit='m'))
+TX.k('kuerzen', TZ('Kosten von (6x + 18) € werden auf 6 Personen verteilt. Wie viel zahlt jeder für x = 4?', '4 + 3',
+    TW('(6x + 18)/6 = x + 3.', 'Wert bei 4.', 'Kürzen, einsetzen.', '7.', '7 €.'), einheit='€'))
+
+# --- erweitern ---
+TX.u('erweitern', 'direkt', TZ('Ein Kind schafft pro Stunde 1/x eines Puzzles. Um das mit 1/(2x) zu vergleichen, erweitert man 1/x auf den Nenner 2x. Wie heißt der neue Zähler?', '2',
+    TW('1/x → □/(2x).', 'neuer Zähler.', 'Mit 2 erweitern.', '1 · 2 = 2.', '2/(2x).'), 'Womit muss der Nenner x multipliziert werden?'))
+TX.u('erweitern', 'einkleidung', TL('Zwei Pumpen leeren pro Stunde 1/x und 1/(3x) eines Beckens. Bringe beide Anteile auf den Nenner 3x.', '□/(3x) und □/(3x)', ['3', '1'],
+    TW('1/x und 1/(3x).', 'Zähler beim Nenner 3x.', '1/x mit 3 erweitern.', '3/(3x) und 1/(3x).', 'Die Zähler sind 3 und 1.'), 'Der zweite Bruch hat den Nenner schon.'))
+TX.u('erweitern', 'mehrschritt', TZ('Die Hinfahrt dauert 30/x Stunden, die Rückfahrt 45/(2x) Stunden. Erweitere 30/x auf den Nenner 2x. Wie heißt der neue Zähler?', '30 * 2',
+    TW('30/x → □/(2x).', 'neuer Zähler.', 'Mit 2 erweitern.', '30 · 2 = 60.', '60/(2x).'), 'Zähler und Nenner mit derselben Zahl multiplizieren.'))
+TX.u('erweitern', 'umkehr', TZ('Ein Anteil wurde vom Nenner 2x auf den Nenner 6x erweitert und lautet jetzt 18/(6x). Wie hieß der Zähler vorher?', '18 / 3',
+    TW('□/(2x) = 18/(6x).', 'alter Zähler.', 'Es wurde mit 3 erweitert; zurückrechnen.', '18 : 3 = 6.', 'Der Anteil war 6/(2x).'), 'Womit wurde erweitert?'))
+TX.u('erweitern', 'pruefung', TX.A('Pumpe A leert pro Stunde 1/(4x), Pumpe B 1/(6x) eines 50-m³-Beckens. Auf welchen kleinsten gemeinsamen Nenner bringt man beide Anteile?', '12x', ['24x', '10x', '24x²'],
+    TW('Nenner 4x und 6x; das Volumen spielt keine Rolle.', 'kleinster gemeinsamer Nenner.', 'kgV von 4 und 6, mal x.', 'kgV(4; 6) = 12.', 'Hauptnenner 12x.'), 'Welche Angabe brauchst du nicht?'), huerde='ueberfluessig')
+TX.u('erweitern', 'begruenden', TX.A('Ein Kind liest pro Tag 3/(4x) eines Buches. Jemand sagt: „Erweitert man 3/(4x) mit 5, liest es mehr pro Tag.“ Was stimmt?',
+    'Falsch: 15/(20x) ist derselbe Anteil; nur die Darstellung ändert sich.', ['Richtig: 15 ist größer als 3.', 'Falsch: Es liest dann weniger.', 'Richtig: fünfmal so viel.'],
+    TW('3/(4x) = 15/(20x).', 'Ändert sich der Wert?', 'Erweitern: Zähler und Nenner mal 5.', 'Wert bleibt gleich.', 'Die Aussage ist falsch.'), 'Was passiert beim Erweitern mit dem Wert?'), huerde='entscheidung')
+TX.s('erweitern', TZ('Ein Kind liest pro Tag 2/(3x) eines Buches. Schreibe den Anteil mit dem Nenner 12x. Wie heißt der Zähler?', '2 * 4',
+    TW('2/(3x) → □/(12x).', 'Zähler.', 'Mit 4 erweitern.', '8.', '8/(12x).')))
+TX.s('erweitern', TZ('Eine Pumpe leert pro Stunde 1/(5x) eines Beckens. Schreibe den Anteil mit dem Nenner 10x. Wie heißt der Zähler?', '1 * 2',
+    TW('1/(5x) → □/(10x).', 'Zähler.', 'Mit 2 erweitern.', '2.', '2/(10x).')))
+TX.k('erweitern', TZ('Ein Garten wird pro Woche zu 3/(2x) umgegraben. Schreibe den Anteil mit dem Nenner 8x. Wie heißt der Zähler?', '3 * 4',
+    TW('3/(2x) → □/(8x).', 'Zähler.', 'Mit 4 erweitern.', '12.', '12/(8x).')))
+
+# --- addieren ---
+TX.u('addieren', 'direkt', TX.A('Zwei Pumpen leeren pro Stunde 1/x und 2/x eines Beckens. Welchen Anteil schaffen sie zusammen?', '3/x', ['3/(2x)', '2/x²', '3/x²'],
+    TW('1/x + 2/x.', 'Summe.', 'Gleicher Nenner: Zähler addieren.', '3/x.', 'Zusammen 3/x pro Stunde.'), 'Die Nenner sind gleich.'))
+TX.u('addieren', 'einkleidung', TZ('Der Hinweg dauert 12/v Stunden, der Rückweg mit Rückenwind 12/(v + 2) Stunden. Wie lange dauert beides für v = 4?', '12 / 4 + 12 / 6',
+    TW('v = 4.', 'Gesamtzeit.', 'Einsetzen und addieren.', '3 + 2 = 5.', 'Insgesamt 5 Stunden.'), 'Berechne beide Brüche.', einheit='h'))
+TX.u('addieren', 'mehrschritt', TX.A('Pumpe A leert pro Stunde 1/x, Pumpe B 1/(2x) eines Beckens. Welchen Anteil schaffen beide zusammen?', '3/(2x)', ['2/(3x)', '2/(2x)', '1/(3x)'],
+    TW('1/x + 1/(2x).', 'Summe.', 'Hauptnenner 2x.', '2/(2x) + 1/(2x) = 3/(2x).', 'Zusammen 3/(2x).'), 'Bringe beide auf den Nenner 2x.'))
+TX.u('addieren', 'pruefung', TZ('Zwei Rohre füllen einen 3 000-l-Tank. Rohr A allein braucht 6 h, Rohr B allein 12 h. Wie viele Stunden brauchen beide zusammen?', '1 / (1/6 + 1/12)',
+    TW('1/6 + 1/12 pro Stunde; das Volumen spielt keine Rolle.', 'Zeit zusammen.', 'Anteile addieren, Kehrwert.', '2/12 + 1/12 = 3/12 = 1/4 ⇒ 4 h.', 'Zusammen brauchen sie 4 Stunden.'), 'Welche Angabe brauchst du nicht?', einheit='h'), huerde='ueberfluessig')
+TX.u('addieren', 'transfer', TZ('Ein Radfahrer fährt 30 km mit v km/h hin und wegen Gegenwind mit (v − 5) km/h zurück: 30/v + 30/(v − 5) Stunden. Wie viele Minuten ist er für v = 15 unterwegs?', '(30 / 15 + 30 / 10) * 60',
+    TW('v = 15.', 'Gesamtzeit in Minuten.', 'Einsetzen, addieren, umrechnen.', '2 + 3 = 5 h = 300 min.', 'Er ist 300 Minuten unterwegs.'), 'Achte auf die Einheit.', einheit='min'), huerde='deuten')
+TX.u('addieren', 'fehler', TX.A('Zwei Pumpen schaffen pro Stunde 1/x und 1/(2x) eines Beckens. Jemand rechnet: 1/x + 1/(2x) = 2/(3x). Was stimmt?',
+    'Falsch: Nenner nicht addieren – 2/(2x) + 1/(2x) = 3/(2x).', ['Richtig.', 'Falsch: 2/(2x).', 'Falsch: 1/(3x).'],
+    TW('1/x + 1/(2x).', 'Fehler.', 'Hauptnenner bilden.', '3/(2x).', 'Richtig ist 3/(2x).'), 'Darf man Nenner addieren?'), huerde='entscheidung')
+TX.s('addieren', TZ('Hinweg 20/v Stunden, Rückweg 20/v Stunden. Wie lange insgesamt bei v = 8?', '40 / 8',
+    TW('20/v + 20/v = 40/v.', 'Wert bei 8.', 'Addieren, einsetzen.', '5.', '5 Stunden.'), einheit='h'))
+TX.s('addieren', TZ('Zwei Maler schaffen pro Tag 1/4 und 1/12 eines Hauses. Wie viele Tage brauchen sie zusammen?', '1 / (1/4 + 1/12)',
+    TW('1/4 + 1/12.', 'Tage.', 'Addieren, Kehrwert.', '4/12 = 1/3 ⇒ 3.', '3 Tage.'), einheit='Tage'))
+TX.k('addieren', TZ('Zwei Hähne füllen eine Wanne allein in 10 bzw. 15 Minuten. Wie viele Minuten brauchen beide zusammen?', '1 / (1/10 + 1/15)',
+    TW('1/10 + 1/15.', 'Zeit.', 'Addieren, Kehrwert.', '5/30 = 1/6 ⇒ 6.', '6 Minuten.'), einheit='min'))
+
+# --- multiplizieren ---
+TX.u('multiplizieren', 'direkt', TZ('Ein Stoff kostet 24/x Euro pro Meter. Man kauft x/3 Meter. Was kostet das?', '24 / 3',
+    TW('(24/x) · (x/3).', 'Preis.', 'Multiplizieren, x kürzen.', '24x/(3x) = 8.', 'Es kostet 8 €.'), 'Multipliziere Zähler mit Zähler, Nenner mit Nenner.', einheit='€'))
+TX.u('multiplizieren', 'einkleidung', TZ('Ein Zug fährt 90/x km pro Minute, und zwar 2x Minuten lang. Wie weit fährt er?', '90 * 2',
+    TW('(90/x) · 2x.', 'Strecke.', 'Multiplizieren, kürzen.', '180x/x = 180.', 'Er fährt 180 km.'), 'Strecke = Geschwindigkeit · Zeit.', einheit='km'))
+TX.u('multiplizieren', 'mehrschritt', TZ('Ein Rechteck ist 6x/5 m lang und 10/(3x) m breit. Wie groß ist seine Fläche?', '6 * 10 / (5 * 3)',
+    TW('(6x/5) · (10/(3x)).', 'Fläche.', 'Multiplizieren, kürzen.', '60x/(15x) = 4.', 'Die Fläche ist 4 m².'), 'Was kürzt sich weg?', einheit='m²'))
+TX.u('multiplizieren', 'pruefung', TZ('Ein Drucker druckt 60/x Seiten pro Sekunde, und zwar 5x/2 Sekunden lang. Das Papier wiegt 80 g pro m². Wie viele Seiten druckt er?', '60 * 5 / 2',
+    TW('(60/x) · (5x/2); das Papiergewicht spielt keine Rolle.', 'Seitenzahl.', 'Multiplizieren, kürzen.', '300x/(2x) = 150.', 'Er druckt 150 Seiten.'), 'Welche Angabe brauchst du nicht?'), huerde='ueberfluessig')
+TX.u('multiplizieren', 'fehler', TX.A('Ein Saft kostet 4/x Euro pro Liter, man kauft x/2 Liter. Jemand rechnet: (4/x) · (x/2) = 4x/(2x²) = 2/x. Was stimmt?',
+    'Falsch: x · 2 ist kein x²; richtig ist 4x/(2x) = 2 €.', ['Richtig.', 'Falsch: 2x €.', 'Falsch: 8 €.'],
+    TW('(4/x) · (x/2).', 'richtiges Ergebnis.', 'Nenner x · 2 = 2x.', '4x/(2x) = 2.', 'Es kostet 2 €.'), 'Was ergibt x · 2 im Nenner?'), huerde='entscheidung')
+TX.u('multiplizieren', 'begruenden', TX.A('Ein Radfahrer fährt 36/x km pro Minute genau x Minuten lang. Jemand sagt: „Wie weit er kommt, hängt von x ab.“ Was stimmt?',
+    'Falsch: (36/x) · x = 36 km, für jedes x.', ['Richtig: Je größer x, desto weiter.', 'Richtig: Je größer x, desto kürzer.', 'Falsch: Er kommt 36x km weit.'],
+    TW('(36/x) · x.', 'Abhängig von x?', 'Kürzen.', '36.', 'Er fährt immer 36 km.'), 'Was kürzt sich?'), huerde='entscheidung')
+TX.u('multiplizieren', 'transfer', TZ('Ein Becken wird erst 2x/3 Minuten lang mit 300/x Litern pro Minute gefüllt, danach 4 Minuten mit 50 Litern pro Minute. Wie viele Liter sind dann darin?', '300 * 2 / 3 + 50 * 4',
+    TW('(300/x) · (2x/3) + 50 · 4.', 'Gesamtmenge.', 'Beide Abschnitte berechnen, addieren.', '200 + 200 = 400.', 'Es sind 400 Liter darin.'), 'Rechne die beiden Abschnitte getrennt.', einheit='l'), huerde='zwei')
+TX.s('multiplizieren', TZ('Ein Stoff kostet 10/x Euro pro Meter, man kauft x/2 Meter. Was kostet das?', '10 / 2',
+    TW('(10/x) · (x/2).', 'Preis.', 'Kürzen.', '5.', '5 €.'), einheit='€'))
+TX.s('multiplizieren', TZ('Ein Beet ist 9x/4 m lang und 8/(3x) m breit. Wie groß ist die Fläche?', '9 * 8 / (4 * 3)',
+    TW('(9x/4) · (8/(3x)).', 'Fläche.', 'Kürzen.', '72/12 = 6.', '6 m².'), einheit='m²'))
+TX.k('multiplizieren', TZ('Käse kostet 18/x Euro pro kg, man kauft x/6 kg. Was kostet das?', '18 / 6',
+    TW('(18/x) · (x/6).', 'Preis.', 'Kürzen.', '3.', '3 €.'), einheit='€'))
+
+# --- fehler_finden ---
+TX.u('fehler_finden', 'erkennen', TX.A('Zwei Pumpen leeren pro Stunde 2/x und 3/x eines Beckens. Welche Rechnung für den gemeinsamen Anteil stimmt?', '2/x + 3/x = 5/x', ['2/x + 3/x = 5/(2x)', '2/x + 3/x = 6/x', '2/x + 3/x = 5/x²'],
+    TW('2/x + 3/x.', 'richtige Rechnung.', 'Gleicher Nenner bleibt.', '5/x.', '5/x ist richtig.'), 'Was passiert mit dem Nenner bei gleichnamigen Brüchen?'))
+TX.u('fehler_finden', 'einkleidung', TX.A('Kosten von (30 + 6x) € werden auf 6 Personen verteilt. Jemand kürzt: (30 + 6x)/6 = 30 + x. Was stimmt?',
+    'Falsch: Jeder Summand wird geteilt – 5 + x.', ['Richtig.', 'Falsch: 5 + 6x.', 'Falsch: 36x : 6 = 6x.'],
+    TW('(30 + 6x)/6.', 'richtiger Term.', '6 ausklammern.', '6(5 + x)/6 = 5 + x.', 'Jeder zahlt 5 + x Euro.'), 'Wurde die 30 auch durch 6 geteilt?'))
+TX.u('fehler_finden', 'mehrschritt', TZ('Jemand rechnet die Gesamtzeit für Hin- und Rückweg 10/v + 10/v bei v = 5 so: „10/10 = 1 Stunde.“ Wie viele Stunden sind es richtig?', '10 / 5 + 10 / 5',
+    TW('10/v + 10/v = 20/v, v = 5.', 'richtige Zeit.', 'Zähler addieren, Nenner bleibt.', '2 + 2 = 4.', 'Es sind 4 Stunden.'), 'Was passiert beim Addieren mit dem Nenner?', einheit='h'))
+TX.u('fehler_finden', 'pruefung', TX.A('Ein Radfahrer (Rad 12 kg) fährt 24 km mit v km/h hin und mit (v + 4) km/h zurück. Jemand schreibt für die Gesamtzeit 48/(2v + 4). Was stimmt?',
+    'Falsch: Brüche nicht durch Addieren von Zählern und Nennern zusammenfassen; richtig ist 24/v + 24/(v + 4).', ['Richtig.', 'Falsch: 48/(v + 4).', 'Falsch: 24/(2v + 4).'],
+    TW('24/v + 24/(v + 4); das Radgewicht spielt keine Rolle.', 'Fehler.', 'Probe mit v = 4: 6 + 3 = 9; 48/12 = 4.', 'Die Werte stimmen nicht überein.', 'Die Umformung ist falsch.'), 'Mache eine Probe mit einer Zahl.'), huerde='ueberfluessig')
+TX.u('fehler_finden', 'transfer', TZ('Jemand rechnet die Kosten pro Person (200 + 10x)/x bei 25 Personen so: „200 + 10 = 210 €.“ Wie viel Euro sind es richtig?', '(200 + 10 * 25) / 25',
+    TW('x = 25.', 'richtiger Wert.', 'Einsetzen, dann teilen.', '450 : 25 = 18.', 'Es sind 18 € pro Person.'), 'Darf man x einfach wegkürzen?', einheit='€'), huerde='deuten')
+TX.u('fehler_finden', 'verknuepfen', TX.A('Maler A braucht allein 6 Stunden für eine Wand, Maler B 3 Stunden. Jemand sagt: „Zusammen brauchen sie 6 + 3 = 9 Stunden.“ Was stimmt?',
+    'Falsch: 1/6 + 1/3 = 1/2 pro Stunde – zusammen 2 Stunden.', ['Richtig.', 'Falsch: 4,5 Stunden.', 'Falsch: 3 Stunden.'],
+    TW('1/6 + 1/3 pro Stunde.', 'Zeit zusammen.', 'Anteile addieren, Kehrwert.', '1/6 + 2/6 = 1/2 ⇒ 2 h.', 'Zusammen 2 Stunden.'), 'Werden zwei Maler langsamer als einer?'), huerde='entscheidung')
+TX.s('fehler_finden', TZ('Ein Stoff kostet 12/x Euro pro Meter, man kauft x/4 Meter. Jemand rechnet 12/(4x). Was kostet es richtig?', '12 / 4',
+    TW('(12/x) · (x/4).', 'Preis.', 'Kürzen.', '3.', '3 €.'), einheit='€'))
+TX.s('fehler_finden', TZ('Kosten von (8x + 16) € werden auf 8 Personen verteilt. Jemand kürzt zu x + 16. Was zahlt jeder richtig für x = 3?', '3 + 2',
+    TW('(8x + 16)/8 = x + 2.', 'Wert bei 3.', 'Richtig kürzen, einsetzen.', '5.', '5 €.'), einheit='€'))
+TX.k('fehler_finden', TZ('Zwei Pumpen schaffen je 1/4 eines Beckens pro Stunde. Jemand rechnet 1/4 + 1/4 = 2/8. Welcher Anteil ist es richtig (als Dezimalzahl)?', '1/4 + 1/4',
+    TW('1/4 + 1/4.', 'Summe.', 'Zähler addieren.', '2/4 = 0,5.', '0,5, also die Hälfte.')))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundlagen', ['definitionsmenge', 'termwert']), ('Kürzen und Erweitern', ['kuerzen', 'erweitern']),

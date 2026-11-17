@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-2 (Neunzehnte Runde, Teil B, Chat 2)
 
+## 2026-11-17 19:20 – STATUS
+zahlen.schranken fertig: Einheitenfehler behoben („Seiten 7,1 kg“, „Strecken … kg“), Stufen getrennt, 8 Stufe-3-Übungen je Karte (ganzzahlige Anzahl, doppelte Rundung, prozentualer Fehler, relative Genauigkeit, Seilrest, dritte Seite aus dem Umfang, Breite aus Fläche, Fahrzeit mit „lässt sich nicht sagen“, angemessene Genauigkeit). Drei Karten um je einen Schritt ergänzt. inhalt_pruefen OK ohne Hinweise.
+
 ## 2026-11-17 18:50 – STATUS
 sonder.logik fertig: Fehler im Generator – „Welcher Ausdruck ist wahr?“ konnte nie entstehen, „p ⇒ q für n = …“ war immer wahr (ratbar); beides behoben. 8 Stufe-3-Übungen je Karte (Quantor-Aussagen, Aussageform, Ritter und Lügner, Wenn-dann verneinen, doppelte Verneinung, Zählen mit ∨, drei Aussagen mit 8 Zeilen, Ausdruck aus der Spalte, Kartenaufgabe). Vier Karten um je einen Schritt ergänzt. inhalt_pruefen OK ohne Hinweise.
 

@@ -666,6 +666,10 @@ for _lz, _t in [('systematisch', 'Beim Eis gibt es 3 Sorten, 3 Soßen und 2 Stre
     DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
 durchsicht_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl5, siehe _stufen_kl5.py und _st5_stochastik_kombinatorik.py) ----
+from _stufen_kl5 import stufen_anwenden  # noqa: E402
+stufen_anwenden(DATEI, 'stochastik.kombinatorik')
+# ---- STUFEN ENDE ----
 
 if __name__ == '__main__':
     schreibe(DATEI)

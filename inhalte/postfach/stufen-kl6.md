@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 18:25 – STATUS
+**bruch.prozent** fertig: 3 umgestuft, 33 neue Übungen, 14 Knobel-Bordkarten, 24 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
+
 ## 2026-11-17 18:05 – STATUS
 **messen.volumen** fertig: 2 umgestuft, 8 neue Übungen, 14 Knobel-Bordkarten, 3 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
 

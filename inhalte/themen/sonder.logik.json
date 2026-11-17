@@ -41,35 +41,288 @@
    {
     "lernziel": "aussagen",
     "titel": "Was ist eine Aussage?",
-    "regel": "Eine ⟦Aussage⟧ (proposition) ist ein Satz, der ⟦entweder wahr oder falsch⟧ ist – nie beides, nie keins. Fragen, Befehle und Sätze mit unbestimmter Variable („x ist größer als 3“) sind ⟦keine Aussagen⟧. Man kürzt Aussagen mit Buchstaben p, q, … ab.",
+    "regel": "Eine Aussage ist ⟦entweder wahr oder falsch⟧. Fragen, Befehle und Sätze mit offenem x sind keine Aussagen.",
     "schritte": [
-     "„17 ist eine Primzahl.“ – wahr oder falsch? Wahr.",
-     "Also ist es eine Aussage mit ⟦Wahrheitswert wahr⟧ (truth value)."
+     {
+      "text": "„17 ist eine Primzahl“: Die Teiler sind nur 1 und 17."
+     },
+     {
+      "text": "Also eine Aussage mit dem Wahrheitswert ⟦wahr⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Satz",
+        "Aussage?",
+        "Wert"
+       ],
+       "zeilen": [
+        [
+         "17 ist eine Primzahl.",
+         "ja",
+         "w"
+        ],
+        [
+         "Komm her!",
+         "?",
+         "?"
+        ],
+        [
+         "12 ist ungerade.",
+         "?",
+         "?"
+        ],
+        [
+         "x ist größer als 3.",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "„12 ist ungerade“ ist auch eine Aussage, nur eine falsche.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Satz",
+        "Aussage?",
+        "Wert"
+       ],
+       "zeilen": [
+        [
+         "17 ist eine Primzahl.",
+         "ja",
+         "w"
+        ],
+        [
+         "Komm her!",
+         "?",
+         "?"
+        ],
+        [
+         "12 ist ungerade.",
+         "ja",
+         "f"
+        ],
+        [
+         "x ist größer als 3.",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "„Komm her!“ und „x ist größer als 3“ sind ⟦keine Aussagen⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Satz",
+        "Aussage?",
+        "Wert"
+       ],
+       "zeilen": [
+        [
+         "17 ist eine Primzahl.",
+         "ja",
+         "w"
+        ],
+        [
+         "Komm her!",
+         "nein",
+         "–"
+        ],
+        [
+         "12 ist ungerade.",
+         "ja",
+         "f"
+        ],
+        [
+         "x ist größer als 3.",
+         "nein",
+         "–"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "17 hat nur die Teiler 1 und 17 ✓",
-    "fehler": "„Eine falsche Aussage ist keine Aussage“ stimmt nicht: „12 ist ungerade“ ist eine Aussage – ⟦eine falsche⟧. Entscheidend ist nur, dass sie wahr oder falsch ⟦sein kann⟧."
+    "fehler": "„Eine falsche Aussage ist keine Aussage“ stimmt nicht. „12 ist ungerade“ ist eine Aussage, ⟦eine falsche⟧.",
+    "einstieg": "„17 ist eine Primzahl.“ Darauf kann man mit wahr oder falsch antworten. „Komm her!“ dagegen nicht. Sätze, die entweder wahr oder falsch sind, heißen ⟦Aussagen⟧.",
+    "woerter": [
+     [
+      "Aussage",
+      "ein Satz, der entweder wahr oder falsch ist"
+     ],
+     [
+      "Wahrheitswert",
+      "wahr (w) oder falsch (f)"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Satz",
+      "Aussage?",
+      "Wert"
+     ],
+     "zeilen": [
+      [
+       "17 ist eine Primzahl.",
+       "?",
+       "?"
+      ],
+      [
+       "Komm her!",
+       "?",
+       "?"
+      ],
+      [
+       "12 ist ungerade.",
+       "?",
+       "?"
+      ],
+      [
+       "x ist größer als 3.",
+       "?",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "negation",
     "titel": "Aussagen verneinen",
-    "regel": "Die ⟦Verneinung⟧ (negation) ⟦¬p⟧ („nicht p“) ist genau dann wahr, wenn p falsch ist. Achtung bei Mengenwörtern: Die Verneinung von „⟦alle⟧ … sind …“ ist „⟦mindestens einer⟧ … ist ⟦nicht⟧ …“, die von „es gibt ein …“ ist „⟦kein⟧ …“.",
+    "regel": "Die Verneinung liefert ⟦immer das Gegenteil⟧. Aus „alle“ wird „mindestens einer nicht“.",
     "schritte": [
-     "p: „Alle Kinder der Klasse haben ein Fahrrad.“",
-     "¬p: „⟦Mindestens ein Kind der Klasse hat kein Fahrrad.⟧“"
+     {
+      "text": "p: „Alle Kinder der Klasse haben ein Fahrrad.“"
+     },
+     {
+      "text": "¬p ist wahr, sobald ein einziges Kind keins hat.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Klasse",
+        "p",
+        "¬p"
+       ],
+       "zeilen": [
+        [
+         "alle mit Rad",
+         "w",
+         "f"
+        ],
+        [
+         "einer ohne",
+         "f",
+         "w"
+        ],
+        [
+         "keiner mit Rad",
+         "f",
+         "w"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also ¬p: ⟦Mindestens ein Kind hat kein Fahrrad⟧."
+     }
     ],
-    "probe": "Genau eine der beiden Aussagen ist wahr ✓",
-    "fehler": "„Kein Kind hat ein Fahrrad“ als Verneinung von „Alle Kinder haben ein Fahrrad“ ist falsch: Beide können ⟦gleichzeitig falsch⟧ sein (wenn manche ein Fahrrad haben). Die Verneinung muss ⟦immer das Gegenteil⟧ liefern."
+    "fehler": "„Kein Kind hat ein Fahrrad“ ist nicht die Verneinung. Haben manche eins, sind ⟦beide Sätze falsch⟧.",
+    "einstieg": "Ein Lehrer sagt: Alle Kinder haben ein Fahrrad. Ein Kind widerspricht. Dafür reicht schon ein Kind ohne Fahrrad. Das Gegenteil einer Aussage heißt ⟦Verneinung⟧.",
+    "woerter": [
+     [
+      "Verneinung",
+      "¬p: das Gegenteil von p; wahr genau dann, wenn p falsch ist"
+     ],
+     [
+      "mindestens ein",
+      "eins oder mehr"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "p",
+      "¬p"
+     ],
+     "zeilen": [
+      [
+       "w",
+       "f"
+      ],
+      [
+       "f",
+       "w"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Klasse",
+      "p",
+      "„kein Kind …“"
+     ],
+     "zeilen": [
+      [
+       "einige mit Rad",
+       "f",
+       "f ✗"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "verknuepfen",
     "titel": "Und und Oder",
-    "regel": "⟦p ∧ q⟧ („p und q“, conjunction) ist nur wahr, wenn ⟦beide⟧ wahr sind. ⟦p ∨ q⟧ („p oder q“, disjunction) ist wahr, wenn ⟦mindestens eine⟧ wahr ist – auch wenn beide wahr sind (einschließendes Oder).",
+    "regel": "⟦∧ braucht beide⟧, ∨ braucht mindestens eine wahre Aussage. Das Oder schließt beides ein.",
     "schritte": [
-     "p: „9 ist gerade“ (falsch), q: „9 ist durch 3 teilbar“ (wahr).",
-     "p ∧ q: falsch, weil p falsch ist.",
-     "p ∨ q: ⟦wahr⟧, weil q wahr ist."
+     {
+      "text": "p: „9 ist gerade“ (falsch). q: „9 ist durch 3 teilbar“ (wahr)."
+     },
+     {
+      "text": "p ∧ q ist falsch, weil p falsch ist.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "p",
+        "q",
+        "p ∧ q",
+        "p ∨ q"
+       ],
+       "zeilen": [
+        [
+         "f",
+         "w",
+         "f",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "p ∨ q ist ⟦wahr⟧, weil q wahr ist.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "p",
+        "q",
+        "p ∧ q",
+        "p ∨ q"
+       ],
+       "zeilen": [
+        [
+         "f",
+         "w",
+         "f",
+         "w"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Für ∨ reicht eine wahre Teilaussage ✓",
     "bild": {
      "typ": "tabelle",
      "kopf": [
@@ -105,25 +358,146 @@
       ]
      ]
     },
-    "fehler": "„p ∨ q ist falsch, weil p und q beide wahr sind“ ist falsch: Das mathematische ⟦Oder schließt beides ein⟧. Nur wenn beide falsch sind, ist p ∨ q falsch."
+    "fehler": "„Beide wahr, also ist p ∨ q falsch“ ist falsch. Das Oder in der Mathematik ⟦schließt beides ein⟧.",
+    "einstieg": "Ins Kino darfst du, wenn du Hausaufgaben gemacht ⟦und⟧ aufgeräumt hast. Ein Eis gibt es, wenn die Sonne scheint ⟦oder⟧ Ferien sind. Beide Wörter verknüpfen Aussagen.",
+    "woerter": [
+     [
+      "p ∧ q",
+      "„p und q“: nur wahr, wenn beide wahr sind"
+     ],
+     [
+      "p ∨ q",
+      "„p oder q“: wahr, wenn mindestens eine wahr ist"
+     ]
+    ]
    },
    {
     "lernziel": "tafel",
     "titel": "Wahrheitstafeln ausfüllen",
-    "regel": "Eine ⟦Wahrheitstafel⟧ (truth table) listet ⟦alle Kombinationen⟧ der Wahrheitswerte auf: bei zwei Aussagen ⟦4 Zeilen⟧ (ww, wf, fw, ff). Zusammengesetzte Ausdrücke rechnet man ⟦von innen nach außen⟧, mit Hilfsspalten.",
+    "regel": "Zwei Aussagen ergeben ⟦4 Zeilen⟧. Mit Hilfsspalten von innen nach außen rechnen.",
     "schritte": [
-     "Ausdruck p ∧ ¬q. Hilfsspalte ¬q: f, w, f, w.",
-     "p ∧ ¬q: nur in Zeile 2 (p wahr, ¬q wahr) wahr.",
-     "Ergebnis-Spalte: ⟦f, w, f, f⟧."
+     {
+      "text": "Ausdruck: p ∧ ¬q. Alle vier Zeilen hinschreiben."
+     },
+     {
+      "text": "Hilfsspalte ¬q: f, w, f, w.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "p",
+        "q",
+        "¬q"
+       ],
+       "zeilen": [
+        [
+         "w",
+         "w",
+         "f"
+        ],
+        [
+         "w",
+         "f",
+         "w"
+        ],
+        [
+         "f",
+         "w",
+         "f"
+        ],
+        [
+         "f",
+         "f",
+         "w"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "p ∧ ¬q ist nur wahr, wo p und ¬q beide wahr sind."
+     },
+     {
+      "text": "Ergebnis: ⟦f, w, f, f⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "p",
+        "q",
+        "¬q",
+        "p ∧ ¬q"
+       ],
+       "zeilen": [
+        [
+         "w",
+         "w",
+         "f",
+         "f"
+        ],
+        [
+         "w",
+         "f",
+         "w",
+         "w"
+        ],
+        [
+         "f",
+         "w",
+         "f",
+         "f"
+        ],
+        [
+         "f",
+         "f",
+         "w",
+         "f"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Nur bei p wahr und q falsch ist „p und nicht q“ erfüllt ✓",
     "bild": {
      "typ": "tabelle",
      "kopf": [
       "p",
+      "q"
+     ],
+     "zeilen": [
+      [
+       "w",
+       "w"
+      ],
+      [
+       "w",
+       "f"
+      ],
+      [
+       "f",
+       "w"
+      ],
+      [
+       "f",
+       "f"
+      ]
+     ]
+    },
+    "fehler": "¬(p ∧ q) ist nicht ¬p ∧ ¬q. In Zeile 2 ist das erste wahr, das zweite falsch. Richtig ist ⟦¬p ∨ ¬q⟧.",
+    "einstieg": "Bei zwei Aussagen gibt es vier Möglichkeiten: beide wahr, nur die erste, nur die zweite, keine. Eine ⟦Wahrheitstafel⟧ schreibt alle vier untereinander.",
+    "woerter": [
+     [
+      "Wahrheitstafel",
+      "eine Tabelle mit allen Kombinationen von w und f"
+     ],
+     [
+      "Hilfsspalte",
+      "eine Spalte für einen Zwischenschritt, z. B. ¬q"
+     ]
+    ],
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "p",
       "q",
-      "¬q",
-      "p ∧ ¬q"
+      "¬(p ∧ q)",
+      "¬p ∧ ¬q"
      ],
      "zeilen": [
       [
@@ -136,34 +510,88 @@
        "w",
        "f",
        "w",
+       "f"
+      ],
+      [
+       "f",
+       "w",
+       "w",
+       "f"
+      ],
+      [
+       "f",
+       "f",
+       "w",
        "w"
-      ],
-      [
-       "f",
-       "w",
-       "f",
-       "f"
-      ],
-      [
-       "f",
-       "f",
-       "w",
-       "f"
       ]
      ]
-    },
-    "fehler": "¬(p ∧ q) mit ¬p ∧ ¬q gleichzusetzen ist falsch: In Zeile 2 (p w, q f) ist ¬(p ∧ q) wahr, ¬p ∧ ¬q aber falsch. Richtig ist ⟦¬(p ∧ q) = ¬p ∨ ¬q⟧ (De Morgan)."
+    }
    },
    {
     "lernziel": "folgerung",
     "titel": "Wenn …, dann …",
-    "regel": "Die ⟦Implikation⟧ (implication) ⟦p ⇒ q⟧ („wenn p, dann q“) ist ⟦nur falsch⟧, wenn p wahr und q falsch ist. Aus p ⇒ q folgt die ⟦Kontraposition⟧ ¬q ⇒ ¬p (gleichwertig), aber ⟦nicht⟧ die ⟦Umkehrung⟧ q ⇒ p (converse).",
+    "regel": "p ⇒ q ist ⟦nur falsch bei p wahr, q falsch⟧. Die Kontraposition gilt mit, die Umkehrung nicht.",
     "schritte": [
-     "„Wenn eine Zahl durch 4 teilbar ist, dann ist sie gerade.“ (wahr)",
-     "Umkehrung: „Wenn gerade, dann durch 4 teilbar.“ – falsch (Gegenbeispiel 6).",
-     "Kontraposition: „⟦Wenn nicht gerade, dann nicht durch 4 teilbar⟧.“ – wahr."
+     {
+      "text": "„Wenn eine Zahl durch 4 teilbar ist, ist sie gerade.“ Das stimmt.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Zahl",
+        "durch 4",
+        "gerade"
+       ],
+       "zeilen": [
+        [
+         "8",
+         "w",
+         "w"
+        ],
+        [
+         "6",
+         "f",
+         "w"
+        ],
+        [
+         "7",
+         "f",
+         "f"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die Umkehrung „Wenn gerade, dann durch 4 teilbar“ ist falsch: 6.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Zahl",
+        "durch 4",
+        "gerade"
+       ],
+       "zeilen": [
+        [
+         "8",
+         "w",
+         "w"
+        ],
+        [
+         "6 ✗",
+         "f",
+         "w"
+        ],
+        [
+         "7",
+         "f",
+         "f"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die Kontraposition stimmt: ⟦Nicht gerade, dann nicht durch 4 teilbar⟧."
+     }
     ],
-    "probe": "6 ist gerade, aber 6 : 4 geht nicht auf ✓",
     "bild": {
      "typ": "tabelle",
      "kopf": [
@@ -194,7 +622,22 @@
       ]
      ]
     },
-    "fehler": "Aus „Wenn es regnet, ist die Straße nass“ zu schließen „Die Straße ist nass, also regnet es“ ist falsch: Das ist die ⟦Umkehrung⟧ – die Straße kann auch aus anderen Gründen nass sein."
+    "fehler": "„Die Straße ist nass, also regnet es“ ist falsch. Das ist die ⟦Umkehrung⟧, sie folgt nicht.",
+    "einstieg": "„Wenn es regnet, ist die Straße nass.“ Ist die Straße nass, regnet es aber nicht unbedingt. Vielleicht fuhr ein Sprengwagen vorbei. Wenn-dann-Sätze heißen ⟦Implikation⟧.",
+    "woerter": [
+     [
+      "Implikation",
+      "p ⇒ q: „wenn p, dann q“"
+     ],
+     [
+      "Umkehrung",
+      "q ⇒ p; sie folgt nicht automatisch"
+     ],
+     [
+      "Kontraposition",
+      "¬q ⇒ ¬p; sie gilt genau dann, wenn p ⇒ q gilt"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [

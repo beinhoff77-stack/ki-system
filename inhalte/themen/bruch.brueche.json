@@ -30,7 +30,8 @@
     "titel": "Erweitern und kürzen",
     "lernziele": [
      "erweitern",
-     "kuerzen"
+     "kuerzen",
+     "gemischte_zahlen"
     ]
    },
    {
@@ -38,6 +39,7 @@
     "lernziele": [
      "vergleichen",
      "zahlenstrahl",
+     "zahlbereiche",
      "verstehen"
     ]
    }
@@ -289,12 +291,95 @@
     }
    },
    {
+    "lernziel": "gemischte_zahlen",
+    "titel": "Gemischte Zahlen umwandeln",
+    "einstieg": "Nach dem Fest bleiben 2 ganze Pizzen und 3/4 Pizza übrig. Man schreibt kurz 2 3/4 Pizzen. So eine Zahl heißt ⟦gemischte Zahl⟧.",
+    "woerter": [
+     [
+      "gemischte Zahl",
+      "Ganze und ein Bruch zusammen: 2 3/4 heißt 2 + 3/4"
+     ],
+     [
+      "unechter Bruch",
+      "ein Bruch mit Zähler größer als der Nenner, z. B. 11/4"
+     ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 4,
+     "gefaerbt": 4,
+     "ganzes": "1 Pizza",
+     "teil_text": "1. Pizza",
+     "zeilen": [
+      {
+       "teile": 4,
+       "gefaerbt": 4,
+       "teil_text": "2. Pizza"
+      },
+      {
+       "teile": 4,
+       "gefaerbt": 3,
+       "teil_text": "3/4"
+      }
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Jede ganze Pizza hat 4 Viertel. 2 Pizzen sind 8 Viertel."
+     },
+     {
+      "text": "Dazu kommen noch 3 Viertel: 8 + 3 = 11 Viertel.",
+      "bild": {
+       "zeilen": [
+        {
+         "teile": 4,
+         "gefaerbt": 4,
+         "teil_text": "8/4"
+        },
+        {
+         "teile": 4,
+         "gefaerbt": 3,
+         "teil_text": "+ 3/4"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ist 2 3/4 = ⟦11/4⟧. Das ist ein unechter Bruch."
+     },
+     {
+      "text": "Rückwärts: 11 : 4 = 2 Rest 3. Also 11/4 = ⟦2 3/4⟧."
+     }
+    ],
+    "fehler": "2 3/4 heißt nicht 2 · 3/4. Zwei Pizzen und drei Viertel sind 2 + 3/4, also mehr als 2 Pizzen.",
+    "fehler_bild": {
+     "teile": 4,
+     "gefaerbt": 4,
+     "teil_text": "2 · 3/4 = 6/4",
+     "zeilen": [
+      {
+       "teile": 4,
+       "gefaerbt": 2,
+       "teil_text": "nur 1 1/2 Pizzen"
+      }
+     ]
+    },
+    "regel": "Gemischte Zahl in Bruch: ⟦Ganze mal Nenner plus Zähler⟧. Rückwärts teilst du mit Rest.",
+    "probe": "11/4 = 8/4 + 3/4 = 2 + 3/4 = 2 3/4."
+   },
+   {
     "lernziel": "vergleichen",
     "titel": "Brüche vergleichen",
     "regel": "Bei gleichem Nenner gewinnt der größere ⟦Zähler⟧. Sonst erweiterst du zuerst auf den Hauptnenner.",
     "schritte": [
      {
       "text": "12 steht in der Viererreihe und in der Sechserreihe. 12 ist der Hauptnenner."
+     },
+     {
+      "text": "Oder mit der Primfaktorzerlegung: 4 = 2 · 2 und 6 = 2 · 3."
+     },
+     {
+      "text": "Jeder Faktor so oft wie nötig: 2 · 2 · 3 = ⟦12⟧."
      },
      {
       "text": "Erweitere beide: 3/4 = 9/12 und 5/6 = 10/12.",
@@ -321,6 +406,10 @@
      [
       "Hauptnenner",
       "die kleinste Zahl, in die beide Nenner passen"
+     ],
+     [
+      "Primfaktorzerlegung",
+      "eine Zahl als Produkt von Primzahlen schreiben: 12 = 2 · 2 · 3"
      ]
     ],
     "bild": {
@@ -416,6 +505,85 @@
     }
    },
    {
+    "lernziel": "zahlbereiche",
+    "titel": "Brüche als Zahlen, auch negativ",
+    "einstieg": "Das Thermometer zeigt −1/2 °C, eine halbe Stufe unter null. Brüche gibt es also auch links von 0. Alle Brüche zusammen heißen ⟦rationale Zahlen⟧.",
+    "woerter": [
+     [
+      "rationale Zahlen",
+      "alle positiven und negativen Brüche, auch die ganzen Zahlen; Zeichen ℚ"
+     ],
+     [
+      "Quotient",
+      "Ergebnis einer Division: 3/4 = 3 : 4"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -2,
+     "ende": 2,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    },
+    "schritte": [
+     {
+      "text": "−3/4 liegt links von 0, genauso weit wie 3/4 rechts.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": -0.75,
+         "name": "−3/4"
+        },
+        {
+         "wert": 0.75,
+         "name": "3/4"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Jetzt kommt −1/2 dazu. Weiter links heißt kleiner.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": -0.75,
+         "name": "−3/4"
+        },
+        {
+         "wert": -0.5,
+         "name": "−1/2"
+        },
+        {
+         "wert": 0.75,
+         "name": "3/4"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also gilt ⟦−3/4 < −1/2⟧, obwohl 3/4 größer ist als 1/2."
+     },
+     {
+      "text": "Jeder Bruch ist ein Quotient: 3/4 = 3 : 4 (3 Pizzen, 4 Kinder)."
+     }
+    ],
+    "fehler": "−3/4 ist nicht größer als −1/2. Am Thermometer ist −3/4 °C kälter als −1/2 °C.",
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": -0.75,
+       "name": "−3/4: kälter"
+      },
+      {
+       "wert": -0.5,
+       "name": "−1/2"
+      }
+     ]
+    },
+    "regel": "Am Zahlenstrahl ist die Zahl ⟦weiter links⟧ kleiner. Jeder Bruch ist ein Quotient: a/b = a : b.",
+    "probe": "−3/4 = −0,75 und −1/2 = −0,5: −0,75 liegt weiter links."
+   },
+   {
     "lernziel": "verstehen",
     "titel": "Aussagen prüfen, Fehler finden",
     "regel": "Prüfe Aussagen ⟦mit Zahlen⟧. Ein einziges Gegenbeispiel genügt, um sie zu widerlegen.",
@@ -495,6 +663,13 @@
     ]
    },
    {
+    "k": "gemischte_zahlen",
+    "text": "Gemischte Zahlen und unechte Brüche umwandeln",
+    "lernziele": [
+     "gemischte_zahlen"
+    ]
+   },
+   {
     "k": "vergleichen",
     "text": "Brüche vergleichen",
     "lernziele": [
@@ -506,6 +681,13 @@
     "text": "Brüche am Zahlenstrahl",
     "lernziele": [
      "zahlenstrahl"
+    ]
+   },
+   {
+    "k": "zahlbereiche",
+    "text": "Brüche als Zahlen: negative Brüche ordnen, Bruch als Quotient",
+    "lernziele": [
+     "zahlbereiche"
     ]
    },
    {
@@ -523,8 +705,10 @@
     "ganzes_bestimmen",
     "erweitern",
     "kuerzen",
+    "gemischte_zahlen",
     "vergleichen",
     "zahlenstrahl",
+    "zahlbereiche",
     "verstehen"
    ],
    "lernziele_vertiefung": [],
@@ -8765,6 +8949,1376 @@
    },
    "h": "Vergleiche 2/3 und 6/7: Sind sie gleich groß?",
    "w": "2/3 = 14/21, 6/7 = 18/21 – verschieden. Beim Erweitern werden Zähler und Nenner mit derselben Zahl malgenommen: 8/12."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 3 1/2 als unechten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     7,
+     2
+    ]
+   },
+   "c": [
+    "(3 + 1/2) * 2",
+    "2"
+   ],
+   "h": "Ganze mal Nenner, dann den Zähler dazuzählen.",
+   "w": "3 Ganze sind 6/2. Dazu 1/2: 7/2."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 1 2/5 als unechten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     7,
+     5
+    ]
+   },
+   "c": [
+    "(1 + 2/5) * 5",
+    "5"
+   ],
+   "h": "Ganze mal Nenner, dann den Zähler dazuzählen.",
+   "w": "1 Ganzes sind 5/5. Dazu 2/5: 7/5."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 9/4 als gemischte Zahl.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     4
+    ]
+   },
+   "c": [
+    "(9/4) // 1",
+    "((9/4) - (9/4) // 1) * 4",
+    "4"
+   ],
+   "h": "Teile Zähler durch Nenner. Das Ergebnis sind die Ganzen, der Rest ist der neue Zähler.",
+   "w": "9 : 4 = 2 Rest 1. Also 9/4 = 2 1/4."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 7/3 als gemischte Zahl.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     3
+    ]
+   },
+   "c": [
+    "(7/3) // 1",
+    "((7/3) - (7/3) // 1) * 3",
+    "3"
+   ],
+   "h": "Teile Zähler durch Nenner. Das Ergebnis sind die Ganzen, der Rest ist der neue Zähler.",
+   "w": "7 : 3 = 2 Rest 1. Also 7/3 = 2 1/3."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 4 5/6 als unechten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     29,
+     6
+    ]
+   },
+   "c": [
+    "(4 + 5/6) * 6",
+    "6"
+   ],
+   "h": "Ganze mal Nenner, dann den Zähler dazuzählen.",
+   "w": "4 · 6 = 24 Sechstel. 24 + 5 = 29. Also 29/6."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 23/8 als gemischte Zahl.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     2,
+     7,
+     8
+    ]
+   },
+   "c": [
+    "(23/8) // 1",
+    "((23/8) - (23/8) // 1) * 8",
+    "8"
+   ],
+   "h": "Teile Zähler durch Nenner. Das Ergebnis sind die Ganzen, der Rest ist der neue Zähler.",
+   "w": "23 : 8 = 2 Rest 7. Also 23/8 = 2 7/8."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 18/4 als gemischte Zahl. Kürze den Restbruch.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     4,
+     1,
+     2
+    ]
+   },
+   "c": [
+    "(18/4) // 1",
+    "((18/4) - (18/4) // 1) * 2",
+    "2"
+   ],
+   "h": "Teile mit Rest. Prüfe danach, ob der Restbruch kürzbar ist.",
+   "w": "18 : 4 = 4 Rest 2, also 4 2/4. Gekürzt: 4 1/2."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: 2 3/5 oder 13/5?"
+   },
+   "a": [
+    "Beide sind gleich groß.",
+    "2 3/5",
+    "13/5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Schreibe 2 3/5 als unechten Bruch.",
+   "w": "2 3/5 = 10/5 + 3/5 = 13/5. Beide Zahlen sind gleich."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen ganzen Zahlen liegt 47/6?"
+   },
+   "a": [
+    "zwischen 8 und 9",
+    "zwischen 7 und 8",
+    "zwischen 4 und 5",
+    "zwischen 6 und 7"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Wie oft passt 6 in 47?",
+   "w": "47 : 6 = 7 Rest 5, also 47/6 = 7 5/6. Das liegt zwischen 7 und 8."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Viertelstunden sind 3 1/4 Stunden?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(3 + 1/4) * 4",
+   "h": "Eine Stunde hat 4 Viertelstunden.",
+   "w": "3 Stunden sind 12 Viertelstunden, dazu 1 Viertelstunde: 13."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rezept braucht 1 3/4 Becher Mehl. Ein Becher fasst 200 g. Wie viele Gramm Mehl sind das?"
+   },
+   "o": {
+    "wert": 350,
+    "einheit": "g"
+   },
+   "c": "(1 + 3/4) * 200",
+   "h": "Ein ganzer Becher sind 200 g. Wie viel sind 3/4 Becher?",
+   "w": "1 Becher = 200 g. 3/4 Becher = 150 g. Zusammen 350 g."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die gemischte Zahl mit dem Nenner 8 an, die zwischen 13/4 und 7/2 liegt.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     3,
+     3,
+     8
+    ]
+   },
+   "c": [
+    "(27/8) // 1",
+    "((27/8) - (27/8) // 1) * 8",
+    "8"
+   ],
+   "h": "Schreibe beide Brüche mit dem Nenner 8.",
+   "w": "13/4 = 26/8 und 7/2 = 28/8. Dazwischen liegt 27/8 = 3 3/8."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Zahl liegt genau in der Mitte zwischen 1 1/2 und 4? Gib sie als gemischte Zahl an.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     2,
+     3,
+     4
+    ]
+   },
+   "c": [
+    "((3/2 + 4) / 2) // 1",
+    "(((3/2 + 4) / 2) - ((3/2 + 4) / 2) // 1) * 4",
+    "4"
+   ],
+   "h": "Der Abstand ist 4 − 1 1/2. Die Mitte ist die Hälfte davon weiter.",
+   "w": "Abstand 2 1/2, die Hälfte ist 1 1/4. 1 1/2 + 1 1/4 = 2 3/4."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde mit den Ziffern 2, 3 und 5 (je einmal) eine gemischte Zahl mit echtem Bruch, z. B. 2 3/5. Welche ist die größte?",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     5,
+     2,
+     3
+    ]
+   },
+   "c": [
+    "(5 + 2/3) // 1",
+    "((5 + 2/3) - (5 + 2/3) // 1) * 3",
+    "3"
+   ],
+   "h": "Die größte Ziffer gehört zu den Ganzen. Welcher echte Bruch aus den beiden anderen Ziffern ist möglich?",
+   "w": "Ganze 5. Echter Bruch aus 2 und 3: nur 2/3 (3/2 ist unecht). Also 5 2/3."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind schreibt 3 2/5 = 6/5, weil 3 · 2 = 6. Wie heißt der unechte Bruch richtig?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     17,
+     5
+    ]
+   },
+   "c": [
+    "(3 + 2/5) * 5",
+    "5"
+   ],
+   "h": "3 2/5 heißt 3 + 2/5. Wie viele Fünftel sind 3 Ganze?",
+   "w": "3 Ganze = 15 Fünftel. 15 + 2 = 17. Richtig ist 17/5, nicht 6/5."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind schreibt 17/4 = 3 5/4. Wie heißt die gemischte Zahl richtig?",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     4,
+     1,
+     4
+    ]
+   },
+   "c": [
+    "(17/4) // 1",
+    "((17/4) - (17/4) // 1) * 4",
+    "4"
+   ],
+   "h": "Der Restbruch einer gemischten Zahl muss kleiner als 1 sein.",
+   "w": "5/4 ist noch mehr als 1. 17 : 4 = 4 Rest 1, also 4 1/4."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Band ist 5 1/4 m lang. Wie viele Stücke von je 1/4 m kann man abschneiden?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "(5 + 1/4) * 4",
+   "h": "Wie viele Viertel sind 5 1/4?",
+   "w": "5 1/4 = 21/4. Also 21 Stücke zu je 1/4 m."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über 2 1/2 stimmt?"
+   },
+   "a": [
+    "2 1/2 = 2 · 1/2",
+    "2 1/2 = 21/2",
+    "2 1/2 = 5/2",
+    "2 1/2 = 3/2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Schreibe 2 1/2 als 2 + 1/2.",
+   "w": "2 + 1/2 = 4/2 + 1/2 = 5/2. 2 · 1/2 wäre nur 1, und 21/2 wäre 10 1/2."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 2 2/3 als unechten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     8,
+     3
+    ]
+   },
+   "c": [
+    "(2 + 2/3) * 3",
+    "3"
+   ],
+   "w": "2 · 3 = 6 Drittel, dazu 2: 8/3."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 1 5/8 als unechten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     13,
+     8
+    ]
+   },
+   "c": [
+    "(1 + 5/8) * 8",
+    "8"
+   ],
+   "w": "8 Achtel + 5 Achtel = 13/8."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 11/5 als gemischte Zahl.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     5
+    ]
+   },
+   "c": [
+    "(11/5) // 1",
+    "((11/5) - (11/5) // 1) * 5",
+    "5"
+   ],
+   "w": "11 : 5 = 2 Rest 1. Also 2 1/5."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 3 3/7 als unechten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     24,
+     7
+    ]
+   },
+   "c": [
+    "(3 + 3/7) * 7",
+    "7"
+   ],
+   "w": "3 · 7 = 21 Siebtel, dazu 3: 24/7."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 5 1/3 als unechten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     16,
+     3
+    ]
+   },
+   "c": [
+    "(5 + 1/3) * 3",
+    "3"
+   ],
+   "w": "5 · 3 = 15 Drittel, dazu 1: 16/3."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 19/6 als gemischte Zahl.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     3,
+     1,
+     6
+    ]
+   },
+   "c": [
+    "(19/6) // 1",
+    "((19/6) - (19/6) // 1) * 6",
+    "6"
+   ],
+   "w": "19 : 6 = 3 Rest 1. Also 3 1/6."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 2 4/9 als unechten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     22,
+     9
+    ]
+   },
+   "c": [
+    "(2 + 4/9) * 9",
+    "9"
+   ],
+   "w": "2 · 9 = 18 Neuntel, dazu 4: 22/9."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 15/7 als gemischte Zahl.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     7
+    ]
+   },
+   "c": [
+    "(15/7) // 1",
+    "((15/7) - (15/7) // 1) * 7",
+    "7"
+   ],
+   "w": "15 : 7 = 2 Rest 1. Also 2 1/7."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 6 1/2 als unechten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     13,
+     2
+    ]
+   },
+   "c": [
+    "(6 + 1/2) * 2",
+    "2"
+   ],
+   "w": "6 · 2 = 12 Halbe, dazu 1: 13/2."
+  },
+  {
+   "l": "gemischte_zahlen",
+   "t": "gemischte_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 25/8 als gemischte Zahl.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     3,
+     1,
+     8
+    ]
+   },
+   "c": [
+    "(25/8) // 1",
+    "((25/8) - (25/8) // 1) * 8",
+    "8"
+   ],
+   "w": "25 : 8 = 3 Rest 1. Also 3 1/8."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Hauptnenner von 5/12 und 7/18 mit der Primfaktorzerlegung."
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "2 * 2 * 3 * 3",
+   "h": "12 = 2 · 2 · 3 und 18 = 2 · 3 · 3. Jeder Faktor so oft, wie er höchstens vorkommt.",
+   "w": "2 · 2 · 3 · 3 = 36."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Hauptnenner von 3/8 und 5/12 mit der Primfaktorzerlegung."
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "2 * 2 * 2 * 3",
+   "h": "8 = 2 · 2 · 2 und 12 = 2 · 2 · 3.",
+   "w": "Drei Zweien (von der 8) und eine Drei (von der 12): 2 · 2 · 2 · 3 = 24."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Hauptnenner von 7/15 und 9/20 mit der Primfaktorzerlegung."
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "2 * 2 * 3 * 5",
+   "h": "15 = 3 · 5 und 20 = 2 · 2 · 5.",
+   "w": "Zwei Zweien, eine Drei, eine Fünf: 2 · 2 · 3 · 5 = 60."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Bruch ist größer: 7/12 oder 11/18?"
+   },
+   "a": [
+    "7/12",
+    "11/18",
+    "Beide sind gleich groß."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Hauptnenner über die Primfaktoren: 12 = 2 · 2 · 3, 18 = 2 · 3 · 3.",
+   "w": "Hauptnenner 36. 7/12 = 21/36 und 11/18 = 22/36. Also ist 11/18 größer."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Hauptnenner von 1/6, 3/8 und 4/9."
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "2 * 2 * 2 * 3 * 3",
+   "h": "Zerlege 6, 8 und 9 in Primfaktoren.",
+   "w": "6 = 2 · 3, 8 = 2 · 2 · 2, 9 = 3 · 3. Drei Zweien und zwei Dreien: 72."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Bruch mit dem Nenner 24 an, der genau in der Mitte zwischen 5/12 und 1/2 liegt.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     11,
+     24
+    ]
+   },
+   "c": [
+    "((5/12 + 1/2) / 2) * 24",
+    "24"
+   ],
+   "h": "Schreibe beide Brüche mit dem Nenner 24.",
+   "w": "5/12 = 10/24 und 1/2 = 12/24. In der Mitte liegt 11/24."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere −1/2 am Zahlenstrahl (von −1 bis 1, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -1,
+     "ende": 1,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 2
+   },
+   "h": "Ein Teil ist 1/4 lang. −1/2 liegt links von 0.",
+   "w": "Von −1 aus: −3/4, −1/2 – das ist der 2. Strich.",
+   "zahl": -0.5,
+   "c": "-1 + (1 - -1) * 2 / 8"
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere −3/4 am Zahlenstrahl (von −1 bis 1, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -1,
+     "ende": 1,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "h": "Ein Teil ist 1/4 lang. Zähle von 0 nach links.",
+   "w": "−3/4 ist drei Viertel links von 0, also der 1. Strich nach −1.",
+   "zahl": -0.75,
+   "c": "-1 + (1 - -1) * 1 / 8"
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist kleiner: −1/3 oder 1/4?"
+   },
+   "a": [
+    "Beide sind gleich groß.",
+    "−1/3",
+    "1/4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Weiter links am Zahlenstrahl heißt kleiner.",
+   "w": "Jede negative Zahl ist kleiner als jede positive Zahl. Also ist −1/3 kleiner."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 5 : 8 als Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "c": [
+    "(5 / 8) * 8",
+    "8"
+   ],
+   "h": "Der Bruchstrich bedeutet „geteilt durch“.",
+   "w": "Der Bruchstrich heißt „geteilt durch“: 5 : 8 = 5/8."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ordne −2/3, −3/4 und −1/2 der Größe nach. Welche Zahl ist am kleinsten?"
+   },
+   "a": [
+    "−1/2",
+    "−2/3",
+    "−3/4"
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Vergleiche zuerst 3/4, 2/3 und 1/2. Bei negativen Zahlen dreht sich die Reihenfolge um.",
+   "w": "3/4 > 2/3 > 1/2. Also liegt −3/4 am weitesten links: −3/4 < −2/3 < −1/2."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: −5/6 oder −7/8?"
+   },
+   "a": [
+    "−7/8",
+    "−5/6",
+    "Beide sind gleich groß."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Hauptnenner 24. Die Zahl mit dem kleineren Betrag liegt näher bei 0.",
+   "w": "5/6 = 20/24 und 7/8 = 21/24. −20/24 liegt näher bei 0, also ist −5/6 größer."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere −1 1/4 am Zahlenstrahl (von −2 bis 0, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -2,
+     "ende": 0,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "h": "Ein Teil ist 1/4 lang. −1 1/4 liegt zwischen −2 und −1.",
+   "w": "−1 1/4 = −5/4. Von −2 aus: −7/4, −6/4, −5/4 – der 3. Strich.",
+   "zahl": -1.25,
+   "c": "-2 + (0 - -2) * 3 / 8"
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 7 : 3 zuerst als Bruch und dann als gemischte Zahl.",
+    "schablone": "□ □/□",
+    "hinweis": "Ganze ins erste Kästchen, dann Zähler und Nenner des Restbruchs (vollständig gekürzt)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     3
+    ]
+   },
+   "c": [
+    "(7 / 3) // 1",
+    "((7 / 3) - (7 / 3) // 1) * 3",
+    "3"
+   ],
+   "h": "Der Bruchstrich heißt „geteilt durch“. Dann teilen mit Rest.",
+   "w": "7 : 3 = 7/3. 7 : 3 = 2 Rest 1, also 2 1/3."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche dieser Zahlen ist eine ganze Zahl?"
+   },
+   "a": [
+    "−8/4",
+    "3/4",
+    "5/3",
+    "−1/2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Kürze oder teile: Geht die Division ohne Rest auf?",
+   "w": "−8/4 = −8 : 4 = −2. Das ist eine ganze Zahl. Die anderen gehen nicht auf."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Jede natürliche Zahl kann man als Bruch schreiben.“"
+   },
+   "a": [
+    "Nur gerade Zahlen.",
+    "Ja, zum Beispiel 5 = 5/1 = 10/2.",
+    "Nein, natürliche Zahlen sind keine Brüche."
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Denke an den Nenner 1.",
+   "w": "Jede natürliche Zahl n ist n/1. Deshalb gehören alle natürlichen Zahlen zu den rationalen Zahlen."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Zahl liegt genau in der Mitte zwischen −3/4 und 1/4?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     -1,
+     4
+    ]
+   },
+   "c": [
+    "((-3/4 + 1/4) / 2) * 4",
+    "4"
+   ],
+   "h": "Der Abstand ist 1. Geh von −3/4 die Hälfte davon nach rechts.",
+   "w": "Abstand: 1/4 − (−3/4) = 1. Die Hälfte ist 1/2. −3/4 + 1/2 = −1/4."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat den gleichen Wert wie „ein Viertel von 3“?"
+   },
+   "a": [
+    "1/4 : 3",
+    "3 · 4",
+    "4 : 3",
+    "3 : 4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Ein Viertel von 3 sind 3 · 1/4. Das ist 3/4.",
+   "w": "3 · 1/4 = 3/4 = 3 : 4. Dagegen: 4 : 3 = 4/3, 3 · 4 = 12, 1/4 : 3 = 1/12."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ordne −1/2, 1/3, −2/3 und 1/4 der Größe nach, mit der kleinsten Zahl zuerst. Welche Zahl steht an zweiter Stelle?"
+   },
+   "a": [
+    "−2/3",
+    "1/3",
+    "−1/2",
+    "1/4"
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Zuerst die negativen Zahlen. Die mit dem größeren Betrag ist kleiner.",
+   "w": "−2/3 < −1/2 < 1/4 < 1/3. An zweiter Stelle steht −1/2."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl kommt direkt nach 1/2?"
+   },
+   "a": [
+    "Keine: Zwischen zwei Brüchen liegt immer noch ein Bruch.",
+    "3/4",
+    "1/3",
+    "2/2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Suche einen Bruch zwischen 1/2 und deinem Kandidaten.",
+   "w": "Zwischen 1/2 und 3/4 liegt z. B. 5/8, dazwischen wieder 9/16 … Brüche haben keinen Nachfolger."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Brüche mit dem Nenner 6 liegen zwischen −1 und 0? (Die Grenzen zählen nicht.)"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "6 - 1",
+   "h": "Schreibe −1 als −6/6.",
+   "w": "Es sind −5/6, −4/6, −3/6, −2/6 und −1/6, also 5 Brüche."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind sagt: „−2/5 ist kleiner als −3/5, weil 2 kleiner ist als 3.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: −3/5 liegt weiter links, also −3/5 < −2/5.",
+    "Falsch: Beide Zahlen sind gleich groß.",
+    "Richtig.",
+    "Falsch: Negative Brüche kann man nicht vergleichen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Weiter links am Zahlenstrahl heißt kleiner.",
+   "w": "Bei negativen Zahlen ist die mit dem größeren Betrag kleiner: 3/5 > 2/5, also −3/5 < −2/5."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Ein Thermometer zeigt −3/4 °C. Es wird noch 1/4 °C kälter. Markiere die neue Temperatur (Zahlenstrahl von −2 bis 0, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -2,
+     "ende": 0,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "h": "Kälter heißt: nach links. Ein Teil ist 1/4.",
+   "w": "−3/4 − 1/4 = −1. −1 liegt beim 4. Strich nach −2.",
+   "zahl": -1,
+   "c": "-2 + (0 - -2) * 4 / 8"
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist am kleinsten: −7/2, −3 oder −13/4?"
+   },
+   "a": [
+    "−3",
+    "−7/2",
+    "−13/4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Schreibe alle Zahlen mit dem Nenner 4.",
+   "w": "−7/2 = −14/4, −3 = −12/4, −13/4. Am weitesten links: −14/4 = −7/2."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "test",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere −1/4 am Zahlenstrahl (von −1 bis 1, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -1,
+     "ende": 1,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "w": "Von −1 aus: −3/4, −1/2, −1/4 – der 3. Strich.",
+   "zahl": -0.25,
+   "c": "-1 + (1 - -1) * 3 / 8"
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: −2/3 oder −1/3?"
+   },
+   "a": [
+    "Beide sind gleich groß.",
+    "−2/3",
+    "−1/3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "−1/3 liegt näher bei 0, also weiter rechts. −1/3 ist größer."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 7 : 9 als Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     7,
+     9
+    ]
+   },
+   "c": [
+    "(7 / 9) * 9",
+    "9"
+   ],
+   "w": "Der Bruchstrich heißt „geteilt durch“: 7 : 9 = 7/9."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "korrektur",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere −3/2 am Zahlenstrahl (von −2 bis 0, 4 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -2,
+     "ende": 0,
+     "abschnitte": 4,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "w": "Ein Teil ist 1/2. −3/2 = −1 1/2 ist der 1. Strich nach −2.",
+   "zahl": -1.5,
+   "c": "-2 + (0 - -2) * 1 / 4"
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere −1/2 am Zahlenstrahl (von −2 bis 2, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -2,
+     "ende": 2,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Teil ist 1/2. Von −2 aus: −3/2, −1, −1/2 – der 3. Strich.",
+   "zahl": -0.5,
+   "c": "-2 + (2 - -2) * 3 / 8"
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist kleiner: −1/4 oder −1/5?"
+   },
+   "a": [
+    "−1/5",
+    "−1/4",
+    "Beide sind gleich groß."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1/4 > 1/5, also liegt −1/4 weiter links und ist kleiner."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 11 : 4 als Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     11,
+     4
+    ]
+   },
+   "c": [
+    "(11 / 4) * 4",
+    "4"
+   ],
+   "w": "Der Bruchstrich heißt „geteilt durch“: 11 : 4 = 11/4."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere −1 1/2 am Zahlenstrahl (von −2 bis 1, 6 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -2,
+     "ende": 1,
+     "abschnitte": 6,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "w": "Ein Teil ist 1/2. −1 1/2 ist der 1. Strich nach −2.",
+   "zahl": -1.5,
+   "c": "-2 + (1 - -2) * 1 / 6"
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: −3/8 oder −1/2?"
+   },
+   "a": [
+    "Beide sind gleich groß.",
+    "−3/8",
+    "−1/2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1/2 = 4/8 > 3/8. −3/8 liegt näher bei 0 und ist größer."
+  },
+  {
+   "l": "zahlbereiche",
+   "t": "zahlbereiche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 2 : 7 als Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt; ein Minus gehört in den Zähler."
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "c": [
+    "(2 / 7) * 7",
+    "7"
+   ],
+   "w": "Der Bruchstrich heißt „geteilt durch“: 2 : 7 = 2/7."
   }
  ],
  "offen": [

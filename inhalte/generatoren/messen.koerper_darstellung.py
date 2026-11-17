@@ -664,6 +664,55 @@ BF.nicht_umgesetzt('Überschneidung der Karten „schraegbild“ mit raum.schrae
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('messen.koerper_darstellung', 19_8_13)
+# Gleiche Aufgabenart wie die Stufe darunter → umgestuft
+DSX.stufe('schraegbild', 'Das Schrägbild (q = 1/2, ω = 45°) zeigt einen Quader. Wie tief ist der Quader in Wirklichkeit?', 2, anzahl=3)
+DSX.stufe('ansichten', 'Welche Form hat die Vorderansicht – betrachtet wird ein stehender Quader mit quadratischer Grundfläche (höher als breit)?', 1)
+DSX.stufe('ansichten', 'Welcher Körper hat die Vorderansicht „Dreieck“ und die Draufsicht „Quadrat“?', 2)
+DSX.stufe('beurteilen', 'Welche Aussage über Zylinder und Prismen ist FALSCH?', 2)
+DSX.stufe('beurteilen', 'Welche Aussage über Körper ist richtig?', 1)
+
+DSX.stufe('beurteilen', 'Welche Aussage ist richtig?', 1, enthaelt='siebenseitiges Prisma hat 7 Flächen')
+DSX.stufe('beurteilen', 'Welche Aussage ist richtig?', 1, enthaelt='Ein Würfel ist ein Prisma.', anzahl=2)
+# Wiederholungen ersetzt
+DSX.ersetze('prisma', 'Kann ein Prisma 37 Kanten haben?', DSX.A(
+    'Ein Körper hat 12 Ecken, 18 Kanten und 8 Flächen. Kann er ein Prisma sein?',
+    'Ja, ein sechsseitiges Prisma: 2 · 6 = 12 Ecken, 3 · 6 = 18 Kanten, 6 + 2 = 8 Flächen.',
+    ['Nein, ein Prisma hat immer 6 Flächen.', 'Nein, 18 Kanten sind für ein Prisma zu viele.', 'Ja, ein achtseitiges Prisma.'],
+    'Aus 12 Ecken folgt n = 6. Dann müssen es 3 · 6 = 18 Kanten und 6 + 2 = 8 Flächen sein – beides stimmt.',
+    'Bestimme n aus den Ecken und prüfe dann Kanten und Flächen.'))
+DSX.ersetze('netz', 'Das Netz eines Quaders hat die Fläche 318 cm². Die Grundfläche ist 3 cm × 9 cm. Wie hoch ist der Quader?', DSX.Z(
+    'Eine Schachtel ohne Deckel hat die Form eines Quaders: 10 cm lang, 6 cm breit, 4 cm hoch. Wie viel Pappe braucht man ohne Klebelaschen?', 188, '10 * 6 + 2 * 10 * 4 + 2 * 6 * 4',
+    'Boden 10 · 6 = 60 cm². Zwei lange Seiten 2 · 10 · 4 = 80 cm², zwei kurze 2 · 6 · 4 = 48 cm². Ohne Deckel: 60 + 80 + 48 = 188 cm².',
+    'Zähle nur die Flächen, die es wirklich gibt – der Deckel fehlt.', einheit='cm²'))
+DSX.ersetze('zylinder', 'Eine Dose hat den Durchmesser 7,5 cm und ist 11 cm hoch. Das Etikett überlappt 1 cm. Wie lang muss es sein? (π ≈ 3,14, auf eine Nachkommastelle runden)', DSX.A(
+    'Dose B hat den doppelten Durchmesser von Dose A, ist aber nur halb so hoch. Was gilt für ihre Etiketten (Mantelflächen)?',
+    'Beide sind gleich groß.', ['Das Etikett von B ist doppelt so groß.', 'Das Etikett von B ist halb so groß.', 'Das Etikett von B ist viermal so groß.'],
+    'Doppelter Durchmesser heißt doppelter Umfang, also doppelt so langes Rechteck. Halbe Höhe heißt halb so hoch. 2 · ½ = 1: gleich groß.',
+    'Mantel = Umfang mal Höhe. Wie ändern sich beide Faktoren?'))
+DSX.ersetze('ansichten', 'Welcher Körper hat die Vorderansicht „Rechteck“ und die Draufsicht „Kreis“?', DSX.A(
+    'Welche Form hat die Seitenansicht eines liegenden Zylinders (Achse von links nach rechts)?',
+    'Kreis', ['Rechteck', 'Dreieck', 'Quadrat'],
+    'Von der Seite schaust du genau auf einen der beiden Grundkreise.', 'Wohin zeigt die Achse, wenn du von der Seite schaust?'),
+    enthaelt='Ein dreiseitiges Prisma, das auf einer R')
+DSX.ersetze('beurteilen', 'Welche Aussage ist FALSCH?', DSX.A(
+    'Stimmt die Aussage: „Ein Zylinder ist ein Prisma.“?',
+    'Nein: Seine Grundflächen sind Kreise, keine Vielecke.',
+    ['Ja, er hat zwei gleiche, parallele Grundflächen.', 'Ja, weil sein Mantel ein Rechteck ist.', 'Nein, weil er gar keine Grundfläche hat.'],
+    'Ein Prisma hat zwei gleiche, parallele Vielecke als Grundflächen und Rechtecke als Seiten. Der Zylinder hat Kreise und keine Kanten an der Seite.',
+    'Vergleiche mit allen Merkmalen eines Prismas.'), enthaelt='dreiseitigen Prismas besteht aus 3')
+DSX.stufen('prisma', 'S3 zweimal dieselbe Frage „Kann ein Prisma … Kanten haben?“', 'S1 Anzahl berechnen; S2 rückwärts von Kanten/Ecken auf n; S3 unmögliche Zahlen begründen, Zahlen prüfen, Kantenlänge, Euler, abgeschnittene Ecke')
+DSX.stufen('netz', 'S3 dreimal Höhe aus der Netzfläche', 'S1 Netzfläche Quader, Spielwürfel; S2 Würfelnetze prüfen, Prisma-Netz; S3 Höhe rückwärts, Schachtel ohne Deckel, Gegenfläche, angemalte Würfel')
+DSX.stufen('zylinder', 'S3 zweimal Etikett mit Überlappung', 'S1 Teile des Netzes; S2 Mantel = U · h, Radius rückwärts; S3 ganze Netzfläche, Überlappung, Rechteck rollen, Durchmesser und Höhe gegeneinander')
+DSX.stufen('schraegbild', 'S2 und S3 dieselbe Rückwärtsrechnung', 'S1 Länge zeichnen; S2 wahre Länge rückwärts, auch aus dem Bild, verdeckte Kanten; S3 anderes q, Volumen und Oberfläche aus dem Bild, Maßstab, Fehler q = 1')
+DSX.stufen('ansichten', 'S1/S2 und S2/S3 teils dieselbe Frage; zweimal dieselbe Frage in Folge', 'S1 Ansicht eines Körpers; S2 Körper aus zwei Ansichten, liegender Zylinder; S3 zusammengesetzte Körper, Würfelgebäude, Kreis-über-Quadrat-Rätsel')
+DSX.stufen('beurteilen', 'S1 und S2 dieselbe Frage „Welche Aussage ist richtig?“; S2 zweimal dieselbe Falsch-Aussage', 'S1 richtige Aussage wählen; S2 Falsch-Aussage finden, Zylinder als Prisma, Würfel als Quader; S3 Behauptungen anderer prüfen, 2 026 Kanten, verdoppelte Kanten')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Körper und Netze', ['prisma', 'netz', 'zylinder']), ('Darstellen', ['schraegbild', 'ansichten']), ('Verstehen', ['beurteilen'])],

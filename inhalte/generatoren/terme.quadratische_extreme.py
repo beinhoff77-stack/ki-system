@@ -270,8 +270,117 @@ def g_optimierung(s):
 GEN = {'ergaenzen': g_ergaenzen, 'scheitelform': g_scheitelform, 'extremwert': g_extremwert,
        'mit_faktor': g_mit_faktor, 'optimierung': g_optimierung}
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+_P = {'_a': [0, 0], '_b': [5, 0], '_c': [8, 0], '_d': [8, 5], '_e': [8, 8], '_f': [5, 8], '_g': [0, 8], '_h': [0, 5], '_m': [5, 5]}
+_L = [['_a', '_b', 'x'], ['_b', '_c', '3'], ['_c', '_d'], ['_d', '_m'], ['_m', '_f'], ['_f', '_g'], ['_g', '_h', '3'], ['_h', '_a', 'x'],
+      ['_b', '_m'], ['_h', '_m']]
+
+
+def _t(*zeilen):
+    return tab(['', 'Term'], *zeilen)
+
+
+_SF = [['Start', 'x² − 8x + 21'], ['+ 16 − 16', 'x² − 8x + 16 − 16 + 21'], ['Quadrat', '(x − 4)² − 16 + 21'], ['fertig', '(x − 4)² + 5']]
+_MF = [['Start', '2x² − 12x + 23'], ['2 ausklammern', '2(x² − 6x) + 23'], ['ergänzen', '2(x² − 6x + 9 − 9) + 23'],
+       ['−9 herausholen', '2(x − 3)² − 18 + 23'], ['fertig', '2(x − 3)² + 5']]
+_X = ['−4', '−3', '−2', '−1', '0']
+
+
+def _rechteck(a, b, ta, tb):
+    return {'typ': 'figur', 'punkte': {'_A': [0, 0], '_B': [a, 0], '_C': [a, b], '_D': [0, b]}, 'flaeche': ['_A', '_B', '_C', '_D'],
+            'linien': [['_A', '_B', ta], ['_B', '_C', tb], ['_C', '_D'], ['_D', '_A']]}
+
+
+UMBAU = {
+    'ergaenzen': {
+        'einstieg': 'Ein quadratisches Beet hat die Seite x. An zwei Seiten kommt je ein Streifen der Breite 3 dazu. '
+                    'Zum großen Quadrat fehlt nur eine Ecke. Sie dazuzunehmen heißt ⟦quadratisch ergänzen⟧.',
+        'woerter': [['vollständiges Quadrat', 'ein Term wie (x + 3)², also eine Klammer hoch 2'],
+                    ['quadratisch ergänzen', 'die fehlende Ecke (b : 2)² dazuzählen']],
+        'bild': {'typ': 'figur', 'punkte': _P, 'linien': _L},
+        'schritte': [
+            {'text': 'x² + 6x sind das Quadrat x · x und zwei Streifen 3 · x.'},
+            {'text': 'Die Hälfte von 6 ist 3, die Ecke hat 3 · 3 = 9.',
+             'bild': {'linien': _L + [['_d', '_e'], ['_e', '_f']], 'flaeche': ['_m', '_d', '_e', '_f']}},
+            {'text': 'x² + 6x + ⟦9⟧ = ⟦(x + 3)²⟧, ein vollständiges Quadrat.'},
+        ],
+        'fehler': 'x² + 6x + 36 = (x + 6)² ist falsch. In die Klammer gehört die ⟦Hälfte⟧ von 6, die Ecke ist nur 3 · 3 = 9.',
+        'regel': 'Bei x² + bx ergänzt du ⟦(b : 2)²⟧. Dann ist x² + bx + (b : 2)² = (x + b : 2)².',
+    },
+    'scheitelform': {
+        'einstieg': 'Beim Fliesenlegen leihst du dir 16 Fliesen für die Ecke und gibst sie gleich zurück. '
+                    'Insgesamt ändert sich nichts, aber du siehst ein fertiges Quadrat. So funktioniert die ⟦quadratische Ergänzung⟧.',
+        'woerter': [['quadratische Ergänzung', '(b : 2)² dazuzählen und gleich wieder abziehen']],
+        'bild': _t(_SF[0]),
+        'schritte': [
+            {'text': 'Die Hälfte von −8 ist −4, und (−4)² = 16.'},
+            {'text': '16 dazu und gleich wieder weg: x² − 8x + 16 − 16 + 21.', 'bild': _t(*_SF[:2])},
+            {'text': 'Die ersten drei Glieder sind (x − 4)².', 'bild': _t(*_SF[:3])},
+            {'text': 'Zusammenfassen: −16 + 21 = 5, also ⟦(x − 4)² + 5⟧.', 'bild': _t(*_SF)},
+        ],
+        'fehler': '(x − 4)² + 21 ist falsch. Die geliehene 16 muss auch ⟦zurück⟧, sonst ist der Term um 16 zu groß.',
+        'fehler_bild': _t(_SF[0], ['falsch', '(x − 4)² + 21'], ['richtig', '(x − 4)² − 16 + 21']),
+        'regel': 'Ergänzen und gleich wieder abziehen. So entsteht ⟦(x + b : 2)² − (b : 2)² + c⟧, der Wert bleibt gleich.',
+    },
+    'extremwert': {
+        'einstieg': 'Ein Quadrat ist nie negativ: 3² = 9, (−3)² = 9, 0² = 0. Darum hat (x + 2)² − 7 einen kleinsten Wert. '
+                    'Er heißt ⟦Minimum⟧.',
+        'woerter': [['Minimum', 'der kleinste Wert, den der Term annehmen kann'],
+                    ['Maximum', 'der größte Wert; es gibt ihn bei einem Minus vor der Klammer']],
+        'bild': tab(['x', *_X], ['T(x)', '?', '?', '?', '?', '?']),
+        'schritte': [
+            {'text': 'T(x) = (x + 2)² − 7. Die Klammer ist 0 für x = −2.'},
+            {'text': 'Dann ist T = 0 − 7 = −7.', 'bild': tab(['x', *_X], ['T(x)', '?', '?', '−7', '?', '?'])},
+            {'text': 'Für jedes andere x kommt etwas Positives dazu.', 'bild': tab(['x', *_X], ['T(x)', '−3', '−6', '−7', '−6', '−3'])},
+            {'text': 'Minimum: ⟦T = −7 für x = −2⟧.'},
+            {'text': 'Mit Minus vor der Klammer, −(x + 2)² − 7, wäre −7 das Maximum.'},
+        ],
+        'fehler': 'Bei (x + 2)² − 7 liegt das Minimum nicht bei x = 2. Die Klammer wird null für ⟦x = −2⟧.',
+        'regel': 'Die Klammer null setzen: Dort liegt das Extremum. Plus vor der Klammer heißt ⟦Minimum⟧, Minus heißt Maximum.',
+    },
+    'mit_faktor': {
+        'einstieg': 'Steht vor x² eine Zahl wie 2, stört sie beim Ergänzen. Darum ziehst du sie zuerst vor eine Klammer. '
+                    'Das heißt ⟦ausklammern⟧. Danach ergänzt du in der Klammer wie gewohnt.',
+        'woerter': [['ausklammern', 'einen gemeinsamen Faktor vor eine Klammer ziehen: 2x² − 12x = 2(x² − 6x)']],
+        'bild': _t(_MF[0]),
+        'schritte': [
+            {'text': '2 ausklammern: 2x² − 12x + 23 = 2(x² − 6x) + 23.', 'bild': _t(*_MF[:2])},
+            {'text': 'In der Klammer ergänzen: 2(x² − 6x + 9 − 9) + 23.', 'bild': _t(*_MF[:3])},
+            {'text': 'Die −9 mal 2 herausholen: 2(x − 3)² − 18 + 23.', 'bild': _t(*_MF[:4])},
+            {'text': 'Ergebnis: ⟦2(x − 3)² + 5⟧, also Minimum ⟦T = 5 für x = 3⟧.', 'bild': _t(*_MF)},
+        ],
+        'fehler': '−9 + 23 ist hier falsch. Die −9 steht in der Klammer und wird ⟦mit 2 malgenommen⟧: −18 + 23 = 5.',
+        'fehler_bild': _t(_MF[2], ['falsch', '2(x − 3)² − 9 + 23'], ['richtig', '2(x − 3)² − 18 + 23']),
+        'regel': 'Erst den Faktor vor x² ausklammern, dann ergänzen. Faktor positiv: ⟦Minimum⟧, Faktor negativ: Maximum.',
+    },
+    'optimierung': {
+        'einstieg': 'Mit 20 m Zaun soll ein rechteckiges Gehege möglichst groß werden. Ist ein langes, schmales besser oder ein Quadrat? '
+                    'Solche Aufgaben heißen ⟦Optimierungsaufgaben⟧.',
+        'woerter': [['Optimierungsaufgabe', 'gesucht ist das Beste: möglichst groß oder möglichst klein'],
+                    ['Umfang', 'Länge des Zauns rund um das Rechteck']],
+        'bild': _rechteck(7, 3, 'x', '10 − x'),
+        'schritte': [
+            {'text': 'Umfang 20 m: Eine Seite ist x, die andere 10 − x.'},
+            {'text': 'Fläche: A(x) = x · (10 − x) = −x² + 10x.'},
+            {'text': 'Ergänzen: −x² + 10x = −(x − 5)² + 25.'},
+            {'text': '⟦Maximum 25 m² für x = 5 m⟧: ein Quadrat.', 'bild': _rechteck(5, 5, '5 m', '5 m')},
+        ],
+        'fehler': '25 ist hier die Fläche, nicht die Seite. Lies genau, was gefragt ist: die ⟦Stelle x⟧ oder der ⟦Extremwert⟧.',
+        'regel': 'Zielgröße als Term in x aufstellen, dann ergänzen. Antwort im ⟦Sachzusammenhang⟧ geben: Stelle oder Wert?',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
 if __name__ == '__main__':
-    bauen('terme.quadratische_extreme',
+    d = bauen('terme.quadratische_extreme',
           'Quadratische Terme mit der quadratischen Ergänzung umformen, ihr Minimum oder Maximum bestimmen und einfache Optimierungsaufgaben lösen.',
           ['Ergänzen: x² + bx + (b : 2)² = (x + b : 2)².',
            'Quadratische Ergänzung: (b : 2)² ergänzen und gleich wieder abziehen.',
@@ -281,3 +390,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           offen=['Laut Umfang ohne vollständige Parabellehre: keine Graphen, nur Termumformung und Extremwerte. Scheitelpunkt/Parabeln folgen in RS 9.',
                  'Schreibweise Extremwert: „x = □; T = □“ statt T_min/T_max (Indizes in der App schwer lesbar).'])
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

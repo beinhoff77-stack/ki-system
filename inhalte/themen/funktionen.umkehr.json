@@ -43,7 +43,7 @@
    {
     "lernziel": "umkehrbar",
     "titel": "Ist eine Funktion umkehrbar?",
-    "regel": "Eine Funktion ist ⟦umkehrbar⟧, wenn ⟦jeder y-Wert nur einmal⟧ vorkommt – dann kann man vom y-Wert eindeutig auf den x-Wert zurückschließen. Am Graphen: Jede ⟦waagrechte Gerade⟧ schneidet ihn ⟦höchstens einmal⟧. Wie ein Schlüssel, der nur zu einer Tür passt.",
+    "regel": "Umkehrbar heißt: Jeder y-Wert kommt nur einmal vor. Test: Jede ⟦waagrechte Gerade⟧ trifft den Graphen höchstens einmal.",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -64,21 +64,82 @@
        ],
        "name": "y = x²"
       }
-     ],
-     "waagrecht": [
-      4
      ]
     },
     "schritte": [
-     "y = x² auf ganz ℝ: Die Gerade y = 4 schneidet die Parabel zweimal (x = −2 und x = 2).",
-     "Also ⟦nicht umkehrbar⟧. Schränkt man auf ⟦x ≥ 0⟧ ein, bleibt nur ein Ast – dann ist sie umkehrbar."
+     {
+      "text": "Die Maschine y = x² macht aus 2 und aus −2 die 4.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -2,
+         "y": 4,
+         "name": "(−2|4)"
+        },
+        {
+         "x": 2,
+         "y": 4,
+         "name": "(2|4)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die waagrechte Gerade y = 4 trifft die Parabel zweimal.",
+      "bild": {
+       "waagrecht": [
+        4
+       ]
+      }
+     },
+     {
+      "text": "Also ⟦nicht umkehrbar⟧: Aus 4 weiß man nicht, ob 2 oder −2."
+     },
+     {
+      "text": "Nur mit x ≥ 0 bleibt ein Ast übrig, dann ist sie ⟦umkehrbar⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          0,
+          0,
+          1
+         ],
+         "name": "y = x²",
+         "bereich": [
+          0,
+          3
+         ]
+        }
+       ],
+       "punkte": [
+        {
+         "x": 2,
+         "y": 4,
+         "name": "(2|4)"
+        }
+       ]
+      }
+     }
     ],
-    "fehler": "„y = x² ist umkehrbar, weil zu jedem x genau ein y gehört“ ist falsch: Das gilt für ⟦jede Funktion⟧. Für die Umkehrung muss auch zu jedem y ⟦genau ein x⟧ gehören."
+    "fehler": "„Zu jedem x gehört genau ein y“ reicht nicht, das gilt für jede Funktion. Für die Umkehrung braucht jedes y ⟦genau ein x⟧.",
+    "einstieg": "Eine Codiermaschine macht aus jeder Zahl eine Geheimzahl. Zum Entschlüsseln darf jede Geheimzahl nur einmal vorkommen. Dann heißt die Maschine ⟦umkehrbar⟧.",
+    "woerter": [
+     [
+      "umkehrbar",
+      "jeder y-Wert kommt nur einmal vor; man kann eindeutig zurückrechnen"
+     ],
+     [
+      "waagrechte Gerade",
+      "eine Linie quer durchs Bild, z. B. y = 4"
+     ]
+    ]
    },
    {
     "lernziel": "werte",
     "titel": "Werte der Umkehrfunktion",
-    "regel": "Die ⟦Umkehrfunktion f⁻¹⟧ macht f rückgängig: Ist ⟦f(a) = b⟧, dann ist ⟦f⁻¹(b) = a⟧. Definitionsmenge und Wertemenge ⟦tauschen⟧ die Rollen. Wie ein Wörterbuch Deutsch–Englisch und Englisch–Deutsch.",
+    "regel": "Ist f(a) = b, dann ist ⟦f⁻¹(b) = a⟧. Für f⁻¹ liest du die Tabelle von unten nach oben.",
     "bild": {
      "typ": "tabelle",
      "kopf": [
@@ -99,93 +160,343 @@
      ]
     },
     "schritte": [
-     "Aus der Tabelle: f(2) = 5.",
-     "Also ⟦f⁻¹(5) = 2⟧. Für f⁻¹ lies die Tabelle ⟦von unten nach oben⟧."
+     {
+      "text": "Aus der Tabelle: f(2) = 5."
+     },
+     {
+      "text": "Die Umkehrfunktion liest rückwärts: ⟦f⁻¹(5) = 2⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "x",
+        "1",
+        "3",
+        "5",
+        "7"
+       ],
+       "zeilen": [
+        [
+         "f⁻¹(x)",
+         "0",
+         "1",
+         "2",
+         "3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Die beiden Zeilen tauschen also ihre Rollen."
+     }
     ],
-    "fehler": "f⁻¹(5) = 1/5 ist falsch: Das hochgestellte −1 bedeutet ⟦Umkehrfunktion⟧, nicht „Kehrwert“."
+    "fehler": "f⁻¹(5) = 1/5 ist falsch. Das hochgestellte −1 heißt ⟦Umkehrfunktion⟧, nicht Kehrwert.",
+    "einstieg": "Die Codiermaschine f macht aus 2 die Geheimzahl 5. Die Entschlüsselung macht aus 5 wieder 2. Diese Rückwärts-Maschine heißt ⟦Umkehrfunktion⟧.",
+    "woerter": [
+     [
+      "Umkehrfunktion",
+      "rechnet rückwärts: aus f(a) = b wird f⁻¹(b) = a"
+     ],
+     [
+      "f⁻¹",
+      "gelesen „f hoch minus eins“: die Umkehrfunktion, kein Kehrwert"
+     ]
+    ]
    },
    {
     "lernziel": "linear",
     "titel": "Umkehrfunktion einer Geraden",
-    "regel": "So findest du f⁻¹: ⟦x und y vertauschen⟧, dann ⟦nach y auflösen⟧. Bei f(x) = m · x + t (m ≠ 0) erhältst du ⟦f⁻¹(x) = (x − t) : m⟧.",
+    "regel": "Umkehrfunktion: ⟦x und y vertauschen⟧, dann nach y auflösen. Bei f(x) = mx + t ist f⁻¹(x) = (x − t) : m.",
     "schritte": [
-     "f(x) = 2x − 6: y = 2x − 6. Tauschen: x = 2y − 6.",
-     "Auflösen: 2y = x + 6 ⇒ ⟦y = 0,5x + 3⟧. Also f⁻¹(x) = 0,5x + 3."
+     {
+      "text": "Aus y = 2x − 6 wird durch Tauschen x = 2y − 6."
+     },
+     {
+      "text": "Nach y auflösen: 2y = x + 6, also ⟦y = 0,5x + 3⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": -6,
+         "name": "f"
+        },
+        {
+         "art": "linear",
+         "m": 0.5,
+         "t": 3,
+         "name": "f⁻¹"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Probe: f(4) = 2 und f⁻¹(2) = 4. Beide liegen spiegelbildlich zu y = x.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": -6,
+         "name": "f"
+        },
+        {
+         "art": "linear",
+         "m": 0.5,
+         "t": 3,
+         "name": "f⁻¹"
+        },
+        {
+         "art": "linear",
+         "m": 1,
+         "t": 0,
+         "name": "y = x"
+        }
+       ],
+       "punkte": [
+        {
+         "x": 4,
+         "y": 2,
+         "name": "(4|2)"
+        },
+        {
+         "x": 2,
+         "y": 4,
+         "name": "(2|4)"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "f(4) = 2 und f⁻¹(2) = 1 + 3 = 4 ✓",
-    "fehler": "f⁻¹(x) = 0,5x − 6 ist falsch: Nur die Steigung umzudrehen reicht nicht. Nach dem Tauschen muss man ⟦vollständig nach y auflösen⟧: f⁻¹(x) = 0,5x + 3."
+    "fehler": "0,5x − 6 ist falsch, nur die Steigung umzudrehen reicht nicht. Nach dem Tauschen ⟦vollständig nach y auflösen⟧.",
+    "einstieg": "Die Maschine rechnet „mal 2, dann minus 6“. Rückwärts musst du alles umdrehen: erst plus 6, dann durch 2. Rechnerisch klappt das mit einem Trick: ⟦x und y vertauschen⟧.",
+    "woerter": [
+     [
+      "nach y auflösen",
+      "umformen, bis y allein auf einer Seite steht"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": -6,
+       "name": "f"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": -6,
+       "name": "f"
+      },
+      {
+       "art": "linear",
+       "m": 0.5,
+       "t": 3,
+       "name": "f⁻¹"
+      },
+      {
+       "art": "linear",
+       "m": 0.5,
+       "t": -6,
+       "name": "falsch"
+      }
+     ],
+     "punkte": null
+    }
    },
    {
     "lernziel": "quadratisch",
     "titel": "Umkehrfunktion einer Parabel",
-    "regel": "Eine Parabel ist nur auf ⟦einem Ast⟧ umkehrbar, z. B. für x ≥ d. Für f(x) = (x − d)² + e mit x ≥ d gilt: ⟦f⁻¹(x) = √(x − e) + d⟧ mit x ≥ e. Die Umkehrung von „quadrieren“ ist „⟦Wurzel ziehen⟧“.",
+    "regel": "Eine Parabel nur auf ⟦einem Ast⟧ umkehren. Die Umkehrung von Quadrieren ist Wurzelziehen.",
     "bild": {
      "typ": "koordinaten",
      "x": [
       -1,
-      6
+      7
      ],
      "y": [
       -1,
-      6
+      7
      ],
      "graphen": [
       {
        "art": "poly",
        "k": [
-        0,
-        0,
+        5,
+        -4,
         1
        ],
-       "name": "y = x²",
+       "name": "f",
        "bereich": [
-        0,
-        3
+        2,
+        4.4
        ]
-      },
-      {
-       "art": "wurzel",
-       "name": "y = √x"
-      },
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 0,
-       "name": "y = x"
       }
      ]
     },
     "schritte": [
-     "f(x) = (x − 2)² + 1, x ≥ 2. Tauschen: x = (y − 2)² + 1 ⇒ (y − 2)² = x − 1.",
-     "Wurzel (positiver Ast, weil y ≥ 2): y − 2 = √(x − 1) ⇒ ⟦f⁻¹(x) = √(x − 1) + 2⟧, x ≥ 1."
+     {
+      "text": "f(x) = (x − 2)² + 1 mit x ≥ 2 ist ein Ast."
+     },
+     {
+      "text": "Tauschen: x = (y − 2)² + 1."
+     },
+     {
+      "text": "Minus 1: (y − 2)² = x − 1."
+     },
+     {
+      "text": "Wurzel ziehen, plus 2: ⟦f⁻¹(x) = √(x − 1) + 2⟧."
+     },
+     {
+      "text": "Probe: f(3) = 2 und f⁻¹(2) = √1 + 2 = 3.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "poly",
+         "k": [
+          5,
+          -4,
+          1
+         ],
+         "name": "f",
+         "bereich": [
+          2,
+          4.4
+         ]
+        },
+        {
+         "art": "linear",
+         "m": 1,
+         "t": 0,
+         "name": "y = x"
+        }
+       ],
+       "punkte": [
+        {
+         "x": 3,
+         "y": 2,
+         "name": "(3|2)"
+        },
+        {
+         "x": 2,
+         "y": 3,
+         "name": "(2|3)"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "f(5) = 9 + 1 = 10; f⁻¹(10) = √9 + 2 = 5 ✓",
-    "fehler": "f⁻¹(x) = √(x + 1) − 2 ist falsch: Beim Umkehren drehen sich die Rechenzeichen um: aus „+1“ wird ⟦„−1“ unter der Wurzel⟧, aus „−2“ wird ⟦„+2“⟧ dahinter."
+    "fehler": "√(x + 1) − 2 ist falsch. Beim Umkehren drehen sich die Rechenzeichen um: ⟦−1 unter der Wurzel⟧, +2 dahinter.",
+    "einstieg": "Quadrieren macht aus 3 die 9. Rückwärts zieht man die Wurzel: Aus 9 wird 3. Damit das eindeutig klappt, nimmt man nur ⟦einen Ast⟧ der Parabel.",
+    "woerter": [
+     [
+      "Ast",
+      "eine Hälfte der Parabel, z. B. nur der Teil mit x ≥ 2"
+     ]
+    ]
    },
    {
     "lernziel": "exp_log",
     "titel": "Exponential- und Logarithmusfunktion",
-    "regel": "Die Umkehrfunktion von ⟦f(x) = bˣ⟧ ist die ⟦Logarithmusfunktion f⁻¹(x) = log_b x⟧ (für x > 0): ⟦log_b x ist der Exponent⟧, mit dem man b potenzieren muss, um x zu erhalten. Für b = 10 schreibt man ⟦lg x⟧.",
+    "regel": "Der ⟦Logarithmus⟧ ist die Umkehrung von bˣ. log_b x fragt: b hoch wie viel ergibt x?",
     "schritte": [
-     "f(x) = 2ˣ: f(5) = 32.",
-     "Also f⁻¹(32) = log₂ 32 = ⟦5⟧, denn 2⁵ = 32."
+     {
+      "text": "f(x) = 2ˣ: Nach 5 Stunden sind es 2⁵ = 32.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 5,
+         "y": 32,
+         "name": "(5|32)"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Rückwärts: log₂ 32 = ⟦5⟧, denn 2⁵ = 32.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         32,
+         5,
+         32,
+         "gestrichelt"
+        ],
+        [
+         5,
+         32,
+         5,
+         0,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Für die Basis 10 schreibt man lg: lg 100 = 2."
+     }
     ],
-    "probe": "2⁵ = 2 · 2 · 2 · 2 · 2 = 32 ✓",
-    "fehler": "log₂ 32 = 16 ist falsch: Der Logarithmus ist ⟦nicht 32 : 2⟧, sondern der ⟦Exponent⟧ – 2 hoch wie viel ergibt 32? Also 5."
+    "fehler": "log₂ 32 = 16 ist falsch. Der Logarithmus ist ⟦nicht 32 : 2⟧, sondern die Hochzahl: 2 hoch 5 ist 32.",
+    "einstieg": "Ein Gerücht verdoppelt sich jede Stunde: Nach 5 Stunden kennen es 2⁵ = 32 Leute. Rückwärts fragt man: Nach wie vielen Stunden sind es 32? Das sagt der ⟦Logarithmus⟧.",
+    "woerter": [
+     [
+      "Logarithmus",
+      "log₂ 32 ist die Hochzahl, mit der man 2 potenzieren muss, um 32 zu erhalten"
+     ],
+     [
+      "lg",
+      "Logarithmus zur Basis 10"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      35
+     ],
+     "schritt_y": 5,
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 2,
+       "name": "y = 2ˣ"
+      }
+     ]
+    }
    },
    {
     "lernziel": "spiegeln",
     "titel": "Graph der Umkehrfunktion",
-    "regel": "Den Graphen von f⁻¹ erhältst du, indem du den Graphen von f an der ⟦Winkelhalbierenden y = x⟧ spiegelst. Jeder Punkt ⟦P(a | b)⟧ wird zu ⟦P'(b | a)⟧ – x und y tauschen.",
+    "regel": "Graph von f⁻¹: an der ⟦Winkelhalbierenden y = x⟧ spiegeln. Aus P(a | b) wird P′(b | a).",
     "bild": {
      "typ": "koordinaten",
      "x": [
       -3,
-      6
+      9
      ],
      "y": [
       -3,
-      6
+      9
      ],
      "graphen": [
       {
@@ -195,11 +506,6 @@
        "name": "y = 2ˣ"
       },
       {
-       "art": "log",
-       "b": 2,
-       "name": "y = log₂ x"
-      },
-      {
        "art": "linear",
        "m": 1,
        "t": 0,
@@ -208,10 +514,75 @@
      ]
     },
     "schritte": [
-     "P(3 | 8) liegt auf y = 2ˣ.",
-     "Gespiegelt an y = x: ⟦P'(8 | 3)⟧ liegt auf y = log₂ x."
+     {
+      "text": "P(3 | 8) liegt auf y = 2ˣ.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 3,
+         "y": 8,
+         "name": "P"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Spiegeln an der Winkelhalbierenden heißt: x und y tauschen."
+     },
+     {
+      "text": "So entsteht ⟦P′(8 | 3)⟧ auf y = log₂ x.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "exp",
+         "a": 1,
+         "b": 2,
+         "name": "y = 2ˣ"
+        },
+        {
+         "art": "linear",
+         "m": 1,
+         "t": 0,
+         "name": "y = x"
+        },
+        {
+         "art": "log",
+         "b": 2,
+         "name": "log₂ x"
+        }
+       ],
+       "punkte": [
+        {
+         "x": 3,
+         "y": 8,
+         "name": "P"
+        },
+        {
+         "x": 8,
+         "y": 3,
+         "name": "P′"
+        }
+       ],
+       "strecken": [
+        [
+         3,
+         8,
+         8,
+         3,
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "P(3 | 8) zu P'(−3 | −8) zu spiegeln ist falsch: Das ist die Spiegelung am ⟦Ursprung⟧. An y = x werden die Koordinaten ⟦vertauscht⟧."
+    "fehler": "P′(−3 | −8) ist falsch, das wäre am ⟦Ursprung⟧ gespiegelt. An y = x werden die Koordinaten getauscht.",
+    "einstieg": "Legst du einen Spiegel auf die Linie y = x, siehst du darin die Umkehrfunktion. x und y tauschen dabei ihre Plätze. Die Linie heißt ⟦Winkelhalbierende⟧.",
+    "woerter": [
+     [
+      "Winkelhalbierende",
+      "die Gerade y = x; sie halbiert den Winkel zwischen den Achsen"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [
@@ -4255,6 +4626,7 @@
   }
  ],
  "offen": [
-  "Lehrplan-Feld leer: Annahme RS 10 (WPF I) – Umkehrbarkeit, Umkehrfunktion linearer Funktionen, eines Parabelastes und der Exponentialfunktion (Logarithmus), Spiegelung an y = x. Umkehrung gebrochen-rationaler Funktionen weggelassen."
+  "Lehrplan-Feld leer: Annahme RS 10 (WPF I) – Umkehrbarkeit, Umkehrfunktion linearer Funktionen, eines Parabelastes und der Exponentialfunktion (Logarithmus), Spiegelung an y = x. Umkehrung gebrochen-rationaler Funktionen weggelassen.",
+  "Umbau (Paket UR): Den Graphen von √(x − 1) + 2 (Karte quadratisch) kann die App nicht zeichnen (Graph-Art wurzel nur als √x); die Karte zeigt stattdessen den Ast von f, die Gerade y = x und ein Punktepaar."
  ]
 }

@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-2 (Neunzehnte Runde, Teil B, Chat 2)
 
+## 2026-11-17 18:50 – STATUS
+sonder.logik fertig: Fehler im Generator – „Welcher Ausdruck ist wahr?“ konnte nie entstehen, „p ⇒ q für n = …“ war immer wahr (ratbar); beides behoben. 8 Stufe-3-Übungen je Karte (Quantor-Aussagen, Aussageform, Ritter und Lügner, Wenn-dann verneinen, doppelte Verneinung, Zählen mit ∨, drei Aussagen mit 8 Zeilen, Ausdruck aus der Spalte, Kartenaufgabe). Vier Karten um je einen Schritt ergänzt. inhalt_pruefen OK ohne Hinweise.
+
 ## 2026-11-17 18:20 – STATUS
 finanzen.zinseszins fertig: Stufe 2 war in „jahr“ und „formel“ dieselbe Rechnung wie Stufe 1, „Bank 3 % gegen 2 %“ ratbar – ersetzt; 8 Stufe-3-Übungen je Karte (Einzahlung nach einem Jahr, K₀ aus den Zinsen im 2. Jahr, +p % −p %, halbjährliche Verzinsung, Zielbetrag, Laufzeit durch Probieren, zwei Autos mit Wertverlust, einfache gegen Zinseszins). Karte vergleich um Abnahme bis zur Hälfte ergänzt. inhalt_pruefen OK ohne Hinweise.
 

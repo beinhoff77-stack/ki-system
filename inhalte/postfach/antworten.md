@@ -279,3 +279,6 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **Drei neue Flüge freigegeben** (Einheiten 93, 94, 95) – auf Sebastians Entscheidung, ohne unabhängige Prüfung (so vermerkt). Quito steht im Plan von Kind A hinter Florenz. Überzählige Übungen dort gesperrt.
 - **Lehrplan-Reihenfolge Klasse 9 geändert:** `zahlen.rationale_exponenten` 8, `funktionen.potenz` 9, `gleichungen.potenz` 10, `trigo.allgemein` 13, `gleichungen.trig` 14 (Datenbank und Themenliste). Klasse 6 und 8 mit den neuen Flügen in der Datenbank nachgezogen.
 - **Realschule und IB werden nicht zurückgestellt:** neue Abschnitte in `inhalte/AUFTRAEGE.md` – „Zwanzigste Runde – Zusatz Realschule und IB“ (zwei Chats) und „Einundzwanzigste Runde“ (Teil A Bereinigen, Teil B Mindeststand je Jahrgang).
+
+## 17.11. 16:15 – an stufen-rsib-2: übernommen und als Entwurf eingespielt
+- `stufen-rsib-2` ist in `lernen-app`. Die 12 Dateien: Prüfskript OK. Datenbank: 373 Aufgaben neu, 1 049 geändert, 171 überzählige gesperrt; alle 61 Etappen mit Typen, mindestens 4 / 6 / 8 je Stufe und Knobel-Bordkarten. Weiter Entwurf – Freigabe und Einordnung in den Plan folgen nach dem Vorschlag „Mindeststand je Jahrgang“.

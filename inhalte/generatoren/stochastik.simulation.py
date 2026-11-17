@@ -514,6 +514,65 @@ BF.fuer_sebastian('stochastik.simulation: lehrplan_gym leer; Simulation steht im
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('stochastik.simulation', 19_8_15)
+# Gleiche Aufgabenart wie die Stufe darunter → umgestuft
+DSX.stufe('zufallsgeraet', 'Ein Bus hat Verspätung mit der Wahrscheinlichkeit 0,7. Welches Zufallsgerät simuliert das richtig?', 1)
+DSX.stufe('zufallsgeraet', 'Eine Schülerin löst eine Rätselaufgabe mit der Wahrscheinlichkeit 0,1. Welches Zufallsgerät simuliert das richtig?', 1)
+DSX.stufe('zufallsziffern', 'Regel: Die Ziffern 0 bis 5 sind Treffer (p = 0,6). Zähle die Treffer in den 20 Zufallsziffern 4719 0382 6650 1197 2843.', 1)
+DSX.stufe('beurteilen', 'Ein Kind gewinnt beim Losstand mit p = 0,2. Simuliert wird mit einem Glücksrad mit einem 270°-Trefferfeld. Ist das geeignet?', 1)
+DSX.stufe('beurteilen', 'Ein Basketballspieler trifft beim Freiwurf mit p = 0,3. Simuliert wird mit einem Würfel (1 bis 4 = Treffer). Ist das geeignet?', 1)
+DSX.stufe('beurteilen', 'Eine Schülerin löst eine Rätselaufgabe mit p = 0,25. Simuliert wird mit einer Münze (Wappen = Treffer). Ist das geeignet?', 1)
+DSX.stufe('beurteilen', 'Ein Kind gewinnt beim Losstand mit p = 0,7. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?', 1)
+DSX.stufe('beurteilen', 'Ein Bus hat Verspätung mit p = 0,5. Simuliert wird mit einer Münze (Wappen = Treffer). Ist das geeignet?', 1)
+DSX.stufe('beurteilen', 'Eine Ampel zeigt bei Ankunft Grün mit p = 0,5. Simuliert wird mit einem Würfel (1 bis 5 = Treffer). Ist das geeignet?', 1)
+DSX.stufe('beurteilen', 'Ein Kind gewinnt beim Losstand mit p = 5/6. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?', 2)
+DSX.stufe('beurteilen', 'Eine Ampel zeigt bei Ankunft Grün mit p = 2/3. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?', 2)
+DSX.stufe('beurteilen', 'Ein Bauteil ist fehlerhaft mit p = 0,3. Simuliert wird mit einer Urne mit 3 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?', 1)
+# Wiederholungen in Folge ersetzt
+DSX.ersetze('zufallsgeraet', 'Ein Glücksrad soll einen Treffer mit p = 0,45 simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?', DSX.A(
+    'Ein Ereignis hat die Wahrscheinlichkeit 0,15. Kann man es mit einem normalen Spielwürfel (ein Wurf) simulieren?',
+    'Nein: Ein Würfel liefert nur Wahrscheinlichkeiten wie 1/6, 2/6, 3/6 …, 0,15 ist nicht dabei.',
+    ['Ja: Die Eins zählt als Treffer.', 'Ja: Jedes Zufallsgerät ist geeignet.', 'Nein: Mit einem Würfel kann man gar nichts simulieren.'],
+    '1/6 ≈ 0,167 ist nicht 0,15. Besser: Zufallszahlen 00 bis 99 mit 00 bis 14 als Treffer.', 'Welche Wahrscheinlichkeiten kann ein Würfel liefern?'))
+DSX.ersetze('regel', 'Mit zweistelligen Zufallszahlen 00–99 soll p = 0,83 simuliert werden. Welche Regel ist richtig?', DSX.Z(
+    'Mit Zufallszahlen 00 bis 99 gilt die Regel „00 bis 37 = Treffer“. Welche Wahrscheinlichkeit wird damit simuliert? Gib sie als Dezimalzahl an.', 0.38, '38 / 100',
+    'Von 00 bis 37 sind es 38 Zahlen (die 00 zählt mit). 38 von 100 ergibt 0,38.', 'Zähle die Trefferzahlen genau – auch die 00.'))
+DSX.ersetze('regel', 'Mit zweistelligen Zufallszahlen 00–99 soll p = 0,17 simuliert werden. Welche Regel ist richtig?', DSX.A(
+    'Tim hat nur Zufallsziffern 0 bis 9 und will p = 0,35 simulieren. Was ist richtig?',
+    'Je zwei Ziffern als Zahl 00 bis 99 lesen, 00 bis 34 = Treffer.', ['Ziffern 0 bis 3 = Treffer.', 'Ziffern 0 bis 35 = Treffer.', 'Das geht mit Zufallsziffern nicht.'],
+    'Mit einer Ziffer gibt es nur Zehntel. Zwei Ziffern zusammen ergeben 100 gleich wahrscheinliche Zahlen; 35 davon (00 bis 34) sind Treffer.',
+    'Wie viele gleich wahrscheinliche Ergebnisse brauchst du für Hundertstel?'))
+DSX.ersetze('zufallsziffern', 'Jede 4er-Gruppe ist ein Durchgang mit 4 Versuchen; nur die Ziffer 0 ist Treffer. In wie vielen Durchgängen gab es mindestens einen Treffer? Gruppen: 8694 0532 1163 8233 5111 1544 6928 4716', DSX.Z(
+    '„Warten auf den ersten Treffer“: Treffer sind die Ziffern 0 und 1. Ziffernfolge: 5 7 3 9 1 4 0 8. Beim wievielten Versuch kommt der erste Treffer?', 5, '5',
+    '5, 7, 3, 9 sind keine Treffer. Die 1 an fünfter Stelle ist der erste Treffer.', 'Gehe die Ziffern der Reihe nach durch und zähle mit.'))
+DSX.ersetze('auswerten', 'Gruppe A simuliert 2000 Durchgänge, Gruppe B 1000. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?', DSX.A(
+    'Eine Simulation von „mindestens eine Sechs bei vier Würfen“ ergab 0,52. Berechnet sind etwa 0,518. Lea sagt: „Die Simulation war falsch, der Wert stimmt nicht genau.“ Was stimmt?',
+    'Lea irrt: Eine Simulation liefert nur einen Schätzwert, 0,52 passt sehr gut.',
+    ['Lea hat recht: Eine richtige Simulation trifft den Wert genau.', 'Die Rechnung ist falsch, die Simulation stimmt.', 'Man kann Simulation und Rechnung nicht vergleichen.'],
+    'Simulationen schwanken zufällig. 0,52 liegt nur 0,002 neben 0,518 – das ist eine sehr gute Übereinstimmung.', 'Was liefert eine Simulation: einen genauen Wert oder einen Schätzwert?'))
+DSX.ersetze('auswerten', 'Gruppe A simuliert 100 Durchgänge, Gruppe B 50. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?', DSX.Z(
+    'Ein Ereignis hat die Wahrscheinlichkeit 0,25. Eine Simulation mit 80 Durchgängen ergab 26 Treffer. Um wie viele Treffer weicht sie vom erwarteten Wert ab?', 6, '26 - 80 * 25 / 100',
+    'Erwartet sind 0,25 · 80 = 20 Treffer. 26 − 20 = 6.', 'Berechne zuerst, wie viele Treffer man erwarten würde.'))
+DSX.ersetze('monte_carlo', 'In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 400 Zufallspunkten liegen 331 im Viertelkreis. Welchen Schätzwert für π erhält man?', DSX.Z(
+    'Ein Rechteck ist 6 cm lang und 4 cm breit. Eine Figur darin ist 9 cm² groß. Wie viele von 400 Zufallspunkten im Rechteck liegen ungefähr in der Figur?', 150, '400 * 9 / 24',
+    'Die Figur bedeckt 9 von 24 cm², also 3/8 des Rechtecks. 3/8 von 400 sind 150 Punkte.', 'Rechne rückwärts: erst den Flächenanteil, dann den Anteil der Punkte.'))
+DSX.ersetze('monte_carlo', 'In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 1000 Zufallspunkten liegen 758 im Viertelkreis. Welchen Schätzwert für π erhält man?', DSX.A(
+    'Zwei Gruppen schätzen π mit dem Viertelkreis im Quadrat: A setzt 100 Zufallspunkte, B 10 000. Was ist zu erwarten?',
+    'Der Wert von B liegt meist näher an 3,14 – sicher ist das aber nicht.',
+    ['A und B erhalten genau 3,14.', 'Der Wert von A liegt immer näher an 3,14.', 'Mit mehr Punkten wird der Schätzwert immer größer.'],
+    'Mehr Punkte machen den Anteil zuverlässiger (Gesetz der großen Zahlen). Im Einzelfall kann A trotzdem zufällig besser liegen.', 'Was bewirken viele Versuche bei einer Simulation?'))
+DSX.stufen('zufallsgeraet', 'S1 und S2 teils dieselbe Auswahlfrage; viermal Glücksradwinkel in Folge', 'S1 passendes Gerät wählen; S2 Urne/Glücksrad passend bauen, Würfelregel, Grenzen des Würfels; S3 Tabellenkalkulation, Hundertstel, Münze für 1/4')
+DSX.stufen('regel', 'S2 sechsmal „Welche Regel ist richtig?“', 'S1 Anzahl Trefferziffern; S2 Regel mit 00–99, rückwärts von der Regel zu p, zwei Ziffern zusammen; S3 Ziffern überspringen, 2/3 und 3/7, mehrere Versuche, Münze')
+DSX.stufen('zufallsziffern', 'S2 enthielt Treffer zählen wie S1; S3 viermal „mindestens ein Treffer“', 'S1 Treffer zählen; S2 relative Häufigkeit, Nicht-Treffer; S3 Durchgänge auswerten, mindestens zwei/drei, Warten auf Treffer, Familien')
+DSX.stufen('auswerten', 'S3 dreimal „Wer ist zuverlässiger?“', 'S1 Schätzwert; S2 Erwartung hochrechnen, Prozent; S3 mit Rechnung vergleichen, Abweichung, Zusammenfassen, rückwärts, Gegenereignis')
+DSX.stufen('monte_carlo', 'S3 viermal π aus dem Viertelkreis', 'S1 Anteil der Punkte; S2 Fläche schätzen, Rechteck; S3 π schätzen, Punkte rückwärts aus Fläche, viele gegen wenige Punkte, See, Abweichung')
+DSX.stufen('beurteilen', 'S1, S2 und S3 dieselbe Frage „Ist das geeignet?“', 'S1 Gerät prüfen; S2 Bruch gegen Dezimalzahl, zwei Münzen, Würfelregel; S3 00 bis 15-Falle, 0,8 gegen 5/6, zu wenige Durchgänge, ohne Zurücklegen, gleichwertige Urne')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Simulieren', ['zufallsgeraet', 'regel', 'zufallsziffern']), ('Auswerten', ['auswerten', 'monte_carlo']), ('Verstehen', ['beurteilen'])],

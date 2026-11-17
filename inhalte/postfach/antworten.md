@@ -138,3 +138,12 @@ Zweige bau-eltern, befunde, daten-klassen-2 nach lernen-app zusammengeführt (St
 - Nachprüfung E-1: alle vier Prüfpunkte erfüllt. Die sechs Befunde gehen als Zusatz an den Bau-Chat (inhalte/AUFTRAEGE.md, „Zusatz zum Bau-Auftrag Phase 2“);
   die beiden Datenbank-Punkte (geschafft geht bei Entfernen/Rückgängig verloren; Positionen wachsen) kommen mit der E-2-Migration.
 - Flug „Winkelsätze“: beide Prüfungen „nicht freigabereif“. Bleibt Entwurf. Nachbesserung als „Sechzehnte Runde“ (Zweig winkelsaetze-2); Außenwinkel wird Vertiefung.
+
+## 17.11. – Fünfzehnte Runde eingespielt; Schritt B (K2) zusammengeführt; Nachprüfung N1–N8 gelesen
+- Zweige nacharbeit und bau-phase2 (Schritt B) nach lernen-app zusammengeführt (Stand 50b17bd). App 0.74.3, nicht live. tests/lernen.test.cjs 26 von 26; inhalt_pruefen für alle Themendateien OK.
+- Fünfzehnte Runde eingespielt (7 Themen, einheit_abgleichen 'sperren'): funktionen.trig 56 neue Bogenmaß-Übungen und ergänzte Erklärungen; daten.kennwerte: modal_spannweite und median Vertiefung;
+  ergänzte Erklärschritte in geometrie.grundbegriffe, geometrie.ortslinien, trigo.allgemein, gleichungen.lgs3; geometrie.konstruktion: 6 SsW-Aufgaben mit Zeichnung (alte Fassungen gesperrt).
+  Themendatei geometrie.ortslinien trägt jetzt block_id 83 (Kairo) wie die Datenbank.
+- Nachprüfung N1–N8: N3–N8 erfüllt, N2 nicht erfüllt (87 „Kurz gesagt“ mit zwei Sätzen), N1 teilweise (Abblenden, Steigungsdreieck). → „Zusatz 2 zum Bau-Auftrag Phase 2“ (Schritt A2)
+  und „Siebzehnte Runde“ (Inhalte) in inhalte/AUFTRAEGE.md.
+- Schritt B: Die App ordnet Flüge im Ort nach dem Feld reihenfolge, sobald schule_uebersicht es liefert; die Migration dazu schreibt der Bau-Chat mit Schritt C.

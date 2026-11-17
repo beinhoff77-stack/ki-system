@@ -1125,3 +1125,45 @@ Die Nachprüfung von E-1 (git show origin/pruefung-eltern:inhalte/postfach/pruef
 6. Flugplan-Zeilen flacher und Ziehen statt vieler Tipps – ist ohnehin E-2.
 Außerdem aus deinem eigenen Bericht zu N2: Die App zeigt „Kurz gesagt“ jetzt ganz; die 116 zu langen Merksätze sind Inhalt und gehen an einen Inhalts-Chat, nicht an dich.
 ```
+
+# Zusatz 2 zum Bau-Auftrag Phase 2 (17.11.): Schritt A2 aus der Nachprüfung N1–N8
+
+Quelle: origin/pruefung-kinderansicht:inhalte/pruefung/NACHPRUEFUNG-2026-11-17-N1-N8.md. Schritt B (K2, App 0.74.3) ist nach lernen-app zusammengeführt (26 von 26 Tests).
+
+```text
+Zusatz 2 zum laufenden Bau-Auftrag Phase 2 und 3 (Zweig bau-phase2). Schritt B (K2, 0.74.3) ist nach lernen-app zusammengeführt (26 von 26 Tests); führe lernen-app in bau-phase2, bevor du weitermachst.
+Die Nachprüfung von Schritt A (git show origin/pruefung-kinderansicht:inhalte/pruefung/NACHPRUEFUNG-2026-11-17-N1-N8.md, Abschnitt „Nacharbeit“) meldet: N3–N8 erfüllt, N2 nicht erfüllt, N1 teilweise.
+Bitte als Schritt A2 VOR Schritt C erledigen, eigene Meldung „Schritt A2 fertig“ im Postfach:
+1. N2 (Fehler): Das Satzende für „Kurz gesagt“ wie früher an jedem . ! ? vor einem Leerzeichen oder dem Textende erkennen, aber nicht nach Abkürzungen (z. B., d. h., u. a., bzw., ca., usw., vgl.).
+   Heute enthalten 87 von 593 „Kurz gesagt“ zwei Sätze. Test: alle Merksätze aus inhalte/themen durchlaufen – „Kurz gesagt“ ist höchstens ein Satz.
+2. N1 Abblenden: Den Rest des Bildes nicht über die Deckkraft zurücknehmen (in der hellen Gestaltung verschwindet der gelbe Graph fast). Stattdessen Graphen und Linien grau mit mindestens 3:1 Kontrast
+   zum Hintergrund zeichnen oder nur Gitter und Hilfslinien zurücknehmen; abblenden nur, wenn wirklich ein Element neu ist.
+3. N1 Steigungsdreieck: NICHT mehr in der App vergrößern (Text und Bild stimmen sonst nicht überein). Das Dreieck so zeichnen, wie es im Inhalt steht, neu = kräftig in Akzentfarbe.
+   Die Inhalte dazu ändert ein Inhalts-Chat.
+4. N1 Tabellen und Stellentafel: die geänderte Zelle hervorheben (markiert oder neuer Wert), wenn ein Schritt nur eine Zelle ändert.
+5. N7: für die richtige Markierung am Zahlenstrahl ein festes Grün, das in allen Gestaltungen grün ist.
+```
+
+# Siebzehnte Runde (Inhalte): „Kurz gesagt“ kürzen, Steigungsdreieck, überdeckte Beschriftung
+
+Befunde aus dem Bericht des Bau-Chats (N2) und der Nachprüfung N1–N8. Entscheidung zum Steigungsdreieck: im Inhalt 2 Einheiten breit zeichnen und den Text anpassen.
+
+```text
+Du überarbeitest einzelne Stellen in den Lernkarten einer Mathe-Lern-App (bayerisches Gymnasium, Klassen 5–10). Die Themen sind für Kinder freigegeben.
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig merksaetze an und arbeite nur dort.
+Lies zuerst vollständig: inhalte/README.md („Verständliche Erklärungen“ mit „Vorgabe seit 16.11.“, „Zeichnungen“), inhalte/postfach/README.md, in inhalte/AUFTRAEGE.md die Abschnitte
+„Dreizehnte Runde“ und „Fünfzehnte Runde“ (Arbeitsweise und Nachweis) und mit git show origin/pruefung-kinderansicht:inhalte/pruefung/NACHPRUEFUNG-2026-11-17-N1-N8.md den Prüfbericht.
+
+1. „Kurz gesagt“: Der erste Satz des Feldes regel jeder Lernkarte ist das „Kurz gesagt“ (Regel: ein Satz, höchstens 12 Wörter). Finde per Skript in allen Dateien unter inhalte/themen
+   mit gym_by-Klasse die Lernkarten, deren erster Satz länger als 12 Wörter oder länger als 90 Zeichen ist (Satzende: . ! ? vor Leerzeichen oder Textende, nicht nach z. B., d. h., u. a., bzw.,
+   ca., usw., vgl.; laut Prüfung etwa 75). Schreibe für jede einen neuen ersten Satz mit höchstens 12 Wörtern, der den Kern der Regel in Kindersprache trifft; der Rest der Regel bleibt
+   inhaltlich gleich (er darf den bisherigen ersten Satz als zweiten Satz behalten). Mathematisch nichts verändern oder verkürzen, was dann falsch wäre.
+2. Steigungsdreieck (funktionen.linear, 4 Schritte laut Prüfbericht): Das Dreieck im Inhalt 2 Einheiten breit zeichnen und den Schritt-Text passend machen
+   (z. B. „In 2 Stunden wird sie 3 cm kürzer – das sind 1,5 cm je Stunde“). Die App vergrößert das Dreieck künftig nicht mehr selbst.
+3. Überdeckte Beschriftung: In der Kerze-Etappe überdeckt der Punktname „leer“ den Graphennamen „Kerze“ (beide bei x ≈ 13) – Beschriftung versetzen. Prüfe per Skript alle Karten- und
+   Schrittbilder der Art koordinaten auf Namen, die näher als 1 Einheit beieinander liegen, und versetze sie.
+Regeln: Nur die genannten Felder ändern (regel, einzelne schritte bzw. bild). Aufgaben und alles Übrige bleiben Zeichen für Zeichen gleich – Nachweis per Skript gegen origin/lernen-app.
+Änderungen im Generator des Themas (Abschnitt wie in der Fünfzehnten Runde), nicht nur in der JSON-Datei. Je Thema ein Commit + Push auf merksaetze.
+Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und der Nachweis stimmt.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in inhalte/postfach/merksaetze.md; am Ende eine Liste alt → neu für jeden geänderten Merksatz. Arbeite ohne Rückfragen durch.
+```

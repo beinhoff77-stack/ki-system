@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 17:15 – STATUS: groessen.proportional fertig
+Umgestuft 5 (Stufe 3 → 2: Taxi mit Grundgebühr = Gedanke der Park-Aufgabe in Stufe 2; einfacher Dreisatz vorwärts; „geschickt“ über 5er-Zwischenschritt wie Stufe 2). Prüfskript OK, Nachweis OK (212 von 217 unverändert).
+Für Sebastian: Karte „erkennen“ (Begriff proportional) geht über M5 hinaus (dort nur Schlussrechnung/Dreisatz) – Annahme, Lehrplan Kl. 6 nicht abrufbar.
+
 ## 2026-11-17 17:05 – STATUS: groessen.einheiten fertig
 Umgestuft 15 (Stufe 3 → 2: „Zerlege … in zwei Einheiten“, Ankunftszeit, Einkauf mit Rückgeld, Radweg ×2 – derselbe Gedanke wie Stufe 2). Prüfskript OK, Nachweis OK (257 von 272 unverändert).
 

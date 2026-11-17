@@ -797,5 +797,19 @@ BF.stufe('dreisatz', '20 Hefte kosten 80 €. 11 Hefte kosten wie viel €?', 2)
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('groessen.proportional', 19_5_12)
+# a) Stufe 3 mit dem Gedanken von Stufe 2 (Grundgebühr wie beim Parken, Dreisatz vorwärts, Zwischenschritt über 5) → Stufe 2
+for _lz, _t in [('erkennen', 'Eine Taxifahrt kostet 2 € Grundgebühr und 1 € je km. 3 km: 5 €, 6 km: 8 €. Ist Kilometer → Preis proportional?'),
+        ('erkennen', 'Eine Taxifahrt kostet 4 € Grundgebühr und 1 € je km. 3 km: 7 €, 6 km: 10 €. Ist Kilometer → Preis proportional?'),
+        ('dreisatz', '20 Liter Farbe reichen für 120 m². 30 Liter Farbe reichen für wie viele m²?'),
+        ('geschickt', 'Rechne geschickt: 175 kg Äpfel kosten 700 €. 50 kg Äpfel kosten wie viel €?'),
+        ('geschickt', 'Rechne geschickt: 35 Packungen enthalten 560 Kekse. 10 Packungen enthalten wie viele Kekse?')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI, 'groessen.proportional.json')

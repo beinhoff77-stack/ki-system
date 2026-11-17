@@ -805,3 +805,43 @@ if __name__ == '__main__':
     einbauen('zahlen.reell', KARTE_HE, 'eingrenzen', 18_9_3, heron_aufgaben)
     erweitern('zahlen.reell', 'wurzel_mal', 18_9_4, betrag_aufgaben, schritt=SCHRITT_BETRAG)
     erweitern('zahlen.reell', 'eingrenzen', 18_9_5, sach_reell)
+
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl9) ----
+from _durchsicht_kl9 import Befunde as _DSB, durchsicht  # noqa: E402
+
+DS = _DSB('zahlen.reell', 19_9_2)
+# zahlarten: „rational oder irrational?“ mit größerer Zahl = Stufe-1-Gedanke; „welche ist irrational?“ wie Stufe 2
+for _t in ('Ist √576 rational oder irrational?', 'Ist √103 rational oder irrational?', 'Ist √289 rational oder irrational?'):
+    DS.stufe('zahlarten', _t, 1)
+DS.stufe('zahlarten', 'Welche der Zahlen ist irrational?', 2, enthaelt='√14')
+# eingrenzen: Hundertstel statt Zehntel ist nur eine längere Rechnung → Stufe 2
+for _z in ('√134', '√41', '√105', '√19', '√56', '√150'):
+    DS.stufe('eingrenzen', f'Zwischen welchen Zahlen mit 2 Nachkommastellen liegt {_z}?', 2)
+# wurzel_mal: √3 · √12 ist die Stufe-1-Aufgabe; Rechenketten auf Stufe 2
+DS.stufe('wurzel_mal', 'Berechne √3 · √12.', 1)
+DS.stufe('wurzel_mal', 'Berechne √52 · √468 − √256.', 2)
+DS.stufe('wurzel_mal', 'Berechne √50 · √18 − √196.', 2)
+# teilweise: dieselbe Aufgabe mit größeren Zahlen → Stufe 1; „als eine Wurzel schreiben“ (Umkehrung) → Stufe 2
+for _z in ('√208', '√810', '√704', '√600', '√384', '√180', '√1 215', '√1 300', '√250'):
+    DS.stufe('teilweise', f'Ziehe teilweise die Wurzel, so weit wie möglich: {_z}.', 1)
+for _t in ('Schreibe 6√2 als eine einzige Wurzel.', 'Schreibe 10√2 als eine einzige Wurzel.', 'Ergänze die Lücke: √□ = 5√3.'):
+    DS.stufe('teilweise', _t, 2)
+# nenner_rational: 15/√5 ist die Stufe-1-Aufgabe; zwei der sechs Aufgaben „√m − n im Nenner“ auf Stufe 2 (Verfahren steht jetzt im Beispiel)
+DS.stufe('nenner_rational', 'Mache den Nenner rational: 15/√5.', 1)
+DS.stufe('nenner_rational', 'Mache den Nenner rational: 3/(√5 − 2).', 2)
+DS.stufe('nenner_rational', 'Mache den Nenner rational: 9/(√7 − 2).', 2)
+
+_NR_ZEILEN = [['vorher', '12', '√3'], ['erweitert', '12√3', '√3 · √3'], ['ausgerechnet', '12√3', '3'], ['gekürzt', '4√3', '1']]
+DS_KARTEN = {
+    'nenner_rational': {
+        'schritte': [{'text': 'Erweitern mit √3: Zähler und Nenner mal √3.', 'bild': {'zeilen': _NR_ZEILEN[:2]}},
+                     {'text': 'Unten gilt √3 · √3 = 3. Jetzt steht da 12√3/3.', 'bild': {'zeilen': _NR_ZEILEN[:3]}},
+                     {'text': '12 : 3 = 4, also ⟦12/√3 = 4√3⟧. Unten steht keine Wurzel mehr.', 'bild': {'zeilen': _NR_ZEILEN}},
+                     {'text': 'Bei 6/(√5 − 2) erweitere mit √5 + 2. Unten: 5 − 4 = 1.',
+                      'bild': {'zeilen': [['vorher', '6', '√5 − 2'], ['mal (√5 + 2)', '6(√5 + 2)', '5 − 4 = 1'], ['Ergebnis', '6(√5 + 2)', '1']]}}],
+    },
+}
+
+if __name__ == '__main__':
+    durchsicht('zahlen.reell', DS, DS_KARTEN)

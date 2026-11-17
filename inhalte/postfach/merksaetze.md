@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 02:31 – STATUS
+funktionen.potenz fertig: negativ – „y = x⁻²“ (name_x 1) und wurzelfunktion Schritt 3 – „y = ∛x“ (name_x 4) versetzt (je 0,96 Einheiten neben „f(4)“ bzw. „8 → 2“; im Bild ohne Überdeckung, aber unter der Grenze von 1 Einheit). Aufgaben 204 von 204 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
+
+## 2026-11-17 02:31 – STATUS
 funktionen.trig fertig: parameter – Graphname „f“ in Schritt 3 (name_x 45°) und Schritt 5 (π/4) versetzt (überdeckte „kleinster: −2“); eigenschaften – „cos x“ im Kartenbild (name_x −300°) und Schritt 5 (−5π/3) versetzt (überdeckte „270°“ bzw. „3π/2“, 0,09 Einheiten). Aufgaben 294 von 294 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
 
 ## 2026-11-17 02:31 – STATUS

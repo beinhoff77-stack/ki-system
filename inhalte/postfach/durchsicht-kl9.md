@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:33 – STATUS
+trigo.rechtwinklig fertig: 17 umgestuft, 4 neu (seite S3: Fläche, Mindestlänge; winkel S3: Diagonalen, Basiswinkel). Karte beziehungen: Schritt 5 und Regel ergänzt (sin α = cos(90° − α), das die Aufgaben schon nutzten). inhalt_pruefen OK, Nachweis OK.
+
 ## 2026-11-17 13:31 – STATUS
 trigo.pythagoras fertig: 22 umgestuft, 2 neu (kathete Stufe 2: runden, Dezimalzahl). Keine Karte geändert. inhalt_pruefen OK, Nachweis OK.
 

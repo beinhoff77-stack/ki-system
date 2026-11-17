@@ -2,7 +2,8 @@
 """Prüfskript für Themen-Dateien (Werkstatt #150, Lernen Schule).
 
 Aufruf:  python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json [...]
-         python3 -I tools/inhalt_pruefen.py --alle
+         python3 -I tools/inhalt_pruefen.py inhalte/expeditionen/<klasse>-<name>.json [...]
+         python3 -I tools/inhalt_pruefen.py --alle          (Themen und Expeditionen)
 
 Prüft Aufbau, Mindestmengen je Lernkarte, Antworttypen, Dubletten und rechnet jede
 Aufgabe mit Feld "c" (Rechenausdruck) exakt nach. Exit-Code 0 = alles gut, 1 = Fehler.
@@ -281,11 +282,139 @@ def pruefe(pfad):
     return fehler, warn, info
 
 
+# ---------- Expeditionen (Werkstatt-Wunsch 176, Bau-Auftrag G Teil 2; Format: inhalte/README.md „Expeditionen“) ----------
+EXP_TEILE = (3, 5)
+EXP_FELDER = ('schluessel', 'klasse', 'titel', 'einleitung', 'voraussetzungen', 'teile')
+TEIL_FELDER = ('k', 'y', 'f', 'o', 'w', 'bezug')
+
+
+def _themenliste():
+    try: return {t['thema_schluessel']: t for t in json.loads((WURZEL / 'inhalte' / 'themenliste.json').read_text(encoding='utf-8'))}
+    except Exception: return {}  # noqa: BLE001
+
+
+def _lernziele(schl, liste):
+    t = liste.get(schl)
+    pfad = WURZEL / (t.get('datei') or f'inhalte/themen/{schl}.json') if t else WURZEL / 'inhalte' / 'themen' / f'{schl}.json'
+    try: return {e.get('lernziel') for e in json.loads(pfad.read_text(encoding='utf-8'))['inhalt']['etappen']}
+    except Exception: return None  # noqa: BLE001
+
+
+def pruefe_antwort(wo, a, F, W):
+    """Antwortform und Nachrechnung eines Teils (dieselben Regeln wie für Bordkarten)."""
+    f, o, y = a.get('f') or {}, a.get('o') or {}, a.get('y')
+    if y not in TYPEN: F(f'{wo}: y muss {TYPEN} sein'); return
+    if not str(f.get('text', '')).strip(): F(f'{wo}: f.text fehlt')
+    if len(str(a.get('w', ''))) < 15: F(f'{wo}: Lösungsweg "w" zu kurz')
+    if y == 'zahl':
+        try: zahlwert(o['wert'])
+        except (KeyError, ValueError): F(f'{wo}: o.wert muss eine Zahl sein'); return
+        if 'c' not in a: F(f'{wo}: Rechenausdruck "c" fehlt (Pflicht bei Expeditionen)')
+    elif y == 'auswahl':
+        opts = a.get('a')
+        if not isinstance(opts, list) or not 2 <= len(opts) <= 4: F(f'{wo}: a = 2–4 Antworten'); return
+        if len(set(map(str, opts))) != len(opts): F(f'{wo}: Antworten doppelt')
+        if not isinstance(o.get('index'), int) or not 0 <= o['index'] < len(opts): F(f'{wo}: o.index ungültig')
+    elif y == 'text':
+        if not str(o.get('text', '')).strip(): F(f'{wo}: o.text fehlt')
+    elif y == 'luecken':
+        sch = f.get('schablone', '')
+        if not sch or 'werte' not in o: F(f'{wo}: f.schablone und o.werte nötig'); return
+        if sch.count('□') != len(o['werte']): F(f'{wo}: Anzahl □ ≠ Anzahl werte')
+        if not f.get('hinweis'): W(f'{wo}: f.hinweis fehlt (wie eintragen?)')
+        if 'c' not in a: F(f'{wo}: Rechenausdruck "c" (Liste) fehlt')
+    elif y == 'markierung':
+        g = f.get('grafik') or {}
+        if g.get('typ') != 'zahlenstrahl': F(f'{wo}: markierung nur mit f.grafik.typ "zahlenstrahl"'); return
+        try:
+            st, en, n = zahlwert(g['start']), zahlwert(g['ende']), int(g['abschnitte'])
+            if 'zahl' in a and st + (en - st) * o['index'] / n != zahlwert(a['zahl']): F(f'{wo}: Markierung passt nicht zu "zahl"')
+        except (KeyError, ValueError, TypeError): F(f'{wo}: grafik braucht start, ende, abschnitte; o.index')
+    g = f.get('grafik')
+    if g is not None and y != 'markierung' and g.get('typ') not in BILDER: F(f'{wo}: f.grafik.typ "{g.get("typ")}" gibt es nicht')
+    if 'c' in a:
+        try:
+            if y == 'luecken':
+                ist = [rechne(c) for c in a['c']] if isinstance(a['c'], list) else None
+                if ist is None or [zahlwert(v) for v in o['werte']] != ist: F(f'{wo}: c (Liste) ergibt {[float(x) for x in ist or []]}, Lösung ist {o["werte"]}')
+            elif y == 'zahl':
+                ist = rechne(a['c'])
+                if ist != zahlwert(o['wert']): F(f'{wo}: Nachrechnung „{a["c"]}“ = {float(ist):g}, Lösung ist {o["wert"]}')
+        except Exception as e:  # noqa: BLE001
+            F(f'{wo}: c nicht rechenbar: {e}')
+
+
+def pruefe_expedition(pfad):
+    fehler, warn = [], []
+    F, W = fehler.append, warn.append
+    try: d = json.loads(Path(pfad).read_text(encoding='utf-8'))
+    except Exception as e: return [f'JSON nicht lesbar: {e}'], [], {}  # noqa: BLE001
+    for k in EXP_FELDER:
+        if k not in d: F(f'Feld "{k}" fehlt')
+    if fehler: return fehler, warn, {}
+    name = Path(pfad).stem
+    kl = d['klasse'] if isinstance(d['klasse'], dict) else {}
+    if not kl or not all(isinstance(v, int) for v in kl.values()): F('"klasse" muss z. B. {"gym_by": 8} sein')
+    if d['schluessel'] != name: F(f'"schluessel" ({d["schluessel"]}) muss dem Dateinamen entsprechen ({name})')
+    if kl and not re.match(rf'^({"|".join(str(v) for v in kl.values())})-[a-z0-9_]+$', name): F('Dateiname: <klasse>-<name>.json, z. B. 8-handytarif.json')
+    if len(str(d.get('einleitung', ''))) < 40: F('"einleitung" zu kurz (Kontext der Expedition)')
+    if d.get('grafik') is not None and (d['grafik'] or {}).get('typ') not in BILDER: F(f'grafik.typ "{(d["grafik"] or {}).get("typ")}" gibt es nicht')
+    liste = _themenliste()
+    vor = d['voraussetzungen']
+    if not isinstance(vor, list) or not vor: F('"voraussetzungen" = Liste {thema_schluessel, lernziel}, mindestens eine'); vor = []
+    vs = set()
+    for v in vor:
+        schl, lz = (v or {}).get('thema_schluessel'), (v or {}).get('lernziel')
+        if (schl, lz) in vs: F(f'Voraussetzung doppelt: {schl}/{lz}')
+        vs.add((schl, lz))
+        lzs = _lernziele(schl, liste)
+        if lzs is None: F(f'Voraussetzung {schl}: Thema gibt es nicht in inhalte/themen'); continue
+        if lz not in lzs: F(f'Voraussetzung {schl}/{lz}: Lernkarte gibt es in diesem Thema nicht')
+        tk = (liste.get(schl) or {}).get('klasse') or {}
+        for sa, k in kl.items():
+            if sa not in tk: W(f'Voraussetzung {schl}: keine Klasse für {sa} in der Themenliste')
+            elif tk[sa] > k: F(f'Voraussetzung {schl}: Plan-Klasse {sa} {tk[sa]} liegt über der Klasse der Expedition ({k})')
+    teile = d['teile']
+    if not isinstance(teile, list) or not EXP_TEILE[0] <= len(teile) <= EXP_TEILE[1]: F(f'{EXP_TEILE[0]}–{EXP_TEILE[1]} Teile nötig'); teile = teile if isinstance(teile, list) else []
+    texte, ks = set(), set()
+    for i, t in enumerate(teile):
+        wo = f'Teil {t.get("k", i + 1)}'
+        for k in TEIL_FELDER:
+            if k not in t: F(f'{wo}: Feld "{k}" fehlt')
+        if any(k not in t for k in ('y', 'f', 'o')): continue
+        if t.get('k') in ks: F(f'{wo}: Kennung k doppelt')
+        ks.add(t.get('k'))
+        txt = str((t.get('f') or {}).get('text', '')).strip()
+        if txt in texte: F(f'{wo}: Fragetext doppelt')
+        texte.add(txt)
+        b = t.get('bezug') or {}
+        if (b.get('thema_schluessel'), b.get('lernziel')) not in vs: F(f'{wo}: Bezug {b.get("thema_schluessel")}/{b.get("lernziel")} steht nicht in den Voraussetzungen')
+        pruefe_antwort(wo, t, F, W)
+    benutzt = {((t.get('bezug') or {}).get('thema_schluessel'), (t.get('bezug') or {}).get('lernziel')) for t in teile}
+    for v in sorted(vs - benutzt, key=str): W(f'Voraussetzung {v[0]}/{v[1]} wird in keinem Teil gebraucht')
+    info = {'expedition': d['schluessel'], 'teile': len(teile), 'voraussetzungen': len(vor), 'nachgerechnet': sum(1 for t in teile if 'c' in t)}
+    return fehler, warn, info
+
+
+def ist_expedition(p):
+    p = Path(p)
+    if p.parent.name == 'expeditionen': return True
+    try: return 'teile' in json.loads(p.read_text(encoding='utf-8'))
+    except Exception: return False  # noqa: BLE001
+
+
 def main(argv):
-    pfade = sorted((WURZEL / 'inhalte' / 'themen').glob('*.json')) if argv[1:] == ['--alle'] else [Path(p) for p in argv[1:]]
+    pfade = (sorted((WURZEL / 'inhalte' / 'themen').glob('*.json')) + sorted((WURZEL / 'inhalte' / 'expeditionen').glob('*.json'))) if argv[1:] == ['--alle'] else [Path(p) for p in argv[1:]]
     if not pfade: print(__doc__); return 1
     gesamt = 0
     for p in pfade:
+        if ist_expedition(p):
+            f, w, info = pruefe_expedition(p)
+            print(f'\n== {p.name}: {"OK" if not f else f"{len(f)} FEHLER"}  {json.dumps(info, ensure_ascii=False)}')
+            for m in f[:60]: print('  FEHLER  ' + m)
+            for m in w[:15]: print('  Hinweis ' + m)
+            gesamt += len(f)
+            continue
         f, w, info = pruefe(p)
         print(f'\n== {p.name}: {"OK" if not f else f"{len(f)} FEHLER"}  {json.dumps(info, ensure_ascii=False)}')
         for m in f[:60]: print('  FEHLER  ' + m)

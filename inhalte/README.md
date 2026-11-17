@@ -236,3 +236,188 @@ Schritte mit Bild (neues Format; reine Text-Schritte bleiben erlaubt):
 - Das `bild` im Schritt ergänzt oder überschreibt Felder des Kartenbildes; ein anderes `typ` ersetzt das Bild ganz.
 - Ein Schritt ohne `bild` zeigt den Bildzustand des vorigen Schritts (nur wenn die Karte überhaupt Schrittbilder hat). `fehler_bild` funktioniert genauso.
 - Felder je Karte (Pflicht für neue und umgebaute Karten): `titel`, `einstieg`, `woerter`, `bild`, `schritte` (Objekte), `fehler`, `fehler_bild` (wenn sich der Fehler zeigen lässt), `regel`.
+
+## Expeditionen (Werkstatt-Wunsch 176, Format seit 17.11.)
+
+Eine **Expedition** ist eine größere Aufgabe aus 3–5 Teilen, die Stoff aus mehreren Etappen (auch aus verschiedenen Flügen) verbindet. Das Kind bekommt sie angeboten,
+wenn **alle** Voraussetzungs-Etappen bei ihm gelandet sind – unabhängig von der Reihenfolge im Flugplan. Sie ist freiwillig und zählt nicht für „gelandet“.
+
+**Dateien**
+- Je Expedition eine Datei `inhalte/expeditionen/<klasse>-<name>.json` (z. B. `8-handytarif.json`; `<name>` nur a–z, 0–9, `_`).
+- Erzeugt von `inhalte/generatoren/expedition_<name>.py`; alle Lösungen rechnet das Programm (exakt, mit `Fraction`), nichts von Hand eintragen.
+- Prüfen: `python3 -I tools/inhalt_pruefen.py inhalte/expeditionen/<datei>.json` (oder `--alle`).
+
+**Felder**
+
+| Feld | Bedeutung |
+|---|---|
+| `schluessel` | gleich dem Dateinamen ohne `.json` |
+| `klasse` | z. B. `{"gym_by": 8}` |
+| `titel` | kurz, für das Kind |
+| `einleitung` | Kontext/Situation in 2–4 Sätzen (mindestens 40 Zeichen) |
+| `grafik` | optional, für die ganze Expedition – nur Zeichenarten der App (`koordinaten`, `figur`, `saeulen`, `kreisdiagramm`, `tabelle`, `boxplot`, `baum`, `zahlenstrahl` …) |
+| `voraussetzungen` | Liste `{"thema_schluessel", "lernziel"}` – Lernkarten, die das Kind dafür können muss |
+| `teile` | 3–5 Teile, siehe unten |
+| `autor` | optional |
+
+Jeder **Teil** hat die Felder einer Bordkarte: `k` (Kennung a, b, c …), `y` (Antworttyp: `zahl`, `auswahl`, `luecken`, `markierung`, `text` – nur Formen, die die App schon prüft),
+`f` (`text`, optional `grafik`, bei `luecken` `schablone` und `hinweis`), `a` (bei Auswahl), `o` (Lösung), `c` (Rechenausdruck, Pflicht bei `zahl` und `luecken`), `w` (Lösungsweg),
+optional `h` (Tipp) und **`bezug`** `{"thema_schluessel", "lernziel"}` – die Lernkarte, die dieser Teil anwendet.
+
+**Regeln** (prüft das Skript, wo es geht)
+- Voraussetzungen gibt es wirklich (Thema in `inhalte/themen/`, Lernkarte darin); die Plan-Klasse jedes Voraussetzungs-Themas ist ≤ Klasse der Expedition (je Schulart in `klasse`).
+- Der `bezug` jedes Teils steht in den Voraussetzungen; jede Voraussetzung wird gebraucht (sonst Hinweis).
+- Jeder Teil wird nachgerechnet (`c`); keine doppelten Fragetexte; 3–5 Teile; Kennungen eindeutig.
+- **Kein Folgefehler-Domino:** Jeder Teil nennt im Text die Werte, die er braucht – wer Teil a falsch hat, rechnet Teil b mit den richtigen Zahlen. Die App zeigt nach dem 2. Versuch die Lösung
+  und macht mit dem nächsten Teil weiter. (Das prüft das Skript nicht – bitte beim Schreiben jedes Teils darauf achten.)
+- Für das Kind: kein Selbstzeichnen; ablesen, einen Graphen auswählen, einen Punkt bestimmen geht.
+- Reisewörter in Texten an das Kind; keine Namen realer Personen.
+
+**Vollständiges Beispiel** (`inhalte/expeditionen/8-handytarif.json`, erzeugt von `inhalte/generatoren/expedition_handytarif.py`):
+
+```json
+{
+ "schluessel": "8-handytarif",
+ "klasse": {
+  "gym_by": 8
+ },
+ "titel": "Handytarif",
+ "autor": "Claude (Bau-Auftrag G, Beispiel)",
+ "einleitung": "Du brauchst einen neuen Handytarif. Tarif A kostet 5 € Grundgebühr im Monat und 0,10 € je telefonierter Minute. Tarif B ist eine Flatrate: 12 € im Monat, egal wie lange du telefonierst. Welcher Tarif lohnt sich für dich?",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "funktionen.linear",
+   "lernziel": "aufstellen"
+  },
+  {
+   "thema_schluessel": "funktionen.linear",
+   "lernziel": "graph_ablesen"
+  },
+  {
+   "thema_schluessel": "gleichungen.ungleichungen",
+   "lernziel": "sachaufgabe"
+  },
+  {
+   "thema_schluessel": "bruch.prozent_grundwert",
+   "lernziel": "vermehrt"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "luecken",
+   "f": {
+    "text": "Tarif A: 5 € Grundgebühr und 0,10 € je Minute. Stelle den Term für die Kosten K(x) in Cent auf, wenn du x Minuten telefonierst.",
+    "schablone": "□x + □",
+    "hinweis": "Kosten in Cent: zuerst der Preis je Minute, dann die Grundgebühr"
+   },
+   "o": {
+    "werte": [
+     10,
+     500
+    ]
+   },
+   "c": [
+    "0.10 * 100",
+    "5 * 100"
+   ],
+   "w": "Je Minute kommen 10 Cent dazu, die Grundgebühr sind 500 Cent: K(x) = 10x + 500.",
+   "h": "Rechne erst beides in Cent um: 1 € = 100 Cent.",
+   "bezug": {
+    "thema_schluessel": "funktionen.linear",
+    "lernziel": "aufstellen"
+   }
+  },
+  {
+   "k": "b",
+   "y": "auswahl",
+   "f": {
+    "text": "Tarif A in Euro: K(x) = 0,10 · x + 5. Welcher Graph gehört zu Tarif A?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      120
+     ],
+     "y": [
+      0,
+      20
+     ],
+     "schritt_x": 20,
+     "schritt_y": 5,
+     "name_x": "Minuten",
+     "name_y": "€",
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0.05,
+       "t": 5.0,
+       "name": "1"
+      },
+      {
+       "art": "linear",
+       "m": 0.1,
+       "t": 5.0,
+       "name": "2"
+      },
+      {
+       "art": "linear",
+       "m": 0.1,
+       "t": 0,
+       "name": "3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Graph 1",
+    "Graph 2",
+    "Graph 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Tarif A beginnt bei 5 € (bei 0 Minuten) und steigt in 10 Minuten um 1 €: bei 100 Minuten sind es 15 €. Das ist Graph 2. Graph 3 vergisst die Grundgebühr, Graph 1 steigt nur halb so schnell.",
+   "h": "Wo schneidet der Graph die senkrechte Achse? Und wie viel kosten 100 Minuten?",
+   "bezug": {
+    "thema_schluessel": "funktionen.linear",
+    "lernziel": "graph_ablesen"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Tarif A kostet 5 € + 0,10 € je Minute, Tarif B 12 € im Monat. Ab wie vielen ganzen Minuten im Monat ist Tarif B günstiger?"
+   },
+   "o": {
+    "wert": 71
+   },
+   "c": "(12 - 5) / 0.10 + 1",
+   "w": "B ist günstiger, wenn 5 + 0,10 · x > 12, also 0,10 · x > 7 und x > 70. Ab 71 Minuten ist B günstiger (bei genau 70 Minuten kosten beide 12 €).",
+   "h": "Stelle eine Ungleichung auf: Kosten von A > Kosten von B.",
+   "bezug": {
+    "thema_schluessel": "gleichungen.ungleichungen",
+    "lernziel": "sachaufgabe"
+   }
+  },
+  {
+   "k": "d",
+   "y": "zahl",
+   "f": {
+    "text": "Tarif B (bisher 12 €) wird 15 % teurer. Tarif A bleibt bei 5 € + 0,10 € je Minute. Ab wie vielen ganzen Minuten ist Tarif B jetzt günstiger?"
+   },
+   "o": {
+    "wert": 89
+   },
+   "c": "(12 * 1.15 - 5) / 0.10 + 1",
+   "w": "Neuer Preis von B: 12 € · 1,15 = 13,8 €. B ist günstiger, wenn 5 + 0,10 · x > 13,8, also 0,10 · x > 8,8 und x > 88. Ab 89 Minuten ist B günstiger.",
+   "h": "Rechne zuerst den neuen Preis von B aus (vermehrter Grundwert), dann wie in Teil c.",
+   "bezug": {
+    "thema_schluessel": "bruch.prozent_grundwert",
+    "lernziel": "vermehrt"
+   }
+  }
+ ]
+}
+```

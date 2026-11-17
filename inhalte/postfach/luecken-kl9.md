@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 12:57 – STATUS
+funktionen.quadratisch fertig: neue Lernkarte „schnittpunkte“ (Schnittpunkte von Parabel und Gerade, auch Parabel–Parabel; Diskriminante: zwei Schnittpunkte / Tangente / keiner) nach „bestimmen“, Pflicht (LehrplanPLUS M9 2.2). 28 Aufgaben (Übung 4/6/8, davon 3 nach Prüfungsvorbild, 1 Knobel; Test 1, Korrektur 3, Sicherung 6). inhalt_pruefen OK; Nachweis OK (alle 238 alten Aufgaben und 7 alten Karten unverändert).
+
 ## 2026-11-17 12:55 – STATUS
 Bestandsaufnahme der Lückenliste inhalte/pruefung/aufbau/klasse9.json (Stand 14.11.) gegen den heutigen Stand (lernen-app 4a71771):
 1. Schnittpunkte Parabel/Gerade (und Gerade/Hyperbel); Bruchgleichungen, die auf quadratische Gleichungen führen (hoch) – **offen**. funktionen.quadratisch hat keine Karte dazu, gleichungen.bruch (Kl. 8) nur lineare Bruchgleichungen. Wird gebaut: funktionen.quadratisch/schnittpunkte nach „bestimmen“, gleichungen.quadratisch/bruchgleichung nach „loesungsformel“.

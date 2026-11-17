@@ -45,7 +45,7 @@
    {
     "lernziel": "bogenmass",
     "titel": "Gradmaß und Bogenmaß",
-    "regel": "360° entsprechen 2π, also 180° = π. Umrechnen: ⟦Bogenmaß = Grad · π : 180°⟧.",
+    "regel": "360° entsprechen 2π, also 180° = π. Umrechnen: ⟦Bogenmaß = Grad · π : 180°⟧. Beim Radius r ist der Bogen r-mal so lang.",
     "schritte": [
      {
       "text": "Am Einheitskreis ist der ganze Umfang 2π. Also gehören 180° zu π."
@@ -1560,7 +1560,7 @@
    "l": "bogenmass",
    "t": "bogenmass",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne 16° ins Bogenmaß um. Runde auf zwei Nachkommastellen."
@@ -1610,7 +1610,7 @@
    "l": "bogenmass",
    "t": "bogenmass",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Winkel hat im Bogenmaß die Größe 4,9. Wie viel Grad sind das? Runde auf eine Nachkommastelle."
@@ -1645,7 +1645,7 @@
    "l": "bogenmass",
    "t": "bogenmass",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Rechne 217° ins Bogenmaß um. Runde auf zwei Nachkommastellen."
@@ -2034,7 +2034,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welchen exakten Wert hat sin(2π/3)?"
@@ -2076,7 +2076,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welchen exakten Wert hat cos(5π/6)?"
@@ -2679,7 +2679,7 @@
    "l": "periode",
    "t": "periode",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „f(x) = sin(4x) hat die Periode 1 440°.“ Was stimmt?"
@@ -2700,7 +2700,7 @@
    "l": "periode",
    "t": "periode",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „f(x) = sin(3x) hat die Periode 1 080°.“ Was stimmt?"
@@ -2721,7 +2721,7 @@
    "l": "periode",
    "t": "periode",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 120° haben. Bestimme b."
@@ -2737,7 +2737,7 @@
    "l": "periode",
    "t": "periode",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 720° haben. Bestimme b."
@@ -3339,7 +3339,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Gib die Wertemenge von f(x) = 5 · cos(x) − 3 an.",
@@ -3363,7 +3363,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Gib die Wertemenge von f(x) = −5 · cos(x) an.",
@@ -3465,7 +3465,7 @@
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Welchen größten Wert nimmt f(x) = 1,5 · cos(x) + 3 an?"
@@ -4336,7 +4336,7 @@
    "l": "zuordnen",
    "t": "zuordnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
@@ -4426,7 +4426,7 @@
    "l": "zuordnen",
    "t": "zuordnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
@@ -4516,7 +4516,7 @@
    "l": "zuordnen",
    "t": "zuordnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
@@ -5293,7 +5293,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme die kleinste positive Nullstelle von f(x) = sin(4x) (in Grad)."
@@ -5310,7 +5310,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Nullstellen hat f(x) = sin(2x) im Bereich 0° ≤ x < 360°?"
@@ -5326,7 +5326,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Nullstellen hat f(x) = sin(5x) im Bereich 0° ≤ x < 360°?"
@@ -5342,7 +5342,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme die kleinste positive Nullstelle von f(x) = cos(3x) (in Grad)."
@@ -5359,7 +5359,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme die kleinste positive Nullstelle von f(x) = cos(2x) (in Grad)."
@@ -5376,7 +5376,7 @@
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme die kleinste positive Nullstelle von f(x) = sin(2x) (in Grad)."
@@ -5759,7 +5759,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Höhe einer Riesenradgondel ist h(t) = 15 − 12 · cos(45° · t) (t in min, h in m). Nach wie vielen Minuten ist die Gondel zum ersten Mal 15 m hoch?"
@@ -5776,7 +5776,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "h(t) = 40 − 35 · cos(24° · t) beschreibt die Höhe einer Gondel (t in min, h in m). Wie hoch ist sie nach 13 min? Runde auf eine Nachkommastelle.",
@@ -5820,7 +5820,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Höhe einer Riesenradgondel ist h(t) = 15 − 12 · cos(30° · t) (t in min, h in m). Nach wie vielen Minuten ist die Gondel zum ersten Mal 15 m hoch?"
@@ -5863,7 +5863,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "h(t) = 20 − 18 · cos(30° · t) beschreibt die Höhe einer Gondel (t in min, h in m). Wie hoch ist sie nach 10 min? Runde auf eine Nachkommastelle.",
@@ -5907,7 +5907,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tageslänge an einem Ort wird modelliert durch L(t) = 12 + 4 · sin(360°/365 · (t − 80)) (t = Tag des Jahres, L in Stunden). Wie lang ist der Tag t = 253? Runde auf eine Nachkommastelle."
@@ -8131,7 +8131,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Höhe einer Gondel ist h(t) = 25 − 20 · cos(π/10 · t) (t in min, h in m). Wie hoch ist sie nach 13 Minuten? Runde auf eine Nachkommastelle."

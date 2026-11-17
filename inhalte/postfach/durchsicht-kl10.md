@@ -13,3 +13,6 @@ Ersetzt (bitte sperren): gegenereignis „Ein Spiel wird mit der Wahrscheinlichk
 
 ## 2026-11-17 – STATUS: stochastik.simulation fertig
 Alle 6 Lernkarten und 180 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 9 umgestuft, 3 neue Stufe-3-Übungen nach den Lehrplan-Beispielen M10 2 (Geburtstagsproblem, vertauschte Briefe, Ziegenproblem). Prüfskript OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: funktionen.trig fertig
+Alle 8 Lernkarten und 334 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 27 umgestuft, Merksatz `bogenmass` um die Bogenlänge beim Radius r ergänzt. Prüfskript OK, Nachweis OK.

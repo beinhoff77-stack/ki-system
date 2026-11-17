@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+gleichungen.linear fertig: 8 umgestuft, 4 ersetzt (Wiederholungen in sach), 3 neu (klammern, Stufe 3). Prüfer OK, Nachweis OK.
+
+## 2026-11-17 – STATUS
 geometrie.winkelsaetze fertig: 5 umgestuft (gleicher Aufgabentyp in Stufe 2 und 3), sonst unverändert. Prüfer OK, Nachweis OK.
 
 ## 2026-11-17 – STATUS

@@ -834,6 +834,54 @@ BF.stufe('sach', 'Eine Mutter ist 4 Jahre älter als das 3-Fache des Alters ihre
 
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Klasse 7, siehe _durchsicht_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): BMT8 (ISB) 2019 B2, 2024 A3 (Klammern, Lücke so füllen, dass x eine Lösung ist), 2023 A7 (Rest-Term);
+# Jahrgangsstufentest Realschule 8 (ISB) 2025 II (Bewegungsaufgabe, Füllstand).
+from _durchsicht_kl7 import Durchsicht, durchsicht_datei  # noqa: E402
+
+DS = Durchsicht('gleichungen.linear', 19_7_5)
+# beide_seiten: „längere Gleichung zum Zusammenfassen“ ist mehrschrittig, aber kein anderer Gedanke → zwei von drei auf Stufe 2
+DS.stufe('beide_seiten', 'Löse 3x − 21 + 6x = −4x − 92 + 6.', 2)
+DS.stufe('beide_seiten', 'Löse −8x + 5 + x = x − 1 − 2.', 2)
+# klammern: Stufe 3 bestand fast nur aus „zwei Klammern auflösen und lösen“ (längere Rechnung) → drei davon Stufe 2, dafür andere Gedanken neu
+for _t in ['Löse 2(x + 7) = 5(x + 9) − 55.', 'Löse 2(x − 2) − 4(x − 8) = 32.', 'Löse 2(x − 5) − 5(x − 8) = 27.']:
+    DS.stufe('klammern', _t, 2)
+DS.neu('klammern', 3, DS.A('Jemand löst 8 − 2(x − 3) = 4 so: 8 − 2x − 6 = 4, also −2x = 2 und x = −1. Was stimmt?',
+                           'Falsch: (−2) · (−3) = +6. Richtig ist 8 − 2x + 6 = 4, also x = 5.',
+                           ['Richtig gerechnet, x = −1.', 'Falsch: Richtig ist 8 − 2x − 3 = 4, also x = 0,5.', 'Falsch: Man darf die Klammer nicht auflösen.'],
+                           'Minus vor der 2 und minus in der Klammer ergeben plus: −2 · (−3) = +6. 8 − 2x + 6 = 4 → −2x = −10 → x = 5. Probe: 8 − 2 · 2 = 4 ✓.',
+                           'Prüfe das Vorzeichen beim zweiten Glied der Klammer – oder mach die Probe mit x = −1.'))
+DS.neu('klammern', 3, DS.Z('Welche Zahl muss im Kästchen stehen, damit 3(x − □) = x + 4 die Lösung x = 5 hat?', 2, '(15 - 9) / 3',
+                           'x = 5 einsetzen: 3(5 − □) = 9, also 5 − □ = 3 und □ = 2. Probe: 3(5 − 2) = 9 = 5 + 4 ✓.',
+                           'Setze x = 5 ein. Dann ist nur noch das Kästchen unbekannt.'))
+DS.neu('klammern', 3, DS.Z('Ein Dreieck hat die Seiten x cm, 2(x − 1) cm und (x + 4) cm. Sein Umfang ist 26 cm. Wie lang ist die kürzeste Seite?', 6, '(26 - 2) / 4',
+                           'x + 2x − 2 + x + 4 = 26 → 4x + 2 = 26 → x = 6. Seiten 6 cm, 10 cm, 10 cm. Die kürzeste ist 6 cm.',
+                           'Gleichung für den Umfang aufstellen, Klammer auflösen. Danach alle drei Seiten ausrechnen.', einheit='cm'))
+# probe: „Probe-Schreibweise deuten“ steht schon in Stufe 2 → Stufe 2
+DS.stufe('probe', 'Die Probe für x = −8 bei −8x − 16 = −3x + 24 wird so geschrieben: „−8x − 16 = −3x + 24 | x = −8 → 48 = 48 ✓“. Welche Aussage stimmt?', 2)
+# sonderfaelle: dreimal „□ für unendlich viele Lösungen“ in Stufe 3 → zwei davon Stufe 2
+DS.stufe('sonderfaelle', 'Welche Zahl muss für □ stehen, damit 5(x + 4) = 5x + □ unendlich viele Lösungen hat?', 2)
+DS.stufe('sonderfaelle', 'Welche Zahl muss für □ stehen, damit 3(x + 3) = 3x + □ unendlich viele Lösungen hat?', 2)
+# sach: fünfmal „Lena spart, Tom gibt aus“ in Stufe 2, je zweimal derselbe Typ in Stufe 3 → Abwechslung
+DS.ersetze('sach', 'Lena hat 54 € und spart jede Woche 6 € dazu. Tom hat 164 € und gibt jede Woche 5 € aus. Nach wie vielen Wochen haben beide gleich viel?',
+           DS.Z('Im Kino zahlt ein Erwachsener 3 € mehr als ein Kind. Zwei Erwachsene und drei Kinder zahlen zusammen 41 €. Wie viel kostet eine Kinderkarte?', 7,
+                '(41 - 6) / 5', 'Kinderkarte x €: 2(x + 3) + 3x = 41 → 5x + 6 = 41 → x = 7. Eine Kinderkarte kostet 7 €.',
+                'Lege x als Preis der Kinderkarte fest. Was kostet dann eine Erwachsenenkarte?', einheit='€'), pools=('uebung',))
+DS.ersetze('sach', 'Lena hat 42 € und spart jede Woche 6 € dazu. Tom hat 152 € und gibt jede Woche 4 € aus. Nach wie vielen Wochen haben beide gleich viel?',
+           DS.Z('Vier Seiten eines Fünfecks sind gleich lang, die fünfte ist 4 cm länger. Der Umfang ist 54 cm. Wie lang ist die längste Seite?', 14,
+                '(54 - 4) / 5 + 4', 'Kurze Seite x: 5x + 4 = 54 → x = 10. Die längste Seite ist 10 + 4 = 14 cm.',
+                'Gefragt ist die längste Seite, nicht x.', einheit='cm'), pools=('uebung',))
+DS.ersetze('sach', '„Zwei aufeinanderfolgende natürliche Zahlen ergeben zusammen 66.“ Die Gleichung x + (x + 1) = 66 liefert x = 32,5. Was folgt daraus?',
+           DS.Z('Zug A fährt um 8 Uhr mit 80 km/h los. Zug B fährt auf derselben Strecke um 9 Uhr mit 120 km/h hinterher. Um wie viel Uhr holt B den Zug A ein?', 11,
+                '8 + 120 / 40', 'A ist t Stunden unterwegs, B eine Stunde weniger: 80t = 120(t − 1) → 40t = 120 → t = 3. Das ist um 8 + 3 = 11 Uhr.',
+                'Gleich weit gefahren heißt: Weg von A = Weg von B. B fährt eine Stunde kürzer.', einheit='Uhr'))
+DS.ersetze('sach', 'Tarif A: 28 € und 2 € pro Stunde. Tarif B: 0 € und 4 € pro Stunde. Die Gleichung ergibt x = 14. Welcher Tarif ist bei 17 Stunden günstiger?',
+           DS.Z('Ein Kanister ist zu einem Drittel gefüllt. Nach dem Nachfüllen von 10 Litern ist er zu drei Vierteln voll. Wie viele Liter passen hinein?', 24,
+                '10 / (3/4 - 1/3)', 'Inhalt V: 1/3 V + 10 = 3/4 V → 10 = (3/4 − 1/3) V = 5/12 V → V = 24 Liter.',
+                'Stelle eine Gleichung mit dem ganzen Inhalt V auf. Die 10 Liter füllen den Unterschied zwischen 1/3 und 3/4.', einheit='l'))
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umformen', ['waage', 'beide_seiten', 'klammern']), ('Prüfen und Sonderfälle', ['probe', 'sonderfaelle']), ('Anwenden', ['sach'])],
@@ -846,3 +894,4 @@ if __name__ == '__main__':
          teil=TEIL)
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt

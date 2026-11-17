@@ -5065,6 +5065,42 @@
    "t": "prisma_umstellen",
    "p": "uebung",
    "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma mit quadratischer Grundfläche ist 8 cm hoch und hat 200 cm³ Volumen. Wie lang ist eine Quadratseite?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "5",
+   "w": "G = 200 : 8 = 25 cm², Seite 5 cm.",
+   "h": "Erst G, dann die Seite."
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat das Volumen 493 cm³ und die Grundfläche 29 cm². Wie hoch ist es?"
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "cm"
+   },
+   "c": "493 / 29",
+   "w": "h = V : G = 493 : 29 = 17 cm.",
+   "h": "Stelle V = G · h nach h um.",
+   "g": "direkt"
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Dreiecksprisma hat das Volumen 150 cm³ und die Körperhöhe 10 cm. Das Dreieck ist 10 cm hoch. Wie lang ist seine Grundseite?"
@@ -5085,15 +5121,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Prisma hat das Volumen 493 cm³ und die Grundfläche 29 cm². Wie hoch ist es?"
+    "text": "Ein Prisma hat das Volumen 319 cm³ und ist 11 cm hoch. Wie groß ist seine Grundfläche?"
    },
    "o": {
-    "wert": 17,
-    "einheit": "cm"
+    "wert": 29,
+    "einheit": "cm²"
    },
-   "c": "493 / 29",
-   "w": "h = V : G = 493 : 29 = 17 cm.",
-   "h": "Stelle V = G · h nach h um.",
+   "c": "319 / 11",
+   "w": "G = V : h = 319 : 11 = 29 cm².",
+   "h": "Stelle nach G um.",
    "g": "direkt"
   },
   {
@@ -5121,16 +5157,34 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Prisma hat das Volumen 319 cm³ und ist 11 cm hoch. Wie groß ist seine Grundfläche?"
+    "text": "Ein Prisma hat 10,8 m³ Volumen und ist 4 m hoch. Wie groß ist die Grundfläche?"
    },
    "o": {
-    "wert": 29,
-    "einheit": "cm²"
+    "wert": 2.7,
+    "einheit": "m²"
    },
-   "c": "319 / 11",
-   "w": "G = V : h = 319 : 11 = 29 cm².",
-   "h": "Stelle nach G um.",
+   "c": "10.8 / 4",
+   "w": "G = 10,8 : 4 = 2,7 m².",
+   "h": "G = V : h.",
    "g": "direkt"
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat das Volumen 196 cm³ und die Grundfläche G = 14 cm². Wie hoch ist es?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "196 / 14",
+   "w": "V = G · h → h = V : G = 196 : 14 = 14 cm.",
+   "h": "Stelle V = G · h nach h um.",
+   "g": "umkehr"
   },
   {
    "l": "prisma_umstellen",
@@ -5149,24 +5203,6 @@
    "w": "360 l = 360 dm³. Länge = V : G = 360 : 18 = 20 dm.",
    "h": "Liter sind dm³.",
    "g": "transfer"
-  },
-  {
-   "l": "prisma_umstellen",
-   "t": "prisma_umstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Prisma hat 10,8 m³ Volumen und ist 4 m hoch. Wie groß ist die Grundfläche?"
-   },
-   "o": {
-    "wert": 2.7,
-    "einheit": "m²"
-   },
-   "c": "10.8 / 4",
-   "w": "G = 10,8 : 4 = 2,7 m².",
-   "h": "G = V : h.",
-   "g": "direkt"
   },
   {
    "l": "prisma_umstellen",
@@ -5208,19 +5244,19 @@
    "l": "prisma_umstellen",
    "t": "prisma_umstellen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Becken ist 25 m lang, vorn 1 m und hinten 3 m tief; seine Seitenwand ist ein Trapez. Es fasst 400 m³. Wie breit ist es?"
+    "text": "Ein Betonbalken mit Trapezquerschnitt (oben 40 cm, unten 20 cm, 50 cm hoch) wiegt 1,125 t. 1 m³ Beton wiegt 2,5 t. Wie lang ist der Balken?"
    },
    "o": {
-    "wert": 8,
+    "wert": 3,
     "einheit": "m"
    },
-   "c": "400 / ((3 + 1) / 2 * 25)",
-   "w": "G = (3 + 1) : 2 · 25 = 50 m². Breite = V : G = 400 : 50 = 8 m.",
-   "h": "Die Trapezfläche ist die Grundfläche, die Breite die Körperhöhe.",
-   "g": "mehrschritt"
+   "c": "1.125 / 2.5 / ((0.4 + 0.2) / 2 * 0.5)",
+   "w": "V = 1,125 : 2,5 = 0,45 m³. G = (0,4 + 0,2) : 2 · 0,5 = 0,15 m². Länge = 0,45 : 0,15 = 3 m.",
+   "h": "Erst das Volumen aus dem Gewicht, dann durch G.",
+   "g": "pruefung"
   },
   {
    "l": "prisma_umstellen",
@@ -5244,6 +5280,104 @@
    "l": "prisma_umstellen",
    "t": "prisma_umstellen",
    "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umstellung von V = G · h gibt die Höhe?"
+   },
+   "a": [
+    "h = V − G",
+    "h = V · G",
+    "h = V : G",
+    "h = G : V"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Durch G teilen: V : G = h.",
+   "h": "Welche Rechnung macht „· G“ rückgängig?"
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken ist 25 m lang, vorn 1 m und hinten 3 m tief; seine Seitenwand ist ein Trapez. Es fasst 400 m³. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m"
+   },
+   "c": "400 / ((3 + 1) / 2 * 25)",
+   "w": "G = (3 + 1) : 2 · 25 = 50 m². Breite = V : G = 400 : 50 = 8 m.",
+   "h": "Die Trapezfläche ist die Grundfläche, die Breite die Körperhöhe.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Gefäß mit einer Grundfläche von 1 200 cm² werden 60 l Wasser gefüllt. Wie hoch steht das Wasser?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "cm"
+   },
+   "c": "60 * 1000 / 1200",
+   "w": "60 l = 60 000 cm³. h = 60 000 : 1 200 = 50 cm.",
+   "h": "h = V : G.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Prisma hat 96 cm³ Volumen und ist 8 cm hoch. Welche Grundfläche passt?"
+   },
+   "a": [
+    "ein Rechteck 3 cm × 4 cm",
+    "ein Dreieck mit g = 3 cm und Höhe 4 cm",
+    "ein Quadrat mit 4 cm Seite",
+    "ein Rechteck 6 cm × 4 cm"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "G = 96 : 8 = 12 cm². Nur 3 · 4 = 12 passt (Quadrat 16, Dreieck 6, Rechteck 24).",
+   "h": "Berechne G und prüfe jede Figur."
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat das Volumen 225 cm³ und die Grundfläche G = 15 cm². Wie hoch ist es?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "225 / 15",
+   "w": "V = G · h → h = V : G = 225 : 15 = 15 cm.",
+   "h": "Stelle V = G · h nach h um.",
+   "g": "umkehr"
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
@@ -5257,24 +5391,6 @@
    "w": "V = (12 + 6) · 4 : 2 · 15 = 540 cm³. Höhe: 540 : 60 = 9 cm.",
    "h": "Volumen bleibt gleich.",
    "g": "verknuepfen"
-  },
-  {
-   "l": "prisma_umstellen",
-   "t": "prisma_umstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Betonbalken mit Trapezquerschnitt (oben 40 cm, unten 20 cm, 50 cm hoch) wiegt 1,125 t. 1 m³ Beton wiegt 2,5 t. Wie lang ist der Balken?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "m"
-   },
-   "c": "1.125 / 2.5 / ((0.4 + 0.2) / 2 * 0.5)",
-   "w": "V = 1,125 : 2,5 = 0,45 m³. G = (0,4 + 0,2) : 2 · 0,5 = 0,15 m². Länge = 0,45 : 0,15 = 3 m.",
-   "h": "Erst das Volumen aus dem Gewicht, dann durch G.",
-   "g": "pruefung"
   },
   {
    "l": "prisma_umstellen",
@@ -5316,86 +5432,6 @@
    "l": "prisma_umstellen",
    "t": "prisma_umstellen",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In ein Gefäß mit einer Grundfläche von 1 200 cm² werden 60 l Wasser gefüllt. Wie hoch steht das Wasser?"
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "cm"
-   },
-   "c": "60 * 1000 / 1200",
-   "w": "60 l = 60 000 cm³. h = 60 000 : 1 200 = 50 cm.",
-   "h": "h = V : G.",
-   "g": "einkleidung"
-  },
-  {
-   "l": "prisma_umstellen",
-   "t": "prisma_umstellen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Umstellung von V = G · h gibt die Höhe?"
-   },
-   "a": [
-    "h = V − G",
-    "h = V · G",
-    "h = V : G",
-    "h = G : V"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Durch G teilen: V : G = h.",
-   "h": "Welche Rechnung macht „· G“ rückgängig?"
-  },
-  {
-   "l": "prisma_umstellen",
-   "t": "prisma_umstellen",
-   "p": "uebung",
-   "s": 2,
-   "g": "umkehr",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Prisma mit quadratischer Grundfläche ist 8 cm hoch und hat 200 cm³ Volumen. Wie lang ist eine Quadratseite?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "5",
-   "w": "G = 200 : 8 = 25 cm², Seite 5 cm.",
-   "h": "Erst G, dann die Seite."
-  },
-  {
-   "l": "prisma_umstellen",
-   "t": "prisma_umstellen",
-   "p": "uebung",
-   "s": 2,
-   "g": "darstellung",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Prisma hat 96 cm³ Volumen und ist 8 cm hoch. Welche Grundfläche passt?"
-   },
-   "a": [
-    "ein Rechteck 3 cm × 4 cm",
-    "ein Dreieck mit g = 3 cm und Höhe 4 cm",
-    "ein Quadrat mit 4 cm Seite",
-    "ein Rechteck 6 cm × 4 cm"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "G = 96 : 8 = 12 cm². Nur 3 · 4 = 12 passt (Quadrat 16, Dreieck 6, Rechteck 24).",
-   "h": "Berechne G und prüfe jede Figur."
-  },
-  {
-   "l": "prisma_umstellen",
-   "t": "prisma_umstellen",
-   "p": "uebung",
    "s": 3,
    "g": "fehler",
    "y": "auswahl",
@@ -5413,6 +5449,24 @@
    },
    "w": "Probe: 9 · 0,125 = 1,125 ≠ 72. Mit 8 cm: 9 · 8 = 72 ✓.",
    "h": "Mach die Probe mit V = G · h."
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zelt ist ein dreiseitiges Prisma: Die dreieckige Vorderseite ist 2 m breit und 1,5 m hoch, das Zelt ist 3 m lang. Ein zweites Zelt soll dasselbe Volumen haben, ist aber 2,5 m breit und genauso lang. Wie hoch muss es sein?"
+   },
+   "o": {
+    "wert": 1.2,
+    "einheit": "m"
+   },
+   "c": "2 * 15/10 / (25/10)",
+   "w": "Erstes Zelt: V = (2 · 1,5 : 2) · 3 = 4,5 m³. Zweites: (2,5 · h : 2) · 3 = 4,5 ⇒ 2,5 · h = 3 ⇒ h = 1,2 m.",
+   "h": "Berechne erst das Volumen des ersten Zelts."
   },
   {
    "l": "prisma_umstellen",
@@ -5671,66 +5725,6 @@
    "l": "zylinder_volumen",
    "t": "zylinder_volumen",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rohr hat außen den Radius 10 cm, innen 8 cm und ist 50 cm lang. Wie viel cm³ Material hat es? Runde auf ganze cm³."
-   },
-   "o": {
-    "wert": 5655,
-    "einheit": "cm³",
-    "toleranz": 4
-   },
-   "c": "round(3.141592653589793 * (10 ** 2 - 8 ** 2) * 50, 0)",
-   "w": "V = (π · 10² − π · 8²) · 50 = π · 36 · 50 ≈ 5 655 cm³.",
-   "h": "Großer Zylinder minus innerer Zylinder.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "zylinder_volumen",
-   "t": "zylinder_volumen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat den Durchmesser 6 cm und die Höhe 10 cm. Berechne das Volumen. Runde auf eine Stelle nach dem Komma."
-   },
-   "o": {
-    "wert": 282.7,
-    "einheit": "cm³",
-    "toleranz": 0.2
-   },
-   "c": "round(3.141592653589793 * 3 ** 2 * 10, 1)",
-   "w": "r = 6 : 2 = 3 cm. V = π · 3² · 10 = 90π ≈ 282,7 cm³.",
-   "h": "Erst den Radius bestimmen.",
-   "g": "direkt"
-  },
-  {
-   "l": "zylinder_volumen",
-   "t": "zylinder_volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Term gibt das Volumen eines Zylinders mit r = 5 cm und h = 3 cm exakt an?"
-   },
-   "a": [
-    "300π cm³",
-    "75π cm³",
-    "15π cm³",
-    "30π cm³"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "V = π · 5² · 3 = 75π cm³. 30π wäre der Mantel, 300π käme mit d statt r heraus.",
-   "h": "V = π · r² · h.",
-   "g": "darstellung"
-  },
-  {
-   "l": "zylinder_volumen",
-   "t": "zylinder_volumen",
-   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
@@ -5775,16 +5769,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Regentonne ist zylinderförmig: Radius 20 cm, Höhe 90 cm. Wie viele Liter fasst sie? Runde auf ganze Liter."
+    "text": "Ein Zylinder hat den Durchmesser 6 cm und die Höhe 10 cm. Berechne das Volumen. Runde auf eine Stelle nach dem Komma."
    },
    "o": {
-    "wert": 113,
-    "einheit": "l",
-    "toleranz": 1
+    "wert": 282.7,
+    "einheit": "cm³",
+    "toleranz": 0.2
    },
-   "c": "round(3.141592653589793 * 20 ** 2 * 90 / 1000, 0)",
-   "w": "V = π · 20² · 90 ≈ 113 097 cm³ ≈ 113 l.",
-   "h": "1 000 cm³ = 1 l.",
+   "c": "round(3.141592653589793 * 3 ** 2 * 10, 1)",
+   "w": "r = 6 : 2 = 3 cm. V = π · 3² · 10 = 90π ≈ 282,7 cm³.",
+   "h": "Erst den Radius bestimmen.",
    "g": "direkt"
   },
   {
@@ -5794,52 +5788,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Topf (zylinderförmig) hat innen den Durchmesser 2 dm und ist 6 dm hoch. Wie viele Liter passen hinein? Runde auf eine Stelle nach dem Komma."
+    "text": "Ein Rohr hat außen den Radius 10 cm, innen 8 cm und ist 50 cm lang. Wie viel cm³ Material hat es? Runde auf ganze cm³."
    },
    "o": {
-    "wert": 18.8,
-    "einheit": "l",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * 1 ** 2 * 6, 1)",
-   "w": "r = 1 dm. V = π · 1² · 6 ≈ 18,8 dm³ = 18,8 l.",
-   "h": "In dm gerechnet ist dm³ gleich Liter.",
-   "g": "einkleidung"
-  },
-  {
-   "l": "zylinder_volumen",
-   "t": "zylinder_volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder mit Radius 3 cm hat das Volumen 54π cm³. Wie hoch ist er?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "54 / 3 ** 2",
-   "w": "V = π · r² · h, also h = V : (π · r²) = 54π : (9π) = 6 cm.",
-   "h": "Das π kürzt sich weg.",
-   "g": "umkehr"
-  },
-  {
-   "l": "zylinder_volumen",
-   "t": "zylinder_volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rohr hat außen den Radius 5 cm, innen 4 cm und ist 100 cm lang. Wie viel cm³ Material hat es? Runde auf ganze cm³."
-   },
-   "o": {
-    "wert": 2827,
+    "wert": 5655,
     "einheit": "cm³",
-    "toleranz": 2
+    "toleranz": 4
    },
-   "c": "round(3.141592653589793 * (5 ** 2 - 4 ** 2) * 100, 0)",
-   "w": "V = (π · 5² − π · 4²) · 100 = π · 9 · 100 ≈ 2 827 cm³.",
+   "c": "round(3.141592653589793 * (10 ** 2 - 8 ** 2) * 50, 0)",
+   "w": "V = (π · 10² − π · 8²) · 50 = π · 36 · 50 ≈ 5 655 cm³.",
    "h": "Großer Zylinder minus innerer Zylinder.",
    "g": "mehrschritt"
   },
@@ -5850,18 +5807,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Zylinder hat die Höhe 8 und den Radius 3. Welcher Term gibt sein Volumen an?"
+    "text": "Welcher Term gibt das Volumen eines Zylinders mit r = 5 cm und h = 3 cm exakt an?"
    },
    "a": [
-    "48π",
-    "24π",
-    "72π",
-    "144π"
+    "300π cm³",
+    "75π cm³",
+    "15π cm³",
+    "30π cm³"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "V = π · 3² · 8 = 72π. 48π ist der Mantel (2 · π · 3 · 8), 24π wäre π · 3 · 8, 144π käme mit 2 · 72π heraus.",
+   "w": "V = π · 5² · 3 = 75π cm³. 30π wäre der Mantel, 300π käme mit d statt r heraus.",
    "h": "V = π · r² · h.",
    "g": "darstellung"
   },
@@ -5969,6 +5926,47 @@
    "l": "zylinder_volumen",
    "t": "zylinder_volumen",
    "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Für r = 3 cm und h = 10 cm rechnet jemand V = 2 · π · 3 · 10 ≈ 188 cm³. Was ist falsch?"
+   },
+   "a": [
+    "Es fehlt · 2 am Ende.",
+    "Er hätte d = 6 nehmen müssen.",
+    "Das ist der Mantel; V = π · 9 · 10 ≈ 283 cm³.",
+    "Nichts."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2 · π · r · h ist die Mantelfläche (Umfang · Höhe). Für das Volumen braucht man die Kreisfläche π · r².",
+   "h": "Welche Formel enthält r²?"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Regentonne ist zylinderförmig: Radius 20 cm, Höhe 90 cm. Wie viele Liter fasst sie? Runde auf ganze Liter."
+   },
+   "o": {
+    "wert": 113,
+    "einheit": "l",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653589793 * 20 ** 2 * 90 / 1000, 0)",
+   "w": "V = π · 20² · 90 ≈ 113 097 cm³ ≈ 113 l.",
+   "h": "1 000 cm³ = 1 l.",
+   "g": "direkt"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
    "s": 1,
    "g": "erkennen",
    "y": "auswahl",
@@ -5991,23 +5989,223 @@
    "l": "zylinder_volumen",
    "t": "zylinder_volumen",
    "p": "uebung",
-   "s": 3,
-   "g": "fehler",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Topf (zylinderförmig) hat innen den Durchmesser 2 dm und ist 6 dm hoch. Wie viele Liter passen hinein? Runde auf eine Stelle nach dem Komma."
+   },
+   "o": {
+    "wert": 18.8,
+    "einheit": "l",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * 1 ** 2 * 6, 1)",
+   "w": "r = 1 dm. V = π · 1² · 6 ≈ 18,8 dm³ = 18,8 l.",
+   "h": "In dm gerechnet ist dm³ gleich Liter.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder mit Radius 3 cm hat das Volumen 54π cm³. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "54 / 3 ** 2",
+   "w": "V = π · r² · h, also h = V : (π · r²) = 54π : (9π) = 6 cm.",
+   "h": "Das π kürzt sich weg.",
+   "g": "umkehr"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rohr hat außen den Radius 5 cm, innen 4 cm und ist 100 cm lang. Wie viel cm³ Material hat es? Runde auf ganze cm³."
+   },
+   "o": {
+    "wert": 2827,
+    "einheit": "cm³",
+    "toleranz": 2
+   },
+   "c": "round(3.141592653589793 * (5 ** 2 - 4 ** 2) * 100, 0)",
+   "w": "V = (π · 5² − π · 4²) · 100 = π · 9 · 100 ≈ 2 827 cm³.",
+   "h": "Großer Zylinder minus innerer Zylinder.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Für r = 3 cm und h = 10 cm rechnet jemand V = 2 · π · 3 · 10 ≈ 188 cm³. Was ist falsch?"
+    "text": "Ein Zylinder hat die Höhe 8 und den Radius 3. Welcher Term gibt sein Volumen an?"
    },
    "a": [
-    "Es fehlt · 2 am Ende.",
-    "Er hätte d = 6 nehmen müssen.",
-    "Das ist der Mantel; V = π · 9 · 10 ≈ 283 cm³.",
-    "Nichts."
+    "48π",
+    "24π",
+    "72π",
+    "144π"
    ],
    "o": {
     "index": 2
    },
-   "w": "2 · π · r · h ist die Mantelfläche (Umfang · Höhe). Für das Volumen braucht man die Kreisfläche π · r².",
-   "h": "Welche Formel enthält r²?"
+   "w": "V = π · 3² · 8 = 72π. 48π ist der Mantel (2 · π · 3 · 8), 24π wäre π · 3 · 8, 144π käme mit 2 · 72π heraus.",
+   "h": "V = π · r² · h.",
+   "g": "darstellung"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein zylinderförmiges Glas hat innen den Radius 3 cm und ist 8 cm hoch mit Wasser gefüllt. Man gießt 100 cm³ dazu. Um wie viel cm steigt der Wasserspiegel? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 3.5,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(100 / (3.141592653589793 * 9), 1)",
+   "w": "Grundfläche: π · 3² ≈ 28,3 cm². Anstieg: 100 : 28,3 ≈ 3,5 cm. Die 8 cm braucht man nicht.",
+   "h": "Das zusätzliche Wasser bildet einen flachen Zylinder.",
+   "g": "transfer"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zylinder A hat r = 2 cm und h = 8 cm. Zylinder B hat r = 4 cm und h = 2 cm. Welcher hat das größere Volumen?"
+   },
+   "a": [
+    "Das kann man ohne Taschenrechner nicht sagen.",
+    "A, weil er höher ist.",
+    "Beide sind gleich groß.",
+    "B, weil er breiter ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A: π · 4 · 8 = 32π. B: π · 16 · 2 = 32π. Doppelter Radius vervierfacht die Grundfläche, ein Viertel der Höhe gleicht das aus.",
+   "h": "Rechne mit π als Zeichen.",
+   "g": "begruenden"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Blatt (20 cm × 30 cm) wird zu einem Zylindermantel gerollt: einmal mit der 30-cm-Seite als Umfang (Höhe 20 cm), einmal mit der 20-cm-Seite als Umfang (Höhe 30 cm). Welcher Zylinder fasst mehr?"
+   },
+   "a": [
+    "Beide fassen gleich viel, das Blatt ist dasselbe.",
+    "der mit 30 cm Umfang",
+    "Das hängt vom Material ab.",
+    "der mit 20 cm Umfang"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Umfang 30: r ≈ 4,77 cm, V ≈ π · 22,8 · 20 ≈ 1 432 cm³. Umfang 20: r ≈ 3,18 cm, V ≈ π · 10,1 · 30 ≈ 955 cm³. Der Radius geht quadratisch ein.",
+   "h": "Bestimme jeweils r aus dem Umfang und vergleiche π · r² · h.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Für d = 10 cm und h = 4 cm rechnet jemand V = π · 10² · 4 ≈ 1 256 cm³. Was ist falsch?"
+   },
+   "a": [
+    "Er hat den Durchmesser quadriert; mit r = 5: V = π · 25 · 4 ≈ 314 cm³.",
+    "Er hätte 2 · π · 10 · 4 rechnen müssen.",
+    "Nichts.",
+    "Die Höhe muss quadriert werden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In π · r² gehört der Radius. Mit d wird das Volumen viermal zu groß.",
+   "h": "Welche Länge gehört in die Kreisflächenformel?"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat das Volumen 1 000 cm³ und ist 10 cm hoch. Wie groß ist seine Grundfläche?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "cm²"
+   },
+   "c": "1000 / 10",
+   "w": "G = V : h = 100 cm².",
+   "h": "Volumen = Grundfläche · Höhe – rückwärts."
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ändert sich das Volumen eines Zylinders, wenn man r verdoppelt und h halbiert?"
+   },
+   "a": [
+    "Es bleibt gleich.",
+    "Es vervierfacht sich.",
+    "Es verdoppelt sich.",
+    "Es halbiert sich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "π · (2r)² · h/2 = π · 4r² · h/2 = 2 · π · r² · h.",
+   "h": "Setze 2r und h/2 in die Formel ein."
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine zylinderförmige Vase (r = 5 cm) ist 20 cm hoch und zu drei Vierteln mit Wasser gefüllt. Wie viele Liter sind darin? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.18,
+    "einheit": "l",
+    "toleranz": 0.01
+   },
+   "c": "round(3.14159265 * 25 * 15 / 1000, 2)",
+   "w": "Wasserhöhe 15 cm. V = π · 25 · 15 ≈ 1 178 cm³ ≈ 1,18 l.",
+   "h": "Berechne zuerst die Wasserhöhe; 1 l = 1 000 cm³."
   },
   {
    "l": "zylinder_volumen",
@@ -6046,6 +6244,24 @@
    "c": "round(314/100 * (100 - 4) * 20 / (1/100 * 20) / 100)",
    "w": "Papiervolumen: π · (100 − 4) · 20 ≈ 6 029 cm³. Abgerollt ist es ein langer Streifen: 20 cm breit, 0,01 cm dick, Länge L. 20 · 0,01 · L = 6 029 ⇒ L ≈ 30 144 cm ≈ 301 m.",
    "h": "Das Volumen bleibt gleich, ob aufgerollt oder ausgelegt."
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine volle Dose (r = 4 cm, h = 10 cm) wird in eine Dose mit r = 8 cm umgegossen. Wie hoch steht das Wasser dort?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "cm"
+   },
+   "c": "10 / 4",
+   "w": "Doppelter Radius heißt vierfache Grundfläche. Bei gleichem Volumen ist die Höhe ein Viertel: 10 : 4 = 2,5 cm.",
+   "h": "Wie verändert sich die Grundfläche?"
   },
   {
    "l": "zylinder_volumen",
@@ -6580,6 +6796,25 @@
    "l": "zylinder_oberflaeche",
    "t": "zylinder_oberflaeche",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Folientunnel für Gemüse ist ein halber Zylinder (r = 1 m, Länge 10 m), vorn und hinten offen, der Boden ist die Erde. Wie viel m² Folie braucht man? Runde auf eine Stelle nach dem Komma."
+   },
+   "o": {
+    "wert": 31.4,
+    "einheit": "m²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * 1 * 10, 1)",
+   "w": "Nur der halbe Mantel: (2 · π · 1 · 10) : 2 = 10π ≈ 31,4 m².",
+   "h": "Welcher Teil des Zylinders ist aus Folie?",
+   "g": "transfer"
+  },
+  {
+   "l": "zylinder_oberflaeche",
+   "t": "zylinder_oberflaeche",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -6594,6 +6829,28 @@
    "w": "O = 2 · π · 4² + 2 · π · 4 · 5 = 72π ≈ 226,2 cm².",
    "h": "Zwei Kreise plus Mantel.",
    "g": "direkt"
+  },
+  {
+   "l": "zylinder_oberflaeche",
+   "t": "zylinder_oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lang ist das Mantelrechteck eines Zylinders?"
+   },
+   "a": [
+    "so lang wie der Durchmesser",
+    "so lang wie der Radius",
+    "so lang wie die Höhe",
+    "so lang wie der Umfang des Grundkreises"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Rechteck reicht genau einmal um den Kreis herum.",
+   "h": "Was umschließt das Etikett?"
   },
   {
    "l": "zylinder_oberflaeche",
@@ -6659,25 +6916,6 @@
    "l": "zylinder_oberflaeche",
    "t": "zylinder_oberflaeche",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Folientunnel für Gemüse ist ein halber Zylinder (r = 1 m, Länge 10 m), vorn und hinten offen, der Boden ist die Erde. Wie viel m² Folie braucht man? Runde auf eine Stelle nach dem Komma."
-   },
-   "o": {
-    "wert": 31.4,
-    "einheit": "m²",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * 1 * 10, 1)",
-   "w": "Nur der halbe Mantel: (2 · π · 1 · 10) : 2 = 10π ≈ 31,4 m².",
-   "h": "Welcher Teil des Zylinders ist aus Folie?",
-   "g": "transfer"
-  },
-  {
-   "l": "zylinder_oberflaeche",
-   "t": "zylinder_oberflaeche",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -6731,28 +6969,6 @@
    "w": "Der Mantel ist in beiden Fällen das ganze Blatt: 20 · 30 = 600 cm².",
    "h": "Was ist der Mantel?",
    "g": "begruenden"
-  },
-  {
-   "l": "zylinder_oberflaeche",
-   "t": "zylinder_oberflaeche",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Wie lang ist das Mantelrechteck eines Zylinders?"
-   },
-   "a": [
-    "so lang wie der Durchmesser",
-    "so lang wie der Radius",
-    "so lang wie die Höhe",
-    "so lang wie der Umfang des Grundkreises"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Das Rechteck reicht genau einmal um den Kreis herum.",
-   "h": "Was umschließt das Etikett?"
   },
   {
    "l": "zylinder_oberflaeche",
@@ -6820,6 +7036,25 @@
   {
    "l": "zylinder_oberflaeche",
    "t": "zylinder_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rohr ist 2 m lang, innen hat es 4 cm, außen 5 cm Radius. Wie viel cm³ Material hat es? Runde auf ganze cm³."
+   },
+   "o": {
+    "wert": 5655,
+    "einheit": "cm³",
+    "toleranz": 1
+   },
+   "c": "round(3.14159265 * (25 - 16) * 200)",
+   "w": "Querschnitt ist ein Kreisring: π · (25 − 16) = 9π cm². Mal 200 cm Länge: 1 800π ≈ 5 655 cm³.",
+   "h": "Welche Form hat der Querschnitt?"
+  },
+  {
+   "l": "zylinder_oberflaeche",
+   "t": "zylinder_oberflaeche",
    "p": "bonus",
    "s": 3,
    "g": "knobel",
@@ -6853,6 +7088,25 @@
    "c": "2 * 3",
    "w": "Mantel 2 · π · r · h, Kreisflächen zusammen 2 · π · r². Bedingung: 2πrh = 2 · 2πr². Teilen durch 2πr ergibt h = 2r = 6 cm.",
    "h": "Stelle die Gleichung auf und kürze so viel wie möglich."
+  },
+  {
+   "l": "zylinder_oberflaeche",
+   "t": "zylinder_oberflaeche",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einen Würfel mit 10 cm Kantenlänge passt genau ein Zylinder, der alle Seiten berührt. Wie viel Prozent des Würfels füllt er (π ≈ 3,14)?"
+   },
+   "o": {
+    "wert": 78.5,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(314/100 * 25 * 10 / 1000 * 100, 1)",
+   "w": "Zylinder: r = 5, h = 10: V = 3,14 · 25 · 10 = 785 cm³. Würfel: 1 000 cm³. Anteil 78,5 % – genau π/4, egal wie groß der Würfel ist.",
+   "h": "Welchen Radius und welche Höhe hat der Zylinder?"
   },
   {
    "l": "zylinder_oberflaeche",

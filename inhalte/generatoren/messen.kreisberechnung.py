@@ -861,3 +861,10 @@ if __name__ == '__main__':
          ['u = 2πr = πd, A = πr².', 'Ausschnitt: Anteil α/360° von Umfang bzw. Fläche.', 'Zylinder: V = πr²h, O = 2πr² + 2πrh.'],
          offen=['Kreisabschnitt (Segment) nur beim Mittelpunktswinkel 90°: Für andere Winkel braucht man Trigonometrie (spätere Jahrgangsstufe).',
                 'Zylinder und Halbkreis-Ränder kann die App nicht zeichnen (keine Körper, keine Kreisbögen); Kreis, Ring, Ausschnitt (als Vieleck genähert) und Quadrat mit Inkreis sind gezeichnet.'])
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('messen.kreisberechnung')
+# ---- BEREINIGEN ENDE ----

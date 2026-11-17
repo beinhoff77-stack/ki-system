@@ -905,3 +905,10 @@ def datei():
 if __name__ == '__main__':
     d_, anz = datei()
     schreiben(ZIEL, d_, anz)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('messen.prisma_zylinder')
+# ---- BEREINIGEN ENDE ----

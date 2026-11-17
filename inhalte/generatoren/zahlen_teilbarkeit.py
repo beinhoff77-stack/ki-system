@@ -407,5 +407,9 @@ if __name__ == '__main__':
     DS.neu('primfaktoren', 3, DS.Z('Welche ist die kleinste Zahl, deren Primfaktorzerlegung genau drei verschiedene Primzahlen enthält?', 30, '2 * 3 * 5',
                                    'Die drei kleinsten Primzahlen nehmen: 2 · 3 · 5 = 30.', 'Welche drei Primzahlen sind am kleinsten?'))
     durchsicht_anwenden(_d, DS)
+    # ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl5, siehe _stufen_kl5.py und _st5_zahlen_teilbarkeit.py) ----
+    from _stufen_kl5 import stufen_anwenden
+    stufen_anwenden(_d, 'zahlen.teilbarkeit')
+    # ---- STUFEN ENDE ----
     _pfad.write_text(_json.dumps(_d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     # ---- DURCHSICHT ENDE ----

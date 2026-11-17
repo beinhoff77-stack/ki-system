@@ -1379,6 +1379,10 @@ for _lz, _t, _n in [
     DS.stufe(_lz, _t, 2, enthaelt=_s3, anzahl=_n)
 durchsicht_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl5, siehe _stufen_kl5.py und _st5_zahlen_ganz.py) ----
+from _stufen_kl5 import stufen_anwenden  # noqa: E402
+stufen_anwenden(DATEI, 'zahlen.ganz')
+# ---- STUFEN ENDE ----
 
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.ganz.json')

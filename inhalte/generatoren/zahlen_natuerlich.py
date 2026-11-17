@@ -773,6 +773,10 @@ if __name__ == '__main__':
         'Rechne zuerst aus, wie viel ein Abschnitt wert ist.'))
     durchsicht_anwenden(d, DS)
     # ---- DURCHSICHT ENDE ----
+    # ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl5, siehe _stufen_kl5.py und _st5_zahlen_natuerlich.py) ----
+    from _stufen_kl5 import stufen_anwenden
+    stufen_anwenden(d, 'zahlen.natuerlich')
+    # ---- STUFEN ENDE ----
     pfad = Path(__file__).resolve().parent.parent / 'themen' / 'zahlen.natuerlich.json'
     import json
     pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')

@@ -860,6 +860,10 @@ DS.ersetze('vierecke', 'Ein Rechteck ist 3 cm breit. Umfang (in cm) und Flächen
     'Welche Vierecke haben vier gleich lange Seiten? Welches davon braucht rechte Winkel?'))
 durchsicht_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl5, siehe _stufen_kl5.py und _st5_geometrie_grundbegriffe.py) ----
+from _stufen_kl5 import stufen_anwenden  # noqa: E402
+stufen_anwenden(DATEI, 'geometrie.grundbegriffe')
+# ---- STUFEN ENDE ----
 
 if __name__ == '__main__':
     schreibe(DATEI)

@@ -2,6 +2,36 @@
 
 Neueste oben.
 
+## 2026-11-17 – Schritt D (K3, K4, E-4) gebaut – App 0.74.6 – **wartet auf Migration**
+
+**Schritt C gegen die echte Antwortform geprüft** (nur lesend): `route.ausgelassen`/`status_vor_entfernen`, `rueckmeldung.bezug`, `plan_lesen.kann_abwaehlen`,
+`uebersicht` mit `thema_id`/`reihenfolge`/`ausgelassen`, `plan_setzen` mit `status_vor_entfernen`, `ort_stand` ohne abgewählte Flüge, `rueckmeldungen.bezug` – alles so, wie die App es liest.
+Entfernte Einträge stehen bei höchstens 1 000 037 (46 Zeilen), `block_thema.reihenfolge` ohne Lücken. Keine Abweichung gefunden.
+
+**Migration `supabase/migrations/20261117_w150_d_stufen_stand.sql`** (nicht ausgeführt; Syntax mit pglast geprüft; Ersetzungsstellen im Live-Text vorhanden; kein DROP, kein DELETE)
+- `schule.lernender.stufen jsonb` (Standard `{}`): Stufe je Schulart, z. B. `{"rs_by": 6}`. Fehlt eine, gilt: eigene Schulart = Klasse, andere = Klasse, IB MYP = Klasse − 4.
+- `schule.thema.lehrplan_reihenfolge jsonb`: Reihenfolge innerhalb der Klasse je Schulart, befüllt für 68 Flüge aus `inhalte/themenliste.json` (Feld `reihenfolge`, nur `gym_by`).
+- `api.schule_kind_setzen` nimmt zusätzlich `stufen: {gym_by|rs_by|ib_myp: 1–13 | null}` an (null löscht).
+- `api.schule_uebersicht`: je Kind `stufen`; neu oben `themen: [{thema_id, titel, jahrgang, reihenfolge, block_id, stadt, kontinent, erdteil, einheit_id}]` = **alle** Mathe-Flüge, auch ohne Inhalt.
+  Damit zählen Stand und Einstiegs-Check nach der Rechenregel alle Flüge der Klasse. Ohne das Feld zählt die App nur Flüge mit Inhalt und sagt das dazu.
+- `api.schule_plan_lesen`: `kind.stufen`; je Flug `lehrplan_reihenfolge` (für E-4).
+- `api.schule_lernstand`: je Etappe `sitzt_am` und `bis_sitzt` = Zahl der Bordkarten (erste Versuche, ohne Tests) bis zum ersten „sitzt“ (K4-Wunsch; das Feld fehlte).
+
+**App (läuft ohne Migration weiter, getestet)**
+- **K3 Kind:** Abflugtafel mit drei Mini-Linien GYM · RS · IB (ersetzt die Jahrgangs-Box). „Mein Weg · Stand“ in drei Ebenen: Linienplan (Klassen 5–10, IB MYP n unter Klasse n+5, „DU“ an der eigenen Stufe) →
+  Passkarte einer Klasse mit ‹ › und Kontinenten → Flüge eines Kontinents mit „zählt auch für …“. Pfad oben (Überblick › Stufe › Kontinent).
+- **K4 Eltern/Lehrer:** neue Seite „Stand über Schularten“ (`#/schulstand`, Karte unter „Für alle Kinder“, Mini-Linien je Kind auf der Startseite verlinkt).
+  Ebene 1 Kinder × drei Schularten; Ebene 2 Landkarte Kontinente × Klassen mit Reitern je Schulart und „Einstieg prüfen: Kl. X“ (Ampel ≥ 90 % grün, ≥ 70 % gelb, sonst rot,
+  Klassen ab X ausgegraut, Liste „Für den Einstieg fehlen“), Hinweis „Orientierung, keine Einstufung durch eine Schule.“; Ebene 3 Flüge eines Feldes mit dem Stand jeder Etappe,
+  „sitzt – nach N Bordkarten“ (auch im Lernstand), Link „Was wackelt?“.
+- **E-4:** im Flugplan „Neuer Plan aus Lehrplan-Vorlage“ (Schulart, Klasse; vorbelegt aus Stufe): ersetzt den Plan durch die Orte mit Inhalt dieser Klasse, geordnet nach `lehrplan_reihenfolge`
+  (ohne Migration: Reihenfolge im Lehrplan-Verzeichnis, wird angesagt); Flüge anderer Klassen werden abgewählt, wenn die Datenbank das kann. „Rückgängig“ holt den alten Plan zurück, „geschafft“ bleibt.
+  Stufen je Schulart lassen sich unter „Klasse“ setzen, sobald `kind.stufen` geliefert wird.
+- Info-Seite: Hinweise auf „Stand über Schularten“ und die Vorlage.
+- Tests: 38 von 38 (neu: K3 mit/ohne Migration, K4 mit Ampel, Hinweis, ausgegrauten Klassen, `bis_sitzt`, E-4 mit Reihenfolge, Abwählen, Rückgängig). Suche: die 9 bekannten alten Fehler.
+
+**Offen / zu prüfen nach dem Einspielen:** Antwortform der vier geänderten Funktionen gegen die App; danach Ende Schritt D. Merge auf `main` erst nach „Live“.
+
 ## 2026-11-17 – Schritt C (E-2, E-3) gebaut – App 0.74.5 – **wartet auf Migration**
 
 Zwei Migrationen liegen bereit (nicht ausgeführt). Ich habe dafür die aktuellen Funktionsdefinitionen nur **gelesen** (pg_get_functiondef), damit Ersetzungen und

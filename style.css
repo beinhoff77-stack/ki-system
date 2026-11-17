@@ -4059,3 +4059,71 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 .lern-auftrag-bezug { margin: 0; }
 .lern-chip-leise { font-weight: 500; }
 .lern-chips-zeile { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+
+/* K3: Stand über Schularten (Kind) – Mini-Linien, Linienplan, drei Ebenen */
+.lr-mini3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0 0 12px; }
+.lr-mini { display: flex; flex-direction: column; gap: 4px; min-height: 60px; padding: 7px 9px; border-radius: 12px; background: var(--lr-flaeche, #fff); border: 1px solid var(--lr-linie, #e6dfcf); color: var(--lr-text); text-decoration: none; }
+.lr-mini b { font-size: 13px; color: var(--f); letter-spacing: .02em; }
+.lr-mini small { font-size: 12px; color: var(--lr-leise); }
+.lr-mini-balken { display: block; height: 7px; border-radius: 99px; background: var(--lr-linie, #E3DCCB); overflow: hidden; }
+.lr-mini-balken i { display: block; height: 100%; background: var(--f); border-radius: 99px; }
+.lr-linienbox { padding: 8px 6px; }
+.lr-linienplan { width: 100%; height: auto; display: block; }
+.lr-lp-kl { font: 700 11px ui-monospace, Menlo, monospace; fill: var(--lr-leise, #8B8370); }
+.lr-lp-name { font: 800 12px system-ui, sans-serif; letter-spacing: .05em; }
+.lr-lp-wert { font: 800 10px system-ui, sans-serif; fill: var(--lr-text, #14202B); } .lr-lp-wert.gross { font-size: 12px; } .lr-lp-wert.hell { fill: #fff; font-size: 12px; }
+.lr-lp-flaeche { fill: transparent; }
+.lr-lp-halt { cursor: pointer; } .lr-lp-halt:focus-visible .lr-lp-flaeche, .lr-lp-halt:hover .lr-lp-flaeche { fill: rgba(127, 127, 127, .14); }
+.lr-lp-du { fill: #FFD23F; stroke: #C99A00; } .lr-lp-du-text { font: 900 11px system-ui, sans-serif; fill: #14202B; }
+.lr-krumen { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 15px; margin: 0 0 10px; }
+.lr-krumen a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--lr-text); }
+.lr-krumen span { color: var(--lr-leise); }
+.lr-pass-karte { background: var(--lr-flaeche, #fff); border: 1px solid var(--lr-linie, #e6dfcf); border-left: 8px solid var(--f); border-radius: 18px; padding: 8px 12px 12px; margin: 0 0 12px; }
+.lr-pass-kopf { display: flex; align-items: center; gap: 8px; } .lr-pass-kopf > span { flex: 1; text-align: center; display: flex; flex-direction: column; }
+.lr-pass-kopf small { font: 800 12px ui-monospace, Menlo, monospace; letter-spacing: .08em; color: var(--f); } .lr-pass-kopf b { font: 900 22px ui-monospace, Menlo, monospace; }
+.lr-pf { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--lr-linie, #d8d0bd); font-size: 20px; font-weight: 800; color: var(--lr-text); text-decoration: none; flex: none; }
+.lr-pf.leer { visibility: hidden; }
+.lr-kontzeile { display: flex; align-items: center; gap: 10px; min-height: 60px; padding: 6px 10px; margin: 0 0 6px; border-radius: 14px; background: var(--lr-flaeche, #fff); border: 1px solid var(--lr-linie, #e6dfcf); color: var(--lr-text); text-decoration: none; }
+.lr-kontzeile-name { flex: 1.2; min-width: 0; display: flex; flex-direction: column; } .lr-kontzeile-name small { color: var(--lr-leise); font-size: 13px; }
+.lr-kontzeile-balken { flex: 1; display: flex; align-items: center; gap: 6px; } .lr-kontzeile-balken .lr-balken { flex: 1; } .lr-kontzeile-balken small { min-width: 30px; text-align: right; color: var(--lr-leise); }
+.lr-kontzeile-pfeil { color: var(--lr-leise); font-size: 20px; }
+.lr-standzeile { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 6px 4px; border-bottom: 1px solid var(--lr-linie, #eee7d8); color: var(--lr-text); text-decoration: none; }
+.lr-standzeile:last-child { border-bottom: 0; }
+.lr-standpunkt { width: 28px; height: 28px; flex: none; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 14px; border: 2px solid var(--lr-linie, #CFC6B2); }
+.lr-st-ok .lr-standpunkt { background: #0F7A50; border-color: #0F7A50; color: #fff; }
+.lr-st-jetzt .lr-standpunkt { background: #FFD23F; border-color: #C99A00; color: #14202B; }
+.lr-st-wackelt .lr-standpunkt { border-color: #B4471F; color: #B4471F; }
+
+/* K4: Stand über Schularten (Eltern/Lehrer) */
+.lern-krumen { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 10px; font-size: 15px; }
+.lern-krumen a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
+.lern-krumen span { color: var(--text-muted); }
+.lern-tabelle-rollen { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.lern-stand-raster { width: 100%; border-collapse: separate; border-spacing: 4px; font-size: 14px; min-width: 520px; }
+.lern-stand-raster th { text-align: left; font-size: 13px; color: var(--text-muted); font-weight: 700; } .lern-stand-raster th small { display: block; font-weight: 500; font-size: 11px; }
+.lern-stand-raster thead th { text-align: center; } .lern-stand-raster thead th.ich { background: #FFD23F; color: #14202B; border-radius: 6px; }
+.lern-stand-raster thead th.pruef { box-shadow: inset 0 -3px 0 var(--text); }
+.lern-stand-raster td { text-align: center; } .lern-stand-raster td.leer { color: var(--text-muted); opacity: .5; }
+.lern-stand-raster tr.summe td { font-weight: 800; }
+.lern-stand-ueber td { text-align: left; background: var(--surface-2, #F8F6F0); border-radius: 10px; padding: 0; }
+.lern-stand-feld { display: flex; flex-direction: column; gap: 4px; min-height: 64px; padding: 8px 10px; color: var(--text); text-decoration: none; border-radius: 10px; }
+.lern-stand-feld:hover { background: var(--info-bg); }
+.lern-wackelt { color: #B4471F; font-weight: 800; }
+.lern-zelle { display: grid; place-items: center; min-height: 44px; min-width: 44px; border-radius: 8px; font-weight: 800; font-size: 13px; text-decoration: none; color: #14202B; }
+.lern-zelle.z-offen, .lern-legende .z-offen { background: #EFEBE1; } .lern-zelle.z-laeuft, .lern-legende .z-laeuft { background: #FFE9A3; }
+.lern-zelle.z-teil, .lern-legende .z-teil { background: #BFE3CF; } .lern-zelle.z-alles, .lern-legende .z-alles { background: #0F7A50; color: #fff; }
+.lern-zelle.w, .lern-legende .z-w { box-shadow: inset 0 0 0 2px #B4471F; }
+.lern-zelle.aus { opacity: .35; }
+.lern-legende { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; } .lern-legende i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; margin-right: 4px; vertical-align: -2px; background: #fff; }
+.lern-ampel { display: flex; align-items: center; gap: 12px; border-radius: 14px; padding: 10px 12px; margin: 8px 0; color: #14202B; }
+.lern-ampel b { font-size: 26px; white-space: nowrap; flex: none; } .lern-ampel small { color: #55606B; }
+.lern-ampel.gruen { background: #DDF2E7; } .lern-ampel.gelb { background: #FFF1C2; } .lern-ampel.rot { background: #FBE2D8; }
+.lern-standflug { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 8px 0; border-bottom: 1px solid var(--border, #eee); }
+.lern-standflug > span:nth-child(2) { display: flex; flex-direction: column; }
+.lern-etappen-stand { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 2px; font-size: 14px; }
+.lern-etappen-stand li { display: flex; justify-content: space-between; gap: 10px; border-top: 1px dashed var(--border, #e5e5e5); padding-top: 2px; }
+.lern-fehlt summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
+.lern-chips-zeile a.lern-chip { text-decoration: none; display: inline-flex; align-items: center; min-height: 40px; }
+.lern-chips-zeile a.lern-chip[aria-current] { background: var(--text); color: var(--surface, #fff); border-color: var(--text); }
+a.lern-mini-linie { text-decoration: none; min-height: 28px; border-radius: 6px; } a.lern-mini-linie:hover { background: var(--info-bg); }
+details.lern-vorlage summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; } .lern-vorlage-liste { margin: 6px 0 0; padding-left: 22px; } .lp-stufen label { display: inline-flex; align-items: center; gap: 4px; }

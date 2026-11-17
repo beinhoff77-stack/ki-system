@@ -158,6 +158,7 @@ async function setup(t, opt = {}) {
       const erg = [AUFG[14], AUFG[12]].map((a) => ({ aufgabe_id: a.id, lernziel: a.lernziel, frage: a.frage, antworten: a.antworten, antwort: stand.antworten[a.id]?.w ?? null, richtig: !!stand.antworten[a.id]?.ok, loesung: a.loesung, loesungsweg: 'Weg.' }));
       e = { ok: true, sitzung_id: 77, richtig: erg.filter((x) => x.richtig).length, gesamt: 2, ergebnisse: erg, lernziele: [{ lernziel: 'lesen', pflicht: true, status: 'nachgewiesen' }, { lernziel: 'strahl', pflicht: true, status: 'fehler' }], einheit_abgeschlossen: false, ort: { abgeschlossen: false } };
     }
+    if (opt.anpassen && e) e = opt.anpassen(b.aktion, e) || e; // Schritt D: Antwort nach einer Migration nachbilden
     await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
   });
   return { page, calls, appCalls };
@@ -925,7 +926,8 @@ test('K2: Mein Weg – Reiter Stand · Kontinente · Karte; Antarktis von oben; 
   await reiter.first().waitFor();
   assert.deepEqual(await reiter.allInnerTexts(), ['Stand', 'Kontinente', 'Karte']);
   assert.equal(await page.locator('.lr-weg-reiter a.on').innerText(), 'Stand');
-  await page.getByText('MEIN STAND · GYMNASIUM KLASSE 5').waitFor();
+  await page.locator('.lr-linienplan').waitFor(); // K3: Linienplan ersetzt die alte Box „Mein Stand · Gymnasium Klasse 5“
+  assert.equal(await page.locator('.lr-mini3 .lr-mini').count(), 3);
   await reiter.nth(1).click();
   await page.waitForURL(/#\/weg\/1-kontinente$/);
   const kont = page.locator('details.lr-kontinent');
@@ -1112,3 +1114,118 @@ test('E-3: derselbe Knopf an Erklärung, Etappe, Flug und Plan; der Auftrag trä
   await page.locator('.lern-plan-lehrplan details.lern-aendern > summary', { hasText: '✎ Ändern lassen' }).waitFor();
 });
 
+
+// ---------- Schritt D: K3 Stand über Schularten (Kind), K4 Eltern-Ansicht mit Einstiegs-Check, E-4 Plan aus Lehrplan-Vorlage ----------
+// Übersicht wie nach Migration 20261117_w150_d_*: alle Flüge in „themen“ (auch ohne Inhalt), „stufen“ je Kind.
+const D_THEMEN = [
+  { thema_id: 15, titel: 'Natürliche Zahlen', jahrgang: { gym_by: 5, rs_by: 5, ib_myp: 1 }, reihenfolge: { gym_by: 1 }, block_id: 49, stadt: 'Rom', kontinent: 'Zahlen', erdteil: 'Europa', einheit_id: 1 },
+  { thema_id: 16, titel: 'Ganze Zahlen', jahrgang: { gym_by: 5, rs_by: 5, ib_myp: 2 }, reihenfolge: { gym_by: 2 }, block_id: 49, stadt: 'Rom', kontinent: 'Zahlen', erdteil: 'Europa', einheit_id: null },
+  { thema_id: 17, titel: 'Teilbarkeit', jahrgang: { gym_by: 5, rs_by: 6 }, reihenfolge: { gym_by: 3 }, block_id: 48, stadt: 'Athen', kontinent: 'Zahlen', erdteil: 'Europa', einheit_id: null },
+  { thema_id: 71, titel: 'Einfache Zinsen', jahrgang: { gym_by: 6, rs_by: 7 }, reihenfolge: {}, block_id: 52, stadt: 'New York', kontinent: 'Geld und Verhältnisse', erdteil: 'Nordamerika', einheit_id: 2 },
+  { thema_id: 30, titel: 'Terme', jahrgang: { gym_by: 7, rs_by: 7, ib_myp: 2 }, reihenfolge: {}, block_id: 60, stadt: 'Samarkand', kontinent: 'Algebra', erdteil: 'Asien', einheit_id: null }];
+const standAnpassen = ({ mitThemen = true, bisSitzt } = {}) => (aktion, e) => {
+  if (aktion === 'schule_uebersicht') {
+    const u = structuredClone(e);
+    u.lernende[0].route = [{ block_id: 49, position: 1, art: 'normal', status: 'offen', kann_schon: false }, { block_id: 48, position: 2, art: 'normal', status: 'fertig', kann_schon: false }, { block_id: 52, position: 3, art: 'normal', status: 'offen', kann_schon: false }];
+    u.lernende[0].stand = [{ einheit_id: 1, fertig: 4, fehler: 0, gesichert: 4, blocktest: false, laeuft: false }, { einheit_id: 2, fertig: 1, fehler: 2, gesichert: 0, blocktest: false, laeuft: false }];
+    if (mitThemen) { u.themen = D_THEMEN; u.lernende[0].stufen = { rs_by: 6 }; u.lernende[1].stufen = {}; } else u.einheiten[0].jahrgang = { gym_by: 5, rs_by: 5 }; // wie die Übersicht vor Migration D: Klasse nur an Flügen mit Inhalt
+    return u;
+  }
+  if (aktion === 'schule_lernstand' && bisSitzt) { const l = structuredClone(e); Object.assign(l.einheiten[0].karten[0], { bis_sitzt: bisSitzt, sitzt_am: '2026-11-14T08:00:00Z' }); return l; }
+  return null;
+};
+
+test('K3: Abflugtafel mit Mini-Linien GYM · RS · IB; Mein Weg · Stand in drei Ebenen (Linienplan → Klasse → Kontinent)', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: standAnpassen() });
+  await page.goto(origin + '/#/reise/1');
+  const mini = page.locator('.lr-mini3 .lr-mini');
+  await mini.first().waitFor();
+  // Rechenregel: GYM 5 = Rom (gelandet, 4/4 Etappen), Rom „Ganze Zahlen“ (offen), Athen (Ort fertig) → 2 von 3; RS Stufe 6 aus „stufen“ → Athen 1/1; IB MYP 1 (= Klasse − 4) → 1/1
+  assert.deepEqual(await mini.evaluateAll((as) => as.map((a) => a.getAttribute('aria-label'))),
+    ['Gymnasium Klasse 5: 2 von 3 Flügen gelandet', 'Realschule Klasse 6: 1 von 1 Flügen gelandet', 'IB MYP 1: 1 von 1 Flügen gelandet']);
+  assert.equal(await page.locator('.lr-jgstand').count(), 0, 'alte Jahrgangs-Box entfällt, wenn die Linien da sind');
+  await mini.first().click();
+  await page.waitForURL(/#\/weg\/1-stand-gym_by-5$/);
+  // Ebene 2: Passkarte mit ‹ ›, Kontinente der Klasse
+  await page.locator('.lr-pass-karte').waitFor();
+  assert.equal(await page.locator('.lr-pass-kopf b').innerText(), 'KLASSE 5');
+  assert.deepEqual(await page.locator('.lr-kontzeile-name b').allInnerTexts(), ['Zahlen']);
+  await page.locator('.lr-pf[aria-label="nächste Klasse"]').click();
+  await page.waitForURL(/#\/weg\/1-stand-gym_by-6$/);
+  const geld = page.locator('.lr-kontzeile', { hasText: 'Geld und Verhältnisse' });
+  assert.match(await geld.innerText(), /wackelt/);
+  await geld.click();
+  // Ebene 3: Flüge mit „zählt auch für“
+  const zeile = page.locator('.lr-standzeile');
+  await zeile.first().waitFor();
+  assert.match(await zeile.first().innerText(), /Einfache Zinsen[\s\S]*zählt auch für RS 7[\s\S]*wackelt/);
+  assert.equal(await page.locator('.lr-krumen a').count(), 2);
+  await page.locator('.lr-krumen a').first().click();
+  await page.waitForURL(/#\/weg\/1-stand$/);
+  await page.locator('.lr-linienplan .lr-lp-halt').first().waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/k3-stand-390.png'), fullPage: true });
+});
+
+test('K3: ohne Migration D (keine „themen“) zählen die Flüge mit Inhalt, nichts bricht', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: standAnpassen({ mitThemen: false }) });
+  await page.goto(origin + '/#/weg/1-stand');
+  await page.locator('.lr-mini3 .lr-mini').first().waitFor();
+  assert.equal(await page.locator('.lr-mini3 .lr-mini').first().getAttribute('aria-label'), 'Gymnasium Klasse 5: 1 von 1 Flügen gelandet');
+});
+
+test('K4: Eltern – Stand über Schularten: Übersicht, Landkarte mit Einstiegs-Check und Hinweis, Feld mit Bordkarten bis „sitzt“', async (t) => {
+  const { page, calls } = await setup(t, { anpassen: standAnpassen({ bisSitzt: 9 }) });
+  await page.goto(origin + '/#/lernen');
+  await page.getByRole('link', { name: /Stand über Schularten/ }).click();
+  await page.waitForURL(/#\/schulstand$/);
+  const felder = page.locator('.lern-stand-feld');
+  await felder.first().waitFor();
+  assert.equal(await felder.count(), 6, '2 Kinder × 3 Schularten (Testkind nicht)');
+  assert.equal(await felder.nth(0).getAttribute('aria-label'), 'Kind A, Gymnasium Klasse 5: 2 von 3 gelandet');
+  await felder.nth(0).click();
+  await page.waitForURL(/#\/schulstand\/1-gym_by$/);
+  await page.locator('.lern-stand-raster').waitFor();
+  assert.match(await page.locator('main').innerText(), /Orientierung, keine Einstufung durch eine Schule/);
+  // Einstieg prüfen Klasse 7: alles bis Klasse 6 = 3 Flüge Kl. 5 + 1 Flug Kl. 6 → 2 von 4 gelandet = 50 % → rot
+  await page.locator('.lern-chips-zeile[aria-label="Einstieg prüfen"] a', { hasText: 'Kl. 7' }).click();
+  await page.waitForURL(/#\/schulstand\/1-gym_by-7$/);
+  const ampel = page.locator('.lern-ampel');
+  await ampel.waitFor();
+  assert.match(await ampel.getAttribute('class'), /\brot\b/);
+  assert.match(await ampel.innerText(), /50 %[\s\S]*2 von 4 Flügen bis Klasse 6[\s\S]*Orientierung, keine Einstufung durch eine Schule/);
+  assert.equal(await page.locator('.lern-zelle.aus').count(), 1, 'Felder ab Klasse 7 ausgegraut (Terme)');
+  await page.locator('.lern-fehlt summary').click();
+  assert.equal(await page.locator('.lern-fehlt .lern-standflug').count(), 2);
+  await page.screenshot({ path: path.join(root, 'test-results/k4-landkarte-390.png'), fullPage: true });
+  // Ebene 3: Feld Zahlen × Klasse 5 → Flüge mit Etappen, „sitzt – nach 9 Bordkarten“
+  await page.locator('.lern-zelle', { hasText: '2/3' }).click();
+  await page.waitForURL(/#\/schulstand\/1-gym_by-7-0-5$/);
+  await page.locator('.lern-etappen-stand li').first().waitFor();
+  assert.match(await page.locator('.lern-etappen-stand li').first().innerText(), /sitzt – nach 9 Bordkarten/);
+  assert.ok(calls.some((c) => c.aktion === 'schule_lernstand' && c.daten.lernender_id === 1));
+  // Lernstand zeigt die Zahl ebenfalls
+  await page.getByRole('link', { name: /Was wackelt\?/ }).click();
+  await page.locator('.ls-bis-sitzt').waitFor();
+  assert.equal(await page.locator('.ls-bis-sitzt').innerText(), 'sitzt nach 9 Bordkarten');
+});
+
+test('E-4: Neuer Plan aus Lehrplan-Vorlage – Orte der Klasse in Lehrplan-Reihenfolge, andere Flüge abgewählt, Rückgängig', async (t) => {
+  const { page, calls } = await setup(t);
+  const orte = [
+    { block_id: 200, titel: 'B', stadt: 'Oslo', kontinent: 'Zahlen', themen: [{ thema_id: 1, titel: 'Zweiter', jahrgang: { gym_by: 5 }, lehrplan_reihenfolge: { gym_by: 2 } }, { thema_id: 2, titel: 'Später', jahrgang: { gym_by: 6 } }] },
+    { block_id: 201, titel: 'A', stadt: 'Wien', kontinent: 'Zahlen', themen: [{ thema_id: 3, titel: 'Erster', jahrgang: { gym_by: 5 }, lehrplan_reihenfolge: { gym_by: 1 } }] },
+    { block_id: 202, titel: 'C', stadt: 'Prag', kontinent: 'Zahlen', themen: [{ thema_id: 4, titel: 'Nur 6', jahrgang: { gym_by: 6 } }] }];
+  const db = await planDb(page, calls, { orte, plan: [202] });
+  await page.goto(origin + '/#/plan/1');
+  await page.locator('.lern-vorlage summary').click();
+  const knopf = page.locator('.lern-vorlage button');
+  assert.equal(await knopf.innerText(), 'Plan ersetzen (2 Orte)');
+  assert.match(await page.locator('.lern-vorlage-vorschau').innerText(), /in Lehrplan-Reihenfolge[\s\S]*Wien[\s\S]*Oslo/);
+  await knopf.click();
+  await page.waitForFunction(() => document.querySelector('.lern-plan-stand').textContent === 'Gespeichert');
+  assert.deepEqual(db.eintraege.map((x) => [x.block_id, x.ausgelassen]), [[201, []], [200, [2]]]);
+  await page.locator('.lern-plan-rueck').click();
+  await page.locator('.lern-plan-stand', { hasText: 'Rückgängig gemacht · Gespeichert' }).waitFor();
+  await page.waitForFunction(() => document.querySelectorAll('.lern-plan-zeile').length === 1);
+  assert.deepEqual(db.eintraege.map((x) => x.block_id), [202]);
+});

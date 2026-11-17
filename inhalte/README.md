@@ -105,6 +105,17 @@ Regeln (prüft `tools/inhalt_pruefen.py` für Aufgaben mit `g`):
 **Pool `bonus` (Knobel-Bordkarte):** freiwillig, zählt weder für „sitzt“ noch für den Test, kein Punktabzug. Je Lernkarte höchstens 3, nur Typ `knobel`, Stufe 3, mit Tipp `h`
 (verrät die Idee nicht) und ausführlichem Lösungsweg `w`. Richtig im ersten Versuch: 30 Sterne und ein Knobel-Stern. Die Mengenregeln der anderen Pools bleiben.
 
+### Lernregel „gelandet“ und „sicher“ (Werkstatt-Wunsch 176, ab App 0.76)
+
+Für Inhalte wichtig, weil die Regel Aufgabentypen und schwere Bordkarten voraussetzt:
+
+- **Gelandet** (intern `sitzt`): 6 eigene Lösungen (richtig im 1. Versuch ohne Tipp; bei weniger freien Übungen so viele wie da sind, mindestens 2), darunter mindestens **2 verschiedene Typen** `g`
+  (wenn die Lernkarte mindestens 2 hat) und **1 Stufe-3-Aufgabe mit Stufe-3-Typ** (wenn vorhanden), und die **letzten 3 in Folge** richtig.
+- **Keine Minuspunkte.** Ein endgültiger Fehler setzt nur „in Folge“ auf 0; eigene Lösungen bleiben. Tipp oder 2. Versuch richtig zählt nicht und unterbricht die Folge nicht.
+- **Stufe:** steigt mit den eigenen Lösungen, fällt erst nach 2 Fehlern in Folge um 1. Deshalb braucht jede Lernkarte auf jeder Stufe mehrere Typen (siehe oben).
+- **Sicher** (Anzeige): gelandet + Wiederholung nach 14 Lerntagen bestanden + Nachtest des Flugs bestanden (später zusätzlich: eine Mischkarte richtig).
+- Knobel-Bordkarten (`bonus`) zählen nie.
+
 ### Wenn ein Thema Zeichnungen braucht
 
 Die App kann bisher nur Zahlenstrahl und Stellenwerttafel zeichnen. Für Geometrie, Funktionsgraphen, Diagramme:

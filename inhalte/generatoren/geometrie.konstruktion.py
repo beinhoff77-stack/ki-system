@@ -1095,6 +1095,263 @@ DS.ersetze('satz_kehrsatz', 'Wie lautet der Kehrsatz zu: „Wenn ein Viereck ein
 # ---- DURCHSICHT ENDE ----
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): Jahrgangsstufentest/BMT8 (ISB) – Konstruierbarkeit und Kongruenzsatz begründen, dritte Seite ausschließen,
+# Winkel im Rechteck mit Diagonalen, Kehrsatz prüfen; Knobel nach der Art von Känguru 7/8 und Mathematik-Olympiade (36°-Dreieck, Kartenregel, Stäbe).
+from _stufen_kl7 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('geometrie.konstruktion', 20_7_8)
+# parallelen
+ST.leiter('parallelen', 'Stufen- und Wechselwinkel an Parallelen ablesen; Z-Form erkennen.',
+          'Markierte Winkel in anderer Lage, Winkelbeziehungen benennen, Parallelität prüfen, gleich große Winkel zählen.',
+          'Winkel mit Variable, Fehlaussagen beurteilen, nicht parallele Geraden, Dreieck zwischen Parallelen, Knickweg, Leitern.')
+ST.regel('parallelen', 1, '', 'direkt')
+ST.regel('parallelen', 2, 'Winkel-Beziehung', 'darstellung')
+ST.regel('parallelen', 2, 'Sind g und h parallel', 'umkehr')
+ST.regel('parallelen', 2, 'Welche Beobachtung', 'umkehr')
+ST.regel('parallelen', 2, '', 'mehrschritt')
+ST.regel('parallelen', 3, 'Berechne x', 'parameter')
+ST.regel('parallelen', 3, 'Stufenwinkelpaar', 'parameter')
+ST.regel('parallelen', 3, 'Jemand', 'fehler')
+ST.regel('parallelen', 3, '', 'verknuepfen')
+ST.neu('parallelen', 1, 'erkennen', ST.A('g ∥ h, k schneidet beide. Wie heißen zwei Winkel, die an den beiden Schnittpunkten in Z-Form liegen?', 'Wechselwinkel', ['Stufenwinkel', 'Scheitelwinkel', 'Nebenwinkel'],
+                                         'Wechselwinkel liegen auf verschiedenen Seiten von k und „wechseln“ die Seite der Parallelen – wie die Ecken eines Z. Stufenwinkel liegen in gleicher Lage (F-Form).',
+                                         'Denke an die Buchstaben F und Z.'))
+ST.neu('parallelen', 3, 'transfer', ST.Z('Eine Leiter lehnt an einer senkrechten Wand und bildet mit dem waagrechten Boden 70°. Eine zweite Leiter steht parallel zur ersten. Welchen Winkel bildet die zweite Leiter mit der Wand?',
+                                         20, '90 - 70', 'Die zweite Leiter bildet mit dem Boden ebenfalls 70° (Stufenwinkel an Parallelen). Wand und Boden stehen senkrecht: 90° − 70° = 20°.',
+                                         'Welchen Winkel bildet die zweite Leiter mit dem Boden?', einheit='°'))
+ST.knobel('parallelen', ST.Z('g ∥ h. Die Gerade k schneidet g unter 50°, die Gerade l schneidet h unter 70° (beide Winkel rechts oberhalb). k und l schneiden sich zwischen g und h. Wie groß ist der spitze Winkel zwischen k und l?',
+                             20, '70 - 50',
+                             'Zeichne durch den Schnittpunkt P von k und l eine Parallele p zu g und h. Dann bildet k mit p wieder 50° und l mit p 70° (Stufenwinkel, beide rechts oberhalb). '
+                             'k und l verlaufen also in Richtungen, die sich um 70° − 50° = 20° unterscheiden. Der spitze Winkel zwischen ihnen ist 20°.',
+                             'Zeichne durch den Schnittpunkt von k und l eine weitere Parallele.', einheit='°'))
+ST.knobel('parallelen', ST.Z('g ∥ h, k schneidet g in S und h in T. An S und an T liegt je ein Winkel zwischen den Parallelen auf derselben Seite von k. Ihre Winkelhalbierenden schneiden sich in P. Wie groß ist der Winkel SPT?',
+                             90, '180 - 180 / 2',
+                             'Die beiden Winkel zwischen den Parallelen auf derselben Seite ergänzen sich zu 180° (einer ist Nebenwinkel des Stufenwinkels des anderen). '
+                             'Ihre Hälften ergeben zusammen 90°. Im Dreieck SPT bleibt für den Winkel bei P: 180° − 90° = 90°.',
+                             'Was ergeben die beiden Winkel bei S und T zusammen?', einheit='°'))
+# winkelsumme
+ST.leiter('winkelsumme', 'Dritten Winkel aus zwei Winkeln berechnen; Folgerung für stumpfe Winkel erkennen.',
+          'Außenwinkel, rechtwinkliges Dreieck, Beweis mit der Parallelen deuten, Winkel aus dem Außenwinkel zurückrechnen.',
+          'Vielfache rückwärts, Fehlaussagen, größten Winkel begründen, Summenbedingung, Verhältnisse, Pentagramm.')
+ST.regel('winkelsumme', 1, '', 'direkt')
+ST.regel('winkelsumme', 2, 'Parallele', 'darstellung')
+ST.regel('winkelsumme', 2, 'Außenwinkel bei A', 'umkehr')
+ST.regel('winkelsumme', 2, '', 'mehrschritt')
+ST.regel('winkelsumme', 3, '-mal so groß', 'rueckwaerts')
+ST.regel('winkelsumme', 3, 'Jemand', 'fehler')
+ST.regel('winkelsumme', 3, 'Kann', 'begruenden')
+ST.regel('winkelsumme', 3, 'fünfzackiger', 'transfer')
+ST.regel('winkelsumme', 3, '', 'verknuepfen')
+ST.neu('winkelsumme', 1, 'erkennen', ST.A('Ein Dreieck hat einen stumpfen Winkel. Was gilt für die beiden anderen Winkel?', 'Beide sind spitz.', ['Einer ist auch stumpf.', 'Einer ist ein rechter Winkel.', 'Sie sind gleich groß.'],
+                                          'Der stumpfe Winkel ist größer als 90°. Für die beiden anderen bleiben zusammen weniger als 90°, also ist jeder kleiner als 90°.', 'Wie viel bleibt von 180° übrig?'))
+ST.neu('winkelsumme', 1, 'direkt', ST.Z('In einem Dreieck ist β = 48° und γ = 71°. Berechne α.', 61, '180 - 48 - 71', '180° − 48° − 71° = 61°.', 'Die drei Winkel ergeben 180°.', einheit='°'))
+ST.knobel('winkelsumme', ST.Z('Alle drei Winkel eines Dreiecks sind Vielfache von 20°. Wie viele verschiedene Winkelkombinationen gibt es (die Reihenfolge zählt nicht)?', 7, '7',
+                              'In 20°-Schritten gerechnet: drei positive ganze Zahlen mit Summe 180 : 20 = 9. Aufzählen mit a ≤ b ≤ c: 1+1+7, 1+2+6, 1+3+5, 1+4+4, 2+2+5, 2+3+4, 3+3+3. '
+                              'Das sind 7 Kombinationen, z. B. 20°, 20°, 140° oder 60°, 60°, 60°.',
+                              'Zähle in 20°-Einheiten. Welche Summe müssen die drei Anzahlen haben?'))
+ST.knobel('winkelsumme', ST.Z('In einem Dreieck ist der größte Winkel fünfmal so groß wie der kleinste, und der dritte liegt genau in der Mitte zwischen beiden. Wie groß ist der kleinste Winkel?', 20, '180 / 9',
+                              'Kleinster x, größter 5x, der dritte in der Mitte: (x + 5x) : 2 = 3x. Summe 9x = 180°, also x = 20°. Die Winkel sind 20°, 60°, 100°.',
+                              'Drücke alle drei Winkel durch den kleinsten aus.', einheit='°'))
+# gleichschenklig
+ST.leiter('gleichschenklig', 'Basiswinkel aus dem Spitzenwinkel berechnen; gleich große Winkel erkennen.',
+          'Spitzenwinkel aus dem Basiswinkel, beide Fälle bei einem bekannten Winkel, Außenwinkel, Giebel.',
+          'Außenwinkel rückwärts, Dachneigung, Kreisfiguren mit Radien, gleichseitig und gleichschenklig verknüpft, beide Lösungen begründen.')
+ST.regel('gleichschenklig', 1, '', 'direkt')
+ST.regel('gleichschenklig', 2, 'hat den Basiswinkel', 'umkehr')
+ST.regel('gleichschenklig', 2, '', 'mehrschritt')
+ST.regel('gleichschenklig', 3, 'Außenwinkel', 'rueckwaerts')
+ST.regel('gleichschenklig', 3, 'Dach', 'transfer')
+ST.regel('gleichschenklig', 3, 'größeren der beiden', 'begruenden')
+ST.regel('gleichschenklig', 3, '', 'verknuepfen')
+ST.neu('gleichschenklig', 1, 'erkennen', ST.A('Welche Winkel sind in einem gleichschenkligen Dreieck gleich groß?', 'die beiden Basiswinkel', ['Spitzenwinkel und ein Basiswinkel', 'alle drei', 'keine zwei'],
+                                              'Die Basiswinkel liegen an der Basis, gegenüber den gleich langen Schenkeln – sie sind gleich groß. Alle drei gleich sind sie nur im gleichseitigen Dreieck.',
+                                              'Falte das Dreieck an seiner Symmetrieachse.'))
+ST.neu('gleichschenklig', 1, 'direkt', ST.Z('Wie groß ist jeder Innenwinkel eines gleichseitigen Dreiecks?', 60, '180 / 3', 'Alle drei Winkel sind gleich: 180° : 3 = 60°.', 'Teile die Winkelsumme gerecht auf.', einheit='°'))
+ST.neu('gleichschenklig', 2, 'einkleidung', ST.Z('Ein Hausgiebel ist ein gleichschenkliges Dreieck mit 110° an der Spitze. Wie groß ist der Winkel an jeder der beiden unteren Ecken?', 35, '(180 - 110) / 2',
+                                                 '180° − 110° = 70°, auf zwei gleiche Basiswinkel verteilt: 35°.', 'Die beiden unteren Winkel sind gleich groß.', einheit='°'))
+ST.knobel('gleichschenklig', ST.Z('Im Dreieck ABC ist AB = AC. Auf [AC] liegt ein Punkt D mit AD = BD = BC. Wie groß ist der Winkel bei A?', 36, '180 / 5',
+                                  'Nenne den Winkel bei A x. Dreieck ABD ist gleichschenklig (AD = BD), also ∢ABD = x. Der Winkel BDC ist Außenwinkel von ABD: 2x. '
+                                  'Dreieck BCD ist gleichschenklig (BD = BC), also ∢BCD = ∢BDC = 2x. Dreieck ABC ist gleichschenklig (AB = AC), also ∢ABC = ∢ACB = 2x. '
+                                  'Winkelsumme in ABC: x + 2x + 2x = 180°, also x = 36°.',
+                                  'Nenne den gesuchten Winkel x und arbeite dich über die gleichschenkligen Teildreiecke vor.', einheit='°'))
+ST.knobel('gleichschenklig', ST.Z('Wie viele verschiedene gleichschenklige Dreiecke gibt es, deren Winkel ganze Gradzahlen sind und deren Spitzenwinkel ein Vielfaches von 10° ist?', 17, '170 / 10',
+                                  'Spitzenwinkel s, Basiswinkel (180° − s) : 2. Bei jedem Vielfachen von 10° ist 180° − s gerade, der Basiswinkel also ganzzahlig. '
+                                  'Möglich sind s = 10°, 20°, …, 170° (0° und 180° ergeben kein Dreieck): 17 Werte. Verschiedene Spitzenwinkel ergeben verschiedene Winkelsätze.',
+                                  'Welche Spitzenwinkel sind möglich, und wird der Basiswinkel dann ganzzahlig?'))
+# kongruenzsatz
+ST.leiter('kongruenzsatz', 'Passenden Kongruenzsatz bei Standardlage erkennen; dritten Winkel bei WSW berechnen.',
+          'Kongruenzsatz bei ungewohnter Lage der Angaben, drei Winkel, SsW mit Gegenwinkel, Grundstück.',
+          'Zwei Lösungen bei SsW, Kongruenz zweier Dreiecke begründen, ähnliche Dreiecke, Drachenviereck, Fehler „irgendein Winkel“, Prüfungsaufgabe SsW.')
+ST.regel('kongruenzsatz', 1, '', 'erkennen')
+ST.regel('kongruenzsatz', 2, r're:^Gegeben: b = \d+ cm, [ac] =', 'darstellung')
+ST.regel('kongruenzsatz', 2, '', 'mehrschritt')
+ST.regel('kongruenzsatz', 3, 'Wie viele Dreiecke', 'verknuepfen')
+ST.regel('kongruenzsatz', 3, 'Viereck', 'transfer')
+ST.regel('kongruenzsatz', 3, '', 'begruenden')
+ST.neu('kongruenzsatz', 1, 'direkt', ST.Z('Für WSW sind c = 5 cm, α = 40° und β = 60° gegeben. Wie groß ist γ?', 80, '180 - 40 - 60', '180° − 40° − 60° = 80°.', 'Winkelsumme im Dreieck.', einheit='°'))
+ST.neu('kongruenzsatz', 1, 'erkennen', ST.A('Welche Angaben gehören zum Kongruenzsatz SWS?', 'zwei Seiten und der Winkel zwischen ihnen', ['zwei Seiten und ein beliebiger Winkel', 'zwei Winkel und eine Seite', 'drei Winkel'],
+                                            'S-W-S: Der Winkel steht in der Mitte, er liegt zwischen den beiden Seiten.', 'Die Reihenfolge der Buchstaben zeigt die Lage.'))
+ST.neu('kongruenzsatz', 2, 'einkleidung', ST.A('Ein Vermesser kennt von einem dreieckigen Grundstück zwei Seiten (40 m und 55 m) und den Winkel zwischen ihnen (70°). Ist die Form damit eindeutig?',
+                                               'Ja, nach SWS.', ['Nein, man braucht noch die dritte Seite.', 'Ja, nach SSS.', 'Nein, es gibt immer zwei mögliche Formen.'],
+                                               'Zwei Seiten mit dem eingeschlossenen Winkel legen das Dreieck eindeutig fest (SWS). Die dritte Seite ergibt sich daraus.', 'Wo liegt der Winkel?'))
+ST.neu('kongruenzsatz', 3, 'fehler', ST.A('Jemand sagt: „Zwei Dreiecke, die in zwei Seiten und einem Winkel übereinstimmen, sind immer kongruent.“ Was stimmt?',
+                                          'Falsch: Der Winkel muss zwischen den Seiten liegen (SWS) oder der längeren Seite gegenüber (SsW).',
+                                          ['Richtig.', 'Falsch: Man braucht immer drei Seiten.', 'Falsch: Man braucht immer zwei Winkel.'],
+                                          'Liegt der Winkel der kürzeren der beiden Seiten gegenüber, kann es zwei verschiedene Dreiecke geben. Deshalb heißt der Satz SsW: Der Winkel liegt der größeren Seite gegenüber.',
+                                          'Denke an die Fälle mit zwei möglichen Dreiecken.'))
+ST.neu('kongruenzsatz', 3, 'pruefung', ST.A('Gegeben: a = 6 cm, b = 4 cm, α = 50° (α liegt a gegenüber). Ist das Dreieck eindeutig konstruierbar?', 'Ja, nach SsW: α liegt der längeren Seite gegenüber.',
+                                            ['Nein: Es gibt zwei Dreiecke.', 'Ja, nach SWS.', 'Nein: Man braucht einen zweiten Winkel.'],
+                                            'Gegeben sind zwei Seiten und ein Winkel, der nicht zwischen ihnen liegt. Er liegt der längeren Seite a (6 cm > 4 cm) gegenüber – das ist SsW, das Dreieck ist eindeutig.',
+                                            'Welcher der beiden Seiten liegt der Winkel gegenüber?'))
+ST.knobel('kongruenzsatz', ST.Z('Wie viele nicht kongruente Dreiecke mit ganzzahligen Seitenlängen (in cm) und dem Umfang 12 cm gibt es?', 3, '3',
+                                'Seiten a ≤ b ≤ c mit a + b + c = 12 und a + b > c. Dann ist c < 6. c = 5: a + b = 7 mit a ≤ b ≤ 5: (2, 5), (3, 4). c = 4: a + b = 8 mit b ≤ 4: (4, 4). '
+                                'Also 2 cm/5 cm/5 cm, 3 cm/4 cm/5 cm und 4 cm/4 cm/4 cm. Nach SSS ist jedes durch seine Seiten eindeutig: 3 Dreiecke.',
+                                'Wie lang darf die längste Seite höchstens sein?'))
+ST.knobel('kongruenzsatz', ST.Z('Von einem Dreieck kennt man a = 5 cm und α = 30° (α liegt a gegenüber) sowie c. Für wie viele ganzzahlige Längen von c (in cm) gibt es genau zwei verschiedene Dreiecke?', 4, '9 - 6 + 1',
+                                'Zeichne [AB] = c und an A den Winkel 30°. C liegt auf dem freien Schenkel und auf dem Kreis um B mit Radius 5 cm. '
+                                'Der Abstand von B zum Schenkel ist c : 2 (das Lot bildet mit [AB] ein halbes gleichseitiges Dreieck). Zwei Schnittpunkte auf dem Schenkel gibt es, wenn 5 > c : 2 ist und der Kreis A nicht einschließt, also 5 < c. '
+                                'Also 5 < c < 10: c = 6, 7, 8, 9 – vier Werte.',
+                                'Wann schneidet der Kreis um B den Schenkel zweimal auf der richtigen Seite von A?'))
+# konstruierbar
+ST.leiter('konstruierbar', 'Mit der Dreiecksungleichung entscheiden, ob drei Seiten ein Dreieck ergeben.',
+          'Konstruierbarkeit mit Winkeln, Grenzen für die dritte Seite, Anzahl möglicher Längen, Holzleisten.',
+          'Anzahl der Längen verknüpfen, Ortslinien schneiden, Brunnen, ganzzahlige Umfänge, gleichschenkliger Fall, Fehler „flaches Dreieck“, Prüfungsaufgabe.')
+ST.regel('konstruierbar', 1, '', 'direkt')
+ST.regel('konstruierbar', 2, 'höchstens', 'umkehr')
+ST.regel('konstruierbar', 2, 'mindestens', 'umkehr')
+ST.regel('konstruierbar', 2, '', 'mehrschritt')
+ST.regel('konstruierbar', 3, 'Brunnen', 'transfer')
+ST.regel('konstruierbar', 3, 'Umfang', 'transfer')
+ST.regel('konstruierbar', 3, 'gleichschenkliges', 'begruenden')
+ST.regel('konstruierbar', 3, '', 'verknuepfen')
+ST.neu('konstruierbar', 1, 'erkennen', ST.A('Wann kann man aus drei Strecken ein Dreieck bauen?', 'wenn je zwei zusammen länger sind als die dritte',
+                                            ['wenn alle drei gleich lang sind', 'wenn die längste Strecke länger ist als die beiden anderen zusammen', 'immer'],
+                                            'Nur wenn je zwei Seiten zusammen länger sind als die dritte, schneiden sich die Kreise oberhalb der Grundseite (Dreiecksungleichung).', 'Denke an die Konstruktion mit zwei Kreisen.'))
+ST.neu('konstruierbar', 1, 'direkt', ST.A('Kann man ein Dreieck mit den Seiten 3 cm, 4 cm und 5 cm konstruieren?', 'Ja: 3 cm + 4 cm sind länger als 5 cm.', ['Nein: 3 + 4 ist nicht 5.', 'Nein: Die Seiten müssen gleich lang sein.'],
+                                          'Es genügt, die beiden kürzeren Seiten mit der längsten zu vergleichen: 7 cm > 5 cm. Dann gilt die Bedingung auch für alle anderen Paare.', 'Vergleiche die beiden kürzeren Seiten mit der längsten.'))
+ST.neu('konstruierbar', 2, 'einkleidung', ST.A('Drei Holzleisten sind 12 cm, 20 cm und 35 cm lang. Kann man daraus einen dreieckigen Rahmen bauen?', 'Nein: 12 cm + 20 cm sind kürzer als 35 cm.',
+                                               ['Ja: Zusammen sind sie 67 cm lang.', 'Ja, wenn man sie schräg legt.', 'Nein: Alle drei müssen gleich lang sein.'],
+                                               'Die beiden kürzeren Leisten reichen zusammen (32 cm) nicht über die längste (35 cm) – sie können sich nicht treffen.', 'Vergleiche die beiden kürzeren mit der längsten.'))
+ST.neu('konstruierbar', 3, 'fehler', ST.A('Jemand sagt: „Mit 5 cm, 5 cm und 10 cm entsteht ein sehr flaches Dreieck.“ Was stimmt?', 'Falsch: 5 + 5 = 10, die Kreise berühren sich nur auf der Grundseite – es entsteht kein Dreieck.',
+                                          ['Richtig.', 'Falsch: Es entsteht ein gleichseitiges Dreieck.', 'Falsch: Es entsteht ein rechtwinkliges Dreieck.'],
+                                          'Die Kreise um A und B mit je 5 cm treffen sich genau in der Mitte von [AB] = 10 cm. C liegt dann auf [AB]; es gibt keine Fläche, also kein Dreieck. Nötig ist „länger“, nicht „gleich lang“.',
+                                          'Wo treffen sich die beiden Kreise?'))
+ST.neu('konstruierbar', 3, 'pruefung', ST.A('Zwei Seiten eines Dreiecks sind 7 cm und 3 cm lang. Welche Länge kann die dritte Seite NICHT haben?', '4 cm', ['5 cm', '6 cm', '9 cm'],
+                                            'Die dritte Seite muss länger als 7 − 3 = 4 cm und kürzer als 7 + 3 = 10 cm sein. 4 cm ist zu kurz: 3 + 4 = 7 ist nicht länger als 7.', 'Bestimme die kleinste und die größte mögliche Länge.'))
+ST.knobel('konstruierbar', ST.Z('Aus sieben Stäben mit den Längen 1 cm, 2 cm, …, 7 cm wählt man drei verschiedene aus. Bei wie vielen Auswahlen kann man daraus ein Dreieck legen?', 13, '1 + 2 + 4 + 6',
+                                'Ordne nach dem längsten Stab c; die beiden anderen müssen zusammen länger als c sein. c = 4: nur 2 + 3 (1 Möglichkeit). c = 5: 2 + 4, 3 + 4 (2). '
+                                'c = 6: 2 + 5, 3 + 4, 3 + 5, 4 + 5 (4). c = 7: 2 + 6, 3 + 5, 3 + 6, 4 + 5, 4 + 6, 5 + 6 (6). Mit c ≤ 3 geht nichts. Zusammen 1 + 2 + 4 + 6 = 13.',
+                                'Sortiere nach dem längsten Stab und zähle für jeden die passenden Paare.'))
+ST.knobel('konstruierbar', ST.A('Ein Dreieck hat ganzzahlige Seitenlängen (in cm), und eine Seite ist 1 cm lang. Was gilt sicher für die beiden anderen Seiten?', 'Sie sind gleich lang.',
+                                ['Sie unterscheiden sich um 1 cm.', 'Eine von ihnen ist auch 1 cm lang.', 'Sie sind zusammen 3 cm lang.'],
+                                'Sind die anderen Seiten b ≤ c, muss 1 + b > c sein, also c < b + 1. Da b und c ganze Zahlen sind und b ≤ c gilt, bleibt nur c = b. '
+                                'Beispiele: 1/1/1, 1/5/5 – aber nie 1/4/5.',
+                                'Schreibe die Dreiecksungleichung für die längste Seite auf.'))
+# planfigur
+ST.leiter('planfigur', 'Bezeichnungen im Dreieck und den ersten Konstruktionsschritt erkennen; Radius ablesen.',
+          'Ortslinie für C bei gegebener Höhe, fehlende Schritte, Punkt C im Koordinatensystem, Segel.',
+          'Konstruktionsbeschreibung wählen und ergänzen, C aus Winkel und Höhe, Anzahl möglicher Punkte begründen, stumpfer Winkel und Höhenfußpunkt.')
+ST.regel('planfigur', 1, 'Radius', 'direkt')
+ST.regel('planfigur', 1, '', 'erkennen')
+ST.regel('planfigur', 2, 'Wo liegen', 'darstellung')
+ST.regel('planfigur', 2, '???', 'darstellung')
+ST.regel('planfigur', 2, 'Höhe h_b', 'darstellung')
+ST.regel('planfigur', 2, '', 'mehrschritt')
+ST.regel('planfigur', 3, 'Welche Konstruktionsbeschreibung', 'begruenden')
+ST.regel('planfigur', 3, 'Wie viele', 'begruenden')
+ST.regel('planfigur', 3, '???', 'rueckwaerts')
+ST.regel('planfigur', 3, 'gleichschenkliges', 'transfer')
+ST.regel('planfigur', 3, '', 'verknuepfen')
+ST.neu('planfigur', 2, 'einkleidung', ST.L('Ein dreieckiges Segel hat die Unterkante von A(0 | 0) bis B(4 | 0) (1 Einheit = 1 m), bei A einen rechten Winkel und die Höhe 3 m auf die Unterkante. Wo liegt die Spitze C (oberhalb)?',
+                                           'C(□ | □)', [0, 3], ['0', '3'], 'Rechter Winkel bei A: C liegt senkrecht über A. Höhe 3 m: C(0 | 3).', 'Wo liegt C bei einem rechten Winkel in A?', 'Trage die x- und die y-Koordinate ein.'))
+ST.knobel('planfigur', ST.Z('[AB] ist 6 cm lang. Wie viele Punkte C oberhalb von [AB] gibt es, sodass h_c = 3 cm ist und das Dreieck ABC gleichschenklig ist (egal, welche zwei Seiten gleich lang sind)?', 5, '1 + 2 + 2',
+                            'C liegt auf der Parallelen p zu [AB] im Abstand 3 cm. Fall CA = CB: C liegt auf der Mittelsenkrechten von [AB] – 1 Punkt. Fall AC = AB = 6 cm: Kreis um A mit 6 cm schneidet p zweimal (6 > 3) – 2 Punkte. '
+                            'Fall BC = AB: ebenso 2 Punkte. Die Punkte sind alle verschieden. Zusammen 5.',
+                            'Unterscheide, welche zwei Seiten gleich lang sein sollen, und nutze Ortslinien.'))
+ST.knobel('planfigur', ST.A('Zwei Dreiecke haben dieselbe Seite [AB] = 6 cm, und ihre Spitzen liegen auf derselben Parallelen zu [AB] im Abstand 4 cm. Das eine ist spitzwinklig, das andere stumpfwinklig. Welches hat den größeren Flächeninhalt?',
+                            'Beide sind gleich groß (12 cm²).', ['das spitzwinklige', 'das stumpfwinklige', 'Das hängt von der Lage der Spitze ab.'],
+                            'Flächeninhalt = Grundseite · Höhe : 2. Beide haben die Grundseite 6 cm und die Höhe h_c = 4 cm (Abstand der Parallelen): 6 · 4 : 2 = 12 cm². '
+                            'Verschiebt man die Spitze auf der Parallelen, ändert sich die Form, aber nicht die Fläche.',
+                            'Was bleibt gleich, wenn die Spitze auf der Parallelen wandert?'))
+# vierecke
+ST.leiter('vierecke', 'Winkel im Parallelogramm und fehlenden Winkel im Viereck berechnen; gleiche Winkel erkennen.',
+          'Drachenviereck, gleichschenkliges Trapez, Raute mit Diagonale, Differenz zweier Winkel, Trapezfenster.',
+          'Geländer, Diagonaleneigenschaften, Winkel mit fester Differenz und Vielfachen rückwärts, Fehler „vier gleiche Seiten“, Drachen verknüpfen, Parameter, Prüfungsaufgabe Rechteck.')
+ST.regel('vierecke', 1, '', 'direkt')
+ST.regel('vierecke', 2, 'größer als', 'umkehr')
+ST.regel('vierecke', 2, '', 'mehrschritt')
+ST.regel('vierecke', 3, 'Treppengeländer', 'transfer')
+ST.regel('vierecke', 3, 'Diagonalen', 'begruenden')
+ST.regel('vierecke', 3, '', 'rueckwaerts')
+ST.neu('vierecke', 1, 'erkennen', ST.A('In welchem Viereck sind alle vier Innenwinkel gleich groß?', 'im Rechteck', ['in der Raute', 'im Drachenviereck', 'im Trapez'],
+                                       '360° : 4 = 90°: Vier gleich große Winkel sind vier rechte Winkel – das ist ein Rechteck (auch das Quadrat ist eines).', 'Wie groß wäre jeder Winkel?'))
+ST.neu('vierecke', 2, 'einkleidung', ST.Z('Ein Fenster hat die Form eines gleichschenkligen Trapezes. Unten sind beide Winkel 70° groß. Wie groß ist jeder der beiden oberen Winkel?', 110, '(360 - 2 * 70) / 2',
+                                         'Winkelsumme 360°. Für oben bleiben 220°, auf zwei gleiche Winkel verteilt: 110°. (Oder: oben und unten an einer Seite ergänzen sich zu 180°.)',
+                                         'Die beiden oberen Winkel sind auch gleich groß.', einheit='°'))
+ST.neu('vierecke', 3, 'fehler', ST.A('Jemand sagt: „Ein Viereck mit vier gleich langen Seiten hat vier rechte Winkel.“ Was stimmt?', 'Falsch: Eine Raute hat vier gleich lange Seiten, aber meist keine rechten Winkel.',
+                                     ['Richtig.', 'Falsch: Es hat genau zwei rechte Winkel.', 'Falsch: Es hat gar keine rechten Winkel.'],
+                                     'Vier gleich lange Seiten hat jede Raute. Rechte Winkel hat sie nur, wenn sie ein Quadrat ist.', 'Denke an eine schräg gedrückte Raute.'))
+ST.neu('vierecke', 3, 'verknuepfen', ST.Z('Im Drachenviereck ABCD (symmetrisch zur Diagonalen AC) ist α = 80° und β = 105°. Wie groß ist γ?', 70, '360 - 80 - 2 * 105',
+                                          'Wegen der Symmetrie ist δ = β = 105°. γ = 360° − 80° − 105° − 105° = 70°.', 'Welcher Winkel ist wegen der Symmetrie gleich β?', einheit='°'))
+ST.neu('vierecke', 3, 'parameter', ST.Z('In einem Parallelogramm ist α = 3x und β = 2x (in Grad). Wie groß ist x?', 36, '180 / 5', 'Benachbarte Winkel ergeben 180°: 3x + 2x = 180°, x = 36°. Also α = 108°, β = 72°.',
+                                        'Was ergeben α und β zusammen?'))
+ST.neu('vierecke', 3, 'pruefung', ST.Z('In einem Rechteck schneiden sich die Diagonalen unter 64° (spitzer Winkel). Welchen Winkel bildet eine Diagonale mit einer der längeren Seiten?', 32, '(180 - (180 - 64)) / 2',
+                                       'Die Diagonalen sind gleich lang und halbieren sich: Mit jeder Seite entsteht ein gleichschenkliges Dreieck. Der längeren Seite liegt der stumpfe Winkel 180° − 64° = 116° gegenüber. '
+                                       'Die Basiswinkel sind (180° − 116°) : 2 = 32°.',
+                                       'Welche Teildreiecke entstehen, und welcher Winkel liegt der längeren Seite gegenüber?', einheit='°'))
+ST.knobel('vierecke', ST.Z('In einem Viereck ist ein Winkel halb so groß wie die drei anderen zusammen. Wie groß ist dieser Winkel?', 120, '360 / 3',
+                           'Ist der Winkel x, sind die drei anderen zusammen 2x. Summe x + 2x = 360°, also x = 120°.', 'Drücke die Winkelsumme mit diesem Winkel aus.', einheit='°'))
+ST.knobel('vierecke', ST.A('In einem Parallelogramm, das kein Rechteck ist, zeichnet man alle vier Winkelhalbierenden. Sie begrenzen ein neues Viereck. Welches ist es sicher?', 'ein Rechteck',
+                           ['eine Raute', 'ein Parallelogramm ohne rechten Winkel', 'ein Drachenviereck ohne rechten Winkel'],
+                           'Je zwei Nachbarwinkel des Parallelogramms ergeben 180°, ihre Hälften also 90°. Im Dreieck aus der gemeinsamen Seite und den beiden Halbierenden bleibt für den Schnittwinkel 180° − 90° = 90°. '
+                           'Das gilt an allen vier Ecken des neuen Vierecks: vier rechte Winkel, also ein Rechteck.',
+                           'Untersuche den Winkel, unter dem sich die Halbierenden zweier Nachbarwinkel schneiden.'))
+# satz_kehrsatz
+ST.leiter('satz_kehrsatz', 'Kehrsatz zu einem Wenn-dann-Satz bilden; Bauprinzip erkennen.',
+          'Kehrsatz prüfen, Gegenbeispiel finden, Fehlschluss „Satz wahr, also Kehrsatz wahr“, Bus-Regel.',
+          'Kehrsatz des Thalessatzes, Beweisschritte ordnen, „genau dann, wenn“, Beispiele sind kein Beweis, Fehler bei Teilbarkeit, ursprünglichen Satz rückwärts, Prüfungsaufgabe.')
+ST.regel('satz_kehrsatz', 1, '', 'direkt')
+ST.regel('satz_kehrsatz', 2, 'Widerlege', 'umkehr')
+ST.regel('satz_kehrsatz', 2, '', 'mehrschritt')
+ST.regel('satz_kehrsatz', 3, 'Thales', 'transfer')
+ST.regel('satz_kehrsatz', 3, 'Beweisschritte', 'verknuepfen')
+ST.regel('satz_kehrsatz', 3, '', 'begruenden')
+ST.neu('satz_kehrsatz', 1, 'erkennen', ST.A('Wie entsteht aus einem Satz „Wenn A, dann B“ sein Kehrsatz?', '„Wenn B, dann A.“', ['„Wenn nicht A, dann nicht B.“', '„Wenn A, dann nicht B.“', '„A und B gelten immer zusammen.“'],
+                                            'Beim Kehrsatz tauschen Voraussetzung und Folgerung die Plätze. Ob er wahr ist, muss man eigens prüfen.', 'Was wird vertauscht?'))
+ST.neu('satz_kehrsatz', 2, 'einkleidung', ST.A('Im Bus hängt: „Wenn du einen Fahrschein hast, darfst du mitfahren.“ Lena folgert: „Wer mitfährt, hat einen Fahrschein.“ Was hat sie gemacht?',
+                                               'Sie hat den Kehrsatz gebildet – er folgt nicht aus dem Satz.', ['Sie hat den Satz nur anders gesagt.', 'Sie hat richtig gefolgert.', 'Sie hat das Gegenteil des Satzes gesagt.'],
+                                               'Satz: Fahrschein → mitfahren. Lenas Aussage: mitfahren → Fahrschein. Das ist der Kehrsatz. Der Satz sagt nichts über Leute, die ohne Fahrschein mitfahren (z. B. Kleinkinder).',
+                                               'Was ist im Satz die Voraussetzung, was die Folgerung?'))
+ST.neu('satz_kehrsatz', 3, 'fehler', ST.A('Jemand sagt: „‚Wenn eine Zahl durch 4 teilbar ist, ist sie gerade.‘ ist wahr. Also ist jede gerade Zahl durch 4 teilbar.“ Was stimmt?',
+                                          'Falsch: Das ist der Kehrsatz, und er ist falsch – Gegenbeispiel 6.', ['Richtig.', 'Falsch: Schon der Satz ist falsch.', 'Falsch: Gegenbeispiel 8.'],
+                                          'Aus einem wahren Satz folgt nicht sein Kehrsatz. 6 ist gerade, aber nicht durch 4 teilbar. 8 wäre kein Gegenbeispiel – 8 ist durch 4 teilbar.',
+                                          'Suche eine gerade Zahl, die nicht durch 4 teilbar ist.'))
+ST.neu('satz_kehrsatz', 3, 'rueckwaerts', ST.A('Der Kehrsatz eines Satzes lautet: „Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Rechteck.“ Wie lautet der ursprüngliche Satz?',
+                                               '„Wenn ein Viereck ein Rechteck ist, dann hat es vier rechte Winkel.“',
+                                               ['„Wenn ein Viereck kein Rechteck ist, dann hat es keine vier rechten Winkel.“', '„Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Quadrat.“', '„Jedes Viereck hat vier rechte Winkel.“'],
+                                               'Der Kehrsatz des Kehrsatzes ist wieder der ursprüngliche Satz: Voraussetzung und Folgerung tauschen noch einmal die Plätze.', 'Tausche Voraussetzung und Folgerung zurück.'))
+ST.neu('satz_kehrsatz', 3, 'pruefung', ST.A('Welcher dieser wahren Sätze hat auch einen wahren Kehrsatz?', '„Wenn ein Dreieck gleichseitig ist, dann sind alle seine Winkel 60°.“',
+                                            ['„Wenn ein Viereck ein Quadrat ist, dann ist es ein Rechteck.“', '„Wenn eine Zahl durch 6 teilbar ist, dann ist sie durch 3 teilbar.“', '„Wenn zwei Winkel Scheitelwinkel sind, dann sind sie gleich groß.“'],
+                                            'Ein Dreieck mit drei 60°-Winkeln ist gleichseitig – der Kehrsatz stimmt. Gegenbeispiele zu den anderen Kehrsätzen: ein Rechteck 2 cm × 5 cm, die Zahl 9, zwei gleich große Winkel an verschiedenen Kreuzungen.',
+                                            'Bilde zu jedem Satz den Kehrsatz und suche ein Gegenbeispiel.'))
+ST.neu('satz_kehrsatz', 3, 'verknuepfen', ST.A('„Wenn ein Dreieck gleichschenklig ist, hat es zwei gleich große Winkel“ und sein Kehrsatz sind beide wahr. Wie fasst man beide kurz zusammen?',
+                                               '„Ein Dreieck ist genau dann gleichschenklig, wenn es zwei gleich große Winkel hat.“',
+                                               ['„Ein Dreieck ist immer gleichschenklig.“', '„Wenn ein Dreieck gleichschenklig ist, ist es gleichseitig.“', '„Manche Dreiecke mit zwei gleichen Winkeln sind gleichschenklig.“'],
+                                               '„Genau dann, wenn“ fasst Satz und Kehrsatz zusammen: Die Bedingungen folgen auseinander in beide Richtungen.', 'Welche Wendung drückt beide Richtungen aus?'))
+ST.knobel('satz_kehrsatz', ST.A('„Wenn eine Zahl durch 2 und durch 3 teilbar ist, dann ist sie durch 6 teilbar“ ist wahr. Gilt auch: „Wenn eine Zahl durch 4 und durch 6 teilbar ist, dann ist sie durch 24 teilbar“?',
+                                'Nein: 12 ist durch 4 und 6 teilbar, aber nicht durch 24.', ['Ja: 4 · 6 = 24.', 'Ja, das gilt wie bei 2 und 3.', 'Nein: Keine Zahl ist durch 4 und 6 teilbar.'],
+                                'Bei 2 und 3 klappt es, weil sie keinen gemeinsamen Teiler außer 1 haben. 4 und 6 haben den gemeinsamen Teiler 2: Schon 12 ist durch beide teilbar. '
+                                'Richtig wäre: durch 4 und 6 teilbar ⇒ durch 12 (kleinstes gemeinsames Vielfaches) teilbar.',
+                                'Suche die kleinste Zahl, die durch 4 und durch 6 teilbar ist.'))
+ST.knobel('satz_kehrsatz', ST.A('Auf Karten steht vorn eine Zahl und hinten eine Farbe. Regel: „Wenn vorn eine gerade Zahl steht, dann ist hinten rot.“ Vor dir liegen: 4, 7, rot, blau. Welche Karten musst du umdrehen, um die Regel zu prüfen?',
+                                'die 4 und die blaue Karte', ['die 4 und die rote Karte', 'nur die 4', 'alle vier Karten'],
+                                'Verletzen kann die Regel nur eine Karte mit gerader Zahl und nicht roter Rückseite. Die 4 muss hinten rot sein – umdrehen. Die blaue Karte darf vorn keine gerade Zahl haben – umdrehen. '
+                                'Die 7 ist egal (über ungerade Zahlen sagt die Regel nichts), die rote auch: Rot mit ungerader Zahl ist erlaubt – das wäre nur der Kehrsatz.',
+                                'Welche Karte könnte die Regel überhaupt verletzen?'))
+# ---- STUFEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Winkel', ['parallelen', 'winkelsumme', 'gleichschenklig', 'vierecke']), ('Kongruenz und Konstruktion', ['kongruenzsatz', 'konstruierbar']), ('Beweisen', ['satz_kehrsatz'])],
@@ -1108,3 +1365,4 @@ if __name__ == '__main__':
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     einfuegen(META['thema_schluessel'], luecken(), 7250, quelle=_LUECKEN_QUELLE, offen=_LUECKEN_OFFEN)  # Achtzehnte Runde: zuletzt
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
+    stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt

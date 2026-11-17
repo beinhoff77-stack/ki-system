@@ -775,6 +775,133 @@ def datei():
     }, anz
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, stufen_auf_datei  # noqa: E402
+
+ST = Stufen('messen.prisma_zylinder', 20_8_12)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+SPI = '3.14159265'
+
+# --- prisma_volumen ---
+ST.leiter('prisma_volumen', 'V = G · h für Prismen mit Dreieck- oder Trapez-Grundfläche anwenden',
+          'L-Profil zerlegen, Sachprismen (Blumenkasten), Parallelogramm, Höhe aus dem Volumen',
+          'Würfel und Quader durchsägen, Graben wie in einer Prüfung, Veränderungen begründen, Formelfehler beim Dreieck, Bleistift-Sechseck verknüpfen')
+T('prisma_volumen', (r'^Ein gerades Prisma hat als Grundfläche|Grundfläche von 26 cm²', 'direkt'), (r'Blumenkasten', 'einkleidung'), (r'Winkelprofil|Dreiecksprisma: Grundfläche|Parallelogramm', 'mehrschritt'),
+  (r'Holzwürfel|durchgesägt', 'transfer'), (r'parallelen Seiten sind 10', 'rueckwaerts'), (r'verdreifacht|Prisma A', 'begruenden'), (r'Graben', 'pruefung'), (r'Max', 'fehler'), (r'Bleistift', 'verknuepfen'))
+ST.neu('prisma_volumen', 'erkennen', SA('Welche Formel gilt für das Volumen eines geraden Prismas mit dreieckiger Grundfläche (g, h_D) und Körperhöhe h?', 'V = g · h_D : 2 · h', ['V = g · h_D · h', 'V = g · h', 'V = (g + h_D) · h'],
+    'Grundfläche (Dreieck g · h_D : 2) mal Körperhöhe.', 'Erst die Dreiecksfläche, dann mal Körperhöhe.'))
+ST.neu('prisma_volumen', 'umkehr', SZ('Ein Prisma hat 120 cm³ Volumen; seine Grundfläche ist ein Dreieck mit g = 6 cm und Höhe 4 cm. Wie hoch ist das Prisma?', 10, '120 / (6 * 4 / 2)', 'G = 6 · 4 : 2 = 12 cm². h = 120 : 12 = 10 cm.', 'Berechne zuerst die Grundfläche.', einheit='cm'))
+ST.knobel('prisma_volumen', SZ('Aus einem Würfel mit 6 cm Kante wird entlang einer Kante ein Dreiecksprisma herausgeschnitten: Grundfläche ein rechtwinkliges Dreieck mit 2 cm und 3 cm am rechten Winkel, Länge 6 cm. Wie groß ist das Restvolumen?', 198, '6**3 - 2 * 3 / 2 * 6',
+    'Würfel 216 cm³. Herausgeschnitten: (2 · 3 : 2) · 6 = 18 cm³. Rest 198 cm³.', 'Das herausgeschnittene Stück ist selbst ein Prisma.', einheit='cm³'))
+ST.knobel('prisma_volumen', SZ('Drei Prismen haben dieselbe Höhe, ihre Grundflächen verhalten sich wie 1 : 2 : 3. Zusammen haben sie 360 cm³. Wie groß ist das Volumen des größten?', 180, '360 * 3 / 6',
+    'Bei gleicher Höhe verhalten sich die Volumen wie die Grundflächen: 1 + 2 + 3 = 6 Teile zu je 60 cm³. Das größte hat 180 cm³.', 'Wie hängen die Volumen zusammen, wenn h gleich ist?', einheit='cm³'))
+
+# --- prisma_oberflaeche ---
+ST.leiter('prisma_oberflaeche', 'Mantel aus Umfang · Höhe und Oberfläche eines Dreiecksprismas berechnen',
+          'Trapezprismen, offene Rinne, Zelt mit Boden, Mantel aus dem Netz, Keil',
+          'Würfelkreuz, durchgesägter Quader, Lackbedarf, Dach, Höhe verdoppelt begründen, Umfang rückwärts')
+T('prisma_oberflaeche', (r'Wie groß ist sein Mantel|^Ein Dreiecksprisma: Grundfläche gleichschenklig', 'direkt'), (r'Futterrinne|Zelt', 'einkleidung'), (r'Im Netz', 'darstellung'),
+  (r'und ist 20 cm lang', 'pruefung'), (r'Trapez als Grundfläche|Keil hat', 'mehrschritt'), (r'Kreuz|Haus|Keile', 'transfer'), (r'gesägt|Holzschachtel', 'verknuepfen'),
+  (r'doppelt so hoch', 'begruenden'), (r'Mantel eines Prismas hat', 'rueckwaerts'))
+ST.neu('prisma_oberflaeche', 'erkennen', SA('Woraus besteht die Oberfläche eines Prismas?', 'aus den zwei Grundflächen und dem Mantel', ['nur aus dem Mantel', 'aus einer Grundfläche und dem Mantel', 'aus den Seitenkanten'],
+    'O = 2 · G + M: unten, oben und die Seitenflächen.', 'Denk an das Netz.'))
+ST.knobel('prisma_oberflaeche', SZ('Ein Würfel mit 3 cm Kante wird in 27 Würfel mit 1 cm Kante zersägt. Um wie viel cm² ist die Oberfläche aller kleinen Würfel zusammen größer als die des großen?', 108, '27 * 6 - 6 * 9',
+    'Kleine Würfel: 27 · 6 = 162 cm². Großer Würfel: 6 · 9 = 54 cm². Unterschied 108 cm² – das sind die neuen Schnittflächen.', 'Berechne beide Oberflächen getrennt.', einheit='cm²'))
+ST.knobel('prisma_oberflaeche', SZ('Zwei Quader mit 2 cm × 3 cm × 4 cm werden mit ihren größten Flächen aneinandergeklebt. Wie groß ist die Oberfläche des neuen Körpers?', 80, '2 * 2 * (6 + 8 + 12) - 2 * 12',
+    'Ein Quader: 2 · (6 + 8 + 12) = 52 cm². Zwei: 104 cm². Beim Kleben verschwinden zwei Flächen von je 3 · 4 = 12 cm²: 104 − 24 = 80 cm².', 'Welche Flächen sind nach dem Kleben nicht mehr außen?', einheit='cm²'))
+
+# --- prisma_umstellen ---
+ST.leiter('prisma_umstellen', 'aus V und h die Grundfläche bzw. aus V und G die Höhe berechnen',
+          'Liter umrechnen (Gefäß), Seite aus dem Volumen, passende Grundfläche erkennen',
+          'Trog und Rinne modellieren, volumengleicher Quader, rückwärts zur Dreiecksseite, Masse des Balkens wie in einer Prüfung, vertauschte Division als Fehler')
+T('prisma_umstellen', (r'^Ein Prisma hat (das Volumen|[\d,]+ m³ Volumen)', 'direkt'), (r'Gefäß in Prismaform|Grundfläche von 1 200', 'einkleidung'), (r'Dreiecksprisma hat das Volumen 150|Becken', 'mehrschritt'),
+  (r'Wassertrog|Regenrinne', 'transfer'), (r'volumengleichen Quader', 'verknuepfen'), (r'rechtwinklig|Keil', 'rueckwaerts'), (r'Betonbalken', 'pruefung'))
+ST.neu('prisma_umstellen', 'erkennen', SA('Welche Umstellung von V = G · h gibt die Höhe?', 'h = V : G', ['h = G : V', 'h = V · G', 'h = V − G'], 'Durch G teilen: V : G = h.', 'Welche Rechnung macht „· G“ rückgängig?'))
+ST.neu('prisma_umstellen', 'umkehr', SZ('Ein Prisma mit quadratischer Grundfläche ist 8 cm hoch und hat 200 cm³ Volumen. Wie lang ist eine Quadratseite?', 5, '5', 'G = 200 : 8 = 25 cm², Seite 5 cm.', 'Erst G, dann die Seite.', einheit='cm'))
+ST.neu('prisma_umstellen', 'darstellung', SA('Ein Prisma hat 96 cm³ Volumen und ist 8 cm hoch. Welche Grundfläche passt?', 'ein Rechteck 3 cm × 4 cm', ['ein Quadrat mit 4 cm Seite', 'ein Dreieck mit g = 3 cm und Höhe 4 cm', 'ein Rechteck 6 cm × 4 cm'],
+    'G = 96 : 8 = 12 cm². Nur 3 · 4 = 12 passt (Quadrat 16, Dreieck 6, Rechteck 24).', 'Berechne G und prüfe jede Figur.'))
+ST.neu('prisma_umstellen', 'fehler', SA('Ein Prisma hat 72 cm³ und G = 9 cm². Jemand rechnet h = 9 : 72 = 0,125 cm. Was stimmt?', 'Falsch: h = V : G = 72 : 9 = 8 cm.', ['Richtig.', 'Falsch: h = 72 · 9 cm.', 'Falsch: h = 72 − 9 cm.'],
+    'Probe: 9 · 0,125 = 1,125 ≠ 72. Mit 8 cm: 9 · 8 = 72 ✓.', 'Mach die Probe mit V = G · h.'))
+ST.knobel('prisma_umstellen', SZ('Ein Aquarium (Grundfläche 50 cm × 30 cm) ist 20 cm hoch mit Wasser gefüllt. Ein Stein mit 3 l Volumen wird ganz eingetaucht. Um wie viele Zentimeter steigt der Wasserspiegel?', 2, '3000 / (50 * 30)',
+    'Der Stein verdrängt 3 000 cm³ Wasser. Verteilt auf 1 500 cm² Grundfläche: 3 000 : 1 500 = 2 cm.', 'Das verdrängte Wasser bildet einen flachen Quader.', einheit='cm'))
+ST.knobel('prisma_umstellen', SZ('Eine Rinne ist ein Dreiecksprisma, das auf der Kante steht: Querschnitt oben 20 cm breit, 10 cm tief, Länge 30 cm. Sie ist bis zur halben Tiefe gefüllt. Wie viele Liter sind darin?', 0.75, '(10 * 5 / 2) * 30 / 1000',
+    'Bis zur halben Tiefe ist die Wasserfläche ein Dreieck mit halber Breite (10 cm) und halber Höhe (5 cm): 10 · 5 : 2 = 25 cm² – nur ein Viertel des Querschnitts (100 cm²). V = 25 · 30 = 750 cm³ = 0,75 l.',
+    'Zeichne den Querschnitt: Wie breit ist die Wasseroberfläche bei halber Tiefe?', einheit='l'))
+
+# --- zylinder_volumen ---
+ST.leiter('zylinder_volumen', 'V = π · r² · h berechnen (auch aus d), Volumen als Grundfläche · Höhe erkennen',
+          'halbe Zylinder, Rohre, Topf in Litern, Höhe aus exaktem Volumen, exakter Term',
+          'Messbecher und Schlauch, Mindesthöhe rückwärts, Vergleiche begründen, Radius verdoppelt, Umfüllen verknüpfen, Mantel statt Volumen als Fehler')
+T('zylinder_volumen', (r'Regentonne|^Ein Zylinder hat den Durchmesser', 'direkt'), (r'Kuchenform|Rohr', 'mehrschritt'), (r'Topf', 'einkleidung'), (r'54π', 'umkehr'),
+  (r'Welcher Term', 'darstellung'), (r'Messbecher|Gartenschlauch', 'transfer'), (r'Blatt|Zylinder A', 'begruenden'), (r'10 l fassen', 'rueckwaerts'), (r'verdoppelt', 'parameter'),
+  (r'umgefüllt', 'verknuepfen'))
+ST.neu('zylinder_volumen', 'erkennen', SA('Woraus berechnet man das Volumen eines Zylinders?', 'Grundfläche (Kreis) mal Höhe', ['Umfang mal Höhe', 'Radius mal Höhe', 'Durchmesser mal Höhe'], 'Wie beim Prisma: V = G · h mit G = π · r².', 'Ein Zylinder ist wie ein Prisma mit Kreis als Grundfläche.'))
+ST.neu('zylinder_volumen', 'fehler', SA('Für r = 3 cm und h = 10 cm rechnet jemand V = 2 · π · 3 · 10 ≈ 188 cm³. Was ist falsch?', 'Das ist der Mantel; V = π · 9 · 10 ≈ 283 cm³.', ['Nichts.', 'Er hätte d = 6 nehmen müssen.', 'Es fehlt · 2 am Ende.'],
+    '2 · π · r · h ist die Mantelfläche (Umfang · Höhe). Für das Volumen braucht man die Kreisfläche π · r².', 'Welche Formel enthält r²?'))
+ST.knobel('zylinder_volumen', SZ('Ein Glas (r = 3 cm) steht in einem zylindrischen Gefäß (r = 6 cm). In den Raum zwischen Glas und Gefäßwand wird Wasser 4 cm hoch gefüllt. Wie viel cm³ sind das (π ≈ 3,14)? Runde auf ganze cm³.', 339, 'round(314/100 * (36 - 9) * 4)',
+    'Der Wasserkörper ist ein Ring: Querschnitt π · (36 − 9) = 27π cm². Mal 4 cm: 108π ≈ 339 cm³.', 'Welche Form hat die Wasserfläche von oben?', einheit='cm³', toleranz=1))
+ST.knobel('zylinder_volumen', SZ('Eine Papierrolle hat außen 10 cm und innen (Pappkern) 2 cm Radius und ist 20 cm breit. Das Papier ist 0,1 mm dick. Wie viele Meter Papier sind etwa aufgerollt (π ≈ 3,14)? Runde auf ganze Meter.', 301, 'round(314/100 * (100 - 4) * 20 / (1/100 * 20) / 100)',
+    'Papiervolumen: π · (100 − 4) · 20 ≈ 6 029 cm³. Abgerollt ist es ein langer Streifen: 20 cm breit, 0,01 cm dick, Länge L. 20 · 0,01 · L = 6 029 ⇒ L ≈ 30 144 cm ≈ 301 m.',
+    'Das Volumen bleibt gleich, ob aufgerollt oder ausgelegt.', einheit='m', toleranz=1))
+
+# --- zylinder_oberflaeche ---
+ST.leiter('zylinder_oberflaeche', 'Mantel und Oberfläche eines Zylinders mit der Formel berechnen',
+          'Etikett, Becher ohne Deckel, Rohr außen, Oberfläche aus d, Höhe aus exaktem Mantel, exakte Terme',
+          'Mantel = Kreisflächen rückwärts, Vergleich begründen, Folientunnel, Radius aus dem Netz, Kreisflächen vergessen als Fehler, Parameter, Blechbedarf wie in einer Prüfung')
+T('zylinder_oberflaeche', (r'^Ein Zylinder hat r = [\d,]+ cm und h = \d+ cm\. (Berechne seine Oberfläche|Wie groß ist sein Mantel)', 'direkt'), (r'Etikett|Rohr|Litfaßsäule', 'einkleidung'),
+  (r'Durchmesser \d+ cm und die Höhe|Becher', 'mehrschritt'), (r'42π', 'umkehr'), (r'Welcher Term', 'darstellung'), (r'genauso groß wie die beiden', 'rueckwaerts'),
+  (r'Zylinder A|Blatt', 'begruenden'), (r'Folientunnel', 'transfer'), (r'Netz eines Zylinders', 'rueckwaerts'))
+ST.neu('zylinder_oberflaeche', 'erkennen', SA('Wie lang ist das Mantelrechteck eines Zylinders?', 'so lang wie der Umfang des Grundkreises', ['so lang wie der Durchmesser', 'so lang wie der Radius', 'so lang wie die Höhe'],
+    'Das Rechteck reicht genau einmal um den Kreis herum.', 'Was umschließt das Etikett?'))
+ST.neu('zylinder_oberflaeche', 'fehler', SA('Jemand berechnet die Oberfläche eines Zylinders (r = 2 cm, h = 5 cm) als 2 · π · 2 · 5 ≈ 62,8 cm². Was fehlt?', 'die beiden Kreisflächen: + 2 · π · 4 ≈ 25,1 cm², zusammen ≈ 87,9 cm²',
+    ['nichts', 'eine Kreisfläche: zusammen ≈ 75,4 cm²', 'die Höhe muss quadriert werden'], 'O = 2 · G + M. Berechnet wurde nur M.', 'Aus welchen Teilen besteht das Netz?'))
+ST.neu('zylinder_oberflaeche', 'parameter', SA('Für welche Höhe ist bei r = 3 cm der Mantel genauso groß wie EINE Kreisfläche?', 'h = 1,5 cm', ['h = 3 cm', 'h = 6 cm', 'h = 0,5 cm'],
+    '2 · π · r · h = π · r² ⇒ h = r : 2 = 1,5 cm.', 'Setze Mantel und Kreisfläche gleich und teile durch π · r.'))
+ST.neu('zylinder_oberflaeche', 'pruefung', SZ('Eine Dose (d = 10 cm, h = 12 cm) wird aus Blech gefertigt; für Falze kommen 10 % dazu. Wie viel cm² Blech braucht man? Runde auf ganze cm².', 587, f'round({SPI} * (2 * 25 + 10 * 12) * 11/10)',
+    'O = 2 · π · 25 + π · 10 · 12 = 170π ≈ 534,1 cm². Mit 10 % Zuschlag: 534,1 · 1,1 ≈ 587 cm².', 'Erst die Oberfläche, dann den Zuschlag.', einheit='cm²', toleranz=1))
+ST.knobel('zylinder_oberflaeche', SZ('Ein Zylinder (r = 2 cm, h = 10 cm) wird in zwei gleich hohe Zylinder zersägt. Um wie viel cm² wächst die Oberfläche (π ≈ 3,14)? Runde auf eine Nachkommastelle.', 25.1, 'round(2 * 314/100 * 4, 1)',
+    'Mantel und alte Deckel bleiben gleich. Neu sind zwei Schnittflächen, je π · 4: zusammen 8π ≈ 25,1 cm².', 'Was ist nach dem Sägen neu außen?', einheit='cm²', toleranz=0.1))
+ST.knobel('zylinder_oberflaeche', SZ('Bei einem Zylinder ist der Mantel doppelt so groß wie die beiden Kreisflächen zusammen. Der Radius ist 3 cm. Wie hoch ist er?', 6, '2 * 3',
+    'Mantel 2 · π · r · h, Kreisflächen zusammen 2 · π · r². Bedingung: 2πrh = 2 · 2πr². Teilen durch 2πr ergibt h = 2r = 6 cm.', 'Stelle die Gleichung auf und kürze so viel wie möglich.', einheit='cm'))
+
+# --- sach ---
+ST.leiter('sach', 'Volumen von Haus und Regentonne als Prisma bzw. Zylinder berechnen',
+          'Säulen, Baumstamm, schräges Becken, Zelt, Treppe, Wasserhöhe rückwärts',
+          'Bohrung und Rinne verknüpfen, Trog umfüllen, Dosen packen, Füllzeit und Kosten wie in einer Prüfung, Mindesthöhe rückwärts, halbvoller Tank')
+T('sach', (r'^Ein Haus ist|^Eine Regentonne ist ein Zylinder', 'direkt'), (r'Betonsäulen|Zelt|[Tt]reppe', 'mehrschritt'), (r'Baumstamm|Becken ist', 'einkleidung'),
+  (r'Bohrung|Rinne', 'verknuepfen'), (r'Trog|Dosen|Öltank', 'transfer'), (r'Pool|Neubau', 'pruefung'), (r'330 ml', 'rueckwaerts'))
+ST.neu('sach', 'erkennen', SA('Ein Baumstamm soll für eine Rechnung durch einen Körper ersetzt werden. Welcher passt am besten?', 'ein Zylinder', ['ein Quader', 'eine Pyramide', 'eine Kugel'], 'Ein Stamm ist rund und überall etwa gleich dick – wie ein Zylinder.', 'Welche Form hat ein Querschnitt?'))
+ST.neu('sach', 'umkehr', SZ('Eine Regentonne hat 0,25 m² Grundfläche und enthält 150 l Wasser. Wie hoch steht das Wasser?', 60, '150 / 25 * 10', '0,25 m² = 25 dm², 150 l = 150 dm³. h = 150 : 25 = 6 dm = 60 cm.', 'Rechne in dm: 1 l = 1 dm³.', einheit='cm'))
+ST.knobel('sach', SZ('Ein Becken (25 m × 10 m) ist 2 m tief gefüllt. Eine Pumpe schafft 20 l pro Sekunde. Wie viele Stunden dauert das Leerpumpen? Runde auf eine Nachkommastelle.', 6.9, 'round(25 * 10 * 2 * 1000 / 20 / 3600, 1)',
+    '500 m³ = 500 000 l. 500 000 : 20 = 25 000 s. 25 000 : 3 600 ≈ 6,9 h.', 'Rechne in Liter und Sekunden, dann in Stunden um.', einheit='h', toleranz=0.1))
+ST.knobel('sach', SZ('Ein liegender zylindrischer Tank (r = 1 m, 4 m lang) ist voll. Pro Minute werden 50 l abgepumpt. Nach wie vielen Minuten ist er halb leer (π ≈ 3,14)? Runde auf ganze Minuten.', 126, 'round(314/100 * 1 * 4 / 2 * 1000 / 50)',
+    'V = π · 1² · 4 ≈ 12,56 m³. Die Hälfte: 6,28 m³ = 6 280 l. 6 280 : 50 ≈ 126 Minuten.', 'Die halbe Füllung ist das halbe Volumen – egal ob der Tank liegt.', einheit='min', toleranz=1))
+
+# --- verstehen ---
+ST.leiter('verstehen', 'Volumen bei verdoppelter Höhe oder Grundfläche angeben, V = G · h erkennen',
+          'Grundfläche und Höhe zugleich ändern, Prisma und Zylinder mit gleichem G und h, Radius verdreifacht, Kerze, Faktor rückwärts',
+          'Maßstab und alle Längen verdoppelt, Würfel und Zylinder, Prozent wie in einer Prüfung, Aussagen begründen, Mantelformel mit d als Fehler')
+T('verstehen', (r'wird doppelt so hoch|wird (doppelt|dreimal) so groß, die Höhe bleibt gleich', 'direkt'), (r'Welche Formel gilt', 'erkennen'), (r'^Nina', 'fehler'),
+  (r'150 cm³|Prisma mit dreieckiger Grundfläche und ein Zylinder|Radius wird dreimal', 'mehrschritt'), (r'Wasserturm|Alle Längen', 'verknuepfen'), (r'Käfig|Würfel mit 10', 'transfer'),
+  (r'Blatt|Welche Aussage ist richtig', 'begruenden'), (r'20 %', 'pruefung'))
+ST.neu('verstehen', 'einkleidung', SA('Eine Kerze (Zylinder) wird halb so hoch, aber mit doppeltem Durchmesser gegossen. Wie viel Wachs braucht man im Vergleich?', 'doppelt so viel', ['gleich viel', 'halb so viel', 'viermal so viel'],
+    'Doppelter Durchmesser: vierfache Grundfläche. Halbe Höhe: halbiert. 4 · 1/2 = 2.', 'Wie ändert sich die Grundfläche?'))
+ST.neu('verstehen', 'umkehr', SZ('Das Volumen eines Prismas soll gleich bleiben, die Höhe wird verfünffacht. Durch welche Zahl muss man die Grundfläche teilen?', 5, '5', 'V = G · h: wird h fünfmal so groß, muss G ein Fünftel sein.', 'Was muss mit G passieren, damit G · h gleich bleibt?'))
+ST.knobel('verstehen', SZ('Alle Kanten eines Prismas werden um 50 % verlängert. Auf das Wievielfache wächst das Volumen?', 3.375, '(3/2)**3',
+    'Jede Länge wird 1,5-mal so groß: Die Grundfläche wächst mit 1,5² = 2,25, das Volumen mit 1,5³ = 3,375.', 'Wie oft steckt der Faktor 1,5 in einem Volumen?'))
+ST.knobel('verstehen', SA('Zylinder A hat r = 6 cm und h = 2 cm, Zylinder B hat r = 2 cm und h = 18 cm. Was stimmt?', 'Beide haben dasselbe Volumen, aber B hat den größeren Mantel.',
+    ['A hat das größere Volumen und den größeren Mantel.', 'Beide haben dasselbe Volumen und denselben Mantel.', 'B hat das größere Volumen, A den größeren Mantel.'],
+    'V_A = π · 36 · 2 = 72π, V_B = π · 4 · 18 = 72π. Mantel A = 2π · 6 · 2 = 24π, Mantel B = 2π · 2 · 18 = 72π.', 'Berechne beide Größen mit π als Zeichen.'))
+
+_datei_alt = datei
+def datei():
+    d, anz = _datei_alt()
+    stufen_auf_datei(ST, d)
+    return d, anz
+# ---- STUFEN ENDE ----
+
 if __name__ == '__main__':
     d_, anz = datei()
     schreiben(ZIEL, d_, anz)

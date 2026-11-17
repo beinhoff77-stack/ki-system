@@ -179,3 +179,14 @@ def mit_stufen(baue, st):
             ensure_ascii=False, indent=1))
         return d
     return baue_stufen
+
+
+def stufen_auf_datei(st, d):
+    """Für Generatoren ohne baue(): Stufen anwenden und Bericht schreiben (die Datei schreibt der Generator selbst)."""
+    st.anwenden(d)
+    print('  STUFEN ' + st.bericht())
+    Path('/tmp').joinpath(f'stufen_{st.thema}.json').write_text(json.dumps(
+        {'leitern': st.leitern, 'vorher': {k: dict(v) for k, v in st.vorher.items()}, 'nachher': st.ergebnis,
+         'ueberzaehlig': st.ueberzaehlig, 'zaehler': dict(st.zaehler), 'quellen': st.quellen, 'nur_ein_knobel': st.nur_ein_knobel},
+        ensure_ascii=False, indent=1))
+    return d

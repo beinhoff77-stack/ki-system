@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-2 (Neunzehnte Runde, Teil B, Chat 2)
 
+## 2026-11-17 16:10 – STATUS
+funktionen.folgen fertig: Stufen getrennt (erkennen s3 war Stufe-1-Stoff), mehrdeutige Fehleraufgabe „Lars“ (a₁ = q) behoben, 8 Stufe-3-Übungen je Karte (u. a. „Ist z ein Glied?“, periodische Folge, erstes negatives Glied, zweite Differenzen). inhalt_pruefen OK ohne Hinweise.
+
 ## 2026-11-17 15:45 – STATUS
 funktionen.betrag fertig: Stufen getrennt (u. a. Reihenfolgefehler behoben: Nullstellen vor der Gleichungs-Karte entfernt), 8 Stufe-3-Übungen je Karte, Aufgabengrafiken mit Graph-Art „betrag“, Karte gleichung um c = 0 / c < 0 ergänzt, Beschriftung |x|/f in Karte graph entzerrt. inhalt_pruefen OK ohne Hinweise.
 

@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-2 (Neunzehnte Runde, Teil B, Chat 2)
 
+## 2026-11-17 18:20 – STATUS
+finanzen.zinseszins fertig: Stufe 2 war in „jahr“ und „formel“ dieselbe Rechnung wie Stufe 1, „Bank 3 % gegen 2 %“ ratbar – ersetzt; 8 Stufe-3-Übungen je Karte (Einzahlung nach einem Jahr, K₀ aus den Zinsen im 2. Jahr, +p % −p %, halbjährliche Verzinsung, Zielbetrag, Laufzeit durch Probieren, zwei Autos mit Wertverlust, einfache gegen Zinseszins). Karte vergleich um Abnahme bis zur Hälfte ergänzt. inhalt_pruefen OK ohne Hinweise.
+
 ## 2026-11-17 17:55 – STATUS
 daten.normalverteilung fertig: Stufen getrennt (u. a. „Welcher Bereich hat 99,7 %?“ war Stufe 3), 8 Stufe-3-Übungen je Karte (zwei Glocken deuten, μ und σ aus einem Bereich, Modellkritik, zusammengesetzte Bereiche, gleich gute Leistung, z → Anteil), Karte eigenschaften um den Median ergänzt, überlappende Beschriftung behoben. inhalt_pruefen OK ohne Hinweise.
 

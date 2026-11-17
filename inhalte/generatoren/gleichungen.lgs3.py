@@ -245,8 +245,10 @@ UMBAU = {
                {'text': '(I) + (III): z fällt weg, es bleibt 3x + 2y = −1.',
                 'bild': {'zeilen': [['(I)', '1', '1', '1', '2'], ['(II)', '1', '−1', '1', '6'], ['(III)', '2', '1', '−1', '−3'], ['(I) − (II)', '0', '2', '0', '−4'], ['(I) + (III)', '3', '2', '0', '−1']]}},
                {'text': 'Mit y = −2: 3x − 4 = −1, also x = 1.'},
-               {'text': 'In (I): 1 − 2 + z = 2, also z = 3.'},
-               {'text': 'Die Lösung: ⟦x = 1, y = −2, z = 3⟧.'}],
+               {'text': 'In (I): 1 − 2 + z = 2. Lösung: ⟦(1 | −2 | 3)⟧.'},
+               # Fünfzehnte Runde: Sonderfälle keine / unendlich viele Lösungen (passend zu den Stufe-3-Aufgaben)
+               {'text': 'Kommt 0 = −5 heraus: ⟦keine⟧ Lösung. Bei 0 = 0: unendlich viele.',
+                'bild': {'zeilen': [['(I)', '1', '1', '1', '1'], ['(II)', '1', '1', '1', '6'], ['(I) − (II)', '0', '0', '0', '−5']]}}],
   'fehler': 'Einmal x und einmal y zu eliminieren führt nicht weiter. Dann haben die neuen Gleichungen wieder verschiedene Unbekannte.',
   'regel': 'Eliminiere zweimal ⟦dieselbe Unbekannte⟧. Löse das kleinere System und setze zurück ein.'},
  'parabel': {

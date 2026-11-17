@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 01:52 – STATUS
+gleichungen.lgs3 fertig: Lernkarte loesen – neuer letzter Schritt „Kommt 0 = −5 heraus: keine Lösung. Bei 0 = 0: unendlich viele.“ mit Tabelle; damit höchstens 5 Schritte bleiben, die alten Schritte 4 und 5 zu einem zusammengefasst („In (I): 1 − 2 + z = 2. Lösung: (1 | −2 | 3).“). Aufgaben unverändert; inhalt_pruefen OK ohne Hinweise, Nachweis OK (nur inhalt.etappen[loesen].schritte).
+
 ## 2026-11-17 01:51 – STATUS
 inhalte/README.md: Abschnitt „Vertiefung“ ergänzt (lernziele_pflicht/lernziele_vertiefung; nicht testrelevant, zählt nicht für den Stempel).
 

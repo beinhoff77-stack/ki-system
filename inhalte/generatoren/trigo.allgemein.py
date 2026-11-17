@@ -764,6 +764,275 @@ BF.fuer_sebastian('trigo.allgemein/kosinussatz_seite: Lernkarte erklärt nicht, 
 
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- Achtzehnte Runde, Teil B (Zweig luecken-kl9) ----------
+# LehrplanPLUS M9 7.2: „vollziehen den Beweis des Sinussatzes nach und interpretieren den Satz des Pythagoras als Spezialfall des
+# Kosinussatzes. Sie lösen mithilfe von Sinus- und Kosinussatz nun auch rechnerisch Anwendungsaufgaben“ (Wortlaut nach ISB,
+# Schwerpunktsetzungen Jgst. 9). Prüfungsvorbilder (Typ und Niveau, eigene Zahlen und Einkleidung): Abschlussprüfung Realschule
+# Bayern Mathematik II (Vermessung mit Sinussatz, z. B. AP 2015 A 1; Kurs- und Entfernungsaufgaben mit dem Kosinussatz).
+# 1) neue Lernkarte „anwendung“ am Ende; 2) Karte „sinussatz_seite“ um den Schritt „Warum? Höhe h = b · sin α = a · sin β“ erweitert.
+# Alle Zeichnungen werden aus den Maßen berechnet (maßstäblich, Prüfung mit _massstab). Eigene Zufallsstarts.
+import math as _m  # noqa: E402
+from _luecken_kl9 import einbauen, erweitern  # noqa: E402
+
+AN_L = 'anwendung'
+
+
+def _r(p): return [round(p[0], 3), round(p[1], 3)]
+
+
+def _massstab(fig, soll):
+    """soll: Liste (P, Q, Länge in echter Einheit). Prüft, dass alle Strecken im selben Maßstab gezeichnet sind."""
+    P = fig['punkte']
+    q = [_m.dist(P[a], P[b]) / l for a, b, l in soll]
+    assert max(q) - min(q) < 0.01 * max(q), ('nicht maßstäblich', soll, q)
+    return fig
+
+
+def _wsw(c, al, be, lab_c, lab_b='', lab_a='', w_a=None, w_b=None, w_c=None, ziel=8.0, namen=('A', 'B', 'C')):
+    """Dreieck mit Grundseite c (A links, B rechts), α bei A, β bei B. Gibt Figur und b, a zurück."""
+    ga = 180 - al - be
+    b, a = c * sin(be) / sin(ga), c * sin(al) / sin(ga)
+    s = ziel / c
+    A, B, C = namen
+    P = {A: [0, 0], B: _r((c * s, 0)), C: _r((b * s * cos(al), b * s * sin(al)))}
+    lin = [[A, B, lab_c], [A, C, lab_b] if lab_b else [A, C], [B, C, lab_a] if lab_a else [B, C]]
+    win = [x for x in ([A, B, C, w_a] if w_a else None, [B, C, A, w_b] if w_b else None, [C, A, B, w_c] if w_c else None) if x]
+    fig = {'typ': 'figur', 'punkte': P, 'flaeche': [A, B, C], 'linien': lin}
+    if win: fig['winkel'] = win
+    return _massstab(fig, [(A, B, c), (A, C, b), (B, C, a)]), b, a
+
+
+def _sws(a, b, ga, lab_a, lab_b, lab_c, w_c, ziel=8.0):
+    """Dreieck mit Ecke C, Seiten CA = b, CB = a und Winkel γ bei C."""
+    c = _m.sqrt(a * a + b * b - 2 * a * b * cos(ga))
+    s = ziel / max(a, b)
+    P = {'C': [0, 0], 'A': _r((b * s, 0)), 'B': _r((a * s * cos(ga), a * s * sin(ga)))}
+    fig = {'typ': 'figur', 'punkte': P, 'flaeche': ['A', 'B', 'C'],
+           'linien': [['C', 'A', lab_b], ['C', 'B', lab_a], ['A', 'B', lab_c, 'gestrichelt']], 'winkel': [['C', 'A', 'B', w_c]]}
+    return _massstab(fig, [('C', 'A', b), ('C', 'B', a), ('A', 'B', c)]), c
+
+
+KARTE_AN = {
+    'lernziel': AN_L, 'titel': 'Vermessen und navigieren',
+    'einstieg': 'Zwei Vermesser stehen am Ufer, 200 m voneinander entfernt. Beide peilen einen Baum auf der anderen Seite an. '
+                'So bestimmen sie die Entfernung, ohne über den Fluss zu gehen.',
+    'woerter': [['peilen', 'mit einem Messgerät den Winkel zu einem Ziel messen'],
+                ['Standlinie', 'die bekannte Strecke zwischen den beiden Messpunkten'],
+                ['Planfigur', 'eine Skizze, in die man alle bekannten Größen einträgt']],
+    'bild': None,  # wird unten berechnet
+    'schritte': [{'text': 'Planfigur: Standlinie c = 200 m, Winkel 70° bei A und 60° bei B.'},
+                 {'text': 'Winkel beim Baum: 180° − 70° − 60° = ⟦50°⟧.'},
+                 {'text': 'Gesucht ist b = AC. Gegenüber von b liegt der Winkel 60°.'},
+                 {'text': 'Sinussatz: b = 200 m · sin 60° : sin 50° ≈ ⟦226 m⟧.'}],
+    'fehler': 'Nicht 200 m · sin 70° : sin 50° rechnen. Der Winkel 70° liegt bei A, gegenüber von a. Zu b gehört der Winkel 60° bei B.',
+    'regel': 'Erst eine Planfigur zeichnen, dann den Satz wählen. Paar aus Seite und Gegenwinkel bekannt: ⟦Sinussatz⟧; sonst Kosinussatz.',
+    'probe': 'Der Winkel 60° ist kleiner als 70°, also ist b ≈ 226 m kürzer als a ≈ 245 m. Passt.',
+}
+_AN_FIG, _AN_B, _AN_A = _wsw(200, 70, 60, 'c = 200 m', w_a='70°', w_b='60°', namen=('A', 'B', 'Baum'))
+KARTE_AN['bild'] = _AN_FIG
+KARTE_AN['schritte'][1]['bild'] = {'winkel': [['A', 'B', 'Baum', '70°'], ['B', 'Baum', 'A', '60°'], ['Baum', 'A', 'B', '50°']]}
+KARTE_AN['schritte'][2]['bild'] = {'linien': [['A', 'B', 'c = 200 m'], ['A', 'Baum', 'b = ?'], ['B', 'Baum']]}
+KARTE_AN['schritte'][3]['bild'] = {'linien': [['A', 'B', 'c = 200 m'], ['A', 'Baum', 'b ≈ 226 m'], ['B', 'Baum']]}
+KARTE_AN['fehler_bild'] = {'linien': [['A', 'B', 'c = 200 m'], ['A', 'Baum', 'b'], ['B', 'Baum', 'a']],
+                           'winkel': [['A', 'B', 'Baum', '70° gehört zu a'], ['B', 'Baum', 'A', '60° gehört zu b']]}
+assert round(_AN_B) == 226 and round(_AN_A) == 245
+
+
+def _rz(w, nd):
+    v = gerundet(w, nd)
+    assert v is not None, (w, nd)
+    return v
+
+
+def _fluss(pool_vorn=''):
+    while True:
+        c = R.choice([120, 150, 180, 200, 240, 250, 300])
+        al, be = R.choice(range(40, 85, 5)), R.choice(range(40, 85, 5))
+        ga = 180 - al - be
+        if ga >= 30 and al != be and (c, al, be) not in _FLUSS_GENUTZT:
+            fig, b, a = _wsw(c, al, be, f'c = {c} m', 'b = ?', w_a=f'{al}°', w_b=f'{be}°')
+            if gerundet(b, 1) is not None: break
+    _FLUSS_GENUTZT.add((c, al, be))
+    w = _rz(b, 1)
+    return zahl(f'{pool_vorn}Vermessung über einen Fluss: Standlinie AB = {c} m, gepeilt werden α = {al}° bei A und β = {be}° bei B zum Punkt C. '
+                f'Wie weit ist C von A entfernt? Runde auf eine Nachkommastelle.',
+                f'γ = 180° − {al}° − {be}° = {ga}°. Sinussatz: b = {c} · sin {be}° : sin {ga}° ≈ {dz(w)} m.',
+                'Berechne zuerst den dritten Winkel. Welcher Winkel liegt b gegenüber?', w, f'round({c} * {K(sin(be))} / {K(sin(ga))}, 1)', einheit='m',
+                grafik=fig)
+
+
+def _tunnel(pool_vorn=''):
+    while True:
+        a, b = R.choice(range(300, 950, 50)), R.choice(range(300, 950, 50))
+        ga = R.choice(range(50, 125, 5))
+        if a != b and ga != 90 and (a, b, ga) not in _TUNNEL_GENUTZT:
+            fig, c = _sws(a, b, ga, f'{a} m', f'{b} m', '?', f'{ga}°')
+            if gerundet(c, 0) is not None: break
+    _TUNNEL_GENUTZT.add((a, b, ga))
+    w = _rz(c, 0)
+    return zahl(f'{pool_vorn}Ein Tunnel soll von A nach B durch einen Berg führen. Von einem Punkt C aus misst man CA = {b} m, CB = {a} m und '
+                f'den Winkel ACB = {ga}°. Wie lang wird der Tunnel? Runde auf ganze Meter.',
+                f'Zwei Seiten und der Winkel dazwischen: Kosinussatz. c² = {a}² + {b}² − 2 · {a} · {b} · cos {ga}°, c ≈ {dz(w)} m.',
+                'Zwei Seiten und der Winkel dazwischen sind bekannt. Welcher Satz passt?', w,
+                f'round({K(c)}, 0)', einheit='m', grafik=fig)
+
+
+_FLUSS_GENUTZT, _TUNNEL_GENUTZT = {(200, 70, 60)}, set()
+
+
+def anwendung_aufgaben():
+    L = []
+
+    def neu(pool, s, art, a):
+        a['l'] = AN_L
+        L.append((pool, s, art, a))
+
+    # Stufe 1
+    for c, al, be in ((150, 55, 65), (80, 70, 45)):
+        fig, _, _ = _wsw(c, al, be, f'{c} m', w_a=f'{al}°', w_b=f'{be}°', w_c='?')
+        neu('uebung', 1, '', zahl(f'Von zwei Punkten A und B ({c} m auseinander) wird ein Baum C angepeilt: α = {al}° bei A, β = {be}° bei B. Wie groß ist der Winkel beim Baum?',
+                                  f'Winkelsumme im Dreieck: 180° − {al}° − {be}° = {180 - al - be}°.', 'Die drei Winkel im Dreieck ergeben zusammen 180°.',
+                                  180 - al - be, f'180 - {al} - {be}', einheit='°', grafik=fig))
+    fig, _ = _sws(600, 450, 75, '600 m', '450 m', '?', '75°')
+    neu('uebung', 1, '', bild(auswahl('Für einen Tunnel von A nach B kennt man CA, CB und den Winkel bei C (siehe Planfigur). Welcher Satz liefert die Tunnellänge?',
+                                      'Kosinussatz', ['Sinussatz', 'Satz des Pythagoras', 'Flächenformel mit dem Sinus'],
+                                      'Zwei Seiten und der Winkel dazwischen (SWS): Kosinussatz. Pythagoras geht nur mit rechtem Winkel.',
+                                      'Liegt der bekannte Winkel zwischen den beiden bekannten Seiten?'), fig))
+    fig, _, _ = _wsw(120, 50, 75, 'c = 120 m', 'b = ?', w_a='50°', w_b='75°')
+    neu('uebung', 1, '', bild(auswahl('Bekannt sind die Standlinie AB und die beiden Peilwinkel bei A und B (siehe Planfigur). Welcher Satz liefert die Entfernung AC?',
+                                      'Sinussatz', ['Kosinussatz', 'Satz des Pythagoras', 'Tangens im rechtwinkligen Dreieck'],
+                                      'Den Winkel bei C bekommst du aus der Winkelsumme. Dann ist ein Paar aus Seite c und Gegenwinkel γ bekannt: Sinussatz.',
+                                      'Welcher Winkel liegt der Standlinie gegenüber?'), fig))
+    # Stufe 2
+    neu('uebung', 2, '', _fluss())
+    neu('uebung', 2, '', _fluss())
+    neu('uebung', 2, '', _tunnel())
+    neu('uebung', 2, '', _tunnel())
+    neu('uebung', 2, '', auswahl('Was wird aus dem Kosinussatz c² = a² + b² − 2ab · cos γ, wenn γ = 90° ist?', 'c² = a² + b², der Satz des Pythagoras',
+                                 ['c² = a² + b² − 2ab', 'c = a + b', 'c² = a² − b²'],
+                                 'cos 90° = 0, also fällt − 2ab · cos γ weg: c² = a² + b². Der Satz des Pythagoras ist ein Spezialfall des Kosinussatzes.',
+                                 'Welchen Wert hat cos 90°?'))
+    fig, d = _sws(8, 12, 110, '8 km', '12 km', '?', '110°')
+    w = _rz(d, 1)
+    neu('uebung', 2, '', zahl('Ein Schiff fährt 12 km weit, dann 8 km in eine andere Richtung. Der Winkel zwischen beiden Strecken beträgt 110°. '
+                              'Wie weit ist das Schiff vom Start entfernt? Runde auf eine Nachkommastelle.',
+                              f'Kosinussatz: d² = 12² + 8² − 2 · 12 · 8 · cos 110° ≈ 208 + 65,7 = 273,7, d ≈ {dz(w)} km.',
+                              'Zwei Seiten und der Winkel dazwischen: Kosinussatz. cos 110° ist negativ.', w,
+                              f'round({K(d)}, 1)', einheit='km', grafik=fig))
+    # Stufe 3
+    h = 50 * sin(30) / sin(15) * sin(45)
+    s = 8 / (h / tan(30))
+    F = h / tan(30)
+    turm = {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': _r((50 * s, 0)), 'F': _r((F * s, 0)), 'S': _r((F * s, h * s))},
+            'linien': [['A', 'B', '50 m'], ['B', 'F'], ['F', 'S', 'h = ?'], ['A', 'S'], ['B', 'S']],
+            'winkel': [['A', 'F', 'S', '30°'], ['B', 'F', 'S', '45°']], 'rechter_winkel': [['F', 'A', 'S']]}
+    _massstab(turm, [('A', 'B', 50), ('F', 'S', h), ('A', 'F', F)])
+    w = _rz(h, 1)
+    neu('uebung', 3, 'pruefung', zahl('Von Punkt A sieht man die Spitze S eines Turms unter 30° Steigung. Geht man 50 m auf den Turm zu bis B, sind es 45°. '
+                                      'Wie hoch ist der Turm? Runde auf eine Nachkommastelle.',
+                                      'Im Dreieck ABS: Winkel bei B = 180° − 45° = 135°, bei S = 180° − 30° − 135° = 15°. '
+                                      f'Sinussatz: BS = 50 · sin 30° : sin 15° ≈ 96,6 m. Höhe h = BS · sin 45° ≈ {dz(w)} m.',
+                                      'Arbeite im schiefen Dreieck ABS: Welche Winkel hat es? Danach hilft das rechtwinklige Dreieck BFS.', w,
+                                      f'round(50 * {K(sin(30))} / {K(sin(15))} * {K(sin(45))}, 1)', einheit='m', grafik=turm))
+    sch = 8 / 10
+    Z = (10 + 6 * cos(40), 6 * sin(40))
+    nav = {'typ': 'figur', 'punkte': {'Start': [0, 0], 'W': _r((10 * sch, 0)), '_V': _r((13 * sch, 0)), 'Ziel': _r((Z[0] * sch, Z[1] * sch))},
+           'linien': [['Start', 'W', '10 km'], ['W', '_V', '', 'gestrichelt'], ['W', 'Ziel', '6 km'], ['Start', 'Ziel', '?', 'gestrichelt']],
+           'winkel': [['W', '_V', 'Ziel', '40°']]}
+    _massstab(nav, [('Start', 'W', 10), ('W', 'Ziel', 6)])
+    d = _m.sqrt(100 + 36 - 120 * cos(140))
+    w = _rz(d, 1)
+    neu('uebung', 3, 'pruefung', zahl('Ein Schiff fährt 10 km nach Osten. Am Wendepunkt W dreht es um 40° nach links und fährt 6 km weiter. '
+                                      'Wie weit ist es dann vom Start entfernt? Runde auf eine Nachkommastelle.',
+                                      f'Der Dreieckswinkel bei W ist 180° − 40° = 140°. Kosinussatz: d² = 10² + 6² − 2 · 10 · 6 · cos 140° ≈ 227,9, d ≈ {dz(w)} km.',
+                                      'Der Drehwinkel ist nicht der Winkel im Dreieck. Zeichne die Verlängerung des ersten Kurses.', w,
+                                      f'round({K(d)}, 1)', einheit='km', grafik=nav))
+    al = _m.degrees(_m.acos((40 ** 2 + 70 ** 2 - 55 ** 2) / (2 * 40 * 70)))
+    gs = 8 / 70
+    grund = {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': _r((70 * gs, 0)), 'C': _r((40 * gs * cos(al), 40 * gs * sin(al)))}, 'flaeche': ['A', 'B', 'C'],
+             'linien': [['A', 'B', '70 m'], ['A', 'C', '40 m'], ['B', 'C', '55 m']], 'winkel': [['C', 'A', 'B', '?']]}
+    _massstab(grund, [('A', 'B', 70), ('A', 'C', 40), ('B', 'C', 55)])
+    gam = _m.degrees(_m.acos((40 ** 2 + 55 ** 2 - 70 ** 2) / (2 * 40 * 55)))
+    w = _rz(gam, 1)
+    neu('uebung', 3, 'pruefung', zahl('Ein dreieckiges Grundstück hat die Seiten 40 m, 55 m und 70 m. Wie groß ist sein größter Winkel? Runde auf eine Nachkommastelle.',
+                                      f'Der größte Winkel liegt der längsten Seite (70 m) gegenüber. cos γ = (40² + 55² − 70²) : (2 · 40 · 55) = −275 : 4 400 = −0,0625, γ ≈ {dz(w)}°.',
+                                      'Drei Seiten bekannt: Kosinussatz nach dem Winkel umstellen. Welcher Winkel ist der größte?', w,
+                                      f'round({K(gam)}, 1)', einheit='°', grafik=grund))
+    fl = 0.5 * 40 * 55 * sin(gam)
+    w = _rz(fl, 0)
+    neu('uebung', 3, '', zahl('Das dreieckige Grundstück mit den Seiten 40 m, 55 m und 70 m hat zwischen den Seiten 40 m und 55 m einen Winkel von etwa 93,6°. '
+                              'Wie groß ist seine Fläche? Runde auf ganze m².',
+                              f'A = ½ · 40 · 55 · sin 93,6° ≈ 1 100 · 0,998 ≈ {dz(w)} m².', 'Flächenformel: A = ½ · a · b · sin γ mit dem Winkel zwischen a und b.', w,
+                              f'round(0.5 * 40 * 55 * {K(sin(gam))}, 0)', einheit='m²', grafik=grund))
+    neu('uebung', 3, 'knobel', auswahl('Gibt es ein Dreieck mit den Seiten a = 3 cm, b = 4 cm und c = 8 cm?', 'Nein: cos γ wäre −1,625, das ist kleiner als −1.',
+                                       ['Ja, γ ist dann stumpf.', 'Ja, aber es ist nicht eindeutig.', 'Nein, weil kein Winkel 90° groß ist.'],
+                                       'Kosinussatz: cos γ = (9 + 16 − 64) : 24 = −1,625. Einen solchen Winkel gibt es nicht. Auch anschaulich: 3 cm + 4 cm reichen nicht für 8 cm.',
+                                       'Stelle den Kosinussatz nach cos γ um. Welche Werte kann cos γ haben?'))
+    fig, _, _ = _wsw(200, 70, 60, 'c = 200 m', 'b = ?', w_a='70°', w_b='60°')
+    neu('uebung', 3, '', bild(auswahl('Bei einer Flussvermessung ist c = 200 m, α = 70°, β = 60° und γ = 50°. Jemand rechnet b = 200 m · sin 70° : sin 50°. Was stimmt?',
+                                      'Falsch: Zu b gehört β = 60°, also b = 200 m · sin 60° : sin 50°.',
+                                      ['Richtig.', 'Falsch: Es muss b = 200 m · sin 50° : sin 70° heißen.', 'Falsch: Hier braucht man den Kosinussatz.'],
+                                      'Im Sinussatz stehen Seite und Gegenwinkel zusammen. b liegt gegenüber von B, also gehört β = 60° dazu. Mit 70° erhält man a.',
+                                      'Welcher Winkel liegt der Seite b gegenüber?'), fig))
+    fig, d = _sws(2.0, 1.2, 75, '2 km', '1,2 km', '?', '75°')
+    w = _rz(d, 2)
+    neu('uebung', 3, '', zahl('Von einem Aussichtspunkt sieht man zwei Hütten. Die eine ist 1,2 km entfernt, die andere 2 km. Zwischen beiden Blickrichtungen liegt ein Winkel von 75°. '
+                              'Wie weit sind die Hütten voneinander entfernt? Runde auf zwei Nachkommastellen.',
+                              f'Kosinussatz: d² = 1,2² + 2² − 2 · 1,2 · 2 · cos 75° ≈ 5,44 − 1,24 = 4,20, d ≈ {dz(w)} km.',
+                              'Zwei Entfernungen und der Winkel dazwischen sind bekannt.', w,
+                              f'round({K(d)}, 2)', einheit='km', grafik=fig))
+    x = _m.degrees(_m.asin(4 * sin(70) / 5))
+    third = 180 - 70 - x
+    ac = 5 * sin(third) / sin(70)
+    ss = 8 / 5
+    segel = {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': _r((5 * ss, 0)), 'C': _r((ac * ss * cos(x), ac * ss * sin(x)))}, 'flaeche': ['A', 'B', 'C'],
+             'linien': [['A', 'B', 'unten 5 m'], ['B', 'C', 'Mast 4 m'], ['A', 'C']], 'winkel': [['C', 'A', 'B', '70°'], ['A', 'B', 'C', '?']]}
+    _massstab(segel, [('A', 'B', 5), ('B', 'C', 4), ('A', 'C', ac)])
+    w = _rz(x, 1)
+    neu('uebung', 3, '', zahl('Ein dreieckiges Segel hat unten eine 5 m lange Kante und am Mast eine 4 m lange Kante. Der Winkel gegenüber der unteren Kante beträgt 70°. '
+                              'Wie groß ist der Winkel gegenüber der Mastkante? Runde auf eine Nachkommastelle.',
+                              f'Sinussatz: sin x : 4 = sin 70° : 5 ⇒ sin x = 4 · sin 70° : 5 ≈ 0,752, x ≈ {dz(w)}°. Eindeutig, weil der Winkel 70° der längeren Seite gegenüberliegt.',
+                              'Paar aus Seite und Gegenwinkel: 5 m und 70°. Stelle den Sinussatz nach sin x um.', w,
+                              f'round({K(x)}, 1)', einheit='°', grafik=segel))
+    # Test, Korrektur, Sicherung
+    neu('test', 2, '', _fluss())
+    neu('korrektur', 2, '', _tunnel())
+    neu('korrektur', 2, '', _fluss())
+    neu('korrektur', 2, '', _tunnel())
+    for f in (_fluss, _tunnel, _fluss, _tunnel, _fluss, _tunnel):
+        neu('sicherung', 2, '', f())
+    return L
+
+
+# Erweiterung „sinussatz_seite“: Herleitung über die Höhe (LehrplanPLUS: „vollziehen den Beweis des Sinussatzes nach“)
+SCHRITT_SIN = {'text': 'Warum? Die Höhe ist h = b · sin α = a · sin β.',
+               'bild': {'punkte': {'A': [0, 0], 'B': [11.28, 0], 'C': [9.21, 7.73], '_H': [9.21, 0]},
+                        'linien': [['A', 'B', 'c'], ['B', 'C', 'a = 8 km'], ['C', 'A', 'b = 12,0 km'], ['C', '_H', 'h', 'gestrichelt']],
+                        'rechter_winkel': [['_H', 'B', 'C']]}}
+FEHLERBILD_SIN = {'punkte': {'A': [0, 0], 'B': [11.28, 0], 'C': [9.21, 7.73]},
+                  'linien': [['A', 'B', 'c'], ['B', 'C', 'a = 8 km'], ['C', 'A', 'b = 5,3?']], 'rechter_winkel': []}
+
+
+def sinussatz_aufgaben():
+    L = []
+
+    def neu(s, art, a):
+        a['l'] = 'sinussatz_seite'
+        L.append(('uebung', s, art, a))
+    neu(2, '', auswahl('Im Dreieck ABC gilt für die Höhe h auf c: h = b · sin α und h = a · sin β. Was folgt daraus?', 'a : sin α = b : sin β',
+                       ['a · sin α = b · sin β', 'a : b = sin β : sin α', 'a + b = sin α + sin β'],
+                       'b · sin α = a · sin β. Teilt man beide Seiten durch sin α · sin β, erhält man b : sin β = a : sin α. Das ist der Sinussatz.',
+                       'Setze beide Ausdrücke für h gleich und teile durch sin α · sin β.'))
+    neu(2, '', zahl('Im Dreieck ABC ist b = 10 cm und α = 30°. Wie lang ist die Höhe h von C auf die Seite c?', 'Im rechtwinkligen Teildreieck mit der Hypotenuse b: h = b · sin α = 10 · 0,5 = 5 cm.',
+                    'Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke.', 5, '10 * 1 / 2', einheit='cm'))
+    h = 9 * sin(40)
+    w = gerundet(h / sin(65), 1)
+    neu(3, '', zahl('Im Dreieck ABC ist b = 9 cm, α = 40° und β = 65°. Berechne zuerst die Höhe h = b · sin α und daraus a. Gib a auf eine Nachkommastelle an.',
+                    f'h = 9 · sin 40° ≈ 5,79 cm. Im anderen Teildreieck gilt h = a · sin β, also a = h : sin 65° ≈ {dz(w)} cm. Der Sinussatz liefert dasselbe.',
+                    'Die Höhe gehört zu beiden rechtwinkligen Teildreiecken.', w, f'round(9 * {K(sin(40))} / {K(sin(65))}, 1)', einheit='cm'))
+    return L
+
 if __name__ == '__main__':
     d = bauen('trigo.allgemein',
           'Sinus und Kosinus am Einheitskreis deuten und in beliebigen Dreiecken mit Sinussatz, Kosinussatz und Flächenformel rechnen.',
@@ -781,3 +1050,6 @@ if __name__ == '__main__':
                  'Rechenausdruck c: Winkelfunktionswerte als 12-stellige Konstanten (Prüfskript kennt sin/cos nicht).'])
     anhaengen(d, 9912, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    # Achtzehnte Runde: Lehrplan-Lücken (Anwendungen, Herleitung des Sinussatzes)
+    einbauen('trigo.allgemein', KARTE_AN, None, 18_9_6, anwendung_aufgaben)
+    erweitern('trigo.allgemein', 'sinussatz_seite', 18_9_7, sinussatz_aufgaben, schritt=SCHRITT_SIN, felder={'fehler_bild': FEHLERBILD_SIN})

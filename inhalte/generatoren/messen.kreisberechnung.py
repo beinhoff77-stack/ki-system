@@ -734,7 +734,7 @@ ST = Stufen('messen.kreisberechnung', 20_8_11)
 SA, SZ, SL = ST.A, ST.Z, ST.L
 def T(lz, *regeln):
     for m, g in regeln: ST.typ(lz, m, g)
-PI = '3.14159265'
+SPI = '3.14159265'
 
 # --- umfang ---
 ST.leiter('umfang', 'Umfang aus d oder r berechnen, u : d ≈ 3,14 erkennen',
@@ -822,7 +822,7 @@ ST.neu('zusammengesetzt', 'erkennen', SA('Wie berechnet man den Flächeninhalt e
     'Der Ring ist der große Kreis ohne das Loch: π · R² − π · r².', 'Was bleibt übrig, wenn man das Loch herausnimmt?'))
 ST.neu('zusammengesetzt', 'direkt', SZ('Ein Kreisring hat den Außenradius 5 cm und den Innenradius 3 cm. Gib seinen Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?', 16, '5**2 - 3**2',
     'A = π · 25 − π · 9 = 16π cm².', 'Ziehe die Quadrate der Radien voneinander ab.'))
-ST.neu('zusammengesetzt', 'einkleidung', SZ('Ein runder Teich (r = 3 m) ist von einem 1 m breiten Weg umgeben. Wie groß ist die Wegfläche? Runde auf eine Nachkommastelle.', 22, f'round({PI} * (16 - 9), 1)',
+ST.neu('zusammengesetzt', 'einkleidung', SZ('Ein runder Teich (r = 3 m) ist von einem 1 m breiten Weg umgeben. Wie groß ist die Wegfläche? Runde auf eine Nachkommastelle.', 22, f'round({SPI} * (16 - 9), 1)',
     'Der Weg ist ein Ring mit R = 4 m und r = 3 m: π · (16 − 9) = 7π ≈ 22,0 m².', 'Wie groß ist der Außenradius?', einheit='m²', toleranz=0.1))
 ST.neu('zusammengesetzt', 'darstellung', SA('Über einer 6 cm langen Strecke AB ist ein Halbkreis gezeichnet. Welcher Term gibt den Umfang der Figur (Bogen und Strecke) an?', 'π · 6 : 2 + 6', ['π · 6 + 6', 'π · 3² : 2', 'π · 6 : 2'],
     'Halber Kreisumfang π · d : 2 plus die gerade Strecke d.', 'Aus welchen zwei Teilen besteht der Rand?'))
@@ -843,9 +843,9 @@ ST.neu('zylinder', 'fehler', SA('Für d = 10 cm und h = 4 cm rechnet jemand V = 
 ST.neu('zylinder', 'rueckwaerts', SZ('Ein Zylinder hat das Volumen 1 000 cm³ und ist 10 cm hoch. Wie groß ist seine Grundfläche?', 100, '1000 / 10', 'G = V : h = 100 cm².', 'Volumen = Grundfläche · Höhe – rückwärts.', einheit='cm²'))
 ST.neu('zylinder', 'parameter', SA('Wie ändert sich das Volumen eines Zylinders, wenn man r verdoppelt und h halbiert?', 'Es verdoppelt sich.', ['Es bleibt gleich.', 'Es vervierfacht sich.', 'Es halbiert sich.'],
     'π · (2r)² · h/2 = π · 4r² · h/2 = 2 · π · r² · h.', 'Setze 2r und h/2 in die Formel ein.'))
-ST.neu('zylinder', 'pruefung', SZ('Eine zylinderförmige Vase (r = 5 cm) ist 20 cm hoch und zu drei Vierteln mit Wasser gefüllt. Wie viele Liter sind darin? Runde auf zwei Nachkommastellen.', 1.18, f'round({PI} * 25 * 15 / 1000, 2)',
+ST.neu('zylinder', 'pruefung', SZ('Eine zylinderförmige Vase (r = 5 cm) ist 20 cm hoch und zu drei Vierteln mit Wasser gefüllt. Wie viele Liter sind darin? Runde auf zwei Nachkommastellen.', 1.18, f'round({SPI} * 25 * 15 / 1000, 2)',
     'Wasserhöhe 15 cm. V = π · 25 · 15 ≈ 1 178 cm³ ≈ 1,18 l.', 'Berechne zuerst die Wasserhöhe; 1 l = 1 000 cm³.', einheit='l', toleranz=0.01))
-ST.neu('zylinder', 'transfer', SZ('Ein Rohr ist 2 m lang, innen hat es 4 cm, außen 5 cm Radius. Wie viel cm³ Material hat es? Runde auf ganze cm³.', 5655, f'round({PI} * (25 - 16) * 200)',
+ST.neu('zylinder', 'transfer', SZ('Ein Rohr ist 2 m lang, innen hat es 4 cm, außen 5 cm Radius. Wie viel cm³ Material hat es? Runde auf ganze cm³.', 5655, f'round({SPI} * (25 - 16) * 200)',
     'Querschnitt ist ein Kreisring: π · (25 − 16) = 9π cm². Mal 200 cm Länge: 1 800π ≈ 5 655 cm³.', 'Welche Form hat der Querschnitt?', einheit='cm³', toleranz=1))
 ST.knobel('zylinder', SZ('Eine volle Dose (r = 4 cm, h = 10 cm) wird in eine Dose mit r = 8 cm umgegossen. Wie hoch steht das Wasser dort?', 2.5, '10 / 4',
     'Doppelter Radius heißt vierfache Grundfläche. Bei gleichem Volumen ist die Höhe ein Viertel: 10 : 4 = 2,5 cm.', 'Wie verändert sich die Grundfläche?', einheit='cm'))

@@ -82,7 +82,7 @@ def ko(x, y, punkte=None, strecken=(), schritt=1, **extra):
     if schritt:
         b['schritt_x'] = b['schritt_y'] = schritt
     if punkte:
-        b['punkte'] = pkte(punkte)
+        b['punkte'] = punkte if isinstance(punkte, list) else pkte(punkte)
     if strecken:
         b['strecken'] = [list(s) for s in strecken]
     b.update(extra)

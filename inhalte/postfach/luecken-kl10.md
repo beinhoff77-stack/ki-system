@@ -1,5 +1,9 @@
 # Postfach luecken-kl10 (Achtzehnte Runde, Teil B, Klasse 10)
 
+## 2026-11-17 14:40 – STATUS: stochastik.mehrstufig fertig
+- Neue Lernkarte `pi_schaetzen` („π schätzen: Zufall oder Streifen?“, Pflicht) nach `simulation`, Abschnitt „Simulation und Verstehen“: Viertelkreis als gefüllte Fläche, 40 Zufallspunkte (31 Treffer ⇒ π ≈ 3,1), Streifenmethode mit 4 Rechtecken über/unter dem Bogen (3,5 und 2,5). 28 Aufgaben (Übung 4/6/8, Test 1, Korrektur 3, Sicherung 6), u. a. Tabellenkalkulation mit WENN(x² + y² ≤ 1; 1; 0), Punkt im Viertelkreis per Pythagoras, Ober-/Untersumme mit 2, 4, 5 Streifen, Vergleich der Verfahren.
+- `inhalt_pruefen`: OK, keine Warnungen. Nachweis: alle 238 alten Aufgaben unverändert, NACHWEIS OK.
+
 ## 2026-11-17 14:10 – STATUS: funktionen.exponential_log fertig
 - Neue Lernkarte `linear_oder_exponentiell` („Linear oder exponentiell?“, Pflicht) nach `faktor`, Abschnitt „Exponentialfunktion“: Wertetabelle als `tabelle` (Differenzen/Quotienten je Schritt), beide Graphen in einem Koordinatensystem, Modellgrenze (10 Wochen Verdopplung). 28 Aufgaben (Übung 4/6/8, Test 1, Korrektur 3, Sicherung 6).
 - `inhalt_pruefen`: OK, keine Warnungen. Nachweis: alle 204 alten Aufgaben unverändert, NACHWEIS OK.
@@ -27,6 +31,6 @@ Geprüft gegen den Stand von `lernen-app` am 17.11. (inhalte/themen, inhalte/the
    - Volumen schiefer Prismen (G · h, Cavalieri): **offen** → `verstehen` in raum.pyramide_kegel_kugel um Schritt und Übungen erweitern.
    - Schrägbilder/Netze von Pyramide und Kegel: Pyramide **erledigt** (figur, Runde 3); Kegel **offen (App)** – kein Bildtyp für Ellipsen/Körper.
 6. **Prismen und Zylinder (Kl. 8) als Voraussetzung** (hoch) – **nicht Teil dieses Auftrags** (neues Thema messen.prisma_zylinder, baut Teil A).
-7. **Baumdiagramme in stochastik.mehrstufig** (mittel) – **erledigt (stochastik.mehrstufig, Runde 3):** alle sieben Lernkarten haben ein Kartenbild vom Typ `baum` (Pfad-Tabellen entfallen), Bäume auch in Aufgaben (Pfadregel Stufe 1, ohne Zurücklegen, Baum ergänzen). Weitere vorhandene Aufgaben nachträglich zu bebildern hieße, freigegebene Aufgaben zu ändern – nicht Teil dieses Auftrags.
+7. **Baumdiagramme in stochastik.mehrstufig** (mittel) – **erledigt (stochastik.mehrstufig, Runde 3):** alle fünf Lernkarten der Abschnitte „Pfadregeln“ und „Strategien“ (dazu `verstehen`) haben ein Kartenbild vom Typ `baum` (Pfad-Tabellen entfallen; `simulation` zeigt passend ein Säulendiagramm), Bäume auch in Aufgaben (Pfadregel Stufe 1, ohne Zurücklegen, Baum ergänzen). Weitere vorhandene Aufgaben nachträglich zu bebildern hieße, freigegebene Aufgaben zu ändern – nicht Teil dieses Auftrags.
 
 Nebenbefund (nur melden): In inhalte/themen/raum.schraegbilder.json und stochastik.simulation.json steht noch `"klasse": {"gym_by": 8, …}`, in der Themenliste (nach D2) `gym_by: 10`. Wer gilt beim Einspielen?

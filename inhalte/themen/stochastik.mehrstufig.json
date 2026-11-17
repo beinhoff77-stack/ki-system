@@ -35,6 +35,7 @@
     "titel": "Simulation und Verstehen",
     "lernziele": [
      "simulation",
+     "pi_schaetzen",
      "verstehen"
     ]
    }
@@ -805,6 +806,692 @@
     ]
    },
    {
+    "lernziel": "pi_schaetzen",
+    "titel": "π schätzen: Zufall oder Streifen?",
+    "einstieg": "Regentropfen fallen zufällig auf eine quadratische Platte. Darauf ist ein Viertelkreis gemalt. Aus dem Anteil der Tropfen darin kann man π schätzen: die ⟦Monte-Carlo-Methode⟧.",
+    "woerter": [
+     [
+      "Monte-Carlo-Methode",
+      "mit vielen Zufallspunkten eine Fläche oder eine Zahl wie π schätzen"
+     ],
+     [
+      "Streifenmethode",
+      "eine Fläche in schmale Rechtecke zerlegen und deren Flächen addieren; ganz ohne Zufall"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      1
+     ],
+     "y": [
+      0,
+      1
+     ],
+     "schritt_x": 0.25,
+     "schritt_y": 0.25,
+     "flaechen": [
+      {
+       "punkte": [
+        [
+         0,
+         0
+        ],
+        [
+         1.0,
+         0.0
+        ],
+        [
+         0.9979,
+         0.0654
+        ],
+        [
+         0.9914,
+         0.1305
+        ],
+        [
+         0.9808,
+         0.1951
+        ],
+        [
+         0.9659,
+         0.2588
+        ],
+        [
+         0.9469,
+         0.3214
+        ],
+        [
+         0.9239,
+         0.3827
+        ],
+        [
+         0.8969,
+         0.4423
+        ],
+        [
+         0.866,
+         0.5
+        ],
+        [
+         0.8315,
+         0.5556
+        ],
+        [
+         0.7934,
+         0.6088
+        ],
+        [
+         0.7518,
+         0.6593
+        ],
+        [
+         0.7071,
+         0.7071
+        ],
+        [
+         0.6593,
+         0.7518
+        ],
+        [
+         0.6088,
+         0.7934
+        ],
+        [
+         0.5556,
+         0.8315
+        ],
+        [
+         0.5,
+         0.866
+        ],
+        [
+         0.4423,
+         0.8969
+        ],
+        [
+         0.3827,
+         0.9239
+        ],
+        [
+         0.3214,
+         0.9469
+        ],
+        [
+         0.2588,
+         0.9659
+        ],
+        [
+         0.1951,
+         0.9808
+        ],
+        [
+         0.1305,
+         0.9914
+        ],
+        [
+         0.0654,
+         0.9979
+        ],
+        [
+         0.0,
+         1.0
+        ]
+       ]
+      }
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Seitenlänge 1: Das Quadrat hat die Fläche 1, der Viertelkreis π/4."
+     },
+     {
+      "text": "31 von 40 Zufallspunkten liegen im Viertelkreis: Anteil 31 : 40 = 0,775.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0.72,
+         "y": 0.75
+        },
+        {
+         "x": 0.51,
+         "y": 0.2
+        },
+        {
+         "x": 0.94,
+         "y": 0.69
+        },
+        {
+         "x": 0.79,
+         "y": 0.59
+        },
+        {
+         "x": 0.8,
+         "y": 0.01
+        },
+        {
+         "x": 0.64,
+         "y": 0.25
+        },
+        {
+         "x": 0.67,
+         "y": 0.33
+        },
+        {
+         "x": 0.9,
+         "y": 0.99
+        },
+        {
+         "x": 0.42,
+         "y": 0.13
+        },
+        {
+         "x": 0.08,
+         "y": 0.83
+        },
+        {
+         "x": 0.17,
+         "y": 0.93
+        },
+        {
+         "x": 0.61,
+         "y": 0.17
+        },
+        {
+         "x": 0.04,
+         "y": 0.73
+        },
+        {
+         "x": 0.6,
+         "y": 0.92
+        },
+        {
+         "x": 0.45,
+         "y": 0.05
+        },
+        {
+         "x": 0.58,
+         "y": 0.25
+        },
+        {
+         "x": 0.34,
+         "y": 0.97
+        },
+        {
+         "x": 0.7,
+         "y": 0.61
+        },
+        {
+         "x": 0.38,
+         "y": 0.7
+        },
+        {
+         "x": 0.44,
+         "y": 0.93
+        },
+        {
+         "x": 0.63,
+         "y": 0.6
+        },
+        {
+         "x": 0.94,
+         "y": 0.15
+        },
+        {
+         "x": 0.93,
+         "y": 0.46
+        },
+        {
+         "x": 0.36,
+         "y": 0.62
+        },
+        {
+         "x": 0.69,
+         "y": 0.39
+        },
+        {
+         "x": 0.08,
+         "y": 0.16
+        },
+        {
+         "x": 0.1,
+         "y": 0.87
+        },
+        {
+         "x": 0.36,
+         "y": 0.46
+        },
+        {
+         "x": 0.72,
+         "y": 0.76
+        },
+        {
+         "x": 0.25,
+         "y": 0.42
+        },
+        {
+         "x": 0.22,
+         "y": 0.56
+        },
+        {
+         "x": 0.99,
+         "y": 0.74
+        },
+        {
+         "x": 0.8,
+         "y": 0.3
+        },
+        {
+         "x": 0.35,
+         "y": 0.25
+        },
+        {
+         "x": 0.91,
+         "y": 0.22
+        },
+        {
+         "x": 0.58,
+         "y": 0.61
+        },
+        {
+         "x": 0.33,
+         "y": 0.21
+        },
+        {
+         "x": 0.03,
+         "y": 0.76
+        },
+        {
+         "x": 0.09,
+         "y": 0.65
+        },
+        {
+         "x": 0.44,
+         "y": 0.55
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also π/4 ≈ 0,775 und ⟦π ≈ 4 · 0,775 = 3,1⟧."
+     },
+     {
+      "text": "Streifenmethode: Vier Rechtecke über dem Bogen ergeben π ≈ 3,5, sicher zu groß.",
+      "bild": {
+       "punkte": [],
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           1.0,
+           0.0
+          ],
+          [
+           0.9979,
+           0.0654
+          ],
+          [
+           0.9914,
+           0.1305
+          ],
+          [
+           0.9808,
+           0.1951
+          ],
+          [
+           0.9659,
+           0.2588
+          ],
+          [
+           0.9469,
+           0.3214
+          ],
+          [
+           0.9239,
+           0.3827
+          ],
+          [
+           0.8969,
+           0.4423
+          ],
+          [
+           0.866,
+           0.5
+          ],
+          [
+           0.8315,
+           0.5556
+          ],
+          [
+           0.7934,
+           0.6088
+          ],
+          [
+           0.7518,
+           0.6593
+          ],
+          [
+           0.7071,
+           0.7071
+          ],
+          [
+           0.6593,
+           0.7518
+          ],
+          [
+           0.6088,
+           0.7934
+          ],
+          [
+           0.5556,
+           0.8315
+          ],
+          [
+           0.5,
+           0.866
+          ],
+          [
+           0.4423,
+           0.8969
+          ],
+          [
+           0.3827,
+           0.9239
+          ],
+          [
+           0.3214,
+           0.9469
+          ],
+          [
+           0.2588,
+           0.9659
+          ],
+          [
+           0.1951,
+           0.9808
+          ],
+          [
+           0.1305,
+           0.9914
+          ],
+          [
+           0.0654,
+           0.9979
+          ],
+          [
+           0.0,
+           1.0
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0.0,
+           0
+          ],
+          [
+           0.25,
+           0
+          ],
+          [
+           0.25,
+           1.0
+          ],
+          [
+           0.0,
+           1.0
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0.25,
+           0
+          ],
+          [
+           0.5,
+           0
+          ],
+          [
+           0.5,
+           0.9682
+          ],
+          [
+           0.25,
+           0.9682
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0.5,
+           0
+          ],
+          [
+           0.75,
+           0
+          ],
+          [
+           0.75,
+           0.866
+          ],
+          [
+           0.5,
+           0.866
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0.75,
+           0
+          ],
+          [
+           1.0,
+           0
+          ],
+          [
+           1.0,
+           0.6614
+          ],
+          [
+           0.75,
+           0.6614
+          ]
+         ]
+        }
+       ]
+      }
+     },
+     {
+      "text": "Rechtecke unter dem Bogen ergeben 2,5. π liegt also ⟦sicher dazwischen⟧.",
+      "bild": {
+       "flaechen": [
+        {
+         "punkte": [
+          [
+           0,
+           0
+          ],
+          [
+           1.0,
+           0.0
+          ],
+          [
+           0.9979,
+           0.0654
+          ],
+          [
+           0.9914,
+           0.1305
+          ],
+          [
+           0.9808,
+           0.1951
+          ],
+          [
+           0.9659,
+           0.2588
+          ],
+          [
+           0.9469,
+           0.3214
+          ],
+          [
+           0.9239,
+           0.3827
+          ],
+          [
+           0.8969,
+           0.4423
+          ],
+          [
+           0.866,
+           0.5
+          ],
+          [
+           0.8315,
+           0.5556
+          ],
+          [
+           0.7934,
+           0.6088
+          ],
+          [
+           0.7518,
+           0.6593
+          ],
+          [
+           0.7071,
+           0.7071
+          ],
+          [
+           0.6593,
+           0.7518
+          ],
+          [
+           0.6088,
+           0.7934
+          ],
+          [
+           0.5556,
+           0.8315
+          ],
+          [
+           0.5,
+           0.866
+          ],
+          [
+           0.4423,
+           0.8969
+          ],
+          [
+           0.3827,
+           0.9239
+          ],
+          [
+           0.3214,
+           0.9469
+          ],
+          [
+           0.2588,
+           0.9659
+          ],
+          [
+           0.1951,
+           0.9808
+          ],
+          [
+           0.1305,
+           0.9914
+          ],
+          [
+           0.0654,
+           0.9979
+          ],
+          [
+           0.0,
+           1.0
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0.0,
+           0
+          ],
+          [
+           0.25,
+           0
+          ],
+          [
+           0.25,
+           0.9682
+          ],
+          [
+           0.0,
+           0.9682
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0.25,
+           0
+          ],
+          [
+           0.5,
+           0
+          ],
+          [
+           0.5,
+           0.866
+          ],
+          [
+           0.25,
+           0.866
+          ]
+         ]
+        },
+        {
+         "punkte": [
+          [
+           0.5,
+           0
+          ],
+          [
+           0.75,
+           0
+          ],
+          [
+           0.75,
+           0.6614
+          ],
+          [
+           0.5,
+           0.6614
+          ]
+         ]
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "π ≈ 0,775 ist falsch. Der Anteil der Punkte ist nur π/4, also ein Viertel von π. Erst ⟦mal 4⟧ ergibt π ≈ 3,1.",
+    "regel": "π ≈ 4 · Anteil der Treffer im Viertelkreis. ⟦Streifen geben sichere Grenzen⟧, der Zufall nur eine Schätzung."
+   },
+   {
     "lernziel": "verstehen",
     "titel": "Aussagen prüfen",
     "regel": "Prüfe: Entlang eines Pfades multiplizieren, zwischen Pfaden addieren. ⟦Ergebnis zwischen 0 und 1⟧?",
@@ -959,6 +1646,13 @@
     ]
    },
    {
+    "k": "pi_schaetzen",
+    "text": "π schätzen: Zufall oder Streifen?",
+    "lernziele": [
+     "pi_schaetzen"
+    ]
+   },
+   {
     "k": "verstehen",
     "text": "Aussagen prüfen",
     "lernziele": [
@@ -974,6 +1668,7 @@
     "gegenereignis",
     "baum_ergaenzen",
     "simulation",
+    "pi_schaetzen",
     "verstehen"
    ],
    "lernziele_vertiefung": [],
@@ -7216,11 +7911,498 @@
    },
    "w": "Jede bestimmte Kombination ist ein einziger Pfad mit derselben Wahrscheinlichkeit (6/49 · 5/48 · … · 1/44). „Gemischt“ wirkt nur häufiger, weil es sehr viele gemischte Reihen gibt.",
    "h": "Berechne die Wahrscheinlichkeit für eine ganz bestimmte Reihe. Hängt sie von den Zahlen ab?"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Auf eine quadratische Platte mit einem Viertelkreis fallen 200 Regentropfen, 156 davon im Viertelkreis. Welchen Näherungswert für π liefert das?"
+   },
+   "o": {
+    "wert": 3.12
+   },
+   "c": "4 * 156 / 200",
+   "w": "Anteil 156 : 200 = 0,78 ≈ π/4. π ≈ 4 · 156 : 200 = 3,12.",
+   "h": "Der Anteil der Treffer schätzt π/4. Was musst du noch tun?"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Zufallspunkt im Einheitsquadrat hat die Koordinaten (0,6 | 0,7). Liegt er im Viertelkreis mit Radius 1 um (0 | 0)?"
+   },
+   "a": [
+    "Ja, denn 0,6² + 0,7² = 0,85 ≤ 1.",
+    "Nein, denn 0,7 liegt näher an 1 als an 0.",
+    "Nein, denn 0,6 + 0,7 = 1,3 > 1."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Abstand zum Ursprung nach Pythagoras: 0,6² + 0,7² = 0,85. Im Viertelkreis liegt der Punkt, wenn das höchstens 1 ist: ja.",
+   "h": "Der Abstand zu (0 | 0) folgt aus dem Satz des Pythagoras. Vergleiche x² + y² mit 1."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welcher Anteil des Einheitsquadrats wird vom Viertelkreis mit Radius 1 bedeckt? Runde auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.785,
+    "toleranz": 0.001
+   },
+   "c": "round(3.141592653590 / 4, 3)",
+   "w": "Viertelkreis: π · 1² : 4 = π/4 ≈ 0,785; Quadrat: 1. Anteil ≈ 0,785.",
+   "h": "Fläche des Viertelkreises: ein Viertel von π · r²."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele von 400 Zufallspunkten im Einheitsquadrat erwartest du ungefähr im Viertelkreis (Radius 1)? Runde auf ganze Punkte."
+   },
+   "o": {
+    "wert": 314,
+    "toleranz": 1
+   },
+   "c": "round(400 * 3.141592653590 / 4)",
+   "w": "Anteil π/4 ≈ 0,785; 400 · π/4 = 100π ≈ 314.",
+   "h": "Erwartete Anzahl = Anzahl der Punkte · Anteil π/4."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Tabellenkalkulation wurden 500 Zufallspunkte (x | y) erzeugt. Eine Spalte enthält WENN(x² + y² ≤ 1; 1; 0), ihre Summe ist 397. Welchen Näherungswert für π liefert das?"
+   },
+   "o": {
+    "wert": 3.176
+   },
+   "c": "4 * 397 / 500",
+   "w": "Anteil 397 : 500 = 0,794 ≈ π/4 (die Summe zählt die Punkte im Viertelkreis). π ≈ 4 · 397 : 500 = 3,176.",
+   "h": "Der Anteil der Treffer schätzt π/4. Was musst du noch tun?"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Viertelkreis (Radius 1) wird in 2 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das bis über den Bogen reicht (Höhe am linken Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.73,
+    "toleranz": 0.01
+   },
+   "c": "round(3.732050807569, 2)",
+   "w": "Breite je Streifen 0,5; Höhen 1, √(1 − 0,5²). Summe der Flächen ≈ 0,933; mal 4 ≈ 3,73 (zu groß).",
+   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Viertelkreis (Radius 1) wird in 2 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das ganz unter dem Bogen bleibt (Höhe am rechten Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.73,
+    "toleranz": 0.01
+   },
+   "c": "round(1.732050807569, 2)",
+   "w": "Breite je Streifen 0,5; Höhen √(1 − 0,5²), 0. Summe der Flächen ≈ 0,433; mal 4 ≈ 1,73 (zu klein).",
+   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ergibt die Monte-Carlo-Methode bei jedem neuen Durchgang einen etwas anderen Näherungswert für π?"
+   },
+   "a": [
+    "Weil die Formel π ≈ 4 · Anteil nur manchmal gilt.",
+    "Weil die Punkte zufällig fallen und der Anteil im Viertelkreis deshalb schwankt.",
+    "Weil sich der Wert von π ändert.",
+    "Weil das Quadrat jedes Mal anders groß ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "π ist fest, die Formel auch. Zufällig ist nur, wie viele Punkte gerade im Viertelkreis landen. Deshalb schwankt der Schätzwert um π.",
+   "h": "Was ist bei jedem Durchgang anders?"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Monte-Carlo-Simulation mit 800 Zufallspunkten ergab den Näherungswert π ≈ 3,15. Wie viele Punkte lagen im Viertelkreis?"
+   },
+   "o": {
+    "wert": 630
+   },
+   "c": "3.15 * 800 / 4",
+   "w": "4 · k : 800 = 3,15 ⇒ k = 3,15 · 800 : 4 = 630.",
+   "h": "Stelle π ≈ 4 · k : n nach k um."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis mit Radius 1 liegt genau in einem Quadrat mit der Seitenlänge 2. Von 300 Zufallspunkten im Quadrat liegen 236 im Kreis. Welchen Näherungswert für π liefert das? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.15,
+    "toleranz": 0.01
+   },
+   "c": "round(4 * 236 / 300, 2)",
+   "w": "Anteil 236 : 300 ≈ π/4 – hier: Kreisfläche π geteilt durch Quadratfläche 4. π ≈ 4 · 236 : 300 ≈ 3,15.",
+   "h": "Kreisfläche π · 1² und Quadratfläche 2² = 4: Der Anteil schätzt π/4."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Viertelkreis (Radius 1) wird in 4 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das bis über den Bogen reicht (Höhe am linken Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.5,
+    "toleranz": 0.01
+   },
+   "c": "round(3.495709068102, 2)",
+   "w": "Breite je Streifen 0,25; Höhen 1, √(1 − 0,25²), √(1 − 0,5²), √(1 − 0,75²). Summe der Flächen ≈ 0,8739; mal 4 ≈ 3,5 (zu groß).",
+   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Viertelkreis (Radius 1) wird in 4 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das ganz unter dem Bogen bleibt (Höhe am rechten Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 2.5,
+    "toleranz": 0.01
+   },
+   "c": "round(2.495709068102, 2)",
+   "w": "Breite je Streifen 0,25; Höhen √(1 − 0,25²), √(1 − 0,5²), √(1 − 0,75²), 0. Summe der Flächen ≈ 0,6239; mal 4 ≈ 2,5 (zu klein).",
+   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei der Streifenmethode mit n Streifen wird π von oben (Rechtecke über dem Bogen) und von unten (Rechtecke unter dem Bogen) eingegrenzt. Wie viele Streifen braucht man mindestens, damit beide Näherungswerte (jeweils mal 4) höchstens 0,1 auseinanderliegen?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "Streifen"
+   },
+   "c": "4 / 0.1",
+   "w": "Die oberen Rechtecke sind die unteren, eins nach links gerückt; dazu kommt nur das erste mit Höhe 1. Unterschied: 4 · (1/n) · 1 = 4/n. 4/n ≤ 0,1 ⇒ n ≥ 40.",
+   "h": "Vergleiche die beiden Rechteck-Reihen: Welche Rechtecke kommen in beiden vor?"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über die beiden Verfahren zur Näherung von π stimmt?"
+   },
+   "a": [
+    "Die Streifenmethode liefert sichere Grenzen für π, die Monte-Carlo-Methode nur einen Schätzwert, der schwanken kann.",
+    "Beide Verfahren liefern nur Werte, die größer als π sind.",
+    "Die Monte-Carlo-Methode liefert mit 100 Punkten immer genau π.",
+    "Die Streifenmethode liefert bei jeder Wiederholung einen anderen Wert."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rechtecke über dem Bogen sind sicher zu groß, unter dem Bogen sicher zu klein: π liegt dazwischen, jedes Mal gleich. Zufallspunkte geben nur einen Schätzwert, der um π schwankt.",
+   "h": "Was ist bei der Streifenmethode zufällig – und was bei der Monte-Carlo-Methode?"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand zählt 156 von 200 Zufallspunkten im Viertelkreis und schreibt: „π ≈ 156 : 200 = 0,78.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: 0,78 schätzt nur π/4; π ≈ 4 · 0,78 = 3,12.",
+    "Falsch: π ≈ 200 : 156 ≈ 1,28.",
+    "Falsch: π ≈ 2 · 0,78 = 1,56."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Anteil der Punkte schätzt den Anteil der Fläche: Viertelkreis : Quadrat = π/4 : 1. Also π ≈ 4 · 0,78 = 3,12.",
+   "h": "Welchen Flächenanteil schätzt der Anteil der Punkte?"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation erzeugt die fünf Zufallspunkte (0,2 | 0,9), (0,7 | 0,8), (0,5 | 0,5), (0,9 | 0,3), (0,6 | 0,85). Welchen Näherungswert für π liefern diese fünf Punkte?"
+   },
+   "o": {
+    "wert": 2.4
+   },
+   "c": "4 * 3 / 5",
+   "w": "x² + y²: 0,85, 1,13, 0,5, 0,9, 1,0825. Höchstens 1 sind 3 Werte. π ≈ 4 · 3 : 5 = 2,4 – mit 5 Punkten sehr ungenau.",
+   "h": "Prüfe für jeden Punkt x² + y² ≤ 1. Dann π ≈ 4 · Treffer : Anzahl."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Programm schätzt π mit genau 100 Zufallspunkten (π ≈ 4 · Treffer : 100). Welcher Schätzwert kann dabei gar nicht herauskommen?"
+   },
+   "a": [
+    "3,12",
+    "3,14",
+    "3,16",
+    "3,20"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "4 · k : 100 = k : 25. Möglich sind nur Vielfache von 0,04: 3,12 (k = 78), 3,16 (k = 79), 3,20 (k = 80). Für 3,14 wäre k = 78,5 – keine ganze Zahl.",
+   "h": "Treffer k sind ganze Zahlen. In welchen Schritten kann 4 · k : 100 nur wachsen?"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 1 000 Zufallspunkten soll der Schätzwert für π größer als 3,2 sein. Wie viele Punkte müssen dafür mindestens im Viertelkreis liegen?"
+   },
+   "o": {
+    "wert": 801
+   },
+   "c": "800 + 1",
+   "w": "4 · k : 1 000 > 3,2 ⇒ k > 800. Die kleinste ganze Zahl darüber ist 801.",
+   "h": "Stelle 4 · k : 1 000 > 3,2 nach k um. k ist ganzzahlig."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 250 Zufallspunkten im Einheitsquadrat liegen 197 im Viertelkreis mit Radius 1. Welchen Näherungswert für π liefert das?"
+   },
+   "o": {
+    "wert": 3.152
+   },
+   "c": "4 * 197 / 250",
+   "w": "Anteil 197 : 250 = 0,788 ≈ π/4. π ≈ 4 · 197 : 250 = 3,152."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Zufallspunkt im Einheitsquadrat hat die Koordinaten (0,8 | 0,7). Liegt er im Viertelkreis mit Radius 1 um (0 | 0)?"
+   },
+   "a": [
+    "Ja, denn beide Koordinaten sind kleiner als 1.",
+    "Ja, denn 0,8 · 0,7 = 0,56 ≤ 1.",
+    "Nein, denn 0,8² + 0,7² = 1,13 > 1."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Abstand zum Ursprung nach Pythagoras: 0,8² + 0,7² = 1,13. Im Viertelkreis liegt der Punkt, wenn das höchstens 1 ist: nein."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 600 Zufallspunkten im Einheitsquadrat liegen 470 im Viertelkreis mit Radius 1. Welchen Näherungswert für π liefert das? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.13,
+    "toleranz": 0.01
+   },
+   "c": "round(4 * 470 / 600, 2)",
+   "w": "Anteil 470 : 600 ≈ π/4. π ≈ 4 · 470 : 600 ≈ 3,13."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele von 2 000 Zufallspunkten im Einheitsquadrat erwartest du ungefähr im Viertelkreis (Radius 1)? Runde auf ganze Punkte."
+   },
+   "o": {
+    "wert": 1571,
+    "toleranz": 1
+   },
+   "c": "round(2000 * 3.141592653590 / 4)",
+   "w": "2 000 · π/4 = 500π ≈ 1 571."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Beim Reiswerfen landen 500 Körner auf einem quadratischen Brett mit Viertelkreis, 392 davon im Viertelkreis. Welchen Näherungswert für π liefert das?"
+   },
+   "o": {
+    "wert": 3.136
+   },
+   "c": "4 * 392 / 500",
+   "w": "Anteil 392 : 500 = 0,784 ≈ π/4. π ≈ 4 · 392 : 500 = 3,136."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Zufallspunkt im Einheitsquadrat hat die Koordinaten (0,5 | 0,8). Liegt er im Viertelkreis mit Radius 1 um (0 | 0)?"
+   },
+   "a": [
+    "Ja, denn 0,5² + 0,8² = 0,89 ≤ 1.",
+    "Nein, denn 0,8 liegt näher an 1 als an 0.",
+    "Nein, denn 0,5 + 0,8 = 1,3 > 1."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Abstand zum Ursprung nach Pythagoras: 0,5² + 0,8² = 0,89. Im Viertelkreis liegt der Punkt, wenn das höchstens 1 ist: ja."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Monte-Carlo-Simulation mit 1 000 Zufallspunkten ergab π ≈ 3,16. Wie viele Punkte lagen im Viertelkreis?"
+   },
+   "o": {
+    "wert": 790
+   },
+   "c": "3.16 * 1000 / 4",
+   "w": "4 · k : 1 000 = 3,16 ⇒ k = 3,16 · 1 000 : 4 = 790."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Tabellenkalkulation ergibt die Spalte WENN(x² + y² ≤ 1; 1; 0) bei 800 Zufallspunkten die Summe 631. Welchen Näherungswert für π liefert das?"
+   },
+   "o": {
+    "wert": 3.155
+   },
+   "c": "4 * 631 / 800",
+   "w": "Anteil 631 : 800 = 0,78875 ≈ π/4 (die Summe zählt die Punkte im Viertelkreis). π ≈ 4 · 631 : 800 = 3,155."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verfahren liefert bei jeder Wiederholung genau denselben Näherungswert für π?"
+   },
+   "a": [
+    "keines der beiden Verfahren",
+    "beide Verfahren",
+    "die Streifenmethode",
+    "die Monte-Carlo-Methode"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Streifenmethode rechnet immer mit denselben Rechtecken, ohne Zufall. Bei der Monte-Carlo-Methode fallen die Punkte jedes Mal anders."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Viertelkreis (Radius 1) wird in 5 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das bis über den Bogen reicht (Höhe am linken Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.44,
+    "toleranz": 0.01
+   },
+   "c": "round(3.437048828884, 2)",
+   "w": "Breite je Streifen 0,2; Höhen 1, √(1 − 0,2²), √(1 − 0,4²), √(1 − 0,6²), √(1 − 0,8²). Summe der Flächen ≈ 0,8593; mal 4 ≈ 3,44 (zu groß)."
   }
  ],
  "offen": [
   "Prüfung eingearbeitet (Runde 3): Baumdiagramme (Bildtyp „baum“) in den Lernkarten pfad_mult, pfad_add, ohne_zuruecklegen, gegenereignis, baum_ergaenzen sowie in Aufgaben (Pfadregel Stufe 1, ohne Zurücklegen mit „?“ auf der 2. Stufe, Baum ergänzen, Test bei Tieren); die Pfad-Tabellen entfallen. Neu: „mindestens ein Gewinn“ ohne Zurücklegen; Freiwurfquoten 0,6–0,9; keine Ablenker über 1; Ast-Paare nicht nur vertauscht; Simulationsergebnisse nahe am Erwartungswert.",
   "Simulation: nur Auswertung (relative Häufigkeit, erwartete Anzahl, Gesetz der großen Zahlen). Selbst simulieren (Zufallszahlen erzeugen) kann das Kind in der App nicht.",
-  "Brüche als Antwort über Lücken „□/□“ (gekürzt)."
+  "Brüche als Antwort über Lücken „□/□“ (gekürzt).",
+  "Achtzehnte Runde (luecken-kl10): neue Lernkarte „pi_schaetzen“ nach „simulation“ (LehrplanPLUS M10 2: π mit der Monte-Carlo-Methode nähern und mit der Streifenmethode vergleichen). Viertelkreis als gefüllte Fläche (Vieleck mit 24 Ecken), Zufallspunkte und Streifen im Koordinatensystem. Selbst simulieren kann das Kind weiter nicht (App-Wunsch Simulationsknopf)."
  ]
 }

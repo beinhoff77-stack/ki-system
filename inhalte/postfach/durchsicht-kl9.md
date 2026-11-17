@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 13:29 – STATUS
+gleichungen.potenz fertig: 15 umgestuft (Kartenbeispiele auf Stufe 1, bloße Wiederholungen von 3 auf 2). Keine Karte geändert. inhalt_pruefen OK, Nachweis OK.
+
+## 2026-11-17 13:29 – STATUS
 funktionen.potenz fertig: 18 umgestuft, 1 berichtigt (Lösungsweg ohne x^(1/2)), 10 ersetzt (wurzelfunktion: Schreibweise x^(1/2), x^(1/3) erklärt erst das spätere Thema zahlen.rationale_exponenten → √x, ∛x; 5 Übungen, 4 Test/Korrektur/Sicherung, 1 Stufe-3-Aufgabe). Keine Karte geändert. inhalt_pruefen OK, Nachweis OK.
 
 ## 2026-11-17 13:28 – STATUS

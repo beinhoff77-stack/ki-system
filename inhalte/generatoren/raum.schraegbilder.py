@@ -590,3 +590,172 @@ def durchsicht():
 
 if __name__ == '__main__':
     durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl10) ----------
+def stufen():
+    import math
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _stufen_kl10 import Stufen
+    S = Stufen('raum.schraegbilder', 2080)
+    Z, A, L, ZR = S.Z, S.A, S.L, S.ZR
+
+    # --- pyramide ---
+    S.stufenleiter('pyramide', 'Ecken, Kanten und Flächen einer n-seitigen Pyramide zählen; Pyramiden erkennen.',
+                   'Rückwärts zur Eckenzahl der Grundfläche, Körper aus Kennzahlen, Kantensummen, Prisma und Pyramide zusammen.',
+                   'Eulersche Zahl, Drahtmodell, zusammengesetzte Körper, n als Parameter, Fehler beim Zählen, gerade Kantenzahl begründen, Seitenkante wie in der Prüfung.')
+    S.g('pyramide', direkt=[0, 1, 2, 3], umkehr=[4, 6, 5, 8, 24], darstellung=[7, 9, 25], mehrschritt=[10, 12, 11, 13],
+        verknuepfen=[26], transfer=[27, 28], parameter=[29])
+    S.ueberzaehlig(2, 6, 8, 9, 13)
+    S.neu('pyramide', 'erkennen', A('Welcher Körper hat genau eine Spitze und ein Vieleck als Grundfläche?', 'Pyramide', ['Prisma', 'Kegel', 'Zylinder'],
+                                    'Ein Kegel hat eine Spitze, aber einen Kreis als Grundfläche. Prisma und Zylinder haben keine Spitze.', 'Achte auf Spitze und Grundfläche.'))
+    S.neu('pyramide', 'erkennen', A('Was gilt für jede Pyramide?', 'Ihre Seitenflächen sind Dreiecke.', ['Ihre Grundfläche ist ein Quadrat.', 'Alle Kanten sind gleich lang.', 'Sie hat 5 Ecken.'],
+                                    'Jede Seitenfläche verbindet eine Grundkante mit der Spitze: ein Dreieck. Die Grundfläche kann jedes Vieleck sein.', 'Denke an eine dreiseitige und eine sechsseitige Pyramide.'))
+    S.neu('pyramide', 'fehler', A('Jemand sagt: „Eine sechsseitige Pyramide hat 6 Ecken, 6 Kanten und 6 Flächen.“ Was stimmt?', 'Falsch: Sie hat 7 Ecken, 12 Kanten und 7 Flächen.',
+                                  ['Richtig.', 'Falsch: 6 Ecken, 12 Kanten, 6 Flächen.', 'Falsch: 7 Ecken, 6 Kanten, 7 Flächen.'],
+                                  'Ecken: 6 + Spitze = 7. Kanten: 6 unten + 6 zur Spitze = 12. Flächen: 6 Dreiecke + Grundfläche = 7.', 'Vergiss Spitze, Seitenkanten und Grundfläche nicht.'))
+    S.neu('pyramide', 'begruenden', A('Kann eine Pyramide 15 Kanten haben?', 'Nein: Eine n-seitige Pyramide hat 2n Kanten, also immer eine gerade Anzahl.',
+                                      ['Ja, eine 15-seitige Pyramide.', 'Ja, eine 7,5-seitige Pyramide.', 'Nein, Pyramiden haben höchstens 12 Kanten.'],
+                                      'n Grundkanten und n Seitenkanten: 2n. 15 ist ungerade.', 'Stelle die Kantenzahl mit n auf.'))
+    S.neu('pyramide', 'rueckwaerts', Z('Bei einer Pyramide ergeben Ecken + Kanten + Flächen zusammen 50. Wie viele Ecken hat ihre Grundfläche?', 12, '(50 - 2) // 4',
+                                       'Ecken n + 1, Kanten 2n, Flächen n + 1: zusammen 4n + 2 = 50 ⇒ n = 12.', 'Stelle alle drei Zahlen mit n auf.'))
+    S.neu('pyramide', 'pruefung', ZR('Eine quadratische Pyramide hat die Grundkante 6 cm und die Höhe 4 cm. Wie lang ist eine Seitenkante? Runde auf eine Nachkommastelle.', math.sqrt(16 + 18), 1,
+                                     'Halbe Diagonale der Grundfläche: 6 · √2 : 2 ≈ 4,24 cm. Seitenkante = √(4² + 4,24²) = √34 ≈ 5,8 cm.', 'Rechtwinkliges Dreieck aus Höhe, halber Diagonale und Seitenkante.', einheit='cm'))
+    S.bonus('pyramide', Z('An allen 8 Ecken eines Würfels wird eine kleine Ecke so abgeschnitten, dass jeweils ein Dreieck als neue Fläche entsteht. Wie viele Kanten hat der neue Körper?', 36, '12 + 8 * 3',
+                          'Die 12 Würfelkanten bleiben (gekürzt) erhalten. Jedes der 8 neuen Dreiecke bringt 3 neue Kanten: 12 + 24 = 36.', 'Welche Kanten bleiben, welche kommen dazu?'))
+    S.bonus('pyramide', Z('Zwei gleiche quadratische Pyramiden werden mit ihren Grundflächen genau aufeinandergeklebt. Wie viele Kanten hat der neue Körper?', 12, '4 + 4 + 4',
+                          'Die 4 Grundkanten werden gemeinsam genutzt, dazu je 4 Seitenkanten oben und unten: 4 + 4 + 4 = 12 (ein Oktaeder).', 'Welche Kanten fallen beim Kleben zusammen?'))
+
+    # --- laengen ---
+    S.stufenleiter('laengen', 'Im Schrägbild nach hinten führende Kanten mit q verkürzen, alle anderen in wahrer Länge zeichnen.',
+                   'Wahre Tiefe aus der gezeichneten Länge, Summen gezeichneter Kanten, andere q, Maßstab.',
+                   'Volumen aus dem Schrägbild, Restkörper und Oberfläche begründen, q als Parameter, Fehler bei senkrechten Kanten, gezeichnete Diagonale und Fläche mit Trigonometrie.')
+    S.g('laengen', direkt=[30, 31, 33, 32, 40, 43, 41, 42], mehrschritt=[34, 37, 54], umkehr=[35, 36, 38, 39, 55],
+        rueckwaerts=[56], verknuepfen=[57], begruenden=[58], transfer=[59])
+    S.ueberzaehlig(33, 32, 43, 41, 42, 37)
+    S.neu('laengen', 'erkennen', A('Welche Kanten zeichnet man im Schrägbild verkürzt?', 'nur die Kanten, die nach hinten führen', ['alle Kanten', 'nur die senkrechten Kanten', 'keine Kante'],
+                                   'Breite und Höhe erscheinen in wahrer Länge; nur die Tiefe wird mit q verkürzt.', 'Was soll den räumlichen Eindruck erzeugen?'))
+    S.neu('laengen', 'erkennen', A('Unter welchem Winkel ω zeichnet man im Schrägbild üblicherweise die nach hinten führenden Kanten?', '45°', ['90°', '30°', '60°'],
+                                   'Üblich sind q = 1/2 und ω = 45°.', 'Denke an die Zeichnung auf Karopapier.'))
+    S.neu('laengen', 'einkleidung', Z('Ein Schuhkarton (30 cm breit, 12 cm hoch, 18 cm tief) wird im Maßstab 1 : 3 als Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die Tiefe?', 3, '18 / 3 / 2',
+                                      'Maßstab: 18 cm : 3 = 6 cm; verkürzt mit q = 1/2: 3 cm.', 'Erst den Maßstab, dann q.', einheit='cm'))
+    S.neu('laengen', 'fehler', A('Jemand zeichnet einen Würfel (Kante 4 cm) im Schrägbild mit q = 1/2 und zeichnet auch die senkrechten Kanten 2 cm lang. Was stimmt?',
+                                 'Falsch: Nur die nach hinten führenden Kanten werden verkürzt; die senkrechten bleiben 4 cm.', ['Richtig.', 'Falsch: Alle Kanten müssen 2 cm lang sein.', 'Falsch: Die senkrechten Kanten müssen 8 cm lang sein.'],
+                                 'Die Vorderfläche erscheint unverzerrt als Quadrat 4 cm × 4 cm.', 'Welche Richtung wird verkürzt?'))
+    S.neu('laengen', 'parameter', L('Im Schrägbild eines Würfels mit 6 cm Kantenlänge sind die nach hinten führenden Kanten 4 cm lang gezeichnet. Welcher Verkürzungsfaktor q wurde verwendet?', 'q = □/□', [2, 3], ['2', '3'],
+                                    'q = 4 : 6 = 2/3.', 'q = gezeichnete Länge : wahre Länge.', hinweis='gekürzter Bruch'))
+    S.neu('laengen', 'pruefung', ZR('Ein Würfel mit 4 cm Kantenlänge wird im Schrägbild (q = 1/2, ω = 45°) gezeichnet. Wie lang ist im Bild die Diagonale AC der Grundfläche (A vorne links, C hinten rechts)? Runde auf eine Nachkommastelle.',
+                                    math.hypot(4 + math.sqrt(2), math.sqrt(2)), 1,
+                                    'Gezeichnet: AB = 4 cm waagrecht, BC = 2 cm unter 45°, also um √2 ≈ 1,41 cm nach rechts und nach oben. AC = √((4 + 1,41)² + 1,41²) ≈ √31,3 ≈ 5,6 cm (wahre Länge 5,66 cm).',
+                                    'Zerlege die schräge Kante in einen waagrechten und einen senkrechten Anteil.', einheit='cm'))
+    S.neu('laengen', 'verknuepfen', ZR('Ein Quader (6 cm breit, 4 cm tief) wird im Schrägbild mit q = 1/2 und ω = 45° gezeichnet. Wie groß ist die gezeichnete Grundfläche (ein Parallelogramm)? Runde auf eine Nachkommastelle.',
+                                       6 * 2 * math.sin(math.radians(45)), 1, 'Seiten 6 cm und 2 cm, Winkel 45°: Höhe 2 · sin 45° ≈ 1,41 cm. Fläche 6 · 1,41 ≈ 8,5 cm² (wahre Fläche 24 cm²).',
+                                       'Parallelogramm: Grundseite mal Höhe; die Höhe liefert der Sinus.', einheit='cm²'))
+    S.bonus('laengen', ZR('Ein Würfel wird im Schrägbild mit q = 1/2 gezeichnet. Wie viel Prozent der Gesamtlänge aller 12 Kanten spart man beim Zeichnen? Runde auf eine Nachkommastelle.', 100 / 6, 1,
+                          'Von 12 gleich langen Kanten führen 4 nach hinten und werden halb so lang. Gespart: 4 · 1/2 = 2 Kantenlängen von 12, also 1/6 ≈ 16,7 %.', 'Wie viele Kanten führen nach hinten?', einheit='%'))
+    S.bonus('laengen', Z('Ein Quader ist 4 cm breit und 4 cm hoch. Im Schrägbild mit q = 1/2 sind alle gezeichneten Kanten gleich lang. Wie tief ist der Quader in Wirklichkeit?', 8, '4 * 2',
+                         'Die Tiefe wird halbiert gezeichnet und soll 4 cm lang erscheinen: wahre Tiefe 8 cm. Das Bild sieht aus wie ein Würfel – ist aber keiner.', 'Rechne rückwärts mit q.', einheit='cm'))
+
+    # --- lage ---
+    S.stufenleiter('lage', 'Lage zweier Würfelkanten erkennen: schneidend, parallel oder windschief.',
+                   'Diagonalen einbeziehen, gesuchte Kanten mit vorgegebener Lage finden, Gegenkanten.',
+                   'Windschiefe Diagonalen, Anzahlen zählen, Fehler „nicht in einer Fläche“, Raumdiagonale berechnen, Winkel im Würfel wie in der Prüfung.')
+    S.g('lage', erkennen=[62, 63, 64, 68, 69, 90, 65], direkt=[60, 61, 66, 67], mehrschritt=[70, 71], umkehr=[84, 72, 73], darstellung=[85],
+        transfer=[86, 87, 88], begruenden=[89])
+    S.ueberzaehlig(64, 68, 69, 65, 66, 67)
+    S.neu('lage', 'fehler', A('Quader ABCDEFGH (ABCD unten, E über A, …). Jemand sagt: „AB und GH sind windschief, weil sie nicht in derselben Seitenfläche liegen.“ Was stimmt?',
+                              'Falsch: AB und GH sind parallel; sie liegen in der Ebene durch A, B, G und H.', ['Richtig.', 'Falsch: Sie schneiden sich.', 'Falsch: Sie sind senkrecht zueinander.'],
+                              'Beide verlaufen in Längsrichtung. Parallele Geraden liegen immer in einer gemeinsamen Ebene, auch wenn das keine Seitenfläche ist.', 'In welche Richtung verlaufen AB und GH?'))
+    S.neu('lage', 'rueckwaerts', A('Quader ABCDEFGH (ABCD unten, E über A, F über B, G über C, H über D). Eine Strecke beginnt in E und ist windschief zu AB und zu BC. Welche kann es sein?', 'EG',
+                                   ['EF', 'EH', 'EA'], 'EF ∥ AB, EH ∥ BC, EA schneidet AB. Die Flächendiagonale EG liegt oben, ist zu keiner der beiden parallel und trifft sie nicht.', 'Prüfe jede Strecke gegen AB und BC.'))
+    S.neu('lage', 'verknuepfen', Z('Ein Quader hat die Kanten 3 cm, 4 cm und 12 cm. Wie lang ist eine Raumdiagonale?', 13, '13',
+                                   'Grundflächendiagonale √(3² + 4²) = 5; Raumdiagonale √(5² + 12²) = √169 = 13 cm.', 'Zweimal Pythagoras.', einheit='cm'))
+    S.neu('lage', 'pruefung', ZR('In einem Würfel ABCDEFGH: Wie groß ist der Winkel zwischen der Raumdiagonale AG und der Flächendiagonale AC? Runde auf eine Nachkommastelle.',
+                                 math.degrees(math.atan(1 / math.sqrt(2))), 1, 'Dreieck ACG ist rechtwinklig bei C. Mit Kante a: AC = a√2, CG = a. tan α = a : (a√2) = 1/√2 ⇒ α ≈ 35,3°.',
+                                 'Welches rechtwinklige Dreieck enthält beide Diagonalen?', einheit='°'))
+    S.bonus('lage', Z('Wie viele Paare zueinander windschiefer Kanten hat ein Würfel?', 24, '12 * 4 // 2',
+                      'Jede der 12 Kanten ist zu genau 4 Kanten windschief. 12 · 4 = 48 zählt jedes Paar doppelt: 24 Paare.', 'Zähle für eine Kante und achte auf doppelt gezählte Paare.'))
+    S.bonus('lage', Z('Wie viele Paare zueinander paralleler Kanten hat ein Würfel?', 18, '3 * 6',
+                      'Je 4 Kanten zeigen in dieselbe von 3 Richtungen. Aus 4 Kanten lassen sich 6 Paare bilden: 3 · 6 = 18.', 'Ordne die Kanten nach ihrer Richtung.'))
+
+    # --- koordinaten ---
+    S.stufenleiter('koordinaten', 'Ecken eines achsenparallelen Quaders ablesen und einzelne Koordinaten erkennen.',
+                   'Mittelpunkte, Kantenlängen und Volumen aus Koordinaten, Punkte im Zimmer, Punkte auf Achsen.',
+                   'Fehler beim Mittelpunkt, Würfel aus dem Mittelpunkt, Lage von Punkten begründen, Parameter auf einer Kante, Abstände, Winkel wie in der Prüfung.')
+    S.g('koordinaten', direkt=[91, 92, 93, 94, 115], erkennen=[95, 96, 97, 100, 98, 99], mehrschritt=[101, 102, 103, 104, 118], umkehr=[116],
+        fehler=[117], rueckwaerts=[119], transfer=[120])
+    S.ueberzaehlig(92, 94, 96, 99, 100, 103, 104)
+    S.neu('koordinaten', 'einkleidung', Z('Ein Zimmer ist 5 m lang, 4 m breit und 2,5 m hoch; eine Bodenecke ist der Ursprung. Eine Lampe hängt genau in der Mitte der Decke. Welche z-Koordinate hat sie?', 2.5, '2.5',
+                                          'Die Decke liegt in der Höhe 2,5 m, also z = 2,5 (die Lampe hat die Koordinaten (2,5 | 2 | 2,5)).', 'z gibt die Höhe an.', einheit='m'))
+    S.neu('koordinaten', 'darstellung', A('Welcher Punkt liegt auf der z-Achse?', '(0 | 0 | 4)', ['(4 | 0 | 0)', '(0 | 4 | 0)', '(4 | 4 | 4)'],
+                                          'Auf der z-Achse sind x- und y-Koordinate 0.', 'Welche Koordinaten sind auf der z-Achse null?'))
+    S.neu('koordinaten', 'parameter', Z('Quader mit A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 6 | 0), E(0 | 0 | 3). Der Punkt P(4 | 3 | k) liegt auf der Kante FG. Bestimme k.', 3, '3',
+                                        'F(4 | 0 | 3), G(4 | 6 | 3): Auf FG ist z immer 3. Also k = 3.', 'Bestimme zuerst F und G.'))
+    S.neu('koordinaten', 'verknuepfen', Z('Wie lang ist die Strecke von A(0 | 0 | 0) zu G(2 | 3 | 6)?', 7, '7', '√(2² + 3² + 6²) = √49 = 7.', 'Raumdiagonale: zweimal Pythagoras.'))
+    S.neu('koordinaten', 'pruefung', ZR('Ein Quader hat A(0 | 0 | 0) und G(8 | 6 | 5). Wie groß ist der Winkel zwischen der Raumdiagonale AG und der Grundfläche? Runde auf eine Nachkommastelle.',
+                                        math.degrees(math.atan(5 / 10)), 1, 'AC = √(8² + 6²) = 10, CG = 5. tan α = 5 : 10 ⇒ α ≈ 26,6°.', 'Rechtwinkliges Dreieck ACG.', einheit='°'))
+    S.neu('koordinaten', 'begruenden', A('Kann ein Punkt mit einer negativen Koordinate im Quader mit A(0 | 0 | 0) und G(4 | 6 | 2) liegen?', 'Nein: Alle Punkte dieses Quaders haben Koordinaten zwischen 0 und den Werten von G.',
+                                         ['Ja, wenn die anderen Koordinaten klein genug sind.', 'Ja, auf der Kante AB.', 'Nur die z-Koordinate darf negativ sein.'],
+                                         'Der Quader reicht in x von 0 bis 4, in y von 0 bis 6, in z von 0 bis 2.', 'Zwischen welchen Werten liegen x, y und z?'))
+    S.neu('koordinaten', 'rueckwaerts', Z('M(2 | 5 | 1,5) ist der Mittelpunkt der Raumdiagonale AG eines Quaders mit A(0 | 0 | 0). Welches Volumen hat der Quader?', 120, '4 * 10 * 3',
+                                          'G = 2 · M = (4 | 10 | 3). Volumen 4 · 10 · 3 = 120.', 'Verdopple die Koordinaten von M.'))
+    S.bonus('koordinaten', Z('Wie viele Punkte mit ganzzahligen Koordinaten liegen im Würfel mit A(0 | 0 | 0) und G(2 | 2 | 2), Rand mitgezählt?', 27, '3 ** 3',
+                             'Jede Koordinate kann 0, 1 oder 2 sein: 3 · 3 · 3 = 27 Punkte.', 'Wie viele Werte kann jede Koordinate annehmen?'))
+    S.bonus('koordinaten', Z('Im Würfel mit A(0 | 0 | 0) und G(4 | 4 | 4): Wie viele Punkte mit ganzzahligen Koordinaten liegen auf der Oberfläche (Rand)?', 98, '5 ** 3 - 3 ** 3',
+                             'Insgesamt 5³ = 125 Gitterpunkte (Werte 0 bis 4). Im Inneren liegen die mit Werten 1 bis 3: 3³ = 27. Auf dem Rand: 125 − 27 = 98.', 'Zähle alle und ziehe die inneren ab.'))
+
+    # --- rotation ---
+    S.stufenleiter('rotation', 'Erkennen, welcher Körper bei einer Drehung entsteht, und Radius und Höhe ablesen.',
+                   'Unterschiede bei verschiedenen Drehachsen, Radius aus Durchmesser, Volumen und Grundfläche, Figur zu einem Körper.',
+                   'Drehung um Mittellinie, Diagonale oder eine Achse außerhalb, Fehler „Kegel statt Doppelkegel“, Rechteck rückwärts, Kegelvolumen wie in der Prüfung.')
+    S.g('rotation', erkennen=[121, 122, 123, 124, 146], direkt=[125, 128, 129, 126, 127, 130, 145], mehrschritt=[132], umkehr=[133, 134],
+        begruenden=[131], transfer=[147, 148, 149], verknuepfen=[150])
+    S.ueberzaehlig(124, 128, 127, 134)
+    S.neu('rotation', 'einkleidung', ZR('Eine Vase entsteht, wenn sich ein Rechteck (12 cm hoch, 5 cm breit) um seine 12-cm-Seite dreht. Wie viel Wasser fasst sie höchstens? Runde auf ganze cm³.', math.pi * 25 * 12, 0,
+                                        'Zylinder mit r = 5 cm und h = 12 cm: V = π · 5² · 12 ≈ 942 cm³.', 'Welche Seite wird zum Radius?', einheit='cm³'))
+    S.neu('rotation', 'einkleidung', Z('Ein Kreisel entsteht, wenn sich ein rechtwinkliges Dreieck (Katheten 3 cm und 5 cm) um die 5-cm-Kathete dreht. Wie breit ist der Kreisel an der breitesten Stelle?', 6, '2 * 3',
+                                       'Die 3-cm-Kathete wird zum Radius; der Durchmesser ist 6 cm.', 'Breite = Durchmesser.', einheit='cm'))
+    S.neu('rotation', 'darstellung', A('Welche Figur muss man drehen, um einen Kegel mit r = 4 cm und h = 9 cm zu erhalten?', 'ein rechtwinkliges Dreieck mit den Katheten 4 cm und 9 cm, gedreht um die 9-cm-Kathete',
+                                       ['dasselbe Dreieck, gedreht um die 4-cm-Kathete', 'ein Rechteck 4 cm × 9 cm, gedreht um die 9-cm-Seite', 'ein Halbkreis mit Radius 4 cm'],
+                                       'Die Drehachse wird zur Höhe (9 cm), die andere Kathete zum Radius (4 cm).', 'Welche Seite liegt auf der Achse?'))
+    S.neu('rotation', 'mehrschritt', ZR('Ein Rechteck 3 cm × 7 cm dreht sich um die 7-cm-Seite. Wie groß ist die Grundfläche des Zylinders? Runde auf eine Nachkommastelle.', math.pi * 9, 1,
+                                        'r = 3 cm: G = π · 3² ≈ 28,3 cm².', 'Bestimme zuerst den Radius.', einheit='cm²'))
+    S.neu('rotation', 'fehler', A('Jemand sagt: „Dreht sich ein rechtwinkliges Dreieck um seine Hypotenuse, entsteht ein Kegel.“ Was stimmt?', 'Falsch: Es entsteht ein Doppelkegel (zwei Kegel mit gemeinsamer Grundfläche).',
+                                  ['Richtig.', 'Falsch: Es entsteht ein Zylinder.', 'Falsch: Es entsteht eine Kugel.'],
+                                  'Die Ecke mit dem rechten Winkel liegt nicht auf der Achse; sie beschreibt einen Kreis – auf beiden Seiten entsteht eine Kegelspitze.', 'Welche Ecken liegen auf der Achse?'))
+    S.neu('rotation', 'rueckwaerts', Z('Ein Zylinder mit r = 3 cm und h = 8 cm entstand durch Drehung eines Rechtecks um eine Seite. Welchen Flächeninhalt hatte das Rechteck?', 24, '3 * 8',
+                                       'Das Rechteck hatte die Seiten r = 3 cm und h = 8 cm: 24 cm².', 'Welche Seiten hatte das Rechteck?', einheit='cm²'))
+    S.neu('rotation', 'pruefung', ZR('Ein rechtwinkliges Dreieck mit den Katheten 6 cm und 8 cm dreht sich um die 8-cm-Kathete. Berechne das Volumen des entstehenden Kegels. Runde auf ganze cm³.',
+                                     math.pi * 36 * 8 / 3, 0, 'r = 6 cm, h = 8 cm: V = 1/3 · π · 36 · 8 = 96π ≈ 302 cm³.', 'Radius und Höhe aus den Katheten, dann V = 1/3 · π · r² · h.', einheit='cm³'))
+    S.bonus('rotation', Z('Ein Quadrat (Seite 2 cm) dreht sich einmal um eine Seite und einmal um eine Mittellinie (parallel zu einer Seite). Wievielmal so groß ist das Volumen im ersten Fall?', 4, '(2 ** 2 * 2) // (1 ** 2 * 2)',
+                          'Erster Fall: r = 2, h = 2, V = 8π. Zweiter Fall: r = 1, h = 2, V = 2π. Verhältnis 4 – halber Radius, Viertel Volumen.', 'Bestimme jeweils r und h.'))
+    S.bonus('rotation', L('Ein rechtwinkliges Dreieck (Katheten 3 cm und 4 cm) dreht sich einmal um die 3-cm- und einmal um die 4-cm-Kathete. In welchem Verhältnis stehen die Volumina (erster : zweiter)?', '□ : □', [4, 3], ['4', '3'],
+                          'Um 3 cm: r = 4, h = 3, V = 1/3 · π · 16 · 3 = 16π. Um 4 cm: r = 3, h = 4, V = 12π. 16π : 12π = 4 : 3. Der Radius zählt quadratisch, deshalb gewinnt der größere Radius.',
+                          'Bestimme jeweils r und h.', hinweis='gekürztes Verhältnis'))
+
+    # --- axialschnitt ---
+    S.stufenleiter('axialschnitt', 'Die Form des Axialschnitts erkennen und Breite und Fläche beim Zylinder angeben.',
+                   'Kegelfläche, Umfang, Radius rückwärts aus der Fläche, Kugel.',
+                   'Zusammengesetzte Spielfigur, gleichseitiger und quadratischer Axialschnitt, Fehler „Radius statt Durchmesser“, rechtwinkliges Dreieck begründen, Mantellinie wie in der Prüfung.')
+    S.g('axialschnitt', erkennen=[151, 152], direkt=[153, 154, 155, 157, 158], mehrschritt=[156, 159, 160, 175], umkehr=[161, 162, 164, 163], darstellung=[176],
+        transfer=[177, 178], rueckwaerts=[179], verknuepfen=[180])
+    S.ueberzaehlig(154, 158)
+    S.neu('axialschnitt', 'fehler', A('Jemand berechnet den Axialschnitt eines Zylinders (r = 4 cm, h = 10 cm) als 4 · 10 = 40 cm². Was stimmt?', 'Falsch: Die Breite ist der Durchmesser 8 cm, also 80 cm².',
+                                      ['Richtig.', 'Falsch: π · 4² · 10 ≈ 503 cm².', 'Falsch: 4 + 10 = 14 cm².'], 'Der Schnitt geht durch die Achse und erfasst den ganzen Durchmesser.', 'Wie breit ist der Schnitt?'))
+    S.neu('axialschnitt', 'begruenden', A('Kann der Axialschnitt eines Kegels ein rechtwinkliges Dreieck sein?', 'Ja, wenn h = r ist; dann hat die Spitze einen rechten Winkel.',
+                                          ['Nein, er ist immer gleichseitig.', 'Nein, er ist immer stumpfwinklig.', 'Ja, wenn h = 2r ist.'],
+                                          'Halber Spitzenwinkel: tan φ = r : h. Für h = r ist φ = 45°, also der Spitzenwinkel 90°.', 'Betrachte das halbe Dreieck aus h, r und Mantellinie.'))
+    S.neu('axialschnitt', 'parameter', Z('Der Axialschnitt eines Zylinders mit r = 5 cm ist ein Quadrat. Wie hoch ist der Zylinder?', 10, '2 * 5', 'Quadrat: Höhe = Breite = Durchmesser = 10 cm.', 'Wie breit ist der Axialschnitt?', einheit='cm'))
+    S.neu('axialschnitt', 'pruefung', Z('Der Axialschnitt eines Kegels hat den Flächeninhalt 48 cm² und die Breite 12 cm. Wie lang ist eine Mantellinie?', 10, '10',
+                                        'Dreieck: 1/2 · 12 · h = 48 ⇒ h = 8 cm. r = 6 cm. Mantellinie s = √(6² + 8²) = 10 cm.', 'Bestimme zuerst die Höhe aus der Dreiecksfläche.', einheit='cm'))
+    S.bonus('axialschnitt', Z('Der Axialschnitt eines Zylinders hat den Umfang 40 cm. Bei welcher Höhe ist seine Fläche am größten?', 10, '40 / 4',
+                              'Umfang 2 · (2r + h) = 40 ⇒ 2r + h = 20. Fläche 2r · h ist bei fester Summe am größten, wenn beide Teile gleich sind: 2r = h = 10 cm (ein Quadrat).',
+                              'Probiere einige Paare (Breite, Höhe) mit Summe 20.', einheit='cm'))
+    S.bonus('axialschnitt', Z('Ein Kegel und ein Zylinder haben denselben Radius und dieselbe Höhe. Wievielmal so groß ist der Axialschnitt des Zylinders wie der des Kegels?', 2, '2',
+                              'Zylinder: Rechteck 2r · h. Kegel: Dreieck 1/2 · 2r · h = r · h. Verhältnis 2.', 'Vergleiche Rechteck und Dreieck mit gleicher Grundseite und Höhe.'))
+    S.anwenden()
+
+
+if __name__ == '__main__':
+    stufen()  # Zwanzigste Runde (stufen-kl10) – ganz am Ende

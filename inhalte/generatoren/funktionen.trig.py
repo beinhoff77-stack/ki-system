@@ -1439,3 +1439,165 @@ def durchsicht():
 
 if __name__ == '__main__':
     durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl10) ----------
+def stufen():
+    import math
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _stufen_kl10 import Stufen
+    S = Stufen('funktionen.trig', 2050)
+    Z, A, L, ZR = S.Z, S.A, S.L, S.ZR
+
+    def P(text, z, n, w, h):     # Bruch vor π
+        return L(text, '□/□ · π', [z, n], [str(z), str(n)], w, h, hinweis='Bruch vor π (gekürzt)')
+
+    # --- bogenmass ---
+    S.stufenleiter('bogenmass', 'Gradmaß und Bogenmaß für Standardwinkel umrechnen; wissen, dass der volle Kreis 2π hat.',
+                   'Beliebige Winkel mit dem Rechner umrechnen, negative Winkel, Winkel der Größe nach ordnen.',
+                   'Bogenlängen bei Radius r, Winkel aus Bogen und Radius rückwärts, Laufbahnen und Uhrzeiger, Radius als Parameter, Fehler „2 · 180°“.')
+    S.g('bogenmass', direkt=[0, 1, 2, 3, 4, 5, 238, 6, 10, 11, 239, 7, 9, 8], mehrschritt=[12, 17, 15, 196, 240], umkehr=[197, 241], darstellung=[242],
+        verknuepfen=[13, 16, 243], rueckwaerts=[14, 244], parameter=[198], transfer=[199, 200, 245], fehler=[201])
+    S.ueberzaehlig(10, 11, 7, 9, 8)
+    S.neu('bogenmass', 'erkennen', A('Wie groß ist ein voller Kreis im Bogenmaß?', '2π', ['π', '360', 'π/2'], 'Der Einheitskreis hat den Umfang 2π; das gehört zu 360°.', 'Denke an den Umfang des Einheitskreises.'))
+    S.neu('bogenmass', 'erkennen', A('Ungefähr wie viel Grad sind 1 im Bogenmaß?', 'etwa 57°', ['1°', '180°', '90°'],
+                                     '1 · 180° : π ≈ 57,3°. Ein Bogen so lang wie der Radius gehört zu etwa 57°.', 'π ist etwa 3,14 und gehört zu 180°.'))
+    S.bonus('bogenmass', Z('Ein Zeiger dreht sich um den Winkel 1 000 (im Bogenmaß). Wie viele volle Umdrehungen hat er dabei gemacht?', 159, '159',
+                           'Eine Umdrehung ist 2π ≈ 6,283. 1 000 : 6,283 ≈ 159,15, also 159 volle Umdrehungen.', 'Wie groß ist eine Umdrehung im Bogenmaß?'))
+    S.bonus('bogenmass', P('Um 12 Uhr stehen Stunden- und Minutenzeiger übereinander. Um welchen Winkel (im Bogenmaß) hat sich der Stundenzeiger gedreht, wenn sich beide zum ersten Mal wieder decken?', 2, 11,
+                           'Der Minutenzeiger ist 12-mal so schnell. Er muss eine Runde mehr schaffen: 12φ = φ + 2π ⇒ 11φ = 2π ⇒ φ = 2π/11 (um etwa 13:05 Uhr).',
+                           'Der Minutenzeiger überholt den Stundenzeiger – um wie viel mehr hat er sich gedreht?'))
+
+    # --- werte ---
+    S.stufenleiter('werte', 'Exakte Werte für Standardwinkel und Rechnerwerte im RAD-Modus angeben; Sinus als Höhe am Einheitskreis.',
+                   'Werte über Bezugswinkel in allen Quadranten, Wurzelwerte, negative Winkel, Winkel zu einem Sinuswert, Riesenrad.',
+                   'Vorzeichen ohne Rechner begründen, Symmetrien am Einheitskreis, Gleichungen rückwärts, exakte Summen wie im Abitur Teil A, Fehler im DEG-Modus.')
+    S.g('werte', direkt=[28, 247, 31, 32, 246, 29, 30, 35, 33, 34], mehrschritt=[36, 203, 248, 37, 38, 39, 40, 42, 202, 249], darstellung=[250],
+        begruenden=[41, 45, 43, 44], verknuepfen=[204], rueckwaerts=[205, 252], pruefung=[206, 251], transfer=[207], fehler=[253])
+    S.ueberzaehlig(247, 31, 246, 30, 35, 33, 34, 203, 248, 38, 39, 40, 249, 45, 44)
+    S.neu('werte', 'erkennen', A('Was gibt sin x am Einheitskreis an?', 'die Höhe (y-Koordinate) des zugehörigen Punktes', ['seine x-Koordinate', 'die Länge des Bogens', 'den Radius'],
+                                 'Am Einheitskreis gehört zum Winkel x der Punkt (cos x | sin x): sin x ist die Höhe.', 'Denke an die Gondel im Riesenrad.'))
+    S.neu('werte', 'erkennen', A('Welcher Modus muss am Taschenrechner eingestellt sein, wenn x im Bogenmaß angegeben ist?', 'RAD', ['DEG', 'STAT', 'FIX'],
+                                 'RAD steht für radiant (Bogenmaß), DEG für degree (Grad).', 'Wie heißt das Bogenmaß auf Englisch?'))
+    S.neu('werte', 'umkehr', P('Für welchen Winkel x mit 0 ≤ x ≤ π/2 gilt sin x = 0,5? Gib x als Vielfaches von π an.', 1, 6, 'sin 30° = 0,5 und 30° = π/6.', 'Bei welchem Gradwinkel ist die Höhe der halbe Radius?'))
+    S.neu('werte', 'einkleidung', Z('Die Mitte eines Riesenrads liegt 12 m über dem Boden, der Radius ist 10 m. Eine Gondel startet rechts auf Höhe der Mitte und dreht sich um π/6 nach oben. Wie hoch ist sie dann über dem Boden?',
+                                    17, '12 + 10 * 0.5', 'Höhe über der Mitte: 10 · sin(π/6) = 10 · 0,5 = 5 m. Über dem Boden: 12 + 5 = 17 m.', 'Die Höhe über der Mitte ist r · sin x.', einheit='m'))
+    S.bonus('werte', Z('Berechne ohne Taschenrechner: sin(π/6) + sin(2π/6) + sin(3π/6) + … + sin(12π/6) (zwölf Summanden).', 0, '0',
+                       'Die Winkel π/6, 2π/6, …, 12π/6 = 2π verteilen sich gleichmäßig über eine volle Runde. Zu jedem Winkel x gehört x + π mit sin(x + π) = −sin x: '
+                       'π/6 mit 7π/6, 2π/6 mit 8π/6 usw. Die Paare heben sich auf, die Summe ist 0.', 'Suche Paare, deren Sinuswerte sich aufheben.'))
+    S.bonus('werte', Z('Für wie viele ganze Zahlen n mit 1 ≤ n ≤ 100 gilt sin(n · π/2) = 1?', 25, '(97 - 1) // 4 + 1',
+                       'sin(n · π/2) = 1 bei π/2, 5π/2, 9π/2, … also für n = 1, 5, 9, …, 97 (Rest 1 beim Teilen durch 4): 25 Zahlen.', 'Schreibe die ersten Werte für n = 1, 2, 3, 4, 5 auf.'))
+
+    # --- periode ---
+    S.stufenleiter('periode', 'Die Periode von sin(bx) und cos(bx) mit 360° : b bzw. 2π : b angeben; Periodizität erkennen.',
+                   'b aus einem Graphen oder einer gewünschten Periode, Perioden mit π im Term, gleiche Punkte am Einheitskreis.',
+                   'Perioden von Summen, Werte weit entfernter Stellen, b rückwärts im Bogenmaß, Pendel, Fehler „doppeltes b – doppelte Periode“, exakte Werte wie im Abitur.')
+    S.g('periode', direkt=[56, 58, 59, 57, 60, 61, 254, 255, 65, 67], erkennen=[328], darstellung=[62, 63, 64, 66, 258], umkehr=[68, 72, 73, 330],
+        mehrschritt=[208, 209, 256, 257, 329], fehler=[69, 70, 71, 213], rueckwaerts=[210, 259], verknuepfen=[211, 260], transfer=[212, 261],
+        pruefung=[331, 332], begruenden=[333])
+    S.ueberzaehlig(58, 59, 61, 254, 65, 67, 257)
+    S.neu('periode', 'erkennen', A('Was bedeutet „f hat die Periode 2π“?', 'Nach jedem Abstand 2π wiederholen sich alle Funktionswerte.',
+                                   ['f hat bei 2π den größten Wert.', 'f ist nur bis 2π definiert.', 'f hat genau zwei Nullstellen.'],
+                                   'Periode p heißt: f(x + p) = f(x) für alle x.', 'Was passiert mit dem Graphen nach einer Periode?'))
+    S.neu('periode', 'erkennen', A('Welche Funktion hat die kleinste Periode?', 'sin(4x)', ['sin(x)', 'sin(0,5x)', 'sin(2x)'],
+                                   'p = 2π : b – je größer b, desto kleiner die Periode: sin(4x) hat π/2.', 'Wie hängt die Periode von b ab?'))
+    S.bonus('periode', Z('Eine Funktion f hat die Periode 6 und auch die Periode 10. Welche kleinere positive Zahl ist dann sicher ebenfalls eine Periode?', 2, '2 * 6 - 10',
+                         'f(x + 2) = f(x + 12 − 10) = f(x + 12) = f(x) (zweimal +6, einmal −10). Allgemein ist der ggT von 6 und 10 eine Periode.',
+                         'Kombiniere Schritte von +6 und −10.'))
+    S.bonus('periode', L('Welche kleinste Periode hat f(x) = sin(x/2) + cos(x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.', '□ · π', [12], ['12'],
+                         'sin(x/2) hat die Periode 4π, cos(x/3) die Periode 6π. Beide wiederholen sich erst gemeinsam beim kleinsten gemeinsamen Vielfachen: 12π.',
+                         'Bestimme beide Perioden einzeln.', hinweis='Zahl vor π'))
+
+    # --- parameter ---
+    S.stufenleiter('parameter', 'Amplitude a und Verschiebung d im Term erkennen.',
+                   'Größte und kleinste Werte, Wertemengen, Amplitude aus dem Graphen, d oder a aus einem Wert.',
+                   'a, b und d aus Eigenschaften rückwärts, alle Abbildungen verknüpft, Nullstellen-Bedingung als Parameter, Wert aus dem Minimum, Prüfungsaufgabe.')
+    S.g('parameter', direkt=[84, 86, 88, 85, 87, 89, 262], mehrschritt=[90, 101, 263, 214, 264], darstellung=[91, 94, 93, 266], umkehr=[92, 96, 95, 97, 265, 215, 219],
+        rueckwaerts=[98, 99, 100, 216], verknuepfen=[217, 268], parameter=[218, 269], pruefung=[267])
+    S.ueberzaehlig(86, 88, 89, 262, 94, 96, 97)
+    S.neu('parameter', 'erkennen', A('Bei f(x) = a · sin(x) + d: Welcher Parameter verschiebt den Graphen nach oben oder unten?', 'd', ['a', 'x', 'die Periode'],
+                                     'd verschiebt in y-Richtung (Mittellinie y = d), a streckt.', 'Was passiert, wenn man zu allen Werten dieselbe Zahl addiert?'))
+    S.neu('parameter', 'erkennen', A('Welche Funktion hat die Amplitude 3?', 'f(x) = −3 · sin(x)', ['f(x) = sin(x) + 3', 'f(x) = sin(3x)', 'f(x) = 0,3 · sin(x)'],
+                                     'Die Amplitude ist |a| = |−3| = 3. Das Minus spiegelt nur. „+ 3“ verschiebt, „3x“ ändert die Periode.', 'Die Amplitude ist der Betrag des Faktors vor sin.'))
+    S.bonus('parameter', Z('f(x) = a · sin(x) + d (a ≠ 0) nimmt genau die Werte von 2 bis 8 an, und f(0) = 5. Wie viele solche Funktionen gibt es?', 2, '2',
+                           'Wertemenge [2; 8] ⇒ d = 5 und |a| = 3. f(0) = d = 5 passt für beide Vorzeichen: a = 3 und a = −3. Zwei Funktionen.',
+                           'Denke an das Vorzeichen von a.'))
+    S.bonus('parameter', Z('Wie viele ganze Zahlen liegen in der Wertemenge von f(x) = 3,5 · sin(x) + 1,2?', 7, '4 - (-2) + 1',
+                           'Wertemenge [1,2 − 3,5; 1,2 + 3,5] = [−2,3; 4,7]. Ganze Zahlen −2 bis 4: sieben.', 'Bestimme zuerst die Wertemenge.'))
+
+    # --- verschiebung_x ---
+    S.stufenleiter('verschiebung_x', 'Die Richtung der Verschiebung an sin(x − c) erkennen und Nullstellen ablesen.',
+                   'Ausklammern bei sin(bx − c), Term zu einer Verschiebung, Hochpunkt und Wertemenge verschobener Graphen.',
+                   'Hoch- und Tiefpunkt rückwärts, Gezeiten und Temperatur modellieren, c als Parameter, Fehler „um π statt π/3“, Reihenfolge der Abbildungen.')
+    S.g('verschiebung_x', erkennen=[294, 296], direkt=[295, 297], mehrschritt=[298, 300], umkehr=[299, 303], darstellung=[302, 301],
+        rueckwaerts=[304, 310], transfer=[305, 309], parameter=[306], fehler=[307], verknuepfen=[308, 311])
+    S.bonus('verschiebung_x', P('Für welches c mit 0 < c < 2π gilt sin(x + c) = cos x für alle x? Gib c als Vielfaches von π an.', 1, 2,
+                                'Der cos-Graph ist der sin-Graph, um π/2 nach links verschoben: cos x = sin(x + π/2). Probe x = 0: sin(π/2) = 1 = cos 0.', 'Wo hat cos seinen Hochpunkt, wo sin?'))
+    S.bonus('verschiebung_x', Z('Für wie viele Zahlen c im Intervall [0; 10π] stimmt der Graph von sin(x − c) mit dem Graphen von sin x überein?', 6, '10 // 2 + 1',
+                                'Genau dann, wenn c ein Vielfaches der Periode 2π ist: c = 0, 2π, 4π, 6π, 8π, 10π – sechs Werte.', 'Um welche Strecken darf man den Graphen verschieben, ohne dass er sich ändert?'))
+
+    # --- zuordnen ---
+    S.stufenleiter('zuordnen', 'Am Graphen Mittellinie, Amplitude und Periode ablesen und den passenden einfachen Term erkennen.',
+                   'Graphen mit mehreren Parametern zuordnen, Term aus Beschreibung und Eigenschaften, a, c und d aus dem Graphen.',
+                   'Verschiebungen als andere Funktion erkennen, Term aus Hoch- und Tiefpunkt rückwärts, Abbildungsketten beschreiben, Fehler beim Ausklammern, Prüfungsaufgabe.')
+    S.g('zuordnen', erkennen=[112, 113, 114, 115, 116, 117, 270, 271, 322], darstellung=[118, 119, 120, 121, 122, 123, 125, 127, 129, 272, 274, 323, 276],
+        umkehr=[220], mehrschritt=[221, 273, 324], verknuepfen=[124, 126, 128, 327], begruenden=[223], transfer=[222, 225, 277], rueckwaerts=[224, 275],
+        pruefung=[325], fehler=[326])
+    S.ueberzaehlig(271, 322, 274)
+    S.neu('zuordnen', 'direkt', Z('Eine Sinuskurve schwankt zwischen −2 und 2 um y = 0 und hat die Periode 180°. Welchen Wert hat b in f(x) = a · sin(b · x)?', 2, '360 / 180',
+                                  'b = 360° : 180° = 2.', 'Periode p = 360° : b.'))
+    S.neu('zuordnen', 'direkt', Z('Eine Kosinuskurve hat den größten Wert 5 und den kleinsten Wert 1. Wie groß ist die Amplitude?', 2, '(5 - 1) / 2',
+                                  'Amplitude = (größter − kleinster Wert) : 2 = (5 − 1) : 2 = 2.', 'Die Amplitude ist der halbe Abstand zwischen höchstem und tiefstem Wert.'))
+    S.neu('zuordnen', 'direkt', Z('Eine Kosinuskurve hat den größten Wert 5 und den kleinsten Wert 1. Bei welcher Höhe liegt die Mittellinie y = d?', 3, '(5 + 1) / 2',
+                                  'd = (5 + 1) : 2 = 3.', 'Die Mittellinie liegt genau in der Mitte.'))
+    S.bonus('zuordnen', Z('Wie viele verschiedene Graphen beschreiben die Terme a · sin(b · x) mit a ∈ {−2, −1, 1, 2} und b ∈ {−2, −1, 1, 2}?', 8, '16 // 2',
+                          '16 Terme, aber sin(−bx) = −sin(bx): a · sin(−b · x) ist derselbe Graph wie (−a) · sin(b · x). Jeder Graph kommt genau zweimal vor: 8 verschiedene.',
+                          'Was bewirkt ein Minus vor x im Sinus?'))
+    S.bonus('zuordnen', A('Der Graph von sin x wird an der x-Achse gespiegelt und danach um π nach rechts verschoben. Welcher einfache Term beschreibt das Ergebnis?', 'sin(x)',
+                          ['−sin(x)', 'cos(x)', '−cos(x)'],
+                          'Gespiegelt: −sin x. Verschoben: −sin(x − π). Weil sin(x − π) = −sin x ist, ergibt sich −(−sin x) = sin x – der Graph liegt wieder genau wie vorher.',
+                          'Was macht eine Verschiebung um π mit dem Sinusgraphen?'))
+
+    # --- eigenschaften ---
+    S.stufenleiter('eigenschaften', 'Nullstellen, Hoch- und Tiefpunkte von sin x und cos x angeben und die Symmetrie erkennen.',
+                   'Extremstellen in anderen Perioden, Nullstellen von sin(bx), Zahl der Nullstellen, Symmetrie anwenden.',
+                   'Gleichungen im Intervall rückwärts lösen, Symmetrie von Produkten begründen, größter Wert verknüpfter Terme, Schnittpunkte zählen, Fehler bei Nullstellen.')
+    S.g('eigenschaften', direkt=[140, 142, 144, 141, 143, 145, 278], erkennen=[279, 149], mehrschritt=[146, 148, 150, 227], darstellung=[147, 151, 153, 154, 281, 282],
+        umkehr=[152, 157, 155, 156, 226, 280], rueckwaerts=[228, 283], begruenden=[229, 285], verknuepfen=[230], transfer=[231, 284])
+    S.ueberzaehlig(142, 143, 148, 157, 156)
+    S.neu('eigenschaften', 'erkennen', A('Welche Symmetrie hat der Graph von cos x?', 'achsensymmetrisch zur y-Achse', ['punktsymmetrisch zum Ursprung', 'keine Symmetrie', 'symmetrisch zur x-Achse'],
+                                         'cos(−x) = cos x: Der Graph ist an der y-Achse gespiegelt derselbe.', 'Vergleiche cos(−π/3) und cos(π/3).'))
+    S.neu('eigenschaften', 'fehler', A('Jemand sagt: „cos x hat im Intervall [0; 2π] die Nullstellen 0 und π.“ Was stimmt?', 'Falsch: Die Nullstellen sind π/2 und 3π/2; bei 0 und π ist cos x = 1 bzw. −1.',
+                                       ['Richtig.', 'Falsch: Die Nullstellen sind 0, π und 2π.', 'Falsch: cos x hat keine Nullstellen.'],
+                                       'Das wären die Nullstellen von sin x. cos x ist 0, wenn die Gondel genau oben oder unten ist: bei π/2 und 3π/2.', 'Verwechsle nicht sin und cos.'))
+    S.bonus('eigenschaften', Z('Wie viele Nullstellen hat f(x) = sin(x) · cos(x) im Intervall [0; 2π[?', 4, '2 + 2',
+                               'Ein Produkt ist 0, wenn ein Faktor 0 ist: sin x = 0 bei 0 und π, cos x = 0 bei π/2 und 3π/2. Zusammen 4 verschiedene Stellen.', 'Wann ist ein Produkt null?'))
+    S.bonus('eigenschaften', Z('Für wie viele x im Intervall [0; 2π] gilt |sin x| = |cos x|?', 4, '4',
+                               'Gleiche Beträge heißt: Der Punkt am Einheitskreis liegt auf einer Diagonalen. Das ist bei π/4, 3π/4, 5π/4 und 7π/4 – vier Stellen.',
+                               'Wo am Einheitskreis sind x- und y-Koordinate gleich lang?'))
+
+    # --- anwendung ---
+    S.stufenleiter('anwendung', 'Ein gegebenes Modell an einer Stelle auswerten und die Bedeutung der Zahlen erkennen.',
+                   'Größte Höhe, Umlaufdauer, Zeitpunkt eines Werts, Werte in Grad- und Bogenmaß-Modellen.',
+                   'Modell selbst aufstellen, Zeitspannen über Ungleichungen, Parameter aus Extremwerten, Fehler im RAD-Modus, Gezeiten wie in einer Prüfungsaufgabe.')
+    S.g('anwendung', direkt=[168, 169, 170, 171, 172, 173, 286], erkennen=[287], einkleidung=[174, 181, 184, 185, 289, 291], umkehr=[175, 176, 177, 179, 180, 182, 233, 288],
+        mehrschritt=[178, 232, 290], transfer=[183, 235, 236], rueckwaerts=[234, 293], fehler=[237], verknuepfen=[292])
+    S.ueberzaehlig(176, 179, 182, 184)
+    S.neu('anwendung', 'erkennen', A('Die Höhe einer Gondel ist h(t) = 20 − 18 · cos(30° · t). Was bedeutet die Zahl 20?', 'die Höhe der Radmitte (Mittellinie)',
+                                     ['der Durchmesser des Rads', 'die Dauer einer Umdrehung', 'die größte Höhe'],
+                                     'Der cos-Teil schwankt um 0, also schwankt h um 20: Das ist die Höhe der Mitte. Größte Höhe 38 m, Durchmesser 36 m.', 'Um welchen Wert schwankt h?'))
+    S.neu('anwendung', 'pruefung', Z('Der Wasserstand in einem Hafen schwankt zwischen 0,5 m und 4,5 m. Hochwasser ist um 3 Uhr, das nächste Niedrigwasser um 9 Uhr. '
+                                     'Mit h(t) = d + a · cos(b · (t − 3)) (t in Stunden, Bogenmaß): Wie hoch steht das Wasser um 5 Uhr?', 3.5, '2.5 + 2 * 0.5',
+                                     'd = 2,5, a = 2; von Hoch- bis Niedrigwasser 6 h, Periode 12 h, b = 2π/12 = π/6. h(5) = 2,5 + 2 · cos(π/3) = 2,5 + 1 = 3,5 m.',
+                                     'Bestimme d, a und die Periode aus den Angaben.', einheit='m'))
+    S.bonus('anwendung', Z('Zwei Gondeln eines Riesenrads hängen sich genau gegenüber. Die Radmitte liegt 20 m über dem Boden. Wie groß ist die Summe ihrer Höhen über dem Boden – zu jedem Zeitpunkt?', 40, '2 * 20',
+                           'Ist die eine um y über der Mitte, ist die gegenüberliegende um y darunter: (20 + y) + (20 − y) = 40 m.', 'Wie liegen gegenüberliegende Gondeln zur Mitte?', einheit='m'))
+    S.bonus('anwendung', Z('h(t) = 20 − 18 · cos(30° · t) (t in Minuten). Wie viele Minuten einer Umdrehung ist die Gondel höher als 29 m?', 4, '(240 - 120) / 30',
+                           'h > 29 ⇔ −18 · cos(30° t) > 9 ⇔ cos(30° t) < −0,5 ⇔ 120° < 30° t < 240° ⇔ 4 < t < 8. Also 4 Minuten von 12.',
+                           'Für welche Winkel ist cos kleiner als −0,5?', einheit='min'))
+    S.anwenden()
+
+
+if __name__ == '__main__':
+    stufen()  # Zwanzigste Runde (stufen-kl10) – ganz am Ende

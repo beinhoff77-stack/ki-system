@@ -708,3 +708,211 @@ def durchsicht():
 
 if __name__ == '__main__':
     durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl10) ----------
+def stufen():
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _stufen_kl10 import Stufen
+    S = Stufen('funktionen.ganzrational', 2060)
+    Z, A, L = S.Z, S.A, S.L
+
+    # --- grad ---
+    S.stufenleiter('grad', 'Grad, Leitkoeffizient und Absolutglied an einem geordneten oder ungeordneten Term ablesen.',
+                   'Grad von Potenzen und Differenzen, Term zu vorgegebenen Kennzahlen, Sachterm, Absolutglied am Graphen.',
+                   'Kennzahlen aus der Produktform ohne Ausmultiplizieren, Summe der Koeffizienten, Mindestgrad aus Eigenschaften, Parameter, Fehler „vorderstes Glied“.')
+    S.g('grad', direkt=[0, 1, 2, 3, 4, 5, 6, 10], erkennen=[7, 8, 9, 11], mehrschritt=[196, 197], transfer=[12, 14, 15, 16, 17], verknuepfen=[13, 198, 200],
+        parameter=[199], begruenden=[201])
+    S.ueberzaehlig(2, 3, 4, 6, 10, 9, 11, 15, 16, 17)
+    S.neu('grad', 'umkehr', A('Welche Funktion hat den Grad 3, den Leitkoeffizienten −2 und das Absolutglied 4?', 'f(x) = −2x³ + x + 4', ['f(x) = 4x³ + x − 2', 'f(x) = −2x⁴ + x³ + 4', 'f(x) = −2x³ + 4x'],
+                              'Höchste Hochzahl 3 mit Faktor −2, Glied ohne x ist 4. Bei −2x³ + 4x fehlt das Absolutglied (es ist 0).', 'Prüfe alle drei Kennzahlen bei jedem Term.'))
+    S.neu('grad', 'einkleidung', Z('Aus einem quadratischen Karton (20 cm × 20 cm) wird eine Schachtel gefaltet; an den Ecken werden Quadrate der Seite x ausgeschnitten. Ihr Volumen ist V(x) = x · (20 − 2x)². Welchen Grad hat V?',
+                                   3, '1 + 2', 'x · (…)² enthält als höchste Potenz x · (−2x)² = 4x³: Grad 3.', 'Welche höchste Potenz entsteht beim Ausmultiplizieren?'))
+    S.neu('grad', 'darstellung', A('Der Graph einer ganzrationalen Funktion schneidet die y-Achse bei (0 | 3). Was folgt daraus?', 'Das Absolutglied ist 3.',
+                                   ['Der Grad ist 3.', 'Der Leitkoeffizient ist 3.', 'Die Funktion hat 3 Nullstellen.'], 'f(0) ist immer das Absolutglied, weil alle Glieder mit x bei x = 0 wegfallen.', 'Setze x = 0 ein.'))
+    S.neu('grad', 'mehrschritt', Z('Ein Würfel mit der Kante x wird in alle Richtungen um 1 cm verlängert: V(x) = (x + 1)³. Welchen Koeffizienten hat x² nach dem Ausmultiplizieren?', 3, '3',
+                                   '(x + 1)³ = x³ + 3x² + 3x + 1. Vor x² steht 3.', 'Multipliziere (x + 1)² · (x + 1) aus.'))
+    S.neu('grad', 'fehler', A('Jemand sagt: „f(x) = 3x² − x⁴ + 7 hat den Grad 2, weil 3x² vorne steht.“ Was stimmt?', 'Falsch: Der Grad ist die höchste Hochzahl, also 4.',
+                              ['Richtig.', 'Falsch: Der Grad ist 7.', 'Falsch: Der Grad ist 3.'], 'Die Reihenfolge der Glieder ist egal; −x⁴ hat die höchste Hochzahl 4.', 'Suche die größte Hochzahl, nicht das erste Glied.'))
+    S.bonus('grad', Z('Welchen Grad hat f(x) = (x + 1)¹⁰ − (x − 1)¹⁰?', 9, '9',
+                      'Beide haben x¹⁰ mit Faktor 1, das hebt sich weg. Bei x⁹: (x + 1)¹⁰ liefert 10x⁹, (x − 1)¹⁰ liefert −10x⁹. Differenz 20x⁹ ≠ 0. Also Grad 9.',
+                      'Was passiert mit den höchsten Gliedern?'))
+    S.bonus('grad', Z('Wie groß ist die Summe der Koeffizienten aller Glieder mit gerader Hochzahl (mit Absolutglied) von f(x) = (x + 1)⁶?', 32, '(2 ** 6 + 0 ** 6) // 2',
+                      'f(1) ist die Summe aller Koeffizienten (64), f(−1) die Summe mit wechselnden Vorzeichen (0). Gerade Glieder: (f(1) + f(−1)) : 2 = 32.',
+                      'Vergleiche f(1) und f(−1).'))
+
+    # --- ausmultiplizieren ---
+    S.stufenleiter('ausmultiplizieren', 'Zwei Klammern „jedes Glied mit jedem“ ausmultiplizieren und zusammenfassen.',
+                   'Drei Klammern, Quadrate, x⁴-Terme, Rechteckflächen als Term, eine Zahl in der Klammer aus dem Ergebnis.',
+                   'Produktform aus einer Nullstelle, Koeffizienten gezielt bestimmen, Parameter, binomische Formeln zum Kopfrechnen, Fehler bei (x + 2)³, Faktorisieren wie im BMT.')
+    S.g('ausmultiplizieren', direkt=[28, 33, 29, 30, 31, 32], mehrschritt=[34, 37, 38, 35, 36, 39, 40, 45, 41, 43, 44, 202], darstellung=[203], umkehr=[205],
+        rueckwaerts=[42, 204], transfer=[206], fehler=[207])
+    S.ueberzaehlig(33, 31, 32, 37, 38, 36, 39, 35, 45, 41, 43)
+    S.neu('ausmultiplizieren', 'erkennen', A('Wie viele Produkte entstehen beim Ausmultiplizieren von (x + 2)(x − 5), bevor man zusammenfasst?', '4', ['2', '3', '6'],
+                                             'Jedes der 2 Glieder der ersten Klammer mal jedes der 2 Glieder der zweiten: 2 · 2 = 4 Produkte.', 'Jedes Glied mit jedem.'))
+    S.neu('ausmultiplizieren', 'erkennen', A('Welcher Term ist die ausmultiplizierte Form von (x + 1)(x + 1)?', 'x² + 2x + 1', ['x² + 1', 'x² + x + 1', '2x + 2'],
+                                             'x · x + x · 1 + 1 · x + 1 · 1 = x² + 2x + 1 (erste binomische Formel).', 'Vergiss die gemischten Glieder nicht.'))
+    S.neu('ausmultiplizieren', 'einkleidung', L('Ein Rechteck hat die Seiten (x + 3) cm und (x − 1) cm. Schreibe seinen Flächeninhalt als Term.', 'x² + □x + □', [2, -3], ['3 - 1', '3 * (-1)'],
+                                                '(x + 3)(x − 1) = x² − x + 3x − 3 = x² + 2x − 3.', 'Fläche = Länge · Breite, dann ausmultiplizieren.', hinweis='Koeffizienten (mit Vorzeichen)'))
+    S.neu('ausmultiplizieren', 'parameter', Z('Für welche Zahl k hat (x + k)(x − 3) nach dem Ausmultiplizieren kein Glied mit x?', 3, '3',
+                                              '(x + k)(x − 3) = x² + (k − 3)x − 3k. Kein x-Glied: k − 3 = 0, also k = 3.', 'Bestimme den Koeffizienten vor x mit k.'))
+    S.neu('ausmultiplizieren', 'begruenden', A('Stimmt: „(x − 1)(x + 1)(x² + 1) = x⁴ − 1“?', 'Ja: (x − 1)(x + 1) = x² − 1 und (x² − 1)(x² + 1) = x⁴ − 1.',
+                                               ['Nein: Es ergibt x⁴ + 1.', 'Nein: Es ergibt x⁴ − 2x² − 1.', 'Nein: Der Grad ist 3.'],
+                                               'Zweimal die dritte binomische Formel. Probe mit x = 2: 1 · 3 · 5 = 15 = 16 − 1.', 'Fasse geschickt zusammen: Welche zwei Klammern zuerst?'))
+    S.neu('ausmultiplizieren', 'verknuepfen', Z('Berechne geschickt mit (x + 1)(x − 1) = x² − 1: 1 001 · 999.', 999999, '1001 * 999',
+                                                '1 001 · 999 = (1 000 + 1)(1 000 − 1) = 1 000 000 − 1 = 999 999.', 'Setze x = 1 000.'))
+    S.neu('ausmultiplizieren', 'pruefung', L('Faktorisiere f(x) = x³ − 9x vollständig.', 'x(x + □)(x − □)', [3, 3], ['3', '3'],
+                                             'x ausklammern: x(x² − 9). Dritte binomische Formel: x(x + 3)(x − 3).', 'Erst x ausklammern, dann eine binomische Formel.', hinweis='positive Zahlen'))
+    S.bonus('ausmultiplizieren', Z('Wie viele Glieder hat (x + 1)(x² + 1)(x⁴ + 1) nach dem Ausmultiplizieren und Zusammenfassen?', 8, '8',
+                                   'Ergebnis x⁷ + x⁶ + x⁵ + x⁴ + x³ + x² + x + 1: Jede Hochzahl 0 bis 7 entsteht genau einmal (wie im Zweiersystem). 8 Glieder.',
+                                   'Welche Hochzahlen können entstehen, und wie oft?'))
+    S.bonus('ausmultiplizieren', Z('Welchen Koeffizienten hat x in (x + 1)(x + 2)(x + 3)(x + 4)?', 50, '2*3*4 + 1*3*4 + 1*2*4 + 1*2*3',
+                                   'Ein x-Glied entsteht, wenn man aus genau einer Klammer x und aus den anderen die Zahl nimmt: 2·3·4 + 1·3·4 + 1·2·4 + 1·2·3 = 24 + 12 + 8 + 6 = 50.',
+                                   'Aus welcher Klammer kommt das x, aus welchen die Zahlen?'))
+
+    # --- randverhalten ---
+    S.stufenleiter('randverhalten', 'Aus Grad und Vorzeichen des Leitkoeffizienten den Verlauf für große |x| angeben; am Graphen erkennen.',
+                   'Ungeordnete Terme und Produktformen, Sachsituation „wohin geht die Bahn“.',
+                   'Vorzeichen eines Parameters, Mindestzahl an Nullstellen, Begründen mit dem Randverhalten, Term rückwärts aus Verlauf und Nullstelle, Fehler, Prüfungsaussagen.')
+    S.g('randverhalten', direkt=[56, 57, 58, 59, 60, 61, 73, 62, 65], erkennen=[63, 64, 66, 67], mehrschritt=[70, 208], darstellung=[209, 68, 71, 69, 72, 210],
+        parameter=[211], transfer=[212], begruenden=[213])
+    S.ueberzaehlig(57, 58, 60, 73, 62, 65, 69, 72, 210)
+    S.neu('randverhalten', 'einkleidung', A('Ein Abschnitt einer Achterbahn wird durch f(x) = −0,5x³ + 2x beschrieben. Wohin verläuft die Bahn für sehr große x?', 'nach unten',
+                                            ['nach oben', 'waagrecht', 'zuerst nach oben, dann nach unten und dann wieder nach oben'],
+                                            'Grad 3 ungerade, Leitkoeffizient −0,5 < 0: für große x geht f(x) gegen −∞.', 'Nur das Glied mit der höchsten Hochzahl zählt.'))
+    S.neu('randverhalten', 'fehler', A('Jemand sagt: „f(x) = −2x³ + x verläuft von links unten nach rechts oben, weil der Grad ungerade ist.“ Was stimmt?',
+                                       'Falsch: Wegen des negativen Leitkoeffizienten von links oben nach rechts unten.', ['Richtig.', 'Falsch: von links oben nach rechts oben.', 'Falsch: von links unten nach rechts unten.'],
+                                       'Ungerader Grad sagt nur: Die Enden zeigen in verschiedene Richtungen. Welche wohin, entscheidet das Vorzeichen von −2.', 'Was entscheidet das Vorzeichen?'))
+    S.neu('randverhalten', 'rueckwaerts', A('Ein Graph verläuft von links oben nach rechts oben und hat genau eine Nullstelle, eine doppelte bei x = 1. Welcher Term passt?', 'f(x) = (x − 1)² · (x² + 1)',
+                                            ['f(x) = (x − 1)³', 'f(x) = −(x − 1)²', 'f(x) = (x − 1)(x + 1)'],
+                                            '(x − 1)² berührt bei 1; x² + 1 hat keine Nullstelle; Grad 4 mit positivem Leitkoeffizienten: oben – oben.', 'Prüfe Randverhalten und Nullstellen jedes Terms.'))
+    S.neu('randverhalten', 'verknuepfen', Z('Welchen Leitkoeffizienten hat f(x) = (2x − 1)³ · (3 − x)?', -8, '2 ** 3 * (-1)', 'Höchste Glieder: (2x)³ · (−x) = 8x³ · (−x) = −8x⁴.', 'Nimm aus jeder Klammer nur das Glied mit x.'))
+    S.neu('randverhalten', 'pruefung', A('Gegeben ist f(x) = −0,5x⁴ + 2x² + 1. Welche Aussage ist richtig?', 'Für große |x| wird f(x) beliebig klein.',
+                                         ['Der Graph verläuft von links unten nach rechts oben.', 'f hat höchstens eine Nullstelle.', 'Der Graph ist punktsymmetrisch zum Ursprung.'],
+                                         'Grad 4, Leitkoeffizient negativ: beide Enden nach unten. f(0) = 1 > 0, also gibt es zwei Nullstellen; nur gerade Hochzahlen: achsensymmetrisch.',
+                                         'Prüfe jede Aussage einzeln.'))
+    S.neu('randverhalten', 'begruenden', A('Kann eine ganzrationale Funktion vom Grad 3 gar keine Nullstelle haben?', 'Nein: Ein Ende geht nach oben, das andere nach unten – dazwischen muss der Graph die x-Achse kreuzen.',
+                                           ['Ja, z. B. f(x) = x³ + 1.', 'Ja, wenn der Leitkoeffizient negativ ist.', 'Nein, sie hat immer genau drei Nullstellen.'],
+                                           'Bei ungeradem Grad zeigen die Enden in verschiedene Richtungen. x³ + 1 hat die Nullstelle −1.', 'Denke an die beiden Enden des Graphen.'))
+    S.bonus('randverhalten', Z('f(x) = x⁵ − 1 000x⁴. Für welche kleinste ganze Zahl x ist f(x) > 0?', 1001, '1000 + 1',
+                               'f(x) = x⁴ · (x − 1 000). x⁴ ≥ 0, also f(x) > 0 genau für x > 1 000 (und x ≠ 0). Kleinste ganze Zahl: 1 001. Das Randverhalten setzt sich erst spät durch.',
+                               'Klammere x⁴ aus.'))
+    S.bonus('randverhalten', Z('f(x) = (x − 1)(x − 2)(x − 3) · … · (x − 10). Wie viele der neun Intervalle (1; 2), (2; 3), …, (9; 10) liegen unterhalb der x-Achse?', 5, '5',
+                               'Rechts von 10 ist f > 0 (Grad 10, Leitkoeffizient 1). An jeder einfachen Nullstelle wechselt das Vorzeichen: (9; 10) negativ, (8; 9) positiv, … Negativ sind (1; 2), (3; 4), (5; 6), (7; 8), (9; 10): fünf.',
+                               'Beginne rechts von 10 und gehe nach links.'))
+
+    # --- symmetrie ---
+    S.stufenleiter('symmetrie', 'Symmetrie an den Hochzahlen erkennen und f(−a) aus f(a) bestimmen.',
+                   'Symmetrie nach dem Ausmultiplizieren, Hochzahl ergänzen, Symmetrie aus einer Wertetabelle, symmetrische Bauwerke.',
+                   'Parameter für Symmetrie, Hoch- und Tiefpunkt übertragen, a aus zwei Bedingungen, Fehler „Grad ungerade“, Sonderfall f = 0, verschobene Graphen wie im BMT.')
+    S.g('symmetrie', erkennen=[84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95], direkt=[96, 97, 98, 99, 100, 101], mehrschritt=[214, 215],
+        parameter=[216, 218], transfer=[217], fehler=[219])
+    S.ueberzaehlig(85, 86, 87, 89, 90, 91, 92, 94, 95, 98, 99, 101)
+    S.neu('symmetrie', 'umkehr', L('Ergänze die Hochzahl (zwischen 2 und 4), damit f(x) = 2x⁵ − x^□ + 4x punktsymmetrisch zum Ursprung ist.', 'Hochzahl □', [3], ['3'],
+                                   'Punktsymmetrisch heißt: nur ungerade Hochzahlen. Zwischen 2 und 4 ist das 3.', 'Welche Hochzahlen sind bei Punktsymmetrie erlaubt?', hinweis='eine ganze Zahl'))
+    S.neu('symmetrie', 'darstellung', A('Eine Wertetabelle zeigt f(−2) = 5, f(−1) = 0, f(0) = −3, f(1) = 0, f(2) = 5. Welche Symmetrie passt dazu?', 'achsensymmetrisch zur y-Achse',
+                                        ['punktsymmetrisch zum Ursprung', 'keine Symmetrie', 'symmetrisch zur x-Achse'], 'Es gilt f(−x) = f(x) für alle gezeigten Werte.', 'Vergleiche f(−1) mit f(1) und f(−2) mit f(2).'))
+    S.neu('symmetrie', 'einkleidung', Z('Ein Brückenbogen wird durch f(x) = −0,02x² + 8 beschrieben (x in m, Brückenmitte bei x = 0). Der linke Fußpunkt liegt bei x = −20. Bei welchem x liegt der rechte?', 20, '-(-20)',
+                                        'f ist achsensymmetrisch zur y-Achse (nur gerade Hochzahlen). Also liegt der rechte Fußpunkt gespiegelt bei x = 20.', 'Spiegle an der y-Achse.', einheit='m'))
+    S.neu('symmetrie', 'mehrschritt', Z('f(x) = x³ − 2x. Berechne f(3) + f(−3) ohne Taschenrechner.', 0, '(27 - 6) + (-27 + 6)', 'f ist punktsymmetrisch, also f(−3) = −f(3). Die Summe ist 0.', 'Welche Symmetrie hat f?'))
+    S.neu('symmetrie', 'rueckwaerts', Z('f(x) = ax⁴ + bx² hat die Werte f(1) = 3 und f(2) = 0. Bestimme a.', -1, '-1', 'a + b = 3 und 16a + 4b = 0 ⇒ b = −4a ⇒ a − 4a = 3 ⇒ a = −1 (b = 4).',
+                                        'Stelle zwei Gleichungen für a und b auf.'))
+    S.neu('symmetrie', 'begruenden', A('Kann der Graph einer ganzrationalen Funktion zugleich achsensymmetrisch zur y-Achse und punktsymmetrisch zum Ursprung sein?', 'Ja, aber nur für f(x) = 0.',
+                                       ['Nein, das ist nie möglich.', 'Ja, z. B. f(x) = x² + x.', 'Ja, jede konstante Funktion.'],
+                                       'Beides heißt f(−x) = f(x) und f(−x) = −f(x), also f(x) = −f(x) und f(x) = 0. Eine Konstante c ≠ 0 ist nicht punktsymmetrisch.', 'Setze beide Bedingungen gleich.'))
+    S.neu('symmetrie', 'verknuepfen', A('Der Graph von f ist achsensymmetrisch zur y-Achse. Was gilt für den Graphen von g(x) = f(x) + 5?', 'Er ist ebenfalls achsensymmetrisch zur y-Achse.',
+                                        ['Er ist punktsymmetrisch zum Ursprung.', 'Er hat keine Symmetrie mehr.', 'Er ist symmetrisch zur Geraden y = 5, aber nicht zur y-Achse.'],
+                                        'Verschieben nach oben ändert nichts an f(−x) = f(x): g(−x) = f(−x) + 5 = f(x) + 5 = g(x).', 'Rechne g(−x) aus.'))
+    S.neu('symmetrie', 'pruefung', A('Wie entsteht der Graph von g(x) = x⁴ − 2 aus dem Graphen von f(x) = x⁴, und welche Symmetrie hat er?', 'um 2 nach unten verschoben; achsensymmetrisch zur y-Achse',
+                                     ['um 2 nach rechts verschoben; keine Symmetrie', 'um 2 nach unten verschoben; punktsymmetrisch zum Ursprung', 'an der x-Achse gespiegelt; achsensymmetrisch zur y-Achse'],
+                                     '„− 2“ verschiebt nach unten; g hat nur gerade Hochzahlen (4 und 0).', 'Was bewirkt eine Zahl, die addiert wird?'))
+    S.bonus('symmetrie', Z('f(x) = x⁷ + ax⁶ + 3x⁵ + bx⁴ + x ist punktsymmetrisch zum Ursprung. Wie groß ist a + b?', 0, '0 + 0',
+                           'Punktsymmetrie verlangt, dass alle geraden Hochzahlen fehlen: a = 0 und b = 0. Also a + b = 0 (und f(1) = 1 + 3 + 1 = 5).', 'Welche Glieder darf es bei Punktsymmetrie nicht geben?'))
+    S.bonus('symmetrie', Z('Der Graph einer achsensymmetrischen Funktion 4. Grades hat genau drei verschiedene Nullstellen, eine davon bei x = 3. Welche ist die kleinste?', -3, '-3',
+                           'Nullstellen liegen spiegelbildlich: Zu 3 gehört −3. Eine ungerade Anzahl ist nur möglich, wenn 0 auch Nullstelle ist. Also −3, 0, 3; die kleinste ist −3.',
+                           'Wie können drei Nullstellen symmetrisch zur y-Achse liegen?'))
+
+    # --- nullstellen ---
+    S.stufenleiter('nullstellen', 'Nullstellen aus der Produktform ablesen und ihre Vielfachheit erkennen.',
+                   'Berührstellen bestimmen, x oder x² ausklammern, Vielfachheit aus Term und Graph.',
+                   'Biquadratische Gleichungen, Vorzeichenbereiche, Nullstellen in Intervallen, Parameter, Fehler „berühren = schneiden“, Begründen mit Vielfachheit.')
+    S.g('nullstellen', direkt=[112, 113, 114, 115, 116, 117], umkehr=[118, 119, 120, 121, 122, 123, 221], darstellung=[124, 127], mehrschritt=[126, 129, 220],
+        verknuepfen=[125, 128], transfer=[222, 223], parameter=[224, 225])
+    S.ueberzaehlig(113, 116, 117, 120, 121, 122, 123)
+    S.neu('nullstellen', 'erkennen', A('Welche Vielfachheit hat die Nullstelle 2 in f(x) = (x − 2)³ · (x + 1)?', 'dreifach', ['einfach', 'doppelt', 'vierfach'],
+                                       'Der Faktor (x − 2) steht dreimal (Hochzahl 3).', 'Lies die Hochzahl der Klammer ab.'))
+    S.neu('nullstellen', 'erkennen', A('Was macht der Graph an einer doppelten Nullstelle?', 'Er berührt die x-Achse, ohne sie zu schneiden.', ['Er schneidet die x-Achse zweimal.', 'Er hat dort eine Lücke.', 'Er verläuft dort senkrecht.'],
+                                       'Bei gerader Vielfachheit wechselt das Vorzeichen nicht: Der Graph berührt die x-Achse.', 'Denke an f(x) = x².'))
+    S.neu('nullstellen', 'fehler', A('Jemand sagt: „f(x) = (x − 3)² · x hat die Nullstellen 3 und 0, also schneidet der Graph die x-Achse zweimal.“ Was stimmt?',
+                                     'Falsch: Bei 3 (doppelt) berührt er die x-Achse nur; geschnitten wird nur bei 0.', ['Richtig.', 'Falsch: Er schneidet sie dreimal.', 'Falsch: Er schneidet sie nur bei 3.'],
+                                     'Doppelte Nullstelle: Berührung ohne Vorzeichenwechsel. Einfache Nullstelle 0: Schnitt.', 'Unterscheide einfache und doppelte Nullstellen.'))
+    S.neu('nullstellen', 'begruenden', A('Kann eine Funktion 3. Grades genau zwei verschiedene Nullstellen haben?', 'Ja, wenn eine davon doppelt ist, z. B. f(x) = x² · (x − 1).',
+                                         ['Nein, sie hat immer drei.', 'Nein, sie hat immer genau eine.', 'Ja, aber nur, wenn der Leitkoeffizient negativ ist.'],
+                                         'x² · (x − 1) hat die Nullstellen 0 (doppelt) und 1 – zwei verschiedene.', 'Denke an mehrfache Nullstellen.'))
+    S.bonus('nullstellen', Z('Wie viele Nullstellen hat f(x) = (x² − 1)(x² − 4)(x² − 9) · … · (x² − 100)?', 20, '2 * 10',
+                             'Die Faktoren sind x² − k² für k = 1, …, 10. Jeder liefert zwei Nullstellen ±k, alle verschieden: 20 Nullstellen.', 'Welche Nullstellen hat x² − k²?'))
+    S.bonus('nullstellen', Z('Wie viele verschiedene Nullstellen hat f(x) = x(x − 1)(x − 2)(x − 3) + 1?', 2, '2',
+                             'Geschickt paaren: x(x − 3) = x² − 3x = u und (x − 1)(x − 2) = x² − 3x + 2 = u + 2. Dann f = u(u + 2) + 1 = (u + 1)². '
+                             'Nullstellen: x² − 3x + 1 = 0 hat zwei Lösungen (Diskriminante 5 > 0) – beide doppelt. Also 2 verschiedene.',
+                             'Multipliziere den ersten mit dem letzten und die beiden mittleren Faktoren.'))
+
+    # --- graph_term ---
+    S.stufenleiter('graph_term', 'Am Graphen Nullstellen ablesen und den passenden Term erkennen; y-Achsenabschnitt prüfen.',
+                   'Vielfachheit und Randverhalten zusammen nutzen, Werte aus Produktformen, Sachsituation Kanal.',
+                   'Streckfaktor aus einem Punkt, Beschreibung in Term übersetzen, Verschiebung, Parameter, Fehler „berühren“, Begründen mit Quadraten, Prüfungsaufgabe.')
+    S.g('graph_term', erkennen=[140, 141, 142, 143, 144, 145, 153, 154], darstellung=[146, 147, 148, 149, 150, 151, 152, 155, 156, 157, 226, 227],
+        rueckwaerts=[228], transfer=[229], verknuepfen=[230], parameter=[231])
+    S.neu('graph_term', 'direkt', Z('Wo schneidet der Graph von f(x) = (x + 1)(x − 3) die y-Achse? Gib den y-Wert an.', -3, '1 * (-3)', 'f(0) = 1 · (−3) = −3.', 'Setze x = 0 ein.'))
+    S.neu('graph_term', 'direkt', L('Ein Graph 2. Grades mit Leitkoeffizient 1 schneidet die x-Achse bei −2 und bei 4. Ergänze den Term.', 'f(x) = (x + □)(x − □)', [2, 4], ['2', '4'],
+                                    'Zur Nullstelle −2 gehört (x + 2), zu 4 gehört (x − 4).', 'Welche Klammer wird bei x = −2 null?', hinweis='positive Zahlen'))
+    S.neu('graph_term', 'mehrschritt', Z('f(x) = (x + 2)² · (x − 1). Bei welchem y-Wert schneidet der Graph die y-Achse?', -4, '2 ** 2 * (-1)', 'f(0) = 4 · (−1) = −4.', 'Setze x = 0 ein.'))
+    S.neu('graph_term', 'mehrschritt', Z('f(x) = −(x − 1)(x − 3)². Welchen Wert hat f(2)?', -1, '-(1) * (-1) ** 2', 'f(2) = −(1) · (−1)² = −1.', 'Setze x = 2 ein; das Quadrat ist positiv.'))
+    S.neu('graph_term', 'umkehr', A('Ein Graph schneidet die x-Achse bei −3, berührt sie bei 1 und kommt von links unten. Welcher Term passt?', 'f(x) = (x + 3)(x − 1)²',
+                                    ['f(x) = (x − 3)(x + 1)²', 'f(x) = −(x + 3)(x − 1)²', 'f(x) = (x + 3)²(x − 1)'],
+                                    'Schnitt bei −3: (x + 3) einfach; Berührung bei 1: (x − 1)². Grad 3, von links unten: Leitkoeffizient positiv.', 'Ordne Nullstellen, Vielfachheit und Randverhalten zu.'))
+    S.neu('graph_term', 'einkleidung', Z('Der Querschnitt eines Kanals wird durch f(x) = 0,5 · (x + 4)(x − 4) beschrieben (in m, Wasseroberfläche bei y = 0). Wie tief ist der Kanal in der Mitte?', 8, '-(0.5 * 4 * (-4))',
+                                         'f(0) = 0,5 · 4 · (−4) = −8: Der tiefste Punkt liegt 8 m unter der Oberfläche.', 'Die Mitte liegt bei x = 0.', einheit='m'))
+    S.neu('graph_term', 'fehler', A('Jemand ordnet einem Graphen, der die x-Achse bei 2 berührt und bei −1 schneidet, den Term (x − 2)(x + 1) zu. Was stimmt?',
+                                    'Falsch: Berühren heißt doppelte Nullstelle: (x − 2)² · (x + 1).', ['Richtig.', 'Falsch: (x + 2)(x − 1).', 'Falsch: (x − 2)(x + 1)².'],
+                                    'Bei einer einfachen Nullstelle würde der Graph bei 2 schneiden.', 'Welche Vielfachheit gehört zum Berühren?'))
+    S.neu('graph_term', 'begruenden', A('Kann der Graph von f(x) = (x − 1)² · (x + 2)² irgendwo unterhalb der x-Achse verlaufen?', 'Nein: Beide Faktoren sind Quadrate, also ist f(x) ≥ 0.',
+                                        ['Ja, zwischen −2 und 1.', 'Ja, links von −2.', 'Nein, weil der Grad gerade ist.'],
+                                        'Ein Produkt von Quadraten ist nie negativ. (Gerader Grad allein reicht als Grund nicht: x² − 1 ist bei 0 negativ.)', 'Kann ein Quadrat negativ sein?'))
+    S.neu('graph_term', 'pruefung', Z('Eine ganzrationale Funktion 3. Grades hat die Nullstellen 0, 2 und 4 und den Leitkoeffizienten −1. Berechne f(1).', -3, '-1 * (1 - 0) * (1 - 2) * (1 - 4)',
+                                      'f(x) = −x(x − 2)(x − 4); f(1) = −1 · (−1) · (−3) = −3.', 'Stelle zuerst den Term in Produktform auf.'))
+    S.neu('graph_term', 'rueckwaerts', Z('f(x) = a · (x + 1)² · (x − 3) geht durch den Punkt (1 | 8). Bestimme a.', -1, '8 / (4 * (-2))', 'f(1) = a · 4 · (−2) = −8a = 8 ⇒ a = −1.', 'Setze den Punkt ein.'))
+    S.bonus('graph_term', Z('Für wie viele ganze Zahlen x mit 0 ≤ x ≤ 10 gilt (x − 1)(x − 4)(x − 7) < 0?', 3, '3',
+                            'Vorzeichen: links von 1 negativ (drei negative Faktoren), zwischen 1 und 4 positiv, zwischen 4 und 7 negativ, rechts von 7 positiv. Ganze Zahlen: x = 0, 5, 6 – drei.',
+                            'Bestimme das Vorzeichen in jedem Bereich zwischen den Nullstellen.'))
+    S.bonus('graph_term', Z('Ein Graph 4. Grades berührt die x-Achse bei −1 und bei 3 und schneidet die y-Achse bei 9. Welchen Wert hat f(1)?', 16, '1 * 2 ** 2 * (-2) ** 2',
+                            'f(x) = a(x + 1)²(x − 3)². f(0) = a · 1 · 9 = 9 ⇒ a = 1. f(1) = 4 · 4 = 16.', 'Nutze den y-Achsenabschnitt für a.'))
+
+    # --- term_bestimmen ---
+    S.stufenleiter('term_bestimmen', 'Den Ansatz a · (x − x₁)(x − x₂)… aus Nullstellen aufstellen und a mit dem y-Achsenabschnitt bestimmen.',
+                   'a mit einem beliebigen Punkt, drei Nullstellen, Wert aus Nullstellen und Leitkoeffizient.',
+                   'Doppelte Nullstellen, Scheitelhöhe, Tunnel modellieren, Parameter für doppelte Nullstelle, Fehler mit Vorzeichen, Symmetrie wie in der Prüfung, Unmögliches begründen.')
+    S.g('term_bestimmen', direkt=[168, 169, 170, 171, 172, 173], mehrschritt=[174, 175, 176, 177, 178, 179, 182, 233], umkehr=[180, 181, 183, 184, 185], darstellung=[232],
+        rueckwaerts=[234, 235], verknuepfen=[236], transfer=[237])
+    S.neu('term_bestimmen', 'erkennen', A('Welcher Ansatz passt zu einer Funktion 2. Grades mit den einfachen Nullstellen −2 und 5?', 'f(x) = a(x + 2)(x − 5)',
+                                          ['f(x) = a(x − 2)(x + 5)', 'f(x) = a(x + 2)(x + 5)', 'f(x) = (x − 2) + (x − 5)'], 'Zur Nullstelle −2 gehört (x + 2), zu 5 gehört (x − 5).', 'Welche Klammer wird bei x = −2 null?'))
+    S.neu('term_bestimmen', 'erkennen', A('Wozu braucht man beim Ansatz f(x) = a(x + 1)(x − 1)(x − 3) noch einen weiteren Punkt?', 'um den Faktor a zu bestimmen',
+                                          ['um die Nullstellen zu finden', 'um den Grad zu bestimmen', 'um zu prüfen, ob x = 0 erlaubt ist'],
+                                          'Die Nullstellen legen nur die Klammern fest. Wie stark der Graph gestreckt oder gespiegelt ist, bestimmt a.', 'Was ist im Ansatz noch unbekannt?'))
+    S.neu('term_bestimmen', 'fehler', A('Jemand stellt für die Nullstellen 1 und −4 den Ansatz f(x) = a(x + 1)(x − 4) auf. Was stimmt?', 'Falsch: Zu 1 gehört (x − 1), zu −4 gehört (x + 4).',
+                                        ['Richtig.', 'Falsch: Es muss a(x + 1)(x + 4) heißen.', 'Falsch: Es muss (x − 1) + (x + 4) heißen.'], 'Probe: (x − 1) ist bei x = 1 null, (x + 1) nicht.', 'Mach die Probe mit x = 1.'))
+    S.neu('term_bestimmen', 'parameter', Z('Für welche Zahl k hat f(x) = (x − 1)(x − k) eine doppelte Nullstelle?', 1, '1', 'Doppelt heißt: beide Klammern gleich, also k = 1: f(x) = (x − 1)².', 'Wann fallen zwei Nullstellen zusammen?'))
+    S.neu('term_bestimmen', 'pruefung', Z('Eine Funktion 3. Grades ist punktsymmetrisch zum Ursprung, hat die Nullstelle 3 und geht durch (1 | −16). Bestimme a in f(x) = a · x · (x − 3)(x + 3).', 2, '-16 / (1 * (-2) * 4)',
+                                          'Wegen der Symmetrie sind auch 0 und −3 Nullstellen. f(1) = a · 1 · (−2) · 4 = −8a = −16 ⇒ a = 2.', 'Setze den Punkt in den Ansatz ein.'))
+    S.neu('term_bestimmen', 'begruenden', A('Gibt es eine Funktion 2. Grades mit den Nullstellen 1 und 3, die durch den Punkt (2 | 0) geht?', 'Nein: Dann hätte sie drei Nullstellen, Grad 2 erlaubt höchstens zwei.',
+                                            ['Ja: f(x) = (x − 1)(x − 3).', 'Ja, wenn a = 0 ist – das ist dann noch Grad 2.', 'Nein, weil (2 | 0) zwischen den Nullstellen liegt und dort f > 0 sein muss.'],
+                                            'Eine Funktion 2. Grades hat höchstens zwei Nullstellen. (a = 0 wäre die Nullfunktion, nicht Grad 2.)', 'Wie viele Nullstellen hätte die Funktion?'))
+    S.bonus('term_bestimmen', Z('Eine Parabel hat die Nullstellen 0 und 6 und ihren Scheitel auf der Höhe 18. Welchen Wert hat sie an der Stelle x = 1?', 10, '-2 * 1 * (1 - 6)',
+                                'f(x) = a · x(x − 6). Scheitel in der Mitte bei x = 3: a · 3 · (−3) = 18 ⇒ a = −2. f(1) = −2 · 1 · (−5) = 10.', 'Wo liegt der Scheitel einer Parabel mit zwei Nullstellen?'))
+    S.bonus('term_bestimmen', Z('Ein Graph 3. Grades hat die Nullstellen −1, 1 und 2 und schneidet die y-Achse bei 4. Welchen Wert hat er bei x = 3?', 16, '2 * 4 * 2 * 1',
+                                'f(x) = a(x + 1)(x − 1)(x − 2). f(0) = a · 1 · (−1) · (−2) = 2a = 4 ⇒ a = 2. f(3) = 2 · 4 · 2 · 1 = 16.', 'Bestimme a mit f(0).'))
+    S.anwenden()
+
+
+if __name__ == '__main__':
+    stufen()  # Zwanzigste Runde (stufen-kl10) – ganz am Ende

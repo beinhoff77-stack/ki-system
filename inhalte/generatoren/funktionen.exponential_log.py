@@ -880,3 +880,232 @@ def durchsicht():
 
 if __name__ == '__main__':
     durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl10) ----------
+# Jede Übung bekommt ihren Aufgabentyp g; neue Übungen nach Typ, je Lernkarte zwei Knobel-Bordkarten. Läuft ganz am Ende.
+def stufen():
+    import math
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _stufen_kl10 import Stufen
+    S = Stufen('funktionen.exponential_log', 2010)
+    Z, A, L, ZR = S.Z, S.A, S.L, S.ZR
+    lg = math.log10
+
+    # --- werte ---
+    S.stufenleiter('werte', 'f(x) = a · bˣ für ganze x ausrechnen und a, b im Term erkennen.',
+                   'Negative Exponenten, Summen von Funktionswerten, Werte in Sachsituationen, x aus einem einfachen Wert.',
+                   'Rückwärts zu a, Fehler finden, Aussagen prüfen, Parameter, ein Modell selbst aufstellen.')
+    S.g('werte', direkt=[0, 1, 2, 3, 4, 5, 12, 13, 14, 15, 16, 17, 6, 7, 8, 9, 10, 11, 168], umkehr=[169, 172],
+        pruefung=[170], rueckwaerts=[171], verknuepfen=[173])
+    S.neu('werte', 'erkennen', A('Welcher Term beschreibt eine Exponentialfunktion mit dem Anfangswert 3 und dem Wachstumsfaktor 4?', '3 · 4^x',
+                                 ['4 · 3^x', '3 · x⁴', '3 + 4x'], 'Anfangswert a vorn, Wachstumsfaktor b als Basis: f(x) = 3 · 4^x.', 'Form a · b^x: Wo steht der Faktor, wo die Basis?'))
+    S.neu('werte', 'erkennen', A('Bei f(x) = 0,5 · 6^x: Was ist der Anfangswert, was der Wachstumsfaktor?', 'Anfangswert 0,5, Wachstumsfaktor 6',
+                                 ['Anfangswert 6, Wachstumsfaktor 0,5', 'Anfangswert 3, Wachstumsfaktor 6', 'Anfangswert 0,5, Wachstumsfaktor 3'],
+                                 'f(0) = 0,5 · 6⁰ = 0,5 ist der Anfangswert; die Basis 6 ist der Wachstumsfaktor.', 'Setze x = 0 ein.'))
+    S.neu('werte', 'mehrschritt', Z('Berechne f(2) − f(−2) für f(x) = 8 · 2^x.', 30, '8 * 2 ** 2 - 8 * 2 ** (-2)',
+                                    'f(2) = 8 · 4 = 32; f(−2) = 8 · 1/4 = 2; Differenz 32 − 2 = 30.', 'Rechne beide Werte einzeln aus. 2^(−2) = 1/4.'))
+    S.neu('werte', 'mehrschritt', Z('f(x) = 9 · (1/3)^x. Berechne die Summe f(−2) + f(2).', 82, '9 * 3 ** 2 + 9 * Fraction(1, 9)'.replace('Fraction(1, 9)', '(1 / 9)'),
+                                    '(1/3)^(−2) = 3² = 9, also f(−2) = 81; (1/3)² = 1/9, also f(2) = 1. Summe 82.', 'Ein negativer Exponent dreht den Bruch um.'))
+    S.neu('werte', 'einkleidung', Z('Ein Guthaben wächst nach K(t) = 2 500 · 1,02^t (K in €, t in Jahren). Wie viel Euro sind nach 3 Jahren auf dem Konto? Runde auf Cent.',
+                                    2653.02, 'round(2500 * 1.02 ** 3, 2)', 'K(3) = 2 500 · 1,02³ = 2 500 · 1,061208 ≈ 2 653,02 €.',
+                                    'Setze t = 3 ein: erst 1,02³, dann mal 2 500.', einheit='€', toleranz=0.01))
+    S.neu('werte', 'einkleidung', Z('Die Zahl der Pilze auf einer Wiese wird durch P(t) = 40 · 3^t beschrieben (t in Tagen). Wie viele Pilze sind es nach 4 Tagen?',
+                                    3240, '40 * 3 ** 4', 'P(4) = 40 · 3⁴ = 40 · 81 = 3 240.', 'Erst 3⁴, dann mal 40.'))
+    S.neu('werte', 'fehler', A('Jemand rechnet für f(x) = 4 · 3^x: „f(2) = 12² = 144“. Was stimmt?', 'Falsch: Erst 3² = 9, dann mal 4, also f(2) = 36.',
+                               ['Richtig: f(2) = 144.', 'Falsch: Richtig wäre 4² · 3 = 48.', 'Falsch: Richtig wäre 4 · 3 · 2 = 24.'],
+                               'Der Exponent gehört nur zur Basis 3: f(2) = 4 · 3² = 4 · 9 = 36. (4 · 3)² wäre ein anderer Term.', 'Wozu gehört der Exponent?'))
+    S.neu('werte', 'begruenden', A('Stimmt die Aussage: „Für jede Funktion f(x) = a · 2^x gilt f(x + 1) = f(x) + 2“?',
+                                   'Nein: f(x + 1) = 2 · f(x). Beispiel a = 1, x = 3: f(4) = 16, aber f(3) + 2 = 10.',
+                                   ['Ja, weil der Wachstumsfaktor 2 ist.', 'Ja, aber nur für a = 1.', 'Nein: f(x + 1) = f(x) + a.'],
+                                   'f(x + 1) = a · 2^(x + 1) = a · 2^x · 2 = 2 · f(x). Ein Gegenbeispiel genügt, um die Aussage zu widerlegen.',
+                                   'Setze Zahlen ein, z. B. a = 1 und x = 3.'))
+    S.neu('werte', 'parameter', Z('Für welche Basis b > 0 hat f(x) = 3 · b^x an der Stelle x = 2 denselben Wert wie g(x) = 12 · 2^x an der Stelle x = 0?', 2, '2',
+                                  'g(0) = 12. Also 3 · b² = 12, b² = 4, b = 2 (b > 0).', 'Rechne g(0) aus und stelle eine Gleichung für b auf.'))
+    S.neu('werte', 'transfer', Z('Ein Gerücht: Am Montag kennen es 3 Personen. Jeden Tag erzählt jede Person, die es kennt, es 2 neuen Personen. Wie viele Personen kennen es am Montag eine Woche später?',
+                                 6561, '3 * 3 ** 7', 'Jeden Tag verdreifacht sich die Zahl (jeder Kenner plus zwei neue). Nach 7 Tagen: 3 · 3⁷ = 3 · 2 187 = 6 561.',
+                                 'Um welchen Faktor wächst die Zahl an einem Tag?'))
+    S.neu('werte', 'verknuepfen', Z('f(x) = 2^x. Für welches x ist f(x) = √8?', 1.5, '3 / 2', '√8 = 8^(1/2) = (2³)^(1/2) = 2^(3/2). Also x = 3/2 = 1,5.',
+                                    'Schreibe 8 als Zweierpotenz und die Wurzel als Hochzahl 1/2.'))
+    S.bonus('werte', Z('f(x) = 3^x. Für wie viele ganze Zahlen x liegt f(x) zwischen 0,001 und 1 000?', 13, '6 - (-6) + 1',
+                       '3⁶ = 729 < 1 000 < 2 187 = 3⁷, also x ≤ 6. Für negative x ist 3^(−n) = 1/3ⁿ: 1/729 ≈ 0,00137 > 0,001, aber 1/2 187 < 0,001, also x ≥ −6. '
+                       'Die ganzen Zahlen von −6 bis 6 sind 13 Stück.', 'Was passiert mit 3^x, wenn x das Vorzeichen wechselt?'))
+    S.bonus('werte', Z('Für f(x) = a · b^x mit a > 0 und b > 0 gilt f(1) · f(3) = 144. Berechne f(2).', 12, '12',
+                       'f(1) · f(3) = a · b · a · b³ = a² · b⁴ = (a · b²)² = f(2)². Also f(2)² = 144 und f(2) = 12, weil f(2) > 0. '
+                       'Man braucht a und b gar nicht einzeln.', 'Schreibe f(1) · f(3) und f(2)² mit a und b und vergleiche.'))
+
+    # --- faktor ---
+    S.stufenleiter('faktor', 'Aus „+ p %“ oder „− p %“ den Faktor b bilden und im Term Wachstum oder Zerfall erkennen.',
+                   'Aus b den Prozentsatz zurückgewinnen, Faktoren über mehrere Jahre, Prozentsatz aus einer Tabelle.',
+                   'Rückwärts zum Anfangswert, Aussagen und Fehler zu Prozenten prüfen, Parameter p, Wurzel als Faktor je Stunde, Prüfungsaufgabe.')
+    S.g('faktor', direkt=[28, 29, 31, 30, 32, 33], erkennen=[40, 41, 44], umkehr=[34, 36, 37, 39, 35, 38, 174],
+        mehrschritt=[42, 43, 45, 175, 177], verknuepfen=[176], begruenden=[178], fehler=[179])
+    S.ueberzaehlig(30, 32, 33, 38)
+    S.neu('faktor', 'erkennen', A('Welcher Wachstumsfaktor beschreibt eine Abnahme?', '0,98', ['1,08', '1,8', '2,1'],
+                                  'Abnahme heißt: Es bleibt weniger als 100 % übrig, also b < 1. Nur 0,98 ist kleiner als 1 (Abnahme um 2 %).', 'Ist der Faktor größer oder kleiner als 1?'))
+    S.neu('faktor', 'darstellung', Z('Ein Bestand: Jahr 0: 5 000, Jahr 1: 4 600, Jahr 2: 4 232. Um wie viel Prozent nimmt er pro Jahr ab?', 8, '(1 - Fraction(4600, 5000)) * 100'.replace('Fraction(4600, 5000)', '(4600 / 5000)'),
+                                     '4 600 : 5 000 = 0,92 und 4 232 : 4 600 = 0,92. Übrig bleiben 92 %, also Abnahme um 8 %.', 'Teile zwei aufeinanderfolgende Werte.', einheit='%'))
+    S.neu('faktor', 'rueckwaerts', Z('Ein Gebrauchtwagen hat zwei Jahre lang jedes Jahr 12 % an Wert verloren und kostet jetzt 15 488 €. Wie viel kostete er vor zwei Jahren?',
+                                     20000, '15488 / 0.88 ** 2', 'Faktor je Jahr 0,88. Jetzt = Preis · 0,88², also Preis = 15 488 : 0,7744 = 20 000 €.',
+                                     'Teile rückwärts durch den Faktor – einmal je Jahr.', einheit='€'))
+    S.neu('faktor', 'parameter', Z('Ein Guthaben wird ein Jahr lang mit p % verzinst. Für welches p ist es danach genauso groß wie ein gleich großes Guthaben, das zwei Jahre lang mit 5 % verzinst wird (Zinseszins)?',
+                                   10.25, '(1.05 ** 2 - 1) * 100', '1 + p/100 = 1,05² = 1,1025, also p = 10,25.', 'Setze die beiden Faktoren gleich.', einheit='%'))
+    S.neu('faktor', 'transfer', Z('Ein Blatt Papier ist 0,1 mm dick. Bei jedem Falten verdoppelt sich die Dicke des Stapels. Nach wie vielen Faltungen wäre er zum ersten Mal dicker als 1 m?',
+                                  14, '14', '1 m = 1 000 mm. Gesucht: 0,1 · 2ⁿ > 1 000, also 2ⁿ > 10 000. 2¹³ = 8 192 reicht nicht, 2¹⁴ = 16 384 reicht: 14 Faltungen.',
+                                  'Rechne in Millimetern und probiere Zweierpotenzen.', einheit='Faltungen'))
+    S.neu('faktor', 'pruefung', A('Ein Bestand wird durch f(t) = 6 000 · 0,95^t beschrieben (t in Jahren). Welcher Term gibt an, um wie viel Prozent er in den ersten 3 Jahren insgesamt abnimmt?',
+                                  '(1 − 0,95³) · 100 %', ['3 · 5 %', '0,95³ · 100 %', '(0,95 − 0,05³) · 100 %'],
+                                  'Nach 3 Jahren ist der Faktor 0,95³ ≈ 0,857; es fehlen 1 − 0,857 ≈ 0,143, also etwa 14,3 %. 3 · 5 % = 15 % übersieht, dass die Prozente vom kleineren Rest genommen werden.',
+                                  'Welcher Anteil ist nach 3 Jahren noch da, welcher fehlt?'))
+    S.neu('faktor', 'begruenden', A('Ein Preis steigt erst um 10 % und dann um 20 %. Ein zweiter, gleich hoher Preis steigt erst um 20 % und dann um 10 %. Was gilt?',
+                                    'Beide steigen insgesamt gleich stark, um 32 %.', ['Der erste steigt insgesamt stärker.', 'Der zweite steigt insgesamt stärker.', 'Beide steigen insgesamt um 30 %.'],
+                                    '1,1 · 1,2 = 1,2 · 1,1 = 1,32. Die Reihenfolge der Faktoren ist egal; die Zunahme ist 32 %, nicht 30 %.', 'Schreibe beide Änderungen als Faktoren.'))
+    S.bonus('faktor', Z('Ein Bestand wächst drei Jahre lang jedes Jahr um 25 % und nimmt danach drei Jahre lang jedes Jahr um 20 % ab. Wie viel Prozent des Anfangswerts sind es am Ende?',
+                        100, '(Fraction(5, 4) * Fraction(4, 5)) ** 3 * 100'.replace('Fraction(5, 4)', '(5 / 4)').replace('Fraction(4, 5)', '(4 / 5)'),
+                        'Faktoren: 1,25³ · 0,8³ = (1,25 · 0,8)³. Und 1,25 · 0,8 = 5/4 · 4/5 = 1. Also ist der Bestand am Ende genau so groß wie am Anfang: 100 %.',
+                        'Ordne die sechs Faktoren geschickt zu Paaren.', einheit='%'))
+    S.bonus('faktor', Z('Ein Kapital wird jedes Jahr mit 8 % verzinst (Zinseszins). Nach wie vielen ganzen Jahren hat es sich zum ersten Mal mehr als verdoppelt?', 10, '10',
+                        '1,08² = 1,1664; 1,08⁴ ≈ 1,3605; 1,08⁸ ≈ 1,8509; 1,08⁹ ≈ 1,9990 – knapp unter 2! 1,08¹⁰ ≈ 2,1589. Also erst nach 10 Jahren. '
+                        'Die Faustregel „72 : 8 = 9 Jahre“ trifft hier gerade nicht.', 'Quadriere geschickt: 1,08², dann (1,08²)², … und prüfe die Grenze genau.', einheit='Jahre'))
+
+    # --- linear_oder_exponentiell ---
+    S.stufenleiter('linear_oder_exponentiell', 'Differenzen und Quotienten bilden, lineares und exponentielles Wachstum erkennen.',
+                   'Folgen fortsetzen, Terme aus Tabellen, Sachsituationen einem Modell zuordnen und rechnen.',
+                   'Modelle vergleichen und Zeitpunkte bestimmen, Grenzen eines Modells begründen, Fehler finden, Parameter, Prüfungsaufgabe mit Tabelle.')
+    S.g('linear_oder_exponentiell', erkennen=[204, 205, 206, 207, 213, 208], mehrschritt=[209, 210], darstellung=[211, 212, 214],
+        pruefung=[215], rueckwaerts=[216], transfer=[217, 220], begruenden=[218, 221], fehler=[219])
+    S.ueberzaehlig(205, 208)
+    S.neu('linear_oder_exponentiell', 'direkt', Z('Bei den Werten 3; 6; 12; 24 ist der Quotient aufeinanderfolgender Werte immer gleich. Wie groß ist er?', 2, '6 / 3',
+                                                  '6 : 3 = 12 : 6 = 24 : 12 = 2.', 'Teile jeden Wert durch seinen Vorgänger.'))
+    S.neu('linear_oder_exponentiell', 'direkt', Z('Bei den Werten 7; 11; 15; 19 ist die Differenz aufeinanderfolgender Werte immer gleich. Wie groß ist sie?', 4, '11 - 7',
+                                                  '11 − 7 = 15 − 11 = 19 − 15 = 4.', 'Ziehe jeden Wert von seinem Nachfolger ab.'))
+    S.neu('linear_oder_exponentiell', 'direkt', Z('Eine Größe wächst exponentiell mit dem Faktor 1,5 je Schritt. Heute hat sie den Wert 40. Welchen Wert hat sie nach einem Schritt?', 60, '40 * 1.5',
+                                                  'Neuer Wert = 40 · 1,5 = 60.', 'Exponentiell heißt: mit dem Faktor malnehmen.'))
+    S.neu('linear_oder_exponentiell', 'einkleidung', ZR('Ein Tee kühlt ab. Seine Übertemperatur (über der Raumtemperatur) beträgt 80 °C, 64 °C und 51,2 °C, gemessen im Abstand von je 5 Minuten. '
+                                                       'Die Abnahme ist exponentiell. Welche Übertemperatur ist 5 Minuten nach der letzten Messung zu erwarten? Runde auf eine Nachkommastelle.',
+                                                       51.2 * 0.8, 1, '64 : 80 = 0,8 und 51,2 : 64 = 0,8. Nächster Wert: 51,2 · 0,8 = 40,96 ≈ 41,0 °C.', 'Bestimme den Faktor je 5 Minuten.', einheit='°C'))
+    S.neu('linear_oder_exponentiell', 'einkleidung', Z('Eine Kerze ist 24 cm lang und nach 2 Stunden noch 21 cm. Sie brennt gleichmäßig ab. Nach wie vielen Stunden (vom Anzünden an) ist sie ganz abgebrannt?',
+                                                      16, '24 / ((24 - 21) / 2)', 'Gleichmäßig heißt linear: 3 cm in 2 h, also 1,5 cm je Stunde. 24 : 1,5 = 16 Stunden.',
+                                                      'Wie viele Zentimeter brennen in einer Stunde ab?', einheit='h'))
+    S.neu('linear_oder_exponentiell', 'parameter', Z('f(x) = 2 · b^x und g(x) = 2 + 6x haben an der Stelle x = 1 denselben Wert. Für welche Basis b gilt das?', 4, '(2 + 6) / 2',
+                                                    'g(1) = 8. Also 2 · b = 8 und b = 4.', 'Setze x = 1 in beide Terme ein.'))
+    S.bonus('linear_oder_exponentiell', Z('Auf das erste Feld eines Schachbretts legt man 1 Reiskorn, auf jedes weitere Feld doppelt so viele wie auf das vorige. Auf welchem Feld liegen zum ersten Mal mehr als eine Million Körner?',
+                                          21, '21', 'Auf Feld n liegen 2^(n − 1) Körner. Idee: 2¹⁰ = 1 024 ≈ 1 000, also 2²⁰ = 1 024² ≈ 1 048 576 > 1 000 000, aber 2¹⁹ = 524 288 zu wenig. '
+                                          'Feld n mit n − 1 = 20: Feld 21.', 'Merke dir 2¹⁰ ≈ 1 000. Achtung: Auf Feld 1 liegt 2⁰.'))
+    S.bonus('linear_oder_exponentiell', Z('Größe A wächst linear: 1 000; 1 100; 1 200; … Größe B wächst exponentiell: 1; 2; 4; 8; … (beide je Schritt, Start bei Schritt 0). Nach wie vielen Schritten ist B zum ersten Mal größer als A?',
+                                          12, '12', 'Nach n Schritten: A = 1 000 + 100n, B = 2ⁿ. n = 10: 1 024 < 2 000. n = 11: 2 048 < 2 100 (knapp!). n = 12: 4 096 > 2 200. Also nach 12 Schritten.',
+                                          'Stelle beide Terme auf und vergleiche bei n = 10, 11, 12.'))
+
+    # --- modell ---
+    S.stufenleiter('modell', 'Ein Verdopplungsmodell auswerten und erkennen, welche Formel zu einer Beschreibung passt.',
+                   'Den Faktor b aus zwei Werten bestimmen, Halbwertszeiten auswerten, a und b aus Tabellenwerten.',
+                   'Aus zwei Punkten rückwärts, Fehler im Modell, Parameter T, Modelle vergleichen, Prüfungsaufgabe mit Prognose.')
+    S.g('modell', direkt=[56, 57, 58, 59, 60, 61], erkennen=[65, 67], umkehr=[62, 63, 64, 66], einkleidung=[72, 73, 181], mehrschritt=[180, 69, 185],
+        rueckwaerts=[68, 71, 182], transfer=[184], verknuepfen=[183])
+    S.ueberzaehlig(60, 70)
+    S.g('modell', rueckwaerts=[70])
+    S.neu('modell', 'erkennen', A('Welche Formel beschreibt 500 Bakterien, die sich alle 4 Stunden verdoppeln (t in Stunden)?', 'f(t) = 500 · 2^(t/4)',
+                                  ['f(t) = 500 · 2^(4t)', 'f(t) = 500 · 4^t', 'f(t) = 500 · 2 · t/4'],
+                                  'Bis zur Zeit t wurde (t : 4)-mal verdoppelt: f(t) = 500 · 2^(t/4).', 'Wie oft wurde nach t Stunden verdoppelt?'))
+    S.neu('modell', 'erkennen', A('f(t) = 60 · 0,5^(t/8) beschreibt die Menge eines Stoffs in Gramm (t in Tagen). Was bedeutet die 8?',
+                                  'Halbwertszeit: Nach 8 Tagen ist noch die Hälfte da.', ['Jeden Tag gehen 8 % verloren.', 'Nach 8 Tagen ist nichts mehr da.', 'Am Anfang sind 8 g da.'],
+                                  'Für t = 8 ist der Exponent 1: f(8) = 60 · 0,5 = 30, die Hälfte von 60.', 'Setze t = 8 ein.'))
+    S.neu('modell', 'fehler', A('Jemand beschreibt 200 Zellen, die sich alle 6 Stunden verdoppeln, mit f(t) = 200 · 2^(6t) (t in Stunden). Was stimmt?',
+                                'Falsch: Nach t Stunden wurde t/6-mal verdoppelt, also f(t) = 200 · 2^(t/6).',
+                                ['Richtig.', 'Falsch: f(t) = 200 · 6^(2t).', 'Falsch: f(t) = 200 · 2 · 6t.'],
+                                'Probe mit t = 6: 2^(6 · 6) wäre 2³⁶-mal so viel, nach 6 Stunden ist es aber nur das Doppelte. 2^(t/6) gibt für t = 6 genau 2.', 'Mach die Probe mit t = 6.'))
+    S.neu('modell', 'parameter', Z('Ein Bestand wird durch f(t) = 100 · 2^(t/T) beschrieben (t in Stunden). Nach 12 Stunden sind es 800. Bestimme die Verdopplungszeit T in Stunden.',
+                                   4, '12 / 3', '100 · 2^(12/T) = 800 ⇒ 2^(12/T) = 8 = 2³ ⇒ 12/T = 3 ⇒ T = 4.', 'Teile durch 100 und schreibe 8 als Zweierpotenz.', einheit='h'))
+    S.neu('modell', 'pruefung', ZR('In einem See leben zu Beginn 1 200 Fische, nach einem Jahr 1 380. Man nimmt exponentielles Wachstum an. Mit wie vielen Fischen rechnet dieses Modell nach 4 Jahren? Runde auf ganze Fische.',
+                                   1200 * 1.15 ** 4, 0, 'Faktor b = 1 380 : 1 200 = 1,15. f(4) = 1 200 · 1,15⁴ ≈ 1 200 · 1,749 ≈ 2 099 Fische.',
+                                   'Erst den Faktor je Jahr bestimmen, dann das Modell auswerten.'))
+    S.bonus('modell', Z('Ein Seerosenteppich verdreifacht seine Fläche jede Woche. Beginnt man mit einer Seerose, ist der Teich nach 9 Wochen bedeckt. Nach wie vielen Wochen wäre er bedeckt, wenn man mit 3 Seerosen beginnt?',
+                        8, '9 - 1', 'Mit 3 Seerosen hat man von Anfang an den Stand, den eine einzelne Seerose erst nach einer Woche erreicht. Man ist also immer eine Woche voraus: 9 − 1 = 8 Wochen.',
+                        'Wann hätte die einzelne Seerose genau 3 Seerosen?', einheit='Wochen'))
+    S.bonus('modell', Z('Kultur A beginnt mit 100 Zellen und verdoppelt sich jede Stunde. Kultur B beginnt mit 800 Zellen und verdoppelt sich alle 2 Stunden. Nach wie vielen Stunden sind beide gleich groß?',
+                        6, '6', '100 · 2^t = 800 · 2^(t/2) ⇒ 2^t : 2^(t/2) = 2^(t/2) = 8 = 2³ ⇒ t = 6. Probe: A = 100 · 64 = 6 400, B = 800 · 8 = 6 400.',
+                        'Teile beide Seiten durch 100 und durch 2^(t/2).', einheit='h'))
+
+    # --- graph ---
+    S.stufenleiter('graph', 'Den y-Achsenabschnitt ablesen, steigend/fallend erkennen, Term und Graph zuordnen.',
+                   'Aussagen über Graphen prüfen, verschobene Graphen (Schnittpunkt, Asymptote, Wertemenge), Graph aus Spiegelung und Verschiebung.',
+                   'Spiegeln mit Potenzgesetzen erklären, Nullstellen verschobener Graphen, Schnittpunkte, Parameter aus Asymptote, Fehler, Prüfungsaufgabe.')
+    S.g('graph', direkt=[84, 85, 89, 95], erkennen=[86, 87, 91, 92, 93, 88, 94], darstellung=[90, 99, 101, 188], umkehr=[187], mehrschritt=[96, 97, 186],
+        verknuepfen=[98, 100, 189], begruenden=[190], transfer=[191])
+    S.neu('graph', 'fehler', A('Jemand sagt: „Der Graph von f(x) = 2 · 3^x schneidet die y-Achse bei (0 | 3), denn die Basis ist 3.“ Was stimmt?',
+                               'Falsch: f(0) = 2 · 3⁰ = 2, also (0 | 2).', ['Richtig.', 'Falsch: Er schneidet sie bei (0 | 6).', 'Falsch: Er schneidet die y-Achse nicht.'],
+                               '3⁰ = 1, also f(0) = 2 · 1 = 2. Der y-Achsenabschnitt ist der Anfangswert a, nicht die Basis.', 'Setze x = 0 ein.'))
+    S.neu('graph', 'parameter', Z('Der Graph von f(x) = a · 2^x + c hat die Asymptote y = −3 und schneidet die y-Achse bei (0 | 5). Bestimme a.', 8, '5 - (-3)',
+                                  'Die Asymptote ist y = c, also c = −3. f(0) = a + c = 5, also a = 8.', 'Was bewirkt c am Graphen? Setze dann x = 0 ein.'))
+    S.neu('graph', 'pruefung', Z('Gegeben ist f(x) = 4 − 2^(x + 1). Berechne die Nullstelle von f.', 1, '2 - 1',
+                                 '4 − 2^(x + 1) = 0 ⇒ 2^(x + 1) = 4 = 2² ⇒ x + 1 = 2 ⇒ x = 1.', 'Setze f(x) = 0 und schreibe 4 als Zweierpotenz.'))
+    S.bonus('graph', A('Wie viele gemeinsame Punkte haben die Graphen von f(x) = 2^x und g(x) = x²?', '3', ['1', '2', '4'],
+                       'Rechts: x = 2 (4 = 4) und x = 4 (16 = 16), dazwischen ist x² größer, danach wächst 2^x schneller. Links (x < 0) fällt x² von großen Werten auf 0, '
+                       '2^x liegt zwischen 0 und 1: Bei x = −1 ist x² = 1 > 0,5, bei x = 0 ist x² = 0 < 1 – also noch ein Schnittpunkt (bei etwa −0,77). Zusammen 3.',
+                       'Prüfe auch negative x – vergleiche Werte bei x = −1 und x = 0.'))
+    S.bonus('graph', Z('Für wie viele ganze Zahlen n liegt der Punkt (n | 1 000) zwischen den Graphen von f(x) = 2^x und g(x) = 3^x, das heißt 2ⁿ < 1 000 < 3ⁿ?', 3, '9 - 7 + 1',
+                       '2ⁿ < 1 000 gilt bis n = 9 (2⁹ = 512, 2¹⁰ = 1 024). 3ⁿ > 1 000 gilt ab n = 7 (3⁶ = 729, 3⁷ = 2 187). Beides: n = 7, 8, 9 – drei Zahlen.',
+                       'Bestimme die Grenzen für beide Bedingungen getrennt.'))
+
+    # --- logfunktion ---
+    S.stufenleiter('logfunktion', 'Einfache Logarithmen als Hochzahl ablesen und Eigenschaften des Graphen (x > 0, (1 | 0), Asymptote) erkennen.',
+                   'Negative Logarithmen, Punkte der Umkehrfunktion, Werte mit dem Rechner, verschobene Logarithmusfunktionen.',
+                   'Nullstellen und Punkte rückwärts, Umkehrfunktion bilden, Basis als Parameter, Fehler, Abschätzen, Dezibel als Sachmodell.')
+    S.g('logfunktion', direkt=[112, 113, 114, 115, 116, 117, 129], erkennen=[118, 127, 128], mehrschritt=[119, 122, 125, 124, 126, 193],
+        darstellung=[120, 121, 123, 195], umkehr=[192], rueckwaerts=[194, 196], begruenden=[197])
+    S.ueberzaehlig(113, 115, 117, 125, 126)
+    S.neu('logfunktion', 'fehler', A('Jemand rechnet: „log₂(8 + 8) = log₂(8) + log₂(8) = 3 + 3 = 6.“ Was stimmt?', 'Falsch: log₂(16) = 4, denn 2⁴ = 16.',
+                                     ['Richtig.', 'Falsch: Es ist 3 · 3 = 9.', 'Falsch: log₂(16) = 8.'],
+                                     'log₂(16) fragt: 2 hoch wie viel ist 16? Antwort 4. Den Logarithmus einer Summe darf man nicht in eine Summe von Logarithmen zerlegen.', 'Rechne erst 8 + 8 aus.'))
+    S.neu('logfunktion', 'parameter', Z('Der Graph von f(x) = log_b(x) geht durch den Punkt (81 | 4). Bestimme die Basis b.', 3, '3',
+                                       'log_b(81) = 4 heißt b⁴ = 81 = 3⁴, also b = 3.', 'Schreibe die Logarithmus-Aussage als Potenz.'))
+    S.neu('logfunktion', 'pruefung', Z('Gegeben ist f(x) = log₂(x + 2) + 1. Der Punkt P(x | 4) liegt auf dem Graphen von f. Berechne x.', 6, '2 ** 3 - 2',
+                                       'log₂(x + 2) + 1 = 4 ⇒ log₂(x + 2) = 3 ⇒ x + 2 = 2³ = 8 ⇒ x = 6.', 'Setze f(x) = 4 und stelle nach dem Logarithmus um.'))
+    S.neu('logfunktion', 'verknuepfen', L('Zwischen welchen zwei aufeinanderfolgenden ganzen Zahlen liegt log₃(50)?', '□ < log₃(50) < □', [3, 4], ['3', '4'],
+                                          '3³ = 27 < 50 < 81 = 3⁴, also liegt log₃(50) zwischen 3 und 4.', 'Zwischen welchen Dreierpotenzen liegt 50?'))
+    S.neu('logfunktion', 'transfer', Z('Die Lautstärke in Dezibel ist L = 10 · lg(I : I₀). Ein Geräusch hat die 1 000-fache Schallintensität I₀ der Hörschwelle. Wie viel Dezibel sind das?',
+                                       30, '10 * 3', 'I : I₀ = 1 000, lg(1 000) = 3, also L = 10 · 3 = 30 dB.', 'Setze den Quotienten I : I₀ ein.', einheit='dB'))
+    S.bonus('logfunktion', Z('Für wie viele ganze Zahlen x gilt 2 < log₂(x) < 5?', 27, '31 - 5 + 1',
+                             '2 < log₂(x) < 5 heißt 2² < x < 2⁵, also 4 < x < 32 (die Funktion steigt). Ganze Zahlen 5 bis 31: 27 Stück.',
+                             'Übersetze die Ungleichung in eine Aussage über x ohne Logarithmus.'))
+    S.bonus('logfunktion', Z('Für welches x gilt log₂(x) − log₄(x) = 2?', 16, '2 ** 4',
+                             'Idee: Ist log₄(x) = y, dann x = 4^y = 2^(2y), also log₂(x) = 2y. Die Gleichung heißt 2y − y = 2, also y = 2 und x = 4² = 16. Probe: log₂ 16 − log₄ 16 = 4 − 2 = 2.',
+                             'Schreibe 4 als 2² und vergleiche log₂(x) mit log₄(x).'))
+
+    # --- zeitpunkt ---
+    S.stufenleiter('zeitpunkt', 'a · b^t = c durch Teilen und Logarithmieren lösen; die passende Gleichung erkennen.',
+                   'Verdopplungs- und Halbwertszeiten, Sachsituationen mit Übertemperatur, ganzzahlige Zeitpunkte, Prozentsatz aus der Verdopplungszeit.',
+                   'Zwei Modelle gleichsetzen, aus Daten rückwärts, Faktor als Parameter, Aussagen prüfen, Ähnlichkeit verknüpfen, Tiefe statt Zeit.')
+    S.g('zeitpunkt', direkt=[140, 141, 142, 143, 144, 145], einkleidung=[146, 149, 147, 148, 150, 151, 152, 153, 154, 155, 156, 157], mehrschritt=[198, 199],
+        pruefung=[200], transfer=[201], rueckwaerts=[202], fehler=[203])
+    S.ueberzaehlig(149, 148, 153, 150, 154)
+    S.neu('zeitpunkt', 'direkt', ZR('Ein Bestand wird durch B(t) = 800 · 0,9^t beschrieben. Für welches t ist er auf 400 gesunken? Runde auf eine Nachkommastelle.', lg(0.5) / lg(0.9), 1,
+                                    '0,9^t = 0,5 ⇒ t = lg 0,5 : lg 0,9 ≈ 6,6.', 'Erst durch 800 teilen, dann logarithmieren.'))
+    S.neu('zeitpunkt', 'erkennen', A('Welche Gleichung muss man lösen, um zu bestimmen, wann 500 · 1,04^t den Wert 800 erreicht?', '1,04^t = 1,6',
+                                     ['1,04^t = 300', '520^t = 800', '1,04 · t = 1,6'], 'Durch 500 teilen: 1,04^t = 800 : 500 = 1,6.', 'Was muss zuerst allein stehen?'))
+    S.neu('zeitpunkt', 'erkennen', A('Welche Rechnung liefert die Lösung von 3^t = 20?', 't = lg 20 : lg 3', ['t = 20 : 3', 't = lg 20 − lg 3', 't = lg(20 : 3)'],
+                                     'lg auf beiden Seiten: t · lg 3 = lg 20, also t = lg 20 : lg 3 ≈ 2,73.', 'Logarithmiere beide Seiten.'))
+    S.neu('zeitpunkt', 'umkehr', ZR('Ein Bestand verdoppelt sich in 12 Jahren (exponentielles Wachstum). Um wie viel Prozent wächst er pro Jahr? Runde auf zwei Nachkommastellen.',
+                                    (2 ** (1 / 12) - 1) * 100, 2, 'b¹² = 2 ⇒ b = 2^(1/12) ≈ 1,0595, also etwa 5,95 % pro Jahr.', 'Welcher Faktor ergibt zwölfmal hintereinander 2?', einheit='%'))
+    S.neu('zeitpunkt', 'parameter', ZR('Für welchen Wachstumsfaktor b verdoppelt sich ein Bestand f(t) = a · b^t in genau 10 Jahren? Runde auf vier Nachkommastellen.', 2 ** 0.1, 4,
+                                       'b¹⁰ = 2 ⇒ b = 2^(1/10) ≈ 1,0718 – unabhängig vom Anfangswert a.', 'Setze f(10) = 2a.'))
+    S.neu('zeitpunkt', 'begruenden', A('Ein Bestand wächst exponentiell und in 5 Jahren um 50 %. Stimmt: „Dann wächst er in 10 Jahren um 100 %“?',
+                                       'Nein: In 10 Jahren ist der Faktor 1,5² = 2,25, also wächst er um 125 %.', ['Ja: 2 · 50 % = 100 %.', 'Nein: Er wächst um 150 %.', 'Nein: Er wächst um 75 %.'],
+                                       'Zweimal je 5 Jahre: Faktor 1,5 · 1,5 = 2,25. Prozente werden bei exponentiellem Wachstum nicht addiert.', 'Schreibe beide 5-Jahres-Abschnitte als Faktoren.'))
+    S.neu('zeitpunkt', 'verknuepfen', Z('Ein Kopierer verkleinert ein Bild bei jedem Kopiervorgang auf 80 % der Länge und Breite. Nach wie vielen Vorgängen ist die Bildfläche zum ersten Mal kleiner als ein Zehntel der ursprünglichen Fläche?',
+                                        6, '6', 'Längen mal 0,8 heißt Fläche mal 0,8² = 0,64. 0,64ⁿ < 0,1 ⇒ n > lg 0,1 : lg 0,64 ≈ 5,16. Also nach 6 Vorgängen.',
+                                        'Wie ändert sich eine Fläche, wenn alle Längen mit 0,8 malgenommen werden?'))
+    S.neu('zeitpunkt', 'transfer', ZR('Licht verliert in einem See je Meter Wassertiefe 8 % seiner Helligkeit. In welcher Tiefe ist nur noch 1 % des Lichts vorhanden? Runde auf ganze Meter.',
+                                      lg(0.01) / lg(0.92), 0, '0,92^d = 0,01 ⇒ d = lg 0,01 : lg 0,92 ≈ 55,2, also etwa 55 m.', 'Die Tiefe spielt hier die Rolle der Zeit.', einheit='m'))
+    S.bonus('zeitpunkt', Z('Kapital A wächst mit 4 % pro Jahr, das doppelt so große Kapital B mit 2 % pro Jahr. Nach wie vielen ganzen Jahren ist A zum ersten Mal größer als B?', 36, '36',
+                           'A · 1,04^t > 2A · 1,02^t ⇒ (1,04 : 1,02)^t > 2. 1,04 : 1,02 ≈ 1,019608, t > lg 2 : lg 1,019608 ≈ 35,7. Also nach 36 Jahren.',
+                           'Teile durch A und fasse die beiden Potenzen mit gleichem Exponenten zusammen.', einheit='Jahre'))
+    S.bonus('zeitpunkt', Z('Bestand X halbiert sich alle 3 Tage, Bestand Y drittelt sich alle 4 Tage. Beide beginnen mit 1 296 Einheiten. Wie viele Einheiten hat X nach 12 Tagen mehr als Y?', 33,
+                           '1296 // 2 ** 4 - 1296 // 3 ** 3', '12 Tage: X wird 4-mal halbiert, 1 296 : 16 = 81; Y wird 3-mal gedrittelt, 1 296 : 27 = 48. Unterschied 81 − 48 = 33.',
+                           'Wie oft wird in 12 Tagen halbiert, wie oft gedrittelt?'))
+    S.anwenden()
+
+
+if __name__ == '__main__':
+    stufen()  # Zwanzigste Runde (stufen-kl10) – ganz am Ende

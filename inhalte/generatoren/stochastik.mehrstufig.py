@@ -854,3 +854,235 @@ def durchsicht():
 
 if __name__ == '__main__':
     durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl10) ----------
+def stufen():
+    import math
+    import sys as _sys
+    from fractions import Fraction as _F
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _stufen_kl10 import Stufen
+    S = Stufen('stochastik.mehrstufig', 2030)
+    Z, A, ZR = S.Z, S.A, S.ZR
+
+    def B(text, zaehler, nenner, w, h):
+        f = _F(zaehler, nenner)
+        assert (f.numerator, f.denominator) == (zaehler, nenner), (text, f)
+        return S.L(text, '□/□', [zaehler, nenner], [str(zaehler), str(nenner)], w, h, hinweis='Zähler und Nenner (gekürzt)')
+
+    # --- pfad_mult ---
+    S.stufenleiter('pfad_mult', 'Pfade im Baumdiagramm erkennen und entlang eines Pfades malnehmen (zwei gleiche Züge).',
+                   'Verschiedene Äste in fester Reihenfolge, drei Stufen, Sachsituationen wie Freiwürfe, Ereignisse mit Gegenrechnung.',
+                   'Vom Term zum Ereignis, unbekannter Ast, Anzahl der Kugeln als Parameter, Fehler „addieren statt malnehmen“, Aussagen prüfen, Prüfungsaufgabe.')
+    S.g('pfad_mult', direkt=[0, 1, 2, 3, 4, 5], einkleidung=[6, 8, 10, 196], mehrschritt=[7, 11, 9, 12, 13, 14, 17, 15, 16], umkehr=[197],
+        rueckwaerts=[198, 201], pruefung=[199], transfer=[200])
+    S.ueberzaehlig(3, 4, 5, 14, 15, 16, 17)
+    S.neu('pfad_mult', 'erkennen', A('Ein Glücksrad zeigt Rot mit 1/3 und Blau mit 2/3. Es wird zweimal gedreht. Welcher Term gehört zum Pfad (blau, rot)?', '2/3 · 1/3',
+                                     ['2/3 + 1/3', '1/3 · 1/3', '2/3 · 2/3'], 'Erst der Ast „blau“ mit 2/3, dann „rot“ mit 1/3; entlang des Pfades malnehmen.', 'Welche zwei Äste liegen auf diesem Pfad?'))
+    S.neu('pfad_mult', 'erkennen', A('Bei zwei Zügen mit Zurücklegen hat jede Verzweigung die Äste „rot“ (0,6) und „weiß“ (0,4). Wie viele Pfade hat das Baumdiagramm?', '4', ['2', '3', '6'],
+                                     'Erste Stufe 2 Äste, an jedem wieder 2: 2 · 2 = 4 Pfade (rr, rw, wr, ww).', 'Zähle die Enden ganz rechts.'))
+    S.neu('pfad_mult', 'fehler', A('Jemand rechnet beim zweimaligen Würfeln: „P(zwei Sechsen) = 1/6 + 1/6 = 1/3.“ Was stimmt?', 'Falsch: Entlang eines Pfades wird malgenommen: 1/6 · 1/6 = 1/36.',
+                                   ['Richtig.', 'Falsch: 2/6 · 2/6 = 1/9.', 'Falsch: 1/6 − 1/6 = 0.'],
+                                   'Zwei Sechsen ist ein einziger Pfad. Addieren macht man nur über verschiedene Pfade. 1/3 wäre viel zu groß: Nur in 1 von 36 Fällen fallen zwei Sechsen.', 'Ist das ein Pfad oder sind es zwei?'))
+    S.neu('pfad_mult', 'begruenden', A('Stimmt: „Je mehr Stufen ein Pfad hat, desto kleiner oder gleich ist seine Wahrscheinlichkeit“?', 'Ja: Jeder weitere Ast ist eine Zahl zwischen 0 und 1, Malnehmen damit vergrößert nicht.',
+                                       ['Nein: Bei Ästen über 0,5 wird das Produkt größer.', 'Nein: Malnehmen vergrößert immer.', 'Ja, aber nur beim Würfel.'],
+                                       'Für 0 ≤ p ≤ 1 gilt a · p ≤ a. Beispiel: 0,9 · 0,9 = 0,81 < 0,9.', 'Was passiert, wenn man mit einer Zahl zwischen 0 und 1 malnimmt?'))
+    S.neu('pfad_mult', 'verknuepfen', Z('Eine Münze wird zehnmal geworfen. P(jedes Mal Kopf) = 1/n. Wie groß ist n?', 1024, '2 ** 10',
+                                        '(1/2)¹⁰ = 1/2¹⁰ = 1/1 024, also n = 1 024.', 'Schreibe das Produkt von zehn gleichen Faktoren als Potenz.'))
+    S.neu('pfad_mult', 'parameter', Z('In einer Urne liegen 3 rote und x weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen; P(rot, rot) = 1/4. Wie groß ist x?', 3, '6 - 3',
+                                      '(3/(3 + x))² = 1/4 ⇒ 3/(3 + x) = 1/2 ⇒ 3 + x = 6 ⇒ x = 3.', 'Welcher Ast ergibt mit sich selbst malgenommen 1/4?'))
+    S.bonus('pfad_mult', B('Drei Personen werfen gleichzeitig je eine Münze. Wer als Einzige(r) ein anderes Ergebnis hat als die beiden anderen, scheidet aus. Wie groß ist die Wahrscheinlichkeit, dass in einer Runde jemand ausscheidet?', 3, 4,
+                           'Niemand scheidet nur aus, wenn alle dasselbe werfen: KKK oder ZZZ, zusammen 2 · 1/8 = 1/4. Sonst zeigen genau zwei dasselbe, und der Dritte scheidet aus: 1 − 1/4 = 3/4.',
+                           'Wann scheidet niemand aus?'))
+    S.bonus('pfad_mult', B('Ein Würfel wird so lange geworfen, bis zum ersten Mal eine Sechs fällt. Wie groß ist die Wahrscheinlichkeit, dass das beim 1., 3., 5., … Wurf (also bei einem ungeraden Wurf) passiert?', 6, 11,
+                           'Sei p die gesuchte Wahrscheinlichkeit. Entweder Sechs im 1. Wurf (1/6), oder zwei Würfe ohne Sechs (25/36) – dann beginnt alles von vorn: p = 1/6 + 25/36 · p. '
+                           'Also p · 11/36 = 1/6 und p = 6/11.', 'Was ist nach zwei Würfen ohne Sechs anders als am Anfang?'))
+
+    # --- pfad_add ---
+    S.stufenleiter('pfad_add', 'Die Pfade eines Ereignisses finden und ihre Wahrscheinlichkeiten addieren.',
+                   'Ereignisse mit mehreren Pfaden („dieselbe Farbe“, „genau zweimal“), Augensummen, verschiedene Glücksräder.',
+                   'Produkte und Summen über drei Würfel, Wahrscheinlichkeit rückwärts, p als Parameter, Fehler „nur ein Pfad“, Vergleich zweier Räder, Prüfungsaufgabe.')
+    S.g('pfad_add', direkt=[28, 29, 30, 31, 32, 33], mehrschritt=[34, 35, 36, 37, 38, 39, 207], einkleidung=[40, 41, 42, 43, 44, 45, 203], darstellung=[202],
+        transfer=[204], begruenden=[205], verknuepfen=[206])
+    S.ueberzaehlig(31, 32, 33, 36, 37, 38, 39)
+    S.neu('pfad_add', 'erkennen', A('Eine Münze wird zweimal geworfen. Welche Pfade gehören zum Ereignis „genau einmal Kopf“?', '(K, Z) und (Z, K)', ['nur (K, Z)', '(K, K) und (Z, Z)', '(K, Z), (Z, K) und (K, K)'],
+                                    'Genau einmal Kopf: entweder zuerst Kopf und dann Zahl oder umgekehrt.', 'Die Reihenfolge zählt mit.'))
+    S.neu('pfad_add', 'erkennen', A('Zu einem Ereignis gehören zwei Pfade mit 0,12 und 0,28. Wie berechnet man seine Wahrscheinlichkeit?', '0,12 + 0,28', ['0,12 · 0,28', '0,28 − 0,12', '(0,12 + 0,28) : 2'],
+                                    'Verschiedene Pfade eines Ereignisses werden addiert: 0,40.', 'Malnehmen gilt entlang eines Pfades – und über mehrere Pfade?'))
+    S.neu('pfad_add', 'fehler', A('Jemand rechnet bei zwei Münzwürfen: „P(genau einmal Kopf) = 1/2 · 1/2 = 1/4.“ Was stimmt?', 'Falsch: Es gibt zwei Pfade (K, Z) und (Z, K): 1/4 + 1/4 = 1/2.',
+                                  ['Richtig.', 'Falsch: 1/2 + 1/2 = 1.', 'Falsch: 1/2 · 1/2 · 2 = 1.'], 'Der Pfad (Z, K) wurde vergessen. Beide zusammen ergeben 1/2.', 'Wie viele Pfade gehören zu „genau einmal“?'))
+    S.neu('pfad_add', 'parameter', Z('Ein Spiel wird zweimal gespielt, jedes Mal gewinnt man mit der Wahrscheinlichkeit p. Für welches p ist P(genau ein Gewinn) am größten?', 0.5, '1 / 2',
+                                     'P(genau ein Gewinn) = 2 · p · (1 − p). Werte: p = 0,3: 0,42; p = 0,5: 0,5; p = 0,7: 0,42. Das Maximum liegt bei p = 0,5 (Scheitel der Parabel 2p − 2p²).',
+                                     'Stelle den Term mit p auf und denke an eine Parabel.'))
+    S.neu('pfad_add', 'pruefung', B('Ein Glücksrad zeigt 1 mit 1/2, 2 mit 1/3 und 3 mit 1/6. Es wird zweimal gedreht, die Zahlen werden addiert. Wie groß ist P(Summe = 4)?', 5, 18,
+                                    'Pfade (1, 3), (3, 1), (2, 2): 1/12 + 1/12 + 1/9 = 3/36 + 3/36 + 4/36 = 10/36 = 5/18.', 'Welche Paare ergeben die Summe 4?'))
+    S.neu('pfad_add', 'rueckwaerts', Z('Bei zwei unabhängigen Runden eines Spiels ist P(beide gewonnen) = 0,09. Wie groß ist P(genau einmal gewonnen)?', 0.42, '2 * 0.3 * 0.7',
+                                       'p² = 0,09 ⇒ p = 0,3. P(genau einmal) = 0,3 · 0,7 + 0,7 · 0,3 = 0,42.', 'Bestimme zuerst die Gewinnwahrscheinlichkeit einer Runde.'))
+    S.neu('pfad_add', 'transfer', B('Glücksrad A zeigt 1, 2 oder 3, Glücksrad B zeigt 2 oder 4 (jeweils gleich wahrscheinlich). Beide werden gedreht. Wie groß ist P(A zeigt die größere Zahl)?', 1, 6,
+                                    'Nur bei A = 3 und B = 2 ist A größer: 1/3 · 1/2 = 1/6.', 'Gehe alle 6 Paare durch.'))
+    S.bonus('pfad_add', B('Zwei Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme eine Primzahl ist?', 5, 12,
+                          'Primzahlen 2, 3, 5, 7, 11 mit 1, 2, 4, 6, 2 Pfaden: zusammen 15 von 36 = 5/12.', 'Zähle für jede mögliche Primzahl die Paare.'))
+    S.bonus('pfad_add', B('Anna und Ben werfen abwechselnd eine Münze, Anna beginnt. Wer zuerst Kopf wirft, gewinnt. Wie groß ist Annas Gewinnwahrscheinlichkeit?', 2, 3,
+                          'Anna gewinnt im 1., 3., 5., … Wurf: 1/2 + 1/8 + 1/32 + … Oder kürzer: Hat Anna p, dann hat Ben p/2 (er ist in derselben Lage, aber erst nach Annas Zahl). '
+                          'p + p/2 = 1 ⇒ p = 2/3.', 'Vergleiche Annas und Bens Lage: Was muss passieren, bevor Ben überhaupt werfen darf?'))
+
+    # --- ohne_zuruecklegen ---
+    S.stufenleiter('ohne_zuruecklegen', 'Die Äste der zweiten Stufe anpassen (Nenner und Zähler werden kleiner) und gleiche Farben berechnen.',
+                   'Verschiedene Farben, drei Züge, Lostrommeln, feste Reihenfolge.',
+                   'Zweite Kugel, „spätestens sicher“, Anzahl rückwärts aus einem Ast, n als Parameter, Fehler „mit Zurücklegen gerechnet“, Kartenspiel, Prüfungsaufgabe.')
+    S.g('ohne_zuruecklegen', direkt=[56, 57, 58, 59, 60, 61], mehrschritt=[62, 63, 64, 65, 66, 67, 211], einkleidung=[69, 70, 71, 72, 73, 209], umkehr=[208],
+        verknuepfen=[68], transfer=[210], begruenden=[212], parameter=[213])
+    S.ueberzaehlig(59, 60, 61, 64, 65, 66, 67)
+    S.neu('ohne_zuruecklegen', 'erkennen', A('In einer Urne liegen 4 rote und 6 blaue Kugeln. Die erste gezogene Kugel ist rot und wird nicht zurückgelegt. Welche Äste stehen an der zweiten Stufe?',
+                                             'rot 3/9, blau 6/9', ['rot 4/10, blau 6/10', 'rot 3/10, blau 6/10', 'rot 4/9, blau 5/9'],
+                                             'Es fehlt eine rote Kugel: 3 rote und 6 blaue, zusammen 9.', 'Wie viele Kugeln welcher Farbe sind noch drin?'))
+    S.neu('ohne_zuruecklegen', 'erkennen', A('Bei welchem Vorgang zieht man ohne Zurücklegen?', 'Lose aus einer Lostrommel ziehen und behalten',
+                                             ['Einen Würfel dreimal werfen', 'Ein Glücksrad zweimal drehen', 'Eine Münze zweimal werfen'],
+                                             'Nur bei den Losen ändert sich der Inhalt: Ein gezogenes Los fehlt beim nächsten Zug.', 'Wo ändert sich nach dem ersten Mal etwas?'))
+    S.neu('ohne_zuruecklegen', 'fehler', A('5 Lose, davon 2 Gewinne; man zieht 2 Lose. Jemand rechnet: „P(zwei Gewinne) = 2/5 · 2/5 = 4/25.“ Was stimmt?',
+                                           'Falsch: Nach dem ersten Gewinn ist noch 1 Gewinn unter 4 Losen: 2/5 · 1/4 = 1/10.', ['Richtig.', 'Falsch: 2/5 · 1/5 = 2/25.', 'Falsch: 2/5 + 1/4 = 13/20.'],
+                                           'Das gezogene Los kommt nicht zurück. Zweiter Ast: 1 von 4.', 'Was ist beim zweiten Zug anders?'))
+    S.neu('ohne_zuruecklegen', 'pruefung', Z('In einem Beutel liegen 6 Äpfel und 4 Birnen. Man nimmt ohne hinzusehen nacheinander Früchte heraus (ohne Zurücklegen). Wie viele Früchte muss man höchstens herausnehmen, um sicher zwei Birnen zu haben?',
+                                             8, '6 + 2', 'Schlimmster Fall: erst alle 6 Äpfel. Danach sind nur noch Birnen drin: 6 + 2 = 8 Früchte.', 'Denke an den ungünstigsten Fall.'))
+    S.neu('ohne_zuruecklegen', 'rueckwaerts', Z('Aus einer Urne mit 3 roten und einigen blauen Kugeln wird zweimal ohne Zurücklegen gezogen. Am Ast „rot, dann rot“ steht beim zweiten Zug 2/7. Wie viele blaue Kugeln liegen in der Urne?',
+                                                5, '7 + 1 - 3', 'Nach einer roten Kugel sind noch 2 rote von 7 Kugeln da. Also waren es 8 Kugeln, davon 3 rot: 5 blaue.', 'Wie viele Kugeln waren vor dem ersten Zug drin?'))
+    S.neu('ohne_zuruecklegen', 'transfer', B('Ein Skatspiel hat 32 Karten, darunter 4 Buben. Zwei Karten werden zufällig gezogen. Wie groß ist P(beide sind Buben)?', 3, 248,
+                                             '4/32 · 3/31 = 12/992 = 3/248.', 'Wie viele Buben und Karten sind nach dem ersten Buben übrig?'))
+    S.bonus('ohne_zuruecklegen', B('In einer Schublade liegen 4 rote und 4 blaue Socken. Man nimmt im Dunkeln zwei heraus. Wie groß ist die Wahrscheinlichkeit, dass sie dieselbe Farbe haben?', 3, 7,
+                                   'Nach der ersten Socke (egal welche Farbe) passen noch 3 der restlichen 7 Socken: 3/7. Über den Baum: 4/8 · 3/7 + 4/8 · 3/7 = 3/7.',
+                                   'Die erste Socke ist egal – worauf kommt es dann an?'))
+    S.bonus('ohne_zuruecklegen', B('In einer Urne liegen 2 rote und 2 blaue Kugeln. Man zieht alle vier nacheinander ohne Zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass sich die Farben abwechseln?', 1, 3,
+                                   'Abwechselnd heißt rbrb oder brbr. P(rbrb) = 2/4 · 2/3 · 1/2 · 1 = 1/6, ebenso brbr. Zusammen 1/3. (Es gibt 6 gleich wahrscheinliche Farbfolgen, 2 davon passen.)',
+                                   'Schreibe alle möglichen Farbfolgen auf.'))
+
+    # --- gegenereignis ---
+    S.stufenleiter('gegenereignis', 'Das Gegenereignis von „mindestens einmal“ benennen und P = 1 − P(keinmal) rechnen.',
+                   'Sachsituationen (Lose, Bauteile), gerade Zahlen, verschiedene Augenzahlen, der passende Term im Baumdiagramm.',
+                   'Mindestanzahl Versuche, Treffer-Wahrscheinlichkeit als Parameter, „mindestens“ − „genau“, zwei Personen, Fehler, Term wie in der Prüfung.')
+    S.g('gegenereignis', direkt=[84, 87, 85, 86, 88, 89], einkleidung=[90, 92, 91, 93, 94, 95], mehrschritt=[214, 215],
+        rueckwaerts=[96, 97, 99, 101], verknuepfen=[98], transfer=[100, 218], pruefung=[216], parameter=[217], fehler=[219])
+    S.ueberzaehlig(87, 88, 89, 92, 94, 95)
+    S.neu('gegenereignis', 'erkennen', A('Was ist das Gegenereignis von „mindestens eine Sechs“ bei drei Würfen?', 'keine Sechs', ['genau eine Sechs', 'höchstens eine Sechs', 'drei Sechsen'],
+                                         'Das Gegenteil von „mindestens eine“ ist „gar keine“. Zusammen ergeben beide alle Möglichkeiten.', 'Was bleibt übrig, wenn „mindestens eine“ nicht eintritt?'))
+    S.neu('gegenereignis', 'erkennen', A('Bei 4 Würfen ist P(keine Sechs) ≈ 0,48. Wie groß ist P(mindestens eine Sechs)?', '1 − 0,48 = 0,52', ['0,48', '4 · 1/6 ≈ 0,67', '(1/6)⁴'],
+                                         'Ereignis und Gegenereignis ergeben zusammen 1.', 'Ereignis plus Gegenereignis ergibt …?'))
+    S.neu('gegenereignis', 'darstellung', A('Im Baumdiagramm für drei Versuche ist nur der Pfad „nie Treffer“ markiert, jeder seiner Äste hat 0,7. Welcher Term liefert P(mindestens ein Treffer)?', '1 − 0,7³',
+                                            ['0,7³', '3 · 0,3', '1 − 0,3³'], 'Der markierte Pfad ist das Gegenereignis: 0,7³ = 0,343. Also P = 1 − 0,343 = 0,657.', 'Welches Ereignis zeigt der markierte Pfad?'))
+    S.bonus('gegenereignis', Z('Wie oft muss man mindestens würfeln, damit die Wahrscheinlichkeit für mindestens eine Sechs größer als 1/2 ist?', 4, '4',
+                               '(5/6)ⁿ < 1/2: (5/6)³ ≈ 0,579, (5/6)⁴ ≈ 0,482. Also 4 Würfe. (Viele schätzen 3, weil 3 · 1/6 = 1/2 – aber Wahrscheinlichkeiten addiert man hier nicht.)',
+                               'Rechne mit dem Gegenereignis und probiere n = 3 und n = 4.', einheit='Würfe'))
+    S.bonus('gegenereignis', B('4 Personen treffen sich. Wie groß ist die Wahrscheinlichkeit, dass mindestens zwei im selben Monat Geburtstag haben (alle Monate gleich wahrscheinlich)?', 41, 96,
+                               'Gegenereignis: alle in verschiedenen Monaten: 12/12 · 11/12 · 10/12 · 9/12 = 11 880/20 736 = 55/96. Also 1 − 55/96 = 41/96 ≈ 0,43.',
+                               'Rechne die Wahrscheinlichkeit aus, dass alle Monate verschieden sind.'))
+
+    # --- baum_ergaenzen ---
+    S.stufenleiter('baum_ergaenzen', 'Den Gegenast ergänzen (Äste einer Verzweigung ergeben 1) und Pfadwahrscheinlichkeiten deuten.',
+                   'Einen Ast durch Teilen bestimmen, Gesamtwahrscheinlichkeit über zwei Pfade, Sachsituationen wie Tests und Anteile.',
+                   'Fehlende Äste aus P(B), Kugelzahl aus Ästen, Wurzel aus einem Pfad, p als Parameter, Fehler, Unmögliches begründen, Vierfeldertafel wie im BMT.')
+    S.g('baum_ergaenzen', direkt=[112, 113, 114, 115, 116, 117], umkehr=[118, 119, 120, 121, 122, 123, 220], einkleidung=[124, 125, 126, 127, 128, 129, 221], mehrschritt=[225],
+        rueckwaerts=[222], transfer=[223], verknuepfen=[224])
+    S.neu('baum_ergaenzen', 'erkennen', A('Welche zwei Zahlen können an den beiden Ästen einer Verzweigung stehen?', '0,35 und 0,65', ['0,35 und 0,75', '0,5 und 0,6', '0,2 und 0,2'],
+                                          'Die Äste einer Verzweigung ergeben zusammen 1: 0,35 + 0,65 = 1.', 'Rechne jeweils die Summe aus.'))
+    S.neu('baum_ergaenzen', 'erkennen', A('Im Baumdiagramm ist P(A) = 0,3, am Ast von A nach B steht 0,5. Was bedeutet 0,3 · 0,5 = 0,15?', 'die Wahrscheinlichkeit des Pfades „A, dann B“',
+                                          ['P(B) insgesamt', 'die Wahrscheinlichkeit von „nicht A“', 'der Ast von B nach A'],
+                                          'Entlang eines Pfades wird malgenommen; das Produkt ist die Pfadwahrscheinlichkeit, nicht P(B) insgesamt.', 'Was liefert das Malnehmen entlang eines Pfades?'))
+    S.neu('baum_ergaenzen', 'mehrschritt', Z('Im Baumdiagramm ist P(A) = 0,6, der Ast A → B hat 0,5 und der Ast „nicht A“ → B hat 0,25. Berechne P(B).', 0.4, '0.6 * 0.5 + 0.4 * 0.25',
+                                             'Zwei Pfade enden bei B: 0,6 · 0,5 + 0,4 · 0,25 = 0,3 + 0,1 = 0,4.', 'Welche Pfade führen zu B? Vergiss P(nicht A) = 0,4 nicht.'))
+    S.neu('baum_ergaenzen', 'fehler', A('P(A) = 0,4; die Äste A → B und „nicht A“ → B haben beide 0,5. Jemand rechnet P(B) = 0,5 + 0,5 = 1. Was stimmt?',
+                                        'Falsch: P(B) = 0,4 · 0,5 + 0,6 · 0,5 = 0,5.', ['Richtig.', 'Falsch: P(B) = 0,4 · 0,5 = 0,2.', 'Falsch: P(B) = 0,25.'],
+                                        'Zu B führen zwei Pfade; erst entlang jedes Pfades malnehmen, dann addieren.', 'Rechne zuerst die beiden Pfade aus.'))
+    S.neu('baum_ergaenzen', 'begruenden', A('Kann in einem Baumdiagramm P(A) = 0,3 und die Pfadwahrscheinlichkeit „A, dann B“ = 0,4 sein?', 'Nein: Ein Pfad ist nie wahrscheinlicher als sein erster Ast.',
+                                            ['Ja, das ist möglich.', 'Nein, weil 0,3 + 0,4 ≠ 1.', 'Ja, wenn P(B) = 0,7 ist.'],
+                                            'Der Ast A → B wäre 0,4 : 0,3 ≈ 1,33 – größer als 1, also unmöglich.', 'Rechne den Ast von A nach B aus.'))
+    S.neu('baum_ergaenzen', 'parameter', Z('Im Baumdiagramm ist P(A) = p, der Ast A → B hat 0,5 und der Ast „nicht A“ → B hat 0,2. Für welches p ist P(B) = 0,32?', 0.4, '(0.32 - 0.2) / (0.5 - 0.2)',
+                                           '0,5p + 0,2(1 − p) = 0,32 ⇒ 0,3p + 0,2 = 0,32 ⇒ p = 0,4.', 'Stelle P(B) als Term mit p auf.'))
+    S.neu('baum_ergaenzen', 'pruefung', Z('Von 800 untersuchten Bäumen haben 240 Käferbefall; 96 davon haben auch Trockenschäden. Von den Bäumen ohne Käferbefall haben 112 Trockenschäden. '
+                                          'Wie groß ist die Wahrscheinlichkeit, dass ein zufällig gewählter Baum mindestens einen der beiden Schäden hat?', 0.44, '(240 + 112) / 800',
+                                          'Mindestens ein Schaden: alle 240 mit Käferbefall plus die 112 nur mit Trockenschaden = 352. 352 : 800 = 0,44.', 'Zähle jeden Baum nur einmal.'))
+    S.neu('baum_ergaenzen', 'rueckwaerts', Z('In einer Klasse tragen 30 % eine Brille. Die Hälfte der Klasse sind Jungen, von ihnen tragen 20 % eine Brille. Wie viel Prozent der Mädchen tragen eine Brille?', 40,
+                                             '(0.3 - 0.5 * 0.2) / 0.5 * 100', '0,5 · 0,2 + 0,5 · x = 0,3 ⇒ 0,5x = 0,2 ⇒ x = 0,4, also 40 %.', 'Stelle P(Brille) über beide Pfade auf.', einheit='%'))
+    S.bonus('baum_ergaenzen', A('1 % der Menschen haben eine Krankheit. Ein Test erkennt sie bei 99 % der Kranken; bei 1 % der Gesunden zeigt er fälschlich „positiv“. Jemand wird positiv getestet. Wie groß ist die Wahrscheinlichkeit, dass er krank ist?',
+                                'etwa 50 %', ['etwa 99 %', 'etwa 1 %', 'etwa 90 %'],
+                                'Pfad krank & positiv: 0,01 · 0,99 = 0,0099. Pfad gesund & positiv: 0,99 · 0,01 = 0,0099. Beide gleich groß, also ist von den Positiven genau die Hälfte krank.',
+                                'Vergleiche die beiden Pfade, die zu „positiv“ führen.'))
+    S.bonus('baum_ergaenzen', B('Urne A enthält 2 rote und 1 blaue Kugel, Urne B 1 rote und 2 blaue. Eine Münze entscheidet über die Urne, dann wird eine Kugel gezogen. Sie ist rot. Mit welcher Wahrscheinlichkeit stammt sie aus Urne A?', 2, 3,
+                                'P(A, rot) = 1/2 · 2/3 = 1/3, P(B, rot) = 1/2 · 1/3 = 1/6. Unter den roten Fällen hat A den Anteil (1/3) : (1/3 + 1/6) = 2/3.',
+                                'Welche beiden Pfade enden bei „rot“? Welchen Anteil hat der Pfad über A?'))
+
+    # --- simulation ---
+    S.stufenleiter('simulation', 'Erwartete Anzahl n · p berechnen und relative Häufigkeiten ablesen.',
+                   'Mehrstufige Ereignisse hochrechnen, p aus einer erwarteten Anzahl, Zufallszahlen einem Ereignis zuordnen.',
+                   'Schwankungen begründen, Gedächtnis-Irrtum, π schätzen, rückwärts zur nötigen Trefferzahl, erwarteter Gewinn, Fehler „genau 100-mal“.')
+    S.g('simulation', direkt=[140, 142, 144, 141, 143, 145], erkennen=[146, 147, 148, 149, 150, 151], einkleidung=[152, 153, 155], darstellung=[226], mehrschritt=[227],
+        begruenden=[154, 156, 157, 231], verknuepfen=[228, 229], rueckwaerts=[230])
+    S.ueberzaehlig(142, 145)
+    S.neu('simulation', 'umkehr', Z('Bei 400 Durchführungen erwartet man 100-mal ein bestimmtes Ergebnis. Wie groß ist seine Wahrscheinlichkeit?', 0.25, '100 / 400',
+                                    'n · p = 100 mit n = 400 ⇒ p = 100 : 400 = 0,25.', 'Erwartete Anzahl = n · p – rückwärts.'))
+    S.neu('simulation', 'mehrschritt', Z('Ein Glücksrad hat 8 gleich große Felder, 3 davon gelb. Es wird zweimal gedreht; das Ganze wird 320-mal wiederholt. Wie oft erwartet man „zweimal gelb“?', 45, '320 * 3 * 3 / 64',
+                                         'P(zweimal gelb) = 3/8 · 3/8 = 9/64. 320 · 9/64 = 45.', 'Erst die Pfadwahrscheinlichkeit, dann mal 320.'))
+    S.neu('simulation', 'fehler', A('Jemand sagt: „Bei 600 Würfen fällt die Sechs genau 100-mal.“ Was stimmt?', 'Falsch: 100 ist nur der Erwartungswert; die tatsächliche Zahl schwankt.',
+                                    ['Richtig.', 'Falsch: Sie fällt genau 60-mal.', 'Falsch: Sie fällt höchstens 100-mal.'],
+                                    '600 · 1/6 = 100 ist ein Mittelwert, keine Vorhersage. 93 oder 108 Sechsen sind ganz normal.', 'Was bedeutet „erwarten“?'))
+    S.neu('simulation', 'transfer', Z('Ein Spiel: Man wirft zwei Münzen. Bei zweimal Kopf bekommt man 3 €, sonst nichts. Ein Spiel kostet 1 €. Mit welchem Gewinn rechnet ein Spieler bei 100 Spielen? (Verlust negativ angeben)',
+                                      -25, '100 * (3 * 1 / 4 - 1)', 'Zweimal Kopf hat 1/4: in 100 Spielen etwa 25-mal, also 75 € Auszahlung. Einsatz 100 €. Ergebnis 75 − 100 = −25 €.',
+                                      'Wie oft gewinnt man in 100 Spielen etwa?', einheit='€'))
+    S.bonus('simulation', Z('Ein Würfel wird 60-mal geworfen. Welche Augensumme aller 60 Würfe erwartet man?', 210, '60 * 21 / 6',
+                            'Jede Augenzahl erwartet man 10-mal: 10 · (1 + 2 + … + 6) = 10 · 21 = 210. Oder: Der mittlere Wurf hat 3,5 Augen, 60 · 3,5 = 210.',
+                            'Wie oft erwartet man jede einzelne Augenzahl?'))
+    S.bonus('simulation', Z('Aus einer Urne mit 1 roten und 2 blauen Kugeln wird mit Zurücklegen gezogen, bis Rot kommt. Wie viele Züge braucht man im Mittel (rote Kugel mitgezählt)?', 3, '1 / (1 / 3)',
+                            'Bei sehr vielen Zügen ist jeder dritte rot. Bei 300 Zügen kommen etwa 100 rote – die 300 Züge zerfallen also in etwa 100 Abschnitte „bis Rot“, je im Mittel 3 Züge lang.',
+                            'Denke an eine lange Folge von Zügen: Wie viele Rote kommen darin vor?'))
+
+    # --- pi_schaetzen ---
+    S.stufenleiter('pi_schaetzen', 'Aus dem Anteil der Punkte im Viertelkreis π schätzen; prüfen, ob ein Punkt im Viertelkreis liegt.',
+                   'Tabellenkalkulation, Streifen über und unter dem Bogen, Treffer rückwärts, Kreis im Quadrat mit Seite 2.',
+                   'Grenzen der Verfahren begründen, Streifenzahl als Parameter, Fehler „π/4 statt π“, Punkte mit Pythagoras prüfen, rückwärts zur Mindestzahl, Ring zwischen zwei Viertelkreisen.')
+    S.g('pi_schaetzen', direkt=[238, 240, 241], erkennen=[239], darstellung=[242], mehrschritt=[243, 244, 248, 249], umkehr=[246], einkleidung=[247],
+        begruenden=[245, 251, 254], parameter=[250], fehler=[252], verknuepfen=[253], rueckwaerts=[255])
+    S.neu('pi_schaetzen', 'erkennen', A('Welcher Punkt liegt NICHT im Viertelkreis mit Radius 1 um (0 | 0)?', '(0,8 | 0,7)', ['(0,5 | 0,5)', '(0,6 | 0,8)', '(0,1 | 0,9)'],
+                                        'Prüfe x² + y² ≤ 1: 0,64 + 0,49 = 1,13 > 1. Die anderen: 0,5; 1,0 (auf dem Bogen, zählt mit); 0,82.', 'Rechne x² + y² aus.'))
+    S.neu('pi_schaetzen', 'einkleidung', ZR('Auf ein quadratisches Brett (Seite 40 cm) mit aufgemaltem Kreis (Durchmesser 40 cm) werfen Kinder blind Erbsen. 250 landen auf dem Brett, 193 davon im Kreis. '
+                                            'Welchen Näherungswert für π ergibt das? Runde auf zwei Nachkommastellen.', 4 * 193 / 250, 2,
+                                            'Kreis : Quadrat = π · 20² : 40² = π/4. Also π ≈ 4 · 193 : 250 = 3,088 ≈ 3,09.', 'Welchen Anteil des Quadrats bedeckt der Kreis?'))
+    S.neu('pi_schaetzen', 'transfer', ZR('Im Einheitsquadrat liegen um die Ecke (0 | 0) ein Viertelkreis mit Radius 1 und ein Viertelkreis mit Radius 0,5. Wie groß ist die Wahrscheinlichkeit, dass ein Zufallspunkt im großen, '
+                                         'aber nicht im kleinen Viertelkreis liegt? Runde auf drei Nachkommastellen.', math.pi / 4 - math.pi / 16, 3,
+                                         'Fläche groß: π/4, klein: π · 0,25/4 = π/16. Differenz 3π/16 ≈ 0,589. Das Quadrat hat die Fläche 1.', 'Wahrscheinlichkeit = Fläche : Fläche des Quadrats.'))
+    S.bonus('pi_schaetzen', ZR('Im Einheitsquadrat liegen zwei Viertelkreise mit Radius 1: einer um (0 | 0), einer um (1 | 1). Wie groß ist die Wahrscheinlichkeit, dass ein Zufallspunkt in beiden liegt? Runde auf drei Nachkommastellen.',
+                               math.pi / 2 - 1, 3, 'Jeder Viertelkreis hat π/4. Zusammen bedecken sie das ganze Quadrat (jeder Punkt liegt in mindestens einem), also gilt π/4 + π/4 − Überlappung = 1. '
+                               'Überlappung = π/2 − 1 ≈ 0,571.', 'Liegt jeder Punkt des Quadrats in mindestens einem der beiden Viertelkreise?'))
+    S.bonus('pi_schaetzen', Z('Mit wie vielen Zufallspunkten kann der Schätzwert 4 · Treffer : Anzahl frühestens genau 3,14 ergeben?', 200, '200',
+                              '4 · T/n = 3,14 ⇒ T/n = 0,785 = 157/200. Weil 157 und 200 keinen gemeinsamen Teiler haben, muss n ein Vielfaches von 200 sein. Frühestens n = 200 (mit T = 157).',
+                              'Schreibe 3,14 : 4 als gekürzten Bruch.', einheit='Punkte'))
+
+    # --- verstehen ---
+    S.stufenleiter('verstehen', 'Erkennen, dass Äste einer Verzweigung zusammen 1 ergeben und entlang eines Pfades malgenommen wird.',
+                   'Einfache Aufgaben selbst richtig rechnen: mehrere Pfade, ohne Zurücklegen, ein Ast aus einem Pfad, Sachsituationen.',
+                   'Fehler finden und deuten, Aussagen prüfen, Simulationsergebnisse beurteilen, Term rückwärts deuten, de Méré und Lotto.')
+    S.g('verstehen', erkennen=[168, 169, 171, 173, 170, 172, 178], fehler=[174, 175, 180, 177, 179, 181, 182, 183], begruenden=[176, 232, 237],
+        verknuepfen=[184, 185], rueckwaerts=[234], parameter=[235], transfer=[236, 233])
+    S.ueberzaehlig(172, 178, 175, 181, 182, 183)
+    S.neu('verstehen', 'direkt', B('Eine Münze wird zweimal geworfen. Berechne P(zweimal Kopf).', 1, 4, 'Ein Pfad: 1/2 · 1/2 = 1/4.', 'Entlang des Pfades malnehmen.'))
+    S.neu('verstehen', 'direkt', B('Ein Würfel wird zweimal geworfen. Berechne P(zweimal eine Eins).', 1, 36, 'Ein Pfad: 1/6 · 1/6 = 1/36.', 'Entlang des Pfades malnehmen.'))
+    S.neu('verstehen', 'mehrschritt', B('Eine Münze wird dreimal geworfen. Berechne P(genau zweimal Kopf).', 3, 8, 'Pfade KKZ, KZK, ZKK mit je 1/8: zusammen 3/8.', 'Welche Pfade haben genau zweimal Kopf?'))
+    S.neu('verstehen', 'mehrschritt', B('In einer Urne liegen 2 rote und 3 blaue Kugeln. Zwei werden ohne Zurücklegen gezogen. Wie groß ist P(beide haben dieselbe Farbe)?', 2, 5,
+                                        'rot-rot: 2/5 · 1/4 = 2/20; blau-blau: 3/5 · 2/4 = 6/20. Zusammen 8/20 = 2/5.', 'Zwei Pfade, beim zweiten Zug ändert sich die Urne.'))
+    S.neu('verstehen', 'einkleidung', Z('Ein Bus ist mit der Wahrscheinlichkeit 0,9 pünktlich, die Bahn mit 0,8 (unabhängig). Wie groß ist die Wahrscheinlichkeit, dass beide pünktlich sind?', 0.72, '0.9 * 0.8',
+                                        'Ein Pfad: 0,9 · 0,8 = 0,72.', 'Beide pünktlich ist ein Pfad.'))
+    S.neu('verstehen', 'einkleidung', B('Bei einem Quiz rät jemand zwei Fragen mit je 4 Antworten (eine richtig). Wie groß ist die Wahrscheinlichkeit, dass beide Antworten richtig sind?', 1, 16,
+                                        'Je Frage 1/4: 1/4 · 1/4 = 1/16.', 'Wie wahrscheinlich ist eine richtige Antwort beim Raten?'))
+    S.neu('verstehen', 'umkehr', Z('Ein Pfad aus zwei gleichen Ästen hat die Wahrscheinlichkeit 0,36. Welche Wahrscheinlichkeit hat ein Ast?', 0.6, '6 / 10',
+                                   'p · p = 0,36 ⇒ p = 0,6.', 'Welche Zahl mit sich selbst malgenommen ergibt 0,36?'))
+    S.neu('verstehen', 'darstellung', B('Ein Baumdiagramm hat an der ersten Verzweigung die Äste 1/4 und 3/4, an jeder Verzweigung der zweiten Stufe die Äste 1/3 und 2/3. Wie groß ist die kleinste Pfadwahrscheinlichkeit?', 1, 12,
+                                        'Kleinste Äste malnehmen: 1/4 · 1/3 = 1/12.', 'Welche Äste sind am kleinsten?'))
+    S.bonus('verstehen', B('Eine Familie hat zwei Kinder (Junge und Mädchen je mit 1/2, unabhängig). Man weiß: Mindestens eines ist ein Mädchen. Wie groß ist dann die Wahrscheinlichkeit, dass beide Mädchen sind?', 1, 3,
+                           'Gleich wahrscheinliche Fälle: JJ, JM, MJ, MM. „Mindestens ein Mädchen“ lässt JM, MJ, MM übrig. Nur MM passt: 1 von 3.',
+                           'Schreibe alle vier Fälle auf und streiche die, die nicht mehr möglich sind.'))
+    S.bonus('verstehen', B('Jemand sagt: „Von drei Münzen zeigen zwei sicher dasselbe, die dritte passt mit 50 % dazu – also zeigen alle drei mit 1/2 dasselbe.“ Wie groß ist P(alle drei gleich) wirklich?', 1, 4,
+                           'KKK und ZZZ: 2 von 8 gleich wahrscheinlichen Fällen = 1/4. Der Fehler: Welche zwei Münzen gleich sind, steht vorher nicht fest – die „dritte Münze“ ist keine feste Münze.',
+                           'Zähle alle 8 Möglichkeiten.'))
+    S.anwenden()
+
+
+if __name__ == '__main__':
+    stufen()  # Zwanzigste Runde (stufen-kl10) – ganz am Ende

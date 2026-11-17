@@ -577,306 +577,26 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x² − 2x = 0.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     2
-    ]
-   },
-   "w": "x(x − 2) = 0 ⇒ x = 0 oder x = 2.",
-   "h": "Klammere x aus.",
-   "c": [
-    "0 + ((1) * (0) ** 2 + (-2) * (0) ** 1 + (0) * (0) ** 0)",
-    "2 + ((1) * (2) ** 2 + (-2) * (2) ** 1 + (0) * (2) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x³ − 9x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -3,
-     0,
-     3
-    ]
-   },
-   "w": "x(x² − 9) = 0 ⇒ x = 0 oder x = ±3.",
-   "h": "Klammere x aus.",
-   "c": [
-    "-3 + ((1) * (-3) ** 3 + (0) * (-3) ** 2 + (-9) * (-3) ** 1 + (0) * (-3) ** 0)",
-    "0 + ((1) * (0) ** 3 + (0) * (0) ** 2 + (-9) * (0) ** 1 + (0) * (0) ** 0)",
-    "3 + ((1) * (3) ** 3 + (0) * (3) ** 2 + (-9) * (3) ** 1 + (0) * (3) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x³ − 64x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -8,
-     0,
-     8
-    ]
-   },
-   "w": "x(x² − 64) = 0 ⇒ x = 0 oder x = ±8.",
-   "h": "Klammere x aus.",
-   "c": [
-    "-8 + ((1) * (-8) ** 3 + (0) * (-8) ** 2 + (-64) * (-8) ** 1 + (0) * (-8) ** 0)",
-    "0 + ((1) * (0) ** 3 + (0) * (0) ** 2 + (-64) * (0) ** 1 + (0) * (0) ** 0)",
-    "8 + ((1) * (8) ** 3 + (0) * (8) ** 2 + (-64) * (8) ** 1 + (0) * (8) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x² + 5x = 0.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -5,
-     0
-    ]
-   },
-   "w": "x(x + 5) = 0 ⇒ x = 0 oder x = −5.",
-   "h": "Klammere x aus.",
-   "c": [
-    "-5 + ((1) * (-5) ** 2 + (5) * (-5) ** 1 + (0) * (-5) ** 0)",
-    "0 + ((1) * (0) ** 2 + (5) * (0) ** 1 + (0) * (0) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x³ − 81x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -9,
-     0,
-     9
-    ]
-   },
-   "w": "x(x² − 81) = 0 ⇒ x = 0 oder x = ±9.",
-   "h": "Klammere x aus.",
-   "c": [
-    "-9 + ((1) * (-9) ** 3 + (0) * (-9) ** 2 + (-81) * (-9) ** 1 + (0) * (-9) ** 0)",
-    "0 + ((1) * (0) ** 3 + (0) * (0) ** 2 + (-81) * (0) ** 1 + (0) * (0) ** 0)",
-    "9 + ((1) * (9) ** 3 + (0) * (9) ** 2 + (-81) * (9) ** 1 + (0) * (9) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x² − 8x = 0.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     8
-    ]
-   },
-   "w": "x(x − 8) = 0 ⇒ x = 0 oder x = 8.",
-   "h": "Klammere x aus.",
-   "c": [
-    "0 + ((1) * (0) ** 2 + (-8) * (0) ** 1 + (0) * (0) ** 0)",
-    "8 + ((1) * (8) ** 2 + (-8) * (8) ** 1 + (0) * (8) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse x³ + 8x² + 7x = 0.",
+    "text": "Löse x⁵ − 16x³ = 0.",
     "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
+    "hinweis": "Lösungen aufsteigend"
    },
    "o": {
     "werte": [
-     -7,
-     -1,
-     0
-    ]
-   },
-   "w": "x(x² + 8x + 7) = 0 ⇒ x = 0 oder x² + 8x + 7 = 0 ⇒ x = −7 oder x = −1.",
-   "h": "Klammere x aus und löse die quadratische Gleichung.",
-   "c": [
-    "-7 + ((1) * (-7) ** 3 + (8) * (-7) ** 2 + (7) * (-7) ** 1 + (0) * (-7) ** 0)",
-    "-1 + ((1) * (-1) ** 3 + (8) * (-1) ** 2 + (7) * (-1) ** 1 + (0) * (-1) ** 0)",
-    "0 + ((1) * (0) ** 3 + (8) * (0) ** 2 + (7) * (0) ** 1 + (0) * (0) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x³ − 9x² + 18x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     3,
-     6
-    ]
-   },
-   "w": "x(x² − 9x + 18) = 0 ⇒ x = 0 oder x² − 9x + 18 = 0 ⇒ x = 3 oder x = 6.",
-   "h": "Klammere x aus und löse die quadratische Gleichung.",
-   "c": [
-    "0 + ((1) * (0) ** 3 + (-9) * (0) ** 2 + (18) * (0) ** 1 + (0) * (0) ** 0)",
-    "3 + ((1) * (3) ** 3 + (-9) * (3) ** 2 + (18) * (3) ** 1 + (0) * (3) ** 0)",
-    "6 + ((1) * (6) ** 3 + (-9) * (6) ** 2 + (18) * (6) ** 1 + (0) * (6) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2x³ + 4x² − 6x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -3,
-     0,
-     1
-    ]
-   },
-   "w": "x(2x² + 4x − 6) = 0 ⇒ x = 0 oder 2x² + 4x − 6 = 0 ⇒ x = −3 oder x = 1.",
-   "h": "Klammere x aus und löse die quadratische Gleichung.",
-   "c": [
-    "-3 + ((2) * (-3) ** 3 + (4) * (-3) ** 2 + (-6) * (-3) ** 1 + (0) * (-3) ** 0)",
-    "0 + ((2) * (0) ** 3 + (4) * (0) ** 2 + (-6) * (0) ** 1 + (0) * (0) ** 0)",
-    "1 + ((2) * (1) ** 3 + (4) * (1) ** 2 + (-6) * (1) ** 1 + (0) * (1) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse −x³ − 4x² + 12x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -6,
-     0,
-     2
-    ]
-   },
-   "w": "x(−x² − 4x + 12) = 0 ⇒ x = 0 oder −x² − 4x + 12 = 0 ⇒ x = −6 oder x = 2.",
-   "h": "Klammere x aus und löse die quadratische Gleichung.",
-   "c": [
-    "-6 + ((-1) * (-6) ** 3 + (-4) * (-6) ** 2 + (12) * (-6) ** 1 + (0) * (-6) ** 0)",
-    "0 + ((-1) * (0) ** 3 + (-4) * (0) ** 2 + (12) * (0) ** 1 + (0) * (0) ** 0)",
-    "2 + ((-1) * (2) ** 3 + (-4) * (2) ** 2 + (12) * (2) ** 1 + (0) * (2) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x³ + 7x² + 6x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -6,
-     -1,
-     0
-    ]
-   },
-   "w": "x(x² + 7x + 6) = 0 ⇒ x = 0 oder x² + 7x + 6 = 0 ⇒ x = −6 oder x = −1.",
-   "h": "Klammere x aus und löse die quadratische Gleichung.",
-   "c": [
-    "-6 + ((1) * (-6) ** 3 + (7) * (-6) ** 2 + (6) * (-6) ** 1 + (0) * (-6) ** 0)",
-    "-1 + ((1) * (-1) ** 3 + (7) * (-1) ** 2 + (6) * (-1) ** 1 + (0) * (-1) ** 0)",
-    "0 + ((1) * (0) ** 3 + (7) * (0) ** 2 + (6) * (0) ** 1 + (0) * (0) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse −x³ − 2x² + 24x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -6,
+     -4,
      0,
      4
     ]
    },
-   "w": "x(−x² − 2x + 24) = 0 ⇒ x = 0 oder −x² − 2x + 24 = 0 ⇒ x = −6 oder x = 4.",
-   "h": "Klammere x aus und löse die quadratische Gleichung.",
+   "w": "x³(x² − 16) = 0 ⇒ x = 0 (dreifach) oder x² = 16 ⇒ x = ±4.",
+   "h": "Klammere die höchste gemeinsame Potenz x³ aus.",
    "c": [
-    "-6 + ((-1) * (-6) ** 3 + (-2) * (-6) ** 2 + (24) * (-6) ** 1 + (0) * (-6) ** 0)",
-    "0 + ((-1) * (0) ** 3 + (-2) * (0) ** 2 + (24) * (0) ** 1 + (0) * (0) ** 0)",
-    "4 + ((-1) * (4) ** 3 + (-2) * (4) ** 2 + (24) * (4) ** 1 + (0) * (4) ** 0)"
+    "(-4) + ((-4)**5 - 16*(-4)**3)",
+    "(0) + ((0)**5 - 16*(0)**3)",
+    "(4) + ((4)**5 - 16*(4)**3)"
    ]
   },
   {
@@ -886,101 +606,23 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse x⁴ − 25x² = 0.",
+    "text": "Löse x⁴ − 4x² = 0.",
     "schablone": "x₁ = □; x₂ = □; x₃ = □",
     "hinweis": "alle Lösungen, kleinste zuerst"
    },
    "o": {
     "werte": [
-     -5,
+     -2,
      0,
-     5
+     2
     ]
    },
-   "w": "x²(x² − 25) = 0 ⇒ x = 0 (doppelt) oder x = ±5.",
+   "w": "x²(x² − 4) = 0 ⇒ x = 0 (doppelt) oder x = ±2.",
    "h": "Klammere die höchste gemeinsame Potenz x² aus.",
    "c": [
-    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-25) * (-5) ** 2 + (0) * (-5) ** 1 + (0) * (-5) ** 0)",
-    "0 + ((1) * (0) ** 4 + (0) * (0) ** 3 + (-25) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
-    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-25) * (5) ** 2 + (0) * (5) ** 1 + (0) * (5) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ + x³ − 12x² = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -4,
-     0,
-     3
-    ]
-   },
-   "w": "x²(x² + x − 12) = 0 ⇒ x = 0 oder x = −4 oder x = 3.",
-   "h": "Klammere x² aus.",
-   "c": [
-    "-4 + ((1) * (-4) ** 4 + (1) * (-4) ** 3 + (-12) * (-4) ** 2 + (0) * (-4) ** 1 + (0) * (-4) ** 0)",
-    "0 + ((1) * (0) ** 4 + (1) * (0) ** 3 + (-12) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
-    "3 + ((1) * (3) ** 4 + (1) * (3) ** 3 + (-12) * (3) ** 2 + (0) * (3) ** 1 + (0) * (3) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − x³ − 20x² = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -4,
-     0,
-     5
-    ]
-   },
-   "w": "x²(x² − x − 20) = 0 ⇒ x = 0 oder x = −4 oder x = 5.",
-   "h": "Klammere x² aus.",
-   "c": [
-    "-4 + ((1) * (-4) ** 4 + (-1) * (-4) ** 3 + (-20) * (-4) ** 2 + (0) * (-4) ** 1 + (0) * (-4) ** 0)",
-    "0 + ((1) * (0) ** 4 + (-1) * (0) ** 3 + (-20) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
-    "5 + ((1) * (5) ** 4 + (-1) * (5) ** 3 + (-20) * (5) ** 2 + (0) * (5) ** 1 + (0) * (5) ** 0)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 9x² = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -3,
-     0,
-     3
-    ]
-   },
-   "w": "x²(x² − 9) = 0 ⇒ x = 0 (doppelt) oder x = ±3.",
-   "h": "Klammere die höchste gemeinsame Potenz x² aus.",
-   "c": [
-    "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-9) * (-3) ** 2 + (0) * (-3) ** 1 + (0) * (-3) ** 0)",
-    "0 + ((1) * (0) ** 4 + (0) * (0) ** 3 + (-9) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
-    "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-9) * (3) ** 2 + (0) * (3) ** 1 + (0) * (3) ** 0)"
+    "-2 + ((1) * (-2) ** 4 + (0) * (-2) ** 3 + (-4) * (-2) ** 2 + (0) * (-2) ** 1 + (0) * (-2) ** 0)",
+    "0 + ((1) * (0) ** 4 + (0) * (0) ** 3 + (-4) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
+    "2 + ((1) * (2) ** 4 + (0) * (2) ** 3 + (-4) * (2) ** 2 + (0) * (2) ** 1 + (0) * (2) ** 0)"
    ]
   },
   {
@@ -1016,24 +658,716 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse x⁴ − 4x² = 0.",
+    "text": "Löse x⁴ − 9x² = 0.",
     "schablone": "x₁ = □; x₂ = □; x₃ = □",
     "hinweis": "alle Lösungen, kleinste zuerst"
    },
    "o": {
     "werte": [
-     -2,
+     -3,
+     0,
+     3
+    ]
+   },
+   "w": "x²(x² − 9) = 0 ⇒ x = 0 (doppelt) oder x = ±3.",
+   "h": "Klammere die höchste gemeinsame Potenz x² aus.",
+   "c": [
+    "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-9) * (-3) ** 2 + (0) * (-3) ** 1 + (0) * (-3) ** 0)",
+    "0 + ((1) * (0) ** 4 + (0) * (0) ** 3 + (-9) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
+    "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-9) * (3) ** 2 + (0) * (3) ** 1 + (0) * (3) ** 0)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − x³ − 20x² = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     0,
+     5
+    ]
+   },
+   "w": "x²(x² − x − 20) = 0 ⇒ x = 0 oder x = −4 oder x = 5.",
+   "h": "Klammere x² aus.",
+   "c": [
+    "-4 + ((1) * (-4) ** 4 + (-1) * (-4) ** 3 + (-20) * (-4) ** 2 + (0) * (-4) ** 1 + (0) * (-4) ** 0)",
+    "0 + ((1) * (0) ** 4 + (-1) * (0) ** 3 + (-20) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
+    "5 + ((1) * (5) ** 4 + (-1) * (5) ** 3 + (-20) * (5) ** 2 + (0) * (5) ** 1 + (0) * (5) ** 0)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −x³ − 2x² + 24x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     0,
+     4
+    ]
+   },
+   "w": "x(−x² − 2x + 24) = 0 ⇒ x = 0 oder −x² − 2x + 24 = 0 ⇒ x = −6 oder x = 4.",
+   "h": "Klammere x aus und löse die quadratische Gleichung.",
+   "c": [
+    "-6 + ((-1) * (-6) ** 3 + (-2) * (-6) ** 2 + (24) * (-6) ** 1 + (0) * (-6) ** 0)",
+    "0 + ((-1) * (0) ** 3 + (-2) * (0) ** 2 + (24) * (0) ** 1 + (0) * (0) ** 0)",
+    "4 + ((-1) * (4) ** 3 + (-2) * (4) ** 2 + (24) * (4) ** 1 + (0) * (4) ** 0)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x³ + 7x² + 6x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     -1,
+     0
+    ]
+   },
+   "w": "x(x² + 7x + 6) = 0 ⇒ x = 0 oder x² + 7x + 6 = 0 ⇒ x = −6 oder x = −1.",
+   "h": "Klammere x aus und löse die quadratische Gleichung.",
+   "c": [
+    "-6 + ((1) * (-6) ** 3 + (7) * (-6) ** 2 + (6) * (-6) ** 1 + (0) * (-6) ** 0)",
+    "-1 + ((1) * (-1) ** 3 + (7) * (-1) ** 2 + (6) * (-1) ** 1 + (0) * (-1) ** 0)",
+    "0 + ((1) * (0) ** 3 + (7) * (0) ** 2 + (6) * (0) ** 1 + (0) * (0) ** 0)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse −x³ − 4x² + 12x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
      0,
      2
     ]
    },
-   "w": "x²(x² − 4) = 0 ⇒ x = 0 (doppelt) oder x = ±2.",
+   "w": "x(−x² − 4x + 12) = 0 ⇒ x = 0 oder −x² − 4x + 12 = 0 ⇒ x = −6 oder x = 2.",
+   "h": "Klammere x aus und löse die quadratische Gleichung.",
+   "c": [
+    "-6 + ((-1) * (-6) ** 3 + (-4) * (-6) ** 2 + (12) * (-6) ** 1 + (0) * (-6) ** 0)",
+    "0 + ((-1) * (0) ** 3 + (-4) * (0) ** 2 + (12) * (0) ** 1 + (0) * (0) ** 0)",
+    "2 + ((-1) * (2) ** 3 + (-4) * (2) ** 2 + (12) * (2) ** 1 + (0) * (2) ** 0)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x³ − 9x² + 18x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     3,
+     6
+    ]
+   },
+   "w": "x(x² − 9x + 18) = 0 ⇒ x = 0 oder x² − 9x + 18 = 0 ⇒ x = 3 oder x = 6.",
+   "h": "Klammere x aus und löse die quadratische Gleichung.",
+   "c": [
+    "0 + ((1) * (0) ** 3 + (-9) * (0) ** 2 + (18) * (0) ** 1 + (0) * (0) ** 0)",
+    "3 + ((1) * (3) ** 3 + (-9) * (3) ** 2 + (18) * (3) ** 1 + (0) * (3) ** 0)",
+    "6 + ((1) * (6) ** 3 + (-9) * (6) ** 2 + (18) * (6) ** 1 + (0) * (6) ** 0)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 8x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     8
+    ]
+   },
+   "w": "x(x − 8) = 0 ⇒ x = 0 oder x = 8.",
+   "h": "Klammere x aus.",
+   "c": [
+    "0 + ((1) * (0) ** 2 + (-8) * (0) ** 1 + (0) * (0) ** 0)",
+    "8 + ((1) * (8) ** 2 + (-8) * (8) ** 1 + (0) * (8) ** 0)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x³ − 64x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     0,
+     8
+    ]
+   },
+   "w": "x(x² − 64) = 0 ⇒ x = 0 oder x = ±8.",
+   "h": "Klammere x aus.",
+   "c": [
+    "-8 + ((1) * (-8) ** 3 + (0) * (-8) ** 2 + (-64) * (-8) ** 1 + (0) * (-8) ** 0)",
+    "0 + ((1) * (0) ** 3 + (0) * (0) ** 2 + (-64) * (0) ** 1 + (0) * (0) ** 0)",
+    "8 + ((1) * (8) ** 3 + (0) * (8) ** 2 + (-64) * (8) ** 1 + (0) * (8) ** 0)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 2x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     2
+    ]
+   },
+   "w": "x(x − 2) = 0 ⇒ x = 0 oder x = 2.",
+   "h": "Klammere x aus.",
+   "c": [
+    "0 + ((1) * (0) ** 2 + (-2) * (0) ** 1 + (0) * (0) ** 0)",
+    "2 + ((1) * (2) ** 2 + (-2) * (2) ** 1 + (0) * (2) ** 0)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x³ − 81x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -9,
+     0,
+     9
+    ]
+   },
+   "w": "x(x² − 81) = 0 ⇒ x = 0 oder x = ±9.",
+   "h": "Klammere x aus.",
+   "c": [
+    "-9 + ((1) * (-9) ** 3 + (0) * (-9) ** 2 + (-81) * (-9) ** 1 + (0) * (-9) ** 0)",
+    "0 + ((1) * (0) ** 3 + (0) * (0) ** 2 + (-81) * (0) ** 1 + (0) * (0) ** 0)",
+    "9 + ((1) * (9) ** 3 + (0) * (9) ** 2 + (-81) * (9) ** 1 + (0) * (9) ** 0)"
+   ]
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung kann man direkt durch Ausklammern von x lösen?"
+   },
+   "a": [
+    "x³ − 4x² + 3x = 0",
+    "x³ = 8",
+    "x³ − 4x² + 3 = 0",
+    "x² + 5 = 0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nur dort hat jedes Glied mindestens ein x und rechts steht 0: x(x² − 4x + 3) = 0.",
+   "h": "Hat jedes Glied ein x? Steht rechts 0?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x³ − 9x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     0,
+     3
+    ]
+   },
+   "w": "x(x² − 9) = 0 ⇒ x = 0 oder x = ±3.",
+   "h": "Klammere x aus.",
+   "c": [
+    "-3 + ((1) * (-3) ** 3 + (0) * (-3) ** 2 + (-9) * (-3) ** 1 + (0) * (-3) ** 0)",
+    "0 + ((1) * (0) ** 3 + (0) * (0) ** 2 + (-9) * (0) ** 1 + (0) * (0) ** 0)",
+    "3 + ((1) * (3) ** 3 + (0) * (3) ** 2 + (-9) * (3) ** 1 + (0) * (3) ** 0)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "x · (x² − 4) = 0. Was folgt nach dem Satz vom Nullprodukt?"
+   },
+   "a": [
+    "x = 0 oder x² − 4 = 0",
+    "x = 4",
+    "nur x² − 4 = 0",
+    "x = 0 und x² − 4 = 0 gleichzeitig"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Produkt ist 0, wenn mindestens ein Faktor 0 ist – das „oder“ zählt.",
+   "h": "Wann ist ein Produkt null?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 5x = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     0
+    ]
+   },
+   "w": "x(x + 5) = 0 ⇒ x = 0 oder x = −5.",
+   "h": "Klammere x aus.",
+   "c": [
+    "-5 + ((1) * (-5) ** 2 + (5) * (-5) ** 1 + (0) * (-5) ** 0)",
+    "0 + ((1) * (0) ** 2 + (5) * (0) ** 1 + (0) * (0) ** 0)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x³ + 8x² + 7x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -1,
+     0
+    ]
+   },
+   "w": "x(x² + 8x + 7) = 0 ⇒ x = 0 oder x² + 8x + 7 = 0 ⇒ x = −7 oder x = −1.",
+   "h": "Klammere x aus und löse die quadratische Gleichung.",
+   "c": [
+    "-7 + ((1) * (-7) ** 3 + (8) * (-7) ** 2 + (7) * (-7) ** 1 + (0) * (-7) ** 0)",
+    "-1 + ((1) * (-1) ** 3 + (8) * (-1) ** 2 + (7) * (-1) ** 1 + (0) * (-1) ** 0)",
+    "0 + ((1) * (0) ** 3 + (8) * (0) ** 2 + (7) * (0) ** 1 + (0) * (0) ** 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x³ = 12x².",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "w": "3x³ − 12x² = 0 ⇒ 3x²(x − 4) = 0 ⇒ x = 0 (doppelt) oder x = 4. Wer durch x² teilt, verliert x = 0.",
+   "h": "Alles auf eine Seite bringen, dann 3x² ausklammern. Nicht durch x² teilen!",
+   "c": [
+    "(0) + (3*(0)**3 - 12*(0)**2)",
+    "(4) + (3*(4)**3 - 12*(4)**2)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x³ + 4x² − 6x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     0,
+     1
+    ]
+   },
+   "w": "x(2x² + 4x − 6) = 0 ⇒ x = 0 oder 2x² + 4x − 6 = 0 ⇒ x = −3 oder x = 1.",
+   "h": "Klammere x aus und löse die quadratische Gleichung.",
+   "c": [
+    "-3 + ((2) * (-3) ** 3 + (4) * (-3) ** 2 + (-6) * (-3) ** 1 + (0) * (-3) ** 0)",
+    "0 + ((2) * (0) ** 3 + (4) * (0) ** 2 + (-6) * (0) ** 1 + (0) * (0) ** 0)",
+    "1 + ((2) * (1) ** 3 + (4) * (1) ** 2 + (-6) * (1) ** 1 + (0) * (1) ** 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein geworfener Ball hat die Höhe h(t) = −t³ + 4t² (t in s, h in m, nur für 0 ≤ t ≤ 4). Wann ist er nach dem Abwurf wieder auf Höhe 0?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "s"
+   },
+   "c": "4",
+   "w": "−t³ + 4t² = t²(4 − t) = 0 ⇒ t = 0 (Abwurf) oder t = 4.",
+   "h": "Klammere t² aus."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 25x² = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     0,
+     5
+    ]
+   },
+   "w": "x²(x² − 25) = 0 ⇒ x = 0 (doppelt) oder x = ±5.",
    "h": "Klammere die höchste gemeinsame Potenz x² aus.",
    "c": [
-    "-2 + ((1) * (-2) ** 4 + (0) * (-2) ** 3 + (-4) * (-2) ** 2 + (0) * (-2) ** 1 + (0) * (-2) ** 0)",
-    "0 + ((1) * (0) ** 4 + (0) * (0) ** 3 + (-4) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
-    "2 + ((1) * (2) ** 4 + (0) * (2) ** 3 + (-4) * (2) ** 2 + (0) * (2) ** 1 + (0) * (2) ** 0)"
-   ]
+    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-25) * (-5) ** 2 + (0) * (-5) ** 1 + (0) * (-5) ** 0)",
+    "0 + ((1) * (0) ** 4 + (0) * (0) ** 3 + (-25) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
+    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-25) * (5) ** 2 + (0) * (5) ** 1 + (0) * (5) ** 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von f(x) = x³ − x schneidet die x-Achse dreimal. An welchen Stellen?"
+   },
+   "a": [
+    "0 und 1",
+    "−1, 0 und 1",
+    "nur bei 0",
+    "−1 und 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x³ − x = x(x² − 1) = x(x − 1)(x + 1) = 0.",
+   "h": "Klammere x aus."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ + x³ − 12x² = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     0,
+     3
+    ]
+   },
+   "w": "x²(x² + x − 12) = 0 ⇒ x = 0 oder x = −4 oder x = 3.",
+   "h": "Klammere x² aus.",
+   "c": [
+    "-4 + ((1) * (-4) ** 4 + (1) * (-4) ** 3 + (-12) * (-4) ** 2 + (0) * (-4) ** 1 + (0) * (-4) ** 0)",
+    "0 + ((1) * (0) ** 4 + (1) * (0) ** 3 + (-12) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
+    "3 + ((1) * (3) ** 4 + (1) * (3) ** 3 + (-12) * (3) ** 2 + (0) * (3) ** 1 + (0) * (3) ** 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x²(x − 1) = 4(x − 1).",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -2,
+     1,
+     2
+    ]
+   },
+   "w": "x²(x − 1) − 4(x − 1) = 0 ⇒ (x − 1)(x² − 4) = 0 ⇒ x = 1 oder x = ±2. Wer durch (x − 1) teilt, verliert x = 1.",
+   "h": "Nicht durch (x − 1) teilen: Bring alles auf eine Seite und klammere (x − 1) aus.",
+   "c": [
+    "(-2) + ((-2)**2*((-2) - 1) - 4*((-2) - 1))",
+    "(1) + ((1)**2*((1) - 1) - 4*((1) - 1))",
+    "(2) + ((2)**2*((2) - 1) - 4*((2) - 1))"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gleichung x³ − kx = 0 hat die Lösung x = 5. Bestimme k und die beiden anderen Lösungen.",
+    "schablone": "k = □; x₁ = □; x₂ = □",
+    "hinweis": "k, dann die anderen Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     25,
+     -5,
+     0
+    ]
+   },
+   "w": "x = 5 einsetzen: 125 − 5k = 0 ⇒ k = 25. Dann x(x² − 25) = 0 ⇒ x = 0 oder x = ±5. Neben 5 also −5 und 0.",
+   "h": "Setze x = 5 ein, um k zu finden. Danach x ausklammern.",
+   "c": [
+    "125 // 5",
+    "-5 + ((-5)**3 - 25*(-5))",
+    "0"
+   ],
+   "g": "parameter"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x⁴ + 6x³ = 20x².",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -5,
+     0,
+     2
+    ]
+   },
+   "w": "2x⁴ + 6x³ − 20x² = 0 ⇒ 2x²(x² + 3x − 10) = 0 ⇒ 2x²(x + 5)(x − 2) = 0 ⇒ x = 0, x = −5, x = 2.",
+   "h": "Erst alles auf eine Seite, dann 2x² ausklammern; die Klammer ist quadratisch.",
+   "c": [
+    "(-5) + (2*(-5)**4 + 6*(-5)**3 - 20*(-5)**2)",
+    "(0) + (2*(0)**4 + 6*(0)**3 - 20*(0)**2)",
+    "(2) + (2*(2)**4 + 6*(2)**3 - 20*(2)**2)"
+   ],
+   "g": "pruefung"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x³ = x²(x − 2) + 18.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "Rechts ausmultiplizieren: x³ = x³ − 2x² + 18. x³ fällt weg: 2x² = 18 ⇒ x² = 9 ⇒ x = ±3.",
+   "h": "Multipliziere die rechte Seite aus. Was passiert mit x³?",
+   "c": [
+    "(-3) + ((-3)**3 - (-3)**2*((-3) - 2) - 18)",
+    "(3) + ((3)**3 - (3)**2*((3) - 2) - 18)"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x³ − 4x² = 0 so: „x³ = 4x², durch x² teilen: x = 4.“ Was stimmt?"
+   },
+   "a": [
+    "Unvollständig: Auch x = 0 ist Lösung; durch x² darf man nur für x ≠ 0 teilen.",
+    "Falsch: x = 2.",
+    "Falsch: x = −4 ist die einzige Lösung.",
+    "Richtig, x = 4 ist die einzige Lösung."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x²(x − 4) = 0 ⇒ x = 0 oder x = 4. Beim Teilen durch x² geht die Lösung 0 verloren.",
+   "h": "Was passiert, wenn x = 0 ist?"
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Hat jede Gleichung der Form x³ + bx² + cx = 0 die Lösung x = 0?"
+   },
+   "a": [
+    "Nein, nur wenn b und c positiv sind.",
+    "Ja, aber nur für b = c.",
+    "Nein, nur wenn c = 0 ist.",
+    "Ja: x lässt sich ausklammern, und x = 0 macht das Produkt null."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x(x² + bx + c) = 0: Für x = 0 ist der erste Faktor 0 – egal, wie b und c sind.",
+   "h": "Setze x = 0 ein."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Löse x³ − 6x² + 9x = 0. Gib die Lösung an, die nicht 0 ist."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "x(x² − 6x + 9) = x(x − 3)² = 0 ⇒ x = 0 oder x = 3 (doppelt).",
+   "h": "Die Klammer ist eine binomische Formel."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "luecken",
+   "f": {
+    "text": "Die Gleichung x³ + bx² + cx = 0 hat die Lösungen 0, 2 und 5. Bestimme b und c.",
+    "schablone": "b = □; c = □",
+    "hinweis": "ganze Zahlen mit Vorzeichen"
+   },
+   "o": {
+    "werte": [
+     -7,
+     10
+    ]
+   },
+   "c": [
+    "-(2 + 5)",
+    "2 * 5"
+   ],
+   "w": "x(x − 2)(x − 5) = x(x² − 7x + 10) = x³ − 7x² + 10x. Also b = −7, c = 10.",
+   "h": "Schreibe die Gleichung in Produktform und multipliziere aus."
   },
   {
    "l": "ausklammern",
@@ -1286,289 +1620,59 @@
    ]
   },
   {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
    "f": {
-    "text": "Löse (x + 5) · (x − 3) · x = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
+    "text": "Wie viele reelle Lösungen hat x⁵ = x?"
    },
    "o": {
-    "werte": [
-     -5,
-     0,
-     3
-    ]
+    "wert": 3
    },
-   "w": "Jeder Faktor null: x = −5, x = 3, x = 0.",
-   "h": "Setze jeden Faktor gleich null.",
-   "c": [
-    "-5 + ((1) * (-5) ** 3 + (2) * (-5) ** 2 + (-15) * (-5) ** 1 + (0) * (-5) ** 0)",
-    "0 + ((1) * (0) ** 3 + (2) * (0) ** 2 + (-15) * (0) ** 1 + (0) * (0) ** 0)",
-    "3 + ((1) * (3) ** 3 + (2) * (3) ** 2 + (-15) * (3) ** 1 + (0) * (3) ** 0)"
-   ]
+   "c": "3",
+   "w": "x⁵ − x = x(x⁴ − 1) = x(x² − 1)(x² + 1) = 0. Lösungen 0, 1, −1; x² + 1 ist nie 0. Also 3.",
+   "h": "Bringe alles auf eine Seite und klammere aus."
+  },
+  {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive ganze Zahl n hat x³ − nx² + 4x = 0 genau zwei verschiedene Lösungen?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "x(x² − nx + 4) = 0. Neben 0 braucht die Klammer genau eine (doppelte) Lösung: n² − 16 = 0 ⇒ n = 4 (Lösung x = 2). Dass 0 Lösung der Klammer ist, geht nicht (4 ≠ 0).",
+   "h": "Wann hat eine quadratische Gleichung genau eine Lösung?"
   },
   {
    "l": "nullprodukt",
    "t": "nullprodukt",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse (x − 5) · (x + 6) · (x + 2) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "text": "Löse (x − 8)²(x² + 6) = 0.",
+    "schablone": "x₁ = □",
     "hinweis": "alle Lösungen, kleinste zuerst"
    },
    "o": {
     "werte": [
-     -6,
-     -2,
-     5
-    ]
-   },
-   "w": "Jeder Faktor null: x = 5, x = −6, x = −2.",
-   "h": "Setze jeden Faktor gleich null.",
-   "c": [
-    "-6 + ((1) * (-6) ** 3 + (3) * (-6) ** 2 + (-28) * (-6) ** 1 + (-60) * (-6) ** 0)",
-    "-2 + ((1) * (-2) ** 3 + (3) * (-2) ** 2 + (-28) * (-2) ** 1 + (-60) * (-2) ** 0)",
-    "5 + ((1) * (5) ** 3 + (3) * (5) ** 2 + (-28) * (5) ** 1 + (-60) * (5) ** 0)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 4) · (x + 5) · (x − 2) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -5,
-     -4,
-     2
-    ]
-   },
-   "w": "Jeder Faktor null: x = −4, x = −5, x = 2.",
-   "h": "Setze jeden Faktor gleich null.",
-   "c": [
-    "-5 + ((1) * (-5) ** 3 + (7) * (-5) ** 2 + (2) * (-5) ** 1 + (-40) * (-5) ** 0)",
-    "-4 + ((1) * (-4) ** 3 + (7) * (-4) ** 2 + (2) * (-4) ** 1 + (-40) * (-4) ** 0)",
-    "2 + ((1) * (2) ** 3 + (7) * (2) ** 2 + (2) * (2) ** 1 + (-40) * (2) ** 0)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x − 1) · (x + 6) · (x + 8) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -8,
-     -6,
-     1
-    ]
-   },
-   "w": "Jeder Faktor null: x = 1, x = −6, x = −8.",
-   "h": "Setze jeden Faktor gleich null.",
-   "c": [
-    "-8 + ((1) * (-8) ** 3 + (13) * (-8) ** 2 + (34) * (-8) ** 1 + (-48) * (-8) ** 0)",
-    "-6 + ((1) * (-6) ** 3 + (13) * (-6) ** 2 + (34) * (-6) ** 1 + (-48) * (-6) ** 0)",
-    "1 + ((1) * (1) ** 3 + (13) * (1) ** 2 + (34) * (1) ** 1 + (-48) * (1) ** 0)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 2) · (x − 4) · (x − 8) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -2,
-     4,
      8
     ]
    },
-   "w": "Jeder Faktor null: x = −2, x = 4, x = 8.",
-   "h": "Setze jeden Faktor gleich null.",
+   "w": "(x − 8) = 0 ⇒ x = 8; x² + 6 > 0 immer.",
+   "h": "Welcher Faktor kann null werden?",
    "c": [
-    "-2 + ((1) * (-2) ** 3 + (-10) * (-2) ** 2 + (8) * (-2) ** 1 + (64) * (-2) ** 0)",
-    "4 + ((1) * (4) ** 3 + (-10) * (4) ** 2 + (8) * (4) ** 1 + (64) * (4) ** 0)",
-    "8 + ((1) * (8) ** 3 + (-10) * (8) ** 2 + (8) * (8) ** 1 + (64) * (8) ** 0)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x − 1) · x · (x − 3) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     1,
-     3
-    ]
-   },
-   "w": "Jeder Faktor null: x = 1, x = 0, x = 3.",
-   "h": "Setze jeden Faktor gleich null.",
-   "c": [
-    "0 + ((1) * (0) ** 3 + (-4) * (0) ** 2 + (3) * (0) ** 1 + (0) * (0) ** 0)",
-    "1 + ((1) * (1) ** 3 + (-4) * (1) ** 2 + (3) * (1) ** 1 + (0) * (1) ** 0)",
-    "3 + ((1) * (3) ** 3 + (-4) * (3) ** 2 + (3) * (3) ** 1 + (0) * (3) ** 0)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x − 2)(x² − 36) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -6,
-     2,
-     6
-    ]
-   },
-   "w": "x = 2 oder x² = 36 ⇒ x = ±6.",
-   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
-   "c": [
-    "-6 + ((1) * (-6) ** 3 + (-2) * (-6) ** 2 + (-36) * (-6) ** 1 + (72) * (-6) ** 0)",
-    "2 + ((1) * (2) ** 3 + (-2) * (2) ** 2 + (-36) * (2) ** 1 + (72) * (2) ** 0)",
-    "6 + ((1) * (6) ** 3 + (-2) * (6) ** 2 + (-36) * (6) ** 1 + (72) * (6) ** 0)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x − 7)(x² − 36) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -6,
-     6,
-     7
-    ]
-   },
-   "w": "x = 7 oder x² = 36 ⇒ x = ±6.",
-   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
-   "c": [
-    "-6 + ((1) * (-6) ** 3 + (-7) * (-6) ** 2 + (-36) * (-6) ** 1 + (252) * (-6) ** 0)",
-    "6 + ((1) * (6) ** 3 + (-7) * (6) ** 2 + (-36) * (6) ** 1 + (252) * (6) ** 0)",
-    "7 + ((1) * (7) ** 3 + (-7) * (7) ** 2 + (-36) * (7) ** 1 + (252) * (7) ** 0)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 1)(x² − 36) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -6,
-     -1,
-     6
-    ]
-   },
-   "w": "x = −1 oder x² = 36 ⇒ x = ±6.",
-   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
-   "c": [
-    "-6 + ((1) * (-6) ** 3 + (1) * (-6) ** 2 + (-36) * (-6) ** 1 + (-36) * (-6) ** 0)",
-    "-1 + ((1) * (-1) ** 3 + (1) * (-1) ** 2 + (-36) * (-1) ** 1 + (-36) * (-1) ** 0)",
-    "6 + ((1) * (6) ** 3 + (1) * (6) ** 2 + (-36) * (6) ** 1 + (-36) * (6) ** 0)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 1)(x² − 9) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -3,
-     -1,
-     3
-    ]
-   },
-   "w": "x = −1 oder x² = 9 ⇒ x = ±3.",
-   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
-   "c": [
-    "-3 + ((1) * (-3) ** 3 + (1) * (-3) ** 2 + (-9) * (-3) ** 1 + (-9) * (-3) ** 0)",
-    "-1 + ((1) * (-1) ** 3 + (1) * (-1) ** 2 + (-9) * (-1) ** 1 + (-9) * (-1) ** 0)",
-    "3 + ((1) * (3) ** 3 + (1) * (3) ** 2 + (-9) * (3) ** 1 + (-9) * (3) ** 0)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 4)(x² − 1) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -4,
-     -1,
-     1
-    ]
-   },
-   "w": "x = −4 oder x² = 1 ⇒ x = ±1.",
-   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
-   "c": [
-    "-4 + ((1) * (-4) ** 3 + (4) * (-4) ** 2 + (-1) * (-4) ** 1 + (-4) * (-4) ** 0)",
-    "-1 + ((1) * (-1) ** 3 + (4) * (-1) ** 2 + (-1) * (-1) ** 1 + (-4) * (-1) ** 0)",
-    "1 + ((1) * (1) ** 3 + (4) * (1) ** 2 + (-1) * (1) ** 1 + (-4) * (1) ** 0)"
+    "8 + ((1) * (8) ** 4 + (-16) * (8) ** 3 + (70) * (8) ** 2 + (-96) * (8) ** 1 + (384) * (8) ** 0)"
    ]
   },
   {
@@ -1604,6 +1708,358 @@
    "s": 2,
    "y": "luecken",
    "f": {
+    "text": "Löse (x − 1)²(x² + 1) = 0.",
+    "schablone": "x₁ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     1
+    ]
+   },
+   "w": "(x − 1) = 0 ⇒ x = 1; x² + 1 > 0 immer.",
+   "h": "Welcher Faktor kann null werden?",
+   "c": [
+    "1 + ((1) * (1) ** 4 + (-2) * (1) ** 3 + (2) * (1) ** 2 + (-2) * (1) ** 1 + (1) * (1) ** 0)"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 1)(x² − 9) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -1,
+     3
+    ]
+   },
+   "w": "x = −1 oder x² = 9 ⇒ x = ±3.",
+   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
+   "c": [
+    "-3 + ((1) * (-3) ** 3 + (1) * (-3) ** 2 + (-9) * (-3) ** 1 + (-9) * (-3) ** 0)",
+    "-1 + ((1) * (-1) ** 3 + (1) * (-1) ** 2 + (-9) * (-1) ** 1 + (-9) * (-1) ** 0)",
+    "3 + ((1) * (3) ** 3 + (1) * (3) ** 2 + (-9) * (3) ** 1 + (-9) * (3) ** 0)"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 6)²(x² + 5) = 0.",
+    "schablone": "x₁ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     6
+    ]
+   },
+   "w": "(x − 6) = 0 ⇒ x = 6; x² + 5 > 0 immer.",
+   "h": "Welcher Faktor kann null werden?",
+   "c": [
+    "6 + ((1) * (6) ** 4 + (-12) * (6) ** 3 + (41) * (6) ** 2 + (-60) * (6) ** 1 + (180) * (6) ** 0)"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 7)(x² − 36) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     6,
+     7
+    ]
+   },
+   "w": "x = 7 oder x² = 36 ⇒ x = ±6.",
+   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
+   "c": [
+    "-6 + ((1) * (-6) ** 3 + (-7) * (-6) ** 2 + (-36) * (-6) ** 1 + (252) * (-6) ** 0)",
+    "6 + ((1) * (6) ** 3 + (-7) * (6) ** 2 + (-36) * (6) ** 1 + (252) * (6) ** 0)",
+    "7 + ((1) * (7) ** 3 + (-7) * (7) ** 2 + (-36) * (7) ** 1 + (252) * (7) ** 0)"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 4)(x² − 1) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -1,
+     1
+    ]
+   },
+   "w": "x = −4 oder x² = 1 ⇒ x = ±1.",
+   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
+   "c": [
+    "-4 + ((1) * (-4) ** 3 + (4) * (-4) ** 2 + (-1) * (-4) ** 1 + (-4) * (-4) ** 0)",
+    "-1 + ((1) * (-1) ** 3 + (4) * (-1) ** 2 + (-1) * (-1) ** 1 + (-4) * (-1) ** 0)",
+    "1 + ((1) * (1) ** 3 + (4) * (1) ** 2 + (-1) * (1) ** 1 + (-4) * (1) ** 0)"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 1) · x · (x − 3) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     1,
+     3
+    ]
+   },
+   "w": "Jeder Faktor null: x = 1, x = 0, x = 3.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "0 + ((1) * (0) ** 3 + (-4) * (0) ** 2 + (3) * (0) ** 1 + (0) * (0) ** 0)",
+    "1 + ((1) * (1) ** 3 + (-4) * (1) ** 2 + (3) * (1) ** 1 + (0) * (1) ** 0)",
+    "3 + ((1) * (3) ** 3 + (-4) * (3) ** 2 + (3) * (3) ** 1 + (0) * (3) ** 0)"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 2) · (x − 4) · (x − 8) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     4,
+     8
+    ]
+   },
+   "w": "Jeder Faktor null: x = −2, x = 4, x = 8.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "-2 + ((1) * (-2) ** 3 + (-10) * (-2) ** 2 + (8) * (-2) ** 1 + (64) * (-2) ** 0)",
+    "4 + ((1) * (4) ** 3 + (-10) * (4) ** 2 + (8) * (4) ** 1 + (64) * (4) ** 0)",
+    "8 + ((1) * (8) ** 3 + (-10) * (8) ** 2 + (8) * (8) ** 1 + (64) * (8) ** 0)"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 1) · (x + 6) · (x + 8) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     -6,
+     1
+    ]
+   },
+   "w": "Jeder Faktor null: x = 1, x = −6, x = −8.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "-8 + ((1) * (-8) ** 3 + (13) * (-8) ** 2 + (34) * (-8) ** 1 + (-48) * (-8) ** 0)",
+    "-6 + ((1) * (-6) ** 3 + (13) * (-6) ** 2 + (34) * (-6) ** 1 + (-48) * (-6) ** 0)",
+    "1 + ((1) * (1) ** 3 + (13) * (1) ** 2 + (34) * (1) ** 1 + (-48) * (1) ** 0)"
+   ]
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 5) · (x − 3) · x = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     0,
+     3
+    ]
+   },
+   "w": "Jeder Faktor null: x = −5, x = 3, x = 0.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "-5 + ((1) * (-5) ** 3 + (2) * (-5) ** 2 + (-15) * (-5) ** 1 + (0) * (-5) ** 0)",
+    "0 + ((1) * (0) ** 3 + (2) * (0) ** 2 + (-15) * (0) ** 1 + (0) * (0) ** 0)",
+    "3 + ((1) * (3) ** 3 + (2) * (3) ** 2 + (-15) * (3) ** 1 + (0) * (3) ** 0)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wann ist ein Produkt aus mehreren Faktoren gleich 0?"
+   },
+   "a": [
+    "wenn ein Faktor negativ ist",
+    "nur wenn alle Faktoren 0 sind",
+    "wenn die Summe der Faktoren 0 ist",
+    "wenn mindestens ein Faktor 0 ist"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Satz vom Nullprodukt: Ein Faktor 0 genügt.",
+   "h": "Was ist 0 mal irgendetwas?"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 5) · (x + 6) · (x + 2) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     -2,
+     5
+    ]
+   },
+   "w": "Jeder Faktor null: x = 5, x = −6, x = −2.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "-6 + ((1) * (-6) ** 3 + (3) * (-6) ** 2 + (-28) * (-6) ** 1 + (-60) * (-6) ** 0)",
+    "-2 + ((1) * (-2) ** 3 + (3) * (-2) ** 2 + (-28) * (-2) ** 1 + (-60) * (-2) ** 0)",
+    "5 + ((1) * (5) ** 3 + (3) * (5) ** 2 + (-28) * (5) ** 1 + (-60) * (5) ** 0)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Faktor liefert in (x − 4)(x² + 9) = 0 keine Lösung?"
+   },
+   "a": [
+    "keiner der Faktoren",
+    "x − 4",
+    "x² + 9",
+    "beide Faktoren"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x² + 9 ist immer mindestens 9. Nur x − 4 = 0 liefert x = 4.",
+   "h": "Kann x² + 9 null werden?"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 4) · (x + 5) · (x − 2) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -4,
+     2
+    ]
+   },
+   "w": "Jeder Faktor null: x = −4, x = −5, x = 2.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "-5 + ((1) * (-5) ** 3 + (7) * (-5) ** 2 + (2) * (-5) ** 1 + (-40) * (-5) ** 0)",
+    "-4 + ((1) * (-4) ** 3 + (7) * (-4) ** 2 + (2) * (-4) ** 1 + (-40) * (-4) ** 0)",
+    "2 + ((1) * (2) ** 3 + (7) * (2) ** 2 + (2) * (2) ** 1 + (-40) * (2) ** 0)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 2)(x² − 36) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     2,
+     6
+    ]
+   },
+   "w": "x = 2 oder x² = 36 ⇒ x = ±6.",
+   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
+   "c": [
+    "-6 + ((1) * (-6) ** 3 + (-2) * (-6) ** 2 + (-36) * (-6) ** 1 + (72) * (-6) ** 0)",
+    "2 + ((1) * (2) ** 3 + (-2) * (2) ** 2 + (-36) * (2) ** 1 + (72) * (2) ** 0)",
+    "6 + ((1) * (6) ** 3 + (-2) * (6) ** 2 + (-36) * (6) ** 1 + (72) * (6) ** 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
     "text": "Löse (x − 2)²(x² + 8) = 0.",
     "schablone": "x₁ = □",
     "hinweis": "alle Lösungen, kleinste zuerst"
@@ -1617,7 +2073,8 @@
    "h": "Welcher Faktor kann null werden?",
    "c": [
     "2 + ((1) * (2) ** 4 + (-4) * (2) ** 3 + (12) * (2) ** 2 + (-32) * (2) ** 1 + (32) * (2) ** 0)"
-   ]
+   ],
+   "g": "umkehr"
   },
   {
    "l": "nullprodukt",
@@ -1626,20 +2083,25 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse (x − 8)²(x² + 6) = 0.",
-    "schablone": "x₁ = □",
+    "text": "Löse (x + 1)(x² − 36) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
     "hinweis": "alle Lösungen, kleinste zuerst"
    },
    "o": {
     "werte": [
-     8
+     -6,
+     -1,
+     6
     ]
    },
-   "w": "(x − 8) = 0 ⇒ x = 8; x² + 6 > 0 immer.",
-   "h": "Welcher Faktor kann null werden?",
+   "w": "x = −1 oder x² = 36 ⇒ x = ±6.",
+   "h": "Auch x² − … = 0 liefert zwei Lösungen.",
    "c": [
-    "8 + ((1) * (8) ** 4 + (-16) * (8) ** 3 + (70) * (8) ** 2 + (-96) * (8) ** 1 + (384) * (8) ** 0)"
-   ]
+    "-6 + ((1) * (-6) ** 3 + (1) * (-6) ** 2 + (-36) * (-6) ** 1 + (-36) * (-6) ** 0)",
+    "-1 + ((1) * (-1) ** 3 + (1) * (-1) ** 2 + (-36) * (-1) ** 1 + (-36) * (-1) ** 0)",
+    "6 + ((1) * (6) ** 3 + (1) * (6) ** 2 + (-36) * (6) ** 1 + (-36) * (6) ** 0)"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "nullprodukt",
@@ -1661,7 +2123,8 @@
    "h": "Welcher Faktor kann null werden?",
    "c": [
     "-6 + ((1) * (-6) ** 4 + (12) * (-6) ** 3 + (39) * (-6) ** 2 + (36) * (-6) ** 1 + (108) * (-6) ** 0)"
-   ]
+   ],
+   "g": "umkehr"
   },
   {
    "l": "nullprodukt",
@@ -1687,7 +2150,8 @@
     "-5 + ((1) * (-5) ** 5 + (5) * (-5) ** 4 + (2) * (-5) ** 3 + (10) * (-5) ** 2 + (-24) * (-5) ** 1 + (-120) * (-5) ** 0)",
     "-2 + ((1) * (-2) ** 5 + (5) * (-2) ** 4 + (2) * (-2) ** 3 + (10) * (-2) ** 2 + (-24) * (-2) ** 1 + (-120) * (-2) ** 0)",
     "2 + ((1) * (2) ** 5 + (5) * (2) ** 4 + (2) * (2) ** 3 + (10) * (2) ** 2 + (-24) * (2) ** 1 + (-120) * (2) ** 0)"
-   ]
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "nullprodukt",
@@ -1696,20 +2160,23 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse (x − 1)²(x² + 1) = 0.",
-    "schablone": "x₁ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
+    "text": "Löse (x² − 9)(x² + 9) = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
    },
    "o": {
     "werte": [
-     1
+     -3,
+     3
     ]
    },
-   "w": "(x − 1) = 0 ⇒ x = 1; x² + 1 > 0 immer.",
-   "h": "Welcher Faktor kann null werden?",
+   "w": "x² − 9 = 0 ⇒ x = ±3. x² + 9 = 0 hat keine Lösung, weil x² + 9 immer positiv ist.",
+   "h": "Untersuche beide Faktoren einzeln.",
    "c": [
-    "1 + ((1) * (1) ** 4 + (-2) * (1) ** 3 + (2) * (1) ** 2 + (-2) * (1) ** 1 + (1) * (1) ** 0)"
-   ]
+    "(-3) + (((-3)**2 - 9)*((-3)**2 + 9))",
+    "(3) + (((3)**2 - 9)*((3)**2 + 9))"
+   ],
+   "g": "umkehr"
   },
   {
    "l": "nullprodukt",
@@ -1718,20 +2185,220 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse (x − 6)²(x² + 5) = 0.",
-    "schablone": "x₁ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
+    "text": "Löse (3x − 6)(x² + 2x) = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Lösungen aufsteigend"
    },
    "o": {
     "werte": [
-     6
+     -2,
+     0,
+     2
     ]
    },
-   "w": "(x − 6) = 0 ⇒ x = 6; x² + 5 > 0 immer.",
-   "h": "Welcher Faktor kann null werden?",
+   "w": "3x − 6 = 0 ⇒ x = 2. x² + 2x = x(x + 2) = 0 ⇒ x = 0 oder x = −2.",
+   "h": "Jeden Faktor null setzen; der zweite Faktor braucht noch Ausklammern.",
    "c": [
-    "6 + ((1) * (6) ** 4 + (-12) * (6) ** 3 + (41) * (6) ** 2 + (-60) * (6) ** 1 + (180) * (6) ** 0)"
-   ]
+    "(-2) + ((3*(-2) - 6)*((-2)**2 + 2*(-2)))",
+    "(0) + ((3*(0) - 6)*((0)**2 + 2*(0)))",
+    "(2) + ((3*(2) - 6)*((2)**2 + 2*(2)))"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "An welchen Stellen schneidet der Graph von f(x) = (x + 1)(x² − 4) die x-Achse?"
+   },
+   "a": [
+    "−2, −1 und 2",
+    "nur bei −1",
+    "−1 und 4",
+    "−4, −1 und 4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x + 1 = 0 ⇒ −1; x² − 4 = 0 ⇒ ±2.",
+   "h": "Setze jeden Faktor null."
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat genau die Lösungen −2, 0 und 3?"
+   },
+   "a": [
+    "x(x − 2)(x + 3) = 0",
+    "x(x + 2)(x − 3) = 0",
+    "x + (x + 2)(x − 3) = 0",
+    "(x + 2)(x − 3) = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Zu x = −2 gehört der Faktor (x + 2), zu x = 3 der Faktor (x − 3), zu x = 0 der Faktor x. Die Summe x + … ist kein Produkt mehr.",
+   "h": "Welcher Faktor wird bei x = −2 null?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele verschiedene Lösungen hat (x² − 4)(x² − 5x + 6) = 0?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "x² − 4 = 0 ⇒ x = ±2. x² − 5x + 6 = (x − 2)(x − 3) = 0 ⇒ x = 2 oder x = 3. Die 2 kommt doppelt vor: verschieden sind −2, 2, 3.",
+   "h": "Löse beide Faktoren und streiche doppelte Lösungen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl a hat (x − a)(x² − 9) = 0 nur zwei verschiedene Lösungen?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "x² − 9 = 0 liefert schon −3 und 3. Nur zwei verschiedene Lösungen gibt es, wenn x = a eine davon ist: a = 3 (oder a = −3). Positiv: a = 3.",
+   "h": "Welche Lösungen liefert x² − 9 = 0 schon? Wann bringt (x − a) nichts Neues?",
+   "g": "parameter"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 1)³ = x − 1.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     0,
+     1,
+     2
+    ]
+   },
+   "w": "(x − 1)³ − (x − 1) = 0 ⇒ (x − 1)((x − 1)² − 1) = 0. Also x − 1 = 0 oder (x − 1)² = 1, d. h. x − 1 = ±1. Lösungen: 0, 1, 2.",
+   "h": "Fasse x − 1 als einen Block auf und klammere ihn aus.",
+   "c": [
+    "(0) + (((0) - 1)**3 - ((0) - 1))",
+    "(1) + (((1) - 1)**3 - ((1) - 1))",
+    "(2) + (((2) - 1)**3 - ((2) - 1))"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst (x − 2)(x + 3) = 6 so: „x − 2 = 6 oder x + 3 = 6, also x = 8 oder x = 3.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Der Satz vom Nullprodukt gilt nur, wenn rechts 0 steht.",
+    "Falsch: Es gibt keine Lösung.",
+    "Falsch: x = 2 oder x = −3."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Probe x = 8: 6 · 11 = 66 ≠ 6. Richtig: ausmultiplizieren, x² + x − 12 = 0 ⇒ x = 3 oder x = −4.",
+   "h": "Mach die Probe mit x = 8."
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Hat die Gleichung (x² + 4)(x⁴ + 1) = 0 eine Lösung?"
+   },
+   "a": [
+    "Ja: x = ±2.",
+    "Ja: x = ±1.",
+    "Ja: x = 0.",
+    "Nein: Beide Faktoren sind immer positiv."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x² + 4 ≥ 4 und x⁴ + 1 ≥ 1. Ein Produkt positiver Zahlen ist nie 0.",
+   "h": "Kann einer der Faktoren 0 werden?"
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Lösungen von x(x − 1)(x² − 16) = 0 (kleinste zuerst).",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     0,
+     1,
+     4
+    ]
+   },
+   "c": [
+    "-4",
+    "0",
+    "1",
+    "4"
+   ],
+   "w": "x = 0, x = 1 und x² = 16 ⇒ x = ±4. Sortiert: −4, 0, 1, 4.",
+   "h": "Setze jeden Faktor null."
+  },
+  {
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung (x − a)(x − 2a) = 0 hat die Lösung 6, die andere Lösung ist kleiner. Welche?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "6 // 2",
+   "w": "Entweder a = 6 (dann ist 2a = 12 größer – passt nicht) oder 2a = 6, also a = 3. Die andere Lösung ist 3.",
+   "h": "Welcher Faktor kann 6 liefern?"
   },
   {
    "l": "nullprodukt",
@@ -1984,148 +2651,38 @@
    ]
   },
   {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
    "f": {
-    "text": "Löse x⁴ − 29x² + 100 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
+    "text": "Wie viele Lösungen hat (x − 1)(x − 2)(x − 3) = (x − 1)(x − 2)(x − 4)?"
    },
    "o": {
-    "werte": [
-     4,
-     25
-    ]
+    "wert": 2
    },
-   "w": "z² − 29z + 100 = 0 ⇒ z₁ = 4, z₂ = 25.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "4 + (4) ** 2 - 29 * 4 + 100",
-    "25 + (25) ** 2 - 29 * 25 + 100"
-   ]
+   "c": "2",
+   "w": "Alles nach links: (x − 1)(x − 2)[(x − 3) − (x − 4)] = (x − 1)(x − 2) · 1 = 0 ⇒ x = 1 oder x = 2. Wer durch (x − 1)(x − 2) teilt, erhält −3 = −4 und übersieht beide Lösungen.",
+   "h": "Teile nicht – klammere den gemeinsamen Teil aus."
   },
   {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
+   "l": "nullprodukt",
+   "t": "nullprodukt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
    "f": {
-    "text": "Löse x⁴ − 17x² + 16 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
+    "text": "(x − a)(x − b) = 0 hat die Lösungen 3 und 7. Welche größere Lösung hat (2x − a)(2x − b) = 0?"
    },
    "o": {
-    "werte": [
-     1,
-     16
-    ]
+    "wert": 3.5
    },
-   "w": "z² − 17z + 16 = 0 ⇒ z₁ = 1, z₂ = 16.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "1 + (1) ** 2 - 17 * 1 + 16",
-    "16 + (16) ** 2 - 17 * 16 + 16"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 65x² + 784 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     16,
-     49
-    ]
-   },
-   "w": "z² − 65z + 784 = 0 ⇒ z₁ = 16, z₂ = 49.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "16 + (16) ** 2 - 65 * 16 + 784",
-    "49 + (49) ** 2 - 65 * 49 + 784"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 53x² + 196 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     4,
-     49
-    ]
-   },
-   "w": "z² − 53z + 196 = 0 ⇒ z₁ = 4, z₂ = 49.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "4 + (4) ** 2 - 53 * 4 + 196",
-    "49 + (49) ** 2 - 53 * 49 + 196"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 20x² + 64 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     4,
-     16
-    ]
-   },
-   "w": "z² − 20z + 64 = 0 ⇒ z₁ = 4, z₂ = 16.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "4 + (4) ** 2 - 20 * 4 + 64",
-    "16 + (16) ** 2 - 20 * 16 + 64"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 37x² + 36 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     1,
-     36
-    ]
-   },
-   "w": "z² − 37z + 36 = 0 ⇒ z₁ = 1, z₂ = 36.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "1 + (1) ** 2 - 37 * 1 + 36",
-    "36 + (36) ** 2 - 37 * 36 + 36"
-   ]
+   "c": "7 / 2",
+   "w": "a und b sind 3 und 7. 2x = 3 oder 2x = 7 ⇒ x = 1,5 oder 3,5. Die größere ist 3,5.",
+   "h": "Bestimme zuerst a und b."
   },
   {
    "l": "substitution",
@@ -2134,26 +2691,64 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse x⁴ − 34x² + 225 = 0.",
+    "text": "Löse x⁴ − 13x² + 36 = 0.",
     "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
+    "hinweis": "Lösungen aufsteigend"
    },
    "o": {
     "werte": [
-     -5,
      -3,
-     3,
-     5
+     -2,
+     2,
+     3
     ]
    },
-   "w": "z = x²: z² − 34z + 225 = 0 ⇒ z = 9 oder z = 25 ⇒ x = ±3, ±5.",
-   "h": "Substituiere z = x², dann rücksubstituieren.",
+   "w": "z = x²: z² − 13z + 36 = 0 ⇒ z = 4 oder z = 9 ⇒ x = ±2 oder x = ±3.",
+   "h": "Setze z = x² und löse die quadratische Gleichung.",
    "c": [
-    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-34) * (-5) ** 2 + (0) * (-5) ** 1 + (225) * (-5) ** 0)",
-    "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-34) * (-3) ** 2 + (0) * (-3) ** 1 + (225) * (-3) ** 0)",
-    "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-34) * (3) ** 2 + (0) * (3) ** 1 + (225) * (3) ** 0)",
-    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-34) * (5) ** 2 + (0) * (5) ** 1 + (225) * (5) ** 0)"
+    "(-3) + ((-3)**4 - 13*(-3)**2 + 36)",
+    "(-2) + ((-2)**4 - 13*(-2)**2 + 36)",
+    "(2) + ((2)**4 - 13*(2)**2 + 36)",
+    "(3) + ((3)**4 - 13*(3)**2 + 36)"
    ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁴ − 11x² + 10 = 0. Gib die größte positive Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 3.16,
+    "toleranz": 0.01
+   },
+   "c": "round(3.162277660168, 2)",
+   "w": "z = x²: z² − 11z + 10 = 0 ⇒ z₁ = 1, z₂ = 10. Positive Lösungen: x = 1 und x = √10; die größte ist √10 ≈ 3,16.",
+   "h": "Substituiere z = x². Aus x² = z folgt x = √z – das muss keine ganze Zahl sein."
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat x⁴ + 13x² + 36 = 0?"
+   },
+   "a": [
+    "L = {−3; 3}",
+    "L = {9; 4}",
+    "L = {−9; −4}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "z² + 13z + 36 = 0 ⇒ z = −9, z = −4. Beide negativ, x² kann nicht negativ sein: keine Lösung.",
+   "h": "Substituiere und prüfe das Vorzeichen der z-Lösungen."
   },
   {
    "l": "substitution",
@@ -2187,6 +2782,31 @@
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 29x² + 100 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     25
+    ]
+   },
+   "w": "z² − 29z + 100 = 0 ⇒ z₁ = 4, z₂ = 25.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "4 + (4) ** 2 - 29 * 4 + 100",
+    "25 + (25) ** 2 - 29 * 25 + 100"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
@@ -2210,6 +2830,28 @@
     "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-41) * (4) ** 2 + (0) * (4) ** 1 + (400) * (4) ** 0)",
     "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-41) * (5) ** 2 + (0) * (5) ** 1 + (400) * (5) ** 0)"
    ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung ist biquadratisch?"
+   },
+   "a": [
+    "x⁴ − 5x² + 4 = 0",
+    "x³ − 5x + 4 = 0",
+    "x⁴ − 5x³ + 4 = 0",
+    "x⁴ − 5x = 0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Biquadratisch: nur x⁴, x² und eine Zahl.",
+   "h": "Welche Hochzahlen kommen vor?"
   },
   {
    "l": "substitution",
@@ -2243,6 +2885,31 @@
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 17x² + 16 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     1,
+     16
+    ]
+   },
+   "w": "z² − 17z + 16 = 0 ⇒ z₁ = 1, z₂ = 16.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "1 + (1) ** 2 - 17 * 1 + 16",
+    "16 + (16) ** 2 - 17 * 16 + 16"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
@@ -2266,6 +2933,28 @@
     "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-25) * (3) ** 2 + (0) * (3) ** 1 + (144) * (3) ** 0)",
     "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-25) * (4) ** 2 + (0) * (4) ** 1 + (144) * (4) ** 0)"
    ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was wird aus x⁴ − 13x² + 36 = 0 mit z = x²?"
+   },
+   "a": [
+    "z⁴ − 13z² + 36 = 0",
+    "z − 13z + 36 = 0",
+    "z² − 13 + 36 = 0",
+    "z² − 13z + 36 = 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x⁴ = (x²)² = z² und x² = z.",
+   "h": "Schreibe x⁴ als (x²)²."
   },
   {
    "l": "substitution",
@@ -2299,7 +2988,84 @@
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 65x² + 784 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     16,
+     49
+    ]
+   },
+   "w": "z² − 65z + 784 = 0 ⇒ z₁ = 16, z₂ = 49.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "16 + (16) ** 2 - 65 * 16 + 784",
+    "49 + (49) ** 2 - 65 * 49 + 784"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 34x² + 225 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -3,
+     3,
+     5
+    ]
+   },
+   "w": "z = x²: z² − 34z + 225 = 0 ⇒ z = 9 oder z = 25 ⇒ x = ±3, ±5.",
+   "h": "Substituiere z = x², dann rücksubstituieren.",
+   "c": [
+    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-34) * (-5) ** 2 + (0) * (-5) ** 1 + (225) * (-5) ** 0)",
+    "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-34) * (-3) ** 2 + (0) * (-3) ** 1 + (225) * (-3) ** 0)",
+    "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-34) * (3) ** 2 + (0) * (3) ** 1 + (225) * (3) ** 0)",
+    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-34) * (5) ** 2 + (0) * (5) ** 1 + (225) * (5) ** 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 53x² + 196 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     49
+    ]
+   },
+   "w": "z² − 53z + 196 = 0 ⇒ z₁ = 4, z₂ = 49.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "4 + (4) ** 2 - 53 * 4 + 196",
+    "49 + (49) ** 2 - 53 * 49 + 196"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Lösungsmenge hat x⁴ + 11x² + 30 = 0?"
@@ -2314,7 +3080,74 @@
     "index": 0
    },
    "w": "z² + 11z + 30 = 0 ⇒ z = −6, z = −5. Beide negativ, x² kann nicht negativ sein: keine Lösung.",
-   "h": "Substituiere und prüfe das Vorzeichen der z-Lösungen."
+   "h": "Substituiere und prüfe das Vorzeichen der z-Lösungen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 20x² + 64 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     16
+    ]
+   },
+   "w": "z² − 20z + 64 = 0 ⇒ z₁ = 4, z₂ = 16.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "4 + (4) ** 2 - 20 * 4 + 64",
+    "16 + (16) ** 2 - 20 * 16 + 64"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁴ − 6x² + 5 = 0. Gib die größte positive Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 2.24,
+    "toleranz": 0.01
+   },
+   "c": "round(2.236067977500, 2)",
+   "w": "z = x²: z² − 6z + 5 = 0 ⇒ z₁ = 1, z₂ = 5. Positive Lösungen: x = 1 und x = √5; die größte ist √5 ≈ 2,24.",
+   "h": "Substituiere z = x². Aus x² = z folgt x = √z – das muss keine ganze Zahl sein.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 37x² + 36 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     1,
+     36
+    ]
+   },
+   "w": "z² − 37z + 36 = 0 ⇒ z₁ = 1, z₂ = 36.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "1 + (1) ** 2 - 37 * 1 + 36",
+    "36 + (36) ** 2 - 37 * 36 + 36"
+   ]
   },
   {
    "l": "substitution",
@@ -2335,45 +3168,76 @@
     "index": 1
    },
    "w": "z² + 12z + 35 = 0 ⇒ z = −7, z = −5. Beide negativ, x² kann nicht negativ sein: keine Lösung.",
-   "h": "Substituiere und prüfe das Vorzeichen der z-Lösungen."
+   "h": "Substituiere und prüfe das Vorzeichen der z-Lösungen.",
+   "g": "umkehr"
   },
   {
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
    "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 3x² − 4 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "z = x²: z² − 3z − 4 = 0 ⇒ z = 4 oder z = −1. Nur z = 4 ist möglich: x = ±2.",
+   "h": "Prüfe beim Rücksubstituieren, ob z negativ ist.",
+   "c": [
+    "(-2) + ((-2)**4 - 3*(-2)**2 - 4)",
+    "(2) + ((2)**4 - 3*(2)**2 - 4)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Löse x⁴ − 6x² + 5 = 0. Gib die größte positive Lösung auf zwei Nachkommastellen an."
+    "text": "Ein Quadrat hat die Seite x cm und den Flächeninhalt A = x² cm². Es gilt A² − 20A + 64 = 0, und die Fläche ist größer als 5 cm². Wie lang ist die Seite?"
    },
    "o": {
-    "wert": 2.24,
-    "toleranz": 0.01
+    "wert": 4,
+    "einheit": "cm"
    },
-   "c": "round(2.236067977500, 2)",
-   "w": "z = x²: z² − 6z + 5 = 0 ⇒ z₁ = 1, z₂ = 5. Positive Lösungen: x = 1 und x = √5; die größte ist √5 ≈ 2,24.",
-   "h": "Substituiere z = x². Aus x² = z folgt x = √z – das muss keine ganze Zahl sein."
+   "c": "4",
+   "w": "A² − 20A + 64 = (A − 4)(A − 16) = 0 ⇒ A = 4 oder A = 16. Wegen A > 5 ist A = 16, also x = 4 cm.",
+   "h": "Löse zuerst nach A, dann nach x."
   },
   {
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
+   "s": 3,
+   "y": "luecken",
    "f": {
-    "text": "Welche Lösungsmenge hat x⁴ + 13x² + 36 = 0?"
+    "text": "Löse x⁶ − 9x³ + 8 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
    },
-   "a": [
-    "L = {−3; 3}",
-    "L = {9; 4}",
-    "L = {−9; −4}",
-    "L = { }"
-   ],
    "o": {
-    "index": 3
+    "werte": [
+     1,
+     2
+    ]
    },
-   "w": "z² + 13z + 36 = 0 ⇒ z = −9, z = −4. Beide negativ, x² kann nicht negativ sein: keine Lösung.",
-   "h": "Substituiere und prüfe das Vorzeichen der z-Lösungen."
+   "w": "z = x³: z² − 9z + 8 = 0 ⇒ z = 1 oder z = 8. x³ = 1 ⇒ x = 1; x³ = 8 ⇒ x = 2.",
+   "h": "Hier passt z = x³. Jede Zahl hat genau eine dritte Wurzel.",
+   "c": [
+    "(1) + ((1)**6 - 9*(1)**3 + 8)",
+    "(2) + ((2)**6 - 9*(2)**3 + 8)"
+   ],
+   "g": "transfer"
   },
   {
    "l": "substitution",
@@ -2397,24 +3261,132 @@
    "c": [
     "-3 + ((2) * (-3) ** 4 + (0) * (-3) ** 3 + (8) * (-3) ** 2 + (0) * (-3) ** 1 + (-234) * (-3) ** 0)",
     "3 + ((2) * (3) ** 4 + (0) * (3) ** 3 + (8) * (3) ** 2 + (0) * (3) ** 1 + (-234) * (3) ** 0)"
-   ]
+   ],
+   "g": "pruefung"
   },
   {
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse x⁴ − 11x² + 10 = 0. Gib die größte positive Lösung auf zwei Nachkommastellen an."
+    "text": "Für welche positive Zahl k hat x⁴ − kx² + 16 = 0 genau zwei Lösungen?"
    },
    "o": {
-    "wert": 3.16,
-    "toleranz": 0.01
+    "wert": 8
    },
-   "c": "round(3.162277660168, 2)",
-   "w": "z = x²: z² − 11z + 10 = 0 ⇒ z₁ = 1, z₂ = 10. Positive Lösungen: x = 1 und x = √10; die größte ist √10 ≈ 3,16.",
-   "h": "Substituiere z = x². Aus x² = z folgt x = √z – das muss keine ganze Zahl sein."
+   "c": "2 * 4",
+   "w": "z = x²: z² − kz + 16 = 0. Genau zwei Lösungen für x gibt es, wenn z eine einzige (doppelte) positive Lösung hat: (z − 4)² = z² − 8z + 16. Also k = 8, dann x = ±2.",
+   "h": "Wie viele Lösungen x liefert ein positives z? Was muss für die Gleichung in z dann gelten?",
+   "g": "parameter"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x² − 3)² − 4(x² − 3) − 12 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -1,
+     1,
+     3
+    ]
+   },
+   "w": "u = x² − 3: u² − 4u − 12 = 0 ⇒ u = 6 oder u = −2. x² − 3 = 6 ⇒ x = ±3; x² − 3 = −2 ⇒ x = ±1.",
+   "h": "Ersetze den Block x² − 3 durch eine neue Variable. Nicht ausmultiplizieren!",
+   "c": [
+    "(-3) + (((-3)**2 - 3)**2 - 4*((-3)**2 - 3) - 12)",
+    "(-1) + (((-1)**2 - 3)**2 - 4*((-1)**2 - 3) - 12)",
+    "(1) + (((1)**2 - 3)**2 - 4*((1)**2 - 3) - 12)",
+    "(3) + (((3)**2 - 3)**2 - 4*((3)**2 - 3) - 12)"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x⁴ − 5x² − 36 = 0 und schreibt L = {−3; −2; 2; 3}. Was stimmt?"
+   },
+   "a": [
+    "Falsch: z = −4 liefert keine Lösung, L = {−3; 3}.",
+    "Richtig.",
+    "Falsch: L = {−4; 9}.",
+    "Falsch: L = {−9; 4}."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "z² − 5z − 36 = 0 ⇒ z = 9 oder z = −4. x² = 9 ⇒ x = ±3. x² = −4 ist unmöglich; ±2 sind falsch (Probe: 16 − 20 − 36 ≠ 0).",
+   "h": "Mache die Probe mit x = 2.",
+   "g": "fehler"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Kann eine biquadratische Gleichung genau drei verschiedene Lösungen haben?"
+   },
+   "a": [
+    "Ja, z. B. x⁴ − 5x² + 4 = 0.",
+    "Nein, weil Lösungen immer paarweise ±x vorkommen.",
+    "Ja, wenn z = 0 eine Lösung ist, z. B. x⁴ − x² = 0 mit −1, 0 und 1.",
+    "Nein, immer 0, 2 oder 4."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zu z > 0 gehören zwei Lösungen ±√z, zu z = 0 nur x = 0. So entsteht eine ungerade Anzahl.",
+   "h": "Was liefert z = 0?"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gleichung x⁴ + bx² + c = 0 hat genau die Lösungen ±1 und ±4. Bestimme c."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "1 * 16",
+   "w": "Die z-Werte sind 1 und 16: (z − 1)(z − 16) = z² − 17z + 16. Also c = 16 (b = −17).",
+   "h": "Welche Lösungen hat die Gleichung für z?"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x² − 1)² = 9. Gib die positive Lösung an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "x² − 1 = 3 oder x² − 1 = −3. Also x² = 4 (x = ±2) oder x² = −2 (keine Lösung).",
+   "h": "Ziehe zuerst die Wurzel: Welche Zahlen ergeben quadriert 9?"
   },
   {
    "l": "substitution",
@@ -2687,100 +3659,62 @@
    ]
   },
   {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 1,
+   "l": "substitution",
+   "t": "substitution",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "f(x) = (x − 5)⁴ · (x + 4). Welche Vielfachheit hat die Nullstelle x = 5?"
+    "text": "Für wie viele ganze Zahlen k mit 1 ≤ k ≤ 10 hat x⁴ − kx² + 9 = 0 genau vier verschiedene Lösungen?"
    },
    "o": {
     "wert": 4
    },
-   "c": "4 + ((1) * (5) ** 5 + (-16) * (5) ** 4 + (70) * (5) ** 3 + (100) * (5) ** 2 + (-1375) * (5) ** 1 + (2500) * (5) ** 0)",
-   "w": "Der Faktor (x − 5) kommt 4-mal vor: 4-fache Nullstelle.",
-   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent)."
+   "c": "10 - 7 + 1",
+   "w": "Vier Lösungen brauchen zwei verschiedene positive z in z² − kz + 9 = 0. Ihr Produkt ist 9 > 0, ihre Summe k > 0, also beide positiv, sobald es zwei gibt: k² − 36 > 0 ⇒ k > 6. k = 7, 8, 9, 10.",
+   "h": "Welche Bedingung braucht z² − kz + 9 = 0?"
   },
   {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 1,
+   "l": "substitution",
+   "t": "substitution",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "f(x) = (x + 6)² · (x − 6)³. Welche Vielfachheit hat die Nullstelle x = −6?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2 + ((1) * (-6) ** 5 + (-6) * (-6) ** 4 + (-72) * (-6) ** 3 + (432) * (-6) ** 2 + (1296) * (-6) ** 1 + (-7776) * (-6) ** 0)",
-   "w": "Der Faktor (x + 6) kommt 2-mal vor: 2-fache Nullstelle.",
-   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent)."
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = (x − 1) · (x − 3)⁴. Welche Vielfachheit hat die Nullstelle x = 3?"
+    "text": "Wie viele reelle Lösungen hat x⁸ − 17x⁴ + 16 = 0?"
    },
    "o": {
     "wert": 4
    },
-   "c": "4 + ((1) * (3) ** 5 + (-13) * (3) ** 4 + (66) * (3) ** 3 + (-162) * (3) ** 2 + (189) * (3) ** 1 + (-81) * (3) ** 0)",
-   "w": "Der Faktor (x − 3) kommt 4-mal vor: 4-fache Nullstelle.",
-   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent)."
+   "c": "4",
+   "w": "Mit z = x⁴: z² − 17z + 16 = (z − 1)(z − 16) = 0. x⁴ = 1 ⇒ x = ±1; x⁴ = 16 ⇒ x = ±2. Vier Lösungen.",
+   "h": "Substituiere diesmal z = x⁴."
   },
   {
    "l": "vielfachheit",
    "t": "vielfachheit",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "s": 3,
+   "y": "luecken",
    "f": {
-    "text": "f(x) = (x − 2)³ · (x − 3)³. Welche Vielfachheit hat die Nullstelle x = 3?"
+    "text": "Die Gleichung x⁴ − 50x² + 625 = 0 hat zwei doppelte Lösungen. Gib sie an.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
    },
    "o": {
-    "wert": 3
+    "werte": [
+     -5,
+     5
+    ]
    },
-   "c": "3 + ((1) * (3) ** 6 + (-15) * (3) ** 5 + (93) * (3) ** 4 + (-305) * (3) ** 3 + (558) * (3) ** 2 + (-540) * (3) ** 1 + (216) * (3) ** 0)",
-   "w": "Der Faktor (x − 3) kommt 3-mal vor: 3-fache Nullstelle.",
-   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent)."
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = (x − 2)⁴ · (x − 4)². Welche Vielfachheit hat die Nullstelle x = 2?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4 + ((1) * (2) ** 6 + (-16) * (2) ** 5 + (104) * (2) ** 4 + (-352) * (2) ** 3 + (656) * (2) ** 2 + (-640) * (2) ** 1 + (256) * (2) ** 0)",
-   "w": "Der Faktor (x − 2) kommt 4-mal vor: 4-fache Nullstelle.",
-   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent)."
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = (x − 5) · (x + 3). Welche Vielfachheit hat die Nullstelle x = 5?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1 + ((1) * (5) ** 2 + (-2) * (5) ** 1 + (-15) * (5) ** 0)",
-   "w": "Der Faktor (x − 5) kommt 1-mal vor: 1-fache Nullstelle.",
-   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent)."
+   "w": "x⁴ − 50x² + 625 = (x² − 25)² = (x − 5)²(x + 5)² ⇒ x = ±5, jeweils doppelt.",
+   "h": "Erkennst du eine binomische Formel mit z = x²?",
+   "c": [
+    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-50) * (-5) ** 2 + (0) * (-5) ** 1 + (625) * (-5) ** 0)",
+    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-50) * (5) ** 2 + (0) * (5) ** 1 + (625) * (5) ** 0)"
+   ]
   },
   {
    "l": "vielfachheit",
@@ -2789,28 +3723,47 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x − 2)³ · (x + 1)⁴. Wechselt f bei x = 2 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "text": "f(x) = (x + 4)³ · (x − 3)⁴. Wechselt f bei x = 3 das Vorzeichen?"
+   },
+   "a": [
+    "Ja, die Nullstelle ist 4-fach (gerade).",
+    "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
+    "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
+    "Nein, die Nullstelle ist 4-fach (gerade)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Faktor (x − 3) hoch 4: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
+   "h": "Gerade oder ungerade Vielfachheit?"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = (x + 1)³ · (x − 5)². Wechselt f bei x = 5 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -3,
-      4
+      7
      ],
      "y": [
-      -150,
-      150
+      -400,
+      400
      ],
      "graphen": [
       {
        "art": "poly",
        "k": [
-        -8,
-        -20,
-        -6,
-        17,
-        8,
-        -6,
+        25,
+        65,
+        46,
         -2,
+        -7,
         1
        ]
       }
@@ -2821,188 +3774,22 @@
        "y": 0
       },
       {
-       "x": 2,
+       "x": 5,
        "y": 0
       }
      ]
     }
    },
    "a": [
-    "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
+    "Nein, die Nullstelle ist 2-fach (gerade).",
     "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
-    "Nein, die Nullstelle ist 3-fach (ungerade).",
-    "Ja, die Nullstelle ist 3-fach (ungerade)."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Faktor (x − 2) hoch 3: ungerade Potenz wechselt das Vorzeichen.",
-   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "f(x) = (x + 5)² · (x − 6)⁴. Wechselt f bei x = 6 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -7,
-      8
-     ],
-     "y": [
-      0,
-      45000
-     ],
-     "graphen": [
-      {
-       "art": "poly",
-       "k": [
-        32400,
-        -8640,
-        -1944,
-        696,
-        1,
-        -14,
-        1
-       ]
-      }
-     ],
-     "punkte": [
-      {
-       "x": -5,
-       "y": 0
-      },
-      {
-       "x": 6,
-       "y": 0
-      }
-     ]
-    }
-   },
-   "a": [
-    "Nein, die Nullstelle ist 4-fach (gerade).",
-    "Ja, die Nullstelle ist 4-fach (gerade).",
     "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
-    "Ja, an jeder Nullstelle wechselt das Vorzeichen."
+    "Ja, die Nullstelle ist 2-fach (gerade)."
    ],
    "o": {
     "index": 0
    },
-   "w": "Faktor (x − 6) hoch 4: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
-   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "f(x) = (x − 6)² · (x − 5)³. Wechselt f bei x = 5 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      3,
-      8
-     ],
-     "y": [
-      -15,
-      15
-     ],
-     "graphen": [
-      {
-       "art": "poly",
-       "k": [
-        -4500,
-        4200,
-        -1565,
-        291,
-        -27,
-        1
-       ]
-      }
-     ],
-     "punkte": [
-      {
-       "x": 5,
-       "y": 0
-      },
-      {
-       "x": 6,
-       "y": 0
-      }
-     ]
-    }
-   },
-   "a": [
-    "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
-    "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
-    "Ja, die Nullstelle ist 3-fach (ungerade).",
-    "Nein, die Nullstelle ist 3-fach (ungerade)."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Faktor (x − 5) hoch 3: ungerade Potenz wechselt das Vorzeichen.",
-   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "f(x) = (x + 3)³ · (x + 6)². Wechselt f bei x = −6 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -8,
-      -1
-     ],
-     "y": [
-      -40,
-      40
-     ],
-     "graphen": [
-      {
-       "art": "poly",
-       "k": [
-        972,
-        1296,
-        675,
-        171,
-        21,
-        1
-       ]
-      }
-     ],
-     "punkte": [
-      {
-       "x": -6,
-       "y": 0
-      },
-      {
-       "x": -3,
-       "y": 0
-      }
-     ]
-    }
-   },
-   "a": [
-    "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
-    "Nein, die Nullstelle ist 2-fach (gerade).",
-    "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
-    "Ja, die Nullstelle ist 2-fach (gerade)."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Faktor (x + 6) hoch 2: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
+   "w": "Faktor (x − 5) hoch 2: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
    "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
   },
   {
@@ -3069,26 +3856,281 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x + 1)³ · (x − 5)². Wechselt f bei x = 5 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "text": "f(x) = (x + 3)³ · (x + 6)². Wechselt f bei x = −6 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -3,
-      7
+      -8,
+      -1
      ],
      "y": [
-      -400,
-      400
+      -40,
+      40
      ],
      "graphen": [
       {
        "art": "poly",
        "k": [
-        25,
-        65,
-        46,
+        972,
+        1296,
+        675,
+        171,
+        21,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": 0
+      },
+      {
+       "x": -3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
+    "Nein, die Nullstelle ist 2-fach (gerade).",
+    "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
+    "Ja, die Nullstelle ist 2-fach (gerade)."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Faktor (x + 6) hoch 2: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = (x − 6)² · (x − 5)³. Wechselt f bei x = 5 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      3,
+      8
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -4500,
+        4200,
+        -1565,
+        291,
+        -27,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": 0
+      },
+      {
+       "x": 6,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
+    "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
+    "Ja, die Nullstelle ist 3-fach (ungerade).",
+    "Nein, die Nullstelle ist 3-fach (ungerade)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Faktor (x − 5) hoch 3: ungerade Potenz wechselt das Vorzeichen.",
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = (x − 5) · (x + 3). Welche Vielfachheit hat die Nullstelle x = 5?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1 + ((1) * (5) ** 2 + (-2) * (5) ** 1 + (-15) * (5) ** 0)",
+   "w": "Der Faktor (x − 5) kommt 1-mal vor: 1-fache Nullstelle.",
+   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent)."
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = (x − 2)⁴ · (x − 4)². Welche Vielfachheit hat die Nullstelle x = 2?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4 + ((1) * (2) ** 6 + (-16) * (2) ** 5 + (104) * (2) ** 4 + (-352) * (2) ** 3 + (656) * (2) ** 2 + (-640) * (2) ** 1 + (256) * (2) ** 0)",
+   "w": "Der Faktor (x − 2) kommt 4-mal vor: 4-fache Nullstelle.",
+   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent)."
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = (x − 2)³ · (x − 3)³. Welche Vielfachheit hat die Nullstelle x = 3?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3 + ((1) * (3) ** 6 + (-15) * (3) ** 5 + (93) * (3) ** 4 + (-305) * (3) ** 3 + (558) * (3) ** 2 + (-540) * (3) ** 1 + (216) * (3) ** 0)",
+   "w": "Der Faktor (x − 3) kommt 3-mal vor: 3-fache Nullstelle.",
+   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent)."
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = (x − 5)⁴ · (x + 4). Welche Vielfachheit hat die Nullstelle x = 5?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4 + ((1) * (5) ** 5 + (-16) * (5) ** 4 + (70) * (5) ** 3 + (100) * (5) ** 2 + (-1375) * (5) ** 1 + (2500) * (5) ** 0)",
+   "w": "Der Faktor (x − 5) kommt 4-mal vor: 4-fache Nullstelle.",
+   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent).",
+   "g": "direkt"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Faktor gehört zu einer doppelten Nullstelle bei x = −3?"
+   },
+   "a": [
+    "(x + 3)²",
+    "(x − 3)²",
+    "2(x + 3)",
+    "(x + 3)³"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstelle −3: Klammer (x + 3); doppelt: Hochzahl 2.",
+   "h": "Welche Klammer wird bei x = −3 null?"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = (x + 6)² · (x − 6)³. Welche Vielfachheit hat die Nullstelle x = −6?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 + ((1) * (-6) ** 5 + (-6) * (-6) ** 4 + (-72) * (-6) ** 3 + (432) * (-6) ** 2 + (1296) * (-6) ** 1 + (-7776) * (-6) ** 0)",
+   "w": "Der Faktor (x + 6) kommt 2-mal vor: 2-fache Nullstelle.",
+   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent).",
+   "g": "direkt"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Bei welchen Nullstellen wechselt der Graph das Vorzeichen?"
+   },
+   "a": [
+    "bei keiner Nullstelle",
+    "bei allen Nullstellen",
+    "bei Nullstellen mit ungerader Vielfachheit",
+    "bei Nullstellen mit gerader Vielfachheit"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ungerade Vielfachheit: Schnitt mit Vorzeichenwechsel; gerade: Berührung.",
+   "h": "Denke an x und an x²."
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = (x − 1) · (x − 3)⁴. Welche Vielfachheit hat die Nullstelle x = 3?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4 + ((1) * (3) ** 5 + (-13) * (3) ** 4 + (66) * (3) ** 3 + (-162) * (3) ** 2 + (189) * (3) ** 1 + (-81) * (3) ** 0)",
+   "w": "Der Faktor (x − 3) kommt 4-mal vor: 4-fache Nullstelle.",
+   "h": "Zähle, wie oft der passende Faktor vorkommt (Exponent).",
+   "g": "direkt"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = (x − 2)³ · (x + 1)⁴. Wechselt f bei x = 2 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      -150,
+      150
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -8,
+        -20,
+        -6,
+        17,
+        8,
+        -6,
         -2,
-        -7,
         1
        ]
       }
@@ -3099,23 +4141,24 @@
        "y": 0
       },
       {
-       "x": 5,
+       "x": 2,
        "y": 0
       }
      ]
     }
    },
    "a": [
-    "Nein, die Nullstelle ist 2-fach (gerade).",
-    "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
     "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
-    "Ja, die Nullstelle ist 2-fach (gerade)."
+    "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
+    "Nein, die Nullstelle ist 3-fach (ungerade).",
+    "Ja, die Nullstelle ist 3-fach (ungerade)."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Faktor (x − 5) hoch 2: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
-   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
+   "w": "Faktor (x − 2) hoch 3: ungerade Potenz wechselt das Vorzeichen.",
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?",
+   "g": "darstellung"
   },
   {
    "l": "vielfachheit",
@@ -3136,7 +4179,116 @@
     "index": 3
    },
    "w": "Faktor (x − 2) hoch 3: ungerade Potenz wechselt das Vorzeichen.",
-   "h": "Gerade oder ungerade Vielfachheit?"
+   "h": "Gerade oder ungerade Vielfachheit?",
+   "g": "umkehr"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = (x − 4)³ · (x + 4)⁴. Welchen Grad hat f, wenn man ausmultipliziert?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "3 + 4 + (7 - 7)",
+   "w": "Grad = Summe der Vielfachheiten = 3 + 4 = 7.",
+   "h": "Jeder Faktor (x − a) trägt den Grad 1 bei.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = (x + 5)² · (x − 6)⁴. Wechselt f bei x = 6 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      8
+     ],
+     "y": [
+      0,
+      45000
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        32400,
+        -8640,
+        -1944,
+        696,
+        1,
+        -14,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 0
+      },
+      {
+       "x": 6,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "Nein, die Nullstelle ist 4-fach (gerade).",
+    "Ja, die Nullstelle ist 4-fach (gerade).",
+    "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
+    "Ja, an jeder Nullstelle wechselt das Vorzeichen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Faktor (x − 6) hoch 4: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?",
+   "g": "darstellung"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = x³ · (x − 2)² · (x + 1). Welchen Grad hat f?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 + 2 + 1",
+   "w": "Die Exponenten addieren sich: 3 + 2 + 1 = 6.",
+   "h": "Beim Ausmultiplizieren entsteht als höchste Potenz x hoch (Summe der Vielfachheiten).",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt x⁴ − 6x³ + 9x² = x²(x − 3)². Welche Vielfachheit hat die Nullstelle x = 3?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Der Faktor (x − 3) steht im Quadrat: doppelte Nullstelle.",
+   "h": "Zähle, wie oft der Faktor (x − 3) vorkommt.",
+   "g": "umkehr"
   },
   {
    "l": "vielfachheit",
@@ -3160,7 +4312,25 @@
    "c": [
     "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-18) * (-3) ** 2 + (0) * (-3) ** 1 + (81) * (-3) ** 0)",
     "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-18) * (3) ** 2 + (0) * (3) ** 1 + (81) * (3) ** 0)"
-   ]
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = x⁵ − 8x³ + 16x. Welche Vielfachheit hat die Nullstelle x = 2?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 + (2**5 - 8*2**3 + 16*2)",
+   "w": "f(x) = x(x⁴ − 8x² + 16) = x(x² − 4)² = x(x − 2)²(x + 2)². Also ist x = 2 eine doppelte Nullstelle.",
+   "h": "Klammere x aus. Die Klammer ist ein Quadrat (binomische Formel).",
+   "g": "transfer"
   },
   {
    "l": "vielfachheit",
@@ -3184,68 +4354,103 @@
    "c": [
     "-4 + ((1) * (-4) ** 4 + (0) * (-4) ** 3 + (-32) * (-4) ** 2 + (0) * (-4) ** 1 + (256) * (-4) ** 0)",
     "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-32) * (4) ** 2 + (0) * (4) ** 1 + (256) * (4) ** 0)"
-   ]
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "f(x) = (x + 4)³ · (x − 3)⁴. Wechselt f bei x = 3 das Vorzeichen?"
-   },
-   "a": [
-    "Ja, die Nullstelle ist 4-fach (gerade).",
-    "Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.",
-    "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
-    "Nein, die Nullstelle ist 4-fach (gerade)."
    ],
-   "o": {
-    "index": 3
-   },
-   "w": "Faktor (x − 3) hoch 4: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
-   "h": "Gerade oder ungerade Vielfachheit?"
+   "g": "verknuepfen"
   },
   {
    "l": "vielfachheit",
    "t": "vielfachheit",
    "p": "uebung",
    "s": 3,
-   "y": "luecken",
+   "y": "zahl",
    "f": {
-    "text": "Die Gleichung x⁴ − 50x² + 625 = 0 hat zwei doppelte Lösungen. Gib sie an.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere zuerst"
+    "text": "Eine ganzrationale Funktion hat bei x = 1 eine doppelte und bei x = −2 eine dreifache Nullstelle. Welchen Grad hat sie mindestens?"
    },
    "o": {
-    "werte": [
-     -5,
-     5
-    ]
+    "wert": 5
    },
-   "w": "x⁴ − 50x² + 625 = (x² − 25)² = (x − 5)²(x + 5)² ⇒ x = ±5, jeweils doppelt.",
-   "h": "Erkennst du eine binomische Formel mit z = x²?",
-   "c": [
-    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-50) * (-5) ** 2 + (0) * (-5) ** 1 + (625) * (-5) ** 0)",
-    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-50) * (5) ** 2 + (0) * (5) ** 1 + (625) * (5) ** 0)"
-   ]
+   "c": "2 + 3",
+   "w": "Sie enthält mindestens die Faktoren (x − 1)² und (x + 2)³. Das ergibt mindestens Grad 2 + 3 = 5.",
+   "h": "Schreibe die nötigen Faktoren auf und addiere die Exponenten.",
+   "g": "rueckwaerts"
   },
   {
    "l": "vielfachheit",
    "t": "vielfachheit",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "f(x) = (x − 4)³ · (x + 4)⁴. Welchen Grad hat f, wenn man ausmultipliziert?"
+    "text": "An wie vielen Stellen wechselt f(x) = (x − 1)² · (x + 3)³ · (x − 4) das Vorzeichen?"
    },
    "o": {
-    "wert": 7
+    "wert": 2
    },
-   "c": "3 + 4 + (7 - 7)",
-   "w": "Grad = Summe der Vielfachheiten = 3 + 4 = 7.",
-   "h": "Jeder Faktor (x − a) trägt den Grad 1 bei."
+   "c": "2",
+   "w": "Vorzeichenwechsel nur bei ungerader Vielfachheit: x = −3 (dreifach) und x = 4 (einfach). Bei x = 1 (doppelt) berührt der Graph nur.",
+   "h": "Prüfe jede Nullstelle: gerade oder ungerade Vielfachheit?",
+   "g": "transfer"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl a hat f(x) = x · (x − 2) · (x − a)² eine dreifache Nullstelle?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Eine dreifache Nullstelle entsteht, wenn (x − a)² mit einem anderen Faktor zusammenfällt. a = 2 gibt (x − 2)³. (a = 0 gäbe x³, ist aber nicht positiv.)",
+   "h": "Mit welchem anderen Faktor kann (x − a)² zusammenfallen?",
+   "g": "parameter"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „f(x) = (x − 2)² · (x + 1) wechselt bei x = 2 das Vorzeichen.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: f hat bei 2 keine Nullstelle.",
+    "Falsch: Bei der doppelten Nullstelle 2 berührt der Graph nur, ohne Vorzeichenwechsel.",
+    "Falsch: f wechselt nur bei 2 das Vorzeichen, nicht bei −1."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(x − 2)² ist links und rechts von 2 positiv – das Vorzeichen bestimmt nur (x + 1).",
+   "h": "Welches Vorzeichen hat (x − 2)² links und rechts von 2?"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine ganzrationale Funktion vom Grad 4 hat eine dreifache Nullstelle a. Hat sie noch eine weitere Nullstelle?"
+   },
+   "a": [
+    "Nein, nie.",
+    "Ja, und zwar immer zwei weitere.",
+    "Nur wenn der Leitkoeffizient positiv ist.",
+    "Ja: Der übrige Faktor ist linear und liefert eine Nullstelle (ist sie gleich a, ist a vierfach)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(x) = (x − a)³ · (c · x + d) mit c ≠ 0: Der lineare Faktor ist bei x = −d/c null.",
+   "h": "Welcher Grad bleibt für den übrigen Faktor?"
   },
   {
    "l": "vielfachheit",
@@ -3481,88 +4686,80 @@
    "w": "Faktor (x + 4) hoch 4: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel."
   },
   {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
    "f": {
-    "text": "Kann eine Polynomgleichung vom Grad 7 ganz ohne Lösung sein?"
+    "text": "f(x) = (x − 1)(x − 2)²(x − 3)³(x − 4)⁴. An wie vielen Nullstellen wechselt f das Vorzeichen?"
    },
-   "a": [
-    "Nein, bei ungeradem Grad gibt es mindestens eine Lösung.",
-    "Nein, sie hat immer genau 7 Lösungen.",
-    "Ja, wie bei x² + 1 = 0.",
-    "Ja, wenn das Zahlglied positiv ist."
-   ],
    "o": {
-    "index": 0
+    "wert": 2
    },
-   "w": "Bei ungeradem Grad geht der Graph von „unten“ nach „oben“ (oder umgekehrt) und muss die x-Achse schneiden.",
-   "h": "Denke an den Verlauf des Graphen für sehr große und sehr kleine x."
+   "c": "2",
+   "w": "Vorzeichenwechsel nur bei ungerader Vielfachheit: x = 1 (einfach) und x = 3 (dreifach). Zwei Stellen.",
+   "h": "Welche Vielfachheiten sind ungerade?"
+  },
+  {
+   "l": "vielfachheit",
+   "t": "vielfachheit",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Grad hat f(x) = (x − 1)(x − 2)²(x − 3)³ · … · (x − 10)¹⁰?"
+   },
+   "o": {
+    "wert": 55
+   },
+   "c": "10 * 11 // 2",
+   "w": "Der Grad ist die Summe der Vielfachheiten: 1 + 2 + … + 10 = 55 (Gauß: 10 · 11 : 2).",
+   "h": "Addiere alle Hochzahlen geschickt."
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Lösungen kann eine Polynomgleichung vom Grad 4 höchstens haben?"
+    "text": "Bei x⁴ − 61x² + 900 = 0 gibt jemand als Lösung „z = 25 und z = 36“ an. Was fehlt?"
    },
    "a": [
-    "4",
-    "3",
-    "8",
-    "5"
+    "Nur x = 5 und x = 6.",
+    "Nichts, die Lösung ist vollständig.",
+    "Die Probe z = 61.",
+    "Die Rücksubstitution: x = ±5 und x = ±6."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Eine Gleichung n-ten Grades hat höchstens n Lösungen, hier 4.",
-   "h": "Der Grad ist die Höchstzahl."
+   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 25 und x² = 36 folgen vier Lösungen.",
+   "h": "Wonach war gefragt: z oder x?"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Kann eine Polynomgleichung vom Grad 3 ganz ohne Lösung sein?"
+    "text": "Jemand löst x³ = 25x, indem er durch x teilt, und erhält x = ±5. Was stimmt?"
    },
    "a": [
-    "Nein, bei ungeradem Grad gibt es mindestens eine Lösung.",
-    "Ja, wenn das Zahlglied positiv ist.",
-    "Ja, wie bei x² + 1 = 0.",
-    "Nein, sie hat immer genau 3 Lösungen."
+    "Falsch: x = 25.",
+    "Richtig, mehr Lösungen gibt es nicht.",
+    "Unvollständig: Auch x = 0 ist Lösung.",
+    "Falsch: Nur x = 5 ist Lösung."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Bei ungeradem Grad geht der Graph von „unten“ nach „oben“ (oder umgekehrt) und muss die x-Achse schneiden.",
-   "h": "Denke an den Verlauf des Graphen für sehr große und sehr kleine x."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Kann eine Polynomgleichung vom Grad 5 ganz ohne Lösung sein?"
-   },
-   "a": [
-    "Nein, bei ungeradem Grad gibt es mindestens eine Lösung.",
-    "Nein, sie hat immer genau 5 Lösungen.",
-    "Ja, wie bei x² + 1 = 0.",
-    "Ja, wenn das Zahlglied positiv ist."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei ungeradem Grad geht der Graph von „unten“ nach „oben“ (oder umgekehrt) und muss die x-Achse schneiden.",
-   "h": "Denke an den Verlauf des Graphen für sehr große und sehr kleine x."
+   "w": "x³ − 25x = x(x² − 25) = 0 ⇒ x = 0 oder x = ±5. Beim Teilen durch x geht x = 0 verloren.",
+   "h": "Was passiert beim Teilen mit x = 0?"
   },
   {
    "l": "verstehen",
@@ -3592,6 +4789,28 @@
    "s": 1,
    "y": "auswahl",
    "f": {
+    "text": "Kann eine Polynomgleichung vom Grad 7 ganz ohne Lösung sein?"
+   },
+   "a": [
+    "Nein, bei ungeradem Grad gibt es mindestens eine Lösung.",
+    "Nein, sie hat immer genau 7 Lösungen.",
+    "Ja, wie bei x² + 1 = 0.",
+    "Ja, wenn das Zahlglied positiv ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei ungeradem Grad geht der Graph von „unten“ nach „oben“ (oder umgekehrt) und muss die x-Achse schneiden.",
+   "h": "Denke an den Verlauf des Graphen für sehr große und sehr kleine x.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
     "text": "Wie viele Lösungen kann eine Polynomgleichung vom Grad 7 höchstens haben?"
    },
    "a": [
@@ -3610,43 +4829,107 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
    "f": {
-    "text": "Jemand löst x³ = 49x, indem er durch x teilt, und erhält x = ±7. Was stimmt?"
+    "text": "Löse x³ = 8."
    },
-   "a": [
-    "Falsch: Nur x = 7 ist Lösung.",
-    "Richtig, mehr Lösungen gibt es nicht.",
-    "Unvollständig: Auch x = 0 ist Lösung.",
-    "Falsch: x = 49."
-   ],
    "o": {
-    "index": 2
+    "wert": 2
    },
-   "w": "x³ − 49x = x(x² − 49) = 0 ⇒ x = 0 oder x = ±7. Beim Teilen durch x geht x = 0 verloren.",
-   "h": "Was passiert beim Teilen mit x = 0?"
+   "c": "2",
+   "w": "2³ = 8, also x = 2 (eine Lösung, denn (−2)³ = −8).",
+   "h": "Welche Zahl hoch drei ergibt 8?"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Jemand löst x³ = 16x, indem er durch x teilt, und erhält x = ±4. Was stimmt?"
+    "text": "Kann eine Polynomgleichung vom Grad 3 ganz ohne Lösung sein?"
    },
    "a": [
-    "Falsch: x = 16.",
-    "Falsch: Nur x = 4 ist Lösung.",
-    "Richtig, mehr Lösungen gibt es nicht.",
-    "Unvollständig: Auch x = 0 ist Lösung."
+    "Nein, bei ungeradem Grad gibt es mindestens eine Lösung.",
+    "Ja, wenn das Zahlglied positiv ist.",
+    "Ja, wie bei x² + 1 = 0.",
+    "Nein, sie hat immer genau 3 Lösungen."
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "x³ − 16x = x(x² − 16) = 0 ⇒ x = 0 oder x = ±4. Beim Teilen durch x geht x = 0 verloren.",
-   "h": "Was passiert beim Teilen mit x = 0?"
+   "w": "Bei ungeradem Grad geht der Graph von „unten“ nach „oben“ (oder umgekehrt) und muss die x-Achse schneiden.",
+   "h": "Denke an den Verlauf des Graphen für sehr große und sehr kleine x."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen kann eine Polynomgleichung vom Grad 4 höchstens haben?"
+   },
+   "a": [
+    "4",
+    "3",
+    "8",
+    "5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Gleichung n-ten Grades hat höchstens n Lösungen, hier 4.",
+   "h": "Der Grad ist die Höchstzahl.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann eine Polynomgleichung vom Grad 5 ganz ohne Lösung sein?"
+   },
+   "a": [
+    "Nein, bei ungeradem Grad gibt es mindestens eine Lösung.",
+    "Nein, sie hat immer genau 5 Lösungen.",
+    "Ja, wie bei x² + 1 = 0.",
+    "Ja, wenn das Zahlglied positiv ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei ungeradem Grad geht der Graph von „unten“ nach „oben“ (oder umgekehrt) und muss die x-Achse schneiden.",
+   "h": "Denke an den Verlauf des Graphen für sehr große und sehr kleine x."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² = 49 (kleinere Lösung zuerst).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     7
+    ]
+   },
+   "c": [
+    "-7",
+    "7"
+   ],
+   "w": "7² = 49 und (−7)² = 49.",
+   "h": "Denke auch an die negative Zahl."
   },
   {
    "l": "verstehen",
@@ -3700,7 +4983,8 @@
     "index": 1
    },
    "w": "Nullstellen bei −4 und −2 (nicht 4, 2). Bei x = −4 schneidet der Graph die x-Achse (3-fach), bei x = −2 schneidet er sie (1-fach).",
-   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt."
+   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt.",
+   "g": "darstellung"
   },
   {
    "l": "verstehen",
@@ -3716,125 +5000,8 @@
    },
    "c": "2",
    "w": "x⁴ − 16 = (x² − 4)(x² + 4) = 0. x² = 4 ergibt x = ±2; x² = −4 hat keine Lösung. Also 2 Lösungen.",
-   "h": "Zerlege mit der dritten binomischen Formel in zwei Faktoren."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei x⁴ − 45x² + 324 = 0 gibt jemand als Lösung „z = 9 und z = 36“ an. Was fehlt?"
-   },
-   "a": [
-    "Nichts, die Lösung ist vollständig.",
-    "Die Probe z = 45.",
-    "Nur x = 3 und x = 6.",
-    "Die Rücksubstitution: x = ±3 und x = ±6."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 9 und x² = 36 folgen vier Lösungen.",
-   "h": "Wonach war gefragt: z oder x?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst x³ = 25x, indem er durch x teilt, und erhält x = ±5. Was stimmt?"
-   },
-   "a": [
-    "Falsch: x = 25.",
-    "Richtig, mehr Lösungen gibt es nicht.",
-    "Unvollständig: Auch x = 0 ist Lösung.",
-    "Falsch: Nur x = 5 ist Lösung."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "x³ − 25x = x(x² − 25) = 0 ⇒ x = 0 oder x = ±5. Beim Teilen durch x geht x = 0 verloren.",
-   "h": "Was passiert beim Teilen mit x = 0?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x⁴ + 8x² = 0?"
-   },
-   "a": [
-    "genau eine (x = 0)",
-    "vier",
-    "keine",
-    "zwei"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x²(x² + 8) = 0 ⇒ x² = 0 ⇒ x = 0; x² + 8 = 0 ist unlösbar.",
-   "h": "Klammere x² aus und prüfe beide Faktoren."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „x⁴ = 81 hat nur die Lösung x = 3.“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: x = 81 : 4.",
-    "Falsch: Die Lösungen sind 3 und 9.",
-    "Falsch: Auch x = −3 ist Lösung, denn (−3)⁴ = 81.",
-    "Richtig."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei geradem Exponenten gibt es zwei Lösungen mit entgegengesetztem Vorzeichen: x = ±3. Probe: (−3)⁴ = 81.",
-   "h": "Was ergibt (−3)⁴?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat die Kantenlängen x, x und x + 4 (in cm) und das Volumen 63 cm³. Bestimme x."
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "3 + ((1) * (3) ** 3 + (4) * (3) ** 2 + (0) * (3) ** 1 + (-63) * (3) ** 0)",
-   "w": "x · x · (x + 4) = 63 ⇒ x³ + 4x² − 63 = 0. Probieren mit Teilern von 63: x = 3, denn 3² · 7 = 63. Weitere positive Lösungen gibt es nicht, weil x³ + 4x² mit x wächst.",
-   "h": "Stelle die Volumengleichung auf und probiere kleine ganze Zahlen (Teiler des Volumens)."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Aus einem 30 cm × 30 cm großen Karton werden an den Ecken Quadrate mit der Seitenlänge x cm ausgeschnitten und die Ränder hochgeklappt. Die Schachtel hat das Volumen V = x · (30 − 2x)². Für welches ganzzahlige x ist V = 704 cm³?"
-   },
-   "o": {
-    "wert": 11,
-    "einheit": "cm"
-   },
-   "c": "11 + ((4) * (11) ** 3 + (-120) * (11) ** 2 + (900) * (11) ** 1 + (-704) * (11) ** 0)",
-   "w": "x · (30 − 2x)² = 704. Sinnvoll ist nur 0 < x < 15. Probieren: x = 11 ergibt 11 · 8² = 704. Andere ganze Zahlen passen nicht.",
-   "h": "Welche Werte kann x überhaupt haben? Setze ganze Zahlen zwischen 1 und 14 ein."
+   "h": "Zerlege mit der dritten binomischen Formel in zwei Faktoren.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
@@ -3888,7 +5055,8 @@
     "index": 2
    },
    "w": "Nullstellen bei 3 und 4 (nicht −3, −4). Bei x = 3 schneidet der Graph die x-Achse (1-fach), bei x = 4 schneidet er sie (3-fach).",
-   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt."
+   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt.",
+   "g": "darstellung"
   },
   {
    "l": "verstehen",
@@ -3897,19 +5065,290 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bei x⁴ − 61x² + 900 = 0 gibt jemand als Lösung „z = 25 und z = 36“ an. Was fehlt?"
+    "text": "Welche Gleichung hat keine reelle Lösung?"
    },
    "a": [
-    "Nur x = 5 und x = 6.",
-    "Nichts, die Lösung ist vollständig.",
-    "Die Probe z = 61.",
-    "Die Rücksubstitution: x = ±5 und x = ±6."
+    "x⁴ − 1 = 0",
+    "x⁴ − 2x² + 1 = 0",
+    "x³ + 1 = 0",
+    "x⁴ + 2x² + 1 = 0"
    ],
    "o": {
     "index": 3
    },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 25 und x² = 36 folgen vier Lösungen.",
-   "h": "Wonach war gefragt: z oder x?"
+   "w": "x⁴ + 2x² + 1 = (x² + 1)² ist immer mindestens 1. Die anderen haben x = ±1 bzw. x = −1 als Lösung.",
+   "h": "Erkennst du eine binomische Formel?",
+   "g": "umkehr"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gleichung 5. Grades hat die Lösungen 0, 1 und 2. Wie viele weitere Lösungen kann sie höchstens noch haben?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "5 - 3",
+   "w": "Grad 5: höchstens 5 Lösungen. Drei sind bekannt, also höchstens 2 weitere.",
+   "h": "Wie viele Lösungen hat eine Gleichung 5. Grades höchstens?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat das Volumen 125 cm³. Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "5",
+   "w": "x³ = 125 ⇒ x = 5 cm, denn 5 · 5 · 5 = 125.",
+   "h": "Volumen = Kante hoch drei."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x³ = 49x, indem er durch x teilt, und erhält x = ±7. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Nur x = 7 ist Lösung.",
+    "Richtig, mehr Lösungen gibt es nicht.",
+    "Unvollständig: Auch x = 0 ist Lösung.",
+    "Falsch: x = 49."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x³ − 49x = x(x² − 49) = 0 ⇒ x = 0 oder x = ±7. Beim Teilen durch x geht x = 0 verloren.",
+   "h": "Was passiert beim Teilen mit x = 0?",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x⁴ + 8x² = 0?"
+   },
+   "a": [
+    "genau eine (x = 0)",
+    "vier",
+    "keine",
+    "zwei"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x²(x² + 8) = 0 ⇒ x² = 0 ⇒ x = 0; x² + 8 = 0 ist unlösbar.",
+   "h": "Klammere x² aus und prüfe beide Faktoren.",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x³ = 16x, indem er durch x teilt, und erhält x = ±4. Was stimmt?"
+   },
+   "a": [
+    "Falsch: x = 16.",
+    "Falsch: Nur x = 4 ist Lösung.",
+    "Richtig, mehr Lösungen gibt es nicht.",
+    "Unvollständig: Auch x = 0 ist Lösung."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x³ − 16x = x(x² − 16) = 0 ⇒ x = 0 oder x = ±4. Beim Teilen durch x geht x = 0 verloren.",
+   "h": "Was passiert beim Teilen mit x = 0?",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „x⁴ = 81 hat nur die Lösung x = 3.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: x = 81 : 4.",
+    "Falsch: Die Lösungen sind 3 und 9.",
+    "Falsch: Auch x = −3 ist Lösung, denn (−3)⁴ = 81.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei geradem Exponenten gibt es zwei Lösungen mit entgegengesetztem Vorzeichen: x = ±3. Probe: (−3)⁴ = 81.",
+   "h": "Was ergibt (−3)⁴?",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat die Kantenlängen x, x und x + 4 (in cm) und das Volumen 63 cm³. Bestimme x."
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "3 + ((1) * (3) ** 3 + (4) * (3) ** 2 + (0) * (3) ** 1 + (-63) * (3) ** 0)",
+   "w": "x · x · (x + 4) = 63 ⇒ x³ + 4x² − 63 = 0. Probieren mit Teilern von 63: x = 3, denn 3² · 7 = 63. Weitere positive Lösungen gibt es nicht, weil x³ + 4x² mit x wächst.",
+   "h": "Stelle die Volumengleichung auf und probiere kleine ganze Zahlen (Teiler des Volumens).",
+   "g": "transfer"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung 4. Grades hat genau drei verschiedene Lösungen?"
+   },
+   "a": [
+    "x⁴ − 1 = 0",
+    "x²(x² − 1) = 0",
+    "x⁴ − 5x² + 4 = 0",
+    "x⁴ + x² = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x²(x² − 1) = 0: x = 0 (doppelt), x = ±1 – drei verschiedene. x⁴ − 1 = 0: ±1; x⁴ − 5x² + 4 = 0: ±1, ±2; x⁴ + x² = 0: nur 0.",
+   "h": "Löse jede Gleichung kurz und zähle verschiedene Lösungen.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei x⁴ − 45x² + 324 = 0 gibt jemand als Lösung „z = 9 und z = 36“ an. Was fehlt?"
+   },
+   "a": [
+    "Nichts, die Lösung ist vollständig.",
+    "Die Probe z = 45.",
+    "Nur x = 3 und x = 6.",
+    "Die Rücksubstitution: x = ±3 und x = ±6."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 9 und x² = 36 folgen vier Lösungen.",
+   "h": "Wonach war gefragt: z oder x?",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem 30 cm × 30 cm großen Karton werden an den Ecken Quadrate mit der Seitenlänge x cm ausgeschnitten und die Ränder hochgeklappt. Die Schachtel hat das Volumen V = x · (30 − 2x)². Für welches ganzzahlige x ist V = 704 cm³?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "cm"
+   },
+   "c": "11 + ((4) * (11) ** 3 + (-120) * (11) ** 2 + (900) * (11) ** 1 + (-704) * (11) ** 0)",
+   "w": "x · (30 − 2x)² = 704. Sinnvoll ist nur 0 < x < 15. Probieren: x = 11 ergibt 11 · 8² = 704. Andere ganze Zahlen passen nicht.",
+   "h": "Welche Werte kann x überhaupt haben? Setze ganze Zahlen zwischen 1 und 14 ein.",
+   "g": "transfer"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph einer Funktion 3. Grades mit Leitkoeffizient 1 schneidet die x-Achse bei x = −3 und berührt sie bei x = 1. Gib den Term ausmultipliziert an.",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten"
+   },
+   "o": {
+    "werte": [
+     1,
+     -5,
+     3
+    ]
+   },
+   "w": "Schneiden: einfacher Faktor (x + 3). Berühren: doppelter Faktor (x − 1)². f(x) = (x + 3)(x² − 2x + 1) = x³ + x² − 5x + 3.",
+   "h": "Welche Vielfachheit gehört zu „berühren“? Stelle erst die Produktform auf.",
+   "c": [
+    "-2 + 3",
+    "1 - 6",
+    "3"
+   ],
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Verlängert man jede Kante eines Würfels um 2 cm, wächst sein Volumen um 152 cm³. Wie lang war eine Kante?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "4 + ((4 + 2)**3 - 4**3 - 152)",
+   "w": "(x + 2)³ − x³ = 152 ⇒ 6x² + 12x + 8 = 152 ⇒ x² + 2x − 24 = 0 ⇒ (x + 6)(x − 4) = 0. Eine Länge ist positiv: x = 4 cm.",
+   "h": "Stelle (x + 2)³ − x³ = 152 auf. Beim Ausmultiplizieren fällt x³ weg.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „x³ = −27 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: x = 3 und x = −3.",
+    "Falsch: x = −3, denn (−3)³ = −27.",
+    "Falsch: x = −9."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine ungerade Potenz einer negativen Zahl ist negativ: (−3)³ = −27. Nur bei geraden Potenzen gibt es keine Lösung für negative Werte.",
+   "h": "Rechne (−3)³ aus.",
+   "g": "begruenden"
   },
   {
    "l": "verstehen",
@@ -4275,644 +5714,38 @@
    "w": "z = x² war nur eine Hilfsvariable. Aus x² = 4 und x² = 16 folgen vier Lösungen."
   },
   {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3x³ = 12x².",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     0,
-     4
-    ]
-   },
-   "w": "3x³ − 12x² = 0 ⇒ 3x²(x − 4) = 0 ⇒ x = 0 (doppelt) oder x = 4. Wer durch x² teilt, verliert x = 0.",
-   "h": "Alles auf eine Seite bringen, dann 3x² ausklammern. Nicht durch x² teilen!",
-   "c": [
-    "(0) + (3*(0)**3 - 12*(0)**2)",
-    "(4) + (3*(4)**3 - 12*(4)**2)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁵ − 16x³ = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -4,
-     0,
-     4
-    ]
-   },
-   "w": "x³(x² − 16) = 0 ⇒ x = 0 (dreifach) oder x² = 16 ⇒ x = ±4.",
-   "h": "Klammere die höchste gemeinsame Potenz x³ aus.",
-   "c": [
-    "(-4) + ((-4)**5 - 16*(-4)**3)",
-    "(0) + ((0)**5 - 16*(0)**3)",
-    "(4) + ((4)**5 - 16*(4)**3)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
    "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Gleichung x³ − kx = 0 hat die Lösung x = 5. Bestimme k und die beiden anderen Lösungen.",
-    "schablone": "k = □; x₁ = □; x₂ = □",
-    "hinweis": "k, dann die anderen Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     25,
-     -5,
-     0
-    ]
-   },
-   "w": "x = 5 einsetzen: 125 − 5k = 0 ⇒ k = 25. Dann x(x² − 25) = 0 ⇒ x = 0 oder x = ±5. Neben 5 also −5 und 0.",
-   "h": "Setze x = 5 ein, um k zu finden. Danach x ausklammern.",
-   "c": [
-    "125 // 5",
-    "-5 + ((-5)**3 - 25*(-5))",
-    "0"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2x⁴ + 6x³ = 20x².",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -5,
-     0,
-     2
-    ]
-   },
-   "w": "2x⁴ + 6x³ − 20x² = 0 ⇒ 2x²(x² + 3x − 10) = 0 ⇒ 2x²(x + 5)(x − 2) = 0 ⇒ x = 0, x = −5, x = 2.",
-   "h": "Erst alles auf eine Seite, dann 2x² ausklammern; die Klammer ist quadratisch.",
-   "c": [
-    "(-5) + (2*(-5)**4 + 6*(-5)**3 - 20*(-5)**2)",
-    "(0) + (2*(0)**4 + 6*(0)**3 - 20*(0)**2)",
-    "(2) + (2*(2)**4 + 6*(2)**3 - 20*(2)**2)"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x²(x − 1) = 4(x − 1).",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -2,
-     1,
-     2
-    ]
-   },
-   "w": "x²(x − 1) − 4(x − 1) = 0 ⇒ (x − 1)(x² − 4) = 0 ⇒ x = 1 oder x = ±2. Wer durch (x − 1) teilt, verliert x = 1.",
-   "h": "Nicht durch (x − 1) teilen: Bring alles auf eine Seite und klammere (x − 1) aus.",
-   "c": [
-    "(-2) + ((-2)**2*((-2) - 1) - 4*((-2) - 1))",
-    "(1) + ((1)**2*((1) - 1) - 4*((1) - 1))",
-    "(2) + ((2)**2*((2) - 1) - 4*((2) - 1))"
-   ]
-  },
-  {
-   "l": "ausklammern",
-   "t": "ausklammern",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x³ = x²(x − 2) + 18.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -3,
-     3
-    ]
-   },
-   "w": "Rechts ausmultiplizieren: x³ = x³ − 2x² + 18. x³ fällt weg: 2x² = 18 ⇒ x² = 9 ⇒ x = ±3.",
-   "h": "Multipliziere die rechte Seite aus. Was passiert mit x³?",
-   "c": [
-    "(-3) + ((-3)**3 - (-3)**2*((-3) - 2) - 18)",
-    "(3) + ((3)**3 - (3)**2*((3) - 2) - 18)"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (3x − 6)(x² + 2x) = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -2,
-     0,
-     2
-    ]
-   },
-   "w": "3x − 6 = 0 ⇒ x = 2. x² + 2x = x(x + 2) = 0 ⇒ x = 0 oder x = −2.",
-   "h": "Jeden Faktor null setzen; der zweite Faktor braucht noch Ausklammern.",
-   "c": [
-    "(-2) + ((3*(-2) - 6)*((-2)**2 + 2*(-2)))",
-    "(0) + ((3*(0) - 6)*((0)**2 + 2*(0)))",
-    "(2) + ((3*(2) - 6)*((2)**2 + 2*(2)))"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x² − 9)(x² + 9) = 0.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -3,
-     3
-    ]
-   },
-   "w": "x² − 9 = 0 ⇒ x = ±3. x² + 9 = 0 hat keine Lösung, weil x² + 9 immer positiv ist.",
-   "h": "Untersuche beide Faktoren einzeln.",
-   "c": [
-    "(-3) + (((-3)**2 - 9)*((-3)**2 + 9))",
-    "(3) + (((3)**2 - 9)*((3)**2 + 9))"
-   ]
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Gleichung hat genau die Lösungen −2, 0 und 3?"
-   },
-   "a": [
-    "x(x − 2)(x + 3) = 0",
-    "x(x + 2)(x − 3) = 0",
-    "x + (x + 2)(x − 3) = 0",
-    "(x + 2)(x − 3) = 0"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Zu x = −2 gehört der Faktor (x + 2), zu x = 3 der Faktor (x − 3), zu x = 0 der Faktor x. Die Summe x + … ist kein Produkt mehr.",
-   "h": "Welcher Faktor wird bei x = −2 null?"
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 3,
+   "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Wie viele verschiedene Lösungen hat (x² − 4)(x² − 5x + 6) = 0?"
+    "text": "Wie viele reelle Lösungen hat x³ + x² + x + 1 = 0?"
    },
    "o": {
-    "wert": 3
+    "wert": 1
    },
-   "c": "3",
-   "w": "x² − 4 = 0 ⇒ x = ±2. x² − 5x + 6 = (x − 2)(x − 3) = 0 ⇒ x = 2 oder x = 3. Die 2 kommt doppelt vor: verschieden sind −2, 2, 3.",
-   "h": "Löse beide Faktoren und streiche doppelte Lösungen."
+   "c": "1",
+   "w": "Gruppieren: x²(x + 1) + (x + 1) = (x + 1)(x² + 1) = 0. Nur x = −1; x² + 1 ist nie 0. Also eine Lösung.",
+   "h": "Fasse die Glieder paarweise zusammen."
   },
   {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
    "s": 3,
+   "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Für welche positive Zahl a hat (x − a)(x² − 9) = 0 nur zwei verschiedene Lösungen?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "x² − 9 = 0 liefert schon −3 und 3. Nur zwei verschiedene Lösungen gibt es, wenn x = a eine davon ist: a = 3 (oder a = −3). Positiv: a = 3.",
-   "h": "Welche Lösungen liefert x² − 9 = 0 schon? Wann bringt (x − a) nichts Neues?"
-  },
-  {
-   "l": "nullprodukt",
-   "t": "nullprodukt",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x − 1)³ = x − 1.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     0,
-     1,
-     2
-    ]
-   },
-   "w": "(x − 1)³ − (x − 1) = 0 ⇒ (x − 1)((x − 1)² − 1) = 0. Also x − 1 = 0 oder (x − 1)² = 1, d. h. x − 1 = ±1. Lösungen: 0, 1, 2.",
-   "h": "Fasse x − 1 als einen Block auf und klammere ihn aus.",
-   "c": [
-    "(0) + (((0) - 1)**3 - ((0) - 1))",
-    "(1) + (((1) - 1)**3 - ((1) - 1))",
-    "(2) + (((2) - 1)**3 - ((2) - 1))"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 13x² + 36 = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -3,
-     -2,
-     2,
-     3
-    ]
-   },
-   "w": "z = x²: z² − 13z + 36 = 0 ⇒ z = 4 oder z = 9 ⇒ x = ±2 oder x = ±3.",
-   "h": "Setze z = x² und löse die quadratische Gleichung.",
-   "c": [
-    "(-3) + ((-3)**4 - 13*(-3)**2 + 36)",
-    "(-2) + ((-2)**4 - 13*(-2)**2 + 36)",
-    "(2) + ((2)**4 - 13*(2)**2 + 36)",
-    "(3) + ((3)**4 - 13*(3)**2 + 36)"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 3x² − 4 = 0.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -2,
-     2
-    ]
-   },
-   "w": "z = x²: z² − 3z − 4 = 0 ⇒ z = 4 oder z = −1. Nur z = 4 ist möglich: x = ±2.",
-   "h": "Prüfe beim Rücksubstituieren, ob z negativ ist.",
-   "c": [
-    "(-2) + ((-2)**4 - 3*(-2)**2 - 4)",
-    "(2) + ((2)**4 - 3*(2)**2 - 4)"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für welche positive Zahl k hat x⁴ − kx² + 16 = 0 genau zwei Lösungen?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "2 * 4",
-   "w": "z = x²: z² − kz + 16 = 0. Genau zwei Lösungen für x gibt es, wenn z eine einzige (doppelte) positive Lösung hat: (z − 4)² = z² − 8z + 16. Also k = 8, dann x = ±2.",
-   "h": "Wie viele Lösungen x liefert ein positives z? Was muss für die Gleichung in z dann gelten?"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁶ − 9x³ + 8 = 0.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     1,
-     2
-    ]
-   },
-   "w": "z = x³: z² − 9z + 8 = 0 ⇒ z = 1 oder z = 8. x³ = 1 ⇒ x = 1; x³ = 8 ⇒ x = 2.",
-   "h": "Hier passt z = x³. Jede Zahl hat genau eine dritte Wurzel.",
-   "c": [
-    "(1) + ((1)**6 - 9*(1)**3 + 8)",
-    "(2) + ((2)**6 - 9*(2)**3 + 8)"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x² − 3)² − 4(x² − 3) − 12 = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -3,
-     -1,
-     1,
-     3
-    ]
-   },
-   "w": "u = x² − 3: u² − 4u − 12 = 0 ⇒ u = 6 oder u = −2. x² − 3 = 6 ⇒ x = ±3; x² − 3 = −2 ⇒ x = ±1.",
-   "h": "Ersetze den Block x² − 3 durch eine neue Variable. Nicht ausmultiplizieren!",
-   "c": [
-    "(-3) + (((-3)**2 - 3)**2 - 4*((-3)**2 - 3) - 12)",
-    "(-1) + (((-1)**2 - 3)**2 - 4*((-1)**2 - 3) - 12)",
-    "(1) + (((1)**2 - 3)**2 - 4*((1)**2 - 3) - 12)",
-    "(3) + (((3)**2 - 3)**2 - 4*((3)**2 - 3) - 12)"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst x⁴ − 5x² − 36 = 0 und schreibt L = {−3; −2; 2; 3}. Was stimmt?"
-   },
-   "a": [
-    "Falsch: z = −4 liefert keine Lösung, L = {−3; 3}.",
-    "Richtig.",
-    "Falsch: L = {−4; 9}.",
-    "Falsch: L = {−9; 4}."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "z² − 5z − 36 = 0 ⇒ z = 9 oder z = −4. x² = 9 ⇒ x = ±3. x² = −4 ist unmöglich; ±2 sind falsch (Probe: 16 − 20 − 36 ≠ 0).",
-   "h": "Mache die Probe mit x = 2."
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = x³ · (x − 2)² · (x + 1). Welchen Grad hat f?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "3 + 2 + 1",
-   "w": "Die Exponenten addieren sich: 3 + 2 + 1 = 6.",
-   "h": "Beim Ausmultiplizieren entsteht als höchste Potenz x hoch (Summe der Vielfachheiten)."
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Es gilt x⁴ − 6x³ + 9x² = x²(x − 3)². Welche Vielfachheit hat die Nullstelle x = 3?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "Der Faktor (x − 3) steht im Quadrat: doppelte Nullstelle.",
-   "h": "Zähle, wie oft der Faktor (x − 3) vorkommt."
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = x⁵ − 8x³ + 16x. Welche Vielfachheit hat die Nullstelle x = 2?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2 + (2**5 - 8*2**3 + 16*2)",
-   "w": "f(x) = x(x⁴ − 8x² + 16) = x(x² − 4)² = x(x − 2)²(x + 2)². Also ist x = 2 eine doppelte Nullstelle.",
-   "h": "Klammere x aus. Die Klammer ist ein Quadrat (binomische Formel)."
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine ganzrationale Funktion hat bei x = 1 eine doppelte und bei x = −2 eine dreifache Nullstelle. Welchen Grad hat sie mindestens?"
+    "text": "Für welche ganze Zahl x gilt x³ − x = 120?"
    },
    "o": {
     "wert": 5
    },
-   "c": "2 + 3",
-   "w": "Sie enthält mindestens die Faktoren (x − 1)² und (x + 2)³. Das ergibt mindestens Grad 2 + 3 = 5.",
-   "h": "Schreibe die nötigen Faktoren auf und addiere die Exponenten."
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "An wie vielen Stellen wechselt f(x) = (x − 1)² · (x + 3)³ · (x − 4) das Vorzeichen?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "Vorzeichenwechsel nur bei ungerader Vielfachheit: x = −3 (dreifach) und x = 4 (einfach). Bei x = 1 (doppelt) berührt der Graph nur.",
-   "h": "Prüfe jede Nullstelle: gerade oder ungerade Vielfachheit?"
-  },
-  {
-   "l": "vielfachheit",
-   "t": "vielfachheit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für welche positive Zahl a hat f(x) = x · (x − 2) · (x − a)² eine dreifache Nullstelle?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "Eine dreifache Nullstelle entsteht, wenn (x − a)² mit einem anderen Faktor zusammenfällt. a = 2 gibt (x − 2)³. (a = 0 gäbe x³, ist aber nicht positiv.)",
-   "h": "Mit welchem anderen Faktor kann (x − a)² zusammenfallen?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Gleichung hat keine reelle Lösung?"
-   },
-   "a": [
-    "x⁴ − 1 = 0",
-    "x⁴ − 2x² + 1 = 0",
-    "x³ + 1 = 0",
-    "x⁴ + 2x² + 1 = 0"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "x⁴ + 2x² + 1 = (x² + 1)² ist immer mindestens 1. Die anderen haben x = ±1 bzw. x = −1 als Lösung.",
-   "h": "Erkennst du eine binomische Formel?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Gleichung 5. Grades hat die Lösungen 0, 1 und 2. Wie viele weitere Lösungen kann sie höchstens noch haben?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "5 - 3",
-   "w": "Grad 5: höchstens 5 Lösungen. Drei sind bekannt, also höchstens 2 weitere.",
-   "h": "Wie viele Lösungen hat eine Gleichung 5. Grades höchstens?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Gleichung 4. Grades hat genau drei verschiedene Lösungen?"
-   },
-   "a": [
-    "x⁴ − 1 = 0",
-    "x²(x² − 1) = 0",
-    "x⁴ − 5x² + 4 = 0",
-    "x⁴ + x² = 0"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "x²(x² − 1) = 0: x = 0 (doppelt), x = ±1 – drei verschiedene. x⁴ − 1 = 0: ±1; x⁴ − 5x² + 4 = 0: ±1, ±2; x⁴ + x² = 0: nur 0.",
-   "h": "Löse jede Gleichung kurz und zähle verschiedene Lösungen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Der Graph einer Funktion 3. Grades mit Leitkoeffizient 1 schneidet die x-Achse bei x = −3 und berührt sie bei x = 1. Gib den Term ausmultipliziert an.",
-    "schablone": "x³ + □x² + □x + □",
-    "hinweis": "Koeffizienten"
-   },
-   "o": {
-    "werte": [
-     1,
-     -5,
-     3
-    ]
-   },
-   "w": "Schneiden: einfacher Faktor (x + 3). Berühren: doppelter Faktor (x − 1)². f(x) = (x + 3)(x² − 2x + 1) = x³ + x² − 5x + 3.",
-   "h": "Welche Vielfachheit gehört zu „berühren“? Stelle erst die Produktform auf.",
-   "c": [
-    "-2 + 3",
-    "1 - 6",
-    "3"
-   ]
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Verlängert man jede Kante eines Würfels um 2 cm, wächst sein Volumen um 152 cm³. Wie lang war eine Kante?"
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "cm"
-   },
-   "c": "4 + ((4 + 2)**3 - 4**3 - 152)",
-   "w": "(x + 2)³ − x³ = 152 ⇒ 6x² + 12x + 8 = 152 ⇒ x² + 2x − 24 = 0 ⇒ (x + 6)(x − 4) = 0. Eine Länge ist positiv: x = 4 cm.",
-   "h": "Stelle (x + 2)³ − x³ = 152 auf. Beim Ausmultiplizieren fällt x³ weg."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „x³ = −27 hat keine Lösung, weil man aus negativen Zahlen keine Wurzel ziehen kann.“ Was stimmt?"
-   },
-   "a": [
-    "Richtig.",
-    "Falsch: x = 3 und x = −3.",
-    "Falsch: x = −3, denn (−3)³ = −27.",
-    "Falsch: x = −9."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Eine ungerade Potenz einer negativen Zahl ist negativ: (−3)³ = −27. Nur bei geraden Potenzen gibt es keine Lösung für negative Werte.",
-   "h": "Rechne (−3)³ aus."
+   "c": "5",
+   "w": "x³ − x = (x − 1) · x · (x + 1): das Produkt dreier aufeinanderfolgender Zahlen. 120 = 4 · 5 · 6, also x = 5.",
+   "h": "Klammere x aus und zerlege weiter."
   }
  ],
  "offen": [

@@ -274,3 +274,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Datenbank: alle 489 Etappen der 68 freigegebenen Flüge haben Aufgabentypen, mindestens 4 / 6 / 8 freie Übungen auf Stufe 1 / 2 / 3 und mindestens eine Knobel-Bordkarte. Freie Übungen: Stufe 1: 2 742 · Stufe 2: 4 130 · Stufe 3: 4 010.
 - **Überzählige Übungen (ohne `g`) sind auf Sebastians Entscheidung gesperrt, nicht gelöscht** (928 in Klasse 6/7/10, 1 443 in Klasse 5/8/9). Annahme der Chats damit bestätigt.
 - Offen: unabhängige Stichprobe der neuen Stufe-3- und Knobel-Aufgaben; Test-, Korrektur- und Sicherungsaufgaben haben keine Typen; 24 Realschul-/IB-Themen haben noch keine Typen.
+
+## 17.11. 15:50 – Entscheidungen von Sebastian und was daraus folgt
+- **Drei neue Flüge freigegeben** (Einheiten 93, 94, 95) – auf Sebastians Entscheidung, ohne unabhängige Prüfung (so vermerkt). Quito steht im Plan von Kind A hinter Florenz. Überzählige Übungen dort gesperrt.
+- **Lehrplan-Reihenfolge Klasse 9 geändert:** `zahlen.rationale_exponenten` 8, `funktionen.potenz` 9, `gleichungen.potenz` 10, `trigo.allgemein` 13, `gleichungen.trig` 14 (Datenbank und Themenliste). Klasse 6 und 8 mit den neuen Flügen in der Datenbank nachgezogen.
+- **Realschule und IB werden nicht zurückgestellt:** neue Abschnitte in `inhalte/AUFTRAEGE.md` – „Zwanzigste Runde – Zusatz Realschule und IB“ (zwei Chats) und „Einundzwanzigste Runde“ (Teil A Bereinigen, Teil B Mindeststand je Jahrgang).

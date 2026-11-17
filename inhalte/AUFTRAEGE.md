@@ -1491,3 +1491,47 @@ Zwei Chats, je 12 Themen:
 Zusätzlich je Thema im Bericht: (a) Welches Vorwissen aus anderen Flügen setzt das Thema voraus (Themenschlüssel nennen)? (b) Ab welcher Klasse kann ein Gymnasium-Kind das Thema frühestens lösen? Das brauche ich für die Einordnung in den Plan.
 
 Ein Thema = ein Commit + Push. Kein Merge, keine Datenbank, kein App-Code, keine Tests.
+
+# Einundzwanzigste Runde (17.11.): Bereinigen und Mindeststand je Jahrgang
+
+Entscheidungen von Sebastian (17.11.): Reihenfolge-Fehler beheben · Überschneidungen **zusammenlegen** · Stoff über dem Lehrplan **verschieben** · Realschule gehört in den Plan: **Mindeststand je Jahrgang** (Gymnasium ist die Basis; hat die Realschule ein Thema früher, gilt die frühere Klasse).
+
+Schon erledigt (Haupt-Chat): Lehrplan-Reihenfolge Klasse 9 (rationale Exponenten vor Potenzfunktionen; `trigo.allgemein` vor `gleichungen.trig`); drei neue Flüge freigegeben; Überzählige gesperrt.
+
+## Teil A – Bereinigen (EIN Chat, Zweig `bereinigen`, Meldungen in `inhalte/postfach/bereinigen.md`)
+
+Nur die Gymnasium-Themen (Klasse 5–10). Grundlage sind die Listen „Für Sebastian“ in `inhalte/postfach/durchsicht-kl5.md` … `durchsicht-kl10.md`. Regeln der Zwanzigsten Runde gelten weiter (jede Übung mit `g`, Mindestmengen 4 / 6 / 8, 2 Knobel-Bordkarten je Lernkarte, Prüfskript OK).
+
+**A1 Zusammenlegen (derselbe Stoff steht in zwei Flügen):** Je Paar bleibt der Stoff an **einer** Stelle – dort, wo er laut Lehrplan zuerst gebraucht wird. An der anderen Stelle entfällt die Lernkarte oder wird zu einer kurzen Wiederholung mit Verweis. Die besten Aufgaben beider Stellen bleiben erhalten (keine doppelten Fragetexte). Paare:
+- Kl. 5: `gleichungen.einfach` (umkehr_plus, umkehr_mal) ↔ `zahlen.ganz`/umkehraufgabe ↔ `zahlen.rechengesetze`/umkehraufgabe_mal · `messen.koerper_berechnung`/volumen (und die 7 Volumen-Aussagen in „verstehen“) ↔ `messen.volumen` (Kl. 6)
+- Kl. 6: `zahlen.potenzen_zehner`/negativer_exponent ↔ `terme.potenzgesetze`/negativer_exponent · `finanzen.zinsen` ↔ `bruch.prozent`/zinsen
+- Kl. 7: `geometrie.konstruktion` (parallelen, winkelsumme) ↔ `geometrie.winkelsaetze` (stufen_wechsel, innenwinkelsumme) · `daten.boxplot` ↔ `daten.kennwerte`
+- Kl. 8: `groessen.indirekt` ↔ `funktionen.gebrochen` (indirekt, indirekt_sach) · `messen.koerper_darstellung` ↔ `raum.schraegbilder` (Schrägbild q = 1/2, Ecken/Kanten/Flächen) · `messen.kreisberechnung`/zylinder ↔ `messen.prisma_zylinder`
+- Kl. 9: `funktionen.quadratisch`/nullstellen (Parabel–Gerade) ↔ Karte schnittpunkte
+- Kl. 10: `funktionen.exponential_log`/zeitpunkt ↔ `gleichungen.exponential` (wachstum, mit_log_loesen) · π-Schätzung in `stochastik.mehrstufig`/simulation, `stochastik.mehrstufig`/pi_schaetzen, `stochastik.simulation`/monte_carlo · Schrägbild der Pyramide in `raum.schraegbilder`/pyramide ↔ `raum.pyramide_kegel_kugel`/pyr_volumen
+
+**A2 Verschieben (Stoff steht früher als im Lehrplan oder wird vor seiner Erklärung geübt):** Die Lernkarte samt Aufgaben wandert in das passende Thema der richtigen Klasse. Gibt es dort keines, wird sie im alten Thema als Vertiefung geführt (`vertiefung`) – das dann im Bericht begründen.
+- Kl. 5: `zahlen.teilbarkeit` – Neunerregel, ggT/kgV (M5 nennt nur 2, 3, 5, 10 und Primfaktoren) · `geometrie.ortslinien` – Schreibweise „y = 2“ · `geometrie.winkel`/uhr – 0,5° je Minute · `groessen.proportional`/erkennen – Begriff „proportional“
+- Kl. 6: `terme.potenzgesetze` – Potenzgesetze und Variablen (M6 1.4 nennt sie nicht; M7 1.2 verlangt „Produkte und Potenzen von Potenzen“ → nach `terme.umformen`, Kl. 7) · `daten.kennwerte` – Modalwert, Spannweite, Median
+- Kl. 7: `abbildungen.kongruenz`/achsenspiegelung – 21 Aufgaben und die Karte mit Geradengleichungen (x = 3, y = x): durch Fassungen ohne Geradengleichung ersetzen (Achse als Gitterlinie oder durch zwei Punkte) · `geometrie.konstruktion`/satz_kehrsatz – Satz des Thales vor `geometrie.kreis` · `abbildungen.kongruenz`/parkett – Innenwinkel vor `geometrie.winkelsaetze`
+- Kl. 8: `gleichungen.formeln` – Körperformeln (Pyramide), die noch nicht dran waren
+- Kl. 9: `stochastik.verknuepft`/bedingt – bedingte Wahrscheinlichkeit (Oberstufe) · `gleichungen.lgs3` – pruefen, stufenform, eliminieren (M9 2.2 verlangt nur einfache Beispiele) · `gleichungen.trig` – Aufgaben, die Stoff aus `trigo.allgemein` brauchen, sind jetzt richtig gereiht; prüfen, ob noch etwas vorgreift
+- Kl. 10: `funktionen.ganzrational`/nullstellen – zwei Stufe-3-Übungen mit Substitution → nach `gleichungen.polynom`/substitution
+
+**Pflicht im Bericht – Umzugstabelle:** je verschobener oder entfallener Lernkarte eine Zeile `altes Thema / alte Lernkarte → neues Thema / neue Lernkarte (oder „entfällt“, „Vertiefung“)`. Die brauche ich, um die Lernstände der Kinder in der Datenbank mitzunehmen. Lernkarten-Schlüssel (`l`) beim Umzug möglichst behalten. Themenschlüssel und `thema_id` nicht ändern, keine neuen Themen anlegen (falls eines nötig wäre: nur vorschlagen).
+Ein Thema = ein Commit + Push. Kein Merge, keine Datenbank, kein App-Code, keine Tests. Bei Unklarheit: sinnvollste Lesart nehmen und im Bericht nennen.
+
+## Teil B – Mindeststand je Jahrgang: Vorschlag für den Plan (EIN Chat, Zweig `plan-mindeststand`, nur Vorschlag)
+
+Ziel: Ein Kind soll am Ende jeder Klasse mindestens den Stand von Gymnasium **und** Realschule Bayern haben; am Ende von Klasse 8 zusätzlich alles, was IB MYP bis dahin üblicherweise behandelt hat. Ergebnis ist die Datei `inhalte/pruefung/klassen/vorschlag-mindeststand.md` – keine Änderung an Themenliste, Datenbank, App.
+
+Grundlagen: `inhalte/themenliste.json` (Felder `klasse`, `reihenfolge`, `block_id`, `ort`), `inhalte/pruefung/klassen/vorschlag-rsib.md` (Lehrplan-Abgleich Realschule/IB mit Korrekturen), `inhalte/pruefung/klassen/vorschlag.md` (Klassenzuordnung der Orte, D1/D2).
+
+1. **Plan-Klasse je Thema** (alle 95): Gymnasium-Klasse; ist die (nach `vorschlag-rsib.md` korrigierte) Realschul-Klasse kleiner, gilt sie; Themen ohne Gymnasium-Klasse: Realschul-Klasse, sonst IB-Jahr + 4. Spalten: Thema · Gym · RS (alt → korrigiert) · IB · Plan-Klasse · Grund. Die sieben Klassen-Korrekturen und fünf Nachträge für `rs_by` aus `vorschlag-rsib.md` sind beschlossen.
+2. **IB gesondert:** Liste der Themen, die IB bis Jahr 4 (= Klasse 8) hat, das Gymnasium aber erst in 9/10. Je Thema: Sicherheit der IB-Zuordnung (sicher / üblich / Annahme) und Vorwissen. Vorschlag in zwei Fassungen: (a) IB zieht nichts vor, (b) nur „sicher/üblich“ wird bis Ende Klasse 8 eingeplant. Mit Zahl der zusätzlichen Flüge je Klasse – Sebastian entscheidet.
+3. **Vorwissen prüfen:** Für jedes Thema, dessen Plan-Klasse kleiner ist als die Gymnasium-Klasse: Welche Themen setzt es voraus, und liegen die dann davor? Wo nicht: Thema lassen oder Voraussetzung mitziehen.
+4. **Orte:** Für jedes Thema, dessen Ort (`ziel_klasse`) nicht zur Plan-Klasse passt, und für die 24 Themen ohne Gymnasium-Klasse (ihre Orte haben teils keine Klasse): Zielort vorschlagen (bestehender Ort derselben Klasse auf demselben Kontinent oder neuer Ort mit Stadt, Titel, Kontinent, Koordinaten). Kein Ort mit mehr als 4 Flügen.
+5. **Reihenfolge je Klasse** über alle Themen der Plan-Klasse (Vorwissen zuerst), als Zahlenliste.
+6. **Fehlender Realschul-Stoff** (aus `vorschlag-rsib.md`): je neuem Thema Titel, Plan-Klasse, Ort, 5–8 Lernkarten als Stichworte (Zentrische Streckung im Koordinatensystem, Vierecke und Drehung, Trigonometrie-Ergänzung Klasse 10, weitere).
+7. **Folgen für zwei Kinder** (nur als Kind A, Klasse 5, und Kind B, Klasse 8): Wie viele Flüge kommen je Klasse dazu, wie viele liegen bei Kind B dann in schon abgeschlossenen Klassen?
+Tatsachen, Annahmen und Meinungen trennen; Quellen nennen. Meldung in `inhalte/postfach/plan-mindeststand.md`.

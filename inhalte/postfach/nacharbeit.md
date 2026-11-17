@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 01:54 – STATUS
+geometrie.ortslinien fertig: Lernkarte zwei_kreise – neuer letzter Schritt „Bei 0,5 km Abstand ist 0,5 < 5 − 4: Kreis im Kreis, kein Ort.“ mit Zeichnung. Aufgaben unverändert; inhalt_pruefen OK ohne Hinweise, Nachweis OK (nur schritte). Hinweis: Der Generator schreibt jetzt block_id 83 (Kairo, aus themenliste.json); die Datei hatte 79. Ich habe 79 in der Datei belassen (nicht beauftragt) – bitte beim Einspielen entscheiden.
+
+## 2026-11-17 01:54 – STATUS
 geometrie.grundbegriffe fertig: Lernkarte kreis_lage – zwei neue Schritte mit Zeichnung: zwei Kreise berühren sich von außen (Mittelpunkte 5 m = 3 m + 2 m) und liegen getrennt (7 m > 3 + 2). Aufgaben unverändert; inhalt_pruefen OK ohne Hinweise, Nachweis OK (nur schritte).
 
 ## 2026-11-17 01:53 – STATUS

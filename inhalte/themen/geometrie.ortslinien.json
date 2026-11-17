@@ -306,6 +306,39 @@
         ]
        }
       }
+     },
+     {
+      "text": "Bei 0,5 km Abstand ist 0,5 < 5 − 4: Kreis im Kreis, ⟦kein⟧ Ort.",
+      "bild": {
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         0.5,
+         0
+        ]
+       },
+       "kreise": [
+        {
+         "m": "A",
+         "r": 5
+        },
+        {
+         "m": "B",
+         "r": 4
+        }
+       ],
+       "linien": [
+        [
+         "A",
+         "B",
+         "0,5 km",
+         "gestrichelt"
+        ]
+       ]
+      }
      }
     ],
     "fehler": "Immer zwei Orte erwarten ist falsch. Bei mehr als 9 km Abstand treffen sich die Kreise gar nicht.",

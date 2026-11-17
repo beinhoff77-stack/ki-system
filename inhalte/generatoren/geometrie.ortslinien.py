@@ -341,7 +341,11 @@ KARTEN = {
                {'text': 'Dazu der Kreis um B mit 4 km.', 'bild': {'kreise': [{'m': 'A', 'r': 5}, {'m': 'B', 'r': 4}]}},
                {'text': '5 + 4 = 9 ist mehr als 8: Die Kreise überlappen.'},
                {'text': 'Sie schneiden sich oberhalb und unterhalb von AB: ⟦zwei⟧ Orte.',
-                'bild': {'punkte': {'A': [0, 0], 'B': [8, 0], 'S₁': [73 / 16, S_Y], 'S₂': [73 / 16, -S_Y]}}}],
+                'bild': {'punkte': {'A': [0, 0], 'B': [8, 0], 'S₁': [73 / 16, S_Y], 'S₂': [73 / 16, -S_Y]}}},
+               # Fünfzehnte Runde: „Kreis im Kreis“ – Abstand kleiner als r₁ − r₂ = 5 − 4 = 1
+               {'text': 'Bei 0,5 km Abstand ist 0,5 < 5 − 4: Kreis im Kreis, ⟦kein⟧ Ort.',
+                'bild': {'punkte': {'A': [0, 0], 'B': [0.5, 0]}, 'kreise': [{'m': 'A', 'r': 5}, {'m': 'B', 'r': 4}],
+                         'linien': [['A', 'B', '0,5 km', 'gestrichelt']]}}],
   'fehler': 'Immer zwei Orte erwarten ist falsch. Bei mehr als 9 km Abstand treffen sich die Kreise gar nicht.',
   'fehler_bild': {'punkte': {'A': [0, 0], 'B': [10, 0]}, 'linien': [['A', 'B', '10 km', 'gestrichelt']]},
   'regel': 'Die Orte liegen in den ⟦Schnittpunkten⟧ der Kreise. Meist sind es zwei. Berühren sich die Kreise nur, ist es einer.'},

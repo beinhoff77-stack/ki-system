@@ -724,7 +724,8 @@
     "index": 2
    },
    "w": "Der Satz ist eindeutig wahr oder falsch – hier falsch. Also eine Aussage.",
-   "h": "Kann man eindeutig sagen, ob der Satz stimmt?"
+   "h": "Kann man eindeutig sagen, ob der Satz stimmt?",
+   "g": "erkennen"
   },
   {
    "l": "aussagen",
@@ -744,7 +745,25 @@
     "index": 2
    },
    "w": "„35 ist eine Primzahl“ ist falsch.",
-   "h": "Rechne oder prüfe die Behauptung nach."
+   "h": "Rechne oder prüfe die Behauptung nach.",
+   "g": "direkt"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Setze für x die Zahlen 1, 2, …, 6 ein. Für wie viele davon wird die Aussageform „4x + 1 > 23“ zu einer wahren Aussage?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Wahr für x = 6. Das ist nur eine Zahl.",
+   "h": "Setze jede Zahl ein und prüfe.",
+   "g": "verknuepfen"
   },
   {
    "l": "aussagen",
@@ -764,7 +783,8 @@
     "index": 0
    },
    "w": "Der Satz ist eindeutig wahr oder falsch – hier falsch. Also eine Aussage.",
-   "h": "Kann man eindeutig sagen, ob der Satz stimmt?"
+   "h": "Kann man eindeutig sagen, ob der Satz stimmt?",
+   "g": "erkennen"
   },
   {
    "l": "aussagen",
@@ -784,47 +804,8 @@
     "index": 2
    },
    "w": "„3² = 9“ ist wahr.",
-   "h": "Rechne oder prüfe die Behauptung nach."
-  },
-  {
-   "l": "aussagen",
-   "t": "aussagen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welchen Wahrheitswert hat die Aussage „8² = 65“?"
-   },
-   "a": [
-    "keinen – das ist keine Aussage",
-    "falsch",
-    "wahr"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "„8² = 65“ ist falsch.",
-   "h": "Rechne oder prüfe die Behauptung nach."
-  },
-  {
-   "l": "aussagen",
-   "t": "aussagen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist „5² = 26.“ eine Aussage?"
-   },
-   "a": [
-    "Ja, sie ist wahr.",
-    "Nein, das ist keine Aussage.",
-    "Ja, sie ist falsch."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Der Satz ist eindeutig wahr oder falsch – hier falsch. Also eine Aussage.",
-   "h": "Kann man eindeutig sagen, ob der Satz stimmt?"
+   "h": "Rechne oder prüfe die Behauptung nach.",
+   "g": "direkt"
   },
   {
    "l": "aussagen",
@@ -845,7 +826,8 @@
     "index": 0
    },
    "w": "Mit unbestimmter Variable ist der Satz eine Aussageform. Für x = 5 ist „5 > 3“ wahr.",
-   "h": "Kann man ohne Wert für x sagen, ob der Satz stimmt?"
+   "h": "Kann man ohne Wert für x sagen, ob der Satz stimmt?",
+   "g": "umkehr"
   },
   {
    "l": "aussagen",
@@ -866,7 +848,110 @@
     "index": 3
    },
    "w": "„n ist eine gerade Zahl.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.",
-   "h": "Eine Aussage muss eindeutig wahr oder falsch sein – auch „falsch“ zählt."
+   "h": "Eine Aussage muss eindeutig wahr oder falsch sein – auch „falsch“ zählt.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welchen Wahrheitswert hat „Jede Zahl, die durch 10 teilbar ist, ist auch durch 5 teilbar.“?"
+   },
+   "a": [
+    "keinen – das ist keine Aussage",
+    "falsch",
+    "wahr"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ja: 5 ist ein Teiler von 10.",
+   "h": "„Es gibt …“ braucht ein Beispiel, „jede …“ wird durch ein Gegenbeispiel widerlegt.",
+   "g": "begruenden"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Auf einer Insel sagen Ritter immer die Wahrheit, Lügner lügen immer. A sagt: „B ist ein Lügner.“ B sagt: „Wir sind von derselben Sorte.“ Was sind A und B?"
+   },
+   "a": [
+    "A ist Lügner, B ist Ritter.",
+    "A ist Ritter, B ist Ritter.",
+    "A ist Ritter, B ist Lügner.",
+    "A ist Lügner, B ist Lügner."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nur bei „A ist Ritter, B ist Lügner“ passt jede Aussage zu ihrem Sprecher: Ritter sagen Wahres, Lügner Falsches.",
+   "h": "Probiere alle vier Fälle: Ist die Aussage eines Ritters wahr, die eines Lügners falsch?",
+   "g": "transfer"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Setze für x die Zahlen 1, 2, …, 12 ein. Für wie viele davon wird die Aussageform „x² < 31“ zu einer wahren Aussage?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Wahr für x = 1, 2, 3, 4, 5. Das sind 5 Zahlen.",
+   "h": "Setze jede Zahl ein und prüfe.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welchen Wahrheitswert hat die Aussage „8² = 65“?"
+   },
+   "a": [
+    "keinen – das ist keine Aussage",
+    "falsch",
+    "wahr"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "„8² = 65“ ist falsch.",
+   "h": "Rechne oder prüfe die Behauptung nach.",
+   "g": "direkt"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist „5² = 26.“ eine Aussage?"
+   },
+   "a": [
+    "Ja, sie ist wahr.",
+    "Nein, das ist keine Aussage.",
+    "Ja, sie ist falsch."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Satz ist eindeutig wahr oder falsch – hier falsch. Also eine Aussage.",
+   "h": "Kann man eindeutig sagen, ob der Satz stimmt?",
+   "g": "erkennen"
   },
   {
    "l": "aussagen",
@@ -887,7 +972,8 @@
     "index": 3
    },
    "w": "„Schließ bitte das Fenster.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.",
-   "h": "Eine Aussage muss eindeutig wahr oder falsch sein – auch „falsch“ zählt."
+   "h": "Eine Aussage muss eindeutig wahr oder falsch sein – auch „falsch“ zählt.",
+   "g": "mehrschritt"
   },
   {
    "l": "aussagen",
@@ -908,7 +994,52 @@
     "index": 0
    },
    "w": "Mit unbestimmter Variable ist der Satz eine Aussageform. Für x = 2 ist „2 > 3“ falsch.",
-   "h": "Kann man ohne Wert für x sagen, ob der Satz stimmt?"
+   "h": "Kann man ohne Wert für x sagen, ob der Satz stimmt?",
+   "g": "umkehr"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Auf einer Anzeige am Bahnsteig steht: „Dieser Zug fährt nach Hamburg.“ Ist das eine Aussage im Sinne der Logik?"
+   },
+   "a": [
+    "Ja, sie ist entweder wahr oder falsch.",
+    "Nein, weil man es nicht sofort weiß.",
+    "Nur, wenn der Zug pünktlich ist.",
+    "Nein, weil sie keine Zahl enthält."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Aussage ist ein Satz, der eindeutig wahr oder falsch ist – auch wenn man den Wahrheitswert erst nachprüfen muss.",
+   "h": "Kann der Satz wahr oder falsch sein?",
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Wie schreibt man die Aussageform „x ist größer als 3“ in Zeichen?"
+   },
+   "a": [
+    "x < 3",
+    "x ≥ 3",
+    "x > 3",
+    "3 > x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "„größer als“ ist >; x steht links.",
+   "h": "Lies von links nach rechts.",
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung"
   },
   {
    "l": "aussagen",
@@ -959,63 +1090,6 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welchen Wahrheitswert hat „Jede Zahl, die durch 10 teilbar ist, ist auch durch 5 teilbar.“?"
-   },
-   "a": [
-    "keinen – das ist keine Aussage",
-    "falsch",
-    "wahr"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ja: 5 ist ein Teiler von 10.",
-   "h": "„Es gibt …“ braucht ein Beispiel, „jede …“ wird durch ein Gegenbeispiel widerlegt."
-  },
-  {
-   "l": "aussagen",
-   "t": "aussagen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Setze für x die Zahlen 1, 2, …, 6 ein. Für wie viele davon wird die Aussageform „4x + 1 > 23“ zu einer wahren Aussage?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1",
-   "w": "Wahr für x = 6. Das ist nur eine Zahl.",
-   "h": "Setze jede Zahl ein und prüfe."
-  },
-  {
-   "l": "aussagen",
-   "t": "aussagen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Auf einer Insel sagen Ritter immer die Wahrheit, Lügner lügen immer. A sagt: „B ist ein Lügner.“ B sagt: „Wir sind von derselben Sorte.“ Was sind A und B?"
-   },
-   "a": [
-    "A ist Lügner, B ist Ritter.",
-    "A ist Ritter, B ist Ritter.",
-    "A ist Ritter, B ist Lügner.",
-    "A ist Lügner, B ist Lügner."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nur bei „A ist Ritter, B ist Lügner“ passt jede Aussage zu ihrem Sprecher: Ritter sagen Wahres, Lügner Falsches.",
-   "h": "Probiere alle vier Fälle: Ist die Aussage eines Ritters wahr, die eines Lügners falsch?"
-  },
-  {
-   "l": "aussagen",
-   "t": "aussagen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
     "text": "Welchen Wahrheitswert hat „Es gibt eine Primzahl zwischen 17 und 23.“?"
    },
    "a": [
@@ -1027,23 +1101,8 @@
     "index": 1
    },
    "w": "Ja: 19 liegt dazwischen.",
-   "h": "„Es gibt …“ braucht ein Beispiel, „jede …“ wird durch ein Gegenbeispiel widerlegt."
-  },
-  {
-   "l": "aussagen",
-   "t": "aussagen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Setze für x die Zahlen 1, 2, …, 12 ein. Für wie viele davon wird die Aussageform „x² < 31“ zu einer wahren Aussage?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "Wahr für x = 1, 2, 3, 4, 5. Das sind 5 Zahlen.",
-   "h": "Setze jede Zahl ein und prüfe."
+   "h": "„Es gibt …“ braucht ein Beispiel, „jede …“ wird durch ein Gegenbeispiel widerlegt.",
+   "g": "begruenden"
   },
   {
    "l": "aussagen",
@@ -1064,44 +1123,8 @@
     "index": 1
    },
    "w": "Nur bei „A ist Ritter, B ist Ritter“ passt jede Aussage zu ihrem Sprecher: Ritter sagen Wahres, Lügner Falsches.",
-   "h": "Probiere alle vier Fälle: Ist die Aussage eines Ritters wahr, die eines Lügners falsch?"
-  },
-  {
-   "l": "aussagen",
-   "t": "aussagen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "„x ist größer als 3.“ Wann wird daraus eine Aussage?"
-   },
-   "a": [
-    "Erst wenn man für x eine Zahl einsetzt, z. B. x = 4: Dann ist es wahr.",
-    "Nie – Sätze mit Buchstaben sind nie Aussagen.",
-    "Wenn man ein Fragezeichen anhängt.",
-    "Es ist schon eine Aussage, sie ist wahr."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Mit unbestimmter Variable ist der Satz eine Aussageform. Für x = 4 ist „4 > 3“ wahr.",
-   "h": "Kann man ohne Wert für x sagen, ob der Satz stimmt?"
-  },
-  {
-   "l": "aussagen",
-   "t": "aussagen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Setze für x die Zahlen 1, 2, …, 6 ein. Für wie viele davon wird die Aussageform „x ist ein Teiler von 24“ zu einer wahren Aussage?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "Wahr für x = 1, 2, 3, 4, 6. Das sind 5 Zahlen.",
-   "h": "Setze jede Zahl ein und prüfe."
+   "h": "Probiere alle vier Fälle: Ist die Aussage eines Ritters wahr, die eines Lügners falsch?",
+   "g": "transfer"
   },
   {
    "l": "aussagen",
@@ -1304,6 +1327,127 @@
    "w": "„Schließ bitte das Fenster.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
   },
   {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Setze für x die Zahlen 1, 2, …, 6 ein. Für wie viele davon wird die Aussageform „x ist ein Teiler von 24“ zu einer wahren Aussage?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Wahr für x = 1, 2, 3, 4, 6. Das sind 5 Zahlen.",
+   "h": "Setze jede Zahl ein und prüfe.",
+   "g": "verknuepfen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „„Jede Primzahl ist ungerade“ ist wahr, denn 3, 5, 7 und 11 sind ungerade.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: 2 ist eine gerade Primzahl, ein Gegenbeispiel genügt.",
+    "Falsch: Man müsste noch 13 prüfen.",
+    "Falsch: 9 ist eine ungerade Primzahl.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Allaussage wird durch Beispiele nicht bewiesen, aber durch ein einziges Gegenbeispiel widerlegt: 2.",
+   "h": "Gibt es eine gerade Primzahl?",
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Setze für x die Zahlen 1, 2, …, 10 ein. Für welche kleinste ganze Zahl a ist die Aussageform „3x < a“ genau für x = 1, 2, 3, 4 wahr?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "3*4 + 1",
+   "w": "x = 4 muss passen: 12 < a. x = 5 darf nicht passen: 15 < a ist falsch, also a ≤ 15. Kleinstes a ist 13.",
+   "h": "Was muss für x = 4 gelten, was für x = 5?",
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "„x ist größer als 3.“ Wann wird daraus eine Aussage?"
+   },
+   "a": [
+    "Erst wenn man für x eine Zahl einsetzt, z. B. x = 4: Dann ist es wahr.",
+    "Nie – Sätze mit Buchstaben sind nie Aussagen.",
+    "Wenn man ein Fragezeichen anhängt.",
+    "Es ist schon eine Aussage, sie ist wahr."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mit unbestimmter Variable ist der Satz eine Aussageform. Für x = 4 ist „4 > 3“ wahr.",
+   "h": "Kann man ohne Wert für x sagen, ob der Satz stimmt?"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ritter sagen immer die Wahrheit, Lügner lügen immer. A sagt: „Wir sind beide Lügner.“ Was sind A und B?"
+   },
+   "a": [
+    "A ist Lügner, B ist Ritter.",
+    "Beide sind Ritter.",
+    "Beide sind Lügner.",
+    "A ist Ritter, B ist Lügner."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Wäre A Ritter, wäre seine Aussage wahr – dann wäre A Lügner. Widerspruch. Also ist A Lügner und die Aussage falsch: Nicht beide sind Lügner, also ist B Ritter.",
+   "h": "Kann A ein Ritter sein?",
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ist der Satz „Dieser Satz ist falsch.“ eine Aussage im Sinne der Logik?"
+   },
+   "a": [
+    "Ja, er ist falsch.",
+    "Ja, weil er ein vollständiger Satz ist.",
+    "Ja, er ist wahr.",
+    "Nein, man kann ihm keinen Wahrheitswert geben."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Wäre er wahr, wäre er falsch; wäre er falsch, wäre er wahr. Beides führt zum Widerspruch – er ist weder wahr noch falsch und damit keine Aussage.",
+   "h": "Nimm an, er ist wahr – was folgt?",
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "negation",
    "t": "negation",
    "p": "uebung",
@@ -1321,109 +1465,8 @@
     "index": 1
    },
    "w": "p ist falsch, also ist ¬p wahr.",
-   "h": "Die Verneinung kehrt den Wahrheitswert um."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „11 ist eine Primzahl“. Welchen Wahrheitswert hat ¬p?"
-   },
-   "a": [
-    "wahr",
-    "Das hängt von q ab.",
-    "falsch"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "p ist wahr, also ist ¬p falsch.",
-   "h": "Die Verneinung kehrt den Wahrheitswert um."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Verneine die Aussage „26 ist durch 7 teilbar.“"
-   },
-   "a": [
-    "„27 ist durch 7 teilbar.“",
-    "„26 ist ungerade.“",
-    "„26 ist nicht durch 7 teilbar.“",
-    "„26 ist durch 8 teilbar.“"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Verneinung sagt genau das Gegenteil derselben Aussage – einfach „nicht“ einfügen.",
-   "h": "Was ist genau das Gegenteil?"
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „33 ist durch 2 teilbar“. Welchen Wahrheitswert hat ¬p?"
-   },
-   "a": [
-    "Das hängt von q ab.",
-    "wahr",
-    "falsch"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "p ist falsch, also ist ¬p wahr.",
-   "h": "Die Verneinung kehrt den Wahrheitswert um."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Verneine die Aussage „40 ist durch 3 teilbar.“"
-   },
-   "a": [
-    "„40 ist ungerade.“",
-    "„41 ist durch 3 teilbar.“",
-    "„40 ist nicht durch 3 teilbar.“",
-    "„40 ist durch 4 teilbar.“"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Verneinung sagt genau das Gegenteil derselben Aussage – einfach „nicht“ einfügen.",
-   "h": "Was ist genau das Gegenteil?"
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „4 < 3“. Welchen Wahrheitswert hat ¬p?"
-   },
-   "a": [
-    "wahr",
-    "Das hängt von q ab.",
-    "falsch"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "p ist falsch, also ist ¬p wahr.",
-   "h": "Die Verneinung kehrt den Wahrheitswert um."
+   "h": "Die Verneinung kehrt den Wahrheitswert um.",
+   "g": "erkennen"
   },
   {
    "l": "negation",
@@ -1444,7 +1487,116 @@
     "index": 0
    },
    "w": "70 ist durch 10 teilbar, aber nicht durch 4 – ein Gegenbeispiel. 80 erfüllt beides, 32 und 22 sind nicht durch 10 teilbar und sagen nichts aus.",
-   "h": "Ein Gegenbeispiel erfüllt den Wenn-Teil, aber nicht den Dann-Teil."
+   "h": "Ein Gegenbeispiel erfüllt den Wenn-Teil, aber nicht den Dann-Teil.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „11 ist eine Primzahl“. Welchen Wahrheitswert hat ¬p?"
+   },
+   "a": [
+    "wahr",
+    "Das hängt von q ab.",
+    "falsch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "p ist wahr, also ist ¬p falsch.",
+   "h": "Die Verneinung kehrt den Wahrheitswert um.",
+   "g": "erkennen"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet die Verneinung von „Wenn ein Viereck vier rechte Winkel hat, ist es ein Rechteck.“?"
+   },
+   "a": [
+    "Wenn ein Viereck ein Rechteck ist, hat es vier rechte Winkel.",
+    "Wenn ein Viereck keine vier rechten Winkel hat, ist es kein Rechteck.",
+    "Es gibt ein Viereck mit vier rechten Winkeln, das kein Rechteck ist.",
+    "Kein Viereck hat vier rechte Winkel."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "„Wenn p, dann q“ ist nur falsch, wenn p eintritt und q nicht. Die Verneinung lautet also „p und nicht q“. Also: „Es gibt ein Viereck mit vier rechten Winkeln, das kein Rechteck ist.“",
+   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet die Verneinung von „Jeder Spieler hat ein Tor geschossen und eine Vorlage gegeben.“?"
+   },
+   "a": [
+    "Kein Spieler hat ein Tor geschossen und eine Vorlage gegeben.",
+    "Jeder Spieler hat kein Tor geschossen oder keine Vorlage gegeben.",
+    "Mindestens ein Spieler hat kein Tor geschossen oder keine Vorlage gegeben.",
+    "Mindestens ein Spieler hat kein Tor geschossen und keine Vorlage gegeben."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zweimal umbauen: „alle“ ↔ „mindestens einer … nicht“, und dazu „und“ ↔ „oder“. Also: „Mindestens ein Spieler hat kein Tor geschossen oder keine Vorlage gegeben.“",
+   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung.",
+   "g": "transfer"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Verneine die Aussage „26 ist durch 7 teilbar.“"
+   },
+   "a": [
+    "„27 ist durch 7 teilbar.“",
+    "„26 ist ungerade.“",
+    "„26 ist nicht durch 7 teilbar.“",
+    "„26 ist durch 8 teilbar.“"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Verneinung sagt genau das Gegenteil derselben Aussage – einfach „nicht“ einfügen.",
+   "h": "Was ist genau das Gegenteil?",
+   "g": "direkt"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „33 ist durch 2 teilbar“. Welchen Wahrheitswert hat ¬p?"
+   },
+   "a": [
+    "Das hängt von q ab.",
+    "wahr",
+    "falsch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "p ist falsch, also ist ¬p wahr.",
+   "h": "Die Verneinung kehrt den Wahrheitswert um.",
+   "g": "erkennen"
   },
   {
    "l": "negation",
@@ -1464,7 +1616,8 @@
     "index": 0
    },
    "w": "Die Verneinung muss genau dann wahr sein, wenn die Aussage falsch ist: „Mindestens ein Baum im Park ist kein Laubbaum.“",
-   "h": "„Alle“ wird zu „mindestens einer … nicht“, „und“ wird zu „oder“ (und umgekehrt), „mindestens n“ zu „höchstens n − 1“."
+   "h": "„Alle“ wird zu „mindestens einer … nicht“, „und“ wird zu „oder“ (und umgekehrt), „mindestens n“ zu „höchstens n − 1“.",
+   "g": "einkleidung"
   },
   {
    "l": "negation",
@@ -1485,7 +1638,117 @@
     "index": 0
    },
    "w": "63 ist durch 9 teilbar, aber nicht durch 6 – ein Gegenbeispiel. 54 erfüllt beides, 96 und 41 sind nicht durch 9 teilbar und sagen nichts aus.",
-   "h": "Ein Gegenbeispiel erfüllt den Wenn-Teil, aber nicht den Dann-Teil."
+   "h": "Ein Gegenbeispiel erfüllt den Wenn-Teil, aber nicht den Dann-Teil.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage bedeutet dasselbe wie „Es ist falsch, dass höchstens 3 Plätze frei sind.“?"
+   },
+   "a": [
+    "Höchstens 3 Plätze sind besetzt.",
+    "Mindestens 4 Plätze sind frei.",
+    "Mindestens 3 Plätze sind frei.",
+    "Genau 3 Plätze sind frei."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die äußere Verneinung macht aus „alle … nicht“ ein „mindestens einer“ (bzw. aus „höchstens“ ein „mindestens“). Also: „Mindestens 4 Plätze sind frei.“",
+   "h": "Verneine Schritt für Schritt von außen nach innen. Zwei Verneinungen heben sich auf.",
+   "g": "begruenden"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet die Verneinung von „Wenn Tom Zeit hat, kommt er zur Party.“?"
+   },
+   "a": [
+    "Wenn Tom keine Zeit hat, kommt er nicht zur Party.",
+    "Tom hat Zeit und kommt nicht zur Party.",
+    "Tom hat keine Zeit und kommt zur Party.",
+    "Wenn Tom zur Party kommt, hat er Zeit."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "„Wenn p, dann q“ ist nur falsch, wenn p eintritt und q nicht. Die Verneinung lautet also „p und nicht q“. Also: „Tom hat Zeit und kommt nicht zur Party.“",
+   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet die Verneinung von „Es gibt einen Tag, an dem es regnet und kalt ist.“?"
+   },
+   "a": [
+    "Es gibt einen Tag, an dem es nicht regnet und nicht kalt ist.",
+    "An keinem Tag regnet es.",
+    "An jedem Tag regnet es nicht und es ist nicht kalt.",
+    "An jedem Tag regnet es nicht oder es ist nicht kalt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Zweimal umbauen: „alle“ ↔ „mindestens einer … nicht“, und dazu „und“ ↔ „oder“. Also: „An jedem Tag regnet es nicht oder es ist nicht kalt.“",
+   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung.",
+   "g": "transfer"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Verneine die Aussage „40 ist durch 3 teilbar.“"
+   },
+   "a": [
+    "„40 ist ungerade.“",
+    "„41 ist durch 3 teilbar.“",
+    "„40 ist nicht durch 3 teilbar.“",
+    "„40 ist durch 4 teilbar.“"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Verneinung sagt genau das Gegenteil derselben Aussage – einfach „nicht“ einfügen.",
+   "h": "Was ist genau das Gegenteil?",
+   "g": "direkt"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „4 < 3“. Welchen Wahrheitswert hat ¬p?"
+   },
+   "a": [
+    "wahr",
+    "Das hängt von q ab.",
+    "falsch"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "p ist falsch, also ist ¬p wahr.",
+   "h": "Die Verneinung kehrt den Wahrheitswert um.",
+   "g": "erkennen"
   },
   {
    "l": "negation",
@@ -1505,7 +1768,51 @@
     "index": 1
    },
    "w": "Die Verneinung muss genau dann wahr sein, wenn die Aussage falsch ist: „Es regnet nicht und es ist nicht kalt.“",
-   "h": "„Alle“ wird zu „mindestens einer … nicht“, „und“ wird zu „oder“ (und umgekehrt), „mindestens n“ zu „höchstens n − 1“."
+   "h": "„Alle“ wird zu „mindestens einer … nicht“, „und“ wird zu „oder“ (und umgekehrt), „mindestens n“ zu „höchstens n − 1“.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet die Verneinung von „Der Zug kommt pünktlich und ist sauber.“?"
+   },
+   "a": [
+    "Der Zug kommt nicht pünktlich oder ist nicht sauber.",
+    "Der Zug kommt nicht pünktlich und ist nicht sauber.",
+    "Der Zug kommt pünktlich, aber nicht sauber."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Verneinung muss genau dann wahr sein, wenn die Aussage falsch ist: „Der Zug kommt nicht pünktlich oder ist nicht sauber.“",
+   "h": "„Alle“ wird zu „mindestens einer … nicht“, „und“ wird zu „oder“ (und umgekehrt), „mindestens n“ zu „höchstens n − 1“.",
+   "g": "einkleidung"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist die Verneinung von p ∧ q?"
+   },
+   "a": [
+    "¬p ∧ ¬q",
+    "¬p ∨ ¬q",
+    "p ∨ q",
+    "¬p ∧ q"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "„p und q“ ist falsch, sobald mindestens eine der beiden falsch ist: ¬p ∨ ¬q (Regel von De Morgan).",
+   "h": "Wann ist „p und q“ falsch?",
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung"
   },
   {
    "l": "negation",
@@ -1532,131 +1839,6 @@
    "l": "negation",
    "t": "negation",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie lautet die Verneinung von „Der Zug kommt pünktlich und ist sauber.“?"
-   },
-   "a": [
-    "Der Zug kommt nicht pünktlich oder ist nicht sauber.",
-    "Der Zug kommt nicht pünktlich und ist nicht sauber.",
-    "Der Zug kommt pünktlich, aber nicht sauber."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Verneinung muss genau dann wahr sein, wenn die Aussage falsch ist: „Der Zug kommt nicht pünktlich oder ist nicht sauber.“",
-   "h": "„Alle“ wird zu „mindestens einer … nicht“, „und“ wird zu „oder“ (und umgekehrt), „mindestens n“ zu „höchstens n − 1“."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie lautet die Verneinung von „Wenn ein Viereck vier rechte Winkel hat, ist es ein Rechteck.“?"
-   },
-   "a": [
-    "Wenn ein Viereck ein Rechteck ist, hat es vier rechte Winkel.",
-    "Wenn ein Viereck keine vier rechten Winkel hat, ist es kein Rechteck.",
-    "Es gibt ein Viereck mit vier rechten Winkeln, das kein Rechteck ist.",
-    "Kein Viereck hat vier rechte Winkel."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "„Wenn p, dann q“ ist nur falsch, wenn p eintritt und q nicht. Die Verneinung lautet also „p und nicht q“. Also: „Es gibt ein Viereck mit vier rechten Winkeln, das kein Rechteck ist.“",
-   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie lautet die Verneinung von „Jeder Spieler hat ein Tor geschossen und eine Vorlage gegeben.“?"
-   },
-   "a": [
-    "Kein Spieler hat ein Tor geschossen und eine Vorlage gegeben.",
-    "Jeder Spieler hat kein Tor geschossen oder keine Vorlage gegeben.",
-    "Mindestens ein Spieler hat kein Tor geschossen oder keine Vorlage gegeben.",
-    "Mindestens ein Spieler hat kein Tor geschossen und keine Vorlage gegeben."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Zweimal umbauen: „alle“ ↔ „mindestens einer … nicht“, und dazu „und“ ↔ „oder“. Also: „Mindestens ein Spieler hat kein Tor geschossen oder keine Vorlage gegeben.“",
-   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage bedeutet dasselbe wie „Es ist falsch, dass höchstens 3 Plätze frei sind.“?"
-   },
-   "a": [
-    "Höchstens 3 Plätze sind besetzt.",
-    "Mindestens 4 Plätze sind frei.",
-    "Mindestens 3 Plätze sind frei.",
-    "Genau 3 Plätze sind frei."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die äußere Verneinung macht aus „alle … nicht“ ein „mindestens einer“ (bzw. aus „höchstens“ ein „mindestens“). Also: „Mindestens 4 Plätze sind frei.“",
-   "h": "Verneine Schritt für Schritt von außen nach innen. Zwei Verneinungen heben sich auf."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie lautet die Verneinung von „Wenn Tom Zeit hat, kommt er zur Party.“?"
-   },
-   "a": [
-    "Wenn Tom keine Zeit hat, kommt er nicht zur Party.",
-    "Tom hat Zeit und kommt nicht zur Party.",
-    "Tom hat keine Zeit und kommt zur Party.",
-    "Wenn Tom zur Party kommt, hat er Zeit."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "„Wenn p, dann q“ ist nur falsch, wenn p eintritt und q nicht. Die Verneinung lautet also „p und nicht q“. Also: „Tom hat Zeit und kommt nicht zur Party.“",
-   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie lautet die Verneinung von „Es gibt einen Tag, an dem es regnet und kalt ist.“?"
-   },
-   "a": [
-    "Es gibt einen Tag, an dem es nicht regnet und nicht kalt ist.",
-    "An keinem Tag regnet es.",
-    "An jedem Tag regnet es nicht und es ist nicht kalt.",
-    "An jedem Tag regnet es nicht oder es ist nicht kalt."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Zweimal umbauen: „alle“ ↔ „mindestens einer … nicht“, und dazu „und“ ↔ „oder“. Also: „An jedem Tag regnet es nicht oder es ist nicht kalt.“",
-   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -1672,7 +1854,8 @@
     "index": 2
    },
    "w": "Die äußere Verneinung macht aus „alle … nicht“ ein „mindestens einer“ (bzw. aus „höchstens“ ein „mindestens“). Also: „Es gab mindestens einen Tag ohne Regen.“",
-   "h": "Verneine Schritt für Schritt von außen nach innen. Zwei Verneinungen heben sich auf."
+   "h": "Verneine Schritt für Schritt von außen nach innen. Zwei Verneinungen heben sich auf.",
+   "g": "begruenden"
   },
   {
    "l": "negation",
@@ -1693,28 +1876,8 @@
     "index": 1
    },
    "w": "„Wenn p, dann q“ ist nur falsch, wenn p eintritt und q nicht. Die Verneinung lautet also „p und nicht q“. Also: „Die Sonne scheint und wir gehen nicht baden.“",
-   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung."
-  },
-  {
-   "l": "negation",
-   "t": "negation",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie lautet die Verneinung von „Alle Kinder haben einen Hund oder eine Katze.“?"
-   },
-   "a": [
-    "Mindestens ein Kind hat keinen Hund oder keine Katze.",
-    "Mindestens ein Kind hat weder einen Hund noch eine Katze.",
-    "Kein Kind hat einen Hund oder eine Katze.",
-    "Alle Kinder haben keinen Hund und keine Katze."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Zweimal umbauen: „alle“ ↔ „mindestens einer … nicht“, und dazu „und“ ↔ „oder“. Also: „Mindestens ein Kind hat weder einen Hund noch eine Katze.“",
-   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung."
+   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung.",
+   "g": "verknuepfen"
   },
   {
    "l": "negation",
@@ -1914,124 +2077,92 @@
    "w": "63 ist durch 9 teilbar, aber nicht durch 6 – ein Gegenbeispiel. 72 erfüllt beides, 48 und 13 sind nicht durch 9 teilbar und sagen nichts aus."
   },
   {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
+   "l": "negation",
+   "t": "negation",
    "p": "uebung",
-   "s": 1,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "p: „31 ist durch 3 teilbar“, q: „24 ist eine Primzahl“. Ist p ∧ q wahr oder falsch?"
+    "text": "Wie lautet die Verneinung von „Alle Kinder haben einen Hund oder eine Katze.“?"
    },
    "a": [
-    "keines von beiden",
-    "falsch",
-    "wahr"
+    "Mindestens ein Kind hat keinen Hund oder keine Katze.",
+    "Mindestens ein Kind hat weder einen Hund noch eine Katze.",
+    "Kein Kind hat einen Hund oder eine Katze.",
+    "Alle Kinder haben keinen Hund und keine Katze."
    ],
    "o": {
     "index": 1
    },
-   "w": "p ist falsch, q ist falsch. „Und“ ist nur wahr, wenn beide wahr sind: falsch.",
-   "h": "Bestimme zuerst den Wahrheitswert von p und von q."
+   "w": "Zweimal umbauen: „alle“ ↔ „mindestens einer … nicht“, und dazu „und“ ↔ „oder“. Also: „Mindestens ein Kind hat weder einen Hund noch eine Katze.“",
+   "h": "Wann wäre die Aussage falsch? Genau das beschreibt die Verneinung.",
+   "g": "transfer"
   },
   {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
-   "p": "uebung",
-   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "p: „−1 < −8“, q: „22 ist gerade“. Ist p ∨ q wahr oder falsch?"
+    "text": "Verneinung von „Es gibt eine Zahl, die größer als 5 und gerade ist.“ Jemand schreibt: „Es gibt eine Zahl, die höchstens 5 und ungerade ist.“ Was stimmt?"
    },
    "a": [
-    "falsch",
-    "keines von beiden",
-    "wahr"
+    "Falsch: richtig ist „Jede Zahl ist höchstens 5 oder ungerade.“",
+    "Falsch: richtig ist „Keine Zahl ist größer als 5.“",
+    "Falsch: richtig ist „Jede Zahl ist größer als 5 und ungerade.“",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "„Es gibt“ wird zu „jede“, und „und“ wird beim Verneinen zu „oder“.",
+   "h": "Was wird aus „es gibt“ und aus „und“?",
+   "l": "negation",
+   "t": "negation",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Verneine: „In jeder Klasse gibt es mindestens ein Kind, das alle Aufgaben gelöst hat.“"
+   },
+   "a": [
+    "Es gibt eine Klasse, in der jedes Kind mindestens eine Aufgabe nicht gelöst hat.",
+    "Es gibt eine Klasse, in der kein Kind eine Aufgabe gelöst hat.",
+    "In jeder Klasse gibt es ein Kind, das keine Aufgabe gelöst hat.",
+    "In keiner Klasse hat ein Kind alle Aufgaben gelöst."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Von außen nach innen verneinen: „jede Klasse“ → „es gibt eine Klasse“, „es gibt ein Kind“ → „jedes Kind“, „alle Aufgaben gelöst“ → „mindestens eine nicht gelöst“.",
+   "h": "Verneine Schritt für Schritt von außen nach innen.",
+   "l": "negation",
+   "t": "negation",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "p: „Höchstens zwei der drei Lampen brennen.“ Wie lautet ¬p?"
+   },
+   "a": [
+    "Höchstens eine Lampe brennt.",
+    "Mindestens zwei Lampen brennen.",
+    "Alle drei Lampen brennen.",
+    "Keine Lampe brennt."
    ],
    "o": {
     "index": 2
    },
-   "w": "p ist falsch, q ist wahr. „Oder“ ist wahr, wenn mindestens eine wahr ist: wahr.",
-   "h": "Für ∨ reicht eine wahre Teilaussage."
-  },
-  {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „2² = 4“, q: „6 < 0“. Ist p ∧ q wahr oder falsch?"
-   },
-   "a": [
-    "keines von beiden",
-    "wahr",
-    "falsch"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "p ist wahr, q ist falsch. „Und“ ist nur wahr, wenn beide wahr sind: falsch.",
-   "h": "Bestimme zuerst den Wahrheitswert von p und von q."
-  },
-  {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „7² = 49“, q: „−6 < −5“. Ist p ∧ q wahr oder falsch?"
-   },
-   "a": [
-    "keines von beiden",
-    "falsch",
-    "wahr"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "p ist wahr, q ist wahr. „Und“ ist nur wahr, wenn beide wahr sind: wahr.",
-   "h": "Bestimme zuerst den Wahrheitswert von p und von q."
-  },
-  {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „9² = 83“, q: „9 < 5“. Ist p ∨ q wahr oder falsch?"
-   },
-   "a": [
-    "keines von beiden",
-    "wahr",
-    "falsch"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "p ist falsch, q ist falsch. „Oder“ ist wahr, wenn mindestens eine wahr ist: falsch.",
-   "h": "Für ∨ reicht eine wahre Teilaussage."
-  },
-  {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „41 ist gerade“, q: „5 < 6“. Ist p ∧ q wahr oder falsch?"
-   },
-   "a": [
-    "keines von beiden",
-    "falsch",
-    "wahr"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "p ist falsch, q ist wahr. „Und“ ist nur wahr, wenn beide wahr sind: falsch.",
-   "h": "Bestimme zuerst den Wahrheitswert von p und von q."
+   "w": "„Höchstens zwei“ heißt 0, 1 oder 2. Das Gegenteil ist der einzige übrige Fall: 3.",
+   "h": "Welche Anzahlen erlaubt p, welche bleiben übrig?",
+   "l": "negation",
+   "t": "negation",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
    "l": "verknuepfen",
@@ -2051,7 +2182,29 @@
     "index": 2
    },
    "w": "p ist falsch, q ist falsch. Von innen nach außen: ¬(p ∧ q) ist wahr.",
-   "h": "Rechne zuerst die Verneinungen und Klammern aus."
+   "h": "Rechne zuerst die Verneinungen und Klammern aus.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „31 ist durch 3 teilbar“, q: „24 ist eine Primzahl“. Ist p ∧ q wahr oder falsch?"
+   },
+   "a": [
+    "keines von beiden",
+    "falsch",
+    "wahr"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "p ist falsch, q ist falsch. „Und“ ist nur wahr, wenn beide wahr sind: falsch.",
+   "h": "Bestimme zuerst den Wahrheitswert von p und von q.",
+   "g": "erkennen"
   },
   {
    "l": "verknuepfen",
@@ -2071,7 +2224,29 @@
     "index": 1
    },
    "w": "p ist falsch, q ist wahr. Von innen nach außen: ¬(p ∨ q) ist falsch.",
-   "h": "Rechne zuerst die Verneinungen und Klammern aus."
+   "h": "Rechne zuerst die Verneinungen und Klammern aus.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „2² = 4“, q: „6 < 0“. Ist p ∧ q wahr oder falsch?"
+   },
+   "a": [
+    "keines von beiden",
+    "wahr",
+    "falsch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "p ist wahr, q ist falsch. „Und“ ist nur wahr, wenn beide wahr sind: falsch.",
+   "h": "Bestimme zuerst den Wahrheitswert von p und von q.",
+   "g": "erkennen"
   },
   {
    "l": "verknuepfen",
@@ -2091,7 +2266,25 @@
     "index": 0
    },
    "w": "p ist wahr, q ist falsch. Von innen nach außen: ¬p ∧ ¬q ist falsch.",
-   "h": "Rechne zuerst die Verneinungen und Klammern aus."
+   "h": "Rechne zuerst die Verneinungen und Klammern aus.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für jede Zahl n von 1 bis 30 gilt p: „n ist durch 3 teilbar“, q: „n ist durch 4 teilbar“. Für wie viele n ist p ∧ q wahr?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Durch 3 teilbar: 10, durch 4: 7, durch beide: 2. p ∧ q: durch beide teilbar: 2.",
+   "h": "Zähle getrennt und achte auf Zahlen, die beides erfüllen.",
+   "g": "transfer"
   },
   {
    "l": "verknuepfen",
@@ -2111,84 +2304,8 @@
     "index": 0
    },
    "w": "p ist wahr, q ist wahr. Von innen nach außen: ¬(p ∨ q) ist falsch.",
-   "h": "Rechne zuerst die Verneinungen und Klammern aus."
-  },
-  {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „28 ist gerade“, q: „12 · 7 = 84“. Welchen Wahrheitswert hat ¬(p ∨ q)?"
-   },
-   "a": [
-    "keinen",
-    "wahr",
-    "falsch"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "p ist wahr, q ist wahr. Von innen nach außen: ¬(p ∨ q) ist falsch.",
-   "h": "Rechne zuerst die Verneinungen und Klammern aus."
-  },
-  {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „18 ist durch 2 teilbar“, q: „30 ist gerade“. Welchen Wahrheitswert hat ¬(p ∧ q)?"
-   },
-   "a": [
-    "falsch",
-    "keinen",
-    "wahr"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "p ist wahr, q ist wahr. Von innen nach außen: ¬(p ∧ q) ist falsch.",
-   "h": "Rechne zuerst die Verneinungen und Klammern aus."
-  },
-  {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "p: „26 ist eine Primzahl“, q: „7² = 51“. Welcher Ausdruck ist wahr?"
-   },
-   "a": [
-    "¬p ∧ ¬q",
-    "p ∧ q",
-    "¬p ∧ q",
-    "p ∧ ¬q"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "p ist falsch, q ist falsch. Nur ¬p ∧ ¬q ist wahr.",
-   "h": "Prüfe jeden Ausdruck einzeln."
-  },
-  {
-   "l": "verknuepfen",
-   "t": "verknuepfen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für jede Zahl n von 1 bis 30 gilt p: „n ist durch 3 teilbar“, q: „n ist durch 4 teilbar“. Für wie viele n ist p ∧ q wahr?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "Durch 3 teilbar: 10, durch 4: 7, durch beide: 2. p ∧ q: durch beide teilbar: 2.",
-   "h": "Zähle getrennt und achte auf Zahlen, die beides erfüllen."
+   "h": "Rechne zuerst die Verneinungen und Klammern aus.",
+   "g": "mehrschritt"
   },
   {
    "l": "verknuepfen",
@@ -2209,7 +2326,71 @@
     "index": 1
    },
    "w": "Prüfe alle vier Fälle: Nur bei p falsch, q falsch stimmen beide Angaben.",
-   "h": "Gehe die vier Zeilen der Wahrheitstafel durch."
+   "h": "Gehe die vier Zeilen der Wahrheitstafel durch.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „−1 < −8“, q: „22 ist gerade“. Ist p ∨ q wahr oder falsch?"
+   },
+   "a": [
+    "falsch",
+    "keines von beiden",
+    "wahr"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "p ist falsch, q ist wahr. „Oder“ ist wahr, wenn mindestens eine wahr ist: wahr.",
+   "h": "Für ∨ reicht eine wahre Teilaussage.",
+   "g": "direkt"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „7² = 49“, q: „−6 < −5“. Ist p ∧ q wahr oder falsch?"
+   },
+   "a": [
+    "keines von beiden",
+    "falsch",
+    "wahr"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "p ist wahr, q ist wahr. „Und“ ist nur wahr, wenn beide wahr sind: wahr.",
+   "h": "Bestimme zuerst den Wahrheitswert von p und von q.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „28 ist gerade“, q: „12 · 7 = 84“. Welchen Wahrheitswert hat ¬(p ∨ q)?"
+   },
+   "a": [
+    "keinen",
+    "wahr",
+    "falsch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "p ist wahr, q ist wahr. Von innen nach außen: ¬(p ∨ q) ist falsch.",
+   "h": "Rechne zuerst die Verneinungen und Klammern aus.",
+   "g": "mehrschritt"
   },
   {
    "l": "verknuepfen",
@@ -2218,19 +2399,20 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "p: „−4 < −5“, q: „46 ist eine Primzahl“. Welcher Ausdruck ist wahr?"
+    "text": "p: „26 ist eine Primzahl“, q: „7² = 51“. Welcher Ausdruck ist wahr?"
    },
    "a": [
+    "¬p ∧ ¬q",
     "p ∧ q",
-    "p ∧ ¬q",
     "¬p ∧ q",
-    "¬p ∧ ¬q"
+    "p ∧ ¬q"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
    "w": "p ist falsch, q ist falsch. Nur ¬p ∧ ¬q ist wahr.",
-   "h": "Prüfe jeden Ausdruck einzeln."
+   "h": "Prüfe jeden Ausdruck einzeln.",
+   "g": "verknuepfen"
   },
   {
    "l": "verknuepfen",
@@ -2246,7 +2428,8 @@
    },
    "c": "3",
    "w": "Durch 7 teilbar: 3, durch 5: 4, durch beide: 0. p ∧ ¬q: 3 − 0 = 3.",
-   "h": "Zähle getrennt und achte auf Zahlen, die beides erfüllen."
+   "h": "Zähle getrennt und achte auf Zahlen, die beides erfüllen.",
+   "g": "transfer"
   },
   {
    "l": "verknuepfen",
@@ -2267,23 +2450,115 @@
     "index": 3
    },
    "w": "Prüfe alle vier Fälle: Nur bei p falsch, q wahr stimmen beide Angaben.",
-   "h": "Gehe die vier Zeilen der Wahrheitstafel durch."
+   "h": "Gehe die vier Zeilen der Wahrheitstafel durch.",
+   "g": "rueckwaerts"
   },
   {
    "l": "verknuepfen",
    "t": "verknuepfen",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
+   "s": 1,
+   "y": "auswahl",
    "f": {
-    "text": "Für jede Zahl n von 1 bis 24 gilt p: „n ist durch 7 teilbar“, q: „n ist durch 4 teilbar“. Für wie viele n ist p ∧ ¬q wahr?"
+    "text": "p: „9² = 83“, q: „9 < 5“. Ist p ∨ q wahr oder falsch?"
    },
+   "a": [
+    "keines von beiden",
+    "wahr",
+    "falsch"
+   ],
    "o": {
-    "wert": 3
+    "index": 2
    },
-   "c": "3",
-   "w": "Durch 7 teilbar: 3, durch 4: 6, durch beide: 0. p ∧ ¬q: 3 − 0 = 3.",
-   "h": "Zähle getrennt und achte auf Zahlen, die beides erfüllen."
+   "w": "p ist falsch, q ist falsch. „Oder“ ist wahr, wenn mindestens eine wahr ist: falsch.",
+   "h": "Für ∨ reicht eine wahre Teilaussage.",
+   "g": "direkt"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „41 ist gerade“, q: „5 < 6“. Ist p ∧ q wahr oder falsch?"
+   },
+   "a": [
+    "keines von beiden",
+    "falsch",
+    "wahr"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "p ist falsch, q ist wahr. „Und“ ist nur wahr, wenn beide wahr sind: falsch.",
+   "h": "Bestimme zuerst den Wahrheitswert von p und von q.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "p: „18 ist durch 2 teilbar“, q: „30 ist gerade“. Welchen Wahrheitswert hat ¬(p ∧ q)?"
+   },
+   "a": [
+    "falsch",
+    "keinen",
+    "wahr"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "p ist wahr, q ist wahr. Von innen nach außen: ¬(p ∧ q) ist falsch.",
+   "h": "Rechne zuerst die Verneinungen und Klammern aus.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Eintritt frei, wenn man unter 12 Jahre alt ist oder einen Schülerausweis hat. Hat jemand mit 15 Jahren und Schülerausweis freien Eintritt?"
+   },
+   "a": [
+    "Ja.",
+    "Nur, wenn er beides erfüllt.",
+    "Nein, weil nur eine Bedingung erfüllt ist.",
+    "Nein, weil er älter als 12 ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "„oder“ ist wahr, sobald eine Bedingung erfüllt ist: Der Schülerausweis genügt.",
+   "h": "Wie viele Bedingungen müssen bei „oder“ erfüllt sein?",
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Man weiß: p ∨ q ist falsch. Was weiß man über p und q?"
+   },
+   "a": [
+    "Genau eine ist falsch.",
+    "Beide sind wahr.",
+    "Man weiß nichts.",
+    "Beide sind falsch."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "p ∨ q ist nur dann falsch, wenn p und q beide falsch sind.",
+   "h": "Wann ist „oder“ falsch?",
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
   },
   {
    "l": "verknuepfen",
@@ -2292,19 +2567,20 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Man weiß: ¬p ∨ q ist falsch und p ∧ ¬q ist wahr. Welche Wahrheitswerte haben p und q?"
+    "text": "p: „−4 < −5“, q: „46 ist eine Primzahl“. Welcher Ausdruck ist wahr?"
    },
    "a": [
-    "p wahr, q falsch",
-    "p falsch, q falsch",
-    "p wahr, q wahr",
-    "p falsch, q wahr"
+    "p ∧ q",
+    "p ∧ ¬q",
+    "¬p ∧ q",
+    "¬p ∧ ¬q"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Prüfe alle vier Fälle: Nur bei p wahr, q falsch stimmen beide Angaben.",
-   "h": "Gehe die vier Zeilen der Wahrheitstafel durch."
+   "w": "p ist falsch, q ist falsch. Nur ¬p ∧ ¬q ist wahr.",
+   "h": "Prüfe jeden Ausdruck einzeln.",
+   "g": "verknuepfen"
   },
   {
    "l": "verknuepfen",
@@ -2497,6 +2773,128 @@
    "w": "p ist wahr, q ist wahr. „Oder“ ist wahr, wenn mindestens eine wahr ist: wahr."
   },
   {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für jede Zahl n von 1 bis 24 gilt p: „n ist durch 7 teilbar“, q: „n ist durch 4 teilbar“. Für wie viele n ist p ∧ ¬q wahr?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Durch 7 teilbar: 3, durch 4: 6, durch beide: 0. p ∧ ¬q: 3 − 0 = 3.",
+   "h": "Zähle getrennt und achte auf Zahlen, die beides erfüllen.",
+   "g": "transfer"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Man weiß: ¬p ∨ q ist falsch und p ∧ ¬q ist wahr. Welche Wahrheitswerte haben p und q?"
+   },
+   "a": [
+    "p wahr, q falsch",
+    "p falsch, q falsch",
+    "p wahr, q wahr",
+    "p falsch, q wahr"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Prüfe alle vier Fälle: Nur bei p wahr, q falsch stimmen beide Angaben.",
+   "h": "Gehe die vier Zeilen der Wahrheitstafel durch.",
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für n von 1 bis 20: p: „n ist durch 2 teilbar“, q: „n ist durch 3 teilbar“. Jemand zählt für p ∨ q: 10 + 6 = 16. Was stimmt?"
+   },
+   "a": [
+    "Falsch: 6, 12, 18 sind doppelt gezählt; es sind 13.",
+    "Falsch: es sind 3.",
+    "Richtig.",
+    "Falsch: es sind 10."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Durch 2: 10, durch 3: 6, durch beide (6, 12, 18): 3. Also 10 + 6 − 3 = 13.",
+   "h": "Welche Zahlen erfüllen beides?",
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: Wenn p ∧ q wahr ist, dann ist auch p ∨ q wahr?"
+   },
+   "a": [
+    "Nein, „oder“ heißt „entweder – oder“.",
+    "Nein, nie.",
+    "Nur, wenn p falsch ist.",
+    "Ja, dann sind p und q wahr, also erst recht eines von beiden."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "p ∧ q wahr heißt: beide wahr. Für p ∨ q reicht schon eine wahre.",
+   "h": "Was heißt p ∧ q wahr?",
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele der Zahlen 1 bis 100 sind durch 2 oder durch 5 teilbar?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "50 + 20 - 10",
+   "w": "Durch 2: 50, durch 5: 20. Durch beide (also durch 10): 10, die sonst doppelt gezählt wären. 50 + 20 − 10 = 60.",
+   "h": "Achte auf Zahlen, die beides erfüllen.",
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Von drei Personen sagt genau eine die Wahrheit. A: „B lügt.“ B: „C lügt.“ C: „A und B lügen.“ Wer sagt die Wahrheit?"
+   },
+   "a": [
+    "A",
+    "niemand",
+    "C",
+    "B"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "A wahr ⇒ B lügt ⇒ C sagt die Wahrheit: zwei Wahre. C wahr ⇒ A und B lügen; A lügt heißt aber B sagt die Wahrheit: Widerspruch. B wahr ⇒ C lügt; A sagt „B lügt“ – falsch, A lügt; C sagt „A und B lügen“ – falsch. Genau einer: B.",
+   "h": "Probiere jede Person als die einzige Wahre aus.",
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "tafel",
    "t": "tafel",
    "p": "uebung",
@@ -2514,183 +2912,8 @@
     "index": 2
    },
    "w": "Mit p = wahr, q = falsch: p ∧ q ist falsch.",
-   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen."
-  },
-  {
-   "l": "tafel",
-   "t": "tafel",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p ist wahr, q ist wahr. Welchen Wahrheitswert hat p ∨ q?"
-   },
-   "a": [
-    "falsch",
-    "wahr",
-    "keinen"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Mit p = wahr, q = wahr: p ∨ q ist wahr.",
-   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen."
-  },
-  {
-   "l": "tafel",
-   "t": "tafel",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Fülle die Spalte p ∧ q der Wahrheitstafel aus (1 = wahr, 0 = falsch).",
-    "schablone": "Zeile 1: □; Zeile 2: □; Zeile 3: □; Zeile 4: □",
-    "hinweis": "je Zeile 1 (wahr) oder 0 (falsch)",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "p",
-      "q",
-      "p ∧ q"
-     ],
-     "zeilen": [
-      [
-       "w",
-       "w",
-       "?"
-      ],
-      [
-       "w",
-       "f",
-       "?"
-      ],
-      [
-       "f",
-       "w",
-       "?"
-      ],
-      [
-       "f",
-       "f",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     1,
-     0,
-     0,
-     0
-    ]
-   },
-   "w": "p ∧ q für (p, q) = ww, wf, fw, ff: w, f, f, f.",
-   "h": "Gehe Zeile für Zeile vor; bei Verneinungen zuerst eine Hilfsspalte denken.",
-   "c": [
-    "1",
-    "0",
-    "0",
-    "0"
-   ]
-  },
-  {
-   "l": "tafel",
-   "t": "tafel",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Fülle die Spalte p ∨ q der Wahrheitstafel aus (1 = wahr, 0 = falsch).",
-    "schablone": "Zeile 1: □; Zeile 2: □; Zeile 3: □; Zeile 4: □",
-    "hinweis": "je Zeile 1 (wahr) oder 0 (falsch)",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "p",
-      "q",
-      "p ∨ q"
-     ],
-     "zeilen": [
-      [
-       "w",
-       "w",
-       "?"
-      ],
-      [
-       "w",
-       "f",
-       "?"
-      ],
-      [
-       "f",
-       "w",
-       "?"
-      ],
-      [
-       "f",
-       "f",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     1,
-     1,
-     1,
-     0
-    ]
-   },
-   "w": "p ∨ q für (p, q) = ww, wf, fw, ff: w, w, w, f.",
-   "h": "Gehe Zeile für Zeile vor; bei Verneinungen zuerst eine Hilfsspalte denken.",
-   "c": [
-    "1",
-    "1",
-    "1",
-    "0"
-   ]
-  },
-  {
-   "l": "tafel",
-   "t": "tafel",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p ist falsch, q ist wahr. Welchen Wahrheitswert hat p ∨ q?"
-   },
-   "a": [
-    "keinen",
-    "wahr",
-    "falsch"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Mit p = falsch, q = wahr: p ∨ q ist wahr.",
-   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen."
-  },
-  {
-   "l": "tafel",
-   "t": "tafel",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "p ist falsch, q ist wahr. Welchen Wahrheitswert hat p ∧ q?"
-   },
-   "a": [
-    "keinen",
-    "wahr",
-    "falsch"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Mit p = falsch, q = wahr: p ∧ q ist falsch.",
-   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen."
+   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen.",
+   "g": "erkennen"
   },
   {
    "l": "tafel",
@@ -2748,27 +2971,29 @@
     "0",
     "0",
     "1"
-   ]
+   ],
+   "g": "darstellung"
   },
   {
    "l": "tafel",
    "t": "tafel",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "p ist falsch, q ist wahr. Welchen Wahrheitswert hat ¬p ∨ q?"
+    "text": "p ist wahr, q ist wahr. Welchen Wahrheitswert hat p ∨ q?"
    },
    "a": [
-    "keinen",
     "falsch",
-    "wahr"
+    "wahr",
+    "keinen"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "Mit p = falsch, q = wahr: ¬p ∨ q ist wahr.",
-   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen."
+   "w": "Mit p = wahr, q = wahr: p ∨ q ist wahr.",
+   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen.",
+   "g": "erkennen"
   },
   {
    "l": "tafel",
@@ -2814,7 +3039,126 @@
    },
    "c": "0 + 0 + 0 + 1",
    "w": "Spalte ¬(p ∨ q): f, f, f, w – 1-mal wahr.",
-   "h": "Fülle die Spalte im Kopf aus und zähle die w."
+   "h": "Fülle die Spalte im Kopf aus und zähle die w.",
+   "g": "darstellung"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wahrheitstafel mit drei Aussagen p, q, r hat 2³ = 8 Zeilen. In wie vielen davon ist ¬p ∧ (q ∨ r) wahr?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Geht man alle 8 Kombinationen durch, ist ¬p ∧ (q ∨ r) 3-mal wahr.",
+   "h": "Schreibe die 8 Zeilen auf (wie 4 Zeilen, einmal mit r wahr, einmal mit r falsch).",
+   "g": "transfer"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fülle die Spalte p ∧ q der Wahrheitstafel aus (1 = wahr, 0 = falsch).",
+    "schablone": "Zeile 1: □; Zeile 2: □; Zeile 3: □; Zeile 4: □",
+    "hinweis": "je Zeile 1 (wahr) oder 0 (falsch)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "p",
+      "q",
+      "p ∧ q"
+     ],
+     "zeilen": [
+      [
+       "w",
+       "w",
+       "?"
+      ],
+      [
+       "w",
+       "f",
+       "?"
+      ],
+      [
+       "f",
+       "w",
+       "?"
+      ],
+      [
+       "f",
+       "f",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     0,
+     0,
+     0
+    ]
+   },
+   "w": "p ∧ q für (p, q) = ww, wf, fw, ff: w, f, f, f.",
+   "h": "Gehe Zeile für Zeile vor; bei Verneinungen zuerst eine Hilfsspalte denken.",
+   "c": [
+    "1",
+    "0",
+    "0",
+    "0"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p ist falsch, q ist wahr. Welchen Wahrheitswert hat p ∨ q?"
+   },
+   "a": [
+    "keinen",
+    "wahr",
+    "falsch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mit p = falsch, q = wahr: p ∨ q ist wahr.",
+   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "p ist falsch, q ist wahr. Welchen Wahrheitswert hat ¬p ∨ q?"
+   },
+   "a": [
+    "keinen",
+    "falsch",
+    "wahr"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mit p = falsch, q = wahr: ¬p ∨ q ist wahr.",
+   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen.",
+   "g": "mehrschritt"
   },
   {
    "l": "tafel",
@@ -2872,7 +3216,148 @@
     "1",
     "0",
     "0"
-   ]
+   ],
+   "g": "darstellung"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Haben ¬(p ∧ q) und ¬p ∧ ¬q in allen Zeilen denselben Wahrheitswert (sind sie gleichwertig)?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "¬(p ∧ q): f, w, w, w. ¬p ∧ ¬q: f, f, f, w. In mindestens einer Zeile verschieden.",
+   "h": "Stelle für beide Ausdrücke die Spalte auf und vergleiche Zeile für Zeile.",
+   "g": "begruenden"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Spalte eines Ausdrucks lautet für (p, q) = ww, wf, fw, ff: f, f, f, w. Welcher Ausdruck ist es?"
+   },
+   "a": [
+    "¬p ∨ ¬q",
+    "¬p ∧ ¬q",
+    "p ∧ ¬q",
+    "¬(p ∧ q)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "¬p ∧ ¬q hat genau die Werte f, f, f, w. Bei den anderen weicht mindestens eine Zeile ab.",
+   "h": "Prüfe zuerst die Zeilen mit f – sie trennen die Ausdrücke am schnellsten.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wahrheitstafel mit drei Aussagen p, q, r hat 2³ = 8 Zeilen. In wie vielen davon ist p ∧ ¬q ∧ r wahr?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Geht man alle 8 Kombinationen durch, ist p ∧ ¬q ∧ r 1-mal wahr.",
+   "h": "Schreibe die 8 Zeilen auf (wie 4 Zeilen, einmal mit r wahr, einmal mit r falsch).",
+   "g": "transfer"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fülle die Spalte p ∨ q der Wahrheitstafel aus (1 = wahr, 0 = falsch).",
+    "schablone": "Zeile 1: □; Zeile 2: □; Zeile 3: □; Zeile 4: □",
+    "hinweis": "je Zeile 1 (wahr) oder 0 (falsch)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "p",
+      "q",
+      "p ∨ q"
+     ],
+     "zeilen": [
+      [
+       "w",
+       "w",
+       "?"
+      ],
+      [
+       "w",
+       "f",
+       "?"
+      ],
+      [
+       "f",
+       "w",
+       "?"
+      ],
+      [
+       "f",
+       "f",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     1,
+     1,
+     0
+    ]
+   },
+   "w": "p ∨ q für (p, q) = ww, wf, fw, ff: w, w, w, f.",
+   "h": "Gehe Zeile für Zeile vor; bei Verneinungen zuerst eine Hilfsspalte denken.",
+   "c": [
+    "1",
+    "1",
+    "1",
+    "0"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p ist falsch, q ist wahr. Welchen Wahrheitswert hat p ∧ q?"
+   },
+   "a": [
+    "keinen",
+    "wahr",
+    "falsch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mit p = falsch, q = wahr: p ∧ q ist falsch.",
+   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen.",
+   "g": "erkennen"
   },
   {
    "l": "tafel",
@@ -2918,7 +3403,8 @@
    },
    "c": "1 + 0 + 1 + 1",
    "w": "Spalte ¬p ∨ q: w, f, w, w – 3-mal wahr.",
-   "h": "Fülle die Spalte im Kopf aus und zähle die w."
+   "h": "Fülle die Spalte im Kopf aus und zähle die w.",
+   "g": "darstellung"
   },
   {
    "l": "tafel",
@@ -2938,64 +3424,30 @@
     "index": 1
    },
    "w": "Mit p = wahr, q = wahr: p ∧ ¬q ist falsch.",
-   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen."
+   "h": "Setze die Wahrheitswerte ein und rechne von innen nach außen.",
+   "g": "mehrschritt"
   },
   {
-   "l": "tafel",
-   "t": "tafel",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Haben ¬(p ∧ q) und ¬p ∧ ¬q in allen Zeilen denselben Wahrheitswert (sind sie gleichwertig)?"
+    "text": "In welcher Zeile der Wahrheitstafel ist ¬p ∨ q falsch?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "p falsch, q falsch",
+    "p falsch, q wahr",
+    "p wahr, q wahr",
+    "p wahr, q falsch"
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "¬(p ∧ q): f, w, w, w. ¬p ∧ ¬q: f, f, f, w. In mindestens einer Zeile verschieden.",
-   "h": "Stelle für beide Ausdrücke die Spalte auf und vergleiche Zeile für Zeile."
-  },
-  {
+   "w": "¬p ∨ q ist nur falsch, wenn ¬p und q beide falsch sind, also p wahr und q falsch.",
+   "h": "Wann ist ein „oder“ falsch?",
    "l": "tafel",
    "t": "tafel",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Wahrheitstafel mit drei Aussagen p, q, r hat 2³ = 8 Zeilen. In wie vielen davon ist ¬p ∧ (q ∨ r) wahr?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Geht man alle 8 Kombinationen durch, ist ¬p ∧ (q ∨ r) 3-mal wahr.",
-   "h": "Schreibe die 8 Zeilen auf (wie 4 Zeilen, einmal mit r wahr, einmal mit r falsch)."
-  },
-  {
-   "l": "tafel",
-   "t": "tafel",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Spalte eines Ausdrucks lautet für (p, q) = ww, wf, fw, ff: f, f, f, w. Welcher Ausdruck ist es?"
-   },
-   "a": [
-    "¬p ∨ ¬q",
-    "¬p ∧ ¬q",
-    "p ∧ ¬q",
-    "¬(p ∧ q)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "¬p ∧ ¬q hat genau die Werte f, f, f, w. Bei den anderen weicht mindestens eine Zeile ab.",
-   "h": "Prüfe zuerst die Zeilen mit f – sie trennen die Ausdrücke am schnellsten."
+   "s": 2,
+   "g": "umkehr"
   },
   {
    "l": "tafel",
@@ -3015,23 +3467,8 @@
     "index": 1
    },
    "w": "p ⇒ q: w, f, w, w. q ⇒ p: w, w, f, w. In mindestens einer Zeile verschieden.",
-   "h": "Stelle für beide Ausdrücke die Spalte auf und vergleiche Zeile für Zeile."
-  },
-  {
-   "l": "tafel",
-   "t": "tafel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Wahrheitstafel mit drei Aussagen p, q, r hat 2³ = 8 Zeilen. In wie vielen davon ist p ∧ ¬q ∧ r wahr?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1",
-   "w": "Geht man alle 8 Kombinationen durch, ist p ∧ ¬q ∧ r 1-mal wahr.",
-   "h": "Schreibe die 8 Zeilen auf (wie 4 Zeilen, einmal mit r wahr, einmal mit r falsch)."
+   "h": "Stelle für beide Ausdrücke die Spalte auf und vergleiche Zeile für Zeile.",
+   "g": "begruenden"
   },
   {
    "l": "tafel",
@@ -3052,7 +3489,8 @@
     "index": 3
    },
    "w": "p ∧ ¬q hat genau die Werte f, w, f, f. Bei den anderen weicht mindestens eine Zeile ab.",
-   "h": "Prüfe zuerst die Zeilen mit f – sie trennen die Ausdrücke am schnellsten."
+   "h": "Prüfe zuerst die Zeilen mit f – sie trennen die Ausdrücke am schnellsten.",
+   "g": "rueckwaerts"
   },
   {
    "l": "tafel",
@@ -3073,23 +3511,8 @@
     "index": 1
    },
    "w": "(p ∧ q) ⇒ p ist in jeder Zeile wahr. p ∧ ¬p ist nie wahr, die anderen sind mindestens in einer Zeile falsch.",
-   "h": "Suche für jeden Ausdruck eine Zeile, in der er falsch ist."
-  },
-  {
-   "l": "tafel",
-   "t": "tafel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Wahrheitstafel mit drei Aussagen p, q, r hat 2³ = 8 Zeilen. In wie vielen davon ist p ∧ q ∧ r wahr?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1",
-   "w": "Geht man alle 8 Kombinationen durch, ist p ∧ q ∧ r 1-mal wahr.",
-   "h": "Schreibe die 8 Zeilen auf (wie 4 Zeilen, einmal mit r wahr, einmal mit r falsch)."
+   "h": "Suche für jeden Ausdruck eine Zeile, in der er falsch ist.",
+   "g": "verknuepfen"
   },
   {
    "l": "tafel",
@@ -3436,125 +3859,55 @@
    "w": "Mit p = falsch, q = wahr: p ∧ ¬q ist falsch."
   },
   {
-   "l": "folgerung",
-   "t": "folgerung",
+   "l": "tafel",
+   "t": "tafel",
    "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "s": 3,
+   "y": "zahl",
    "f": {
-    "text": "p ist wahr, q ist falsch. Welchen Wahrheitswert hat p ⇒ q?"
+    "text": "Eine Wahrheitstafel mit drei Aussagen p, q, r hat 2³ = 8 Zeilen. In wie vielen davon ist p ∧ q ∧ r wahr?"
    },
-   "a": [
-    "wahr",
-    "keinen",
-    "falsch"
-   ],
    "o": {
-    "index": 2
+    "wert": 1
    },
-   "w": "p ⇒ q ist nur falsch, wenn p wahr und q falsch ist. Hier: falsch.",
-   "h": "Wann ist ein Versprechen „wenn p, dann q“ gebrochen?"
+   "c": "1",
+   "w": "Geht man alle 8 Kombinationen durch, ist p ∧ q ∧ r 1-mal wahr.",
+   "h": "Schreibe die 8 Zeilen auf (wie 4 Zeilen, einmal mit r wahr, einmal mit r falsch).",
+   "g": "transfer"
   },
   {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Für n = 3: p: „n ist durch 3 teilbar“, q: „n ist durch 9 teilbar“. Welchen Wahrheitswert hat p ⇒ q?"
+    "text": "Wie viele verschiedene Spalten kann ein Ausdruck aus p und q in der Wahrheitstafel (4 Zeilen) überhaupt haben?"
    },
-   "a": [
-    "wahr",
-    "falsch",
-    "keinen"
-   ],
    "o": {
-    "index": 1
+    "wert": 16
    },
-   "w": "p ist wahr, q ist falsch. p wahr, q falsch: falsch.",
-   "h": "Bestimme p und q, dann die Regel für ⇒."
+   "c": "2**4",
+   "w": "Jede der 4 Zeilen kann w oder f sein, unabhängig voneinander: 2 · 2 · 2 · 2 = 16 mögliche Spalten. Jede davon lässt sich mit ¬, ∧, ∨ auch wirklich bauen.",
+   "h": "Wie viele Möglichkeiten hat jede Zeile?",
+   "l": "tafel",
+   "t": "tafel",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "p ist wahr, q ist wahr. Welchen Wahrheitswert hat p ⇒ q?"
+    "text": "Wahrheitstafel mit p, q, r (8 Zeilen). In wie vielen Zeilen ist (p ∨ q) ∧ (q ∨ r) ∧ (p ∨ r) wahr?"
    },
-   "a": [
-    "wahr",
-    "falsch",
-    "keinen"
-   ],
    "o": {
-    "index": 0
+    "wert": 4
    },
-   "w": "p ⇒ q ist nur falsch, wenn p wahr und q falsch ist. Hier: wahr.",
-   "h": "Wann ist ein Versprechen „wenn p, dann q“ gebrochen?"
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Für n = 4: p: „n ist durch 2 teilbar“, q: „n ist durch 4 teilbar“. Welchen Wahrheitswert hat p ⇒ q?"
-   },
-   "a": [
-    "falsch",
-    "keinen",
-    "wahr"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "p ist wahr, q ist wahr. p und q wahr: wahr.",
-   "h": "Bestimme p und q, dann die Regel für ⇒."
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "In welchem Fall ist „Wenn p, dann q“ falsch?"
-   },
-   "a": [
-    "p wahr, q wahr",
-    "p falsch, q wahr",
-    "p wahr, q falsch",
-    "p falsch, q falsch"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nur wenn die Bedingung p erfüllt ist und q trotzdem nicht eintritt, ist die Folgerung widerlegt.",
-   "h": "Denke an ein Versprechen: Wann wurde es gebrochen?"
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Für n = 9: p: „n ist durch 10 teilbar“, q: „n ist durch 5 teilbar“. Welchen Wahrheitswert hat p ⇒ q?"
-   },
-   "a": [
-    "wahr",
-    "falsch",
-    "keinen"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "p ist falsch, q ist falsch. p falsch – die Folgerung ist dann immer wahr.",
-   "h": "Bestimme p und q, dann die Regel für ⇒."
+   "c": "3 + 1",
+   "w": "Jedes Paar muss mindestens eine wahre Aussage enthalten. Das geht genau dann, wenn höchstens eine der drei falsch ist: drei Zeilen mit genau zwei wahren plus die Zeile www – zusammen 4.",
+   "h": "Was passiert, wenn zwei der drei Aussagen falsch sind?",
+   "l": "tafel",
+   "t": "tafel",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
    "l": "folgerung",
@@ -3575,7 +3928,51 @@
     "index": 3
    },
    "w": "Gegenbeispiel: ein Rechteck mit 2 cm und 5 cm ist kein Quadrat. Die Umkehrung kann wahr oder falsch sein – sie folgt nicht automatisch.",
-   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung."
+   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Für n = 3: p: „n ist durch 3 teilbar“, q: „n ist durch 9 teilbar“. Welchen Wahrheitswert hat p ⇒ q?"
+   },
+   "a": [
+    "wahr",
+    "falsch",
+    "keinen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "p ist wahr, q ist falsch. p wahr, q falsch: falsch.",
+   "h": "Bestimme p und q, dann die Regel für ⇒.",
+   "g": "erkennen"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Aussage „Wenn eine Zahl durch 6 teilbar ist, dann ist sie gerade.“ ist wahr (p: Wenn-Teil, q: Dann-Teil). Folgt daraus die Umkehrung (q ⇒ p)?"
+   },
+   "a": [
+    "Nein, die Umkehrung muss nicht gelten.",
+    "Ja, Wenn-dann-Aussagen gelten immer in beide Richtungen.",
+    "Nein, die Umkehrung ist immer falsch.",
+    "Ja, weil die ursprüngliche Aussage wahr ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegenbeispiel: 8 ist gerade, aber nicht durch 6 teilbar. Die Umkehrung kann wahr oder falsch sein – sie folgt nicht automatisch.",
+   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung.",
+   "g": "mehrschritt"
   },
   {
    "l": "folgerung",
@@ -3596,7 +3993,8 @@
     "index": 2
    },
    "w": "q kann auch ohne p eintreten: eine Katze ist ein Säugetier, aber kein Hund.",
-   "h": "Ist p die einzige Möglichkeit, wie q eintreten kann?"
+   "h": "Ist p die einzige Möglichkeit, wie q eintreten kann?",
+   "g": "umkehr"
   },
   {
    "l": "folgerung",
@@ -3606,6 +4004,222 @@
    "y": "auswahl",
    "f": {
     "text": "Für n = 35: p: „n ist durch 6 teilbar“, q: „n ist durch 3 teilbar“. Welchen Wahrheitswert hat p ⇒ q?"
+   },
+   "a": [
+    "wahr",
+    "falsch",
+    "keinen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "p ist falsch, q ist falsch. p falsch – die Folgerung ist dann immer wahr.",
+   "h": "Bestimme p und q, dann die Regel für ⇒.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jede Karte hat auf einer Seite eine Zahl, auf der anderen einen Buchstaben. Man sieht: 6, 9, O, T. Regel: „Wenn auf einer Seite eine gerade Zahl steht, dann steht auf der anderen ein Vokal.“ Welche Karten muss man umdrehen, um die Regel zu prüfen?"
+   },
+   "a": [
+    "6, O und T",
+    "nur 6",
+    "6 und T",
+    "6 und O"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "6: Hinten muss ein Vokal sein. T: Steht hinten eine gerade Zahl, ist die Regel verletzt. O und 9 können die Regel nicht widerlegen.",
+   "h": "Die Regel p ⇒ q wird nur durch „p und nicht q“ verletzt. Welche Karten könnten so ein Paar sein?",
+   "g": "transfer"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p ist wahr, q ist falsch. Welchen Wahrheitswert hat p ⇒ q?"
+   },
+   "a": [
+    "wahr",
+    "keinen",
+    "falsch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "p ⇒ q ist nur falsch, wenn p wahr und q falsch ist. Hier: falsch.",
+   "h": "Wann ist ein Versprechen „wenn p, dann q“ gebrochen?",
+   "g": "direkt"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Für n = 4: p: „n ist durch 2 teilbar“, q: „n ist durch 4 teilbar“. Welchen Wahrheitswert hat p ⇒ q?"
+   },
+   "a": [
+    "falsch",
+    "keinen",
+    "wahr"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "p ist wahr, q ist wahr. p und q wahr: wahr.",
+   "h": "Bestimme p und q, dann die Regel für ⇒.",
+   "g": "erkennen"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Es gilt: „Wenn eine Zahl durch 6 teilbar ist, dann ist sie gerade.“ Man beobachtet: q ist eingetreten. Darf man schließen, dass auch p gilt?"
+   },
+   "a": [
+    "Ja, wenn die Aussage wahr ist.",
+    "Nein, dann gilt sicher ¬p.",
+    "Ja, weil q eingetreten ist.",
+    "Nein – das ist ein Fehlschluss (Umkehrung)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "q kann auch ohne p eintreten: 8 ist gerade, aber nicht durch 6 teilbar.",
+   "h": "Ist p die einzige Möglichkeit, wie q eintreten kann?",
+   "g": "umkehr"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Aussage „Wenn eine Zahl durch 10 teilbar ist, dann ist sie durch 5 teilbar.“ ist wahr (p: Wenn-Teil, q: Dann-Teil). Folgt daraus die Umkehrung (q ⇒ p)?"
+   },
+   "a": [
+    "Ja, Wenn-dann-Aussagen gelten immer in beide Richtungen.",
+    "Nein, die Umkehrung muss nicht gelten.",
+    "Nein, die Umkehrung ist immer falsch.",
+    "Ja, weil die ursprüngliche Aussage wahr ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegenbeispiel: 15 ist durch 5, aber nicht durch 10 teilbar. Die Umkehrung kann wahr oder falsch sein – sie folgt nicht automatisch.",
+   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "„Wenn eine Zahl durch 6 teilbar ist, dann ist sie gerade.“ ist wahr (p ⇒ q; p: Wenn-Teil, q: Dann-Teil). Welche Aussage folgt sicher daraus?"
+   },
+   "a": [
+    "Wenn q nicht gilt, dann gilt auch p nicht (¬q ⇒ ¬p).",
+    "p und q sind beide wahr.",
+    "Wenn q gilt, dann gilt auch p (q ⇒ p).",
+    "Wenn p nicht gilt, dann gilt auch q nicht (¬p ⇒ ¬q)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Kontraposition ¬q ⇒ ¬p ist gleichwertig zu p ⇒ q (gleiche Wahrheitstafel). Umkehrung und „¬p ⇒ ¬q“ folgen nicht.",
+   "h": "Vergleiche die Wahrheitstafeln: Welche Folgerung ist gleichwertig?",
+   "g": "begruenden"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jede Karte hat auf einer Seite eine Zahl, auf der anderen einen Buchstaben. Man sieht: 2, 5, A, T. Regel: „Wenn auf einer Seite eine gerade Zahl steht, dann steht auf der anderen ein Vokal.“ Welche Karten muss man umdrehen, um die Regel zu prüfen?"
+   },
+   "a": [
+    "2, A und T",
+    "nur 2",
+    "2 und T",
+    "2 und A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2: Hinten muss ein Vokal sein. T: Steht hinten eine gerade Zahl, ist die Regel verletzt. A und 5 können die Regel nicht widerlegen.",
+   "h": "Die Regel p ⇒ q wird nur durch „p und nicht q“ verletzt. Welche Karten könnten so ein Paar sein?",
+   "g": "transfer"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "p ist wahr, q ist wahr. Welchen Wahrheitswert hat p ⇒ q?"
+   },
+   "a": [
+    "wahr",
+    "falsch",
+    "keinen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "p ⇒ q ist nur falsch, wenn p wahr und q falsch ist. Hier: wahr.",
+   "h": "Wann ist ein Versprechen „wenn p, dann q“ gebrochen?",
+   "g": "direkt"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In welchem Fall ist „Wenn p, dann q“ falsch?"
+   },
+   "a": [
+    "p wahr, q wahr",
+    "p falsch, q wahr",
+    "p wahr, q falsch",
+    "p falsch, q falsch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nur wenn die Bedingung p erfüllt ist und q trotzdem nicht eintritt, ist die Folgerung widerlegt.",
+   "h": "Denke an ein Versprechen: Wann wurde es gebrochen?",
+   "g": "erkennen"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Für n = 9: p: „n ist durch 10 teilbar“, q: „n ist durch 5 teilbar“. Welchen Wahrheitswert hat p ⇒ q?"
    },
    "a": [
     "wahr",
@@ -3637,7 +4251,8 @@
     "index": 1
    },
    "w": "Gegenbeispiel: die Straße kann auch durch einen Rasensprenger nass sein. Die Umkehrung kann wahr oder falsch sein – sie folgt nicht automatisch.",
-   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung."
+   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung.",
+   "g": "einkleidung"
   },
   {
    "l": "folgerung",
@@ -3646,103 +4261,42 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Es gilt: „Wenn eine Zahl durch 6 teilbar ist, dann ist sie gerade.“ Man beobachtet: q ist eingetreten. Darf man schließen, dass auch p gilt?"
+    "text": "Die Aussage „Wenn ein Tier ein Hund ist, dann ist es ein Säugetier.“ ist wahr (p: Wenn-Teil, q: Dann-Teil). Folgt daraus die Umkehrung (q ⇒ p)?"
    },
    "a": [
+    "Ja, weil die ursprüngliche Aussage wahr ist.",
+    "Nein, die Umkehrung ist immer falsch.",
+    "Nein, die Umkehrung muss nicht gelten.",
+    "Ja, Wenn-dann-Aussagen gelten immer in beide Richtungen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegenbeispiel: eine Katze ist ein Säugetier, aber kein Hund. Die Umkehrung kann wahr oder falsch sein – sie folgt nicht automatisch.",
+   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Es gilt: „Wenn eine Zahl durch 10 teilbar ist, dann ist sie durch 5 teilbar.“ Man beobachtet: q ist eingetreten. Darf man schließen, dass auch p gilt?"
+   },
+   "a": [
+    "Ja, weil q eingetreten ist.",
     "Ja, wenn die Aussage wahr ist.",
     "Nein, dann gilt sicher ¬p.",
-    "Ja, weil q eingetreten ist.",
     "Nein – das ist ein Fehlschluss (Umkehrung)."
    ],
    "o": {
     "index": 3
    },
-   "w": "q kann auch ohne p eintreten: 8 ist gerade, aber nicht durch 6 teilbar.",
-   "h": "Ist p die einzige Möglichkeit, wie q eintreten kann?"
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Aussage „Wenn eine Zahl durch 6 teilbar ist, dann ist sie gerade.“ ist wahr (p: Wenn-Teil, q: Dann-Teil). Folgt daraus die Umkehrung (q ⇒ p)?"
-   },
-   "a": [
-    "Nein, die Umkehrung muss nicht gelten.",
-    "Ja, Wenn-dann-Aussagen gelten immer in beide Richtungen.",
-    "Nein, die Umkehrung ist immer falsch.",
-    "Ja, weil die ursprüngliche Aussage wahr ist."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Gegenbeispiel: 8 ist gerade, aber nicht durch 6 teilbar. Die Umkehrung kann wahr oder falsch sein – sie folgt nicht automatisch.",
-   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung."
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "„Wenn eine Zahl durch 6 teilbar ist, dann ist sie gerade.“ ist wahr (p ⇒ q; p: Wenn-Teil, q: Dann-Teil). Welche Aussage folgt sicher daraus?"
-   },
-   "a": [
-    "Wenn q nicht gilt, dann gilt auch p nicht (¬q ⇒ ¬p).",
-    "p und q sind beide wahr.",
-    "Wenn q gilt, dann gilt auch p (q ⇒ p).",
-    "Wenn p nicht gilt, dann gilt auch q nicht (¬p ⇒ ¬q)."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Kontraposition ¬q ⇒ ¬p ist gleichwertig zu p ⇒ q (gleiche Wahrheitstafel). Umkehrung und „¬p ⇒ ¬q“ folgen nicht.",
-   "h": "Vergleiche die Wahrheitstafeln: Welche Folgerung ist gleichwertig?"
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Aussage „Wenn eine Zahl durch 10 teilbar ist, dann ist sie durch 5 teilbar.“ ist wahr (p: Wenn-Teil, q: Dann-Teil). Folgt daraus die Umkehrung (q ⇒ p)?"
-   },
-   "a": [
-    "Ja, Wenn-dann-Aussagen gelten immer in beide Richtungen.",
-    "Nein, die Umkehrung muss nicht gelten.",
-    "Nein, die Umkehrung ist immer falsch.",
-    "Ja, weil die ursprüngliche Aussage wahr ist."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gegenbeispiel: 15 ist durch 5, aber nicht durch 10 teilbar. Die Umkehrung kann wahr oder falsch sein – sie folgt nicht automatisch.",
-   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung."
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jede Karte hat auf einer Seite eine Zahl, auf der anderen einen Buchstaben. Man sieht: 6, 9, O, T. Regel: „Wenn auf einer Seite eine gerade Zahl steht, dann steht auf der anderen ein Vokal.“ Welche Karten muss man umdrehen, um die Regel zu prüfen?"
-   },
-   "a": [
-    "6, O und T",
-    "nur 6",
-    "6 und T",
-    "6 und O"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "6: Hinten muss ein Vokal sein. T: Steht hinten eine gerade Zahl, ist die Regel verletzt. O und 9 können die Regel nicht widerlegen.",
-   "h": "Die Regel p ⇒ q wird nur durch „p und nicht q“ verletzt. Welche Karten könnten so ein Paar sein?"
+   "w": "q kann auch ohne p eintreten: 15 ist durch 5, aber nicht durch 10 teilbar.",
+   "h": "Ist p die einzige Möglichkeit, wie q eintreten kann?",
+   "g": "umkehr"
   },
   {
    "l": "folgerung",
@@ -3763,70 +4317,8 @@
     "index": 3
    },
    "w": "Die Kontraposition ¬q ⇒ ¬p ist gleichwertig zu p ⇒ q (gleiche Wahrheitstafel). Umkehrung und „¬p ⇒ ¬q“ folgen nicht.",
-   "h": "Vergleiche die Wahrheitstafeln: Welche Folgerung ist gleichwertig?"
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Die Aussage „Wenn ein Tier ein Hund ist, dann ist es ein Säugetier.“ ist wahr (p: Wenn-Teil, q: Dann-Teil). Folgt daraus die Umkehrung (q ⇒ p)?"
-   },
-   "a": [
-    "Ja, weil die ursprüngliche Aussage wahr ist.",
-    "Nein, die Umkehrung ist immer falsch.",
-    "Nein, die Umkehrung muss nicht gelten.",
-    "Ja, Wenn-dann-Aussagen gelten immer in beide Richtungen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Gegenbeispiel: eine Katze ist ein Säugetier, aber kein Hund. Die Umkehrung kann wahr oder falsch sein – sie folgt nicht automatisch.",
-   "h": "Suche ein Gegenbeispiel für die umgekehrte Richtung."
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jede Karte hat auf einer Seite eine Zahl, auf der anderen einen Buchstaben. Man sieht: 2, 5, A, T. Regel: „Wenn auf einer Seite eine gerade Zahl steht, dann steht auf der anderen ein Vokal.“ Welche Karten muss man umdrehen, um die Regel zu prüfen?"
-   },
-   "a": [
-    "2, A und T",
-    "nur 2",
-    "2 und T",
-    "2 und A"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "2: Hinten muss ein Vokal sein. T: Steht hinten eine gerade Zahl, ist die Regel verletzt. A und 5 können die Regel nicht widerlegen.",
-   "h": "Die Regel p ⇒ q wird nur durch „p und nicht q“ verletzt. Welche Karten könnten so ein Paar sein?"
-  },
-  {
-   "l": "folgerung",
-   "t": "folgerung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Es gilt: „Wenn eine Zahl durch 10 teilbar ist, dann ist sie durch 5 teilbar.“ Man beobachtet: q ist eingetreten. Darf man schließen, dass auch p gilt?"
-   },
-   "a": [
-    "Ja, weil q eingetreten ist.",
-    "Ja, wenn die Aussage wahr ist.",
-    "Nein, dann gilt sicher ¬p.",
-    "Nein – das ist ein Fehlschluss (Umkehrung)."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "q kann auch ohne p eintreten: 15 ist durch 5, aber nicht durch 10 teilbar.",
-   "h": "Ist p die einzige Möglichkeit, wie q eintreten kann?"
+   "h": "Vergleiche die Wahrheitstafeln: Welche Folgerung ist gleichwertig?",
+   "g": "begruenden"
   },
   {
    "l": "folgerung",
@@ -3847,7 +4339,8 @@
     "index": 0
    },
    "w": "6: Hinten muss ein Vokal sein. M: Steht hinten eine gerade Zahl, ist die Regel verletzt. A und 7 können die Regel nicht widerlegen.",
-   "h": "Die Regel p ⇒ q wird nur durch „p und nicht q“ verletzt. Welche Karten könnten so ein Paar sein?"
+   "h": "Die Regel p ⇒ q wird nur durch „p und nicht q“ verletzt. Welche Karten könnten so ein Paar sein?",
+   "g": "transfer"
   },
   {
    "l": "folgerung",
@@ -4042,6 +4535,111 @@
     "index": 1
    },
    "w": "p ist falsch, q ist falsch. p falsch – die Folgerung ist dann immer wahr."
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "„Wenn es regnet, ist die Straße nass.“ Die Straße ist nass. Jemand folgert: „Also hat es geregnet.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig, weil die Aussage wahr ist.",
+    "Falsch: Dann hat es sicher nicht geregnet.",
+    "Falsch: Die Straße kann auch aus einem anderen Grund nass sein.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Aus p ⇒ q und q folgt p nicht (Umkehrschluss). Ein Rasensprenger macht die Straße auch nass.",
+   "h": "Gibt es andere Gründe für eine nasse Straße?",
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "p ⇒ q ist wahr, und q ist falsch. Was folgt für p?"
+   },
+   "a": [
+    "Über p weiß man nichts.",
+    "p und q sind gleich.",
+    "p ist wahr.",
+    "p ist falsch."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Wäre p wahr, müsste q wahr sein. q ist falsch, also kann p nicht wahr sein.",
+   "h": "Was wäre, wenn p wahr wäre?",
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele n aus 1, 2, …, 10 ist „Wenn n gerade ist, dann ist n durch 4 teilbar“ falsch?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Falsch nur, wenn n gerade, aber nicht durch 4 teilbar ist: n = 2, 6, 10. Für ungerade n ist die Folgerung wahr.",
+   "h": "Wann ist eine Wenn-dann-Aussage falsch?",
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "„Wer regelmäßig übt, besteht die Prüfung.“ (wahr) Jemand hat die Prüfung nicht bestanden. Was folgt sicher?"
+   },
+   "a": [
+    "Nichts.",
+    "Diese Person hat regelmäßig geübt.",
+    "Diese Person hat nicht regelmäßig geübt.",
+    "Diese Person hat gar nicht geübt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Kontraposition: Aus p ⇒ q folgt ¬q ⇒ ¬p. Nicht bestanden ⇒ nicht regelmäßig geübt. „Gar nicht geübt“ folgt nicht – vielleicht nur unregelmäßig.",
+   "h": "Nutze die Kontraposition.",
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Wahr oder falsch: „Wenn 2 + 2 = 5 ist, dann ist der Mond aus Käse.“"
+   },
+   "a": [
+    "falsch",
+    "wahr und falsch zugleich",
+    "wahr",
+    "keine Aussage"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "p ⇒ q ist nur falsch, wenn p wahr und q falsch ist. Hier ist p falsch – dann ist die Folgerung in der Logik immer wahr, egal was q sagt.",
+   "h": "Wann genau ist p ⇒ q falsch?",
+   "l": "folgerung",
+   "t": "folgerung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   }
  ],
  "offen": [

@@ -10,3 +10,4 @@
 - 2026-11-17 – sonder.optimierung fertig: 23 neue Übungen, 10 Knobel-Bordkarten, 1 umgestuft, 7 überzählig. inhalt_pruefen OK, 0 Gruppen, Nachweis OK.
 - 2026-11-17 – daten.normalverteilung fertig: 18 neue Übungen, 10 Knobel-Bordkarten, 6 umgestuft, 7 überzählig. inhalt_pruefen OK, 0 Gruppen, Nachweis OK.
 - 2026-11-17 – finanzen.zinseszins fertig: 29 neue Übungen, 10 Knobel-Bordkarten, 0 umgestuft, 38 überzählig (viele gleich gebaute Vorlagen). inhalt_pruefen OK, 0 Gruppen, Nachweis OK.
+- 2026-11-17 – sonder.logik fertig: 14 neue Übungen, 10 Knobel-Bordkarten, 3 umgestuft, 5 überzählig. inhalt_pruefen OK, 0 Gruppen, Nachweis OK.

@@ -1609,3 +1609,49 @@ Ziel: Das Kind muss selbst erkennen, welches Verfahren passt. Keine Zusatzkarten
 - **Grafik:** Die App zeichnet (vorhanden). Das Kind kann ablesen, einen Graphen auswählen, einen Punkt bestimmen – selbst zeichnen geht nicht.
 - **Eltern/Lehrer:** Expeditionen in „Inhalte ansehen“ lesbar; im Lernstand je Kind: angeboten / begonnen / geschafft.
 - **Tests:** keine Expedition ohne alle Voraussetzungen · Folgeteil nach Fehler nutzbar · Belege und Fälligkeit richtig · Entwurf nur Testkind · Abbruch mitten in der Expedition verliert nichts.
+
+# Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers): mehr Textaufgaben in Klasse 8
+
+**Befund des Lehrers (von Sebastian weitergegeben):** In Klasse 8 sind zu wenig Textaufgaben. Zählung heute: Von 1 907 freien Übungen der 14 Themen mit Gymnasium-Klasse 8 sind 286 vom Typ `einkleidung` oder `transfer` (15 %; je Thema 10–20 %). Weitere Sachaufgaben stecken in anderen Typen, sind aber nicht gezählt.
+
+**Ein Chat, Zweig `text-kl8` (von aktuellem `lernen-app`), Meldungen in `inhalte/postfach/text-kl8.md`.** Themen: alle mit `klasse.gym_by = 8` in `inhalte/themenliste.json` (funktionen.grundbegriffe, funktionen.linear, zahlen.intervalle, gleichungen.ungleichungen, groessen.indirekt, funktionen.gebrochen, terme.bruchterme, gleichungen.bruch, gleichungen.formeln, stochastik.grundbegriffe, gleichungen.lgs2, messen.kreisberechnung, messen.koerper_darstellung, messen.prisma_zylinder). Vorher `inhalte/README.md` lesen (Themen-Bausatz, „Stufen und Aufgabentypen“).
+
+**Was eine Textaufgabe hier ist:** eine Sachsituation in ganzen Sätzen, aus der das Kind selbst herauslesen muss, was gegeben und was gesucht ist, und die es in Mathematik übersetzt (Term, Gleichung, Funktion, Skizze), löst und im Sachzusammenhang beantwortet. Nicht: eine Rechenaufgabe mit einem Einleitungssatz davor.
+
+**Ziel je Lernkarte (freie Übungen, Pool `uebung`):**
+- Mindestens **8 Textaufgaben**: Stufe 1 mindestens 1 (kurze Situation, ein Schritt), Stufe 2 mindestens 3, Stufe 3 mindestens 4.
+- Über das ganze Thema mindestens **40 %** der Übungen mit `g` sind Textaufgaben.
+- Ausnahme: Lernkarten, bei denen eine Sachsituation fachlich unsinnig wäre (reine Schreibweisen, Begriffe). Dann so viele wie sinnvoll und im Bericht begründen.
+- Pool `sicherung`: mindestens 2 der 6 Aufgaben je Lernkarte sind Textaufgaben. Pool `korrektur`: mindestens 1 von 3. Test unverändert, außer die Testaufgabe ist fachlich schwächer als eine neue Textaufgabe.
+
+**Qualität:**
+- Lebenswelt von 13- bis 14-Jährigen und Reise-/Alltagsbezug (Tarife, Fahrpläne, Rezepte, Sport, Taschengeld, Baupläne, Messwerte, Karten und Maßstab). Realistische Zahlen und Einheiten. Keine Namen realer Personen, keine Marken.
+- Abwechslung im Satzbau und in der Situation: je Lernkarte keine zwei Textaufgaben mit derselben Geschichte.
+- Auf Stufe 2 und 3 mehrschrittig; auf Stufe 3 mindestens zwei je Lernkarte mit **einer** dieser Hürden: überflüssige Angabe · fehlende Angabe, die aus dem Text erschlossen werden muss · Ergebnis muss gedeutet oder gerundet werden (z. B. „wie viele Busse“) · zwei Bedingungen · Antwort ist eine Entscheidung mit Begründung (als Auswahl).
+- Typen: Stufe 1 `direkt`/`erkennen` in kurzer Situation · Stufe 2 `einkleidung` (auch `umkehr`, `darstellung` mit Tabelle/Diagramm im Sachzusammenhang) · Stufe 3 `transfer`, `pruefung`, `verknuepfen`, `rueckwaerts`, `fehler`, `begruenden` im Sachzusammenhang.
+- Vorbild für Niveau und Form: Bayerischer Mathematik-Test 8 und Jahrgangsstufenarbeiten (ISB) – nur Typ und Niveau, eigene Zahlen und Einkleidung, nichts wörtlich übernehmen.
+- Lösungsweg `w` in Schritten: gegeben · gesucht · Ansatz · Rechnung · Antwortsatz. Tipp `h` hilft beim Übersetzen („Was kostet eine Minute? Was kommt einmalig dazu?“), verrät nicht die Rechnung.
+- Alle Lösungen rechnet der Generator; Rechenausdruck `c` Pflicht bei Zahl und Lücken.
+
+**Regeln der Zwanzigsten Runde gelten weiter:** jede freie Übung hat `g`; Mindestmengen 4 / 6 / 8; mindestens 2 / 3 / 4 Typen je Stufe; auf Stufe 3 je Typ höchstens 3 mit gleichem Satzbau; 2 Knobel-Bordkarten je Lernkarte bleiben. Werden durch die neuen Textaufgaben alte reine Rechenaufgaben überzählig, verlieren sie ihr `g` (sie werden beim Einspielen gesperrt, nicht gelöscht) – im Bericht je Lernkarte zählen. Alte Aufgaben sonst nicht ändern (Fragetext und Antworten Zeichen für Zeichen gleich, damit Lernstände erhalten bleiben).
+
+**Bericht:** Tabelle je Lernkarte: Textaufgaben vorher → nachher je Stufe, neue Aufgaben, überzählig; Anteil je Thema; je Thema drei Beispiel-Textaufgaben (je Stufe eine) im Wortlaut; Lernkarten mit Ausnahme und Grund; was nicht geprüft wurde. Ein Thema = ein Commit + Push. Kein Merge, keine Datenbank, kein App-Code, keine Tests.
+
+# Expeditionen (Werkstatt-Wunsch 176, P3) – Inhalte für Klasse 5 und Klasse 8
+
+Voraussetzung erfüllt: Das Format steht in `inhalte/README.md`, Abschnitt „Expeditionen“ (mit vollständigem Beispiel `inhalte/expeditionen/8-handytarif.json`, Generator `inhalte/generatoren/expedition_handytarif.py`); `tools/inhalt_pruefen.py` prüft Expeditionen.
+
+**Idee:** Eine Aufgabe wie in einer Schulaufgabe mit a), b), c), d): eine Situation, 3–5 Teile, jeder Teil aus einem **anderen** Thema (z. B. Term aufstellen · Graph zuordnen · Gleichung lösen · Prozent rechnen). Das Kind bekommt eine Expedition nur angeboten, wenn alle Voraussetzungs-Etappen bei ihm sitzen.
+
+**Zwei Chats:** Klasse 5 → Zweig `expedition-kl5`, Meldungen `inhalte/postfach/expedition-kl5.md` · Klasse 8 → Zweig `expedition-kl8`, Meldungen `inhalte/postfach/expedition-kl8.md`. Je etwa **10 Expeditionen**.
+
+**Regeln:**
+- Je Expedition ein Generator `inhalte/generatoren/expedition_<name>.py`, der `inhalte/expeditionen/<klasse>-<name>.json` schreibt. Alle Lösungen berechnet das Programm, nichts wird abgeschrieben. Realistische Zahlen, keine Namen realer Personen, keine Marken. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.
+- `voraussetzungen` = Liste `{thema_schluessel, lernziel}`; nur Lernkarten, die es in `inhalte/themen/` gibt; Plan-Klasse jedes Themas ≤ Klasse der Expedition. Jeder Teil hat einen `bezug` aus dieser Liste.
+- Mindestens **3 verschiedene Themen** je Expedition, möglichst aus verschiedenen Gebieten (Zahlen, Größen, Geometrie, Daten, Funktionen, Gleichungen …). Die ersten fünf Expeditionen je Klasse nutzen nur Themen, die im Plan früh kommen (Klasse 5: Flüge der Orte Rom, Kairo, Timbuktu, Athen, Toronto; Klasse 8: funktionen.grundbegriffe, funktionen.linear, gleichungen.ungleichungen, groessen.indirekt und Stoff aus Klasse 5–7); die übrigen dürfen den ganzen Stoff bis zur Klasse nutzen.
+- **Kein Folgefehler-Domino:** Jeder Teil nennt die Werte, die er braucht – auch wenn sie das Ergebnis eines Vorteils sind.
+- Antwortformen nur, die die App prüft (Zahl, Auswahl, Lücken, Markierung …, siehe README). Wo es passt, eine Grafik (Koordinatensystem, Diagramm, Tabelle, Figur): ablesen, zuordnen, Punkt bestimmen – nichts, was das Kind zeichnen müsste.
+- Schwierigkeit steigt von a) nach d); der letzte Teil verlangt eine Deutung oder Entscheidung im Sachzusammenhang. Lösungsweg je Teil in Schritten, Tipp je Teil.
+- Themenmischung über die 10 Expeditionen: Jedes früh liegende Thema kommt mindestens zweimal vor; keine zwei Expeditionen mit derselben Geschichte.
+- Prüfwerkzeug muss für jede Datei OK melden. Eine Expedition = ein Commit + Push. Kein Merge, keine Datenbank-, App- oder Server-Änderung.
+- Bericht: Tabelle Expedition · Situation · Teile mit Thema/Lernkarte · Antwortformen · Grafik; je Expedition der Wortlaut eines Teils; was nicht geprüft wurde (z. B. wie die App die Grafik zeichnet).

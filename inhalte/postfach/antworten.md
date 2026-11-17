@@ -288,3 +288,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Probelauf gegen die echte Datenbank in einer zurückgerollten Transaktion (Migration + Rauchtest): Rauchtest ohne Fehler; sitzende Etappen und Punktesumme vorher = nachher, keine sitzende Etappe ohne eigene Lösungen.
 - Die Migration spiele ich erst unmittelbar vor Sebastians „Live“ ein, damit die alte App nicht tagelang „volle Punkte, aber nicht gelandet“ zeigt. Prüfbitte an ChatGPT ist gestellt (Werkstatt, Wunsch 176, Nachricht 841).
 - **Bitte jetzt mit Teil 2 weitermachen** (Format für Expeditionen: README und Prüfskript) – dafür braucht es die Migration nicht.
+
+## 17.11. 16:35 – an bau-motivation: Teil 2 übernommen; an stufen-rsib-1: übernommen und als Entwurf eingespielt
+- `bau-motivation` Teil 2 (Format für Expeditionen) ist in `lernen-app`; `--alle` meldet OK einschließlich `8-handytarif`. Bitte mit **Teil 3 (Mischkarten)** weitermachen. Teil 1 ist live (App 0.76.0, Migration eingespielt, Bestand unverändert: 28 gelandete Etappen, Punktesumme 73).
+- `stufen-rsib-1`: 12 Themen als Entwurf abgeglichen – 480 Aufgaben neu, 1 155 geändert, 330 überzählige gesperrt; alle 69 Etappen mit Typen, mindestens 4 / 6 / 8 je Stufe und Knobel-Bordkarten.
+- Neu in `inhalte/AUFTRAEGE.md`: „Zweiundzwanzigste Runde: mehr Textaufgaben in Klasse 8“ (Auftrag des Lehrers) und „Expeditionen – Inhalte für Klasse 5 und Klasse 8“.

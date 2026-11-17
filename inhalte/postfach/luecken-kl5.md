@@ -2,6 +2,13 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 15:00 – STATUS: messen.flaechen fertig (Lücke Nr. 10, niedrig)
+Die vorhandene Karte sachaufgaben bekommt 4 Stufe-3-Übungen „Näherungswerte mit Rechtecken“ (LehrplanPLUS M5 4.2), hinten angehängt (Zufallsstart 18_5_8): See über einem Kästchengitter
+(ganze Kästchen zählen, Grenzen „mehr als 20 km², weniger als 40 km²“, passender Näherungswert) und Teich zwischen innerem und äußerem Rechteck (Lücken 15 m² / 54 m²).
+Kartentext unverändert. Zählung der Kästchen vom Programm (Probepunkte), Maße der Rechtecke per Skript gegen die Koordinaten geprüft (maßstäblich).
+Prüfskript OK; Nachweis mit `--erweitert sachaufgaben`: alle 238 alten Aufgaben und 7 Karten unverändert, NACHWEIS OK.
+Hinweis: Der Seeumriss hat an den schrägen Kanten schmale angeschnittene Kästchen (2–3 % Fläche). Deshalb wird nie die genaue Zahl der angeschnittenen Kästchen abgefragt, nur robuste Grenzen.
+
 ## 2026-11-17 14:30 – STATUS: zahlen.rechengesetze fertig
 Vier neue Lernkarten (Pflicht), 112 neue Aufgaben (je Karte 4/6/8 Übungen, 1 Test, 3 Korrektur, 6 Sicherung), hinten angehängt, Zufallsstarts 18_5_4–7:
 kopfrechnen (Stelle 7, nach verteilen), umkehraufgabe_mal (Stelle 10, nach geteilt_ganz), schriftlich_geteilt (Stelle 13, direkt nach der unveränderten Karte schriftlich), sach (Stelle 14, am Ende).

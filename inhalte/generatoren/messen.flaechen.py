@@ -623,5 +623,78 @@ BF.stufe('rechteck', 'Ein Rechteck ist 3 m lang und 60 cm breit. Wie groß ist d
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- LÜCKEN (Achtzehnte Runde, Teil B, Zweig luecken-kl5): Näherungswerte mit Rechtecken (LehrplanPLUS M5 4.2) ----
+# Die Karte „sachaufgaben“ bekommt vier Stufe-3-Übungen: krumm begrenzte Fläche (See) über einem Kästchengitter und ein Teich
+# zwischen einem inneren und einem äußeren Rechteck. Karte und alle bisherigen Aufgaben bleiben unverändert (_luecken_kl5_nachweis.py).
+from _luecken_kl5 import ergaenze_karte  # noqa: E402
+
+
+def _drin(p, poly):
+    x, y = p; c = False
+    for i in range(len(poly)):
+        (x1, y1), (x2, y2) = poly[i], poly[(i + 1) % len(poly)]
+        if (y1 > y) != (y2 > y) and x < x1 + (y - y1) * (x2 - x1) / (y2 - y1): c = not c
+    return c
+
+
+def _kaestchen(poly, b, h, n=30):
+    """(ganz innen, angeschnitten) – gezählt über n·n Probepunkte je Kästchen."""
+    voll = teil = 0
+    for i in range(b):
+        for j in range(h):
+            k = sum(_drin((i + (u + .5) / n, j + (v + .5) / n), poly) for u in range(n) for v in range(n))
+            voll += k == n * n; teil += 0 < k < n * n
+    return voll, teil
+
+
+def _gitter(b, h, poly):
+    pk = {'_A': [0, 0], '_B': [b, 0], '_C': [b, h], '_D': [0, h]}
+    pk.update({f'_s{i}': list(p) for i, p in enumerate(poly)})
+    li = [['_A', '_B', ''], ['_B', '_C', ''], ['_C', '_D', ''], ['_D', '_A', '']]
+    for x in range(1, b):
+        pk[f'_xu{x}'], pk[f'_xo{x}'] = [x, 0], [x, h]; li.append([f'_xu{x}', f'_xo{x}', '', 'gestrichelt'])
+    for y in range(1, h):
+        pk[f'_yl{y}'], pk[f'_yr{y}'] = [0, y], [b, y]; li.append([f'_yl{y}', f'_yr{y}', '', 'gestrichelt'])
+    return {'typ': 'figur', 'punkte': pk, 'flaeche': [f'_s{i}' for i in range(len(poly))], 'linien': li}
+
+
+SEE = [(0.5, 3), (1.5, 1), (4, 0.5), (6.5, 1), (7.5, 3), (6.5, 5), (4, 5.5), (1.5, 5)]
+SEE_VOLL, SEE_TEIL = _kaestchen(SEE, 8, 6)
+SEE_AUSSEN = SEE_VOLL + SEE_TEIL
+_fl = abs(sum(SEE[i][0] * SEE[(i + 1) % 8][1] - SEE[(i + 1) % 8][0] * SEE[i][1] for i in range(8))) / 2
+assert (SEE_VOLL, SEE_AUSSEN) == (20, 40) and SEE_VOLL < _fl < SEE_AUSSEN
+SEE_BILD = _gitter(8, 6, SEE)
+TEICH = [(0, 3), (1, 1), (3, 0), (6, 0), (8.5, 1.5), (9, 3.5), (7.5, 5.5), (4, 6), (1, 5)]
+assert all(_drin(p, TEICH) for p in [(2, 1.5), (7, 1.5), (7, 4.5), (2, 4.5)])
+TEICH_BILD = {'typ': 'figur',
+              'punkte': {**{f'_t{i}': list(p) for i, p in enumerate(TEICH)}, '_A': [0, 0], '_B': [9, 0], '_C': [9, 6], '_D': [0, 6],
+                         '_E': [2, 1.5], '_F': [7, 1.5], '_G': [7, 4.5], '_H': [2, 4.5]},
+              'flaeche': [f'_t{i}' for i in range(len(TEICH))],
+              'linien': [['_A', '_B', '9 m', 'gestrichelt'], ['_B', '_C', '6 m', 'gestrichelt'], ['_C', '_D', '', 'gestrichelt'], ['_D', '_A', '', 'gestrichelt'],
+                         ['_E', '_F', '5 m', 'gestrichelt'], ['_F', '_G', '3 m', 'gestrichelt'], ['_G', '_H', '', 'gestrichelt'], ['_H', '_E', '', 'gestrichelt']]}
+NAEHERUNG = [
+    Z(3, 'Ein See auf einer Karte. Jedes Kästchen steht für 1 km Länge und 1 km Breite, also 1 km². Wie viele Kästchen liegen ganz im See?',
+      str(SEE_VOLL), f'Zeile für Zeile zählen: 0 + 4 + 6 + 6 + 4 + 0 = {SEE_VOLL} Kästchen liegen ganz im See. Der See ist also größer als {SEE_VOLL} km².',
+      'Zähle Zeile für Zeile nur die Kästchen, die ganz gefärbt sind.', grafik=SEE_BILD),
+    wahl(3, 'Die Kästchen sind 1 km². Was kannst du über die Fläche des Sees sicher sagen?',
+         [f'Sie ist größer als {SEE_VOLL} km² und kleiner als {SEE_AUSSEN} km².', f'Sie ist kleiner als {SEE_VOLL} km².', f'Sie ist größer als {SEE_AUSSEN} km².', 'Sie ist genau 48 km².'],
+         lambda o: o.startswith('Sie ist größer als') and 'kleiner' in o,
+         f'Innen liegen {SEE_VOLL} ganze Kästchen, also mehr als {SEE_VOLL} km². Alle Kästchen, die der See berührt, sind {SEE_VOLL} + {SEE_TEIL} = {SEE_AUSSEN}. '
+         f'Sie decken den See ganz ab, also weniger als {SEE_AUSSEN} km². 48 km² ist die ganze Karte (8 · 6).',
+         'Zähle die ganzen Kästchen im See. Zähle dann alle Kästchen, die der See berührt.', grafik=SEE_BILD),
+    wahl(3, 'Jedes Kästchen ist 1 km². Welcher dieser Werte kommt als Fläche des Sees in Frage?',
+         [f'etwa {(SEE_VOLL + SEE_AUSSEN) // 2} km²', f'etwa {SEE_VOLL // 2} km²', f'etwa {SEE_AUSSEN + 5} km²', 'etwa 48 km²'],
+         lambda o: SEE_VOLL < int(o.split()[1]) < SEE_AUSSEN,
+         f'Die Fläche liegt zwischen {SEE_VOLL} km² (ganze Kästchen) und {SEE_AUSSEN} km² (alle berührten Kästchen). '
+         f'Nur {(SEE_VOLL + SEE_AUSSEN) // 2} km² liegt dazwischen. Angeschnittene Kästchen zählen etwa halb: {SEE_VOLL} + {SEE_TEIL} : 2 = {SEE_VOLL + SEE_TEIL // 2}.',
+         'Suche erst eine untere und eine obere Grenze mit den Kästchen.', grafik=SEE_BILD),
+    L(3, 'Ein Teich liegt ganz im großen Rechteck (9 m mal 6 m). Das kleine Rechteck (5 m mal 3 m) liegt ganz im Teich. Zwischen welchen Werten liegt die Fläche des Teichs?',
+      'mehr als □ m², weniger als □ m²', 'Trage die beiden Grenzen ein.', ['5 * 3', '9 * 6'],
+      'Das kleine Rechteck liegt im Teich: Der Teich ist größer als 5 · 3 = 15 m². Das große Rechteck umschließt ihn: Er ist kleiner als 9 · 6 = 54 m².',
+      'Rechne die Fläche beider Rechtecke aus. Welches liegt innen, welches außen?', grafik=TEICH_BILD),
+]
+ergaenze_karte(DATEI, 'sachaufgaben', NAEHERUNG, 18_5_8)
+# ---- LÜCKEN ENDE ----
+
 if __name__ == '__main__':
     schreibe(DATEI)

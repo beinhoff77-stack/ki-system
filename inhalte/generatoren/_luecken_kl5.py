@@ -115,3 +115,26 @@ def neue_karte(datei, karte, nach, abschnitt, teil, gen, seed, fest=(), vertiefu
         assert not feste[st], f'{lz}: zu viele feste Aufgaben auf Stufe {st}'
     datei['aufgaben'] = datei['aufgaben'] + out
     return out
+
+
+def ergaenze_karte(datei, lz, fest, seed):
+    """Vorhandene Lernkarte lz um Übungen erweitern (Aufgaben aus Z/A/L/wahl, Stufe aus 's'). Die Karte selbst bleibt unverändert;
+    die neuen Übungen hängen hinter allen bisherigen Aufgaben."""
+    R = random.Random(seed)
+    alt = datei['aufgaben']
+    tk = next(a['t'] for a in alt if a['l'] == lz)
+    gesehen = {schluessel(a) for a in alt}
+    beispiele = {(s['text'] if isinstance(s, dict) else s) for e in datei['inhalt']['etappen'] for s in e['schritte']}
+    out = []
+    for a in fest:
+        st = a['s']
+        a = _fest(R, a)
+        b = {'l': lz, 't': tk, 'p': 'uebung', 's': st}
+        b.update({x: a[x] for x in ('y', 'f', 'a', 'o', 'zahl', 'c', 'w', 'h') if x in a})
+        k = schluessel(b)
+        assert k not in gesehen and b['f']['text'] not in beispiele, b['f']['text']
+        assert b.get('h') and len(b['w']) >= 15, b['f']['text']
+        gesehen.add(k)
+        out.append(b)
+    datei['aufgaben'] = alt + out
+    return out

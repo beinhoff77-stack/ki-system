@@ -1248,3 +1248,10 @@ ST.knobel('schnittpunkte', Z('Die Gerade y = 4 schneidet die Parabel y = x² in 
 
 if __name__ == '__main__':
     stufen('funktionen.quadratisch', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('funktionen.quadratisch')
+# ---- BEREINIGEN ENDE ----

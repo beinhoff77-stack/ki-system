@@ -935,3 +935,10 @@ ST.knobel('anwendung', Z('In einem Dreieck gilt sin α = 0,5 und sin β = 0,5. W
 
 if __name__ == '__main__':
     stufen('gleichungen.trig', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('gleichungen.trig')
+# ---- BEREINIGEN ENDE ----

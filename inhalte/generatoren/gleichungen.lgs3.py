@@ -904,3 +904,10 @@ ST.knobel('sachaufgabe', Z('Für genau 100 € werden genau 100 Tiere gekauft: K
 
 if __name__ == '__main__':
     stufen('gleichungen.lgs3', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('gleichungen.lgs3')
+# ---- BEREINIGEN ENDE ----

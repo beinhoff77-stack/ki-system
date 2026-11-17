@@ -817,14 +817,15 @@
   ],
   "bewertung": {
    "lernziele_pflicht": [
-    "pruefen",
-    "stufenform",
-    "eliminieren",
     "loesen",
     "parabel",
     "sachaufgabe"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "pruefen",
+    "stufenform",
+    "eliminieren"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {

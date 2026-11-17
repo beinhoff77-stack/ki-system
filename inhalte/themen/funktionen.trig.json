@@ -2205,30 +2205,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib den exakten Wert von sin(11π/6) an."
+    "text": "Gib den exakten Wert von cos(4π/3) an."
    },
    "o": {
     "wert": -0.5
    },
-   "c": "-1/2",
-   "w": "11π/6 = 330°. Der Punkt liegt rechts unten, so tief wie bei 30° hoch: sin(11π/6) = −0,5.",
-   "h": "330° fehlen 30° bis zur vollen Runde."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den exakten Wert von cos(5π/3) an."
-   },
-   "o": {
-    "wert": 0.5
-   },
-   "c": "1/2",
-   "w": "5π/3 = 300°. Der Punkt liegt rechts unten, so weit rechts wie bei 60°: cos(5π/3) = 0,5.",
-   "h": "Rechne in Grad um und vergleiche mit 60°."
+   "c": "-0.5",
+   "w": "4π/3 = 240°; cos 240° = −0,5.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis.",
+   "g": "mehrschritt"
   },
   {
    "l": "werte",
@@ -2237,88 +2222,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Gib den exakten Wert von sin(π/2) an."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1",
-   "w": "π/2 = 90°: Der Punkt liegt ganz oben. sin(π/2) = 1.",
-   "h": "sin ist die Höhe am Einheitskreis."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den exakten Wert von cos(π) an."
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "-1",
-   "w": "π = 180°: Der Punkt liegt am Einheitskreis ganz links. cos(π) = −1.",
-   "h": "cos ist der Abstand nach rechts."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den exakten Wert von cos(7π/3) an."
+    "text": "Gib den exakten Wert von sin(π/6) an."
    },
    "o": {
     "wert": 0.5
    },
-   "c": "1 / 2",
-   "w": "7π/3 = 2π + π/3. Nach einer vollen Drehung gilt cos(7π/3) = cos(π/3) = 0,5.",
-   "h": "Ziehe eine volle Umdrehung 2π ab."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist sin(2,5) (x im Bogenmaß) positiv oder negativ? Entscheide ohne Taschenrechner."
-   },
-   "a": [
-    "negativ",
-    "Das kann man ohne Taschenrechner nicht entscheiden.",
-    "positiv",
-    "genau 0"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "2,5 liegt zwischen π/2 ≈ 1,57 und π ≈ 3,14 (2. Viertel des Einheitskreises). Dort ist sin positiv.",
-   "h": "Vergleiche x mit π/2 ≈ 1,57, π ≈ 3,14 und 3π/2 ≈ 4,71: In welchem Viertel des Einheitskreises liegt der Punkt?"
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist cos(1) (x im Bogenmaß) positiv oder negativ? Entscheide ohne Taschenrechner."
-   },
-   "a": [
-    "genau 0",
-    "positiv",
-    "negativ",
-    "Das kann man ohne Taschenrechner nicht entscheiden."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "1 liegt zwischen 0 und π/2 ≈ 1,57 (1. Viertel des Einheitskreises). Dort ist cos positiv.",
-   "h": "Vergleiche x mit π/2 ≈ 1,57, π ≈ 3,14 und 3π/2 ≈ 4,71: In welchem Viertel des Einheitskreises liegt der Punkt?"
+   "c": "0.5",
+   "w": "π/6 = 30°; sin 30° = 0,5.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis.",
+   "g": "direkt"
   },
   {
    "l": "werte",
@@ -2327,61 +2239,20 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welchen exakten Wert hat sin(7π/4)?"
+    "text": "Welchen exakten Wert hat sin(π/4)?"
    },
    "a": [
-    "−½√2",
     "½√2",
-    "−½√3",
-    "−½"
+    "½",
+    "−½√2",
+    "½√3"
    ],
    "o": {
     "index": 0
    },
-   "w": "7π/4 = 315°. Der Punkt am Einheitskreis liegt unterhalb der x-Achse und rechts der y-Achse; Bezugswinkel 45°: sin(7π/4) = −½√2.",
-   "h": "Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welchen exakten Wert hat sin(π/3)?"
-   },
-   "a": [
-    "½√2",
-    "−½√3",
-    "½√3",
-    "½"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "π/3 = 60°. Der Punkt am Einheitskreis liegt oberhalb der x-Achse und rechts der y-Achse; Bezugswinkel 60°: sin(π/3) = ½√3.",
-   "h": "Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welchen exakten Wert hat sin(2π/3)?"
-   },
-   "a": [
-    "½",
-    "½√3",
-    "−½√3",
-    "½√2"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "2π/3 = 120°. Der Punkt am Einheitskreis liegt oberhalb der x-Achse und links der y-Achse; Bezugswinkel 60°: sin(2π/3) = ½√3.",
-   "h": "Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis."
+   "w": "π/4 = 45°. Der Punkt am Einheitskreis liegt oberhalb der x-Achse und rechts der y-Achse; Bezugswinkel 45°: sin(π/4) = ½√2.",
+   "h": "Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis.",
+   "g": "mehrschritt"
   },
   {
    "l": "werte",
@@ -2416,73 +2287,6 @@
    "c": "round(-0.687766159184, 3)",
    "w": "Taschenrechner im RAD-Modus: sin(3,9) ≈ −0,688.",
    "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den exakten Wert von sin(π) an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "π = 180°; sin 180° = 0.",
-   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne sin(2,7) (x im Bogenmaß) auf drei Nachkommastellen."
-   },
-   "o": {
-    "wert": 0.427,
-    "toleranz": 0.001
-   },
-   "c": "round(0.427379880234, 3)",
-   "w": "Taschenrechner im RAD-Modus: sin(2,7) ≈ 0,427.",
-   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne cos(4,9) (x im Bogenmaß) auf drei Nachkommastellen."
-   },
-   "o": {
-    "wert": 0.187,
-    "toleranz": 0.001
-   },
-   "c": "round(0.186512369423, 3)",
-   "w": "Taschenrechner im RAD-Modus: cos(4,9) ≈ 0,187.",
-   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den exakten Wert von sin(π/6) an."
-   },
-   "o": {
-    "wert": 0.5
-   },
-   "c": "0.5",
-   "w": "π/6 = 30°; sin 30° = 0,5.",
-   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis.",
-   "g": "direkt"
   },
   {
    "l": "werte",
@@ -2528,57 +2332,38 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Modus muss am Taschenrechner eingestellt sein, wenn x im Bogenmaß angegeben ist?"
-   },
-   "a": [
-    "RAD",
-    "DEG",
-    "FIX",
-    "STAT"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "RAD steht für radiant (Bogenmaß), DEG für degree (Grad).",
-   "h": "Wie heißt das Bogenmaß auf Englisch?"
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib den exakten Wert von cos(π/3) an."
+    "text": "Gib den exakten Wert von cos(5π/3) an."
    },
    "o": {
     "wert": 0.5
    },
-   "c": "0.5",
-   "w": "π/3 = 60°; cos 60° = 0,5.",
-   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis.",
-   "g": "direkt"
+   "c": "1/2",
+   "w": "5π/3 = 300°. Der Punkt liegt rechts unten, so weit rechts wie bei 60°: cos(5π/3) = 0,5.",
+   "h": "Rechne in Grad um und vergleiche mit 60°."
   },
   {
    "l": "werte",
    "t": "werte",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Gib den exakten Wert von cos(4π/3) an."
+    "text": "Welchen exakten Wert hat sin(7π/4)?"
    },
+   "a": [
+    "−½√2",
+    "½√2",
+    "−½√3",
+    "−½"
+   ],
    "o": {
-    "wert": -0.5
+    "index": 0
    },
-   "c": "-0.5",
-   "w": "4π/3 = 240°; cos 240° = −0,5.",
-   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis.",
-   "g": "mehrschritt"
+   "w": "7π/4 = 315°. Der Punkt am Einheitskreis liegt unterhalb der x-Achse und rechts der y-Achse; Bezugswinkel 45°: sin(7π/4) = −½√2.",
+   "h": "Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis."
   },
   {
    "l": "werte",
@@ -2609,53 +2394,6 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welchen exakten Wert hat sin(π/4)?"
-   },
-   "a": [
-    "½√2",
-    "½",
-    "−½√2",
-    "½√3"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "π/4 = 45°. Der Punkt am Einheitskreis liegt oberhalb der x-Achse und rechts der y-Achse; Bezugswinkel 45°: sin(π/4) = ½√2.",
-   "h": "Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 2,
-   "g": "umkehr",
-   "y": "luecken",
-   "f": {
-    "text": "Für welchen Winkel x mit 0 ≤ x ≤ π/2 gilt sin x = 0,5? Gib x als Vielfaches von π an.",
-    "schablone": "□/□ · π",
-    "hinweis": "Bruch vor π (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     1,
-     6
-    ]
-   },
-   "c": [
-    "1",
-    "6"
-   ],
-   "w": "sin 30° = 0,5 und 30° = π/6.",
-   "h": "Bei welchem Gradwinkel ist die Höhe der halbe Radius?"
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
     "text": "Welchen exakten Wert hat cos(5π/6)?"
    },
    "a": [
@@ -2669,41 +2407,6 @@
    },
    "w": "5π/6 = 150°. Der Punkt am Einheitskreis liegt oberhalb der x-Achse und links der y-Achse; Bezugswinkel 30°: cos(5π/6) = −½√3.",
    "h": "Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Die Mitte eines Riesenrads liegt 12 m über dem Boden, der Radius ist 10 m. Eine Gondel startet rechts auf Höhe der Mitte und dreht sich um π/6 nach oben. Wie hoch ist sie dann über dem Boden?"
-   },
-   "o": {
-    "wert": 17,
-    "einheit": "m"
-   },
-   "c": "12 + 10 * 0.5",
-   "w": "Höhe über der Mitte: 10 · sin(π/6) = 10 · 0,5 = 5 m. Über dem Boden: 12 + 5 = 17 m.",
-   "h": "Die Höhe über der Mitte ist r · sin x."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den exakten Wert von sin(−π/2) an."
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "-1",
-   "w": "−π/2 = −90°. Am Einheitskreis liegt der Punkt ganz unten: sin(−π/2) = −1.",
-   "h": "Drehe am Einheitskreis im Uhrzeigersinn.",
    "g": "mehrschritt"
   },
   {
@@ -2774,23 +2477,345 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(π/2) an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "π/2 = 90°: Der Punkt liegt ganz oben. sin(π/2) = 1.",
+   "h": "sin ist die Höhe am Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(π) an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "π = 180°: Der Punkt liegt am Einheitskreis ganz links. cos(π) = −1.",
+   "h": "cos ist der Abstand nach rechts."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(π) an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "π = 180°; sin 180° = 0.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(2,7) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.427,
+    "toleranz": 0.001
+   },
+   "c": "round(0.427379880234, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(2,7) ≈ 0,427.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne cos(4,9) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.187,
+    "toleranz": 0.001
+   },
+   "c": "round(0.186512369423, 3)",
+   "w": "Taschenrechner im RAD-Modus: cos(4,9) ≈ 0,187.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Modus muss am Taschenrechner eingestellt sein, wenn x im Bogenmaß angegeben ist?"
+   },
+   "a": [
+    "RAD",
+    "DEG",
+    "FIX",
+    "STAT"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "RAD steht für radiant (Bogenmaß), DEG für degree (Grad).",
+   "h": "Wie heißt das Bogenmaß auf Englisch?"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(π/3) an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.5",
+   "w": "π/3 = 60°; cos 60° = 0,5.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis.",
+   "g": "direkt"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(11π/6) an."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-1/2",
+   "w": "11π/6 = 330°. Der Punkt liegt rechts unten, so tief wie bei 30° hoch: sin(11π/6) = −0,5.",
+   "h": "330° fehlen 30° bis zur vollen Runde."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(7π/3) an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "1 / 2",
+   "w": "7π/3 = 2π + π/3. Nach einer vollen Drehung gilt cos(7π/3) = cos(π/3) = 0,5.",
+   "h": "Ziehe eine volle Umdrehung 2π ab."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welchen exakten Wert hat sin(π/3)?"
+   },
+   "a": [
+    "½√2",
+    "−½√3",
+    "½√3",
+    "½"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "π/3 = 60°. Der Punkt am Einheitskreis liegt oberhalb der x-Achse und rechts der y-Achse; Bezugswinkel 60°: sin(π/3) = ½√3.",
+   "h": "Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welchen exakten Wert hat sin(2π/3)?"
+   },
+   "a": [
+    "½",
+    "½√3",
+    "−½√3",
+    "½√2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2π/3 = 120°. Der Punkt am Einheitskreis liegt oberhalb der x-Achse und links der y-Achse; Bezugswinkel 60°: sin(2π/3) = ½√3.",
+   "h": "Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "luecken",
+   "f": {
+    "text": "Für welchen Winkel x mit 0 ≤ x ≤ π/2 gilt sin x = 0,5? Gib x als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "c": [
+    "1",
+    "6"
+   ],
+   "w": "sin 30° = 0,5 und 30° = π/6.",
+   "h": "Bei welchem Gradwinkel ist die Höhe der halbe Radius?"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Die Mitte eines Riesenrads liegt 12 m über dem Boden, der Radius ist 10 m. Eine Gondel startet rechts auf Höhe der Mitte und dreht sich um π/6 nach oben. Wie hoch ist sie dann über dem Boden?"
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "m"
+   },
+   "c": "12 + 10 * 0.5",
+   "w": "Höhe über der Mitte: 10 · sin(π/6) = 10 · 0,5 = 5 m. Über dem Boden: 12 + 5 = 17 m.",
+   "h": "Die Höhe über der Mitte ist r · sin x."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(−π/2) an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "−π/2 = −90°. Am Einheitskreis liegt der Punkt ganz unten: sin(−π/2) = −1.",
+   "h": "Drehe am Einheitskreis im Uhrzeigersinn.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Bild siehst du den Graphen von y = sin x und die Gerade y = −1. Wie viele Lösungen hat sin x = −1 im Bereich 0° ≤ x < 360°?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -2.5,
+      2.5
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0,
+       "d": 0,
+       "name": "sin x"
+      }
+     ],
+     "waagrecht": [
+      -1
+     ]
+    }
+   },
+   "a": [
+    "keine Lösung",
+    "genau eine Lösung",
+    "zwei Lösungen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "sin x = −1 nur an einem Punkt des Einheitskreises: eine Lösung.",
+   "h": "Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.",
+   "g": "darstellung"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ist cos(4) (x im Bogenmaß) positiv oder negativ? Entscheide ohne Taschenrechner."
+    "text": "Ist sin(2,5) (x im Bogenmaß) positiv oder negativ? Entscheide ohne Taschenrechner."
    },
    "a": [
+    "negativ",
     "Das kann man ohne Taschenrechner nicht entscheiden.",
-    "genau 0",
     "positiv",
-    "negativ"
+    "genau 0"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "4 liegt zwischen π ≈ 3,14 und 3π/2 ≈ 4,71 (3. Viertel des Einheitskreises). Dort ist cos negativ.",
-   "h": "Vergleiche x mit π/2 ≈ 1,57, π ≈ 3,14 und 3π/2 ≈ 4,71: In welchem Viertel des Einheitskreises liegt der Punkt?",
-   "g": "begruenden"
+   "w": "2,5 liegt zwischen π/2 ≈ 1,57 und π ≈ 3,14 (2. Viertel des Einheitskreises). Dort ist sin positiv.",
+   "h": "Vergleiche x mit π/2 ≈ 1,57, π ≈ 3,14 und 3π/2 ≈ 4,71: In welchem Viertel des Einheitskreises liegt der Punkt?"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist cos(1) (x im Bogenmaß) positiv oder negativ? Entscheide ohne Taschenrechner."
+   },
+   "a": [
+    "genau 0",
+    "positiv",
+    "negativ",
+    "Das kann man ohne Taschenrechner nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 liegt zwischen 0 und π/2 ≈ 1,57 (1. Viertel des Einheitskreises). Dort ist cos positiv.",
+   "h": "Vergleiche x mit π/2 ≈ 1,57, π ≈ 3,14 und 3π/2 ≈ 4,71: In welchem Viertel des Einheitskreises liegt der Punkt?"
   },
   {
    "l": "werte",
@@ -2813,6 +2838,28 @@
    "w": "Die Punkte zu α und 180° − α liegen spiegelbildlich zur y-Achse. Sie haben dieselbe Höhe, also denselben Sinus.",
    "h": "Zeichne α und 180° − α am Einheitskreis ein. Was ist gleich?",
    "g": "verknuepfen"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist cos(4) (x im Bogenmaß) positiv oder negativ? Entscheide ohne Taschenrechner."
+   },
+   "a": [
+    "Das kann man ohne Taschenrechner nicht entscheiden.",
+    "genau 0",
+    "positiv",
+    "negativ"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "4 liegt zwischen π ≈ 3,14 und 3π/2 ≈ 4,71 (3. Viertel des Einheitskreises). Dort ist cos negativ.",
+   "h": "Vergleiche x mit π/2 ≈ 1,57, π ≈ 3,14 und 3π/2 ≈ 4,71: In welchem Viertel des Einheitskreises liegt der Punkt?",
+   "g": "begruenden"
   },
   {
    "l": "werte",
@@ -2894,6 +2941,40 @@
    "w": "Im DEG-Modus wird π/2 ≈ 1,57 als 1,57° gelesen, sin(1,57°) ≈ 0,027. Gemeint ist der Winkel π/2 = 90°: sin(π/2) = 1.",
    "h": "In welcher Einheit steht π/2?",
    "g": "fehler"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner: sin(π/6) + sin(2π/6) + sin(3π/6) + … + sin(12π/6) (zwölf Summanden)."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Die Winkel π/6, 2π/6, …, 12π/6 = 2π verteilen sich gleichmäßig über eine volle Runde. Zu jedem Winkel x gehört x + π mit sin(x + π) = −sin x: π/6 mit 7π/6, 2π/6 mit 8π/6 usw. Die Paare heben sich auf, die Summe ist 0.",
+   "h": "Suche Paare, deren Sinuswerte sich aufheben."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen n mit 1 ≤ n ≤ 100 gilt sin(n · π/2) = 1?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "(97 - 1) // 4 + 1",
+   "w": "sin(n · π/2) = 1 bei π/2, 5π/2, 9π/2, … also für n = 1, 5, 9, …, 97 (Rest 1 beim Teilen durch 4): 25 Zahlen.",
+   "h": "Schreibe die ersten Werte für n = 1, 2, 3, 4, 5 auf."
   },
   {
    "l": "werte",
@@ -3068,38 +3149,39 @@
    "w": "Taschenrechner im RAD-Modus: sin(0,1) ≈ 0,1."
   },
   {
-   "l": "werte",
-   "t": "werte",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ohne Taschenrechner: sin(π/6) + sin(2π/6) + sin(3π/6) + … + sin(12π/6) (zwölf Summanden)."
+    "text": "Welche Periode hat f(x) = cos(πx) (x im Bogenmaß)?"
    },
    "o": {
-    "wert": 0
+    "wert": 2
    },
-   "c": "0",
-   "w": "Die Winkel π/6, 2π/6, …, 12π/6 = 2π verteilen sich gleichmäßig über eine volle Runde. Zu jedem Winkel x gehört x + π mit sin(x + π) = −sin x: π/6 mit 7π/6, 2π/6 mit 8π/6 usw. Die Paare heben sich auf, die Summe ist 0.",
-   "h": "Suche Paare, deren Sinuswerte sich aufheben."
+   "c": "2",
+   "w": "p = 2π : b = 2π : π = 2.",
+   "h": "Im Bogenmaß gilt p = 2π : b.",
+   "g": "mehrschritt"
   },
   {
-   "l": "werte",
-   "t": "werte",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Für wie viele ganze Zahlen n mit 1 ≤ n ≤ 100 gilt sin(n · π/2) = 1?"
+    "text": "Welche Periode (in Grad) hat f(x) = sin(4x)?"
    },
    "o": {
-    "wert": 25
+    "wert": 90,
+    "einheit": "°"
    },
-   "c": "(97 - 1) // 4 + 1",
-   "w": "sin(n · π/2) = 1 bei π/2, 5π/2, 9π/2, … also für n = 1, 5, 9, …, 97 (Rest 1 beim Teilen durch 4): 25 Zahlen.",
-   "h": "Schreibe die ersten Werte für n = 1, 2, 3, 4, 5 auf."
+   "c": "360 / 4",
+   "w": "p = 360° : 4 = 90°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x.",
+   "g": "direkt"
   },
   {
    "l": "periode",
@@ -3108,20 +3190,438 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Welche Periode hat f(x) = cos(2x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
+    "text": "Welche Periode hat f(x) = sin(x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
     "schablone": "□ · π",
     "hinweis": "Zahl vor π"
    },
    "o": {
     "werte": [
-     3
+     6
     ]
    },
-   "w": "b = 2/3, also p = 2π : 2/3 = 2π · 3/2 = 3π.",
-   "h": "Durch einen Bruch teilt man, indem man mit dem Kehrwert malnimmt.",
+   "w": "b = 1/3, p = 2π : (1/3) = 6π.",
+   "h": "Teilen durch 1/3 heißt mal 3.",
    "c": [
-    "2 * 3 // 2"
-   ]
+    "2 * 3"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(5π/2) an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "5π/2 − 2π = π/2 (volle Runde weg). sin(π/2) = sin 90° = 1.",
+   "h": "Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt.",
+   "g": "erkennen"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = cos((1/3)x)?"
+   },
+   "o": {
+    "wert": 1080,
+    "einheit": "°"
+   },
+   "c": "360 / (1/3)",
+   "w": "p = 360° : 1/3 = 1 080°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x.",
+   "g": "direkt"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 4,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "360 / 90",
+   "w": "Eine Schwingung dauert 90°, also b = 360° : 90° = 4.",
+   "h": "Miss die Länge einer vollen Schwingung (z. B. von Maximum zu Maximum).",
+   "g": "darstellung"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 90° haben. Bestimme b."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "360 / 90",
+   "w": "b = 360° : 90° = 4.",
+   "h": "Stelle p = 360° : b nach b um.",
+   "g": "umkehr"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(2πx) (x im Bogenmaß)?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "2 / 2",
+   "w": "p = 2π : b = 2π : 2π = 1.",
+   "h": "Hier ist b = 2π.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „f(x) = sin(0,5x) hat die Periode 180°.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: p = 0,5°.",
+    "Richtig.",
+    "Falsch: p = 360°, der Faktor ändert die Periode nicht.",
+    "Falsch: p = 360° : 0,5 = 720°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Je größer b, desto schneller die Schwingung und desto kürzer die Periode: p = 360° : b = 720°.",
+   "h": "Wird die Periode durch b länger oder kürzer?",
+   "g": "fehler"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche kleinste Periode (in Grad) hat f(x) = sin(2x) + sin(3x)?"
+   },
+   "o": {
+    "wert": 360
+   },
+   "c": "2 * 180",
+   "w": "sin(2x) hat die Periode 180°, sin(3x) die Periode 120°. Beide wiederholen sich gleichzeitig erst nach dem kleinsten gemeinsamen Vielfachen: 360°.",
+   "h": "Bestimme beide Perioden einzeln. Wann passen beide wieder zusammen?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = sin(0,5x)?"
+   },
+   "o": {
+    "wert": 720,
+    "einheit": "°"
+   },
+   "c": "360 / 0.5",
+   "w": "p = 360° : 0,5 = 720°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet „f hat die Periode 2π“?"
+   },
+   "a": [
+    "f ist nur bis 2π definiert.",
+    "f hat bei 2π den größten Wert.",
+    "Nach jedem Abstand 2π wiederholen sich alle Funktionswerte.",
+    "f hat genau zwei Nullstellen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Periode p heißt: f(x + p) = f(x) für alle x.",
+   "h": "Was passiert mit dem Graphen nach einer Periode?"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = cos(5x)?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "360 / 5",
+   "w": "p = 360° : 5 = 72°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x.",
+   "g": "direkt"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 3,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "360 / 120",
+   "w": "Eine Schwingung dauert 120°, also b = 360° : 120° = 3.",
+   "h": "Miss die Länge einer vollen Schwingung (z. B. von Maximum zu Maximum)."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 120° haben. Bestimme b."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "360 / 120",
+   "w": "b = 360° : 120° = 3.",
+   "h": "Stelle p = 360° : b nach b um.",
+   "g": "umkehr"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 5,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "360 / 72",
+   "w": "Eine Schwingung dauert 72°, also b = 360° : 72° = 5.",
+   "h": "Miss die Länge einer vollen Schwingung (z. B. von Maximum zu Maximum).",
+   "g": "darstellung"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(−π/3) an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.5",
+   "w": "−π/3 + 2π = 5π/3 (volle Runde dazu). cos(5π/3) = cos 300° = 0,5.",
+   "h": "Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = sin(b · x) (x im Bogenmaß, b > 0) hat die Periode 4π. Bestimme b."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "2 / 4",
+   "w": "2π : b = 4π ⇒ b = 2π : 4π = 0,5.",
+   "h": "Stelle 2π : b = 4π nach b um.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „f(x) = sin(4x) hat die Periode 1 440°.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: p = 4°.",
+    "Falsch: p = 360°, der Faktor ändert die Periode nicht.",
+    "Falsch: p = 360° : 4 = 90°.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Je größer b, desto schneller die Schwingung und desto kürzer die Periode: p = 360° : b = 90°.",
+   "h": "Wird die Periode durch b länger oder kürzer?",
+   "g": "fehler"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Funktion f hat die Periode 8, und es gilt f(3) = 5. Welchen Wert hat f(27)?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "27 = 3 + 3 · 8. Nach drei Perioden wiederholt sich der Wert: f(27) = f(3) = 5.",
+   "h": "Wie viele ganze Perioden liegen zwischen 3 und 27?",
+   "g": "transfer"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(−17π/6) an."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-0.5",
+   "w": "−17π/6 + 4π = 7π/6 (2 volle Runden dazu). sin(7π/6) = sin 210° = −0,5.",
+   "h": "Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt.",
+   "g": "pruefung"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welche kleinste Periode hat f(x) = sin(x) + cos(2x) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
+    "schablone": "□ · π",
+    "hinweis": "Zahl vor π"
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "w": "sin x hat die Periode 2π, cos(2x) die Periode π. Beide wiederholen sich gleichzeitig erst nach 2π.",
+   "h": "Bestimme beide Perioden. Wann wiederholen sich beide zugleich?",
+   "c": [
+    "2"
+   ],
+   "g": "verknuepfen"
   },
   {
    "l": "periode",
@@ -3143,6 +3643,109 @@
    "h": "Wie viel sind 360° im Bogenmaß?",
    "c": [
     "2"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = cos(1,5x)?"
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "°"
+   },
+   "c": "360 / 1.5",
+   "w": "p = 360° : 1,5 = 240°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = sin(2x)?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "360 / 2",
+   "w": "p = 360° : 2 = 180°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Funktion hat die kleinste Periode?"
+   },
+   "a": [
+    "sin(2x)",
+    "sin(0,5x)",
+    "sin(x)",
+    "sin(4x)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "p = 2π : b – je größer b, desto kleiner die Periode: sin(4x) hat π/2.",
+   "h": "Wie hängt die Periode von b ab?"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(4x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "p = 2π : b = 2π : 4 = π/2.",
+   "h": "Im Bogenmaß gilt p = 2π : b.",
+   "c": [
+    "2 // 2",
+    "4 // 2"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = cos(2x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
+    "schablone": "□ · π",
+    "hinweis": "Zahl vor π"
+   },
+   "o": {
+    "werte": [
+     3
+    ]
+   },
+   "w": "b = 2/3, also p = 2π : 2/3 = 2π · 3/2 = 3π.",
+   "h": "Durch einen Bruch teilt man, indem man mit dem Kehrwert malnimmt.",
+   "c": [
+    "2 * 3 // 2"
    ]
   },
   {
@@ -3205,46 +3808,6 @@
     "2",
     "5"
    ]
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      360
-     ],
-     "y": [
-      -1.5,
-      1.5
-     ],
-     "graphen": [
-      {
-       "art": "cos",
-       "a": 1,
-       "b": 3,
-       "c": 0.0,
-       "d": 0
-      }
-     ],
-     "grad": true,
-     "schritt_x": 90,
-     "schritt_y": 0.5,
-     "streckung": 1.4
-    }
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "360 / 120",
-   "w": "Eine Schwingung dauert 120°, also b = 360° : 120° = 3.",
-   "h": "Miss die Länge einer vollen Schwingung (z. B. von Maximum zu Maximum)."
   },
   {
    "l": "periode",
@@ -3314,370 +3877,6 @@
    "l": "periode",
    "t": "periode",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Periode (in Grad) hat f(x) = cos(1,5x)?"
-   },
-   "o": {
-    "wert": 240,
-    "einheit": "°"
-   },
-   "c": "360 / 1.5",
-   "w": "p = 360° : 1,5 = 240°.",
-   "h": "Periode = 360° geteilt durch den Faktor vor x."
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Periode (in Grad) hat f(x) = sin(4x)?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "360 / 4",
-   "w": "p = 360° : 4 = 90°.",
-   "h": "Periode = 360° geteilt durch den Faktor vor x.",
-   "g": "direkt"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den exakten Wert von sin(5π/2) an."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1",
-   "w": "5π/2 − 2π = π/2 (volle Runde weg). sin(π/2) = sin 90° = 1.",
-   "h": "Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt.",
-   "g": "erkennen"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Periode (in Grad) hat f(x) = sin(0,5x)?"
-   },
-   "o": {
-    "wert": 720,
-    "einheit": "°"
-   },
-   "c": "360 / 0.5",
-   "w": "p = 360° : 0,5 = 720°.",
-   "h": "Periode = 360° geteilt durch den Faktor vor x."
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Periode (in Grad) hat f(x) = cos((1/3)x)?"
-   },
-   "o": {
-    "wert": 1080,
-    "einheit": "°"
-   },
-   "c": "360 / (1/3)",
-   "w": "p = 360° : 1/3 = 1 080°.",
-   "h": "Periode = 360° geteilt durch den Faktor vor x.",
-   "g": "direkt"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Periode (in Grad) hat f(x) = sin(2x)?"
-   },
-   "o": {
-    "wert": 180,
-    "einheit": "°"
-   },
-   "c": "360 / 2",
-   "w": "p = 360° : 2 = 180°.",
-   "h": "Periode = 360° geteilt durch den Faktor vor x."
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet „f hat die Periode 2π“?"
-   },
-   "a": [
-    "f ist nur bis 2π definiert.",
-    "f hat bei 2π den größten Wert.",
-    "Nach jedem Abstand 2π wiederholen sich alle Funktionswerte.",
-    "f hat genau zwei Nullstellen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Periode p heißt: f(x + p) = f(x) für alle x.",
-   "h": "Was passiert mit dem Graphen nach einer Periode?"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Periode (in Grad) hat f(x) = cos(5x)?"
-   },
-   "o": {
-    "wert": 72,
-    "einheit": "°"
-   },
-   "c": "360 / 5",
-   "w": "p = 360° : 5 = 72°.",
-   "h": "Periode = 360° geteilt durch den Faktor vor x.",
-   "g": "direkt"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Funktion hat die kleinste Periode?"
-   },
-   "a": [
-    "sin(2x)",
-    "sin(0,5x)",
-    "sin(x)",
-    "sin(4x)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "p = 2π : b – je größer b, desto kleiner die Periode: sin(4x) hat π/2.",
-   "h": "Wie hängt die Periode von b ab?"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Welche Periode hat f(x) = sin(4x) im Bogenmaß? Gib sie als Vielfaches von π an.",
-    "schablone": "□/□ · π",
-    "hinweis": "Bruch vor π (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     1,
-     2
-    ]
-   },
-   "w": "p = 2π : b = 2π : 4 = π/2.",
-   "h": "Im Bogenmaß gilt p = 2π : b.",
-   "c": [
-    "2 // 2",
-    "4 // 2"
-   ],
-   "g": "direkt"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Periode hat f(x) = cos(πx) (x im Bogenmaß)?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "p = 2π : b = 2π : π = 2.",
-   "h": "Im Bogenmaß gilt p = 2π : b.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      360
-     ],
-     "y": [
-      -1.5,
-      1.5
-     ],
-     "graphen": [
-      {
-       "art": "cos",
-       "a": 1,
-       "b": 4,
-       "c": 0.0,
-       "d": 0
-      }
-     ],
-     "grad": true,
-     "schritt_x": 90,
-     "schritt_y": 0.5,
-     "streckung": 1.4
-    }
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "360 / 90",
-   "w": "Eine Schwingung dauert 90°, also b = 360° : 90° = 4.",
-   "h": "Miss die Länge einer vollen Schwingung (z. B. von Maximum zu Maximum).",
-   "g": "darstellung"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 90° haben. Bestimme b."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "360 / 90",
-   "w": "b = 360° : 90° = 4.",
-   "h": "Stelle p = 360° : b nach b um.",
-   "g": "umkehr"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Welche Periode hat f(x) = sin(x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
-    "schablone": "□ · π",
-    "hinweis": "Zahl vor π"
-   },
-   "o": {
-    "werte": [
-     6
-    ]
-   },
-   "w": "b = 1/3, p = 2π : (1/3) = 6π.",
-   "h": "Teilen durch 1/3 heißt mal 3.",
-   "c": [
-    "2 * 3"
-   ],
-   "g": "mehrschritt"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      360
-     ],
-     "y": [
-      -1.5,
-      1.5
-     ],
-     "graphen": [
-      {
-       "art": "cos",
-       "a": 1,
-       "b": 5,
-       "c": 0.0,
-       "d": 0
-      }
-     ],
-     "grad": true,
-     "schritt_x": 90,
-     "schritt_y": 0.5,
-     "streckung": 1.4
-    }
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "360 / 72",
-   "w": "Eine Schwingung dauert 72°, also b = 360° : 72° = 5.",
-   "h": "Miss die Länge einer vollen Schwingung (z. B. von Maximum zu Maximum).",
-   "g": "darstellung"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 120° haben. Bestimme b."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "360 / 120",
-   "w": "b = 360° : 120° = 3.",
-   "h": "Stelle p = 360° : b nach b um.",
-   "g": "umkehr"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Periode hat f(x) = sin(2πx) (x im Bogenmaß)?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "2 / 2",
-   "w": "p = 2π : b = 2π : 2π = 1.",
-   "h": "Hier ist b = 2π.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -3724,23 +3923,6 @@
    "t": "periode",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den exakten Wert von cos(−π/3) an."
-   },
-   "o": {
-    "wert": 0.5
-   },
-   "c": "0.5",
-   "w": "−π/3 + 2π = 5π/3 (volle Runde dazu). cos(5π/3) = cos 300° = 0,5.",
-   "h": "Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Gib den Winkel zwischen 0 und 2π an, der am Einheitskreis zum selben Punkt gehört wie −3π/4.",
@@ -3765,113 +3947,28 @@
    "l": "periode",
    "t": "periode",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
+   "s": 2,
+   "y": "luecken",
    "f": {
-    "text": "Jemand sagt: „f(x) = sin(0,5x) hat die Periode 180°.“ Was stimmt?"
+    "text": "Löse cos x = 1 im Bereich 0° ≤ x ≤ 720°.",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°",
+    "hinweis": "Grad-Zahlen, kleinere zuerst"
    },
-   "a": [
-    "Falsch: p = 0,5°.",
-    "Richtig.",
-    "Falsch: p = 360°, der Faktor ändert die Periode nicht.",
-    "Falsch: p = 360° : 0,5 = 720°."
+   "o": {
+    "werte": [
+     0,
+     360,
+     720
+    ]
+   },
+   "w": "cos x = 1 ganz rechts auf dem Einheitskreis: bei 0°, nach einer Runde bei 360° und nach zwei Runden bei 720° (Grenze gehört dazu).",
+   "h": "Der Bereich umfasst zwei volle Runden – und das Ende 720° gehört dazu.",
+   "c": [
+    "0",
+    "360",
+    "2 * 360"
    ],
-   "o": {
-    "index": 3
-   },
-   "w": "Je größer b, desto schneller die Schwingung und desto kürzer die Periode: p = 360° : b = 720°.",
-   "h": "Wird die Periode durch b länger oder kürzer?",
-   "g": "fehler"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = sin(b · x) (x im Bogenmaß, b > 0) hat die Periode 4π. Bestimme b."
-   },
-   "o": {
-    "wert": 0.5
-   },
-   "c": "2 / 4",
-   "w": "2π : b = 4π ⇒ b = 2π : 4π = 0,5.",
-   "h": "Stelle 2π : b = 4π nach b um.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „f(x) = sin(4x) hat die Periode 1 440°.“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: p = 4°.",
-    "Falsch: p = 360°, der Faktor ändert die Periode nicht.",
-    "Falsch: p = 360° : 4 = 90°.",
-    "Richtig."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Je größer b, desto schneller die Schwingung und desto kürzer die Periode: p = 360° : b = 90°.",
-   "h": "Wird die Periode durch b länger oder kürzer?",
-   "g": "fehler"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Welche kleinste Periode (in Grad) hat f(x) = sin(2x) + sin(3x)?"
-   },
-   "o": {
-    "wert": 360
-   },
-   "c": "2 * 180",
-   "w": "sin(2x) hat die Periode 180°, sin(3x) die Periode 120°. Beide wiederholen sich gleichzeitig erst nach dem kleinsten gemeinsamen Vielfachen: 360°.",
-   "h": "Bestimme beide Perioden einzeln. Wann passen beide wieder zusammen?",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Funktion f hat die Periode 8, und es gilt f(3) = 5. Welchen Wert hat f(27)?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "27 = 3 + 3 · 8. Nach drei Perioden wiederholt sich der Wert: f(27) = f(3) = 5.",
-   "h": "Wie viele ganze Perioden liegen zwischen 3 und 27?",
-   "g": "transfer"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den exakten Wert von sin(−17π/6) an."
-   },
-   "o": {
-    "wert": -0.5
-   },
-   "c": "-0.5",
-   "w": "−17π/6 + 4π = 7π/6 (2 volle Runden dazu). sin(7π/6) = sin 210° = −0,5.",
-   "h": "Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt.",
-   "g": "pruefung"
+   "g": "mehrschritt"
   },
   {
    "l": "periode",
@@ -3911,29 +4008,6 @@
    "w": "2π : b = π/3 ⇒ b = 2π : π/3 = 2 · 3 = 6.",
    "h": "Setze in p = 2π : b ein.",
    "g": "rueckwaerts"
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Welche kleinste Periode hat f(x) = sin(x) + cos(2x) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
-    "schablone": "□ · π",
-    "hinweis": "Zahl vor π"
-   },
-   "o": {
-    "werte": [
-     2
-    ]
-   },
-   "w": "sin x hat die Periode 2π, cos(2x) die Periode π. Beide wiederholen sich gleichzeitig erst nach 2π.",
-   "h": "Bestimme beide Perioden. Wann wiederholen sich beide zugleich?",
-   "c": [
-    "2"
-   ],
-   "g": "verknuepfen"
   },
   {
    "l": "periode",
@@ -3991,6 +4065,80 @@
    "w": "Eine volle Runde rückwärts (−2π) führt zum selben Punkt: cos(x − 2π) = cos x. Eine halbe Runde (π) wechselt das Vorzeichen, und sin(−x) = −sin x.",
    "h": "Prüfe jede Aussage mit x = π/2 oder x = 0.",
    "g": "begruenden"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat sin x = 0,3 im Bereich 0° ≤ x < 720°?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 2",
+   "w": "In jeder vollen Umdrehung (360°) gibt es zwei Lösungen. 720° sind zwei Umdrehungen: 2 · 2 = 4 Lösungen.",
+   "h": "Wie viele Lösungen gibt es in einer Umdrehung? Wie viele Umdrehungen sind 720°?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Funktion f hat die Periode 6 und auch die Periode 10. Welche kleinere positive Zahl ist dann sicher ebenfalls eine Periode?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 * 6 - 10",
+   "w": "f(x + 2) = f(x + 12 − 10) = f(x + 12) = f(x) (zweimal +6, einmal −10). Allgemein ist der ggT von 6 und 10 eine Periode.",
+   "h": "Kombiniere Schritte von +6 und −10."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "Welche kleinste Periode hat f(x) = sin(x/2) + cos(x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
+    "schablone": "□ · π",
+    "hinweis": "Zahl vor π"
+   },
+   "o": {
+    "werte": [
+     12
+    ]
+   },
+   "c": [
+    "12"
+   ],
+   "w": "sin(x/2) hat die Periode 4π, cos(x/3) die Periode 6π. Beide wiederholen sich erst gemeinsam beim kleinsten gemeinsamen Vielfachen: 12π.",
+   "h": "Bestimme beide Perioden einzeln."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat cos x = 0,3 im Bereich −360° < x < 360°?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 + 2",
+   "w": "Von 0° bis 360° gibt es zwei Lösungen (≈ 72,5° und ≈ 287,5°). Rückwärts gedreht (−360° bis 0°) wiederholt sich alles: ≈ −72,5° und ≈ −287,5°. Zusammen 4.",
+   "h": "Ein negativer Winkel heißt: im Uhrzeigersinn drehen.",
+   "l": "periode",
+   "t": "periode",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
    "l": "periode",
@@ -4297,46 +4445,6 @@
    },
    "c": "360 / 60",
    "w": "Eine Schwingung dauert 60°, also b = 360° : 60° = 6."
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Eine Funktion f hat die Periode 6 und auch die Periode 10. Welche kleinere positive Zahl ist dann sicher ebenfalls eine Periode?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2 * 6 - 10",
-   "w": "f(x + 2) = f(x + 12 − 10) = f(x + 12) = f(x) (zweimal +6, einmal −10). Allgemein ist der ggT von 6 und 10 eine Periode.",
-   "h": "Kombiniere Schritte von +6 und −10."
-  },
-  {
-   "l": "periode",
-   "t": "periode",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "luecken",
-   "f": {
-    "text": "Welche kleinste Periode hat f(x) = sin(x/2) + cos(x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.",
-    "schablone": "□ · π",
-    "hinweis": "Zahl vor π"
-   },
-   "o": {
-    "werte": [
-     12
-    ]
-   },
-   "c": [
-    "12"
-   ],
-   "w": "sin(x/2) hat die Periode 4π, cos(x/3) die Periode 6π. Beide wiederholen sich erst gemeinsam beim kleinsten gemeinsamen Vielfachen: 12π.",
-   "h": "Bestimme beide Perioden einzeln."
   },
   {
    "l": "parameter",

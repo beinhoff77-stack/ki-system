@@ -1,5 +1,9 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 02:20 – STATUS
+finanzen.zinseszins umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/finanzen.zinseszins.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: formel (Rechenfehler „mal 6“ statt Potenz), rueck (falscher Rechenweg), vergleich (Denkfehler einfache Zinsen). Zahlen der Schrittbilder nachgerechnet: 5 000 · 1,02ⁿ (n = 0…6) bis 5 630,81 €; 1,07⁸…1,07¹¹ = 1,718 / 1,838 / 1,967 / 2,105; 1,05¹⁴ ≈ 1,98 < 2 ≤ 1,05¹⁵ ≈ 2,08.
+
 ## 2026-11-17 02:18 – STATUS
 daten.normalverteilung umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/daten.normalverteilung.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: regel (136 % liegt außerhalb jedes Bildes), anteile und zwert (Rechenfehler; die Schrittbilder zeigen die richtige Fläche bzw. den Abstand), vergleichen (Denkfehler). Kartenbilder jetzt echte Glockenkurven (Graph-Art glocke) mit gefärbten Flächen; der alte App-Wunsch „Glockenkurve“ ist aus offen entfernt, Hinweis für die unveränderten Aufgaben-Grafiken ergänzt.

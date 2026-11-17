@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:59 – STATUS: geometrie.winkel fertig
+7 Lernkarten: 27 neue Übungen, 14 Knobel-Bordkarten, 31 umgestuft, 36 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK.
+
 ## 2026-11-17 14:56 – STATUS: geometrie.grundbegriffe fertig
 7 Lernkarten: 27 neue Übungen, 14 Knobel-Bordkarten, 36 umgestuft, 28 überzählig. Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Gegenprobe ohne überzählige OK, Nachweis OK. Hinweis: vierecke/„Welche Aussage stimmt?“ (Ist-Beziehungen) als überzählig gemeldet, weil sie dieselben Aussagen wie die sechs Stimmt-Aufgaben abfragt.
 

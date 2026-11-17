@@ -272,7 +272,7 @@ def schraeg_prisma(front, tiefe, e='cm', labels=None, tiefe_text=True, q=0.5):
 
 def schraeg_quader(a, b, c, e='cm', la=True, lb=True, lc=True, gitter=False):
     """Quader: Breite a (vorn), Tiefe b (45°, halb), Höhe c. gitter: Einheitswürfel auf den sichtbaren Flächen."""
-    f = schraeg_prisma([(0, 0), (a, 0), (a, c), (0, c)], b, e, labels={0: gr(a, e) if la is True else (la or ''), 1: gr(c, e) if lc is True else (lc or '')},
+    f = schraeg_prisma([(0, 0), (a, 0), (a, c), (0, c)], b, e, labels={0: gr(a, e) if la is True else (la or ''), 3: gr(c, e) if lc is True else (lc or '')},
                        tiefe_text=(gr(b, e) if lb is True else (lb or False)))
     if gitter:
         dd = 0.5 / math.sqrt(2)

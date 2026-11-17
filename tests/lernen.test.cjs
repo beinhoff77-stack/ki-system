@@ -142,6 +142,10 @@ async function setup(t, opt = {}) {
       { einheit_id: 2, block_id: 52, stadt: 'New York', ort_titel: 'Zinsen', etappen: ETAPPEN.slice(0, 2), stand: { stellenwert: { fertig: true } }, blocktest_fertig: false, nachtest: { grund: 'einheit_offen' } }] };
     else if (b.aktion === 'schule_uebung_pruefen') {
       const a = AUFG[d.aufgabe_id]; const r = bewerte(a, d.antwort);
+      if (d.misch && !(r.format_ok && !r.richtig && d.anlauf === 1)) { // W176 Teil 3: Mischkarte – kein Karten-Stand der aktuellen Etappe, dafür die Herkunft
+        e = { ok: true, ...r, loesung: a.loesung, loesungsweg: 'Weg zur Lösung.', misch: { etappe: 'Große Zahlen lesen', stadt: 'New York', ok: r.richtig && !d.hilfe && d.anlauf !== 2 } };
+        await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) }); return;
+      }
       if (a.bonus) { // F: wie die Datenbank nach Migration F – kein Karten-Stand, kein „nochmal“
         e = { ok: true, ...r, bonus: true, erster_versuch: true, sterne: r.richtig ? 30 : 0, knobel_sterne: r.richtig ? 1 : 0, loesung: a.loesung, loesungsweg: 'Erst 1,2 · x, dann 0,96 · x.' };
         await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) }); return;
@@ -1575,4 +1579,42 @@ test('W176 T1: gelandet und sicher – Kind sieht „Gelandet“/„Sicher“, E
   await page.goto(origin + '/#/wackelt/1');
   await page.locator('.ls-karte', { hasText: 'Welchen Wert hat eine Ziffer?' }).getByText('sicher', { exact: true }).waitFor();
   await page.locator('.ls-karte', { hasText: 'Runden' }).getByText('2 eigene Lösungen · 0 in Folge · 1 Art von Bordkarten').waitFor();
+});
+
+// ---------- Bau-Auftrag G (W176) Teil 3: Mischkarten ----------
+test('W176 T3: Auswahl der Mischkarte – erst ab 3 gelandeten Etappen, jede n-te, gleicher Flug zuerst, jede 3. aus einem älteren Flug', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  const r = await page.evaluate(() => {
+    const k = () => [{ id: 1, quelle: 'aelter' }, { id: 2, quelle: 'kontinent' }, { id: 3, quelle: 'flug' }, { id: 4, quelle: 'flug' }, { id: 5, quelle: 'aelter' }];
+    const z = { n: 0 }, rest = k();
+    const folge = [4, 8, 12].map((nr) => lernMischWahl(rest, { nr, jede: 4, ab: 3, gelandet: 3, zaehler: z })?.id);
+    return [lernMischWahl(k(), { nr: 4, jede: 4, ab: 3, gelandet: 2 }), lernMischWahl(k(), { nr: 5, jede: 4, ab: 3, gelandet: 3 }), lernMischWahl(k(), { nr: 6, jede: 6, ab: 3, gelandet: 5 })?.misch,
+      lernMischWahl(k(), { nr: 4, jede: 4, gelandet: 3, aus: true }), lernMischWahl([], { nr: 4, jede: 4, gelandet: 3 }), folge];
+  });
+  assert.deepEqual(r, [null, null, true, null, null, [3, 4, 1]]);
+});
+
+test('W176 T3: Mischkarte beim Üben – neutral gekennzeichnet, ohne Erklärung, nach der Lösung die Etappe; zählt nicht für die aktuelle Etappe', async (t) => {
+  const misch = (aktion, e) => {
+    if (aktion !== 'schule_einheit_lesen') return null; const x = neueRegel({ strahl: { sitzt: true } })(aktion, e);
+    x.mischkarten = [{ ...zeig(AUFG[14]), stufe: 2, einheit_id: 2, quelle: 'aelter', stadt: 'New York', etappe: 'Große Zahlen lesen' },
+      { id: 501, bonus: true, lernziel: 'x', einheit_id: 2, quelle: 'flug', frage: { text: 'Knobel' } }];
+    x.misch_jede = 1; x.misch_ab = 1; return x; };
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: misch });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('Aus deiner Reise – erkennst du, was gefragt ist?').waitFor();
+  assert.equal(await page.getByRole('button', { name: 'Erklärung ansehen' }).count(), 0);
+  assert.doesNotMatch(await page.locator('.lr-bordkarte').innerText(), /Große Zahlen lesen|New York/, 'Etappe erst nach der Lösung');
+  const vorher = await page.locator('.lr-checkliste').innerText();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+  await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Das war: Große Zahlen lesen – New York').waitFor();
+  const c = calls.filter((x) => x.aktion === 'schule_uebung_pruefen').at(-1);
+  assert.equal(c.daten.misch, true); assert.equal(c.daten.aufgabe_id, 14);
+  assert.equal(await page.locator('.lr-checkliste').innerText(), vorher, 'aktuelle Etappe unverändert');
+  // Knobel-Bordkarten kommen nie als Mischkarte: die nächste Bordkarte ist eine normale aus Rom
+  await page.getByRole('button', { name: /Neue Bordkarte/ }).click();
+  await page.getByText(/BORDKARTE 2 · ROM/).waitFor();
 });

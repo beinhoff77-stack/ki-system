@@ -113,7 +113,9 @@ Für Inhalte wichtig, weil die Regel Aufgabentypen und schwere Bordkarten voraus
   (wenn die Lernkarte mindestens 2 hat) und **1 Stufe-3-Aufgabe mit Stufe-3-Typ** (wenn vorhanden), und die **letzten 3 in Folge** richtig.
 - **Keine Minuspunkte.** Ein endgültiger Fehler setzt nur „in Folge“ auf 0; eigene Lösungen bleiben. Tipp oder 2. Versuch richtig zählt nicht und unterbricht die Folge nicht.
 - **Stufe:** steigt mit den eigenen Lösungen, fällt erst nach 2 Fehlern in Folge um 1. Deshalb braucht jede Lernkarte auf jeder Stufe mehrere Typen (siehe oben).
-- **Sicher** (Anzeige): gelandet + Wiederholung nach 14 Lerntagen bestanden + Nachtest des Flugs bestanden (später zusätzlich: eine Mischkarte richtig).
+- **Sicher** (Anzeige): gelandet + Wiederholung nach 14 Lerntagen bestanden + einmal in einer Mischkarte richtig erkannt + Nachtest des Flugs bestanden.
+- **Mischkarten:** Sind im Flug mindestens 3 Etappen gelandet, ist beim Üben jede 4. Bordkarte (bis Klasse 6 jede 6.) eine Übung (Stufe 2–3) aus einer anderen gelandeten Etappe –
+  ohne Etappen-Titel. Deshalb muss jede Übung **für sich allein verständlich** sein (nicht „wie oben“, nicht „dieselbe Figur“) und darf den Namen der Lernkarte nicht voraussetzen.
 - Knobel-Bordkarten (`bonus`) zählen nie.
 
 ### Wenn ein Thema Zeichnungen braucht

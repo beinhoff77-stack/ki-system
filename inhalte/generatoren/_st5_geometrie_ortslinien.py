@@ -1,0 +1,121 @@
+"""Zwanzigste Runde, Klasse 5: geometrie.ortslinien – Typen, neue Übungen, Knobel-Bordkarten (siehe _stufen_kl5.py)."""
+from _stufen_kl5 import A, Z
+
+KARTEN = {
+ 'kreislinie': {
+  'leiter': ('Mit Abstand und Radius entscheiden, ob ein Punkt innerhalb, auf oder außerhalb eines Kreises liegt.',
+             'Die Lage im Koordinatensystem bestimmen, Punkte auf der Kreislinie finden, Empfangs- und Reichweiten.',
+             'Gitterpunkte im Kreis zählen, Punkte mit vorgegebenem Abstand finden, größte Abstände begründen, Fehler mit dem Durchmesser erklären.'),
+  'typ': [(r'^Ein Kreis um M hat den Radius \d+ cm\. Der Punkt P', 'direkt'), (r'^Kreis um M\(.*\) mit r = \d+\. Wo liegt', 'mehrschritt'), (r'Welcher Punkt liegt', 'darstellung'),
+          (r'ganzzahligen Koordinaten', 'transfer'), (r'senkrechten Linie durch M', 'verknuepfen'), (r'Q liegt genau in der Mitte', 'rueckwaerts'), (r'höchstens voneinander', 'begruenden'),
+          (r'Ziege', 'pruefung'), (r'Stimmt', 'fehler')],
+  'neu': [
+   ('erkennen', A('Wie heißt die Linie aller Punkte, die von M genau 3 cm entfernt sind?', 'Kreislinie um M mit r = 3 cm', ['Gerade durch M', 'Streifen um M', 'Kreisfläche um M mit r = 6 cm'], 'Alle Punkte mit gleichem Abstand von M liegen auf einem Kreis um M.', 'Was zeichnet ein Zirkel?')),
+   ('erkennen', A('Ein Punkt liegt auf dem Kreis um M mit r = 4 cm. Wie weit ist er von M entfernt?', '4 cm', ['2 cm', '8 cm', 'Das kann man nicht sagen.'], 'Jeder Punkt der Kreislinie ist genau r von M entfernt.', 'Was bedeutet der Radius?')),
+   ('einkleidung', A('Ein Handymast reicht 5 km weit in jede Richtung. Ein Haus ist 4 km vom Mast entfernt. Hat es Empfang?', 'Ja, 4 km < 5 km.', ['Nein, 4 km < 5 km.', 'Nur, wenn es genau 5 km sind.'], 'Das Haus liegt innerhalb des Kreises mit r = 5 km.', 'Vergleiche Entfernung und Reichweite.')),
+   ('umkehr', Z('Ein Punkt P ist 7 cm von M entfernt und liegt genau auf der Kreislinie um M. Wie groß ist der Durchmesser des Kreises?', 14, '2 * 7', 'Der Radius ist 7 cm, der Durchmesser doppelt so lang: 14 cm.', 'Wie lang ist der Radius?', einheit='cm')),
+  ],
+  'knobel': [
+   Z('Wie viele Punkte mit ganzzahligen Koordinaten liegen auf einer der beiden Achsen und innerhalb oder auf dem Kreis um (0 | 0) mit r = 2?', 9, '5 + 5 - 1',
+     'Auf der x-Achse: −2, −1, 0, 1, 2 – 5 Punkte. Auf der y-Achse ebenso 5. Der Ursprung zählt doppelt: 5 + 5 − 1 = 9.', 'Vorsicht beim Ursprung.'),
+   Z('Zwei Kreise haben denselben Mittelpunkt M, der kleine hat r = 3 cm, der große r = 5 cm. Wie weit kann ein Punkt des großen Kreises von einem Punkt des kleinen Kreises höchstens entfernt sein?', 8, '3 + 5',
+     'Am weitesten auseinander liegen sie, wenn sie sich gegenüber liegen, mit M dazwischen: 3 cm + 5 cm = 8 cm.', 'Wo müssen die beiden Punkte liegen?', einheit='cm'),
+  ],
+ },
+ 'parallelen': {
+  'leiter': ('Punkte mit festem Abstand zu einer Geraden liegen auf zwei Parallelen.',
+             'Lage von Punkten zu Streifen bestimmen, Abstände von Parallelen im Koordinatensystem, Streifenbreiten.',
+             'Mittelparallelen finden, Gitterpunkte mit Abstandsbedingungen zählen, Punkte aus Verhältnissen der Abstände.'),
+  'typ': [(r'^Zwei Parallelen zu g haben beide', 'direkt'), (r'Alle Punkte mit Abstand \d+ von g liegen auf zwei', 'direkt'), (r'Der Streifen enthält', 'mehrschritt'),
+          (r'g: y = −1 und h: y = 5', 'darstellung'), (r'Wie breit ist der Streifen', 'umkehr'), (r'gleich weit entfernt sin', 'transfer'), (r'Wie viele Punkte mit ganzzahligen', 'verknuepfen'),
+          (r'P liegt auf der y-Achse', 'rueckwaerts'), (r'x-Achse den Abstand 2', 'pruefung'), (r'zu beiden parallel', 'begruenden'), (r'doppelt so weit', 'parameter')],
+  'neu': [
+   ('erkennen', A('Wo liegen alle Punkte, die von einer Geraden g genau 2 cm entfernt sind?', 'auf zwei Parallelen zu g, eine auf jeder Seite', ['auf einem Kreis', 'auf einer einzigen Parallelen', 'auf g selbst'], 'Auf jeder Seite von g liegt eine Parallele im Abstand 2 cm.', 'Es gibt zwei Seiten von g.')),
+   ('einkleidung', Z('Ein Radweg verläuft parallel zu einem Straßenrand im Abstand von 6 m. Ein Kind läuft genau in der Mitte dazwischen. Wie weit ist es vom Straßenrand entfernt?', 3, '6 // 2', 'Die Mitte liegt bei der Hälfte des Abstands: 3 m.', 'Halbiere den Abstand.', einheit='m')),
+  ],
+  'knobel': [
+   Z('Wie viele Punkte mit ganzzahligen Koordinaten liegen zwischen den Linien x = −2 und x = 2 (beide mitgezählt) und haben von der x-Achse genau den Abstand 3?', 10, '5 * 2',
+     'Abstand 3 von der x-Achse: y = 3 oder y = −3. x kann −2, −1, 0, 1, 2 sein. 5 · 2 = 10 Punkte.', 'Auf welchen Linien liegen Punkte mit Abstand 3 von der x-Achse?'),
+   Z('Ein Streifen um die Gerade g ist 6 cm breit, ein zweiter Streifen um eine zu g senkrechte Gerade h ist 4 cm breit. Die Punkte, die in beiden Streifen liegen, bilden ein Rechteck. Wie groß ist sein Umfang?', 20, '2 * (6 + 4)',
+     'Das Rechteck ist so lang wie der eine Streifen breit ist und so breit wie der andere: 6 cm und 4 cm. Umfang 2 · (6 + 4) = 20 cm.', 'Zeichne die beiden Streifen.', einheit='cm'),
+  ],
+ },
+ 'zwei_kreise': {
+  'leiter': ('Mit zwei Abständen entscheiden, wie viele Orte es gibt (zwei Kreise).',
+             'Schnittpunkte zweier Kreise aus Radien und Abstand bestimmen, Grenzabstände, Punkte genau in der Mitte.',
+             'Berührpunkte berechnen, Abstände für Berühren oder Schneiden bestimmen, Fehlschlüsse erklären, Reichweiten verknüpfen.'),
+  'typ': [(r'^A und B sind 8 km|^A und B sind \d+ km voneinander entfernt\. Wie viele Orte', 'direkt'), (r'Wie weit dürfen A und B höchstens', 'umkehr'),
+          (r'Wie viele (Schnittpunkte|gemeinsame Punkte) haben die Kreise', 'mehrschritt'), (r'jeweils genau \d+ cm entfernt', 'darstellung'), (r'In welchem Punkt T', 'verknuepfen'),
+          (r'von außen in genau einem Punkt berühren', 'rueckwaerts'), (r'in zwei Punkten schneiden', 'parameter'), (r'jeweils genau den Abstand', 'pruefung'), (r'Jemand sagt', 'fehler')],
+  'neu': [
+   ('erkennen', A('Wo liegen alle Orte, die 5 km von A entfernt sind?', 'auf einem Kreis um A mit r = 5 km', ['auf einer Geraden durch A', 'nur an einer Stelle', 'auf zwei Parallelen'], 'Gleicher Abstand von einem Punkt: Kreis.', 'Was zeichnet ein Zirkel?')),
+   ('erkennen', A('Zwei Kreise berühren sich von außen. Wie viele gemeinsame Punkte haben sie?', '1', ['0', '2', '3'], 'Berühren heißt: genau ein gemeinsamer Punkt.', 'Was bedeutet „berühren“?')),
+   ('begruenden', A('Stimmt die Aussage? „Haben zwei gleich große Kreise genau einen gemeinsamen Punkt, liegt er genau in der Mitte zwischen den Mittelpunkten.“', 'Ja: Er ist von beiden Mittelpunkten gleich weit entfernt und liegt auf ihrer Verbindungsstrecke.',
+                    ['Nein, er liegt immer bei einem Mittelpunkt.', 'Nein, gleich große Kreise berühren sich nie.', 'Ja, aber nur bei r = 1 cm.'], 'Beim Berühren liegt der Punkt auf [AB], r von A und r von B entfernt – also in der Mitte.', 'Wo liegt der Berührpunkt zweier Kreise?')),
+   ('transfer', Z('Ein Leuchtturm ist bis 12 km weit zu sehen, ein zweiter bis 9 km. Sie stehen 25 km auseinander. Wie lang ist auf ihrer Verbindungslinie das Stück, von dem aus man keinen von beiden sieht?', 4, '25 - 12 - 9',
+                  'Vom ersten Leuchtturm aus sieht man 12 km weit, vom zweiten 9 km. 25 − 12 − 9 = 4 km bleiben dazwischen.', 'Zeichne die Strecke und markiere beide Reichweiten.', einheit='km')),
+  ],
+  'knobel': [
+   Z('A, B und C liegen auf einer Geraden, B in der Mitte, AB = BC = 4 km. Wie viele Orte sind von A und von C jeweils genau 5 km entfernt?', 2, '2',
+     'Die Kreise um A und C mit r = 5 km schneiden sich, weil 5 + 5 > 8. Die zwei Schnittpunkte liegen symmetrisch über und unter B. Also 2 Orte.', 'Vergleiche die Summe der Radien mit dem Abstand von A und C.'),
+   Z('Ein Kreis um A hat r = 2 cm, ein Kreis um B hat r = 6 cm, und AB = 3 cm. Wie viele gemeinsame Punkte haben die Kreise?', 0, '0',
+     'Der kleine Kreis reicht von B aus gesehen höchstens 3 + 2 = 5 cm weit – weniger als 6 cm. Er liegt also ganz im großen Kreis und berührt ihn nicht: 0 gemeinsame Punkte.', 'Wie weit reicht der kleine Kreis höchstens von B weg?'),
+  ],
+ },
+ 'verknuepfen': {
+  'leiter': ('Schnittpunkte von Kreis und Gerade aus Abstand und Radius bestimmen.',
+             'Parallelen und Kreise kombinieren, Punkte mit Abstand zu M und zu g zählen.',
+             'Kreis und Parallelenpaar systematisch auswerten, Radien für eine Zahl von Schnittpunkten finden, Fehlschlüsse erklären.'),
+  'typ': [(r'^Kreis um M mit r = \d+ cm\. Die Gerade g hat von M den Abstand', 'direkt'), (r'Zwei Parallelen zu g haben von g jeweils|höchstens \d+ cm Abstand|Abstand 4 cm und von g den Abstand 2 cm\?$', 'mehrschritt'),
+          (r'Wie viele Punkte von g haben von M genau', 'darstellung'), (r'M liegt auf der Geraden g', 'transfer'), (r'genau 3 gemeinsame P', 'parameter'), (r'Baum', 'pruefung'), (r'.', 'verknuepfen')],
+  'neu': [
+   ('erkennen', A('Wie viele gemeinsame Punkte kann ein Kreis mit einer Geraden höchstens haben?', '2', ['1', '3', 'unendlich viele'], 'Eine Gerade schneidet einen Kreis höchstens zweimal (Sekante).', 'Denk an Sekante, Tangente, Passante.')),
+   ('erkennen', A('Wo liegen alle Punkte, die von M genau 3 cm und von g genau 0 cm entfernt sind?', 'dort, wo der Kreis um M mit r = 3 cm die Gerade g trifft', ['auf zwei Parallelen zu g', 'überall auf g', 'nur bei M'], '0 cm von g heißt: auf g. 3 cm von M heißt: auf dem Kreis. Beides zugleich: Schnittpunkte.', 'Übersetze beide Bedingungen in eine Linie.')),
+   ('einkleidung', Z('Ein Brunnen ist 6 m von einer geraden Mauer entfernt. Eine Lampe soll an der Mauer stehen und genau 6 m vom Brunnen entfernt sein. Wie viele Stellen gibt es dafür?', 1, '1',
+                     'Der Kreis um den Brunnen mit r = 6 m berührt die Mauer genau (Abstand = Radius): eine Stelle.', 'Vergleiche Radius und Abstand zur Mauer.')),
+   ('fehler', A('Jemand sagt: „M ist 5 cm von g entfernt. Der Kreis um M mit r = 3 cm schneidet g in zwei Punkten.“ Was ist falsch?', 'Der Abstand 5 cm ist größer als der Radius 3 cm: Der Kreis erreicht g nicht.',
+                ['Nichts, das stimmt.', 'Er schneidet g in drei Punkten.', 'Er berührt g genau einmal.'], 'Abstand > Radius: Passante, 0 Schnittpunkte.', 'Vergleiche Abstand und Radius.')),
+   ('rueckwaerts', Z('Ein Kreis um M berührt die Gerade g. M liegt 4 cm von g entfernt. Wie groß ist der Durchmesser des Kreises?', 8, '2 * 4', 'Berühren heißt: Radius = Abstand = 4 cm. Durchmesser 8 cm.', 'Wie groß muss der Radius beim Berühren sein?', einheit='cm')),
+  ],
+  'knobel': [
+   Z('M liegt 2 cm von der Geraden g entfernt. Wie viele Punkte sind 3 cm von M und 1 cm von g entfernt?', 3, '2 + 1',
+     'Punkte mit 1 cm Abstand von g liegen auf zwei Parallelen: eine 1 cm von M entfernt, die andere 3 cm. Der Kreis um M mit r = 3 cm schneidet die erste zweimal und berührt die zweite einmal: 3 Punkte.', 'Wie weit sind die beiden Parallelen jeweils von M entfernt?'),
+   Z('Die Geraden g und h schneiden sich senkrecht. Wie viele Punkte haben von g und von h jeweils genau 2 cm Abstand?', 4, '2 * 2', 'Zu g gibt es zwei Parallelen im Abstand 2 cm, zu h ebenso. Je eine Parallele zu g schneidet je eine zu h: 2 · 2 = 4 Punkte.', 'Zeichne die Parallelen zu beiden Geraden.'),
+  ],
+ },
+ 'sachsituationen': {
+  'leiter': ('Mit Reichweite und Entfernung entscheiden, ob etwas erreicht wird.',
+             'Streifen und Reichweiten in Sachsituationen berechnen, Orte zu zwei Sendern bestimmen.',
+             'Leinen an Zäunen, überlappende Reichweiten, Schatzsuche mit zwei Bedingungen, Grenzen bestimmen, Fehlschlüsse erklären.'),
+  'typ': [(r'Zwei Rasensprenger stehen 10', 'transfer'), (r'^Ein Hund ist an einer Leine|^Ein Rasensprenger erreicht', 'direkt'), (r'Sicherheitsstreifen|Zwei Rasensprenger stehen', 'mehrschritt'), (r'Sender A und B|Spielplatz', 'einkleidung'),
+          (r'breitesten Stelle', 'umkehr'), (r'Ziege|Pony', 'verknuepfen'), (r'Zwei Rasensprenger stehen 10', 'transfer'), (r'Schatz', 'pruefung'), (r'Autobahn', 'rueckwaerts'), (r'Jemand sagt', 'fehler')],
+  'neu': [
+   ('erkennen', A('Ein Pferd ist mit einer 4 m langen Leine an einem Pflock angebunden. Welche Form hat die Fläche, die es erreichen kann?', 'eine Kreisfläche mit r = 4 m', ['ein Quadrat mit Seite 4 m', 'ein Streifen von 4 m Breite', 'eine Kreisfläche mit r = 8 m'], 'Alle Punkte bis 4 m vom Pflock: Kreisfläche um den Pflock.', 'Wie weit kommt das Pferd in jede Richtung?')),
+   ('begruenden', A('Stimmt die Aussage? „Eine Ziege an einer 4 m langen Leine kann zwei Büsche erreichen, die 9 m voneinander entfernt sind.“', 'Nein: Zwei erreichbare Punkte sind höchstens 8 m voneinander entfernt.',
+                    ['Ja, wenn der Pflock in der Mitte steht.', 'Ja, immer.', 'Nein, sie erreicht nie zwei Büsche.'], 'Der Durchmesser der erreichbaren Kreisfläche ist 8 m < 9 m.', 'Wie weit liegen zwei Punkte der Kreisfläche höchstens auseinander?')),
+   ('parameter', Z('Ein Sprenger soll ein Beet erreichen, das 7 m entfernt ist, aber nicht das Fenster, das 10 m entfernt ist. Wie groß ist die größte ganze Reichweite in m, die passt?', 9, '9', 'Reichweite mindestens 7 m und kleiner als 10 m: höchstens 9 m (ganze Meter).', 'Zwischen welchen Grenzen muss die Reichweite liegen?', einheit='m')),
+  ],
+  'knobel': [
+   Z('Zwei Hunde sind an Pflöcken angeleint, die 10 m auseinander stehen. Die Leinen sind 4 m und 5 m lang. Wie nah können sich die Hunde höchstens kommen?', 1, '10 - 4 - 5', 'Laufen beide auf der Verbindungslinie aufeinander zu, kommen sie 4 m und 5 m weit. Es bleibt 10 − 9 = 1 m.', 'Wohin müssen beide laufen?', einheit='m'),
+   Z('Drei Rasensprenger stehen in einer Reihe, je 8 m voneinander. Jeder reicht 5 m weit. Wie lang ist auf der Linie durch die Sprenger das Stück, das nass wird?', 26, '2 * 8 + 2 * 5',
+     'Die Sprenger stehen bei 0 m, 8 m und 16 m. Nass wird von −5 m bis 21 m, und die Bereiche überlappen sich (5 m + 5 m > 8 m). Länge: 21 − (−5) = 26 m.', 'Setz die Sprenger auf einen Zahlenstrahl.', einheit='m'),
+  ],
+ },
+ 'verstehen': {
+  'leiter': ('Einfache Aussagen über Kreis, Abstand und Parallelen prüfen.',
+             'Aussagen über Streifen, zwei Kreise und Leinen mit einer kleinen Rechnung prüfen.',
+             'Allgemeine Aussagen über Schnittpunkte begründen, Ortslinien benennen, Ringe und Fehlschlüsse.'),
+  'typ': [(r'Gerade in drei Punkten', 'fehler'), (r'höchstens 4 cm Abstand von g|Zwei Kreise mit r = \d+ cm, deren', 'mehrschritt'), (r'Hund', 'einkleidung'), (r'genau 2 cm Abstand von g bilden einen Streifen', 'darstellung'),
+          (r'5 Schnittpunkte|drei Punkten schneiden\.“$|4 Schnittpunkte', 'begruenden'), (r'Ortslinie|gleichzeitig von M', 'transfer'), (r'Ring', 'verknuepfen'),
+          (r'Gerade in drei Punkten', 'fehler'), (r'.', 'erkennen')],
+  'neu': [
+   ('direkt', Z('Wie breit ist der Streifen aller Punkte, die von der Geraden g höchstens 3 cm entfernt sind?', 6, '2 * 3', 'Auf jeder Seite 3 cm: 6 cm.', 'Der Streifen geht nach beiden Seiten.', einheit='cm')),
+   ('rueckwaerts', Z('Alle Punkte, die von M höchstens r cm entfernt sind, bilden eine Kreisfläche mit dem Durchmesser 14 cm. Wie groß ist r?', 7, '14 // 2', 'Der Radius ist der halbe Durchmesser: 7 cm.', 'Wie hängen Radius und Durchmesser zusammen?', einheit='cm')),
+  ],
+  'knobel': [
+   Z('M liegt auf der Geraden g. Wie viele Punkte sind von M und von g jeweils genau 2 cm entfernt?', 2, '2',
+     'Die Punkte mit 2 cm Abstand von g liegen auf zwei Parallelen. Der Kreis um M mit r = 2 cm berührt jede dieser Parallelen genau einmal (direkt über und unter M). Also 2 Punkte.', 'Wie liegt der Kreis zu den beiden Parallelen?'),
+   Z('Wie viele gemeinsame Punkte können ein Kreis und zwei sich schneidende Geraden zusammen höchstens haben (Punkte, die auf dem Kreis und auf mindestens einer Geraden liegen)?', 4, '2 + 2', 'Jede Gerade schneidet den Kreis höchstens zweimal: 2 + 2 = 4.', 'Wie oft schneidet eine Gerade einen Kreis höchstens?'),
+  ],
+ },
+}

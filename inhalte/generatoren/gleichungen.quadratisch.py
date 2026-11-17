@@ -898,5 +898,29 @@ for _t in ('Wie viele Lösungen hat 2x² − 3x + 3 = 0?', 'Wie viele Lösungen 
     DS.stufe('diskriminante', _t, 1)
 DS.stufe('diskriminante', 'Jemand sagt: „4x² + 6x + 7 = 0 hat zwei Lösungen, weil die Lösungsformel ± enthält.“ Was stimmt?', 2)
 
+# Zusatz (Prüfung der Achtzehnten Runde): Scheinlösung in der Bildergeschichte und in einer Sicherungsaufgabe
+DS.ersetze('bruchgleichung', 'Löse die Bruchgleichung 2/x = x + 1 (D = ℝ ohne 0). Kleinere Lösung zuerst.',
+           DS.Z('Löse x²/(x − 4) = 16/(x − 4). Gib die Lösung an.', -4, '-4',
+                'D = ℝ ohne 4. Mal (x − 4): x² = 16, also x = 4 oder x = −4. x = 4 liegt nicht in D (Nenner 0): Scheinlösung. Lösung: x = −4.',
+                'Bestimme zuerst D und prüfe am Ende jede Lösung.'), pools=('sicherung',))
+_BG_BILD = {'typ': 'koordinaten', 'x': [-6, 6], 'y': [-6, 7],
+            'graphen': [{'art': 'hyperbel', 'a': 6, 'b': 0, 'c': 0, 'name': '6/x'}, {'art': 'linear', 'm': 1, 't': 1, 'name': 'x + 1'}]}
+DS_KARTEN = {
+    'bruchgleichung': {
+        'woerter': [['Bruchgleichung', 'Gleichung, bei der x im Nenner eines Bruchs steht'],
+                    ['Definitionsmenge', 'alle Zahlen, die man für x einsetzen darf; kein Nenner darf 0 werden'],
+                    ['Scheinlösung', 'eine Lösung der umgeformten Gleichung, die nicht in der Definitionsmenge liegt; sie fällt weg']],
+        'schritte': [{'text': 'Definitionsmenge: x darf nicht 0 sein, sonst steht 0 im Nenner.'},
+                     {'text': 'Beide Seiten mal x nehmen: 6 = x² + x.'},
+                     {'text': 'x² + x − 6 = 0 ergibt ⟦x = 2 oder x = −3⟧.',
+                      'bild': {'punkte': [{'x': 2, 'y': 3, 'name': '(2 | 3)'}, {'x': -3, 'y': -2, 'name': '(−3 | −2)'}]}},
+                     {'text': '−3 m ist keine Länge. Die kurze Seite ist ⟦2 m⟧ lang.', 'bild': {'punkte': [{'x': 2, 'y': 3, 'name': '2 m'}]}},
+                     {'text': 'Achtung: Bei x²/(x + 3) = 9/(x + 3) fällt −3 weg, eine Scheinlösung.',
+                      'bild': {'typ': 'tabelle', 'kopf': ['x', 'in D?', 'also'], 'zeilen': [['3', 'ja', 'Lösung'], ['−3', 'nein, Nenner 0', 'Scheinlösung']]}}],
+        'fehler_bild': {**_BG_BILD, 'punkte': [{'x': 5, 'y': 1.2, 'name': '6/5'}, {'x': 5, 'y': 6, 'name': '5 + 1'}], 'senkrecht': [5]},
+        'regel': 'Definitionsmenge bestimmen, mit dem Nenner malnehmen, quadratisch lösen. Jede Lösung mit ⟦D⟧ prüfen: Sonst ist sie eine Scheinlösung.',
+    },
+}
+
 if __name__ == '__main__':
-    durchsicht('gleichungen.quadratisch', DS)
+    durchsicht('gleichungen.quadratisch', DS, DS_KARTEN)

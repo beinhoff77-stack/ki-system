@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+bruch.prozent_grundwert fertig: 125 alte Übungen mit Typ, 5 umgestuft (reine Faktor-Rechnungen nach Stufe 2, Fehleraufgabe „Tom“ nach Stufe 3), 28 neue Übungen, 14 Knobel-Bordkarten, 22 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
+
+## 2026-11-17 – STATUS
 gleichungen.linear fertig: 132 alte Übungen mit Typ, 6 umgestuft (reine Rechenaufgaben von Stufe 3 nach 2), 22 neue Übungen, 12 Knobel-Bordkarten, 9 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
 
 ## 2026-11-17 – STATUS

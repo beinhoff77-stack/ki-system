@@ -764,6 +764,226 @@ DS.ersetze('argumente', 'Welche Aussage ist mathematisch richtig begründet?',
 # ---- DURCHSICHT ENDE ----
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): BMT8 (ISB) – Rabatt als Term, Preis nach Reduzierung, Grundwert aus reduziertem Preis, Gebühren-Aufschlag;
+# Knobel nach der Art von Känguru 7/8 und Mathematik-Olympiade (Wassermelone, zwei Fahrräder, Klassenanteile, Mindestanteil beider Merkmale).
+from _stufen_kl7 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('bruch.prozent_grundwert', 20_7_6)
+# faktor
+ST.leiter('faktor', 'Zu „um p % erhöhen/verringern“ den Wachstumsfaktor angeben; passenden Faktor erkennen.',
+          'Vom Faktor zur Prozentänderung, „auf“ statt „um“, Verdopplung und Verdreifachung, Sale, Balkenbild.',
+          'Fehler beim Faktor, Filteranlage, Gleichung zum Chor, Rechteckfläche, Rückweg-Faktor, Parameter, Grenze 100 %, Prüfungsaufgabe Term.')
+ST.regel('faktor', 1, '', 'direkt')
+ST.regel('faktor', 2, 'AUF', 'mehrschritt')
+ST.regel('faktor', 2, '', 'umkehr')
+ST.regel('faktor', 3, 'Jemand', 'fehler')
+ST.regel('faktor', 3, 'verdreifacht', 'umkehr', neu_s=2)
+ST.regel('faktor', 3, 'Filteranlage', 'transfer')
+ST.regel('faktor', 3, 'Chor', 'verknuepfen')
+ST.regel('faktor', 3, 'wieder beim Ausgangswert', 'rueckwaerts')
+ST.regel('faktor', 3, 'Mit welchem Faktor', 'mehrschritt', neu_s=2)
+ST.regel('faktor', 3, '', 'umkehr', neu_s=2)
+ST.neu('faktor', 1, 'erkennen', ST.A('Welcher Faktor gehört zu „um 25 % erhöhen“?', '1,25', ['0,25', '0,75', '25'],
+                                     'Der neue Wert ist 100 % + 25 % = 125 % des alten Werts, also das 1,25-Fache.', 'Wie viel Prozent des alten Werts hat man danach?'))
+ST.neu('faktor', 2, 'einkleidung', ST.Z('Ein Pulli kostete 40 €. Im Sale kostet er nur noch das 0,7-Fache. Wie viel Prozent Rabatt sind das?', 30, '(1 - 0.7) * 100',
+                                       '0,7 = 70 % des alten Preises. Der Rabatt ist 100 % − 70 % = 30 % (12 €).', 'Wie viel Prozent des alten Preises zahlt man noch?', einheit='%'))
+ST.neu('faktor', 2, 'darstellung', ST.A('Ein Balken der Länge 1 steht für den alten Preis. Der neue Preis ist ein Balken der Länge 1,15. Was ist passiert?', 'Der Preis ist um 15 % gestiegen.',
+                                       ['Der Preis ist um 1,15 % gestiegen.', 'Der Preis ist um 115 % gestiegen.', 'Der Preis ist auf 15 % gesunken.'],
+                                       'Der neue Balken ist das 1,15-Fache des alten: 115 % des alten Preises, also 15 % mehr.', 'Wie viel Prozent des alten Balkens ist der neue?'))
+ST.neu('faktor', 3, 'begruenden', ST.A('Warum kann ein Wert nicht um mehr als 100 % sinken?', 'Bei 100 % Abnahme ist der Faktor 0 und der Wert 0 – weniger als nichts bleibt nicht übrig.',
+                                       ['Weil Prozentangaben höchstens 100 sein dürfen.', 'Doch, das geht: Bei 120 % Abnahme ist der Faktor 1,2.', 'Weil der Faktor nie kleiner als 1 ist.'],
+                                       'Abnahme um p % heißt Faktor 1 − p/100. Bei 100 % ist der Faktor 0. Bei mehr als 100 % würde er negativ – eine Menge oder ein Preis kann aber nicht negativ werden. Zunahmen über 100 % gibt es dagegen (z. B. Faktor 3 = +200 %).',
+                                       'Berechne den Faktor für 100 % Abnahme.'))
+ST.neu('faktor', 3, 'parameter', ST.Z('Ein Wert wird um p % erhöht und danach halbiert. Am Ende ist er genau so groß wie am Anfang. Wie groß ist p?', 100, '(2 - 1) * 100',
+                                      'Faktor (1 + p/100) · 0,5 = 1, also 1 + p/100 = 2 und p = 100. Eine Erhöhung um 100 % ist eine Verdopplung.', 'Welcher Faktor wird durch das Halbieren wieder zu 1?', einheit='%'))
+ST.neu('faktor', 3, 'pruefung', ST.A('Ein Handy kostet 300 €. Welcher Term berechnet den Preis nach 15 % Rabatt?', '300 · 0,85', ['300 · 0,15', '300 − 15', '300 : 0,85'],
+                                     '15 % Rabatt heißt: Man zahlt 85 % des Preises, Faktor 0,85. 300 · 0,15 = 45 € ist nur der Rabatt.', 'Wie viel Prozent des Preises zahlt man noch?'))
+ST.neu('faktor', 3, 'verknuepfen', ST.Z('Ein Rechteck wird um 20 % länger und um 20 % schmaler. Um wie viel Prozent ändert sich sein Flächeninhalt? (Abnahme negativ)', -4, '(1.2 * 0.8 - 1) * 100',
+                                        'Neue Fläche: 1,2 · Länge · 0,8 · Breite = 0,96 · alte Fläche. Die Fläche nimmt um 4 % ab – nicht um 0 %.', 'Multipliziere die beiden Faktoren.', einheit='%'))
+ST.knobel('faktor', ST.Z('Eine Wassermelone wiegt 10 kg und besteht zu 99 % aus Wasser. Sie trocknet in der Sonne, bis sie nur noch zu 98 % aus Wasser besteht. Wie viel Kilogramm wiegt sie dann?', 5, '0.1 / 0.02',
+                         'Die Trockenmasse ändert sich nicht: 1 % von 10 kg = 0,1 kg. Danach sind diese 0,1 kg genau 2 % des Gewichts. 2 % ≙ 0,1 kg, also 100 % ≙ 5 kg. '
+                         'Die Melone hat die Hälfte ihres Gewichts verloren, obwohl der Wasseranteil nur um einen Prozentpunkt gesunken ist.',
+                         'Welcher Teil der Melone bleibt beim Trocknen gleich schwer?', einheit='kg'))
+ST.knobel('faktor', ST.Z('Ein Preis wird um 10 % erhöht, dann um 10 % gesenkt, dann wieder um 10 % erhöht und noch einmal um 10 % gesenkt. Um wie viel Prozent ist der Endpreis niedriger als der Anfangspreis?',
+                         1.99, '(1 - (1.1 * 0.9) ** 2) * 100',
+                         'Ein Paar „+10 %, −10 %“ hat den Faktor 1,1 · 0,9 = 0,99. Zwei Paare: 0,99 · 0,99 = 0,9801. Der Endpreis ist 98,01 % des Anfangspreises, also 1,99 % niedriger.',
+                         'Fasse je eine Erhöhung und eine Senkung zu einem Faktor zusammen.', einheit='%'))
+# vermehrt
+ST.leiter('vermehrt', 'Neuen Wert nach einer Erhöhung mit dem Faktor berechnen; passende Rechnung erkennen.',
+          'Mehrwertsteuer, Zinsen, Mieten, Einwohner; Erhöhung in Euro; Streifenbild.',
+          'Erhöhung plus feste Zulage, Term deuten, Handwerkerrechnung, Guthaben aus den Zinsen, Aufschlag rückwärts, Fehler 1,5 statt 1,15, Zinssatz, Prüfungsaufgabe Vorverkauf.')
+ST.regel('vermehrt', 1, '', 'direkt')
+ST.regel('vermehrt', 2, 'Um wie viel Euro', 'mehrschritt')
+ST.regel('vermehrt', 2, 'Wie viel Euro', 'mehrschritt')
+ST.regel('vermehrt', 2, '', 'einkleidung')
+ST.regel('vermehrt', 3, 'Zulage', 'verknuepfen')
+ST.regel('vermehrt', 3, 'Term', 'begruenden')
+ST.regel('vermehrt', 3, 'Handwerkerin', 'transfer')
+ST.regel('vermehrt', 3, '', 'rueckwaerts')
+ST.neu('vermehrt', 1, 'erkennen', ST.A('Ein Preis von 80 € steigt um 5 %. Welche Rechnung ergibt den neuen Preis?', '80 € · 1,05', ['80 € · 0,05', '80 € + 5 €', '80 € · 1,5'],
+                                       'Neuer Preis = 105 % des alten = 80 € · 1,05 = 84 €. 80 € · 0,05 = 4 € ist nur die Erhöhung.', 'Wie viel Prozent des alten Preises ist der neue?'))
+ST.neu('vermehrt', 2, 'darstellung', ST.Z('Ein Streifen für den alten Wert (100 %) ist in 10 gleiche Teile geteilt. Der Streifen für den neuen Wert ist 13 solche Teile lang. Um wie viel Prozent ist der Wert gestiegen?',
+                                          30, '(13 - 10) * 10', 'Ein Teil sind 10 %. 3 Teile mehr: 30 % mehr.', 'Wie viel Prozent ist ein Teil?', einheit='%'))
+ST.neu('vermehrt', 3, 'fehler', ST.A('Jemand rechnet für „200 € plus 15 %“: 200 € · 1,5 = 300 €. Was stimmt?', 'Falsch: 15 % ergibt den Faktor 1,15; richtig sind 230 €.',
+                                     ['Richtig.', 'Falsch: Richtig sind 215 €.', 'Falsch: Richtig sind 170 €.'],
+                                     '1,5 steht für 150 %, also eine Erhöhung um 50 %. Für 15 % ist der Faktor 1,15: 200 € · 1,15 = 230 €. „215 €“ addiert 15 € statt 15 %.', 'Welcher Prozentsatz gehört zum Faktor 1,5?'))
+ST.neu('vermehrt', 3, 'parameter', ST.Z('Ein Guthaben von 2 000 € wächst in einem Jahr durch Zinsen auf 2 070 €. Wie hoch ist der Zinssatz?', 3.5, '(2070 - 2000) / 2000 * 100',
+                                        'Zinsen 70 €. 70 € von 2 000 € sind 70 : 2 000 = 0,035 = 3,5 %. Probe: 2 000 € · 1,035 = 2 070 € ✓.', 'Wie viel Euro Zinsen gab es?', einheit='%'))
+ST.neu('vermehrt', 3, 'pruefung', ST.Z('Ein Konzertticket kostet 48 €. Beim Vorverkauf kommt eine Gebühr von 12,5 % dazu. Wie viel zahlt man?', 54, '48 * 1.125',
+                                       '12,5 % von 48 € = 6 €. 48 € + 6 € = 54 € (oder 48 € · 1,125).', 'Rechne die Gebühr in Euro aus oder nutze den Faktor.', einheit='€'))
+ST.knobel('vermehrt', ST.Z('Eine Bakterienkultur wächst jede Stunde um 50 %. Nach wie vielen vollen Stunden hat sie sich zum ersten Mal mehr als verfünffacht?', 4, '4',
+                           'Jede Stunde Faktor 1,5: nach 1 h 1,5, nach 2 h 2,25, nach 3 h 3,375, nach 4 h 5,0625. Erst nach 4 Stunden ist das Fünffache überschritten. '
+                           'Wer „5 = 1 + 4 · 50 %“ rechnet, käme auf 8 Stunden – das übersieht, dass jede Stunde 50 % vom schon gewachsenen Bestand dazukommen.',
+                           'Multipliziere Stunde für Stunde mit dem Faktor.'))
+ST.knobel('vermehrt', ST.Z('Anna verdient 20 % mehr als Ben. Zusammen verdienen sie 4 400 €. Wie viel verdient Ben?', 2000, '4400 / 2.2',
+                           'Ben verdient b, Anna 1,2 · b. Zusammen 2,2 · b = 4 400 €, also b = 2 000 € und Anna 2 400 €. Probe: 2 400 € sind 20 % mehr als 2 000 € ✓. '
+                           'Falsch wäre, 4 400 € zu halbieren und 20 % zu verteilen.',
+                           'Drücke Annas Verdienst mit Bens Verdienst aus.', einheit='€'))
+# vermindert
+ST.leiter('vermindert', 'Neuen Wert nach einer Abnahme berechnen; passende Rechnung erkennen.',
+          'Rabatt, Wertverlust, Schülerzahlen, Rabatt mit Skonto, Rabatt aus dem Zahlanteil.',
+          'Diagramm lesen, Gesamtsenkung rückwärts, Akku über Jahre, Preis aus der Ersparnis, zwei Läden vergleichen, Fehler „nur Rabatt“, Reihenfolge zweier Rabatte, Prüfungsaufgabe.')
+ST.regel('vermindert', 1, '', 'direkt')
+ST.regel('vermindert', 2, 'Tom', 'fehler', neu_s=3)
+ST.regel('vermindert', 2, 'Skonto', 'mehrschritt')
+ST.regel('vermindert', 2, '', 'einkleidung')
+ST.regel('vermindert', 3, 'Diagramm', 'transfer')
+ST.regel('vermindert', 3, 'halb so groß', 'rueckwaerts')
+ST.regel('vermindert', 3, 'spart man', 'rueckwaerts')
+ST.regel('vermindert', 3, '', 'verknuepfen')
+ST.neu('vermindert', 1, 'erkennen', ST.A('Eine Jacke kostet 90 €, es gibt 30 % Rabatt. Welche Rechnung ergibt den neuen Preis?', '90 € · 0,7', ['90 € · 0,3', '90 € − 30 €', '90 € : 0,7'],
+                                         'Man zahlt 70 % des Preises: 90 € · 0,7 = 63 €. 90 € · 0,3 = 27 € ist nur der Rabatt.', 'Wie viel Prozent zahlt man noch?'))
+ST.neu('vermindert', 2, 'umkehr', ST.Z('Nach einem Rabatt zahlt man noch 60 % des Preises. Wie viel Prozent Rabatt gab es?', 40, '100 - 60', '100 % − 60 % = 40 % Rabatt.', 'Was fehlt zu 100 %?', einheit='%'))
+ST.neu('vermindert', 3, 'begruenden', ST.A('Ist „erst 30 % Rabatt, dann 20 % Rabatt“ dasselbe wie „erst 20 %, dann 30 %“?', 'Ja: 0,7 · 0,8 = 0,8 · 0,7 = 0,56.',
+                                           ['Nein: Die erste Reihenfolge ist günstiger.', 'Nein: Die zweite Reihenfolge ist günstiger.', 'Ja: Beides sind 50 % Rabatt.'],
+                                           'Jeder Rabatt ist ein Faktor. Beim Multiplizieren ist die Reihenfolge egal: 0,7 · 0,8 = 0,56. Man zahlt in beiden Fällen 56 %, spart also 44 % (nicht 50 %).',
+                                           'Schreibe beide Rabatte als Faktoren.'))
+ST.neu('vermindert', 3, 'pruefung', ST.Z('Eine Jeans kostet 64 €. Im Schlussverkauf wird sie um 25 % reduziert. Wie viel kostet sie dann?', 48, '64 * 0.75', '64 € · 0,75 = 48 € (Rabatt 16 €).', 'Wie viel Prozent zahlt man noch?', einheit='€'))
+ST.knobel('vermindert', ST.Z('Ein Händler senkt den Preis einer Ware um 20 %. Um wie viel Prozent muss er mehr Stück verkaufen, damit seine Einnahmen gleich bleiben?', 25, '(1 / 0.8 - 1) * 100',
+                             'Einnahmen = Preis · Stückzahl. Der Preis hat den Faktor 0,8. Damit das Produkt gleich bleibt, braucht die Stückzahl den Faktor 1 : 0,8 = 1,25 – also 25 % mehr, nicht 20 %.',
+                             'Welcher Faktor gleicht den Faktor 0,8 genau aus?', einheit='%'))
+ST.knobel('vermindert', ST.Z('In einem Korb liegen Äpfel. Jemand nimmt 20 % heraus, dann 25 % des Rests, dann ein Drittel des neuen Rests. Es bleiben 12 Äpfel. Wie viele waren es am Anfang?', 30, '12 / (0.8 * 0.75 * 2 / 3)',
+                             'Die Faktoren der drei Schritte: 0,8 · 0,75 · 2/3 = 0,4. Am Ende sind 40 % übrig. 40 % ≙ 12 Äpfel, also 100 % ≙ 30 Äpfel. '
+                             'Probe: 30 → 24 → 18 → 12 ✓.',
+                             'Fasse die drei Schritte zu einem Faktor zusammen.'))
+# zurueck
+ST.leiter('zurueck', 'Den Grundwert aus dem vermehrten oder verminderten Wert mit einer Division berechnen; Rechnung erkennen.',
+          'Nettopreis aus Bruttopreis, alter Preis nach Rabatt oder Erhöhung, Ersparnis in Euro.',
+          'Teilnehmerzahl aus Anteil, Mehrwertsteuer im Preis, Fehler „+ 20 %“, zwei Änderungen rückwärts, Begründung, Prozentsatz der Erhöhung, Prüfungsaufgabe, Zinsen rückwärts.')
+ST.regel('zurueck', 1, '', 'direkt')
+ST.regel('zurueck', 2, 'Mehrwertsteuer', 'einkleidung')
+ST.regel('zurueck', 2, 'zahlt man', 'einkleidung')
+ST.regel('zurueck', 2, 'Monatskarte', 'einkleidung')
+ST.regel('zurueck', 2, '', 'umkehr')
+ST.regel('zurueck', 3, 'Fahrradprüfung', 'transfer')
+ST.regel('zurueck', 3, 'enthalten', 'verknuepfen')
+ST.regel('zurueck', 3, 'Schild', 'fehler')
+ST.regel('zurueck', 3, '', 'rueckwaerts')
+ST.neu('zurueck', 1, 'erkennen', ST.A('Nach 20 % Rabatt kostet eine Ware 64 €. Welche Rechnung ergibt den alten Preis?', '64 € : 0,8', ['64 € · 1,2', '64 € · 0,8', '64 € + 20 €'],
+                                      '64 € sind 80 % des alten Preises. Alter Preis = 64 € : 0,8 = 80 €. 64 € · 1,2 = 76,80 € wäre zu wenig.', 'Wie viel Prozent des alten Preises sind 64 €?'))
+ST.neu('zurueck', 2, 'mehrschritt', ST.Z('Nach 25 % Rabatt kostet eine Jacke 72 €. Um wie viel Euro wurde sie billiger?', 24, '72 / 0.75 - 72', 'Alter Preis 72 € : 0,75 = 96 €. Ersparnis 96 € − 72 € = 24 €.',
+                                         'Berechne zuerst den alten Preis.', einheit='€'))
+ST.neu('zurueck', 3, 'begruenden', ST.A('Warum darf man den Preis vor einer Erhöhung um 20 % nicht als „neuer Preis minus 20 %“ berechnen?',
+                                        'Die 20 % beziehen sich auf den alten Preis, nicht auf den neuen; man muss durch 1,2 teilen.',
+                                        ['Doch, das darf man – es kommt dasselbe heraus.', 'Weil man immer 20 € abziehen muss.', 'Weil man durch 0,8 teilen muss.'],
+                                        'Beispiel: alt 100 €, neu 120 €. 120 € minus 20 % ergibt 96 €, nicht 100 €. Denn 20 % von 120 € sind mehr als 20 % von 100 €. Richtig: 120 € : 1,2 = 100 €.',
+                                        'Probiere es mit 100 € aus.'))
+ST.neu('zurueck', 3, 'parameter', ST.Z('Eine Ware kostete 90 €. Nach einer Erhöhung um p % kostet sie 117 €. Wie groß ist p?', 30, '(117 / 90 - 1) * 100',
+                                       'Faktor 117 : 90 = 1,3. Das sind 130 %, also p = 30.', 'Berechne den Faktor neu : alt.', einheit='%'))
+ST.neu('zurueck', 3, 'pruefung', ST.Z('Im Schlussverkauf kostet ein Rucksack nach 35 % Rabatt noch 52 €. Wie viel kostete er vorher?', 80, '52 / 0.65', '52 € sind 65 % des alten Preises. 52 € : 0,65 = 80 €.',
+                                      'Wie viel Prozent des alten Preises sind die 52 €?', einheit='€'))
+ST.neu('zurueck', 3, 'rueckwaerts', ST.Z('Ein Guthaben ist nach einem Jahr mit 4 % Zinsen auf 1 352 € gewachsen. Wie hoch war es am Anfang?', 1300, '1352 / 1.04',
+                                         '1 352 € sind 104 % des Anfangsguthabens: 1 352 € : 1,04 = 1 300 €.', 'Welcher Faktor führte vom Anfang zu 1 352 €?', einheit='€'))
+ST.knobel('zurueck', ST.Z('Ein Händler verkauft zwei Fahrräder für je 600 €. An einem verdient er 20 %, am anderen verliert er 20 %, jeweils bezogen auf seinen Einkaufspreis. Wie viel Euro gewinnt oder verliert er insgesamt? (Gewinn positiv)',
+                          -50, '1200 - (600 / 1.2 + 600 / 0.8)',
+                          'Einkaufspreis des ersten: 600 € : 1,2 = 500 €. Des zweiten: 600 € : 0,8 = 750 €. Zusammen eingekauft für 1 250 €, verkauft für 1 200 €: 50 € Verlust. '
+                          'Die 20 % Verlust beziehen sich auf den größeren Einkaufspreis und wiegen deshalb schwerer.',
+                          'Berechne beide Einkaufspreise.', einheit='€'))
+ST.knobel('zurueck', ST.Z('Ein Laden erhöht alle Preise um 20 % und gibt dann 20 % Rabatt auf die neuen Preise. Eine Kundin zahlt 48 €. Wie viel kostete die Ware vor der Erhöhung?', 50, '48 / (1.2 * 0.8)',
+                          'Gesamtfaktor 1,2 · 0,8 = 0,96. 48 € sind 96 % des Anfangspreises: 48 € : 0,96 = 50 €. Probe: 50 € → 60 € → 48 € ✓.',
+                          'Fasse beide Änderungen zu einem Faktor zusammen.', einheit='€'))
+# prozentsatz
+ST.leiter('prozentsatz', 'Prozentuale Änderung aus altem und neuem Wert berechnen; Bezugswert erkennen.',
+          'Änderungen bei Mitgliedern und Klassen, gleicher Anteil, Erhöhung aus Euro-Betrag.',
+          'Falscher Bezugswert, zwei Schritte, „mehr als“ und „weniger als“, Prozentpunkte, Rückblick vom neuen Wert.')
+ST.regel('prozentsatz', 1, '', 'direkt')
+ST.regel('prozentsatz', 2, 'Verein', 'einkleidung')
+ST.regel('prozentsatz', 2, 'Klasse', 'einkleidung')
+ST.regel('prozentsatz', 2, 'steigt um', 'umkehr')
+ST.regel('prozentsatz', 2, '', 'mehrschritt')
+ST.regel('prozentsatz', 3, 'Jemand', 'fehler')
+ST.regel('prozentsatz', 3, 'Kleinbus', 'transfer')
+ST.regel('prozentsatz', 3, 'Anteil', 'begruenden')
+ST.regel('prozentsatz', 3, 'kleiner als der neue', 'rueckwaerts')
+ST.regel('prozentsatz', 3, '', 'verknuepfen')
+ST.neu('prozentsatz', 1, 'erkennen', ST.A('Ein Preis steigt von 40 € auf 50 €. Durch welchen Wert teilt man die Änderung von 10 €, um die Prozentänderung zu bekommen?', 'durch 40 € (den alten Wert)',
+                                          ['durch 50 € (den neuen Wert)', 'durch 10 €', 'durch 90 €'],
+                                          'Die Änderung bezieht sich auf den Ausgangswert: 10 : 40 = 0,25 = 25 %.', 'Worauf bezieht sich eine Änderung?'))
+ST.neu('prozentsatz', 1, 'direkt', ST.Z('Eine Klasse hatte 25 Kinder, jetzt sind es 30. Um wie viel Prozent ist sie gewachsen?', 20, '(30 - 25) / 25 * 100', '5 mehr bei 25: 5 : 25 = 0,2 = 20 %.',
+                                        'Teile die Zunahme durch den alten Wert.', einheit='%'))
+ST.knobel('prozentsatz', ST.Z('In einer Klasse sind 60 % Mädchen. Es kommen 4 Jungen dazu, danach sind genau 50 % Mädchen. Wie viele Kinder waren es vorher?', 20, '0.5 * 4 / (0.6 - 0.5)',
+                              'Die Zahl der Mädchen bleibt gleich: 0,6 · n = 0,5 · (n + 4). Also 0,6n = 0,5n + 2, 0,1n = 2 und n = 20. '
+                              'Probe: 12 Mädchen von 20 = 60 %; danach 12 von 24 = 50 % ✓.',
+                              'Was ändert sich durch die neuen Jungen nicht?'))
+ST.knobel('prozentsatz', ST.Z('Preis A ist 25 % höher als Preis B, und B ist 20 % höher als Preis C. Um wie viel Prozent ist A höher als C?', 50, '(1.25 * 1.2 - 1) * 100',
+                              'A = 1,25 · B und B = 1,2 · C, also A = 1,25 · 1,2 · C = 1,5 · C. A ist 50 % höher als C – nicht 45 %.',
+                              'Schreibe A mit Hilfe von C.', einheit='%'))
+# mehrfach
+ST.leiter('mehrfach', 'Zwei Änderungen nacheinander mit Faktoren berechnen; Gesamtfaktor erkennen.',
+          'Gesamtänderung in Prozent, Miete über zwei Jahre, Rabatt und Mehrwertsteuer, gleicher Prozentsatz zweimal.',
+          'Anfangswert rückwärts, drei Erhöhungen, „zweimal 25 % = halber Preis“, Zinseszins, Rückweg nach einer Senkung, Parameter p.')
+ST.regel('mehrfach', 1, '', 'direkt')
+ST.regel('mehrfach', 2, 'Miete', 'einkleidung')
+ST.regel('mehrfach', 2, 'Fernseher', 'einkleidung')
+ST.regel('mehrfach', 2, '', 'mehrschritt')
+ST.regel('mehrfach', 3, 'ursprünglich', 'rueckwaerts')
+ST.regel('mehrfach', 3, 'Laden', 'fehler')
+ST.regel('mehrfach', 3, 'Jahre', 'transfer')
+ST.regel('mehrfach', 3, 'p %', 'parameter')
+ST.regel('mehrfach', 3, '', 'verknuepfen')
+ST.neu('mehrfach', 1, 'erkennen', ST.A('Ein Preis steigt erst um 10 %, dann um 20 %. Welche Rechnung ergibt den Gesamtfaktor?', '1,1 · 1,2', ['1,1 + 1,2', '1,3', '0,1 · 0,2'],
+                                       'Jede Änderung ist ein Faktor; nacheinander werden sie multipliziert: 1,1 · 1,2 = 1,32, also +32 % (nicht +30 %).', 'Was passiert mit dem Ergebnis der ersten Änderung?'))
+ST.neu('mehrfach', 2, 'umkehr', ST.Z('Ein Preis steigt zweimal hintereinander um denselben Prozentsatz und ist danach 44 % höher als am Anfang. Um wie viel Prozent stieg er jeweils?', 20, '(1.2 - 1) * 100',
+                                     'Gesamtfaktor 1,44. Gesucht ist ein Faktor q mit q · q = 1,44: q = 1,2, also jeweils 20 %. (Nicht 22 %: 1,22 · 1,22 ≈ 1,49.)', 'Welche Zahl mal sich selbst ergibt 1,44?', einheit='%'))
+ST.knobel('mehrfach', ST.A('Ein Preis steigt dreimal hintereinander um je 10 %. Ist das mehr oder weniger als eine einzige Erhöhung um 33 %?', 'mehr: insgesamt 33,1 %',
+                           ['weniger: insgesamt 30 %', 'genau gleich viel: 3 · 10 % = 30 % plus Rundung', 'weniger: insgesamt 32,1 %'],
+                           'Gesamtfaktor 1,1 · 1,1 · 1,1 = 1,21 · 1,1 = 1,331, also +33,1 %. Ab der zweiten Erhöhung kommen 10 % auch auf die schon erfolgten Erhöhungen dazu – deshalb ist es mehr als 3 · 10 % und sogar etwas mehr als 33 %.',
+                           'Rechne den Gesamtfaktor genau aus.'))
+ST.knobel('mehrfach', ST.Z('Ein Aktienkurs fällt am Montag um 50 %. Um wie viel Prozent muss er am Dienstag steigen, damit er wieder den alten Wert hat?', 100, '(1 / 0.5 - 1) * 100',
+                           'Nach dem Montag ist der Kurs die Hälfte (Faktor 0,5). Um wieder auf 1 zu kommen, braucht man den Faktor 2 – das ist eine Steigerung um 100 %, nicht um 50 %. '
+                           'Der Grund: Die 50 % am Dienstag beziehen sich auf den halbierten Wert.',
+                           'Welcher Faktor macht 0,5 wieder zu 1?', einheit='%'))
+# argumente
+ST.leiter('argumente', 'Rechnungen mit Faktoren als Begründung erkennen; Prozentpunkte und Faktor direkt angeben.',
+          'Aussagen und Zeitungsmeldungen prüfen, zwei Läden vergleichen, doppelte Rabatte, 100 % Rabatt deuten.',
+          'Hin und zurück ist nicht gleich, Prozentpunkte gegen Prozent, Anteile mit verschiedenen Grundwerten, Angebote vergleichen, Wiederholungen begründen.')
+ST.regel('argumente', 1, '', 'erkennen')
+ST.regel('argumente', 2, 'Zeitung', 'einkleidung')
+ST.regel('argumente', 2, 'T-Shirt', 'einkleidung')
+ST.regel('argumente', 2, 'Hose', 'einkleidung')
+ST.regel('argumente', 2, 'Händler', 'darstellung')
+ST.regel('argumente', 2, '', 'mehrschritt')
+ST.regel('argumente', 3, 'Lohn', 'begruenden')
+ST.regel('argumente', 3, 'mehrmals', 'begruenden')
+ST.regel('argumente', 3, 'Wahlbeteiligung', 'verknuepfen')
+ST.regel('argumente', 3, 'Nimm', 'transfer')
+ST.regel('argumente', 3, 'Haustier', 'transfer')
+ST.regel('argumente', 3, '', 'fehler')
+ST.neu('argumente', 1, 'direkt', ST.Z('Die Wahlbeteiligung steigt von 60 % auf 66 %. Um wie viele Prozentpunkte ist sie gestiegen?', 6, '66 - 60', '66 − 60 = 6 Prozentpunkte. (In Prozent wären es 6 : 60 = 10 %.)',
+                                     'Prozentpunkte sind der Abstand zweier Prozentangaben.'))
+ST.neu('argumente', 1, 'direkt', ST.Z('Ein Preis steigt von 200 € auf 250 €. Mit welchem Faktor wurde er multipliziert?', 1.25, '250 / 200', '250 : 200 = 1,25. Das ist eine Erhöhung um 25 %.', 'Teile den neuen durch den alten Preis.'))
+ST.knobel('argumente', ST.A('Artikel 1: „Die Zahl der Unfälle sank um 50 % und stieg danach um 50 % – jetzt ist alles wie früher.“ Artikel 2: „Sie stieg um 100 % und sank danach um 50 % – jetzt ist alles wie früher.“ Welcher Artikel hat recht?',
+                            'nur Artikel 2', ['nur Artikel 1', 'beide', 'keiner'],
+                            'Artikel 1: 0,5 · 1,5 = 0,75 – es sind 25 % weniger als früher. Artikel 2: 2 · 0,5 = 1 – tatsächlich wie früher. Nur der zweite Artikel hat recht.',
+                            'Schreibe jede Änderung als Faktor und multipliziere.'))
+ST.knobel('argumente', ST.Z('In einem Dorf haben 70 % der Haushalte ein Fahrrad und 60 % ein Auto. Wie viel Prozent der Haushalte haben mindestens beides?', 30, '70 + 60 - 100',
+                            'Zusammen ergeben die Anteile 130 %. Mehr als 100 % aller Haushalte gibt es nicht, also müssen mindestens 30 % doppelt gezählt sein – sie haben beides. '
+                            'Genau 30 % ist möglich: wenn jeder Haushalt mindestens eines von beiden hat.',
+                            'Was passiert, wenn man die Haushalte mit Fahrrad und die mit Auto zusammenzählt?', einheit='%'))
+# ---- STUFEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Faktoren', ['faktor', 'vermehrt', 'vermindert']), ('Rückwärts rechnen', ['zurueck', 'prozentsatz']), ('Komplexere Aufgaben', ['mehrfach', 'argumente'])],
@@ -774,3 +994,4 @@ if __name__ == '__main__':
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
+    stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt

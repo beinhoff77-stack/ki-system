@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-1 (Neunzehnte Runde, Teil B, Chat 1)
 
+## 2026-11-17 17:30 – STATUS
+mengen.grundbegriffe fertig: 16 umgestuft (Stufe 3 bestand fast nur aus Stufe-2-Aufgaben), 4 ersetzt, 26 neu (Stufe 3: x im Venn-Diagramm, Mindest-Überlappung, ggT/kgV als Schnittmenge, Aussagen mit Gegenbeispiel). inhalt_pruefen: OK, 0 Hinweise.
+
 ## 2026-11-17 17:05 – STATUS
 funktionen.umkehr fertig: 6 umgestuft, 6 ersetzt – darunter ein FEHLER: „Jemand spiegelt P(3 | −3) … zu P′(−3 | 3)“ war als falsch markiert, ist aber richtig (Generator-Variante bei x = −y). 19 neu (Stufe 3: Schnittpunkt f/f⁻¹, Umkehrgerade aus zwei Punkten, Achsenschnittpunkte von f⁻¹, linker Parabelast). inhalt_pruefen: OK, 0 Hinweise.
 

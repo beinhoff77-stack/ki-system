@@ -7,3 +7,4 @@ Annahme zu „überzählig“: Überzählige Übungen bleiben in der Datei (Stuf
 - terme.bruchterme: 39 neue Übungen, 14 Knobel-Bordkarten, 19 umgestuft, 48 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 - gleichungen.formeln: 23 neue Übungen, 10 Knobel-Bordkarten, 11 umgestuft, 24 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 - gleichungen.bruch: 45 neue Übungen, 14 Knobel-Bordkarten, 21 umgestuft, 52 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+- gleichungen.lgs2: 53 neue Übungen, 16 Knobel-Bordkarten, 21 umgestuft, 58 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.

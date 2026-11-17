@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 15:10 – STATUS
+**bruch.prozent** fertig: Karte `verstehen` um ein zweites vorgerechnetes Beispiel (2 Schritte, Säulenbild 20 % → 25 %, Wort „Prozentpunkte“) und 6 Übungen (Prozent/Prozentpunkte, „jedes vierte“, „drei von fünf“, Zeitungsaussage prüfen) erweitert. Prüfskript OK, Nachweis JA.
+
 ## 2026-11-17 14:55 – STATUS
 **bruch.rechnen** fertig: neue Karten `potenzen` (nach dezimal_geteilt) und `sach` (am Ende), je 28 Aufgaben, Pflicht; `brueche_plus_minus`, `brueche_mal`, `brueche_geteilt` je um 1 Übung Stufe 2 + 1 Stufe 3 mit gemischter Zahl als Ergebnis (Lücke „□ □/□“) erweitert, Kartentexte unverändert. Prüfskript OK, Nachweis JA.
 

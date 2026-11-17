@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+gleichungen.linear fertig: 132 alte Übungen mit Typ, 6 umgestuft (reine Rechenaufgaben von Stufe 3 nach 2), 22 neue Übungen, 12 Knobel-Bordkarten, 9 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
+
+## 2026-11-17 – STATUS
 geometrie.winkelsaetze fertig: alle alten Übungen mit Typ, 0 umgestuft, 28 neue Übungen, 16 Knobel-Bordkarten, 3 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
 
 ## 2026-11-17 – STATUS

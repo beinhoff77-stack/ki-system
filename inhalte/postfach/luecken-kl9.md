@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 13:06 – STATUS
+funktionen.potenz fertig: 6 Sachaufgaben Stufe 3 (Wassertank V = x³, Fallweg s = a · t², Windrad P = a · v³, Beleuchtung E = 400 · d⁻² mit Abstandsverdopplung, Sichtweite d = 3,6 · √h) an werte, parameter, negativ, wurzelfunktion. Keine Karte geändert. inhalt_pruefen OK; Nachweis OK.
+
+## 2026-11-17 13:06 – STATUS
 zahlen.rationale_exponenten fertig: 6 Sachaufgaben Stufe 3 (Würfelkante aus Volumen, Zinsfaktor pro Jahr, Grundumsatz E = 70 · m^(3/4) vorwärts und rückwärts, Planetenabstand a = T^(2/3), doppeltes Würfelvolumen → Kante +26 %) an nte_wurzel, potenz_wert, gleichung_exp, verstehen. Keine Karte geändert. inhalt_pruefen OK; Nachweis OK.
 
 ## 2026-11-17 13:04 – STATUS

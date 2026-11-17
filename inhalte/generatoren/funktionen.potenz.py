@@ -616,6 +616,36 @@ BF.stufe('negativ', 'Für welche x ist f(x) = x⁻³ definiert?', 2)
 
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- Achtzehnte Runde, Teil B (Zweig luecken-kl9): Sachaufgaben (Modellieren) als Stufe-3-Gruppe ----------
+# Lücke aus inhalte/pruefung/aufbau/klasse9.json: Sachaufgaben zu Potenzfunktionen fehlten (Formeln aus Physik und Alltag).
+# Eigener Zufallsstart, alles Alte bleibt unverändert.
+from _luecken_kl9 import erweitern  # noqa: E402
+
+
+def sach_potenz():
+    L = []
+
+    def neu(l, a):
+        a['l'] = l
+        L.append(('uebung', 3, '', a))
+    neu('werte', zahl('Ein würfelförmiger Wassertank hat innen die Kantenlänge x (in m). Sein Volumen ist V(x) = x³ (in m³). Wie viele Liter fasst er bei x = 1,5 m?',
+                      'V(1,5) = 1,5³ = 3,375 m³. 1 m³ = 1 000 Liter, also 3 375 Liter.', 'Rechne erst V(1,5) in m³ aus und dann in Liter um.', 3375, '1.5 ** 3 * 1000',
+                      einheit='Liter'))
+    neu('parameter', zahl('Für den Fallweg gilt s(t) = a · t² (t in s, s in m). Nach 3 s ist ein Stein 45 m tief gefallen. Bestimme a.',
+                          '45 = a · 3² = 9a ⇒ a = 5.', 'Setze den bekannten Punkt (3 | 45) ein.', 5, '45 / 3 ** 2'))
+    neu('parameter', zahl('Die Leistung eines Windrads ist P(v) = a · v³ (v: Windgeschwindigkeit). Bei 2 m/s liefert es 40 kW. Wie viel liefert es bei 4 m/s?',
+                          'Doppelte Geschwindigkeit: P wird 2³ = 8-mal so groß. 40 kW · 8 = 320 kW. (Auch: a = 40 : 8 = 5, P(4) = 5 · 64 = 320.)',
+                          'Was passiert mit v³, wenn v doppelt so groß wird?', 320, '40 * 2 ** 3', einheit='kW'))
+    neu('negativ', zahl('Die Beleuchtungsstärke einer Lampe ist E(d) = 400 · d⁻² (d: Abstand in m, E in Lux). Wie groß ist sie im Abstand 4 m?',
+                        'E(4) = 400 · 4⁻² = 400 : 16 = 25 Lux.', 'd⁻² = 1 : d².', 25, '400 / 4 ** 2', einheit='Lux'))
+    neu('negativ', auswahl('E(d) = 400 · d⁻². Wie ändert sich die Beleuchtungsstärke, wenn man den Abstand zur Lampe verdoppelt?', 'Sie wird ein Viertel so groß.',
+                           ['Sie halbiert sich.', 'Sie verdoppelt sich.', 'Sie wird viermal so groß.'],
+                           '(2d)⁻² = 1 : (4d²) = ¼ · d⁻². Doppelter Abstand gibt ein Viertel der Helligkeit.', 'Setze 2d ein und rechne (2d)² aus.'))
+    neu('wurzelfunktion', zahl('Wie weit man bis zum Horizont sieht, ist etwa d = 3,6 · √h (h: Augenhöhe in m, d in km). Wie weit sieht man von einem 25 m hohen Turm?',
+                               'd = 3,6 · √25 = 3,6 · 5 = 18 km.', 'Rechne zuerst √25.', 18, '3.6 * 5', einheit='km'))
+    return L
+
 if __name__ == '__main__':
     d = bauen('funktionen.potenz',
           'Potenzfunktionen y = a · xⁿ untersuchen: Werte, Symmetrie, Verlauf, Parameter; Erweiterung auf negative und rationale Exponenten.',
@@ -629,3 +659,4 @@ if __name__ == '__main__':
           offen=['Negative Exponenten werden jetzt hochgestellt geschrieben (x⁻², wie in der Regel); bitte in der App prüfen, ob „⁻“ gut lesbar ist.'])
     anhaengen(d, 9908, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    erweitern('funktionen.potenz', None, 18_9_9, sach_potenz)  # Achtzehnte Runde: Sachaufgaben (Stufe 3) an mehreren Karten

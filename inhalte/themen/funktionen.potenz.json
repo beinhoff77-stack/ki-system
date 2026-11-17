@@ -4606,6 +4606,111 @@
    },
    "w": "Die dritte Wurzel macht das Hoch-3 rückgängig: ∛(x³) = x.",
    "h": "Welche Rechnung macht „hoch 3“ rückgängig?"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein würfelförmiger Wassertank hat innen die Kantenlänge x (in m). Sein Volumen ist V(x) = x³ (in m³). Wie viele Liter fasst er bei x = 1,5 m?"
+   },
+   "o": {
+    "wert": 3375,
+    "einheit": "Liter"
+   },
+   "c": "1.5 ** 3 * 1000",
+   "w": "V(1,5) = 1,5³ = 3,375 m³. 1 m³ = 1 000 Liter, also 3 375 Liter.",
+   "h": "Rechne erst V(1,5) in m³ aus und dann in Liter um."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für den Fallweg gilt s(t) = a · t² (t in s, s in m). Nach 3 s ist ein Stein 45 m tief gefallen. Bestimme a."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "45 / 3 ** 2",
+   "w": "45 = a · 3² = 9a ⇒ a = 5.",
+   "h": "Setze den bekannten Punkt (3 | 45) ein."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Leistung eines Windrads ist P(v) = a · v³ (v: Windgeschwindigkeit). Bei 2 m/s liefert es 40 kW. Wie viel liefert es bei 4 m/s?"
+   },
+   "o": {
+    "wert": 320,
+    "einheit": "kW"
+   },
+   "c": "40 * 2 ** 3",
+   "w": "Doppelte Geschwindigkeit: P wird 2³ = 8-mal so groß. 40 kW · 8 = 320 kW. (Auch: a = 40 : 8 = 5, P(4) = 5 · 64 = 320.)",
+   "h": "Was passiert mit v³, wenn v doppelt so groß wird?"
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Beleuchtungsstärke einer Lampe ist E(d) = 400 · d⁻² (d: Abstand in m, E in Lux). Wie groß ist sie im Abstand 4 m?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "Lux"
+   },
+   "c": "400 / 4 ** 2",
+   "w": "E(4) = 400 · 4⁻² = 400 : 16 = 25 Lux.",
+   "h": "d⁻² = 1 : d²."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "E(d) = 400 · d⁻². Wie ändert sich die Beleuchtungsstärke, wenn man den Abstand zur Lampe verdoppelt?"
+   },
+   "a": [
+    "Sie wird ein Viertel so groß.",
+    "Sie wird viermal so groß.",
+    "Sie halbiert sich.",
+    "Sie verdoppelt sich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(2d)⁻² = 1 : (4d²) = ¼ · d⁻². Doppelter Abstand gibt ein Viertel der Helligkeit.",
+   "h": "Setze 2d ein und rechne (2d)² aus."
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie weit man bis zum Horizont sieht, ist etwa d = 3,6 · √h (h: Augenhöhe in m, d in km). Wie weit sieht man von einem 25 m hohen Turm?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "km"
+   },
+   "c": "3.6 * 5",
+   "w": "d = 3,6 · √25 = 3,6 · 5 = 18 km.",
+   "h": "Rechne zuerst √25."
   }
  ],
  "offen": [

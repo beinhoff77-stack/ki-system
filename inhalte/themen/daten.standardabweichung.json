@@ -597,135 +597,8 @@
    },
    "c": "18 - 12",
    "w": "Abweichung = 18 − 12 = 6.",
-   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ."
-  },
-  {
-   "l": "abweichung",
-   "t": "abweichung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 24; 14; 18; 8 (Mittelwert 16). Berechne die Abweichung des Wertes 24 vom Mittelwert."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "24 - 16",
-   "w": "Abweichung = 24 − 16 = 8.",
-   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ."
-  },
-  {
-   "l": "abweichung",
-   "t": "abweichung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Mittelwert x̄ der Werte 29; 18; 9; 4."
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "(29 + 18 + 9 + 4) / 4",
-   "w": "Summe 60, Anzahl 4: x̄ = 60 : 4 = 15.",
-   "h": "Alle Werte addieren und durch die Anzahl teilen."
-  },
-  {
-   "l": "abweichung",
-   "t": "abweichung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Mittelwert x̄ der Werte 15; 25; 22; 17; 4; 7."
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "(15 + 25 + 22 + 17 + 4 + 7) / 6",
-   "w": "Summe 90, Anzahl 6: x̄ = 90 : 6 = 15.",
-   "h": "Alle Werte addieren und durch die Anzahl teilen."
-  },
-  {
-   "l": "abweichung",
-   "t": "abweichung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Mittelwert x̄ der Werte 6; 20; 9; 7; 8."
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "(6 + 20 + 9 + 7 + 8) / 5",
-   "w": "Summe 50, Anzahl 5: x̄ = 50 : 5 = 10.",
-   "h": "Alle Werte addieren und durch die Anzahl teilen."
-  },
-  {
-   "l": "abweichung",
-   "t": "abweichung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 26; 5; 5; 8; 7; 27 (Mittelwert 13). Berechne die Abweichung des Wertes 27 vom Mittelwert."
-   },
-   "o": {
-    "wert": 14
-   },
-   "c": "27 - 13",
-   "w": "Abweichung = 27 − 13 = 14.",
-   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ."
-  },
-  {
-   "l": "abweichung",
-   "t": "abweichung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 17; 19; 11; 4; 4 (Mittelwert 11). Berechne die Abweichung des Wertes 4 vom Mittelwert."
-   },
-   "o": {
-    "wert": -7
-   },
-   "c": "4 - 11",
-   "w": "Abweichung = 4 − 11 = −7.",
-   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ."
-  },
-  {
-   "l": "abweichung",
-   "t": "abweichung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der Mittelwert eines Datensatzes ist 18. Ein Wert hat die Abweichung −12. Wie groß ist dieser Wert?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "18 + (-12)",
-   "w": "Abweichung = Wert − Mittelwert, also Wert = Mittelwert + Abweichung = 18 + (−12) = 6.",
-   "h": "Stelle „Abweichung = Wert − Mittelwert“ nach dem Wert um."
-  },
-  {
-   "l": "abweichung",
-   "t": "abweichung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 8; 23; 21; 21; 2 (Mittelwert 15). Berechne die Abweichung des Wertes 2 vom Mittelwert."
-   },
-   "o": {
-    "wert": -13
-   },
-   "c": "2 - 15",
-   "w": "Abweichung = 2 − 15 = −13.",
-   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ."
+   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ.",
+   "g": "direkt"
   },
   {
    "l": "abweichung",
@@ -741,7 +614,25 @@
    },
    "c": "6",
    "w": "x̄ = 21. Abweichungen: 1; −4; 4; 6; 3; 1; 4; −15. Am weitesten weg ist 6 (Abstand 15).",
-   "h": "Berechne zuerst den Mittelwert und vergleiche dann die Abstände ohne Vorzeichen."
+   "h": "Berechne zuerst den Mittelwert und vergleiche dann die Abstände ohne Vorzeichen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 24; 14; 18; 8 (Mittelwert 16). Berechne die Abweichung des Wertes 24 vom Mittelwert."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "24 - 16",
+   "w": "Abweichung = 24 − 16 = 8.",
+   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ.",
+   "g": "direkt"
   },
   {
    "l": "abweichung",
@@ -757,23 +648,25 @@
    },
    "c": "26",
    "w": "x̄ = 13. Abweichungen: −11; 9; 13; −2; −3; −6. Am weitesten weg ist 26 (Abstand 13).",
-   "h": "Berechne zuerst den Mittelwert und vergleiche dann die Abstände ohne Vorzeichen."
+   "h": "Berechne zuerst den Mittelwert und vergleiche dann die Abstände ohne Vorzeichen.",
+   "g": "mehrschritt"
   },
   {
    "l": "abweichung",
    "t": "abweichung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Der Mittelwert eines Datensatzes ist 25. Ein Wert hat die Abweichung −3. Wie groß ist dieser Wert?"
+    "text": "Berechne den Mittelwert x̄ der Werte 29; 18; 9; 4."
    },
    "o": {
-    "wert": 22
+    "wert": 15
    },
-   "c": "25 + (-3)",
-   "w": "Abweichung = Wert − Mittelwert, also Wert = Mittelwert + Abweichung = 25 + (−3) = 22.",
-   "h": "Stelle „Abweichung = Wert − Mittelwert“ nach dem Wert um."
+   "c": "(29 + 18 + 9 + 4) / 4",
+   "w": "Summe 60, Anzahl 4: x̄ = 60 : 4 = 15.",
+   "h": "Alle Werte addieren und durch die Anzahl teilen.",
+   "g": "direkt"
   },
   {
    "l": "abweichung",
@@ -789,13 +682,65 @@
    },
    "c": "5 * 28 - 111",
    "w": "Summe aller Werte: 5 · 28 = 140. Fehlender Wert: 140 − 111 = 29.",
-   "h": "Mittelwert mal Anzahl ergibt die Summe aller Werte."
+   "h": "Mittelwert mal Anzahl ergibt die Summe aller Werte.",
+   "g": "rueckwaerts"
   },
   {
    "l": "abweichung",
    "t": "abweichung",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Mittelwert x̄ der Werte 15; 25; 22; 17; 4; 7."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(15 + 25 + 22 + 17 + 4 + 7) / 6",
+   "w": "Summe 90, Anzahl 6: x̄ = 90 : 6 = 15.",
+   "h": "Alle Werte addieren und durch die Anzahl teilen.",
+   "g": "direkt"
+  },
+  {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Mittelwert eines Datensatzes ist 18. Ein Wert hat die Abweichung −12. Wie groß ist dieser Wert?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "18 + (-12)",
+   "w": "Abweichung = Wert − Mittelwert, also Wert = Mittelwert + Abweichung = 18 + (−12) = 6.",
+   "h": "Stelle „Abweichung = Wert − Mittelwert“ nach dem Wert um.",
+   "g": "umkehr"
+  },
+  {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Mittelwert x̄ der Werte 6; 20; 9; 7; 8."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(6 + 20 + 9 + 7 + 8) / 5",
+   "w": "Summe 50, Anzahl 5: x̄ = 50 : 5 = 10.",
+   "h": "Alle Werte addieren und durch die Anzahl teilen.",
+   "g": "direkt"
+  },
+  {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "4 Werte haben den Mittelwert 31. Ein weiterer Wert 27 kommt dazu. Wie groß ist der neue Mittelwert?"
@@ -805,7 +750,60 @@
    },
    "c": "(4 * 31 + 27) / 5",
    "w": "Alte Summe: 4 · 31 = 124. Neue Summe: 124 + 27 = 151. Neuer Mittelwert: 151 : 5 = 30,2.",
-   "h": "Rechne zuerst die Summe der alten Werte aus dem Mittelwert zurück."
+   "h": "Rechne zuerst die Summe der alten Werte aus dem Mittelwert zurück.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 26; 5; 5; 8; 7; 27 (Mittelwert 13). Berechne die Abweichung des Wertes 27 vom Mittelwert."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "27 - 13",
+   "w": "Abweichung = 27 − 13 = 14.",
+   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ.",
+   "g": "direkt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bäcker wiegt vier Brote: 495 g, 510 g, 502 g und 493 g; der Mittelwert ist 500 g. Um wie viel Gramm liegt das schwerste Brot über dem Mittelwert?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "g"
+   },
+   "c": "510 - 500",
+   "w": "Das schwerste wiegt 510 g: 510 − 500 = 10 g.",
+   "h": "Welches Brot ist das schwerste?",
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 17; 19; 11; 4; 4 (Mittelwert 11). Berechne die Abweichung des Wertes 4 vom Mittelwert."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "4 - 11",
+   "w": "Abweichung = 4 − 11 = −7.",
+   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ.",
+   "g": "direkt"
   },
   {
    "l": "abweichung",
@@ -821,7 +819,8 @@
    },
    "c": "-((9) + (1) + (-7) + (8))",
    "w": "Alle Abweichungen zusammen ergeben 0. Bisher: 11. Also fehlt −11.",
-   "h": "Was ergeben alle Abweichungen zusammen?"
+   "h": "Was ergeben alle Abweichungen zusammen?",
+   "g": "verknuepfen"
   },
   {
    "l": "abweichung",
@@ -837,34 +836,65 @@
    },
    "c": "6 * 39 - 186",
    "w": "Summe aller Werte: 6 · 39 = 234. Fehlender Wert: 234 − 186 = 48.",
-   "h": "Mittelwert mal Anzahl ergibt die Summe aller Werte."
+   "h": "Mittelwert mal Anzahl ergibt die Summe aller Werte.",
+   "g": "rueckwaerts"
   },
   {
    "l": "abweichung",
    "t": "abweichung",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
+   "s": 1,
+   "y": "zahl",
    "f": {
-    "text": "Werte: 45; 26; 34; 7; 31; 15; 49; 25, Mittelwert 29. Wie groß ist die Summe aller Abweichungen vom Mittelwert?"
+    "text": "Werte: 8; 23; 21; 21; 2 (Mittelwert 15). Berechne die Abweichung des Wertes 2 vom Mittelwert."
    },
-   "a": [
-    "0 – die Abweichungen heben sich immer auf.",
-    "29",
-    "86",
-    "232"
-   ],
    "o": {
-    "index": 0
+    "wert": -13
    },
-   "w": "Abweichungen: 16; −3; 5; −22; 2; −14; 20; −4. Ihre Summe ist 0 – das gilt für jeden Datensatz.",
-   "h": "Rechne zwei, drei Abweichungen aus – was fällt beim Addieren auf?"
+   "c": "2 - 15",
+   "w": "Abweichung = 2 − 15 = −13.",
+   "h": "Abweichung = Wert − Mittelwert. Unter dem Mittelwert ist sie negativ.",
+   "g": "direkt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Werte 4; 7; 10 haben den Mittelwert 7. Welcher Wert hat die Abweichung 0?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Abweichung 0 heißt: Der Wert ist genau der Mittelwert. 7 − 7 = 0.",
+   "h": "Wann ist Wert − Mittelwert gleich 0?",
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "abweichung",
    "t": "abweichung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Mittelwert eines Datensatzes ist 25. Ein Wert hat die Abweichung −3. Wie groß ist dieser Wert?"
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "25 + (-3)",
+   "w": "Abweichung = Wert − Mittelwert, also Wert = Mittelwert + Abweichung = 25 + (−3) = 22.",
+   "h": "Stelle „Abweichung = Wert − Mittelwert“ nach dem Wert um.",
+   "g": "umkehr"
+  },
+  {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "4 Werte haben den Mittelwert 23. Ein weiterer Wert 40 kommt dazu. Wie groß ist der neue Mittelwert?"
@@ -874,39 +904,26 @@
    },
    "c": "(4 * 23 + 40) / 5",
    "w": "Alte Summe: 4 · 23 = 92. Neue Summe: 92 + 40 = 132. Neuer Mittelwert: 132 : 5 = 26,4.",
-   "h": "Rechne zuerst die Summe der alten Werte aus dem Mittelwert zurück."
+   "h": "Rechne zuerst die Summe der alten Werte aus dem Mittelwert zurück.",
+   "g": "mehrschritt"
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Die Temperaturen einer Woche haben den Mittelwert 18 °C. Am Montag waren es 13 °C. Wie groß ist die Abweichung des Montags vom Mittelwert?"
+   },
+   "o": {
+    "wert": -5,
+    "einheit": "°C"
+   },
+   "c": "13 - 18",
+   "w": "Abweichung = Wert − Mittelwert = 13 − 18 = −5 °C. Negativ: Der Montag lag darunter.",
+   "h": "Wert minus Mittelwert.",
    "l": "abweichung",
    "t": "abweichung",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Von 6 Werten kennt man 5 Abweichungen vom Mittelwert: 3; −2; −3; −1; 1. Wie groß ist die letzte Abweichung?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "-((3) + (-2) + (-3) + (-1) + (1))",
-   "w": "Alle Abweichungen zusammen ergeben 0. Bisher: −2. Also fehlt 2.",
-   "h": "Was ergeben alle Abweichungen zusammen?"
-  },
-  {
-   "l": "abweichung",
-   "t": "abweichung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "8 Werte haben den Mittelwert 37. Bekannt sind 49; 23; 54; 51; 60; 5; 20. Wie groß ist der fehlende Wert?"
-   },
-   "o": {
-    "wert": 34
-   },
-   "c": "8 * 37 - 262",
-   "w": "Summe aller Werte: 8 · 37 = 296. Fehlender Wert: 296 − 262 = 34.",
-   "h": "Mittelwert mal Anzahl ergibt die Summe aller Werte."
+   "s": 2,
+   "g": "einkleidung"
   },
   {
    "l": "abweichung",
@@ -1059,6 +1076,145 @@
    "w": "Abweichung = Wert − Mittelwert, also Wert = Mittelwert + Abweichung = 60 + (−11) = 49."
   },
   {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Werte: 45; 26; 34; 7; 31; 15; 49; 25, Mittelwert 29. Wie groß ist die Summe aller Abweichungen vom Mittelwert?"
+   },
+   "a": [
+    "0 – die Abweichungen heben sich immer auf.",
+    "29",
+    "86",
+    "232"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Abweichungen: 16; −3; 5; −22; 2; −14; 20; −4. Ihre Summe ist 0 – das gilt für jeden Datensatz.",
+   "h": "Rechne zwei, drei Abweichungen aus – was fällt beim Addieren auf?",
+   "g": "begruenden"
+  },
+  {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 6 Werten kennt man 5 Abweichungen vom Mittelwert: 3; −2; −3; −1; 1. Wie groß ist die letzte Abweichung?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "-((3) + (-2) + (-3) + (-1) + (1))",
+   "w": "Alle Abweichungen zusammen ergeben 0. Bisher: −2. Also fehlt 2.",
+   "h": "Was ergeben alle Abweichungen zusammen?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "8 Werte haben den Mittelwert 37. Bekannt sind 49; 23; 54; 51; 60; 5; 20. Wie groß ist der fehlende Wert?"
+   },
+   "o": {
+    "wert": 34
+   },
+   "c": "8 * 37 - 262",
+   "w": "Summe aller Werte: 8 · 37 = 296. Fehlender Wert: 296 − 262 = 34.",
+   "h": "Mittelwert mal Anzahl ergibt die Summe aller Werte.",
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet für 3; 5; 10 (Mittelwert 6) die Abweichungen 3; 1; 4. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Richtig sind 3; 5; 10.",
+    "Falsch: Richtig sind −3; 1; −4.",
+    "Falsch: Die Vorzeichen fehlen, richtig sind −3; −1; 4."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Abweichung = Wert − Mittelwert: 3 − 6 = −3, 5 − 6 = −1, 10 − 6 = 4. Probe: Die Summe muss 0 sein.",
+   "h": "Prüfe mit der Summe der Abweichungen.",
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Waage zeigt bei jedem Wiegen 3 g zu viel an. Was gilt für die Abweichungen der Messwerte vom Mittelwert?"
+   },
+   "a": [
+    "Sie bleiben gleich.",
+    "Jede wird um 3 g größer.",
+    "Jede wird um 3 g kleiner.",
+    "Sie werden alle 0."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Jeder Wert ist um 3 g zu groß, also auch der Mittelwert. Wert − Mittelwert ändert sich dadurch nicht.",
+   "h": "Was passiert mit dem Mittelwert?",
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Drei Zahlen haben den Mittelwert 10. Zwei von ihnen weichen um 4 und um −7 vom Mittelwert ab. Wie heißt die dritte Zahl?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "10 + (0 - 4 + 7)",
+   "w": "Die Abweichungen ergeben zusammen 0: 4 + (−7) + d = 0 ⇒ d = 3. Die dritte Zahl ist 10 + 3 = 13. Probe: 14, 3, 13 haben die Summe 30.",
+   "h": "Was weißt du über die Summe aller Abweichungen?",
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Bei fünf Zahlen ist die Summe der Abweichungsbeträge |Wert − Mittelwert| gleich 0. Was folgt daraus?"
+   },
+   "a": [
+    "Die Zahlen sind 1, 2, 3, 4, 5.",
+    "Der Mittelwert ist 0.",
+    "Alle fünf Zahlen sind gleich.",
+    "Das ist unmöglich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beträge sind nie negativ. Ihre Summe ist nur 0, wenn jeder Betrag 0 ist – jede Zahl ist also gleich dem Mittelwert.",
+   "h": "Kann eine Summe von nicht-negativen Zahlen 0 sein, wenn eine davon positiv ist?",
+   "l": "abweichung",
+   "t": "abweichung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "varianz",
    "t": "varianz",
    "p": "uebung",
@@ -1072,7 +1228,29 @@
    },
    "c": "((5 - 5) ** 2 + (11 - 5) ** 2 + (2 - 5) ** 2 + (2 - 5) ** 2) / 4",
    "w": "x̄ = 5. Quadrate der Abweichungen: 0² + 6² + (−3)² + (−3)² = 54. Varianz: 54 : 4 = 13,5.",
-   "h": "Mittelwert, Abweichungen, Quadrate, Summe, durch n teilen."
+   "h": "Mittelwert, Abweichungen, Quadrate, Summe, durch n teilen.",
+   "g": "direkt"
+  },
+  {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Datensatz A: 19; 9; 15; 20; 13; 16; 13; 23. Datensatz B: 3; 12; 15; 3; 12; 6; 23; 6. Welcher hat die größere Varianz?"
+   },
+   "a": [
+    "Datensatz A",
+    "Datensatz B",
+    "Beide gleich"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Varianz A = 17,75, Varianz B = 41,5. Größer ist B.",
+   "h": "Berechne beide Varianzen oder schätze, welche Werte weiter auseinanderliegen.",
+   "g": "mehrschritt"
   },
   {
    "l": "varianz",
@@ -1088,7 +1266,29 @@
    },
    "c": "((7 - 7) ** 2 + (4 - 7) ** 2 + (8 - 7) ** 2 + (9 - 7) ** 2) / 4",
    "w": "x̄ = 7. Quadrate der Abweichungen: 0² + (−3)² + 1² + 2² = 14. Varianz: 14 : 4 = 3,5.",
-   "h": "Mittelwert, Abweichungen, Quadrate, Summe, durch n teilen."
+   "h": "Mittelwert, Abweichungen, Quadrate, Summe, durch n teilen.",
+   "g": "direkt"
+  },
+  {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Datensatz A: 24; 13; 16; 15. Datensatz B: 9; 14; 8; 21. Welcher hat die größere Varianz?"
+   },
+   "a": [
+    "Beide gleich",
+    "Datensatz A",
+    "Datensatz B"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Varianz A = 17,5, Varianz B = 26,5. Größer ist B.",
+   "h": "Berechne beide Varianzen oder schätze, welche Werte weiter auseinanderliegen.",
+   "g": "mehrschritt"
   },
   {
    "l": "varianz",
@@ -1104,7 +1304,33 @@
    },
    "c": "(1 - 7) ** 2 + (11 - 7) ** 2 + (4 - 7) ** 2 + (9 - 7) ** 2 + (10 - 7) ** 2",
    "w": "(−6)² + 4² + (−3)² + 2² + 3² = 74.",
-   "h": "Jede Abweichung quadrieren, dann addieren."
+   "h": "Jede Abweichung quadrieren, dann addieren.",
+   "g": "direkt"
+  },
+  {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Werte 12; 15; x; 11; 8 haben den Mittelwert 13. Bestimme x und danach die Varianz der 5 Werte.",
+    "schablone": "x = □; Varianz = □",
+    "hinweis": "Zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     19,
+     14
+    ]
+   },
+   "w": "Summe: 5 · 13 = 65, also x = 65 − 46 = 19. Varianz: ((−1)² + 2² + 6² + (−2)² + (−5)²) : 5 = 14.",
+   "h": "Mittelwert mal Anzahl ergibt die Summe – so findest du x. Dann wie gewohnt die Varianz.",
+   "c": [
+    "5 * 13 - 46",
+    "14"
+   ],
+   "g": "verknuepfen"
   },
   {
    "l": "varianz",
@@ -1120,7 +1346,118 @@
    },
    "c": "((8 - 7) ** 2 + (4 - 7) ** 2 + (9 - 7) ** 2 + (6 - 7) ** 2 + (8 - 7) ** 2) / 5",
    "w": "x̄ = 7. Quadrate der Abweichungen: 1² + (−3)² + 2² + (−1)² + 1² = 16. Varianz: 16 : 5 = 3,2.",
-   "h": "Mittelwert, Abweichungen, Quadrate, Summe, durch n teilen."
+   "h": "Mittelwert, Abweichungen, Quadrate, Summe, durch n teilen.",
+   "g": "direkt"
+  },
+  {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Abweichungen von 4 Werten vom Mittelwert sind 2; −7; 5; 0. Berechne die Varianz."
+   },
+   "o": {
+    "wert": 19.5
+   },
+   "c": "((19 - 17) ** 2 + (10 - 17) ** 2 + (22 - 17) ** 2 + (17 - 17) ** 2) / 4",
+   "w": "Quadrate: 4; 49; 25; 0. Summe 78, geteilt durch 4: 19,5.",
+   "h": "Die Abweichungen sind schon da: quadrieren, addieren, durch die Anzahl teilen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Datensatz A: 21; 23; 11; 21. Datensatz B: 20; 16; 9; 19. Welcher hat die größere Varianz?"
+   },
+   "a": [
+    "Datensatz A",
+    "Datensatz B",
+    "Beide gleich"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Varianz A = 22, Varianz B = 18,5. Größer ist A.",
+   "h": "Berechne beide Varianzen oder schätze, welche Werte weiter auseinanderliegen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Werte: 19; 20; 1; 12, x̄ = 13. Mia rechnet die Varianz und erhält −15, weil sie (−12)² = −144 gesetzt hat. Was stimmt?"
+   },
+   "a": [
+    "Mia hat recht, die Varianz ist −15.",
+    "(−12)² = 144, nicht −144. Die Varianz ist 57,5.",
+    "Man muss durch 3 teilen, dann stimmt es.",
+    "Die Varianz ist 230."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Quadrate sind nie negativ. Richtig: x̄ = 13. Quadrate der Abweichungen: 6² + 7² + (−12)² + (−1)² = 230. Varianz: 230 : 4 = 57,5.",
+   "h": "Was ergibt eine negative Zahl zum Quadrat?",
+   "g": "fehler"
+  },
+  {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Werte haben den Mittelwert 5 und die Varianz 81. Wie heißen die beiden Werte? (kleinerer zuerst)",
+    "schablone": "□ und □",
+    "hinweis": "Zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -4,
+     14
+    ]
+   },
+   "w": "Beide Werte liegen gleich weit vom Mittelwert weg, Abweichungen −a und a. Varianz (a² + a²) : 2 = a² = 81, also a = 9. Werte: -4 und 14.",
+   "h": "Bei zwei Werten sind die Abweichungen gleich groß, nur mit anderem Vorzeichen.",
+   "c": [
+    "5 - 9",
+    "5 + 9"
+   ],
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Werte 9; 18; 17; x; 16 haben den Mittelwert 13. Bestimme x und danach die Varianz der 5 Werte.",
+    "schablone": "x = □; Varianz = □",
+    "hinweis": "Zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     5,
+     26
+    ]
+   },
+   "w": "Summe: 5 · 13 = 65, also x = 65 − 60 = 5. Varianz: ((−4)² + 5² + 4² + (−8)² + 3²) : 5 = 26.",
+   "h": "Mittelwert mal Anzahl ergibt die Summe – so findest du x. Dann wie gewohnt die Varianz.",
+   "c": [
+    "5 * 13 - 60",
+    "26"
+   ],
+   "g": "verknuepfen"
   },
   {
    "l": "varianz",
@@ -1136,7 +1473,30 @@
    },
    "c": "(1 - 5) ** 2 + (5 - 5) ** 2 + (6 - 5) ** 2 + (1 - 5) ** 2 + (12 - 5) ** 2",
    "w": "(−4)² + 0² + 1² + (−4)² + 7² = 82.",
-   "h": "Jede Abweichung quadrieren, dann addieren."
+   "h": "Jede Abweichung quadrieren, dann addieren.",
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Schritt kommt bei der Varianz direkt nach dem Berechnen der Abweichungen?"
+   },
+   "a": [
+    "Durch die Anzahl teilen.",
+    "Die Wurzel ziehen.",
+    "Die Abweichungen quadrieren.",
+    "Die Abweichungen addieren."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Reihenfolge: Mittelwert, Abweichungen, quadrieren, Mittelwert der Quadrate.",
+   "h": "Schau auf das Beispiel der Lernkarte.",
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "varianz",
@@ -1161,82 +1521,6 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Datensatz A: 19; 9; 15; 20; 13; 16; 13; 23. Datensatz B: 3; 12; 15; 3; 12; 6; 23; 6. Welcher hat die größere Varianz?"
-   },
-   "a": [
-    "Datensatz A",
-    "Datensatz B",
-    "Beide gleich"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Varianz A = 17,75, Varianz B = 41,5. Größer ist B.",
-   "h": "Berechne beide Varianzen oder schätze, welche Werte weiter auseinanderliegen."
-  },
-  {
-   "l": "varianz",
-   "t": "varianz",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Datensatz A: 24; 13; 16; 15. Datensatz B: 9; 14; 8; 21. Welcher hat die größere Varianz?"
-   },
-   "a": [
-    "Beide gleich",
-    "Datensatz A",
-    "Datensatz B"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Varianz A = 17,5, Varianz B = 26,5. Größer ist B.",
-   "h": "Berechne beide Varianzen oder schätze, welche Werte weiter auseinanderliegen."
-  },
-  {
-   "l": "varianz",
-   "t": "varianz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Abweichungen von 4 Werten vom Mittelwert sind 2; −7; 5; 0. Berechne die Varianz."
-   },
-   "o": {
-    "wert": 19.5
-   },
-   "c": "((19 - 17) ** 2 + (10 - 17) ** 2 + (22 - 17) ** 2 + (17 - 17) ** 2) / 4",
-   "w": "Quadrate: 4; 49; 25; 0. Summe 78, geteilt durch 4: 19,5.",
-   "h": "Die Abweichungen sind schon da: quadrieren, addieren, durch die Anzahl teilen."
-  },
-  {
-   "l": "varianz",
-   "t": "varianz",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Datensatz A: 21; 23; 11; 21. Datensatz B: 20; 16; 9; 19. Welcher hat die größere Varianz?"
-   },
-   "a": [
-    "Datensatz A",
-    "Datensatz B",
-    "Beide gleich"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Varianz A = 22, Varianz B = 18,5. Größer ist A.",
-   "h": "Berechne beide Varianzen oder schätze, welche Werte weiter auseinanderliegen."
-  },
-  {
-   "l": "varianz",
-   "t": "varianz",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
     "text": "Datensatz A: 12; 6; 13; 25; 25; 15; 15; 9. Datensatz B: 8; 16; 11; 3; 19; 21; 18; 8. Welcher hat die größere Varianz?"
    },
    "a": [
@@ -1248,7 +1532,8 @@
     "index": 0
    },
    "w": "Varianz A = 41,25, Varianz B = 36. Größer ist A.",
-   "h": "Berechne beide Varianzen oder schätze, welche Werte weiter auseinanderliegen."
+   "h": "Berechne beide Varianzen oder schätze, welche Werte weiter auseinanderliegen.",
+   "g": "mehrschritt"
   },
   {
    "l": "varianz",
@@ -1264,100 +1549,26 @@
    },
    "c": "((4 - 15) ** 2 + (18 - 15) ** 2 + (20 - 15) ** 2 + (25 - 15) ** 2 + (17 - 15) ** 2 + (13 - 15) ** 2 + (22 - 15) ** 2 + (1 - 15) ** 2) / 8",
    "w": "Quadrate: 121; 9; 25; 100; 4; 4; 49; 196. Summe 508, geteilt durch 8: 63,5.",
-   "h": "Die Abweichungen sind schon da: quadrieren, addieren, durch die Anzahl teilen."
+   "h": "Die Abweichungen sind schon da: quadrieren, addieren, durch die Anzahl teilen.",
+   "g": "umkehr"
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Imker wiegt vier Honiggläser: 498 g, 502 g, 503 g und 497 g. Berechne die Varianz der Massen (in g²)."
+   },
+   "o": {
+    "wert": 6.5,
+    "einheit": "g²"
+   },
+   "c": "((498-500)**2 + (502-500)**2 + (503-500)**2 + (497-500)**2)/4",
+   "w": "Mittelwert 2 000 : 4 = 500 g. Abweichungen −2; 2; 3; −3. Quadrate 4; 4; 9; 9, Summe 26. Varianz 26 : 4 = 6,5 g².",
+   "h": "Erst den Mittelwert.",
    "l": "varianz",
    "t": "varianz",
    "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Werte 12; 15; x; 11; 8 haben den Mittelwert 13. Bestimme x und danach die Varianz der 5 Werte.",
-    "schablone": "x = □; Varianz = □",
-    "hinweis": "Zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     19,
-     14
-    ]
-   },
-   "w": "Summe: 5 · 13 = 65, also x = 65 − 46 = 19. Varianz: ((−1)² + 2² + 6² + (−2)² + (−5)²) : 5 = 14.",
-   "h": "Mittelwert mal Anzahl ergibt die Summe – so findest du x. Dann wie gewohnt die Varianz.",
-   "c": [
-    "5 * 13 - 46",
-    "14"
-   ]
-  },
-  {
-   "l": "varianz",
-   "t": "varianz",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Werte: 19; 20; 1; 12, x̄ = 13. Mia rechnet die Varianz und erhält −15, weil sie (−12)² = −144 gesetzt hat. Was stimmt?"
-   },
-   "a": [
-    "Mia hat recht, die Varianz ist −15.",
-    "(−12)² = 144, nicht −144. Die Varianz ist 57,5.",
-    "Man muss durch 3 teilen, dann stimmt es.",
-    "Die Varianz ist 230."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Quadrate sind nie negativ. Richtig: x̄ = 13. Quadrate der Abweichungen: 6² + 7² + (−12)² + (−1)² = 230. Varianz: 230 : 4 = 57,5.",
-   "h": "Was ergibt eine negative Zahl zum Quadrat?"
-  },
-  {
-   "l": "varianz",
-   "t": "varianz",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Zwei Werte haben den Mittelwert 5 und die Varianz 81. Wie heißen die beiden Werte? (kleinerer zuerst)",
-    "schablone": "□ und □",
-    "hinweis": "Zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     -4,
-     14
-    ]
-   },
-   "w": "Beide Werte liegen gleich weit vom Mittelwert weg, Abweichungen −a und a. Varianz (a² + a²) : 2 = a² = 81, also a = 9. Werte: -4 und 14.",
-   "h": "Bei zwei Werten sind die Abweichungen gleich groß, nur mit anderem Vorzeichen.",
-   "c": [
-    "5 - 9",
-    "5 + 9"
-   ]
-  },
-  {
-   "l": "varianz",
-   "t": "varianz",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Werte 9; 18; 17; x; 16 haben den Mittelwert 13. Bestimme x und danach die Varianz der 5 Werte.",
-    "schablone": "x = □; Varianz = □",
-    "hinweis": "Zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     5,
-     26
-    ]
-   },
-   "w": "Summe: 5 · 13 = 65, also x = 65 − 60 = 5. Varianz: ((−4)² + 5² + 4² + (−8)² + 3²) : 5 = 26.",
-   "h": "Mittelwert mal Anzahl ergibt die Summe – so findest du x. Dann wie gewohnt die Varianz.",
-   "c": [
-    "5 * 13 - 60",
-    "26"
-   ]
+   "s": 2,
+   "g": "einkleidung"
   },
   {
    "l": "varianz",
@@ -1378,7 +1589,8 @@
     "index": 0
    },
    "w": "Quadrate sind nie negativ. Richtig: x̄ = 11. Quadrate der Abweichungen: 12² + 12² + (−7)² + (−7)² + (−10)² = 486. Varianz: 486 : 5 = 97,2.",
-   "h": "Was ergibt eine negative Zahl zum Quadrat?"
+   "h": "Was ergibt eine negative Zahl zum Quadrat?",
+   "g": "fehler"
   },
   {
    "l": "varianz",
@@ -1402,52 +1614,8 @@
    "c": [
     "10 - 7",
     "10 + 7"
-   ]
-  },
-  {
-   "l": "varianz",
-   "t": "varianz",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Werte: 3; 8; 11; 10 (x̄ = 8, Varianz 9,5). Ein neuer Wert 8 kommt dazu – genau der Mittelwert. Was passiert mit der Varianz?"
-   },
-   "a": [
-    "Sie wird kleiner.",
-    "Sie bleibt gleich.",
-    "Sie wird 0.",
-    "Sie wird größer."
    ],
-   "o": {
-    "index": 0
-   },
-   "w": "Der Mittelwert bleibt 8, die neue Abweichung ist 0. Die Summe der Quadrate bleibt 38, wird aber durch 5 statt 4 geteilt: 38 : 5 ≈ 7,6.",
-   "h": "Welche Abweichung hat der neue Wert? Durch wie viele Werte teilst du danach?"
-  },
-  {
-   "l": "varianz",
-   "t": "varianz",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Werte 1; 7; x; 9 haben den Mittelwert 9. Bestimme x und danach die Varianz der 4 Werte.",
-    "schablone": "x = □; Varianz = □",
-    "hinweis": "Zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     19,
-     42
-    ]
-   },
-   "w": "Summe: 4 · 9 = 36, also x = 36 − 17 = 19. Varianz: ((−8)² + (−2)² + 10² + 0²) : 4 = 42.",
-   "h": "Mittelwert mal Anzahl ergibt die Summe – so findest du x. Dann wie gewohnt die Varianz.",
-   "c": [
-    "4 * 9 - 17",
-    "42"
-   ]
+   "g": "rueckwaerts"
   },
   {
    "l": "varianz",
@@ -1624,6 +1792,92 @@
    "w": "Varianz A = 59, Varianz B = 62,75. Größer ist B."
   },
   {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Werte: 3; 8; 11; 10 (x̄ = 8, Varianz 9,5). Ein neuer Wert 8 kommt dazu – genau der Mittelwert. Was passiert mit der Varianz?"
+   },
+   "a": [
+    "Sie wird kleiner.",
+    "Sie bleibt gleich.",
+    "Sie wird 0.",
+    "Sie wird größer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Mittelwert bleibt 8, die neue Abweichung ist 0. Die Summe der Quadrate bleibt 38, wird aber durch 5 statt 4 geteilt: 38 : 5 ≈ 7,6.",
+   "h": "Welche Abweichung hat der neue Wert? Durch wie viele Werte teilst du danach?",
+   "g": "begruenden"
+  },
+  {
+   "l": "varianz",
+   "t": "varianz",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Werte 1; 7; x; 9 haben den Mittelwert 9. Bestimme x und danach die Varianz der 4 Werte.",
+    "schablone": "x = □; Varianz = □",
+    "hinweis": "Zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     19,
+     42
+    ]
+   },
+   "w": "Summe: 4 · 9 = 36, also x = 36 − 17 = 19. Varianz: ((−8)² + (−2)² + 10² + 0²) : 4 = 42.",
+   "h": "Mittelwert mal Anzahl ergibt die Summe – so findest du x. Dann wie gewohnt die Varianz.",
+   "c": [
+    "4 * 9 - 17",
+    "42"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Werte 3; 5; 7; x (mit x > 7) haben die Varianz 5. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "Probiere: x = 9 gibt den Mittelwert 24 : 4 = 6, Abweichungen −3; −1; 1; 3, Quadrate 9 + 1 + 1 + 9 = 20, Varianz 5. Je größer x, desto weiter liegt es vom Rest weg und desto größer wird die Varianz – es gibt nur diese Lösung.",
+   "h": "Wähle x so, dass die Werte symmetrisch um den Mittelwert liegen.",
+   "l": "varianz",
+   "t": "varianz",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Alle Werte eines Datensatzes liegen zwischen 10 und 20 (Grenzen eingeschlossen). Kann die Varianz größer als 25 sein?"
+   },
+   "a": [
+    "Nein, höchstens 25.",
+    "Ja, wenn es sehr viele Werte sind.",
+    "Ja, bis 100.",
+    "Nein, höchstens 10."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Am meisten streuen die Werte, wenn die Hälfte bei 10 und die Hälfte bei 20 liegt: Mittelwert 15, jede Abweichung ±5, Varianz 25. Jeder Wert weiter innen verkleinert die Abweichungen.",
+   "h": "Wo müssen die Werte liegen, damit sie möglichst weit vom Mittelwert weg sind?",
+   "l": "varianz",
+   "t": "varianz",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "sigma",
    "t": "sigma",
    "p": "uebung",
@@ -1637,7 +1891,27 @@
    },
    "c": "15",
    "w": "σ = √225 = 15, denn 15 · 15 = 225.",
-   "h": "σ ist die Wurzel aus der Varianz."
+   "h": "σ ist die Wurzel aus der Varianz.",
+   "g": "direkt"
+  },
+  {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergrößen in cm: 154; 147; 146; 161; 152. Berechne σ auf eine Nachkommastelle (in cm)."
+   },
+   "o": {
+    "wert": 5.4,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(5.403702434443, 1)",
+   "w": "x̄ = 152 cm. Quadrate: 2² + (−5)² + (−6)² + 9² + 0² = 146. Varianz 29,2 cm². σ = √29,2 ≈ 5,4 cm.",
+   "h": "Die Varianz hat die Einheit cm² – erst die Wurzel gibt cm.",
+   "g": "einkleidung"
   },
   {
    "l": "sigma",
@@ -1653,7 +1927,27 @@
    },
    "c": "10",
    "w": "σ = √100 = 10, denn 10 · 10 = 100.",
-   "h": "σ ist die Wurzel aus der Varianz."
+   "h": "σ ist die Wurzel aus der Varianz.",
+   "g": "direkt"
+  },
+  {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergrößen in cm: 156; 144; 161; 173; 171. Berechne σ auf eine Nachkommastelle (in cm)."
+   },
+   "o": {
+    "wert": 10.6,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(10.564090116995, 1)",
+   "w": "x̄ = 161 cm. Quadrate: (−5)² + (−17)² + 0² + 12² + 10² = 558. Varianz 111,6 cm². σ = √111,6 ≈ 10,6 cm.",
+   "h": "Die Varianz hat die Einheit cm² – erst die Wurzel gibt cm.",
+   "g": "einkleidung"
   },
   {
    "l": "sigma",
@@ -1669,89 +1963,8 @@
    },
    "c": "4",
    "w": "x̄ = 8. Quadrate: (−7)² + (−3)² + 5² + (−2)² + 6² + 0² + (−1)² + 2² = 128. Varianz 128 : 8 = 16. σ = √16 = 4.",
-   "h": "Erst die Varianz, dann die Wurzel."
-  },
-  {
-   "l": "sigma",
-   "t": "sigma",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Standardabweichung der Werte 13; 2; 19; 11; 5."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "6",
-   "w": "x̄ = 10. Quadrate: 3² + (−8)² + 9² + 1² + (−5)² = 180. Varianz 180 : 5 = 36. σ = √36 = 6.",
-   "h": "Erst die Varianz, dann die Wurzel."
-  },
-  {
-   "l": "sigma",
-   "t": "sigma",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Standardabweichung der Werte 18; 12; 2; 20."
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "7",
-   "w": "x̄ = 13. Quadrate: 5² + (−1)² + (−11)² + 7² = 196. Varianz 196 : 4 = 49. σ = √49 = 7.",
-   "h": "Erst die Varianz, dann die Wurzel."
-  },
-  {
-   "l": "sigma",
-   "t": "sigma",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Die Varianz eines Datensatzes ist 196. Wie groß ist die Standardabweichung σ?"
-   },
-   "o": {
-    "wert": 14
-   },
-   "c": "14",
-   "w": "σ = √196 = 14, denn 14 · 14 = 196.",
-   "h": "σ ist die Wurzel aus der Varianz."
-  },
-  {
-   "l": "sigma",
-   "t": "sigma",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Varianz ist 7. Berechne σ auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 2.65,
-    "toleranz": 0.01
-   },
-   "c": "round(2.645751311065, 2)",
-   "w": "σ = √7 ≈ 2,65 (Taschenrechner, auf zwei Stellen gerundet).",
-   "h": "Wurzel ziehen, dann runden."
-  },
-  {
-   "l": "sigma",
-   "t": "sigma",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Varianz ist 8. Berechne σ auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 2.83,
-    "toleranz": 0.01
-   },
-   "c": "round(2.828427124746, 2)",
-   "w": "σ = √8 ≈ 2,83 (Taschenrechner, auf zwei Stellen gerundet).",
-   "h": "Wurzel ziehen, dann runden."
+   "h": "Erst die Varianz, dann die Wurzel.",
+   "g": "direkt"
   },
   {
    "l": "sigma",
@@ -1767,7 +1980,61 @@
    },
    "c": "1.2 ** 2",
    "w": "Varianz = σ² = 1,2² = 1,44.",
-   "h": "Die Umkehrung der Wurzel ist das Quadrieren."
+   "h": "Die Umkehrung der Wurzel ist das Quadrieren.",
+   "g": "umkehr"
+  },
+  {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Standardabweichung der Werte 13; 2; 19; 11; 5."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "x̄ = 10. Quadrate: 3² + (−8)² + 9² + 1² + (−5)² = 180. Varianz 180 : 5 = 36. σ = √36 = 6.",
+   "h": "Erst die Varianz, dann die Wurzel.",
+   "g": "direkt"
+  },
+  {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergrößen in cm: 170; 168; 144; 162. Berechne σ auf eine Nachkommastelle (in cm)."
+   },
+   "o": {
+    "wert": 10.2,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(10.246950765960, 1)",
+   "w": "x̄ = 161 cm. Quadrate: 9² + 7² + (−17)² + 1² = 420. Varianz 105 cm². σ = √105 ≈ 10,2 cm.",
+   "h": "Die Varianz hat die Einheit cm² – erst die Wurzel gibt cm.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Standardabweichung der Werte 18; 12; 2; 20."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "x̄ = 13. Quadrate: 5² + (−1)² + (−11)² + 7² = 196. Varianz 196 : 4 = 49. σ = √49 = 7.",
+   "h": "Erst die Varianz, dann die Wurzel.",
+   "g": "direkt"
   },
   {
    "l": "sigma",
@@ -1783,59 +2050,45 @@
    },
    "c": "1.5 ** 2",
    "w": "Varianz = σ² = 1,5² = 2,25.",
-   "h": "Die Umkehrung der Wurzel ist das Quadrieren."
+   "h": "Die Umkehrung der Wurzel ist das Quadrieren.",
+   "g": "umkehr"
   },
   {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Varianz ist 7. Berechne σ auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 2.65,
+    "toleranz": 0.01
+   },
+   "c": "round(2.645751311065, 2)",
+   "w": "σ = √7 ≈ 2,65 (Taschenrechner, auf zwei Stellen gerundet).",
+   "h": "Wurzel ziehen, dann runden.",
+   "g": "direkt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer läuft fünf Runden in 60 s, 62 s, 58 s, 61 s und 59 s. Berechne σ auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.41,
+    "einheit": "s",
+    "toleranz": 0.01
+   },
+   "c": "round(1.4142135623730951, 2)",
+   "w": "Mittelwert 300 : 5 = 60 s. Abweichungen 0; 2; −2; 1; −1, Quadrate 0 + 4 + 4 + 1 + 1 = 10. Varianz 2, σ = √2 ≈ 1,41 s.",
+   "h": "Erst Mittelwert, dann Varianz, dann Wurzel.",
    "l": "sigma",
    "t": "sigma",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Varianz ist 23. Berechne σ auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 4.8,
-    "toleranz": 0.01
-   },
-   "c": "round(4.795831523313, 2)",
-   "w": "σ = √23 ≈ 4,8 (Taschenrechner, auf zwei Stellen gerundet).",
-   "h": "Wurzel ziehen, dann runden."
-  },
-  {
-   "l": "sigma",
-   "t": "sigma",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Varianz ist 44. Berechne σ auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 6.63,
-    "toleranz": 0.01
-   },
-   "c": "round(6.633249580711, 2)",
-   "w": "σ = √44 ≈ 6,63 (Taschenrechner, auf zwei Stellen gerundet).",
-   "h": "Wurzel ziehen, dann runden."
-  },
-  {
-   "l": "sigma",
-   "t": "sigma",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Körpergrößen in cm: 154; 147; 146; 161; 152. Berechne σ auf eine Nachkommastelle (in cm)."
-   },
-   "o": {
-    "wert": 5.4,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(5.403702434443, 1)",
-   "w": "x̄ = 152 cm. Quadrate: 2² + (−5)² + (−6)² + 9² + 0² = 146. Varianz 29,2 cm². σ = √29,2 ≈ 5,4 cm.",
-   "h": "Die Varianz hat die Einheit cm² – erst die Wurzel gibt cm."
+   "g": "einkleidung"
   },
   {
    "l": "sigma",
@@ -1869,7 +2122,8 @@
    },
    "c": "round(2.107130750571, 2)",
    "w": "Mittelwert: (0 · 4 + 3 · 3 + 5 · 3) : 10 = 2,4. Varianz: (4 · (−2,4)² + 3 · 0,6² + 3 · 2,6²) : 10 ≈ 4,44. σ ≈ 2,11.",
-   "h": "Jeder Wert zählt so oft, wie er in der Tabelle vorkommt."
+   "h": "Jeder Wert zählt so oft, wie er in der Tabelle vorkommt.",
+   "g": "verknuepfen"
   },
   {
    "l": "sigma",
@@ -1890,86 +2144,70 @@
     "index": 1
    },
    "w": "B ist A „gespiegelt“: In A liegt ein Wert allein oben, in B einer allein unten. Die Abstände zum jeweiligen Mittelwert sind gleich groß, also gleiches σ ≈ 4,33. Die Mittelwerte (18,5 und 23,5) sind verschieden.",
-   "h": "Vergleiche die Abstände der Werte zum eigenen Mittelwert – nicht die Werte selbst."
+   "h": "Vergleiche die Abstände der Werte zum eigenen Mittelwert – nicht die Werte selbst.",
+   "g": "begruenden"
   },
   {
    "l": "sigma",
    "t": "sigma",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Körpergrößen in cm: 156; 144; 161; 173; 171. Berechne σ auf eine Nachkommastelle (in cm)."
+    "text": "Die Varianz ist 8. Berechne σ auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 10.6,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(10.564090116995, 1)",
-   "w": "x̄ = 161 cm. Quadrate: (−5)² + (−17)² + 0² + 12² + 10² = 558. Varianz 111,6 cm². σ = √111,6 ≈ 10,6 cm.",
-   "h": "Die Varianz hat die Einheit cm² – erst die Wurzel gibt cm."
-  },
-  {
-   "l": "sigma",
-   "t": "sigma",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren 8 Spielen geschossen hat. Berechne die Standardabweichung der Torzahlen auf zwei Nachkommastellen.",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Tore",
-      "0",
-      "3",
-      "4"
-     ],
-     "zeilen": [
-      [
-       "Spiele",
-       "3",
-       "3",
-       "2"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 1.69,
+    "wert": 2.83,
     "toleranz": 0.01
    },
-   "c": "round(1.690968657309, 2)",
-   "w": "Mittelwert: (0 · 3 + 3 · 3 + 4 · 2) : 8 = 2,125. Varianz: (3 · (−2,125)² + 3 · 0,875² + 2 · 1,875²) : 8 ≈ 2,8594. σ ≈ 1,69.",
-   "h": "Jeder Wert zählt so oft, wie er in der Tabelle vorkommt."
+   "c": "round(2.828427124746, 2)",
+   "w": "σ = √8 ≈ 2,83 (Taschenrechner, auf zwei Stellen gerundet).",
+   "h": "Wurzel ziehen, dann runden.",
+   "g": "direkt"
   },
   {
-   "l": "sigma",
-   "t": "sigma",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Datensatz A: 7; 7; 7; 15. Datensatz B: 7; 15; 15; 15. Welche Aussage stimmt?"
+    "text": "Die Werte eines Datensatzes sind in cm gemessen. Welche Einheit hat die Standardabweichung σ?"
    },
    "a": [
-    "Beide haben denselben Mittelwert.",
-    "A hat die größere Standardabweichung.",
-    "Beide haben dieselbe Standardabweichung.",
-    "B hat die größere Standardabweichung."
+    "cm",
+    "cm²",
+    "keine Einheit",
+    "%"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "B ist A „gespiegelt“: In A liegt ein Wert allein oben, in B einer allein unten. Die Abstände zum jeweiligen Mittelwert sind gleich groß, also gleiches σ ≈ 3,46. Die Mittelwerte (9 und 13) sind verschieden.",
-   "h": "Vergleiche die Abstände der Werte zum eigenen Mittelwert – nicht die Werte selbst."
+   "w": "Die Varianz hat cm², die Wurzel daraus wieder cm. Darum ist σ leichter zu deuten als die Varianz.",
+   "h": "Was macht die Wurzel aus cm²?",
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "sigma",
    "t": "sigma",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Varianz eines Datensatzes ist 196. Wie groß ist die Standardabweichung σ?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "14",
+   "w": "σ = √196 = 14, denn 14 · 14 = 196.",
+   "h": "σ ist die Wurzel aus der Varianz."
+  },
+  {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Massen in kg haben die Standardabweichung σ = 2 kg. Welche Varianz gehört dazu?"
@@ -1983,25 +2221,49 @@
     "index": 0
    },
    "w": "Varianz = σ² = 2² = 4. Die Einheit wird mitquadriert: kg².",
-   "h": "Die Varianz ist σ zum Quadrat – auch die Einheit."
+   "h": "Die Varianz ist σ zum Quadrat – auch die Einheit.",
+   "g": "umkehr"
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Vier Saftflaschen enthalten 1 002 ml, 998 ml, 1 001 ml und 999 ml. Berechne σ auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.58,
+    "einheit": "ml",
+    "toleranz": 0.01
+   },
+   "c": "round(1.5811388300841898, 2)",
+   "w": "Mittelwert 1 000 ml. Abweichungen 2; −2; 1; −1, Quadrate 4 + 4 + 1 + 1 = 10. Varianz 2,5, σ ≈ 1,58 ml.",
+   "h": "Rechne mit den Abweichungen von 1 000.",
    "l": "sigma",
    "t": "sigma",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "y": "auswahl",
    "f": {
-    "text": "Körpergrößen in cm: 170; 168; 144; 162. Berechne σ auf eine Nachkommastelle (in cm)."
+    "text": "Datensatz A hat σ = 3, Datensatz B hat die Varianz 10. Welcher streut stärker?"
    },
+   "a": [
+    "A, denn 3 ist eine Standardabweichung",
+    "B, denn 10 > 3",
+    "beide gleich",
+    "B, denn √10 ≈ 3,16 > 3"
+   ],
    "o": {
-    "wert": 10.2,
-    "einheit": "cm",
-    "toleranz": 0.1
+    "index": 3
    },
-   "c": "round(10.246950765960, 1)",
-   "w": "x̄ = 161 cm. Quadrate: 9² + 7² + (−17)² + 1² = 420. Varianz 105 cm². σ = √105 ≈ 10,2 cm.",
-   "h": "Die Varianz hat die Einheit cm² – erst die Wurzel gibt cm."
+   "w": "Vergleichbar sind nur gleiche Größen: σ von B ist √10 ≈ 3,16. Das ist etwas mehr als 3. „10 > 3“ vergleicht Äpfel mit Birnen.",
+   "h": "Rechne beide in σ um.",
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt"
   },
   {
    "l": "sigma",
@@ -2161,6 +2423,222 @@
    "w": "σ = √47 ≈ 6,86 (Taschenrechner, auf zwei Stellen gerundet)."
   },
   {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Varianz ist 23. Berechne σ auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 4.8,
+    "toleranz": 0.01
+   },
+   "c": "round(4.795831523313, 2)",
+   "w": "σ = √23 ≈ 4,8 (Taschenrechner, auf zwei Stellen gerundet).",
+   "h": "Wurzel ziehen, dann runden."
+  },
+  {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Varianz ist 44. Berechne σ auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.63,
+    "toleranz": 0.01
+   },
+   "c": "round(6.633249580711, 2)",
+   "w": "σ = √44 ≈ 6,63 (Taschenrechner, auf zwei Stellen gerundet).",
+   "h": "Wurzel ziehen, dann runden."
+  },
+  {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren 8 Spielen geschossen hat. Berechne die Standardabweichung der Torzahlen auf zwei Nachkommastellen.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Tore",
+      "0",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "Spiele",
+       "3",
+       "3",
+       "2"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1.69,
+    "toleranz": 0.01
+   },
+   "c": "round(1.690968657309, 2)",
+   "w": "Mittelwert: (0 · 3 + 3 · 3 + 4 · 2) : 8 = 2,125. Varianz: (3 · (−2,125)² + 3 · 0,875² + 2 · 1,875²) : 8 ≈ 2,8594. σ ≈ 1,69.",
+   "h": "Jeder Wert zählt so oft, wie er in der Tabelle vorkommt.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Datensatz A: 7; 7; 7; 15. Datensatz B: 7; 15; 15; 15. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Beide haben denselben Mittelwert.",
+    "A hat die größere Standardabweichung.",
+    "Beide haben dieselbe Standardabweichung.",
+    "B hat die größere Standardabweichung."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "B ist A „gespiegelt“: In A liegt ein Wert allein oben, in B einer allein unten. Die Abstände zum jeweiligen Mittelwert sind gleich groß, also gleiches σ ≈ 3,46. Die Mittelwerte (9 und 13) sind verschieden.",
+   "h": "Vergleiche die Abstände der Werte zum eigenen Mittelwert – nicht die Werte selbst.",
+   "g": "begruenden"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Werte haben den Mittelwert 10 und die Standardabweichung 3. Wie heißen sie? (kleinerer zuerst)",
+    "schablone": "□ und □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     7,
+     13
+    ]
+   },
+   "c": [
+    "10 - 3",
+    "10 + 3"
+   ],
+   "w": "Bei zwei Werten liegen beide gleich weit vom Mittelwert: 10 − d und 10 + d. Varianz d² = 9, also σ = d = 3. Die Werte sind 7 und 13.",
+   "h": "Wie liegen zwei Werte um ihren Mittelwert?",
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet σ von 2; 4; 6; 8 so: Abweichungen −3; −1; 1; 3, Summe 0, also σ = 0. Was stimmt?"
+   },
+   "a": [
+    "Falsch: σ = 2.",
+    "Falsch: σ = 8.",
+    "Falsch: Die Abweichungen müssen erst quadriert werden; σ = √5 ≈ 2,24.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Summe der Abweichungen ist immer 0. Darum quadriert man: 9 + 1 + 1 + 9 = 20, Varianz 5, σ = √5 ≈ 2,24.",
+   "h": "Welcher Schritt fehlt?",
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für welches a > 0 haben die Werte 10 − a; 10; 10 + a die Varianz 6?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Mittelwert 10. Quadrate a², 0, a², Varianz 2a² : 3 = 6 ⇒ a² = 9 ⇒ a = 3.",
+   "h": "Stelle die Varianz mit a auf.",
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Werte: 4; 8; 6; 10; 7. a) Mittelwert, b) Varianz, c) Standardabweichung.",
+    "schablone": "a) □; b) □; c) □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     7,
+     4,
+     2
+    ]
+   },
+   "c": [
+    "(4+8+6+10+7)/5",
+    "(9+1+1+9+0)/5",
+    "2"
+   ],
+   "w": "a) 35 : 5 = 7. b) Abweichungen −3; 1; −1; 3; 0, Quadrate 9 + 1 + 1 + 9 + 0 = 20, 20 : 5 = 4. c) σ = √4 = 2.",
+   "h": "Arbeite die Teile nacheinander ab.",
+   "l": "sigma",
+   "t": "sigma",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Datensatz besteht nur aus den Werten 0 und 10, beide gleich oft. Wie groß ist σ?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Mittelwert 5. Jeder Wert weicht um genau 5 ab, jedes Quadrat ist 25, die Varianz 25, σ = 5 – egal, wie viele Werte es sind.",
+   "h": "Wie weit liegt jeder Wert vom Mittelwert weg?",
+   "l": "sigma",
+   "t": "sigma",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Zu den Werten 4 und 6 soll ein dritter Wert so dazukommen, dass σ der drei Werte möglichst klein wird. Welcher Wert?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Ein Wert genau am Mittelwert 5 trägt 0 zur Summe der Quadrate bei: σ² = (1 + 1 + 0) : 3. Jeder andere Wert verschiebt den Mittelwert und vergrößert die Quadrate.",
+   "h": "Welcher Wert weicht am wenigsten ab?",
+   "l": "sigma",
+   "t": "sigma",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
@@ -2174,7 +2652,25 @@
    },
    "c": "0.5 * 3.0",
    "w": "Alle Abstände werden 0,5-mal so groß: σ = 0,5 · 3 = 1,5.",
-   "h": "Beim Multiplizieren werden auch die Abstände multipliziert."
+   "h": "Beim Multiplizieren werden auch die Abstände multipliziert.",
+   "g": "direkt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Datensatz hat σ = 2,5. Jeder Wert wird mit (−3) multipliziert. Wie groß ist die neue Standardabweichung?"
+   },
+   "o": {
+    "wert": 7.5
+   },
+   "c": "abs(-3) * 2.5",
+   "w": "Die Abstände werden 3-mal so groß; die Richtung spielt keine Rolle: σ = 3 · 2,5 = 7,5.",
+   "h": "σ ist ein Abstand – kann er negativ werden?",
+   "g": "mehrschritt"
   },
   {
    "l": "eigenschaften",
@@ -2190,7 +2686,50 @@
    },
    "c": "3.0",
    "w": "Alle Werte verschieben sich um 7. Die Abstände bleiben: σ = 3 (nur x̄ wird 20).",
-   "h": "Ändern sich die Abstände zwischen den Werten?"
+   "h": "Ändern sich die Abstände zwischen den Werten?",
+   "g": "direkt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Datensatz hat σ = 5. Jeder Wert wird mit (−3) multipliziert. Wie groß ist die neue Standardabweichung?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "abs(-3) * 5.0",
+   "w": "Die Abstände werden 3-mal so groß; die Richtung spielt keine Rolle: σ = 3 · 5 = 15.",
+   "h": "σ ist ein Abstand – kann er negativ werden?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Test hat höchstens 50 Punkte. Ergebnis: x̄ = 21 Punkte, σ = 3 Punkte. Die Lehrkraft rechnet alle Ergebnisse in Prozent um (mal 2). Wie groß sind danach Mittelwert und Standardabweichung?",
+    "schablone": "x̄ = □ %; σ = □ %",
+    "hinweis": "Zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     42,
+     6
+    ]
+   },
+   "w": "Jeder Wert wird mit 2 multipliziert. Mittelwert: 21 · 2 = 42 %. Standardabweichung: 3 · 2 = 6 %.",
+   "h": "Mal k wirkt auf den Mittelwert und auf σ.",
+   "c": [
+    "21 * 2",
+    "3 * 2"
+   ],
+   "g": "begruenden"
   },
   {
    "l": "eigenschaften",
@@ -2206,7 +2745,92 @@
    },
    "c": "3.0",
    "w": "Alle Werte verschieben sich um 6. Die Abstände bleiben: σ = 3 (nur x̄ wird 38).",
-   "h": "Ändern sich die Abstände zwischen den Werten?"
+   "h": "Ändern sich die Abstände zwischen den Werten?",
+   "g": "direkt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Datensatz A: 1; 6; 12; 18; 24. Datensatz B: 9; 14; 20; 26; 32. Welche Aussage stimmt?"
+   },
+   "a": [
+    "A hat die größere Standardabweichung.",
+    "σ von B ist um 8 größer.",
+    "Beide haben dieselbe Standardabweichung.",
+    "B hat die größere Standardabweichung."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "B entsteht aus A, indem man zu jedem Wert 8 addiert. Die Abstände bleiben gleich, also auch σ.",
+   "h": "Vergleiche die Abstände der Werte untereinander.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Tagestemperaturen eines Monats: x̄ = 17 °C, σ = 5 °C. In Fahrenheit rechnet man F = 1,8 · C + 32. Wie groß ist σ in °F?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "°F"
+   },
+   "c": "5.0 * 1.8",
+   "w": "Mal 1,8 vergrößert alle Abstände: 5 · 1,8 = 9. Plus 32 verschiebt nur. σ = 9 °F.",
+   "h": "Welcher Teil der Umrechnung ändert die Abstände, welcher nur die Lage?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Nach einer Änderung aller Werte stieg x̄ von 25 auf 28, σ blieb 5. Was wurde gemacht?"
+   },
+   "a": [
+    "Zu jedem Wert wurde 3 addiert.",
+    "Jeder Wert wurde mit 3 multipliziert.",
+    "Jeder Wert wurde mit 1,12 multipliziert.",
+    "Zu jedem Wert wurde 5 addiert."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "σ blieb gleich, also wurde nur verschoben: 25 + 3 = 28. Beim Multiplizieren hätte sich σ mit verändert.",
+   "h": "Welche Änderung lässt σ gleich?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Datensatz hat die Standardabweichung σ = 0. Welche Aussage stimmt sicher?"
+   },
+   "a": [
+    "Alle Werte sind gleich.",
+    "Es gibt nur einen einzigen Wert.",
+    "Alle Werte sind 0.",
+    "Der Mittelwert ist 0."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "σ = 0 heißt: Kein Wert weicht vom Mittelwert ab. Also sind alle Werte gleich dem Mittelwert – welcher Zahl, ist offen.",
+   "h": "Was bedeutet es, wenn alle Abweichungen 0 sind?",
+   "g": "begruenden"
   },
   {
    "l": "eigenschaften",
@@ -2222,7 +2846,25 @@
    },
    "c": "0",
    "w": "Jeder Wert ist gleich dem Mittelwert 32. Alle Abweichungen sind 0, also σ = 0.",
-   "h": "Wie weit ist jeder Wert vom Mittelwert entfernt?"
+   "h": "Wie weit ist jeder Wert vom Mittelwert entfernt?",
+   "g": "erkennen"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Datensatz hat σ = 5. Jeder Wert wird mit 2 multipliziert. Wie groß ist die neue Standardabweichung?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "2.0 * 5.0",
+   "w": "Alle Abstände werden 2-mal so groß: σ = 2 · 5 = 10.",
+   "h": "Beim Multiplizieren werden auch die Abstände multipliziert.",
+   "g": "direkt"
   },
   {
    "l": "eigenschaften",
@@ -2263,59 +2905,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Datensatz hat σ = 2,5. Jeder Wert wird mit (−3) multipliziert. Wie groß ist die neue Standardabweichung?"
-   },
-   "o": {
-    "wert": 7.5
-   },
-   "c": "abs(-3) * 2.5",
-   "w": "Die Abstände werden 3-mal so groß; die Richtung spielt keine Rolle: σ = 3 · 2,5 = 7,5.",
-   "h": "σ ist ein Abstand – kann er negativ werden?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Datensatz hat σ = 5. Jeder Wert wird mit (−3) multipliziert. Wie groß ist die neue Standardabweichung?"
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "abs(-3) * 5.0",
-   "w": "Die Abstände werden 3-mal so groß; die Richtung spielt keine Rolle: σ = 3 · 5 = 15.",
-   "h": "σ ist ein Abstand – kann er negativ werden?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Datensatz A: 1; 6; 12; 18; 24. Datensatz B: 9; 14; 20; 26; 32. Welche Aussage stimmt?"
-   },
-   "a": [
-    "A hat die größere Standardabweichung.",
-    "σ von B ist um 8 größer.",
-    "Beide haben dieselbe Standardabweichung.",
-    "B hat die größere Standardabweichung."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "B entsteht aus A, indem man zu jedem Wert 8 addiert. Die Abstände bleiben gleich, also auch σ.",
-   "h": "Vergleiche die Abstände der Werte untereinander."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Ein Datensatz hat σ = 5. Jeder Wert wird zuerst mit 2 multipliziert, danach wird 8 addiert. Wie groß ist die neue Standardabweichung?"
    },
    "o": {
@@ -2323,7 +2912,8 @@
    },
    "c": "2 * 5.0",
    "w": "Mal 2: σ wird 10. Plus 8: keine Änderung. Neues σ = 10.",
-   "h": "Nur das Multiplizieren ändert die Streuung."
+   "h": "Nur das Multiplizieren ändert die Streuung.",
+   "g": "mehrschritt"
   },
   {
    "l": "eigenschaften",
@@ -2339,23 +2929,26 @@
    },
    "c": "51 + 7",
    "w": "Der Mittelwert verschiebt sich mit: 51 + 7 = 58. σ bleibt 2,5.",
-   "h": "Der Mittelwert macht die Verschiebung mit."
+   "h": "Der Mittelwert macht die Verschiebung mit.",
+   "g": "umkehr"
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Alle Kinder einer Klasse bekommen 2 Bonuspunkte. Vorher war σ = 3,5 Punkte. Wie groß ist σ danach?"
+   },
+   "o": {
+    "wert": 3.5,
+    "einheit": "Punkte"
+   },
+   "c": "3.5",
+   "w": "Jeder Wert und der Mittelwert steigen um 2; die Abstände bleiben gleich: σ = 3,5 Punkte.",
+   "h": "Was passiert mit den Abständen zum Mittelwert?",
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Datensatz hat σ = 5. Jeder Wert wird mit 2 multipliziert. Wie groß ist die neue Standardabweichung?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "2.0 * 5.0",
-   "w": "Alle Abstände werden 2-mal so groß: σ = 2 · 5 = 10.",
-   "h": "Beim Multiplizieren werden auch die Abstände multipliziert."
+   "g": "einkleidung"
   },
   {
    "l": "eigenschaften",
@@ -2379,69 +2972,8 @@
    "c": [
     "16 * 5",
     "4 * 5"
-   ]
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Tagestemperaturen eines Monats: x̄ = 17 °C, σ = 5 °C. In Fahrenheit rechnet man F = 1,8 · C + 32. Wie groß ist σ in °F?"
-   },
-   "o": {
-    "wert": 9,
-    "einheit": "°F"
-   },
-   "c": "5.0 * 1.8",
-   "w": "Mal 1,8 vergrößert alle Abstände: 5 · 1,8 = 9. Plus 32 verschiebt nur. σ = 9 °F.",
-   "h": "Welcher Teil der Umrechnung ändert die Abstände, welcher nur die Lage?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Nach einer Änderung aller Werte stieg x̄ von 25 auf 28, σ blieb 5. Was wurde gemacht?"
-   },
-   "a": [
-    "Zu jedem Wert wurde 3 addiert.",
-    "Jeder Wert wurde mit 3 multipliziert.",
-    "Jeder Wert wurde mit 1,12 multipliziert.",
-    "Zu jedem Wert wurde 5 addiert."
    ],
-   "o": {
-    "index": 0
-   },
-   "w": "σ blieb gleich, also wurde nur verschoben: 25 + 3 = 28. Beim Multiplizieren hätte sich σ mit verändert.",
-   "h": "Welche Änderung lässt σ gleich?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Test hat höchstens 50 Punkte. Ergebnis: x̄ = 21 Punkte, σ = 3 Punkte. Die Lehrkraft rechnet alle Ergebnisse in Prozent um (mal 2). Wie groß sind danach Mittelwert und Standardabweichung?",
-    "schablone": "x̄ = □ %; σ = □ %",
-    "hinweis": "Zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     42,
-     6
-    ]
-   },
-   "w": "Jeder Wert wird mit 2 multipliziert. Mittelwert: 21 · 2 = 42 %. Standardabweichung: 3 · 2 = 6 %.",
-   "h": "Mal k wirkt auf den Mittelwert und auf σ.",
-   "c": [
-    "21 * 2",
-    "3 * 2"
-   ]
+   "g": "transfer"
   },
   {
    "l": "eigenschaften",
@@ -2458,7 +2990,8 @@
    },
    "c": "2.0 * 1.8",
    "w": "Mal 1,8 vergrößert alle Abstände: 2 · 1,8 = 3,6. Plus 32 verschiebt nur. σ = 3,6 °F.",
-   "h": "Welcher Teil der Umrechnung ändert die Abstände, welcher nur die Lage?"
+   "h": "Welcher Teil der Umrechnung ändert die Abstände, welcher nur die Lage?",
+   "g": "verknuepfen"
   },
   {
    "l": "eigenschaften",
@@ -2474,52 +3007,8 @@
    },
    "c": "6.0 / 2.0",
    "w": "Mal k macht σ k-mal so groß: 6 : 2 = 3.",
-   "h": "Wie hängen altes σ, neues σ und der Faktor zusammen?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Datensatz hat die Standardabweichung σ = 0. Welche Aussage stimmt sicher?"
-   },
-   "a": [
-    "Alle Werte sind gleich.",
-    "Es gibt nur einen einzigen Wert.",
-    "Alle Werte sind 0.",
-    "Der Mittelwert ist 0."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "σ = 0 heißt: Kein Wert weicht vom Mittelwert ab. Also sind alle Werte gleich dem Mittelwert – welcher Zahl, ist offen.",
-   "h": "Was bedeutet es, wenn alle Abweichungen 0 sind?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Test hat höchstens 10 Punkte. Ergebnis: x̄ = 7 Punkte, σ = 4 Punkte. Die Lehrkraft rechnet alle Ergebnisse in Prozent um (mal 10). Wie groß sind danach Mittelwert und Standardabweichung?",
-    "schablone": "x̄ = □ %; σ = □ %",
-    "hinweis": "Zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     70,
-     40
-    ]
-   },
-   "w": "Jeder Wert wird mit 10 multipliziert. Mittelwert: 7 · 10 = 70 %. Standardabweichung: 4 · 10 = 40 %.",
-   "h": "Mal k wirkt auf den Mittelwert und auf σ.",
-   "c": [
-    "7 * 10",
-    "4 * 10"
-   ]
+   "h": "Wie hängen altes σ, neues σ und der Faktor zusammen?",
+   "g": "rueckwaerts"
   },
   {
    "l": "eigenschaften",
@@ -2682,6 +3171,139 @@
    "w": "Die Abstände werden 2-mal so groß; die Richtung spielt keine Rolle: σ = 2 · 2,5 = 5."
   },
   {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Test hat höchstens 10 Punkte. Ergebnis: x̄ = 7 Punkte, σ = 4 Punkte. Die Lehrkraft rechnet alle Ergebnisse in Prozent um (mal 10). Wie groß sind danach Mittelwert und Standardabweichung?",
+    "schablone": "x̄ = □ %; σ = □ %",
+    "hinweis": "Zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     70,
+     40
+    ]
+   },
+   "w": "Jeder Wert wird mit 10 multipliziert. Mittelwert: 7 · 10 = 70 %. Standardabweichung: 4 · 10 = 40 %.",
+   "h": "Mal k wirkt auf den Mittelwert und auf σ.",
+   "c": [
+    "7 * 10",
+    "4 * 10"
+   ],
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Zieht man von jedem Wert 5 ab, wird σ um 5 kleiner.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: σ bleibt gleich, nur der Mittelwert sinkt um 5.",
+    "Falsch: σ wird 0.",
+    "Richtig.",
+    "Falsch: σ wird um 25 kleiner."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die ganze Datenreihe rutscht um 5 nach unten, auch der Mittelwert. Die Abstände – und damit σ – bleiben.",
+   "h": "Was passiert mit den Abständen?",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jeder Wert eines Datensatzes wird mit derselben Zahl k multipliziert. Vorher war σ = 4, danach σ = 10. Welche Werte kann k haben?"
+   },
+   "a": [
+    "k = 6 oder k = −6",
+    "nur k = 6",
+    "nur k = 2,5",
+    "k = 2,5 oder k = −2,5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "σ wird mit dem Betrag von k multipliziert: |k| · 4 = 10 ⇒ |k| = 2,5. Ein negatives k spiegelt die Werte, die Streuung bleibt gleich groß.",
+   "h": "Was macht ein negativer Faktor mit den Abständen?",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "A: 1; 2; 3; 4; 5. B: 101; 102; 103; 104; 105. C: 10; 20; 30; 40; 50. Welche zwei Datensätze haben dieselbe Standardabweichung?"
+   },
+   "a": [
+    "A und B",
+    "alle drei",
+    "A und C",
+    "B und C"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "B entsteht aus A durch + 100: σ bleibt. C entsteht aus A durch · 10: σ wird zehnmal so groß. Also haben A und B dasselbe σ (≈ 1,41).",
+   "h": "Wie entsteht B aus A, wie C aus A?",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Datensatz hat x̄ = 20 und σ = 4. Aus jedem Wert x bildet man (x − 20) : 4. Welchen Mittelwert und welches σ haben die neuen Werte?",
+    "schablone": "x̄ = □; σ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     0,
+     1
+    ]
+   },
+   "c": [
+    "(20 - 20)/4",
+    "4/4"
+   ],
+   "w": "Minus 20 verschiebt den Mittelwert auf 0, σ bleibt 4. Geteilt durch 4: Mittelwert 0, σ = 1. So vergleicht man Werte aus verschiedenen Tests („Standardisieren“).",
+   "h": "Zwei Schritte: erst verschieben, dann stauchen.",
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 6; 10; 10; 12; 12; 16. Es gilt x̄ = 11 und σ = 3. Wie viele Werte liegen im Bereich x̄ − σ bis x̄ + σ (Grenzen eingeschlossen)?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Bereich 8 bis 14. Darin liegen 4 der 6 Werte.",
+   "h": "Berechne zuerst die Grenzen und zähle dann.",
+   "g": "mehrschritt"
+  },
+  {
    "l": "deuten",
    "t": "deuten",
    "p": "uebung",
@@ -2695,7 +3317,47 @@
    },
    "c": "44 + 11",
    "w": "x̄ + σ = 44 + 11 = 55.",
-   "h": "Addiere σ zum Mittelwert."
+   "h": "Addiere σ zum Mittelwert.",
+   "g": "direkt"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 3; 3; 4; 9; 11; 18; 20; 20. Es gilt x̄ = 11 und σ = 7. Wie viele Werte liegen im Bereich x̄ − σ bis x̄ + σ (Grenzen eingeschlossen)?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Bereich 4 bis 18. Darin liegen 4 der 8 Werte.",
+   "h": "Berechne zuerst die Grenzen und zähle dann.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Test mit 20 Punkten. Klasse A: x̄ = 14, σ = 5. Klasse B: x̄ = 18, σ = 1. Welche Aussage stimmt?"
+   },
+   "a": [
+    "B hat im Schnitt mehr Punkte, die Ergebnisse in B sind gleichmäßiger.",
+    "B hat im Schnitt mehr Punkte, die Ergebnisse in A sind gleichmäßiger.",
+    "A hat im Schnitt mehr Punkte, die Ergebnisse in B sind gleichmäßiger.",
+    "A hat im Schnitt mehr Punkte, die Ergebnisse in A sind gleichmäßiger."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Mittelwert vergleicht die Leistung: 18 > 14, also B. σ vergleicht die Streuung: kleineres σ (1) bei B.",
+   "h": "Prüfe zwei Dinge getrennt: Wer hat den größeren Mittelwert? Wer hat das kleinere σ?",
+   "g": "begruenden"
   },
   {
    "l": "deuten",
@@ -2711,7 +3373,86 @@
    },
    "c": "21 + 4",
    "w": "x̄ + σ = 21 + 4 = 25.",
-   "h": "Addiere σ zum Mittelwert."
+   "h": "Addiere σ zum Mittelwert.",
+   "g": "direkt"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gruppe 1: x̄ = 53, σ = 4. Gruppe 2: x̄ = 50, σ = 11. Welche Aussage folgt sicher?"
+   },
+   "a": [
+    "Gruppe 2 ist besser, weil ihr σ größer ist.",
+    "In Gruppe 1 haben alle genau dasselbe Ergebnis.",
+    "Gruppe 2 hat mehr Teilnehmer.",
+    "In Gruppe 2 sind die Ergebnisse unterschiedlicher als in Gruppe 1."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "σ misst nur die Streuung, nicht die Leistung oder die Gruppengröße. Größeres σ = unterschiedlichere Ergebnisse.",
+   "h": "Was misst σ – und was nicht?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 9; 9; 10; 15; 16; 16; 17; 19; 19; 20. Es gilt x̄ = 15 und σ = 4. Wie viele Werte liegen im Bereich x̄ − σ bis x̄ + σ (Grenzen eingeschlossen)?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Bereich 11 bis 19. Darin liegen 6 der 10 Werte.",
+   "h": "Berechne zuerst die Grenzen und zähle dann.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Datensatz hat x̄ = 67 und σ = 10. Wie viele Standardabweichungen liegt der Wert 87 über dem Mittelwert?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "abs(87 - 67) / 10",
+   "w": "Abstand: 20. In Standardabweichungen: 20 : 10 = 2.",
+   "h": "Berechne den Abstand zum Mittelwert und teile durch σ.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Datensatz: 12; 13; 14; 15; 16. Der größte Wert 16 wird durch 46 ersetzt. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Median und σ ändern sich kaum.",
+    "Median und σ werden beide viel größer.",
+    "σ wird viel größer, der Median bleibt gleich.",
+    "Der Median wird viel größer, σ bleibt gleich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Median ist der mittlere Wert: vorher und nachher 14. σ hängt von allen Abständen ab: vorher ≈ 1,41, nachher ≈ 13,04.",
+   "h": "Welcher Kennwert hängt nur vom mittleren Wert ab, welcher von allen Abständen?",
+   "g": "begruenden"
   },
   {
    "l": "deuten",
@@ -2731,7 +3472,25 @@
     "index": 0
    },
    "w": "Gleicher Mittelwert; das kleinere σ (7) bedeutet: Die Werte liegen enger beieinander.",
-   "h": "Kleineres σ heißt weniger Streuung."
+   "h": "Kleineres σ heißt weniger Streuung.",
+   "g": "erkennen"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Datensatz hat x̄ = 42 und σ = 8. Wo beginnt der Bereich x̄ − σ bis x̄ + σ?"
+   },
+   "o": {
+    "wert": 34
+   },
+   "c": "42 - 8",
+   "w": "x̄ − σ = 42 − 8 = 34.",
+   "h": "Ziehe σ vom Mittelwert ab.",
+   "g": "direkt"
   },
   {
    "l": "deuten",
@@ -2769,43 +3528,6 @@
    "l": "deuten",
    "t": "deuten",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Datensatz hat x̄ = 42 und σ = 8. Wo beginnt der Bereich x̄ − σ bis x̄ + σ?"
-   },
-   "o": {
-    "wert": 34
-   },
-   "c": "42 - 8",
-   "w": "x̄ − σ = 42 − 8 = 34.",
-   "h": "Ziehe σ vom Mittelwert ab."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gruppe 1: x̄ = 53, σ = 4. Gruppe 2: x̄ = 50, σ = 11. Welche Aussage folgt sicher?"
-   },
-   "a": [
-    "Gruppe 2 ist besser, weil ihr σ größer ist.",
-    "In Gruppe 1 haben alle genau dasselbe Ergebnis.",
-    "Gruppe 2 hat mehr Teilnehmer.",
-    "In Gruppe 2 sind die Ergebnisse unterschiedlicher als in Gruppe 1."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "σ misst nur die Streuung, nicht die Leistung oder die Gruppengröße. Größeres σ = unterschiedlichere Ergebnisse.",
-   "h": "Was misst σ – und was nicht?"
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -2821,55 +3543,8 @@
     "index": 3
    },
    "w": "σ misst nur die Streuung, nicht die Leistung oder die Gruppengröße. Größeres σ = unterschiedlichere Ergebnisse.",
-   "h": "Was misst σ – und was nicht?"
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 6; 10; 10; 12; 12; 16. Es gilt x̄ = 11 und σ = 3. Wie viele Werte liegen im Bereich x̄ − σ bis x̄ + σ (Grenzen eingeschlossen)?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4",
-   "w": "Bereich 8 bis 14. Darin liegen 4 der 6 Werte.",
-   "h": "Berechne zuerst die Grenzen und zähle dann."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 3; 3; 4; 9; 11; 18; 20; 20. Es gilt x̄ = 11 und σ = 7. Wie viele Werte liegen im Bereich x̄ − σ bis x̄ + σ (Grenzen eingeschlossen)?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4",
-   "w": "Bereich 4 bis 18. Darin liegen 4 der 8 Werte.",
-   "h": "Berechne zuerst die Grenzen und zähle dann."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 9; 9; 10; 15; 16; 16; 17; 19; 19; 20. Es gilt x̄ = 15 und σ = 4. Wie viele Werte liegen im Bereich x̄ − σ bis x̄ + σ (Grenzen eingeschlossen)?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "6",
-   "w": "Bereich 11 bis 19. Darin liegen 6 der 10 Werte.",
-   "h": "Berechne zuerst die Grenzen und zähle dann."
+   "h": "Was misst σ – und was nicht?",
+   "g": "einkleidung"
   },
   {
    "l": "deuten",
@@ -2889,65 +3564,33 @@
     "index": 1
    },
    "w": "Bereich: 28 bis 36. 27 liegt außerhalb.",
-   "h": "Berechne beide Grenzen."
+   "h": "Berechne beide Grenzen.",
+   "g": "mehrschritt"
   },
   {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Test mit 20 Punkten. Klasse A: x̄ = 14, σ = 5. Klasse B: x̄ = 18, σ = 1. Welche Aussage stimmt?"
+    "text": "Der Bereich x̄ − σ bis x̄ + σ geht von 40 bis 56. Wie groß sind x̄ und σ?",
+    "schablone": "x̄ = □; σ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
    },
-   "a": [
-    "B hat im Schnitt mehr Punkte, die Ergebnisse in B sind gleichmäßiger.",
-    "B hat im Schnitt mehr Punkte, die Ergebnisse in A sind gleichmäßiger.",
-    "A hat im Schnitt mehr Punkte, die Ergebnisse in B sind gleichmäßiger.",
-    "A hat im Schnitt mehr Punkte, die Ergebnisse in A sind gleichmäßiger."
+   "o": {
+    "werte": [
+     48,
+     8
+    ]
+   },
+   "c": [
+    "(40 + 56)/2",
+    "(56 - 40)/2"
    ],
-   "o": {
-    "index": 0
-   },
-   "w": "Der Mittelwert vergleicht die Leistung: 18 > 14, also B. σ vergleicht die Streuung: kleineres σ (1) bei B.",
-   "h": "Prüfe zwei Dinge getrennt: Wer hat den größeren Mittelwert? Wer hat das kleinere σ?"
-  },
-  {
+   "w": "x̄ liegt in der Mitte: (40 + 56) : 2 = 48. Der Bereich ist 2σ breit: 16 : 2 = 8.",
+   "h": "Wo liegt der Mittelwert im Bereich?",
    "l": "deuten",
    "t": "deuten",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Datensatz hat x̄ = 67 und σ = 10. Wie viele Standardabweichungen liegt der Wert 87 über dem Mittelwert?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "abs(87 - 67) / 10",
-   "w": "Abstand: 20. In Standardabweichungen: 20 : 10 = 2.",
-   "h": "Berechne den Abstand zum Mittelwert und teile durch σ."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Datensatz: 12; 13; 14; 15; 16. Der größte Wert 16 wird durch 46 ersetzt. Welche Aussage stimmt?"
-   },
-   "a": [
-    "Median und σ ändern sich kaum.",
-    "Median und σ werden beide viel größer.",
-    "σ wird viel größer, der Median bleibt gleich.",
-    "Der Median wird viel größer, σ bleibt gleich."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Der Median ist der mittlere Wert: vorher und nachher 14. σ hängt von allen Abständen ab: vorher ≈ 1,41, nachher ≈ 13,04.",
-   "h": "Welcher Kennwert hängt nur vom mittleren Wert ab, welcher von allen Abständen?"
+   "s": 2,
+   "g": "umkehr"
   },
   {
    "l": "deuten",
@@ -2968,7 +3611,8 @@
     "index": 2
    },
    "w": "Der Mittelwert vergleicht die Leistung: 13 > 12, also A. σ vergleicht die Streuung: kleineres σ (4) bei A.",
-   "h": "Prüfe zwei Dinge getrennt: Wer hat den größeren Mittelwert? Wer hat das kleinere σ?"
+   "h": "Prüfe zwei Dinge getrennt: Wer hat den größeren Mittelwert? Wer hat das kleinere σ?",
+   "g": "begruenden"
   },
   {
    "l": "deuten",
@@ -2984,28 +3628,8 @@
    },
    "c": "abs(11 - 26) / 6",
    "w": "Abstand: 15. In Standardabweichungen: 15 : 6 = 2,5.",
-   "h": "Berechne den Abstand zum Mittelwert und teile durch σ."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Datensatz: 8; 9; 10; 11; 12. Der größte Wert 12 wird durch 62 ersetzt. Welche Aussage stimmt?"
-   },
-   "a": [
-    "Median und σ werden beide viel größer.",
-    "Median und σ ändern sich kaum.",
-    "Der Median wird viel größer, σ bleibt gleich.",
-    "σ wird viel größer, der Median bleibt gleich."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Der Median ist der mittlere Wert: vorher und nachher 10. σ hängt von allen Abständen ab: vorher ≈ 1,41, nachher ≈ 21,02.",
-   "h": "Welcher Kennwert hängt nur vom mittleren Wert ab, welcher von allen Abständen?"
+   "h": "Berechne den Abstand zum Mittelwert und teile durch σ.",
+   "g": "verknuepfen"
   },
   {
    "l": "deuten",
@@ -3026,28 +3650,25 @@
     "index": 3
    },
    "w": "Gleicher Mittelwert. Bei A liegen typische Füllmengen zwischen 996 und 1004 ml, bei B zwischen 983 und 1017 ml.",
-   "h": "Zuverlässig heißt: möglichst wenig Abweichung vom Sollwert."
+   "h": "Zuverlässig heißt: möglichst wenig Abweichung vom Sollwert.",
+   "g": "transfer"
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Der Wert 70 liegt genau 2 Standardabweichungen über dem Mittelwert 60. Wie groß ist σ?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(70 - 60)/2",
+   "w": "Abstand 70 − 60 = 10 sind 2σ, also σ = 5.",
+   "h": "Welcher Abstand entspricht 2σ?",
    "l": "deuten",
    "t": "deuten",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Test mit 20 Punkten. Klasse A: x̄ = 16, σ = 6. Klasse B: x̄ = 11, σ = 4. Welche Aussage stimmt?"
-   },
-   "a": [
-    "B hat im Schnitt mehr Punkte, die Ergebnisse in B sind gleichmäßiger.",
-    "A hat im Schnitt mehr Punkte, die Ergebnisse in B sind gleichmäßiger.",
-    "B hat im Schnitt mehr Punkte, die Ergebnisse in A sind gleichmäßiger.",
-    "A hat im Schnitt mehr Punkte, die Ergebnisse in A sind gleichmäßiger."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Der Mittelwert vergleicht die Leistung: 16 > 11, also A. σ vergleicht die Streuung: kleineres σ (4) bei B.",
-   "h": "Prüfe zwei Dinge getrennt: Wer hat den größeren Mittelwert? Wer hat das kleinere σ?"
+   "g": "rueckwaerts"
   },
   {
    "l": "deuten",
@@ -3229,6 +3850,110 @@
    },
    "c": "5",
    "w": "Bereich 6 bis 16. Darin liegen 5 der 8 Werte."
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Sprinter laufen je fünfmal 100 m (in s). A: 12,0; 12,2; 11,8; 12,1; 11,9. B: 11,6; 12,5; 11,9; 12,4; 11,6. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Beide sind gleich konstant.",
+    "B ist im Mittel schneller.",
+    "A hat den kleineren Mittelwert.",
+    "Beide haben den Mittelwert 12,0 s; A ist konstanter."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Summen jeweils 60,0 s, also Mittelwert 12,0 s. A weicht höchstens 0,2 s ab, B bis zu 0,5 s: A hat das kleinere σ.",
+   "h": "Berechne erst beide Mittelwerte, dann vergleiche die Abweichungen.",
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Datensatz: 8; 9; 10; 11; 12. Der größte Wert 12 wird durch 62 ersetzt. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Median und σ werden beide viel größer.",
+    "Median und σ ändern sich kaum.",
+    "Der Median wird viel größer, σ bleibt gleich.",
+    "σ wird viel größer, der Median bleibt gleich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Median ist der mittlere Wert: vorher und nachher 10. σ hängt von allen Abständen ab: vorher ≈ 1,41, nachher ≈ 21,02.",
+   "h": "Welcher Kennwert hängt nur vom mittleren Wert ab, welcher von allen Abständen?"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Test mit 20 Punkten. Klasse A: x̄ = 16, σ = 6. Klasse B: x̄ = 11, σ = 4. Welche Aussage stimmt?"
+   },
+   "a": [
+    "B hat im Schnitt mehr Punkte, die Ergebnisse in B sind gleichmäßiger.",
+    "A hat im Schnitt mehr Punkte, die Ergebnisse in B sind gleichmäßiger.",
+    "B hat im Schnitt mehr Punkte, die Ergebnisse in A sind gleichmäßiger.",
+    "A hat im Schnitt mehr Punkte, die Ergebnisse in A sind gleichmäßiger."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Mittelwert vergleicht die Leistung: 16 > 11, also A. σ vergleicht die Streuung: kleineres σ (4) bei B.",
+   "h": "Prüfe zwei Dinge getrennt: Wer hat den größeren Mittelwert? Wer hat das kleinere σ?"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Klasse 1: x̄ = 60 Punkte, σ = 10. Klasse 2: x̄ = 50 Punkte, σ = 5. Lea hat in Klasse 1 75 Punkte, Tim in Klasse 2 62 Punkte. Wer liegt im Vergleich zu seiner Klasse weiter vorn?"
+   },
+   "a": [
+    "Lea, sie hat mehr Punkte.",
+    "Beide gleich.",
+    "Tim: 2,4 σ über dem Mittel, Lea nur 1,5 σ.",
+    "Das kann man nicht vergleichen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Lea: (75 − 60) : 10 = 1,5 Standardabweichungen. Tim: (62 − 50) : 5 = 2,4 Standardabweichungen. Gemessen an der eigenen Klasse ist Tim besser.",
+   "h": "Miss den Abstand zum Klassenmittel in „σ-Schritten“.",
+   "l": "deuten",
+   "t": "deuten",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Drei Werte haben den Mittelwert 10 und σ = 0. Der Wert 14 kommt dazu. Wie groß ist σ der vier Werte? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.73,
+    "toleranz": 0.01
+   },
+   "c": "round(1.7320508075688772, 2)",
+   "w": "σ = 0 heißt: Alle drei Werte sind 10. Neu: 10; 10; 10; 14, Mittelwert 11. Abweichungen −1; −1; −1; 3, Quadrate 1 + 1 + 1 + 9 = 12, Varianz 3, σ = √3 ≈ 1,73.",
+   "h": "Was bedeutet σ = 0 für die drei Werte?",
+   "l": "deuten",
+   "t": "deuten",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   }
  ],
  "offen": [

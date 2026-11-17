@@ -584,5 +584,46 @@ BF.fuer_sebastian('daten.kennwerte: laut themenliste lehrplan_gym ist für Kl. 6
 befunde_anwenden(DATEI, BF)
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+from _durchsicht_kl6 import Befunde, befunde_anwenden  # noqa: E402
+
+DS = Befunde('daten.kennwerte', 19_6_9)
+_S = DS.stufe
+_R = {
+    # mittelwert: Mittelwert eingekleidet ausrechnen bzw. zwei Mittelwerte vergleichen (viermal) = Stufe 2
+    'mittelwert': ('Ein Kind läuft an 7 Tagen 42 min, 20 min, 57 min, 24 min, 17 min, 36 min, 42 min. Wie viele Minuten läuft es im Durchschnitt pro Tag?',
+                   'Ein Kind läuft an 5 Tagen 36 min, 28 min, 14 min, 35 min, 27 min. Wie viele Minuten läuft es im Durchschnitt pro Tag?',
+                   'Gruppe A sammelt 7 kg, 4 kg, 7 kg, 4 kg Altpapier, Gruppe B 8 kg, 12 kg, 7 kg, 11 kg. Welche Gruppe hat im Mittel mehr gesammelt?',
+                   'Gruppe A sammelt 4 kg, 6 kg, 2 kg, 2 kg Altpapier, Gruppe B 8 kg, 11 kg, 9 kg, 2 kg. Welche Gruppe hat im Mittel mehr gesammelt?',
+                   'Gruppe A sammelt 5 kg, 12 kg, 10 kg, 9 kg Altpapier, Gruppe B 2 kg, 9 kg, 11 kg, 2 kg. Welche Gruppe hat im Mittel mehr gesammelt?'),
+    # mittel_rueckwaerts: „Kind kommt dazu“ und „nächster Test“ je dreimal → je zwei nach S2
+    'mittel_rueckwaerts': ('4 Kinder haben im Mittel 15 Punkte. Ein weiteres Kind kommt mit 3 Punkten dazu. Wie groß ist der neue Mittelwert?',
+                           '9 Kinder haben im Mittel 12 Punkte. Ein weiteres Kind kommt mit 2 Punkten dazu. Wie groß ist der neue Mittelwert?',
+                           'Nach 4 Tests hat ein Kind im Mittel 6 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 7 steigt?',
+                           'Nach 5 Tests hat ein Kind im Mittel 11 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 13 steigt?'),
+    # modal_spannweite: Modalwert/Spannweite einer langen Reihe = Stufe 2 (nur mehr Werte)
+    'modal_spannweite': ('Welcher Wert ist der Modalwert von 42, 35, 35, 37, 38, 41, 33, 34, 37, 33, 35, 32?',
+                         'Bestimme die Spannweite von 124, 139, 151, 148, 157, 160, 122, 157, 155, 141, 144, 121.'),
+    # median: Median einer ungeordneten Reihe = Stufe 2; zweiter gleicher Fehler und zweiter Ausreißer-Vergleich → S2
+    'median': ('Bestimme den Median von 26, 13, 20, 34, 40, 24, 34, 4.', 'Bestimme den Median von 4, 28, 21, 6, 40, 9, 13, 4, 3, 35, 20.',
+               'Punkte von 13 Kindern: 4, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 9, 10. Bestimme den Median.',
+               'Jemand sagt: „Der Median von 7, 9, 13, 17 ist 13.“ Was ist falsch?', 'Daten: 27, 26, 25, 24, 5, 18, 14, 208. Welchen Kennwert verändert der Ausreißer 208 stärker?'),
+    # verstehen: „Median typisch?“ dreimal → zwei nach S2; Ausreißer weglassen → Mittelwert kleiner ist direkt
+    'verstehen': ('Stimmt die Aussage? „Taschengeld (€): 2, 6, 2, 6, 6, 52. Der Mittelwert zeigt gut, was ein typisches Kind bekommt.“',
+                  'Stimmt die Aussage? „Taschengeld (€): 11, 4, 7, 9, 10, 41. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“',
+                  'Stimmt die Aussage? „Lässt man bei 11, 6, 10, 6, 2, 88 den Ausreißer 88 weg, wird der Mittelwert kleiner.“'),
+}
+for _lz, _ts in _R.items():
+    for _t in _ts:
+        _S(_lz, _t, 2)
+# mittel_tabelle: Mittelwert aus Tabelle ablesen = genau das Stufe-2-Muster
+_S('mittel_tabelle', 'Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?', 2, enthaelt='"s": 3', anzahl=2)
+_S('mittel_tabelle', 'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?', 2, enthaelt='"s": 3')
+DS.fuer_sebastian('daten.kennwerte: Modalwert, Spannweite und Median stehen nicht im LehrplanPLUS M6 (dort: arithmetisches Mittel); die Karten modal_spannweite und median sind als Vertiefung markiert – so lassen?')
+befunde_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
+
 if __name__ == '__main__':
     schreibe(DATEI)

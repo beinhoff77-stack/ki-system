@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 17:15 – STATUS
+**daten.kennwerte** fertig: 22 Übungen umgestuft, keine falsche Lösung, keine Kartenänderung. Prüfskript OK, Nachweis OK.
+
 ## 2026-11-17 17:00 – STATUS
 **daten.darstellen** fertig: 20 Übungen umgestuft, keine falsche Lösung, keine Kartenänderung. Prüfskript OK, Nachweis OK.
 

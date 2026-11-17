@@ -839,7 +839,7 @@
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kind läuft an 7 Tagen 42 min, 20 min, 57 min, 24 min, 17 min, 36 min, 42 min. Wie viele Minuten läuft es im Durchschnitt pro Tag?"
@@ -856,7 +856,7 @@
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Kind läuft an 5 Tagen 36 min, 28 min, 14 min, 35 min, 27 min. Wie viele Minuten läuft es im Durchschnitt pro Tag?"
@@ -873,7 +873,7 @@
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Gruppe A",
@@ -894,7 +894,7 @@
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Die Gruppe mit dem größten Einzelwert",
@@ -915,7 +915,7 @@
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Gruppe B",
@@ -1533,7 +1533,7 @@
    "l": "mittel_tabelle",
    "t": "mittel_tabelle",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
@@ -1607,7 +1607,7 @@
    "l": "mittel_tabelle",
    "t": "mittel_tabelle",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
@@ -1712,7 +1712,7 @@
    "l": "mittel_tabelle",
    "t": "mittel_tabelle",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
@@ -2327,7 +2327,7 @@
    "l": "mittel_rueckwaerts",
    "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "4 Kinder haben im Mittel 15 Punkte. Ein weiteres Kind kommt mit 3 Punkten dazu. Wie groß ist der neue Mittelwert?"
@@ -2343,7 +2343,7 @@
    "l": "mittel_rueckwaerts",
    "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Nach 4 Tests hat ein Kind im Mittel 6 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 7 steigt?"
@@ -2359,7 +2359,7 @@
    "l": "mittel_rueckwaerts",
    "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "9 Kinder haben im Mittel 12 Punkte. Ein weiteres Kind kommt mit 2 Punkten dazu. Wie groß ist der neue Mittelwert?"
@@ -2375,7 +2375,7 @@
    "l": "mittel_rueckwaerts",
    "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Nach 5 Tests hat ein Kind im Mittel 11 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 13 steigt?"
@@ -2775,7 +2775,7 @@
    "l": "modal_spannweite",
    "t": "modal_spannweite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "33",
@@ -2829,7 +2829,7 @@
    "l": "modal_spannweite",
    "t": "modal_spannweite",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme die Spannweite von 124, 139, 151, 148, 157, 160, 122, 157, 155, 141, 144, 121."
@@ -3196,7 +3196,7 @@
    "l": "median",
    "t": "median",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme den Median von 26, 13, 20, 34, 40, 24, 34, 4."
@@ -3254,7 +3254,7 @@
    "l": "median",
    "t": "median",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Der Median ist 9, der kleinere der beiden mittleren Werte.",
@@ -3275,7 +3275,7 @@
    "l": "median",
    "t": "median",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "keinen von beiden",
@@ -3296,7 +3296,7 @@
    "l": "median",
    "t": "median",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bestimme den Median von 4, 28, 21, 6, 40, 9, 13, 4, 3, 35, 20."
@@ -3722,7 +3722,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, der Ausreißer 52 € zieht den Mittelwert auf etwa 12,3 €, obwohl fast alle viel weniger bekommen.",
@@ -3779,7 +3779,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, die Aussage ist falsch.",
@@ -3799,7 +3799,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Nein, der Mittelwert ist immer genauer.",
@@ -4518,7 +4518,7 @@
    "l": "median",
    "t": "median",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Punkte von 13 Kindern: 4, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 9, 10. Bestimme den Median."

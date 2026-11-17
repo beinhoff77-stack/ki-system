@@ -35,7 +35,8 @@
     "titel": "Graph und Nullstellen",
     "lernziele": [
      "nullstellen",
-     "punkt_graph"
+     "punkt_graph",
+     "sachzusammenhang"
     ]
    }
   ],
@@ -778,6 +779,200 @@
       }
      ]
     }
+   },
+   {
+    "lernziel": "sachzusammenhang",
+    "titel": "Zusammenhänge aus dem Alltag beschreiben",
+    "einstieg": "Ein Handytarif kostet 5 € Grundgebühr im Monat und 2 € je GB. Der Preis hängt von den GB ab. Das ist ein ⟦funktionaler Zusammenhang⟧: Man zeigt ihn als Tabelle, Term oder Graph.",
+    "woerter": [
+     [
+      "funktionaler Zusammenhang",
+      "eine Größe hängt eindeutig von einer anderen ab, z. B. der Preis von den GB"
+     ],
+     [
+      "Grundgebühr",
+      "fester Betrag, den man immer zahlt, auch bei 0 GB"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      7
+     ],
+     "y": [
+      0,
+      18
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 5,
+       "name": "Preis",
+       "bereich": [
+        0,
+        6.5
+       ]
+      }
+     ],
+     "name_x": "GB",
+     "name_y": "€",
+     "schritt_y": 2
+    },
+    "schritte": [
+     {
+      "text": "Tabelle: 0 GB kosten 5 €, 1 GB 7 €, 2 GB 9 €.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "GB (Eingabe)",
+        "0",
+        "1",
+        "2",
+        "3"
+       ],
+       "zeilen": [
+        [
+         "Preis in €",
+         "5",
+         "7",
+         "9",
+         "11"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Je GB kommen 2 € dazu. Term: K(x) = 5 + 2 · x."
+     },
+     {
+      "text": "Im Graphen liegen diese Punkte auf einer Linie, Start bei 5 €.",
+      "bild": {
+       "typ": "koordinaten",
+       "x": [
+        0,
+        7
+       ],
+       "y": [
+        0,
+        18
+       ],
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": 5,
+         "name": "Preis",
+         "bereich": [
+          0,
+          6.5
+         ]
+        }
+       ],
+       "name_x": "GB",
+       "name_y": "€",
+       "schritt_y": 2,
+       "punkte": [
+        {
+         "x": 0,
+         "y": 5
+        },
+        {
+         "x": 1,
+         "y": 7
+        },
+        {
+         "x": 2,
+         "y": 9
+        },
+        {
+         "x": 3,
+         "y": 11
+        }
+       ]
+      }
+     },
+     {
+      "text": "Am Graphen abgelesen: Für 15 € bekommt man ⟦5 GB⟧.",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         15,
+         5,
+         15,
+         "gestrichelt"
+        ],
+        [
+         5,
+         15,
+         5,
+         0,
+         "gestrichelt"
+        ]
+       ],
+       "punkte": [
+        {
+         "x": 5,
+         "y": 15,
+         "name": "(5 | 15)"
+        }
+       ]
+      }
+     }
+    ],
+    "probe": "K(5) = 5 + 2 · 5 = 15 ✓",
+    "fehler": "Die Grundgebühr nicht vergessen: 3 GB kosten 5 € + 3 · 2 € = 11 €, nicht 6 €. Wie eine Rechnung ohne den festen Monatspreis.",
+    "fehler_bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      7
+     ],
+     "y": [
+      0,
+      18
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 5,
+       "name": "richtig",
+       "bereich": [
+        0,
+        6.5
+       ]
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 0,
+       "name": "ohne 5 €",
+       "bereich": [
+        0,
+        6.5
+       ]
+      }
+     ],
+     "name_x": "GB",
+     "name_y": "€",
+     "schritt_y": 2,
+     "punkte": [
+      {
+       "x": 3,
+       "y": 11,
+       "name": "11 €"
+      },
+      {
+       "x": 3,
+       "y": 6,
+       "name": "6 €"
+      }
+     ]
+    },
+    "regel": "Erst die feste Größe, dann die Änderung pro Einheit. Tabelle, Term und Graph zeigen denselben ⟦Zusammenhang⟧."
    }
   ],
   "teilfaehigkeiten": [
@@ -836,6 +1031,13 @@
     "lernziele": [
      "punkt_graph"
     ]
+   },
+   {
+    "k": "sachzusammenhang",
+    "text": "Zusammenhänge aus dem Alltag beschreiben",
+    "lernziele": [
+     "sachzusammenhang"
+    ]
    }
   ],
   "bewertung": {
@@ -847,7 +1049,8 @@
     "wertetabelle",
     "graph_lesen",
     "nullstellen",
-    "punkt_graph"
+    "punkt_graph",
+    "sachzusammenhang"
    ],
    "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1
@@ -6524,6 +6727,923 @@
    },
    "w": "Für x = 2 wird der Nenner x − 2 null. f(2) gibt es nicht. Also gibt es auf dem Graphen keinen Punkt mit x = 2.",
    "h": "Prüfe zuerst: Darf man x = 2 überhaupt einsetzen?"
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Sommertag. Wie warm war es um 16 Uhr?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      13,
+      25
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -26,
+        7,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "o": {
+    "wert": 22,
+    "einheit": "°C"
+   },
+   "c": "23 - (16 - 14)**2 / 4",
+   "w": "Bei 16 Uhr senkrecht hoch zum Graphen, dann waagrecht zur Temperatur-Achse: 22 °C.",
+   "h": "Suche die Uhrzeit unten auf der Achse und gehe senkrecht bis zum Graphen."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fahrradverleih kostet 5 € Grundgebühr und 2 € je Stunde. Wie viel Euro kosten 8 Stunden?"
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "€"
+   },
+   "c": "5 + 2 * 8",
+   "w": "Grundgebühr plus 8 · 2 €: 5 € + 16 € = 21 €.",
+   "h": "Die Grundgebühr zahlt man immer, dazu der Preis je Einheit mal die Anzahl."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Fahrradverleih kostet 7 € Grundgebühr und 3 € je Stunde. Welcher Term gibt die Kosten K in € für x Stunden an?"
+   },
+   "a": [
+    "K(x) = 3 · x",
+    "K(x) = 3 + 7 · x",
+    "K(x) = (7 + 3) · x",
+    "K(x) = 7 + 3 · x"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Fest sind 7 €, für jede Einheit kommen 3 € dazu: K(x) = 7 + 3 · x. Nur dieser Term ergibt bei x = 0 die Grundgebühr.",
+   "h": "Welcher Betrag ist fest, welcher wird mit der Anzahl x multipliziert?"
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Handytarif kostet 4 € Grundgebühr und 3 € je GB. Welcher Term gibt die Kosten K in € für x GB an?"
+   },
+   "a": [
+    "K(x) = 3 · x",
+    "K(x) = 4 + 3 · x",
+    "K(x) = 3 + 4 · x",
+    "K(x) = (4 + 3) · x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Fest sind 4 €, für jede Einheit kommen 3 € dazu: K(x) = 4 + 3 · x. Nur dieser Term ergibt bei x = 0 die Grundgebühr.",
+   "h": "Welcher Betrag ist fest, welcher wird mit der Anzahl x multipliziert?"
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Grad ist es von 11 Uhr bis 13 Uhr wärmer geworden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      13,
+      25
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -19.25,
+        6.5,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "°C"
+   },
+   "c": "(23 - (13 - 13)**2 / 4) - (23 - (11 - 13)**2 / 4)",
+   "w": "Abgelesen: 11 Uhr 22 °C, 13 Uhr 23 °C. Unterschied: 23 − 22 = 1 Grad.",
+   "h": "Lies beide Temperaturen ab und bilde den Unterschied."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Uhr war es am wärmsten?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      15,
+      27
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -31.25,
+        7.5,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "Uhr"
+   },
+   "c": "15",
+   "w": "Der höchste Punkt des Graphen liegt bei 15 Uhr (25 °C). Davor steigt, danach sinkt die Temperatur.",
+   "h": "Suche den höchsten Punkt des Graphen und lies unten die Uhrzeit ab."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fahrradverleih kostet 3 € Grundgebühr und 2 € je Stunde. Die Rechnung beträgt 7 €. Wie viele Stunden waren es?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(7 - 3) / 2",
+   "w": "Ohne Grundgebühr: 7 € − 3 € = 4 €. Geteilt durch 2 €: 2 Stunden.",
+   "h": "Ziehe zuerst die Grundgebühr ab. Dann teile durch den Preis je Einheit."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Tabelle gehört zu einem Tarif mit Grundgebühr und festem Preis je Besuch. Gib den Term an.",
+    "schablone": "K(x) = □ + □ · x",
+    "hinweis": "Zwei ganze Zahlen eintragen.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Besuche (x)",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Kosten in €",
+       "33",
+       "39",
+       "45",
+       "51"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     15,
+     6
+    ]
+   },
+   "c": [
+    "15",
+    "6"
+   ],
+   "w": "Je Besuch mehr steigen die Kosten um 6 €: Preis je Einheit 6. Rückwärts bis x = 0: 33 − 3 · 6 = 15 € Grundgebühr. K(x) = 15 + 6 · x.",
+   "h": "Um wie viel steigen die Kosten von Spalte zu Spalte? Rechne dann zurück bis x = 0."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kletterhallen-Abo kostet 30 € Grundgebühr und 6 € je Besuch. Die Rechnung beträgt 54 €. Wie viele Besuche waren es?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(54 - 30) / 6",
+   "w": "Ohne Grundgebühr: 54 € − 30 € = 24 €. Geteilt durch 6 €: 4 Besuche.",
+   "h": "Ziehe zuerst die Grundgebühr ab. Dann teile durch den Preis je Einheit."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Uhr war es am wärmsten?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      9,
+      21
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -30,
+        7,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "Uhr"
+   },
+   "c": "14",
+   "w": "Der höchste Punkt des Graphen liegt bei 14 Uhr (19 °C). Davor steigt, danach sinkt die Temperatur.",
+   "h": "Suche den höchsten Punkt des Graphen und lies unten die Uhrzeit ab."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Stromtarif A: 9 € Grundpreis im Monat und 0,30 € je kWh. Stromtarif B: 15 € Grundpreis und 0,25 € je kWh. Bei welchem Monatsverbrauch kosten beide gleich viel?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "kWh"
+   },
+   "c": "(15 - 9) / (30/100 - 25/100)",
+   "w": "B kostet 6 € mehr Grundpreis, ist aber je kWh 0,05 € billiger. 6 : 0,05 = 120 kWh. Probe: A: 9 + 0,30 · 120 = 45 €; B: 15 + 0,25 · 120 = 45 €.",
+   "h": "Wie viel teurer startet B? Wie viel spart B je kWh?"
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Stromtarif A: 9 € Grundpreis und 0,30 € je kWh, Tarif B: 15 € Grundpreis und 0,25 € je kWh. Eine Familie verbraucht 200 kWh im Monat. Um wie viel Euro ist der günstigere Tarif billiger?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "€"
+   },
+   "c": "(9 + 30/100 * 200) - (15 + 25/100 * 200)",
+   "w": "A: 9 + 0,30 · 200 = 69 €. B: 15 + 0,25 · 200 = 65 €. B ist um 4 € billiger.",
+   "h": "Berechne beide Monatsrechnungen."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Zuordnung Uhrzeit → Temperatur im Bild ist eine Funktion. Ist auch die Zuordnung Temperatur → Uhrzeit eine Funktion?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      10,
+      22
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -29,
+        7,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "a": [
+    "Ja: Man vertauscht nur Eingabe und Ausgabe.",
+    "Nein: Temperaturen können negativ sein.",
+    "Nein: Zu 16 °C gehören zwei Uhrzeiten, 10 Uhr und 18 Uhr.",
+    "Ja: Zu jeder Uhrzeit gibt es genau eine Temperatur."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine Funktion braucht zu jeder Eingabe genau eine Ausgabe. Eine waagrechte Linie bei 16 °C trifft den Graphen zweimal: um 10 Uhr und um 18 Uhr. Rückwärts ist die Zuordnung also nicht eindeutig.",
+   "h": "Gehe von einer Temperatur waagrecht zum Graphen. Wie oft triffst du ihn?"
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Tarife beim Fahrradverleih: A kostet 6 € Grundgebühr und 4 € je Stunde, B kostet 11 € Grundgebühr und 3 € je Stunde. Bei wie vielen Stunden kosten beide gleich viel?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(11 - 6) / (4 - 3)",
+   "w": "B startet 5 € teurer, spart aber 1 € je Stunde. Gleich teuer nach 5 : 1 = 5 Stunden. Probe: 26 € = 26 €.",
+   "h": "Wie viel teurer startet B, und wie viel spart B je Einheit?"
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Welche Aussage stimmt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      15,
+      27
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -31.25,
+        7.5,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "a": [
+    "Zwischen 15 Uhr und 20 Uhr sinkt die Temperatur.",
+    "Die höchste Temperatur beträgt 27 °C.",
+    "Zwischen 9 Uhr und 15 Uhr sinkt die Temperatur.",
+    "Um 19 Uhr ist es wärmer als um 15 Uhr."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Graph steigt bis 15 Uhr (höchster Wert 25 °C) und fällt danach bis 20 Uhr. Deshalb stimmt nur: Zwischen 15 Uhr und 20 Uhr sinkt die Temperatur.",
+   "h": "Wo steigt der Graph, wo fällt er? Wo ist sein höchster Punkt?"
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Handytarife: A kostet 9 € Grundgebühr und 3 € je GB, B kostet 14 € Grundgebühr und 2 € je GB. Um wie viel Euro ist B bei 7 GB günstiger?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "€"
+   },
+   "c": "(9 + 3 * 7) - (14 + 2 * 7)",
+   "w": "A: 9 + 3 · 7 = 30 €. B: 14 + 2 · 7 = 28 €. Unterschied 2 €.",
+   "h": "Rechne beide Rechnungen aus und vergleiche."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Welche Aussage stimmt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      10,
+      22
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -29,
+        7,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "a": [
+    "Zwischen 14 Uhr und 20 Uhr sinkt die Temperatur.",
+    "Zwischen 10 Uhr und 14 Uhr sinkt die Temperatur.",
+    "Die höchste Temperatur beträgt 22 °C.",
+    "Um 18 Uhr ist es wärmer als um 14 Uhr."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Graph steigt bis 14 Uhr (höchster Wert 20 °C) und fällt danach bis 20 Uhr. Deshalb stimmt nur: Zwischen 14 Uhr und 20 Uhr sinkt die Temperatur.",
+   "h": "Wo steigt der Graph, wo fällt er? Wo ist sein höchster Punkt?"
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Tarife beim Fahrradverleih: A kostet 6 € Grundgebühr und 2,50 € je Stunde, B kostet 12 € Grundgebühr und 1,50 € je Stunde. Bei wie vielen Stunden kosten beide gleich viel?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(12 - 6) / ((5/2) - (3/2))",
+   "w": "B startet 6 € teurer, spart aber 1 € je Stunde. Gleich teuer nach 6 : 1 = 6 Stunden. Probe: 21 € = 21 €.",
+   "h": "Wie viel teurer startet B, und wie viel spart B je Einheit?"
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Tabelle gehört zu einem Tarif mit Grundgebühr und festem Preis je Stunde. Gib den Term an.",
+    "schablone": "K(x) = □ + □ · x",
+    "hinweis": "Zwei ganze Zahlen eintragen.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Stunden (x)",
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "Kosten in €",
+       "10",
+       "13",
+       "16",
+       "19"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     7,
+     3
+    ]
+   },
+   "c": [
+    "7",
+    "3"
+   ],
+   "w": "Je Stunde mehr steigen die Kosten um 3 €: Preis je Einheit 3. Rückwärts bis x = 0: 10 − 1 · 3 = 7 € Grundgebühr. K(x) = 7 + 3 · x."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Grad ist es von 9 Uhr bis 11 Uhr wärmer geworden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      17,
+      29
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -15.25,
+        6.5,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "°C"
+   },
+   "c": "(27 - (11 - 13)**2 / 4) - (27 - (9 - 13)**2 / 4)",
+   "w": "Abgelesen: 9 Uhr 23 °C, 11 Uhr 26 °C. Unterschied: 26 − 23 = 3 Grad."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Uhr war es am wärmsten?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      11,
+      23
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -28,
+        7,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "Uhr"
+   },
+   "c": "14",
+   "w": "Der höchste Punkt des Graphen liegt bei 14 Uhr (21 °C). Davor steigt, danach sinkt die Temperatur."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Grad ist es von 10 Uhr bis 14 Uhr wärmer geworden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      12,
+      24
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -27,
+        7,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "°C"
+   },
+   "c": "(22 - (14 - 14)**2 / 4) - (22 - (10 - 14)**2 / 4)",
+   "w": "Abgelesen: 10 Uhr 18 °C, 14 Uhr 22 °C. Unterschied: 22 − 18 = 4 Grad."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Tabelle gehört zu einem Tarif mit Grundgebühr und festem Preis je GB. Gib den Term an.",
+    "schablone": "K(x) = □ + □ · x",
+    "hinweis": "Zwei ganze Zahlen eintragen.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "GB (x)",
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "Kosten in €",
+       "8",
+       "9",
+       "10",
+       "11"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     7,
+     1
+    ]
+   },
+   "c": [
+    "7",
+    "1"
+   ],
+   "w": "Je GB mehr steigen die Kosten um 1 €: Preis je Einheit 1. Rückwärts bis x = 0: 8 − 1 · 1 = 7 € Grundgebühr. K(x) = 7 + 1 · x."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kletterhallen-Abo kostet 20 € Grundgebühr und 6 € je Besuch. Die Rechnung beträgt 74 €. Wie viele Besuche waren es?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(74 - 20) / 6",
+   "w": "Ohne Grundgebühr: 74 € − 20 € = 54 €. Geteilt durch 6 €: 9 Besuche."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stromtarif kostet 14 € Grundgebühr und 0,25 € je kWh. Die Rechnung beträgt 84 €. Wie viele kWh waren es?"
+   },
+   "o": {
+    "wert": 280
+   },
+   "c": "(84 - 14) / (1/4)",
+   "w": "Ohne Grundgebühr: 84 € − 14 € = 70 €. Geteilt durch 0,25 €: 280 kWh."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Grad ist es von 11 Uhr bis 15 Uhr wärmer geworden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      9,
+      21
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -37.25,
+        7.5,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "°C"
+   },
+   "c": "(19 - (15 - 15)**2 / 4) - (19 - (11 - 15)**2 / 4)",
+   "w": "Abgelesen: 11 Uhr 15 °C, 15 Uhr 19 °C. Unterschied: 19 − 15 = 4 Grad."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt den Temperaturverlauf an einem Tag. Um wie viel Uhr war es am wärmsten?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      20
+     ],
+     "y": [
+      8,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -24.25,
+        6.5,
+        -0.25
+       ],
+       "name": "T",
+       "bereich": [
+        8,
+        20
+       ]
+      }
+     ],
+     "name_x": "Uhr",
+     "name_y": "°C",
+     "schritt_y": 1,
+     "schritt_x": 1
+    }
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "Uhr"
+   },
+   "c": "13",
+   "w": "Der höchste Punkt des Graphen liegt bei 13 Uhr (18 °C). Davor steigt, danach sinkt die Temperatur."
+  },
+  {
+   "l": "sachzusammenhang",
+   "t": "sachzusammenhang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stromtarif kostet 9 € Grundgebühr und 0,35 € je kWh. Die Rechnung beträgt 79 €. Wie viele kWh waren es?"
+   },
+   "o": {
+    "wert": 200
+   },
+   "c": "(79 - 9) / (7/20)",
+   "w": "Ohne Grundgebühr: 79 € − 9 € = 70 €. Geteilt durch 0,35 €: 200 kWh."
   }
  ],
  "offen": [

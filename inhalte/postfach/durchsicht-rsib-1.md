@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-1 (Neunzehnte Runde, Teil B, Chat 1)
 
+## 2026-11-17 15:20 – STATUS
+terme.quadratische_extreme fertig: 9 umgestuft, 3 ersetzt (scheitelform: „kleinster Wert“ gehört zur nächsten Karte), 19 neu (Stufe 3: Lücken rückwärts, Parameter c, A(x) nach AP-Muster, Einnahmen-Optimierung). inhalt_pruefen: OK, 0 Hinweise.
+
 ## 2026-11-17 15:00 – STATUS
 funktionen.scharen fertig: 8 umgestuft, 5 ersetzt, 20 neu (Stufe 3: Parameter aus Punktprobe, Büschelpunkt nach Ausklammern, Tarif aus zwei Angaben, unendlich viele Lösungen). inhalt_pruefen: OK, 0 Hinweise.
 

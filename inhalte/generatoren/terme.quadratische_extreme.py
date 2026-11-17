@@ -379,6 +379,115 @@ UMBAU_WEG = []
 # ---------- Ende UMBAU ----------
 
 
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: Realschul-Abschlussprüfung Mathematik I (Bayern) – Flächeninhalt A(x) einer Figur in Abhängigkeit von x,
+# dann „Berechnen Sie den maximalen/kleinstmöglichen Flächeninhalt“ (z. B. AP 2004 A 1.5, AP 2011 B 2.4); Jahrgangsstufentest 8 I
+# (Lücken in binomischen Formeln ergänzen). Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, L, nachtrag, finde
+    T = lambda teil: finde(d, teil)
+    XT = 'x = □; T = □'
+    nachtrag(d,
+        umstufen={
+            T('Welche Zahl musst du zu x² + 14x addieren'): 1,
+            T('Multipliziere T(x) = (x − 6)² − 12 aus.'): 2,
+            T('Multipliziere T(x) = (x − 6)² − 5 aus.'): 2,
+            T('Multipliziere T(x) = (x + 5)² + 8 aus.'): 2,
+            T('Hat T(x) = −4x² − 32x − 65 ein Minimum oder ein Maximum?'): 1,
+            T('Hat T(x) = 3x² + 12x + 17 ein Minimum oder ein Maximum?'): 1,
+            T('Die Summe zweier Zahlen ist 18.'): 1,
+            T('Die Summe zweier Zahlen ist 8.'): 1,
+            T('Ein Kiosk verkauft täglich 200 Brezen'): 2,
+        },
+        ersetzen={
+            T('T(x) = x² + 3x − 4. Welchen kleinsten Wert'):
+                Z(3, 'Bringe T(x) = x² + 3x + 1 in die Form (x + d)² + e. Gib e als Dezimalzahl an.',
+                  -1.25, '1 - (3/2)**2', 'Hälfte von 3 ist 1,5; 1,5² = 2,25. T(x) = (x + 1,5)² − 2,25 + 1 = (x + 1,5)² − 1,25.',
+                  'Ergänze (3 : 2)² = 2,25 und ziehe es gleich wieder ab.'),
+            T('T(x) = x² − x + 4,5. Welchen kleinsten Wert'):
+                L(3, 'Ergänze die Lücken: (x + □)² + 3 = x² + 8x + □.', '(x + □)² + 3 = x² + 8x + □', [4, 19], ['8/2', '4**2 + 3'],
+                  '8x kommt von 2 · 4 · x, also steht 4 in der Klammer. 4² = 16, dazu 3: 19.',
+                  'Wie entsteht das 8x beim Ausmultiplizieren?'),
+            T('T(x) = x² + 7x + 15. Welchen kleinsten Wert'):
+                A(3, 'Jemand formt um: x² − 10x + 7 = (x − 5)² + 32. Was stimmt?',
+                  'Falsch: Die 25 muss abgezogen werden, richtig ist (x − 5)² − 18.',
+                  ['Richtig.', 'Falsch: Richtig ist (x − 10)² + 7.', 'Falsch: Richtig ist (x + 5)² − 18.'],
+                  'x² − 10x + 25 − 25 + 7 = (x − 5)² − 18. Er hat die 25 addiert statt abgezogen.',
+                  'Rechne die Klammer zur Probe aus.'),
+        },
+        neu={
+            'ergaenzen': [
+                L(3, 'Ergänze die Lücken so, dass die Gleichung stimmt.', 'x² − □x + 49 = (x − □)²', [14, 7], ['2*7', '7'],
+                  '49 = 7², also steht 7 in der Klammer. Das mittlere Glied ist 2 · 7 · x = 14x.',
+                  'Welche Zahl ergibt im Quadrat 49?'),
+                L(3, 'Ergänze die Lücken so, dass ein vollständiges Quadrat entsteht.', '4x² + 12x + □ = (2x + □)²', [9, 3], ['3**2', '12/(2*2)'],
+                  '(2x + b)² = 4x² + 4bx + b². 4b = 12, also b = 3 und b² = 9.',
+                  'Multipliziere (2x + b)² aus und vergleiche.'),
+                Z(3, 'Um wie viel ist x² + 10x + 30 größer als das vollständige Quadrat (x + 5)²?',
+                  5, '30 - 5**2', '(x + 5)² = x² + 10x + 25. 30 − 25 = 5.', 'Multipliziere (x + 5)² aus.'),
+            ],
+            'scheitelform': [
+                Z(3, 'Es gilt x² + 6x + c = (x + 3)² + 2. Wie groß ist c?', 11, '3**2 + 2',
+                  '(x + 3)² + 2 = x² + 6x + 9 + 2 = x² + 6x + 11. Also c = 11.', 'Multipliziere die rechte Seite aus.'),
+                A(3, 'Warum ist x² − 4x + 7 für jedes x positiv?',
+                  'Weil x² − 4x + 7 = (x − 2)² + 3 und (x − 2)² nie negativ ist.',
+                  ['Weil 7 positiv ist.', 'Weil x² immer größer als 4x ist.', 'Das stimmt nicht, für x = 4 wird es negativ.'],
+                  'Quadratische Ergänzung: (x − 2)² + 3. Ein Quadrat ist mindestens 0, also ist der Term mindestens 3.',
+                  'Bringe den Term in die Form (x − d)² + e.'),
+                A(3, 'Welcher Term lässt sich als (x − 2)² − 1 schreiben?',
+                  'x² − 4x + 3', ['x² − 4x − 1', 'x² + 4x + 3', 'x² − 2x − 1'],
+                  '(x − 2)² − 1 = x² − 4x + 4 − 1 = x² − 4x + 3.', 'Multipliziere aus.'),
+                A(3, 'Sind (x + 2)² + 1 und x² + 4x + 5 derselbe Term?',
+                  'Ja, für jedes x gleich.', ['Nein, nur für x = 0 gleich.', 'Nein, sie unterscheiden sich um 4.', 'Nein, sie unterscheiden sich um 1.'],
+                  '(x + 2)² + 1 = x² + 4x + 4 + 1 = x² + 4x + 5. Die Terme sind gleich.', 'Multipliziere den ersten Term aus.'),
+                Z(3, 'Bringe x² − 5x in die Form (x − d)² − e. Gib e als Dezimalzahl an.',
+                  6.25, '(5/2)**2', 'Hälfte von 5 ist 2,5; 2,5² = 6,25. x² − 5x = (x − 2,5)² − 6,25.',
+                  'Die Hälfte von 5 ist eine Dezimalzahl.'),
+            ],
+            'extremwert': [
+                Z(3, 'Für welches c hat T(x) = x² − 6x + c den kleinsten Wert 4?', 13, '4 + 3**2',
+                  'T(x) = (x − 3)² − 9 + c. Kleinster Wert −9 + c = 4 ⇒ c = 13.', 'Ergänze quadratisch und lasse c stehen.'),
+                A(3, 'Gibt es ein x, für das (x − 2)² + 5 den Wert 3 hat?',
+                  'Nein, der kleinste Wert ist 5.', ['Ja, für x = 0.', 'Ja, für x = 2.', 'Ja, für x = −2.'],
+                  '(x − 2)² ist nie negativ, also ist der Term immer mindestens 5. Der Wert 3 wird nie erreicht.',
+                  'Welchen kleinsten Wert hat der Term?'),
+            ],
+            'mit_faktor': [
+                Z(3, 'Der Term T(x) = a · x² − 8x + 3 hat sein Extremum bei x = 2. Wie groß ist a?', 2, '8/(2*2)',
+                  'a ausklammern: a(x² − (8 : a)x) + 3. Das Extremum liegt bei x = (8 : a) : 2 = 4 : a. 4 : a = 2 ⇒ a = 2. Probe: 2x² − 8x + 3 = 2(x − 2)² − 5.',
+                  'Bei a(x − d)² liegt das Extremum bei d. Wie hängt d mit 8 und a zusammen?'),
+                L(3, 'Für den Flächeninhalt von Dreiecken gilt A(x) = (−0,5x² + 4x + 6) FE. Für welches x ist A maximal, und wie groß ist A dann?',
+                  'x = □; A = □ FE', [4, 14], ['4/(2*0.5)', '6 + 0.5*4**2'],
+                  '−0,5(x² − 8x) + 6 = −0,5(x − 4)² + 8 + 6 = −0,5(x − 4)² + 14. Maximum 14 FE für x = 4.',
+                  'Klammere −0,5 aus und ergänze.'),
+                A(3, 'Welcher der Terme 2x² − 8x + 1 und −2x² + 8x + 1 hat ein Maximum, und wo liegt es?',
+                  '−2x² + 8x + 1, bei x = 2', ['2x² − 8x + 1, bei x = 2', '−2x² + 8x + 1, bei x = −2', 'beide, bei x = 2'],
+                  'Negativer Faktor vor x² ⇒ Maximum. −2(x² − 4x) + 1 = −2(x − 2)² + 9: Maximum 9 bei x = 2.',
+                  'Welches Vorzeichen hat der Faktor vor x²?'),
+                A(3, 'Für welche c hat T(x) = 2x² − 12x + c ein negatives Minimum?',
+                  'für c < 18', ['für c < 9', 'für c < 36', 'für c > 18'],
+                  '2(x − 3)² − 18 + c. Minimum −18 + c < 0 ⇒ c < 18.', 'Ergänze und lasse c stehen.'),
+            ],
+            'optimierung': [
+                Z(3, 'Ein Rechteck hat die Seitenlängen (10 − x) cm und (2x + 2) cm. Für welches x ist der Flächeninhalt maximal?',
+                  4.5, '18/4', 'A(x) = (10 − x)(2x + 2) = −2x² + 18x + 20 = −2(x − 4,5)² + 60,5. Maximum für x = 4,5.',
+                  'Multipliziere aus und ergänze quadratisch.', einheit='cm'),
+                Z(3, 'Ein Rechteck hat die Seitenlängen (10 − x) cm und (2x + 2) cm. Wie groß ist der maximale Flächeninhalt?',
+                  60.5, '(10 - 4.5)*(2*4.5 + 2)', 'A(x) = −2(x − 4,5)² + 60,5. Für x = 4,5: 5,5 cm · 11 cm = 60,5 cm².',
+                  'Bestimme zuerst die Stelle des Maximums.', einheit='cm²'),
+                Z(3, 'Ein Kino hat 120 Gäste bei 8 € Eintritt. Jede Senkung um 0,50 € bringt 10 Gäste mehr. Bei welchem Eintrittspreis sind die Einnahmen am größten?',
+                  7, '8 - 0.5*2', 'n Senkungen: E = (8 − 0,5n)(120 + 10n) = −5n² + 20n + 960 = −5(n − 2)² + 980. n = 2: Preis 8 − 1 = 7 €.',
+                  'Stelle die Einnahmen für n Senkungen auf.', einheit='€'),
+                Z(3, 'Die Summe zweier Zahlen ist 12. Wie groß ist die Summe ihrer Quadrate mindestens?',
+                  72, '6**2 + 6**2', 'x² + (12 − x)² = 2x² − 24x + 144 = 2(x − 6)² + 72. Kleinster Wert 72 für x = 6.',
+                  'Die zweite Zahl ist 12 − x. Stelle x² + (12 − x)² auf.'),
+                Z(3, 'In einer Hausecke soll mit 30 m Zaun ein rechteckiges Beet entstehen. Zwei Seiten bilden die Hauswände, der Zaun die anderen zwei. Wie groß kann das Beet höchstens werden?',
+                  225, '15*15', 'Seiten x und 30 − x. A = x(30 − x) = −(x − 15)² + 225. Maximum 225 m².',
+                  'Der Zaun bildet nur zwei Seiten.', einheit='m²'),
+            ],
+        })
+
+
 if __name__ == '__main__':
     d = bauen('terme.quadratische_extreme',
           'Quadratische Terme mit der quadratischen Ergänzung umformen, ihr Minimum oder Maximum bestimmen und einfache Optimierungsaufgaben lösen.',
@@ -391,3 +500,4 @@ if __name__ == '__main__':
           offen=['Laut Umfang ohne vollständige Parabellehre: keine Graphen, nur Termumformung und Extremwerte. Scheitelpunkt/Parabeln folgen in RS 9.',
                  'Schreibweise Extremwert: „x = □; T = □“ statt T_min/T_max (Indizes in der App schwer lesbar).'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+    durchsicht(d)

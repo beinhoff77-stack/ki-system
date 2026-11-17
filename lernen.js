@@ -4,9 +4,9 @@
    Ansichten:
      #/lernen                      Eltern: Mathe-Merkblatt, Lernreisen der Kinder, Belohnungen und Einlösungen
      #/reise/<kind>                Kind: Heute dran (aktueller Ort auf der echten Weltkarte)
-     #/weltkarte/<kind>            Kind: Weltkarte, Kontinente und Orte
-     #/weg/<kind>                  Kind: Mein Weg – kann ich · gerade dran · kommt noch
-     #/merkheft/<kind>             Kind: Merkheft – Spickzettel aller geschafften Etappen, durchsuchbar
+     #/weltkarte/<kind>            → Mein Weg · Karte (K2)
+     #/weg/<kind>[-stand|-kontinente|-karte] Kind: Mein Weg mit Reitern Stand · Kontinente · Karte
+     #/merkheft/<kind>             Kind: Merkheft – nur Geschafftes, Kontinent → Flug → Etappe, durchsuchbar
      #/reisepass/<kind>            Kind: Stempel, Sterne, Belohnungen, Look wählen
      #/lerneinheit/<kind>-<einheit>[-<etappe>|-test] Kind: Etappen-Weg, Etappe (erklärt → selbst probieren), Test
    Karte: echte Weltkarte (lernen-welt.js), jedes Mathe-Gebiet liegt fest auf einem Erdteil, jeder Ort ist eine echte Stadt. */
@@ -51,6 +51,8 @@ const LI = {
 };
 
 // ---------- Daten je Kind ----------
+// Lehrplan-Reihenfolge eines Flugs im Ort (Feld „reihenfolge“ der Übersicht: Zahl oder {gym_by: 3, …}); fehlt es, bleibt die bisherige Ordnung.
+const lernReihe = (e, kind) => { const r = e?.reihenfolge; if (r === null || r === undefined) return 1e9; if (typeof r === 'number') return r; return Number(r[kind?.schulart || 'gym_by'] ?? 1e9); };
 // Ordnet die Orte eines Kindes: Jetzt dran · Kann schon · Später (nach Route und Klassenstufe); mit Stand je Einheit.
 function lernReiseDaten(u, kindId) {
   const kind = (u.lernende || []).find((k) => k.id === kindId);
@@ -83,7 +85,7 @@ function lernReiseDaten(u, kindId) {
     const s = stand.get(e.id) || {};
     const n = e.pflicht_anzahl || 0, f = Number(s.fertig || 0);
     return { ...e, gruppe: gruppe(e), fertig: f, n, geschafft: n > 0 && f >= n, fehler: Number(s.fehler || 0), laeuft: !!s.laeuft, blocktest: !!s.blocktest, ortFertig: route.get(e.block_id)?.status === 'fertig' };
-  }).sort((a, b) => pos(a) - pos(b) || a.id - b.id);
+  }).sort((a, b) => pos(a) - pos(b) || lernReihe(a, kind) - lernReihe(b, kind) || a.id - b.id);
   const ortZustand = (o) => {
     const r = route.get(o.block_id);
     if (r?.status === 'fertig') return 'fertig';
@@ -164,7 +166,7 @@ function lernRahmen(kind, aktiv, ...inhalt) {
     const zu = () => { if (blatt.open) blatt.close(); };
     blatt.addEventListener('click', (ev) => { if (ev.target === blatt) zu(); });
     lernAnhaengen(blatt, el('div', { class: 'lr-blatt-liste' },
-      ...[['reise', 'Abflugtafel'], ['weg', 'Mein Weg'], ['merkheft', 'Merkheft'], ['weltkarte', 'Weltkarte'], ['reisepass', 'Reisepass']].map(([v, t]) =>
+      ...[['reise', 'Abflugtafel'], ['weg', 'Mein Weg'], ['merkheft', 'Merkheft'], ['reisepass', 'Reisepass']].map(([v, t]) => // K2: Weltkarte ist jetzt in „Mein Weg“
         el('a', { href: `#/${v}/${kind.id}`, class: v === aktiv ? 'on' : '', ...(v === aktiv ? { 'aria-current': 'page' } : {}), onclick: zu }, t)),
       el('button', { type: 'button', onclick: () => { try { localStorage.setItem('lern.gestaltung.' + kind.id, g === 'nacht' ? 'tag' : 'nacht'); } catch { /* egal */ } zu(); render(); } }, g === 'nacht' ? 'Helle Ansicht' : 'Dunkle Ansicht'),
       el('button', { type: 'button', class: 'lr-blatt-zu', onclick: zu }, 'Schließen')));
@@ -172,7 +174,7 @@ function lernRahmen(kind, aktiv, ...inhalt) {
     return el('div', { class: lernThema(kind) + ' lr-mit-menue' }, el('div', { class: 'lr-inhalt' }, ...inhalt), knopf, blatt);
   }
   const nav = el('nav', { class: 'lr-nav', 'aria-label': 'Lernreise' },
-    ...[['reise', 'Heute', LI.heute], ['weg', 'Mein Weg', LI.weg], ['merkheft', 'Merkheft', LI.heft], ['weltkarte', 'Karte', LI.karte]].map(([v, t, i]) =>
+    ...[['reise', 'Heute', LI.heute], ['weg', 'Mein Weg', LI.weg], ['merkheft', 'Merkheft', LI.heft], ['reisepass', 'Reisepass', LI.pass]].map(([v, t, i]) =>
       el('a', { href: `#/${v}/${kind.id}`, class: v === aktiv ? 'on' : '', ...(v === aktiv ? { 'aria-current': 'page' } : {}) }, lernIcon(i, 24), el('span', {}, t))));
   return el('div', { class: lernThema(kind) }, el('div', { class: 'lr-inhalt' }, ...inhalt), nav);
 }
@@ -454,46 +456,8 @@ function lernOrtZeile(kind, e) {
 }
 
 // ---------- Kind: Weltkarte ----------
-async function viewWeltkarte(arg) {
-  setChrome('Weltkarte', { back: true, showTabs: false });
-  const live = viewGuard();
-  loading();
-  const d = await lernLadeKind(arg);
-  if (!d || !live()) return;
-  const { kind } = d;
-  if (!d.orte.length) { lernErsetze(main, lernRahmen(kind, 'weltkarte', lernKopf('DEINE MATHE-WELTREISE', 'Noch keine Orte'), el('section', { class: 'lr-karte-box' }, el('p', {}, 'Deine Reise ist noch nicht geplant. Deine Eltern oder deine Lehrkraft legen bald die ersten Orte fest.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zu Heute')))); return; }
-  const konts = [...new Map(d.orte.map((o) => [o.kontinent, o])).values()];
-  const zaehl = (k) => { const os = d.orte.filter((o) => o.kontinent === k); return [os.filter((o) => o.zustand === 'fertig' || o.zustand === 'kann').length, os.length]; };
-  let wahl = d.orte.find((o) => o.zustand === 'jetzt')?.kontinent || konts[0]?.kontinent;
-  const detail = el('section', { class: 'lr-karte-box' });
-  const zeigeKontinent = () => {
-    const os = d.orte.filter((o) => o.kontinent === wahl); const k0 = os[0] || {};
-    lernErsetze(detail, 
-      el('p', { class: 'lr-ueber' }, `${(k0.erdteil || '').toUpperCase()} · ${(k0.kontinent_titel || '').toUpperCase()}`),
-      os.length && k0.erdteil !== 'Antarktis' ? el('div', { class: 'lr-kartenbild' }, lernKarte({ orte: os, fokus: os, hervor: LERN_ERDTEIL[wahl], route: true,
-        beschriftung: os.filter((o) => o.zustand === 'jetzt').map((o) => ({ ...o, text: o.stadt, jetzt: true })), label: `Karte ${k0.erdteil}`, breite: 340, hoehe: 150 })) : null,
-      el('ol', { class: 'lr-ortliste' }, ...os.map((o, i) => {
-        const einheit = (d.mit || []).find((x) => x.block_id === o.block_id);
-        const innen = [el('span', { class: 'lr-nr' }, o.zustand === 'fertig' || o.zustand === 'kann' ? lernIcon(LI.haken, 16) : String(i + 1)),
-          el('span', { class: 'lr-zeile-text' }, el('b', {}, `${o.stadt}: ${o.titel}`), el('small', {}, einheit ? o.land : `${o.land} · kommt bald`)),
-          el('span', { class: 'lr-zeile-zustand' }, { fertig: 'Stempel', kann: 'kann schon', jetzt: 'jetzt', offen: einheit ? '›' : '' }[o.zustand])];
-        return el('li', { class: 'lr-ort-' + o.zustand }, einheit ? el('a', { class: 'lr-ortlink', href: `#/lerneinheit/${kind.id}-${einheit.id}` }, ...innen) : innen);
-      })));
-  };
-  const knoepfe = el('div', { class: 'lr-chips', role: 'tablist', 'aria-label': 'Kontinente' });
-  const zeichneKnoepfe = () => lernErsetze(knoepfe, ...konts.map((o) => {
-    const [f, n] = zaehl(o.kontinent);
-    return el('button', { type: 'button', role: 'tab', class: o.kontinent === wahl ? 'on' : '', 'aria-selected': String(o.kontinent === wahl),
-      onclick: () => { wahl = o.kontinent; zeichneKnoepfe(); zeigeKontinent(); } }, `${o.kontinent_titel} `, el('small', {}, `${f}/${n}`));
-  }));
-  zeichneKnoepfe(); zeigeKontinent();
-  const fertig = d.orte.filter((o) => o.zustand === 'fertig' || o.zustand === 'kann').length;
-  lernErsetze(main, lernRahmen(kind, 'weltkarte',
-    lernKopf('DEINE MATHE-WELTREISE', `${fertig} von ${d.orte.length} Orten`),
-    el('div', { class: 'lr-kartenbild lr-welt' }, lernKarte({ orte: d.orte, label: 'Weltkarte mit allen Orten' })),
-    el('p', { class: 'lr-legende' }, el('span', { class: 'lr-dot lr-dot-fertig' }), 'geschafft', el('span', { class: 'lr-dot lr-dot-jetzt' }), 'jetzt dran', el('span', { class: 'lr-dot lr-dot-offen' }), 'noch offen'),
-    knoepfe, detail));
-}
+// K2: Die Weltkarte ist der Reiter „Karte“ in „Mein Weg“; alte Links führen dorthin.
+async function viewWeltkarte(arg) { route('weg', `${Number(arg) || ''}-karte`); }
 
 // ---------- Kind: Reisepass ----------
 async function viewReisepass(arg) {
@@ -1635,17 +1599,32 @@ async function lernMerkDaten(d) {
 }
 const lernEtappenZahl = (m) => { const n = (m?.etappen || []).length; const f = (m?.etappen || []).filter((e) => m.stand?.[e.lernziel]?.fertig).length; return { n, f }; };
 
-// ---------- Kind: Mein Weg ----------
+// ---------- Kind: Mein Weg (K2) – Reiter Stand · Kontinente · Karte ----------
+// #/weg/<kind>[-stand|-kontinente|-karte]. Die Weltkarte (früher eigener Menüeintrag) ist der Reiter „Karte“.
+const LERN_WEG_REITER = [['stand', 'Stand'], ['kontinente', 'Kontinente'], ['karte', 'Karte']];
+// Ein Flug gilt als gelandet, wenn alle Pflicht-Etappen sitzen; auch „kann schon“ und geschaffte Orte zählen (Rechenregel „Stand“).
+const lernGelandet = (e) => e.geschafft || e.ortFertig || e.gruppe === 'kann';
 async function viewWeg(arg) {
   setChrome('Mein Weg', { back: true, showTabs: false });
   const live = viewGuard();
+  const [kindArg, reiterArg] = String(arg || '').split('-');
+  const reiter = LERN_WEG_REITER.some(([k]) => k === reiterArg) ? reiterArg : 'stand';
   loading();
-  const d = await lernLadeKind(arg);
+  const d = await lernLadeKind(kindArg);
   if (!d || !live()) return;
-  const merk = await lernMerkDaten(d).catch(() => []);
+  const merk = reiter === 'stand' ? await lernMerkDaten(d).catch(() => []) : [];
   if (!live()) return;
   const { kind } = d;
   $('#title').textContent = 'Mein Weg';
+  const tabs = el('nav', { class: 'lr-tabs lr-tabs-3 lr-weg-reiter', 'aria-label': 'Mein Weg' },
+    ...LERN_WEG_REITER.map(([k, t]) => el('a', { href: `#/weg/${kind.id}-${k}`, class: k === reiter ? 'on' : '', ...(k === reiter ? { 'aria-current': 'page' } : {}) }, t)));
+  const kopf = el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, `MATHE${kind.klasse ? ' · KLASSE ' + kind.klasse : ''}`), el('h1', { class: 'lr-titel' }, 'Mein Weg'));
+  const teile = reiter === 'karte' ? lernWegKarte(d) : reiter === 'kontinente' ? lernWegKontinente(d) : lernWegStand(d, merk);
+  lernErsetze(main, lernRahmen(kind, 'weg', kopf, tabs, ...teile));
+}
+
+function lernWegStand(d, merk) {
+  const { kind } = d;
   const mm = new Map(merk.map((m) => [m.einheit_id, m]));
   const kann = d.orte.filter((o) => o.zustand === 'fertig' || o.zustand === 'kann');
   const offen = d.orte.filter((o) => o.zustand === 'offen');
@@ -1658,7 +1637,7 @@ async function viewWeg(arg) {
     el('span', { class: 'lr-zeile-text' }, el('b', {}, e.titel), el('small', {}, [e.kontinent, e.stadt].filter(Boolean).join(' · '))),
     klE(e) ? el('span', { class: 'lr-zeile-zustand' }, 'Kl. ' + klE(e)) : null);
   const zahl = (w, t, cls) => el('div', { class: 'lr-zahl ' + (cls || '') }, el('b', {}, String(w)), el('span', {}, t));
-  const dran = d.jetzt.map((e) => {
+  const dran = d.jetzt.filter((e) => !lernGelandet(e)).map((e) => {
     const { n, f } = lernEtappenZahl(mm.get(e.id));
     const info = e.laeuft ? 'Test läuft' : e.blocktest ? 'Test geschrieben' : n ? (f >= n ? 'Test offen' : `Etappe ${f + 1} von ${n}`) : `${e.fertig}/${e.n}`;
     return el('a', { class: 'lr-dran', href: `#/lerneinheit/${kind.id}-${e.id}` },
@@ -1676,9 +1655,16 @@ async function viewWeg(arg) {
     const info = o.zustand === 'kann' ? 'konnte ich schon' : nt?.grund === 'faellig' ? 'Nachtest dran' : nt?.grund === 'noch_nicht_faellig' ? `Nachtest in ${nt.lerntage_noetig - nt.lerntage_seit} Lerntagen` : nt?.grund === 'gesichert' ? 'sicher' : 'Stempel';
     return ortZeile(o, info, 'haken', m ? `#/merkheft/${kind.id}` : null);
   });
-  lernErsetze(main, lernRahmen(kind, 'weg',
-    el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, `MATHE${kind.klasse ? ' · KLASSE ' + kind.klasse : ''}`), el('h1', { class: 'lr-titel' }, 'Mein Weg')),
-    el('div', { class: 'lr-zahlen' }, zahl(kann.length, 'kann ich', 'gut'), zahl(d.jetzt.length, 'gerade dran'), zahl(offen.length, 'kommen noch')),
+  // Stand der eigenen Klasse (Rechenregel „Stand“): alle Flüge mit jahrgang[schulart] = Klasse. K3 ergänzt die anderen Schularten.
+  const eigene = kind.klasse ? d.mit.filter((e) => (e.jahrgang ? e.jahrgang[sa] : e.ziel_klasse) === kind.klasse) : [];
+  const gel = eigene.filter(lernGelandet).length, lauf = eigene.filter((e) => !lernGelandet(e) && e.fertig > 0).length;
+  return [
+    eigene.length ? el('section', { class: 'lr-karte-box lr-jgstand' },
+      el('p', { class: 'lr-ueber' }, `MEIN STAND · ${(LERN_SCHULART[sa] || '').toUpperCase()} KLASSE ${kind.klasse}`),
+      el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${gel} von ${eigene.length} Flügen gelandet` }, el('span', { style: `width:${Math.round(100 * gel / eigene.length)}%` })),
+        el('b', {}, `${gel} von ${eigene.length} Flügen`)),
+      el('p', { class: 'lr-leise' }, `${gel} gelandet · ${lauf} unterwegs · ${eigene.length - gel - lauf} warten`)) : null,
+    el('div', { class: 'lr-zahlen' }, zahl(kann.length, 'kann ich', 'gut'), zahl(dran.length, 'gerade dran'), zahl(offen.length, 'kommen noch')),
     el('h2', { class: 'lr-abschnitt lr-abschnitt-jetzt' }, 'GERADE DRAN'),
     ...(dran.length ? dran : [el('p', { class: 'lr-leise' }, 'Gerade ist nichts offen.')]),
     el('h2', { class: 'lr-abschnitt' }, `KOMMT NOCH${kind.klasse ? ' · KLASSE ' + kind.klasse : ''}`),
@@ -1689,11 +1675,108 @@ async function viewWeg(arg) {
     el('h2', { class: 'lr-abschnitt' }, 'KANN ICH'),
     kannZeilen.length ? el('div', { class: 'lr-wegliste' }, ...kannZeilen.slice(0, 6)) : el('p', { class: 'lr-leise' }, 'Dein erster geschaffter Ort erscheint hier.'),
     kannZeilen.length > 6 ? el('details', { class: 'lr-mehr' }, el('summary', {}, `Alle ${kannZeilen.length} anzeigen`), el('div', { class: 'lr-wegliste' }, ...kannZeilen.slice(6))) : null,
-    el('a', { class: 'lr-zeile', href: `#/reisepass/${kind.id}` }, el('span', { class: 'lr-zeile-icon' }, lernIcon(LI.pass, 22)),
-      el('span', { class: 'lr-zeile-text' }, el('b', {}, 'Reisepass'), el('small', {}, `${d.konto?.stempel ?? 0} Stempel · ${lernZahl(d.konto?.sterne ?? 0)} Sterne · Belohnungen · Look`)), lernIcon(LI.pfeil, 20))));
+  ];
 }
 
-// ---------- Kind: Merkheft ----------
+// Kontinente: je Kontinent eine Karte mit eigenem Fortschritt, aufklappbar zu den Flügen.
+function lernWegKontinente(d) {
+  const { kind } = d; const sa = kind.schulart || 'gym_by';
+  const reihe = new Map(); (d.orte || []).forEach((o) => { if (!reihe.has(o.kontinent_titel)) reihe.set(o.kontinent_titel, { erdteil: o.erdteil, n: reihe.size }); });
+  const gruppen = new Map();
+  for (const e of d.mit) { const k = e.kontinent || 'Weitere'; if (!gruppen.has(k)) gruppen.set(k, []); gruppen.get(k).push(e); }
+  const liste = [...gruppen].sort((a, b) => (reihe.get(a[0])?.n ?? 99) - (reihe.get(b[0])?.n ?? 99));
+  if (!liste.length) return [el('p', { class: 'lr-leise' }, 'Deine Reise ist noch nicht geplant.')];
+  const zustand = (e) => lernGelandet(e) ? 'gelandet' : e.laeuft ? 'Test läuft' : e.fertig ? `${e.fertig}/${e.n} Etappen` : e.gruppe === 'spaeter' ? `ab Kl. ${e.jahrgang?.[sa] ?? e.ziel_klasse ?? ''}`.trim() : 'wartet';
+  return [el('div', { class: 'lr-kontinente' }, ...liste.map(([k, es]) => {
+    const zaehlen = es.filter((e) => e.gruppe !== 'spaeter'); const gel = zaehlen.filter(lernGelandet).length;
+    const erdteil = reihe.get(k)?.erdteil || es[0]?.erdteil || '';
+    return el('details', { class: 'lr-karte-box lr-kontinent', ...(es.some((e) => e === d.naechste) ? { open: '' } : {}) },
+      el('summary', {},
+        el('span', { class: 'lr-kontinent-kopf' }, el('small', { class: 'lr-ueber' }, erdteil.toUpperCase()), el('b', {}, k)),
+        zaehlen.length ? el('span', { class: 'lr-kontinent-stand' }, el('b', {}, `${gel}/${zaehlen.length}`), el('small', {}, 'gelandet'))
+          : el('span', { class: 'lr-kontinent-stand' }, el('small', {}, 'später')),
+        el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${gel} von ${zaehlen.length} Flügen gelandet` }, el('span', { style: `width:${zaehlen.length ? Math.round(100 * gel / zaehlen.length) : 0}%` }))),
+      el('div', { class: 'lr-wegliste' }, ...es.map((e) => el('a', { class: 'lr-wegzeile' + (e.gruppe === 'spaeter' ? ' lr-spaeter' : ''), href: `#/lerneinheit/${kind.id}-${e.id}` },
+        el('span', { class: 'lr-wegzeile-icon ' + (lernGelandet(e) ? 'fertig' : '') }, lernGelandet(e) ? lernIcon(LI.haken, 16) : null),
+        el('span', { class: 'lr-zeile-text' }, el('b', {}, e.titel), el('small', {}, [e.stadt, (e.jahrgang?.[sa] ?? e.ziel_klasse) ? 'Kl. ' + (e.jahrgang?.[sa] ?? e.ziel_klasse) : ''].filter(Boolean).join(' · '))),
+        el('span', { class: 'lr-zeile-zustand' }, zustand(e))))));
+  }))];
+}
+
+// Karte: nur die Orte der eigenen Klasse, mit Route; Antarktis als Polarkarte von oben.
+function lernWegKarte(d) {
+  const { kind } = d;
+  const orte = kind.klasse ? d.orte.filter((o) => o.ziel_klasse === kind.klasse) : d.orte;
+  if (!orte.length) return [el('p', { class: 'lr-leise' }, kind.klasse ? `Für Klasse ${kind.klasse} sind noch keine Orte geplant.` : 'Deine Reise ist noch nicht geplant.')];
+  const pos = new Map((kind.route || []).filter((r) => r.status !== 'entfernt').map((r) => [r.block_id, r.position]));
+  const reise = [...orte].sort((a, b) => (pos.get(a.block_id) ?? 1e9) - (pos.get(b.block_id) ?? 1e9));
+  const konts = [...new Map(reise.map((o) => [o.kontinent, o])).values()];
+  const zaehl = (k) => { const os = reise.filter((o) => o.kontinent === k); return [os.filter((o) => o.zustand === 'fertig' || o.zustand === 'kann').length, os.length]; };
+  let wahl = reise.find((o) => o.zustand === 'jetzt')?.kontinent || konts[0]?.kontinent;
+  const detail = el('section', { class: 'lr-karte-box' });
+  const zeigeKontinent = () => {
+    const os = reise.filter((o) => o.kontinent === wahl); const k0 = os[0] || {};
+    const pol = k0.erdteil === 'Antarktis';
+    lernErsetze(detail,
+      el('p', { class: 'lr-ueber' }, `${(k0.erdteil || '').toUpperCase()} · ${(k0.kontinent_titel || '').toUpperCase()}`),
+      os.length ? el('div', { class: 'lr-kartenbild' + (pol ? ' lr-polar' : '') }, pol ? lernPolarKarte(os) : lernKarte({ orte: os, fokus: os, hervor: LERN_ERDTEIL[wahl], route: true,
+        beschriftung: os.filter((o) => o.zustand === 'jetzt').map((o) => ({ ...o, text: o.stadt, jetzt: true })), label: `Karte ${k0.erdteil}`, breite: 340, hoehe: 150 })) : null,
+      el('ol', { class: 'lr-ortliste' }, ...os.map((o, i) => {
+        const einheit = (d.mit || []).find((x) => x.block_id === o.block_id);
+        const innen = [el('span', { class: 'lr-nr' }, o.zustand === 'fertig' || o.zustand === 'kann' ? lernIcon(LI.haken, 16) : String(i + 1)),
+          el('span', { class: 'lr-zeile-text' }, el('b', {}, `${o.stadt}: ${o.titel}`), el('small', {}, einheit ? o.land : `${o.land} · kommt bald`)),
+          el('span', { class: 'lr-zeile-zustand' }, { fertig: 'Stempel', kann: 'kann schon', jetzt: 'jetzt', offen: einheit ? '›' : '' }[o.zustand])];
+        return el('li', { class: 'lr-ort-' + o.zustand }, einheit ? el('a', { class: 'lr-ortlink', href: `#/lerneinheit/${kind.id}-${einheit.id}` }, ...innen) : innen);
+      })));
+  };
+  const knoepfe = el('div', { class: 'lr-chips', role: 'tablist', 'aria-label': 'Kontinente' });
+  const zeichneKnoepfe = () => lernErsetze(knoepfe, ...konts.map((o) => {
+    const [f, n] = zaehl(o.kontinent);
+    return el('button', { type: 'button', role: 'tab', class: o.kontinent === wahl ? 'on' : '', 'aria-selected': String(o.kontinent === wahl),
+      onclick: () => { wahl = o.kontinent; zeichneKnoepfe(); zeigeKontinent(); } }, `${o.kontinent_titel} `, el('small', {}, `${f}/${n}`));
+  }));
+  zeichneKnoepfe(); zeigeKontinent();
+  const fertig = reise.filter((o) => o.zustand === 'fertig' || o.zustand === 'kann').length;
+  return [
+    el('p', { class: 'lr-leise' }, `${kind.klasse ? `Klasse ${kind.klasse}: ` : ''}${fertig} von ${reise.length} Orten geschafft`),
+    el('div', { class: 'lr-kartenbild lr-welt' }, lernKarte({ orte: reise.filter((o) => o.erdteil !== 'Antarktis'), route: true, label: `Weltkarte mit den Orten${kind.klasse ? ' der Klasse ' + kind.klasse : ''}` })),
+    el('p', { class: 'lr-legende' }, el('span', { class: 'lr-dot lr-dot-fertig' }), 'geschafft', el('span', { class: 'lr-dot lr-dot-jetzt' }), 'jetzt dran', el('span', { class: 'lr-dot lr-dot-offen' }), 'noch offen'),
+    knoepfe, detail];
+}
+
+// Antarktis von oben (Südpol in der Mitte, 0° oben): Umriss aus der Weltkarte zurückgerechnet (Natural Earth I umkehren) und azimutal neu gezeichnet.
+function lernPolarKarte(orte) {
+  const W = window.LERN_WELT; const ns = 'http://www.w3.org/2000/svg';
+  const breite = (f) => { const f2 = f * f, f4 = f2 * f2; return f * (1.007226 + f2 * (0.015085 + f4 * (-0.044475 + 0.028874 * f2 - 0.005916 * f4))); };
+  const laenge = (f) => { const f2 = f * f, f4 = f2 * f2; return 0.8707 - 0.131979 * f2 + f4 * (-0.013791 + f4 * (0.003971 * f2 - 0.001529 * f4)); };
+  const zurueck = (x, y) => { const yy = (W.ty - y) / W.k; let f = yy; for (let i = 0; i < 25; i++) { const h = 1e-6; f -= (breite(f) - yy) / ((breite(f + h) - breite(f - h)) / (2 * h)); } return [((x - W.tx) / W.k) / laenge(f) * 180 / Math.PI, f * 180 / Math.PI]; };
+  const S = 300, M = S / 2, R = M - 14, rand = 55; // Rand der Karte bei 55° Süd
+  const polar = (lon, lat) => { const r = R * (90 + lat) / (90 - rand); const a = lon * Math.PI / 180; return [M + r * Math.sin(a), M - r * Math.cos(a)]; };
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${S} ${S}`); svg.setAttribute('class', 'lr-karte lr-karte-polar'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Antarktis von oben, Südpol in der Mitte');
+  const mk = (tag, a) => { const e = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); svg.append(e); return e; };
+  mk('circle', { cx: M, cy: M, r: R + 8, class: 'lr-meer' });
+  // Umriss: Punkte des Pfads; die künstliche Kante der Weltkarte (Breite < −85°) fällt weg
+  let d = '';
+  for (const teil of W.pfade.AN.split('M').filter(Boolean)) { // jede Teilfläche einzeln; Inseln jenseits des Kartenrands fallen weg
+    const zahlen = (teil.match(/-?\d+(\.\d+)?/g) || []).map(Number); const pts = [];
+    for (let i = 0; i + 1 < zahlen.length; i += 2) { const [lon, lat] = zurueck(zahlen[i], zahlen[i + 1]); if (lat >= -85) pts.push([lon, lat]); }
+    if (pts.length < 3 || pts.some(([, lat]) => lat > -rand - 3)) continue;
+    d += pts.map(([lon, lat], i) => { const [x, y] = polar(lon, lat); return `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`; }).join('') + 'Z';
+  }
+  mk('path', { d, class: 'lr-land lr-land-AN', 'fill-rule': 'evenodd' });
+  for (const g of [-60, -70, -80]) mk('circle', { cx: M, cy: M, r: R * (90 + g) / (90 - rand), class: 'lr-polar-kreis' });
+  mk('circle', { cx: M, cy: M, r: 2.5, class: 'lr-polar-pol' });
+  const pts = orte.filter((o) => o.lat != null).map((o) => ({ o, p: polar(Number(o.lon), Number(o.lat)) }));
+  if (pts.length > 1) mk('path', { d: 'M' + pts.map((q) => q.p.map((v) => v.toFixed(1)).join(' ')).join(' L'), class: 'lr-route', 'stroke-width': 2.4, 'stroke-dasharray': '2 6' });
+  for (const { o, p } of pts) {
+    mk('circle', { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: o.zustand === 'jetzt' ? 7 : 5, class: 'lr-punkt lr-punkt-' + (o.zustand || 'offen'), 'stroke-width': 1.6 });
+    const t = mk('text', { x: (p[0] + (p[0] > M ? -9 : 9)).toFixed(1), y: (p[1] + 4).toFixed(1), class: 'lr-ortname' + (o.zustand === 'jetzt' ? ' lr-ortname-jetzt' : ''), 'font-size': 12, 'text-anchor': p[0] > M ? 'end' : 'start' }); t.textContent = o.stadt;
+  }
+  return svg;
+}
+
+// ---------- Kind: Merkheft (K2) – nur Geschafftes, Kontinent → Flug → Etappe, Suche oben ----------
 async function viewMerkheft(arg) {
   setChrome('Merkheft', { back: true, showTabs: false });
   const live = viewGuard();
@@ -1704,35 +1787,39 @@ async function viewMerkheft(arg) {
   if (!live()) return;
   const { kind } = d;
   $('#title').textContent = 'Merkheft';
-  // Einträge: alle Lernkarten der Orte, die gerade dran oder geschafft sind – zum Nachlesen, ohne etwas zu lösen.
-  const sichtbar = new Set([...d.jetzt, ...d.kann, ...d.frueher].map((e) => e.id));
+  const flug = new Map(d.mit.map((e) => [e.id, e]));
+  const reihe = new Map((d.orte || []).map((o, i) => [o.block_id, i]));
   const eintraege = [];
-  for (const m of merk) if (sichtbar.has(m.einheit_id)) (m.etappen || []).forEach((e, i) => {
+  for (const m of merk) (m.etappen || []).forEach((e, i) => {
     const k = m.stand?.[e.lernziel] || {};
-    eintraege.push({ m, e, nr: i + 1, status: lernKartenStatus({ ...k, serie: Number(k.serie || 0) }) });
+    if (!k.fertig && !k.sitzt) return; // nur Geschafftes
+    const f = flug.get(m.einheit_id) || {};
+    eintraege.push({ m, e, nr: i + 1, flug: f.titel || m.ort_titel || '', kontinent: f.kontinent || m.kontinent || 'Weitere', erdteil: f.erdteil || '', faellig: !!k.faellig });
   });
+  eintraege.sort((a, b) => (reihe.get(a.m.block_id) ?? 999) - (reihe.get(b.m.block_id) ?? 999) || a.m.einheit_id - b.m.einheit_id || a.nr - b.nr);
   const suche = el('input', { type: 'search', class: 'lr-suche', placeholder: 'Suchen, z. B. runden', 'aria-label': 'Merkheft durchsuchen', autocomplete: 'off' });
   const liste = el('div', { class: 'lr-merkliste' });
   const norm = (s) => String(s || '').toLowerCase();
-  const flugTitel = (m) => d.mit.find((x) => x.id === m.einheit_id)?.titel || m.ort_titel || ''; // K1/U2: Flugname statt Ortsname
   const zeichne = () => {
     const q = norm(suche.value.trim());
-    const treffer = eintraege.filter(({ m, e }) => !q || [e.titel, e.regel, ...(e.schritte || []).map((x) => (typeof x === 'string' ? x : x?.text)), e.fehler, m.stadt, m.ort_titel, flugTitel(m)].some((t) => norm(t).includes(q)));
-    if (!eintraege.length) { lernErsetze(liste, el('p', { class: 'lr-leise' }, 'Noch leer.')); return; }
+    const treffer = eintraege.filter(({ m, e, flug: fl, kontinent }) => !q || [e.titel, e.regel, ...(e.schritte || []).map((x) => (typeof x === 'string' ? x : x?.text)), e.fehler, m.stadt, fl, kontinent].some((t) => norm(t).includes(q)));
+    if (!eintraege.length) { lernErsetze(liste, el('p', { class: 'lr-leise' }, 'Noch leer. Sobald eine Etappe sitzt, steht ihre Erklärung hier.')); return; }
     if (!treffer.length) { lernErsetze(liste, el('p', { class: 'lr-leise' }, 'Nichts gefunden.')); return; }
-    const gruppen = new Map();
-    for (const t of treffer) { if (!gruppen.has(t.m.einheit_id)) gruppen.set(t.m.einheit_id, []); gruppen.get(t.m.einheit_id).push(t); }
-    lernErsetze(liste, ...[...gruppen.values()].map((ts) => el('section', { class: 'lr-merkgruppe' },
-      el('h2', { class: 'lr-abschnitt' }, `${flugTitel(ts[0].m)} · ${ts[0].m.stadt || ''}`.toUpperCase()),
-      ...ts.map(({ m, e, nr, status }) => el('details', { class: 'lr-merk', ...(q && treffer.length <= 3 ? { open: '' } : {}) },
-        el('summary', {}, el('b', {}, e.titel), el('small', { class: 'lr-merk-status' }, status), lernIcon(LI.pfeil, 18)),
-        el('div', { class: 'lr-merk-inhalt' }, lernErklaerung(e),
-          el('a', { class: 'lr-knopf lr-knopf-klein', href: `#/lerneinheit/${kind.id}-${m.einheit_id}-ueben-${nr}` }, 'Üben')))))));
+    const konts = new Map();
+    for (const t of treffer) { if (!konts.has(t.kontinent)) konts.set(t.kontinent, new Map()); const fl = konts.get(t.kontinent); if (!fl.has(t.m.einheit_id)) fl.set(t.m.einheit_id, []); fl.get(t.m.einheit_id).push(t); }
+    lernErsetze(liste, ...[...konts].map(([k, fluege]) => el('section', { class: 'lr-merkgruppe' },
+      el('h2', { class: 'lr-abschnitt' }, [[...fluege.values()][0][0].erdteil, k].filter(Boolean).join(' · ').toUpperCase()),
+      ...[...fluege.values()].map((ts) => el('section', { class: 'lr-merkflug' },
+        el('h3', { class: 'lr-merkflug-titel' }, ts[0].flug, el('small', {}, ' · ' + (ts[0].m.stadt || ''))),
+        ...ts.map(({ m, e, nr, faellig }) => el('details', { class: 'lr-merk', ...(q && treffer.length <= 3 ? { open: '' } : {}) },
+          el('summary', {}, el('b', {}, e.titel), el('small', { class: 'lr-merk-status' }, faellig ? 'Wiederholen' : 'sitzt'), lernIcon(LI.pfeil, 18)),
+          el('div', { class: 'lr-merk-inhalt' }, lernErklaerung(e),
+            el('a', { class: 'lr-knopf lr-knopf-klein', href: `#/lerneinheit/${kind.id}-${m.einheit_id}-ueben-${nr}` }, 'Üben')))))))));
   };
   suche.addEventListener('input', zeichne);
   zeichne();
   lernErsetze(main, lernRahmen(kind, 'merkheft',
-    el('header', { class: 'lr-kopf' }, el('h1', { class: 'lr-titel' }, 'Merkheft'), el('p', { class: 'lr-leise' }, 'Alle Erklärungen zum Nachlesen – jederzeit, ohne Bordkarten zu lösen.')),
+    el('header', { class: 'lr-kopf' }, el('h1', { class: 'lr-titel' }, 'Merkheft'), el('p', { class: 'lr-leise' }, 'Was du geschafft hast – zum Nachlesen, jederzeit.')),
     eintraege.length ? suche : null, liste));
 }
 

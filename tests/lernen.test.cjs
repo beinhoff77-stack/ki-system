@@ -202,13 +202,16 @@ test('Lernreise: Heute dran auf der echten Karte, Weltkarte und Reisepass', asyn
   assert.equal(await page.locator('details.lr-mehr', { hasText: 'Später' }).count(), 1);
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/lernreise-heute-390.png'), fullPage: true });
-  await page.getByRole('link', { name: 'Karte' }).click();
-  await page.getByRole('heading', { name: '0 von 5 Orten' }).waitFor();
-  await page.getByText('Rom: Natürliche und ganze Zahlen').waitFor();
-  await page.screenshot({ path: path.join(root, 'test-results/lernreise-karte-390.png'), fullPage: true });
+  // K2: Menü ohne Weltkarte; die Karte ist ein Reiter in „Mein Weg“ und zeigt nur die Orte der eigenen Klasse.
+  assert.deepEqual(await page.locator('.lr-nav a').allInnerTexts(), ['Heute', 'Mein Weg', 'Merkheft', 'Reisepass']);
   await page.getByRole('link', { name: 'Mein Weg' }).click();
   await page.getByRole('heading', { name: 'GERADE DRAN' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernreise-weg-390.png'), fullPage: true });
+  await page.locator('.lr-weg-reiter').getByRole('link', { name: 'Karte' }).click();
+  await page.getByText('Klasse 5: 0 von 2 Orten geschafft').waitFor();
+  await page.getByText('Rom: Natürliche und ganze Zahlen').waitFor();
+  assert.equal(await page.getByText('New York', { exact: false }).count(), 0, 'Orte anderer Klassen fehlen');
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-karte-390.png'), fullPage: true });
   await page.getByRole('link', { name: /Reisepass/ }).first().click();
   await page.getByRole('heading', { name: 'Belohnungen' }).waitFor();
   await page.getByText('noch 3 Stempel').waitFor();
@@ -345,13 +348,16 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   const w = await page.evaluate(() => document.documentElement.scrollWidth); assert.ok(w <= 390, 'keine Querverschiebung: ' + w);
 });
 
-test('Lernen: Merkheft zeigt alle Lernkarten zum Nachlesen, mit Suche und Weg zum Üben', async (t) => {
+test('Lernen: Merkheft zeigt nur Geschafftes (Kontinent → Flug → Etappe), mit Suche und Weg zum Üben', async (t) => {
   const { page } = await setup(t);
   await page.goto(origin + '/#/merkheft/2');
   await page.locator('details.lr-merk').first().waitFor();
   assert.equal(await page.locator('.lr.lr-nacht.lr-studio').count(), 1);
-  assert.equal(await page.locator('details.lr-merk').count(), 5);
-  await page.getByText('am Üben').first().waitFor().catch(() => {});
+  assert.equal(await page.locator('details.lr-merk').count(), 3, 'nur die drei geschafften Etappen');
+  assert.equal(await page.getByText('noch nicht geübt').count(), 0);
+  assert.deepEqual(await page.locator('.lr-merkgruppe > h2').allInnerTexts(), ['EUROPA · ZAHLEN', 'NORDAMERIKA · GELD UND VERHÄLTNISSE']);
+  assert.deepEqual(await page.locator('.lr-merkflug-titel').allInnerTexts(), ['Natürliche Zahlen · Rom', 'Einfache Zinsen · New York']);
+  assert.ok((await page.locator('.lr-suche').boundingBox()).y < (await page.locator('.lr-merkgruppe').first().boundingBox()).y, 'Suche oben');
   await page.getByRole('searchbox').fill('binomxyz');
   await page.getByText('Nichts gefunden.').waitFor();
   await page.getByRole('searchbox').fill('zahlenstrahl');
@@ -557,7 +563,7 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   // Menüblatt statt Leiste
   assert.equal(await page.locator('.lr-nav').count(), 0);
   await page.getByRole('button', { name: 'Menü' }).click();
-  await page.getByRole('link', { name: 'Weltkarte' }).waitFor();
+  assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Mein Weg', 'Merkheft', 'Reisepass']); // K2: 4 Einträge
   await page.screenshot({ path: path.join(root, 'test-results/abflug-menue-390.png') });
   await page.getByRole('button', { name: 'Schließen' }).click();
   await start.click();
@@ -853,4 +859,48 @@ test('N5–N7: Detektiv nur ohne Fehlermuster; Test-Kopf „Ort · Flug“; Test
   assert.equal(await page.locator('.lern-strahl .marke-richtig').count(), 1, 'richtige Markierung grün');
   assert.equal(await page.locator('.lern-strahl .marke-falsch').count(), 1, 'gewählte falsche Markierung');
   await page.screenshot({ path: path.join(root, 'test-results/n7-testergebnis-390.png'), fullPage: true });
+});
+
+test('K2: Mein Weg – Reiter Stand · Kontinente · Karte; Antarktis von oben; alte Weltkarte führt in den Reiter Karte', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/weg/1');
+  const reiter = page.locator('.lr-weg-reiter a');
+  await reiter.first().waitFor();
+  assert.deepEqual(await reiter.allInnerTexts(), ['Stand', 'Kontinente', 'Karte']);
+  assert.equal(await page.locator('.lr-weg-reiter a.on').innerText(), 'Stand');
+  await page.getByText('MEIN STAND · GYMNASIUM KLASSE 5').waitFor();
+  await reiter.nth(1).click();
+  await page.waitForURL(/#\/weg\/1-kontinente$/);
+  const kont = page.locator('details.lr-kontinent');
+  await kont.first().waitFor();
+  assert.deepEqual(await page.locator('.lr-kontinent-kopf b').allInnerTexts(), ['Zahlen', 'Geld und Verhältnisse']);
+  await page.screenshot({ path: path.join(root, 'test-results/k2-kontinente-390.png'), fullPage: true });
+  await page.goto(origin + '/#/weltkarte/1');
+  await page.waitForURL(/#\/weg\/1-karte$/);
+  await page.locator('.lr-weg-reiter a.on', { hasText: 'Karte' }).waitFor();
+  // Antarktis von oben (Testdaten): eigene Karte mit dem Südpol in der Mitte
+  await page.evaluate(() => { const box = document.querySelector('.lr-karte-box'); box.replaceChildren(lernPolarKarte([
+    { stadt: 'Neumayer-Station III', lat: -70.67, lon: -8.27, zustand: 'jetzt' }, { stadt: 'McMurdo', lat: -77.85, lon: 166.67, zustand: 'offen' }])); });
+  const polar = page.locator('svg.lr-karte-polar');
+  await polar.waitFor();
+  const land = await polar.locator('path.lr-land-AN').getAttribute('d');
+  assert.ok(land.split('L').length > 300, 'Umriss der Antarktis');
+  const box = await polar.boundingBox(); assert.ok(Math.abs(box.width - box.height) < 2, 'quadratisch, von oben');
+  // Neumayer liegt bei 8° West nahe am oberen Rand (0° oben), McMurdo unten
+  const [n, m] = await polar.locator('circle.lr-punkt').evaluateAll((cs) => cs.map((c) => Number(c.getAttribute('cy'))));
+  assert.ok(n < 150 && m > 150, `Neumayer oben, McMurdo unten: ${n} / ${m}`);
+  await polar.screenshot({ path: path.join(root, 'test-results/k2-antarktis.png') });
+});
+
+test('K2: Flüge im Ort nach Lehrplan-Reihenfolge, sobald die Übersicht sie liefert', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1');
+  await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  const reihe = await page.evaluate(() => {
+    const u = { orte: [{ block_id: 49 }], lernende: [{ id: 1, klasse: 5, route: [{ block_id: 49, position: 1, art: 'normal', status: 'offen' }], stand: [] }],
+      einheiten: [{ id: 7, block_id: 49, titel: 'B', reihenfolge: { gym_by: 2 } }, { id: 8, block_id: 49, titel: 'A', reihenfolge: { gym_by: 1 } }, { id: 6, block_id: 49, titel: 'ohne' }] };
+    const ohne = { ...u, einheiten: u.einheiten.map(({ reihenfolge, ...e }) => e) };
+    return [lernReiseDaten(u, 1).mit.map((e) => e.titel), lernReiseDaten(ohne, 1).mit.map((e) => e.titel)];
+  });
+  assert.deepEqual(reihe, [['A', 'B', 'ohne'], ['ohne', 'B', 'A']]);
 });

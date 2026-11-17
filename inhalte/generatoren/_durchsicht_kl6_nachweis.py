@@ -24,7 +24,16 @@ def main(thema, stand='origin/lernen-app'):
     neu = json.loads((WURZEL / pfad).read_text(encoding='utf-8'))
     k = lambda a: json.dumps(a, ensure_ascii=False, sort_keys=True)
     F = []
-    if k({x: v for x, v in alt.items() if x not in ('aufgaben', 'inhalt')}) != k({x: v for x, v in neu.items() if x not in ('aufgaben', 'inhalt')}):
+    # block_id darf sich nur ändern, wenn die neue Nummer die der Themenliste ist (Generator zieht sie von dort; D2-Umzug)
+    liste = json.loads((WURZEL / 'inhalte/themenliste.json').read_text(encoding='utf-8'))
+    soll = next(e['block_id'] for e in liste if e['thema_schluessel'] == thema)
+    if alt.get('block_id') != neu.get('block_id'):
+        if neu.get('block_id') == soll:
+            print(f'  Kopf: block_id {alt.get("block_id")} → {neu.get("block_id")} (aus themenliste.json, Stand der Datenbank)')
+        else:
+            F.append('block_id weicht von der Themenliste ab')
+    ohne = ('aufgaben', 'inhalt', 'block_id')
+    if k({x: v for x, v in alt.items() if x not in ohne}) != k({x: v for x, v in neu.items() if x not in ohne}):
         F.append('Kopf geändert')
     if k({x: v for x, v in alt['inhalt'].items() if x != 'etappen'}) != k({x: v for x, v in neu['inhalt'].items() if x != 'etappen'}):
         F.append('inhalt außer etappen geändert')

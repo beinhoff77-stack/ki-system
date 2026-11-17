@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 19:30 – STATUS
+**daten.kennwerte** fertig: 4 umgestuft, 29 neue Übungen, 12 Knobel-Bordkarten, 26 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
+
 ## 2026-11-17 19:10 – STATUS
 **daten.darstellen** fertig: 2 umgestuft, 20 neue Übungen, 12 Knobel-Bordkarten, 14 überzählige. Prüfskript OK, 0 Gruppen, Nachweis OK.
 

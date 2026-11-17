@@ -625,5 +625,109 @@ befunde_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
 
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('daten.kennwerte', 20_6_9)
+SZ, SA, SL, SN, SK, STB = ST.Z, ST.A, ST.L, ST.neu, ST.knobel, ST.typ_bau
+
+lz = 'mittelwert'
+ST.leiter(lz, 'Mittelwert weniger Zahlen berechnen; wissen, was er bedeutet.', 'Mittelwert aus Diagrammen, mit Dezimalzahlen und negativen Zahlen, in Sachsituationen, Gruppen vergleichen.',
+          'Richtige Rechnung wählen, aufeinanderfolgende Zahlen, Notenspiegel finden, Aussage prüfen, Fehler deuten, rückwärts, fehlende Zahl, Wettkampf als Prüfungsaufgabe.')
+STB(lz, 3, 'Gruppe A', 'einkleidung', neu_s=2)
+STB(lz, 3, 'Mit welcher Rechnung', 'verknuepfen'); STB(lz, 3, 'Ein Kind hat in vier', 'begruenden')
+SN(lz, SZ('fehler', 'Ein Kind rechnet den Mittelwert von 4, 6, 8 und 10 so: (4 + 6 + 8 + 10) : 2 = 14. Wie heißt er richtig?', 7, '(4 + 6 + 8 + 10) / 4', 'Es hat durch 2 statt durch die Anzahl 4 geteilt. 28 : 4 = 7.', 'Durch welche Zahl muss man teilen?'))
+SN(lz, SZ('rueckwaerts', 'Drei Kinder haben im Mittel 12 € gespart. Das erste hat 10 €, das zweite 4 € mehr als das erste. Wie viel hat das dritte gespart?', 12, '3 * 12 - 10 - 14', 'Zusammen 36 €. Das zweite hat 14 €. Das dritte: 36 − 10 − 14 = 12 €.', 'Wie viel haben alle zusammen?', einheit='€'))
+SN(lz, SZ('parameter', 'Für welche Zahl x ist der Mittelwert von 4, 9 und x genau 8?', 11, '3 * 8 - 4 - 9', 'Die Summe muss 3 · 8 = 24 sein. x = 24 − 4 − 9 = 11.', 'Wie groß muss die Summe sein?'))
+SN(lz, SZ('pruefung', 'Ein Kind springt 3,20 m; 3,40 m; 2,90 m und 3,30 m. Der schlechteste Sprung wird gestrichen. Wie groß ist der Mittelwert der übrigen Sprünge?', 3.3, '(3.2 + 3.4 + 3.3) / 3', 'Gestrichen wird 2,90 m. (3,20 + 3,40 + 3,30) : 3 = 9,90 : 3 = 3,30 m.', 'Welcher Sprung fällt weg?', einheit='m'))
+SK(lz, SZ('knobel', 'Der Mittelwert von 10 Zahlen ist 20. Eine der Zahlen wird von 35 auf 15 geändert. Wie groß ist der neue Mittelwert?', 18, '(10 * 20 - 35 + 15) / 10',
+          'Die Summe war 200. Sie wird um 20 kleiner: 180. Der neue Mittelwert ist 180 : 10 = 18.', 'Was passiert mit der Summe?'))
+SK(lz, SZ('knobel', 'Fünf verschiedene natürliche Zahlen haben den Mittelwert 10. Wie groß kann die größte höchstens sein?', 40, '5 * 10 - (1 + 2 + 3 + 4)',
+          'Die Summe ist 50. Die größte Zahl wird am größten, wenn die anderen vier so klein wie möglich sind: 1, 2, 3, 4 (zusammen 10). Bleibt 40.', 'Wie klein können die anderen vier Zahlen sein?'))
+
+lz = 'mittel_tabelle'
+ST.leiter(lz, 'Mittelwert aus einer Häufigkeitstabelle berechnen; das Vorgehen erkennen.', 'Tabellen mit Noten, Toren und Geschwistern, die gleiche Rechnung aus einem Text.',
+          'Wie viele müssen dazukommen, Fehler beim ungewichteten Rechnen deuten, Anteile in Prozent als Gewichte, verwischte Anzahl rückwärts, Aussage prüfen, Notenspiegel.')
+STB(lz, 1, 'Die Tabelle', 'direkt')
+STB(lz, 3, 'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Kinder', 'parameter')
+STB(lz, 3, 'An einer Schule zahlen 55 % der Kinder 8 € Kopiergeld, 20 % zahlen 10 € und 25 % zahlen 12 €. Wie', 'verknuepfen'); STB(lz, 3, 'Im Notenspiegel', 'rueckwaerts')
+SN(lz, SA('erkennen', 'Wie berechnest du den Mittelwert aus einer Häufigkeitstabelle?', 'Jeden Wert mit seiner Häufigkeit malnehmen, alles addieren und durch die Zahl aller Werte teilen.',
+          ['Alle Werte der ersten Spalte addieren und durch die Zahl der Zeilen teilen.', 'Den Wert mit der größten Häufigkeit nehmen.'], 'Jeder Wert zählt so oft, wie er vorkommt.', 'Wie oft zählt jeder Wert?'))
+SN(lz, SZ('einkleidung', 'In einer Klasse haben 5 Kinder die Note 1, 10 Kinder die Note 2 und 5 Kinder die Note 3. Wie groß ist die Durchschnittsnote?', 2, '(5 * 1 + 10 * 2 + 5 * 3) / 20', '(5 + 20 + 15) : 20 = 40 : 20 = 2.', 'Wie viele Kinder sind es insgesamt?'))
+SN(lz, SZ('mehrschritt', 'Eine Datenreihe enthält 4-mal die 2, 3-mal die 5 und 3-mal die 0. Wie groß ist der Mittelwert?', 2.3, '(4 * 2 + 3 * 5 + 3 * 0) / 10', '(8 + 15 + 0) : 10 = 2,3.', 'Die Nullen zählen bei der Anzahl mit.'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Den Mittelwert aus einer Tabelle erhält man als Summe der Werte durch die Zahl der Zeilen.“', 'Nein, man muss jeden Wert mit seiner Häufigkeit gewichten und durch die Zahl aller Werte teilen.',
+          ['Ja, das stimmt.', 'Ja, wenn die Tabelle mehr als drei Zeilen hat.'], 'Kommt ein Wert 10-mal vor, zählt er auch 10-mal.', 'Was ist mit Werten, die oft vorkommen?'))
+SN(lz, SZ('pruefung', 'Notenspiegel: Note 1: 3, Note 2: 7, Note 3: 8, Note 4: 4, Note 5: 2, Note 6: 1. Wie groß ist die Durchschnittsnote? Runde auf eine Nachkommastelle.', 2.9, 'round((3 + 14 + 24 + 16 + 10 + 6) / 25, 1)',
+          'Summe: 3 + 14 + 24 + 16 + 10 + 6 = 73 bei 25 Kindern. 73 : 25 = 2,92 ≈ 2,9.', 'Wie viele Kinder sind es?'))
+SK(lz, SZ('knobel', 'Eine Klasse hat den Notenschnitt 2,5. Kommt ein Kind mit der Note 1 dazu, ist der Schnitt 2,4. Wie viele Kinder hat die Klasse jetzt?', 15, '15',
+          'Mit n Kindern ist die Notensumme 2,5 · n. Danach 2,5 · n + 1 = 2,4 · (n + 1). Probieren: n = 14 ergibt 35 + 1 = 36 und 2,4 · 15 = 36. Also sind es jetzt 15 Kinder.', 'Schreibe die Notensumme vorher und nachher auf.'))
+SK(lz, SL('knobel', 'In einer Tabelle kommt der Wert 1 a-mal vor, der Wert 2 doppelt so oft und der Wert 3 dreimal so oft wie der Wert 1. Wie groß ist der Mittelwert? (Als Bruch)', '□/□', [7, 3], ['14 // 2', '6 // 2'],
+          'Summe: 1 · a + 2 · 2a + 3 · 3a = 14a. Anzahl: a + 2a + 3a = 6a. Mittelwert 14a : 6a = 14/6 = 7/3 – egal, wie groß a ist.', 'Probiere a = 1 aus.'))
+
+lz = 'mittel_rueckwaerts'
+ST.leiter(lz, 'Aus Mittelwert und Anzahl die Summe berechnen; die passende Rechnung erkennen.', 'Fehlenden Wert bestimmen, ein Wert kommt dazu, Ziel-Mittelwert erreichen, Gesamtzeit aus Mittelwert.',
+          'Note für einen Zielschnitt, ein Kind verlässt die Gruppe, x gleich Mittelwert, gewichtete Klassen, Fehler deuten, Aussage begründen, Teilgruppen rückwärts, Zeugnis als Prüfungsaufgabe.')
+STB(lz, 2, '4 Kinder haben', 'mehrschritt'); STB(lz, 2, 'Nach 4 Tests', 'umkehr')
+STB(lz, 3, '9 Kinder haben', 'mehrschritt', neu_s=2); STB(lz, 3, 'Nach 3 Tests', 'umkehr', neu_s=2)
+STB(lz, 3, 'Der Mittelwert von 3', 'parameter'); STB(lz, 3, 'In der 6a', 'verknuepfen')
+SN(lz, SA('erkennen', 'Mit welcher Rechnung erhältst du aus Mittelwert und Anzahl die Summe aller Werte?', 'Mittelwert · Anzahl', ['Mittelwert : Anzahl', 'Mittelwert + Anzahl'], 'Mittelwert = Summe : Anzahl, also Summe = Mittelwert · Anzahl.', 'Mache die Division rückgängig.'))
+SN(lz, SZ('direkt', 'Der Mittelwert von 3 Zahlen ist 7. Wie groß ist ihre Summe?', 21, '3 * 7', 'Summe = 3 · 7 = 21.', 'Mittelwert mal Anzahl.'))
+SN(lz, SZ('fehler', 'Ein Kind sagt: „Mein Mittelwert aus 5 Tests ist 6, also habe ich zusammen 11 Punkte.“ Wie viele Punkte sind es richtig?', 30, '5 * 6', 'Es hat 5 + 6 gerechnet. Richtig: 5 · 6 = 30 Punkte.', 'Mittelwert mal Anzahl.'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Kommt ein Wert dazu, der genau so groß ist wie der Mittelwert, ändert sich der Mittelwert nicht.“', 'Ja: Summe und Anzahl wachsen im gleichen Verhältnis.',
+          ['Nein, er wird immer größer.', 'Nein, er wird immer kleiner.'], 'Beispiel: 4, 6, 8 haben den Mittelwert 6. Mit 6 dazu: 24 : 4 = 6.', 'Rechne ein Beispiel.'))
+SN(lz, SZ('rueckwaerts', 'Fünf Kinder haben im Mittel 10 Punkte. Die 3 Mädchen haben im Mittel 12 Punkte. Wie viele Punkte haben die 2 Jungen im Mittel?', 7, '(5 * 10 - 3 * 12) / 2', 'Alle: 50 Punkte. Mädchen: 36. Jungen: 14, im Mittel 7.', 'Rechne erst die Summen aus.'))
+SN(lz, SZ('pruefung', 'Ein Kind braucht mindestens den Schnitt 2,0. Es hat die Noten 2, 3, 1 und 2. Welche Note darf es in der fünften Arbeit höchstens haben?', 2, '5 * 2 - (2 + 3 + 1 + 2)', 'Für den Schnitt 2,0 darf die Notensumme bei 5 Arbeiten höchstens 10 sein. Bisher 8, also höchstens Note 2.', 'Wie groß darf die Notensumme sein?'))
+SK(lz, SZ('knobel', 'Der Mittelwert von 4 Zahlen ist 10. Nimmt man eine Zahl weg, ist der Mittelwert der übrigen 9. Welche Zahl wurde weggenommen?', 13, '4 * 10 - 3 * 9', 'Vorher ist die Summe 4 · 10 = 40, nachher 3 · 9 = 27. Weggenommen wurde der Unterschied: 40 − 27 = 13.', 'Rechne die Summen vorher und nachher.'))
+SK(lz, SZ('knobel', 'In einer Klasse mit 25 Kindern ist die mittlere Körpergröße 150 cm. 10 Kinder sind im Mittel 156 cm groß. Wie groß sind die übrigen 15 Kinder im Mittel?', 146, '(25 * 150 - 10 * 156) / 15',
+          'Alle zusammen: 3 750 cm. Die 10 großen: 1 560 cm. Die übrigen 15: 2 190 cm, im Mittel 146 cm.', 'Rechne mit den Summen der Körpergrößen.', einheit='cm'))
+
+lz = 'modal_spannweite'
+ST.leiter(lz, 'Modalwert und Spannweite einer kurzen Reihe bestimmen; die Begriffe erkennen.', 'Lange Reihen, negative Zahlen und Dezimalzahlen, zwei Modalwerte, Temperaturen, kleinster Wert aus der Spannweite.',
+          'Kein Modalwert begründen, Zahl ergänzen, Grenze im Diagramm, Fehler deuten, Brüche verknüpfen, Würfel-Rätsel, Summe aus Kennwerten.')
+STB(lz, 2, 'Temperaturen', 'einkleidung'); STB(lz, 2, 'Lieblingsfarben', 'einkleidung')
+STB(lz, 3, 'Eine Datenreihe hat', 'umkehr', neu_s=2)
+STB(lz, 3, 'Welchen Modalwert', 'begruenden'); STB(lz, 3, 'Zur Reihe', 'rueckwaerts'); STB(lz, 3, 'Das Diagramm', 'parameter'); STB(lz, 3, 'Ein Kind sagt', 'fehler')
+SN(lz, SA('erkennen', 'Was ist die Spannweite einer Datenreihe?', 'größter Wert minus kleinster Wert', ['der häufigste Wert', 'der Wert in der Mitte'], 'Die Spannweite zeigt, wie weit die Werte auseinanderliegen.', 'Wie weit liegen die Werte auseinander?'))
+SN(lz, SZ('transfer', 'Ein Würfel wird 10-mal geworfen. Jede Augenzahl kommt vor, die 4 ist der einzige Modalwert. Wie oft fiel die 4 mindestens?', 3, '3',
+          'Fiele die 4 nur 2-mal, dürften die anderen fünf Zahlen je höchstens 1-mal fallen: 2 + 5 = 7 Würfe, zu wenig. Bei 3-mal: 3 + 7 = 10 geht (z. B. zweimal 1, 2, 3, einmal 5, 6).', 'Probiere, wie oft die 4 mindestens fallen muss.'))
+SN(lz, SL('verknuepfen', 'Wie groß ist die Spannweite von 1/2, 3/4, 1/3 und 5/6?', '□/□', [1, 2], ['1', '2'], 'Größter Wert 5/6, kleinster 1/3 = 2/6. 5/6 − 2/6 = 3/6 = 1/2.', 'Finde zuerst den größten und kleinsten Bruch.'))
+SN(lz, SZ('pruefung', 'Punkte einer Gruppe: 12, 15, 9, 15, 18, 7, 15, 11. Wie groß ist die Summe aus Modalwert und Spannweite?', 26, '15 + (18 - 7)', 'Modalwert 15 (dreimal), Spannweite 18 − 7 = 11. Summe 26.', 'Bestimme beide Kennwerte einzeln.'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Eine Datenreihe kann zwei Modalwerte haben.“', 'Ja, z. B. 2, 2, 5, 5, 7: 2 und 5 kommen gleich oft am häufigsten vor.', ['Nein, es gibt immer genau einen.', 'Nein, dann gibt es keinen Modalwert.'],
+          'Kommen zwei Werte gleich oft und am häufigsten vor, sind beide Modalwerte.', 'Suche ein Beispiel.'))
+SK(lz, SZ('knobel', 'Vier natürliche Zahlen haben den Modalwert 5, die Spannweite 6 und die Summe 20. Wie heißt die größte Zahl?', 8, '8',
+          'Zweimal die 5 sind 10, die beiden anderen Zahlen ergeben zusammen 10. Ist 5 die kleinste Zahl, müsste die größte 11 sein und die vierte −1 – geht nicht. Also sind die anderen kleinste und größte: Unterschied 6, Summe 10 → 2 und 8.',
+          'Welche zwei Zahlen haben die Summe 10 und den Unterschied 6?'))
+SK(lz, SZ('knobel', 'Fünf Zahlen haben die Spannweite 0 und die Summe 35. Wie heißt der Modalwert?', 7, '35 / 5', 'Spannweite 0 heißt: Alle Zahlen sind gleich. Jede ist 35 : 5 = 7, also ist der Modalwert 7.', 'Was bedeutet die Spannweite 0?'))
+
+lz = 'median'
+ST.leiter(lz, 'Median einer geordneten kurzen Reihe bestimmen; wissen, dass man vorher ordnet.', 'Ungeordnete Reihen mit gerader und ungerader Anzahl, negative Zahlen, Strichlisten, Sachdaten.',
+          'Fehler deuten, Ausreißer begründen, Tabelle mit 150 Werten, Zahl ergänzen, Median gleich Mittelwert, Brüche, Laufzeiten, ein Wert kommt dazu.')
+STB(lz, 3, 'Daten: 32', 'begruenden'); STB(lz, 3, 'Zur Reihe', 'rueckwaerts'); STB(lz, 3, 'Median und Mittelwert', 'parameter')
+SN(lz, SA('erkennen', 'Was musst du tun, bevor du den Median bestimmst?', 'die Werte der Größe nach ordnen', ['alle Werte addieren', 'den größten Wert streichen'], 'Der Median ist der Wert in der Mitte der geordneten Reihe.', 'Was heißt „Mitte“?'))
+SN(lz, SZ('darstellung', 'Eine Strichliste zeigt: 1 Punkt: 2-mal, 2 Punkte: 3-mal, 3 Punkte: 4-mal. Wie groß ist der Median?', 2, '2', 'Geordnet: 1, 1, 2, 2, 2, 3, 3, 3, 3. Der 5. von 9 Werten ist 2.', 'Schreibe alle Werte geordnet auf.'))
+SN(lz, SL('verknuepfen', 'Bestimme den Median von 1/2, 2/3, 1/4 und 3/4.', '□/□', [7, 12], ['7', '12'], 'Geordnet: 1/4, 1/2, 2/3, 3/4. Mitte zwischen 1/2 = 6/12 und 2/3 = 8/12: 7/12.', 'Ordne die Brüche, dann die Mitte der beiden mittleren.'))
+SN(lz, SZ('pruefung', 'Zeiten beim 50-m-Lauf in Sekunden: 8,4; 7,9; 9,1; 8,0; 8,6; 7,7. Wie groß ist der Median?', 8.2, '(8.0 + 8.4) / 2', 'Geordnet: 7,7; 7,9; 8,0; 8,4; 8,6; 9,1. Mitte zwischen 8,0 und 8,4: 8,2 s.', 'Gerade Anzahl: Nimm die Mitte der beiden mittleren Werte.', einheit='s'))
+SN(lz, SZ('transfer', 'Sieben Kinder stehen der Größe nach. Das mittlere ist 1,48 m groß, das Kind direkt größer ist 1,52 m. Ein Kind mit 1,60 m kommt dazu. Wie groß ist der neue Median?', 1.5, '(1.48 + 1.52) / 2',
+          'Jetzt sind es 8 Kinder. Die beiden mittleren sind 1,48 m und 1,52 m, der Median ist 1,50 m.', 'Welche Kinder stehen nach dem Dazukommen in der Mitte?', einheit='m'))
+SK(lz, SZ('knobel', 'Fünf Zahlen haben den Median 10 und den Mittelwert 8. Die kleinste ist 2, die größte 12, die zweitkleinste 4. Wie heißt die zweitgrößte?', 12, '5 * 8 - 2 - 4 - 10 - 12',
+          'Die Summe ist 5 · 8 = 40. Die mittlere Zahl ist der Median 10. 2 + 4 + 10 + x + 12 = 40 ergibt x = 12. Das passt, denn 12 ist nicht kleiner als 10.', 'Welche Zahl steht in der Mitte, und wie groß ist die Summe?'))
+SK(lz, SZ('knobel', 'Eine Reihe aus 6 ganzen Zahlen hat den Median 5. Die beiden mittleren Werte sind verschieden und liegen zwischen 1 und 9. Wie viele verschiedene Paare sind für die beiden mittleren Werte möglich?', 4, '4',
+          'Die beiden mittleren Werte haben die Summe 10 (Mitte 5). Mögliche Paare mit verschiedenen Zahlen: 1 und 9, 2 und 8, 3 und 7, 4 und 6 – das sind 4.', 'Was muss die Summe der beiden mittleren Werte sein?'))
+
+lz = 'verstehen'
+ST.leiter(lz, 'Einfache Aussagen über Mittelwert prüfen; Kennwerte benennen und berechnen.', 'Aussagen über Spannweite, Ausreißer und Verdoppeln prüfen, Summe aus dem Mittelwert, typischer Wert.',
+          'Median gegen Mittelwert bei Ausreißern, Unterschied ausrechnen, Fehler beim Zusammenfassen von Klassen, Median ist kein Datenwert, Mindestwert, passender Kennwert für eine Meldung.')
+STB(lz, 3, 'Stimmt die Aussage? „Taschengeld', 'begruenden'); STB(lz, 3, 'Taschengeld', 'transfer'); STB(lz, 3, 'Klasse A', 'fehler'); STB(lz, 3, 'Drei natürliche', 'parameter'); STB(lz, 3, 'Bei einem Test', 'fehler')
+SN(lz, SZ('direkt', 'Berechne den Mittelwert von 2, 4 und 9.', 5, '(2 + 4 + 9) / 3', '(2 + 4 + 9) : 3 = 15 : 3 = 5.', 'Summe durch Anzahl.'))
+SN(lz, SA('erkennen', 'Welcher Kennwert ist der häufigste Wert einer Reihe?', 'der Modalwert', ['der Median', 'die Spannweite'], 'Modalwert = häufigster Wert, Median = Wert in der Mitte, Spannweite = größter minus kleinster.', 'Welcher Name passt zu „am häufigsten“?'))
+SN(lz, SZ('umkehr', 'Ein Kind sagt: „Mein Mittelwert aus 3 Tests ist 9.“ Wie viele Punkte hat es zusammen?', 27, '3 * 9', 'Summe = 3 · 9 = 27.', 'Mittelwert mal Anzahl.'))
+SN(lz, SA('pruefung', 'Taschengeld von sechs Kindern: 2, 3, 3, 4, 5 und 50 €. Welcher Kennwert passt am besten für eine Meldung „So viel bekommt ein typisches Kind“?', 'der Median: 3,50 €',
+          ['der Mittelwert: etwa 11,17 €', 'die Spannweite: 48 €'], 'Der Ausreißer 50 € zieht den Mittelwert hoch. Der Median (3 + 4) : 2 = 3,50 € beschreibt die meisten Kinder.', 'Welcher Kennwert lässt sich von einem einzelnen großen Wert nicht stören?'))
+SK(lz, SZ('knobel', 'Fünf ganze Zahlen haben den einzigen Modalwert 3, den Median 4 und den Mittelwert 5. Wie groß kann die größte Zahl höchstens sein?', 10, '25 - 3 - 3 - 4 - 5',
+          'Geordnet: 3, 3, 4, a, b (Summe 25, also a + b = 14). a darf nicht 4 sein, sonst gäbe es zwei Modalwerte – also a mindestens 5 und b höchstens 25 − 3 − 3 − 4 − 5 = 10.', 'Schreibe die geordnete Reihe auf und beachte, dass 3 der einzige Modalwert bleiben muss.'))
+SK(lz, SZ('knobel', 'Der Mittelwert von 6 Zahlen ist 10. Man addiert zu jeder Zahl 3 und verdoppelt dann jede Zahl. Wie groß ist der neue Mittelwert?', 26, '(10 + 3) * 2',
+          'Addiert man zu jeder Zahl 3, wächst der Mittelwert um 3 auf 13. Verdoppelt man jede Zahl, verdoppelt sich der Mittelwert: 26.', 'Was passiert mit dem Mittelwert, wenn sich jede Zahl gleich ändert?'))
+
 if __name__ == '__main__':
     schreibe(DATEI)
+    stufen_datei('daten.kennwerte', ST)

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:28 – STATUS
+abbildungen.aehnlichkeit fertig: 10 umgestuft (Kartenbeispiele Bildpunkt und Stab–Schatten auf Stufe 1), 3 ersetzt (dreimal dieselbe Winkel-Aufgabe auf Stufe 3 → gleichschenklig mit 50°, rechtwinklig mit 35°, Umfang in Prozent). Keine Karte geändert. inhalt_pruefen OK, Nachweis OK.
+
 ## 2026-11-17 13:27 – STATUS
 stochastik.verknuepft fertig: 14 umgestuft (Gegenereignis-Wiederholungen auf Stufe 1, „mindestens eines“ und „Gesamt minus drei Felder“ von 3 auf 2), Karte verstehen: Schritt 5 zum Gegenereignis „mindestens einmal ↔ keinmal“ (vorher nur im Fehler). inhalt_pruefen OK, Nachweis OK.
 

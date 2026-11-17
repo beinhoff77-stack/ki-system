@@ -1083,7 +1083,7 @@
    "l": "streckung",
    "t": "streckung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Strecke den Punkt P(5 | −1) zentrisch mit dem Zentrum Z(2 | 1) und k = 2. Gib den Bildpunkt P' an.",
@@ -1146,7 +1146,7 @@
    "l": "streckung",
    "t": "streckung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Strecke den Punkt P(−1 | 1) zentrisch mit dem Zentrum Z(−2 | 2) und k = 2. Gib den Bildpunkt P' an.",
@@ -1193,7 +1193,7 @@
    "l": "streckung",
    "t": "streckung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Strecke den Punkt P(−3 | 1) zentrisch mit dem Zentrum Z(0 | −1) und k = 2. Gib den Bildpunkt P' an.",
@@ -2038,19 +2038,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Dreieck 1 hat die Winkel 71° und 30°. Dreieck 2 hat die Winkel 30° und 79°. Sind die Dreiecke ähnlich?"
+    "text": "Zwei gleichschenklige Dreiecke haben beide einen Winkel von 50°. Sind sie sicher ähnlich?"
    },
    "a": [
-    "Nein: Der dritte Winkel ist 71°.",
-    "Das kann man ohne Seitenlängen nicht entscheiden.",
-    "Ja: Der dritte Winkel ist 71°.",
-    "Ja, alle Dreiecke mit spitzen Winkeln sind ähnlich."
+    "Ja, denn alle gleichschenkligen Dreiecke sind ähnlich.",
+    "Nein: 50° kann Spitzen- oder Basiswinkel sein (50°, 50°, 80° oder 50°, 65°, 65°).",
+    "Nein, weil die Seitenlängen fehlen.",
+    "Ja, ein gleicher Winkel reicht bei gleichschenkligen Dreiecken."
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "Dreieck 1: dritter Winkel 79°. Dreieck 2: 71°. Alle drei Winkel stimmen überein.",
-   "h": "Berechne jeweils den dritten Winkel mit der Winkelsumme 180°."
+   "w": "Ist 50° der Spitzenwinkel, sind die Basiswinkel je 65°. Ist 50° ein Basiswinkel, ist der Spitzenwinkel 80°. Die Winkel stimmen dann nicht überein.",
+   "h": "Wo kann der 50°-Winkel im gleichschenkligen Dreieck liegen?"
   },
   {
    "l": "aehnlich",
@@ -2059,19 +2059,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Dreieck 1 hat die Winkel 25° und 55°. Dreieck 2 hat die Winkel 55° und 105°. Sind die Dreiecke ähnlich?"
+    "text": "Zwei rechtwinklige Dreiecke haben beide einen Winkel von 35°. Sind sie ähnlich?"
    },
    "a": [
-    "Ja: Der dritte Winkel ist 20°.",
-    "Das kann man ohne Seitenlängen nicht entscheiden.",
-    "Ja, alle Dreiecke mit spitzen Winkeln sind ähnlich.",
-    "Nein: Der dritte Winkel ist 20°, die Winkel stimmen nicht überein."
+    "Nur, wenn auch eine Seite gleich lang ist.",
+    "Nein, rechtwinklige Dreiecke sind nie ähnlich.",
+    "Nein, dazu bräuchte man drei gleiche Winkel.",
+    "Ja: Beide haben die Winkel 90°, 35° und 55°."
    ],
    "o": {
     "index": 3
    },
-   "w": "Dreieck 1: dritter Winkel 100°. Dreieck 2: 20°. Die Winkel stimmen nicht überein.",
-   "h": "Berechne jeweils den dritten Winkel mit der Winkelsumme 180°."
+   "w": "Neben 90° und 35° bleibt 180° − 90° − 35° = 55°. Zwei gleiche Winkel genügen, der dritte folgt aus der Winkelsumme.",
+   "h": "Welche Winkel hat jedes Dreieck insgesamt?"
   },
   {
    "l": "aehnlich",
@@ -2095,21 +2095,17 @@
    "t": "aehnlich",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Dreieck 1 hat die Winkel 79° und 72°. Dreieck 2 hat die Winkel 72° und 29°. Sind die Dreiecke ähnlich?"
+    "text": "Ein Dreieck wird so vergrößert, dass die Seite 8 cm zur Seite 12 cm wird. Um wie viel Prozent wächst der Umfang?"
    },
-   "a": [
-    "Ja, alle Dreiecke mit spitzen Winkeln sind ähnlich.",
-    "Nein: Der dritte Winkel ist 79°.",
-    "Das kann man ohne Seitenlängen nicht entscheiden.",
-    "Ja: Der dritte Winkel ist 79°."
-   ],
    "o": {
-    "index": 3
+    "wert": 50,
+    "einheit": "%"
    },
-   "w": "Dreieck 1: dritter Winkel 29°. Dreieck 2: 79°. Alle drei Winkel stimmen überein.",
-   "h": "Berechne jeweils den dritten Winkel mit der Winkelsumme 180°."
+   "c": "(12 - 8) / 8 * 100",
+   "w": "k = 12 : 8 = 1,5. Alle Seiten wachsen mit 1,5, also auch der Umfang: 1,5-fach heißt 50 % mehr.",
+   "h": "Der Umfang ist eine Summe von Seiten. Mit welchem Faktor wächst er?"
   },
   {
    "l": "aehnlich",
@@ -5648,7 +5644,7 @@
    "l": "strahlensatz2",
    "t": "strahlensatz2",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Es gilt AB ∥ A'B'. SA = 2 cm, AA' = 1 cm, AB = 2 cm. Jemand rechnet A'B' = 2 · 1 : 2 = 1 cm. Was stimmt?",
@@ -6659,7 +6655,7 @@
    "l": "flaeche_volumen",
    "t": "flaeche_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Modell im Maßstab 1 : 50 hat eine Grundfläche von 6 cm². Wie groß ist die Grundfläche des Originals in m²?"
@@ -7420,7 +7416,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein 2 m langer Stab wirft einen 5 m langen Schatten. Zur gleichen Zeit wirft ein Turm einen 140 m langen Schatten. Wie hoch ist er?"
@@ -7471,7 +7467,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein 1 m langer Stab wirft einen 2 m langen Schatten. Zur gleichen Zeit wirft ein Baum einen 38 m langen Schatten. Wie hoch ist er?"
@@ -7488,7 +7484,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein 1 m langer Stab wirft einen 2 m langen Schatten. Zur gleichen Zeit wirft ein Mast einen 28 m langen Schatten. Wie hoch ist er?"
@@ -8351,7 +8347,7 @@
    "l": "flaeche_volumen",
    "t": "flaeche_volumen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Quadrat mit 9 cm² wird mit k = 4 gestreckt. Welchen Flächeninhalt hat das Bild?"
@@ -8452,7 +8448,7 @@
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein 1,2 m hoher Pfosten wirft 1,5 m Schatten. Zur selben Zeit wirft ein Haus 12 m Schatten. Wie hoch ist das Haus?"

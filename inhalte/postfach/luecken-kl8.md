@@ -26,3 +26,8 @@ Neue Karte „graph_ablesen“ (Gerade zeichnen und am Graphen ablesen) nach „
 
 ## 2026-11-17 – STATUS funktionen.grundbegriffe
 Neue Karte „sachzusammenhang“ (Zusammenhänge aus dem Alltag beschreiben) am Ende, Pflicht, 28 Aufgaben: Tarife in Tabelle, Term und Graph; Temperaturkurve lesen und deuten; Tarifvergleich. `inhalt_pruefen` OK; Nachweis OK (240 alte Aufgaben unverändert vorne).
+
+## 2026-11-17 – STATUS funktionen.gebrochen
+Neue Karte „indirekt_sach“ (Sachaufgaben: umgekehrter Dreisatz) nach „indirekt“, Pflicht, 28 Aufgaben.
+- Inhalte: Kosten teilen, Vorrat, Fahrzeit; erkennen, ob direkt, indirekt oder weder noch; Zahnräder, Tabelle mit Produktgleichheit; Ausfall oder Verkauf mitten im Vorgang; Pumpen mit Menge und Zeit; Physik-Beispiel Druck · Volumen.
+- `inhalt_pruefen` OK; Nachweis OK (180 alte Aufgaben unverändert vorne).

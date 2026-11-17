@@ -1121,7 +1121,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bedingungen I: 4x + y ≤ 16, II: 3x + 2y ≤ 22, x ≥ 0, y ≥ 0. Liegt der Punkt Q(0 | 10) im zulässigen Bereich?",
+    "text": "Bedingungen I: 4x + y ≤ 16, II: 3x + 2y ≤ 22, x ≥ 0, y ≥ 0. Der Punkt Q(3 | 4) liegt genau auf der Randgeraden I. Gehört er zum zulässigen Bereich?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -1158,8 +1158,8 @@
      ],
      "punkte": [
       {
-       "x": 0,
-       "y": 10,
+       "x": 3,
+       "y": 4,
        "name": "Q"
       }
      ],
@@ -1175,72 +1175,24 @@
    "o": {
     "index": 0
    },
-   "w": "I: 10 ≤ 16; II: 20 ≤ 22. Alle erfüllt.",
-   "h": "Setze x und y in jede Ungleichung ein."
+   "w": "I: 16 = 16, und „≤“ erlaubt auch „=“. II: 17 < 22. Also zulässig.",
+   "h": "Bedeutet „≤“ auch „gleich“?"
   },
   {
    "l": "bereich",
    "t": "bereich",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Bedingungen I: 5x + y ≤ 25, II: x + y ≤ 9, x ≥ 0, y ≥ 0. Liegt der Punkt Q(5 | 8) im zulässigen Bereich?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      0,
-      27
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -5.0,
-       "t": 25.0,
-       "bereich": [
-        0,
-        5.0
-       ],
-       "name": "I",
-       "name_x": 4.0
-      },
-      {
-       "art": "linear",
-       "m": -1.0,
-       "t": 9.0,
-       "bereich": [
-        0,
-        9.0
-       ],
-       "name": "II",
-       "name_x": 5.4
-      }
-     ],
-     "punkte": [
-      {
-       "x": 5,
-       "y": 8,
-       "name": "Q"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
+    "text": "Bedingungen I: 5x + y ≤ 25, II: x + y ≤ 9, x ≥ 0, y ≥ 0. Eine Firma stellt x = 4 Stück der ersten Sorte her. Wie viele Stück der zweiten Sorte (y, ganzzahlig) sind dann höchstens möglich?"
    },
-   "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
-   ],
    "o": {
-    "index": 1
+    "wert": 5
    },
-   "w": "I: 33 > 25; II: 13 > 9. Nicht alle erfüllt.",
-   "h": "Setze x und y in jede Ungleichung ein."
+   "c": "5",
+   "w": "I: y ≤ 25 − 20 ⇒ y ≤ 5. II: y ≤ 9 − 4 ⇒ y ≤ 5. Beide gelten, also y ≤ 5, ganzzahlig höchstens 5.",
+   "h": "Setze x ein und forme jede Ungleichung nach y um. Die strengere Grenze zählt."
   },
   {
    "l": "bereich",
@@ -1270,180 +1222,12 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bedingungen I: 7x + 2y ≤ 28, II: 3x + 2y ≤ 20, x ≥ 0, y ≥ 0. Der Punkt (5 | 1) liegt nicht im Bereich. Welche Bedingung verletzt er?"
-   },
-   "a": [
-    "Bedingung I",
-    "keine – er liegt doch im Bereich",
-    "x ≥ 0",
-    "Bedingung II"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "I: 37 > 28; II: 17 ≤ 20. Verletzt: I.",
-   "h": "Prüfe beide Ungleichungen einzeln."
-  },
-  {
-   "l": "bereich",
-   "t": "bereich",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bedingungen I: 5x + 4y ≤ 55, II: 3x + 7y ≤ 56, x ≥ 0, y ≥ 0. Der Punkt (9 | 4) liegt nicht im Bereich. Welche Bedingung verletzt er?"
-   },
-   "a": [
-    "x ≥ 0",
-    "keine – er liegt doch im Bereich",
-    "Bedingung I",
-    "Bedingung II"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "I: 61 > 55; II: 55 ≤ 56. Verletzt: I.",
-   "h": "Prüfe beide Ungleichungen einzeln."
-  },
-  {
-   "l": "bereich",
-   "t": "bereich",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bedingungen I: 7x + y ≤ 42, II: x + y ≤ 12, x ≥ 0, y ≥ 0. Liegt der Punkt Q(5 | 6) im zulässigen Bereich?",
+    "text": "Bedingungen I: 3x + y ≤ 24, II: x + 5y ≤ 50, x ≥ 0, y ≥ 0. Der Punkt Q(6 | 6) liegt genau auf der Randgeraden I. Gehört er zum zulässigen Bereich?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       0,
-      14
-     ],
-     "y": [
-      0,
-      44
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -7.0,
-       "t": 42.0,
-       "bereich": [
-        0,
-        6.0
-       ],
-       "name": "I",
-       "name_x": 4.8
-      },
-      {
-       "art": "linear",
-       "m": -1.0,
-       "t": 12.0,
-       "bereich": [
-        0,
-        12.0
-       ],
-       "name": "II",
-       "name_x": 7.2
-      }
-     ],
-     "punkte": [
-      {
-       "x": 5,
-       "y": 6,
-       "name": "Q"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
-   },
-   "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "I: 41 ≤ 42; II: 11 ≤ 12. Alle erfüllt."
-  },
-  {
-   "l": "bereich",
-   "t": "bereich",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bedingungen I: 2x + y ≤ 14, II: x + y ≤ 9, x ≥ 0, y ≥ 0. Liegt der Punkt Q(2 | 7) im zulässigen Bereich?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      0,
-      16
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -2.0,
-       "t": 14.0,
-       "bereich": [
-        0,
-        7.0
-       ],
-       "name": "I",
-       "name_x": 5.6
-      },
-      {
-       "art": "linear",
-       "m": -1.0,
-       "t": 9.0,
-       "bereich": [
-        0,
-        9.0
-       ],
-       "name": "II",
-       "name_x": 5.4
-      }
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 7,
-       "name": "Q"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
-   },
-   "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "I: 11 ≤ 14; II: 9 ≤ 9. Alle erfüllt."
-  },
-  {
-   "l": "bereich",
-   "t": "bereich",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bedingungen I: 4x + y ≤ 24, II: x + y ≤ 12, x ≥ 0, y ≥ 0. Liegt der Punkt Q(3 | 6) im zulässigen Bereich?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      14
+      52
      ],
      "y": [
       0,
@@ -1452,30 +1236,30 @@
      "graphen": [
       {
        "art": "linear",
-       "m": -4.0,
+       "m": -3.0,
        "t": 24.0,
        "bereich": [
         0,
-        6.0
+        8.0
        ],
        "name": "I",
-       "name_x": 4.8
+       "name_x": 6.4
       },
       {
        "art": "linear",
-       "m": -1.0,
-       "t": 12.0,
+       "m": -0.2,
+       "t": 10.0,
        "bereich": [
         0,
-        12.0
+        50.0
        ],
        "name": "II",
-       "name_x": 7.2
+       "name_x": 30.0
       }
      ],
      "punkte": [
       {
-       "x": 3,
+       "x": 6,
        "y": 6,
        "name": "Q"
       }
@@ -1492,95 +1276,66 @@
    "o": {
     "index": 0
    },
-   "w": "I: 18 ≤ 24; II: 9 ≤ 12. Alle erfüllt."
+   "w": "I: 24 = 24, und „≤“ erlaubt auch „=“. II: 36 < 50. Also zulässig.",
+   "h": "Bedeutet „≤“ auch „gleich“?"
   },
   {
    "l": "bereich",
    "t": "bereich",
-   "p": "korrektur",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bedingungen I: 2x + y ≤ 14, II: x + y ≤ 9, x ≥ 0, y ≥ 0. Eine Firma stellt x = 6 Stück der ersten Sorte her. Wie viele Stück der zweiten Sorte (y, ganzzahlig) sind dann höchstens möglich?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "I: y ≤ 14 − 12 ⇒ y ≤ 2. II: y ≤ 9 − 6 ⇒ y ≤ 3. Beide gelten, also y ≤ 2, ganzzahlig höchstens 2.",
+   "h": "Setze x ein und forme jede Ungleichung nach y um. Die strengere Grenze zählt."
+  },
+  {
+   "l": "bereich",
+   "t": "bereich",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bedingungen I: 2x + y ≤ 24, II: 3x + 5y ≤ 50, x ≥ 0, y ≥ 0. Welcher Punkt liegt im zulässigen Bereich?"
+    "text": "Bedingungen I: 2x + y ≤ 8, II: 2x + 3y ≤ 12, x ≥ 0, y ≥ 0. Der Punkt (0 | 8) liegt nicht im Bereich. Welche Bedingung verletzt er?"
    },
    "a": [
-    "(11 | 8)",
-    "(7 | 4)",
-    "(2 | 11)",
-    "(9 | 11)"
+    "x ≥ 0",
+    "Bedingung I",
+    "keine – er liegt doch im Bereich",
+    "Bedingung II"
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Nur (7 | 4) erfüllt I und II; die anderen verletzen mindestens eine Bedingung."
+   "w": "I: 8 ≤ 8; II: 24 > 12. Verletzt: II.",
+   "h": "Prüfe beide Ungleichungen einzeln."
   },
   {
    "l": "bereich",
    "t": "bereich",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
    "f": {
-    "text": "Bedingungen I: 11x + y ≤ 55, II: x + 4y ≤ 48, x ≥ 0, y ≥ 0. Liegt der Punkt Q(2 | 9) im zulässigen Bereich?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      50
-     ],
-     "y": [
-      0,
-      57
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -11.0,
-       "t": 55.0,
-       "bereich": [
-        0,
-        5.0
-       ],
-       "name": "I",
-       "name_x": 4.0
-      },
-      {
-       "art": "linear",
-       "m": -0.25,
-       "t": 12.0,
-       "bereich": [
-        0,
-        48.0
-       ],
-       "name": "II",
-       "name_x": 28.8
-      }
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 9,
-       "name": "Q"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
+    "text": "Bedingungen I: 11x + y ≤ 55, II: x + 4y ≤ 48, x ≥ 0, y ≥ 0. Eine Firma stellt x = 3 Stück der ersten Sorte her. Wie viele Stück der zweiten Sorte (y, ganzzahlig) sind dann höchstens möglich?"
    },
-   "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
-   ],
    "o": {
-    "index": 0
+    "wert": 11
    },
-   "w": "I: 31 ≤ 55; II: 38 ≤ 48. Alle erfüllt."
+   "c": "11",
+   "w": "I: y ≤ 55 − 33 ⇒ y ≤ 22. II: 4y ≤ 48 − 3 ⇒ y ≤ 11,25. Beide gelten, also y ≤ 11,25, ganzzahlig höchstens 11.",
+   "h": "Setze x ein und forme jede Ungleichung nach y um. Die strengere Grenze zählt."
   },
   {
    "l": "bereich",
    "t": "bereich",
-   "p": "sicherung",
+   "p": "test",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -1643,7 +1398,7 @@
   {
    "l": "bereich",
    "t": "bereich",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -1663,7 +1418,7 @@
   {
    "l": "bereich",
    "t": "bereich",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -1726,7 +1481,7 @@
   {
    "l": "bereich",
    "t": "bereich",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -1850,25 +1605,315 @@
    "w": "I: 1 ≤ 18; II: 2 ≤ 16. Alle erfüllt."
   },
   {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 1,
+   "l": "bereich",
+   "t": "bereich",
+   "p": "sicherung",
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Es müssen mindestens 9 Taschen hergestellt werden. Welche Bedingung passt?"
+    "text": "Bedingungen I: 5x + 4y ≤ 30, II: x + 2y ≤ 12, x ≥ 0, y ≥ 0. Liegt der Punkt Q(2 | 6) im zulässigen Bereich?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      14
+     ],
+     "y": [
+      0,
+      9
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1.25,
+       "t": 7.5,
+       "bereich": [
+        0,
+        6.0
+       ],
+       "name": "I",
+       "name_x": 4.8
+      },
+      {
+       "art": "linear",
+       "m": -0.5,
+       "t": 6.0,
+       "bereich": [
+        0,
+        12.0
+       ],
+       "name": "II",
+       "name_x": 7.2
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 6,
+       "name": "Q"
+      }
+     ]
+    }
    },
    "a": [
-    "y ≥ 9",
-    "y > 10",
-    "x + y ≥ 9",
-    "y ≤ 9"
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "I: 34 > 30; II: 14 > 12. Nicht alle erfüllt."
+  },
+  {
+   "l": "bereich",
+   "t": "bereich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bedingungen I: 2x + y ≤ 12, II: 4x + 5y ≤ 30, x ≥ 0, y ≥ 0. Liegt der Punkt Q(1 | 2) im zulässigen Bereich?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      9
+     ],
+     "y": [
+      0,
+      14
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2.0,
+       "t": 12.0,
+       "bereich": [
+        0,
+        6.0
+       ],
+       "name": "I",
+       "name_x": 4.8
+      },
+      {
+       "art": "linear",
+       "m": -0.8,
+       "t": 6.0,
+       "bereich": [
+        0,
+        7.5
+       ],
+       "name": "II",
+       "name_x": 4.5
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "Q"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
    ],
    "o": {
     "index": 0
    },
-   "w": "„Mindestens 9“ heißt 9 oder mehr: y ≥ 9.",
-   "h": "Mindestens → ≥, höchstens → ≤."
+   "w": "I: 4 ≤ 12; II: 14 ≤ 30. Alle erfüllt."
+  },
+  {
+   "l": "bereich",
+   "t": "bereich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bedingungen I: x + y ≤ 11, II: x + 5y ≤ 35, x ≥ 0, y ≥ 0. Liegt der Punkt Q(7 | 1) im zulässigen Bereich?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      37
+     ],
+     "y": [
+      0,
+      13
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1.0,
+       "t": 11.0,
+       "bereich": [
+        0,
+        11.0
+       ],
+       "name": "I",
+       "name_x": 8.8
+      },
+      {
+       "art": "linear",
+       "m": -0.2,
+       "t": 7.0,
+       "bereich": [
+        0,
+        35.0
+       ],
+       "name": "II",
+       "name_x": 21.0
+      }
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 1,
+       "name": "Q"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "I: 8 ≤ 11; II: 12 ≤ 35. Alle erfüllt."
+  },
+  {
+   "l": "bereich",
+   "t": "bereich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bedingungen I: 7x + 2y ≤ 42, II: x + 4y ≤ 32, x ≥ 0, y ≥ 0. Liegt der Punkt Q(6 | 8) im zulässigen Bereich?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      34
+     ],
+     "y": [
+      0,
+      23
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -3.5,
+       "t": 21.0,
+       "bereich": [
+        0,
+        6.0
+       ],
+       "name": "I",
+       "name_x": 4.8
+      },
+      {
+       "art": "linear",
+       "m": -0.25,
+       "t": 8.0,
+       "bereich": [
+        0,
+        32.0
+       ],
+       "name": "II",
+       "name_x": 19.2
+      }
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": 8,
+       "name": "Q"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "I: 58 > 42; II: 38 > 32. Nicht alle erfüllt."
+  },
+  {
+   "l": "bereich",
+   "t": "bereich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bedingungen I: 7x + 2y ≤ 35, II: 2x + 3y ≤ 27, x ≥ 0, y ≥ 0. Liegt der Punkt Q(3 | 1) im zulässigen Bereich?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      15
+     ],
+     "y": [
+      0,
+      19
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -3.5,
+       "t": 17.5,
+       "bereich": [
+        0,
+        5.0
+       ],
+       "name": "I",
+       "name_x": 4.0
+      },
+      {
+       "art": "linear",
+       "m": -0.666667,
+       "t": 9.0,
+       "bereich": [
+        0,
+        13.5
+       ],
+       "name": "II",
+       "name_x": 8.1
+      }
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 1,
+       "name": "Q"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "I: 23 ≤ 35; II: 9 ≤ 27. Alle erfüllt."
   },
   {
    "l": "aufstellen",
@@ -1877,16 +1922,37 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Es müssen mindestens 2 Kuchen hergestellt werden. Welche Bedingung passt?"
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Je Stück braucht man 2 m² Stoff (Rucksäcke) bzw. 5 m² Stoff (Taschen). Es stehen höchstens 43 m² zur Verfügung. Welche Ungleichung passt?"
    },
    "a": [
-    "x + y ≥ 2",
-    "x ≤ 2",
-    "x > 3",
-    "x ≥ 2"
+    "2x + 5y ≥ 43",
+    "5x + 2y ≤ 43",
+    "2x + 5y ≤ 43",
+    "x + y ≤ 43"
    ],
    "o": {
-    "index": 3
+    "index": 2
+   },
+   "w": "Stoff: 2 m² je Stück x, 5 m² je Stück y, zusammen höchstens 43: 2x + 5y ≤ 43.",
+   "h": "„Höchstens“ bedeutet ≤. Welche Zahl gehört zu x, welche zu y?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Es müssen mindestens 2 Tische hergestellt werden. Welche Bedingung passt?"
+   },
+   "a": [
+    "x ≥ 2",
+    "x ≤ 2",
+    "x + y ≥ 2",
+    "x > 3"
+   ],
+   "o": {
+    "index": 0
    },
    "w": "„Mindestens 2“ heißt 2 oder mehr: x ≥ 2.",
    "h": "Mindestens → ≥, höchstens → ≤."
@@ -1898,16 +1964,58 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Es müssen mindestens 2 Stühle hergestellt werden. Welche Bedingung passt?"
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Je Stück braucht man 4 min Nähzeit (T-Shirts) bzw. 6 min Nähzeit (Pullover). Es stehen höchstens 21 min zur Verfügung. Welche Ungleichung passt?"
    },
    "a": [
-    "x + y ≥ 2",
-    "y ≥ 2",
-    "y > 3",
-    "y ≤ 2"
+    "4x + 6y ≥ 21",
+    "4x + 6y ≤ 21",
+    "6x + 4y ≤ 21",
+    "x + y ≤ 21"
    ],
    "o": {
     "index": 1
+   },
+   "w": "Nähzeit: 4 min je Stück x, 6 min je Stück y, zusammen höchstens 21: 4x + 6y ≤ 21.",
+   "h": "„Höchstens“ bedeutet ≤. Welche Zahl gehört zu x, welche zu y?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Es müssen mindestens 8 Tische hergestellt werden. Welche Bedingung passt?"
+   },
+   "a": [
+    "x + y ≥ 8",
+    "x ≥ 8",
+    "x > 9",
+    "x ≤ 8"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "„Mindestens 8“ heißt 8 oder mehr: x ≥ 8.",
+   "h": "Mindestens → ≥, höchstens → ≤."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Es müssen mindestens 2 Torten hergestellt werden. Welche Bedingung passt?"
+   },
+   "a": [
+    "y ≥ 2",
+    "y ≤ 2",
+    "x + y ≥ 2",
+    "y > 3"
+   ],
+   "o": {
+    "index": 0
    },
    "w": "„Mindestens 2“ heißt 2 oder mehr: y ≥ 2.",
    "h": "Mindestens → ≥, höchstens → ≤."
@@ -1919,61 +2027,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Je Stück braucht man 3 h Backzeit (Kuchen) bzw. 6 h Backzeit (Torten). Es stehen höchstens 38 h zur Verfügung. Welche Ungleichung passt?"
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Je Stück braucht man 5 m² Holz (Tische) bzw. 6 m² Holz (Stühle). Es stehen höchstens 31 m² zur Verfügung. Welche Ungleichung passt?"
    },
    "a": [
-    "3x + 6y ≥ 38",
-    "3x + 6y ≤ 38",
-    "6x + 3y ≤ 38",
-    "x + y ≤ 38"
+    "6x + 5y ≤ 31",
+    "5x + 6y ≤ 31",
+    "x + y ≤ 31",
+    "5x + 6y ≥ 31"
    ],
    "o": {
     "index": 1
    },
-   "w": "Backzeit: 3 h je Stück x, 6 h je Stück y, zusammen höchstens 38: 3x + 6y ≤ 38.",
+   "w": "Holz: 5 m² je Stück x, 6 m² je Stück y, zusammen höchstens 31: 5x + 6y ≤ 31.",
    "h": "„Höchstens“ bedeutet ≤. Welche Zahl gehört zu x, welche zu y?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Je Stück braucht man 3 h Backzeit (Kuchen) bzw. 2 h Backzeit (Torten). Es stehen höchstens 55 h zur Verfügung. Welche Ungleichung passt?"
-   },
-   "a": [
-    "3x + 2y ≤ 55",
-    "x + y ≤ 55",
-    "3x + 2y ≥ 55",
-    "2x + 3y ≤ 55"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Backzeit: 3 h je Stück x, 2 h je Stück y, zusammen höchstens 55: 3x + 2y ≤ 55.",
-   "h": "„Höchstens“ bedeutet ≤. Welche Zahl gehört zu x, welche zu y?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Es müssen mindestens 6 T-Shirts hergestellt werden. Welche Bedingung passt?"
-   },
-   "a": [
-    "x ≤ 6",
-    "x + y ≥ 6",
-    "x ≥ 6",
-    "x > 7"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "„Mindestens 6“ heißt 6 oder mehr: x ≥ 6.",
-   "h": "Mindestens → ≥, höchstens → ≤."
   },
   {
    "l": "aufstellen",
@@ -1982,18 +2048,39 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Insgesamt passen höchstens 27 Stück ins Lager. Welche Bedingung passt?"
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Es sollen mindestens 4 Stühle mehr als Tische hergestellt werden. Welche Bedingung passt?"
    },
    "a": [
-    "x · y ≤ 27",
-    "x + y ≤ 27",
-    "x + y ≥ 27",
-    "x ≤ 27 und y ≥ 27"
+    "y ≥ x + 4",
+    "y + 4 ≥ x",
+    "x ≥ y + 4",
+    "y ≥ 4x"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Alle Stücke zusammen: x + y; höchstens 27: x + y ≤ 27.",
+   "w": "Die Anzahl der Stühle muss mindestens um 4 größer sein: y ≥ x + 4. Probe: x = 3, y = 7 erfüllt es genau.",
+   "h": "Teste mit Zahlen: x = 3 – wie viele y braucht man mindestens?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Insgesamt passen höchstens 37 Stück ins Lager. Welche Bedingung passt?"
+   },
+   "a": [
+    "x + y ≥ 37",
+    "x ≤ 37 und y ≥ 37",
+    "x + y ≤ 37",
+    "x · y ≤ 37"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Stücke zusammen: x + y; höchstens 37: x + y ≤ 37.",
    "h": "Wie viele Stücke sind es zusammen?"
   },
   {
@@ -2003,60 +2090,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Der Gewinn beträgt 23 € pro Stück bei den Tische und 14 € pro Stück bei den Stühle. Wie lautet die Zielfunktion?"
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Insgesamt passen höchstens 36 Stück ins Lager. Welche Bedingung passt?"
    },
    "a": [
-    "G = 14x + 23y",
-    "G = 37x",
-    "G = 23x + 14y",
-    "G = 23x + 14y − 35"
+    "x · y ≤ 36",
+    "x + y ≤ 36",
+    "x + y ≥ 36",
+    "x ≤ 36 und y ≥ 36"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "Gewinn aus x Stück Tische: 23x; aus y Stück Stühle: 14y. Zusammen G = 23x + 14y.",
-   "h": "Gewinn je Stück mal Anzahl, für beide Produkte addiert."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Je Stück braucht man 2 h Backzeit (Kuchen) bzw. 5 h Backzeit (Torten). Es stehen höchstens 52 h zur Verfügung. Welche Ungleichung passt?"
-   },
-   "a": [
-    "2x + 5y ≤ 52",
-    "5x + 2y ≤ 52",
-    "x + y ≤ 52",
-    "2x + 5y ≥ 52"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Backzeit: 2 h je Stück x, 5 h je Stück y, zusammen höchstens 52: 2x + 5y ≤ 52.",
-   "h": "„Höchstens“ bedeutet ≤. Welche Zahl gehört zu x, welche zu y?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Insgesamt passen höchstens 15 Stück ins Lager. Welche Bedingung passt?"
-   },
-   "a": [
-    "x + y ≤ 15",
-    "x + y ≥ 15",
-    "x · y ≤ 15",
-    "x ≤ 15 und y ≥ 15"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Alle Stücke zusammen: x + y; höchstens 15: x + y ≤ 15.",
+   "w": "Alle Stücke zusammen: x + y; höchstens 36: x + y ≤ 36.",
    "h": "Wie viele Stücke sind es zusammen?"
   },
   {
@@ -2066,331 +2111,45 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Insgesamt passen höchstens 15 Stück ins Lager. Welche Bedingung passt?"
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Es sollen mindestens 5 Taschen mehr als Rucksäcke hergestellt werden. Welche Bedingung passt?"
    },
    "a": [
-    "x + y ≤ 15",
-    "x + y ≥ 15",
-    "x · y ≤ 15",
-    "x ≤ 15 und y ≥ 15"
+    "x ≥ y + 5",
+    "y ≥ x + 5",
+    "y ≥ 5x",
+    "y + 5 ≥ x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Anzahl der Taschen muss mindestens um 5 größer sein: y ≥ x + 5. Probe: x = 3, y = 8 erfüllt es genau.",
+   "h": "Teste mit Zahlen: x = 3 – wie viele y braucht man mindestens?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Es sollen mindestens 7 Stühle mehr als Tische hergestellt werden. Welche Bedingung passt?"
+   },
+   "a": [
+    "y ≥ x + 7",
+    "y + 7 ≥ x",
+    "y ≥ 7x",
+    "x ≥ y + 7"
    ],
    "o": {
     "index": 0
    },
-   "w": "Alle Stücke zusammen: x + y; höchstens 15: x + y ≤ 15.",
-   "h": "Wie viele Stücke sind es zusammen?"
+   "w": "Die Anzahl der Stühle muss mindestens um 7 größer sein: y ≥ x + 7. Probe: x = 3, y = 10 erfüllt es genau.",
+   "h": "Teste mit Zahlen: x = 3 – wie viele y braucht man mindestens?"
   },
   {
    "l": "aufstellen",
    "t": "aufstellen",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Der Gewinn beträgt 17 € pro Stück bei den Kuchen und 10 € pro Stück bei den Torten. Wie lautet die Zielfunktion?"
-   },
-   "a": [
-    "G = 10x + 17y",
-    "G = 27x",
-    "G = 17x + 10y",
-    "G = 17x + 10y − 20"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Gewinn aus x Stück Kuchen: 17x; aus y Stück Torten: 10y. Zusammen G = 17x + 10y.",
-   "h": "Gewinn je Stück mal Anzahl, für beide Produkte addiert."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Es sollen mindestens doppelt so viele Stühle wie Tische hergestellt werden. Welche Bedingung passt?"
-   },
-   "a": [
-    "x ≥ 2y",
-    "y ≥ 2x",
-    "y + 2 ≥ x",
-    "y ≤ 2x"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Anzahl der Stühle (y) soll mindestens das Doppelte von x sein: y ≥ 2x. Probe: x = 3, y = 7 erfüllt das (7 ≥ 6).",
-   "h": "Teste mit Zahlen: x = 3 – wie viele y muss es mindestens geben?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Je Stück braucht man 2 m² Stoff (Rucksäcke) bzw. 6 m² Stoff (Taschen). Es stehen höchstens 36 m² zur Verfügung. Welche Ungleichung passt?"
-   },
-   "a": [
-    "2x + 6y ≥ 36",
-    "6x + 2y ≤ 36",
-    "2x + 6y ≤ 36",
-    "x + y ≤ 36"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Stoff: 2 m² je Stück x, 6 m² je Stück y, zusammen höchstens 36: 2x + 6y ≤ 36.",
-   "h": "„Höchstens“ bedeutet ≤. Welche Zahl gehört zu x, welche zu y?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Es sollen mindestens doppelt so viele Taschen wie Rucksäcke hergestellt werden. Welche Bedingung passt?"
-   },
-   "a": [
-    "x ≥ 2y",
-    "y ≥ 2x",
-    "y ≤ 2x",
-    "y + 2 ≥ x"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Anzahl der Taschen (y) soll mindestens das Doppelte von x sein: y ≥ 2x. Probe: x = 3, y = 7 erfüllt das (7 ≥ 6).",
-   "h": "Teste mit Zahlen: x = 3 – wie viele y muss es mindestens geben?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Es sollen mindestens doppelt so viele Torten wie Kuchen hergestellt werden. Welche Bedingung passt?"
-   },
-   "a": [
-    "y ≥ 2x",
-    "y ≤ 2x",
-    "x ≥ 2y",
-    "y + 2 ≥ x"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Anzahl der Torten (y) soll mindestens das Doppelte von x sein: y ≥ 2x. Probe: x = 3, y = 7 erfüllt das (7 ≥ 6).",
-   "h": "Teste mit Zahlen: x = 3 – wie viele y muss es mindestens geben?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Der Gewinn beträgt 22 € pro Stück bei den T-Shirts und 3 € pro Stück bei den Pullover. Wie lautet die Zielfunktion?"
-   },
-   "a": [
-    "G = 22x + 3y",
-    "G = 3x + 22y",
-    "G = 25x",
-    "G = 22x + 3y − 53"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Gewinn aus x Stück T-Shirts: 22x; aus y Stück Pullover: 3y. Zusammen G = 22x + 3y.",
-   "h": "Gewinn je Stück mal Anzahl, für beide Produkte addiert."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Ein Stück Tische braucht 2 h, ein Stück Stühle 2 h; es gibt 69 Arbeitsstunden. Welches System beschreibt alle Bedingungen?"
-   },
-   "a": [
-    "2x + 2y ≤ 69",
-    "2x + 2y ≤ 69 und x ≤ 0, y ≤ 0",
-    "2x + 2y ≥ 69 und x ≥ 0, y ≥ 0",
-    "2x + 2y ≤ 69 und x ≥ 0, y ≥ 0"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Zeitbedingung plus Nichtnegativität (Anzahlen können nicht negativ sein).",
-   "h": "Vergiss die selbstverständlichen Bedingungen nicht."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Der Gewinn beträgt 23 € pro Stück bei den Tische und 8 € pro Stück bei den Stühle. Wie lautet die Zielfunktion?"
-   },
-   "a": [
-    "G = 8x + 23y",
-    "G = 23x + 8y",
-    "G = 23x + 8y − 25",
-    "G = 31x"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gewinn aus x Stück Tische: 23x; aus y Stück Stühle: 8y. Zusammen G = 23x + 8y."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Je Stück braucht man 4 m² Holz (Tische) bzw. 3 m² Holz (Stühle). Es stehen höchstens 28 m² zur Verfügung. Welche Ungleichung passt?"
-   },
-   "a": [
-    "3x + 4y ≤ 28",
-    "4x + 3y ≥ 28",
-    "x + y ≤ 28",
-    "4x + 3y ≤ 28"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Holz: 4 m² je Stück x, 3 m² je Stück y, zusammen höchstens 28: 4x + 3y ≤ 28."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Der Gewinn beträgt 20 € pro Stück bei den Tische und 23 € pro Stück bei den Stühle. Wie lautet die Zielfunktion?"
-   },
-   "a": [
-    "G = 43x",
-    "G = 20x + 23y",
-    "G = 20x + 23y − 20",
-    "G = 23x + 20y"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gewinn aus x Stück Tische: 20x; aus y Stück Stühle: 23y. Zusammen G = 20x + 23y."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Der Gewinn beträgt 10 € pro Stück bei den T-Shirts und 4 € pro Stück bei den Pullover. Wie lautet die Zielfunktion?"
-   },
-   "a": [
-    "G = 4x + 10y",
-    "G = 14x",
-    "G = 10x + 4y",
-    "G = 10x + 4y − 23"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Gewinn aus x Stück T-Shirts: 10x; aus y Stück Pullover: 4y. Zusammen G = 10x + 4y."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Je Stück braucht man 6 min Nähzeit (T-Shirts) bzw. 3 min Nähzeit (Pullover). Es stehen höchstens 26 min zur Verfügung. Welche Ungleichung passt?"
-   },
-   "a": [
-    "6x + 3y ≤ 26",
-    "x + y ≤ 26",
-    "6x + 3y ≥ 26",
-    "3x + 6y ≤ 26"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Nähzeit: 6 min je Stück x, 3 min je Stück y, zusammen höchstens 26: 6x + 3y ≤ 26."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Es müssen mindestens 8 T-Shirts hergestellt werden. Welche Bedingung passt?"
-   },
-   "a": [
-    "x + y ≥ 8",
-    "x ≥ 8",
-    "x > 9",
-    "x ≤ 8"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "„Mindestens 8“ heißt 8 oder mehr: x ≥ 8."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Der Gewinn beträgt 9 € pro Stück bei den Kuchen und 22 € pro Stück bei den Torten. Wie lautet die Zielfunktion?"
-   },
-   "a": [
-    "G = 31x",
-    "G = 9x + 22y",
-    "G = 22x + 9y",
-    "G = 9x + 22y − 48"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gewinn aus x Stück Kuchen: 9x; aus y Stück Torten: 22y. Zusammen G = 9x + 22y."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Der Gewinn beträgt 8 € pro Stück bei den T-Shirts und 16 € pro Stück bei den Pullover. Wie lautet die Zielfunktion?"
-   },
-   "a": [
-    "G = 8x + 16y − 45",
-    "G = 24x",
-    "G = 8x + 16y",
-    "G = 16x + 8y"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Gewinn aus x Stück T-Shirts: 8x; aus y Stück Pullover: 16y. Zusammen G = 8x + 16y."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -2405,7 +2164,256 @@
    "o": {
     "index": 0
    },
-   "w": "Gewinn aus x Stück Kuchen: 19x; aus y Stück Torten: 14y. Zusammen G = 19x + 14y."
+   "w": "Gewinn aus x Kuchen: 19x; aus y Torten: 14y. Zusammen G = 19x + 14y.",
+   "h": "Gewinn je Stück mal Anzahl, für beide Produkte addiert."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Es sollen mindestens doppelt so viele Torten wie Kuchen hergestellt werden. Welche Bedingung passt?"
+   },
+   "a": [
+    "y + 2 ≥ x",
+    "y ≥ 2x",
+    "x ≥ 2y",
+    "y ≤ 2x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Anzahl der Torten (y) soll mindestens das Doppelte von x sein: y ≥ 2x. Probe: x = 3, y = 7 erfüllt das (7 ≥ 6).",
+   "h": "Teste mit Zahlen: x = 3 – wie viele y muss es mindestens geben?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Ein T-Shirt braucht 5 h, ein Pullover 4 h; es gibt 46 Arbeitsstunden. Welches System beschreibt alle Bedingungen?"
+   },
+   "a": [
+    "4x + 5y ≤ 46 und x ≤ 0, y ≤ 0",
+    "5x + 4y ≥ 46 und x ≥ 0, y ≥ 0",
+    "5x + 4y ≤ 46 und x ≥ 0, y ≥ 0",
+    "5x + 4y ≤ 46"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zeitbedingung plus Nichtnegativität (Anzahlen können nicht negativ sein).",
+   "h": "Vergiss die selbstverständlichen Bedingungen nicht."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Höchstens 60 % aller hergestellten Stücke dürfen Torten sein. Welche Bedingung passt?"
+   },
+   "a": [
+    "y ≤ 0,6x",
+    "3y ≤ 2x",
+    "y ≤ 60",
+    "2y ≤ 3x"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "y ≤ 0,6 · (x + y) ⇒ 0,4y ≤ 0,6x ⇒ 2y ≤ 3x. Probe: x = 2, y = 3: Anteil 3 von 5 = 60 % ✓.",
+   "h": "Alle Stücke zusammen sind x + y. Schreibe „y ist höchstens p % davon“ und vereinfache."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Es sollen mindestens doppelt so viele Pullover wie T-Shirts hergestellt werden. Welche Bedingung passt?"
+   },
+   "a": [
+    "y + 2 ≥ x",
+    "y ≤ 2x",
+    "y ≥ 2x",
+    "x ≥ 2y"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Anzahl der Pullover (y) soll mindestens das Doppelte von x sein: y ≥ 2x. Probe: x = 3, y = 7 erfüllt das (7 ≥ 6).",
+   "h": "Teste mit Zahlen: x = 3 – wie viele y muss es mindestens geben?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Ein T-Shirt braucht 2 h, ein Pullover 2 h; es gibt 49 Arbeitsstunden. Welches System beschreibt alle Bedingungen?"
+   },
+   "a": [
+    "2x + 2y ≥ 49 und x ≥ 0, y ≥ 0",
+    "2x + 2y ≤ 49 und x ≤ 0, y ≤ 0",
+    "2x + 2y ≤ 49 und x ≥ 0, y ≥ 0",
+    "2x + 2y ≤ 49"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zeitbedingung plus Nichtnegativität (Anzahlen können nicht negativ sein).",
+   "h": "Vergiss die selbstverständlichen Bedingungen nicht."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Höchstens 25 % aller hergestellten Stücke dürfen Taschen sein. Welche Bedingung passt?"
+   },
+   "a": [
+    "y ≤ 0,25x",
+    "3y ≤ x",
+    "y ≤ 25",
+    "y ≤ 3x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "y ≤ 0,25 · (x + y) ⇒ 0,75y ≤ 0,25x ⇒ 3y ≤ x. Probe: x = 3, y = 1: Anteil 1 von 4 = 25 % ✓.",
+   "h": "Alle Stücke zusammen sind x + y. Schreibe „y ist höchstens p % davon“ und vereinfache."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Ein T-Shirt braucht 2 h, ein Pullover 5 h; es gibt 80 Arbeitsstunden. Welches System beschreibt alle Bedingungen?"
+   },
+   "a": [
+    "2x + 5y ≤ 80",
+    "2x + 5y ≥ 80 und x ≥ 0, y ≥ 0",
+    "2x + 5y ≤ 80 und x ≥ 0, y ≥ 0",
+    "5x + 2y ≤ 80 und x ≤ 0, y ≤ 0"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zeitbedingung plus Nichtnegativität (Anzahlen können nicht negativ sein).",
+   "h": "Vergiss die selbstverständlichen Bedingungen nicht."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Höchstens 50 % aller hergestellten Stücke dürfen Torten sein. Welche Bedingung passt?"
+   },
+   "a": [
+    "y ≤ x",
+    "y ≤ 50",
+    "x ≤ y",
+    "y ≤ 0,5x"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "y ≤ 0,5 · (x + y) ⇒ 0,5y ≤ 0,5x ⇒ y ≤ x. Probe: x = 1, y = 1: Anteil 1 von 2 = 50 % ✓.",
+   "h": "Alle Stücke zusammen sind x + y. Schreibe „y ist höchstens p % davon“ und vereinfache."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Insgesamt passen höchstens 18 Stück ins Lager. Welche Bedingung passt?"
+   },
+   "a": [
+    "x ≤ 18 und y ≥ 18",
+    "x · y ≤ 18",
+    "x + y ≤ 18",
+    "x + y ≥ 18"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Stücke zusammen: x + y; höchstens 18: x + y ≤ 18."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Es sollen mindestens 8 Stühle mehr als Tische hergestellt werden. Welche Bedingung passt?"
+   },
+   "a": [
+    "y ≥ 8x",
+    "y ≥ x + 8",
+    "x ≥ y + 8",
+    "y + 8 ≥ x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Anzahl der Stühle muss mindestens um 8 größer sein: y ≥ x + 8. Probe: x = 3, y = 11 erfüllt es genau."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Insgesamt passen höchstens 11 Stück ins Lager. Welche Bedingung passt?"
+   },
+   "a": [
+    "x ≤ 11 und y ≥ 11",
+    "x · y ≤ 11",
+    "x + y ≤ 11",
+    "x + y ≥ 11"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Stücke zusammen: x + y; höchstens 11: x + y ≤ 11."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Es sollen mindestens 6 Pullover mehr als T-Shirts hergestellt werden. Welche Bedingung passt?"
+   },
+   "a": [
+    "y ≥ x + 6",
+    "y ≥ 6x",
+    "x ≥ y + 6",
+    "y + 6 ≥ x"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Anzahl der Pullover muss mindestens um 6 größer sein: y ≥ x + 6. Probe: x = 3, y = 9 erfüllt es genau."
   },
   {
    "l": "aufstellen",
@@ -2414,168 +2422,148 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Der Gewinn beträgt 11 € pro Stück bei den T-Shirts und 15 € pro Stück bei den Pullover. Wie lautet die Zielfunktion?"
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Es sollen mindestens 6 Taschen mehr als Rucksäcke hergestellt werden. Welche Bedingung passt?"
    },
    "a": [
-    "G = 26x",
-    "G = 11x + 15y − 47",
-    "G = 15x + 11y",
-    "G = 11x + 15y"
+    "y + 6 ≥ x",
+    "x ≥ y + 6",
+    "y ≥ x + 6",
+    "y ≥ 6x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Anzahl der Taschen muss mindestens um 6 größer sein: y ≥ x + 6. Probe: x = 3, y = 9 erfüllt es genau."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Insgesamt passen höchstens 25 Stück ins Lager. Welche Bedingung passt?"
+   },
+   "a": [
+    "x · y ≤ 25",
+    "x ≤ 25 und y ≥ 25",
+    "x + y ≤ 25",
+    "x + y ≥ 25"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Stücke zusammen: x + y; höchstens 25: x + y ≤ 25."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Der Gewinn beträgt 20 € pro Stück bei den Rucksäcken und 16 € pro Stück bei den Taschen. Wie lautet die Zielfunktion?"
+   },
+   "a": [
+    "G = 16x + 20y",
+    "G = 20x + 16y",
+    "G = 20x + 16y − 54",
+    "G = 36x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gewinn aus x Rucksäcke: 20x; aus y Taschen: 16y. Zusammen G = 20x + 16y."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Der Gewinn beträgt 16 € pro Stück bei den Rucksäcken und 21 € pro Stück bei den Taschen. Wie lautet die Zielfunktion?"
+   },
+   "a": [
+    "G = 16x + 21y − 21",
+    "G = 21x + 16y",
+    "G = 37x",
+    "G = 16x + 21y"
    ],
    "o": {
     "index": 3
    },
-   "w": "Gewinn aus x Stück T-Shirts: 11x; aus y Stück Pullover: 15y. Zusammen G = 11x + 15y."
+   "w": "Gewinn aus x Rucksäcke: 16x; aus y Taschen: 21y. Zusammen G = 16x + 21y."
   },
   {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Wo schneidet die Randgerade 2x + y = 18 die x-Achse?",
-    "schablone": "(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     9,
-     0
-    ]
-   },
-   "w": "Auf der x-Achse ist y = 0: 2x = 18 ⇒ x = 9. Punkt (9 | 0).",
-   "h": "Setze y = 0 ein.",
-   "c": [
-    "18 / 2",
-    "0"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Wo schneidet die Randgerade x + 8y = 32 die y-Achse?",
-    "schablone": "(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     0,
-     4
-    ]
-   },
-   "w": "Auf der y-Achse ist x = 0: 8y = 32 ⇒ y = 4. Punkt (0 | 4).",
-   "h": "Setze x = 0 ein.",
-   "c": [
-    "0",
-    "32 / 8"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Wo schneidet die Randgerade 3x + y = 21 die x-Achse?",
-    "schablone": "(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     7,
-     0
-    ]
-   },
-   "w": "Auf der x-Achse ist y = 0: 3x = 21 ⇒ x = 7. Punkt (7 | 0).",
-   "h": "Setze y = 0 ein.",
-   "c": [
-    "21 / 3",
-    "0"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Wo schneidet die Randgerade 7x + y = 42 die x-Achse?",
-    "schablone": "(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     6,
-     0
-    ]
-   },
-   "w": "Auf der x-Achse ist y = 0: 7x = 42 ⇒ x = 6. Punkt (6 | 0).",
-   "h": "Setze y = 0 ein.",
-   "c": [
-    "42 / 7",
-    "0"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Wo schneidet die Randgerade x + 3y = 21 die y-Achse?",
-    "schablone": "(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     0,
-     7
-    ]
-   },
-   "w": "Auf der y-Achse ist x = 0: 3y = 21 ⇒ y = 7. Punkt (0 | 7).",
-   "h": "Setze x = 0 ein.",
-   "c": [
-    "0",
-    "21 / 3"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Wo schneidet die Randgerade 7x + 3y = 42 die x-Achse?",
-    "schablone": "(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     6,
-     0
-    ]
-   },
-   "w": "Auf der x-Achse ist y = 0: 7x = 42 ⇒ x = 6. Punkt (6 | 0).",
-   "h": "Setze y = 0 ein.",
-   "c": [
-    "42 / 7",
-    "0"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "uebung",
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
    "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Insgesamt passen höchstens 27 Stück ins Lager. Welche Bedingung passt?"
+   },
+   "a": [
+    "x ≤ 27 und y ≥ 27",
+    "x + y ≤ 27",
+    "x + y ≥ 27",
+    "x · y ≤ 27"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Stücke zusammen: x + y; höchstens 27: x + y ≤ 27."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Es sollen mindestens 8 Pullover mehr als T-Shirts hergestellt werden. Welche Bedingung passt?"
+   },
+   "a": [
+    "y ≥ 8x",
+    "y + 8 ≥ x",
+    "y ≥ x + 8",
+    "x ≥ y + 8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Anzahl der Pullover muss mindestens um 8 größer sein: y ≥ x + 8. Probe: x = 3, y = 11 erfüllt es genau."
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wo schneidet die Randgerade 5x + 3y = 40 die x-Achse?",
+    "schablone": "(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     8,
+     0
+    ]
+   },
+   "w": "Auf der x-Achse ist y = 0: 5x = 40 ⇒ x = 8. Punkt (8 | 0).",
+   "h": "Setze y = 0 ein.",
+   "c": [
+    "40 / 5",
+    "0"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Wo schneidet die Randgerade 2x + y = 12 die x-Achse?",
@@ -2599,10 +2587,174 @@
    "l": "ecken",
    "t": "ecken",
    "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wo schneidet die Randgerade 5x + y = 25 die x-Achse?",
+    "schablone": "(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     5,
+     0
+    ]
+   },
+   "w": "Auf der x-Achse ist y = 0: 5x = 25 ⇒ x = 5. Punkt (5 | 0).",
+   "h": "Setze y = 0 ein.",
+   "c": [
+    "25 / 5",
+    "0"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wo schneidet die Randgerade x + 2y = 22 die y-Achse?",
+    "schablone": "(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     0,
+     11
+    ]
+   },
+   "w": "Auf der y-Achse ist x = 0: 2y = 22 ⇒ y = 11. Punkt (0 | 11).",
+   "h": "Setze x = 0 ein.",
+   "c": [
+    "0",
+    "22 / 2"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wo schneidet die Randgerade x + 8y = 40 die y-Achse?",
+    "schablone": "(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     0,
+     5
+    ]
+   },
+   "w": "Auf der y-Achse ist x = 0: 8y = 40 ⇒ y = 5. Punkt (0 | 5).",
+   "h": "Setze x = 0 ein.",
+   "c": [
+    "0",
+    "40 / 8"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Wo schneidet die Randgerade 3x + 2y = 18 die x-Achse?",
+    "schablone": "(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     6,
+     0
+    ]
+   },
+   "w": "Auf der x-Achse ist y = 0: 3x = 18 ⇒ x = 6. Punkt (6 | 0).",
+   "h": "Setze y = 0 ein.",
+   "c": [
+    "18 / 3",
+    "0"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 5x + y = 25 und x + y = 9 schneiden.",
+    "text": "Berechne den Eckpunkt P, in dem sich 7x + 2y = 35 und x + 3y = 24 schneiden.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Koordinaten des Punktes",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      26
+     ],
+     "y": [
+      0,
+      19
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -3.5,
+       "t": 17.5,
+       "bereich": [
+        0,
+        5.0
+       ],
+       "name": "I",
+       "name_x": 4.0
+      },
+      {
+       "art": "linear",
+       "m": -0.333333,
+       "t": 8.0,
+       "bereich": [
+        0,
+        24.0
+       ],
+       "name": "II",
+       "name_x": 14.4
+      }
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 7,
+       "name": "P"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 3, y = 7. Probe: 35 = 35 ✓, 24 = 24 ✓.",
+   "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
+   "c": [
+    "(35 * 3 - 24 * 2) / (7 * 3 - 1 * 2)",
+    "(7 * 24 - 1 * 35) / (7 * 3 - 1 * 2)"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Eckpunkt P, in dem sich 7x + 3y = 49 und 5x + 4y = 48 schneiden.",
     "schablone": "P(□ | □)",
     "hinweis": "Koordinaten des Punktes",
     "grafik": {
@@ -2613,30 +2765,98 @@
      ],
      "y": [
       0,
-      27
+      18
      ],
      "graphen": [
       {
        "art": "linear",
-       "m": -5.0,
-       "t": 25.0,
+       "m": -2.333333,
+       "t": 16.333333,
        "bereich": [
         0,
-        5.0
+        7.0
        ],
        "name": "I",
-       "name_x": 4.0
+       "name_x": 5.6
       },
       {
        "art": "linear",
-       "m": -1.0,
-       "t": 9.0,
+       "m": -1.25,
+       "t": 12.0,
        "bereich": [
         0,
-        9.0
+        9.6
        ],
        "name": "II",
-       "name_x": 5.4
+       "name_x": 5.76
+      }
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 7,
+       "name": "P"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     7
+    ]
+   },
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 4, y = 7. Probe: 49 = 49 ✓, 48 = 48 ✓.",
+   "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
+   "c": [
+    "(49 * 4 - 48 * 3) / (7 * 4 - 5 * 3)",
+    "(7 * 48 - 5 * 49) / (7 * 4 - 5 * 3)"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Eckpunkt P, in dem sich 5x + 2y = 30 und 5x + 4y = 40 schneiden.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Koordinaten des Punktes",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      10
+     ],
+     "y": [
+      0,
+      17
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2.5,
+       "t": 15.0,
+       "bereich": [
+        0,
+        6.0
+       ],
+       "name": "I",
+       "name_x": 4.8
+      },
+      {
+       "art": "linear",
+       "m": -1.25,
+       "t": 10.0,
+       "bereich": [
+        0,
+        8.0
+       ],
+       "name": "II",
+       "name_x": 4.8
       }
      ],
      "punkte": [
@@ -2656,11 +2876,11 @@
      5
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 4, y = 5. Probe: 25 = 25 ✓, 9 = 9 ✓.",
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 4, y = 5. Probe: 30 = 30 ✓, 40 = 40 ✓.",
    "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
    "c": [
-    "(25 * 1 - 9 * 1) / (5 * 1 - 1 * 1)",
-    "(5 * 9 - 1 * 25) / (5 * 1 - 1 * 1)"
+    "(30 * 4 - 40 * 2) / (5 * 4 - 5 * 2)",
+    "(5 * 40 - 5 * 30) / (5 * 4 - 5 * 2)"
    ]
   },
   {
@@ -2670,63 +2890,133 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 5x + 2y = 25 und 4x + 3y = 27 schneiden.",
+    "text": "Berechne den Eckpunkt P, in dem sich 4x + y = 16 und x + y = 10 schneiden.",
     "schablone": "P(□ | □)",
     "hinweis": "Koordinaten des Punktes",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       0,
-      8
+      12
      ],
      "y": [
       0,
-      14
+      18
      ],
      "graphen": [
       {
        "art": "linear",
-       "m": -2.5,
-       "t": 12.5,
+       "m": -4.0,
+       "t": 16.0,
        "bereich": [
         0,
-        5.0
+        4.0
        ],
        "name": "I",
-       "name_x": 4.0
+       "name_x": 3.2
       },
       {
        "art": "linear",
-       "m": -1.333333,
-       "t": 9.0,
+       "m": -1.0,
+       "t": 10.0,
        "bereich": [
         0,
-        6.75
+        10.0
        ],
        "name": "II",
-       "name_x": 4.05
+       "name_x": 6.0
       }
      ],
      "punkte": [
       {
-       "x": 3,
-       "y": 5,
+       "x": 2,
+       "y": 8,
        "name": "P"
       }
-     ]
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
     }
    },
    "o": {
     "werte": [
-     3,
-     5
+     2,
+     8
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 3, y = 5. Probe: 25 = 25 ✓, 27 = 27 ✓.",
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 2, y = 8. Probe: 16 = 16 ✓, 10 = 10 ✓.",
    "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
    "c": [
-    "(25 * 3 - 27 * 2) / (5 * 3 - 4 * 2)",
-    "(5 * 27 - 4 * 25) / (5 * 3 - 4 * 2)"
+    "(16 * 1 - 10 * 1) / (4 * 1 - 1 * 1)",
+    "(4 * 10 - 1 * 16) / (4 * 1 - 1 * 1)"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Eckpunkt P, in dem sich 2x + y = 22 und 2x + 5y = 30 schneiden.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Koordinaten des Punktes",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      17
+     ],
+     "y": [
+      0,
+      24
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2.0,
+       "t": 22.0,
+       "bereich": [
+        0,
+        11.0
+       ],
+       "name": "I",
+       "name_x": 8.8
+      },
+      {
+       "art": "linear",
+       "m": -0.4,
+       "t": 6.0,
+       "bereich": [
+        0,
+        15.0
+       ],
+       "name": "II",
+       "name_x": 9.0
+      }
+     ],
+     "punkte": [
+      {
+       "x": 10,
+       "y": 2,
+       "name": "P"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
+    }
+   },
+   "o": {
+    "werte": [
+     10,
+     2
+    ]
+   },
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 10, y = 2. Probe: 22 = 22 ✓, 30 = 30 ✓.",
+   "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
+   "c": [
+    "(22 * 5 - 30 * 1) / (2 * 5 - 2 * 1)",
+    "(2 * 30 - 2 * 22) / (2 * 5 - 2 * 1)"
    ]
   },
   {
@@ -2799,190 +3089,25 @@
    "l": "ecken",
    "t": "ecken",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 11x + 2y = 44 und x + 2y = 24 schneiden.",
-    "schablone": "P(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      26
-     ],
-     "y": [
-      0,
-      24
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -5.5,
-       "t": 22.0,
-       "bereich": [
-        0,
-        4.0
-       ],
-       "name": "I",
-       "name_x": 3.2
-      },
-      {
-       "art": "linear",
-       "m": -0.5,
-       "t": 12.0,
-       "bereich": [
-        0,
-        24.0
-       ],
-       "name": "II",
-       "name_x": 14.4
-      }
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": 11,
-       "name": "P"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
-   },
-   "o": {
-    "werte": [
-     2,
-     11
-    ]
-   },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 2, y = 11. Probe: 44 = 44 ✓, 24 = 24 ✓.",
-   "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
-   "c": [
-    "(44 * 2 - 24 * 2) / (11 * 2 - 1 * 2)",
-    "(11 * 24 - 1 * 44) / (11 * 2 - 1 * 2)"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 9x + y = 45 und x + 2y = 22 schneiden.",
-    "schablone": "P(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      24
-     ],
-     "y": [
-      0,
-      47
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -9.0,
-       "t": 45.0,
-       "bereich": [
-        0,
-        5.0
-       ],
-       "name": "I",
-       "name_x": 4.0
-      },
-      {
-       "art": "linear",
-       "m": -0.5,
-       "t": 11.0,
-       "bereich": [
-        0,
-        22.0
-       ],
-       "name": "II",
-       "name_x": 13.2
-      }
-     ],
-     "punkte": [
-      {
-       "x": 4,
-       "y": 9,
-       "name": "P"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
+    "text": "Bedingungen I: 3x + 4y ≤ 24, II: x + 4y ≤ 16, x ≥ 0, y ≥ 0. Drei Ecken des zulässigen Bereichs sind (0 | 0), (8 | 0) und (0 | 4). Berechne die vierte Ecke.",
+    "schablone": "E(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
    },
    "o": {
     "werte": [
      4,
-     9
+     3
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 4, y = 9. Probe: 45 = 45 ✓, 22 = 22 ✓.",
-   "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
+   "w": "Die vierte Ecke ist der Schnitt der Randgeraden I und II: 3x + 4y = 24 und x + 4y = 16 ⇒ x = 4, y = 3.",
+   "h": "Welche zwei Randgeraden treffen sich in der fehlenden Ecke? Löse ihr Gleichungssystem.",
    "c": [
-    "(45 * 2 - 22 * 1) / (9 * 2 - 1 * 1)",
-    "(9 * 22 - 1 * 45) / (9 * 2 - 1 * 1)"
+    "(24 * 4 - 16 * 4) / (3 * 4 - 1 * 4)",
+    "(3 * 16 - 1 * 24) / (3 * 4 - 1 * 4)"
    ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bedingungen I: 3x + 4y ≤ 24, II: x + 4y ≤ 16, x ≥ 0, y ≥ 0. Wie viele Eckpunkte hat der zulässige Bereich?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      18
-     ],
-     "y": [
-      0,
-      8
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -0.75,
-       "t": 6.0,
-       "bereich": [
-        0,
-        8.0
-       ],
-       "name": "I",
-       "name_x": 6.4
-      },
-      {
-       "art": "linear",
-       "m": -0.25,
-       "t": 4.0,
-       "bereich": [
-        0,
-        16.0
-       ],
-       "name": "II",
-       "name_x": 9.6
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4",
-   "w": "Ecken: O(0 | 0), (8 | 0), (4 | 3), (0 | 4) – das sind 4.",
-   "h": "Zähle die Knickstellen am Rand des Bereichs (Achsen mitzählen)."
   },
   {
    "l": "ecken",
@@ -2991,8 +3116,8 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich x + y = 10 und x + 3y = 18 schneiden.",
-    "schablone": "P(□ | □)",
+    "text": "Bedingungen I: 4x + y ≤ 28, II: x + 5y ≤ 45, x ≥ 0, y ≥ 0 und zusätzlich III: x ≤ 6. In welchem Punkt trifft die neue Randgerade x = 6 den Rand des bisherigen Bereichs (oben)?",
+    "schablone": "E(□ | □)",
     "hinweis": "Koordinaten des Punktes"
    },
    "o": {
@@ -3001,11 +3126,11 @@
      4
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 6, y = 4. Probe: 10 = 10 ✓, 18 = 18 ✓.",
-   "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
+   "w": "Bei x = 6 begrenzt oben die Gerade I (4x + y = 28): y = 28 − 24 ⇒ y = 4. Neue Ecke (6 | 4).",
+   "h": "Welche der Geraden I und II liegt bei x = 6 tiefer? Dort setzt du x = 6 ein.",
    "c": [
-    "(10 * 3 - 18 * 1) / (1 * 3 - 1 * 1)",
-    "(1 * 18 - 1 * 10) / (1 * 3 - 1 * 1)"
+    "6",
+    "(28 - 4 * 6) / 1"
    ]
   },
   {
@@ -3013,53 +3138,20 @@
    "t": "ecken",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Bedingungen I: 5x + y ≤ 50, II: 2x + 3y ≤ 33, x ≥ 0, y ≥ 0. Wie viele Eckpunkte hat der zulässige Bereich?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      18
-     ],
-     "y": [
-      0,
-      52
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -5.0,
-       "t": 50.0,
-       "bereich": [
-        0,
-        10.0
-       ],
-       "name": "I",
-       "name_x": 8.0
-      },
-      {
-       "art": "linear",
-       "m": -0.666667,
-       "t": 11.0,
-       "bereich": [
-        0,
-        16.5
-       ],
-       "name": "II",
-       "name_x": 9.9
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
+    "text": "Bedingungen I: 3x + 2y ≤ 18, II: x + 2y ≤ 10, x ≥ 0, y ≥ 0. Die Randgerade II schneidet eine Achse im Punkt (10 | 0). Ist dieser Punkt eine Ecke des zulässigen Bereichs?"
    },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
    "o": {
-    "wert": 4
+    "index": 1
    },
-   "c": "4",
-   "w": "Ecken: O(0 | 0), (10 | 0), (9 | 5), (0 | 11) – das sind 4.",
-   "h": "Zähle die Knickstellen am Rand des Bereichs (Achsen mitzählen)."
+   "w": "Er verletzt die andere Bedingung (I: 30 > 18). Eine Ecke muss alle Bedingungen erfüllen.",
+   "h": "Prüfe den Punkt in der anderen Ungleichung."
   },
   {
    "l": "ecken",
@@ -3068,21 +3160,21 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 3x + 4y = 27 und x + 5y = 20 schneiden.",
-    "schablone": "P(□ | □)",
+    "text": "Bedingungen I: 10x + y ≤ 40, II: x + 3y ≤ 33, x ≥ 0, y ≥ 0. Drei Ecken des zulässigen Bereichs sind (0 | 0), (4 | 0) und (0 | 11). Berechne die vierte Ecke.",
+    "schablone": "E(□ | □)",
     "hinweis": "Koordinaten des Punktes"
    },
    "o": {
     "werte": [
-     5,
-     3
+     3,
+     10
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 5, y = 3. Probe: 27 = 27 ✓, 20 = 20 ✓.",
-   "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
+   "w": "Die vierte Ecke ist der Schnitt der Randgeraden I und II: 10x + y = 40 und x + 3y = 33 ⇒ x = 3, y = 10.",
+   "h": "Welche zwei Randgeraden treffen sich in der fehlenden Ecke? Löse ihr Gleichungssystem.",
    "c": [
-    "(27 * 5 - 20 * 4) / (3 * 5 - 1 * 4)",
-    "(3 * 20 - 1 * 27) / (3 * 5 - 1 * 4)"
+    "(40 * 3 - 33 * 1) / (10 * 3 - 1 * 1)",
+    "(10 * 33 - 1 * 40) / (10 * 3 - 1 * 1)"
    ]
   },
   {
@@ -3092,21 +3184,21 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 5x + 3y = 40 und 2x + 5y = 35 schneiden.",
-    "schablone": "P(□ | □)",
+    "text": "Bedingungen I: 3x + y ≤ 15, II: x + y ≤ 9, x ≥ 0, y ≥ 0 und zusätzlich III: x ≤ 1. In welchem Punkt trifft die neue Randgerade x = 1 den Rand des bisherigen Bereichs (oben)?",
+    "schablone": "E(□ | □)",
     "hinweis": "Koordinaten des Punktes"
    },
    "o": {
     "werte": [
-     5,
-     5
+     1,
+     8
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 5, y = 5. Probe: 40 = 40 ✓, 35 = 35 ✓.",
-   "h": "Löse das Gleichungssystem, z. B. mit dem Additions- oder Einsetzungsverfahren.",
+   "w": "Bei x = 1 begrenzt oben die Gerade II (x + y = 9): y = 9 − 1 ⇒ y = 8. Neue Ecke (1 | 8).",
+   "h": "Welche der Geraden I und II liegt bei x = 1 tiefer? Dort setzt du x = 1 ein.",
    "c": [
-    "(40 * 5 - 35 * 3) / (5 * 5 - 2 * 3)",
-    "(5 * 35 - 2 * 40) / (5 * 5 - 2 * 3)"
+    "1",
+    "(9 - 1 * 1) / 1"
    ]
   },
   {
@@ -3114,51 +3206,64 @@
    "t": "ecken",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Bedingungen I: 2x + y ≤ 12, II: 2x + 3y ≤ 24, x ≥ 0, y ≥ 0. Wie viele Eckpunkte hat der zulässige Bereich?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      14
-     ],
-     "y": [
-      0,
-      14
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -2.0,
-       "t": 12.0,
-       "bereich": [
-        0,
-        6.0
-       ],
-       "name": "I",
-       "name_x": 4.8
-      },
-      {
-       "art": "linear",
-       "m": -0.666667,
-       "t": 8.0,
-       "bereich": [
-        0,
-        12.0
-       ],
-       "name": "II",
-       "name_x": 7.2
-      }
-     ]
-    }
+    "text": "Bedingungen I: 5x + y ≤ 40, II: x + y ≤ 12, x ≥ 0, y ≥ 0. Die Randgerade I schneidet eine Achse im Punkt (0 | 40). Ist dieser Punkt eine Ecke des zulässigen Bereichs?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Er verletzt die andere Bedingung (II: 40 > 12). Eine Ecke muss alle Bedingungen erfüllen.",
+   "h": "Prüfe den Punkt in der anderen Ungleichung."
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bedingungen I: x + y ≤ 11, II: x + 4y ≤ 20, x ≥ 0, y ≥ 0 und zusätzlich III: x ≤ 9. In welchem Punkt trifft die neue Randgerade x = 9 den Rand des bisherigen Bereichs (oben)?",
+    "schablone": "E(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
    },
    "o": {
-    "wert": 4
+    "werte": [
+     9,
+     2
+    ]
    },
-   "c": "4",
-   "w": "Ecken: O(0 | 0), (6 | 0), (3 | 6), (0 | 8) – das sind 4.",
-   "h": "Zähle die Knickstellen am Rand des Bereichs (Achsen mitzählen)."
+   "w": "Bei x = 9 begrenzt oben die Gerade I (x + y = 11): y = 11 − 9 ⇒ y = 2. Neue Ecke (9 | 2).",
+   "h": "Welche der Geraden I und II liegt bei x = 9 tiefer? Dort setzt du x = 9 ein.",
+   "c": [
+    "9",
+    "(11 - 1 * 9) / 1"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bedingungen I: 3x + 5y ≤ 30, II: x + 5y ≤ 20, x ≥ 0, y ≥ 0. Die Randgerade II schneidet eine Achse im Punkt (20 | 0). Ist dieser Punkt eine Ecke des zulässigen Bereichs?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Er verletzt die andere Bedingung (I: 60 > 30). Eine Ecke muss alle Bedingungen erfüllen.",
+   "h": "Prüfe den Punkt in der anderen Ungleichung."
   },
   {
    "l": "ecken",
@@ -3167,238 +3272,14 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Wo schneidet die Randgerade 7x + y = 49 die x-Achse?",
-    "schablone": "(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     7,
-     0
-    ]
-   },
-   "w": "Auf der x-Achse ist y = 0: 7x = 49 ⇒ x = 7. Punkt (7 | 0).",
-   "c": [
-    "49 / 7",
-    "0"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 4x + 3y = 24 und x + 3y = 15 schneiden.",
+    "text": "Berechne den Eckpunkt P, in dem sich 2x + y = 20 und 2x + 7y = 56 schneiden.",
     "schablone": "P(□ | □)",
     "hinweis": "Koordinaten des Punktes",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       0,
-      17
-     ],
-     "y": [
-      0,
-      10
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -1.333333,
-       "t": 8.0,
-       "bereich": [
-        0,
-        6.0
-       ],
-       "name": "I",
-       "name_x": 4.8
-      },
-      {
-       "art": "linear",
-       "m": -0.333333,
-       "t": 5.0,
-       "bereich": [
-        0,
-        15.0
-       ],
-       "name": "II",
-       "name_x": 9.0
-      }
-     ],
-     "punkte": [
-      {
-       "x": 3,
-       "y": 4,
-       "name": "P"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
-   },
-   "o": {
-    "werte": [
-     3,
-     4
-    ]
-   },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 3, y = 4. Probe: 24 = 24 ✓, 15 = 15 ✓.",
-   "c": [
-    "(24 * 3 - 15 * 3) / (4 * 3 - 1 * 3)",
-    "(4 * 15 - 1 * 24) / (4 * 3 - 1 * 3)"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 11x + 3y = 44 und x + y = 12 schneiden.",
-    "schablone": "P(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      14
-     ],
-     "y": [
-      0,
-      16
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -3.666667,
-       "t": 14.666667,
-       "bereich": [
-        0,
-        4.0
-       ],
-       "name": "I",
-       "name_x": 3.2
-      },
-      {
-       "art": "linear",
-       "m": -1.0,
-       "t": 12.0,
-       "bereich": [
-        0,
-        12.0
-       ],
-       "name": "II",
-       "name_x": 7.2
-      }
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 11,
-       "name": "P"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
-   },
-   "o": {
-    "werte": [
-     1,
-     11
-    ]
-   },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 1, y = 11. Probe: 44 = 44 ✓, 12 = 12 ✓.",
-   "c": [
-    "(44 * 1 - 12 * 3) / (11 * 1 - 1 * 3)",
-    "(11 * 12 - 1 * 44) / (11 * 1 - 1 * 3)"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 9x + 2y = 54 und x + 2y = 22 schneiden.",
-    "schablone": "P(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      24
-     ],
-     "y": [
-      0,
-      29
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -4.5,
-       "t": 27.0,
-       "bereich": [
-        0,
-        6.0
-       ],
-       "name": "I",
-       "name_x": 4.8
-      },
-      {
-       "art": "linear",
-       "m": -0.5,
-       "t": 11.0,
-       "bereich": [
-        0,
-        22.0
-       ],
-       "name": "II",
-       "name_x": 13.2
-      }
-     ],
-     "punkte": [
-      {
-       "x": 4,
-       "y": 9,
-       "name": "P"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
-   },
-   "o": {
-    "werte": [
-     4,
-     9
-    ]
-   },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 4, y = 9. Probe: 54 = 54 ✓, 22 = 22 ✓.",
-   "c": [
-    "(54 * 2 - 22 * 2) / (9 * 2 - 1 * 2)",
-    "(9 * 22 - 1 * 54) / (9 * 2 - 1 * 2)"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 2x + y = 20 und x + 8y = 40 schneiden.",
-    "schablone": "P(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      42
+      30
      ],
      "y": [
       0,
@@ -3418,20 +3299,20 @@
       },
       {
        "art": "linear",
-       "m": -0.125,
-       "t": 5.0,
+       "m": -0.285714,
+       "t": 8.0,
        "bereich": [
         0,
-        40.0
+        28.0
        ],
        "name": "II",
-       "name_x": 24.0
+       "name_x": 16.8
       }
      ],
      "punkte": [
       {
-       "x": 8,
-       "y": 4,
+       "x": 7,
+       "y": 6,
        "name": "P"
       }
      ],
@@ -3441,63 +3322,63 @@
    },
    "o": {
     "werte": [
-     8,
-     4
+     7,
+     6
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 8, y = 4. Probe: 20 = 20 ✓, 40 = 40 ✓.",
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 7, y = 6. Probe: 20 = 20 ✓, 56 = 56 ✓.",
    "c": [
-    "(20 * 8 - 40 * 1) / (2 * 8 - 1 * 1)",
-    "(2 * 40 - 1 * 20) / (2 * 8 - 1 * 1)"
+    "(20 * 7 - 56 * 1) / (2 * 7 - 2 * 1)",
+    "(2 * 56 - 2 * 20) / (2 * 7 - 2 * 1)"
    ]
   },
   {
    "l": "ecken",
    "t": "ecken",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich x + y = 9 und 2x + 7y = 28 schneiden.",
+    "text": "Berechne den Eckpunkt P, in dem sich x + y = 12 und x + 5y = 20 schneiden.",
     "schablone": "P(□ | □)",
     "hinweis": "Koordinaten des Punktes",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       0,
-      16
+      22
      ],
      "y": [
       0,
-      11
+      14
      ],
      "graphen": [
       {
        "art": "linear",
        "m": -1.0,
-       "t": 9.0,
+       "t": 12.0,
        "bereich": [
         0,
-        9.0
+        12.0
        ],
        "name": "I",
-       "name_x": 7.2
+       "name_x": 9.6
       },
       {
        "art": "linear",
-       "m": -0.285714,
+       "m": -0.2,
        "t": 4.0,
        "bereich": [
         0,
-        14.0
+        20.0
        ],
        "name": "II",
-       "name_x": 8.4
+       "name_x": 12.0
       }
      ],
      "punkte": [
       {
-       "x": 7,
+       "x": 10,
        "y": 2,
        "name": "P"
       }
@@ -3508,14 +3389,104 @@
    },
    "o": {
     "werte": [
-     7,
+     10,
      2
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 7, y = 2. Probe: 9 = 9 ✓, 28 = 28 ✓.",
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 10, y = 2. Probe: 12 = 12 ✓, 20 = 20 ✓.",
    "c": [
-    "(9 * 7 - 28 * 1) / (1 * 7 - 2 * 1)",
-    "(1 * 28 - 2 * 9) / (1 * 7 - 2 * 1)"
+    "(12 * 5 - 20 * 1) / (1 * 5 - 1 * 1)",
+    "(1 * 20 - 1 * 12) / (1 * 5 - 1 * 1)"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Wo schneidet die Randgerade 5x + 3y = 55 die x-Achse?",
+    "schablone": "(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     11,
+     0
+    ]
+   },
+   "w": "Auf der x-Achse ist y = 0: 5x = 55 ⇒ x = 11. Punkt (11 | 0).",
+   "c": [
+    "55 / 5",
+    "0"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Eckpunkt P, in dem sich 2x + y = 24 und x + 10y = 50 schneiden.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Koordinaten des Punktes",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      52
+     ],
+     "y": [
+      0,
+      26
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2.0,
+       "t": 24.0,
+       "bereich": [
+        0,
+        12.0
+       ],
+       "name": "I",
+       "name_x": 9.6
+      },
+      {
+       "art": "linear",
+       "m": -0.1,
+       "t": 5.0,
+       "bereich": [
+        0,
+        50.0
+       ],
+       "name": "II",
+       "name_x": 30.0
+      }
+     ],
+     "punkte": [
+      {
+       "x": 10,
+       "y": 4,
+       "name": "P"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
+    }
+   },
+   "o": {
+    "werte": [
+     10,
+     4
+    ]
+   },
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 10, y = 4. Probe: 24 = 24 ✓, 50 = 50 ✓.",
+   "c": [
+    "(24 * 10 - 50 * 1) / (2 * 10 - 1 * 1)",
+    "(2 * 50 - 1 * 24) / (2 * 10 - 1 * 1)"
    ]
   },
   {
@@ -3525,24 +3496,24 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 7x + 2y = 35 und x + 3y = 24 schneiden.",
+    "text": "Berechne den Eckpunkt P, in dem sich 3x + y = 15 und x + 4y = 16 schneiden.",
     "schablone": "P(□ | □)",
     "hinweis": "Koordinaten des Punktes",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       0,
-      26
+      18
      ],
      "y": [
       0,
-      19
+      17
      ],
      "graphen": [
       {
        "art": "linear",
-       "m": -3.5,
-       "t": 17.5,
+       "m": -3.0,
+       "t": 15.0,
        "bereich": [
         0,
         5.0
@@ -3552,87 +3523,20 @@
       },
       {
        "art": "linear",
-       "m": -0.333333,
-       "t": 8.0,
+       "m": -0.25,
+       "t": 4.0,
        "bereich": [
         0,
-        24.0
+        16.0
        ],
        "name": "II",
-       "name_x": 14.4
-      }
-     ],
-     "punkte": [
-      {
-       "x": 3,
-       "y": 7,
-       "name": "P"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
-   },
-   "o": {
-    "werte": [
-     3,
-     7
-    ]
-   },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 3, y = 7. Probe: 35 = 35 ✓, 24 = 24 ✓.",
-   "c": [
-    "(35 * 3 - 24 * 2) / (7 * 3 - 1 * 2)",
-    "(7 * 24 - 1 * 35) / (7 * 3 - 1 * 2)"
-   ]
-  },
-  {
-   "l": "ecken",
-   "t": "ecken",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 7x + 3y = 49 und 5x + 4y = 48 schneiden.",
-    "schablone": "P(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      11
-     ],
-     "y": [
-      0,
-      18
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -2.333333,
-       "t": 16.333333,
-       "bereich": [
-        0,
-        7.0
-       ],
-       "name": "I",
-       "name_x": 5.6
-      },
-      {
-       "art": "linear",
-       "m": -1.25,
-       "t": 12.0,
-       "bereich": [
-        0,
-        9.6
-       ],
-       "name": "II",
-       "name_x": 5.76
+       "name_x": 9.6
       }
      ],
      "punkte": [
       {
        "x": 4,
-       "y": 7,
+       "y": 3,
        "name": "P"
       }
      ],
@@ -3643,13 +3547,13 @@
    "o": {
     "werte": [
      4,
-     7
+     3
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 4, y = 7. Probe: 49 = 49 ✓, 48 = 48 ✓.",
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 4, y = 3. Probe: 15 = 15 ✓, 16 = 16 ✓.",
    "c": [
-    "(49 * 4 - 48 * 3) / (7 * 4 - 5 * 3)",
-    "(7 * 48 - 5 * 49) / (7 * 4 - 5 * 3)"
+    "(15 * 4 - 16 * 1) / (3 * 4 - 1 * 1)",
+    "(3 * 16 - 1 * 15) / (3 * 4 - 1 * 1)"
    ]
   },
   {
@@ -3659,64 +3563,20 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 5x + 2y = 30 und 5x + 4y = 40 schneiden.",
-    "schablone": "P(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      0,
-      10
-     ],
-     "y": [
-      0,
-      17
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -2.5,
-       "t": 15.0,
-       "bereich": [
-        0,
-        6.0
-       ],
-       "name": "I",
-       "name_x": 4.8
-      },
-      {
-       "art": "linear",
-       "m": -1.25,
-       "t": 10.0,
-       "bereich": [
-        0,
-        8.0
-       ],
-       "name": "II",
-       "name_x": 4.8
-      }
-     ],
-     "punkte": [
-      {
-       "x": 4,
-       "y": 5,
-       "name": "P"
-      }
-     ],
-     "schritt_x": 2,
-     "schritt_y": 2
-    }
+    "text": "Wo schneidet die Randgerade 4x + y = 28 die x-Achse?",
+    "schablone": "(□ | □)",
+    "hinweis": "x- und y-Koordinate"
    },
    "o": {
     "werte": [
-     4,
-     5
+     7,
+     0
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 4, y = 5. Probe: 30 = 30 ✓, 40 = 40 ✓.",
+   "w": "Auf der x-Achse ist y = 0: 4x = 28 ⇒ x = 7. Punkt (7 | 0).",
    "c": [
-    "(30 * 4 - 40 * 2) / (5 * 4 - 5 * 2)",
-    "(5 * 40 - 5 * 30) / (5 * 4 - 5 * 2)"
+    "28 / 4",
+    "0"
    ]
   },
   {
@@ -3726,46 +3586,113 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Berechne den Eckpunkt P, in dem sich 4x + y = 16 und x + y = 10 schneiden.",
+    "text": "Berechne den Eckpunkt P, in dem sich x + y = 11 und x + 4y = 20 schneiden.",
     "schablone": "P(□ | □)",
     "hinweis": "Koordinaten des Punktes",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       0,
-      12
+      22
      ],
      "y": [
       0,
-      18
+      13
      ],
      "graphen": [
-      {
-       "art": "linear",
-       "m": -4.0,
-       "t": 16.0,
-       "bereich": [
-        0,
-        4.0
-       ],
-       "name": "I",
-       "name_x": 3.2
-      },
       {
        "art": "linear",
        "m": -1.0,
-       "t": 10.0,
+       "t": 11.0,
        "bereich": [
         0,
-        10.0
+        11.0
+       ],
+       "name": "I",
+       "name_x": 8.8
+      },
+      {
+       "art": "linear",
+       "m": -0.25,
+       "t": 5.0,
+       "bereich": [
+        0,
+        20.0
        ],
        "name": "II",
-       "name_x": 6.0
+       "name_x": 12.0
       }
      ],
      "punkte": [
       {
-       "x": 2,
+       "x": 8,
+       "y": 3,
+       "name": "P"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
+    }
+   },
+   "o": {
+    "werte": [
+     8,
+     3
+    ]
+   },
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 8, y = 3. Probe: 11 = 11 ✓, 20 = 20 ✓.",
+   "c": [
+    "(11 * 4 - 20 * 1) / (1 * 4 - 1 * 1)",
+    "(1 * 20 - 1 * 11) / (1 * 4 - 1 * 1)"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Eckpunkt P, in dem sich 4x + 3y = 44 und 3x + 5y = 55 schneiden.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Koordinaten des Punktes",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      20
+     ],
+     "y": [
+      0,
+      16
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1.333333,
+       "t": 14.666667,
+       "bereich": [
+        0,
+        11.0
+       ],
+       "name": "I",
+       "name_x": 8.8
+      },
+      {
+       "art": "linear",
+       "m": -0.6,
+       "t": 11.0,
+       "bereich": [
+        0,
+        18.333333
+       ],
+       "name": "II",
+       "name_x": 11.0
+      }
+     ],
+     "punkte": [
+      {
+       "x": 5,
        "y": 8,
        "name": "P"
       }
@@ -3776,14 +3703,60 @@
    },
    "o": {
     "werte": [
-     2,
+     5,
      8
     ]
    },
-   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 2, y = 8. Probe: 16 = 16 ✓, 10 = 10 ✓.",
+   "w": "Gleichungssystem lösen (z. B. Additionsverfahren): x = 5, y = 8. Probe: 44 = 44 ✓, 55 = 55 ✓.",
    "c": [
-    "(16 * 1 - 10 * 1) / (4 * 1 - 1 * 1)",
-    "(4 * 10 - 1 * 16) / (4 * 1 - 1 * 1)"
+    "(44 * 5 - 55 * 3) / (4 * 5 - 3 * 3)",
+    "(4 * 55 - 3 * 44) / (4 * 5 - 3 * 3)"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Wo schneidet die Randgerade 2x + y = 10 die x-Achse?",
+    "schablone": "(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     5,
+     0
+    ]
+   },
+   "w": "Auf der x-Achse ist y = 0: 2x = 10 ⇒ x = 5. Punkt (5 | 0).",
+   "c": [
+    "10 / 2",
+    "0"
+   ]
+  },
+  {
+   "l": "ecken",
+   "t": "ecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Wo schneidet die Randgerade 3x + 2y = 27 die x-Achse?",
+    "schablone": "(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     9,
+     0
+    ]
+   },
+   "w": "Auf der x-Achse ist y = 0: 3x = 27 ⇒ x = 9. Punkt (9 | 0).",
+   "c": [
+    "27 / 3",
+    "0"
    ]
   },
   {
@@ -3793,45 +3766,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Zielfunktion Z = 6x + 8y. Berechne Z im Eckpunkt (0 | 6)."
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (6 | 0), (3 | 8), (0 | 12). Wie groß ist das Maximum von Z = 9x + 6y?"
    },
    "o": {
-    "wert": 48
+    "wert": 75
    },
-   "c": "6 * 0 + 8 * 6",
-   "w": "Z = 6 · 0 + 8 · 6 = 48.",
-   "h": "Setze x und y in die Zielfunktion ein."
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Zielfunktion Z = 3x + 7y. Berechne Z im Eckpunkt (2 | 3)."
-   },
-   "o": {
-    "wert": 27
-   },
-   "c": "3 * 2 + 7 * 3",
-   "w": "Z = 3 · 2 + 7 · 3 = 27.",
-   "h": "Setze x und y in die Zielfunktion ein."
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (8 | 0), (4 | 3), (0 | 4). Wie groß ist das Maximum von Z = 7x + 8y?"
-   },
-   "o": {
-    "wert": 56
-   },
-   "c": "max(7 * 0 + 8 * 0, 7 * 8 + 8 * 0, 7 * 4 + 8 * 3, 7 * 0 + 8 * 4)",
-   "w": "(0 | 0): 0; (8 | 0): 56; (4 | 3): 52; (0 | 4): 32. Maximum: 56.",
+   "c": "max(9 * 0 + 6 * 0, 9 * 6 + 6 * 0, 9 * 3 + 6 * 8, 9 * 0 + 6 * 12)",
+   "w": "(0 | 0): 0; (6 | 0): 54; (3 | 8): 75; (0 | 12): 72. Maximum: 75.",
    "h": "Setze alle Ecken ein und nimm den größten Wert."
   },
   {
@@ -3841,13 +3782,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Zielfunktion Z = x + 5y. Berechne Z im Eckpunkt (2 | 8)."
+    "text": "Zielfunktion Z = 7x + 2y. Berechne Z im Eckpunkt (6 | 0)."
    },
    "o": {
     "wert": 42
    },
-   "c": "1 * 2 + 5 * 8",
-   "w": "Z = 1 · 2 + 5 · 8 = 42.",
+   "c": "7 * 6 + 2 * 0",
+   "w": "Z = 7 · 6 + 2 · 0 = 42.",
    "h": "Setze x und y in die Zielfunktion ein."
   },
   {
@@ -3857,13 +3798,29 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (7 | 0), (3 | 3), (0 | 4). Wie groß ist das Maximum von Z = 8x + 7y?"
+    "text": "Zielfunktion Z = x + 9y. Berechne Z im Eckpunkt (0 | 10)."
    },
    "o": {
-    "wert": 56
+    "wert": 90
    },
-   "c": "max(8 * 0 + 7 * 0, 8 * 7 + 7 * 0, 8 * 3 + 7 * 3, 8 * 0 + 7 * 4)",
-   "w": "(0 | 0): 0; (7 | 0): 56; (3 | 3): 45; (0 | 4): 28. Maximum: 56.",
+   "c": "1 * 0 + 9 * 10",
+   "w": "Z = 1 · 0 + 9 · 10 = 90.",
+   "h": "Setze x und y in die Zielfunktion ein."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (10 | 0), (9 | 5), (0 | 11). Wie groß ist das Maximum von Z = x + 4y?"
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "max(1 * 0 + 4 * 0, 1 * 10 + 4 * 0, 1 * 9 + 4 * 5, 1 * 0 + 4 * 11)",
+   "w": "(0 | 0): 0; (10 | 0): 10; (9 | 5): 29; (0 | 11): 44. Maximum: 44.",
    "h": "Setze alle Ecken ein und nimm den größten Wert."
   },
   {
@@ -3873,13 +3830,29 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Zielfunktion Z = 8x + y. Berechne Z im Eckpunkt (9 | 5)."
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (4 | 0), (3 | 10), (0 | 12). Wie groß ist das Maximum von Z = 8x + 4y?"
    },
    "o": {
-    "wert": 77
+    "wert": 64
    },
-   "c": "8 * 9 + 1 * 5",
-   "w": "Z = 8 · 9 + 1 · 5 = 77.",
+   "c": "max(8 * 0 + 4 * 0, 8 * 4 + 4 * 0, 8 * 3 + 4 * 10, 8 * 0 + 4 * 12)",
+   "w": "(0 | 0): 0; (4 | 0): 32; (3 | 10): 64; (0 | 12): 48. Maximum: 64.",
+   "h": "Setze alle Ecken ein und nimm den größten Wert."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zielfunktion Z = 8x + 9y. Berechne Z im Eckpunkt (4 | 0)."
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "8 * 4 + 9 * 0",
+   "w": "Z = 8 · 4 + 9 · 0 = 32.",
    "h": "Setze x und y in die Zielfunktion ein."
   },
   {
@@ -3887,63 +3860,15 @@
    "t": "optimum",
    "p": "uebung",
    "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (5 | 0), (4 | 3), (0 | 8). In welchem Eckpunkt wird Z = x + y maximal?",
-    "schablone": "(□ | □)",
-    "hinweis": "Koordinaten der Ecke"
-   },
-   "o": {
-    "werte": [
-     0,
-     8
-    ]
-   },
-   "w": "(0 | 0): 0; (5 | 0): 5; (4 | 3): 7; (0 | 8): 8. Am größten bei (0 | 8).",
-   "h": "Alle Ecken in Z einsetzen und vergleichen.",
-   "c": [
-    "0",
-    "8"
-   ]
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (4 | 0), (2 | 9), (0 | 12). In welchem Eckpunkt wird Z = 6x + 8y maximal?",
-    "schablone": "(□ | □)",
-    "hinweis": "Koordinaten der Ecke"
-   },
-   "o": {
-    "werte": [
-     0,
-     12
-    ]
-   },
-   "w": "(0 | 0): 0; (4 | 0): 24; (2 | 9): 84; (0 | 12): 96. Am größten bei (0 | 12).",
-   "h": "Alle Ecken in Z einsetzen und vergleichen.",
-   "c": [
-    "0",
-    "12"
-   ]
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "uebung",
-   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (5 | 0), (3 | 6), (0 | 10). Wie groß ist das Maximum von Z = 8x + 7y?"
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (9 | 0), (5 | 10), (0 | 11). Wie groß ist das Maximum von Z = 9x + 5y?"
    },
    "o": {
-    "wert": 70
+    "wert": 95
    },
-   "c": "max(8 * 0 + 7 * 0, 8 * 5 + 7 * 0, 8 * 3 + 7 * 6, 8 * 0 + 7 * 10)",
-   "w": "(0 | 0): 0; (5 | 0): 40; (3 | 6): 66; (0 | 10): 70. Maximum: 70.",
+   "c": "max(9 * 0 + 5 * 0, 9 * 9 + 5 * 0, 9 * 5 + 5 * 10, 9 * 0 + 5 * 11)",
+   "w": "(0 | 0): 0; (9 | 0): 81; (5 | 10): 95; (0 | 11): 55. Maximum: 95.",
    "h": "Setze alle Ecken ein und nimm den größten Wert."
   },
   {
@@ -3951,24 +3876,16 @@
    "t": "optimum",
    "p": "uebung",
    "s": 2,
-   "y": "luecken",
+   "y": "zahl",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (5 | 0), (2 | 10), (0 | 11). In welchem Eckpunkt wird Z = 6x + 4y maximal?",
-    "schablone": "(□ | □)",
-    "hinweis": "Koordinaten der Ecke"
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (7 | 0), (6 | 4), (0 | 7). Wie groß ist das Maximum von Z = 6x + 9y?"
    },
    "o": {
-    "werte": [
-     2,
-     10
-    ]
+    "wert": 72
    },
-   "w": "(0 | 0): 0; (5 | 0): 30; (2 | 10): 52; (0 | 11): 44. Am größten bei (2 | 10).",
-   "h": "Alle Ecken in Z einsetzen und vergleichen.",
-   "c": [
-    "2",
-    "10"
-   ]
+   "c": "max(6 * 0 + 9 * 0, 6 * 7 + 9 * 0, 6 * 6 + 9 * 4, 6 * 0 + 9 * 7)",
+   "w": "(0 | 0): 0; (7 | 0): 42; (6 | 4): 72; (0 | 7): 63. Maximum: 72.",
+   "h": "Setze alle Ecken ein und nimm den größten Wert."
   },
   {
    "l": "optimum",
@@ -3977,13 +3894,29 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (9 | 0), (6 | 3), (0 | 4). Wie groß ist das Maximum von Z = 6x + y?"
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (9 | 0), (7 | 3), (0 | 5). Wie groß ist das Maximum von Z = 2x + 6y?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "max(2 * 0 + 6 * 0, 2 * 9 + 6 * 0, 2 * 7 + 6 * 3, 2 * 0 + 6 * 5)",
+   "w": "(0 | 0): 0; (9 | 0): 18; (7 | 3): 32; (0 | 5): 30. Maximum: 32.",
+   "h": "Setze alle Ecken ein und nimm den größten Wert."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (6 | 0), (2 | 5), (0 | 6). Wie groß ist das Maximum von Z = 4x + 9y?"
    },
    "o": {
     "wert": 54
    },
-   "c": "max(6 * 0 + 1 * 0, 6 * 9 + 1 * 0, 6 * 6 + 1 * 3, 6 * 0 + 1 * 4)",
-   "w": "(0 | 0): 0; (9 | 0): 54; (6 | 3): 39; (0 | 4): 4. Maximum: 54.",
+   "c": "max(4 * 0 + 9 * 0, 4 * 6 + 9 * 0, 4 * 2 + 9 * 5, 4 * 0 + 9 * 6)",
+   "w": "(0 | 0): 0; (6 | 0): 24; (2 | 5): 53; (0 | 6): 54. Maximum: 54.",
    "h": "Setze alle Ecken ein und nimm den größten Wert."
   },
   {
@@ -3993,22 +3926,38 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (5 | 0), (3 | 8), (0 | 11). In welchem Eckpunkt wird Z = 7x + 8y maximal?",
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (5 | 0), (4 | 5), (0 | 9). In welchem Eckpunkt wird Z = 5x + 2y maximal?",
     "schablone": "(□ | □)",
     "hinweis": "Koordinaten der Ecke"
    },
    "o": {
     "werte": [
-     0,
-     11
+     4,
+     5
     ]
    },
-   "w": "(0 | 0): 0; (5 | 0): 35; (3 | 8): 85; (0 | 11): 88. Am größten bei (0 | 11).",
+   "w": "(0 | 0): 0; (5 | 0): 25; (4 | 5): 30; (0 | 9): 18. Am größten bei (4 | 5).",
    "h": "Alle Ecken in Z einsetzen und vergleichen.",
    "c": [
-    "0",
-    "11"
+    "4",
+    "5"
    ]
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (11 | 0), (8 | 3), (0 | 5). Wie groß ist das Maximum von Z = x + 2y?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "max(1 * 0 + 2 * 0, 1 * 11 + 2 * 0, 1 * 8 + 2 * 3, 1 * 0 + 2 * 5)",
+   "w": "(0 | 0): 0; (11 | 0): 11; (8 | 3): 14; (0 | 5): 10. Maximum: 14.",
+   "h": "Setze alle Ecken ein und nimm den größten Wert."
   },
   {
    "l": "optimum",
@@ -4017,13 +3966,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Die Ecken des Bereichs (ohne den Nullpunkt) sind (7 | 0), (6 | 4), (0 | 6). Wie groß ist das Minimum von K = 5x + 7y an diesen Ecken?"
+    "text": "Die Ecken des Bereichs (ohne den Nullpunkt) sind (10 | 0), (8 | 10), (0 | 12). Wie groß ist das Minimum von K = x + 5y an diesen Ecken?"
    },
    "o": {
-    "wert": 35
+    "wert": 10
    },
-   "c": "min(5 * 7 + 7 * 0, 5 * 6 + 7 * 4, 5 * 0 + 7 * 6)",
-   "w": "(7 | 0): 35; (6 | 4): 58; (0 | 6): 42. Minimum: 35.",
+   "c": "min(1 * 10 + 5 * 0, 1 * 8 + 5 * 10, 1 * 0 + 5 * 12)",
+   "w": "(10 | 0): 10; (8 | 10): 58; (0 | 12): 60. Minimum: 10.",
    "h": "Auch das Minimum liegt an einer Ecke."
   },
   {
@@ -4031,504 +3980,527 @@
    "t": "optimum",
    "p": "uebung",
    "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bedingungen I: 3x + 4y ≤ 33, II: x + 7y ≤ 28, x ≥ 0, y ≥ 0, Ecken (0 | 0), (11 | 0), (7 | 3), (0 | 4). Wo wird Z = x + 7y maximal?"
+   },
+   "a": [
+    "nur in (7 | 3)",
+    "in (7 | 3) und in (0 | 4) gleich – und auf der ganzen Strecke dazwischen",
+    "nur in (11 | 0)",
+    "nur in (0 | 4)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(0 | 0): 0; (11 | 0): 11; (7 | 3): 28; (0 | 4): 28. Z hat dieselben Zahlen wie Randgerade II: Auf ihr ist Z überall 28.",
+   "h": "Rechne Z an allen Ecken aus. Fällt dir etwas an der Zielfunktion auf?"
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ecken des Bereichs: (0 | 0), (5 | 0), (4 | 5), (0 | 9). Zielfunktion Z = a · x + 7y. Ab welchem ganzzahligen Wert von a ist die Ecke (5 | 0) besser als (4 | 5)?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "36",
+   "w": "Z(5 | 0) = 5a, Z(4 | 5) = 4a + 35. 5a > 4a + 35 ⇒ 1a > 35 ⇒ a > 35. Kleinste ganze Zahl: 36.",
+   "h": "Stelle Z an beiden Ecken mit a auf und vergleiche (Ungleichung)."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Ecken des Bereichs (ohne den Nullpunkt) sind (6 | 0), (4 | 5), (0 | 8). Wie groß ist das Minimum von K = x + 7y an diesen Ecken?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "min(1 * 6 + 7 * 0, 1 * 4 + 7 * 5, 1 * 0 + 7 * 8)",
+   "w": "(6 | 0): 6; (4 | 5): 39; (0 | 8): 56. Minimum: 6.",
+   "h": "Auch das Minimum liegt an einer Ecke."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bedingungen I: 2x + y ≤ 10, II: x + 2y ≤ 8, x ≥ 0, y ≥ 0, Ecken (0 | 0), (5 | 0), (4 | 2), (0 | 4). Wo wird Z = x + 2y maximal?"
+   },
+   "a": [
+    "nur in (5 | 0)",
+    "nur in (0 | 4)",
+    "in (4 | 2) und in (0 | 4) gleich – und auf der ganzen Strecke dazwischen",
+    "nur in (4 | 2)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(0 | 0): 0; (5 | 0): 5; (4 | 2): 8; (0 | 4): 8. Z hat dieselben Zahlen wie Randgerade II: Auf ihr ist Z überall 8.",
+   "h": "Rechne Z an allen Ecken aus. Fällt dir etwas an der Zielfunktion auf?"
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ecken des Bereichs: (0 | 0), (12 | 0), (7 | 4), (0 | 7). Zielfunktion Z = a · x + 3y. Ab welchem ganzzahligen Wert von a ist die Ecke (12 | 0) besser als (7 | 4)?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Z(12 | 0) = 12a, Z(7 | 4) = 7a + 12. 12a > 7a + 12 ⇒ 5a > 12 ⇒ a > 2,4. Kleinste ganze Zahl: 3.",
+   "h": "Stelle Z an beiden Ecken mit a auf und vergleiche (Ungleichung)."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (4 | 0), (3 | 5), (0 | 6). Wie groß ist das Maximum von Z = 7x + y?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      20
+     ],
+     "y": [
+      0,
+      22
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -5.0,
+       "t": 20.0,
+       "bereich": [
+        0,
+        4.0
+       ],
+       "name": "I",
+       "name_x": 3.2
+      },
+      {
+       "art": "linear",
+       "m": -0.333333,
+       "t": 6.0,
+       "bereich": [
+        0,
+        18.0
+       ],
+       "name": "II",
+       "name_x": 10.8
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      },
+      {
+       "x": 4,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 6,
+       "name": "B"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2
+    }
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "max(7 * 0 + 1 * 0, 7 * 4 + 1 * 0, 7 * 3 + 1 * 5, 7 * 0 + 1 * 6)",
+   "w": "(0 | 0): 0; (4 | 0): 28; (3 | 5): 26; (0 | 6): 6. Maximum: 28.",
+   "h": "Setze alle Ecken ein und nimm den größten Wert."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ecken des Bereichs: (0 | 0), (6 | 0), (5 | 2), (0 | 5). Zielfunktion Z = a · x + 8y. Ab welchem ganzzahligen Wert von a ist die Ecke (6 | 0) besser als (5 | 2)?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "17",
+   "w": "Z(6 | 0) = 6a, Z(5 | 2) = 5a + 16. 6a > 5a + 16 ⇒ 1a > 16 ⇒ a > 16. Kleinste ganze Zahl: 17.",
+   "h": "Stelle Z an beiden Ecken mit a auf und vergleiche (Ungleichung)."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "test",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (4 | 0), (3 | 10), (0 | 11). In welchem Eckpunkt wird Z = 5x + y maximal?",
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (4 | 0), (3 | 3), (0 | 4). In welchem Eckpunkt wird Z = 7x + 3y maximal?",
     "schablone": "(□ | □)",
     "hinweis": "Koordinaten der Ecke"
    },
    "o": {
     "werte": [
      3,
-     10
+     3
     ]
    },
-   "w": "(0 | 0): 0; (4 | 0): 20; (3 | 10): 25; (0 | 11): 11. Am größten bei (3 | 10).",
-   "h": "Alle Ecken in Z einsetzen und vergleichen.",
+   "w": "(0 | 0): 0; (4 | 0): 28; (3 | 3): 30; (0 | 4): 12. Am größten bei (3 | 3).",
    "c": [
     "3",
-    "10"
+    "3"
    ]
   },
   {
    "l": "optimum",
    "t": "optimum",
-   "p": "uebung",
-   "s": 3,
+   "p": "korrektur",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (5 | 0), (4 | 8), (0 | 9). In welchem Eckpunkt wird Z = 8x + 2y maximal?",
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (4 | 0), (3 | 9), (0 | 10). In welchem Eckpunkt wird Z = 5x + y maximal?",
     "schablone": "(□ | □)",
     "hinweis": "Koordinaten der Ecke"
    },
    "o": {
     "werte": [
-     4,
-     8
+     3,
+     9
     ]
    },
-   "w": "(0 | 0): 0; (5 | 0): 40; (4 | 8): 48; (0 | 9): 18. Am größten bei (4 | 8).",
-   "h": "Alle Ecken in Z einsetzen und vergleichen.",
+   "w": "(0 | 0): 0; (4 | 0): 20; (3 | 9): 24; (0 | 10): 10. Am größten bei (3 | 9).",
    "c": [
-    "4",
-    "8"
+    "3",
+    "9"
    ]
   },
   {
    "l": "optimum",
    "t": "optimum",
-   "p": "uebung",
-   "s": 3,
+   "p": "korrektur",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Ecken des Bereichs (ohne den Nullpunkt) sind (11 | 0), (7 | 4), (0 | 6). Wie groß ist das Minimum von K = 4x + 7y an diesen Ecken?"
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (6 | 0), (3 | 10), (0 | 11). Wie groß ist das Maximum von Z = 7x + 6y?"
+   },
+   "o": {
+    "wert": 81
+   },
+   "c": "max(7 * 0 + 6 * 0, 7 * 6 + 6 * 0, 7 * 3 + 6 * 10, 7 * 0 + 6 * 11)",
+   "w": "(0 | 0): 0; (6 | 0): 42; (3 | 10): 81; (0 | 11): 66. Maximum: 81."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (7 | 0), (4 | 4), (0 | 5). Wie groß ist das Maximum von Z = 6x + 4y?"
    },
    "o": {
     "wert": 42
    },
-   "c": "min(4 * 11 + 7 * 0, 4 * 7 + 7 * 4, 4 * 0 + 7 * 6)",
-   "w": "(11 | 0): 44; (7 | 4): 56; (0 | 6): 42. Minimum: 42.",
-   "h": "Auch das Minimum liegt an einer Ecke."
+   "c": "max(6 * 0 + 4 * 0, 6 * 7 + 4 * 0, 6 * 4 + 4 * 4, 6 * 0 + 4 * 5)",
+   "w": "(0 | 0): 0; (7 | 0): 42; (4 | 4): 40; (0 | 5): 20. Maximum: 42."
   },
   {
    "l": "optimum",
    "t": "optimum",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Ecken des Bereichs (ohne den Nullpunkt) sind (5 | 0), (3 | 7), (0 | 8). Wie groß ist das Minimum von K = 5x + 3y an diesen Ecken?"
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "min(5 * 5 + 3 * 0, 5 * 3 + 3 * 7, 5 * 0 + 3 * 8)",
-   "w": "(5 | 0): 25; (3 | 7): 36; (0 | 8): 24. Minimum: 24.",
-   "h": "Auch das Minimum liegt an einer Ecke."
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "uebung",
-   "s": 3,
+   "p": "sicherung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (5 | 0), (4 | 6), (0 | 11). In welchem Eckpunkt wird Z = 3x + y maximal?",
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (6 | 0), (3 | 8), (0 | 12). In welchem Eckpunkt wird Z = 2x + 9y maximal?",
     "schablone": "(□ | □)",
     "hinweis": "Koordinaten der Ecke"
    },
    "o": {
     "werte": [
-     4,
+     0,
+     12
+    ]
+   },
+   "w": "(0 | 0): 0; (6 | 0): 12; (3 | 8): 78; (0 | 12): 108. Am größten bei (0 | 12).",
+   "c": [
+    "0",
+    "12"
+   ]
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (6 | 0), (3 | 5), (0 | 6). Wie groß ist das Maximum von Z = 6x + 7y?"
+   },
+   "o": {
+    "wert": 53
+   },
+   "c": "max(6 * 0 + 7 * 0, 6 * 6 + 7 * 0, 6 * 3 + 7 * 5, 6 * 0 + 7 * 6)",
+   "w": "(0 | 0): 0; (6 | 0): 36; (3 | 5): 53; (0 | 6): 42. Maximum: 53."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (7 | 0), (4 | 6), (0 | 9). In welchem Eckpunkt wird Z = 2x + 8y maximal?",
+    "schablone": "(□ | □)",
+    "hinweis": "Koordinaten der Ecke"
+   },
+   "o": {
+    "werte": [
+     0,
+     9
+    ]
+   },
+   "w": "(0 | 0): 0; (7 | 0): 14; (4 | 6): 56; (0 | 9): 72. Am größten bei (0 | 9).",
+   "c": [
+    "0",
+    "9"
+   ]
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (11 | 0), (9 | 3), (0 | 4). In welchem Eckpunkt wird Z = x + 2y maximal?",
+    "schablone": "(□ | □)",
+    "hinweis": "Koordinaten der Ecke"
+   },
+   "o": {
+    "werte": [
+     9,
+     3
+    ]
+   },
+   "w": "(0 | 0): 0; (11 | 0): 11; (9 | 3): 15; (0 | 4): 8. Am größten bei (9 | 3).",
+   "c": [
+    "9",
+    "3"
+   ]
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (5 | 0), (4 | 5), (0 | 7). Wie groß ist das Maximum von Z = 6x + 9y?"
+   },
+   "o": {
+    "wert": 69
+   },
+   "c": "max(6 * 0 + 9 * 0, 6 * 5 + 9 * 0, 6 * 4 + 9 * 5, 6 * 0 + 9 * 7)",
+   "w": "(0 | 0): 0; (5 | 0): 30; (4 | 5): 69; (0 | 7): 63. Maximum: 69."
+  },
+  {
+   "l": "optimum",
+   "t": "optimum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (4 | 0), (2 | 4), (0 | 6). In welchem Eckpunkt wird Z = x + 6y maximal?",
+    "schablone": "(□ | □)",
+    "hinweis": "Koordinaten der Ecke"
+   },
+   "o": {
+    "werte": [
+     0,
      6
     ]
    },
-   "w": "(0 | 0): 0; (5 | 0): 15; (4 | 6): 18; (0 | 11): 11. Am größten bei (4 | 6).",
-   "h": "Alle Ecken in Z einsetzen und vergleichen.",
+   "w": "(0 | 0): 0; (4 | 0): 4; (2 | 4): 26; (0 | 6): 36. Am größten bei (0 | 6).",
    "c": [
-    "4",
+    "0",
     "6"
    ]
   },
   {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "test",
-   "s": 2,
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (6 | 0), (3 | 8), (0 | 10). Wie groß ist das Maximum von Z = x + 7y?"
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 2x + y ≤ 24, II: 2x + 11y ≤ 44, x ≥ 0, y ≥ 0. Gewinn: G = 7x + 10y (in €). Die Ecken des Bereichs sind (0 | 0), (12 | 0), (11 | 2), (0 | 4). Wie hoch ist der größtmögliche Gewinn?"
    },
    "o": {
-    "wert": 70
+    "wert": 97,
+    "einheit": "€"
    },
-   "c": "max(1 * 0 + 7 * 0, 1 * 6 + 7 * 0, 1 * 3 + 7 * 8, 1 * 0 + 7 * 10)",
-   "w": "(0 | 0): 0; (6 | 0): 6; (3 | 8): 59; (0 | 10): 70. Maximum: 70."
+   "c": "max(7 * 0 + 10 * 0, 7 * 12 + 10 * 0, 7 * 11 + 10 * 2, 7 * 0 + 10 * 4)",
+   "w": "(0 | 0): 0 €; (12 | 0): 84 €; (11 | 2): 97 €; (0 | 4): 40 €. Größter Gewinn: 97 €.",
+   "h": "Gewinn an allen Ecken berechnen und vergleichen."
   },
   {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "korrektur",
-   "s": 2,
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (9 | 0), (6 | 6), (0 | 12). Wie groß ist das Maximum von Z = x + 9y?"
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 4x + 5y ≤ 48, II: x + 7y ≤ 35, x ≥ 0, y ≥ 0. Gewinn: G = 15x + 3y (in €). Die Ecken des Bereichs sind (0 | 0), (12 | 0), (7 | 4), (0 | 5). Wie hoch ist der größtmögliche Gewinn?"
    },
    "o": {
-    "wert": 108
+    "wert": 180,
+    "einheit": "€"
    },
-   "c": "max(1 * 0 + 9 * 0, 1 * 9 + 9 * 0, 1 * 6 + 9 * 6, 1 * 0 + 9 * 12)",
-   "w": "(0 | 0): 0; (9 | 0): 9; (6 | 6): 60; (0 | 12): 108. Maximum: 108."
+   "c": "max(15 * 0 + 3 * 0, 15 * 12 + 3 * 0, 15 * 7 + 3 * 4, 15 * 0 + 3 * 5)",
+   "w": "(0 | 0): 0 €; (12 | 0): 180 €; (7 | 4): 117 €; (0 | 5): 15 €. Größter Gewinn: 180 €.",
+   "h": "Gewinn an allen Ecken berechnen und vergleichen."
   },
   {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "korrektur",
-   "s": 2,
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (7 | 0), (6 | 3), (0 | 4). Wie groß ist das Maximum von Z = 7x + 6y?"
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 2x + y ≤ 18, II: 2x + 7y ≤ 42, x ≥ 0, y ≥ 0. Gewinn: G = 6x + 15y (in €). Die Ecken des Bereichs sind (0 | 0), (9 | 0), (7 | 4), (0 | 6). Wie hoch ist der größtmögliche Gewinn?"
    },
    "o": {
-    "wert": 60
+    "wert": 102,
+    "einheit": "€"
    },
-   "c": "max(7 * 0 + 6 * 0, 7 * 7 + 6 * 0, 7 * 6 + 6 * 3, 7 * 0 + 6 * 4)",
-   "w": "(0 | 0): 0; (7 | 0): 49; (6 | 3): 60; (0 | 4): 24. Maximum: 60."
+   "c": "max(6 * 0 + 15 * 0, 6 * 9 + 15 * 0, 6 * 7 + 15 * 4, 6 * 0 + 15 * 6)",
+   "w": "(0 | 0): 0 €; (9 | 0): 54 €; (7 | 4): 102 €; (0 | 6): 90 €. Größter Gewinn: 102 €.",
+   "h": "Gewinn an allen Ecken berechnen und vergleichen."
   },
   {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "korrektur",
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 7x + y ≤ 28, II: x + 3y ≤ 24, x ≥ 0, y ≥ 0. Gewinn: G = 10x + 7y (in €). Die Ecken des Bereichs sind (0 | 0), (4 | 0), (3 | 7), (0 | 8). Wie hoch ist der größtmögliche Gewinn?"
+   },
+   "o": {
+    "wert": 79,
+    "einheit": "€"
+   },
+   "c": "max(10 * 0 + 7 * 0, 10 * 4 + 7 * 0, 10 * 3 + 7 * 7, 10 * 0 + 7 * 8)",
+   "w": "(0 | 0): 0 €; (4 | 0): 40 €; (3 | 7): 79 €; (0 | 8): 56 €. Größter Gewinn: 79 €.",
+   "h": "Gewinn an allen Ecken berechnen und vergleichen."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: x + y ≤ 8, II: x + 4y ≤ 20, x ≥ 0, y ≥ 0. Gewinn: G = 13x + 3y (in €). Die Ecken des Bereichs sind (0 | 0), (8 | 0), (4 | 4), (0 | 5). Wie hoch ist der größtmögliche Gewinn?"
+   },
+   "o": {
+    "wert": 104,
+    "einheit": "€"
+   },
+   "c": "max(13 * 0 + 3 * 0, 13 * 8 + 3 * 0, 13 * 4 + 3 * 4, 13 * 0 + 3 * 5)",
+   "w": "(0 | 0): 0 €; (8 | 0): 104 €; (4 | 4): 64 €; (0 | 5): 15 €. Größter Gewinn: 104 €.",
+   "h": "Gewinn an allen Ecken berechnen und vergleichen."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 4x + y ≤ 24, II: 3x + 5y ≤ 35, x ≥ 0, y ≥ 0. Gewinn: G = 8x + 11y (in €). Die Ecken des Bereichs sind (0 | 0), (6 | 0), (5 | 4), (0 | 7). Wie hoch ist der größtmögliche Gewinn?"
+   },
+   "o": {
+    "wert": 84,
+    "einheit": "€"
+   },
+   "c": "max(8 * 0 + 11 * 0, 8 * 6 + 11 * 0, 8 * 5 + 11 * 4, 8 * 0 + 11 * 7)",
+   "w": "(0 | 0): 0 €; (6 | 0): 48 €; (5 | 4): 84 €; (0 | 7): 77 €. Größter Gewinn: 84 €.",
+   "h": "Gewinn an allen Ecken berechnen und vergleichen."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (8 | 0), (7 | 5), (0 | 12). In welchem Eckpunkt wird Z = 3x + 8y maximal?",
-    "schablone": "(□ | □)",
-    "hinweis": "Koordinaten der Ecke"
-   },
-   "o": {
-    "werte": [
-     0,
-     12
-    ]
-   },
-   "w": "(0 | 0): 0; (8 | 0): 24; (7 | 5): 61; (0 | 12): 96. Am größten bei (0 | 12).",
-   "c": [
-    "0",
-    "12"
-   ]
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (5 | 0), (3 | 9), (0 | 11). Wie groß ist das Maximum von Z = 4x + 7y?"
-   },
-   "o": {
-    "wert": 77
-   },
-   "c": "max(4 * 0 + 7 * 0, 4 * 5 + 7 * 0, 4 * 3 + 7 * 9, 4 * 0 + 7 * 11)",
-   "w": "(0 | 0): 0; (5 | 0): 20; (3 | 9): 75; (0 | 11): 77. Maximum: 77."
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (10 | 0), (7 | 2), (0 | 4). Wie groß ist das Maximum von Z = 9x + 8y?"
-   },
-   "o": {
-    "wert": 90
-   },
-   "c": "max(9 * 0 + 8 * 0, 9 * 10 + 8 * 0, 9 * 7 + 8 * 2, 9 * 0 + 8 * 4)",
-   "w": "(0 | 0): 0; (10 | 0): 90; (7 | 2): 79; (0 | 4): 32. Maximum: 90."
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (4 | 0), (2 | 4), (0 | 5). In welchem Eckpunkt wird Z = x + 5y maximal?",
-    "schablone": "(□ | □)",
-    "hinweis": "Koordinaten der Ecke"
-   },
-   "o": {
-    "werte": [
-     0,
-     5
-    ]
-   },
-   "w": "(0 | 0): 0; (4 | 0): 4; (2 | 4): 22; (0 | 5): 25. Am größten bei (0 | 5).",
-   "c": [
-    "0",
-    "5"
-   ]
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (12 | 0), (11 | 3), (0 | 4). Wie groß ist das Maximum von Z = 9x + 2y?"
-   },
-   "o": {
-    "wert": 108
-   },
-   "c": "max(9 * 0 + 2 * 0, 9 * 12 + 2 * 0, 9 * 11 + 2 * 3, 9 * 0 + 2 * 4)",
-   "w": "(0 | 0): 0; (12 | 0): 108; (11 | 3): 105; (0 | 4): 8. Maximum: 108."
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (10 | 0), (7 | 6), (0 | 8). Wie groß ist das Maximum von Z = 3x + 3y?"
-   },
-   "o": {
-    "wert": 39
-   },
-   "c": "max(3 * 0 + 3 * 0, 3 * 10 + 3 * 0, 3 * 7 + 3 * 6, 3 * 0 + 3 * 8)",
-   "w": "(0 | 0): 0; (10 | 0): 30; (7 | 6): 39; (0 | 8): 24. Maximum: 39."
-  },
-  {
-   "l": "optimum",
-   "t": "optimum",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Der zulässige Bereich hat die Ecken (0 | 0), (4 | 0), (3 | 10), (0 | 12). In welchem Eckpunkt wird Z = x + 5y maximal?",
-    "schablone": "(□ | □)",
-    "hinweis": "Koordinaten der Ecke"
-   },
-   "o": {
-    "werte": [
-     0,
-     12
-    ]
-   },
-   "w": "(0 | 0): 0; (4 | 0): 4; (3 | 10): 53; (0 | 12): 60. Am größten bei (0 | 12).",
-   "c": [
-    "0",
-    "12"
-   ]
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 5x + 3y ≤ 55, II: x + 2y ≤ 18, x ≥ 0, y ≥ 0. Gewinn: G = 7x + 7y (in €). Die Ecken des Bereichs sind (0 | 0), (11 | 0), (8 | 5), (0 | 9). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 91,
-    "einheit": "€"
-   },
-   "c": "max(7 * 0 + 7 * 0, 7 * 11 + 7 * 0, 7 * 8 + 7 * 5, 7 * 0 + 7 * 9)",
-   "w": "(0 | 0): 0 €; (11 | 0): 77 €; (8 | 5): 91 €; (0 | 9): 63 €. Größter Gewinn: 91 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 4x + y ≤ 40, II: x + 3y ≤ 21, x ≥ 0, y ≥ 0. Gewinn: G = 3x + 5y (in €). Die Ecken des Bereichs sind (0 | 0), (10 | 0), (9 | 4), (0 | 7). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 47,
-    "einheit": "€"
-   },
-   "c": "max(3 * 0 + 5 * 0, 3 * 10 + 5 * 0, 3 * 9 + 5 * 4, 3 * 0 + 5 * 7)",
-   "w": "(0 | 0): 0 €; (10 | 0): 30 €; (9 | 4): 47 €; (0 | 7): 35 €. Größter Gewinn: 47 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 3x + y ≤ 15, II: x + 4y ≤ 16, x ≥ 0, y ≥ 0. Gewinn: G = 5x + 3y (in €). Die Ecken des Bereichs sind (0 | 0), (5 | 0), (4 | 3), (0 | 4). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 29,
-    "einheit": "€"
-   },
-   "c": "max(5 * 0 + 3 * 0, 5 * 5 + 3 * 0, 5 * 4 + 3 * 3, 5 * 0 + 3 * 4)",
-   "w": "(0 | 0): 0 €; (5 | 0): 25 €; (4 | 3): 29 €; (0 | 4): 12 €. Größter Gewinn: 29 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 3x + y ≤ 21, II: x + 6y ≤ 24, x ≥ 0, y ≥ 0. Gewinn: G = 7x + 15y (in €). Die Ecken des Bereichs sind (0 | 0), (7 | 0), (6 | 3), (0 | 4). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 87,
-    "einheit": "€"
-   },
-   "c": "max(7 * 0 + 15 * 0, 7 * 7 + 15 * 0, 7 * 6 + 15 * 3, 7 * 0 + 15 * 4)",
-   "w": "(0 | 0): 0 €; (7 | 0): 49 €; (6 | 3): 87 €; (0 | 4): 60 €. Größter Gewinn: 87 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 9x + 2y ≤ 54, II: x + 2y ≤ 22, x ≥ 0, y ≥ 0. Gewinn: G = 9x + 6y (in €). Die Ecken des Bereichs sind (0 | 0), (6 | 0), (4 | 9), (0 | 11). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "€"
-   },
-   "c": "max(9 * 0 + 6 * 0, 9 * 6 + 6 * 0, 9 * 4 + 6 * 9, 9 * 0 + 6 * 11)",
-   "w": "(0 | 0): 0 €; (6 | 0): 54 €; (4 | 9): 90 €; (0 | 11): 66 €. Größter Gewinn: 90 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 3x + y ≤ 27, II: x + 8y ≤ 32, x ≥ 0, y ≥ 0. Gewinn: G = 14x + 14y (in €). Die Ecken des Bereichs sind (0 | 0), (9 | 0), (8 | 3), (0 | 4). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 154,
-    "einheit": "€"
-   },
-   "c": "max(14 * 0 + 14 * 0, 14 * 9 + 14 * 0, 14 * 8 + 14 * 3, 14 * 0 + 14 * 4)",
-   "w": "(0 | 0): 0 €; (9 | 0): 126 €; (8 | 3): 154 €; (0 | 4): 56 €. Größter Gewinn: 154 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 2x + y ≤ 10, II: x + 3y ≤ 15, x ≥ 0, y ≥ 0. Gewinn: G = 7x + 14y (in €). Die Ecken des Bereichs sind (0 | 0), (5 | 0), (3 | 4), (0 | 5). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 77,
-    "einheit": "€"
-   },
-   "c": "max(7 * 0 + 14 * 0, 7 * 5 + 14 * 0, 7 * 3 + 14 * 4, 7 * 0 + 14 * 5)",
-   "w": "(0 | 0): 0 €; (5 | 0): 35 €; (3 | 4): 77 €; (0 | 5): 70 €. Größter Gewinn: 77 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 3x + 2y ≤ 30, II: x + 3y ≤ 24, x ≥ 0, y ≥ 0. Gewinn: G = 3x + 6y (in €). Die Ecken des Bereichs sind (0 | 0), (10 | 0), (6 | 6), (0 | 8). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 54,
-    "einheit": "€"
-   },
-   "c": "max(3 * 0 + 6 * 0, 3 * 10 + 6 * 0, 3 * 6 + 6 * 6, 3 * 0 + 6 * 8)",
-   "w": "(0 | 0): 0 €; (10 | 0): 30 €; (6 | 6): 54 €; (0 | 8): 48 €. Größter Gewinn: 54 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 8x + 3y ≤ 48, II: 4x + 3y ≤ 36, x ≥ 0, y ≥ 0. Gewinn: G = 6x + 4y (in €). Die Ecken des Bereichs sind (0 | 0), (6 | 0), (3 | 8), (0 | 12). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "€"
-   },
-   "c": "max(6 * 0 + 4 * 0, 6 * 6 + 4 * 0, 6 * 3 + 4 * 8, 6 * 0 + 4 * 12)",
-   "w": "(0 | 0): 0 €; (6 | 0): 36 €; (3 | 8): 50 €; (0 | 12): 48 €. Größter Gewinn: 50 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: x + y ≤ 8, II: 2x + 5y ≤ 25, x ≥ 0, y ≥ 0. Gewinn: G = 7x + 3y (in €). Die Ecken des Bereichs sind (0 | 0), (8 | 0), (5 | 3), (0 | 5). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 56,
-    "einheit": "€"
-   },
-   "c": "max(7 * 0 + 3 * 0, 7 * 8 + 3 * 0, 7 * 5 + 3 * 3, 7 * 0 + 3 * 5)",
-   "w": "(0 | 0): 0 €; (8 | 0): 56 €; (5 | 3): 44 €; (0 | 5): 15 €. Größter Gewinn: 56 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 4x + y ≤ 40, II: 2x + 3y ≤ 30, x ≥ 0, y ≥ 0. Gewinn: G = 12x + 10y (in €). Die Ecken des Bereichs sind (0 | 0), (10 | 0), (9 | 4), (0 | 10). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 148,
-    "einheit": "€"
-   },
-   "c": "max(12 * 0 + 10 * 0, 12 * 10 + 10 * 0, 12 * 9 + 10 * 4, 12 * 0 + 10 * 10)",
-   "w": "(0 | 0): 0 €; (10 | 0): 120 €; (9 | 4): 148 €; (0 | 10): 100 €. Größter Gewinn: 148 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 5x + y ≤ 50, II: 2x + 3y ≤ 33, x ≥ 0, y ≥ 0. Gewinn: G = 5x + 9y (in €). Die Ecken des Bereichs sind (0 | 0), (10 | 0), (9 | 5), (0 | 11). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 99,
-    "einheit": "€"
-   },
-   "c": "max(5 * 0 + 9 * 0, 5 * 10 + 9 * 0, 5 * 9 + 9 * 5, 5 * 0 + 9 * 11)",
-   "w": "(0 | 0): 0 €; (10 | 0): 50 €; (9 | 5): 90 €; (0 | 11): 99 €. Größter Gewinn: 99 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 5x + 4y ≤ 60, II: x + 4y ≤ 44, x ≥ 0, y ≥ 0. Gewinn: G = 9x + 9y (in €). Die Ecken des Bereichs sind (0 | 0), (12 | 0), (4 | 10), (0 | 11). Wie viele Rucksäcke und Taschen sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 7x + 2y ≤ 49, II: x + 5y ≤ 40, x ≥ 0, y ≥ 0. Gewinn: G = 9x + 7y (in €). Die Ecken des Bereichs sind (0 | 0), (7 | 0), (5 | 7), (0 | 8). Wie viele Rucksäcke und Taschen sollen hergestellt werden, damit der Gewinn am größten ist?",
     "schablone": "□ Rucksäcke und □ Taschen",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     4,
+     5,
+     7
+    ]
+   },
+   "w": "(0 | 0): 0 €; (7 | 0): 63 €; (5 | 7): 94 €; (0 | 8): 56 €. Am besten: 5 Rucksäcke und 7 Taschen (94 €).",
+   "h": "Erst den Gewinn an allen Ecken berechnen, dann die Ecke als Produktionsplan lesen.",
+   "c": [
+    "5",
+    "7"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 5x + 2y ≤ 30, II: x + 2y ≤ 22, x ≥ 0, y ≥ 0. Gewinn: G = 7x + 10y (in €). Die Ecken des Bereichs sind (0 | 0), (6 | 0), (2 | 10), (0 | 11). Wie viele Tische und Stühle sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Tische und □ Stühle",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     2,
      10
     ]
    },
-   "w": "(0 | 0): 0 €; (12 | 0): 108 €; (4 | 10): 126 €; (0 | 11): 99 €. Am besten: 4 Rucksäcke und 10 Taschen (126 €).",
+   "w": "(0 | 0): 0 €; (6 | 0): 42 €; (2 | 10): 114 €; (0 | 11): 110 €. Am besten: 2 Tische und 10 Stühle (114 €).",
    "h": "Erst den Gewinn an allen Ecken berechnen, dann die Ecke als Produktionsplan lesen.",
    "c": [
-    "4",
+    "2",
     "10"
    ]
   },
@@ -4536,194 +4508,321 @@
    "l": "sach",
    "t": "sach",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: x + y ≤ 10, II: x + 4y ≤ 16, x ≥ 0, y ≥ 0. Gewinn: G = 12x + 15y (in €). Die Ecken des Bereichs sind (0 | 0), (10 | 0), (8 | 2), (0 | 4). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 126,
-    "einheit": "€"
-   },
-   "c": "max(12 * 0 + 15 * 0, 12 * 10 + 15 * 0, 12 * 8 + 15 * 2, 12 * 0 + 15 * 4)",
-   "w": "(0 | 0): 0 €; (10 | 0): 120 €; (8 | 2): 126 €; (0 | 4): 60 €. Größter Gewinn: 126 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 4x + y ≤ 28, II: x + 5y ≤ 45, x ≥ 0, y ≥ 0. Gewinn: G = 3x + 12y (in €). Die Ecken des Bereichs sind (0 | 0), (7 | 0), (5 | 8), (0 | 9). Wie viele T-Shirts und Pullover sollen hergestellt werden, damit der Gewinn am größten ist?",
-    "schablone": "□ T-Shirts und □ Pullover",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     5,
-     8
-    ]
-   },
-   "w": "(0 | 0): 0 €; (7 | 0): 21 €; (5 | 8): 111 €; (0 | 9): 108 €. Am besten: 5 T-Shirts und 8 Pullover (111 €).",
-   "h": "Erst den Gewinn an allen Ecken berechnen, dann die Ecke als Produktionsplan lesen.",
-   "c": [
-    "5",
-    "8"
-   ]
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 6x + y ≤ 36, II: x + 5y ≤ 35, x ≥ 0, y ≥ 0. Gewinn: G = 10x + 8y (in €). Die Ecken des Bereichs sind (0 | 0), (6 | 0), (5 | 6), (0 | 7). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 98,
-    "einheit": "€"
-   },
-   "c": "max(10 * 0 + 8 * 0, 10 * 6 + 8 * 0, 10 * 5 + 8 * 6, 10 * 0 + 8 * 7)",
-   "w": "(0 | 0): 0 €; (6 | 0): 60 €; (5 | 6): 98 €; (0 | 7): 56 €. Größter Gewinn: 98 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 5x + y ≤ 25, II: x + y ≤ 9, x ≥ 0, y ≥ 0. Gewinn: G = 13x + 2y (in €). Die Ecken des Bereichs sind (0 | 0), (5 | 0), (4 | 5), (0 | 9). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 65,
-    "einheit": "€"
-   },
-   "c": "max(13 * 0 + 2 * 0, 13 * 5 + 2 * 0, 13 * 4 + 2 * 5, 13 * 0 + 2 * 9)",
-   "w": "(0 | 0): 0 €; (5 | 0): 65 €; (4 | 5): 62 €; (0 | 9): 18 €. Größter Gewinn: 65 €.",
-   "h": "Gewinn an allen Ecken berechnen und vergleichen."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 4x + y ≤ 28, II: x + 6y ≤ 30, x ≥ 0, y ≥ 0. Gewinn: G = 4x + 14y (in €). Die Ecken des Bereichs sind (0 | 0), (7 | 0), (6 | 4), (0 | 5). Wie viele Kuchen und Torten sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 2x + y ≤ 18, II: x + 7y ≤ 35, x ≥ 0, y ≥ 0. Gewinn: G = 7x + 8y (in €). Die Ecken des Bereichs sind (0 | 0), (9 | 0), (7 | 4), (0 | 5). Wie viele Kuchen und Torten sollen hergestellt werden, damit der Gewinn am größten ist?",
     "schablone": "□ Kuchen und □ Torten",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     6,
+     7,
      4
     ]
    },
-   "w": "(0 | 0): 0 €; (7 | 0): 28 €; (6 | 4): 80 €; (0 | 5): 70 €. Am besten: 6 Kuchen und 4 Torten (80 €).",
+   "w": "(0 | 0): 0 €; (9 | 0): 63 €; (7 | 4): 81 €; (0 | 5): 40 €. Am besten: 7 Kuchen und 4 Torten (81 €).",
    "h": "Erst den Gewinn an allen Ecken berechnen, dann die Ecke als Produktionsplan lesen.",
    "c": [
-    "6",
+    "7",
     "4"
    ]
   },
   {
    "l": "sach",
    "t": "sach",
-   "p": "test",
+   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 7x + 4y ≤ 49, II: x + 3y ≤ 24, x ≥ 0, y ≥ 0. Gewinn: G = 3x + 12y (in €). Die Ecken des Bereichs sind (0 | 0), (7 | 0), (3 | 7), (0 | 8). Wie viele Rucksäcke und Taschen sollen hergestellt werden, damit der Gewinn am größten ist?",
-    "schablone": "□ Rucksäcke und □ Taschen",
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 2x + 3y ≤ 18, II: x + 3y ≤ 12, x ≥ 0, y ≥ 0. Gewinn: G = 15x + 10y (in €). Die Ecken des Bereichs sind (0 | 0), (9 | 0), (6 | 2), (0 | 4). Wie viele Kuchen und Torten sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Kuchen und □ Torten",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     0,
-     8
+     9,
+     0
     ]
    },
-   "w": "(0 | 0): 0 €; (7 | 0): 21 €; (3 | 7): 93 €; (0 | 8): 96 €. Am besten: 0 Rucksäcke und 8 Taschen (96 €).",
+   "w": "(0 | 0): 0 €; (9 | 0): 135 €; (6 | 2): 110 €; (0 | 4): 40 €. Am besten: 9 Kuchen und 0 Torten (135 €).",
+   "h": "Erst den Gewinn an allen Ecken berechnen, dann die Ecke als Produktionsplan lesen.",
    "c": [
-    "0",
-    "8"
+    "9",
+    "0"
    ]
   },
   {
    "l": "sach",
    "t": "sach",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 5x + y ≤ 50, II: x + 4y ≤ 48, x ≥ 0, y ≥ 0. Gewinn: G = 6x + 9y (in €). Die Ecken des Bereichs sind (0 | 0), (10 | 0), (8 | 10), (0 | 12). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 138,
-    "einheit": "€"
-   },
-   "c": "max(6 * 0 + 9 * 0, 6 * 10 + 9 * 0, 6 * 8 + 9 * 10, 6 * 0 + 9 * 12)",
-   "w": "(0 | 0): 0 €; (10 | 0): 60 €; (8 | 10): 138 €; (0 | 12): 108 €. Größter Gewinn: 138 €."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 6x + y ≤ 48, II: 2x + 7y ≤ 56, x ≥ 0, y ≥ 0. Gewinn: G = 2x + 5y (in €). Die Ecken des Bereichs sind (0 | 0), (8 | 0), (7 | 6), (0 | 8). Wie viele Rucksäcke und Taschen sollen hergestellt werden, damit der Gewinn am größten ist?",
-    "schablone": "□ Rucksäcke und □ Taschen",
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 2x + y ≤ 16, II: 2x + 3y ≤ 36, x ≥ 0, y ≥ 0. Gewinn: G = 3x + 5y (in €). Die Ecken des Bereichs sind (0 | 0), (8 | 0), (3 | 10), (0 | 12). Wie viele Tische und Stühle sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Tische und □ Stühle",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     7,
+     0,
+     12
+    ]
+   },
+   "w": "(0 | 0): 0 €; (8 | 0): 24 €; (3 | 10): 59 €; (0 | 12): 60 €. Am besten: 0 Tische und 12 Stühle (60 €).",
+   "h": "Erst den Gewinn an allen Ecken berechnen, dann die Ecke als Produktionsplan lesen.",
+   "c": [
+    "0",
+    "12"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 3x + 2y ≤ 15, II: 2x + 3y ≤ 15, x ≥ 0, y ≥ 0. Gewinn: G = 11x + 11y (in €). Die Ecken des Bereichs sind (0 | 0), (5 | 0), (3 | 3), (0 | 5). Wie viele Tische und Stühle sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Tische und □ Stühle",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     3,
+     3
+    ]
+   },
+   "w": "(0 | 0): 0 €; (5 | 0): 55 €; (3 | 3): 66 €; (0 | 5): 55 €. Am besten: 3 Tische und 3 Stühle (66 €).",
+   "h": "Erst den Gewinn an allen Ecken berechnen, dann die Ecke als Produktionsplan lesen.",
+   "c": [
+    "3",
+    "3"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 6x + y ≤ 24, II: x + 3y ≤ 21, x ≥ 0, y ≥ 0. Gewinn: G = 3x + 5y (in €). Bestimme zuerst die Ecken des Bereichs. Wie viele Tische und Stühle bringen den größten Gewinn?",
+    "schablone": "□ Tische und □ Stühle",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     3,
      6
     ]
    },
-   "w": "(0 | 0): 0 €; (8 | 0): 16 €; (7 | 6): 44 €; (0 | 8): 40 €. Am besten: 7 Rucksäcke und 6 Taschen (44 €).",
+   "w": "Ecken: (0 | 0), Achsenschnitt von I (4 | 0), Achsenschnitt von II (0 | 7), Schnitt I/II (3 | 6). (0 | 0): 0 €; (4 | 0): 12 €; (3 | 6): 39 €; (0 | 7): 35 €. Am besten: 3 Tische und 6 Stühle.",
+   "h": "Ecken: Achsenschnitte der Randgeraden und ihr Schnittpunkt. Dann G an allen Ecken vergleichen.",
    "c": [
-    "7",
+    "3",
     "6"
    ]
   },
   {
    "l": "sach",
    "t": "sach",
-   "p": "korrektur",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 4x + y ≤ 20, II: 5x + 4y ≤ 36, x ≥ 0, y ≥ 0. Gewinn: G = 9x + 14y (in €). Die Ecken des Bereichs sind (0 | 0), (5 | 0), (4 | 4), (0 | 9). Ein Mitarbeiter schlägt vor, 4 Kuchen und 4 Torten herzustellen. Um wie viel € ist der beste Plan besser?"
+   },
+   "o": {
+    "wert": 34,
+    "einheit": "€"
+   },
+   "c": "126 - (9 * 4 + 14 * 4)",
+   "w": "Vorschlag: 9 · 4 + 14 · 4 = 92 €. Bester Plan (0 | 9): 126 €. Unterschied: 34 €.",
+   "h": "Bestimme den besten Plan und vergleiche."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Ecken des Bereichs: (0 | 0), (6 | 0), (4 | 4), (0 | 6). Bisher gilt G = 7x + 5y, bester Plan (4 | 4). Nun bringt ein Kuchen 12 € statt 7 €. Ändert sich der beste Plan?"
+   },
+   "a": [
+    "Ja, jetzt ist (6 | 0) am besten.",
+    "Ja, jetzt ist (0 | 6) am besten.",
+    "Das kann man ohne Zeichnung nicht sagen.",
+    "Nein, der beste Plan bleibt gleich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Neuer Gewinn an den Ecken: (0 | 0): 0 €; (6 | 0): 72 €; (4 | 4): 68 €; (0 | 6): 30 €. Ja, jetzt ist (6 | 0) am besten.",
+   "h": "Rechne den neuen Gewinn an allen Ecken aus."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 5x + y ≤ 25, II: x + y ≤ 9, x ≥ 0, y ≥ 0. Gewinn: G = 8x + 4y (in €). Die Ecken des Bereichs sind (0 | 0), (5 | 0), (4 | 5), (0 | 9). Wie viele T-Shirts und Pullover sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 3x + y ≤ 21, II: x + 6y ≤ 24, x ≥ 0, y ≥ 0. Gewinn: G = 8x + 12y (in €). Bestimme zuerst die Ecken des Bereichs. Wie viele T-Shirts und Pullover bringen den größten Gewinn?",
     "schablone": "□ T-Shirts und □ Pullover",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     4,
-     5
+     6,
+     3
     ]
    },
-   "w": "(0 | 0): 0 €; (5 | 0): 40 €; (4 | 5): 52 €; (0 | 9): 36 €. Am besten: 4 T-Shirts und 5 Pullover (52 €).",
+   "w": "Ecken: (0 | 0), Achsenschnitt von I (7 | 0), Achsenschnitt von II (0 | 4), Schnitt I/II (6 | 3). (0 | 0): 0 €; (7 | 0): 56 €; (6 | 3): 84 €; (0 | 4): 48 €. Am besten: 6 T-Shirts und 3 Pullover.",
+   "h": "Ecken: Achsenschnitte der Randgeraden und ihr Schnittpunkt. Dann G an allen Ecken vergleichen.",
    "c": [
-    "4",
-    "5"
+    "6",
+    "3"
    ]
   },
   {
    "l": "sach",
    "t": "sach",
-   "p": "sicherung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 2x + y ≤ 22, II: x + 2y ≤ 14, x ≥ 0, y ≥ 0. Gewinn: G = 11x + 3y (in €). Die Ecken des Bereichs sind (0 | 0), (11 | 0), (10 | 2), (0 | 7). Ein Mitarbeiter schlägt vor, 10 Rucksäcke und 2 Taschen herzustellen. Um wie viel € ist der beste Plan besser?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "€"
+   },
+   "c": "121 - (11 * 10 + 3 * 2)",
+   "w": "Vorschlag: 11 · 10 + 3 · 2 = 116 €. Bester Plan (11 | 0): 121 €. Unterschied: 5 €.",
+   "h": "Bestimme den besten Plan und vergleiche."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Ecken des Bereichs: (0 | 0), (10 | 0), (6 | 5), (0 | 8). Bisher gilt G = 5x + 12y, bester Plan (0 | 8). Nun bringt ein Kuchen 20 € statt 5 €. Ändert sich der beste Plan?"
+   },
+   "a": [
+    "Nein, der beste Plan bleibt gleich.",
+    "Das kann man ohne Zeichnung nicht sagen.",
+    "Ja, jetzt ist (6 | 5) am besten.",
+    "Ja, jetzt ist (10 | 0) am besten."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Neuer Gewinn an den Ecken: (0 | 0): 0 €; (10 | 0): 200 €; (6 | 5): 180 €; (0 | 8): 96 €. Ja, jetzt ist (10 | 0) am besten.",
+   "h": "Rechne den neuen Gewinn an allen Ecken aus."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 3x + y ≤ 15, II: x + y ≤ 9, x ≥ 0, y ≥ 0. Gewinn: G = 13x + 12y (in €). Bestimme zuerst die Ecken des Bereichs. Wie viele T-Shirts und Pullover bringen den größten Gewinn?",
+    "schablone": "□ T-Shirts und □ Pullover",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     3,
+     6
+    ]
+   },
+   "w": "Ecken: (0 | 0), Achsenschnitt von I (5 | 0), Achsenschnitt von II (0 | 9), Schnitt I/II (3 | 6). (0 | 0): 0 €; (5 | 0): 65 €; (3 | 6): 111 €; (0 | 9): 108 €. Am besten: 3 T-Shirts und 6 Pullover.",
+   "h": "Ecken: Achsenschnitte der Randgeraden und ihr Schnittpunkt. Dann G an allen Ecken vergleichen.",
+   "c": [
+    "3",
+    "6"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Ecken des Bereichs: (0 | 0), (7 | 0), (5 | 6), (0 | 7). Bisher gilt G = 9x + 14y, bester Plan (5 | 6). Nun bringt ein Rucksack 11 € statt 9 €. Ändert sich der beste Plan?"
+   },
+   "a": [
+    "Ja, jetzt ist (0 | 7) am besten.",
+    "Ja, jetzt ist (7 | 0) am besten.",
+    "Das kann man ohne Zeichnung nicht sagen.",
+    "Nein, der beste Plan bleibt gleich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Neuer Gewinn an den Ecken: (0 | 0): 0 €; (7 | 0): 77 €; (5 | 6): 139 €; (0 | 7): 98 €. Nein, der beste Plan bleibt gleich.",
+   "h": "Rechne den neuen Gewinn an allen Ecken aus."
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "test",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: x + y ≤ 9, II: 2x + 5y ≤ 30, x ≥ 0, y ≥ 0. Gewinn: G = 15x + 8y (in €). Die Ecken des Bereichs sind (0 | 0), (9 | 0), (5 | 4), (0 | 6). Wie viele Tische und Stühle sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: x + y ≤ 10, II: x + 7y ≤ 28, x ≥ 0, y ≥ 0. Gewinn: G = 4x + 11y (in €). Die Ecken des Bereichs sind (0 | 0), (10 | 0), (7 | 3), (0 | 4). Wie viele Rucksäcke und Taschen sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Rucksäcke und □ Taschen",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     7,
+     3
+    ]
+   },
+   "w": "(0 | 0): 0 €; (10 | 0): 40 €; (7 | 3): 61 €; (0 | 4): 44 €. Am besten: 7 Rucksäcke und 3 Taschen (61 €).",
+   "c": [
+    "7",
+    "3"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 7x + 3y ≤ 42, II: x + y ≤ 10, x ≥ 0, y ≥ 0. Gewinn: G = 9x + 12y (in €). Die Ecken des Bereichs sind (0 | 0), (6 | 0), (3 | 7), (0 | 10). Wie viele Kuchen und Torten sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Kuchen und □ Torten",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     0,
+     10
+    ]
+   },
+   "w": "(0 | 0): 0 €; (6 | 0): 54 €; (3 | 7): 111 €; (0 | 10): 120 €. Am besten: 0 Kuchen und 10 Torten (120 €).",
+   "c": [
+    "0",
+    "10"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 5x + 2y ≤ 45, II: x + 7y ≤ 42, x ≥ 0, y ≥ 0. Gewinn: G = 12x + 4y (in €). Die Ecken des Bereichs sind (0 | 0), (9 | 0), (7 | 5), (0 | 6). Wie viele Tische und Stühle sollen hergestellt werden, damit der Gewinn am größten ist?",
     "schablone": "□ Tische und □ Stühle",
     "hinweis": "zwei ganze Zahlen"
    },
@@ -4733,7 +4832,7 @@
      0
     ]
    },
-   "w": "(0 | 0): 0 €; (9 | 0): 135 €; (5 | 4): 107 €; (0 | 6): 48 €. Am besten: 9 Tische und 0 Stühle (135 €).",
+   "w": "(0 | 0): 0 €; (9 | 0): 108 €; (7 | 5): 104 €; (0 | 6): 24 €. Am besten: 9 Tische und 0 Stühle (108 €).",
    "c": [
     "9",
     "0"
@@ -4742,23 +4841,23 @@
   {
    "l": "sach",
    "t": "sach",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 2x + y ≤ 10, II: x + 2y ≤ 8, x ≥ 0, y ≥ 0. Gewinn: G = 14x + 4y (in €). Die Ecken des Bereichs sind (0 | 0), (5 | 0), (4 | 2), (0 | 4). Wie viele Tische und Stühle sollen hergestellt werden, damit der Gewinn am größten ist?",
-    "schablone": "□ Tische und □ Stühle",
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 3x + 4y ≤ 36, II: x + 4y ≤ 20, x ≥ 0, y ≥ 0. Gewinn: G = 15x + 4y (in €). Die Ecken des Bereichs sind (0 | 0), (12 | 0), (8 | 3), (0 | 5). Wie viele Rucksäcke und Taschen sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Rucksäcke und □ Taschen",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     5,
+     12,
      0
     ]
    },
-   "w": "(0 | 0): 0 €; (5 | 0): 70 €; (4 | 2): 64 €; (0 | 4): 16 €. Am besten: 5 Tische und 0 Stühle (70 €).",
+   "w": "(0 | 0): 0 €; (12 | 0): 180 €; (8 | 3): 132 €; (0 | 5): 20 €. Am besten: 12 Rucksäcke und 0 Taschen (180 €).",
    "c": [
-    "5",
+    "12",
     "0"
    ]
   },
@@ -4767,54 +4866,22 @@
    "t": "sach",
    "p": "sicherung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 4x + 5y ≤ 48, II: 3x + 7y ≤ 49, x ≥ 0, y ≥ 0. Gewinn: G = 3x + 12y (in €). Die Ecken des Bereichs sind (0 | 0), (12 | 0), (7 | 4), (0 | 7). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 84,
-    "einheit": "€"
-   },
-   "c": "max(3 * 0 + 12 * 0, 3 * 12 + 12 * 0, 3 * 7 + 12 * 4, 3 * 0 + 12 * 7)",
-   "w": "(0 | 0): 0 €; (12 | 0): 36 €; (7 | 4): 69 €; (0 | 7): 84 €. Größter Gewinn: 84 €."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 2x + y ≤ 20, II: 2x + 9y ≤ 36, x ≥ 0, y ≥ 0. Gewinn: G = 11x + 15y (in €). Die Ecken des Bereichs sind (0 | 0), (10 | 0), (9 | 2), (0 | 4). Wie hoch ist der größtmögliche Gewinn?"
-   },
-   "o": {
-    "wert": 129,
-    "einheit": "€"
-   },
-   "c": "max(11 * 0 + 15 * 0, 11 * 10 + 15 * 0, 11 * 9 + 15 * 2, 11 * 0 + 15 * 4)",
-   "w": "(0 | 0): 0 €; (10 | 0): 110 €; (9 | 2): 129 €; (0 | 4): 60 €. Größter Gewinn: 129 €."
-  },
-  {
-   "l": "sach",
-   "t": "sach",
-   "p": "sicherung",
-   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 7x + y ≤ 28, II: 5x + 3y ≤ 36, x ≥ 0, y ≥ 0. Gewinn: G = 14x + 13y (in €). Die Ecken des Bereichs sind (0 | 0), (4 | 0), (3 | 7), (0 | 12). Wie viele Kuchen und Torten sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 4x + 5y ≤ 48, II: x + 7y ≤ 35, x ≥ 0, y ≥ 0. Gewinn: G = 13x + 10y (in €). Die Ecken des Bereichs sind (0 | 0), (12 | 0), (7 | 4), (0 | 5). Wie viele Kuchen und Torten sollen hergestellt werden, damit der Gewinn am größten ist?",
     "schablone": "□ Kuchen und □ Torten",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     0,
-     12
+     12,
+     0
     ]
    },
-   "w": "(0 | 0): 0 €; (4 | 0): 56 €; (3 | 7): 133 €; (0 | 12): 156 €. Am besten: 0 Kuchen und 12 Torten (156 €).",
+   "w": "(0 | 0): 0 €; (12 | 0): 156 €; (7 | 4): 131 €; (0 | 5): 50 €. Am besten: 12 Kuchen und 0 Torten (156 €).",
    "c": [
-    "0",
-    "12"
+    "12",
+    "0"
    ]
   },
   {
@@ -4824,19 +4891,111 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 3x + 2y ≤ 18, II: x + 4y ≤ 16, x ≥ 0, y ≥ 0. Gewinn: G = 8x + 7y (in €). Die Ecken des Bereichs sind (0 | 0), (6 | 0), (4 | 3), (0 | 4). Wie viele T-Shirts und Pullover sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "text": "Eine Schreinerei stellt x Tische und y Stühle her. Bedingungen: I: 6x + y ≤ 54, II: x + 2y ≤ 20, x ≥ 0, y ≥ 0. Gewinn: G = 13x + 9y (in €). Die Ecken des Bereichs sind (0 | 0), (9 | 0), (8 | 6), (0 | 10). Wie viele Tische und Stühle sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Tische und □ Stühle",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     8,
+     6
+    ]
+   },
+   "w": "(0 | 0): 0 €; (9 | 0): 117 €; (8 | 6): 158 €; (0 | 10): 90 €. Am besten: 8 Tische und 6 Stühle (158 €).",
+   "c": [
+    "8",
+    "6"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 4x + y ≤ 28, II: 2x + 3y ≤ 24, x ≥ 0, y ≥ 0. Gewinn: G = 8x + 14y (in €). Die Ecken des Bereichs sind (0 | 0), (7 | 0), (6 | 4), (0 | 8). Wie viele Rucksäcke und Taschen sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Rucksäcke und □ Taschen",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     0,
+     8
+    ]
+   },
+   "w": "(0 | 0): 0 €; (7 | 0): 56 €; (6 | 4): 104 €; (0 | 8): 112 €. Am besten: 0 Rucksäcke und 8 Taschen (112 €).",
+   "c": [
+    "0",
+    "8"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Näherei stellt x T-Shirts und y Pullover her. Bedingungen: I: 3x + 2y ≤ 21, II: x + 5y ≤ 20, x ≥ 0, y ≥ 0. Gewinn: G = 15x + 2y (in €). Die Ecken des Bereichs sind (0 | 0), (7 | 0), (5 | 3), (0 | 4). Wie viele T-Shirts und Pullover sollen hergestellt werden, damit der Gewinn am größten ist?",
     "schablone": "□ T-Shirts und □ Pullover",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     4,
+     7,
+     0
+    ]
+   },
+   "w": "(0 | 0): 0 €; (7 | 0): 105 €; (5 | 3): 81 €; (0 | 4): 8 €. Am besten: 7 T-Shirts und 0 Pullover (105 €).",
+   "c": [
+    "7",
+    "0"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Werkstatt stellt x Rucksäcke und y Taschen her. Bedingungen: I: 5x + 2y ≤ 20, II: x + y ≤ 7, x ≥ 0, y ≥ 0. Gewinn: G = 11x + 15y (in €). Die Ecken des Bereichs sind (0 | 0), (4 | 0), (2 | 5), (0 | 7). Wie viele Rucksäcke und Taschen sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Rucksäcke und □ Taschen",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     0,
+     7
+    ]
+   },
+   "w": "(0 | 0): 0 €; (4 | 0): 44 €; (2 | 5): 97 €; (0 | 7): 105 €. Am besten: 0 Rucksäcke und 7 Taschen (105 €).",
+   "c": [
+    "0",
+    "7"
+   ]
+  },
+  {
+   "l": "sach",
+   "t": "sach",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Bäckerei stellt x Kuchen und y Torten her. Bedingungen: I: 3x + 2y ≤ 36, II: x + 2y ≤ 16, x ≥ 0, y ≥ 0. Gewinn: G = 10x + 9y (in €). Die Ecken des Bereichs sind (0 | 0), (12 | 0), (10 | 3), (0 | 8). Wie viele Kuchen und Torten sollen hergestellt werden, damit der Gewinn am größten ist?",
+    "schablone": "□ Kuchen und □ Torten",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     10,
      3
     ]
    },
-   "w": "(0 | 0): 0 €; (6 | 0): 48 €; (4 | 3): 53 €; (0 | 4): 28 €. Am besten: 4 T-Shirts und 3 Pullover (53 €).",
+   "w": "(0 | 0): 0 €; (12 | 0): 120 €; (10 | 3): 127 €; (0 | 8): 72 €. Am besten: 10 Kuchen und 3 Torten (127 €).",
    "c": [
-    "4",
+    "10",
     "3"
    ]
   }

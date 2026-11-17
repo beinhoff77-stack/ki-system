@@ -65,3 +65,21 @@ Nicht nachgestellt / Testartefakt möglich:
 | M1, M2, M3, M5, M7, M8, M9 | Haupt-Chat (App) |
 | M4 | Haupt-Chat (Markierung/Einsortierung) + Sebastian (Plan der Kinder ansehen) |
 | M6 | Haupt-Chat (Fallback-Text) + Inhalts-Chats (Fehlermuster je Auswahl-Option) |
+
+## 4. Eltern-/Lehrerseite gegen die Auswahl vom 16.11. (Nachtrag nach Sebastians Rückfrage)
+
+Vergleich: gebaute Seite 0.74.5 ↔ gewählter Entwurf (Artifact „Eltern- und Lehrerseite“, Vorschläge 1A, 2B, 3B, 5A, 6B) und `eltern/umsetzung.md`.
+
+| Punkt | Gewählt | Gebaut | Urteil |
+|---|---|---|---|
+| Plan zwei Spalten | Tablet **und** Rechner zwei Spalten, nur Handy untereinander | Zwei Spalten erst ab 1000 px Breite (`style.css` `.lern-plan-spalten`). Tablet hochkant (820 px): Lehrplan steht unter 12 Orten, erst nach Scrollen sichtbar | **weicht ab** |
+| Lehrplan-Spalte | Alle Orte der Klasse; was schon im Plan ist, mit ✓; Zeile „Klasse 5: 13 von 14 Flügen im Plan“; Hinweis „Klasse prüfen“ | Nur Orte, die noch **nicht** im Plan sind (bei Kind A nur Rio). Keine Abdeckung, kein ✓, kein Hinweis | **weicht ab** (im Entwurf gezeigt, in `umsetzung.md` von mir nicht ausdrücklich verlangt) |
+| Schulart/Klasse wählen | Reiter Gymnasium · Realschule · IB und Klassen-Knöpfe 4–10 | Zwei Auswahllisten | weicht ab (klein) |
+| Kopf des Plans | „Gymnasium Klasse 5 · 12 Orte · 2 geschafft“ | „Flugplan Kind A · Alles gespeichert“ ohne Zusammenfassung | weicht ab (klein) |
+| Flüge im Ort | Eine Zeile je Flug mit Häkchen, Klasse, Stand | Häkchen in eigener Zeile über dem Flug, ~90 px je Flug (M3) | **weicht ab** |
+| Ort aus anderer Klasse | Hinweis am Ort („andere Klasse dabei“ / „Klasse prüfen“) | Kein Hinweis; Cusco Gym 8 im Gym-5-Plan unmarkiert (M4) | **fehlt** |
+| Klasse des Kindes | Teil von „Plan anlegen“ (E-4), sonst speichert alles sofort | Eigenes Feld unten mit „Speichern“ (M2) | weicht ab |
+| Startseite je Kind | Karte je Kind mit drei Mini-Balken + Prozent | Karte je Kind gebaut; Balken im Test leer „–“ (vermutlich Testdaten, mit echten Daten prüfen) | gebaut, Balken offen |
+| Ändern lassen + Meine Aufträge | überall + Liste | an Flug, Erklärung, Etappe, Bordkarte, Plan; Liste vorhanden | erfüllt |
+| Info-Seite | 4 Karten + 7 Fragen | 4 Karten + 7 Fragen, 6-Punkte-Regel enthalten | erfüllt |
+| Sofort speichern, Rückgängig | ja | ja | erfüllt |

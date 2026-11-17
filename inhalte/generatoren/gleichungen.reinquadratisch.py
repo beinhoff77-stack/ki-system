@@ -484,6 +484,190 @@ def durchsicht(d):
         })
 
 
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('gleichungen.reinquadratisch', 20_91_7)
+Z, A, L = ST.Z, ST.A, ST.L
+_X2 = 'x₁ = □; x₂ = □'
+
+# schaetzen
+ST.stufenleiter('schaetzen', 'Eine Wurzel zwischen zwei ganze Zahlen setzen, näher liegende Zahl erkennen, mit dem Taschenrechner runden.',
+                'Ganze Zahlen zwischen zwei Wurzeln, Wurzeln und Dezimalzahlen ordnen, Seite eines Feldes einschätzen, auf Zehntel eingrenzen, größte Zahl unter einer Grenze.',
+                'Fehler „Wurzel ist die Hälfte“, Anzahl ganzer Zahlen zwischen Wurzeln, √(a + b) ≠ √a + √b begründen, √a < a nur für a > 1, Mindestseite eines Rahmens, Prüfungsaufgabe.')
+ST.typ('schaetzen', 'Zwischen welchen aufeinanderfolgenden', 'direkt')
+ST.typ('schaetzen', 'Berechne √', 'direkt')
+ST.typ('schaetzen', 'Liegt √', 'erkennen')
+ST.typ('schaetzen', 'Jemand schätzt', 'fehler')
+ST.typ('schaetzen', '/^(Welche ganzen Zahlen liegen|Ordne der Größe)/', 'mehrschritt')
+ST.typ('schaetzen', 'Wie viele ganze Zahlen liegen', 'verknuepfen')
+ST.typ('schaetzen', 'Ein quadratisches Feld', 'einkleidung')
+ST.typ('schaetzen', '√a liegt zwischen', 'umkehr')
+ST.neu('schaetzen', 'mehrschritt', A('Zwischen welchen Zahlen mit einer Dezimale liegt √12?', 'zwischen 3,4 und 3,5', ['zwischen 3,3 und 3,4', 'zwischen 3,5 und 3,6', 'zwischen 6,0 und 6,1'],
+       '3,4² = 11,56 < 12 und 3,5² = 12,25 > 12. Also liegt √12 zwischen 3,4 und 3,5 (√12 ≈ 3,46).', 'Quadriere die Zahlen 3,4 und 3,5.'))
+ST.neu('schaetzen', 'umkehr', Z('Welche ganze Zahl ist die größte, deren Quadratwurzel kleiner als 9 ist?', 80, '9 * 9 - 1',
+       '√81 = 9 ist nicht mehr kleiner als 9. Die größte ganze Zahl darunter ist 80, √80 ≈ 8,94.', 'Welche Zahl hat genau die Wurzel 9?'))
+ST.neu('schaetzen', 'begruenden', A('Stimmt: √(16 + 9) = √16 + √9?', 'Nein: √25 = 5, aber √16 + √9 = 4 + 3 = 7.', ['Ja, immer.', 'Ja, aber nur bei Quadratzahlen.', 'Nein: Die linke Seite ist größer.'],
+       'Die Wurzel einer Summe ist nicht die Summe der Wurzeln. Rechne immer erst die Summe aus.', 'Rechne beide Seiten aus.'))
+ST.neu('schaetzen', 'begruenden', A('Stimmt: √0,25 ist größer als 0,25?', 'Ja: √0,25 = 0,5, und 0,5 > 0,25.', ['Nein, eine Wurzel ist immer kleiner.', 'Nein, beide sind gleich.', 'Das kann man nicht sagen.'],
+       '0,5 · 0,5 = 0,25. Bei Zahlen zwischen 0 und 1 ist die Wurzel größer als die Zahl selbst.', 'Welche Zahl ergibt mit sich selbst multipliziert 0,25?'))
+ST.neu('schaetzen', 'parameter', A('Für welche Zahlen a > 0 ist √a kleiner als a?', 'für a > 1', ['für alle a > 0', 'für 0 < a < 1', 'für keine'],
+       'Beispiele: √4 = 2 < 4, aber √0,25 = 0,5 > 0,25 und √1 = 1. Also nur für a > 1.', 'Probiere eine Zahl größer und eine kleiner als 1.'))
+ST.neu('schaetzen', 'transfer', Z('Ein quadratischer Bilderrahmen soll mindestens 1 000 cm² Fläche haben und wird in ganzen Zentimetern gebaut. Wie lang muss eine Seite mindestens sein?', 32, '32',
+       '31² = 961 ist zu wenig, 32² = 1 024 reicht. Also mindestens 32 cm.', 'Suche die passenden Quadratzahlen.', einheit='cm'))
+ST.neu('schaetzen', 'pruefung', L('a) Zwischen welchen aufeinanderfolgenden ganzen Zahlen liegt √70? b) Liegt √70 näher an der kleineren (1) oder an der größeren Zahl (2)? c) Runde √70 auf eine Dezimale und gib das Ergebnis in Zehnteln an (8,4 als 84).',
+       'a) □ und □; b) □; c) □', [8, 9, 1, 84], ['8', '9', '1', '84'],
+       'a) 64 < 70 < 81. b) 70 liegt näher an 64, also näher an 8. c) √70 ≈ 8,37 ≈ 8,4.', 'Suche die Quadratzahlen um 70.'))
+ST.knobel('schaetzen', Z('Wie viele natürliche Zahlen n zwischen 1 und 999 haben eine Quadratwurzel, die selbst eine natürliche Zahl ist?', 31, '31',
+          'Das sind die Quadratzahlen 1, 4, 9, …, 961 = 31². 32² = 1 024 ist schon zu groß. Also 31 Zahlen.', 'Welche ist die größte Quadratzahl unter 1 000?'))
+ST.knobel('schaetzen', A('Welche Zahl ist größer: √5 + √7 oder √3 + 3?', '√5 + √7', ['√3 + 3', 'Beide sind gleich.', 'Das kann man nicht entscheiden.'],
+          'Quadrieren: (√5 + √7)² = 12 + 2√35 und (√3 + √9)² = 12 + 2√27. Wegen 35 > 27 ist die erste Summe größer (≈ 4,88 gegen ≈ 4,73).', 'Quadriere beide Summen.'))
+
+# grundform
+ST.stufenleiter('grundform', 'x² = a mit Quadratzahl a lösen; Anzahl der Lösungen erkennen.',
+                'Brüche und Dezimalzahlen, a aus den Lösungen, Schnitt einer Parabel mit einer Waagrechten, Fenster als Sachsituation.',
+                'Fehler „nur die positive Lösung“, Bedingungen an a, Summe der Lösungen begründen, Produkt aus Gegenzahlen, Umfang aus der Fläche, Prüfungsaufgabe.')
+ST.typ('grundform', 'Löse x² = 100/49', 'mehrschritt')
+ST.typ('grundform', 'Löse x²', 'direkt')
+ST.typ('grundform', 'Wie viele Lösungen hat', 'erkennen')
+ST.typ('grundform', 'Jemand löst', 'fehler')
+ST.typ('grundform', 'Welche Zahl a muss', 'umkehr')
+ST.typ('grundform', '/^Für welche[n]? (Wert von )?a/', 'parameter')
+ST.neu('grundform', 'mehrschritt', A('Löse x² = 0,09.', 'x₁ = −0,3; x₂ = 0,3', ['x = 0,3', 'x₁ = −0,03; x₂ = 0,03', 'keine Lösung'],
+       '0,3 · 0,3 = 0,09 und (−0,3) · (−0,3) = 0,09. 0,03² wäre 0,0009.', 'Wie viele Nachkommastellen hat das Quadrat von 0,3?'))
+ST.neu('grundform', 'umkehr', Z('Die Gleichung x² = a hat die Lösung x = −0,7. Wie groß ist a?', 0.49, '0.7 * 0.7',
+       'a = (−0,7)² = 0,49. Die zweite Lösung ist 0,7.', 'Setze die Lösung ein.'))
+ST.neu('grundform', 'einkleidung', Z('Ein quadratisches Fenster hat 1,44 m² Glasfläche. Wie lang ist eine Seite?', 1.2, '1.2',
+       's² = 1,44 ⇒ s = 1,2 m (die negative Lösung passt nicht zu einer Länge).', 'Welche Zahl ergibt quadriert 1,44?', einheit='m'))
+ST.neu('grundform', 'darstellung', L('Die Normalparabel y = x² und die Gerade y = 49 schneiden sich. Gib die x-Werte der Schnittpunkte an.', _X2, [-7, 7], ['-7', '7'],
+       'Schnittpunkte: x² = 49 ⇒ x = −7 oder x = 7.', 'Setze die beiden y gleich.'))
+ST.neu('grundform', 'begruenden', A('Stimmt: Die beiden Lösungen von x² = a (a > 0) ergeben addiert immer 0?', 'Ja, denn sie heißen √a und −√a.', ['Nein, sie ergeben a.', 'Nein, sie ergeben 2√a.', 'Nur bei a = 1.'],
+       '√a + (−√a) = 0. Die Lösungen liegen symmetrisch zur 0.', 'Wie heißen die beiden Lösungen?'))
+ST.neu('grundform', 'transfer', Z('Zwei Zahlen unterscheiden sich nur im Vorzeichen. Ihr Produkt ist −36. Wie heißt die positive der beiden Zahlen?', 6, '6',
+       'Die Zahlen sind x und −x. x · (−x) = −x² = −36 ⇒ x² = 36 ⇒ x = 6.', 'Nenne die positive Zahl x.'))
+ST.neu('grundform', 'verknuepfen', Z('Ein Quadrat hat den Flächeninhalt 2,25 cm². Wie groß ist sein Umfang?', 6, '4 * 1.5',
+       's² = 2,25 ⇒ s = 1,5 cm. Umfang 4 · 1,5 = 6 cm.', 'Erst die Seite, dann den Umfang.', einheit='cm'))
+ST.neu('grundform', 'pruefung', L('Wie viele Lösungen haben die Gleichungen a) x² = 81, b) x² = 0, c) x² + 16 = 0?', 'a) □; b) □; c) □', [2, 1, 0], ['2', '1', '0'],
+       'a) ±9: zwei. b) nur 0: eine. c) x² = −16: keine, denn ein Quadrat ist nie negativ.', 'Bringe jede Gleichung auf die Form x² = a.'))
+ST.knobel('grundform', Z('Für wie viele ganze Zahlen x gilt x² ≤ 50?', 15, '2 * 7 + 1',
+          '7² = 49 ≤ 50, 8² = 64 > 50. Also −7 ≤ x ≤ 7: das sind 15 ganze Zahlen (mit der 0).', 'Vergiss die negativen Zahlen und die 0 nicht.'))
+ST.knobel('grundform', L('Löse x² = 2 025 ohne Taschenrechner.', _X2, [-45, 45], ['-45', '45'],
+          '2 025 = 81 · 25 = 9² · 5² = (9 · 5)² = 45². Also x = 45 oder x = −45. Probe: 45 · 45 = 2 025.', 'Zerlege 2 025 in Faktoren, die Quadratzahlen sind.'))
+
+# umformen
+ST.stufenleiter('umformen', 'Gleichungen wie x² + c = d oder a · x² = b auf x² = … bringen und lösen; ersten Schritt erkennen.',
+                'x² auf beiden Seiten, Faktoren und Brüche, Fliesen als Sachsituation, c aus den Lösungen.',
+                'Fehler beim Teilen und beim gliedweisen Wurzelziehen, Sonderfall genau eine Lösung, Bedingung an c, Zahlenrätsel rückwärts, Quadrat plus Rechteck, (2x)², Prüfungsaufgabe.')
+ST.typ('umformen', '/^Löse x² \\+ \\d+ = \\d+\\.$/', 'direkt')
+ST.typ('umformen', 'Löse', 'mehrschritt')
+ST.typ('umformen', 'Jemand löst', 'fehler')
+ST.typ('umformen', 'Welche Lösungsmenge hat', 'erkennen')
+ST.typ('umformen', 'Für welche Zahl c', 'umkehr')
+ST.neu('umformen', 'erkennen', A('Was ist bei 3x² − 5 = 22 der erste Schritt?', '5 auf beiden Seiten addieren', ['durch 3 teilen', 'die Wurzel ziehen', '22 durch 5 teilen'],
+       'Zuerst muss 3x² allein stehen: 3x² = 27. Dann durch 3: x² = 9. Dann Wurzel: x = ±3.', 'Was wurde mit x² zuletzt gemacht?'))
+ST.neu('umformen', 'direkt', L('Löse 2x² = 50.', _X2, [-5, 5], ['-5', '5'], 'Durch 2: x² = 25 ⇒ x = ±5.', 'Teile durch 2.'))
+ST.neu('umformen', 'einkleidung', Z('Vier gleich große quadratische Fliesen bedecken zusammen 0,36 m². Wie lang ist eine Fliesenseite in cm?', 30, '0.3 * 100',
+       '4s² = 0,36 ⇒ s² = 0,09 ⇒ s = 0,3 m = 30 cm.', 'Stelle eine Gleichung für eine Fliese auf.', einheit='cm'))
+ST.neu('umformen', 'begruenden', A('Stimmt: Die Gleichung 5x² + 3 = 3 hat genau eine Lösung?', 'Ja: 5x² = 0, also nur x = 0.', ['Nein, keine Lösung.', 'Nein, zwei Lösungen.', 'Nein, unendlich viele.'],
+       '5x² + 3 = 3 ⇒ 5x² = 0 ⇒ x² = 0 ⇒ x = 0. Nur bei x² = 0 gibt es genau eine Lösung.', 'Forme um und schau, was rechts übrig bleibt.'))
+ST.neu('umformen', 'parameter', A('Für welche Zahlen c hat x² + c = 10 zwei Lösungen?', 'für c < 10', ['für c > 10', 'für c = 10', 'für jedes c'],
+       'x² = 10 − c. Zwei Lösungen gibt es, wenn 10 − c > 0, also c < 10.', 'Forme nach x² um.'))
+ST.neu('umformen', 'rueckwaerts', Z('Denk dir eine Zahl, quadriere sie, multipliziere mit 3 und ziehe 7 ab. Du erhältst 68. Welche positive Zahl war es?', 5, '5',
+       'Rückwärts: 68 + 7 = 75, 75 : 3 = 25, √25 = 5. Gleichung: 3x² − 7 = 68.', 'Mache die Schritte rückwärts.'))
+ST.neu('umformen', 'transfer', Z('Ein quadratisches Grundstück und ein Rechteck von 4 m × 9 m haben zusammen 100 m² Fläche. Wie lang ist eine Seite des Quadrats?', 8, '8',
+       'x² + 36 = 100 ⇒ x² = 64 ⇒ x = 8 m.', 'Stelle eine Gleichung für die Gesamtfläche auf.', einheit='m'))
+ST.neu('umformen', 'fehler', A('Jemand löst x² − 9 = 16 so: „x − 3 = ±4.“ Was stimmt?', 'Falsch: Man darf nicht gliedweise die Wurzel ziehen. x² = 25, also x = ±5.',
+       ['Richtig, also x = 7 oder x = −1.', 'Falsch: x = ±4.', 'Falsch: x = ±3.'], 'Erst 9 addieren: x² = 25, dann die Wurzel: x = ±5. Probe: 7² − 9 = 40 ≠ 16.', 'Mach die Probe mit x = 7.'))
+ST.neu('umformen', 'verknuepfen', L('Löse (2x)² = 100.', _X2, [-5, 5], ['-5', '5'], '(2x)² = 4x² = 100 ⇒ x² = 25 ⇒ x = ±5.', 'Was ergibt (2x)² ausmultipliziert?'))
+ST.neu('umformen', 'pruefung', L('Löse a) 2x² − 7 = 43; b) x² + 3 = 2x² − 61.', 'a) x₁ = □; x₂ = □; b) x₁ = □; x₂ = □', [-5, 5, -8, 8], ['-5', '5', '-8', '8'],
+       'a) 2x² = 50 ⇒ x² = 25 ⇒ ±5. b) 3 + 61 = 2x² − x² ⇒ x² = 64 ⇒ ±8.', 'Bringe x² auf eine Seite.'))
+ST.knobel('umformen', Z('Für wie viele natürliche Zahlen n hat n · x² = 72 ganzzahlige Lösungen?', 4, '4',
+          'x² = 72 : n muss eine Quadratzahl sein: 1, 4, 9 oder 36 (Teiler von 72, die Quadratzahlen sind). Dann ist n = 72, 18, 8 oder 2. Also 4 Zahlen.', 'Welche Quadratzahlen sind Teiler von 72?'))
+ST.knobel('umformen', Z('Wie viele Lösungen hat die Gleichung x² = 4x²?', 1, '1',
+          'x² = 4x² ⇒ 0 = 3x² ⇒ x = 0. Nur eine Lösung. Wer durch x² teilt, bekommt 1 = 4 und meint „keine Lösung“ – dabei verliert man x = 0.', 'Nicht durch x² teilen.'))
+
+# gerundet
+ST.stufenleiter('gerundet', 'Die positive Lösung von x² = a mit dem Taschenrechner auf eine Dezimale runden; die exakte Lösung √a erkennen.',
+                'Negative Lösung, zwei Dezimalen, erst umformen, Quadrat mit gleicher Fläche wie ein Rechteck, Zahl aus gerundeter Lösung.',
+                'Klammern, Kreis mit gleicher Fläche, Probe mit gerundeten Werten begründen, Rundungsfehler finden, mögliche c bei gegebenem Rundungswert, Prüfungsaufgabe.')
+ST.typ('gerundet', '/Gib die positive Lösung auf eine Dezimale/', 'direkt')
+ST.typ('gerundet', 'Wie lautet die exakte', 'erkennen')
+ST.typ('gerundet', '/^Löse (x² = \\d+\\. Gib die negative|\\dx²)/', 'mehrschritt')
+ST.typ('gerundet', '/^(Löse \\(x \\+ \\d\\)²|Ein Kreis soll)/', 'verknuepfen')
+ST.typ('gerundet', 'Ein Rechteck ist 6 cm breit', 'einkleidung')
+ST.typ('gerundet', 'Jemand löst x² = 50', 'begruenden')
+ST.typ('gerundet', 'Zwischen welchen zwei Zahlen', 'mehrschritt')
+ST.neu('gerundet', 'umkehr', Z('Die positive Lösung von x² = c ist auf zwei Dezimalen gerundet 3,16. c ist eine ganze Zahl. Wie groß ist c?', 10, '10',
+       '3,155² ≈ 9,95 und 3,165² ≈ 10,02. Die einzige ganze Zahl dazwischen ist 10 (√10 ≈ 3,162).', 'Quadriere 3,16 und überlege, welche ganze Zahl in Frage kommt.'))
+ST.neu('gerundet', 'fehler', A('Jemand rundet √19 ≈ 4,358 auf eine Dezimale zu 4,3. Was stimmt?', 'Falsch: Die zweite Dezimale ist 5, also aufrunden: 4,4.', ['Richtig.', 'Falsch: 4,35.', 'Falsch: 4,0.'],
+       'Bei 4,358 entscheidet die zweite Dezimale 5: aufrunden auf 4,4.', 'Welche Ziffer entscheidet beim Runden?'))
+ST.neu('gerundet', 'parameter', A('Für welche ganzen Zahlen c ergibt die positive Lösung von x² = c auf eine Dezimale gerundet 7,1?', 'c = 50 und c = 51', ['nur c = 50', 'c = 49 bis c = 51', 'nur c = 51'],
+       'Die Lösung muss zwischen 7,05 und 7,15 liegen: 7,05² ≈ 49,70 und 7,15² ≈ 51,12. Ganze Zahlen dazwischen: 50 und 51.', 'Welche Zahlen werden auf 7,1 gerundet? Quadriere die Grenzen.'))
+ST.neu('gerundet', 'begruenden', A('Stimmt: √2 · √2 ergibt genau 2, aber 1,41 · 1,41 nicht?', 'Ja: 1,41 ist gerundet, 1,41² = 1,9881.', ['Nein, beides ist genau 2.', 'Nein, √2 · √2 = 4.', 'Nein, 1,41 · 1,41 = 2,01.'],
+       '√2 ist eine unendliche Dezimalzahl. Mit der gerundeten 1,41 wird das Quadrat etwas zu klein.', 'Rechne 1,41 · 1,41 aus.'))
+ST.neu('gerundet', 'pruefung', L('Löse 3x² − 5 = 100. a) Gib x² an. b) Gib die positive Lösung auf zwei Dezimalen gerundet in Hundertsteln an (5,92 als 592).', 'a) x² = □; b) □', [35, 592], ['105 // 3', '592'],
+       'a) 3x² = 105 ⇒ x² = 35. b) √35 ≈ 5,916 ≈ 5,92.', 'Erst x² allein, dann der Taschenrechner.'))
+ST.knobel('gerundet', Z('Für wie viele ganze Zahlen c ergibt die positive Lösung von x² = c auf eine Dezimale gerundet genau 10,0?', 2, '2',
+          'Die Lösung muss zwischen 9,95 und 10,05 liegen: 9,95² ≈ 99,0 und 10,05² ≈ 101,0. Ganze Zahlen: 100 und 101 (99 liegt mit 9,9499 knapp darunter). Also 2.', 'Quadriere die Rundungsgrenzen.'))
+ST.knobel('gerundet', A('Die positive Lösung von x² = 2 liegt zwischen 1,41 und 1,42. Zwischen welchen Zahlen liegt die positive Lösung von x² = 200?', 'zwischen 14,1 und 14,2',
+          ['zwischen 141 und 142', 'zwischen 1,41 und 1,42', 'zwischen 28,2 und 28,4'], '200 = 2 · 100, also √200 = √2 · 10. Die Grenzen werden mit 10 multipliziert.', 'Schreibe 200 als 2 mal eine Quadratzahl.'))
+
+# klammer
+ST.stufenleiter('klammer', '(x − d)² = c mit Quadratzahl c lösen: zwei Gleichungen aufschreiben.',
+                'Faktoren und Zahlen vor der Klammer, binomischen Term erkennen, vergrößerter Teppich.',
+                'Fehler „nur eine Lösung“, Bedingungen an q, Unterschied (x − 3)² = 16 und x − 3 = 4 begründen, Wurf als Modell, Abstand der Nullstellen, d aus den Lösungen, Prüfungsaufgabe.')
+ST.typ('klammer', 'Löse (', 'direkt')
+ST.typ('klammer', '/^Löse \\d\\(/', 'mehrschritt')
+ST.typ('klammer', 'Löse x² − 6x + 9', 'darstellung')
+ST.typ('klammer', 'Welche Lösungsmenge hat', 'erkennen')
+ST.typ('klammer', 'Jemand löst', 'fehler')
+ST.typ('klammer', 'Für welchen Wert q', 'parameter')
+ST.neu('klammer', 'erkennen', A('Welche zwei Gleichungen entstehen beim Wurzelziehen aus (x − 2)² = 9?', 'x − 2 = 3 oder x − 2 = −3', ['x − 2 = 9 oder x − 2 = −9', 'x = 3 oder x = −3', 'x − 2 = 3 oder x + 2 = 3'],
+       'Wurzel aus 9 ist 3 oder −3: x − 2 = ±3, also x = 5 oder x = −1.', 'Welche Zahlen ergeben quadriert 9?'))
+ST.neu('klammer', 'einkleidung', Z('Ein quadratischer Teppich wird an jeder Seite um 1 m breiter gemacht (die Seitenlänge wächst also um 2 m) und ist dann 25 m² groß. Wie lang war eine Seite vorher?', 3, '5 - 2',
+       '(x + 2)² = 25 ⇒ x + 2 = 5 (Länge positiv) ⇒ x = 3 m.', 'Stelle die Gleichung mit der neuen Seitenlänge auf.', einheit='m'))
+ST.neu('klammer', 'begruenden', A('Stimmt: (x − 3)² = 16 und x − 3 = 4 haben dieselben Lösungen?', 'Nein: Die erste hat zwei Lösungen (7 und −1), die zweite nur x = 7.',
+       ['Ja, beide haben x = 7.', 'Ja, beide haben x = 7 und x = −1.', 'Nein, die zweite hat keine Lösung.'], 'Aus (x − 3)² = 16 folgt x − 3 = 4 oder x − 3 = −4. Wer nur die positive Wurzel nimmt, verliert x = −1.', 'Prüfe x = −1 in beiden Gleichungen.'))
+ST.neu('klammer', 'transfer', Z('Ein Ball wird geworfen, seine Höhe ist h = 20 − 5(t − 1)² (h in m, t in s). Nach wie vielen Sekunden landet er (h = 0)?', 3, '1 + 2',
+       '20 − 5(t − 1)² = 0 ⇒ (t − 1)² = 4 ⇒ t − 1 = 2 (die Zeit nach dem Wurf) ⇒ t = 3 s. Die Lösung t = −1 passt nicht.', 'Setze h = 0.', einheit='s'))
+ST.neu('klammer', 'verknuepfen', Z('Die Parabel y = (x − 3)² − 16 schneidet die x-Achse zweimal. Wie weit liegen die Schnittpunkte auseinander?', 8, '7 - (-1)',
+       '(x − 3)² = 16 ⇒ x = 7 oder x = −1. Abstand 7 − (−1) = 8.', 'Löse (x − 3)² − 16 = 0.'))
+ST.neu('klammer', 'rueckwaerts', Z('Die Gleichung (x − d)² = 9 hat die Lösungen 1 und 7. Wie groß ist d?', 4, '(1 + 7) // 2',
+       'Die Lösungen liegen symmetrisch um d: d − 3 = 1 und d + 3 = 7 ⇒ d = 4.', 'Die Lösungen liegen gleich weit links und rechts von d.'))
+ST.neu('klammer', 'parameter', A('Für welche Zahlen q hat (x + 2)² = q keine Lösung?', 'für q < 0', ['für q > 0', 'für q = 0', 'für q < −2'],
+       'Ein Quadrat ist nie negativ. Für q < 0 gibt es keine Lösung, für q = 0 genau eine (x = −2), für q > 0 zwei.', 'Kann ein Quadrat negativ sein?'))
+ST.neu('klammer', 'pruefung', L('Löse a) (x + 4)² = 49; b) 2(x − 1)² = 50.', 'a) x₁ = □; x₂ = □; b) x₁ = □; x₂ = □', [-11, 3, -4, 6], ['-4 - 7', '-4 + 7', '1 - 5', '1 + 5'],
+       'a) x + 4 = ±7 ⇒ x = −11 oder 3. b) (x − 1)² = 25 ⇒ x − 1 = ±5 ⇒ x = −4 oder 6.', 'Bei b) zuerst durch 2 teilen.'))
+ST.knobel('klammer', Z('Löse (x − 5)² = (x − 1)².', 3, '3',
+          'Zwei Quadrate sind gleich, wenn die Zahlen gleich oder Gegenzahlen sind. x − 5 = x − 1 ist unmöglich. x − 5 = −(x − 1) ⇒ 2x = 6 ⇒ x = 3. Das ist die Mitte zwischen 1 und 5.', 'Gleiche Quadrate – welche Möglichkeiten gibt es?'))
+ST.knobel('klammer', Z('Für wie viele ganze Zahlen x gilt (x − 3)² < 10?', 7, '7',
+          '(x − 3)² < 10 heißt: x − 3 liegt zwischen −√10 und √10 ≈ ±3,16. Ganze Werte für x − 3: −3 bis 3, also x = 0, 1, …, 6: sieben Zahlen.', 'Welche ganzen Zahlen haben ein Quadrat unter 10?'))
+
+# sachaufgabe
+ST.stufenleiter('sachaufgabe', 'Seite eines Quadrats aus der Fläche und Fallzeit aus s = 5 · t² bestimmen; passende Gleichung erkennen.',
+                'Gerundete Seiten und Fallzeiten, Radius eines Beets, Fallweg aus der Zeit.',
+                'Verbreitertes Grundstück rückwärts, Fehler „π vergessen“, Würfel und Bremsweg als Modelle, Zeitdifferenzen, Vervierfachen begründen, Kreis mit dreifacher Fläche, Rechteck mit Seitenverhältnis, Prüfungsaufgabe Fall.')
+ST.typ('sachaufgabe', 'Ein quadratisches Grundstück hat', 'direkt')
+ST.typ('sachaufgabe', 'Für den Fallweg gilt', 'direkt')
+ST.typ('sachaufgabe', '/^(Eine quadratische Terrasse|Ein Apfel)/', 'einkleidung')
+ST.typ('sachaufgabe', 'Ein kreisrundes Beet', 'mehrschritt')
+ST.typ('sachaufgabe', 'Für ein kreisrundes Beet', 'fehler')
+ST.typ('sachaufgabe', 'Ein quadratisches Grundstück wird', 'rueckwaerts')
+ST.typ('sachaufgabe', '/^(Ein Würfel hat|Für den Bremsweg|Ein Rechteck ist doppelt)/', 'transfer')
+ST.typ('sachaufgabe', '/^(Wie viele Sekunden länger|Ein Kreis hat einen dreimal)/', 'verknuepfen')
+ST.typ('sachaufgabe', 'Der Flächeninhalt eines Quadrats', 'begruenden')
+ST.neu('sachaufgabe', 'erkennen', A('Ein quadratischer Platz hat 400 m² Fläche. Welche Gleichung beschreibt seine Seitenlänge s?', 's² = 400', ['2s = 400', '4s = 400', 's = 400²'],
+       'Fläche eines Quadrats = s · s = s². Also s² = 400, s = 20 m. 4s = 400 wäre der Umfang.', 'Wie berechnet man die Fläche eines Quadrats?'))
+ST.neu('sachaufgabe', 'umkehr', Z('Ein Stein fällt 4 Sekunden lang (s = 5 · t²). Wie tief fällt er?', 80, '5 * 4 * 4',
+       's = 5 · 4² = 5 · 16 = 80 m.', 'Setze t ein.', einheit='m'))
+ST.neu('sachaufgabe', 'pruefung', L('Für den freien Fall gilt s = 5 · t². a) Wie tief fällt ein Stein in 3 s? b) Wie lange braucht er für 125 m?', 'a) □ m; b) □ s', [45, 5], ['5 * 9', '5'],
+       'a) 5 · 9 = 45 m. b) 5t² = 125 ⇒ t² = 25 ⇒ t = 5 s.', 'Bei b) eine reinquadratische Gleichung lösen.'))
+ST.knobel('sachaufgabe', Z('Ein quadratischer Rasen ist ringsum von einem 1 m breiten Weg umgeben. Rasen und Weg zusammen bedecken 144 m². Wie lang ist eine Seite des Rasens?', 10, '12 - 2',
+          'Rasen und Weg bilden ein Quadrat mit 144 m², also Seite 12 m. Der Weg nimmt auf jeder Seite 1 m weg: 12 − 2 = 10 m. Der Weg allein hat 144 − 100 = 44 m².', 'Wie lang ist die Seite des großen Quadrats?', einheit='m'))
+ST.knobel('sachaufgabe', Z('Aus welcher Höhe fällt ein Stein doppelt so lange wie aus 20 m Höhe (s = 5 · t²)?', 80, '4 * 20',
+          'Aus 20 m: 5t² = 20 ⇒ t = 2 s. Doppelt so lange: 4 s ⇒ s = 5 · 16 = 80 m. Doppelte Zeit heißt vierfache Höhe, weil t im Quadrat steht.', 'Was bewirkt das Quadrat bei der doppelten Zeit?', einheit='m'))
+
+
 if __name__ == '__main__':
     d = bauen('gleichungen.reinquadratisch',
           'Wurzeln einschätzen und reinquadratische Gleichungen x² = a lösen: zwei, eine oder keine Lösung, exakt oder gerundet.',
@@ -494,3 +678,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN)
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
     durchsicht(d)
+    stufen('gleichungen.reinquadratisch', ST)

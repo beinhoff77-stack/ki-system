@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 19:25 – STATUS
+gleichungen.reinquadratisch fertig: 41 neue Übungen, 12 Knobel-Bordkarten, 41 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 18:50 – STATUS
 funktionen.transformation fertig: 23 neue Übungen, 12 Knobel-Bordkarten, 18 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

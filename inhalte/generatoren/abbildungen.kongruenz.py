@@ -1519,6 +1519,381 @@ DS.stufe('eigenschaften', "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebil
 # ---- DURCHSICHT ENDE ----
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): Jahrgangsstufentest/BMT8 (ISB) – Bildpunkt einer Figur nach Spiegelung/Verschiebung angeben,
+# Viereck aus Koordinaten bestimmen, Punkt gleich weit von drei Punkten; Knobel nach der Art von Känguru 7/8 und Mathematik-Olympiade (Billard, Springer, Zeigerwinkel).
+from _stufen_kl7 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('abbildungen.kongruenz', 20_7_3)
+_HP = 'Trage die x- und die y-Koordinate ein.'
+def _P(text, name, xy, c, w, h):
+    return ST.L(text, name + '(□ | □)', xy, c, w, h, _HP)
+# achsenspiegelung
+ST.leiter('achsenspiegelung', 'An x- oder y-Achse spiegeln; erkennen, welche Koordinate das Vorzeichen wechselt.',
+          'An waagrechten und senkrechten Achsen sowie der Winkelhalbierenden spiegeln; Urbild zurückrechnen; Sachsituation.',
+          'Achse aus Punkt und Bild finden, Achse einer Raute, Bild eines zweiten Punkts, Hintereinanderausführung, Fehler deuten, Prüfungsaufgabe mit Dreieck.')
+ST.regel('achsenspiegelung', 1, 'y-Achse', 'direkt')
+ST.regel('achsenspiegelung', 1, 'x-Achse', 'direkt')
+ST.regel('achsenspiegelung', 2, 'Winkelhalbierenden', 'mehrschritt')
+ST.regel('achsenspiegelung', 2, 'parallel zur x-Achse)', 'mehrschritt')
+ST.regel('achsenspiegelung', 2, 'senkrecht zur x-Achse)', 'mehrschritt')
+ST.regel('achsenspiegelung', 3, 'y = −x', 'transfer')
+ST.regel('achsenspiegelung', 3, 'senkrecht zur x-Achse auf', 'rueckwaerts')
+ST.regel('achsenspiegelung', 3, 'parallel zur x-Achse auf', 'rueckwaerts')
+ST.regel('achsenspiegelung', 3, 'Raute', 'verknuepfen')
+ST.regel('achsenspiegelung', 3, 'Wohin wird B', 'transfer')
+ST.regel('achsenspiegelung', 3, 'erst an der x-Achse', 'verknuepfen')
+ST.regel('achsenspiegelung', 3, 'P(x |', 'rueckwaerts')
+ST.neu('achsenspiegelung', 1, 'erkennen', ST.A('Ein Punkt wird an der x-Achse gespiegelt. Welche Koordinate ändert ihr Vorzeichen?', 'die y-Koordinate',
+                                               ['die x-Koordinate', 'beide Koordinaten', 'keine von beiden'],
+                                               'Die x-Achse ist waagrecht. Der Bildpunkt liegt genau gegenüber, also gleich weit rechts, aber auf der anderen Seite der Achse: Nur die y-Koordinate wechselt das Vorzeichen.',
+                                               'Wohin wandert ein Punkt, wenn man an einer waagrechten Linie spiegelt?'))
+ST.neu('achsenspiegelung', 2, 'einkleidung', _P('Auf einer Karte fließt ein gerader Fluss entlang der y-Achse. Ein Haus steht bei H(3 | 5). Genau gegenüber, gleich weit vom Fluss entfernt, steht eine Scheune. Wo?',
+                                                'S', [-3, 5], ['-3', '5'], 'Die Scheune ist das Spiegelbild des Hauses an der y-Achse: S(−3 | 5).', 'An welcher Achse wird gespiegelt?'))
+ST.neu('achsenspiegelung', 2, 'umkehr', _P('Nach einer Spiegelung an der y-Achse liegt der Bildpunkt bei P\'(−2 | 7). Wo lag P?', 'P', [2, 7], ['2', '7'],
+                                           'Spiegelt man P\' zurück an der y-Achse, erhält man P(2 | 7). Probe: P(2 | 7) an der y-Achse ergibt (−2 | 7) ✓.', 'Spiegle einfach zurück.'))
+ST.neu('achsenspiegelung', 3, 'fehler', ST.A('Jemand spiegelt P(4 | −3) an der x-Achse und erhält P\'(−4 | −3). Was stimmt?', 'Falsch: Er hat an der y-Achse gespiegelt; richtig ist P\'(4 | 3).',
+                                             ['Richtig gespiegelt.', 'Falsch: Richtig ist P\'(−4 | 3).', 'Falsch: Richtig ist P\'(3 | −4).'],
+                                             'An der x-Achse bleibt x gleich und y wechselt das Vorzeichen: P\'(4 | 3). Wechselt x das Vorzeichen, ist an der y-Achse gespiegelt worden.',
+                                             'Welche Koordinate darf sich bei der x-Achse ändern?'))
+ST.neu('achsenspiegelung', 3, 'pruefung', _P('Das Dreieck A(1 | 1), B(5 | 1), C(2 | 4) wird an der senkrechten Geraden durch (6 | 0) gespiegelt. Gib C\' an.', 'C\'', [10, 4], ['6 + (6 - 2)', '4'],
+                                             'C liegt 4 Einheiten links von der Achse (6 − 2 = 4). C\' liegt 4 Einheiten rechts davon: x = 10. Die y-Koordinate bleibt 4. C\'(10 | 4).',
+                                             'Wie weit ist C von der Achse entfernt?'))
+ST.knobel('achsenspiegelung', _P('P(1 | 2) wird abwechselnd gespiegelt: zuerst an der x-Achse, dann an der y-Achse, dann wieder an der x-Achse usw. Insgesamt sind es 2025 Spiegelungen. Wo liegt der Punkt am Ende?',
+                                 'P', [1, -2], ['1', '-2'],
+                                 'Verfolge die ersten Schritte: (1 | 2) → x-Achse (1 | −2) → y-Achse (−1 | −2) → x-Achse (−1 | 2) → y-Achse (1 | 2). '
+                                 'Nach 4 Spiegelungen ist der Punkt wieder am Start. 2025 = 4 · 506 + 1. Nach 2024 Spiegelungen ist er also bei (1 | 2), die 2025. ist eine Spiegelung an der x-Achse: (1 | −2).',
+                                 'Rechne die ersten Spiegelungen aus und suche eine Regelmäßigkeit.'))
+ST.knobel('achsenspiegelung', ST.Z('Eine Billardkugel liegt bei A(1 | 3) und soll über die Bande (die x-Achse) genau zur Kugel B(7 | 1) rollen. Sie prallt so ab wie ein Lichtstrahl an einem Spiegel. An welcher x-Stelle trifft sie die Bande?',
+                                   5.5, '1 + 6 * 3 / 4',
+                                   'Denke den Weg nach dem Abprallen hinter der Bande weiter: Er führt dann geradlinig zum Spiegelbild B\'(7 | −1). '
+                                   'Von A(1 | 3) nach B\'(7 | −1) geht es 6 nach rechts und 4 nach unten. Bis zur Bande (y = 0) sind es 3 der 4 Einheiten nach unten, also 3/4 des Weges: 6 · 3/4 = 4,5 nach rechts. 1 + 4,5 = 5,5.',
+                                   'Einfallswinkel gleich Ausfallswinkel. Wie sieht der Weg aus, wenn man ihn hinter der Bande weiterdenkt?'))
+# punktspiegelung
+ST.leiter('punktspiegelung', 'Am Ursprung spiegeln: beide Vorzeichen wechseln.',
+          'An einem beliebigen Zentrum spiegeln, Urbild zurückrechnen, Dreieck spiegeln, Sachsituation Drehkreuz.',
+          'Zentrum aus Punkt und Bild, vierte Ecke und Zentrum eines Parallelogramms, zwei Spiegelungen, Begründung, Fehler, Prüfungsaufgabe mit Fläche.')
+ST.regel('punktspiegelung', 1, 'Ursprung', 'direkt')
+ST.regel('punktspiegelung', 2, 'am Punkt Z', 'mehrschritt')
+ST.regel('punktspiegelung', 3, 'Gib das Zentrum an', 'rueckwaerts')
+ST.regel('punktspiegelung', 3, 'Gib das Zentrum Z an', 'rueckwaerts')
+ST.regel('punktspiegelung', 3, 'vierte Ecke', 'verknuepfen')
+ST.regel('punktspiegelung', 3, 'Symmetriezentrum', 'verknuepfen')
+ST.regel('punktspiegelung', 3, 'Verschiebungspfeil', 'transfer')
+ST.neu('punktspiegelung', 1, 'erkennen', ST.A('Was passiert mit den Koordinaten bei einer Punktspiegelung am Ursprung?', 'Beide wechseln das Vorzeichen.',
+                                              ['Nur x wechselt das Vorzeichen.', 'Nur y wechselt das Vorzeichen.', 'x und y werden vertauscht.'],
+                                              'Der Bildpunkt liegt genau gegenüber: gleich weit vom Ursprung, aber in der Gegenrichtung. Aus (x | y) wird (−x | −y).', 'Probiere es mit P(2 | 1).'))
+ST.neu('punktspiegelung', 1, 'direkt', _P('Spiegle Q(−3 | 0) am Ursprung.', 'Q\'', [3, 0], ['3', '0'], 'Beide Vorzeichen wechseln: Q\'(3 | 0). Die 0 bleibt 0.', 'Was passiert mit −3, was mit 0?'))
+ST.neu('punktspiegelung', 2, 'umkehr', _P('Nach einer Spiegelung am Punkt Z(1 | 2) liegt der Bildpunkt bei P\'(4 | −1). Wo lag P?', 'P', [-2, 5], ['2 * 1 - 4', '2 * 2 - (-1)'],
+                                          'Von P\' nach Z: 3 nach links, 3 nach oben. Denselben Weg noch einmal: P(−2 | 5). Probe: Z ist die Mitte von (−2 | 5) und (4 | −1) ✓.',
+                                          'Spiegle P\' an Z zurück.'))
+ST.neu('punktspiegelung', 2, 'einkleidung', _P('Ein Drehkreuz hat die Mitte M(3 | 3). Ein Arm endet bei (5 | 6). Der gegenüberliegende Arm ist gleich lang und zeigt genau in die Gegenrichtung. Wo endet er?',
+                                               'E', [1, 0], ['2 * 3 - 5', '2 * 3 - 6'],
+                                               'Von M zum Armende: 2 nach rechts, 3 nach oben. Gegenrichtung: 2 nach links, 3 nach unten: E(1 | 0).', 'Das ist eine Punktspiegelung an M.'))
+ST.neu('punktspiegelung', 2, 'mehrschritt', _P('Das Dreieck A(1 | 1), B(3 | 1), C(1 | 4) wird am Punkt Z(4 | 2) gespiegelt. Gib B\' an.', 'B\'', [5, 3], ['2 * 4 - 3', '2 * 2 - 1'],
+                                               'Von B nach Z: 1 nach rechts, 1 nach oben. Noch einmal: B\'(5 | 3).', 'Gehe von B zu Z und denselben Weg weiter.'))
+ST.neu('punktspiegelung', 2, 'umkehr', _P('Ein Punkt wird am Ursprung gespiegelt und landet bei (−6 | 2). Wo lag er vorher?', 'P', [6, -2], ['6', '-2'],
+                                          'Am Ursprung zurückspiegeln: beide Vorzeichen wechseln. P(6 | −2).', 'Spiegle zurück.'))
+ST.neu('punktspiegelung', 3, 'begruenden', ST.A('Warum ist jedes Parallelogramm punktsymmetrisch?', 'Seine Diagonalen halbieren sich; am Schnittpunkt gespiegelt fällt jede Ecke auf die gegenüberliegende.',
+                                                ['Weil es vier Ecken hat.', 'Weil benachbarte Seiten senkrecht aufeinander stehen.', 'Weil es eine Symmetrieachse hat.'],
+                                                'Im Parallelogramm halbieren sich die Diagonalen gegenseitig. Der Schnittpunkt ist also die Mitte von [AC] und von [BD]: A geht auf C, B auf D – und damit die ganze Figur auf sich selbst.',
+                                                'Was ist der Schnittpunkt der Diagonalen für die Strecken [AC] und [BD]?'))
+ST.neu('punktspiegelung', 3, 'fehler', ST.A('Jemand spiegelt P(5 | 1) am Punkt Z(2 | 3) und rechnet: P\'(2 − 5 | 3 − 1) = P\'(−3 | 2). Was stimmt?',
+                                            'Falsch: Von Z aus muss es noch einmal den Weg von P nach Z gehen; richtig ist P\'(−1 | 5).',
+                                            ['Richtig gerechnet.', 'Falsch: Richtig ist P\'(7 | 4).', 'Falsch: Richtig ist P\'(−3 | −2).'],
+                                            'Von P(5 | 1) nach Z(2 | 3): 3 nach links, 2 nach oben. Von Z aus noch einmal: (−1 | 5). Die Rechnung „Z − P“ ergibt nur den Weg, nicht den Bildpunkt.',
+                                            'Ist Z die Mitte von P und (−3 | 2)?'))
+ST.neu('punktspiegelung', 3, 'pruefung', ST.Z('Das Dreieck A(1 | 0), B(3 | 0), C(3 | 2) wird am Punkt Z(4 | 1) gespiegelt. Wie groß ist der Flächeninhalt des Vierecks ABA\'B\' (in Flächeneinheiten)?',
+                                              4, '2 * 2',
+                                              'A\'(7 | 2) und B\'(5 | 2). Das Viereck A(1 | 0), B(3 | 0), A\'(7 | 2), B\'(5 | 2) ist ein Parallelogramm: [AB] und [A\'B\'] sind waagrecht und je 2 lang, der Abstand ist 2. Fläche 2 · 2 = 4.',
+                                              'Bestimme zuerst A\' und B\'.'))
+ST.knobel('punktspiegelung', _P('Der Punkt P(0 | 0) wird abwechselnd an A(1 | 0) und an B(1 | 1) gespiegelt: zuerst an A, dann an B, dann wieder an A usw. Wo liegt er nach 10 Spiegelungen?',
+                                'P', [0, 10], ['0', '5 * 2'],
+                                'Schrittweise: (0 | 0) → an A (2 | 0) → an B (0 | 2) → an A (2 | −2) → an B (0 | 4). '
+                                'Nach je zwei Spiegelungen ist der Punkt um 2 nach oben gewandert (zwei Punktspiegelungen ergeben eine Verschiebung um den doppelten Weg von A nach B). 10 Spiegelungen = 5 Paare: (0 | 10).',
+                                'Rechne vier Spiegelungen aus und vergleiche die Lage nach der 2. und der 4.'))
+ST.knobel('punktspiegelung', _P('Ein Punkt X wird an A(1 | 2) gespiegelt, sein Bild an B(4 | 2) und dieses Bild an C(4 | 5). Danach liegt der Punkt wieder genau bei X. Wo liegt X?',
+                                'X', [1, 5], ['1', '5'],
+                                'Die Spiegelungen an A und dann an B wirken zusammen wie eine Verschiebung um den doppelten Weg von A nach B, also um (6 | 0). '
+                                'X + (6 | 0) muss an C auf X zurückgehen, also ist C die Mitte von X und X + (6 | 0): X liegt 3 links von C, also X(1 | 5). '
+                                'Probe: (1 | 5) → an A (1 | −1) → an B (7 | 5) → an C (1 | 5) ✓.',
+                                'Was bewirken die ersten beiden Spiegelungen zusammen?'))
+# verschiebung
+ST.leiter('verschiebung', 'Einen Punkt mit einem Pfeil verschieben; Eigenschaft der Verschiebung erkennen.',
+          'Pfeil aus Punkt und Bild, zwei Verschiebungen nacheinander, Dreieck verschieben, Sachsituation Schiff.',
+          'Ersatzpfeil, falscher Pfeil, Pfeil an anderem Punkt, unbekannter Pfeil rückwärts, Quadrat verschieben, Fehler, Parameter, Prüfungsaufgabe.')
+ST.regel('verschiebung', 1, 'Verschiebe', 'direkt')
+ST.regel('verschiebung', 2, 'Gib den Verschiebungspfeil an', 'umkehr')
+ST.regel('verschiebung', 2, 'Wohin kommt P', 'mehrschritt')
+ST.regel('verschiebung', 2, 'Dreieck', 'mehrschritt')
+ST.regel('verschiebung', 2, 'Wohin wird B', 'mehrschritt')
+ST.regel('verschiebung', 3, 'Welcher Pfeil ersetzt', 'verknuepfen')
+ST.regel('verschiebung', 3, 'NICHT', 'begruenden')
+ST.regel('verschiebung', 3, 'Ein anderer Pfeil', 'transfer')
+ST.regel('verschiebung', 3, 'unbekannten Pfeil', 'rueckwaerts')
+ST.regel('verschiebung', 3, 'Quadrat', 'verknuepfen')
+ST.neu('verschiebung', 1, 'erkennen', ST.A('Welche Aussage passt zu einer Verschiebung?', 'Alle Punkte wandern mit demselben Pfeil.',
+                                           ['Ein Punkt bleibt an seinem Platz.', 'Die Figur wird umgeklappt.', 'Die Figur wird um einen Punkt gedreht.'],
+                                           'Bei einer Verschiebung bewegt sich jeder Punkt gleich weit in dieselbe Richtung. Kein Punkt bleibt fest (außer beim Nullpfeil).',
+                                           'Denke an ein Buch, das über den Tisch geschoben wird.'))
+ST.neu('verschiebung', 1, 'direkt', _P('Verschiebe Q(−2 | 5) um 4 nach rechts und 3 nach unten.', 'Q\'', [2, 2], ['-2 + 4', '5 - 3'],
+                                       'x: −2 + 4 = 2, y: 5 − 3 = 2. Q\'(2 | 2).', 'Rechts heißt x größer, unten heißt y kleiner.'))
+ST.neu('verschiebung', 2, 'einkleidung', _P('Ein Schiff startet im Hafen H(2 | 1) und fährt 5 km nach Osten und 3 km nach Norden (1 Einheit = 1 km, Osten = rechts, Norden = oben). Wo ist es dann?',
+                                            'S', [7, 4], ['2 + 5', '1 + 3'], 'Verschiebung mit (5 | 3): S(7 | 4).', 'Schreibe die Fahrt als Pfeil.'))
+ST.neu('verschiebung', 3, 'fehler', ST.A('Jemand soll P(2 | 5) mit v = (−3 | 1) verschieben und erhält P\'(5 | 4). Was stimmt?', 'Falsch: Er hat den Pfeil umgedreht; richtig ist P\'(−1 | 6).',
+                                         ['Richtig verschoben.', 'Falsch: Richtig ist P\'(−6 | 5).', 'Falsch: Richtig ist P\'(−1 | 4).'],
+                                         'Richtig: x: 2 + (−3) = −1, y: 5 + 1 = 6. Er hat stattdessen 3 addiert und 1 abgezogen – das ist der Gegenpfeil (3 | −1).', 'Rechne selbst nach.'))
+ST.neu('verschiebung', 3, 'parameter', ST.Z('Der Punkt P(a | 3) wird mit v = (4 | −1) verschoben und landet auf der y-Achse. Wie groß ist a?', -4, '0 - 4',
+                                            'Auf der y-Achse ist x = 0. Also a + 4 = 0 und a = −4. Probe: P(−4 | 3) → (0 | 2) ✓.', 'Welche x-Koordinate haben Punkte auf der y-Achse?'))
+ST.neu('verschiebung', 3, 'pruefung', _P('Das Dreieck A(0 | 0), B(4 | 0), C(1 | 3) wird so verschoben, dass B auf B\'(6 | 2) fällt. Gib C\' an.', 'C\'', [3, 5], ['1 + 2', '3 + 2'],
+                                         'Der Pfeil von B nach B\' ist (2 | 2). Derselbe Pfeil verschiebt C: C\'(3 | 5).', 'Bestimme zuerst den Verschiebungspfeil.'))
+ST.knobel('verschiebung', ST.Z('Ein Springer im Schach zieht mit einem der Pfeile (±2 | ±1) oder (±1 | ±2). Wie viele Züge braucht er mindestens, um von (0 | 0) nach (4 | 4) zu kommen?', 4, '4',
+                               'Jeder Zug ändert x + y um 1 oder 3, also um eine ungerade Zahl. Von 0 bis 8 braucht man eine gerade Anzahl ungerader Schritte. '
+                               'Zwei Züge reichen nicht: Sie ändern x + y um höchstens 6. Also mindestens 4 Züge. Es geht mit 4: (2 | 1) + (1 | 2) + (2 | −1) + (−1 | 2) = (4 | 4).',
+                               'Beobachte, wie sich die Summe x + y bei jedem Zug ändert.'))
+ST.knobel('verschiebung', ST.L('Ein Roboter fährt nur mit den Pfeilen u = (2 | 1) und w = (−1 | 3), jeden beliebig oft, aber nie rückwärts. Er startet bei (0 | 0) und will nach (7 | 14). Wie oft fährt er u, wie oft w?',
+                               '□-mal u und □-mal w', [5, 3], ['5', '3'],
+                               'Fährt er a-mal u und b-mal w, landet er bei (2a − b | a + 3b). Es muss 2a − b = 7 sein, also b = 2a − 7. Probiere: a = 4 → b = 1, y = 4 + 3 = 7 (zu wenig); '
+                               'a = 5 → b = 3, y = 5 + 9 = 14 ✓; a = 6 → b = 5, y = 21 (zu viel). Also 5-mal u und 3-mal w: (10 | 5) + (−3 | 9) = (7 | 14).',
+                               'Schreibe auf, wo er nach a Fahrten mit u und b Fahrten mit w ist, und probiere.'))
+# drehung
+ST.leiter('drehung', 'Um O um 90°, 180°, 270° drehen; die Koordinatenregel für 90° erkennen.',
+          'Drehwinkel aus Punkt und Bild, Drehung im Uhrzeigersinn, Sachsituation Riesenrad.',
+          'Drehen um ein anderes Zentrum, Bild einer Geraden, Fehler mit der Drehrichtung, Urbild, Mehrfachdrehung, Parameter, Prüfungsaufgabe mit Quadrat.')
+ST.regel('drehung', 1, 'Drehe', 'direkt')
+ST.regel('drehung', 2, 'Um welchen Winkel', 'umkehr')
+ST.regel('drehung', 2, 'Drehe', 'mehrschritt')
+ST.regel('drehung', 3, 'Drehe', 'verknuepfen')
+ST.regel('drehung', 3, 'Gerade g', 'begruenden')
+ST.regel('drehung', 3, 'Jemand gibt', 'fehler')
+ST.regel('drehung', 3, 'Wo lag P', 'rueckwaerts')
+ST.regel('drehung', 3, 'zweimal', 'verknuepfen')
+ST.neu('drehung', 1, 'erkennen', ST.A('Bei einer Drehung um O um 90° gegen den Uhrzeigersinn wird aus P(x | y) der Punkt …', 'P\'(−y | x)', ['P\'(y | −x)', 'P\'(−x | −y)', 'P\'(y | x)'],
+                                      'Probe mit (1 | 0): Er wandert auf die positive y-Achse nach (0 | 1). Das passt nur zu (−y | x).', 'Teste die Regeln mit dem Punkt (1 | 0).'))
+ST.neu('drehung', 1, 'direkt', _P('Drehe P(4 | 0) um O um 180°.', 'P\'', [-4, 0], ['-4', '0'], 'Eine halbe Drehung bringt P genau auf die Gegenseite: P\'(−4 | 0).', 'Wo ist die Gegenseite?'))
+ST.neu('drehung', 2, 'einkleidung', _P('Ein Riesenrad dreht sich um seine Mitte M(0 | 0) (1 Einheit = 1 m). Eine Gondel ist ganz unten bei G(0 | −10). Wo ist sie nach einer Vierteldrehung gegen den Uhrzeigersinn?',
+                                       'G\'', [10, 0], ['10', '0'], 'Von ganz unten gegen den Uhrzeigersinn um 90° kommt die Gondel nach ganz rechts: G\'(10 | 0).',
+                                       'Stell dir die Bewegung vor: unten → rechts → oben → links.'))
+ST.neu('drehung', 3, 'parameter', ST.Z('P(a | 2) wird um O um 90° gegen den Uhrzeigersinn gedreht. Der Bildpunkt liegt auf der waagrechten Geraden durch (0 | 5). Wie groß ist a?', 5, '5',
+                                       'Bei 90° gegen den Uhrzeigersinn wird aus (a | 2) der Punkt (−2 | a). Er soll die y-Koordinate 5 haben: a = 5.', 'Wende die Regel für 90° an.'))
+ST.neu('drehung', 3, 'pruefung', _P('Das Quadrat A(1 | 1), B(4 | 1), C(4 | 4), D(1 | 4) wird um A um 90° gegen den Uhrzeigersinn gedreht. Gib C\' an.', 'C\'', [-2, 4], ['1 - 3', '1 + 3'],
+                                    'Von A nach C: 3 nach rechts, 3 nach oben. Um 90° gedreht: 3 nach links, 3 nach oben. C\'(−2 | 4).', 'Drehe den Weg von A nach C.'))
+ST.knobel('drehung', ST.Z('Wie groß ist der kleinere Winkel zwischen Stunden- und Minutenzeiger einer Uhr um 4:20 Uhr (in Grad)?', 10, '4 * 30 + 20 * 0.5 - 20 * 6',
+                          'Der Minutenzeiger dreht sich in 60 Minuten um 360°, also 6° pro Minute: Bei 20 Minuten steht er bei 120° (auf der 4). '
+                          'Der Stundenzeiger dreht sich in 60 Minuten um 30°, also 0,5° pro Minute. Um 4:00 steht er bei 120°, 20 Minuten später bei 130°. Unterschied: 10°.',
+                          'Der Stundenzeiger steht nicht genau auf der 4.'))
+ST.knobel('drehung', _P('P(5 | 1) wird 2026-mal hintereinander um O um 90° gegen den Uhrzeigersinn gedreht. Wo liegt P am Ende?', 'P', [-5, -1], ['-5', '-1'],
+                        'Vier Vierteldrehungen sind eine volle Umdrehung, danach ist P wieder am Start. 2026 = 4 · 506 + 2. Es bleiben 2 Vierteldrehungen, also 180°: P(−5 | −1).',
+                        'Nach wie vielen Drehungen ist P wieder am Start?'))
+# symmetrie
+ST.leiter('symmetrie', 'Symmetrieachsen bekannter Vierecke und des Sechsecks zählen.',
+          'Buchstaben, Punktsymmetrie von Rechteck und Trapez, kleinster Drehwinkel regelmäßiger Vielecke, Eckenzahl aus dem Drehwinkel, Windrad.',
+          'Buchstaben mit Symmetrie-Kombinationen, Figur aus Eigenschaften, Gegenbeispiel deckungsgleich, Drehwinkel-Vielfache, Verkehrsschild, zusammengesetzte Figur.')
+ST.regel('symmetrie', 1, 'hat ein Quadrat', 'direkt')
+ST.regel('symmetrie', 1, 'Sechseck', 'direkt')
+ST.regel('symmetrie', 1, 'Trapez', 'erkennen')
+ST.regel('symmetrie', 1, 'Raute', 'erkennen')
+ST.regel('symmetrie', 2, 'Großbuchstabe', 'darstellung')
+ST.regel('symmetrie', 2, 'punktsymmetrisch', 'mehrschritt')
+ST.regel('symmetrie', 2, 'kleinsten Winkel', 'mehrschritt')
+ST.regel('symmetrie', 2, 'Parallelogramm', 'darstellung')
+ST.regel('symmetrie', 3, 'Großbuchstabe', 'verknuepfen')
+ST.regel('symmetrie', 3, 'Welche Figur', 'rueckwaerts')
+ST.regel('symmetrie', 3, 'Zwei Vierecke', 'begruenden')
+ST.regel('symmetrie', 3, 'Logo', 'begruenden')
+ST.regel('symmetrie', 3, 'Verkehrsschild', 'transfer')
+ST.regel('symmetrie', 3, 'Zwei gleich große Quadrate', 'transfer')
+ST.neu('symmetrie', 2, 'umkehr', ST.Z('Ein regelmäßiges Vieleck fällt nach einer Drehung um 40° um seinen Mittelpunkt zum ersten Mal auf sich selbst. Wie viele Ecken hat es?', 9, '360 / 40',
+                                     'Beim kleinsten Drehwinkel rückt jede Ecke auf die nächste. 360° : 40° = 9 Ecken.', 'Wie oft passt 40° in eine volle Drehung?'))
+ST.neu('symmetrie', 2, 'einkleidung', ST.Z('Ein Windrad hat drei gleiche Flügel. Um welchen kleinsten Winkel muss es sich drehen, damit es wieder genau gleich aussieht?', 120, '360 / 3',
+                                          'Drei gleiche Flügel teilen die volle Drehung in drei gleiche Teile: 360° : 3 = 120°.', 'Ein Flügel muss auf den nächsten rücken.'))
+ST.knobel('symmetrie', ST.Z('In einem 4 × 4-Quadrat aus 16 Kästchen ist nur das Kästchen links oben schwarz. Wie viele Kästchen musst du mindestens zusätzlich schwarz färben, damit das Muster genau 4 Symmetrieachsen hat?',
+                            3, '4 - 1',
+                            'Mit 4 Achsen muss das Muster alle Symmetrien des Quadrats haben: die beiden Mittellinien und die beiden Diagonalen. '
+                            'Spiegelt man die Ecke links oben an diesen Achsen, erhält man alle vier Ecken. Alle vier Eckkästchen müssen also schwarz sein – 3 zusätzlich. '
+                            'Das Muster aus den vier Ecken hat tatsächlich alle 4 Achsen.',
+                            'Wohin wandert das schwarze Kästchen bei jeder Spiegelung, die das Muster haben soll?'))
+ST.knobel('symmetrie', ST.Z('Der kleinste Drehwinkel, der eine Figur auf sich selbst abbildet, ist 72°. Außerdem hat sie mindestens eine Symmetrieachse. Wie viele Symmetrieachsen hat sie genau?', 5, '360 / 72',
+                            'Dreht man die Figur um 72°, wird auch ihre Achse mitgedreht – und muss wieder eine Achse sein. So entstehen Achsen im Abstand von 72°: 0°, 72°, 144°, 216° (= 36°), 288° (= 108°) – fünf verschiedene Geraden. '
+                            'Mehr gibt es nicht: Zwei Achsen, die einen Winkel θ bilden, ergeben zusammen eine Drehung um 2θ, und die muss ein Vielfaches von 72° sein. '
+                            'Also liegen alle Achsen im Abstand von Vielfachen von 36° – genau diese fünf. Beispiel: das regelmäßige Fünfeck.',
+                            'Was passiert mit einer Symmetrieachse, wenn man die Figur um 72° dreht?'))
+# parkett
+ST.leiter('parkett', 'Winkel an einer Ecke addieren; Innenwinkel regelmäßiger Vielecke erkennen.',
+          'Lücke an einer Ecke berechnen, Innenwinkel aus der Anzahl, Fliesen im Bad.',
+          'Fehlende Vielecke ergänzen, Eckenzahl aus dem Innenwinkel, gemischte Ecken prüfen und begründen, Fußball als Anwendung.')
+ST.regel('parkett', 1, 'An einer Ecke', 'direkt')
+ST.regel('parkett', 2, 'Um eine Ecke passen', 'umkehr')
+ST.regel('parkett', 2, '', 'mehrschritt')
+ST.regel('parkett', 3, 'Wie viele gleichseitige Dreiecke', 'verknuepfen')
+ST.regel('parkett', 3, 'ein weiteres', 'rueckwaerts')
+ST.regel('parkett', 3, 'Lässt sich', 'begruenden')
+ST.regel('parkett', 3, 'Wie viele Ecken hat es', 'rueckwaerts')
+ST.regel('parkett', 3, 'Zwölfecke', 'verknuepfen')
+ST.regel('parkett', 3, 'Zwölfeck zusammen', 'verknuepfen')
+ST.regel('parkett', 3, 'Warum', 'begruenden')
+ST.neu('parkett', 1, 'erkennen', ST.A('Welches regelmäßige Vieleck hat Innenwinkel von 120°?', 'das Sechseck', ['das Fünfeck', 'das Achteck', 'das Quadrat'],
+                                     'Regelmäßiges Sechseck: 120°. Fünfeck 108°, Achteck 135°, Quadrat 90°.', 'Drei davon passen genau um eine Ecke.'))
+ST.neu('parkett', 2, 'einkleidung', ST.Z('Ein Bad wird mit regelmäßigen sechseckigen Fliesen (Innenwinkel 120°) lückenlos gefliest. Wie viele Fliesen treffen an jeder inneren Ecke zusammen?', 3, '360 / 120',
+                                        'Um eine Ecke sind 360°. 360° : 120° = 3 Fliesen.', 'Wie oft passt 120° in 360°?'))
+ST.neu('parkett', 3, 'transfer', ST.Z('Ein Fußball ist aus regelmäßigen Fünfecken (108°) und Sechsecken (120°) genäht. An jeder Ecke treffen ein Fünfeck und zwei Sechsecke zusammen. Wie groß ist die Winkelsumme an einer Ecke?',
+                                      348, '108 + 2 * 120',
+                                      '108° + 2 · 120° = 348°. Das sind 12° weniger als 360° – deshalb lassen sich die Flicken nicht flach legen, sondern wölben sich zu einer Kugel.',
+                                      'Addiere die drei Winkel.'))
+ST.knobel('parkett', ST.Z('Der Innenwinkel eines regelmäßigen n-Ecks ist 180° − 360° : n. An einer Ecke kommen genau drei regelmäßige Vielecke lückenlos zusammen: ein Dreieck, ein Zehneck und ein drittes. Wie viele Ecken hat das dritte?',
+                          15, '360 / (180 - (360 - 60 - 144))',
+                          'Dreieck 60°, Zehneck 180° − 36° = 144°. Zusammen 204°. Für das dritte bleiben 360° − 204° = 156°. '
+                          'Es muss gelten 180° − 360° : n = 156°, also 360° : n = 24° und n = 15. Probe: 180° − 24° = 156° ✓.',
+                          'Berechne zuerst, wie viel Grad für das dritte Vieleck übrig bleiben.'))
+ST.knobel('parkett', ST.Z('Auf wie viele verschiedene Arten kann man eine Ecke lückenlos nur mit gleichseitigen Dreiecken (60°) und Quadraten (90°) auslegen, wenn es nur auf die Anzahlen ankommt?',
+                          3, '3',
+                          'Gesucht sind Anzahlen a (Dreiecke) und b (Quadrate) mit 60a + 90b = 360. Probiere b: b = 0 → a = 6; b = 1 → 60a = 270, keine ganze Zahl; '
+                          'b = 2 → a = 3; b = 3 → 60a = 90, keine ganze Zahl; b = 4 → a = 0. Also drei Möglichkeiten: 6 + 0, 3 + 2, 0 + 4.',
+                          'Gehe die möglichen Anzahlen von Quadraten der Reihe nach durch.'))
+# eigenschaften
+ST.leiter('eigenschaften', 'Längen und Winkel bleiben erhalten; richtige Aussage erkennen.',
+          'Abbildung aus Bild und Urbild bestimmen, Umlaufsinn bei Drehung und Spiegelung, Flächeninhalt bleibt.',
+          'Zwei Spiegelungen als Verschiebung oder Drehung, Umlaufsinn umkehren, Fixpunkte, Fehler, Spiegeluhr, Prüfungsaufgabe mit zwei Abbildungen.')
+ST.regel('eigenschaften', 1, 'Welche Aussage', 'erkennen')
+ST.regel('eigenschaften', 2, 'Welche Aussage', 'mehrschritt')
+ST.regel('eigenschaften', 2, 'Welche Abbildung ist es', 'darstellung')
+ST.regel('eigenschaften', 2, 'Uhrzeigersinn beschriftet. Es wird um', 'mehrschritt')
+ST.regel('eigenschaften', 2, 'gespiegelt. Wie ist', 'mehrschritt')
+ST.regel('eigenschaften', 2, 'Was kann sich', 'erkennen', neu_s=1)
+ST.regel('eigenschaften', 2, 'Flächeninhalt', 'einkleidung')
+ST.regel('eigenschaften', 3, 'parallelen Achsen', 'verknuepfen')
+ST.regel('eigenschaften', 3, 'ENTGEGENGESETZTEM', 'begruenden')
+ST.regel('eigenschaften', 3, 'schneidet die Spiegelachse', 'begruenden')
+ST.regel('eigenschaften', 3, 'unter', 'verknuepfen')
+ST.regel('eigenschaften', 3, 'erst an der x-Achse', 'verknuepfen')
+ST.neu('eigenschaften', 1, 'direkt', ST.Z('Eine Strecke [AB] ist 6,5 cm lang. Sie wird an einer Achse gespiegelt. Wie lang ist [A\'B\']?', 6.5, '6.5',
+                                         'Kongruenzabbildungen ändern keine Längen: [A\'B\'] ist 6,5 cm lang.', 'Was bleibt bei einer Spiegelung gleich?', einheit='cm'))
+ST.neu('eigenschaften', 1, 'direkt', ST.Z('Ein Winkel von 37° wird um einen Punkt um 90° gedreht. Wie groß ist der Bildwinkel?', 37, '37',
+                                         'Drehungen ändern keine Winkelgrößen: Der Bildwinkel ist 37° groß.', 'Ändert die Drehung die Größe des Winkels?', einheit='°'))
+ST.neu('eigenschaften', 3, 'fehler', ST.A('Jemand behauptet: „Bei einer Drehung bleibt kein Punkt an seinem Platz.“ Was stimmt?', 'Falsch: Das Drehzentrum bleibt an seinem Platz.',
+                                          ['Richtig.', 'Falsch: Alle Punkte auf der x-Achse bleiben fest.', 'Falsch: Bei 90° bleiben vier Punkte fest.'],
+                                          'Das Drehzentrum hat den Abstand 0 zu sich selbst und bewegt sich nicht. Bei einer Drehung um 360° bleiben sogar alle Punkte fest.',
+                                          'Was passiert mit dem Zentrum?'))
+ST.neu('eigenschaften', 3, 'transfer', ST.Z('Im Spiegel siehst du eine Uhr ohne Ziffern: Der Minutenzeiger zeigt nach oben, der Stundenzeiger dorthin, wo sonst die 2 ist. Wie viel Uhr ist es wirklich (volle Stunde)?',
+                                            10, '12 - 2',
+                                            'Der Spiegel spiegelt links und rechts an einer senkrechten Achse. Die 2 liegt rechts oben, ihr Spiegelbild ist links oben – dort steht sonst die 10. Es ist 10 Uhr.',
+                                            'Wo liegt das Spiegelbild der 2 auf dem Zifferblatt?', einheit='Uhr'))
+ST.neu('eigenschaften', 3, 'pruefung', _P('Das Dreieck A(1 | 1), B(4 | 1), C(1 | 3) wird an der y-Achse gespiegelt und das Bild danach mit v = (2 | −3) verschoben. Gib den Endpunkt C\'\' an.',
+                                          'C\'\'', [1, 0], ['-1 + 2', '3 - 3'], 'Spiegeln: C\'(−1 | 3). Verschieben: C\'\'(1 | 0).', 'Erst spiegeln, dann verschieben.'))
+ST.knobel('eigenschaften', ST.Z('Zwei Spiegelachsen schneiden sich in S unter 40°. Eine Figur wird abwechselnd an der ersten und der zweiten Achse gespiegelt. Nach wie vielen Spiegelungen liegt sie zum ersten Mal wieder genau an ihrem Platz?',
+                                18, '2 * 720 / 80',
+                                'Zwei Spiegelungen an Achsen mit 40° ergeben zusammen eine Drehung um S um 80°. Nach k solchen Paaren ist die Figur um 80° · k gedreht. '
+                                'Das erste Vielfache von 80°, das ein Vielfaches von 360° ist, ist 720° (k = 9). '
+                                'Nach einer ungeraden Zahl von Spiegelungen ist der Umlaufsinn umgekehrt, die Figur kann also nicht an ihrem Platz liegen. Ergebnis: 9 · 2 = 18 Spiegelungen.',
+                                'Was bewirken zwei Spiegelungen nacheinander?'))
+ST.knobel('eigenschaften', ST.A('Ein Dreieck ABC wird nacheinander 7-mal an verschiedenen Achsen gespiegelt, 4-mal gedreht und 3-mal verschoben. Hat das Bilddreieck denselben Umlaufsinn wie ABC?',
+                                'Nein: Der Umlaufsinn kehrt sich 7-mal um.', ['Ja: 7 + 4 + 3 = 14 ist gerade.', 'Ja: Kongruenzabbildungen ändern nichts.', 'Das hängt von den Achsen ab.'],
+                                'Nur Achsenspiegelungen kehren den Umlaufsinn um, Drehungen und Verschiebungen nicht. Nach 7 Umkehrungen (ungerade Anzahl) ist der Umlaufsinn umgekehrt – egal in welcher Reihenfolge und an welchen Achsen.',
+                                'Welche der Abbildungen ändern den Umlaufsinn überhaupt?'))
+# mittelsenkrechte
+ST.leiter('mittelsenkrechte', 'Mittelpunkt einer Strecke, Lage der Mittelsenkrechten, Eigenschaft „gleich weit“.',
+          'Lot fällen, Abstand zu einer Geraden, Spielplatz an der Straße, Konstruktionsschritte deuten.',
+          'Ortslinien schneiden (Leuchttürme, Funkmast, drei Häuser), Anzahl von Punkten begründen, Lot auf schräge Gerade, Fehler, Prüfungsaufgabe.')
+ST.regel('mittelsenkrechte', 1, 'Was gilt sicher', 'erkennen')
+ST.regel('mittelsenkrechte', 1, '', 'direkt')
+ST.regel('mittelsenkrechte', 2, 'Fälle das Lot', 'mehrschritt')
+ST.regel('mittelsenkrechte', 2, 'Häuser', 'einkleidung')
+ST.regel('mittelsenkrechte', 2, 'Spiegelachse', 'darstellung')
+ST.regel('mittelsenkrechte', 2, 'erste Schritt', 'darstellung')
+ST.regel('mittelsenkrechte', 2, '', 'mehrschritt')
+ST.regel('mittelsenkrechte', 3, 'Leuchttürme', 'transfer')
+ST.regel('mittelsenkrechte', 3, 'Funkmast', 'transfer')
+ST.regel('mittelsenkrechte', 3, 'Häuser', 'verknuepfen')
+ST.regel('mittelsenkrechte', 3, 'über der Geraden', 'verknuepfen')
+ST.regel('mittelsenkrechte', 3, 'Fälle das Lot', 'verknuepfen')
+ST.regel('mittelsenkrechte', 3, '', 'begruenden')
+ST.neu('mittelsenkrechte', 3, 'fehler', ST.A('A(1 | 2) und B(5 | 2). Jemand sagt: „Die Mittelsenkrechte von [AB] geht durch (3 | 2) und ist waagrecht.“ Was stimmt?',
+                                            'Falsch: [AB] ist waagrecht, die Mittelsenkrechte steht senkrecht darauf.',
+                                            ['Richtig.', 'Falsch: Sie geht durch (2 | 2).', 'Falsch: Sie geht durch (3 | 0) und ist waagrecht.'],
+                                            'Der Mittelpunkt (3 | 2) stimmt. Aber die Mittelsenkrechte steht senkrecht auf [AB]. Da [AB] waagrecht ist, ist sie senkrecht (alle Punkte mit x = 3).',
+                                            'Wie steht die Mittelsenkrechte zur Strecke?'))
+ST.neu('mittelsenkrechte', 3, 'pruefung', _P('Ein Dreieck hat die Ecken A(0 | 0), B(8 | 0) und C(0 | 6). Welcher Punkt ist von allen drei Ecken gleich weit entfernt?', 'M', [4, 3], ['8 / 2', '6 / 2'],
+                                             'Die Mittelsenkrechte von [AB] ist senkrecht durch (4 | 0), die von [AC] waagrecht durch (0 | 3). Sie schneiden sich in M(4 | 3). '
+                                             'M ist zugleich die Mitte von [BC] – beim rechtwinkligen Dreieck liegt der Punkt immer dort.',
+                                             'Schneide zwei Mittelsenkrechte.'))
+ST.knobel('mittelsenkrechte', ST.Z('A, B und C sind drei verschiedene Punkte auf einer Geraden. Wie viele Punkte gibt es, die von A und B gleich weit entfernt sind und zugleich von A und C gleich weit?', 0, '0',
+                                   'Gesucht sind Punkte, die auf der Mittelsenkrechten von [AB] und auf der von [AC] liegen. Beide stehen senkrecht auf derselben Geraden, sind also parallel. '
+                                   'Sie sind verschieden, weil die Mitten von [AB] und [AC] verschieden sind (B ≠ C). Parallele verschiedene Geraden schneiden sich nicht: 0 Punkte.',
+                                   'Auf welchen Linien liegen die gesuchten Punkte, und wie liegen diese Linien zueinander?'))
+ST.knobel('mittelsenkrechte', _P('Drei Dörfer liegen bei A(0 | 0), B(10 | 0) und C(4 | 6). Ein Brunnen soll von allen drei Dörfern gleich weit entfernt sein. Wo steht er?', 'Br', [5, 1], ['10 / 2', '5 - 4'],
+                                 'Mittelsenkrechte von [AB]: senkrecht durch (5 | 0). Mittelsenkrechte von [BC]: Die Mitte von [BC] ist (7 | 3). [BC] geht 6 nach links und 6 nach oben, '
+                                 'senkrecht dazu geht es in gleich großen Schritten nach links und nach unten: (7 | 3), (6 | 2), (5 | 1). Bei x = 5 treffen sich beide: Br(5 | 1). '
+                                 'Probe auf Kästchenpapier: Zu A, B und C sind es jeweils 5 und 1 Kästchen in die beiden Richtungen – gleich lange Strecken.',
+                                 'Zwei Mittelsenkrechte genügen. Eine davon ist besonders einfach.'))
+# winkelhalbierende
+ST.leiter('winkelhalbierende', 'Winkel halbieren; Punkte auf der Winkelhalbierenden sind von beiden Schenkeln gleich weit entfernt.',
+          'Winkel aus der Hälfte, Nebenwinkel, Punkte gleich weit von zwei Achsen, Konstruktionsschritt.',
+          'Ortslinie mit Weg schneiden, Nebenwinkel-Halbierende begründen, Anzahl von Punkten, Fehler mit dem Winkelfeld, Parameter.')
+ST.regel('winkelhalbierende', 1, 'Was gilt sicher', 'erkennen')
+ST.regel('winkelhalbierende', 1, 'Welcher Punkt', 'erkennen')
+ST.regel('winkelhalbierende', 1, '', 'direkt')
+ST.regel('winkelhalbierende', 2, 'Jeder Teil ist', 'umkehr')
+ST.regel('winkelhalbierende', 2, 'Kreise', 'darstellung')
+ST.regel('winkelhalbierende', 2, '', 'mehrschritt')
+ST.regel('winkelhalbierende', 3, 'Feld', 'transfer')
+ST.regel('winkelhalbierende', 3, 'Straßen', 'transfer')
+ST.regel('winkelhalbierende', 3, 'Welcher Punkt ist von g und h', 'transfer')
+ST.regel('winkelhalbierende', 3, 'Warum', 'begruenden')
+ST.regel('winkelhalbierende', 3, 'den Abstand', 'begruenden')
+ST.regel('winkelhalbierende', 3, '', 'verknuepfen')
+ST.neu('winkelhalbierende', 3, 'fehler', ST.A('Jemand sagt: „P(−3 | 3) ist von beiden Achsen 3 entfernt, also liegt P auf der Winkelhalbierenden des Winkels zwischen positiver x-Achse und positiver y-Achse.“ Was stimmt?',
+                                              'Falsch: P liegt nicht in diesem Winkel, sondern auf der Halbierenden des Nebenwinkels.',
+                                              ['Richtig.', 'Falsch: P ist von den Achsen verschieden weit entfernt.', 'Falsch: Kein Punkt mit negativer Koordinate ist von beiden Achsen gleich weit entfernt.'],
+                                              'Gleich weit von beiden Achsen sind die Punkte auf zwei Geraden (Kreuz). Der Winkel zwischen positiver x- und y-Achse ist der 1. Quadrant – P(−3 | 3) liegt im 2. Quadranten, also auf der Halbierenden des Nebenwinkels.',
+                                              'In welchem Quadranten liegt P?'))
+ST.neu('winkelhalbierende', 3, 'parameter', ST.Z('P(a | 6) ist von der x-Achse und der y-Achse gleich weit entfernt und liegt links von der y-Achse. Wie groß ist a?', -6, '-6',
+                                                 'Abstand zur x-Achse: 6. Also auch 6 zur y-Achse: a = 6 oder a = −6. Links von der y-Achse: a = −6.', 'Wie weit ist P von der x-Achse entfernt?'))
+ST.knobel('winkelhalbierende', ST.Z('Drei Strahlen gehen von einem Punkt S aus und teilen den Vollwinkel in drei Winkel α, β und γ. Die Winkelhalbierenden von α und β bilden einen Winkel von 100°. Wie groß ist γ?',
+                                    160, '360 - 2 * 100',
+                                    'α und β liegen nebeneinander. Der Winkel zwischen ihren Halbierenden besteht aus der halben α und der halben β: α/2 + β/2 = 100°, also α + β = 200°. '
+                                    'Für γ bleibt 360° − 200° = 160°.',
+                                    'Aus welchen Teilwinkeln setzt sich der Winkel zwischen den beiden Halbierenden zusammen?'))
+ST.knobel('winkelhalbierende', ST.Z('Wie viele Punkte sind von der x-Achse, der y-Achse und der senkrechten Geraden durch (8 | 0) gleich weit entfernt?', 2, '2',
+                                    'Gleich weit von der y-Achse und der senkrechten Geraden durch (8 | 0): Der Punkt liegt genau in der Mitte, x = 4. Sein Abstand zu beiden ist 4. '
+                                    'Auch zur x-Achse muss er 4 betragen: y = 4 oder y = −4. Also zwei Punkte: (4 | 4) und (4 | −4).',
+                                    'Beginne mit den beiden senkrechten Geraden.'))
+# vierecke_ordnen
+ST.leiter('vierecke_ordnen', 'Vierecke an Symmetrieachsen erkennen; wahre Aussagen im Haus der Vierecke.',
+          'Falsche Aussagen finden, Vierecke in Bildern benennen, Nachbarn im Haus der Vierecke, Tischplatte.',
+          'Gegenbeispiel, Viereck aus zwei Eigenschaften, Anzahlen begründen, unterscheidende Eigenschaft, Fehler, Prüfungsaufgabe mit Koordinaten.')
+ST.regel('vierecke_ordnen', 1, 'Wie viele dieser', 'direkt')
+ST.regel('vierecke_ordnen', 1, '', 'erkennen')
+ST.regel('vierecke_ordnen', 2, 'abgebildet', 'darstellung')
+ST.regel('vierecke_ordnen', 2, 'Haus der Vierecke', 'darstellung')
+ST.regel('vierecke_ordnen', 2, '', 'mehrschritt')
+ST.regel('vierecke_ordnen', 3, 'Tim', 'begruenden')
+ST.regel('vierecke_ordnen', 3, 'Welche Eigenschaft', 'begruenden')
+ST.regel('vierecke_ordnen', 3, 'Wie viele davon', 'transfer')
+ST.regel('vierecke_ordnen', 3, '', 'verknuepfen')
+ST.neu('vierecke_ordnen', 2, 'einkleidung', ST.A('Eine Tischplatte hat vier gleich lange Seiten, aber keinen rechten Winkel. Welches Viereck ist sie?', 'eine Raute',
+                                                 ['ein Quadrat', 'ein Rechteck', 'ein gleichschenkliges Trapez'],
+                                                 'Vier gleich lange Seiten: Raute oder Quadrat. Ohne rechten Winkel ist es kein Quadrat – also eine Raute.', 'Welche Vierecke haben vier gleich lange Seiten?'))
+ST.neu('vierecke_ordnen', 3, 'fehler', ST.A('Jemand sagt: „Ein Viereck mit zwei Paaren gleich langer Seiten ist immer ein Parallelogramm.“ Was stimmt?',
+                                            'Falsch: Beim Drachenviereck sind die gleich langen Seiten benachbart, es ist meist kein Parallelogramm.',
+                                            ['Richtig.', 'Falsch: Es ist immer ein Rechteck.', 'Falsch: Es ist immer eine Raute.'],
+                                            'Im Parallelogramm sind gegenüberliegende Seiten gleich lang. Ein Drachenviereck hat zwei Paare gleich langer Nachbarseiten – ein Gegenbeispiel.',
+                                            'Denke an ein Viereck, bei dem die gleich langen Seiten nebeneinander liegen.'))
+ST.neu('vierecke_ordnen', 3, 'pruefung', ST.A('Das Viereck hat die Ecken A(0 | 0), B(4 | 1), C(5 | 5) und D(1 | 4). Welches Viereck ist ABCD? Wähle die genaueste Bezeichnung.', 'Raute',
+                                              ['Quadrat', 'Rechteck', 'gleichschenkliges Trapez'],
+                                              'Die vier Seiten gehen 4 nach rechts und 1 hoch, 1 nach rechts und 4 hoch, 4 nach links und 1 runter, 1 nach links und 4 runter: gleiche Steigungsdreiecke, also vier gleich lange Seiten. '
+                                              'Ein rechter Winkel bei B bräuchte als zweite Seite 1 nach links und 4 hoch – es geht aber 1 nach rechts. Also Raute, kein Quadrat.',
+                                              'Vergleiche die Kästchenwege der vier Seiten.'))
+ST.knobel('vierecke_ordnen', ST.Z('Wie viele der Bezeichnungen Quadrat, Rechteck, Raute, Parallelogramm, Drachenviereck, gleichschenkliges Trapez, Trapez, Viereck treffen auf ein Quadrat zu?', 8, '8',
+                                  'Ein Quadrat hat vier rechte Winkel (Rechteck), vier gleich lange Seiten (Raute), parallele Gegenseiten (Parallelogramm, Trapez), '
+                                  'eine Symmetrieachse durch zwei Ecken (Drachenviereck) und eine durch die Mitten zweier Gegenseiten (gleichschenkliges Trapez). Alle 8 Bezeichnungen passen.',
+                                  'Prüfe jede Bezeichnung einzeln an ihrer Eigenschaft.'))
+ST.knobel('vierecke_ordnen', ST.A('Ein Viereck hat genau zwei Symmetrieachsen, und keine davon geht durch eine Ecke. Welches Viereck ist es sicher?', 'ein Rechteck, das kein Quadrat ist',
+                                  ['eine Raute, die kein Quadrat ist', 'ein Quadrat', 'ein Drachenviereck'],
+                                  'Die Raute hat zwei Achsen durch die Ecken, das Quadrat vier, das Drachenviereck eine durch Ecken. Zwei Achsen durch die Seitenmitten hat nur das Rechteck (ohne Quadrat).',
+                                  'Wo verlaufen die Achsen bei Raute und Rechteck?'))
+# ---- STUFEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Spiegeln', ['achsenspiegelung', 'punktspiegelung']), ('Verschieben und Drehen', ['verschiebung', 'drehung']), ('Symmetrie und Eigenschaften', ['symmetrie', 'parkett', 'eigenschaften'])],
@@ -1536,3 +1911,4 @@ if __name__ == '__main__':
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     einfuegen(META['thema_schluessel'], luecken(), 7180, quelle=_LUECKEN_QUELLE, offen=_LUECKEN_OFFEN)  # Achtzehnte Runde: zuletzt
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
+    stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt

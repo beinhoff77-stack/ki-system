@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+abbildungen.kongruenz fertig (10 Karten): 161 alte Übungen mit Typ, 1 umgestuft, 42 neue Übungen, 20 Knobel-Bordkarten, 33 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
+
+## 2026-11-17 – STATUS
 terme.umformen fertig: 110 alte Übungen mit Typ, 4 umgestuft, 51 neue Übungen (vor allem Stufe 3), 16 Knobel-Bordkarten, 16 überzählig. Prüfer OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 
 ## 2026-11-17 – STATUS

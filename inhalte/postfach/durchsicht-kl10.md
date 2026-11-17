@@ -24,3 +24,6 @@ Ersetzt (bitte sperren; randverhalten, Übung Stufe 3): „Der Graph von f(x) = 
 ## 2026-11-17 – STATUS: gleichungen.polynom fertig
 Alle 5 Lernkarten und 170 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 20 umgestuft, 2 ersetzt (Abwechslung), Lernkarten unverändert. Prüfskript OK, Nachweis OK.
 Ersetzt (bitte sperren; verstehen, Übung Stufe 2): „Jemand löst x³ = 36x, indem er durch x teilt, und erhält x = ±6. Was stimmt?“ · „Jemand löst x³ = 4x, indem er durch x teilt, und erhält x = ±2. Was stimmt?“
+
+## 2026-11-17 – STATUS: raum.schraegbilder fertig
+Alle 6 Lernkarten und 181 Aufgaben gelesen und nachgerechnet, keine falsche Lösung. 35 umgestuft (u. a. Stufe 1 in `lage` hatte nur 3 Übungen), Lernkarten unverändert. Prüfskript OK, Nachweis OK.

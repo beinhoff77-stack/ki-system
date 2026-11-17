@@ -553,3 +553,40 @@ if __name__ == '__main__':
                 'Prüfvorschlag „x-Achse schräg nach vorn, y nach rechts“ (Karte koordinaten) nicht umgesetzt: Er lohnt sich nur, wenn die Karte nach der Lehrplan-Klärung bleibt; '
                 'das Bild der Prüfung zeigt selbst x nach rechts. Entscheidung beim Haupt-Chat.',
                 'Überschneidung mit messen.koerper_darstellung: Schrägbild-Regeln für Prismen stehen dort, hier liegt der Schwerpunkt auf Pyramiden.'])
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht (seit D2 Klasse 10): jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+# Stufe 1 = vorgerechnetes Beispiel mit anderen Zahlen, Stufe 2 = Abwandlung/Umkehrung, Stufe 3 = anderer Gedanke.
+def durchsicht():
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('raum.schraegbilder', 19080)
+    # pyramide: Kantensummen und Kantenzahl zweier Körper sind Anwendung der Kartenformel (Stufe 2)
+    D.stufe([10, 12], 2, 'Eine ')
+    D.stufe([11, 13], 2, 'Wie viele Kanten haben')
+    # lage: Stufe 1 hatte nur 3 Übungen; zwei Kanten mit gemeinsamer Ecke sind der einfachste Fall → Stufe 1;
+    # zwei Diagonalen durch dieselbe Ecke sind keine neue Idee → Stufe 2
+    D.stufe([64, 68, 69], 1, 'Quader ABCDEFGH')
+    D.stufe([70, 71], 2, 'Quader ABCDEFGH')
+    # koordinaten: eine Koordinate ablesen ist leichter als Stufe 1 → Stufe 1; Mittelpunkt (Mittelwert der Koordinaten) → Stufe 2
+    D.stufe(range(95, 101), 1, 'Ein Quader ABCDEFGH liegt so')
+    D.stufe(range(101, 105), 2, 'Ein Quader ABCDEFGH liegt so')
+    # rotation: Radius/Höhe aus dem Rechteck bzw. Dreieck ist das vorgerechnete Beispiel → Stufe 1;
+    # Halbkreis-Radius und Durchmesser-Unterschied sind kleine Abwandlungen → Stufe 2
+    D.stufe(range(125, 131), 1, 'Ein ')
+    D.stufe(132, 2, 'Ein Rechteck 4 cm × 8 cm')
+    D.stufe([133, 134], 2, 'Ein Halbkreis')
+    # axialschnitt: Fläche beim Zylinder = Beispiel der Karte → Stufe 1; Umfang und Radius rückwärts = Abwandlung/Umkehrung → Stufe 2
+    D.stufe([155, 157, 158], 1, 'Ein Zylinder hat')
+    D.stufe([161, 162, 164], 2, 'Ein Zylinder hat')
+    D.stufe(163, 2, 'Der Axialschnitt eines Zylinders')
+    D.fuer_sebastian('raum.schraegbilder (seit D2 Klasse 10): Ecken/Kanten zählen, Schrägbild-Längen und Axialschnitte sind Klasse-5-bis-8-Niveau; '
+                     'M10 5 verlangt Schrägbilder und Netze von Pyramide und Kegel (Kegel kann die App nicht zeichnen). In der Themendatei steht weiter klasse gym_by 8. '
+                     'Überschneidung: Schrägbild der Pyramide auch in raum.pyramide_kegel_kugel/pyr_volumen.')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende

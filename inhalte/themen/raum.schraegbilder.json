@@ -1480,7 +1480,7 @@
    "l": "pyramide",
    "t": "pyramide",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine zwölfseitige Pyramide hat als Grundfläche ein regelmäßiges 12-Eck mit Seitenlänge 3 cm, jede Seitenkante ist 16 cm lang. Wie lang sind alle Kanten zusammen?"
@@ -1497,7 +1497,7 @@
    "l": "pyramide",
    "t": "pyramide",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Kanten haben ein zehnseitiges Prisma und eine dreiseitige Pyramide zusammen?"
@@ -1513,7 +1513,7 @@
    "l": "pyramide",
    "t": "pyramide",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine sechsseitige Pyramide hat als Grundfläche ein regelmäßiges 6-Eck mit Seitenlänge 7 cm, jede Seitenkante ist 6 cm lang. Wie lang sind alle Kanten zusammen?"
@@ -1530,7 +1530,7 @@
    "l": "pyramide",
    "t": "pyramide",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wie viele Kanten haben ein fünfseitiges Prisma und eine dreiseitige Pyramide zusammen?"
@@ -2773,7 +2773,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und DA zueinander?",
@@ -3229,7 +3229,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AE und HE zueinander?",
@@ -3343,7 +3343,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und CG zueinander?",
@@ -3457,7 +3457,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BH und BC zueinander?",
@@ -3571,7 +3571,7 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AC und AH zueinander?",
@@ -5915,7 +5915,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(6 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 2) sind. Gib die x-Koordinate von C an."
@@ -5931,7 +5931,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(7 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 5) sind. Gib die x-Koordinate von F an."
@@ -5947,7 +5947,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 3 | 0) und E(0 | 0 | 2) sind. Gib die z-Koordinate von C an."
@@ -5963,7 +5963,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3) sind. Gib die z-Koordinate von F an."
@@ -5979,7 +5979,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 5 | 0) und E(0 | 0 | 9) sind. Gib die z-Koordinate von F an."
@@ -5995,7 +5995,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 2) sind. Gib die z-Koordinate von C an."
@@ -6011,7 +6011,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 9) sind. M ist der Mittelpunkt der Strecke AC. Gib die z-Koordinate von M an."
@@ -6027,7 +6027,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 7 | 0) und E(0 | 0 | 3) sind. M ist der Mittelpunkt der Strecke CE. Gib die z-Koordinate von M an."
@@ -6043,7 +6043,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 8) sind. M ist der Mittelpunkt der Strecke DF. Gib die z-Koordinate von M an."
@@ -6059,7 +6059,7 @@
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 6) sind. M ist der Mittelpunkt der Strecke CE. Gib die x-Koordinate von M an."
@@ -6420,7 +6420,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck mit den Seiten 3 cm und 4 cm dreht sich um die 3-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
@@ -6437,7 +6437,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck mit den Katheten 11 cm und 9 cm dreht sich um die 11-cm-Kathete. Wie hoch ist der entstehende Kegel?"
@@ -6454,7 +6454,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck mit den Katheten 14 cm und 2 cm dreht sich um die 14-cm-Kathete. Wie hoch ist der entstehende Kegel?"
@@ -6471,7 +6471,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck mit den Seiten 14 cm und 10 cm dreht sich um die 14-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
@@ -6488,7 +6488,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck mit den Seiten 11 cm und 7 cm dreht sich um die 11-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
@@ -6505,7 +6505,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein rechtwinkliges Dreieck mit den Katheten 4 cm und 6 cm dreht sich um die 4-cm-Kathete. Wie hoch ist der entstehende Kegel?"
@@ -6543,7 +6543,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck 4 cm × 8 cm dreht sich einmal um die 4-cm-Seite, einmal um die 8-cm-Seite. Um wie viel cm unterscheiden sich die Durchmesser der beiden Zylinder?"
@@ -6560,7 +6560,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Halbkreis mit dem Durchmesser 26 cm dreht sich um seinen Durchmesser. Welchen Radius hat die entstehende Kugel?"
@@ -6577,7 +6577,7 @@
    "l": "rotation",
    "t": "rotation",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Halbkreis mit dem Durchmesser 18 cm dreht sich um seinen Durchmesser. Welchen Radius hat die entstehende Kugel?"
@@ -7022,7 +7022,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 9 cm und h = 14 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
@@ -7056,7 +7056,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 5 cm und h = 13 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
@@ -7073,7 +7073,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 2 cm und h = 8 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
@@ -7124,7 +7124,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 9 cm und h = 12 cm. Welchen Umfang hat sein Axialschnitt?"
@@ -7141,7 +7141,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 10 cm und h = 8 cm. Welchen Umfang hat sein Axialschnitt?"
@@ -7158,7 +7158,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Der Axialschnitt eines Zylinders ist ein Rechteck mit 36 cm² Flächeninhalt. Der Zylinder ist 6 cm hoch. Wie groß ist sein Radius?"
@@ -7175,7 +7175,7 @@
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Zylinder hat r = 8 cm und h = 2 cm. Welchen Umfang hat sein Axialschnitt?"

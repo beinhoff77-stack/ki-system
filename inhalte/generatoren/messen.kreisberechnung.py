@@ -854,6 +854,141 @@ ST.knobel('zylinder', SZ('In einen Würfel mit 10 cm Kantenlänge passt genau ei
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('messen.kreisberechnung', 22_8_11)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+PI = '3.141592653589793'
+TX.huerde_alt('flaeche', r'Wo bekommst du mehr Pizza\?$', 'entscheidung')
+TX.huerde_alt('verstehen', r'Ist die große Pizza günstiger', 'entscheidung')
+TX.huerde_alt('umfang', r'Wie viele volle Umdrehungen', 'deuten')
+
+# --- umfang ---
+TX.s('umfang', TZ('Ein Hula-Hoop-Reifen hat 90 cm Durchmesser. Er soll einmal ganz herum mit Klebeband umwickelt werden. Wie viel cm Klebeband braucht man? Runde auf ganze cm.',
+    f'{PI} * 90', TW('d = 90 cm.', 'Länge einmal herum (Umfang).', 'u = π · d.', 'u = π · 90 ≈ 282,7 cm.', 'Man braucht etwa 283 cm Klebeband.'), einheit='cm', toleranz=1))
+
+# --- flaeche ---
+TX.u('flaeche', 'direkt', TZ('Ein runder Teppich hat einen Radius von 1,2 m. Wie viele m² Boden bedeckt er? Runde auf zwei Nachkommastellen.', f'{PI} * 1.2**2',
+    TW('r = 1,2 m.', 'bedeckte Fläche.', 'A = π · r².', 'A = π · 1,44 ≈ 4,52 m².', 'Der Teppich bedeckt etwa 4,52 m².'), 'Welche Formel gehört zur Fläche eines Kreises?', einheit='m²', toleranz=0.01))
+TX.u('flaeche', 'einkleidung', TZ('Ein runder Pool hat 4 m Durchmesser. Für den Winter wird er mit einer Plane abgedeckt, die überall 0,5 m über den Rand hinausragt. Wie viel m² Plane braucht man? Runde auf eine Nachkommastelle.',
+    f'{PI} * 2.5**2', TW('Pool d = 4 m, Überstand 0,5 m ringsum.', 'Fläche der Plane.', 'Die Plane ist ein Kreis mit r = 2 m + 0,5 m = 2,5 m.', 'A = π · 2,5² ≈ 19,6 m².', 'Man braucht etwa 19,6 m² Plane.'),
+    'Wie groß ist der Radius der Plane, wenn sie überall übersteht?', einheit='m²', toleranz=0.1))
+TX.u('flaeche', 'mehrschritt', TZ('Ein runder Teppich mit 2,5 m Durchmesser kostet 98 €. Wie viel kostet ein Quadratmeter davon ungefähr? Runde auf ganze Euro.', f'98 / ({PI} * 1.25**2)',
+    TW('d = 2,5 m, Preis 98 €.', 'Preis pro m².', 'Erst die Fläche, dann Preis : Fläche.', 'r = 1,25 m, A = π · 1,25² ≈ 4,91 m². 98 : 4,91 ≈ 20 €.', 'Ein Quadratmeter kostet etwa 20 €.'),
+    'Was musst du zuerst wissen, um den Preis pro m² zu bekommen?', einheit='€', toleranz=1))
+TX.s('flaeche', TZ('Ein Rasensprenger dreht sich ganz herum und spritzt 6 m weit. Wie groß ist die bewässerte Fläche? Runde auf ganze m².', f'{PI} * 6**2',
+    TW('Reichweite 6 m = Radius.', 'bewässerte Fläche.', 'A = π · r².', 'A = π · 36 ≈ 113 m².', 'Er bewässert etwa 113 m².'), einheit='m²', toleranz=1))
+TX.s('flaeche', TZ('Ein rundes Beet mit 3 m Durchmesser wird mit Rindenmulch bedeckt. Ein Sack reicht für 2 m². Wie viele Säcke muss man kaufen?', f'-(-({PI} * 1.5**2) // 2)',
+    TW('d = 3 m, ein Sack für 2 m².', 'Anzahl der Säcke.', 'Fläche berechnen, durch 2 teilen, aufrunden.', 'A = π · 1,5² ≈ 7,07 m². 7,07 : 2 ≈ 3,5.', 'Man muss 4 Säcke kaufen – 3 reichen nicht.')))
+TX.k('flaeche', TZ('Eine runde Tischdecke hat 1,6 m Durchmesser. Wie viel m² Stoff sind das? Runde auf zwei Nachkommastellen.', f'{PI} * 0.8**2',
+    TW('d = 1,6 m.', 'Stofffläche.', 'r = d : 2, dann A = π · r².', 'r = 0,8 m, A = π · 0,64 ≈ 2,01 m².', 'Die Decke hat etwa 2,01 m² Stoff.'), einheit='m²', toleranz=0.01))
+
+# --- exakt ---
+TX.u('exakt', 'direkt', TL('Ein runder Untersetzer hat 5 cm Radius. Gib seine Fläche exakt an.', 'A = □ · π cm²', ['5**2'],
+    TW('r = 5 cm.', 'Fläche exakt (mit π).', 'A = π · r², π bleibt stehen.', 'A = π · 25.', 'Der Untersetzer hat A = 25π cm².'), 'Rechne nur r² aus und lass π stehen.', hinweis='Die Zahl vor π.'))
+TX.u('exakt', 'einkleidung', TL('Um einen runden Tisch mit 60 cm Radius läuft eine Zierleiste. Gib ihre Länge exakt an.', 'u = □ · π cm', ['2 * 60'],
+    TW('r = 60 cm.', 'Länge der Leiste exakt.', 'Die Leiste ist der Umfang: u = 2 · π · r.', 'u = 2 · π · 60 = 120π.', 'Die Leiste ist 120π cm lang.'), 'Die Leiste läuft einmal ganz herum.', hinweis='Die Zahl vor π.'))
+TX.u('exakt', 'umkehr', TL('Ein kreisförmiger Teich hat genau 49π m² Fläche. Direkt am Ufer soll ein Zaun stehen. Wie lang wird der Zaun? Gib das Ergebnis exakt an.', '□ · π m', ['2 * 7'],
+    TW('A = 49π m².', 'Zaunlänge = Umfang.', 'Aus A = π · r² den Radius, dann u = 2 · π · r.', 'r² = 49, r = 7 m. u = 2 · π · 7 = 14π.', 'Der Zaun ist 14π m lang (etwa 44 m).'),
+    'Welcher Radius gehört zu 49π?', hinweis='Die Zahl vor π.'))
+TX.u('exakt', 'begruenden', TX.A('Ein Kind sagt: „Unser rundes Beet hat 4 m Radius, also genau 50 m² Fläche.“ Was stimmt?',
+    'Falsch: Es sind genau 16π m², das ist etwas mehr als 50 m².', ['Richtig: 16π ist genau 50.', 'Falsch: Es sind genau 8π m².', 'Falsch: Es sind genau 16 m².'],
+    TW('r = 4 m, Behauptung 50 m².', 'Ist „genau 50 m²“ richtig?', 'A = π · r² exakt aufschreiben und mit 50 vergleichen.', 'A = 16π ≈ 50,27 m².', 'Die Aussage ist falsch: exakt sind es 16π m², gerundet gut 50 m².'),
+    'Schreib die Fläche exakt mit π auf und vergleiche dann.'), huerde='entscheidung')
+TX.u('exakt', 'fehler', TX.A('Ein Brunnen hat einen runden Rand mit 2 m Radius. Er ist 1,5 m tief und kostete 3 000 €. Lea gibt die Länge des Randes exakt an: u = 2π m. Was stimmt?',
+    'Falsch: u = 2 · π · 2 = 4π m.', ['Richtig: u = 2π m.', 'Falsch: u = 1,5π m.', 'Falsch: u = 4 m.'],
+    TW('r = 2 m (Tiefe und Preis spielen keine Rolle).', 'Umfang exakt, Fehler finden.', 'u = 2 · π · r.', 'u = 2 · π · 2 = 4π.', 'Lea hat nur π · r gerechnet. Richtig ist u = 4π m.'),
+    'Welche Angaben brauchst du für den Umfang überhaupt?'), huerde='ueberfluessig')
+TX.s('exakt', TL('Ein rundes Trampolin hat 3 m Durchmesser. Gib seine Sprungfläche exakt an.', 'A = □/□ · π m²', ['9', '4'],
+    TW('d = 3 m.', 'Fläche exakt.', 'r = 3/2 m, A = π · r².', 'A = π · 9/4.', 'Die Sprungfläche ist 9/4 · π m².'), hinweis='Zähler und Nenner der Zahl vor π.'))
+TX.s('exakt', TL('Eine runde Uhr hat 10 cm Radius. Die Spitze des Minutenzeigers reicht genau bis zum Rand. Welchen Weg legt sie in einer Stunde zurück? Gib ihn exakt an.', '□ · π cm', ['2 * 10'],
+    TW('r = 10 cm, eine Stunde = eine ganze Runde.', 'Weg der Spitze exakt.', 'Weg = Umfang u = 2 · π · r.', 'u = 2 · π · 10 = 20π.', 'Die Spitze legt 20π cm zurück.'), hinweis='Die Zahl vor π.'))
+TX.k('exakt', TL('Ein runder Brunnenrand hat 2,5 m Radius. Gib seine Länge exakt an.', 'u = □ · π m', ['2 * 5 // 2'],
+    TW('r = 2,5 m.', 'Länge des Randes exakt.', 'u = 2 · π · r.', 'u = 2 · π · 2,5 = 5π.', 'Der Rand ist 5π m lang.'), hinweis='Die Zahl vor π.'))
+
+# --- verstehen ---
+TX.u('verstehen', 'direkt', TZ('Ein Spielzeugkreisel mit 4 cm Radius wird durch einen mit 8 cm Radius ersetzt. Wie viel Mal so lang ist der Umfang des großen Kreisels?', '8 / 4',
+    TW('r alt = 4 cm, r neu = 8 cm.', 'Faktor für den Umfang.', 'Der Umfang wächst wie der Radius.', '8 : 4 = 2.', 'Der Umfang ist doppelt so lang.'), 'Wie hängt der Umfang vom Radius ab – einfach oder im Quadrat?'))
+TX.u('verstehen', 'einkleidung', TZ('Eine runde Pizza mit 24 cm Durchmesser reicht für 2 Personen. Wie viele Personen werden von einer Pizza mit 48 cm Durchmesser genauso satt?', '2 * (48 / 24)**2',
+    TW('d = 24 cm für 2 Personen, neue d = 48 cm.', 'Anzahl der Personen.', 'Doppelter Durchmesser → vierfache Fläche.', '2 · 2² = 2 · 4 = 8.', 'Die große Pizza reicht für 8 Personen.'), 'Wie ändert sich die Fläche, wenn der Durchmesser doppelt so groß wird?'))
+TX.u('verstehen', 'umkehr', TZ('Eine neue runde Terrasse soll 9-mal so viel Fläche bekommen wie die alte. Die alte hat 2 m Radius. Welchen Radius braucht die neue?', '2 * 3',
+    TW('r alt = 2 m, Fläche · 9.', 'neuer Radius.', 'Fläche wächst mit dem Quadrat des Faktors: k² = 9.', 'k = 3, r neu = 3 · 2 m = 6 m.', 'Die neue Terrasse braucht 6 m Radius.'), 'Welcher Faktor ergibt im Quadrat 9?', einheit='m'))
+TX.u('verstehen', 'begruenden', TX.A('Eine Abdeckplane für einen runden Pool mit 3 m Radius kostet 60 €. Für einen Pool mit 6 m Radius verlangt der Händler 120 € – „doppelt so groß, doppelt so teuer“. Was stimmt?',
+    'Die große Plane hat die vierfache Fläche, pro m² ist sie also halb so teuer.', ['Der Händler hat recht: doppelte Fläche, doppelter Preis.', 'Die große Plane hat die doppelte Fläche, der Preis pro m² ist gleich.', 'Die große Plane ist pro m² doppelt so teuer.'],
+    TW('r = 3 m für 60 €, r = 6 m für 120 €.', 'Ist „doppelt so groß“ richtig, was kostet ein m²?', 'Doppelter Radius → vierfache Fläche.', 'Fläche · 4, Preis · 2 ⇒ Preis pro m² · 2/4 = 1/2.', 'Die große Plane ist pro m² halb so teuer – ein gutes Angebot.'),
+    'Wie oft passt die kleine Fläche in die große?'), huerde='entscheidung')
+TX.u('verstehen', 'pruefung', TZ('Für eine runde Rasenfläche mit 5 m Radius braucht ein Gärtner 3 kg Grassamen. Jetzt soll eine runde Fläche mit 10 m Radius besät werden. Samen gibt es nur in 5-kg-Säcken. Wie viele Säcke muss er kaufen?',
+    '-(-(3 * (10 / 5)**2) // 5)', TW('r = 5 m braucht 3 kg; neue r = 10 m; Säcke zu 5 kg.', 'Anzahl der Säcke.', 'Doppelter Radius → vierfache Fläche → vierfache Menge, dann aufrunden.',
+    '3 kg · 4 = 12 kg. 12 : 5 = 2,4.', 'Er muss 3 Säcke kaufen.'), 'Wie viel Samen braucht er insgesamt, und wie viele volle Säcke reichen dafür?'), huerde='deuten')
+TX.s('verstehen', TZ('Ein runder Spiegel wird durch einen mit dreifachem Radius ersetzt. Wie viel Mal so groß ist die neue Spiegelfläche?', '3**2',
+    TW('Radius · 3.', 'Faktor für die Fläche.', 'Die Fläche wächst mit dem Quadrat.', '3² = 9.', 'Die Spiegelfläche ist 9-mal so groß.')))
+TX.s('verstehen', TZ('Jemand sagt: „Halbiere ich den Durchmesser einer Pizza, bleibt halb so viel Pizza.“ Der wievielte Teil der Pizza bleibt wirklich? Gib ihn als Dezimalzahl an.', '(1/2)**2',
+    TW('Durchmesser · 1/2.', 'Anteil der Fläche.', 'Die Fläche wächst mit dem Quadrat des Faktors.', '(1/2)² = 1/4 = 0,25.', 'Es bleibt nur ein Viertel, also 0,25 der Pizza.')))
+TX.k('verstehen', TZ('Eine runde Tortenplatte hat 14 cm Radius, eine größere 28 cm. Wie viel Mal so viel Fläche hat die größere Platte?', '(28 / 14)**2',
+    TW('r = 14 cm und r = 28 cm.', 'Faktor der Fläche.', 'Faktor des Radius, dann quadrieren.', '28 : 14 = 2, 2² = 4.', 'Die große Platte hat 4-mal so viel Fläche.')))
+
+# --- sektor ---
+TX.u('sektor', 'direkt', TZ('Eine Pizza wird in 8 gleich große Stücke geschnitten. Wie groß ist der Mittelpunktswinkel eines Stücks?', '360 / 8',
+    TW('8 gleiche Stücke.', 'Winkel eines Stücks.', 'Der ganze Kreis hat 360°.', '360° : 8 = 45°.', 'Ein Stück hat 45°.'), 'Wie viel Grad hat die ganze Pizza?', einheit='°'))
+TX.u('sektor', 'einkleidung', TZ('Ein Rasensprenger schwenkt nur um 90° hin und her und spritzt 8 m weit. Wie groß ist die bewässerte Fläche? Runde auf ganze m².', f'{PI} * 8**2 * 90 / 360',
+    TW('α = 90°, r = 8 m.', 'bewässerte Fläche.', 'A = α/360° · π · r².', 'A = 1/4 · π · 64 ≈ 50,3 m².', 'Er bewässert etwa 50 m².'), 'Welcher Teil des ganzen Kreises sind 90°?', einheit='m²', toleranz=1))
+TX.u('sektor', 'umkehr', TZ('Aus einer runden Torte mit 12 cm Radius wird ein Stück mit 75,4 cm² Grundfläche geschnitten. Welchen Mittelpunktswinkel hat das Stück? Runde auf ganze Grad.', f'75.4 / ({PI} * 12**2) * 360',
+    TW('r = 12 cm, Stück 75,4 cm².', 'Mittelpunktswinkel α.', 'Anteil = Stück : ganze Torte, dann · 360°.', 'Ganze Torte: π · 144 ≈ 452,4 cm². 75,4 : 452,4 ≈ 1/6. 1/6 · 360° = 60°.', 'Das Stück hat etwa 60°.'),
+    'Welcher Anteil der ganzen Torte ist das Stück?', einheit='°', toleranz=1))
+TX.u('sektor', 'begruenden', TX.A('Stück A stammt aus einer Torte mit 26 cm Durchmesser und hat 60°. Stück B stammt aus einer Torte mit 20 cm Durchmesser und hat 90°. Welches Stück ist größer?',
+    'Stück A ist größer.', ['Stück B ist größer, weil 90° mehr ist als 60°.', 'Beide sind gleich groß.', 'Das kann man ohne Höhe der Torte nicht sagen.'],
+    TW('A: r = 13 cm, 60°. B: r = 10 cm, 90°.', 'größeres Stück.', 'Beide Flächen mit α/360° · π · r² berechnen.', 'A: 1/6 · π · 169 ≈ 88,5 cm². B: 1/4 · π · 100 ≈ 78,5 cm².', 'Stück A ist größer – der größere Radius zählt im Quadrat.'),
+    'Berechne beide Flächen; der Winkel allein entscheidet nicht.'), huerde='entscheidung')
+TX.u('sektor', 'pruefung', TZ('Ein Mähroboter hängt an einem Pflock mit einem 25 m langen Seil. Ein Zaun lässt ihm nur einen Kreisausschnitt mit 40° frei. Der Roboter wiegt 9 kg und fährt 0,5 m pro Sekunde. Wie viel m² kann er mähen? Runde auf ganze m².',
+    f'{PI} * 25**2 * 40 / 360', TW('r = 25 m (Seil), α = 40°. Gewicht und Tempo braucht man nicht.', 'gemähte Fläche.', 'A = α/360° · π · r².', 'A = 40/360 · π · 625 ≈ 218 m².', 'Er kann etwa 218 m² mähen.'),
+    'Welche Angaben gehören zur Fläche eines Kreisausschnitts?', einheit='m²', toleranz=1), huerde='ueberfluessig')
+TX.s('sektor', TZ('Ein runder Kuchen mit 28 cm Durchmesser wird in 12 gleiche Stücke geteilt. Wie groß ist die Grundfläche eines Stücks? Runde auf ganze cm².', f'{PI} * 14**2 / 12',
+    TW('d = 28 cm, 12 Stücke.', 'Fläche eines Stücks.', 'Ganze Fläche : 12.', 'π · 14² ≈ 615,8 cm². 615,8 : 12 ≈ 51 cm².', 'Ein Stück hat etwa 51 cm².'), einheit='cm²', toleranz=1))
+TX.s('sektor', TZ('Der Minutenzeiger einer Turmuhr ist 1,5 m lang. Welchen Weg legt seine Spitze in 15 Minuten zurück? Runde auf zwei Nachkommastellen.', f'2 * {PI} * 1.5 / 4',
+    TW('r = 1,5 m, 15 min = 1/4 Runde.', 'Weg der Spitze.', 'b = 1/4 · 2 · π · r.', 'b = 1/4 · 2 · π · 1,5 ≈ 2,36 m.', 'Die Spitze legt etwa 2,36 m zurück.'), einheit='m', toleranz=0.01))
+TX.k('sektor', TZ('Ein Handfächer ist 25 cm lang und lässt sich auf 150° öffnen. Wie groß ist seine Fläche? Runde auf ganze cm².', f'{PI} * 25**2 * 150 / 360',
+    TW('r = 25 cm, α = 150°.', 'Fläche des Fächers.', 'A = α/360° · π · r².', 'A = 150/360 · π · 625 ≈ 818 cm².', 'Der Fächer hat etwa 818 cm².'), einheit='cm²', toleranz=1))
+
+# --- zusammengesetzt ---
+TX.u('zusammengesetzt', 'direkt', TZ('Ein Fenster hat die Form eines Halbkreises mit 80 cm Durchmesser. Wie groß ist seine Glasfläche? Runde auf ganze cm².', f'{PI} * 40**2 / 2',
+    TW('Halbkreis, d = 80 cm.', 'Glasfläche.', 'Halber Kreis: A = π · r² : 2.', 'r = 40 cm, π · 1 600 : 2 ≈ 2 513 cm².', 'Das Fenster hat etwa 2 513 cm² Glas.'), 'Welcher Teil eines ganzen Kreises ist ein Halbkreis?', einheit='cm²', toleranz=1))
+TX.u('zusammengesetzt', 'einkleidung', TZ('Eine Tischplatte besteht aus einem Rechteck (1,2 m × 0,8 m) mit je einem Halbkreis an den beiden kurzen Seiten. Wie groß ist die Tischplatte? Runde auf zwei Nachkommastellen.',
+    f'1.2 * 0.8 + {PI} * 0.4**2', TW('Rechteck 1,2 m × 0,8 m, zwei Halbkreise an den 0,8-m-Seiten.', 'Fläche der Platte.', 'Rechteck + zwei Halbkreise (zusammen ein Kreis mit r = 0,4 m).',
+    '0,96 + π · 0,16 ≈ 0,96 + 0,50 = 1,46 m².', 'Die Platte ist etwa 1,46 m² groß.'), 'Zwei Halbkreise ergeben zusammen welche Figur?', einheit='m²', toleranz=0.01))
+TX.u('zusammengesetzt', 'mehrschritt', TZ('Ein Spiegel besteht aus einem Quadrat mit 60 cm Seitenlänge und einem aufgesetzten Halbkreis. Um den Spiegel soll eine Lichterkette laufen, aber nicht an der unteren Kante. Wie lang wird sie? Runde auf ganze cm.',
+    f'2 * 60 + {PI} * 60 / 2', TW('Quadrat 60 cm, Halbkreis oben (d = 60 cm), unten keine Kette.', 'Länge der Lichterkette.', 'Zwei Seiten + halber Kreisumfang.',
+    '2 · 60 + π · 60 : 2 ≈ 120 + 94,2 = 214 cm.', 'Die Lichterkette wird etwa 214 cm lang.'), 'Welche Kanten bekommen eine Kette, welche nicht?', einheit='cm', toleranz=1))
+TX.u('zusammengesetzt', 'rueckwaerts', TZ('Eine Laufbahn hat zwei gerade Stücke von je 85 m, an den Enden ist sie halbkreisförmig. Eine Runde ist genau 400 m lang. Welchen Radius haben die Halbkreise? Runde auf eine Nachkommastelle.',
+    f'(400 - 2 * 85) / (2 * {PI})', TW('Runde 400 m, zwei Geraden je 85 m.', 'Radius der Kurven.', 'Die zwei Halbkreise sind zusammen ein ganzer Kreisumfang: 400 − 170 = 2 · π · r.',
+    '230 = 2 · π · r ⇒ r = 230 : (2π) ≈ 36,6 m.', 'Die Kurven haben etwa 36,6 m Radius.'), 'Wie viel der Runde bleibt für die Kurven, und was bilden beide Kurven zusammen?', einheit='m', toleranz=0.1), huerde='fehlend')
+TX.u('zusammengesetzt', 'pruefung', TZ('Ein Beet hat die Form eines Quadrats mit 4 m Seitenlänge, an eine Seite ist ein Halbkreis angesetzt. Es wird ringsum mit Randsteinen eingefasst, ein Stein ist 50 cm lang. Wie viele Steine braucht man mindestens?',
+    f'-(-(3 * 4 + {PI} * 4 / 2) // 0.5)', TW('Quadrat 4 m, Halbkreis an einer Seite (d = 4 m), Stein 0,5 m.', 'Anzahl der Steine.', 'Rand = 3 Quadratseiten + halber Kreisumfang; durch 0,5 m teilen; aufrunden.',
+    '12 + π · 4 : 2 ≈ 18,28 m. 18,28 : 0,5 ≈ 36,6.', 'Man braucht mindestens 37 Steine.'), 'Welche Seite des Quadrats liegt innen? Und was machst du mit einem halben Stein?'), huerde='deuten')
+TX.s('zusammengesetzt', TZ('Ein Stadionrasen besteht aus einem Rechteck (100 m × 64 m) und zwei Halbkreisen an den 64-m-Seiten. Wie groß ist die Rasenfläche? Runde auf ganze m².', f'100 * 64 + {PI} * 32**2',
+    TW('Rechteck 100 m × 64 m, zwei Halbkreise mit r = 32 m.', 'Rasenfläche.', 'Rechteck + ganzer Kreis.', '6 400 + π · 1 024 ≈ 6 400 + 3 217 = 9 617 m².', 'Der Rasen hat etwa 9 617 m².'), einheit='m²', toleranz=1))
+TX.s('zusammengesetzt', TZ('Eine Holztür ist unten ein Rechteck (2 m hoch, 1,2 m breit) und oben ein Halbkreis. Wie viel m² Holz braucht man für die Tür? Runde auf zwei Nachkommastellen.', f'2 * 1.2 + {PI} * 0.6**2 / 2',
+    TW('Rechteck 2 m × 1,2 m, Halbkreis mit d = 1,2 m.', 'Holzfläche.', 'Rechteck + halber Kreis.', '2,4 + π · 0,36 : 2 ≈ 2,4 + 0,57 = 2,97 m².', 'Man braucht etwa 2,97 m² Holz.'), einheit='m²', toleranz=0.01))
+TX.k('zusammengesetzt', TZ('Eine Laufbahn hat zwei gerade Stücke von je 100 m und zwei Halbkreise mit 30 m Radius. Wie lang ist eine Runde? Runde auf ganze m.', f'2 * 100 + 2 * {PI} * 30',
+    TW('Geraden 2 · 100 m, Halbkreise r = 30 m.', 'Länge einer Runde.', 'Geraden + ein ganzer Kreisumfang.', '200 + 2 · π · 30 ≈ 200 + 188,5 = 388,5 m.', 'Eine Runde ist etwa 388 m lang.'), einheit='m', toleranz=1))
+
+# --- zylinder ---
+TX.u('zylinder', 'direkt', TZ('Eine Konservendose hat 4 cm Radius und ist 11 cm hoch. Wie viel cm³ passen hinein? Runde auf ganze cm³.', f'{PI} * 4**2 * 11',
+    TW('r = 4 cm, h = 11 cm.', 'Volumen.', 'V = π · r² · h.', 'V = π · 16 · 11 ≈ 553 cm³.', 'In die Dose passen etwa 553 cm³.'), 'Grundfläche mal Höhe – welche Grundfläche hat eine Dose?', einheit='cm³', toleranz=1))
+TX.u('zylinder', 'begruenden', TX.A('Für eine Party gibt es zwei zylinderförmige Getränkespender: A hat 10 cm Radius und ist 40 cm hoch, B hat 14 cm Radius und ist 20 cm hoch. Welcher fasst mehr?',
+    'A fasst etwas mehr als B.', ['B fasst mehr, weil er breiter ist.', 'Beide fassen gleich viel.', 'B fasst doppelt so viel wie A.'],
+    TW('A: r = 10 cm, h = 40 cm. B: r = 14 cm, h = 20 cm.', 'Welcher fasst mehr?', 'Beide Volumen mit V = π · r² · h.', 'A: π · 100 · 40 ≈ 12 566 cm³. B: π · 196 · 20 ≈ 12 315 cm³.', 'A fasst etwas mehr, etwa 0,25 l.'),
+    'Rechne beide Volumen aus, bevor du entscheidest.'), huerde='entscheidung')
+TX.u('zylinder', 'pruefung', TZ('Ein Regenfass ist ein Zylinder mit 30 cm Radius und 90 cm Höhe. Es ist voll und wird mit einer 10-l-Gießkanne geleert. Wie oft muss man die Kanne mindestens füllen, bis das Fass leer ist?',
+    f'-(-({PI} * 30**2 * 90 / 1000) // 10)', TW('r = 30 cm, h = 90 cm, Kanne 10 l.', 'Anzahl der Kannen.', 'Volumen in cm³, in Liter umrechnen (1 l = 1 000 cm³), durch 10 teilen, aufrunden.',
+    'V = π · 900 · 90 ≈ 254 469 cm³ ≈ 254,5 l. 254,5 : 10 ≈ 25,4.', 'Man muss die Kanne 26-mal füllen.'), 'Wie viele Liter sind im Fass? Und was ist mit dem Rest unter 10 l?'), huerde='deuten')
+TX.s('zylinder', TZ('Ein zylinderförmiger Kerzenrohling hat 3 cm Radius und 12 cm Höhe. Wie viel cm³ Wachs braucht man? Runde auf ganze cm³.', f'{PI} * 3**2 * 12',
+    TW('r = 3 cm, h = 12 cm.', 'Wachsmenge (Volumen).', 'V = π · r² · h.', 'V = π · 9 · 12 ≈ 339 cm³.', 'Man braucht etwa 339 cm³ Wachs.'), einheit='cm³', toleranz=1))
+TX.k('zylinder', TZ('Eine Litfaßsäule hat 1,2 m Durchmesser und ist 3 m hoch mit Plakaten beklebt. Wie viel m² Plakatfläche hat der Mantel? Runde auf eine Nachkommastelle.', f'{PI} * 1.2 * 3',
+    TW('d = 1,2 m, h = 3 m.', 'Mantelfläche.', 'M = π · d · h (Umfang mal Höhe).', 'M = π · 1,2 · 3 ≈ 11,3 m².', 'Die Säule hat etwa 11,3 m² Plakatfläche.'), einheit='m²', toleranz=0.1))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kreis', ['umfang', 'flaeche', 'exakt', 'verstehen']), ('Teile von Kreisen', ['sektor', 'zusammengesetzt']), ('Zylinder', ['zylinder'])],

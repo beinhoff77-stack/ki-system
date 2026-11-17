@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 02:31 – STATUS
+funktionen.grundbegriffe fertig: funktionswert – Graphname „Preis“ mit name_x 2 versetzt (lag 0,63 Einheiten neben „(5 | 13)“ bzw. „richtig“ und überdeckte sie). Nur Kartenbild dieser Karte; _TAXI für die anderen Karten unverändert. Aufgaben 240 von 240 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
+
+## 2026-11-17 02:31 – STATUS
 funktionen.linear Nachbesserung: proportional/fehler_bild – statt „2x + 1“ (lag mit name_x 1,5 im Schnittpunkt) jetzt „2,5x“ mit name_x 2,8 versetzt. Neues Prüfskript inhalte/generatoren/_merksaetze_pruefen.py („Kurz gesagt“ und Namen-Abstand < 1 Einheit). inhalt_pruefen OK ohne Hinweise; Nachweis OK (210 von 210 Aufgaben unverändert).
 
 ## 2026-11-17 02:40 – STATUS

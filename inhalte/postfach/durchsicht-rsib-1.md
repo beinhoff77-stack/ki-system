@@ -1,5 +1,8 @@
 # Postfach durchsicht-rsib-1 (Neunzehnte Runde, Teil B, Chat 1)
 
+## 2026-11-17 16:20 – STATUS
+gleichungen.wurzel fertig: 5 umgestuft, 8 ersetzt – darunter ein FEHLER: „Jemand löst √(2x − 19) = 1 so: 2x − 19 = 1, also x = 10“ war als falsch markiert, ist aber richtig (Generator-Variante bei rechter Seite 1). 17 neu (Stufe 3: Definitionsmenge mit zwei Wurzeln, Pendel, Sichtweite, Fallzeit-Vergleiche). inhalt_pruefen: OK, 0 Hinweise.
+
 ## 2026-11-17 16:00 – STATUS
 gleichungen.reinquadratisch fertig: 6 umgestuft, 5 ersetzt, 18 neu (Stufe 3: Gleichung zu gegebener Lösungsmenge, flächengleiche Figuren, Bremsweg, Fallzeiten-Vergleich, binomische Formel erkennen). inhalt_pruefen: OK, 0 Hinweise.
 

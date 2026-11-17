@@ -885,7 +885,7 @@
    "l": "definitionsmenge",
    "t": "definitionsmenge",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Darf man x = −5 in √(2x + 14) einsetzen?"
@@ -905,7 +905,7 @@
    "l": "definitionsmenge",
    "t": "definitionsmenge",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Darf man x = 1 in √(3x − 6) einsetzen?"
@@ -947,7 +947,7 @@
    "l": "definitionsmenge",
    "t": "definitionsmenge",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Darf man x = 11 in √(2x − 16) einsetzen?"
@@ -1004,6 +1004,105 @@
    },
    "w": "−14 − 2x ≥ 0 ⇔ −2x ≥ 14 ⇔ x ≤ −7 (Teilen durch −2 dreht das Zeichen).",
    "h": "Achtung beim Teilen durch eine negative Zahl."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge des Terms √(x + 3) + √(5 − x) an.",
+    "schablone": "D = {x | □ ≤ x ≤ □}",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -3,
+     5
+    ]
+   },
+   "c": [
+    "-3",
+    "5"
+   ],
+   "w": "Beide Radikanden ≥ 0: x + 3 ≥ 0 ⇒ x ≥ −3 und 5 − x ≥ 0 ⇒ x ≤ 5.",
+   "h": "Beide Wurzeln müssen definiert sein."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge der Gleichung √(2x + 4) = √(x − 1) + 2 an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     1
+    ]
+   },
+   "c": [
+    "1"
+   ],
+   "w": "2x + 4 ≥ 0 ⇒ x ≥ −2. x − 1 ≥ 0 ⇒ x ≥ 1. Beides zusammen: x ≥ 1.",
+   "h": "Prüfe beide Wurzeln; die strengere Bedingung gilt."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche ist die kleinste ganze Zahl, die man in √(3x − 7) einsetzen darf?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "3x − 7 ≥ 0 ⇒ x ≥ 7/3 ≈ 2,33. Die kleinste ganze Zahl ist 3.",
+   "h": "Löse 3x − 7 ≥ 0 und schau auf die nächste ganze Zahl."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche x ist √(x²) definiert?"
+   },
+   "a": [
+    "nur für x ≥ 0",
+    "nur für x > 0",
+    "für alle x",
+    "für kein x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x² ist nie negativ, also ist der Radikand immer ≥ 0.",
+   "h": "Kann x² negativ sein?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von a hat √(x − a) die Definitionsmenge D = {x | x ≥ −4}?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-4",
+   "w": "x − a ≥ 0 ⇒ x ≥ a. Also a = −4.",
+   "h": "Löse x − a ≥ 0 nach x auf."
   },
   {
    "l": "definitionsmenge",
@@ -1502,21 +1601,56 @@
    "t": "quadrieren",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand löst √(2x − 19) = 1 so: 2x − 19 = 1, also x = 10. Was stimmt?"
+    "text": "Für welchen Wert c hat die Gleichung √(x + 1) = c die Lösung x = 15?"
    },
-   "a": [
-    "Falsch: Die Gleichung hat keine Lösung.",
-    "Richtig.",
-    "Falsch: Rechts muss 1² = 1 stehen; x = 10.",
-    "Falsch: x = −9."
-   ],
    "o": {
-    "index": 2
+    "wert": 4
    },
-   "w": "Quadrieren: 2x − 19 = 1 ⇒ 2x = 20 ⇒ x = 10. Probe: √(2 · 10 − 19) = √1 = 1 ✓.",
-   "h": "Was passiert beim Quadrieren mit der rechten Seite?"
+   "c": "4",
+   "w": "x = 15 einsetzen: √16 = 4. Also c = 4.",
+   "h": "Setze x = 15 ein."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt √(2x + 1) = 7. Welchen Wert hat dann √(8x + 4)?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "2*7",
+   "w": "8x + 4 = 4 · (2x + 1), also √(8x + 4) = 2 · √(2x + 1) = 14. Oder: x = 24 und √196 = 14.",
+   "h": "Vergleiche 8x + 4 mit 2x + 1."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse √(x² + 9) = 5.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -4,
+     4
+    ]
+   },
+   "c": [
+    "-4",
+    "4"
+   ],
+   "w": "Quadrieren: x² + 9 = 25 ⇒ x² = 16 ⇒ x = ±4. Probe: √25 = 5 für beide.",
+   "h": "Nach dem Quadrieren entsteht eine reinquadratische Gleichung."
   },
   {
    "l": "quadrieren",
@@ -1907,42 +2041,32 @@
    "t": "isolieren",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand quadriert √(x − 15) + 4 = 12 sofort und erhält x − 15 + 16 = 144. Was stimmt?"
+    "text": "Löse 3 + √(2x − 1) = 2 · √(2x − 1)."
    },
-   "a": [
-    "Richtig, man darf jeden Summanden einzeln quadrieren.",
-    "Falsch: Erst √(x − 15) allein stellen; richtig ist x = 79.",
-    "Falsch: Es gibt keine Lösung.",
-    "Falsch: richtig ist x = 143."
-   ],
    "o": {
-    "index": 1
+    "wert": 5
    },
-   "w": "(a + b)² ≠ a² + b². Richtig: √(x − 15) = 8 ⇒ x = 79.",
-   "h": "Darf man eine Summe gliedweise quadrieren?"
+   "c": "(3**2 + 1)/2",
+   "w": "Eine Wurzel weniger auf beiden Seiten: 3 = √(2x − 1). Quadrieren: 9 = 2x − 1 ⇒ x = 5. Probe: 3 + 3 = 2 · 3.",
+   "h": "Behandle √(2x − 1) wie eine Unbekannte: Bringe alle Wurzeln auf eine Seite."
   },
   {
    "l": "isolieren",
    "t": "isolieren",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand quadriert √(x − 15) + 4 = 18 sofort und erhält x − 15 + 16 = 324. Was stimmt?"
+    "text": "Löse √(x + 4) : 2 = 3."
    },
-   "a": [
-    "Falsch: Erst √(x − 15) allein stellen; richtig ist x = 211.",
-    "Falsch: richtig ist x = 323.",
-    "Richtig, man darf jeden Summanden einzeln quadrieren.",
-    "Falsch: Es gibt keine Lösung."
-   ],
    "o": {
-    "index": 0
+    "wert": 32
    },
-   "w": "(a + b)² ≠ a² + b². Richtig: √(x − 15) = 14 ⇒ x = 211.",
-   "h": "Darf man eine Summe gliedweise quadrieren?"
+   "c": "6**2 - 4",
+   "w": "Mal 2: √(x + 4) = 6. Quadrieren: x + 4 = 36 ⇒ x = 32. Probe: √36 : 2 = 3.",
+   "h": "Erst die Wurzel allein stellen."
   },
   {
    "l": "isolieren",
@@ -1975,6 +2099,38 @@
    "c": "(9 - 5) ** 2 - (13)",
    "w": "√(x + 13) = 9 − 5 = 4 ⇒ x + 13 = 16 ⇒ x = 3.",
    "h": "Bring die Wurzel auf die eine Seite, die Zahlen auf die andere."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 10 − 2 · √(x + 1) = 4."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "3**2 - 1",
+   "w": "−10: −2√(x + 1) = −6. Durch −2: √(x + 1) = 3 ⇒ x = 8. Probe: 10 − 2 · 3 = 4.",
+   "h": "Achte auf das Minus vor der Wurzel."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches c hat die Gleichung 2 · √x + c = 10 die Lösung x = 9?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "10 - 2*3",
+   "w": "x = 9: 2 · 3 + c = 10 ⇒ c = 4.",
+   "h": "Setze x = 9 ein."
   },
   {
    "l": "isolieren",
@@ -2444,19 +2600,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Löse 5 · √(x + 1) + 17 = −23."
+    "text": "Für welche Zahlen c hat die Gleichung √x = c eine Lösung?"
    },
    "a": [
-    "L = {−65}",
-    "L = {63}",
-    "L = {−9}",
-    "L = { }"
+    "für jedes c",
+    "für c > 0",
+    "für c ≤ 0",
+    "für c ≥ 0"
    ],
    "o": {
     "index": 3
    },
-   "w": "5 · √(x + 1) = −40 ⇒ √(x + 1) = −8 < 0. Unmöglich, also keine Lösung (x = 63 wäre eine Scheinlösung).",
-   "h": "Stelle die Wurzel allein. Welches Vorzeichen hat die rechte Seite?"
+   "w": "Eine Wurzel ist nie negativ. Für c ≥ 0 ist x = c² eine Lösung (auch c = 0 mit x = 0).",
+   "h": "Welche Werte kann eine Wurzel annehmen?"
   },
   {
    "l": "probe",
@@ -2499,6 +2655,48 @@
    },
    "w": "Quadrieren liefert x = 58. Probe: √49 = 7, nicht −7. Das ist eine Scheinlösung.",
    "h": "Mach die Probe."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei √(x + 5) = 3 steht die Wurzel allein und rechts eine positive Zahl. Kann beim Quadrieren hier eine Scheinlösung entstehen?"
+   },
+   "a": [
+    "Ja, immer.",
+    "Ja: x = −4 ist eine Scheinlösung.",
+    "Nein, weil es gar keine Lösung gibt.",
+    "Nein: x + 5 = 9 gibt x = 4, und √9 = 3 stimmt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Scheinlösungen entstehen, wenn rechts eine negative Zahl stehen könnte. Hier stimmt die Probe: √(4 + 5) = 3. Die Probe gehört trotzdem dazu.",
+   "h": "Mach die Probe mit der gefundenen Lösung."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus welcher Gleichung entsteht beim Quadrieren x − 3 = 16, sodass x = 19 eine Scheinlösung ist?"
+   },
+   "a": [
+    "√(x − 3) = −4",
+    "√(x − 3) = 4",
+    "√(x + 3) = 4",
+    "√(x − 3) = 16"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Quadrieren von √(x − 3) = ±4 gibt x − 3 = 16. Probe mit x = 19: √16 = 4 ≠ −4, also Scheinlösung bei der Gleichung mit −4.",
+   "h": "Welche Gleichung hat rechts eine negative Zahl?"
   },
   {
    "l": "probe",
@@ -3017,6 +3215,43 @@
   {
    "l": "zwei_seiten",
    "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(2x + 3) = x."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Quadrieren: 2x + 3 = x² ⇒ x² − 2x − 3 = 0 ⇒ x = 3 oder x = −1. Probe x = −1: √1 = 1 ≠ −1. L = {3}.",
+   "h": "Quadrieren, quadratische Gleichung lösen, beide Werte prüfen."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche x gilt √(x²) = x?"
+   },
+   "a": [
+    "für alle x",
+    "für x ≥ 0",
+    "nur für x = 0",
+    "für x ≤ 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Wurzel ist nie negativ: √(x²) ist der Betrag |x|. Er ist gleich x, wenn x ≥ 0. Beispiel x = −3: √9 = 3 ≠ −3.",
+   "h": "Probiere x = −3 aus."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
    "p": "test",
    "s": 2,
    "y": "zahl",
@@ -3372,7 +3607,7 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein quadratisches Beet wird an jeder Seite um 2 m verlängert. Die neue Seitenlänge ist √A + 2 = 15 m. Wie groß war die alte Fläche A?"
@@ -3392,32 +3627,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratisches Beet wird an jeder Seite um 4 m verlängert. Die neue Seitenlänge ist √A + 4 = 24 m. Wie groß war die alte Fläche A?"
+    "text": "Für ein Pendel gilt näherungsweise T = 2 · √l (T in s, l in m). Ein Pendel braucht für eine Schwingung 4 s. Wie lang ist es?"
    },
    "o": {
-    "wert": 400,
-    "einheit": "m²"
-   },
-   "c": "(24 - 4) ** 2",
-   "w": "√A + 4 = 24 ⇒ √A = 20 ⇒ A = 400 m².",
-   "h": "Wurzel allein stellen, dann quadrieren."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für die Fallzeit gilt t = √(h : 5) (h in m, t in s). Ein Ball fällt 1,5 s lang. Aus welcher Höhe fiel er?"
-   },
-   "o": {
-    "wert": 11.25,
+    "wert": 4,
     "einheit": "m"
    },
-   "c": "(3/2) ** 2 * 5",
-   "w": "h : 5 = 1,5² = 2,25 ⇒ h = 11,25 m.",
-   "h": "Quadrieren, dann mal 5."
+   "c": "(4/2)**2",
+   "w": "2 · √l = 4 ⇒ √l = 2 ⇒ l = 4 m.",
+   "h": "Erst durch 2 teilen, dann quadrieren."
   },
   {
    "l": "sachaufgabe",
@@ -3426,21 +3644,38 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Die neue Seitenlänge ist √A + 3 = 6 m. Wie groß war die alte Fläche A?"
+    "text": "Für die Fallzeit gilt t = √(h : 5). Aus welcher Höhe fällt ein Stein doppelt so lange wie aus 20 m?"
    },
    "o": {
-    "wert": 9,
-    "einheit": "m²"
+    "wert": 80,
+    "einheit": "m"
    },
-   "c": "(6 - 3) ** 2",
-   "w": "√A + 3 = 6 ⇒ √A = 3 ⇒ A = 9 m².",
-   "h": "Wurzel allein stellen, dann quadrieren."
+   "c": "5*(2*2)**2",
+   "w": "Aus 20 m: t = √4 = 2 s. Doppelt so lange: 4 s. √(h : 5) = 4 ⇒ h = 80 m – viermal so hoch.",
+   "h": "Bestimme zuerst die Fallzeit aus 20 m."
   },
   {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
    "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Aufprallgeschwindigkeit gilt v = √(20 · h). Aus 5 m prallt man mit 10 m/s auf. Aus welcher Höhe prallt man mit 30 m/s auf?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "m"
+   },
+   "c": "30**2/20",
+   "w": "√(20h) = 30 ⇒ 20h = 900 ⇒ h = 45 m. Dreifache Geschwindigkeit braucht neunfache Höhe.",
+   "h": "Quadriere beide Seiten."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Für die Fallzeit gilt t = √(h : 5) (h in m, t in s). Ein Ball fällt 3,5 s lang. Aus welcher Höhe fiel er?"
@@ -3460,15 +3695,87 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Für die Aufprallgeschwindigkeit nach einem Fall gilt näherungsweise v = √(20 · h) (v in m/s, h in m). Aus welcher Höhe muss etwas fallen, um mit 35 m/s aufzuprallen?"
+    "text": "Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Dabei wird seine Fläche viermal so groß. Wie groß war die Fläche vorher?"
    },
    "o": {
-    "wert": 61.25,
+    "wert": 9,
+    "einheit": "m²"
+   },
+   "c": "3*3",
+   "w": "Alte Seite s: (s + 3)² = 4s² ⇒ s + 3 = 2s ⇒ s = 3 m. Fläche 9 m².",
+   "h": "Viermal die Fläche heißt doppelte Seite."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bis zum Horizont sieht man ungefähr d = 3,6 · √h weit (d in km, h in m Augenhöhe). Aus welcher Höhe sieht man 36 km weit?"
+   },
+   "o": {
+    "wert": 100,
     "einheit": "m"
    },
-   "c": "35 ** 2 / 20",
-   "w": "√(20 · h) = 35 ⇒ 20 · h = 1 225 ⇒ h = 61,25 m.",
-   "h": "Quadrieren, dann durch 20 teilen."
+   "c": "(36/3.6)**2",
+   "w": "3,6 · √h = 36 ⇒ √h = 10 ⇒ h = 100 m.",
+   "h": "Erst durch 3,6 teilen."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Fallzeit gilt t = √(h : 5). Aus h Metern dauert der Fall 3 s länger als aus 20 m. Wie groß ist h?"
+   },
+   "o": {
+    "wert": 125,
+    "einheit": "m"
+   },
+   "c": "5*(2 + 3)**2",
+   "w": "Aus 20 m: 2 s. Also 5 s: √(h : 5) = 5 ⇒ h = 125 m.",
+   "h": "Bestimme zuerst die Fallzeit aus 20 m."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Aufprallgeschwindigkeit gilt v = √(20 · h). Bei welcher Höhe h (in m, h > 0) ist v in m/s genau so groß wie h?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "m"
+   },
+   "c": "20",
+   "w": "√(20h) = h ⇒ 20h = h² ⇒ h = 20 (h = 0 fällt weg). Probe: √400 = 20.",
+   "h": "Setze v = h und quadriere."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für die Fallzeit gilt t = √(h : 5). Wie ändert sich die Fallzeit, wenn die Höhe verdoppelt wird?"
+   },
+   "a": [
+    "Sie verdoppelt sich.",
+    "Sie vervierfacht sich.",
+    "Sie bleibt gleich.",
+    "Sie wird etwa 1,41-mal so lang (√2-mal)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "t = √(2h : 5) = √2 · √(h : 5). √2 ≈ 1,41.",
+   "h": "Probiere es mit 20 m und 40 m aus."
   },
   {
    "l": "sachaufgabe",

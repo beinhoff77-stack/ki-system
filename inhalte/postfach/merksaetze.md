@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 02:31 – STATUS
+funktionen.quadratisch fertig: umformen/fehler_bild – „richtig“ (name_x 6,3) und „falsch“ (name_x 4,5) auseinander gesetzt (lagen 0,24 Einheiten übereinander). Aufgaben 238 von 238 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
+
+## 2026-11-17 02:31 – STATUS
 funktionen.grundbegriffe fertig: funktionswert – Graphname „Preis“ mit name_x 2 versetzt (lag 0,63 Einheiten neben „(5 | 13)“ bzw. „richtig“ und überdeckte sie). Nur Kartenbild dieser Karte; _TAXI für die anderen Karten unverändert. Aufgaben 240 von 240 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
 
 ## 2026-11-17 02:31 – STATUS

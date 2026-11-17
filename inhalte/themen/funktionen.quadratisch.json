@@ -293,7 +293,8 @@
         -6,
         1
        ],
-       "name": "richtig"
+       "name": "richtig",
+       "name_x": 6.3
       },
       {
        "art": "poly",
@@ -302,7 +303,8 @@
         -12,
         1
        ],
-       "name": "falsch"
+       "name": "falsch",
+       "name_x": 4.5
       }
      ]
     }

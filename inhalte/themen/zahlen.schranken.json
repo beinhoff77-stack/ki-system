@@ -41,102 +41,519 @@
    {
     "lernziel": "grenzen",
     "titel": "Untere und obere Schranke",
-    "regel": "Ein gerundeter Wert verrät nur einen ⟦Bereich⟧ für den wahren Wert x. Die ⟦untere Schranke⟧ (lower bound) liegt eine ⟦halbe Rundungseinheit darunter⟧, die ⟦obere Schranke⟧ (upper bound) eine halbe darüber. Man schreibt den ⟦Fehlerbereich⟧ (error interval) als ⟦untere ≤ x < obere⟧.",
+    "regel": "Eine ⟦halbe Rundungseinheit⟧ nach unten und nach oben. Fehlerbereich: untere ≤ x < obere.",
     "schritte": [
-     "Eine Länge ist auf ganze cm gerundet: 27 cm. Rundungseinheit 1 cm, die Hälfte 0,5 cm.",
-     "Untere Schranke 26,5 cm, obere Schranke 27,5 cm.",
-     "Fehlerbereich: ⟦26,5 cm ≤ x < 27,5 cm⟧."
+     {
+      "text": "Rundungseinheit 1 cm, die Hälfte ist 0,5 cm."
+     },
+     {
+      "text": "Untere Schranke: 27 − 0,5 = 26,5 cm.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 27,
+         "name": "27"
+        },
+        {
+         "wert": 26.5,
+         "name": "untere"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Obere Schranke: 27 + 0,5 = 27,5 cm.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 27,
+         "name": "27"
+        },
+        {
+         "wert": 26.5,
+         "name": "untere"
+        },
+        {
+         "wert": 27.5,
+         "name": "obere"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Fehlerbereich: ⟦26,5 cm ≤ x < 27,5 cm⟧.",
+      "bild": {
+       "bereich": {
+        "von": 26.5,
+        "bis": 27.5
+       }
+      }
+     }
     ],
-    "probe": "26,5 wird auf 27 aufgerundet, 27,5 aber schon auf 28 ✓",
     "bild": {
-     "typ": "koordinaten",
-     "x": [
-      26,
-      28
-     ],
-     "y": [
-      0,
-      2
-     ],
-     "schritt_x": 0.5,
-     "schritt_y": 1,
-     "name_x": "cm",
-     "name_y": " ",
+     "typ": "zahlenstrahl",
+     "start": 26,
+     "ende": 28,
+     "abschnitte": 4,
+     "beschriftet": "alle",
      "punkte": [
       {
-       "x": 26.5,
-       "y": 1,
-       "name": "26,5"
-      },
-      {
-       "x": 27,
-       "y": 1,
+       "wert": 27,
        "name": "27"
-      },
-      {
-       "x": 27.5,
-       "y": 1,
-       "name": "27,5",
-       "offen": true
       }
-     ],
-     "strecken": [
-      [
-       26.5,
-       1,
-       27.5,
-       1
-      ]
      ]
     },
-    "fehler": "Bei „auf Zehner gerundet: 70“ den Bereich 69 bis 71 anzugeben ist falsch: Die Rundungseinheit ist 10, die Hälfte also ⟦5⟧. Richtig: 65 ≤ x < 75."
+    "fehler": "Bei „auf Zehner gerundet: 70“ ist 69 bis 71 falsch. Die halbe Rundungseinheit ist ⟦5⟧: 65 ≤ x < 75.",
+    "einstieg": "Auf einem Zettel steht: Das Brett ist 27 cm lang, auf ganze cm gerundet. Wirklich kann es 26,8 cm oder 27,4 cm sein. Der wahre Wert liegt in einem ⟦Fehlerbereich⟧.",
+    "woerter": [
+     [
+      "untere Schranke",
+      "der kleinste Wert, der noch auf 27 gerundet wird"
+     ],
+     [
+      "obere Schranke",
+      "ab hier wird schon auf 28 gerundet; der Wert gehört nicht mehr dazu"
+     ],
+     [
+      "Fehlerbereich",
+      "untere ≤ x < obere"
+     ]
+    ],
+    "fehler_bild": {
+     "typ": "zahlenstrahl",
+     "start": 60,
+     "ende": 80,
+     "abschnitte": 4,
+     "beschriftet": "alle",
+     "punkte": [
+      {
+       "wert": 70,
+       "name": "70"
+      }
+     ],
+     "bereich": {
+      "von": 65,
+      "bis": 75
+     }
+    }
    },
    {
     "lernziel": "messen",
     "titel": "Genauigkeit von Messungen",
-    "regel": "Jede Messung ist nur ⟦so genau wie das Messgerät⟧. „Auf 0,1 kg genau“ heißt: Rundungseinheit 0,1 kg, also ⟦± 0,05 kg⟧. Der wahre Wert liegt im Fehlerbereich; die obere Schranke selbst gehört ⟦nicht mehr dazu⟧.",
+    "regel": "„Auf 0,1 genau“ heißt ⟦± 0,05⟧. Die obere Schranke selbst gehört nicht mehr dazu.",
     "schritte": [
-     "Ein Paket wiegt auf 0,1 kg genau 4,3 kg.",
-     "Halbe Einheit: 0,05 kg. Bereich: ⟦4,25 kg ≤ m < 4,35 kg⟧."
+     {
+      "text": "Rundungseinheit 0,1 kg, die Hälfte ist 0,05 kg."
+     },
+     {
+      "text": "Untere Schranke 4,25 kg, obere Schranke 4,35 kg.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4.3,
+         "name": "4,3"
+        },
+        {
+         "wert": 4.25,
+         "name": "untere"
+        },
+        {
+         "wert": 4.35,
+         "name": "obere"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Bereich: ⟦4,25 kg ≤ m < 4,35 kg⟧.",
+      "bild": {
+       "bereich": {
+        "von": 4.25,
+        "bis": 4.35
+       }
+      }
+     }
     ],
-    "probe": "4,25 und 4,349 werden beide zu 4,3 gerundet ✓",
-    "fehler": "Bei „auf 0,1 kg genau 4,3 kg“ den Bereich 4,2 kg bis 4,4 kg anzugeben ist falsch: Das wäre ± 0,1 kg. Man geht nur ⟦eine halbe Einheit⟧ (0,05 kg) nach unten und oben."
+    "fehler": "4,2 kg bis 4,4 kg ist falsch, das wären ± 0,1 kg. Nur ⟦eine halbe Einheit⟧, 0,05 kg, nach unten und oben.",
+    "einstieg": "Eine Paketwaage zeigt 4,3 kg, sie misst auf 0,1 kg genau. Das Paket kann also etwas leichter oder schwerer sein. Jede Messung ist nur so ⟦genau wie das Messgerät⟧.",
+    "woerter": [
+     [
+      "auf 0,1 kg genau",
+      "die Waage rundet auf Zehntel-Kilogramm"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 4.2,
+     "ende": 4.4,
+     "abschnitte": 4,
+     "beschriftet": "alle",
+     "punkte": [
+      {
+       "wert": 4.3,
+       "name": "4,3"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 4.3,
+       "name": "4,3"
+      }
+     ],
+     "bereich": {
+      "von": 4.2,
+      "bis": 4.4
+     }
+    }
    },
    {
     "lernziel": "summe",
     "titel": "Schranken bei Summen und Differenzen",
-    "regel": "⟦Größte Summe⟧: obere + obere Schranke. ⟦Kleinste Summe⟧: untere + untere. Bei der ⟦Differenz⟧ a − b: größte = ⟦obere(a) − untere(b)⟧, kleinste = untere(a) − obere(b).",
+    "regel": "Größte Summe: obere + obere. ⟦Größte Differenz: obere − untere⟧.",
     "schritte": [
-     "a = 12 cm, b = 5 cm, beide auf ganze cm gerundet.",
-     "Größte Differenz: 12,5 cm − 4,5 cm = ⟦8 cm⟧.",
-     "Kleinste Differenz: 11,5 cm − 5,5 cm = 6 cm."
+     {
+      "text": "Größte Differenz: a möglichst groß, b möglichst klein."
+     },
+     {
+      "text": "12,5 cm − 4,5 cm = ⟦8 cm⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "untere",
+        "obere"
+       ],
+       "zeilen": [
+        [
+         "a = 12 cm",
+         "11,5",
+         "12,5 ✓"
+        ],
+        [
+         "b = 5 cm",
+         "4,5 ✓",
+         "5,5"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Kleinste Differenz: 11,5 cm − 5,5 cm = 6 cm.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "untere",
+        "obere"
+       ],
+       "zeilen": [
+        [
+         "a = 12 cm",
+         "11,5 ✓",
+         "12,5"
+        ],
+        [
+         "b = 5 cm",
+         "4,5",
+         "5,5 ✓"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei Summen gilt: obere + obere und untere + untere."
+     }
     ],
-    "probe": "Für eine große Differenz: a möglichst groß, b möglichst klein ✓",
-    "fehler": "Die größte Differenz als obere − obere (12,5 − 5,5 = 7) zu berechnen ist falsch: Man ⟦zieht möglichst wenig ab⟧, also die ⟦untere⟧ Schranke von b: 12,5 − 4,5 = 8."
+    "fehler": "Obere − obere, also 12,5 − 5,5 = 7, ist falsch. Man ⟦zieht möglichst wenig ab⟧, also die untere Schranke von b.",
+    "einstieg": "Ein Brett ist 12 cm lang, du sägst 5 cm ab. Beide Maße sind auf ganze cm gerundet. Wie lang ist der Rest höchstens? Gesucht ist die ⟦größte Differenz⟧.",
+    "woerter": [
+     [
+      "Differenz",
+      "das Ergebnis einer Minus-Rechnung"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "untere",
+      "obere"
+     ],
+     "zeilen": [
+      [
+       "a = 12 cm",
+       "11,5",
+       "12,5"
+      ],
+      [
+       "b = 5 cm",
+       "4,5",
+       "5,5"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "untere",
+      "obere"
+     ],
+     "zeilen": [
+      [
+       "a = 12 cm",
+       "11,5",
+       "12,5 ✓"
+      ],
+      [
+       "b = 5 cm",
+       "4,5",
+       "5,5 ✗"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "produkt",
     "titel": "Schranken bei Produkten und Quotienten",
-    "regel": "Bei positiven Größen gilt: ⟦größtes Produkt⟧ = obere · obere, kleinstes = untere · untere. Beim ⟦Quotienten⟧ a : b: größter = ⟦obere(a) : untere(b)⟧, kleinster = untere(a) : obere(b).",
+    "regel": "Größtes Produkt: ⟦obere · obere⟧. Größter Quotient: obere : untere.",
     "schritte": [
-     "Ein Rechteck: 8 cm und 5 cm, auf ganze cm gerundet.",
-     "Größte Fläche: 8,5 cm · 5,5 cm = ⟦46,75 cm²⟧.",
-     "Kleinste Fläche: 7,5 cm · 4,5 cm = 33,75 cm²."
+     {
+      "text": "Größte Fläche: obere mal obere, 8,5 cm · 5,5 cm.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_A": [
+         0,
+         0
+        ],
+        "_B": [
+         8.5,
+         0
+        ],
+        "_C": [
+         8.5,
+         5.5
+        ],
+        "_D": [
+         0,
+         5.5
+        ]
+       },
+       "flaeche": [
+        "_A",
+        "_B",
+        "_C",
+        "_D"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B",
+         "8,5 cm"
+        ],
+        [
+         "_B",
+         "_C",
+         "5,5 cm"
+        ],
+        [
+         "_C",
+         "_D"
+        ],
+        [
+         "_D",
+         "_A"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Das sind ⟦46,75 cm²⟧."
+     },
+     {
+      "text": "Kleinste Fläche: 7,5 cm · 4,5 cm = 33,75 cm².",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_A": [
+         0,
+         0
+        ],
+        "_B": [
+         7.5,
+         0
+        ],
+        "_C": [
+         7.5,
+         4.5
+        ],
+        "_D": [
+         0,
+         4.5
+        ]
+       },
+       "flaeche": [
+        "_A",
+        "_B",
+        "_C",
+        "_D"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B",
+         "7,5 cm"
+        ],
+        [
+         "_B",
+         "_C",
+         "4,5 cm"
+        ],
+        [
+         "_C",
+         "_D"
+        ],
+        [
+         "_D",
+         "_A"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Beim Quotienten a : b ist der größte Wert obere(a) : untere(b)."
+     }
     ],
-    "probe": "33,75 ≤ A < 46,75; der gerundete Wert 8 · 5 = 40 liegt dazwischen ✓",
-    "fehler": "Die größte Geschwindigkeit als obere Strecke : obere Zeit zu berechnen ist falsch: Durch eine ⟦kleinere⟧ Zahl geteilt ergibt mehr – also ⟦obere Strecke : untere Zeit⟧."
+    "fehler": "Größte Geschwindigkeit als obere Strecke : obere Zeit ist falsch. Durch ⟦weniger⟧ teilen ergibt mehr: obere Strecke : untere Zeit.",
+    "einstieg": "Eine Fliese ist 8 cm lang und 5 cm breit, beides auf ganze cm gerundet. Wie groß ist sie höchstens? Man rechnet mit den ⟦Schranken⟧.",
+    "woerter": [
+     [
+      "Quotient",
+      "das Ergebnis einer Geteilt-Rechnung"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       8,
+       0
+      ],
+      "_C": [
+       8,
+       5
+      ],
+      "_D": [
+       0,
+       5
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "8 cm"
+      ],
+      [
+       "_B",
+       "_C",
+       "5 cm"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "entscheiden",
     "titel": "Mit Schranken entscheiden",
-    "regel": "Bei Sicherheitsfragen rechnet man mit dem ⟦ungünstigsten Fall⟧ (worst case): Passt es ⟦auch mit den Schranken⟧ sicher, ist die Antwort „ja, sicher“. Ein Ergebnis gibt man nur so genau an, wie es ⟦beide Schranken hergeben⟧.",
+    "regel": "Bei Sicherheitsfragen mit dem ⟦ungünstigsten Fall⟧ rechnen. Passt es auch dann, ist es sicher.",
     "schritte": [
-     "Ein Aufzug darf 630 kg tragen. 8 Personen wiegen je 78 kg (auf ganze kg gerundet).",
-     "Ungünstigster Fall: 8 · 78,5 kg = ⟦628 kg⟧.",
-     "628 kg < 630 kg: ⟦sicher erlaubt⟧."
+     {
+      "text": "Jede Person wiegt höchstens 78,5 kg."
+     },
+     {
+      "text": "Ungünstigster Fall: 8 · 78,5 kg = ⟦628 kg⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 630,
+         "name": "Grenze"
+        },
+        {
+         "wert": 628,
+         "name": "höchstens"
+        }
+       ]
+      }
+     },
+     {
+      "text": "628 kg < 630 kg: ⟦sicher erlaubt⟧.",
+      "bild": {
+       "bereich": {
+        "von": 620,
+        "bis": 628
+       }
+      }
+     }
     ],
-    "probe": "Mit gerundeten Werten wären es 624 kg – die Reserve wäre kleiner als gedacht ✓",
-    "fehler": "Nur mit den gerundeten Werten zu rechnen (8 · 78 = 624 kg) und daraus „sicher“ zu folgern ist riskant: Der ⟦wahre⟧ Wert kann bis zu 628 kg betragen. Für die Sicherheit zählt die ⟦obere Schranke⟧."
+    "fehler": "Nur 8 · 78 = 624 kg rechnen ist riskant. Der wahre Wert kann bis 628 kg sein. Für Sicherheit zählt die ⟦obere Schranke⟧.",
+    "einstieg": "Ein Aufzug darf 630 kg tragen. 8 Personen wiegen je 78 kg, auf ganze kg gerundet. Dürfen alle mitfahren? Bei Sicherheit rechnet man mit dem ⟦ungünstigsten Fall⟧.",
+    "woerter": [
+     [
+      "ungünstigster Fall",
+      "alle Werte so gewählt, dass es am knappsten wird"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 620,
+     "ende": 632,
+     "abschnitte": 12,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 630,
+       "name": "Grenze"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 630,
+       "name": "Grenze"
+      },
+      {
+       "wert": 624,
+       "name": "gerundet"
+      },
+      {
+       "wert": 628,
+       "name": "höchstens"
+      }
+     ],
+     "bereich": null
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -2728,7 +3145,7 @@
  ],
  "offen": [
   "Ohne Lehrplan-Zuordnung (IB-typischer Stoff „upper and lower bounds“); Niveau Klasse 9/10 angenommen. Nur positive Größen; bei Quotienten Ergebnis auf zwei Nachkommastellen mit Toleranz 0,01.",
-  "Lernkarte „grenzen“: Fehlerbereich als Strecke im Koordinatensystem (untere Schranke voller, obere hohler Punkt) – ein Zahlenstrahl mit markiertem Bereich wäre schöner (App-Wunsch).",
-  "Feld klasse: {\"zusatz\": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach."
+  "Feld klasse: {\"zusatz\": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.",
+  "Umbau (Paket UR): Die Lernkarten zeigen Fehlerbereiche jetzt auf dem Zahlenstrahl mit markiertem Bereich. Die Aufgaben-Grafiken bleiben unverändert (Strecke im Koordinatensystem)."
  ]
 }

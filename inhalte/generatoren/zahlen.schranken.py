@@ -243,7 +243,113 @@ def g_entscheiden(s):
 
 GEN = {'grenzen': g_grenzen, 'messen': g_messen, 'summe': g_summe, 'produkt': g_produkt, 'entscheiden': g_entscheiden}
 
-bauen('zahlen.schranken',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import tab  # noqa: E402
+
+
+def _zs(a, b, n, **kw):
+    return {'typ': 'zahlenstrahl', 'start': a, 'ende': b, 'abschnitte': n, 'beschriftet': kw.pop('beschriftet', 'alle'), **kw}
+
+
+def _pk(*w):
+    return [{'wert': x, 'name': n} for x, n in w]
+
+
+def _sk(a, b):
+    return tab(['', 'untere', 'obere'], ['a = 12 cm', *a], ['b = 5 cm', *b])
+
+
+def _re(l, b, tl, tb):
+    return {'typ': 'figur', 'punkte': {'_A': [0, 0], '_B': [l, 0], '_C': [l, b], '_D': [0, b]}, 'flaeche': ['_A', '_B', '_C', '_D'],
+            'linien': [['_A', '_B', tl], ['_B', '_C', tb], ['_C', '_D'], ['_D', '_A']]}
+
+
+UMBAU = {
+    'grenzen': {
+        'einstieg': 'Auf einem Zettel steht: Das Brett ist 27 cm lang, auf ganze cm gerundet. Wirklich kann es 26,8 cm oder 27,4 cm sein. '
+                    'Der wahre Wert liegt in einem ⟦Fehlerbereich⟧.',
+        'woerter': [['untere Schranke', 'der kleinste Wert, der noch auf 27 gerundet wird'],
+                    ['obere Schranke', 'ab hier wird schon auf 28 gerundet; der Wert gehört nicht mehr dazu'],
+                    ['Fehlerbereich', 'untere ≤ x < obere']],
+        'bild': _zs(26, 28, 4, punkte=_pk((27, '27'))),
+        'schritte': [
+            {'text': 'Rundungseinheit 1 cm, die Hälfte ist 0,5 cm.'},
+            {'text': 'Untere Schranke: 27 − 0,5 = 26,5 cm.', 'bild': {'punkte': _pk((27, '27'), (26.5, 'untere'))}},
+            {'text': 'Obere Schranke: 27 + 0,5 = 27,5 cm.', 'bild': {'punkte': _pk((27, '27'), (26.5, 'untere'), (27.5, 'obere'))}},
+            {'text': 'Fehlerbereich: ⟦26,5 cm ≤ x < 27,5 cm⟧.', 'bild': {'bereich': {'von': 26.5, 'bis': 27.5}}},
+        ],
+        'fehler': 'Bei „auf Zehner gerundet: 70“ ist 69 bis 71 falsch. Die halbe Rundungseinheit ist ⟦5⟧: 65 ≤ x < 75.',
+        'fehler_bild': _zs(60, 80, 4, punkte=_pk((70, '70')), bereich={'von': 65, 'bis': 75}),
+        'regel': 'Eine ⟦halbe Rundungseinheit⟧ nach unten und nach oben. Fehlerbereich: untere ≤ x < obere.',
+    },
+    'messen': {
+        'einstieg': 'Eine Paketwaage zeigt 4,3 kg, sie misst auf 0,1 kg genau. Das Paket kann also etwas leichter oder schwerer sein. '
+                    'Jede Messung ist nur so ⟦genau wie das Messgerät⟧.',
+        'woerter': [['auf 0,1 kg genau', 'die Waage rundet auf Zehntel-Kilogramm']],
+        'bild': _zs(4.2, 4.4, 4, punkte=_pk((4.3, '4,3'))),
+        'schritte': [
+            {'text': 'Rundungseinheit 0,1 kg, die Hälfte ist 0,05 kg.'},
+            {'text': 'Untere Schranke 4,25 kg, obere Schranke 4,35 kg.', 'bild': {'punkte': _pk((4.3, '4,3'), (4.25, 'untere'), (4.35, 'obere'))}},
+            {'text': 'Bereich: ⟦4,25 kg ≤ m < 4,35 kg⟧.', 'bild': {'bereich': {'von': 4.25, 'bis': 4.35}}},
+        ],
+        'fehler': '4,2 kg bis 4,4 kg ist falsch, das wären ± 0,1 kg. Nur ⟦eine halbe Einheit⟧, 0,05 kg, nach unten und oben.',
+        'fehler_bild': {'punkte': _pk((4.3, '4,3')), 'bereich': {'von': 4.2, 'bis': 4.4}},
+        'regel': '„Auf 0,1 genau“ heißt ⟦± 0,05⟧. Die obere Schranke selbst gehört nicht mehr dazu.',
+    },
+    'summe': {
+        'einstieg': 'Ein Brett ist 12 cm lang, du sägst 5 cm ab. Beide Maße sind auf ganze cm gerundet. Wie lang ist der Rest höchstens? '
+                    'Gesucht ist die ⟦größte Differenz⟧.',
+        'woerter': [['Differenz', 'das Ergebnis einer Minus-Rechnung']],
+        'bild': _sk(['11,5', '12,5'], ['4,5', '5,5']),
+        'schritte': [
+            {'text': 'Größte Differenz: a möglichst groß, b möglichst klein.'},
+            {'text': '12,5 cm − 4,5 cm = ⟦8 cm⟧.', 'bild': _sk(['11,5', '12,5 ✓'], ['4,5 ✓', '5,5'])},
+            {'text': 'Kleinste Differenz: 11,5 cm − 5,5 cm = 6 cm.', 'bild': _sk(['11,5 ✓', '12,5'], ['4,5', '5,5 ✓'])},
+            {'text': 'Bei Summen gilt: obere + obere und untere + untere.'},
+        ],
+        'fehler': 'Obere − obere, also 12,5 − 5,5 = 7, ist falsch. Man ⟦zieht möglichst wenig ab⟧, also die untere Schranke von b.',
+        'fehler_bild': _sk(['11,5', '12,5 ✓'], ['4,5', '5,5 ✗']),
+        'regel': 'Größte Summe: obere + obere. ⟦Größte Differenz: obere − untere⟧.',
+    },
+    'produkt': {
+        'einstieg': 'Eine Fliese ist 8 cm lang und 5 cm breit, beides auf ganze cm gerundet. Wie groß ist sie höchstens? '
+                    'Man rechnet mit den ⟦Schranken⟧.',
+        'woerter': [['Quotient', 'das Ergebnis einer Geteilt-Rechnung']],
+        'bild': _re(8, 5, '8 cm', '5 cm'),
+        'schritte': [
+            {'text': 'Größte Fläche: obere mal obere, 8,5 cm · 5,5 cm.', 'bild': _re(8.5, 5.5, '8,5 cm', '5,5 cm')},
+            {'text': 'Das sind ⟦46,75 cm²⟧.'},
+            {'text': 'Kleinste Fläche: 7,5 cm · 4,5 cm = 33,75 cm².', 'bild': _re(7.5, 4.5, '7,5 cm', '4,5 cm')},
+            {'text': 'Beim Quotienten a : b ist der größte Wert obere(a) : untere(b).'},
+        ],
+        'fehler': 'Größte Geschwindigkeit als obere Strecke : obere Zeit ist falsch. Durch ⟦weniger⟧ teilen ergibt mehr: obere Strecke : untere Zeit.',
+        'regel': 'Größtes Produkt: ⟦obere · obere⟧. Größter Quotient: obere : untere.',
+    },
+    'entscheiden': {
+        'einstieg': 'Ein Aufzug darf 630 kg tragen. 8 Personen wiegen je 78 kg, auf ganze kg gerundet. Dürfen alle mitfahren? '
+                    'Bei Sicherheit rechnet man mit dem ⟦ungünstigsten Fall⟧.',
+        'woerter': [['ungünstigster Fall', 'alle Werte so gewählt, dass es am knappsten wird']],
+        'bild': _zs(620, 632, 12, beschriftet='anfang_ende', punkte=_pk((630, 'Grenze'))),
+        'schritte': [
+            {'text': 'Jede Person wiegt höchstens 78,5 kg.'},
+            {'text': 'Ungünstigster Fall: 8 · 78,5 kg = ⟦628 kg⟧.', 'bild': {'punkte': _pk((630, 'Grenze'), (628, 'höchstens'))}},
+            {'text': '628 kg < 630 kg: ⟦sicher erlaubt⟧.', 'bild': {'bereich': {'von': 620, 'bis': 628}}},
+        ],
+        'fehler': 'Nur 8 · 78 = 624 kg rechnen ist riskant. Der wahre Wert kann bis 628 kg sein. Für Sicherheit zählt die ⟦obere Schranke⟧.',
+        'fehler_bild': {'punkte': _pk((630, 'Grenze'), (624, 'gerundet'), (628, 'höchstens')), 'bereich': None},
+        'regel': 'Bei Sicherheitsfragen mit dem ⟦ungünstigsten Fall⟧ rechnen. Passt es auch dann, ist es sicher.',
+    },
+}
+UMBAU_OFFEN = ['Umbau (Paket UR): Die Lernkarten zeigen Fehlerbereiche jetzt auf dem Zahlenstrahl mit markiertem Bereich. '
+               'Die Aufgaben-Grafiken bleiben unverändert (Strecke im Koordinatensystem).']
+UMBAU_WEG = ['Lernkarte „grenzen“: Fehlerbereich als Strecke']
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('zahlen.schranken',
       'Untere und obere Schranken gerundeter Werte bestimmen, Fehlerbereiche angeben und mit Schranken bei Summen, Differenzen, Produkten und Quotienten rechnen.',
       ['Untere Schranke (lower bound) = Wert − halbe Rundungseinheit; obere Schranke (upper bound) = Wert + halbe Einheit.',
        'Fehlerbereich (error interval): untere ≤ x < obere.',
@@ -255,3 +361,4 @@ bauen('zahlen.schranken',
       offen=['Ohne Lehrplan-Zuordnung (IB-typischer Stoff „upper and lower bounds“); Niveau Klasse 9/10 angenommen. Nur positive Größen; bei Quotienten Ergebnis auf zwei Nachkommastellen mit Toleranz 0,01.',
              'Lernkarte „grenzen“: Fehlerbereich als Strecke im Koordinatensystem (untere Schranke voller, obere hohler Punkt) – ein Zahlenstrahl mit markiertem Bereich wäre schöner (App-Wunsch).',
              'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

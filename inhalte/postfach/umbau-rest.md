@@ -1,5 +1,9 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 02:22 – STATUS
+zahlen.schranken umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/zahlen.schranken.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: produkt (der Fehler betrifft Geschwindigkeit, nicht die Fliese aus dem Bild). Fehlerbereiche jetzt auf dem Zahlenstrahl mit markiertem Bereich (alter App-Wunsch erledigt, aus offen entfernt). Die obere Schranke erscheint als voller Punkt; ein hohler Punkt auf dem Zahlenstrahl ist laut README nicht vorgesehen – der Text sagt „gehört nicht mehr dazu“.
+
 ## 2026-11-17 02:21 – STATUS
 sonder.logik umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/sonder.logik.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: aussagen (Begriffsfehler), verknuepfen (das Kartenbild zeigt die vollständige Tafel mit beiden Wahr schon), folgerung (Umkehrschluss; das Schrittbild zeigt das Gegenbeispiel 6). Alle Bilder sind Tabellen (Wahrheitstafeln, Beispieltabellen); passende Zeichnungsarten gibt es nicht und werden nicht gebraucht.

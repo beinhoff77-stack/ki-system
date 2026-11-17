@@ -611,6 +611,182 @@ BF.nicht_umgesetzt('simulation S2 „Simulation 500-mal … relative Häufigkeit
 
 # ---- BEFUNDE ENDE ----
 
+# ---------- Achtzehnte Runde (Zweig luecken-kl10): π schätzen – Monte-Carlo-Methode und Streifenmethode ----------
+# Lücke laut Aufbau-Prüfung (inhalte/pruefung/aufbau/klasse10.json): LehrplanPLUS M10 2 verlangt, π zufallsbasiert zu nähern (Monte-Carlo)
+# und das Verfahren mit einer nicht zufallsbasierten Methode zu vergleichen, z. B. der Streifenmethode. stochastik.simulation (seit D2
+# Klasse 10) schätzt mit Zufallspunkten Flächen; π und der Vergleich fehlten. Neue Lernkarte „pi_schaetzen“ nach „simulation“.
+# Läuft ganz am Ende mit eigenem Zufallsstart; alle alten Aufgaben bleiben gleich.
+# Prüfungsvorbilder (Typ und Niveau, eigene Zahlen): Grundwissen M10 bayerischer Gymnasien (M10.5 „Näherungsweise Bestimmung von π“:
+# Monte-Carlo-Methode beschreiben, weitere Methode angeben), Schulaufgaben-Typ „π mit Rechteckstreifen von oben und unten eingrenzen“.
+import random as _random
+
+_H = lambda x: math.sqrt(max(0.0, 1 - x * x))  # noqa: E731  Höhe des Viertelkreises (r = 1)
+
+
+def _ober(n): return 4 / n * sum(_H(i / n) for i in range(n))
+def _unter(n): return 4 / n * sum(_H(i / n) for i in range(1, n + 1))
+
+
+def _bogen(k=24):
+    return [[round(math.cos(math.pi / 2 * i / k), 4), round(math.sin(math.pi / 2 * i / k), 4)] for i in range(k + 1)]
+
+
+def _streifen(n, oben=True):
+    fl = []
+    for i in range(n):
+        x0, x1 = i / n, (i + 1) / n
+        h = _H(x0) if oben else _H(x1)
+        if h > 0: fl.append({'punkte': [[round(x0, 4), 0], [round(x1, 4), 0], [round(x1, 4), round(h, 4)], [round(x0, 4), round(h, 4)]]})
+    return fl
+
+
+_VIERTEL = {'punkte': [[0, 0]] + _bogen()}
+_R40 = _random.Random(1850)  # Startwert so gewählt, dass die 40 Punkte einen typischen Anteil zeigen (31 Treffer)
+_TROPFEN = [(round(_R40.random(), 2), round(_R40.random(), 2)) for _ in range(40)]
+_TREFFER = sum(1 for x, y in _TROPFEN if x * x + y * y <= 1)
+_KS_PI = {'typ': 'koordinaten', 'x': [0, 1], 'y': [0, 1], 'schritt_x': 0.25, 'schritt_y': 0.25, 'flaechen': [_VIERTEL]}
+KARTE_PI = {
+    'lernziel': 'pi_schaetzen', 'titel': 'π schätzen: Zufall oder Streifen?',
+    'einstieg': 'Regentropfen fallen zufällig auf eine quadratische Platte. Darauf ist ein Viertelkreis gemalt. '
+                'Aus dem Anteil der Tropfen darin kann man π schätzen: die ⟦Monte-Carlo-Methode⟧.',
+    'woerter': [['Monte-Carlo-Methode', 'mit vielen Zufallspunkten eine Fläche oder eine Zahl wie π schätzen'],
+                ['Streifenmethode', 'eine Fläche in schmale Rechtecke zerlegen und deren Flächen addieren; ganz ohne Zufall']],
+    'bild': _KS_PI,
+    'schritte': [
+        {'text': 'Seitenlänge 1: Das Quadrat hat die Fläche 1, der Viertelkreis π/4.'},
+        {'text': f'{_TREFFER} von 40 Zufallspunkten liegen im Viertelkreis: Anteil {_TREFFER} : 40 = {dz(Fr(_TREFFER, 40))}.',
+         'bild': {'punkte': [{'x': x, 'y': y} for x, y in _TROPFEN]}},
+        {'text': f'Also π/4 ≈ {dz(Fr(_TREFFER, 40))} und ⟦π ≈ 4 · {dz(Fr(_TREFFER, 40))} = {dz(Fr(_TREFFER, 10))}⟧.'},
+        {'text': f'Streifenmethode: Vier Rechtecke über dem Bogen ergeben π ≈ {dz(round(_ober(4), 2))}, sicher zu groß.',
+         'bild': {'punkte': [], 'flaechen': [_VIERTEL] + _streifen(4, True)}},
+        {'text': f'Rechtecke unter dem Bogen ergeben {dz(round(_unter(4), 2))}. π liegt also ⟦sicher dazwischen⟧.',
+         'bild': {'flaechen': [_VIERTEL] + _streifen(4, False)}}],
+    'fehler': f'π ≈ {dz(Fr(_TREFFER, 40))} ist falsch. Der Anteil der Punkte ist nur π/4, also ein Viertel von π. Erst ⟦mal 4⟧ ergibt π ≈ {dz(Fr(_TREFFER, 10))}.',
+    'regel': 'π ≈ 4 · Anteil der Treffer im Viertelkreis. ⟦Streifen geben sichere Grenzen⟧, der Zufall nur eine Schätzung.'}
+
+
+def luecken_kl10():
+    start(18030)
+    V = []
+
+    def neu(p, s, a):
+        assert a is not None, 'zu wenige verschiedene Antworten'
+        a['p'], a['s'] = p, s
+        V.append(a)
+
+    def mc(text, n, k, kontext, h='Der Anteil der Treffer schätzt π/4. Was musst du noch tun?'):
+        q = Fr(4 * k, n)
+        if endlich(q):
+            return zahl(text, f'Anteil {dz(k)} : {dz(n)} = {dz(Fr(k, n)) if endlich(Fr(k, n)) else "…"} ≈ π/4{kontext}. π ≈ 4 · {dz(k)} : {dz(n)} = {dz(q)}.',
+                        h, q, f'4 * {k} / {n}')
+        w = gerundet(4 * k / n, 2)
+        return zahl(text + ' Runde auf zwei Nachkommastellen.', f'Anteil {dz(k)} : {dz(n)} ≈ π/4{kontext}. π ≈ 4 · {dz(k)} : {dz(n)} ≈ {dz(w)}.', h, w,
+                    f'round(4 * {k} / {n}, 2)', tol=0.01)
+
+    def punkt(x, y):
+        X, Y = Fr(str(x)), Fr(str(y))
+        s = X ** 2 + Y ** 2
+        drin = s <= 1
+        richtig = f'{"Ja" if drin else "Nein"}, denn {dz(x)}² + {dz(y)}² = {dz(s)} {"≤" if drin else ">"} 1.'
+        if drin:
+            falsch = [f'Nein, denn {dz(x)} + {dz(y)} = {dz(X + Y)} > 1.', f'Nein, denn {dz(max(x, y))} liegt näher an 1 als an 0.']
+        else:
+            falsch = ['Ja, denn beide Koordinaten sind kleiner als 1.', f'Ja, denn {dz(x)} · {dz(y)} = {dz(X * Y)} ≤ 1.']
+        return auswahl(f'Ein Zufallspunkt im Einheitsquadrat hat die Koordinaten ({dz(x)} | {dz(y)}). Liegt er im Viertelkreis mit Radius 1 um (0 | 0)?', richtig, falsch,
+                       f'Abstand zum Ursprung nach Pythagoras: {dz(x)}² + {dz(y)}² = {dz(s)}. Im Viertelkreis liegt der Punkt, wenn das höchstens 1 ist: {"ja" if drin else "nein"}.',
+                       'Der Abstand zu (0 | 0) folgt aus dem Satz des Pythagoras. Vergleiche x² + y² mit 1.')
+
+    def streifen(n, oben, s):
+        wahr = _ober(n) if oben else _unter(n)
+        w = gerundet(wahr, 2)
+        assert w is not None
+        xs = [Fr(i, n) for i in (range(n) if oben else range(1, n + 1))]
+        hs = ', '.join(f'√(1 − {dz(x)}²)' if x not in (0, 1) else ('1' if x == 0 else '0') for x in xs)
+        return zahl(f'Der Viertelkreis (Radius 1) wird in {n} gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das {"bis über den Bogen reicht (Höhe am linken Rand)" if oben else "ganz unter dem Bogen bleibt (Höhe am rechten Rand)"}. '
+                    f'Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen.',
+                    f'Breite je Streifen {dz(Fr(1, n))}; Höhen {hs}. Summe der Flächen ≈ {dz(round(wahr / 4, 4))}; mal 4 ≈ {dz(w)} ({"zu groß" if oben else "zu klein"}).',
+                    'Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe.', w, f'round({K(wahr)}, 2)', tol=0.01)
+
+    # ---- Stufe 1 ----
+    neu('uebung', 1, mc('Auf eine quadratische Platte mit einem Viertelkreis fallen 200 Regentropfen, 156 davon im Viertelkreis. Welchen Näherungswert für π liefert das?', 200, 156, ''))
+    neu('uebung', 1, punkt(0.6, 0.7))
+    neu('uebung', 1, zahl('Welcher Anteil des Einheitsquadrats wird vom Viertelkreis mit Radius 1 bedeckt? Runde auf drei Nachkommastellen.',
+                          f'Viertelkreis: π · 1² : 4 = π/4 ≈ {dz(gerundet(math.pi / 4, 3))}; Quadrat: 1. Anteil ≈ {dz(gerundet(math.pi / 4, 3))}.',
+                          'Fläche des Viertelkreises: ein Viertel von π · r².', gerundet(math.pi / 4, 3), f'round({K(math.pi)} / 4, 3)', tol=0.001))
+    neu('uebung', 1, zahl('Wie viele von 400 Zufallspunkten im Einheitsquadrat erwartest du ungefähr im Viertelkreis (Radius 1)? Runde auf ganze Punkte.',
+                          f'Anteil π/4 ≈ 0,785; 400 · π/4 = 100π ≈ {dz(gerundet(100 * math.pi, 0))}.', 'Erwartete Anzahl = Anzahl der Punkte · Anteil π/4.',
+                          gerundet(100 * math.pi, 0), f'round(400 * {K(math.pi)} / 4)', tol=1))
+    # ---- Stufe 2 ----
+    neu('uebung', 2, mc('In einer Tabellenkalkulation wurden 500 Zufallspunkte (x | y) erzeugt. Eine Spalte enthält WENN(x² + y² ≤ 1; 1; 0), ihre Summe ist 397. Welchen Näherungswert für π liefert das?',
+                        500, 397, ' (die Summe zählt die Punkte im Viertelkreis)'))
+    neu('uebung', 2, streifen(2, True, 2))
+    neu('uebung', 2, streifen(2, False, 2))
+    neu('uebung', 2, auswahl('Warum ergibt die Monte-Carlo-Methode bei jedem neuen Durchgang einen etwas anderen Näherungswert für π?',
+                             'Weil die Punkte zufällig fallen und der Anteil im Viertelkreis deshalb schwankt.',
+                             ['Weil sich der Wert von π ändert.', 'Weil das Quadrat jedes Mal anders groß ist.', 'Weil die Formel π ≈ 4 · Anteil nur manchmal gilt.'],
+                             'π ist fest, die Formel auch. Zufällig ist nur, wie viele Punkte gerade im Viertelkreis landen. Deshalb schwankt der Schätzwert um π.',
+                             'Was ist bei jedem Durchgang anders?'))
+    neu('uebung', 2, zahl('Eine Monte-Carlo-Simulation mit 800 Zufallspunkten ergab den Näherungswert π ≈ 3,15. Wie viele Punkte lagen im Viertelkreis?',
+                          '4 · k : 800 = 3,15 ⇒ k = 3,15 · 800 : 4 = 630.', 'Stelle π ≈ 4 · k : n nach k um.', 630, '3.15 * 800 / 4'))
+    neu('uebung', 2, mc('Ein Kreis mit Radius 1 liegt genau in einem Quadrat mit der Seitenlänge 2. Von 300 Zufallspunkten im Quadrat liegen 236 im Kreis. Welchen Näherungswert für π liefert das?',
+                        300, 236, ' – hier: Kreisfläche π geteilt durch Quadratfläche 4', 'Kreisfläche π · 1² und Quadratfläche 2² = 4: Der Anteil schätzt π/4.'))
+    # ---- Stufe 3 ----
+    neu('uebung', 3, streifen(4, True, 3))   # Prüfungsvorbild: π von oben eingrenzen
+    neu('uebung', 3, streifen(4, False, 3))  # Prüfungsvorbild: π von unten eingrenzen
+    neu('uebung', 3, zahl('Bei der Streifenmethode mit n Streifen wird π von oben (Rechtecke über dem Bogen) und von unten (Rechtecke unter dem Bogen) eingegrenzt. '
+                          'Wie viele Streifen braucht man mindestens, damit beide Näherungswerte (jeweils mal 4) höchstens 0,1 auseinanderliegen?',
+                          'Die oberen Rechtecke sind die unteren, eins nach links gerückt; dazu kommt nur das erste mit Höhe 1. Unterschied: 4 · (1/n) · 1 = 4/n. '
+                          '4/n ≤ 0,1 ⇒ n ≥ 40.',
+                          'Vergleiche die beiden Rechteck-Reihen: Welche Rechtecke kommen in beiden vor?', 40, '4 / 0.1', einheit='Streifen'))
+    neu('uebung', 3, auswahl('Welche Aussage über die beiden Verfahren zur Näherung von π stimmt?',
+                             'Die Streifenmethode liefert sichere Grenzen für π, die Monte-Carlo-Methode nur einen Schätzwert, der schwanken kann.',
+                             ['Die Monte-Carlo-Methode liefert mit 100 Punkten immer genau π.', 'Die Streifenmethode liefert bei jeder Wiederholung einen anderen Wert.',
+                              'Beide Verfahren liefern nur Werte, die größer als π sind.'],
+                             'Rechtecke über dem Bogen sind sicher zu groß, unter dem Bogen sicher zu klein: π liegt dazwischen, jedes Mal gleich. Zufallspunkte geben nur einen Schätzwert, der um π schwankt.',
+                             'Was ist bei der Streifenmethode zufällig – und was bei der Monte-Carlo-Methode?'))
+    neu('uebung', 3, auswahl('Jemand zählt 156 von 200 Zufallspunkten im Viertelkreis und schreibt: „π ≈ 156 : 200 = 0,78.“ Was stimmt?',
+                             'Falsch: 0,78 schätzt nur π/4; π ≈ 4 · 0,78 = 3,12.',
+                             ['Richtig.', 'Falsch: π ≈ 200 : 156 ≈ 1,28.', 'Falsch: π ≈ 2 · 0,78 = 1,56.'],
+                             'Der Anteil der Punkte schätzt den Anteil der Fläche: Viertelkreis : Quadrat = π/4 : 1. Also π ≈ 4 · 0,78 = 3,12.',
+                             'Welchen Flächenanteil schätzt der Anteil der Punkte?'))
+    pts = [(0.2, 0.9), (0.7, 0.8), (0.5, 0.5), (0.9, 0.3), (0.6, 0.85)]
+    k = sum(1 for x, y in pts if Fr(str(x)) ** 2 + Fr(str(y)) ** 2 <= 1)
+    neu('uebung', 3, zahl('Eine Simulation erzeugt die fünf Zufallspunkte ' + ', '.join(f'({dz(x)} | {dz(y)})' for x, y in pts) + '. Welchen Näherungswert für π liefern diese fünf Punkte?',
+                          'x² + y²: ' + ', '.join(f'{dz(Fr(str(x)) ** 2 + Fr(str(y)) ** 2)}' for x, y in pts) + f'. Höchstens 1 sind {k} Werte. π ≈ 4 · {k} : 5 = {dz(Fr(4 * k, 5))} – mit 5 Punkten sehr ungenau.',
+                          'Prüfe für jeden Punkt x² + y² ≤ 1. Dann π ≈ 4 · Treffer : Anzahl.', Fr(4 * k, 5), f'4 * {k} / 5'))
+    neu('uebung', 3, auswahl('Ein Programm schätzt π mit genau 100 Zufallspunkten (π ≈ 4 · Treffer : 100). Welcher Schätzwert kann dabei gar nicht herauskommen?', '3,14',
+                             ['3,12', '3,16', '3,20'],
+                             '4 · k : 100 = k : 25. Möglich sind nur Vielfache von 0,04: 3,12 (k = 78), 3,16 (k = 79), 3,20 (k = 80). Für 3,14 wäre k = 78,5 – keine ganze Zahl.',
+                             'Treffer k sind ganze Zahlen. In welchen Schritten kann 4 · k : 100 nur wachsen?'))
+    neu('uebung', 3, zahl('Bei 1 000 Zufallspunkten soll der Schätzwert für π größer als 3,2 sein. Wie viele Punkte müssen dafür mindestens im Viertelkreis liegen?',
+                          '4 · k : 1 000 > 3,2 ⇒ k > 800. Die kleinste ganze Zahl darüber ist 801.', 'Stelle 4 · k : 1 000 > 3,2 nach k um. k ist ganzzahlig.', 801, '800 + 1'))
+    # ---- Test, Korrektur, Sicherung ----
+    neu('test', 2, mc('Von 250 Zufallspunkten im Einheitsquadrat liegen 197 im Viertelkreis mit Radius 1. Welchen Näherungswert für π liefert das?', 250, 197, ''))
+    neu('korrektur', 2, punkt(0.8, 0.7))
+    neu('korrektur', 2, mc('Von 600 Zufallspunkten im Einheitsquadrat liegen 470 im Viertelkreis mit Radius 1. Welchen Näherungswert für π liefert das?', 600, 470, ''))
+    neu('korrektur', 2, zahl('Wie viele von 2 000 Zufallspunkten im Einheitsquadrat erwartest du ungefähr im Viertelkreis (Radius 1)? Runde auf ganze Punkte.',
+                             f'2 000 · π/4 = 500π ≈ {dz(gerundet(500 * math.pi, 0))}.', 'x', gerundet(500 * math.pi, 0), f'round(2000 * {K(math.pi)} / 4)', tol=1))
+    neu('sicherung', 2, mc('Beim Reiswerfen landen 500 Körner auf einem quadratischen Brett mit Viertelkreis, 392 davon im Viertelkreis. Welchen Näherungswert für π liefert das?', 500, 392, ''))
+    neu('sicherung', 2, punkt(0.5, 0.8))
+    neu('sicherung', 2, zahl('Eine Monte-Carlo-Simulation mit 1 000 Zufallspunkten ergab π ≈ 3,16. Wie viele Punkte lagen im Viertelkreis?',
+                             '4 · k : 1 000 = 3,16 ⇒ k = 3,16 · 1 000 : 4 = 790.', 'x', 790, '3.16 * 1000 / 4'))
+    neu('sicherung', 2, mc('In einer Tabellenkalkulation ergibt die Spalte WENN(x² + y² ≤ 1; 1; 0) bei 800 Zufallspunkten die Summe 631. Welchen Näherungswert für π liefert das?',
+                           800, 631, ' (die Summe zählt die Punkte im Viertelkreis)'))
+    neu('sicherung', 2, auswahl('Welches Verfahren liefert bei jeder Wiederholung genau denselben Näherungswert für π?', 'die Streifenmethode',
+                                ['die Monte-Carlo-Methode', 'beide Verfahren', 'keines der beiden Verfahren'],
+                                'Die Streifenmethode rechnet immer mit denselben Rechtecken, ohne Zufall. Bei der Monte-Carlo-Methode fallen die Punkte jedes Mal anders.', 'x'))
+    neu('sicherung', 2, streifen(5, True, 2))
+    return V
+
+
+def luecken_einbauen():
+    from _luecken_kl10 import karte_einfuegen, offen_ergaenzen
+    karte_einfuegen('stochastik.mehrstufig', KARTE_PI, 'simulation', luecken_kl10())
+    offen_ergaenzen('stochastik.mehrstufig', 'Achtzehnte Runde (luecken-kl10): neue Lernkarte „pi_schaetzen“ nach „simulation“ (LehrplanPLUS M10 2: π mit der '
+                    'Monte-Carlo-Methode nähern und mit der Streifenmethode vergleichen). Viertelkreis als gefüllte Fläche (Vieleck mit 24 Ecken), '
+                    'Zufallspunkte und Streifen im Koordinatensystem. Selbst simulieren kann das Kind weiter nicht (App-Wunsch Simulationsknopf).')
+
+
 if __name__ == '__main__':
     datei = bauen('stochastik.mehrstufig',
           'Mehrstufige Zufallsexperimente mit Pfadregeln berechnen (mit und ohne Zurücklegen), über das Gegenereignis rechnen und Simulationen deuten.',
@@ -625,3 +801,4 @@ if __name__ == '__main__':
                  'Brüche als Antwort über Lücken „□/□“ (gekürzt).'])
     ergaenzen(datei, schwer())
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    luecken_einbauen()  # Achtzehnte Runde (luecken-kl10): neue Karte pi_schaetzen – ganz am Ende

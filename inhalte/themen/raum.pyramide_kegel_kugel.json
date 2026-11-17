@@ -2406,6 +2406,162 @@
      },
      {
       "text": "Alle Längen mal Faktor k = 2: Flächen mal k², Volumen mal k³."
+     },
+     {
+      "text": "Schiefes Prisma: wie ein schräg geschobener Stapel gleicher Platten, also ⟦V = G · h⟧.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_A": [
+         0,
+         0
+        ],
+        "_B": [
+         2,
+         0
+        ],
+        "_C": [
+         2,
+         3
+        ],
+        "_D": [
+         0,
+         3
+        ],
+        "_E": [
+         4,
+         0
+        ],
+        "_F": [
+         6,
+         0
+        ],
+        "_G": [
+         7.5,
+         3
+        ],
+        "_H": [
+         5.5,
+         3
+        ],
+        "_L": [
+         5.5,
+         0
+        ],
+        "_a1": [
+         0,
+         1
+        ],
+        "_b1": [
+         2,
+         1
+        ],
+        "_a2": [
+         0,
+         2
+        ],
+        "_b2": [
+         2,
+         2
+        ],
+        "_e1": [
+         4.5,
+         1
+        ],
+        "_f1": [
+         6.5,
+         1
+        ],
+        "_e2": [
+         5,
+         2
+        ],
+        "_f2": [
+         7,
+         2
+        ]
+       },
+       "linien": [
+        [
+         "_A",
+         "_B",
+         "G"
+        ],
+        [
+         "_B",
+         "_C",
+         "h"
+        ],
+        [
+         "_C",
+         "_D",
+         ""
+        ],
+        [
+         "_D",
+         "_A",
+         ""
+        ],
+        [
+         "_E",
+         "_F",
+         "G"
+        ],
+        [
+         "_F",
+         "_G",
+         ""
+        ],
+        [
+         "_G",
+         "_H",
+         ""
+        ],
+        [
+         "_H",
+         "_E",
+         ""
+        ],
+        [
+         "_H",
+         "_L",
+         "h",
+         "gestrichelt"
+        ],
+        [
+         "_a1",
+         "_b1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_a2",
+         "_b2",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_e1",
+         "_f1",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_e2",
+         "_f2",
+         "",
+         "gestrichelt"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "_L",
+         "_F",
+         "_H"
+        ]
+       ],
+       "label": "gerade und schief: gleiche Platten"
+      }
      }
     ],
     "fehler": "Doppelter Radius heißt nicht doppeltes Volumen. r steht ⟦im Quadrat⟧. Der Boden wird in zwei Richtungen doppelt so breit.",
@@ -13085,6 +13241,118 @@
    },
    "w": "Die gewölbte Fläche ist 2πr². Die Halbkugel hat aber auch eine ebene Kreisfläche πr² als Boden: O = 3πr².",
    "h": "Welche Flächen begrenzen eine Halbkugel?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat die Grundfläche 12 cm² und die Höhe 5 cm. Wie groß ist sein Volumen?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm³"
+   },
+   "c": "12 * 5",
+   "w": "Auch beim schiefen Prisma gilt V = G · h = 12 cm² · 5 cm = 60 cm³.",
+   "h": "Schief oder gerade: Was zählt, ist die Höhe senkrecht zur Grundfläche."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat ein Dreieck als Grundfläche (Grundseite 6 cm, zugehörige Höhe 4 cm). Der Abstand von Grund- und Deckfläche beträgt 10 cm. Wie groß ist das Volumen?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "cm³"
+   },
+   "c": "6 * 4 / 2 * 10",
+   "w": "G = 6 · 4 : 2 = 12 cm². V = G · h = 12 · 10 = 120 cm³.",
+   "h": "Berechne zuerst die Dreiecksfläche. Die Höhe des Prismas ist der Abstand der beiden Dreiecke."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein gerades und ein schiefes Prisma haben dieselbe Grundfläche und beide den Abstand 8 cm zwischen Grund- und Deckfläche. Die Seitenkanten des schiefen Prismas sind 10 cm lang. Was gilt für die Volumina?"
+   },
+   "a": [
+    "Das schiefe Prisma hat das größere Volumen, weil seine Kanten länger sind.",
+    "Das schiefe Prisma hat ein Drittel des Volumens.",
+    "Das schiefe Prisma hat das kleinere Volumen, weil es schräg steht.",
+    "Beide haben dasselbe Volumen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "In jeder Höhe sind die Querschnitte gleich groß (Cavalieri). Beide haben V = G · 8 cm. Die schräge Kante von 10 cm ist nicht die Höhe.",
+   "h": "Vergleiche die Querschnitte in jeder Höhe."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat die Grundfläche 20 cm². Seine Seitenkanten sind 10 cm lang und um 30° gegen die Senkrechte geneigt. Wie groß ist sein Volumen? Runde auf ganze cm³."
+   },
+   "o": {
+    "wert": 173,
+    "einheit": "cm³",
+    "toleranz": 1
+   },
+   "c": "round(20 * 10 * 0.866025403784)",
+   "w": "Höhe h = 10 · cos 30° ≈ 8,66 cm (rechtwinkliges Dreieck aus Kante, Höhe und Verschiebung). V = G · h ≈ 20 · 8,66 ≈ 173 cm³.",
+   "h": "Die Höhe ist nicht die Kante. Zeichne das rechtwinklige Dreieck aus Kante und Höhe; der Winkel liegt an der Senkrechten."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem schiefen Prisma ist G = 10 cm², die schräge Seitenkante 13 cm und die Höhe 12 cm. Jemand rechnet V = G · 13 cm = 130 cm³. Was stimmt?"
+   },
+   "a": [
+    "Falsch: V = G · (13 − 12) = 10 cm³.",
+    "Richtig.",
+    "Falsch: V = G · h = 10 · 12 = 120 cm³; die Kante ist nicht die Höhe.",
+    "Falsch: V = 1/3 · G · h = 40 cm³."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Volumen hängt von der Höhe senkrecht zur Grundfläche ab, nicht von der schrägen Kante: V = 10 · 12 = 120 cm³. 1/3 gehört zu Pyramide und Kegel.",
+   "h": "Welche Länge steht in V = G · h?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stapel aus 20 gleichen Münzen (Durchmesser 2,6 cm, Dicke 2,2 mm) wird schräg verschoben. Wie groß ist das Volumen des schiefen Stapels? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 23.4,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 1.3 ** 2 * 4.4, 1)",
+   "w": "Schräg verschieben ändert keine Schicht (Cavalieri): wie ein Zylinder mit r = 1,3 cm und h = 20 · 2,2 mm = 4,4 cm. V = π · 1,3² · 4,4 ≈ 23,4 cm³.",
+   "h": "Wie hoch ist der Stapel? Ändert das Verschieben die Fläche einer Münze?"
   }
  ],
  "offen": [
@@ -13092,6 +13360,7 @@
   "Zeichnungen: Achsenschnitt des Kegels, Schnittdreieck der Pyramide (h, a/2, hₛ), abgewickelter Kegelmantel als Kreissektor (Bogen als Vieleck angenähert), Kugel mit Radius, Eistüte im Schnitt – in Lernkarten und passenden Aufgaben.",
   "Schrägbild und Netz der quadratischen Pyramide jetzt mit „figur“. Weiter nicht möglich: Schrägbild des Kegels (Ellipse für den Grundkreis) und Zeichnen durch das Kind.",
   "Prinzip von Cavalieri und „Kegel als Grenzfall der Pyramide“ nur als Verstehensfragen (ohne Zeichnung). Extremwerte an Körpern (umfang) weggelassen – nicht im lehrplan_gym.",
-  "Gerundete Ergebnisse mit Toleranz (0,1 bzw. 0,01; bei ganzen Zahlen 1); π als 12-stellige Konstante in c."
+  "Gerundete Ergebnisse mit Toleranz (0,1 bzw. 0,01; bei ganzen Zahlen 1); π als 12-stellige Konstante in c.",
+  "Achtzehnte Runde (luecken-kl10): Karte „verstehen“ um einen Schritt zu schiefen Prismen (V = G · h, Cavalieri; Zeichnung: gerades und schiefes Prisma von der Seite, gleich breit und gleich hoch) und 6 Übungen ergänzt (LehrplanPLUS M10 5). Rotationskörper stehen in raum.schraegbilder (seit D2 Klasse 10). Schrägbild und Netz des Kegels bleiben offen (App)."
  ]
 }

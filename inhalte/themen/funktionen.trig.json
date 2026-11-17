@@ -29,6 +29,7 @@
     "lernziele": [
      "periode",
      "parameter",
+     "verschiebung_x",
      "zuordnen"
     ]
    },
@@ -390,6 +391,62 @@
         }
        ]
       }
+     },
+     {
+      "text": "Volle Runden zählen nicht: 9π/4 wirkt wie π/4, −π/2 wie 3π/2.",
+      "bild": {
+       "typ": "koordinaten",
+       "x": [
+        -1.5,
+        1.5
+       ],
+       "y": [
+        -1.5,
+        1.5
+       ],
+       "grad": false,
+       "pi": false,
+       "schritt_x": 0.5,
+       "schritt_y": 0.5,
+       "streckung": null,
+       "graphen": [],
+       "senkrecht": [],
+       "kreise": [
+        {
+         "m": [
+          0,
+          0
+         ],
+         "r": 1
+        }
+       ],
+       "strecken": [
+        [
+         0,
+         0,
+         0.7071,
+         0.7071
+        ],
+        [
+         0,
+         0,
+         0,
+         -1
+        ]
+       ],
+       "punkte": [
+        {
+         "x": 0.7071,
+         "y": 0.7071,
+         "name": "9π/4"
+        },
+        {
+         "x": 0,
+         "y": -1,
+         "name": "−π/2"
+        }
+       ]
+      }
      }
     ],
     "fehler": "Die Periode ist nicht 3 · 360° = 1 080°. Der Faktor 3 macht die Schwingung ⟦schneller⟧, wie ein Rad mit dreifachem Tempo.",
@@ -612,9 +669,218 @@
     }
    },
    {
+    "lernziel": "verschiebung_x",
+    "titel": "Verschiebung in x-Richtung",
+    "einstieg": "Zwei Gondeln fahren im selben Riesenrad, B eine Viertelrunde hinter A. B erreicht jede Höhe etwas später. Ihre Höhenkurve ist dieselbe, nur zur Seite geschoben: eine ⟦Verschiebung in x-Richtung⟧.",
+    "woerter": [
+     [
+      "Verschiebung in x-Richtung",
+      "der ganze Graph rutscht nach links oder nach rechts, seine Form bleibt"
+     ],
+     [
+      "c",
+      "die Zahl in der Klammer bei sin(x + c); sie gibt an, wie weit der Graph rutscht"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0.0,
+       "d": 0,
+       "bogen": true,
+       "name": "sin x",
+       "name_x": 3.7699
+      }
+     ],
+     "pi": true,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    },
+    "schritte": [
+     {
+      "text": "Bei f(x) = sin(x − π/2) ist die Klammer erst bei x = π/2 null.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "bogen": true,
+         "name": "sin x",
+         "name_x": 3.7699
+        },
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": -1.570796,
+         "d": 0,
+         "bogen": true,
+         "name": "f",
+         "name_x": 5.4978
+        }
+       ],
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "Start"
+        },
+        {
+         "x": 1.5708,
+         "y": 0,
+         "name": "Start f"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Jeder Wert von sin x kommt bei f um π/2 später: ⟦Verschiebung nach rechts⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1.5708,
+         "y": 1,
+         "name": "Hoch"
+        },
+        {
+         "x": 3.1416,
+         "y": 1,
+         "name": "Hoch f"
+        }
+       ],
+       "pfeile": [
+        [
+         1.5708,
+         1,
+         3.1416,
+         1,
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei sin(x + π/2) kommt alles früher: Der Graph rückt ⟦nach links⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": 0.0,
+         "d": 0,
+         "bogen": true,
+         "name": "sin x",
+         "name_x": 3.7699
+        },
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": 1.570796,
+         "d": 0,
+         "bogen": true,
+         "name": "g",
+         "name_x": 2.5133
+        }
+       ],
+       "punkte": [
+        {
+         "x": 1.5708,
+         "y": 1,
+         "name": "Hoch"
+        },
+        {
+         "x": 0,
+         "y": 1,
+         "name": "Hoch neu"
+        }
+       ],
+       "pfeile": [
+        [
+         1.5708,
+         1,
+         0,
+         1,
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Rückwärts: Startet die Kurve steigend bei π/4, ist c = −π/4: ⟦sin(x − π/4)⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "sin",
+         "a": 1,
+         "b": 1,
+         "c": -0.785398,
+         "d": 0,
+         "bogen": true,
+         "name": "f",
+         "name_x": 5.969
+        }
+       ],
+       "pfeile": [],
+       "punkte": [
+        {
+         "x": 0.7854,
+         "y": 0,
+         "name": "π/4"
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "Bei sin(x − π/2) nach links zu schieben ist falsch. Gondel B kommt später dran, nicht früher: Minus heißt ⟦nach rechts⟧.",
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": -1.570796,
+       "d": 0,
+       "bogen": true,
+       "name": "richtig",
+       "name_x": 5.4978
+      },
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 1.570796,
+       "d": 0,
+       "bogen": true,
+       "name": "falsch",
+       "name_x": 2.5133
+      }
+     ],
+     "punkte": [],
+     "pfeile": []
+    },
+    "regel": "Bei sin(x + c) wird der Graph um c verschoben. ⟦Plus: nach links⟧, Minus: nach rechts. Vorher b ausklammern."
+   },
+   {
     "lernziel": "zuordnen",
     "titel": "Graph und Term zuordnen",
-    "regel": "Lies Mittellinie, Amplitude und Periode ab. Start auf der Mittellinie: ⟦sin⟧. Start ganz oben: cos. b = 2π : p.",
+    "regel": "Lies Mittellinie, Amplitude und Periode ab. Start auf der Mittellinie: ⟦sin⟧. Start ganz oben: cos. b = 2π : p. Start verschoben? Dann c ablesen.",
     "schritte": [
      {
       "text": "Die Kurve schwankt um y = 0: Mittellinie y = 0, also d = 0.",
@@ -996,6 +1262,13 @@
     ]
    },
    {
+    "k": "verschiebung_x",
+    "text": "Verschiebung in x-Richtung",
+    "lernziele": [
+     "verschiebung_x"
+    ]
+   },
+   {
     "k": "zuordnen",
     "text": "Graph und Term zuordnen",
     "lernziele": [
@@ -1023,6 +1296,7 @@
     "werte",
     "periode",
     "parameter",
+    "verschiebung_x",
     "zuordnen",
     "eigenschaften",
     "anwendung"
@@ -7905,12 +8179,1040 @@
    "c": "9 + 6",
    "w": "Am wärmsten bei sin(…) = 1, also π/12 · (t − 9) = π/2 ⇒ t − 9 = 6 ⇒ t = 15. Das ist 15 Uhr.",
    "h": "sin ist 1 beim Winkel π/2."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Um wie viel und in welche Richtung ist der Graph von f(x) = sin(x − π/4) gegenüber dem Graphen von y = sin(x) verschoben?"
+   },
+   "a": [
+    "um π/4 nach rechts",
+    "um π/2 nach rechts",
+    "um π/4 nach links",
+    "um π/4 nach unten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In der Klammer steht x − π/4. Minus heißt nach rechts: um π/4 nach rechts.",
+   "h": "Plus in der Klammer heißt nach links, Minus nach rechts."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel Grad ist der Graph von f(x) = cos(x + 60°) gegenüber dem Graphen von cos x nach links verschoben?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "60",
+   "w": "In der Klammer steht + 60°. Plus heißt nach links: um 60°.",
+   "h": "Plus in der Klammer heißt nach links."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0.785398,
+       "d": 0,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "sin(x − π/4)",
+    "sin(x)",
+    "cos(x + π/4)",
+    "sin(x + π/4)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Hochpunkt liegt bei π/4 statt bei π/2 wie bei sin x. Alles kommt π/4 früher: Verschiebung um π/4 nach links, f(x) = sin(x + π/4).",
+   "h": "Wo liegt der erste Hochpunkt? Vergleiche mit sin x (Hochpunkt bei π/2)."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die kleinste Stelle x ≥ 0, an der f(x) = sin(x − π/3) den Wert 0 hat.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "Die Klammer ist bei x = π/3 gleich 0, und sin 0 = 0. Kleinere x ≥ 0 geben eine negative Klammer zwischen −π/3 und 0, dort ist sin nicht 0. Also x = π/3.",
+   "h": "Für welches x ist die Klammer gleich 0?",
+   "c": [
+    "1",
+    "3"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um wie viel und in welche Richtung ist der Graph von f(x) = sin(2x − π/2) gegenüber dem Graphen von y = sin(2x) verschoben?"
+   },
+   "a": [
+    "um π/2 nach rechts",
+    "um π/2 nach links",
+    "um π/4 nach links",
+    "um π/4 nach rechts"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ausklammern: sin(2x − π/2) = sin(2 · (x − π/4)). Also c = −π/4: um π/4 nach rechts.",
+   "h": "Klammere zuerst den Faktor vor x aus."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von cos x wird um π/3 nach rechts verschoben. Welcher Term gehört zum neuen Graphen?"
+   },
+   "a": [
+    "cos(x − π/3)",
+    "cos(x + π/3)",
+    "sin(x − π/3)",
+    "cos(x − 2π/3)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nach rechts um π/3: x − π/3 in die Klammer.",
+   "h": "Verschiebung in x-Richtung: in die Klammer. Verschiebung nach oben/unten: ans Ende."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den ersten Hochpunkt von f(x) = 2 · sin(x − π/6) + 1 im Intervall [0; 2π[.",
+    "schablone": "H(□/□ · π | □)",
+    "hinweis": "Stelle als Bruch vor π, dann der y-Wert"
+   },
+   "o": {
+    "werte": [
+     2,
+     3,
+     3
+    ]
+   },
+   "w": "sin ist am größten, wenn die Klammer π/2 ist: x − π/6 = π/2 ⇒ x = 2π/3. y = 2 · 1 + 1 = 3.",
+   "h": "sin hat sein Maximum, wenn die Klammer π/2 ist.",
+   "c": [
+    "2",
+    "3",
+    "2 + (1)"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = 3 · cos(x + π/5) − 2 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -5,
+     1
+    ]
+   },
+   "w": "Die Verschiebung in x-Richtung ändert die Werte nicht. Amplitude 3, Mittellinie y = −2: W = [−5; 1].",
+   "h": "Ändert eine Verschiebung nach links oder rechts den größten und kleinsten Wert?",
+   "c": [
+    "-2 - 3",
+    "-2 + 3"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 1,
+       "c": -0.785398,
+       "d": 1,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "cos(x) + 1",
+    "cos(x − π/4) + 1",
+    "sin(x − π/4) + 1",
+    "cos(x + π/4) + 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mittellinie y = 1, Amplitude 1, Periode 2π. Der höchste Punkt liegt bei π/4 statt bei 0: cos um π/4 nach rechts, f(x) = cos(x − π/4) + 1.",
+   "h": "cos startet im Hochpunkt. Wo liegt hier der erste Hochpunkt?"
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben ist f(x) = sin(x − 30°). Welchen Wert hat f an der Stelle x = 120°?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "f(120°) = sin(120° − 30°) = sin(90°) = 1.",
+   "h": "Rechne zuerst die Klammer aus."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Funktion f(x) = a · sin(x − c) + d (a > 0, 0 < c < π, x im Bogenmaß) hat den Hochpunkt (3π/4 | 5) und den nächsten Tiefpunkt (7π/4 | 1). Bestimme a, c und d.",
+    "schablone": "a = □; c = □/□ · π; d = □",
+    "hinweis": "a, c als Bruch vor π, d"
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     4,
+     3
+    ]
+   },
+   "w": "d = (5 + 1) : 2 = 3; a = (5 − 1) : 2 = 2. sin ist am größten bei π/2: 3π/4 − c = π/2 ⇒ c = π/4. Probe Tiefpunkt: 7π/4 − π/4 = 3π/2 ✓.",
+   "h": "Mittellinie und Amplitude aus den y-Werten; c aus der Stelle des Hochpunkts (sin ist bei π/2 am größten).",
+   "c": [
+    "(5 - 1) // 2",
+    "1",
+    "4",
+    "(5 + 1) // 2"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einem Hafen ist um 4 Uhr Hochwasser. Der Wasserstand schwankt zwischen 1 m und 5 m, von Hochwasser zu Hochwasser vergehen 12 Stunden. Ergänze das Modell (t in Stunden nach Mitternacht, h in m).",
+    "schablone": "h(t) = □ · cos(π/6 · (t − □)) + □",
+    "hinweis": "Amplitude, Uhrzeit des Hochwassers, Mittelwert"
+   },
+   "o": {
+    "werte": [
+     2,
+     4,
+     3
+    ]
+   },
+   "w": "Mittelwert (1 + 5) : 2 = 3, Amplitude 5 − 3 = 2. Periode 12 h passt zu π/6, denn 2π : 12 = π/6. cos ist am größten, wenn die Klammer 0 ist: bei t = 4. Also h(t) = 2 · cos(π/6 · (t − 4)) + 3.",
+   "h": "cos hat seinen größten Wert, wenn die Klammer 0 ist. Wann soll das sein?",
+   "c": [
+    "(5 - 1) // 2",
+    "4",
+    "(5 + 1) // 2"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für welche Zahl c mit 0 < c < 2π gilt sin(x + c) = −sin x für jedes x? Gib c als Vielfaches von π an.",
+    "schablone": "c = □ · π",
+    "hinweis": "Zahl vor π"
+   },
+   "o": {
+    "werte": [
+     1
+    ]
+   },
+   "w": "Um eine halbe Periode verschoben, liegt jeder Hochpunkt dort, wo vorher ein Tiefpunkt war: sin(x + π) = −sin x. Also c = π. Probe x = π/2: sin(3π/2) = −1 = −sin(π/2) ✓.",
+   "h": "Welche Verschiebung macht aus jedem Hochpunkt einen Tiefpunkt?",
+   "c": [
+    "2 // 2"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Der Graph von f(x) = sin(3x + π) ist gegenüber dem Graphen von sin(3x) um π nach links verschoben.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: um 3π nach links.",
+    "Falsch: um π/3 nach links, denn 3x + π = 3 · (x + π/3).",
+    "Richtig.",
+    "Falsch: um π nach rechts."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Erst den Faktor 3 ausklammern: sin(3x + π) = sin(3 · (x + π/3)). Die Verschiebung ist π/3 nach links.",
+   "h": "Klammere den Faktor vor x aus. Was steht dann neben x?"
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die kleinste positive Nullstelle von f(x) = sin(2 · (x + π/3)).",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "w": "sin ist 0, wenn die Klammer ein Vielfaches von π ist: 2 · (x + π/3) = π ⇒ x = π/6 (kleinere Vielfache ergeben x ≤ 0).",
+   "h": "Setze die Klammer gleich 0, π, 2π, … und löse nach x auf.",
+   "c": [
+    "1",
+    "6"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Temperatur an einem Frühlingstag wird beschrieben durch T(t) = 12 + 5 · sin(π/12 · (t − 10)) (t in Stunden nach Mitternacht, T in °C). Um wie viel Uhr ist es am kältesten?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "Uhr"
+   },
+   "c": "10 - 6",
+   "w": "sin ist am kleinsten (−1), wenn die Klammer −π/2 ist: π/12 · (t − 10) = −π/2 ⇒ t − 10 = −6 ⇒ t = 4. Um 4 Uhr ist es am kältesten: T = 12 − 5 = 7 °C.",
+   "h": "sin hat den Wert −1 bei −π/2 (oder 3π/2). Setze die Klammer gleich diesem Winkel."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 2,
+       "b": 1,
+       "c": -0.785398,
+       "d": 1,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "2 · sin(x − π/4) + 1",
+    "2 · sin(x + π/4) + 1",
+    "2 · sin(x − π/2) + 1",
+    "sin(x − π/4) + 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mittellinie y = 1 (Mitte zwischen −1 und 3), Amplitude 2. Steigend durch die Mittellinie bei π/4: sin um π/4 nach rechts, f(x) = 2 · sin(x − π/4) + 1.",
+   "h": "Lies Mittellinie und Amplitude ab. Wo kreuzt der Graph die Mittellinie steigend?"
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von sin x wird zuerst um π/3 nach rechts verschoben und danach in x-Richtung auf die Hälfte gestaucht (Periode π). Welcher Term gehört dazu?"
+   },
+   "a": [
+    "sin(0,5x − π/3)",
+    "sin(2x − π/3)",
+    "sin(2x + π/3)",
+    "sin(2 · (x − π/3))"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach dem Verschieben: sin(x − π/3). Stauchen heißt, x durch 2x zu ersetzen: sin(2x − π/3) = sin(2 · (x − π/6)). Das Stauchen halbiert auch die Verschiebung.",
+   "h": "Beim Stauchen wird jedes x durch 2x ersetzt – auch das x in der Klammer."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um wie viel und in welche Richtung ist der Graph von f(x) = sin(x + π/6) gegenüber dem Graphen von y = sin(x) verschoben?"
+   },
+   "a": [
+    "um π/6 nach links",
+    "um π/6 nach oben",
+    "um π/3 nach links",
+    "um π/6 nach rechts"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In der Klammer steht x + π/6. Plus heißt nach links: um π/6 nach links."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um wie viel und in welche Richtung ist der Graph von f(x) = cos(3x − π) gegenüber dem Graphen von y = cos(3x) verschoben?"
+   },
+   "a": [
+    "um π nach links",
+    "um π/3 nach links",
+    "um π/3 nach rechts",
+    "um π nach rechts"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ausklammern: cos(3x − π) = cos(3 · (x − π/3)). Also c = −π/3: um π/3 nach rechts."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von sin x wird um π/4 nach links und um 2 nach oben verschoben. Welcher Term gehört zum neuen Graphen?"
+   },
+   "a": [
+    "sin(x + π/4) − 2",
+    "cos(x + π/4) + 2",
+    "sin(x − π/4) + 2",
+    "sin(x + π/4) + 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nach links um π/4: x + π/4 in die Klammer; nach oben um 2: + 2 am Ende."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den ersten Hochpunkt von f(x) = 3 · cos(x − π/3) − 1 im Intervall [0; 2π[.",
+    "schablone": "H(□/□ · π | □)",
+    "hinweis": "Stelle als Bruch vor π, dann der y-Wert"
+   },
+   "o": {
+    "werte": [
+     1,
+     3,
+     2
+    ]
+   },
+   "w": "cos ist am größten, wenn die Klammer 0 ist: x − π/3 = 0 ⇒ x = π/3. y = 3 · 1 − 1 = 2.",
+   "c": [
+    "1",
+    "3",
+    "3 + (-1)"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um wie viel und in welche Richtung ist der Graph von f(x) = cos(x − 2π/3) gegenüber dem Graphen von y = cos(x) verschoben?"
+   },
+   "a": [
+    "um 2π/3 nach rechts",
+    "um 2π/3 nach links",
+    "um 4π/3 nach rechts",
+    "um 2π/3 nach unten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In der Klammer steht x − 2π/3. Minus heißt nach rechts: um 2π/3 nach rechts."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel Grad ist der Graph von f(x) = sin(x − 45°) gegenüber dem Graphen von sin x nach rechts verschoben?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "45",
+   "w": "In der Klammer steht − 45°. Minus heißt nach rechts: um 45°."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die kleinste positive Nullstelle von f(x) = sin(x + π/4).",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "sin ist 0, wenn die Klammer ein Vielfaches von π ist: x + π/4 = π ⇒ x = 3π/4 (kleinere Vielfache ergeben x ≤ 0).",
+   "c": [
+    "3",
+    "4"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = 2 · sin(x − π/7) + 4 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     2,
+     6
+    ]
+   },
+   "w": "Die Verschiebung in x-Richtung ändert die Werte nicht. Amplitude 2, Mittellinie y = 4: W = [2; 6].",
+   "c": [
+    "4 - 2",
+    "4 + 2"
+   ]
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von cos x wird um π/6 nach rechts und um 1 nach unten verschoben. Welcher Term gehört zum neuen Graphen?"
+   },
+   "a": [
+    "cos(x − π/6) + 1",
+    "cos(x − π/6) − 1",
+    "sin(x − π/6) − 1",
+    "cos(x + π/6) − 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach rechts um π/6: x − π/6 in die Klammer; nach unten um 1: − 1 am Ende."
+  },
+  {
+   "l": "verschiebung_x",
+   "t": "verschiebung_x",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben ist f(x) = cos(x + 30°). Welchen Wert hat f an der Stelle x = 150°?"
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "f(150°) = cos(150° + 30°) = cos(180°) = −1."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": -1.047198,
+       "d": 0,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "sin(x + π/3)",
+    "sin(x − π/3)",
+    "sin(x)",
+    "cos(x − π/3)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Graph kreuzt die x-Achse steigend bei π/3 statt bei 0: sin um π/3 nach rechts, f(x) = sin(x − π/3).",
+   "h": "Wo beginnt eine Schwingung (steigend auf der Mittellinie)?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x im Bogenmaß)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 2,
+       "b": 1,
+       "c": 1.047198,
+       "d": 0,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "2 · sin(x + π/3)",
+    "2 · cos(x − π/3)",
+    "2 · cos(x + π/3)",
+    "cos(x + π/3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Amplitude 2. Der Hochpunkt, den cos bei 0 hat, liegt hier bei −π/3 (der nächste bei 5π/3): cos um π/3 nach links, f(x) = 2 · cos(x + π/3).",
+   "h": "cos hat bei 0 einen Hochpunkt. Wo liegt hier der Hochpunkt, der 0 am nächsten ist?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph gehört zu f(x) = a · sin(x − c) + d mit a > 0 und 0 < c < π. Bestimme a, c und d.",
+    "schablone": "a = □; c = □/□ · π; d = □",
+    "hinweis": "a, c als Bruch vor π, d",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 1,
+       "c": -0.523599,
+       "d": 1,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1,
+     "streckung": 1.4,
+     "punkte": [
+      {
+       "x": 2.0944,
+       "y": 4,
+       "name": "H(2π/3 | 4)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     1,
+     6,
+     1
+    ]
+   },
+   "w": "Größter Wert 4, kleinster −2: d = (4 + (−2)) : 2 = 1, a = (4 − (−2)) : 2 = 3. sin ist bei π/2 am größten: 2π/3 − c = π/2 ⇒ c = π/6.",
+   "h": "Mittellinie und Amplitude aus größtem und kleinstem Wert; c aus der Lage des Hochpunkts.",
+   "c": [
+    "(4 - (-2)) // 2",
+    "1",
+    "6",
+    "(4 + (-2)) // 2"
+   ]
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph gehört zu f(x) = a · cos(b · (x − c)) + d mit a > 0, b > 0 und 0 < c < π/2. Bestimme a, b, c und d.",
+    "schablone": "a = □; b = □; c = □/□ · π; d = □",
+    "hinweis": "a, b, c als Bruch vor π, d",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      6.2832
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 2,
+       "b": 2,
+       "c": -2.094395,
+       "d": 1,
+       "bogen": true
+      }
+     ],
+     "pi": true,
+     "schritt_y": 1,
+     "streckung": 1.4,
+     "punkte": [
+      {
+       "x": 1.0472,
+       "y": 3,
+       "name": "H(π/3 | 3)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     2,
+     1,
+     3,
+     1
+    ]
+   },
+   "w": "Werte von −1 bis 3: d = 1, a = 2. Von Hochpunkt zu Hochpunkt ist es π: b = 2π : π = 2. cos hat bei 0 einen Hochpunkt, hier liegt er bei π/3: c = π/3.",
+   "h": "Periode von Hochpunkt zu Hochpunkt ablesen; c ist die Stelle des Hochpunkts.",
+   "c": [
+    "(3 - (-1)) // 2",
+    "2 // 1",
+    "1",
+    "3",
+    "(3 + (-1)) // 2"
+   ]
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Kurve startet bei x = π/3 steigend auf der Mittellinie y = 0, hat die Amplitude 1 und die Periode π. Jemand schreibt dafür f(x) = sin(2x − π/3). Was stimmt?"
+   },
+   "a": [
+    "Falsch: Richtig ist sin(2x + π/3).",
+    "Falsch: Richtig ist sin(0,5x − π/3).",
+    "Richtig.",
+    "Falsch: Richtig ist sin(2 · (x − π/3)) = sin(2x − 2π/3)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Periode π ⇒ b = 2. Start bei π/3 ⇒ x − π/3 in der Klammer, danach erst mal 2: sin(2 · (x − π/3)). Bei sin(2x − π/3) läge der Start bei π/6.",
+   "h": "Setze x = π/3 in sin(2x − π/3) ein. Ist die Klammer dann 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term beschreibt denselben Graphen wie f(x) = cos(x − π/2)?"
+   },
+   "a": [
+    "−cos(x)",
+    "−sin(x)",
+    "cos(x) − π/2",
+    "sin(x)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "cos startet im Hochpunkt bei 0; um π/2 nach rechts liegt der Hochpunkt bei π/2. Dort hat auch sin x seinen Hochpunkt, und bei 0 sind beide 0: f(x) = sin x.",
+   "h": "Setze x = 0 und x = π/2 ein und vergleiche mit den Angeboten."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(5π/2) an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "5π/2 − 2π = π/2 (volle Runde weg). sin(π/2) = sin 90° = 1.",
+   "h": "Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(−π/3) an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.5",
+   "w": "−π/3 + 2π = 5π/3 (volle Runde dazu). cos(5π/3) = cos 300° = 0,5.",
+   "h": "Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Winkel zwischen 0 und 2π an, der am Einheitskreis zum selben Punkt gehört wie −3π/4.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     4
+    ]
+   },
+   "w": "−3π/4 + 2π = −3π/4 + 8π/4 = 5π/4.",
+   "h": "Ein negativer Winkel dreht im Uhrzeigersinn. Zähle eine volle Runde 2π dazu.",
+   "c": [
+    "5",
+    "4"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(−17π/6) an."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-0.5",
+   "w": "−17π/6 + 4π = 7π/6 (2 volle Runden dazu). sin(7π/6) = sin 210° = −0,5.",
+   "h": "Zähle volle Runden (2π) weg oder dazu, bis der Winkel zwischen 0 und 2π liegt."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner: cos(100π) + sin(−101π/2)."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "1 + (-1)",
+   "w": "100π sind 50 volle Runden: cos(100π) = cos 0 = 1. −101π/2 + 52π = 3π/2: sin(3π/2) = −1. Summe: 1 + (−1) = 0.",
+   "h": "Führe beide Winkel durch volle Runden (2π) auf 0 bis 2π zurück."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage gilt für jedes x?"
+   },
+   "a": [
+    "sin(x + π) = sin x",
+    "cos(x − 2π) = cos x",
+    "sin(−x) = sin x",
+    "cos(x + π) = cos x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine volle Runde rückwärts (−2π) führt zum selben Punkt: cos(x − 2π) = cos x. Eine halbe Runde (π) wechselt das Vorzeichen, und sin(−x) = −sin x.",
+   "h": "Prüfe jede Aussage mit x = π/2 oder x = 0."
   }
  ],
  "offen": [
   "Zeichnungen: Graphen in den Lernkarten „werte“, „periode“, „parameter“, „zuordnen“, „eigenschaften“, „anwendung“; Aufgaben „Graph und Term zuordnen“, „Periode ablesen“, „Amplitude ablesen“ zeigen den Graphen. Bogenmaß (Fünfzehnte Runde): Die Lernkarten führen nach dem Gradmaß-Einstieg das Bogenmaß mit (Graphen mit π-Achse, pi: true); je Lernkarte 8 Übungen im Bogenmaß. Die älteren Aufgaben-Graphen bleiben in Grad beschriftet.",
   "Verschiebung in x-Richtung: nach der Prüfung als Zuordnungsaufgabe mit Zeichnung (Stufe 3, „zuordnen“) aufgenommen; keine eigene Lernkarte.",
   "Prüfung eingearbeitet (Runde 3): Bogenlänge, exakte Werte mit Wurzeln (½√2, ½√3), Vorzeichen ohne Rechner, Term aus Kennwerten, Verschiebung in x-Richtung, Riesenrad-Modell aus Sachangaben, Zeitpunkt bestimmen, Gezeiten. Ganzzahlige Vielfache von π als „□ · π“. Zuordnen: kein Graph doppelt je Stufe, gleichwertige Terme nie zusammen als Optionen.",
-  "Rechenausdruck c: Sinus/Kosinus-Werte als 12-stellige Konstanten mit Toleranz."
+  "Rechenausdruck c: Sinus/Kosinus-Werte als 12-stellige Konstanten mit Toleranz.",
+  "Achtzehnte Runde (luecken-kl10): neue Lernkarte „verschiebung_x“ (Parameter c, LehrplanPLUS M10 3) nach „parameter“; „zuordnen“ um Übungen mit c erweitert (Merksatz um „Start verschoben? Dann c ablesen.“ ergänzt); „periode“ um einen Schritt (Winkel über 2π und negative Winkel am Einheitskreis) und Übungen ergänzt. Der Eintrag „Verschiebung in x-Richtung: … keine eigene Lernkarte“ ist damit überholt."
  ]
 }

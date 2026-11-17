@@ -1034,3 +1034,42 @@ Teil 3 – inhalte/themenliste.json: (a) die vier fehlenden Themen aufnehmen (za
 Fertig, wenn `python3 -I tools/inhalt_pruefen.py` für alle geänderten Themendateien OK meldet. Je Teil ein Commit + Push auf daten-klassen-2.
 Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in inhalte/postfach/daten-klassen-2.md. Arbeite ohne Rückfragen durch.
 ```
+
+# Fünfzehnte Runde: offene Punkte aus der Liste „für Sebastian“ (Befund-Chat) umsetzen
+
+Entscheidung Sebastian 17.11.: wie vom Haupt-Chat vorgeschlagen. Grundlage: inhalte/postfach/befunde.md, Abschnitt „Liste „für Sebastian““.
+
+```text
+Du überarbeitest einzelne Lernkarten und Aufgaben einer Mathe-Lern-App (bayerisches Gymnasium).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig nacharbeit an und arbeite nur dort.
+Lies zuerst vollständig: inhalte/README.md (Format, „Verständliche Erklärungen“ mit „Vorgabe seit 16.11.“, „Zeichnungen“), inhalte/postfach/README.md,
+inhalte/postfach/befunde.md (Abschnitt „Liste „für Sebastian““ und die Arbeitsweise im Abschlussbericht) sowie in inhalte/AUFTRAEGE.md die Abschnitte „Zehnte Runde“ und „Dreizehnte Runde“.
+Die Themen sind für Kinder freigegeben: Was du nicht ausdrücklich ändern sollst, bleibt Zeichen für Zeichen gleich (Nachweis per Skript wie in der Dreizehnten Runde,
+Werkzeug inhalte/generatoren/_befunde_nachweis.py bzw. ein eigenes Vergleichsskript gegen origin/lernen-app).
+
+Aufträge (je Thema ein Commit + Push):
+1. funktionen.trig (Klasse 10) – Bogenmaß: LehrplanPLUS M10 3 und das Abitur arbeiten im Bogenmaß; die App kann die x-Achse in Vielfachen von π beschriften (README, Zeichnungen).
+   Lernkarten so ergänzen, dass Bogenmaß erklärt und danach durchgehend mitgeführt wird (Gradmaß bleibt als Einstieg). Je Lernkarte mindestens 8 neue Übungen im Bogenmaß
+   (Stufe 1: 2, Stufe 2: 3, Stufe 3: 3). Die alten Gradmaß-Aufgaben bleiben. Den veralteten Eintrag unter „offen“ (keine π-Beschriftung) entfernen.
+2. daten.kennwerte (Klasse 6): die Lernkarten modal_spannweite und median als Vertiefung führen (aus bewertung.lernziele_pflicht nehmen, in bewertung.lernziele_vertiefung eintragen –
+   Muster: geometrie.winkel nach der Vierzehnten Runde). Sonst nichts ändern.
+3. Erklärung ergänzen, damit sie zu den vorhandenen Aufgaben passt (je ein zusätzlicher Schritt der Bildergeschichte mit Zeichnung, höchstens zwei; Längenregeln der README einhalten):
+   a) geometrie.grundbegriffe / kreis_lage: zwei Kreise – von außen berühren und getrennt liegen (Abstand der Mittelpunkte im Vergleich zu r₁ + r₂).
+   b) geometrie.ortslinien / zwei_kreise: „Kreis im Kreis“ (Abstand kleiner als r₁ − r₂) kurz zeigen.
+   c) trigo.allgemein / kosinussatz_seite: bei Kurs- und Schiff-Aufgaben ist der Dreieckswinkel 180° minus Drehwinkel – mit Zeichnung.
+   d) gleichungen.lgs3 / loesen: ein Schritt „Was, wenn am Ende 0 = 5 oder 0 = 0 steht?“ (keine bzw. unendlich viele Lösungen).
+4. geometrie.konstruktion / kongruenzsatz: Die Stufe-3-Aufgaben zum Fall SsW sind ohne Zeichnung kaum zu entscheiden. Jede dieser Aufgaben bekommt eine Zeichnung (Zeichnungsart figur),
+   aus der die Lage der gegebenen Stücke ablesbar ist; ist das nicht sauber möglich, die Aufgabe durch eine entscheidbare ersetzen und den alten Fragetext unter „ersetzt“ melden.
+5. Aufräumen: veraltete Einträge unter „offen“ entfernen oder berichtigen – funktionen.grundbegriffe („Kreis kann die App nicht zeichnen“ stimmt nicht mehr) und geometrie.winkel
+   (nennt noch die alte Lage „Winkelsätze Kl. 5“; das Thema heißt jetzt „Mit Winkeln rechnen“, Winkelsätze sind ein eigener Flug in Klasse 7).
+6. inhalte/README.md: einen kurzen Abschnitt „Vertiefung“ ergänzen (Felder bewertung.lernziele_pflicht und bewertung.lernziele_vertiefung, Bedeutung: nicht testrelevant, zählt nicht für den Stempel).
+Nicht ändern (so entschieden): gleichungen.potenz – Zinseszins-Sachaufgaben bleiben in Klasse 9; zahlen.intervalle und gleichungen.ungleichungen bleiben vorläufig Klasse 8;
+Schrägbilder, Simulation und Ortslinien sind durch D2 schon geklärt.
+
+Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und der Nachweis „nur das Beauftragte geändert“ stimmt.
+Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.
+Meldungen in inhalte/postfach/nacharbeit.md: nach jedem Thema eine Zeile, am Ende ein Abschlussbericht mit den Listen „geänderte Lernkarten“ (Thema, Lernkarte, was ergänzt wurde),
+„ersetzt“ (alte Fragetexte) und „offen geblieben“. Arbeite ohne Rückfragen durch.
+```
+
+Einspielen (Haupt-Chat): einheit_abgleichen(…, 'sperren') je Thema (Weg A); geänderte Erklärungen dabei mit übernehmen.

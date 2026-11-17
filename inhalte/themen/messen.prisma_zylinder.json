@@ -2585,6 +2585,24 @@
    "t": "prisma_volumen",
    "p": "uebung",
    "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Graben hat einen trapezförmigen Querschnitt: oben 3 m, unten 1 m breit, 1 m tief. Er ist 20 m lang. Wie viele m³ Erde wurden ausgehoben?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "m³"
+   },
+   "c": "(3 + 1) * 1 / 2 * 20",
+   "w": "G = (3 + 1) · 1 : 2 = 2 m². V = 2 · 20 = 40 m³.",
+   "h": "Querschnitt mal Länge.",
+   "g": "pruefung"
+  },
+  {
+   "l": "prisma_volumen",
+   "t": "prisma_volumen",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Prisma A: Dreieck (g = 6 cm, Höhe 4 cm) als Grundfläche, Körperhöhe 20 cm. Prisma B: Rechteck 6 cm · 4 cm, Körperhöhe 10 cm. Was stimmt?"
@@ -2619,24 +2637,6 @@
    "w": "Jedes Teil ist ein Dreiecksprisma mit G = 8 · 5 : 2 = 20 cm² und h = 12 cm: V = 240 cm³ – die Hälfte des Quaders.",
    "h": "Welche Grundfläche hat jedes Teil?",
    "g": "transfer"
-  },
-  {
-   "l": "prisma_volumen",
-   "t": "prisma_volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Graben hat einen trapezförmigen Querschnitt: oben 3 m, unten 1 m breit, 1 m tief. Er ist 20 m lang. Wie viele m³ Erde wurden ausgehoben?"
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "m³"
-   },
-   "c": "(3 + 1) * 1 / 2 * 20",
-   "w": "G = (3 + 1) · 1 : 2 = 2 m². V = 2 · 20 = 40 m³.",
-   "h": "Querschnitt mal Länge.",
-   "g": "pruefung"
   },
   {
    "l": "prisma_volumen",
@@ -2717,6 +2717,96 @@
    "c": "120 / (6 * 4 / 2)",
    "w": "G = 6 · 4 : 2 = 12 cm². h = 120 : 12 = 10 cm.",
    "h": "Berechne zuerst die Grundfläche."
+  },
+  {
+   "l": "prisma_volumen",
+   "t": "prisma_volumen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pralinenkarton hat die Form eines Dreiecksprismas. Die dreieckige Grundfläche ist 24 cm² groß, der Karton ist 15 cm lang. Wie viel cm³ passen hinein?"
+   },
+   "o": {
+    "wert": 360,
+    "einheit": "cm³"
+   },
+   "c": "24 * 15",
+   "w": "Gegeben: G = 24 cm², Länge (Höhe des Prismas) 15 cm. Gesucht: Volumen. Ansatz: V = G · h. Rechnung: V = 24 · 15 = 360 cm³. Antwort: In den Karton passen 360 cm³.",
+   "h": "Welche Fläche ist die Grundfläche, welche Länge die Höhe des Prismas?"
+  },
+  {
+   "l": "prisma_volumen",
+   "t": "prisma_volumen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zelt hat die Form eines Dreiecksprismas. Die Vorderseite ist ein Dreieck mit 2,4 m Breite und 1,5 m Höhe, das Zelt ist 3 m lang. Wie viel m³ Luft sind im Zelt?"
+   },
+   "o": {
+    "wert": 5.4,
+    "einheit": "m³"
+   },
+   "c": "2.4 * 1.5 / 2 * 3",
+   "w": "Gegeben: Dreieck g = 2,4 m, h = 1,5 m; Länge 3 m. Gesucht: Luftvolumen. Ansatz: G = g · h : 2, dann V = G · Länge. Rechnung: G = 2,4 · 1,5 : 2 = 1,8 m². V = 1,8 · 3 = 5,4 m³. Antwort: Im Zelt sind 5,4 m³ Luft.",
+   "h": "Die Vorderseite ist die Grundfläche."
+  },
+  {
+   "l": "prisma_volumen",
+   "t": "prisma_volumen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schwimmbecken ist 25 m lang und 10 m breit. Am einen Ende ist es 1 m tief, zum anderen Ende hin wird es gleichmäßig bis 3 m tief. Wie viel m³ Wasser passen hinein?"
+   },
+   "o": {
+    "wert": 500,
+    "einheit": "m³"
+   },
+   "c": "(1 + 3) / 2 * 25 * 10",
+   "w": "Gegeben: Länge 25 m, Breite 10 m, Tiefe von 1 m bis 3 m. Gesucht: Volumen des Beckens. Ansatz: Von der Seite gesehen ist das Becken ein Trapez: G = (a + c) : 2 · h; dann · Breite. Rechnung: G = (1 + 3) : 2 · 25 = 50 m². V = 50 · 10 = 500 m³. Antwort: Es passen 500 m³ Wasser hinein.",
+   "h": "Schau von der Seite auf das Becken: Welche Figur siehst du?"
+  },
+  {
+   "l": "prisma_volumen",
+   "t": "prisma_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pferdetrog ist ein Prisma mit trapezförmigem Querschnitt: oben 60 cm, unten 40 cm breit, 30 cm tief und 2 m lang. Er steht auf vier 50 cm hohen Beinen und wiegt 35 kg. Wie viele Liter Wasser fasst er?"
+   },
+   "o": {
+    "wert": 300,
+    "einheit": "l"
+   },
+   "c": "(60 + 40) / 2 * 30 * 200 / 1000",
+   "w": "Gegeben: Trapez 60 cm / 40 cm, Tiefe 30 cm, Länge 200 cm. Beine und Gewicht spielen keine Rolle. Gesucht: Fassungsvermögen in Litern. Ansatz: G = (a + c) : 2 · h, V = G · Länge, 1 l = 1 000 cm³. Rechnung: G = 50 · 30 = 1 500 cm². V = 1 500 · 200 = 300 000 cm³ = 300 l. Antwort: Der Trog fasst 300 l.",
+   "h": "Welche Angaben beschreiben den Innenraum des Trogs?"
+  },
+  {
+   "l": "prisma_volumen",
+   "t": "prisma_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Blumenkasten ist ein Quader, 80 cm lang und 20 cm breit. Es sollen 40 l Erde hinein, und oben sollen noch 2 cm frei bleiben. Wie hoch muss der Kasten mindestens sein?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm"
+   },
+   "c": "40000 / (80 * 20) + 2",
+   "w": "Gegeben: Grundfläche 80 cm · 20 cm, 40 l Erde, 2 cm Rand. Gesucht: Mindesthöhe. Ansatz: Höhe der Erde = V : G, dann den freien Rand dazu. Rechnung: 40 l = 40 000 cm³. 40 000 : 1 600 = 25 cm. 25 + 2 = 27 cm. Antwort: Der Kasten muss mindestens 27 cm hoch sein.",
+   "h": "Wie hoch liegt die Erde? Und was kommt dann noch dazu?"
   },
   {
    "l": "prisma_volumen",
@@ -3133,6 +3223,22 @@
   {
    "l": "prisma_volumen",
    "t": "prisma_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kanal hat einen rechteckigen Querschnitt, 4 m breit und 1,5 m tief, und ist 200 m lang. Wie viel m³ Wasser sind darin, wenn er ganz voll ist?"
+   },
+   "o": {
+    "wert": 1200,
+    "einheit": "m³"
+   },
+   "c": "4 * 1.5 * 200",
+   "w": "Gegeben: Querschnitt 4 m · 1,5 m, Länge 200 m. Gesucht: Wasservolumen. Ansatz: V = G · Länge. Rechnung: G = 6 m². V = 6 · 200 = 1 200 m³. Antwort: Im vollen Kanal sind 1 200 m³ Wasser."
+  },
+  {
+   "l": "prisma_volumen",
+   "t": "prisma_volumen",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
@@ -3225,6 +3331,22 @@
    },
    "c": "3.5 * 6 / 2 * 8",
    "w": "G = 3,5 · 6 : 2 = 10,5 m². V = 10,5 · 8 = 84 m³."
+  },
+  {
+   "l": "prisma_volumen",
+   "t": "prisma_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stück Käse hat die Form eines Dreiecksprismas: Die Grundfläche ist 18 cm² groß, das Stück ist 9 cm lang. Wie viel cm³ Käse sind das?"
+   },
+   "o": {
+    "wert": 162,
+    "einheit": "cm³"
+   },
+   "c": "18 * 9",
+   "w": "Gegeben: G = 18 cm², h = 9 cm. Gesucht: Volumen. Ansatz: V = G · h. Rechnung: V = 18 · 9 = 162 cm³. Antwort: Das Stück hat 162 cm³."
   },
   {
    "l": "prisma_oberflaeche",
@@ -3778,6 +3900,180 @@
    "l": "prisma_oberflaeche",
    "t": "prisma_oberflaeche",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat ein Trapez als Grundfläche (a = 12 cm, c = 6 cm, h = 4 cm, Schenkel je 5 cm) und ist 20 cm lang. Berechne die Oberfläche.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_v0": [
+       0.0,
+       0.0
+      ],
+      "_h0": [
+       7.071,
+       7.071
+      ],
+      "_v1": [
+       12.0,
+       0.0
+      ],
+      "_h1": [
+       19.071,
+       7.071
+      ],
+      "_v2": [
+       9.0,
+       4.0
+      ],
+      "_h2": [
+       16.071,
+       11.071
+      ],
+      "_v3": [
+       3.0,
+       4.0
+      ],
+      "_h3": [
+       10.071,
+       11.071
+      ],
+      "_F": [
+       -2.289,
+       0.0
+      ],
+      "_H": [
+       -2.289,
+       4.0
+      ]
+     },
+     "linien": [
+      [
+       "_v0",
+       "_v1",
+       "12 cm"
+      ],
+      [
+       "_v1",
+       "_v2",
+       ""
+      ],
+      [
+       "_v2",
+       "_v3",
+       ""
+      ],
+      [
+       "_v3",
+       "_v0",
+       ""
+      ],
+      [
+       "_h0",
+       "_h1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_h1",
+       "_h2",
+       ""
+      ],
+      [
+       "_h2",
+       "_h3",
+       "6 cm"
+      ],
+      [
+       "_h3",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v0",
+       "_h0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_v1",
+       "_h1",
+       "20 cm"
+      ],
+      [
+       "_v2",
+       "_h2",
+       ""
+      ],
+      [
+       "_v3",
+       "_h3",
+       ""
+      ],
+      [
+       "_F",
+       "_H",
+       "4 cm",
+       "gestrichelt"
+      ],
+      [
+       "_F",
+       "_v0",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_H",
+       "_v3",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "flaeche": [
+      "_v0",
+      "_v1",
+      "_v2",
+      "_v3"
+     ]
+    }
+   },
+   "o": {
+    "wert": 632,
+    "einheit": "cm²"
+   },
+   "c": "2 * (12 + 6) * 4 / 2 + (12 + 6 + 5 + 5) * 20",
+   "w": "G = (12 + 6) · 4 : 2 = 36 cm², 2 · G = 72 cm². u = 12 + 6 + 5 + 5 = 28 cm, M = 28 · 20 = 560 cm². O = 632 cm².",
+   "h": "O = 2 · G + u · h.",
+   "g": "pruefung"
+  },
+  {
+   "l": "prisma_oberflaeche",
+   "t": "prisma_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Prisma wird doppelt so hoch, die Grundfläche bleibt gleich. Was gilt für die Oberfläche?"
+   },
+   "a": [
+    "Nur der Mantel verdoppelt sich, die Oberfläche wird weniger als doppelt so groß.",
+    "Die Oberfläche verdoppelt sich genau.",
+    "Die Oberfläche vervierfacht sich.",
+    "Die Oberfläche bleibt gleich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "O = 2 · G + u · h: 2 · G bleibt gleich, nur u · h verdoppelt sich. Darum wächst O, aber nicht auf das Doppelte.",
+   "h": "Welche Teile von O hängen von h ab?",
+   "g": "begruenden"
+  },
+  {
+   "l": "prisma_oberflaeche",
+   "t": "prisma_oberflaeche",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -4067,158 +4363,6 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Prisma hat ein Trapez als Grundfläche (a = 12 cm, c = 6 cm, h = 4 cm, Schenkel je 5 cm) und ist 20 cm lang. Berechne die Oberfläche.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_v0": [
-       0.0,
-       0.0
-      ],
-      "_h0": [
-       7.071,
-       7.071
-      ],
-      "_v1": [
-       12.0,
-       0.0
-      ],
-      "_h1": [
-       19.071,
-       7.071
-      ],
-      "_v2": [
-       9.0,
-       4.0
-      ],
-      "_h2": [
-       16.071,
-       11.071
-      ],
-      "_v3": [
-       3.0,
-       4.0
-      ],
-      "_h3": [
-       10.071,
-       11.071
-      ],
-      "_F": [
-       -2.289,
-       0.0
-      ],
-      "_H": [
-       -2.289,
-       4.0
-      ]
-     },
-     "linien": [
-      [
-       "_v0",
-       "_v1",
-       "12 cm"
-      ],
-      [
-       "_v1",
-       "_v2",
-       ""
-      ],
-      [
-       "_v2",
-       "_v3",
-       ""
-      ],
-      [
-       "_v3",
-       "_v0",
-       ""
-      ],
-      [
-       "_h0",
-       "_h1",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_h1",
-       "_h2",
-       ""
-      ],
-      [
-       "_h2",
-       "_h3",
-       "6 cm"
-      ],
-      [
-       "_h3",
-       "_h0",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_v0",
-       "_h0",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_v1",
-       "_h1",
-       "20 cm"
-      ],
-      [
-       "_v2",
-       "_h2",
-       ""
-      ],
-      [
-       "_v3",
-       "_h3",
-       ""
-      ],
-      [
-       "_F",
-       "_H",
-       "4 cm",
-       "gestrichelt"
-      ],
-      [
-       "_F",
-       "_v0",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_H",
-       "_v3",
-       "",
-       "gestrichelt"
-      ]
-     ],
-     "flaeche": [
-      "_v0",
-      "_v1",
-      "_v2",
-      "_v3"
-     ]
-    }
-   },
-   "o": {
-    "wert": 632,
-    "einheit": "cm²"
-   },
-   "c": "2 * (12 + 6) * 4 / 2 + (12 + 6 + 5 + 5) * 20",
-   "w": "G = (12 + 6) · 4 : 2 = 36 cm², 2 · G = 72 cm². u = 12 + 6 + 5 + 5 = 28 cm, M = 28 · 20 = 560 cm². O = 632 cm².",
-   "h": "O = 2 · G + u · h.",
-   "g": "pruefung"
-  },
-  {
-   "l": "prisma_oberflaeche",
-   "t": "prisma_oberflaeche",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Eine Holzschachtel (Dreiecksprisma: g = 16 cm, Höhe 6 cm, Schenkel 10 cm, Länge 30 cm) wird außen lackiert. 1 ml Lack reicht für 10 cm². Wie viel ml braucht man?"
    },
    "o": {
@@ -4229,28 +4373,6 @@
    "w": "O = 96 + 1080 = 1176 cm². Lack: 1176 : 10 = 117,6 ml.",
    "h": "Erst die Oberfläche.",
    "g": "verknuepfen"
-  },
-  {
-   "l": "prisma_oberflaeche",
-   "t": "prisma_oberflaeche",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Prisma wird doppelt so hoch, die Grundfläche bleibt gleich. Was gilt für die Oberfläche?"
-   },
-   "a": [
-    "Nur der Mantel verdoppelt sich, die Oberfläche wird weniger als doppelt so groß.",
-    "Die Oberfläche verdoppelt sich genau.",
-    "Die Oberfläche vervierfacht sich.",
-    "Die Oberfläche bleibt gleich."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "O = 2 · G + u · h: 2 · G bleibt gleich, nur u · h verdoppelt sich. Darum wächst O, aber nicht auf das Doppelte.",
-   "h": "Welche Teile von O hängen von h ab?",
-   "g": "begruenden"
   },
   {
    "l": "prisma_oberflaeche",
@@ -4309,6 +4431,83 @@
    },
    "w": "O = 2 · G + M: unten, oben und die Seitenflächen.",
    "h": "Denk an das Netz."
+  },
+  {
+   "l": "prisma_oberflaeche",
+   "t": "prisma_oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein würfelförmiges Geschenk mit 12 cm Kantenlänge wird ganz mit Papier beklebt, ohne Überlappung. Wie viel cm² Papier braucht man?"
+   },
+   "o": {
+    "wert": 864,
+    "einheit": "cm²"
+   },
+   "c": "6 * 12**2",
+   "w": "Gegeben: Würfel, a = 12 cm. Gesucht: Oberfläche. Ansatz: O = 6 · a². Rechnung: O = 6 · 144 = 864 cm². Antwort: Man braucht 864 cm² Papier.",
+   "h": "Wie viele gleiche Flächen hat ein Würfel?"
+  },
+  {
+   "l": "prisma_oberflaeche",
+   "t": "prisma_oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ist ein Quader, 60 cm lang, 30 cm breit und 35 cm hoch, und oben offen. Wie viel cm² Glas hat es?"
+   },
+   "o": {
+    "wert": 8100,
+    "einheit": "cm²"
+   },
+   "c": "60 * 30 + 2 * 60 * 35 + 2 * 30 * 35",
+   "w": "Gegeben: Quader 60 · 30 · 35 cm, ohne Deckel. Gesucht: Glasfläche. Ansatz: Boden + zwei lange + zwei kurze Seiten. Rechnung: 1 800 + 2 · 2 100 + 2 · 1 050 = 8 100 cm². Antwort: Das Aquarium hat 8 100 cm² Glas.",
+   "h": "Welche Fläche fehlt, weil es oben offen ist?"
+  },
+  {
+   "l": "prisma_oberflaeche",
+   "t": "prisma_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Schokoladenverpackung ist ein Dreiecksprisma. Ihre Grundfläche ist ein gleichseitiges Dreieck mit 6 cm Seitenlänge und 5,2 cm Höhe, die Verpackung ist 20 cm lang. Sie enthält 200 g und kostet 3,49 €. Wie viel cm² Karton braucht man ohne Klebelaschen? Runde auf ganze cm²."
+   },
+   "o": {
+    "wert": 391,
+    "einheit": "cm²",
+    "toleranz": 1
+   },
+   "c": "round(2 * 6 * 5.2 / 2 + 3 * 6 * 20)",
+   "w": "Gegeben: Dreieck g = 6 cm, h = 5,2 cm; drei Rechtecke 6 cm · 20 cm. Gewicht und Preis spielen keine Rolle. Gesucht: Oberfläche. Ansatz: O = 2 · G + M. Rechnung: G = 6 · 5,2 : 2 = 15,6 cm². 2G = 31,2 cm². M = 3 · 120 = 360 cm². O = 391,2 cm². Antwort: Man braucht etwa 391 cm² Karton.",
+   "h": "Welche Angaben brauchst du für die Flächen der Verpackung?"
+  },
+  {
+   "l": "prisma_oberflaeche",
+   "t": "prisma_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Geschenkkartons haben beide 1 000 cm³ Volumen: ein Würfel mit 10 cm Kante und ein Quader mit 20 cm × 10 cm × 5 cm. Für welchen braucht man weniger Geschenkpapier?"
+   },
+   "a": [
+    "Für den Quader, weil er flacher ist.",
+    "Für den Würfel: 600 cm² statt 700 cm².",
+    "Für beide gleich viel, weil das Volumen gleich ist.",
+    "Für den Würfel: 100 cm² statt 1 000 cm²."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: Würfel a = 10 cm; Quader 20 · 10 · 5 cm. Gesucht: Welcher braucht weniger Papier? Ansatz: Beide Oberflächen berechnen. Rechnung: Würfel: 6 · 100 = 600 cm². Quader: 2 · (200 + 100 + 50) = 700 cm². Antwort: Der Würfel braucht weniger Papier.",
+   "h": "Gleiches Volumen heißt nicht gleiche Oberfläche – rechne beide aus."
   },
   {
    "l": "prisma_oberflaeche",
@@ -5208,24 +5407,6 @@
    "l": "prisma_umstellen",
    "t": "prisma_umstellen",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Becken ist 25 m lang, vorn 1 m und hinten 3 m tief; seine Seitenwand ist ein Trapez. Es fasst 400 m³. Wie breit ist es?"
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "m"
-   },
-   "c": "400 / ((3 + 1) / 2 * 25)",
-   "w": "G = (3 + 1) : 2 · 25 = 50 m². Breite = V : G = 400 : 50 = 8 m.",
-   "h": "Die Trapezfläche ist die Grundfläche, die Breite die Körperhöhe.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "prisma_umstellen",
-   "t": "prisma_umstellen",
-   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -5247,24 +5428,6 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Trapezprisma (a = 12 cm, c = 6 cm, h = 4 cm, Länge 15 cm) soll in einen volumengleichen Quader mit der Grundfläche 12 cm · 5 cm umgeformt werden. Wie hoch wird der Quader?"
-   },
-   "o": {
-    "wert": 9,
-    "einheit": "cm"
-   },
-   "c": "(12 + 6) * 4 / 2 * 15 / (12 * 5)",
-   "w": "V = (12 + 6) · 4 : 2 · 15 = 540 cm³. Höhe: 540 : 60 = 9 cm.",
-   "h": "Volumen bleibt gleich.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "prisma_umstellen",
-   "t": "prisma_umstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Ein Betonbalken mit Trapezquerschnitt (oben 40 cm, unten 20 cm, 50 cm hoch) wiegt 1,125 t. 1 m³ Beton wiegt 2,5 t. Wie lang ist der Balken?"
    },
    "o": {
@@ -5275,6 +5438,42 @@
    "w": "V = 1,125 : 2,5 = 0,45 m³. G = (0,4 + 0,2) : 2 · 0,5 = 0,15 m². Länge = 0,45 : 0,15 = 3 m.",
    "h": "Erst das Volumen aus dem Gewicht, dann durch G.",
    "g": "pruefung"
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken ist 25 m lang, vorn 1 m und hinten 3 m tief; seine Seitenwand ist ein Trapez. Es fasst 400 m³. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m"
+   },
+   "c": "400 / ((3 + 1) / 2 * 25)",
+   "w": "G = (3 + 1) : 2 · 25 = 50 m². Breite = V : G = 400 : 50 = 8 m.",
+   "h": "Die Trapezfläche ist die Grundfläche, die Breite die Körperhöhe.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Trapezprisma (a = 12 cm, c = 6 cm, h = 4 cm, Länge 15 cm) soll in einen volumengleichen Quader mit der Grundfläche 12 cm · 5 cm umgeformt werden. Wie hoch wird der Quader?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "(12 + 6) * 4 / 2 * 15 / (12 * 5)",
+   "w": "V = (12 + 6) · 4 : 2 · 15 = 540 cm³. Höhe: 540 : 60 = 9 cm.",
+   "h": "Volumen bleibt gleich.",
+   "g": "verknuepfen"
   },
   {
    "l": "prisma_umstellen",
@@ -5413,6 +5612,63 @@
    },
    "w": "Probe: 9 · 0,125 = 1,125 ≠ 72. Mit 8 cm: 9 · 8 = 72 ✓.",
    "h": "Mach die Probe mit V = G · h."
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Milchkarton ist ein Quader mit 50 cm² Grundfläche und fasst 1 l, also 1 000 cm³. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "1000 / 50",
+   "w": "Gegeben: G = 50 cm², V = 1 000 cm³. Gesucht: Höhe. Ansatz: V = G · h ⇒ h = V : G. Rechnung: h = 1 000 : 50 = 20 cm. Antwort: Der Karton ist 20 cm hoch.",
+   "h": "Welche Rechnung macht „mal G“ rückgängig?"
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Sandkasten ist 1,5 m lang und 1,2 m breit. Der Spielsand soll 20 cm hoch liegen. Ein Sack enthält 25 l Sand. Wie viele Säcke muss man kaufen?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "-(-(15 * 12 * 2) // 25)",
+   "w": "Gegeben: 1,5 m · 1,2 m, Höhe 0,2 m, Sack 25 l. Gesucht: Anzahl der Säcke. Ansatz: Volumen in dm³ (= l), durch 25, aufrunden. Rechnung: V = 15 dm · 12 dm · 2 dm = 360 l. 360 : 25 = 14,4. Antwort: Man muss 15 Säcke kaufen.",
+   "h": "Rechne alle Maße in dm um: 1 dm³ = 1 l."
+  },
+  {
+   "l": "prisma_umstellen",
+   "t": "prisma_umstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "In ein 45 cm hohes Aquarium mit 80 cm × 35 cm Grundfläche werden 112 l Wasser gefüllt. Die Fische brauchen mindestens 40 cm Wasserhöhe. Reicht das Wasser?"
+   },
+   "a": [
+    "Ja, es steht 45 cm hoch.",
+    "Nein, 112 l sind weniger als 40 cm.",
+    "Ja, das Wasser steht genau 40 cm hoch.",
+    "Nein, es steht nur 35 cm hoch."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: G = 80 cm · 35 cm, V = 112 l, Bedingung h ≥ 40 cm. Gesucht: Wasserhöhe und Entscheidung. Ansatz: h = V : G, mit V in cm³. Rechnung: G = 2 800 cm². h = 112 000 : 2 800 = 40 cm. Antwort: Es reicht genau: Das Wasser steht 40 cm hoch.",
+   "h": "Rechne die Wasserhöhe aus und vergleiche mit 40 cm."
   },
   {
    "l": "prisma_umstellen",
@@ -6012,6 +6268,25 @@
   {
    "l": "zylinder_volumen",
    "t": "zylinder_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein zylinderförmiger Wasserkocher hat innen 8 cm Radius. Er hat 1 800 Watt, das Wasser steht 9 cm hoch. Wie viele Liter Wasser sind darin? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.81,
+    "einheit": "l",
+    "toleranz": 0.01
+   },
+   "c": "round(3.141592653589793 * 8**2 * 9 / 1000, 2)",
+   "w": "Gegeben: r = 8 cm, Wasserhöhe 9 cm. Die Leistung spielt keine Rolle. Gesucht: Wassermenge in Litern. Ansatz: V = π · r² · h, 1 l = 1 000 cm³. Rechnung: V = π · 64 · 9 ≈ 1 809,6 cm³ ≈ 1,81 l. Antwort: Im Kocher sind etwa 1,81 l Wasser.",
+   "h": "Welche Höhe zählt – die des Kochers oder die des Wassers?"
+  },
+  {
+   "l": "zylinder_volumen",
+   "t": "zylinder_volumen",
    "p": "bonus",
    "s": 3,
    "g": "knobel",
@@ -6599,6 +6874,44 @@
    "l": "zylinder_oberflaeche",
    "t": "zylinder_oberflaeche",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Folientunnel für Gemüse ist ein halber Zylinder (r = 1 m, Länge 10 m), vorn und hinten offen, der Boden ist die Erde. Wie viel m² Folie braucht man? Runde auf eine Stelle nach dem Komma."
+   },
+   "o": {
+    "wert": 31.4,
+    "einheit": "m²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * 1 * 10, 1)",
+   "w": "Nur der halbe Mantel: (2 · π · 1 · 10) : 2 = 10π ≈ 31,4 m².",
+   "h": "Welcher Teil des Zylinders ist aus Folie?",
+   "g": "transfer"
+  },
+  {
+   "l": "zylinder_oberflaeche",
+   "t": "zylinder_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Dose (d = 10 cm, h = 12 cm) wird aus Blech gefertigt; für Falze kommen 10 % dazu. Wie viel cm² Blech braucht man? Runde auf ganze cm²."
+   },
+   "o": {
+    "wert": 587,
+    "einheit": "cm²",
+    "toleranz": 1
+   },
+   "c": "round(3.14159265 * (2 * 25 + 10 * 12) * 11/10)",
+   "w": "O = 2 · π · 25 + π · 10 · 12 = 170π ≈ 534,1 cm². Mit 10 % Zuschlag: 534,1 · 1,1 ≈ 587 cm².",
+   "h": "Erst die Oberfläche, dann den Zuschlag."
+  },
+  {
+   "l": "zylinder_oberflaeche",
+   "t": "zylinder_oberflaeche",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -6654,25 +6967,6 @@
    "w": "M = 2 · π · r · h = 2 · π · 3 · 8 = 48π. Mit d statt r käme 96π heraus.",
    "h": "Umfang mal Höhe.",
    "g": "darstellung"
-  },
-  {
-   "l": "zylinder_oberflaeche",
-   "t": "zylinder_oberflaeche",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Folientunnel für Gemüse ist ein halber Zylinder (r = 1 m, Länge 10 m), vorn und hinten offen, der Boden ist die Erde. Wie viel m² Folie braucht man? Runde auf eine Stelle nach dem Komma."
-   },
-   "o": {
-    "wert": 31.4,
-    "einheit": "m²",
-    "toleranz": 0.1
-   },
-   "c": "round(3.141592653589793 * 1 * 10, 1)",
-   "w": "Nur der halbe Mantel: (2 · π · 1 · 10) : 2 = 10π ≈ 31,4 m².",
-   "h": "Welcher Teil des Zylinders ist aus Folie?",
-   "g": "transfer"
   },
   {
    "l": "zylinder_oberflaeche",
@@ -6802,20 +7096,56 @@
    "l": "zylinder_oberflaeche",
    "t": "zylinder_oberflaeche",
    "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Dose hat 3 cm Radius und ist 10 cm hoch. Ein Etikett bedeckt genau den Mantel. Wie viel cm² Papier braucht man? Runde auf ganze cm²."
+   },
+   "o": {
+    "wert": 188,
+    "einheit": "cm²",
+    "toleranz": 1
+   },
+   "c": "round(2 * 3.141592653589793 * 3 * 10)",
+   "w": "Gegeben: r = 3 cm, h = 10 cm. Gesucht: Mantelfläche. Ansatz: M = 2 · π · r · h. Rechnung: M = 2 · π · 3 · 10 ≈ 188,5 cm². Antwort: Das Etikett hat etwa 188 cm².",
+   "h": "Das Etikett ist der Mantel – Umfang mal Höhe."
+  },
+  {
+   "l": "zylinder_oberflaeche",
+   "t": "zylinder_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Küchenrolle hat innen eine Papprolle, 25 cm lang mit 4 cm Durchmesser, an beiden Enden offen. Wie viel cm² Pappe hat die Rolle? Runde auf ganze cm²."
+   },
+   "o": {
+    "wert": 314,
+    "einheit": "cm²",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653589793 * 4 * 25)",
+   "w": "Gegeben: d = 4 cm, Länge 25 cm, offen. Gesucht: Pappfläche. Ansatz: Nur der Mantel, keine Kreise: M = π · d · h. Rechnung: M = π · 4 · 25 ≈ 314 cm². Antwort: Die Rolle hat etwa 314 cm² Pappe.",
+   "h": "Welche Teile eines Zylinders hat die Rolle gar nicht?"
+  },
+  {
+   "l": "zylinder_oberflaeche",
+   "t": "zylinder_oberflaeche",
+   "p": "uebung",
    "s": 3,
    "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Eine Dose (d = 10 cm, h = 12 cm) wird aus Blech gefertigt; für Falze kommen 10 % dazu. Wie viel cm² Blech braucht man? Runde auf ganze cm²."
+    "text": "Für 500 Konservendosen (r = 4 cm, h = 11 cm, mit Boden und Deckel) wird Blech bestellt. Blech wird nur in ganzen m² verkauft. Wie viele m² muss man bestellen?"
    },
    "o": {
-    "wert": 587,
-    "einheit": "cm²",
-    "toleranz": 1
+    "wert": 19
    },
-   "c": "round(3.14159265 * (2 * 25 + 10 * 12) * 11/10)",
-   "w": "O = 2 · π · 25 + π · 10 · 12 = 170π ≈ 534,1 cm². Mit 10 % Zuschlag: 534,1 · 1,1 ≈ 587 cm².",
-   "h": "Erst die Oberfläche, dann den Zuschlag."
+   "c": "-(-(500 * (2 * 3.141592653589793 * 4**2 + 2 * 3.141592653589793 * 4 * 11)) // 10000)",
+   "w": "Gegeben: r = 4 cm, h = 11 cm, 500 Stück, ganze m². Gesucht: zu bestellende m². Ansatz: O = 2πr² + 2πrh, · 500, in m² (1 m² = 10 000 cm²), aufrunden. Rechnung: O ≈ 100,5 + 276,5 = 377 cm². 500 · 377 ≈ 188 500 cm² ≈ 18,85 m². Antwort: Man muss 19 m² bestellen.",
+   "h": "Erst eine Dose, dann alle; und wie viele ganze m² reichen?"
   },
   {
    "l": "zylinder_oberflaeche",
@@ -8129,28 +8459,6 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Formel gilt für das Volumen jedes geraden Prismas?"
-   },
-   "a": [
-    "V = G · h : 2",
-    "V = u · h",
-    "V = G · h",
-    "V = a · b · c"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Grundfläche mal Körperhöhe – unabhängig von der Form von G. a · b · c gilt nur für Quader, u · h ist der Mantel.",
-   "h": "Schichten aus Grundflächen.",
-   "g": "erkennen"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
     "text": "Die Grundfläche eines Prismas wird dreimal so groß, die Höhe bleibt gleich. Wie ändert sich das Volumen?"
    },
    "a": [
@@ -8165,6 +8473,85 @@
    "w": "V = G · h: G wird 3-mal so groß, also auch V.",
    "h": "Was steht in der Formel V = G · h?",
    "g": "direkt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Radius eines Zylinders wird um 20 % größer, die Höhe bleibt. Um wie viel Prozent wächst das Volumen?"
+   },
+   "o": {
+    "wert": 44,
+    "einheit": "%"
+   },
+   "c": "((1 + 20 / 100) ** 2 - 1) * 100",
+   "w": "Neuer Radius: 1,2 · r. Volumen-Faktor: 1,2² = 1,44. Das Volumen wächst um 44 %.",
+   "h": "r steht im Quadrat.",
+   "g": "pruefung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Kerze (Zylinder) wird halb so hoch, aber mit doppeltem Durchmesser gegossen. Wie viel Wachs braucht man im Vergleich?"
+   },
+   "a": [
+    "doppelt so viel",
+    "viermal so viel",
+    "gleich viel",
+    "halb so viel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Doppelter Durchmesser: vierfache Grundfläche. Halbe Höhe: halbiert. 4 · 1/2 = 2.",
+   "h": "Wie ändert sich die Grundfläche?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Das Volumen eines Prismas soll gleich bleiben, die Höhe wird verfünffacht. Durch welche Zahl muss man die Grundfläche teilen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "V = G · h: wird h fünfmal so groß, muss G ein Fünftel sein.",
+   "h": "Was muss mit G passieren, damit G · h gleich bleibt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Formel gilt für das Volumen jedes geraden Prismas?"
+   },
+   "a": [
+    "V = G · h : 2",
+    "V = u · h",
+    "V = G · h",
+    "V = a · b · c"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grundfläche mal Körperhöhe – unabhängig von der Form von G. a · b · c gilt nur für Quader, u · h ist der Mantel.",
+   "h": "Schichten aus Grundflächen.",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
@@ -8252,24 +8639,6 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Radius eines Zylinders wird um 20 % größer, die Höhe bleibt. Um wie viel Prozent wächst das Volumen?"
-   },
-   "o": {
-    "wert": 44,
-    "einheit": "%"
-   },
-   "c": "((1 + 20 / 100) ** 2 - 1) * 100",
-   "w": "Neuer Radius: 1,2 · r. Volumen-Faktor: 1,2² = 1,44. Das Volumen wächst um 44 %.",
-   "h": "r steht im Quadrat.",
-   "g": "pruefung"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Alle Längen eines Prismas werden verdreifacht: die Seiten der Grundfläche, ihre Höhe und die Körperhöhe. Wie ändert sich das Volumen?"
@@ -8291,23 +8660,35 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Paket ist ein Quader. Ein zweites Paket ist genauso lang und breit, aber doppelt so hoch. Wie viel Mal so viel passt in das zweite Paket?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Gegeben: Länge und Breite gleich, Höhe · 2. Gesucht: Faktor des Volumens. Ansatz: V = G · h, G bleibt gleich. Rechnung: Faktor 2. Antwort: Es passt doppelt so viel hinein.",
+   "h": "Was ändert sich an V = G · h?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
    "s": 2,
    "g": "einkleidung",
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Eine Kerze (Zylinder) wird halb so hoch, aber mit doppeltem Durchmesser gegossen. Wie viel Wachs braucht man im Vergleich?"
+    "text": "Ein Hersteller macht seine würfelförmigen Zuckerstücke größer: Jede Kante wird doppelt so lang. Wie viel Mal so viel Zucker steckt in einem neuen Stück?"
    },
-   "a": [
-    "doppelt so viel",
-    "viermal so viel",
-    "gleich viel",
-    "halb so viel"
-   ],
    "o": {
-    "index": 0
+    "wert": 8
    },
-   "w": "Doppelter Durchmesser: vierfache Grundfläche. Halbe Höhe: halbiert. 4 · 1/2 = 2.",
-   "h": "Wie ändert sich die Grundfläche?"
+   "c": "2**3",
+   "w": "Gegeben: Kante · 2. Gesucht: Faktor des Volumens. Ansatz: Alle drei Längen werden verdoppelt. Rechnung: 2 · 2 · 2 = 8. Antwort: Ein neues Stück enthält 8-mal so viel Zucker.",
+   "h": "Wie viele Längen eines Würfels werden verdoppelt?"
   },
   {
    "l": "verstehen",
@@ -8317,14 +8698,49 @@
    "g": "umkehr",
    "y": "zahl",
    "f": {
-    "text": "Das Volumen eines Prismas soll gleich bleiben, die Höhe wird verfünffacht. Durch welche Zahl muss man die Grundfläche teilen?"
+    "text": "Ein zylinderförmiger Becher soll bei gleicher Höhe 4-mal so viel fassen. Mit welcher Zahl muss man seinen Radius malnehmen?"
    },
    "o": {
-    "wert": 5
+    "wert": 2
    },
-   "c": "5",
-   "w": "V = G · h: wird h fünfmal so groß, muss G ein Fünftel sein.",
-   "h": "Was muss mit G passieren, damit G · h gleich bleibt?"
+   "c": "2",
+   "w": "Gegeben: h gleich, V · 4. Gesucht: Faktor des Radius. Ansatz: V = π · r² · h: Der Radius zählt im Quadrat, k² = 4. Rechnung: k = 2. Antwort: Der Radius muss doppelt so groß werden.",
+   "h": "Welche Zahl ergibt im Quadrat 4?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Litfaßsäule wird im Maßstab 1 : 20 als Modell gebaut. Für den Mantel des Modells braucht man 6 ml Farbe. Farbe gibt es in 1-l-Dosen. Wie viele Dosen braucht man für die echte Säule?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "-(-(6 * 20**2) // 1000)",
+   "w": "Gegeben: Maßstab 1 : 20, Modell 6 ml, Dosen zu 1 l. Gesucht: Anzahl der Dosen. Ansatz: Flächen wachsen mit 20² = 400; dann in l umrechnen und aufrunden. Rechnung: 6 ml · 400 = 2 400 ml = 2,4 l. Antwort: Man braucht 3 Dosen.",
+   "h": "Farbe hängt von der Fläche ab – mit welchem Faktor wächst eine Fläche?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein würfelförmiger Eiswürfel hat 27 cm³. Eine neue Form soll Würfel mit 8-mal so viel Volumen machen. Wie lang ist eine Kante des neuen Eiswürfels?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "3 * 2",
+   "w": "Gegeben: V alt = 27 cm³, V neu = 8 · V alt. Gesucht: Kante des neuen Würfels. Ansatz: Alte Kante aus 27 = a³; Volumenfaktor 8 = 2³, also Kante · 2. Rechnung: a alt = 3 cm. a neu = 3 · 2 = 6 cm. Antwort: Die neue Kante ist 6 cm lang.",
+   "h": "Welche Kante hat ein Würfel mit 27 cm³?"
   },
   {
    "l": "verstehen",
@@ -8436,6 +8852,21 @@
   {
    "l": "verstehen",
    "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Karton wird in Länge, Breite und Höhe dreimal so groß gebaut. Wie viel Mal so viel Pappe braucht man?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3**2",
+   "w": "Gegeben: Alle Maße · 3. Gesucht: Faktor der Oberfläche. Ansatz: Flächen wachsen mit dem Quadrat. Rechnung: 3² = 9. Antwort: Man braucht 9-mal so viel Pappe."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
    "p": "sicherung",
    "s": 2,
    "y": "auswahl",
@@ -8536,6 +8967,36 @@
    },
    "c": "200 * 0.25",
    "w": "r steht im Quadrat: Faktor 0,5 · 0,5 = 0,25. Neues Volumen: 50 cm³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium wird in Länge, Breite und Höhe verdoppelt. Wie viel Mal so viel Wasser passt hinein?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2**3",
+   "w": "Gegeben: Alle drei Maße · 2. Gesucht: Faktor des Volumens. Ansatz: Jede Länge zählt einmal mit. Rechnung: 2 · 2 · 2 = 8. Antwort: Es passt 8-mal so viel Wasser hinein."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rohr wird bei gleicher Länge mit doppeltem Innenradius gebaut. Wie viel Mal so viel Wasser passt hinein?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2**2",
+   "w": "Gegeben: Länge gleich, r · 2. Gesucht: Faktor des Volumens. Ansatz: V = π · r² · h: r zählt im Quadrat. Rechnung: 2² = 4. Antwort: Es passt 4-mal so viel Wasser hinein."
   }
  ],
  "offen": [

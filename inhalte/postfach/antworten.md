@@ -167,3 +167,19 @@ Stand lernen-app 2d0d164, App 0.74.5, nicht live. tests/lernen.test.cjs 34 von 3
 - Nachprüfung 0.74.5 (NACHPRUEFUNG-2026-11-17.md): A1–A12, R1–R3, N5–N7, K1/K2, D2, E-1 bis E-3 nachgestellt und umgesetzt. Neue Befunde M1–M9 → „Zusatz 3 zum Bau-Auftrag“ (Schritt E).
   M4 mit echten Daten geprüft: Im Plan des Kindes der Klasse 5 steht kein Klasse-8-Ort (Cusco stammt aus den Testdaten); Adelaide (Klasse 6) steht bewusst im Klasse-6-Teil des Plans.
 - Damit sind alle Pakete des Gesamtauftrags gebaut: Phase 1 (A, R1, K1, E-1), Phase 2 (K2, E-2, E-3, R2), Phase 3 (K3, K4, E-4, R3). Offen: Schritt E, Nachprüfung von D, R4, Inhalte.
+
+## 17.11. – Nachprüfung Phase 2 (A2, K2, E-2, E-3) und Winkelsätze – Meldung des Prüf-Chats, von Sebastian weitergegeben
+Der Prüf-Chat (Zweig pruefung-phase2) konnte nicht pushen; seine Meldung hier im Wortlaut der Ergebnisse:
+- A2 (N1/N2/N7): erfüllt. „Kurz gesagt“ ist noch an einer Stelle zu lang: bei funktionen.reihen hält die App „: 2.“ für eine Aufzählung.
+- K2: erfüllt, ein Befund: Die Karte wählt die Orte nach block.ziel_klasse und beachtet die Schulart nicht. Der Reiter „Stand“ rechnet dagegen mit jahrgang[schulart].
+  Bei RS- und IB-Kindern zeigen Karte und Stand deshalb unterschiedliche Orte.
+- E-2: erfüllt, ein Befund: Wählt man den letzten offenen Flug eines Ortes ab, zählt der Stempel sofort. Der Ort wird aber nie „fertig“, weil das nur beim Abschluss eines Tests gesetzt wird.
+  Er bleibt also „dran“, und die Ort-Sterne fehlen.
+- E-3: erfüllt. Noch keine Rückmeldung in der Datenbank, deshalb nicht im Echtbetrieb geprüft.
+- Winkelsätze: alle Punkte beider Befundlisten behoben, Prüfskript OK, 209 beschriftete Winkel höchstens 3° Abweichung. Neu: Sicherungsaufgabe zum Sechseck („Auf welchen Satz stützt sich der Beweis …“) –
+  die Auswahl „Winkelsumme im Viereck ist 360°“ ist ebenfalls richtig. Nach dieser Korrektur freigabereif.
+- Geprüft mit tests/lernen.test.cjs (34 von 34), eigenen Skripten über 593 Merksätze, alle Schrittbilder und die Winkelsätze-Datei; Datenbank nur gelesen; API mit Kind-Code nicht prüfbar.
+Folgen (Haupt-Chat):
+- Winkelsätze: Generator korrigiert (Stand eb6a852): Bei „stützt sich auf“ erscheinen Sätze über Vielecke mit weniger Ecken nicht mehr als falsche Auswahl; beim Stufenwinkel-Satz nicht mehr
+  „Scheitelwinkel“ (derselbe Fehlertyp). Datei neu erzeugt, inhalt_pruefen OK, Entwurf in der Datenbank ersetzt (11 Aufgaben der Etappe beweisen neu gezogen). Wartet auf Sebastians Freigabe.
+- Die drei App-Befunde stehen als „Zusatz 4 zum Bau-Auftrag“ (P1–P3) in inhalte/AUFTRAEGE.md.

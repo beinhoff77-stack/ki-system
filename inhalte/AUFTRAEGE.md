@@ -1193,3 +1193,20 @@ unverändert eingespielt. Ein Test wurde stabilisiert (K4 wartete nicht auf die 
    wenn Flüge mit Klasse da sind.
 Tests grün, Version erhöhen, Commit + Push, Meldung „Schritt E fertig“ im Postfach. Braucht ein Punkt die Datenbank: Migration als Datei, nicht ausführen.
 ```
+
+# Zusatz 4 zum Bau-Auftrag (17.11.): drei Befunde der Nachprüfung Phase 2 – gehören zu Schritt E
+
+Quelle: Meldung des Prüf-Chats (pruefung-phase2), wiedergegeben in inhalte/postfach/antworten.md, Abschnitt „Nachprüfung Phase 2“.
+
+```text
+Zusatz 4 zum Bau-Auftrag (Zweig bau-phase2), bitte zusammen mit Schritt E (M1–M9) erledigen. Die Nachprüfung von A2, K2, E-2 und E-3 meldet „erfüllt“ mit drei Befunden
+(Wortlaut in inhalte/postfach/antworten.md, Abschnitt „Nachprüfung Phase 2 (A2, K2, E-2, E-3) und Winkelsätze“):
+P1 „Kurz gesagt“: Bei funktionen.reihen hält die App „: 2.“ für eine Aufzählung und zeigt deshalb zwei Sätze. Die Aufzählungs-Ausnahme enger fassen (nur „1. …, 2. …“ am Satzanfang bzw.
+   nach Komma/Strichpunkt, nicht nach Doppelpunkt mit einer einzelnen Zahl); der Test über alle Merksätze muss das abdecken.
+P2 Mein Weg · Karte wählt die Orte nach block.ziel_klasse und beachtet die Schulart nicht; der Reiter „Stand“ rechnet mit jahrgang[schulart]. Bei RS- und IB-Kindern zeigen Karte und Stand
+   deshalb unterschiedliche Orte. Die Karte nach derselben Regel wie „Stand“ auswählen (ein Ort gehört zur Klasse, wenn ein geplanter Flug dort jahrgang[schulart] = Stufe des Kindes hat).
+P3 Flugplan: Wählt man den letzten offenen Flug eines Ortes ab, zählt der Stempel sofort (schule.ort_stand), der Ort wird aber nie „fertig“, weil das nur beim Abschluss eines Tests gesetzt wird –
+   er bleibt „dran“, und die Sterne für den Ort fehlen. Lösung als Migration-Datei vorschlagen (nicht ausführen): api.schule_plan_setzen setzt nach dem Speichern jeden Ort des Plans auf „fertig“,
+   dessen ort_stand „abgeschlossen“ meldet (der Trigger route_sterne bucht die Sterne dann einmal); umgekehrt wird ein Ort, der nur wegen abgewählter Flüge „fertig“ war, wieder „offen“,
+   wenn ein nicht geschaffter Flug zurück in den Plan kommt.
+```

@@ -4142,3 +4142,15 @@ details.lern-vorlage summary { cursor: pointer; min-height: 44px; display: flex;
 .lr-menue-zeile { display: flex; justify-content: flex-end; margin: -6px 0 -8px; }
 .lr-menue-zeile.unten { justify-content: center; margin: 8px 0 0; }
 .lr-mit-menue .lr-inhalt { padding-bottom: 24px; }
+
+/* Bau-Auftrag F: Stufenzeichen, Knobel-Bordkarten */
+.lr-stufe { letter-spacing: 2px; font-size: 12px; color: inherit; opacity: 1; white-space: nowrap; }
+.lr-stufe-bonus { letter-spacing: .06em; font-weight: 800; color: #B07A00; }
+.lr-nacht .lr-stufe-bonus { color: #FFD23F; }
+.lr-knobel { border-style: dashed; }
+.lr-knobel-tag { border: 2px dashed var(--lr-linie); }
+.lr-knobel-angebot { margin-top: 4px; }
+.lr-knobel-sterne { margin: 6px 0 0; font-weight: 700; }
+.lr-knobel-falsch { border-left: 4px solid var(--lr-linie); padding: 8px 12px; border-radius: 10px; background: var(--lr-flaeche); }
+.lp-typ { display: block; font-size: 11px; }
+.lr-knobel > p.lr-leise { padding: 4px 16px 0; margin: 0; }

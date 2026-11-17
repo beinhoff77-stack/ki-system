@@ -746,6 +746,205 @@ DS.loesung('lage', 'Kreis 1 hat den Mittelpunkt (0 | 0) und den Radius 2, Kreis 
 # ---- DURCHSICHT ENDE ----
 
 
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl7.py) ----
+# Vorbilder (Typ und Niveau, eigene Zahlen): Jahrgangsstufentest/BMT8 (ISB) – rechten Winkel mit dem Thaleskreis nachweisen, Kreis berührt Koordinatenachse,
+# Winkel am Inkreismittelpunkt; Knobel nach der Art von Känguru 7/8 und Mathematik-Olympiade (rutschende Leiter, Tangentenviereck, Euler-Polynom).
+from _stufen_kl7 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('geometrie.kreis', 20_7_9)
+_HP = 'Trage die x- und die y-Koordinate ein.'
+# thales
+ST.leiter('thales', 'Rechten Winkel bei C und fehlenden Winkel im Thalesdreieck angeben; Radius des Thaleskreises.',
+          'Winkel rückwärts, Radius und [MC], Halbkreisfenster, Punkt auf dem Thaleskreis prüfen.',
+          'Mittelpunktswinkel, Vielfache und Differenzen rückwärts, Zeichendreieck an Nägeln, größte Höhe, Flächen begründen, Rechteck im Kreis, Fehler „rechter Winkel bei A“.')
+ST.regel('thales', 1, '', 'direkt')
+ST.regel('thales', 2, 'Es ist β', 'umkehr')
+ST.regel('thales', 2, 'Halbkreisfenster', 'einkleidung')
+ST.regel('thales', 2, '', 'mehrschritt')
+ST.regel('thales', 3, '∠BMC', 'verknuepfen')
+ST.regel('thales', 3, 'β ist', 'rueckwaerts')
+ST.regel('thales', 3, 'Zeichendreiecks', 'transfer')
+ST.regel('thales', 3, 'Rechteck', 'transfer')
+ST.regel('thales', 3, '', 'begruenden')
+ST.neu('thales', 1, 'erkennen', ST.A('[AB] ist ein Durchmesser, C liegt auf dem Kreis (C ≠ A, B). Was gilt sicher?', 'Der Winkel bei C ist ein rechter Winkel.',
+                                     ['Der Winkel bei A ist ein rechter Winkel.', 'Das Dreieck ABC ist gleichseitig.', 'Die Winkel bei A und B sind gleich groß.'],
+                                     'Satz des Thales: Liegt C auf dem Kreis über dem Durchmesser [AB], ist der Winkel bei C ein rechter Winkel. Über A und B sagt der Satz nichts.', 'Welcher Ecke liegt der Durchmesser gegenüber?'))
+ST.neu('thales', 3, 'fehler', ST.A('Jemand sagt: „C liegt auf dem Kreis mit dem Durchmesser [AB], also ist der Winkel bei A ein rechter Winkel.“ Was stimmt?', 'Falsch: Der rechte Winkel liegt bei C, gegenüber dem Durchmesser.',
+                                   ['Richtig.', 'Falsch: Der rechte Winkel liegt bei B.', 'Falsch: Es gibt keinen rechten Winkel.'],
+                                   'Der Durchmesser ist die längste Seite und liegt dem rechten Winkel gegenüber – also ist der Winkel bei C der rechte. Bei A und B sind die Winkel spitz.',
+                                   'Welche Seite liegt dem rechten Winkel gegenüber?'))
+ST.knobel('thales', ST.Z('Das Dreieck ABC hat bei C einen rechten Winkel, M ist die Mitte von [AB], und α = 25°. Wie groß ist der Winkel ∠AMC?', 130, '180 - 2 * 25',
+                         'C liegt auf dem Thaleskreis über [AB] mit dem Mittelpunkt M, also MA = MC. Das Dreieck AMC ist gleichschenklig: ∢ACM = ∢MAC = 25°. '
+                         'Winkelsumme im Dreieck AMC: ∢AMC = 180° − 25° − 25° = 130°.',
+                         'Welche Strecken sind gleich lang, wenn C auf dem Thaleskreis liegt?', einheit='°'))
+ST.knobel('thales', ST.Z('Eine 4 m lange Leiter rutscht an einer senkrechten Wand nach unten, ihr Fuß gleitet über den waagrechten Boden. Welchen Abstand hat die Mitte der Leiter stets von der Ecke zwischen Wand und Boden?',
+                         2, '4 / 2',
+                         'Wand, Boden und Leiter bilden ein rechtwinkliges Dreieck mit dem rechten Winkel in der Ecke E. Nach der Umkehrung des Thalessatzes liegt E auf dem Kreis über der Leiter als Durchmesser. '
+                         'Sein Mittelpunkt ist die Leitermitte, sein Radius die halbe Leiter. Also ist die Mitte immer 2 m von der Ecke entfernt – sie bewegt sich auf einem Viertelkreis.',
+                         'Welcher Kreis geht durch die Ecke, wenn die Leiter ein Durchmesser ist?', einheit='m'))
+# umkehrung
+ST.leiter('umkehrung', 'Mittelpunkt und Radius des Kreises angeben, auf dem C bei rechtem Winkel liegt; Umkehrung erkennen.',
+          'Radius in cm, Winkelsumme prüfen, Umkreis rechtwinkliger Dreiecke, möglichen Punkt C prüfen, Beet abstecken.',
+          'Nicht rechtwinklige Fälle begründen, Nachweis mit M, [MC] aus [AB], C innerhalb des Kreises, Winkel mit Variable, Fehler stumpfer Winkel, Tischlerecke, Prüfungsaufgabe.')
+ST.regel('umkehrung', 1, '', 'direkt')
+ST.regel('umkehrung', 2, 'möglicher Punkt', 'umkehr')
+ST.regel('umkehrung', 2, '', 'mehrschritt')
+ST.regel('umkehrung', 3, 'Liegt C', 'begruenden')
+ST.regel('umkehrung', 3, 'INNERHALB', 'begruenden')
+ST.regel('umkehrung', 3, 'x, β', 'rueckwaerts')
+ST.regel('umkehrung', 3, '', 'verknuepfen')
+ST.neu('umkehrung', 1, 'erkennen', ST.A('Was sagt die Umkehrung des Thalessatzes?', 'Hat das Dreieck ABC bei C einen rechten Winkel, liegt C auf dem Kreis mit dem Durchmesser [AB].',
+                                        ['Liegt C auf dem Kreis über [AB], ist der Winkel bei C ein rechter.', 'Jedes Dreieck hat einen Umkreis.', 'Hat ein Dreieck einen rechten Winkel, ist es gleichschenklig.'],
+                                        'Der Thalessatz schließt von „C auf dem Kreis“ auf „rechter Winkel“. Die Umkehrung schließt vom rechten Winkel auf „C liegt auf dem Kreis“.', 'Was ist gegeben, was folgt?'))
+ST.neu('umkehrung', 2, 'einkleidung', ST.Z('Ein Gärtner steckt ein rechtwinkliges Beet ab. Die Seite gegenüber dem rechten Winkel soll 8 m lang sein. Wie weit ist die Ecke mit dem rechten Winkel von der Mitte dieser Seite entfernt?',
+                                           4, '8 / 2', 'Die Ecke liegt auf dem Thaleskreis über der 8-m-Seite. Sein Radius ist 8 m : 2 = 4 m.', 'Auf welchem Kreis liegt die Ecke mit dem rechten Winkel?', einheit='m'))
+ST.neu('umkehrung', 3, 'fehler', ST.A('Jemand sagt: „Im Dreieck ABC ist γ = 100°, also liegt C außerhalb des Thaleskreises über [AB].“ Was stimmt?', 'Falsch: Bei stumpfem γ liegt C innerhalb des Thaleskreises.',
+                                      ['Richtig.', 'Falsch: C liegt genau auf dem Thaleskreis.', 'Falsch: C liegt auf [AB].'],
+                                      'Auf dem Kreis ist γ = 90°. Rückt C näher an [AB] heran (in den Kreis hinein), wird der Winkel größer, also stumpf. Außerhalb des Kreises ist γ spitz.',
+                                      'Wie verändert sich der Winkel, wenn C näher an [AB] rückt?'))
+ST.neu('umkehrung', 3, 'transfer', ST.Z('Ein Tischler prüft eine Ecke C: Er markiert auf den beiden Kanten Punkte A und B mit [AB] = 50 cm und misst den Abstand von C zur Mitte M von [AB]. Wie groß muss er sein, damit die Ecke rechtwinklig ist?',
+                                        25, '50 / 2', 'Bei rechtem Winkel liegt C auf dem Thaleskreis über [AB]: MC = MA = 25 cm. Ist MC kleiner, ist die Ecke stumpf, ist er größer, ist sie spitz.',
+                                        'Welchen Radius hat der Thaleskreis über [AB]?', einheit='cm'))
+ST.neu('umkehrung', 3, 'pruefung', ST.A('Das Dreieck hat die Ecken A(1 | 1), B(7 | 1) und C(4 | 4). Hat es bei C einen rechten Winkel?', 'Ja: M(4 | 1) ist die Mitte von [AB] und MC = 3 = MA, also liegt C auf dem Thaleskreis.',
+                                        ['Nein: C liegt nicht über A.', 'Ja: Alle Seiten sind gleich lang.', 'Nein: MC ist 4.'],
+                                        'Mitte von [AB]: (4 | 1), Radius 3. C(4 | 4) liegt 3 Einheiten senkrecht über M, also auf dem Thaleskreis. Nach dem Thalessatz ist der Winkel bei C ein rechter.',
+                                        'Bestimme die Mitte von [AB] und vergleiche MC mit MA.'))
+ST.knobel('umkehrung', ST.Z('Im Dreieck ABC ist M die Mitte von [AB], und es gilt MC = MA. Wie groß ist γ?', 90, '180 / 2',
+                            'MA = MB = MC. Die Dreiecke AMC und BMC sind gleichschenklig: ∢ACM = α und ∢BCM = β. Also γ = α + β. '
+                            'Winkelsumme im Dreieck ABC: α + β + γ = 2γ = 180°, also γ = 90°. (Das ist genau der Beweis der Umkehrung.)',
+                            'Suche gleichschenklige Teildreiecke und nutze die Winkelsumme.', einheit='°'))
+ST.knobel('umkehrung', ST.Z('Die Punkte A und B sind 10 cm voneinander entfernt. Wie viele Punkte C gibt es, sodass das Dreieck ABC bei C rechtwinklig ist und C von der Geraden AB genau 5 cm Abstand hat?', 2, '2',
+                            'C muss auf dem Thaleskreis über [AB] liegen (Radius 5 cm) und auf einer der beiden Parallelen zu AB im Abstand 5 cm. '
+                            'Diese Parallelen berühren den Kreis genau in seinem höchsten und tiefsten Punkt – je ein Punkt. Also 2 Punkte (über der Mitte von [AB] und darunter). Bei 6 cm gäbe es keinen.',
+                            'Auf welchen zwei Ortslinien liegt C?'))
+# beweis
+ST.leiter('beweis', 'Aussagen über Vermutung, Beispiel und Gegenbeispiel erkennen; einen Beweisschritt ausrechnen.',
+          'Begründungen zu markierten Beweisschritten, falsche Aussage finden, gleichschenkliges Dreieck aus Radien, Beweis mit Variablen.',
+          'Beweise ordnen, Begründungen beurteilen, Mittelpunktswinkel, Gegenbeispiel zu Sehnenvierecken, Herkunft einer Beweiszeile.')
+ST.regel('beweis', 1, '', 'erkennen')
+ST.regel('beweis', 2, 'ist falsch', 'umkehr')
+ST.regel('beweis', 2, 'Vermutung:', 'darstellung')
+ST.regel('beweis', 2, '', 'mehrschritt')
+ST.regel('beweis', 3, 'Kärtchen', 'verknuepfen')
+ST.regel('beweis', 3, 'Was gilt immer', 'transfer')
+ST.regel('beweis', 3, 'Viereck', 'fehler')
+ST.regel('beweis', 3, '', 'begruenden')
+ST.neu('beweis', 1, 'direkt', ST.Z('Wie viele Gegenbeispiele braucht man mindestens, um eine Aussage „Für alle … gilt …“ zu widerlegen?', 1, '1',
+                                   'Ein einziges Gegenbeispiel genügt: Dann gilt die Aussage nicht für alle.', 'Was bedeutet „für alle“?'))
+ST.neu('beweis', 1, 'direkt', ST.Z('Im Beweis des Thalessatzes steht α + β + (α + β) = 180°. Wie groß ist dann α + β?', 90, '180 / 2', '2 · (α + β) = 180°, also α + β = 90° – das ist γ.', 'Fasse links zusammen.', einheit='°'))
+ST.knobel('beweis', ST.A('Ist die Summe von vier aufeinanderfolgenden natürlichen Zahlen immer durch 4 teilbar?', 'Nein: Sie lässt beim Teilen durch 4 immer den Rest 2.',
+                         ['Ja: Bei drei Zahlen ist sie ja auch durch 3 teilbar.', 'Ja, aber nur bei geraden Startzahlen.', 'Nein, aber manchmal schon.'],
+                         'Allgemein: n + (n + 1) + (n + 2) + (n + 3) = 4n + 6 = 4(n + 1) + 2. Das ist ein Vielfaches von 4 plus 2 – nie durch 4 teilbar. Beispiel: 1 + 2 + 3 + 4 = 10. '
+                         'Bei drei Zahlen klappt es: (n − 1) + n + (n + 1) = 3n.',
+                         'Schreibe die vier Zahlen mit einer Variablen und fasse zusammen.'))
+ST.knobel('beweis', ST.Z('Die Vermutung „n² + n + 41 ist für jede natürliche Zahl n eine Primzahl“ stimmt für n = 0, 1, 2, …, 39. Für welches kleinste n stimmt sie nicht?', 40, '40',
+                         'Für n = 40: 40² + 40 + 41 = 40 · (40 + 1) + 41 = 40 · 41 + 41 = 41 · 41. Das ist keine Primzahl. '
+                         'Vorher ist jeder Wert prim (nachprüfbar). Die Aufgabe zeigt: Auch 40 bestätigende Beispiele sind kein Beweis.',
+                         'Suche ein n, bei dem man 41 ausklammern kann.'))
+# lage
+ST.leiter('lage', 'Sekante, Tangente, Passante über den Vergleich von Abstand und Radius benennen.',
+          'Anzahl gemeinsamer Punkte mit dem Durchmesser, Abstände für Sekanten, Geraden im Koordinatensystem, rundes Beet.',
+          'Lage zu Achsen und Geraden, Abstand definieren, Punkte im festen Abstand begründen, zwei Kreise, Fehler bei d = r, Radius aus der Lage.')
+ST.regel('lage', 1, '', 'direkt')
+ST.regel('lage', 2, 'Für welche Abstände', 'umkehr')
+ST.regel('lage', 2, 'Mittelpunkt M', 'darstellung')
+ST.regel('lage', 2, '', 'mehrschritt')
+ST.regel('lage', 3, 'Welche Lage hat die waagrechte', 'verknuepfen')
+ST.regel('lage', 3, 'Wie viele dieser', 'verknuepfen')
+ST.regel('lage', 3, 'Abstand eines Punktes', 'begruenden')
+ST.regel('lage', 3, 'Wie viele Punkte des Kreises', 'begruenden')
+ST.regel('lage', 3, '', 'transfer')
+ST.neu('lage', 1, 'erkennen', ST.A('Wie heißt eine Gerade, die mit einem Kreis genau einen gemeinsamen Punkt hat?', 'Tangente', ['Sekante', 'Passante', 'Durchmesser'],
+                                   'Sekante: zwei gemeinsame Punkte, Tangente: einer, Passante: keiner.', 'Lateinisch „tangere“ heißt berühren.'))
+ST.neu('lage', 1, 'direkt', ST.Z('Ein Kreis hat den Radius 4 cm. Eine Gerade hat vom Mittelpunkt den Abstand 2,5 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?', 2, '2',
+                                 '2,5 cm < 4 cm: Die Gerade schneidet den Kreis, sie ist eine Sekante mit 2 gemeinsamen Punkten.', 'Vergleiche Abstand und Radius.'))
+ST.neu('lage', 2, 'einkleidung', ST.A('Ein rundes Beet hat 6 m Durchmesser. Ein gerader Weg führt im Abstand von 2 m am Mittelpunkt vorbei. Führt der Weg durch das Beet?', 'Ja: 2 m ist weniger als der Radius 3 m.',
+                                      ['Nein: 2 m ist weniger als 6 m.', 'Nein: Der Weg berührt das Beet nur.', 'Ja, aber nur, wenn das Beet 4 m Durchmesser hätte.'],
+                                      'Radius 6 m : 2 = 3 m. Abstand 2 m < 3 m: Der Weg ist eine Sekante und schneidet das Beet.', 'Vergleiche den Abstand mit dem Radius, nicht mit dem Durchmesser.'))
+ST.neu('lage', 2, 'mehrschritt', ST.Z('Ein Kreis hat den Radius 5 cm. Neben einer Tangente liegt auf der Seite des Kreises eine Parallele im Abstand 3 cm. Wie viele gemeinsame Punkte hat die Parallele mit dem Kreis?', 2, '2',
+                                      'Die Tangente hat vom Mittelpunkt den Abstand 5 cm. Die Parallele liegt 3 cm näher am Mittelpunkt: Abstand 2 cm < 5 cm – eine Sekante mit 2 Punkten.',
+                                      'Wie weit ist die Parallele vom Mittelpunkt entfernt?'))
+ST.neu('lage', 3, 'fehler', ST.A('Jemand sagt: „Der Kreis hat r = 4 cm, die Gerade hat vom Mittelpunkt den Abstand 4 cm, also ist sie eine Passante.“ Was stimmt?', 'Falsch: Bei Abstand = Radius ist sie eine Tangente.',
+                                 ['Richtig.', 'Falsch: Sie ist eine Sekante.', 'Falsch: Sie geht durch den Mittelpunkt.'],
+                                 'd = r: Der Lotfußpunkt liegt genau auf dem Kreis – ein gemeinsamer Punkt, also Tangente. Passante wäre sie erst bei d > r.', 'Wo liegt der Lotfußpunkt bei d = r?'))
+ST.neu('lage', 3, 'parameter', ST.Z('Ein Kreis um M(2 | 3) soll die x-Achse berühren. Wie groß muss sein Radius sein?', 3, '3',
+                                    'Der Abstand von M zur x-Achse ist die y-Koordinate 3. Für eine Tangente muss r = 3 sein.', 'Wie weit ist M von der x-Achse entfernt?'))
+ST.knobel('lage', ST.Z('Zwei Kreise berühren sich von außen in einem Punkt. Wie viele Geraden berühren beide Kreise?', 3, '3',
+                       'Zwei Tangenten laufen „außen“ an beiden Kreisen entlang (oben und unten). Eine dritte geht durch den Berührpunkt und steht senkrecht auf der Verbindung der Mittelpunkte – sie berührt beide. '
+                       'Weitere gibt es nicht: Eine Gerade zwischen den Kreisen hindurch müsste durch den Berührpunkt gehen. Also 3. (Liegen die Kreise getrennt, sind es 4, schneiden sie sich, nur 2.)',
+                       'Zeichne die Kreise und suche Tangenten außen und zwischen ihnen.'))
+ST.knobel('lage', ST.Z('Kreis 1 hat den Mittelpunkt (0 | 0) und den Radius 2, Kreis 2 den Mittelpunkt (7 | 0) und den Radius 3. Wie groß ist der kleinste Abstand zwischen einem Punkt auf Kreis 1 und einem Punkt auf Kreis 2?',
+                       2, '7 - 2 - 3',
+                       'Die kürzeste Verbindung liegt auf der Strecke zwischen den Mittelpunkten: Von (0 | 0) bis (7 | 0) sind es 7; davon gehören 2 zum Radius von Kreis 1 und 3 zum Radius von Kreis 2. '
+                       'Dazwischen bleiben 7 − 2 − 3 = 2: von (2 | 0) bis (4 | 0).',
+                       'Wo auf den Kreisen liegen die beiden nächsten Punkte?'))
+# tangente
+ST.leiter('tangente', 'Rechten Winkel zwischen Tangente und Radius kennen, halben Winkel und gleich lange Tangentenabschnitte nutzen.',
+          'Winkel ∠BMB′ und ∠BPB′ ineinander umrechnen, Tangente im Koordinatensystem, Fahrradreifen, gleichseitiges Tangentendreieck.',
+          'Winkel im Tangentendreieck, Thaleskreis bei der Konstruktion begründen, Radius aus dem Abstand, Treibriemen, Fehler 80°, Prüfungsaufgabe Kreis an der y-Achse.')
+ST.regel('tangente', 1, 'Wie groß ist der Winkel zwischen', 'erkennen')
+ST.regel('tangente', 1, '', 'direkt')
+ST.regel('tangente', 2, 'Wie verläuft', 'darstellung')
+ST.regel('tangente', 2, 'Wie groß ist ∠BPB', 'umkehr')
+ST.regel('tangente', 2, '', 'mehrschritt')
+ST.regel('tangente', 3, 'Warum', 'begruenden')
+ST.regel('tangente', 3, 'Welchen Radius', 'rueckwaerts')
+ST.regel('tangente', 3, 'Treibriemen', 'transfer')
+ST.regel('tangente', 3, '', 'verknuepfen')
+ST.neu('tangente', 2, 'einkleidung', ST.Z('Ein Fahrradreifen (Radius 35 cm) steht auf einer waagrechten Straße. Welchen Winkel bildet die Speiche zum Auflagepunkt mit der Straße?', 90, '90',
+                                          'Die Straße berührt den Reifen – sie ist eine Tangente. Die Speiche zum Auflagepunkt ist der Berührradius, und der steht senkrecht auf der Tangente: 90°.',
+                                          'Was ist die Straße für den Kreis?', einheit='°'))
+ST.neu('tangente', 2, 'mehrschritt', ST.A('Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B′. Es ist ∠BPB′ = 60°. Was für ein Dreieck ist PBB′?', 'gleichseitig',
+                                          ['rechtwinklig', 'stumpfwinklig', 'gleichschenklig, aber nicht gleichseitig'],
+                                          'PB = PB′ (gleich lange Tangentenabschnitte), also gleichschenklig mit Spitzenwinkel 60°. Die Basiswinkel sind (180° − 60°) : 2 = 60° – alle Winkel 60°, also gleichseitig.',
+                                          'Welche Seiten sind gleich lang, und wie groß sind dann die Basiswinkel?'))
+ST.neu('tangente', 3, 'fehler', ST.A('Jemand zeichnet die Tangente im Punkt B so, dass sie mit dem Radius [MB] einen Winkel von 80° bildet. Was stimmt?', 'Falsch: Die Tangente steht senkrecht auf dem Berührradius (90°).',
+                                     ['Richtig, jeder Winkel ist möglich.', 'Falsch: Der Winkel muss 45° sein.', 'Falsch: Die Tangente muss durch M gehen.'],
+                                     'Bei 80° würde die Gerade den Kreis ein zweites Mal schneiden – sie wäre eine Sekante. Nur senkrecht zum Radius berührt sie den Kreis in genau einem Punkt.',
+                                     'Was passiert, wenn die Gerade etwas schräg zum Radius steht?'))
+ST.neu('tangente', 3, 'pruefung', ST.L('Ein Kreis um M(3 | 2) berührt die y-Achse. Gib den Radius und den Berührpunkt B an.', 'r = □, B(□ | □)', [3, 0, 2], ['3', '0', '2'],
+                                       'Der Abstand von M zur y-Achse ist die x-Koordinate 3: r = 3. Der Berührpunkt ist der Lotfußpunkt von M auf die y-Achse: B(0 | 2).',
+                                       'Wie weit ist M von der y-Achse entfernt, und wo trifft das Lot auf die Achse?'))
+ST.knobel('tangente', ST.Z('Ein Kreis berührt alle vier Seiten des Vierecks ABCD. Es ist AB = 5 cm, BC = 7 cm und CD = 8 cm. Wie lang ist DA?', 6, '5 + 8 - 7',
+                           'Von jeder Ecke aus sind die beiden Tangentenabschnitte bis zu den Berührpunkten gleich lang: a, b, c, d (bei A, B, C, D). Dann AB = a + b, BC = b + c, CD = c + d, DA = d + a. '
+                           'Also AB + CD = a + b + c + d = BC + DA. 5 + 8 = 7 + DA, DA = 6 cm.',
+                           'Teile jede Seite an ihrem Berührpunkt in zwei Abschnitte. Welche Abschnitte sind gleich lang?', einheit='cm'))
+ST.knobel('tangente', ST.Z('Von P aus werden Tangenten an einen Kreis gelegt, Berührpunkte B und B′, PB = 10 cm. Eine dritte Tangente berührt den Kreis zwischen B und B′ in T und schneidet [PB] in X und [PB′] in Y. Wie groß ist der Umfang des Dreiecks PXY?',
+                           20, '2 * 10',
+                           'Von X aus sind beide Tangentenabschnitte gleich: XT = XB. Von Y aus: YT = YB′. Umfang PX + XY + YP = PX + XT + TY + YP = PX + XB + YB′ + YP = PB + PB′ = 10 + 10 = 20 cm – egal, wo T liegt.',
+                           'Zerlege [XY] am Berührpunkt T und vergleiche mit den Abschnitten auf [PB] und [PB′].', einheit='cm'))
+# umkreis_inkreis
+ST.leiter('umkreis_inkreis', 'Linien für Umkreis- und Inkreismittelpunkt und ihre Abstandseigenschaft erkennen.',
+          'Lage des Umkreismittelpunkts nach Winkeln, Winkel am Inkreismittelpunkt, gleichseitiges Dreieck, Winkel aus der Halbierenden.',
+          'Winkel ∠BIC verknüpfen, Funkmast und Spielplatz, Umkreismittelpunkt auf einer Seite, Winkel rückwärts, Fehler mit den Linien, Prüfungsaufgabe ∠AIB.')
+ST.regel('umkreis_inkreis', 1, '', 'erkennen')
+ST.regel('umkreis_inkreis', 2, 'gleichseitigen', 'darstellung')
+ST.regel('umkreis_inkreis', 2, 'Wie groß ist α', 'umkehr')
+ST.regel('umkreis_inkreis', 2, '', 'mehrschritt')
+ST.regel('umkreis_inkreis', 3, 'Funkmast', 'transfer')
+ST.regel('umkreis_inkreis', 3, 'Spielplatz', 'transfer')
+ST.regel('umkreis_inkreis', 3, 'auf der Seite', 'begruenden')
+ST.regel('umkreis_inkreis', 3, 'Wie groß ist γ', 'rueckwaerts')
+ST.regel('umkreis_inkreis', 3, '', 'verknuepfen')
+ST.neu('umkreis_inkreis', 1, 'direkt', ST.Z('Der Umkreismittelpunkt U eines Dreiecks ABC ist von A 4 cm entfernt. Wie weit ist U von C entfernt?', 4, '4',
+                                            'U ist von allen drei Ecken gleich weit entfernt (Umkreisradius): 4 cm.', 'Was ist besonders am Umkreismittelpunkt?', einheit='cm'))
+ST.neu('umkreis_inkreis', 3, 'fehler', ST.A('Jemand konstruiert den Inkreismittelpunkt als Schnittpunkt der Mittelsenkrechten. Was stimmt?', 'Falsch: Dafür braucht man die Winkelhalbierenden; die Mittelsenkrechten liefern den Umkreismittelpunkt.',
+                                            ['Richtig.', 'Falsch: Dafür braucht man die Höhen.', 'Falsch: Dafür braucht man die Seitenmitten.'],
+                                            'Der Inkreismittelpunkt ist von den drei Seiten gleich weit entfernt – das leisten die Winkelhalbierenden. Die Mittelsenkrechten liefern einen Punkt, der von den Ecken gleich weit entfernt ist.',
+                                            'Von welchen Teilen des Dreiecks soll der Inkreismittelpunkt gleich weit entfernt sein?'))
+ST.neu('umkreis_inkreis', 3, 'pruefung', ST.Z('Im Dreieck ABC ist α = 70° und β = 50°. I ist der Inkreismittelpunkt. Wie groß ist ∠AIB?', 120, '180 - 70 / 2 - 50 / 2',
+                                              'AI und BI halbieren α und β: ∢IAB = 35°, ∢IBA = 25°. Im Dreieck ABI: ∢AIB = 180° − 35° − 25° = 120°.', 'Welche Winkel liegen bei A und B im Dreieck ABI?', einheit='°'))
+ST.knobel('umkreis_inkreis', ST.Z('I ist der Inkreismittelpunkt des Dreiecks ABC, und ∠BIC = 120°. Wie groß ist α?', 60, '2 * (120 - 90)',
+                                  'Im Dreieck BIC: ∢BIC = 180° − β/2 − γ/2 = 180° − (β + γ)/2. Mit β + γ = 180° − α wird daraus ∢BIC = 180° − 90° + α/2 = 90° + α/2. '
+                                  '120° = 90° + α/2, also α = 60°.',
+                                  'Drücke ∠BIC zuerst mit β und γ aus und ersetze dann β + γ.', einheit='°'))
+ST.knobel('umkreis_inkreis', ST.A('In welchem Dreieck liegt der Umkreismittelpunkt genau auf einer Ecke?', 'in keinem', ['im rechtwinkligen Dreieck', 'im stumpfwinkligen Dreieck', 'im gleichseitigen Dreieck'],
+                                  'Der Umkreismittelpunkt ist von allen drei Ecken gleich weit entfernt. Läge er auf der Ecke A, wäre sein Abstand zu A null – dann müssten auch B und C den Abstand null haben, also auf A liegen. '
+                                  'Das ist kein Dreieck. Im rechtwinkligen Dreieck liegt er auf der Mitte der längsten Seite, im stumpfwinkligen außerhalb.',
+                                  'Welchen Abstand hätte er dann zu dieser Ecke – und zu den anderen?'))
+# ---- STUFEN ENDE ----
+
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Satz des Thales', ['thales', 'umkehrung', 'beweis']), ('Tangenten', ['lage', 'tangente']), ('Besondere Kreise', ['umkreis_inkreis'])],
@@ -758,3 +957,4 @@ if __name__ == '__main__':
     anhaengen(META['thema_schluessel'], schwer())
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
+    stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt

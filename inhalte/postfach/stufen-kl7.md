@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 – STATUS
+geometrie.kreis fertig: alle alten Übungen mit Typ (außer überzähligen), 0 umgestuft, 22 neue Übungen, 12 Knobel-Bordkarten, 23 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
+
+## 2026-11-17 – STATUS
 geometrie.konstruktion fertig: alle alten Übungen mit Typ (außer überzähligen), 0 umgestuft, 30 neue Übungen, 16 Knobel-Bordkarten, 17 überzählig. Prüfer OK, 0 Gruppen, Nachweis OK.
 
 ## 2026-11-17 – STATUS

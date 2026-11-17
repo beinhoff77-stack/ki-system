@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:35 – STATUS
+trigo.allgemein fertig: 33 umgestuft (Kartenbeispiele auf Stufe 1, Winkelsumme vor Sinussatz und Runden auf Stufe 2). Keine Karte geändert. inhalt_pruefen OK, Nachweis OK.
+
 ## 2026-11-17 13:34 – STATUS
 gleichungen.trig fertig: 15 umgestuft, 2 ersetzt (anwendung: Sinussatz und Flächenformel ohne Erklärung – kommen erst in trigo.allgemein), 1 neu (kosinus S3). Keine Karte geändert. Für Sebastian: Reihenfolge 13/14 tauschen. inhalt_pruefen OK, Nachweis OK.
 

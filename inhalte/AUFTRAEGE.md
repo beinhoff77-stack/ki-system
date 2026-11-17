@@ -1312,6 +1312,8 @@ Nachbessern (im Generator des Themas, eigener Abschnitt; alles andere bleibt Zei
  e) Erklärung unklar, lückenhaft oder ohne passendes Beispiel: die Lernkarte verbessern (einstieg, woerter, schritte mit Zeichnung, fehler, regel, probe) – Längenregeln der README einhalten,
     Lernziel-Schlüssel, Titel und Reihenfolge der Lernkarten nicht ändern. Jede geänderte Lernkarte mit „vorher/nachher“ in einem Satz melden.
  Nicht selbst ändern, nur melden: Themen in eine andere Klasse schieben, Lernkarten löschen, teilen oder zwischen Themen verschieben, neue Themen, App-Wünsche.
+Zusätzlich abarbeiten: die Befunde zu deiner Klasse aus der Prüfung der Achtzehnten Runde – inhalte/postfach/antworten.md, Abschnitt „Prüfung der Achtzehnten Runde Teil B“
+(Klasse 5: zahlen.rechengesetze; Klasse 7: Geradengleichungen in abbildungen.kongruenz und geometrie.konstruktion, vierecke_ordnen; Klasse 9: Scheinlösung in gleichungen.quadratisch).
 Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet, der Nachweis stimmt und jede Lernkarte weiter mindestens 3 Übungen je Stufe hat.
 Ein Thema = ein Commit + Push auf durchsicht-kl<N>.
 Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Keine Namen oder Daten von Kindern. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.

@@ -1400,5 +1400,275 @@ befunde_anwenden(DATEI, DS)
 # ---- DURCHSICHT ENDE ----
 
 
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('bruch.rechnen', 20_6_3)
+Z, A, L, M, N, K, TB = ST.Z, ST.A, ST.L, ST.M, ST.neu, ST.knobel, ST.typ_bau
+B = '□/□'
+
+# --- brueche_plus_minus ---
+lz = 'brueche_plus_minus'
+ST.leiter(lz, 'Brüche mit gleichem oder leicht zu findendem Nenner addieren und subtrahieren; den gemeinsamen Nenner erkennen.',
+          'Mit Hauptnenner rechnen, mehrere Brüche, gemischte Zahlen, Lücken füllen, Sachsituationen.',
+          'Rest bei mehreren Ausgaben, Stammbruch-Lücke, Fehler deuten, Aussagen widerlegen, rückwärts, mit Umfang verknüpfen, Prüfungsaufgabe.')
+TB(lz, 3, 'Von einer Pizza isst', 'einkleidung', neu_s=2)
+TB(lz, 3, 'Berechne 4 1/5 − 1 3/4', 'mehrschritt', neu_s=2)
+TB(lz, 3, 'Welche Zahl gehört in das Kästchen? 1/3', 'parameter')
+N(lz, A('erkennen', 'Welcher Nenner ist ein gemeinsamer Nenner von 1/4 und 1/6?', 12, [10, 4, 6], '12 ist ein Vielfaches von 4 und von 6. 10 ist keines.', 'Suche ein gemeinsames Vielfaches von 4 und 6.'))
+N(lz, L('direkt', 'Addiere 2/9 und 5/9.', B, [7, 9], ['2 + 5', '9'], 'Gleicher Nenner: Zähler addieren, Nenner bleibt. 7/9.', 'Der Nenner bleibt gleich.'))
+N(lz, L('einkleidung', 'Ein Kind läuft 3/4 km zur Schule und danach 2/3 km zum Sportplatz. Wie viele Kilometer sind das zusammen? Gib einen Bruch an.', B, [17, 12], ['9 + 8', '12'],
+        'Hauptnenner 12: 9/12 + 8/12 = 17/12 km.', 'Bringe beide Brüche auf den Nenner 12.'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Die Summe zweier echter Brüche ist immer kleiner als 1.“', 'Nein, z. B. 3/4 + 1/2 = 5/4.', ['Ja, das stimmt immer.', 'Ja, außer bei gleichem Nenner.'],
+        'Zwei echte Brüche können zusammen mehr als 1 ergeben: 3/4 + 1/2 = 5/4.', 'Suche zwei Brüche, die beide schon fast 1 sind.'))
+N(lz, L('rueckwaerts', 'Zu einer Zahl wird 2/3 addiert, dann wird 1/4 abgezogen. Es kommt 5/6 heraus. Wie hieß die Zahl?', B, [5, 12], ['10 + 3 - 8', '12'],
+        'Rückwärts: 5/6 + 1/4 − 2/3 = 10/12 + 3/12 − 8/12 = 5/12.', 'Mache die Schritte rückgängig, in umgekehrter Reihenfolge.'))
+N(lz, L('verknuepfen', 'Ein Rechteck ist 3/4 m lang und 2/5 m breit. Wie groß ist sein Umfang in m?', B, [23, 10], ['2 * (15 + 8) // 2', '20 // 2'],
+        'Umfang = 2 · (3/4 + 2/5) = 2 · 23/20 = 46/20 = 23/10 m.', 'Umfang: zweimal Länge plus Breite.'))
+N(lz, A('pruefung', 'Welche Rechnung hat genau das Ergebnis 1?', '1/2 + 1/3 + 1/6', ['1/2 + 1/4 + 1/8', '2/3 + 1/4', '3/5 + 1/3'],
+        '1/2 + 1/3 + 1/6 = 3/6 + 2/6 + 1/6 = 1. Die anderen: 7/8, 11/12, 14/15.', 'Rechne jede Summe mit einem Hauptnenner aus.'))
+K(lz, L('knobel', 'Berechne 1/2 + 1/6 + 1/12 + 1/20 + 1/30.', B, [5, 6], ['5', '6'],
+        'Jeder Bruch ist eine Differenz: 1/2 = 1 − 1/2, 1/6 = 1/2 − 1/3, 1/12 = 1/3 − 1/4, 1/20 = 1/4 − 1/5, 1/30 = 1/5 − 1/6. Fast alles hebt sich weg: 1 − 1/6 = 5/6.',
+        'Schreibe 1/6 als 1/2 − 1/3 und 1/12 als 1/3 − 1/4. Fällt dir etwas auf?'))
+K(lz, Z('knobel', '1/6 soll als Summe zweier verschiedener Stammbrüche geschrieben werden. Der eine ist 1/7. Welchen Nenner hat der andere?', 42, '6 * 7',
+        'Der andere Stammbruch ist der Unterschied: 1/6 − 1/7 = 7/42 − 6/42 = 1/42. Also gilt 1/6 = 1/7 + 1/42, der Nenner ist 42.', 'Ziehe 1/7 von 1/6 ab.'))
+
+# --- dezimal_plus_minus ---
+lz = 'dezimal_plus_minus'
+ST.leiter(lz, 'Dezimalzahlen Komma unter Komma addieren und subtrahieren.',
+          'Unterschiedlich viele Stellen, mehrere Zahlen, Rückgeld, Ergänzen bis zu einer Zahl.',
+          'Einheiten wechseln, Kassenbon prüfen, rückwärts, Fehler deuten, Aussagen widerlegen, fehlende Ziffer, Umfang, mehrteilige Sachaufgabe.')
+TB(lz, 3, 'Auf einem Kassenbon', 'transfer'); TB(lz, 3, 'Ein Kind springt', 'verknuepfen')
+N(lz, A('erkennen', 'Wie schreibst du 3,4 + 2,57 richtig untereinander?', 'Komma unter Komma: 3,40 über 2,57', ['Rechtsbündig: die 4 über die 7', 'Linksbündig: die 3 über die 2 und dann ohne Komma'],
+        'Gleiche Stellen müssen untereinander stehen. Das klappt, wenn das Komma unter dem Komma steht.', 'Zehntel müssen unter Zehnteln stehen.'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Die Summe zweier Zahlen mit je zwei Nachkommastellen hat immer zwei Nachkommastellen.“', 'Nein, z. B. 0,25 + 0,75 = 1.',
+        ['Ja, das stimmt immer.', 'Nein, sie hat immer vier.'], 'Hundertstel können sich zu Zehnteln oder Ganzen bündeln: 0,25 + 0,75 = 1,00 = 1.', 'Suche ein Gegenbeispiel.'))
+N(lz, L('parameter', 'Welche Ziffer gehört ins Kästchen? 3,□7 + 1,46 = 5,03', '□', [5], ['(503 - 146 - 307) // 10'], '5,03 − 1,46 = 3,57. Also ist □ = 5.', 'Rechne 5,03 − 1,46.'))
+N(lz, Z('verknuepfen', 'Ein Dreieck hat die Seiten 4,5 cm, 3,75 cm und 5,2 cm. Wie groß ist sein Umfang?', 13.45, '4.5 + 3.75 + 5.2', '4,50 + 3,75 + 5,20 = 13,45 cm.', 'Der Umfang ist die Summe aller Seiten.', einheit='cm'))
+N(lz, Z('pruefung', 'Ein Kind hat 20 €. Es kauft ein Heft für 1,85 € und zwei Stifte zu je 0,95 €. Danach bekommt es 5 € Taschengeld. Wie viel Geld hat es jetzt?', 21.25, '20 - 1.85 - 0.95 - 0.95 + 5',
+        '20 € − 1,85 € − 1,90 € = 16,25 €, plus 5 € = 21,25 €.', 'Gehe Schritt für Schritt vor: erst die Ausgaben, dann das Taschengeld.', einheit='€'))
+K(lz, Z('knobel', 'Drei Zahlen mit einer Nachkommastelle folgen im Abstand 0,1 aufeinander (z. B. 1,4; 1,5; 1,6). Ihre Summe ist 6,3. Wie heißt die größte?', 2.2, '6.3 / 3 + 0.1',
+        'Die mittlere Zahl ist ein Drittel der Summe: 6,3 : 3 = 2,1 (die anderen liegen 0,1 darunter und darüber). Die größte ist 2,2. Probe: 2,0 + 2,1 + 2,2 = 6,3.',
+        'Was weißt du über die mittlere der drei Zahlen?'))
+K(lz, Z('knobel', 'Berechne 1,1 + 2,2 + 3,3 + 4,4 + 5,5 + 6,6 + 7,7 + 8,8 + 9,9.', 49.5, '1.1 + 2.2 + 3.3 + 4.4 + 5.5 + 6.6 + 7.7 + 8.8 + 9.9',
+        'Paare bilden: 1,1 + 9,9 = 11, 2,2 + 8,8 = 11, 3,3 + 7,7 = 11, 4,4 + 6,6 = 11. Das sind 44, dazu 5,5: 49,5.', 'Suche Paare, die eine runde Summe ergeben.'))
+
+# --- vorzeichen ---
+lz = 'vorzeichen'
+ST.leiter(lz, 'Positive und negative Brüche und Dezimalzahlen addieren, subtrahieren, malnehmen; das Vorzeichen eines Ergebnisses erkennen.',
+          'Mal und Geteilt mit Vorzeichen, Hauptnenner mit negativen Brüchen, Lücken, Kontostand und Temperatur.',
+          'Vorzeichen bei vielen Faktoren, Fehler deuten, Aussagen widerlegen, für welche Zahlen, rückwärts, mit Bruchteilen verknüpfen, Sprungfolge, Prüfungsaufgabe.')
+TB(lz, 3, 'Welche Zahl gehört in das Kästchen?', 'umkehr', neu_s=2)
+TB(lz, 3, 'Morgens sind es', 'einkleidung', neu_s=2)
+TB(lz, 3, 'Berechne (−0,5) · (−2)', 'transfer')
+N(lz, A('erkennen', 'Welches Vorzeichen hat das Ergebnis von (−2,5) · (−4)?', 'plus', ['minus', 'Das kann man nicht sagen.'], 'Minus mal Minus ergibt Plus: 10.', 'Zähle die Minuszeichen.'))
+N(lz, Z('umkehr', 'Welche Zahl gehört ins Kästchen? (−3,5) + □ = 2', 5.5, '2 - (-3.5)', '□ = 2 − (−3,5) = 5,5.', 'Wie weit ist es von −3,5 bis 2?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Das Produkt zweier negativer Zahlen ist kleiner als jeder der beiden Faktoren.“', 'Nein, es ist positiv und damit größer als beide.',
+        ['Ja, das stimmt.', 'Nur bei Brüchen.'], '(−2) · (−3) = 6, und 6 ist größer als −2 und −3.', 'Rechne ein Beispiel.'))
+N(lz, Z('parameter', 'Für wie viele ganze Zahlen a von −5 bis 5 ist a · (−2) größer als 3?', 4, '4',
+        'a · (−2) > 3 gilt für a = −2 (4), −3 (6), −4 (8), −5 (10). Für a = −1 ergibt sich nur 2. Also 4 Zahlen.', 'Probiere die negativen Zahlen aus.'))
+N(lz, Z('rueckwaerts', 'Eine Zahl wird mit (−2) malgenommen, dann wird 3 addiert. Es kommt −7 heraus. Wie hieß die Zahl?', 5, '(-7 - 3) / (-2)',
+        'Zurück: −7 − 3 = −10, dann durch (−2): 5. Probe: 5 · (−2) + 3 = −7.', 'Mache die Schritte von hinten rückgängig.'))
+N(lz, Z('verknuepfen', 'Ein U-Boot liegt bei −120 m. Es steigt um 3/4 seiner Tiefe auf. Auf welcher Höhe ist es jetzt?', -30, '-120 + 120 * 3 / 4',
+        '3/4 von 120 m sind 90 m. −120 m + 90 m = −30 m.', 'Wie viel sind 3/4 von 120 m?', einheit='m'))
+N(lz, A('pruefung', 'Welcher Term hat den größten Wert?', '(−2) · (−3)', ['(−2) + (−3)', '(−2) − (−3)', '(−2) : (−0,5)'],
+        '(−2) · (−3) = 6, (−2) + (−3) = −5, (−2) − (−3) = 1, (−2) : (−0,5) = 4.', 'Rechne jeden Term aus.'))
+N(lz, Z('transfer', 'Ein Frosch sitzt auf dem Zahlenstrahl bei 0. Er springt abwechselnd 1,5 nach rechts und 2 nach links, zuerst nach rechts. Wo sitzt er nach 6 Sprüngen?', -1.5, '3 * (1.5 - 2)',
+        'Je zwei Sprünge bringen ihn 1,5 − 2 = −0,5 weiter. Nach 6 Sprüngen: 3 · (−0,5) = −1,5.', 'Was ändert sich nach jeweils zwei Sprüngen?'))
+K(lz, Z('knobel', 'Berechne (−1) + 2 + (−3) + 4 + (−5) + … + (−99) + 100.', 50, '50',
+        'Fasse Paare zusammen: (−1) + 2 = 1, (−3) + 4 = 1, … , (−99) + 100 = 1. Es sind 50 Paare, also 50.', 'Fasse immer zwei Zahlen zusammen.'))
+K(lz, Z('knobel', 'Das Produkt von vier verschiedenen ganzen Zahlen ist 4. Wie groß ist ihre Summe?', 0, '1 + (-1) + 2 + (-2)',
+        '4 hat nur die Teiler 1, 2, 4. Vier verschiedene ganze Zahlen mit Produkt 4 gehen nur als 1, −1, 2, −2 (1 · (−1) · 2 · (−2) = 4). Ihre Summe ist 0.',
+        'Welche ganzen Zahlen kommen als Faktoren von 4 überhaupt in Frage?'))
+
+# --- brueche_mal ---
+lz = 'brueche_mal'
+ST.leiter(lz, 'Bruch mal natürliche Zahl, Bruchteil vom Bruchteil am Bild erkennen.',
+          'Bruch mal Bruch mit Kürzen, gemischte Zahlen, Flächen und Mengen in Sachsituationen, fehlenden Faktor finden.',
+          'Anteil vom Anteil, Mengen umrechnen, Fehler deuten, Aussagen widerlegen, rückwärts, für welche Zahlen, wiederholtes Malnehmen, Prüfungsaufgabe.')
+TB(lz, 2, 'Berechne', 'mehrschritt')
+TB(lz, 3, 'Mit welchem Bruch', 'umkehr', neu_s=2)
+TB(lz, 3, 'Berechne 1 1/2 · 1 2/3', 'mehrschritt', neu_s=2)
+TB(lz, 3, '3/4 der Besucher', 'verknuepfen')
+N(lz, L('direkt', 'Nimm 2/7 mit 3 mal.', B, [6, 7], ['2 * 3', '7'], 'Zähler mal 3, Nenner bleibt: 6/7.', 'Nur der Zähler wird mit der Zahl malgenommen.'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Beim Malnehmen mit einem Bruch wird das Ergebnis immer kleiner.“', 'Nein, mit einem Bruch über 1 wird es größer, z. B. 4 · 3/2 = 6.',
+        ['Ja, das stimmt immer.', 'Ja, außer bei der Zahl 0.'], 'Nur bei Brüchen kleiner als 1 wird das Ergebnis kleiner.', 'Was passiert bei 3/2?'))
+N(lz, L('rueckwaerts', 'Eine Zahl wird mit 2/3 malgenommen und danach mit 3/4. Es kommt 1/4 heraus. Wie hieß die Zahl?', B, [1, 2], ['1', '2'],
+        '2/3 · 3/4 = 1/2. Die Zahl mal 1/2 ist 1/4, also war sie 1/2.', 'Fasse die beiden Faktoren zuerst zusammen.'))
+N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n ist n · 3/8 eine natürliche Zahl kleiner als 10?', 3, '3',
+        'n · 3/8 ist natürlich, wenn n ein Vielfaches von 8 ist: n = 8 → 3, n = 16 → 6, n = 24 → 9, n = 32 → 12 (zu groß). Also 3.', 'Wann kürzt sich die 8 weg?'))
+N(lz, Z('pruefung', 'Ein Garten ist 12 m lang und 8 m breit. 3/4 der Fläche ist Rasen, davon liegt 1/3 im Schatten. Wie viele m² Rasen liegen im Schatten?', 24, '12 * 8 * 3 / 4 / 3',
+        'Fläche 96 m². Rasen: 3/4 · 96 = 72 m². Im Schatten: 1/3 · 72 = 24 m².', 'Berechne zuerst die ganze Fläche.', einheit='m²'))
+N(lz, Z('transfer', 'Ein Ball springt nach jedem Aufprall auf 2/3 seiner vorigen Höhe. Er fällt aus 2,7 m Höhe. Wie hoch springt er nach dem dritten Aufprall?', 0.8, '2.7 * 2 / 3 * 2 / 3 * 2 / 3',
+        '2,7 m → 1,8 m → 1,2 m → 0,8 m.', 'Rechne Aufprall für Aufprall.', einheit='m'))
+K(lz, L('knobel', 'Berechne 1/2 · 2/3 · 3/4 · 4/5 · 5/6 · 6/7 · 7/8 · 8/9 · 9/10.', B, [1, 10], ['1', '10'],
+        'Jeder Zähler kürzt sich mit dem Nenner davor: 2 mit 2, 3 mit 3, … , 9 mit 9. Übrig bleiben die 1 oben und die 10 unten: 1/10.', 'Schreibe alles auf einen Bruchstrich und kürze.'))
+K(lz, A('knobel', 'Ein Rechteck wird um die Hälfte länger und um ein Drittel schmaler. Wie ändert sich der Flächeninhalt?', 'Er bleibt gleich.',
+        ['Er wird um 1/6 größer.', 'Er wird um 1/6 kleiner.', 'Er wird halb so groß.'],
+        'Neue Länge: 3/2 der alten, neue Breite: 2/3 der alten. Neue Fläche: 3/2 · 2/3 = 1-mal die alte. Sie bleibt gleich.', 'Mit welchen Brüchen werden Länge und Breite malgenommen?'))
+
+# --- brueche_geteilt ---
+lz = 'brueche_geteilt'
+ST.leiter(lz, 'Bruch durch natürliche Zahl teilen, Kehrbruch angeben.',
+          'Durch einen Bruch teilen, gemischte Zahlen, Füllen und Aufteilen, fehlende Seite eines Rechtecks, fehlenden Teiler finden.',
+          'Ergebnis ohne Rechnen beurteilen, Fehler deuten, rückwärts, Terme aus Worten, für welche Zahlen, Rest beim Aufteilen.')
+TB(lz, 3, 'Ein Band ist', 'einkleidung', neu_s=2)
+TB(lz, 3, 'Durch welchen Bruch', 'umkehr', neu_s=2)
+TB(lz, 3, 'Berechne 2 1/4 : 1 1/2', 'mehrschritt', neu_s=2)
+TB(lz, 3, 'Teile die Differenz', 'verknuepfen')
+N(lz, L('fehler', 'Ein Kind rechnet 5/6 : 2/3 = 6/5 · 2/3 = 4/5. Wie heißt das richtige Ergebnis?', B, [5, 4], ['5 * 3 // 3', '6 * 2 // 3'],
+        'Es hat den falschen Bruch umgedreht. Richtig: 5/6 · 3/2 = 15/12 = 5/4.', 'Welcher Bruch wird beim Teilen umgedreht?'))
+N(lz, L('rueckwaerts', 'Eine Zahl wird durch 3/4 geteilt, dann wird 1/2 abgezogen. Es kommt 1/6 heraus. Wie hieß die Zahl?', B, [1, 2], ['1', '2'],
+        'Zurück: 1/6 + 1/2 = 2/3. Dann mal 3/4 (statt durch 3/4): 2/3 · 3/4 = 1/2.', 'Was ist das Gegenteil von „durch 3/4 teilen“?'))
+N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n von 1 bis 10 ist 6 : n/5 eine natürliche Zahl?', 6, '6',
+        '6 : n/5 = 30/n. Ganz ist das für die Teiler von 30 bis 10: 1, 2, 3, 5, 6, 10. Also 6.', 'Rechne 6 : n/5 als 6 · 5/n.'))
+N(lz, Z('pruefung', 'Eine Flasche enthält 1 1/2 l Saft. Gläser werden mit je 1/5 l gefüllt. Wie viele Gläser werden ganz voll?', 7, '15 // 2',
+        '1 1/2 : 1/5 = 3/2 · 5 = 15/2 = 7 1/2. Also 7 volle Gläser, ein halbes bleibt übrig (1/10 l).', 'Teile und überlege, was mit dem Rest passiert.'))
+K(lz, Z('knobel', 'Teilt man eine Zahl durch 2/3, erhält man dasselbe, wie wenn man 1/2 zu ihr addiert. Wie heißt die Zahl?', 1, '1',
+        'Durch 2/3 teilen heißt mal 3/2 nehmen: Die Zahl wächst um die Hälfte von sich selbst. Diese Hälfte soll 1/2 sein, also ist die Zahl 1. Probe: 1 : 2/3 = 3/2 = 1 + 1/2.',
+        'Um wie viel wächst eine Zahl, wenn man sie mit 3/2 malnimmt?'))
+K(lz, Z('knobel', 'Wie oft passt 1/6 in die Summe 2/3 + 1/2?', 7, '(4 + 3) // 1',
+        'Erst die Summe mit dem Hauptnenner 6: 2/3 + 1/2 = 4/6 + 3/6 = 7/6. In 7 Sechstel passt ein Sechstel genau 7-mal.', 'Schreibe die Summe in Sechsteln.'))
+
+# --- dezimal_mal ---
+lz = 'dezimal_mal'
+ST.leiter(lz, 'Dezimalzahl mal natürliche Zahl, Zahl der Nachkommastellen im Ergebnis erkennen.',
+          'Dezimalzahl mal Dezimalzahl, Preis mal Menge, fehlenden Faktor finden.',
+          'Aus einem bekannten Produkt schließen, mehrteilige Sachaufgabe, Fehler deuten, Aussagen widerlegen, rückwärts, für welche Zahlen, Fläche, Größenvorstellung.')
+TB(lz, 2, 'Berechne', 'mehrschritt'); TB(lz, 2, 'Was ergibt', 'mehrschritt')
+TB(lz, 3, 'Welche Zahl musst du', 'umkehr', neu_s=2)
+TB(lz, 3, 'Strom kostet', 'pruefung')
+N(lz, A('erkennen', 'Wie viele Nachkommastellen hat das Ergebnis von 2,3 · 0,15 (bevor man Nullen am Ende weglässt)?', 3, [2, 1, 4], '2,3 hat eine, 0,15 hat zwei Nachkommastellen: zusammen drei. 2,3 · 0,15 = 0,345.', 'Zähle die Nachkommastellen beider Faktoren.'))
+N(lz, Z('direkt', 'Nimm 0,4 mit 3 mal.', 1.2, '0.4 * 3', '4 · 3 = 12, eine Nachkommastelle: 1,2.', 'Rechne ohne Komma und setze es dann.'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „0,5 · 0,5 ist größer als 0,5.“', 'Nein, 0,5 · 0,5 = 0,25 – die Hälfte von 0,5.', ['Ja, Malnehmen macht größer.', 'Nein, beide sind gleich.'],
+        'Mal eine Zahl kleiner als 1 macht kleiner: 0,5 · 0,5 = 0,25.', 'Was ist die Hälfte von 0,5?'))
+N(lz, Z('rueckwaerts', 'Eine Zahl wird mit 0,2 malgenommen, dann wird 1,5 addiert. Es kommt 2,3 heraus. Wie hieß die Zahl?', 4, '(2.3 - 1.5) / 0.2', 'Zurück: 2,3 − 1,5 = 0,8, dann durch 0,2: 4.', 'Mache die Schritte von hinten rückgängig.'))
+N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n ist n · 0,3 kleiner als 2?', 6, '6', 'n · 0,3 < 2: n = 1 bis 6 (6 · 0,3 = 1,8); bei 7 sind es 2,1. Also 6 Zahlen.', 'Probiere n = 6 und n = 7.'))
+N(lz, Z('verknuepfen', 'Ein Rechteck ist 2,5 m lang und 1,2 m breit. Wie groß ist sein Flächeninhalt?', 3, '2.5 * 1.2', '2,5 · 1,2 = 3 m².', 'Fläche = Länge mal Breite.', einheit='m²'))
+N(lz, Z('transfer', 'Ein Blatt Papier ist 0,1 mm dick. Wie hoch ist ein Stapel aus 2 500 Blättern in Zentimetern?', 25, '2500 * 0.1 / 10', '2 500 · 0,1 mm = 250 mm = 25 cm.', 'Rechne erst in mm, dann in cm.', einheit='cm'))
+K(lz, Z('knobel', 'Wie viele Nachkommastellen hat das Ergebnis von 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 (zehnmal 0,5)?', 10, '10',
+        'Ohne Komma ist 5 · 5 · … · 5 eine Zahl, die auf 5 endet – es fällt also keine Null am Ende weg. Die zehn Faktoren haben je eine Nachkommastelle: 10 Stellen (0,0009765625).',
+        'Endet 5 · 5 · 5 · … auf 0?'))
+K(lz, Z('knobel', 'Zwei Dezimalzahlen mit je einer Nachkommastelle haben das Produkt 0,72 und die Summe 1,7. Wie heißt die größere?', 0.9, '0.9',
+        'Ohne Komma: Zwei Zahlen mit Produkt 72 und Summe 17 – das sind 8 und 9. Also 0,8 und 0,9; die größere ist 0,9.', 'Rechne ohne Komma: Welche zwei Zahlen haben das Produkt 72?'))
+
+# --- dezimal_geteilt ---
+lz = 'dezimal_geteilt'
+ST.leiter(lz, 'Dezimalzahl durch natürliche Zahl teilen, eine Division ohne Komma im Teiler aufschreiben.',
+          'Durch eine Dezimalzahl teilen, aufteilen und gerecht verteilen, runden, fehlenden Teiler finden.',
+          'Einheiten umrechnen, Preise vergleichen, rückwärts, Ergebnis ohne Rechnen beurteilen, Fehler deuten, für welche Teiler, mehrteilige Sachaufgabe.')
+TB(lz, 2, 'Berechne', 'mehrschritt')
+TB(lz, 3, '1 Zoll', 'verknuepfen')
+N(lz, A('erkennen', 'In welche Aufgabe ohne Komma im Teiler kannst du 4,8 : 0,06 umwandeln?', '480 : 6', ['48 : 6', '4,8 : 6', '4 800 : 6'], 'Beide Zahlen um 2 Stellen: 4,8 → 480, 0,06 → 6.', 'Das Komma wandert bei beiden Zahlen gleich weit.'))
+N(lz, Z('direkt', 'Teile 9,6 durch 3.', 3.2, '9.6 / 3', '96 : 3 = 32, das Komma bleibt an seiner Stelle: 3,2.', 'Teile wie gewohnt und setze das Komma, wenn du es überschreitest.'))
+N(lz, Z('umkehr', 'Durch welche Zahl musst du 4,5 teilen, um 15 zu erhalten?', 0.3, '4.5 / 15', '4,5 : 15 = 0,3. Probe: 4,5 : 0,3 = 45 : 3 = 15.', 'Rechne 4,5 : 15.'))
+N(lz, Z('fehler', 'Ein Kind rechnet 1,5 : 0,05 und verschiebt das Komma nur bei 0,05: 1,5 : 5 = 0,3. Wie heißt das richtige Ergebnis?', 30, '1.5 / 0.05',
+        'Das Komma muss bei beiden Zahlen um 2 Stellen wandern: 150 : 5 = 30.', 'Wie weit muss das Komma bei 1,5 wandern?'))
+N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n von 1 bis 20 ist 6 : n eine ganze Zahl oder eine Dezimalzahl mit genau einer Nachkommastelle?', 10, '10',
+        'Das gilt, wenn 60 : n ganz ist: n = 1, 2, 3, 4, 5, 6, 10, 12, 15, 20. Zum Beispiel 6 : 4 = 1,5 und 6 : 15 = 0,4. Bei n = 8 kommt 0,75 heraus. Also 10.', 'Rechne 6 : n als 60 : n Zehntel.'))
+N(lz, Z('pruefung', 'Ein Auto braucht 6,4 l Benzin auf 100 km. Der Tank fasst 48 l. Wie viele Kilometer kommt es mit einem vollen Tank?', 750, '48 / 6.4 * 100',
+        '48 : 6,4 = 480 : 64 = 7,5. Also 7,5 · 100 km = 750 km.', 'Wie oft passen 6,4 l in 48 l?', einheit='km'))
+N(lz, Z('transfer', 'Ein Läufer schafft 400 m in 1 min 20 s. Wie viele Meter läuft er im Durchschnitt in einer Sekunde?', 5, '400 / 80', '1 min 20 s = 80 s. 400 m : 80 s = 5 m je Sekunde.', 'Rechne die Zeit zuerst in Sekunden um.', einheit='m'))
+K(lz, Z('knobel', 'Teilt man eine Zahl durch 0,25, erhält man dasselbe, wie wenn man 12 zu ihr addiert. Wie heißt die Zahl?', 4, '12 / 3',
+        'Durch 0,25 teilen heißt mal 4 nehmen. Das Vierfache ist um 12 größer als die Zahl, also sind 3-mal die Zahl 12: Die Zahl ist 4. Probe: 4 : 0,25 = 16 = 4 + 12.',
+        'Womit kannst du „durch 0,25“ ersetzen?'))
+K(lz, Z('knobel', 'Berechne 1 : 0,1 : 0,1 : 0,1.', 1000, '1 / 0.1 / 0.1 / 0.1', 'Durch 0,1 teilen heißt: Wie oft passt ein Zehntel hinein? Das ist zehnmal so viel. Jedes „: 0,1“ heißt also mal 10: 1 → 10 → 100 → 1 000.', 'Was passiert mit einer Zahl, wenn man sie durch 0,1 teilt?'))
+
+# --- potenzen ---
+lz = 'potenzen'
+ST.leiter(lz, 'Quadrat und Kubikzahl von Brüchen und Dezimalzahlen berechnen; erkennen, was eine Potenz bedeutet.',
+          'Potenzen mit negativer Basis, gemischten Zahlen, kleinen Dezimalzahlen; Flächen; Basis zu einem Quadrat finden.',
+          '−a² gegen (−a)², Potenzen vergleichen, für welche Zahlen das Quadrat kleiner ist, Fehler deuten, Halbieren als Potenz, Vorzeichen begründen.')
+TB(lz, 3, 'Welche Zahl ist größer', 'begruenden'); TB(lz, 3, 'Welche Zahl ist negativ', 'begruenden')
+N(lz, A('erkennen', 'Was bedeutet (2/3)³?', '2/3 · 2/3 · 2/3', ['2/3 · 3', '2³/3', '6/9'], 'Der Exponent 3 sagt: Die Basis 2/3 wird dreimal mit sich selbst malgenommen.', 'Was sagt der Exponent?'))
+N(lz, Z('einkleidung', 'Ein quadratisches Beet hat die Seitenlänge 1,5 m. Wie groß ist seine Fläche?', 2.25, '1.5 ** 2', '1,5² = 1,5 · 1,5 = 2,25 m².', 'Fläche eines Quadrats: Seite mal Seite.', einheit='m²'))
+N(lz, L('umkehr', 'Welcher positive Bruch ergibt quadriert 9/16?', B, [3, 4], ['3', '4'], '3/4 · 3/4 = 9/16.', 'Welche Zahl mal sich selbst ist 9, welche 16?'))
+K(lz, Z('knobel', 'Für welche kleinste natürliche Zahl n ist (1/2)ⁿ kleiner als 0,01?', 7, '7', '(1/2)ⁿ = 1/2ⁿ. 1/2ⁿ < 1/100 heißt 2ⁿ > 100. 2⁶ = 64 ist zu klein, 2⁷ = 128 reicht. Also n = 7.',
+        'Schreibe 0,01 als Bruch und vergleiche die Nenner.'))
+K(lz, L('knobel', 'Das Quadrat einer Zahl (nicht 0) ist so groß wie ihre Hälfte. Welche Zahl ist es?', B, [1, 2], ['1', '2'],
+        'x · x = x : 2. Teilt man beide Seiten durch x, bleibt x = 1/2. Probe: (1/2)² = 1/4 und die Hälfte von 1/2 ist auch 1/4.', 'Probiere einfache Brüche aus.'))
+
+# --- rechenvorteile ---
+lz = 'rechenvorteile'
+ST.leiter(lz, 'Faktoren vertauschen, damit ein Paar 1, 10 oder 100 ergibt; solche Paare erkennen.',
+          'Geschickt rechnen mit Brüchen und Dezimalzahlen, beim Teilen nicht umklammern, Lücke im Produkt.',
+          'Klammern setzen, Fehler beim Umklammern deuten, Teiler vertauschen begründen, rückwärts, Zahl finden, Rechnungen vergleichen, Sachaufgabe.')
+TB(lz, 3, 'Welche Zahl gehört in das Kästchen?', 'umkehr', neu_s=2)
+TB(lz, 3, 'Ist 36 : 4 : 3', 'begruenden'); TB(lz, 3, 'Ein Kilogramm Kirschen', 'verknuepfen')
+N(lz, A('erkennen', 'Welche zwei der Zahlen 0,25; 7 und 4 ergeben malgenommen genau 1?', '0,25 und 4', ['0,25 und 7', '7 und 4'], '0,25 ist ein Viertel, und vier Viertel sind ein Ganzes: 0,25 · 4 = 1.', 'Ein Viertel mal 4 …'))
+N(lz, Z('direkt', 'Vertausche geschickt und berechne: 0,5 · 9,4 · 2', 9.4, '0.5 * 2 * 9.4', '0,5 · 2 = 1, und 1 · 9,4 = 9,4.', 'Welche zwei Faktoren ergeben zusammen 1?'))
+N(lz, Z('einkleidung', 'Ein Päckchen wiegt 0,25 kg. In einer Kiste sind 6 Päckchen. Wie viele Kilogramm wiegen 4 Kisten?', 6, '0.25 * 4 * 6', 'Geschickt: 0,25 · 4 = 1, dann 1 · 6 = 6 kg.', 'Fasse 0,25 und 4 zusammen.', einheit='kg'))
+N(lz, Z('rueckwaerts', 'Eine Zahl wird erst mit 4 malgenommen und dann durch 0,5 geteilt. Es kommt 40 heraus. Wie hieß die Zahl?', 5, '40 * 0.5 / 4', 'Zurück: 40 · 0,5 = 20, dann 20 : 4 = 5.', 'Mache die Schritte von hinten rückgängig.'))
+N(lz, Z('parameter', 'Für welche Zahl a gilt a · 0,125 · 8 = 3,9?', 3.9, '3.9 / (0.125 * 8)', '0,125 · 8 = 1. Also ist a · 1 = 3,9, a = 3,9.', 'Fasse 0,125 · 8 zuerst zusammen.'))
+N(lz, Z('pruefung', 'Berechne möglichst geschickt: 2,5 · 1,7 · 0,4 · 10', 17, '2.5 * 0.4 * 10 * 1.7', '2,5 · 0,4 = 1, dann 1 · 10 · 1,7 = 17.', 'Suche ein Paar, das 1 ergibt.'))
+N(lz, A('transfer', 'Welche Rechnung hat ein anderes Ergebnis als die anderen?', '12 : (3 · 2)', ['12 : 3 · 2', '(12 : 3) · 2', '12 · 2 : 3'],
+        '12 : 3 · 2 = (12 : 3) · 2 = 12 · 2 : 3 = 8, aber 12 : (3 · 2) = 2.', 'Rechne von links nach rechts, Klammern zuerst.'))
+K(lz, Z('knobel', 'Berechne geschickt: 0,2 · 0,5 · 0,4 · 0,25 · 100', 1, '0.2 * 0.5 * 0.4 * 0.25 * 100', '0,2 · 0,5 = 0,1 und 0,4 · 0,25 = 0,1. Dann 0,1 · 0,1 · 100 = 0,01 · 100 = 1.', 'Bilde zwei Paare, die jeweils 0,1 ergeben.'))
+K(lz, Z('knobel', 'Berechne ohne schriftliches Rechnen: 1,25 · 64', 80, '1.25 * 64', 'Zerlege 64 = 8 · 8. Weil 1,25 · 8 = 10 ist (8 Viertel sind 2, dazu 8), wird 1,25 · 64 = 1,25 · 8 · 8 = 10 · 8 = 80.', 'Zerlege 64 in zwei Faktoren. Was ergibt 1,25 · 8?'))
+
+# --- gemischt ---
+lz = 'gemischt'
+ST.leiter(lz, 'Punkt vor Strich bei Dezimalzahlen; erkennen, was zuerst gerechnet wird.',
+          'Klammern, Brüche und Dezimalzahlen gemischt, Einkauf mit Rückgeld, Lücke in einer Rechnung.',
+          'Rechner-Eingabe deuten, Term aus Worten, Rechenzeichen finden, Aussagen widerlegen, rückwärts, Fläche eines Weges, Klammern setzen, Prüfungsaufgabe.')
+TB(lz, 3, 'Für den Mittelwert', 'fehler'); TB(lz, 3, 'Welches Rechenzeichen', 'parameter'); TB(lz, 3, 'Eine Familie kauft', 'pruefung')
+N(lz, A('erkennen', 'Was rechnest du bei 2,5 + 3 · 0,4 zuerst?', '3 · 0,4', ['2,5 + 3', '0,4 + 2,5'], 'Punkt vor Strich: zuerst 3 · 0,4 = 1,2, dann 2,5 + 1,2 = 3,7.', 'Welche Rechenart hat Vorrang?'))
+N(lz, Z('direkt', 'Berechne 6 − 2 · 1,5.', 3, '6 - 2 * 1.5', '2 · 1,5 = 3, dann 6 − 3 = 3.', 'Punkt vor Strich.'))
+N(lz, Z('umkehr', 'Welche Zahl gehört ins Kästchen? 2 + □ · 0,5 = 4', 4, '(4 - 2) / 0.5', '□ · 0,5 muss 2 sein, also □ = 4.', 'Was muss □ · 0,5 ergeben?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „(2 + 3) · 0,5 und 2 + 3 · 0,5 haben dasselbe Ergebnis.“', 'Nein: (2 + 3) · 0,5 = 2,5, aber 2 + 3 · 0,5 = 3,5.', ['Ja, Klammern ändern nichts.', 'Ja, beide ergeben 2,5.'],
+        'Ohne Klammer gilt Punkt vor Strich; mit Klammer wird zuerst addiert.', 'Rechne beide aus.'))
+N(lz, Z('rueckwaerts', 'Ein Kind denkt sich eine Zahl, nimmt sie mit 1/2 mal und addiert 3/4. Es erhält 2. Wie heißt die Zahl?', 2.5, '(2 - 3 / 4) * 2', 'Zurück: 2 − 0,75 = 1,25, dann mal 2: 2,5.', 'Mache die Schritte von hinten rückgängig.'))
+N(lz, Z('verknuepfen', 'Ein Beet ist 2,5 m lang und 1,2 m breit. Um das Beet führt ein 0,5 m breiter Weg. Wie groß ist die Fläche des Weges?', 4.7, '(2.5 + 2 * 0.5) * (1.2 + 2 * 0.5) - 2.5 * 1.2',
+        'Beet mit Weg: 3,5 m · 2,2 m = 7,7 m². Beet: 3 m². Weg: 7,7 − 3 = 4,7 m².', 'Berechne das große Rechteck und ziehe das Beet ab.', einheit='m²'))
+N(lz, A('transfer', 'Wo müssen Klammern stehen, damit 1/2 + 3 · 2 den Wert 7 hat?', '(1/2 + 3) · 2', ['1/2 + (3 · 2)', 'Man braucht keine Klammern.'],
+        '(1/2 + 3) · 2 = 3,5 · 2 = 7. Ohne Klammern: 1/2 + 6 = 6,5.', 'Probiere beide Möglichkeiten aus.'))
+K(lz, Z('knobel', 'Mit den Zahlen 0,5; 2 und 4, je einem Plus- und einem Malzeichen und beliebigen Klammern wird gerechnet. Welches ist das größte mögliche Ergebnis?', 10, '(0.5 + 2) * 4',
+        'Am meisten bringt es, die beiden kleineren Zahlen zu addieren und mit der größten malzunehmen: (0,5 + 2) · 4 = 10. Andere: (0,5 + 4) · 2 = 9, 2 · 4 + 0,5 = 8,5, (2 + 4) · 0,5 = 3.',
+        'Womit lohnt es sich malzunehmen – mit einer großen oder einer kleinen Zahl?'))
+K(lz, L('knobel', 'Berechne 1/2 + 1/2 · 1/2 + 1/2 · 1/2 · 1/2.', B, [7, 8], ['7', '8'], 'Punkt vor Strich: 1/2 · 1/2 = 1/4 und 1/2 · 1/2 · 1/2 = 1/8. Dann 1/2 + 1/4 + 1/8 = 4/8 + 2/8 + 1/8 = 7/8.', 'Welche Rechnungen kommen zuerst?'))
+
+# --- fehler_finden ---
+lz = 'fehler_finden'
+ST.leiter(lz, 'Einfache Fehler benennen (Nenner addiert, Komma falsch) und Aussagen mit Überschlag prüfen.',
+          'Ein Ergebnis mit Überschlag auswählen, falsche Ergebnisse berichtigen, fehlende Zahl aus einem Ergebnis finden, Fehler am Zahlenstrahl.',
+          'Fehler bei Punkt vor Strich, Vorzeichen und Komma deuten; verwechselte Rechenart rückwärts; für welche Zahlen eine Behauptung stimmt; Kassenfehler; fehlerhafte Rechnung finden.')
+TB(lz, 2, 'Ein Kind rechnet: ', 'erkennen', neu_s=1)
+TB(lz, 2, 'Ein Kind rechnet 3/5 − 1/3', 'erkennen', neu_s=1)
+TB(lz, 2, 'Welches Ergebnis', 'mehrschritt'); TB(lz, 2, 'Ein Kind rechnet 0,3', 'mehrschritt')
+TB(lz, 3, 'Ein Kind gibt für', 'begruenden')
+TB(lz, 3, 'Ein Kind sollte eine Zahl', 'rueckwaerts')
+N(lz, Z('einkleidung', 'Ein Kind kauft 3 Hefte zu je 1,20 € und sagt: „Das macht 36 €.“ Wie viel Euro kostet es richtig?', 3.6, '3 * 1.2', '3 · 1,20 € = 3,60 €. Das Kind hat das Komma vergessen.', 'Mache einen Überschlag: Wie viel kosten 3 Hefte zu etwa 1 €?', einheit='€'))
+N(lz, Z('umkehr', 'Ein Kind sagt: „0,5 · □ ergibt 3.“ Welche Zahl steht im Kästchen?', 6, '3 / 0.5', '0,5 · □ = 3 heißt: Die Hälfte von □ ist 3, also □ = 6.', 'Mal 0,5 heißt die Hälfte.'))
+N(lz, A('darstellung', 'Ein Kind markiert das Ergebnis von 1/2 + 1/3 am Zahlenstrahl bei 2/5. Wo liegt das richtige Ergebnis?', 'zwischen 4/5 und 1', ['zwischen 1/3 und 1/2', 'genau bei 2/5', 'rechts von 1'],
+        '1/2 + 1/3 = 5/6. Das liegt zwischen 4/5 und 1. 2/5 ist sogar kleiner als 1/2 allein.', 'Kann die Summe kleiner sein als 1/2?'))
+N(lz, A('parameter', 'Ein Kind behauptet: „a · 0,5 ist immer kleiner als a.“ Für welche Zahlen a stimmt das?', 'für alle positiven Zahlen a', ['für alle Zahlen a', 'für keine Zahl a', 'nur für a größer als 2'],
+        'Für positive a ist die Hälfte kleiner. Für a = 0 ist beides 0, für negative a ist die Hälfte größer (z. B. −1 < −0,5).', 'Probiere a = 4, a = 0 und a = −2.'))
+N(lz, Z('transfer', 'An der Kasse addiert ein Kind 1,25 €, 2,50 € und 0,75 € und erhält 5,00 €. Es zahlt mit 10 € und bekommt 5 € zurück. Wie viele Euro hätte es zurückbekommen müssen?', 5.5, '10 - (1.25 + 2.5 + 0.75)',
+        'Richtig ist 1,25 + 2,50 + 0,75 = 4,50 €. Zurück: 10 € − 4,50 € = 5,50 €. Es fehlen 0,50 €.', 'Rechne die Summe selbst nach.', einheit='€'))
+N(lz, A('pruefung', 'In welcher Rechnung steckt ein Fehler?', '1/2 : 1/4 = 1/8', ['0,2 · 0,3 = 0,06', '3/4 − 1/2 = 1/4', '2,5 + 0,75 = 3,25'],
+        '1/2 : 1/4 = 1/2 · 4 = 2, nicht 1/8. Die anderen Rechnungen stimmen.', 'Prüfe jede Rechnung mit einem Überschlag.'))
+K(lz, Z('knobel', 'Ein Kind sollte von einer Zahl 1/3 dieser Zahl abziehen. Es hat stattdessen 1/3 der Zahl addiert und 48 erhalten. Was wäre richtig gewesen?', 24, '48 / 4 * 3 * 2 / 3',
+        'Die Zahl plus ein Drittel sind 4/3 der Zahl = 48. Also ist ein Drittel 12 und die Zahl 36. Richtig: 36 − 12 = 24.', 'Wie viele Drittel der Zahl sind 48?'))
+K(lz, Z('knobel', 'Ein Kind sollte 3,7 + x rechnen. Es hat bei 3,7 Einer und Zehntel vertauscht und 7,3 + x = 10 erhalten. Wie heißt das richtige Ergebnis?', 6.4, '3.7 + (10 - 7.3)',
+        'Zuerst x bestimmen: Aus 7,3 + x = 10 folgt x = 10 − 7,3 = 2,7. Dann richtig rechnen: 3,7 + 2,7 = 6,4.', 'Bestimme zuerst x.'))
+
+# --- sach ---
+lz = 'sach'
+ST.leiter(lz, 'Anteil vom Anteil ausrechnen und die passende Rechnung erkennen.',
+          'Anteil vom Anteil in Sachsituationen, Rest-Mengen, Überschlag, vom Anteil zurück zum Bruch.',
+          'Rest nach mehreren Schritten, rückwärts zum Ganzen, Fehler deuten, Aussagen prüfen, Teilgruppen zusammenführen, Prüfungsaufgabe.')
+TB(lz, 3, '3/5 der Besucher', 'einkleidung', neu_s=2)
+TB(lz, 3, 'Ein Kind gibt 1/3', 'transfer'); TB(lz, 3, 'Ein Radladen', 'pruefung')
+TB(lz, 2, 'Mache einen Überschlag', 'mehrschritt'); TB(lz, 2, 'Ein Kuchen wiegt', 'mehrschritt')
+N(lz, A('erkennen', 'Welche Rechnung gehört zu „2/3 von 3/4“?', '2/3 · 3/4', ['2/3 + 3/4', '2/3 : 3/4', '3/4 − 2/3'], '„von“ heißt malnehmen: 2/3 · 3/4 = 1/2.', 'Was bedeutet „von“ bei Anteilen?'))
+N(lz, L('umkehr', '1/3 von einem Bruch ist 1/4. Wie heißt der Bruch?', B, [3, 4], ['3', '4'], 'Der Bruch ist dreimal so groß: 3 · 1/4 = 3/4.', 'Ein Drittel ist 1/4 – wie viel sind drei Drittel?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „1/2 von 1/3 ist dasselbe wie 1/3 von 1/2.“', 'Ja: Beides ist 1/6.', ['Nein, 1/2 von 1/3 ist größer.', 'Nein, 1/3 von 1/2 ist größer.'],
+        '1/2 · 1/3 = 1/6 und 1/3 · 1/2 = 1/6. Beim Malnehmen darf man vertauschen.', 'Schreibe beides als Malaufgabe.'))
+K(lz, Z('knobel', 'Ein Kind gibt die Hälfte seines Geldes aus, dann die Hälfte vom Rest und dann noch einmal die Hälfte vom neuen Rest. Es bleiben 3 €. Wie viel Geld hatte es am Anfang?', 24, '3 * 2 * 2 * 2',
+        'Rückwärts: Vor dem letzten Ausgeben waren es 6 €, davor 12 €, am Anfang 24 €.', 'Rechne vom Ende her.', einheit='€'))
+K(lz, L('knobel', 'In einer Klasse sind 3/5 der Kinder Mädchen. 1/3 der Mädchen und 1/2 der Jungen haben ein Haustier. Welcher Anteil der ganzen Klasse hat ein Haustier?', B, [2, 5], ['2', '5'],
+        'Mädchen mit Haustier: 1/3 · 3/5 = 1/5. Jungen sind 2/5, davon die Hälfte: 1/5. Zusammen 2/5.', 'Rechne die beiden Gruppen getrennt aus.'))
+
 if __name__ == '__main__':
     schreibe(DATEI)
+    stufen_datei('bruch.rechnen', ST)

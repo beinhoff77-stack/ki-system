@@ -66,6 +66,7 @@ class Stufen:
         self.ueber_hand = []  # (lz, text, enthaelt)
         self.leitern = {}
         self.knobel_grund = {}
+        self.kurz = []
 
     # ---------- Bausteine (neue Aufgaben) ----------
     def Z(self, g, text, wert, c, w, h, **kw):
@@ -116,12 +117,13 @@ class Stufen:
 
     def knobel(self, lz, a, grund=None):
         a = dict(a, p='bonus', s=3, g='knobel')
-        assert a.get('h') and len(a.get('w', '')) >= 60, ('Knobel braucht Tipp und ausführlichen Weg', a['f']['text'])
+        if not (a.get('h') and len(a.get('w', '')) >= 60): self.kurz.append(a['f']['text'])
         self.extra.append((lz, a))
         if grund: self.knobel_grund[lz] = grund
 
     # ---------- Anwenden ----------
     def anwenden(self, d):
+        assert not self.kurz, ('Knobel braucht Tipp und ausführlichen Weg', self.kurz)
         auf = d['aufgaben']
         lzs = [e['lernziel'] for e in d['inhalt']['etappen']]
         teil = {e['lernziel']: (e.get('teilfaehigkeit') or e['lernziel']) for e in d['inhalt']['etappen']}

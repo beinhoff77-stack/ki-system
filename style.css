@@ -3875,7 +3875,7 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 .lr-kachel:focus-visible { outline: 3px solid var(--lr-akzent); outline-offset: 2px; }
 .lr-kachel-kopf { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
 .lr-kachel-kopf b { font-size: 18px; line-height: 1.25; overflow-wrap: anywhere; }
-.lr-kachel-kurz { font-size: 15px; line-height: 1.35; color: var(--lr-leise); display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.lr-kachel-kurz { font-size: 15px; line-height: 1.35; color: var(--lr-leise); } /* N2: ganz, ohne „…“ */
 .lr-kachel-kurz small { font-weight: 700; }
 .lr-zur-uebersicht { all: unset; cursor: pointer; font: inherit; font-weight: 700; min-height: 44px; display: inline-flex; align-items: center; color: var(--lr-text); text-decoration: underline; text-underline-offset: 4px; }
 .lr-zur-uebersicht:focus-visible, .lr-erkl-link:focus-visible { outline: 3px solid var(--lr-akzent); outline-offset: 2px; border-radius: 6px; }
@@ -3947,3 +3947,30 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 .lern-info-schritt a, .lern-info-links a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
 .lern-info-frage summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
 .lern-info-frage ul { margin: 6px 0 4px; padding-left: 1.2em; display: grid; gap: 6px; }
+
+/* N1: Was in einem Schritt neu ins Bild kommt – Akzentfarbe, kräftig */
+.lr-abflug-tag { --lr-neu: #B45309; }
+.lern-zeichnung .neu, .lern-strahl .neu, .lern-thermo .neu { stroke: var(--lr-neu, var(--lr-akzent, var(--accent))); stroke-width: 4; stroke-dasharray: none; stroke-opacity: 1; }
+.lern-zeichnung .hilfslinie.neu { stroke-dasharray: 7 4; }
+.lern-zeichnung .punkt.neu, .lern-strahl .punkt.neu, .lern-thermo .pfeil.neu { fill: var(--lr-neu, var(--lr-akzent, var(--accent))); stroke: var(--lr-flaeche, #fff); stroke-width: 1.5; }
+.lern-zeichnung .flaeche.neu { stroke: var(--lr-neu, var(--lr-akzent, var(--accent))); stroke-width: 3; }
+.lern-zeichnung .neu-text, .lern-thermo .neu-text { fill: var(--lr-neu, var(--lr-akzent, var(--accent))); font-weight: 800; }
+/* N8: Bildergeschichte – Nummer, Bild und Text gehören sichtbar zusammen (Handy: Bild über dem Text; ab Tablet: Bild links, Text rechts) */
+.lr-sogehts li.lr-schritt.mit-bild { display: grid; grid-template-columns: 1.2em minmax(0, 1fr); grid-template-areas: "nr bild" ". text"; align-items: start; column-gap: 10px; row-gap: 6px; }
+.lr-sogehts li.lr-schritt.mit-bild::before { grid-area: nr; }
+.lr-sogehts li.lr-schritt.mit-bild > .lr-bild { grid-area: bild; margin: 0; }
+.lr-sogehts li.lr-schritt.mit-bild > .lr-schritt-text { grid-area: text; }
+@media (min-width: 760px) {
+  .lr-sogehts li.lr-schritt.mit-bild { grid-template-columns: 1.2em minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "nr bild text"; align-items: center; column-gap: 16px; }
+  .lr-sogehts li.lr-schritt.mit-bild::before { align-self: center; }
+}
+/* N7: Testergebnis – Markierungen und Knöpfe */
+.lern-strahl .marke-richtig { fill: none; stroke: var(--lr-gut, #0E7C86); stroke-width: 3.5; }
+.lern-strahl text.zahl.marke-richtig-text { fill: var(--lr-gut, #0E7C86); }
+.lern-strahl .marke-falsch { fill: none; stroke: #C62828; stroke-width: 3; stroke-dasharray: 4 3; }
+.lr-test-knoepfe { flex-direction: column; align-items: stretch; margin: 16px 0 24px; }
+.lr-test-knoepfe .lr-knopf, .lr-test-knoepfe .lr-knopf-zweit { justify-content: center; text-align: center; }
+.lr-test-knoepfe .lr-textlink { align-self: flex-start; }
+@media (min-width: 760px) { .lr-test-knoepfe { flex-direction: row; flex-wrap: wrap; align-items: center; } }
+.lern-zeichnung.mit-neu :is(.graph, .punkt, .strecke, .hilfslinie, .kreis, .flaeche, .winkel, .bogen, .pfeil, .saeule-rot):not(.neu),
+.lern-zeichnung.mit-neu :is(.graphname0, .graphname1, .graphname2), .lern-strahl.mit-neu :is(.punkt, .bogen, .bogen-spitze):not(.neu) { opacity: .4; }

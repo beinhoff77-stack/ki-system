@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(4104)
 
@@ -51,7 +52,7 @@ ETAPPEN = [
 
 
 def g_explizit(s):
-    art = R.choice({1: ['linear', 'linear'], 2: ['linear', 'quadrat', 'erste'], 3: ['welches_n', 'quadrat', 'differenz']}[s])
+    art = R.choice({1: ['linear', 'linear'], 2: ['quadrat', 'erste', 'quadrat'], 3: ['welches_n', 'quadrat', 'differenz']}[s])  # Durchsicht 19
     m, t = R.choice([2, 3, 4, 5, -2, -3, 6]), R.choice([x for x in range(-9, 13) if x])
     if art == 'linear':
         n = R.randint(2, 15) if s == 1 else R.randint(10, 40)
@@ -217,7 +218,7 @@ def g_geometrisch(s):
 
 
 def g_erkennen(s):
-    art = R.choice({1: ['art', 'naechstes'], 2: ['art', 'naechstes', 'art'], 3: ['fehler_n', 'fehler_q', 'art3', 'naechstes3']}[s])
+    art = R.choice({1: ['art', 'naechstes'], 2: ['art3', 'naechstes3', 'fehler_n', 'fehler_q'], 3: ['fehler_n', 'fehler_q', 'art3', 'naechstes3']}[s])  # Durchsicht 19
     def zufall_folge(typ):
         if typ == 'arith':
             a1, d = R.randint(-10, 20), R.choice([2, 3, 4, 5, 6, 9, -3, -4, -7])
@@ -252,16 +253,178 @@ def g_erkennen(s):
         return auswahl(f'Arithmetische Folge mit {a(1)} = {a1}, d = {d}. Nina rechnet {a(n)} = {a1} + {n} · {d} = {a1 + n * d}. Stimmt das?', r,
                        ['Richtig.', f'Falsch: richtig ist {a(n)} = {n} · {d} = {n * d}.', f'Falsch: richtig ist {a(n)} = {a1} · {d}^{n - 1}.'],
                        f'Von {a(1)} bis {a(n)} sind es nur {n - 1} Schritte. Nina hat einmal zu viel addiert.', 'Wie viele Schritte liegen zwischen a₁ und aₙ?')
-    a1, q, n = R.randint(1, 5), R.choice([2, 3]), R.randint(5, 8)
-    r = f'Falsch: richtig ist {a(n)} = {a1} · {q}^{n - 1} = {a1 * q ** (n - 1)}.'
-    return auswahl(f'Geometrische Folge mit {a(1)} = {a1}, q = {q}. Lars rechnet {a(n)} = ({a1} · {q})^{n - 1} = {(a1 * q) ** (n - 1)}. Stimmt das?' if a1 > 1 else
+    a1, q, n = R.randint(2, 5), R.choice([2, 3]), R.randint(5, 8)  # Durchsicht 19: a₁ = 1 ergab widersprüchliche Antworten
+    if a1 == q: return None  # sonst wäre auch „qⁿ“ richtig (mehrdeutig)
+    r = f'Falsch: richtig ist {a(n)} = {a1} · {q}^{n - 1} = {dz(a1 * q ** (n - 1))}.'
+    return auswahl(f'Geometrische Folge mit {a(1)} = {a1}, q = {q}. Lars rechnet {a(n)} = ({a1} · {q})^{n - 1} = {dz((a1 * q) ** (n - 1))}. Stimmt das?' if a1 > 1 else
                    f'Geometrische Folge mit {a(1)} = {a1}, q = {q}. Lars rechnet {a(n)} = {a1} · {q}^{n} = {a1 * q ** n}. Stimmt das?', r,
-                   ['Richtig.', f'Falsch: richtig ist {a(n)} = {a1} + ({n} − 1) · {q} = {a1 + (n - 1) * q}.', f'Falsch: richtig ist {a(n)} = {q}^{n} = {q ** n}.'],
-                   f'Nur q wird potenziert, und zwar mit n − 1 = {n - 1}: {a1} · {q ** (n - 1)} = {a1 * q ** (n - 1)}.',
+                   ['Richtig.', f'Falsch: richtig ist {a(n)} = {a1} + ({n} − 1) · {q} = {a1 + (n - 1) * q}.', f'Falsch: richtig ist {a(n)} = {q}^{n} = {dz(q ** n)}.'],
+                   f'Nur q wird potenziert, und zwar mit n − 1 = {n - 1}: {a1} · {dz(q ** (n - 1))} = {dz(a1 * q ** (n - 1))}.',
                    'Welche Zahl wird potenziert – und mit welchem Exponenten?')
 
 
-GEN = schoen({'explizit': g_explizit, 'rekursiv': g_rekursiv, 'arithmetisch': g_arithmetisch, 'geometrisch': g_geometrisch, 'erkennen': g_erkennen})
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Prüfungsvorbilder: IB MYP Extended / MYP-Fragenbanken (n-tes Glied, „Is 100 a term of the sequence?“, erstes Glied über einer Grenze,
+# a₁ und d aus zwei Gliedern, Wachstum/Abnahme in Prozent, allgemeines Glied auswählen, zweite Differenzen). Eigene Zahlen.
+def explizit3(art):
+    if art == 'erstes_ueber':
+        k, c = R.choice([1, 2, 3]), R.randint(-5, 5)
+        g = R.choice([100, 150, 200, 300, 500])
+        n = next(n for n in range(1, 100) if k * n * n + c > g)
+        return zahl(f'{a("n")} = {poly(k, 0, c, v="n")}. Ab welchem Platz n ist das Glied größer als {g}?',
+                    f'{a(n - 1)} = {k * (n - 1) ** 2 + c} ≤ {g}, aber {a(n)} = {k * n * n + c} > {g}. Also ab n = {n}.',
+                    'Probiere Platznummern aus, bis das Glied die Grenze überschreitet.', n, f'{n}')
+    # ist_glied
+    m, c = R.choice([3, 4, 6, 7]), R.randint(-5, 9)
+    z = R.randint(40, 150)
+    ja = (z - c) % m == 0 and (z - c) // m >= 1
+    n = (z - c) // m
+    r = f'Ja, es ist {a(n)}.' if ja else 'Nein.'
+    falsch = [f'Ja, es ist {a(round((z - c) / m))}.', 'Das kann man nicht entscheiden.', 'Nein.' if ja else f'Ja, es ist {a(n + 1)}.']
+    return auswahl(f'Ist {z} ein Glied der Folge {a("n")} = {poly(m, c, v="n")}?', r, falsch,
+                   f'{poly(m, c, v="n")} = {z} ⇒ {m}n = {z - c} ⇒ n = {dz(Fr(z - c, m)) if endlich(Fr(z - c, m)) else br(Fr(z - c, m))}. '
+                   + (f'n ist eine natürliche Zahl: {z} = {a(n)}.' if ja else 'n ist keine natürliche Zahl, also kommt die Zahl nicht vor.'),
+                   'Setze die Formel gleich der Zahl. Ist n eine natürliche Zahl?')
+
+
+def rekursiv3(art):
+    if art == 'kontext':
+        f0, p, ab = R.choice([(100, 20, 10), (200, 10, 15), (120, 25, 20), (80, 50, 30), (400, 10, 30)])
+        x1 = f0 * (100 + p) // 100 - ab
+        x2 = x1 * (100 + p) / 100 - ab
+        if x2 != int(x2): return None
+        return zahl(f'In einem Teich leben {f0} Fische. Jedes Jahr wächst der Bestand um {p} %, danach werden {ab} Fische gefangen. Wie viele Fische leben nach 2 Jahren im Teich?',
+                    f'Regel: {a("n+1")} = {dz(Fr(100 + p, 100))} · {a("n")} − {ab}. Nach 1 Jahr: {dz(Fr(100 + p, 100))} · {f0} − {ab} = {x1}. Nach 2 Jahren: {dz(Fr(100 + p, 100))} · {x1} − {ab} = {int(x2)}.',
+                    'Erst wachsen lassen, dann abziehen – und das zweimal.', int(x2), f'(({f0} * {1 + p / 100} - {ab}) * {1 + p / 100}) - {ab}')
+    # periodisch
+    s_, a1 = R.randint(5, 12), R.randint(1, 4)
+    a2 = s_ - a1
+    if a1 == a2: return None
+    k = R.choice([50, 99, 100, 101, 200])
+    w = a1 if k % 2 else a2
+    return zahl(f'{a(1)} = {a1}, {a("n+1")} = {s_} − {a("n")}. Berechne {a(k)}.',
+                f'{a(2)} = {s_} − {a1} = {a2}, {a(3)} = {s_} − {a2} = {a1}, … Die Folge springt zwischen {a1} und {a2}: ungerade Platznummern {a1}, gerade {a2}. {k} ist {"ungerade" if k % 2 else "gerade"}: {a(k)} = {w}.',
+                'Rechne die ersten Glieder aus und suche ein Muster.', w, f'{w}')
+
+
+def arith3(art):
+    if art == 'zwei_glieder':
+        a1, d = R.randint(-8, 15), R.choice([2, 3, 4, 5, -3, -4])
+        i, j = sorted(R.sample(range(2, 10), 2))
+        ai, aj = a1 + (i - 1) * d, a1 + (j - 1) * d
+        return luecken(f'Bei einer arithmetischen Folge ist {a(i)} = {dz(ai)} und {a(j)} = {dz(aj)}. Bestimme {a(1)} und d.', f'{a(1)} = □; d = □', 'zwei ganze Zahlen',
+                       [a1, d], f'Von {a(i)} bis {a(j)}: {j - i} Schritte, d = ({dz(aj)} − {kl(ai)}) : {j - i} = {dz(d)}. {a(1)} = {dz(ai)} − {i - 1} · {kl(d)} = {dz(a1)}.',
+                       'Wie viele Schritte d liegen zwischen den beiden bekannten Gliedern?', c=[f'{ai} - {i - 1} * ({aj} - ({ai})) / {j - i}', f'({aj} - ({ai})) / {j - i}'])
+    # erstes_negativ
+    a1, d = R.randint(40, 120), -R.choice([3, 4, 6, 7, 8, 9])
+    n = next(n for n in range(1, 200) if a1 + (n - 1) * d < 0)
+    if a1 + (n - 1) * d == 0: return None
+    xs = [a1 + d * i for i in range(3)]
+    return zahl(f'Arithmetische Folge {folge_txt(xs)} Wie heißt das erste negative Glied?',
+                f'd = {dz(d)}. {a(n - 1)} = {dz(a1 + (n - 2) * d)} ≥ 0, {a(n)} = {dz(a1)} + {n - 1} · {kl(d)} = {dz(a1 + (n - 1) * d)} < 0. Das erste negative Glied ist {dz(a1 + (n - 1) * d)}.',
+                f'Wie oft passt {abs(d)} in {a1}? Danach kommt der erste Schritt unter 0.', a1 + (n - 1) * d, f'{a1} + ({n} - 1) * ({d})')
+
+
+def geo3(art):
+    if art == 'zwei_glieder_geo':
+        a1, q = R.randint(1, 6), R.choice([2, 3, 4])
+        return zahl(f'Eine geometrische Folge mit positiven Gliedern hat {a(2)} = {a1 * q} und {a(4)} = {a1 * q ** 3}. Berechne {a(1)}.',
+                    f'{a(4)} = {a(2)} · q² ⇒ q² = {a1 * q ** 3} : {a1 * q} = {q * q} ⇒ q = {q}. {a(1)} = {a1 * q} : {q} = {a1}.',
+                    'Von a₂ bis a₄ wird zweimal mit q multipliziert. Danach einen Schritt zurück.', a1, f'{a1 * q} / {q}')
+    # ab_wann
+    a1, q = R.randint(2, 7), R.choice([2, 3])
+    g = R.choice([1000, 5000, 10000])
+    n = next(n for n in range(1, 40) if a1 * q ** (n - 1) > g)
+    return zahl(f'Geometrische Folge {folge_txt([a1 * q ** i for i in range(3)])} Welches ist das erste Glied, das größer als {dz(g)} ist? Gib seine Platznummer an.',
+                f'{a(n - 1)} = {dz(a1 * q ** (n - 2))} ≤ {dz(g)}, {a(n)} = {dz(a1 * q ** (n - 1))} > {dz(g)}. Also Platz {n}.',
+                'Rechne weiter (mal q), bis die Grenze überschritten ist, und zähle die Plätze mit.', n, f'{n}')
+
+
+def erkennen3(art):
+    if art == 'formel_typ':
+        a1, q = R.randint(2, 7), R.choice([2, 3, 4])
+        if a1 == q: return None
+        xs = [a1 * q ** i for i in range(3)]
+        r = f'{a("n")} = {a1} · {q}^(n − 1)'
+        return auswahl(f'Welche Formel gehört zur Folge {folge_txt(xs)}', r,
+                       [f'{a("n")} = {a1} · {q}^n', f'{a("n")} = {q} · {a1}^(n − 1)', f'{a("n")} = {a1} + {xs[1] - a1}(n − 1)'],
+                       f'Jedes Glied ist das {q}-Fache des vorigen: geometrisch mit {a(1)} = {a1}, q = {q}. Probe: n = 1 gibt {a1} · {q}⁰ = {a1}.',
+                       'Bestimme die Art der Folge und setze n = 1 in jede Formel ein.')
+    if art == 'zweite_diff':
+        p, q_, r_ = R.choice([1, 2]), R.randint(-3, 4), R.randint(-2, 6)
+        xs = [p * n * n + q_ * n + r_ for n in range(1, 6)]
+        d1 = [xs[i + 1] - xs[i] for i in range(4)]
+        return zahl(f'Setze die Folge fort: {folge_txt(xs[:4])} Wie heißt das nächste Glied?',
+                    f'Differenzen: {"; ".join(dz(x) for x in d1[:3])} – sie wachsen jedes Mal um {2 * p}. Nächste Differenz: {dz(d1[3])}. Nächstes Glied: {dz(xs[3])} + {kl(d1[3])} = {dz(xs[4])}.',
+                    'Weder arithmetisch noch geometrisch? Schau dir die Differenzen der Differenzen an.', xs[4], f'{xs[4]}')
+    if art == 'beides':
+        return auswahl('Gibt es eine Folge, die zugleich arithmetisch und geometrisch ist?', 'Ja, jede konstante Folge wie 5; 5; 5; … (d = 0, q = 1).',
+                       ['Nein, das schließt sich aus.', 'Ja, zum Beispiel 1; 2; 4; 8; …', 'Ja, zum Beispiel 2; 4; 6; 8; …'],
+                       'Bei 5; 5; 5; … ist jede Differenz 0 (arithmetisch) und jeder Quotient 1 (geometrisch). 1; 2; 4; 8 ist nur geometrisch, 2; 4; 6; 8 nur arithmetisch.',
+                       'Welche Differenz und welcher Quotient sind möglich, wenn alle Glieder gleich sind?')
+    # fehlendes_glied
+    if R.random() < .5:
+        a1, q = R.randint(1, 6), R.choice([2, 3, 4])
+        xs = [a1 * q ** i for i in range(4)]
+        return zahl(f'Die Folge {dz(xs[0])}; □; {dz(xs[2])}; {dz(xs[3])}; … ist geometrisch. Welche Zahl gehört in die Lücke?',
+                    f'q = {dz(xs[3])} : {dz(xs[2])} = {q}. Lücke: {dz(xs[0])} · {q} = {dz(xs[1])} (Probe: {dz(xs[1])} · {q} = {dz(xs[2])}).',
+                    'Bestimme q aus den beiden Nachbarn ohne Lücke.', xs[1], f'{xs[1]}')
+    a1, d = R.randint(-5, 15), R.choice([3, 4, 5, 6, 7])
+    xs = [a1 + d * i for i in range(4)]
+    return luecken(f'Die Folge {dz(xs[0])}; □; □; {dz(xs[3])}; … ist arithmetisch. Welche Zahlen gehören in die Lücken?', '□ und □', 'zwei ganze Zahlen', xs[1:3],
+                   f'Von {dz(xs[0])} bis {dz(xs[3])} sind es 3 Schritte: d = ({dz(xs[3])} − {kl(xs[0])}) : 3 = {d}. Lücken: {dz(xs[1])} und {dz(xs[2])}.',
+                   'Zwischen dem ersten und dem vierten Glied liegen drei gleich große Schritte.', c=[str(xs[1]), str(xs[2])])
+
+
+def _filter(g, s, teil, *, nicht=False):
+    for _ in range(80):
+        t = g(s)
+        if t and ((teil in t['f']['text']) != nicht): return t
+    return None
+
+
+def g2_explizit(s):
+    if s < 3: return g_explizit(s)
+    art = art3('welches_n', 'erstes_ueber', 'ist_glied', ['welches_n', 'differenz', 'erstes_ueber', 'ist_glied'])
+    if art == 'welches_n': return _filter(g_explizit, 3, 'Das wievielte')
+    if art == 'differenz': return _filter(g_explizit, 3, 'unterscheiden')
+    return explizit3(art)
+
+
+def g2_rekursiv(s):
+    if s < 3: return g_rekursiv(s)
+    art = art3('zwei', 'kontext', 'periodisch', ['rueck', 'zwei', 'kontext', 'periodisch', 'rueck'])
+    if art == 'zwei': return _filter(g_rekursiv, 3, 'Summe der beiden vorigen')
+    if art == 'rueck': return _filter(g_rekursiv, 3, 'Wie groß ist')
+    return rekursiv3(art)
+
+
+def g2_arithmetisch(s):
+    if s < 3: return g_arithmetisch(s)
+    art = art3('zwei_glieder', 'sach', 'erstes_negativ', ['zwei_glieder', 'sach', 'erstes_negativ', 'welches', 'sparen'])
+    if art == 'sach': return _filter(g_arithmetisch, 3, 'Theater')
+    if art == 'sparen': return _filter(g_arithmetisch, 3, 'Sparkonto')
+    if art == 'welches': return _filter(g_arithmetisch, 3, 'Das wievielte')
+    return arith3(art)
+
+
+def g2_geometrisch(s):
+    if s < 3: return g_geometrisch(s)
+    art = art3('wert', 'zwei_glieder_geo', 'ab_wann', ['wert', 'zwei_glieder_geo', 'ab_wann', 'bakt', 'ball'])
+    if art == 'wert': return _filter(g_geometrisch, 3, 'Auto')
+    if art == 'bakt': return _filter(g_geometrisch, 3, 'Bakterien')
+    if art == 'ball': return _filter(g_geometrisch, 3, 'Ball')
+    return geo3(art)
+
+
+def g2_erkennen(s):
+    if s < 3: return g_erkennen(s)
+    art = art3('formel_typ', 'zweite_diff', 'beides', ['formel_typ', 'zweite_diff', 'fehler', 'fehlendes_glied', 'fehlendes_glied'])
+    if art == 'fehler': return _filter(g_erkennen, 3, 'rechnet')
+    return erkennen3(art)
+
+
+GEN = schoen({'explizit': g2_explizit, 'rekursiv': g2_rekursiv, 'arithmetisch': g2_arithmetisch, 'geometrisch': g2_geometrisch, 'erkennen': g2_erkennen})
 
 # ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
 # Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
@@ -366,5 +529,5 @@ d = bauen('funktionen.folgen',
       [('Folgen beschreiben', ['explizit', 'rekursiv']), ('Besondere Folgen', ['arithmetisch', 'geometrisch']), ('Erkennen', ['erkennen'])],
       ETAPPEN, GEN,
       offen=['Reihen und Summenschreibweise (im Umfang von funktionen.folgen genannt) stehen im eigenen Thema funktionen.reihen, damit sich die beiden Themen nicht doppeln.',
-             'Indizes werden mit tiefgestellten Unicode-Ziffern geschrieben (a₅, aₙ₊₁). Falls die Schrift der App sie nicht darstellt, bitte melden.'])
+             'Indizes werden mit tiefgestellten Unicode-Ziffern geschrieben (a₅, aₙ₊₁). Falls die Schrift der App sie nicht darstellt, bitte melden.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

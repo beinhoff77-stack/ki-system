@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(7210)
 
@@ -59,7 +60,7 @@ def g_jahr(s):
     K0 = R.choice([500, 800, 1000, 1200, 1500, 2000, 2500, 4000, 5000]) if s < 3 else R.choice([600, 750, 1250, 2400, 3200])
     p = R.choice([Fr(2), Fr(3), Fr(4), Fr(5), Fr(6)]) if s == 1 else R.choice(SAETZE)
     q = 1 + p / 100
-    art = R.choice({1: ['z1', 'k1'], 2: ['k2', 'z2', 'k1'], 3: ['k3', 'z2', 'einfach_diff']}[s])
+    art = R.choice({1: ['z1', 'k1'], 2: ['k2', 'z2', 'k3'], 3: ['k3', 'z2', 'einfach_diff']}[s])  # Durchsicht 19
     if art == 'z1':
         z = K0 * p / 100
         return zahl(f'{dz(K0)} € werden mit {pt(p)} pro Jahr verzinst. Wie viel Zinsen gibt es im ersten Jahr?', f'{pt(p)} von {dz(K0)} € = {dz(K0)} · {dz(p / 100)} = {eu(z)}.',
@@ -118,7 +119,7 @@ def g_formel(s):
     n = R.randint(3, 6) if s == 1 else R.randint(4, 15)
     q = 1 + p / 100
     Kn = K0 * q ** n
-    art = R.choice({1: ['kn'], 2: ['kn', 'kn', 'zinsen'], 3: ['kn_abnahme', 'zinsen', 'kn']}[s])
+    art = R.choice({1: ['kn'], 2: ['zinsen', 'kn_abnahme', 'zinsen'], 3: ['kn_abnahme', 'zinsen', 'kn']}[s])  # Durchsicht 19
     if art == 'kn_abnahme':
         a = R.choice([10, 15, 20, 25])
         W0 = R.choice([12000, 18000, 24000, 30000])
@@ -142,7 +143,7 @@ def g_formel(s):
 
 
 def g_rueck(s):
-    art = R.choice({1: ['k0_1'], 2: ['k0_n', 'p_1', 'k0_1'], 3: ['p_2', 'k0_n', 'p_2']}[s])
+    art = R.choice({1: ['k0_1'], 2: ['k0_n', 'p_1'], 3: ['p_2', 'k0_n', 'p_2']}[s])  # Durchsicht 19
     K0 = R.choice([1000, 2000, 2500, 4000, 5000, 8000, 10000, 1600, 3200])
     p = R.choice([Fr(2), Fr(3), Fr(4), Fr(5), Fr(10), Fr(5, 2)])
     q = 1 + p / 100
@@ -168,7 +169,7 @@ def g_rueck(s):
 
 
 def g_vergleich(s):
-    art = R.choice({1: ['schneller', 'verdopplung_klein'], 2: ['angebot', 'verdopplung', 'schneller'], 3: ['angebot_bonus', 'verdopplung', 'faustregel']}[s])
+    art = R.choice({1: ['schneller', 'verdopplung_klein'], 2: ['verdopplung'], 3: ['angebot_bonus', 'verdopplung', 'faustregel']}[s])  # Durchsicht 19
     if art == 'schneller':
         K0, p, n = R.choice([1000, 2000, 5000]), R.choice([3, 4, 5]), R.choice([2, 3])
         zz, ez = K0 * Fr(100 + p, 100) ** n, K0 + K0 * Fr(p, 100) * n
@@ -177,7 +178,7 @@ def g_vergleich(s):
                        ['Mit einfachen Zinsen.', 'Bei beiden gleich viel.', 'Das hängt vom Anfangskapital ab.'],
                        f'Einfach: {eu(ez)}. Zinseszins: {eu(cent(zz) or zz)}. Beim Zinseszins werden auch die Zinsen verzinst.', 'Werden die Zinsen im zweiten Jahr mitverzinst?')
     if art in ('verdopplung', 'verdopplung_klein'):
-        p = R.choice([4, 5, 6, 8, 10]) if art == 'verdopplung' else R.choice([10, 12, 15, 20])
+        p = R.choice([3, 4, 5, 6, 7, 8, 9, 10, 12]) if art == 'verdopplung' else R.choice([10, 12, 15, 20])
         q = 1 + p / 100
         n = math.ceil(math.log(2) / math.log(q))
         if abs(q ** n - 2) < 1e-4: return None
@@ -210,7 +211,168 @@ def g_vergleich(s):
                    'Rechne beide Endbeträge aus – der Bonus zählt einmal.')
 
 
-GEN = schoen({'jahr': g_jahr, 'faktor': g_faktor, 'formel': g_formel, 'rueck': g_rueck, 'vergleich': g_vergleich})
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Prüfungsvorbilder: Abschlussprüfung Realschule Bayern Mathematik I/II (Wachstum/Abnahme: „Um wie viel Prozent … pro Jahr?“,
+# Anfangswert berechnen, Probieren für die Laufzeit), IB MYP (compound interest: Vergleich von Angeboten, unterjährige Verzinsung). Eigene Zahlen.
+def jahr3(art):
+    if art == 'einzahlung':
+        K0, p, E = R.choice([1000, 2000, 1500, 800]), R.choice([Fr(2), Fr(3), Fr(4), Fr(5)]), R.choice([200, 500, 1000])
+        q = 1 + p / 100
+        k2 = (K0 * q + E) * q
+        if (k2 * 100).denominator != 1: return None
+        return zahl(f'{dz(K0)} € werden mit {pt(p)} Zinseszins angelegt. Nach einem Jahr zahlt man {dz(E)} € dazu. Wie hoch ist das Kapital nach 2 Jahren?',
+                    f'Nach Jahr 1: {dz(K0)} € · {qtxt(p)} = {eu(K0 * q)}. Plus {dz(E)} € = {eu(K0 * q + E)}. Nach Jahr 2: {eu(K0 * q + E)} · {qtxt(p)} = {eu(k2)}.',
+                    'Verzinse zuerst ein Jahr, addiere dann die Einzahlung und verzinse die Summe.', k2, f'({K0} * {float(q)} + {E}) * {float(q)}', einheit='€')
+    # zinsen_rueck: aus den Zinsen im 2. Jahr das Anfangskapital
+    K0, p = R.choice([1000, 2000, 2500, 4000, 5000, 800]), R.choice([Fr(2), Fr(4), Fr(5), Fr(10)])
+    q = 1 + p / 100
+    z2 = K0 * q * p / 100
+    if (z2 * 100).denominator != 1: return None
+    return zahl(f'Bei {pt(p)} Zinseszins gab es im zweiten Jahr {eu(z2)} Zinsen. Wie hoch war das Anfangskapital?',
+                f'Zinsen im 2. Jahr = K₁ · {dz(p / 100)}, also K₁ = {eu(z2)} : {dz(p / 100)} = {eu(K0 * q)}. K₀ = {eu(K0 * q)} : {qtxt(p)} = {eu(K0)}.',
+                'Die Zinsen im 2. Jahr gehören zum Kapital nach dem 1. Jahr. Rechne zweimal rückwärts.', K0, f'{float(z2)} / {float(p / 100)} / {float(q)}', einheit='€')
+
+
+def faktor3(art):
+    if art == 'plus_minus':
+        p = R.choice([10, 20, 25, 50])
+        g = (1 + Fr(p, 100)) * (1 - Fr(p, 100))
+        return zahl(f'Ein Preis steigt um {p} % und sinkt danach um {p} %. Mit welchem Faktor wurde er insgesamt multipliziert?',
+                    f'{dz(1 + Fr(p, 100))} · {dz(1 - Fr(p, 100))} = {dz(g)}. Der Preis ist danach um {dz((1 - g) * 100)} % niedriger als vorher – nicht gleich.',
+                    'Beide Faktoren multiplizieren, nicht die Prozente verrechnen.', g, f'{1 + p / 100} * {1 - p / 100}')
+    # halbjahr
+    p = R.choice([2, 4, 6, 8])
+    h = Fr(p, 2)
+    g_h = (1 + h / 100) ** 2
+    return auswahl(f'Bank A zahlt jährlich {p} % Zinsen. Bank B zahlt jedes halbe Jahr {dz(h)} % Zinsen, die mitverzinst werden. Welche Bank bringt nach einem Jahr mehr?', 'Bank B',
+                   ['Bank A', 'Beide gleich viel', 'Das hängt vom Kapital ab.'],
+                   f'A: Faktor {dz(1 + Fr(p, 100))}. B: {dz(1 + h / 100)}² = {dz(g_h)}. Bei B werden die Zinsen des ersten Halbjahrs im zweiten mitverzinst.',
+                   'Vergleiche die Gesamtfaktoren für ein Jahr.')
+
+
+def formel3(art):
+    if art == 'laufzeit_vergleich':
+        for _ in range(50):
+            K0 = R.choice([2000, 5000, 10000])
+            (n1, p1), (n2, p2) = R.sample([(10, Fr(2)), (8, Fr(5, 2)), (6, Fr(3)), (12, Fr(3, 2)), (5, Fr(4))], 2)
+            a, b = K0 * (1 + p1 / 100) ** n1, K0 * (1 + p2 / 100) ** n2
+            if abs(a - b) > 20: break
+        else:
+            return None
+        r = 'Angebot A' if a > b else 'Angebot B'
+        return auswahl(f'{dz(K0)} € sollen angelegt werden. Angebot A: {n1} Jahre zu {pt(p1)} Zinseszins. Angebot B: {n2} Jahre zu {pt(p2)} Zinseszins. Welches Angebot bringt am Ende mehr Geld?', r,
+                       ['Angebot A', 'Angebot B', 'Beide gleich viel'],
+                       f'A: {dz(K0)} € · {qtxt(p1)}^{n1} ≈ {eu(cent(a) or round(float(a), 2))}. B: {dz(K0)} € · {qtxt(p2)}^{n2} ≈ {eu(cent(b) or round(float(b), 2))}. Mehr bringt {r}.',
+                       'Berechne beide Endkapitalien mit Kₙ = K₀ · qⁿ.')
+    # zinsen_im_jahr
+    K0, p, n = R.choice([2000, 5000, 10000]), R.choice([Fr(2), Fr(3), Fr(4), Fr(5)]), R.randint(4, 8)
+    q = 1 + p / 100
+    z = K0 * q ** (n - 1) * p / 100
+    zc = cent(z)
+    if zc is None: return None
+    return zahl(f'{dz(K0)} € werden mit {pt(p)} Zinseszins angelegt. Wie viel Zinsen gibt es genau im {n}. Jahr? (auf Cent)',
+                f'Am Anfang des {n}. Jahres: K_{n - 1} = {dz(K0)} € · {qtxt(p)}^{n - 1} ≈ {eu(cent(K0 * q ** (n - 1)) or 0)}. Zinsen im {n}. Jahr: {pt(p)} davon ≈ {eu(zc)}.',
+                f'Im {n}. Jahr wird das Kapital nach {n - 1} Jahren verzinst.', zc, f'round({K0} * {float(q)} ** {n - 1} * {float(p)} / 100, 2)', einheit='€', tol=0.01)
+
+
+def rueck3(art):
+    if art == 'ziel':
+        Z, p, n = R.choice([5000, 10000, 20000]), R.choice([Fr(2), Fr(3), Fr(4), Fr(5)]), R.randint(3, 8)
+        q = 1 + p / 100
+        k0 = cent(Z / q ** n)
+        if k0 is None: return None
+        return zahl(f'Wie viel Geld muss man heute zu {pt(p)} Zinseszins anlegen, um nach {n} Jahren {dz(Z)} € zu haben? (auf Cent)',
+                    f'K₀ = Kₙ : qⁿ = {dz(Z)} € : {qtxt(p)}^{n} ≈ {eu(k0)}.', 'Rückwärts: durch qⁿ teilen.', k0, f'round({Z} / {float(q)} ** {n}, 2)', einheit='€', tol=0.01)
+    # wie_lange
+    K0, p, n = R.choice([1000, 2000, 5000]), R.choice([Fr(3), Fr(4), Fr(5), Fr(6)]), R.randint(3, 7)
+    q = 1 + p / 100
+    kn = cent(K0 * q ** n)
+    if kn is None: return None
+    return zahl(f'Ein Kapital von {dz(K0)} € wuchs bei {pt(p)} Zinseszins auf {eu(kn)}. Wie viele Jahre lag es auf dem Konto?',
+                f'{eu(kn)} : {dz(K0)} € ≈ {dz(round(float(kn / K0), 4))}. Probieren: {qtxt(p)}^{n} ≈ {dz(round(float(q ** n), 4))}. Also {n} Jahre.',
+                'Teile Endkapital durch Anfangskapital und probiere, welche Potenz von q das ergibt.', n, f'{n}')
+
+
+def vergleich3(art):
+    if art == 'zwei_autos':
+        for _ in range(50):
+            wa, pa = R.choice([30000, 36000, 40000]), R.choice([20, 25, 30])
+            wb, pb = R.choice([20000, 24000, 25000]), R.choice([5, 10, 15])
+            n = next((n for n in range(1, 30) if wb * (1 - Fr(pb, 100)) ** n > wa * (1 - Fr(pa, 100)) ** n), None)
+            if n and 2 <= n <= 8: break
+        else:
+            return None
+        fa, fb = 1 - Fr(pa, 100), 1 - Fr(pb, 100)
+        return zahl(f'Auto A kostet neu {dz(wa)} € und verliert jedes Jahr {pa} % seines Werts. Auto B kostet neu {dz(wb)} € und verliert jedes Jahr {pb} %. Nach wie vielen ganzen Jahren ist Auto B erstmals mehr wert als Auto A?',
+                    f'A: {dz(wa)} € · {dz(fa)}ⁿ, B: {dz(wb)} € · {dz(fb)}ⁿ. n = {n - 1}: A ≈ {eu(round(float(wa * fa ** (n - 1))))}, B ≈ {eu(round(float(wb * fb ** (n - 1))))}. '
+                    f'n = {n}: A ≈ {eu(round(float(wa * fa ** n)))}, B ≈ {eu(round(float(wb * fb ** n)))}. Also nach {n} Jahren.',
+                    'Stelle für beide Autos Wert = Neupreis · qⁿ auf und probiere Jahr für Jahr.', n, f'{n}')
+    if art == 'halbierung':
+        p = R.choice([8, 10, 12, 15, 20, 25, 30, 35, 40])
+        f = 1 - Fr(p, 100)
+        n = next(n for n in range(1, 50) if f ** n < Fr(1, 2))
+        return zahl(f'Ein Auto verliert jedes Jahr {p} % seines Werts. Nach wie vielen ganzen Jahren ist es erstmals weniger als die Hälfte wert?',
+                    f'q = {dz(f)}. {dz(f)}^{n - 1} ≈ {dz(round(float(f ** (n - 1)), 3))} ≥ 0,5, aber {dz(f)}^{n} ≈ {dz(round(float(f ** n), 3))} < 0,5. Also nach {n} Jahren.',
+                    'Probiere qⁿ mit q = 1 − p/100, bis es unter 0,5 fällt.', n, f'{n}')
+    # kreuzung: einfache Zinsen mit höherem Satz gegen Zinseszins
+    pe, pz = R.choice([(6, 5), (5, 4), (8, 6), (10, 8)])
+    n = next(n for n in range(1, 200) if (1 + Fr(pz, 100)) ** n > 1 + Fr(pe * n, 100))
+    return zahl(f'Angebot A: {pe} % einfache Zinsen pro Jahr (immer vom Anfangskapital). Angebot B: {pz} % Zinseszins. Ab welchem Jahr hat man mit B mehr Geld als mit A?',
+                f'A: Faktor 1 + {dz(Fr(pe, 100))} · n. B: {qtxt(pz)}ⁿ. Für n = {n - 1}: A {dz(round(1 + pe * (n - 1) / 100, 3))}, B ≈ {dz(round(float((1 + Fr(pz, 100)) ** (n - 1)), 3))}. '
+                f'Für n = {n}: A {dz(round(1 + pe * n / 100, 3))}, B ≈ {dz(round(float((1 + Fr(pz, 100)) ** n), 3))}. Ab Jahr {n} ist B besser.',
+                'Rechne für beide Angebote den Faktor nach n Jahren aus und probiere.', n, f'{n}')
+
+
+def _filter(g, s, teil, nicht=False):
+    for _ in range(120):
+        t = g(s)
+        if t and ((teil in t['f']['text']) != nicht): return t
+    return None
+
+
+def g2_jahr(s):
+    if s == 1: return g_jahr(1)
+    if s == 2: return _filter(g_jahr, R.choice([2, 3]), 'nach einem Jahr', nicht=True)
+    art = art3('einfach_diff', 'einzahlung', 'zinsen_rueck', ['einfach_diff', 'einzahlung', 'zinsen_rueck', 'einfach_diff', 'einzahlung'])
+    if art == 'einfach_diff': return _filter(g_jahr, 3, 'einfache Zinsen')
+    return jahr3(art)
+
+
+def g2_faktor(s):
+    if s == 1: return g_faktor(1)
+    if s == 2: return _filter(g_faktor, R.choice([2, 3]), 'insgesamt', nicht=True)
+    art = art3('gesamt', 'plus_minus', 'halbjahr', ['gesamt', 'plus_minus', 'halbjahr', 'gesamt', 'plus_minus'])
+    if art == 'gesamt': return _filter(g_faktor, 3, 'insgesamt')
+    return faktor3(art)
+
+
+def g2_formel(s):
+    if s < 3: return g_formel(s)
+    art = art3('auto', 'laufzeit_vergleich', 'zinsen_im_jahr', ['auto', 'laufzeit_vergleich', 'zinsen_im_jahr', 'auto', 'zinsen_im_jahr'])
+    if art == 'auto': return _filter(g_formel, 3, 'verliert')
+    return formel3(art)
+
+
+def g2_rueck(s):
+    if s < 3: return g_rueck(s)
+    art = art3('p_2', 'ziel', 'wie_lange', ['p_2', 'ziel', 'wie_lange', 'k0_drei', 'ziel'])
+    if art == 'p_2': return _filter(g_rueck, 3, 'gleichem Zinssatz')
+    if art == 'k0_drei': return _filter(g_rueck, 3, 'Anfangskapital')
+    return rueck3(art)
+
+
+def g2_vergleich(s):
+    if s == 1: return g_vergleich(1)
+    if s == 2:
+        teil = AKT['nr'] % 2 if AKT['pool'] == 'uebung' else R.random() < 0.5
+        return g_vergleich(2) if teil else vergleich3('halbierung')
+    art = art3('angebot_bonus', 'zwei_autos', 'kreuzung', ['angebot_bonus', 'zwei_autos', 'kreuzung', 'faustregel', 'zwei_autos'])
+    if art == 'angebot_bonus': return _filter(g_vergleich, 3, 'Bonus')
+    if art == 'faustregel': return _filter(g_vergleich, 3, 'Faustregel')
+    return vergleich3(art)
+
+
+GEN = schoen({'jahr': g2_jahr, 'faktor': g2_faktor, 'formel': g2_formel, 'rueck': g2_rueck, 'vergleich': g2_vergleich})
 
 # ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
 # Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
@@ -296,10 +458,10 @@ UMBAU = {
                     ['einfachen Zinsen', 'jedes Jahr Zinsen nur vom Startkapital']],
         'bild': tab(_VK, ['1,07ⁿ', '?', '?', '?', '?']),
         'schritte': [
-            {'text': 'Bei 7 % ist q = 1,07. Gesucht: 1,07ⁿ ≥ 2.'},
-            {'text': '1,07¹⁰ ≈ 1,967, das ist noch kleiner als 2.', 'bild': tab(_VK, ['1,07ⁿ', '1,718', '1,838', '1,967', '?'])},
+            {'text': 'Bei 7 % gilt q = 1,07. 1,07¹⁰ ≈ 1,967 ist noch kleiner als 2.', 'bild': tab(_VK, ['1,07ⁿ', '1,718', '1,838', '1,967', '?'])},
             {'text': '1,07¹¹ ≈ 2,105, das ist mehr als 2.', 'bild': tab(_VK, ['1,07ⁿ', '1,718', '1,838', '1,967', '2,105 ✓'])},
             {'text': 'Nach ⟦11 Jahren⟧ hat sich das Kapital erstmals verdoppelt.'},
+            {'text': 'Abnahme 20 %: q = 0,8. Erst 0,8⁴ ≈ 0,41 < 0,5, also ⟦4 Jahre⟧.'},
         ],
         'fehler': '„Bei 5 % nach 20 Jahren, weil 20 · 5 % = 100 %“ gilt nur für einfache Zinsen. Mit Zinseszins reichen ⟦15 Jahre⟧.',
         'regel': 'Zinseszins wächst ⟦schneller⟧ als einfache Zinsen. Verdopplung: n probieren, bis qⁿ ≥ 2.',
@@ -320,5 +482,5 @@ d = bauen('finanzen.zinseszins',
       ETAPPEN, GEN,
       offen=['Ohne Lehrplan-Zuordnung; Niveau Klasse 9/10 angenommen (Potenzen mit Taschenrechner, Rundung auf Cent mit Toleranz 0,01). Logarithmen zur Laufzeit-Berechnung nicht verwendet – Verdopplungszeit durch Probieren.',
              'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.',
-             'Überschneidung möglich mit bruch.prozent / Wachstum (Gymnasium Klasse 7 bzw. funktionen.exponential_log Klasse 10); hier eigenständig mit Zinsen.'])
+             'Überschneidung möglich mit bruch.prozent / Wachstum (Gymnasium Klasse 7 bzw. funktionen.exponential_log Klasse 10); hier eigenständig mit Zinsen.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

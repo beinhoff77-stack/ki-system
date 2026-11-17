@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(7010)
 
@@ -70,7 +71,7 @@ def g_grenzen(s):
     sch, wort = R.choice(GENAU[:3] if s == 1 else GENAU)
     x = sch * R.randint(3, 99) if sch >= 1 else sch * R.randint(11, 999)
     lo, hi = grenzen(x, sch)
-    art = R.choice({1: ['luecke', 'unten', 'oben'], 2: ['unten', 'oben', 'luecke', 'welcher'], 3: ['welcher', 'rueck', 'nicht', 'oben']}[s])
+    art = R.choice({1: ['luecke', 'unten', 'oben'], 2: ['unten', 'oben', 'luecke', 'welcher'], 3: ['welcher', 'rueck', 'nicht', 'rueck']}[s])  # Durchsicht 19
     vor = f'Eine Zahl x ist {wort}: {dz(x)}.'
     if art == 'luecke':
         if lo.denominator != 1 or hi.denominator != 1: return None
@@ -101,7 +102,7 @@ def g_messen(s):
     g, ein, sch, wort, (a, b) = R.choice(MESS)
     x = wert_mit(sch, a, b)
     lo, hi = grenzen(x, sch)
-    art = R.choice({1: ['unten', 'oben'], 2: ['unten', 'oben', 'spanne', 'welcher'], 3: ['moeglich', 'spanne', 'genauigkeit']}[s])
+    art = R.choice({1: ['unten', 'oben'], 2: ['spanne', 'welcher', 'genauigkeit', 'unten'], 3: ['moeglich', 'genauigkeit', 'moeglich']}[s])  # Durchsicht 19
     vor = f'{g}: {dz(x)} {ein}, {wort}.'
     if art == 'unten':
         return zahl(vor + ' Wie groß ist die untere Schranke?', f'Halbe Einheit {dz(sch / 2)} {ein}: {dz(x)} − {dz(sch / 2)} = {dz(lo)} {ein}.', 'Welche Einheit hat die Genauigkeit? Davon die Hälfte abziehen.',
@@ -131,13 +132,13 @@ def g_messen(s):
 
 def g_summe(s):
     sch = R.choice([Fr(1), Fr(1, 10), Fr(10)])
-    ein = {Fr(1): 'cm', Fr(1, 10): 'kg', Fr(10): 'm'}[sch]
+    ein = {Fr(1): 'cm', Fr(1, 10): 'm', Fr(10): 'm'}[sch]  # Durchsicht 19: kg passte nicht zu „Seiten“ und „Strecken“
     a, b = sorted([sch * R.randint(20, 90), sch * R.randint(5, 60)], reverse=True)
     if a == b: return None
     la, ha = grenzen(a, sch)
     lb, hb = grenzen(b, sch)
-    wort = {Fr(1): 'auf ganze cm', Fr(1, 10): 'auf 0,1 kg', Fr(10): 'auf 10 m'}[sch]
-    art = R.choice({1: ['max_sum', 'min_sum'], 2: ['max_sum', 'max_diff', 'min_diff', 'min_sum'], 3: ['max_diff', 'min_diff', 'umfang', 'drei']}[s])
+    wort = {Fr(1): 'auf ganze cm', Fr(1, 10): 'auf 0,1 m', Fr(10): 'auf 10 m'}[sch]
+    art = R.choice({1: ['max_sum', 'min_sum'], 2: ['max_diff', 'min_diff', 'umfang', 'drei'], 3: ['max_diff', 'min_diff', 'umfang', 'drei']}[s])  # Durchsicht 19
     vor = f'a = {dz(a)} {ein} und b = {dz(b)} {ein}, beide {wort} gerundet.'
     if art == 'max_sum':
         return zahl(vor + ' Wie groß kann a + b höchstens sein (obere Schranke)?', f'{dz(ha)} + {dz(hb)} = {dz(ha + hb)} {ein}.', 'Obere + obere Schranke.', ha + hb, f'{float(ha)} + {float(hb)}', einheit=ein)
@@ -160,7 +161,7 @@ def g_summe(s):
 
 
 def g_produkt(s):
-    art = R.choice({1: ['flaeche_max', 'flaeche_min'], 2: ['flaeche_max', 'tempo_max', 'flaeche_min', 'tempo_min'], 3: ['tempo_max', 'tempo_min', 'menge', 'quader']}[s])
+    art = R.choice({1: ['flaeche_max', 'flaeche_min'], 2: ['tempo_max', 'tempo_min', 'quader'], 3: ['tempo_max', 'tempo_min', 'menge', 'quader']}[s])  # Durchsicht 19
     if art in ('flaeche_max', 'flaeche_min', 'quader'):
         a, b = R.randint(3, 20), R.randint(2, 15)
         la, ha, lb, hb = a - Fr(1, 2), a + Fr(1, 2), b - Fr(1, 2), b + Fr(1, 2)
@@ -197,12 +198,12 @@ def g_produkt(s):
     n = Fr(lg, hgl)
     sicher = int(n)
     return zahl(f'In einem Behälter sind {dz(gesamt)} ml Saft (auf 10 ml gerundet). Ein Glas fasst {glas} ml (auf 10 ml gerundet). Wie viele Gläser kann man auf jeden Fall vollständig füllen?',
-                f'Ungünstigster Fall: wenig Saft ({dz(lg)} ml), große Gläser ({dz(hgl)} ml). {dz(lg)} : {dz(hgl)} ≈ {dz(round(float(n), 2))} → sicher {sicher} volle Gläser.',
+                f'Ungünstigster Fall: wenig Saft ({dz(lg)} ml), große Gläser ({dz(hgl)} ml). {dz(lg)} : {dz(hgl)} ≈ {dz(round(float(n), 2))} → sicher {sicher} {"volles Glas" if sicher == 1 else "volle Gläser"}.',
                 'Rechne mit der kleinsten Saftmenge und dem größten Glas.', sicher, f'{lg} // {hgl}')
 
 
 def g_entscheiden(s):
-    art = R.choice({1: ['aufzug', 'passt'], 2: ['aufzug', 'passt', 'fehler'], 3: ['fehler', 'genauigkeit_ergebnis', 'aufzug', 'brett']}[s])
+    art = R.choice({1: ['aufzug', 'passt'], 2: ['fehler', 'brett'], 3: ['fehler', 'genauigkeit_ergebnis', 'aufzug', 'brett']}[s])  # Durchsicht 19
     if art == 'aufzug':
         n = R.randint(6, 10)
         m = R.randint(70, 85)
@@ -234,14 +235,208 @@ def g_entscheiden(s):
                        'Berechne untere und obere Schranke der Fläche.')
     n = R.randint(4, 8)
     lang = R.randint(25, 45)
-    brett = n * lang + R.choice([0, 1, 2, 3])
+    brett = n * lang + R.choice([0, 2, 3, 4, 5, 6])
     ok = (brett - Fr(1, 2)) >= n * (lang + Fr(1, 2))
     return ja_nein(f'Aus einem {brett} cm langen Brett sollen {n} Stücke von je {lang} cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?', ok,
                    f'Ungünstigster Fall: Brett {dz(brett - Fr(1, 2))} cm, Stücke {n} · {dz(lang + Fr(1, 2))} = {dz(n * (lang + Fr(1, 2)))} cm. ' + ('Reicht sicher.' if ok else 'Reicht nicht sicher.'),
                    'Kürzestes Brett gegen längste Stücke.')
 
 
-GEN = {'grenzen': g_grenzen, 'messen': g_messen, 'summe': g_summe, 'produkt': g_produkt, 'entscheiden': g_entscheiden}
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Prüfungsvorbilder: Cambridge IGCSE / IB MYP „upper and lower bounds“ (ganzzahlige Anzahlen, fehlende Seite aus dem Umfang,
+# Seite aus Fläche, prozentualer Fehler, „angemessene Genauigkeit“, Geschwindigkeit/Zeit). Eigene Zahlen.
+def _filter(g, s, teil, nicht=False):
+    for _ in range(150):
+        t = g(s)
+        if t and ((teil in t['f']['text']) != nicht): return t
+    return None
+
+
+def grenzen3(art):
+    if art == 'anzahl':
+        sch = R.choice([10, 100, 1000])
+        x = sch * R.randint(12, 95)
+        g = R.choice(['Besucher', 'Zuschauer', 'Teilnehmer'])
+        w = {10: 'Zehner', 100: 'Hunderter', 1000: 'Tausender'}[sch]
+        hoch = R.random() < 0.6
+        r = x + sch // 2 - 1 if hoch else x - sch // 2
+        return zahl(f'Die Zahl der {g} wurde auf {w} gerundet: {dz(x)}. Wie viele {g} waren es {"höchstens" if hoch else "mindestens"}?',
+                    (f'Fehlerbereich {dz(x - sch // 2)} ≤ n < {dz(x + sch // 2)}. Anzahlen sind ganze Zahlen, also höchstens {dz(r)}.' if hoch
+                     else f'Fehlerbereich {dz(x - sch // 2)} ≤ n < {dz(x + sch // 2)}. Mindestens {dz(r)}.'),
+                    'Personen zählt man ganz. Die obere Schranke selbst gehört nicht dazu.', r, f'{r}')
+    if art == 'werte':
+        st = R.choice([(Fr(1, 10), Fr(1, 100), 'eine Nachkommastelle', 'eine Zahl mit (höchstens) zwei Nachkommastellen'), (Fr(10), Fr(1), 'Zehner', 'eine ganze Zahl'),
+                       (Fr(100), Fr(10), 'Hunderter', 'ein Vielfaches von 10'), (Fr(1), Fr(1, 10), 'Ganze', 'eine Zahl mit (höchstens) einer Nachkommastelle')])
+        grob, fein, wg, wf_ = st
+        x = grob * R.randint(11, 99)
+        lo, hi = grenzen(x, grob)
+        n = int((hi - lo) / fein)
+        return zahl(f'Eine Zahl x ist auf {wg} gerundet: {dz(x)}. Man weiß außerdem: x ist {wf_}. Wie viele Werte kann x haben?',
+                    f'Fehlerbereich {dz(lo)} ≤ x < {dz(hi)}. Möglich: {dz(lo)}, {dz(lo + fein)}, …, {dz(hi - fein)}. Das sind {n} Werte.',
+                    'Zähle von der unteren Schranke bis knapp unter die obere Schranke.', n, f'{n}')
+    # doppelt: erst auf Zehner, dann auf Hunderter
+    v = 10 * R.randint(12, 98)
+    lo, hi = v - 5, v + 5
+    h_lo, h_hi = round_half_up(lo, 100), round_half_up(hi - Fr(1, 100), 100)
+    if h_lo == h_hi:
+        r = f'Ja, x auf Hunderter gerundet ist sicher {dz(h_lo)}.'
+        fs = [f'Nein, es kann auch {dz(h_lo + 100)} sein.', f'Nein, es kann auch {dz(h_lo - 100)} sein.', 'Das lässt sich nie sagen.']
+        beg = f'Alle x mit {dz(lo)} ≤ x < {dz(hi)} werden auf {dz(h_lo)} gerundet.'
+    else:
+        r = f'Nein: Es kann {dz(h_lo)} oder {dz(h_hi)} sein.'
+        fs = [f'Ja, x auf Hunderter gerundet ist sicher {dz(h_lo)}.', f'Ja, x auf Hunderter gerundet ist sicher {dz(h_hi)}.', 'Das lässt sich nie sagen.']
+        beg = f'{dz(lo)} ≤ x < {dz(hi)}: Werte unter {dz(v)} ergeben {dz(h_lo)}, Werte ab {dz(v)} ergeben {dz(h_hi)}.'
+    return auswahl(f'x ist auf Zehner gerundet: {dz(v)}. Weiß man damit, was x auf Hunderter gerundet ist?', r, fs, beg,
+                   'Bestimme den Fehlerbereich und runde beide Enden auf Hunderter.')
+
+
+def round_half_up(x, sch):
+    return sch * ((Fr(x) / sch + Fr(1, 2)) // 1)
+
+
+def messen3(art):
+    g, ein, sch, wort, (a, b) = R.choice(MESS[:4] + MESS[5:])
+    x = wert_mit(sch, a, b)
+    if art == 'prozent':
+        p = gerundet(float(sch / 2 / x * 100), 1)
+        if p is None or p < 0.1: return None
+        return zahl(f'{g}: {dz(x)} {ein}, {wort}. Wie viel Prozent des Messwerts beträgt der größte mögliche Fehler? (auf eine Nachkommastelle)',
+                    f'Größter Fehler: {dz(sch / 2)} {ein}. {dz(sch / 2)} : {dz(x)} · 100 % ≈ {dz(p)} %.', 'Größter Fehler = halbe Messgenauigkeit. Dann durch den Messwert teilen.',
+                    p, f'round({float(sch)} / 2 / {float(x)} * 100, 1)', einheit='%', tol=0.1)
+    # genauer: welche Messung ist relativ genauer?
+    (g1, e1, s1, w1, b1), (g2, e2, s2, w2, b2) = R.sample(MESS[:4] + MESS[5:], 2)
+    x1, x2 = wert_mit(s1, *b1), wert_mit(s2, *b2)
+    r1, r2 = s1 / 2 / x1, s2 / 2 / x2
+    if abs(r1 - r2) < Fr(1, 2000): return None
+    r = f'{g1}' if r1 < r2 else f'{g2}'
+    return auswahl(f'Messung A: {g1} {dz(x1)} {e1}, {w1}. Messung B: {g2} {dz(x2)} {e2}, {w2}. Bei welcher Messung ist der größte Fehler im Verhältnis zum Messwert kleiner?',
+                   'Messung A' if r1 < r2 else 'Messung B', ['Messung B' if r1 < r2 else 'Messung A', 'Beide gleich'],
+                   f'A: {dz(s1 / 2)} : {dz(x1)} ≈ {dz(round(float(r1) * 100, 2))} %. B: {dz(s2 / 2)} : {dz(x2)} ≈ {dz(round(float(r2) * 100, 2))} %. Kleiner ist es bei {r}.',
+                   'Vergleiche den größten Fehler geteilt durch den Messwert, nicht die Fehler allein.')
+
+
+def summe3(art):
+    if art == 'rest':
+        L, n, st = R.randint(15, 40), R.randint(2, 5), Fr(R.randint(25, 60), 10)
+        if n * st >= L - 2: return None
+        mi = L - Fr(1, 2) - n * (st + Fr(1, 20))
+        return zahl(f'Ein Seil ist {L} m lang (auf ganze m gerundet). Davon werden {n} Stücke zu je {dz(st)} m abgeschnitten (auf 0,1 m gerundet). Wie lang ist der Rest mindestens?',
+                    f'Kürzestes Seil: {dz(L - Fr(1, 2))} m. Längste Stücke: {n} · {dz(st + Fr(1, 20))} m = {dz(n * (st + Fr(1, 20)))} m. Rest ≥ {dz(mi)} m.',
+                    'Für den kleinsten Rest: wenig Seil, große Stücke.', mi, f'{L} - 0.5 - {n} * {float(st + Fr(1, 20))}', einheit='m')
+    if art == 'fehlend':
+        s1, s2 = R.randint(6, 15), R.randint(6, 15)
+        u = s1 + s2 + R.randint(max(abs(s1 - s2) + 2, 4), s1 + s2 - 2)
+        hoch = R.random() < 0.5
+        v = (u + Fr(1, 2)) - (s1 - Fr(1, 2)) - (s2 - Fr(1, 2)) if hoch else (u - Fr(1, 2)) - (s1 + Fr(1, 2)) - (s2 + Fr(1, 2))
+        return zahl(f'Ein Dreieck hat den Umfang {u} cm. Zwei Seiten sind {s1} cm und {s2} cm lang (alles auf ganze cm gerundet). Wie lang ist die dritte Seite {"höchstens" if hoch else "mindestens"}?',
+                    (f'Großer Umfang, kurze Seiten: {dz(u + Fr(1, 2))} − {dz(s1 - Fr(1, 2))} − {dz(s2 - Fr(1, 2))} = {dz(v)} cm.' if hoch
+                     else f'Kleiner Umfang, lange Seiten: {dz(u - Fr(1, 2))} − {dz(s1 + Fr(1, 2))} − {dz(s2 + Fr(1, 2))} = {dz(v)} cm.'),
+                    'Dritte Seite = Umfang − Seite 1 − Seite 2. Was macht die Differenz am größten (kleinsten)?', v,
+                    f'{u} + 0.5 - {s1 - 0.5} - {s2 - 0.5}' if hoch else f'{u} - 0.5 - {s1 + 0.5} - {s2 + 0.5}', einheit='cm')
+    # breite: Breite des Fehlerbereichs einer Summe
+    (s1, w1, e1), (s2, w2, e2) = R.choice([((Fr(1), 'auf ganze cm', 'cm'), (Fr(1), 'auf ganze cm', 'cm')), ((Fr(1), 'auf ganze cm', 'cm'), (Fr(1, 10), 'auf mm', 'cm')),
+                                            ((Fr(10), 'auf 10 m', 'm'), (Fr(1), 'auf ganze m', 'm')), ((Fr(1, 10), 'auf 0,1 kg', 'kg'), (Fr(1, 10), 'auf 0,1 kg', 'kg'))])
+    a, b = wert_mit(s1, 20, 90), wert_mit(s2, 5, 40)
+    br = s1 + s2
+    return zahl(f'a = {dz(a)} {e1} ({w1} gerundet) und b = {dz(b)} {e2} ({w2} gerundet). Wie breit ist der Fehlerbereich von a + b (obere minus untere Schranke)?',
+                f'Breite bei a: {dz(s1)}, bei b: {dz(s2)}. Bei der Summe addieren sich die Breiten: {dz(br)} {e1}.',
+                'Rechne beide Schranken von a + b aus oder überlege, wie sich die Breiten verhalten.', br, f'{float(s1)} + {float(s2)}', einheit=e1)
+
+
+def produkt3(art):
+    if art == 'seite':
+        A, l = R.randint(30, 90), R.randint(5, 12)
+        hoch = R.random() < 0.5
+        v = (A + Fr(1, 2)) / (l - Fr(1, 2)) if hoch else (A - Fr(1, 2)) / (l + Fr(1, 2))
+        g = gerundet(float(v), 2)
+        if g is None: return None
+        return zahl(f'Ein Rechteck hat die Fläche {A} cm² (auf ganze cm² gerundet) und die Länge {l} cm (auf ganze cm gerundet). Wie breit ist es {"höchstens" if hoch else "mindestens"}? (auf zwei Nachkommastellen)',
+                    (f'Breite = Fläche : Länge. Größte Fläche durch kleinste Länge: {dz(A + Fr(1, 2))} : {dz(l - Fr(1, 2))} ≈ {dz(g)} cm.' if hoch
+                     else f'Breite = Fläche : Länge. Kleinste Fläche durch größte Länge: {dz(A - Fr(1, 2))} : {dz(l + Fr(1, 2))} ≈ {dz(g)} cm.'),
+                    'Breite = Fläche : Länge. Beim Teilen: Für das Maximum durch die kleinste Zahl teilen.', g,
+                    f'round({A + 0.5} / {l - 0.5}, 2)' if hoch else f'round({A - 0.5} / {l + 0.5}, 2)', einheit='cm', tol=0.01)
+    # unterschied: Zwei Rechtecke, größter Flächenunterschied
+    a1, b1, a2, b2 = R.randint(8, 15), R.randint(6, 12), R.randint(4, 9), R.randint(3, 8)
+    if a1 * b1 <= a2 * b2 + 10: return None
+    v = (a1 + Fr(1, 2)) * (b1 + Fr(1, 2)) - (a2 - Fr(1, 2)) * (b2 - Fr(1, 2))
+    return zahl(f'Beet A ist {a1} m × {b1} m groß, Beet B {a2} m × {b2} m (alle Maße auf ganze m gerundet). Um wie viel m² kann A höchstens größer sein als B?',
+                f'A möglichst groß: {dz(a1 + Fr(1, 2))} · {dz(b1 + Fr(1, 2))} = {dz((a1 + Fr(1, 2)) * (b1 + Fr(1, 2)))}. B möglichst klein: {dz(a2 - Fr(1, 2))} · {dz(b2 - Fr(1, 2))} = {dz((a2 - Fr(1, 2)) * (b2 - Fr(1, 2)))}. Unterschied: {dz(v)} m².',
+                'Erst überlegen: Welche Fläche soll groß, welche klein sein? Dann die passenden Schranken wählen.', v,
+                f'{a1 + 0.5} * {b1 + 0.5} - {a2 - 0.5} * {b2 - 0.5}', einheit='m²')
+
+
+def entscheiden3(art):
+    if art == 'zeit':
+        d, v = 10 * R.randint(8, 30), 5 * R.randint(12, 24)
+        tmax = Fr(d + 5) / Fr(v - Fr(5, 2))
+        tmin = Fr(d - 5) / Fr(v + Fr(5, 2))
+        t = Fr(round(float(tmax + tmin) * 2) + R.choice([-1, 0, 0, 1]), 4)
+        if t <= 0: return None
+        if tmin < t < tmax: z = 'Das lässt sich nicht sicher sagen.'
+        elif tmax <= t: z = 'Ja, sicher.'
+        else: z = 'Nein, sicher nicht.'
+
+        return auswahl(f'Ein Zug fährt {d} km (auf 10 km gerundet) mit {v} km/h (auf 5 km/h gerundet). Schafft er die Strecke in {dz(t)} {"Stunde" if t == 1 else "Stunden"}?', z,
+                       [x for x in ['Ja, sicher.', 'Nein, sicher nicht.', 'Das lässt sich nicht sicher sagen.'] if x != z],
+                       f'Zeit = Strecke : Geschwindigkeit. Höchstens {dz(d + 5)} : {dz(v - Fr(5, 2))} ≈ {dz(round(float(tmax), 2))} h, mindestens {dz(d - 5)} : {dz(v + Fr(5, 2))} ≈ {dz(round(float(tmin), 2))} h.',
+                       'Berechne die kürzeste und die längste mögliche Fahrzeit.')
+    # angemessen: Ergebnis sinnvoll runden
+    for _ in range(80):
+        a, b = Fr(R.randint(21, 99), 10), Fr(R.randint(21, 99), 10)
+        lo, hi = (a - Fr(1, 20)) * (b - Fr(1, 20)), (a + Fr(1, 20)) * (b + Fr(1, 20))
+        for st, txt in [(Fr(1, 10), 'eine Nachkommastelle'), (Fr(1), 'Ganze'), (Fr(10), 'Zehner')]:
+            if round_half_up(lo, st) == round_half_up(hi - Fr(1, 10 ** 6), st): break
+        else:
+            continue
+        if st != Fr(1, 10): break
+    else:
+        return None
+    r = dz(round_half_up(lo, st))
+    fs = [dz(a * b), dz(round_half_up(a * b, Fr(1, 10))), dz(round_half_up(lo, st) + st)]
+    if len({r, *fs}) < 4: return None
+    return auswahl(f'Ein Rechteck ist {dz(a)} cm × {dz(b)} cm groß (auf 0,1 cm gerundet). Welche Angabe der Fläche ist sicher richtig, ohne mehr Genauigkeit vorzutäuschen?', f'{r} cm²',
+                   [f'{x} cm²' for x in fs],
+                   f'Untere Schranke {dz(lo)}, obere {dz(hi)}. Beide ergeben auf {txt} gerundet {r}. Genauer geht es nicht sicher.',
+                   'Berechne beide Schranken. Auf welche Stelle gerundet stimmen sie überein?')
+
+
+def g2_grenzen(s):
+    if s == 1: return g_grenzen(1)
+    if s == 2: return g_grenzen(2) if (AKT['nr'] % 3 if AKT['pool'] == 'uebung' else R.random() < 0.6) else _filter(g_grenzen, 3, 'Auf welchen Wert')
+    art = art3('nicht', 'anzahl', 'doppelt', ['nicht', 'anzahl', 'doppelt', 'werte', 'anzahl'])
+    if art == 'nicht': return _filter(g_grenzen, 3, 'NICHT')
+    return grenzen3(art)
+
+
+def g2_messen(s):
+    if s < 3: return g_messen(s)
+    art = art3('moeglich', 'prozent', 'genauer', ['moeglich', 'prozent', 'genauer', 'genauigkeit', 'prozent'])
+    if art == 'moeglich': return _filter(g_messen, 3, 'Kann der wahre Wert')
+    if art == 'genauigkeit': return _filter(g_messen, 3, 'Wie genau')
+    return messen3(art)
+
+
+def g2_summe(s):
+    if s < 3: return g_summe(s)
+    art = art3('rest', 'fehlend', 'breite', ['rest', 'fehlend', 'breite', 'fehlend', 'rest'])
+    return summe3(art)
+
+
+def g2_produkt(s):
+    if s < 3: return g_produkt(s)
+    art = art3('menge', 'seite', 'unterschied', ['menge', 'seite', 'unterschied', 'seite', 'unterschied'])
+    if art == 'menge': return _filter(g_produkt, 3, 'Gläser')
+    return produkt3(art)
+
+
+def g2_entscheiden(s):
+    if s < 3: return g_entscheiden(s)
+    art = art3('genauigkeit_ergebnis', 'zeit', 'angemessen', ['genauigkeit_ergebnis', 'zeit', 'angemessen', 'zeit', 'genauigkeit_ergebnis'])
+    if art == 'genauigkeit_ergebnis': return _filter(g_entscheiden, 3, 'sicher sagen')
+    return entscheiden3(art)
+
+
+GEN = {'grenzen': g2_grenzen, 'messen': g2_messen, 'summe': g2_summe, 'produkt': g2_produkt, 'entscheiden': g2_entscheiden}
 
 # ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
 # Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
@@ -280,6 +475,7 @@ UMBAU = {
             {'text': 'Untere Schranke: 27 − 0,5 = 26,5 cm.', 'bild': {'punkte': _pk((27, '27'), (26.5, 'untere'))}},
             {'text': 'Obere Schranke: 27 + 0,5 = 27,5 cm.', 'bild': {'punkte': _pk((27, '27'), (26.5, 'untere'), (27.5, 'obere'))}},
             {'text': 'Fehlerbereich: ⟦26,5 cm ≤ x < 27,5 cm⟧.', 'bild': {'bereich': {'von': 26.5, 'bis': 27.5}}},
+            {'text': 'Bei Anzahlen wie Personen ist die größte Zahl ⟦eins weniger⟧ als die obere Schranke.'},
         ],
         'fehler': 'Bei „auf Zehner gerundet: 70“ ist 69 bis 71 falsch. Die halbe Rundungseinheit ist ⟦5⟧: 65 ≤ x < 75.',
         'fehler_bild': _zs(60, 80, 4, punkte=_pk((70, '70')), bereich={'von': 65, 'bis': 75}),
@@ -294,6 +490,7 @@ UMBAU = {
             {'text': 'Rundungseinheit 0,1 kg, die Hälfte ist 0,05 kg.'},
             {'text': 'Untere Schranke 4,25 kg, obere Schranke 4,35 kg.', 'bild': {'punkte': _pk((4.3, '4,3'), (4.25, 'untere'), (4.35, 'obere'))}},
             {'text': 'Bereich: ⟦4,25 kg ≤ m < 4,35 kg⟧.', 'bild': {'bereich': {'von': 4.25, 'bis': 4.35}}},
+            {'text': 'Fehler im Verhältnis: 0,05 : 4,3 ≈ ⟦1,2 %⟧ des Messwerts.'},
         ],
         'fehler': '4,2 kg bis 4,4 kg ist falsch, das wären ± 0,1 kg. Nur ⟦eine halbe Einheit⟧, 0,05 kg, nach unten und oben.',
         'fehler_bild': {'punkte': _pk((4.3, '4,3')), 'bereich': {'von': 4.2, 'bis': 4.4}},
@@ -337,6 +534,7 @@ UMBAU = {
             {'text': 'Jede Person wiegt höchstens 78,5 kg.'},
             {'text': 'Ungünstigster Fall: 8 · 78,5 kg = ⟦628 kg⟧.', 'bild': {'punkte': _pk((630, 'Grenze'), (628, 'höchstens'))}},
             {'text': '628 kg < 630 kg: ⟦sicher erlaubt⟧.', 'bild': {'bereich': {'von': 620, 'bis': 628}}},
+            {'text': 'Ein Ergebnis rundet man nur so weit, wie ⟦beide Schranken⟧ gleich gerundet werden.'},
         ],
         'fehler': 'Nur 8 · 78 = 624 kg rechnen ist riskant. Der wahre Wert kann bis 628 kg sein. Für Sicherheit zählt die ⟦obere Schranke⟧.',
         'fehler_bild': {'punkte': _pk((630, 'Grenze'), (624, 'gerundet'), (628, 'höchstens')), 'bereich': None},
@@ -360,5 +558,5 @@ d = bauen('zahlen.schranken',
       ETAPPEN, GEN,
       offen=['Ohne Lehrplan-Zuordnung (IB-typischer Stoff „upper and lower bounds“); Niveau Klasse 9/10 angenommen. Nur positive Größen; bei Quotienten Ergebnis auf zwei Nachkommastellen mit Toleranz 0,01.',
              'Lernkarte „grenzen“: Fehlerbereich als Strecke im Koordinatensystem (untere Schranke voller, obere hohler Punkt) – ein Zahlenstrahl mit markiertem Bereich wäre schöner (App-Wunsch).',
-             'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'])
+             'Feld klasse: {"zusatz": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

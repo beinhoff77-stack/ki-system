@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(7604)
 
@@ -105,7 +106,7 @@ def g_summenzeichen(s):
 
 
 def g_arith(s):
-    art = R.choice({1: ['gauss', 'formel'], 2: ['formel', 'ohne_an', 'folge'], 3: ['folge_lang', 'bereich', 'gerade']}[s])
+    art = R.choice({1: ['gauss', 'formel'], 2: ['ohne_an', 'folge', 'folge_lang'], 3: ['folge_lang', 'bereich', 'gerade']}[s])  # Durchsicht 19
     if art == 'gauss':
         n = R.choice([10, 20, 30, 40, 50, 60, 80, 100, 200])
         return zahl(f'Berechne 1 + 2 + 3 + … + {n}.', f'Sₙ = {n} · (1 + {n}) : 2 = {dz(n * (n + 1) // 2)}.', 'Paare bilden: erstes + letztes, zweites + vorletztes …',
@@ -143,7 +144,7 @@ def g_geom(s):
     a1, q = R.randint(1, 6), R.choice([2, 3])
     n = R.randint(4, 6) if s == 1 else R.randint(5, 9)
     Sn = a1 * (q ** n - 1) // (q - 1)
-    art = R.choice({1: ['formel', 'klein'], 2: ['formel', 'folge', 'q_neg'], 3: ['folge', 'halb', 'n_aus_S', 'q_neg']}[s])
+    art = R.choice({1: ['formel', 'klein'], 2: ['folge', 'q_neg', 'folge'], 3: ['folge', 'halb', 'n_aus_S', 'q_neg']}[s])  # Durchsicht 19
     if art == 'klein':
         gl = [a1 * q ** i for i in range(n)]
         return zahl(f'Berechne {" + ".join(map(str, gl))}.', f'a₁ = {a1}, q = {q}, n = {n}: S = {a1} · ({q}^{n} − 1) : ({q} − 1) = {dz(Sn)}. (Probe: Glieder addieren.)',
@@ -256,7 +257,139 @@ def g_verstehen(s):
                 S_m - S_n, f'{S_m} - {S_n}')
 
 
-GEN = schoen({'summenzeichen': g_summenzeichen, 'arith': g_arith, 'geom': g_geom, 'sach': g_sach, 'verstehen': g_verstehen})
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Prüfungsvorbilder: IB MYP Extended / MYP-Fragenbanken (Summenschreibweise, Summe aller Zahlen von u bis o, Anzahl der Glieder
+# für eine gegebene Summe, Turnier im K.-o.-System, aₙ = Sₙ − Sₙ₋₁). Eigene Zahlen und Einkleidungen.
+def summenzeichen3(art):
+    # aufteilen: Summe in Teile zerlegen
+    n = R.choice([6, 8, 10, 12, 20])
+    m, c = R.choice([2, 3, 4, 5]), R.randint(1, 9)
+    sk = n * (n + 1) // 2
+    return zahl(f'Es gilt {summe(1, n, "k")} = {sk}. Berechne damit {summe(1, n, f"{m}k + {c}")}.',
+                f'{summe(1, n, f"{m}k + {c}")} = {m} · ({summe(1, n, "k")}) + {n} · {c} = {m} · {sk} + {n * c} = {m * sk + n * c}.',
+                f'Jeder Summand ist {m} · k plus {c}. Der Teil „plus {c}“ kommt {n}-mal vor.', m * sk + n * c, f'{m} * {sk} + {n} * {c}')
+
+
+def arith3(art):
+    if art == 'n_gesucht':
+        a1, d = R.randint(1, 9), R.choice([2, 3, 4])
+        n = R.randint(6, 14)
+        Sn = n * (2 * a1 + (n - 1) * d) // 2
+        xs = [a1 + d * i for i in range(3)]
+        return zahl(f'Wie viele Glieder der Folge {folge_txt(xs)} muss man addieren, damit die Summe {dz(Sn)} ergibt?',
+                    f'{S("n")} = n · ({a1} + {a1} + (n − 1) · {d}) : 2. Probieren: Für n = {n} ist {a(n)} = {a1 + (n - 1) * d} und {S(n)} = {n} · ({a1} + {a1 + (n - 1) * d}) : 2 = {dz(Sn)}.',
+                    'Rechne Summen für einige n aus (oder stelle Sₙ als Term in n auf) und nähere dich an.', n, f'{n}')
+    # vielfache: Summe aller Vielfachen von k in einem Bereich
+    k = R.choice([3, 4, 6, 7, 8, 9])
+    u, o = R.choice([(10, 99), (1, 100), (20, 80), (50, 150)])
+    erst, letzt = -(-u // k) * k, o // k * k
+    anz = (letzt - erst) // k + 1
+    Sn = anz * (erst + letzt) // 2
+    return zahl(f'Berechne die Summe aller Vielfachen von {k} zwischen {u} und {o}.',
+                f'Erstes Vielfaches: {erst}, letztes: {letzt}. Anzahl: ({letzt} − {erst}) : {k} + 1 = {anz}. Summe: {anz} · ({erst} + {letzt}) : 2 = {dz(Sn)}.',
+                'Bestimme das erste und das letzte Vielfache im Bereich und zähle, wie viele es sind.', Sn, f'{anz} * ({erst} + {letzt}) / 2')
+
+
+def geom3(art):
+    if art == 'turnier':
+        n = R.choice([4, 5, 6, 7])
+        t = 2 ** n
+        return zahl(f'Bei einem Turnier mit {t} Spielern scheidet in jedem Spiel der Verlierer aus (K.-o.-System). In Runde 1 gibt es {t // 2} Spiele, in jeder Runde halb so viele wie in der vorigen, bis zum Finale. Wie viele Spiele gibt es insgesamt?',
+                    f'{" + ".join(str(t // 2 ** i) for i in range(1, n + 1))}: geometrische Reihe mit a₁ = {t // 2}, q = 1/2, n = {n}. Summe {t - 1}. (Probe: Jeder außer dem Sieger verliert genau einmal: {t} − 1.)',
+                    'Schreibe die Spiele je Runde auf, bis nur noch ein Spiel übrig ist.', t - 1, f'{t} - 1')
+    # a1_gesucht
+    a1, q, n = R.randint(2, 9), R.choice([2, 3]), R.randint(4, 6)
+    Sn = a1 * (q ** n - 1) // (q - 1)
+    return zahl(f'Eine geometrische Reihe hat q = {q} und {S(n)} = {dz(Sn)}. Wie groß ist {a(1)}?',
+                f'{S(n)} = {a(1)} · ({q}^{n} − 1) : {q - 1} = {a(1)} · {dz((q ** n - 1) // (q - 1))}. Also {a(1)} = {dz(Sn)} : {dz((q ** n - 1) // (q - 1))} = {a1}.',
+                'Setze in die Summenformel ein. Alles außer a₁ ist bekannt.', a1, f'{Sn} / (({q} ** {n} - 1) / ({q} - 1))')
+
+
+def sach3(art):
+    # verdopplung: linear gegen exponentiell
+    a1 = R.choice([5, 10, 20])
+    for n in range(1, 60):
+        A = a1 * n * (n + 1) // 2
+        B = (2 ** n - 1)
+        if B > A * 100: break
+    return zahl(f'Angebot A: am 1. Tag {a1} €, jeden Tag {a1} € mehr. Angebot B: am 1. Tag 1 Cent, jeden Tag doppelt so viel wie am Vortag. '
+                'Nach wie vielen Tagen hat man mit B insgesamt mehr Geld als mit A?',
+                f'A nach n Tagen: {a1} · n · (n + 1) : 2 €. B nach n Tagen: (2ⁿ − 1) Cent. Für n = {n - 1}: A = {dz(a1 * (n - 1) * n // 2)} €, B = {dz(Fr(2 ** (n - 1) - 1, 100))} €. '
+                f'Für n = {n}: A = {dz(a1 * n * (n + 1) // 2)} €, B = {dz(Fr(2 ** n - 1, 100))} €. Also ab Tag {n}.',
+                'Rechne beide Summen für einige Tage aus. Achtung: B ist in Cent.', n, f'{n}')
+
+
+def verstehen3(art):
+    # an aus Sn
+    p, q = R.randint(1, 3), R.randint(-3, 5)
+    n = R.randint(4, 10)
+    Sf = lambda k: p * k * k + q * k  # noqa: E731
+    return zahl(f'Für eine Folge gilt für jedes n: {S("n")} = {poly(p, q, 0, v="n")}. Wie groß ist {a(n)}?',
+                f'{a(n)} = {S(n)} − {S(n - 1)} = {dz(Sf(n))} − {dz(Sf(n - 1))} = {dz(Sf(n) - Sf(n - 1))}.',
+                f'{S(n)} enthält alle Glieder bis {a(n)}, {S(n - 1)} alle bis {a(n - 1)}.', Sf(n) - Sf(n - 1), f'{Sf(n)} - ({Sf(n - 1)})')
+
+
+def _filter(g, s, teil, nicht=False):
+    for _ in range(80):
+        t = g(s)
+        if t and ((teil in t['f']['text']) != nicht): return t
+    return None
+
+
+def g2_summenzeichen(s):
+    if s < 3: return g_summenzeichen(s)
+    art = art3('schreiben', 'aufteilen', 'konstant', ['schreiben', 'rechnen_ab', 'aufteilen', 'konstant', 'rechnen_ab'])
+    if art == 'aufteilen': return summenzeichen3(art)
+    for _ in range(80):
+        t = g_summenzeichen(3)
+        if not t: continue
+        x = t['f']['text']
+        if {'schreiben': 'Schreibweise' in x, 'konstant': x.startswith('Berechne') and '(' not in x.split('.')[0], 'rechnen_ab': 'ₖ₌₁' not in x and 'Schreibweise' not in x}[art]: return t
+    return None
+
+
+def g2_arith(s):
+    if s < 3: return g_arith(s)
+    art = art3('bereich', 'n_gesucht', 'vielfache', ['bereich', 'n_gesucht', 'vielfache', 'bereich', 'n_gesucht'])
+    if art == 'bereich': return _filter(g_arith, 3, ' + … + ')
+    return arith3(art)
+
+
+def g2_geom(s):
+    if s < 3: return g_geom(s)
+    art = art3('n_aus_S', 'turnier', 'a1_gesucht', ['n_aus_S', 'halb', 'a1_gesucht', 'turnier', 'halb'])
+    if art == 'n_aus_S': return _filter(g_geom, 3, 'Wie viele Glieder')
+    if art == 'halb':
+        for _ in range(80):
+            t = g_geom(3)
+            if t and ('128' in t['f']['text'] or '64' in t['f']['text'] or '32' in t['f']['text']) and 'Wie viele' not in t['f']['text'] and 'q = −' not in t['f']['text']: return t
+        return None
+    return geom3(art)
+
+
+def g2_sach(s):
+    if s == 1: return g_sach(1)
+    if s == 2:  # Stufe 2: andere Einkleidung (Sparen über ein Jahr, Stapel bis 1) und geometrische Sachaufgabe (vorher Stufe 3)
+        return R.choice([lambda: _filter(g_sach, 2, 'Lea'), lambda: _filter(g_sach, 2, 'Baumstämme'), lambda: _filter(g_sach, 3, 'Schachbrett')])()
+    art = art3('sparen_rueck', 'kette', 'verdopplung', ['sparen_rueck', 'kette', 'verdopplung', 'turnier', 'sparen_rueck'])
+    if art == 'sparen_rueck': return _filter(g_sach, 3, 'Nach wie vielen Monaten')
+    if art == 'kette': return _filter(g_sach, 3, 'Nachricht')
+    if art == 'turnier': return _filter(g_sach, 3, 'Turnier')
+    return sach3(art)
+
+
+def g2_verstehen(s):
+    if s < 3: return g_verstehen(s)
+    art = art3('qn', 'teil', 'an_sn_neu', ['qn', 'teil', 'an_sn_neu', 'teil', 'qn'])
+    if art == 'an_sn_neu': return verstehen3(art)
+    teil = {'qn': 'Tom', 'teil': 'S₆', 'halb_eva': 'Eva'}[art]
+    for _ in range(120):
+        t = g_verstehen(3)
+        if t and (teil in t['f']['text'] or (art == 'teil' and 'Wie groß ist a' in t['f']['text'])): return t
+    return None
+
+
+GEN = schoen({'summenzeichen': g2_summenzeichen, 'arith': g2_arith, 'geom': g2_geom, 'sach': g2_sach, 'verstehen': g2_verstehen})
 
 # ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
 # Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
@@ -357,5 +490,5 @@ d = bauen('funktionen.reihen',
       [('Schreibweise', ['summenzeichen']), ('Summenformeln', ['arith', 'geom']), ('Anwenden', ['sach', 'verstehen'])],
       ETAPPEN, GEN,
       offen=['Unendliche geometrische Reihen (Grenzwert a₁ : (1 − q)) sind nicht enthalten: Das ist IB MYP 5 Extended bzw. DP-Stoff. Annahme: MYP 4 endet bei endlichen Reihen.',
-             'Summenzeichen mit Unicode-Indizes (∑ₖ₌₁⁵). Die Grenzen stehen dadurch neben, nicht unter/über dem ∑ – bei Bedarf App-Wunsch für eine Formeldarstellung.'])
+             'Summenzeichen mit Unicode-Indizes (∑ₖ₌₁⁵). Die Grenzen stehen dadurch neben, nicht unter/über dem ∑ – bei Bedarf App-Wunsch für eine Formeldarstellung.'], plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

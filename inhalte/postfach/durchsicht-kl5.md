@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 17:45 – STATUS: messen.koerper_berechnung fertig
+Umgestuft 1 (Stufe 3 → 2: „Drei Würfel 2 cm in einer Reihe“ stand wortgleich schon in Stufe 2). Ersetzt 1 (Pflichtkarte oberflaeche fragte nach dem Volumen; jetzt Kantenlänge aus der Oberfläche). Neu 1 (sachaufgaben Stufe 1 hatte nur 3). Prüfskript OK, Nachweis OK.
+Für Sebastian: Pflichtkarte „verstehen“ enthält 7 Volumen-Aussagen (Volumen ist in Kl. 5 nicht Lehrplanstoff, nur Vertiefung „volumen“); Verschieben in die Vertiefung oder nach messen.volumen (Kl. 6) erwägen – nicht selbst geändert.
+
 ## 2026-11-17 17:30 – STATUS: messen.flaechen fertig
 Umgestuft 10 (Stufe 3 → 2: m · cm in dm², „Zerlege“ in zwei Flächeneinheiten, ha → m², Wohnung aus Räumen, Quadrat im Quadrat = Rahmen). Ersetzt 1 (Rechteck → Quadrat mit gleichem Umfang ergab 5,5 · 5,5 = 30,25 cm², Kommazahl mal Kommazahl ist Kl. 6; neu 9 cm × 5 cm → 49 cm²). Prüfskript OK, Nachweis OK (231 von 242 unverändert).
 Hinweis: Sachaufgaben mit 4,5 m × 2,5 m sind nur über die Umrechnung in cm/dm ohne Kommarechnung lösbar; Lösungsweg prüfen lassen (nicht geändert).

@@ -3500,15 +3500,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel hat die Oberfläche 216 cm². Wie groß ist sein Volumen?"
+    "text": "Ein Würfel hat die Oberfläche 216 cm². Wie lang sind alle seine Kanten zusammen?"
    },
    "o": {
-    "wert": 216,
-    "einheit": "cm³"
+    "wert": 72,
+    "einheit": "cm"
    },
-   "c": "6 * 6 * 6",
-   "w": "Eine Fläche: 216 : 6 = 36 cm². 6 · 6 = 36, also a = 6 cm. Volumen: 6 · 6 · 6 = 216 cm³.",
-   "h": "Bestimme zuerst die Kantenlänge, dann das Volumen."
+   "c": "216 / 6 / 6 * 12",
+   "w": "Eine Fläche: 216 cm² : 6 = 36 cm² = 6 cm · 6 cm. Kante 6 cm. Alle 12 Kanten: 12 · 6 cm = 72 cm.",
+   "h": "Teile die Oberfläche auf 6 gleiche Quadrate auf. Welche Seitenlänge hat ein Quadrat?"
   },
   {
    "l": "oberflaeche",
@@ -4427,7 +4427,7 @@
    "l": "zusammengesetzt",
    "t": "zusammengesetzt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Drei gleiche Würfel mit 2 cm Kantenlänge werden in einer Reihe aneinandergeklebt. Wie groß ist die Oberfläche des neuen Körpers?"
@@ -6017,6 +6017,23 @@
    "c": "2 * 10 * 10 + 2 * 10 * 5 + 2 * 10 * 5",
    "w": "Oberfläche: 2 · 100 + 2 · 50 + 2 · 50 = 200 + 100 + 100 = 400 cm².",
    "h": "Mit Deckel heißt: alle 6 Flächen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kiste ist 6 cm lang, 5 cm breit und 4 cm hoch. Wie viel cm² Papier braucht man, um sie ganz zu bekleben?"
+   },
+   "o": {
+    "wert": 148,
+    "einheit": "cm²"
+   },
+   "c": "2 * 6 * 5 + 2 * 6 * 4 + 2 * 5 * 4",
+   "w": "Oberfläche: 2 · 30 + 2 · 24 + 2 · 20 = 60 + 48 + 40 = 148 cm².",
+   "h": "Ganz bekleben heißt: alle 6 Flächen."
   },
   {
    "l": "zusammengesetzt",

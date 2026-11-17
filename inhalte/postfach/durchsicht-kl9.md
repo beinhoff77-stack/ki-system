@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 13:24 – STATUS
+gleichungen.quadratisch fertig: 35 umgestuft (Kartenbeispiele von Stufe 2/3 auf 1/2: ax² − c = 0, Faktorisieren, vollständiges Ergänzen, Anzahl über D), 2 neu (faktorisieren Stufe 3: Fehler finden, volles Quadrat). Keine Karte geändert. inhalt_pruefen OK, Nachweis OK.
+
 ## 2026-11-17 13:23 – STATUS
 funktionen.quadratisch fertig: 39 umgestuft (Kartenbeispiel-Aufgaben von Stufe 2 auf 1, bloße Abwandlungen von 3 auf 2), 1 ersetzt (unklare Frage „Wie klein … höchstens“), 2 neu (umformen Stufe 3: Fehler finden, b aus dem Scheitel), Karte umformen: Schritt 5 „zuerst ausklammern“. inhalt_pruefen OK, Nachweis OK.
 

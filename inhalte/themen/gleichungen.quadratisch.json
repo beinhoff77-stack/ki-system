@@ -1259,7 +1259,7 @@
    "l": "reinquadratisch",
    "t": "reinquadratisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse 5x² − 320 = 0.",
@@ -1325,7 +1325,7 @@
    "l": "reinquadratisch",
    "t": "reinquadratisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse 6x² − 6 = 0.",
@@ -1349,7 +1349,7 @@
    "l": "reinquadratisch",
    "t": "reinquadratisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse 4x² − 144 = 0.",
@@ -1439,7 +1439,7 @@
    "l": "reinquadratisch",
    "t": "reinquadratisch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand löst 2x² = 50 so: x = ±√50. Was stimmt?"
@@ -2059,7 +2059,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse 7x² = 28x.",
@@ -2083,7 +2083,7 @@
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse 2x² = −4x.",
@@ -2668,7 +2668,7 @@
    "l": "faktorisieren",
    "t": "faktorisieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² − 7x + 12 = 0 durch Faktorisieren.",
@@ -2692,7 +2692,7 @@
    "l": "faktorisieren",
    "t": "faktorisieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² − 9x + 20 = 0 durch Faktorisieren.",
@@ -2716,7 +2716,7 @@
    "l": "faktorisieren",
    "t": "faktorisieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² − 5x + 4 = 0 durch Faktorisieren.",
@@ -2740,7 +2740,7 @@
    "l": "faktorisieren",
    "t": "faktorisieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² + 6x − 27 = 0 durch Faktorisieren.",
@@ -2764,7 +2764,7 @@
    "l": "faktorisieren",
    "t": "faktorisieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² + x − 56 = 0 durch Faktorisieren.",
@@ -2788,7 +2788,7 @@
    "l": "faktorisieren",
    "t": "faktorisieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse (4x + 5)(x + 1) = 0.",
@@ -3174,7 +3174,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Bringe x² − 14x + 47 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
@@ -3198,7 +3198,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Bringe x² + 14x + 41 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
@@ -3222,7 +3222,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Bringe x² − 6x + 3 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
@@ -3246,7 +3246,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Bringe x² + 12x + 33 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
@@ -3270,7 +3270,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Bringe x² + 2x − 6 = 0 mit quadratischer Ergänzung auf die Form (x + …)² = ….",
@@ -3294,7 +3294,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Bringe x² − 14x + 44 = 0 mit quadratischer Ergänzung auf die Form (x − …)² = ….",
@@ -3318,7 +3318,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² + 2x − 63 = 0 mit quadratischer Ergänzung.",
@@ -3366,7 +3366,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² + 6x + 8 = 0 mit quadratischer Ergänzung.",
@@ -3390,7 +3390,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² − 4x − 21 = 0 mit quadratischer Ergänzung.",
@@ -3414,7 +3414,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² − 6x − 40 = 0 mit quadratischer Ergänzung.",
@@ -3438,7 +3438,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse x² − 10x − 56 = 0 mit quadratischer Ergänzung.",
@@ -3932,7 +3932,7 @@
    "l": "loesungsformel",
    "t": "loesungsformel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 4x² + 34x + 60 = 0 mit der Lösungsformel. Gib die größere Lösung an."
@@ -3972,7 +3972,7 @@
    "l": "loesungsformel",
    "t": "loesungsformel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 4x² + 10x − 24 = 0 mit der Lösungsformel. Gib die größere Lösung an."
@@ -3988,7 +3988,7 @@
    "l": "loesungsformel",
    "t": "loesungsformel",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Löse 4x² − 22x − 12 = 0 mit der Lösungsformel. Gib die größere Lösung an."
@@ -4455,7 +4455,7 @@
    "l": "diskriminante",
    "t": "diskriminante",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Lösungen hat 2x² − 3x + 3 = 0?"
@@ -4507,7 +4507,7 @@
    "l": "diskriminante",
    "t": "diskriminante",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Lösungen hat 4x² + 12x + 9 = 0?"
@@ -4617,7 +4617,7 @@
    "l": "diskriminante",
    "t": "diskriminante",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „4x² + 6x + 7 = 0 hat zwei Lösungen, weil die Lösungsformel ± enthält.“ Was stimmt?"
@@ -5350,7 +5350,7 @@
    "l": "reinquadratisch",
    "t": "reinquadratisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse 0,5x² = 8.",
@@ -5517,7 +5517,7 @@
    "l": "faktorisieren",
    "t": "faktorisieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Die Funktion f mit f(x) = x² − 10x + 21 hat zwei Nullstellen. Bestimme sie durch Faktorisieren.",
@@ -5650,6 +5650,43 @@
    ]
   },
   {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand faktorisiert x² − 6x + 9 = 0 zu (x − 3)(x + 3) = 0 und erhält x = 3 oder x = −3. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Die Gleichung hat keine Lösung.",
+    "Falsch: x² − 6x + 9 = (x − 3)², die einzige Lösung ist x = 3.",
+    "Falsch: Die Lösungen sind x = 3 und x = 9."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(x − 3)(x + 3) = x² − 9, das ist eine andere Gleichung. Richtig: 2. binomische Formel (x − 3)² = 0, also nur x = 3. Probe mit −3: 9 + 18 + 9 = 36 ≠ 0.",
+   "h": "Multipliziere (x − 3)(x + 3) zur Probe aus."
+  },
+  {
+   "l": "faktorisieren",
+   "t": "faktorisieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat x² + 6x + c = 0 genau eine Lösung? (Denke an eine binomische Formel.)"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3 ** 2",
+   "w": "Genau eine Lösung, wenn links ein volles Quadrat steht: x² + 6x + 9 = (x + 3)². Also c = 9, Lösung x = −3.",
+   "h": "Welche Zahl macht x² + 6x zu (x + 3)²?"
+  },
+  {
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
@@ -5755,7 +5792,7 @@
    "l": "ergaenzung",
    "t": "ergaenzung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Bringe x² − 2x − 8 = 0 auf die Form (x − …)² = ….",
@@ -5879,7 +5916,7 @@
    "l": "loesungsformel",
    "t": "loesungsformel",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne die Diskriminante von 5x² − 2x − 3 = 0."
@@ -5974,7 +6011,7 @@
    "l": "diskriminante",
    "t": "diskriminante",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Lösungen hat 4x² − 12x + 9 = 0?"
@@ -5994,7 +6031,7 @@
    "l": "diskriminante",
    "t": "diskriminante",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Lösungen hat −x² + 4x − 5 = 0?"

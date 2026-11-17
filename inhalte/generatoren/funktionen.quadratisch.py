@@ -1005,3 +1005,246 @@ DS_KARTEN = {
 
 if __name__ == '__main__':
     durchsicht('funktionen.quadratisch', DS, DS_KARTEN)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('funktionen.quadratisch', 20_9_3)
+Z, A, L = ST.Z, ST.A, ST.L
+_S = 'S(□ | □)'
+
+# scheitel
+ST.stufenleiter('scheitel', 'Den Scheitel aus der Scheitelform oder einem Graphen ablesen.',
+                'Umgestellte Terme (−5 + 2(x − 4)²) lesen, aus Scheitel und Öffnung die Gleichung aufstellen.',
+                'Wertemenge, Scheitel aus Nullstellen oder gleich hohen Punkten, Fehler beim Vorzeichen, Bedingung für e, mehrteilige Sachaufgabe.')
+ST.typ('scheitel', 'Lies den Scheitel', 'erkennen')
+ST.typ('scheitel', '/^Gib den Scheitel der Parabel y = (x²|\\(x|\\d|0,5)/', 'direkt')
+ST.typ('scheitel', 'Normalparabel, Scheitel', 'umkehr')
+ST.typ('scheitel', '/^Gib den Scheitel der Parabel y = (−|7)/', 'mehrschritt')
+ST.typ('scheitel', 'Wo liegt der höchste Punkt', 'darstellung')
+ST.typ('scheitel', '/^(Welche Wertemenge|Eine Parabel y = \\(x − x₁\\)|Gib den Scheitel von y = \\(x)/', 'verknuepfen')
+ST.typ('scheitel', 'Die Parabel y = (x − d)² + e geht durch', 'rueckwaerts')
+ST.neu('scheitel', 'fehler', A('Jemand liest bei y = 2(x − 1)² + 3 den Scheitel S(2 | 3) ab. Was stimmt?', 'Falsch: Die 2 ist der Streckfaktor; S(1 | 3).', ['Richtig.', 'Falsch: S(−1 | 3).', 'Falsch: S(1 | 6).'],
+       'In y = a(x − d)² + e ist S(d | e). Hier a = 2, d = 1, e = 3. Der Faktor a ändert die Lage des Scheitels nicht.', 'Welche Zahl in der Klammer steht hinter x?'))
+ST.neu('scheitel', 'begruenden', A('Stimmt: Jede Parabel y = a(x − 2)² + 1 mit a > 0 hat keine Nullstelle?', 'Ja: Der tiefste Punkt S(2 | 1) liegt über der x-Achse.',
+       ['Nein, für großes a hat sie zwei Nullstellen.', 'Nein, sie hat immer genau eine Nullstelle bei x = 2.', 'Das hängt von a ab.'],
+       'Mit a > 0 ist die Parabel nach oben geöffnet, ihr kleinster Wert ist e = 1 > 0. Sie erreicht die x-Achse nie.', 'Wo liegt der tiefste Punkt?'))
+ST.neu('scheitel', 'parameter', Z('Für welche Zahl e geht die Parabel y = (x − 2)² + e durch den Ursprung?', -4, '0 - (0 - 2) ** 2',
+       'Ursprung einsetzen: 0 = (0 − 2)² + e = 4 + e, also e = −4. Der Scheitel ist S(2 | −4).', 'Setze den Punkt (0 | 0) ein.'))
+ST.neu('scheitel', 'pruefung', L('Ein Wasserstrahl folgt der Kurve y = −0,5(x − 4)² + 8 (x, y in m). a) Gib den höchsten Punkt an. b) Wie hoch ist der Strahl bei x = 2?', 'a) S(□ | □); b) □ m', [4, 8, 6], ['4', '8', '-0.5 * (2 - 4) ** 2 + 8'],
+       'a) Scheitelform: S(4 | 8). b) y = −0,5 · (−2)² + 8 = −2 + 8 = 6 m.', 'a) ablesen, b) einsetzen.'))
+ST.knobel('scheitel', Z('Die Scheitel aller Parabeln y = (x − t)² + 2t (für jede Zahl t) liegen auf einer Geraden. Welche Steigung hat diese Gerade?', 2, '2',
+          'Der Scheitel ist S(t | 2t). Für t = 0, 1, 2 erhältst du (0 | 0), (1 | 2), (2 | 4). Immer ist y = 2x. Die Gerade y = 2x hat die Steigung 2.',
+          'Schreib den Scheitel für einige t auf.'))
+ST.knobel('scheitel', L('Die Parabel y = (x − 3)² − 4 wird erst an der x-Achse gespiegelt und dann um 6 nach oben verschoben. Wo liegt der neue Scheitel?', _S, [3, 10], ['3', '4 + 6'],
+          'Spiegeln an der x-Achse ändert das Vorzeichen jedes y-Werts: Scheitel (3 | −4) wird (3 | 4). Verschieben um 6 nach oben: (3 | 10).', 'Verfolge nur den Scheitelpunkt.'))
+
+# parameter
+ST.stufenleiter('parameter', 'Verschiebung und Öffnung einer Parabel aus a, d, e erkennen.',
+                'Graphen zuordnen, Nullstellenzahl ohne Rechnen, Streckung im Sachzusammenhang.',
+                'Bedingungen an a, rückwärts verschieben, Bremsweg verdoppeln, Aussagen prüfen, Fehler beim Vorzeichen, mehrteilige Aufgabe.')
+ST.typ('parameter', '/^(Wie sieht die Parabel|Die Normalparabel wird|Wie entsteht)/', 'erkennen')
+ST.typ('parameter', '/^(Welche Gleichung gehört zu Graph|Welcher Graph gehört)/', 'darstellung')
+ST.typ('parameter', '/^(Ohne zu rechnen|Welche Parabel ist nach unten)/', 'mehrschritt')
+ST.typ('parameter', 'Jemand liest', 'fehler')
+ST.typ('parameter', 'Für den Bremsweg', 'transfer')
+ST.typ('parameter', 'Die Parabeln y = x² + e', 'verknuepfen')
+ST.typ('parameter', 'Welcher Graph ist am schmalsten', 'begruenden')
+ST.neu('parameter', 'direkt', L('Lies a, d und e aus y = 3(x + 2)² − 7 ab (Form y = a(x − d)² + e).', 'a = □; d = □; e = □', [3, -2, -7], ['3', '-2', '-7'],
+       'x + 2 = x − (−2), also d = −2. a = 3, e = −7.', 'Achte auf das Vorzeichen in der Klammer.'))
+ST.neu('parameter', 'einkleidung', A('Eine Rutsche hat im Querschnitt die Form y = 0,25(x − 4)² (in m). Wie ist sie im Vergleich zur Normalparabel?', 'breiter, nach oben geöffnet', ['schmaler, nach oben geöffnet', 'breiter, nach unten geöffnet', 'genauso breit'],
+       'a = 0,25 ist positiv und kleiner als 1: nach oben geöffnet und gestaucht (breiter).', 'Schau auf den Faktor a.'))
+ST.neu('parameter', 'parameter', A('Für welche Werte von a ist y = a(x − 1)² + 2 nach unten geöffnet und schmaler als die Normalparabel?', 'a < −1', ['a > 1', '−1 < a < 0', 'a < 0'],
+       'Nach unten: a < 0. Schmaler: |a| > 1. Beides zusammen: a < −1.', 'Zwei Bedingungen müssen gleichzeitig gelten.'))
+ST.neu('parameter', 'rueckwaerts', L('Eine Parabel wird um 2 nach links und um 3 nach oben verschoben. Danach hat sie den Scheitel S(1 | 5). Wo lag ihr Scheitel vorher?', _S, [3, 2], ['1 + 2', '5 - 3'],
+       'Rückwärts: 2 nach rechts und 3 nach unten. Aus (1 | 5) wird (3 | 2).', 'Mache die Verschiebung rückgängig.'))
+ST.neu('parameter', 'begruenden', A('Stimmt: Verschiebt man eine Parabel nach oben, bleibt die Zahl ihrer Nullstellen immer gleich?', 'Nein: y = x² − 1 hat zwei Nullstellen, um 2 nach oben verschoben (y = x² + 1) keine.',
+       ['Ja, verschieben ändert nur die Lage.', 'Ja, aber nur bei nach oben geöffneten Parabeln.', 'Nein, sie wird immer größer.'],
+       'Gegenbeispiel genügt: Der Scheitel (0 | −1) wandert über die x-Achse, die Nullstellen verschwinden.', 'Probiere ein Beispiel mit dem Scheitel knapp unter der x-Achse.'))
+ST.neu('parameter', 'pruefung', L('Gegeben ist f(x) = −2(x + 1)² + 8. a) Gib den Scheitel an. b) In welchem Punkt schneidet der Graph die y-Achse?', 'a) S(□ | □); b) (0 | □)', [-1, 8, 6], ['-1', '8', '-2 * (0 + 1) ** 2 + 8'],
+       'a) S(−1 | 8). b) f(0) = −2 · 1 + 8 = 6, Punkt (0 | 6).', 'Für die y-Achse x = 0 einsetzen.'))
+ST.knobel('parameter', L('Die Normalparabel wird um d nach rechts verschoben (d > 0). Die neue Parabel geht durch (5 | 9). Welche Werte kann d haben? (kleineres zuerst)', 'd₁ = □; d₂ = □', [2, 8], ['5 - 3', '5 + 3'],
+          'Neue Parabel y = (x − d)². Einsetzen: 9 = (5 − d)², also 5 − d = 3 oder 5 − d = −3. Daraus d = 2 oder d = 8. Beide sind positiv, beide passen.',
+          'Eine Zahl, deren Quadrat 9 ist, kann zwei Werte haben.'))
+ST.knobel('parameter', Z('Wie viele der Parabeln y = (x − d)² + e mit d und e aus {−1; 0; 1} gehen durch den Ursprung?', 3, '1 + 2',
+          'Ursprung einsetzen: 0 = d² + e, also e = −d². d = 0 verlangt e = 0 (eine Parabel). d = 1 oder d = −1 verlangt e = −1 (zwei Parabeln). Zusammen 3.',
+          'Setze (0 | 0) ein und überlege, welche Paare passen.'))
+
+# umformen
+ST.stufenleiter('umformen', 'Bei a = 1 quadratisch ergänzen oder x = −b/(2a) nutzen.',
+                'Bei a = −1 oder a ≠ 1 erst ausklammern, ausmultiplizieren rückwärts, höchster Punkt einer Bahn.',
+                'Bedingungen für b und c, Fehler bei der Ergänzung, halbe Zahlen, Aussagen über Nullstellen, Gewinn maximieren, mehrteilige Aufgabe.')
+ST.typ('umformen', '/^(Bei y = x²|Bestimme den Scheitel von y = x²|Bringe y = x²)/', 'direkt')
+ST.typ('umformen', '/^(Bestimme den Scheitel von y = −?[\\d,]*x²|Bringe y = −x²|Bestimme den Scheitel von y = −x²)/', 'mehrschritt')
+ST.typ('umformen', 'Multipliziere', 'umkehr')
+ST.typ('umformen', 'Für welche Zahl c', 'parameter')
+ST.typ('umformen', 'Jemand rechnet', 'fehler')
+ST.typ('umformen', 'Die Parabel y = x² + bx + 5', 'rueckwaerts')
+ST.neu('umformen', 'erkennen', A('Welche Zahl brauchst du als quadratische Ergänzung bei x² − 10x?', '25', ['100', '10', '5'],
+       'Hälfte von 10 ist 5, und 5² = 25: x² − 10x + 25 = (x − 5)².', 'Halbiere die Zahl vor x und quadriere.'))
+ST.neu('umformen', 'einkleidung', Z('Die Flugbahn eines Balls ist h(x) = −x² + 4x + 1 (x und h in m). Wie hoch fliegt er höchstens?', 5, '-(2 ** 2) + 4 * 2 + 1',
+       'h(x) = −(x² − 4x) + 1 = −(x − 2)² + 4 + 1 = −(x − 2)² + 5. Höchster Punkt bei x = 2, Höhe 5 m.', 'Bring den Term in Scheitelform.', einheit='m'))
+ST.neu('umformen', 'begruenden', A('Stimmt: y = x² + 6x + 10 hat keine Nullstelle?', 'Ja, denn y = (x + 3)² + 1 ist immer mindestens 1.', ['Nein, x = −3 ist Nullstelle.', 'Nein, sie hat zwei Nullstellen.', 'Das kann man ohne Formel nicht sagen.'],
+       'Quadratische Ergänzung: x² + 6x + 9 + 1 = (x + 3)² + 1. Ein Quadrat ist nie negativ, also ist y ≥ 1.', 'Ergänze quadratisch.'))
+ST.neu('umformen', 'transfer', Z('Für den Gewinn eines Kiosks gilt G(x) = −2x² + 40x − 150 (x Preis eines Artikels in €, G in €). Bei welchem Preis ist der Gewinn am größten?', 10, '40 // 4',
+       'G(x) = −2(x² − 20x) − 150 = −2(x − 10)² + 200 − 150. Der Scheitel liegt bei x = 10: Preis 10 €, Gewinn 50 €.', 'Klammere −2 aus und ergänze.', einheit='€'))
+ST.neu('umformen', 'pruefung', L('Gegeben ist f(x) = 0,5x² − 4x + 5. a) Bringe f in Scheitelform. b) Gib den Scheitel an.', 'a) f(x) = 0,5(x − □)² − □; b) S(□ | □)', [4, 3, 4, -3], ['4', '3', '4', '0.5 * 16 - 16 + 5'],
+       'a) 0,5(x² − 8x) + 5 = 0,5(x² − 8x + 16) − 8 + 5 = 0,5(x − 4)² − 3. b) S(4 | −3).', 'Klammere zuerst 0,5 aus.'))
+ST.neu('umformen', 'verknuepfen', Z('Bestimme die y-Koordinate des Scheitels von y = x² − 5x + 4.', -2.25, '2.5 ** 2 - 5 * 2.5 + 4',
+       'Halbe Zahl: 5 : 2 = 2,5, Ergänzung 6,25. y = (x − 2,5)² − 6,25 + 4 = (x − 2,5)² − 2,25.', 'Die Ergänzung ist hier eine Dezimalzahl.'))
+ST.neu('umformen', 'parameter', Z('Für welche positive Zahl b liegt der Scheitel von y = x² + bx + 13 auf der Höhe y = 4?', 6, '6',
+       'Ergänzen: y = (x + b/2)² + 13 − b²/4. Also 13 − b²/4 = 4, b²/4 = 9, b² = 36, b = 6 (positiv).', 'Schreib die y-Koordinate des Scheitels mit b auf.'))
+ST.knobel('umformen', Z('Für welche Zahl c haben y = x² − 6x + c und y = −x² + 6x − c denselben Scheitel?', 9, '9',
+          'Erste Parabel: (x − 3)² + c − 9, Scheitel (3 | c − 9). Zweite: −(x − 3)² + 9 − c, Scheitel (3 | 9 − c). Gleich, wenn c − 9 = 9 − c, also c = 9. Dann liegt der gemeinsame Scheitel auf der x-Achse.',
+          'Die zweite Parabel ist das Spiegelbild der ersten an der x-Achse.'))
+ST.knobel('umformen', Z('Für wie viele ganze Zahlen b liegt der Scheitel von y = x² + bx + 10 oberhalb der x-Achse?', 13, '2 * 6 + 1',
+          'Scheitelhöhe: 10 − b²/4 > 0, also b² < 40. Ganze b mit b² < 40: −6, −5, …, 5, 6 (6² = 36 < 40, 7² = 49). Das sind 13 Zahlen.',
+          'Schreib die Höhe des Scheitels als Term mit b.'))
+
+# nullstellen
+ST.stufenleiter('nullstellen', 'Nullstellen aus der Produktform oder einem Graphen ablesen.',
+                'Mit der Lösungsformel oder der Scheitelform rechnen, Nullstellenzahl bestimmen, Gleichung zu gegebenen Nullstellen, Landepunkt.',
+                'Zweite Nullstelle aus einer bekannten, Bedingung für c, Fehler beim Ablesen, Tor-Breite, mehrteilige Aufgabe.')
+ST.typ('nullstellen', 'Lies die Nullstellen', 'erkennen')
+ST.typ('nullstellen', '/^Bestimme die Nullstellen von y = \\(x [+−] \\d+\\) ·/', 'direkt')
+ST.typ('nullstellen', '/^Bestimme die Nullstellen von y = −?\\(x/', 'mehrschritt')
+ST.typ('nullstellen', 'Wie viele Nullstellen hat die Funktion f mit f(x) = x² + x + 3', 'verknuepfen')
+ST.typ('nullstellen', '/^(Bestimme die Nullstellen|Wie viele Nullstellen)/', 'mehrschritt')
+ST.typ('nullstellen', 'Welche Funktion hat genau eine', 'begruenden')
+ST.typ('nullstellen', 'Die Parabel y = x² + bx + 12', 'rueckwaerts')
+ST.typ('nullstellen', 'Die Parabel y = x² − 2x − 3 und', 'verknuepfen')
+ST.neu('nullstellen', 'einkleidung', Z('Ein Ball fliegt auf der Bahn h(x) = −0,25x² + x + 3 (x und h in m). In welcher Entfernung x > 0 landet er (h = 0)?', 6, '6',
+       '−0,25x² + x + 3 = 0, mal (−4): x² − 4x − 12 = 0, also (x − 6)(x + 2) = 0. Positiv: x = 6 m. Probe: −9 + 6 + 3 = 0.', 'Setze h = 0 und mache den Faktor vor x² zu 1.', einheit='m'))
+ST.neu('nullstellen', 'umkehr', L('Eine Parabel y = x² + bx + c hat die Nullstellen 2 und 7. Bestimme b und c.', 'b = □; c = □', [-9, 14], ['-(2 + 7)', '2 * 7'],
+       'y = (x − 2)(x − 7) = x² − 9x + 14. Also b = −9 und c = 14.', 'Schreib die Produktform und multipliziere aus.'))
+ST.neu('nullstellen', 'fehler', A('Jemand liest bei y = (x − 3)(x + 2) die Nullstellen −3 und 2 ab. Was stimmt?', 'Falsch: Die Nullstellen sind 3 und −2.', ['Richtig.', 'Falsch: Die Nullstellen sind 3 und 2.', 'Falsch: Es gibt nur die Nullstelle −6.'],
+       'Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 3 = 0 bei x = 3, x + 2 = 0 bei x = −2.', 'Setze jeden Faktor gleich 0.'))
+ST.neu('nullstellen', 'parameter', A('Für welche Werte von c hat y = x² + 6x + c zwei Nullstellen?', 'c < 9', ['c > 9', 'c = 9', 'c < 3'],
+       'D = 36 − 4c > 0 heißt c < 9. Bei c = 9 ist y = (x + 3)², eine Nullstelle.', 'Die Diskriminante muss positiv sein.'))
+ST.neu('nullstellen', 'transfer', Z('Ein Torbogen hat die Form y = −0,5x² + 2x (x, y in m, der Boden ist y = 0). Wie breit ist das Tor am Boden?', 4, '2 / 0.5',
+       'Nullstellen: x(−0,5x + 2) = 0, also x = 0 und x = 4. Breite 4 m.', 'Klammere x aus.', einheit='m'))
+ST.neu('nullstellen', 'pruefung', L('Gegeben ist f(x) = x² − 2x − 15. a) Bestimme die Nullstellen (kleinere zuerst). b) Gib den Scheitel an.', 'a) x₁ = □; x₂ = □; b) S(□ | □)', [-3, 5, 1, -16], ['-3', '5', '(-3 + 5) // 2', '1 - 2 - 15'],
+       'a) (x + 3)(x − 5) = 0: x = −3, x = 5. b) Der Scheitel liegt mittig: x = 1, f(1) = 1 − 2 − 15 = −16.', 'Der Scheitel liegt in der Mitte zwischen den Nullstellen.'))
+ST.knobel('nullstellen', L('Die Parabel y = x² + bx + c hat die Nullstellen 2 und 5. Welche Nullstellen hat dann y = x² − bx + c? (kleinere zuerst)', 'x₁ = □; x₂ = □', [-5, -2], ['-5', '-2'],
+          'Aus (x − 2)(x − 5) = x² − 7x + 10 folgt b = −7, c = 10. Dann y = x² + 7x + 10 = (x + 2)(x + 5) mit den Nullstellen −5 und −2. Allgemein: b umdrehen spiegelt die Parabel an der y-Achse.',
+          'Bestimme zuerst b und c.'))
+ST.knobel('nullstellen', Z('Eine Parabel y = x² + px + q hat zwei Nullstellen mit der Summe 10 und dem Produkt 21. Welches ist ihr kleinster Funktionswert?', -4, '25 - 50 + 21',
+          'Nullstellen mit Summe 10 und Produkt 21 sind 3 und 7. Also y = (x − 3)(x − 7) = x² − 10x + 21. Der Scheitel liegt in der Mitte bei x = 5: y = 25 − 50 + 21 = −4.',
+          'Welche zwei Zahlen haben Summe 10 und Produkt 21?'))
+
+# punkte
+ST.stufenleiter('punkte', 'Funktionswerte berechnen und die Punktprobe machen.',
+                'Werte im Sachzusammenhang, Differenzen von Funktionswerten, rückwärts f(x) = 5 lösen, Tabelle zuordnen.',
+                'Unbekannte Koordinate oder Parameter c bestimmen, gleich hohe Punkte deuten, Fehler mit dem Minus vor x² finden.')
+ST.typ('punkte', '/^(Berechne f\\(|Q\\(|Liegt P)/', 'direkt')
+ST.typ('punkte', 'Die Bahn einer Kugel', 'einkleidung')
+ST.typ('punkte', '/^P\\(u \\| \\d/', 'rueckwaerts')
+ST.typ('punkte', '/^Der Punkt P\\(.*Bestimme [ca]/', 'parameter')
+ST.typ('punkte', '/^(Der Punkt P\\(u \\| u\\)|A\\()/', 'verknuepfen')
+ST.neu('punkte', 'erkennen', A('Welcher Punkt liegt auf der Parabel y = x² − 1?', '(2 | 3)', ['(2 | 5)', '(3 | 9)', '(−1 | 2)'],
+       '2² − 1 = 3. Bei den anderen: 2² − 1 ≠ 5, 3² − 1 = 8 ≠ 9, (−1)² − 1 = 0 ≠ 2.', 'Setze die x-Werte ein.'))
+ST.neu('punkte', 'mehrschritt', Z('Berechne f(2) − f(−2) für f(x) = x² + 3x − 1.', 12, '(4 + 6 - 1) - (4 - 6 - 1)',
+       'f(2) = 4 + 6 − 1 = 9, f(−2) = 4 − 6 − 1 = −3. Differenz 9 − (−3) = 12.', 'Berechne beide Werte einzeln.'))
+ST.neu('punkte', 'mehrschritt', Z('Berechne f(0,5) für f(x) = 4x² − 2x + 3.', 3, '4 * 0.25 - 1 + 3',
+       '0,5² = 0,25. f(0,5) = 4 · 0,25 − 2 · 0,5 + 3 = 1 − 1 + 3 = 3.', 'Erst quadrieren, dann malnehmen.'))
+ST.neu('punkte', 'umkehr', L('Für welche x gilt f(x) = 5 bei f(x) = x² − 4? (kleineres zuerst)', 'x₁ = □; x₂ = □', [-3, 3], ['-3', '3'],
+       'x² − 4 = 5 heißt x² = 9, also x = −3 oder x = 3.', 'Setze f(x) = 5 und löse.'))
+ST.neu('punkte', 'darstellung', A('Eine Tabelle zeigt: x = 0, 1, 2 gehört zu y = 3, 4, 7. Welche Funktion passt?', 'y = x² + 3', ['y = x + 3', 'y = 2x² + 3', 'y = x² + x + 3'],
+       'x² + 3 gibt 3, 4, 7. x + 3 gibt 3, 4, 5; 2x² + 3 gibt 3, 5, 11; x² + x + 3 gibt 3, 5, 9.', 'Prüfe alle drei Werte.'))
+ST.neu('punkte', 'einkleidung', Z('Ein Wasserstrahl folgt h(x) = −0,5x² + 2x + 1 (x und h in m). Wie hoch ist er 3 m von der Düse entfernt?', 2.5, '-0.5 * 9 + 6 + 1',
+       'h(3) = −0,5 · 9 + 2 · 3 + 1 = −4,5 + 6 + 1 = 2,5 m.', 'Setze x = 3 ein.', einheit='m'))
+ST.neu('punkte', 'fehler', A('Jemand rechnet für f(x) = −x² + 2 so: f(−3) = −(−3)² + 2 = 9 + 2 = 11. Was stimmt?', 'Falsch: −(−3)² = −9, also f(−3) = −7.', ['Richtig.', 'Falsch: f(−3) = −11.', 'Falsch: f(−3) = 5.'],
+       'Erst quadrieren: (−3)² = 9. Das Minus davor bleibt: −9 + 2 = −7.', 'Was wird zuerst gerechnet: das Quadrat oder das Minus davor?'))
+ST.knobel('punkte', Z('Eine Parabel y = x² + bx + c geht durch (1 | 3) und (2 | 9). Welchen Wert hat sie bei x = 3?', 17, '9 + 3 * 3 - 1',
+          'Einsetzen: 1 + b + c = 3 und 4 + 2b + c = 9. Zweite minus erste: 3 + b = 6, also b = 3, dann c = −1. f(3) = 9 + 9 − 1 = 17.',
+          'Zwei Punkte, zwei Unbekannte. Ziehe die Gleichungen voneinander ab.'))
+ST.knobel('punkte', Z('Für f(x) = x² − 6x + 10: Für wie viele ganze Zahlen x ist f(x) < 5?', 3, '4 - 2 + 1',
+          'f(x) < 5 heißt x² − 6x + 5 < 0, also (x − 1)(x − 5) < 0. Das gilt zwischen den Nullstellen 1 und 5: x = 2, 3, 4. Drei Zahlen.',
+          'Wann ist f(x) genau 5? Was gilt dazwischen?'))
+
+# bestimmen
+ST.stufenleiter('bestimmen', 'Mit Scheitel und einem Punkt den Faktor a bestimmen.',
+                'Mit Nullstellen ansetzen, aus Bogenmaßen oder Tabellen den Term finden, d aus einem Punkt bestimmen.',
+                'Drei Punkte, Ansatz-Fehler finden, Aussagen über Eindeutigkeit, Bedingung für a, Wurfbahn modellieren, mehrteilige Aufgabe.')
+ST.typ('bestimmen', '/^(Eine Parabel hat den Scheitel S\\(−?\\d+ \\| −?\\d+\\) und geht durch P|Die Parabel y = a\\(x − 1\\)|Gib die Scheitelform|Eine Parabel hat den Scheitel S\\(2 \\| −8\\)|Eine Parabel hat den Scheitel S\\(−1)/', 'direkt')
+ST.typ('bestimmen', 'Eine Parabel hat die Nullstellen', 'mehrschritt')
+ST.typ('bestimmen', 'Eine nach unten geöffnete Normalparabel', 'mehrschritt')
+ST.typ('bestimmen', '/^(Bestimme die Parabel|Eine Parabel y = ax² \\+ c)/', 'verknuepfen')
+ST.neu('bestimmen', 'erkennen', A('Welcher Ansatz passt, wenn der Scheitel S(2 | −1) bekannt ist?', 'y = a(x − 2)² − 1', ['y = a(x + 2)² − 1', 'y = a(x − 2)² + 1', 'y = ax² + 2x − 1'],
+       'Scheitelform y = a(x − d)² + e mit d = 2 und e = −1.', 'Setze d und e in die Scheitelform ein.'))
+ST.neu('bestimmen', 'einkleidung', Z('Ein Brückenbogen ist am Boden 40 m breit (Nullstellen bei x = 0 und x = 40) und in der Mitte 10 m hoch. Bestimme a in y = a(x − 20)² + 10.', -0.025, '-10 / 400',
+       'Nullstelle (0 | 0) einsetzen: 0 = a · 400 + 10, also a = −10 : 400 = −0,025.', 'Setze eine Nullstelle ein.'))
+ST.neu('bestimmen', 'umkehr', Z('Die Parabel y = 2(x − d)² + 1 geht durch (5 | 3), und es gilt d < 5. Bestimme d.', 4, '5 - 1',
+       '3 = 2(5 − d)² + 1 ⇒ (5 − d)² = 1 ⇒ 5 − d = 1 (weil d < 5) ⇒ d = 4.', 'Löse nach (5 − d)² auf.'))
+ST.neu('bestimmen', 'darstellung', Z('Eine Parabel y = ax² + bx + c hat die Wertetabelle x = −1, 0, 1 mit y = 6, 3, 2. Bestimme a.', 1, '(6 + 2 - 2 * 3) // 2',
+       'x = 0: c = 3. x = −1: a − b + 3 = 6. x = 1: a + b + 3 = 2. Addieren: 2a + 6 = 8, a = 1.', 'Lies c direkt ab und addiere die anderen beiden Gleichungen.'))
+ST.neu('bestimmen', 'mehrschritt', Z('Eine Parabel hat die Nullstellen 1 und 5, ihr Scheitel liegt auf der Höhe y = −8. Bestimme a in y = a(x − 1)(x − 5).', 2, '-8 // ((3 - 1) * (3 - 5))',
+       'Der Scheitel liegt mittig bei x = 3. Dort: a · 2 · (−2) = −4a = −8, also a = 2.', 'Wo liegt der Scheitel zwischen den Nullstellen?'))
+ST.neu('bestimmen', 'fehler', A('Jemand setzt für den Scheitel S(3 | 2) an: y = a(x + 3)² + 2. Was stimmt?', 'Falsch: Es heißt y = a(x − 3)² + 2.', ['Richtig.', 'Falsch: y = a(x + 3)² − 2.', 'Falsch: y = a(x − 2)² + 3.'],
+       'In y = a(x − d)² + e steht d mit Minus. Bei d = 3: (x − 3).', 'Wo ist die Klammer null?'))
+ST.neu('bestimmen', 'begruenden', A('Stimmt: Durch zwei verschiedene Punkte geht genau eine Parabel y = ax² + bx + c?', 'Nein, es gibt unendlich viele; man braucht drei Punkte.', ['Ja, genau eine.', 'Ja, aber nur, wenn die Punkte gleich hoch liegen.', 'Nein, es gibt keine.'],
+       'Drei Unbekannte a, b, c brauchen drei Bedingungen. Durch (0 | 0) und (1 | 1) gehen z. B. y = x² und y = 2x² − x.', 'Zähle die Unbekannten.'))
+ST.neu('bestimmen', 'parameter', Z('Die Parabeln y = a(x − 2)(x − 6) haben alle dieselben Nullstellen. Für welches a geht die Parabel durch (4 | 8)?', -2, '8 // ((4 - 2) * (4 - 6))',
+       'Einsetzen: 8 = a · 2 · (−2) = −4a, also a = −2.', 'Setze den Punkt ein.'))
+ST.neu('bestimmen', 'transfer', Z('Ein Ball wird bei x = 0 aus 2 m Höhe geworfen. Bei x = 4 m erreicht er die größte Höhe 6 m. In welcher Höhe ist er bei x = 6 m?', 5, '-0.25 * 4 + 6',
+       'Scheitel S(4 | 6): y = a(x − 4)² + 6. (0 | 2): 2 = 16a + 6, a = −0,25. y(6) = −0,25 · 4 + 6 = 5 m.', 'Der höchste Punkt ist der Scheitel.', einheit='m'))
+ST.neu('bestimmen', 'pruefung', L('Eine Normalparabel (a = 1) hat den Scheitel S(1 | −4). a) Prüfe, für welches a sie durch P(3 | 0) geht. b) Schreibe sie in allgemeiner Form.', 'a) a = □; b) y = x² + □x + □', [1, -2, -3], ['4 // 4', '-2', '1 - 4'],
+       'a) 0 = a · 2² − 4, also a = 1. b) (x − 1)² − 4 = x² − 2x + 1 − 4 = x² − 2x − 3.', 'Binomische Formel für (x − 1)².'))
+ST.knobel('bestimmen', Z('Eine Parabel hat die Nullstellen −2 und 6 und geht durch (2 | 8). Welchen Wert hat sie bei x = 4?', 6, '-0.5 * (4 + 2) * (4 - 6)',
+          'Ansatz y = a(x + 2)(x − 6). (2 | 8): 8 = a · 4 · (−4) = −16a, a = −0,5. Bei x = 4: −0,5 · 6 · (−2) = 6.',
+          'Setze mit den Nullstellen an.'))
+ST.knobel('bestimmen', Z('Wie viele Parabeln y = ax² + bx + c mit ganzen Zahlen a, b, c, a ≠ 0 und −3 ≤ a ≤ 3 gehen durch (0 | 0) und (1 | 2)?', 6, '7 - 1',
+          '(0 | 0) liefert c = 0, (1 | 2) liefert a + b = 2, also b = 2 − a. Zu jedem a gibt es genau ein b. Erlaubt sind a = −3, −2, −1, 1, 2, 3: sechs Parabeln.',
+          'Was sagen die beiden Punkte über a, b und c?'))
+
+# extremwert
+ST.stufenleiter('extremwert', 'Den größten oder kleinsten Wert einer quadratischen Funktion angeben.',
+                'Zielfunktion im Sachzusammenhang aufstellen (Zaun, Summe, Hauswand), rückwärts den Umfang finden.',
+                'Bahnen und Preise modellieren, Fehler beim Aufstellen der Zielfunktion, Aussagen begründen, Rundung im Sachzusammenhang.')
+ST.typ('extremwert', '/^Welchen (kleinsten|größten) Wert nimmt/', 'erkennen')
+ST.typ('extremwert', '/^Wie groß ist der (kleinste|größte)/', 'direkt')
+ST.typ('extremwert', '/^(Ein rechteckiges Gehege|An einer Hauswand)/', 'einkleidung')
+ST.typ('extremwert', 'Zwei Zahlen haben die Summe', 'mehrschritt')
+ST.typ('extremwert', '/^(Ein Ball fliegt|Mit 16 m Zaun)/', 'transfer')
+ST.typ('extremwert', '/^(Rechtecke liegen|Die Differenz zweier)/', 'verknuepfen')
+ST.typ('extremwert', 'Ein Händler', 'pruefung')
+ST.neu('extremwert', 'umkehr', Z('Bei festem Umfang hat ein Rechteck höchstens 49 cm² Flächeninhalt. Wie groß ist der Umfang?', 28, '4 * 7',
+       'Die größte Fläche hat das Quadrat. 49 cm² heißt Seite 7 cm, Umfang 4 · 7 = 28 cm.', 'Welches Rechteck hat bei festem Umfang die größte Fläche?', einheit='cm'))
+ST.neu('extremwert', 'fehler', A('Jemand sucht das größte Rechteck mit 40 m Umfang: A(x) = x · (40 − x), größte Fläche bei x = 20. Was stimmt?', 'Falsch: Die zweite Seite ist 20 − x; größte Fläche bei x = 10 mit 100 m².',
+       ['Richtig, 400 m².', 'Falsch: größte Fläche bei x = 40.', 'Falsch: Die zweite Seite ist 40 − 2x.'],
+       'Zwei Seiten zusammen sind der halbe Umfang 20 m. A(x) = x(20 − x), Scheitel bei x = 10, A = 100 m². Mit 40 − x wäre der Umfang 80 m.', 'Wie lang sind zwei Seiten zusammen?'))
+ST.neu('extremwert', 'begruenden', A('Stimmt: Von allen Rechtecken mit gleichem Umfang hat das Quadrat den größten Flächeninhalt?', 'Ja: A(x) = x · (u/2 − x) hat den Scheitel bei x = u/4.',
+       ['Nein, ein sehr langes Rechteck hat mehr Fläche.', 'Nur bei ganzzahligen Seiten.', 'Nein, alle haben die gleiche Fläche.'],
+       'Der Scheitel liegt mittig zwischen den Nullstellen 0 und u/2, also bei x = u/4. Dann ist auch die andere Seite u/4: ein Quadrat.', 'Stelle A(x) mit dem Umfang u auf.'))
+ST.knobel('extremwert', Z('Aus 60 cm Draht wird ein Rechteck gebogen, das zusätzlich eine Mittelstrebe parallel zu einer Seite bekommt. Wie groß ist die Fläche des Rechtecks höchstens?', 150, '10 * 15',
+          'Drei Stücke der Länge x (zwei Seiten und die Strebe) und zwei Stücke der Länge y: 3x + 2y = 60, also y = 30 − 1,5x. A(x) = x(30 − 1,5x), Nullstellen 0 und 20, Scheitel bei x = 10. y = 15, A = 150 cm².',
+          'Die Strebe ist so lang wie die Seiten, zu denen sie parallel ist.', einheit='cm²'))
+ST.knobel('extremwert', Z('Zwei Zahlen haben die Summe 10. Wie klein kann die Summe ihrer Quadrate höchstens werden?', 50, '5 ** 2 + 5 ** 2',
+          'Zahlen x und 10 − x: S(x) = x² + (10 − x)² = 2x² − 20x + 100 = 2(x − 5)² + 50. Kleinster Wert 50 bei x = 5.',
+          'Schreib die Summe der Quadrate mit einer Unbekannten.'))
+
+# schnittpunkte
+ST.stufenleiter('schnittpunkte', 'Parabel und Gerade gleichsetzen, wenn beide einfach sind.',
+                'Gleichung umformen und lösen, Zahl der gemeinsamen Punkte, Geraden durch den Scheitel, Ball trifft Rampe.',
+                'Tangenten-Bedingungen, Mittelpunkt einer Sehne, Ursprungsgerade als Tangente, Sachmodelle, Fehler beim Umformen.')
+ST.typ('schnittpunkte', 'An welchen Stellen', 'direkt')
+ST.typ('schnittpunkte', '/^(Welche Gleichung löst du|Gleichsetzen von Parabel)/', 'erkennen')
+ST.typ('schnittpunkte', '/^(Berechne die Schnittpunkte der Parabel |Wie viele gemeinsame|Berechne die Schnittpunkte der Parabeln y = x² − 4)/', 'mehrschritt')
+ST.typ('schnittpunkte', '/^(Die Gerade g:|Eine Ursprungsgerade|Ein Wasserstrahl)/', 'transfer')
+ST.typ('schnittpunkte', 'Für welche', 'parameter')
+ST.typ('schnittpunkte', '/^(Die Gerade y = x \\+ 1|Berechne die Schnittpunkte der Parabeln)/', 'verknuepfen')
+ST.typ('schnittpunkte', 'Jemand setzt', 'fehler')
+ST.neu('schnittpunkte', 'einkleidung', Z('Ein Ball fliegt auf der Bahn y = −0,1x² + x + 1, eine Rampe verläuft auf y = 0,2x + 1 (in m). Bei welchem x > 0 trifft der Ball die Rampe?', 8, '0.8 / 0.1',
+       'Gleichsetzen: −0,1x² + x + 1 = 0,2x + 1 ⇒ −0,1x² + 0,8x = 0 ⇒ x(−0,1x + 0,8) = 0. x = 0 ist der Abwurf, x = 8 m der Treffpunkt.', 'Gleichsetzen und x ausklammern.', einheit='m'))
+ST.neu('schnittpunkte', 'umkehr', Z('Die Gerade y = 2x + t geht durch den Scheitel der Parabel y = x² − 4x + 7. Bestimme t.', -1, '3 - 4',
+       'y = (x − 2)² + 3, Scheitel (2 | 3). Einsetzen: 3 = 2 · 2 + t, also t = −1.', 'Bestimme zuerst den Scheitel.'))
+ST.knobel('schnittpunkte', Z('Für wie viele ganze Zahlen m hat die Gerade y = mx keinen gemeinsamen Punkt mit der Parabel y = x² + 4?', 7, '2 * 3 + 1',
+          'Gleichsetzen: x² − mx + 4 = 0. Keine Lösung, wenn D = m² − 16 < 0, also −4 < m < 4. Ganze Zahlen: −3, −2, …, 3, das sind 7.',
+          'Wann hat eine quadratische Gleichung keine Lösung?'))
+ST.knobel('schnittpunkte', Z('Die Gerade y = 4 schneidet die Parabel y = x² in A und B, die Gerade y = 16 schneidet sie in C und D. Wie groß ist das Trapez mit den Ecken A, B, D, C?', 72, '(4 + 8) * 12 // 2',
+          'y = 4: x = ±2, also AB = 4. y = 16: x = ±4, also CD = 8. Abstand der Parallelen: 16 − 4 = 12. Fläche (4 + 8) : 2 · 12 = 72.',
+          'Bestimme die Schnittpunkte und zeichne das Trapez.'))
+
+if __name__ == '__main__':
+    stufen('funktionen.quadratisch', ST)

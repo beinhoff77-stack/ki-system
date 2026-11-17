@@ -31,3 +31,7 @@ Neue Karte „sachzusammenhang“ (Zusammenhänge aus dem Alltag beschreiben) am
 Neue Karte „indirekt_sach“ (Sachaufgaben: umgekehrter Dreisatz) nach „indirekt“, Pflicht, 28 Aufgaben.
 - Inhalte: Kosten teilen, Vorrat, Fahrzeit; erkennen, ob direkt, indirekt oder weder noch; Zahnräder, Tabelle mit Produktgleichheit; Ausfall oder Verkauf mitten im Vorgang; Pumpen mit Menge und Zeit; Physik-Beispiel Druck · Volumen.
 - `inhalt_pruefen` OK; Nachweis OK (180 alte Aufgaben unverändert vorne).
+
+## 2026-11-17 – STATUS messen.kreisberechnung
+Karte „umfang“ um den 5. Schritt „Warum etwa 3,14? Sechseck innen hat 3 · d, Quadrat außen 4 · d.“ erweitert. Der Schritt hat eine maßstäbliche Zeichnung (Kreis mit Sechseck innen und Quadrat außen).
+Dazu 6 neue Übungen zu π-Näherungen (Messen, Vielecke innen und außen), je 2 auf Stufe 1, 2 und 3. `inhalt_pruefen` OK; Nachweis OK: nur die Karte „umfang“ geändert, genau ein Schritt eingefügt, 210 alte Aufgaben unverändert vorne.

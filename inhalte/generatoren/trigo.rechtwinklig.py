@@ -726,3 +726,188 @@ DS_KARTEN = {
 
 if __name__ == '__main__':
     durchsicht('trigo.rechtwinklig', DS, DS_KARTEN)
+
+
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl9) ----
+from _stufen_kl9 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('trigo.rechtwinklig', 20_9_12)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# seiten
+ST.stufenleiter('seiten', 'Bei γ = 90° Hypotenuse, Gegen- und Ankathete benennen.',
+                'Andere Lage des rechten Winkels und andere Buchstaben, Figuren lesen, Seiten an einer Rampe benennen.',
+                'Dreiecke in Körpern finden, Rollentausch für α und β, Fehler bei der Hypotenuse, Bedingungen für „a ist Hypotenuse“, mehrteilige Aufgabe.')
+ST.typ('seiten', 'Im Dreieck ABC ist γ = 90°', 'erkennen')
+ST.typ('seiten', '/des markierten Winkels bei [AD]\\?$/', 'erkennen')
+ST.typ('seiten', 'Was gilt in jedem', 'erkennen')
+ST.typ('seiten', '/^Welche Strecke ist (die Gegenkathete|die Ankathete|die Hypotenuse)/', 'darstellung')
+ST.typ('seiten', '/^Im Dreieck (ABC ist [αβ] = 90°|[A-Z]{3} ist der Winkel|ABC liegt der rechte Winkel bei C)/', 'mehrschritt')
+ST.typ('seiten', 'Ein Zylinder', 'transfer')
+ST.typ('seiten', '/^(Im Quader|Im Dreieck XYZ)/', 'verknuepfen')
+ST.typ('seiten', 'In einem rechtwinkligen Dreieck mit den spitzen', 'begruenden')
+ST.neu('seiten', 'direkt', Z('Im Dreieck ABC ist γ = 90°, a = 3 cm, b = 4 cm, c = 5 cm. Wie lang ist die Ankathete von α?', 4, '4',
+       'Die Ankathete von α liegt am Winkel α und ist nicht die Hypotenuse: b = 4 cm.', 'Welche Kathete berührt den Winkel α?', einheit='cm'))
+ST.neu('seiten', 'einkleidung', A('Eine Rampe führt auf eine Bühne. Vom Winkel unten am Boden aus: Welche Strecke ist die Gegenkathete?', 'die Höhe der Bühnenkante', ['die Rampe', 'der Boden unter der Rampe', 'keine'],
+       'Die Rampe ist die Hypotenuse, der Boden liegt am Winkel an (Ankathete). Gegenüber liegt die Bühnenhöhe.', 'Was liegt dem Winkel gegenüber?'))
+ST.neu('seiten', 'fehler', A('Im Dreieck ABC ist β = 90°. Jemand nennt a die Hypotenuse. Was stimmt?', 'Falsch: Die Hypotenuse liegt β gegenüber, also b.', ['Richtig.', 'Falsch: c ist die Hypotenuse.', 'Falsch: Es gibt keine Hypotenuse.'],
+       'Die Hypotenuse liegt dem rechten Winkel gegenüber. Gegenüber von B liegt die Seite b.', 'Welche Seite liegt B gegenüber?'))
+ST.neu('seiten', 'parameter', A('Für welchen rechten Winkel ist im Dreieck ABC die Seite a die Hypotenuse?', 'für α = 90°', ['für β = 90°', 'für γ = 90°', 'immer'],
+       'a liegt A gegenüber. Ist der Winkel bei A der rechte, ist a die Hypotenuse.', 'Welcher Winkel liegt a gegenüber?'))
+ST.neu('seiten', 'transfer', A('Eine Leiter lehnt an einer Wand, α ist der Winkel zwischen Leiter und Boden. Was ist die Ankathete von α?', 'der Abstand vom Fuß der Leiter zur Wand', ['die Leiter', 'die Höhe an der Wand', 'die Wand bis zur Decke'],
+       'Die Leiter ist die Hypotenuse. Am Winkel α am Boden liegt der Bodenabschnitt an, die Wandhöhe liegt gegenüber.', 'Zeichne eine Skizze.'))
+ST.neu('seiten', 'pruefung', L('Im Dreieck ABC liegt der rechte Winkel bei C, a = 6 cm, b = 8 cm, c = 10 cm. Gib die Längen an: a) Gegenkathete von α, b) Ankathete von β, c) Hypotenuse.', 'a) □ cm; b) □ cm; c) □ cm', [6, 6, 10],
+       ['6', '6', '10'], 'a) Gegenüber α liegt a = 6. b) An β liegt a = 6 an. c) c = 10. Dieselbe Seite a spielt für α und β verschiedene Rollen.', 'Für β tauschen Gegen- und Ankathete.'))
+ST.knobel('seiten', Z('In einem rechtwinkligen Dreieck ist die Gegenkathete von α genauso lang wie die Ankathete von α. Wie groß ist α?', 45, '90 // 2',
+          'Gleich lange Katheten heißt: Das Dreieck ist gleichschenklig-rechtwinklig. Die beiden spitzen Winkel sind gleich groß: (180° − 90°) : 2 = 45°.',
+          'Was für ein Dreieck ist das?', einheit='°'))
+ST.knobel('seiten', Z('In einem rechtwinkligen Dreieck ist die Gegenkathete von α genau 3 cm lang. Wie lang ist die Ankathete des anderen spitzen Winkels β?', 3, '3',
+          'Die Seite gegenüber α liegt am Winkel β an. Es ist dieselbe Strecke: 3 cm.', 'Zeichne die Seite und schau sie von β aus an.', einheit='cm'))
+
+# verhaeltnisse
+ST.stufenleiter('verhaeltnisse', 'sin, cos und tan als Seitenverhältnis bei γ = 90° aufschreiben.',
+                'Verhältnisse als Zahl ausrechnen, anderer rechter Winkel, Rampen-Sinus.',
+                'Erst eine Seite mit Pythagoras, Winkel ausschließen, Zylinder, sin aus tan, Fehler „Ankathete durch Hypotenuse“, Parameter, mehrteilige Aufgabe.')
+ST.typ('verhaeltnisse', 'Im Dreieck ABC ist γ = 90°. Welcher Term', 'erkennen')
+ST.typ('verhaeltnisse', '/^Im Dreieck ABC ist α = 90°\\. Welcher Term/', 'darstellung')
+ST.typ('verhaeltnisse', '/Berechne zuerst c/', 'verknuepfen')
+ST.typ('verhaeltnisse', '/^Im Dreieck ABC ist γ = 90°/', 'mehrschritt')
+ST.typ('verhaeltnisse', 'Ein rechtwinkliges Dreieck hat die Seiten 7', 'begruenden')
+ST.typ('verhaeltnisse', 'Ein Zylinder', 'transfer')
+ST.typ('verhaeltnisse', 'Für einen spitzen Winkel', 'verknuepfen')
+ST.neu('verhaeltnisse', 'direkt', L('Von α aus ist die Gegenkathete 9 cm und die Hypotenuse 41 cm. Gib sin α als Bruch an.', '□/□', [9, 41], ['9', '41'],
+       'sin α = Gegenkathete : Hypotenuse = 9/41.', 'Gegenkathete durch Hypotenuse.'))
+ST.neu('verhaeltnisse', 'einkleidung', Z('Eine Rampe ist 5 m lang und führt 3 m hoch. Wie groß ist der Sinus des Steigungswinkels?', 0.6, '3 / 5',
+       'Die Rampe ist die Hypotenuse, die Höhe die Gegenkathete: sin α = 3 : 5 = 0,6.', 'Welche Strecke ist die Hypotenuse?'))
+ST.neu('verhaeltnisse', 'fehler', A('Jemand schreibt: sin α = Ankathete : Hypotenuse. Was stimmt?', 'Falsch: Das ist cos α; sin α = Gegenkathete : Hypotenuse.', ['Richtig.', 'Falsch: sin α = Gegenkathete : Ankathete.', 'Falsch: sin α = Hypotenuse : Gegenkathete.'],
+       'sin: Gegenkathete/Hypotenuse, cos: Ankathete/Hypotenuse, tan: Gegenkathete/Ankathete.', 'Denk an die Merkregel der Lernkarte.'))
+ST.neu('verhaeltnisse', 'parameter', Z('Im Dreieck ABC ist γ = 90° und a = 7 cm. Für welche Länge b gilt tan α = 1?', 7, '7',
+       'tan α = a : b = 1 heißt a = b = 7 cm.', 'Wann ist ein Bruch gleich 1?', einheit='cm'))
+ST.neu('verhaeltnisse', 'pruefung', L('Im Dreieck ABC ist γ = 90°, a = 8 cm, b = 6 cm. Berechne a) c, b) sin α als gekürzten Bruch, c) tan β als gekürzten Bruch.', 'a) □ cm; b) □/□; c) □/□', [10, 4, 5, 3, 4],
+       ['10', '4', '5', '3', '4'], 'a) c = √(64 + 36) = 10. b) sin α = 8/10 = 4/5. c) tan β = b : a = 6/8 = 3/4.', 'Erst c, dann die Verhältnisse.'))
+ST.knobel('verhaeltnisse', A('Stimmt für jeden spitzen Winkel α im rechtwinkligen Dreieck: sin α + cos α > 1?', 'Ja, denn (a + b) : c > 1, weil a + b > c.', ['Nein, die Summe ist immer genau 1.', 'Nur für α = 45°.', 'Nein, sie ist immer kleiner als 1.'],
+          'sin α + cos α = a/c + b/c = (a + b)/c. Im Dreieck sind zwei Seiten zusammen länger als die dritte: a + b > c. Gleich 1 ist nur sin² α + cos² α.',
+          'Schreibe beide als Bruch mit dem Nenner c.'))
+ST.knobel('verhaeltnisse', L('Für einen spitzen Winkel gilt tan α = 5/12. Wie groß ist sin α + cos α?', '□/□', [17, 13], ['17', '13'],
+          'Dreieck mit Gegenkathete 5, Ankathete 12, Hypotenuse √(25 + 144) = 13. sin α = 5/13, cos α = 12/13, Summe 17/13.',
+          'Zeichne ein passendes Dreieck.'))
+
+# seite
+ST.stufenleiter('seite', 'Mit a = c · sin α die Gegenkathete berechnen.',
+                'Kosinus und Tangens wählen, durch sin oder cos teilen, Drachenschnur, Hypotenuse rückwärts.',
+                'Fläche aus Winkel, exakte Werte, Mindestlänge einer Leiter, Fehler „sin statt cos“, Bedingung a > c/2, mehrteilige Aufgabe.')
+ST.typ('seite', '/^Im Dreieck ABC ist γ = 90°, α = 30° und c = 14/', 'direkt')
+ST.typ('seite', '/^Im Dreieck ABC ist γ = 90°, α = \\d+° und c = \\d+ cm\\. Berechne a/', 'direkt')
+ST.typ('seite', 'Im Dreieck ABC ist γ = 90°, α = 30° und c = 12 cm. Berechne den', 'transfer')
+ST.typ('seite', '/^Im Dreieck ABC ist γ = 90°, (α|β) = \\d+°/', 'mehrschritt')
+ST.typ('seite', '/^(Ein Parallelogramm|Im Dreieck ABC ist γ = 90°, c = 8|In einem rechtwinkligen)/', 'verknuepfen')
+ST.typ('seite', 'Eine Leiter soll', 'transfer')
+ST.neu('seite', 'erkennen', A('Welche Funktion verbindet die Hypotenuse und die Gegenkathete von α?', 'sin α', ['cos α', 'tan α', 'keine'],
+       'sin α = Gegenkathete : Hypotenuse.', 'Welches Verhältnis enthält genau diese zwei Seiten?'))
+ST.neu('seite', 'direkt', Z('Eine 10 m lange Rampe steigt mit 30° an. Wie hoch führt sie? (sin 30° = 0,5)', 5, '10 * 0.5',
+       'Höhe = 10 · sin 30° = 10 · 0,5 = 5 m.', 'Höhe = Rampenlänge · sin α.', einheit='m'))
+ST.neu('seite', 'einkleidung', Z('Ein Drachen hängt an einer 40 m langen, straff gespannten Schnur, die mit dem Boden 50° einschließt. Wie hoch ist der Drachen über der Hand? Runde auf eine Nachkommastelle.', 30.6, '30.64177772475912',
+       'h = 40 · sin 50° ≈ 30,6 m.', 'Die Schnur ist die Hypotenuse.', einheit='m', toleranz=0.1))
+ST.neu('seite', 'umkehr', Z('Bei α = 30° ist die Gegenkathete 6 cm. Wie lang ist die Hypotenuse? (sin 30° = 0,5)', 12, '6 / 0.5',
+       'sin 30° = 6 : c ⇒ c = 6 : 0,5 = 12 cm.', 'Stelle sin α = a : c nach c um.', einheit='cm'))
+ST.neu('seite', 'fehler', A('Im Dreieck mit γ = 90°, c = 10 cm, α = 40° rechnet jemand b = 10 · sin 40°. Was stimmt?', 'Falsch: b ist Ankathete von α, also b = 10 · cos 40°.', ['Richtig.', 'Falsch: b = 10 · tan 40°.', 'Falsch: b = 10 : sin 40°.'],
+       'b liegt am Winkel α an: cos α = b : c, also b = c · cos α ≈ 7,66 cm.', 'Liegt b gegenüber oder an α?'))
+ST.neu('seite', 'parameter', A('Für welche spitzen Winkel α ist die Gegenkathete a = c · sin α länger als die Hälfte der Hypotenuse?', 'für α > 30°', ['für α < 30°', 'für α > 60°', 'für alle α'],
+       'a > c/2 heißt sin α > 0,5, und sin 30° = 0,5. Der Sinus wächst mit dem Winkel, also α > 30°.', 'Wann ist sin α = 0,5?'))
+ST.neu('seite', 'pruefung', L('Eine 5 m lange gerade Rampe steigt mit 6° an. a) Wie hoch führt sie (ganze cm)? b) Wie lang ist sie waagrecht gemessen (ganze cm)?', 'a) □ cm; b) □ cm', [52, 497], ['52', '497'],
+       'a) 500 · sin 6° ≈ 52,3 cm ≈ 52 cm. b) 500 · cos 6° ≈ 497,3 cm ≈ 497 cm.', 'Rechne in cm: 5 m = 500 cm.'))
+ST.knobel('seite', Z('Ein gleichschenkliges Dreieck hat zwei 10 cm lange Schenkel, die an der Spitze 120° einschließen. Wie groß ist sein Flächeninhalt? Runde auf eine Nachkommastelle.', 43.3, '43.301270189221924',
+          'Die Höhe halbiert den Spitzenwinkel: zwei rechtwinklige Dreiecke mit 60° an der Spitze. Höhe h = 10 · cos 60° = 5 cm, halbe Basis 10 · sin 60° ≈ 8,66 cm. Fläche ≈ 8,66 · 5 = 43,3 cm².',
+          'Teile das Dreieck mit der Höhe in zwei rechtwinklige Dreiecke.', einheit='cm²', toleranz=0.1))
+ST.knobel('seite', Z('Ein regelmäßiges Achteck hat alle Ecken auf einem Kreis mit Radius 5 cm. Wie lang ist eine Seite? Runde auf zwei Nachkommastellen.', 3.83, '3.826834323650898',
+          'Von der Mitte aus sieht man jede Seite unter 360° : 8 = 45°. Das gleichschenklige Dreieck (Schenkel 5 cm) wird von der Höhe halbiert: halbe Seite = 5 · sin 22,5° ≈ 1,913 cm. Seite ≈ 3,83 cm.',
+          'Verbinde zwei Nachbarecken mit dem Mittelpunkt.', einheit='cm', toleranz=0.01))
+
+# winkel
+ST.stufenleiter('winkel', 'Mit tan⁻¹ einen Winkel aus zwei Katheten bestimmen.',
+                'sin⁻¹ und cos⁻¹ wählen, besondere Werte, Rampe, Winkel zu sin α = 0,5.',
+                'Raumdiagonale im Quader, Diagonalen im Rechteck, Basiswinkel, Graph lesen, Fehler „Katheten vertauscht“, Grenze bei 100 %, mehrteilige Aufgabe.')
+ST.typ('winkel', 'Im Dreieck ABC ist γ = 90°, a = 10 cm und b = 14', 'direkt')
+ST.typ('winkel', '/^Im Dreieck ABC ist γ = 90°, a = \\d+ cm und b = \\d+ cm\\. Berechne α/', 'direkt')
+ST.typ('winkel', '/^Im Dreieck ABC ist γ = 90°/', 'mehrschritt')
+ST.typ('winkel', 'Die Abbildung zeigt', 'darstellung')
+ST.typ('winkel', '/^(Ein Quader|In einem rechtwinkligen)/', 'verknuepfen')
+ST.typ('winkel', '/^(Eine 12 m|Ein Rechteck|Ein gleichschenkliges)/', 'transfer')
+ST.neu('winkel', 'erkennen', A('Welche Taste liefert den Winkel α, wenn tan α bekannt ist?', 'tan⁻¹', ['tan', '1 : tan', 'sin⁻¹'],
+       'Die Umkehrtaste tan⁻¹ macht aus dem Tangenswert den Winkel (Rechner auf DEG).', 'Vom Verhältnis zum Winkel.'))
+ST.neu('winkel', 'direkt', Z('Für einen spitzen Winkel gilt tan α = 1. Wie groß ist α?', 45, '45',
+       'tan⁻¹(1) = 45°: Gegenkathete und Ankathete sind gleich lang.', 'Wann sind beide Katheten gleich?', einheit='°'))
+ST.neu('winkel', 'einkleidung', Z('Eine 3 m lange Rampe überwindet 0,5 m Höhe. Unter welchem Winkel steigt sie an? Runde auf eine Nachkommastelle.', 9.6, '9.594068226860461',
+       'Rampe = Hypotenuse: sin α = 0,5 : 3, α ≈ 9,6°.', 'Welche Funktion verbindet Höhe und Rampe?', einheit='°', toleranz=0.1))
+ST.neu('winkel', 'umkehr', Z('Für welchen spitzen Winkel α gilt sin α = 0,5?', 30, '30',
+       'sin⁻¹(0,5) = 30°. Im halben gleichseitigen Dreieck ist die kurze Kathete halb so lang wie die Hypotenuse.', 'Denk an das halbe gleichseitige Dreieck.', einheit='°'))
+ST.neu('winkel', 'fehler', A('Gegenkathete 4 m, Ankathete 7 m. Jemand rechnet α = tan⁻¹(7 : 4) ≈ 60,3°. Was stimmt?', 'Falsch: Vertauscht; α = tan⁻¹(4 : 7) ≈ 29,7°.', ['Richtig.', 'Falsch: α = sin⁻¹(4 : 7).', 'Falsch: α = 4 : 7 ≈ 0,57°.'],
+       'tan α = Gegenkathete : Ankathete = 4 : 7. 60,3° ist der andere spitze Winkel.', 'Was steht im Zähler?'))
+ST.neu('winkel', 'parameter', Z('Ab welcher Steigung in Prozent ist der Steigungswinkel größer als 45°?', 100, '100',
+       'Bei 45° ist tan α = 1, also 100 % (Höhe gleich waagrechte Länge). Mehr als 100 % heißt mehr als 45°.', 'tan 45° = ?', einheit='%'))
+ST.neu('winkel', 'pruefung', L('Ein rechtwinkliges Dreieck hat die Katheten a = 6 cm und b = 8 cm (γ = 90°). Berechne a) c, b) α und c) β auf ganze Grad.', 'a) □ cm; b) □°; c) □°', [10, 37, 53],
+       ['10', '37', '53'], 'a) c = 10 cm. b) tan α = 6 : 8, α ≈ 36,9° ≈ 37°. c) β = 90° − α ≈ 53°.', 'Für β genügt die Winkelsumme.'))
+ST.knobel('winkel', Z('In einem rechtwinkligen Dreieck ist α doppelt so groß wie β. Wie viel Mal so lang wie die kürzere Kathete ist die Hypotenuse?', 2, '2',
+          'α + β = 90° und α = 2β, also β = 30°, α = 60°. Die kürzere Kathete liegt β gegenüber: sin 30° = Kathete : Hypotenuse = 0,5. Die Hypotenuse ist doppelt so lang.',
+          'Bestimme zuerst die Winkel.'))
+ST.knobel('winkel', Z('Bei welcher Sonnenhöhe ist der Schatten eines senkrechten Mastes doppelt so lang wie der Mast hoch ist? Runde auf eine Nachkommastelle.', 26.6, '26.56505117707799',
+          'Mast h, Schatten 2h. tan α = h : 2h = 0,5, α = tan⁻¹(0,5) ≈ 26,6°. Die Höhe des Mastes spielt keine Rolle.',
+          'Nenne die Masthöhe h.', einheit='°', toleranz=0.1))
+
+# beziehungen
+ST.stufenleiter('beziehungen', 'Mit sin² α + cos² α = 1 aus sin α den Kosinus berechnen.',
+                'tan aus sin und cos, Rampe waagrecht, 90° − α, Werte ohne Taschenrechner.',
+                'Exakte Werte im halben gleichseitigen Dreieck, unmögliche Wertepaare, Fehler „sin + cos = 1“, sin = cos, mehrteilige Aufgabe.')
+ST.typ('beziehungen', '/^Für einen spitzen Winkel .*Berechne/', 'direkt', s=1)
+ST.typ('beziehungen', '/^Welcher Ausdruck ist gleich/', 'erkennen')
+ST.typ('beziehungen', '/^(Für einen spitzen Winkel gilt sin α = 0,96|Für einen spitzen Winkel α gilt sin α = 0,5376|Berechne sin²|Für einen spitzen Winkel α gilt cos α = 0,8432|Für einen spitzen Winkel α gilt sin α = 0,6|Für einen spitzen Winkel α gilt cos α = 0,96)/', 'mehrschritt')
+ST.typ('beziehungen', '/^(Gib den exakten|Für einen spitzen Winkel gilt tan α = 1)/', 'verknuepfen')
+ST.typ('beziehungen', 'Jemand behauptet', 'fehler')
+ST.typ('beziehungen', 'Ein gleichseitiges Dreieck', 'transfer')
+ST.neu('beziehungen', 'erkennen', A('Welche Gleichung gilt für jeden spitzen Winkel α?', 'sin² α + cos² α = 1', ['sin α + cos α = 1', 'sin α = cos α', 'tan α = sin α · cos α'],
+       'Aus a² + b² = c² folgt geteilt durch c²: (a/c)² + (b/c)² = 1.', 'Pythagoras geteilt durch c².'))
+ST.neu('beziehungen', 'einkleidung', Z('Eine 10 m lange Rampe hat einen Steigungswinkel mit sin α = 0,6. Wie lang ist sie waagrecht gemessen?', 8, '10 * 0.8',
+       'cos α = √(1 − 0,36) = 0,8. Waagrecht: 10 · 0,8 = 8 m.', 'Berechne zuerst cos α.', einheit='m'))
+ST.neu('beziehungen', 'umkehr', Z('Für einen spitzen Winkel gilt sin² α = 0,36. Wie groß ist cos α?', 0.8, '0.8',
+       'cos² α = 1 − 0,36 = 0,64, cos α = 0,8 (positiv, α spitz).', 'Setze in sin² α + cos² α = 1 ein.'))
+ST.neu('beziehungen', 'begruenden', A('Kann für einen spitzen Winkel sin α = 0,8 und cos α = 0,8 gelten?', 'Nein, 0,64 + 0,64 = 1,28 ≠ 1.', ['Ja, bei α = 45°.', 'Ja, immer.', 'Nur bei stumpfen Winkeln.'],
+       'Es muss sin² α + cos² α = 1 gelten. Bei 45° wären beide ≈ 0,707.', 'Prüfe mit sin² α + cos² α.'))
+ST.neu('beziehungen', 'parameter', Z('Für welchen spitzen Winkel α gilt sin α = cos α?', 45, '45',
+       'sin α = cos α heißt tan α = 1, also α = 45°.', 'Teile durch cos α.', einheit='°'))
+ST.neu('beziehungen', 'pruefung', L('Für einen spitzen Winkel gilt sin α = 0,6. Gib an: a) cos α als Dezimalzahl, b) tan α als gekürzten Bruch, c) sin(90° − α) als Dezimalzahl.', 'a) 0,□; b) □/□; c) 0,□', [8, 3, 4, 8], ['8', '3', '4', '8'],
+       'a) cos α = √(1 − 0,36) = 0,8. b) tan α = 0,6 : 0,8 = 3/4. c) sin(90° − α) = cos α = 0,8.', 'Erst cos α.'))
+ST.knobel('beziehungen', Z('Berechne sin² 10° + sin² 80°.', 1, '1',
+          'sin 80° = cos 10°, denn 80° = 90° − 10°. Also sin² 10° + cos² 10° = 1. Ganz ohne Taschenrechner.', 'Was hat 80° mit 10° zu tun?'))
+ST.knobel('beziehungen', Z('Berechne tan 20° · tan 70°.', 1, '1',
+          'tan 70° = sin 70° : cos 70° = cos 20° : sin 20° = 1 : tan 20°. Das Produkt ist also 1.', 'Schreibe tan 70° mit Sinus und Kosinus von 20°.'))
+
+# anwendung
+ST.stufenleiter('anwendung', 'Aus einer Steigung in Prozent den Steigungswinkel berechnen.',
+                'Höhenwinkel, Schatten, Wanderwege, Rampen mit vorgegebener Steigung, Weglänge rückwärts.',
+                'Tiefenwinkel, zwei Höhenwinkel, Drachen über der Hand, Basis aus Winkel, Fehler „sin statt tan“, Prozent und Winkel nicht proportional, Seilbahn.')
+ST.typ('anwendung', '/^Eine Straße hat \\d+ % Steigung/', 'direkt')
+ST.typ('anwendung', 'Eine Rampe soll', 'umkehr')
+ST.typ('anwendung', '/^(Ein Wanderweg|Aus \\d+ m Entfernung|Ein Baum|Ein \\d+ m langes Brett|Ein Flugzeug)/', 'einkleidung')
+ST.typ('anwendung', '/^(Von einem \\d+ m hohen Leuchtturm|Ein gleichschenkliges)/', 'verknuepfen')
+ST.typ('anwendung', '/^(Von einem Punkt|Ein Drachen)/', 'transfer')
+ST.neu('anwendung', 'erkennen', A('Was bedeutet „12 % Steigung“?', 'Auf 100 m waagrecht steigt die Straße 12 m.', ['Der Steigungswinkel ist 12°.', 'Auf 100 m Straße steigt sie 100 m.', 'Die Straße ist 12 % länger.'],
+       'Steigung in % = Höhe : waagrechte Länge · 100. 12 % heißt tan α = 0,12.', 'Prozent bezieht sich auf die waagrechte Strecke.'))
+ST.neu('anwendung', 'direkt', Z('Eine Straße steigt auf 100 m waagrechter Strecke um 5 m. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle.', 2.9, '2.862405226111748',
+       'tan α = 5 : 100 = 0,05, α ≈ 2,9°.', 'tan α = Höhe : waagrechte Strecke.', einheit='°', toleranz=0.1))
+ST.neu('anwendung', 'mehrschritt', Z('Ein Wanderweg steigt gleichmäßig unter 5° an und überwindet 100 Höhenmeter. Wie lang ist er? Runde auf ganze Meter.', 1147, '1147.3713245669855',
+       'Weg = Hypotenuse: sin 5° = 100 : s, s = 100 : sin 5° ≈ 1 147 m.', 'Stelle sin α = Höhe : Weg nach dem Weg um.', einheit='m', toleranz=1))
+ST.neu('anwendung', 'fehler', A('Ein Turm wird aus 50 m Abstand unter 40° Höhenwinkel gesehen. Jemand rechnet h = 50 · sin 40°. Was stimmt?', 'Falsch: 50 m ist die Ankathete, also h = 50 · tan 40°.', ['Richtig.', 'Falsch: h = 50 · cos 40°.', 'Falsch: h = 50 : sin 40°.'],
+       'Gegeben sind Ankathete (Abstand) und Winkel, gesucht die Gegenkathete (Höhe): tan α = h : 50.', 'Welche Seiten sind bekannt und gesucht?'))
+ST.neu('anwendung', 'begruenden', A('Stimmt: Doppelte Steigung in Prozent heißt doppelter Steigungswinkel?', 'Nein: 50 % sind etwa 26,6°, 100 % aber 45°.', ['Ja, immer.', 'Ja, bis 100 %.', 'Nein, der Winkel halbiert sich.'],
+       'Prozent ist tan α · 100, und der Tangens wächst nicht gleichmäßig mit dem Winkel.', 'Probiere 50 % und 100 %.'))
+ST.neu('anwendung', 'pruefung', L('Eine Seilbahn fährt auf einem 1 200 m langen geraden Seil unter 25° nach oben. a) Wie groß ist der Höhenunterschied? b) Wie weit ist es waagrecht? (jeweils ganze Meter)', 'a) □ m; b) □ m', [507, 1088],
+       ['507', '1088'], 'a) 1 200 · sin 25° ≈ 507 m. b) 1 200 · cos 25° ≈ 1 088 m.', 'Das Seil ist die Hypotenuse.'))
+ST.knobel('anwendung', Z('Ein Turm wirft bei 30° Sonnenhöhe einen Schatten, der 20 m länger ist als bei 60° Sonnenhöhe. Wie hoch ist der Turm? Runde auf eine Nachkommastelle.', 17.3, '17.32050807568877',
+          'Schatten s = h : tan α. h : tan 30° − h : tan 60° = 20. Mit tan 30° ≈ 0,577 und tan 60° ≈ 1,732: h · (1,732 − 0,577) = 20, h ≈ 17,3 m (genau 10√3 m).',
+          'Schreibe beide Schattenlängen mit h.', einheit='m', toleranz=0.1))
+ST.knobel('anwendung', Z('Eine Straße mit 10 % Steigung ist (entlang der Straße gemessen) 1 km lang. Um wie viele Meter steigt sie? Runde auf eine Nachkommastelle.', 99.5, '99.50371902099893',
+          '10 % heißt tan α = 0,1, α ≈ 5,71°. Entlang der Straße ist der Weg die Hypotenuse: h = 1 000 · sin α ≈ 99,5 m – also nicht ganz 100 m.',
+          'Prozent bezieht sich auf die waagrechte Strecke, nicht auf die Straße.', einheit='m', toleranz=0.1))
+
+if __name__ == '__main__':
+    stufen('trigo.rechtwinklig', ST)

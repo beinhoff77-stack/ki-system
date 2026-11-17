@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 14:58 – STATUS
+trigo.rechtwinklig fertig: 37 neue Übungen, 12 Knobel-Bordkarten, 30 überzählig (ohne Typ, unverändert); inhalt_pruefen OK, 0 gleich gebaut hintereinander, Nachweis OK.
+
 ## 2026-11-17 14:55 – STATUS
 trigo.pythagoras fertig: 35 neue Übungen, 12 Knobel-Bordkarten, 57 überzählig (ohne Typ; viele gleich gebaute Vorlagen, z. B. 10× Kathete aus Hypotenuse). inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

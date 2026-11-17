@@ -7351,43 +7351,6 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei einem Würfel kam 7-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
-   },
-   "a": [
-    "Eine Sechs ist jetzt unwahrscheinlicher – der Würfel „liegt schlecht“.",
-    "P(Sechs) ist weiterhin 1/6.",
-    "Eine Sechs ist jetzt fällig, weil sie so lange nicht kam.",
-    "P(Sechs) = 1/6 + 7 · 1/36 = 13/36 – die Chance steigt mit jedem Fehlwurf."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Würfe sind unabhängig: Der Würfel „merkt“ sich nichts. Erst bei sehr vielen Würfen gleicht sich die relative Häufigkeit aus.",
-   "h": "Hängt der nächste Wurf von den vorigen ab?"
-  },
-  {
-   "l": "simulation",
-   "t": "simulation",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 500-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
-   },
-   "o": {
-    "wert": 45
-   },
-   "c": "500 * 0.3 ** 2",
-   "w": "P(zwei Treffer) = 0,3² = 0,09; erwartet 500 · 0,09 = 45.",
-   "h": "Erst die Pfadwahrscheinlichkeit, dann mal n."
-  },
-  {
-   "l": "simulation",
-   "t": "simulation",
-   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -7422,14 +7385,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Münze wird 600-mal geworfen. Wie oft erwartet man Kopf?"
+    "text": "Ein Würfel wird 1 200-mal geworfen. Wie oft erwartet man eine Zahl unter 3?"
    },
    "o": {
-    "wert": 300
+    "wert": 400
    },
-   "c": "600 * 1 / 2",
-   "w": "Die Wahrscheinlichkeit ist 1/2. Erwartete Anzahl = n · p = 600 · 1/2 = 300.",
-   "h": "Bestimme zuerst die Wahrscheinlichkeit für einen Wurf. Erwartete Anzahl = n · p."
+   "c": "1200 * 1 / 3",
+   "w": "Die Wahrscheinlichkeit ist 1/3. Erwartete Anzahl = n · p = 1 200 · 1/3 = 400.",
+   "h": "Bestimme zuerst die Wahrscheinlichkeit für einen Wurf. Erwartete Anzahl = n · p.",
+   "g": "direkt"
   },
   {
    "l": "simulation",
@@ -7466,18 +7430,23 @@
    "l": "simulation",
    "t": "simulation",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Ein Würfel wird 1 200-mal geworfen. Wie oft erwartet man eine Zahl unter 3?"
+    "text": "Bei einem Würfel kam 4-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
    },
+   "a": [
+    "Eine Sechs ist jetzt unwahrscheinlicher – der Würfel „liegt schlecht“.",
+    "P(Sechs) ist weiterhin 1/6.",
+    "P(Sechs) = 1/6 + 4 · 1/36 = 5/18 – die Chance steigt mit jedem Fehlwurf.",
+    "Eine Sechs ist jetzt fällig, weil sie so lange nicht kam."
+   ],
    "o": {
-    "wert": 400
+    "index": 1
    },
-   "c": "1200 * 1 / 3",
-   "w": "Die Wahrscheinlichkeit ist 1/3. Erwartete Anzahl = n · p = 1 200 · 1/3 = 400.",
-   "h": "Bestimme zuerst die Wahrscheinlichkeit für einen Wurf. Erwartete Anzahl = n · p.",
-   "g": "direkt"
+   "w": "Die Würfe sind unabhängig: Der Würfel „merkt“ sich nichts. Erst bei sehr vielen Würfen gleicht sich die relative Häufigkeit aus.",
+   "h": "Hängt der nächste Wurf von den vorigen ab?",
+   "g": "begruenden"
   },
   {
    "l": "simulation",
@@ -7574,6 +7543,78 @@
    "w": "Die Wahrscheinlichkeit ist 1/6. Erwartete Anzahl = n · p = 60 · 1/6 = 10.",
    "h": "Bestimme zuerst die Wahrscheinlichkeit für einen Wurf. Erwartete Anzahl = n · p.",
    "g": "direkt"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 100-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "100 * 0.3 ** 2",
+   "w": "P(zwei Treffer) = 0,3² = 0,09; erwartet 100 · 0,09 = 9.",
+   "h": "Erst die Pfadwahrscheinlichkeit, dann mal n.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Würfel werden 360-mal geworfen. Wie oft erwartet man einen Pasch (zwei gleiche Augenzahlen)?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "360 * 6 / 36",
+   "w": "P(Pasch) = 6/36 = 1/6. Erwartet: 360 · 1/6 = 60.",
+   "h": "Erst die Wahrscheinlichkeit für einen Pasch, dann n · p.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Würfel kam 3-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
+   },
+   "a": [
+    "Eine Sechs ist jetzt unwahrscheinlicher – der Würfel „liegt schlecht“.",
+    "P(Sechs) = 1/6 + 3 · 1/36 = 1/4 – die Chance steigt mit jedem Fehlwurf.",
+    "P(Sechs) ist weiterhin 1/6.",
+    "Eine Sechs ist jetzt fällig, weil sie so lange nicht kam."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Würfe sind unabhängig: Der Würfel „merkt“ sich nichts. Erst bei sehr vielen Würfen gleicht sich die relative Häufigkeit aus.",
+   "h": "Hängt der nächste Wurf von den vorigen ab?",
+   "g": "begruenden"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Münze wird 600-mal geworfen. Wie oft erwartet man Kopf?"
+   },
+   "o": {
+    "wert": 300
+   },
+   "c": "600 * 1 / 2",
+   "w": "Die Wahrscheinlichkeit ist 1/2. Erwartete Anzahl = n · p = 600 · 1/2 = 300.",
+   "h": "Bestimme zuerst die Wahrscheinlichkeit für einen Wurf. Erwartete Anzahl = n · p."
   },
   {
    "l": "simulation",
@@ -7676,17 +7717,21 @@
    "t": "simulation",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 100-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
+    "text": "Bei einem Würfel kam 7-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
    },
+   "a": [
+    "Eine Sechs ist jetzt unwahrscheinlicher – der Würfel „liegt schlecht“.",
+    "P(Sechs) ist weiterhin 1/6.",
+    "Eine Sechs ist jetzt fällig, weil sie so lange nicht kam.",
+    "P(Sechs) = 1/6 + 7 · 1/36 = 13/36 – die Chance steigt mit jedem Fehlwurf."
+   ],
    "o": {
-    "wert": 9
+    "index": 1
    },
-   "c": "100 * 0.3 ** 2",
-   "w": "P(zwei Treffer) = 0,3² = 0,09; erwartet 100 · 0,09 = 9.",
-   "h": "Erst die Pfadwahrscheinlichkeit, dann mal n.",
-   "g": "einkleidung"
+   "w": "Die Würfe sind unabhängig: Der Würfel „merkt“ sich nichts. Erst bei sehr vielen Würfen gleicht sich die relative Häufigkeit aus.",
+   "h": "Hängt der nächste Wurf von den vorigen ab?"
   },
   {
    "l": "simulation",
@@ -7695,32 +7740,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Zwei Würfel werden 360-mal geworfen. Wie oft erwartet man einen Pasch (zwei gleiche Augenzahlen)?"
+    "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 500-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
    },
    "o": {
-    "wert": 60
+    "wert": 45
    },
-   "c": "360 * 6 / 36",
-   "w": "P(Pasch) = 6/36 = 1/6. Erwartet: 360 · 1/6 = 60.",
-   "h": "Erst die Wahrscheinlichkeit für einen Pasch, dann n · p.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "simulation",
-   "t": "simulation",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 200-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
-   },
-   "o": {
-    "wert": 18
-   },
-   "c": "200 * 0.3 ** 2",
-   "w": "P(zwei Treffer) = 0,3² = 0,09; erwartet 200 · 0,09 = 18.",
-   "h": "Erst die Pfadwahrscheinlichkeit, dann mal n.",
-   "g": "einkleidung"
+   "c": "500 * 0.3 ** 2",
+   "w": "P(zwei Treffer) = 0,3² = 0,09; erwartet 500 · 0,09 = 45.",
+   "h": "Erst die Pfadwahrscheinlichkeit, dann mal n."
   },
   {
    "l": "simulation",
@@ -7743,6 +7770,23 @@
    "w": "1 bis 35 sind genau 35 von 100 Zahlen, also Anteil 0,35. (35 bis 100 wären 66 Zahlen, 0 kommt nicht vor.)",
    "h": "Zähle, wie viele Zahlen jede Auswahl enthält.",
    "g": "darstellung"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 200-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "200 * 0.3 ** 2",
+   "w": "P(zwei Treffer) = 0,3² = 0,09; erwartet 200 · 0,09 = 18.",
+   "h": "Erst die Pfadwahrscheinlichkeit, dann mal n.",
+   "g": "einkleidung"
   },
   {
    "l": "simulation",
@@ -7777,85 +7821,6 @@
    "c": "320 * 3 * 3 / 64",
    "w": "P(zweimal gelb) = 3/8 · 3/8 = 9/64. 320 · 9/64 = 45.",
    "h": "Erst die Pfadwahrscheinlichkeit, dann mal 320."
-  },
-  {
-   "l": "simulation",
-   "t": "simulation",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei einem Würfel kam 4-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
-   },
-   "a": [
-    "Eine Sechs ist jetzt unwahrscheinlicher – der Würfel „liegt schlecht“.",
-    "P(Sechs) ist weiterhin 1/6.",
-    "P(Sechs) = 1/6 + 4 · 1/36 = 5/18 – die Chance steigt mit jedem Fehlwurf.",
-    "Eine Sechs ist jetzt fällig, weil sie so lange nicht kam."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Würfe sind unabhängig: Der Würfel „merkt“ sich nichts. Erst bei sehr vielen Würfen gleicht sich die relative Häufigkeit aus.",
-   "h": "Hängt der nächste Wurf von den vorigen ab?",
-   "g": "begruenden"
-  },
-  {
-   "l": "simulation",
-   "t": "simulation",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In ein Quadrat mit der Seitenlänge 2 ist ein Kreis mit Radius 1 gezeichnet. 1 000 zufällige Punkte im Quadrat: 785 liegen im Kreis. Welchen Näherungswert für π liefert das?"
-   },
-   "o": {
-    "wert": 3.14
-   },
-   "c": "4 * 785 / 1000",
-   "w": "Anteil im Kreis ≈ Kreisfläche : Quadratfläche = π · 1² : 4. Also π/4 ≈ 0,785 ⇒ π ≈ 3,14.",
-   "h": "Vergleiche den Anteil der Treffer mit dem Flächenverhältnis.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "simulation",
-   "t": "simulation",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei einem Würfel kam 3-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
-   },
-   "a": [
-    "Eine Sechs ist jetzt unwahrscheinlicher – der Würfel „liegt schlecht“.",
-    "P(Sechs) = 1/6 + 3 · 1/36 = 1/4 – die Chance steigt mit jedem Fehlwurf.",
-    "P(Sechs) ist weiterhin 1/6.",
-    "Eine Sechs ist jetzt fällig, weil sie so lange nicht kam."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Würfe sind unabhängig: Der Würfel „merkt“ sich nichts. Erst bei sehr vielen Würfen gleicht sich die relative Häufigkeit aus.",
-   "h": "Hängt der nächste Wurf von den vorigen ab?",
-   "g": "begruenden"
-  },
-  {
-   "l": "simulation",
-   "t": "simulation",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Im Quadrat mit der Seitenlänge 2 liegt ein Kreis mit Radius 1. Wie viele von 2 000 zufälligen Punkten im Quadrat erwartet man im Kreis? Runde auf eine ganze Zahl."
-   },
-   "o": {
-    "wert": 1571,
-    "toleranz": 1
-   },
-   "c": "round(1570.796326794896, 0)",
-   "w": "p = Kreisfläche : Quadratfläche = π : 4 ≈ 0,785. Erwartet: 2 000 · π/4 ≈ 1 571.",
-   "h": "Die Trefferwahrscheinlichkeit ist ein Flächenverhältnis.",
-   "g": "verknuepfen"
   },
   {
    "l": "simulation",
@@ -7935,6 +7900,75 @@
    "c": "100 * (3 * 1 / 4 - 1)",
    "w": "Zweimal Kopf hat 1/4: in 100 Spielen etwa 25-mal, also 75 € Auszahlung. Einsatz 100 €. Ergebnis 75 − 100 = −25 €.",
    "h": "Wie oft gewinnt man in 100 Spielen etwa?"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 4 gleich große Felder mit 1 €, 2 €, 0 € und 5 €. Wie viel Euro gewinnt man im Mittel pro Drehung, wenn man sehr oft dreht?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "€"
+   },
+   "c": "(1 + 2 + 0 + 5) / 4",
+   "w": "Jedes Feld kommt auf lange Sicht gleich oft. Mittelwert: (1 + 2 + 0 + 5) : 4 = 2 €.",
+   "h": "Bei vielen Drehungen kommt jedes Feld etwa gleich oft."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Spiel wirft man zwei Münzen. Zweimal Kopf bringt 4 Punkte, sonst gibt es 0. Wie viele Punkte erwartet man bei 200 Spielen insgesamt?"
+   },
+   "o": {
+    "wert": 200
+   },
+   "c": "200 * 4 // 4",
+   "w": "P(zweimal Kopf) = 1/2 · 1/2 = 1/4. Erwartet: 1/4 · 200 = 50 Spiele mit 4 Punkten, zusammen 200 Punkte.",
+   "h": "Pfadregel: Wie wahrscheinlich ist zweimal Kopf?"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird 60-mal geworfen. Welche Augensumme aller 60 Würfe erwartet man?"
+   },
+   "o": {
+    "wert": 210
+   },
+   "c": "60 * 21 / 6",
+   "w": "Jede Augenzahl erwartet man 10-mal: 10 · (1 + 2 + … + 6) = 10 · 21 = 210. Oder: Der mittlere Wurf hat 3,5 Augen, 60 · 3,5 = 210.",
+   "h": "Wie oft erwartet man jede einzelne Augenzahl?"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Aus einer Urne mit 1 roten und 2 blauen Kugeln wird mit Zurücklegen gezogen, bis Rot kommt. Wie viele Züge braucht man im Mittel (rote Kugel mitgezählt)?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "1 / (1 / 3)",
+   "w": "Bei sehr vielen Zügen ist jeder dritte rot. Bei 300 Zügen kommen etwa 100 rote – die 300 Züge zerfallen also in etwa 100 Abschnitte „bis Rot“, je im Mittel 3 Züge lang.",
+   "h": "Denke an eine lange Folge von Zügen: Wie viele Rote kommen darin vor?"
   },
   {
    "l": "simulation",
@@ -8237,38 +8271,22 @@
    "w": "26 : 200 = 0,13."
   },
   {
-   "l": "simulation",
-   "t": "simulation",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel wird 60-mal geworfen. Welche Augensumme aller 60 Würfe erwartet man?"
+    "text": "Der Viertelkreis (Radius 1) wird in 2 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das bis über den Bogen reicht (Höhe am linken Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 210
+    "wert": 3.73,
+    "toleranz": 0.01
    },
-   "c": "60 * 21 / 6",
-   "w": "Jede Augenzahl erwartet man 10-mal: 10 · (1 + 2 + … + 6) = 10 · 21 = 210. Oder: Der mittlere Wurf hat 3,5 Augen, 60 · 3,5 = 210.",
-   "h": "Wie oft erwartet man jede einzelne Augenzahl?"
-  },
-  {
-   "l": "simulation",
-   "t": "simulation",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Aus einer Urne mit 1 roten und 2 blauen Kugeln wird mit Zurücklegen gezogen, bis Rot kommt. Wie viele Züge braucht man im Mittel (rote Kugel mitgezählt)?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "1 / (1 / 3)",
-   "w": "Bei sehr vielen Zügen ist jeder dritte rot. Bei 300 Zügen kommen etwa 100 rote – die 300 Züge zerfallen also in etwa 100 Abschnitte „bis Rot“, je im Mittel 3 Züge lang.",
-   "h": "Denke an eine lange Folge von Zügen: Wie viele Rote kommen darin vor?"
+   "c": "round(3.732050807569, 2)",
+   "w": "Breite je Streifen 0,5; Höhen 1, √(1 − 0,5²). Summe der Flächen ≈ 0,933; mal 4 ≈ 3,73 (zu groß).",
+   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe.",
+   "g": "mehrschritt"
   },
   {
    "l": "pi_schaetzen",
@@ -8286,6 +8304,80 @@
    "w": "Anteil 156 : 200 = 0,78 ≈ π/4. π ≈ 4 · 156 : 200 = 3,12.",
    "h": "Der Anteil der Treffer schätzt π/4. Was musst du noch tun?",
    "g": "direkt"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Viertelkreis (Radius 1) wird in 2 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das ganz unter dem Bogen bleibt (Höhe am rechten Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.73,
+    "toleranz": 0.01
+   },
+   "c": "round(1.732050807569, 2)",
+   "w": "Breite je Streifen 0,5; Höhen √(1 − 0,5²), 0. Summe der Flächen ≈ 0,433; mal 4 ≈ 1,73 (zu klein).",
+   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Monte-Carlo-Simulation mit 800 Zufallspunkten ergab den Näherungswert π ≈ 3,15. Wie viele Punkte lagen im Viertelkreis?"
+   },
+   "o": {
+    "wert": 630
+   },
+   "c": "3.15 * 800 / 4",
+   "w": "4 · k : 800 = 3,15 ⇒ k = 3,15 · 800 : 4 = 630.",
+   "h": "Stelle π ≈ 4 · k : n nach k um.",
+   "g": "umkehr"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ergibt die Monte-Carlo-Methode bei jedem neuen Durchgang einen etwas anderen Näherungswert für π?"
+   },
+   "a": [
+    "Weil die Formel π ≈ 4 · Anteil nur manchmal gilt.",
+    "Weil die Punkte zufällig fallen und der Anteil im Viertelkreis deshalb schwankt.",
+    "Weil sich der Wert von π ändert.",
+    "Weil das Quadrat jedes Mal anders groß ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "π ist fest, die Formel auch. Zufällig ist nur, wie viele Punkte gerade im Viertelkreis landen. Deshalb schwankt der Schätzwert um π.",
+   "h": "Was ist bei jedem Durchgang anders?",
+   "g": "begruenden"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation erzeugt die fünf Zufallspunkte (0,2 | 0,9), (0,7 | 0,8), (0,5 | 0,5), (0,9 | 0,3), (0,6 | 0,85). Welchen Näherungswert für π liefern diese fünf Punkte?"
+   },
+   "o": {
+    "wert": 2.4
+   },
+   "c": "4 * 3 / 5",
+   "w": "x² + y²: 0,85, 1,13, 0,5, 0,9, 1,0825. Höchstens 1 sind 3 Werte. π ≈ 4 · 3 : 5 = 2,4 – mit 5 Punkten sehr ungenau.",
+   "h": "Prüfe für jeden Punkt x² + y² ≤ 1. Dann π ≈ 4 · Treffer : Anzahl.",
+   "g": "verknuepfen"
   },
   {
    "l": "pi_schaetzen",
@@ -8325,6 +8417,116 @@
    "w": "Viertelkreis: π · 1² : 4 = π/4 ≈ 0,785; Quadrat: 1. Anteil ≈ 0,785.",
    "h": "Fläche des Viertelkreises: ein Viertel von π · r².",
    "g": "direkt"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis mit Radius 1 liegt genau in einem Quadrat mit der Seitenlänge 2. Von 300 Zufallspunkten im Quadrat liegen 236 im Kreis. Welchen Näherungswert für π liefert das? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.15,
+    "toleranz": 0.01
+   },
+   "c": "round(4 * 236 / 300, 2)",
+   "w": "Anteil 236 : 300 ≈ π/4 – hier: Kreisfläche π geteilt durch Quadratfläche 4. π ≈ 4 · 236 : 300 ≈ 3,15.",
+   "h": "Kreisfläche π · 1² und Quadratfläche 2² = 4: Der Anteil schätzt π/4.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Viertelkreis (Radius 1) wird in 4 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das bis über den Bogen reicht (Höhe am linken Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.5,
+    "toleranz": 0.01
+   },
+   "c": "round(3.495709068102, 2)",
+   "w": "Breite je Streifen 0,25; Höhen 1, √(1 − 0,25²), √(1 − 0,5²), √(1 − 0,75²). Summe der Flächen ≈ 0,8739; mal 4 ≈ 3,5 (zu groß).",
+   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat mit 10 cm Seitenlänge wird ein Kreis mit Radius 5 cm gezeichnet. Wie viele von 400 Zufallspunkten liegen ungefähr im Kreis? (π ≈ 3,14)"
+   },
+   "o": {
+    "wert": 314
+   },
+   "c": "3.14 * 25 / 100 * 400",
+   "w": "Kreis: 3,14 · 25 = 78,5 cm², Quadrat 100 cm². Anteil 0,785. Erwartet: 0,785 · 400 = 314 Punkte.",
+   "h": "Berechne den Flächenanteil des Kreises.",
+   "g": "umkehr"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über die beiden Verfahren zur Näherung von π stimmt?"
+   },
+   "a": [
+    "Die Streifenmethode liefert sichere Grenzen für π, die Monte-Carlo-Methode nur einen Schätzwert, der schwanken kann.",
+    "Beide Verfahren liefern nur Werte, die größer als π sind.",
+    "Die Monte-Carlo-Methode liefert mit 100 Punkten immer genau π.",
+    "Die Streifenmethode liefert bei jeder Wiederholung einen anderen Wert."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rechtecke über dem Bogen sind sicher zu groß, unter dem Bogen sicher zu klein: π liegt dazwischen, jedes Mal gleich. Zufallspunkte geben nur einen Schätzwert, der um π schwankt.",
+   "h": "Was ist bei der Streifenmethode zufällig – und was bei der Monte-Carlo-Methode?",
+   "g": "begruenden"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Im Einheitsquadrat liegen um die Ecke (0 | 0) ein Viertelkreis mit Radius 1 und ein Viertelkreis mit Radius 0,5. Wie groß ist die Wahrscheinlichkeit, dass ein Zufallspunkt im großen, aber nicht im kleinen Viertelkreis liegt? Runde auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.589,
+    "toleranz": 0.001
+   },
+   "c": "round(0.589048622548, 3)",
+   "w": "Fläche groß: π/4, klein: π · 0,25/4 = π/16. Differenz 3π/16 ≈ 0,589. Das Quadrat hat die Fläche 1.",
+   "h": "Wahrscheinlichkeit = Fläche : Fläche des Quadrats."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat mit der Seitenlänge 2 ist ein Kreis mit Radius 1 gezeichnet. 1 000 zufällige Punkte im Quadrat: 785 liegen im Kreis. Welchen Näherungswert für π liefert das?"
+   },
+   "o": {
+    "wert": 3.14
+   },
+   "c": "4 * 785 / 1000",
+   "w": "Anteil im Kreis ≈ Kreisfläche : Quadratfläche = π · 1² : 4. Also π/4 ≈ 0,785 ⇒ π ≈ 3,14.",
+   "h": "Vergleiche den Anteil der Treffer mit dem Flächenverhältnis.",
+   "g": "verknuepfen"
   },
   {
    "l": "pi_schaetzen",
@@ -8373,60 +8575,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Der Viertelkreis (Radius 1) wird in 2 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das bis über den Bogen reicht (Höhe am linken Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 3.73,
-    "toleranz": 0.01
-   },
-   "c": "round(3.732050807569, 2)",
-   "w": "Breite je Streifen 0,5; Höhen 1, √(1 − 0,5²). Summe der Flächen ≈ 0,933; mal 4 ≈ 3,73 (zu groß).",
-   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "pi_schaetzen",
-   "t": "pi_schaetzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreis mit Radius 1 liegt genau in einem Quadrat mit der Seitenlänge 2. Von 300 Zufallspunkten im Quadrat liegen 236 im Kreis. Welchen Näherungswert für π liefert das? Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 3.15,
-    "toleranz": 0.01
-   },
-   "c": "round(4 * 236 / 300, 2)",
-   "w": "Anteil 236 : 300 ≈ π/4 – hier: Kreisfläche π geteilt durch Quadratfläche 4. π ≈ 4 · 236 : 300 ≈ 3,15.",
-   "h": "Kreisfläche π · 1² und Quadratfläche 2² = 4: Der Anteil schätzt π/4.",
-   "g": "einkleidung"
-  },
-  {
-   "l": "pi_schaetzen",
-   "t": "pi_schaetzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der Viertelkreis (Radius 1) wird in 2 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das ganz unter dem Bogen bleibt (Höhe am rechten Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 1.73,
-    "toleranz": 0.01
-   },
-   "c": "round(1.732050807569, 2)",
-   "w": "Breite je Streifen 0,5; Höhen √(1 − 0,5²), 0. Summe der Flächen ≈ 0,433; mal 4 ≈ 1,73 (zu klein).",
-   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "pi_schaetzen",
-   "t": "pi_schaetzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "In einer Tabellenkalkulation wurden 500 Zufallspunkte (x | y) erzeugt. Eine Spalte enthält WENN(x² + y² ≤ 1; 1; 0), ihre Summe ist 397. Welchen Näherungswert für π liefert das?"
    },
    "o": {
@@ -8436,41 +8584,6 @@
    "w": "Anteil 397 : 500 = 0,794 ≈ π/4 (die Summe zählt die Punkte im Viertelkreis). π ≈ 4 · 397 : 500 = 3,176.",
    "h": "Der Anteil der Treffer schätzt π/4. Was musst du noch tun?",
    "g": "darstellung"
-  },
-  {
-   "l": "pi_schaetzen",
-   "t": "pi_schaetzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der Viertelkreis (Radius 1) wird in 4 gleich breite Streifen geteilt. Auf jeden Streifen kommt ein Rechteck, das bis über den Bogen reicht (Höhe am linken Rand). Welchen Näherungswert für π liefert 4 · (Summe der Rechteckflächen)? Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 3.5,
-    "toleranz": 0.01
-   },
-   "c": "round(3.495709068102, 2)",
-   "w": "Breite je Streifen 0,25; Höhen 1, √(1 − 0,25²), √(1 − 0,5²), √(1 − 0,75²). Summe der Flächen ≈ 0,8739; mal 4 ≈ 3,5 (zu groß).",
-   "h": "Die Höhe an der Stelle x ist √(1 − x²) (Pythagoras). Fläche = Breite · Höhe.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "pi_schaetzen",
-   "t": "pi_schaetzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Monte-Carlo-Simulation mit 800 Zufallspunkten ergab den Näherungswert π ≈ 3,15. Wie viele Punkte lagen im Viertelkreis?"
-   },
-   "o": {
-    "wert": 630
-   },
-   "c": "3.15 * 800 / 4",
-   "w": "4 · k : 800 = 3,15 ⇒ k = 3,15 · 800 : 4 = 630.",
-   "h": "Stelle π ≈ 4 · k : n nach k um.",
-   "g": "umkehr"
   },
   {
    "l": "pi_schaetzen",
@@ -8512,23 +8625,18 @@
    "l": "pi_schaetzen",
    "t": "pi_schaetzen",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Warum ergibt die Monte-Carlo-Methode bei jedem neuen Durchgang einen etwas anderen Näherungswert für π?"
+    "text": "Viertelkreis (Radius 1) im Einheitsquadrat: Wie viele von 1 000 Zufallspunkten erwartest du im Viertelkreis? (π ≈ 3,14)"
    },
-   "a": [
-    "Weil die Formel π ≈ 4 · Anteil nur manchmal gilt.",
-    "Weil die Punkte zufällig fallen und der Anteil im Viertelkreis deshalb schwankt.",
-    "Weil sich der Wert von π ändert.",
-    "Weil das Quadrat jedes Mal anders groß ist."
-   ],
    "o": {
-    "index": 1
+    "wert": 785
    },
-   "w": "π ist fest, die Formel auch. Zufällig ist nur, wie viele Punkte gerade im Viertelkreis landen. Deshalb schwankt der Schätzwert um π.",
-   "h": "Was ist bei jedem Durchgang anders?",
-   "g": "begruenden"
+   "c": "3.14 / 4 * 1000",
+   "w": "Viertelkreis: π/4 ≈ 0,785, Quadrat 1. Erwartet ≈ 0,785 · 1 000 = 785 Punkte.",
+   "h": "Welcher Anteil des Quadrats ist der Viertelkreis?",
+   "g": "umkehr"
   },
   {
    "l": "pi_schaetzen",
@@ -8555,28 +8663,6 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über die beiden Verfahren zur Näherung von π stimmt?"
-   },
-   "a": [
-    "Die Streifenmethode liefert sichere Grenzen für π, die Monte-Carlo-Methode nur einen Schätzwert, der schwanken kann.",
-    "Beide Verfahren liefern nur Werte, die größer als π sind.",
-    "Die Monte-Carlo-Methode liefert mit 100 Punkten immer genau π.",
-    "Die Streifenmethode liefert bei jeder Wiederholung einen anderen Wert."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Rechtecke über dem Bogen sind sicher zu groß, unter dem Bogen sicher zu klein: π liegt dazwischen, jedes Mal gleich. Zufallspunkte geben nur einen Schätzwert, der um π schwankt.",
-   "h": "Was ist bei der Streifenmethode zufällig – und was bei der Monte-Carlo-Methode?",
-   "g": "begruenden"
-  },
-  {
-   "l": "pi_schaetzen",
-   "t": "pi_schaetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
     "text": "Jemand zählt 156 von 200 Zufallspunkten im Viertelkreis und schreibt: „π ≈ 156 : 200 = 0,78.“ Was stimmt?"
    },
    "a": [
@@ -8591,23 +8677,6 @@
    "w": "Der Anteil der Punkte schätzt den Anteil der Fläche: Viertelkreis : Quadrat = π/4 : 1. Also π ≈ 4 · 0,78 = 3,12.",
    "h": "Welchen Flächenanteil schätzt der Anteil der Punkte?",
    "g": "fehler"
-  },
-  {
-   "l": "pi_schaetzen",
-   "t": "pi_schaetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Simulation erzeugt die fünf Zufallspunkte (0,2 | 0,9), (0,7 | 0,8), (0,5 | 0,5), (0,9 | 0,3), (0,6 | 0,85). Welchen Näherungswert für π liefern diese fünf Punkte?"
-   },
-   "o": {
-    "wert": 2.4
-   },
-   "c": "4 * 3 / 5",
-   "w": "x² + y²: 0,85, 1,13, 0,5, 0,9, 1,0825. Höchstens 1 sind 3 Werte. π ≈ 4 · 3 : 5 = 2,4 – mit 5 Punkten sehr ungenau.",
-   "h": "Prüfe für jeden Punkt x² + y² ≤ 1. Dann π ≈ 4 · Treffer : Anzahl.",
-   "g": "verknuepfen"
   },
   {
    "l": "pi_schaetzen",
@@ -8653,18 +8722,72 @@
    "t": "pi_schaetzen",
    "p": "uebung",
    "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Quadrat mit der Seitenlänge 2 liegt ein Kreis mit Radius 1. Wie viele von 2 000 zufälligen Punkten im Quadrat erwartet man im Kreis? Runde auf eine ganze Zahl."
+   },
+   "o": {
+    "wert": 1571,
+    "toleranz": 1
+   },
+   "c": "round(1570.796326794896, 0)",
+   "w": "p = Kreisfläche : Quadratfläche = π : 4 ≈ 0,785. Erwartet: 2 000 · π/4 ≈ 1 571.",
+   "h": "Die Trefferwahrscheinlichkeit ist ein Flächenverhältnis.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "uebung",
+   "s": 3,
    "g": "transfer",
    "y": "zahl",
    "f": {
-    "text": "Im Einheitsquadrat liegen um die Ecke (0 | 0) ein Viertelkreis mit Radius 1 und ein Viertelkreis mit Radius 0,5. Wie groß ist die Wahrscheinlichkeit, dass ein Zufallspunkt im großen, aber nicht im kleinen Viertelkreis liegt? Runde auf drei Nachkommastellen."
+    "text": "Ein Dartbrett (Kreis mit Radius 20 cm) hängt in einem quadratischen Rahmen 50 cm × 50 cm. Ein Anfänger trifft zufällig irgendeine Stelle im Rahmen. Wie groß ist die Wahrscheinlichkeit, das Brett zu treffen? Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 0.589,
+    "wert": 0.5,
+    "toleranz": 0.01
+   },
+   "c": "round(0.502654824574, 2)",
+   "w": "Kreis: π · 20² ≈ 1 256,6 cm²; Rahmen 2 500 cm². Anteil ≈ 0,50.",
+   "h": "Wahrscheinlichkeit = Kreisfläche : Rahmenfläche."
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Im Einheitsquadrat liegen zwei Viertelkreise mit Radius 1: einer um (0 | 0), einer um (1 | 1). Wie groß ist die Wahrscheinlichkeit, dass ein Zufallspunkt in beiden liegt? Runde auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.571,
     "toleranz": 0.001
    },
-   "c": "round(0.589048622548, 3)",
-   "w": "Fläche groß: π/4, klein: π · 0,25/4 = π/16. Differenz 3π/16 ≈ 0,589. Das Quadrat hat die Fläche 1.",
-   "h": "Wahrscheinlichkeit = Fläche : Fläche des Quadrats."
+   "c": "round(0.570796326795, 3)",
+   "w": "Jeder Viertelkreis hat π/4. Zusammen bedecken sie das ganze Quadrat (jeder Punkt liegt in mindestens einem), also gilt π/4 + π/4 − Überlappung = 1. Überlappung = π/2 − 1 ≈ 0,571.",
+   "h": "Liegt jeder Punkt des Quadrats in mindestens einem der beiden Viertelkreise?"
+  },
+  {
+   "l": "pi_schaetzen",
+   "t": "pi_schaetzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Mit wie vielen Zufallspunkten kann der Schätzwert 4 · Treffer : Anzahl frühestens genau 3,14 ergeben?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "Punkte"
+   },
+   "c": "200",
+   "w": "4 · T/n = 3,14 ⇒ T/n = 0,785 = 157/200. Weil 157 und 200 keinen gemeinsamen Teiler haben, muss n ein Vielfaches von 200 sein. Frühestens n = 200 (mit T = 157).",
+   "h": "Schreibe 3,14 : 4 als gekürzten Bruch."
   },
   {
    "l": "pi_schaetzen",
@@ -8831,42 +8954,6 @@
    },
    "c": "round(3.437048828884, 2)",
    "w": "Breite je Streifen 0,2; Höhen 1, √(1 − 0,2²), √(1 − 0,4²), √(1 − 0,6²), √(1 − 0,8²). Summe der Flächen ≈ 0,8593; mal 4 ≈ 3,44 (zu groß)."
-  },
-  {
-   "l": "pi_schaetzen",
-   "t": "pi_schaetzen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Im Einheitsquadrat liegen zwei Viertelkreise mit Radius 1: einer um (0 | 0), einer um (1 | 1). Wie groß ist die Wahrscheinlichkeit, dass ein Zufallspunkt in beiden liegt? Runde auf drei Nachkommastellen."
-   },
-   "o": {
-    "wert": 0.571,
-    "toleranz": 0.001
-   },
-   "c": "round(0.570796326795, 3)",
-   "w": "Jeder Viertelkreis hat π/4. Zusammen bedecken sie das ganze Quadrat (jeder Punkt liegt in mindestens einem), also gilt π/4 + π/4 − Überlappung = 1. Überlappung = π/2 − 1 ≈ 0,571.",
-   "h": "Liegt jeder Punkt des Quadrats in mindestens einem der beiden Viertelkreise?"
-  },
-  {
-   "l": "pi_schaetzen",
-   "t": "pi_schaetzen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Mit wie vielen Zufallspunkten kann der Schätzwert 4 · Treffer : Anzahl frühestens genau 3,14 ergeben?"
-   },
-   "o": {
-    "wert": 200,
-    "einheit": "Punkte"
-   },
-   "c": "200",
-   "w": "4 · T/n = 3,14 ⇒ T/n = 0,785 = 157/200. Weil 157 und 200 keinen gemeinsamen Teiler haben, muss n ein Vielfaches von 200 sein. Frühestens n = 200 (mit T = 157).",
-   "h": "Schreibe 3,14 : 4 als gekürzten Bruch."
   },
   {
    "l": "verstehen",

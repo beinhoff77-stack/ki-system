@@ -2716,6 +2716,477 @@
    "l": "substitution",
    "t": "substitution",
    "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 65x² + 784 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     16,
+     49
+    ]
+   },
+   "w": "z² − 65z + 784 = 0 ⇒ z₁ = 16, z₂ = 49.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "16 + (16) ** 2 - 65 * 16 + 784",
+    "49 + (49) ** 2 - 65 * 49 + 784"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 40x² + 144 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     -2,
+     2,
+     6
+    ]
+   },
+   "w": "z = x²: z² − 40z + 144 = 0 ⇒ z = 4 oder z = 36 ⇒ x = ±2, ±6.",
+   "h": "Substituiere z = x², dann rücksubstituieren.",
+   "c": [
+    "-6 + ((1) * (-6) ** 4 + (0) * (-6) ** 3 + (-40) * (-6) ** 2 + (0) * (-6) ** 1 + (144) * (-6) ** 0)",
+    "-2 + ((1) * (-2) ** 4 + (0) * (-2) ** 3 + (-40) * (-2) ** 2 + (0) * (-2) ** 1 + (144) * (-2) ** 0)",
+    "2 + ((1) * (2) ** 4 + (0) * (2) ** 3 + (-40) * (2) ** 2 + (0) * (2) ** 1 + (144) * (2) ** 0)",
+    "6 + ((1) * (6) ** 4 + (0) * (6) ** 3 + (-40) * (6) ** 2 + (0) * (6) ** 1 + (144) * (6) ** 0)"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 53x² + 196 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     49
+    ]
+   },
+   "w": "z² − 53z + 196 = 0 ⇒ z₁ = 4, z₂ = 49.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "4 + (4) ** 2 - 53 * 4 + 196",
+    "49 + (49) ** 2 - 53 * 49 + 196"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 41x² + 400 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -4,
+     4,
+     5
+    ]
+   },
+   "w": "z = x²: z² − 41z + 400 = 0 ⇒ z = 16 oder z = 25 ⇒ x = ±4, ±5.",
+   "h": "Substituiere z = x², dann rücksubstituieren.",
+   "c": [
+    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-41) * (-5) ** 2 + (0) * (-5) ** 1 + (400) * (-5) ** 0)",
+    "-4 + ((1) * (-4) ** 4 + (0) * (-4) ** 3 + (-41) * (-4) ** 2 + (0) * (-4) ** 1 + (400) * (-4) ** 0)",
+    "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-41) * (4) ** 2 + (0) * (4) ** 1 + (400) * (4) ** 0)",
+    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-41) * (5) ** 2 + (0) * (5) ** 1 + (400) * (5) ** 0)"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁴ − 6x² + 5 = 0. Gib die größte positive Lösung auf zwei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 2.24,
+    "toleranz": 0.01
+   },
+   "c": "round(2.236067977500, 2)",
+   "w": "z = x²: z² − 6z + 5 = 0 ⇒ z₁ = 1, z₂ = 5. Positive Lösungen: x = 1 und x = √5; die größte ist √5 ≈ 2,24.",
+   "h": "Substituiere z = x². Aus x² = z folgt x = √z – das muss keine ganze Zahl sein.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 5x² + 4 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1,
+     1,
+     2
+    ]
+   },
+   "w": "z = x²: z² − 5z + 4 = 0 ⇒ z = 1 oder z = 4 ⇒ x = ±1, ±2.",
+   "h": "Substituiere z = x², dann rücksubstituieren.",
+   "c": [
+    "-2 + ((1) * (-2) ** 4 + (0) * (-2) ** 3 + (-5) * (-2) ** 2 + (0) * (-2) ** 1 + (4) * (-2) ** 0)",
+    "-1 + ((1) * (-1) ** 4 + (0) * (-1) ** 3 + (-5) * (-1) ** 2 + (0) * (-1) ** 1 + (4) * (-1) ** 0)",
+    "1 + ((1) * (1) ** 4 + (0) * (1) ** 3 + (-5) * (1) ** 2 + (0) * (1) ** 1 + (4) * (1) ** 0)",
+    "2 + ((1) * (2) ** 4 + (0) * (2) ** 3 + (-5) * (2) ** 2 + (0) * (2) ** 1 + (4) * (2) ** 0)"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁶ − 9x³ + 8 = 0.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "z = x³: z² − 9z + 8 = 0 ⇒ z = 1 oder z = 8. x³ = 1 ⇒ x = 1; x³ = 8 ⇒ x = 2.",
+   "h": "Hier passt z = x³. Jede Zahl hat genau eine dritte Wurzel.",
+   "c": [
+    "(1) + ((1)**6 - 9*(1)**3 + 8)",
+    "(2) + ((2)**6 - 9*(2)**3 + 8)"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x² − 1)² = 9. Gib die positive Lösung an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "x² − 1 = 3 oder x² − 1 = −3. Also x² = 4 (x = ±2) oder x² = −2 (keine Lösung).",
+   "h": "Ziehe zuerst die Wurzel: Welche Zahlen ergeben quadriert 9?"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 29x² + 100 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     25
+    ]
+   },
+   "w": "z² − 29z + 100 = 0 ⇒ z₁ = 4, z₂ = 25.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "4 + (4) ** 2 - 29 * 4 + 100",
+    "25 + (25) ** 2 - 29 * 25 + 100"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung ist biquadratisch?"
+   },
+   "a": [
+    "x⁴ − 5x² + 4 = 0",
+    "x³ − 5x + 4 = 0",
+    "x⁴ − 5x³ + 4 = 0",
+    "x⁴ − 5x = 0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Biquadratisch: nur x⁴, x² und eine Zahl.",
+   "h": "Welche Hochzahlen kommen vor?"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 20x² + 64 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     16
+    ]
+   },
+   "w": "z² − 20z + 64 = 0 ⇒ z₁ = 4, z₂ = 16.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "4 + (4) ** 2 - 20 * 4 + 64",
+    "16 + (16) ** 2 - 20 * 16 + 64"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 25x² + 144 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -3,
+     3,
+     4
+    ]
+   },
+   "w": "z = x²: z² − 25z + 144 = 0 ⇒ z = 9 oder z = 16 ⇒ x = ±3, ±4.",
+   "h": "Substituiere z = x², dann rücksubstituieren.",
+   "c": [
+    "-4 + ((1) * (-4) ** 4 + (0) * (-4) ** 3 + (-25) * (-4) ** 2 + (0) * (-4) ** 1 + (144) * (-4) ** 0)",
+    "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-25) * (-3) ** 2 + (0) * (-3) ** 1 + (144) * (-3) ** 0)",
+    "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-25) * (3) ** 2 + (0) * (3) ** 1 + (144) * (3) ** 0)",
+    "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-25) * (4) ** 2 + (0) * (4) ** 1 + (144) * (4) ** 0)"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat x⁴ + 11x² + 30 = 0?"
+   },
+   "a": [
+    "L = { }",
+    "L = {−√6; √6}",
+    "L = {6; 5}",
+    "L = {−6; −5}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "z² + 11z + 30 = 0 ⇒ z = −6, z = −5. Beide negativ, x² kann nicht negativ sein: keine Lösung.",
+   "h": "Substituiere und prüfe das Vorzeichen der z-Lösungen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 34x² + 225 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "alle Lösungen, kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -3,
+     3,
+     5
+    ]
+   },
+   "w": "z = x²: z² − 34z + 225 = 0 ⇒ z = 9 oder z = 25 ⇒ x = ±3, ±5.",
+   "h": "Substituiere z = x², dann rücksubstituieren.",
+   "c": [
+    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-34) * (-5) ** 2 + (0) * (-5) ** 1 + (225) * (-5) ** 0)",
+    "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-34) * (-3) ** 2 + (0) * (-3) ** 1 + (225) * (-3) ** 0)",
+    "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-34) * (3) ** 2 + (0) * (3) ** 1 + (225) * (3) ** 0)",
+    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-34) * (5) ** 2 + (0) * (5) ** 1 + (225) * (5) ** 0)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x² − 3)² − 4(x² − 3) − 12 = 0.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "Lösungen aufsteigend"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -1,
+     1,
+     3
+    ]
+   },
+   "w": "u = x² − 3: u² − 4u − 12 = 0 ⇒ u = 6 oder u = −2. x² − 3 = 6 ⇒ x = ±3; x² − 3 = −2 ⇒ x = ±1.",
+   "h": "Ersetze den Block x² − 3 durch eine neue Variable. Nicht ausmultiplizieren!",
+   "c": [
+    "(-3) + (((-3)**2 - 3)**2 - 4*((-3)**2 - 3) - 12)",
+    "(-1) + (((-1)**2 - 3)**2 - 4*((-1)**2 - 3) - 12)",
+    "(1) + (((1)**2 - 3)**2 - 4*((1)**2 - 3) - 12)",
+    "(3) + (((3)**2 - 3)**2 - 4*((3)**2 - 3) - 12)"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Nullstellen von f(x) = x⁴ − 29x² + 100.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -2,
+     2,
+     5
+    ]
+   },
+   "w": "Substitution z = x²: z = 4 oder z = 25 ⇒ x = ±2, ±5.",
+   "h": "Substituiere z = x².",
+   "c": [
+    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-29) * (-5) ** 2 + (0) * (-5) ** 1 + (100) * (-5) ** 0)",
+    "-2 + ((1) * (-2) ** 4 + (0) * (-2) ** 3 + (-29) * (-2) ** 2 + (0) * (-2) ** 1 + (100) * (-2) ** 0)",
+    "2 + ((1) * (2) ** 4 + (0) * (2) ** 3 + (-29) * (2) ** 2 + (0) * (2) ** 1 + (100) * (2) ** 0)",
+    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-29) * (5) ** 2 + (0) * (5) ** 1 + (100) * (5) ** 0)"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 17x² + 16 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     1,
+     16
+    ]
+   },
+   "w": "z² − 17z + 16 = 0 ⇒ z₁ = 1, z₂ = 16.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "1 + (1) ** 2 - 17 * 1 + 16",
+    "16 + (16) ** 2 - 17 * 16 + 16"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was wird aus x⁴ − 13x² + 36 = 0 mit z = x²?"
+   },
+   "a": [
+    "z⁴ − 13z² + 36 = 0",
+    "z − 13z + 36 = 0",
+    "z² − 13 + 36 = 0",
+    "z² − 13z + 36 = 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x⁴ = (x²)² = z² und x² = z.",
+   "h": "Schreibe x⁴ als (x²)²."
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x⁴ − 37x² + 36 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
+    "schablone": "z₁ = □; z₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     1,
+     36
+    ]
+   },
+   "w": "z² − 37z + 36 = 0 ⇒ z₁ = 1, z₂ = 36.",
+   "h": "Ersetze x⁴ durch z² und x² durch z.",
+   "c": [
+    "1 + (1) ** 2 - 37 * 1 + 36",
+    "36 + (36) ** 2 - 37 * 36 + 36"
+   ]
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2757,212 +3228,6 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse x⁴ − 40x² + 144 = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -6,
-     -2,
-     2,
-     6
-    ]
-   },
-   "w": "z = x²: z² − 40z + 144 = 0 ⇒ z = 4 oder z = 36 ⇒ x = ±2, ±6.",
-   "h": "Substituiere z = x², dann rücksubstituieren.",
-   "c": [
-    "-6 + ((1) * (-6) ** 4 + (0) * (-6) ** 3 + (-40) * (-6) ** 2 + (0) * (-6) ** 1 + (144) * (-6) ** 0)",
-    "-2 + ((1) * (-2) ** 4 + (0) * (-2) ** 3 + (-40) * (-2) ** 2 + (0) * (-2) ** 1 + (144) * (-2) ** 0)",
-    "2 + ((1) * (2) ** 4 + (0) * (2) ** 3 + (-40) * (2) ** 2 + (0) * (2) ** 1 + (144) * (2) ** 0)",
-    "6 + ((1) * (6) ** 4 + (0) * (6) ** 3 + (-40) * (6) ** 2 + (0) * (6) ** 1 + (144) * (6) ** 0)"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 29x² + 100 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     4,
-     25
-    ]
-   },
-   "w": "z² − 29z + 100 = 0 ⇒ z₁ = 4, z₂ = 25.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "4 + (4) ** 2 - 29 * 4 + 100",
-    "25 + (25) ** 2 - 29 * 25 + 100"
-   ],
-   "g": "direkt"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 41x² + 400 = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -5,
-     -4,
-     4,
-     5
-    ]
-   },
-   "w": "z = x²: z² − 41z + 400 = 0 ⇒ z = 16 oder z = 25 ⇒ x = ±4, ±5.",
-   "h": "Substituiere z = x², dann rücksubstituieren.",
-   "c": [
-    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-41) * (-5) ** 2 + (0) * (-5) ** 1 + (400) * (-5) ** 0)",
-    "-4 + ((1) * (-4) ** 4 + (0) * (-4) ** 3 + (-41) * (-4) ** 2 + (0) * (-4) ** 1 + (400) * (-4) ** 0)",
-    "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-41) * (4) ** 2 + (0) * (4) ** 1 + (400) * (4) ** 0)",
-    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-41) * (5) ** 2 + (0) * (5) ** 1 + (400) * (5) ** 0)"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Gleichung ist biquadratisch?"
-   },
-   "a": [
-    "x⁴ − 5x² + 4 = 0",
-    "x³ − 5x + 4 = 0",
-    "x⁴ − 5x³ + 4 = 0",
-    "x⁴ − 5x = 0"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Biquadratisch: nur x⁴, x² und eine Zahl.",
-   "h": "Welche Hochzahlen kommen vor?"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 5x² + 4 = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -2,
-     -1,
-     1,
-     2
-    ]
-   },
-   "w": "z = x²: z² − 5z + 4 = 0 ⇒ z = 1 oder z = 4 ⇒ x = ±1, ±2.",
-   "h": "Substituiere z = x², dann rücksubstituieren.",
-   "c": [
-    "-2 + ((1) * (-2) ** 4 + (0) * (-2) ** 3 + (-5) * (-2) ** 2 + (0) * (-2) ** 1 + (4) * (-2) ** 0)",
-    "-1 + ((1) * (-1) ** 4 + (0) * (-1) ** 3 + (-5) * (-1) ** 2 + (0) * (-1) ** 1 + (4) * (-1) ** 0)",
-    "1 + ((1) * (1) ** 4 + (0) * (1) ** 3 + (-5) * (1) ** 2 + (0) * (1) ** 1 + (4) * (1) ** 0)",
-    "2 + ((1) * (2) ** 4 + (0) * (2) ** 3 + (-5) * (2) ** 2 + (0) * (2) ** 1 + (4) * (2) ** 0)"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 17x² + 16 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     1,
-     16
-    ]
-   },
-   "w": "z² − 17z + 16 = 0 ⇒ z₁ = 1, z₂ = 16.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "1 + (1) ** 2 - 17 * 1 + 16",
-    "16 + (16) ** 2 - 17 * 16 + 16"
-   ],
-   "g": "direkt"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 25x² + 144 = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -4,
-     -3,
-     3,
-     4
-    ]
-   },
-   "w": "z = x²: z² − 25z + 144 = 0 ⇒ z = 9 oder z = 16 ⇒ x = ±3, ±4.",
-   "h": "Substituiere z = x², dann rücksubstituieren.",
-   "c": [
-    "-4 + ((1) * (-4) ** 4 + (0) * (-4) ** 3 + (-25) * (-4) ** 2 + (0) * (-4) ** 1 + (144) * (-4) ** 0)",
-    "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-25) * (-3) ** 2 + (0) * (-3) ** 1 + (144) * (-3) ** 0)",
-    "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-25) * (3) ** 2 + (0) * (3) ** 1 + (144) * (3) ** 0)",
-    "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-25) * (4) ** 2 + (0) * (4) ** 1 + (144) * (4) ** 0)"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Was wird aus x⁴ − 13x² + 36 = 0 mit z = x²?"
-   },
-   "a": [
-    "z⁴ − 13z² + 36 = 0",
-    "z − 13z + 36 = 0",
-    "z² − 13 + 36 = 0",
-    "z² − 13z + 36 = 0"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "x⁴ = (x²)² = z² und x² = z.",
-   "h": "Schreibe x⁴ als (x²)²."
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
     "text": "Löse x⁴ − 17x² + 16 = 0.",
     "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
     "hinweis": "alle Lösungen, kleinste zuerst"
@@ -2982,171 +3247,6 @@
     "-1 + ((1) * (-1) ** 4 + (0) * (-1) ** 3 + (-17) * (-1) ** 2 + (0) * (-1) ** 1 + (16) * (-1) ** 0)",
     "1 + ((1) * (1) ** 4 + (0) * (1) ** 3 + (-17) * (1) ** 2 + (0) * (1) ** 1 + (16) * (1) ** 0)",
     "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-17) * (4) ** 2 + (0) * (4) ** 1 + (16) * (4) ** 0)"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 65x² + 784 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     16,
-     49
-    ]
-   },
-   "w": "z² − 65z + 784 = 0 ⇒ z₁ = 16, z₂ = 49.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "16 + (16) ** 2 - 65 * 16 + 784",
-    "49 + (49) ** 2 - 65 * 49 + 784"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 34x² + 225 = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "alle Lösungen, kleinste zuerst"
-   },
-   "o": {
-    "werte": [
-     -5,
-     -3,
-     3,
-     5
-    ]
-   },
-   "w": "z = x²: z² − 34z + 225 = 0 ⇒ z = 9 oder z = 25 ⇒ x = ±3, ±5.",
-   "h": "Substituiere z = x², dann rücksubstituieren.",
-   "c": [
-    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-34) * (-5) ** 2 + (0) * (-5) ** 1 + (225) * (-5) ** 0)",
-    "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-34) * (-3) ** 2 + (0) * (-3) ** 1 + (225) * (-3) ** 0)",
-    "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-34) * (3) ** 2 + (0) * (3) ** 1 + (225) * (3) ** 0)",
-    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-34) * (5) ** 2 + (0) * (5) ** 1 + (225) * (5) ** 0)"
-   ],
-   "g": "mehrschritt"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 53x² + 196 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     4,
-     49
-    ]
-   },
-   "w": "z² − 53z + 196 = 0 ⇒ z₁ = 4, z₂ = 49.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "4 + (4) ** 2 - 53 * 4 + 196",
-    "49 + (49) ** 2 - 53 * 49 + 196"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösungsmenge hat x⁴ + 11x² + 30 = 0?"
-   },
-   "a": [
-    "L = { }",
-    "L = {−√6; √6}",
-    "L = {6; 5}",
-    "L = {−6; −5}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "z² + 11z + 30 = 0 ⇒ z = −6, z = −5. Beide negativ, x² kann nicht negativ sein: keine Lösung.",
-   "h": "Substituiere und prüfe das Vorzeichen der z-Lösungen.",
-   "g": "umkehr"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 20x² + 64 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     4,
-     16
-    ]
-   },
-   "w": "z² − 20z + 64 = 0 ⇒ z₁ = 4, z₂ = 16.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "4 + (4) ** 2 - 20 * 4 + 64",
-    "16 + (16) ** 2 - 20 * 16 + 64"
-   ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x⁴ − 6x² + 5 = 0. Gib die größte positive Lösung auf zwei Nachkommastellen an."
-   },
-   "o": {
-    "wert": 2.24,
-    "toleranz": 0.01
-   },
-   "c": "round(2.236067977500, 2)",
-   "w": "z = x²: z² − 6z + 5 = 0 ⇒ z₁ = 1, z₂ = 5. Positive Lösungen: x = 1 und x = √5; die größte ist √5 ≈ 2,24.",
-   "h": "Substituiere z = x². Aus x² = z folgt x = √z – das muss keine ganze Zahl sein.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x⁴ − 37x² + 36 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.",
-    "schablone": "z₁ = □; z₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     1,
-     36
-    ]
-   },
-   "w": "z² − 37z + 36 = 0 ⇒ z₁ = 1, z₂ = 36.",
-   "h": "Ersetze x⁴ durch z² und x² durch z.",
-   "c": [
-    "1 + (1) ** 2 - 37 * 1 + 36",
-    "36 + (36) ** 2 - 37 * 36 + 36"
    ]
   },
   {
@@ -3221,31 +3321,6 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Löse x⁶ − 9x³ + 8 = 0.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     1,
-     2
-    ]
-   },
-   "w": "z = x³: z² − 9z + 8 = 0 ⇒ z = 1 oder z = 8. x³ = 1 ⇒ x = 1; x³ = 8 ⇒ x = 2.",
-   "h": "Hier passt z = x³. Jede Zahl hat genau eine dritte Wurzel.",
-   "c": [
-    "(1) + ((1)**6 - 9*(1)**3 + 8)",
-    "(2) + ((2)**6 - 9*(2)**3 + 8)"
-   ],
-   "g": "transfer"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
     "text": "Löse 2x⁴ + 8x² − 234 = 0.",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "alle Lösungen, kleinste zuerst"
@@ -3280,35 +3355,6 @@
    "w": "z = x²: z² − kz + 16 = 0. Genau zwei Lösungen für x gibt es, wenn z eine einzige (doppelte) positive Lösung hat: (z − 4)² = z² − 8z + 16. Also k = 8, dann x = ±2.",
    "h": "Wie viele Lösungen x liefert ein positives z? Was muss für die Gleichung in z dann gelten?",
    "g": "parameter"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x² − 3)² − 4(x² − 3) − 12 = 0.",
-    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
-    "hinweis": "Lösungen aufsteigend"
-   },
-   "o": {
-    "werte": [
-     -3,
-     -1,
-     1,
-     3
-    ]
-   },
-   "w": "u = x² − 3: u² − 4u − 12 = 0 ⇒ u = 6 oder u = −2. x² − 3 = 6 ⇒ x = ±3; x² − 3 = −2 ⇒ x = ±1.",
-   "h": "Ersetze den Block x² − 3 durch eine neue Variable. Nicht ausmultiplizieren!",
-   "c": [
-    "(-3) + (((-3)**2 - 3)**2 - 4*((-3)**2 - 3) - 12)",
-    "(-1) + (((-1)**2 - 3)**2 - 4*((-1)**2 - 3) - 12)",
-    "(1) + (((1)**2 - 3)**2 - 4*((1)**2 - 3) - 12)",
-    "(3) + (((3)**2 - 3)**2 - 4*((3)**2 - 3) - 12)"
-   ],
-   "g": "transfer"
   },
   {
    "l": "substitution",
@@ -3376,17 +3422,76 @@
    "t": "substitution",
    "p": "uebung",
    "s": 3,
-   "g": "verknuepfen",
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Nullstellen von f(x) = x⁴ − 17x² − 200.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     5
+    ]
+   },
+   "w": "z = x²: z² − 17z − 200 = 0 ⇒ z = 25 oder z = −8. x² = 25 ⇒ x = ±5; x² = −8 hat keine Lösung.",
+   "h": "Substituiere z = x². Liefert jede z-Lösung auch x-Werte?",
+   "c": [
+    "-5 + ((1) * (-5) ** 4 + (0) * (-5) ** 3 + (-17) * (-5) ** 2 + (0) * (-5) ** 1 + (-200) * (-5) ** 0)",
+    "5 + ((1) * (5) ** 4 + (0) * (5) ** 3 + (-17) * (5) ** 2 + (0) * (5) ** 1 + (-200) * (5) ** 0)"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse (x² − 1)² = 9. Gib die positive Lösung an."
+    "text": "Wie viele Nullstellen hat f(x) = x⁴ − 5x² + 4 im Bereich −1,5 < x < 1,5?"
    },
    "o": {
     "wert": 2
    },
    "c": "2",
-   "w": "x² − 1 = 3 oder x² − 1 = −3. Also x² = 4 (x = ±2) oder x² = −2 (keine Lösung).",
-   "h": "Ziehe zuerst die Wurzel: Welche Zahlen ergeben quadriert 9?"
+   "w": "z = x²: z = 1 oder z = 4 ⇒ x = ±1 oder x = ±2. Im Bereich liegen nur −1 und 1.",
+   "h": "Bestimme alle Nullstellen mit Substitution und prüfe, welche im Bereich liegen.",
+   "g": "transfer"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen k mit 1 ≤ k ≤ 10 hat x⁴ − kx² + 9 = 0 genau vier verschiedene Lösungen?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "10 - 7 + 1",
+   "w": "Vier Lösungen brauchen zwei verschiedene positive z in z² − kz + 9 = 0. Ihr Produkt ist 9 > 0, ihre Summe k > 0, also beide positiv, sobald es zwei gibt: k² − 36 > 0 ⇒ k > 6. k = 7, 8, 9, 10.",
+   "h": "Welche Bedingung braucht z² − kz + 9 = 0?"
+  },
+  {
+   "l": "substitution",
+   "t": "substitution",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele reelle Lösungen hat x⁸ − 17x⁴ + 16 = 0?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Mit z = x⁴: z² − 17z + 16 = (z − 1)(z − 16) = 0. x⁴ = 1 ⇒ x = ±1; x⁴ = 16 ⇒ x = ±2. Vier Lösungen.",
+   "h": "Substituiere diesmal z = x⁴."
   },
   {
    "l": "substitution",
@@ -3657,40 +3762,6 @@
     "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-45) * (3) ** 2 + (0) * (3) ** 1 + (324) * (3) ** 0)",
     "6 + ((1) * (6) ** 4 + (0) * (6) ** 3 + (-45) * (6) ** 2 + (0) * (6) ** 1 + (324) * (6) ** 0)"
    ]
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Für wie viele ganze Zahlen k mit 1 ≤ k ≤ 10 hat x⁴ − kx² + 9 = 0 genau vier verschiedene Lösungen?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "10 - 7 + 1",
-   "w": "Vier Lösungen brauchen zwei verschiedene positive z in z² − kz + 9 = 0. Ihr Produkt ist 9 > 0, ihre Summe k > 0, also beide positiv, sobald es zwei gibt: k² − 36 > 0 ⇒ k > 6. k = 7, 8, 9, 10.",
-   "h": "Welche Bedingung braucht z² − kz + 9 = 0?"
-  },
-  {
-   "l": "substitution",
-   "t": "substitution",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele reelle Lösungen hat x⁸ − 17x⁴ + 16 = 0?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4",
-   "w": "Mit z = x⁴: z² − 17z + 16 = (z − 1)(z − 16) = 0. x⁴ = 1 ⇒ x = ±1; x⁴ = 16 ⇒ x = ±2. Vier Lösungen.",
-   "h": "Substituiere diesmal z = x⁴."
   },
   {
    "l": "vielfachheit",

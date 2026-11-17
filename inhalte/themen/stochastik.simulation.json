@@ -3599,396 +3599,6 @@
    "l": "monte_carlo",
    "t": "monte_carlo",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 250 Zufallspunkten liegen 199 im Viertelkreis. Welchen Schätzwert für π erhält man?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       10,
-       0
-      ],
-      "_C": [
-       10,
-       10
-      ],
-      "_D": [
-       0,
-       10
-      ],
-      "_k0": [
-       10.0,
-       0.0
-      ],
-      "_k1": [
-       9.85,
-       1.74
-      ],
-      "_k2": [
-       9.4,
-       3.42
-      ],
-      "_k3": [
-       8.66,
-       5.0
-      ],
-      "_k4": [
-       7.66,
-       6.43
-      ],
-      "_k5": [
-       6.43,
-       7.66
-      ],
-      "_k6": [
-       5.0,
-       8.66
-      ],
-      "_k7": [
-       3.42,
-       9.4
-      ],
-      "_k8": [
-       1.74,
-       9.85
-      ],
-      "_k9": [
-       0.0,
-       10.0
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_k0",
-      "_k1",
-      "_k2",
-      "_k3",
-      "_k4",
-      "_k5",
-      "_k6",
-      "_k7",
-      "_k8",
-      "_k9"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_B",
-       "_C"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        9.4,
-        0.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.6,
-        0.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        6.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.6,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.0,
-        2.9
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        8.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.0,
-        5.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        4.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.2,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.6,
-        3.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.7,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.4,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        9.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.5,
-        1.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.9,
-        9.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.8,
-        7.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        3.0,
-        5.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        1.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.4,
-        0.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.7,
-        8.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.5,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        2.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        3.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        3.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.1,
-        3.3
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.5,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        7.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.8,
-        1.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        3.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.2,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.3,
-        3.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.7,
-        8.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        4.8
-       ],
-       "r": 0.13
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": 3.184
-   },
-   "c": "4 * 199 / 250",
-   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 199/250 → π ≈ 4 · 0,796 = 3,184.",
-   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4."
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -4006,408 +3616,19 @@
    "l": "monte_carlo",
    "t": "monte_carlo",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 1000 Zufallspunkten liegen 758 im Viertelkreis. Welchen Schätzwert für π erhält man?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       10,
-       0
-      ],
-      "_C": [
-       10,
-       10
-      ],
-      "_D": [
-       0,
-       10
-      ],
-      "_k0": [
-       10.0,
-       0.0
-      ],
-      "_k1": [
-       9.85,
-       1.74
-      ],
-      "_k2": [
-       9.4,
-       3.42
-      ],
-      "_k3": [
-       8.66,
-       5.0
-      ],
-      "_k4": [
-       7.66,
-       6.43
-      ],
-      "_k5": [
-       6.43,
-       7.66
-      ],
-      "_k6": [
-       5.0,
-       8.66
-      ],
-      "_k7": [
-       3.42,
-       9.4
-      ],
-      "_k8": [
-       1.74,
-       9.85
-      ],
-      "_k9": [
-       0.0,
-       10.0
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_k0",
-      "_k1",
-      "_k2",
-      "_k3",
-      "_k4",
-      "_k5",
-      "_k6",
-      "_k7",
-      "_k8",
-      "_k9"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_B",
-       "_C"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        9.4,
-        0.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.6,
-        0.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        6.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.6,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.0,
-        2.9
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        8.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.0,
-        5.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        4.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.2,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.6,
-        3.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.7,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.4,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        9.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.5,
-        1.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.9,
-        9.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.8,
-        7.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        3.0,
-        5.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        1.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.4,
-        0.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.7,
-        8.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.5,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        2.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        3.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        3.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.1,
-        3.3
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.5,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        7.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.8,
-        1.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        3.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.2,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.3,
-        3.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.7,
-        8.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        4.8
-       ],
-       "r": 0.13
-      }
-     ]
-    }
+    "text": "Ein Quadrat hat die Seitenlänge 6 cm. Von 400 Zufallspunkten liegen 100 in einer Figur. Schätze den Flächeninhalt der Figur."
    },
    "o": {
-    "wert": 3.032
+    "wert": 9,
+    "einheit": "cm²"
    },
-   "c": "4 * 758 / 1000",
-   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 758/1000 → π ≈ 4 · 0,758 = 3,032.",
-   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4."
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "In ein Quadrat werden 200 Zufallspunkte gesetzt, 42 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)"
-   },
-   "o": {
-    "wert": 0.21
-   },
-   "c": "42 / 200",
-   "w": "42 : 200 = 0,21.",
-   "h": "Punkte in der Figur durch alle Punkte.",
-   "g": "direkt"
+   "c": "100 / 400 * 36",
+   "w": "Anteil 100 : 400 = 0,25. Fläche ≈ 0,25 · 36 cm² = 9 cm².",
+   "h": "Anteil der Punkte mal Fläche des Quadrats.",
+   "g": "mehrschritt"
   },
   {
    "l": "monte_carlo",
@@ -4425,6 +3646,23 @@
    "c": "42 / 250 * 2 ** 2",
    "w": "Anteil 0,168, Quadrat 4 cm². A ≈ 0,168 · 4 = 0,672 cm².",
    "h": "Anteil der Punkte mal Fläche des Quadrats."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat werden 200 Zufallspunkte gesetzt, 42 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)"
+   },
+   "o": {
+    "wert": 0.21
+   },
+   "c": "42 / 200",
+   "w": "42 : 200 = 0,21.",
+   "h": "Punkte in der Figur durch alle Punkte.",
+   "g": "direkt"
   },
   {
    "l": "monte_carlo",
@@ -4452,6 +3690,22 @@
    "l": "monte_carlo",
    "t": "monte_carlo",
    "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat werden 100 Zufallspunkte gesetzt, 13 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)"
+   },
+   "o": {
+    "wert": 0.13
+   },
+   "c": "13 / 100",
+   "w": "13 : 100 = 0,13.",
+   "h": "Punkte in der Figur durch alle Punkte."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -4469,6 +3723,42 @@
    "l": "monte_carlo",
    "t": "monte_carlo",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Diagonale teilt ein Quadrat in zwei gleiche Dreiecke. Von 200 Zufallspunkten liegen 112 im unteren Dreieck. Um wie viele Prozentpunkte weicht der Anteil vom wahren Anteil ab?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "%"
+   },
+   "c": "112 / 200 * 100 - 50",
+   "w": "Wahrer Anteil: 50 %. Simuliert: 112 : 200 = 56 %. Abweichung: 6 Prozentpunkte.",
+   "h": "Welcher Anteil wäre genau richtig?",
+   "g": "begruenden"
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 20 cm. Von 500 Zufallspunkten liegen 269 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 215.2,
+    "einheit": "cm²"
+   },
+   "c": "269 / 500 * 20 ** 2",
+   "w": "Anteil 0,538, Quadrat 400 cm². A ≈ 0,538 · 400 = 215,2 cm².",
+   "h": "Anteil der Punkte mal Fläche des Quadrats.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -4481,23 +3771,6 @@
    "w": "82 : 250 = 0,328.",
    "h": "Punkte in der Figur durch alle Punkte.",
    "g": "direkt"
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quadrat hat die Seitenlänge 4 cm. Von 250 Zufallspunkten liegen 57 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
-   },
-   "o": {
-    "wert": 3.648,
-    "einheit": "cm²"
-   },
-   "c": "57 / 250 * 4 ** 2",
-   "w": "Anteil 0,228, Quadrat 16 cm². A ≈ 0,228 · 16 = 3,648 cm².",
-   "h": "Anteil der Punkte mal Fläche des Quadrats."
   },
   {
    "l": "monte_carlo",
@@ -4528,40 +3801,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "In ein Quadrat werden 100 Zufallspunkte gesetzt, 13 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)"
-   },
-   "o": {
-    "wert": 0.13
-   },
-   "c": "13 / 100",
-   "w": "13 : 100 = 0,13.",
-   "h": "Punkte in der Figur durch alle Punkte."
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quadrat hat die Seitenlänge 20 cm. Von 500 Zufallspunkten liegen 269 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
-   },
-   "o": {
-    "wert": 215.2,
-    "einheit": "cm²"
-   },
-   "c": "269 / 500 * 20 ** 2",
-   "w": "Anteil 0,538, Quadrat 400 cm². A ≈ 0,538 · 400 = 215,2 cm².",
-   "h": "Anteil der Punkte mal Fläche des Quadrats.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "In ein Quadrat werden 250 Zufallspunkte gesetzt, 27 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)"
    },
    "o": {
@@ -4578,33 +3817,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In ein Quadrat mit 10 cm Seitenlänge wird ein Kreis mit Radius 5 cm gezeichnet. Wie viele von 400 Zufallspunkten liegen ungefähr im Kreis? (π ≈ 3,14)"
+    "text": "Ein Quadrat hat die Seitenlänge 4 cm. Von 250 Zufallspunkten liegen 57 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
    },
    "o": {
-    "wert": 314
-   },
-   "c": "3.14 * 25 / 100 * 400",
-   "w": "Kreis: 3,14 · 25 = 78,5 cm², Quadrat 100 cm². Anteil 0,785. Erwartet: 0,785 · 400 = 314 Punkte.",
-   "h": "Berechne den Flächenanteil des Kreises.",
-   "g": "umkehr"
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quadrat hat die Seitenlänge 10 cm. Von 100 Zufallspunkten liegen 24 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
-   },
-   "o": {
-    "wert": 24,
+    "wert": 3.648,
     "einheit": "cm²"
    },
-   "c": "24 / 100 * 10 ** 2",
-   "w": "Anteil 0,24, Quadrat 100 cm². A ≈ 0,24 · 100 = 24 cm².",
-   "h": "Anteil der Punkte mal Fläche des Quadrats.",
-   "g": "mehrschritt"
+   "c": "57 / 250 * 4 ** 2",
+   "w": "Anteil 0,228, Quadrat 16 cm². A ≈ 0,228 · 16 = 3,648 cm².",
+   "h": "Anteil der Punkte mal Fläche des Quadrats."
   },
   {
    "l": "monte_carlo",
@@ -4631,14 +3852,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quadrat hat die Seitenlänge 6 cm. Von 400 Zufallspunkten liegen 100 in einer Figur. Schätze den Flächeninhalt der Figur."
+    "text": "Ein Quadrat hat die Seitenlänge 10 cm. Von 100 Zufallspunkten liegen 24 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
    },
    "o": {
-    "wert": 9,
+    "wert": 24,
     "einheit": "cm²"
    },
-   "c": "100 / 400 * 36",
-   "w": "Anteil 100 : 400 = 0,25. Fläche ≈ 0,25 · 36 cm² = 9 cm².",
+   "c": "24 / 100 * 10 ** 2",
+   "w": "Anteil 0,24, Quadrat 100 cm². A ≈ 0,24 · 100 = 24 cm².",
    "h": "Anteil der Punkte mal Fläche des Quadrats.",
    "g": "mehrschritt"
   },
@@ -4647,408 +3868,60 @@
    "t": "monte_carlo",
    "p": "uebung",
    "s": 2,
+   "g": "umkehr",
    "y": "zahl",
    "f": {
-    "text": "Viertelkreis (Radius 1) im Einheitsquadrat: Wie viele von 1 000 Zufallspunkten erwartest du im Viertelkreis? (π ≈ 3,14)"
+    "text": "Ein Quadrat hat 5 cm Seitenlänge. Eine Figur darin ist 10 cm² groß. Wie viele von 500 Zufallspunkten erwartest du ungefähr in der Figur?"
    },
    "o": {
-    "wert": 785
+    "wert": 200
    },
-   "c": "3.14 / 4 * 1000",
-   "w": "Viertelkreis: π/4 ≈ 0,785, Quadrat 1. Erwartet ≈ 0,785 · 1 000 = 785 Punkte.",
-   "h": "Welcher Anteil des Quadrats ist der Viertelkreis?",
-   "g": "umkehr"
+   "c": "500 * 10 // (5 * 5)",
+   "w": "Die Figur bedeckt 10 : 25 = 0,4 des Quadrats. Erwartet: 0,4 · 500 = 200 Punkte.",
+   "h": "Welcher Anteil des Quadrats ist die Figur?"
   },
   {
    "l": "monte_carlo",
    "t": "monte_carlo",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "darstellung",
    "y": "zahl",
    "f": {
-    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 200 Zufallspunkten liegen 158 im Viertelkreis. Welchen Schätzwert für π erhält man?",
+    "text": "Die Tabelle zeigt drei Simulationsläufe in einem Quadrat mit 4 cm Seitenlänge. Schätze die Fläche der Figur aus allen Läufen zusammen (in cm²).",
     "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       10,
-       0
-      ],
-      "_C": [
-       10,
-       10
-      ],
-      "_D": [
-       0,
-       10
-      ],
-      "_k0": [
-       10.0,
-       0.0
-      ],
-      "_k1": [
-       9.85,
-       1.74
-      ],
-      "_k2": [
-       9.4,
-       3.42
-      ],
-      "_k3": [
-       8.66,
-       5.0
-      ],
-      "_k4": [
-       7.66,
-       6.43
-      ],
-      "_k5": [
-       6.43,
-       7.66
-      ],
-      "_k6": [
-       5.0,
-       8.66
-      ],
-      "_k7": [
-       3.42,
-       9.4
-      ],
-      "_k8": [
-       1.74,
-       9.85
-      ],
-      "_k9": [
-       0.0,
-       10.0
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_k0",
-      "_k1",
-      "_k2",
-      "_k3",
-      "_k4",
-      "_k5",
-      "_k6",
-      "_k7",
-      "_k8",
-      "_k9"
+     "typ": "tabelle",
+     "kopf": [
+      "Lauf",
+      "Punkte",
+      "in der Figur"
      ],
-     "linien": [
+     "zeilen": [
       [
-       "_A",
-       "_B"
+       "1",
+       "200",
+       "50"
       ],
       [
-       "_B",
-       "_C"
+       "2",
+       "300",
+       "72"
       ],
       [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
+       "3",
+       "500",
+       "128"
       ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        9.4,
-        0.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.6,
-        0.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        6.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.6,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.0,
-        2.9
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        8.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.0,
-        5.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        4.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.2,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.6,
-        3.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.7,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.4,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        9.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.5,
-        1.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.9,
-        9.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.8,
-        7.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        3.0,
-        5.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        1.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.4,
-        0.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.7,
-        8.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.5,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        2.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        3.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        3.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.1,
-        3.3
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.5,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        7.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.8,
-        1.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        3.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.2,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.3,
-        3.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.7,
-        8.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        4.8
-       ],
-       "r": 0.13
-      }
      ]
     }
    },
    "o": {
-    "wert": 3.16
+    "wert": 4,
+    "einheit": "cm²"
    },
-   "c": "4 * 158 / 200",
-   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 158/200 → π ≈ 4 · 0,79 = 3,16.",
-   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4.",
-   "g": "verknuepfen"
+   "c": "16 * (50 + 72 + 128) / (200 + 300 + 500)",
+   "w": "Zusammen: 1 000 Punkte, davon 50 + 72 + 128 = 250 in der Figur. Anteil 250 : 1 000 = 0,25. Fläche ≈ 0,25 · 16 cm² = 4 cm².",
+   "h": "Zähle alle Punkte und alle Treffer zusammen."
   },
   {
    "l": "monte_carlo",
@@ -5067,415 +3940,6 @@
    "w": "Anteil 87 : 300 = 0,29. Quadrat 4 km². Fläche ≈ 0,29 · 4 = 1,16 km².",
    "h": "Anteil der Punkte mal Fläche des Quadrats.",
    "g": "transfer"
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 400 Zufallspunkten liegen 331 im Viertelkreis. Welchen Schätzwert für π erhält man?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       10,
-       0
-      ],
-      "_C": [
-       10,
-       10
-      ],
-      "_D": [
-       0,
-       10
-      ],
-      "_k0": [
-       10.0,
-       0.0
-      ],
-      "_k1": [
-       9.85,
-       1.74
-      ],
-      "_k2": [
-       9.4,
-       3.42
-      ],
-      "_k3": [
-       8.66,
-       5.0
-      ],
-      "_k4": [
-       7.66,
-       6.43
-      ],
-      "_k5": [
-       6.43,
-       7.66
-      ],
-      "_k6": [
-       5.0,
-       8.66
-      ],
-      "_k7": [
-       3.42,
-       9.4
-      ],
-      "_k8": [
-       1.74,
-       9.85
-      ],
-      "_k9": [
-       0.0,
-       10.0
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_k0",
-      "_k1",
-      "_k2",
-      "_k3",
-      "_k4",
-      "_k5",
-      "_k6",
-      "_k7",
-      "_k8",
-      "_k9"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_B",
-       "_C"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        9.4,
-        0.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.6,
-        0.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        6.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.6,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.0,
-        2.9
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        8.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.8,
-        2.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.0,
-        5.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        4.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.2,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.6,
-        3.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.7,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.4,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.4,
-        9.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        9.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.5,
-        1.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.9,
-        9.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        6.8,
-        7.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        3.0,
-        5.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.6,
-        1.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        1.4,
-        0.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.7,
-        8.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.5,
-        4.1
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        2.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        3.6
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        2.5,
-        3.2
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.1,
-        3.3
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        3.5
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.5,
-        1.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.8,
-        7.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.8,
-        1.4
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        4.9,
-        3.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        8.2,
-        9.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        7.3,
-        3.0
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        0.7,
-        8.7
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        9.2,
-        1.8
-       ],
-       "r": 0.13
-      },
-      {
-       "m": [
-        5.0,
-        4.8
-       ],
-       "r": 0.13
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": 3.31
-   },
-   "c": "4 * 331 / 400",
-   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 331/400 → π ≈ 4 · 0,8275 = 3,31.",
-   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Diagonale teilt ein Quadrat in zwei gleiche Dreiecke. Von 200 Zufallspunkten liegen 112 im unteren Dreieck. Um wie viele Prozentpunkte weicht der Anteil vom wahren Anteil ab?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "%"
-   },
-   "c": "112 / 200 * 100 - 50",
-   "w": "Wahrer Anteil: 50 %. Simuliert: 112 : 200 = 56 %. Abweichung: 6 Prozentpunkte.",
-   "h": "Welcher Anteil wäre genau richtig?",
-   "g": "begruenden"
   },
   {
    "l": "monte_carlo",
@@ -5522,24 +3986,6 @@
    "t": "monte_carlo",
    "p": "uebung",
    "s": 3,
-   "g": "transfer",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dartbrett (Kreis mit Radius 20 cm) hängt in einem quadratischen Rahmen 50 cm × 50 cm. Ein Anfänger trifft zufällig irgendeine Stelle im Rahmen. Wie groß ist die Wahrscheinlichkeit, das Brett zu treffen? Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 0.5,
-    "toleranz": 0.01
-   },
-   "c": "round(0.502654824574, 2)",
-   "w": "Kreis: π · 20² ≈ 1 256,6 cm²; Rahmen 2 500 cm². Anteil ≈ 0,50.",
-   "h": "Wahrscheinlichkeit = Kreisfläche : Rahmenfläche."
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "uebung",
-   "s": 3,
    "g": "rueckwaerts",
    "y": "zahl",
    "f": {
@@ -5551,6 +3997,112 @@
    "c": "250 * 60 / 100",
    "w": "Anteil 60 : 100 = 0,6. 0,6 · 250 = 150 Punkte.",
    "h": "Welcher Anteil der Quadratfläche sind 60 cm²?"
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Quadrat mit 6 cm Seitenlänge ist ein Dreieck mit der Grundseite 6 cm und der Höhe 6 cm gezeichnet. Wie viele von 800 Zufallspunkten erwartest du im Dreieck?"
+   },
+   "o": {
+    "wert": 400
+   },
+   "c": "800 * (6 * 6 // 2) // 36",
+   "w": "Dreieck: 6 · 6 : 2 = 18 cm², Quadrat: 36 cm². Anteil 18 : 36 = 1/2, also etwa 400 Punkte.",
+   "h": "Berechne zuerst beide Flächen."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein See liegt auf einer rechteckigen Karte, die 4 km breit und 3 km hoch ist. Von 600 Zufallspunkten auf der Karte liegen 210 im See. Wie groß ist der See ungefähr in km²?"
+   },
+   "o": {
+    "wert": 4.2,
+    "einheit": "km²"
+   },
+   "c": "4 * 3 * 210 / 600",
+   "w": "Anteil 210 : 600 = 0,35. Karte 12 km². See ≈ 0,35 · 12 km² = 4,2 km².",
+   "h": "Anteil der Treffer mal Fläche der Karte."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Gruppen schätzen dieselbe Fläche, die eine mit 50, die andere mit 5 000 Zufallspunkten. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Die Schätzung mit 5 000 Punkten ist meist genauer, aber auch nicht exakt.",
+    "Mit 5 000 Punkten erhält man den exakten Wert.",
+    "Beide Schätzungen sind gleich gut."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mit mehr Punkten schwankt der Anteil der Treffer weniger um den wahren Flächenanteil. Exakt wird er trotzdem nicht, weil der Zufall bleibt.",
+   "h": "Was passiert mit relativen Häufigkeiten bei vielen Versuchen?"
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "Ein Zufallspunkt (x | y) liegt im Einheitsquadrat (0 ≤ x ≤ 1, 0 ≤ y ≤ 1). Wie groß ist die Wahrscheinlichkeit für x + y < 1/2?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     8
+    ]
+   },
+   "c": [
+    "1",
+    "8"
+   ],
+   "w": "Die Punkte mit x + y < 1/2 bilden ein Dreieck mit den Ecken (0 | 0), (1/2 | 0), (0 | 1/2). Fläche 1/2 · 1/2 · 1/2 = 1/8.",
+   "h": "Zeichne die Gerade x + y = 1/2."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "Ein Zufallspunkt (x | y) liegt im Einheitsquadrat. Wie groß ist die Wahrscheinlichkeit, dass x größer als 2y ist?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "1",
+    "4"
+   ],
+   "w": "x > 2y heißt y < x/2: das Dreieck unter der Geraden y = x/2 mit den Ecken (0 | 0), (1 | 0), (1 | 1/2). Fläche 1/2 · 1 · 1/2 = 1/4.",
+   "h": "Zeichne die Gerade y = x/2 ins Quadrat."
   },
   {
    "l": "monte_carlo",
@@ -5711,56 +4263,6 @@
    },
    "c": "242 / 400 * 4 ** 2",
    "w": "Anteil 0,605, Quadrat 16 cm². A ≈ 0,605 · 16 = 9,68 cm²."
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "luecken",
-   "f": {
-    "text": "Ein Zufallspunkt (x | y) liegt im Einheitsquadrat (0 ≤ x ≤ 1, 0 ≤ y ≤ 1). Wie groß ist die Wahrscheinlichkeit für x + y < 1/2?",
-    "schablone": "□/□",
-    "hinweis": "Zähler und Nenner (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     1,
-     8
-    ]
-   },
-   "c": [
-    "1",
-    "8"
-   ],
-   "w": "Die Punkte mit x + y < 1/2 bilden ein Dreieck mit den Ecken (0 | 0), (1/2 | 0), (0 | 1/2). Fläche 1/2 · 1/2 · 1/2 = 1/8.",
-   "h": "Zeichne die Gerade x + y = 1/2."
-  },
-  {
-   "l": "monte_carlo",
-   "t": "monte_carlo",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "luecken",
-   "f": {
-    "text": "Ein Zufallspunkt (x | y) liegt im Einheitsquadrat. Wie groß ist die Wahrscheinlichkeit, dass x größer als 2y ist?",
-    "schablone": "□/□",
-    "hinweis": "Zähler und Nenner (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     1,
-     4
-    ]
-   },
-   "c": [
-    "1",
-    "4"
-   ],
-   "w": "x > 2y heißt y < x/2: das Dreieck unter der Geraden y = x/2 mit den Ecken (0 | 0), (1 | 0), (1 | 1/2). Fläche 1/2 · 1 · 1/2 = 1/4.",
-   "h": "Zeichne die Gerade y = x/2 ins Quadrat."
   },
   {
    "l": "beurteilen",

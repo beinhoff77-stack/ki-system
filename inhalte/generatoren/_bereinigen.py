@@ -16,6 +16,10 @@ optional Vorsatz 'S2:' und Nachsatz '@@text'; 'n' = erwartete Trefferzahl, sonst
   neu(lz, g, aufgabe)                neue Übung (Stufe folgt aus g); knobel(lz, aufgabe) neue Knobel-Bordkarte
   ersetze(lz, muster, aufgabe, g=None)  Aufgabe an gleicher Stelle durch eine neue Fassung ersetzen (alter Text → „ersetzt“)
   karte(lz, **felder)                Felder der Lernkarte setzen (nur wo der Auftrag es verlangt)
+  umschreiben(lz, muster, [(regex, ersatz)], n)  Texte umformulieren, Lösung bleibt (neuer Fragetext → alter in „ersetzt“)
+  innen(lz_q, lz, muster, n)         Aufgaben (alle Pools) innerhalb des Themas in eine andere Lernkarte
+  karte_neu(lz, abschnitt, etappe, tf_text, nach, vertiefung)  neue Lernkarte (für abgetrennten Stoff); teilfaehigkeit(lz, text)
+  pool(lz, p, aufgabe)               neue Test-/Korrektur-/Sicherungsaufgabe
   inhalt(**felder), abschnitt(alt, neu)  Ziel/Merke/offen des Themas bzw. Titel eines Bereichs anpassen
 Danach je geänderter Lernkarte: Übungen ordnen (nie zweimal derselbe Typ hintereinander) und Regeln der Zwanzigsten Runde
 prüfen (ohne überzählige: Stufe 1/2/3 mindestens 4/6/8 Übungen mit 2/3/4 Typen, Stufe 3 je Typ höchstens 3, 1–3 Knobel).
@@ -46,12 +50,20 @@ MIN_TYP = {1: 2, 2: 3, 3: 4}
 def entfaellt(lz): return ('entfaellt', lz)
 def weg(lz, muster, n=None): return ('weg', lz, muster, n)
 def her(quelle, lz_q, lz, muster, n=None): return ('her', quelle, lz_q, lz, muster, n)
-def karte_her(quelle, lz_q, abschnitt, vertiefung=False, nach=None): return ('karte_her', quelle, lz_q, abschnitt, vertiefung, nach)
+def karte_her(quelle, lz_q, abschnitt, vertiefung=False, nach=None, vor=None): return ('karte_her', quelle, lz_q, abschnitt, vertiefung, nach, vor)
+def innen(lz_q, lz, muster, n=None): return ('innen', lz_q, lz, muster, n)             # Aufgaben (alle Pools) in eine andere Karte desselben Themas
+def karte_neu(lz, abschnitt, etappe, tf_text, nach=None, vertiefung=False): return ('karte_neu', lz, abschnitt, etappe, tf_text, nach, vertiefung)
+def teilfaehigkeit(lz, text): return ('teilfaehigkeit', lz, text)
+def pool(lz, p, aufgabe): return ('pool', lz, p, aufgabe)                               # neue Test-/Korrektur-/Sicherungsaufgabe (Stufe 2, ohne Tipp)
 def vertiefung(lz): return ('vertiefung', lz)
 def neu(lz, g, aufgabe): return ('neu', lz, g, aufgabe)
 def knobel(lz, aufgabe): return ('knobel', lz, aufgabe)
 def ersetze(lz, muster, aufgabe, g=None, n=1): return ('ersetze', lz, muster, aufgabe, g, n)
 def karte(lz, **felder): return ('karte', lz, felder)
+def umschreiben(lz, muster, ersetzungen, n=None, felder=('f.text', 'f.schablone', 'f.hinweis', 'a', 'w', 'h')):
+    """Texte einer Aufgabe per (regex, ersatz)-Liste umformulieren; Lösung (o, c), Pool, Stufe, Typ und Grafik bleiben.
+    Ändert sich der Fragetext, kommt der alte in „ersetzt“; sonst wird nur der Lösungsweg/Tipp geführt."""
+    return ('umschreiben', lz, muster, ersetzungen, n, felder)
 def inhalt(**felder): return ('inhalt', felder)          # ziel, merke, offen (Liste) usw. des Themas
 def abschnitt(alt, neu_titel): return ('abschnitt', alt, neu_titel)
 
@@ -168,17 +180,19 @@ def anwenden(d, thema, plan):
             d['aufgaben'][letzte + 1:letzte + 1] = neu_
             geaendert.add(lz)
         elif art == 'karte_her':
-            _, quelle, lz_q, abschnitt, vt, nach = op
+            _, quelle, lz_q, abschnitt, vt, nach, vor = op
             q = roh(quelle)
             e = copy.deepcopy(next(e for e in q['inhalt']['etappen'] if e['lernziel'] == lz_q))
             assert all(x['lernziel'] != lz_q for x in d['inhalt']['etappen']), f'{thema}: Lernziel {lz_q} schon vorhanden'
             et = d['inhalt']['etappen']
-            pos = len(et) if nach is None else next(i for i, x in enumerate(et) if x['lernziel'] == nach) + 1
+            if vor is not None: pos = next(i for i, x in enumerate(et) if x['lernziel'] == vor)
+            else: pos = len(et) if nach is None else next(i for i, x in enumerate(et) if x['lernziel'] == nach) + 1
             et.insert(pos, e)
             ab = next((a for a in d['inhalt']['abschnitte'] if a['titel'] == abschnitt), None)
             if ab is None:
                 ab = {'titel': abschnitt, 'lernziele': []}; d['inhalt']['abschnitte'].append(ab)
-            if nach is not None and nach in ab['lernziele']: ab['lernziele'].insert(ab['lernziele'].index(nach) + 1, lz_q)
+            if vor is not None and vor in ab['lernziele']: ab['lernziele'].insert(ab['lernziele'].index(vor), lz_q)
+            elif nach is not None and nach in ab['lernziele']: ab['lernziele'].insert(ab['lernziele'].index(nach) + 1, lz_q)
             else: ab['lernziele'].append(lz_q)
             d['inhalt']['bewertung']['lernziele_vertiefung' if vt else 'lernziele_pflicht'].append(lz_q)
             tq = copy.deepcopy(next(t for t in q['inhalt']['teilfaehigkeiten'] if lz_q in t.get('lernziele', [])))
@@ -195,6 +209,34 @@ def anwenden(d, thema, plan):
             d['aufgaben'] += xs
             b['karte_her'].append({'lz': lz_q, 'quelle': quelle, 'abschnitt': abschnitt, 'vertiefung': vt, 'aufgaben': len(xs), 'texte': [a['f']['text'] for a in xs]})
             geaendert.add(lz_q)
+        elif art == 'innen':
+            _, lz_q, lz, muster, anz = op
+            xs = [a for a in d['aufgaben'] if a['l'] == lz_q and passt(muster, a)]
+            assert xs and (anz is None or len(xs) == anz), f'{thema}/{lz_q} innen „{muster}“: {len(xs)} Treffer, erwartet {anz}'
+            tf = _tf(d, lz)
+            for a in xs:
+                a['l'] = lz; a['t'] = tf
+                b.setdefault('innen', []).append({'von': lz_q, 'lz': lz, 'p': a['p'], 's': a['s'], 'g': a.get('g'), 'text': a['f']['text']})
+            geaendert |= {lz_q, lz}
+        elif art == 'karte_neu':
+            _, lz, abschnitt, etappe, tf_text, nach, vt = op
+            et = d['inhalt']['etappen']
+            pos = len(et) if nach is None else next(i for i, x in enumerate(et) if x['lernziel'] == nach) + 1
+            et.insert(pos, {'lernziel': lz, **copy.deepcopy(etappe)})
+            ab = next(a for a in d['inhalt']['abschnitte'] if a['titel'] == abschnitt)
+            if nach in ab['lernziele']: ab['lernziele'].insert(ab['lernziele'].index(nach) + 1, lz)
+            else: ab['lernziele'].append(lz)
+            d['inhalt']['bewertung']['lernziele_vertiefung' if vt else 'lernziele_pflicht'].append(lz)
+            d['inhalt']['teilfaehigkeiten'].append({'k': lz, 'text': tf_text, 'lernziele': [lz]})
+            b.setdefault('karte_neu', []).append({'lz': lz, 'abschnitt': abschnitt, 'vertiefung': vt})
+        elif art == 'teilfaehigkeit':
+            next(t for t in d['inhalt']['teilfaehigkeiten'] if op[1] in t['lernziele'])['text'] = op[2]
+        elif art == 'pool':
+            _, lz, p, n = op
+            assert p in ('test', 'korrektur', 'sicherung') and 'h' not in n
+            _pruefe_neu(n, texte())
+            d['aufgaben'].append({'l': lz, 't': _tf(d, lz), 'p': p, 's': 2, **copy.deepcopy(n)})
+            b['neu'].append({'lz': lz, 'p': p, 's': 2, 'g': None, 'text': n['f']['text']})
         elif art == 'vertiefung':
             lz = op[1]; bw = d['inhalt']['bewertung']
             assert lz in bw['lernziele_pflicht'], (thema, lz)
@@ -206,8 +248,13 @@ def anwenden(d, thema, plan):
             _pruefe_neu(n, texte())
             a = {'l': lz, 't': _tf(d, lz), 'p': 'uebung' if art == 'neu' else 'bonus', 's': 3 if g == 'knobel' else STUFE_VON[g], 'g': g,
                  **copy.deepcopy(n)}
-            letzte = max(i for i, x in enumerate(d['aufgaben']) if x['l'] == lz and x['p'] in ('uebung', 'bonus'))
-            d['aufgaben'].insert(letzte + 1, a)
+            idx = [i for i, x in enumerate(d['aufgaben']) if x['l'] == lz and x['p'] in ('uebung', 'bonus')]
+            if idx: d['aufgaben'].insert(max(idx) + 1, a)
+            else:  # neue Karte: hinter die Übungen/Knobel der vorigen Karte
+                lzs = [e['lernziel'] for e in d['inhalt']['etappen']]
+                vorige = set(lzs[:lzs.index(lz)])
+                idx = [i for i, x in enumerate(d['aufgaben']) if x['l'] in vorige and x['p'] in ('uebung', 'bonus')]
+                d['aufgaben'].insert(max(idx) + 1 if idx else 0, a)
             b[art].append({'lz': lz, 's': a['s'], 'g': g, 'text': n['f']['text']})
             geaendert.add(lz)
         elif art == 'ersetze':
@@ -231,6 +278,29 @@ def anwenden(d, thema, plan):
                 if v is None: e.pop(k, None)
                 else: e[k] = v
             b['karte'].append({'lz': lz, 'felder': sorted(felder)})
+        elif art == 'umschreiben':
+            _, lz, muster, ers, anz, felder = op
+            xs = [a for a in d['aufgaben'] if a['l'] == lz and passt(muster, a)]
+            assert xs and (anz is None or len(xs) == anz), f'{thema}/{lz} umschreiben „{muster}“: {len(xs)} Treffer, erwartet {anz}'
+            for a in xs:
+                alt_text = a['f']['text']; vorher = json.dumps(a, ensure_ascii=False, sort_keys=True)
+                def sub(t):
+                    for rx, r in ers: t = re.sub(rx, r, t)
+                    return t
+                for fld in felder:
+                    if fld.startswith('f.'):
+                        k = fld[2:]
+                        if isinstance(a['f'].get(k), str): a['f'][k] = sub(a['f'][k])
+                    elif fld == 'a' and isinstance(a.get('a'), list): a['a'] = [sub(x) if isinstance(x, str) else x for x in a['a']]
+                    elif isinstance(a.get(fld), str): a[fld] = sub(a[fld])
+                assert json.dumps(a, ensure_ascii=False, sort_keys=True) != vorher, f'{thema}/{lz}: umschreiben ändert nichts an „{alt_text}“'
+                if a.get('y') == 'auswahl': assert len(set(a['a'])) == len(a['a']), a['a']
+                if a['f']['text'] != alt_text:
+                    assert sum(1 for x in d['aufgaben'] if x['f']['text'] == a['f']['text']) == 1, f'neuer Text doppelt: {a["f"]["text"]}'
+                    b['ersetzt'].append({'lz': lz, 'p': a['p'], 'alt': alt_text, 'neu': a['f']['text']})
+                else:
+                    b.setdefault('loesungsweg', []).append({'lz': lz, 'p': a['p'], 'text': alt_text})
+            geaendert.add(lz)
         elif art == 'inhalt':
             for k, v in op[1].items(): d['inhalt'][k] = v
             b.setdefault('inhalt', []).append(sorted(op[1]))

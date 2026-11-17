@@ -47,6 +47,8 @@ for t in namen:
     neu_v = {voll(a) for a in NEU[t]['aufgaben']}
     weg_texte = {x['text'] for x in b.get('weg', [])} | {x for e in b.get('entfaellt', []) for x in e['texte']} | {x['alt'] for x in b.get('ersetzt', [])}
     neu_texte = {x['text'] for k in ('neu', 'knobel') for x in b.get(k, [])} | {x['neu'] for x in b.get('ersetzt', [])}
+    lw = {x['text'] for x in b.get('loesungsweg', [])}  # nur Lösungsweg/Tipp umformuliert
+    weg_texte |= lw; neu_texte |= lw
     for a in ALT[t]['aufgaben']:
         if voll(a) in neu_v: continue
         if a['f']['text'] in weg_texte: continue
@@ -65,6 +67,7 @@ for t in namen:
             if voll(e) != voll(ka[lz]) and lz not in geaendert_ok: fehler.append(f'{t}: Lernkarte {lz} geändert ohne Eintrag')
         else:
             q = next((x['quelle'] for x in b.get('karte_her', []) if x['lz'] == lz), None)
+            if q is None and any(x['lz'] == lz for x in b.get('karte_neu', [])): continue
             if q is None: fehler.append(f'{t}: neue Lernkarte {lz} ohne Eintrag')
             else:
                 eq = next(x for x in (ALT.get(q) or alt(f'inhalte/themen/{q}.json'))['inhalt']['etappen'] if x['lernziel'] == lz)

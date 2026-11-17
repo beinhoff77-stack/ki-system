@@ -1383,3 +1383,10 @@ K(lz, Z('knobel', 'Von einer Torte isst Kind A 1/6, Kind B doppelt so viel wie A
 if __name__ == '__main__':
     schreibe(DATEI)
     stufen_datei('bruch.brueche', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('bruch.brueche')
+# ---- BEREINIGEN ENDE ----

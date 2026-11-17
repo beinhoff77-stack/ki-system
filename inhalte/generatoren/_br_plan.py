@@ -1,5 +1,5 @@
 """Einundzwanzigste Runde, Teil A: Schritte je Thema (Motor: _bereinigen.py). Begründungen im Postfach bereinigen.md."""
-from _bereinigen import entfaellt, weg, her, karte_her, vertiefung, neu, knobel, ersetze, karte, inhalt, abschnitt  # noqa: F401
+from _bereinigen import entfaellt, weg, her, karte_her, vertiefung, neu, knobel, ersetze, karte, inhalt, abschnitt, umschreiben, innen, karte_neu, teilfaehigkeit, pool  # noqa: F401
 from _befunde import _z as Z, _l as L  # noqa: F401
 from _stufen_kl5 import A  # noqa: F401
 
@@ -72,4 +72,115 @@ PLAN['messen.koerper_berechnung'] = [
         'Wie groß ist die kleinste mögliche Oberfläche des neuen Körpers in cm²?', 32, '2*2*(1*2 + 1*3 + 2*3) - 2*2*3',
         'Ein Quader hat 2 · (2 + 3 + 6) cm² = 22 cm², zwei also 44 cm². Beim Zusammenstellen verschwinden zwei aufeinanderliegende Flächen. Am meisten spart man mit der größten Fläche 2 cm · 3 cm = 6 cm²: 44 − 2 · 6 = 32 cm².',
         'Was passiert mit den beiden Flächen, die aufeinanderliegen? Welche Fläche ist die größte?', einheit='cm²')),
+]
+
+
+def T(a):
+    """Aufgabe für Test/Korrektur/Sicherung: ohne Tipp."""
+    a = dict(a); a.pop('h', None); return a
+
+
+def _drei(n):
+    """Test-/Korrektur-/Sicherungsaufgabe „Ist n durch 3 teilbar?“ (Lösung aus der Quersumme berechnet)."""
+    z = f'{n:,}'.replace(',', ' ')
+    qs = sum(int(c) for c in str(n))
+    ja = qs % 3 == 0
+    r = f'Ja: Die Quersumme {qs} ist durch 3 teilbar.' if ja else f'Nein: Die Quersumme {qs} ist nicht durch 3 teilbar.'
+    f = [f'Nein: Die Quersumme {qs} ist nicht durch 3 teilbar.' if ja else f'Ja: Die Quersumme {qs} ist durch 3 teilbar.',
+         f'Das hängt nur von der letzten Ziffer {n % 10} ab.']
+    assert (n % 3 == 0) == ja
+    return T(A(f'Ist {z} durch 3 teilbar?', r, f, f'Quersumme: {" + ".join(str(n))} = {qs}. ' + (f'{qs} ist durch 3 teilbar, also auch {z}.' if ja else f'{qs} ist nicht durch 3 teilbar, also auch {z} nicht.'), '-'))
+
+
+# A2: Neunerregel (nicht in M5: nur 2, 3, 5, 10) – kein Thema einer höheren Klasse hat sie → eigene Vertiefungskarte „neunerregel“;
+# ggT und kgV → bruch.brueche (M6 1.1: Hauptnenner, auch über die Primfaktorzerlegung; vollständig kürzen).
+_NEUNER_KARTE = {
+    'titel': 'Teilbar durch 9',
+    'einstieg': 'Ein Bäcker hat 2 754 Brötchen und packt immer 9 in eine Tüte. Bleibt etwas übrig? Wieder hilft die ⟦Quersumme⟧, diesmal mit der 9.',
+    'woerter': [['Neunerregel', 'Ist die Quersumme durch 9 teilbar, dann auch die Zahl.']],
+    'bild': {'typ': 'tabelle', 'kopf': ['Ziffern', 'Quersumme', 'durch 9?'], 'zeilen': [['2 + 7 + 5 + 4', '?', '?']]},
+    'schritte': [{'text': 'Quersumme von 2 754: 2 + 7 + 5 + 4 = ⟦18⟧.', 'bild': {'zeilen': [['2 + 7 + 5 + 4', '18', '?']]}},
+                 {'text': '18 ist durch 9 teilbar. Nach der Neunerregel ist auch 2 754 durch 9 teilbar.', 'bild': {'zeilen': [['2 + 7 + 5 + 4', '18', '✓']]}},
+                 {'text': '2 754 : 9 = ⟦306⟧. Es gibt 306 Tüten, nichts bleibt übrig.'}],
+    'fehler': 'Durch 3 teilbar heißt nicht durch 9 teilbar: 12 hat die Quersumme 3. Das ist durch 3 teilbar, aber 12 : 9 geht nicht auf.',
+    'fehler_bild': {'zeilen': [['1 + 2', '3', '✗']]},
+    'regel': 'Ist die ⟦Quersumme⟧ durch 9 teilbar, dann auch die Zahl. Jede Zahl, die durch 9 teilbar ist, ist auch durch 3 teilbar.',
+}
+PLAN['zahlen.teilbarkeit'] = [
+    karte('quersumme', titel='Teilbar durch 3', regel='Ist die ⟦Quersumme⟧ durch 3 teilbar, dann auch die Zahl.',
+          schritte=[{'text': 'Quersumme: 4 + 2 + 5 + 1 = ⟦12⟧.', 'bild': {'typ': 'tabelle', 'kopf': ['Ziffern', 'Quersumme', 'durch 3?'], 'zeilen': [['4 + 2 + 5 + 1', '12', '?']]}},
+                    {'text': '12 ist durch 3 teilbar. Also auch 4 251: Jede Klasse bekommt ⟦1 417⟧.', 'bild': {'typ': 'tabelle', 'kopf': ['Ziffern', 'Quersumme', 'durch 3?'], 'zeilen': [['4 + 2 + 5 + 1', '12', '✓']]}}],
+          fehler='13 hat die Quersumme 4, ist aber nicht durch 4 teilbar. Die Regel gilt nur für 3 (und, als Vertiefung, für 9).'),
+    teilfaehigkeit('quersumme', 'Teilbar durch 3'),
+    karte_neu('neunerregel', 'Teilbarkeitsregeln', _NEUNER_KARTE, 'Teilbar durch 9 (Vertiefung)', nach='quersumme', vertiefung=True),
+    innen('quersumme', 'neunerregel', r'^(Ist [\d ]+ durch 3 oder durch 9 teilbar\?|Eine Zahl hat eine Quersumme, die durch 9|Kann man 1 233 Bonbons|'
+          r'Welche Ziffer muss für □ stehen, damit \d+□ durch 9|Stimmt die Aussage\? „Jede Zahl, die durch 9|Gib die kleinste vierstellige Zahl mit lauter|Aus den Ziffern 1 bis 9)', 22),
+    # quersumme (nur noch 3) auffüllen
+    neu('quersumme', 'direkt', A('Ist 5 412 durch 3 teilbar?', 'Ja: Quersumme 5 + 4 + 1 + 2 = 12, und 12 ist durch 3 teilbar.',
+        ['Nein: Die letzte Ziffer 2 ist nicht durch 3 teilbar.', 'Nein: 5 412 ist gerade.'],
+        'Quersumme: 5 + 4 + 1 + 2 = 12. 12 ist durch 3 teilbar, also auch 5 412 (5 412 : 3 = 1 804).', 'Zähle alle Ziffern zusammen.')),
+    neu('quersumme', 'mehrschritt', Z('Wie viele der Zahlen 123, 456, 789 und 1 010 sind durch 3 teilbar?', 3,
+        '1 - min(123 % 3, 1) + 1 - min(456 % 3, 1) + 1 - min(789 % 3, 1) + 1 - min(1010 % 3, 1)',
+        'Quersummen: 6, 15, 24 und 2. 6, 15 und 24 sind durch 3 teilbar, 2 nicht. Also sind es 3 Zahlen.', 'Bilde von jeder Zahl die Quersumme.')),
+    neu('quersumme', 'mehrschritt', A('Welche Zahl ist durch 3 teilbar?', '2 451', ['2 450', '2 452', '2 453'],
+        'Quersummen: 2 450 → 11, 2 451 → 12, 2 452 → 13, 2 453 → 14. Nur 12 ist durch 3 teilbar.', 'Die Zahlen unterscheiden sich nur in der letzten Ziffer. Vergleiche die Quersummen.')),
+    neu('quersumme', 'darstellung', Z('Lies die Zahl aus der Stellenwerttafel ab. Wie groß ist ihre Quersumme?', 12, '4 + 2 + 0 + 6',
+        'Die Zahl ist 4 206. Quersumme: 4 + 2 + 0 + 6 = 12 (durch 3 teilbar).', 'Jede Spalte ist eine Ziffer. Auch die 0 zählt mit.',
+        grafik={'typ': 'stellentafel', 'stellen': ['T', 'H', 'Z', 'E'], 'ziffern': [4, 2, 0, 6]})),
+    neu('quersumme', 'begruenden', A('Stimmt die Aussage? „Vertauscht man die Ziffern einer Zahl, die durch 3 teilbar ist, ist die neue Zahl wieder durch 3 teilbar.“',
+        'Ja: Beim Vertauschen bleibt die Quersumme gleich.', ['Nein: Nur wenn die letzte Ziffer gleich bleibt.', 'Nein: Das stimmt nur für gerade Zahlen.'],
+        'Die Quersumme hängt nicht von der Reihenfolge der Ziffern ab. Beispiel: 51 und 15 haben beide die Quersumme 6, beide sind durch 3 teilbar.',
+        'Was passiert mit der Quersumme, wenn du Ziffern vertauschst?')),
+    neu('quersumme', 'parameter', Z('In der Zahl 2a4 steht a für eine Ziffer von 0 bis 9. Für wie viele Ziffern a ist die Zahl durch 3 teilbar?', 4, '(9 - 0) // 3 + 1',
+        'Quersumme 2 + a + 4 = 6 + a. Sie ist durch 3 teilbar für a = 0, 3, 6, 9. Das sind 4 Ziffern (204, 234, 264, 294).', 'Schreibe die Quersumme mit a auf. Probiere a = 0, 1, 2, …')),
+    neu('quersumme', 'rueckwaerts', Z('Eine dreistellige Zahl ist durch 3 teilbar. Ihre Hunderterziffer ist 7, ihre Einerziffer 2. Die Zehnerziffer ist so klein wie möglich. Wie heißt die Zahl?',
+        702, '700 + 10 * ((3 - (7 + 2) % 3) % 3) + 2',
+        '7 + 2 = 9 ist schon durch 3 teilbar. Die kleinste passende Zehnerziffer ist also 0: 702 (Quersumme 9, 702 : 3 = 234).', 'Was fehlt der Quersumme 7 + 2 noch bis zu einer Zahl der Dreierreihe?')),
+    neu('quersumme', 'pruefung', Z('Prüfe mit der Quersumme, ob 1 245 Vereinsmitglieder ohne Rest in 3 gleich große Gruppen passen. Wie viele sind dann in jeder Gruppe?', 415, '1245 // 3',
+        'Quersumme 1 + 2 + 4 + 5 = 12, durch 3 teilbar. 1 245 : 3 = 415.', 'Erst die Quersumme prüfen, dann schriftlich teilen.')),
+    knobel('quersumme', Z('Man schreibt die Zahlen von 1 bis 20 hintereinander: 1234567891011…1920. Wie groß ist die Quersumme dieser langen Zahl? (Ist sie durch 3 teilbar?)', 102, '45 + 10 + 45 + 2',
+        '1 bis 9: 45. 10 bis 19: zehnmal die 1 (10) und die Einer 0 bis 9 (45). 20: 2. Zusammen 45 + 10 + 45 + 2 = 102. 102 ist durch 3 teilbar, also auch die lange Zahl.',
+        'Zähle die Ziffern in Gruppen: erst 1 bis 9, dann die Zehner und Einer von 10 bis 19.')),
+    pool('quersumme', 'test', _drei(8214)),
+    *[pool('quersumme', 'korrektur', _drei(n)) for n in (5302, 7113, 9104)],
+    *[pool('quersumme', 'sicherung', _drei(n)) for n in (3471, 6205, 4812, 2008, 7776, 1999)],
+    # neunerregel auffüllen
+    neu('neunerregel', 'direkt', A('Ist 3 168 durch 9 teilbar?', 'Ja: Quersumme 18, und 18 ist durch 9 teilbar.', ['Nein: Die Endziffer 8 ist nicht durch 9 teilbar.', 'Nein: 3 168 ist gerade.'],
+        'Quersumme: 3 + 1 + 6 + 8 = 18. 18 ist durch 9 teilbar, also auch 3 168 (3 168 : 9 = 352).', 'Bilde die Quersumme.')),
+    neu('neunerregel', 'direkt', A('Ist 6 241 durch 9 teilbar?', 'Nein: Quersumme 13, und 13 ist nicht durch 9 teilbar.', ['Ja: 6 + 2 + 4 + 1 hat 4 Summanden.', 'Ja: Die erste Ziffer 6 ist durch 3 teilbar.'],
+        'Quersumme: 6 + 2 + 4 + 1 = 13. 13 ist nicht durch 9 teilbar, also auch 6 241 nicht.', 'Bilde die Quersumme.')),
+    neu('neunerregel', 'erkennen', A('Welche Zahl ist durch 9 teilbar?', '2 718', ['2 717', '2 719', '2 728'],
+        'Quersummen: 2 718 → 18, 2 717 → 17, 2 719 → 19, 2 728 → 19. Nur 18 ist durch 9 teilbar.', 'Vergleiche die Quersummen.')),
+    neu('neunerregel', 'umkehr', Z('Eine Zahl ist durch 9 teilbar. Ihre Quersumme ist zweistellig und kleiner als 20. Welche Quersumme hat sie?', 18, '2 * 9',
+        'Die Quersumme muss durch 9 teilbar sein: 9, 18, 27, … Zweistellig und kleiner als 20 ist nur 18.', 'Welche Zahlen der Neunerreihe sind zweistellig?')),
+    neu('neunerregel', 'darstellung', Z('Lies die Zahl aus der Stellenwerttafel ab und teile sie durch 9. Was kommt heraus?', 270, '2430 // 9',
+        'Die Zahl ist 2 430. Quersumme 9, also durch 9 teilbar: 2 430 : 9 = 270.', 'Erst die Zahl ablesen, dann prüfen und teilen.',
+        grafik={'typ': 'stellentafel', 'stellen': ['T', 'H', 'Z', 'E'], 'ziffern': [2, 4, 3, 0]})),
+    neu('neunerregel', 'einkleidung', Z('Ein Gärtner hat 1 845 Tulpenzwiebeln und pflanzt immer 9 in eine Reihe. Wie viele volle Reihen gibt es?', 205, '1845 // 9',
+        'Quersumme 1 + 8 + 4 + 5 = 18: Es geht ohne Rest. 1 845 : 9 = 205 Reihen.', 'Prüfe zuerst mit der Quersumme, ob es aufgeht.')),
+    neu('neunerregel', 'fehler', A('Jemand sagt: „Die Quersumme von 6 345 ist 18, also ist 6 345 durch 9, aber nicht durch 3 teilbar.“ Was ist falsch?',
+        'Jede durch 9 teilbare Zahl ist auch durch 3 teilbar.', ['Die Quersumme ist 19, nicht 18.', '6 345 ist durch keine der beiden Zahlen teilbar.'],
+        'Die Quersumme 6 + 3 + 4 + 5 = 18 stimmt. 18 ist durch 9 und durch 3 teilbar. Weil 9 = 3 · 3 ist, ist jede durch 9 teilbare Zahl auch durch 3 teilbar.',
+        'Prüfe zuerst die Quersumme. Dann: Was hat 9 mit 3 zu tun?')),
+    neu('neunerregel', 'transfer', A('Welche Summe ist durch 9 teilbar? Rechne geschickt.', '4 444 + 5 555', ['3 333 + 2 222', '1 111 + 6 666'],
+        '4 444 + 5 555 = 9 999, Quersumme 36: durch 9 teilbar. 5 555 hat die Quersumme 20, 7 777 die Quersumme 28.', 'Rechne jede Summe aus und bilde die Quersumme.')),
+    neu('neunerregel', 'rueckwaerts', Z('Ich denke mir eine Zahl und nehme sie mal 9. Heraus kommt 3□75, eine Ziffer ist verdeckt. Welche Ziffer ist es?', 3, '(9 - (3 + 7 + 5) % 9) % 9',
+        'Das Ergebnis ist durch 9 teilbar, also auch seine Quersumme: 3 + □ + 7 + 5 = 15 + □. Die nächste Zahl der Neunerreihe ist 18, also □ = 3. Probe: 3 375 : 9 = 375.',
+        'Ein Vielfaches von 9 hat eine Quersumme aus der Neunerreihe.')),
+    neu('neunerregel', 'verknuepfen', Z('Wie viele Zahlen zwischen 100 und 200 sind durch 9 teilbar?', 11, '(198 - 108) // 9 + 1',
+        'Die erste ist 108 (Quersumme 9), die letzte 198 (Quersumme 18). Von 108 bis 198 in Neunerschritten: (198 − 108) : 9 + 1 = 11.', 'Suche die kleinste und die größte passende Zahl und zähle die Neunerschritte.')),
+    knobel('neunerregel', Z('Wie viele vierstellige Zahlen bestehen nur aus den Ziffern 1 und 2 und sind durch 9 teilbar?', 0, '8 // 9',
+        'Die Quersumme einer solchen Zahl liegt zwischen 1 + 1 + 1 + 1 = 4 und 2 + 2 + 2 + 2 = 8. Keine Zahl von 4 bis 8 ist durch 9 teilbar. Also gibt es keine einzige.',
+        'Wie groß kann die Quersumme höchstens werden?')),
+    # ggT und kgV nach bruch.brueche
+    entfaellt('ggt'), entfaellt('kgv'),
+    inhalt(ziel='Teiler und Vielfache finden, Teilbarkeit durch 2, 3, 5 und 10 erkennen, Primzahlen bestimmen und Zahlen in Primfaktoren zerlegen. Vertiefung: die Neunerregel.',
+           merke=['Teiler findest du in Paaren.', 'Durch 2, 5, 10: Endziffer. Durch 3: Quersumme (Vertiefung: auch durch 9).', 'Eine Primzahl hat genau zwei Teiler.']),
+]
+PLAN['bruch.brueche'] = [
+    karte_her('zahlen.teilbarkeit', 'ggt', 'Erweitern und kürzen', vor='kuerzen'),
+    karte_her('zahlen.teilbarkeit', 'kgv', 'Vergleichen und darstellen', vor='vergleichen'),
+    inhalt(merke=['Bruchteil von: durch den Nenner, mal den Zähler.', 'Anteil = Teil : Ganzes, dann kürzen.', 'Ganzes: durch den Zähler, mal den Nenner.',
+                  'ggT: größter gemeinsamer Teiler – damit kürzt du vollständig. kgV: kleinstes gemeinsames Vielfaches – der Hauptnenner.',
+                  'Erweitern und Kürzen ändern den Wert nicht.', 'Vergleichen: auf den Hauptnenner bringen, dann Zähler vergleichen.']),
 ]

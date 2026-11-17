@@ -413,3 +413,10 @@ if __name__ == '__main__':
     # ---- STUFEN ENDE ----
     _pfad.write_text(_json.dumps(_d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     # ---- DURCHSICHT ENDE ----
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('zahlen.teilbarkeit')
+# ---- BEREINIGEN ENDE ----

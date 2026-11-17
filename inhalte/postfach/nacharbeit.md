@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 02:01 – STATUS
+funktionen.trig fertig: Bogenmaß in den Lernkarten durchgehend – bogenmass +2 Schritte (90° = π/2 … 2π; Graph mit π-Achse), periode/parameter/zuordnen/eigenschaften/anwendung je ein Schlussschritt im Bogenmaß (π-Achse, außer anwendung: Zeitachse), Regeln von periode, zuordnen, eigenschaften, anwendung mit Bogenmaß; Schritt 3 von periode ohne den Bogenmaß-Teil (steht jetzt in Schritt 4); fehler_bild von parameter auf π-Achse umgestellt. werte war schon im Bogenmaß (unverändert). Je Lernkarte 8 neue Übungen im Bogenmaß (S1: 2, S2: 3, S3: 3) = 56, alte 238 Aufgaben unverändert. offen: überholte Begründung „π-Beschriftung nicht möglich“ und der Vorschlag „x-Achse in π beschriften“ entfernt. inhalt_pruefen OK ohne Hinweise, Nachweis OK.
+
 ## 2026-11-17 01:56 – STATUS
 geometrie.konstruktion fertig: Lernkarte kongruenzsatz – alle 6 Stufe-3-Aufgaben zum Fall SsW haben jetzt eine Zeichnung (figur): bei „Wie viele Dreiecke gibt es?“ Seite c, Winkel α mit freiem Schenkel und das Lot von B auf den Schenkel mit seiner Länge; bei „Dreiecke ABC und DEF“ das Dreieck mit AB, AC und dem Winkel bei B. Fragetexte, Antworten, Lösungen unverändert, nur f.grafik ergänzt – keine Aufgabe ersetzt. inhalt_pruefen OK, Nachweis OK (6 Aufgaben, nur Feld f).
 

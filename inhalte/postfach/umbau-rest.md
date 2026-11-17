@@ -1,5 +1,9 @@
 # Postfach umbau-rest (Paket UR, Achte Runde)
 
+## 2026-11-17 02:16 – STATUS
+sonder.graphentheorie umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
+Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/sonder.graphentheorie.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: grundbegriffe (Zählfehler), euler (allgemeine Aussage über vier ungerade Knoten), kuerzester (das Schrittbild zeigt direkten Weg und Umweg schon). Beispiel euler neu mit 5 Knoten (Grade 2, 3, 4, 3, 2; 7 Kanten), weil das alte Beispiel (A 2, B 3, C 4, D 3) als einfacher Graph mit 4 Knoten nicht zeichenbar ist; Eulerweg B, A, C, B, D, C, E, D nachgeprüft. Gewählte Kanten durchgezogen, übrige gestrichelt.
+
 ## 2026-11-17 02:15 – STATUS
 funktionen.reihen umgebaut (5 Karten): einstieg, woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel. UMBAU-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_umbau_rest.umbau_schreiben); probe entfällt.
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/funktionen.reihen.json`: 140 Aufgaben, alle wörtlich gleich; titel/lernziel unverändert. inhalt_pruefen: 0 Fehler, 0 Hinweise. Zeichnungen gerendert (app-eigenes lernErklaerung im Browser), angesehen. Ohne fehler_bild: alle 5 Karten – Fehler beim Zählen bzw. in der Formel (letztes Glied statt Summe, doppelt gezählt, qⁿ⁻¹ statt qⁿ, Ende vergessen); die Schrittbilder zeigen jeweils die richtige Rechnung.

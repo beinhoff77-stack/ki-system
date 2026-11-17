@@ -313,7 +313,129 @@ def g_verstehen(s):
 
 GEN = {'grundbegriffe': g_grundbegriffe, 'euler': g_euler, 'kuerzester': g_kuerzester, 'spannbaum': g_spannbaum, 'verstehen': g_verstehen}
 
-bauen('sonder.graphentheorie',
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+_P4 = {'A': [0, 0], 'B': [4, 0], 'C': [2, -3], 'D': [6, -3]}
+_P5 = {'A': [0, 0], 'B': [4, 0], 'C': [2, -3], 'D': [6, -3], 'E': [4, -6]}
+_P3 = {'A': [0, 0], 'B': [6, 0], 'C': [3, -3]}
+
+
+def _fig(punkte, linien, namen=None):
+    """Graph als figur; namen = {Knoten: neuer Name} (z. B. mit Grad)."""
+    namen = namen or {}
+    p = {namen.get(k, k): v for k, v in punkte.items()}
+    li = [[namen.get(l[0], l[0]), namen.get(l[1], l[1]), *l[2:]] for l in linien]
+    return {'typ': 'figur', 'punkte': p, 'linien': li}
+
+
+def _g(*ks):
+    return {k: f'{k}: {g}' for k, g in zip('ABCDE', ks)}
+
+
+_L4 = [['A', 'B'], ['A', 'C'], ['B', 'C'], ['C', 'D']]
+_L5 = [['A', 'B'], ['A', 'C'], ['B', 'C'], ['B', 'D'], ['C', 'D'], ['C', 'E'], ['D', 'E']]
+_EU = [['B', 'A', '1'], ['A', 'C', '2'], ['C', 'B', '3'], ['B', 'D', '4'], ['D', 'C', '5'], ['C', 'E', '6'], ['E', 'D', '7']]
+
+
+def _k3(ab, ac, cb):
+    return _fig(_P3, [['A', 'B', '7', *ab], ['A', 'C', '2', *ac], ['C', 'B', '3', *cb]])
+
+
+
+
+def _sb(fest):
+    kanten = [['A', 'B', '4'], ['B', 'C', '2'], ['A', 'C', '3'], ['C', 'D', '5'], ['B', 'D', '6']]
+    return _fig(_P4, [k if k[0] + k[1] in fest else k + ['gestrichelt'] for k in kanten])
+
+
+UMBAU = {
+    'grundbegriffe': {
+        'einstieg': 'Vier Dörfer A, B, C, D sind durch Straßen verbunden. Auf einer Karte zeichnet man Dörfer als Punkte und Straßen als Linien. '
+                    'So ein Bild heißt ⟦Graph⟧.',
+        'woerter': [['Knoten', 'ein Punkt im Graphen, hier ein Dorf'],
+                    ['Kante', 'eine Linie zwischen zwei Knoten, hier eine Straße'],
+                    ['Grad', 'wie viele Kanten an einem Knoten enden']],
+        'bild': _fig(_P4, _L4),
+        'schritte': [
+            {'text': 'Die Kanten sind AB, AC, BC und CD.'},
+            {'text': 'Grad jedes Knotens: A 2, B 2, C 3, D 1.', 'bild': _fig(_P4, _L4, _g(2, 2, 3, 1))},
+            {'text': 'Summe 2 + 2 + 3 + 1 = 8 = 2 · ⟦4 Kanten⟧.'},
+        ],
+        'fehler': '8 Kanten ist falsch. Jede Straße wird ⟦an beiden Enden⟧ gezählt, also 8 : 2 = 4.',
+        'regel': 'Grad = Kanten an einem Knoten. Die ⟦Summe aller Grade⟧ ist doppelt so groß wie die Zahl der Kanten.',
+    },
+    'euler': {
+        'einstieg': 'Ein Postbote will jede Straße genau einmal entlanggehen. Geht das? Es hängt nur von den Graden ab. '
+                    'So ein Weg heißt ⟦Eulerweg⟧.',
+        'woerter': [['Eulerweg', 'ein Weg, der jede Kante genau einmal benutzt'],
+                    ['Eulerkreis', 'ein Eulerweg, der wieder am Start endet']],
+        'bild': _fig(_P5, _L5),
+        'schritte': [
+            {'text': 'Grade: A 2, B 3, C 4, D 3, E 2.', 'bild': _fig(_P5, _L5, _g(2, 3, 4, 3, 2))},
+            {'text': 'Genau zwei Knoten sind ungerade: B und D.'},
+            {'text': '⟦Eulerweg möglich⟧ von B nach D: B, A, C, B, D, C, E, D.', 'bild': _fig(_P5, _EU)},
+            {'text': 'Ein Eulerkreis geht nicht, weil B und D ungerade sind.'},
+        ],
+        'fehler': 'Bei vier ungeraden Knoten gibt es keinen Eulerweg. An einem ungeraden Zwischenknoten ⟦bleibt eine Kante übrig⟧.',
+        'regel': 'Zähle die ⟦ungeraden Knoten⟧: 0 heißt Eulerkreis, 2 heißt Eulerweg, sonst keiner.',
+    },
+    'kuerzester': {
+        'einstieg': 'Von Dorf A nach Dorf B sind es direkt 7 km. Über Dorf C sind es 2 km und 3 km. Welcher Weg ist kürzer? '
+                    'Die Zahlen an den Kanten heißen ⟦Gewichte⟧.',
+        'woerter': [['Gewicht', 'die Zahl an einer Kante: Länge, Zeit oder Kosten'],
+                    ['kürzester Weg', 'der Weg mit der kleinsten Summe der Gewichte']],
+        'bild': _k3([], [], []),
+        'schritte': [
+            {'text': 'Direkt A → B: 7 km.', 'bild': _k3([], ['gestrichelt'], ['gestrichelt'])},
+            {'text': 'Über C: 2 + 3 = 5 km.', 'bild': _k3(['gestrichelt'], [], [])},
+            {'text': 'Kürzester Weg: ⟦A → C → B mit 5 km⟧.'},
+        ],
+        'fehler': 'Immer die ⟦direkte Kante⟧ zu nehmen ist falsch. Hier ist der Umweg über C kürzer: 5 < 7.',
+        'regel': 'Vom Start aus an jedem Knoten die ⟦kleinste bekannte Entfernung⟧ notieren. Umwege können kürzer sein.',
+    },
+    'spannbaum': {
+        'einstieg': 'Vier Dörfer sollen Glasfaser bekommen. Jedes Dorf muss angeschlossen sein, aber Kabel sind teuer. '
+                    'Gesucht ist das billigste Netz: ein ⟦minimaler Spannbaum⟧.',
+        'woerter': [['minimaler Spannbaum', 'verbindet alle Knoten mit dem kleinsten Gesamtgewicht, ohne Kreis'],
+                    ['Kreis', 'ein Weg, der zu seinem Start zurückführt'],
+                    ['Baum', 'ein Graph ohne Kreis; bei n Knoten hat er n − 1 Kanten']],
+        'bild': _sb({'AB', 'BC', 'AC', 'CD', 'BD'}),
+        'schritte': [
+            {'text': 'Kleinste Kante zuerst: BC (2), dann AC (3).', 'bild': _sb({'BC', 'AC'})},
+            {'text': 'AB (4) würde den Kreis A–B–C schließen: weglassen.'},
+            {'text': 'CD (5) nehmen. Jetzt ist jedes Dorf angeschlossen.', 'bild': _sb({'BC', 'AC', 'CD'})},
+            {'text': 'Gewicht 2 + 3 + 5 = ⟦10⟧. 4 Knoten, 3 Kanten.'},
+        ],
+        'fehler': 'Die drei kleinsten Kanten 2, 3, 4 bilden einen ⟦Kreis⟧, D bleibt allein. Kanten, die einen Kreis schließen, überspringen.',
+        'fehler_bild': _sb({'BC', 'AC', 'AB'}),
+        'regel': 'Kanten der Größe nach nehmen, ⟦Kreise überspringen⟧. Bei n Knoten hat der Baum n − 1 Kanten.',
+    },
+    'verstehen': {
+        'einstieg': 'Ein Rätsel: Drei Dörfer sollen jeweils 3 Straßen haben. Geht das? Ohne Probieren hilft eine Regel: '
+                    'Die Summe der Grade muss ⟦gerade⟧ sein.',
+        'woerter': [['Gradliste', 'die Grade aller Knoten nacheinander, z. B. 3, 3, 3']],
+        'bild': _fig(_P3, []),
+        'schritte': [
+            {'text': 'Gradliste 3, 3, 3: Die Summe ist 9.'},
+            {'text': 'Die Summe der Grade ist 2 · Anzahl der Kanten, also gerade.'},
+            {'text': 'Selbst mit allen Straßen hat jedes Dorf nur Grad 2.',
+             'bild': _fig(_P3, [['A', 'B'], ['A', 'C'], ['B', 'C']], {'A': 'A: 2', 'B': 'B: 2', 'C': 'C: 2'})},
+            {'text': '9 ist ungerade: ⟦unmöglich⟧.'},
+        ],
+        'fehler': '„5 Knoten, 4 Kanten ist immer ein Baum“ ist falsch. Der Graph kann einen Kreis haben und ⟦nicht zusammenhängend⟧ sein.',
+        'fehler_bild': _fig({'A': [0, 0], 'B': [4, 0], 'C': [2, -3], 'D': [6, -1], 'E': [7, -3]},
+                            [['A', 'B'], ['A', 'C'], ['B', 'C'], ['D', 'E']]),
+        'regel': 'Die Anzahl ⟦ungerader Knoten⟧ ist immer gerade. Prüfe eine Gradliste zuerst mit der Summe.',
+    },
+}
+UMBAU_OFFEN = []
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+d = bauen('sonder.graphentheorie',
       'Graphen mit Knoten, Kanten und Graden beschreiben, Eulerwege erkennen, kürzeste Wege suchen und minimale Spannbäume bestimmen.',
       ['Graph (graph): Knoten (vertices) und Kanten (edges). Grad (degree) = Anzahl der Kanten an einem Knoten.',
        'Summe aller Grade = 2 · Anzahl der Kanten.',
@@ -325,3 +447,4 @@ bauen('sonder.graphentheorie',
       offen=['Lehrplan-Feld: „Graphentheorie, Graphenalgorithmen (IB-Verlagsinhalt)“ – Auswahl: Grundbegriffe, Adjazenzmatrix (nur ablesen), Euler, Dijkstra-Idee, Kruskal. Hamiltonkreise und Zahlentheorie nicht enthalten.',
              'Graphen werden als figur gezeichnet (Knoten = beschriftete Punkte, Kanten = Linien mit Gewicht). Die App beschriftet Kantengewichte nach außen – bei Kanten zur Mitte kann die Zahl nah an einer anderen Linie stehen. Bitte in der Ansicht prüfen.'],
       vertiefung=['spannbaum'])
+umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

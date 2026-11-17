@@ -41,13 +41,57 @@
    {
     "lernziel": "grundbegriffe",
     "titel": "Knoten, Kanten und Grad",
-    "regel": "Ein ⟦Graph⟧ (graph) besteht aus ⟦Knoten⟧ (vertices, Punkte) und ⟦Kanten⟧ (edges, Verbindungslinien). Der ⟦Grad⟧ (degree) eines Knotens ist die Anzahl der Kanten, die ⟦an ihm enden⟧. Weil jede Kante zwei Enden hat, gilt: ⟦Summe aller Grade = 2 · Anzahl der Kanten⟧.",
+    "regel": "Grad = Kanten an einem Knoten. Die ⟦Summe aller Grade⟧ ist doppelt so groß wie die Zahl der Kanten.",
     "schritte": [
-     "Graph mit Knoten A, B, C, D und Kanten AB, AC, BC, CD.",
-     "Grade: A 2, B 2, C 3, D 1.",
-     "Summe 2 + 2 + 3 + 1 = 8 = 2 · ⟦4 Kanten⟧."
+     {
+      "text": "Die Kanten sind AB, AC, BC und CD."
+     },
+     {
+      "text": "Grad jedes Knotens: A 2, B 2, C 3, D 1.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A: 2": [
+         0,
+         0
+        ],
+        "B: 2": [
+         4,
+         0
+        ],
+        "C: 3": [
+         2,
+         -3
+        ],
+        "D: 1": [
+         6,
+         -3
+        ]
+       },
+       "linien": [
+        [
+         "A: 2",
+         "B: 2"
+        ],
+        [
+         "A: 2",
+         "C: 3"
+        ],
+        [
+         "B: 2",
+         "C: 3"
+        ],
+        [
+         "C: 3",
+         "D: 1"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Summe 2 + 2 + 3 + 1 = 8 = 2 · ⟦4 Kanten⟧."
+     }
     ],
-    "probe": "Jede Kante wurde an beiden Enden gezählt ✓",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -87,30 +131,312 @@
       ]
      ]
     },
-    "fehler": "Die Summe der Grade (8) als Anzahl der Kanten anzugeben ist falsch: Jede Kante wird ⟦an beiden Enden⟧ gezählt, also 8 : 2 = 4 Kanten."
+    "fehler": "8 Kanten ist falsch. Jede Straße wird ⟦an beiden Enden⟧ gezählt, also 8 : 2 = 4.",
+    "einstieg": "Vier Dörfer A, B, C, D sind durch Straßen verbunden. Auf einer Karte zeichnet man Dörfer als Punkte und Straßen als Linien. So ein Bild heißt ⟦Graph⟧.",
+    "woerter": [
+     [
+      "Knoten",
+      "ein Punkt im Graphen, hier ein Dorf"
+     ],
+     [
+      "Kante",
+      "eine Linie zwischen zwei Knoten, hier eine Straße"
+     ],
+     [
+      "Grad",
+      "wie viele Kanten an einem Knoten enden"
+     ]
+    ]
    },
    {
     "lernziel": "euler",
     "titel": "Alle Kanten genau einmal",
-    "regel": "Ein ⟦Eulerweg⟧ (Eulerian trail) benutzt jede Kante genau einmal. Endet er am Start, heißt er ⟦Eulerkreis⟧ (Eulerian circuit). Bei einem zusammenhängenden Graphen gilt: ⟦alle Grade gerade⟧ → Eulerkreis; ⟦genau zwei ungerade⟧ → Eulerweg von einem ungeraden zum anderen ungeraden Knoten; sonst keiner.",
+    "regel": "Zähle die ⟦ungeraden Knoten⟧: 0 heißt Eulerkreis, 2 heißt Eulerweg, sonst keiner.",
     "schritte": [
-     "Grade: A 2, B 3, C 4, D 3.",
-     "Genau zwei ungerade Knoten (B und D).",
-     "⟦Eulerweg möglich⟧, Start in B, Ende in D (oder umgekehrt), aber kein Eulerkreis."
+     {
+      "text": "Grade: A 2, B 3, C 4, D 3, E 2.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A: 2": [
+         0,
+         0
+        ],
+        "B: 3": [
+         4,
+         0
+        ],
+        "C: 4": [
+         2,
+         -3
+        ],
+        "D: 3": [
+         6,
+         -3
+        ],
+        "E: 2": [
+         4,
+         -6
+        ]
+       },
+       "linien": [
+        [
+         "A: 2",
+         "B: 3"
+        ],
+        [
+         "A: 2",
+         "C: 4"
+        ],
+        [
+         "B: 3",
+         "C: 4"
+        ],
+        [
+         "B: 3",
+         "D: 3"
+        ],
+        [
+         "C: 4",
+         "D: 3"
+        ],
+        [
+         "C: 4",
+         "E: 2"
+        ],
+        [
+         "D: 3",
+         "E: 2"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Genau zwei Knoten sind ungerade: B und D."
+     },
+     {
+      "text": "⟦Eulerweg möglich⟧ von B nach D: B, A, C, B, D, C, E, D.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         4,
+         0
+        ],
+        "C": [
+         2,
+         -3
+        ],
+        "D": [
+         6,
+         -3
+        ],
+        "E": [
+         4,
+         -6
+        ]
+       },
+       "linien": [
+        [
+         "B",
+         "A",
+         "1"
+        ],
+        [
+         "A",
+         "C",
+         "2"
+        ],
+        [
+         "C",
+         "B",
+         "3"
+        ],
+        [
+         "B",
+         "D",
+         "4"
+        ],
+        [
+         "D",
+         "C",
+         "5"
+        ],
+        [
+         "C",
+         "E",
+         "6"
+        ],
+        [
+         "E",
+         "D",
+         "7"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ein Eulerkreis geht nicht, weil B und D ungerade sind."
+     }
     ],
-    "probe": "Wer an einem Knoten ankommt, muss ihn wieder verlassen – nur Start und Ende dürfen ungerade sein ✓",
-    "fehler": "Bei vier ungeraden Knoten einen Eulerweg zu suchen ist zwecklos: An jedem ungeraden Knoten, der nicht Start oder Ende ist, ⟦bleibt eine Kante übrig⟧."
+    "fehler": "Bei vier ungeraden Knoten gibt es keinen Eulerweg. An einem ungeraden Zwischenknoten ⟦bleibt eine Kante übrig⟧.",
+    "einstieg": "Ein Postbote will jede Straße genau einmal entlanggehen. Geht das? Es hängt nur von den Graden ab. So ein Weg heißt ⟦Eulerweg⟧.",
+    "woerter": [
+     [
+      "Eulerweg",
+      "ein Weg, der jede Kante genau einmal benutzt"
+     ],
+     [
+      "Eulerkreis",
+      "ein Eulerweg, der wieder am Start endet"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       2,
+       -3
+      ],
+      "D": [
+       6,
+       -3
+      ],
+      "E": [
+       4,
+       -6
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "C"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "D"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "kuerzester",
     "titel": "Kürzeste Wege finden",
-    "regel": "In einem ⟦gewichteten Graphen⟧ (weighted graph) stehen an den Kanten Längen, Zeiten oder Kosten. Für den ⟦kürzesten Weg⟧ (shortest path) gehst du vom Start aus und notierst an jedem Knoten die ⟦kleinste bisher bekannte Entfernung⟧ (Dijkstra-Idee). Ein Umweg kann kürzer sein als die direkte Kante.",
+    "regel": "Vom Start aus an jedem Knoten die ⟦kleinste bekannte Entfernung⟧ notieren. Umwege können kürzer sein.",
     "schritte": [
-     "A–B: 7, A–C: 2, C–B: 3.",
-     "Direkt A → B: 7. Über C: 2 + 3 = 5.",
-     "Kürzester Weg ⟦A → C → B mit Länge 5⟧."
+     {
+      "text": "Direkt A → B: 7 km.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         6,
+         0
+        ],
+        "C": [
+         3,
+         -3
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "7"
+        ],
+        [
+         "A",
+         "C",
+         "2",
+         "gestrichelt"
+        ],
+        [
+         "C",
+         "B",
+         "3",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Über C: 2 + 3 = 5 km.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         6,
+         0
+        ],
+        "C": [
+         3,
+         -3
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "7",
+         "gestrichelt"
+        ],
+        [
+         "A",
+         "C",
+         "2"
+        ],
+        [
+         "C",
+         "B",
+         "3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Kürzester Weg: ⟦A → C → B mit 5 km⟧."
+     }
     ],
-    "probe": "Alle Möglichkeiten verglichen: 5 < 7 ✓",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -145,18 +471,138 @@
       ]
      ]
     },
-    "fehler": "Immer die ⟦direkte Kante⟧ zu nehmen ist falsch: Hier ist A–B (7) länger als der Umweg über C (5)."
+    "fehler": "Immer die ⟦direkte Kante⟧ zu nehmen ist falsch. Hier ist der Umweg über C kürzer: 5 < 7.",
+    "einstieg": "Von Dorf A nach Dorf B sind es direkt 7 km. Über Dorf C sind es 2 km und 3 km. Welcher Weg ist kürzer? Die Zahlen an den Kanten heißen ⟦Gewichte⟧.",
+    "woerter": [
+     [
+      "Gewicht",
+      "die Zahl an einer Kante: Länge, Zeit oder Kosten"
+     ],
+     [
+      "kürzester Weg",
+      "der Weg mit der kleinsten Summe der Gewichte"
+     ]
+    ]
    },
    {
     "lernziel": "spannbaum",
     "titel": "Minimaler Spannbaum",
-    "regel": "Ein ⟦Baum⟧ (tree) ist ein zusammenhängender Graph ⟦ohne Kreis⟧; mit n Knoten hat er ⟦n − 1 Kanten⟧. Ein ⟦minimaler Spannbaum⟧ (minimum spanning tree) verbindet alle Knoten mit ⟦kleinstem Gesamtgewicht⟧. Kruskal: Kanten der Größe nach nehmen und jede ⟦überspringen, die einen Kreis schließen würde⟧.",
+    "regel": "Kanten der Größe nach nehmen, ⟦Kreise überspringen⟧. Bei n Knoten hat der Baum n − 1 Kanten.",
     "schritte": [
-     "Kanten: AB 4, BC 2, AC 3, CD 5, BD 6.",
-     "Nimm BC (2), AC (3); AB (4) würde Kreis A–B–C schließen → weglassen; CD (5) nehmen.",
-     "Gewicht 2 + 3 + 5 = ⟦10⟧ mit 3 Kanten für 4 Knoten."
+     {
+      "text": "Kleinste Kante zuerst: BC (2), dann AC (3).",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         4,
+         0
+        ],
+        "C": [
+         2,
+         -3
+        ],
+        "D": [
+         6,
+         -3
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "4",
+         "gestrichelt"
+        ],
+        [
+         "B",
+         "C",
+         "2"
+        ],
+        [
+         "A",
+         "C",
+         "3"
+        ],
+        [
+         "C",
+         "D",
+         "5",
+         "gestrichelt"
+        ],
+        [
+         "B",
+         "D",
+         "6",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "AB (4) würde den Kreis A–B–C schließen: weglassen."
+     },
+     {
+      "text": "CD (5) nehmen. Jetzt ist jedes Dorf angeschlossen.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         4,
+         0
+        ],
+        "C": [
+         2,
+         -3
+        ],
+        "D": [
+         6,
+         -3
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "4",
+         "gestrichelt"
+        ],
+        [
+         "B",
+         "C",
+         "2"
+        ],
+        [
+         "A",
+         "C",
+         "3"
+        ],
+        [
+         "C",
+         "D",
+         "5"
+        ],
+        [
+         "B",
+         "D",
+         "6",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Gewicht 2 + 3 + 5 = ⟦10⟧. 4 Knoten, 3 Kanten."
+     }
     ],
-    "probe": "4 Knoten → 3 Kanten ✓",
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -205,18 +651,191 @@
       ]
      ]
     },
-    "fehler": "Einfach die n − 1 kleinsten Kanten (2, 3, 4) zu nehmen ist falsch: Sie bilden den Kreis A–B–C, und D bleibt unverbunden. Kanten, die einen ⟦Kreis schließen⟧, werden übersprungen."
+    "fehler": "Die drei kleinsten Kanten 2, 3, 4 bilden einen ⟦Kreis⟧, D bleibt allein. Kanten, die einen Kreis schließen, überspringen.",
+    "einstieg": "Vier Dörfer sollen Glasfaser bekommen. Jedes Dorf muss angeschlossen sein, aber Kabel sind teuer. Gesucht ist das billigste Netz: ein ⟦minimaler Spannbaum⟧.",
+    "woerter": [
+     [
+      "minimaler Spannbaum",
+      "verbindet alle Knoten mit dem kleinsten Gesamtgewicht, ohne Kreis"
+     ],
+     [
+      "Kreis",
+      "ein Weg, der zu seinem Start zurückführt"
+     ],
+     [
+      "Baum",
+      "ein Graph ohne Kreis; bei n Knoten hat er n − 1 Kanten"
+     ]
+    ],
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       2,
+       -3
+      ],
+      "D": [
+       6,
+       -3
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "4"
+      ],
+      [
+       "B",
+       "C",
+       "2"
+      ],
+      [
+       "A",
+       "C",
+       "3"
+      ],
+      [
+       "C",
+       "D",
+       "5",
+       "gestrichelt"
+      ],
+      [
+       "B",
+       "D",
+       "6",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "verstehen",
     "titel": "Aussagen über Graphen prüfen",
-    "regel": "Wichtige Tatsachen: Die ⟦Anzahl der Knoten mit ungeradem Grad ist immer gerade⟧ (wegen Summe der Grade = 2 · Kanten). Ein Baum mit n Knoten hat ⟦genau n − 1 Kanten⟧. Mit einer Gradliste kann man prüfen, ob ein Graph überhaupt möglich ist.",
+    "regel": "Die Anzahl ⟦ungerader Knoten⟧ ist immer gerade. Prüfe eine Gradliste zuerst mit der Summe.",
     "schritte": [
-     "Gibt es einen Graphen mit den Graden 3, 3, 3?",
-     "Summe 9 ist ungerade, müsste aber 2 · Kanten (gerade) sein. ⟦Unmöglich⟧."
+     {
+      "text": "Gradliste 3, 3, 3: Die Summe ist 9."
+     },
+     {
+      "text": "Die Summe der Grade ist 2 · Anzahl der Kanten, also gerade."
+     },
+     {
+      "text": "Selbst mit allen Straßen hat jedes Dorf nur Grad 2.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "A: 2": [
+         0,
+         0
+        ],
+        "B: 2": [
+         6,
+         0
+        ],
+        "C: 2": [
+         3,
+         -3
+        ]
+       },
+       "linien": [
+        [
+         "A: 2",
+         "B: 2"
+        ],
+        [
+         "A: 2",
+         "C: 2"
+        ],
+        [
+         "B: 2",
+         "C: 2"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "9 ist ungerade: ⟦unmöglich⟧."
+     }
     ],
-    "probe": "Drei ungerade Knoten – ungerade Anzahl, also nicht möglich ✓",
-    "fehler": "„Ein Graph mit 5 Knoten und 4 Kanten ist immer ein Baum“ ist falsch: Er könnte einen Kreis enthalten und dafür ⟦nicht zusammenhängend⟧ sein."
+    "fehler": "„5 Knoten, 4 Kanten ist immer ein Baum“ ist falsch. Der Graph kann einen Kreis haben und ⟦nicht zusammenhängend⟧ sein.",
+    "einstieg": "Ein Rätsel: Drei Dörfer sollen jeweils 3 Straßen haben. Geht das? Ohne Probieren hilft eine Regel: Die Summe der Grade muss ⟦gerade⟧ sein.",
+    "woerter": [
+     [
+      "Gradliste",
+      "die Grade aller Knoten nacheinander, z. B. 3, 3, 3"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       3,
+       -3
+      ]
+     },
+     "linien": []
+    },
+    "fehler_bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       2,
+       -3
+      ],
+      "D": [
+       6,
+       -1
+      ],
+      "E": [
+       7,
+       -3
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "C"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "D",
+       "E"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [

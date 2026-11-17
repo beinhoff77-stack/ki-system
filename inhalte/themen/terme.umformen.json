@@ -1180,7 +1180,7 @@
    "l": "zusammenfassen",
    "t": "zusammenfassen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Term ist gleichwertig zu 7x − 5x + 8?"
@@ -1222,7 +1222,7 @@
    "l": "zusammenfassen",
    "t": "zusammenfassen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Rechteck ist 3x lang und 9y breit. Gib den Umfang als Term an.",
@@ -1247,21 +1247,24 @@
    "t": "zusammenfassen",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Jemand rechnet: 6x + 9y = 15xy. Was stimmt?"
+    "text": "5x + 4y − T soll zusammengefasst 2x + 7y ergeben. Wie heißt der Term T?",
+    "schablone": "□x + □y",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
    },
-   "a": [
-    "Falsch: Es muss 54xy heißen.",
-    "Richtig: 6 + 9 = 15.",
-    "Falsch: x und y sind verschieden, 6x + 9y bleibt stehen.",
-    "Falsch: Es muss 15x heißen."
-   ],
    "o": {
-    "index": 2
+    "werte": [
+     3,
+     -3
+    ]
    },
-   "w": "Nur gleichartige Glieder darf man zusammenfassen. 6x und 9y haben verschiedene Buchstaben. Probe mit x = 1, y = 1: 15 gegen 15, aber x = 2, y = 1: 21 gegen 30.",
-   "h": "Haben beide Glieder denselben Buchstabenteil?"
+   "c": [
+    "5 - 2",
+    "4 - 7"
+   ],
+   "w": "Von 5x bis 2x fehlen 3x, also zieht T 3x ab. Von 4y bis 7y kommen 3y dazu, also zieht T −3y ab. T = 3x − 3y.",
+   "h": "Rückwärts denken: Was muss T bei den x-Gliedern abziehen, was bei den y-Gliedern?"
   },
   {
    "l": "zusammenfassen",
@@ -1506,6 +1509,72 @@
    "w": "a-Glieder: −6a. Zahlen: 12 − 14 = −2. Ergebnis: −6a − 2."
   },
   {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Umfang eines Dreiecks ist 9x + 5y. Zwei Seiten sind 2x + y und 4x − y lang. Wie lang ist die dritte Seite?",
+    "schablone": "□x + □y",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2y."
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "c": [
+    "9 - 2 - 4",
+    "5 - 1 + 1"
+   ],
+   "w": "Die zwei Seiten zusammen: 2x + y + 4x − y = 6x. Dritte Seite: 9x + 5y − 6x = 3x + 5y.",
+   "h": "Fasse die beiden bekannten Seiten zusammen und zieh sie vom Umfang ab."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Term 4ab + 3a² − ab + 2a: Welche beiden Glieder sind gleichartig?"
+   },
+   "a": [
+    "4ab und 3a²",
+    "3a² und 2a",
+    "4ab und −ab",
+    "3a² und −ab"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleichartig heißt: gleicher Buchstabenteil. 4ab und −ab haben beide ab. a² und a sind verschieden.",
+   "h": "Vergleiche nur den Buchstabenteil – auch die Hochzahl zählt."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term ergibt zusammengefasst genau 5x?"
+   },
+   "a": [
+    "3x + 4x − 2x",
+    "3x + 4 − 2x",
+    "3x − 4x + 2x",
+    "6x − x − x"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3x + 4x − 2x = 5x. Die anderen: 3x − 4x + 2x = x; 3x + 4 − 2x = x + 4; 6x − x − x = 4x.",
+   "h": "Fasse jeden Term zusammen. Achtung: 4 ohne x ist nicht gleichartig."
+  },
+  {
    "l": "produkte",
    "t": "produkte",
    "p": "uebung",
@@ -1707,7 +1776,7 @@
    "l": "produkte",
    "t": "produkte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein Rechteck ist 6a lang und 5a breit. Gib den Flächeninhalt als Term an.",
@@ -1751,42 +1820,44 @@
    "t": "produkte",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Jemand rechnet: 5x · 4x = 20x. Was stimmt?"
+    "text": "Ein Quader ist 2a lang, 3a breit und a hoch. Gib sein Volumen als Term an.",
+    "schablone": "□a³",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 5a³."
    },
-   "a": [
-    "Falsch: Es muss 20x² heißen.",
-    "Falsch: Es muss 9x heißen.",
-    "Richtig: 5 · 4 = 20.",
-    "Falsch: Es muss 9x² heißen."
-   ],
    "o": {
-    "index": 0
+    "werte": [
+     6
+    ]
    },
-   "w": "x kommt zweimal als Faktor vor: x · x = x². Also 5x · 4x = 20x². Probe mit x = 2: 10 · 8 = 80, und 20 · 4 = 80 ✓",
-   "h": "Wie oft steht x als Faktor da?"
+   "c": [
+    "2 * 3 * 1"
+   ],
+   "w": "V = 2a · 3a · a = (2 · 3 · 1) · a · a · a = 6a³.",
+   "h": "Volumen ist Länge · Breite · Höhe. Wie oft kommt a als Faktor vor?"
   },
   {
    "l": "produkte",
    "t": "produkte",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Jemand rechnet: 8x · 8x = 64x. Was stimmt?"
+    "text": "Welcher Faktor fehlt? 4x · (?) = −20x²",
+    "schablone": "□x",
+    "hinweis": "Tippe den Faktor ein, z. B. −3x."
    },
-   "a": [
-    "Falsch: Es muss 16x² heißen.",
-    "Falsch: Es muss 64x² heißen.",
-    "Falsch: Es muss 16x heißen.",
-    "Richtig: 8 · 8 = 64."
-   ],
    "o": {
-    "index": 1
+    "werte": [
+     -5
+    ]
    },
-   "w": "x kommt zweimal als Faktor vor: x · x = x². Also 8x · 8x = 64x². Probe mit x = 2: 16 · 16 = 256, und 64 · 4 = 256 ✓",
-   "h": "Wie oft steht x als Faktor da?"
+   "c": [
+    "-20 / 4"
+   ],
+   "w": "4 · (−5) = −20 und x · x = x². Der Faktor ist −5x.",
+   "h": "Rückwärts: Welche Zahl mal 4 ergibt −20? Und ein x fehlt noch."
   },
   {
    "l": "produkte",
@@ -1997,6 +2068,48 @@
     "(-5) * (-4) * (-8)"
    ],
    "w": "Zahlen: (−5) · (−4) · (−8) = −160. Buchstaben: ab. Ergebnis: −160ab."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Vereinfache (−2a) · (−3b) · (−c). Was kommt heraus?"
+   },
+   "a": [
+    "6abc",
+    "5abc",
+    "−5abc",
+    "−6abc"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Zahlen: (−2) · (−3) · (−1) = −6, drei Minuszeichen ergeben minus. Buchstaben: a · b · c = abc. Also −6abc.",
+   "h": "Zähle die Minuszeichen: Gerade Anzahl ergibt plus, ungerade minus. Vor c steht die Zahl −1."
+  },
+  {
+   "l": "produkte",
+   "t": "produkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 3x. Jede Seite wird verdoppelt. Was passiert mit dem Flächeninhalt?"
+   },
+   "a": [
+    "Er wird vervierfacht: aus 9x² wird 36x².",
+    "Er wird verdoppelt: aus 9x² wird 18x².",
+    "Er bleibt gleich, nur die Form ändert sich.",
+    "Er wird verdoppelt: aus 9x wird 18x."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorher 3x · 3x = 9x². Nachher 6x · 6x = 36x², das ist 4 · 9x². Beide Seiten verdoppeln heißt Fläche mal 4.",
+   "h": "Rechne die Fläche vorher und nachher als Term aus und vergleiche."
   },
   {
    "l": "minusklammer",
@@ -2218,7 +2331,7 @@
    "l": "minusklammer",
    "t": "minusklammer",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Umformung von 12x − (2x − 4) ist richtig?"
@@ -2239,7 +2352,7 @@
    "l": "minusklammer",
    "t": "minusklammer",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse die Klammer auf: −4(7x + 1)",
@@ -2263,7 +2376,7 @@
    "l": "minusklammer",
    "t": "minusklammer",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse die Klammer auf: −5(4x + 2)",
@@ -2287,7 +2400,7 @@
    "l": "minusklammer",
    "t": "minusklammer",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Umformung von 10x − (1x − 6) ist richtig?"
@@ -2535,6 +2648,91 @@
    "w": "Die erste Klammer fällt weg. Bei der zweiten wechseln die Vorzeichen: 8x + 2 − 9x − 4 = −x − 2."
   },
   {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 7x − (3x − 5) = 4x − 5. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Auch −5 wechselt das Vorzeichen, richtig ist 4x + 5.",
+    "Falsch: Richtig ist 10x − 5.",
+    "Falsch: Richtig ist 4x − 5x.",
+    "Richtig: 7x − 3x = 4x."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "7x − (3x − 5) = 7x − 3x + 5 = 4x + 5. Der Fehler: Nur das erste Vorzeichen wurde gewechselt.",
+   "h": "Wechselt jedes Vorzeichen in der Klammer?"
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Vereinfache: 3x − (2x − (x − 4))",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     2,
+     -4
+    ]
+   },
+   "c": [
+    "3 - 1",
+    "-4"
+   ],
+   "w": "Innen zuerst: 2x − (x − 4) = 2x − x + 4 = x + 4. Dann 3x − (x + 4) = 3x − x − 4 = 2x − 4.",
+   "h": "Löse zuerst die innere Klammer auf."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In der Klassenkasse sind 5x €. Ausgegeben werden (x + 12) € für Bastelzeug und (2x − 3) € für Getränke. Wie viel bleibt übrig?",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     2,
+     -9
+    ]
+   },
+   "c": [
+    "5 - 1 - 2",
+    "-12 + 3"
+   ],
+   "w": "5x − (x + 12) − (2x − 3) = 5x − x − 12 − 2x + 3 = 2x − 9 (in €).",
+   "h": "Beide Ausgaben werden abgezogen – jede als ganze Klammer."
+  },
+  {
+   "l": "minusklammer",
+   "t": "minusklammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss in die Lücke, damit 6x − (2x − □) für jedes x denselben Wert hat wie 4x + 7?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "6x − (2x − □) = 6x − 2x + □ = 4x + □. Damit das 4x + 7 ist, muss □ = 7 sein.",
+   "h": "Löse die Klammer auf: Welches Vorzeichen bekommt die Zahl in der Lücke?"
+  },
+  {
    "l": "ausmultiplizieren",
    "t": "ausmultiplizieren",
    "p": "uebung",
@@ -2754,7 +2952,7 @@
    "l": "ausmultiplizieren",
    "t": "ausmultiplizieren",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Für 9 Geschenke kauft jemand je ein Buch für x € und eine Karte für 1 €. Die Kosten sind 9(x + 1). Multipliziere aus.",
@@ -2778,7 +2976,7 @@
    "l": "ausmultiplizieren",
    "t": "ausmultiplizieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Vereinfache: 2(x + 6) − 4(x + 5)",
@@ -2802,7 +3000,7 @@
    "l": "ausmultiplizieren",
    "t": "ausmultiplizieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Vereinfache: 5(x − 2) − 6(x − 3)",
@@ -2826,7 +3024,7 @@
    "l": "ausmultiplizieren",
    "t": "ausmultiplizieren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Vereinfache: 2(x + 2) − 6(x − 3)",
@@ -3077,6 +3275,76 @@
    "w": "(−8) · (−8x) = 64x und (−8) · 3 = −24. Ergebnis: 64x − 24."
   },
   {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist x cm lang und 4 cm breit. Die Länge wird um 3 cm vergrößert. Um wie viel cm² wächst die Fläche – egal wie groß x ist?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm²"
+   },
+   "c": "4 * 3",
+   "w": "Neue Fläche 4(x + 3) = 4x + 12, alte Fläche 4x. Unterschied: 12 cm², für jedes x.",
+   "h": "Stelle die neue Fläche als Term auf, multipliziere aus und vergleiche mit 4x."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl steht vor der Klammer? □ · (2x − 5) = −6x + 15"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-6 / 2",
+   "w": "□ · 2x = −6x, also □ = −3. Probe: (−3) · (−5) = +15 ✓.",
+   "h": "Rückwärts: Welche Zahl mal 2 ergibt −6? Prüfe mit dem zweiten Glied."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: −3(2x − 4) = −6x − 12. Was stimmt?"
+   },
+   "a": [
+    "Falsch: (−3) · (−4) = +12, richtig ist −6x + 12.",
+    "Falsch: Richtig ist −6x − 4.",
+    "Richtig.",
+    "Falsch: Richtig ist 6x + 12."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(−3) · 2x = −6x und (−3) · (−4) = +12. Minus mal minus ergibt plus.",
+   "h": "Prüfe das Vorzeichen beim zweiten Glied."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a hat der Term a(x + 2) − 3x für jedes x den Wert 6?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "6 / 2",
+   "w": "a(x + 2) − 3x = ax + 2a − 3x. Das x muss wegfallen: a = 3. Dann bleibt 2 · 3 = 6 ✓.",
+   "h": "Multipliziere aus. Wann fällt x ganz weg?"
+  },
+  {
    "l": "summe_mal_summe",
    "t": "summe_mal_summe",
    "p": "uebung",
@@ -3314,7 +3582,7 @@
    "l": "summe_mal_summe",
    "t": "summe_mal_summe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein quadratischer Garten mit Seite x m wird 2 m länger und 5 m breiter. Gib die neue Fläche (x + 2)(x + 5) ohne Klammern an.",
@@ -3340,7 +3608,7 @@
    "l": "summe_mal_summe",
    "t": "summe_mal_summe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein quadratischer Garten mit Seite x m wird 6 m länger und 1 m breiter. Gib die neue Fläche (x + 6)(x + 1) ohne Klammern an.",
@@ -3366,7 +3634,7 @@
    "l": "summe_mal_summe",
    "t": "summe_mal_summe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Ein quadratischer Garten mit Seite x m wird 2 m länger und 2 m breiter. Gib die neue Fläche (x + 2)(x + 2) ohne Klammern an.",
@@ -3660,6 +3928,62 @@
    "w": "3x · x = 3x², 3x · (−5) = −15x, 7 · x = 7x, 7 · (−5) = −35. Zusammen: 3x² − 8x − 35."
   },
   {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein quadratischer Garten mit Seite x m wird 4 m länger und 3 m schmaler. Gib die Änderung der Fläche (x + 4)(x − 3) − x² als Term an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     1,
+     -12
+    ]
+   },
+   "c": [
+    "4 - 3",
+    "4 * (-3)"
+   ],
+   "w": "(x + 4)(x − 3) = x² − 3x + 4x − 12 = x² + x − 12. Minus x²: x − 12. Die Fläche wächst nur, wenn x größer als 12 ist.",
+   "h": "Erst ausmultiplizieren, dann x² abziehen."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl fehlt? (x + □)(x + 3) = x² + 8x + 15"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "15 / 3",
+   "w": "□ · 3 = 15, also □ = 5. Probe Mittelglied: 3x + 5x = 8x ✓.",
+   "h": "Rückwärts: Das letzte Glied entsteht aus □ · 3."
+  },
+  {
+   "l": "summe_mal_summe",
+   "t": "summe_mal_summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Produkte entstehen beim Ausmultiplizieren von (a + b + 2)(a − 3), bevor man zusammenfasst?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 * 2",
+   "w": "Jedes der 3 Glieder der ersten Klammer mal jedes der 2 Glieder der zweiten: 3 · 2 = 6 Produkte.",
+   "h": "Jedes Glied mal jedes Glied – zähle die Glieder in beiden Klammern."
+  },
+  {
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
@@ -3919,27 +4243,32 @@
    "t": "ausklammern",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Jemand klammert aus: 12x + 20 = 2(6x + 10). Was stimmt?"
+    "text": "Klammere den größten gemeinsamen Faktor aus: 6ab − 9b",
+    "schablone": "□b(□a + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. 4x(3x + 1)."
    },
-   "a": [
-    "Gleichwertig, aber nicht vollständig: Der größte Faktor ist 4.",
-    "Falsch: Die Terme haben verschiedene Werte.",
-    "Richtig und vollständig ausgeklammert.",
-    "Vollständig wäre 12(x + 5)."
-   ],
    "o": {
-    "index": 0
+    "werte": [
+     3,
+     2,
+     -3
+    ]
    },
-   "w": "In 6 und 10 steckt noch der Faktor 2. Vollständig: 4(3x + 5). Ausmultipliziert ergibt beides 12x + 20.",
-   "h": "Haben die Zahlen in der Klammer noch einen gemeinsamen Teiler?"
+   "c": [
+    "3",
+    "6 / 3",
+    "-9 / 3"
+   ],
+   "w": "In beiden Gliedern stecken 3 und b: 6ab − 9b = 3b(2a − 3).",
+   "h": "Welche Zahl und welcher Buchstabe stecken in beiden Gliedern?"
   },
   {
    "l": "ausklammern",
    "t": "ausklammern",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Klammere den größten gemeinsamen Faktor aus: 4x² + 2x",
@@ -3966,21 +4295,24 @@
    "t": "ausklammern",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Jemand klammert aus: 30x + 10 = 2(15x + 5). Was stimmt?"
+    "text": "Klammere −4 aus: −8x + 12",
+    "schablone": "−4(□x + □)",
+    "hinweis": "Tippe den ganzen Term mit Klammer ein, z. B. −4(3x + 1)."
    },
-   "a": [
-    "Richtig und vollständig ausgeklammert.",
-    "Gleichwertig, aber nicht vollständig: Der größte Faktor ist 10.",
-    "Falsch: Die Terme haben verschiedene Werte.",
-    "Vollständig wäre 30(x + 1)."
-   ],
    "o": {
-    "index": 1
+    "werte": [
+     2,
+     -3
+    ]
    },
-   "w": "In 15 und 5 steckt noch der Faktor 5. Vollständig: 10(3x + 1). Ausmultipliziert ergibt beides 30x + 10.",
-   "h": "Haben die Zahlen in der Klammer noch einen gemeinsamen Teiler?"
+   "c": [
+    "-8 / (-4)",
+    "12 / (-4)"
+   ],
+   "w": "−8x : (−4) = 2x und 12 : (−4) = −3. Also −4(2x − 3). Probe: −4 · 2x = −8x, −4 · (−3) = +12 ✓.",
+   "h": "Teile jedes Glied durch −4. Achte auf die Vorzeichen."
   },
   {
    "l": "ausklammern",
@@ -4233,6 +4565,30 @@
    "w": "In beiden Gliedern steckt 3x. 9x² = 3x · 3x, 24x = 3x · 8. Ergebnis: 3x(3x + 8)."
   },
   {
+   "l": "ausklammern",
+   "t": "ausklammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck hat den Flächeninhalt 6x² + 15x und die Breite 3x. Wie lang ist es?",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 4."
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "c": [
+    "6 / 3",
+    "15 / 3"
+   ],
+   "w": "6x² + 15x = 3x(2x + 5). Breite 3x, also Länge 2x + 5.",
+   "h": "Klammere die Breite 3x aus. Was bleibt in der Klammer?"
+  },
+  {
    "l": "aequivalenz",
    "t": "aequivalenz",
    "p": "uebung",
@@ -4300,7 +4656,7 @@
    "l": "aequivalenz",
    "t": "aequivalenz",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Term ist äquivalent zu 4(x + 9)?"
@@ -4321,7 +4677,7 @@
    "l": "aequivalenz",
    "t": "aequivalenz",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Term ist äquivalent zu 7(x + 4)?"
@@ -4445,7 +4801,7 @@
    "l": "aequivalenz",
    "t": "aequivalenz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Setze x = 4 in 3(x + 2) und in 3x + 2 ein. Um wie viel ist der erste Wert größer?"
@@ -4464,19 +4820,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Sind (x + 3)² und x² + 9 äquivalent?"
+    "text": "Lisa sagt: „x + x + x und x · x · x sind äquivalent, denn für x = 0 ergeben beide 0.“ Was stimmt?"
    },
    "a": [
-    "Nein, für x = 1 ergibt sich 16 und 10.",
-    "Ja, man quadriert einfach beide Glieder.",
-    "Das kann man nicht entscheiden.",
-    "Ja, für x = 0 ergibt sich bei beiden 9."
+    "Falsch: Für x = 2 ergibt sich 6 und 8.",
+    "Richtig: Beide haben dreimal x.",
+    "Richtig: Ein passendes Beispiel genügt.",
+    "Falsch: Für x = 0 ergibt sich 0 und 3."
    ],
    "o": {
     "index": 0
    },
-   "w": "x = 0 passt zufällig (9 und 9), beweist aber nichts. x = 1 ist ein Gegenbeispiel: (1 + 3)² = 16, aber 1 + 9 = 10.",
-   "h": "Eine passende Zahl beweist nichts. Suche ein Gegenbeispiel."
+   "w": "Ein passendes Beispiel beweist nichts. Für x = 2: 2 + 2 + 2 = 6, aber 2 · 2 · 2 = 8. Das Gegenbeispiel zeigt: nicht äquivalent.",
+   "h": "Ein Beispiel reicht für „nicht äquivalent“, aber nie für „äquivalent“. Probiere eine andere Zahl."
   },
   {
    "l": "aequivalenz",
@@ -4677,6 +5033,87 @@
     "index": 3
    },
    "w": "Ausmultiplizieren: 3 · x + 3 · 4 = 3x + 12. Für jede Zahl x haben beide Terme denselben Wert."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Setze x = 0 in 3(x + 4) und in 3x + 4 ein. Welche Werte ergeben sich?",
+    "schablone": "3(x + 4): □; 3x + 4: □",
+    "hinweis": "Trage in jedes Feld eine Zahl ein."
+   },
+   "o": {
+    "werte": [
+     12,
+     4
+    ]
+   },
+   "c": [
+    "3 * 4",
+    "4"
+   ],
+   "w": "3 · (0 + 4) = 12 und 3 · 0 + 4 = 4. Verschiedene Werte: x = 0 ist ein Gegenbeispiel, die Terme sind nicht äquivalent.",
+   "h": "Erst die Klammer ausrechnen, dann malnehmen."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche beiden Terme sind äquivalent? A: 2(x − 3) + x   B: 3x − 6   C: 3(x − 3)"
+   },
+   "a": [
+    "B und C",
+    "alle drei",
+    "A und B",
+    "A und C"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A: 2x − 6 + x = 3x − 6, das ist B. C: 3x − 9 ist anders (für x = 0: −6 gegen −9).",
+   "h": "Forme A und C um und vergleiche mit B."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "x² und 2x sind nicht äquivalent. Welche Zahl ist ein Gegenbeispiel?"
+   },
+   "a": [
+    "3",
+    "0",
+    "2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für 3: 3² = 9, aber 2 · 3 = 6 – verschieden. Für 0 (0 und 0) und 2 (4 und 4) passen beide zufällig.",
+   "h": "Setze jede Zahl in beide Terme ein. Ein Gegenbeispiel liefert verschiedene Werte."
+  },
+  {
+   "l": "aequivalenz",
+   "t": "aequivalenz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a ist der Term 3(x + a) äquivalent zu 3x + 12?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 / 3",
+   "w": "3(x + a) = 3x + 3a. Äquivalent zu 3x + 12 heißt 3a = 12, also a = 4.",
+   "h": "Multipliziere 3(x + a) aus und vergleiche Glied für Glied."
   },
   {
    "l": "binomisch",
@@ -4978,22 +5415,22 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Ergänze so, dass eine binomische Formel entsteht: x² + 14x + □ = (x + □)²",
-    "schablone": "x² + 14x + □ = (x + □)²",
+    "text": "Ergänze so, dass eine binomische Formel entsteht: (□x − 3)² = 4x² − □x + 9",
+    "schablone": "(□x − 3)² = 4x² − □x + 9",
     "hinweis": "Trage in jedes Feld eine Zahl ein."
    },
    "o": {
     "werte": [
-     49,
-     7
+     2,
+     12
     ]
    },
    "c": [
-    "(14 // 2) ** 2",
-    "14 // 2"
+    "2",
+    "2 * 2 * 3"
    ],
-   "w": "Das Mittelglied 14x ist 2 · x · 7. Also ist b = 7 und b² = 49: x² + 14x + 49 = (x + 7)².",
-   "h": "Das Mittelglied ist 2 · x · b. Wie groß ist b?"
+   "w": "4x² = (2x)², also steht 2 vorne. Mittelglied: 2 · 2x · 3 = 12x. (2x − 3)² = 4x² − 12x + 9.",
+   "h": "Welcher Term ergibt quadriert 4x²? Das Mittelglied ist 2 · a · b."
   },
   {
    "l": "binomisch",
@@ -5238,6 +5675,22 @@
     "(2) * (2)"
    ],
    "w": "(2x)² = 4x², 2 · 2x · 2 = 8x, 2² = 4. Ergebnis: 4x² + 8x + 4."
+  },
+  {
+   "l": "binomisch",
+   "t": "binomisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt mit einer binomischen Formel: 49 · 51"
+   },
+   "o": {
+    "wert": 2499
+   },
+   "c": "50 * 50 - 1",
+   "w": "49 · 51 = (50 − 1)(50 + 1) = 50² − 1² = 2500 − 1 = 2499 (3. binomische Formel).",
+   "h": "Schreibe 49 und 51 als 50 − 1 und 50 + 1."
   }
  ],
  "offen": [

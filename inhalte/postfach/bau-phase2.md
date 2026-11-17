@@ -2,6 +2,49 @@
 
 Neueste oben.
 
+## 2026-11-17 – Schritt C (E-2, E-3) gebaut – App 0.74.5 – **wartet auf Migration**
+
+Zwei Migrationen liegen bereit (nicht ausgeführt). Ich habe dafür die aktuellen Funktionsdefinitionen nur **gelesen** (pg_get_functiondef), damit Ersetzungen und
+`create or replace` auf dem Live-Stand aufsetzen; alle Ersetzungsstellen sind im Live-Text vorhanden (geprüft). Syntax beider Dateien mit dem Postgres-Parser (pglast) geprüft.
+Kein DROP, kein DELETE. Die App läuft ohne die Migrationen weiter (Feld fehlt → bisheriges Verhalten; getestet).
+
+**1. `supabase/migrations/20261117_w150_e2_plan_fluege_abwaehlbar.sql`** (E-2 + Befunde 2 und 3 der Nachprüfung E-1)
+- Neue Spalten `schule.route.ausgelassen bigint[]` (abgewählte Flüge = `thema.id`) und `schule.route.status_vor_entfernen text`.
+- `schule.ort_stand`: zählt nur geplante Flüge → Stempel, Ort-Status und `konto.stempel` ohne abgewählte Flüge. `konto.jahrgang` (Stand je Schulart) zählt weiter alle.
+- `api.schule_plan_setzen` nimmt je Eintrag `ausgelassen: [thema_id, …]` an (fehlt das Feld: Liste bleibt). Prüft, dass die Flüge zum Ort gehören.
+  **Befund 2:** „Entfernen“ merkt den alten Status; beim Zurückholen (Rückgängig) wird er wiederhergestellt – „geschafft“ bleibt. Die Sterne für den Ort werden dabei nicht doppelt gebucht (Eindeutigkeit lernender/grund/bezug).
+  **Befund 3:** Entfernte Einträge stehen fortlaufend ab 1 000 001 und wachsen nicht mehr bei jedem Speichern (einmalige Neu-Nummerierung in der Migration; `route_pos` ist DEFERRABLE).
+- `api.schule_plan_lesen` liefert `kann_abwaehlen: true`, je Eintrag `ausgelassen`, und **zusätzlich Orte, die das System auf „fertig“ gesetzt hat** (bisher fehlten sie im Plan der App, weil `ist_plan` `geaendert_von = 'system'` ausschließt – beim nächsten Speichern wurden sie als „nicht genannt“ entfernt und verloren „geschafft“; das ist eine zweite Ursache für Befund 2).
+- `api.schule_uebersicht` (gezieltes Ersetzen): je Einheit `thema_id` und `reihenfolge` (aus `schule.block_thema.reihenfolge` = Lehrplan-Reihenfolge im Ort, für K2 „Flüge im Ort ordnen“), je Route-Eintrag `ausgelassen`.
+
+**2. `supabase/migrations/20261117_w150_e3_auftraege_bezug.sql`** (E-3)
+- Die Arten bleiben (Prüfbedingung unverändert). Neue Spalte `schule.rueckmeldung.bezug` (erklaerung · etappe · bordkarte · flug · plan · allgemein).
+- `api.schule_rueckmeldung_geben` speichert `daten.bezug`. `api.schule_rueckmeldungen` liefert zusätzlich `bezug, block_id, lernender_id, kind, flug, etappe`.
+- Werkstatt-Nachricht nennt den Bezug und verweist auf „Meine Aufträge“.
+
+**App (schon gebaut, Tests 34 von 34):**
+- **E-2 Startseite:** je Kind ein Bereich (Name, Schulart · Klasse, drei Mini-Balken GYM/RS/IB mit gelandet/gesamt, Jetzt, Sterne/Stempel/Lerntage, Knöpfe Lernstand · Flugplan · Lernreise ansehen); darunter „Für alle Kinder“: Lehrplan-Übersicht · Meine Aufträge · So funktioniert’s · Testkind · Zugänge. Mini-Balken nach Rechenregel „Stand“; Stufe RS = Klasse, IB = Klasse − 4, bis K3 `stufen` liefert. Gezählt werden Flüge mit Inhalt (die Übersicht kennt keine Flüge ohne Einheit).
+- **E-2 Flugplan:** Kopfzeile bleibt oben mit Speicherstand und **„↶ Rückgängig“ dauerhaft** (Befund 4). Zwei Spalten ab 1 000 px (Plan links, Lehrplan nach Schulart/Klasse rechts, Suche), darunter auf Tablet und Handy. Eine Zeile je Ort (zugeklappt 58 px), **Ziehen am Griff ⠿** mit Maus und Finger (Pointer-Ereignisse, `touch-action: none`, Rollen am Rand), dazu ↑ ↓; aus dem Lehrplan in den Plan ziehen oder „+“. Ort antippen → Flüge mit Häkchen „im Plan“ (erst nach Migration, vorher Hinweis), „kann es schon“, Entfernen.
+  Prüfpunkte: Platz 10 → 2 mit einer Ziehbewegung = ein Speichern ✓; zugeklappt ≤ 72 px ✓ (58); 12 Orte auf einem Tablet-Bildschirm 820 × 1180 ✓; abgewählter Flug fehlt in der Kinderansicht ✓ (App filtert nach `route.ausgelassen`/`thema_id`, sobald geliefert).
+- **E-3:** ein Knopf „✎ Ändern lassen“ an Erklärung, Etappe, Bordkarte, Flug (Erklären-Reiter, Inhalte ansehen, Lehrplan-Übersicht statt „Bauen lassen“) und Flugplan. Das Formular zeigt den Bezug („An: Bordkarte „…““), Arten Erklärung · Bordkarten · Fehler · Neuer Flug · Sonstiges, Vorlagen-Chips, fragt „Was soll anders sein?“. **„Meine Aufträge“** (`#/lernauftraege`, `#/rueckmeldungen` bleibt) mit Filter Offen/Beantwortet/Alle, Status, Bezug und Antwort; Startseite „Neue Antworten auf eure Aufträge“. Route nicht `#/auftraege`, weil die Hauptapp diese Adresse schon für Council-Aufträge nutzt.
+- **Info-Seite** (Befund 1 und neue Regeln): „über 90 Flüge“ statt fester Zahl; Satz zu den 16 Flügen gestrichen; „100 Sterne und ein Stempel für jeden geschafften Ort“; Kapitel „Was kann ich selbst ändern?“ und „Wie beauftrage ich eine Änderung?“ auf E-2/E-3 umgestellt (abwählen gilt nach der Migration).
+- **Befund 5:** Reisewörter-Test mit `\bThema\b|\bThemen\b`, die Erklärung „= ein Mathe-Thema“ ausgenommen.
+
+**Nach dem Einspielen prüfe ich gegen die echte Antwortform:** `schule_plan_lesen.kann_abwaehlen`/`plan[].ausgelassen`, `schule_uebersicht.einheiten[].thema_id/reihenfolge`, `lernende[].route[].ausgelassen`, `schule_rueckmeldungen[].bezug/flug/etappe/kind`. Danach Schritt D (K3, K4, E-4; braucht das Feld `stufen`, Migration folgt mit D).
+
+## 2026-11-17 – Schritt A2 fertig (Nacharbeit N1/N2/N7) – App 0.74.4 – Nachprüfung kann laufen
+
+| Punkt | Umsetzung | Nachweis |
+|---|---|---|
+| N2 | „Kurz gesagt“ endet am ersten . ! ? vor Leerzeichen oder Textende (`lernSatzEnde`). Ausnahmen: Abkürzungen (z. B., d. h., u. a., z. T., s. o., bzw., ca., usw., vgl., etc., ggf., evtl., bspw., inkl., Nr.), Aufzählungen („1. … , 2. …“) und Ordnungszahlen nach Artikel („die 3. Wurzel“) sowie vor kleinem Wort. Einzelbuchstaben am Satzende („… durch P.“) beenden den Satz. | Test: alle 593 Merksätze aus `inhalte/themen` – „Kurz gesagt“ ist höchstens ein Satz (dazu eine unabhängige Gegenprobe „Satzzeichen + Großbuchstabe“). |
+| N1 Abblenden | Keine Deckkraft mehr für Graphen, Linien und Punkte: der Rest wird grau gezeichnet (hell #6B7280 auf Weiß 4,8:1, dunkel #9AA3B2 auf #151B24 6,9:1); nur Gitter und alte Hilfslinien werden heller. Abgeblendet wird nur, wenn im Bild wirklich ein Element `.neu` trägt. | Test (Kerze): Graph Deckkraft 1, Farbe grau. |
+| N1 Steigungsdreieck | Die App vergrößert nichts mehr; das Dreieck steht so im Bild wie im Inhalt, neu = kräftig in der Akzentfarbe. | Test: 1 Einheit breit; `lernDreieckGross` entfernt. |
+| N1 Tabellen/Stellentafel | Ändert ein Schritt einzelne Zellen (neuer Wert) oder die Markierung der Stellentafel, ist genau diese Zelle hervorgehoben (gelb hinterlegt, Rahmen in Akzentfarbe). Ändert sich die ganze Tabelle, wird nichts hervorgehoben. | Test. |
+| N7 | Richtige Markierung am Zahlenstrahl in festem Grün #2E9E44 in allen Gestaltungen. | Test. |
+
+Tests: `tests/lernen.test.cjs` 28 von 28. `tests/search.test.cjs`: die bekannten 9 alten Fehler.
+Schritt C (E-2/E-3 mit Migrationen) ist gebaut und folgt als nächste Meldung.
+
 ## 2026-11-17 – STATUS Schritt B (K2) fertig – App 0.74.3
 
 - **Menü:** Abflugtafel · Mein Weg · Merkheft · Reisepass (alte Gestaltung: Heute · Mein Weg · Merkheft · Reisepass). `#/weltkarte/<kind>` führt in „Mein Weg · Karte“.

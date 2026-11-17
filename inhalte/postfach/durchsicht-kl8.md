@@ -11,3 +11,4 @@
 - gleichungen.bruch: umgestuft 11, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 3 in ein_bruch, ueber_kreuz und scheinloesung war meist die Stufe-2-Aufgabe mit mehr Rechenschritten.
 - gleichungen.formeln: umgestuft 19, neu 2, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 1 und 2 in ein_schritt gleich; Stufe 3 mehrfach Einsetzen/Prüfen wie Stufe 2.
 - stochastik.grundbegriffe: umgestuft 11, ersetzt 3, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 1 und 2 gleich in gegenereignis, laplace_pruefen, grosse_zahlen; wiederholte Stufe-3-Aufgaben (zwei Gruppen, zweimal dieselbe Roulette-Aussage).
+- gleichungen.lgs2: umgestuft 45, ersetzt 2, neu 2, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: In fünf Lernkarten war Stufe 2 oder 3 dieselbe Rechnung wie die Stufe darunter; Sachaufgaben wiederholten Eintritt und Hühner.

@@ -764,6 +764,86 @@ BF.stufe('grafisch', 'Lies die Lösung des Gleichungssystems I: y = x − 2   II
 baue = mit_befunden(baue, BF)
 # ---- BEFUNDE ENDE ----
 
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('gleichungen.lgs2', 19_8_11)
+# Gleiche Aufgabenart wie die Stufe darunter → umgestuft
+DSX.stufe('pruefen', 'Gegeben: I: −4x − 3y = −15   II: −x + 4y = 20. Welches Zahlenpaar ist die Lösung?', 1)
+DSX.stufe('pruefen', 'Gegeben: I: −5x + 6y = 16   II: x + y = 10. Welches Zahlenpaar ist die Lösung?', 1)
+DSX.stufe('pruefen', 'Gegeben: I: 2x − 6y = 20   II: 2x − 3y = 8. Welches Zahlenpaar ist die Lösung?', 1)
+DSX.stufe('pruefen', 'Gegeben: I: 4x − y = 24   II: 4x − 4y = 24. Welches Zahlenpaar ist die Lösung?', 1)
+DSX.stufe('pruefen', 'Gegeben: I: −6x − 4y = −38   II: 5x − 6y = 13. Welches Zahlenpaar ist die Lösung?', 1)
+DSX.stufe('pruefen', 'Gegeben: I: −x − 3y = −2   II: 2x + y = 4. Welches Zahlenpaar ist die Lösung?', 1)
+DSX.stufe('pruefen', 'Gegeben: I: −4x − 3y = −2   II: −3x − 6y = −24. Ist (6 | −4) eine Lösung?', 2)
+DSX.stufe('pruefen', 'Gegeben: I: −4x + 5y = −58   II: 6x − 3y = 60. Ist (−6 | 7) eine Lösung?', 2)
+DSX.stufe('pruefen', 'Gegeben: I: −2x − 3y = −4   II: 4x − y = 36. Ist (8 | −4) eine Lösung?', 2)
+DSX.stufe('pruefen', 'Gegeben: I: x − 2y = −13   II: 5x − y = −11. Ist (6 | −1) eine Lösung?', 2)
+DSX.stufe('grafisch', 'Lies die Lösung des Gleichungssystems I: y = −3x − 1   II: y = −x + 1 am Schnittpunkt ab.', 1)
+DSX.stufe('grafisch', 'Lies die Lösung des Gleichungssystems I: y = −x + 4   II: y = 2x + 4 am Schnittpunkt ab.', 1)
+DSX.stufe('grafisch', 'Lies die Lösung des Gleichungssystems I: −2x + y = 5   II: y = 3x + 5 am Schnittpunkt ab.', 1)
+DSX.stufe('grafisch', 'Lies die Lösung des Gleichungssystems I: y = 3x − 1   II: 2x + y = 4 am Schnittpunkt ab.', 1)
+DSX.stufe('grafisch', 'Lies die Lösung des Gleichungssystems I: −2x + y = −3   II: y = x − 3 am Schnittpunkt ab.', 1)
+DSX.stufe('grafisch', 'Lies die Lösung des Gleichungssystems I: y = x − 2   II: y = −x am Schnittpunkt ab.', 1)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: y = x + 2   II: 6x + y = −5. Gib die Lösung an.', 1)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: y = −x + 7   II: 4x − 3y = −49. Gib die Lösung an.', 1)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: y = 5x + 2   II: x − 2y = 23. Gib die Lösung an.', 1)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: y = 5x − 5   II: −4x − 2y = 80. Gib y an.', 1)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: y = −2x − 9   II: −x − 4y = 57. Gib die Lösung an.', 1)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: y = −x + 3   II: −2x + 4y = −6. Gib die Lösung an.', 1)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: x = 3y + 6   II: 2x − 5y = 11. Gib die Lösung an.', 2)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: y = 5x − 1   II: x + 4y = 59. Gib die Lösung an.', 2)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: y = −4x − 7   II: −3x + 2y = −91. Gib die Lösung an.', 2)
+DSX.stufe('einsetzen', 'Löse mit dem Einsetzungsverfahren: I: x = −2y − 9   II: x + y = −16. Gib die Lösung an.', 2)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = 3x − 4   II: y = −x + 28. Gib y an.', 1)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = −2x + 5   II: y = 5x − 30. Gib die Lösung an.', 1)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = x − 8   II: y = 4x + 10. Gib die Lösung an.', 1)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = −4x − 4   II: y = x − 19. Gib die Lösung an.', 1)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = −3x − 5   II: y = −4x − 1. Gib x an.', 1)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = −5x + 3   II: y = 2x + 24. Gib die Lösung an.', 1)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = x − 6   II: 9x + 3y = −30. Gib die Lösung an.', 2)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = −2x + 5   II: 6x − 2y = −50. Gib die Lösung an.', 2)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = −3x + 4   II: 10x − 2y = −40. Gib die Lösung an.', 2)
+DSX.stufe('gleichsetzen', 'Löse mit dem Gleichsetzungsverfahren: I: y = −x + 1   II: −2x + 2y = 18. Gib die Lösung an.', 2)
+DSX.stufe('addition', 'Löse mit dem Additionsverfahren: I: −4x − 3y = 11   II: −2x + y = −7. Gib die Lösung an.', 2)
+DSX.stufe('addition', 'Löse mit dem Additionsverfahren: I: −6x + 2y = 2   II: 3x + y = −5. Gib die Lösung an.', 2)
+DSX.stufe('addition', 'Löse mit dem Additionsverfahren: I: −6x + 3y = 24   II: −3x − 2y = −9. Gib die Lösung an.', 2)
+DSX.stufe('addition', 'Löse mit dem Additionsverfahren: I: 6x − 6y = 18   II: 6x − y = −2. Gib die Lösung an.', 2)
+DSX.stufe('addition', 'Löse mit dem Additionsverfahren: I: 5x + 4y = 63   II: −5x − 2y = −49. Gib x an.', 1)
+DSX.stufe('verfahren', 'Welches Verfahren ist für I: 3x + 10y = 5   II: 2x − 5y = −20 am geschicktesten?', 2)
+DSX.stufe('verfahren', 'Welches Verfahren ist für I: 5x + 2y = −9   II: −4x − 2y = 6 am geschicktesten?', 1)
+DSX.stufe('loesbarkeit', 'Ein Gleichungssystem hat keine Lösung. Was bedeutet das für die beiden Geraden?', 2)
+DSX.stufe('loesbarkeit', 'Wie viele Lösungen hat I: −3x − y = 5   II: 5x + 2y = 2?', 2)
+# grafisch: Stufe 2 braucht eigene Gedanken (Umstellen zum Zeichnen, Probe)
+DSX.neu('grafisch', 2, DSX.A(
+    'Du willst I: 2x + y = 7 und II: x − y = −1 zeichnen. Welche Geraden zeichnest du?',
+    'y = −2x + 7 und y = x + 1', ['y = 2x + 7 und y = x − 1', 'y = −2x + 7 und y = −x − 1', 'y = 2x − 7 und y = x + 1'],
+    'I: 2x auf die andere Seite, y = −2x + 7. II: x − y = −1, also y = x + 1.', 'Stelle jede Gleichung nach y um.'))
+DSX.neu('grafisch', 2, DSX.A(
+    'Tim liest am Bild den Schnittpunkt (2 | 3) ab. Das System ist I: x + 2y = 8, II: 3x − y = 4. Was zeigt die Probe?',
+    'I stimmt, II nicht: Tim hat ungenau abgelesen.', ['Beide stimmen: (2 | 3) ist die Lösung.', 'II stimmt, I nicht.', 'Keine Gleichung stimmt.'],
+    'I: 2 + 2 · 3 = 8 ✓. II: 3 · 2 − 3 = 3, nicht 4 ✗. Ein abgelesener Punkt ist nur dann die Lösung, wenn beide Gleichungen stimmen.', 'Setze (2 | 3) in beide Gleichungen ein.'))
+# sachaufgabe: zweimal wiederholte Einkleidung ersetzt
+DSX.ersetze('sachaufgabe', 'Eine Eintrittskarte kostet für Erwachsene 8 €, für Kinder 4,50 €. Eine Gruppe aus 55 Personen zahlt 303,50 €. Wie viele Kinder sind dabei?', DSX.Z(
+    'Ein Rechteck hat den Umfang 30 cm. Es ist doppelt so lang wie breit. Wie lang ist es?', 10, '10',
+    'x = Länge, y = Breite: x = 2y und 2x + 2y = 30. Einsetzen: 4y + 2y = 30, also y = 5 und x = 10. Das Rechteck ist 10 cm lang.',
+    'Eine Gleichung für „doppelt so lang“, eine für den Umfang.', einheit='cm'))
+DSX.ersetze('sachaufgabe', 'Auf einem Hof leben Hühner und Kaninchen, zusammen 37 Tiere mit 110 Beinen. Wie viele Kaninchen sind es?', DSX.Z(
+    'Eine Jugendherberge hat 40 Zimmer, nur Doppel- und Einzelzimmer, mit zusammen 64 Betten. Wie viele Doppelzimmer gibt es?', 24, '64 - 40',
+    'x Doppelzimmer, y Einzelzimmer: x + y = 40 und 2x + y = 64. Subtrahieren: x = 24. Es gibt 24 Doppelzimmer (und 16 Einzelzimmer).',
+    'Eine Gleichung für die Zimmer, eine für die Betten.'))
+DSX.stufen('pruefen', 'S1 und S2 dieselbe Frage „Welches Paar ist die Lösung?“; S3 nur „Ist (a | b) eine Lösung?“',
+           'S1 Lösung auswählen; S2 nur eine Gleichung erfüllt, Kommazahl, „Ist (a | b) Lösung?“ mit Teilantwort; S3 Parameter c, Text → System, (a | 2a), Lösungen zählen')
+DSX.stufen('grafisch', 'S1 und S2 dieselbe Ableseaufgabe', 'S1 ablesen; S2 beide Gleichungen erst umstellen, Umstellen zum Zeichnen, Probe am abgelesenen Punkt, Lösungsanzahl am Bild; S3 Ablesefehler finden, Bruch-Schnittpunkt, System zum Bild, Gerade ohne Lösung')
+DSX.stufen('einsetzen', 'S1–S3 dieselbe Rechnung, nur andere Zahlen', 'S1 y = … einsetzen; S2 erst x = … oder Kommazahl; S3 Sachaufgabe, selbst umstellen, unendlich viele Lösungen, Klammerfehler finden')
+DSX.stufen('gleichsetzen', 'S1–S3 dieselbe Rechnung, nur andere Zahlen', 'S1 zweimal y = …; S2 x = …, Kommazahlen, II erst umstellen; S3 Tarifvergleich, Treffpunkt, keine Lösung, Parameter t')
+DSX.stufen('addition', 'S2 und S3 teils dieselbe Rechnung', 'S1 Gegenzahlen schon da; S2 eine Gleichung multiplizieren; S3 beide multiplizieren, Kommazahlen, Faktor finden, geschickt addieren')
+DSX.stufen('verfahren', 'S3 enthielt eine reine Auswahlfrage', 'S1 Form erkennen; S2 Einsetzen, x = …, Gegenzahlen erst herstellen; S3 begründen, warum ein Verfahren umständlich ist, Faktoren wählen, drei Gleichungen')
+DSX.stufen('loesbarkeit', 'S3 enthielt S2-Aufgaben', 'S1 y = …-Form vergleichen; S2 Vielfache erkennen, Bedeutung am Bild; S3 Parameter, Kästchen, zwei Lösungen ⇒ unendlich viele, drei Gleichungen')
+DSX.stufen('sachaufgabe', 'S2 wiederholte Eintritt- und Hühner-Aufgaben', 'S1 Standard-Einkleidung; S2 Kommabeträge, neue Einkleidungen (Rechteck, Zimmer); S3 Mischung, Alter, Ziffern, Bleistift-Falle')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundidee', ['pruefen', 'grafisch']), ('Lösungsverfahren', ['einsetzen', 'gleichsetzen', 'addition', 'verfahren']),

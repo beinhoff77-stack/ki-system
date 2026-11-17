@@ -835,7 +835,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: −4x − 3y = −15   II: −x + 4y = 20. Welches Zahlenpaar ist die Lösung?"
@@ -856,7 +856,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: −5x + 6y = 16   II: x + y = 10. Welches Zahlenpaar ist die Lösung?"
@@ -877,7 +877,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: 2x − 6y = 20   II: 2x − 3y = 8. Welches Zahlenpaar ist die Lösung?"
@@ -898,7 +898,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: 4x − y = 24   II: 4x − 4y = 24. Welches Zahlenpaar ist die Lösung?"
@@ -919,7 +919,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: −6x − 4y = −38   II: 5x − 6y = 13. Welches Zahlenpaar ist die Lösung?"
@@ -940,7 +940,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: −x − 3y = −2   II: 2x + y = 4. Welches Zahlenpaar ist die Lösung?"
@@ -961,7 +961,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: −4x − 3y = −2   II: −3x − 6y = −24. Ist (6 | −4) eine Lösung?"
@@ -982,7 +982,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: −4x + 5y = −58   II: 6x − 3y = 60. Ist (−6 | 7) eine Lösung?"
@@ -1003,7 +1003,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: −2x − 3y = −4   II: 4x − y = 36. Ist (8 | −4) eine Lösung?"
@@ -1024,7 +1024,7 @@
    "l": "pruefen",
    "t": "pruefen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gegeben: I: x − 2y = −13   II: 5x − y = −11. Ist (6 | −1) eine Lösung?"
@@ -1552,7 +1552,7 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Lies die Lösung des Gleichungssystems I: y = −3x − 1   II: y = −x + 1 am Schnittpunkt ab.",
@@ -1699,7 +1699,7 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Lies die Lösung des Gleichungssystems I: y = −x + 4   II: y = 2x + 4 am Schnittpunkt ab.",
@@ -1748,7 +1748,7 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Lies die Lösung des Gleichungssystems I: −2x + y = 5   II: y = 3x + 5 am Schnittpunkt ab.",
@@ -1797,7 +1797,7 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Lies die Lösung des Gleichungssystems I: y = 3x − 1   II: 2x + y = 4 am Schnittpunkt ab.",
@@ -1938,7 +1938,7 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Lies die Lösung des Gleichungssystems I: −2x + y = −3   II: y = x − 3 am Schnittpunkt ab.",
@@ -1987,7 +1987,7 @@
    "l": "grafisch",
    "t": "grafisch",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Lies die Lösung des Gleichungssystems I: y = x − 2   II: y = −x am Schnittpunkt ab.",
@@ -2897,7 +2897,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: y = x + 2   II: 6x + y = −5. Gib die Lösung an.",
@@ -2921,7 +2921,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: y = −x + 7   II: 4x − 3y = −49. Gib die Lösung an.",
@@ -2945,7 +2945,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: y = 5x + 2   II: x − 2y = 23. Gib die Lösung an.",
@@ -2969,7 +2969,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: y = 5x − 5   II: −4x − 2y = 80. Gib y an."
@@ -2985,7 +2985,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: y = −2x − 9   II: −x − 4y = 57. Gib die Lösung an.",
@@ -3009,7 +3009,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: y = −x + 3   II: −2x + 4y = −6. Gib die Lösung an.",
@@ -3033,7 +3033,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: x = 3y + 6   II: 2x − 5y = 11. Gib die Lösung an.",
@@ -3057,7 +3057,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: y = 5x − 1   II: x + 4y = 59. Gib die Lösung an.",
@@ -3081,7 +3081,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: y = −4x − 7   II: −3x + 2y = −91. Gib die Lösung an.",
@@ -3105,7 +3105,7 @@
    "l": "einsetzen",
    "t": "einsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Einsetzungsverfahren: I: x = −2y − 9   II: x + y = −16. Gib die Lösung an.",
@@ -3570,7 +3570,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = 3x − 4   II: y = −x + 28. Gib y an."
@@ -3586,7 +3586,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −2x + 5   II: y = 5x − 30. Gib die Lösung an.",
@@ -3610,7 +3610,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = x − 8   II: y = 4x + 10. Gib die Lösung an.",
@@ -3634,7 +3634,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −4x − 4   II: y = x − 19. Gib die Lösung an.",
@@ -3658,7 +3658,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −3x − 5   II: y = −4x − 1. Gib x an."
@@ -3674,7 +3674,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −5x + 3   II: y = 2x + 24. Gib die Lösung an.",
@@ -3698,7 +3698,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = x − 6   II: 9x + 3y = −30. Gib die Lösung an.",
@@ -3722,7 +3722,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −2x + 5   II: 6x − 2y = −50. Gib die Lösung an.",
@@ -3746,7 +3746,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −3x + 4   II: 10x − 2y = −40. Gib die Lösung an.",
@@ -3770,7 +3770,7 @@
    "l": "gleichsetzen",
    "t": "gleichsetzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Gleichsetzungsverfahren: I: y = −x + 1   II: −2x + 2y = 18. Gib die Lösung an.",
@@ -4319,7 +4319,7 @@
    "l": "addition",
    "t": "addition",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Löse mit dem Additionsverfahren: I: 5x + 4y = 63   II: −5x − 2y = −49. Gib x an."
@@ -4335,7 +4335,7 @@
    "l": "addition",
    "t": "addition",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Additionsverfahren: I: −4x − 3y = 11   II: −2x + y = −7. Gib die Lösung an.",
@@ -4359,7 +4359,7 @@
    "l": "addition",
    "t": "addition",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Additionsverfahren: I: −6x + 2y = 2   II: 3x + y = −5. Gib die Lösung an.",
@@ -4383,7 +4383,7 @@
    "l": "addition",
    "t": "addition",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Additionsverfahren: I: −6x + 3y = 24   II: −3x − 2y = −9. Gib die Lösung an.",
@@ -4407,7 +4407,7 @@
    "l": "addition",
    "t": "addition",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Löse mit dem Additionsverfahren: I: 6x − 6y = 18   II: 6x − y = −2. Gib die Lösung an.",
@@ -4945,7 +4945,7 @@
    "l": "verfahren",
    "t": "verfahren",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welches Verfahren ist für I: 5x + 2y = −9   II: −4x − 2y = 6 am geschicktesten?"
@@ -5007,7 +5007,7 @@
    "l": "verfahren",
    "t": "verfahren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welches Verfahren ist für I: 3x + 10y = 5   II: 2x − 5y = −20 am geschicktesten?"
@@ -5593,7 +5593,7 @@
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ein Gleichungssystem hat keine Lösung. Was bedeutet das für die beiden Geraden?"
@@ -5614,7 +5614,7 @@
    "l": "loesbarkeit",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Lösungen hat I: −3x − y = 5   II: 5x + 2y = 2?"
@@ -6145,14 +6145,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Auf einem Hof leben Hühner und Kaninchen, zusammen 37 Tiere mit 110 Beinen. Wie viele Kaninchen sind es?"
+    "text": "Eine Jugendherberge hat 40 Zimmer, nur Doppel- und Einzelzimmer, mit zusammen 64 Betten. Wie viele Doppelzimmer gibt es?"
    },
    "o": {
-    "wert": 18
+    "wert": 24
    },
-   "c": "(110 - 2 * 37) / 2",
-   "w": "I: x + y = 37, II: 2x + 4y = 110. II − 2 · I: 2y = 36 → y = 18. Hühner: x = 37 − 18 = 19.",
-   "h": "Hühner haben 2, Kaninchen 4 Beine."
+   "c": "64 - 40",
+   "w": "x Doppelzimmer, y Einzelzimmer: x + y = 40 und 2x + y = 64. Subtrahieren: x = 24. Es gibt 24 Doppelzimmer (und 16 Einzelzimmer).",
+   "h": "Eine Gleichung für die Zimmer, eine für die Betten."
   },
   {
    "l": "sachaufgabe",
@@ -6210,14 +6210,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Eintrittskarte kostet für Erwachsene 8 €, für Kinder 4,50 €. Eine Gruppe aus 55 Personen zahlt 303,50 €. Wie viele Kinder sind dabei?"
+    "text": "Ein Rechteck hat den Umfang 30 cm. Es ist doppelt so lang wie breit. Wie lang ist es?"
    },
    "o": {
-    "wert": 39
+    "wert": 10,
+    "einheit": "cm"
    },
-   "c": "(8 * 55 - (607/2)) / (8 - (9/2))",
-   "w": "I: x + y = 55, II: 8x + 4,50y = 303,50. x = 55 − y einsetzen: 440 − 3,50y = 303,50 → y = 39. Erwachsene: x = 55 − 39 = 16.",
-   "h": "x = Erwachsene, y = Kinder. Eine Gleichung für die Personen, eine für den Preis."
+   "c": "10",
+   "w": "x = Länge, y = Breite: x = 2y und 2x + 2y = 30. Einsetzen: 4y + 2y = 30, also y = 5 und x = 10. Das Rechteck ist 10 cm lang.",
+   "h": "Eine Gleichung für „doppelt so lang“, eine für den Umfang."
   },
   {
    "l": "sachaufgabe",
@@ -6473,6 +6474,48 @@
    "c": "10 * 4 + 7",
    "w": "Zehner a, Einer b: a + b = 11 und (10b + a) − (10a + b) = 27 ⇔ 9b − 9a = 27 ⇔ b − a = 3. Also b = 7, a = 4: Zahl 47 (74 − 47 = 27).",
    "h": "Schreibe die Zahl als 10a + b und die vertauschte als 10b + a."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Du willst I: 2x + y = 7 und II: x − y = −1 zeichnen. Welche Geraden zeichnest du?"
+   },
+   "a": [
+    "y = −2x + 7 und y = −x − 1",
+    "y = −2x + 7 und y = x + 1",
+    "y = 2x − 7 und y = x + 1",
+    "y = 2x + 7 und y = x − 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "I: 2x auf die andere Seite, y = −2x + 7. II: x − y = −1, also y = x + 1.",
+   "h": "Stelle jede Gleichung nach y um."
+  },
+  {
+   "l": "grafisch",
+   "t": "grafisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Tim liest am Bild den Schnittpunkt (2 | 3) ab. Das System ist I: x + 2y = 8, II: 3x − y = 4. Was zeigt die Probe?"
+   },
+   "a": [
+    "Keine Gleichung stimmt.",
+    "II stimmt, I nicht.",
+    "Beide stimmen: (2 | 3) ist die Lösung.",
+    "I stimmt, II nicht: Tim hat ungenau abgelesen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "I: 2 + 2 · 3 = 8 ✓. II: 3 · 2 − 3 = 3, nicht 4 ✗. Ein abgelesener Punkt ist nur dann die Lösung, wenn beide Gleichungen stimmen.",
+   "h": "Setze (2 | 3) in beide Gleichungen ein."
   }
  ],
  "offen": [

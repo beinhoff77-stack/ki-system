@@ -578,7 +578,7 @@ KLAR = {
                                      {'art': 'sin', 'a': 3, 'b': 1, 'c': 0.0, 'd': 0, 'name': '3 sin x'}]}},
                {'text': 'Plus 1 schiebt alles hoch. Die Mittellinie ist y = 1.',
                 'bild': {'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'name': 'sin x', 'name_x': 200},
-                                     {'art': 'sin', 'a': 3, 'b': 1, 'c': 0.0, 'd': 1, 'name': 'f'}], 'waagrecht': [1]}},
+                                     {'art': 'sin', 'a': 3, 'b': 1, 'c': 0.0, 'd': 1, 'name': 'f', 'name_x': 45}], 'waagrecht': [1]}},
                {'text': 'Wertemenge: von 1 − 3 bis 1 + 3, also ⟦[−2; 4]⟧.',
                 'bild': {'punkte': [{'x': 90, 'y': 4, 'name': 'größter: 4'}, {'x': 270, 'y': -2, 'name': 'kleinster: −2'}]}}],
   'fehler': 'Die Wertemenge ist nicht [−3; 3]. Das Wasser schwankt nicht um die Markierung, sondern um eine Mitte ⟦1 höher⟧.',
@@ -604,7 +604,7 @@ KLAR = {
               ['achsensymmetrisch', 'an der y-Achse gespiegelt sieht der Graph gleich aus'],
               ['punktsymmetrisch', 'um (0 | 0) halb gedreht sieht der Graph gleich aus']],
   'bild': {'typ': 'koordinaten', 'x': [-360, 360], 'y': [-1.5, 1.5], 'schritt_y': 0.5, **_GRAD,
-           'graphen': [{'art': 'cos', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'name': 'cos x'}]},
+           'graphen': [{'art': 'cos', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'name': 'cos x', 'name_x': -300}]},
   'schritte': [{'text': 'cos x ist der Abstand der Gondel nach rechts von der Mitte.'},
                {'text': 'Er ist 0, wenn die Gondel genau oben oder unten steht.'},
                {'text': 'Das ist bei 90° und bei 270°: ⟦Nullstellen 90° und 270°⟧.',
@@ -653,7 +653,7 @@ KLAR['parameter']['schritte'].append(
     {'text': 'Im Bogenmaß: größter Wert 4 bei x = π/2, kleinster −2 bei 3π/2.',
      'bild': {'x': [0, _P(2)], **_PI,
               'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'bogen': True, 'name': 'sin x', 'name_x': _P(Fr(10, 9))},
-                          {'art': 'sin', 'a': 3, 'b': 1, 'c': 0.0, 'd': 1, 'bogen': True, 'name': 'f'}],
+                          {'art': 'sin', 'a': 3, 'b': 1, 'c': 0.0, 'd': 1, 'bogen': True, 'name': 'f', 'name_x': _P(Fr(1, 4))}],
               'punkte': [{'x': _P(Fr(1, 2)), 'y': 4, 'name': 'π/2: 4'}, {'x': _P(Fr(3, 2)), 'y': -2, 'name': '3π/2: −2'}]}})
 KLAR['parameter']['fehler_bild'] = {'punkte': [{'x': _P(Fr(1, 2)), 'y': 4, 'name': '4, nicht 3'}, {'x': _P(Fr(3, 2)), 'y': -2, 'name': '−2, nicht −3'}]}
 KLAR['zuordnen']['schritte'].append(
@@ -663,7 +663,7 @@ KLAR['zuordnen']['schritte'].append(
 KLAR['zuordnen']['regel'] = 'Lies Mittellinie, Amplitude und Periode ab. Start auf der Mittellinie: ⟦sin⟧. Start ganz oben: cos. b = 2π : p.'
 KLAR['eigenschaften']['schritte'].append(
     {'text': 'Im Bogenmaß: cos hat Nullstellen bei π/2 und 3π/2, sin bei 0 und π.',
-     'bild': {'x': [_P(-2), _P(2)], **_PI, 'graphen': [{'art': 'cos', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'bogen': True, 'name': 'cos x'}],
+     'bild': {'x': [_P(-2), _P(2)], **_PI, 'graphen': [{'art': 'cos', 'a': 1, 'b': 1, 'c': 0.0, 'd': 0, 'bogen': True, 'name': 'cos x', 'name_x': _P(Fr(-5, 3))}],
               'punkte': [{'x': _P(Fr(-3, 2)), 'y': 0}, {'x': _P(Fr(-1, 2)), 'y': 0}, {'x': _P(Fr(1, 2)), 'y': 0, 'name': 'π/2'}, {'x': _P(Fr(3, 2)), 'y': 0, 'name': '3π/2'}]}})
 KLAR['eigenschaften']['regel'] = 'Nullstellen: sin bei 0, π, 2π; cos bei ⟦π/2, 3π/2⟧ (90°, 270°). Es gilt cos x = sin(x + π/2).'
 KLAR['anwendung']['schritte'].append({'text': 'Im Bogenmaß: 30° = π/6, also h(t) = 20 − 18 · cos(π/6 · t).'})

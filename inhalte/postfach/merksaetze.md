@@ -3,6 +3,9 @@
 Neueste Meldung oben.
 
 ## 2026-11-17 02:31 – STATUS
+funktionen.trig fertig: parameter – Graphname „f“ in Schritt 3 (name_x 45°) und Schritt 5 (π/4) versetzt (überdeckte „kleinster: −2“); eigenschaften – „cos x“ im Kartenbild (name_x −300°) und Schritt 5 (−5π/3) versetzt (überdeckte „270°“ bzw. „3π/2“, 0,09 Einheiten). Aufgaben 294 von 294 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
+
+## 2026-11-17 02:31 – STATUS
 funktionen.quadratisch fertig: umformen/fehler_bild – „richtig“ (name_x 6,3) und „falsch“ (name_x 4,5) auseinander gesetzt (lagen 0,24 Einheiten übereinander). Aufgaben 238 von 238 unverändert; inhalt_pruefen OK ohne Hinweise; Nachweis OK.
 
 ## 2026-11-17 02:31 – STATUS

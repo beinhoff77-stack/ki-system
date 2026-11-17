@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Thema funktionen.betrag – Betragsfunktion (IB MYP 4, etwa Klasse 9)."""
+import math
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _ib import *  # noqa: E402,F403
+from _rsib2 import PLAN2, art3  # noqa: E402
 
 start(7504)
 
@@ -26,8 +28,12 @@ def bterm(a, d, e):
 
 def bgraph(a, d, e, x=(-6, 6), name=None, y=None):
     lo, hi = x
-    g = [{'art': 'linear', 'm': -a, 't': a * d + e, 'bereich': [lo, d]}, {'art': 'linear', 'm': a, 't': -a * d + e, 'bereich': [d, hi]}]
-    if name: g[1]['name'] = name
+    # Durchsicht 19: eigene Graph-Art „betrag“ (seit 15.11.) statt zwei Geradenstücken
+    g = [{'art': 'betrag', 'a': int(a) if a == int(a) else float(a), 'b': d, 'c': e}]
+    if name: g[0]['name'] = name
+    if y is None:
+        ws = [a * abs(t - d) + e for t in (lo, hi)] + [e]
+        y = (math.floor(min(ws)) - 1, math.ceil(max(ws)) + 1)
     return koord(g, x=x, y=y, punkte=[{'x': d, 'y': e, 'name': 'S'}] if name is None else None)
 
 
@@ -115,6 +121,7 @@ def g_graph(s):
                                   f'Die Spitze des V liegt bei ({dz(d)} | {dz(e)}). Also f(x) = {bterm(a, d, e)}.',
                                   'Der Knickpunkt ist die Spitze des V.', c=[str(d), str(e)]), bgraph(a, d, e, x=(-7, 7), name='f'))
     if art == 'steigung':
+        if d == 0: return None  # Durchsicht 19: sonst „x + 0“ im Lösungsweg
         if a == Fr(1, 2): a = 2
         x = d + R.randint(1, 4)
         return zahl(f'f(x) = {bterm(a, d, e)}. Welche Steigung hat der Graph rechts vom Knick (für x > {dz(d)})?',
@@ -175,7 +182,7 @@ def g_stueckweise(s):
 def g_gleichung(s):
     d = R.randint(-8, 8)
     c = R.randint(1, 9)
-    art = R.choice({1: ['zwei', 'zwei'], 2: ['zwei', 'keine', 'faktor'], 3: ['ungleich', 'sach', 'faktor', 'keine']}[s])
+    art = R.choice({1: ['zwei', 'zwei'], 2: ['keine', 'faktor', 'faktor'], 3: ['ungleich', 'sach', 'faktor', 'keine']}[s])  # Durchsicht 19: Stufe 2 ohne die Grundform
     if art == 'zwei':
         return luecken(f'Löse |{inn(d)}| = {c} (kleinere Lösung zuerst).' if d else f'Löse |x| = {c} (kleinere Lösung zuerst).', 'x₁ = □; x₂ = □', 'zwei ganze Zahlen',
                        [d - c, d + c], f'Abstand {c} von {dz(d)}: x = {dz(d)} − {c} = {dz(d - c)} oder x = {dz(d)} + {c} = {dz(d + c)}.',
@@ -190,6 +197,7 @@ def g_gleichung(s):
     if art == 'faktor':
         k = R.choice([2, 3, 4])
         e = R.randint(-5, 5)
+        if e == 0: return None  # Durchsicht 19: kein „+ 0“ im Aufgabentext
         return luecken(f'Löse {k} · |{inn(d)}| {plus(e)} = {k * c + e} (kleinere Lösung zuerst).', 'x₁ = □; x₂ = □', 'zwei ganze Zahlen',
                        [d - c, d + c], f'{k} · |{inn(d)}| = {k * c + e} {plus(-e)} = {k * c} ⇒ |{inn(d)}| = {c} ⇒ x = {dz(d - c)} oder x = {dz(d + c)}.',
                        'Stelle zuerst nach dem Betrag um, dann zwei Fälle.', c=[str(d - c), str(d + c)])
@@ -237,7 +245,211 @@ def g_verstehen(s):
                    'Für x ≥ 0 bleibt x beim Betrag unverändert. Für negative x ist |x| = −x > x.', 'Teste eine positive, eine negative Zahl und 0.')
 
 
-GEN = {'betrag': g_betrag, 'graph': g_graph, 'stueckweise': g_stueckweise, 'gleichung': g_gleichung, 'verstehen': g_verstehen}
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
+# Prüfungsvorbilder: IB MYP Extended (Transformationen: Parameter aus einem Punkt, Graph ↔ Term; Toleranz |x − Soll| ≤ t;
+# Betragsungleichungen), Realschule Bayern Abschlussprüfung Teil A (Größenvergleich, Term mit Betrag). Eigene Zahlen.
+def betrag3(art):
+    if art == 'ordnen':
+        a, b, c, d = R.randint(2, 9), R.randint(2, 9), R.randint(1, 6), R.randint(7, 15)
+        werte = {f'|−{a}|': a, f'−|−{b}|': -b, f'|{c} − {d}|': d - c, f'−|{c}|': -c}
+        if len(set(werte.values())) < 4: return None
+        klein = min(werte, key=werte.get)
+        return auswahl(f'Welcher Ausdruck hat den kleinsten Wert: |−{a}|, −|−{b}|, |{c} − {d}| oder −|{c}|?', klein, [k for k in werte if k != klein],
+                       'Werte: ' + ', '.join(f'{k} = {dz(v)}' for k, v in werte.items()) + f'. Am kleinsten: {klein}.',
+                       'Ein Minus vor den Betragsstrichen wirkt erst nach dem Betrag.')
+    if art == 'verschachtelt':
+        a, b = R.randint(1, 9), R.randint(-15, -2)
+        r = abs(a - abs(b))
+        if a == abs(b): return None
+        return zahl(f'Berechne |{a} − |{dz(b)}||.', f'Innen zuerst: |{dz(b)}| = {abs(b)}. Dann {a} − {abs(b)} = {dz(a - abs(b))}. Betrag: {r}.',
+                    'Von innen nach außen: erst der innere Betrag, dann rechnen, dann der äußere Betrag.', r, f'abs({a} - abs({b}))')
+    if art == 'anzahl_ganz':
+        d, c = R.randint(-5, 5), R.randint(2, 6)
+        echt = R.random() < .5
+        n = 2 * c - 1 if echt else 2 * c + 1
+        return zahl(f'Wie viele ganze Zahlen x erfüllen |{inn(d)}| {"<" if echt else "≤"} {c}?' if d else f'Wie viele ganze Zahlen x erfüllen |x| {"<" if echt else "≤"} {c}?',
+                    f'Gesucht sind ganze Zahlen mit Abstand {"kleiner als" if echt else "höchstens"} {c} von {dz(d)}: von {dz(d - c + (1 if echt else 0))} bis {dz(d + c - (1 if echt else 0))}, das sind {n} Zahlen.',
+                    f'Zeichne einen Zahlenstrahl um {dz(d)} und zähle die ganzen Zahlen in passendem Abstand.', n, f'{n}')
+    # abstand_umkehr
+    a, k = R.randint(-9, 9), R.randint(2, 9)
+    if a == 0: return None
+    rechts = R.random() < .5
+    x = a + k if rechts else a - k
+    return zahl(f'Eine Zahl x liegt {"rechts" if rechts else "links"} von {dz(a)} auf dem Zahlenstrahl. Es gilt |x − {kl(a)}| = {k}. Welche Zahl ist x?',
+                f'Abstand {k} von {dz(a)} nach {"rechts" if rechts else "links"}: x = {dz(a)} {"+" if rechts else "−"} {k} = {dz(x)}.',
+                '|x − a| ist der Abstand von x und a. Gehe auf dem Zahlenstrahl in die richtige Richtung.', x, f'{a} {"+" if rechts else "-"} {k}')
+
+
+def graph3(art):
+    if art == 'a_bestimmen':
+        a, d, e = R.choice([2, 3, -1, -2, Fr(1, 2)]), R.randint(-3, 3), R.randint(-4, 4)
+        x = d + R.choice([-4, -2, 2, 4])
+        y = a * abs(x - d) + e
+        if y != int(y): return None
+        return zahl(f'Der Graph von f(x) = a · |{inn(d)}| {plus(e) if e else ""} geht durch den Punkt P({dz(x)} | {dz(int(y))}). Bestimme a.'.replace('  ', ' '),
+                    f'Einsetzen: {dz(int(y))} = a · |{dz(x)} {plus(-d) if d else ""}| {plus(e) if e else ""} = a · {abs(x - d)} {plus(e) if e else ""}. '.replace('  ', ' ') + f'Also a · {abs(x - d)} = {dz(int(y) - e)} und a = {dz(a)}.'.replace(' .', '.'),
+                    'Setze die Koordinaten von P ein und löse nach a auf.', a, f'({int(y)} - ({e})) / abs({x} - ({d}))')
+    if art == 'schnitt_waagrecht':
+        a, d, e = R.choice([1, -1]), R.randint(-3, 3), R.randint(-3, 3)
+        k = e + R.choice([-2, -1, 0, 1, 2])
+        n = 1 if k == e else (2 if (k > e) == (a > 0) else 0)
+        return auswahl(f'Wie viele Schnittpunkte hat der Graph von f(x) = {bterm(a, d, e)} mit der waagrechten Geraden y = {dz(k)}?', {0: 'keinen', 1: 'genau einen', 2: 'genau zwei'}[n],
+                       ['keinen', 'genau einen', 'genau zwei', 'unendlich viele'],
+                       f'Das V hat die Spitze S({dz(d)} | {dz(e)}) und ist nach {"oben" if a > 0 else "unten"} geöffnet. '
+                       + ('Die Gerade geht genau durch die Spitze: ein Schnittpunkt.' if n == 1 else 'Die Gerade liegt im Inneren des V: zwei Schnittpunkte.' if n == 2 else 'Die Gerade verfehlt das V: kein Schnittpunkt.'),
+                       'Skizziere das V und die waagrechte Gerade.')
+    if art == 'wertebereich':
+        a, d, e = R.choice([1, 2, -1, -2]), R.randint(-4, 4), R.randint(-5, 5)
+        r = f'alle y {"≥" if a > 0 else "≤"} {dz(e)}'
+        return auswahl(f'Welche y-Werte nimmt f(x) = {bterm(a, d, e)} an?', r,
+                       [f'alle y {"≤" if a > 0 else "≥"} {dz(e)}', f'alle y {"≥" if a > 0 else "≤"} {dz(d)}', 'alle Zahlen'],
+                       f'Der Betrag ist nie negativ. {"Mit a > 0 ist der tiefste Punkt" if a > 0 else "Mit a < 0 ist der höchste Punkt"} die Spitze S({dz(d)} | {dz(e)}).',
+                       'Wo liegt die Spitze des V, und wohin ist es geöffnet?')
+    return None
+
+
+def stueck3(art):
+    if art == 'beide_stuecke':
+        k, d = R.choice([2, 3]), R.randint(-4, 4)
+        if d == 0: return None
+        return luecken(f'Schreibe f(x) = |{k}x {plus(-k * d)}| stückweise. Gib die Grenze und den Term links davon an.', 'Grenze x = □; links: f(x) = □x + □', 'drei ganze Zahlen',
+                       [d, -k, k * d], f'Grenze: {k}x {plus(-k * d)} = 0 ⇒ x = {dz(d)}. Links ist der Inhalt negativ: f(x) = −({k}x {plus(-k * d)}) = {poly(-k, k * d)}.',
+                       'Grenze: Inhalt = 0. Links vom Knick wird die ganze Klammer negiert.', c=[str(d), str(-k), str(k * d)])
+    if art == 'rueck_betrag':
+        a, d, e = R.choice([1, 2, 3]), R.randint(-3, 3), R.randint(-4, 4)
+        return luecken(f'Für x < {dz(d)} gilt f(x) = {poly(-a, a * d + e)}, für x ≥ {dz(d)} gilt f(x) = {poly(a, -a * d + e)}. Schreibe f mit einem Betrag.',
+                       'f(x) = □ · |x − □| + □', 'drei ganze Zahlen', [a, d, e],
+                       f'Die Stücke treffen sich bei x = {dz(d)} mit f({dz(d)}) = {dz(e)}: Knickpunkt ({dz(d)} | {dz(e)}). Steigung rechts {a}: f(x) = {bterm(a, d, e)}.',
+                       'Wo treffen sich die beiden Stücke? Welche Steigung hat das rechte Stück?', c=[str(a), str(d), str(e)])
+    # zwei_betraege
+    p = R.randint(2, 9)
+    x = R.randint(1, p - 1)
+    return zahl(f'f(x) = |x| + |x − {p}|. Für alle x zwischen 0 und {p} hat f denselben Wert. Welchen?',
+                f'Für 0 ≤ x ≤ {p} ist |x| = x und |x − {p}| = {p} − x. Zusammen: x + {p} − x = {p}. Probe x = {x}: {x} + {p - x} = {p}.',
+                'Schreibe beide Beträge für x zwischen 0 und ' + str(p) + ' ohne Striche.', p, f'abs({x}) + abs({x} - {p})')
+
+
+def gleichung3(art):
+    if art == 'toleranz':
+        ding, soll, tol, e = R.choice([('Schrauben sollen', 40, 1, 'mm'), ('Ein Brötchen soll', 60, 3, 'g'), ('Im Kühlschrank sollen', 5, 2, '°C'),
+                                       ('Flaschen sollen', 500, 5, 'ml'), ('Pakete sollen', 2000, 50, 'g'), ('Bretter sollen', 120, 2, 'cm')])
+        x = soll + R.choice([-1, 1]) * (tol + R.randint(1, 3))
+        return luecken(f'{ding} {soll} {e} haben. Erlaubt ist |x − {soll}| ≤ {tol}. Ein Stück hat {x} {e}. Welche Grenze wird verletzt, und um wie viel?',
+                    f'Grenze □ {e}; daneben um □ {e}', 'zwei ganze Zahlen',
+                    [soll + tol if x > soll else soll - tol, abs(x - soll) - tol],
+                    f'Erlaubt von {soll - tol} bis {soll + tol} {e}. {x} liegt {"über" if x > soll else "unter"} der Grenze {soll + tol if x > soll else soll - tol}, um {abs(x - soll) - tol} {e}.',
+                       'Bestimme zuerst die beiden Grenzen: Sollwert minus und plus Toleranz.', c=[str(soll + tol if x > soll else soll - tol), str(abs(x - soll) - tol)])
+    if art == 'groesser':
+        d, c = R.randint(-6, 6), R.randint(1, 7)
+        return luecken(f'Für welche x gilt |{inn(d)}| > {c}?' if d else f'Für welche x gilt |x| > {c}?', 'x < □ oder x > □', 'zwei ganze Zahlen', [d - c, d + c],
+                       f'Abstand größer als {c} von {dz(d)}: links von {dz(d - c)} oder rechts von {dz(d + c)}.',
+                       f'Zeichne {dz(d)} und die Zahlen im Abstand {c}. Wo ist der Abstand größer?', c=[str(d - c), str(d + c)])
+    if art == 'mitte':
+        p, q = sorted(R.sample(range(-8, 12), 2))
+        if (p + q) % 2 or 0 in (p, q): return None
+        return zahl(f'Löse |x − {kl(p)}| = |x − {kl(q)}|.', f'Gesucht ist die Zahl, die von {dz(p)} und {dz(q)} gleich weit entfernt ist: die Mitte ({dz(p)} + {dz(q)}) : 2 = {dz((p + q) // 2)}.',
+                    'Beide Seiten sind Abstände. Welche Zahl ist von beiden Zahlen gleich weit weg?', (p + q) // 2, f'({p} + {q}) / 2')
+    # param
+    d = R.randint(-6, 6)
+    r = 'c = 0'
+    return auswahl(f'Für welchen Wert von c hat |{inn(d)}| = c genau eine Lösung?' if d else 'Für welchen Wert von c hat |x| = c genau eine Lösung?', r,
+                   ['für jedes c > 0', 'für jedes c < 0', f'c = {dz(d)}' if d else 'c = 1'],
+                   f'c > 0: zwei Lösungen, c < 0: keine. Nur bei c = 0 gibt es genau eine: x = {dz(d)}.',
+                   'Wie viele Zahlen haben einen bestimmten Abstand zu einer Zahl – und wann nur eine?')
+
+
+def verstehen3(art):
+    if art == 'immer_wahr':
+        return auswahl('Welche Aussage gilt für alle Zahlen a?', '|a| ≥ a', ['|a| = a', '|a| > 0', '−|a| ≥ 0'],
+                       '|a| = a für a ≥ 0 und |a| > a für a < 0, also immer |a| ≥ a. |a| > 0 scheitert an a = 0; |a| = a an a = −1; −|a| ≥ 0 an a = 1.',
+                       'Prüfe jede Aussage mit einer positiven Zahl, einer negativen Zahl und 0.')
+    if art == 'gegenbeispiel':
+        k = R.randint(2, 9)
+        cand = [k + 2, k, k + 7, k - R.randint(1, 4)]
+        r = str(cand[3])
+        return auswahl(f'Welche Zahl a ist ein Gegenbeispiel zur Behauptung „|a − {k}| = a − {k} für alle a“?', f'a = {r}', [f'a = {cand[0]}', f'a = {cand[1]}', f'a = {cand[2]}'],
+                       f'Für a ≥ {k} stimmt die Gleichung. Für a = {r}: |{r} − {k}| = {dz(k - int(r))}, aber {r} − {k} = {dz(int(r) - k)}.',
+                       'Für welche a ist der Inhalt negativ?')
+    if art == 'minus_a':
+        return auswahl('Für welche Zahlen a gilt |a| = −a?', 'für alle a ≤ 0', ['für keine Zahl', 'nur für a = 0', 'für alle a ≥ 0'],
+                       'Für a < 0 ist −a positiv und gleich |a|, z. B. |−3| = 3 = −(−3). Für a = 0 stimmt es auch. Für a > 0 wäre −a negativ.',
+                       'Setze a = −3, a = 0 und a = 3 ein.')
+    return None
+
+
+def g2_betrag(s):
+    if s == 1:
+        if R.random() < .3:  # „Was ist größer?“ war Stufe 3, ist aber ein direkter Vergleich
+            return _vergleich()
+        return g_betrag(1)
+    if s == 2:
+        for _ in range(50):
+            a = g_betrag(R.choice([2, 3]))
+            if a and 'größer' not in a['f']['text']: return a
+        return None
+    return betrag3(art3('ordnen', 'verschachtelt', 'anzahl_ganz', ['ordnen', 'verschachtelt', 'anzahl_ganz', 'abstand_umkehr']))
+
+
+def _vergleich():
+    x, y = R.sample(range(-12, 13), 2)
+    if abs(x) == abs(y): return None
+    r = f'|{dz(x)}|' if abs(x) > abs(y) else f'|{dz(y)}|'
+    return auswahl(f'Was ist größer: |{dz(x)}| oder |{dz(y)}|?', r, [f'|{dz(x)}|', f'|{dz(y)}|', 'Beide sind gleich'],
+                   f'|{dz(x)}| = {abs(x)}, |{dz(y)}| = {abs(y)}.', 'Vergleiche die Abstände von 0, nicht die Zahlen selbst.')
+
+
+def g2_graph(s):
+    if s < 3: return g_graph(s)
+    art = art3('welcher', 'a_bestimmen', 'schnitt_waagrecht', ['welcher', 'a_bestimmen', 'schnitt_waagrecht', 'steigung', 'wertebereich'])
+    if art in ('welcher', 'steigung'):
+        for _ in range(80):
+            a = g_graph(3)
+            if a and (('Welcher Funktionsterm' in a['f']['text']) == (art == 'welcher')) and ('Steigung' in a['f']['text'] or art == 'welcher'): return a
+        return None
+    return graph3(art)
+
+
+def g2_stueckweise(s):
+    if s == 1: return g_stueckweise(1)
+    if s == 2:  # Stufe 2: mit Faktor/Verschiebung, Grenze, Wert aus stückweiser Darstellung (vorher Stufe 3)
+        for _ in range(50):
+            a = g_stueckweise(R.choice([2, 3]))
+            if a and 'Tim' not in a['f']['text']: return a
+        return None
+    art = art3('beide_stuecke', 'rueck_betrag', 'zwei_betraege', ['beide_stuecke', 'rueck_betrag', 'zwei_betraege', 'tim'])
+    if art == 'tim':
+        for _ in range(80):
+            a = g_stueckweise(3)
+            if a and 'Tim' in a['f']['text']: return a
+        return None
+    return stueck3(art)
+
+
+def g2_gleichung(s):
+    if s < 3: return g_gleichung(s)
+    art = art3('toleranz', 'ungleich', 'mitte', ['toleranz', 'ungleich', 'mitte', 'groesser', 'param'])
+    if art == 'ungleich':
+        for _ in range(80):
+            a = g_gleichung(3)
+            if a and '≤' in a['f']['text'] and 'Maschine' not in a['f']['text']: return a
+        return None
+    return gleichung3(art)
+
+
+def g2_verstehen(s):
+    if s == 1: return g_verstehen(1)
+    if s == 2:  # Stufe 2: Summenregel testen, unvollständige Lösung finden (vorher auch Stufe 3)
+        return g_verstehen(2)
+    art = art3('immer_wahr', 'gegenbeispiel', 'minus_a', ['gegenbeispiel', 'produkt', 'immer', 'produkt', 'gegenbeispiel'])
+    if art in ('produkt', 'immer'):
+        for _ in range(80):
+            a = g_verstehen(3)
+            if a and (('a · b' in a['f']['text']) == (art == 'produkt')) and ('|x| = x' in a['f']['text'] or art == 'produkt'): return a
+        return None
+    return verstehen3(art)
+
+
+GEN = {'betrag': g2_betrag, 'graph': g2_graph, 'stueckweise': g2_stueckweise, 'gleichung': g2_gleichung, 'verstehen': g2_verstehen}
 
 # ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
 # Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
@@ -290,7 +502,7 @@ UMBAU = {
         'bild': ko([-4, 6], [-4, 6], schritt=0, graphen=[_b(1, 0, 0, '|x|')]),
         'schritte': [
             {'text': 'f(x) = |x| ist ein V mit Spitze in (0 | 0).'},
-            {'text': 'In 2 · |x − 1| − 3: 1 nach rechts, 3 nach unten.', 'bild': {'graphen': [_b(1, 0, 0, '|x|'), _b(2, 1, -3, 'f')]}},
+            {'text': 'In 2 · |x − 1| − 3: 1 nach rechts, 3 nach unten.', 'bild': {'graphen': [dict(_b(1, 0, 0, '|x|'), name_x=-3), _b(2, 1, -3, 'f')]}},
             {'text': 'Knickpunkt ⟦S(1 | −3)⟧. Der Faktor 2 macht das V steiler.', 'bild': {'punkte': pkte({'S': (1, -3)})}},
         ],
         'fehler': 'Bei |x − 1| liegt der Knick nicht bei x = −1. Er liegt, wo ⟦innen 0⟧ herauskommt: x = 1.',
@@ -321,6 +533,8 @@ UMBAU = {
             {'text': 'Nach links: x = 4 − 3 = ⟦1⟧.', 'bild': {'punkte': _pk((4, '4'), (1, 'x₁')), 'boegen': [{'von': 4, 'bis': 1, 'name': '3'}]}},
             {'text': 'Nach rechts: x = 4 + 3 = ⟦7⟧.',
              'bild': {'punkte': _pk((4, '4'), (1, 'x₁'), (7, 'x₂')), 'boegen': [{'von': 4, 'bis': 1, 'name': '3'}, {'von': 4, 'bis': 7, 'name': '3'}]}},
+            {'text': 'Ist rechts 0, gibt es nur x = 4. Ist rechts etwas Negatives, keine.',
+             'bild': {'punkte': _pk((4, '4')), 'boegen': None}},
         ],
         'fehler': 'Nur x = 7 ist unvollständig. Es gibt ⟦zwei Zahlen⟧ mit Abstand 3 von 4, auch x = 1.',
         'fehler_bild': {'punkte': _pk((4, '4'), (1, 'fehlt'), (7, 'x = 7')), 'boegen': [{'von': 4, 'bis': 7, 'name': '3'}]},
@@ -355,6 +569,6 @@ d = bauen('funktionen.betrag',
        '|x − d| = c: zwei Lösungen d ± c (c > 0), keine für c < 0.'],
       [('Betrag und Graph', ['betrag', 'graph']), ('Ohne Betrag schreiben', ['stueckweise']), ('Gleichungen und Aussagen', ['gleichung', 'verstehen'])],
       ETAPPEN, GEN,
-      offen=['Der Betragsgraph wird aus zwei Geradenstücken gezeichnet (Graphart „linear“ mit Bereich). Eine eigene Graphart „betrag“ wäre bequemer, ist aber nicht nötig.',
-             'Lehrplan-Feld leer: Umfang nach Themenliste (Graph, stückweise Beschreibung) plus einfache Betragsgleichungen und eine Betragsungleichung als Anwendung (Toleranzbereich). Annahme MYP 4.'])
+      offen=['Lehrplan-Feld leer: Umfang nach Themenliste (Graph, stückweise Beschreibung) plus einfache Betragsgleichungen und eine Betragsungleichung als Anwendung (Toleranzbereich). Annahme MYP 4.'],
+      plan=PLAN2)
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)

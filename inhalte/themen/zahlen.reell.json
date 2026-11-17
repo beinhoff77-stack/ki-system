@@ -21,7 +21,8 @@
     "titel": "Reelle Zahlen",
     "lernziele": [
      "zahlarten",
-     "eingrenzen"
+     "eingrenzen",
+     "heron"
     ]
    },
    {
@@ -197,6 +198,118 @@
     }
    },
    {
+    "lernziel": "heron",
+    "titel": "Wurzeln mit dem Heron-Verfahren",
+    "einstieg": "Ein quadratisches Beet soll 10 m² groß sein. Wie lang ist eine Seite? Du startest mit einem Rechteck und machst es Schritt für Schritt quadratischer: das ⟦Heron-Verfahren⟧.",
+    "woerter": [
+     [
+      "Heron-Verfahren",
+      "Rechenweg, der eine Wurzel Schritt für Schritt genauer annähert"
+     ],
+     [
+      "Startwert",
+      "die erste Schätzung für die Seite, z. B. 3 m"
+     ],
+     [
+      "Mittelwert",
+      "(x + y) : 2, die Zahl genau in der Mitte zwischen x und y"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Schritt",
+      "Seite x",
+      "10 : x",
+      "Mittelwert"
+     ],
+     "zeilen": [
+      [
+       "0",
+       "3",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Startwert 3 m: Die andere Seite ist 10 : 3 ≈ 3,333 m.",
+      "bild": {
+       "zeilen": [
+        [
+         "0",
+         "3",
+         "3,333",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Mittelwert: (3 + 3,333) : 2 ≈ 3,167. Das ist die neue Seite.",
+      "bild": {
+       "zeilen": [
+        [
+         "0",
+         "3",
+         "3,333",
+         "3,167"
+        ],
+        [
+         "1",
+         "3,167",
+         "?",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Wiederholen: 10 : 3,167 ≈ 3,158, Mittelwert ⟦≈ 3,16⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "0",
+         "3",
+         "3,333",
+         "3,167"
+        ],
+        [
+         "1",
+         "3,167",
+         "3,158",
+         "3,16"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Probe: 3,16² ≈ 9,99. Die Seite ist also etwa ⟦3,16 m⟧ lang."
+     }
+    ],
+    "fehler": "Nicht 10 : 2 = 5 rechnen. Halbieren ist kein Wurzelziehen. Ein Beet mit 5 m Seite hätte 25 m², nicht 10 m².",
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Seite",
+      "Fläche"
+     ],
+     "zeilen": [
+      [
+       "5 m",
+       "25 m², zu groß"
+      ],
+      [
+       "3,16 m",
+       "≈ 10 m²"
+      ]
+     ]
+    },
+    "regel": "Neue Seite = Mittelwert aus x und a : x. Wiederhole, bis sich die Ziffern nicht mehr ändern.",
+    "probe": "3,162² ≈ 9,998, also fast genau 10."
+   },
+   {
     "lernziel": "wurzel_mal",
     "titel": "Wurzeln multiplizieren und dividieren",
     "regel": "Beim ⟦Malnehmen⟧ und Teilen darfst du Wurzeln zusammenziehen. √a · √b = √(a · b), √a : √b = √(a : b). Bei Plus nicht.",
@@ -234,6 +347,33 @@
          "_A",
          ""
         ]
+       ]
+      }
+     },
+     {
+      "text": "Achtung bei negativen Zahlen: √((−3)²) = √9 = 3. Also ⟦√(a²) = |a|⟧.",
+      "bild": {
+       "typ": "zahlenstrahl",
+       "start": -4,
+       "ende": 4,
+       "abschnitte": 8,
+       "beschriftet": "anfang_ende",
+       "punkte": [
+        {
+         "wert": -3,
+         "name": "−3"
+        },
+        {
+         "wert": 3,
+         "name": "√9 = 3"
+        }
+       ],
+       "boegen": [
+        {
+         "von": -3,
+         "bis": 0,
+         "name": "|−3|"
+        }
        ]
       }
      }
@@ -637,6 +777,13 @@
     ]
    },
    {
+    "k": "heron",
+    "text": "Wurzeln mit dem Heron-Verfahren",
+    "lernziele": [
+     "heron"
+    ]
+   },
+   {
     "k": "wurzel_mal",
     "text": "Wurzeln multiplizieren und dividieren",
     "lernziele": [
@@ -669,6 +816,7 @@
    "lernziele_pflicht": [
     "zahlarten",
     "eingrenzen",
+    "heron",
     "wurzel_mal",
     "teilweise",
     "zusammenfassen",
@@ -4987,6 +5135,720 @@
    "c": [
     "15 // 5",
     "5"
+   ]
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Heron-Verfahren für √7 mit dem Startwert 2: Wie lang ist die andere Rechteckseite 7 : 2?"
+   },
+   "o": {
+    "wert": 3.5
+   },
+   "c": "7 / 2",
+   "w": "Das Rechteck hat die Fläche 7 und eine Seite 2. Die andere Seite ist 7 : 2 = 3,5.",
+   "h": "Fläche durch bekannte Seite."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Heron-Verfahren für √7: Startwert 2, andere Seite 3,5. Wie groß ist der neue Wert, der Mittelwert der beiden Seiten?"
+   },
+   "o": {
+    "wert": 2.75
+   },
+   "c": "(2 + 7 / 2) / 2",
+   "w": "Mittelwert: (2 + 3,5) : 2 = 2,75.",
+   "h": "Mittelwert = (x + y) : 2."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne für √20 mit dem Startwert 4 den ersten Schritt des Heron-Verfahrens."
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "(4 + 20 / 4) / 2",
+   "w": "Andere Seite 20 : 4 = 5. Mittelwert (4 + 5) : 2 = 4,5.",
+   "h": "Erst 20 : 4, dann der Mittelwert."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne für √13 mit dem Startwert 3 den ersten Schritt des Heron-Verfahrens. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.67,
+    "toleranz": 0.01
+   },
+   "c": "round(3.666666666667, 2)",
+   "w": "Andere Seite 13 : 3 ≈ 4,333. Mittelwert (3 + 4,333) : 2 ≈ 3,67.",
+   "h": "Erst 13 : 3, dann der Mittelwert."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne für √5 mit dem Startwert 2 zwei Schritte des Heron-Verfahrens. Gib x₂ auf drei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 2.236,
+    "toleranz": 0.001
+   },
+   "c": "round(2.236111111111, 3)",
+   "w": "x₁ = (2 + 5 : 2) : 2 = 2,25. x₂ = (x₁ + 5 : x₁) : 2 ≈ 2,236.",
+   "h": "Mit dem Ergebnis des ersten Schritts rechnest du genauso weiter."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne für √30 mit dem Startwert 5 zwei Schritte des Heron-Verfahrens. Gib x₂ auf drei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 5.477,
+    "toleranz": 0.001
+   },
+   "c": "round(5.477272727273, 3)",
+   "w": "x₁ = (5 + 30 : 5) : 2 = 5,5. x₂ = (x₁ + 30 : x₁) : 2 ≈ 5,477.",
+   "h": "Mit dem Ergebnis des ersten Schritts rechnest du genauso weiter."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne für √2 mit dem Startwert 1 zwei Schritte des Heron-Verfahrens. Gib x₂ auf drei Nachkommastellen an."
+   },
+   "o": {
+    "wert": 1.417,
+    "toleranz": 0.001
+   },
+   "c": "round(1.416666666667, 3)",
+   "w": "x₁ = (1 + 2 : 1) : 2 = 1,5. x₂ = (x₁ + 2 : x₁) : 2 ≈ 1,417.",
+   "h": "Mit dem Ergebnis des ersten Schritts rechnest du genauso weiter."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt einen Schritt des Heron-Verfahrens für √40. Welcher Wert gehört in das Feld „?“? Runde auf zwei Nachkommastellen.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Seite x",
+      "40 : x",
+      "Mittelwert"
+     ],
+     "zeilen": [
+      [
+       "6",
+       "6,67",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6.33,
+    "toleranz": 0.01
+   },
+   "c": "round(6.333333333333, 2)",
+   "w": "Mittelwert aus 6 und 40 : 6 ≈ 6,667: (6 + 6,667) : 2 ≈ 6,33.",
+   "h": "In die letzte Spalte gehört der Mittelwert."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Startwert liegt am nächsten an √50?"
+   },
+   "a": [
+    "5",
+    "25 (die Hälfte von 50)",
+    "10",
+    "7"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "7 · 7 = 49 liegt sehr nah an 50. 5 · 5 = 25 und 10 · 10 = 100 sind weit weg; die Hälfte von 50 hat mit der Wurzel nichts zu tun.",
+   "h": "Welche Zahl mal sich selbst ergibt fast 50?"
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Fenster soll 11 dm² groß sein. Berechne die Seite mit einem Heron-Schritt, Startwert 3 dm. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.33,
+    "einheit": "dm",
+    "toleranz": 0.01
+   },
+   "c": "round(3.333333333333, 2)",
+   "w": "Andere Seite 11 : 3 ≈ 3,667 dm. Mittelwert (3 + 3,667) : 2 ≈ 3,33 dm.",
+   "h": "Fläche : Startwert, dann Mittelwert."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme √17 mit dem Heron-Verfahren. Starte mit 4 und rechne zwei Schritte. Gib x₂ auf vier Nachkommastellen an."
+   },
+   "o": {
+    "wert": 4.1231,
+    "toleranz": 0.0001
+   },
+   "c": "round(4.123106060606, 4)",
+   "w": "x₁ = (4 + 17 : 4) : 2 = (4 + 4,25) : 2 = 4,125. x₂ = (4,125 + 17 : 4,125) : 2 ≈ (4,125 + 4,1212) : 2 ≈ 4,1231.",
+   "h": "Rechne mit möglichst vielen Stellen und runde erst am Ende."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jemand rechnet einen Heron-Schritt mit dem Startwert 3 und erhält 3,5. Von welcher Zahl a wollte er die Wurzel bestimmen?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(2 * 3.5 - 3) * 3",
+   "w": "(3 + a : 3) : 2 = 3,5 ⇒ 3 + a : 3 = 7 ⇒ a : 3 = 4 ⇒ a = 12.",
+   "h": "Rechne den Heron-Schritt rückwärts."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt das Heron-Verfahren für √27. Berechne den Wert x₂ in der zweiten Zeile auf drei Nachkommastellen.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Seite x",
+      "27 : x",
+      "Mittelwert"
+     ],
+     "zeilen": [
+      [
+       "5",
+       "5,4",
+       "5,2"
+      ],
+      [
+       "5,2",
+       "?",
+       "x₂ = ?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 5.196,
+    "toleranz": 0.001
+   },
+   "c": "round(5.196153846154, 3)",
+   "w": "27 : 5,2 ≈ 5,1923. x₂ = (5,2 + 5,1923) : 2 ≈ 5,196.",
+   "h": "Die neue Seite 5,2 ist der Startwert der zweiten Zeile."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum liegt √a immer zwischen x und a : x?"
+   },
+   "a": [
+    "Weil a : x immer kleiner als x ist.",
+    "Weil x und a : x immer gleich groß sind.",
+    "Ist x zu groß, ist a : x zu klein, denn x · (a : x) = a.",
+    "Weil der Mittelwert immer genau √a ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beide Seiten zusammen ergeben die Fläche a. Wäre jede größer als √a, wäre die Fläche zu groß; wäre jede kleiner, zu klein. Also liegt eine darüber, eine darunter.",
+   "h": "Denke an das Rechteck mit der Fläche a."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jemand bestimmt √100 mit dem Heron-Verfahren, aber mit dem schlechten Startwert 1. Wie groß ist x₂? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 26.2,
+    "toleranz": 0.1
+   },
+   "c": "round(26.240099009901, 1)",
+   "w": "x₁ = (1 + 100) : 2 = 50,5. x₂ = (50,5 + 100 : 50,5) : 2 ≈ (50,5 + 1,98) : 2 ≈ 26,2. Ein schlechter Startwert braucht viele Schritte.",
+   "h": "Rechne zwei Schritte. Wie weit ist x₂ noch von 10 entfernt?"
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Platz soll 200 m² groß sein. Bestimme die Seitenlänge mit zwei Heron-Schritten, Startwert 14 m. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 14.14,
+    "einheit": "m",
+    "toleranz": 0.01
+   },
+   "c": "round(14.142135642136, 2)",
+   "w": "x₁ = (14 + 200 : 14) : 2 ≈ (14 + 14,2857) : 2 ≈ 14,1429. x₂ = (14,1429 + 200 : 14,1429) : 2 ≈ 14,14 m.",
+   "h": "Teile die Fläche durch die Seite und bilde den Mittelwert, zweimal."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet für √8 mit dem Startwert 2: x₁ = (2 + 8) : 2 = 5. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Es heißt (2 + 8 : 2) : 2 = 3.",
+    "Falsch: Es heißt 8 : 2 = 4.",
+    "Falsch: Es heißt (2 + 8) : 8 = 1,25."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gemittelt werden die beiden Rechteckseiten: 2 und 8 : 2 = 4. Mittelwert (2 + 4) : 2 = 3. 5 · 5 = 25 wäre viel zu groß.",
+   "h": "Welche zwei Seiten hat das Rechteck mit der Fläche 8?"
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Nach wie vielen Heron-Schritten mit dem Startwert 2 stimmt √5 ≈ 2,236 auf drei Nachkommastellen?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "x₁ = 2,25 (gerundet 2,250, noch falsch). x₂ ≈ 2,2361 (gerundet 2,236, stimmt). Also nach 2 Schritten.",
+   "h": "Rechne Schritt für Schritt und vergleiche jeweils mit 2,236."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √39 einen Schritt des Heron-Verfahrens mit dem Startwert 6 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.25,
+    "toleranz": 0.01
+   },
+   "c": "round(6.250000000000, 2)",
+   "w": "Andere Seite: 39 : 6 = 6,5. Mittelwert: (6 + 6,5) : 2 = 6,25."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √29 einen Schritt des Heron-Verfahrens mit dem Startwert 5 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 5.4,
+    "toleranz": 0.01
+   },
+   "c": "round(5.400000000000, 2)",
+   "w": "Andere Seite: 29 : 5 = 5,8. Mittelwert: (5 + 5,8) : 2 = 5,4."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √44 einen Schritt des Heron-Verfahrens mit dem Startwert 6 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.67,
+    "toleranz": 0.01
+   },
+   "c": "round(6.666666666667, 2)",
+   "w": "Andere Seite: 44 : 6 ≈ 7,333. Mittelwert: (6 + 7,333) : 2 ≈ 6,67."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √52 einen Schritt des Heron-Verfahrens mit dem Startwert 7 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 7.21,
+    "toleranz": 0.01
+   },
+   "c": "round(7.214285714286, 2)",
+   "w": "Andere Seite: 52 : 7 ≈ 7,429. Mittelwert: (7 + 7,429) : 2 ≈ 7,21."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √31 einen Schritt des Heron-Verfahrens mit dem Startwert 5 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 5.6,
+    "toleranz": 0.01
+   },
+   "c": "round(5.600000000000, 2)",
+   "w": "Andere Seite: 31 : 5 = 6,2. Mittelwert: (5 + 6,2) : 2 = 5,6."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √14 einen Schritt des Heron-Verfahrens mit dem Startwert 3 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.83,
+    "toleranz": 0.01
+   },
+   "c": "round(3.833333333333, 2)",
+   "w": "Andere Seite: 14 : 3 ≈ 4,667. Mittelwert: (3 + 4,667) : 2 ≈ 3,83."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √28 einen Schritt des Heron-Verfahrens mit dem Startwert 5 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 5.3,
+    "toleranz": 0.01
+   },
+   "c": "round(5.300000000000, 2)",
+   "w": "Andere Seite: 28 : 5 = 5,6. Mittelwert: (5 + 5,6) : 2 = 5,3."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √38 einen Schritt des Heron-Verfahrens mit dem Startwert 6 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.17,
+    "toleranz": 0.01
+   },
+   "c": "round(6.166666666667, 2)",
+   "w": "Andere Seite: 38 : 6 ≈ 6,333. Mittelwert: (6 + 6,333) : 2 ≈ 6,17."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √59 einen Schritt des Heron-Verfahrens mit dem Startwert 7 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 7.71,
+    "toleranz": 0.01
+   },
+   "c": "round(7.714285714286, 2)",
+   "w": "Andere Seite: 59 : 7 ≈ 8,429. Mittelwert: (7 + 8,429) : 2 ≈ 7,71."
+  },
+  {
+   "l": "heron",
+   "t": "heron",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Führe für √41 einen Schritt des Heron-Verfahrens mit dem Startwert 6 aus. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.42,
+    "toleranz": 0.01
+   },
+   "c": "round(6.416666666667, 2)",
+   "w": "Andere Seite: 41 : 6 ≈ 6,833. Mittelwert: (6 + 6,833) : 2 ≈ 6,42."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √((−5)²)."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((-5) ** 2 + 0) // 5",
+   "w": "(−5)² = 25 und √25 = 5. Die Wurzel ist nie negativ: √((−5)²) = |−5| = 5.",
+   "h": "Rechne zuerst unter der Wurzel."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √(x²) für x = −7."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "abs(-7)",
+   "w": "x² = 49, √49 = 7 = |−7|.",
+   "h": "Setze ein und rechne zuerst x²."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen x gilt √(x²) = x?"
+   },
+   "a": [
+    "für x ≤ 0",
+    "für x ≥ 0",
+    "nur für x > 0",
+    "für alle x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "√(x²) = |x|. |x| = x gilt genau für x ≥ 0 (auch für 0). Für x = −2 wäre √4 = 2 ≠ −2.",
+   "h": "Probiere x = −2, x = 0 und x = 2."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Vereinfache √(49a²) für a < 0."
+   },
+   "a": [
+    "−49a",
+    "−7a",
+    "7a",
+    "49a"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "√(49a²) = 7 · |a|. Für a < 0 ist |a| = −a, also 7 · (−a) = −7a (positiv, weil a negativ ist).",
+   "h": "Es gilt √(a²) = |a|. Was ist |a| bei negativem a?"
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Stein fällt aus 60 m Höhe. Für die Fallzeit gilt etwa t = √(60 : 5) s. Zwischen welchen ganzen Sekunden liegt t?",
+    "schablone": "□ s < t < □ s",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "t = √12. 3² = 9 < 12 < 16 = 4², also liegt t zwischen 3 s und 4 s.",
+   "h": "Rechne 60 : 5 und suche die Quadratzahlen davor und danach.",
+   "c": [
+    "3",
+    "4"
+   ]
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist √8 m breit und √18 m lang. Wie groß ist seine Fläche?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "m²"
+   },
+   "c": "(8 * 18) // 12",
+   "w": "√8 · √18 = √(8 · 18) = √144 = 12 m².",
+   "h": "Zieh die Wurzeln zu einer zusammen."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einer Bremsspur von s Metern schätzt man die Geschwindigkeit mit v = √(200 · s) (v in km/h). Wie schnell war ein Auto mit 8 m Bremsspur?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "km/h"
+   },
+   "c": "200 * 8 // 40",
+   "w": "v = √(200 · 8) = √1600 = 40 km/h.",
+   "h": "Rechne erst unter der Wurzel."
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein quadratischer Platz hat 50 m² Fläche. Gib die Seitenlänge exakt an (teilweise Wurzel ziehen).",
+    "schablone": "□√□ m",
+    "hinweis": "Zahl vor der Wurzel, Zahl unter der Wurzel"
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "w": "√50 = √(25 · 2) = 5√2 m.",
+   "h": "Suche in 50 die größte Quadratzahl.",
+   "c": [
+    "5",
+    "2"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei quadratische Beete haben 8 m² und 18 m². Jedes bekommt ringsum einen Zaun. Gib die gesamte Zaunlänge exakt an.",
+    "schablone": "□√□ m",
+    "hinweis": "Zahl vor der Wurzel, Zahl unter der Wurzel"
+   },
+   "o": {
+    "werte": [
+     20,
+     2
+    ]
+   },
+   "w": "Seiten √8 = 2√2 und √18 = 3√2. Zaun: 4 · 2√2 + 4 · 3√2 = 8√2 + 12√2 = 20√2 m.",
+   "h": "Zieh teilweise die Wurzel, dann kannst du zusammenfassen.",
+   "c": [
+    "4 * 2 + 4 * 3",
+    "2"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck hat 6 m² Fläche und ist √3 m breit. Gib seine Länge exakt mit rationalem Nenner an.",
+    "schablone": "□√□ m",
+    "hinweis": "Zahl vor der Wurzel, Zahl unter der Wurzel"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "Länge 6/√3 = 6√3/3 = 2√3 m.",
+   "h": "Länge = Fläche : Breite. Erweitere mit √3.",
+   "c": [
+    "6 // 3",
+    "3"
    ]
   }
  ],

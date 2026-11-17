@@ -41,7 +41,8 @@
    {
     "titel": "Strategie",
     "lernziele": [
-     "satz_waehlen"
+     "satz_waehlen",
+     "anwendung"
     ]
    }
   ],
@@ -394,6 +395,59 @@
         ]
        ]
       }
+     },
+     {
+      "text": "Warum? Die Höhe ist h = b · sin α = a · sin β.",
+      "bild": {
+       "punkte": {
+        "A": [
+         0,
+         0
+        ],
+        "B": [
+         11.28,
+         0
+        ],
+        "C": [
+         9.21,
+         7.73
+        ],
+        "_H": [
+         9.21,
+         0
+        ]
+       },
+       "linien": [
+        [
+         "A",
+         "B",
+         "c"
+        ],
+        [
+         "B",
+         "C",
+         "a = 8 km"
+        ],
+        [
+         "C",
+         "A",
+         "b = 12,0 km"
+        ],
+        [
+         "C",
+         "_H",
+         "h",
+         "gestrichelt"
+        ]
+       ],
+       "rechter_winkel": [
+        [
+         "_H",
+         "B",
+         "C"
+        ]
+       ]
+      }
      }
     ],
     "fehler": "b = 8 · sin 40° : sin 75° vertauscht die Winkel. Zu b gehört β. Größerer Winkel heißt längere Seite.",
@@ -409,6 +463,20 @@
      ]
     ],
     "fehler_bild": {
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       11.28,
+       0
+      ],
+      "C": [
+       9.21,
+       7.73
+      ]
+     },
      "linien": [
       [
        "A",
@@ -425,7 +493,8 @@
        "A",
        "b = 5,3?"
       ]
-     ]
+     ],
+     "rechter_winkel": []
     }
    },
    {
@@ -912,6 +981,184 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "anwendung",
+    "titel": "Vermessen und navigieren",
+    "einstieg": "Zwei Vermesser stehen am Ufer, 200 m voneinander entfernt. Beide peilen einen Baum auf der anderen Seite an. So bestimmen sie die Entfernung, ohne über den Fluss zu gehen.",
+    "woerter": [
+     [
+      "peilen",
+      "mit einem Messgerät den Winkel zu einem Ziel messen"
+     ],
+     [
+      "Standlinie",
+      "die bekannte Strecke zwischen den beiden Messpunkten"
+     ],
+     [
+      "Planfigur",
+      "eine Skizze, in die man alle bekannten Größen einträgt"
+     ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "Baum": [
+       3.093,
+       8.499
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "Baum"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 200 m"
+      ],
+      [
+       "A",
+       "Baum"
+      ],
+      [
+       "B",
+       "Baum"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "Baum",
+       "70°"
+      ],
+      [
+       "B",
+       "Baum",
+       "A",
+       "60°"
+      ]
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Planfigur: Standlinie c = 200 m, Winkel 70° bei A und 60° bei B."
+     },
+     {
+      "text": "Winkel beim Baum: 180° − 70° − 60° = ⟦50°⟧.",
+      "bild": {
+       "winkel": [
+        [
+         "A",
+         "B",
+         "Baum",
+         "70°"
+        ],
+        [
+         "B",
+         "Baum",
+         "A",
+         "60°"
+        ],
+        [
+         "Baum",
+         "A",
+         "B",
+         "50°"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Gesucht ist b, der Abstand von A zum Baum. Gegenüber liegt der Winkel 60°.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "B",
+         "c = 200 m"
+        ],
+        [
+         "A",
+         "Baum",
+         "b = ?"
+        ],
+        [
+         "B",
+         "Baum"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Sinussatz: b = 200 m · sin 60° : sin 50° ≈ ⟦226 m⟧.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "B",
+         "c = 200 m"
+        ],
+        [
+         "A",
+         "Baum",
+         "b ≈ 226 m"
+        ],
+        [
+         "B",
+         "Baum"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "Nicht 200 m · sin 70° : sin 50° rechnen. Der Winkel 70° liegt bei A, gegenüber von a. Zu b gehört der Winkel 60° bei B.",
+    "regel": "Erst eine Planfigur zeichnen, dann den Satz wählen. Paar aus Seite und Gegenwinkel bekannt: ⟦Sinussatz⟧; sonst Kosinussatz.",
+    "probe": "Der Winkel 60° ist kleiner als 70°, also ist b ≈ 226 m kürzer als a ≈ 245 m. Passt.",
+    "fehler_bild": {
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 200 m"
+      ],
+      [
+       "A",
+       "Baum",
+       "b"
+      ],
+      [
+       "B",
+       "Baum",
+       "a"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "Baum",
+       "70° gehört zu a"
+      ],
+      [
+       "B",
+       "Baum",
+       "A",
+       "60° gehört zu b"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -963,6 +1210,13 @@
     "lernziele": [
      "satz_waehlen"
     ]
+   },
+   {
+    "k": "anwendung",
+    "text": "Vermessen und navigieren",
+    "lernziele": [
+     "anwendung"
+    ]
    }
   ],
   "bewertung": {
@@ -973,7 +1227,8 @@
     "sinussatz_winkel",
     "kosinussatz_seite",
     "kosinussatz_winkel",
-    "satz_waehlen"
+    "satz_waehlen",
+    "anwendung"
    ],
    "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1
@@ -5786,6 +6041,1896 @@
    },
    "w": "a und α bilden ein Paar, β gehört zu b: b = a · sin β : sin α.",
    "h": "Seite mit Gegenwinkel bekannt?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von zwei Punkten A und B (150 m auseinander) wird ein Baum C angepeilt: α = 55° bei A, β = 65° bei B. Wie groß ist der Winkel beim Baum?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       4.802,
+       6.858
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "150 m"
+      ],
+      [
+       "A",
+       "C"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "55°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "65°"
+      ],
+      [
+       "C",
+       "A",
+       "B",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 - 55 - 65",
+   "w": "Winkelsumme im Dreieck: 180° − 55° − 65° = 60°.",
+   "h": "Die drei Winkel im Dreieck ergeben zusammen 180°."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von zwei Punkten A und B (80 m auseinander) wird ein Baum C angepeilt: α = 70° bei A, β = 45° bei B. Wie groß ist der Winkel beim Baum?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       2.135,
+       5.865
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "80 m"
+      ],
+      [
+       "A",
+       "C"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "70°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "45°"
+      ],
+      [
+       "C",
+       "A",
+       "B",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 65,
+    "einheit": "°"
+   },
+   "c": "180 - 70 - 45",
+   "w": "Winkelsumme im Dreieck: 180° − 70° − 45° = 65°.",
+   "h": "Die drei Winkel im Dreieck ergeben zusammen 180°."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Für einen Tunnel von A nach B kennt man CA, CB und den Winkel bei C (siehe Planfigur). Welcher Satz liefert die Tunnellänge?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       6.0,
+       0
+      ],
+      "B": [
+       2.071,
+       7.727
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "450 m"
+      ],
+      [
+       "C",
+       "B",
+       "600 m"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "75°"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Flächenformel mit dem Sinus",
+    "Satz des Pythagoras",
+    "Kosinussatz",
+    "Sinussatz"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zwei Seiten und der Winkel dazwischen (SWS): Kosinussatz. Pythagoras geht nur mit rechtem Winkel.",
+   "h": "Liegt der bekannte Winkel zwischen den beiden bekannten Seiten?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bekannt sind die Standlinie AB und die beiden Peilwinkel bei A und B (siehe Planfigur). Welcher Satz liefert die Entfernung AC?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       6.064,
+       7.226
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 120 m"
+      ],
+      [
+       "A",
+       "C",
+       "b = ?"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "50°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "75°"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Kosinussatz",
+    "Tangens im rechtwinkligen Dreieck",
+    "Sinussatz",
+    "Satz des Pythagoras"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Den Winkel bei C bekommst du aus der Winkelsumme. Dann ist ein Paar aus Seite c und Gegenwinkel γ bekannt: Sinussatz.",
+   "h": "Welcher Winkel liegt der Standlinie gegenüber?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vermessung über einen Fluss: Standlinie AB = 250 m, gepeilt werden α = 80° bei A und β = 65° bei B zum Punkt C. Wie weit ist C von A entfernt? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       2.195,
+       12.449
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 250 m"
+      ],
+      [
+       "A",
+       "C",
+       "b = ?"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "80°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "65°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 395,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(250 * 0.906307787037 / 0.573576436351, 1)",
+   "w": "γ = 180° − 80° − 65° = 35°. Sinussatz: b = 250 · sin 65° : sin 35° ≈ 395 m.",
+   "h": "Berechne zuerst den dritten Winkel. Welcher Winkel liegt b gegenüber?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vermessung über einen Fluss: Standlinie AB = 150 m, gepeilt werden α = 65° bei A und β = 40° bei B zum Punkt C. Wie weit ist C von A entfernt? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       2.25,
+       4.825
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 150 m"
+      ],
+      [
+       "A",
+       "C",
+       "b = ?"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "65°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "40°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 99.8,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(150 * 0.642787609687 / 0.965925826289, 1)",
+   "w": "γ = 180° − 65° − 40° = 75°. Sinussatz: b = 150 · sin 40° : sin 75° ≈ 99,8 m.",
+   "h": "Berechne zuerst den dritten Winkel. Welcher Winkel liegt b gegenüber?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tunnel soll von A nach B durch einen Berg führen. Von einem Punkt C aus misst man CA = 500 m, CB = 800 m und den Winkel ACB = 80°. Wie lang wird der Tunnel? Runde auf ganze Meter.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       5.0,
+       0
+      ],
+      "B": [
+       1.389,
+       7.878
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "500 m"
+      ],
+      [
+       "C",
+       "B",
+       "800 m"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "80°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 867,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(866.649558856667, 0)",
+   "w": "Zwei Seiten und der Winkel dazwischen: Kosinussatz. c² = 800² + 500² − 2 · 800 · 500 · cos 80°, c ≈ 867 m.",
+   "h": "Zwei Seiten und der Winkel dazwischen sind bekannt. Welcher Satz passt?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tunnel soll von A nach B durch einen Berg führen. Von einem Punkt C aus misst man CA = 600 m, CB = 450 m und den Winkel ACB = 65°. Wie lang wird der Tunnel? Runde auf ganze Meter.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       8.0,
+       0
+      ],
+      "B": [
+       2.536,
+       5.438
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "600 m"
+      ],
+      [
+       "C",
+       "B",
+       "450 m"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "65°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 578,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(578.174833990569, 0)",
+   "w": "Zwei Seiten und der Winkel dazwischen: Kosinussatz. c² = 450² + 600² − 2 · 450 · 600 · cos 65°, c ≈ 578 m.",
+   "h": "Zwei Seiten und der Winkel dazwischen sind bekannt. Welcher Satz passt?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was wird aus dem Kosinussatz c² = a² + b² − 2ab · cos γ, wenn γ = 90° ist?"
+   },
+   "a": [
+    "c² = a² + b² − 2ab",
+    "c² = a² + b², der Satz des Pythagoras",
+    "c = a + b",
+    "c² = a² − b²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "cos 90° = 0, also fällt − 2ab · cos γ weg: c² = a² + b². Der Satz des Pythagoras ist ein Spezialfall des Kosinussatzes.",
+   "h": "Welchen Wert hat cos 90°?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schiff fährt 12 km weit, dann 8 km in eine andere Richtung. Der Winkel zwischen beiden Strecken beträgt 110°. Wie weit ist das Schiff vom Start entfernt? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       8.0,
+       0
+      ],
+      "B": [
+       -1.824,
+       5.012
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "12 km"
+      ],
+      [
+       "C",
+       "B",
+       "8 km"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "110°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 16.5,
+    "einheit": "km",
+    "toleranz": 0.1
+   },
+   "c": "round(16.542909886671, 1)",
+   "w": "Kosinussatz: d² = 12² + 8² − 2 · 12 · 8 · cos 110° ≈ 208 + 65,7 = 273,7, d ≈ 16,5 km.",
+   "h": "Zwei Seiten und der Winkel dazwischen: Kosinussatz. cos 110° ist negativ."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von Punkt A sieht man die Spitze S eines Turms unter 30° Steigung. Geht man 50 m auf den Turm zu bis B, sind es 45°. Wie hoch ist der Turm? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3.381,
+       0
+      ],
+      "F": [
+       8.0,
+       0
+      ],
+      "S": [
+       8.0,
+       4.619
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "50 m"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "S",
+       "h = ?"
+      ],
+      [
+       "A",
+       "S"
+      ],
+      [
+       "B",
+       "S"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "F",
+       "S",
+       "30°"
+      ],
+      [
+       "B",
+       "F",
+       "S",
+       "45°"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "F",
+       "A",
+       "S"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 68.3,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(50 * 0.500000000000 / 0.258819045103 * 0.707106781187, 1)",
+   "w": "Im Dreieck ABS: Winkel bei B = 180° − 45° = 135°, bei S = 180° − 30° − 135° = 15°. Sinussatz: BS = 50 · sin 30° : sin 15° ≈ 96,6 m. Höhe h = BS · sin 45° ≈ 68,3 m.",
+   "h": "Arbeite im schiefen Dreieck ABS: Welche Winkel hat es? Danach hilft das rechtwinklige Dreieck BFS."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schiff fährt 10 km nach Osten. Am Wendepunkt W dreht es um 40° nach links und fährt 6 km weiter. Wie weit ist es dann vom Start entfernt? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "Start": [
+       0,
+       0
+      ],
+      "W": [
+       8.0,
+       0
+      ],
+      "_V": [
+       10.4,
+       0
+      ],
+      "Ziel": [
+       11.677,
+       3.085
+      ]
+     },
+     "linien": [
+      [
+       "Start",
+       "W",
+       "10 km"
+      ],
+      [
+       "W",
+       "_V",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "W",
+       "Ziel",
+       "6 km"
+      ],
+      [
+       "Start",
+       "Ziel",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "W",
+       "_V",
+       "Ziel",
+       "40°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 15.1,
+    "einheit": "km",
+    "toleranz": 0.1
+   },
+   "c": "round(15.097196202417, 1)",
+   "w": "Der Dreieckswinkel bei W ist 180° − 40° = 140°. Kosinussatz: d² = 10² + 6² − 2 · 10 · 6 · cos 140° ≈ 227,9, d ≈ 15,1 km.",
+   "h": "Der Drehwinkel ist nicht der Winkel im Dreieck. Zeichne die Verlängerung des ersten Kurses."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein dreieckiges Grundstück hat die Seiten 40 m, 55 m und 70 m. Wie groß ist sein größter Winkel? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       2.837,
+       3.585
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "70 m"
+      ],
+      [
+       "A",
+       "C",
+       "40 m"
+      ],
+      [
+       "B",
+       "C",
+       "55 m"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 93.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(93.583321698472, 1)",
+   "w": "Der größte Winkel liegt der längsten Seite (70 m) gegenüber. cos γ = (40² + 55² − 70²) : (2 · 40 · 55) = −275 : 4 400 = −0,0625, γ ≈ 93,6°.",
+   "h": "Drei Seiten bekannt: Kosinussatz nach dem Winkel umstellen. Welcher Winkel ist der größte?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das dreieckige Grundstück mit den Seiten 40 m, 55 m und 70 m hat zwischen den Seiten 40 m und 55 m einen Winkel von etwa 93,6°. Wie groß ist seine Fläche? Runde auf ganze m².",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       2.837,
+       3.585
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "70 m"
+      ],
+      [
+       "A",
+       "C",
+       "40 m"
+      ],
+      [
+       "B",
+       "C",
+       "55 m"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1098,
+    "einheit": "m²",
+    "toleranz": 1
+   },
+   "c": "round(0.5 * 40 * 55 * 0.998044963917, 0)",
+   "w": "A = ½ · 40 · 55 · sin 93,6° ≈ 1 100 · 0,998 ≈ 1 098 m².",
+   "h": "Flächenformel: A = ½ · a · b · sin γ mit dem Winkel zwischen a und b."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gibt es ein Dreieck mit den Seiten a = 3 cm, b = 4 cm und c = 8 cm?"
+   },
+   "a": [
+    "Ja, aber es ist nicht eindeutig.",
+    "Nein, weil kein Winkel 90° groß ist.",
+    "Ja, γ ist dann stumpf.",
+    "Nein: cos γ wäre −1,625, das ist kleiner als −1."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Kosinussatz: cos γ = (9 + 16 − 64) : 24 = −1,625. Einen solchen Winkel gibt es nicht. Auch anschaulich: 3 cm + 4 cm reichen nicht für 8 cm.",
+   "h": "Stelle den Kosinussatz nach cos γ um. Welche Werte kann cos γ haben?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Flussvermessung ist c = 200 m, α = 70°, β = 60° und γ = 50°. Jemand rechnet b = 200 m · sin 70° : sin 50°. Was stimmt?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       3.093,
+       8.499
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 200 m"
+      ],
+      [
+       "A",
+       "C",
+       "b = ?"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "70°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "60°"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Zu b gehört β = 60°, also b = 200 m · sin 60° : sin 50°.",
+    "Falsch: Es muss b = 200 m · sin 50° : sin 70° heißen.",
+    "Falsch: Hier braucht man den Kosinussatz."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Im Sinussatz stehen Seite und Gegenwinkel zusammen. b liegt gegenüber von B, also gehört β = 60° dazu. Mit 70° erhält man a.",
+   "h": "Welcher Winkel liegt der Seite b gegenüber?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Aussichtspunkt sieht man zwei Hütten. Die eine ist 1,2 km entfernt, die andere 2 km. Zwischen beiden Blickrichtungen liegt ein Winkel von 75°. Wie weit sind die Hütten voneinander entfernt? Runde auf zwei Nachkommastellen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       4.8,
+       0
+      ],
+      "B": [
+       2.071,
+       7.727
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "1,2 km"
+      ],
+      [
+       "C",
+       "B",
+       "2 km"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "75°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2.05,
+    "einheit": "km",
+    "toleranz": 0.01
+   },
+   "c": "round(2.048821266853, 2)",
+   "w": "Kosinussatz: d² = 1,2² + 2² − 2 · 1,2 · 2 · cos 75° ≈ 5,44 − 1,24 = 4,20, d ≈ 2,05 km.",
+   "h": "Zwei Entfernungen und der Winkel dazwischen sind bekannt."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein dreieckiges Segel hat unten eine 5 m lange Kante und am Mast eine 4 m lange Kante. Der Winkel gegenüber der unteren Kante beträgt 70°. Wie groß ist der Winkel gegenüber der Mastkante? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       4.922,
+       5.611
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "unten 5 m"
+      ],
+      [
+       "B",
+       "C",
+       "Mast 4 m"
+      ],
+      [
+       "A",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "70°"
+      ],
+      [
+       "A",
+       "B",
+       "C",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 48.7,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(48.742552457352, 1)",
+   "w": "Sinussatz: sin x : 4 = sin 70° : 5 ⇒ sin x = 4 · sin 70° : 5 ≈ 0,752, x ≈ 48,7°. Eindeutig, weil der Winkel 70° der längeren Seite gegenüberliegt.",
+   "h": "Paar aus Seite und Gegenwinkel: 5 m und 70°. Stelle den Sinussatz nach sin x um."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vermessung über einen Fluss: Standlinie AB = 250 m, gepeilt werden α = 60° bei A und β = 45° bei B zum Punkt C. Wie weit ist C von A entfernt? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       2.928,
+       5.072
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 250 m"
+      ],
+      [
+       "A",
+       "C",
+       "b = ?"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "60°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "45°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 183,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(250 * 0.707106781187 / 0.965925826289, 1)",
+   "w": "γ = 180° − 60° − 45° = 75°. Sinussatz: b = 250 · sin 45° : sin 75° ≈ 183 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tunnel soll von A nach B durch einen Berg führen. Von einem Punkt C aus misst man CA = 500 m, CB = 750 m und den Winkel ACB = 85°. Wie lang wird der Tunnel? Runde auf ganze Meter.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       5.333,
+       0
+      ],
+      "B": [
+       0.697,
+       7.97
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "500 m"
+      ],
+      [
+       "C",
+       "B",
+       "750 m"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "85°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 864,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(864.368667259091, 0)",
+   "w": "Zwei Seiten und der Winkel dazwischen: Kosinussatz. c² = 750² + 500² − 2 · 750 · 500 · cos 85°, c ≈ 864 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vermessung über einen Fluss: Standlinie AB = 240 m, gepeilt werden α = 45° bei A und β = 40° bei B zum Punkt C. Wie weit ist C von A entfernt? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       3.65,
+       3.65
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 240 m"
+      ],
+      [
+       "A",
+       "C",
+       "b = ?"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "45°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "40°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 154.9,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(240 * 0.642787609687 / 0.996194698092, 1)",
+   "w": "γ = 180° − 45° − 40° = 95°. Sinussatz: b = 240 · sin 40° : sin 95° ≈ 154,9 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tunnel soll von A nach B durch einen Berg führen. Von einem Punkt C aus misst man CA = 900 m, CB = 450 m und den Winkel ACB = 110°. Wie lang wird der Tunnel? Runde auf ganze Meter.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       8.0,
+       0
+      ],
+      "B": [
+       -1.368,
+       3.759
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "900 m"
+      ],
+      [
+       "C",
+       "B",
+       "450 m"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "110°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1136,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(1135.577525356059, 0)",
+   "w": "Zwei Seiten und der Winkel dazwischen: Kosinussatz. c² = 450² + 900² − 2 · 450 · 900 · cos 110°, c ≈ 1 136 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vermessung über einen Fluss: Standlinie AB = 180 m, gepeilt werden α = 60° bei A und β = 55° bei B zum Punkt C. Wie weit ist C von A entfernt? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       3.615,
+       6.262
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 180 m"
+      ],
+      [
+       "A",
+       "C",
+       "b = ?"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "60°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "55°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 162.7,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(180 * 0.819152044289 / 0.906307787037, 1)",
+   "w": "γ = 180° − 60° − 55° = 65°. Sinussatz: b = 180 · sin 55° : sin 65° ≈ 162,7 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tunnel soll von A nach B durch einen Berg führen. Von einem Punkt C aus misst man CA = 300 m, CB = 900 m und den Winkel ACB = 55°. Wie lang wird der Tunnel? Runde auf ganze Meter.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       2.667,
+       0
+      ],
+      "B": [
+       4.589,
+       6.553
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "300 m"
+      ],
+      [
+       "C",
+       "B",
+       "900 m"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "55°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 768,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(768.289479539083, 0)",
+   "w": "Zwei Seiten und der Winkel dazwischen: Kosinussatz. c² = 900² + 300² − 2 · 900 · 300 · cos 55°, c ≈ 768 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vermessung über einen Fluss: Standlinie AB = 180 m, gepeilt werden α = 60° bei A und β = 80° bei B zum Punkt C. Wie weit ist C von A entfernt? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       6.128,
+       10.615
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 180 m"
+      ],
+      [
+       "A",
+       "C",
+       "b = ?"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "60°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "80°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 275.8,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(180 * 0.984807753012 / 0.642787609687, 1)",
+   "w": "γ = 180° − 60° − 80° = 40°. Sinussatz: b = 180 · sin 80° : sin 40° ≈ 275,8 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tunnel soll von A nach B durch einen Berg führen. Von einem Punkt C aus misst man CA = 600 m, CB = 800 m und den Winkel ACB = 65°. Wie lang wird der Tunnel? Runde auf ganze Meter.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       6.0,
+       0
+      ],
+      "B": [
+       3.381,
+       7.25
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "600 m"
+      ],
+      [
+       "C",
+       "B",
+       "800 m"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "65°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 771,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(770.899778654092, 0)",
+   "w": "Zwei Seiten und der Winkel dazwischen: Kosinussatz. c² = 800² + 600² − 2 · 800 · 600 · cos 65°, c ≈ 771 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vermessung über einen Fluss: Standlinie AB = 240 m, gepeilt werden α = 50° bei A und β = 55° bei B zum Punkt C. Wie weit ist C von A entfernt? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8.0,
+       0
+      ],
+      "C": [
+       4.361,
+       5.197
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 240 m"
+      ],
+      [
+       "A",
+       "C",
+       "b = ?"
+      ],
+      [
+       "B",
+       "C"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "50°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "55°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 203.5,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(240 * 0.819152044289 / 0.965925826289, 1)",
+   "w": "γ = 180° − 50° − 55° = 75°. Sinussatz: b = 240 · sin 55° : sin 75° ≈ 203,5 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tunnel soll von A nach B durch einen Berg führen. Von einem Punkt C aus misst man CA = 600 m, CB = 400 m und den Winkel ACB = 60°. Wie lang wird der Tunnel? Runde auf ganze Meter.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       8.0,
+       0
+      ],
+      "B": [
+       2.667,
+       4.619
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "600 m"
+      ],
+      [
+       "C",
+       "B",
+       "400 m"
+      ],
+      [
+       "A",
+       "B",
+       "?",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "60°"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 529,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(529.150262212918, 0)",
+   "w": "Zwei Seiten und der Winkel dazwischen: Kosinussatz. c² = 400² + 600² − 2 · 400 · 600 · cos 60°, c ≈ 529 m."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC gilt für die Höhe h auf c: h = b · sin α und h = a · sin β. Was folgt daraus?"
+   },
+   "a": [
+    "a + b = sin α + sin β",
+    "a · sin α = b · sin β",
+    "a : b = sin β : sin α",
+    "a : sin α = b : sin β"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "b · sin α = a · sin β. Teilt man beide Seiten durch sin α · sin β, erhält man b : sin β = a : sin α. Das ist der Sinussatz.",
+   "h": "Setze beide Ausdrücke für h gleich und teile durch sin α · sin β."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist b = 10 cm und α = 30°. Wie lang ist die Höhe h von C auf die Seite c?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "10 * 1 / 2",
+   "w": "Im rechtwinkligen Teildreieck mit der Hypotenuse b: h = b · sin α = 10 · 0,5 = 5 cm.",
+   "h": "Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist b = 9 cm, α = 40° und β = 65°. Berechne zuerst die Höhe h = b · sin α und daraus a. Gib a auf eine Nachkommastelle an."
+   },
+   "o": {
+    "wert": 6.4,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(9 * 0.642787609687 / 0.906307787037, 1)",
+   "w": "h = 9 · sin 40° ≈ 5,79 cm. Im anderen Teildreieck gilt h = a · sin β, also a = h : sin 65° ≈ 6,4 cm. Der Sinussatz liefert dasselbe.",
+   "h": "Die Höhe gehört zu beiden rechtwinkligen Teildreiecken."
   }
  ],
  "offen": [

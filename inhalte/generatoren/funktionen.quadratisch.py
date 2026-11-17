@@ -748,6 +748,177 @@ BF.nicht_umgesetzt('bestimmen S3 „Parabel durch drei Punkte“ überschneidet 
 
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- Achtzehnte Runde, Teil B (Zweig luecken-kl9): neue Lernkarte „schnittpunkte“ nach „bestimmen“ ----------
+# Lehrplan: LehrplanPLUS M9 2.2 Quadratische Funktionen in Anwendungen – Schnittprobleme verschiedener Funktionstypen,
+# rechnerisch und graphisch. Prüfungsvorbilder: Abschlussprüfung Realschule Bayern Mathematik I/II (Aufgaben „Die Gerade g
+# schneidet die Parabel p in den Punkten P und Q. Berechnen Sie die Koordinaten …“; „Für welchen Wert … ist g Tangente?“).
+# Eigene Zahlen und Einkleidungen. Eigener Zufallsstart, alles Alte bleibt unverändert.
+from _luecken_kl9 import einbauen  # noqa: E402
+
+SP_L = 'schnittpunkte'
+SP2 = 'S₁(□ | □); S₂(□ | □)'
+X2 = 'x₁ = □; x₂ = □'
+
+KARTE_SP = {
+    'lernziel': SP_L, 'titel': 'Schnittpunkte von Parabel und Gerade',
+    'einstieg': 'Ein Ball fliegt im Bogen, daneben ist ein Seil schräg gespannt. Wo trifft der Ball das Seil? '
+                'Punkte, die auf beiden Linien liegen, heißen ⟦Schnittpunkte⟧.',
+    'woerter': [['Schnittpunkte', 'Punkte, die auf beiden Graphen liegen'],
+                ['gleichsetzen', 'beide Terme gleich setzen, weil dort beide y-Werte gleich sind'],
+                ['Tangente', 'Gerade, die die Parabel nur berührt: genau ein gemeinsamer Punkt']],
+    'bild': {'typ': 'koordinaten', 'x': [-3, 6], 'y': [-3, 9],
+             'graphen': [{'art': 'poly', 'k': [-1, -2, 1], 'name': 'Ball'}, {'art': 'linear', 'm': 1, 't': 3, 'name': 'Seil'}]},
+    'schritte': [{'text': 'Ball y = x² − 2x − 1, Seil y = x + 3: gleichsetzen.'},
+                 {'text': 'x² − 2x − 1 = x + 3. Alles nach links bringen.'},
+                 {'text': 'x² − 3x − 4 = 0, also ⟦x = −1 oder x = 4⟧.', 'bild': {'senkrecht': [-1, 4]}},
+                 {'text': 'Einsetzen in y = x + 3 gibt ⟦(−1 | 2) und (4 | 7)⟧.',
+                  'bild': {'senkrecht': [], 'punkte': [{'x': -1, 'y': 2, 'name': '(−1 | 2)'}, {'x': 4, 'y': 7, 'name': '(4 | 7)'}]}},
+                 {'text': 'Hat die Gleichung nur eine Lösung, ist die Gerade eine Tangente.',
+                  'bild': {'graphen': [{'art': 'poly', 'k': [-1, -2, 1], 'name': 'Ball'}, {'art': 'linear', 'm': 2, 't': -5, 'name': 'Tangente'}],
+                           'punkte': [{'x': 2, 'y': -1, 'name': '(2 | −1)'}]}}],
+    'fehler': 'Nicht x² − 2x − 1 = 0 lösen. Das sind die Nullstellen des Balls, nicht die Treffpunkte mit dem Seil. Erst gleichsetzen!',
+    'fehler_bild': {'graphen': [{'art': 'poly', 'k': [-1, -2, 1], 'name': 'Ball'}, {'art': 'linear', 'm': 1, 't': 3, 'name': 'Seil'}],
+                    'punkte': [{'x': -0.414, 'y': 0, 'name': 'Nullstelle?'}, {'x': 2.414, 'y': 0, 'name': 'Nullstelle?'}]},
+    'regel': 'Gleichsetzen, auf null bringen, lösen. Zwei Lösungen: zwei Schnittpunkte; eine: ⟦Tangente⟧; keine: kein gemeinsamer Punkt.',
+    'probe': '(4 | 7) liegt auch auf dem Ball: 4² − 2 · 4 − 1 = 7.',
+}
+
+
+def _sp_lage(r1, r2, m=None, t=None, a=1):
+    """Parabel y = a·x² + b·x + c und Gerade y = m·x + t mit den Schnittstellen r1 < r2 (a·(x − r1)(x − r2) = Parabel − Gerade)."""
+    m = R.choice([-3, -2, -1, 1, 2, 3]) if m is None else m
+    t = R.choice([-4, -3, -2, -1, 1, 2, 3, 4]) if t is None else t
+    b = m - a * (r1 + r2)
+    c = t + a * r1 * r2
+    return b, c, m, t
+
+
+def _sp_wurzeln():
+    r1, r2 = sorted(R.sample([x for x in range(-4, 6) if x != 0], 2))
+    return r1, r2
+
+
+def _sp_punkte_aufgabe(text_vor='', a=1):
+    r1, r2 = _sp_wurzeln()
+    b, c, m, t = _sp_lage(r1, r2, a=a)
+    p, g = poly(a, b, c), poly(m, t)
+    y1, y2 = m * r1 + t, m * r2 + t
+    links = poly(a, b - m, c - t)
+    return luecken(f'{text_vor}Berechne die Schnittpunkte der Parabel y = {p} mit der Geraden y = {g} (kleineres x zuerst).', SP2,
+                   'x und y des ersten, dann des zweiten Punkts',
+                   [r1, y1, r2, y2],
+                   f'Gleichsetzen: {p} = {g}, also {links} = 0. Lösungen x = {dz(r1)} und x = {dz(r2)}. '
+                   f'In die Gerade: y = {dz(y1)} und y = {dz(y2)}. S₁({dz(r1)} | {dz(y1)}), S₂({dz(r2)} | {dz(y2)}).',
+                   'Setze die Terme gleich und bringe alles auf eine Seite. Die y-Werte bekommst du aus der Geraden.',
+                   c=[str(r1), f'{m} * ({r1}) + ({t})', str(r2), f'{m} * ({r2}) + ({t})'])
+
+
+def _sp_anzahl(soll):
+    """Parabel y = x² + bx + c, Gerade y = mx + t, Differenz x² + px + q mit D = p² − 4q passend zu soll."""
+    while True:
+        p = R.choice([-4, -2, 2, 4, -6, 6])
+        q = {2: R.choice([-3, -2, -1, 0]), 1: (p * p) // 4, 0: (p * p) // 4 + R.choice([1, 2, 3])}[soll]
+        m, t = R.choice([-2, -1, 1, 2, 3]), R.choice([-3, -2, -1, 1, 2, 3])
+        b, c = p + m, q + t
+        if b != 0: break
+    D = p * p - 4 * q
+    return poly(1, b, c), poly(m, t), poly(1, p, q), D
+
+
+def schnitt_aufgaben():
+    L = []
+
+    def neu(pool, s, art, a):
+        a['l'] = SP_L
+        L.append((pool, s, art, a))
+
+    # Stufe 1: Normalparabel y = x² und Gerade, x-Werte; Gleichung aufstellen
+    for _ in range(2):
+        r1, r2 = _sp_wurzeln()
+        m, t = r1 + r2, -r1 * r2
+        while m == 0:
+            r1, r2 = _sp_wurzeln(); m, t = r1 + r2, -r1 * r2
+        g = poly(m, t)
+        neu('uebung', 1, '', luecken(f'An welchen Stellen x schneidet die Gerade y = {g} die Parabel y = x²? (kleinere zuerst)', X2, 'zwei ganze Zahlen',
+                                     [r1, r2], f'x² = {g}, also {poly(1, -m, -t)} = 0. Lösungen: x = {dz(r1)} und x = {dz(r2)}.',
+                                     'Setze x² gleich dem Geradenterm und bringe alles auf eine Seite.', c=[str(r1), str(r2)]))
+    for (pb, pc, m, t) in [(0, 1, 3, -1), (0, -2, -2, 1)]:
+        p, g = poly(1, pb, pc), poly(m, t)
+        richtig = poly(1, pb - m, pc - t) + ' = 0'
+        falsch = [poly(1, pb + m, pc - t) + ' = 0', poly(1, pb - m, pc + t) + ' = 0', poly(1, pb, pc) + ' = 0']
+        neu('uebung', 1, '', auswahl(f'Welche Gleichung löst du, um die Schnittstellen von y = {p} und y = {g} zu finden?', richtig, falsch,
+                                     f'Gleichsetzen: {p} = {g}. Alles nach links: {richtig}.',
+                                     'Setze beide Terme gleich. Was rechts steht, kommt mit umgekehrtem Vorzeichen nach links.'))
+    # Stufe 2
+    neu('uebung', 2, '', _sp_punkte_aufgabe())
+    neu('uebung', 2, '', _sp_punkte_aufgabe())
+    pp, gg, dd, D = _sp_anzahl(0)
+    neu('uebung', 2, '', zahl(f'Wie viele gemeinsame Punkte haben die Parabel y = {pp} und die Gerade y = {gg}?',
+                              f'Gleichsetzen ergibt {dd} = 0. Diskriminante D = {dz(D)} < 0: keine Lösung, also 0 gemeinsame Punkte.',
+                              'Gleichsetzen, auf null bringen und die Diskriminante berechnen.', 0, '0'))
+    pp, gg, dd, D = _sp_anzahl(1)
+    neu('uebung', 2, '', zahl(f'Wie viele gemeinsame Punkte haben die Parabel y = {pp} und die Gerade y = {gg}?',
+                              f'Gleichsetzen ergibt {dd} = 0. Diskriminante D = 0: genau eine Lösung. Die Gerade ist eine Tangente, 1 gemeinsamer Punkt.',
+                              'Gleichsetzen, auf null bringen und die Diskriminante berechnen.', 1, '1'))
+    neu('uebung', 2, '', luecken('Berechne die Schnittpunkte der Parabeln y = x² − 4 und y = −x² + 2x + 8 (kleineres x zuerst).', SP2,
+                                 'x und y des ersten, dann des zweiten Punkts', [-2, 0, 3, 5],
+                                 'Gleichsetzen: x² − 4 = −x² + 2x + 8, also 2x² − 2x − 12 = 0 bzw. x² − x − 6 = 0. x = −2 oder x = 3. '
+                                 'In y = x² − 4: y = 0 und y = 5.',
+                                 'Auch zwei Parabeln schneidest du durch Gleichsetzen.', c=['-2', '(-2) ** 2 - 4', '3', '3 ** 2 - 4']))
+    neu('uebung', 2, '', auswahl('Gleichsetzen von Parabel und Gerade ergibt x² − 6x + 9 = 0. Was bedeutet das?',
+                                 'Die Gerade berührt die Parabel in genau einem Punkt.',
+                                 ['Die Gerade schneidet die Parabel in zwei Punkten.', 'Gerade und Parabel haben keinen gemeinsamen Punkt.',
+                                  'Der gemeinsame Punkt liegt auf der x-Achse bei x = 9.'],
+                                 'D = 36 − 36 = 0: genau eine Lösung x = 3. Die Gerade ist eine Tangente.', 'Berechne die Diskriminante.'))
+    # Stufe 3
+    neu('uebung', 3, 'pruefung', zahl('Die Gerade g: y = 0,5x + 1 schneidet die Parabel p: y = 0,5x² − 2x + 1 im Punkt P(0 | 1) und in einem zweiten Punkt Q. '
+                                      'Berechne die y-Koordinate von Q.',
+                                      'Gleichsetzen: 0,5x² − 2x + 1 = 0,5x + 1, also 0,5x² − 2,5x = 0, x(0,5x − 2,5) = 0. '
+                                      'x = 0 (das ist P) oder x = 5. y = 0,5 · 5 + 1 = 3,5.',
+                                      'Nach dem Gleichsetzen fehlt das Zahlglied: Klammere x aus.', Fr(7, 2), '0.5 * 5 + 1'))
+    neu('uebung', 3, 'pruefung', zahl('Für welchen Wert von t ist die Gerade y = 2x + t eine Tangente an die Parabel y = x²?',
+                                      'x² = 2x + t, also x² − 2x − t = 0. Tangente heißt genau eine Lösung: D = 4 + 4t = 0, also t = −1.',
+                                      'Tangente: Die Gleichung nach dem Gleichsetzen hat genau eine Lösung. Wann ist D = 0?', -1, '-4 / 4'))
+    neu('uebung', 3, 'pruefung', zahl('Die Gerade y = x + 1 schneidet die Parabel y = x² − 1 in zwei Punkten P und Q. '
+                                      'Berechne die y-Koordinate des Mittelpunkts M der Strecke [PQ].',
+                                      'x² − 1 = x + 1 ⇒ x² − x − 2 = 0 ⇒ x = −1 oder x = 2. P(−1 | 0), Q(2 | 3). '
+                                      'Der Mittelpunkt hat die Mittelwerte der Koordinaten: y = (0 + 3) : 2 = 1,5.',
+                                      'Erst P und Q berechnen. Der Mittelpunkt liegt genau in der Mitte: Mittelwert der y-Werte.', Fr(3, 2), '(0 + 3) / 2'))
+    neu('uebung', 3, 'knobel', zahl('Eine Ursprungsgerade y = m · x mit m > 0 berührt die Parabel y = x² + 1. Bestimme m.',
+                                    'x² + 1 = mx ⇒ x² − mx + 1 = 0. Berühren: D = m² − 4 = 0 ⇒ m = 2 (m > 0).',
+                                    'Berühren heißt: genau eine Lösung. Stelle D in Abhängigkeit von m auf.', 2, '4 // 2'))
+    neu('uebung', 3, '', zahl('Ein Wasserstrahl folgt der Kurve y = −0,2x² + 2x (x und y in m). Er trifft eine schräge Böschung y = 0,4x. '
+                              'In welcher Höhe trifft der Strahl die Böschung (außer am Startpunkt)?',
+                              '−0,2x² + 2x = 0,4x ⇒ −0,2x² + 1,6x = 0 ⇒ x(−0,2x + 1,6) = 0 ⇒ x = 0 oder x = 8. Höhe y = 0,4 · 8 = 3,2 m.',
+                              'Gleichsetzen und x ausklammern. Die Höhe liest du an der Böschung ab.', Fr(16, 5), '0.4 * 8', einheit='m'))
+    neu('uebung', 3, '', auswahl('Für welche Werte von t hat die Gerade y = 2x + t zwei Schnittpunkte mit der Parabel y = x²?', 't > −1',
+                                 ['t < −1', 't = −1', 't > 1'],
+                                 'x² − 2x − t = 0 hat zwei Lösungen, wenn D = 4 + 4t > 0, also t > −1. Bei t = −1 berührt die Gerade nur.',
+                                 'Stelle D in Abhängigkeit von t auf. Wann ist D > 0?'))
+    neu('uebung', 3, '', luecken('Berechne die Schnittpunkte der Parabeln y = x² − 2x − 3 und y = −x² + 4x + 5 (kleineres x zuerst).', SP2,
+                                 'x und y des ersten, dann des zweiten Punkts', [-1, 0, 4, 5],
+                                 'Gleichsetzen: 2x² − 6x − 8 = 0 ⇒ x² − 3x − 4 = 0 ⇒ x = −1 oder x = 4. In y = x² − 2x − 3: y = 0 und y = 5.',
+                                 'Gleichsetzen, auf null bringen und durch den Faktor vor x² teilen.',
+                                 c=['-1', '(-1) ** 2 - 2 * (-1) - 3', '4', '4 ** 2 - 2 * 4 - 3']))
+    neu('uebung', 3, '', auswahl('Jemand setzt y = x² + 2x und y = 4x + 3 gleich und schreibt: x² + 2x − 4x + 3 = 0. Was stimmt?',
+                                 'Falsch: Es muss x² − 2x − 3 = 0 heißen, die 3 wechselt das Vorzeichen.',
+                                 ['Richtig.', 'Falsch: Es muss x² + 6x + 3 = 0 heißen.', 'Falsch: Man darf nicht gleichsetzen, sondern muss y = 0 setzen.'],
+                                 'Von x² + 2x = 4x + 3 auf beiden Seiten 4x und 3 abziehen: x² − 2x − 3 = 0.',
+                                 'Was passiert mit + 3, wenn es auf die linke Seite kommt?'))
+    # Test, Korrektur, Sicherung (Stufe 2, ohne Tipp)
+    neu('test', 2, '', _sp_punkte_aufgabe())
+    for _ in range(3): neu('korrektur', 2, '', _sp_punkte_aufgabe())
+    for _ in range(3): neu('sicherung', 2, '', _sp_punkte_aufgabe())
+    for soll in (0, 1, 2):
+        pp, gg, dd, D = _sp_anzahl(soll)
+        n = {0: 'keine Lösung, 0 gemeinsame Punkte', 1: 'genau eine Lösung (Tangente), 1 gemeinsamer Punkt', 2: 'zwei Lösungen, 2 Schnittpunkte'}[soll]
+        rel = {0: '< 0', 1: '= 0', 2: '> 0'}[soll]
+        neu('sicherung', 2, '', zahl(f'Wie viele gemeinsame Punkte haben die Parabel y = {pp} und die Gerade y = {gg}?',
+                                     f'Gleichsetzen ergibt {dd} = 0. D = {dz(D)} {rel.split()[0]} 0: {n}.' if soll != 1 else f'Gleichsetzen ergibt {dd} = 0. D = 0: {n}.',
+                                     'Gleichsetzen, D berechnen.', soll, str(soll)))
+    return L
+
 if __name__ == '__main__':
     d = bauen('funktionen.quadratisch',
           'Parabeln in Scheitelform und allgemeiner Form deuten, Nullstellen bestimmen, Terme aufstellen und Extremwertprobleme lösen.',
@@ -761,3 +932,4 @@ if __name__ == '__main__':
           offen=['Parabel durch drei Punkte kommt auch im Thema gleichungen.lgs3 vor (dort ausführlich), hier nur als Stufe-3-Variante.'])
     anhaengen(d, 9907, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    einbauen('funktionen.quadratisch', KARTE_SP, 'bestimmen', 18_9_1, schnitt_aufgaben)  # Achtzehnte Runde: Lehrplan-Lücke

@@ -610,6 +610,38 @@ BF.stufe('verstehen', 'Welche Aussage gilt für x ≥ 0?', 2, enthaelt='x^(3/9) 
 
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- Achtzehnte Runde, Teil B (Zweig luecken-kl9): Sachaufgaben (Modellieren) als Stufe-3-Gruppe ----------
+# Lücke aus inhalte/pruefung/aufbau/klasse9.json: Sachaufgaben zu Potenzen mit rationalen Exponenten fehlten (Volumen ↔ Kantenlänge,
+# Formeln aus Biologie und Physik). Eigener Zufallsstart, alles Alte bleibt unverändert.
+from _luecken_kl9 import erweitern  # noqa: E402
+
+
+def sach_exponenten():
+    L = []
+
+    def neu(l, a):
+        a['l'] = l
+        L.append(('uebung', 3, '', a))
+    neu('nte_wurzel', zahl('Ein würfelförmiger Behälter fasst 512 cm³. Wie lang ist eine Kante?', 'Kante a mit a³ = 512, also a = ³√512 = 8 cm, denn 8 · 8 · 8 = 512.',
+                           'Volumen eines Würfels: a³. Welche Zahl hoch 3 ergibt 512?', 8, '2 ** 3', einheit='cm'))
+    neu('nte_wurzel', zahl('Ein Guthaben wächst in 4 Jahren auf das 1,4641-Fache, jedes Jahr mit demselben Faktor. Wie groß ist der Faktor pro Jahr?',
+                           'Faktor q mit q⁴ = 1,4641, also q = ⁴√1,4641 = 1,1 (Probe: 1,1² = 1,21 und 1,21² = 1,4641). Das sind 10 % Zinsen pro Jahr.',
+                           'Viermal derselbe Faktor: q · q · q · q = 1,4641.', Fr(11, 10), '11 / 10'))
+    neu('potenz_wert', zahl('Für den Grundumsatz eines Säugetiers gilt etwa E = 70 · m^(3/4) (m in kg, E in kcal pro Tag). Berechne E für ein Tier mit 16 kg.',
+                            '16^(3/4) = (⁴√16)³ = 2³ = 8. E = 70 · 8 = 560 kcal pro Tag.', 'm^(3/4) = (⁴√m)³. Rechne zuerst die vierte Wurzel.', 560, '70 * 2 ** 3',
+                            einheit='kcal'))
+    neu('gleichung_exp', zahl('Nach der Formel E = 70 · m^(3/4) hat ein Tier den Grundumsatz 1 890 kcal pro Tag. Wie schwer ist es (in kg)?',
+                              '70 · m^(3/4) = 1 890 ⇒ m^(3/4) = 27 ⇒ m = 27^(4/3) = (³√27)⁴ = 3⁴ = 81 kg.',
+                              'Teile zuerst durch 70. Dann hoch 4/3 nehmen.', 81, '3 ** 4', einheit='kg'))
+    neu('potenz_wert', zahl('Für Planeten gilt näherungsweise a = T^(2/3) (T: Umlaufzeit in Jahren, a: Abstand zur Sonne in Erdabständen). Ein Planet braucht 8 Jahre. '
+                            'Wie weit ist er von der Sonne entfernt (in Erdabständen)?', 'a = 8^(2/3) = (³√8)² = 2² = 4.', 'T^(2/3) = (³√T)².', 4, '2 ** 2'))
+    neu('verstehen', auswahl('Ein Würfel soll das doppelte Volumen bekommen. Um wie viel Prozent wird seine Kante länger?', 'um etwa 26 %',
+                             ['um 100 %', 'um 50 %', 'um etwa 41 %'],
+                             'Neue Kante = alte Kante · ³√2 = alte Kante · 2^(1/3) ≈ alte Kante · 1,26, also etwa 26 % länger. 41 % gehört zu √2 (doppelte Fläche).',
+                             'Das Volumen wächst mit der dritten Potenz der Kante. Welcher Faktor hoch 3 ergibt 2?'))
+    return L
+
 if __name__ == '__main__':
     d = bauen('zahlen.rationale_exponenten',
           'n-te Wurzeln berechnen, Wurzeln und Potenzen mit rationalen Exponenten ineinander umwandeln und zusammenfassen.',
@@ -624,3 +656,4 @@ if __name__ == '__main__':
                  'Gleichungen xⁿ = c: Lösungsanzahl und negative Lösungen stehen ausführlich im Thema gleichungen.potenz; hier nur als Stufe-3-Aufgabe mit ungeradem n (Prüfvorschlag x³ = −125).'])
     anhaengen(d, 9903, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    erweitern('zahlen.rationale_exponenten', None, 18_9_8, sach_exponenten)  # Achtzehnte Runde: Sachaufgaben (Stufe 3) an mehreren Karten

@@ -608,6 +608,186 @@ BF.stufe('wurzel_mal', 'Berechne √375 : √15.', 2)
 
 # ---- BEFUNDE ENDE ----
 
+
+# ---------- Achtzehnte Runde, Teil B (Zweig luecken-kl9) ----------
+# 1) neue Lernkarte „heron“ nach „eingrenzen“ – LehrplanPLUS M9 1: „erläutern das Heron-Verfahren und bestimmen mithilfe dieses
+#    Algorithmus Näherungswerte für Quadratwurzeln … Sie sind sich des iterativen Charakters dieses Verfahrens bewusst.“
+#    Vorbilder (Typ, eigene Zahlen): Tabellen-Aufgaben „Heron-Verfahren mit Startwert …, Werte in die Tabelle eintragen“ (Arbeitsblätter
+#    Uni Stuttgart, Schülerseminar Iteration; NRW-Materialdatenbank), Schulaufgaben Kl. 9.
+# 2) Karte „wurzel_mal“ um einen Schritt √(a²) = |a| und Aufgaben dazu erweitert (Grundwissen M9: √(a²) = |a|).
+# 3) Sachaufgaben (Modellieren) als Stufe-3-Gruppe an den passenden Karten.
+# Eigene Zufallsstarts, alles Alte bleibt unverändert.
+from fractions import Fraction as _Fr  # noqa: E402
+from _luecken_kl9 import einbauen, erweitern  # noqa: E402
+
+HE_L = 'heron'
+_HE_KOPF = ['Schritt', 'Seite x', '10 : x', 'Mittelwert']
+KARTE_HE = {
+    'lernziel': HE_L, 'titel': 'Wurzeln mit dem Heron-Verfahren',
+    'einstieg': 'Ein quadratisches Beet soll 10 m² groß sein. Wie lang ist eine Seite? Du startest mit einem Rechteck '
+                'und machst es Schritt für Schritt quadratischer: das ⟦Heron-Verfahren⟧.',
+    'woerter': [['Heron-Verfahren', 'Rechenweg, der eine Wurzel Schritt für Schritt genauer annähert'],
+                ['Startwert', 'die erste Schätzung für die Seite, z. B. 3 m'],
+                ['Mittelwert', '(x + y) : 2, die Zahl genau in der Mitte zwischen x und y']],
+    'bild': {'typ': 'tabelle', 'kopf': _HE_KOPF, 'zeilen': [['0', '3', '?', '?']]},
+    'schritte': [{'text': 'Startwert 3 m: Die andere Seite ist 10 : 3 ≈ 3,333 m.', 'bild': {'zeilen': [['0', '3', '3,333', '?']]}},
+                 {'text': 'Mittelwert: (3 + 3,333) : 2 ≈ 3,167. Das ist die neue Seite.',
+                  'bild': {'zeilen': [['0', '3', '3,333', '3,167'], ['1', '3,167', '?', '?']]}},
+                 {'text': 'Wiederholen: 10 : 3,167 ≈ 3,158, Mittelwert ⟦≈ 3,16⟧.',
+                  'bild': {'zeilen': [['0', '3', '3,333', '3,167'], ['1', '3,167', '3,158', '3,16']]}},
+                 {'text': 'Probe: 3,16² ≈ 9,99. Die Seite ist also etwa ⟦3,16 m⟧ lang.'}],
+    'fehler': 'Nicht 10 : 2 = 5 rechnen. Halbieren ist kein Wurzelziehen. Ein Beet mit 5 m Seite hätte 25 m², nicht 10 m².',
+    'fehler_bild': {'typ': 'tabelle', 'kopf': ['Seite', 'Fläche'], 'zeilen': [['5 m', '25 m², zu groß'], ['3,16 m', '≈ 10 m²']]},
+    'regel': 'Neue Seite = Mittelwert aus x und a : x. Wiederhole, bis sich die Ziffern nicht mehr ändern.',
+    'probe': '3,162² ≈ 9,998, also fast genau 10.',
+}
+
+
+def _heron(a, x0, n):
+    x = _Fr(x0)
+    for _ in range(n):
+        x = (x + _Fr(a) / x) / 2
+    return x
+
+
+def _he_rz(wert_, nd):
+    w = gerundet(float(wert_), nd)
+    assert w is not None, (wert_, nd)
+    return w, f'round({K(float(wert_))}, {nd})'
+
+
+def _he_schritt(a, x0, pool_vorn=''):
+    w, c = _he_rz(_heron(a, x0, 1), 2)
+    q = _Fr(a, x0)
+    qt = f'= {dz(q)}' if endlich(q) else f'≈ {dz(round(a / x0, 3))}'
+    mt = '=' if endlich(_heron(a, x0, 1)) and _heron(a, x0, 1) == _Fr(str(w)) else '≈'
+    return zahl(f'{pool_vorn}Führe für √{a} einen Schritt des Heron-Verfahrens mit dem Startwert {x0} aus. Runde auf zwei Nachkommastellen.',
+                f'Andere Seite: {a} : {x0} {qt}. Mittelwert: ({x0} + {qt[2:]}) : 2 {mt} {dz(w)}.',
+                'Teile a durch den Startwert und bilde den Mittelwert aus beiden Seiten.', w, c)
+
+
+def heron_aufgaben():
+    L = []
+
+    def neu(pool, s, art, a):
+        a['l'] = HE_L
+        L.append((pool, s, art, a))
+
+    # Stufe 1
+    neu('uebung', 1, '', zahl('Heron-Verfahren für √7 mit dem Startwert 2: Wie lang ist die andere Rechteckseite 7 : 2?',
+                              'Das Rechteck hat die Fläche 7 und eine Seite 2. Die andere Seite ist 7 : 2 = 3,5.', 'Fläche durch bekannte Seite.', _Fr(7, 2), '7 / 2'))
+    neu('uebung', 1, '', zahl('Heron-Verfahren für √7: Startwert 2, andere Seite 3,5. Wie groß ist der neue Wert, der Mittelwert der beiden Seiten?',
+                              'Mittelwert: (2 + 3,5) : 2 = 2,75.', 'Mittelwert = (x + y) : 2.', _Fr(11, 4), '(2 + 7 / 2) / 2'))
+    neu('uebung', 1, '', zahl('Berechne für √20 mit dem Startwert 4 den ersten Schritt des Heron-Verfahrens.',
+                              'Andere Seite 20 : 4 = 5. Mittelwert (4 + 5) : 2 = 4,5.', 'Erst 20 : 4, dann der Mittelwert.', _Fr(9, 2), '(4 + 20 / 4) / 2'))
+    w, c = _he_rz(_heron(13, 3, 1), 2)
+    neu('uebung', 1, '', zahl('Berechne für √13 mit dem Startwert 3 den ersten Schritt des Heron-Verfahrens. Runde auf zwei Nachkommastellen.',
+                              f'Andere Seite 13 : 3 ≈ 4,333. Mittelwert (3 + 4,333) : 2 ≈ {dz(w)}.', 'Erst 13 : 3, dann der Mittelwert.', w, c))
+    # Stufe 2
+    for a, x0 in ((5, 2), (30, 5), (2, 1)):
+        x1 = _heron(a, x0, 1)
+        w, c = _he_rz(_heron(a, x0, 2), 3)
+        neu('uebung', 2, '', zahl(f'Berechne für √{a} mit dem Startwert {x0} zwei Schritte des Heron-Verfahrens. Gib x₂ auf drei Nachkommastellen an.',
+                                  f'x₁ = ({x0} + {a} : {x0}) : 2 = {dz(x1) if endlich(x1) else dz(round(float(x1), 4))}. '
+                                  f'x₂ = (x₁ + {a} : x₁) : 2 ≈ {dz(w)}.',
+                                  'Mit dem Ergebnis des ersten Schritts rechnest du genauso weiter.', w, c))
+    w, c = _he_rz(_heron(40, 6, 1), 2)
+    neu('uebung', 2, '', zahl('Die Tabelle zeigt einen Schritt des Heron-Verfahrens für √40. Welcher Wert gehört in das Feld „?“? Runde auf zwei Nachkommastellen.',
+                              f'Mittelwert aus 6 und 40 : 6 ≈ 6,667: (6 + 6,667) : 2 ≈ {dz(w)}.', 'In die letzte Spalte gehört der Mittelwert.', w, c,
+                              grafik={'typ': 'tabelle', 'kopf': ['Seite x', '40 : x', 'Mittelwert'], 'zeilen': [['6', '6,67', '?']]}))
+    neu('uebung', 2, '', auswahl('Welcher Startwert liegt am nächsten an √50?', '7', ['25 (die Hälfte von 50)', '5', '10'],
+                                 '7 · 7 = 49 liegt sehr nah an 50. 5 · 5 = 25 und 10 · 10 = 100 sind weit weg; die Hälfte von 50 hat mit der Wurzel nichts zu tun.',
+                                 'Welche Zahl mal sich selbst ergibt fast 50?'))
+    w, c = _he_rz(_heron(11, 3, 1), 2)
+    neu('uebung', 2, '', zahl('Ein quadratisches Fenster soll 11 dm² groß sein. Berechne die Seite mit einem Heron-Schritt, Startwert 3 dm. Runde auf zwei Nachkommastellen.',
+                              f'Andere Seite 11 : 3 ≈ 3,667 dm. Mittelwert (3 + 3,667) : 2 ≈ {dz(w)} dm.', 'Fläche : Startwert, dann Mittelwert.', w, c, einheit='dm'))
+    # Stufe 3
+    w, c = _he_rz(_heron(17, 4, 2), 4)
+    neu('uebung', 3, 'pruefung', zahl('Bestimme √17 mit dem Heron-Verfahren. Starte mit 4 und rechne zwei Schritte. Gib x₂ auf vier Nachkommastellen an.',
+                                      f'x₁ = (4 + 17 : 4) : 2 = (4 + 4,25) : 2 = 4,125. x₂ = (4,125 + 17 : 4,125) : 2 ≈ (4,125 + 4,1212) : 2 ≈ {dz(w)}.',
+                                      'Rechne mit möglichst vielen Stellen und runde erst am Ende.', w, c))
+    neu('uebung', 3, 'knobel', zahl('Jemand rechnet einen Heron-Schritt mit dem Startwert 3 und erhält 3,5. Von welcher Zahl a wollte er die Wurzel bestimmen?',
+                                    '(3 + a : 3) : 2 = 3,5 ⇒ 3 + a : 3 = 7 ⇒ a : 3 = 4 ⇒ a = 12.', 'Rechne den Heron-Schritt rückwärts.', 12, '(2 * 3.5 - 3) * 3'))
+    w, c = _he_rz(_heron(27, 5, 2), 3)
+    neu('uebung', 3, 'pruefung', zahl('Die Tabelle zeigt das Heron-Verfahren für √27. Berechne den Wert x₂ in der zweiten Zeile auf drei Nachkommastellen.',
+                                      f'27 : 5,2 ≈ 5,1923. x₂ = (5,2 + 5,1923) : 2 ≈ {dz(w)}.', 'Die neue Seite 5,2 ist der Startwert der zweiten Zeile.', w, c,
+                                      grafik={'typ': 'tabelle', 'kopf': ['Seite x', '27 : x', 'Mittelwert'], 'zeilen': [['5', '5,4', '5,2'], ['5,2', '?', 'x₂ = ?']]}))
+    neu('uebung', 3, '', auswahl('Warum liegt √a immer zwischen x und a : x?', 'Ist x zu groß, ist a : x zu klein, denn x · (a : x) = a.',
+                                 ['Weil x und a : x immer gleich groß sind.', 'Weil a : x immer kleiner als x ist.', 'Weil der Mittelwert immer genau √a ist.'],
+                                 'Beide Seiten zusammen ergeben die Fläche a. Wäre jede größer als √a, wäre die Fläche zu groß; wäre jede kleiner, zu klein. '
+                                 'Also liegt eine darüber, eine darunter.', 'Denke an das Rechteck mit der Fläche a.'))
+    w, c = _he_rz(_heron(100, 1, 2), 1)
+    neu('uebung', 3, '', zahl('Jemand bestimmt √100 mit dem Heron-Verfahren, aber mit dem schlechten Startwert 1. Wie groß ist x₂? Runde auf eine Nachkommastelle.',
+                              f'x₁ = (1 + 100) : 2 = 50,5. x₂ = (50,5 + 100 : 50,5) : 2 ≈ (50,5 + 1,98) : 2 ≈ {dz(w)}. Ein schlechter Startwert braucht viele Schritte.',
+                              'Rechne zwei Schritte. Wie weit ist x₂ noch von 10 entfernt?', w, c))
+    w, c = _he_rz(_heron(200, 14, 2), 2)
+    neu('uebung', 3, 'pruefung', zahl('Ein quadratischer Platz soll 200 m² groß sein. Bestimme die Seitenlänge mit zwei Heron-Schritten, Startwert 14 m. Runde auf zwei Nachkommastellen.',
+                                      f'x₁ = (14 + 200 : 14) : 2 ≈ (14 + 14,2857) : 2 ≈ 14,1429. x₂ = (14,1429 + 200 : 14,1429) : 2 ≈ {dz(w)} m.',
+                                      'Teile die Fläche durch die Seite und bilde den Mittelwert, zweimal.', w, c, einheit='m'))
+    neu('uebung', 3, '', auswahl('Jemand rechnet für √8 mit dem Startwert 2: x₁ = (2 + 8) : 2 = 5. Was stimmt?', 'Falsch: Es heißt (2 + 8 : 2) : 2 = 3.',
+                                 ['Richtig.', 'Falsch: Es heißt (2 + 8) : 8 = 1,25.', 'Falsch: Es heißt 8 : 2 = 4.'],
+                                 'Gemittelt werden die beiden Rechteckseiten: 2 und 8 : 2 = 4. Mittelwert (2 + 4) : 2 = 3. 5 · 5 = 25 wäre viel zu groß.',
+                                 'Welche zwei Seiten hat das Rechteck mit der Fläche 8?'))
+    neu('uebung', 3, 'knobel', zahl('Nach wie vielen Heron-Schritten mit dem Startwert 2 stimmt √5 ≈ 2,236 auf drei Nachkommastellen?',
+                                    'x₁ = 2,25 (gerundet 2,250, noch falsch). x₂ ≈ 2,2361 (gerundet 2,236, stimmt). Also nach 2 Schritten.',
+                                    'Rechne Schritt für Schritt und vergleiche jeweils mit 2,236.', 2, '2'))
+    # Test, Korrektur, Sicherung: je ein Heron-Schritt
+    vorrat = [14, 15, 18, 19, 21, 22, 23, 24, 26, 28, 29, 31, 33, 35, 38, 39, 41, 42, 43, 44, 45, 47, 48, 52, 53, 55, 58, 59]
+    gew = []
+    while len(gew) < 10:
+        a = R.choice(vorrat)
+        x0 = isqrt(a)
+        if a in gew or a % x0 == 0 or gerundet(float(_heron(a, x0, 1)), 2) is None: continue  # keine glatten Teilungen
+        gew.append(a)
+    pools = ['test'] + ['korrektur'] * 3 + ['sicherung'] * 6
+    for p, a in zip(pools, gew):
+        neu(p, 2, '', _he_schritt(a, isqrt(a)))
+    return L
+
+
+SCHRITT_BETRAG = {'text': 'Achtung bei negativen Zahlen: √((−3)²) = √9 = 3. Also ⟦√(a²) = |a|⟧.',
+                  'bild': {'typ': 'zahlenstrahl', 'start': -4, 'ende': 4, 'abschnitte': 8, 'beschriftet': 'anfang_ende',
+                           'punkte': [{'wert': -3, 'name': '−3'}, {'wert': 3, 'name': '√9 = 3'}], 'boegen': [{'von': -3, 'bis': 0, 'name': '|−3|'}]}}
+
+
+def betrag_aufgaben():
+    L = []
+
+    def neu(s, a):
+        a['l'] = 'wurzel_mal'
+        L.append(('uebung', s, '', a))
+    neu(2, zahl('Berechne √((−5)²).', '(−5)² = 25 und √25 = 5. Die Wurzel ist nie negativ: √((−5)²) = |−5| = 5.', 'Rechne zuerst unter der Wurzel.', 5, '((-5) ** 2 + 0) // 5'))
+    neu(2, zahl('Berechne √(x²) für x = −7.', 'x² = 49, √49 = 7 = |−7|.', 'Setze ein und rechne zuerst x².', 7, 'abs(-7)'))
+    neu(3, auswahl('Für welche Zahlen x gilt √(x²) = x?', 'für x ≥ 0', ['für alle x', 'nur für x > 0', 'für x ≤ 0'],
+                   '√(x²) = |x|. |x| = x gilt genau für x ≥ 0 (auch für 0). Für x = −2 wäre √4 = 2 ≠ −2.', 'Probiere x = −2, x = 0 und x = 2.'))
+    neu(3, auswahl('Vereinfache √(49a²) für a < 0.', '−7a', ['7a', '49a', '−49a'],
+                   '√(49a²) = 7 · |a|. Für a < 0 ist |a| = −a, also 7 · (−a) = −7a (positiv, weil a negativ ist).', 'Es gilt √(a²) = |a|. Was ist |a| bei negativem a?'))
+    return L
+
+
+def sach_reell():
+    L = []
+
+    def neu(l, a):
+        a['l'] = l
+        L.append(('uebung', 3, '', a))
+    neu('eingrenzen', luecken('Ein Stein fällt aus 60 m Höhe. Für die Fallzeit gilt etwa t = √(60 : 5) s. Zwischen welchen ganzen Sekunden liegt t?',
+                              '□ s < t < □ s', 'zwei ganze Zahlen', [3, 4], 't = √12. 3² = 9 < 12 < 16 = 4², also liegt t zwischen 3 s und 4 s.',
+                              'Rechne 60 : 5 und suche die Quadratzahlen davor und danach.', c=['3', '4']))
+    neu('wurzel_mal', zahl('Ein Rechteck ist √8 m breit und √18 m lang. Wie groß ist seine Fläche?', '√8 · √18 = √(8 · 18) = √144 = 12 m².',
+                           'Zieh die Wurzeln zu einer zusammen.', 12, '(8 * 18) // 12', einheit='m²'))
+    neu('wurzel_mal', zahl('Aus einer Bremsspur von s Metern schätzt man die Geschwindigkeit mit v = √(200 · s) (v in km/h). Wie schnell war ein Auto mit 8 m Bremsspur?',
+                           'v = √(200 · 8) = √1600 = 40 km/h.', 'Rechne erst unter der Wurzel.', 40, '200 * 8 // 40', einheit='km/h'))
+    neu('teilweise', luecken('Ein quadratischer Platz hat 50 m² Fläche. Gib die Seitenlänge exakt an (teilweise Wurzel ziehen).', '□√□ m', 'Zahl vor der Wurzel, Zahl unter der Wurzel',
+                             [5, 2], '√50 = √(25 · 2) = 5√2 m.', 'Suche in 50 die größte Quadratzahl.', c=['5', '2']))
+    neu('zusammenfassen', luecken('Zwei quadratische Beete haben 8 m² und 18 m². Jedes bekommt ringsum einen Zaun. Gib die gesamte Zaunlänge exakt an.', '□√□ m',
+                                  'Zahl vor der Wurzel, Zahl unter der Wurzel', [20, 2], 'Seiten √8 = 2√2 und √18 = 3√2. Zaun: 4 · 2√2 + 4 · 3√2 = 8√2 + 12√2 = 20√2 m.',
+                                  'Zieh teilweise die Wurzel, dann kannst du zusammenfassen.', c=['4 * 2 + 4 * 3', '2']))
+    neu('nenner_rational', luecken('Ein Rechteck hat 6 m² Fläche und ist √3 m breit. Gib seine Länge exakt mit rationalem Nenner an.', '□√□ m',
+                                   'Zahl vor der Wurzel, Zahl unter der Wurzel', [2, 3], 'Länge 6/√3 = 6√3/3 = 2√3 m.', 'Länge = Fläche : Breite. Erweitere mit √3.',
+                                   c=['6 // 3', '3']))
+    return L
+
 if __name__ == '__main__':
     d = bauen('zahlen.reell',
           'Irrationale Zahlen erkennen, Wurzeln eingrenzen, Wurzelterme vereinfachen und Nenner rational machen.',
@@ -621,3 +801,7 @@ if __name__ == '__main__':
           offen=['Lückentext „□√□“: Die App zeigt das Wurzelzeichen nur als Text in der Schablone; bitte prüfen, ob die Darstellung im Eingabefeld gut lesbar ist.'])
     anhaengen(d, 9902, schwer)
     befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    # Achtzehnte Runde: Lehrplan-Lücken (Heron, √(a²) = |a|, Sachaufgaben)
+    einbauen('zahlen.reell', KARTE_HE, 'eingrenzen', 18_9_3, heron_aufgaben)
+    erweitern('zahlen.reell', 'wurzel_mal', 18_9_4, betrag_aufgaben, schritt=SCHRITT_BETRAG)
+    erweitern('zahlen.reell', 'eingrenzen', 18_9_5, sach_reell)

@@ -475,6 +475,111 @@ UMBAU_WEG = []
 # ---------- Ende UMBAU ----------
 
 
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: Realschul-Abschlussprüfung Mathematik I (Bayern), Bereich „Abbildungen“ (Bildpunkte in Abhängigkeit von x,
+# orthogonale Affinität und Drehung mit Matrix, Urpunkt rückwärts); IB-MYP-Aufgabenformate zu Matrizen und Skalarprodukt
+# (rechter Winkel, Winkel zwischen Vektoren). Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    import math
+    from _rsib1 import Z, A, L, nachtrag, finde, rund
+    T = lambda teil: finde(d, teil)
+    MT, MH = '(□ □; □ □)', 'Trage die Einträge zeilenweise ein: oben links, oben rechts; unten links, unten rechts.'
+    nachtrag(d,
+        umstufen={
+            T('Welcher Bildpunkt entsteht, wenn P(−2 | −2) mit M = (5  −4; 1  −4) abgebildet wird?'): 2,
+            T('Welcher Bildpunkt entsteht, wenn P(−3 | −5) mit M = (−2  4; −3  −3) abgebildet wird?'): 2,
+            T('Gib die Matrix der Spiegelung an der y-Achse an.'): 2,
+            T('Gib die Matrix der Drehung um O um 270° (−90°) an.'): 2,
+            T('Gib die Matrix der Punktspiegelung am Ursprung an.'): 2,
+            T('Welche Matrix beschreibt die Drehung um O um 300°?'): 2,
+            T('P(−5 | 5) wird um O um 40° gedreht. Berechne y\''): 2,
+            T('Was ergibt A · B für A = (−1  −3; 3  −4)'): 2,
+        },
+        ersetzen={
+            T('Welche Abbildung beschreibt die Matrix (0  1; −1  0)?'):
+                L(3, 'Eine Abbildung bildet (1 | 0) auf (2 | 1) und (0 | 1) auf (−1 | 3) ab. Gib ihre Matrix an.', MT, [2, -1, 1, 3], ['2', '-1', '1', '3'],
+                  'Die Bilder der Einheitspunkte sind die Spalten: erste Spalte (2 | 1), zweite Spalte (−1 | 3).', 'Welche Spalte gehört zu (1 | 0)?', hinweis=MH),
+            T('Welche Abbildung beschreibt die Matrix (−1  0; 0  1)?'):
+                L(3, 'Gib die Matrix der orthogonalen Affinität mit der x-Achse als Achse und dem Faktor k = 3 an (alle y-Werte werden verdreifacht, x bleibt).',
+                  MT, [1, 0, 0, 3], ['1', '0', '0', '3'], '(1 | 0) bleibt (1 | 0). (0 | 1) wird (0 | 3). Spalten: (1 0; 0 3).',
+                  'Bilde die beiden Einheitspunkte ab.', hinweis=MH),
+            T('P(5 | 5) wird um O um 200° gedreht. Berechne y\''):
+                Z(3, 'P(4 | 0) wird um O gedreht und landet bei P′(0 | 4). Um wie viel Grad wurde gedreht (zwischen 0° und 360°)?', 90, '90',
+                  'Von der positiven x-Achse zur positiven y-Achse gegen den Uhrzeigersinn: 90°. Probe: (cos 90°  −sin 90°; sin 90°  cos 90°) · (4 | 0) = (0 | 4).',
+                  'Zeichne P und P′ ein.', einheit='°'),
+            T('P(1 | −5) wird um O um 150° gedreht. Berechne x\''):
+                Z(3, 'P(2 | 0) wird um O um einen Winkel φ zwischen 0° und 180° gedreht und landet bei P′(1 | y′) mit y′ > 0. Wie groß ist φ?', 60, '60',
+                  'x′ = 2 · cos φ = 1 ⇒ cos φ = 0,5 ⇒ φ = 60°.', 'Schreibe x′ mit der Drehmatrix auf.', einheit='°'),
+            T('Jemand berechnet für a = (2 | 2) und b = (6 | −3)'):
+                Z(3, 'Für welches t > 0 schließen a = (1 | t) und b = (1 | 0) einen Winkel von 45° ein?', 1, '1',
+                  'a · b = 1, |a| = √(1 + t²), |b| = 1. cos 45° = 1 : √(1 + t²) ⇒ √(1 + t²) = √2 ⇒ t² = 1 ⇒ t = 1.',
+                  'Setze in cos φ = (a · b) : (|a| · |b|) ein.'),
+            T('Jemand berechnet für a = (−1 | −2) und b = (−4 | −4)'):
+                Z(3, 'Gegeben sind A(0 | 0), B(4 | 2) und C(1 | y). Für welches y hat das Dreieck ABC bei A einen rechten Winkel?', -2, '-4/2',
+                  'AB = (4 | 2), AC = (1 | y). Senkrecht: 4 · 1 + 2 · y = 0 ⇒ y = −2.', 'Rechter Winkel bei A heißt: AB · AC = 0.'),
+        },
+        neu={
+            'bildpunkt': [
+                L(3, 'Die Punkte P(x | x + 1) werden mit M = (2  1; 0  1) abgebildet. Gib die Bildpunkte P′ in Abhängigkeit von x an.',
+                  'P′(□ · x + □ | x + □)', [3, 1, 1], ['2 + 1', '1', '1'],
+                  'x′ = 2x + 1 · (x + 1) = 3x + 1. y′ = 0 · x + 1 · (x + 1) = x + 1.', 'Rechne Zeile mal Spalte mit den Termen.'),
+                Z(3, 'Für welchen Wert k bildet M = (1  0; 0  k) den Punkt P(4 | 3) auf P′(4 | −1,5) ab?', -0.5, '-1.5/3',
+                  'y′ = k · 3 = −1,5 ⇒ k = −0,5. x bleibt 4.', 'Rechne y′ mit k aus.'),
+                L(3, 'Welcher Punkt wird von M = (2  1; 1  1) auf sich selbst abgebildet?', 'P(□ | □)', [0, 0], ['0', '0'],
+                  '2x + y = x ⇒ x + y = 0. x + y = y ⇒ x = 0. Dann y = 0. Nur der Ursprung.', 'Setze P′ = P und löse das Gleichungssystem.'),
+                L(3, 'Eine Matrix bildet (1 | 0) auf (3 | 1) und (0 | 1) auf (−1 | 2) ab. Berechne das Bild von P(2 | 5).', 'P′(□ | □)', [1, 12], ['2*3 + 5*(-1)', '2*1 + 5*2'],
+                  'P = 2 · (1 | 0) + 5 · (0 | 1). Bild: 2 · (3 | 1) + 5 · (−1 | 2) = (1 | 12).', 'Zerlege P in 2-mal (1 | 0) und 5-mal (0 | 1).'),
+            ],
+            'abbildungsmatrix': [
+                Z(3, 'Die Matrix (k  0; 0  k) bildet P(2 | −3) auf P′(−5 | 7,5) ab. Wie groß ist k?', -2.5, '-5/2',
+                  'x′ = k · 2 = −5 ⇒ k = −2,5. Probe: −2,5 · (−3) = 7,5. Zentrische Streckung an O mit k = −2,5.', 'Rechne mit der x-Koordinate.'),
+                A(3, 'Die Punktspiegelung am Ursprung wird zweimal hintereinander ausgeführt. Was entsteht?', 'Jeder Punkt bleibt an seinem Platz.',
+                  ['Eine Drehung um 90°', 'Eine Spiegelung an der x-Achse', 'Eine Streckung mit k = 2'],
+                  '(−1  0; 0  −1) · (−1  0; 0  −1) = (1  0; 0  1). Jeder Punkt kommt zurück.', 'Wende die Abbildung zweimal auf einen Punkt an.'),
+                L(3, 'Gib die Matrix an, die jeden Punkt an seinem Platz lässt.', MT, [1, 0, 0, 1], ['1', '0', '0', '1'],
+                  '(1 | 0) bleibt (1 | 0), (0 | 1) bleibt (0 | 1). Spalten: (1 0; 0 1), die Einheitsmatrix.', 'Wohin gehen die Einheitspunkte?', hinweis=MH),
+                L(3, 'Gib die Matrix der Spiegelung an der Geraden y = −x an.', MT, [0, -1, -1, 0], ['0', '-1', '-1', '0'],
+                  '(1 | 0) wird zu (0 | −1), (0 | 1) wird zu (−1 | 0). Als Spalten: (0 −1; −1 0).', 'Spiegle die beiden Einheitspunkte an y = −x.', hinweis=MH),
+                A(3, 'Welche Abbildung hat dieselbe Matrix wie die Drehung um O um 180°?', 'die Punktspiegelung am Ursprung',
+                  ['die Spiegelung an der x-Achse', 'die Spiegelung an der y-Achse', 'die Spiegelung an y = x'],
+                  'cos 180° = −1, sin 180° = 0: (−1  0; 0  −1). Das ist die Matrix der Punktspiegelung am Ursprung.', 'Setze 180° in die Drehmatrix ein.'),
+            ],
+            'drehung': [
+                Z(3, 'Eine Drehung um O um 60° wird zweimal hintereinander ausgeführt. Um wie viel Grad wird insgesamt gedreht?', 120, '2*60',
+                  'Zwei Drehungen um denselben Punkt ergeben eine Drehung um die Summe der Winkel: 120°.', 'Drehe einen Punkt in Gedanken zweimal.', einheit='°'),
+                L(3, 'P(3 | 4) wird um O um 90° gedreht. Gib P′ exakt an.', 'P′(□ | □)', [-4, 3], ['-4', '3'],
+                  'cos 90° = 0, sin 90° = 1: x′ = 0 · 3 − 1 · 4 = −4, y′ = 1 · 3 + 0 · 4 = 3.', 'Setze cos 90° = 0 und sin 90° = 1 ein.'),
+                Z(3, 'Ein Quadrat mit dem Mittelpunkt O wird um O gedreht. Um welchen kleinsten Winkel (größer als 0°) muss man drehen, damit es wieder genau auf sich liegt?',
+                  90, '360/4', 'Ein Quadrat hat vier gleiche Ecken. Nach 360° : 4 = 90° liegt jede Ecke auf der nächsten.', 'Wie viele Ecken hat ein Quadrat?', einheit='°'),
+                L(3, 'P(6 | 8) wird so um O gedreht, dass das Bild auf der positiven x-Achse liegt. Gib P′ an.', 'P′(□ | □)', [10, 0], ['(6**2 + 8**2)/10', '0'],
+                  'Die Drehung ändert den Abstand zu O nicht: √(36 + 64) = 10. Also P′(10 | 0).', 'Was bleibt bei einer Drehung um O gleich?'),
+            ],
+            'rechnen': [
+                L(3, 'Die Drehung um O um 90° hat die Matrix D = (0  −1; 1  0). Berechne D · D.', MT, [-1, 0, 0, -1], ['0*0 + (-1)*1', '0', '0', '-1'],
+                  'D · D = (0 · 0 + (−1) · 1   0 · (−1) + (−1) · 0; 1 · 0 + 0 · 1   1 · (−1) + 0 · 0) = (−1 0; 0 −1): eine Drehung um 180°.',
+                  'Zeile mal Spalte – das Ergebnis ist eine bekannte Abbildung.', hinweis=MH),
+                A(3, 'Für welche x gilt A · B = B · A mit A = (1  x; 0  1) und B = (1  2; 0  1)?', 'für jedes x', ['nur für x = 2', 'nur für x = 0', 'für kein x'],
+                  'A · B = (1  2 + x; 0  1) und B · A = (1  x + 2; 0  1). Beide sind gleich – für jedes x.', 'Rechne beide Produkte mit x aus.'),
+                L(3, 'Berechne A · A für A = (0  1; 1  0).', MT, [1, 0, 0, 1], ['1', '0', '0', '1'],
+                  '(0 · 0 + 1 · 1   0 · 1 + 1 · 0; 1 · 0 + 0 · 1   1 · 1 + 0 · 0) = (1 0; 0 1). Zweimal an y = x spiegeln bringt jeden Punkt zurück.',
+                  'Welche Abbildung ist A?', hinweis=MH),
+            ],
+            'inverse': [
+                Z(3, 'Für welches x hat M = (x  2; 3  4) die Determinante 1?', 1.75, '(1 + 6)/4', '4x − 6 = 1 ⇒ x = 1,75.', 'Stelle die Determinante mit x auf.'),
+                A(3, 'Ist die inverse Matrix der Drehung um O um 90° die Matrix der Drehung um 270°?', 'Ja: Beide zusammen ergeben eine volle Umdrehung.',
+                  ['Nein, die Inverse einer Drehung gibt es nicht.', 'Nein, es ist die Drehung um 90° selbst.', 'Nein, es ist die Spiegelung an der x-Achse.'],
+                  'Die Umkehrung macht die Drehung rückgängig: −90° = 270°. (0 −1; 1 0)⁻¹ = (0 1; −1 0) ist die Drehmatrix für 270°.',
+                  'Was macht eine Drehung um 90° rückgängig?'),
+            ],
+            'skalarprodukt': [
+                Z(3, 'Für zwei Vektoren gilt |a| = 5, |b| = 2 und a · b = 10. Wie groß ist der Winkel zwischen ihnen?', 0, '0',
+                  'cos φ = 10 : (5 · 2) = 1 ⇒ φ = 0°. Die Vektoren zeigen in dieselbe Richtung.', 'Setze in die Winkelformel ein.', einheit='°'),
+                L(3, 'Gib den Vektor an, der auf (3 | −2) senkrecht steht und die x-Koordinate 4 hat.', '(□ | □)', [4, 6], ['4', '3*4/2'],
+                  '(3 | −2) · (4 | y) = 12 − 2y = 0 ⇒ y = 6.', 'Skalarprodukt gleich 0 setzen.'),
+            ],
+        })
+
+
 if __name__ == '__main__':
     d = bauen('abbildungen.matrizen',
           'Abbildungen im Koordinatensystem mit Matrizen beschreiben (Spiegelung, Drehung, Streckung), mit Matrizen rechnen, Umkehrmatrizen bestimmen und das Skalarprodukt nutzen.',
@@ -489,3 +594,4 @@ if __name__ == '__main__':
                  'IB MYP 4: Lösen linearer Gleichungssysteme mit der inversen Matrix nur als Urpunkt-Aufgabe enthalten; Parkettierungen nicht enthalten (bräuchten Zeichnungen).',
                  'Spiegelung an beliebigen Ursprungsgeraden (cos 2α, sin 2α) weggelassen; nur Achsen, y = x, Drehungen und zentrische Streckung.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+    durchsicht(d)

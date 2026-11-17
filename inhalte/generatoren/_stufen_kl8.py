@@ -72,10 +72,12 @@ class Stufen(Durchsicht):
         karten = [e['lernziel'] for e in d['inhalt']['etappen']]
         self.vorher = {lz: collections.Counter(a['s'] for a in auf if a['l'] == lz and a['p'] == 'uebung') for lz in karten}
         # 1. Typen für vorhandene Übungen
+        ohne = [f'{a["l"]}/S{a["s"]}: {a["f"]["text"]}' for a in auf if a['p'] == 'uebung'
+                and not any(lz == a['l'] and rx.search(a['f']['text']) for lz, rx, g in self.regeln)]
+        assert not ohne, f'{self.thema}: kein Typ für\n  ' + '\n  '.join(ohne)
         for a in auf:
             if a['p'] != 'uebung': continue
             g = next((g for lz, rx, g in self.regeln if lz == a['l'] and rx.search(a['f']['text'])), None)
-            assert g, f'{self.thema}/{a["l"]}: kein Typ für „{a["f"]["text"]}“ (Stufe {a["s"]})'
             if STUFE_VON[g] != a['s']: self.zaehler['umgestuft'] += 1
             a['g'], a['s'] = g, STUFE_VON[g]
         # 2. neue Übungen und Knobel-Bordkarten

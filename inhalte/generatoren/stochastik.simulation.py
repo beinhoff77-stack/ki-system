@@ -572,3 +572,181 @@ def durchsicht():
 
 if __name__ == '__main__':
     durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl10) ----------
+def stufen():
+    import math
+    import sys as _sys
+    from fractions import Fraction as _F
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _stufen_kl10 import Stufen
+    S = Stufen('stochastik.simulation', 2040)
+    Z, A, ZR = S.Z, S.A, S.ZR
+
+    def B(text, zaehler, nenner, w, h):
+        f = _F(zaehler, nenner)
+        assert (f.numerator, f.denominator) == (zaehler, nenner), (text, f)
+        return S.L(text, '□/□', [zaehler, nenner], [str(zaehler), str(nenner)], w, h, hinweis='Zähler und Nenner (gekürzt)')
+
+    # --- zufallsgeraet ---
+    S.stufenleiter('zufallsgeraet', 'Ein Zufallsgerät mit genau der gesuchten Wahrscheinlichkeit erkennen oder einrichten (Urne, Würfel, Ziffer).',
+                   'Kugelzahl und Winkel für ein gegebenes p berechnen, Regeln für Würfel und Glücksrad.',
+                   'Tabellenkalkulation, Münze für 1/4, Feldzahl als Parameter, Fehler „ohne Zurücklegen“, zwei Drehungen verknüpfen, Bedingung für gleiche Chancen wie im BMT.')
+    S.g('zufallsgeraet', erkennen=[0, 1, 2, 3, 5, 8], mehrschritt=[4, 6, 7, 9], darstellung=[10, 11, 12, 13, 24], umkehr=[25],
+        transfer=[26, 27], begruenden=[28, 29])
+    S.ueberzaehlig(3, 5, 8)
+    S.neu('zufallsgeraet', 'direkt', Z('Eine Urne mit 10 Kugeln soll p = 0,4 simulieren (rot = Treffer, mit Zurücklegen). Wie viele rote Kugeln braucht man?', 4, '10 * 0.4',
+                                       '0,4 = 4/10: 4 rote von 10 Kugeln.', 'Schreibe p als Bruch mit Nenner 10.'))
+    S.neu('zufallsgeraet', 'direkt', Z('Ein Würfel soll ein Ereignis mit p = 1/3 simulieren. Wie viele Augenzahlen müssen als Treffer zählen?', 2, '6 / 3',
+                                       '1/3 = 2/6: zwei Augenzahlen, z. B. 1 und 2.', 'Schreibe p als Bruch mit Nenner 6.'))
+    S.neu('zufallsgeraet', 'fehler', A('Jemand simuliert p = 0,3 mit einer Urne aus 3 roten und 7 weißen Kugeln, legt die gezogenen Kugeln aber nicht zurück. Was stimmt?',
+                                       'Falsch: Ohne Zurücklegen ändert sich p nach jedem Zug; man muss zurücklegen.',
+                                       ['Richtig, so ist es sogar genauer.', 'Falsch: Man braucht 30 rote Kugeln.', 'Richtig, solange man höchstens 10-mal zieht.'],
+                                       'Nach einer roten Kugel wäre p = 2/9 ≈ 0,22, nach einer weißen 3/9 ≈ 0,33. Damit p jedes Mal 0,3 ist, muss die Kugel zurück.', 'Wie groß ist p beim zweiten Zug?'))
+    S.neu('zufallsgeraet', 'parameter', Z('Ein Glücksrad hat n gleich große Felder, 3 davon sind Trefferfelder. Für welches n liefert es p = 0,15?', 20, '3 / 0.15',
+                                          '3/n = 0,15 ⇒ n = 3 : 0,15 = 20.', 'Stelle die Gleichung 3/n = 0,15 auf.'))
+    S.neu('zufallsgeraet', 'verknuepfen', Z('Ein Glücksrad hat zwei Trefferfelder mit 40° und 32°. Es wird zweimal gedreht. Wie groß ist P(zweimal Treffer)?', 0.04, '((40 + 32) / 360) ** 2',
+                                            'Trefferfeld zusammen 72°, p = 72/360 = 0,2. Zwei Drehungen: 0,2 · 0,2 = 0,04.', 'Erst p für eine Drehung, dann die Pfadregel.'))
+    S.neu('zufallsgeraet', 'pruefung', A('Ein Glücksrad hat vier Felder mit den Ziffern 1, 2, 3 und 4. Was muss zusätzlich gelten, damit jede Ziffer mit der Wahrscheinlichkeit 1/4 erscheint?',
+                                         'Alle vier Felder sind gleich groß.', ['Das Rad wird viermal gedreht.', 'Die Ziffern stehen der Größe nach.', 'Feld 1 ist das größte.'],
+                                         'Nur bei gleich großen Feldern (je 90°) ist jedes Ergebnis gleich wahrscheinlich (Laplace-Experiment).', 'Wovon hängt beim Glücksrad die Wahrscheinlichkeit eines Feldes ab?'))
+    S.bonus('zufallsgeraet', A('Wie kann man mit einer fairen Münze ein Ereignis mit p = 1/3 simulieren?', 'Zweimal werfen: WW = Treffer, WZ oder ZW = kein Treffer, bei ZZ von vorn beginnen.',
+                               ['Einmal werfen, Wappen = Treffer.', 'Dreimal werfen, genau einmal Wappen = Treffer.', 'Das geht mit einer Münze nicht.'],
+                               'Die drei gültigen Ausgänge WW, WZ, ZW sind gleich wahrscheinlich; ZZ wird verworfen. Also hat WW den Anteil 1 von 3. „Dreimal werfen, genau einmal Wappen“ hätte 3/8.',
+                               'Man darf Ergebnisse verwerfen und neu werfen.'))
+    S.bonus('zufallsgeraet', A('Mit einem Würfel soll p = 1/5 simuliert werden. Welche Regel liefert genau 1/5?', '1 = Treffer, 2 bis 5 = kein Treffer, bei einer 6 noch einmal würfeln.',
+                               ['1 = Treffer, sonst kein Treffer.', '1 oder 2 = Treffer, sonst kein Treffer.', 'Fünfmal würfeln, eine Sechs = Treffer.'],
+                               'Verwirft man die 6, bleiben 5 gleich wahrscheinliche Augenzahlen; eine davon ist Treffer: 1/5. Die anderen Regeln liefern 1/6, 1/3 bzw. etwas anderes.',
+                               'Wie viele gleich wahrscheinliche Ergebnisse braucht man?'))
+
+    # --- regel ---
+    S.stufenleiter('regel', 'Aus p die Zahl der Trefferziffern bestimmen und zu einer Regel die simulierte Wahrscheinlichkeit erkennen.',
+                   'Zweistellige und dreistellige Zufallszahlen, Regeln für Sachsituationen, mehrere Ziffern je Durchgang.',
+                   'Ziffern überspringen für 2/3 oder einen Würfel, zwei verschiedene p, Stellenzahl als Parameter, Fehler „00 bis 25“, Grenzen der Münze begründen.')
+    S.g('regel', direkt=[30, 31, 32, 33], darstellung=[34, 35, 36, 37, 38, 39, 54], umkehr=[55], mehrschritt=[56, 57],
+        transfer=[40, 43, 42], verknuepfen=[41, 59], begruenden=[58])
+    S.neu('regel', 'erkennen', A('Regel: Die Zufallsziffern 0 bis 3 sind Treffer. Welche Wahrscheinlichkeit wird simuliert?', '0,4', ['0,3', '0,03', '0,04'],
+                                 '0, 1, 2, 3 sind 4 von 10 Ziffern: p = 0,4.', 'Zähle die Trefferziffern – die 0 zählt mit.'))
+    S.neu('regel', 'erkennen', A('Welche Zufallszahlen braucht man, um p = 0,37 zu simulieren?', 'zweistellige Zahlen 00 bis 99', ['Ziffern 0 bis 9', 'einen Würfel', 'eine Münze'],
+                                 '0,37 = 37/100: Man braucht 100 gleich wahrscheinliche Zahlen.', 'Wie viele Nachkommastellen hat p?'))
+    S.neu('regel', 'einkleidung', A('Ein Torwart hält 12 % der Elfmeter. Welche Regel mit Zufallszahlen 00 bis 99 passt?', '00 bis 11 = gehalten', ['00 bis 12 = gehalten', '0 bis 1 = gehalten (eine Ziffer)', '00 bis 88 = gehalten'],
+                                    '12 % = 12 von 100 Zahlen: 00 bis 11. 00 bis 12 wären 13 Zahlen.', 'Zähle, wie viele Zahlen von 00 bis 11 sind.'))
+    S.neu('regel', 'fehler', A('Jemand will p = 0,25 mit den Zahlen 00 bis 99 simulieren und wählt 00 bis 25 als Treffer. Was stimmt?', 'Falsch: 00 bis 25 sind 26 Zahlen; richtig ist 00 bis 24.',
+                               ['Richtig.', 'Falsch: richtig ist 01 bis 26.', 'Falsch: richtig ist 00 bis 75.'],
+                               'Von 00 bis 25 sind es 26 Zahlen, das gäbe p = 0,26. Mit 00 bis 24 sind es genau 25.', 'Zähle die Zahlen von 00 bis 25 – die 00 ist dabei.'))
+    S.neu('regel', 'parameter', Z('Mit k-stelligen Zufallszahlen (alle Ziffern von 0 bis 9) soll p = 0,125 simuliert werden. Wie groß muss k mindestens sein?', 3, '3',
+                                  '0,125 = 125/1 000: Man braucht 1 000 gleiche Zahlen, also 000 bis 999 – dreistellig.', 'Wie viele Nachkommastellen hat p?'))
+    S.bonus('regel', Z('Ein Würfel wird mit Zufallsziffern simuliert: 1 bis 6 sind Würfe, 0, 7, 8 und 9 werden übersprungen. Wie viele Zufallsziffern braucht man im Mittel für 60 Würfe?', 100, '60 / (6 / 10)',
+                       'Nur 6 von 10 Ziffern sind gültig. Für 60 gültige Ziffern braucht man im Mittel 60 : 0,6 = 100 Ziffern.', 'Welcher Anteil der Ziffern ist brauchbar?'))
+    S.bonus('regel', A('Mit einer Zufallsziffer je Versuch soll p = 1/7 simuliert werden. Welche Regel passt?', 'Ziffern 1 bis 7 verwenden (0, 8, 9 überspringen), 1 = Treffer',
+                       ['Ziffern 0 bis 9 verwenden, 0 = Treffer', 'Ziffern 0 bis 6 verwenden, 0 und 1 = Treffer', 'Ziffer 7 = Treffer, alle anderen nicht'],
+                       'Nach dem Überspringen bleiben 7 gleich wahrscheinliche Ziffern; eine davon ist Treffer: 1/7. Die anderen Regeln liefern 1/10, 2/7 bzw. 1/10.',
+                       'Man darf Ziffern überspringen.'))
+
+    # --- zufallsziffern ---
+    S.stufenleiter('zufallsziffern', 'Mit einer Regel Treffer in einer Ziffernliste erkennen und zählen.',
+                   'Relative Häufigkeit und Nicht-Treffer, Sachsituationen auswerten, Durchgänge aus mehreren Ziffern.',
+                   '„Mindestens“-Ereignisse in Durchgängen, Warten auf die erste Sechs, Regel als Parameter, Zählfehler finden, Unabhängigkeit der Listen begründen.')
+    S.g('zufallsziffern', direkt=[60, 61, 62, 63, 84], mehrschritt=[64, 65, 67, 68, 85, 71], umkehr=[66, 69], einkleidung=[89],
+        transfer=[70, 72, 73, 88], verknuepfen=[86, 87])
+    S.ueberzaehlig(73)
+    S.neu('zufallsziffern', 'erkennen', A('Die Ziffern 7 1 4 0 9 werden mit der Regel „0 bis 2 = Treffer“ ausgewertet. Welche Ziffern sind Treffer?', '1 und 0', ['7 und 9', '1, 4 und 0', 'nur 0'],
+                                          'Nur 0, 1 und 2 sind Treffer; in der Liste kommen 1 und 0 vor.', 'Gehe die Ziffern einzeln durch.'))
+    S.neu('zufallsziffern', 'erkennen', A('Was ist bei einer Simulation mit Zufallsziffern ein „Durchgang“?', 'eine Gruppe von Ziffern, die einmal das ganze Experiment darstellt',
+                                          ['immer eine einzelne Ziffer', 'die ganze Ziffernliste', 'jede Ziffer 0'],
+                                          'Besteht das Experiment aus 3 Würfen, ist ein Durchgang eine Gruppe aus 3 Ziffern.', 'Wie oft wird das echte Experiment pro Gruppe nachgespielt?'))
+    S.neu('zufallsziffern', 'einkleidung', Z('Ein Basketballer trifft mit p = 0,4 (Regel: 0 bis 3 = Treffer). Die Ziffern für 10 Würfe: 5 0 8 3 1 9 6 2 7 4. Wie viele Treffer ergibt die Simulation?', 4, '4',
+                                             'Treffer sind 0, 3, 1, 2: vier Treffer.', 'Markiere alle Ziffern von 0 bis 3.'))
+    S.neu('zufallsziffern', 'einkleidung', Z('Eine Ampel ist mit p = 0,2 rot (Regel: 0 und 1 = rot). Simuliert werden 15 Ankünfte: 381 905 772 146 630. Wie oft ist die Ampel rot?', 4, '4',
+                                             'Ziffern 0 oder 1: 3 8 1 | 9 0 5 | 7 7 2 | 1 4 6 | 6 3 0 – die 1, 0, 1, 0: viermal rot.', 'Lies jede Ziffer einzeln.'))
+    S.neu('zufallsziffern', 'fehler', A('Regel: 0 bis 4 = Treffer. Ein Kind zählt in der Liste 3 7 0 5 9 4 die Treffer und schreibt „2“. Was stimmt?', 'Falsch: 3, 0 und 4 sind Treffer, also 3.',
+                                        ['Richtig.', 'Falsch: Es sind 4 Treffer.', 'Falsch: Es ist 1 Treffer.'], 'Die 4 gehört noch dazu („0 bis 4“ schließt 4 ein).', 'Gehört die 4 zu „0 bis 4“?'))
+    S.neu('zufallsziffern', 'parameter', Z('Eine Regel lautet „Ziffern 0 bis k sind Treffer“. Für welches k simuliert sie p = 0,8?', 7, '8 - 1', '0 bis 7 sind 8 Ziffern: p = 0,8. Also k = 7.', 'Wie viele Ziffern braucht man für 0,8?'))
+    S.neu('zufallsziffern', 'begruenden', A('Darf man für eine zweite Simulation einfach dieselbe Ziffernliste noch einmal verwenden?', 'Nein: Sie liefert genau dasselbe Ergebnis und ist keine neue, unabhängige Simulation.',
+                                            ['Ja, Ziffern sind Ziffern.', 'Ja, wenn man dieselbe Regel benutzt.', 'Nein, jede Ziffernliste darf nur in einem Fach verwendet werden.'],
+                                            'Eine Simulation lebt vom Zufall. Mit derselben Liste und Regel kommt zwangsläufig dasselbe heraus – man erfährt nichts Neues über die Schwankung.',
+                                            'Was käme beim zweiten Mal heraus?'))
+    S.bonus('zufallsziffern', Z('In einer Vierergruppe zufälliger Ziffern (0 bis 9, gleich wahrscheinlich): Wie groß ist die Wahrscheinlichkeit, dass mindestens zwei gleiche Ziffern vorkommen?', 0.496,
+                                '1 - 10 * 9 * 8 * 7 / 10 ** 4', 'Gegenereignis „alle verschieden“: 10/10 · 9/10 · 8/10 · 7/10 = 0,504. Also 1 − 0,504 = 0,496 – fast die Hälfte!',
+                                'Rechne mit dem Gegenereignis „alle vier verschieden“.'))
+    S.bonus('zufallsziffern', Z('In einer Liste aus 1 000 echten Zufallsziffern gibt es 999 Paare direkt benachbarter Ziffern. Wie viele davon erwartet man mit zwei gleichen Ziffern (z. B. „77“)?', 99.9, '999 / 10',
+                                'Für jedes Paar ist die zweite Ziffer mit 1/10 gleich der ersten. Erwartet: 999 · 0,1 = 99,9. Liegen in einer Liste fast keine solchen Paare, war sie wohl von Hand „ausgedacht“.',
+                                'Wie wahrscheinlich ist es, dass eine Ziffer ihren Vorgänger wiederholt?'))
+
+    # --- auswerten ---
+    S.stufenleiter('auswerten', 'Aus Treffern und Durchgängen den Schätzwert (relative Häufigkeit) bilden und deuten.',
+                   'Auf viele echte Durchgänge hochrechnen, Prozentangaben, Durchgänge rückwärts, Schätzwert in eine erwartete Anzahl umrechnen.',
+                   'Simulationen zusammenfassen, Abweichungen beurteilen, Gegenereignis, Briefe und Geburtstage, Durchgangszahl als Parameter, Fehler beim Mitteln.')
+    S.g('auswerten', direkt=[90, 91, 92, 93], erkennen=[101, 102, 103], mehrschritt=[94, 95, 96, 97, 98, 99], darstellung=[114], einkleidung=[115], umkehr=[118],
+        begruenden=[100, 117, 180], transfer=[116], verknuepfen=[119, 181])
+    S.ueberzaehlig(91, 95, 98, 99)
+    S.neu('auswerten', 'erkennen', A('Eine Simulation ergab 46 Treffer in 200 Durchgängen. Was ist 46 : 200 = 0,23?', 'die relative Häufigkeit, ein Schätzwert für die Wahrscheinlichkeit',
+                                     ['die genaue Wahrscheinlichkeit', 'die absolute Häufigkeit', 'die Zahl der Durchgänge'],
+                                     'Treffer geteilt durch Durchgänge ist die relative Häufigkeit. Sie schätzt P, ist aber nicht genau P.', 'Was wird hier durch was geteilt?'))
+    S.neu('auswerten', 'fehler', A('Simulation A: 30 Treffer in 50 Durchgängen (0,6). Simulation B: 560 Treffer in 1 000 Durchgängen (0,56). Jemand fasst zusammen: „(0,6 + 0,56) : 2 = 0,58.“ Was stimmt?',
+                                   'Falsch: Treffer und Durchgänge zusammenzählen: 590 : 1 050 ≈ 0,56.', ['Richtig.', 'Falsch: 0,6 · 0,56 ≈ 0,34.', 'Falsch: Man nimmt nur A, also 0,6.'],
+                                   'Der einfache Mittelwert gibt der kleinen Simulation A zu viel Gewicht. Zusammengefasst: (30 + 560) : (50 + 1 000) ≈ 0,562.', 'Wie viele Treffer und Durchgänge sind es zusammen?'))
+    S.neu('auswerten', 'parameter', Z('Nach n Durchgängen ist der Schätzwert 0,25. Danach folgen 100 weitere Durchgänge mit 40 Treffern; jetzt ist der Schätzwert 0,3. Wie groß war n?', 200, '(40 - 0.3 * 100) / (0.3 - 0.25)',
+                                      '(0,25n + 40) : (n + 100) = 0,3 ⇒ 0,25n + 40 = 0,3n + 30 ⇒ 0,05n = 10 ⇒ n = 200.', 'Treffer vorher: 0,25 · n. Stelle die Gleichung für den neuen Schätzwert auf.'))
+    S.bonus('auswerten', Z('Nach 100 Durchgängen ist der Schätzwert 0,4. Wie viele Treffer in Folge braucht man mindestens, damit der Schätzwert über 0,5 steigt?', 21, '21',
+                           '(40 + k) : (100 + k) > 0,5 ⇒ 40 + k > 50 + 0,5k ⇒ k > 20. Bei k = 20 ist er genau 0,5 – also braucht man 21 Treffer.', 'Stelle die Ungleichung für k Treffer in Folge auf.'))
+    S.bonus('auswerten', B('Drei Briefe werden zufällig in drei adressierte Umschläge gesteckt. Wie groß ist die Wahrscheinlichkeit, dass genau ein Brief im richtigen Umschlag steckt?', 1, 2,
+                           'Die 6 Reihenfolgen: ABC (alle richtig), ACB, CBA, BAC (je genau einer richtig), BCA, CAB (keiner). Genau einer: 3 von 6 = 1/2. Genau zwei richtig ist unmöglich.',
+                           'Schreibe alle 6 Möglichkeiten auf.'))
+
+    # --- monte_carlo ---
+    S.stufenleiter('monte_carlo', 'Den Anteil der Zufallspunkte in einer Figur bilden und als Flächenanteil deuten.',
+                   'Flächen in Quadraten und Rechtecken schätzen, erwartete Punktzahl aus einer bekannten Fläche.',
+                   'π schätzen, Seen auf Karten, Abweichungen beurteilen, Fehler „mit der Seite statt der Fläche“, Seitenlänge als Parameter, Dartbrett, Punktzahl rückwärts.')
+    S.g('monte_carlo', direkt=[120, 121, 122, 123], mehrschritt=[124, 125, 126, 127, 128, 129, 144], einkleidung=[145], umkehr=[146, 148],
+        verknuepfen=[130, 131, 132, 133], transfer=[147], begruenden=[149])
+    S.neu('monte_carlo', 'erkennen', A('Wie schätzt man bei der Monte-Carlo-Methode eine Fläche?', 'über den Anteil zufälliger Punkte, die in der Figur liegen',
+                                       ['durch Messen mit dem Lineal', 'über die Anzahl der Ecken der Figur', 'über den Umfang der Figur'],
+                                       'Der Anteil der Punkte in der Figur schätzt den Anteil der Figur an der bekannten Gesamtfläche.', 'Wofür steht der Zufall bei dieser Methode?'))
+    S.neu('monte_carlo', 'erkennen', A('Von 100 Zufallspunkten im Quadrat liegen 25 in einer Figur. Welchen Teil des Quadrats nimmt die Figur ungefähr ein?', 'ein Viertel', ['ein Drittel', '25 cm²', 'drei Viertel'],
+                                       '25 von 100 ist ein Viertel. Eine Fläche in cm² kann man ohne die Größe des Quadrats nicht angeben.', 'Welcher Anteil ist 25 von 100?'))
+    S.neu('monte_carlo', 'fehler', A('Ein Quadrat hat 4 cm Seitenlänge; 30 von 120 Zufallspunkten liegen in einer Figur. Jemand rechnet: „Fläche ≈ 30 : 120 · 4 = 1 cm².“ Was stimmt?',
+                                     'Falsch: Man muss mit der Quadratfläche 16 cm² malnehmen: 0,25 · 16 = 4 cm².', ['Richtig.', 'Falsch: 30 · 4 = 120 cm².', 'Falsch: 120 : 30 = 4 cm².'],
+                                     'Der Anteil bezieht sich auf die Fläche, nicht auf die Seitenlänge.', 'Womit muss der Anteil malgenommen werden?'))
+    S.neu('monte_carlo', 'parameter', Z('Eine Figur von 16 cm² liegt in einem Quadrat mit der Seitenlänge a. Von 200 Zufallspunkten liegen etwa 50 in der Figur. Wie groß ist a?', 8, '8',
+                                        'Anteil 50/200 = 1/4, also ist das Quadrat 4 · 16 = 64 cm² groß und a = 8 cm.', 'Wie groß muss das Quadrat sein?', einheit='cm'))
+    S.neu('monte_carlo', 'transfer', ZR('Ein Dartbrett (Kreis mit Radius 20 cm) hängt in einem quadratischen Rahmen 50 cm × 50 cm. Ein Anfänger trifft zufällig irgendeine Stelle im Rahmen. '
+                                        'Wie groß ist die Wahrscheinlichkeit, das Brett zu treffen? Runde auf zwei Nachkommastellen.', math.pi * 400 / 2500, 2,
+                                        'Kreis: π · 20² ≈ 1 256,6 cm²; Rahmen 2 500 cm². Anteil ≈ 0,50.', 'Wahrscheinlichkeit = Kreisfläche : Rahmenfläche.'))
+    S.neu('monte_carlo', 'rueckwaerts', Z('Eine Simulation mit 250 Punkten in einem Quadrat mit 10 cm Seitenlänge ergab für eine Figur den Schätzwert 60 cm². Wie viele Punkte lagen in der Figur?', 150, '250 * 60 / 100',
+                                          'Anteil 60 : 100 = 0,6. 0,6 · 250 = 150 Punkte.', 'Welcher Anteil der Quadratfläche sind 60 cm²?'))
+    S.bonus('monte_carlo', B('Ein Zufallspunkt (x | y) liegt im Einheitsquadrat (0 ≤ x ≤ 1, 0 ≤ y ≤ 1). Wie groß ist die Wahrscheinlichkeit für x + y < 1/2?', 1, 8,
+                             'Die Punkte mit x + y < 1/2 bilden ein Dreieck mit den Ecken (0 | 0), (1/2 | 0), (0 | 1/2). Fläche 1/2 · 1/2 · 1/2 = 1/8.', 'Zeichne die Gerade x + y = 1/2.'))
+    S.bonus('monte_carlo', B('Ein Zufallspunkt (x | y) liegt im Einheitsquadrat. Wie groß ist die Wahrscheinlichkeit, dass x größer als 2y ist?', 1, 4,
+                             'x > 2y heißt y < x/2: das Dreieck unter der Geraden y = x/2 mit den Ecken (0 | 0), (1 | 0), (1 | 1/2). Fläche 1/2 · 1 · 1/2 = 1/4.', 'Zeichne die Gerade y = x/2 ins Quadrat.'))
+
+    # --- beurteilen ---
+    S.stufenleiter('beurteilen', 'Die Wahrscheinlichkeit eines Zufallsgeräts bestimmen und mit dem gesuchten p vergleichen.',
+                   'Geräte mit Brüchen, Winkeln und mehreren Münzen prüfen, das passende Gerät für eine Sachsituation wählen.',
+                   'Zählfehler und „zu viel“ erkennen, Simulation ohne Zurücklegen, gleichwertige Urnen, Ziegenproblem, Feldzahl als Parameter, Term für Anzahlen wie im BMT.')
+    S.g('beurteilen', erkennen=[150, 151, 152, 153, 161], mehrschritt=[154, 155, 156, 157, 158, 159, 160, 163, 174], umkehr=[175],
+        fehler=[162], begruenden=[176, 177], verknuepfen=[178], transfer=[179, 182])
+    S.ueberzaehlig(153, 161, 157, 158, 159, 160, 163, 174)
+    S.neu('beurteilen', 'direkt', B('Ein Würfel wird als Zufallsgerät benutzt: 1 bis 4 = Treffer. Welche Wahrscheinlichkeit simuliert er?', 2, 3, '4 von 6 Augenzahlen: 4/6 = 2/3.', 'Wie viele Augenzahlen sind Treffer?'))
+    S.neu('beurteilen', 'direkt', Z('Ein Glücksrad hat ein Trefferfeld mit 90°. Welche Wahrscheinlichkeit simuliert es?', 0.25, '90 / 360', '90° von 360° = 1/4 = 0,25.', 'Welcher Anteil des Kreises sind 90°?'))
+    S.neu('beurteilen', 'darstellung', A('Welches Glücksrad passt zu p = 0,3?', 'Trefferfeld 108°', ['Trefferfeld 30°', 'Trefferfeld 0,3°', 'Trefferfeld 130°'],
+                                         '0,3 · 360° = 108°.', 'Welcher Teil von 360° ist gesucht?'))
+    S.neu('beurteilen', 'einkleidung', A('Für 1 000 Kunden einer Bäckerei soll simuliert werden, ob sie Brezen kaufen (p = 0,45). Welches Gerät ist geeignet?', 'Zufallszahlen 00 bis 99, dabei 00 bis 44 = Breze',
+                                         ['Würfel, 1 bis 3 = Breze', 'Münze, Wappen = Breze', 'Glücksrad mit 45 gleichen Feldern, eines davon Breze'],
+                                         '45 von 100 Zahlen ergeben genau 0,45. Würfel und Münze liefern 0,5, das Glücksrad 1/45.', 'Welches Gerät liefert genau 0,45?'))
+    S.neu('beurteilen', 'parameter', Z('Ein Glücksrad mit n gleich großen Feldern, davon 9 Trefferfelder, soll p = 0,45 simulieren. Wie groß muss n sein?', 20, '9 / 0.45',
+                                       '9/n = 0,45 ⇒ n = 20.', 'Stelle die Gleichung 9/n = 0,45 auf.'))
+    S.neu('beurteilen', 'pruefung', A('Ein Glücksrad mit den Ziffern 1 bis 4 wird dreimal gedreht; die Ziffern ergeben eine dreistellige Zahl. Welcher Term gibt die Anzahl der möglichen Zahlen an?', '4³',
+                                      ['3⁴', '4 · 3', '4 + 4 + 4'], 'Für jede der 3 Stellen gibt es 4 Möglichkeiten: 4 · 4 · 4 = 4³ = 64.', 'Wie viele Äste hat das Baumdiagramm an jeder Stufe?'))
+    S.bonus('beurteilen', A('„Mindestens ein Treffer“ soll mit p = 0,5 simuliert werden. Man dreht Rad A (120°-Trefferfeld) und Rad B (90°-Trefferfeld) je einmal. Ist das geeignet?',
+                            'Ja: P(mindestens ein Treffer) = 1 − 2/3 · 3/4 = 1/2.', ['Nein: 120° + 90° = 210° sind mehr als die Hälfte.', 'Nein: Man bräuchte zwei gleiche Räder.', 'Ja, weil 1/3 + 1/4 ungefähr 1/2 ist.'],
+                            'Kein Treffer bei A: 2/3, bei B: 3/4. Keiner: 2/3 · 3/4 = 1/2. Also mindestens einer: 1/2 – genau passend.', 'Rechne über das Gegenereignis „kein Treffer“.'))
+    S.bonus('beurteilen', B('Spielshow mit 4 Türen: hinter einer ein Auto, hinter drei Ziegen. Nach der Wahl öffnet der Moderator eine andere Tür mit einer Ziege. Man wechselt zufällig zu einer der beiden anderen geschlossenen Türen. Wie groß ist die Gewinnwahrscheinlichkeit?', 3, 8,
+                            'Die erste Wahl ist mit 3/4 falsch. Dann steht das Auto hinter einer der beiden anderen geschlossenen Türen, man trifft sie mit 1/2: 3/4 · 1/2 = 3/8. War die erste Wahl richtig (1/4), verliert man durch Wechseln.',
+                            'Unterscheide: War die erste Wahl richtig oder falsch?'))
+    S.anwenden()
+
+
+if __name__ == '__main__':
+    stufen()  # Zwanzigste Runde (stufen-kl10) – ganz am Ende

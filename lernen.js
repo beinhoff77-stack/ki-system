@@ -880,9 +880,25 @@ function lernMarkiert(t, wctx) {
   return teile.flatMap((s, i) => (i % 2 ? [el('mark', {}, ...lernWortKnoten(s, wctx))] : lernWortKnoten(s, wctx)));
 }
 // „Kurz gesagt“: der erste Satz des Merksatzes (ohne Markierung).
-function lernKurzGesagt(regel) { // N2: ganz zeigen, nie mit „…“ abschneiden
+// N2/A2: „Kurz gesagt“ = der erste Satz des Merksatzes. Satzende ist jedes . ! ? vor einem Leerzeichen oder dem Textende –
+// aber nicht nach Abkürzungen (z. B., d. h., u. a., bzw., ca., usw., vgl. …) und nicht nach einer Ordnungszahl vor kleinem Wort („die 3. Wurzel“).
+const LERN_ABK = /(?:^|[\s(„])(?:z\.\s?B|d\.\s?h|u\.\s?a|z\.\s?T|s\.\s?o|s\.\s?u|o\.\s?ä|bzw|ca|usw|vgl|etc|ggf|evtl|bspw|inkl|Nr)\.$/;
+function lernSatzEnde(t, ab = 0) {
+  const re = /[.!?](?=\s|$)/g; re.lastIndex = ab; let m;
+  while ((m = re.exec(t))) {
+    const bis = t.slice(0, m.index + 1);
+    if (m[0] === '.' && LERN_ABK.test(bis)) continue;
+    if (m[0] === '.' && /(?:^|[\s(„])[zdusoZDUSO]\.$/.test(bis) && /^\s?[A-Za-zä]\./.test(t.slice(m.index + 1))) continue; // erster Teil von „z. B.“, „d. h.“ …
+    if (m[0] === '.' && /\d\.$/.test(bis) && /^\s+[a-zäöüß]/.test(t.slice(m.index + 1))) continue;
+    if (m[0] === '.' && /(?:^|[:;(]\s*|,\s+|\b(?:[Dd]ie|[Dd]er|[Dd]as|[Dd]en|[Dd]em|[Dd]es|zur|zum|im|am|ein|eine|einer|jede|jeder)\s)\d{1,2}\.$/.test(bis)) continue; // Aufzählung „1. …“ oder Ordnungszahl „die 3. Wurzel“
+    if (m[0] === '.' && /\b\d{1,2}\.$/.test(bis) && /(?:^|[:;(]\s*|,\s+)1\.\s/.test(bis)) continue; // weitere Punkte einer Aufzählung „1. … 2. …“
+    return m.index + 1;
+  }
+  return -1;
+}
+function lernKurzGesagt(regel) { // N2: ganz zeigen, nie mit „…“ abschneiden; höchstens ein Satz
   const t = String(regel ?? '').replace(/⟦|⟧/g, '').trim();
-  const m = t.match(/^.*?[^\s.]{2,}[.!?](?=\s+[A-ZÄÖÜ„]|$)/); return (m ? m[0] : t).trim(); // „z. B.“ beendet keinen Satz
+  const e = lernSatzEnde(t); return (e > 0 ? t.slice(0, e) : t).trim();
 }
 // Kl. 7–10: „Kurz gesagt“ zusätzlich als erste Zeile in der Karte (Schalter je Kind und Gerät, Standard aus – Entscheidung von Sebastian offen).
 function lernKurzOben(kind) {
@@ -917,7 +933,7 @@ function lernBruchstreifen(b) {
 function lernStellentafel(b) {
   return el('table', { class: 'lr-stellentafel', 'aria-label': 'Stellenwerttafel' },
     el('tr', {}, ...(b.stellen || []).map((s) => el('th', {}, s))),
-    el('tr', {}, ...(b.ziffern || []).map((z, i) => el('td', { class: i === b.markiert ? 'on' : '' }, z))));
+    el('tr', {}, ...(b.ziffern || []).map((z, i) => el('td', { class: (i === b.markiert ? 'on' : '') + (b._neu?.ziffern?.has(i) ? ' neu' : '') }, z))));
 }
 function lernBild(b) {
   if (!b) return null;
@@ -1145,7 +1161,7 @@ function lernBaum(b) {
 function lernTabelle(b) {
   return el('table', { class: 'lr-tafel' },
     b.kopf ? el('thead', {}, el('tr', {}, ...b.kopf.map((k) => el('th', {}, lernText(k))))) : null,
-    el('tbody', {}, ...(b.zeilen || []).map((z) => el('tr', {}, ...z.map((c, i) => el(i === 0 && b.erste_spalte_kopf !== false ? 'th' : 'td', {}, lernText(c)))))));
+    el('tbody', {}, ...(b.zeilen || []).map((z, r) => el('tr', {}, ...z.map((c, i) => el(i === 0 && b.erste_spalte_kopf !== false ? 'th' : 'td', b._neu?.zellen?.has(`${r},${i}`) ? { class: 'neu' } : {}, lernText(c)))))));
 }
 // Erklärung einer Etappe: Regel, vorgerechnetes Beispiel Schritt für Schritt, Probe, typischer Fehler.
 function lernSchrittBild(zustand, b) {
@@ -1169,25 +1185,20 @@ function lernNeuMarkieren(vorher, b) {
   }
   if (j(b.flaeche) !== j(vorher.flaeche) && b.flaeche) neu.flaeche = true;
   for (const f of ['stand', 'pfeil', 'markiert', 'gefaerbt']) if (b[f] !== undefined && b[f] !== null && j(b[f]) !== j(vorher[f])) neu[f] = true;
+  // A2: Tabelle und Stellentafel – geänderte Zellen hervorheben (neuer Wert oder neu markiert)
+  if (b.typ === 'tabelle' && Array.isArray(b.zeilen)) {
+    const z = new Set(); b.zeilen.forEach((r, i) => (r || []).forEach((c, k) => { if (j(c) !== j(vorher.zeilen?.[i]?.[k])) z.add(`${i},${k}`); }));
+    if (z.size && z.size < b.zeilen.flat().length) neu.zellen = z;
+  }
+  if (b.typ === 'stellentafel') {
+    const z = new Set((b.ziffern || []).map((c, k) => (j(c) !== j(vorher.ziffern?.[k]) ? k : null)).filter((k) => k !== null));
+    if (b.markiert !== undefined && b.markiert !== null && b.markiert !== vorher.markiert) z.add(b.markiert);
+    if (z.size) neu.ziffern = z;
+  }
   return Object.keys(neu).length ? { ...b, _neu: neu } : b;
 }
 // Bild mit Neuem: der Rest tritt zurück (CSS .mit-neu), damit das Neue auffällt – auch wenn es dieselbe Farbe hat wie der Graph.
-const lernBildNeu = (b) => { const k = lernBild(b); if (k && b?._neu) k.querySelector('svg')?.classList.add('mit-neu'); return k; };
-// N1: Ein Steigungsdreieck in der Bildergeschichte (waagrechte, dann senkrechte Hilfslinie, die aneinander hängen) wird mindestens 2 Einheiten breit
-// gezeichnet – gleiche Steigung, nur größer, damit man es auf dem Handy erkennt. Nur in Erklärungen, nie in Bordkarten (dort wird abgelesen).
-function lernDreieckGross(b) {
-  if (!b || b.typ !== 'koordinaten' || !Array.isArray(b.strecken) || (b.x?.[1] - b.x?.[0]) < 6) return b;
-  const st = b.strecken.map((x) => [...x]); let geaendert = false;
-  for (const w of st) {
-    if (w[1] !== w[3] || w[0] === w[2]) continue; // waagrecht
-    const s2 = st.find((v) => v !== w && v[0] === v[2] && v[0] === w[2] && v[1] === w[3]); // senkrecht, beginnt am Ende der waagrechten
-    const breite = Math.abs(w[2] - w[0]); if (!s2 || breite >= 2) continue;
-    const k = 2 / breite, xe = w[0] + (w[2] - w[0]) * k, ye = w[1] + (s2[3] - s2[1]) * k;
-    if (xe < b.x[0] || xe > b.x[1] || (b.y && (ye < b.y[0] || ye > b.y[1]))) continue;
-    w[2] = xe; s2[0] = xe; s2[2] = xe; s2[3] = ye; geaendert = true;
-  }
-  return geaendert ? { ...b, strecken: st } : b;
-}
+const lernBildNeu = (b) => { const k = lernBild(b); const svg = k?.querySelector('svg'); if (svg?.querySelector('.neu')) svg.classList.add('mit-neu'); return k; }; // A2: nur, wenn wirklich ein Element neu ist
 const lernNeu1 = (b, f, x) => (b?._neu?.[f]?.has?.(JSON.stringify(x)) ? ' neu' : '');
 // Vergleich zweier gezeichneter Bilder (ohne zufällige IDs): gleich → nicht noch einmal zeigen.
 const lernBildText = (knoten) => (knoten ? knoten.outerHTML.replace(/lk[a-z0-9]{3,8}/g, '') : '');
@@ -1206,7 +1217,7 @@ function lernErklaerung(e, { kurz = false, kurzGesagt = false } = {}) {
     let bild = null;
     if (mitBildern) {
       zustand = lernSchrittBild(zustand, x.bild);
-      const z = lernDreieckGross(zustand);
+      const z = zustand; // A2: so gezeichnet, wie es im Inhalt steht (Steigungsdreieck nicht vergrößern)
       const t = z ? lernBildText(lernBild(z)) : ''; // Vergleich ohne Markierung
       if (t && t !== gezeigtText) { bild = lernBildNeu(lernNeuMarkieren(gezeigt, z)); gezeigt = z; gezeigtText = t; }
     }

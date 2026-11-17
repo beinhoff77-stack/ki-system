@@ -3965,15 +3965,20 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
   .lr-sogehts li.lr-schritt.mit-bild::before { align-self: center; }
 }
 /* N7: Testergebnis – Markierungen und Knöpfe */
-.lern-strahl .marke-richtig { fill: none; stroke: var(--lr-gut, #0E7C86); stroke-width: 3.5; }
-.lern-strahl text.zahl.marke-richtig-text { fill: var(--lr-gut, #0E7C86); }
+.lern-strahl .marke-richtig { fill: none; stroke: #2E9E44; stroke-width: 3.5; } /* A2/N7: festes Grün in allen Gestaltungen */
+.lern-strahl text.zahl.marke-richtig-text { fill: #2E9E44; }
 .lern-strahl .marke-falsch { fill: none; stroke: #C62828; stroke-width: 3; stroke-dasharray: 4 3; }
 .lr-test-knoepfe { flex-direction: column; align-items: stretch; margin: 16px 0 24px; }
 .lr-test-knoepfe .lr-knopf, .lr-test-knoepfe .lr-knopf-zweit { justify-content: center; text-align: center; }
 .lr-test-knoepfe .lr-textlink { align-self: flex-start; }
 @media (min-width: 760px) { .lr-test-knoepfe { flex-direction: row; flex-wrap: wrap; align-items: center; } }
-.lern-zeichnung.mit-neu :is(.graph, .punkt, .strecke, .hilfslinie, .kreis, .flaeche, .winkel, .bogen, .pfeil, .saeule-rot):not(.neu),
-.lern-zeichnung.mit-neu :is(.graphname0, .graphname1, .graphname2), .lern-strahl.mit-neu :is(.punkt, .bogen, .bogen-spitze):not(.neu) { opacity: .4; }
+/* A2: Ist etwas neu, tritt der Rest zurück – nicht über die Deckkraft, sondern grau mit mindestens 3:1 Kontrast (hell #6B7280 auf Weiß 4,8:1, dunkel #9AA3B2 auf #151B24 6,9:1);
+   Gitter und Hilfslinien werden nur heller. */
+.lr { --lr-alt: #6B7280; } .lr-abflug-nacht, .lr-nacht { --lr-alt: #9AA3B2; }
+.lern-zeichnung.mit-neu :is(.graph, .strecke, .kreis, .winkel, .bogen):not(.neu), .lern-strahl.mit-neu .bogen:not(.neu) { stroke: var(--lr-alt, #6B7280); }
+.lern-zeichnung.mit-neu :is(.punkt, .pfeil):not(.neu), .lern-strahl.mit-neu :is(.punkt, .bogen-spitze):not(.neu) { fill: var(--lr-alt, #6B7280); }
+.lern-zeichnung.mit-neu :is(.graphname0, .graphname1, .graphname2) { fill: var(--lr-alt, #6B7280); }
+.lern-zeichnung.mit-neu :is(.gitter, .hilfslinie:not(.neu)) { opacity: .45; }
 
 /* K2: Mein Weg – Reiter als Links, Kontinente, Antarktis von oben, Merkheft nach Kontinent → Flug */
 .lr-weg-reiter a { min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 99px; color: var(--lr-text); font-weight: 800; text-decoration: none; font-size: .95rem; }
@@ -3995,3 +4000,5 @@ details.lr-woerter > summary::-webkit-details-marker { display: none; }
 .lr-merkflug-titel { margin: 6px 0; font-size: 18px; } .lr-merkflug-titel small { font-weight: 600; color: var(--lr-leise); }
 .lr-kontinent > summary, .lr-kontinent-kopf b, .lr-kontinent-stand b { color: var(--lr-text); }
 .lr-kontinent-kopf .lr-ueber { margin: 0; }
+/* A2/N1: geänderte Zelle in Tabelle und Stellentafel */
+.lr-tafel .neu, .lr-stellentafel td.neu { background: var(--lr-neu-bg, #FFF1C2); color: #11161D; font-weight: 800; box-shadow: inset 0 0 0 2px var(--lr-neu, var(--lr-akzent, #B45309)); }

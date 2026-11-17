@@ -791,12 +791,48 @@ test('N1 und N8: Kerze (Kl. 8) – keine zwei gleichen Bilder, neue Punkte kräf
   for (let i = 1; i < bilder.length; i++) assert.notEqual(bilder[i], bilder[i - 1], `Bild ${i} gleicht dem vorigen`);
   assert.ok(await page.locator('.lr-sogehts .punkt.neu').count() >= 2, 'neue Punkte (Start, leer) hervorgehoben');
   assert.ok(await page.locator('.lr-sogehts .hilfslinie.neu').count() >= 2, 'Steigungsdreieck hervorgehoben');
+  // A2: Rest grau (nicht durchscheinend), Steigungsdreieck so breit wie im Inhalt (1 Einheit), nur Bilder mit Neuem abgeblendet
+  const graph = page.locator('.lr-sogehts svg.mit-neu path.graph').first();
+  assert.equal(await graph.evaluate((x) => getComputedStyle(x).opacity), '1');
+  assert.equal(await graph.evaluate((x) => getComputedStyle(x).stroke), 'rgb(154, 163, 178)');
+  const dreieck = await page.locator('.lr-sogehts line.hilfslinie.neu').first().evaluate((l) => Number(l.getAttribute('x2')) - Number(l.getAttribute('x1')));
+  assert.ok(dreieck > 15 && dreieck < 22, 'eine Einheit breit (≈ 17,6 px): ' + dreieck);
+  assert.equal(await page.evaluate(() => typeof lernDreieckGross), 'undefined');
   for (const li of await page.locator('.lr-sogehts li.mit-bild').all()) {
     const b = await li.locator('.lr-bild').boundingBox(), x = await li.locator('.lr-schritt-text').boundingBox();
     assert.ok(x.x >= b.x + b.width - 1, 'Text rechts neben dem Bild');
     assert.ok(x.y < b.y + b.height && x.y + x.height > b.y, 'Text und Bild in derselben Zeile');
   }
   await page.screenshot({ path: path.join(root, 'test-results/n1-n8-kerze-820.png'), fullPage: true });
+});
+
+test('A2/N2: „Kurz gesagt“ ist bei allen Merksätzen aus inhalte/themen höchstens ein Satz', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  const regeln = fs.readdirSync(path.join(root, 'inhalte/themen')).filter((f) => f.endsWith('.json'))
+    .flatMap((f) => JSON.parse(fs.readFileSync(path.join(root, 'inhalte/themen', f), 'utf8')).inhalt.etappen || []).map((e) => e.regel).filter(Boolean);
+  assert.ok(regeln.length > 500);
+  const zwei = await page.evaluate((rs) => rs.map((r) => lernKurzGesagt(r)).filter((k) => { const e = lernSatzEnde(k); return e > 0 && e < k.length; }), regeln);
+  assert.deepEqual(zwei, []);
+  // unabhängige Gegenprobe: kein „Satzende + Großbuchstabe“ mehr, außer nach den Abkürzungen und Aufzählungen
+  const verdacht = await page.evaluate((rs) => rs.map((r) => lernKurzGesagt(r)).filter((k) => /(?<!\b(?:z\.\s?B|d\.\s?h|u\.\s?a|bzw|ca|usw|vgl|[zdu]|\d{1,2}))[.!?]\s+[A-ZÄÖÜ]/.test(k.replace(/\b\d+,\d+\./g, '#'))), regeln);
+  assert.deepEqual(verdacht, []);
+  assert.deepEqual(await page.evaluate(() => ['Unter null schreibst du ein Minus, z. B. −3. Das ist kalt.', 'Man rechnet ca. 5 Stück, d. h. viel. Fertig!', 'Ist das so? Ja.', 'Die 3. Wurzel ist gemeint. Mehr.'].map(lernKurzGesagt)),
+    ['Unter null schreibst du ein Minus, z. B. −3.', 'Man rechnet ca. 5 Stück, d. h. viel.', 'Ist das so?', 'Die 3. Wurzel ist gemeint.']);
+});
+
+test('A2/N1: Tabelle und Stellentafel – nur die geänderte Zelle ist hervorgehoben', async (t) => {
+  const tab = { lernziel: 'tab', titel: 'Tabelle', regel: 'Regel.', bild: { typ: 'tabelle', kopf: ['x', 'y'], zeilen: [['1', '2'], ['2', '4'], ['3', '?']] },
+    schritte: [{ text: 'Erst lesen.' }, { text: 'Dann ergänzen.', bild: { zeilen: [['1', '2'], ['2', '4'], ['3', '6']] } }] };
+  const st = { lernziel: 'st', titel: 'Stellen', regel: 'Regel.', bild: { typ: 'stellentafel', stellen: ['T', 'H', 'Z', 'E'], ziffern: ['4', '0', '5', '2'], markiert: 0 },
+    schritte: [{ text: 'Die 5 steht bei den Zehnern.', bild: { markiert: 2 } }] };
+  const page = await erklaerSeite(t, [tab, st]);
+  await page.goto(origin + '/#/lerneinheit/1-1-erklaeren-1');
+  await page.locator('.lr-sogehts .lr-tafel').waitFor();
+  assert.deepEqual(await page.locator('.lr-sogehts .lr-tafel .neu').allInnerTexts(), ['6']);
+  await page.goto(origin + '/#/lerneinheit/1-1-erklaeren-2');
+  await page.locator('.lr-sogehts .lr-stellentafel').waitFor();
+  assert.deepEqual(await page.locator('.lr-sogehts .lr-stellentafel td.neu').allInnerTexts(), ['5']);
 });
 
 test('N2: „Kurz gesagt“ in der Übersicht ganz, ohne „…“', async (t) => {
@@ -857,6 +893,7 @@ test('N5–N7: Detektiv nur ohne Fehlermuster; Test-Kopf „Ort · Flug“; Test
   assert.equal(await knoepfe.locator('a.lr-knopf-zweit').getAttribute('href'), '#/lerneinheit/1-1-test');
   assert.equal(await page.locator('.btn.primary, .btn.secondary').count(), 0);
   assert.equal(await page.locator('.lern-strahl .marke-richtig').count(), 1, 'richtige Markierung grün');
+  assert.equal(await page.locator('.lern-strahl .marke-richtig').evaluate((x) => getComputedStyle(x).stroke), 'rgb(46, 158, 68)', 'A2: festes Grün');
   assert.equal(await page.locator('.lern-strahl .marke-falsch').count(), 1, 'gewählte falsche Markierung');
   await page.screenshot({ path: path.join(root, 'test-results/n7-testergebnis-390.png'), fullPage: true });
 });

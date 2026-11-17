@@ -2,6 +2,19 @@
 
 Neueste oben.
 
+## 2026-11-17 – Schritt A2 fertig (Nacharbeit N1/N2/N7) – App 0.74.4 – Nachprüfung kann laufen
+
+| Punkt | Umsetzung | Nachweis |
+|---|---|---|
+| N2 | „Kurz gesagt“ endet am ersten . ! ? vor Leerzeichen oder Textende (`lernSatzEnde`). Ausnahmen: Abkürzungen (z. B., d. h., u. a., z. T., s. o., bzw., ca., usw., vgl., etc., ggf., evtl., bspw., inkl., Nr.), Aufzählungen („1. … , 2. …“) und Ordnungszahlen nach Artikel („die 3. Wurzel“) sowie vor kleinem Wort. Einzelbuchstaben am Satzende („… durch P.“) beenden den Satz. | Test: alle 593 Merksätze aus `inhalte/themen` – „Kurz gesagt“ ist höchstens ein Satz (dazu eine unabhängige Gegenprobe „Satzzeichen + Großbuchstabe“). |
+| N1 Abblenden | Keine Deckkraft mehr für Graphen, Linien und Punkte: der Rest wird grau gezeichnet (hell #6B7280 auf Weiß 4,8:1, dunkel #9AA3B2 auf #151B24 6,9:1); nur Gitter und alte Hilfslinien werden heller. Abgeblendet wird nur, wenn im Bild wirklich ein Element `.neu` trägt. | Test (Kerze): Graph Deckkraft 1, Farbe grau. |
+| N1 Steigungsdreieck | Die App vergrößert nichts mehr; das Dreieck steht so im Bild wie im Inhalt, neu = kräftig in der Akzentfarbe. | Test: 1 Einheit breit; `lernDreieckGross` entfernt. |
+| N1 Tabellen/Stellentafel | Ändert ein Schritt einzelne Zellen (neuer Wert) oder die Markierung der Stellentafel, ist genau diese Zelle hervorgehoben (gelb hinterlegt, Rahmen in Akzentfarbe). Ändert sich die ganze Tabelle, wird nichts hervorgehoben. | Test. |
+| N7 | Richtige Markierung am Zahlenstrahl in festem Grün #2E9E44 in allen Gestaltungen. | Test. |
+
+Tests: `tests/lernen.test.cjs` 28 von 28. `tests/search.test.cjs`: die bekannten 9 alten Fehler.
+Schritt C (E-2/E-3 mit Migrationen) ist gebaut und folgt als nächste Meldung.
+
 ## 2026-11-17 – STATUS Schritt B (K2) fertig – App 0.74.3
 
 - **Menü:** Abflugtafel · Mein Weg · Merkheft · Reisepass (alte Gestaltung: Heute · Mein Weg · Merkheft · Reisepass). `#/weltkarte/<kind>` führt in „Mein Weg · Karte“.

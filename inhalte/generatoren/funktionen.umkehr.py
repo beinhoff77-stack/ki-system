@@ -421,6 +421,109 @@ UMBAU_WEG = []
 # ---------- Ende UMBAU ----------
 
 
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: Realschul-Abschlussprüfung Mathematik I (Bayern), A 1.2 (2021): „Berechnen Sie die nach y aufgelöste Gleichung
+# der Umkehrfunktion“, Definitions- und Wertemenge der Umkehrfunktion, Schnittpunkte mit den Achsen; IB-MYP-Formate zu inversen
+# Funktionen (f(x) = f⁻¹(x), Werte rückwärts). Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, L, nachtrag, finde
+    T = lambda teil: finde(d, teil)
+    LT, HT = '□x + □', 'Tippe den Term ein, z. B. 2x − 4.'
+    nachtrag(d,
+        umstufen={
+            T('f(x) = 4x + 6. Was ist f⁻¹(30)?'): 2,
+            T('f(x) = 2x − 2. Was ist f⁻¹(4)?'): 2,
+            T('Welche Funktion ist die Umkehrfunktion von f(x) = −0,25x − 1,5?'): 2,
+            T('Welche Funktion ist die Umkehrfunktion von f(x) = 0,1x − 0,5?'): 2,
+            T('P(2 | 100) liegt auf dem Graphen von y = 10ˣ.'): 2,
+            T('P(2 | 9) liegt auf dem Graphen von y = 3ˣ.'): 2,
+        },
+        ersetzen={
+            T('Auf welcher Menge ist f(x) = (x − 5)² umkehrbar?'):
+                Z(3, 'f(x) = x² − 6x soll auf der Menge x ≥ a umkehrbar sein. Wie klein darf a höchstens sein?', 3, '6/2',
+                  'Quadratische Ergänzung: x² − 6x = (x − 3)² − 9. Der Scheitel liegt bei x = 3. Rechts davon ist ein Ast: a = 3.',
+                  'Wo liegt der Scheitel der Parabel?'),
+            T('Auf welcher Menge ist f(x) = (x + 5)² umkehrbar?'):
+                A(3, 'Welche Funktion ist auf ganz ℝ umkehrbar?', 'f(x) = x³', ['f(x) = x²', 'f(x) = x⁴', 'f(x) = 5'],
+                  'x³ steigt überall, jeder y-Wert kommt einmal vor. Bei x² und x⁴ gehören 2 und −2 zum selben y; bei f(x) = 5 gehört jedes x zu 5.',
+                  'Mache bei jeder Funktion den Test mit der waagrechten Geraden.'),
+            T('Jemand gibt für f(x) = −0,25x + 1,25 die Umkehrfunktion'):
+                Z(3, 'f(x) = m · x + 3 hat die Umkehrfunktion f⁻¹(x) = 0,5x − 1,5. Wie groß ist m?', 2, '1/0.5',
+                  'Die Steigung der Umkehrfunktion ist 1 : m. 1 : m = 0,5 ⇒ m = 2. Probe: f(x) = 2x + 3, umgekehrt (x − 3) : 2 = 0,5x − 1,5.',
+                  'Wie hängen die Steigungen von f und f⁻¹ zusammen?'),
+            T('Jemand gibt für f(x) = 0,5x + 3,5 die Umkehrfunktion'):
+                A(3, 'Welche Gerade ist ihre eigene Umkehrfunktion?', 'y = −x + 4', ['y = 2x', 'y = x + 1', 'y = 0,5x'],
+                  'Tauschen bei y = −x + 4: x = −y + 4 ⇒ y = −x + 4. Gleich! Die Gerade steht senkrecht auf y = x.',
+                  'Bilde zu jeder die Umkehrfunktion.'),
+            T('Warum muss man bei f(x) = (x − 4)² + 2 die Definitionsmenge'):
+                Z(3, 'f(x) = x² + 2 mit x ≥ 0. Für welches x ist f⁻¹(x) = 3?', 11, '3**2 + 2',
+                  'f⁻¹(x) = 3 heißt f(3) = x. f(3) = 9 + 2 = 11.', 'Lies f⁻¹(x) = 3 rückwärts.'),
+            T('Jemand spiegelt P(3 | −3) für die Umkehrfunktion zu P\'(−3 | 3).'):
+                A(3, 'Der Graph von f geht durch (2 | 2) und (1 | 3). Welcher dieser Punkte liegt sicher auch auf dem Graphen von f⁻¹?', '(2 | 2)',
+                  ['(1 | 3)', '(3 | 3)', 'keiner'],
+                  'Punkte auf der Geraden y = x bleiben beim Spiegeln liegen: (2 | 2) wird zu (2 | 2). Aus (1 | 3) wird (3 | 1).',
+                  'Was passiert beim Tauschen mit (2 | 2)?'),
+        },
+        neu={
+            'umkehrbar': [
+                A(3, 'Warum ist f(x) = 2 · 0,5ˣ + 1 (x ∈ ℝ) umkehrbar?', 'Weil der Graph überall fällt: Jeder y-Wert kommt nur einmal vor.',
+                  ['Weil zu jedem x genau ein y gehört.', 'Weil der Graph die y-Achse bei 3 schneidet.', 'Weil 0,5 kleiner als 1 ist.'],
+                  '0,5ˣ wird ständig kleiner, also auch 2 · 0,5ˣ + 1. Eine waagrechte Gerade trifft den Graphen höchstens einmal.',
+                  'Steigt oder fällt der Graph überall?'),
+                A(3, 'Eine Funktion hat nur die Werte f(1) = 3, f(2) = 5, f(3) = 3, f(4) = 7. Welchen x-Wert kann man streichen, damit sie umkehrbar wird?',
+                  '1 oder 3', ['nur 2', 'nur 4', 'Man muss zwei Werte streichen.'],
+                  'Der y-Wert 3 kommt zweimal vor (bei 1 und bei 3). Streicht man einen der beiden, kommt jeder y-Wert nur einmal vor.',
+                  'Welcher y-Wert kommt doppelt vor?'),
+            ],
+            'werte': [
+                Z(3, 'f(x) = 3x − 5. Für welches x gilt f(x) = f⁻¹(x)?', 2.5, '5/2',
+                  'f und f⁻¹ treffen sich hier auf y = x: 3x − 5 = x ⇒ 2x = 5 ⇒ x = 2,5. Probe: f(2,5) = 2,5 und f⁻¹(2,5) = 2,5.',
+                  'Wo schneidet f die Gerade y = x?'),
+                Z(3, 'Für eine Funktion f gilt f(2) = 7 und f(7) = 2. Berechne f⁻¹(f⁻¹(2)).', 2, '2',
+                  'f⁻¹(2) = 7, weil f(7) = 2. Dann f⁻¹(7) = 2, weil f(2) = 7.', 'Rechne von innen nach außen.'),
+                L(3, 'Für eine Funktion f gilt f(3) = 5. Welcher Punkt liegt sicher auf dem Graphen von g(x) = f⁻¹(x) + 1?', 'P(□ | □)', [5, 4], ['5', '3 + 1'],
+                  'f(3) = 5 ⇒ f⁻¹(5) = 3 ⇒ g(5) = 3 + 1 = 4. Also P(5 | 4).', 'Bestimme zuerst f⁻¹(5).'),
+                A(3, 'f(x) = 0,5x + 2. Für welches x ist f⁻¹(x) doppelt so groß wie x?', 'für kein x', ['für x = 4', 'für x = 2', 'für jedes x'],
+                  'f⁻¹(x) = 2x − 4. Gleichung 2x − 4 = 2x ⇒ −4 = 0: unmöglich. Es gibt kein solches x.',
+                  'Bestimme zuerst f⁻¹ und stelle die Gleichung auf.'),
+            ],
+            'linear': [
+                L(3, 'f(x) = 2x − 3. In welchem Punkt schneiden sich die Graphen von f und f⁻¹?', 'S(□ | □)', [3, 3], ['3', '3'],
+                  'Gerade und Umkehrgerade schneiden sich auf y = x: 2x − 3 = x ⇒ x = 3. S(3 | 3).', 'Der Schnittpunkt liegt auf der Spiegelachse.'),
+                L(3, 'Die Gerade f geht durch die Punkte (2 | 2) und (4 | 3). Gib die Umkehrfunktion an.', LT, [2, -2], ['2', '-2'],
+                  'f⁻¹ geht durch (2 | 2) und (3 | 4): Steigung (4 − 2) : (3 − 2) = 2, f⁻¹(x) = 2x − 2.', 'Tausche die Koordinaten beider Punkte.', hinweis=HT),
+                Z(3, 'Eine Gerade f hat die Steigung 4. Welche Steigung hat ihre Umkehrfunktion?', 0.25, '1/4',
+                  'Beim Tauschen von x und y wird aus „4 nach oben pro 1 nach rechts“ „1 nach oben pro 4 nach rechts“: 1 : 4 = 0,25.',
+                  'Was passiert mit dem Steigungsdreieck beim Spiegeln?'),
+                Z(3, 'Für welches t geht der Graph der Umkehrfunktion von f(x) = 2x + t durch den Punkt (5 | 1)?', 3, '5 - 2*1',
+                  '(5 | 1) auf f⁻¹ heißt (1 | 5) auf f: 2 · 1 + t = 5 ⇒ t = 3.', 'Welcher Punkt liegt dann auf f?'),
+            ],
+            'quadratisch': [
+                L(3, 'f(x) = (x − 3)² + 1 mit x ≥ 3. Gib die Wertemenge der Umkehrfunktion f⁻¹ an.', 'W = {y | y ≥ □}', [3], ['3'],
+                  'Die Wertemenge von f⁻¹ ist die Definitionsmenge von f: x ≥ 3.', 'Was tauschen f und f⁻¹ außer x und y noch?'),
+                A(3, 'f(x) = x² mit x ≤ 0 (linker Ast). Welche Funktion ist die Umkehrfunktion?', 'f⁻¹(x) = −√x', ['f⁻¹(x) = √x', 'f⁻¹(x) = √(−x)', 'f⁻¹(x) = −x²'],
+                  'Der linke Ast hat negative x-Werte. Die Umkehrung muss also negative Werte liefern: −√x. Probe: f(−3) = 9, −√9 = −3.',
+                  'Welches Vorzeichen haben die x-Werte des linken Asts?'),
+            ],
+            'exp_log': [
+                Z(3, 'f(x) = 2ˣ⁻¹. Berechne f⁻¹(16).', 5, '4 + 1', '2ˣ⁻¹ = 16 = 2⁴ ⇒ x − 1 = 4 ⇒ x = 5.', 'Schreibe 16 als Zweierpotenz.'),
+                Z(3, 'f(x) = 3 · 2ˣ. Berechne f⁻¹(24).', 3, '3', '3 · 2ˣ = 24 ⇒ 2ˣ = 8 ⇒ x = 3.', 'Teile zuerst durch 3.'),
+                A(3, 'f(x) = 2ˣ. Warum hat f⁻¹(−4) keinen Wert?', 'Weil 2ˣ nie negativ wird.', ['Weil man durch 0 teilen müsste.', 'Weil −4 keine Zweierpotenz ist, aber 4 schon.', 'Doch: f⁻¹(−4) = −2.'],
+                  '2ˣ ist für jedes x positiv. Es gibt kein x mit 2ˣ = −4. Die Definitionsmenge von log₂ sind nur positive Zahlen.',
+                  'Welche Werte kann 2ˣ annehmen?'),
+                Z(3, 'Berechne lg 0,001.', -3, '-3', '10⁻³ = 1/1 000 = 0,001. Also lg 0,001 = −3.', '10 hoch wie viel ergibt 0,001?'),
+            ],
+            'spiegeln': [
+                L(3, 'Der Graph von f ist eine Gerade durch (0 | 1) mit der Steigung 2. Wo schneidet der Graph von f⁻¹ die x-Achse?', 'N(□ | □)', [1, 0], ['1', '0'],
+                  'f schneidet die y-Achse in (0 | 1). Gespiegelt: f⁻¹ schneidet die x-Achse in (1 | 0).', 'Spiegle den Schnittpunkt von f mit der y-Achse.'),
+                L(3, 'f(x) = 3ˣ + 1. Wo schneidet der Graph von f⁻¹ die x-Achse?', 'N(□ | □)', [2, 0], ['3**0 + 1', '0'],
+                  'f(0) = 1 + 1 = 2, also liegt (0 | 2) auf f. Gespiegelt: (2 | 0) auf f⁻¹.', 'Berechne zuerst f(0).'),
+                L(3, 'Der Graph von f schneidet die x-Achse bei x = −4. Wo schneidet der Graph von f⁻¹ die y-Achse?', 'S(□ | □)', [0, -4], ['0', '-4'],
+                  '(−4 | 0) liegt auf f. Gespiegelt: (0 | −4) auf f⁻¹.', 'Tausche die Koordinaten des Nullstellenpunkts.'),
+            ],
+        })
+
+
 if __name__ == '__main__':
     d = bauen('funktionen.umkehr',
           'Entscheiden, ob eine Funktion umkehrbar ist, Umkehrfunktionen bestimmen (Gerade, Parabelast, Exponentialfunktion) und den Graphen an y = x spiegeln.',
@@ -431,3 +534,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           offen=['Lehrplan-Feld leer: Annahme RS 10 (WPF I) – Umkehrbarkeit, Umkehrfunktion linearer Funktionen, eines Parabelastes und der Exponentialfunktion (Logarithmus), Spiegelung an y = x. Umkehrung gebrochen-rationaler Funktionen weggelassen.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+    durchsicht(d)

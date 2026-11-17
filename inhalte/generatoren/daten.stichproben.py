@@ -461,6 +461,127 @@ UMBAU_WEG = []
 # ---------- Ende UMBAU ----------
 
 
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: VERA-8 / Jahrgangsstufentests (Leitidee Daten: Aussagen zu Umfragen beurteilen, Hochrechnen),
+# Fang-Wiederfang-Schätzung (Standardaufgabe zu Stichproben), Zeitungs- und Werbeaussagen prüfen. Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, nachtrag, finde
+    T = lambda teil: finde(d, teil)
+    nachtrag(d,
+        umstufen={
+            T('4 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 32'): 2,
+            T('10 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 40'): 2,
+            T('Von 100 befragten Jugendlichen eines Landkreises mit 860 Jugendlichen spielen 20'): 2,
+            T('Von 200 befragten Fahrgästen einer Bahnlinie mit 2 600 Fahrgästen'): 2,
+            T('„Jeder vernünftige Mensch ist dafür, dass der Bus öfter fährt. Sie auch?“'): 2,
+            T('„Handyverbot an Schulen“ abzustimmen. Es kommen 1 200 Antworten'): 2,
+            T('Klasse 7a befragt 10 zufällig gewählte Kinder'): 2,
+            T('Klasse 7a befragt 20 zufällig gewählte Kinder'): 2,
+        },
+        ersetzen={
+            T('4 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 16'):
+                Z(3, 'Eine Schule mit 600 Kindern hat 24 Klassen. Aus jeder Klasse werden 2 Kinder ausgelost. Wie viel Prozent aller Kinder werden befragt?',
+                  8, '24*2/600*100', '24 · 2 = 48 Kinder. 48 : 600 = 0,08 = 8 %.', 'Wie viele Kinder sind es zusammen? Welcher Anteil von 600 ist das?', einheit='%'),
+            T('12 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 84'):
+                A(3, 'Eine Firma will prüfen, wie lange ihre Feuerwerksraketen brennen. Warum testet sie nur eine Stichprobe?',
+                  'Jede getestete Rakete ist danach verbraucht.', ['Eine Stichprobe ist genauer als eine Vollerhebung.', 'Raketen darf man nicht zählen.', 'Eine Vollerhebung ist verboten.'],
+                  'Beim Test brennt die Rakete ab. Bei einer Vollerhebung bliebe keine Rakete zum Verkaufen übrig.',
+                  'Was passiert mit einer Rakete beim Test?'),
+            T('„20 % der Einwohner von Würzburg wollen ein Stadion!“'):
+                A(3, 'Ein Prospekt wirbt: „9 von 10 Zahnärzten empfehlen unsere Zahnpasta.“ Befragt wurden 10 Zahnärzte, die der Hersteller ausgesucht hat. Wie ist die Aussage zu beurteilen?',
+                  'Nicht haltbar: viel zu wenige und vom Hersteller ausgesucht.', ['Haltbar, weil 90 % sehr viel ist.', 'Haltbar, weil Zahnärzte Fachleute sind.', 'Nur zu klein, die Auswahl ist in Ordnung.'],
+                  '10 Befragte schwanken stark, und wer vom Hersteller ausgesucht wird, ist vermutlich für das Produkt. Zwei Fehlerquellen zugleich.',
+                  'Prüfe Größe und Auswahl der Stichprobe.'),
+            T('Stichprobe A hat 12 Befragte, Stichprobe B hat 400'):
+                A(1, 'Zwei kleine Zufallsstichproben (je 10 Kinder) aus derselben Schule ergeben 60 % und 40 %. Was ist die wahrscheinlichste Erklärung?',
+                  'Kleine Stichproben schwanken zufällig.', ['Eine der Gruppen hat sich verrechnet.', 'Die Schule hat sich verändert.', 'Beide Stichproben sind gefälscht.'],
+                  'Bei nur 10 Befragten machen 2 Kinder schon 20 Prozentpunkte aus. Solche Unterschiede entstehen durch Zufall.',
+                  'Wie viel macht ein einzelnes Kind bei 10 Befragten aus?'),
+            T('Stichprobe A hat 10 Befragte, Stichprobe B hat 500'):
+                A(1, 'In einer Zufallsstichprobe sagen 30 % „ja“. Ist das sicher der Anteil in der ganzen Grundgesamtheit?',
+                  'Nein, es ist ein Schätzwert.', ['Ja, genau 30 %.', 'Nein, es sind sicher mehr.', 'Nein, es sind sicher weniger.'],
+                  'Eine Stichprobe zeigt nur einen Teil. 30 % ist ein Schätzwert; der wahre Anteil liegt vermutlich in der Nähe.',
+                  'Wurden alle befragt?'),
+        },
+        neu={
+            'begriffe': [
+                Z(3, 'Eine Stadt hat 24 000 Haushalte. 1,5 % davon sollen befragt werden. Eine Interviewerin schafft 40 Haushalte. Wie viele Interviewerinnen braucht man mindestens?',
+                  9, '24000*15/1000/40', '1,5 % von 24 000 = 360 Haushalte. 360 : 40 = 9 Interviewerinnen.',
+                  'Rechne zuerst den Stichprobenumfang aus.'),
+                A(3, 'Man will wissen, wie viele Siebtklässler in Bayern ein Handy haben. Befragt werden 300 Siebtklässler aus 15 Schulen. Was ist die Grundgesamtheit?',
+                  'Alle Siebtklässler in Bayern', ['Die 300 befragten Kinder', 'Alle Kinder in Bayern', 'Die 15 Schulen'],
+                  'Die Frage betrifft alle Siebtklässler in Bayern. Die 300 Kinder sind die Stichprobe, die Schulen nur der Ort der Befragung.',
+                  'Über wen will man am Ende etwas sagen?'),
+                A(3, 'Welche Auswahl ist eine Zufallsstichprobe aus allen 800 Kindern einer Schule?',
+                  'Jedes 16. Kind auf der Schülerliste, Start beim ausgelosten Platz', ['Die ersten 50 Kinder am Schultor', 'Alle Kinder, die sich freiwillig melden', 'Die 50 Kinder der Klassensprecherwahl'],
+                  'Nur bei der Liste mit ausgelostem Start hat jedes Kind dieselbe Chance. Am Schultor kommen zuerst die Frühaufsteher, freiwillig melden sich die Interessierten.',
+                  'Hat jedes Kind die gleiche Chance, gezogen zu werden?'),
+                Z(3, 'Aus jeder der 6 Klassen einer Jahrgangsstufe werden gleich viele Kinder ausgelost, zusammen 15 % der 240 Kinder. Wie viele Kinder kommen aus jeder Klasse?',
+                  6, '240*15/100/6', '15 % von 240 = 36 Kinder. 36 : 6 = 6 Kinder je Klasse.',
+                  'Rechne erst den Stichprobenumfang aus, dann teile.'),
+            ],
+            'hochrechnen': [
+                Z(3, 'In einem Teich werden 50 Fische gefangen, markiert und wieder freigelassen. Später fängt man 40 Fische; 5 davon sind markiert. Schätze, wie viele Fische im Teich leben.',
+                  400, '50*40/5', 'In der zweiten Stichprobe sind 5 von 40 = 12,5 % markiert. 50 Fische sind also etwa 12,5 % aller Fische: 50 : 0,125 = 400.',
+                  'Welcher Anteil der zweiten Stichprobe ist markiert? Dieser Anteil gilt ungefähr für den ganzen Teich.'),
+                A(3, 'Eine Schule hat 1 500 Kinder. Stichprobe A (50 Kinder) ergibt 30 % Radfahrer, Stichprobe B (200 Kinder) ergibt 24 %. Welche Hochrechnung ist vertrauenswürdiger?',
+                  'Etwa 360 Radfahrer (aus B)', ['Etwa 450 Radfahrer (aus A)', 'Etwa 405 Radfahrer (Mittelwert)', 'Genau 360 Radfahrer'],
+                  'Die größere Zufallsstichprobe schwankt weniger: 0,24 · 1 500 = 360. Es bleibt eine Schätzung, darum „etwa“.',
+                  'Welche Stichprobe schwankt weniger?'),
+                Z(3, 'In einer Stichprobe von 40 Kindern haben 30 % ein Haustier. Wie viele Kinder mit Haustier mehr hätten es in der Stichprobe sein müssen, damit die Hochrechnung für 800 Kinder 320 ergibt?',
+                  4, '320*40/800 - 40*30/100', '320 von 800 sind 40 %. 40 % von 40 = 16 Kinder, 30 % von 40 = 12 Kinder. Es fehlen 4.',
+                  'Welcher Anteil steckt hinter 320 von 800?'),
+                Z(3, 'Von 50 befragten Kindern einer Schule mit 750 Kindern fahren 18 mit dem Rad. Schätze, wie viele Kinder der Schule NICHT mit dem Rad fahren.',
+                  480, '750*(50-18)/50', '50 − 18 = 32 fahren nicht Rad: 32 : 50 = 64 %. 0,64 · 750 = 480.',
+                  'Rechne mit dem Anteil der Kinder, die nicht Rad fahren.'),
+            ],
+            'repraesentativ': [
+                A(3, 'Die Schülerzeitung befragt alle 120 Kinder, die am Montag in der Mensa essen. 80 % finden das Essen gut. Schlagzeile: „80 % der Schule mögen das Mensaessen“. Was ist das Hauptproblem?',
+                  'Wer in der Mensa isst, mag das Essen eher.', ['120 Kinder sind zu wenige für eine Schule.', 'Man hätte in Prozentpunkten rechnen müssen.', 'Montag ist ein ungewöhnlicher Tag.'],
+                  'Kinder, die das Essen nicht mögen, essen eher woanders. Sie fehlen in der Stichprobe: Die Auswahl ist einseitig.',
+                  'Wer fehlt in der Stichprobe?'),
+                A(3, 'Eine Umfrage zur Freizeit erreicht die Leute nur über das Festnetz-Telefon, vormittags an Werktagen. Welche Gruppe ist vermutlich zu schwach vertreten?',
+                  'Berufstätige und Jugendliche', ['Rentnerinnen und Rentner', 'Menschen mit Festnetz', 'Alle Gruppen gleich'],
+                  'Vormittags sind Berufstätige bei der Arbeit, Jugendliche in der Schule; viele Jüngere haben kein Festnetz. Rentner werden eher erreicht.',
+                  'Wer ist vormittags zu Hause und hat Festnetz?'),
+            ],
+            'fehlerquellen': [
+                A(3, 'Welche Frage ist neutral gestellt?',
+                  '„Wie oft sollte der Bus fahren: alle 10, 20 oder 30 Minuten?“', ['„Sie wollen doch auch, dass der Bus öfter fährt?“', '„Finden Sie den seltenen Bus nicht auch ärgerlich?“', '„Jeder will mehr Busse. Sie auch?“'],
+                  'Die neutrale Frage nennt mehrere Möglichkeiten und keine Meinung. Die anderen drängen zu einer Antwort.',
+                  'Welche Frage verrät keine gewünschte Antwort?'),
+                A(3, 'Ein Sportverein fragt auf seiner Internetseite: „Wollt ihr nicht auch endlich einen Kunstrasen?“ 400 Mitglieder klicken. Welche Fehlerquellen liegen vor?',
+                  'Suggestive Frage und nur Freiwillige', ['Nur: Die Stichprobe ist zu klein.', 'Nur: Die Frage ist suggestiv.', 'Keine, 400 Antworten genügen.'],
+                  '„Nicht auch endlich“ lenkt zum Ja. Und es klicken nur Mitglieder, die sich melden wollen. Zwei Fehlerquellen zugleich.',
+                  'Prüfe die Frage und wer antwortet – getrennt.'),
+                A(3, 'Die Schülerzeitung befragt 40 Kinder der Theater-AG, ob sie gern ins Theater gehen. Sie verdoppelt danach auf 80 Kinder der Theater-AG. Wird das Ergebnis aussagekräftiger für die ganze Schule?',
+                  'Nein, die Auswahl bleibt einseitig.', ['Ja, doppelt so viele sind doppelt so gut.', 'Ja, ab 80 ist eine Stichprobe immer repräsentativ.', 'Nein, 80 sind zu viele.'],
+                  'Mehr Kinder aus derselben besonderen Gruppe ändern die Verzerrung nicht. Man muss aus der ganzen Schule zufällig auswählen.',
+                  'Was hat sich an der Auswahl geändert?'),
+                A(3, 'Ein Hotel verschickt 500 Fragebögen. 60 kommen zurück, 50 davon „sehr zufrieden“. Das Hotel wirbt: „83 % unserer Gäste sind sehr zufrieden.“ Warum ist das fragwürdig?',
+                  'Nur 12 % haben geantwortet – vor allem die mit starker Meinung.', ['50 von 60 sind nicht 83 %.', 'Fragebögen sind immer ungültig.', 'Man hätte 1 000 Bögen verschicken müssen.'],
+                  '50 von 60 sind zwar etwa 83 %, aber nur 60 von 500 = 12 % haben geantwortet. Wer antwortet, entscheidet selbst – das verzerrt.',
+                  'Wie viele der Gäste haben überhaupt geantwortet?'),
+            ],
+            'aussagen': [
+                A(3, 'Umfrage A: 7 von 20 Kindern (35 %) lesen täglich. Umfrage B ein Jahr später: 1 200 von 4 000 (30 %). Ein Reporter schreibt: „Der Anteil ist von 35 % auf 30 % gesunken.“ Wie ist das zu beurteilen?',
+                  'Unsicher: Bei nur 20 Befragten kann A leicht um 5 Prozentpunkte daneben liegen.', ['Sicher richtig, 35 > 30.', 'Falsch, der Anteil ist gestiegen.', 'Richtig, weil B so groß ist.'],
+                  'Bei 20 Befragten macht ein Kind 5 Prozentpunkte aus. Der Unterschied kann reiner Zufall sein.',
+                  'Wie viel macht ein Kind bei 20 Befragten aus?'),
+                A(3, 'In einer guten Umfrage (1 000 Befragte) kommt eine Partei auf 5,2 %. Für den Einzug in den Landtag braucht sie 5 %. Welche Schlagzeile ist angemessen?',
+                  '„Partei knapp über 5 % – Einzug unsicher“', ['„Partei sicher im Landtag“', '„Partei scheitert“', '„Genau 5,2 % wählen die Partei“'],
+                  'Auch große Stichproben schwanken um einige Zehntel bis wenige Prozentpunkte. 5,2 % ist zu knapp für „sicher“.',
+                  'Wie weit liegt 5,2 % von 5 % entfernt – und wie stark schwankt eine Umfrage?'),
+                Z(3, 'Wie viele Personen muss man befragen, damit eine einzelne Person genau 0,5 Prozentpunkte ausmacht?',
+                  200, '100/0.5', '1 Person = 0,5 % heißt: 100 % entsprechen 100 : 0,5 = 200 Personen.',
+                  'Bei 100 Befragten ist eine Person 1 %. Wie viele für die Hälfte?'),
+                Z(3, 'In einer Stichprobe mit 50 Befragten sagen 20 „ja“ (40 %). Wie viele „ja“ müssten es mindestens sein, damit der Anteil über 50 % liegt?',
+                  26, '50/2 + 1', '50 % von 50 sind 25. „Über 50 %“ heißt mindestens 26.',
+                  'Wie viele sind genau 50 %?'),
+            ],
+        })
+
+
 if __name__ == '__main__':
     d = bauen('daten.stichproben',
           'Grundgesamtheit und Stichprobe unterscheiden, von Stichproben hochrechnen und beurteilen, ob eine Stichprobe repräsentativ ist.',
@@ -472,3 +593,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           offen=['Umfang laut Liste nur „Repräsentativität und Grenzen von Aussagen“ (RS 7); die Hochrechnung mit relativen Häufigkeiten wurde als üblicher Schulstoff ergänzt.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+    durchsicht(d)

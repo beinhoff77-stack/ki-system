@@ -410,3 +410,120 @@ d = bauen('mengen.grundbegriffe',
              'Mengenschreibweise mit Semikolon {1; 2; 3}, damit Dezimalkommas eindeutig bleiben.'],
       vertiefung=['verstehen'])
 umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: IB-MYP-Aufgabenformate „Sets & Venn diagrams“ (Anzahl in Bereichen, Unbekannte x im Venn-Diagramm,
+# Mindest- und Höchstzahl der Überlappung, Mengen in Worten beschreiben); Verknüpfung mit Teilern/Vielfachen (ggT, kgV).
+# Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, nachtrag, finde
+    T = lambda teil: finde(d, teil)
+    nachtrag(d,
+        umstufen={
+            T('A = die Vielfachen von 3 bis 24. Welche Aufzählung ist richtig?'): 2,
+            T('A = die Vielfachen von 4 bis 30. Welche Aufzählung ist richtig?'): 2,
+            T('A = die Primzahlen bis 24. Welche Zahl gehört NICHT zu A?'): 1,
+            T('A = die Teiler von 12. Welche Zahl gehört NICHT zu A?'): 1,
+            T('Englisch-AG = {Ali; Cem; Gül; Hanna; Ida; Kim}'): 2,
+            T('Mitglieder im Tennis = {Eva; Finn; Ida; Noah}'): 2,
+            T('Bei einem Schulfest: 14 Kinder kaufen Waffeln'): 2,
+            T('In einer Klasse: 9 Kinder haben einen Hund'): 2,
+            T('Im Feriencamp: 22 Kinder machen Kanu'): 2,
+            T('21 Jugendliche wurden befragt: 14 spielen Gitarre'): 2,
+            T('30 Kinder wurden befragt: 16 sind in der Mathe-AG'): 2,
+            T('29 Kinder wurden befragt: 24 sind in der Mathe-AG'): 2,
+            T('33 Familien wurden befragt: 25 haben einen Hund'): 2,
+            T('A = die Vielfachen von 6 bis 24, B = die geraden Zahlen bis 24. Was ist A ∪ B?'): 2,
+            T('A = die Vielfachen von 6 bis 24, B = die geraden Zahlen bis 24. Was ist A ∩ B?'): 2,
+            T('n(A) = 6, n(B) = 8, n(A ∩ B) = 4. Tom rechnet'): 2,
+        },
+        ersetzen={
+            T('A = die Teiler von 12. Welche Aufzählung ist richtig?'):
+                A(3, 'Wie kann man die Menge {4; 9; 16; 25} in Worten beschreiben?', 'die Quadratzahlen von 4 bis 25',
+                  ['die geraden Zahlen bis 25', 'die Vielfachen von 4 bis 25', 'die Teiler von 100'],
+                  '4 = 2 · 2, 9 = 3 · 3, 16 = 4 · 4, 25 = 5 · 5: lauter Quadratzahlen, angefangen bei 4.', 'Was haben 4, 9, 16 und 25 gemeinsam?'),
+            T('A = die Teiler von 20. Welche Aufzählung ist richtig?'):
+                A(3, 'Welche Menge ist gleich {2; 4; 6}?', '{6; 2; 4}', ['{2; 4; 6; 8}', '{2; 4}', '{2; 2; 4; 6; 7}'],
+                  'Bei Mengen ist die Reihenfolge egal. {6; 2; 4} hat genau dieselben Elemente.', 'Kommt es bei einer Menge auf die Reihenfolge an?'),
+            T('Englisch-AG = {Ali; Eva; Finn; Gül; Lio}'):
+                A(3, 'A = {1; 2; 3} und A ∩ B = {3}. Welche Menge kann B sein?', '{3; 4; 5}', ['{1; 3; 5}', '{1; 2; 3}', '{4; 5; 6}'],
+                  'B muss 3 enthalten, aber weder 1 noch 2. Nur {3; 4; 5} passt.', 'Welche Elemente von A dürfen in B sein, welche nicht?'),
+            T('Mitglieder im Tennis = {Gül; Hanna; Ida; Jonas; Lio; Noah}'):
+                Z(3, 'A = die Teiler von 12, B = die Teiler von 18. A ∩ B besteht genau aus den Teilern einer Zahl. Welcher?', 6, '6',
+                  'A ∩ B = {1; 2; 3; 6}: die Teiler von 6, dem größten gemeinsamen Teiler.', 'Schreibe A ∩ B auf. Welche Zahl hat genau diese Teiler?'),
+        },
+        neu={
+            'elemente': [
+                Z(3, 'A = alle zweistelligen Zahlen mit der Quersumme 5. Wie viele Elemente hat A?', 5, '5',
+                  '14, 23, 32, 41, 50: fünf Zahlen.', 'Gehe die Zehnerziffern 1 bis 5 durch.'),
+                Z(3, 'Wie viele Elemente hat die Menge {1; 2; 2; 3; 3; 3}?', 3, '3',
+                  'Jedes Element zählt nur einmal: Die Menge ist {1; 2; 3}.', 'Zählt ein Element doppelt?'),
+                A(3, 'A = alle Primzahlen, die gerade sind. Welche Menge ist A?', '{2}', ['{ }', '{2; 4; 6; 8}', '{1; 2}'],
+                  '2 ist die einzige gerade Primzahl; jede andere gerade Zahl ist durch 2 teilbar. 1 ist keine Primzahl.', 'Welche geraden Zahlen haben genau zwei Teiler?'),
+                Z(3, 'A = die Vielfachen von 3 zwischen 10 und 40. Wie viele Elemente hat A?', 10, '(39 - 12)/3 + 1',
+                  '12, 15, 18, …, 39. Von 12 bis 39 sind es 27, also 27 : 3 = 9 Schritte und 10 Zahlen.', 'Welches ist das erste, welches das letzte Vielfache?'),
+                A(3, 'Die Menge der Teiler einer Zahl hat genau 5 Elemente. Welche Zahl kann es sein?', '16', ['12', '10', '15'],
+                  'Teiler von 16: 1, 2, 4, 8, 16 – fünf. 12 hat 6 Teiler, 10 und 15 je 4.', 'Zähle die Teiler jeder Zahl.'),
+                Z(3, 'A = die Zahlen 1, 2, 3, …, deren Quadrat kleiner als 50 ist. Wie viele Elemente hat A?', 7, '7',
+                  '7 · 7 = 49 < 50, aber 8 · 8 = 64. A = {1; 2; 3; 4; 5; 6; 7}.', 'Welche Quadratzahl liegt gerade noch unter 50?'),
+            ],
+            'schnitt': [
+                Z(3, 'A = die Vielfachen von 4 bis 60, B = die Vielfachen von 6 bis 60. Welches ist das kleinste Element von A ∩ B?', 12, '12',
+                  'Gemeinsame Vielfache von 4 und 6: 12, 24, 36, … Das kleinste ist 12.', 'Schreibe die ersten Vielfachen beider Zahlen auf.'),
+                Z(3, 'A = die Vielfachen von 3 bis 60, B = die Vielfachen von 5 bis 60. Wie viele Elemente hat A ∩ B?', 4, '60/15',
+                  'Gemeinsam sind die Vielfachen von 15: 15, 30, 45, 60 – vier.', 'Welche Zahlen sind Vielfache von 3 und von 5?'),
+                A(3, 'Für zwei Mengen gilt A ∩ B = A. Was folgt daraus?', 'A liegt ganz in B.', ['B liegt ganz in A.', 'A und B haben nichts gemeinsam.', 'A ist leer.'],
+                  'Wenn die Schnittmenge ganz A ist, gehört jedes Element von A auch zu B.', 'Was heißt es, wenn jedes Element von A in der Überlappung liegt?'),
+                A(3, 'A = Kinder mit Brille, B = Kinder mit Geschwistern. Lisa gehört zu A, aber nicht zu A ∩ B. Was weißt du über Lisa?',
+                  'Sie trägt eine Brille und hat keine Geschwister.', ['Sie hat Geschwister, aber keine Brille.', 'Sie hat weder Brille noch Geschwister.', 'Sie hat Brille und Geschwister.'],
+                  'Lisa ist in A: Brille. Wäre sie auch in B, läge sie in A ∩ B. Also ist sie nicht in B: keine Geschwister.',
+                  'Wo im Venn-Diagramm liegt Lisa?'),
+            ],
+            'vereinigung': [
+                Z(3, 'A und B haben keine gemeinsamen Elemente. n(A) = 4, n(B) = 5. Wie viele Elemente hat A ∪ B?', 9, '4 + 5 - 0',
+                  'A ∩ B = { }, also wird nichts doppelt gezählt: 4 + 5 − 0 = 9.', 'Wie groß ist n(A ∩ B)?'),
+                Z(3, 'In einer Klasse mit 28 Kindern haben 15 einen Hund, 12 eine Katze und 4 keines von beiden. Wie viele haben beides?', 3, '15 + 12 - (28 - 4)',
+                  'Mindestens ein Tier: 28 − 4 = 24. 15 + 12 = 27 zählt die Kinder mit beidem doppelt: 27 − 24 = 3.', 'Wie viele haben mindestens ein Tier?'),
+                Z(3, 'n(A ∪ B) = 20, n(A) = 12 und n(A ∩ B) = 5. Wie viele Elemente hat B?', 13, '20 - 12 + 5',
+                  '20 = 12 + n(B) − 5 ⇒ n(B) = 13.', 'Setze in die Formel ein und löse nach n(B) auf.'),
+                Z(3, 'n(A) = 10 und n(B) = 7. Wie viele Elemente kann A ∪ B höchstens haben?', 17, '10 + 7',
+                  'Am meisten, wenn A und B nichts gemeinsam haben: 10 + 7 = 17.', 'Wann gibt es keine Doppelten?'),
+                A(3, 'A ∪ B = {1; 2; 3; 4; 5}, A = {1; 2; 3} und A ∩ B = {3}. Welche Menge ist B?', '{3; 4; 5}', ['{4; 5}', '{1; 2; 3; 4; 5}', '{3}'],
+                  '4 und 5 sind nicht in A, also in B. Dazu 3 aus der Schnittmenge. 1 und 2 nicht, sonst wären sie in A ∩ B.',
+                  'Welche Elemente muss B enthalten, welche darf es nicht?'),
+            ],
+            'venn': [
+                Z(3, '30 Kinder: 18 spielen Fußball, 15 gehen schwimmen, 6 machen keines von beiden. Wie viele machen beides?', 9, '18 + 15 - (30 - 6)',
+                  'Mindestens eins: 30 − 6 = 24. 18 + 15 = 33. Doppelt gezählt: 33 − 24 = 9.', 'Beginne mit den Kindern außerhalb der Kreise.'),
+                Z(3, 'In einem Venn-Diagramm steht in der Überlappung x, bei „nur A“ 2x, bei „nur B“ 7 und außerhalb 3. Insgesamt sind es 25. Wie groß ist x?', 5, '(25 - 10)/3',
+                  'x + 2x + 7 + 3 = 25 ⇒ 3x = 15 ⇒ x = 5.', 'Alle vier Bereiche zusammen ergeben 25.'),
+                Z(3, 'Von 40 Gästen essen 25 Fleisch und 22 Gemüse. Jeder isst mindestens eines davon. Wie viele essen nur Gemüse?', 15, '22 - (25 + 22 - 40)',
+                  'Beides: 25 + 22 − 40 = 7. Nur Gemüse: 22 − 7 = 15.', 'Bestimme zuerst die Überlappung.'),
+                A(3, 'Eine Klasse hat 20 Kinder. 15 spielen Fußball, 12 Basketball, und angeblich spielt niemand beides. Kann das stimmen?', 'Nein, 15 + 12 = 27 sind mehr als 20.',
+                  ['Ja, das ist möglich.', 'Nein, weil 15 größer als 12 ist.', 'Ja, wenn 7 Kinder keinen Sport machen.'],
+                  'Ohne Überlappung wären es mindestens 27 Kinder. Mindestens 7 müssen beides spielen.', 'Wie viele Kinder bräuchte man ohne Überlappung?'),
+                Z(3, 'Im Venn-Diagramm stehen: nur A 8, beide 4, nur B 5, außerhalb 3. Wie viel Prozent aller gehören zu A?', 60, '(8 + 4)/(8 + 4 + 5 + 3)*100',
+                  'Zu A gehören 8 + 4 = 12 von 20. 12 : 20 = 0,6 = 60 %.', 'Zu A gehören auch die in der Überlappung.', einheit='%'),
+                Z(3, '25 Kinder: 18 fahren Rad, 14 fahren Roller. Wie viele fahren mindestens beides?', 7, '18 + 14 - 25',
+                  '18 + 14 = 32 > 25. Mindestens 32 − 25 = 7 müssen in der Überlappung sein (wenn alle mindestens eins fahren).', 'Wie viele „passen nicht“ in die 25 ohne Überlappung?'),
+            ],
+            'verstehen': [
+                A(3, 'Stimmt: „Haben A und B nichts gemeinsam, dann ist n(A ∪ B) = n(A) + n(B).“?', 'Ja, dann wird nichts doppelt gezählt.',
+                  ['Nein, man muss immer etwas abziehen.', 'Nein, dann ist n(A ∪ B) = 0.', 'Nur, wenn A und B gleich groß sind.'],
+                  'n(A ∩ B) = 0, also n(A ∪ B) = n(A) + n(B) − 0.', 'Was zieht die Formel ab?'),
+                A(3, 'Stimmt: „A ∪ B hat immer mehr Elemente als A.“?', 'Nein: Liegt B ganz in A, ist A ∪ B = A.',
+                  ['Ja, immer.', 'Ja, weil B dazukommt.', 'Nein, A ∪ B hat immer weniger Elemente.'],
+                  'Gegenbeispiel: A = {1; 2; 3}, B = {2}. A ∪ B = {1; 2; 3} = A, nicht mehr.', 'Suche ein Gegenbeispiel.'),
+                Z(3, 'A hat 5 Elemente, B hat 8 Elemente. Wie viele Elemente kann A ∩ B mindestens haben?', 0, '0',
+                  'Wenn A und B nichts gemeinsam haben, ist A ∩ B leer: 0 Elemente.', 'Müssen A und B etwas gemeinsam haben?'),
+                A(3, 'Welche Aussage ist für alle Mengen A und B wahr?', 'Jedes Element von A ∩ B liegt auch in A ∪ B.',
+                  ['A ∩ B hat mehr Elemente als A ∪ B.', 'A ∪ B ist nie gleich A.', 'A ∩ B ist nie leer.'],
+                  'Was in beiden Mengen liegt, liegt erst recht in mindestens einer. Die anderen Aussagen widerlegt je ein Beispiel.', 'Prüfe jede Aussage mit einem Beispiel.'),
+                A(3, 'Für zwei Mengen gilt n(A ∪ B) = n(A). Was folgt daraus?', 'B liegt ganz in A.', ['A liegt ganz in B.', 'B ist leer.', 'A und B haben nichts gemeinsam.'],
+                  'Kommt durch B nichts Neues dazu, ist jedes Element von B schon in A. (B leer ist ein Sonderfall davon.)', 'Was bringt B zu A dazu?'),
+            ],
+        })
+
+
+durchsicht(d)

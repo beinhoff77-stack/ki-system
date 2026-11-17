@@ -718,7 +718,7 @@
    "l": "begriffe",
    "t": "begriffe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "In einer Schule gibt es 4 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 32. Wie viele sind es pro Klasse?"
@@ -734,7 +734,7 @@
    "l": "begriffe",
    "t": "begriffe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "In einer Schule gibt es 10 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 40. Wie viele sind es pro Klasse?"
@@ -753,30 +753,36 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einer Schule gibt es 4 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 16. Wie viele sind es pro Klasse?"
+    "text": "Eine Schule mit 600 Kindern hat 24 Klassen. Aus jeder Klasse werden 2 Kinder ausgelost. Wie viel Prozent aller Kinder werden befragt?"
    },
    "o": {
-    "wert": 4
+    "wert": 8,
+    "einheit": "%"
    },
-   "c": "16 / 4",
-   "w": "16 : 4 = 4 Kinder pro Klasse. So ist jede Klasse gleich stark vertreten.",
-   "h": "Teile den Stichprobenumfang auf die Klassen auf."
+   "c": "24*2/600*100",
+   "w": "24 · 2 = 48 Kinder. 48 : 600 = 0,08 = 8 %.",
+   "h": "Wie viele Kinder sind es zusammen? Welcher Anteil von 600 ist das?"
   },
   {
    "l": "begriffe",
    "t": "begriffe",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "In einer Schule gibt es 12 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 84. Wie viele sind es pro Klasse?"
+    "text": "Eine Firma will prüfen, wie lange ihre Feuerwerksraketen brennen. Warum testet sie nur eine Stichprobe?"
    },
+   "a": [
+    "Eine Stichprobe ist genauer als eine Vollerhebung.",
+    "Jede getestete Rakete ist danach verbraucht.",
+    "Raketen darf man nicht zählen.",
+    "Eine Vollerhebung ist verboten."
+   ],
    "o": {
-    "wert": 7
+    "index": 1
    },
-   "c": "84 / 12",
-   "w": "84 : 12 = 7 Kinder pro Klasse. So ist jede Klasse gleich stark vertreten.",
-   "h": "Teile den Stichprobenumfang auf die Klassen auf."
+   "w": "Beim Test brennt die Rakete ab. Bei einer Vollerhebung bliebe keine Rakete zum Verkaufen übrig.",
+   "h": "Was passiert mit einer Rakete beim Test?"
   },
   {
    "l": "begriffe",
@@ -798,6 +804,80 @@
    },
    "w": "Es wird nur ein Teil befragt (Stichprobe). Die Auswahl ist aber verzerrt: Schwimmer sind eher dafür.",
    "h": "Wird ein Teil oder werden alle befragt? Und wie wurde ausgewählt?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Stadt hat 24 000 Haushalte. 1,5 % davon sollen befragt werden. Eine Interviewerin schafft 40 Haushalte. Wie viele Interviewerinnen braucht man mindestens?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "24000*15/1000/40",
+   "w": "1,5 % von 24 000 = 360 Haushalte. 360 : 40 = 9 Interviewerinnen.",
+   "h": "Rechne zuerst den Stichprobenumfang aus."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie viele Siebtklässler in Bayern ein Handy haben. Befragt werden 300 Siebtklässler aus 15 Schulen. Was ist die Grundgesamtheit?"
+   },
+   "a": [
+    "Die 300 befragten Kinder",
+    "Alle Kinder in Bayern",
+    "Alle Siebtklässler in Bayern",
+    "Die 15 Schulen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Frage betrifft alle Siebtklässler in Bayern. Die 300 Kinder sind die Stichprobe, die Schulen nur der Ort der Befragung.",
+   "h": "Über wen will man am Ende etwas sagen?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Auswahl ist eine Zufallsstichprobe aus allen 800 Kindern einer Schule?"
+   },
+   "a": [
+    "Jedes 16. Kind auf der Schülerliste, Start beim ausgelosten Platz",
+    "Die ersten 50 Kinder am Schultor",
+    "Alle Kinder, die sich freiwillig melden",
+    "Die 50 Kinder der Klassensprecherwahl"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nur bei der Liste mit ausgelostem Start hat jedes Kind dieselbe Chance. Am Schultor kommen zuerst die Frühaufsteher, freiwillig melden sich die Interessierten.",
+   "h": "Hat jedes Kind die gleiche Chance, gezogen zu werden?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus jeder der 6 Klassen einer Jahrgangsstufe werden gleich viele Kinder ausgelost, zusammen 15 % der 240 Kinder. Wie viele Kinder kommen aus jeder Klasse?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "240*15/100/6",
+   "w": "15 % von 240 = 36 Kinder. 36 : 6 = 6 Kinder je Klasse.",
+   "h": "Rechne erst den Stichprobenumfang aus, dann teile."
   },
   {
    "l": "begriffe",
@@ -1244,7 +1324,7 @@
    "l": "hochrechnen",
    "t": "hochrechnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Von 100 befragten Jugendlichen eines Landkreises mit 860 Jugendlichen spielen 20 ein Instrument. Wie viele Jugendliche sind es vermutlich insgesamt, die ein Instrument spielen?"
@@ -1265,7 +1345,7 @@
    "l": "hochrechnen",
    "t": "hochrechnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Von 200 befragten Fahrgästen einer Bahnlinie mit 2 600 Fahrgästen pro Tag haben 91 eine Monatskarte. Wie viele Fahrgäste sind es vermutlich insgesamt, die eine Monatskarte haben?"
@@ -1297,6 +1377,75 @@
    "c": "319 / 1450 * 250",
    "w": "Anteil: 319 : 1 450 = 0,22. In der Stichprobe: 0,22 · 250 = 55.",
    "h": "Gleicher Anteil in Stichprobe und Grundgesamtheit."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Teich werden 50 Fische gefangen, markiert und wieder freigelassen. Später fängt man 40 Fische; 5 davon sind markiert. Schätze, wie viele Fische im Teich leben."
+   },
+   "o": {
+    "wert": 400
+   },
+   "c": "50*40/5",
+   "w": "In der zweiten Stichprobe sind 5 von 40 = 12,5 % markiert. 50 Fische sind also etwa 12,5 % aller Fische: 50 : 0,125 = 400.",
+   "h": "Welcher Anteil der zweiten Stichprobe ist markiert? Dieser Anteil gilt ungefähr für den ganzen Teich."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schule hat 1 500 Kinder. Stichprobe A (50 Kinder) ergibt 30 % Radfahrer, Stichprobe B (200 Kinder) ergibt 24 %. Welche Hochrechnung ist vertrauenswürdiger?"
+   },
+   "a": [
+    "Etwa 450 Radfahrer (aus A)",
+    "Etwa 405 Radfahrer (Mittelwert)",
+    "Genau 360 Radfahrer",
+    "Etwa 360 Radfahrer (aus B)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die größere Zufallsstichprobe schwankt weniger: 0,24 · 1 500 = 360. Es bleibt eine Schätzung, darum „etwa“.",
+   "h": "Welche Stichprobe schwankt weniger?"
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Stichprobe von 40 Kindern haben 30 % ein Haustier. Wie viele Kinder mit Haustier mehr hätten es in der Stichprobe sein müssen, damit die Hochrechnung für 800 Kinder 320 ergibt?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "320*40/800 - 40*30/100",
+   "w": "320 von 800 sind 40 %. 40 % von 40 = 16 Kinder, 30 % von 40 = 12 Kinder. Es fehlen 4.",
+   "h": "Welcher Anteil steckt hinter 320 von 800?"
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 50 befragten Kindern einer Schule mit 750 Kindern fahren 18 mit dem Rad. Schätze, wie viele Kinder der Schule NICHT mit dem Rad fahren."
+   },
+   "o": {
+    "wert": 480
+   },
+   "c": "750*(50-18)/50",
+   "w": "50 − 18 = 32 fahren nicht Rad: 32 : 50 = 64 %. 0,64 · 750 = 480.",
+   "h": "Rechne mit dem Anteil der Kinder, die nicht Rad fahren."
   },
   {
    "l": "hochrechnen",
@@ -1825,6 +1974,48 @@
    },
    "w": "Die Stichprobe ist einseitig: sie gehören nicht zur Grundgesamtheit.",
    "h": "Passt die befragte Gruppe zur Grundgesamtheit?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Schülerzeitung befragt alle 120 Kinder, die am Montag in der Mensa essen. 80 % finden das Essen gut. Schlagzeile: „80 % der Schule mögen das Mensaessen“. Was ist das Hauptproblem?"
+   },
+   "a": [
+    "120 Kinder sind zu wenige für eine Schule.",
+    "Man hätte in Prozentpunkten rechnen müssen.",
+    "Wer in der Mensa isst, mag das Essen eher.",
+    "Montag ist ein ungewöhnlicher Tag."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Kinder, die das Essen nicht mögen, essen eher woanders. Sie fehlen in der Stichprobe: Die Auswahl ist einseitig.",
+   "h": "Wer fehlt in der Stichprobe?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Umfrage zur Freizeit erreicht die Leute nur über das Festnetz-Telefon, vormittags an Werktagen. Welche Gruppe ist vermutlich zu schwach vertreten?"
+   },
+   "a": [
+    "Rentnerinnen und Rentner",
+    "Berufstätige und Jugendliche",
+    "Menschen mit Festnetz",
+    "Alle Gruppen gleich"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vormittags sind Berufstätige bei der Arbeit, Jugendliche in der Schule; viele Jüngere haben kein Festnetz. Rentner werden eher erreicht.",
+   "h": "Wer ist vormittags zu Hause und hat Festnetz?"
   },
   {
    "l": "repraesentativ",
@@ -2362,7 +2553,7 @@
    "l": "fehlerquellen",
    "t": "fehlerquellen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Bei einer Umfrage unter 400 zufällig ausgewählten Personen lautet die Frage: „Jeder vernünftige Mensch ist dafür, dass der Bus öfter fährt. Sie auch?“ Welche Fehlerquelle liegt vor?"
@@ -2383,7 +2574,7 @@
    "l": "fehlerquellen",
    "t": "fehlerquellen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Eine Zeitschrift ruft ihre Leser auf, im Internet zum Thema „Handyverbot an Schulen“ abzustimmen. Es kommen 1 200 Antworten. Welche Fehlerquelle liegt vor?"
@@ -2399,6 +2590,90 @@
    },
    "w": "Es antworten nur Freiwillige – meist Menschen mit einer starken Meinung. Die vielen Antworten ändern daran nichts.",
    "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Frage ist neutral gestellt?"
+   },
+   "a": [
+    "„Sie wollen doch auch, dass der Bus öfter fährt?“",
+    "„Wie oft sollte der Bus fahren: alle 10, 20 oder 30 Minuten?“",
+    "„Finden Sie den seltenen Bus nicht auch ärgerlich?“",
+    "„Jeder will mehr Busse. Sie auch?“"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die neutrale Frage nennt mehrere Möglichkeiten und keine Meinung. Die anderen drängen zu einer Antwort.",
+   "h": "Welche Frage verrät keine gewünschte Antwort?"
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Sportverein fragt auf seiner Internetseite: „Wollt ihr nicht auch endlich einen Kunstrasen?“ 400 Mitglieder klicken. Welche Fehlerquellen liegen vor?"
+   },
+   "a": [
+    "Nur: Die Stichprobe ist zu klein.",
+    "Suggestive Frage und nur Freiwillige",
+    "Nur: Die Frage ist suggestiv.",
+    "Keine, 400 Antworten genügen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "„Nicht auch endlich“ lenkt zum Ja. Und es klicken nur Mitglieder, die sich melden wollen. Zwei Fehlerquellen zugleich.",
+   "h": "Prüfe die Frage und wer antwortet – getrennt."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Schülerzeitung befragt 40 Kinder der Theater-AG, ob sie gern ins Theater gehen. Sie verdoppelt danach auf 80 Kinder der Theater-AG. Wird das Ergebnis aussagekräftiger für die ganze Schule?"
+   },
+   "a": [
+    "Ja, doppelt so viele sind doppelt so gut.",
+    "Ja, ab 80 ist eine Stichprobe immer repräsentativ.",
+    "Nein, die Auswahl bleibt einseitig.",
+    "Nein, 80 sind zu viele."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mehr Kinder aus derselben besonderen Gruppe ändern die Verzerrung nicht. Man muss aus der ganzen Schule zufällig auswählen.",
+   "h": "Was hat sich an der Auswahl geändert?"
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Hotel verschickt 500 Fragebögen. 60 kommen zurück, 50 davon „sehr zufrieden“. Das Hotel wirbt: „83 % unserer Gäste sind sehr zufrieden.“ Warum ist das fragwürdig?"
+   },
+   "a": [
+    "50 von 60 sind nicht 83 %.",
+    "Nur 12 % haben geantwortet – vor allem die mit starker Meinung.",
+    "Fragebögen sind immer ungültig.",
+    "Man hätte 1 000 Bögen verschicken müssen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "50 von 60 sind zwar etwa 83 %, aber nur 60 von 500 = 12 % haben geantwortet. Wer antwortet, entscheidet selbst – das verzerrt.",
+   "h": "Wie viele der Gäste haben überhaupt geantwortet?"
   },
   {
    "l": "fehlerquellen",
@@ -2649,19 +2924,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Stichprobe A hat 12 Befragte, Stichprobe B hat 400. Beide wurden zufällig ausgewählt. Welche schwankt vermutlich weniger?"
+    "text": "Zwei kleine Zufallsstichproben (je 10 Kinder) aus derselben Schule ergeben 60 % und 40 %. Was ist die wahrscheinlichste Erklärung?"
    },
    "a": [
-    "Beide gleich",
-    "Das kann man nicht sagen.",
-    "A",
-    "B"
+    "Eine der Gruppen hat sich verrechnet.",
+    "Die Schule hat sich verändert.",
+    "Kleine Stichproben schwanken zufällig.",
+    "Beide Stichproben sind gefälscht."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Je größer eine zufällige Stichprobe, desto weniger schwankt ihr Ergebnis.",
-   "h": "Was macht eine Stichprobe zuverlässiger?"
+   "w": "Bei nur 10 Befragten machen 2 Kinder schon 20 Prozentpunkte aus. Solche Unterschiede entstehen durch Zufall.",
+   "h": "Wie viel macht ein einzelnes Kind bei 10 Befragten aus?"
   },
   {
    "l": "aussagen",
@@ -2691,19 +2966,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Stichprobe A hat 10 Befragte, Stichprobe B hat 500. Beide wurden zufällig ausgewählt. Welche schwankt vermutlich weniger?"
+    "text": "In einer Zufallsstichprobe sagen 30 % „ja“. Ist das sicher der Anteil in der ganzen Grundgesamtheit?"
    },
    "a": [
-    "B",
-    "Beide gleich",
-    "A",
-    "Das kann man nicht sagen."
+    "Nein, es ist ein Schätzwert.",
+    "Ja, genau 30 %.",
+    "Nein, es sind sicher mehr.",
+    "Nein, es sind sicher weniger."
    ],
    "o": {
     "index": 0
    },
-   "w": "Je größer eine zufällige Stichprobe, desto weniger schwankt ihr Ergebnis.",
-   "h": "Was macht eine Stichprobe zuverlässiger?"
+   "w": "Eine Stichprobe zeigt nur einen Teil. 30 % ist ein Schätzwert; der wahre Anteil liegt vermutlich in der Nähe.",
+   "h": "Wurden alle befragt?"
   },
   {
    "l": "aussagen",
@@ -2865,19 +3140,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Eine Zeitung schreibt: „20 % der Einwohner von Würzburg wollen ein Stadion!“ Grundlage: 2 von 10 Personen in einer Fußballkneipe sagten ja. Wie ist die Aussage zu beurteilen?"
+    "text": "Ein Prospekt wirbt: „9 von 10 Zahnärzten empfehlen unsere Zahnpasta.“ Befragt wurden 10 Zahnärzte, die der Hersteller ausgesucht hat. Wie ist die Aussage zu beurteilen?"
    },
    "a": [
-    "Nur zu klein, die Auswahl ist in Ordnung.",
-    "Nur einseitig, die Größe ist in Ordnung.",
-    "Nicht haltbar: Stichprobe viel zu klein und einseitig.",
-    "Haltbar, weil es eine Prozentangabe ist."
+    "Haltbar, weil 90 % sehr viel ist.",
+    "Haltbar, weil Zahnärzte Fachleute sind.",
+    "Nicht haltbar: viel zu wenige und vom Hersteller ausgesucht.",
+    "Nur zu klein, die Auswahl ist in Ordnung."
    ],
    "o": {
     "index": 2
    },
-   "w": "10 Personen sind viel zu wenige, und Fußballfans sind eher für ein Stadion. Beide Fehler stecken drin.",
-   "h": "Prüfe Größe UND Auswahl."
+   "w": "10 Befragte schwanken stark, und wer vom Hersteller ausgesucht wird, ist vermutlich für das Produkt. Zwei Fehlerquellen zugleich.",
+   "h": "Prüfe Größe und Auswahl der Stichprobe."
   },
   {
    "l": "aussagen",
@@ -2925,7 +3200,7 @@
    "l": "aussagen",
    "t": "aussagen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Klasse 7a befragt 10 zufällig gewählte Kinder: 5 lesen gern. Klasse 7b befragt 200: 64 lesen gern. Um wie viele Prozentpunkte unterscheiden sich die Ergebnisse?"
@@ -2941,7 +3216,7 @@
    "l": "aussagen",
    "t": "aussagen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Klasse 7a befragt 20 zufällig gewählte Kinder: 15 lesen gern. Klasse 7b befragt 500: 203 lesen gern. Um wie viele Prozentpunkte unterscheiden sich die Ergebnisse?"
@@ -2952,6 +3227,80 @@
    "c": "abs(15 / 20 * 100 - 203 / 500 * 100)",
    "w": "15 : 20 = 75 %; 203 : 500 = 40,6 %. Unterschied 34,4 Prozentpunkte. Dem Ergebnis der 7b (größere Stichprobe) kann man eher trauen.",
    "h": "Beide Anteile in Prozent, dann Differenz."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Umfrage A: 7 von 20 Kindern (35 %) lesen täglich. Umfrage B ein Jahr später: 1 200 von 4 000 (30 %). Ein Reporter schreibt: „Der Anteil ist von 35 % auf 30 % gesunken.“ Wie ist das zu beurteilen?"
+   },
+   "a": [
+    "Sicher richtig, 35 > 30.",
+    "Unsicher: Bei nur 20 Befragten kann A leicht um 5 Prozentpunkte daneben liegen.",
+    "Falsch, der Anteil ist gestiegen.",
+    "Richtig, weil B so groß ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei 20 Befragten macht ein Kind 5 Prozentpunkte aus. Der Unterschied kann reiner Zufall sein.",
+   "h": "Wie viel macht ein Kind bei 20 Befragten aus?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Umfrage (1 000 Befragte) kommt eine Partei auf 5,2 %. Für den Einzug in den Landtag braucht sie 5 %. Welche Schlagzeile ist angemessen?"
+   },
+   "a": [
+    "„Partei sicher im Landtag“",
+    "„Partei knapp über 5 % – Einzug unsicher“",
+    "„Partei scheitert“",
+    "„Genau 5,2 % wählen die Partei“"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Auch große Stichproben schwanken um einige Zehntel bis wenige Prozentpunkte. 5,2 % ist zu knapp für „sicher“.",
+   "h": "Wie weit liegt 5,2 % von 5 % entfernt – und wie stark schwankt eine Umfrage?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Personen muss man befragen, damit eine einzelne Person genau 0,5 Prozentpunkte ausmacht?"
+   },
+   "o": {
+    "wert": 200
+   },
+   "c": "100/0.5",
+   "w": "1 Person = 0,5 % heißt: 100 % entsprechen 100 : 0,5 = 200 Personen.",
+   "h": "Bei 100 Befragten ist eine Person 1 %. Wie viele für die Hälfte?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Stichprobe mit 50 Befragten sagen 20 „ja“ (40 %). Wie viele „ja“ müssten es mindestens sein, damit der Anteil über 50 % liegt?"
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "50/2 + 1",
+   "w": "50 % von 50 sind 25. „Über 50 %“ heißt mindestens 26.",
+   "h": "Wie viele sind genau 50 %?"
   },
   {
    "l": "aussagen",

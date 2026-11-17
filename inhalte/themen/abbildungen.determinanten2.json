@@ -1561,7 +1561,7 @@
    "l": "det_berechnen",
    "t": "det_berechnen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welchen Wert hat die Determinante der Vektoren a = (1 | 5) und b = (8 | 2)?"
@@ -1593,6 +1593,84 @@
    "c": "(-1 + (-1) * (-1)) / (-6)",
    "w": "x · (−6) − (−1) · (−1) = −1 ⇔ −6x − 1 = −1 ⇔ x = 0.",
    "h": "Stelle die Determinante mit x auf und löse die Gleichung."
+  },
+  {
+   "l": "det_berechnen",
+   "t": "det_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In der Determinante der Vektoren a = (3 | □) und b = (2 | 5) fehlt eine Zahl. Die Determinante hat den Wert 7. Welche Zahl fehlt?",
+    "schablone": "a = (3 | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     4
+    ]
+   },
+   "c": [
+    "(3*5 - 7)/2"
+   ],
+   "w": "3 · 5 − □ · 2 = 7 ⇒ 15 − 2 · □ = 7 ⇒ 2 · □ = 8 ⇒ □ = 4.",
+   "h": "Schreibe die Rechnung über Kreuz mit □ hin und löse nach □ auf."
+  },
+  {
+   "l": "det_berechnen",
+   "t": "det_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vektoren a = (x | 2) und b = (3 | 4) hängen von x ab. Gib ihre Determinante als Term an.",
+    "schablone": "□x + □",
+    "hinweis": "Schreibe den Term mit den Zahlen."
+   },
+   "o": {
+    "werte": [
+     4,
+     -6
+    ]
+   },
+   "c": [
+    "4",
+    "-2*3"
+   ],
+   "w": "x · 4 − 2 · 3 = 4x − 6.",
+   "h": "Rechne über Kreuz wie mit Zahlen; x bleibt stehen."
+  },
+  {
+   "l": "det_berechnen",
+   "t": "det_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Determinante der Vektoren a und b hat den Wert 7. Welchen Wert hat die Determinante, wenn du a und b vertauschst (erst b, dann a)?"
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "-7",
+   "w": "Beim Vertauschen tauschen die beiden Produkte die Plätze: aus 12 − 5 wird 5 − 12. Das Ergebnis wechselt das Vorzeichen: −7.",
+   "h": "Probiere es mit a = (4 | 1) und b = (5 | 3) aus."
+  },
+  {
+   "l": "det_berechnen",
+   "t": "det_berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Determinante der Vektoren a und b hat den Wert 5. Welchen Wert hat die Determinante der Vektoren 2 · a und b?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "2*5",
+   "w": "Verdoppelst du a, verdoppelt sich jedes Produkt mit einer Zahl aus a. Also verdoppelt sich die Determinante: 10. Im Bild: Das Parallelogramm wird doppelt so lang.",
+   "h": "Was passiert mit dem Parallelogramm, wenn ein Pfeil doppelt so lang wird?"
   },
   {
    "l": "det_berechnen",
@@ -2091,7 +2169,7 @@
    "l": "parallelogramm",
    "t": "parallelogramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welchen Flächeninhalt hat das Parallelogramm ABCD mit A(2 | 3), B(−3 | 6) und D(0 | −2)?"
@@ -2146,7 +2224,7 @@
    "l": "parallelogramm",
    "t": "parallelogramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welchen Flächeninhalt hat das Parallelogramm ABCD mit A(1 | −4), B(−4 | −1) und D(0 | −9)?"
@@ -2179,6 +2257,83 @@
    "c": "((3) * (2) - (2) * (-1)) * 4",
    "w": "Vektor AB = (3 | 2), Vektor AD = (−1 | 2). A = 3 · 2 − 2 · (−1) = 8 FE. 1 FE = 2 m · 2 m = 4 m², also 8 · 4 = 32 m².",
    "h": "Erst in FE rechnen. Ein Kästchen ist 2 m mal 2 m groß."
+  },
+  {
+   "l": "parallelogramm",
+   "t": "parallelogramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben sind A(0 | 0) und B(4 | 1). Die Punkte D liegen bei D(x | 3) mit x < 12. Sie bilden Parallelogramme ABCD. Gib den Flächeninhalt in Abhängigkeit von x an.",
+    "schablone": "A(x) = (□ · x + □) FE",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     12
+    ]
+   },
+   "c": [
+    "-1*1",
+    "4*3"
+   ],
+   "w": "AB = (4 | 1), AD = (x | 3). Determinante: 4 · 3 − 1 · x = 12 − x. Also A(x) = (−1 · x + 12) FE.",
+   "h": "Bilde AB und AD wie sonst – in AD steht jetzt x."
+  },
+  {
+   "l": "parallelogramm",
+   "t": "parallelogramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben sind A(0 | 0), B(4 | 1) und D(x | 3). Für welches x hat das Parallelogramm ABCD den Flächeninhalt 8 FE?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 - 8",
+   "w": "Fläche: 4 · 3 − 1 · x = 12 − x. Gleichung 12 − x = 8 ⇒ x = 4.",
+   "h": "Stelle die Fläche als Term auf und setze ihn gleich 8."
+  },
+  {
+   "l": "parallelogramm",
+   "t": "parallelogramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben sind A(0 | 0), B(4 | 1) und D(x | 3). Für welches x entsteht kein Parallelogramm, weil A, B und D auf einer Geraden liegen?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "4*3/1",
+   "w": "Kein Parallelogramm heißt Fläche 0: 12 − x = 0 ⇒ x = 12. Probe: D(12 | 3) = 3 · B, also auf der Geraden durch A und B.",
+   "h": "Welche Fläche hat ein „plattgedrücktes“ Parallelogramm?"
+  },
+  {
+   "l": "parallelogramm",
+   "t": "parallelogramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Parallelogramm ABCD hat 6 FE. Man verdoppelt alle Koordinaten von A, B, C und D. Wie groß ist das neue Parallelogramm?"
+   },
+   "a": [
+    "12 FE",
+    "6 FE",
+    "24 FE",
+    "48 FE"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beide Pfeile AB und AD werden doppelt so lang. Jedes Produkt in der Determinante wird 2 · 2 = 4-mal so groß: 4 · 6 = 24 FE.",
+   "h": "Rechne mit AB = (3 | 0) und AD = (0 | 2) und dann mit den doppelten Pfeilen."
   },
   {
    "l": "parallelogramm",
@@ -3085,7 +3240,7 @@
    "l": "dreieck",
    "t": "dreieck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welchen Flächeninhalt hat das Dreieck ABC mit A(−2 | 3), B(−3 | 2) und C(0 | 0)?"
@@ -3101,6 +3256,67 @@
    },
    "w": "Vektor AB = (−1 | −1), Vektor AC = (2 | −3). A = ½ · ((−1) · (−3) − (−1) · 2) = ½ · 5 = 2,5 FE.",
    "h": "Vektoren, Determinante über Kreuz – und das ½ nicht vergessen."
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben sind A(0 | 0) und B(6 | 0). Die Punkte C liegen bei C(x | x + 1) mit x > −1. Gib den Flächeninhalt der Dreiecke ABC in Abhängigkeit von x an.",
+    "schablone": "A(x) = (□ · x + □) FE",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     3
+    ]
+   },
+   "c": [
+    "6/2",
+    "6*1/2"
+   ],
+   "w": "AB = (6 | 0), AC = (x | x + 1). Determinante: 6 · (x + 1) − 0 · x = 6x + 6. Halbieren: A(x) = (3 · x + 3) FE.",
+   "h": "Rechne mit AC = (x | x + 1) über Kreuz und halbiere am Ende."
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben sind A(0 | 0), B(6 | 0) und C(x | x + 1). Für welches x hat das Dreieck ABC den Flächeninhalt 12 FE?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(12 - 3)/3",
+   "w": "Fläche: 1/2 · 6 · (x + 1) = 3x + 3. Gleichung 3x + 3 = 12 ⇒ 3x = 9 ⇒ x = 3.",
+   "h": "Stelle zuerst die Fläche als Term in x auf."
+  },
+  {
+   "l": "dreieck",
+   "t": "dreieck",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck ABC hat 10 FE. Man verschiebt C parallel zur Seite AB an eine andere Stelle. Wie groß ist das neue Dreieck?"
+   },
+   "a": [
+    "größer als 10 FE",
+    "10 FE",
+    "kleiner als 10 FE",
+    "Das kann man nicht sagen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei einer Verschiebung parallel zu AB bleibt der Abstand von C zur Seite AB gleich. Grundseite und Höhe bleiben, also bleibt die Fläche 10 FE.",
+   "h": "Was ändert sich an Grundseite AB und Höhe?"
   },
   {
    "l": "dreieck",
@@ -3539,7 +3755,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Für A, B, C ist die Determinante aus AB und AC gleich −15. Wie laufen die Ecken A → B → C?"
+    "text": "Für A, B, C ist die Determinante aus AB und AC gleich 0. Was bedeutet das?"
    },
    "a": [
     "Die Punkte liegen auf einer Geraden.",
@@ -3547,10 +3763,10 @@
     "im Uhrzeigersinn"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "−15 ist negativ, also läuft A → B → C im Uhrzeigersinn.",
-   "h": "Achte nur auf das Vorzeichen."
+   "w": "Determinante 0 heißt Fläche 0: A, B und C liegen auf einer Geraden, es gibt kein Dreieck.",
+   "h": "Was heißt eine Fläche von 0?"
   },
   {
    "l": "umlaufsinn",
@@ -3579,18 +3795,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Für A, B, C ist die Determinante aus AB und AC gleich −6. Wie laufen die Ecken A → B → C?"
+    "text": "Für A, B, C ist die Determinante aus AB und AC gleich 8. Wie laufen die Ecken A → B → C?"
    },
    "a": [
-    "gegen den Uhrzeigersinn",
+    "im Uhrzeigersinn",
     "Die Punkte liegen auf einer Geraden.",
-    "im Uhrzeigersinn"
+    "gegen den Uhrzeigersinn"
    ],
    "o": {
     "index": 2
    },
-   "w": "−6 ist negativ, also läuft A → B → C im Uhrzeigersinn.",
-   "h": "Achte nur auf das Vorzeichen."
+   "w": "Die Determinante 8 ist positiv: A → B → C läuft gegen den Uhrzeigersinn.",
+   "h": "Positiv oder negativ?"
   },
   {
    "l": "umlaufsinn",
@@ -3864,6 +4080,43 @@
    },
    "w": "Vektor AB = (1 | 3), Vektor AC = (3 | 6). Determinante: 1 · 6 − 3 · 3 = −3. Fläche ½ · 3 = 1,5 FE.",
    "h": "Was bedeutet es, wenn die Determinante 0 ist?"
+  },
+  {
+   "l": "umlaufsinn",
+   "t": "umlaufsinn",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben sind A(1 | 1), B(5 | 3) und C(x | 5). Für welches x liegen die drei Punkte auf einer Geraden?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "1 + 16/2",
+   "w": "AB = (4 | 2), AC = (x − 1 | 4). Determinante: 4 · 4 − 2 · (x − 1) = 0 ⇒ 16 = 2x − 2 ⇒ x = 9.",
+   "h": "Auf einer Geraden heißt Determinante 0."
+  },
+  {
+   "l": "umlaufsinn",
+   "t": "umlaufsinn",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind A(0 | 0), B(4 | 0) und C(3 | y). Für welche y laufen die Ecken A → B → C gegen den Uhrzeigersinn?"
+   },
+   "a": [
+    "für y < 0",
+    "für y > 0",
+    "für y > 3",
+    "für jedes y"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "AB = (4 | 0), AC = (3 | y). Determinante: 4 · y − 0 · 3 = 4y. Gegen den Uhrzeigersinn heißt positiv: 4y > 0, also y > 0.",
+   "h": "Rechne die Determinante mit y aus und frage: Wann ist sie positiv?"
   },
   {
    "l": "umlaufsinn",
@@ -4309,7 +4562,7 @@
    "l": "viereck",
    "t": "viereck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welchen Flächeninhalt hat das Viereck ABCD mit A(−4 | −2), B(2 | 4), C(−3 | 4), D(−4 | 1)?"
@@ -4368,7 +4621,7 @@
    "l": "viereck",
    "t": "viereck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welchen Flächeninhalt hat das Viereck ABCD mit A(−1 | −4), B(4 | 1), C(3 | 5), D(−1 | 4)?"
@@ -4422,6 +4675,83 @@
    "c": "(((2) * (2) - (0) * (5)) + ((5) * (7) - (2) * (3))) / 2 * 400",
    "w": "Vektor AB = (2 | 0), Vektor AC = (5 | 2), Vektor AD = (3 | 7). D₁ = 2 · 2 − 0 · 5 = 4; D₂ = 5 · 7 − 2 · 3 = 29. A = ½ · (4 + 29) = 16,5 FE. 1 FE = 400 m², also 16,5 · 400 = 6 600 m².",
    "h": "Erst in FE rechnen, dann mal 400."
+  },
+  {
+   "l": "viereck",
+   "t": "viereck",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben sind A(0 | 0), B(6 | 0), D(0 | 4) und die Punkte C(x | 5) mit x > 0. Gib den Flächeninhalt der Vierecke ABCD in Abhängigkeit von x an.",
+    "schablone": "A(x) = (□ · x + □) FE",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     15
+    ]
+   },
+   "c": [
+    "4/2",
+    "6*5/2"
+   ],
+   "w": "AB = (6 | 0), AC = (x | 5), AD = (0 | 4). ABC: 6 · 5 − 0 · x = 30. ACD: x · 4 − 5 · 0 = 4x. A(x) = 1/2 · (30 + 4x) = (2 · x + 15) FE.",
+   "h": "Teile mit der Diagonale AC. In AC steht x."
+  },
+  {
+   "l": "viereck",
+   "t": "viereck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben sind A(0 | 0), B(6 | 0), C(x | 5) und D(0 | 4). Für welches x hat das Viereck ABCD den Flächeninhalt 25 FE?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(25 - 15)/2",
+   "w": "Fläche: 1/2 · (30 + 4x) = 2x + 15. Gleichung 2x + 15 = 25 ⇒ x = 5.",
+   "h": "Erst die Fläche als Term in x, dann gleich 25 setzen."
+  },
+  {
+   "l": "viereck",
+   "t": "viereck",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Du teilst ein Viereck ABCD einmal mit der Diagonale AC und einmal mit der Diagonale BD. Was gilt für die beiden Ergebnisse?"
+   },
+   "a": [
+    "Beide Wege geben dieselbe Fläche.",
+    "Mit BD kommt immer mehr heraus.",
+    "Mit AC kommt immer mehr heraus.",
+    "Die Ergebnisse hängen von der Lage im Koordinatensystem ab."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Beide Diagonalen zerlegen dasselbe Viereck lückenlos in zwei Dreiecke. Die Gesamtfläche bleibt gleich.",
+   "h": "Was ändert sich am Viereck selbst, wenn du anders zerschneidest?"
+  },
+  {
+   "l": "viereck",
+   "t": "viereck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Viereck ABCD weißt du: Die Determinante aus AB und AC ist 18. Das Viereck hat 15 FE. Wie groß ist die Determinante aus AC und AD?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2*15 - 18",
+   "w": "Fläche = 1/2 · (18 + ?) = 15 ⇒ 18 + ? = 30 ⇒ ? = 12.",
+   "h": "Schreibe die Flächenformel hin und rechne rückwärts."
   },
   {
    "l": "viereck",
@@ -5683,6 +6013,62 @@
    "c": "(((3) * (1) - (-1) * (4)) + ((4) * (8) - (1) * (7)) + ((7) * (8) - (8) * (5))) / 2 * 25",
    "w": "Vektor AB = (3 | −1), Vektor AC = (4 | 1), Vektor AD = (7 | 8), Vektor AE = (5 | 8). D₁ = 3 · 1 − (−1) · 4 = 7; D₂ = 4 · 8 − 1 · 7 = 25; D₃ = 7 · 8 − 8 · 5 = 16. A = ½ · (7 + 25 + 16) = 24 FE. 1 FE = 25 m², also 24 · 25 = 600 m².",
    "h": "Fläche in FE, dann umrechnen."
+  },
+  {
+   "l": "vieleck",
+   "t": "vieleck",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben sind A(0 | 0), B(4 | 0), C(6 | 3), D(2 | 6) und die Punkte E(x | 4) mit x ≤ 0. Gib den Flächeninhalt der Fünfecke ABCDE in Abhängigkeit von x an.",
+    "schablone": "A(x) = (□ · x + □) FE",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -3,
+     25
+    ]
+   },
+   "c": [
+    "-6/2",
+    "(12 + 30 + 8)/2"
+   ],
+   "w": "AB mit AC: 4 · 3 − 0 · 6 = 12. AC mit AD: 6 · 6 − 3 · 2 = 30. AD mit AE: 2 · 4 − 6 · x = 8 − 6x. A(x) = 1/2 · (50 − 6x) = (−3 · x + 25) FE.",
+   "h": "Nur die letzte Determinante (AD mit AE) enthält x."
+  },
+  {
+   "l": "vieleck",
+   "t": "vieleck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben sind A(0 | 0), B(4 | 0), C(6 | 3), D(2 | 6) und E(x | 4) mit x ≤ 0. Für welches x hat das Fünfeck ABCDE den Flächeninhalt 31 FE?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(25 - 31)/3",
+   "w": "Fläche: 1/2 · (12 + 30 + 8 − 6x) = 25 − 3x. Gleichung 25 − 3x = 31 ⇒ −3x = 6 ⇒ x = −2.",
+   "h": "Stelle zuerst die Fläche als Term in x auf."
+  },
+  {
+   "l": "vieleck",
+   "t": "vieleck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für ein Fünfeck ABCDE gilt: AB mit AC ergibt 10, AC mit AD ergibt 14. Das Fünfeck hat 20 FE. Welchen Wert hat die Determinante aus AD und AE?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "2*20 - 10 - 14",
+   "w": "Fläche = 1/2 · (10 + 14 + ?) = 20 ⇒ 24 + ? = 40 ⇒ ? = 16.",
+   "h": "Verdopple die Fläche und ziehe die bekannten Determinanten ab."
   },
   {
    "l": "vieleck",

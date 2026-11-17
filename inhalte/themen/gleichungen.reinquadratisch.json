@@ -874,40 +874,35 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand schätzt √238 ≈ 119. Was stimmt?"
+    "text": "Ordne der Größe nach: √50, 7,2 und 7."
    },
    "a": [
-    "Falsch: √238 liegt zwischen 15 und 16.",
-    "Falsch: √238 ≈ 59,5.",
-    "Richtig, die Wurzel ist die Hälfte.",
-    "Falsch: √238 liegt zwischen 14 und 15."
+    "√50 < 7 < 7,2",
+    "7 < 7,2 < √50",
+    "7,2 < 7 < √50",
+    "7 < √50 < 7,2"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "119² ist viel größer als 238. Wegen 225 < 238 < 256 gilt 15 < √238 < 16.",
-   "h": "Mach die Probe: Quadriere den Schätzwert."
+   "w": "7² = 49 < 50, also √50 > 7. 7,2² = 51,84 > 50, also √50 < 7,2.",
+   "h": "Quadriere die Zahlen und vergleiche mit 50."
   },
   {
    "l": "schaetzen",
    "t": "schaetzen",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand schätzt √237 ≈ 118,5. Was stimmt?"
+    "text": "Wie viele ganze Zahlen liegen zwischen √10 und √90?"
    },
-   "a": [
-    "Falsch: √237 ≈ 59,25.",
-    "Richtig, die Wurzel ist die Hälfte.",
-    "Falsch: √237 liegt zwischen 14 und 15.",
-    "Falsch: √237 liegt zwischen 15 und 16."
-   ],
    "o": {
-    "index": 3
+    "wert": 6
    },
-   "w": "118,5² ist viel größer als 237. Wegen 225 < 237 < 256 gilt 15 < √237 < 16.",
-   "h": "Mach die Probe: Quadriere den Schätzwert."
+   "c": "9 - 4 + 1",
+   "w": "√10 liegt zwischen 3 und 4, √90 zwischen 9 und 10. Dazwischen: 4, 5, 6, 7, 8, 9 – sechs Zahlen.",
+   "h": "Schätze beide Wurzeln ein."
   },
   {
    "l": "schaetzen",
@@ -950,6 +945,43 @@
    },
    "w": "46,5² ist viel größer als 93. Wegen 81 < 93 < 100 gilt 9 < √93 < 10.",
    "h": "Mach die Probe: Quadriere den Schätzwert."
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein quadratisches Feld ist 300 m² groß. Ist eine Seite länger als 17 m?"
+   },
+   "a": [
+    "Nein, denn 17² = 289 < 300.",
+    "Ja, denn 17² = 289 < 300.",
+    "Nein, die Seite ist 150 m.",
+    "Ja, denn 300 : 17 > 17."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Seite ist √300. Weil 17² = 289 kleiner als 300 ist, ist √300 größer als 17.",
+   "h": "Vergleiche 17² mit 300."
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "√a liegt zwischen 6 und 7. Wie viele ganze Zahlen a sind möglich?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "48 - 37 + 1",
+   "w": "36 < a < 49, also a = 37, 38, …, 48: zwölf Zahlen.",
+   "h": "Quadriere die Grenzen."
   },
   {
    "l": "schaetzen",
@@ -1427,7 +1459,7 @@
    "l": "grundform",
    "t": "grundform",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Wie viele Lösungen hat x² − 25 = 0?"
@@ -1533,6 +1565,59 @@
    },
    "w": "(−4)² = 16. L = {−4; 4}.",
    "h": "Probe mit der Gegenzahl."
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl a muss in x² = a stehen, damit die Lösungen −1,5 und 1,5 sind?"
+   },
+   "o": {
+    "wert": 2.25
+   },
+   "c": "1.5**2",
+   "w": "1,5² = 2,25. Die Gleichung x² = 2,25 hat die Lösungen −1,5 und 1,5.",
+   "h": "Quadriere eine der Lösungen."
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von a hat die Gleichung x² = a − 4 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Genau eine Lösung gibt es bei x² = 0. Also a − 4 = 0, a = 4. Die Lösung ist x = 0.",
+   "h": "Wann hat x² = Zahl nur eine Lösung?"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche a hat die Gleichung x² = a − 4 keine Lösung?"
+   },
+   "a": [
+    "für a > 4",
+    "für a < 0",
+    "für a = 4",
+    "für a < 4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Keine Lösung, wenn rechts eine negative Zahl steht: a − 4 < 0 ⇒ a < 4.",
+   "h": "Wann ist die rechte Seite negativ?"
   },
   {
    "l": "grundform",
@@ -2138,21 +2223,64 @@
    "t": "umformen",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Welche Lösungsmenge hat 5x² + 6 = 0?"
+    "text": "Löse x² : 4 − 1 = 8.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Trage die Zahlen ein."
    },
-   "a": [
-    "L = { }",
-    "L = {−1,2; 1,2}",
-    "L = {−6; 6}",
-    "L = {0}"
-   ],
    "o": {
-    "index": 0
+    "werte": [
+     -6,
+     6
+    ]
    },
-   "w": "5x² = −6 ⇔ x² = −6/5. Ein Quadrat ist nie negativ, also keine Lösung.",
-   "h": "Stelle nach x² um. Ist die rechte Seite negativ?"
+   "c": [
+    "-6",
+    "6"
+   ],
+   "w": "+1: x² : 4 = 9. Mal 4: x² = 36. x = ±6.",
+   "h": "Erst +1, dann mal 4."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2(x² − 3) = x² + 10.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -4,
+     4
+    ]
+   },
+   "c": [
+    "-4",
+    "4"
+   ],
+   "w": "Ausmultiplizieren: 2x² − 6 = x² + 10. −x², +6: x² = 16. x = ±4.",
+   "h": "Erst die Klammer auflösen, dann alle x² auf eine Seite."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat die Gleichung 3x² + c = 0 die Lösungen −2 und 2?"
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "-3*2**2",
+   "w": "x = 2 einsetzen: 3 · 4 + c = 0 ⇒ c = −12.",
+   "h": "Setze eine Lösung ein."
   },
   {
    "l": "umformen",
@@ -2626,7 +2754,7 @@
    "l": "gerundet",
    "t": "gerundet",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie lautet die exakte positive Lösung von x² = 236?"
@@ -2664,7 +2792,7 @@
    "l": "gerundet",
    "t": "gerundet",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Wie lautet die exakte positive Lösung von x² = 172?"
@@ -2697,6 +2825,84 @@
    "c": "round(-1 + 10.816653826392, 2)",
    "w": "x + 1 = ±√117 ⇒ x = −1 ± √117. Größere Lösung: −1 + 10,8167… ≈ 9,82.",
    "h": "Wurzel ziehen, dann die Zahl aus der Klammer auf die andere Seite bringen."
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 6 cm breit und 15 cm lang. Ein Quadrat soll denselben Flächeninhalt haben. Wie lang ist seine Seite? Runde auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 9.49,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(9.486832980505, 2)",
+   "w": "Fläche 6 · 15 = 90 cm². a² = 90 ⇒ a = √90 ≈ 9,49 cm.",
+   "h": "Berechne zuerst die Fläche."
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis soll denselben Flächeninhalt haben wie ein Quadrat mit 10 cm Seitenlänge. Berechne den Radius auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 5.64,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(5.641895835478, 2)",
+   "w": "π · r² = 100 ⇒ r² = 100 : π ≈ 31,83 ⇒ r ≈ 5,64 cm.",
+   "h": "Setze die Kreisfläche gleich 100 cm²."
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x² = 50 mit x ≈ 7,07 und macht die Probe: 7,07² = 49,9849. Warum kommt nicht genau 50 heraus?"
+   },
+   "a": [
+    "Weil 7,07 ein gerundeter Wert ist.",
+    "Weil er sich verrechnet hat.",
+    "Weil x² = 50 keine Lösung hat.",
+    "Weil die richtige Lösung 25 ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "√50 = 7,0710… hat unendlich viele Nachkommastellen. Jede gerundete Zahl gibt im Quadrat nur ungefähr 50.",
+   "h": "Wie viele Nachkommastellen hat √50?"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen zwei Zahlen mit einer Dezimale liegt √30?"
+   },
+   "a": [
+    "zwischen 5,0 und 5,1",
+    "zwischen 5,5 und 5,6",
+    "zwischen 15,0 und 15,1",
+    "zwischen 5,4 und 5,5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "5,4² = 29,16 < 30 und 5,5² = 30,25 > 30.",
+   "h": "Quadriere die Kandidaten."
   },
   {
    "l": "gerundet",
@@ -3287,6 +3493,54 @@
   {
    "l": "klammer",
    "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² − 6x + 9 = 25.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -2,
+     8
+    ]
+   },
+   "c": [
+    "3 - 5",
+    "3 + 5"
+   ],
+   "w": "Links steht (x − 3)². (x − 3)² = 25 ⇒ x − 3 = ±5 ⇒ x = −2 oder x = 8.",
+   "h": "Erkennst du links eine binomische Formel?"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für welchen Wert q hat (x − 4)² = q genau eine Lösung? Gib q und die Lösung an.",
+    "schablone": "q = □; x = □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "c": [
+    "0",
+    "4"
+   ],
+   "w": "Nur (x − 4)² = 0 hat genau eine Lösung: x − 4 = 0 ⇒ x = 4.",
+   "h": "Wann gibt es bei „Quadrat = Zahl“ nur eine Lösung?"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
    "p": "test",
    "s": 2,
    "y": "luecken",
@@ -3734,16 +3988,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine quadratische Terrasse soll 58 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
+    "text": "Ein quadratisches Grundstück wird an zwei anliegenden Seiten um je 2 m verbreitert. Danach ist es wieder quadratisch und 144 m² groß. Wie lang war eine Seite vorher?"
    },
    "o": {
-    "wert": 7.6,
-    "einheit": "m",
-    "toleranz": 0.1
+    "wert": 10,
+    "einheit": "m"
    },
-   "c": "round(7.615773105864, 1)",
-   "w": "a² = 58 ⇒ a = √58 ≈ 7,6 m.",
-   "h": "Wurzel aus der Fläche, dann runden."
+   "c": "12 - 2",
+   "w": "Neue Seite: (x + 2)² = 144 ⇒ x + 2 = 12 (nur positiv) ⇒ x = 10 m.",
+   "h": "Die neue Seite ist x + 2."
   },
   {
    "l": "sachaufgabe",
@@ -3773,22 +4026,21 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine quadratische Terrasse soll 133 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
+    "text": "Ein Würfel hat eine Oberfläche von 150 cm². Wie lang ist eine Kante?"
    },
    "o": {
-    "wert": 11.5,
-    "einheit": "m",
-    "toleranz": 0.1
+    "wert": 5,
+    "einheit": "cm"
    },
-   "c": "round(11.532562594671, 1)",
-   "w": "a² = 133 ⇒ a = √133 ≈ 11,5 m.",
-   "h": "Wurzel aus der Fläche, dann runden."
+   "c": "150/6/5",
+   "w": "Ein Würfel hat 6 gleiche Quadrate: 6a² = 150 ⇒ a² = 25 ⇒ a = 5 cm.",
+   "h": "Aus wie vielen Quadraten besteht die Oberfläche?"
   },
   {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Terrasse soll 136 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
@@ -3806,7 +4058,7 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Terrasse soll 147 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
@@ -3824,7 +4076,7 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Für den Fallweg gilt näherungsweise s = 5 · t² (s in m, t in s). Wie lange fällt ein Stein 80 m tief?"
@@ -3836,6 +4088,96 @@
    "c": "(80 / 5) / 4",
    "w": "5t² = 80 ⇒ t² = 16 ⇒ t = 4 s (nur positiv).",
    "h": "Teile durch 5, dann Wurzel."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für den Bremsweg gilt näherungsweise s = v² : 100 (v in km/h, s in m). Ein Auto hat 49 m Bremsweg. Wie schnell war es?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "km/h"
+   },
+   "c": "7*10",
+   "w": "v² : 100 = 49 ⇒ v² = 4 900 ⇒ v = 70 km/h (nur positiv).",
+   "h": "Multipliziere zuerst mit 100."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Sekunden länger fällt ein Stein aus 80 m Höhe als aus 20 m Höhe (s = 5 · t²)?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "s"
+   },
+   "c": "4 - 2",
+   "w": "80 m: t² = 16, t = 4 s. 20 m: t² = 4, t = 2 s. Unterschied 2 s – vierfache Höhe heißt nur doppelte Zeit.",
+   "h": "Rechne beide Fallzeiten aus."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Flächeninhalt eines Quadrats wird vervierfacht. Wie ändert sich die Seitenlänge?"
+   },
+   "a": [
+    "Sie verdoppelt sich.",
+    "Sie vervierfacht sich.",
+    "Sie wird 16-mal so groß.",
+    "Sie bleibt gleich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Neue Fläche 4a² = (2a)². Die Seite ist also 2a.",
+   "h": "Probiere es mit a = 3 aus."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat einen dreimal so großen Flächeninhalt wie ein Kreis mit r = 2 cm. Berechne seinen Radius auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 3.46,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(3.464101615138, 2)",
+   "w": "π r² = 3 · π · 2² ⇒ r² = 12 ⇒ r = √12 ≈ 3,46 cm. π kürzt sich weg.",
+   "h": "Setze die Flächen gleich; was passiert mit π?"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist doppelt so lang wie breit und hat 98 cm² Flächeninhalt. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "7",
+   "w": "Breite x, Länge 2x: 2x² = 98 ⇒ x² = 49 ⇒ x = 7 cm.",
+   "h": "Nenne die Breite x. Wie lang ist das Rechteck dann?"
   },
   {
    "l": "sachaufgabe",

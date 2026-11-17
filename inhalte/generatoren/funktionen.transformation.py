@@ -429,6 +429,126 @@ UMBAU_WEG = []
 # ---------- Ende UMBAU ----------
 
 
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: Realschul-Abschlussprüfung Mathematik I (Bayern), Teil A „Funktionen“: Parabelgleichung aus Scheitel und Punkt,
+# Parabel durch Verschiebung so abbilden, dass sie durch einen Punkt geht, Brückenbögen als Parabeln; Jahrgangsstufentest 9 I.
+# Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, L, nachtrag, finde
+    T = lambda teil: finde(d, teil)
+    # Die Ablese-Aufgaben haben denselben Text (verschiedene Grafiken): je Karte zwei davon auf Stufe 2 setzen.
+    idx_oben = [i for i, a in enumerate(d['aufgaben']) if a['l'] == 'nach_oben' and a['p'] == 'uebung' and a['s'] == 3 and 'gezeichnete Parabel' in a['f']['text']][:2]
+    idx_rechts = [i for i, a in enumerate(d['aufgaben']) if a['l'] == 'nach_rechts' and a['p'] == 'uebung' and a['s'] == 3 and 'gezeichnete Parabel' in a['f']['text']][:2]
+    for i in idx_oben + idx_rechts:
+        d['aufgaben'][i]['s'] = 2
+    nachtrag(d,
+        umstufen={
+            T('Die Normalparabel wird um 6 nach unten verschoben. Welchen y-Wert'): 2,
+            T('Welcher Punkt liegt auf g(x) = 2 · f(x − 4) + 2?'): 2,
+            T('Berechne den y-Wert von y = 3(x − 4)² − 6 an der Stelle x = 3.'): 2,
+        },
+        ersetzen={
+            T('Berechne den y-Wert der Parabel y = (x + 3)² an der Stelle x = 1.'):
+                L(3, 'Die Parabel y = (x − d)² hat an der Stelle x = 0 den y-Wert 16. Welche zwei Werte kann d haben? (kleineren zuerst)',
+                  'd₁ = □; d₂ = □', [-4, 4], ['-4', '4'], 'x = 0: (0 − d)² = d² = 16 ⇒ d = −4 oder d = 4.',
+                  'Setze x = 0 ein. Welche Zahlen ergeben im Quadrat 16?'),
+            T('Berechne den y-Wert der Parabel y = (x + 4)² an der Stelle x = −5.'):
+                A(3, 'Jemand sagt: „y = (x + 5)² ist die Normalparabel, um 5 nach rechts verschoben.“ Was stimmt?',
+                  'Falsch: Die Klammer ist 0 für x = −5, also 5 nach links.', ['Richtig.', 'Falsch: 5 nach oben.', 'Falsch: 25 nach rechts.'],
+                  'Der Scheitel liegt dort, wo die Klammer 0 wird: x + 5 = 0 ⇒ x = −5. Das ist links.',
+                  'Für welches x wird die Klammer null?'),
+            T('Die Parabel y = (x − 3)² − 5 wird an der x-Achse gespiegelt.'):
+                L(3, 'Die Parabel y = (x − 1)² + 2 wird erst an der x-Achse und dann an der y-Achse gespiegelt. Gib den Scheitel des Bildes an.',
+                  'S(□ | □)', [-1, -2], ['-1', '-2'], 'Scheitel S(1 | 2). x-Achse: (1 | −2). y-Achse: (−1 | −2).',
+                  'Verfolge nur den Scheitel durch beide Spiegelungen.'),
+            T('Die Parabel y = (x − 2)² − 2 wird an der x-Achse gespiegelt.'):
+                A(3, 'Die Parabel y = x² + 1 wird an der x-Achse gespiegelt. Liegt der Punkt P(2 | −5) auf dem Bild?',
+                  'Ja, denn (2 | 5) liegt auf y = x² + 1.', ['Nein, das Bild ist nach oben geöffnet.', 'Nein, (2 | −5) liegt unter dem Scheitel.', 'Ja, denn 2² − 1 = −5.'],
+                  'Gespiegelt wird y zu −y: Das Bild ist y = −x² − 1. Für x = 2: y = −4 − 1 = −5. Ja.',
+                  'Spiegle P zurück und prüfe auf der ursprünglichen Parabel.'),
+            T('Jemand liest bei y = 2(x + 5)² + 2 den Scheitel S(5 | 2) ab.'):
+                L(3, 'Eine Parabel hat den Scheitel S(2 | −3) und geht durch P(4 | 5). Gib ihre Gleichung in Scheitelform an.',
+                  'y = □ · (x − □)² − □', [2, 2, 3], ['(5 + 3)/(4 - 2)**2', '2', '3'],
+                  'Ansatz y = a(x − 2)² − 3. P einsetzen: 5 = a · 4 − 3 ⇒ a = 2. y = 2(x − 2)² − 3.',
+                  'Setze den Scheitel ein und bestimme a mit P.'),
+            T('P(−2 | −4) liegt auf f. Jemand rechnet für g(x) = f(x − 2)'):
+                L(3, 'Der Punkt P′(5 | 1) liegt auf dem Graphen von g(x) = f(x − 2) + 3. Welcher Punkt P des Graphen von f gehört dazu?',
+                  'P(□ | □)', [3, -2], ['5 - 2', '1 - 3'], 'Zurück: x − 2 und y − 3. P(3 | −2).', 'Mache beide Verschiebungen rückgängig.'),
+            T('P(2 | −3) liegt auf f. Jemand rechnet für g(x) = f(x − 1)'):
+                L(3, 'Der Graph von f hat den Scheitel S(1 | 2). Gib den Scheitel des Graphen von g(x) = −f(x + 3) + 1 an.',
+                  'S′(□ | □)', [-2, -1], ['1 - 3', '-2 + 1'], 'x: f(x + 3) schiebt 3 nach links: 1 − 3 = −2. y: mal −1, dann plus 1: −2 + 1 = −1.',
+                  'Erst x, dann y: Vorzeichen umdrehen, dann 1 dazu.'),
+        },
+        neu={
+            'nach_oben': [
+                Z(3, 'Die Normalparabel wird so nach oben oder unten verschoben, dass sie durch P(3 | 4) geht. Um wie viel muss man sie nach oben verschieben? (Nach unten: negative Zahl.)',
+                  -5, '4 - 3**2', 'Gleichung y = x² + e. P einsetzen: 4 = 9 + e ⇒ e = −5, also 5 nach unten.', 'Setze P in y = x² + e ein.'),
+                Z(3, 'Die Parabel y = x² + e schneidet die x-Achse bei x = −3 und x = 3. Wie groß ist e?',
+                  -9, '0 - 3**2', 'Punkt (3 | 0) einsetzen: 0 = 9 + e ⇒ e = −9.', 'Welcher Punkt liegt auf der x-Achse?'),
+                Z(3, 'Die Parabeln y = x² + 2 und y = x² − 3 werden gezeichnet. Wie weit liegen sie an jeder Stelle senkrecht auseinander?',
+                  5, '2 - (-3)', 'An jeder Stelle x: (x² + 2) − (x² − 3) = 5. Die Parabeln sind übereinander verschoben.', 'Ziehe die Terme voneinander ab.'),
+                A(3, 'Hat die Parabel y = x² + 1 Schnittpunkte mit der x-Achse?',
+                  'Nein, ihr tiefster Punkt liegt bei y = 1.', ['Ja, bei x = 1 und x = −1.', 'Ja, bei x = −1.', 'Ja, im Ursprung.'],
+                  'x² ist nie negativ, also ist x² + 1 immer mindestens 1. Die Parabel bleibt über der x-Achse.', 'Wo liegt der Scheitel?'),
+                L(3, 'Der Punkt P(2 | 7) liegt auf einer Parabel y = x² + e. Welcher andere Punkt mit dem gleichen y-Wert liegt auch auf ihr?',
+                  'Q(□ | □)', [-2, 7], ['-2', '7'], 'Die Parabel ist symmetrisch zur y-Achse: (−2)² = 2². Also Q(−2 | 7).',
+                  'Die Parabel ist zur y-Achse symmetrisch.'),
+            ],
+            'nach_rechts': [
+                A(3, 'Die Normalparabel wird nur nach links oder rechts verschoben, sodass sie durch P(1 | 9) geht. Welche Gleichung ist möglich?',
+                  'y = (x + 2)²', ['y = (x − 2)²', 'y = (x + 3)²', 'y = x² + 8'],
+                  '(1 − d)² = 9 ⇒ 1 − d = 3 oder −3 ⇒ d = −2 oder d = 4. Möglich sind y = (x + 2)² und y = (x − 4)²; von den Antworten passt y = (x + 2)².',
+                  'Setze P in y = (x − d)² ein. Es gibt zwei Möglichkeiten.'),
+                Z(3, 'Die Parabel y = (x − d)² geht durch P(5 | 4), und ihr Scheitel liegt rechts von P. Wie groß ist d?',
+                  7, '5 + 2', '(5 − d)² = 4 ⇒ 5 − d = ±2 ⇒ d = 3 oder d = 7. Rechts von P (x > 5): d = 7.', 'Setze P ein. Welche Lösung liegt rechts von x = 5?'),
+                L(3, 'Wo schneidet die Parabel y = (x − 3)² die y-Achse?', 'S(□ | □)', [0, 9], ['0', '(0 - 3)**2'],
+                  'Auf der y-Achse ist x = 0: y = (0 − 3)² = 9.', 'Welchen x-Wert haben Punkte auf der y-Achse?'),
+                Z(3, 'An welcher Stelle x haben die Parabeln y = (x + 2)² und y = (x − 4)² denselben y-Wert?',
+                  1, '(-2 + 4)/2', 'Die Scheitel liegen bei −2 und 4. In der Mitte, bei x = 1, sind beide Abstände 3: y = 9 bei beiden.',
+                  'Wo liegt die Mitte zwischen den beiden Scheiteln?'),
+            ],
+            'strecken': [
+                Z(3, 'Ein Brückenbogen hat die Form y = a · x² mit dem Scheitel oben im Ursprung. Er ist 20 m breit und 5 m hoch. Berechne a.',
+                  -0.05, '-5/10**2', 'Die Enden liegen bei (10 | −5) und (−10 | −5). −5 = a · 100 ⇒ a = −0,05.',
+                  'Zeichne eine Skizze: Wo liegen die Enden des Bogens?'),
+                Z(3, 'Die Parabel y = a · x² geht durch P(2 | 3). Welchen y-Wert hat sie an der Stelle x = −4?',
+                  12, '3/2**2*(-4)**2', 'a = 3 : 4 = 0,75. Bei x = −4: 0,75 · 16 = 12.', 'Bestimme zuerst a.'),
+            ],
+            'spiegeln': [
+                L(3, 'Die Parabel y = (x − 3)² − 4 wird an der y-Achse gespiegelt. In welchem Punkt schneiden sich Parabel und Bild?',
+                  'S(□ | □)', [0, 5], ['0', '(0 - 3)**2 - 4'],
+                  'Das Bild ist y = (x + 3)² − 4. Beide sind zueinander spiegelbildlich und treffen sich auf der y-Achse: y = 9 − 4 = 5.',
+                  'Wo treffen sich ein Bild und sein Spiegelbild?'),
+                A(3, 'Welche Spiegelung bildet y = (x − 2)² auf y = (x + 2)² ab?',
+                  'Spiegelung an der y-Achse', ['Spiegelung an der x-Achse', 'Verschiebung um 2 nach links', 'Spiegelung an der Geraden y = x'],
+                  'Der Scheitel wandert von (2 | 0) nach (−2 | 0), die Öffnung bleibt: x wird zu −x. Eine Verschiebung um 4 nach links ginge auch – aber keine der anderen Antworten.',
+                  'Was passiert mit dem Scheitel?'),
+            ],
+            'kombiniert': [
+                L(3, 'Die Parabel y = −(x − 1)² + 4 schneidet die x-Achse zweimal. Gib beide Stellen an. (kleinere zuerst)',
+                  'x₁ = □; x₂ = □', [-1, 3], ['1 - 2', '1 + 2'], '−(x − 1)² + 4 = 0 ⇒ (x − 1)² = 4 ⇒ x − 1 = ±2 ⇒ x = −1 oder x = 3.',
+                  'Setze y = 0 und forme nach der Klammer um.'),
+                L(3, 'Eine Parabel y = a(x − 1)² + e geht durch die Punkte (0 | −1) und (3 | 5). Bestimme a und e.',
+                  'a = □; e = □', [2, -3], ['(5 + 1)/(4 - 1)', '-1 - 2'],
+                  '(0 | −1): a + e = −1. (3 | 5): 4a + e = 5. Abziehen: 3a = 6 ⇒ a = 2, e = −3.',
+                  'Setze beide Punkte ein und vergleiche die beiden Gleichungen.'),
+                L(3, 'Um welchen Vektor muss man y = 2(x + 1)² − 3 verschieben, damit der Scheitel im Ursprung liegt?',
+                  'Vektor (□ | □)', [1, 3], ['0 - (-1)', '0 - (-3)'], 'Scheitel S(−1 | −3). Zum Ursprung: 1 nach rechts, 3 nach oben.',
+                  'Wo liegt der Scheitel jetzt?'),
+            ],
+            'punkte': [
+                L(3, 'Es ist f(x) = x² und g(x) = 2 · f(x − 1) − 3. Gib g in Scheitelform an.',
+                  'g(x) = □ · (x − □)² − □', [2, 1, 3], ['2', '1', '3'], 'f(x − 1) = (x − 1)². Also g(x) = 2(x − 1)² − 3.',
+                  'Ersetze in f das x durch (x − 1).'),
+                Z(3, 'Der Punkt P(2 | 4) liegt auf dem Graphen von g(x) = f(x − 2). Welchen Wert hat f(0)?',
+                  4, '4', 'g(2) = f(2 − 2) = f(0). Weil P auf g liegt, ist g(2) = 4. Also f(0) = 4.', 'Setze x = 2 in g(x) = f(x − 2) ein.'),
+                A(3, 'Es ist g(x) = f(x − 3) + 2. Welcher Punkt des Graphen von f wird auf sich selbst abgebildet?',
+                  'Keiner: Jeder Punkt wandert 3 nach rechts und 2 nach oben.', ['Der Scheitel', 'Der Punkt (3 | 2)', 'Alle Punkte auf der x-Achse'],
+                  'Jeder Punkt (x | y) wird zu (x + 3 | y + 2). Das ist nie derselbe Punkt.', 'Was passiert mit einem beliebigen Punkt (x | y)?'),
+            ],
+        })
+
+
 if __name__ == '__main__':
     d = bauen('funktionen.transformation',
           'Graphen verschieben, strecken und an den Achsen spiegeln – an der Normalparabel und an beliebigen Graphen über Bildpunkte.',
@@ -440,3 +560,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           offen=['Klasse laut Liste RS 9; gebaut an Normalparabel und allgemeinen Graphen (Bildpunkte). Die RS-10-Erweiterung (transformierte Potenz-, Exponential- und Logarithmusfunktionen, Spiegelung an y = x) ist weggelassen; die Spiegelung an y = x steht im Thema funktionen.umkehr.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+    durchsicht(d)

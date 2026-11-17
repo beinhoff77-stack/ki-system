@@ -1714,7 +1714,7 @@
    "l": "elemente",
    "t": "elemente",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "A = die Vielfachen von 3 bis 24. Welche Aufzählung ist richtig?"
@@ -1735,7 +1735,7 @@
    "l": "elemente",
    "t": "elemente",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "A = die Primzahlen bis 24. Welche Zahl gehört NICHT zu A?"
@@ -1756,7 +1756,7 @@
    "l": "elemente",
    "t": "elemente",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "A = die Vielfachen von 4 bis 30. Welche Aufzählung ist richtig?"
@@ -1777,7 +1777,7 @@
    "l": "elemente",
    "t": "elemente",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "A = die Teiler von 12. Welche Zahl gehört NICHT zu A?"
@@ -1801,19 +1801,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "A = die Teiler von 12. Welche Aufzählung ist richtig?"
+    "text": "Wie kann man die Menge {4; 9; 16; 25} in Worten beschreiben?"
    },
    "a": [
-    "{2; 3; 4; 6}",
-    "{5; 7; 8; 9; 10; 11}",
-    "{1; 2; 3; 4; 6; 12}",
-    "{1; 2; 3; 4; 6}"
+    "die geraden Zahlen bis 25",
+    "die Vielfachen von 4 bis 25",
+    "die Teiler von 100",
+    "die Quadratzahlen von 4 bis 25"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "Prüfe jede Zahl von 1 bis 20: A = {1; 2; 3; 4; 6; 12}.",
-   "h": "Gehe die Zahlen der Reihe nach durch und achte auf die erste und letzte Zahl."
+   "w": "4 = 2 · 2, 9 = 3 · 3, 16 = 4 · 4, 25 = 5 · 5: lauter Quadratzahlen, angefangen bei 4.",
+   "h": "Was haben 4, 9, 16 und 25 gemeinsam?"
   },
   {
    "l": "elemente",
@@ -1822,19 +1822,125 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "A = die Teiler von 20. Welche Aufzählung ist richtig?"
+    "text": "Welche Menge ist gleich {2; 4; 6}?"
    },
    "a": [
-    "{2; 4; 5; 10}",
-    "{3; 6; 7; 8; 9; 11}",
-    "{1; 2; 4; 5; 10}",
-    "{1; 2; 4; 5; 10; 20}"
+    "{2; 4; 6; 8}",
+    "{2; 4}",
+    "{6; 2; 4}",
+    "{2; 2; 4; 6; 7}"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Prüfe jede Zahl von 1 bis 30: A = {1; 2; 4; 5; 10; 20}.",
-   "h": "Gehe die Zahlen der Reihe nach durch und achte auf die erste und letzte Zahl."
+   "w": "Bei Mengen ist die Reihenfolge egal. {6; 2; 4} hat genau dieselben Elemente.",
+   "h": "Kommt es bei einer Menge auf die Reihenfolge an?"
+  },
+  {
+   "l": "elemente",
+   "t": "elemente",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A = alle zweistelligen Zahlen mit der Quersumme 5. Wie viele Elemente hat A?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "14, 23, 32, 41, 50: fünf Zahlen.",
+   "h": "Gehe die Zehnerziffern 1 bis 5 durch."
+  },
+  {
+   "l": "elemente",
+   "t": "elemente",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Elemente hat die Menge {1; 2; 2; 3; 3; 3}?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Jedes Element zählt nur einmal: Die Menge ist {1; 2; 3}.",
+   "h": "Zählt ein Element doppelt?"
+  },
+  {
+   "l": "elemente",
+   "t": "elemente",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "A = alle Primzahlen, die gerade sind. Welche Menge ist A?"
+   },
+   "a": [
+    "{2}",
+    "{ }",
+    "{2; 4; 6; 8}",
+    "{1; 2}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2 ist die einzige gerade Primzahl; jede andere gerade Zahl ist durch 2 teilbar. 1 ist keine Primzahl.",
+   "h": "Welche geraden Zahlen haben genau zwei Teiler?"
+  },
+  {
+   "l": "elemente",
+   "t": "elemente",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A = die Vielfachen von 3 zwischen 10 und 40. Wie viele Elemente hat A?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(39 - 12)/3 + 1",
+   "w": "12, 15, 18, …, 39. Von 12 bis 39 sind es 27, also 27 : 3 = 9 Schritte und 10 Zahlen.",
+   "h": "Welches ist das erste, welches das letzte Vielfache?"
+  },
+  {
+   "l": "elemente",
+   "t": "elemente",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Menge der Teiler einer Zahl hat genau 5 Elemente. Welche Zahl kann es sein?"
+   },
+   "a": [
+    "16",
+    "12",
+    "10",
+    "15"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Teiler von 16: 1, 2, 4, 8, 16 – fünf. 12 hat 6 Teiler, 10 und 15 je 4.",
+   "h": "Zähle die Teiler jeder Zahl."
+  },
+  {
+   "l": "elemente",
+   "t": "elemente",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A = die Zahlen 1, 2, 3, …, deren Quadrat kleiner als 50 ist. Wie viele Elemente hat A?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "7 · 7 = 49 < 50, aber 8 · 8 = 64. A = {1; 2; 3; 4; 5; 6; 7}.",
+   "h": "Welche Quadratzahl liegt gerade noch unter 50?"
   },
   {
    "l": "elemente",
@@ -2247,7 +2353,7 @@
    "l": "schnitt",
    "t": "schnitt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Klasse 6a: A = Kinder in der Englisch-AG = {Ali; Cem; Gül; Hanna; Ida; Kim}, B = Kinder, die im Chor singen = {Dana; Kim; Mia}. Wer ist in A ∩ B?"
@@ -2292,25 +2398,25 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Klasse 6a: A = Kinder in der Englisch-AG = {Ali; Eva; Finn; Gül; Lio}, B = Kinder, die im Chor singen = {Dana; Hanna; Kim; Lio; Noah}. Wer ist in A ∩ B?"
+    "text": "A = {1; 2; 3} und A ∩ B = {3}. Welche Menge kann B sein?"
    },
    "a": [
-    "{Dana; Hanna; Kim; Noah}",
-    "{Ali; Dana; Eva; Finn; Gül; Hanna; Kim; Lio; Noah}",
-    "{Ali; Eva; Finn; Gül}",
-    "{Lio}"
+    "{1; 3; 5}",
+    "{1; 2; 3}",
+    "{3; 4; 5}",
+    "{4; 5; 6}"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "In beiden Listen stehen {Lio}.",
-   "h": "A ∩ B: Wer steht in beiden Listen?"
+   "w": "B muss 3 enthalten, aber weder 1 noch 2. Nur {3; 4; 5} passt.",
+   "h": "Welche Elemente von A dürfen in B sein, welche nicht?"
   },
   {
    "l": "schnitt",
    "t": "schnitt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Sportverein: A = Mitglieder im Tennis = {Eva; Finn; Ida; Noah}, B = Mitglieder im Schwimmen = {Ali; Eva; Gül}. Wer ist in A ∩ B?"
@@ -2332,21 +2438,16 @@
    "t": "schnitt",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Sportverein: A = Mitglieder im Tennis = {Gül; Hanna; Ida; Jonas; Lio; Noah}, B = Mitglieder im Schwimmen = {Ali; Ben; Dana; Ida; Jonas; Noah}. Wer ist in A ∩ B?"
+    "text": "A = die Teiler von 12, B = die Teiler von 18. A ∩ B besteht genau aus den Teilern einer Zahl. Welcher?"
    },
-   "a": [
-    "{Ida; Jonas; Noah}",
-    "{Ali; Ben; Dana; Gül; Hanna; Ida; Jonas; Lio; Noah}",
-    "{Ali; Ben; Dana}",
-    "{Gül; Hanna; Lio}"
-   ],
    "o": {
-    "index": 0
+    "wert": 6
    },
-   "w": "In beiden Listen stehen {Ida; Jonas; Noah}.",
-   "h": "A ∩ B: Wer steht in beiden Listen?"
+   "c": "6",
+   "w": "A ∩ B = {1; 2; 3; 6}: die Teiler von 6, dem größten gemeinsamen Teiler.",
+   "h": "Schreibe A ∩ B auf. Welche Zahl hat genau diese Teiler?"
   },
   {
    "l": "schnitt",
@@ -2363,6 +2464,80 @@
    "c": "4",
    "w": "A = {2; 4; 6; 8; 10; 12; 14; 16; 18; 20; 22; 24}, B = {6; 12; 18; 24}. A ∩ B = {6; 12; 18; 24}, also 4 Elemente.",
    "h": "Schreibe die gemeinsamen Elemente auf und zähle sie."
+  },
+  {
+   "l": "schnitt",
+   "t": "schnitt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A = die Vielfachen von 4 bis 60, B = die Vielfachen von 6 bis 60. Welches ist das kleinste Element von A ∩ B?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "Gemeinsame Vielfache von 4 und 6: 12, 24, 36, … Das kleinste ist 12.",
+   "h": "Schreibe die ersten Vielfachen beider Zahlen auf."
+  },
+  {
+   "l": "schnitt",
+   "t": "schnitt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A = die Vielfachen von 3 bis 60, B = die Vielfachen von 5 bis 60. Wie viele Elemente hat A ∩ B?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "60/15",
+   "w": "Gemeinsam sind die Vielfachen von 15: 15, 30, 45, 60 – vier.",
+   "h": "Welche Zahlen sind Vielfache von 3 und von 5?"
+  },
+  {
+   "l": "schnitt",
+   "t": "schnitt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für zwei Mengen gilt A ∩ B = A. Was folgt daraus?"
+   },
+   "a": [
+    "A liegt ganz in B.",
+    "B liegt ganz in A.",
+    "A und B haben nichts gemeinsam.",
+    "A ist leer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Wenn die Schnittmenge ganz A ist, gehört jedes Element von A auch zu B.",
+   "h": "Was heißt es, wenn jedes Element von A in der Überlappung liegt?"
+  },
+  {
+   "l": "schnitt",
+   "t": "schnitt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "A = Kinder mit Brille, B = Kinder mit Geschwistern. Lisa gehört zu A, aber nicht zu A ∩ B. Was weißt du über Lisa?"
+   },
+   "a": [
+    "Sie trägt eine Brille und hat keine Geschwister.",
+    "Sie hat Geschwister, aber keine Brille.",
+    "Sie hat weder Brille noch Geschwister.",
+    "Sie hat Brille und Geschwister."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Lisa ist in A: Brille. Wäre sie auch in B, läge sie in A ∩ B. Also ist sie nicht in B: keine Geschwister.",
+   "h": "Wo im Venn-Diagramm liegt Lisa?"
   },
   {
    "l": "schnitt",
@@ -2786,7 +2961,7 @@
    "l": "vereinigung",
    "t": "vereinigung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bei einem Schulfest: 14 Kinder kaufen Waffeln, 18 Kinder kaufen Saft, 12 kaufen beides. Wie viele Kinder kaufen mindestens eines von beiden?"
@@ -2818,7 +2993,7 @@
    "l": "vereinigung",
    "t": "vereinigung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "In einer Klasse: 9 Kinder haben einen Hund, 18 Kinder haben eine Katze, 5 haben beides. Wie viele Kinder haben mindestens ein Haustier dieser Art?"
@@ -2834,7 +3009,7 @@
    "l": "vereinigung",
    "t": "vereinigung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Im Feriencamp: 22 Kinder machen Kanu, 11 Kinder machen Klettern, 4 machen beides. Wie viele Kinder machen mindestens eine der beiden Sportarten?"
@@ -2861,6 +3036,91 @@
    "c": "11 + 22 - 7",
    "w": "n(A ∪ B) = 11 + 22 − 7 = 26. Die 7 Kinder mit beidem wurden sonst doppelt gezählt.",
    "h": "Wer beides macht, steckt in beiden Zahlen. Zieh diese Kinder einmal ab."
+  },
+  {
+   "l": "vereinigung",
+   "t": "vereinigung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A und B haben keine gemeinsamen Elemente. n(A) = 4, n(B) = 5. Wie viele Elemente hat A ∪ B?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "4 + 5 - 0",
+   "w": "A ∩ B = { }, also wird nichts doppelt gezählt: 4 + 5 − 0 = 9.",
+   "h": "Wie groß ist n(A ∩ B)?"
+  },
+  {
+   "l": "vereinigung",
+   "t": "vereinigung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse mit 28 Kindern haben 15 einen Hund, 12 eine Katze und 4 keines von beiden. Wie viele haben beides?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "15 + 12 - (28 - 4)",
+   "w": "Mindestens ein Tier: 28 − 4 = 24. 15 + 12 = 27 zählt die Kinder mit beidem doppelt: 27 − 24 = 3.",
+   "h": "Wie viele haben mindestens ein Tier?"
+  },
+  {
+   "l": "vereinigung",
+   "t": "vereinigung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "n(A ∪ B) = 20, n(A) = 12 und n(A ∩ B) = 5. Wie viele Elemente hat B?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "20 - 12 + 5",
+   "w": "20 = 12 + n(B) − 5 ⇒ n(B) = 13.",
+   "h": "Setze in die Formel ein und löse nach n(B) auf."
+  },
+  {
+   "l": "vereinigung",
+   "t": "vereinigung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "n(A) = 10 und n(B) = 7. Wie viele Elemente kann A ∪ B höchstens haben?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "10 + 7",
+   "w": "Am meisten, wenn A und B nichts gemeinsam haben: 10 + 7 = 17.",
+   "h": "Wann gibt es keine Doppelten?"
+  },
+  {
+   "l": "vereinigung",
+   "t": "vereinigung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "A ∪ B = {1; 2; 3; 4; 5}, A = {1; 2; 3} und A ∩ B = {3}. Welche Menge ist B?"
+   },
+   "a": [
+    "{3; 4; 5}",
+    "{4; 5}",
+    "{1; 2; 3; 4; 5}",
+    "{3}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "4 und 5 sind nicht in A, also in B. Dazu 3 aus der Schnittmenge. 1 und 2 nicht, sonst wären sie in A ∩ B.",
+   "h": "Welche Elemente muss B enthalten, welche darf es nicht?"
   },
   {
    "l": "vereinigung",
@@ -4594,7 +4854,7 @@
    "l": "venn",
    "t": "venn",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "21 Jugendliche wurden befragt: 14 spielen Gitarre, 12 spielen Klavier, 6 spielen beides. Wie viele gehören nur zu „Gitarre“?",
@@ -4723,7 +4983,7 @@
    "l": "venn",
    "t": "venn",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "30 Kinder wurden befragt: 16 sind in der Mathe-AG, 12 sind in der Theater-AG, 5 sind in beiden AGs. Wie viele gehören nur zu „Theater-AG“?",
@@ -4852,7 +5112,7 @@
    "l": "venn",
    "t": "venn",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "29 Kinder wurden befragt: 24 sind in der Mathe-AG, 12 sind in der Theater-AG, 9 sind in beiden AGs. Wie viele gehören nur zu „Mathe-AG“?",
@@ -4981,7 +5241,7 @@
    "l": "venn",
    "t": "venn",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "33 Familien wurden befragt: 25 haben einen Hund, 18 haben eine Katze, 10 haben beides. Wie viele gehören nur zu „Hund“?",
@@ -5363,6 +5623,108 @@
    "c": "14 - (6 - 3) - 3 - (10 - 3)",
    "w": "Nur Mathe-AG: 3, nur Theater-AG: 7. Außerhalb: 14 − 3 − 3 − 7 = 1.",
    "h": "Trage zuerst die Überlappung ein und ziehe sie von den Kreiszahlen ab."
+  },
+  {
+   "l": "venn",
+   "t": "venn",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "30 Kinder: 18 spielen Fußball, 15 gehen schwimmen, 6 machen keines von beiden. Wie viele machen beides?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "18 + 15 - (30 - 6)",
+   "w": "Mindestens eins: 30 − 6 = 24. 18 + 15 = 33. Doppelt gezählt: 33 − 24 = 9.",
+   "h": "Beginne mit den Kindern außerhalb der Kreise."
+  },
+  {
+   "l": "venn",
+   "t": "venn",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Venn-Diagramm steht in der Überlappung x, bei „nur A“ 2x, bei „nur B“ 7 und außerhalb 3. Insgesamt sind es 25. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(25 - 10)/3",
+   "w": "x + 2x + 7 + 3 = 25 ⇒ 3x = 15 ⇒ x = 5.",
+   "h": "Alle vier Bereiche zusammen ergeben 25."
+  },
+  {
+   "l": "venn",
+   "t": "venn",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 40 Gästen essen 25 Fleisch und 22 Gemüse. Jeder isst mindestens eines davon. Wie viele essen nur Gemüse?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "22 - (25 + 22 - 40)",
+   "w": "Beides: 25 + 22 − 40 = 7. Nur Gemüse: 22 − 7 = 15.",
+   "h": "Bestimme zuerst die Überlappung."
+  },
+  {
+   "l": "venn",
+   "t": "venn",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Klasse hat 20 Kinder. 15 spielen Fußball, 12 Basketball, und angeblich spielt niemand beides. Kann das stimmen?"
+   },
+   "a": [
+    "Ja, das ist möglich.",
+    "Nein, weil 15 größer als 12 ist.",
+    "Nein, 15 + 12 = 27 sind mehr als 20.",
+    "Ja, wenn 7 Kinder keinen Sport machen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ohne Überlappung wären es mindestens 27 Kinder. Mindestens 7 müssen beides spielen.",
+   "h": "Wie viele Kinder bräuchte man ohne Überlappung?"
+  },
+  {
+   "l": "venn",
+   "t": "venn",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Venn-Diagramm stehen: nur A 8, beide 4, nur B 5, außerhalb 3. Wie viel Prozent aller gehören zu A?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "%"
+   },
+   "c": "(8 + 4)/(8 + 4 + 5 + 3)*100",
+   "w": "Zu A gehören 8 + 4 = 12 von 20. 12 : 20 = 0,6 = 60 %.",
+   "h": "Zu A gehören auch die in der Überlappung."
+  },
+  {
+   "l": "venn",
+   "t": "venn",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "25 Kinder: 18 fahren Rad, 14 fahren Roller. Wie viele fahren mindestens beides?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "18 + 14 - 25",
+   "w": "18 + 14 = 32 > 25. Mindestens 32 − 25 = 7 müssen in der Überlappung sein (wenn alle mindestens eins fahren).",
+   "h": "Wie viele „passen nicht“ in die 25 ohne Überlappung?"
   },
   {
    "l": "venn",
@@ -6900,7 +7262,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "A = die Vielfachen von 6 bis 24, B = die geraden Zahlen bis 24. Was ist A ∪ B?"
@@ -6953,7 +7315,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "A = die Vielfachen von 6 bis 24, B = die geraden Zahlen bis 24. Was ist A ∩ B?"
@@ -6995,7 +7357,7 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "n(A) = 6, n(B) = 8, n(A ∩ B) = 4. Tom rechnet: n(A ∪ B) = 6 + 8 = 14. Stimmt das?"
@@ -7011,6 +7373,106 @@
    },
    "w": "Die 4 gemeinsamen Elemente stecken in n(A) und in n(B). Also 6 + 8 − 4 = 10.",
    "h": "Welche Elemente kommen in beiden Anzahlen vor?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: „Haben A und B nichts gemeinsam, dann ist n(A ∪ B) = n(A) + n(B).“?"
+   },
+   "a": [
+    "Nein, man muss immer etwas abziehen.",
+    "Nein, dann ist n(A ∪ B) = 0.",
+    "Ja, dann wird nichts doppelt gezählt.",
+    "Nur, wenn A und B gleich groß sind."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "n(A ∩ B) = 0, also n(A ∪ B) = n(A) + n(B) − 0.",
+   "h": "Was zieht die Formel ab?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: „A ∪ B hat immer mehr Elemente als A.“?"
+   },
+   "a": [
+    "Ja, immer.",
+    "Nein: Liegt B ganz in A, ist A ∪ B = A.",
+    "Ja, weil B dazukommt.",
+    "Nein, A ∪ B hat immer weniger Elemente."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegenbeispiel: A = {1; 2; 3}, B = {2}. A ∪ B = {1; 2; 3} = A, nicht mehr.",
+   "h": "Suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A hat 5 Elemente, B hat 8 Elemente. Wie viele Elemente kann A ∩ B mindestens haben?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Wenn A und B nichts gemeinsam haben, ist A ∩ B leer: 0 Elemente.",
+   "h": "Müssen A und B etwas gemeinsam haben?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist für alle Mengen A und B wahr?"
+   },
+   "a": [
+    "A ∩ B hat mehr Elemente als A ∪ B.",
+    "A ∪ B ist nie gleich A.",
+    "A ∩ B ist nie leer.",
+    "Jedes Element von A ∩ B liegt auch in A ∪ B."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Was in beiden Mengen liegt, liegt erst recht in mindestens einer. Die anderen Aussagen widerlegt je ein Beispiel.",
+   "h": "Prüfe jede Aussage mit einem Beispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für zwei Mengen gilt n(A ∪ B) = n(A). Was folgt daraus?"
+   },
+   "a": [
+    "A liegt ganz in B.",
+    "B ist leer.",
+    "B liegt ganz in A.",
+    "A und B haben nichts gemeinsam."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Kommt durch B nichts Neues dazu, ist jedes Element von B schon in A. (B leer ist ein Sonderfall davon.)",
+   "h": "Was bringt B zu A dazu?"
   },
   {
    "l": "verstehen",

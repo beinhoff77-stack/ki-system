@@ -390,6 +390,100 @@ UMBAU_WEG = []
 # ---------- Ende UMBAU ----------
 
 
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: ISB „Leistungsaufgaben ohne Hilfsmittel“ Jahrgangsstufe 9 (I) (Wurzeln einordnen, Begriffe), Jahrgangsstufentest 9,
+# Realschul-Abschlussprüfung (flächengleiche Figuren, Sachaufgaben mit Quadraten), Lehrplanformulierung „zu gegebenen Lösungsmengen
+# passende reinquadratische Gleichungen formulieren“. Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    import math
+    from _rsib1 import Z, A, L, nachtrag, finde, rund
+    T = lambda teil: finde(d, teil)
+    XX = 'x₁ = □; x₂ = □'
+    q90, c90 = rund(math.sqrt(90), 2)
+    rk, ck = rund(math.sqrt(100 / math.pi), 2)
+    r3, c3 = rund(2 * math.sqrt(3), 2)
+    nachtrag(d,
+        umstufen={
+            T('Wie viele Lösungen hat x² − 25 = 0?'): 2,
+            T('Wie lautet die exakte positive Lösung von x² = 236?'): 1,
+            T('Wie lautet die exakte positive Lösung von x² = 172?'): 1,
+            T('Eine quadratische Terrasse soll 136 m²'): 2,
+            T('Eine quadratische Terrasse soll 147 m²'): 2,
+            T('Wie lange fällt ein Stein 80 m tief?'): 1,
+        },
+        ersetzen={
+            T('Jemand schätzt √238 ≈ 119.'):
+                A(3, 'Ordne der Größe nach: √50, 7,2 und 7.', '7 < √50 < 7,2', ['√50 < 7 < 7,2', '7 < 7,2 < √50', '7,2 < 7 < √50'],
+                  '7² = 49 < 50, also √50 > 7. 7,2² = 51,84 > 50, also √50 < 7,2.', 'Quadriere die Zahlen und vergleiche mit 50.'),
+            T('Jemand schätzt √237 ≈ 118,5.'):
+                Z(3, 'Wie viele ganze Zahlen liegen zwischen √10 und √90?', 6, '9 - 4 + 1',
+                  '√10 liegt zwischen 3 und 4, √90 zwischen 9 und 10. Dazwischen: 4, 5, 6, 7, 8, 9 – sechs Zahlen.', 'Schätze beide Wurzeln ein.'),
+            T('Welche Lösungsmenge hat 5x² + 6 = 0?'):
+                L(3, 'Löse x² : 4 − 1 = 8.', XX, [-6, 6], ['-6', '6'], '+1: x² : 4 = 9. Mal 4: x² = 36. x = ±6.', 'Erst +1, dann mal 4.'),
+            T('Eine quadratische Terrasse soll 58 m²'):
+                Z(3, 'Ein quadratisches Grundstück wird an zwei anliegenden Seiten um je 2 m verbreitert. Danach ist es wieder quadratisch und 144 m² groß. Wie lang war eine Seite vorher?',
+                  10, '12 - 2', 'Neue Seite: (x + 2)² = 144 ⇒ x + 2 = 12 (nur positiv) ⇒ x = 10 m.', 'Die neue Seite ist x + 2.', einheit='m'),
+            T('Eine quadratische Terrasse soll 133 m²'):
+                Z(3, 'Ein Würfel hat eine Oberfläche von 150 cm². Wie lang ist eine Kante?', 5, '150/6/5',
+                  'Ein Würfel hat 6 gleiche Quadrate: 6a² = 150 ⇒ a² = 25 ⇒ a = 5 cm.', 'Aus wie vielen Quadraten besteht die Oberfläche?', einheit='cm'),
+        },
+        neu={
+            'schaetzen': [
+                A(3, 'Ein quadratisches Feld ist 300 m² groß. Ist eine Seite länger als 17 m?', 'Ja, denn 17² = 289 < 300.',
+                  ['Nein, denn 17² = 289 < 300.', 'Nein, die Seite ist 150 m.', 'Ja, denn 300 : 17 > 17.'],
+                  'Die Seite ist √300. Weil 17² = 289 kleiner als 300 ist, ist √300 größer als 17.', 'Vergleiche 17² mit 300.'),
+                Z(3, '√a liegt zwischen 6 und 7. Wie viele ganze Zahlen a sind möglich?', 12, '48 - 37 + 1',
+                  '36 < a < 49, also a = 37, 38, …, 48: zwölf Zahlen.', 'Quadriere die Grenzen.'),
+            ],
+            'grundform': [
+                Z(3, 'Welche Zahl a muss in x² = a stehen, damit die Lösungen −1,5 und 1,5 sind?', 2.25, '1.5**2',
+                  '1,5² = 2,25. Die Gleichung x² = 2,25 hat die Lösungen −1,5 und 1,5.', 'Quadriere eine der Lösungen.'),
+                Z(3, 'Für welchen Wert von a hat die Gleichung x² = a − 4 genau eine Lösung?', 4, '4',
+                  'Genau eine Lösung gibt es bei x² = 0. Also a − 4 = 0, a = 4. Die Lösung ist x = 0.', 'Wann hat x² = Zahl nur eine Lösung?'),
+                A(3, 'Für welche a hat die Gleichung x² = a − 4 keine Lösung?', 'für a < 4', ['für a > 4', 'für a < 0', 'für a = 4'],
+                  'Keine Lösung, wenn rechts eine negative Zahl steht: a − 4 < 0 ⇒ a < 4.', 'Wann ist die rechte Seite negativ?'),
+            ],
+            'umformen': [
+                L(3, 'Löse 2(x² − 3) = x² + 10.', XX, [-4, 4], ['-4', '4'], 'Ausmultiplizieren: 2x² − 6 = x² + 10. −x², +6: x² = 16. x = ±4.',
+                  'Erst die Klammer auflösen, dann alle x² auf eine Seite.'),
+                Z(3, 'Für welche Zahl c hat die Gleichung 3x² + c = 0 die Lösungen −2 und 2?', -12, '-3*2**2',
+                  'x = 2 einsetzen: 3 · 4 + c = 0 ⇒ c = −12.', 'Setze eine Lösung ein.'),
+            ],
+            'gerundet': [
+                Z(3, 'Ein Rechteck ist 6 cm breit und 15 cm lang. Ein Quadrat soll denselben Flächeninhalt haben. Wie lang ist seine Seite? Runde auf zwei Dezimalen.',
+                  q90, c90, 'Fläche 6 · 15 = 90 cm². a² = 90 ⇒ a = √90 ≈ 9,49 cm.', 'Berechne zuerst die Fläche.', einheit='cm', tol=0.01),
+                Z(3, 'Ein Kreis soll denselben Flächeninhalt haben wie ein Quadrat mit 10 cm Seitenlänge. Berechne den Radius auf zwei Dezimalen.',
+                  rk, ck, 'π · r² = 100 ⇒ r² = 100 : π ≈ 31,83 ⇒ r ≈ 5,64 cm.', 'Setze die Kreisfläche gleich 100 cm².', einheit='cm', tol=0.01),
+                A(3, 'Jemand löst x² = 50 mit x ≈ 7,07 und macht die Probe: 7,07² = 49,9849. Warum kommt nicht genau 50 heraus?',
+                  'Weil 7,07 ein gerundeter Wert ist.', ['Weil er sich verrechnet hat.', 'Weil x² = 50 keine Lösung hat.', 'Weil die richtige Lösung 25 ist.'],
+                  '√50 = 7,0710… hat unendlich viele Nachkommastellen. Jede gerundete Zahl gibt im Quadrat nur ungefähr 50.',
+                  'Wie viele Nachkommastellen hat √50?'),
+                A(3, 'Zwischen welchen zwei Zahlen mit einer Dezimale liegt √30?', 'zwischen 5,4 und 5,5', ['zwischen 5,0 und 5,1', 'zwischen 5,5 und 5,6', 'zwischen 15,0 und 15,1'],
+                  '5,4² = 29,16 < 30 und 5,5² = 30,25 > 30.', 'Quadriere die Kandidaten.'),
+            ],
+            'klammer': [
+                L(3, 'Löse x² − 6x + 9 = 25.', XX, [-2, 8], ['3 - 5', '3 + 5'], 'Links steht (x − 3)². (x − 3)² = 25 ⇒ x − 3 = ±5 ⇒ x = −2 oder x = 8.',
+                  'Erkennst du links eine binomische Formel?'),
+                L(3, 'Für welchen Wert q hat (x − 4)² = q genau eine Lösung? Gib q und die Lösung an.', 'q = □; x = □', [0, 4], ['0', '4'],
+                  'Nur (x − 4)² = 0 hat genau eine Lösung: x − 4 = 0 ⇒ x = 4.', 'Wann gibt es bei „Quadrat = Zahl“ nur eine Lösung?'),
+            ],
+            'sachaufgabe': [
+                Z(3, 'Für den Bremsweg gilt näherungsweise s = v² : 100 (v in km/h, s in m). Ein Auto hat 49 m Bremsweg. Wie schnell war es?',
+                  70, '7*10', 'v² : 100 = 49 ⇒ v² = 4 900 ⇒ v = 70 km/h (nur positiv).', 'Multipliziere zuerst mit 100.', einheit='km/h'),
+                Z(3, 'Wie viele Sekunden länger fällt ein Stein aus 80 m Höhe als aus 20 m Höhe (s = 5 · t²)?', 2, '4 - 2',
+                  '80 m: t² = 16, t = 4 s. 20 m: t² = 4, t = 2 s. Unterschied 2 s – vierfache Höhe heißt nur doppelte Zeit.',
+                  'Rechne beide Fallzeiten aus.', einheit='s'),
+                A(3, 'Der Flächeninhalt eines Quadrats wird vervierfacht. Wie ändert sich die Seitenlänge?', 'Sie verdoppelt sich.',
+                  ['Sie vervierfacht sich.', 'Sie wird 16-mal so groß.', 'Sie bleibt gleich.'],
+                  'Neue Fläche 4a² = (2a)². Die Seite ist also 2a.', 'Probiere es mit a = 3 aus.'),
+                Z(3, 'Ein Kreis hat einen dreimal so großen Flächeninhalt wie ein Kreis mit r = 2 cm. Berechne seinen Radius auf zwei Dezimalen.',
+                  r3, c3, 'π r² = 3 · π · 2² ⇒ r² = 12 ⇒ r = √12 ≈ 3,46 cm. π kürzt sich weg.', 'Setze die Flächen gleich; was passiert mit π?', einheit='cm', tol=0.01),
+                Z(3, 'Ein Rechteck ist doppelt so lang wie breit und hat 98 cm² Flächeninhalt. Wie breit ist es?', 7, '7',
+                  'Breite x, Länge 2x: 2x² = 98 ⇒ x² = 49 ⇒ x = 7 cm.', 'Nenne die Breite x. Wie lang ist das Rechteck dann?', einheit='cm'),
+            ],
+        })
+
+
 if __name__ == '__main__':
     d = bauen('gleichungen.reinquadratisch',
           'Wurzeln einschätzen und reinquadratische Gleichungen x² = a lösen: zwei, eine oder keine Lösung, exakt oder gerundet.',
@@ -399,3 +493,4 @@ if __name__ == '__main__':
           [('Wurzeln', ['schaetzen']), ('Gleichungen lösen', ['grundform', 'umformen', 'gerundet', 'klammer']), ('Anwenden', ['sachaufgabe'])],
           ETAPPEN, GEN)
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+    durchsicht(d)

@@ -1102,21 +1102,16 @@
    "t": "umkehrbar",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Auf welcher Menge ist f(x) = (x − 5)² umkehrbar?"
+    "text": "f(x) = x² − 6x soll auf der Menge x ≥ a umkehrbar sein. Wie klein darf a höchstens sein?"
    },
-   "a": [
-    "x ≥ −5",
-    "x ≥ 5",
-    "x ≥ 0",
-    "auf ganz ℝ"
-   ],
    "o": {
-    "index": 1
+    "wert": 3
    },
-   "w": "Der Scheitel liegt bei x = 5. Rechts davon (x ≥ 5) steigt die Parabel nur – dort ist sie umkehrbar (links davon ebenfalls, x ≤ 5).",
-   "h": "Wo liegt der Scheitel? Nimm nur einen Ast."
+   "c": "6/2",
+   "w": "Quadratische Ergänzung: x² − 6x = (x − 3)² − 9. Der Scheitel liegt bei x = 3. Rechts davon ist ein Ast: a = 3.",
+   "h": "Wo liegt der Scheitel der Parabel?"
   },
   {
    "l": "umkehrbar",
@@ -1125,19 +1120,61 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Auf welcher Menge ist f(x) = (x + 5)² umkehrbar?"
+    "text": "Welche Funktion ist auf ganz ℝ umkehrbar?"
    },
    "a": [
-    "auf ganz ℝ",
-    "x ≥ 0",
-    "x ≥ −5",
-    "x ≥ 5"
+    "f(x) = x³",
+    "f(x) = x²",
+    "f(x) = x⁴",
+    "f(x) = 5"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "Der Scheitel liegt bei x = −5. Rechts davon (x ≥ −5) steigt die Parabel nur – dort ist sie umkehrbar (links davon ebenfalls, x ≤ −5).",
-   "h": "Wo liegt der Scheitel? Nimm nur einen Ast."
+   "w": "x³ steigt überall, jeder y-Wert kommt einmal vor. Bei x² und x⁴ gehören 2 und −2 zum selben y; bei f(x) = 5 gehört jedes x zu 5.",
+   "h": "Mache bei jeder Funktion den Test mit der waagrechten Geraden."
+  },
+  {
+   "l": "umkehrbar",
+   "t": "umkehrbar",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist f(x) = 2 · 0,5ˣ + 1 (x ∈ ℝ) umkehrbar?"
+   },
+   "a": [
+    "Weil zu jedem x genau ein y gehört.",
+    "Weil der Graph die y-Achse bei 3 schneidet.",
+    "Weil 0,5 kleiner als 1 ist.",
+    "Weil der Graph überall fällt: Jeder y-Wert kommt nur einmal vor."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "0,5ˣ wird ständig kleiner, also auch 2 · 0,5ˣ + 1. Eine waagrechte Gerade trifft den Graphen höchstens einmal.",
+   "h": "Steigt oder fällt der Graph überall?"
+  },
+  {
+   "l": "umkehrbar",
+   "t": "umkehrbar",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Funktion hat nur die Werte f(1) = 3, f(2) = 5, f(3) = 3, f(4) = 7. Welchen x-Wert kann man streichen, damit sie umkehrbar wird?"
+   },
+   "a": [
+    "1 oder 3",
+    "nur 2",
+    "nur 4",
+    "Man muss zwei Werte streichen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der y-Wert 3 kommt zweimal vor (bei 1 und bei 3). Streicht man einen der beiden, kommt jeder y-Wert nur einmal vor.",
+   "h": "Welcher y-Wert kommt doppelt vor?"
   },
   {
    "l": "umkehrbar",
@@ -1889,7 +1926,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "f(x) = 4x + 6. Was ist f⁻¹(30)?"
@@ -1910,7 +1947,7 @@
    "l": "werte",
    "t": "werte",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "f(x) = 2x − 2. Was ist f⁻¹(4)?"
@@ -1990,6 +2027,83 @@
     "4",
     "9"
    ]
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 3x − 5. Für welches x gilt f(x) = f⁻¹(x)?"
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "5/2",
+   "w": "f und f⁻¹ treffen sich hier auf y = x: 3x − 5 = x ⇒ 2x = 5 ⇒ x = 2,5. Probe: f(2,5) = 2,5 und f⁻¹(2,5) = 2,5.",
+   "h": "Wo schneidet f die Gerade y = x?"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Funktion f gilt f(2) = 7 und f(7) = 2. Berechne f⁻¹(f⁻¹(2))."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "f⁻¹(2) = 7, weil f(7) = 2. Dann f⁻¹(7) = 2, weil f(2) = 7.",
+   "h": "Rechne von innen nach außen."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für eine Funktion f gilt f(3) = 5. Welcher Punkt liegt sicher auf dem Graphen von g(x) = f⁻¹(x) + 1?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     5,
+     4
+    ]
+   },
+   "c": [
+    "5",
+    "3 + 1"
+   ],
+   "w": "f(3) = 5 ⇒ f⁻¹(5) = 3 ⇒ g(5) = 3 + 1 = 4. Also P(5 | 4).",
+   "h": "Bestimme zuerst f⁻¹(5)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = 0,5x + 2. Für welches x ist f⁻¹(x) doppelt so groß wie x?"
+   },
+   "a": [
+    "für x = 4",
+    "für x = 2",
+    "für kein x",
+    "für jedes x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f⁻¹(x) = 2x − 4. Gleichung 2x − 4 = 2x ⇒ −4 = 0: unmöglich. Es gibt kein solches x.",
+   "h": "Bestimme zuerst f⁻¹ und stelle die Gleichung auf."
   },
   {
    "l": "werte",
@@ -2494,7 +2608,7 @@
    "l": "linear",
    "t": "linear",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Funktion ist die Umkehrfunktion von f(x) = −0,25x − 1,5?"
@@ -2515,7 +2629,7 @@
    "l": "linear",
    "t": "linear",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Funktion ist die Umkehrfunktion von f(x) = 0,1x − 0,5?"
@@ -2537,21 +2651,16 @@
    "t": "linear",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Jemand gibt für f(x) = −0,25x + 1,25 die Umkehrfunktion g(x) = −4x + 1,25 an. Prüfe mit x = 1."
+    "text": "f(x) = m · x + 3 hat die Umkehrfunktion f⁻¹(x) = 0,5x − 1,5. Wie groß ist m?"
    },
-   "a": [
-    "Falsch: f(1) = 1, aber g(1) = −2,75 ≠ 1.",
-    "Man kann das nicht mit einem Zahlenwert prüfen.",
-    "Richtig, g macht f rückgängig.",
-    "Falsch: Richtig wäre g(x) = 4x − 1,25."
-   ],
    "o": {
-    "index": 0
+    "wert": 2
    },
-   "w": "y = −0,25x + 1,25. Tauschen: x = −0,25y + 1,25. Auflösen: y = −4x + 5. Probe mit der richtigen Funktion: f⁻¹(1) = 1 ✓.",
-   "h": "Erst f anwenden, dann g. Kommt der Startwert heraus?"
+   "c": "1/0.5",
+   "w": "Die Steigung der Umkehrfunktion ist 1 : m. 1 : m = 0,5 ⇒ m = 2. Probe: f(x) = 2x + 3, umgekehrt (x − 3) : 2 = 0,5x − 1,5.",
+   "h": "Wie hängen die Steigungen von f und f⁻¹ zusammen?"
   },
   {
    "l": "linear",
@@ -2581,19 +2690,99 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand gibt für f(x) = 0,5x + 3,5 die Umkehrfunktion g(x) = 2x + 3,5 an. Prüfe mit x = 2."
+    "text": "Welche Gerade ist ihre eigene Umkehrfunktion?"
    },
    "a": [
-    "Man kann das nicht mit einem Zahlenwert prüfen.",
-    "Falsch: f(2) = 4,5, aber g(4,5) = 12,5 ≠ 2.",
-    "Richtig, g macht f rückgängig.",
-    "Falsch: Richtig wäre g(x) = −2x − 3,5."
+    "y = −x + 4",
+    "y = 2x",
+    "y = x + 1",
+    "y = 0,5x"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "y = 0,5x + 3,5. Tauschen: x = 0,5y + 3,5. Auflösen: y = 2x − 7. Probe mit der richtigen Funktion: f⁻¹(4,5) = 2 ✓.",
-   "h": "Erst f anwenden, dann g. Kommt der Startwert heraus?"
+   "w": "Tauschen bei y = −x + 4: x = −y + 4 ⇒ y = −x + 4. Gleich! Die Gerade steht senkrecht auf y = x.",
+   "h": "Bilde zu jeder die Umkehrfunktion."
+  },
+  {
+   "l": "linear",
+   "t": "linear",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "f(x) = 2x − 3. In welchem Punkt schneiden sich die Graphen von f und f⁻¹?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     3
+    ]
+   },
+   "c": [
+    "3",
+    "3"
+   ],
+   "w": "Gerade und Umkehrgerade schneiden sich auf y = x: 2x − 3 = x ⇒ x = 3. S(3 | 3).",
+   "h": "Der Schnittpunkt liegt auf der Spiegelachse."
+  },
+  {
+   "l": "linear",
+   "t": "linear",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade f geht durch die Punkte (2 | 2) und (4 | 3). Gib die Umkehrfunktion an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 2x − 4."
+   },
+   "o": {
+    "werte": [
+     2,
+     -2
+    ]
+   },
+   "c": [
+    "2",
+    "-2"
+   ],
+   "w": "f⁻¹ geht durch (2 | 2) und (3 | 4): Steigung (4 − 2) : (3 − 2) = 2, f⁻¹(x) = 2x − 2.",
+   "h": "Tausche die Koordinaten beider Punkte."
+  },
+  {
+   "l": "linear",
+   "t": "linear",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gerade f hat die Steigung 4. Welche Steigung hat ihre Umkehrfunktion?"
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "1/4",
+   "w": "Beim Tauschen von x und y wird aus „4 nach oben pro 1 nach rechts“ „1 nach oben pro 4 nach rechts“: 1 : 4 = 0,25.",
+   "h": "Was passiert mit dem Steigungsdreieck beim Spiegeln?"
+  },
+  {
+   "l": "linear",
+   "t": "linear",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches t geht der Graph der Umkehrfunktion von f(x) = 2x + t durch den Punkt (5 | 1)?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "5 - 2*1",
+   "w": "(5 | 1) auf f⁻¹ heißt (1 | 5) auf f: 2 · 1 + t = 5 ⇒ t = 3.",
+   "h": "Welcher Punkt liegt dann auf f?"
   },
   {
    "l": "linear",
@@ -3153,21 +3342,59 @@
    "t": "quadratisch",
    "p": "uebung",
    "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = x² + 2 mit x ≥ 0. Für welches x ist f⁻¹(x) = 3?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "3**2 + 2",
+   "w": "f⁻¹(x) = 3 heißt f(3) = x. f(3) = 9 + 2 = 11.",
+   "h": "Lies f⁻¹(x) = 3 rückwärts."
+  },
+  {
+   "l": "quadratisch",
+   "t": "quadratisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "f(x) = (x − 3)² + 1 mit x ≥ 3. Gib die Wertemenge der Umkehrfunktion f⁻¹ an.",
+    "schablone": "W = {y | y ≥ □}",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     3
+    ]
+   },
+   "c": [
+    "3"
+   ],
+   "w": "Die Wertemenge von f⁻¹ ist die Definitionsmenge von f: x ≥ 3.",
+   "h": "Was tauschen f und f⁻¹ außer x und y noch?"
+  },
+  {
+   "l": "quadratisch",
+   "t": "quadratisch",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Warum muss man bei f(x) = (x − 4)² + 2 die Definitionsmenge auf x ≥ 4 einschränken, um f⁻¹ zu bilden?"
+    "text": "f(x) = x² mit x ≤ 0 (linker Ast). Welche Funktion ist die Umkehrfunktion?"
    },
    "a": [
-    "Weil f sonst keine Funktion wäre.",
-    "Weil die Parabel sonst keinen Scheitel hat.",
-    "Weil man aus negativen Zahlen keine Wurzel ziehen kann.",
-    "Sonst gehören zu einem y-Wert zwei x-Werte."
+    "f⁻¹(x) = √x",
+    "f⁻¹(x) = −√x",
+    "f⁻¹(x) = √(−x)",
+    "f⁻¹(x) = −x²"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Ohne Einschränkung ist z. B. f(−3) = f(11) = 51. Mit x ≥ 4 bleibt nur ein Ast.",
-   "h": "Was ist die Bedingung für Umkehrbarkeit?"
+   "w": "Der linke Ast hat negative x-Werte. Die Umkehrung muss also negative Werte liefern: −√x. Probe: f(−3) = 9, −√9 = −3.",
+   "h": "Welches Vorzeichen haben die x-Werte des linken Asts?"
   },
   {
    "l": "quadratisch",
@@ -3572,7 +3799,7 @@
    "l": "exp_log",
    "t": "exp_log",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "P(2 | 100) liegt auf dem Graphen von y = 10ˣ. Welcher Punkt liegt auf dem Graphen von y = lg x?",
@@ -3638,7 +3865,7 @@
    "l": "exp_log",
    "t": "exp_log",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "P(2 | 9) liegt auf dem Graphen von y = 3ˣ. Welcher Punkt liegt auf dem Graphen von y = log₃ x?",
@@ -3657,6 +3884,75 @@
     "9",
     "2"
    ]
+  },
+  {
+   "l": "exp_log",
+   "t": "exp_log",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 2ˣ⁻¹. Berechne f⁻¹(16)."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "4 + 1",
+   "w": "2ˣ⁻¹ = 16 = 2⁴ ⇒ x − 1 = 4 ⇒ x = 5.",
+   "h": "Schreibe 16 als Zweierpotenz."
+  },
+  {
+   "l": "exp_log",
+   "t": "exp_log",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 3 · 2ˣ. Berechne f⁻¹(24)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "3 · 2ˣ = 24 ⇒ 2ˣ = 8 ⇒ x = 3.",
+   "h": "Teile zuerst durch 3."
+  },
+  {
+   "l": "exp_log",
+   "t": "exp_log",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = 2ˣ. Warum hat f⁻¹(−4) keinen Wert?"
+   },
+   "a": [
+    "Weil man durch 0 teilen müsste.",
+    "Weil −4 keine Zweierpotenz ist, aber 4 schon.",
+    "Doch: f⁻¹(−4) = −2.",
+    "Weil 2ˣ nie negativ wird."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2ˣ ist für jedes x positiv. Es gibt kein x mit 2ˣ = −4. Die Definitionsmenge von log₂ sind nur positive Zahlen.",
+   "h": "Welche Werte kann 2ˣ annehmen?"
+  },
+  {
+   "l": "exp_log",
+   "t": "exp_log",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne lg 0,001."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "w": "10⁻³ = 1/1 000 = 0,001. Also lg 0,001 = −3.",
+   "h": "10 hoch wie viel ergibt 0,001?"
   },
   {
    "l": "exp_log",
@@ -4228,19 +4524,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand spiegelt P(3 | −3) für die Umkehrfunktion zu P'(−3 | 3). Was stimmt?"
+    "text": "Der Graph von f geht durch (2 | 2) und (1 | 3). Welcher dieser Punkte liegt sicher auch auf dem Graphen von f⁻¹?"
    },
    "a": [
-    "Falsch: Richtig ist P'(3 | 3).",
-    "Richtig.",
-    "Falsch: Richtig ist P'(3 | −3).",
-    "Falsch: Richtig ist P'(−3 | 3)."
+    "(1 | 3)",
+    "(2 | 2)",
+    "(3 | 3)",
+    "keiner"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Für die Umkehrfunktion wird an y = x gespiegelt: Koordinaten tauschen. P(a | b) ↦ (−a | −b) wäre die Punktspiegelung am Ursprung.",
-   "h": "Welche Spiegelung gehört zur Umkehrfunktion?"
+   "w": "Punkte auf der Geraden y = x bleiben beim Spiegeln liegen: (2 | 2) wird zu (2 | 2). Aus (1 | 3) wird (3 | 1).",
+   "h": "Was passiert beim Tauschen mit (2 | 2)?"
   },
   {
    "l": "spiegeln",
@@ -4283,6 +4579,78 @@
    },
    "w": "Q(−3 | −4) liegt auf f, also liegt (−4 | −3) auf f⁻¹. Ebenso (−3 | −5) aus P.",
    "h": "Jeden Punkt von f mit vertauschten Koordinaten."
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von f ist eine Gerade durch (0 | 1) mit der Steigung 2. Wo schneidet der Graph von f⁻¹ die x-Achse?",
+    "schablone": "N(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     0
+    ]
+   },
+   "c": [
+    "1",
+    "0"
+   ],
+   "w": "f schneidet die y-Achse in (0 | 1). Gespiegelt: f⁻¹ schneidet die x-Achse in (1 | 0).",
+   "h": "Spiegle den Schnittpunkt von f mit der y-Achse."
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "f(x) = 3ˣ + 1. Wo schneidet der Graph von f⁻¹ die x-Achse?",
+    "schablone": "N(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     0
+    ]
+   },
+   "c": [
+    "3**0 + 1",
+    "0"
+   ],
+   "w": "f(0) = 1 + 1 = 2, also liegt (0 | 2) auf f. Gespiegelt: (2 | 0) auf f⁻¹.",
+   "h": "Berechne zuerst f(0)."
+  },
+  {
+   "l": "spiegeln",
+   "t": "spiegeln",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von f schneidet die x-Achse bei x = −4. Wo schneidet der Graph von f⁻¹ die y-Achse?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     -4
+    ]
+   },
+   "c": [
+    "0",
+    "-4"
+   ],
+   "w": "(−4 | 0) liegt auf f. Gespiegelt: (0 | −4) auf f⁻¹.",
+   "h": "Tausche die Koordinaten des Nullstellenpunkts."
   },
   {
    "l": "spiegeln",

@@ -377,6 +377,104 @@ UMBAU_WEG = []
 # ---------- Ende UMBAU ----------
 
 
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: Realschul-Abschlussprüfung Mathematik I (Bayern) und Jahrgangsstufentest 9 I: Definitionsmenge angeben,
+# Wurzelgleichung mit Probe lösen, physikalische Formeln mit Wurzel (Fallzeit, Pendel, Sichtweite) nach der Größe unter der Wurzel
+# auflösen. Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, L, nachtrag, finde
+    T = lambda teil: finde(d, teil)
+    nachtrag(d,
+        umstufen={
+            T('Darf man x = −5 in √(2x + 14) einsetzen?'): 2,
+            T('Darf man x = 1 in √(3x − 6) einsetzen?'): 2,
+            T('Darf man x = 11 in √(2x − 16) einsetzen?'): 2,
+            T('Ein quadratisches Beet wird an jeder Seite um 2 m verlängert. Die neue Seitenlänge ist √A + 2 = 15 m.'): 2,
+            T('Ein Ball fällt 3,5 s lang.'): 2,
+        },
+        ersetzen={
+            T('Jemand löst √(2x − 19) = 1 so: 2x − 19 = 1, also x = 10.'):
+                Z(3, 'Für welchen Wert c hat die Gleichung √(x + 1) = c die Lösung x = 15?', 4, '4',
+                  'x = 15 einsetzen: √16 = 4. Also c = 4.', 'Setze x = 15 ein.'),
+            T('Jemand quadriert √(x − 15) + 4 = 12 sofort'):
+                Z(3, 'Löse 3 + √(2x − 1) = 2 · √(2x − 1).', 5, '(3**2 + 1)/2',
+                  'Eine Wurzel weniger auf beiden Seiten: 3 = √(2x − 1). Quadrieren: 9 = 2x − 1 ⇒ x = 5. Probe: 3 + 3 = 2 · 3.',
+                  'Behandle √(2x − 1) wie eine Unbekannte: Bringe alle Wurzeln auf eine Seite.'),
+            T('Jemand quadriert √(x − 15) + 4 = 18 sofort'):
+                Z(3, 'Löse √(x + 4) : 2 = 3.', 32, '6**2 - 4', 'Mal 2: √(x + 4) = 6. Quadrieren: x + 4 = 36 ⇒ x = 32. Probe: √36 : 2 = 3.',
+                  'Erst die Wurzel allein stellen.'),
+            T('Löse 5 · √(x + 1) + 17 = −23.'):
+                A(3, 'Für welche Zahlen c hat die Gleichung √x = c eine Lösung?', 'für c ≥ 0', ['für jedes c', 'für c > 0', 'für c ≤ 0'],
+                  'Eine Wurzel ist nie negativ. Für c ≥ 0 ist x = c² eine Lösung (auch c = 0 mit x = 0).', 'Welche Werte kann eine Wurzel annehmen?'),
+            T('Ein quadratisches Beet wird an jeder Seite um 4 m verlängert. Die neue Seitenlänge ist √A + 4 = 24 m.'):
+                Z(3, 'Für ein Pendel gilt näherungsweise T = 2 · √l (T in s, l in m). Ein Pendel braucht für eine Schwingung 4 s. Wie lang ist es?',
+                  4, '(4/2)**2', '2 · √l = 4 ⇒ √l = 2 ⇒ l = 4 m.', 'Erst durch 2 teilen, dann quadrieren.', einheit='m'),
+            T('Ein Ball fällt 1,5 s lang.'):
+                Z(3, 'Für die Fallzeit gilt t = √(h : 5). Aus welcher Höhe fällt ein Stein doppelt so lange wie aus 20 m?',
+                  80, '5*(2*2)**2', 'Aus 20 m: t = √4 = 2 s. Doppelt so lange: 4 s. √(h : 5) = 4 ⇒ h = 80 m – viermal so hoch.',
+                  'Bestimme zuerst die Fallzeit aus 20 m.', einheit='m'),
+            T('Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Die neue Seitenlänge ist √A + 3 = 6 m.'):
+                Z(3, 'Für die Aufprallgeschwindigkeit gilt v = √(20 · h). Aus 5 m prallt man mit 10 m/s auf. Aus welcher Höhe prallt man mit 30 m/s auf?',
+                  45, '30**2/20', '√(20h) = 30 ⇒ 20h = 900 ⇒ h = 45 m. Dreifache Geschwindigkeit braucht neunfache Höhe.', 'Quadriere beide Seiten.', einheit='m'),
+            T('Aus welcher Höhe muss etwas fallen, um mit 35 m/s aufzuprallen?'):
+                Z(3, 'Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Dabei wird seine Fläche viermal so groß. Wie groß war die Fläche vorher?',
+                  9, '3*3', 'Alte Seite s: (s + 3)² = 4s² ⇒ s + 3 = 2s ⇒ s = 3 m. Fläche 9 m².', 'Viermal die Fläche heißt doppelte Seite.', einheit='m²'),
+        },
+        neu={
+            'definitionsmenge': [
+                L(3, 'Gib die Definitionsmenge des Terms √(x + 3) + √(5 − x) an.', 'D = {x | □ ≤ x ≤ □}', [-3, 5], ['-3', '5'],
+                  'Beide Radikanden ≥ 0: x + 3 ≥ 0 ⇒ x ≥ −3 und 5 − x ≥ 0 ⇒ x ≤ 5.', 'Beide Wurzeln müssen definiert sein.'),
+                L(3, 'Gib die Definitionsmenge der Gleichung √(2x + 4) = √(x − 1) + 2 an.', 'D = {x | x ≥ □}', [1], ['1'],
+                  '2x + 4 ≥ 0 ⇒ x ≥ −2. x − 1 ≥ 0 ⇒ x ≥ 1. Beides zusammen: x ≥ 1.', 'Prüfe beide Wurzeln; die strengere Bedingung gilt.'),
+                Z(3, 'Welche ist die kleinste ganze Zahl, die man in √(3x − 7) einsetzen darf?', 3, '3',
+                  '3x − 7 ≥ 0 ⇒ x ≥ 7/3 ≈ 2,33. Die kleinste ganze Zahl ist 3.', 'Löse 3x − 7 ≥ 0 und schau auf die nächste ganze Zahl.'),
+                A(3, 'Für welche x ist √(x²) definiert?', 'für alle x', ['nur für x ≥ 0', 'nur für x > 0', 'für kein x'],
+                  'x² ist nie negativ, also ist der Radikand immer ≥ 0.', 'Kann x² negativ sein?'),
+                Z(3, 'Für welchen Wert von a hat √(x − a) die Definitionsmenge D = {x | x ≥ −4}?', -4, '-4',
+                  'x − a ≥ 0 ⇒ x ≥ a. Also a = −4.', 'Löse x − a ≥ 0 nach x auf.'),
+            ],
+            'quadrieren': [
+                Z(3, 'Es gilt √(2x + 1) = 7. Welchen Wert hat dann √(8x + 4)?', 14, '2*7',
+                  '8x + 4 = 4 · (2x + 1), also √(8x + 4) = 2 · √(2x + 1) = 14. Oder: x = 24 und √196 = 14.', 'Vergleiche 8x + 4 mit 2x + 1.'),
+                L(3, 'Löse √(x² + 9) = 5.', 'x₁ = □; x₂ = □', [-4, 4], ['-4', '4'], 'Quadrieren: x² + 9 = 25 ⇒ x² = 16 ⇒ x = ±4. Probe: √25 = 5 für beide.',
+                  'Nach dem Quadrieren entsteht eine reinquadratische Gleichung.'),
+            ],
+            'isolieren': [
+                Z(3, 'Löse 10 − 2 · √(x + 1) = 4.', 8, '3**2 - 1', '−10: −2√(x + 1) = −6. Durch −2: √(x + 1) = 3 ⇒ x = 8. Probe: 10 − 2 · 3 = 4.',
+                  'Achte auf das Minus vor der Wurzel.'),
+                Z(3, 'Für welches c hat die Gleichung 2 · √x + c = 10 die Lösung x = 9?', 4, '10 - 2*3', 'x = 9: 2 · 3 + c = 10 ⇒ c = 4.', 'Setze x = 9 ein.'),
+            ],
+            'probe': [
+                A(3, 'Bei √(x + 5) = 3 steht die Wurzel allein und rechts eine positive Zahl. Kann beim Quadrieren hier eine Scheinlösung entstehen?',
+                  'Nein: x + 5 = 9 gibt x = 4, und √9 = 3 stimmt.', ['Ja, immer.', 'Ja: x = −4 ist eine Scheinlösung.', 'Nein, weil es gar keine Lösung gibt.'],
+                  'Scheinlösungen entstehen, wenn rechts eine negative Zahl stehen könnte. Hier stimmt die Probe: √(4 + 5) = 3. Die Probe gehört trotzdem dazu.',
+                  'Mach die Probe mit der gefundenen Lösung.'),
+                A(3, 'Aus welcher Gleichung entsteht beim Quadrieren x − 3 = 16, sodass x = 19 eine Scheinlösung ist?', '√(x − 3) = −4',
+                  ['√(x − 3) = 4', '√(x + 3) = 4', '√(x − 3) = 16'],
+                  'Quadrieren von √(x − 3) = ±4 gibt x − 3 = 16. Probe mit x = 19: √16 = 4 ≠ −4, also Scheinlösung bei der Gleichung mit −4.',
+                  'Welche Gleichung hat rechts eine negative Zahl?'),
+            ],
+            'zwei_seiten': [
+                Z(3, 'Löse √(2x + 3) = x.', 3, '3', 'Quadrieren: 2x + 3 = x² ⇒ x² − 2x − 3 = 0 ⇒ x = 3 oder x = −1. Probe x = −1: √1 = 1 ≠ −1. L = {3}.',
+                  'Quadrieren, quadratische Gleichung lösen, beide Werte prüfen.'),
+                A(3, 'Für welche x gilt √(x²) = x?', 'für x ≥ 0', ['für alle x', 'nur für x = 0', 'für x ≤ 0'],
+                  'Eine Wurzel ist nie negativ: √(x²) ist der Betrag |x|. Er ist gleich x, wenn x ≥ 0. Beispiel x = −3: √9 = 3 ≠ −3.',
+                  'Probiere x = −3 aus.'),
+            ],
+            'sachaufgabe': [
+                Z(3, 'Bis zum Horizont sieht man ungefähr d = 3,6 · √h weit (d in km, h in m Augenhöhe). Aus welcher Höhe sieht man 36 km weit?',
+                  100, '(36/3.6)**2', '3,6 · √h = 36 ⇒ √h = 10 ⇒ h = 100 m.', 'Erst durch 3,6 teilen.', einheit='m'),
+                Z(3, 'Für die Fallzeit gilt t = √(h : 5). Aus h Metern dauert der Fall 3 s länger als aus 20 m. Wie groß ist h?',
+                  125, '5*(2 + 3)**2', 'Aus 20 m: 2 s. Also 5 s: √(h : 5) = 5 ⇒ h = 125 m.', 'Bestimme zuerst die Fallzeit aus 20 m.', einheit='m'),
+                Z(3, 'Für die Aufprallgeschwindigkeit gilt v = √(20 · h). Bei welcher Höhe h (in m, h > 0) ist v in m/s genau so groß wie h?',
+                  20, '20', '√(20h) = h ⇒ 20h = h² ⇒ h = 20 (h = 0 fällt weg). Probe: √400 = 20.', 'Setze v = h und quadriere.', einheit='m'),
+                A(3, 'Für die Fallzeit gilt t = √(h : 5). Wie ändert sich die Fallzeit, wenn die Höhe verdoppelt wird?',
+                  'Sie wird etwa 1,41-mal so lang (√2-mal).', ['Sie verdoppelt sich.', 'Sie vervierfacht sich.', 'Sie bleibt gleich.'],
+                  't = √(2h : 5) = √2 · √(h : 5). √2 ≈ 1,41.', 'Probiere es mit 20 m und 40 m aus.'),
+            ],
+        })
+
+
 if __name__ == '__main__':
     d = bauen('gleichungen.wurzel',
           'Wurzelgleichungen lösen: Definitionsmenge bestimmen, Wurzel allein stellen, quadrieren und mit der Probe Scheinlösungen erkennen.',
@@ -386,3 +484,4 @@ if __name__ == '__main__':
            ('Anwenden', ['sachaufgabe'])],
           ETAPPEN, GEN)
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+    durchsicht(d)

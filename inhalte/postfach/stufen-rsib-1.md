@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-17 17:05 – STATUS
+daten.stichproben fertig: 20 neue Übungen, 10 Knobel-Bordkarten, 10 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
+
 ## 2026-11-17 16:35 – STATUS
 abbildungen.vektoren fertig: 30 neue Übungen, 12 Knobel-Bordkarten, 47 überzählig. inhalt_pruefen OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.
 

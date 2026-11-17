@@ -582,6 +582,146 @@ def durchsicht(d):
         })
 
 
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('daten.stichproben', 20_71_3)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# begriffe
+ST.stufenleiter('begriffe', 'Grundgesamtheit, Stichprobe und Stichprobenumfang benennen.',
+                'Stichprobenumfang aus einem Prozentsatz, gleich viele je Klasse, Grundgesamtheit aus Umfang und Anteil zurückrechnen.',
+                'Gründe für Stichproben begründen, Zufallsstichprobe beurteilen, Anteil der Befragten, Aufwand planen, Fehler „Vollerhebung heißt Stichprobe“, Schrittweite k, geschichtete Prüfungsaufgabe.')
+ST.typ('begriffe', '/Stichprobenumfang n\\?$/', 'direkt')
+ST.typ('begriffe', '/Was ist die Grundgesamtheit\\?$/', 'erkennen')
+ST.typ('begriffe', '/^Aus [\\d ]+ Personen werden/', 'mehrschritt')
+ST.typ('begriffe', 'Alle 1 200 Kinder', 'erkennen')
+ST.typ('begriffe', 'In einer Schule gibt es', 'einkleidung')
+ST.typ('begriffe', '/^(Warum macht man|Eine Firma will|Man will wissen, ob die Einwohner ein neues Hallenbad wollen, und)/', 'begruenden')
+ST.typ('begriffe', 'Eine Schule mit 600', 'verknuepfen')
+ST.typ('begriffe', 'Eine Stadt hat 24 000', 'transfer')
+ST.typ('begriffe', 'Welche Auswahl ist eine Zufallsstichprobe', 'erkennen')
+ST.typ('begriffe', 'Aus jeder der 6 Klassen', 'mehrschritt')
+ST.neu('begriffe', 'umkehr', Z('Bei einer Umfrage wurden 45 Personen befragt; das sind 3 % der Grundgesamtheit. Wie groß ist die Grundgesamtheit?', 1500, '45 * 100 / 3',
+       '3 % entsprechen 45 Personen, 1 % entspricht 15. 100 % sind 1 500 Personen.', 'Rechne zuerst aus, wie viele Personen 1 % sind.'))
+ST.neu('begriffe', 'umkehr', Z('Eine Stichprobe von 60 Kindern ist ein Fünftel aller Kinder einer Jahrgangsstufe. Wie viele Kinder hat die Jahrgangsstufe?', 300, '60 * 5',
+       'Ein Fünftel sind 60, das Ganze ist 5 · 60 = 300.', 'Ein Fünftel mal fünf ergibt das Ganze.'))
+ST.neu('begriffe', 'fehler', A('Jemand sagt: „Wir haben alle 30 Kinder der Klasse 7a befragt. Das ist eine Stichprobe der Klasse 7a.“ Was stimmt?', 'Falsch: Wer alle befragt, macht eine Vollerhebung der Klasse 7a.',
+       ['Richtig.', 'Falsch: 30 Kinder sind zu wenige für eine Stichprobe.', 'Falsch: Eine Stichprobe muss genau 10 Kinder haben.'],
+       'Eine Stichprobe ist nur ein Teil der Grundgesamtheit. Für die Klasse 7a ist das eine Vollerhebung. Eine Stichprobe wäre es erst für eine größere Grundgesamtheit, etwa die ganze Schule.', 'Wurden alle oder nur ein Teil befragt?'))
+ST.neu('begriffe', 'parameter', Z('Man befragt jede k-te Person einer Liste mit 1 200 Personen. Es sollen genau 60 Personen werden. Wie groß muss k sein?', 20, '1200 // 60',
+       '1 200 : k = 60 ⇒ k = 1 200 : 60 = 20. Jede 20. Person wird befragt.', 'Wie oft passt der Abstand k in die Liste?'))
+ST.neu('begriffe', 'pruefung', L('Ein Verein hat 480 Mitglieder: Fußball 200, Tennis 120, Turnen 100, Schwimmen 60. 48 Mitglieder sollen befragt werden, jede Abteilung nach ihrem Anteil. Wie viele kommen aus dem Fußball, wie viele aus dem Schwimmen?',
+       'Fußball □; Schwimmen □', [20, 6], ['200 * 48 // 480', '60 * 48 // 480'],
+       '48 von 480 sind 10 %. Fußball: 10 % von 200 = 20. Schwimmen: 10 % von 60 = 6. (Tennis 12, Turnen 10 – zusammen 48.)', 'Welcher Anteil aller Mitglieder wird befragt?'))
+ST.knobel('begriffe', Z('Aus den fünf Kindern A, B, C, D und E werden zwei per Los für eine Befragung gezogen. Wie viele verschiedene Stichproben sind möglich?', 10, '5 * 4 // 2',
+          'Für das erste Kind gibt es 5, für das zweite 4 Möglichkeiten: 20. Jede Stichprobe ist dabei doppelt gezählt (AB und BA), also 10. Liste: AB, AC, AD, AE, BC, BD, BE, CD, CE, DE.', 'Schreibe alle Paare systematisch auf.'))
+ST.knobel('begriffe', Z('Auf einer Liste stehen 100 Kinder. Man lost einen Startplatz von 1 bis 7 und befragt dann jedes 7. Kind (Startplatz, Startplatz + 7, …). Wie viele Kinder werden höchstens befragt?', 15, '15',
+          'Start 1: 1, 8, …, 99 sind 15 Kinder (1 + 7 · 14 = 99). Start 2: 2, 9, …, 100 ebenfalls 15. Ab Start 3 sind es nur 14, weil 3 + 7 · 14 = 101 > 100. Höchstens 15.', 'Probiere verschiedene Startplätze.'))
+
+# hochrechnen
+ST.stufenleiter('hochrechnen', 'Den Anteil in der Stichprobe in Prozent ausrechnen.',
+                'Auf die Grundgesamtheit hochrechnen, auch aus einem Diagramm; aus der Hochrechnung auf die Stichprobe zurück; Gegenanteil.',
+                'Prozentpunkte vergleichen, Fische markieren, vertrauenswürdigere Hochrechnung begründen, fehlende Antworten rückwärts, Fehler „Anzahl mal Gesamtzahl“, Stichprobenumfang als Unbekannte, Verkehrszählung als Prüfungsaufgabe.')
+ST.typ('hochrechnen', '/Wie viel Prozent sind das in der Stichprobe\\?$/', 'direkt')
+ST.typ('hochrechnen', '/(Schätze, wie viele .* insgesamt|vermutlich insgesamt)/', 'mehrschritt')
+ST.typ('hochrechnen', 'In einer Grundgesamtheit', 'umkehr')
+ST.typ('hochrechnen', 'Gefragt wird', 'verknuepfen')
+ST.typ('hochrechnen', 'In einem Teich', 'transfer')
+ST.typ('hochrechnen', 'Eine Schule hat 1 500', 'begruenden')
+ST.typ('hochrechnen', 'In einer Stichprobe von 40 Kindern', 'rueckwaerts')
+ST.typ('hochrechnen', '/NICHT mit dem Rad/', 'mehrschritt')
+ST.neu('hochrechnen', 'erkennen', A('Von 50 befragten Kindern haben 10 einen Hund. Welche Rechnung liefert den Anteil in der Stichprobe?', '10 : 50', ['50 : 10', '10 · 50', '50 − 10'],
+       'Anteil = Teil : Ganzes = 10 : 50 = 0,2 = 20 %.', 'Teil durch Ganzes.'))
+ST.neu('hochrechnen', 'darstellung', Z('Ein Kreisdiagramm zu einer Stichprobe zeigt: Ein Viertel der Befragten fährt mit dem Rad zur Schule. Die Schule hat 840 Kinder. Schätze, wie viele mit dem Rad kommen.', 210, '840 // 4',
+       'Ein Viertel ist 25 %. 840 : 4 = 210 Kinder (Schätzung).', 'Welchen Anteil zeigt ein Viertelkreis?'))
+ST.neu('hochrechnen', 'fehler', A('Jemand rechnet: „12 von 40 Befragten fahren Rad, die Schule hat 600 Kinder. Also fahren 12 · 600 = 7 200 Kinder Rad.“ Was stimmt?', 'Falsch: Erst den Anteil 12 : 40 = 30 % bilden, dann 30 % von 600 = 180.',
+       ['Richtig.', 'Falsch: 600 : 12 = 50 Kinder.', 'Falsch: 600 − 12 = 588 Kinder.'], 'Man rechnet mit dem Anteil, nicht mit der Anzahl. 7 200 ist mehr als die ganze Schule – das kann nicht stimmen.', 'Kann das Ergebnis größer sein als die Schule?'))
+ST.neu('hochrechnen', 'parameter', Z('In einer Stichprobe von n Kindern sagen 18 „ja“. Hochgerechnet auf 900 Kinder ergibt das 270 „ja“. Wie groß ist n?', 60, '18 * 900 // 270',
+       'Der Anteil ist 270 : 900 = 0,3. In der Stichprobe: 18 : n = 0,3 ⇒ n = 18 : 0,3 = 60.', 'Welcher Anteil steckt in der Hochrechnung?'))
+ST.neu('hochrechnen', 'pruefung', L('Bei einer Verkehrszählung werden an einer Kreuzung 250 Autos beobachtet, 40 davon sind Elektroautos. a) Wie viel Prozent sind das? b) Schätze, wie viele der 12 500 Autos der Stadt Elektroautos sind.',
+       'a) □ %; b) □', [16, 2000], ['40 * 100 // 250', '12500 * 16 // 100'], 'a) 40 : 250 = 0,16 = 16 %. b) 16 % von 12 500 = 2 000 Elektroautos (Schätzung).', 'Erst der Anteil, dann die Hochrechnung.'))
+ST.knobel('hochrechnen', Z('In einem See werden 60 Fische markiert. Beim zweiten Fang sind von 50 Fischen 6 markiert; die 44 unmarkierten werden nun auch markiert. Beim dritten Fang sind von 40 Fischen 10 markiert. Wie viele Fische schätzt man nach dem dritten Fang?', 416, '(60 + 44) * 40 // 10',
+          'Nach dem zweiten Fang sind 60 + 44 = 104 Fische markiert. Im dritten Fang ist jeder 4. markiert (10 von 40). Also ist vermutlich ein Viertel aller Fische markiert: 104 · 4 = 416.', 'Wie viele Fische sind vor dem dritten Fang markiert?'))
+ST.knobel('hochrechnen', Z('Stichprobe A: 50 Kinder, davon 20 % mit Haustier. Stichprobe B: 150 Kinder, davon 30 % mit Haustier. Wie viel Prozent sind es in beiden Stichproben zusammen?', 27.5, '(10 + 45) * 100 / 200',
+          'A: 10 Kinder, B: 45 Kinder. Zusammen 55 von 200 = 27,5 %. Der einfache Mittelwert 25 % ist falsch, weil B dreimal so groß ist.', 'Rechne mit Anzahlen, nicht mit Prozenten.', einheit='%'))
+
+# repraesentativ
+ST.stufenleiter('repraesentativ', 'Erkennen, ob eine Stichprobe zufällig ist und alle Gruppen abdeckt.',
+                'Aus mehreren Auswahlen die beste wählen, Grund für eine Verzerrung nennen, Zusammensetzung einer Tabelle vergleichen.',
+                'Große verzerrte gegen kleine zufällige Stichprobe abwägen, Hauptproblem einer Umfrage finden, verzerrte Kanäle erkennen, passende Zusammensetzung als Prüfungsaufgabe.')
+ST.typ('repraesentativ', '/Ist die Stichprobe geeignet\\?$/', 'erkennen')
+ST.typ('repraesentativ', '/Welche Auswahl ist am besten geeignet\\?$/', 'einkleidung')
+ST.typ('repraesentativ', 'Um herauszufinden, wie viele Haushalte', 'umkehr')
+ST.typ('repraesentativ', '/Welche ist aussagekräftiger\\?$/', 'begruenden')
+ST.typ('repraesentativ', '/^Jemand befragt/', 'fehler')
+ST.typ('repraesentativ', '/^(Die Schülerzeitung|Eine Umfrage zur Freizeit)/', 'transfer')
+ST.neu('repraesentativ', 'direkt', A('Man will wissen, wie viele Kinder einer Schule ein Instrument spielen, und befragt nur die Kinder der Bläserklasse. Welche Gruppe ist zu stark vertreten?', 'Kinder, die ein Instrument spielen',
+       ['Kinder, die kein Instrument spielen', 'Kinder der unteren Klassen', 'Keine, die Stichprobe passt.'], 'In der Bläserklasse spielt jedes Kind ein Instrument. Das Ergebnis wäre fast 100 % und viel zu hoch.', 'Was haben alle Befragten gemeinsam?'))
+ST.neu('repraesentativ', 'darstellung', A('Die Grundgesamtheit besteht zu 50 % aus Mädchen und zu 50 % aus Jungen. Stichprobe A hat 48 % Mädchen, Stichprobe B 80 % Mädchen. Welche passt in der Zusammensetzung besser?', 'A',
+       ['B', 'Beide gleich gut', 'Keine von beiden'], 'A weicht nur um 2 Prozentpunkte ab, B um 30. B ist bei dieser Eigenschaft verzerrt.', 'Vergleiche jede Stichprobe mit 50 %.'))
+ST.neu('repraesentativ', 'pruefung', Z('In einer Stadt sind 40 % der Einwohner jünger als 30 Jahre. Eine Umfrage soll 200 Personen befragen und dabei die Altersgruppen richtig abbilden. Wie viele der Befragten sollten jünger als 30 sein?', 80, '200 * 40 // 100',
+       '40 % von 200 = 80 Personen unter 30 und 120 Personen ab 30.', 'Die Stichprobe soll dieselben Anteile haben wie die Stadt.'))
+ST.knobel('repraesentativ', Z('Eine Schule mit 800 Kindern hat 400 Mädchen. In einer Stichprobe von 40 Kindern sind 30 Mädchen. Wie viele Jungen muss man noch zusätzlich befragen, damit Mädchen und Jungen im richtigen Verhältnis vertreten sind?', 20, '30 - 10',
+          'In der Schule ist die Hälfte Mädchen. In der Stichprobe gibt es 30 Mädchen und 10 Jungen. Für das Verhältnis 1 : 1 braucht man 30 Jungen, also 20 zusätzliche. Dann sind es 60 Befragte.', 'Welches Verhältnis gilt in der ganzen Schule?'))
+ST.knobel('repraesentativ', Z('Bei einer Umfrage sind von 100 befragten Erwachsenen 60 % und von 100 befragten Jugendlichen 20 % dafür. In der Stadt leben dreimal so viele Erwachsene wie Jugendliche. Welcher Anteil der Stadt ist vermutlich dafür?', 50, '(3 * 60 + 20) // 4',
+          'Stell dir 3 Erwachsene und 1 Jugendlichen vor: (3 · 60 % + 1 · 20 %) : 4 = 200 % : 4 = 50 %. Der einfache Mittelwert 40 % wäre falsch, weil die Stichprobe die Jugendlichen zu stark gewichtet.', 'Gewichte die Gruppen nach ihrer Größe in der Stadt.', einheit='%'))
+
+# fehlerquellen
+ST.stufenleiter('fehlerquellen', 'Eine Fehlerquelle benennen (suggestive Frage, zu klein, einseitig, nur Freiwillige) und eine Frage neutral stellen.',
+                'Fehlerquellen in Umfragen von Sender, Zeitschrift und Verein, mehrere Fehler zugleich, passende Situation zu einer Fehlerquelle.',
+                'Wirksamste Verbesserung wählen, mehrere Mängel finden, Wirkung einer größeren Stichprobe begründen, Werbeaussage prüfen, Bewertung einer ganzen Umfrage wie in einer Prüfung.')
+ST.typ('fehlerquellen', 'Welche Frage ist neutral', 'erkennen')
+ST.typ('fehlerquellen', '/^(Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 200|Ein Radiosender bittet Hörer, zum Thema „Mehr|Eine Zeitschrift)/', 'einkleidung')
+ST.typ('fehlerquellen', '/Welche Fehlerquelle liegt vor\\?$/', 'erkennen')
+ST.typ('fehlerquellen', '/^(Um herauszufinden, ob die Fahrgäste|Um herauszufinden, wen).*wirksamsten/', 'transfer')
+ST.typ('fehlerquellen', '/wirksamsten\\?$/', 'begruenden')
+ST.typ('fehlerquellen', '/^(Ein Sportverein|Ein Hotel)/', 'fehler')
+ST.typ('fehlerquellen', 'Die Schülerzeitung', 'begruenden')
+ST.neu('fehlerquellen', 'direkt', A('Mache die Frage „Sie wollen doch sicher auch einen neuen Pausenhof?“ neutral. Welche Frage passt?', '„Soll es einen neuen Pausenhof geben?“',
+       ['„Wer will denn keinen neuen Pausenhof?“', '„Sie finden den alten Pausenhof doch auch hässlich?“', '„Alle wollen einen neuen Pausenhof. Sie auch?“'],
+       'Eine neutrale Frage enthält keine Wertung und legt keine Antwort nahe.', 'Welche Frage verrät nicht, was die Fragenden hören wollen?'))
+ST.neu('fehlerquellen', 'umkehr', A('Bei welcher Umfrage tritt die Fehlerquelle „nur Freiwillige antworten“ auf?', 'Online-Aufruf: Jeder, der will, kann abstimmen.',
+       ['Per Los gezogene Personen werden angerufen.', 'Jede zehnte Person der Liste wird besucht.', 'Alle Kinder einer Klasse füllen einen Bogen aus.'],
+       'Bei einem offenen Aufruf entscheiden die Leute selbst, ob sie mitmachen. Es antworten vor allem die mit starker Meinung.', 'Wer entscheidet, wer antwortet?'))
+ST.neu('fehlerquellen', 'mehrschritt', A('Eine Umfrage fragt nur 5 Kinder: „Ihr wollt doch auch längere Pausen?“ Welche zwei Fehlerquellen liegen vor?', 'Suggestive Frage und zu kleine Stichprobe',
+       ['Nur Freiwillige und einseitige Auswahl', 'Suggestive Frage und nur Freiwillige', 'Zu kleine Stichprobe und einseitige Auswahl'],
+       '„Ihr wollt doch auch …“ lenkt die Antwort (suggestiv). 5 Kinder sind zu wenige, um etwas über eine Schule zu sagen.', 'Prüfe die Frage und die Zahl der Befragten getrennt.'))
+ST.neu('fehlerquellen', 'pruefung', A('Ein Fitnessstudio fragt 20 seiner Mitglieder: „Sport ist gesund – wie oft trainieren Sie pro Woche?“ und schreibt danach: „Die Deutschen trainieren viermal pro Woche.“ Welche Mängel hat die Umfrage?',
+       'Einseitige Auswahl, viel zu klein und eine wertende Einleitung', ['Nur die Frage ist wertend.', 'Nur die Stichprobe ist zu klein.', 'Keine, Mitglieder wissen am besten Bescheid.'],
+       'Mitglieder eines Studios trainieren mehr als andere (einseitig). 20 Personen sind für „die Deutschen“ viel zu wenige. „Sport ist gesund“ lenkt die Antwort.', 'Prüfe Auswahl, Größe und Frage.'))
+ST.knobel('fehlerquellen', Z('Ein Brief geht an 1 000 Haushalte. 30 % antworten, davon sind 80 % zufrieden. Wie viele Haushalte haben geantwortet und sind zufrieden?', 240, '1000 * 30 // 100 * 80 // 100',
+          '30 % von 1 000 = 300 Antworten, 80 % davon = 240 zufriedene. Über die 700 Haushalte ohne Antwort weiß man nichts – darum ist „80 % sind zufrieden“ nicht haltbar. Sicher ist nur: mindestens 24 % aller Haushalte sind zufrieden.',
+          'Rechne Schritt für Schritt – und überlege, was über die anderen bekannt ist.'))
+ST.knobel('fehlerquellen', Z('Um ehrliche Antworten zu bekommen, würfelt jeder Befragte heimlich: Bei einer 6 sagt er „ja“, sonst antwortet er ehrlich auf die Frage „Bist du schon einmal schwarzgefahren?“. 40 % sagen „ja“. Schätze den Anteil der Schwarzfahrer in Prozent.', 28, '(40 - 100 / 6) * 6 / 5',
+          'Ein Sechstel sagt wegen der 6 „ja“ (≈ 16,7 %). Die übrigen fünf Sechstel antworten ehrlich: 5/6 · p = 40 % − 1/6 = 23,3 %. Also p = 23,3 % · 6/5 = 28 %. Niemand muss ehrlich zugeben, dass er schwarzgefahren ist.',
+          'Wie viele „ja“ kommen allein durch die Würfel-6 zustande?', einheit='%'))
+
+# aussagen
+ST.stufenleiter('aussagen', 'Erkennen, dass ein Stichprobenergebnis ein Schätzwert ist und große Stichproben weniger schwanken.',
+                'Anteile als Schätzwert formulieren, Spannweite und Prozentpunkte berechnen, Gewicht einer Person.',
+                'Schlagzeilen beurteilen, knappe Ergebnisse abwägen, Fehlschluss bei kleinen Umfragen finden, mindestens nötige Anzahl rückwärts bestimmen, Prüfungsaufgabe mit zwei Umfragen.')
+ST.typ('aussagen', '/^(Stichprobe A hat|Zwei kleine|In einer Zufallsstichprobe sagen 30)/', 'erkennen')
+ST.typ('aussagen', 'In einer guten Zufallsstichprobe', 'einkleidung')
+ST.typ('aussagen', '/^(Vier Gruppen|Klasse 7a)/', 'mehrschritt')
+ST.typ('aussagen', '/^(Eine Zeitung schreibt|Ein Prospekt)/', 'begruenden')
+ST.typ('aussagen', '/^(Bei einer guten Zufallsstichprobe|In einer guten Umfrage)/', 'transfer')
+ST.typ('aussagen', 'Umfrage A:', 'fehler')
+ST.typ('aussagen', '/^(Wie viele Personen muss man|In einer Stichprobe mit 50)/', 'rueckwaerts')
+ST.neu('aussagen', 'direkt', Z('In einer Zufallsstichprobe von 200 Personen sagen 46 „ja“. Wie viel Prozent sind das?', 23, '46 * 100 / 200',
+       '46 : 200 = 0,23 = 23 %. Das ist ein Schätzwert für die Grundgesamtheit.', 'Teil durch Ganzes.', einheit='%'))
+ST.neu('aussagen', 'umkehr', Z('Bei einer Umfrage mit 80 Befragten: Wie viele Prozentpunkte macht eine einzelne Person aus?', 1.25, '100 / 80',
+       '100 % : 80 = 1,25 %. Jede Person ändert das Ergebnis um 1,25 Prozentpunkte.', 'Verteile 100 % auf alle Befragten.'))
+ST.neu('aussagen', 'pruefung', L('Zwei Zufallsumfragen zu „Soll der Pausenhof begrünt werden?“: Umfrage 1: 18 von 30 Kindern sagen ja. Umfrage 2: 330 von 600. a) Gib beide Anteile in % an. b) Um wie viele Prozentpunkte unterscheiden sie sich?',
+       'a) □ % und □ %; b) □', [60, 55, 5], ['18 * 100 // 30', '330 * 100 // 600', '60 - 55'],
+       'a) 18 : 30 = 60 %, 330 : 600 = 55 %. b) 5 Prozentpunkte. Umfrage 2 ist wegen ihrer Größe verlässlicher.', 'Erst die Anteile, dann die Differenz.'))
+ST.knobel('aussagen', Z('Eine Umfrage meldet genau 37 % „ja“. Wie viele Personen müssen mindestens befragt worden sein?', 100, '100',
+          '37 % = 37/100, und dieser Bruch lässt sich nicht kürzen (37 ist eine Primzahl). Also muss die Zahl der Befragten ein Vielfaches von 100 sein: mindestens 100.', 'Schreibe 37 % als Bruch und kürze, wenn möglich.'))
+ST.knobel('aussagen', Z('Eine Umfrage meldet „gerundet 43 %“. Wie viele Personen wurden mindestens befragt?', 7, '7',
+          'Gesucht ist ein Bruch k/n zwischen 42,5 % und 43,5 % mit kleinem n. n = 1 bis 6 liefert nur 0 %, 14 %, 17 %, 20 %, 25 %, 29 %, 33 %, 40 %, 50 %, 60 % usw. Erst 3/7 ≈ 42,9 % passt. Also mindestens 7.',
+          'Probiere n = 1, 2, 3, … und alle möglichen Anteile.'))
+
+
 if __name__ == '__main__':
     d = bauen('daten.stichproben',
           'Grundgesamtheit und Stichprobe unterscheiden, von Stichproben hochrechnen und beurteilen, ob eine Stichprobe repräsentativ ist.',
@@ -594,3 +734,4 @@ if __name__ == '__main__':
           offen=['Umfang laut Liste nur „Repräsentativität und Grenzen von Aussagen“ (RS 7); die Hochrechnung mit relativen Häufigkeiten wurde als üblicher Schulstoff ergänzt.'])
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
     durchsicht(d)
+    stufen('daten.stichproben', ST)

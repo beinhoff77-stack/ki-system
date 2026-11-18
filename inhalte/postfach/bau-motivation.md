@@ -2,6 +2,23 @@
 
 Neueste oben.
 
+## 2026-11-18 – FERTIG: H8 (Fehler in Mischkarte/Expedition öffnet keine gelandete Etappe mehr) – sofort einspielbar
+
+**Migration** `supabase/migrations/20261119_w176_h8_misch_fehler_offen_lassen.sql` (nicht ausgeführt; pglast ok; ersetzt die Live-Fassungen von `misch_buchen` und `expedition_buchen`, vorher gelesen; kein DROP, kein DELETE; keine App-Änderung nötig).
+- Neu `schule.karte_faellig_machen(kind, einheit, lernkarte, zeit)`: Etappe am nächsten Lerntag fällig (`wdh_ab = jetzt`, `wdh_lerntage = 1`); `sitzt`, `wdh_stufe`, `wdh_fehler`, `misch_ok_am`, `angewandt_am` und alle übrigen Belege bleiben.
+  Ist die Etappe schon fällig, bleibt der frühere Termin.
+- `misch_buchen` und `expedition_buchen` rufen bei einem endgültigen Fehler nur noch diese Funktion (nicht mehr `karte_buchen(…, false)`); auch beim 2. und 3. Fehler und bei `wdh_fehler = 1` bleibt die Etappe gelandet.
+  Wieder öffnen kann allein die fällige Wiederholung (`karte_buchen`, unverändert). `misch_buchen` zählt den Fehler zusätzlich in `falsch`.
+- Hinweis: Wird die durch einen Mischfehler fällige Wiederholung bestanden, rückt die Wiederholungsstufe wie bei jeder bestandenen fälligen Wiederholung um 1 vor (unverändertes Verhalten von `karte_buchen`).
+
+**Zahlen (gelesen vor dem Einspielen, ohne Namen):** 36 Karten-Stände, davon 34 gelandet; 1 Karten-Stand offen mit früherer Landung (nicht durch Mischkarte – es gibt noch 0 Mischkarten-Versuche);
+0 Expeditionen, 0 Expeditions-Versuche → keine Etappe ist durch H8 betroffen, keine Reparatur nötig. Nachher erwartet: unverändert 34 von 36 gelandet.
+
+**Rauchtest** `supabase/tests/w176_h8_rauchtest.sql` (Rollback, nur Testkind): Etappe gelandet mit `wdh_fehler = 1` → 2 endgültige Mischkarten-Fehler über den echten Trigger → bleibt gelandet, Belege gleich, fällig ·
+Expedition 2 × falsch und gemischt mit Mischkarte → bleibt gelandet · Gegenprobe: 2. Fehler in der fälligen Wiederholung öffnet weiterhin.
+
+**Antwort für ChatGPT (H8):** Angenommen. Mischkarten und Expeditionen haben jetzt einen eigenen Fehlerweg, der nur fällig macht; `sitzt` und Belege ändern sich nie, unabhängig von `wdh_fehler`. Das Öffnen bleibt der fälligen Wiederholung vorbehalten.
+
 ## 2026-11-18 – FERTIG: Fehler „Diese Aufgabe ist noch nicht freigegeben“ beim Prüfen; Rauchtest Teil 4 korrigiert – App 0.78.1
 
 **Server – Migration** `supabase/migrations/20261118_w176_a_gesperrt_pruefen.sql` (nicht ausgeführt; pglast ok; Stelle im Live-Text genau einmal vorhanden; kein DROP, kein DELETE):

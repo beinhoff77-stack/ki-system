@@ -2,6 +2,47 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 05:10 – STATUS: Inhaltliche Prüfung aller neuen Aufgaben, Klasse 6
+
+Vorher `origin/lernen-app` in `stufen-kl6` geholt (Vorspulen, kein Konflikt). Umfang: alle 11 Themen mit gym_by 6. „Neu“ = Übung oder Knobel-Bordkarte, deren Fragetext es im
+Commit 4eda8cb in **keiner** Themendatei gab (so gelesen, weil der Auftrag „im Commit“ sagt; dadurch zählen die 24 ggT/kgV-Aufgaben, die die Runde „Bereinigen“ aus
+zahlen.teilbarkeit nach bruch.brueche gebracht hat, als neu, denn sie stammen aus der Zwanzigsten Runde Kl. 5; alte Aufgaben, die nur umgezogen sind, zählen als alt).
+
+**Geprüft: 778 neue Aufgaben** (bruch.brueche 99, bruch.dezimal 66, bruch.rechnen 94, messen.flaechen_vielecke 145, messen.volumen 149, zahlen.potenzen_zehner 36,
+terme.potenzgesetze 17, bruch.prozent 39, finanzen.zinsen 80, daten.darstellen 32, daten.kennwerte 21). Jede vollständig gelesen (Frage, alle Optionen, Tipp, Lösungsweg)
+und von Hand nachgerechnet; Zähl- und „höchstens/mindestens“-Aufgaben durch Aufzählen aller Fälle.
+
+**Geändert: 75 Aufgaben** (je Aufgabe der Hauptfehler gezählt). Alte Aufgaben Zeichen für Zeichen gleich, `g`, `s`, Pool und Platz jeder Aufgabe gleich.
+
+| Fehlerart | Zahl | Beispiel vorher → nachher |
+|---|---|---|
+| a) Lösung falsch/nicht eindeutig | 5 | bruch.rechnen/dezimal_mal: „Für wie viele natürliche Zahlen n ist n · 0,3 kleiner als 2?“ (mit 0 wären es 7, ohne 6) → „… natürliche Zahlen n **ab 1** …“. Ebenso zahlen.potenzen_zehner: „Wie viele **volle** Stunden bräuchte es bis zum Mond?“ (426 volle Stunden reichen nicht) → „Wie viele Stunden ungefähr? Runde auf ganze Stunden.“ → 427 |
+| b) Mehrdeutige Strich-Zählung | 9 | bruch.brueche/zahlenstrahl: „Ein Punkt liegt **beim 6. Strich**.“ → „Ein Punkt liegt **6 Abschnitte rechts von der 0**.“; Lösungswege „also der 8. Strich“ → „8 Abschnitte nach der 0“ |
+| c) Späterer Stoff | 29 | messen.flaechen_vielecke/trapez: „… so lang wie der **Mittelwert** von a und c“ (daten.kennwerte kommt später) → „… halb so lang wie a und c zusammen“. Weitere: Prozent vor bruch.prozent („10 % der Oberfläche“ → „ein Zehntel“), Potenzgesetze in Lösungswegen (10⁵ · 10⁴ = 10⁹ → Nullen zählen; a² · a³ = a⁵ → ausschreiben), Rechnen mit Dezimalzahlen und Brüchen vor bruch.rechnen, „Linie y = 7“, „2x“, „h_D“, Verhältnis „1 : 2 : 3“, Exponent „−1,5“ |
+| d) Unklare Frage | 3 | messen.volumen: Block „4 dm **tief**“ und Rinne „3 dm **tief**“ → Rinne „3 dm **hoch**; sie geht von vorn bis hinten ganz durch“. Ebenso „6 : n/5“ → „6 : (n/5)“ |
+| e) Option mit falscher Rechnung | 2 | bruch.brueche/ggt: Option „Nein: ggT(4, 6) = 12.“ → „Nein, der ggT kann auch größer sein als beide Zahlen.“; potenzen_zehner: „Nein, 10⁰ = 10.“ → „Nein, hoch 0 ändert die Zahl 10 nicht.“ |
+| f) Lösungsweg mit „…“/Sprung | 27 | messen.flaechen_vielecke, Knobel Mittenviereck: „Jedes Eckdreieck ist so groß wie ein Viertel eines kleinen Parallelogramms, zusammen die Hälfte.“ → Mittellinien zeichnen, 4 kleine Parallelogramme je 15 cm², jede Viereckseite halbiert eines → 30 cm². Ebenso „Teiler von 36: …, 12, 18, 36“ → Teiler von groß nach klein geprüft |
+
+Je Thema geändert: bruch.brueche 17, bruch.dezimal 14, bruch.rechnen 10, messen.flaechen_vielecke 7, messen.volumen 2, zahlen.potenzen_zehner 12, terme.potenzgesetze 4,
+bruch.prozent 2, finanzen.zinsen 1, daten.darstellen 4, daten.kennwerte 2. Keine falsche Endlösung gefunden; alle 5 Fälle unter a) sind Mehrdeutigkeiten.
+
+**Prüfung:** Je Thema `tools/inhalt_pruefen.py` OK, 0 Gruppen „gleich gebaut hintereinander“ (Datei und Kopie ohne überzählige). Nachweis gegen origin/lernen-app:
+neues Skript `inhalte/generatoren/_stufen_kl6_pruefung_nachweis.py <thema>`, bei allen 11 OK. Das alte `_stufen_kl6_nachweis.py` passt nicht mehr, weil lernen-app die neuen
+Aufgaben schon enthält und jede Korrektur dort als „alte Aufgabe geändert“ zählt. Das neue Skript prüft: alte Aufgaben (Fragetext in 4eda8cb) Zeichen für Zeichen gleich,
+an jeder Stelle gleiche Lernkarte, Pool, `s` und `g`, Kopf unverändert. Ausnahme Kopf: In bruch.rechnen und zahlen.potenzen_zehner hat der Generator das Feld `klasse`
+(rs_by, ib_myp) auf den Stand der Themenliste gebracht, der auf lernen-app in der JSON-Datei veraltet war.
+Geändert wurde nur in den Generatoren (`_st5_zahlen_teilbarkeit.py` für die ggT/kgV-Aufgaben; zahlen.teilbarkeit.json bleibt dabei unverändert).
+
+**Lesarten (Annahmen):**
+- Späterer Stoff auch innerhalb eines Themas nur, wenn er aus einem späteren Thema stammt; die Reihenfolge der Lernkarten innerhalb eines Themas habe ich nicht als Maßstab genommen.
+- Potenzgesetze gelten nach der Runde „Bereinigen“ als Stoff von Kl. 7 (terme.umformen). In terme.potenzgesetze/fehler_finden sind Lösungswege darum über „Ausschreiben“ erklärt, wie es die Lernkarte selbst tut.
+- Rechnen mit Größen in Kommaschreibweise (z. B. „1,25 m“, Euro-Beträge) gilt als Stoff von Kl. 5 (groessen.einheiten) und blieb.
+- „an der 2. Stelle nach dem Komma“ und „das 1., 3. … Wort einer Liste“ sind eindeutig (es gibt keinen Anfangsstrich) und blieben.
+- Ausgedachte Vornamen in Aufgaben (Lea, Tom, Jonas, Mara, Lena, Tim) sind keine Daten echter Kinder und blieben.
+
+**Nicht geprüft:** wie die geänderten Texte in der App aussehen; Zeichnungen (Koordinaten-Bilder habe ich nur bei 2 Aufgaben mit den Angaben im Text verglichen);
+Aufgaben mit Fragetext aus 4eda8cb (alt, nicht im Auftrag).
+
 ## 2026-11-17 19:50 – FERTIG: Zwanzigste Runde, Klasse 6 (Zweig stufen-kl6)
 
 Alle 11 Themen mit gym_by 6 bearbeitet (85 Lernkarten), je Thema ein Commit. Bei allen 11 Dateien meldet `tools/inhalt_pruefen.py` OK, ohne Fehler zu Typen,

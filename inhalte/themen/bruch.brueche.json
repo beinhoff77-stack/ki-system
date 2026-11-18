@@ -12608,7 +12608,7 @@
    },
    "a": [
     "Ja: Ein Teiler einer Zahl ist nie größer als die Zahl selbst.",
-    "Nein: ggT(4, 6) = 12.",
+    "Nein, der ggT kann auch größer sein als beide Zahlen.",
     "Nein: Er ist immer das Produkt.",
     "Ja, aber nur bei geraden Zahlen."
    ],

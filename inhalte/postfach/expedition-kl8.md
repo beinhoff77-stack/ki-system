@@ -6,3 +6,4 @@ Neueste Meldung oben. Format: `inhalte/README.md`, Abschnitt „Expeditionen“.
 ## STATUS (je Expedition eine Zeile)
 - 8-klassenfahrt: OK  – Teile und Themen siehe Abschlussbericht.
 - 8-kerzen: OK  – Teile und Themen siehe Abschlussbericht.
+- 8-radtour: OK  – Teile und Themen siehe Abschlussbericht.

@@ -1759,8 +1759,8 @@
     "wert": 49
    },
    "c": "7 ** 2",
-   "w": "Gesucht: √x + 3 = x − 39. Setze w = √x, dann ist x = w · w: w + 3 = w · w − 39, also w · w − w = 42. Probieren: 7 · 7 − 7 = 42. Für w > 7 wird w · w − w größer, für 0 ≤ w < 7 kleiner, also ist w = 7 die einzige Möglichkeit und x = 49. Probe: √49 + 3 = 10 und 49 − 39 = 10.",
-   "h": "Gib der Wurzel einen eigenen Namen. Was ist dann x?",
+   "w": "Gesucht: √x + 3 = x − 39. Schreibe x = √x · √x: √x + 3 = √x · √x − 39, also √x · √x − √x = 42, d. h. √x · (√x − 1) = 42. Gesucht ist eine Zahl, die mit der um 1 kleineren Zahl malgenommen 42 ergibt: 7 · 6 = 42. Größere Zahlen ergeben ein größeres Produkt, kleinere ein kleineres, also √x = 7 und x = 49. Probe: √49 + 3 = 10 und 49 − 39 = 10.",
+   "h": "Schreibe x als √x · √x.",
    "l": "quadratwurzel",
    "t": "quadratwurzel",
    "p": "bonus",

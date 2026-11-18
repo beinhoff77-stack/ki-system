@@ -751,8 +751,8 @@ ST.knobel('quadratwurzel', Z('Wie viele Quadratzahlen liegen zwischen 2 000 und 
           'Grenzen über Wurzeln: 44² = 1 936 < 2 000 < 2 025 = 45², und 54² = 2 916 < 3 000 < 3 025 = 55². Die Quadratzahlen dazwischen sind 45², 46², …, 54². Das sind 54 − 45 + 1 = 10 Zahlen.',
           'Du musst nicht alle Zahlen prüfen. Was weißt du über die Zahl, deren Quadrat knapp über 2 000 liegt?'))
 ST.knobel('quadratwurzel', Z('Eine Zahl x ist größer als 0. Zieht man aus x die Wurzel und zählt 3 dazu, kommt dasselbe heraus, wie wenn man von x die Zahl 39 abzieht. Welche Zahl ist x?', 49, '7 ** 2',
-          'Gesucht: √x + 3 = x − 39. Setze w = √x, dann ist x = w · w: w + 3 = w · w − 39, also w · w − w = 42. Probieren: 7 · 7 − 7 = 42. Für w > 7 wird w · w − w größer, für 0 ≤ w < 7 kleiner, also ist w = 7 die einzige Möglichkeit und x = 49. Probe: √49 + 3 = 10 und 49 − 39 = 10.',
-          'Gib der Wurzel einen eigenen Namen. Was ist dann x?'))
+          'Gesucht: √x + 3 = x − 39. Schreibe x = √x · √x: √x + 3 = √x · √x − 39, also √x · √x − √x = 42, d. h. √x · (√x − 1) = 42. Gesucht ist eine Zahl, die mit der um 1 kleineren Zahl malgenommen 42 ergibt: 7 · 6 = 42. Größere Zahlen ergeben ein größeres Produkt, kleinere ein kleineres, also √x = 7 und x = 49. Probe: √49 + 3 = 10 und 49 − 39 = 10.',
+          'Schreibe x als √x · √x.'))
 
 # wurzel_dezimal
 ST.stufenleiter('wurzel_dezimal', 'Wurzel aus einer Dezimalzahl mit gerader Stellenzahl oder aus einem Bruch ziehen.',

@@ -746,7 +746,7 @@ T('umfang', (r'Was ergibt u : d|Faden', 'erkennen'), (r'^Ein Kreis hat den Durch
 ST.knobel('umfang', SZ('Ein Seil liegt straff um den Äquator (etwa 40 000 km). Es wird um 6,28 m verlängert und so angehoben, dass es überall gleich weit absteht. Wie groß ist dieser Abstand (π ≈ 3,14)?', 1, '628/100 / (2 * 314/100)',
     'u = 2πr. Wird u um 6,28 m größer, wächst r um 6,28 : (2 · 3,14) = 1 m – unabhängig davon, wie groß der Kreis ist. Unter dem Seil passt also überall ein Kind durch.', 'Um wie viel wächst r, wenn u um einen bestimmten Betrag wächst?', einheit='m'))
 ST.knobel('umfang', SZ('Zwei Räder mit 50 cm und 30 cm Umfang rollen nebeneinander los, an beiden ist die markierte Stelle unten. Nach wie vielen Zentimetern sind beide Markierungen zum ersten Mal wieder gleichzeitig unten?', 150, '150',
-    'Die Markierung des ersten Rads ist nach 50, 100, 150 … cm unten, die des zweiten nach 30, 60, 90, 120, 150 … cm. Zum ersten Mal gemeinsam: kgV(50; 30) = 150 cm.', 'Wann ist jede Markierung für sich wieder unten?', einheit='cm'))
+    'Die Markierung des ersten Rads ist nach 50, 100 und 150 cm unten (immer nach einem Vielfachen von 50 cm), die des zweiten nach 30, 60, 90, 120 und 150 cm (Vielfache von 30 cm). Zum ersten Mal gemeinsam: kgV(50; 30) = 150 cm.', 'Wann ist jede Markierung für sich wieder unten?', einheit='cm'))
 
 # --- flaeche ---
 ST.leiter('flaeche', 'Kreisfläche aus r oder d berechnen, die Formel erkennen',

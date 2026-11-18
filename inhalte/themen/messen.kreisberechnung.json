@@ -6364,7 +6364,7 @@
     "einheit": "cm"
    },
    "c": "150",
-   "w": "Die Markierung des ersten Rads ist nach 50, 100, 150 … cm unten, die des zweiten nach 30, 60, 90, 120, 150 … cm. Zum ersten Mal gemeinsam: kgV(50; 30) = 150 cm.",
+   "w": "Die Markierung des ersten Rads ist nach 50, 100 und 150 cm unten (immer nach einem Vielfachen von 50 cm), die des zweiten nach 30, 60, 90, 120 und 150 cm (Vielfache von 30 cm). Zum ersten Mal gemeinsam: kgV(50; 30) = 150 cm.",
    "h": "Wann ist jede Markierung für sich wieder unten?"
   }
  ],

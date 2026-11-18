@@ -3193,7 +3193,7 @@
    "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Für zwei Fahrten gilt 60/v = 90/(v + 20). Jemand erhält v = 40 und sagt: „Das Rad fährt 40 km/h, das Auto 60 km/h.“ Was stimmt?"
+    "text": "Für zwei Fahrten gilt 60/v = 90/(v + 20). Jemand erhält v = 40 und sagt: „Der Roller fährt 40 km/h, das Auto 60 km/h.“ Was stimmt?"
    },
    "a": [
     "Richtig: 60/40 = 1,5 h und 90/60 = 1,5 h.",
@@ -4883,7 +4883,7 @@
    "g": "fehler",
    "y": "auswahl",
    "f": {
-    "text": "Jemand löst für zwei Tarife (x − 4)/(x − 4) = 1 und sagt: „Jede Zahl ist eine Lösung.“ Was stimmt?"
+    "text": "Jemand löst (x − 4)/(x − 4) = 1 und sagt: „Jede Zahl ist eine Lösung.“ Was stimmt?"
    },
    "a": [
     "Falsch: Nur x = 4.",
@@ -4922,7 +4922,7 @@
    "g": "parameter",
    "y": "auswahl",
    "f": {
-    "text": "Für die Fahrzeit gilt 60/(v − 10) = t. Für welches t gibt es eine Lösung v = 10, die keine Lösung ist?"
+    "text": "Für die Fahrzeit gilt 60/(v − 10) = t. Für welches t ist v = 10 eine Lösung der Gleichung?"
    },
    "a": [
     "für t = 0",
@@ -5651,7 +5651,7 @@
     "Falsch: 40 kg Zement.",
     "Falsch: 5 kg Zement.",
     "Falsch: 1 von 5 Teilen – 10 kg Zement.",
-    "Richtig: 50 : 4 = 12,5."
+    "Richtig: Zement ist ein Viertel des Betons."
    ],
    "o": {
     "index": 2
@@ -6037,7 +6037,7 @@
    "g": "direkt",
    "y": "zahl",
    "f": {
-    "text": "Löse 12/x = 3 rechnerisch – so kannst du den abgelesenen Schnittpunkt kontrollieren. Gib x an."
+    "text": "Der Graph von y = 12/x schneidet die Gerade y = 3. Berechne die x-Koordinate des Schnittpunkts."
    },
    "o": {
     "wert": 4

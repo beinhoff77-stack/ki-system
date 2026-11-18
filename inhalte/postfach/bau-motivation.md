@@ -2,6 +2,19 @@
 
 Neueste oben.
 
+## 2026-11-18 – FERTIG: Abgleich ohne Expeditionen
+
+Stand von `lernen-app` übernommen (enthält 9d2f9be – dein berichtigter Kommentar in `h_muss` bleibt so).
+
+- **Migration** `supabase/migrations/20261119_abgleich_ohne_expeditionen.sql` (nicht ausgeführt; pglast ok; kein DROP, kein DELETE):
+  `schule.einheit_abgleichen` lässt Aufgaben mit `pool = 'expedition'` ganz unberührt – an allen 5 Stellen mit `b.einheit_id = v_e` (Änderungen übernehmen, „schon vorhanden?“, Zählen „nicht mehr in der Datei“, **Sperren**, Löschen bei Entwürfen).
+  Die Migration bricht ab, wenn es nicht genau 5 Stellen sind oder die Funktion schon angepasst ist. Expeditions-Teile pflegt nur `expedition_importieren`.
+- **Rauchtest** `supabase/tests/abgleich_ohne_expeditionen_rauchtest.sql` (Rollback): baut aus dem Datenbank-Stand die Themendatei eines Flugs mit freigegebenen Expeditions-Teilen (heute z. B. Einheit 1 mit 5 Teilen),
+  gleicht mit `'sperren'` ab → Teile bleiben frei, „nicht mehr in der Datei“ = 0, keine neuen Aufgaben; Gegenprobe: eine Übung aus der Datei genommen → genau diese wird gesperrt, die Teile nicht.
+  Vor der Migration schlägt der Test mit „FEHLER 2“ fehl (Nachweis des Fehlers).
+- **Rauchtest H12b** (`w176_h_sollte_rauchtest.sql`): nimmt jetzt den Schlüssel `8-rauchtest-h12`, den es nicht gibt (prüft das vorab), statt `8-handytarif`. Damit stimmt auch H12d (4 neue Teile).
+- Gelesen (nur lesend): heute 90 Expeditions-Teile, davon 0 gesperrt.
+
 ## 2026-11-18 – FERTIG: Auftrag H (korrigiert)
 
 **Ursache** „record "v" is not assigned yet“: Im H2-Block von `20261119_w176_h_muss.sql` hieß die Schleifenvariable `v` wie der Tabellen-Alias `schule.versuch v`. Variable heißt jetzt `w`.

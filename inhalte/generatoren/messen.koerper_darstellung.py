@@ -822,7 +822,7 @@ ST.neu('beurteilen', 'pruefung', SA('Ein Prisma hat 21 Kanten. Welche Aussage st
 ST.neu('beurteilen', 'parameter', SA('Für welche n stimmt: „Ein n-seitiges Prisma hat mehr Kanten als eine n-seitige Pyramide Ecken“?', 'für alle n ≥ 3', ['nur für n > 5', 'für kein n', 'nur für gerade n'],
     'Prisma: 3n Kanten, Pyramide: n + 1 Ecken. 3n > n + 1 gilt für alle n ≥ 1, also für jedes Prisma.', 'Vergleiche 3n mit n + 1.'))
 ST.knobel('beurteilen', SA('Welche Zahl kann die Kantenzahl einer Pyramide, aber nicht die eines Prismas sein?', '8', ['9', '15', '12'],
-    'Prismen haben 3n Kanten (9, 12, 15 …), Pyramiden 2n Kanten (6, 8, 10, 12 …). 8 ist gerade, aber nicht durch 3 teilbar. 12 geht bei beiden, 9 und 15 nur beim Prisma.', 'Stelle beide Kantenformeln auf.'))
+    'Prismen haben 3n Kanten (Vielfache von 3 ab 9: 9, 12, 15 und so weiter), Pyramiden 2n Kanten (gerade Zahlen ab 6: 6, 8, 10, 12 und so weiter). 8 ist gerade, aber nicht durch 3 teilbar. 12 geht bei beiden, 9 und 15 nur beim Prisma.', 'Stelle beide Kantenformeln auf.'))
 ST.knobel('beurteilen', SZ('Ein Prisma und eine Pyramide haben dieselbe n-eckige Grundfläche und zusammen 35 Kanten. Bestimme n.', 7, '35 / 5',
     'Prisma 3n Kanten, Pyramide 2n Kanten: 5n = 35 ⇒ n = 7.', 'Addiere die Kantenformeln.'))
 baue = mit_stufen(baue, ST)

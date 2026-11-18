@@ -1205,7 +1205,7 @@ TX.u('proportional', 'mehrschritt', TZ('Ein Drucker schafft 18 Seiten in 45 Seku
 TX.u('proportional', 'pruefung', TZ('Ein Lieferwagen verbraucht 9 l Diesel auf 100 km. Er hat 6 Sitzplätze und ist weiß lackiert. Wie viele Liter braucht er für 340 km?', '9 / 100 * 340',
     TW('9 l pro 100 km, 340 km; Sitze und Farbe spielen keine Rolle.', 'Verbrauch.', 'Verbrauch pro km.', '0,09 · 340 = 30,6.', 'Er braucht 30,6 l.'), 'Welche Angaben gehören zum Verbrauch?', einheit='l'), huerde='ueberfluessig')
 TX.u('proportional', 'verknuepfen', TX.A('Ein Laden verkauft Saft: 1 l kostet 2,20 €, die 5-l-Packung kostet 9 €. Jemand sagt: „Der Preis ist proportional zur Menge.“ Was stimmt?',
-    'Falsch: Bei Proportionalität müssten 5 l 11 € kosten.', ['Richtig: Mehr Saft kostet mehr.', 'Richtig: 9 : 5 = 2,20.', 'Falsch: 5 l müssten 10 € kosten.'],
+    'Falsch: Bei Proportionalität müssten 5 l 11 € kosten.', ['Richtig: Mehr Saft kostet mehr.', 'Richtig: 5 l kosten mehr als 1 l.', 'Falsch: 5 l müssten 10 € kosten.'],
     TW('1 l → 2,20 €, 5 l → 9 €.', 'proportional?', 'Quotient Preis : Menge vergleichen.', '2,20 € pro l gegen 1,80 € pro l.', 'Nicht proportional; die Großpackung ist günstiger.'), 'Was müssten 5 l bei gleichem Literpreis kosten?'), huerde='entscheidung')
 TX.s('proportional', TZ('3 m Stoff kosten 21 €. Was kosten 5 m?', '21 / 3 * 5',
     TW('3 m → 21 €.', 'Preis für 5 m.', 'Preis pro m.', '7 · 5 = 35.', '5 m kosten 35 €.'), einheit='€'))
@@ -1239,8 +1239,8 @@ TX.u('schnittpunkte', 'pruefung', TZ('Zwei Kerzen brennen gleichzeitig: A ist 24
 TX.u('schnittpunkte', 'transfer', TZ('Zwei Handwerker: A verlangt 30 € Anfahrt und 40 € pro Stunde, B 60 € Anfahrt und 34 € pro Stunde. Ab wie vielen vollen Stunden ist B günstiger?', '(60 - 30) // (40 - 34) + 1',
     TW('A: 30 + 40x, B: 60 + 34x.', 'kleinste volle Stundenzahl mit B < A.', 'Schnittpunkt, dann deuten.', '30 + 40x = 60 + 34x ⇒ x = 5; bei 5 h gleich teuer.', 'Ab 6 Stunden ist B günstiger.'), 'Was gilt genau am Schnittpunkt?', einheit='h'), huerde='deuten')
 TX.u('schnittpunkte', 'begruenden', TX.A('Zwei Läufer: A startet bei km 0 mit 12 km/h, B startet gleichzeitig bei km 3 mit 10 km/h. Jemand sagt: „A holt B nach 1,5 Stunden ein, also noch vor dem Ziel bei km 15.“ Was stimmt?',
-    'Richtig: Treffpunkt bei km 18 nach 1,5 h – aber das ist hinter dem Ziel, A holt B also nicht ein.', ['Richtig: A holt B bei km 15 ein.', 'Falsch: A holt B nie ein.', 'Falsch: A holt B nach 0,5 h ein.'],
-    TW('A: 12x, B: 10x + 3, Ziel bei km 15.', 'Treffpunkt vor dem Ziel?', 'Gleichsetzen, dann mit dem Ziel vergleichen.', '12x = 10x + 3 ⇒ x = 1,5; 12 · 1,5 = 18 > 15.', 'Die Zeit stimmt, aber der Treffpunkt liegt hinter dem Ziel.'), 'Berechne auch, bei welchem km sie sich treffen würden.'), huerde='zwei')
+    'Falsch: Nach 1,5 h wären beide bei km 18 – hinter dem Ziel. Vor dem Ziel holt A B nicht ein.', ['Richtig: A holt B bei km 15 ein.', 'Falsch: A holt B nie ein.', 'Falsch: A holt B nach 0,5 h ein.'],
+    TW('A: 12x, B: 10x + 3, Ziel bei km 15.', 'Treffpunkt vor dem Ziel?', 'Gleichsetzen, dann mit dem Ziel vergleichen.', '12x = 10x + 3 ⇒ x = 1,5; 12 · 1,5 = 18 > 15.', 'Die Zeit 1,5 h stimmt, aber der Treffpunkt läge hinter dem Ziel; die Aussage ist falsch.'), 'Berechne auch, bei welchem km sie sich treffen würden.'), huerde='zwei')
 TX.s('schnittpunkte', TZ('Taxi A: 3 € + 2 € pro km, Taxi B: 5 € + 1,50 € pro km. Bei wie vielen km kosten beide gleich viel?', '(5 - 3) / (2 - 1.5)',
     TW('3 + 2x = 5 + 1,5x.', 'x.', 'Gleichsetzen.', '0,5x = 2 ⇒ x = 4.', 'Bei 4 km.'), einheit='km'))
 TX.s('schnittpunkte', TZ('Tank A hat 200 l und verliert 10 l pro Minute, Tank B hat 50 l und bekommt 5 l pro Minute dazu. Nach wie vielen Minuten ist in beiden gleich viel?', '(200 - 50) / (10 + 5)',
@@ -1260,7 +1260,7 @@ TX.u('lage', 'pruefung', TX.A('Zwei Fitnessstudios: A kostet y = 3x + 20, B y = 
 TX.u('lage', 'transfer', TX.A('Zwei Läufer laufen gleich schnell (10 km/h) in dieselbe Richtung, der zweite startet 2 km weiter vorne. Jemand sagt: „Irgendwann holt der erste den zweiten ein.“ Was stimmt?',
     'Falsch: Die Graphen sind parallel, der Abstand bleibt 2 km.', ['Richtig: nach 2 Stunden.', 'Richtig: nach 12 Minuten.', 'Falsch: Der zweite wird eingeholt, wenn er müde wird.'],
     TW('beide 10 km/h, Abstand 2 km.', 'Einholen?', 'gleiche Steigung → parallel.', '10x = 10x + 2 hat keine Lösung.', 'Er holt ihn nie ein.'), 'Was bedeutet gleiche Geschwindigkeit für die Graphen?'), huerde='entscheidung')
-TX.u('lage', 'verknuepfen', TZ('Zwei Tarife: A kostet y = 0,15x + 4, B kostet y = m · x + 10 Euro. Für welches m sind die Graphen parallel und was kostet B dann bei 100 Minuten?', '0.15 * 100 + 10',
+TX.u('lage', 'verknuepfen', TZ('Zwei Tarife: A kostet y = 0,15x + 4, B kostet y = m · x + 10 Euro. Die Graphen sind parallel. Was kostet B bei 100 Minuten?', '0.15 * 100 + 10',
     TW('parallel ⇒ m = 0,15.', 'Preis von B bei 100 min.', 'Steigung übernehmen, einsetzen.', '15 + 10 = 25.', 'm = 0,15; B kostet bei 100 Minuten 25 €.'), 'Parallel heißt: gleiche Steigung.', einheit='€'), huerde='zwei')
 TX.s('lage', TX.A('Tank A: y = −5x + 100, Tank B: y = −5x + 80 (x Minuten, y Liter). Wie liegen die Graphen?', 'parallel', ['Sie schneiden sich.', 'identisch', 'senkrecht'],
     TW('gleiches m.', 'Lage.', 'm und t vergleichen.', 'm gleich, t verschieden.', 'parallel.')))
@@ -1285,7 +1285,7 @@ TX.u('graph_ablesen', 'einkleidung', TZ('Der Graph eines Sparkontos geht durch (
     TW('(0 | 150), (6 | 330).', 'm.', 'Δy : Δx.', '180 : 6 = 30.', 'Pro Monat werden 30 € eingezahlt.'), 'Wie viel kommt in 6 Monaten dazu?', einheit='€'))
 TX.u('graph_ablesen', 'pruefung', TZ('Ein Graph zeigt die Fahrt eines Radfahrers: Er beginnt bei (0 | 5) und geht durch (2 | 35) (x in h, y in km). Das Rad wiegt 11 kg. Wie weit ist der Radfahrer nach 3 Stunden vom Ort mit km 0 entfernt?', '5 + 3 * (35 - 5) / 2',
     TW('(0 | 5), (2 | 35); das Gewicht spielt keine Rolle.', 'y bei x = 3.', 'm = 15, t = 5.', '15 · 3 + 5 = 50.', 'Nach 3 Stunden ist er bei km 50.'), 'Welche Angabe brauchst du nicht?', einheit='km'), huerde='ueberfluessig')
-TX.u('graph_ablesen', 'begruenden', TX.A('Ein Graph beginnt bei (0 | 40) und fällt bis (5 | 0); er zeigt den Akkustand eines Staubsaugers in Prozent. Jemand sagt: „Der Akku war am Anfang voll.“ Was stimmt?',
+TX.u('graph_ablesen', 'begruenden', TX.A('Ein Graph beginnt bei (0 | 40) und fällt bis (5 | 0); er zeigt den Akkustand eines Staubsaugers in Prozent (x in Minuten). Jemand sagt: „Der Akku war am Anfang voll.“ Was stimmt?',
     'Falsch: Er startete bei 40 % und war nach 5 Minuten leer.', ['Richtig: Der Graph beginnt oben.', 'Richtig: 40 bedeutet voll.', 'Falsch: Er startete bei 5 %.'],
     TW('Start (0 | 40).', 'War er voll?', 'y-Achsenabschnitt deuten.', 't = 40 %.', 'Der Akku startete bei 40 %, nicht voll.'), 'Welcher y-Wert gehört zu x = 0?'), huerde='entscheidung')
 TX.s('graph_ablesen', TZ('Ein Graph geht durch (0 | 10) und (4 | 30) (x Stunden, y Euro). Wie viel kostet eine Stunde?', '(30 - 10) / 4',

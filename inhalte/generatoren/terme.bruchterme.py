@@ -793,7 +793,7 @@ ST.neu('definitionsmenge', 'fehler', SA('Jemand sagt: „Die Definitionsmenge vo
     ['Richtig.', 'Falsch: D = ℚ \\ {4}.', 'Falsch: D = ℚ, der Nenner wird nie 0.'], 'x + 5 = 0 ⇒ x = −5. Für x = 5 ist der Nenner 10, das ist erlaubt.', 'Setze 5 und −5 in den Nenner ein.'))
 ST.neu('definitionsmenge', 'begruenden', SA('Haben 1/(x − 2) und x/(x² − 2x) dieselbe Definitionsmenge?', 'Nein: Der zweite Term ist auch für x = 0 nicht definiert.',
     ['Ja, beide ℚ \\ {2}.', 'Ja, man kann den zweiten zu 1/(x − 2) kürzen.', 'Nein: Der erste ist für x = 0 nicht definiert.'],
-    'x² − 2x = x(x − 2) ist für x = 0 und x = 2 null, also D = ℚ \\ {0; 2}. Beim ersten fehlt nur die 2. Kürzen ändert die Werte, aber nicht die ursprüngliche Definitionsmenge.', 'Zerlege den Nenner x² − 2x in Faktoren.'))
+    'x² − 2x = x(x − 2) ist für x = 0 und x = 2 null, also D = ℚ \\ {0; 2}. Beim ersten fehlt nur die 2. Kürzen ändert die Definitionsmenge des ursprünglichen Terms nicht.', 'Zerlege den Nenner x² − 2x in Faktoren.'))
 ST.neu('definitionsmenge', 'transfer', SZ('Am Hebel gilt: Die nötige Kraft ist 600/a Newton, wenn man im Abstand a (in m) von der Drehachse drückt. a = 0 ergibt keinen Sinn. Wie groß ist die Kraft bei a = 1,5 m?', 400, '600 / (15/10)',
     'F = 600/1,5 = 400 N. Bei a = 0 (genau an der Achse) wäre der Nenner 0 – dort kann man den Hebel nicht drehen.', 'Setze 1,5 für a ein.', einheit='N'))
 ST.knobel('definitionsmenge', SZ('Der Term 1/((x − 1)(x − 2)(x − 3)) ist für drei Zahlen nicht definiert. Für wie viele ganze Zahlen x von −5 bis 5 ist sein Wert positiv?', 2, '5 - 4 + 1',
@@ -827,7 +827,7 @@ ST.knobel('termwert', SZ('Für wie viele ganze Zahlen x ist (x + 7)/(x + 1) eine
     '(x + 7)/(x + 1) = (x + 1 + 6)/(x + 1) = 1 + 6/(x + 1). Ganz ist das genau dann, wenn x + 1 ein Teiler von 6 ist: ±1, ±2, ±3, ±6. Das sind 8 Möglichkeiten (x = 0, −2, 1, −3, 2, −4, 5, −7).',
     'Zerlege den Zähler so, dass der Nenner darin vorkommt.'))
 ST.knobel('termwert', SZ('Für T(x) = x/(x + 1): Berechne T(1) · T(2) · T(3) · … · T(9).', 0.1, '1 / 10',
-    'Das Produkt ist 1/2 · 2/3 · 3/4 · … · 9/10. Jeder Nenner kürzt sich mit dem nächsten Zähler, übrig bleiben 1 oben und 10 unten: 1/10 = 0,1.',
+    'Das Produkt ist 1/2 · 2/3 · 3/4 · 4/5 · 5/6 · 6/7 · 7/8 · 8/9 · 9/10. Jeder Nenner kürzt sich mit dem nächsten Zähler, übrig bleiben 1 oben und 10 unten: 1/10 = 0,1.',
     'Schreib die ersten drei Faktoren nebeneinander und schau, was sich kürzt.'))
 
 # --- kuerzen ---
@@ -919,7 +919,7 @@ ST.neu('multiplizieren', 'parameter', SZ('Für welche Zahl a gilt (a/x) · (x²/
 ST.neu('multiplizieren', 'rueckwaerts', SL('Ein Term wurde durch 3/x geteilt, heraus kam 2x². Wie hieß der Term?', '□x', [6], ['2 * 3'],
     'Rückwärts: mit 3/x malnehmen. 2x² · 3/x = 6x.', 'Das Gegenteil von „durch 3/x teilen“ ist „mal 3/x“.', hinweis='Eine ganze Zahl vor x.'))
 ST.knobel('multiplizieren', SZ('Berechne (1 + 1/2) · (1 + 1/3) · (1 + 1/4) · … · (1 + 1/9).', 5, '10 / 2',
-    'Jede Klammer ist ein Bruch: 3/2 · 4/3 · 5/4 · … · 10/9. Jeder Zähler kürzt sich mit dem nächsten Nenner, übrig bleibt 10/2 = 5.',
+    'Jede Klammer ist ein Bruch: 3/2 · 4/3 · 5/4 · 6/5 · 7/6 · 8/7 · 9/8 · 10/9. Jeder Zähler kürzt sich mit dem nächsten Nenner, übrig bleibt 10/2 = 5.',
     'Schreib jede Klammer als einen einzigen Bruch.'))
 ST.knobel('multiplizieren', SA('Für x ≠ 0 und x ≠ 1 ist T(x) = 1/(1 − x). Was ergibt T(T(T(x)))?', 'x', ['1/(1 − x)', '(x − 1)/x', '1'],
     'T(T(x)) = 1/(1 − 1/(1 − x)) = 1/((1 − x − 1)/(1 − x)) = (1 − x)/(−x) = (x − 1)/x. Dann T((x − 1)/x) = 1/(1 − (x − 1)/x) = 1/(1/x) = x. Dreimal angewendet kommt man zurück zum Anfang.',
@@ -945,8 +945,8 @@ ST.neu('fehler_finden', 'verknuepfen', SA('Welche Umformung ist richtig?', '(x²
     'x² + 2x + 1 = (x + 1)² (binomische Formel). Gekürzt durch (x + 1) bleibt x + 1. x² + 1 und x² + 4 lassen sich nicht zerlegen.', 'Welcher Zähler ist eine binomische Formel?'))
 ST.knobel('fehler_finden', SA('Für welche Zahlen x stimmt die falsche „Kürzung“ (x + 3)/(x + 5) = 3/5 trotzdem?', 'nur für x = 0', ['für keine Zahl', 'für alle x ≠ −5', 'für x = 0 und x = −5'],
     'Über Kreuz: 5(x + 3) = 3(x + 5) ⇒ 5x + 15 = 3x + 15 ⇒ 2x = 0 ⇒ x = 0. Nur dort stimmt es zufällig.', 'Wann sind zwei Brüche gleich? Multipliziere über Kreuz.'))
-ST.knobel('fehler_finden', SA('Jemand „kürzt“ 16/64, indem er die beiden Sechsen streicht, und erhält zufällig richtig 1/4. Bei welchem Bruch klappt dieser falsche Trick auch?', '19/95 = 1/5', ['12/24 = 1/4', '13/39 = 1/9', '15/56 = 1/6'],
-    '19/95 = 1/5 stimmt wirklich (95 = 5 · 19). 12/24 = 1/2, 13/39 = 1/3, 15/56 ist nicht 1/6. Der Trick funktioniert nur in seltenen Zufällen.',
+ST.knobel('fehler_finden', SA('Jemand „kürzt“ 16/64, indem er die beiden Sechsen streicht, und erhält zufällig richtig 1/4. Bei welchem Bruch führt dasselbe Streichen gleicher Ziffern auch zum richtigen Wert?', '19/95 → 1/5', ['12/24 → 1/4', '13/39 → 1/9', '15/56 → 1/6'],
+    'Rechnet man richtig, gilt 19/95 = 1/5 (95 = 5 · 19). Dagegen ist 12/24 = 1/2, 13/39 = 1/3, und 15/56 ist nicht 1/6. Das Streichen von Ziffern ist kein Kürzen und stimmt nur in seltenen Zufällen.',
     'Rechne jeden Bruch wirklich aus und vergleiche.'))
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
@@ -962,14 +962,14 @@ TX.u('definitionsmenge', 'direkt', TZ('Bei einer Feier zahlen die 2 Gastgeber ni
 TX.u('definitionsmenge', 'einkleidung', TZ('Ein Radfahrer fährt 30 km gegen den Wind, der ihn um 5 km/h bremst. Seine Fahrzeit ist 30/(v − 5) Stunden. Welches v ist ausgeschlossen?', '5',
     TW('Nenner v − 5.', 'ausgeschlossenes v.', 'Nenner = 0.', 'v = 5.', 'v = 5 km/h ist ausgeschlossen.'), 'Setze den Nenner gleich 0.', einheit='km/h'))
 TX.u('definitionsmenge', 'mehrschritt', TX.A('Für Hin- und Rückweg gilt die Gesamtzeit 40/v + 40/(v − 8) Stunden. Welche Zahlen sind ausgeschlossen?', '0 und 8', ['nur 0', 'nur 8', '0 und −8'],
-    TW('Nenner v und v − 8.', 'ausgeschlossene Zahlen.', 'Jeden Nenner = 0 setzen.', 'v = 0, v = 8.', 'D = ℝ \\ {0; 8}.'), 'Es gibt zwei Nenner.'))
+    TW('Nenner v und v − 8.', 'ausgeschlossene Zahlen.', 'Jeden Nenner = 0 setzen.', 'v = 0, v = 8.', 'D = ℚ \\ {0; 8}.'), 'Es gibt zwei Nenner.'))
 TX.u('definitionsmenge', 'pruefung', TZ('Ein 2 m tiefer Teich wird mit zwei Pumpen geleert; die zweite braucht 3 Stunden länger. Pro Stunde schaffen sie zusammen 1/x + 1/(x + 3) des Teichs. Welche negative Zahl ist ausgeschlossen?', '-3',
     TW('Nenner x und x + 3; die Tiefe spielt keine Rolle.', 'negative ausgeschlossene Zahl.', 'Nenner = 0.', 'x + 3 = 0 ⇒ x = −3.', 'x = −3 ist ausgeschlossen.'), 'Welche Angabe gehört nicht zum Term?'), huerde='ueberfluessig')
 TX.u('definitionsmenge', 'fehler', TX.A('Pro Kind kostet ein Ausflug (240 + 4x)/x Euro. Jemand sagt: „x = −60 ist ausgeschlossen, weil dann 240 + 4x = 0 ist.“ Was stimmt?',
     'Falsch: Nur der Nenner zählt; ausgeschlossen ist x = 0.', ['Richtig.', 'Falsch: x = 240 ist ausgeschlossen.', 'Falsch: Es ist nichts ausgeschlossen.'],
     TW('(240 + 4x)/x.', 'ausgeschlossene Zahl.', 'Nur der Nenner darf nicht 0 sein.', 'x = 0.', 'Die Aussage ist falsch.'), 'Darf ein Zähler 0 sein?'), huerde='entscheidung')
 TX.u('definitionsmenge', 'transfer', TX.A('Eine Gruppe teilt 300 € Hüttenmiete; 4 Betreuer zahlen nichts: Jeder andere zahlt 300/(x − 4) Euro (x = alle Personen). In die Hütte passen höchstens 30 Personen. Welche Definitionsmenge ist sinnvoll?',
-    '{5; 6; …; 30}', ['ℝ \\ {4}', '{4; 5; …; 30}', '{0; 1; …; 30}'],
+    '{5; 6; …; 30}', ['ℚ \\ {4}', '{4; 5; …; 30}', '{0; 1; …; 30}'],
     TW('Nenner x − 4, ganze Personen, höchstens 30.', 'D.', 'Nenner ≠ 0, mindestens ein Zahler, Obergrenze.', '5 ≤ x ≤ 30.', 'D = {5; 6; …; 30}.'), 'Welche Bedingungen gibt die Situation zusätzlich zum Nenner?'), huerde='zwei')
 TX.s('definitionsmenge', TZ('Jeder zahlt 150/(x + 1) Euro. Welche Zahl ist ausgeschlossen?', '-1',
     TW('Nenner x + 1.', 'ausgeschlossene Zahl.', 'x + 1 = 0.', 'x = −1.', 'x = −1.')))

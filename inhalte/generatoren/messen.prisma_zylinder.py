@@ -477,7 +477,7 @@ def gen_zylinder_volumen(R, st):
         if art == 'exakt':
             r, h = R.randint(2, 6), R.randint(2, 10)
             return A(R, f'Welcher Term gibt das Volumen eines Zylinders mit r = {r} cm und h = {h} cm exakt an?', f'{r * r * h}π cm³',
-                     [f'{2 * r * h}π cm³', f'{r * h}π cm³', f'{4 * r * r * h}π cm³'], f'V = π · {r}² · {h} = {r * r * h}π cm³. {2 * r * h}π wäre der Mantel, {4 * r * r * h}π käme mit d statt r heraus.',
+                     [f'{2 * r * h}π cm³', f'{r * h}π cm³', f'{4 * r * r * h}π cm³'], f'V = π · {r}² · {h} = {r * r * h}π cm³. ' + (f'Der Mantel 2 · π · {r} · {h} hat hier zufällig dieselbe Zahl, ist aber eine Fläche in cm². ' if r == 2 else f'{2 * r * h}π wäre der Mantel, ') + f'{4 * r * r * h}π käme mit d statt r heraus.',
                      'V = π · r² · h.')
         r, h = Fr(R.choice([5, 10, 15]), 10), Fr(R.choice([3, 4, 6]))
         return PZ(f'Ein Topf (zylinderförmig) hat innen den Durchmesser {gr(2 * r, "dm")} und ist {gr(h, "dm")} hoch. Wie viele Liter passen hinein? {rund_text(1, "l")}',
@@ -827,7 +827,7 @@ ST.neu('prisma_umstellen', 'fehler', SA('Ein Prisma hat 72 cm³ und G = 9 cm². 
 ST.knobel('prisma_umstellen', SZ('Ein Aquarium (Grundfläche 50 cm × 30 cm) ist 20 cm hoch mit Wasser gefüllt. Ein Stein mit 3 l Volumen wird ganz eingetaucht. Um wie viele Zentimeter steigt der Wasserspiegel?', 2, '3000 / (50 * 30)',
     'Der Stein verdrängt 3 000 cm³ Wasser. Verteilt auf 1 500 cm² Grundfläche: 3 000 : 1 500 = 2 cm.', 'Das verdrängte Wasser bildet einen flachen Quader.', einheit='cm'))
 ST.knobel('prisma_umstellen', SZ('Eine Rinne ist ein Dreiecksprisma, das auf der Kante steht: Querschnitt oben 20 cm breit, 10 cm tief, Länge 30 cm. Sie ist bis zur halben Tiefe gefüllt. Wie viele Liter sind darin?', 0.75, '(10 * 5 / 2) * 30 / 1000',
-    'Bis zur halben Tiefe ist die Wasserfläche ein Dreieck mit halber Breite (10 cm) und halber Höhe (5 cm): 10 · 5 : 2 = 25 cm² – nur ein Viertel des Querschnitts (100 cm²). V = 25 · 30 = 750 cm³ = 0,75 l.',
+    'Die Seitenwände sind gerade: Von der Kante unten bis oben (10 cm) wird die Rinne gleichmäßig breiter, von 0 auf 20 cm, also pro cm Höhe um 2 cm. Bei 5 cm Wasserhöhe ist die Wasseroberfläche darum 10 cm breit. Die Wasserfläche ist ein Dreieck mit 10 cm Breite und 5 cm Höhe: 10 · 5 : 2 = 25 cm² – nur ein Viertel des Querschnitts (100 cm²). V = 25 · 30 = 750 cm³ = 0,75 l.',
     'Zeichne den Querschnitt: Wie breit ist die Wasseroberfläche bei halber Tiefe?', einheit='l'))
 
 # --- zylinder_volumen ---
@@ -979,7 +979,7 @@ TX.u('verstehen', 'pruefung', TZ('Eine Litfaßsäule wird im Maßstab 1 : 20 als
     TW('Maßstab 1 : 20, Modell 6 ml, Dosen zu 1 l.', 'Anzahl der Dosen.', 'Flächen wachsen mit 20² = 400; dann in l umrechnen und aufrunden.', '6 ml · 400 = 2 400 ml = 2,4 l.', 'Man braucht 3 Dosen.'),
     'Farbe hängt von der Fläche ab – mit welchem Faktor wächst eine Fläche?'), huerde='deuten')
 TX.u('verstehen', 'rueckwaerts', TZ('Ein würfelförmiger Eiswürfel hat 27 cm³. Eine neue Form soll Würfel mit 8-mal so viel Volumen machen. Wie lang ist eine Kante des neuen Eiswürfels?', '3 * 2',
-    TW('V alt = 27 cm³, V neu = 8 · V alt.', 'Kante des neuen Würfels.', 'Alte Kante aus 27 = a³; Volumenfaktor 8 = 2³, also Kante · 2.', 'a alt = 3 cm. a neu = 3 · 2 = 6 cm.', 'Die neue Kante ist 6 cm lang.'),
+    TW('V alt = 27 cm³, V neu = 8 · V alt.', 'Kante des neuen Würfels.', 'Alte Kante a mit a · a · a = 27 suchen; Volumenfaktor 8 = 2 · 2 · 2, also Kante · 2.', 'a alt = 3 cm (3 · 3 · 3 = 27). a neu = 3 · 2 = 6 cm.', 'Die neue Kante ist 6 cm lang.'),
     'Welche Kante hat ein Würfel mit 27 cm³?', einheit='cm'), huerde='fehlend')
 TX.s('verstehen', TZ('Ein Aquarium wird in Länge, Breite und Höhe verdoppelt. Wie viel Mal so viel Wasser passt hinein?', '2**3',
     TW('Alle drei Maße · 2.', 'Faktor des Volumens.', 'Jede Länge zählt einmal mit.', '2 · 2 · 2 = 8.', 'Es passt 8-mal so viel Wasser hinein.')))

@@ -940,14 +940,14 @@ T('gleichsetzen', (r'^Löse mit dem Gleichsetzungsverfahren: I: y = .* II: y = '
 ST.neu('gleichsetzen', 'erkennen', SA('Welche Gleichung entsteht beim Gleichsetzen von I: y = 3x − 2 und II: y = x + 4?', '3x − 2 = x + 4', ['3x − 2 = 0', '3x + x = −2 + 4', 'y = 4x + 2'],
     'Beide rechten Seiten sind y, also gleich: 3x − 2 = x + 4.', 'Was ist an beiden Gleichungen gleich?'))
 ST.neu('gleichsetzen', 'umkehr', SA('Welches System führt beim Gleichsetzen auf 2x + 3 = 5x − 6?', 'I: y = 2x + 3, II: y = 5x − 6', ['I: y = 2x + 5x, II: y = 3 − 6', 'I: 2x + 3 = y, II: 5x = 6', 'I: y = 2x − 3, II: y = 5x + 6'],
-    'Gleichsetzen verbindet die beiden rechten Seiten zweier Gleichungen y = …', 'Welche zwei Terme stehen links und rechts?'))
+    'Gleichsetzen verbindet die beiden rechten Seiten zweier Gleichungen der Form y = Term', 'Welche zwei Terme stehen links und rechts?'))
 ST.neu('gleichsetzen', 'darstellung', SA('Im Bild schneiden sich die Geraden y = 0,5x + 2 und y = −x + 5. Welche Gleichung löst man, um den Schnittpunkt genau zu bestimmen?', '0,5x + 2 = −x + 5',
     ['0,5x + 2 = 0', '0,5x = −x', 'y = 0,5x + 2 − x + 5'], 'Im Schnittpunkt haben beide Geraden denselben y-Wert: 0,5x + 2 = −x + 5 ⇒ x = 2, y = 3.', 'Was ist im Schnittpunkt für beide Geraden gleich?'))
 ST.neu('gleichsetzen', 'fehler', SA('Jemand setzt y = 2x + 4 und y = −x + 1 gleich: 2x + 4 = −x + 1 ⇒ x = 1. Was stimmt?', 'Falsch: 3x = −3, also x = −1 und y = 2.',
     ['Richtig.', 'Falsch: x = 3.', 'Falsch: x = −3.'], 'Auf beiden Seiten +x und −4: 3x = −3 ⇒ x = −1. Probe: 2 · (−1) + 4 = 2 und 1 + 1 = 2 ✓.', 'Mach die Probe mit x = 1 in beiden Gleichungen.'))
 ST.neu('gleichsetzen', 'rueckwaerts', SZ('Zwei Geraden schneiden sich in S(3 | 7). Die eine ist y = 2x + 1, die andere hat die Steigung −2. Wie groß ist ihr y-Achsenabschnitt?', 13, '7 + 2 * 3',
     'Die zweite Gerade y = −2x + t geht durch (3 | 7): 7 = −6 + t ⇒ t = 13.', 'Setze den Schnittpunkt in die zweite Gerade ein.'))
-ST.neu('gleichsetzen', 'verknuepfen', SZ('Für welches x haben die Terme 3(x − 2) und 2x + 5 denselben Wert? Gib diesen Wert an.', 27, '2 * 11 + 5',
+ST.neu('gleichsetzen', 'verknuepfen', SZ('Für ein x haben die Terme 3(x − 2) und 2x + 5 denselben Wert. Wie groß ist dieser Wert?', 27, '2 * 11 + 5',
     '3x − 6 = 2x + 5 ⇒ x = 11. Wert: 2 · 11 + 5 = 27 (und 3 · 9 = 27 ✓).', 'Setze die Terme gleich – gefragt ist am Ende der Wert, nicht x.'))
 ST.neu('gleichsetzen', 'pruefung', SL('Löse I: y = 1,5x − 2, II: y = −0,5x + 6 und gib die Lösung an.', XY, [4, 4], ['4', '4'],
     '1,5x − 2 = −0,5x + 6 ⇒ 2x = 8 ⇒ x = 4, y = 4.', 'Bring alle x auf eine Seite.'))
@@ -1073,7 +1073,7 @@ TX.u('pruefen', 'direkt', TX.A('Im Kino kosten 2 Kinder- und 1 Erwachsenenkarte 
     TW('I: 2k + e = 22, II: k + 2e = 26.', 'Lösung?', 'In beide Gleichungen einsetzen.', '22 ✓, 26 ✓.', 'Ja, (6 | 10) ist die Lösung.'), 'Setze in beide Gleichungen ein.'))
 TX.u('pruefen', 'einkleidung', TX.A('In einem Stall sind Hühner und Kaninchen, zusammen 20 Köpfe und 56 Beine. Jemand behauptet: 12 Hühner und 8 Kaninchen. Stimmt das?', 'Ja: 12 + 8 = 20 und 24 + 32 = 56.', ['Nein, es sind 64 Beine.', 'Nein, es sind 21 Köpfe.'],
     TW('h + k = 20, 2h + 4k = 56.', 'Prüfung.', 'Einsetzen.', '20 ✓; 24 + 32 = 56 ✓.', 'Die Behauptung stimmt.'), 'Wie viele Beine hat ein Huhn, wie viele ein Kaninchen?'))
-TX.u('pruefen', 'mehrschritt', TZ('3 Hefte und 2 Stifte kosten 7,50 €, 1 Heft und 4 Stifte kosten 6,50 €. Jemand sagt, ein Heft kostet 1,50 €. Wie viel kostet dann ein Stift laut der ersten Gleichung – und passt das zur zweiten?', '(7.5 - 3 * 1.5) / 2',
+TX.u('pruefen', 'mehrschritt', TZ('3 Hefte und 2 Stifte kosten 7,50 €, 1 Heft und 4 Stifte kosten 6,50 €. Jemand sagt, ein Heft kostet 1,50 €. Wie viel kostet ein Stift dann laut der ersten Gleichung?', '(7.5 - 3 * 1.5) / 2',
     TW('I: 3h + 2s = 7,5, II: h + 4s = 6,5.', 's und Probe.', 'h einsetzen, s bestimmen, in II prüfen.', 's = 1,5; II: 1,5 + 6 = 7,5 ≠ 6,5.', 'Ein Stift kostet laut I 1,50 €, aber II stimmt nicht – die Behauptung ist falsch.'), 'Prüfe am Ende auch die zweite Gleichung.', einheit='€'))
 TX.u('pruefen', 'pruefung', TX.A('Ein Theater verkauft 300 Karten, Parkett zu 25 € und Rang zu 15 €, Einnahmen 6 300 €. Die Vorstellung beginnt um 19:30 Uhr. Passt (p | r) = (180 | 120)?', 'Ja: 300 Karten und 4 500 + 1 800 = 6 300 €.', ['Nein, es wären 6 600 €.', 'Nein, es wären 310 Karten.', 'Nein, die Uhrzeit passt nicht.'],
     TW('p + r = 300, 25p + 15r = 6 300; die Uhrzeit spielt keine Rolle.', 'Lösung?', 'Einsetzen.', '300 ✓; 4 500 + 1 800 = 6 300 ✓.', 'Ja, es passt.'), 'Welche Angaben gehören ins Gleichungssystem?'), huerde='ueberfluessig')

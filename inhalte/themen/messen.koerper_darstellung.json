@@ -6297,16 +6297,15 @@
    "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel mit 4 cm Kantenlänge wird im Schrägbild (q = 1/2, ω = 45°) gezeichnet. Wie lang ist im Bild die Diagonale AC der Grundfläche (A vorne links, C hinten rechts)? Runde auf eine Nachkommastelle."
+    "text": "Ein Quader (8 cm breit, 5 cm hoch, 6 cm tief) wird im Maßstab 1 : 2 als Schrägbild mit q = 1/2 gezeichnet, die Breite vorn. Welchen Flächeninhalt hat die gezeichnete Vorderfläche?"
    },
    "o": {
-    "wert": 5.6,
-    "einheit": "cm",
-    "toleranz": 0.1
+    "wert": 10,
+    "einheit": "cm²"
    },
-   "c": "round(5.595865303864, 1)",
-   "w": "Gezeichnet: AB = 4 cm waagrecht, BC = 2 cm unter 45°, also um √2 ≈ 1,41 cm nach rechts und nach oben. AC = √((4 + 1,41)² + 1,41²) ≈ √31,3 ≈ 5,6 cm (wahre Länge 5,66 cm).",
-   "h": "Zerlege die schräge Kante in einen waagrechten und einen senkrechten Anteil."
+   "c": "8 / 2 * 5 / 2",
+   "w": "Die Vorderfläche liegt parallel zum Blatt und wird nicht verkürzt, nur im Maßstab verkleinert: 8 cm → 4 cm und 5 cm → 2,5 cm. A = 4 · 2,5 = 10 cm². Die Tiefe (6 cm) spielt für die Vorderfläche keine Rolle.",
+   "h": "Welche Fläche wird im Schrägbild nicht verzerrt?"
   },
   {
    "l": "schraegbild",
@@ -8685,7 +8684,7 @@
    "o": {
     "index": 1
    },
-   "w": "Prismen haben 3n Kanten (9, 12, 15 …), Pyramiden 2n Kanten (6, 8, 10, 12 …). 8 ist gerade, aber nicht durch 3 teilbar. 12 geht bei beiden, 9 und 15 nur beim Prisma.",
+   "w": "Prismen haben 3n Kanten (Vielfache von 3 ab 9: 9, 12, 15 und so weiter), Pyramiden 2n Kanten (gerade Zahlen ab 6: 6, 8, 10, 12 und so weiter). 8 ist gerade, aber nicht durch 3 teilbar. 12 geht bei beiden, 9 und 15 nur beim Prisma.",
    "h": "Stelle beide Kantenformeln auf."
   },
   {

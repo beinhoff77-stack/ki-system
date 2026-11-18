@@ -396,6 +396,12 @@ PLAN['gleichungen.formeln'] = [
 # ziehen nach koerper_darstellung/schraegbild.
 PLAN['messen.koerper_darstellung'] = [
     her('raum.schraegbilder', 'laengen', 'schraegbild', r'S3:^(?!.*Pyramide)', auto=True),
+    # Korrektur 18.11.: Die Diagonale im Schrägbild braucht Wurzel und Satz des Pythagoras (Kl. 9) – ersetzt durch eine Aufgabe ohne späteren Stoff.
+    ersetze('schraegbild', r'S3:^Ein Würfel mit 4 cm Kantenlänge wird im Schrägbild \(q = 1/2, ω = 45°\) gezeichnet\. Wie lang ist im Bild die Diagonale AC',
+            Z('Ein Quader (8 cm breit, 5 cm hoch, 6 cm tief) wird im Maßstab 1 : 2 als Schrägbild mit q = 1/2 gezeichnet, die Breite vorn. Welchen Flächeninhalt hat die gezeichnete Vorderfläche?',
+              10, '8 / 2 * 5 / 2',
+              'Die Vorderfläche liegt parallel zum Blatt und wird nicht verkürzt, nur im Maßstab verkleinert: 8 cm → 4 cm und 5 cm → 2,5 cm. A = 4 · 2,5 = 10 cm². Die Tiefe (6 cm) spielt für die Vorderfläche keine Rolle.',
+              'Welche Fläche wird im Schrägbild nicht verzerrt?', einheit='cm²')),
 ]
 
 # ======================= Klasse 9 =======================

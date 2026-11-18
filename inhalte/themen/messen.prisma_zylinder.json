@@ -5757,7 +5757,7 @@
     "einheit": "l"
    },
    "c": "(10 * 5 / 2) * 30 / 1000",
-   "w": "Bis zur halben Tiefe ist die Wasserfläche ein Dreieck mit halber Breite (10 cm) und halber Höhe (5 cm): 10 · 5 : 2 = 25 cm² – nur ein Viertel des Querschnitts (100 cm²). V = 25 · 30 = 750 cm³ = 0,75 l.",
+   "w": "Die Seitenwände sind gerade: Von der Kante unten bis oben (10 cm) wird die Rinne gleichmäßig breiter, von 0 auf 20 cm, also pro cm Höhe um 2 cm. Bei 5 cm Wasserhöhe ist die Wasseroberfläche darum 10 cm breit. Die Wasserfläche ist ein Dreieck mit 10 cm Breite und 5 cm Höhe: 10 · 5 : 2 = 25 cm² – nur ein Viertel des Querschnitts (100 cm²). V = 25 · 30 = 750 cm³ = 0,75 l.",
    "h": "Zeichne den Querschnitt: Wie breit ist die Wasseroberfläche bei halber Tiefe?"
   },
   {
@@ -6588,7 +6588,7 @@
    "o": {
     "index": 0
    },
-   "w": "V = π · 2² · 2 = 8π cm³. 8π wäre der Mantel, 32π käme mit d statt r heraus."
+   "w": "V = π · 2² · 2 = 8π cm³. Der Mantel 2 · π · 2 · 2 hat hier zufällig dieselbe Zahl, ist aber eine Fläche in cm². 32π käme mit d statt r heraus."
   },
   {
    "l": "zylinder_volumen",
@@ -6711,7 +6711,7 @@
    "o": {
     "index": 1
    },
-   "w": "V = π · 2² · 7 = 28π cm³. 28π wäre der Mantel, 112π käme mit d statt r heraus."
+   "w": "V = π · 2² · 7 = 28π cm³. Der Mantel 2 · π · 2 · 7 hat hier zufällig dieselbe Zahl, ist aber eine Fläche in cm². 112π käme mit d statt r heraus."
   },
   {
    "l": "zylinder_volumen",
@@ -9032,7 +9032,7 @@
     "einheit": "cm"
    },
    "c": "3 * 2",
-   "w": "Gegeben: V alt = 27 cm³, V neu = 8 · V alt. Gesucht: Kante des neuen Würfels. Ansatz: Alte Kante aus 27 = a³; Volumenfaktor 8 = 2³, also Kante · 2. Rechnung: a alt = 3 cm. a neu = 3 · 2 = 6 cm. Antwort: Die neue Kante ist 6 cm lang.",
+   "w": "Gegeben: V alt = 27 cm³, V neu = 8 · V alt. Gesucht: Kante des neuen Würfels. Ansatz: Alte Kante a mit a · a · a = 27 suchen; Volumenfaktor 8 = 2 · 2 · 2, also Kante · 2. Rechnung: a alt = 3 cm (3 · 3 · 3 = 27). a neu = 3 · 2 = 6 cm. Antwort: Die neue Kante ist 6 cm lang.",
    "h": "Welche Kante hat ein Würfel mit 27 cm³?"
   },
   {

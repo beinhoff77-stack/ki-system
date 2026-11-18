@@ -1088,7 +1088,7 @@ ST.knobel('eindeutig', SZ('Wie viele verschiedene Funktionen gibt es, die jeder 
     'Entscheide Zahl für Zahl, wohin sie geht.'))
 ST.knobel('eindeutig', SA('Jeder natürlichen Zahl ab 2 wird ihr kleinster Teiler größer als 1 zugeordnet. Ist auch die umgekehrte Zuordnung eine Funktion?', 'Nein: Zum Teiler 2 gehören z. B. 4 und 6.',
     ['Ja, jeder Teiler gehört zu genau einer Zahl.', 'Ja, weil jede Zahl genau einen kleinsten Teiler hat.', 'Nein, weil manche Zahlen keinen kleinsten Teiler haben.'],
-    'Die Zuordnung selbst ist eine Funktion (jede Zahl hat genau einen kleinsten Teiler > 1). Umgekehrt hat aber z. B. 2 viele Urbilder: 2, 4, 6, 8 …', 'Welche Zahlen haben den kleinsten Teiler 2?'))
+    'Die Zuordnung selbst ist eine Funktion (jede Zahl hat genau einen kleinsten Teiler > 1). Umgekehrt gehören aber zum kleinsten Teiler 2 viele Zahlen, z. B. 2, 4 und 6 …', 'Welche Zahlen haben den kleinsten Teiler 2?'))
 
 # --- mengen ---
 ST.leiter('mengen', 'die maximale Definitionsmenge bei einem einfachen Nenner angeben',
@@ -1125,7 +1125,7 @@ ST.neu('funktionswert', 'transfer', SZ('Ein Ball wird hochgeworfen. Seine Höhe 
     'h(1,5) = 30 − 5 · 2,25 = 30 − 11,25 = 18,75 m.', 'Achte auf Punkt vor Strich und das Quadrat.', einheit='m'))
 ST.neu('funktionswert', 'pruefung', SZ('Gegeben f(x) = −2x² + 3x. Berechne f(−1) + f(2).', -7, '(-2 * 1 - 3) + (-2 * 4 + 6)', 'f(−1) = −2 − 3 = −5, f(2) = −8 + 6 = −2. Summe −7.', 'Setze negative Zahlen in Klammern ein.'))
 ST.knobel('funktionswert', SZ('Für eine Funktion gilt f(x + 1) = f(x) + 3 und f(0) = 2. Berechne f(10).', 32, '2 + 10 * 3',
-    'Mit jedem Schritt um 1 nach rechts wächst der Wert um 3: f(1) = 5, f(2) = 8, … f(10) = 2 + 10 · 3 = 32.', 'Rechne f(1), f(2), f(3) aus und such das Muster.'))
+    'Mit jedem Schritt um 1 nach rechts wächst der Wert um 3: f(1) = 5, f(2) = 8, f(3) = 11. Von 0 bis 10 sind es 10 Schritte, jeder bringt 3 dazu: f(10) = 2 + 10 · 3 = 32.', 'Rechne f(1), f(2), f(3) aus und such das Muster.'))
 ST.knobel('funktionswert', SZ('Für eine Funktion gilt f(2x) = 4 · f(x) und f(1) = 3. Berechne f(8).', 192, '3 * 4**3',
     'f(2) = 4 · f(1) = 12, f(4) = 4 · f(2) = 48, f(8) = 4 · f(4) = 192.', 'Wie kommt man von 1 durch Verdoppeln zu 8?'))
 
@@ -1183,7 +1183,7 @@ T('graph_lesen', (r'^Lies am Graphen ab: f\(', 'erkennen'), (r'Parabel', 'erkenn
 ST.neu('graph_lesen', 'direkt', SZ('Ein Graph geht durch die Punkte (0 | 3), (1 | 5) und (2 | 7). Welchen Wert hat f(1)?', 5, '5', 'Der Punkt (1 | 5) liegt auf dem Graphen, also f(1) = 5.', 'Suche den Punkt mit x = 1.'))
 ST.neu('graph_lesen', 'fehler', SA('Jemand liest „f(2) = 5“ ab, weil der Graph durch (5 | 2) geht. Was stimmt?', 'Falsch: (5 | 2) bedeutet f(5) = 2.', ['Richtig.', 'Falsch: Es bedeutet f(2) = 2.', 'Falsch: Es bedeutet f(5) = 5.'],
     'Im Punkt (x | y) steht zuerst die Stelle, dann der Funktionswert: f(5) = 2.', 'Welche Zahl ist x, welche y?'))
-ST.neu('graph_lesen', 'begruenden', SA('Ein Graph schneidet die y-Achse zweimal. Kann das der Graph einer Funktion sein?', 'Nein: Dann gehörten zu x = 0 zwei Werte.', ['Ja, wenn er die x-Achse nur einmal schneidet.', 'Ja, immer.', 'Nur bei Parabeln.'],
+ST.neu('graph_lesen', 'begruenden', SA('Ein Graph schneidet die y-Achse zweimal. Kann das der Graph einer Funktion sein?', 'Nein: Dann gehörten zu x = 0 zwei Werte.', ['Ja, wenn er die x-Achse nur einmal schneidet.', 'Ja, immer.', 'Nur wenn er gebogen ist.'],
     'Alle Punkte auf der y-Achse haben x = 0. Zwei Schnittpunkte heißen: x = 0 hat zwei y-Werte – das verbietet die Definition.', 'Welchen x-Wert haben Punkte auf der y-Achse?'))
 ST.neu('graph_lesen', 'rueckwaerts', SZ('Ein gerader Graph geht durch (0 | −1) und steigt pro Kästchen nach rechts um 2 Kästchen. An welcher Stelle hat er den Wert 7?', 4, '(7 + 1) / 2',
     'Von −1 bis 7 sind es 8 Kästchen nach oben, also 8 : 2 = 4 Kästchen nach rechts: x = 4.', 'Wie viele Schritte nach rechts braucht man für 8 nach oben?'))
@@ -1237,7 +1237,7 @@ ST.neu('sachzusammenhang', 'fehler', SA('Für „5 € Grundgebühr und 2 € je
 ST.neu('sachzusammenhang', 'verknuepfen', SZ('Ein Tarif kostet 12 € Grundgebühr und 0,50 € je Minute. Beide Beträge werden um 25 % erhöht. Was kosten danach 40 Minuten?', 40, '(12 + 40 * 5/10) * 125/100',
     'Vorher: 12 + 20 = 32 €. Erhöht man alles um 25 %: 32 · 1,25 = 40 €.', 'Erhöhung um 25 % heißt mal 1,25 – egal ob vorher oder nachher.', einheit='€'))
 ST.knobel('sachzusammenhang', SZ('Tarif A: 10 € plus 1 € je Stunde. Tarif B: 2 € je Stunde. Tarif C: 16 € pauschal. Für wie viele ganze Stundenzahlen von 1 bis 20 ist B echt am billigsten?', 7, '7',
-    'B billiger als A: 2h < 10 + h ⇒ h < 10. B billiger als C: 2h < 16 ⇒ h < 8. Beides für h = 1, …, 7: sieben Stundenzahlen.', 'Vergleiche B mit jedem der beiden anderen Tarife einzeln.'))
+    'B billiger als A: 2h < 10 + h ⇒ h < 10. B billiger als C: 2h < 16 ⇒ h < 8. Beides gilt für h = 1, 2, 3, 4, 5, 6, 7: sieben Stundenzahlen.', 'Vergleiche B mit jedem der beiden anderen Tarife einzeln.'))
 ST.knobel('sachzusammenhang', SZ('Ein Wassertank enthält 200 l. Pro Minute fließen 8 l ab und gleichzeitig 3 l zu. Nach wie vielen Minuten ist er leer?', 40, '200 / (8 - 3)',
     'Pro Minute nimmt der Inhalt um 8 − 3 = 5 l ab: V(t) = 200 − 5t. V(t) = 0 ⇒ t = 40 Minuten.', 'Um wie viel ändert sich der Inhalt pro Minute insgesamt?', einheit='min'))
 baue = mit_stufen(baue, ST)
@@ -1270,24 +1270,24 @@ TX.k('eindeutig', TX.A('Jedem Auto auf einem Parkplatz wird sein Kennzeichen zug
 
 # --- mengen ---
 TX.u('mengen', 'direkt', TX.A('Ein Aufzug fährt in einem Haus mit Erdgeschoss (0) und 6 Stockwerken. Jedem Stockwerk x wird seine Höhe zugeordnet. Welche Definitionsmenge ist sinnvoll?',
-    '{0; 1; 2; 3; 4; 5; 6}', ['alle reellen Zahlen', '{1; 2; 3; 4; 5; 6}', '[0; 6]'],
-    TW('Erdgeschoss 0 bis Stock 6.', 'sinnvolle x-Werte.', 'Nur ganze Stockwerke von 0 bis 6.', 'D = {0; 1; …; 6}.', 'D = {0; 1; 2; 3; 4; 5; 6}.'), 'Gibt es ein Stockwerk 2,5?'))
+    '{0; 1; 2; 3; 4; 5; 6}', ['alle Zahlen von 0 bis 6, auch Kommazahlen', '{1; 2; 3; 4; 5; 6}', 'alle ganzen Zahlen'],
+    TW('Erdgeschoss 0 bis Stock 6.', 'sinnvolle x-Werte.', 'Nur ganze Stockwerke von 0 bis 6, das Erdgeschoss zählt mit.', 'Sieben Stockwerke: 0, 1, 2, 3, 4, 5, 6.', 'D = {0; 1; 2; 3; 4; 5; 6}.'), 'Gibt es ein Stockwerk 2,5?'))
 TX.u('mengen', 'einkleidung', TZ('Ein Kinoticket kostet 9 €. Jeder Ticketzahl x wird der Preis zugeordnet. Der Saal hat 120 Plätze. Wie groß ist der größte Wert der Wertemenge?', '9 * 120',
     TW('9 € pro Ticket, höchstens 120 Tickets.', 'größter Preis.', 'Größtes x einsetzen.', '9 · 120 = 1 080.', 'Der größte Wert ist 1 080 €.'), 'Wie viele Tickets kann man höchstens verkaufen?', einheit='€'))
 TX.u('mengen', 'pruefung', TZ('Ein 8 m langes Becken ist 2 m tief. Beim Füllen steigt das Wasser pro Minute um 4 cm. Der Zeit t (in min) wird die Wasserhöhe zugeordnet. Was ist die größte sinnvolle Zahl der Definitionsmenge?', '200 / 4',
-    TW('2 m = 200 cm Tiefe, 4 cm pro Minute; die Länge spielt keine Rolle.', 'größtes t.', 'Wann ist das Becken voll?', '200 : 4 = 50.', 'D = [0; 50], größte Zahl 50.'), 'Welche Angaben bestimmen, wann das Becken voll ist?', einheit='min'), huerde='ueberfluessig')
-TX.u('mengen', 'fehler', TX.A('Ein Taxi kostet 4 € Grundpreis und 2 € pro km. Jemand gibt für Strecke → Preis die Wertemenge W = [0; ∞[ an. Was stimmt?',
-    'Falsch: Der Preis ist mindestens 4 €, also W = [4; ∞[.', ['Richtig.', 'Falsch: W = [2; ∞[.', 'Falsch: W = ]0; 4].'],
-    TW('Preis = 4 + 2x, x ≥ 0.', 'richtige Wertemenge.', 'Kleinsten Preis bestimmen.', 'Bei x = 0: 4 €.', 'W = [4; ∞[; die Angabe ist falsch.'), 'Was kostet die kürzeste mögliche Fahrt?'), huerde='entscheidung')
-TX.u('mengen', 'parameter', TZ('Ein Tank verliert pro Stunde 25 l, bis er leer ist. Die sinnvolle Definitionsmenge ist D = [0; 16]. Wie viele Liter waren am Anfang im Tank?', '25 * 16',
-    TW('25 l pro Stunde, leer nach 16 h.', 'Anfangsmenge.', 'Rückwärts rechnen.', '25 · 16 = 400.', 'Am Anfang waren 400 l im Tank.'), 'Was bedeutet die Zahl 16 in D?', einheit='l'))
+    TW('2 m = 200 cm Tiefe, 4 cm pro Minute; die Länge spielt keine Rolle.', 'größtes t.', 'Wann ist das Becken voll?', '200 : 4 = 50.', 'Nach 50 Minuten ist das Becken voll; die größte sinnvolle Zahl ist 50.'), 'Welche Angaben bestimmen, wann das Becken voll ist?', einheit='min'), huerde='ueberfluessig')
+TX.u('mengen', 'fehler', TX.A('Ein Taxi kostet 4 € Grundpreis und 2 € pro km. Jemand sagt über die Wertemenge von Strecke → Preis: „Der Preis kann jeden Betrag ab 0 € annehmen.“ Was stimmt?',
+    'Falsch: Der Preis ist mindestens 4 €, weil der Grundpreis immer anfällt.', ['Richtig.', 'Falsch: Der Preis ist mindestens 2 €.', 'Falsch: Der Preis liegt immer zwischen 0 € und 4 €.'],
+    TW('Preis = 4 + 2x, x ≥ 0.', 'richtige Wertemenge.', 'Kleinsten Preis bestimmen.', 'Bei x = 0: 4 €; mit jedem km wird es teurer.', 'Die Wertemenge enthält nur Beträge ab 4 €; die Aussage ist falsch.'), 'Was kostet die kürzeste mögliche Fahrt?'), huerde='entscheidung')
+TX.u('mengen', 'parameter', TZ('Ein Tank verliert pro Stunde 25 l, bis er leer ist. Die sinnvolle Definitionsmenge enthält alle Zeiten von 0 bis 16 Stunden. Wie viele Liter waren am Anfang im Tank?', '25 * 16',
+    TW('25 l pro Stunde, leer nach 16 h.', 'Anfangsmenge.', 'Rückwärts rechnen.', '25 · 16 = 400.', 'Am Anfang waren 400 l im Tank.'), 'Was bedeutet die Zahl 16 hier?', einheit='l'))
 TX.u('mengen', 'transfer', TZ('Ein Handyakku ist voll (100 %) und verliert pro Stunde 5 %. Bei 10 % schaltet sich das Handy ab. Der Zeit x (in h) wird der Ladestand zugeordnet, solange das Handy an ist. Was ist die größte Zahl der Definitionsmenge?', '(100 - 10) / 5',
-    TW('100 − 5x, an bis 10 %.', 'größtes x.', '100 − 5x ≥ 10 und x ≥ 0.', '5x ≤ 90 ⇒ x ≤ 18.', 'D = [0; 18], größte Zahl 18.'), 'Bis zu welchem Ladestand läuft das Handy?', einheit='h'), huerde='zwei')
-TX.s('mengen', TZ('Ein Museum verlangt 6 € Eintritt pro Person, höchstens 50 Personen dürfen hinein. Wie groß ist der größte Wert der Wertemenge?', '6 * 50',
+    TW('100 − 5x, an bis 10 %.', 'größtes x.', '100 − 5x ≥ 10 und x ≥ 0.', '5x ≤ 90 ⇒ x ≤ 18.', 'Das Handy läuft 18 Stunden; die größte Zahl der Definitionsmenge ist 18.'), 'Bis zu welchem Ladestand läuft das Handy?', einheit='h'), huerde='zwei')
+TX.s('mengen', TZ('Ein Museum verlangt 6 € Eintritt pro Person, höchstens 50 Personen dürfen hinein. Jeder Personenzahl x werden die Einnahmen zugeordnet. Wie groß ist der größte Wert der Wertemenge?', '6 * 50',
     TW('6 € pro Person, höchstens 50.', 'größter Wert.', 'x = 50 einsetzen.', '6 · 50 = 300.', 'Der größte Wert ist 300 €.'), einheit='€'))
 TX.s('mengen', TZ('Eine Kerze ist 20 cm hoch und brennt 2 cm pro Stunde ab. Was ist die größte sinnvolle Brenndauer?', '20 / 2',
-    TW('20 cm, 2 cm pro Stunde.', 'größtes t.', 'Wann ist die Kerze abgebrannt?', '20 : 2 = 10.', 'D = [0; 10].'), einheit='h'))
-TX.k('mengen', TZ('Ein Bus hat 45 Plätze, die Fahrt kostet 3 € pro Person. Wie groß ist der größte Wert der Wertemenge?', '3 * 45',
+    TW('20 cm, 2 cm pro Stunde.', 'größtes t.', 'Wann ist die Kerze abgebrannt?', '20 : 2 = 10.', 'Die größte sinnvolle Brenndauer ist 10 Stunden.'), einheit='h'))
+TX.k('mengen', TZ('Ein Bus hat 45 Plätze, die Fahrt kostet 3 € pro Person. Jeder Zahl x der Mitfahrenden werden die Einnahmen zugeordnet. Wie groß ist der größte Wert der Wertemenge?', '3 * 45',
     TW('3 € pro Person, höchstens 45.', 'größter Wert.', 'x = 45.', '3 · 45 = 135.', 'Der größte Wert ist 135 €.'), einheit='€'))
 
 # --- funktionswert ---

@@ -845,8 +845,8 @@ ST.neu('asymptoten', 'fehler', SA('Jemand gibt für f(x) = 3/(x − 2) + 5 die s
     'x − 2 = 0 ⇒ x = 2. Das Vorzeichen in der Klammer kehrt sich beim Ablesen um.', 'Setze den Nenner gleich 0.'))
 ST.neu('asymptoten', 'transfer', SA('Mit n gleichen Pumpen dauert das Leeren t(n) = 24/n Stunden. Was bedeutet die waagrechte Asymptote y = 0?', 'Mit immer mehr Pumpen geht die Zeit gegen 0, wird aber nie 0.',
     ['Mit 24 Pumpen dauert es 0 Stunden.', 'Ohne Pumpen dauert es 0 Stunden.', 'Die Zeit wird irgendwann negativ.'], '24/n ist für jedes n > 0 positiv, wird aber beliebig klein.', 'Kann 24/n jemals 0 sein?'))
-ST.neu('asymptoten', 'pruefung', SZ('Gegeben f(x) = 6/(x + 2) − 3. Gib die Asymptoten an und berechne die Nullstelle. Gib die Nullstelle an.', 0, '6 / 3 - 2',
-    'Asymptoten: x = −2 und y = −3. Nullstelle: 6/(x + 2) = 3 ⇒ x + 2 = 2 ⇒ x = 0 (der Graph geht durch den Ursprung).', 'Setze f(x) = 0 und löse.'))
+ST.neu('asymptoten', 'pruefung', SZ('Gegeben f(x) = 6/(x + 2) − 3. Berechne die Nullstelle.', 0, '6 / 3 - 2',
+    'Nullstelle: 6/(x + 2) − 3 = 0 ⇒ 6/(x + 2) = 3 ⇒ x + 2 = 2 ⇒ x = 0 (der Graph geht durch den Ursprung).', 'Setze f(x) = 0 und löse.'))
 ST.knobel('asymptoten', SZ('Die Hyperbel f(x) = a/(x − 1) + 2 geht durch (3 | 5). Wie weit ist ihr Punkt mit x = 7 von der waagrechten Asymptote entfernt?', 1, '6 / (7 - 1)',
     'Aus (3 | 5): a/2 + 2 = 5 ⇒ a = 6. f(7) = 6/6 + 2 = 3. Die waagrechte Asymptote ist y = 2, der Abstand also 1.', 'Bestimme zuerst a.'))
 ST.knobel('asymptoten', SZ('Wie viele Punkte mit ganzzahligen Koordinaten liegen auf dem Graphen von f(x) = 4/(x − 1) + 2?', 6, '2 * 3',
@@ -888,9 +888,9 @@ ST.neu('parameter', 'begruenden', SA('Warum verschiebt „x − 2“ im Nenner d
     'f(x) = a/(x − 2) nimmt bei x die Werte an, die a/x bei x − 2 hat – alles passiert 2 Einheiten später, also weiter rechts.', 'Wo ist die Definitionslücke von a/(x − 2)?'))
 ST.neu('parameter', 'pruefung', SA('Der Graph von g(x) = 1/x wird um 2 nach links und um 1 nach unten verschoben. Welche Asymptoten hat der neue Graph?', 'x = −2 und y = −1', ['x = 2 und y = −1', 'x = −2 und y = 1', 'x = −1 und y = −2'],
     'Neuer Term f(x) = 1/(x + 2) − 1: senkrecht x = −2, waagrecht y = −1.', 'Stelle zuerst den neuen Term auf.'))
-ST.neu('parameter', 'transfer', SA('Der Graph von f(x) = 1/(x − 1) + 1 wird an der Geraden y = x gespiegelt. Welche Funktion gehört zum gespiegelten Graphen?', 'wieder f(x) = 1/(x − 1) + 1',
-    ['f(x) = 1/(x + 1) − 1', 'f(x) = −1/(x − 1) + 1', 'f(x) = x − 1'], 'Beim Spiegeln an y = x vertauscht man x und y: x − 1 = 1/(y − 1) ⇒ y − 1 = 1/(x − 1). Es kommt derselbe Term heraus – der Graph ist zu y = x symmetrisch.',
-    'Vertausche x und y und löse nach y auf.'))
+ST.neu('parameter', 'transfer', SA('Der Graph von f(x) = 1/(x − 1) + 1 wird um 1 nach links und um 1 nach unten verschoben. Welche Funktion gehört zum verschobenen Graphen?', 'g(x) = 1/x',
+    ['g(x) = 1/(x − 2)', 'g(x) = 1/(x − 2) + 2', 'g(x) = 1/x + 2'], 'Die Asymptoten von f sind x = 1 und y = 1. Nach der Verschiebung liegen sie bei x = 0 und y = 0. Am Term: 1 nach links heißt x + 1 statt x: 1/((x + 1) − 1) + 1 = 1/x + 1; 1 nach unten: 1/x + 1 − 1 = 1/x.',
+    'Wo liegen die Asymptoten vorher und nachher?'))
 ST.knobel('parameter', SZ('Der Graph von f(x) = 2/(x − 3) + 1 wird erst um 5 nach links, dann um 2 nach unten verschoben und danach an der x-Achse gespiegelt. Welchen Wert hat der neue Term bei x = 0?', 0, '-(2 / (0 + 2) - 1)',
     'Nach links um 5: 2/(x + 2) + 1. Nach unten um 2: 2/(x + 2) − 1. Spiegeln an der x-Achse: −2/(x + 2) + 1. Bei x = 0: −1 + 1 = 0.', 'Mache die drei Schritte nacheinander am Term.'))
 ST.knobel('parameter', SA('Für welche b und c geht der Graph von f(x) = 1/(x + b) + c durch den Ursprung und hat die waagrechte Asymptote y = 1?', 'b = −1, c = 1', ['b = 1, c = 1', 'b = −1, c = −1', 'b = 1, c = −1'],
@@ -916,7 +916,7 @@ ST.neu('beurteilen', 'transfer', SA('Vereinfacht gilt für die Helligkeit einer 
 ST.neu('beurteilen', 'pruefung', SA('Welche Aussage über f(x) = 2/(x + 1) − 2 ist richtig?', 'Nullstelle 0, Asymptoten x = −1 und y = −2', ['Nullstelle 1, Asymptoten x = 1 und y = −2', 'keine Nullstelle, Asymptoten x = −1 und y = 2', 'Nullstelle 0, Asymptoten x = 1 und y = 2'],
     '2/(x + 1) = 2 ⇒ x = 0. Senkrecht x = −1, waagrecht y = −2.', 'Bestimme Nullstelle und beide Asymptoten.'))
 ST.knobel('beurteilen', SZ('Wie viele Schnittpunkte hat der Graph von f(x) = 1/x mit der Geraden y = −x + 2,5?', 2, '2',
-    'Probieren: x = 2 ergibt 1/2 und −2 + 2,5 = 0,5 ✓. x = 0,5 ergibt 2 und 2 ✓. Beide Graphen sind spiegelbildlich zu y = x, deshalb gehört zu (2 | 0,5) auch (0,5 | 2). Für x < 0 ist 1/x negativ, die Gerade aber positiv – dort gibt es keinen Schnitt. Also 2.',
+    'Probieren: x = 2 ergibt 1/2 und −2 + 2,5 = 0,5 ✓. x = 0,5 ergibt 2 und 2 ✓. Beide Graphen sind spiegelbildlich zu y = x, deshalb gehört zu (2 | 0,5) auch (0,5 | 2). Für x < 0 ist 1/x negativ, die Gerade aber positiv – dort gibt es keinen Schnitt. Mehr als zwei Schnitte mit x > 0 gibt es nicht: Ein Schnittpunkt (x | y) erfüllt x + y = 2,5 und x · y = 1. Für zwei positive Zahlen mit der Summe 2,5 wird das Produkt x · (2,5 − x) bis x = 1,25 immer größer und danach spiegelbildlich wieder kleiner – den Wert 1 erreicht es also auf jeder Seite nur einmal. Also 2.',
     'Probiere einfache Zahlen und nutze die Symmetrie zu y = x.'))
 ST.knobel('beurteilen', SZ('Wie viele Punkte mit positiven ganzzahligen Koordinaten liegen auf dem Graphen von f(x) = 6/x?', 4, '4',
     'x muss ein positiver Teiler von 6 sein: 1, 2, 3, 6. Das ergibt (1 | 6), (2 | 3), (3 | 2), (6 | 1).', 'Wann ist 6/x eine ganze Zahl?'))
@@ -943,16 +943,16 @@ TX.u('definitionsmenge', 'direkt', TX.A('Die Busmiete für einen Ausflug wird ge
 TX.u('definitionsmenge', 'einkleidung', TZ('Ein Boot fährt 150 km flussaufwärts. Die Strömung bremst um 10 km/h, deshalb gilt für die Fahrzeit t(v) = 150/(v − 10) Stunden. Für welches v ist t nicht definiert?', '10',
     TW('t(v) = 150/(v − 10).', 'ausgeschlossenes v.', 'Nenner = 0 setzen.', 'v − 10 = 0 ⇒ v = 10.', 'Für v = 10 km/h ist t nicht definiert – das Boot käme nicht voran.'), 'Setze den Nenner gleich 0.', einheit='km/h'))
 TX.u('definitionsmenge', 'mehrschritt', TX.A('Die Busmiete von 600 € wird auf alle Mitfahrenden außer den 3 Lehrkräften verteilt: k(x) = 600/(x − 3) Euro, x = Anzahl aller Mitfahrenden. Welche Definitionsmenge ist sinnvoll?',
-    '{4; 5; 6; …}', ['ℝ \\ {3}', '{0; 1; 2; …}', '{3; 4; 5; …}'],
+    '{4; 5; 6; …}', ['ℚ \\ {3}', '{0; 1; 2; …}', '{3; 4; 5; …}'],
     TW('Nenner x − 3, x ganze Personen.', 'sinnvolle Definitionsmenge.', 'Nenner ≠ 0 und mindestens ein zahlendes Kind.', 'x ≠ 3, x ganz, x > 3.', 'D = {4; 5; 6; …}.'), 'Zwei Fragen: Wann ist der Nenner 0? Welche Personenzahlen gibt es überhaupt?'))
 TX.u('definitionsmenge', 'pruefung', TZ('Ein Verlag in einer Stadt mit 40 000 Einwohnern berechnet für ein Fotobuch pro Stück k(x) = (90 + 12x)/x Euro bei x Exemplaren. Welche Zahl gehört nicht zur Definitionsmenge?', '0',
     TW('k(x) = (90 + 12x)/x; die Einwohnerzahl spielt keine Rolle.', 'ausgeschlossene Zahl.', 'Nenner = 0.', 'x = 0.', 'x = 0 ist ausgeschlossen.'), 'Was steht im Nenner?'), huerde='ueberfluessig')
-TX.u('definitionsmenge', 'fehler', TX.A('Für eine 240 km lange Fahrt gilt t(v) = 240/v Stunden. Jemand gibt als Definitionsmenge D = ℝ an. Was stimmt?',
+TX.u('definitionsmenge', 'fehler', TX.A('Für eine 240 km lange Fahrt gilt t(v) = 240/v Stunden. Jemand gibt als Definitionsmenge D = ℚ an. Was stimmt?',
     'Falsch: v = 0 ist ausgeschlossen; sinnvoll ist v > 0.', ['Richtig.', 'Falsch: D = {240}.', 'Falsch: v = 240 ist ausgeschlossen.'],
     TW('t(v) = 240/v.', 'richtige Definitionsmenge.', 'Nenner ≠ 0, Sachbezug prüfen.', 'v ≠ 0; Geschwindigkeiten sind positiv.', 'D = ]0; ∞[ – die Angabe ist falsch.'), 'Was passiert bei v = 0?'), huerde='entscheidung')
 TX.u('definitionsmenge', 'transfer', TX.A('Ein Becken wird mit x gleichen Pumpen in t(x) = 36/x Stunden geleert. Es gibt höchstens 6 Pumpen. Welche Definitionsmenge ist sinnvoll?',
-    '{1; 2; 3; 4; 5; 6}', ['ℝ \\ {0}', ']0; 6]', '{0; 1; 2; 3; 4; 5; 6}'],
-    TW('t(x) = 36/x, x ganze Pumpen, höchstens 6.', 'D.', 'Nenner ≠ 0 und Sachbedingungen.', 'x ∈ {1; …; 6}.', 'D = {1; 2; 3; 4; 5; 6}.'), 'Gibt es 2,5 Pumpen? Gibt es 0 Pumpen?'), huerde='zwei')
+    '{1; 2; 3; 4; 5; 6}', ['ℚ \\ {0}', ']0; 6]', '{0; 1; 2; 3; 4; 5; 6}'],
+    TW('t(x) = 36/x, x ganze Pumpen, höchstens 6.', 'D.', 'Nenner ≠ 0 und Sachbedingungen.', 'x = 1, 2, 3, 4, 5 oder 6.', 'D = {1; 2; 3; 4; 5; 6}.'), 'Gibt es 2,5 Pumpen? Gibt es 0 Pumpen?'), huerde='zwei')
 TX.s('definitionsmenge', TZ('Der Preis pro Person ist p(x) = 240/(x + 2) Euro. Welche Zahl ist ausgeschlossen?', '-2',
     TW('Nenner x + 2.', 'ausgeschlossene Zahl.', 'x + 2 = 0.', 'x = −2.', 'x = −2 ist ausgeschlossen.')))
 TX.s('definitionsmenge', TZ('Die Fahrzeit für 60 km beträgt t = 60/v Stunden. Welches v ist ausgeschlossen?', '0',
@@ -999,8 +999,8 @@ TX.u('achsenpunkte', 'transfer', TZ('Bei einem Turnier zahlt jedes Team s(x) = 1
     TW('1 200/x + 15 ≤ 45.', 'kleinste Teamzahl.', 'Umformen.', '1 200/x ≤ 30 ⇒ x ≥ 40.', 'Ab 40 Teams.'), 'Wie groß darf der Anteil 1 200/x höchstens sein?'))
 TX.s('achsenpunkte', TZ('Für den Gewinn pro Stück gilt g(x) = 3 − 450/x. Bestimme die Nullstelle.', '450 / 3',
     TW('3 − 450/x = 0.', 'Nullstelle.', 'Gleich 0.', 'x = 150.', 'x = 150.')))
-TX.s('achsenpunkte', TZ('Für den Saftanteil gilt p(x) = 6/(x + 4). Bestimme p(0).', '6 / 4',
-    TW('x = 0.', 'p(0).', 'Einsetzen.', '6 : 4 = 1,5.', 'p(0) = 1,5.')))
+TX.s('achsenpunkte', TZ('Aus einem Tank fließt Wasser ab. Nach t Stunden sind noch V(t) = 6/(t + 4) Kubikmeter darin. Wie viel ist am Anfang darin?', '6 / 4',
+    TW('V(t) = 6/(t + 4), Anfang t = 0.', 'V(0).', 'Einsetzen.', '6 : 4 = 1,5.', 'Am Anfang sind 1,5 m³ im Tank.'), einheit='m³'))
 TX.k('achsenpunkte', TZ('Für den Gewinn pro Stück gilt g(x) = 0,5 − 40/x. Bestimme die Nullstelle.', '40 / 0.5',
     TW('0,5 − 40/x = 0.', 'Nullstelle.', 'Gleich 0.', 'x = 80.', 'x = 80.')))
 
@@ -1011,8 +1011,8 @@ TX.u('parameter', 'einkleidung', TZ('Für die Stückkosten gilt k(x) = a/x + 3 E
     TW('a/50 + 3 = 13.', 'a.', 'Einsetzen und lösen.', 'a/50 = 10 ⇒ a = 500.', 'Die Fixkosten betragen 500 €.'), 'Setze x = 50 und k = 13 ein.', einheit='€'))
 TX.u('parameter', 'umkehr', TZ('Für eine Fahrt gilt t(v) = s/v. Mit 80 km/h dauert sie 2,5 Stunden. Wie lang ist die Strecke s?', '80 * 2.5',
     TW('s/80 = 2,5.', 's.', 'Mit 80 multiplizieren.', '80 · 2,5 = 200.', 's = 200 km.'), 'Strecke = Geschwindigkeit · Zeit.', einheit='km'))
-TX.u('parameter', 'mehrschritt', TZ('Für die Stückkosten gilt k(x) = a/x + b. Bei 10 Stück kostet jedes 25 €, bei 20 Stück 15 €. Wie groß ist b?', '25 - (25 - 15) * 2',
-    TW('a/10 + b = 25, a/20 + b = 15.', 'b.', 'Differenz: a/20 = 10.', 'a = 200, b = 25 − 20 = 5.', 'b = 5 €.'), 'Ziehe die beiden Gleichungen voneinander ab.', einheit='€'))
+TX.u('parameter', 'mehrschritt', TZ('Für die Stückkosten gilt k(x) = a/x + 4 Euro. Bei 20 Stück kostet jedes 14 €. Was kostet jedes Stück bei 50 Stück?', '(14 - 4) * 20 / 50 + 4',
+    TW('k(x) = a/x + 4, k(20) = 14.', 'k(50).', 'Erst a bestimmen, dann x = 50 einsetzen.', 'a/20 = 10 ⇒ a = 200; k(50) = 200 : 50 + 4 = 8.', 'Bei 50 Stück kostet jedes 8 €.'), 'Bestimme zuerst a.', einheit='€'))
 TX.u('parameter', 'pruefung', TZ('Eine Backstube öffnet um 4 Uhr. Für die Kosten je Brötchen gilt k(x) = a/x + 0,4 Euro. Bei 500 Brötchen kostet jedes 1 €. Wie hoch sind die Fixkosten a pro Tag?', '(1 - 0.4) * 500',
     TW('a/500 + 0,4 = 1; die Uhrzeit spielt keine Rolle.', 'a.', 'Einsetzen, lösen.', 'a/500 = 0,6 ⇒ a = 300.', 'a = 300 €.'), 'Welche Angabe gehört nicht in die Gleichung?', einheit='€'), huerde='ueberfluessig')
 TX.u('parameter', 'verknuepfen', TX.A('Zwei Druckereien: A berechnet k(x) = 300/x + 5, B k(x) = 600/x + 3 Euro pro Stück. Welche ist bei 100 Stück günstiger?', 'A: 8 € statt 9 €', ['B: 9 € statt 8 €', 'Beide kosten 8 €.', 'B: 3 € statt 5 €'],

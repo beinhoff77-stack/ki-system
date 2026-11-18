@@ -1,5 +1,52 @@
 # Postfach stufen-kl8 (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, Klasse 8)
 
+Neueste Meldung oben.
+
+## 2026-11-18 – STATUS: Inhaltliche Prüfung aller neuen Aufgaben, Klasse 8
+Zweig `stufen-kl8` vorher auf `origin/lernen-app` gebracht (Merge, Vorlauf ohne Konflikt). 14 Themen, je Thema ein Commit und Push. Für jedes Thema meldet `tools/inhalt_pruefen.py` OK mit 0 Gruppen „gleich gebaut hintereinander“, und der Nachweis gegen `origin/lernen-app` ist OK.
+
+**Umfang (Fakt):** Geprüft wurden 1 449 neue Aufgaben (Pools uebung, bonus, sicherung, korrektur), jeweils mit Fragetext, allen Optionen, Tipp und Lösungsweg. Jede Lösung habe ich nachgerechnet. Bei Knobel-Bordkarten mit „höchstens/mindestens/wie viele“ habe ich die Fälle durchgezählt, einige zusätzlich per Programm (ggT-Zählung, Teiler, Gitterpunkte). Geändert wurden **71 Aufgaben**; alte Aufgaben sind Zeichen für Zeichen gleich, Typ `g` und Stufe `s` sind unverändert.
+
+| Thema | geprüft | geändert |
+|---|---|---|
+| funktionen.grundbegriffe | 123 | 12 |
+| funktionen.linear | 102 | 4 |
+| zahlen.intervalle | 65 | 7 |
+| gleichungen.ungleichungen | 107 | 10 |
+| groessen.indirekt | 65 | 3 |
+| funktionen.gebrochen | 87 | 8 |
+| terme.bruchterme | 118 | 6 |
+| gleichungen.bruch | 115 | 5 |
+| gleichungen.formeln | 64 | 3 |
+| stochastik.grundbegriffe | 69 | 3 |
+| gleichungen.lgs2 | 129 | 3 |
+| messen.kreisberechnung | 66 | 1 |
+| messen.koerper_darstellung | 84 | 2 |
+| messen.prisma_zylinder | 255 | 4 |
+| **Summe** | **1 449** | **71** |
+
+**Nach Fehlerart** (je Aufgabe die Hauptart; Beispiel vorher → nachher):
+- **a) falsche oder nicht eindeutige Lösung, falsche „immer“-Aussage – 5.** Beispiel: messen.prisma_zylinder/zylinder_volumen (Korrektur, r = 2): Lösungsweg „V = π · 2² · 2 = 8π cm³. 8π wäre der Mantel …“ → „… Der Mantel 2 · π · 2 · 2 hat hier zufällig dieselbe Zahl, ist aber eine Fläche in cm². …“. Weitere: „Hyperbeln y = 8 : x und y = 2 · x“ (die zweite ist eine Gerade), „Kürzen ändert die Werte“ (stimmt nicht), „wird nicht genau 380 sein“ → „meist nicht genau“.
+- **b) mehrdeutige Zählweise – 0.** Keine Aufgabe mit „k. Strich“ oder „nach dem Anfang“ gefunden.
+- **c) späterer Stoff – 18.** Beispiel: funktionen.grundbegriffe/mengen: „Jemand gibt … die Wertemenge W = [0; ∞[ an“ (Intervallschreibweise kommt erst in zahlen.intervalle) → „Jemand sagt über die Wertemenge …: „Der Preis kann jeden Betrag ab 0 € annehmen.““. Weitere: ℝ/„reelle Zahlen“ → ℚ (Kl. 9) in grundbegriffe, gebrochen, bruchterme. Die Schrägbild-Diagonale mit √ und Pythagoras (koerper_darstellung, kam beim Bereinigen aus raum.schraegbilder) ersetzt durch „gezeichnete Vorderfläche im Maßstab 1 : 2“. Ein Gleichungssystem vor gleichungen.lgs2 (gebrochen/parameter) und das Spiegeln an y = x (Umkehrfunktion) ersetzt. Wurzelziehen in Lösungswegen umgeschrieben auf „die positive Zahl, die mit sich selbst malgenommen … ergibt“ (indirekt, formeln, prisma_zylinder). Das Argument mit ähnlichen Dreiecken bei der Rinne umgeschrieben auf „gleichmäßig breiter“.
+- **d) unklare Fragen – 16.** Beispiel: funktionen.linear/lage: „Für welches m sind die Graphen parallel und was kostet B dann bei 100 Minuten?“ (zwei Fragen, ein Feld) → „Die Graphen sind parallel. Was kostet B bei 100 Minuten?“. Weitere: fehlende Zuordnung („größter Wert der Wertemenge“ ohne Angabe, welche Funktion), „bis 25 °C“ → „bis einschließlich 25 °C“, „Für welches t gibt es eine Lösung v = 10, die keine Lösung ist?“, Saftanteil 6/(x + 4) mit Wert 1,5 (unrealistisch), Fahrrad mit 40 km/h → Roller, Akku-Graph ohne Einheit der x-Achse.
+- **e) Optionen mit falscher Rechnung oder wahrer, aber unpassender Begründung – 9.** Beispiel: gleichungen.ungleichungen/pruefen: Option „Richtig: 4 + 2,5 · 18 = 50.“ → „Richtig: Dann sind genau 50 € in der Kasse.“. Weitere: „9 : 5 = 2,20“, „3 · 8 = 11“, „Richtig: 50 : 4 = 12,5“, „Richtig, denn 1 − 0,2 = 0,8“, „Richtig: 12 : 4 = 3“, Ziffern-Streich-Aufgabe als „19/95 → 1/5“ statt falscher Gleichungen, „Richtig: Treffpunkt …“ bei einer falschen Aussage → „Falsch: …“.
+- **f) Lösungswege mit „…“, Sprüngen oder nicht erklärten Tricks – 23.** Beispiel: gleichungen.ungleichungen/klammern (Knobel): Tipp „für die Summe hilft ein Trick wie beim kleinen Gauß“ und Lösungsweg „n = 10, 11, …, 18 … (10 + 18) · 9 : 2“ → Tipp „dann addiere alle passenden Zahlen“, Lösungsweg „n = 10 bis 18 … 10 + 11 + 12 + 13 + 14 + 15 + 16 + 17 + 18 = 126“. Weitere: alle „…“ in Lösungswegen ausgeschrieben; „Urbilder“ ersetzt; die Begründung bei den Schnittpunkten von 1/x und y = −x + 2,5 ergänzt, warum es nicht mehr als zwei Schnittpunkte gibt.
+
+**Lesarten und Annahmen (bitte bestätigen):**
+- **„Neu“:** Eine Aufgabe gilt als neu, wenn ihr Fragetext in **keinem** Thema des Commits 4eda8cb vorkommt. Aufgaben, die beim Bereinigen nur in ein anderes Thema umgezogen sind, gelten damit als alt. In messen.prisma_zylinder sind 255 von 261 Aufgaben neu, weil der Generator dort seit 4eda8cb andere Zufallszahlen liefert.
+- **Nachweis:** `_stufen_nachweis_kl8.py` passt nicht mehr – es schlägt schon auf dem unveränderten `origin/lernen-app` fehl, weil dort inzwischen Knobel-Bordkarten mit `g` stehen. Neu ist `inhalte/generatoren/_korrektur_kl8_nachweis.py`. Es prüft gegen `origin/lernen-app`: Felder außerhalb von `aufgaben` gleich; alte Aufgaben (Text in 4eda8cb) Zeichen für Zeichen gleich; Anzahl je Lernkarte, Pool, Stufe, Typ und Antwortform gleich. Damit bleiben auch die Mindestzahlen der Textaufgaben aus der Zweiundzwanzigsten Runde erfüllt, denn keine Aufgabe ist weggefallen und keine hat Typ oder Stufe gewechselt.
+- **Bewusst gelassen:**
+  - `x² = 4 ⇒ x = ±2` in Knobeln: Quadrate negativer Zahlen sind aus Kl. 7 bekannt.
+  - Faktoren für Fläche und Volumen in prisma_zylinder/verstehen und kreisberechnung: Das steht schon in alten Aufgaben derselben Karten.
+  - „r² = 49 ⇒ r = 7“ in kreisberechnung: Alte Aufgaben machen es genauso.
+  - Das Zählen von Überschneidungen („durch 2 oder durch 3“) in stochastik.
+  - Erfundene Vornamen in Aufgaben.
+- Die Korrektur der umgezogenen Schrägbild-Aufgabe steht in `_br_plan.py` (Plan für messen.koerper_darstellung). `raum.schraegbilder` selbst ist unverändert.
+
+**Nicht geprüft:** Wie die App die Grafiken (Figuren, Netze, Koordinatensysteme) zeichnet. Geprüft wurden nur Text, Optionen, Tipp, Lösungsweg und `c`, nicht, ob Beschriftungen im Bild zum Text passen. Ob alle Zahlen für 13- bis 14-Jährige realistisch sind, habe ich nur dort geändert, wo sie klar unrealistisch waren.
+
+
 ## 2026-11-17 – STATUS (je Thema eine Zeile, neueste unten)
 Annahme zu „überzählig“: Überzählige Übungen bleiben in der Datei (Stufe nach Typ gesetzt), bekommen aber **kein** `g`, damit das Prüfskript sie nicht mitzählt; sie stehen im Abschlussbericht und können gesperrt werden. Für die übrigen Übungen prüft `_stufen_kl8.py` die Mengenregeln des Auftrags (S1 ≥ 4/2 Typen, S2 ≥ 6/3, S3 ≥ 8/4, je S3-Typ ≤ 3, nie zwei gleiche Typen hintereinander). Nachweis: `_stufen_nachweis.py`.
 - gleichungen.ungleichungen: 38 neue Übungen, 14 Knobel-Bordkarten, 13 umgestuft, 31 überzählig. `inhalt_pruefen` OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK.

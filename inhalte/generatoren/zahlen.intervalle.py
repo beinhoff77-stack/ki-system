@@ -536,10 +536,10 @@ ST.neu('lesen', 'rueckwaerts', SZ('Ein Intervall [a; b] hat die Mitte 3 und die 
 ST.neu('lesen', 'pruefung', SA('A = [−4; 1[ und B = ]−1; 3]. Welche Menge enthält genau die Zahlen, die in A oder in B (oder in beiden) liegen?', '[−4; 3]', [']−1; 1[', '[−4; 3[', ']−4; 3]'],
     'A reicht von −4 (dabei) bis 1, B von −1 bis 3 (dabei). Die Teile überlappen, zusammen also von −4 bis 3, beide Enden dabei: [−4; 3]. ]−1; 1[ wären nur die gemeinsamen Zahlen.', 'Zeichne beide Intervalle untereinander an einen Zahlenstrahl.'))
 ST.knobel('lesen', SZ('Wie viele Intervalle [a; b] mit ganzen Zahlen a und b und 0 ≤ a < b ≤ 5 gibt es?', 15, '6 * 5 / 2',
-    'Man wählt zwei verschiedene Zahlen aus 0, 1, 2, 3, 4, 5; die kleinere ist a, die größere b. Für a = 0 gibt es 5 Möglichkeiten für b, für a = 1 vier, … für a = 4 eine: 5 + 4 + 3 + 2 + 1 = 15.',
+    'Man wählt zwei verschiedene Zahlen aus 0, 1, 2, 3, 4, 5; die kleinere ist a, die größere b. Für a = 0 gibt es 5 Möglichkeiten für b, für a = 1 vier, für a = 2 drei, für a = 3 zwei, für a = 4 eine: 5 + 4 + 3 + 2 + 1 = 15.',
     'Ordne nach der linken Grenze a und zähle für jedes a die möglichen b.'))
 ST.knobel('lesen', SZ('Das Intervall [a; b] enthält genau 5 ganze Zahlen, das Intervall ]a; b[ genau 3. Wie lang ist das Intervall?', 4, '5 - 1',
-    'Lässt man die Grenzen weg, fallen genau 2 ganze Zahlen weg – also sind a und b selbst ganze Zahlen. [a; b] enthält dann a, a + 1, …, b, das sind b − a + 1 = 5 Zahlen. Also b − a = 4.',
+    'Lässt man die Grenzen weg, fallen genau 2 ganze Zahlen weg – also sind a und b selbst ganze Zahlen. Die 5 ganzen Zahlen in [a; b] sind dann a, a + 1, a + 2, a + 3 und a + 4 = b. Also b − a = 4.',
     'Warum fallen beim Weglassen der Grenzen genau zwei ganze Zahlen weg?'))
 
 # --- schreiben ---
@@ -556,7 +556,7 @@ ST.neu('schreiben', 'parameter', SZ('Für welche Zahl k ist [k; 2k] ein Interval
     'Länge = rechte Grenze − linke Grenze = 2k − k = k. Also k = 6, das Intervall ist [6; 12].', 'Schreibe die Länge mit k.'))
 ST.neu('schreiben', 'rueckwaerts', SA('Jede Zahl eines Intervalls wird verdoppelt, dann wird 1 addiert. Heraus kommt [−1; 7]. Wie hieß das Intervall vorher?', '[−1; 3]', ['[−2; 6]', '[0; 4]', '[−1; 7]'],
     'Rückwärts: erst 1 abziehen, dann halbieren. −1 → −2 → −1; 7 → 6 → 3. Also [−1; 3].', 'Mach die Schritte in umgekehrter Reihenfolge rückgängig.'))
-ST.neu('schreiben', 'pruefung', SZ('Schreibe die Zahlen, die mindestens 2,5 und kleiner als 7 sind, als Intervall und gib seine Länge an.', 4.5, '7 - 25 / 10',
+ST.neu('schreiben', 'pruefung', SZ('Die Zahlen, die mindestens 2,5 und kleiner als 7 sind, bilden ein Intervall. Wie lang ist es?', 4.5, '7 - 25 / 10',
     'Das Intervall ist [2,5; 7[. Seine Länge ist 7 − 2,5 = 4,5 (ob die Grenzen dazugehören, ändert die Länge nicht).', 'Länge = rechte Grenze − linke Grenze.'))
 ST.neu('schreiben', 'begruenden', SA('Kann man „alle Zahlen außer 0“ als ein einziges Intervall schreiben?', 'Nein: Es sind zwei getrennte Teile, ]−∞; 0[ und ]0; ∞[.',
     ['Ja: ]−∞; ∞[.', 'Ja: ]0; ∞[.', 'Ja: [−∞; ∞].'], 'Ein Intervall hat keine Lücke. „Alle außer 0“ hat bei 0 ein Loch, deshalb braucht man zwei Intervalle.', 'Hat ein Intervall Lücken?'))
@@ -576,7 +576,7 @@ ST.neu('enthalten', 'direkt', SZ('Wie lang ist das Intervall [−2; 5]?', 7, '5 
 ST.neu('enthalten', 'einkleidung', SZ('Ein Parkhaus lässt Autos von 1,50 m bis 2,10 m Höhe hinein. Wie viele Zentimeter umfasst dieser Bereich?', 60, '210 - 150',
     'Das Intervall ist [1,5; 2,1] (in m), seine Länge 0,6 m = 60 cm.', 'Rechne in Zentimetern: 210 − 150.', einheit='cm'))
 ST.neu('enthalten', 'umkehr', SZ('Das Intervall [−3; b] enthält genau 8 ganze Zahlen; b ist ganz. Bestimme b.', 4, '-3 + 8 - 1',
-    'Die ganzen Zahlen sind −3, −2, …, b. Das sind b − (−3) + 1 = b + 4 Zahlen. b + 4 = 8 ⇒ b = 4.', 'Zähle von −3 an acht ganze Zahlen ab.'))
+    'Von −3 bis b sind es b − (−3) + 1 = b + 4 ganze Zahlen (beide Grenzen mitgezählt). b + 4 = 8 ⇒ b = 4.', 'Zähle von −3 an acht ganze Zahlen ab.'))
 ST.neu('enthalten', 'fehler', SA('Jemand zählt die ganzen Zahlen in ]−2; 3[ so: −2, −1, 0, 1, 2, 3 – also 6. Was stimmt?', 'Falsch: −2 und 3 gehören nicht dazu, es sind 4.',
     ['Richtig, es sind 6.', 'Falsch: Es sind 5, nur die 3 fehlt.', 'Falsch: Es sind 3.'],
     'Beide Klammern zeigen nach außen: −2 und 3 gehören nicht dazu. Übrig bleiben −1, 0, 1, 2.', 'Schau dir beide Klammern an.'))
@@ -586,7 +586,7 @@ ST.neu('enthalten', 'begruenden', SA('Stimmt die Aussage: „Liegt eine Zahl in 
 ST.neu('enthalten', 'pruefung', SZ('Gegeben sind A = [−6; 2[ und B = ]−1; 5]. Wie viele ganze Zahlen liegen in A und zugleich in B?', 2, '1 - 0 + 1',
     'Gemeinsam ist ]−1; 2[. Ganze Zahlen darin: 0 und 1. Das sind zwei.', 'Bestimme zuerst den gemeinsamen Teil der beiden Intervalle.'))
 ST.knobel('enthalten', SZ('Wie viele Zahlen mit höchstens zwei Nachkommastellen liegen im Intervall ]0; 1[?', 99, '99 - 1 + 1',
-    'Jede solche Zahl lässt sich als Hundertstel schreiben: 0,01; 0,02; …; 0,99 (0,1 ist 0,10 usw.). Das sind 99 Zahlen; 0 und 1 gehören nicht dazu.',
+    'Jede solche Zahl lässt sich als Hundertstel schreiben (0,1 ist 0,10): von 0,01 bis 0,99 in Schritten von 0,01, also 1 bis 99 Hundertstel. Das sind 99 Zahlen; 0 und 1 gehören nicht dazu.',
     'Schreibe jede Zahl mit genau zwei Nachkommastellen.'))
 ST.knobel('enthalten', SZ('Ein Intervall hat die Länge 2,5 und enthält seine Grenzen. Wie viele ganze Zahlen enthält es mindestens?', 2, '2',
     'Egal wo das Intervall liegt: Von der linken Grenze aus kommt nach höchstens 1 die erste ganze Zahl, nach einer weiteren Einheit die zweite – zusammen höchstens 2 ≤ 2,5. Also immer mindestens 2. Beispiel mit genau 2: [0,1; 2,6] enthält 1 und 2.',
@@ -617,7 +617,7 @@ ST.knobel('beurteilen', SA('A = [0; 3], B = [2; 5] und C = [4; 7]. Welche Aussag
     'A und C haben keine gemeinsame Zahl (3 < 4), also liegt keine Zahl in allen drei. A und B überlappen von 2 bis 3, B und C von 4 bis 5 – dadurch gibt es keine Lücke von 0 bis 7. In genau zwei Intervallen liegen nur [2; 3] und [4; 5], nicht ganz [2; 5].',
     'Zeichne die drei Intervalle übereinander und such Lücken und Überlappungen.'))
 ST.knobel('beurteilen', SZ('In wie vielen der Intervalle [1; 2], [1; 3], [1; 4], …, [1; 100] liegt die Zahl 37,5?', 63, '100 - 38 + 1',
-    '37,5 liegt in [1; n], wenn n ≥ 37,5 ist, also für n = 38, 39, …, 100. Das sind 100 − 38 + 1 = 63 Intervalle.', 'Für welche rechten Grenzen n ist 37,5 dabei?'))
+    '37,5 liegt in [1; n], wenn n ≥ 37,5 ist, also für jede ganze Zahl n von 38 bis 100. Das sind 100 − 38 + 1 = 63 Intervalle.', 'Für welche rechten Grenzen n ist 37,5 dabei?'))
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
@@ -654,7 +654,7 @@ TX.u('schreiben', 'einkleidung', TX.A('Ein Handgepäckstück darf höchstens 8 k
     TW('mehr als 0 kg, höchstens 8 kg.', 'Intervall.', '„mehr als“ nach außen, „höchstens“ nach innen.', ']0; 8].', 'Erlaubt ist ]0; 8] kg.'), 'Darf das Gepäck genau 8 kg wiegen?'))
 TX.u('schreiben', 'darstellung', TX.A('Im Fahrplan steht: Der Bus fährt ab 6 Uhr bis vor 9 Uhr alle 10 Minuten. Schreibe diese Zeitspanne (in Stunden) als Intervall.', '[6; 9[', ['[6; 9]', ']6; 9[', ']6; 9]'],
     TW('ab 6 Uhr, bis vor 9 Uhr.', 'Intervall.', '„ab“ nach innen, „bis vor“ nach außen.', '[6; 9[.', 'Die Zeitspanne ist [6; 9[.'), 'Fährt um genau 9 Uhr noch ein Bus im 10-Minuten-Takt?'))
-TX.u('schreiben', 'pruefung', TX.A('Medikament A darf bei 15 °C bis 25 °C gelagert werden, Medikament B bei mehr als 20 °C bis 30 °C. In welchem Temperaturbereich kann man beide zusammen lagern?',
+TX.u('schreiben', 'pruefung', TX.A('Medikament A darf bei 15 °C bis einschließlich 25 °C gelagert werden, Medikament B bei mehr als 20 °C bis einschließlich 30 °C. In welchem Temperaturbereich kann man beide zusammen lagern?',
     ']20; 25]', ['[15; 30]', '[20; 25]', ']20; 25['],
     TW('A: [15; 25], B: ]20; 30].', 'Bereich für beide.', 'Nur Zahlen, die in beiden Intervallen liegen.', 'Unten: über 20 (wegen B). Oben: höchstens 25 (wegen A).', 'Beide zusammen gehen bei ]20; 25] °C.'),
     'Welche Temperaturen erfüllen beide Bedingungen?'), huerde='zwei')

@@ -324,3 +324,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Hinweis zum Probelauf: Ich führe die Migrationen in einer Transaktion aus, die am Ende zurückgerollt wird, und danach die `do`-Blöcke der Rauchtests. Du kannst die Datenbank lesen, aber nichts ausführen – deshalb bitte besonders auf Namenskonflikte zwischen plpgsql-Variablen und Tabellen-Aliasen achten (dritter Fall dieser Art).
 - Nach „FERTIG: Auftrag H (korrigiert)“ spiele ich `h_muss` und `h_sollte` ein; App 0.79.0 geht mit Sebastians „Live“ zusammen mit `h_muss` live.
 - **Danach neuer Auftrag:** „Bau-Auftrag LA (18.11.): Lehrer-Aufbau“ in `inhalte/AUFTRAEGE.md` (Zweig `bau-lehrer`).
+
+## 18.11. 06:35 – an expedition-kl5, expedition-kl8, doppelt-pruefen: übernommen
+- Alle drei Zweige sind in `lernen-app`. Prüfskript: 116 von 116 OK (95 Themen, 21 Expeditionen).
+- Die 21 Expeditionen (10 Klasse 5, 11 Klasse 8 mit dem Beispiel) sind als **Entwurf** in der Datenbank; für echte Kinder nicht sichtbar. Fachliche Prüfbitte an ChatGPT ist gestellt (Werkstatt, Wunsch 176). Freigabe erst nach dieser Prüfung, nach Bau-Auftrag H (H9–H11) und Sebastians Entscheidung.
+- `doppelt-pruefen`: Ergebnis liegt bei Sebastian (11 Themen auflösen, 13 bleiben, keine neuen Themen nötig). Bis zu seiner Entscheidung nichts umsetzen.

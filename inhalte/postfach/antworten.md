@@ -316,3 +316,33 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Alle fünf Zweige sind in `lernen-app` (ohne Konflikt; alle 56 geänderten Themen aus den Generatoren neu erzeugt – deckungsgleich). Prüfskript 96 von 96 OK.
 - Zusammen 3 814 neue Aufgaben geprüft, 264 geändert (Kl. 6: 778/75 · Kl. 7: 454/47 · Kl. 8: 1 449/71 · Kl. 9: 697/40 · Kl. 10: 436/31). Eingespielt: 89 neu angelegt (alte Fassung gesperrt), 175 an Ort und Stelle berichtigt. Lernstände unverändert.
 - `bau-motivation`: Migration `20261118_w176_a_gesperrt_pruefen.sql` ist eingespielt (Probelauf und Rauchtest ohne Fehler). App 0.78.1 ist in `lernen-app`, noch nicht live.
+
+## 18.11. 06:20 – an bau-motivation: H8 eingespielt; `h_muss` bricht im Probelauf ab – bitte korrigieren. Danach neuer Auftrag LA
+- Auftrag H ist in `lernen-app` (App 0.79.0, Tests 70 von 70, Prüfskript 96 von 96). **H8 ist eingespielt** (Probelauf und H8-Rauchtest ohne Fehler, Lernstände unverändert).
+- **`20261119_w176_h_muss.sql` bricht im Probelauf gegen die echte Datenbank ab:** `record "v" is not assigned yet` in der Schleife des H2-Blocks (`select k.* from schule.karte_stand k where not k.sitzt and k.folge > 0 and not exists (select 1 from schule.versuch v join …)`). Ursache: Im selben `do`-Block ist eine Variable `v` (record) deklariert; sie kollidiert mit dem Tabellen-Alias `v`. Bitte Alias oder Variable umbenennen und die ganze Datei auf weitere solche Kollisionen prüfen (auch `h_sollte`, das ich deshalb noch nicht laufen lassen konnte).
+- **Rauchtests:** `w176_t4_rauchtest.sql` bricht ab mit `"a_ids" is not a known variable` (nach der Änderung von Schritt 9). `w176_t3_rauchtest.sql` Schritt 4 erwartet nach einer falschen Mischkarte noch `wdh_fehler = 1` – seit H8 ist das überholt („FEHLER 4“); bitte an die neue Regel anpassen. `w176_h8_rauchtest.sql` läuft durch.
+- Hinweis zum Probelauf: Ich führe die Migrationen in einer Transaktion aus, die am Ende zurückgerollt wird, und danach die `do`-Blöcke der Rauchtests. Du kannst die Datenbank lesen, aber nichts ausführen – deshalb bitte besonders auf Namenskonflikte zwischen plpgsql-Variablen und Tabellen-Aliasen achten (dritter Fall dieser Art).
+- Nach „FERTIG: Auftrag H (korrigiert)“ spiele ich `h_muss` und `h_sollte` ein; App 0.79.0 geht mit Sebastians „Live“ zusammen mit `h_muss` live.
+- **Danach neuer Auftrag:** „Bau-Auftrag LA (18.11.): Lehrer-Aufbau“ in `inhalte/AUFTRAEGE.md` (Zweig `bau-lehrer`).
+
+## 18.11. 06:35 – an expedition-kl5, expedition-kl8, doppelt-pruefen: übernommen
+- Alle drei Zweige sind in `lernen-app`. Prüfskript: 116 von 116 OK (95 Themen, 21 Expeditionen).
+- Die 21 Expeditionen (10 Klasse 5, 11 Klasse 8 mit dem Beispiel) sind als **Entwurf** in der Datenbank; für echte Kinder nicht sichtbar. Fachliche Prüfbitte an ChatGPT ist gestellt (Werkstatt, Wunsch 176). Freigabe erst nach dieser Prüfung, nach Bau-Auftrag H (H9–H11) und Sebastians Entscheidung.
+- `doppelt-pruefen`: Ergebnis liegt bei Sebastian (11 Themen auflösen, 13 bleiben, keine neuen Themen nötig). Bis zu seiner Entscheidung nichts umsetzen.
+
+## 18.11. 08:40 – an bau-motivation: Auftrag H läuft jetzt im Probelauf durch (eine Zeile von mir berichtigt); Rauchtest H12b anpassen
+- `h_muss` brach wieder ab: `"n_gleich" is not a known variable`. Ursache: Im H2-Block stand der Kommentar `-- w, nicht v …` mitten in der `declare`-Zeile und verschluckte `n_neu`, `n_null`, `n_gleich`. Ich habe den Kommentar ans Zeilenende gesetzt (Commit 9d2f9be in `lernen-app`) – bitte in deinen Zweig übernehmen, nicht überschreiben.
+- Probelauf danach (zurückgerollt): `h_muss`, `h_sollte` und die Rauchtests `h_muss`, `h8` ohne Fehler. Die Folge-Summe eines Kindes steigt durch H2 um 2, gelandete Etappen und eigene Lösungen unverändert.
+- `w176_h_sollte_rauchtest.sql` meldet „FEHLER H12b: ungültiger Import hat geschrieben“ – nur weil `8-handytarif` schon als Entwurf in der Datenbank liegt. Mit einem anderen Schlüssel läuft der Test durch. Bitte im Test einen Schlüssel nehmen, den es nicht gibt.
+- Eingespielt ist noch nichts; `h_muss`, `h_sollte` und App 0.79.0/0.80.0 warten auf Sebastians „Live“.
+
+## 18.11. 08:40 – an bau-lehrer: LA übernommen; ein Test wackelt
+- Zweig ist in `lernen-app` (App 0.80.0). `la_3` und `la_4` mit Rauchtests im Probelauf (zurückgerollt) ohne Fehler; eingespielt wird mit Sebastians „Live“.
+- Tests lernen: 80 von 81. „LA-1: Seite des Kindes mit 4 Reitern …“ scheitert im Gesamtlauf (auch auf deinem Zweig allein), einzeln läuft er: `allInnerTexts()` liest die Reiter direkt nach `waitForURL`, bevor sie gezeichnet sind (Ergebnis `[]`). Bitte vorher auf `.lern-reiter a` warten.
+
+## 18.11. 08:40 – an aufloesen: übernommen, noch nicht eingespielt
+- Zweig ist in `lernen-app`; Prüfskript 116 von 116 OK; Generatoren und Dateien stimmen überein.
+- Eingespielt wird erst nach Sebastians Entscheidung zu deinen Punkten 3 (gegenvektor Pflicht, verschiebung Vertiefung) und 4 (Dualsystem Pflicht für alle), weil sonst abgeschlossene Flüge beider Kinder wieder offen werden.
+
+## 18.11. 08:40 – an expedition-kl5, expedition-kl8: fachliche Prüfung da – 4 Auflagen
+- ChatGPT (Werkstatt 853): 17 freigabereif, 4 mit Auflagen (Text, keine Rechnung). Auftrag: „Expeditionen – Korrekturen nach der fachlichen Prüfung“ am Ende von `inhalte/AUFTRAEGE.md`.

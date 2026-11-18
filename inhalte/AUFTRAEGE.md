@@ -1675,3 +1675,150 @@ Voraussetzung erfüllt: Das Format steht in `inhalte/README.md`, Abschnitt „Ex
 5. Gegenprobe in die andere Richtung: Gibt es Stoff, den Realschule (alle Zweige) oder IB bis Jahr 4 verlangen und der in **keinem** Flug steht? (Abgleich mit `vorschlag-rsib.md`, Teil 2 und „Was aus dem Framework fehlt“.) Die vier dort vorgeschlagenen neuen Themen ebenso einordnen: wirklich nötig oder als Lernkarten in bestehende Flüge?
 
 **Ergebnisdatei:** Kurzfassung oben (Zahl der Themen je Urteil; Zahl der Flüge, die Kind A und Kind B danach zusätzlich hätten – nur als Kind A, Klasse 5, und Kind B, Klasse 8); Tabelle aller 24 Themen (Urteil, Pflicht für wen, Plan-Klasse); je Thema die Lernkarten-Tabelle mit Gruppe A/B/C und Beleg; Liste „Für Sebastian zu entscheiden“ (z. B. ob der mathematische Realschul-Zweig abgedeckt werden soll). Tatsachen, Annahmen und Meinungen trennen; sagen, was nicht geprüft wurde. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.
+
+# Bau-Auftrag H (Werkstatt-Wunsch 176): Befunde aus der Prüfung von ChatGPT zu Teil 1 (Punkteregel) – vier „muss“, drei „sollte“
+
+Quelle: Werkstatt-Nachricht 843 (Prüfergebnis ChatGPT zur Prüfbitte 841, Stand Commit 09fb5cd, mit lesender Prüfung der Live-Funktionen). Urteil dort: Grundidee und zentrale Mechanik stimmen, die Abnahme ist wegen vier Punkten **nicht** erteilt. Der Haupt-Chat hält alle vier für berechtigt.
+
+**Rahmen wie Bau-Auftrag G:** Zweig `bau-motivation` (vorher aktuellen Stand von `lernen-app` holen); Migrationen nur als Datei nach `supabase/migrations/20261119_w176_h_<name>.sql`, nicht ausführen; kein DROP, kein DELETE; Lernstände dürfen nicht verloren gehen; bereits gelandete Etappen bleiben gelandet; Info-Seite und `inhalte/README.md` im selben Schritt; Tests erweitern; kein Merge. Meldung „FERTIG: Auftrag H“ in `inhalte/postfach/bau-motivation.md` mit Zahlen vorher/nachher (ohne Namen) und einer Antwort je Punkt, die der Haupt-Chat an ChatGPT weitergeben kann.
+
+## Muss
+
+**H1 – Wieder geöffnete Etappe wird weiter als „gelandet/fertig“ behandelt.** Setzt `karte_buchen` nach zwei endgültig falschen Wiederholungen `sitzt = false`, bleibt `schule.etappen_stand.fertig` trotzdem `true`, sobald `schule.lernziel_stand.status` vorher `nachgewiesen/korrigiert/gesichert` war (`fertig = k.sitzt OR s.status IN (…)`); `karte_buchen` korrigiert `lernziel_stand` nicht. In `lernen.js` zusätzlich `e.fertig = e.fertig || r.karte.sitzt` (bleibt nach `sitzt = false` stehen). Folge: Abflugtafel, Etappe, Elternblick und Testsperre können ein falsches „gelandet“ zeigen.
+→ Wiederöffnen in allen Statusfeldern einheitlich wirksam machen; einen früher bestandenen Test getrennt führen bzw. kennzeichnen statt ihn „fertig“ erzwingen zu lassen; die App berechnet den Status aus der aktuellen Serverantwort neu (kein „oder“ mit dem alten Wert). Durchgehender Test mit dem Testkind: gelandet → Flugtest → 2 fällige Wiederholungen falsch → nicht gelandet in Abflugtafel, Etappe, Elternblick und Testsperre → 3 neue eigene Lösungen in Folge → wieder gelandet.
+
+**H2 – Die Bestandsübernahme hat „drei in Folge“ aus der alten Netto-Punktzahl erfunden** (`folge = least(serie, 3)`). `serie` war vor Teil 1 eine Netto-Zahl mit Abzügen und sagt nichts über die letzten drei Bordkarten.
+→ Für **noch offene** Etappen die Folge aus den zeitlich geordneten endgültigen Versuchen (`schule.versuch`) nachrechnen; wo das nicht eindeutig geht, mit 0 beginnen. `eigene_loesungen` bleibt, `sitzt = true` bleibt unberührt. Die Korrektur betrifft nur Zeilen aus der Übernahme vom 17.11., deren `folge` seither nicht durch neue Versuche überschrieben wurde – sauber abgrenzen und in der Meldung zählen. Test: letzter alter Versuch falsch; alte Tipp-/Zweitversuch-Treffer; danach normales Landen.
+
+**H3 – Dieselbe Aufgabe zählt beliebig oft als „eigene Lösung“.** `karte_buchen` prüft nicht, ob die `aufgabe_id` schon für den Nachweis gezählt wurde; der Rauchtest wiederholt sogar sechsmal dieselbe schwere Aufgabe.
+→ Für den Nachweis zählen nur **verschiedene** Aufgaben: Eine Aufgabe, die für diese Etappe schon als eigene Lösung gezählt hat, zählt beim nächsten Mal nicht noch einmal für `eigene_loesungen`, Typen und „schwere“ (für „in Folge“ darf sie zählen – Vorschlag; entscheide und begründe). Wiederholtes Üben bleibt erlaubt und wird freundlich benannt („Die kennst du schon – gut wiederholt.“), ohne Strafbild. Regel für die Zeit nach einem Wiederöffnen (H1) festlegen: Vorschlag – Aufgaben zählen wieder, wenn seit ihrer letzten Zählung mindestens ein Lerntag vergangen ist. Die App wählt ohnehin die am seltensten gesehenen Aufgaben; sicherstellen, dass sie innerhalb einer Etappe keine schon gezählte Aufgabe zeigt, solange es ungezählte gibt (jede Etappe hat mindestens 18 freie Übungen). Rauchtest entsprechend umbauen.
+
+**H4 – „Sicher“ ist kein verlässlicher Nachweis für die einzelne Etappe.** `karte_sicher` verlangt irgendeinen bestandenen Flug-Nachtest derselben Einheit – nicht, dass die Aufgabe dieser Etappe im Nachtest richtig war, und nicht, dass der Nachtest **nach** der letzten (Neu-)Landung lag.
+→ „Sicher“ nur, wenn die Bordkarte dieser Etappe im Nachtest richtig war und der Nachtest nach der letzten Landung der Etappe stattfand; sonst ehrlich als „Flug-Nachtest bestanden“ anzeigen. Tests: Nachtest mit 80 % bestanden, aber diese Etappe falsch → nicht sicher; alter bestandener Nachtest, danach Rückfall und Neu-Landung → nicht sicher.
+
+## Sollte
+
+**H5 – Rauchtest-Lücken:** Der Test ruft `karte_buchen` direkt auf und setzt `sitzt` künstlich. Ergänzen als zurückgerollte Durchläufe über die echten Wege (`uebung_pruefen_intern`, Trigger `versuch_karte`): erster Fehler → zweiter Versuch; 2 falsche Wiederholungen → offen → wieder gelandet; „sicher“; Bestandsübernahme der Folge; doppelte Aufgabe; Etappe mit wenigen Übungen als echter Fall statt Hinweis.
+**H6 – „heute X Aufgaben selbst gelöst“:** Der Tageswechsel liegt in UTC (`new Date().toISOString().slice(0, 10)`), in Adelaide also am Vormittag. Auf den lokalen Tag des Kindes umstellen (Zeitzone des Kindes aus `lernender.zeitzone`) oder aus den bestätigten Versuchen des Lerntags zählen (dann geräteunabhängig – bevorzugt).
+**H7 – Texte:** Tipp-Hinweis sagt noch „zählt nicht für die Serie“ → „zählt nicht als eigene Lösung; unterbricht deine Folge nicht“. Überall prüfen, dass „Serie“ und „Punkte“ aus den Kinder- und Elterntexten verschwunden sind.
+
+## Bau-Auftrag H, Teil 2: Befunde aus der Prüfung von ChatGPT zu Teil 3 (Mischkarten) und Teil 4 (Expeditionen) – Werkstatt-Nachricht 848
+
+Stand der Prüfung: `main`, App 0.78.1, Live-Funktionen lesend geprüft. Urteil: technisch vorhanden, noch nicht vorbehaltlos freigabereif. Der Haupt-Chat nimmt alle Punkte an. **Reihenfolge: H8 zuerst** (wirkt schon heute bei den Kindern, weil Mischkarten live sind), dann H1–H4, dann der Rest. Expeditionen werden erst freigegeben, wenn H8–H11 erledigt sind.
+
+### Muss
+**H8 – Ein zweiter Fehler in Mischkarte oder Expedition öffnet eine gelandete Etappe wieder.** `schule.misch_buchen` und `schule.expedition_buchen` geben einen endgültigen Fehler an `schule.karte_buchen(…, false, …)` weiter; diese setzt bei `wdh_fehler >= 1` `sitzt = false`. Das widerspricht der Regel „falsch → am nächsten Lerntag fällig, keine Abzüge“ und kann Voraussetzungen anderer Expeditionen entziehen.
+→ Eigener Fehlerweg für Mischkarten und Expeditionen: Etappe am nächsten Lerntag fällig, `sitzt` und alle Belege unverändert – auch beim zweiten und dritten Fehler und auch, wenn `wdh_fehler` schon 1 ist. Das Wiederöffnen bleibt allein der fälligen Wiederholung vorbehalten. Test mit zwei endgültigen Fehlern hintereinander (Mischkarte, Expedition, gemischt).
+**H9 – Voraussetzungen und Klasse einer Expedition werden beim Prüfen nicht serverseitig durchgesetzt.** Das Angebot prüft sie, `uebung_pruefen_intern` bei Pool `expedition` aber nur die Sichtbarkeit; `expedition.klasse` wird nirgends geprüft.
+→ Vor jeder neuen Wertung eines Teils alle Voraussetzungen prüfen (begonnene Expeditionen dürfen nach einem späteren Rückfall zu Ende geführt werden, ohne Nachteil). `klasse`: festlegen und dokumentieren, was sie bewirkt – Vorschlag: reine Einordnung für Eltern, kein Ausschluss, weil das Angebot allein an den gelandeten Voraussetzungen hängt; dann das auch so benennen. Test über den äußeren Weg (`api.schule_uebung_pruefen`).
+**H10 – Der Misch-Beleg lässt sich ohne echte Mischung erzeugen.** Der Server vertraut `misch: true` aus dem Browser.
+→ Serverseitig prüfen: Die Aufgabe gehört zu einer gelandeten Etappe des Kindes, sie ist nicht die gerade geübte Etappe (Einheit und Lernkarte der laufenden Übung mitsenden und prüfen) und sie stand in der zuletzt ausgelieferten Mischkarten-Liste bzw. erfüllt deren Regeln (Stufe 2–3, Pool `uebung`). Sonst wird normal gebucht, ohne Misch-Beleg. Negativtest.
+**H11 – Bei mehreren Versionen eines Themas kann die Expedition die falsche Etappe buchen.** Der Import bindet jeden Teil an eine `einheit_id`; die Voraussetzungen gelten für jede Version des Themas.
+→ Beim Buchen die Etappe je Kind über `thema_id` + Lernkarte auf die tatsächlich gelandete Version auflösen. Test mit zwei Versionen. (Heute gibt es je Thema eine Einheit – trotzdem vor der ersten Freigabe.)
+
+### Sollte
+**H12 – Import härten:** `expedition_importieren` erzwingt 3–5 Teile, mindestens 3 Themen, gültige Lernkarten, Bezug jedes Teils in den Voraussetzungen und beim Status „freigegeben“ freigegebene Bezugs-Flüge; sonst Abbruch mit klarer Meldung.
+**H13 – Dosis der Mischkarten als Test:** Klasse 5 und 8; nur zwei gelandete Etappen; Wechsel der Lernkarte und Neustart des Browsers; manuelle Stufenwahl; alle acht Kandidaten verbraucht; Abbruch nach einem Mischfehler.
+**H14 – Rauchtests über die echte Antwortstrecke** (Teil 4 und „gesperrte Bordkarte“): äußerer API-Weg, 1./2. Versuch, Tipp, Fortsetzung nach Abbruch, „geladen, danach gesperrt“.
+**H15 – Botschaft der Expedition:** „Expedition abgeschlossen“ (Durchhalten, Stempel) klar trennen von „selbst gelöst/angewandt“ (Beleg je Teil); kein Straftext. Prüfen, ob ein alter Misch-Beleg nach späteren Fehlern noch als aktuell gelten soll (Vorschlag: Beleg muss nach der letzten Landung liegen – passt zu H4).
+
+# Bau-Auftrag LA (18.11.): Lehrer-Aufbau – Pakete LA-1 bis LA-7
+
+**Auswahl Sebastian:** 1A · 2B · 3B · 4A · 5A · 6B · 7A. **Der vollständige Bauauftrag steht in `inhalte/pruefung/lehrer/umsetzung.md`**, die Befunde dazu (L1–L9, App 0.78.1) in `inhalte/pruefung/lehrer/bericht.md`, Bilder des heutigen Stands in `inhalte/pruefung/lehrer/bilder/` (alle drei aus dem Zweig `pruefung-kinderansicht` nach `lernen-app` übernommen). Dieser Abschnitt legt nur fest, was dort offen ist oder von unseren Regeln abweicht.
+
+**Wer baut:** der Bau-Chat (nicht der Haupt-Chat, anders als in der Tabelle „Wer macht was“). Zweig `bau-lehrer` von aktuellem `lernen-app`, **erst nachdem H8 und H1–H4 aus Bau-Auftrag H gemeldet sind** – es baut immer nur ein Chat am App-Code. Datenbank: Migrationen als Datei nach `supabase/migrations/20261119_la_<paket>_<name>.sql`, nicht ausführen; kein DROP, kein DELETE; Lernstände und Pläne bleiben erhalten. Meldungen in `inhalte/postfach/bau-lehrer.md`, je Paket „FERTIG: LA-n“. Kein Merge nach `lernen-app` oder `main`. Reisewörter überall; Info-Seite „So funktioniert’s“ im selben Schritt; Tests in `tests/lernen.test.cjs` je Paket.
+
+**Reihenfolge und Lieferung:** LA-1 → LA-2 → LA-6 → LA-3 → LA-5 → LA-4 → LA-7. Nach LA-2 und nach LA-4 je eine Zwischenmeldung mit Bildern (Tablet 820 px, Handy 400 px, Rechner), damit der Prüf-Chat nachprüfen kann.
+
+**Abweichungen und Klarstellungen:**
+1. **„Lernen starten“ bleibt für Eltern.** Die Kinder haben derzeit keinen eigenen Zugang; sie kommen über den Eltern-Zugang und den Knopf „Lernen starten“ auf ihre Abflugtafel. Deshalb: Bei der Rolle **Eltern** steht „Lernen starten“ in jeder Tabellenzeile bzw. Kind-Karte (LA-2) und im Kopf der Kind-Seite als deutlicher Knopf. Bei der Rolle **Lehrer** entfällt er wie in LA-2 beschrieben; dort bleibt „Lernreise ansehen“ klein im Kopf der Kind-Seite.
+2. **„Besprochen ✓“ (LA-3):** neue Tabelle (Kind, Einheit, Lernkarte, wer, wann); Lehrer und Eltern dürfen setzen; neue endgültig falsche Antworten nach dem Zeitpunkt holen die Etappe zurück nach „Zu tun“. Keine neue Aktion in `lernen-api`, wenn es über eine bestehende geht – sonst melden.
+3. **„Kann schon“ je Flug (LA-4):** neues Feld am Plan (z. B. `route.kann_schon_themen bigint[]`, entsprechend `ausgelassen`); zählt in `thema_stand`, Lernstand-Tabelle, Abflugtafel und Ort-Abschluss wie gelandet, aber als eigener Zustand („kann schon“), nicht als `karte_stand.sitzt` – Mischkarten, Wiederholungen und Expeditionen entstehen daraus **nicht**. Das bisherige „kann schon“ für den ganzen Ort bleibt und setzt alle Flüge. Rückgängig ohne Verlust.
+4. **„Zu tun“ rot (LA-2):** „eingetragene Pausen/Reisetage“ gibt es noch nicht. Bis dahin ohne diese Ausnahme bauen; nichts Neues dafür anlegen, nur im Bericht nennen.
+5. **„Häufigster Fehler“ (LA-3):** nur zeigen, wo `grund` bei mindestens zwei falschen Antworten vorkommt; sonst „–“. Keine Aussage erfinden, wie das Kind gerechnet hat.
+6. **IB:** einheitlich MYP-Jahr = Klasse − 5 (seit 0.78.0); unter Klasse 6 „noch kein MYP-Jahr“.
+7. **Entwurf:** Der Auswahl-Entwurf „Lehrer-Ansicht: neuer Aufbau“ liegt nicht im Repository. Maßgeblich ist der Text in `umsetzung.md`. Wo er eine Frage offenlässt, die schlichteste Lösung nehmen und in der Meldung nennen.
+
+# Vierundzwanzigste Runde (18.11.): Realschul-/IB-Themen auflösen, wo der Stoff schon da ist
+
+**Entscheidungen von Sebastian (18.11.) zu `inhalte/pruefung/klassen/doppelt-rsib.md`:**
+1. Grundsatz angenommen: **11 Themen auflösen, 13 bleiben, keine neuen Themen.**
+2. Von den 13 bleibenden sind im Plan der Kinder **Pflicht** nur die zwei für alle Realschul-Zweige (`abbildungen.determinanten2`, `daten.stichproben`). Alle anderen (IB Standard, IB Extended, Zusatz, mathematischer Realschul-Zweig) werden **freiwillig angeboten**. (Das stellt der Haupt-Chat im Plan ein – nicht Teil dieses Auftrags.)
+3. `terme.quadratische_extreme` bleibt als eigener Flug in Klasse 8 (Realschule verlangt es dort); die entsprechenden Gymnasium-Lernkarten in Klasse 9 werden zur kurzen Wiederholung mit Verweis.
+4. Das Dualsystem wird ergänzt (Realschule M5 1.2).
+
+**Ein Chat, Zweig `aufloesen` (von aktuellem `lernen-app`), Meldungen in `inhalte/postfach/aufloesen.md`.** Grundlage ist `doppelt-rsib.md`: Teil 2 (je Thema Lernkarte für Lernkarte mit Gruppe A/B/C und Zielthema) und Teil 3a (fünf neue Lernkarten statt vier neuer Themen). Vorher lesen: `inhalte/README.md` (Themen-Bausatz, „Stufen und Aufgabentypen“, Vertiefung), `inhalte/postfach/stufen-kl5.md` (oberste Meldung: Fehlerarten bei neuen Aufgaben).
+
+**Teil A – die 11 Themen auflösen** (`abbildungen.vektoren`, `funktionen.scharen`, `funktionen.transformation`, `gleichungen.reinquadratisch`, `funktionen.umkehr`, `mengen.grundbegriffe`, `groessen.verhaeltnisse`, `stochastik.bedingt`, `funktionen.folgen`, `finanzen.zinseszins`; Sonderfall `terme.quadratische_extreme` siehe Teil C):
+- **A-Lernkarten** (Stoff steht schon im Gymnasium-Flug): entfallen. Aufgaben, die dort einen fehlenden Typ oder eine fehlende Stufe ergänzen, dürfen in die Gymnasium-Lernkarte umziehen (keine doppelten Fragetexte).
+- **B- und C-Lernkarten:** ziehen als Lernkarte in das in `doppelt-rsib.md` genannte Zielthema, an die dort genannte Stelle, mit Erklärung, „Kurz gesagt“, Beispiel und allen Pools. **Pflicht**, wenn der Stoff für alle Realschul-Zweige verlangt ist (so in `doppelt-rsib.md` vermerkt); sonst **Vertiefung** (IB, mathematischer Realschul-Zweig, Zusatz). Der Lernkarten-Schlüssel `l` bleibt, wenn er im Zielthema frei ist.
+- Die Themendatei des aufgelösten Themas bleibt unverändert liegen (sie ist in der Datenbank ein Entwurf ohne Lernstände; der Haupt-Chat legt sie still). Nicht löschen, nicht aus der Themenliste nehmen.
+- Vorwissen: Eine umgezogene Lernkarte darf nichts voraussetzen, was im Zielthema und in der Reihenfolge von `inhalte/themenliste.json` erst später kommt. Sonst an die spätere passende Stelle oder als Vertiefung ans Ende – im Bericht begründen.
+
+**Teil B – fünf neue Lernkarten in bestehenden Flügen** (aus `doppelt-rsib.md` Teil 3a, die „C“-Karten der vier nicht mehr geplanten Themen) **und das Dualsystem** (eine Lernkarte in Klasse 5 im passenden Flug zu Stellenwertsystemen, vermutlich `zahlen.natuerlich`; prüfen, was dort schon steht – nur ergänzen, was fehlt; Pflicht für die Realschule, für das Gymnasium Vertiefung, falls der Lehrplan M5 es nicht nennt).
+
+**Teil C – `terme.quadratische_extreme`:** Der Flug bleibt (Klasse 8). In den Gymnasium-Themen der Klasse 9, die denselben Stoff enthalten, wird die Lernkarte gekürzt zu einer Wiederholung (Erklärung verweist auf den Flug in Klasse 8, die besten Aufgaben bleiben, Mindestmengen halten). Nichts doppelt.
+
+**Für alle neuen oder umgezogenen Lernkarten gelten die Regeln der Zwanzigsten Runde:** jede freie Übung mit `g`; Stufe 1 mindestens 4 aus 2 Typen, Stufe 2 mindestens 6 aus 3 Typen, Stufe 3 mindestens 8 aus 4 Typen; 2 Knobel-Bordkarten; Lösungen rechnet der Generator. **Und die Prüfkriterien für neue Aufgaben:** jede Lösung nachrechnen (bei „höchstens/mindestens/wie viele/immer“ alle Fälle); keine mehrdeutige Zählweise („k. Strich“); keine Begriffe aus späterem Stoff, auch nicht in Tipp und Lösungsweg; keine Buchstaben als Unbekannte vor dem Stoff, der sie einführt; keine falschen Rechnungen in Antwortoptionen; Lösungswege ohne Sprünge. Alte Aufgaben der Zielthemen bleiben Zeichen für Zeichen gleich.
+
+**Bericht (Pflicht):** Umzugstabelle `altes Thema / Lernkarte → Zielthema / Lernkarte · Pflicht oder Vertiefung · Klasse · Zahl der Aufgaben`; Liste der entfallenen A-Lernkarten mit dem Gymnasium-Gegenstück; neue Lernkarten aus Teil B; was sich für ein Kind ändert, das den Zielflug schon abgeschlossen hat (neue Pflicht-Lernkarte = Flug wieder offen – je Zielthema nennen); was nicht geprüft wurde. Ein Zielthema = ein Commit + Push. Prüfskript OK je Thema. Kein Merge, keine Datenbank, kein App-Code, keine Tests. Ohne Rückfragen durcharbeiten; bei Unklarheit die sinnvollste Lesart nehmen und nennen.
+
+# Ortsprüfung (18.11., Wunsch von Sebastian): ein ausführlicher Test je Ort – gibt Punkte und Geld
+
+**Entscheidungen von Sebastian:** Nach jedem Ort ein ausführlicher Test („Ortsprüfung“). **Keine Noten** – nur eine Punkte-Übersicht; ab einer Schwelle gibt es Punkte und Geld. **Keine Zeitbegrenzung**; die Zeit wird gemessen, eine gute Zeit kann einen Bonus bringen (ein Abzug für „zu lange“ ist möglich, aber standardmäßig aus). **Wiederholen:** Das Kind kann sagen „die will ich in ein paar Tagen noch einmal schreiben“; es zählt das bessere Ergebnis, bei der Wiederholung mit etwas Abzug. **Der Rechenweg zählt:** Das Kind rechnet auf Papier. Die Kinder wollen lieber mehrere kleinere Prüfungen als wenige große. Die bisherigen Sterne werden **Fleißsterne** (kleiner Betrag, gedeckelt).
+
+## Teil 1 – Dateiformat (gilt für Bau- und Inhalte-Chats)
+
+Datei `inhalte/pruefungen/<klasse>-<ort>-<fassung>.json` (`fassung` = `a` oder `b`; `ort` = Stadt klein, ohne Sonderzeichen), erzeugt von `inhalte/generatoren/pruefung_<klasse>_<ort>.py` (ein Generator schreibt beide Fassungen; alle Lösungen rechnet das Programm, exakt).
+Felder: `schluessel` (= Dateiname ohne Endung), `klasse` (`{"gym_by": n}`), `block_id`, `ort`, `fassung`, `titel`, `richtzeit_min` (ehrliche Schätzung für ein durchschnittliches Kind, auf 5 gerundet), `hilfsmittel` (z. B. „Geodreieck, kein Taschenrechner“), `stoff` = Liste `{thema_schluessel, lernziel}` (nur Lernkarten der Flüge dieses Ortes, dazu höchstens zwei ältere Lernkarten zur Verknüpfung, als `"alt": true` markiert), `aufgaben` = Liste; je Aufgabe: `nr`, `titel`, `einleitung` (Sachsituation), optional `grafik`, `teile` = 2–4 Teile.
+Je Teil die Felder einer Bordkarte wie bei Expeditionen (`k, y, f, a, o, c, w`, kein Tipp) und `bezug {thema_schluessel, lernziel}`, dazu: `punkte_ergebnis` (1–2), `punkte_weg` (0–3) und `weg_schritte` = Liste `{text, punkte}` – die Schritte der Musterlösung, an denen Eltern oder Lehrer den Rechenweg abhaken (Summe = `punkte_weg`). Teile ohne Rechenweg (Ablesen, Auswahl) haben `punkte_weg` 0.
+
+## Teil 2 – Inhalte (zwei Chats, zuerst die Orte, die bei den Kindern als nächste kommen)
+
+**Chat Klasse 5 → Zweig `pruefung-kl5`, Meldungen `inhalte/postfach/pruefung-kl5.md`:** Orte Rom, Kairo, Timbuktu, Athen, Toronto. **Chat Klasse 8 → Zweig `pruefung-kl8`, Meldungen `inhalte/postfach/pruefung-kl8.md`:** Orte Samarkand, Mumbai, Delhi, McMurdo-Station, Neumayer-Station III. Welche Flüge zu einem Ort gehören: `inhalte/themenliste.json` (Felder `ort`/`block_id`); Lernkarten und Niveau: `inhalte/themen/<thema>.json`. Je Ort **zwei Fassungen** (a, b) – gleicher Aufbau und gleiche Schwierigkeit, andere Situationen und Zahlen.
+
+Regeln:
+- **Umfang:** je Flug des Ortes etwa eine mehrteilige Aufgabe, mindestens 3 und höchstens 6 Aufgaben; zusammen 20–35 Punkte; `richtzeit_min` 20–45. Jede Pflicht-Lernkarte des Ortes kommt in mindestens einem Teil vor; Vertiefungs-Lernkarten nicht.
+- **Niveau wie eine Schulaufgabe am bayerischen Gymnasium:** etwa 40 % Grundfertigkeiten, 40 % mehrschrittig/Sachaufgabe, 20 % anspruchsvoll (begründen, rückwärts, verknüpfen). Vorbild sind Schulaufgaben und Jahrgangsstufenarbeiten – nur Typ und Niveau, nichts wörtlich übernehmen.
+- **Unbekannte Aufgaben:** kein Fragetext, der in `inhalte/themen/` oder `inhalte/expeditionen/` vorkommt, und keine bloße Zahlenvariante einer dortigen Aufgabe mit demselben Satzbau.
+- **Kein Folgefehler-Domino:** Jeder Teil nennt die Werte, die er braucht.
+- **Rechenweg:** `weg_schritte` so schreiben, dass ein Erwachsener ohne Mathe-Studium sie auf dem Blatt wiederfindet („Gleichung aufgestellt: 5 + 0,1x = 12“ · „nach x aufgelöst“ · „Antwortsatz mit Einheit“). Andere richtige Wege zählen gleich – im Text der Aufgabe `w` darauf hinweisen, wenn es einen üblichen zweiten Weg gibt.
+- Die Prüfkriterien für neue Aufgaben gelten (jede Lösung nachrechnen, bei „höchstens/mindestens/wie viele“ alle Fälle; eindeutige Fragen; kein späterer Stoff nach der Reihenfolge in `themenliste.json`, auch nicht in der Musterlösung; in Klasse 5 keine Buchstaben als Unbekannte außerhalb von Stoff, der sie einführt; keine Zählweise „k. Strich“; realistische Zahlen und Einheiten; keine Namen realer Personen).
+- Der Generator prüft sich selbst (Abbruch, wenn Punktesummen nicht stimmen, ein Bezug nicht in `stoff` steht, eine Pflicht-Lernkarte fehlt oder ein Fragetext schon in den Themen vorkommt). Das Prüfskript `tools/inhalt_pruefen.py` kennt Prüfungen noch nicht – das ergänzt der Bau-Chat.
+- Eine Prüfung (beide Fassungen) = ein Commit + Push. Bericht: Tabelle Ort · Flüge · Aufgaben · Punkte (Ergebnis/Weg) · Richtzeit; je Prüfung eine Aufgabe im Wortlaut mit Musterlösung; was nicht geprüft wurde. Kein Merge, keine Datenbank, kein App-Code.
+
+## Teil 3 – Bau (Bau-Chat, nach Auftrag H und nach dem Lehrer-Aufbau LA; Zweig `bau-pruefung`, Meldungen `inhalte/postfach/bau-pruefung.md`)
+
+Rahmen wie Bau-Auftrag G (Migrationen nur als Datei, kein DROP/DELETE, Lernstände bleiben, Info-Seite und README im selben Schritt, Tests, kein Merge).
+1. **Daten und Import:** Tabelle für Prüfungen (Kopf wie `schule.expedition`, dazu Ort, Fassung, Richtzeit), Teile als Zeilen in `schule.aufgabe` (eigener Pool `pruefung`, nie in Übung, Wiederholung, Mischkarten, Tests, Expeditionen); Import-Funktion mit denselben harten Prüfungen wie `expedition_importieren`. `tools/inhalt_pruefen.py` um Prüfungen erweitern (Format, Punktesummen, Bezug in `stoff`, jede Pflicht-Lernkarte des Ortes, Lösung nachgerechnet, kein Fragetext aus Themen/Expeditionen).
+2. **Freischalten:** Eine Ortsprüfung wird möglich, wenn alle Flüge des Ortes (die im Plan sind) gelandet und ihre Flug-Tests bestanden sind. Eltern oder Lehrer schalten sie frei („Prüfung jetzt schreiben lassen“) – das Kind kann sie nicht allein starten. Entwürfe nur für das Testkind.
+3. **Schreiben (Kind):** ruhige Ansicht ohne Tipps, ohne zweiten Versuch, ohne sofortige Rückmeldung; alle Aufgaben sichtbar, Reihenfolge frei, Antworten bis zur Abgabe änderbar; Hinweis „Rechne auf deinem Blatt – der Rechenweg zählt“; Zeit läuft sichtbar mit (klein, ohne Countdown, ohne Farbe), Pausieren möglich; Abgabe mit Rückfrage; Abbruch verliert nichts.
+4. **Auswerten:** Ergebnispunkte sofort durch die App. Danach zeigt die App Eltern/Lehrern je Teil die Musterlösung mit `weg_schritte` zum Abhaken (Standard: nichts angehakt; „alles richtig“ als Abkürzung je Aufgabe). Erst nach diesem Schritt steht das Ergebnis fest. Punkte-Übersicht für Kind und Eltern: je Aufgabe Ergebnis- und Wegpunkte, Summe, Anteil, Schwelle – **keine Note**, kein Rot. Besprechung: Musterlösung je Teil für das Kind sichtbar.
+5. **Schwelle, Zeit, Geld (alles einstellbar je Kind, Vorgaben in `schule.regel`):** Schwelle bestanden (Vorgabe 80 %), zweite Stufe „sehr gut“ (Vorgabe 95 %, kann aus sein); Zeitbonus, wenn höchstens Richtzeit × Faktor (Vorgabe 1,0; kann aus sein); Zeitabzug ab Richtzeit × Faktor (Vorgabe aus); Betrag je bestandener Ortsprüfung, Zuschlag „sehr gut“, Zeitbonus; Wiederholung zählt mit Faktor (Vorgabe 0,8). Beträge sind je Kind gleich voreingestellt und nur von Eltern änderbar. Sterne für die Prüfung: Vorschlag machen, getrennt von den Fleißsternen ausweisen.
+6. **Wiederholen:** Das Kind (oder Eltern) kann nach dem Ergebnis „In ein paar Tagen noch einmal“ wählen; frühestens nach 3 Lerntagen, dann mit der **anderen Fassung**; es zählt das bessere Ergebnis, das Geld der Wiederholung mit Faktor. Höchstens eine Wiederholung je Ort (einstellbar).
+7. **Abrechnung „Verdient“ (nur Eltern):** je Kind eine Liste – bestandene Ortsprüfungen mit Betrag, Fleißsterne des Monats mit Kurs und Obergrenze (beides einstellbar, Vorgabe gleich für alle Kinder), Summe offen, „ausgezahlt“ zum Abhaken mit Datum. Keine Zahlungsfunktion – nur Buchführung. Fleißsterne = die bisherigen Sterne; ihr Name in Kinder- und Elterntexten bleibt „Sterne“, in der Abrechnung „Fleißsterne“.
+8. **Foto des Rechenwegs:** nicht in der App speichern. Hinweis für Eltern: „Unsicher beim Rechenweg? Blatt fotografieren und im Chat mit Claude prüfen lassen.“
+9. **Reise:** Der Stempel für den Ort bleibt, wie er ist (alle Flüge geschafft). Die bestandene Ortsprüfung gibt ein eigenes Zeichen am Ort (Vorschlag: Siegel im Reisepass). Eine nicht bestandene Prüfung nimmt nichts weg.
+10. **Tests:** Freischalten nur durch Eltern/Lehrer; Abgabe und Auswertung; Weg-Haken ändern das Ergebnis; Schwelle/Zeitbonus/Wiederholung mit anderer Fassung und Faktor; Abrechnung; Entwurf nur Testkind; kein Prüfungs-Teil taucht je im Üben auf.
+
+---
+
+# Expeditionen – Korrekturen nach der fachlichen Prüfung (18.11., Werkstatt-Nachricht 853)
+
+Ergebnis der Prüfung durch ChatGPT: 17 von 21 Expeditionen freigabereif, 4 mit Auflagen, 0 nicht freigabefähig. Alle 64 Zahl-/Lückenlösungen wurden nachgerechnet und stimmen. Es geht nur um Texte, keine Rechnung ändert sich.
+
+Regeln wie im Abschnitt „Expeditionen – Inhalte für Klasse 5 und Klasse 8“. Nur die genannten Dateien und ihre Generatoren ändern. Danach `python3 -I tools/inhalt_pruefen.py --alle`. Nichts in die Datenbank schreiben; kein Merge nach `main`.
+
+## Chat `expedition-kl5` (Zweig `expedition-kl5`, Meldung in `inhalte/postfach/expedition-kl5.md`)
+
+1. **`5-flug_toronto` (Muss):** Die vier Teile (Flugzeiten, Outfits, Wäscherei, Gepäck) sind bisher einzelne Reise-Aufgaben. Baue einen durchgehenden Zusammenhang ein: Ein Teil muss ein Ergebnis oder eine Entscheidung aus der Geschichte brauchen (jeder Teil nennt weiter alle nötigen Zahlen selbst – kein Folgefehler). Zusätzlich: „Toronto = Berlin − 6 Stunden“ als Annahme für diesen Reisetag kennzeichnen.
+2. **`5-schatzsuche` (Muss):** Teil d nutzt die Quersummenregel für 9. Der Lehrplan Klasse 5 nennt nur die Regeln für 2, 3, 5 und 10. Gib die 9er-Regel im Aufgabentext oder im Tipp ausdrücklich an („Eine Zahl ist durch 9 teilbar, wenn ihre Quersumme durch 9 teilbar ist.“).
+3. **`5-roemerstrasse` (Sollte):** Die 144 Meilen als Strecke ab Meile 0 kennzeichnen – das Kind wandert nicht 213 km.
+4. **`5-pyramide` (Sollte):** Den Wechsel vom kleinen Würfelmodell zur großen Pyramide mit einem Satz verbinden.
+
+## Chat `expedition-kl8` (Zweig `expedition-kl8`, Meldung in `inhalte/postfach/expedition-kl8.md`)
+
+1. **`8-radtour` (Muss):** In Teil c und d klarstellen, dass Kilometer 36 im Graph ein Zwischenpunkt ist und der See bei Kilometer 42 liegt (die Route ist 36 km lang und beginnt bei Kilometer 6). Sonst wirken 30 km aus dem Graph wie ein Widerspruch.
+2. **`8-pool` (Muss):** Teil d „wenn es ganz über dem Wasser hängt“ umformulieren – ein Dreieckssegel mit 4 m Seitenlänge passt nicht in einen Kreis mit 3,6 m Durchmesser. Vorschlag: „Selbst wenn die gesamte Segelfläche Schatten auf das Wasser wirft …“. Rechnung und Antwort bleiben.
+
+Fertig, wenn: Dateien und Generatoren stimmen überein, Prüfskript ohne Fehler, Meldung „FERTIG: Korrekturen 853“ im Postfach mit dem alten und neuen Wortlaut jeder geänderten Stelle.

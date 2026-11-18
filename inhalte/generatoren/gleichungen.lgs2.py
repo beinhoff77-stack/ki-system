@@ -1216,3 +1216,10 @@ if __name__ == '__main__':
           'Gleichsetzen, Einsetzen oder Addieren – Ziel: eine Gleichung mit nur einer Variablen.',
           'Falsche Aussage (0 = 5): keine Lösung. Wahre Aussage (0 = 0): unendlich viele Lösungen.'],
          offen=['Prüfvorschlag „grafisch lösen“ (Karte pruefen) ist in der neuen Karte „grafisch“ umgesetzt.'])
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('gleichungen.lgs2')
+# ---- AUFLOESEN ENDE ----

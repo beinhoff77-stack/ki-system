@@ -113,9 +113,14 @@ Für Inhalte wichtig, weil die Regel Aufgabentypen und schwere Bordkarten voraus
   (wenn die Lernkarte mindestens 2 hat) und **1 Stufe-3-Aufgabe mit Stufe-3-Typ** (wenn vorhanden), und die **letzten 3 in Folge** richtig.
 - **Keine Minuspunkte.** Ein endgültiger Fehler setzt nur „in Folge“ auf 0; eigene Lösungen bleiben. Tipp oder 2. Versuch richtig zählt nicht und unterbricht die Folge nicht.
 - **Stufe:** steigt mit den eigenen Lösungen, fällt erst nach 2 Fehlern in Folge um 1. Deshalb braucht jede Lernkarte auf jeder Stufe mehrere Typen (siehe oben).
-- **Sicher** (Anzeige): gelandet + Wiederholung nach 14 Lerntagen bestanden + einmal in einer Mischkarte richtig erkannt + Nachtest des Flugs bestanden.
+- **Jede Aufgabe zählt je Lernkarte einmal** als eigene Lösung, für einen neuen Typ und für „schwer“ (Bau-Auftrag H3). Dieselbe Aufgabe noch einmal richtig zählt nur für „in Folge“
+  („Die kennst du schon – gut wiederholt.“). Deshalb braucht jede Lernkarte **mindestens so viele verschiedene Übungen wie das Ziel** (meist 6), besser deutlich mehr.
+- **Wieder offen** (H1): Zwei Fehler in einer fälligen Wiederholung öffnen die Etappe überall (Abflugtafel, Etappe, Eltern, Flug-Test). Belege bleiben; zum Wiederlanden fehlen 3 in Folge.
+  Fehler in Mischkarten und Expeditionen öffnen nie, sie machen die Etappe nur am nächsten Lerntag fällig (H8).
+- **Sicher** (Anzeige): gelandet + Wiederholung nach 14 Lerntagen bestanden + **nach der letzten Landung** einmal in einer Mischkarte richtig erkannt und im Flug-Nachtest die Aufgabe
+  dieser Lernkarte richtig (H4). Nur „Flug-Nachtest bestanden“ ist eine eigene, schwächere Anzeige.
 - **Mischkarten:** Sind im Flug mindestens 3 Etappen gelandet, ist beim Üben jede 4. Bordkarte (bis Klasse 6 jede 6.) eine Übung (Stufe 2–3) aus einer anderen gelandeten Etappe –
-  ohne Etappen-Titel. Deshalb muss jede Übung **für sich allein verständlich** sein (nicht „wie oben“, nicht „dieselbe Figur“) und darf den Namen der Lernkarte nicht voraussetzen.
+  ohne Etappen-Titel. Der Server zählt sie nur als Mischkarte, wenn ihre Etappe beim Kind gelandet und nicht die gerade geübte ist (H10). Deshalb muss jede Übung **für sich allein verständlich** sein (nicht „wie oben“, nicht „dieselbe Figur“) und darf den Namen der Lernkarte nicht voraussetzen.
 - Knobel-Bordkarten (`bonus`) zählen nie.
 
 ### Wenn ein Thema Zeichnungen braucht
@@ -272,7 +277,11 @@ optional `h` (Tipp) und **`bezug`** `{"thema_schluessel", "lernziel"}` – die L
 - Jeder Teil wird nachgerechnet (`c`); keine doppelten Fragetexte; 3–5 Teile; Kennungen eindeutig.
 - **Kein Folgefehler-Domino:** Jeder Teil nennt im Text die Werte, die er braucht – wer Teil a falsch hat, rechnet Teil b mit den richtigen Zahlen. Die App zeigt nach dem 2. Versuch die Lösung
   und macht mit dem nächsten Teil weiter. (Das prüft das Skript nicht – bitte beim Schreiben jedes Teils darauf achten.)
+- **Mindestens 3 verschiedene Themen** über die Bezüge der Teile (H12). Der Server lehnt beim Einspielen ab: weniger als 3 oder mehr als 5 Teile, doppelte Kennung, fehlende Lösung,
+  weniger als 3 Themen, Bezug außerhalb der Voraussetzungen, unbekannte Lernkarte; Status „geprueft“/„freigegeben“ nur, wenn alle Bezugs-Flüge geprüft bzw. freigegeben sind.
 - Für das Kind: kein Selbstzeichnen; ablesen, einen Graphen auswählen, einen Punkt bestimmen geht.
+- Nach dem Einspielen gilt: Ein Teil wird nur gewertet, wenn alle Voraussetzungen gelandet sind oder die Expedition schon begonnen ist (H9); `klasse` ordnet nur ein (Eltern-Anzeige), sie sperrt nichts.
+  Gebucht wird je Kind auf die gelandete Version der Bezugs-Etappe (H11). Die App meldet getrennt „abgeschlossen“ und „selbst gelöst“ (H15).
 - Reisewörter in Texten an das Kind; keine Namen realer Personen.
 
 **Vollständiges Beispiel** (`inhalte/expeditionen/8-handytarif.json`, erzeugt von `inhalte/generatoren/expedition_handytarif.py`):

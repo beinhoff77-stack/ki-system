@@ -1,0 +1,113 @@
+{
+ "schluessel": "5-roemerstrasse",
+ "klasse": {
+  "gym_by": 5
+ },
+ "titel": "Die Römerstraße",
+ "autor": "Claude (Expeditionen Klasse 5)",
+ "einleitung": "Bei Rom wanderst du ein Stück auf einer alten Römerstraße. Am Rand stehen Meilensteine mit römischen Zahlen. Eine römische Meile ist etwa 1 480 m lang.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "zahlen.natuerlich",
+   "lernziel": "roemisch_system"
+  },
+  {
+   "thema_schluessel": "groessen.einheiten",
+   "lernziel": "laenge"
+  },
+  {
+   "thema_schluessel": "zahlen.natuerlich",
+   "lernziel": "strahl_ablesen"
+  },
+  {
+   "thema_schluessel": "zahlen.teilbarkeit",
+   "lernziel": "vielfache"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Meilenstein steht CXLIV. Welche Zahl ist das?"
+   },
+   "o": {
+    "wert": 144
+   },
+   "c": "100 + 40 + 4",
+   "w": "C = 100, XL = 50 − 10 = 40, IV = 5 − 1 = 4. Zusammen 100 + 40 + 4 = 144.",
+   "h": "Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen.",
+   "bezug": {
+    "thema_schluessel": "zahlen.natuerlich",
+    "lernziel": "roemisch_system"
+   }
+  },
+  {
+   "k": "b",
+   "y": "luecken",
+   "f": {
+    "text": "Eine römische Meile ist etwa 1 480 m lang. Wie lang sind 144 Meilen? Gib das Ergebnis in km und m an.",
+    "schablone": "□ km □ m",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     213,
+     120
+    ]
+   },
+   "c": [
+    "144 * 1480 // 1000",
+    "144 * 1480 - 1000 * (144 * 1480 // 1000)"
+   ],
+   "w": "144 · 1 480 m = 213 120 m. 1 000 m = 1 km, also 213 120 m = 213 km 120 m.",
+   "h": "Rechne zuerst alles in Metern aus.",
+   "bezug": {
+    "thema_schluessel": "groessen.einheiten",
+    "lernziel": "laenge"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Die Wanderkarte zeigt die Straße als Zahlenstrahl von Meile 0 bis Meile 120 mit 8 gleichen Abschnitten. Der Pfeil zeigt auf einen Rastplatz. Bei welcher Meile liegt er?",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 120,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende",
+     "pfeil": 5
+    }
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "120 // 8 * 5",
+   "w": "Ein Abschnitt ist 120 : 8 = 15 Meilen lang. Der Pfeil liegt 5 Abschnitte nach der 0: 5 · 15 = 75.",
+   "h": "Wie viele Meilen ist ein Abschnitt lang?",
+   "bezug": {
+    "thema_schluessel": "zahlen.natuerlich",
+    "lernziel": "strahl_ablesen"
+   }
+  },
+  {
+   "k": "d",
+   "y": "zahl",
+   "f": {
+    "text": "Ab Meile 0 steht alle 12 Meilen ein Brunnen und alle 18 Meilen ein Wachposten. Du willst die erste Nacht an einer Stelle verbringen, an der es beides gibt – aber nicht schon bei Meile 0. Bei welcher Meile ist das?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "36",
+   "w": "Brunnen: 12, 24, 36, 48, … Wachposten: 18, 36, 54, … Die erste Zahl in beiden Listen ist 36.",
+   "h": "Schreib die Vielfachen von 12 und von 18 auf.",
+   "bezug": {
+    "thema_schluessel": "zahlen.teilbarkeit",
+    "lernziel": "vielfache"
+   }
+  }
+ ]
+}

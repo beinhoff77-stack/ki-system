@@ -1093,3 +1093,10 @@ if __name__ == '__main__':
     from _bereinigen import bereinigen_datei
     bereinigen_datei('stochastik.mehrstufig')
 # ---- BEREINIGEN ENDE ----
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('stochastik.mehrstufig')
+# ---- AUFLOESEN ENDE ----

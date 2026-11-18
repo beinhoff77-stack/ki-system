@@ -780,3 +780,10 @@ if __name__ == '__main__':
     pfad = Path(__file__).resolve().parent.parent / 'themen' / 'zahlen.natuerlich.json'
     import json
     pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('zahlen.natuerlich')
+# ---- AUFLOESEN ENDE ----

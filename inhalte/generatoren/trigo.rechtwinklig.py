@@ -911,3 +911,10 @@ ST.knobel('anwendung', Z('Eine Straße mit 10 % Steigung ist (entlang der Straß
 
 if __name__ == '__main__':
     stufen('trigo.rechtwinklig', ST)
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('trigo.rechtwinklig')
+# ---- AUFLOESEN ENDE ----

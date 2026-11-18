@@ -21,6 +21,8 @@
     "titel": "Streckung und Ähnlichkeit",
     "lernziele": [
      "streckung",
+     "bildgerade",
+     "schwerpunkt",
      "aehnlich"
     ]
    },
@@ -159,6 +161,243 @@
       }
      ]
     }
+   },
+   {
+    "lernziel": "bildgerade",
+    "titel": "Bildgerade und Bildparabel",
+    "einstieg": "Ein Beamer vergrößert eine Folie mit einer Geraden. Der Beamer steht im Ursprung, dem Zentrum O. Die vergrößerte Gerade heißt ⟦Bildgerade⟧. Sie läuft parallel zur alten.",
+    "woerter": [
+     [
+      "Bildgerade",
+      "die Gerade, auf der alle gestreckten Punkte einer Geraden liegen"
+     ],
+     [
+      "Zentrum O",
+      "der Ursprung (0 | 0) als Zentrum der Streckung"
+     ],
+     [
+      "Bildparabel",
+      "die Kurve aus allen gestreckten Punkten einer Parabel"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 1,
+       "name": "g"
+      }
+     ]
+    },
+    "schritte": [
+     {
+      "text": "g: y = x + 1 wird von O aus mit k = 3 gestreckt."
+     },
+     {
+      "text": "Der Punkt (0 | 1) auf g wird zu (0 | 3).",
+      "bild": {
+       "punkte": [
+        {
+         "x": 0,
+         "y": 1,
+         "name": "P"
+        },
+        {
+         "x": 0,
+         "y": 3,
+         "name": "P'"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Bildgerade ist parallel zu g. Die Steigung bleibt also 1."
+     },
+     {
+      "text": "Also ⟦g': y = x + 3⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 1,
+         "t": 1,
+         "name": "g"
+        },
+        {
+         "art": "linear",
+         "m": 1,
+         "t": 3,
+         "name": "g'"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die Parabel y = x² wird zur Bildparabel y = x² : 3."
+     }
+    ],
+    "fehler": "y = 3x + 3 ist falsch. Die Steigung bleibt gleich, weil Bild und Gerade ⟦parallel⟧ sind. Nur t wird mal 3 genommen.",
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 1,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 3,
+       "name": "falsch"
+      }
+     ]
+    },
+    "regel": "Die Bildgerade ist ⟦parallel⟧, ihr y-Achsenabschnitt ist k-mal so groß. Aus y = a · x² wird y = (a : k) · x²."
+   },
+   {
+    "lernziel": "schwerpunkt",
+    "titel": "Schwerpunkt eines Dreiecks",
+    "einstieg": "Ein Dreieck aus Pappe lässt sich auf einer Bleistiftspitze balancieren. Der Punkt liegt dort, wo sich drei besondere Strecken treffen. Er heißt ⟦Schwerpunkt⟧.",
+    "woerter": [
+     [
+      "Seitenhalbierende",
+      "die Strecke von einer Ecke zur Mitte der gegenüberliegenden Seite"
+     ],
+     [
+      "Mittelpunkt",
+      "die Mitte einer Strecke: x-Werte addieren und halbieren, ebenso die y-Werte"
+     ],
+     [
+      "Schwerpunkt S",
+      "der Treffpunkt der drei Seitenhalbierenden"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "strecken": [
+      [
+       0,
+       0,
+       6,
+       0
+      ],
+      [
+       6,
+       0,
+       3,
+       6
+      ],
+      [
+       3,
+       6,
+       0,
+       0
+      ]
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": 0,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 6,
+       "name": "C"
+      }
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Das Dreieck hat die Ecken A(0 | 0), B(6 | 0) und C(3 | 6)."
+     },
+     {
+      "text": "x-Werte addieren und durch 3 teilen: (0 + 6 + 3) : 3 = 3."
+     },
+     {
+      "text": "y-Werte: (0 + 0 + 6) : 3 = 2, also ⟦S(3 | 2)⟧."
+     },
+     {
+      "text": "Der Schwerpunkt S liegt auf der Seitenhalbierenden von C zum Mittelpunkt (3 | 0).",
+      "bild": {
+       "strecken": [
+        [
+         0,
+         0,
+         6,
+         0
+        ],
+        [
+         6,
+         0,
+         3,
+         6
+        ],
+        [
+         3,
+         6,
+         0,
+         0
+        ],
+        [
+         3,
+         6,
+         3,
+         0,
+         "gestrichelt"
+        ]
+       ],
+       "punkte": [
+        {
+         "x": 0,
+         "y": 0,
+         "name": "A"
+        },
+        {
+         "x": 6,
+         "y": 0,
+         "name": "B"
+        },
+        {
+         "x": 3,
+         "y": 6,
+         "name": "C"
+        },
+        {
+         "x": 3,
+         "y": 2,
+         "name": "S"
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "Durch 2 teilen ist falsch: (0 + 6 + 3) : 2 = 4,5. Ein Dreieck hat ⟦drei⟧ Ecken, also teilst du durch 3.",
+    "regel": "Schwerpunkt: ⟦Mittelwert der drei Ecken⟧, getrennt für x und y. S teilt jede Seitenhalbierende im Verhältnis 2 : 1."
    },
    {
     "lernziel": "aehnlich",
@@ -941,6 +1180,20 @@
     "lernziele": [
      "anwendung"
     ]
+   },
+   {
+    "k": "bildgerade",
+    "text": "Bildgerade und Bildparabel bei zentrischer Streckung an O",
+    "lernziele": [
+     "bildgerade"
+    ]
+   },
+   {
+    "k": "schwerpunkt",
+    "text": "Schwerpunkt eines Dreiecks mit Koordinaten berechnen",
+    "lernziele": [
+     "schwerpunkt"
+    ]
    }
   ],
   "bewertung": {
@@ -952,7 +1205,10 @@
     "flaeche_volumen",
     "anwendung"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "bildgerade",
+    "schwerpunkt"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -2104,6 +2360,955 @@
    "p": "bonus",
    "s": 3,
    "g": "knobel"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = 2x + 1 wird mit dem Zentrum O(0 | 0) und k = 3 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "1 * 3"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt 2. Der y-Achsenabschnitt wird mal 3 genommen: 1 · 3 = 3. Also y = 2x + 3.",
+   "h": "Was passiert mit der Steigung, was mit dem y-Achsenabschnitt?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Gerade wird mit dem Zentrum O gestreckt. Wie liegt die Bildgerade zur Geraden?"
+   },
+   "a": [
+    "Sie schneiden sich immer in O.",
+    "nur für k > 1 parallel, sonst senkrecht",
+    "senkrecht",
+    "parallel – geht die Gerade durch O, ist das Bild sogar dieselbe Gerade"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Jeder Punkt wandert auf seinem Strahl von O weg. Die Steigung bleibt gleich, also sind Gerade und Bild parallel.",
+   "h": "Denke an den Beamer: Wird die Gerade schräger?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "auswahl",
+   "f": {
+    "text": "Die Parabel y = x² wird mit dem Zentrum O und k = 2 gestreckt. Welche Gleichung hat die Bildparabel?"
+   },
+   "a": [
+    "y = 0,5x²",
+    "y = 4x²",
+    "y = 2x²",
+    "y = x² + 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(1 | 1) wird zu (2 | 2), (2 | 4) wird zu (4 | 8). Für x = 2 ist y = 2 = 0,5 · 2². Allgemein: a : k = 1 : 2 = 0,5.",
+   "h": "Strecke zwei Punkte der Parabel und prüfe, welche Gleichung passt."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = 2x + 5 wurde mit dem Zentrum O gestreckt. Die Bildgerade ist y = 2x + 15. Wie groß ist k?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "15 / 5",
+   "w": "Der y-Achsenabschnitt wird mal k genommen: 5 · k = 15, also k = 3.",
+   "h": "Vergleiche die y-Achsenabschnitte."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "luecken",
+   "f": {
+    "text": "Bei einer Streckung mit dem Zentrum O und k = 2 entsteht die Bildgerade y = −3x + 8. Welche Gleichung hatte die Gerade vorher?",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     -3,
+     4
+    ]
+   },
+   "c": [
+    "-3",
+    "8 // 2"
+   ],
+   "w": "Die Steigung bleibt −3. Der y-Achsenabschnitt war vorher 8 : 2 = 4. Also y = −3x + 4.",
+   "h": "Rückwärts: Durch k teilen statt mal k nehmen."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = 2x + 3 wird mit dem Zentrum O und k = −1 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     2,
+     -3
+    ]
+   },
+   "c": [
+    "2",
+    "3 * (-1)"
+   ],
+   "w": "k = −1 ist eine Punktspiegelung an O. Die Steigung bleibt 2, der y-Achsenabschnitt wird 3 · (−1) = −3: y = 2x − 3.",
+   "h": "Welche Abbildung ist eine Streckung mit k = −1?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = −x + 4 wird mit dem Zentrum O(0 | 0) und k = 0,5 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     -1,
+     2
+    ]
+   },
+   "c": [
+    "-1",
+    "4 * 0.5"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt −1. Der y-Achsenabschnitt wird mal 0,5 genommen: 4 · 0,5 = 2. Also y = −x + 2.",
+   "h": "Was passiert mit der Steigung, was mit dem y-Achsenabschnitt?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gerade bleibt bei einer Streckung mit dem Zentrum O und k = 2 genau an ihrem Platz?"
+   },
+   "a": [
+    "y = x + 2",
+    "y = 2",
+    "y = 3x + 1",
+    "y = 3x"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nur eine Gerade durch O bleibt gleich: Ihr y-Achsenabschnitt ist 0, und 0 · 2 = 0. Das ist y = 3x.",
+   "h": "Welcher y-Achsenabschnitt ändert sich beim Malnehmen nicht?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = 3x² wird mit dem Zentrum O und k = 3 gestreckt. Gib die Bildparabel an.",
+    "schablone": "y = □x²",
+    "hinweis": "Eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     1
+    ]
+   },
+   "c": [
+    "3 // 3"
+   ],
+   "w": "(1 | 3) wird zu (3 | 9), und 9 = 1 · 3². Allgemein a : k = 3 : 3 = 1: Das Bild ist die Normalparabel y = x².",
+   "h": "Strecke den Punkt (1 | 3) und setze ihn ein."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = 6x² wurde mit dem Zentrum O gestreckt. Das Bild ist y = 2x². Wie groß ist k?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "6 / 2",
+   "w": "Aus y = a · x² wird y = (a : k) · x². 6 : k = 2, also k = 3.",
+   "h": "Wie hängt die Zahl vor x² im Bild mit k zusammen?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Folie liegt ein Strich entlang y = 0,5x + 2 (in cm). Ein Beamer vergrößert vom Ursprung aus mit k = 4. In welcher Höhe trifft der vergrößerte Strich die y-Achse?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "2 * 4",
+   "w": "Der y-Achsenabschnitt 2 cm wird mal 4 genommen: 8 cm.",
+   "h": "Was passiert mit dem y-Achsenabschnitt?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Im Bild siehst du g: y = x − 1 und drei weitere Geraden. Welche ist das Bild von g bei einer Streckung mit dem Zentrum O und k = 2?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -1,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -2,
+       "name": "1"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": -2,
+       "name": "2"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -0.5,
+       "name": "3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Gerade 2",
+    "Gerade 1",
+    "Gerade 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Bild ist parallel zu g (Steigung 1) und schneidet die y-Achse bei (−1) · 2 = −2: y = x − 2. Das ist Gerade 1.",
+   "h": "Welche Gerade ist parallel zu g?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "luecken",
+   "f": {
+    "text": "Bei einer Streckung mit dem Zentrum O und k = 4 entsteht die Bildparabel y = x². Welche Parabel war es vorher?",
+    "schablone": "y = □x²",
+    "hinweis": "Eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     4
+    ]
+   },
+   "c": [
+    "1 * 4"
+   ],
+   "w": "Aus y = a · x² wird y = (a : 4) · x². Damit a : 4 = 1 ist, muss a = 4 sein: y = 4x².",
+   "h": "Welche Zahl a ergibt geteilt durch 4 die Zahl 1?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = x + 2 wird mit dem Zentrum O und k = 3 gestreckt. Wie weit liegen Gerade und Bildgerade auf der y-Achse auseinander?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 3 - 2",
+   "w": "Die Gerade schneidet die y-Achse bei 2, das Bild bei 2 · 3 = 6. Abstand auf der y-Achse: 6 − 2 = 4.",
+   "h": "Bestimme beide y-Achsenabschnitte."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Bei einer Streckung mit dem Zentrum O bleibt jede Gerade durch O an ihrem Platz.“"
+   },
+   "a": [
+    "Ja: Jeder Punkt wandert auf seinem Strahl von O aus und bleibt damit auf der Geraden.",
+    "Nur für k > 1.",
+    "Nein, sie wird steiler."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Gerade durch O hat den y-Achsenabschnitt 0, und 0 · k = 0. Steigung und Achsenabschnitt bleiben gleich.",
+   "h": "Wie groß ist der y-Achsenabschnitt einer Geraden durch O?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand streckt y = 2x + 1 mit dem Zentrum O und k = 3 und schreibt y = 6x + 3. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Steigung bleibt 2. Richtig ist y = 2x + 3.",
+    "Richtig.",
+    "Falsch: Richtig ist y = 6x + 1."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bild und Gerade sind parallel, die Steigung ändert sich nicht. Nur der y-Achsenabschnitt wird mal 3 genommen.",
+   "h": "Prüfe mit einem Punkt: Wohin kommt (1 | 3)?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welches k wird die Gerade y = 0,5x − 2 bei einer Streckung mit dem Zentrum O auf y = 0,5x + 6 abgebildet?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "6 / (-2)",
+   "w": "Der y-Achsenabschnitt wird mal k genommen: (−2) · k = 6, also k = −3.",
+   "h": "Vergleiche die y-Achsenabschnitte, auch das Vorzeichen."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Brückenbogen hat die Form y = −0,02x² (in m, Scheitel im Ursprung). Ein Modell entsteht durch eine Streckung mit dem Zentrum O und k = 0,1. Welche Gleichung hat der Bogen des Modells?"
+   },
+   "a": [
+    "y = −0,02x²",
+    "y = −0,2x²",
+    "y = −0,002x²",
+    "y = −2x²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Aus y = a · x² wird y = (a : k) · x². −0,02 : 0,1 = −0,2. Das Modell ist kleiner, sein Bogen deshalb stärker gekrümmt.",
+   "h": "Teile die Zahl vor x² durch k."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel y = a · x² wird mit dem Zentrum O und k = 2 gestreckt, das Bild noch einmal mit dem Zentrum O und k = 3. Am Ende entsteht y = x². Wie groß war a?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "1 * 2 * 3",
+   "w": "Erst wird a durch 2 geteilt, dann durch 3, zusammen durch 6. a : 6 = 1, also a = 6.",
+   "h": "Zwei Streckungen nacheinander: Wie oft und wodurch wird a geteilt?"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g: y = x + 1 wird mit dem Zentrum O und k = 3 gestreckt. g schneidet die x-Achse in A, die Bildgerade in A′. Wie weit liegen A und A′ auseinander?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "-1 - (-3)",
+   "w": "g: y = x + 1 hat die Nullstelle −1. Die Bildgerade y = x + 3 hat die Nullstelle −3. Abstand: 2. Auch ohne Bildgerade: A(−1 | 0) wird zu A′(−3 | 0).",
+   "h": "A liegt auf der x-Achse. Wohin kommt ein Punkt der x-Achse?"
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(0 | 0), B(9 | 0) und C(3 | 6).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     4,
+     2
+    ]
+   },
+   "c": [
+    "(0 + 9 + 3) // 3",
+    "(0 + 0 + 6) // 3"
+   ],
+   "w": "x: (0 + 9 + 3) : 3 = 4. y: (0 + 0 + 6) : 3 = 2. Also S(4 | 2).",
+   "h": "Addiere die drei x-Werte und teile durch 3, ebenso die y-Werte."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wo schneiden sich die drei Seitenhalbierenden eines Dreiecks?"
+   },
+   "a": [
+    "im Umkreismittelpunkt",
+    "im Inkreismittelpunkt",
+    "im Schwerpunkt",
+    "auf der längsten Seite"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Seitenhalbierenden treffen sich im Schwerpunkt. Der Umkreismittelpunkt ist der Schnittpunkt der Mittelsenkrechten.",
+   "h": "Welche Linien gehören zum Umkreis, welche zum Schwerpunkt?"
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(1 | −2), B(7 | 4) und C(−2 | 7).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "(1 + 7 + -2) // 3",
+    "(-2 + 4 + 7) // 3"
+   ],
+   "w": "x: (1 + 7 + (−2)) : 3 = 2. y: (−2 + 4 + 7) : 3 = 3. Also S(2 | 3).",
+   "h": "Addiere die drei x-Werte und teile durch 3, ebenso die y-Werte."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "luecken",
+   "f": {
+    "text": "Ein Dreieck hat die Ecken A(0 | 0), B(6 | 0) und den Schwerpunkt S(3 | 4). Wo liegt C?",
+    "schablone": "C(□ | □)",
+    "hinweis": "Zwei ganze Zahlen."
+   },
+   "o": {
+    "werte": [
+     3,
+     12
+    ]
+   },
+   "c": [
+    "3 * 3 - 0 - 6",
+    "3 * 4 - 0 - 0"
+   ],
+   "w": "Die drei x-Werte ergeben zusammen 3 · 3 = 9, also x von C = 9 − 0 − 6 = 3. Die y-Werte ergeben 3 · 4 = 12, also y von C = 12. C(3 | 12).",
+   "h": "Wie groß muss die Summe der x-Werte sein?"
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Der Schwerpunkt S liegt 5 cm von der Mitte einer Seite entfernt, auf der Seitenhalbierenden. Wie lang ist diese Seitenhalbierende?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "5 * 3",
+   "w": "S teilt die Seitenhalbierende im Verhältnis 2 : 1. Das kürzere Stück (zur Seitenmitte) ist 1 von 3 Teilen: 5 cm. Ganz: 3 · 5 cm = 15 cm.",
+   "h": "In wie viele gleiche Teile teilt S die Seitenhalbierende?"
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck A(0 | 0), B(6 | 0), C(3 | 6) wird vom Schwerpunkt S aus in die drei Dreiecke ABS, BCS und CAS zerlegt. Wie groß ist der Flächeninhalt von ABS?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6 * 2 / 2",
+   "w": "S = ((0 + 6 + 3) : 3 | (0 + 0 + 6) : 3) = (3 | 2). ABS hat die Grundseite 6 und die Höhe 2: 6 · 2 : 2 = 6. (Das ganze Dreieck hat 6 · 6 : 2 = 18, jedes Teildreieck ein Drittel davon.)",
+   "h": "Bestimme zuerst S, dann Grundseite und Höhe von ABS."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(−2 | 1), B(4 | 3) und C(1 | 5).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "(-2 + 4 + 1) // 3",
+    "(1 + 3 + 5) // 3"
+   ],
+   "w": "x: (−2 + 4 + 1) : 3 = 1. y: (1 + 3 + 5) : 3 = 3. Also S(1 | 3).",
+   "h": "Addiere die drei x-Werte und teile durch 3, ebenso die y-Werte."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt ist der Mittelpunkt der Strecke von A(2 | 3) nach B(8 | 7)?"
+   },
+   "a": [
+    "(3 | 2)",
+    "(6 | 4)",
+    "(10 | 10)",
+    "(5 | 5)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x: (2 + 8) : 2 = 5. y: (3 + 7) : 2 = 5. Der Mittelpunkt ist (5 | 5).",
+   "h": "Addiere und halbiere, getrennt für x und y."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist die Seitenhalbierende von C(4 | 9) zur Mitte der Seite [AB] mit A(0 | 0) und B(8 | 0)?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9 - 0",
+   "w": "Mitte von [AB]: ((0 + 8) : 2 | 0) = (4 | 0). Von (4 | 0) bis C(4 | 9) geht es senkrecht nach oben: Länge 9.",
+   "h": "Berechne zuerst die Mitte von [AB]."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "luecken",
+   "f": {
+    "text": "Von einem Dreieck kennt man A(2 | 1), B(8 | 3) und den Schwerpunkt S(4 | 4). Gib C an.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Zwei ganze Zahlen."
+   },
+   "o": {
+    "werte": [
+     2,
+     8
+    ]
+   },
+   "c": [
+    "3 * 4 - 2 - 8",
+    "3 * 4 - 1 - 3"
+   ],
+   "w": "Summe der x-Werte: 3 · 4 = 12, also x = 12 − 2 − 8 = 2. Summe der y-Werte: 12, also y = 12 − 1 − 3 = 8. C(2 | 8).",
+   "h": "Rückwärts: erst mal 3, dann die bekannten Werte abziehen."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "luecken",
+   "f": {
+    "text": "Eine dreieckige Tischplatte hat die Ecken (0 | 0), (90 | 0) und (45 | 60) (in cm). Unter welchem Punkt muss ein einzelnes Tischbein stehen, damit die Platte nicht kippt?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     45,
+     20
+    ]
+   },
+   "c": [
+    "(0 + 90 + 45) // 3",
+    "(0 + 0 + 60) // 3"
+   ],
+   "w": "x: (0 + 90 + 45) : 3 = 45. y: (0 + 0 + 60) : 3 = 20. Also S(45 | 20).",
+   "h": "Die Platte balanciert im Schwerpunkt."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "luecken",
+   "f": {
+    "text": "Lies die Ecken des Dreiecks ab und gib seinen Schwerpunkt an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -1,
+      10
+     ],
+     "strecken": [
+      [
+       0,
+       0,
+       6,
+       0
+      ],
+      [
+       6,
+       0,
+       0,
+       9
+      ],
+      [
+       0,
+       9,
+       0,
+       0
+      ]
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": 0,
+       "name": "B"
+      },
+      {
+       "x": 0,
+       "y": 9,
+       "name": "C"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "(0 + 6 + 0) // 3",
+    "(0 + 0 + 9) // 3"
+   ],
+   "w": "x: (0 + 6 + 0) : 3 = 2. y: (0 + 0 + 9) : 3 = 3. Also S(2 | 3).",
+   "h": "Lies die drei Ecken genau ab und bilde die Mittelwerte."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "luecken",
+   "f": {
+    "text": "Ein Dreieck hat den Schwerpunkt S(2 | 2). Zwei Ecken sind A(−1 | 0) und B(5 | −1). Wo liegt C?",
+    "schablone": "C(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "c": [
+    "3 * 2 - (-1) - 5",
+    "3 * 2 - 0 - (-1)"
+   ],
+   "w": "Summe der x-Werte: 3 · 2 = 6, also x = 6 − (−1) − 5 = 2. Summe der y-Werte: 6, also y = 6 − 0 − (−1) = 7. C(2 | 7).",
+   "h": "Wie groß muss die Summe der y-Werte sein?"
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "luecken",
+   "f": {
+    "text": "Der Schwerpunkt S des Dreiecks A(0 | 0), B(6 | 0), C(0 | 9) wird mit dem Zentrum O(0 | 0) und k = 3 gestreckt. Wo liegt S′?",
+    "schablone": "S'(□ | □)",
+    "hinweis": "Zwei ganze Zahlen."
+   },
+   "o": {
+    "werte": [
+     6,
+     9
+    ]
+   },
+   "c": [
+    "3 * ((0 + 6 + 0) // 3)",
+    "3 * ((0 + 0 + 9) // 3)"
+   ],
+   "w": "S = (6 : 3 | 9 : 3) = (2 | 3). Mit k = 3 von O aus: S′(6 | 9).",
+   "h": "Erst S berechnen, dann strecken."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Der Schwerpunkt eines Dreiecks liegt immer innerhalb des Dreiecks.“"
+   },
+   "a": [
+    "Nein, bei stumpfwinkligen Dreiecken liegt er außen.",
+    "Nur bei gleichseitigen Dreiecken.",
+    "Ja: Er liegt auf jeder Seitenhalbierenden, und die verlaufen im Inneren."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Jede Seitenhalbierende verbindet eine Ecke mit einem Punkt der Gegenseite und liegt deshalb im Dreieck. Außen liegen kann der Umkreismittelpunkt, nicht der Schwerpunkt.",
+   "h": "Wo verläuft eine Seitenhalbierende?"
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet den Schwerpunkt von A(0 | 0), B(4 | 0), C(2 | 6) so: S = ((0 + 4 + 2) : 2 | (0 + 0 + 6) : 2) = (3 | 3). Was stimmt?"
+   },
+   "a": [
+    "Falsch: Man teilt durch 3. Richtig ist S(2 | 2).",
+    "Richtig.",
+    "Falsch: Man teilt durch 6. Richtig ist S(1 | 1)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Drei Ecken, also durch 3: (0 + 4 + 2) : 3 = 2 und (0 + 0 + 6) : 3 = 2.",
+   "h": "Wie viele Ecken hat ein Dreieck?"
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Ecken A(0 | 0), B(6 | 0) und C(c | 9). Für welches c liegt der Schwerpunkt auf der y-Achse?"
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "0 - 0 - 6",
+   "w": "Auf der y-Achse ist der x-Wert 0: (0 + 6 + c) : 3 = 0, also 6 + c = 0 und c = −6.",
+   "h": "Welchen x-Wert hat ein Punkt auf der y-Achse?"
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "luecken",
+   "f": {
+    "text": "Drei gleich schwere Kinder sitzen auf den Ecken einer leichten dreieckigen Plattform bei (0 | 0), (4 | 0) und (2 | 3) (in m). Über welchem Punkt muss die Plattform gestützt werden, damit sie nicht kippt?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     2,
+     1
+    ]
+   },
+   "c": [
+    "(0 + 4 + 2) // 3",
+    "(0 + 0 + 3) // 3"
+   ],
+   "w": "x: (0 + 4 + 2) : 3 = 2. y: (0 + 0 + 3) : 3 = 1. Also S(2 | 1).",
+   "h": "Drei gleich schwere Kinder: Der Ausgleichspunkt ist der Mittelwert ihrer Plätze."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Ecken A(0 | 0), B(12 | 0) und C(0 | 12). Wie viele Punkte mit ganzzahligen Koordinaten liegen auf der Strecke von C zum Schwerpunkt S, C und S eingeschlossen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "S = (12 : 3 | 12 : 3) = (4 | 4). Von C(0 | 12) nach S(4 | 4) geht es 4 nach rechts und 8 nach unten, also in 4 gleichen Schritten (1 | −2): (0 | 12), (1 | 10), (2 | 8), (3 | 6), (4 | 4). Das sind 5 Punkte.",
+   "h": "Bestimme S und zerlege den Weg von C nach S in möglichst viele gleiche ganzzahlige Schritte."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "Die Mittelpunkte der drei Seiten eines Dreiecks sind (2 | 0), (6 | 3) und (1 | 3). Wo liegt der Schwerpunkt des Dreiecks?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen."
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "c": [
+    "(2 + 6 + 1) // 3",
+    "(0 + 3 + 3) // 3"
+   ],
+   "w": "Jede Ecke kommt in genau zwei Seitenmitten vor. Die Summe der drei Mitten ist deshalb gleich der Summe der drei Ecken. Also ist S auch der Mittelwert der Mitten: ((2 + 6 + 1) : 3 | (0 + 3 + 3) : 3) = (3 | 2).",
+   "h": "Wie hängt die Summe der drei Seitenmitten mit der Summe der Ecken zusammen?"
   },
   {
    "l": "aehnlich",
@@ -9387,6 +10592,466 @@
    "p": "bonus",
    "s": 3,
    "g": "knobel"
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = 3x − 2 wird mit dem Zentrum O(0 | 0) und k = 2 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     3,
+     -4
+    ]
+   },
+   "c": [
+    "3",
+    "-2 * 2"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt 3. Der y-Achsenabschnitt wird mal 2 genommen: (−2) · 2 = −4. Also y = 3x − 4."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = −2x + 1 wird mit dem Zentrum O(0 | 0) und k = 5 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     -2,
+     5
+    ]
+   },
+   "c": [
+    "-2",
+    "1 * 5"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt −2. Der y-Achsenabschnitt wird mal 5 genommen: 1 · 5 = 5. Also y = −2x + 5."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = x + 4 wird mit dem Zentrum O(0 | 0) und k = 0,5 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "1",
+    "4 * 0.5"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt 1. Der y-Achsenabschnitt wird mal 0,5 genommen: 4 · 0,5 = 2. Also y = x + 2."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = 4x − 3 wird mit dem Zentrum O(0 | 0) und k = −1 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "c": [
+    "4",
+    "-3 * -1"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt 4. Der y-Achsenabschnitt wird mal −1 genommen: (−3) · (−1) = 3. Also y = 4x + 3."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = 2x − 1 wird mit dem Zentrum O(0 | 0) und k = 4 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     2,
+     -4
+    ]
+   },
+   "c": [
+    "2",
+    "-1 * 4"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt 2. Der y-Achsenabschnitt wird mal 4 genommen: (−1) · 4 = −4. Also y = 2x − 4."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = −x + 6 wird mit dem Zentrum O(0 | 0) und k = 0,5 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     -1,
+     3
+    ]
+   },
+   "c": [
+    "-1",
+    "6 * 0.5"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt −1. Der y-Achsenabschnitt wird mal 0,5 genommen: 6 · 0,5 = 3. Also y = −x + 3."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = 3x + 2 wird mit dem Zentrum O(0 | 0) und k = −2 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     3,
+     -4
+    ]
+   },
+   "c": [
+    "3",
+    "2 * -2"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt 3. Der y-Achsenabschnitt wird mal −2 genommen: 2 · (−2) = −4. Also y = 3x − 4."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = −3x − 2 wird mit dem Zentrum O(0 | 0) und k = 3 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     -3,
+     -6
+    ]
+   },
+   "c": [
+    "-3",
+    "-2 * 3"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt −3. Der y-Achsenabschnitt wird mal 3 genommen: (−2) · 3 = −6. Also y = −3x − 6."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = x − 5 wird mit dem Zentrum O(0 | 0) und k = 2 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     1,
+     -10
+    ]
+   },
+   "c": [
+    "1",
+    "-5 * 2"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt 1. Der y-Achsenabschnitt wird mal 2 genommen: (−5) · 2 = −10. Also y = x − 10."
+  },
+  {
+   "l": "bildgerade",
+   "t": "bildgerade",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Gerade g: y = 5x + 1 wird mit dem Zentrum O(0 | 0) und k = 7 gestreckt. Gib die Bildgerade an.",
+    "schablone": "y = □x + □",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     5,
+     7
+    ]
+   },
+   "c": [
+    "5",
+    "1 * 7"
+   ],
+   "w": "Die Bildgerade ist parallel, die Steigung bleibt 5. Der y-Achsenabschnitt wird mal 7 genommen: 1 · 7 = 7. Also y = 5x + 7."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(3 | 1), B(9 | 2) und C(0 | 6).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "c": [
+    "(3 + 9 + 0) // 3",
+    "(1 + 2 + 6) // 3"
+   ],
+   "w": "x: (3 + 9 + 0) : 3 = 4. y: (1 + 2 + 6) : 3 = 3. Also S(4 | 3)."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(−3 | 0), B(5 | 2) und C(1 | 7).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "(-3 + 5 + 1) // 3",
+    "(0 + 2 + 7) // 3"
+   ],
+   "w": "x: (−3 + 5 + 1) : 3 = 1. y: (0 + 2 + 7) : 3 = 3. Also S(1 | 3)."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(0 | −4), B(8 | 2) und C(4 | 5).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     4,
+     1
+    ]
+   },
+   "c": [
+    "(0 + 8 + 4) // 3",
+    "(-4 + 2 + 5) // 3"
+   ],
+   "w": "x: (0 + 8 + 4) : 3 = 4. y: (−4 + 2 + 5) : 3 = 1. Also S(4 | 1)."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(2 | 2), B(10 | 2) und C(−3 | 8).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "c": [
+    "(2 + 10 + -3) // 3",
+    "(2 + 2 + 8) // 3"
+   ],
+   "w": "x: (2 + 10 + (−3)) : 3 = 3. y: (2 + 2 + 8) : 3 = 4. Also S(3 | 4)."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(1 | 1), B(5 | 1) und C(3 | 7).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     3,
+     3
+    ]
+   },
+   "c": [
+    "(1 + 5 + 3) // 3",
+    "(1 + 1 + 7) // 3"
+   ],
+   "w": "x: (1 + 5 + 3) : 3 = 3. y: (1 + 1 + 7) : 3 = 3. Also S(3 | 3)."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(−2 | −2), B(4 | 0) und C(7 | 5).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     3,
+     1
+    ]
+   },
+   "c": [
+    "(-2 + 4 + 7) // 3",
+    "(-2 + 0 + 5) // 3"
+   ],
+   "w": "x: (−2 + 4 + 7) : 3 = 3. y: (−2 + 0 + 5) : 3 = 1. Also S(3 | 1)."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(0 | 3), B(6 | −3) und C(3 | 9).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     3,
+     3
+    ]
+   },
+   "c": [
+    "(0 + 6 + 3) // 3",
+    "(3 + -3 + 9) // 3"
+   ],
+   "w": "x: (0 + 6 + 3) : 3 = 3. y: (3 + (−3) + 9) : 3 = 3. Also S(3 | 3)."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(4 | 0), B(10 | 4) und C(1 | 8).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     5,
+     4
+    ]
+   },
+   "c": [
+    "(4 + 10 + 1) // 3",
+    "(0 + 4 + 8) // 3"
+   ],
+   "w": "x: (4 + 10 + 1) : 3 = 5. y: (0 + 4 + 8) : 3 = 4. Also S(5 | 4)."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(−5 | 1), B(0 | 6) und C(2 | −4).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "c": [
+    "(-5 + 0 + 2) // 3",
+    "(1 + 6 + -4) // 3"
+   ],
+   "w": "x: (−5 + 0 + 2) : 3 = −1. y: (1 + 6 + (−4)) : 3 = 1. Also S(−1 | 1)."
+  },
+  {
+   "l": "schwerpunkt",
+   "t": "schwerpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schwerpunkt des Dreiecks mit A(6 | 6), B(12 | 0) und C(0 | 3).",
+    "schablone": "S(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     6,
+     3
+    ]
+   },
+   "c": [
+    "(6 + 12 + 0) // 3",
+    "(6 + 0 + 3) // 3"
+   ],
+   "w": "x: (6 + 12 + 0) : 3 = 6. y: (6 + 0 + 3) : 3 = 3. Also S(6 | 3)."
   }
  ],
  "offen": [

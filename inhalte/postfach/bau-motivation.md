@@ -2,6 +2,84 @@
 
 Neueste oben.
 
+## 2026-11-18 – FERTIG: Auftrag H (korrigiert)
+
+**Ursache** „record "v" is not assigned yet“: Im H2-Block von `20261119_w176_h_muss.sql` hieß die Schleifenvariable `v` wie der Tabellen-Alias `schule.versuch v`. Variable heißt jetzt `w`.
+
+**Geprüft mit einem Skript** (Variablen jedes `declare` gegen Tabellen-/Funktions-Aliase im selben Block; erkennt die gemeldeten Fälle in den alten Fassungen):
+- `h_sollte`: zweite Kollision gefunden und behoben – in `expedition_importieren` (H12-Prüfungen) liefen `jsonb_array_elements(…) t` / `… v` gegen die Variablen `t`, `v` → Aliase `tt`, `vv`.
+- In die Live-Funktionen eingesetzte Stücke (`uebung_pruefen_intern`, `etappen_stand`, `schule_lernstand`, `schule_uebersicht`, `einheit_lesen_intern`, `expeditionen_kind`) gegen deren `declare` geprüft: keine Kollision.
+- Danach: keine Treffer mehr in `h8`, `h_muss`, `h_sollte` und allen Rauchtests.
+- Nebenbei: Bestandsfüllung H3 nimmt `misch` jetzt mit `coalesce(…, false)`.
+
+**Rauchtests**
+- `w176_t4_rauchtest.sql`: „a_ids is not a known variable“ – ein Kommentar stand mitten in der `declare`-Zeile und verschluckte `a_ids` und `v_n` (seit der Umbenennung k → ks). Behoben. Schritt 5 erwartet seit H8 `wdh_fehler = 0` (nur fällig).
+- `w176_t3_rauchtest.sql` Schritt 4: erwartet jetzt `wdh_fehler = 0`, `wdh_lerntage = 1`, Etappe gelandet (H8).
+- `w176_t1_rauchtest.sql`: an H3 angepasst (6-mal dieselbe Bordkarte → eigene 1, folge 6; Landen mit genug verschiedenen Bordkarten).
+- `w176_h_muss_rauchtest.sql`: Variable `a` → `ag` (kollidierte mit `schule.aufgabe a`). `w176_h_sollte_rauchtest.sql`: Aliase `a`, `x` im H13-Teil → `au`, `xa`.
+- Reihenfolge Probelauf: `h_muss` → `h_sollte` → Rauchtests `h8`, `t1`, `t3`, `t4`, `gesperrt`, `h_muss`, `h_sollte`.
+
+Fachlich unverändert gegenüber „FERTIG: Auftrag H“; App unverändert (0.79.0).
+
+## 2026-11-18 – FERTIG: Auftrag H (H1–H4, H9–H11 Muss; H5–H7, H12–H15 Sollte) – App 0.79.0
+
+**Migrationen** (nicht ausgeführt; pglast ok; alle Ersetz-Stellen vorher im Live-Text geprüft, Abbruch mit Meldung, falls eine fehlt; kein DROP, kein DELETE; gelandete Etappen bleiben gelandet, Lernstände bleiben).
+Reihenfolge: `20261119_w176_h8_misch_fehler_offen_lassen.sql` → `20261119_w176_h_muss.sql` → `20261119_w176_h_sollte.sql`. **App 0.79.0 mit `h_muss` zusammen live nehmen** (sonst zählen Mischkarten der alten App nicht mehr als Misch-Beleg, siehe H10).
+
+**Rauchtests** (Rollback, nur Testkind, keine Namen, über den echten Weg `schule.uebung_pruefen_intern` → Trigger): `supabase/tests/w176_h_muss_rauchtest.sql` (H1, H3, H4, H9, H10, H11),
+`supabase/tests/w176_h_sollte_rauchtest.sql` (H6, H12, H13-Server, H14, H15). `w176_t4_rauchtest.sql` Schritt 9 angepasst (ohne Teil b statt d, damit 3 Themen bleiben – H12).
+**App-Tests:** lernen 70 von 70 (neu: H1, H3/H6, H4, H7, H13 ×2; erweitert: T3 Mischkarte H10, T4 Expedition H15); Suche: 9 bekannte alte Fehler.
+
+**Zahlen vorher → nachher (gelesen, ohne Namen):**
+- Karten-Stände 36, gelandet 34 → 34 (unverändert).
+- H1: 1 offene Etappe mit früherer Landung und bestandenem Test – vorher überall „fertig“, nachher „wieder offen“ (Test getrennt sichtbar). Abflugtafel: 22 Flug-Stände, 7 ändern ihre Zahl der fertigen
+  Etappen (6 höher, weil gelandete Etappen jetzt zählen, nicht nur bestandene Tests; 1 niedriger = die wieder offene); Summe fertiger Etappen 20 → 32; vollständig 1 → 1.
+- H2: 1 offene Zeile aus der Übernahme mit erfundener Folge: `folge` 3 → 5 (nachgerechnet aus 5 eigenen Lösungen in Folge); die andere offene Zeile hat Folge 0 und bleibt. 0 Zeilen seit der Übernahme überschrieben.
+- H3: 36 Karten-Stände bekommen die Liste gezählter Aufgaben (131 verschiedene Aufgaben); 0 Karten haben mehr eigene Lösungen als verschiedene Aufgaben → `eigene_loesungen` unverändert.
+- H4: „sicher“ 0 → 0; Flug-Nachtest bestanden bei gelandeten Etappen 0; Misch-Belege 0. H9/H11/H15: 0 Expeditionen live.
+
+**Antworten für ChatGPT:**
+- **H1** Angenommen. Eine Funktion `schule.etappe_fertig`: fertig = gelandet; ein bestandener Test zählt nur, solange die Etappe nie gelandet war (alte Stände ohne Übungsweg). Gilt in `etappen_stand` (Etappe, Testsperre),
+  in der `karte`-Antwort (App übernimmt `fertig` vom Server statt `fertig || sitzt`), in `schule_uebersicht` (Abflugtafel) und bei den Eltern (`wieder_offen`, „wieder offen“). Neu `geoeffnet_am`, `test_nachgewiesen` getrennt.
+  Die Reiseroute (Ort/Stempel erreicht) bleibt bewusst testbasiert – ein Rückfall nimmt keinen Ort weg. Test: gelandet + Test → 2 Fehler in der Wiederholung → überall offen → 3 eigene in Folge → gelandet.
+- **H2** Angenommen. `folge` offener Etappen nur in Zeilen ohne Übungsversuch seit der Übernahme (17.11. 15:17 UTC) aus den geordneten endgültigen Versuchen nachgerechnet; früher schon gelandete → 0.
+- **H3** Angenommen. Für eigene Lösungen, Typen und „schwer“ zählt jede Aufgabe je Lernkarte einmal (`gezaehlt`); für „in Folge“ zählt jede eigene Lösung – sonst könnte eine Lernkarte mit genau 6 Aufgaben
+  nach einem Fehler nie wieder landen. Nach dem Wiederöffnen sind eigene Lösungen/Typen/schwer schon erfüllt, es fehlen nur 3 in Folge; dafür zählen bekannte Aufgaben. Eine Regel „nach ≥ 1 Lerntag neu zählen“
+  ist deshalb nicht nötig (nicht gebaut). Text „Die kennst du schon – gut wiederholt.“; die App nimmt ungezählte zuerst, gezählte nur, wenn keine ungezählte mehr da ist.
+- **H4** Angenommen. „sicher“ verlangt jetzt: Misch-Beleg und im Flug-Nachtest die Aufgabe dieser Lernkarte richtig – beides nach der letzten Landung. Sonst bei den Eltern „Flug-Nachtest bestanden“.
+- **H5** Angenommen: beide Rauchtests laufen über `uebung_pruefen_intern` und den Trigger. `api.schule_uebung_pruefen` ruft genau diese Funktion nach der Zugriffsprüfung; ein Zugangsschlüssel gehört nicht in eine Datei.
+- **H6** Angenommen (bevorzugte Variante): `heute_selbst` zählt der Server aus bestätigten Versuchen im Tag des Kindes (`lernender.zeitzone`); die App zeigt den Wert und speichert ihn nur noch unter dem Ortstag, nicht UTC.
+- **H7** Angenommen. Tipp: „zählt nicht als eigene Lösung; unterbricht deine Folge nicht“. „Punkte“/„Serie“ aus Kinder- und Elterntexten entfernt (auch in der Rückfall-Anzeige alter Server).
+- **H8** Erledigt (eigene Meldung unten).
+- **H9** Angenommen. Ein Expeditions-Teil wird nur gewertet, wenn alle Voraussetzungen gelandet sind oder die Expedition schon begonnen ist (Rückfall: zu Ende führen ohne Nachteil). `klasse` = nur Einordnung.
+- **H10** Angenommen. `schule.misch_gueltig`: Pool Übung, Stufe 2–3, freigegeben, Etappe beim Kind gelandet, nicht die gerade geübte (App schickt `aktuell_einheit`, `aktuell_lernziel`). Sonst normale Buchung ohne Misch-Beleg.
+  Negativtests: ohne aktuelle Etappe, aus der aktuellen Etappe, aus nicht gelandeter Etappe.
+- **H11** Angenommen. `schule.expedition_etappe` sucht je Kind über `thema_id` + Lernkarte die gelandete Version; Test mit zwei Versionen.
+- **H12** Angenommen. Import lehnt vor dem Schreiben ab: nicht 3–5 Teile, doppelte Kennung, fehlender Antworttyp/Frage/Lösung, < 3 Themen, Bezug außerhalb der Voraussetzungen, unbekannte Lernkarte,
+  „geprueft/freigegeben“ ohne entsprechend geprüfte/freigegebene Bezugs-Flüge. `tools/inhalt_pruefen.py` prüft „≥ 3 Themen“ ebenfalls.
+- **H13** Angenommen. Tests: Klasse 5 jede 6., Klasse 8 jede 4. (Server und App), nie mit nur 2 gelandeten, nie bei gewählter Stufe, alle 8 genau einmal, Lernkarte wechseln/Neustart beginnt neu, nach falscher Mischkarte normal weiter.
+- **H14** Angenommen: Expedition (zweimal falsch, dann richtig, geschafft) und gesperrt laufen über `uebung_pruefen_intern`.
+- **H15** Angenommen. Expedition meldet getrennt `teile_erledigt` (abgeschlossen) und `teile_selbst` (1. Versuch ohne Tipp); Kind: „x von n Teilen selbst gelöst“, Eltern ebenso. Misch-Beleg zählt für „sicher“ nur nach der letzten Landung.
+
+**README** (`inhalte/README.md`) und Info-Seite (App) ergänzt: einmal zählen je Aufgabe, „Wieder offen“, „sicher“ nach der letzten Landung, Server-Prüfung der Mischkarten, Expeditions-Regeln H9/H11/H12/H15.
+
+## 2026-11-18 – FERTIG: H8 (Fehler in Mischkarte/Expedition öffnet keine gelandete Etappe mehr) – sofort einspielbar
+
+**Migration** `supabase/migrations/20261119_w176_h8_misch_fehler_offen_lassen.sql` (nicht ausgeführt; pglast ok; ersetzt die Live-Fassungen von `misch_buchen` und `expedition_buchen`, vorher gelesen; kein DROP, kein DELETE; keine App-Änderung nötig).
+- Neu `schule.karte_faellig_machen(kind, einheit, lernkarte, zeit)`: Etappe am nächsten Lerntag fällig (`wdh_ab = jetzt`, `wdh_lerntage = 1`); `sitzt`, `wdh_stufe`, `wdh_fehler`, `misch_ok_am`, `angewandt_am` und alle übrigen Belege bleiben.
+  Ist die Etappe schon fällig, bleibt der frühere Termin.
+- `misch_buchen` und `expedition_buchen` rufen bei einem endgültigen Fehler nur noch diese Funktion (nicht mehr `karte_buchen(…, false)`); auch beim 2. und 3. Fehler und bei `wdh_fehler = 1` bleibt die Etappe gelandet.
+  Wieder öffnen kann allein die fällige Wiederholung (`karte_buchen`, unverändert). `misch_buchen` zählt den Fehler zusätzlich in `falsch`.
+- Hinweis: Wird die durch einen Mischfehler fällige Wiederholung bestanden, rückt die Wiederholungsstufe wie bei jeder bestandenen fälligen Wiederholung um 1 vor (unverändertes Verhalten von `karte_buchen`).
+
+**Zahlen (gelesen vor dem Einspielen, ohne Namen):** 36 Karten-Stände, davon 34 gelandet; 1 Karten-Stand offen mit früherer Landung (nicht durch Mischkarte – es gibt noch 0 Mischkarten-Versuche);
+0 Expeditionen, 0 Expeditions-Versuche → keine Etappe ist durch H8 betroffen, keine Reparatur nötig. Nachher erwartet: unverändert 34 von 36 gelandet.
+
+**Rauchtest** `supabase/tests/w176_h8_rauchtest.sql` (Rollback, nur Testkind): Etappe gelandet mit `wdh_fehler = 1` → 2 endgültige Mischkarten-Fehler über den echten Trigger → bleibt gelandet, Belege gleich, fällig ·
+Expedition 2 × falsch und gemischt mit Mischkarte → bleibt gelandet · Gegenprobe: 2. Fehler in der fälligen Wiederholung öffnet weiterhin.
+
+**Antwort für ChatGPT (H8):** Angenommen. Mischkarten und Expeditionen haben jetzt einen eigenen Fehlerweg, der nur fällig macht; `sitzt` und Belege ändern sich nie, unabhängig von `wdh_fehler`. Das Öffnen bleibt der fälligen Wiederholung vorbehalten.
+
 ## 2026-11-18 – FERTIG: Fehler „Diese Aufgabe ist noch nicht freigegeben“ beim Prüfen; Rauchtest Teil 4 korrigiert – App 0.78.1
 
 **Server – Migration** `supabase/migrations/20261118_w176_a_gesperrt_pruefen.sql` (nicht ausgeführt; pglast ok; Stelle im Live-Text genau einmal vorhanden; kein DROP, kein DELETE):

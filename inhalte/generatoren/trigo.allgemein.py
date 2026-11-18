@@ -1349,3 +1349,10 @@ ST.knobel('anwendung', Z('Ein regelmäßiges Fünfeck hat 10 cm Seitenlänge und
 
 if __name__ == '__main__':
     stufen('trigo.allgemein', ST)
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('trigo.allgemein')
+# ---- AUFLOESEN ENDE ----

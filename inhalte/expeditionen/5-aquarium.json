@@ -1,0 +1,105 @@
+{
+ "schluessel": "5-aquarium",
+ "klasse": {
+  "gym_by": 5
+ },
+ "titel": "Das Aquarium",
+ "autor": "Claude (Expeditionen Klasse 5)",
+ "einleitung": "Auf deiner Reise hilfst du in einem Zoogeschäft. Ihr plant ein neues Aquarium in Quaderform ohne Deckel, 60 cm lang, 30 cm breit und 40 cm hoch. Dafür braucht ihr Glas, einen Rahmen, Pflanzen und eine Pumpe.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "messen.koerper_berechnung",
+   "lernziel": "quader"
+  },
+  {
+   "thema_schluessel": "messen.koerper_berechnung",
+   "lernziel": "sachaufgaben"
+  },
+  {
+   "thema_schluessel": "gleichungen.einfach",
+   "lernziel": "aufstellen"
+  },
+  {
+   "thema_schluessel": "groessen.proportional",
+   "lernziel": "einheit"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "zahl",
+   "f": {
+    "text": "Das Aquarium ist ein Quader: 60 cm lang, 30 cm breit und 40 cm hoch. Ein Rahmen aus Aluminium läuft an allen Kanten entlang. Wie viele cm Aluminium braucht man?"
+   },
+   "o": {
+    "wert": 520,
+    "einheit": "cm"
+   },
+   "c": "4 * (60 + 30 + 40)",
+   "w": "Ein Quader hat je 4 Kanten in Länge, Breite und Höhe: 4 · (60 + 30 + 40) cm = 4 · 130 cm = 520 cm.",
+   "h": "Wie viele Kanten hat ein Quader, und wie viele davon sind gleich lang?",
+   "bezug": {
+    "thema_schluessel": "messen.koerper_berechnung",
+    "lernziel": "quader"
+   }
+  },
+  {
+   "k": "b",
+   "y": "zahl",
+   "f": {
+    "text": "Das Aquarium (60 cm lang, 30 cm breit, 40 cm hoch) hat keinen Deckel. Wie viele cm² Glas braucht man für Boden und Seiten?"
+   },
+   "o": {
+    "wert": 9000,
+    "einheit": "cm²"
+   },
+   "c": "60 * 30 + 2 * 60 * 40 + 2 * 30 * 40",
+   "w": "Boden: 60 · 30 = 1 800 cm². Vorne und hinten: 2 · 60 · 40 = 4 800 cm². Links und rechts: 2 · 30 · 40 = 2 400 cm². Zusammen 9 000 cm² (der Deckel fehlt).",
+   "h": "Welche der sechs Flächen fehlt?",
+   "bezug": {
+    "thema_schluessel": "messen.koerper_berechnung",
+    "lernziel": "sachaufgaben"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Für 3 gleich teure Wasserpflanzen und eine Pumpe für 41 € zahlst du zusammen 59 €. Wie viel kostet eine Pflanze?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "€"
+   },
+   "c": "(59 - 41) / 3",
+   "w": "Gleichung: 3 · □ + 41 = 59. Rückwärts: 59 − 41 = 18, dann 18 : 3 = 6. Eine Pflanze kostet 6 €. Probe: 3 · 6 + 41 = 59.",
+   "h": "Schreib eine Gleichung mit einem Kästchen für den Preis einer Pflanze.",
+   "bezug": {
+    "thema_schluessel": "gleichungen.einfach",
+    "lernziel": "aufstellen"
+   }
+  },
+  {
+   "k": "d",
+   "y": "auswahl",
+   "f": {
+    "text": "Für 9 000 cm² Glas gibt es zwei Angebote: Glaserei A verlangt 4 € je 1 000 cm², Glaserei B 40 € für alles. Welches Angebot nimmst du?"
+   },
+   "a": [
+    "Glaserei A, sie ist 4 € günstiger.",
+    "Glaserei B, sie ist 4 € günstiger.",
+    "Beide kosten gleich viel.",
+    "Glaserei A, sie ist 36 € günstiger."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A: 9 000 cm² sind 9 · 1 000 cm², also 9 · 4 € = 36 €. B: 40 €. A ist um 40 € − 36 € = 4 € günstiger.",
+   "h": "Wie oft passen 1 000 cm² in 9 000 cm²?",
+   "bezug": {
+    "thema_schluessel": "groessen.proportional",
+    "lernziel": "einheit"
+   }
+  }
+ ]
+}

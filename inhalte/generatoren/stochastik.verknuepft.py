@@ -933,3 +933,10 @@ ST.knobel('verstehen', A('A ist mit B und mit C unvereinbar. P(A) = 0,3, P(B) = 
 
 if __name__ == '__main__':
     stufen('stochastik.verknuepft', ST)
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('stochastik.verknuepft')
+# ---- AUFLOESEN ENDE ----

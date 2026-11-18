@@ -1,0 +1,111 @@
+{
+ "schluessel": "8-klassenfahrt",
+ "klasse": {
+  "gym_by": 8
+ },
+ "titel": "Klassenfahrt",
+ "autor": "Claude (Auftrag Expeditionen Klasse 8)",
+ "einleitung": "Deine Klasse plant eine Klassenfahrt an die Ostsee. Der Reisebus kostet für alle zusammen 840 €, die Miete wird gleichmäßig auf die Kinder verteilt. In der Jugendherberge zahlt jedes Kind 28 € pro Nacht. Die Eltern haben gesagt: Mehr als 150 € pro Kind soll die Fahrt nicht kosten.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "groessen.indirekt",
+   "lernziel": "sach"
+  },
+  {
+   "thema_schluessel": "funktionen.linear",
+   "lernziel": "aufstellen"
+  },
+  {
+   "thema_schluessel": "gleichungen.ungleichungen",
+   "lernziel": "sachaufgabe"
+  },
+  {
+   "thema_schluessel": "bruch.prozent_grundwert",
+   "lernziel": "vermindert"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "zahl",
+   "f": {
+    "text": "Der Bus kostet 840 €. Fahren 24 Kinder mit, zahlt jedes 35 €. Jetzt haben sich 28 Kinder angemeldet. Wie viel Euro Busgeld zahlt jedes Kind?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "€"
+   },
+   "c": "840 / 28",
+   "w": "Gegeben: 840 € werden gleich verteilt. Gesucht: Anteil bei 28 Kindern. Ansatz: Kinder · Anteil = 840 € bleibt gleich (indirekt proportional). Rechnung: 840 : 28 = 30. Antwort: Jedes Kind zahlt 30 € für den Bus.",
+   "h": "Mehr Kinder teilen sich denselben Betrag. Was bleibt gleich?",
+   "bezug": {
+    "thema_schluessel": "groessen.indirekt",
+    "lernziel": "sach"
+   }
+  },
+  {
+   "k": "b",
+   "y": "luecken",
+   "f": {
+    "text": "Jedes Kind zahlt 30 € für den Bus und 28 € für jede Nacht in der Herberge. Stelle den Term für die Kosten K(n) eines Kindes bei n Nächten auf.",
+    "schablone": "K(n) = □ · n + □",
+    "hinweis": "Je Lücke eine ganze Zahl (Euro)."
+   },
+   "o": {
+    "werte": [
+     28,
+     30
+    ]
+   },
+   "c": [
+    "28",
+    "30"
+   ],
+   "w": "Gegeben: 28 € je Nacht, 30 € einmal für den Bus. Gesucht: K(n). Ansatz: Was mit jeder Nacht dazukommt, steht vor n; was einmal anfällt, ist der feste Teil. Antwort: K(n) = 28 · n + 30.",
+   "h": "Welcher Betrag kommt mit jeder Nacht dazu, welcher nur einmal?",
+   "bezug": {
+    "thema_schluessel": "funktionen.linear",
+    "lernziel": "aufstellen"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind zahlt 28 € pro Nacht und einmal 30 € für den Bus. Es soll höchstens 150 € zahlen. Wie viele Nächte kann die Klasse höchstens bleiben?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(150 - 30) // 28",
+   "w": "Gegeben: K(n) = 28n + 30, höchstens 150 €. Gesucht: größte ganze Zahl n. Ansatz: 28n + 30 ≤ 150. Rechnung: 28n ≤ 120, also n ≤ 120 : 28 ≈ 4,3; ganze Nächte: n = 4 (Probe: 4 Nächte kosten 142 €, 5 Nächte kosten 170 €). Antwort: höchstens 4 Nächte.",
+   "h": "Stelle eine Ungleichung auf. Kann man eine halbe Nacht buchen?",
+   "bezug": {
+    "thema_schluessel": "gleichungen.ungleichungen",
+    "lernziel": "sachaufgabe"
+   }
+  },
+  {
+   "k": "d",
+   "y": "auswahl",
+   "f": {
+    "text": "Die Herberge macht ein Angebot: Wer 5 Nächte bucht, bekommt 15 % Rabatt auf die Übernachtungen (28 € pro Nacht). Der Bus (30 € pro Kind) wird nicht billiger. Kann die Klasse jetzt 5 Nächte bleiben, ohne dass ein Kind mehr als 150 € zahlt?"
+   },
+   "a": [
+    "Ja: Mit Rabatt kostet es 149 € pro Kind.",
+    "Nein: Auch mit Rabatt kostet es mehr als 150 € pro Kind.",
+    "Nein: Mit Rabatt kostet es 151 € pro Kind.",
+    "Nein: Schon 4 Nächte kosten mehr als 150 €."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: 5 Nächte zu 28 €, 15 % Rabatt nur darauf, Bus 30 €. Gesucht: Kosten pro Kind und Entscheidung. Ansatz: verminderter Grundwert: 85 % von 5 · 28 €. Rechnung: 5 · 28 = 140 €; 140 · 0,85 = 119 €; 119 + 30 = 149 €. Antwort: 149 € ≤ 150 € – die Klasse kann 5 Nächte bleiben.",
+   "h": "Rechne erst den Preis der Übernachtungen mit Rabatt aus, dann kommt der Bus dazu.",
+   "bezug": {
+    "thema_schluessel": "bruch.prozent_grundwert",
+    "lernziel": "vermindert"
+   }
+  }
+ ]
+}

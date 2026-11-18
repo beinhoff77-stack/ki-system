@@ -1,0 +1,168 @@
+{
+ "schluessel": "5-oase",
+ "klasse": {
+  "gym_by": 5
+ },
+ "titel": "In der Oase",
+ "autor": "Claude (Expeditionen Klasse 5)",
+ "einleitung": "Bei Kairo machst du eine Tour in die Wüste. Auf der Karte ist ein Koordinatensystem eingezeichnet; ein Kästchen ist 1 cm lang. Dein Zelt Z steht bei (−3 | 2), der Brunnen B bei (5 | 2).",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "geometrie.grundbegriffe",
+   "lernziel": "koordinaten"
+  },
+  {
+   "thema_schluessel": "groessen.einheiten",
+   "lernziel": "massstab"
+  },
+  {
+   "thema_schluessel": "geometrie.winkel",
+   "lernziel": "drehungen"
+  },
+  {
+   "thema_schluessel": "geometrie.ortslinien",
+   "lernziel": "kreislinie"
+  },
+  {
+   "thema_schluessel": "geometrie.ortslinien",
+   "lernziel": "zwei_kreise"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "luecken",
+   "f": {
+    "text": "Auf der Karte sind dein Zelt Z, der Brunnen B und eine Palme P eingezeichnet. Welche Koordinaten hat die Palme P?",
+    "schablone": "(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate; negative Zahlen mit Minus.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      7
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": -3,
+       "y": 2,
+       "name": "Z"
+      },
+      {
+       "x": 5,
+       "y": 2,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": -2,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     -2
+    ]
+   },
+   "c": [
+    "2",
+    "-2"
+   ],
+   "w": "P liegt 2 Kästchen rechts vom Ursprung und 2 Kästchen darunter: P (2 | −2).",
+   "h": "Erst nach rechts oder links zählen, dann nach oben oder unten.",
+   "bezug": {
+    "thema_schluessel": "geometrie.grundbegriffe",
+    "lernziel": "koordinaten"
+   }
+  },
+  {
+   "k": "b",
+   "y": "zahl",
+   "f": {
+    "text": "Zelt Z (−3 | 2) und Brunnen B (5 | 2) liegen auf der Karte 8 cm auseinander. Die Karte hat den Maßstab 1 : 10 000. Wie viele Meter sind das in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 800,
+    "einheit": "m"
+   },
+   "c": "8 * 10000 // 100",
+   "w": "1 cm auf der Karte sind 10 000 cm = 100 m in Wirklichkeit. 8 cm sind 8 · 100 m = 800 m.",
+   "h": "Wie viele Meter sind 10 000 cm?",
+   "bezug": {
+    "thema_schluessel": "groessen.einheiten",
+    "lernziel": "massstab"
+   }
+  },
+  {
+   "k": "c",
+   "y": "auswahl",
+   "f": {
+    "text": "Am Zelt schaust du genau nach Osten zum Brunnen. Du drehst dich um 90° gegen den Uhrzeigersinn. In welche Himmelsrichtung schaust du jetzt?"
+   },
+   "a": [
+    "Norden",
+    "Osten",
+    "Süden",
+    "Westen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Im Uhrzeigersinn folgen Norden, Osten, Süden, Westen. Gegen den Uhrzeigersinn geht es von Osten eine Vierteldrehung (90°) zurück: nach Norden.",
+   "h": "Stell dich hin und dreh dich wirklich: Gegen den Uhrzeigersinn heißt nach links.",
+   "bezug": {
+    "thema_schluessel": "geometrie.winkel",
+    "lernziel": "drehungen"
+   }
+  },
+  {
+   "k": "d",
+   "y": "auswahl",
+   "f": {
+    "text": "Die Kamele dürfen höchstens 300 m vom Brunnen B (5 | 2) entfernt sein; auf der Karte sind das 3 Kästchen. Welcher Platz ist erlaubt?"
+   },
+   "a": [
+    "(5 | −2)",
+    "(3 | 2)",
+    "(9 | 2)",
+    "(5 | 6)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle erlaubten Plätze liegen in der Kreisfläche um B mit dem Radius 3 Kästchen. (3 | 2) ist 2 Kästchen von B entfernt, die anderen drei Plätze je 4 Kästchen – zu weit.",
+   "h": "Zähle für jeden Platz die Kästchen bis B.",
+   "bezug": {
+    "thema_schluessel": "geometrie.ortslinien",
+    "lernziel": "kreislinie"
+   }
+  },
+  {
+   "k": "e",
+   "y": "zahl",
+   "f": {
+    "text": "Dein Funkgerät am Zelt reicht 500 m weit, das Funkgerät am Brunnen ebenfalls 500 m. Zelt und Brunnen sind 800 m voneinander entfernt. Auf dem geraden Weg zwischen ihnen: Wie lang ist das Stück, auf dem man beide Funkgeräte empfängt?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "m"
+   },
+   "c": "500 + 500 - 800",
+   "w": "Gemessen vom Zelt: Das Zelt-Funkgerät reicht von 0 m bis 500 m. Das Brunnen-Funkgerät reicht vom Brunnen 500 m zurück, also ab 800 − 500 = 300 m. Beide gibt es zwischen 300 m und 500 m: 500 − 300 = 200 m.",
+   "h": "Zeichne den Weg als Strecke und markiere, wie weit jedes Funkgerät reicht.",
+   "bezug": {
+    "thema_schluessel": "geometrie.ortslinien",
+    "lernziel": "zwei_kreise"
+   }
+  }
+ ]
+}

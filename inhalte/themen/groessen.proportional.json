@@ -40,7 +40,8 @@
    {
     "titel": "Anwenden",
     "lernziele": [
-     "sach"
+     "sach",
+     "aenderung"
     ]
    }
   ],
@@ -617,6 +618,103 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "aenderung",
+    "titel": "Änderungsraten berechnen",
+    "regel": "Änderungsrate = ⟦Änderung : Zeitspanne⟧. Nimmt die Größe ab, ist die Rate negativ.",
+    "schritte": [
+     {
+      "text": "Die Temperatur steigt um 20 − 12 = 8 °C.",
+      "bild": {
+       "strecken": [
+        [
+         13,
+         12,
+         13,
+         20,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zeitspanne: 13 − 9 = 4 Stunden.",
+      "bild": {
+       "strecken": [
+        [
+         9,
+         12,
+         13,
+         12,
+         "gestrichelt"
+        ],
+        [
+         13,
+         12,
+         13,
+         20,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Rate: 8 : 4 = ⟦2 °C pro Stunde⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": -6,
+         "bereich": [
+          9,
+          13
+         ]
+        }
+       ]
+      }
+     }
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      8,
+      14
+     ],
+     "y": [
+      0,
+      24
+     ],
+     "punkte": [
+      {
+       "x": 9,
+       "y": 12,
+       "name": "9 Uhr"
+      },
+      {
+       "x": 13,
+       "y": 20,
+       "name": "13 Uhr"
+      }
+     ],
+     "schritt_x": 1,
+     "schritt_y": 4,
+     "name_x": "Uhrzeit",
+     "name_y": "°C"
+    },
+    "fehler": "20 : 13 ≈ 1,5 ist falsch. Teile die ⟦Änderungen⟧, nicht die Endwerte: 8 : 4 = 2.",
+    "einstieg": "Um 9 Uhr zeigt das Thermometer 12 °C, um 13 Uhr schon 20 °C. Wie schnell wird es wärmer? Das sagt die ⟦Änderungsrate⟧.",
+    "woerter": [
+     [
+      "Änderungsrate",
+      "wie stark sich eine Größe pro Einheit ändert, z. B. °C pro Stunde"
+     ],
+     [
+      "Zeitspanne",
+      "wie viel Zeit vergangen ist"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [
@@ -650,6 +748,13 @@
     "lernziele": [
      "sach"
     ]
+   },
+   {
+    "k": "aenderung",
+    "text": "Änderungsraten berechnen",
+    "lernziele": [
+     "aenderung"
+    ]
    }
   ],
   "bewertung": {
@@ -662,7 +767,8 @@
     "sach"
    ],
    "lernziele_vertiefung": [
-    "erkennen"
+    "erkennen",
+    "aenderung"
    ],
    "testaufgaben_je_lernziel": 1,
    "hilfen_im_test": false
@@ -5883,6 +5989,634 @@
    },
    "c": "64/4*6",
    "w": "1 Muffin: 64 g : 4 = 16 g. 6 Muffins: 16 g · 6 = 96 g."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken enthält 100 Liter Wasser. Nach 9 Minuten sind es 145 Liter. Wie viele Liter fließen pro Minute zu?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "l/min"
+   },
+   "c": "(145 - 100) / 9",
+   "w": "(145 − 100) l : 9 min = 5 l pro Minute.",
+   "h": "Zunahme durch Zeit.",
+   "g": "direkt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 24 cm hoch. Nach 3 Stunden ist sie noch 18 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+   },
+   "o": {
+    "wert": -2,
+    "einheit": "cm/h"
+   },
+   "c": "(18.0 - 24) / 3",
+   "w": "Änderung: 18 − 24 = −6 cm in 3 h. Rate: −6 : 3 = −2 cm pro Stunde (negativ, weil die Kerze kürzer wird).",
+   "h": "Rechne „Endwert minus Anfangswert“. Wird die Größe kleiner, ist die Rate negativ.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um 6 Uhr misst man 6 °C, um 9 Uhr 18 °C. Berechne die Änderungsrate in °C pro Stunde."
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "°C/h"
+   },
+   "c": "(18 - 6) / 3",
+   "w": "Änderung: 18 − 6 = 12 °C in 3 Stunden. Rate: 12 : 3 = 4 °C pro Stunde.",
+   "h": "Teile die Temperaturänderung durch die Zeitspanne. Fällt die Temperatur, ist die Rate negativ.",
+   "g": "direkt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank wird mit 4 Litern pro Minute gefüllt. Am Anfang sind 35 Liter darin. Wie viele Liter sind es nach 4 Minuten?"
+   },
+   "o": {
+    "wert": 51,
+    "einheit": "l"
+   },
+   "c": "35 + 4 * 4",
+   "w": "Zunahme: 4 · 4 = 16 l. Inhalt: 35 + 16 = 51 l.",
+   "h": "Rate mal Zeit ergibt die Zunahme.",
+   "g": "umkehr"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken enthält 100 Liter Wasser. Nach 6 Minuten sind es 190 Liter. Wie viele Liter fließen pro Minute zu?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "l/min"
+   },
+   "c": "(190 - 100) / 6",
+   "w": "(190 − 100) l : 6 min = 15 l pro Minute.",
+   "h": "Zunahme durch Zeit.",
+   "g": "direkt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 36 cm hoch. Nach 7 Stunden ist sie noch 15 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+   },
+   "o": {
+    "wert": -3,
+    "einheit": "cm/h"
+   },
+   "c": "(15.0 - 36) / 7",
+   "w": "Änderung: 15 − 36 = −21 cm in 7 h. Rate: −21 : 7 = −3 cm pro Stunde (negativ, weil die Kerze kürzer wird).",
+   "h": "Rechne „Endwert minus Anfangswert“. Wird die Größe kleiner, ist die Rate negativ.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank wird mit 8 Litern pro Minute gefüllt. Am Anfang sind 19 Liter darin. Wie viele Liter sind es nach 5 Minuten?"
+   },
+   "o": {
+    "wert": 59,
+    "einheit": "l"
+   },
+   "c": "19 + 8 * 5",
+   "w": "Zunahme: 8 · 5 = 40 l. Inhalt: 19 + 40 = 59 l.",
+   "h": "Rate mal Zeit ergibt die Zunahme.",
+   "g": "umkehr"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank wird mit 4 Litern pro Minute gefüllt. Nach 6 Minuten sind 83 Liter darin. Wie viel war am Anfang drin?"
+   },
+   "o": {
+    "wert": 59,
+    "einheit": "l"
+   },
+   "c": "83 - 6*4",
+   "w": "In 6 Minuten kommen 24 Liter dazu. 83 − 24 = 59 Liter.",
+   "h": "Rechne rückwärts.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um 6 Uhr misst man 4 °C, um 10 Uhr 12 °C. Berechne die Änderungsrate in °C pro Stunde."
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "°C/h"
+   },
+   "c": "(12 - 4) / 4",
+   "w": "Änderung: 12 − 4 = 8 °C in 4 Stunden. Rate: 8 : 4 = 2 °C pro Stunde.",
+   "h": "Teile die Temperaturänderung durch die Zeitspanne. Fällt die Temperatur, ist die Rate negativ.",
+   "g": "direkt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Robotermäher A mäht 20 m² in 4 Minuten, Mäher B 8 m² in 4 Minuten. Welcher mäht schneller?"
+   },
+   "a": [
+    "Mäher B",
+    "Mäher A",
+    "Beide gleich schnell"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 20 : 4 = 5 m² pro Minute. B: 8 : 4 = 2 m² pro Minute.",
+   "h": "Vergleiche die Raten pro Minute, nicht die Gesamtflächen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank enthält 35 Liter und wird mit 4 Litern pro Minute gefüllt. Nach wie vielen Minuten sind 75 Liter darin?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "min"
+   },
+   "c": "(75 - 35)/4",
+   "w": "Es fehlen 75 − 35 = 40 Liter. 40 : 4 = 10 Minuten.",
+   "h": "Wie viel muss noch dazukommen?",
+   "g": "umkehr"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pool enthält 450 Liter und verliert 3 Liter pro Minute. Nach wie vielen Minuten ist er leer?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "min"
+   },
+   "c": "450/3",
+   "w": "450 : 3 = 150 Minuten (2,5 Stunden).",
+   "h": "Wie oft passen 3 Liter in 450 Liter?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken: nach 0 Minuten 20 l, nach 5 Minuten 45 l, nach 10 Minuten 70 l. Wie groß ist die Änderungsrate in Litern pro Minute?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "l/min"
+   },
+   "c": "(70 - 20)/10",
+   "w": "In 10 Minuten kommen 50 l dazu: 50 : 10 = 5 l pro Minute (jeder 5-Minuten-Schritt bringt 25 l).",
+   "h": "Nimm Anfangs- und Endwert.",
+   "g": "darstellung"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Flugzeug sinkt in 20 Minuten von 9 000 m auf 3 000 m Höhe. Berechne die Änderungsrate in m pro Minute."
+   },
+   "o": {
+    "wert": -300,
+    "einheit": "m/min"
+   },
+   "c": "(3000 - 9000)/20",
+   "w": "Änderung 3 000 − 9 000 = −6 000 m. −6 000 : 20 = −300 m pro Minute.",
+   "h": "Die Höhe nimmt ab – welches Vorzeichen hat die Rate?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 8 Uhr bis 12 Uhr steigt die Temperatur um 2,5 °C pro Stunde. Um 12 Uhr sind es 17 °C. Wie warm war es um 8 Uhr?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "°C"
+   },
+   "c": "17 - 4*2.5",
+   "w": "4 Stunden · 2,5 °C = 10 °C Anstieg. 17 − 10 = 7 °C.",
+   "h": "Rechne rückwärts.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Kerze A ist 30 cm hoch und brennt 2 cm pro Stunde ab. Kerze B ist 24 cm hoch und brennt 1 cm pro Stunde ab. Nach wie vielen Stunden sind beide gleich hoch?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "h"
+   },
+   "c": "(30 - 24)/(2 - 1)",
+   "w": "A holt pro Stunde 1 cm auf B auf. Der Unterschied ist 6 cm: nach 6 Stunden, beide 18 cm hoch.",
+   "h": "Um wie viel ändert sich der Unterschied pro Stunde?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Änderungsrate der Höhe einer Kerze ist −1,5 cm pro Stunde. Was bedeutet das?"
+   },
+   "a": [
+    "Sie ist 1,5 cm hoch.",
+    "Sie wächst jede Stunde 1,5 cm.",
+    "Sie brennt 1,5 Stunden lang.",
+    "Sie wird jede Stunde 1,5 cm kürzer."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Minus zeigt eine Abnahme: pro Stunde 1,5 cm weniger.",
+   "h": "Was sagt das Vorzeichen?",
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet die Änderungsrate von 20 °C um 14 Uhr auf 14 °C um 17 Uhr als (20 − 14) : 3 = +2 °C pro Stunde. Was stimmt?"
+   },
+   "a": [
+    "Falsch: −6 °C pro Stunde.",
+    "Falsch: +6 °C pro Stunde.",
+    "Falsch: Die Temperatur sinkt, die Rate ist −2 °C pro Stunde.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Änderung = Endwert − Anfangswert = 14 − 20 = −6 °C in 3 h, also −2 °C pro Stunde.",
+   "h": "Rechne Endwert minus Anfangswert.",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken enthält 100 l. Es fließen r Liter pro Minute zu. Für welchen Wert von r sind nach 10 Minuten genau 150 l darin?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(150 - 100) / 10",
+   "w": "In 10 Minuten müssen 150 − 100 = 50 l dazukommen. 50 : 10 = 5, also r = 5 Liter pro Minute.",
+   "h": "Wie viele Liter müssen in den 10 Minuten insgesamt dazukommen?"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Seilbahn fährt von der Talstation auf 600 m Höhe zur Bergstation auf 1 800 m Höhe. Sie steigt jede Sekunde um 5 m. Wie viele Minuten dauert die Fahrt?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "min"
+   },
+   "c": "(1800 - 600) / 5 / 60",
+   "w": "Höhenunterschied: 1 800 m − 600 m = 1 200 m. Bei 5 m pro Sekunde: 1 200 : 5 = 240 Sekunden. 240 s = 4 min.",
+   "h": "Rechne zuerst aus, wie viele Meter die Bahn insgesamt steigt. Achte auf Sekunden und Minuten."
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Eine Badewanne enthält 30 l. Es fließen 12 l pro Minute zu. a) Wie viel Liter sind es nach 5 Minuten? b) Nach wie vielen Minuten sind es 150 l?",
+    "schablone": "a) □ l; b) □ min",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     90,
+     10
+    ]
+   },
+   "c": [
+    "30 + 12 * 5",
+    "(150 - 30) // 12"
+   ],
+   "w": "a) 30 + 12 · 5 = 90 l. b) 150 − 30 = 120 l, 120 : 12 = 10 min.",
+   "h": "Anfangswert plus Rate mal Zeit.",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Kerze A ist 20 cm hoch und brennt in 4 Stunden ganz ab, Kerze B ist 15 cm hoch und brennt in 5 Stunden ab. Beide werden gleichzeitig angezündet. Nach wie vielen Stunden sind sie gleich hoch?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "h"
+   },
+   "c": "5 / 2",
+   "w": "A wird pro Stunde 20 : 4 = 5 cm kürzer, B nur 15 : 5 = 3 cm. A holt also jede Stunde 2 cm auf. Am Anfang ist A 5 cm höher: 5 : 2 = 2,5 Stunden. Dann sind beide 7,5 cm hoch (20 − 12,5 und 15 − 7,5).",
+   "h": "Bestimme zuerst die Abbrennraten.",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein leeres Becken mit 200 l wird mit 8 l pro Minute gefüllt, gleichzeitig laufen 3 l pro Minute aus. Nach wie vielen Minuten ist es voll?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "min"
+   },
+   "c": "200 // (8 - 3)",
+   "w": "Insgesamt kommen pro Minute 8 − 3 = 5 l dazu. 200 : 5 = 40 Minuten.",
+   "h": "Wie groß ist die Änderungsrate insgesamt?",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 28 cm hoch. Nach 2 Stunden ist sie noch 25 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+   },
+   "o": {
+    "wert": -1.5,
+    "einheit": "cm/h"
+   },
+   "c": "(25.0 - 28) / 2",
+   "w": "Änderung: 25 − 28 = −3 cm in 2 h. Rate: −3 : 2 = −1,5 cm pro Stunde (negativ, weil die Kerze kürzer wird)."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 33 cm hoch. Nach 4 Stunden ist sie noch 23 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+   },
+   "o": {
+    "wert": -2.5,
+    "einheit": "cm/h"
+   },
+   "c": "(23.0 - 33) / 4",
+   "w": "Änderung: 23 − 33 = −10 cm in 4 h. Rate: −10 : 4 = −2,5 cm pro Stunde (negativ, weil die Kerze kürzer wird)."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um 7 Uhr misst man 6 °C, um 10 Uhr 18 °C. Berechne die Änderungsrate in °C pro Stunde."
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "°C/h"
+   },
+   "c": "(18 - 6) / 3",
+   "w": "Änderung: 18 − 6 = 12 °C in 3 Stunden. Rate: 12 : 3 = 4 °C pro Stunde."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Höhe einer Pflanze wird täglich gemessen (siehe Graph). Berechne die Änderungsrate in cm pro Tag zwischen Tag 2 und Tag 5.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      9
+     ],
+     "y": [
+      0,
+      25
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 6,
+       "bereich": [
+        0,
+        9
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 12,
+       "name": "(2 | 12)"
+      },
+      {
+       "x": 5,
+       "y": 21,
+       "name": "(5 | 21)"
+      }
+     ],
+     "name_x": "Tage",
+     "name_y": "cm",
+     "schritt_y": 2
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm/Tag"
+   },
+   "c": "(21 - 12) / (5 - 2)",
+   "w": "(21 − 12) : (5 − 2) = 9 : 3 = 3 cm pro Tag."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 40 cm hoch. Nach 8 Stunden ist sie noch 24 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+   },
+   "o": {
+    "wert": -2,
+    "einheit": "cm/h"
+   },
+   "c": "(24.0 - 40) / 8",
+   "w": "Änderung: 24 − 40 = −16 cm in 8 h. Rate: −16 : 8 = −2 cm pro Stunde (negativ, weil die Kerze kürzer wird)."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 40 cm hoch. Nach 7 Stunden ist sie noch 33 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+   },
+   "o": {
+    "wert": -1,
+    "einheit": "cm/h"
+   },
+   "c": "(33.0 - 40) / 7",
+   "w": "Änderung: 33 − 40 = −7 cm in 7 h. Rate: −7 : 7 = −1 cm pro Stunde (negativ, weil die Kerze kürzer wird)."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken enthält 0 Liter Wasser. Nach 9 Minuten sind es 72 Liter. Wie viele Liter fließen pro Minute zu?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "l/min"
+   },
+   "c": "(72 - 0) / 9",
+   "w": "(72 − 0) l : 9 min = 8 l pro Minute."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken enthält 50 Liter Wasser. Nach 5 Minuten sind es 90 Liter. Wie viele Liter fließen pro Minute zu?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "l/min"
+   },
+   "c": "(90 - 50) / 5",
+   "w": "(90 − 50) l : 5 min = 8 l pro Minute."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um 6 Uhr misst man 9 °C, um 9 Uhr 18 °C. Berechne die Änderungsrate in °C pro Stunde."
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "°C/h"
+   },
+   "c": "(18 - 9) / 3",
+   "w": "Änderung: 18 − 9 = 9 °C in 3 Stunden. Rate: 9 : 3 = 3 °C pro Stunde."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 39 cm hoch. Nach 4 Stunden ist sie noch 27 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+   },
+   "o": {
+    "wert": -3,
+    "einheit": "cm/h"
+   },
+   "c": "(27.0 - 39) / 4",
+   "w": "Änderung: 27 − 39 = −12 cm in 4 h. Rate: −12 : 4 = −3 cm pro Stunde (negativ, weil die Kerze kürzer wird)."
   }
  ]
 }

@@ -1,0 +1,107 @@
+{
+ "schluessel": "8-pool",
+ "klasse": {
+  "gym_by": 8
+ },
+ "titel": "Gartenpool",
+ "autor": "Claude (Auftrag Expeditionen Klasse 8)",
+ "einleitung": "Im Sommer wird im Garten ein runder Aufstellpool aufgebaut. Er hat innen 3,6 m Durchmesser und wird 1,1 m hoch mit Wasser gefüllt. Gefüllt wird mit dem Gartenschlauch, und ein Sonnensegel soll das Wasser vor zu viel Sonne schützen.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "messen.kreisberechnung",
+   "lernziel": "umfang"
+  },
+  {
+   "thema_schluessel": "messen.prisma_zylinder",
+   "lernziel": "zylinder_volumen"
+  },
+  {
+   "thema_schluessel": "groessen.indirekt",
+   "lernziel": "sach"
+  },
+  {
+   "thema_schluessel": "messen.kreisberechnung",
+   "lernziel": "flaeche"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "zahl",
+   "f": {
+    "text": "Der Pool hat 3,6 m Durchmesser. Um den oberen Rand soll einmal ganz herum ein Schaumstoffschutz gelegt werden. Wie viele Meter braucht man? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 11.3,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * 3.6, 1)",
+   "w": "Gegeben: d = 3,6 m. Gesucht: Länge einmal herum (Umfang). Ansatz: u = π · d. Rechnung: π · 3,6 ≈ 11,31. Antwort: Man braucht etwa 11,3 m.",
+   "h": "Einmal ganz herum ist der Umfang des Kreises.",
+   "bezug": {
+    "thema_schluessel": "messen.kreisberechnung",
+    "lernziel": "umfang"
+   }
+  },
+  {
+   "k": "b",
+   "y": "zahl",
+   "f": {
+    "text": "Der Pool ist ein Zylinder mit 1,8 m Radius. Das Wasser steht 1,1 m hoch. Wie viele m³ Wasser sind im Pool? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 11.2,
+    "einheit": "m³",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653589793 * 1.8 ** 2 * 1.1, 1)",
+   "w": "Gegeben: r = 1,8 m, Wasserhöhe 1,1 m. Gesucht: Wasservolumen. Ansatz: V = π · r² · h. Rechnung: π · 3,24 · 1,1 ≈ 11,20. Antwort: Im Pool sind etwa 11,2 m³ (rund 11 200 Liter) Wasser.",
+   "h": "Welche Höhe zählt – die des Pools oder die des Wassers?",
+   "bezug": {
+    "thema_schluessel": "messen.prisma_zylinder",
+    "lernziel": "zylinder_volumen"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Mit einem Gartenschlauch dauert das Füllen 14 Stunden. Der Nachbar leiht zwei weitere, gleich starke Schläuche aus. Wie viele Minuten dauert das Füllen mit allen drei Schläuchen?"
+   },
+   "o": {
+    "wert": 280,
+    "einheit": "min"
+   },
+   "c": "14 * 60 / 3",
+   "w": "Gegeben: 1 Schlauch → 14 h, jetzt 3 gleich starke Schläuche. Gesucht: Zeit in Minuten. Ansatz: Anzahl der Schläuche · Zeit bleibt gleich (indirekt proportional). Rechnung: 14 h = 840 min; 840 : 3 = 280. Antwort: Mit drei Schläuchen dauert es 280 Minuten (4 h 40 min).",
+   "h": "Drei Schläuche schaffen dreimal so viel pro Stunde. Rechne am Ende in Minuten um.",
+   "bezug": {
+    "thema_schluessel": "groessen.indirekt",
+    "lernziel": "sach"
+   }
+  },
+  {
+   "k": "d",
+   "y": "auswahl",
+   "f": {
+    "text": "Die Wasserfläche ist ein Kreis mit 1,8 m Radius. Ein dreieckiges Sonnensegel hat eine 4 m lange Grundseite und ist 2,4 m hoch. Es soll mindestens die Hälfte der Wasserfläche beschatten können (wenn es ganz über dem Wasser hängt). Reicht das Segel?"
+   },
+   "a": [
+    "Nein: Das Segel hat 4,8 m², die Hälfte der Wasserfläche sind etwa 5,1 m².",
+    "Ja: Das Segel ist größer als die halbe Wasserfläche.",
+    "Ja, weil die Grundseite 4 m länger ist als der Durchmesser 3,6 m.",
+    "Das kann man nicht entscheiden, weil ein Dreieck und ein Kreis verschiedene Formen haben."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: Kreis r = 1,8 m, Dreieck g = 4 m, h = 2,4 m. Gesucht: Ist das Dreieck mindestens halb so groß wie der Kreis? Ansatz: A_Kreis = π · r², A_Dreieck = g · h : 2. Rechnung: π · 3,24 ≈ 10,18 m², die Hälfte ≈ 5,09 m²; 4 · 2,4 : 2 = 4,8 m². 4,8 < 5,09. Antwort: Das Segel ist etwas zu klein.",
+   "h": "Berechne beide Flächen. Die längere Grundseite allein entscheidet nichts.",
+   "bezug": {
+    "thema_schluessel": "messen.kreisberechnung",
+    "lernziel": "flaeche"
+   }
+  }
+ ]
+}

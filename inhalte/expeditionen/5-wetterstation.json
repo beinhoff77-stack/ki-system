@@ -1,0 +1,137 @@
+{
+ "schluessel": "5-wetterstation",
+ "klasse": {
+  "gym_by": 5
+ },
+ "titel": "Die Wetterstation",
+ "autor": "Claude (Expeditionen Klasse 5)",
+ "einleitung": "Auf deiner Reise besuchst du eine Wetterstation in den Bergen. Dort werden jeden Tag die tiefste Temperatur, die Uhrzeiten der Messungen und Mittelwerte notiert. Hilf beim Auswerten der Woche.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "zahlen.ganz",
+   "lernziel": "ordnen"
+  },
+  {
+   "thema_schluessel": "zahlen.ganz",
+   "lernziel": "sach"
+  },
+  {
+   "thema_schluessel": "zahlen.rechengesetze",
+   "lernziel": "geteilt_ganz"
+  },
+  {
+   "thema_schluessel": "groessen.einheiten",
+   "lernziel": "zeit"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Tiefstwerte einer Woche: Mo −4 °C, Di 2 °C, Mi −9 °C, Do −1 °C, Fr 0 °C, Sa −6 °C, So −3 °C. An welchem Tag war es am kältesten?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Tag",
+      "Mo",
+      "Di",
+      "Mi",
+      "Do",
+      "Fr",
+      "Sa",
+      "So"
+     ],
+     "zeilen": [
+      [
+       "Tiefstwert in °C",
+       "−4",
+       "2",
+       "−9",
+       "−1",
+       "0",
+       "−6",
+       "−3"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Montag",
+    "Mittwoch",
+    "Freitag",
+    "Samstag"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Am kältesten ist die kleinste Zahl. Auf der Zahlengeraden liegt −9 am weitesten links: Mittwoch.",
+   "h": "Kälter heißt: weiter links auf der Zahlengeraden.",
+   "bezug": {
+    "thema_schluessel": "zahlen.ganz",
+    "lernziel": "ordnen"
+   }
+  },
+  {
+   "k": "b",
+   "y": "zahl",
+   "f": {
+    "text": "Am Mittwoch zeigt das Thermometer morgens −9 °C und mittags 6 °C. Um wie viel Grad ist es wärmer geworden?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "Grad"
+   },
+   "c": "6 - (-9)",
+   "w": "Von −9 °C bis 0 °C sind es 9 Grad, dann noch 6 Grad bis 6 °C: 9 + 6 = 15 Grad. Als Rechnung: 6 − (−9) = 15.",
+   "h": "Rechne in zwei Teilen: bis 0 °C und dann weiter.",
+   "bezug": {
+    "thema_schluessel": "zahlen.ganz",
+    "lernziel": "sach"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Den Mittelwert einer Woche berechnet die Station so: alle sieben Tiefstwerte addieren und die Summe durch 7 teilen. Die Werte sind −4, 2, −9, −1, 0, −6 und −3 (in °C). Wie groß ist der Mittelwert?"
+   },
+   "o": {
+    "wert": -3,
+    "einheit": "°C"
+   },
+   "c": "((-4) + (2) + (-9) + (-1) + (0) + (-6) + (-3)) / 7",
+   "w": "Summe: (−4) + 2 + (−9) + (−1) + 0 + (−6) + (−3) = −21. Geteilt durch 7: (−21) : 7 = −3 °C (negativ geteilt durch positiv ergibt negativ).",
+   "h": "Fasse erst die positiven und die negativen Werte getrennt zusammen.",
+   "bezug": {
+    "thema_schluessel": "zahlen.rechengesetze",
+    "lernziel": "geteilt_ganz"
+   }
+  },
+  {
+   "k": "d",
+   "y": "luecken",
+   "f": {
+    "text": "Am Mittwoch um 6:40 Uhr misst die Station −9 °C. Danach wird es jede Stunde gleichmäßig 3 Grad wärmer. Eine Wandergruppe will erst losgehen, wenn das Thermometer 0 °C erreicht. Um wie viel Uhr ist das frühestens?",
+    "schablone": "□:□ Uhr",
+    "hinweis": "Stunden und Minuten je als ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     9,
+     40
+    ]
+   },
+   "c": [
+    "6 + 9 // 3",
+    "40"
+   ],
+   "w": "Bis 0 °C fehlen 9 Grad. Bei 3 Grad pro Stunde dauert das 9 : 3 = 3 Stunden. 6:40 Uhr + 3 h = 9:40 Uhr.",
+   "h": "Wie viele Grad fehlen bis 0 °C, und wie lange dauert das?",
+   "bezug": {
+    "thema_schluessel": "groessen.einheiten",
+    "lernziel": "zeit"
+   }
+  }
+ ]
+}

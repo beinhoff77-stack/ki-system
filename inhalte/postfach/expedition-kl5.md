@@ -2,5 +2,8 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 04:54 – STATUS: Expedition 2 „Die Römerstraße“ (5-roemerstrasse) fertig
+4 Teile, Themen: groessen.einheiten, zahlen.natuerlich, zahlen.teilbarkeit. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
+
 ## 2026-11-18 04:54 – STATUS: Expedition 1 „Die Wetterstation“ (5-wetterstation) fertig
 4 Teile, Themen: groessen.einheiten, zahlen.ganz, zahlen.rechengesetze. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.

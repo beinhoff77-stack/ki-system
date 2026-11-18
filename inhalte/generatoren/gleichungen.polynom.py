@@ -660,7 +660,8 @@ def stufen():
     S.neu('substitution', 'verknuepfen', Z('Löse (x² − 1)² = 9. Gib die positive Lösung an.', 2, '2', 'x² − 1 = 3 oder x² − 1 = −3. Also x² = 4 (x = ±2) oder x² = −2 (keine Lösung).',
                                            'Ziehe zuerst die Wurzel: Welche Zahlen ergeben quadriert 9?'))
     S.bonus('substitution', Z('Für wie viele ganze Zahlen k mit 1 ≤ k ≤ 10 hat x⁴ − kx² + 9 = 0 genau vier verschiedene Lösungen?', 4, '10 - 7 + 1',
-                              'Vier Lösungen brauchen zwei verschiedene positive z in z² − kz + 9 = 0. Ihr Produkt ist 9 > 0, ihre Summe k > 0, also beide positiv, sobald es zwei gibt: k² − 36 > 0 ⇒ k > 6. k = 7, 8, 9, 10.',
+                              'Vier Lösungen brauchen zwei verschiedene positive z in z² − kz + 9 = 0. Lösungsformel: z = (k ± √(k² − 36)) : 2. Zwei verschiedene z gibt es nur für k² − 36 > 0, also k > 6. '
+                              'Dann ist √(k² − 36) < k, also sind beide z positiv. k = 7, 8, 9, 10.',
                               'Welche Bedingung braucht z² − kz + 9 = 0?'))
     S.bonus('substitution', Z('Wie viele reelle Lösungen hat x⁸ − 17x⁴ + 16 = 0?', 4, '4',
                               'Mit z = x⁴: z² − 17z + 16 = (z − 1)(z − 16) = 0. x⁴ = 1 ⇒ x = ±1; x⁴ = 16 ⇒ x = ±2. Vier Lösungen.', 'Substituiere diesmal z = x⁴.'))
@@ -686,7 +687,7 @@ def stufen():
     S.bonus('vielfachheit', Z('f(x) = (x − 1)(x − 2)²(x − 3)³(x − 4)⁴. An wie vielen Nullstellen wechselt f das Vorzeichen?', 2, '2',
                               'Vorzeichenwechsel nur bei ungerader Vielfachheit: x = 1 (einfach) und x = 3 (dreifach). Zwei Stellen.', 'Welche Vielfachheiten sind ungerade?'))
     S.bonus('vielfachheit', Z('Welchen Grad hat f(x) = (x − 1)(x − 2)²(x − 3)³ · … · (x − 10)¹⁰?', 55, '10 * 11 // 2',
-                              'Der Grad ist die Summe der Vielfachheiten: 1 + 2 + … + 10 = 55 (Gauß: 10 · 11 : 2).', 'Addiere alle Hochzahlen geschickt.'))
+                              'Der Grad ist die Summe der Vielfachheiten: 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10. Paare bilden: (1 + 10) + (2 + 9) + (3 + 8) + (4 + 7) + (5 + 6) = 5 · 11 = 55.', 'Addiere alle Hochzahlen geschickt.'))
 
     # --- verstehen ---
     S.stufenleiter('verstehen', 'Einfache Potenzgleichungen lösen und die höchstmögliche Zahl von Lösungen kennen.',

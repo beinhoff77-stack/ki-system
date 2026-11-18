@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _bereinigen import (karte, karte_her, karte_neu, ersetze, umschreiben, weg, neu, knobel, pool)  # noqa: E402,F401
+from _bereinigen import (karte, karte_her, karte_neu, ersetze, umschreiben, weg, neu, knobel, pool, abschnitt, vertiefung)  # noqa: E402,F401
 from _befunde import _z as Z, _l as L  # noqa: E402,F401
 from _stufen_kl5 import A  # noqa: E402,F401
 
@@ -64,4 +64,25 @@ PLAN['groessen.proportional'] = [
     W('aenderung', 'Kerze A ist 20 cm hoch und brennt in 4 Stunden ganz ab',
       'A wird pro Stunde 20 : 4 = 5 cm kürzer, B nur 15 : 5 = 3 cm. A holt also jede Stunde 2 cm auf. Am Anfang ist A 5 cm höher: '
       '5 : 2 = 2,5 Stunden. Dann sind beide 7,5 cm hoch (20 − 12,5 und 15 − 7,5).'),
+]
+
+
+# =====================================================================================================================
+# stochastik.verknuepft (Kl. 9) ← mengen.grundbegriffe: elemente (C), schnitt, venn, verstehen (B; als mengen_verstehen)
+#                                ← stochastik.bedingt: rueckschluss (B). Alle Vertiefung (nur IB).
+# elemente/schnitt als Einstieg vor verknuepfen (doppelt-rsib: Einstiegskarte vor verknuepfen); venn und mengen_verstehen nach
+# additionssatz (∪ ist dann aus verknuepfen bekannt; die Karte vereinigung mit n(A) entfällt, daher n(A) als neues Wort).
+# =====================================================================================================================
+PLAN['stochastik.verknuepft'] = [
+    karte_her('mengen.grundbegriffe', 'elemente', 'Ereignisse verknüpfen', vertiefung=True, vor='verknuepfen'),
+    karte_her('mengen.grundbegriffe', 'schnitt', 'Ereignisse verknüpfen', vertiefung=True, vor='verknuepfen'),
+    karte_her('mengen.grundbegriffe', 'venn', 'Ereignisse verknüpfen', vertiefung=True, nach='additionssatz'),
+    karte_her('mengen.grundbegriffe', 'mengen_verstehen', 'Ereignisse verknüpfen', vertiefung=True, nach='venn'),
+    karte('mengen_verstehen', woerter=[['n(A)', 'die Anzahl der Elemente von A'],
+                                       ['Gegenbeispiel', 'ein Beispiel, bei dem die Aussage nicht stimmt'],
+                                       ['Teilmenge', 'A ⊆ B: Jedes Element von A liegt auch in B']]),
+    karte_her('stochastik.bedingt', 'rueckschluss', 'Bedingte Wahrscheinlichkeit und Verstehen', vertiefung=True, nach='bedingt'),
+    karte('rueckschluss', woerter=[['gemeldet', 'das Prüfgerät schlägt Alarm'],
+                                   ['P(A | B)', 'andere Schreibweise für P_B(A): Wahrscheinlichkeit von A, wenn B schon eingetreten ist']]),
+    abschnitt('Ereignisse verknüpfen', 'Mengen und Ereignisse verknüpfen'),
 ]

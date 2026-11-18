@@ -23,11 +23,11 @@ Neueste Meldung oben. Format: `inhalte/README.md`, Abschnitt „Expeditionen“.
 **Abdeckung der frühen Themen** (Anzahl Expeditionen): gleichungen.ungleichungen 7 · funktionen.linear 5 · groessen.indirekt 4 · funktionen.grundbegriffe 3 – Vorgabe „mindestens zweimal“ erfüllt. Die ersten fünf (klassenfahrt bis garten) nutzen nur diese vier Themen plus Stoff Kl. 5–7. Jede Expedition hat 4 verschiedene Themen aus mindestens 2 Gebieten.
 
 **Je Expedition ein Wortlaut (Auszug):**
-- klassenfahrt c): „… Jede Nacht in der Herberge kostet 28 €, dazu kommt dein Busanteil von 30 €. Du willst höchstens 150 € ausgeben. Wie viele Nächte sind höchstens möglich?“ → 4
-- kerzen d): „Beide Kerzen werden um 18 Uhr angezündet. Sind sie irgendwann gleich hoch, bevor eine erlischt?“ → Ja, nach 12 h (6 cm)
-- radtour d): Start 9:00, 45 min Pause → Ankunft 12:09, Zug verpasst; Pause höchstens 36 min.
-- roller b): „Nach wie vielen Wochen habt ihr gleich viel gespart, und wie viel ist das?“ → 10 Wochen, 210 €
-- garten d): Reicht der Wasservorrat 12 Tage, wenn mindestens 20 l Reserve bleiben sollen? → Ja, genau 20 l
+- klassenfahrt c): „Ein Kind zahlt 28 € pro Nacht und einmal 30 € für den Bus. Es soll höchstens 150 € zahlen. Wie viele Nächte kann die Klasse höchstens bleiben?“ → 4
+- kerzen d): „Beide Kerzen werden um 18 Uhr angezündet. … Jemand sagt: „Um 6 Uhr morgens sind beide Kerzen gleich hoch.“ Was stimmt?“ → stimmt, nach 12 h je 6 cm
+- radtour d) (sinngemäß): Start 9:00, 45 min Pause → Ankunft 12:09, Zug verpasst; Pause höchstens 36 min.
+- roller b): „Dein Guthaben nach x Wochen ist 60 + 15x Euro, das deines Bruders 150 + 6x Euro. Nach wie vielen Wochen habt ihr gleich viel Geld, und wie viel ist das?“ → 10 Wochen, 210 €
+- garten d) (sinngemäß): Reicht der Wasservorrat 12 Tage, wenn mindestens 20 l Reserve bleiben sollen? → Ja, genau 20 l
 - pool d): „Ein dreieckiges Sonnensegel hat eine 4 m lange Grundseite und ist 2,4 m hoch. Es soll mindestens die Hälfte der Wasserfläche beschatten können … Reicht das Segel?“ → Nein (4,8 m² < ≈ 5,09 m²)
 - schulfest c): „Ein Los für Kinder 1 €, für Erwachsene 2 €. 180 Lose verkauft, 260 € in der Kasse. Wie viele Kinderlose und wie viele Erwachsenenlose?“ → 100 / 80
 - saftbar c): „10 Liter mit 70 % Fruchtgehalt aus einem 40-%-Getränk und 100-%-Saft. Wie viele Liter von jeder Sorte?“ → 5 / 5

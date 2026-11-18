@@ -98,7 +98,7 @@ DUAL_KARTE = {
                 ['Zweierzahl', 'eine Zahl, die im Zweiersystem geschrieben ist, z. B. 10110']],
     'bild': {'typ': 'stellentafel', 'stellen': ['16', '8', '4', '2', '1'], 'ziffern': [1, 0, 1, 1, 0]},
     'schritte': [{'text': 'Die Zweierzahl 10110 steht in der Tafel.'},
-                 {'text': 'Jede Stelle ist doppelt so viel wert wie die rechts daneben.'},
+                 {'text': 'Die Stellenwerte verdoppeln sich von rechts nach links: 1, 2, 4, 8, 16.'},
                  {'text': 'Eine 1 steht bei 16, bei 4 und bei 2.', 'bild': {'markiert': 0}},
                  {'text': 'Zusammen: 16 + 4 + 2 = ⟦22⟧. Die Zweierzahl 10110 ist also 22.'}],
     'fehler': '10110 ist hier nicht zehntausendeinhundertzehn. Im Zweiersystem ist die erste 1 nur ⟦16⟧ wert.',

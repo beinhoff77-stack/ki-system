@@ -953,7 +953,7 @@ ST.neu('reinquadratisch', 'umkehr', Z('Die Gleichung 2x² − c = 0 hat die Lös
 ST.neu('reinquadratisch', 'mehrschritt', L('Löse 3x² − 7 = 2x² + 9.', _X2, [-4, 4], ['-4', '4'],
        'Auf eine Seite bringen: x² = 16, also x = −4 oder x = 4.', 'Bring alle x² auf eine Seite.'))
 ST.knobel('reinquadratisch', Z('Die Gleichungen x² = a und x² = a + 7 haben zusammen vier ganzzahlige Lösungen. Wie groß ist a (a > 0)?', 9, '3 ** 2',
-          'Ganzzahlige Lösungen gibt es nur, wenn a und a + 7 beide Quadratzahlen sind. Quadratzahlen mit Abstand 7: 9 und 16 (16 − 9 = 7). Also a = 9 mit den Lösungen ±3 und ±4.',
+          'Ganzzahlige Lösungen gibt es nur, wenn a und a + 7 beide Quadratzahlen sind. Die Abstände benachbarter Quadratzahlen sind 1, 3, 5, 7, 9, … und wachsen; nicht benachbarte liegen noch weiter auseinander. Abstand 7 haben nur 9 und 16. Also a = 9 mit den Lösungen ±3 und ±4.',
           'Welche zwei Quadratzahlen liegen 7 auseinander?'))
 ST.knobel('reinquadratisch', L('Löse (x − 1)² = (2x + 1)². (kleinere Lösung zuerst)', _X2, [-2, 0], ['-2', '0'],
           'Zwei Quadrate sind gleich, wenn die Grundzahlen gleich oder entgegengesetzt sind. x − 1 = 2x + 1 ergibt x = −2. x − 1 = −(2x + 1) ergibt 3x = 0, also x = 0.',
@@ -984,8 +984,8 @@ ST.knobel('ausklammern', Z('Wie viele Lösungen hat die Gleichung x⁴ = 9x²?',
           'x⁴ − 9x² = 0 ⇒ x²(x² − 9) = 0 ⇒ x² = 0 oder x² = 9. Lösungen: 0, 3, −3. Wer durch x² teilt, verliert die 0.',
           'Nicht teilen, sondern ausklammern.'))
 ST.knobel('ausklammern', Z('Wie viele Lösungen hat (x² − 4x)² = x² − 4x?', 4, '2 + 2',
-          'Setze u = x² − 4x. Dann u² = u, also u(u − 1) = 0: u = 0 oder u = 1. x² − 4x = 0 hat 0 und 4. x² − 4x − 1 = 0 hat D = 16 + 4 = 20 > 0, also zwei weitere Lösungen. Zusammen 4.',
-          'Gib dem Term in der Klammer einen eigenen Namen.'))
+          'Alles auf eine Seite und (x² − 4x) ausklammern: (x² − 4x) · (x² − 4x − 1) = 0. Erster Faktor: x² − 4x = x(x − 4) = 0 hat 0 und 4. Zweiter Faktor: x² − 4x = 1, auf beiden Seiten 4 addieren: (x − 2)² = 5, also x = 2 + √5 oder x = 2 − √5. Zusammen 4 verschiedene Lösungen.',
+          'Nicht durch die Klammer teilen, sondern alles auf eine Seite bringen und ausklammern.'))
 
 # faktorisieren
 ST.stufenleiter('faktorisieren', 'Den Satz vom Nullprodukt bei fertigen Produkten anwenden.',
@@ -1009,7 +1009,7 @@ ST.neu('faktorisieren', 'transfer', Z('Ein Rechteck ist 2 cm länger als breit u
 ST.neu('faktorisieren', 'pruefung', L('Gegeben ist x² − 2x − 24 = 0. a) Faktorisiere. b) Gib die kleinere Lösung an.', 'a) (x + □)(x − □) = 0; b) □', [4, 6, -4], ['4', '6', '-4'],
        'a) Zahlen mit Produkt −24 und Summe −2: 4 und −6, also (x + 4)(x − 6) = 0. b) x = −4 (die andere ist 6).', 'Suche Produkt −24 und Summe −2.'))
 ST.knobel('faktorisieren', Z('Die Gleichung x² − 13x + c = 0 hat zwei Lösungen, die beide Primzahlen sind. Wie groß ist c?', 22, '2 * 11',
-          'Die Lösungen p und q erfüllen p + q = 13 und p · q = c. Zwei Primzahlen mit ungerader Summe: eine muss 2 sein (sonst wäre die Summe gerade). Also 2 und 11, c = 22.',
+          'Mit den Lösungen p und q gilt x² − 13x + c = (x − p)(x − q) = x² − (p + q)x + p · q, also p + q = 13 und p · q = c. Zwei Primzahlen mit ungerader Summe: eine muss 2 sein (sonst wäre die Summe gerade). Also 2 und 11, c = 22.',
           'Was weißt du über die Summe zweier ungerader Zahlen?'))
 ST.knobel('faktorisieren', Z('Löse (x − 1)(x − 2)(x − 3) = 4 · (x − 1)(x − 2). Gib die größte Lösung an.', 7, '3 + 4',
           'Alles auf eine Seite: (x − 1)(x − 2) · (x − 3 − 4) = 0. Lösungen 1, 2 und 7. Wer durch (x − 1)(x − 2) teilt, verliert 1 und 2.',

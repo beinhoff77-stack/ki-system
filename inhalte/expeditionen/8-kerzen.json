@@ -1,0 +1,142 @@
+{
+ "schluessel": "8-kerzen",
+ "klasse": {
+  "gym_by": 8
+ },
+ "titel": "Kerzenwerkstatt",
+ "autor": "Claude (Auftrag Expeditionen Klasse 8)",
+ "einleitung": "Für den Weihnachtsbasar gießt eure Klasse Kerzen. Kerze A ist ein Quader mit quadratischem Boden (5 cm × 5 cm) und 24 cm hoch; sie brennt in jeder Stunde 1,5 cm herunter. Kerze B ist 18 cm hoch und brennt in jeder Stunde 1 cm herunter.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "messen.volumen",
+   "lernziel": "quader"
+  },
+  {
+   "thema_schluessel": "funktionen.grundbegriffe",
+   "lernziel": "funktionswert"
+  },
+  {
+   "thema_schluessel": "gleichungen.ungleichungen",
+   "lernziel": "sachaufgabe"
+  },
+  {
+   "thema_schluessel": "funktionen.linear",
+   "lernziel": "schnittpunkte"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "zahl",
+   "f": {
+    "text": "Kerze A ist ein Quader: Boden 5 cm × 5 cm, Höhe 24 cm. Wie viel cm³ Wachs braucht man für eine solche Kerze?"
+   },
+   "o": {
+    "wert": 600,
+    "einheit": "cm³"
+   },
+   "c": "5 * 5 * 24",
+   "w": "Gegeben: Quader 5 cm · 5 cm · 24 cm. Gesucht: Volumen. Ansatz: V = Länge · Breite · Höhe. Rechnung: 5 · 5 · 24 = 600. Antwort: Man braucht 600 cm³ Wachs.",
+   "h": "Volumen eines Quaders: Grundfläche mal Höhe.",
+   "bezug": {
+    "thema_schluessel": "messen.volumen",
+    "lernziel": "quader"
+   }
+  },
+  {
+   "k": "b",
+   "y": "zahl",
+   "f": {
+    "text": "Kerze A ist nach t Stunden h(t) = 24 − 1,5 · t Zentimeter hoch. Wie hoch ist sie nach 6 Stunden?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "24 - 1.5 * 6",
+   "w": "Gegeben: h(t) = 24 − 1,5t. Gesucht: h(6). Ansatz: 6 für t einsetzen. Rechnung: 24 − 9 = 15. Antwort: Nach 6 Stunden ist Kerze A noch 15 cm hoch.",
+   "h": "Setze t = 6 ein; Punkt vor Strich.",
+   "bezug": {
+    "thema_schluessel": "funktionen.grundbegriffe",
+    "lernziel": "funktionswert"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Kerze A ist nach t Stunden 24 − 1,5 · t Zentimeter hoch. Sie soll ausgeblasen werden, solange noch mindestens 3 cm übrig sind, damit man sie später weiter benutzen kann. Wie viele volle Stunden darf sie höchstens brennen?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "h"
+   },
+   "c": "(24 - 3) / 1.5",
+   "w": "Gegeben: Höhe 24 − 1,5t, mindestens 3 cm. Gesucht: größte Stundenzahl t. Ansatz: 24 − 1,5t ≥ 3. Rechnung: −1,5t ≥ −21 ⇒ t ≤ 14 (beim Teilen durch −1,5 dreht sich das Zeichen). Probe: Nach 14 h sind genau 3 cm übrig, nach 15 h nur 1,5 cm. Antwort: höchstens 14 Stunden.",
+   "h": "Stelle eine Ungleichung mit „mindestens“ auf.",
+   "bezug": {
+    "thema_schluessel": "gleichungen.ungleichungen",
+    "lernziel": "sachaufgabe"
+   }
+  },
+  {
+   "k": "d",
+   "y": "auswahl",
+   "f": {
+    "text": "Beide Kerzen werden um 18 Uhr angezündet. Kerze A ist nach t Stunden 24 − 1,5 · t cm hoch, Kerze B 18 − t cm. Der Graph zeigt beide. Jemand sagt: „Um 6 Uhr morgens sind beide Kerzen gleich hoch.“ Was stimmt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      18
+     ],
+     "y": [
+      0,
+      26
+     ],
+     "schritt_x": 2,
+     "schritt_y": 4,
+     "name_x": "Stunden",
+     "name_y": "cm",
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1.5,
+       "t": 24,
+       "name": "A",
+       "bereich": [
+        0,
+        16
+       ]
+      },
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 18,
+       "name": "B",
+       "bereich": [
+        0,
+        18
+       ]
+      }
+     ]
+    }
+   },
+   "a": [
+    "Ja: Nach 12 Stunden sind beide 6 cm hoch.",
+    "Nein: Die Kerzen werden nie gleich hoch.",
+    "Nein: Gleich hoch sind sie schon um Mitternacht.",
+    "Ja, aber Kerze A ist dann schon abgebrannt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: A: 24 − 1,5t, B: 18 − t. Gesucht: Wann gleich hoch? Ansatz: Gleichsetzen (Schnittpunkt der Graphen). Rechnung: 24 − 1,5t = 18 − t ⇒ 6 = 0,5t ⇒ t = 12; Höhe 18 − 12 = 6 cm. 18 Uhr + 12 Stunden = 6 Uhr. Um Mitternacht (t = 6) ist A 15 cm und B 12 cm hoch; abgebrannt ist A erst nach 16 Stunden. Antwort: Die Aussage stimmt.",
+   "h": "Setze beide Terme gleich und rechne die Uhrzeit aus.",
+   "bezug": {
+    "thema_schluessel": "funktionen.linear",
+    "lernziel": "schnittpunkte"
+   }
+  }
+ ]
+}

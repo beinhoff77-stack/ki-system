@@ -40,3 +40,7 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 ## 2026-11-17 – Nachprüfung 0.74.5
 - Bericht: `inhalte/pruefung/NACHPRUEFUNG-2026-11-17.md`. Umgesetzt: A, R1–R3, N5–N7, K1/K2, D2, E-1 bis E-3. Offen laut Plan: K3–K5, E-4.
 - Neue Befunde M1–M9 (Gerade dran zählt alles, Klasse noch mit Speichern, Häkchen getrennt vom Flug, Klasse-8-Ort im Klasse-5-Plan, Zielangabe 29 Etappen, Detektiv bei Auswahl, doppeltes Bild, ≡ verdeckt, Text „alles verteilt“).
+
+## 2026-11-18 – Lehrer-Aufbau ausgewählt
+- Durchspielprobe 0.78.1: `inhalte/pruefung/lehrer/bericht.md` (L1–L9).
+- Sebastians Auswahl 1A · 2B · 3B · 4A · 5A · 6B · 7A, Bauauftrag `inhalte/pruefung/lehrer/umsetzung.md` (LA-1 bis LA-7).

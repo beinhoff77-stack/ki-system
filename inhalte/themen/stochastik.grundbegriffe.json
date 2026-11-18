@@ -495,6 +495,23 @@
    "l": "begriffe",
    "t": "begriffe",
    "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Urne liegen 5 grüne, 2 blaue, 1 weiße, 2 gelbe Kugeln. Man zieht eine Kugel und notiert die Farbe. Wie viele Ergebnisse hat der Ergebnisraum?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Ergebnis ist die Farbe: Ω = {grün; blau; weiß; gelb}, also 4 Ergebnisse (nicht 10).",
+   "h": "Notiert wird nur die Farbe – wie viele verschiedene Farben gibt es?",
+   "g": "direkt"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -519,15 +536,54 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "In einer Urne liegen 5 grüne, 2 blaue, 1 weiße, 2 gelbe Kugeln. Man zieht eine Kugel und notiert die Farbe. Wie viele Ergebnisse hat der Ergebnisraum?"
+    "text": "Ein Glücksrad hat 7 Felder mit den Nummern 1 bis 7. Wie viele Ergebnisse hat der Ergebnisraum bei einer Drehung?"
    },
    "o": {
-    "wert": 4
+    "wert": 7
    },
-   "c": "4",
-   "w": "Ergebnis ist die Farbe: Ω = {grün; blau; weiß; gelb}, also 4 Ergebnisse (nicht 10).",
-   "h": "Notiert wird nur die Farbe – wie viele verschiedene Farben gibt es?",
+   "c": "7",
+   "w": "Jede Nummer ist ein Ergebnis: 7 Ergebnisse.",
+   "h": "Jedes Feld ist ein mögliches Ergebnis.",
    "g": "direkt"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Münzen werden geworfen. Notiert wird nur, wie oft Wappen fällt. Welcher Ergebnisraum passt?"
+   },
+   "a": [
+    "Ω = {0; 1; 2}",
+    "Ω = {W; Z}",
+    "Ω = {1; 2}",
+    "Ω = {WW; WZ; ZW; ZZ}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Notiert wird eine Anzahl: kein, ein oder zwei Wappen. Ω = {0; 1; 2}. Der Ergebnisraum hängt davon ab, was man notiert.",
+   "h": "Was wird aufgeschrieben – die Münzbilder oder eine Zahl?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Lostrommel liegen Kugeln mit den Nummern 1 bis 100. Wie viele Ergebnisse gehören zum Ereignis „Die Nummer enthält mindestens einmal die Ziffer 7“?"
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "10 + 10 - 1",
+   "w": "Einerziffer 7: 7, 17, …, 97 (10 Zahlen). Zehnerziffer 7: 70 bis 79 (10 Zahlen). Die 77 ist doppelt gezählt: 10 + 10 − 1 = 19.",
+   "h": "Zähle Einer-7 und Zehner-7 getrennt. Welche Zahl zählst du doppelt?",
+   "g": "transfer"
   },
   {
    "l": "begriffe",
@@ -558,45 +614,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Glücksrad hat 7 Felder mit den Nummern 1 bis 7. Wie viele Ergebnisse hat der Ergebnisraum bei einer Drehung?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "7",
-   "w": "Jede Nummer ist ein Ergebnis: 7 Ergebnisse.",
-   "h": "Jedes Feld ist ein mögliches Ergebnis.",
-   "g": "direkt"
-  },
-  {
-   "l": "begriffe",
-   "t": "begriffe",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Würfel mit den Zahlen 1 bis 8 wird geworfen. Welche Menge beschreibt das Ereignis „Vielfaches von 3“?"
-   },
-   "a": [
-    "{3}",
-    "{3; 6}",
-    "{1; 2; 4; 5; 7; 8}",
-    "{1; 3; 6}"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Alle Ergebnisse aus Ω, die passen: {3; 6}.",
-   "h": "Gehe Ω = {1; …; 8} durch und prüfe jede Zahl.",
-   "g": "darstellung"
-  },
-  {
-   "l": "begriffe",
-   "t": "begriffe",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "Eine Münze wird 3-mal geworfen, die Reihenfolge wird notiert. Wie viele Ergebnisse hat der Ergebnisraum?"
    },
    "o": {
@@ -606,27 +623,6 @@
    "w": "Bei jedem Wurf 2 Möglichkeiten: 2³ = 8.",
    "h": "Schreibe alle Möglichkeiten auf: WW, WZ, …",
    "g": "direkt"
-  },
-  {
-   "l": "begriffe",
-   "t": "begriffe",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Würfel mit den Zahlen 1 bis 12 wird geworfen. Welche Menge beschreibt das Ereignis „Primzahl“?"
-   },
-   "a": [
-    "{1; 2; 3; 5; 7; 11}",
-    "{1; 4; 6; 8; 9; 10; 12}",
-    "{2; 3; 5; 7; 11}"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Alle Ergebnisse aus Ω, die passen: {2; 3; 5; 7; 11}.",
-   "h": "Gehe Ω = {1; …; 12} durch und prüfe jede Zahl.",
-   "g": "darstellung"
   },
   {
    "l": "begriffe",
@@ -674,62 +670,6 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Zwei Münzen werden geworfen. Notiert wird nur, wie oft Wappen fällt. Welcher Ergebnisraum passt?"
-   },
-   "a": [
-    "Ω = {0; 1; 2}",
-    "Ω = {W; Z}",
-    "Ω = {1; 2}",
-    "Ω = {WW; WZ; ZW; ZZ}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Notiert wird eine Anzahl: kein, ein oder zwei Wappen. Ω = {0; 1; 2}. Der Ergebnisraum hängt davon ab, was man notiert.",
-   "h": "Was wird aufgeschrieben – die Münzbilder oder eine Zahl?",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "begriffe",
-   "t": "begriffe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Lostrommel liegen Kugeln mit den Nummern 1 bis 100. Wie viele Ergebnisse gehören zum Ereignis „Die Nummer enthält mindestens einmal die Ziffer 7“?"
-   },
-   "o": {
-    "wert": 19
-   },
-   "c": "10 + 10 - 1",
-   "w": "Einerziffer 7: 7, 17, …, 97 (10 Zahlen). Zehnerziffer 7: 70 bis 79 (10 Zahlen). Die 77 ist doppelt gezählt: 10 + 10 − 1 = 19.",
-   "h": "Zähle Einer-7 und Zehner-7 getrennt. Welche Zahl zählst du doppelt?",
-   "g": "transfer"
-  },
-  {
-   "l": "begriffe",
-   "t": "begriffe",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Urne liegen 1 weiße, 6 gelbe, 4 blaue Kugeln. Man zieht eine Kugel und notiert die Farbe. Wie viele Ergebnisse hat der Ergebnisraum?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Ergebnis ist die Farbe: Ω = {weiß; gelb; blau}, also 3 Ergebnisse (nicht 11).",
-   "h": "Notiert wird nur die Farbe – wie viele verschiedene Farben gibt es?",
-   "g": "direkt"
-  },
-  {
-   "l": "begriffe",
-   "t": "begriffe",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
     "text": "Ein Würfel mit den Zahlen 1 bis 10 wird geworfen. Welche Menge beschreibt das Ereignis „Vielfaches von 3“?"
    },
    "a": [
@@ -742,30 +682,80 @@
     "index": 3
    },
    "w": "Alle Ergebnisse aus Ω, die passen: {3; 6; 9}.",
-   "h": "Gehe Ω = {1; …; 10} durch und prüfe jede Zahl.",
-   "g": "darstellung"
+   "h": "Gehe Ω = {1; …; 10} durch und prüfe jede Zahl."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spielwürfel (1 bis 6) wird geworfen. Wie viele Ergebnisse gehören zum Ereignis „Augenzahl ist keine Primzahl“?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "6 - 3",
+   "w": "Primzahlen sind 2, 3, 5. Keine Primzahl: 1, 4, 6 – das sind 3 Ergebnisse. (1 ist keine Primzahl.)",
+   "h": "Schreibe erst die Primzahlen bis 6 auf.",
+   "g": "mehrschritt"
   },
   {
    "l": "begriffe",
    "t": "begriffe",
    "p": "uebung",
    "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spielwürfel wird zweimal geworfen. Notiert wird die Augensumme. Wie viele Ergebnisse hat der Ergebnisraum?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "12 - 2 + 1",
+   "w": "Die Summe kann 2, 3, …, 12 sein: 11 Ergebnisse (nicht 36 – das wären die Zahlenpaare).",
+   "h": "Was ist die kleinste, was die größte Summe?",
+   "g": "transfer"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Aus 50 Losen mit den Nummern 1 bis 50 wird eines gezogen. Wie viele Ergebnisse gehören zum Ereignis „Nummer ist durch 10 teilbar“?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "50 // 10",
+   "w": "10, 20, 30, 40, 50 – fünf Ergebnisse.",
+   "h": "Schreibe die passenden Nummern auf."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Beim Werfen eines Spielwürfels (1 bis 6) ist E = {1; 2; 3; 6}. Wie kann man E in Worten beschreiben?"
+    "text": "Ein Würfel mit den Zahlen 1 bis 8 wird geworfen. Welche Menge beschreibt das Ereignis „Vielfaches von 3“?"
    },
    "a": [
-    "Augenzahl gerade",
-    "Augenzahl kleiner als 4",
-    "Augenzahl ist durch 3 teilbar",
-    "Augenzahl ist ein Teiler von 6"
+    "{3}",
+    "{3; 6}",
+    "{1; 2; 4; 5; 7; 8}",
+    "{1; 3; 6}"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "{1; 2; 3; 6} sind genau die Zahlen von 1 bis 6, für die gilt: Augenzahl ist ein Teiler von 6. Bei den anderen Beschreibungen fehlt eine Zahl oder es ist eine zu viel.",
-   "h": "Prüfe jede Beschreibung mit allen Zahlen von 1 bis 6.",
-   "g": "rueckwaerts"
+   "w": "Alle Ergebnisse aus Ω, die passen: {3; 6}.",
+   "h": "Gehe Ω = {1; …; 8} durch und prüfe jede Zahl.",
+   "g": "darstellung"
   },
   {
    "l": "begriffe",
@@ -846,6 +836,21 @@
     "index": 3
    },
    "w": "Alle Ergebnisse aus Ω, die passen: {3; 6}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Klassensprecher wird aus 12 Kandidaten ausgelost, 5 davon sind Mädchen. Wie viele Ergebnisse gehören zum Ereignis „Ein Junge wird gezogen“?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "12 - 5",
+   "w": "Gegeben: 12 Kandidaten, 5 Mädchen. Gesucht: Anzahl der Jungen. Ansatz: 12 − 5. Rechnung: 7. Antwort: Zum Ereignis gehören 7 Ergebnisse."
   },
   {
    "l": "begriffe",
@@ -969,6 +974,95 @@
   {
    "l": "begriffe",
    "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Sitzordnung werden die Plätze 1 bis 30 verlost. Wer eine Nummer über 25 zieht, sitzt am Fenster. Wie viele Ergebnisse gehören zum Ereignis „Fensterplatz“?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "30 - 25",
+   "w": "Gegeben: Plätze 1 bis 30, Fenster ab 26. Gesucht: Anzahl der Ergebnisse. Ansatz: Nummern über 25 zählen. Rechnung: 26, 27, 28, 29, 30. Antwort: Es sind 5 Ergebnisse."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schulbus hält an 5 Haltestellen. Für zwei Geschwister wird notiert, wo jedes aussteigt (als Paar). Wie viele Ergebnisse hat der Ergebnisraum?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "5 * 5",
+   "w": "Gegeben: 5 Haltestellen, zwei Kinder. Gesucht: Anzahl der Paare. Ansatz: Jedes Kind hat 5 Möglichkeiten. Rechnung: 5 · 5 = 25. Antwort: Der Ergebnisraum hat 25 Ergebnisse."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 12 wird geworfen. Welche Menge beschreibt das Ereignis „Primzahl“?"
+   },
+   "a": [
+    "{1; 2; 3; 5; 7; 11}",
+    "{1; 4; 6; 8; 9; 10; 12}",
+    "{2; 3; 5; 7; 11}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {2; 3; 5; 7; 11}.",
+   "h": "Gehe Ω = {1; …; 12} durch und prüfe jede Zahl."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Urne liegen 1 weiße, 6 gelbe, 4 blaue Kugeln. Man zieht eine Kugel und notiert die Farbe. Wie viele Ergebnisse hat der Ergebnisraum?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Ergebnis ist die Farbe: Ω = {weiß; gelb; blau}, also 3 Ergebnisse (nicht 11).",
+   "h": "Notiert wird nur die Farbe – wie viele verschiedene Farben gibt es?",
+   "g": "direkt"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Beim Werfen eines Spielwürfels (1 bis 6) ist E = {1; 2; 3; 6}. Wie kann man E in Worten beschreiben?"
+   },
+   "a": [
+    "Augenzahl gerade",
+    "Augenzahl kleiner als 4",
+    "Augenzahl ist durch 3 teilbar",
+    "Augenzahl ist ein Teiler von 6"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "{1; 2; 3; 6} sind genau die Zahlen von 1 bis 6, für die gilt: Augenzahl ist ein Teiler von 6. Bei den anderen Beschreibungen fehlt eine Zahl oder es ist eine zu viel.",
+   "h": "Prüfe jede Beschreibung mit allen Zahlen von 1 bis 6.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
    "p": "uebung",
    "s": 2,
    "y": "auswahl",
@@ -1013,23 +1107,6 @@
    "l": "begriffe",
    "t": "begriffe",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Spielwürfel (1 bis 6) wird geworfen. Wie viele Ergebnisse gehören zum Ereignis „Augenzahl ist keine Primzahl“?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "6 - 3",
-   "w": "Primzahlen sind 2, 3, 5. Keine Primzahl: 1, 4, 6 – das sind 3 Ergebnisse. (1 ist keine Primzahl.)",
-   "h": "Schreibe erst die Primzahlen bis 6 auf.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "begriffe",
-   "t": "begriffe",
-   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
@@ -1050,23 +1127,6 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Spielwürfel wird zweimal geworfen. Notiert wird die Augensumme. Wie viele Ergebnisse hat der Ergebnisraum?"
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "12 - 2 + 1",
-   "w": "Die Summe kann 2, 3, …, 12 sein: 11 Ergebnisse (nicht 36 – das wären die Zahlenpaare).",
-   "h": "Was ist die kleinste, was die größte Summe?",
-   "g": "transfer"
-  },
-  {
-   "l": "begriffe",
-   "t": "begriffe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Eine Münze wird dreimal geworfen, die Reihenfolge wird notiert. Wie viele Ergebnisse gehören zum Ereignis „genau zweimal Wappen“?"
    },
    "o": {
@@ -1074,8 +1134,7 @@
    },
    "c": "3",
    "w": "WWZ, WZW, ZWW – die eine Zahl kann an der 1., 2. oder 3. Stelle stehen: 3 Ergebnisse.",
-   "h": "Wo kann die einzige Zahl stehen?",
-   "g": "pruefung"
+   "h": "Wo kann die einzige Zahl stehen?"
   },
   {
    "l": "begriffe",
@@ -1103,23 +1162,6 @@
    "l": "begriffe",
    "t": "begriffe",
    "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Aus 50 Losen mit den Nummern 1 bis 50 wird eines gezogen. Wie viele Ergebnisse gehören zum Ereignis „Nummer ist durch 10 teilbar“?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "50 // 10",
-   "w": "10, 20, 30, 40, 50 – fünf Ergebnisse.",
-   "h": "Schreibe die passenden Nummern auf."
-  },
-  {
-   "l": "begriffe",
-   "t": "begriffe",
-   "p": "uebung",
    "s": 3,
    "g": "parameter",
    "y": "zahl",
@@ -1132,6 +1174,74 @@
    "c": "7",
    "w": "Zahlenpaare: n · n = 49 ⇒ n = 7.",
    "h": "Wie viele Paare gibt es bei n Feldern?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Tombola gibt es Lose mit den Nummern 1 bis 50. Gewinn gibt es für jede Nummer, die durch 10 teilbar ist. Wie viele Ergebnisse gehören zum Ereignis „Gewinn“?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "50 // 10",
+   "w": "Gegeben: Nummern 1 bis 50, Gewinn bei Vielfachen von 10. Gesucht: Anzahl der Ergebnisse im Ereignis. Ansatz: Alle passenden Nummern aufzählen. Rechnung: 10, 20, 30, 40, 50. Antwort: Zum Ereignis „Gewinn“ gehören 5 Ergebnisse.",
+   "h": "Schreib die Gewinnnummern auf."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "In der Pause wird ausgelost, wer den Ball holt und wer ihn zurückbringt. In einem Becher liegen die Namen von 4 Mädchen und 3 Jungen; es wird zweimal ohne Zurücklegen gezogen. Wie viele Ergebnisse hat der Ergebnisraum (Reihenfolge zählt)?"
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "7 * 6",
+   "w": "Gegeben: 7 Namen, zwei Züge ohne Zurücklegen, Reihenfolge zählt. Gesucht: Anzahl der Ergebnisse. Ansatz: Erster Zug 7 Möglichkeiten, zweiter nur noch 6. Rechnung: 7 · 6 = 42. Antwort: Der Ergebnisraum hat 42 Ergebnisse.",
+   "h": "Wie viele Namen sind beim zweiten Zug noch im Becher?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Eiscafé bietet 6 Sorten an, eine Kugel kostet 1,60 €. Ein Kind wählt einen Becher mit zwei verschiedenen Sorten, die Reihenfolge ist egal. Wie viele verschiedene Becher gibt es?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "6 * 5 // 2",
+   "w": "Gegeben: 6 Sorten, zwei verschiedene, Reihenfolge egal. Der Preis spielt keine Rolle. Gesucht: Anzahl der Becher. Ansatz: Paare mit Reihenfolge zählen und halbieren. Rechnung: 6 · 5 = 30, jedes Paar doppelt: 30 : 2 = 15. Antwort: Es gibt 15 verschiedene Becher.",
+   "h": "Ist Vanille–Erdbeere dasselbe wie Erdbeere–Vanille?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fahrradschloss hat 3 Ringe mit den Ziffern 0 bis 9. Wie viele Codes beginnen mit einer 7 und enden mit einer geraden Ziffer?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "1 * 10 * 5",
+   "w": "Gegeben: 3 Ringe, Ziffern 0 bis 9; erste Ziffer 7, letzte gerade. Gesucht: Anzahl der passenden Codes. Ansatz: Möglichkeiten je Ring multiplizieren. Rechnung: 1 · 10 · 5 = 50. Antwort: Es gibt 50 solche Codes.",
+   "h": "Wie viele Möglichkeiten hat jeder Ring unter den Bedingungen?"
   },
   {
    "l": "begriffe",
@@ -1322,6 +1432,118 @@
    "l": "rel_haeufigkeit",
    "t": "rel_haeufigkeit",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird 300-mal geworfen. Die relative Häufigkeit der 1 ist 0,15, die der 2 ist 0,2. Wie oft fiel eine 1 oder eine 2?"
+   },
+   "o": {
+    "wert": 105
+   },
+   "c": "300 * (15/100 + 20/100)",
+   "w": "Einsen: 0,15 · 300 = 45. Zweien: 0,2 · 300 = 60. Zusammen 105-mal.",
+   "h": "Rechne aus den relativen Häufigkeiten die absoluten aus.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 400 Würfen kam 79-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.1975
+   },
+   "c": "79 / 400",
+   "w": "Relative Häufigkeit = 79 : 400 = 0,1975.",
+   "h": "Absolute Häufigkeit durch Anzahl der Versuche."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was gibt die relative Häufigkeit an?"
+   },
+   "a": [
+    "wie oft das Ergebnis insgesamt eintrat",
+    "wie wahrscheinlich das Ergebnis sicher ist",
+    "die Anzahl aller Versuche",
+    "den Anteil der Versuche, bei denen das Ergebnis eintrat"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Relativ heißt: im Verhältnis zur Zahl aller Versuche. 12 Sechsen bei 60 Würfen sind 12/60 = 0,2.",
+   "h": "Was ist der Unterschied zwischen „wie oft“ und „welcher Anteil“?"
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse mit 25 Kindern tragen 6 eine Brille. Wie groß ist die relative Häufigkeit in Prozent?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "%"
+   },
+   "c": "6 / 25 * 100",
+   "w": "6 : 25 = 0,24 = 24 %.",
+   "h": "Teile durch die Gesamtzahl.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad wurde 180-mal gedreht: 72-mal rot, 63-mal grün, sonst blau. Wie groß ist die relative Häufigkeit von blau? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "(180 - 72 - 63) / 180",
+   "w": "Blau: 180 − 72 − 63 = 45. Relative Häufigkeit 45 : 180 = 0,25.",
+   "h": "Bestimme zuerst, wie oft blau kam.",
+   "g": "pruefung"
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lea würfelt 20-mal und hat 5 Sechsen, Tim würfelt 200-mal und hat 40 Sechsen. Wessen relative Häufigkeit liegt näher an 1/6 ≈ 0,167?"
+   },
+   "a": [
+    "Leas, weil sie weniger Fehlwürfe hat",
+    "Tims (0,2)",
+    "Beide gleich nah",
+    "Leas (0,25)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Lea: 5 : 20 = 0,25 (Abstand 0,083). Tim: 40 : 200 = 0,2 (Abstand 0,033). Mit mehr Würfen liegt der Anteil meist näher an der Wahrscheinlichkeit.",
+   "h": "Berechne beide relativen Häufigkeiten.",
+   "g": "begruenden"
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1363,22 +1585,6 @@
    "l": "rel_haeufigkeit",
    "t": "rel_haeufigkeit",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bei 400 Würfen kam 79-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl."
-   },
-   "o": {
-    "wert": 0.1975
-   },
-   "c": "79 / 400",
-   "w": "Relative Häufigkeit = 79 : 400 = 0,1975.",
-   "h": "Absolute Häufigkeit durch Anzahl der Versuche."
-  },
-  {
-   "l": "rel_haeufigkeit",
-   "t": "rel_haeufigkeit",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1391,121 +1597,6 @@
    "w": "75 % von 20 = 0,75 · 20 = 15.",
    "h": "Absolute Häufigkeit = relative Häufigkeit · Anzahl der Versuche.",
    "g": "umkehr"
-  },
-  {
-   "l": "rel_haeufigkeit",
-   "t": "rel_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel wird 300-mal geworfen. Die relative Häufigkeit der 1 ist 0,15, die der 2 ist 0,2. Wie oft fiel eine 1 oder eine 2?"
-   },
-   "o": {
-    "wert": 105
-   },
-   "c": "300 * (15/100 + 20/100)",
-   "w": "Einsen: 0,15 · 300 = 45. Zweien: 0,2 · 300 = 60. Zusammen 105-mal.",
-   "h": "Rechne aus den relativen Häufigkeiten die absoluten aus.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "rel_haeufigkeit",
-   "t": "rel_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Gruppen werfen einen Würfel: Gruppe A 80-mal mit 11 Sechsen, Gruppe B 100-mal mit 16 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "%"
-   },
-   "c": "27 / 180 * 100",
-   "w": "Insgesamt 27 Sechsen bei 180 Würfen: 27 : 180 = 15 %.",
-   "h": "Addiere die Sechsen und die Würfe – nicht die Prozentsätze mitteln.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "rel_haeufigkeit",
-   "t": "rel_haeufigkeit",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Was gibt die relative Häufigkeit an?"
-   },
-   "a": [
-    "wie oft das Ergebnis insgesamt eintrat",
-    "wie wahrscheinlich das Ergebnis sicher ist",
-    "die Anzahl aller Versuche",
-    "den Anteil der Versuche, bei denen das Ergebnis eintrat"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Relativ heißt: im Verhältnis zur Zahl aller Versuche. 12 Sechsen bei 60 Würfen sind 12/60 = 0,2.",
-   "h": "Was ist der Unterschied zwischen „wie oft“ und „welcher Anteil“?"
-  },
-  {
-   "l": "rel_haeufigkeit",
-   "t": "rel_haeufigkeit",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bei 50 Würfen kam 7-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl."
-   },
-   "o": {
-    "wert": 0.14
-   },
-   "c": "7 / 50",
-   "w": "Relative Häufigkeit = 7 : 50 = 0,14.",
-   "h": "Absolute Häufigkeit durch Anzahl der Versuche."
-  },
-  {
-   "l": "rel_haeufigkeit",
-   "t": "rel_haeufigkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt 56 Würfe. Wie groß ist die relative Häufigkeit der 4 in Prozent? (Runde auf eine Nachkommastelle.)",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Augenzahl",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "13",
-       "7",
-       "7",
-       "10",
-       "10",
-       "9"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 17.9,
-    "einheit": "%",
-    "toleranz": 0.1
-   },
-   "c": "round(10 / 56 * 100, 1)",
-   "w": "Gesamt: 56 Würfe. 10 : 56 ≈ 17,9 %.",
-   "h": "Addiere erst alle Anzahlen.",
-   "g": "darstellung"
   },
   {
    "l": "rel_haeufigkeit",
@@ -1763,6 +1854,111 @@
   {
    "l": "rel_haeufigkeit",
    "t": "rel_haeufigkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kronkorken wurde 200-mal geworfen und landete 74-mal auf dem Rücken. Wie groß ist die relative Häufigkeit für „Rücken“?"
+   },
+   "o": {
+    "wert": 0.37
+   },
+   "c": "74 / 200",
+   "w": "Gegeben: 200 Würfe, 74-mal Rücken. Gesucht: relative Häufigkeit. Ansatz: 74 : 200. Rechnung: 0,37. Antwort: Die relative Häufigkeit ist 0,37."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 40 verkauften Eisbechern waren 14 mit Schokolade. Wie viel Prozent sind das?"
+   },
+   "o": {
+    "wert": 35,
+    "einheit": "%"
+   },
+   "c": "14 / 40 * 100",
+   "w": "Gegeben: 40 Becher, 14 Schokolade. Gesucht: Anteil in Prozent. Ansatz: 14 : 40 · 100 %. Rechnung: 0,35 = 35 %. Antwort: Es sind 35 %."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Gruppen werfen einen Würfel: Gruppe A 80-mal mit 11 Sechsen, Gruppe B 100-mal mit 16 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "%"
+   },
+   "c": "27 / 180 * 100",
+   "w": "Insgesamt 27 Sechsen bei 180 Würfen: 27 : 180 = 15 %.",
+   "h": "Addiere die Sechsen und die Würfe – nicht die Prozentsätze mitteln."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 50 Würfen kam 7-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.14
+   },
+   "c": "7 / 50",
+   "w": "Relative Häufigkeit = 7 : 50 = 0,14.",
+   "h": "Absolute Häufigkeit durch Anzahl der Versuche."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt 56 Würfe. Wie groß ist die relative Häufigkeit der 4 in Prozent? (Runde auf eine Nachkommastelle.)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Augenzahl",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "13",
+       "7",
+       "7",
+       "10",
+       "10",
+       "9"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 17.9,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(10 / 56 * 100, 1)",
+   "w": "Gesamt: 56 Würfe. 10 : 56 ≈ 17,9 %.",
+   "h": "Addiere erst alle Anzahlen."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
@@ -1796,43 +1992,7 @@
    },
    "c": "0.35 * 80",
    "w": "0,35 · 80 = 28.",
-   "h": "Absolute Häufigkeit = relative Häufigkeit · Anzahl der Würfe.",
-   "g": "umkehr"
-  },
-  {
-   "l": "rel_haeufigkeit",
-   "t": "rel_haeufigkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Klasse mit 25 Kindern tragen 6 eine Brille. Wie groß ist die relative Häufigkeit in Prozent?"
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "%"
-   },
-   "c": "6 / 25 * 100",
-   "w": "6 : 25 = 0,24 = 24 %.",
-   "h": "Teile durch die Gesamtzahl.",
-   "g": "einkleidung"
-  },
-  {
-   "l": "rel_haeufigkeit",
-   "t": "rel_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Glücksrad wurde 180-mal gedreht: 72-mal rot, 63-mal grün, sonst blau. Wie groß ist die relative Häufigkeit von blau? Gib sie als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.25
-   },
-   "c": "(180 - 72 - 63) / 180",
-   "w": "Blau: 180 − 72 − 63 = 45. Relative Häufigkeit 45 : 180 = 0,25.",
-   "h": "Bestimme zuerst, wie oft blau kam.",
-   "g": "pruefung"
+   "h": "Absolute Häufigkeit = relative Häufigkeit · Anzahl der Würfe."
   },
   {
    "l": "rel_haeufigkeit",
@@ -1866,37 +2026,13 @@
    },
    "c": "0.2 * 50 - 0.15 * 40",
    "w": "Bisher 0,15 · 40 = 6 Sechsen. Nach 50 Würfen braucht man 0,2 · 50 = 10. Es fehlen 4.",
-   "h": "Rechne mit absoluten Anzahlen vorher und nachher.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "rel_haeufigkeit",
-   "t": "rel_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Lea würfelt 20-mal und hat 5 Sechsen, Tim würfelt 200-mal und hat 40 Sechsen. Wessen relative Häufigkeit liegt näher an 1/6 ≈ 0,167?"
-   },
-   "a": [
-    "Leas, weil sie weniger Fehlwürfe hat",
-    "Tims (0,2)",
-    "Beide gleich nah",
-    "Leas (0,25)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Lea: 5 : 20 = 0,25 (Abstand 0,083). Tim: 40 : 200 = 0,2 (Abstand 0,033). Mit mehr Würfen liegt der Anteil meist näher an der Wahrscheinlichkeit.",
-   "h": "Berechne beide relativen Häufigkeiten.",
-   "g": "begruenden"
+   "h": "Rechne mit absoluten Anzahlen vorher und nachher."
   },
   {
    "l": "rel_haeufigkeit",
    "t": "rel_haeufigkeit",
    "p": "uebung",
    "s": 1,
-   "g": "direkt",
    "y": "zahl",
    "f": {
     "text": "Ein Glücksrad wurde 40-mal gedreht und blieb 10-mal auf Gelb stehen. Wie groß ist die relative Häufigkeit von Gelb in Prozent?"
@@ -1930,6 +2066,97 @@
    },
    "w": "Eine relative Häufigkeit liegt immer zwischen 0 und 1 (0 % bis 100 %), denn der Teil ist nie größer als das Ganze.",
    "h": "Kann ein Ergebnis öfter eintreten, als man Versuche macht?"
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Verkehrszählung fuhren in einer Stunde 80 Fahrzeuge vorbei, 20 davon waren Lkw. Wie groß ist die relative Häufigkeit der Lkw?"
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "20 / 80",
+   "w": "Gegeben: 80 Fahrzeuge, 20 Lkw. Gesucht: relative Häufigkeit. Ansatz: Anteil = absolute Häufigkeit : Anzahl. Rechnung: 20 : 80 = 0,25. Antwort: Die relative Häufigkeit der Lkw ist 0,25.",
+   "h": "Teile die Zahl der Lkw durch alle Fahrzeuge."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Umfrage unter 250 Schülerinnen und Schülern nannten 95 Fußball ihren Lieblingssport. Wie viel Prozent sind das?"
+   },
+   "o": {
+    "wert": 38,
+    "einheit": "%"
+   },
+   "c": "95 / 250 * 100",
+   "w": "Gegeben: 250 Befragte, 95 Fußball. Gesucht: Anteil in Prozent. Ansatz: Relative Häufigkeit · 100 %. Rechnung: 95 : 250 = 0,38 = 38 %. Antwort: Es sind 38 %.",
+   "h": "Was ist hier das Ganze?"
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft im Training 42 von 60 Freiwürfen, im Spiel 15 von 25. Um wie viele Prozentpunkte ist seine Trefferquote im Training höher?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "42 / 60 * 100 - 15 / 25 * 100",
+   "w": "Gegeben: Training 42 von 60, Spiel 15 von 25. Gesucht: Unterschied der Quoten. Ansatz: Beide relativen Häufigkeiten in Prozent, dann abziehen. Rechnung: 42 : 60 = 70 %, 15 : 25 = 60 %; 70 − 60 = 10. Antwort: Im Training ist die Quote 10 Prozentpunkte höher.",
+   "h": "Vergleiche Anteile, nicht Trefferzahlen."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "In Klasse A kommen 12 von 30 Kindern mit dem Rad, in Klasse B 10 von 20. Eine Schülerzeitung schreibt: „In Klasse A fahren mehr Kinder Rad.“ Was stimmt?"
+   },
+   "a": [
+    "Absolut stimmt es, aber der Anteil ist in B größer (50 % statt 40 %).",
+    "Es stimmt, A hat auch den größeren Anteil.",
+    "Man kann Klassen verschiedener Größe nicht vergleichen.",
+    "Es ist falsch, in B fahren mehr Kinder Rad."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: A: 12 von 30, B: 10 von 20. Gesucht: Ist die Aussage richtig? Ansatz: Absolute und relative Häufigkeit unterscheiden. Rechnung: A: 12 Kinder, 40 %. B: 10 Kinder, 50 %. Antwort: In A fahren mehr Kinder, aber in B ein größerer Anteil.",
+   "h": "Rechne beide Anteile aus."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Umfrage hatten 18 % der Befragten ein Haustier, das waren 54 Kinder. Wie viele Kinder wurden befragt?"
+   },
+   "o": {
+    "wert": 300
+   },
+   "c": "54 / 0.18",
+   "w": "Gegeben: 18 % entsprechen 54 Kindern. Gesucht: Anzahl der Befragten. Ansatz: Anzahl = absolute Häufigkeit : relative Häufigkeit. Rechnung: 54 : 0,18 = 300. Antwort: Es wurden 300 Kinder befragt.",
+   "h": "Wie viele Kinder sind 1 %?"
   },
   {
    "l": "rel_haeufigkeit",
@@ -1969,31 +2196,6 @@
    "l": "laplace",
    "t": "laplace",
    "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Ein fairer Würfel mit den Zahlen 1 bis 6 wird geworfen. Wie groß ist die Wahrscheinlichkeit für ein Vielfaches von 3? Gib sie als vollständig gekürzten Bruch an.",
-    "schablone": "□/□",
-    "hinweis": "Zähler oben, Nenner unten."
-   },
-   "o": {
-    "werte": [
-     1,
-     3
-    ]
-   },
-   "c": [
-    "1",
-    "3"
-   ],
-   "w": "3, 6 – das sind 2 von 6 Ergebnissen: P = 2/6 = 1/3.",
-   "h": "Zähle die günstigen Ergebnisse. Kürze am Ende.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "laplace",
-   "t": "laplace",
-   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -2017,16 +2219,24 @@
    "t": "laplace",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Ein Glücksrad hat 16 gleich große Felder, 10 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+    "text": "Ein fairer Würfel mit den Zahlen 1 bis 6 wird geworfen. Wie groß ist die Wahrscheinlichkeit für ein Vielfaches von 3? Gib sie als vollständig gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler oben, Nenner unten."
    },
    "o": {
-    "wert": 0.625
+    "werte": [
+     1,
+     3
+    ]
    },
-   "c": "10 / 16",
-   "w": "10 günstige von 16 gleich wahrscheinlichen Ergebnissen: P = 10/16 = 0,625.",
-   "h": "Zähle die günstigen Ergebnisse.",
+   "c": [
+    "1",
+    "3"
+   ],
+   "w": "3, 6 – das sind 2 von 6 Ergebnissen: P = 2/6 = 1/3.",
+   "h": "Zähle die günstigen Ergebnisse. Kürze am Ende.",
    "g": "mehrschritt"
   },
   {
@@ -2058,13 +2268,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Glücksrad hat 8 gleich große Felder, 3 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+    "text": "Aus einem Skatblatt (32 Karten: 4 Farben, je 7, 8, 9, 10, Bube, Dame, König, Ass) wird eine Karte gezogen. Wie groß ist die Wahrscheinlichkeit für ein Ass? Gib sie als Dezimalzahl an."
    },
    "o": {
-    "wert": 0.375
+    "wert": 0.125
    },
-   "c": "3 / 8",
-   "w": "3 günstige von 8 gleich wahrscheinlichen Ergebnissen: P = 3/8 = 0,375.",
+   "c": "4 / 32",
+   "w": "4 günstige von 32 gleich wahrscheinlichen Ergebnissen: P = 4/32 = 0,125.",
+   "h": "Zähle die günstigen Ergebnisse.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 16 gleich große Felder, 10 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.625
+   },
+   "c": "10 / 16",
+   "w": "10 günstige von 16 gleich wahrscheinlichen Ergebnissen: P = 10/16 = 0,625.",
    "h": "Zähle die günstigen Ergebnisse.",
    "g": "mehrschritt"
   },
@@ -2094,65 +2321,6 @@
    "l": "laplace",
    "t": "laplace",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Aus einem Skatblatt (32 Karten: 4 Farben, je 7, 8, 9, 10, Bube, Dame, König, Ass) wird eine Karte gezogen. Wie groß ist die Wahrscheinlichkeit für ein Ass? Gib sie als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.125
-   },
-   "c": "4 / 32",
-   "w": "4 günstige von 32 gleich wahrscheinlichen Ergebnissen: P = 4/32 = 0,125.",
-   "h": "Zähle die günstigen Ergebnisse.",
-   "g": "einkleidung"
-  },
-  {
-   "l": "laplace",
-   "t": "laplace",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Glücksrad hat 16 gleich große Felder, 7 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als vollständig gekürzten Bruch an.",
-    "schablone": "□/□",
-    "hinweis": "Zähler oben, Nenner unten."
-   },
-   "o": {
-    "werte": [
-     7,
-     16
-    ]
-   },
-   "c": [
-    "7",
-    "16"
-   ],
-   "w": "7 günstige von 16 gleich wahrscheinlichen Ergebnissen: P = 7/16.",
-   "h": "Zähle die günstigen Ergebnisse. Kürze am Ende.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "laplace",
-   "t": "laplace",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Urne liegen 6 rote und 4 blaue Kugeln. Wie viele blaue Kugeln muss man dazulegen, damit P(rot) = 0,3 ist?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "6 / 0.3 - 6 - 4",
-   "w": "6 : (Gesamtzahl) = 0,3 → Gesamtzahl = 6 : 0,3 = 20. Dazulegen: 20 − 10 = 10.",
-   "h": "Wie viele Kugeln muss es insgesamt geben?",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "laplace",
-   "t": "laplace",
-   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -2170,28 +2338,6 @@
    "w": "36 gleich wahrscheinliche Paare. Summe 3: 2 Paare. P = 2/36 = 1/18.",
    "h": "Schreibe alle 36 Paare als Tabelle. Die 11 möglichen Summen sind nicht gleich wahrscheinlich!",
    "g": "transfer"
-  },
-  {
-   "l": "laplace",
-   "t": "laplace",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "In einer Urne liegen 4 rote, 4 blaue und 2 grüne Kugeln. Eine wird zufällig gezogen. Wie groß ist P(blau)?"
-   },
-   "a": [
-    "7/10",
-    "2/5",
-    "3/5",
-    "2/3"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "4 günstige von 10 Kugeln: P(blau) = 4/10 = 2/5.",
-   "h": "Im Nenner stehen alle Kugeln.",
-   "g": "direkt"
   },
   {
    "l": "laplace",
@@ -2220,22 +2366,67 @@
    "t": "laplace",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Zwei faire Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme 9 ist?"
+    "text": "Zwei faire Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme größer als 10 ist?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner je als ganze Zahl, vollständig gekürzt."
    },
-   "a": [
-    "1/11",
-    "4/21",
-    "1/9",
-    "1/6"
-   ],
    "o": {
-    "index": 2
+    "werte": [
+     1,
+     12
+    ]
    },
-   "w": "36 gleich wahrscheinliche Paare. Summe 9: 4 Paare. P = 4/36 = 1/9.",
-   "h": "Schreibe alle 36 Paare als Tabelle. Die 11 möglichen Summen sind nicht gleich wahrscheinlich!",
-   "g": "transfer"
+   "c": [
+    "1",
+    "36 // 3"
+   ],
+   "w": "Summe 11: (5|6), (6|5). Summe 12: (6|6). 3 von 36 Paaren: 3/36 = 1/12.",
+   "h": "Zähle die Zahlenpaare mit Summe 11 und 12.",
+   "g": "pruefung"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Säckchen A enthält 3 weiße und 2 schwarze Kugeln, Säckchen B 1 weiße und 9 schwarze. Beide werden in einen Sack geschüttet. Wie groß ist dann P(weiß)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner je als ganze Zahl, vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     4,
+     15
+    ]
+   },
+   "c": [
+    "3 + 1",
+    "(5 + 10) // 1"
+   ],
+   "w": "Im Sack: 4 weiße von 15 Kugeln. P = 4/15. Den Mittelwert aus 3/5 und 1/10 zu nehmen wäre falsch – die Säckchen sind verschieden groß.",
+   "h": "Zähle alle weißen und alle Kugeln im großen Sack.",
+   "g": "begruenden"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 8 gleich große Felder, 3 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.375
+   },
+   "c": "3 / 8",
+   "w": "3 günstige von 8 gleich wahrscheinlichen Ergebnissen: P = 3/8 = 0,375.",
+   "h": "Zähle die günstigen Ergebnisse.",
+   "g": "mehrschritt"
   },
   {
    "l": "laplace",
@@ -2244,23 +2435,60 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Aus Kugeln mit den Nummern 1 bis 20 wird eine gezogen. Wie groß ist die Wahrscheinlichkeit für ein Vielfaches von 4?",
+    "text": "Ein Glücksrad hat 16 gleich große Felder, 7 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als vollständig gekürzten Bruch an.",
     "schablone": "□/□",
-    "hinweis": "Zähler und Nenner je als ganze Zahl, vollständig gekürzt."
+    "hinweis": "Zähler oben, Nenner unten."
    },
    "o": {
     "werte": [
-     1,
-     4
+     7,
+     16
     ]
    },
    "c": [
-    "1",
-    "4"
+    "7",
+    "16"
    ],
-   "w": "Vielfache von 4: 4, 8, 12, 16, 20 – das sind 5. P = 5/20 = 1/4.",
-   "h": "Zähle die günstigen Nummern.",
-   "g": "mehrschritt"
+   "w": "7 günstige von 16 gleich wahrscheinlichen Ergebnissen: P = 7/16.",
+   "h": "Zähle die günstigen Ergebnisse. Kürze am Ende."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Urne liegen 6 rote und 4 blaue Kugeln. Wie viele blaue Kugeln muss man dazulegen, damit P(rot) = 0,3 ist?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "6 / 0.3 - 6 - 4",
+   "w": "6 : (Gesamtzahl) = 0,3 → Gesamtzahl = 6 : 0,3 = 20. Dazulegen: 20 − 10 = 10.",
+   "h": "Wie viele Kugeln muss es insgesamt geben?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 4 rote, 4 blaue und 2 grüne Kugeln. Eine wird zufällig gezogen. Wie groß ist P(blau)?"
+   },
+   "a": [
+    "7/10",
+    "2/5",
+    "3/5",
+    "2/3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "4 günstige von 10 Kugeln: P(blau) = 4/10 = 2/5.",
+   "h": "Im Nenner stehen alle Kugeln."
   },
   {
    "l": "laplace",
@@ -2453,6 +2681,52 @@
    "s": 3,
    "y": "auswahl",
    "f": {
+    "text": "Zwei faire Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme 9 ist?"
+   },
+   "a": [
+    "1/11",
+    "4/21",
+    "1/9",
+    "1/6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "36 gleich wahrscheinliche Paare. Summe 9: 4 Paare. P = 4/36 = 1/9.",
+   "h": "Schreibe alle 36 Paare als Tabelle. Die 11 möglichen Summen sind nicht gleich wahrscheinlich!",
+   "g": "transfer"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Aus Kugeln mit den Nummern 1 bis 20 wird eine gezogen. Wie groß ist die Wahrscheinlichkeit für ein Vielfaches von 4?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner je als ganze Zahl, vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "1",
+    "4"
+   ],
+   "w": "Vielfache von 4: 4, 8, 12, 16, 20 – das sind 5. P = 5/20 = 1/4.",
+   "h": "Zähle die günstigen Nummern."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
     "text": "Zwei faire Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme 7 ist?"
    },
    "a": [
@@ -2497,56 +2771,6 @@
    "t": "laplace",
    "p": "uebung",
    "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Zwei faire Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme größer als 10 ist?",
-    "schablone": "□/□",
-    "hinweis": "Zähler und Nenner je als ganze Zahl, vollständig gekürzt."
-   },
-   "o": {
-    "werte": [
-     1,
-     12
-    ]
-   },
-   "c": [
-    "1",
-    "36 // 3"
-   ],
-   "w": "Summe 11: (5|6), (6|5). Summe 12: (6|6). 3 von 36 Paaren: 3/36 = 1/12.",
-   "h": "Zähle die Zahlenpaare mit Summe 11 und 12.",
-   "g": "pruefung"
-  },
-  {
-   "l": "laplace",
-   "t": "laplace",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Säckchen A enthält 3 weiße und 2 schwarze Kugeln, Säckchen B 1 weiße und 9 schwarze. Beide werden in einen Sack geschüttet. Wie groß ist dann P(weiß)?",
-    "schablone": "□/□",
-    "hinweis": "Zähler und Nenner je als ganze Zahl, vollständig gekürzt."
-   },
-   "o": {
-    "werte": [
-     4,
-     15
-    ]
-   },
-   "c": [
-    "3 + 1",
-    "(5 + 10) // 1"
-   ],
-   "w": "Im Sack: 4 weiße von 15 Kugeln. P = 4/15. Den Mittelwert aus 3/5 und 1/10 zu nehmen wäre falsch – die Säckchen sind verschieden groß.",
-   "h": "Zähle alle weißen und alle Kugeln im großen Sack.",
-   "g": "begruenden"
-  },
-  {
-   "l": "laplace",
-   "t": "laplace",
-   "p": "uebung",
-   "s": 3,
    "y": "zahl",
    "f": {
     "text": "In einer Urne liegen 3 rote und 5 blaue Kugeln. Wie viele rote Kugeln muss man dazulegen, damit P(rot) = 3/4 ist?"
@@ -2556,8 +2780,7 @@
    },
    "c": "(3 * 8 - 4 * 3) / (4 - 3)",
    "w": "(3 + x)/(8 + x) = 3/4 ⇔ 12 + 4x = 24 + 3x ⇔ x = 12. Probe: 15/20 = 3/4.",
-   "h": "Stelle eine Bruchgleichung auf.",
-   "g": "rueckwaerts"
+   "h": "Stelle eine Bruchgleichung auf."
   },
   {
    "l": "laplace",
@@ -2631,6 +2854,88 @@
   {
    "l": "laplace",
    "t": "laplace",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Tombola gibt es 200 Lose, 40 davon gewinnen. Wie groß ist die Wahrscheinlichkeit, mit einem gekauften Los zu gewinnen?"
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "40 / 200",
+   "w": "Gegeben: 200 Lose, 40 Gewinne. Gesucht: Gewinnwahrscheinlichkeit. Ansatz: P = günstige : alle. Rechnung: 40 : 200 = 0,2. Antwort: Sie beträgt 0,2.",
+   "h": "Wie viele Lose sind günstig, wie viele möglich?"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Tüte sind 8 Erdbeer-, 5 Zitronen- und 7 Kirschbonbons. Du greifst blind hinein. Wie groß ist die Wahrscheinlichkeit für Kirsche in Prozent?"
+   },
+   "o": {
+    "wert": 35,
+    "einheit": "%"
+   },
+   "c": "7 / 20 * 100",
+   "w": "Gegeben: 8 + 5 + 7 = 20 Bonbons, 7 Kirsche. Gesucht: P(Kirsche) in %. Ansatz: P = günstige : alle. Rechnung: 7 : 20 = 0,35 = 35 %. Antwort: Die Wahrscheinlichkeit ist 35 %.",
+   "h": "Wie viele Bonbons sind es insgesamt?"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "luecken",
+   "f": {
+    "text": "Für eine Klassenfahrt werden 28 Kinder auf 7 Viererzimmer verlost, 2 Zimmer haben einen Balkon. Die Jugendherberge liegt 3 km vom Bahnhof entfernt. Wie groß ist die Wahrscheinlichkeit, in ein Balkonzimmer zu kommen? Gib sie gekürzt an.",
+    "schablone": "P = □/□",
+    "hinweis": "Zähler und Nenner, gekürzt."
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "c": [
+    "2",
+    "7"
+   ],
+   "w": "Gegeben: 28 Plätze, 2 Balkonzimmer zu je 4 Plätzen. Die Entfernung spielt keine Rolle. Gesucht: P(Balkonzimmer). Ansatz: günstige Plätze : alle Plätze. Rechnung: 8 : 28 = 2/7. Antwort: Die Wahrscheinlichkeit ist 2/7.",
+   "h": "Zähle Plätze, nicht Zimmer – oder Zimmer, nicht Plätze; beides geht."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Losbude A hat 30 Gewinne bei 120 Losen, Losbude B hat 20 Gewinne bei 70 Losen. Wo ist die Gewinnchance größer?"
+   },
+   "a": [
+    "Bei A (25 % statt 20 %).",
+    "Bei B (etwa 29 % statt 25 %).",
+    "Bei beiden gleich.",
+    "Bei A, weil es dort mehr Gewinne gibt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: A: 30 von 120, B: 20 von 70. Gesucht: größere Gewinnchance. Ansatz: Beide Wahrscheinlichkeiten berechnen. Rechnung: A: 30 : 120 = 0,25. B: 20 : 70 ≈ 0,286. Antwort: Bei B ist die Chance größer.",
+   "h": "Vergleiche Anteile, nicht Anzahlen."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
    "p": "bonus",
    "s": 3,
    "g": "knobel",
@@ -2682,6 +2987,76 @@
     "index": 1
    },
    "w": "Alle Ergebnisse sind gleich wahrscheinlich.",
+   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?",
+   "g": "erkennen"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 60°, B 60°, C 60°, D 120°, E 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
+    "grafik": {
+     "typ": "kreisdiagramm",
+     "einheit": "°",
+     "werte": [
+      {
+       "name": "A",
+       "wert": 60
+      },
+      {
+       "name": "B",
+       "wert": 60
+      },
+      {
+       "name": "C",
+       "wert": 60
+      },
+      {
+       "name": "D",
+       "wert": 120
+      },
+      {
+       "name": "E",
+       "wert": 60
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "a": [
+    "Ja, weil es 5 Felder gibt.",
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
+    "Ja, alle Felder sind gleich groß."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Größere Felder werden häufiger getroffen.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Werfen eines Legosteins."
+   },
+   "a": [
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
+    "Ja, weil es zwei oder mehr Ergebnisse gibt.",
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich.",
+    "Nein, bei Zufallsexperimenten weiß man das nie."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Ergebnisse haben verschiedene Wahrscheinlichkeiten (z. B. wegen Form, Anzahl oder Summenbildung).",
    "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?",
    "g": "erkennen"
   },
@@ -2745,76 +3120,6 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Ist das ein Laplace-Experiment? Werfen eines Legosteins."
-   },
-   "a": [
-    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
-    "Ja, weil es zwei oder mehr Ergebnisse gibt.",
-    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich.",
-    "Nein, bei Zufallsexperimenten weiß man das nie."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Ergebnisse haben verschiedene Wahrscheinlichkeiten (z. B. wegen Form, Anzahl oder Summenbildung).",
-   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?",
-   "g": "erkennen"
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Glücksrad hat die Felder A 60°, B 60°, C 60°, D 120°, E 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
-    "grafik": {
-     "typ": "kreisdiagramm",
-     "einheit": "°",
-     "werte": [
-      {
-       "name": "A",
-       "wert": 60
-      },
-      {
-       "name": "B",
-       "wert": 60
-      },
-      {
-       "name": "C",
-       "wert": 60
-      },
-      {
-       "name": "D",
-       "wert": 120
-      },
-      {
-       "name": "E",
-       "wert": 60
-      }
-     ],
-     "zahlen": true
-    }
-   },
-   "a": [
-    "Ja, weil es 5 Felder gibt.",
-    "Nein, die Felder sind verschieden groß.",
-    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
-    "Ja, alle Felder sind gleich groß."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Größere Felder werden häufiger getroffen.",
-   "h": "Vergleiche die Winkel der Felder."
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
     "text": "Ist das ein Laplace-Experiment? Werfen einer Reißzwecke (Kopf oder Seite)."
    },
    "a": [
@@ -2829,6 +3134,141 @@
    "w": "Die Ergebnisse haben verschiedene Wahrscheinlichkeiten (z. B. wegen Form, Anzahl oder Summenbildung).",
    "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?",
    "g": "erkennen"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 30°, B 60°, C 60°, D 150°, E 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
+    "grafik": {
+     "typ": "kreisdiagramm",
+     "einheit": "°",
+     "werte": [
+      {
+       "name": "A",
+       "wert": 30
+      },
+      {
+       "name": "B",
+       "wert": 60
+      },
+      {
+       "name": "C",
+       "wert": 60
+      },
+      {
+       "name": "D",
+       "wert": 150
+      },
+      {
+       "name": "E",
+       "wert": 60
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "a": [
+    "Ja, alle Felder sind gleich groß.",
+    "Ja, weil es 5 Felder gibt.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
+    "Nein, die Felder sind verschieden groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Größere Felder werden häufiger getroffen.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Münze zeigte 7-mal hintereinander Wappen. Ist sie deshalb sicher gezinkt?"
+   },
+   "a": [
+    "Ja: Jetzt muss Zahl kommen.",
+    "Ja: Bei einer fairen Münze geht das nicht.",
+    "Nein: Das ist bei einer fairen Münze selten, aber möglich.",
+    "Nein: Bei 7 Würfen kommt immer 7-mal dasselbe."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei einer fairen Münze hat „7-mal Wappen“ die Wahrscheinlichkeit 1/128 – selten, aber nicht unmöglich. Es ist ein Verdacht, kein Beweis. Mehr Würfe würden helfen.",
+   "h": "Ist ein seltenes Ereignis unmöglich?",
+   "g": "begruenden"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus einer Urne mit 3 roten und 1 blauen Kugel wird eine gezogen, notiert wird die Farbe. Ist das ein Laplace-Experiment?"
+   },
+   "a": [
+    "Nein, rot ist wahrscheinlicher als blau.",
+    "Ja, es gibt zwei Ergebnisse.",
+    "Ja, jede Kugel ist gleich wahrscheinlich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ergebnisse sind die Farben: P(rot) = 3/4, P(blau) = 1/4 – nicht gleich wahrscheinlich.",
+   "h": "Was sind hier die Ergebnisse: Kugeln oder Farben?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Experiment ist ein Laplace-Experiment?"
+   },
+   "a": [
+    "aus 2 roten und 1 blauen Kugel eine ziehen und die Farbe notieren",
+    "eine Reißzwecke werfen",
+    "aus 1 roten, 1 blauen und 1 grünen Kugel eine ziehen und die Farbe notieren",
+    "zwei Würfel werfen und die Augensumme notieren"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nur bei je einer Kugel pro Farbe sind die drei Farben gleich wahrscheinlich.",
+   "h": "Prüfe jeweils, ob alle Ergebnisse gleich wahrscheinlich sind."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Strichliste nach 600 Würfen eines Würfels zeigt: 1: 98, 2: 103, 3: 97, 4: 101, 5: 99, 6: 102. Was passt am besten?"
+   },
+   "a": [
+    "Die 2 ist sicher wahrscheinlicher als die 3.",
+    "Man kann aus der Liste gar nichts schließen.",
+    "Der Würfel ist gezinkt, weil nicht alle Zahlen gleich oft kamen.",
+    "Der Würfel verhält sich wie ein Laplace-Würfel."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Erwartet sind je etwa 100. Abweichungen von wenigen Würfen sind bei Zufall normal – nichts spricht gegen gleich wahrscheinliche Augenzahlen.",
+   "h": "Wie oft erwartest du jede Zahl bei 600 Würfen?"
   },
   {
    "l": "laplace_pruefen",
@@ -2905,54 +3345,6 @@
    "l": "laplace_pruefen",
    "t": "laplace_pruefen",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Glücksrad hat die Felder A 30°, B 60°, C 60°, D 150°, E 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
-    "grafik": {
-     "typ": "kreisdiagramm",
-     "einheit": "°",
-     "werte": [
-      {
-       "name": "A",
-       "wert": 30
-      },
-      {
-       "name": "B",
-       "wert": 60
-      },
-      {
-       "name": "C",
-       "wert": 60
-      },
-      {
-       "name": "D",
-       "wert": 150
-      },
-      {
-       "name": "E",
-       "wert": 60
-      }
-     ],
-     "zahlen": true
-    }
-   },
-   "a": [
-    "Ja, alle Felder sind gleich groß.",
-    "Ja, weil es 5 Felder gibt.",
-    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
-    "Nein, die Felder sind verschieden groß."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Größere Felder werden häufiger getroffen.",
-   "h": "Vergleiche die Winkel der Felder."
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -2968,30 +3360,7 @@
     "index": 0
    },
    "w": "Alle Ergebnisse sind gleich wahrscheinlich.",
-   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?",
-   "g": "erkennen"
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Münze zeigte 7-mal hintereinander Wappen. Ist sie deshalb sicher gezinkt?"
-   },
-   "a": [
-    "Ja: Jetzt muss Zahl kommen.",
-    "Ja: Bei einer fairen Münze geht das nicht.",
-    "Nein: Das ist bei einer fairen Münze selten, aber möglich.",
-    "Nein: Bei 7 Würfen kommt immer 7-mal dasselbe."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei einer fairen Münze hat „7-mal Wappen“ die Wahrscheinlichkeit 1/128 – selten, aber nicht unmöglich. Es ist ein Verdacht, kein Beweis. Mehr Würfe würden helfen.",
-   "h": "Ist ein seltenes Ereignis unmöglich?",
-   "g": "begruenden"
+   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?"
   },
   {
    "l": "laplace_pruefen",
@@ -3012,115 +3381,7 @@
     "index": 2
    },
    "w": "Alle Ergebnisse sind gleich wahrscheinlich.",
-   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?",
-   "g": "erkennen"
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Glücksrad hat die Felder A 90°, B 90°, C 90°, D 90°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
-    "grafik": {
-     "typ": "kreisdiagramm",
-     "einheit": "°",
-     "werte": [
-      {
-       "name": "A",
-       "wert": 90
-      },
-      {
-       "name": "B",
-       "wert": 90
-      },
-      {
-       "name": "C",
-       "wert": 90
-      },
-      {
-       "name": "D",
-       "wert": 90
-      }
-     ],
-     "zahlen": true
-    }
-   },
-   "a": [
-    "Nein, dafür braucht man genau 6 Felder.",
-    "Ja, alle Felder sind gleich groß.",
-    "Nein, die Felder sind verschieden groß.",
-    "Nein, ein Glücksrad ist nie ein Laplace-Experiment."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gleich große Felder → gleich wahrscheinlich.",
-   "h": "Vergleiche die Winkel der Felder.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist das ein Laplace-Experiment? Ein Glücksrad mit 10 gleich großen Feldern."
-   },
-   "a": [
-    "Nein, bei Zufallsexperimenten weiß man das nie.",
-    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich.",
-    "Ja, weil es zwei oder mehr Ergebnisse gibt.",
-    "Ja, alle Ergebnisse sind gleich wahrscheinlich."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Alle Ergebnisse sind gleich wahrscheinlich.",
-   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?",
-   "g": "erkennen"
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Glücksrad hat die Felder A 120°, B 180°, C 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
-    "grafik": {
-     "typ": "kreisdiagramm",
-     "einheit": "°",
-     "werte": [
-      {
-       "name": "A",
-       "wert": 120
-      },
-      {
-       "name": "B",
-       "wert": 180
-      },
-      {
-       "name": "C",
-       "wert": 60
-      }
-     ],
-     "zahlen": true
-    }
-   },
-   "a": [
-    "Nein, die Felder sind verschieden groß.",
-    "Ja, alle Felder sind gleich groß.",
-    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
-    "Ja, weil es 3 Felder gibt."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Größere Felder werden häufiger getroffen.",
-   "h": "Vergleiche die Winkel der Felder."
+   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?"
   },
   {
    "l": "laplace_pruefen",
@@ -3263,6 +3524,22 @@
     "index": 3
    },
    "w": "Größere Felder werden häufiger getroffen."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat ein Gewinnfeld mit 72°. Wie groß ist die Gewinnwahrscheinlichkeit in Prozent?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "72 / 360 * 100",
+   "w": "Gegeben: Gewinnfeld 72°. Gesucht: P(Gewinn) in %. Ansatz: 72 : 360. Rechnung: 0,2 = 20 %. Antwort: Sie beträgt 20 %."
   },
   {
    "l": "laplace_pruefen",
@@ -3491,6 +3768,126 @@
   {
    "l": "laplace_pruefen",
    "t": "laplace_pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf dem Schulfest wird ein Rad mit 8 gleich großen Feldern gedreht, 2 Felder gewinnen. Wie groß ist die Gewinnwahrscheinlichkeit?"
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "2 / 8",
+   "w": "Gegeben: 8 gleiche Felder, 2 Gewinne. Gesucht: P(Gewinn). Ansatz: 2 : 8. Rechnung: 0,25. Antwort: Sie beträgt 0,25."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 90°, B 90°, C 90°, D 90°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
+    "grafik": {
+     "typ": "kreisdiagramm",
+     "einheit": "°",
+     "werte": [
+      {
+       "name": "A",
+       "wert": 90
+      },
+      {
+       "name": "B",
+       "wert": 90
+      },
+      {
+       "name": "C",
+       "wert": 90
+      },
+      {
+       "name": "D",
+       "wert": 90
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "a": [
+    "Nein, dafür braucht man genau 6 Felder.",
+    "Ja, alle Felder sind gleich groß.",
+    "Nein, die Felder sind verschieden groß.",
+    "Nein, ein Glücksrad ist nie ein Laplace-Experiment."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gleich große Felder → gleich wahrscheinlich.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Ein Glücksrad mit 10 gleich großen Feldern."
+   },
+   "a": [
+    "Nein, bei Zufallsexperimenten weiß man das nie.",
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich.",
+    "Ja, weil es zwei oder mehr Ergebnisse gibt.",
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Alle Ergebnisse sind gleich wahrscheinlich.",
+   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 120°, B 180°, C 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?",
+    "grafik": {
+     "typ": "kreisdiagramm",
+     "einheit": "°",
+     "werte": [
+      {
+       "name": "A",
+       "wert": 120
+      },
+      {
+       "name": "B",
+       "wert": 180
+      },
+      {
+       "name": "C",
+       "wert": 60
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "a": [
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, alle Felder sind gleich groß.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
+    "Ja, weil es 3 Felder gibt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Größere Felder werden häufiger getroffen.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
    "p": "uebung",
    "s": 2,
    "y": "auswahl",
@@ -3535,27 +3932,6 @@
    },
    "w": "Größere Felder werden häufiger getroffen.",
    "h": "Vergleiche die Winkel der Felder."
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Aus einer Urne mit 3 roten und 1 blauen Kugel wird eine gezogen, notiert wird die Farbe. Ist das ein Laplace-Experiment?"
-   },
-   "a": [
-    "Nein, rot ist wahrscheinlicher als blau.",
-    "Ja, es gibt zwei Ergebnisse.",
-    "Ja, jede Kugel ist gleich wahrscheinlich."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Ergebnisse sind die Farben: P(rot) = 3/4, P(blau) = 1/4 – nicht gleich wahrscheinlich.",
-   "h": "Was sind hier die Ergebnisse: Kugeln oder Farben?",
-   "g": "einkleidung"
   },
   {
    "l": "laplace_pruefen",
@@ -3702,51 +4078,6 @@
    "t": "laplace_pruefen",
    "p": "uebung",
    "s": 3,
-   "g": "pruefung",
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Experiment ist ein Laplace-Experiment?"
-   },
-   "a": [
-    "aus 2 roten und 1 blauen Kugel eine ziehen und die Farbe notieren",
-    "eine Reißzwecke werfen",
-    "aus 1 roten, 1 blauen und 1 grünen Kugel eine ziehen und die Farbe notieren",
-    "zwei Würfel werfen und die Augensumme notieren"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nur bei je einer Kugel pro Farbe sind die drei Farben gleich wahrscheinlich.",
-   "h": "Prüfe jeweils, ob alle Ergebnisse gleich wahrscheinlich sind."
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
-   "s": 2,
-   "g": "darstellung",
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Strichliste nach 600 Würfen eines Würfels zeigt: 1: 98, 2: 103, 3: 97, 4: 101, 5: 99, 6: 102. Was passt am besten?"
-   },
-   "a": [
-    "Die 2 ist sicher wahrscheinlicher als die 3.",
-    "Man kann aus der Liste gar nichts schließen.",
-    "Der Würfel ist gezinkt, weil nicht alle Zahlen gleich oft kamen.",
-    "Der Würfel verhält sich wie ein Laplace-Würfel."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Erwartet sind je etwa 100. Abweichungen von wenigen Würfen sind bei Zufall normal – nichts spricht gegen gleich wahrscheinliche Augenzahlen.",
-   "h": "Wie oft erwartest du jede Zahl bei 600 Würfen?"
-  },
-  {
-   "l": "laplace_pruefen",
-   "t": "laplace_pruefen",
-   "p": "uebung",
-   "s": 3,
-   "g": "begruenden",
    "y": "auswahl",
    "f": {
     "text": "Ein Quader-Würfel ist 1 cm × 2 cm × 3 cm groß; die Flächen sind mit 1 bis 6 beschriftet. Warum ist Werfen damit kein Laplace-Experiment?"
@@ -3762,6 +4093,85 @@
    },
    "w": "Ein Körper landet bevorzugt auf großen, stabilen Flächen. Gleich wahrscheinlich sind die Seiten nur bei einem symmetrischen Würfel.",
    "h": "Welche Seite ist am stabilsten?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind wirft eine Reißzwecke und sagt: „Sie landet auf dem Kopf oder auf der Seite, also jeweils mit der Wahrscheinlichkeit 1/2.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: Es gibt zwei Ergebnisse, also je 1/2.",
+    "Falsch: Die Wahrscheinlichkeit ist je 1/3.",
+    "Richtig, wie bei einer Münze.",
+    "Falsch: Die beiden Lagen sind nicht gleich wahrscheinlich, das ist kein Laplace-Experiment."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: Reißzwecke, zwei mögliche Lagen. Gesucht: Gilt P = 1/2? Ansatz: Laplace nur, wenn alle Ergebnisse gleich wahrscheinlich sind. Rechnung: Form und Gewicht sind ungleich verteilt. Antwort: Die Aussage ist falsch; man muss die Wahrscheinlichkeit durch Versuche schätzen.",
+   "h": "Sind beide Lagen wirklich gleich wahrscheinlich?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad auf dem Schulfest hat ein Gewinnfeld mit 45° und ein Nietenfeld mit 315°. Wie groß ist die Gewinnwahrscheinlichkeit?"
+   },
+   "o": {
+    "wert": 0.125
+   },
+   "c": "45 / 360",
+   "w": "Gegeben: Gewinnfeld 45° von 360°. Gesucht: P(Gewinn). Ansatz: Anteil des Winkels am Vollkreis. Rechnung: 45 : 360 = 0,125. Antwort: Die Gewinnwahrscheinlichkeit ist 0,125.",
+   "h": "Welcher Teil des ganzen Kreises ist das Gewinnfeld?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad für das Schulfest soll so geteilt werden, dass der Hauptgewinn mit 5 % und ein Trostpreis mit 25 % kommt, der Rest ist Niete. Wie groß muss der Winkel des Nietenfeldes sein?"
+   },
+   "o": {
+    "wert": 252,
+    "einheit": "°"
+   },
+   "c": "(100 - 5 - 25) / 100 * 360",
+   "w": "Gegeben: Hauptgewinn 5 %, Trostpreis 25 %. Gesucht: Winkel des Nietenfeldes. Ansatz: Erst den Anteil der Nieten, dann · 360°. Rechnung: 100 − 5 − 25 = 70 %. 0,7 · 360° = 252°. Antwort: Das Nietenfeld braucht 252°.",
+   "h": "Welcher Anteil bleibt für die Nieten?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Box liegen 4 Zettel: auf 3 steht „Kino“, auf 1 „Zoo“. Jemand sagt: „Es kommt Kino oder Zoo, also je 50 %.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: P(Zoo) = 75 %.",
+    "Falsch: P(Kino) = 1/3.",
+    "Falsch: P(Kino) = 3/4 = 75 %.",
+    "Richtig: zwei Ergebnisse, je 50 %."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: 3 Kino-Zettel, 1 Zoo-Zettel. Gesucht: Stimmt „je 50 %“? Ansatz: Gleich wahrscheinlich sind die Zettel, nicht die Wörter. Rechnung: P(Kino) = 3 : 4 = 0,75. Antwort: Die Aussage ist falsch: Kino kommt mit 75 %.",
+   "h": "Welche Ergebnisse sind wirklich gleich wahrscheinlich?"
   },
   {
    "l": "laplace_pruefen",
@@ -4030,35 +4440,40 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
+   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Die Wahrscheinlichkeit, dass ein Bus pünktlich ist, beträgt 88 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?"
+    "text": "In einer Tüte sind 20 Gummibärchen, 7 davon rot. Wie groß ist die Wahrscheinlichkeit, KEIN rotes zu ziehen? Gib sie als Dezimalzahl an."
    },
    "o": {
-    "wert": 12,
-    "einheit": "%"
+    "wert": 0.65
    },
-   "c": "100 - 88",
-   "w": "P(Ē) = 100 % − 88 % = 12 %.",
-   "h": "P(Ē) = 1 − P(E), also 100 % − P(E)."
+   "c": "13 / 20",
+   "w": "20 − 7 = 13 nicht rote: 13/20 = 0,65 (oder 1 − 0,35).",
+   "h": "Zähle die nicht roten oder rechne mit dem Gegenereignis."
   },
   {
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "s": 2,
+   "g": "umkehr",
+   "y": "auswahl",
    "f": {
-    "text": "Die Wahrscheinlichkeit, dass ein Elfmeter verwandelt wird, beträgt 82 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht verwandelt wird (in %)?"
+    "text": "Das Gegenereignis von E ist „höchstens eine Sechs bei drei Würfen“. Wie heißt E?"
    },
+   "a": [
+    "genau eine Sechs",
+    "keine Sechs",
+    "mindestens zwei Sechsen",
+    "höchstens zwei Sechsen"
+   ],
    "o": {
-    "wert": 18,
-    "einheit": "%"
+    "index": 2
    },
-   "c": "100 - 82",
-   "w": "Gegenereignis: P(Ē) = 100 % − 82 % = 18 %.",
-   "h": "P(Ē) = 1 − P(E), also 100 % − P(E)."
+   "w": "Höchstens eine heißt 0 oder 1. Alles andere – 2 oder 3 Sechsen – ist „mindestens zwei“.",
+   "h": "Welche Anzahlen sind in „höchstens eine“ enthalten, welche nicht?"
   },
   {
    "l": "gegenereignis",
@@ -4243,6 +4658,93 @@
   {
    "l": "gegenereignis",
    "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handyakku hält mit der Wahrscheinlichkeit 0,92 einen ganzen Tag. Wie groß ist die Wahrscheinlichkeit, dass er vorher leer ist?"
+   },
+   "o": {
+    "wert": 0.08
+   },
+   "c": "1 - 0.92",
+   "w": "Gegeben: P(hält) = 0,92. Gesucht: P(vorher leer). Ansatz: 1 − 0,92. Rechnung: 0,08. Antwort: Die Wahrscheinlichkeit ist 0,08."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Losbude gewinnen 15 % der Lose. Wie viel Prozent der Lose sind Nieten?"
+   },
+   "o": {
+    "wert": 85,
+    "einheit": "%"
+   },
+   "c": "100 - 15",
+   "w": "Gegeben: 15 % Gewinne. Gesucht: Anteil der Nieten. Ansatz: Gegenereignis. Rechnung: 100 − 15 = 85. Antwort: 85 % sind Nieten."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Warum gilt P(E) + P(Ē) = 1?"
+   },
+   "a": [
+    "Weil man immer 100 Versuche macht.",
+    "Das gilt nur bei Würfeln.",
+    "Weil beide Wahrscheinlichkeiten 0,5 sind.",
+    "Bei jedem Versuch tritt genau eines von beiden ein."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "E und Ē teilen den Ergebnisraum ohne Überschneidung auf. Zusammen sind sie sicher – das hat die Wahrscheinlichkeit 1.",
+   "h": "Kann beides gleichzeitig passieren? Kann keines passieren?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Wahrscheinlichkeit, dass ein Bus pünktlich ist, beträgt 88 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "%"
+   },
+   "c": "100 - 88",
+   "w": "P(Ē) = 100 % − 88 % = 12 %.",
+   "h": "P(Ē) = 1 − P(E), also 100 % − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Wahrscheinlichkeit, dass ein Elfmeter verwandelt wird, beträgt 82 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht verwandelt wird (in %)?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "%"
+   },
+   "c": "100 - 82",
+   "w": "Gegenereignis: P(Ē) = 100 % − 82 % = 18 %.",
+   "h": "P(Ē) = 1 − P(E), also 100 % − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
@@ -4382,45 +4884,6 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "In einer Tüte sind 20 Gummibärchen, 7 davon rot. Wie groß ist die Wahrscheinlichkeit, KEIN rotes zu ziehen? Gib sie als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.65
-   },
-   "c": "13 / 20",
-   "w": "20 − 7 = 13 nicht rote: 13/20 = 0,65 (oder 1 − 0,35).",
-   "h": "Zähle die nicht roten oder rechne mit dem Gegenereignis."
-  },
-  {
-   "l": "gegenereignis",
-   "t": "gegenereignis",
-   "p": "uebung",
-   "s": 2,
-   "g": "umkehr",
-   "y": "auswahl",
-   "f": {
-    "text": "Das Gegenereignis von E ist „höchstens eine Sechs bei drei Würfen“. Wie heißt E?"
-   },
-   "a": [
-    "genau eine Sechs",
-    "keine Sechs",
-    "mindestens zwei Sechsen",
-    "höchstens zwei Sechsen"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Höchstens eine heißt 0 oder 1. Alles andere – 2 oder 3 Sechsen – ist „mindestens zwei“.",
-   "h": "Welche Anzahlen sind in „höchstens eine“ enthalten, welche nicht?"
-  },
-  {
-   "l": "gegenereignis",
-   "t": "gegenereignis",
-   "p": "uebung",
    "s": 3,
    "g": "fehler",
    "y": "auswahl",
@@ -4443,23 +4906,76 @@
    "l": "gegenereignis",
    "t": "gegenereignis",
    "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zug ist mit der Wahrscheinlichkeit 0,85 pünktlich. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist?"
+   },
+   "o": {
+    "wert": 0.15
+   },
+   "c": "1 - 0.85",
+   "w": "Gegeben: P(pünktlich) = 0,85. Gesucht: P(nicht pünktlich). Ansatz: Gegenereignis: 1 − P. Rechnung: 1 − 0,85 = 0,15. Antwort: Die Wahrscheinlichkeit ist 0,15.",
+   "h": "Beide zusammen ergeben was?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Tombola gewinnen 30 % der Lose nicht. Wie groß ist die Gewinnwahrscheinlichkeit in Prozent?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "%"
+   },
+   "c": "100 - 30",
+   "w": "Gegeben: 30 % Nieten. Gesucht: Gewinnwahrscheinlichkeit. Ansatz: Gewinn ist das Gegenereignis von Niete. Rechnung: 100 % − 30 % = 70 %. Antwort: Die Gewinnwahrscheinlichkeit ist 70 %.",
+   "h": "Was ist das Gegenteil von „nicht gewinnen“?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Der Wetterdienst sagt für Samstag 35 % Regen voraus, dazu 22 °C und Wind mit 15 km/h. Wie groß ist die Wahrscheinlichkeit in Prozent, dass es nicht regnet?"
+   },
+   "o": {
+    "wert": 65,
+    "einheit": "%"
+   },
+   "c": "100 - 35",
+   "w": "Gegeben: P(Regen) = 35 %. Temperatur und Wind spielen keine Rolle. Gesucht: P(kein Regen). Ansatz: Gegenereignis. Rechnung: 100 − 35 = 65. Antwort: Mit 65 % regnet es nicht.",
+   "h": "Welche Angabe gehört zum Ereignis „Regen“?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
    "s": 3,
    "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Warum gilt P(E) + P(Ē) = 1?"
+    "text": "Ein Bus hat mit der Wahrscheinlichkeit 0,2 Verspätung. Jemand sagt: „Dann kommt er in 80 % der Fälle zu früh.“ Was stimmt?"
    },
    "a": [
-    "Weil man immer 100 Versuche macht.",
-    "Das gilt nur bei Würfeln.",
-    "Weil beide Wahrscheinlichkeiten 0,5 sind.",
-    "Bei jedem Versuch tritt genau eines von beiden ein."
+    "Falsch: Er kommt in 20 % der Fälle zu früh.",
+    "Richtig, denn 1 − 0,2 = 0,8.",
+    "Falsch: 80 % heißt „keine Verspätung“, also pünktlich oder zu früh.",
+    "Richtig, das ist das Gegenereignis."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "E und Ē teilen den Ergebnisraum ohne Überschneidung auf. Zusammen sind sie sicher – das hat die Wahrscheinlichkeit 1.",
-   "h": "Kann beides gleichzeitig passieren? Kann keines passieren?"
+   "w": "Gegeben: P(Verspätung) = 0,2. Gesucht: Was bedeutet 0,8? Ansatz: Das Gegenereignis von „Verspätung“ ist „keine Verspätung“. Rechnung: 1 − 0,2 = 0,8 für „keine Verspätung“. Antwort: Die Aussage ist falsch: Die 80 % umfassen pünktlich und zu früh.",
+   "h": "Was genau ist das Gegenteil von „Verspätung“?"
   },
   {
    "l": "gegenereignis",
@@ -4516,18 +5032,23 @@
    "l": "grosse_zahlen",
    "t": "grosse_zahlen",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Wie oft erwartest du bei 100 Versuchen ungefähr „rot“ beim Glücksrad mit 5 gleichen Feldern, davon 3 rot?"
+    "text": "Welche Aussage ist FALSCH?"
    },
+   "a": [
+    "Je öfter man eine Münze wirft, desto näher liegt meist der Anteil der Wappen bei 0,5.",
+    "Bei 6000 Würfen eines fairen Würfels kommt die Sechs ungefähr 1000-mal.",
+    "Mit vielen Versuchen kann man eine unbekannte Wahrscheinlichkeit gut schätzen.",
+    "Wenn beim Roulette fünfmal Rot kam, muss jetzt Schwarz kommen."
+   ],
    "o": {
-    "wert": 60
+    "index": 3
    },
-   "c": "100 * 3 / 5",
-   "w": "Erwartet: n · P = 100 · 3/5 = 60. Das tatsächliche Ergebnis schwankt um diesen Wert.",
-   "h": "Anzahl der Versuche mal Wahrscheinlichkeit.",
-   "g": "mehrschritt"
+   "w": "Falsch: Wenn beim Roulette fünfmal Rot kam, muss jetzt Schwarz kommen. Die relative Häufigkeit nähert sich nur ungefähr an, genaue Vorhersagen sind unmöglich.",
+   "h": "Achte auf Wörter wie „genau“, „immer“ und „muss“.",
+   "g": "begruenden"
   },
   {
    "l": "grosse_zahlen",
@@ -4553,16 +5074,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Kronkorken landete bei 500 Würfen 224-mal mit der Öffnung nach oben. Schätze die Wahrscheinlichkeit dafür auf zwei Nachkommastellen."
+    "text": "Wie oft erwartest du bei 100 Versuchen ungefähr „rot“ beim Glücksrad mit 5 gleichen Feldern, davon 3 rot?"
    },
    "o": {
-    "wert": 0.45,
-    "toleranz": 0.01
+    "wert": 60
    },
-   "c": "round(224 / 500, 2)",
-   "w": "Bei vielen Würfen ist die relative Häufigkeit eine gute Schätzung: 224 : 500 = 0,448 ≈ 0,45.",
-   "h": "Relative Häufigkeit bei vielen Versuchen = Schätzwert für die Wahrscheinlichkeit.",
-   "g": "umkehr"
+   "c": "100 * 3 / 5",
+   "w": "Erwartet: n · P = 100 · 3/5 = 60. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit.",
+   "g": "mehrschritt"
   },
   {
    "l": "grosse_zahlen",
@@ -4585,23 +5105,19 @@
    "l": "grosse_zahlen",
    "t": "grosse_zahlen",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH?"
+    "text": "Ein Kronkorken landete bei 500 Würfen 224-mal mit der Öffnung nach oben. Schätze die Wahrscheinlichkeit dafür auf zwei Nachkommastellen."
    },
-   "a": [
-    "Je öfter man eine Münze wirft, desto näher liegt meist der Anteil der Wappen bei 0,5.",
-    "Bei 6000 Würfen eines fairen Würfels kommt die Sechs ungefähr 1000-mal.",
-    "Mit vielen Versuchen kann man eine unbekannte Wahrscheinlichkeit gut schätzen.",
-    "Wenn beim Roulette fünfmal Rot kam, muss jetzt Schwarz kommen."
-   ],
    "o": {
-    "index": 3
+    "wert": 0.45,
+    "toleranz": 0.01
    },
-   "w": "Falsch: Wenn beim Roulette fünfmal Rot kam, muss jetzt Schwarz kommen. Die relative Häufigkeit nähert sich nur ungefähr an, genaue Vorhersagen sind unmöglich.",
-   "h": "Achte auf Wörter wie „genau“, „immer“ und „muss“.",
-   "g": "begruenden"
+   "c": "round(224 / 500, 2)",
+   "w": "Bei vielen Würfen ist die relative Häufigkeit eine gute Schätzung: 224 : 500 = 0,448 ≈ 0,45.",
+   "h": "Relative Häufigkeit bei vielen Versuchen = Schätzwert für die Wahrscheinlichkeit.",
+   "g": "umkehr"
   },
   {
    "l": "grosse_zahlen",
@@ -4641,6 +5157,67 @@
    "w": "Erwartet: n · P = 40 · 3/4 = 30. Das tatsächliche Ergebnis schwankt um diesen Wert.",
    "h": "Anzahl der Versuche mal Wahrscheinlichkeit.",
    "g": "direkt"
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Die absolute Anzahl der Wappen liegt bei vielen Würfen immer genau bei der Hälfte.",
+    "Je öfter man eine Münze wirft, desto näher liegt meist der Anteil der Wappen bei 0,5.",
+    "Mit vielen Versuchen kann man eine unbekannte Wahrscheinlichkeit gut schätzen.",
+    "Die relative Häufigkeit kann bei wenigen Versuchen stark von der Wahrscheinlichkeit abweichen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Die absolute Anzahl der Wappen liegt bei vielen Würfen immer genau bei der Hälfte. Die relative Häufigkeit nähert sich nur ungefähr an, genaue Vorhersagen sind unmöglich.",
+   "h": "Achte auf Wörter wie „genau“, „immer“ und „muss“.",
+   "g": "begruenden"
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird 300-mal geworfen. Wie oft erwartest du ungefähr eine Zahl größer als 4?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "300 * 2 / 6",
+   "w": "Größer als 4: 5 oder 6, P = 2/6. Erwartet: 300 · 2/6 = 100.",
+   "h": "Bestimme zuerst die Wahrscheinlichkeit.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 1/3 „rot“. Es wird 180-mal gedreht. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Ungefähr 60-mal kommt rot, genau vorhersagen kann man es nicht.",
+    "Genau 60-mal kommt rot.",
+    "Rot kommt höchstens 60-mal.",
+    "Das kann man nicht abschätzen, weil es Zufall ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Erwartungswert: 180 · 1/3 = 60. Das ist eine Schätzung – es können auch 55 oder 66 sein. Zufall heißt nicht, dass man nichts abschätzen kann.",
+   "h": "Was erwartest du, und wie sicher ist das?",
+   "g": "pruefung"
   },
   {
    "l": "grosse_zahlen",
@@ -4692,66 +5269,6 @@
    "w": "Bei vielen Würfen ist die relative Häufigkeit eine gute Schätzung: 656 : 1000 = 0,656 ≈ 0,66.",
    "h": "Relative Häufigkeit bei vielen Versuchen = Schätzwert für die Wahrscheinlichkeit.",
    "g": "umkehr"
-  },
-  {
-   "l": "grosse_zahlen",
-   "t": "grosse_zahlen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie oft erwartest du bei 100 Versuchen ungefähr „rot“ beim Glücksrad mit 10 gleichen Feldern, davon 6 rot?"
-   },
-   "o": {
-    "wert": 60
-   },
-   "c": "100 * 3 / 5",
-   "w": "Erwartet: n · P = 100 · 3/5 = 60. Das tatsächliche Ergebnis schwankt um diesen Wert.",
-   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
-  },
-  {
-   "l": "grosse_zahlen",
-   "t": "grosse_zahlen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist FALSCH?"
-   },
-   "a": [
-    "Die absolute Anzahl der Wappen liegt bei vielen Würfen immer genau bei der Hälfte.",
-    "Je öfter man eine Münze wirft, desto näher liegt meist der Anteil der Wappen bei 0,5.",
-    "Mit vielen Versuchen kann man eine unbekannte Wahrscheinlichkeit gut schätzen.",
-    "Die relative Häufigkeit kann bei wenigen Versuchen stark von der Wahrscheinlichkeit abweichen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Falsch: Die absolute Anzahl der Wappen liegt bei vielen Würfen immer genau bei der Hälfte. Die relative Häufigkeit nähert sich nur ungefähr an, genaue Vorhersagen sind unmöglich.",
-   "h": "Achte auf Wörter wie „genau“, „immer“ und „muss“.",
-   "g": "begruenden"
-  },
-  {
-   "l": "grosse_zahlen",
-   "t": "grosse_zahlen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Serie A: 50 Münzwürfe, 30-mal Wappen. Serie B: 5 000 Münzwürfe, 2 560-mal Wappen. Was stimmt?"
-   },
-   "a": [
-    "A weicht in Anzahl und Anteil stärker ab.",
-    "B weicht in der Anzahl stärker von der Hälfte ab (60 statt 5), aber der Anteil liegt näher an 50 %.",
-    "Beide weichen gleich stark ab, denn beide haben mehr Wappen.",
-    "B weicht in Anzahl und Anteil stärker ab."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "A: Hälfte wäre 25, also 5 mehr; Anteil 60 %. B: Hälfte wäre 2 500, also 60 mehr; Anteil 51,2 %. Das Gesetz der großen Zahlen sagt: Der Anteil nähert sich 50 %, die Anzahl muss es nicht.",
-   "h": "Vergleiche getrennt: Abweichung der Anzahl und Abweichung des Anteils.",
-   "g": "verknuepfen"
   },
   {
    "l": "grosse_zahlen",
@@ -4812,6 +5329,21 @@
    },
    "c": "200 * 3 / 5",
    "w": "Erwartet: n · P = 200 · 3/5 = 120. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Lotterie gewinnt jedes 8. Los. Wie viele Gewinne erwartest du bei 480 Losen?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "480 / 8",
+   "w": "Gegeben: P = 1/8, 480 Lose. Gesucht: erwartete Gewinne. Ansatz: n · P. Rechnung: 480 : 8 = 60. Antwort: Etwa 60 Gewinne."
   },
   {
    "l": "grosse_zahlen",
@@ -4909,19 +5441,70 @@
   {
    "l": "grosse_zahlen",
    "t": "grosse_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Erfahrungsgemäß kommen 15 % der angemeldeten Gäste nicht. Mit wie vielen Gästen rechnest du ungefähr bei 240 Anmeldungen?"
+   },
+   "o": {
+    "wert": 204
+   },
+   "c": "240 * 0.85",
+   "w": "Gegeben: 240 Anmeldungen, 15 % kommen nicht. Gesucht: erwartete Gäste. Ansatz: 85 % von 240. Rechnung: 240 · 0,85 = 204. Antwort: Etwa 204 Gäste kommen."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Elfmeterschütze trifft mit der Wahrscheinlichkeit 75 %. Wie viele Treffer erwartest du bei 40 Elfmetern?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "40 * 0.75",
+   "w": "Gegeben: P = 0,75, 40 Schüsse. Gesucht: erwartete Treffer. Ansatz: n · P. Rechnung: 40 · 0,75 = 30. Antwort: Etwa 30 Treffer."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
    "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel wird 300-mal geworfen. Wie oft erwartest du ungefähr eine Zahl größer als 4?"
+    "text": "Wie oft erwartest du bei 100 Versuchen ungefähr „rot“ beim Glücksrad mit 10 gleichen Feldern, davon 6 rot?"
    },
    "o": {
-    "wert": 100
+    "wert": 60
    },
-   "c": "300 * 2 / 6",
-   "w": "Größer als 4: 5 oder 6, P = 2/6. Erwartet: 300 · 2/6 = 100.",
-   "h": "Bestimme zuerst die Wahrscheinlichkeit.",
-   "g": "einkleidung"
+   "c": "100 * 3 / 5",
+   "w": "Erwartet: n · P = 100 · 3/5 = 60. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Serie A: 50 Münzwürfe, 30-mal Wappen. Serie B: 5 000 Münzwürfe, 2 560-mal Wappen. Was stimmt?"
+   },
+   "a": [
+    "A weicht in Anzahl und Anteil stärker ab.",
+    "B weicht in der Anzahl stärker von der Hälfte ab (60 statt 5), aber der Anteil liegt näher an 50 %.",
+    "Beide weichen gleich stark ab, denn beide haben mehr Wappen.",
+    "B weicht in Anzahl und Anteil stärker ab."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: Hälfte wäre 25, also 5 mehr; Anteil 60 %. B: Hälfte wäre 2 500, also 60 mehr; Anteil 51,2 %. Das Gesetz der großen Zahlen sagt: Der Anteil nähert sich 50 %, die Anzahl muss es nicht.",
+   "h": "Vergleiche getrennt: Abweichung der Anzahl und Abweichung des Anteils.",
+   "g": "verknuepfen"
   },
   {
    "l": "grosse_zahlen",
@@ -4939,28 +5522,6 @@
    "w": "P(Gewinn) = 90/360 = 1/4. Erwartet: 1 200 · 1/4 = 300.",
    "h": "Welcher Anteil des Kreises ist 90°?",
    "g": "darstellung"
-  },
-  {
-   "l": "grosse_zahlen",
-   "t": "grosse_zahlen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 1/3 „rot“. Es wird 180-mal gedreht. Welche Aussage stimmt?"
-   },
-   "a": [
-    "Ungefähr 60-mal kommt rot, genau vorhersagen kann man es nicht.",
-    "Genau 60-mal kommt rot.",
-    "Rot kommt höchstens 60-mal.",
-    "Das kann man nicht abschätzen, weil es Zufall ist."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Erwartungswert: 180 · 1/3 = 60. Das ist eine Schätzung – es können auch 55 oder 66 sein. Zufall heißt nicht, dass man nichts abschätzen kann.",
-   "h": "Was erwartest du, und wie sicher ist das?",
-   "g": "pruefung"
   },
   {
    "l": "grosse_zahlen",
@@ -5039,6 +5600,79 @@
    },
    "w": "Der Anteil pendelt sich ein, die Anzahl muss es nicht; und der Zufall „merkt sich“ nichts.",
    "h": "Geht es um Anzahlen oder um Anteile?"
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft Freiwürfe mit der Wahrscheinlichkeit 0,7. Wie viele Treffer erwartest du ungefähr bei 50 Würfen?"
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "50 * 0.7",
+   "w": "Gegeben: P = 0,7, 50 Würfe. Gesucht: erwartete Treffer. Ansatz: n · P. Rechnung: 50 · 0,7 = 35. Antwort: Etwa 35 Treffer.",
+   "h": "Wie viel sind 70 % von 50?"
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "An einer Kreuzung biegen erfahrungsgemäß 30 % der Autos links ab. Wie viele von 400 Autos biegen ungefähr links ab?"
+   },
+   "o": {
+    "wert": 120
+   },
+   "c": "400 * 0.3",
+   "w": "Gegeben: 30 %, 400 Autos. Gesucht: erwartete Anzahl. Ansatz: n · P. Rechnung: 400 · 0,3 = 120. Antwort: Etwa 120 Autos biegen links ab.",
+   "h": "Welchen Anteil von 400 suchst du?"
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Hersteller weiß: 2 % seiner Glühbirnen sind defekt. Ein Laden bestellt 1 250 Stück und will für die defekten Ersatz bereithalten; Ersatz gibt es nur in Packungen zu 10 Stück. Wie viele Packungen sollte er bereithalten?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "-(-(1250 * 2 // 100) // 10)",
+   "w": "Gegeben: 2 % von 1 250, Packungen zu 10. Gesucht: Anzahl der Packungen. Ansatz: Erwartete defekte Birnen, dann durch 10 und aufrunden. Rechnung: 1 250 · 0,02 = 25. 25 : 10 = 2,5. Antwort: Er sollte 3 Packungen bereithalten.",
+   "h": "Wie viele defekte Birnen erwartest du, und reichen 2 Packungen?"
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kronkorken landete bei 20 Würfen 14-mal auf dem Rücken, bei 1 000 Würfen 560-mal. Welcher Wert schätzt die Wahrscheinlichkeit für „Rücken“ besser?"
+   },
+   "a": [
+    "0,7 – er ist größer.",
+    "Beide sind gleich gut.",
+    "0,63 – der Mittelwert aus beiden.",
+    "0,56 – er beruht auf viel mehr Würfen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: 20 Würfe: 0,7. 1 000 Würfe: 0,56. Gesucht: besserer Schätzwert. Ansatz: Gesetz der großen Zahlen: Viele Versuche schwanken weniger. Rechnung: Bei 1 000 Würfen ist die relative Häufigkeit stabiler. Antwort: 0,56 ist der bessere Schätzwert.",
+   "h": "Welche Messreihe ist zuverlässiger?"
   },
   {
    "l": "grosse_zahlen",

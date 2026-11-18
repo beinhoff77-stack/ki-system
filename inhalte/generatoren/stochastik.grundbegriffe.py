@@ -779,6 +779,112 @@ ST.knobel('grosse_zahlen', SA('Ein Kronkorken lag bei 1 000 Würfen 380-mal „o
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('stochastik.grundbegriffe', 22_8_13)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+# --- begriffe ---
+TX.u('begriffe', 'einkleidung', TZ('Bei einer Tombola gibt es Lose mit den Nummern 1 bis 50. Gewinn gibt es für jede Nummer, die durch 10 teilbar ist. Wie viele Ergebnisse gehören zum Ereignis „Gewinn“?', '50 // 10',
+    TW('Nummern 1 bis 50, Gewinn bei Vielfachen von 10.', 'Anzahl der Ergebnisse im Ereignis.', 'Alle passenden Nummern aufzählen.', '10, 20, 30, 40, 50.', 'Zum Ereignis „Gewinn“ gehören 5 Ergebnisse.'), 'Schreib die Gewinnnummern auf.'))
+TX.u('begriffe', 'mehrschritt', TZ('In der Pause wird ausgelost, wer den Ball holt und wer ihn zurückbringt. In einem Becher liegen die Namen von 4 Mädchen und 3 Jungen; es wird zweimal ohne Zurücklegen gezogen. Wie viele Ergebnisse hat der Ergebnisraum (Reihenfolge zählt)?', '7 * 6',
+    TW('7 Namen, zwei Züge ohne Zurücklegen, Reihenfolge zählt.', 'Anzahl der Ergebnisse.', 'Erster Zug 7 Möglichkeiten, zweiter nur noch 6.', '7 · 6 = 42.', 'Der Ergebnisraum hat 42 Ergebnisse.'), 'Wie viele Namen sind beim zweiten Zug noch im Becher?'))
+TX.u('begriffe', 'pruefung', TZ('Ein Eiscafé bietet 6 Sorten an, eine Kugel kostet 1,60 €. Ein Kind wählt einen Becher mit zwei verschiedenen Sorten, die Reihenfolge ist egal. Wie viele verschiedene Becher gibt es?', '6 * 5 // 2',
+    TW('6 Sorten, zwei verschiedene, Reihenfolge egal. Der Preis spielt keine Rolle.', 'Anzahl der Becher.', 'Paare mit Reihenfolge zählen und halbieren.', '6 · 5 = 30, jedes Paar doppelt: 30 : 2 = 15.', 'Es gibt 15 verschiedene Becher.'),
+    'Ist Vanille–Erdbeere dasselbe wie Erdbeere–Vanille?'), huerde='ueberfluessig')
+TX.u('begriffe', 'transfer', TZ('Ein Fahrradschloss hat 3 Ringe mit den Ziffern 0 bis 9. Wie viele Codes beginnen mit einer 7 und enden mit einer geraden Ziffer?', '1 * 10 * 5',
+    TW('3 Ringe, Ziffern 0 bis 9; erste Ziffer 7, letzte gerade.', 'Anzahl der passenden Codes.', 'Möglichkeiten je Ring multiplizieren.', '1 · 10 · 5 = 50.', 'Es gibt 50 solche Codes.'), 'Wie viele Möglichkeiten hat jeder Ring unter den Bedingungen?'), huerde='zwei')
+TX.s('begriffe', TZ('Für die Sitzordnung werden die Plätze 1 bis 30 verlost. Wer eine Nummer über 25 zieht, sitzt am Fenster. Wie viele Ergebnisse gehören zum Ereignis „Fensterplatz“?', '30 - 25',
+    TW('Plätze 1 bis 30, Fenster ab 26.', 'Anzahl der Ergebnisse.', 'Nummern über 25 zählen.', '26, 27, 28, 29, 30.', 'Es sind 5 Ergebnisse.')))
+TX.s('begriffe', TZ('Ein Schulbus hält an 5 Haltestellen. Für zwei Geschwister wird notiert, wo jedes aussteigt (als Paar). Wie viele Ergebnisse hat der Ergebnisraum?', '5 * 5',
+    TW('5 Haltestellen, zwei Kinder.', 'Anzahl der Paare.', 'Jedes Kind hat 5 Möglichkeiten.', '5 · 5 = 25.', 'Der Ergebnisraum hat 25 Ergebnisse.')))
+TX.k('begriffe', TZ('Der Klassensprecher wird aus 12 Kandidaten ausgelost, 5 davon sind Mädchen. Wie viele Ergebnisse gehören zum Ereignis „Ein Junge wird gezogen“?', '12 - 5',
+    TW('12 Kandidaten, 5 Mädchen.', 'Anzahl der Jungen.', '12 − 5.', '7.', 'Zum Ereignis gehören 7 Ergebnisse.')))
+
+# --- rel_haeufigkeit ---
+TX.u('rel_haeufigkeit', 'direkt', TZ('Bei einer Verkehrszählung fuhren in einer Stunde 80 Fahrzeuge vorbei, 20 davon waren Lkw. Wie groß ist die relative Häufigkeit der Lkw?', '20 / 80',
+    TW('80 Fahrzeuge, 20 Lkw.', 'relative Häufigkeit.', 'Anteil = absolute Häufigkeit : Anzahl.', '20 : 80 = 0,25.', 'Die relative Häufigkeit der Lkw ist 0,25.'), 'Teile die Zahl der Lkw durch alle Fahrzeuge.'))
+TX.u('rel_haeufigkeit', 'einkleidung', TZ('In einer Umfrage unter 250 Schülerinnen und Schülern nannten 95 Fußball ihren Lieblingssport. Wie viel Prozent sind das?', '95 / 250 * 100',
+    TW('250 Befragte, 95 Fußball.', 'Anteil in Prozent.', 'Relative Häufigkeit · 100 %.', '95 : 250 = 0,38 = 38 %.', 'Es sind 38 %.'), 'Was ist hier das Ganze?', einheit='%'))
+TX.u('rel_haeufigkeit', 'pruefung', TZ('Ein Basketballspieler trifft im Training 42 von 60 Freiwürfen, im Spiel 15 von 25. Um wie viele Prozentpunkte ist seine Trefferquote im Training höher?', '42 / 60 * 100 - 15 / 25 * 100',
+    TW('Training 42 von 60, Spiel 15 von 25.', 'Unterschied der Quoten.', 'Beide relativen Häufigkeiten in Prozent, dann abziehen.', '42 : 60 = 70 %, 15 : 25 = 60 %; 70 − 60 = 10.', 'Im Training ist die Quote 10 Prozentpunkte höher.'),
+    'Vergleiche Anteile, nicht Trefferzahlen.'), huerde='zwei')
+TX.u('rel_haeufigkeit', 'begruenden', TX.A('In Klasse A kommen 12 von 30 Kindern mit dem Rad, in Klasse B 10 von 20. Eine Schülerzeitung schreibt: „In Klasse A fahren mehr Kinder Rad.“ Was stimmt?',
+    'Absolut stimmt es, aber der Anteil ist in B größer (50 % statt 40 %).', ['Es stimmt, A hat auch den größeren Anteil.', 'Es ist falsch, in B fahren mehr Kinder Rad.', 'Man kann Klassen verschiedener Größe nicht vergleichen.'],
+    TW('A: 12 von 30, B: 10 von 20.', 'Ist die Aussage richtig?', 'Absolute und relative Häufigkeit unterscheiden.', 'A: 12 Kinder, 40 %. B: 10 Kinder, 50 %.', 'In A fahren mehr Kinder, aber in B ein größerer Anteil.'), 'Rechne beide Anteile aus.'), huerde='entscheidung')
+TX.u('rel_haeufigkeit', 'rueckwaerts', TZ('Bei einer Umfrage hatten 18 % der Befragten ein Haustier, das waren 54 Kinder. Wie viele Kinder wurden befragt?', '54 / 0.18',
+    TW('18 % entsprechen 54 Kindern.', 'Anzahl der Befragten.', 'Anzahl = absolute Häufigkeit : relative Häufigkeit.', '54 : 0,18 = 300.', 'Es wurden 300 Kinder befragt.'), 'Wie viele Kinder sind 1 %?'))
+TX.s('rel_haeufigkeit', TZ('Ein Kronkorken wurde 200-mal geworfen und landete 74-mal auf dem Rücken. Wie groß ist die relative Häufigkeit für „Rücken“?', '74 / 200',
+    TW('200 Würfe, 74-mal Rücken.', 'relative Häufigkeit.', '74 : 200.', '0,37.', 'Die relative Häufigkeit ist 0,37.')))
+TX.s('rel_haeufigkeit', TZ('Von 40 verkauften Eisbechern waren 14 mit Schokolade. Wie viel Prozent sind das?', '14 / 40 * 100',
+    TW('40 Becher, 14 Schokolade.', 'Anteil in Prozent.', '14 : 40 · 100 %.', '0,35 = 35 %.', 'Es sind 35 %.'), einheit='%'))
+
+# --- laplace ---
+TX.u('laplace', 'direkt', TZ('Bei einer Tombola gibt es 200 Lose, 40 davon gewinnen. Wie groß ist die Wahrscheinlichkeit, mit einem gekauften Los zu gewinnen?', '40 / 200',
+    TW('200 Lose, 40 Gewinne.', 'Gewinnwahrscheinlichkeit.', 'P = günstige : alle.', '40 : 200 = 0,2.', 'Sie beträgt 0,2.'), 'Wie viele Lose sind günstig, wie viele möglich?'))
+TX.u('laplace', 'einkleidung', TZ('In einer Tüte sind 8 Erdbeer-, 5 Zitronen- und 7 Kirschbonbons. Du greifst blind hinein. Wie groß ist die Wahrscheinlichkeit für Kirsche in Prozent?', '7 / 20 * 100',
+    TW('8 + 5 + 7 = 20 Bonbons, 7 Kirsche.', 'P(Kirsche) in %.', 'P = günstige : alle.', '7 : 20 = 0,35 = 35 %.', 'Die Wahrscheinlichkeit ist 35 %.'), 'Wie viele Bonbons sind es insgesamt?', einheit='%'))
+TX.u('laplace', 'pruefung', TL('Für eine Klassenfahrt werden 28 Kinder auf 7 Viererzimmer verlost, 2 Zimmer haben einen Balkon. Die Jugendherberge liegt 3 km vom Bahnhof entfernt. Wie groß ist die Wahrscheinlichkeit, in ein Balkonzimmer zu kommen? Gib sie gekürzt an.', 'P = □/□', ['2', '7'],
+    TW('28 Plätze, 2 Balkonzimmer zu je 4 Plätzen. Die Entfernung spielt keine Rolle.', 'P(Balkonzimmer).', 'günstige Plätze : alle Plätze.', '8 : 28 = 2/7.', 'Die Wahrscheinlichkeit ist 2/7.'),
+    'Zähle Plätze, nicht Zimmer – oder Zimmer, nicht Plätze; beides geht.', hinweis='Zähler und Nenner, gekürzt.'), huerde='ueberfluessig')
+TX.u('laplace', 'begruenden', TX.A('Losbude A hat 30 Gewinne bei 120 Losen, Losbude B hat 20 Gewinne bei 70 Losen. Wo ist die Gewinnchance größer?',
+    'Bei B (etwa 29 % statt 25 %).', ['Bei A, weil es dort mehr Gewinne gibt.', 'Bei beiden gleich.', 'Bei A (25 % statt 20 %).'],
+    TW('A: 30 von 120, B: 20 von 70.', 'größere Gewinnchance.', 'Beide Wahrscheinlichkeiten berechnen.', 'A: 30 : 120 = 0,25. B: 20 : 70 ≈ 0,286.', 'Bei B ist die Chance größer.'), 'Vergleiche Anteile, nicht Anzahlen.'), huerde='entscheidung')
+
+# --- laplace_pruefen ---
+TX.u('laplace_pruefen', 'einkleidung', TX.A('Ein Kind wirft eine Reißzwecke und sagt: „Sie landet auf dem Kopf oder auf der Seite, also jeweils mit der Wahrscheinlichkeit 1/2.“ Was stimmt?',
+    'Falsch: Die beiden Lagen sind nicht gleich wahrscheinlich, das ist kein Laplace-Experiment.', ['Richtig: Es gibt zwei Ergebnisse, also je 1/2.', 'Richtig, wie bei einer Münze.', 'Falsch: Die Wahrscheinlichkeit ist je 1/3.'],
+    TW('Reißzwecke, zwei mögliche Lagen.', 'Gilt P = 1/2?', 'Laplace nur, wenn alle Ergebnisse gleich wahrscheinlich sind.', 'Form und Gewicht sind ungleich verteilt.', 'Die Aussage ist falsch; man muss die Wahrscheinlichkeit durch Versuche schätzen.'),
+    'Sind beide Lagen wirklich gleich wahrscheinlich?'))
+TX.u('laplace_pruefen', 'darstellung', TZ('Ein Glücksrad auf dem Schulfest hat ein Gewinnfeld mit 45° und ein Nietenfeld mit 315°. Wie groß ist die Gewinnwahrscheinlichkeit?', '45 / 360',
+    TW('Gewinnfeld 45° von 360°.', 'P(Gewinn).', 'Anteil des Winkels am Vollkreis.', '45 : 360 = 0,125.', 'Die Gewinnwahrscheinlichkeit ist 0,125.'), 'Welcher Teil des ganzen Kreises ist das Gewinnfeld?'))
+TX.u('laplace_pruefen', 'pruefung', TZ('Ein Glücksrad für das Schulfest soll so geteilt werden, dass der Hauptgewinn mit 5 % und ein Trostpreis mit 25 % kommt, der Rest ist Niete. Wie groß muss der Winkel des Nietenfeldes sein?', '(100 - 5 - 25) / 100 * 360',
+    TW('Hauptgewinn 5 %, Trostpreis 25 %.', 'Winkel des Nietenfeldes.', 'Erst den Anteil der Nieten, dann · 360°.', '100 − 5 − 25 = 70 %. 0,7 · 360° = 252°.', 'Das Nietenfeld braucht 252°.'), 'Welcher Anteil bleibt für die Nieten?', einheit='°'), huerde='zwei')
+TX.u('laplace_pruefen', 'begruenden', TX.A('In einer Box liegen 4 Zettel: auf 3 steht „Kino“, auf 1 „Zoo“. Jemand sagt: „Es kommt Kino oder Zoo, also je 50 %.“ Was stimmt?',
+    'Falsch: P(Kino) = 3/4 = 75 %.', ['Richtig: zwei Ergebnisse, je 50 %.', 'Falsch: P(Kino) = 1/3.', 'Falsch: P(Zoo) = 75 %.'],
+    TW('3 Kino-Zettel, 1 Zoo-Zettel.', 'Stimmt „je 50 %“?', 'Gleich wahrscheinlich sind die Zettel, nicht die Wörter.', 'P(Kino) = 3 : 4 = 0,75.', 'Die Aussage ist falsch: Kino kommt mit 75 %.'), 'Welche Ergebnisse sind wirklich gleich wahrscheinlich?'), huerde='entscheidung')
+TX.s('laplace_pruefen', TZ('Auf dem Schulfest wird ein Rad mit 8 gleich großen Feldern gedreht, 2 Felder gewinnen. Wie groß ist die Gewinnwahrscheinlichkeit?', '2 / 8',
+    TW('8 gleiche Felder, 2 Gewinne.', 'P(Gewinn).', '2 : 8.', '0,25.', 'Sie beträgt 0,25.')))
+TX.k('laplace_pruefen', TZ('Ein Glücksrad hat ein Gewinnfeld mit 72°. Wie groß ist die Gewinnwahrscheinlichkeit in Prozent?', '72 / 360 * 100',
+    TW('Gewinnfeld 72°.', 'P(Gewinn) in %.', '72 : 360.', '0,2 = 20 %.', 'Sie beträgt 20 %.'), einheit='%'))
+
+# --- gegenereignis ---
+TX.u('gegenereignis', 'einkleidung', TZ('Ein Zug ist mit der Wahrscheinlichkeit 0,85 pünktlich. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist?', '1 - 0.85',
+    TW('P(pünktlich) = 0,85.', 'P(nicht pünktlich).', 'Gegenereignis: 1 − P.', '1 − 0,85 = 0,15.', 'Die Wahrscheinlichkeit ist 0,15.'), 'Beide zusammen ergeben was?'))
+TX.u('gegenereignis', 'umkehr', TZ('Bei einer Tombola gewinnen 30 % der Lose nicht. Wie groß ist die Gewinnwahrscheinlichkeit in Prozent?', '100 - 30',
+    TW('30 % Nieten.', 'Gewinnwahrscheinlichkeit.', 'Gewinn ist das Gegenereignis von Niete.', '100 % − 30 % = 70 %.', 'Die Gewinnwahrscheinlichkeit ist 70 %.'), 'Was ist das Gegenteil von „nicht gewinnen“?', einheit='%'))
+TX.u('gegenereignis', 'pruefung', TZ('Der Wetterdienst sagt für Samstag 35 % Regen voraus, dazu 22 °C und Wind mit 15 km/h. Wie groß ist die Wahrscheinlichkeit in Prozent, dass es nicht regnet?', '100 - 35',
+    TW('P(Regen) = 35 %. Temperatur und Wind spielen keine Rolle.', 'P(kein Regen).', 'Gegenereignis.', '100 − 35 = 65.', 'Mit 65 % regnet es nicht.'), 'Welche Angabe gehört zum Ereignis „Regen“?', einheit='%'), huerde='ueberfluessig')
+TX.u('gegenereignis', 'begruenden', TX.A('Ein Bus hat mit der Wahrscheinlichkeit 0,2 Verspätung. Jemand sagt: „Dann kommt er in 80 % der Fälle zu früh.“ Was stimmt?',
+    'Falsch: 80 % heißt „keine Verspätung“, also pünktlich oder zu früh.', ['Richtig, das ist das Gegenereignis.', 'Falsch: Er kommt in 20 % der Fälle zu früh.', 'Richtig, denn 1 − 0,2 = 0,8.'],
+    TW('P(Verspätung) = 0,2.', 'Was bedeutet 0,8?', 'Das Gegenereignis von „Verspätung“ ist „keine Verspätung“.', '1 − 0,2 = 0,8 für „keine Verspätung“.', 'Die Aussage ist falsch: Die 80 % umfassen pünktlich und zu früh.'),
+    'Was genau ist das Gegenteil von „Verspätung“?'), huerde='entscheidung')
+TX.s('gegenereignis', TZ('Ein Handyakku hält mit der Wahrscheinlichkeit 0,92 einen ganzen Tag. Wie groß ist die Wahrscheinlichkeit, dass er vorher leer ist?', '1 - 0.92',
+    TW('P(hält) = 0,92.', 'P(vorher leer).', '1 − 0,92.', '0,08.', 'Die Wahrscheinlichkeit ist 0,08.')))
+TX.s('gegenereignis', TZ('An einer Losbude gewinnen 15 % der Lose. Wie viel Prozent der Lose sind Nieten?', '100 - 15',
+    TW('15 % Gewinne.', 'Anteil der Nieten.', 'Gegenereignis.', '100 − 15 = 85.', '85 % sind Nieten.'), einheit='%'))
+
+# --- grosse_zahlen ---
+TX.u('grosse_zahlen', 'direkt', TZ('Ein Basketballspieler trifft Freiwürfe mit der Wahrscheinlichkeit 0,7. Wie viele Treffer erwartest du ungefähr bei 50 Würfen?', '50 * 0.7',
+    TW('P = 0,7, 50 Würfe.', 'erwartete Treffer.', 'n · P.', '50 · 0,7 = 35.', 'Etwa 35 Treffer.'), 'Wie viel sind 70 % von 50?'))
+TX.u('grosse_zahlen', 'einkleidung', TZ('An einer Kreuzung biegen erfahrungsgemäß 30 % der Autos links ab. Wie viele von 400 Autos biegen ungefähr links ab?', '400 * 0.3',
+    TW('30 %, 400 Autos.', 'erwartete Anzahl.', 'n · P.', '400 · 0,3 = 120.', 'Etwa 120 Autos biegen links ab.'), 'Welchen Anteil von 400 suchst du?'))
+TX.u('grosse_zahlen', 'pruefung', TZ('Ein Hersteller weiß: 2 % seiner Glühbirnen sind defekt. Ein Laden bestellt 1 250 Stück und will für die defekten Ersatz bereithalten; Ersatz gibt es nur in Packungen zu 10 Stück. Wie viele Packungen sollte er bereithalten?', '-(-(1250 * 2 // 100) // 10)',
+    TW('2 % von 1 250, Packungen zu 10.', 'Anzahl der Packungen.', 'Erwartete defekte Birnen, dann durch 10 und aufrunden.', '1 250 · 0,02 = 25. 25 : 10 = 2,5.', 'Er sollte 3 Packungen bereithalten.'),
+    'Wie viele defekte Birnen erwartest du, und reichen 2 Packungen?'), huerde='deuten')
+TX.u('grosse_zahlen', 'begruenden', TX.A('Ein Kronkorken landete bei 20 Würfen 14-mal auf dem Rücken, bei 1 000 Würfen 560-mal. Welcher Wert schätzt die Wahrscheinlichkeit für „Rücken“ besser?',
+    '0,56 – er beruht auf viel mehr Würfen.', ['0,7 – er ist größer.', 'Beide sind gleich gut.', '0,63 – der Mittelwert aus beiden.'],
+    TW('20 Würfe: 0,7. 1 000 Würfe: 0,56.', 'besserer Schätzwert.', 'Gesetz der großen Zahlen: Viele Versuche schwanken weniger.', 'Bei 1 000 Würfen ist die relative Häufigkeit stabiler.', '0,56 ist der bessere Schätzwert.'),
+    'Welche Messreihe ist zuverlässiger?'), huerde='entscheidung')
+TX.s('grosse_zahlen', TZ('Erfahrungsgemäß kommen 15 % der angemeldeten Gäste nicht. Mit wie vielen Gästen rechnest du ungefähr bei 240 Anmeldungen?', '240 * 0.85',
+    TW('240 Anmeldungen, 15 % kommen nicht.', 'erwartete Gäste.', '85 % von 240.', '240 · 0,85 = 204.', 'Etwa 204 Gäste kommen.')))
+TX.s('grosse_zahlen', TZ('Ein Elfmeterschütze trifft mit der Wahrscheinlichkeit 75 %. Wie viele Treffer erwartest du bei 40 Elfmetern?', '40 * 0.75',
+    TW('P = 0,75, 40 Schüsse.', 'erwartete Treffer.', 'n · P.', '40 · 0,75 = 30.', 'Etwa 30 Treffer.')))
+TX.k('grosse_zahlen', TZ('Bei einer Lotterie gewinnt jedes 8. Los. Wie viele Gewinne erwartest du bei 480 Losen?', '480 / 8',
+    TW('P = 1/8, 480 Lose.', 'erwartete Gewinne.', 'n · P.', '480 : 8 = 60.', 'Etwa 60 Gewinne.')))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundbegriffe', ['begriffe', 'rel_haeufigkeit']), ('Wahrscheinlichkeiten', ['laplace', 'laplace_pruefen', 'gegenereignis']), ('Zufall auf Dauer', ['grosse_zahlen'])],

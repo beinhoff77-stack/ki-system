@@ -1168,6 +1168,101 @@ ST.knobel('sach', SZ('Zahnrad A (36 Zähne) treibt Zahnrad B (24 Zähne), B trei
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('groessen.indirekt', 22_8_14)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+TX.huerde_alt('erkennen', r'Ist die Zuordnung Arbeiter → Zeit indirekt proportional', 'entscheidung')
+TX.huerde_alt('erkennen', r'Ein Handyakku.*Stimmt die Begründung', 'entscheidung')
+TX.huerde_alt('vervielfachen', r'Nach 5 Tagen kommen 3 Tiere dazu', 'zwei')
+TX.huerde_alt('dreisatz', r'Es soll höchstens 6 Stunden dauern', 'deuten')
+TX.huerde_alt('dreisatz', r'weniger als 1,5 Stunden', 'deuten')
+TX.huerde_alt('sach', r'Erst sagen 18 Kinder zu', 'zwei')
+TX.huerde_alt('sach', r'3 Fahrten kosten mit Eintritt 15 €', 'entscheidung')
+
+# --- vervielfachen ---
+TX.u('vervielfachen', 'pruefung', TZ('Für einen Umzug fahren 2 gleich große Transporter je 12-mal. Ein Transporter kostet 90 € Miete am Tag. Wie oft muss jeder Transporter fahren, wenn man 3 davon mietet?', '2 * 12 / 3',
+    TW('2 Transporter je 12 Fahrten; Miete spielt keine Rolle.', 'Fahrten je Transporter bei 3 Transportern.', 'Die Gesamtzahl der Fahrten bleibt gleich: indirekt proportional.', '2 · 12 = 24 Fahrten. 24 : 3 = 8.', 'Jeder Transporter muss 8-mal fahren.'),
+    'Was bleibt gleich, wenn mehr Transporter fahren?'), huerde='ueberfluessig')
+
+# --- produkt ---
+TX.u('produkt', 'direkt', TZ('Ein Gewinn wird gleichmäßig geteilt. Bei 4 Personen bekommt jede 15 €. Wie groß ist der ganze Gewinn?', '4 * 15',
+    TW('4 Personen je 15 €.', 'ganzer Gewinn (das Produkt).', 'Personen · Betrag = Gewinn.', '4 · 15 = 60.', 'Der Gewinn ist 60 €.'), 'Was ergibt Personen mal Betrag?', einheit='€'))
+TX.u('produkt', 'einkleidung', TZ('In ein Fotobuch sollen 120 Fotos, auf jede Seite gleich viele. Mit 4 Fotos pro Seite braucht man 30 Seiten. Wie viele Seiten braucht man mit 6 Fotos pro Seite?', '120 / 6',
+    TW('120 Fotos; 4 pro Seite ergibt 30 Seiten.', 'Seitenzahl bei 6 Fotos pro Seite.', 'Fotos pro Seite · Seiten = 120 bleibt gleich.', '120 : 6 = 20.', 'Man braucht 20 Seiten.'), 'Welches Produkt bleibt immer gleich?'))
+TX.u('produkt', 'darstellung', TX.A('Eine Lehrerin teilt eine Klasse in gleich große Gruppen und notiert: 2 Gruppen mit je 15 Kindern, 3 Gruppen mit je 10, 5 Gruppen mit je 6, 6 Gruppen mit je 4 Kindern. Welche Notiz passt nicht zur selben Klasse?',
+    '6 Gruppen mit je 4 Kindern', ['2 Gruppen mit je 15 Kindern', '3 Gruppen mit je 10 Kindern', '5 Gruppen mit je 6 Kindern'],
+    TW('vier Notizen Gruppen · Kinder.', 'Notiz, die nicht passt.', 'Gleiche Klasse heißt gleiches Produkt.', '2 · 15 = 30, 3 · 10 = 30, 5 · 6 = 30, 6 · 4 = 24.', 'Die Notiz „6 Gruppen mit je 4“ passt nicht – das wären nur 24 Kinder.'),
+    'Wie viele Kinder hat die Klasse nach jeder Notiz?'))
+TX.u('produkt', 'mehrschritt', TZ('24 Personen teilen sich die Kosten für ein Geschenk, jede zahlt 2,50 €. Wie viel müsste jede zahlen, wenn nur 20 mitmachen?', '24 * 2.5 / 20',
+    TW('24 Personen je 2,50 €.', 'Betrag pro Person bei 20 Personen.', 'Erst den Gesamtpreis, dann neu teilen.', '24 · 2,50 = 60 €. 60 : 20 = 3 €.', 'Jede müsste 3 € zahlen.'), 'Was kostet das Geschenk insgesamt?', einheit='€'))
+TX.u('produkt', 'pruefung', TZ('Wer eine Radtour mit 20 km/h fährt, braucht 3 Stunden. Die Strecke führt durch 4 Dörfer und hat 350 Höhenmeter. Wie lange braucht man mit 15 km/h?', '20 * 3 / 15',
+    TW('20 km/h → 3 h. Dörfer und Höhenmeter spielen keine Rolle.', 'Zeit bei 15 km/h.', 'Geschwindigkeit · Zeit = Strecke bleibt gleich.', '20 · 3 = 60 km. 60 : 15 = 4.', 'Man braucht 4 Stunden.'),
+    'Welche Angaben gehören zu „Tempo mal Zeit“?', einheit='h'), huerde='ueberfluessig')
+TX.u('produkt', 'begruenden', TX.A('Ein Bauer misst: 3 Rohre füllen sein Becken in 8 h, 4 Rohre in 6 h, 6 Rohre in 5 h. Er sagt: „Rohre → Zeit ist indirekt proportional.“ Was stimmt?',
+    'Nein: 6 · 5 = 30, die anderen Produkte sind 24.', ['Ja: Mehr Rohre brauchen weniger Zeit.', 'Ja: Alle Produkte sind 24.', 'Nein: 3 · 8 = 11, also passt nichts.'],
+    TW('(3 | 8), (4 | 6), (6 | 5).', 'Ist die Zuordnung indirekt proportional?', 'Alle Produkte vergleichen.', '3 · 8 = 24, 4 · 6 = 24, 6 · 5 = 30.', 'Nicht indirekt proportional: Ein Produkt weicht ab (mit 6 Rohren müssten es 4 h sein).'),
+    '„Je mehr, desto weniger“ reicht nicht – prüfe die Produkte.'), huerde='entscheidung')
+TX.s('produkt', TZ('Für eine Feier werden 96 Stühle in gleich lange Reihen gestellt. Bei 12 Reihen stehen 8 Stühle in jeder Reihe. Wie viele Stühle stehen in jeder Reihe, wenn es 16 Reihen sind?', '96 / 16',
+    TW('96 Stühle, 12 Reihen zu je 8.', 'Stühle pro Reihe bei 16 Reihen.', 'Reihen · Stühle pro Reihe = 96.', '96 : 16 = 6.', 'Es stehen 6 Stühle in jeder Reihe.')))
+TX.s('produkt', TZ('Ein Vorrat Hundefutter reicht für 2 Hunde 18 Tage. Wie viele Tage reicht er für 3 gleich große Hunde?', '2 * 18 / 3',
+    TW('2 Hunde → 18 Tage.', 'Tage bei 3 Hunden.', 'Hunde · Tage bleibt gleich.', '2 · 18 = 36. 36 : 3 = 12.', 'Der Vorrat reicht 12 Tage.'), einheit='Tage'))
+TX.k('produkt', TZ('Ein Kuchenblech wird gerecht geteilt. Bei 6 Personen bekommt jede 4 Stücke. Wie viele Stücke bekommt jede bei 8 Personen?', '6 * 4 / 8',
+    TW('6 Personen je 4 Stücke.', 'Stücke pro Person bei 8 Personen.', 'Personen · Stücke = alle Stücke.', '6 · 4 = 24. 24 : 8 = 3.', 'Jede bekommt 3 Stücke.')))
+
+# --- graph ---
+TX.u('graph', 'direkt', TZ('Alle Rechtecke mit 48 cm² Flächeninhalt: Breite x → Länge y. Wie lang ist das Rechteck mit 8 cm Breite?', '48 / 8',
+    TW('A = 48 cm², x = 8 cm.', 'Länge y.', 'x · y = 48, also y = 48 : x.', 'y = 48 : 8 = 6.', 'Das Rechteck ist 6 cm lang.'), 'Breite mal Länge ergibt immer was?', einheit='cm'))
+TX.u('graph', 'einkleidung', TX.A('Für eine 60-km-Radtour gilt: Geschwindigkeit x (in km/h) → Fahrzeit y (in h). Liegt der Punkt (12 | 6) auf dem Graphen?',
+    'Nein, bei 12 km/h braucht man 5 h.', ['Ja, 12 · 6 = 72 passt.', 'Ja, jeder Punkt mit x und y liegt darauf.', 'Nein, bei 12 km/h braucht man 6,5 h.'],
+    TW('Strecke 60 km, Punkt (12 | 6).', 'Liegt der Punkt auf dem Graphen?', 'Auf dem Graphen gilt x · y = 60.', '12 · 6 = 72 ≠ 60; richtig wäre y = 60 : 12 = 5.', 'Der Punkt liegt nicht darauf: Bei 12 km/h dauert die Tour 5 h.'),
+    'Was ergibt Tempo mal Zeit bei dieser Tour?'))
+TX.u('graph', 'transfer', TZ('Ein Gärtner hat 240 Tulpenzwiebeln und pflanzt sie in Reihen mit gleich vielen Zwiebeln. In eine Reihe passen höchstens 25 Zwiebeln. Wie viele Reihen braucht er mindestens?', '-(-240 // 25)',
+    TW('240 Zwiebeln, höchstens 25 pro Reihe.', 'Mindestzahl der Reihen.', 'Reihen · Zwiebeln pro Reihe = 240; Reihen = 240 : 25, dann aufrunden.', '240 : 25 = 9,6.', 'Er braucht mindestens 10 Reihen (dann 24 pro Reihe).'),
+    'Wie viele Reihen ergibt die Rechnung, und geht eine „halbe“ Reihe?'), huerde='deuten')
+TX.u('graph', 'pruefung', TZ('Für einen 36 km langen Radweg gehört zu jeder Durchschnittsgeschwindigkeit x (in km/h) eine Fahrzeit y (in h). Der Weg führt über 5 Brücken. Bei welcher Geschwindigkeit dauert die Fahrt genau 1,5 Stunden?', '36 / 1.5',
+    TW('Strecke 36 km, y = 1,5 h; die Brücken spielen keine Rolle.', 'Geschwindigkeit x.', 'x · y = 36, also x = 36 : y.', 'x = 36 : 1,5 = 24.', 'Man muss 24 km/h fahren.'), 'Welches Produkt ist bei diesem Graphen immer gleich?', einheit='km/h'), huerde='ueberfluessig')
+TX.u('graph', 'begruenden', TX.A('Für das Aufräumen der Turnhalle zeichnet jemand den Graphen „Anzahl der Helfer → Zeit“ und verlängert die Kurve bis zur y-Achse bei 0 Helfern. Was stimmt?',
+    'Falsch: Bei 0 Helfern gibt es keinen Wert – die Hyperbel trifft die Achse nie.', ['Richtig: Bei 0 Helfern ist die Zeit 0.', 'Richtig: Der Graph ist eine Gerade durch den Ursprung.', 'Falsch: Bei 0 Helfern ist die Zeit 1 h.'],
+    TW('Zuordnung Helfer → Zeit, indirekt proportional.', 'Darf die Kurve die y-Achse treffen?', 'Bei y = k : x ist x = 0 nicht erlaubt.', 'k : 0 gibt es nicht; je weniger Helfer, desto länger dauert es.', 'Die Verlängerung ist falsch: Ohne Helfer wird die Halle nie fertig.'),
+    'Was müsste man bei 0 Helfern rechnen?'), huerde='entscheidung')
+TX.s('graph', TZ('Alle Rechtecke mit 30 m² Flächeninhalt: Breite → Länge. Wie breit ist das Rechteck mit 7,5 m Länge?', '30 / 7.5',
+    TW('A = 30 m², Länge 7,5 m.', 'Breite.', 'Breite · Länge = 30.', '30 : 7,5 = 4.', 'Es ist 4 m breit.'), einheit='m'))
+TX.s('graph', TZ('Für einen 18 km langen Wanderweg gehört zu jeder Geschwindigkeit eine Gehzeit. Wie lange braucht man mit 4,5 km/h?', '18 / 4.5',
+    TW('Strecke 18 km, 4,5 km/h.', 'Gehzeit.', 'Tempo · Zeit = 18.', '18 : 4,5 = 4.', 'Man braucht 4 Stunden.'), einheit='h'))
+TX.k('graph', TZ('Ein Sparziel von 240 € soll mit gleich hohen Monatsraten erreicht werden. Wie hoch ist eine Rate, wenn man 16 Monate spart?', '240 / 16',
+    TW('Sparziel 240 €, 16 Monate.', 'Monatsrate.', 'Rate · Monate = 240.', '240 : 16 = 15.', 'Eine Rate ist 15 €.'), einheit='€'))
+
+# --- unterscheiden ---
+_ART = ['direkt proportional', 'indirekt proportional', 'keins von beiden']
+TX.u('unterscheiden', 'erkennen', TX.A('Im Kino kostet jede Karte 9 €. Welche Zuordnung ist „Anzahl der Karten → Preis“?', 'direkt proportional', _ART[1:],
+    TW('9 € pro Karte, keine Grundgebühr.', 'Art der Zuordnung.', 'Doppelt so viele Karten → doppelter Preis? 0 Karten → 0 €?', '2 Karten 18 €, 4 Karten 36 €; 0 Karten 0 €.', 'Die Zuordnung ist direkt proportional.'),
+    'Was kosten doppelt so viele Karten?'))
+TX.u('unterscheiden', 'einkleidung', TX.A('Ein Handwerker nimmt 30 € Anfahrt und 40 € je Arbeitsstunde. Welche Zuordnung ist „Arbeitsstunden → Preis“?', 'keins von beiden', _ART[:2],
+    TW('30 € einmalig, 40 € pro Stunde.', 'Art der Zuordnung.', 'Doppelte Zeit → doppelter Preis?', '1 h: 70 €, 2 h: 110 € – nicht das Doppelte, und das Produkt ist auch nicht gleich.', 'Keins von beiden – die Anfahrt stört.'),
+    'Kosten 2 Stunden doppelt so viel wie 1 Stunde?'))
+TX.u('unterscheiden', 'darstellung', TX.A('Für eine Wanderung gilt: mit 3 km/h dauert sie 8 h, mit 4 km/h 6 h, mit 6 km/h 4 h. Welche Zuordnung ist „Tempo → Zeit“?', 'indirekt proportional', [_ART[0], _ART[2]],
+    TW('(3 | 8), (4 | 6), (6 | 4).', 'Art der Zuordnung.', 'Quotienten und Produkte vergleichen.', 'Produkte: 24, 24, 24 – immer gleich.', 'Die Zuordnung ist indirekt proportional (24 km Strecke).'),
+    'Rechne Tempo mal Zeit für jedes Paar.'))
+TX.u('unterscheiden', 'mehrschritt', TZ('500 Blatt Kopierpapier kosten 4 €. Der Preis ist proportional zur Zahl der Blätter. Was kosten 2 750 Blatt?', '4 / 500 * 2750',
+    TW('500 Blatt für 4 €, direkt proportional.', 'Preis für 2 750 Blatt.', 'Über 1 Blatt oder über 250 Blatt rechnen.', '250 Blatt kosten 2 €. 2 750 = 11 · 250, also 11 · 2 € = 22 €.', '2 750 Blatt kosten 22 €.'), 'Was kosten 250 Blatt?', einheit='€'))
+TX.u('unterscheiden', 'pruefung', TZ('Eine Klasse mietet für einen Ausflug einen Bus für 600 €, dazu kostet der Eintritt 8 € pro Kind. Die Busmiete wird gleich verteilt. Wie viel zahlt jedes Kind, wenn 24 Kinder mitfahren?', '600 / 24 + 8',
+    TW('Bus 600 € (geteilt), Eintritt 8 € pro Kind, 24 Kinder.', 'Betrag pro Kind.', 'Busanteil ist indirekt proportional, der Eintritt bleibt fest.', '600 : 24 = 25 €. 25 + 8 = 33 €.', 'Jedes Kind zahlt 33 €.'),
+    'Welcher Teil hängt von der Kinderzahl ab, welcher nicht?', einheit='€'), huerde='zwei')
+TX.u('unterscheiden', 'begruenden', TX.A('Jemand sagt: „Bei einem Handytarif mit 5 € Grundgebühr und 9 Cent pro Minute ist der Preis direkt proportional zur Gesprächszeit, denn je länger, desto teurer.“ Was stimmt?',
+    'Falsch: Bei 0 Minuten kostet es schon 5 €, doppelte Zeit heißt nicht doppelter Preis.', ['Richtig: Je länger, desto teurer reicht.', 'Falsch: Es ist indirekt proportional.', 'Richtig, weil 9 Cent immer gleich bleiben.'],
+    TW('5 € Grundgebühr, 0,09 € pro Minute.', 'Ist die Begründung richtig?', 'Direkt proportional verlangt: 0 → 0 und doppelt → doppelt.', '0 min: 5 €. 100 min: 14 €, 200 min: 23 € – nicht das Doppelte.', 'Die Aussage ist falsch: keins von beiden.'),
+    'Was kostet es bei 0 Minuten?'), huerde='entscheidung')
+TX.s('unterscheiden', TX.A('Ein Liter Benzin kostet 1,80 €. Welche Zuordnung ist „getankte Liter → Preis“?', 'direkt proportional', _ART[1:],
+    TW('1,80 € pro Liter.', 'Art der Zuordnung.', 'Doppelte Menge → doppelter Preis, 0 l → 0 €.', '10 l: 18 €, 20 l: 36 €.', 'Direkt proportional.')))
+TX.s('unterscheiden', TX.A('Eine Gruppe teilt sich die Miete einer Hütte gleichmäßig. Welche Zuordnung ist „Anzahl der Personen → Betrag pro Person“?', 'indirekt proportional', [_ART[0], _ART[2]],
+    TW('feste Miete, gleich geteilt.', 'Art der Zuordnung.', 'Doppelt so viele Personen → halber Betrag?', 'Personen · Betrag = Miete bleibt gleich.', 'Indirekt proportional.')))
+TX.k('unterscheiden', TX.A('Eine Jahreskarte fürs Schwimmbad kostet 50 €, dazu zahlt man 1 € pro Besuch. Welche Zuordnung ist „Besuche → Gesamtkosten“?', 'keins von beiden', _ART[:2],
+    TW('50 € fest, 1 € pro Besuch.', 'Art der Zuordnung.', 'Doppelt so viele Besuche → doppelte Kosten?', '10 Besuche: 60 €, 20 Besuche: 70 €.', 'Keins von beiden.')))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Erkennen', ['erkennen', 'vervielfachen', 'produkt']), ('Rechnen', ['dreisatz']),

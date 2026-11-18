@@ -1243,6 +1243,180 @@ ST.knobel('sachzusammenhang', SZ('Ein Wassertank enthält 200 l. Pro Minute flie
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('funktionen.grundbegriffe', 22_8_7)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+# --- eindeutig ---
+TX.u('eindeutig', 'erkennen', TX.A('In einer Klasse wird jedem Kind seine Körpergröße zugeordnet. Ist die Zuordnung Kind → Größe eine Funktion?', 'Ja, jedes Kind hat genau eine Größe.',
+    ['Nein, zwei Kinder können gleich groß sein.', 'Nein, weil sich Größen ändern.', 'Ja, weil jede Größe nur einmal vorkommt.'],
+    TW('Kind → Größe.', 'Ist es eine Funktion?', 'Hat jedes Kind genau einen Wert?', 'Ja; gleiche Werte bei zwei Kindern sind erlaubt.', 'Ja, es ist eine Funktion.'), 'Prüfe: Gehört zu jedem Kind genau eine Zahl?'))
+TX.u('eindeutig', 'pruefung', TX.A('Ein Parkhaus mit 400 Plätzen verlangt 2 € für die erste Stunde und 1,50 € für jede weitere angefangene Stunde. Ist die Zuordnung Preis → Parkdauer eine Funktion?',
+    'Nein, zu 3,50 € gehören z. B. 1,5 h und 2 h.', ['Ja, jeder Preis gehört zu genau einer Dauer.', 'Ja, weil das Parkhaus 400 Plätze hat.', 'Nein, weil der Preis nicht gleichmäßig steigt.'],
+    TW('Preis → Parkdauer; 400 Plätze spielen keine Rolle.', 'Ist es eine Funktion?', 'Gibt es einen Preis mit zwei Dauern?', '1,5 h und 2 h kosten beide 3,50 €.', 'Nein, keine Funktion.'), 'Welche Angabe brauchst du gar nicht? Suche einen Preis mit zwei Parkdauern.'), huerde='ueberfluessig')
+TX.u('eindeutig', 'begruenden', TX.A('Eine Wetterstation misst jede Stunde die Temperatur. Jemand sagt: „Die Zuordnung Temperatur → Uhrzeit ist auch eine Funktion.“ Was stimmt?',
+    'Falsch: Dieselbe Temperatur kann zu mehreren Uhrzeiten gemessen werden.', ['Richtig: Jede Messung hat eine Uhrzeit.', 'Richtig: Man kann jede Zuordnung umdrehen.', 'Falsch: Temperaturen können negativ sein.'],
+    TW('Temperatur → Uhrzeit.', 'Funktion ja oder nein?', 'Gehört zu jeder Temperatur genau eine Uhrzeit?', 'Z. B. 12 °C um 9 Uhr und um 20 Uhr.', 'Nein, keine Funktion.'), 'Kann es um zwei verschiedenen Uhrzeiten gleich warm sein?'), huerde='entscheidung')
+TX.u('eindeutig', 'transfer', TX.A('Bei einem Lauf bekommt jedes von 30 Kindern genau eine Startnummer von 1 bis 30, keine Nummer doppelt. Welche Zuordnungen sind Funktionen?',
+    'Kind → Nummer und Nummer → Kind', ['nur Kind → Nummer', 'nur Nummer → Kind', 'keine von beiden'],
+    TW('30 Kinder, 30 verschiedene Nummern.', 'Welche Richtung ist eindeutig?', 'Beide Richtungen prüfen.', 'Jedes Kind hat genau eine Nummer, jede Nummer gehört zu genau einem Kind.', 'Beide Zuordnungen sind Funktionen.'), 'Prüfe beide Richtungen getrennt.'), huerde='entscheidung')
+TX.s('eindeutig', TX.A('Jedem Kind einer Schule wird sein Geburtsmonat zugeordnet. Ist das eine Funktion?', 'Ja, jedes Kind hat genau einen Geburtsmonat.', ['Nein, viele Kinder haben im selben Monat Geburtstag.', 'Nein, ein Monat gehört zu vielen Kindern.'],
+    TW('Kind → Monat.', 'Funktion?', 'Genau ein Monat pro Kind?', 'Ja.', 'Ja, es ist eine Funktion.')))
+TX.s('eindeutig', TX.A('Jeder Telefonnummer werden die Personen eines Haushalts zugeordnet, die sie benutzen. Ist das eine Funktion?', 'Nein, zu einer Nummer gehören oft mehrere Personen.', ['Ja, jede Nummer ist anders.', 'Ja, jede Person hat eine Nummer.'],
+    TW('Nummer → Personen.', 'Funktion?', 'Genau eine Person pro Nummer?', 'Mehrere Personen nutzen dieselbe Nummer.', 'Nein, keine Funktion.')))
+TX.k('eindeutig', TX.A('Jedem Auto auf einem Parkplatz wird sein Kennzeichen zugeordnet. Ist das eine Funktion?', 'Ja, jedes Auto hat genau ein Kennzeichen.', ['Nein, es gibt viele Kennzeichen.', 'Nein, Kennzeichen enthalten Buchstaben.'],
+    TW('Auto → Kennzeichen.', 'Funktion?', 'Genau ein Kennzeichen pro Auto?', 'Ja.', 'Ja, es ist eine Funktion.')))
+
+# --- mengen ---
+TX.u('mengen', 'direkt', TX.A('Ein Aufzug fährt in einem Haus mit Erdgeschoss (0) und 6 Stockwerken. Jedem Stockwerk x wird seine Höhe zugeordnet. Welche Definitionsmenge ist sinnvoll?',
+    '{0; 1; 2; 3; 4; 5; 6}', ['alle reellen Zahlen', '{1; 2; 3; 4; 5; 6}', '[0; 6]'],
+    TW('Erdgeschoss 0 bis Stock 6.', 'sinnvolle x-Werte.', 'Nur ganze Stockwerke von 0 bis 6.', 'D = {0; 1; …; 6}.', 'D = {0; 1; 2; 3; 4; 5; 6}.'), 'Gibt es ein Stockwerk 2,5?'))
+TX.u('mengen', 'einkleidung', TZ('Ein Kinoticket kostet 9 €. Jeder Ticketzahl x wird der Preis zugeordnet. Der Saal hat 120 Plätze. Wie groß ist der größte Wert der Wertemenge?', '9 * 120',
+    TW('9 € pro Ticket, höchstens 120 Tickets.', 'größter Preis.', 'Größtes x einsetzen.', '9 · 120 = 1 080.', 'Der größte Wert ist 1 080 €.'), 'Wie viele Tickets kann man höchstens verkaufen?', einheit='€'))
+TX.u('mengen', 'pruefung', TZ('Ein 8 m langes Becken ist 2 m tief. Beim Füllen steigt das Wasser pro Minute um 4 cm. Der Zeit t (in min) wird die Wasserhöhe zugeordnet. Was ist die größte sinnvolle Zahl der Definitionsmenge?', '200 / 4',
+    TW('2 m = 200 cm Tiefe, 4 cm pro Minute; die Länge spielt keine Rolle.', 'größtes t.', 'Wann ist das Becken voll?', '200 : 4 = 50.', 'D = [0; 50], größte Zahl 50.'), 'Welche Angaben bestimmen, wann das Becken voll ist?', einheit='min'), huerde='ueberfluessig')
+TX.u('mengen', 'fehler', TX.A('Ein Taxi kostet 4 € Grundpreis und 2 € pro km. Jemand gibt für Strecke → Preis die Wertemenge W = [0; ∞[ an. Was stimmt?',
+    'Falsch: Der Preis ist mindestens 4 €, also W = [4; ∞[.', ['Richtig.', 'Falsch: W = [2; ∞[.', 'Falsch: W = ]0; 4].'],
+    TW('Preis = 4 + 2x, x ≥ 0.', 'richtige Wertemenge.', 'Kleinsten Preis bestimmen.', 'Bei x = 0: 4 €.', 'W = [4; ∞[; die Angabe ist falsch.'), 'Was kostet die kürzeste mögliche Fahrt?'), huerde='entscheidung')
+TX.u('mengen', 'parameter', TZ('Ein Tank verliert pro Stunde 25 l, bis er leer ist. Die sinnvolle Definitionsmenge ist D = [0; 16]. Wie viele Liter waren am Anfang im Tank?', '25 * 16',
+    TW('25 l pro Stunde, leer nach 16 h.', 'Anfangsmenge.', 'Rückwärts rechnen.', '25 · 16 = 400.', 'Am Anfang waren 400 l im Tank.'), 'Was bedeutet die Zahl 16 in D?', einheit='l'))
+TX.u('mengen', 'transfer', TZ('Ein Handyakku ist voll (100 %) und verliert pro Stunde 5 %. Bei 10 % schaltet sich das Handy ab. Der Zeit x (in h) wird der Ladestand zugeordnet, solange das Handy an ist. Was ist die größte Zahl der Definitionsmenge?', '(100 - 10) / 5',
+    TW('100 − 5x, an bis 10 %.', 'größtes x.', '100 − 5x ≥ 10 und x ≥ 0.', '5x ≤ 90 ⇒ x ≤ 18.', 'D = [0; 18], größte Zahl 18.'), 'Bis zu welchem Ladestand läuft das Handy?', einheit='h'), huerde='zwei')
+TX.s('mengen', TZ('Ein Museum verlangt 6 € Eintritt pro Person, höchstens 50 Personen dürfen hinein. Wie groß ist der größte Wert der Wertemenge?', '6 * 50',
+    TW('6 € pro Person, höchstens 50.', 'größter Wert.', 'x = 50 einsetzen.', '6 · 50 = 300.', 'Der größte Wert ist 300 €.'), einheit='€'))
+TX.s('mengen', TZ('Eine Kerze ist 20 cm hoch und brennt 2 cm pro Stunde ab. Was ist die größte sinnvolle Brenndauer?', '20 / 2',
+    TW('20 cm, 2 cm pro Stunde.', 'größtes t.', 'Wann ist die Kerze abgebrannt?', '20 : 2 = 10.', 'D = [0; 10].'), einheit='h'))
+TX.k('mengen', TZ('Ein Bus hat 45 Plätze, die Fahrt kostet 3 € pro Person. Wie groß ist der größte Wert der Wertemenge?', '3 * 45',
+    TW('3 € pro Person, höchstens 45.', 'größter Wert.', 'x = 45.', '3 · 45 = 135.', 'Der größte Wert ist 135 €.'), einheit='€'))
+
+# --- funktionswert ---
+TX.u('funktionswert', 'direkt', TZ('Ein Handwerker berechnet f(x) = 40 + 35x Euro für x Stunden Arbeit. Was kosten 3 Stunden?', '40 + 35 * 3',
+    TW('f(x) = 40 + 35x, x = 3.', 'f(3).', 'Einsetzen.', '40 + 105 = 145.', '3 Stunden kosten 145 €.'), 'Setze 3 für x ein.', einheit='€'))
+TX.u('funktionswert', 'einkleidung', TZ('Ein Stromtarif kostet 12 € Grundgebühr im Monat und 0,30 € pro kWh. Was kostet ein Monat mit 250 kWh?', '12 + 0.3 * 250',
+    TW('12 € fest, 0,30 € pro kWh, 250 kWh.', 'Monatskosten.', 'f(x) = 12 + 0,3x, x = 250.', '12 + 75 = 87.', 'Der Monat kostet 87 €.'), 'Stelle zuerst den Funktionsterm auf.', einheit='€'))
+TX.u('funktionswert', 'mehrschritt', TZ('Ein Fahrradverleih berechnet f(x) = 5 + 3x Euro pro Rad für x Stunden. Eine Familie leiht 3 Räder für je 4 Stunden. Was zahlt sie insgesamt?', '3 * (5 + 3 * 4)',
+    TW('f(x) = 5 + 3x pro Rad, 3 Räder, 4 h.', 'Gesamtpreis.', 'f(4) berechnen, mal 3.', 'f(4) = 17; 3 · 17 = 51.', 'Die Familie zahlt 51 €.'), 'Was kostet ein Rad?', einheit='€'))
+TX.u('funktionswert', 'verknuepfen', TZ('Eine Pflanze steht in einem 30 cm hohen Topf und ist h(t) = 12 + 1,5t cm hoch (t in Wochen). Wie hoch ist die Pflanze nach 8 Wochen?', '12 + 1.5 * 8',
+    TW('h(t) = 12 + 1,5t, t = 8; die Topfhöhe gehört nicht dazu.', 'h(8).', 'Einsetzen.', '12 + 12 = 24.', 'Die Pflanze ist 24 cm hoch.'), 'Brauchst du die Topfhöhe?', einheit='cm'), huerde='ueberfluessig')
+TX.u('funktionswert', 'pruefung', TX.A('Tarif A kostet f(x) = 8 + 0,1x Euro, Tarif B g(x) = 0,15x Euro (x Minuten). Welcher Tarif ist bei 120 Minuten günstiger?',
+    'B: 18 € statt 20 €', ['A: 20 € statt 18 €', 'Beide kosten 18 €.', 'A: 8 € statt 18 €'],
+    TW('f(x) = 8 + 0,1x, g(x) = 0,15x, x = 120.', 'günstigerer Tarif.', 'Beide Funktionswerte berechnen und vergleichen.', 'f(120) = 20, g(120) = 18.', 'Tarif B ist günstiger.'), 'Berechne beide Werte.'), huerde='entscheidung')
+TX.s('funktionswert', TZ('Ein Taxi kostet f(x) = 3,5 + 2,2x Euro für x km. Was kosten 5 km?', '3.5 + 2.2 * 5',
+    TW('f(x) = 3,5 + 2,2x.', 'f(5).', 'Einsetzen.', '3,5 + 11 = 14,5.', '5 km kosten 14,50 €.'), einheit='€'))
+TX.s('funktionswert', TZ('Für den Bremsweg eines Autos gilt ungefähr b(v) = v · v : 100 (in m, v in km/h). Wie lang ist der Bremsweg bei 50 km/h?', '50 * 50 / 100',
+    TW('b(v) = v²/100, v = 50.', 'b(50).', 'Einsetzen.', '2 500 : 100 = 25.', 'Der Bremsweg ist 25 m.'), einheit='m'))
+TX.k('funktionswert', TZ('Ein Kopierladen berechnet f(x) = 2 + 0,05x Euro für x Kopien. Was kosten 300 Kopien?', '2 + 0.05 * 300',
+    TW('f(x) = 2 + 0,05x.', 'f(300).', 'Einsetzen.', '2 + 15 = 17.', '300 Kopien kosten 17 €.'), einheit='€'))
+
+# --- stelle ---
+TX.u('stelle', 'direkt', TZ('Ein Handwerker berechnet f(x) = 40 + 35x Euro für x Stunden. Die Rechnung lautet 215 €. Wie viele Stunden hat er gearbeitet?', '(215 - 40) / 35',
+    TW('40 + 35x = 215.', 'x.', 'Gleichung lösen.', '35x = 175 ⇒ x = 5.', 'Er hat 5 Stunden gearbeitet.'), 'Setze den Term gleich 215.', einheit='h'))
+TX.u('stelle', 'umkehr', TZ('Eine Kerze ist nach t Stunden h(t) = 24 − 1,5t cm hoch. Wann ist sie nur noch 15 cm hoch?', '(24 - 15) / 1.5',
+    TW('24 − 1,5t = 15.', 't.', 'Gleichung lösen.', '1,5t = 9 ⇒ t = 6.', 'Nach 6 Stunden.'), 'Setze h(t) = 15.', einheit='h'))
+TX.u('stelle', 'einkleidung', TZ('In einem Sparschwein sind 20 €, jede Woche kommen 4,50 € dazu. Nach wie vielen Wochen sind 74 € darin?', '(74 - 20) / 4.5',
+    TW('20 + 4,5x = 74.', 'x.', 'Term aufstellen und gleichsetzen.', '4,5x = 54 ⇒ x = 12.', 'Nach 12 Wochen.'), 'Stelle einen Term für den Inhalt auf.', einheit='Wochen'))
+TX.u('stelle', 'rueckwaerts', TZ('Ein Taxi kostet 3,80 € Grundpreis und 2,10 € pro km. Drei Personen fahren um 22 Uhr los und zahlen 24,80 €. Wie lang war die Fahrt?', '(24.8 - 3.8) / 2.1',
+    TW('3,8 + 2,1x = 24,8; Personen und Uhrzeit spielen keine Rolle.', 'x.', 'Gleichung lösen.', '2,1x = 21 ⇒ x = 10.', 'Die Fahrt war 10 km lang.'), 'Welche Angaben gehören in den Term?', einheit='km'), huerde='ueberfluessig')
+TX.u('stelle', 'transfer', TZ('Aus einem Becken mit 5 000 l fließen pro Minute 120 l ab: V(t) = 5 000 − 120t. Nach wie vielen vollen Minuten sind erstmals weniger als 1 000 l darin?', '-(-(5000 - 1000) // 120)',
+    TW('5 000 − 120t = 1 000 als Grenze.', 'erste volle Minute darunter.', 'Stelle bestimmen, dann deuten.', '120t = 4 000 ⇒ t ≈ 33,3; also 34.', 'Nach 34 Minuten.'), 'Nach 33 Minuten – sind es schon weniger als 1 000 l?', einheit='min'), huerde='deuten')
+TX.u('stelle', 'pruefung', TX.A('Ein Handyvertrag kostet f(x) = 9,90 + 0,09x Euro (x Minuten). Jemand zahlt 27,90 € und sagt: „Ich habe 300 Minuten telefoniert.“ Was stimmt?',
+    'Falsch: Es waren 200 Minuten.', ['Richtig.', 'Falsch: Es waren 310 Minuten.', 'Falsch: Es waren 110 Minuten.'],
+    TW('9,9 + 0,09x = 27,9.', 'x, dann vergleichen.', 'Gleichung lösen.', '0,09x = 18 ⇒ x = 200.', 'Die Aussage ist falsch: 200 Minuten.'), 'Löse f(x) = 27,90.'), huerde='entscheidung')
+TX.s('stelle', TZ('Ein Kino-Abo kostet 15 € plus 6 € pro Film. Jemand hat 63 € bezahlt. Wie viele Filme waren es?', '(63 - 15) / 6',
+    TW('15 + 6x = 63.', 'x.', 'Lösen.', '6x = 48 ⇒ x = 8.', '8 Filme.')))
+TX.s('stelle', TZ('Der Wasserstand eines Sees steigt: h(t) = 80 + 2,5t cm (t in Tagen). Wann erreicht er 100 cm?', '(100 - 80) / 2.5',
+    TW('80 + 2,5t = 100.', 't.', 'Lösen.', '2,5t = 20 ⇒ t = 8.', 'Nach 8 Tagen.'), einheit='Tage'))
+TX.k('stelle', TZ('In die Klassenkasse kommen 35 € vom Förderverein und 2 € pro Kind. Es sind 91 € zusammengekommen. Wie viele Kinder haben gezahlt?', '(91 - 35) / 2',
+    TW('35 + 2x = 91.', 'x.', 'Lösen.', '2x = 56 ⇒ x = 28.', '28 Kinder.')))
+
+# --- wertetabelle ---
+TX.u('wertetabelle', 'direkt', TZ('Eine Kugel Eis kostet 1,50 €. In einer Wertetabelle steht die Kugelzahl x und der Preis. Welcher Preis steht unter x = 4?', '1.5 * 4',
+    TW('1,50 € pro Kugel.', 'Preis für 4 Kugeln.', 'f(4) berechnen.', '1,5 · 4 = 6.', 'Unter x = 4 steht 6 €.'), 'Rechne Preis pro Kugel mal Anzahl.', einheit='€'))
+TX.u('wertetabelle', 'darstellung', TL('Ein Taxi kostet f(x) = 3 + 2x Euro für x km. Fülle die Wertetabelle aus.', 'x = 2: □ € · x = 5: □ € · x = 8: □ €', ['3 + 2*2', '3 + 2*5', '3 + 2*8'],
+    TW('f(x) = 3 + 2x.', 'Funktionswerte für 2, 5, 8.', 'Jeden x-Wert einsetzen.', '7, 13, 19.', 'Die Tabelle lautet 7 €, 13 €, 19 €.'), 'Setze jede Strecke einzeln ein.'))
+TX.u('wertetabelle', 'verknuepfen', TZ('Eine Wertetabelle für Äpfel zeigt: 2 kg → 5 €, 4 kg → 10 €, 6 kg → 15 €. Der Laden hat bis 19 Uhr geöffnet. Was kosten 7,5 kg?', '2.5 * 7.5',
+    TW('Preis proportional, 2,50 € pro kg; Öffnungszeit spielt keine Rolle.', 'Preis für 7,5 kg.', 'Preis pro kg aus der Tabelle.', '2,5 · 7,5 = 18,75.', '7,5 kg kosten 18,75 €.'), 'Was kostet 1 kg?', einheit='€'), huerde='ueberfluessig')
+TX.u('wertetabelle', 'parameter', TZ('Ein Fitnessstudio verlangt einen festen Grundbetrag pro Monat und einen festen Preis je Besuch. Die Tabelle zeigt: 4 Besuche → 32 €, 10 Besuche → 50 €. Wie hoch ist der Grundbetrag?', '32 - 4 * (50 - 32) / (10 - 4)',
+    TW('4 → 32 €, 10 → 50 €.', 'Grundbetrag.', 'Erst Preis je Besuch, dann Grundbetrag.', '18 € für 6 Besuche ⇒ 3 € je Besuch; 32 − 12 = 20.', 'Der Grundbetrag ist 20 €.'), 'Wie viel kosten die 6 zusätzlichen Besuche?', einheit='€'), huerde='zwei')
+TX.u('wertetabelle', 'begruenden', TX.A('Eine Tabelle zeigt den Wasserstand eines Beckens: 0 h → 40 cm, 1 h → 46 cm, 2 h → 52 cm, 3 h → 58 cm. Jemand sagt: „Nach 10 Stunden sind es 100 cm.“ Was stimmt?',
+    'Richtig: pro Stunde 6 cm mehr, 40 + 60 = 100.', ['Falsch: Es sind 580 cm.', 'Falsch: Es sind 106 cm.', 'Das kann man aus der Tabelle nicht sagen.'],
+    TW('Start 40 cm, +6 cm pro Stunde.', 'Wert bei 10 h.', 'Regel aus der Tabelle ablesen und fortsetzen.', '40 + 6 · 10 = 100.', 'Die Aussage stimmt.'), 'Um wie viel steigt der Wert pro Stunde?'), huerde='entscheidung')
+TX.s('wertetabelle', TZ('Eine Kinokarte kostet 8 €. Welcher Preis steht in der Wertetabelle bei 6 Personen?', '8 * 6',
+    TW('8 € pro Person.', 'f(6).', 'Einsetzen.', '8 · 6 = 48.', '48 €.'), einheit='€'))
+TX.s('wertetabelle', TZ('Eine Kerze ist nach x Stunden 30 − 2x cm hoch. Welcher Wert steht in der Tabelle bei x = 7?', '30 - 2 * 7',
+    TW('30 − 2x.', 'Wert bei 7.', 'Einsetzen.', '30 − 14 = 16.', '16 cm.'), einheit='cm'))
+TX.k('wertetabelle', TZ('Ein Paket kostet 4,50 € plus 0,80 € pro kg. Welcher Preis steht in der Tabelle bei 5 kg?', '4.5 + 0.8 * 5',
+    TW('4,5 + 0,8x.', 'Wert bei 5.', 'Einsetzen.', '4,5 + 4 = 8,5.', '8,50 €.'), einheit='€'))
+
+# --- graph_lesen ---
+TX.u('graph_lesen', 'erkennen', TX.A('Ein Graph zeigt den zurückgelegten Weg eines Busses über der Zeit. Zwischen 10 und 20 Minuten verläuft er waagerecht. Was bedeutet das?',
+    'Der Bus steht.', ['Der Bus fährt am schnellsten.', 'Der Bus fährt zurück.', 'Der Bus fährt gleichmäßig weiter.'],
+    TW('waagerechtes Stück im Weg-Zeit-Graphen.', 'Bedeutung.', 'Waagerecht heißt: Der Weg ändert sich nicht.', 'Kein neuer Weg zwischen 10 und 20 min.', 'Der Bus steht.'), 'Was passiert mit dem Weg, wenn der Graph waagerecht ist?'))
+TX.u('graph_lesen', 'darstellung', TZ('Ein Graph zeigt die Temperatur an einem Tag: um 6 Uhr 8 °C, um 14 Uhr 22 °C, dazwischen gleichmäßig steigend. Wie warm war es um 10 Uhr?', '(8 + 22) / 2',
+    TW('6 Uhr: 8 °C, 14 Uhr: 22 °C, gleichmäßig.', 'Wert um 10 Uhr.', '10 Uhr liegt genau in der Mitte.', '(8 + 22) : 2 = 15.', 'Um 10 Uhr waren es 15 °C.'), 'Wo liegt 10 Uhr zwischen 6 und 14 Uhr?', einheit='°C'))
+TX.u('graph_lesen', 'verknuepfen', TZ('Der Graph einer Wanderung zeigt: nach 2 h 8 km, nach 3 h 11 km, danach geht es gleichmäßig weiter. Die Wanderung beginnt um 9 Uhr auf 450 m Höhe. Wie viele km sind es nach 5 h?', '11 + 2 * (11 - 8)',
+    TW('2 h → 8 km, 3 h → 11 km; Uhrzeit und Höhe spielen keine Rolle.', 'Weg nach 5 h.', 'km pro Stunde ablesen, fortsetzen.', '3 km pro Stunde; 11 + 2 · 3 = 17.', 'Nach 5 h sind es 17 km.'), 'Wie viele km schafft man in einer Stunde?', einheit='km'), huerde='ueberfluessig')
+TX.u('graph_lesen', 'begruenden', TX.A('Zwei Graphen zeigen die Kosten zweier Handytarife. Der Graph von A beginnt bei 10 € und steigt flacher, der Graph von B beginnt bei 0 € und steigt steiler. Jemand sagt: „A ist immer teurer.“ Was stimmt?',
+    'Falsch: Rechts vom Schnittpunkt ist A billiger.', ['Richtig: A beginnt höher.', 'Richtig: A ist flacher.', 'Falsch: A ist immer billiger.'],
+    TW('A: Start 10 €, flach; B: Start 0 €, steil.', 'Stimmt die Aussage?', 'Die steile Gerade überholt die flache.', 'Nach dem Schnittpunkt liegt B oben.', 'Die Aussage ist falsch.'), 'Was passiert, wenn eine steilere Gerade unten beginnt?'), huerde='entscheidung')
+TX.s('graph_lesen', TZ('Ein Graph zeigt das Füllen eines Fasses: 0 min → 0 l, 5 min → 60 l, gleichmäßig. Wie viel ist nach 3 min darin?', '60 / 5 * 3',
+    TW('12 l pro Minute.', 'Wert bei 3 min.', 'Pro Minute ablesen.', '12 · 3 = 36.', '36 l.'), einheit='l'))
+TX.s('graph_lesen', TZ('Ein Graph zeigt die Höhe eines Ballons: 0 s → 0 m, 40 s → 100 m, gleichmäßig. Wie hoch ist er nach 10 s?', '100 / 40 * 10',
+    TW('2,5 m pro Sekunde.', 'Wert bei 10 s.', 'Pro Sekunde ablesen.', '2,5 · 10 = 25.', '25 m.'), einheit='m'))
+TX.k('graph_lesen', TZ('Ein Graph zeigt eine Kerze: 0 h → 20 cm, 4 h → 12 cm, gleichmäßig. Wie hoch ist sie nach 1 h?', '20 - (20 - 12) / 4',
+    TW('−2 cm pro Stunde.', 'Wert bei 1 h.', 'Abnahme pro Stunde.', '20 − 2 = 18.', '18 cm.'), einheit='cm'))
+
+# --- nullstellen ---
+TX.u('nullstellen', 'direkt', TZ('Ein Akku hat nach t Stunden noch L(t) = 100 − 8t Prozent. Nach wie vielen Stunden ist er leer?', '100 / 8',
+    TW('100 − 8t = 0.', 'Nullstelle.', 'Gleich 0 setzen.', '8t = 100 ⇒ t = 12,5.', 'Nach 12,5 Stunden.'), 'Leer heißt L(t) = 0.', einheit='h'))
+TX.u('nullstellen', 'einkleidung', TZ('Ein Tank enthält nach t Minuten V(t) = 360 − 15t Liter. Wann ist er leer?', '360 / 15',
+    TW('360 − 15t = 0.', 'Nullstelle.', 'Gleich 0 setzen.', '15t = 360 ⇒ t = 24.', 'Nach 24 Minuten.'), 'Welcher Wert gehört zu „leer“?', einheit='min'))
+TX.u('nullstellen', 'mehrschritt', TZ('Eine Kerze ist 18 cm hoch und brennt pro Stunde 1,2 cm ab. Stelle h(t) auf und bestimme die Nullstelle.', '18 / 1.2',
+    TW('Start 18 cm, −1,2 cm pro Stunde.', 'Nullstelle.', 'h(t) = 18 − 1,2t = 0.', '1,2t = 18 ⇒ t = 15.', 'Nach 15 Stunden ist die Kerze abgebrannt.'), 'Erst den Term aufstellen, dann gleich 0 setzen.', einheit='h'))
+TX.u('nullstellen', 'pruefung', TZ('Ein Gefrierschrank mit 200 l Inhalt steht in einem 21 °C warmen Raum. Er hat −18 °C und wird ausgeschaltet; er erwärmt sich um 1,5 °C pro Stunde: T(t) = −18 + 1,5t. Nach wie vielen Stunden sind 0 °C erreicht?', '18 / 1.5',
+    TW('T(t) = −18 + 1,5t; Inhalt und Raumtemperatur spielen keine Rolle.', 'Nullstelle.', 'T(t) = 0.', '1,5t = 18 ⇒ t = 12.', 'Nach 12 Stunden.'), 'Welche Angaben stehen im Term?', einheit='h'), huerde='ueberfluessig')
+TX.u('nullstellen', 'begruenden', TX.A('Beim Schulfest gilt für den Gewinn G(x) = 2,5x − 150 Euro (x verkaufte Waffeln). Jemand sagt: „Die Nullstelle 60 heißt: Ab 60 Waffeln machen wir Gewinn.“ Was stimmt?',
+    'Fast: Bei 60 Waffeln ist der Gewinn genau 0 €, Gewinn gibt es ab 61.', ['Richtig, schon ab 60 Waffeln.', 'Falsch: Die Nullstelle ist 150.', 'Falsch: Gewinn gibt es nie.'],
+    TW('G(x) = 2,5x − 150.', 'Bedeutung der Nullstelle.', 'G(60) berechnen und deuten.', 'G(60) = 0, G(61) = 2,5.', 'Bei 60 Waffeln: kein Gewinn, kein Verlust; Gewinn ab 61.'), 'Was ist G(60)?'), huerde='entscheidung')
+TX.s('nullstellen', TZ('Auf einer Fahrkarte sind nach x Fahrten noch G(x) = 30 − 2,5x Euro. Nach wie vielen Fahrten ist das Guthaben verbraucht?', '30 / 2.5',
+    TW('30 − 2,5x = 0.', 'Nullstelle.', 'Gleich 0.', 'x = 12.', 'Nach 12 Fahrten.')))
+TX.s('nullstellen', TZ('Ein Becken enthält nach t Minuten V(t) = 500 − 25t Liter. Bestimme die Nullstelle.', '500 / 25',
+    TW('500 − 25t = 0.', 'Nullstelle.', 'Gleich 0.', 't = 20.', 'Nach 20 Minuten ist es leer.'), einheit='min'))
+TX.k('nullstellen', TZ('Ein Flugzeug im Sinkflug ist h(t) = 6 000 − 400t m hoch (t in min). Bestimme die Nullstelle.', '6000 / 400',
+    TW('6 000 − 400t = 0.', 'Nullstelle.', 'Gleich 0.', 't = 15.', 'Nach 15 Minuten ist es am Boden.'), einheit='min'))
+
+# --- punkt_graph ---
+TX.u('punkt_graph', 'erkennen', TX.A('Ein Taxi kostet f(x) = 3 + 2x Euro für x km. Welcher Punkt liegt auf dem Graphen?', 'P(5 | 13)', ['P(5 | 10)', 'P(13 | 5)', 'P(2 | 10)'],
+    TW('f(x) = 3 + 2x.', 'passender Punkt.', 'x einsetzen, mit y vergleichen.', 'f(5) = 13, f(2) = 7.', 'P(5 | 13) liegt auf dem Graphen.'), 'Setze die x-Koordinate ein.'))
+TX.u('punkt_graph', 'einkleidung', TX.A('Ein Handytarif kostet f(x) = 5 + 0,1x Euro für x Minuten. Eine Rechnung zeigt 60 Minuten und 12 €. Passt sie zum Tarif?',
+    'Nein, es müssten 11 € sein.', ['Ja, genau.', 'Nein, es müssten 6 € sein.', 'Nein, es müssten 65 € sein.'],
+    TW('f(x) = 5 + 0,1x, Punkt (60 | 12).', 'Liegt er auf dem Graphen?', 'f(60) berechnen.', '5 + 6 = 11 ≠ 12.', 'Die Rechnung passt nicht.'), 'Berechne f(60).'))
+TX.u('punkt_graph', 'umkehr', TZ('Eine Kerze ist nach t Stunden h(t) = 25 − 2t cm hoch. Der Punkt P(□ | 9) liegt auf dem Graphen. Welche Zeit fehlt?', '(25 - 9) / 2',
+    TW('h(t) = 9.', 't.', '25 − 2t = 9 lösen.', '2t = 16 ⇒ t = 8.', 'P(8 | 9).'), 'Setze h(t) gleich 9.', einheit='h'))
+TX.u('punkt_graph', 'fehler', TX.A('Für die Kosten gilt f(x) = 12 + 4x. Jemand prüft P(3 | 36) und rechnet: „12 + 4 · 3 = 16 · 3 = 48, also liegt P nicht auf dem Graphen.“ Was stimmt?',
+    'Die Rechnung ist falsch (12 + 12 = 24), das Ergebnis stimmt aber: P liegt nicht darauf.', ['Alles richtig.', 'Rechnung falsch, P liegt doch darauf.', 'Rechnung richtig, P liegt darauf.'],
+    TW('f(3) richtig berechnen.', 'Fehler und Ergebnis.', 'Punkt vor Strich.', 'f(3) = 12 + 12 = 24 ≠ 36.', 'Rechenfehler, aber P liegt tatsächlich nicht auf dem Graphen.'), 'Was rechnet man zuerst: 4 · 3 oder 12 + 4?'), huerde='entscheidung')
+TX.u('punkt_graph', 'pruefung', TZ('Ein Fluss ist 40 m breit. Sein Wasserstand ist nach t Stunden w(t) = 1,2 + 0,3t Meter. Für welches t liegt der Punkt P(t | 3) auf dem Graphen?', '(3 - 1.2) / 0.3',
+    TW('w(t) = 3; die Breite spielt keine Rolle.', 't.', '1,2 + 0,3t = 3 lösen.', '0,3t = 1,8 ⇒ t = 6.', 'P(6 | 3), also nach 6 Stunden.'), 'Welche Angabe gehört nicht in die Gleichung?', einheit='h'), huerde='ueberfluessig')
+TX.u('punkt_graph', 'verknuepfen', TZ('Ein Taxi hat 2 € Grundpreis. Der Graph seiner Preise geht durch P(4 | 10). Was kostet eine Fahrt von 7 km?', '2 + (10 - 2) / 4 * 7',
+    TW('f(x) = 2 + m·x, P(4 | 10).', 'f(7).', 'Erst m aus P bestimmen, dann einsetzen.', 'm = 8 : 4 = 2; f(7) = 2 + 14 = 16.', '7 km kosten 16 €.'), 'Was kosten die 4 km ohne Grundpreis?', einheit='€'), huerde='zwei')
+TX.s('punkt_graph', TZ('Ein Paket kostet f(x) = 4 + 1,5x Euro für x kg. Welcher y-Wert gehört zum Punkt mit x = 6?', '4 + 1.5 * 6',
+    TW('f(6).', 'y-Wert.', 'Einsetzen.', '4 + 9 = 13.', 'P(6 | 13).'), einheit='€'))
+TX.s('punkt_graph', TZ('Eine Kerze ist nach t Stunden h(t) = 20 − 1,5t cm hoch. Für welches t liegt P(t | 11) auf dem Graphen?', '(20 - 11) / 1.5',
+    TW('20 − 1,5t = 11.', 't.', 'Lösen.', '1,5t = 9 ⇒ t = 6.', 'P(6 | 11).'), einheit='h'))
+TX.k('punkt_graph', TZ('Ein Freibad kostet f(x) = 2 + 6x Euro (x Personen, 2 € Parken). Welcher y-Wert gehört zu x = 5?', '2 + 6 * 5',
+    TW('f(5).', 'y-Wert.', 'Einsetzen.', '2 + 30 = 32.', 'P(5 | 32).'), einheit='€'))
+
+# --- sachzusammenhang ---
+TX.u('sachzusammenhang', 'verknuepfen', TZ('Ein Mietwagen kostet 39 € pro Tag und 0,25 € pro km. Der Tank fasst 50 l. Eine Familie fährt in 3 Tagen 420 km. Was kostet die Miete?', '39 * 3 + 0.25 * 420',
+    TW('39 € pro Tag, 0,25 € pro km, 3 Tage, 420 km; der Tank spielt keine Rolle.', 'Gesamtkosten.', 'Tageskosten plus km-Kosten.', '117 + 105 = 222.', 'Die Miete kostet 222 €.'), 'Welche Angaben gehören in die Rechnung?', einheit='€'), huerde='ueberfluessig')
+TX.u('sachzusammenhang', 'fehler', TX.A('Ein Schwimmbad kostet 4 € pro Besuch, eine Zehnerkarte 32 €. Jemand meint: „Schon bei 8 Besuchen spart man mit der Zehnerkarte.“ Was stimmt?',
+    'Falsch: Bei 8 Besuchen kostet beides 32 €; sparen kann man erst ab 9.', ['Richtig.', 'Falsch: Man spart erst ab 10.', 'Falsch: Die Zehnerkarte lohnt sich nie.'],
+    TW('Einzeln 4x, Karte 32 €.', 'Ab wann günstiger?', '4x > 32.', 'x > 8.', 'Ab 9 Besuchen spart man.'), 'Was kosten 8 Einzelbesuche?'), huerde='entscheidung')
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Was ist eine Funktion?', ['eindeutig', 'mengen']), ('Mit dem Term rechnen', ['funktionswert', 'stelle', 'wertetabelle', 'graph_lesen']),

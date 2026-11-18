@@ -1061,6 +1061,152 @@ ST.knobel('sachaufgabe', SZ('Eine zweistellige Zahl ist 4-mal so groß wie ihre 
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('gleichungen.lgs2', 22_8_6)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+_LP = 'Je Lücke eine ganze Zahl.'
+
+# --- pruefen ---
+TX.u('pruefen', 'direkt', TX.A('Im Kino kosten 2 Kinder- und 1 Erwachsenenkarte 22 €, 1 Kinder- und 2 Erwachsenenkarten 26 €. Passt (k | e) = (6 | 10)?', 'Ja: 12 + 10 = 22 und 6 + 20 = 26.', ['Nein, die erste Gleichung stimmt nicht.', 'Nein, die zweite Gleichung stimmt nicht.'],
+    TW('I: 2k + e = 22, II: k + 2e = 26.', 'Lösung?', 'In beide Gleichungen einsetzen.', '22 ✓, 26 ✓.', 'Ja, (6 | 10) ist die Lösung.'), 'Setze in beide Gleichungen ein.'))
+TX.u('pruefen', 'einkleidung', TX.A('In einem Stall sind Hühner und Kaninchen, zusammen 20 Köpfe und 56 Beine. Jemand behauptet: 12 Hühner und 8 Kaninchen. Stimmt das?', 'Ja: 12 + 8 = 20 und 24 + 32 = 56.', ['Nein, es sind 64 Beine.', 'Nein, es sind 21 Köpfe.'],
+    TW('h + k = 20, 2h + 4k = 56.', 'Prüfung.', 'Einsetzen.', '20 ✓; 24 + 32 = 56 ✓.', 'Die Behauptung stimmt.'), 'Wie viele Beine hat ein Huhn, wie viele ein Kaninchen?'))
+TX.u('pruefen', 'mehrschritt', TZ('3 Hefte und 2 Stifte kosten 7,50 €, 1 Heft und 4 Stifte kosten 6,50 €. Jemand sagt, ein Heft kostet 1,50 €. Wie viel kostet dann ein Stift laut der ersten Gleichung – und passt das zur zweiten?', '(7.5 - 3 * 1.5) / 2',
+    TW('I: 3h + 2s = 7,5, II: h + 4s = 6,5.', 's und Probe.', 'h einsetzen, s bestimmen, in II prüfen.', 's = 1,5; II: 1,5 + 6 = 7,5 ≠ 6,5.', 'Ein Stift kostet laut I 1,50 €, aber II stimmt nicht – die Behauptung ist falsch.'), 'Prüfe am Ende auch die zweite Gleichung.', einheit='€'))
+TX.u('pruefen', 'pruefung', TX.A('Ein Theater verkauft 300 Karten, Parkett zu 25 € und Rang zu 15 €, Einnahmen 6 300 €. Die Vorstellung beginnt um 19:30 Uhr. Passt (p | r) = (180 | 120)?', 'Ja: 300 Karten und 4 500 + 1 800 = 6 300 €.', ['Nein, es wären 6 600 €.', 'Nein, es wären 310 Karten.', 'Nein, die Uhrzeit passt nicht.'],
+    TW('p + r = 300, 25p + 15r = 6 300; die Uhrzeit spielt keine Rolle.', 'Lösung?', 'Einsetzen.', '300 ✓; 4 500 + 1 800 = 6 300 ✓.', 'Ja, es passt.'), 'Welche Angaben gehören ins Gleichungssystem?'), huerde='ueberfluessig')
+TX.u('pruefen', 'begruenden', TX.A('Für zwei Zahlen gilt: Summe 30, Differenz 6. Jemand sagt: „(20 | 10) ist die Lösung, weil 20 + 10 = 30.“ Was stimmt?', 'Falsch: Die Differenz ist 10, nicht 6. Richtig ist (18 | 12).', ['Richtig.', 'Falsch: (24 | 6).', 'Falsch: (15 | 15).'],
+    TW('x + y = 30, x − y = 6.', 'Prüfung.', 'Beide Gleichungen prüfen.', '20 − 10 = 10 ≠ 6; richtig (18 | 12).', 'Die Aussage ist falsch.'), 'Prüfe beide Bedingungen.'), huerde='entscheidung')
+TX.s('pruefen', TX.A('2 Brezeln und 1 Saft kosten 3,40 €, 1 Brezel und 2 Säfte kosten 3,80 €. Passt (Brezel | Saft) = (1 | 1,40)?', 'Ja', ['Nein, I stimmt nicht.', 'Nein, II stimmt nicht.'],
+    TW('2b + s = 3,4; b + 2s = 3,8.', 'Prüfung.', 'Einsetzen.', '2 + 1,4 = 3,4 ✓; 1 + 2,8 = 3,8 ✓.', 'Ja.')))
+TX.s('pruefen', TX.A('Ein Parkplatz: 40 Fahrzeuge, Autos und Motorräder, 130 Räder. Passt (Autos | Motorräder) = (25 | 15)?', 'Ja', ['Nein, I stimmt nicht.', 'Nein, II stimmt nicht.'],
+    TW('a + m = 40; 4a + 2m = 130.', 'Prüfung.', 'Einsetzen.', '40 ✓; 100 + 30 = 130 ✓.', 'Ja.')))
+TX.k('pruefen', TX.A('Ein Kiosk: 3 Eis und 2 Wasser kosten 8 €, 1 Eis und 1 Wasser 3 €. Passt (Eis | Wasser) = (2 | 1)?', 'Ja', ['Nein, I stimmt nicht.', 'Nein, II stimmt nicht.'],
+    TW('3e + 2w = 8; e + w = 3.', 'Prüfung.', 'Einsetzen.', '6 + 2 = 8 ✓; 3 ✓.', 'Ja.')))
+
+# --- grafisch ---
+TX.u('grafisch', 'erkennen', TX.A('Zwei Handytarife werden als Geraden gezeichnet: y = 0,1x + 5 und y = 0,2x. Sie schneiden sich in (50 | 10). Was bedeutet der Schnittpunkt?', 'Bei 50 Minuten kosten beide 10 €.', ['Bei 10 Minuten kosten beide 50 €.', 'Tarif A kostet 50 €.', 'Ab 10 Minuten ist A billiger.'],
+    TW('Schnittpunkt (50 | 10).', 'Bedeutung.', 'x = Minuten, y = Kosten.', 'gleiche Kosten bei 50 min.', 'Bei 50 Minuten kosten beide 10 €.'), 'Was steht auf der x-Achse, was auf der y-Achse?'))
+TX.u('grafisch', 'einkleidung', TL('Kerze A: h = −2x + 20, Kerze B: h = −x + 14 (x in Stunden). Lies am Schnittpunkt ab, wann beide gleich hoch sind und wie hoch.', 'nach □ h, Höhe □ cm', ['6', '8'],
+    TW('−2x + 20 = −x + 14.', 'Schnittpunkt.', 'Gleichsetzen oder ablesen.', 'x = 6, h = 8.', 'Nach 6 h sind beide 8 cm hoch.'), 'Wo treffen sich die beiden Geraden?', hinweis=_LP))
+TX.u('grafisch', 'darstellung', TL('Eine Tabelle zeigt zwei Sparpläne: A: 0 Monate 40 €, 2 Monate 60 €, 4 Monate 80 €. B: 0 Monate 0 €, 2 Monate 30 €, 4 Monate 60 €. Wann haben beide gleich viel, und wie viel?', 'nach □ Monaten, □ €', ['8', '120'],
+    TW('A: 40 + 10x, B: 15x.', 'Schnittpunkt.', 'Gleichsetzen.', '40 + 10x = 15x ⇒ x = 8; 120 €.', 'Nach 8 Monaten haben beide 120 €.'), 'Stelle aus der Tabelle für beide eine Gerade auf.', hinweis=_LP))
+TX.u('grafisch', 'verknuepfen', TX.A('Zwei Fahrradverleihe: A y = 3x + 6, B y = 5x (x Stunden). Der Schnittpunkt liegt bei x = 3. Eine Gruppe will 5 Stunden fahren. Welcher Verleih ist günstiger?', 'A: 21 € statt 25 €', ['B: 25 € statt 21 €', 'Beide kosten 15 €.', 'B, weil er bei 0 € beginnt.'],
+    TW('A: 3x + 6, B: 5x, x = 5.', 'günstiger.', 'Rechts vom Schnittpunkt prüfen.', 'A: 21, B: 25.', 'A ist bei 5 Stunden günstiger.'), 'Liegt x = 5 links oder rechts vom Schnittpunkt?'), huerde='entscheidung')
+TX.u('grafisch', 'transfer', TL('Ein Wanderer startet um 8 Uhr bei km 0 mit 4 km/h. Ein Radfahrer startet um 9 Uhr bei km 0 mit 12 km/h in dieselbe Richtung. Wann und wo holt der Radfahrer ihn ein? (x = Stunden nach 8 Uhr)', 'um □:30 Uhr bei km □', ['9', '6'],
+    TW('W: y = 4x, R: y = 12(x − 1).', 'Schnittpunkt.', 'Gleichsetzen.', '4x = 12x − 12 ⇒ x = 1,5; y = 6.', 'Um 9:30 Uhr bei km 6.'), 'Der Radfahrer fährt eine Stunde kürzer.', hinweis=_LP), huerde='deuten')
+TX.u('grafisch', 'pruefung', TL('Zwei Lieferdienste: A kostet y = 2x + 3, B y = x + 7 Euro (x km). Beide haben 20 Fahrer. Bei wie vielen km kosten beide gleich viel und wie viel?', 'bei □ km, □ €', ['4', '11'],
+    TW('2x + 3 = x + 7; Fahrerzahl spielt keine Rolle.', 'Schnittpunkt.', 'Gleichsetzen.', 'x = 4, y = 11.', 'Bei 4 km kosten beide 11 €.'), 'Welche Angabe brauchst du nicht?', hinweis=_LP), huerde='ueberfluessig')
+TX.s('grafisch', TL('Tarif A: y = 0,2x + 2, Tarif B: y = 0,3x. Schnittpunkt?', '(□ | □)', ['20', '6'],
+    TW('0,2x + 2 = 0,3x.', 'Schnittpunkt.', 'Gleichsetzen.', 'x = 20, y = 6.', '(20 | 6).'), hinweis=_LP))
+TX.s('grafisch', TL('Tank A: y = 100 − 5x, Tank B: y = 40 + 5x (x Minuten). Wann gleich voll, wie viel?', 'nach □ min, □ l', ['6', '70'],
+    TW('100 − 5x = 40 + 5x.', 'Schnittpunkt.', 'Gleichsetzen.', 'x = 6, y = 70.', 'Nach 6 min, 70 l.'), hinweis=_LP))
+TX.k('grafisch', TL('Taxi A: y = 2x + 4, Taxi B: y = 3x + 1. Schnittpunkt?', '(□ | □)', ['3', '10'],
+    TW('2x + 4 = 3x + 1.', 'Schnittpunkt.', 'Gleichsetzen.', 'x = 3, y = 10.', '(3 | 10).'), hinweis=_LP))
+
+# --- einsetzen ---
+TX.u('einsetzen', 'direkt', TZ('Ein Stift kostet 1 € mehr als ein Radiergummi (s = r + 1). Zusammen kosten sie 3 €. Was kostet der Radiergummi?', '(3 - 1) / 2',
+    TW('s = r + 1, s + r = 3.', 'r.', 'I in II einsetzen.', 'r + 1 + r = 3 ⇒ r = 1.', 'Der Radiergummi kostet 1 €.'), 'Ersetze s in der zweiten Gleichung.', einheit='€'))
+TX.u('einsetzen', 'einkleidung', TZ('Eine Mutter ist dreimal so alt wie ihr Sohn. Zusammen sind sie 48 Jahre alt. Wie alt ist der Sohn?', '48 / 4',
+    TW('m = 3s, m + s = 48.', 's.', 'Einsetzen.', '3s + s = 48 ⇒ s = 12.', 'Der Sohn ist 12 Jahre alt.'), 'Ersetze m durch 3s.', einheit='Jahre'))
+TX.u('einsetzen', 'mehrschritt', TL('Ein Rechteck ist 4 cm länger als breit, sein Umfang ist 32 cm. Bestimme Breite und Länge.', 'b = □ cm, l = □ cm', ['6', '10'],
+    TW('l = b + 4, 2l + 2b = 32.', 'b, l.', 'Einsetzen.', '2(b + 4) + 2b = 32 ⇒ 4b = 24 ⇒ b = 6, l = 10.', 'b = 6 cm, l = 10 cm.'), 'Ersetze l in der Umfangsformel.', hinweis=_LP))
+TX.u('einsetzen', 'fehler', TX.A('Ein Ticket für Erwachsene kostet doppelt so viel wie für Kinder: e = 2k. 1 Erwachsener und 3 Kinder zahlen 25 €. Jemand rechnet: 2k + 3 = 25 ⇒ k = 11. Was stimmt?', 'Falsch: 2k + 3k = 25 ⇒ k = 5 €.', ['Richtig.', 'Falsch: k = 12,5 €.', 'Falsch: k = 8 €.'],
+    TW('e = 2k, e + 3k = 25.', 'Fehler.', 'e durch 2k ersetzen, 3k nicht vergessen.', '5k = 25 ⇒ k = 5.', 'Ein Kinderticket kostet 5 €.'), 'Was ist mit dem k bei „3 Kinder“ passiert?'), huerde='entscheidung')
+TX.u('einsetzen', 'pruefung', TZ('In einer Klasse mit 2 Lehrkräften sind 4 mehr Mädchen als Jungen; zusammen sind es 28 Kinder. Wie viele Mädchen sind in der Klasse?', '(28 + 4) / 2',
+    TW('m = j + 4, m + j = 28; die Lehrkräfte zählen nicht mit.', 'm.', 'Einsetzen.', 'j + 4 + j = 28 ⇒ j = 12, m = 16.', 'Es sind 16 Mädchen.'), 'Welche Angabe gehört nicht in die Gleichungen?'), huerde='ueberfluessig')
+TX.s('einsetzen', TZ('Ein Vater ist 28 Jahre älter als seine Tochter. Zusammen sind sie 50. Wie alt ist die Tochter?', '(50 - 28) / 2',
+    TW('v = t + 28, v + t = 50.', 't.', 'Einsetzen.', '2t + 28 = 50 ⇒ t = 11.', '11 Jahre.'), einheit='Jahre'))
+TX.s('einsetzen', TZ('Ein Saft kostet dreimal so viel wie ein Wasser. Zusammen kosten sie 4 €. Was kostet das Wasser?', '4 / 4',
+    TW('s = 3w, s + w = 4.', 'w.', 'Einsetzen.', '4w = 4 ⇒ w = 1.', '1 €.'), einheit='€'))
+TX.k('einsetzen', TZ('Ein Rechteck ist doppelt so lang wie breit, Umfang 36 cm. Wie breit ist es?', '36 / 6',
+    TW('l = 2b, 2l + 2b = 36.', 'b.', 'Einsetzen.', '6b = 36 ⇒ b = 6.', '6 cm.'), einheit='cm'))
+
+# --- gleichsetzen ---
+TX.u('gleichsetzen', 'direkt', TZ('Tarif A kostet y = 0,1x + 8, Tarif B y = 0,3x Euro (x Minuten). Bei wie vielen Minuten kosten beide gleich viel?', '8 / 0.2',
+    TW('0,1x + 8 = 0,3x.', 'x.', 'Gleichsetzen.', '8 = 0,2x ⇒ x = 40.', 'Bei 40 Minuten.'), 'Setze die beiden Terme gleich.', einheit='min'))
+TX.u('gleichsetzen', 'einkleidung', TZ('Kind A hat 50 € und spart 5 € pro Woche, Kind B hat 20 € und spart 8 € pro Woche. Nach wie vielen Wochen haben beide gleich viel?', '30 / 3',
+    TW('y = 50 + 5x, y = 20 + 8x.', 'x.', 'Gleichsetzen.', '30 = 3x ⇒ x = 10.', 'Nach 10 Wochen.'), 'Stelle für beide eine Gleichung auf.', einheit='Wochen'))
+TX.u('gleichsetzen', 'mehrschritt', TL('Tank A enthält 500 l und verliert 20 l pro Minute, Tank B enthält 200 l und bekommt 10 l pro Minute. Wann ist in beiden gleich viel, und wie viel?', 'nach □ min, □ l', ['10', '300'],
+    TW('y = 500 − 20x, y = 200 + 10x.', 'Schnittpunkt.', 'Gleichsetzen, einsetzen.', '300 = 30x ⇒ x = 10; y = 300.', 'Nach 10 min, 300 l.'), 'Erst x, dann y.', hinweis=_LP))
+TX.u('gleichsetzen', 'pruefung', TZ('Fitnessstudio A kostet 30 € Grundbetrag plus 2 € pro Besuch, B 10 € plus 4 € pro Besuch. A hat eine Sauna. Bei wie vielen Besuchen im Monat kosten beide gleich viel?', '20 / 2',
+    TW('30 + 2x = 10 + 4x; die Sauna spielt keine Rolle.', 'x.', 'Gleichsetzen.', '20 = 2x ⇒ x = 10.', 'Bei 10 Besuchen.'), 'Welche Angabe gehört nicht in die Rechnung?'), huerde='ueberfluessig')
+TX.u('gleichsetzen', 'begruenden', TX.A('Zwei Kerzen: A ist 24 cm hoch und brennt 3 cm pro Stunde, B ist 16 cm hoch und brennt 1 cm pro Stunde. Jemand sagt: „Nach 4 Stunden sind beide gleich hoch – danach ist A kleiner.“ Was stimmt?',
+    'Richtig: Beide sind nach 4 h 12 cm hoch, danach brennt A schneller.', ['Falsch: nach 8 h.', 'Falsch: Sie sind nie gleich hoch.', 'Falsch: Danach ist A größer.'],
+    TW('24 − 3x = 16 − x.', 'Prüfen.', 'Gleichsetzen und deuten.', 'x = 4, h = 12.', 'Die Aussage stimmt.'), 'Löse die Gleichung und überlege, welche Kerze schneller kürzer wird.'), huerde='entscheidung')
+TX.s('gleichsetzen', TZ('Taxi A: y = 2x + 5, Taxi B: y = 3x + 1. Bei wie vielen km gleich teuer?', '4',
+    TW('2x + 5 = 3x + 1.', 'x.', 'Gleichsetzen.', 'x = 4.', 'Bei 4 km.'), einheit='km'))
+TX.s('gleichsetzen', TZ('Sparplan A: y = 100 + 20x, Sparplan B: y = 40 + 35x. Nach wie vielen Monaten gleich?', '60 / 15',
+    TW('100 + 20x = 40 + 35x.', 'x.', 'Gleichsetzen.', 'x = 4.', 'Nach 4 Monaten.'), einheit='Monate'))
+TX.k('gleichsetzen', TZ('Handwerker A: y = 40x + 30, Handwerker B: y = 35x + 50. Bei wie vielen Stunden gleich teuer?', '20 / 5',
+    TW('40x + 30 = 35x + 50.', 'x.', 'Gleichsetzen.', 'x = 4.', 'Bei 4 Stunden.'), einheit='h'))
+
+# --- addition ---
+TX.u('addition', 'direkt', TZ('2 Brötchen und 1 Croissant kosten 2,50 €, 1 Brötchen und 1 Croissant 1,90 €. Was kostet ein Brötchen? (Ziehe II von I ab.)', '2.5 - 1.9',
+    TW('I: 2b + c = 2,5, II: b + c = 1,9.', 'b.', 'I − II.', 'b = 0,6.', 'Ein Brötchen kostet 0,60 €.'), 'Was bleibt übrig, wenn du II von I abziehst?', einheit='€'))
+TX.u('addition', 'einkleidung', TL('Im Zoo sind 120 Besucher, Kinder und Erwachsene; es sind 40 Kinder mehr als Erwachsene. Wie viele Kinder und Erwachsene?', 'k = □, e = □', ['80', '40'],
+    TW('k + e = 120, k − e = 40.', 'k, e.', 'Addieren.', '2k = 160 ⇒ k = 80, e = 40.', '80 Kinder, 40 Erwachsene.'), 'Addiere beide Gleichungen.', hinweis=_LP))
+TX.u('addition', 'transfer', TZ('Ein Boot fährt flussabwärts 24 km/h, flussaufwärts 16 km/h (v + s = 24, v − s = 16). Wie lange braucht es für 30 km im stillen Wasser? Gib Minuten an.', '30 / 20 * 60',
+    TW('v + s = 24, v − s = 16.', 'Zeit im stillen Wasser.', 'Addieren: v; dann t = 30 : v.', '2v = 40 ⇒ v = 20; 30 : 20 = 1,5 h.', 'Es braucht 90 Minuten.'), 'Erst die Eigengeschwindigkeit, dann die Zeit – achte auf die Einheit.', einheit='min'), huerde='deuten')
+TX.u('addition', 'fehler', TX.A('3 Äpfel und 2 Birnen kosten 3,40 €, 3 Äpfel und 1 Birne kosten 2,60 €. Jemand addiert beide Gleichungen, um eine Birne zu berechnen. Was stimmt?', 'Ungeschickt: Subtrahieren entfernt die Äpfel – eine Birne kostet 0,80 €.', ['Richtig, so fällt a weg.', 'Eine Birne kostet 6 €.', 'Eine Birne kostet 3 €.'],
+    TW('3a + 2b = 3,4; 3a + b = 2,6.', 'b.', 'I − II.', 'b = 0,8.', 'Subtrahieren; eine Birne kostet 0,80 €.'), 'Bei welcher Rechnung fallen die Äpfel weg?'), huerde='entscheidung')
+TX.u('addition', 'pruefung', TZ('Ein Bäcker verkauft am Montag 40 Brezeln und 20 Brötchen für 52 €, am Dienstag 40 Brezeln und 30 Brötchen für 58 €. Der Laden öffnet um 6 Uhr. Was kostet ein Brötchen?', '(58 - 52) / 10',
+    TW('40b + 20r = 52, 40b + 30r = 58; die Uhrzeit spielt keine Rolle.', 'r.', 'II − I.', '10r = 6 ⇒ r = 0,6.', 'Ein Brötchen kostet 0,60 €.'), 'Welche Angabe brauchst du nicht?', einheit='€'), huerde='ueberfluessig')
+TX.s('addition', TZ('2 Kaffee und 1 Kuchen kosten 8 €, 1 Kaffee und 1 Kuchen 5,50 €. Was kostet ein Kaffee?', '8 - 5.5',
+    TW('I − II.', 'k.', 'Subtrahieren.', '2,5.', '2,50 €.'), einheit='€'))
+TX.s('addition', TL('Zwei Zahlen: Summe 50, Differenz 14. Welche?', '□ und □', ['32', '18'],
+    TW('x + y = 50, x − y = 14.', 'x, y.', 'Addieren.', '2x = 64 ⇒ x = 32, y = 18.', '32 und 18.'), hinweis=_LP))
+TX.k('addition', TZ('3 Hefte und 1 Block kosten 5 €, 1 Heft und 1 Block 3 €. Was kostet ein Heft?', '(5 - 3) / 2',
+    TW('I − II.', 'h.', 'Subtrahieren.', '2h = 2 ⇒ h = 1.', '1 €.'), einheit='€'))
+
+# --- verfahren ---
+TX.u('verfahren', 'erkennen', TX.A('Für zwei Tarife gilt I: y = 0,2x + 4 und II: y = 0,3x + 2. Welches Verfahren ist am geschicktesten?', 'Gleichsetzen', ['Addieren', 'Einsetzen von x', 'Probieren'],
+    TW('Beide nach y aufgelöst.', 'Verfahren.', 'Gleiche linke Seite.', 'Gleichsetzen.', 'Gleichsetzen ist am geschicktesten.'), 'Wonach sind beide Gleichungen schon aufgelöst?'))
+TX.u('verfahren', 'einkleidung', TL('Hühner und Kaninchen: 30 Köpfe, 84 Beine. Löse mit einem geschickten Verfahren.', '□ Hühner, □ Kaninchen', ['18', '12'],
+    TW('h + k = 30, 2h + 4k = 84.', 'h, k.', 'I · 2 von II abziehen.', '2k = 24 ⇒ k = 12, h = 18.', '18 Hühner, 12 Kaninchen.'), 'Multipliziere die erste Gleichung mit 2.', hinweis=_LP))
+TX.u('verfahren', 'transfer', TZ('Für eine Feier werden 50 Getränke gekauft: Säfte zu 1,50 € und Wasser zu 0,80 €, zusammen 61 €. Wie viele Säfte?', '(61 - 0.8 * 50) / 0.7',
+    TW('s + w = 50, 1,5s + 0,8w = 61.', 's.', 'w = 50 − s einsetzen.', '1,5s + 40 − 0,8s = 61 ⇒ 0,7s = 21 ⇒ s = 30.', '30 Säfte.'), 'Welche Gleichung lässt sich leicht nach einer Variablen auflösen?'), huerde='zwei')
+TX.u('verfahren', 'pruefung', TX.A('Ein Kiosk mit 2 Verkäufern: I: 2c + 3e = 12, II: 2c + e = 8 (c Cola, e Eis). Welches Verfahren ist am geschicktesten und was kostet ein Eis?', 'Subtrahieren: 2e = 4, ein Eis kostet 2 €.', ['Gleichsetzen: e = 4 €.', 'Einsetzen: e = 1 €.', 'Addieren: e = 5 €.'],
+    TW('2c steht in beiden; die Verkäufer spielen keine Rolle.', 'Verfahren und e.', 'I − II.', '2e = 4 ⇒ e = 2.', 'Subtrahieren; ein Eis kostet 2 €.'), 'Welche Variable fällt sofort weg?'), huerde='ueberfluessig')
+TX.u('verfahren', 'fehler', TX.A('Für Tickets gilt I: e = 2k, II: e + k = 18. Jemand formt beide um und addiert, ohne dass eine Variable wegfällt. Was ist geschickter?', 'Einsetzen: 2k + k = 18 ⇒ k = 6, e = 12.', ['Addieren ist am besten.', 'Gleichsetzen: k = 18.', 'Man kann es nicht lösen.'],
+    TW('I schon nach e aufgelöst.', 'Verfahren.', 'I in II einsetzen.', '3k = 18 ⇒ k = 6.', 'Einsetzen ist geschickter.'), 'Ist eine Gleichung schon nach einer Variablen aufgelöst?'), huerde='entscheidung')
+TX.s('verfahren', TL('Zwei Zahlen: Summe 40, die größere ist das Dreifache der kleineren. Welche?', 'kleiner □, größer □', ['10', '30'],
+    TW('g = 3k, g + k = 40.', 'k, g.', 'Einsetzen.', '4k = 40 ⇒ k = 10.', '10 und 30.'), hinweis=_LP))
+TX.s('verfahren', TZ('Tarif A: y = 0,5x + 3, Tarif B: y = x. Bei welchem x sind beide gleich?', '6',
+    TW('0,5x + 3 = x.', 'x.', 'Gleichsetzen.', 'x = 6.', 'x = 6.')))
+TX.k('verfahren', TZ('I: 3a + 2b = 13, II: 3a + b = 11 (Preise in €). Was kostet b?', '13 - 11',
+    TW('I − II.', 'b.', 'Subtrahieren.', 'b = 2.', '2 €.'), einheit='€'))
+
+# --- loesbarkeit ---
+TX.u('loesbarkeit', 'erkennen', TX.A('Tarif A: y = 0,1x + 5, Tarif B: y = 0,1x + 8. Wie viele Lösungen hat das Gleichungssystem?', 'keine – die Tarife sind nie gleich teuer', ['genau eine', 'unendlich viele', 'zwei'],
+    TW('gleiche Steigung, verschiedener Achsenabschnitt.', 'Anzahl.', 'parallel.', 'keine Lösung.', 'Keine Lösung.'), 'Vergleiche die Steigungen.'))
+TX.u('loesbarkeit', 'einkleidung', TX.A('Zwei Kinder sparen: A hat 20 € und spart 5 € pro Woche, B hat 20 € und spart 5 € pro Woche. Wie viele Lösungen hat „gleich viel Geld“?', 'unendlich viele – sie haben immer gleich viel', ['keine', 'genau eine', 'zwei'],
+    TW('beide y = 5x + 20.', 'Anzahl.', 'identische Geraden.', 'unendlich viele.', 'Unendlich viele Lösungen.'), 'Sind die Gleichungen gleich?'))
+TX.u('loesbarkeit', 'mehrschritt', TX.A('I: 2h + 4k = 56, II: h + 2k = 30 (Hühner und Kaninchen). Wie viele Lösungen gibt es?', 'keine – II · 2 ergibt 60 ≠ 56', ['genau eine', 'unendlich viele', 'zwei'],
+    TW('II · 2: 2h + 4k = 60.', 'Anzahl.', 'Vergleich mit I.', '56 ≠ 60.', 'Widerspruch – keine Lösung.'), 'Multipliziere II mit 2 und vergleiche.'))
+TX.u('loesbarkeit', 'transfer', TX.A('Zwei Läufer laufen mit je 10 km/h, der zweite startet 1 km weiter vorne. Jemand sucht den Treffpunkt. Was gilt?', 'Kein Treffpunkt – die Geraden sind parallel.', ['Treffpunkt nach 1 h.', 'Treffpunkt nach 10 min.', 'Sie laufen immer zusammen.'],
+    TW('y = 10x, y = 10x + 1.', 'Lösbar?', 'Steigungen vergleichen.', '10x = 10x + 1 ⇒ 0 = 1.', 'Keine Lösung.'), 'Was passiert beim Gleichsetzen?'), huerde='entscheidung')
+TX.u('loesbarkeit', 'begruenden', TZ('Tarif A: y = 0,2x + 6, Tarif B: y = m · x + 4. Für welches m gibt es KEINEN Schnittpunkt? Die Grundgebühren stehen schon fest, der Anbieter heißt gleich.', '0.2',
+    TW('parallel ⇒ m = 0,2; Name des Anbieters spielt keine Rolle.', 'm.', 'Gleiche Steigung, verschiedenes t.', 'm = 0,2.', 'Für m = 0,2 gibt es keinen Schnittpunkt.'), 'Wann sind zwei Geraden parallel?'), huerde='ueberfluessig')
+TX.u('loesbarkeit', 'pruefung', TX.A('Ein Kiosk: I: 2e + 2w = 6, II: e + w = 3 (Eis, Wasser in €). Jemand sagt: „Daraus kann man den Preis eines Eises berechnen.“ Was stimmt?', 'Falsch: II · 2 = I – unendlich viele Lösungen, der Preis ist nicht eindeutig.', ['Richtig: e = 1,50 €.', 'Richtig: e = 2 €.', 'Falsch: keine Lösung.'],
+    TW('I = 2 · II.', 'eindeutig?', 'Gleichungen vergleichen.', 'gleiche Gerade.', 'Unendlich viele Lösungen.'), 'Steckt in I mehr Information als in II?'))
+TX.s('loesbarkeit', TX.A('Taxi A: y = 2x + 3, Taxi B: y = 2x + 3. Anzahl der Lösungen?', 'unendlich viele', ['keine', 'genau eine'],
+    TW('identisch.', 'Anzahl.', 'Vergleich.', 'gleiche Gerade.', 'unendlich viele.')))
+TX.s('loesbarkeit', TX.A('Tank A: y = 50 − 5x, Tank B: y = 80 − 5x. Anzahl der Lösungen?', 'keine', ['genau eine', 'unendlich viele'],
+    TW('parallel.', 'Anzahl.', 'Steigungen gleich.', 'keine.', 'keine Lösung.')))
+TX.k('loesbarkeit', TX.A('Tarif A: y = 0,1x + 5, Tarif B: y = 0,2x + 3. Anzahl der Lösungen?', 'genau eine', ['keine', 'unendlich viele'],
+    TW('verschiedene Steigungen.', 'Anzahl.', 'Schnittpunkt.', 'genau eine.', 'genau eine (x = 20).')))
+
+# --- sachaufgabe ---
+TX.u('sachaufgabe', 'fehler', TX.A('In einer Kasse liegen 25 Münzen, nur 1-€- und 2-€-Stücke, zusammen 38 €. Jemand stellt auf: e + z = 38, e + 2z = 25. Was stimmt?', 'Falsch: Anzahl und Wert vertauscht – e + z = 25, e + 2z = 38 ⇒ 13 Zwei-Euro-Stücke.', ['Richtig.', 'Falsch: 2e + z = 38.', 'Falsch: e − z = 25.'],
+    TW('Anzahl 25, Wert 38.', 'richtiger Ansatz.', 'Zuordnen, dann subtrahieren.', 'z = 38 − 25 = 13, e = 12.', 'Die Zahlen sind vertauscht; z = 13.'), 'Welche Zahl ist eine Anzahl, welche ein Geldbetrag?'), huerde='entscheidung')
+TX.u('sachaufgabe', 'verknuepfen', TZ('Für eine Klassenfahrt mit 3 Lehrkräften werden Doppel- und Viererzimmer gebucht: 10 Zimmer für 32 Kinder. Die Lehrkräfte schlafen in Einzelzimmern. Wie viele Viererzimmer sind es?', '(32 - 2 * 10) / 2',
+    TW('d + v = 10, 2d + 4v = 32; die Lehrkräfte gehören nicht dazu.', 'v.', 'd = 10 − v einsetzen.', '20 − 2v + 4v = 32 ⇒ v = 6.', 'Es sind 6 Viererzimmer.'), 'Welche Angaben gehören nicht ins Gleichungssystem?'), huerde='ueberfluessig')
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Grundidee', ['pruefen', 'grafisch']), ('Lösungsverfahren', ['einsetzen', 'gleichsetzen', 'addition', 'verfahren']),

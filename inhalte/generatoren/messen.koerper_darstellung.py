@@ -828,6 +828,140 @@ ST.knobel('beurteilen', SZ('Ein Prisma und eine Pyramide haben dieselbe n-eckige
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('messen.koerper_darstellung', 22_8_10)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+TX.huerde_alt('netz', r'Eine Schachtel ohne Deckel hat die Form eines Quaders', 'fehlend')
+
+# --- prisma ---
+TX.u('prisma', 'direkt', TZ('Ein Zelt hat die Form eines dreiseitigen Prismas, auch der Boden ist aus Stoff. Aus wie vielen Stoffflächen besteht das Zelt?', '3 + 2',
+    TW('dreiseitiges Prisma, n = 3.', 'Anzahl der Flächen.', 'n Seitenflächen + 2 Grundflächen.', '3 + 2 = 5.', 'Das Zelt hat 5 Stoffflächen.'), 'Zähle die Seitenflächen und die beiden Dreiecke.'))
+TX.u('prisma', 'einkleidung', TZ('Ein Bleistift ohne Spitze ist ein sechsseitiges Prisma. Wie viele Kanten hat er?', '3 * 6',
+    TW('n = 6.', 'Anzahl der Kanten.', 'Kanten = 3 · n (vorn, hinten, dazwischen).', '3 · 6 = 18.', 'Er hat 18 Kanten.'), 'Wie viele Kanten liegen vorn, hinten und dazwischen?'))
+TX.u('prisma', 'mehrschritt', TZ('Für ein Kantenmodell eines achtseitigen Prismas braucht man für jede Kante einen Holzstab und für jede Ecke eine Knetkugel. Wie viele Teile braucht man zusammen?', '3 * 8 + 2 * 8',
+    TW('n = 8.', 'Stäbe + Kugeln.', 'Kanten = 3n, Ecken = 2n.', '24 + 16 = 40.', 'Man braucht 40 Teile.'), 'Wie viele Kanten und wie viele Ecken hat das Prisma?'))
+TX.u('prisma', 'pruefung', TZ('Ein Pavillon ist ein sechsseitiges Prisma: sechseckiger Boden und flaches sechseckiges Dach, jede Kante am Boden ist 2 m lang, er ist 3 m hoch und kostet 1 200 €. An alle Kanten kommt eine Lichterkette. Wie viele Meter braucht man?',
+    '6 * 2 + 6 * 2 + 6 * 3', TW('n = 6, Kanten am Boden und am Dach je 2 m, senkrechte Kanten 3 m. Der Preis spielt keine Rolle.', 'Gesamtlänge aller Kanten.', '6 Kanten unten + 6 oben + 6 senkrecht.',
+    '12 + 12 + 18 = 42.', 'Man braucht 42 m Lichterkette.'), 'Welche Kanten gibt es, und wie lang ist jede Sorte?', einheit='m'), huerde='ueberfluessig')
+TX.u('prisma', 'begruenden', TX.A('Ein Bastelset enthält 15 Holzstäbe für die Kanten und 10 Knetkugeln für die Ecken. Reicht es für ein Kantenmodell eines fünfseitigen Prismas?',
+    'Ja, genau: 15 Kanten und 10 Ecken.', ['Nein, es fehlen 5 Stäbe.', 'Nein, es fehlen 2 Kugeln für die Grundflächen.', 'Ja, und es bleiben 5 Stäbe übrig.'],
+    TW('15 Stäbe, 10 Kugeln, n = 5.', 'Reicht das Set?', 'Kanten = 3n, Ecken = 2n vergleichen.', '3 · 5 = 15, 2 · 5 = 10.', 'Es reicht genau.'), 'Berechne Kanten und Ecken des Prismas.'), huerde='entscheidung')
+TX.s('prisma', TZ('Eine Geschenkverpackung hat die Form eines vierseitigen Prismas. Wie viele Ecken hat sie?', '2 * 4',
+    TW('n = 4.', 'Ecken.', 'Ecken = 2n.', '2 · 4 = 8.', 'Sie hat 8 Ecken.')))
+TX.s('prisma', TZ('Eine Säule auf einem Spielplatz ist ein achtseitiges Prisma. Wie viele Seitenflächen hat sie ohne Boden und Deckel?', '8',
+    TW('n = 8.', 'Seitenflächen.', 'Je Kante der Grundfläche eine Seitenfläche.', 'n = 8.', 'Sie hat 8 Seitenflächen.')))
+TX.k('prisma', TZ('Ein Turm aus Pappe ist ein fünfseitiges Prisma. Alle Kanten sollen mit Farbe nachgezogen werden. Wie viele Kanten sind das?', '3 * 5',
+    TW('n = 5.', 'Kanten.', 'Kanten = 3n.', '3 · 5 = 15.', 'Es sind 15 Kanten.')))
+
+# --- netz ---
+TX.u('netz', 'direkt', TZ('Ein würfelförmiger Karton mit 5 cm Kantenlänge wird aufgeschnitten und flach gelegt. Wie groß ist die Fläche seines Netzes?', '6 * 5**2',
+    TW('Würfel a = 5 cm.', 'Fläche des Netzes.', '6 gleiche Quadrate.', '6 · 25 = 150.', 'Das Netz hat 150 cm².'), 'Aus welchen Flächen besteht das Netz eines Würfels?', einheit='cm²'))
+TX.u('netz', 'einkleidung', TZ('Eine Müslischachtel ist 20 cm breit, 7 cm tief und 30 cm hoch. Wie viel cm² Karton hat ihr Netz ohne Klebelaschen?', '2 * (20 * 7 + 20 * 30 + 7 * 30)',
+    TW('Quader 20 · 7 · 30 cm.', 'Fläche des Netzes.', 'Je zwei gleiche Rechtecke: 2 · (ab + ac + bc).', '2 · (140 + 600 + 210) = 1 900.', 'Das Netz hat 1 900 cm².'), 'Welche drei Rechtecke kommen je zweimal vor?', einheit='cm²'))
+TX.u('netz', 'umkehr', TZ('Das Netz eines würfelförmigen Geschenkkartons hat 216 cm². Wie lang ist eine Kante?', '6',
+    TW('Netzfläche 216 cm², Würfel.', 'Kantenlänge a.', '216 : 6 = Fläche eines Quadrats, dann die Seite.', '216 : 6 = 36 cm²; 6 · 6 = 36.', 'Eine Kante ist 6 cm lang.'), 'Wie groß ist eine der sechs Flächen?', einheit='cm'))
+TX.u('netz', 'pruefung', TZ('Für 30 würfelförmige Geschenkboxen mit 8 cm Kantenlänge wird Karton gekauft. Ein Bogen hat 0,25 m², für Klebelaschen rechnet man 10 % dazu. Wie viele Bögen muss man kaufen?', '-(-(30 * 6 * 8**2 * 11 / 10) // 2500)',
+    TW('30 Würfel, a = 8 cm, +10 %, Bogen 0,25 m² = 2 500 cm².', 'Anzahl der Bögen.', 'Netzfläche · 30 · 1,1, durch 2 500, aufrunden.', '6 · 64 = 384 cm². · 30 = 11 520 cm². · 1,1 = 12 672 cm². : 2 500 ≈ 5,07.', 'Man muss 6 Bögen kaufen.'),
+    'Rechne erst eine Box, dann alle, dann die Bögen – und was machst du mit 5,07?'), huerde='deuten')
+TX.s('netz', TZ('Ein Umzugskarton (Quader 40 cm × 30 cm × 20 cm) wird ringsum mit Folie beklebt. Wie viel cm² Folie braucht man ohne Überlappung?', '2 * (40 * 30 + 40 * 20 + 30 * 20)',
+    TW('Quader 40 · 30 · 20 cm.', 'Folienfläche.', 'O = 2 · (ab + ac + bc).', '2 · (1 200 + 800 + 600) = 5 200.', 'Man braucht 5 200 cm².'), einheit='cm²'))
+TX.s('netz', TZ('Eine oben offene Holzkiste ist 50 cm lang, 40 cm breit und 30 cm hoch. Wie viel cm² Holz hat sie?', '50 * 40 + 2 * 50 * 30 + 2 * 40 * 30',
+    TW('50 · 40 · 30 cm, ohne Deckel.', 'Holzfläche.', 'Boden + vier Seiten.', '2 000 + 3 000 + 2 400 = 7 400.', 'Die Kiste hat 7 400 cm² Holz.'), einheit='cm²'))
+TX.k('netz', TZ('Ein würfelförmiger Hocker mit 40 cm Kante wird ringsum gepolstert, nur die Unterseite nicht. Wie viel cm² Stoff braucht man?', '5 * 40**2',
+    TW('Würfel a = 40 cm, 5 Flächen.', 'Stofffläche.', '5 · a².', '5 · 1 600 = 8 000.', 'Man braucht 8 000 cm² Stoff.'), einheit='cm²'))
+
+# --- zylinder ---
+TX.u('zylinder', 'direkt', TZ('Eine Dose ist 11 cm hoch, ihr Umfang ist 25 cm. Wie groß ist ein Etikett, das den Mantel genau bedeckt?', '25 * 11',
+    TW('u = 25 cm, h = 11 cm.', 'Etikettfläche (Mantel).', 'Mantel = Rechteck u · h.', '25 · 11 = 275.', 'Das Etikett ist 275 cm² groß.'), 'Welche Form hat der Mantel, wenn man ihn flach legt?', einheit='cm²'))
+TX.u('zylinder', 'einkleidung', TZ('Eine Papprolle für ein Poster ist 60 cm lang, ihr Umfang beträgt 22 cm. Wie viel cm² Pappe hat ihr Mantel?', '60 * 22',
+    TW('Länge 60 cm, u = 22 cm.', 'Mantelfläche.', 'Mantel = u · Länge.', '22 · 60 = 1 320.', 'Der Mantel hat 1 320 cm².'), 'Die Länge der Rolle ist die Höhe des Zylinders.', einheit='cm²'))
+TX.u('zylinder', 'umkehr', TZ('Ein Etikett ist 31,4 cm lang und liegt genau einmal um eine Dose. Welchen Durchmesser hat die Dose? Rechne mit π ≈ 3,14.', '31.4 / 3.14',
+    TW('Etikettlänge = Umfang = 31,4 cm.', 'Durchmesser d.', 'u = π · d ⇒ d = u : π.', 'd = 31,4 : 3,14 = 10.', 'Die Dose hat 10 cm Durchmesser.'), 'Welche Länge der Dose ist die Etikettlänge?', einheit='cm'))
+TX.u('zylinder', 'pruefung', TZ('Für 200 Dosen (Umfang 25 cm, Höhe 11 cm) werden Etiketten gedruckt. Auf einen Druckbogen passen 6 Etiketten. Wie viele Bögen braucht man?', '-(-200 // 6)',
+    TW('200 Etiketten, 6 pro Bogen. Umfang und Höhe braucht man hier nicht.', 'Anzahl der Bögen.', '200 : 6, dann aufrunden.', '200 : 6 ≈ 33,3.', 'Man braucht 34 Bögen.'), 'Was passiert mit den restlichen Etiketten?'), huerde='deuten')
+TX.u('zylinder', 'fehler', TX.A('Für das Etikett einer Dose mit 8 cm Durchmesser und 12 cm Höhe rechnet jemand: 8 · 12 = 96 cm². Was ist falsch?',
+    'Er hat den Durchmesser statt des Umfangs genommen: richtig π · 8 · 12 ≈ 301 cm².', ['Nichts, das stimmt.', 'Er hätte durch 2 teilen müssen: 48 cm².', 'Er hat die Deckel vergessen: 96 + 2 · 64 = 224 cm².'],
+    TW('d = 8 cm, h = 12 cm.', 'Fehler und richtige Etikettfläche.', 'Mantel = Umfang · Höhe, Umfang = π · d.', 'u ≈ 25,1 cm; 25,1 · 12 ≈ 301 cm².', 'Falsch war der Durchmesser statt des Umfangs; richtig sind etwa 301 cm².'),
+    'Welche Seite des Mantelrechtecks ist der Umfang?'), huerde='entscheidung')
+TX.s('zylinder', TZ('Eine Säule im Garten ist 2 m hoch und hat 1,5 m Umfang. Sie wird ganz mit Efeu-Matten verkleidet. Wie viel m² Matten braucht man für den Mantel?', '2 * 1.5',
+    TW('h = 2 m, u = 1,5 m.', 'Mantelfläche.', 'u · h.', '1,5 · 2 = 3.', 'Man braucht 3 m².'), einheit='m²'))
+TX.s('zylinder', TZ('Ein zylinderförmiger Stifteköcher ist 10 cm hoch, sein Umfang ist 24 cm. Wie viel cm² Papier braucht man, um den Mantel zu bekleben?', '10 * 24',
+    TW('h = 10 cm, u = 24 cm.', 'Mantelfläche.', 'u · h.', '24 · 10 = 240.', 'Man braucht 240 cm².'), einheit='cm²'))
+TX.k('zylinder', TZ('Ein Rohr ist 3 m lang, sein Umfang beträgt 0,5 m. Wie viel m² müssen außen gestrichen werden?', '3 * 0.5',
+    TW('Länge 3 m, u = 0,5 m.', 'Mantelfläche.', 'u · Länge.', '0,5 · 3 = 1,5.', 'Es müssen 1,5 m² gestrichen werden.'), einheit='m²'))
+
+# --- schraegbild ---
+TX.u('schraegbild', 'direkt', TZ('Ein Gartenhaus ist 4 m tief. Im Plan steht 1 cm für 1 m. Wie lang zeichnest du die Tiefe im Schrägbild mit q = 1/2?', '4 / 2',
+    TW('Tiefe 4 m → 4 cm im Plan, q = 1/2.', 'gezeichnete Tiefe.', 'Kanten nach hinten mal q.', '4 cm · 1/2 = 2 cm.', 'Du zeichnest 2 cm.'), 'Erst in Plan-Zentimeter umrechnen, dann verkürzen.', einheit='cm'))
+TX.u('schraegbild', 'einkleidung', TZ('Ein Schuhkarton ist 30 cm breit, 12 cm hoch und 18 cm tief. Er wird in Originalgröße im Schrägbild (q = 1/2, ω = 45°) gezeichnet, die Breite vorn. Wie lang wird die Tiefe gezeichnet?', '18 / 2',
+    TW('Tiefe 18 cm, q = 1/2.', 'gezeichnete Tiefe.', 'Nur die Kanten nach hinten werden verkürzt.', '18 · 1/2 = 9.', 'Die Tiefe wird 9 cm lang gezeichnet.'), 'Welche Kante läuft nach hinten?', einheit='cm'))
+TX.u('schraegbild', 'umkehr', TZ('In einem Prospekt ist ein Regal im Maßstab 1 : 20 als Schrägbild (q = 1/2) gezeichnet. Die nach hinten laufende Kante ist dort 2,5 cm lang. Wie tief ist das Regal in Wirklichkeit?', '2.5 * 2 * 20',
+    TW('gezeichnet 2,5 cm, q = 1/2, Maßstab 1 : 20.', 'wirkliche Tiefe.', 'Erst die Verkürzung rückgängig (· 2), dann den Maßstab (· 20).', '2,5 · 2 = 5 cm; 5 · 20 = 100 cm.', 'Das Regal ist 100 cm tief.'), 'Welche zwei Verkleinerungen musst du rückgängig machen?', einheit='cm'))
+TX.u('schraegbild', 'mehrschritt', TZ('Ein Aquarium ist 80 cm breit, 40 cm hoch und 35 cm tief. Es wird im Maßstab 1 : 10 als Schrägbild (q = 1/2) gezeichnet. Wie lang wird die Tiefe gezeichnet?', '35 / 10 / 2',
+    TW('Tiefe 35 cm, Maßstab 1 : 10, q = 1/2.', 'gezeichnete Tiefe.', 'Maßstab, dann Verkürzung.', '35 : 10 = 3,5 cm; 3,5 · 1/2 = 1,75 cm.', 'Die Tiefe wird 1,75 cm lang.'), 'Erst verkleinern, dann verkürzen.', einheit='cm'))
+TX.u('schraegbild', 'pruefung', TZ('Ein Pool ist 8 m lang, 4 m breit und 1,5 m tief und fasst 48 000 l. Er wird im Maßstab 1 : 100 als Schrägbild (q = 1/2, ω = 45°) gezeichnet, die Länge vorn. Wie lang wird die Breite gezeichnet, die nach hinten läuft?', '400 / 100 / 2',
+    TW('Breite 4 m nach hinten, Maßstab 1 : 100, q = 1/2. Die Literzahl spielt keine Rolle.', 'gezeichnete Breite.', 'Maßstab, dann Verkürzung.', '400 cm : 100 = 4 cm; · 1/2 = 2 cm.', 'Die Breite wird 2 cm lang gezeichnet.'),
+    'Welche Kante läuft nach hinten, welche Angabe brauchst du nicht?', einheit='cm'), huerde='ueberfluessig')
+TX.u('schraegbild', 'begruenden', TX.A('Für einen Bastelbogen soll ein Würfel mit 6 cm Kante als Schrägbild (q = 1/2) gezeichnet werden. Kind A zeichnet die Kante nach hinten 6 cm lang, Kind B 3 cm. Wer hat recht?',
+    'Kind B: Nach hinten wird mit q = 1/2 verkürzt.', ['Kind A: Alle Würfelkanten sind gleich lang.', 'Beide, das ist Geschmackssache.', 'Keins: Es müssten 12 cm sein.'],
+    TW('a = 6 cm, q = 1/2.', 'richtige Länge nach hinten.', 'Nur Kanten nach hinten werden mit q verkürzt.', '6 · 1/2 = 3 cm.', 'Kind B hat recht.'), 'Was bedeutet q = 1/2?'), huerde='entscheidung')
+TX.s('schraegbild', TZ('Ein Paket ist 50 cm breit, 30 cm hoch und 40 cm tief. Es wird im Maßstab 1 : 10 als Schrägbild (q = 1/2) gezeichnet. Wie lang wird die Tiefe gezeichnet?', '40 / 10 / 2',
+    TW('Tiefe 40 cm, 1 : 10, q = 1/2.', 'gezeichnete Tiefe.', 'Maßstab, dann Verkürzung.', '4 cm · 1/2 = 2 cm.', 'Die Tiefe wird 2 cm lang.'), einheit='cm'))
+TX.s('schraegbild', TZ('Im Schrägbild (q = 1/2) eines Bettes im Maßstab 1 : 20 ist die Kante nach hinten 5 cm lang. Wie lang ist das Bett in dieser Richtung wirklich?', '5 * 2 * 20',
+    TW('gezeichnet 5 cm, q = 1/2, 1 : 20.', 'wirkliche Länge.', 'Verkürzung und Maßstab rückgängig machen.', '5 · 2 = 10 cm; 10 · 20 = 200 cm.', 'Das Bett ist 200 cm lang.'), einheit='cm'))
+TX.k('schraegbild', TZ('Ein Kasten ist 60 cm tief. Wie lang zeichnest du die Tiefe im Schrägbild mit q = 1/2 im Maßstab 1 : 10?', '60 / 10 / 2',
+    TW('Tiefe 60 cm, 1 : 10, q = 1/2.', 'gezeichnete Tiefe.', 'Maßstab, dann Verkürzung.', '6 cm · 1/2 = 3 cm.', 'Du zeichnest 3 cm.'), einheit='cm'))
+
+# --- ansichten ---
+TX.u('ansichten', 'erkennen', TX.A('Eine Konservendose steht auf dem Tisch. Was siehst du, wenn du genau von oben auf sie schaust?', 'einen Kreis', ['ein Rechteck', 'ein Quadrat', 'ein Dreieck'],
+    TW('stehende Dose (Zylinder).', 'Draufsicht.', 'Von oben sieht man den Deckel.', 'Der Deckel ist ein Kreis.', 'Die Draufsicht ist ein Kreis.'), 'Was liegt oben auf der Dose?'))
+TX.u('ansichten', 'einkleidung', TZ('Ein Kind baut aus gleichen Holzwürfeln eine Treppe: unten 3 Würfel nebeneinander, darauf 2, ganz oben 1, alle linksbündig. Wie viele Quadrate siehst du in der Vorderansicht?', '3 + 2 + 1',
+    TW('Reihen mit 3, 2 und 1 Würfel.', 'Quadrate in der Vorderansicht.', 'Jeder Würfel zeigt vorn ein Quadrat.', '3 + 2 + 1 = 6.', 'Man sieht 6 Quadrate.'), 'Stell dir vor, du stehst genau vor der Treppe.'))
+TX.u('ansichten', 'darstellung', TX.A('Ein liegendes Zelt hat die Form eines dreiseitigen Prismas; du schaust genau auf die dreieckige Öffnung. Welche Formen haben Vorderansicht und Draufsicht?',
+    'Vorderansicht Dreieck, Draufsicht Rechteck', ['Vorderansicht Rechteck, Draufsicht Dreieck', 'beide Dreiecke', 'beide Rechtecke'],
+    TW('liegendes Dreiecksprisma, Öffnung vorn.', 'Vorder- und Draufsicht.', 'Von vorn die Grundfläche, von oben die beiden Dachflächen als ein Rechteck.', 'Dreieck / Rechteck.', 'Vorderansicht Dreieck, Draufsicht Rechteck.'),
+    'Was siehst du von vorn, was von oben?'))
+TX.u('ansichten', 'pruefung', TZ('Ein Kind baut aus Holzwürfeln ein Haus. Die Draufsicht zeigt 2 × 3 Quadrate, die Vorderansicht ein Rechteck aus 3 Quadraten Breite und 2 Quadraten Höhe. Wie viele Würfel sind es höchstens?', '2 * 3 * 2',
+    TW('Draufsicht 2 × 3, Vorderansicht 3 breit und 2 hoch.', 'größtmögliche Zahl der Würfel.', 'Höchstens überall 2 Würfel übereinander.', '6 Felder · 2 = 12.', 'Es sind höchstens 12 Würfel (es könnten auch weniger sein).'),
+    'Wie hoch kann jeder Stapel höchstens sein?'), huerde='deuten')
+TX.u('ansichten', 'begruenden', TX.A('Ein Händler beschreibt eine Verpackung so: „Von vorn ein Rechteck, von der Seite ein Rechteck, von oben ein Kreis.“ Welcher Körper ist das?',
+    'ein stehender Zylinder', ['ein Quader', 'ein Kegel', 'eine Kugel'],
+    TW('Vorder- und Seitenansicht Rechteck, Draufsicht Kreis.', 'passender Körper.', 'Alle drei Ansichten prüfen.', 'Quader: von oben Rechteck; Kegel: von vorn Dreieck; Kugel: überall Kreis.', 'Es ist ein stehender Zylinder.'),
+    'Prüfe für jeden Körper alle drei Ansichten.'), huerde='entscheidung')
+TX.s('ansichten', TX.A('Ein runder Turm hat ein flaches Dach. Welche Form hat seine Vorderansicht?', 'ein Rechteck', ['ein Kreis', 'ein Dreieck', 'ein Quadrat mit Kreis'],
+    TW('Zylinder mit flachem Dach.', 'Vorderansicht.', 'Von vorn sieht man Höhe und Breite.', 'Rechteck.', 'Die Vorderansicht ist ein Rechteck.')))
+TX.s('ansichten', TX.A('Ein Kleiderschrank (Quader) steht an der Wand. Welche Form hat seine Draufsicht?', 'ein Rechteck', ['ein Kreis', 'ein Dreieck', 'ein Trapez'],
+    TW('Quader.', 'Draufsicht.', 'Von oben sieht man die Deckfläche.', 'Rechteck.', 'Die Draufsicht ist ein Rechteck.')))
+TX.k('ansichten', TX.A('Ein Gartenpavillon ist ein sechsseitiges Prisma mit flachem Dach. Welche Form hat seine Draufsicht?', 'ein Sechseck', ['ein Rechteck', 'ein Kreis', 'ein Dreieck'],
+    TW('sechsseitiges Prisma, stehend.', 'Draufsicht.', 'Von oben sieht man die Grundfläche.', 'Sechseck.', 'Die Draufsicht ist ein Sechseck.')))
+
+# --- beurteilen ---
+TX.u('beurteilen', 'erkennen', TX.A('Ein Stück Würfelzucker hat sechs gleiche quadratische Flächen. Ist es ein Prisma?', 'Ja, ein Würfel ist ein besonderes Prisma.', ['Nein, ein Prisma braucht Dreiecke.', 'Nein, ein Prisma ist immer länger als breit.'],
+    TW('Würfel.', 'Ist er ein Prisma?', 'Zwei gleiche parallele Grundflächen, Rechtecke als Seiten.', 'Quadrate sind besondere Rechtecke.', 'Ja, der Würfel ist ein Prisma.'), 'Prüfe die Merkmale eines Prismas.'))
+TX.u('beurteilen', 'einkleidung', TZ('Ein Hersteller schreibt: „Unsere Verpackung ist ein Prisma mit 12 Ecken.“ Wie viele Kanten hat sie?', '3 * 12 // 2',
+    TW('12 Ecken.', 'Kanten.', 'Ecken = 2n ⇒ n = 6; Kanten = 3n.', 'n = 6, Kanten = 18.', 'Die Verpackung hat 18 Kanten.'), 'Welches n gehört zu 12 Ecken?'))
+TX.u('beurteilen', 'mehrschritt', TZ('Ein Bastler verbaut genau 24 Holzstäbe als Kanten eines Prismas. Wie viele Ecken hat das Prisma?', '2 * (24 // 3)',
+    TW('24 Kanten.', 'Ecken.', 'Kanten = 3n ⇒ n = 8; Ecken = 2n.', 'n = 8, Ecken = 16.', 'Das Prisma hat 16 Ecken.'), 'Wie viele Ecken hat die Grundfläche?'))
+TX.u('beurteilen', 'pruefung', TZ('Eine Verpackung soll ein Prisma mit 10 Flächen sein und höchstens 25 Kanten haben. Wie viele Kanten hat sie?', '3 * (10 - 2)',
+    TW('10 Flächen, höchstens 25 Kanten.', 'Kantenzahl (und ob die Bedingung erfüllt ist).', 'Flächen = n + 2 ⇒ n = 8; Kanten = 3n.', 'n = 8, Kanten = 24 ≤ 25.', 'Sie hat 24 Kanten – das ist erlaubt.'),
+    'Welches n folgt aus 10 Flächen? Passt dann die zweite Bedingung?'), huerde='zwei')
+TX.u('beurteilen', 'begruenden', TX.A('Jemand sagt: „Eine Dose ist ein Prisma, weil sie zwei gleiche, parallele Grundflächen hat.“ Was stimmt?',
+    'Falsch: Ihr Mantel ist gekrümmt; ein Prisma hat Vielecke als Grundflächen und Rechtecke als Seiten.', ['Richtig, das reicht als Merkmal.', 'Richtig, ein Kreis ist ein Vieleck.', 'Falsch, weil eine Dose keine Kanten hat und Prismen nur 2 Grundflächen haben dürfen.'],
+    TW('Dose = Zylinder.', 'Ist die Begründung richtig?', 'Alle Merkmale eines Prismas prüfen.', 'Grundfläche Kreis (kein Vieleck), Mantel gekrümmt.', 'Die Aussage ist falsch: Ein Zylinder ist kein Prisma.'),
+    'Reicht ein Merkmal oder müssen alle stimmen?'), huerde='entscheidung')
+TX.u('beurteilen', 'transfer', TZ('Eine Laterne hat die Form eines Prismas mit 18 Kanten. An jeder Ecke wird gelötet, jede Lötstelle dauert 2 Minuten. Wie lange dauert das Löten?', '2 * (2 * 18 // 3)',
+    TW('18 Kanten, 2 min pro Ecke.', 'Lötzeit.', 'Kanten = 3n ⇒ n = 6; Ecken = 2n = 12; Zeit = 12 · 2 min.', 'n = 6, 12 Ecken, 24 min.', 'Das Löten dauert 24 Minuten.'), 'Wie viele Ecken hat ein Prisma mit 18 Kanten?', einheit='min'))
+TX.s('beurteilen', TZ('Ein Zelt hat für jede Kante eine Stange, insgesamt 9 Stangen, und ist ein Prisma. Wie viele Ecken hat es?', '2 * (9 // 3)',
+    TW('9 Kanten.', 'Ecken.', 'n = 9 : 3 = 3; Ecken = 2n.', '2 · 3 = 6.', 'Das Zelt hat 6 Ecken.')))
+TX.s('beurteilen', TX.A('Eine Geschenkbox ist ein Prisma mit 7 Flächen. Welche Form hat ihre Grundfläche?', 'ein Fünfeck', ['ein Siebeneck', 'ein Viereck', 'ein Sechseck'],
+    TW('7 Flächen.', 'Form der Grundfläche.', 'Flächen = n + 2 ⇒ n = 5.', 'n = 5.', 'Die Grundfläche ist ein Fünfeck.')))
+TX.k('beurteilen', TZ('Ein Turm ist ein Prisma mit 10 Ecken. Wie viele Seitenflächen hat er ohne Boden und Dach?', '10 // 2',
+    TW('10 Ecken.', 'Seitenflächen.', 'Ecken = 2n ⇒ n = 5; Seitenflächen = n.', 'n = 5.', 'Er hat 5 Seitenflächen.')))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Körper und Netze', ['prisma', 'netz', 'zylinder']), ('Darstellen', ['schraegbild', 'ansichten']), ('Verstehen', ['beurteilen'])],

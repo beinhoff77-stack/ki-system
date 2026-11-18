@@ -578,23 +578,6 @@
    "l": "definitionsmenge",
    "t": "definitionsmenge",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für welche Zahl ist der Term 4/(−2x + 8) nicht definiert?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "-8 / (-2)",
-   "w": "−2x + 8 = 0 → −2x = −8 → x = 4.",
-   "h": "Setze den Nenner gleich 0 und löse die Gleichung.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -607,28 +590,6 @@
    "w": "Nenner x − 9 = 0 für x = 9.",
    "h": "Setze den Nenner gleich 0 und löse nach x.",
    "g": "erkennen"
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Definitionsmenge von 3/(x(x + 4)) an."
-   },
-   "a": [
-    "ℚ \\ {0; 4}",
-    "ℚ \\ {−4; 0}",
-    "ℚ \\ {−4}",
-    "ℚ \\ {4}"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0 oder x + 4 = 0, also x = −4. D = ℚ \\ {−4; 0}.",
-   "h": "Ein Produkt im Nenner ist 0, wenn einer der Faktoren 0 ist.",
-   "g": "mehrschritt"
   },
   {
    "l": "definitionsmenge",
@@ -657,6 +618,78 @@
    "t": "definitionsmenge",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Feier zahlen alle Gäste gleich viel, nur die zwei Gastgeber nicht: Jeder zahlt 240/(n − 2) €, wenn n Personen da sind. Für welche Personenzahl n ergibt der Term keinen Sinn?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Der Nenner n − 2 ist für n = 2 null – dann gäbe es niemanden, der zahlt.",
+   "h": "Wann wird der Nenner 0?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Am Hebel gilt: Die nötige Kraft ist 600/a Newton, wenn man im Abstand a (in m) von der Drehachse drückt. a = 0 ergibt keinen Sinn. Wie groß ist die Kraft bei a = 1,5 m?"
+   },
+   "o": {
+    "wert": 400,
+    "einheit": "N"
+   },
+   "c": "600 / (15/10)",
+   "w": "F = 600/1,5 = 400 N. Bei a = 0 (genau an der Achse) wäre der Nenner 0 – dort kann man den Hebel nicht drehen.",
+   "h": "Setze 1,5 für a ein."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl ist der Term 4/(−2x + 8) nicht definiert?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "-8 / (-2)",
+   "w": "−2x + 8 = 0 → −2x = −8 → x = 4.",
+   "h": "Setze den Nenner gleich 0 und löse die Gleichung."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von 3/(x(x + 4)) an."
+   },
+   "a": [
+    "ℚ \\ {0; 4}",
+    "ℚ \\ {−4; 0}",
+    "ℚ \\ {−4}",
+    "ℚ \\ {4}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0 oder x + 4 = 0, also x = −4. D = ℚ \\ {−4; 0}.",
+   "h": "Ein Produkt im Nenner ist 0, wenn einer der Faktoren 0 ist."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gib die Definitionsmenge von (x − 7)/((x + 2)(x + 6)) an."
@@ -671,8 +704,7 @@
     "index": 3
    },
    "w": "Nenner 0 für x = −2 oder x = −6. Der Zähler darf 0 sein. D = ℚ \\ {−6; −2}.",
-   "h": "Nur der Nenner zählt. Jeder Faktor im Nenner liefert eine ausgeschlossene Zahl.",
-   "g": "mehrschritt"
+   "h": "Nur der Nenner zählt. Jeder Faktor im Nenner liefert eine ausgeschlossene Zahl."
   },
   {
    "l": "definitionsmenge",
@@ -715,8 +747,7 @@
     "index": 1
    },
    "w": "Nenner x − 4 = 0 für x = 4, also D = ℚ \\ {4}.",
-   "h": "Welche Zahl macht den Nenner 0?",
-   "g": "direkt"
+   "h": "Welche Zahl macht den Nenner 0?"
   },
   {
    "l": "definitionsmenge",
@@ -734,50 +765,6 @@
    "w": "Nenner x + 7 = 0 für x = −7.",
    "h": "Setze den Nenner gleich 0 und löse nach x.",
    "g": "erkennen"
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Term hat die Definitionsmenge ℚ \\ {−1; 5}?"
-   },
-   "a": [
-    "9/((x + 5)(x − 1))",
-    "(x − 5)/(x + 1)",
-    "9/((x − 5)(x + 1))",
-    "9/(x − 5) + x + 1"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Der Nenner (x − 5)(x + 1) wird genau für x = −1 und x = 5 null. Bei den anderen Termen fehlen andere oder weniger Zahlen.",
-   "h": "Setze die ausgeschlossenen Zahlen ein: Welcher Nenner wird bei beiden 0?",
-   "g": "umkehr"
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Definitionsmenge von 7/(x − 6) + 4/(2x − 3) an."
-   },
-   "a": [
-    "ℚ \\ {6}",
-    "ℚ \\ {3; 6}",
-    "ℚ \\ {1,5; 6}",
-    "ℚ \\ {−6; −1,5}"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Erster Nenner 0 für x = 6, zweiter für 2x = 3, also x = 1,5. D = ℚ \\ {1,5; 6}.",
-   "h": "Bestimme für jeden Nenner die Zahl, die ihn 0 macht.",
-   "g": "verknuepfen"
   },
   {
    "l": "definitionsmenge",
@@ -843,6 +830,21 @@
    },
    "c": "4 / (2)",
    "w": "2x − 4 = 0 → 2x = 4 → x = 2."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gegen die Strömung gilt für die Fahrzeit 24/(v − 6) Stunden. Welches v ist ausgeschlossen?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Gegeben: Nenner v − 6. Gesucht: ausgeschlossenes v. Ansatz: v − 6 = 0. Rechnung: v = 6. Antwort: v = 6."
   },
   {
    "l": "definitionsmenge",
@@ -947,6 +949,80 @@
   {
    "l": "definitionsmenge",
    "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Jeder zahlt 150/(x + 1) Euro. Welche Zahl ist ausgeschlossen?"
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "Gegeben: Nenner x + 1. Gesucht: ausgeschlossene Zahl. Ansatz: x + 1 = 0. Rechnung: x = −1. Antwort: x = −1."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit Rückenwind gilt für die Fahrzeit 50/(v + 10) Stunden. Welche Zahl ist ausgeschlossen?"
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "-10",
+   "w": "Gegeben: Nenner v + 10. Gesucht: ausgeschlossene Zahl. Ansatz: v + 10 = 0. Rechnung: v = −10. Antwort: v = −10."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat die Definitionsmenge ℚ \\ {−1; 5}?"
+   },
+   "a": [
+    "9/((x + 5)(x − 1))",
+    "(x − 5)/(x + 1)",
+    "9/((x − 5)(x + 1))",
+    "9/(x − 5) + x + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Nenner (x − 5)(x + 1) wird genau für x = −1 und x = 5 null. Bei den anderen Termen fehlen andere oder weniger Zahlen.",
+   "h": "Setze die ausgeschlossenen Zahlen ein: Welcher Nenner wird bei beiden 0?",
+   "g": "umkehr"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Definitionsmenge von 7/(x − 6) + 4/(2x − 3) an."
+   },
+   "a": [
+    "ℚ \\ {6}",
+    "ℚ \\ {3; 6}",
+    "ℚ \\ {1,5; 6}",
+    "ℚ \\ {−6; −1,5}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Erster Nenner 0 für x = 6, zweiter für 2x = 3, also x = 1,5. D = ℚ \\ {1,5; 6}.",
+   "h": "Bestimme für jeden Nenner die Zahl, die ihn 0 macht.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
    "p": "uebung",
    "s": 2,
    "y": "zahl",
@@ -979,8 +1055,7 @@
     "index": 3
    },
    "w": "Beide Nenner dürfen nicht 0 werden: x ≠ 0 und x + 1 ≠ 0, also x ≠ −1.",
-   "h": "Prüfe jeden Nenner einzeln.",
-   "g": "mehrschritt"
+   "h": "Prüfe jeden Nenner einzeln."
   },
   {
    "l": "definitionsmenge",
@@ -1067,25 +1142,7 @@
    "l": "definitionsmenge",
    "t": "definitionsmenge",
    "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Bei einer Feier zahlen alle Gäste gleich viel, nur die zwei Gastgeber nicht: Jeder zahlt 240/(n − 2) €, wenn n Personen da sind. Für welche Personenzahl n ergibt der Term keinen Sinn?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "Der Nenner n − 2 ist für n = 2 null – dann gäbe es niemanden, der zahlt.",
-   "h": "Wann wird der Nenner 0?"
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
    "s": 3,
-   "g": "fehler",
    "y": "auswahl",
    "f": {
     "text": "Jemand sagt: „Die Definitionsmenge von 4/(x + 5) ist ℚ \\ {5}.“ Was stimmt?"
@@ -1107,7 +1164,6 @@
    "t": "definitionsmenge",
    "p": "uebung",
    "s": 3,
-   "g": "begruenden",
    "y": "auswahl",
    "f": {
     "text": "Haben 1/(x − 2) und x/(x² − 2x) dieselbe Definitionsmenge?"
@@ -1128,19 +1184,119 @@
    "l": "definitionsmenge",
    "t": "definitionsmenge",
    "p": "uebung",
-   "s": 3,
-   "g": "transfer",
+   "s": 1,
+   "g": "direkt",
    "y": "zahl",
    "f": {
-    "text": "Am Hebel gilt: Die nötige Kraft ist 600/a Newton, wenn man im Abstand a (in m) von der Drehachse drückt. a = 0 ergibt keinen Sinn. Wie groß ist die Kraft bei a = 1,5 m?"
+    "text": "Bei einer Feier zahlen die 2 Gastgeber nichts; die anderen teilen 360 €. Jeder zahlt 360/(x − 2) Euro (x = alle Personen). Für welches x ist der Term nicht definiert?"
    },
    "o": {
-    "wert": 400,
-    "einheit": "N"
+    "wert": 2
    },
-   "c": "600 / (15/10)",
-   "w": "F = 600/1,5 = 400 N. Bei a = 0 (genau an der Achse) wäre der Nenner 0 – dort kann man den Hebel nicht drehen.",
-   "h": "Setze 1,5 für a ein."
+   "c": "2",
+   "w": "Gegeben: Nenner x − 2. Gesucht: ausgeschlossenes x. Ansatz: Nenner = 0. Rechnung: x − 2 = 0 ⇒ x = 2. Antwort: Für x = 2 ist der Term nicht definiert.",
+   "h": "Wann wird der Nenner 0?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Radfahrer fährt 30 km gegen den Wind, der ihn um 5 km/h bremst. Seine Fahrzeit ist 30/(v − 5) Stunden. Welches v ist ausgeschlossen?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "km/h"
+   },
+   "c": "5",
+   "w": "Gegeben: Nenner v − 5. Gesucht: ausgeschlossenes v. Ansatz: Nenner = 0. Rechnung: v = 5. Antwort: v = 5 km/h ist ausgeschlossen.",
+   "h": "Setze den Nenner gleich 0."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "auswahl",
+   "f": {
+    "text": "Für Hin- und Rückweg gilt die Gesamtzeit 40/v + 40/(v − 8) Stunden. Welche Zahlen sind ausgeschlossen?"
+   },
+   "a": [
+    "0 und −8",
+    "nur 8",
+    "0 und 8",
+    "nur 0"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: Nenner v und v − 8. Gesucht: ausgeschlossene Zahlen. Ansatz: Jeden Nenner = 0 setzen. Rechnung: v = 0, v = 8. Antwort: D = ℝ \\ {0; 8}.",
+   "h": "Es gibt zwei Nenner."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein 2 m tiefer Teich wird mit zwei Pumpen geleert; die zweite braucht 3 Stunden länger. Pro Stunde schaffen sie zusammen 1/x + 1/(x + 3) des Teichs. Welche negative Zahl ist ausgeschlossen?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "w": "Gegeben: Nenner x und x + 3; die Tiefe spielt keine Rolle. Gesucht: negative ausgeschlossene Zahl. Ansatz: Nenner = 0. Rechnung: x + 3 = 0 ⇒ x = −3. Antwort: x = −3 ist ausgeschlossen.",
+   "h": "Welche Angabe gehört nicht zum Term?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Pro Kind kostet ein Ausflug (240 + 4x)/x Euro. Jemand sagt: „x = −60 ist ausgeschlossen, weil dann 240 + 4x = 0 ist.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Nur der Nenner zählt; ausgeschlossen ist x = 0.",
+    "Falsch: Es ist nichts ausgeschlossen.",
+    "Falsch: x = 240 ist ausgeschlossen.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: (240 + 4x)/x. Gesucht: ausgeschlossene Zahl. Ansatz: Nur der Nenner darf nicht 0 sein. Rechnung: x = 0. Antwort: Die Aussage ist falsch.",
+   "h": "Darf ein Zähler 0 sein?"
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Gruppe teilt 300 € Hüttenmiete; 4 Betreuer zahlen nichts: Jeder andere zahlt 300/(x − 4) Euro (x = alle Personen). In die Hütte passen höchstens 30 Personen. Welche Definitionsmenge ist sinnvoll?"
+   },
+   "a": [
+    "{4; 5; …; 30}",
+    "{5; 6; …; 30}",
+    "ℝ \\ {4}",
+    "{0; 1; …; 30}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: Nenner x − 4, ganze Personen, höchstens 30. Gesucht: D. Ansatz: Nenner ≠ 0, mindestens ein Zahler, Obergrenze. Rechnung: 5 ≤ x ≤ 30. Antwort: D = {5; 6; …; 30}.",
+   "h": "Welche Bedingungen gibt die Situation zusätzlich zum Nenner?"
   },
   {
    "l": "definitionsmenge",
@@ -1203,23 +1359,6 @@
    "t": "termwert",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für welches x hat T(x) = 18/(x + 1) den Wert 6?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "18 / (6) - (1)",
-   "w": "18/(x + 1) = 6 → x + 1 = 18 : 6 = 3 → x = 2. Probe: 18 : 3 = 6.",
-   "h": "Der Nenner muss so groß sein, dass Zähler : Nenner den Wert ergibt. Bestimme erst den Nenner.",
-   "g": "umkehr"
-  },
-  {
-   "l": "termwert",
-   "t": "termwert",
-   "p": "uebung",
-   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne T(4) für T(x) = (6x + 2)/(2x + 6). Gib das Ergebnis als vollständig gekürzten Bruch an.",
@@ -1239,6 +1378,23 @@
    "w": "Zähler: 6 · 4 + 2 = 26, Nenner: 2 · 4 + 6 = 14. T(4) = 26/14 = 13/7.",
    "h": "Setze in Zähler und Nenner getrennt ein. Kürze am Ende.",
    "g": "mehrschritt"
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches x hat T(x) = 18/(x + 1) den Wert 6?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "18 / (6) - (1)",
+   "w": "18/(x + 1) = 6 → x + 1 = 18 : 6 = 3 → x = 2. Probe: 18 : 3 = 6.",
+   "h": "Der Nenner muss so groß sein, dass Zähler : Nenner den Wert ergibt. Bestimme erst den Nenner.",
+   "g": "umkehr"
   },
   {
    "l": "termwert",
@@ -1281,6 +1437,63 @@
    "w": "Zähler: 6 · (−5) − 2 = −32, Nenner: 3 · (−5) + 3 = −12. T(−5) = −32/(−12) = 8/3.",
    "h": "Setze in Zähler und Nenner getrennt ein. Kürze am Ende.",
    "g": "mehrschritt"
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In Zelle A1 steht 4. In B1 steht =(A1+2)/(A1-1)/2. Welchen Wert zeigt B1? (Der Computer rechnet gleichrangige Rechenarten von links nach rechts.)"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((4 + 2) / (4 - 1)) / 2",
+   "w": "Klammern zuerst: 6 und 3. Dann von links: 6 / 3 = 2, danach 2 / 2 = 1. Nicht 6 : (3 : 2) = 4.",
+   "h": "Rechne die beiden Klammern aus. Dann teile von links nach rechts.",
+   "g": "transfer"
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Bei n Personen kostet eine Busfahrt jeden (300 + 15n)/n Euro. Was zahlt jeder bei 20 Personen?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "€"
+   },
+   "c": "(300 + 15 * 20) / 20",
+   "w": "(300 + 300)/20 = 600/20 = 30 €.",
+   "h": "Setze n = 20 ein."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Für T(x) = (x + 6)/(x − 2) rechnet jemand: T(−2) = (−2 + 6)/(−2 − 2) = 4/0 – „nicht definiert“. Was stimmt?"
+   },
+   "a": [
+    "Falsch: −2 − 2 = −4, also T(−2) = 4/(−4) = −1.",
+    "Richtig, T(−2) gibt es nicht.",
+    "Falsch: T(−2) = 1.",
+    "Falsch: T(−2) = 4."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Nenner ist −2 − 2 = −4, nicht 0. Nicht definiert ist T nur bei x = 2.",
+   "h": "Rechne den Nenner langsam nach."
   },
   {
    "l": "termwert",
@@ -1335,8 +1548,7 @@
    },
    "c": "((-2) * (-5) + (-2)) / ((1) * (-5) + (3))",
    "w": "Zähler: −2 · (−5) − 2 = 8, Nenner: (−5) + 3 = −2. T(−5) = 8/(−2) = −4.",
-   "h": "Setze die Zahl in Zähler und Nenner getrennt ein. Achte auf Klammern bei negativen Zahlen.",
-   "g": "direkt"
+   "h": "Setze die Zahl in Zähler und Nenner getrennt ein. Achte auf Klammern bei negativen Zahlen."
   },
   {
    "l": "termwert",
@@ -1392,63 +1604,6 @@
     "11"
    ],
    "w": "Zähler: 5 · 4 − 3 = 17, Nenner: 2 · 4 + 3 = 11. T(4) = 17/11.",
-   "h": "Setze in Zähler und Nenner getrennt ein. Kürze am Ende.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "termwert",
-   "t": "termwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne T(4) für T(x) = (4x + 2)/(x + 4)."
-   },
-   "o": {
-    "wert": 2.25
-   },
-   "c": "((4) * (4) + (2)) / ((1) * (4) + (4))",
-   "w": "Zähler: 4 · 4 + 2 = 18, Nenner: 4 + 4 = 8. T(4) = 18/8 = 2,25.",
-   "h": "Setze die Zahl in Zähler und Nenner getrennt ein. Achte auf Klammern bei negativen Zahlen."
-  },
-  {
-   "l": "termwert",
-   "t": "termwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne T(−6) für T(x) = (−x + 9)/(x + 2)."
-   },
-   "o": {
-    "wert": -3.75
-   },
-   "c": "((-1) * (-6) + (9)) / ((1) * (-6) + (2))",
-   "w": "Zähler: −(−6) + 9 = 15, Nenner: (−6) + 2 = −4. T(−6) = 15/(−4) = −3,75.",
-   "h": "Setze die Zahl in Zähler und Nenner getrennt ein. Achte auf Klammern bei negativen Zahlen."
-  },
-  {
-   "l": "termwert",
-   "t": "termwert",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne T(4) für T(x) = (−x − 6)/(−x − 2). Gib das Ergebnis als vollständig gekürzten Bruch an.",
-    "schablone": "□/□",
-    "hinweis": "Zähler oben, Nenner unten."
-   },
-   "o": {
-    "werte": [
-     5,
-     3
-    ]
-   },
-   "c": [
-    "5",
-    "3"
-   ],
-   "w": "Zähler: −4 − 6 = −10, Nenner: −4 − 2 = −6. T(4) = −10/(−6) = 5/3.",
    "h": "Setze in Zähler und Nenner getrennt ein. Kürze am Ende."
   },
   {
@@ -1523,6 +1678,22 @@
    },
    "c": "((-5) * (2) + (-7)) / ((3) * (2) + (-8))",
    "w": "Zähler: −5 · 2 − 7 = −17, Nenner: 3 · 2 − 8 = −2. T(2) = −17/(−2) = 8,5."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Pro Person gilt (200 + 5x)/x Euro. Berechne den Wert für x = 40."
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "€"
+   },
+   "c": "(200 + 5 * 40) / 40",
+   "w": "Gegeben: x = 40. Gesucht: Termwert. Ansatz: Einsetzen. Rechnung: 400 : 40 = 10. Antwort: 10 €."
   },
   {
    "l": "termwert",
@@ -1633,6 +1804,94 @@
   {
    "l": "termwert",
    "t": "termwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Pro Stück gilt (80 + 3x)/x Euro. Berechne den Wert für x = 20."
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "€"
+   },
+   "c": "(80 + 3 * 20) / 20",
+   "w": "Gegeben: x = 20. Gesucht: Termwert. Ansatz: Einsetzen. Rechnung: 140 : 20 = 7. Antwort: 7 €."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Fahrzeit für 120 km ist 120/v Stunden. Wie lange dauert es bei 80 km/h?"
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "h"
+   },
+   "c": "120 / 80",
+   "w": "Gegeben: v = 80. Gesucht: Termwert. Ansatz: Einsetzen. Rechnung: 1,5. Antwort: 1,5 Stunden."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne T(4) für T(x) = (4x + 2)/(x + 4)."
+   },
+   "o": {
+    "wert": 2.25
+   },
+   "c": "((4) * (4) + (2)) / ((1) * (4) + (4))",
+   "w": "Zähler: 4 · 4 + 2 = 18, Nenner: 4 + 4 = 8. T(4) = 18/8 = 2,25.",
+   "h": "Setze die Zahl in Zähler und Nenner getrennt ein. Achte auf Klammern bei negativen Zahlen."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne T(−6) für T(x) = (−x + 9)/(x + 2)."
+   },
+   "o": {
+    "wert": -3.75
+   },
+   "c": "((-1) * (-6) + (9)) / ((1) * (-6) + (2))",
+   "w": "Zähler: −(−6) + 9 = 15, Nenner: (−6) + 2 = −4. T(−6) = 15/(−4) = −3,75.",
+   "h": "Setze die Zahl in Zähler und Nenner getrennt ein. Achte auf Klammern bei negativen Zahlen."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne T(4) für T(x) = (−x − 6)/(−x − 2). Gib das Ergebnis als vollständig gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler oben, Nenner unten."
+   },
+   "o": {
+    "werte": [
+     5,
+     3
+    ]
+   },
+   "c": [
+    "5",
+    "3"
+   ],
+   "w": "Zähler: −4 − 6 = −10, Nenner: −4 − 2 = −6. T(4) = −10/(−6) = 5/3.",
+   "h": "Setze in Zähler und Nenner getrennt ein. Kürze am Ende."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
    "p": "uebung",
    "s": 2,
    "y": "zahl",
@@ -1644,8 +1903,7 @@
    },
    "c": "-18 / (3) - (-5)",
    "w": "−18/(x − 5) = 3 → x − 5 = −18 : 3 = −6 → x = −1. Probe: −18 : (−6) = 3.",
-   "h": "Der Nenner muss so groß sein, dass Zähler : Nenner den Wert ergibt. Bestimme erst den Nenner.",
-   "g": "umkehr"
+   "h": "Der Nenner muss so groß sein, dass Zähler : Nenner den Wert ergibt. Bestimme erst den Nenner."
   },
   {
    "l": "termwert",
@@ -1700,23 +1958,6 @@
    "l": "termwert",
    "t": "termwert",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In Zelle A1 steht 4. In B1 steht =(A1+2)/(A1-1)/2. Welchen Wert zeigt B1? (Der Computer rechnet gleichrangige Rechenarten von links nach rechts.)"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "((4 + 2) / (4 - 1)) / 2",
-   "w": "Klammern zuerst: 6 und 3. Dann von links: 6 / 3 = 2, danach 2 / 2 = 1. Nicht 6 : (3 : 2) = 4.",
-   "h": "Rechne die beiden Klammern aus. Dann teile von links nach rechts.",
-   "g": "transfer"
-  },
-  {
-   "l": "termwert",
-   "t": "termwert",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1750,46 +1991,6 @@
    },
    "w": "(2 + 4)/6 = 1. Die anderen ergeben 0, 1/2 und 1/2.",
    "h": "Setze 2 in jeden Term ein."
-  },
-  {
-   "l": "termwert",
-   "t": "termwert",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Bei n Personen kostet eine Busfahrt jeden (300 + 15n)/n Euro. Was zahlt jeder bei 20 Personen?"
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "€"
-   },
-   "c": "(300 + 15 * 20) / 20",
-   "w": "(300 + 300)/20 = 600/20 = 30 €.",
-   "h": "Setze n = 20 ein."
-  },
-  {
-   "l": "termwert",
-   "t": "termwert",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
-   "y": "auswahl",
-   "f": {
-    "text": "Für T(x) = (x + 6)/(x − 2) rechnet jemand: T(−2) = (−2 + 6)/(−2 − 2) = 4/0 – „nicht definiert“. Was stimmt?"
-   },
-   "a": [
-    "Falsch: −2 − 2 = −4, also T(−2) = 4/(−4) = −1.",
-    "Richtig, T(−2) gibt es nicht.",
-    "Falsch: T(−2) = 1.",
-    "Falsch: T(−2) = 4."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Der Nenner ist −2 − 2 = −4, nicht 0. Nicht definiert ist T nur bei x = 2.",
-   "h": "Rechne den Nenner langsam nach."
   },
   {
    "l": "termwert",
@@ -1830,7 +2031,6 @@
    "t": "termwert",
    "p": "uebung",
    "s": 3,
-   "g": "pruefung",
    "y": "zahl",
    "f": {
     "text": "Gegeben ist T(x) = (2x − 1)/(x + 4). Für welches x hat T den Wert 0?"
@@ -1847,7 +2047,6 @@
    "t": "termwert",
    "p": "uebung",
    "s": 3,
-   "g": "begruenden",
    "y": "auswahl",
    "f": {
     "text": "Stimmt: „T(x) = 1/x wird umso kleiner, je größer x ist“?"
@@ -1863,6 +2062,117 @@
    },
    "w": "Für positive x stimmt es, aber nicht, wenn man eine negative und eine positive Zahl vergleicht: −1 < 2, trotzdem T(−1) < T(2).",
    "h": "Probiere eine negative und eine positive Zahl."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Flyer kostet pro Stück (50 + 0,1x)/x Euro bei x Flyern. Was kostet ein Flyer bei 500 Stück?"
+   },
+   "o": {
+    "wert": 0.2,
+    "einheit": "€"
+   },
+   "c": "(50 + 0.1 * 500) / 500",
+   "w": "Gegeben: x = 500. Gesucht: Termwert. Ansatz: Einsetzen. Rechnung: (50 + 50) : 500 = 0,2. Antwort: Ein Flyer kostet 0,20 €.",
+   "h": "Setze 500 für x ein."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Für Hin- und Rückweg gilt die Gesamtzeit 60/v + 60/(v + 20) Stunden. Wie lange dauert es bei v = 40 km/h?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "h"
+   },
+   "c": "60 / 40 + 60 / 60",
+   "w": "Gegeben: v = 40. Gesucht: Gesamtzeit. Ansatz: Einsetzen. Rechnung: 1,5 + 1 = 2,5. Antwort: Es dauert 2,5 Stunden.",
+   "h": "Berechne beide Brüche einzeln."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Kinder streichen einen Zaun. Das erste schafft 1/6, das zweite 1/x des Zauns pro Stunde. Für x = 3: Wie viele Stunden brauchen sie zusammen?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "h"
+   },
+   "c": "1 / (1/6 + 1/3)",
+   "w": "Gegeben: 1/6 + 1/x, x = 3. Gesucht: Zeit zusammen. Ansatz: Anteil pro Stunde, dann Kehrwert. Rechnung: 1/6 + 2/6 = 1/2 ⇒ 2 h. Antwort: Zusammen brauchen sie 2 Stunden.",
+   "h": "Welcher Anteil wird zusammen in einer Stunde fertig?"
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kurs findet dienstags statt. Er kostet pro Person (420 + 15x)/x Euro bei x Teilnehmern. Was zahlt jeder bei 12 Personen?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "€"
+   },
+   "c": "(420 + 15 * 12) / 12",
+   "w": "Gegeben: x = 12; der Wochentag spielt keine Rolle. Gesucht: Termwert. Ansatz: Einsetzen. Rechnung: 600 : 12 = 50. Antwort: Jeder zahlt 50 €.",
+   "h": "Welche Angabe brauchst du nicht?"
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Klassenfahrt gilt pro Person (600 + 8x)/x Euro. Ab wie vielen Personen sind es höchstens 20 €?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "600 / (20 - 8)",
+   "w": "Gegeben: (600 + 8x)/x ≤ 20. Gesucht: kleinste Personenzahl. Ansatz: Aufteilen: 600/x + 8 ≤ 20. Rechnung: 600/x ≤ 12 ⇒ x ≥ 50. Antwort: Ab 50 Personen.",
+   "h": "Teile den Bruch in 600/x + 8 auf."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Der Durchschnittspreis ist (36 + 2x)/x Euro. Jemand rechnet für x = 6: „(36 + 2 · 6)/6 = 36 + 2 = 38 €.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: 48 €.",
+    "Richtig.",
+    "Falsch: 36 : 6 + 2 = 8, aber man muss mit 6 malnehmen.",
+    "Falsch: (36 + 12) : 6 = 8 €."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: x = 6. Gesucht: richtiger Wert. Ansatz: Erst Zähler ausrechnen, dann teilen. Rechnung: 48 : 6 = 8. Antwort: Es sind 8 €, nicht 38 €.",
+   "h": "Darf man nur den Teil 2x durch x teilen?"
   },
   {
    "l": "termwert",
@@ -1946,6 +2256,27 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kürze vollständig: (2x − 10)/(8x − 40)"
+   },
+   "a": [
+    "(2x − 5)/(8x − 5)",
+    "1/4",
+    "(2x − 1)/(8x − 4)",
+    "5/4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ausklammern: 2(x − 5)/(8(x − 5)). (x − 5) kürzen: 1/4.",
+   "h": "Klammere im Zähler und im Nenner die Zahl vor x aus."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -2015,19 +2346,63 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Kürze vollständig: (2x − 10)/(8x − 40)"
+    "text": "Kürze vollständig: (3x − 12)/(4x − 16)"
    },
    "a": [
-    "(2x − 5)/(8x − 5)",
-    "1/4",
-    "(2x − 1)/(8x − 4)",
-    "5/4"
+    "(3x − 4)/(4x − 4)",
+    "7/4",
+    "(3x − 3)/(4x − 4)",
+    "3/4"
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Ausklammern: 2(x − 5)/(8(x − 5)). (x − 5) kürzen: 1/4.",
+   "w": "Ausklammern: 3(x − 4)/(4(x − 4)). (x − 4) kürzen: 3/4.",
    "h": "Klammere im Zähler und im Nenner die Zahl vor x aus."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tom kürzt (x² + 4)/(x + 2) zu x + 2. Was stimmt?"
+   },
+   "a": [
+    "Richtig: x² + 4 = (x + 2)².",
+    "Richtig: x² + 4 = (x + 2)(x − 2).",
+    "Falsch: x² + 4 lässt sich nicht in (x + 2) · … zerlegen. Der Bruch ist nicht kürzbar.",
+    "Falsch: Richtig ist x − 2."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(x + 2)² = x² + 4x + 4 und (x + 2)(x − 2) = x² − 4 – beides ist nicht x² + 4. Probe mit x = 1: 5/3 ≠ 3.",
+   "h": "Multipliziere (x + 2)² und (x + 2)(x − 2) aus und vergleiche mit x² + 4.",
+   "g": "fehler"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Rechteck hat den Flächeninhalt (6x² + 3x) cm² und ist 3x cm breit. Wie lang ist es?"
+   },
+   "a": [
+    "(2x² + x) cm",
+    "(2x + 3x) cm",
+    "(6x + 1) cm",
+    "(2x + 1) cm"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Länge = Fläche : Breite = (6x² + 3x)/(3x) = 3x(2x + 1)/(3x) = 2x + 1.",
+   "h": "Teile die Fläche durch die Breite und kürze."
   },
   {
    "l": "kuerzen",
@@ -2070,8 +2445,7 @@
     "index": 1
    },
    "w": "Zahlen: 4/20 = 1/5. Potenzen: x⁴/x² = x². Ergebnis: x²/5.",
-   "h": "Kürze Zahlen und Potenzen von x getrennt. Gleiche Faktoren x fallen weg.",
-   "g": "direkt"
+   "h": "Kürze Zahlen und Potenzen von x getrennt. Gleiche Faktoren x fallen weg."
   },
   {
    "l": "kuerzen",
@@ -2098,28 +2472,6 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Kürze vollständig: (3x − 12)/(4x − 16)"
-   },
-   "a": [
-    "(3x − 4)/(4x − 4)",
-    "7/4",
-    "(3x − 3)/(4x − 4)",
-    "3/4"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ausklammern: 3(x − 4)/(4(x − 4)). (x − 4) kürzen: 3/4.",
-   "h": "Klammere im Zähler und im Nenner die Zahl vor x aus.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -2135,8 +2487,7 @@
     "index": 3
    },
    "w": "Erst 2 ausklammern: 2x² − 18 = 2(x² − 9) = 2(x + 3)(x − 3) (dritte binomische Formel). (x + 3) kürzen: 2(x − 3) = 2x − 6.",
-   "h": "Klammere zuerst eine Zahl aus. Erkennst du danach eine binomische Formel?",
-   "g": "verknuepfen"
+   "h": "Klammere zuerst eine Zahl aus. Erkennst du danach eine binomische Formel?"
   },
   {
    "l": "kuerzen",
@@ -2158,49 +2509,6 @@
    },
    "w": "Ausklammern: 3(x − 6)/(2(x − 6)). (x − 6) kürzen: 3/2.",
    "h": "Klammere im Zähler und im Nenner die Zahl vor x aus."
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Kürze vollständig: (x² − 49)/(x + 7)"
-   },
-   "a": [
-    "x − 49",
-    "x + 7",
-    "x² − 7",
-    "x − 7"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "3. binomische Formel: x² − 49 = (x + 7)(x − 7). Mit (x + 7) kürzen: x − 7.",
-   "h": "Erkenne die 3. binomische Formel: a² − b² = (a + b)(a − b)."
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Tom kürzt (x² + 4)/(x + 2) zu x + 2. Was stimmt?"
-   },
-   "a": [
-    "Richtig: x² + 4 = (x + 2)².",
-    "Richtig: x² + 4 = (x + 2)(x − 2).",
-    "Falsch: x² + 4 lässt sich nicht in (x + 2) · … zerlegen. Der Bruch ist nicht kürzbar.",
-    "Falsch: Richtig ist x − 2."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "(x + 2)² = x² + 4x + 4 und (x + 2)(x − 2) = x² − 4 – beides ist nicht x² + 4. Probe mit x = 1: 5/3 ≠ 3.",
-   "h": "Multipliziere (x + 2)² und (x + 2)(x − 2) aus und vergleiche mit x² + 4.",
-   "g": "fehler"
   },
   {
    "l": "kuerzen",
@@ -2281,6 +2589,22 @@
     "index": 1
    },
    "w": "Zähler: x(x − 2). Mit x kürzen: (x − 2)/6."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kosten von (6x + 18) € werden auf 6 Personen verteilt. Wie viel zahlt jeder für x = 4?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "€"
+   },
+   "c": "4 + 3",
+   "w": "Gegeben: (6x + 18)/6 = x + 3. Gesucht: Wert bei 4. Ansatz: Kürzen, einsetzen. Rechnung: 7. Antwort: 7 €."
   },
   {
    "l": "kuerzen",
@@ -2401,6 +2725,59 @@
     "index": 1
    },
    "w": "Ausklammern: 6(x + 7)/(5(x + 7)). (x + 7) kürzen: 6/5."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kosten von (10x + 20) € werden auf 10 Personen verteilt. Wie viel zahlt jeder für x = 7?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "€"
+   },
+   "c": "7 + 2",
+   "w": "Gegeben: (10x + 20)/10 = x + 2. Gesucht: Wert bei 7. Ansatz: Kürzen, einsetzen. Rechnung: 9. Antwort: 9 €."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Beet hat die Fläche (4x² + 2x) m² und die Breite 2x m. Wie lang ist es für x = 3?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "m"
+   },
+   "c": "2 * 3 + 1",
+   "w": "Gegeben: (4x² + 2x)/(2x) = 2x + 1. Gesucht: Länge. Ansatz: Kürzen, einsetzen. Rechnung: 7. Antwort: 7 m."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kürze vollständig: (x² − 49)/(x + 7)"
+   },
+   "a": [
+    "x − 49",
+    "x + 7",
+    "x² − 7",
+    "x − 7"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3. binomische Formel: x² − 49 = (x + 7)(x − 7). Mit (x + 7) kürzen: x − 7.",
+   "h": "Erkenne die 3. binomische Formel: a² − b² = (a + b)(a − b)."
   },
   {
    "l": "kuerzen",
@@ -2594,30 +2971,7 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Rechteck hat den Flächeninhalt (6x² + 3x) cm² und ist 3x cm breit. Wie lang ist es?"
-   },
-   "a": [
-    "(2x² + x) cm",
-    "(2x + 3x) cm",
-    "(6x + 1) cm",
-    "(2x + 1) cm"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Länge = Fläche : Breite = (6x² + 3x)/(3x) = 3x(2x + 1)/(3x) = 2x + 1.",
-   "h": "Teile die Fläche durch die Breite und kürze."
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
    "s": 3,
-   "g": "begruenden",
    "y": "auswahl",
    "f": {
     "text": "Darf man (x + 5)/(x + 5)² zu 1/(x + 5) kürzen?"
@@ -2664,7 +3018,6 @@
    "t": "kuerzen",
    "p": "uebung",
    "s": 3,
-   "g": "pruefung",
    "y": "zahl",
    "f": {
     "text": "Kürze (4x² − 8x)/(2x) und berechne dann den Wert für x = 5."
@@ -2675,6 +3028,148 @@
    "c": "2 * 5 - 4",
    "w": "4x² − 8x = 4x(x − 2). Durch 2x gekürzt: 2(x − 2) = 2x − 4. Für x = 5: 10 − 4 = 6.",
    "h": "Klammere im Zähler zuerst 4x aus."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Rechnung über (12x + 36) € wird auf 12 Personen verteilt. Welcher gekürzte Term gibt an, was jeder zahlt?"
+   },
+   "a": [
+    "12x + 3",
+    "x + 36/12x",
+    "x + 36",
+    "x + 3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: (12x + 36)/12. Gesucht: gekürzter Term. Ansatz: 12 ausklammern, kürzen. Rechnung: 12(x + 3)/12 = x + 3. Antwort: Jeder zahlt x + 3 Euro.",
+   "h": "Klammere im Zähler 12 aus."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat die Fläche (6x² + 9x) cm² und die Breite 3x cm. Kürze Fläche : Breite und berechne die Länge für x = 4."
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "cm"
+   },
+   "c": "2 * 4 + 3",
+   "w": "Gegeben: (6x² + 9x)/(3x). Gesucht: Länge bei x = 4. Ansatz: 3x ausklammern, kürzen. Rechnung: 2x + 3 = 11. Antwort: Die Länge ist 11 cm.",
+   "h": "Klammere 3x im Zähler aus."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "auswahl",
+   "f": {
+    "text": "Die Kosten von (5x² + 10x) € werden gleich auf 5x Personen verteilt. Was zahlt jeder?"
+   },
+   "a": [
+    "x + 2 Euro",
+    "x + 10 Euro",
+    "x² + 2 Euro",
+    "5x + 2 Euro"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: (5x² + 10x)/(5x). Gesucht: Betrag pro Person. Ansatz: 5x ausklammern, kürzen. Rechnung: 5x(x + 2)/(5x) = x + 2. Antwort: Jeder zahlt x + 2 Euro.",
+   "h": "Welcher gemeinsame Faktor steckt in beiden Summanden?"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wiese hat die Fläche (8x² + 4x) m² und die Breite 4x m. Ein Zaun kostet 12 € pro Meter. Wie lang ist die Wiese für x = 5?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "m"
+   },
+   "c": "2 * 5 + 1",
+   "w": "Gegeben: (8x² + 4x)/(4x); der Zaunpreis spielt keine Rolle. Gesucht: Länge bei x = 5. Ansatz: Kürzen, einsetzen. Rechnung: 2x + 1 = 11. Antwort: Die Wiese ist 11 m lang.",
+   "h": "Welche Angabe gehört nicht zur Länge?"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Kosten von (4x + 8) € werden auf 4 Personen verteilt. Jemand kürzt: (4x + 8)/4 = x + 8. Was stimmt?"
+   },
+   "a": [
+    "Falsch: 4x + 2.",
+    "Falsch: Beide Summanden durch 4 teilen – x + 2.",
+    "Falsch: x + 4.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: (4x + 8)/4. Gesucht: richtiger Term. Ansatz: 4 ausklammern. Rechnung: 4(x + 2)/4 = x + 2. Antwort: Jeder zahlt x + 2 Euro.",
+   "h": "Wurde auch die 8 durch 4 geteilt?"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Für eine Durchschnittsgeschwindigkeit ergibt sich (2x² + 6x)/(2x) km/h. Jemand sagt: „Das ist für jedes x > 0 dasselbe wie x + 3.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es ist 2x + 6.",
+    "Falsch: Es ist x² + 3.",
+    "Richtig: 2x ausklammern und kürzen.",
+    "Falsch: Man darf nur x² kürzen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: (2x² + 6x)/(2x). Gesucht: Ist x + 3 richtig? Ansatz: 2x ausklammern. Rechnung: 2x(x + 3)/(2x) = x + 3. Antwort: Die Aussage stimmt.",
+   "h": "Klammere 2x aus."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken enthält (9x² + 3x) Liter und wird mit 3x Litern pro Minute geleert. Wie viele Minuten dauert es für x = 10?"
+   },
+   "o": {
+    "wert": 31,
+    "einheit": "min"
+   },
+   "c": "3 * 10 + 1",
+   "w": "Gegeben: (9x² + 3x)/(3x). Gesucht: Zeit bei x = 10. Ansatz: Kürzen, einsetzen. Rechnung: 3x + 1 = 31. Antwort: Es dauert 31 Minuten.",
+   "h": "Klammere 3x aus."
   },
   {
    "l": "kuerzen",
@@ -2763,29 +3258,6 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Mit welchem Term wurde 8/(x + 8) erweitert, wenn der neue Nenner 4x² + 32x ist?",
-    "schablone": "□x",
-    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2."
-   },
-   "o": {
-    "werte": [
-     4
-    ]
-   },
-   "c": [
-    "4"
-   ],
-   "w": "4x² + 32x = 4x(x + 8). Mit 4x wurde erweitert.",
-   "h": "Klammere im neuen Nenner so viel wie möglich aus.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "erweitern",
-   "t": "erweitern",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
     "text": "Gib den Hauptnenner von 1/(4x) und 5/(6x²) an.",
     "schablone": "□x²",
     "hinweis": "Tippe den Term ein, z. B. 12x²."
@@ -2824,6 +3296,29 @@
    "w": "24x² : (6x) = 4x. Zähler: 4 · 4x = 16x.",
    "h": "Teile den neuen Nenner durch den alten. Mit diesem Term multiplizierst du auch den Zähler.",
    "g": "direkt"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mit welchem Term wurde 8/(x + 8) erweitert, wenn der neue Nenner 4x² + 32x ist?",
+    "schablone": "□x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2."
+   },
+   "o": {
+    "werte": [
+     4
+    ]
+   },
+   "c": [
+    "4"
+   ],
+   "w": "4x² + 32x = 4x(x + 8). Mit 4x wurde erweitert.",
+   "h": "Klammere im neuen Nenner so viel wie möglich aus.",
+   "g": "verknuepfen"
   },
   {
    "l": "erweitern",
@@ -2902,21 +3397,23 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Mit welchem Term wurde 3/(x + 7) erweitert, wenn der neue Nenner 4x² + 28x ist?",
-    "schablone": "□x",
-    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2."
+    "text": "Gib den Hauptnenner von 2/(x + 1) und 3/(x² + x) an.",
+    "schablone": "□x² + □x",
+    "hinweis": "Tippe den Term ein, z. B. x² + x."
    },
    "o": {
     "werte": [
-     4
+     1,
+     1
     ]
    },
    "c": [
-    "4"
+    "1",
+    "1"
    ],
-   "w": "4x² + 28x = 4x(x + 7). Mit 4x wurde erweitert.",
-   "h": "Klammere im neuen Nenner so viel wie möglich aus.",
-   "g": "verknuepfen"
+   "w": "x² + x = x(x + 1) enthält schon x + 1. Hauptnenner ist x(x + 1) = x² + x.",
+   "h": "Klammere im zweiten Nenner aus.",
+   "g": "transfer"
   },
   {
    "l": "erweitern",
@@ -2944,26 +3441,69 @@
    "l": "erweitern",
    "t": "erweitern",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Gib den Hauptnenner von 2/(x + 1) und 3/(x² + x) an.",
-    "schablone": "□x² + □x",
-    "hinweis": "Tippe den Term ein, z. B. x² + x."
+    "text": "Erweitere 3/(x + 2) auf den Nenner x² + 2x. Gib den neuen Zähler ein.",
+    "schablone": "□x",
+    "hinweis": "Tippe den Term ein, z. B. 3x."
    },
    "o": {
     "werte": [
-     1,
-     1
+     3
     ]
    },
    "c": [
-    "1",
-    "1"
+    "3"
    ],
-   "w": "x² + x = x(x + 1) enthält schon x + 1. Hauptnenner ist x(x + 1) = x² + x.",
-   "h": "Klammere im zweiten Nenner aus.",
-   "g": "transfer"
+   "w": "x² + 2x = x(x + 2). Also mit x erweitern: neuer Zähler 3x.",
+   "h": "Wie entsteht x² + 2x aus x + 2?",
+   "g": "direkt"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Verändert das Erweitern eines Bruchterms seinen Wert?"
+   },
+   "a": [
+    "Nein: Zähler und Nenner werden mit demselben Faktor (≠ 0) multipliziert – das ist wie · 1.",
+    "Ja, er wird größer.",
+    "Ja, wenn man mit x erweitert.",
+    "Nur bei negativen Zahlen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "a/b = (a · k)/(b · k), weil k/k = 1 ist. Nur k = 0 ist verboten (beim Erweitern mit x also x ≠ 0).",
+   "h": "Was ist k/k?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mit welchem Term wurde 3/(x + 7) erweitert, wenn der neue Nenner 4x² + 28x ist?",
+    "schablone": "□x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2."
+   },
+   "o": {
+    "werte": [
+     4
+    ]
+   },
+   "c": [
+    "4"
+   ],
+   "w": "4x² + 28x = 4x(x + 7). Mit 4x wurde erweitert.",
+   "h": "Klammere im neuen Nenner so viel wie möglich aus.",
+   "g": "verknuepfen"
   },
   {
    "l": "erweitern",
@@ -2986,54 +3526,6 @@
    ],
    "w": "25x² : (5x) = 5x. Zähler: 7 · 5x = 35x.",
    "h": "Teile den neuen Nenner durch den alten. Mit diesem Term multiplizierst du auch den Zähler."
-  },
-  {
-   "l": "erweitern",
-   "t": "erweitern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Mit welchem Term wurde 2/(5x) erweitert, wenn der neue Nenner 10x² ist?",
-    "schablone": "□x",
-    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2."
-   },
-   "o": {
-    "werte": [
-     2
-    ]
-   },
-   "c": [
-    "10 // 5"
-   ],
-   "w": "10x² : (5x) = 2x. Mit 2x wurde erweitert.",
-   "h": "Teile den neuen Nenner durch den alten.",
-   "g": "umkehr"
-  },
-  {
-   "l": "erweitern",
-   "t": "erweitern",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Erweitere (x − 3)/5 auf den Nenner 15. Gib den neuen Zähler ein.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2."
-   },
-   "o": {
-    "werte": [
-     3,
-     -9
-    ]
-   },
-   "c": [
-    "3",
-    "3*(-3)"
-   ],
-   "w": "15 : 5 = 3. Zähler: 3 · (x − 3) = 3x − 9.",
-   "h": "Teile den neuen Nenner durch den alten. Mit diesem Term multiplizierst du auch den Zähler.",
-   "g": "mehrschritt"
   },
   {
    "l": "erweitern",
@@ -3122,6 +3614,21 @@
     "4*(-6)"
    ],
    "w": "12 : 3 = 4. Zähler: 4 · (x − 6) = 4x − 24."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Garten wird pro Woche zu 3/(2x) umgegraben. Schreibe den Anteil mit dem Nenner 8x. Wie heißt der Zähler?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "3 * 4",
+   "w": "Gegeben: 3/(2x) → □/(8x). Gesucht: Zähler. Ansatz: Mit 4 erweitern. Rechnung: 12. Antwort: 12/(8x)."
   },
   {
    "l": "erweitern",
@@ -3262,6 +3769,82 @@
   {
    "l": "erweitern",
    "t": "erweitern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind liest pro Tag 2/(3x) eines Buches. Schreibe den Anteil mit dem Nenner 12x. Wie heißt der Zähler?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 * 4",
+   "w": "Gegeben: 2/(3x) → □/(12x). Gesucht: Zähler. Ansatz: Mit 4 erweitern. Rechnung: 8. Antwort: 8/(12x)."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pumpe leert pro Stunde 1/(5x) eines Beckens. Schreibe den Anteil mit dem Nenner 10x. Wie heißt der Zähler?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1 * 2",
+   "w": "Gegeben: 1/(5x) → □/(10x). Gesucht: Zähler. Ansatz: Mit 2 erweitern. Rechnung: 2. Antwort: 2/(10x)."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mit welchem Term wurde 2/(5x) erweitert, wenn der neue Nenner 10x² ist?",
+    "schablone": "□x",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2."
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "c": [
+    "10 // 5"
+   ],
+   "w": "10x² : (5x) = 2x. Mit 2x wurde erweitert.",
+   "h": "Teile den neuen Nenner durch den alten."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere (x − 3)/5 auf den Nenner 15. Gib den neuen Zähler ein.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. 3x − 2."
+   },
+   "o": {
+    "werte": [
+     3,
+     -9
+    ]
+   },
+   "c": [
+    "3",
+    "3*(-3)"
+   ],
+   "w": "15 : 5 = 3. Zähler: 3 · (x − 3) = 3x − 9.",
+   "h": "Teile den neuen Nenner durch den alten. Mit diesem Term multiplizierst du auch den Zähler."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
    "p": "uebung",
    "s": 2,
    "y": "luecken",
@@ -3303,31 +3886,7 @@
     "3*(-5)"
    ],
    "w": "3x + 27 = 3(x + 9). Mit 3 erweitern: 3 · (x − 5) = 3x − 15.",
-   "h": "Klammere im neuen Nenner eine Zahl aus.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "erweitern",
-   "t": "erweitern",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Erweitere 3/(x + 2) auf den Nenner x² + 2x. Gib den neuen Zähler ein.",
-    "schablone": "□x",
-    "hinweis": "Tippe den Term ein, z. B. 3x."
-   },
-   "o": {
-    "werte": [
-     3
-    ]
-   },
-   "c": [
-    "3"
-   ],
-   "w": "x² + 2x = x(x + 2). Also mit x erweitern: neuer Zähler 3x.",
-   "h": "Wie entsteht x² + 2x aus x + 2?",
-   "g": "direkt"
+   "h": "Klammere im neuen Nenner eine Zahl aus."
   },
   {
    "l": "erweitern",
@@ -3461,23 +4020,121 @@
    "l": "erweitern",
    "t": "erweitern",
    "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind schafft pro Stunde 1/x eines Puzzles. Um das mit 1/(2x) zu vergleichen, erweitert man 1/x auf den Nenner 2x. Wie heißt der neue Zähler?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Gegeben: 1/x → □/(2x). Gesucht: neuer Zähler. Ansatz: Mit 2 erweitern. Rechnung: 1 · 2 = 2. Antwort: 2/(2x).",
+   "h": "Womit muss der Nenner x multipliziert werden?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Pumpen leeren pro Stunde 1/x und 1/(3x) eines Beckens. Bringe beide Anteile auf den Nenner 3x.",
+    "schablone": "□/(3x) und □/(3x)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     1
+    ]
+   },
+   "c": [
+    "3",
+    "1"
+   ],
+   "w": "Gegeben: 1/x und 1/(3x). Gesucht: Zähler beim Nenner 3x. Ansatz: 1/x mit 3 erweitern. Rechnung: 3/(3x) und 1/(3x). Antwort: Die Zähler sind 3 und 1.",
+   "h": "Der zweite Bruch hat den Nenner schon."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Die Hinfahrt dauert 30/x Stunden, die Rückfahrt 45/(2x) Stunden. Erweitere 30/x auf den Nenner 2x. Wie heißt der neue Zähler?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "30 * 2",
+   "w": "Gegeben: 30/x → □/(2x). Gesucht: neuer Zähler. Ansatz: Mit 2 erweitern. Rechnung: 30 · 2 = 60. Antwort: 60/(2x).",
+   "h": "Zähler und Nenner mit derselben Zahl multiplizieren."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Anteil wurde vom Nenner 2x auf den Nenner 6x erweitert und lautet jetzt 18/(6x). Wie hieß der Zähler vorher?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "18 / 3",
+   "w": "Gegeben: □/(2x) = 18/(6x). Gesucht: alter Zähler. Ansatz: Es wurde mit 3 erweitert; zurückrechnen. Rechnung: 18 : 3 = 6. Antwort: Der Anteil war 6/(2x).",
+   "h": "Womit wurde erweitert?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Pumpe A leert pro Stunde 1/(4x), Pumpe B 1/(6x) eines 50-m³-Beckens. Auf welchen kleinsten gemeinsamen Nenner bringt man beide Anteile?"
+   },
+   "a": [
+    "24x",
+    "10x",
+    "12x",
+    "24x²"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: Nenner 4x und 6x; das Volumen spielt keine Rolle. Gesucht: kleinster gemeinsamer Nenner. Ansatz: kgV von 4 und 6, mal x. Rechnung: kgV(4; 6) = 12. Antwort: Hauptnenner 12x.",
+   "h": "Welche Angabe brauchst du nicht?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
    "s": 3,
    "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Verändert das Erweitern eines Bruchterms seinen Wert?"
+    "text": "Ein Kind liest pro Tag 3/(4x) eines Buches. Jemand sagt: „Erweitert man 3/(4x) mit 5, liest es mehr pro Tag.“ Was stimmt?"
    },
    "a": [
-    "Nein: Zähler und Nenner werden mit demselben Faktor (≠ 0) multipliziert – das ist wie · 1.",
-    "Ja, er wird größer.",
-    "Ja, wenn man mit x erweitert.",
-    "Nur bei negativen Zahlen."
+    "Richtig: fünfmal so viel.",
+    "Richtig: 15 ist größer als 3.",
+    "Falsch: Es liest dann weniger.",
+    "Falsch: 15/(20x) ist derselbe Anteil; nur die Darstellung ändert sich."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "a/b = (a · k)/(b · k), weil k/k = 1 ist. Nur k = 0 ist verboten (beim Erweitern mit x also x ≠ 0).",
-   "h": "Was ist k/k?"
+   "w": "Gegeben: 3/(4x) = 15/(20x). Gesucht: Ändert sich der Wert? Ansatz: Erweitern: Zähler und Nenner mal 5. Rechnung: Wert bleibt gleich. Antwort: Die Aussage ist falsch.",
+   "h": "Was passiert beim Erweitern mit dem Wert?"
   },
   {
    "l": "erweitern",
@@ -3685,8 +4342,51 @@
     "index": 0
    },
    "w": "Gleicher Nenner: Zähler 5 + 1 = 6, Nenner bleibt: 6/(x + 3).",
-   "h": "Gleicher Nenner: nur die Zähler verrechnen.",
-   "g": "direkt"
+   "h": "Gleicher Nenner: nur die Zähler verrechnen."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Fasse zu einem Bruch zusammen: 3x/(x − 2) − 1"
+   },
+   "a": [
+    "(3x − 1)/(x − 2)",
+    "(2x + 2)/(x − 2)",
+    "3x/(x − 3)",
+    "(2x − 2)/(x − 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 = (x − 2)/(x − 2). 3x − (x − 2) = 3x − x + 2 = 2x + 2. Ergebnis (2x + 2)/(x − 2).",
+   "h": "Schreibe 1 mit dem Nenner x − 2. Das Minus gilt für den ganzen Zähler.",
+   "g": "transfer"
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Pumpe A füllt ein Becken in x Stunden, Pumpe B in 2x Stunden. Welchen Anteil füllen beide zusammen in einer Stunde?"
+   },
+   "a": [
+    "2/(3x)",
+    "1/(3x)",
+    "3/(2x)",
+    "3/x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "In einer Stunde: A schafft 1/x, B schafft 1/(2x). Zusammen 2/(2x) + 1/(2x) = 3/(2x).",
+   "h": "Welchen Teil schafft jede Pumpe in einer Stunde?"
   },
   {
    "l": "addieren",
@@ -3775,49 +4475,6 @@
   {
    "l": "addieren",
    "t": "addieren",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Fasse zusammen: (5x + 5)/(x + 1) − (4x − 1)/(x + 1)"
-   },
-   "a": [
-    "(x + 4)/(x + 1)",
-    "(x + 6)/(x + 1)",
-    "(9x + 6)/(x + 1)",
-    "(x + 6)/(2(x + 1))"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gleicher Nenner. Das Minus gilt für den ganzen zweiten Zähler: 5x + 5 − (4x − 1) = 5x + 5 − 4x + 1 = x + 6. Ergebnis: (x + 6)/(x + 1).",
-   "h": "Setze den zweiten Zähler in Klammern. Das Minus ändert jedes Vorzeichen darin."
-  },
-  {
-   "l": "addieren",
-   "t": "addieren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Fasse zusammen: 6/x + 3/(x − 8)"
-   },
-   "a": [
-    "(9x − 48)/(x(x − 8))",
-    "9/(x + x − 8)",
-    "(9x − 8)/(x(x − 8))",
-    "9/(x(x − 8))"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Hauptnenner x(x − 8). Zähler: 6(x − 8) + 3x = 9x − 48. Ergebnis: (9x − 48)/(x(x − 8)).",
-   "h": "Der Hauptnenner ist das Produkt der beiden Nenner.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "addieren",
-   "t": "addieren",
    "p": "test",
    "s": 2,
    "y": "auswahl",
@@ -3894,6 +4551,22 @@
     "index": 2
    },
    "w": "Hauptnenner 3x: 3/x = 9/(3x). 9 + 4 = 13. Ergebnis 13/(3x)."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Hähne füllen eine Wanne allein in 10 bzw. 15 Minuten. Wie viele Minuten brauchen beide zusammen?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "min"
+   },
+   "c": "1 / (1/10 + 1/15)",
+   "w": "Gegeben: 1/10 + 1/15. Gesucht: Zeit. Ansatz: Addieren, Kehrwert. Rechnung: 5/30 = 1/6 ⇒ 6. Antwort: 6 Minuten."
   },
   {
    "l": "addieren",
@@ -4018,6 +4691,81 @@
   {
    "l": "addieren",
    "t": "addieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Hinweg 20/v Stunden, Rückweg 20/v Stunden. Wie lange insgesamt bei v = 8?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "h"
+   },
+   "c": "40 / 8",
+   "w": "Gegeben: 20/v + 20/v = 40/v. Gesucht: Wert bei 8. Ansatz: Addieren, einsetzen. Rechnung: 5. Antwort: 5 Stunden."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Maler schaffen pro Tag 1/4 und 1/12 eines Hauses. Wie viele Tage brauchen sie zusammen?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "Tage"
+   },
+   "c": "1 / (1/4 + 1/12)",
+   "w": "Gegeben: 1/4 + 1/12. Gesucht: Tage. Ansatz: Addieren, Kehrwert. Rechnung: 4/12 = 1/3 ⇒ 3. Antwort: 3 Tage."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Fasse zusammen: (5x + 5)/(x + 1) − (4x − 1)/(x + 1)"
+   },
+   "a": [
+    "(x + 4)/(x + 1)",
+    "(x + 6)/(x + 1)",
+    "(9x + 6)/(x + 1)",
+    "(x + 6)/(2(x + 1))"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gleicher Nenner. Das Minus gilt für den ganzen zweiten Zähler: 5x + 5 − (4x − 1) = 5x + 5 − 4x + 1 = x + 6. Ergebnis: (x + 6)/(x + 1).",
+   "h": "Setze den zweiten Zähler in Klammern. Das Minus ändert jedes Vorzeichen darin."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Fasse zusammen: 6/x + 3/(x − 8)"
+   },
+   "a": [
+    "(9x − 48)/(x(x − 8))",
+    "9/(x + x − 8)",
+    "(9x − 8)/(x(x − 8))",
+    "9/(x(x − 8))"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Hauptnenner x(x − 8). Zähler: 6(x − 8) + 3x = 9x − 48. Ergebnis: (9x − 48)/(x(x − 8)).",
+   "h": "Der Hauptnenner ist das Produkt der beiden Nenner.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
    "p": "uebung",
    "s": 2,
    "y": "auswahl",
@@ -4055,8 +4803,7 @@
     "index": 2
    },
    "w": "1 = x/x. Also x/x + 2/x = (x + 2)/x.",
-   "h": "Schreibe 1 als Bruch mit Nenner x.",
-   "g": "mehrschritt"
+   "h": "Schreibe 1 als Bruch mit Nenner x."
   },
   {
    "l": "addieren",
@@ -4077,30 +4824,7 @@
     "index": 3
    },
    "w": "Hauptnenner x²: 1/x = x/x². (x + 2 − x)/x² = 2/x².",
-   "h": "Erweitere 1/x auf x². Achte beim Abziehen auf alle Glieder.",
-   "g": "pruefung"
-  },
-  {
-   "l": "addieren",
-   "t": "addieren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Fasse zu einem Bruch zusammen: 3x/(x − 2) − 1"
-   },
-   "a": [
-    "(3x − 1)/(x − 2)",
-    "(2x + 2)/(x − 2)",
-    "3x/(x − 3)",
-    "(2x − 2)/(x − 2)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "1 = (x − 2)/(x − 2). 3x − (x − 2) = 3x − x + 2 = 2x + 2. Ergebnis (2x + 2)/(x − 2).",
-   "h": "Schreibe 1 mit dem Nenner x − 2. Das Minus gilt für den ganzen Zähler.",
-   "g": "transfer"
+   "h": "Erweitere 1/x auf x². Achte beim Abziehen auf alle Glieder."
   },
   {
    "l": "addieren",
@@ -4168,28 +4892,6 @@
    "t": "addieren",
    "p": "uebung",
    "s": 2,
-   "g": "einkleidung",
-   "y": "auswahl",
-   "f": {
-    "text": "Pumpe A füllt ein Becken in x Stunden, Pumpe B in 2x Stunden. Welchen Anteil füllen beide zusammen in einer Stunde?"
-   },
-   "a": [
-    "2/(3x)",
-    "1/(3x)",
-    "3/(2x)",
-    "3/x"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "In einer Stunde: A schafft 1/x, B schafft 1/(2x). Zusammen 2/(2x) + 1/(2x) = 3/(2x).",
-   "h": "Welchen Teil schafft jede Pumpe in einer Stunde?"
-  },
-  {
-   "l": "addieren",
-   "t": "addieren",
-   "p": "uebung",
-   "s": 2,
    "g": "umkehr",
    "y": "luecken",
    "f": {
@@ -4213,7 +4915,6 @@
    "t": "addieren",
    "p": "uebung",
    "s": 3,
-   "g": "fehler",
    "y": "auswahl",
    "f": {
     "text": "Jemand rechnet 1/x + 1/y = 2/(x + y). Mit welchen Zahlen sieht man, dass das falsch ist?"
@@ -4252,6 +4953,126 @@
    ],
    "w": "5/x = 5x/x². Von (5x + 3)/x² bleibt nach Abziehen 3/x².",
    "h": "Bring 5/x auf den Nenner x² und vergleiche die Zähler."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Pumpen leeren pro Stunde 1/x und 2/x eines Beckens. Welchen Anteil schaffen sie zusammen?"
+   },
+   "a": [
+    "3/x²",
+    "3/x",
+    "2/x²",
+    "3/(2x)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: 1/x + 2/x. Gesucht: Summe. Ansatz: Gleicher Nenner: Zähler addieren. Rechnung: 3/x. Antwort: Zusammen 3/x pro Stunde.",
+   "h": "Die Nenner sind gleich."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Der Hinweg dauert 12/v Stunden, der Rückweg mit Rückenwind 12/(v + 2) Stunden. Wie lange dauert beides für v = 4?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "h"
+   },
+   "c": "12 / 4 + 12 / 6",
+   "w": "Gegeben: v = 4. Gesucht: Gesamtzeit. Ansatz: Einsetzen und addieren. Rechnung: 3 + 2 = 5. Antwort: Insgesamt 5 Stunden.",
+   "h": "Berechne beide Brüche."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "auswahl",
+   "f": {
+    "text": "Pumpe A leert pro Stunde 1/x, Pumpe B 1/(2x) eines Beckens. Welchen Anteil schaffen beide zusammen?"
+   },
+   "a": [
+    "3/(2x)",
+    "2/(2x)",
+    "2/(3x)",
+    "1/(3x)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: 1/x + 1/(2x). Gesucht: Summe. Ansatz: Hauptnenner 2x. Rechnung: 2/(2x) + 1/(2x) = 3/(2x). Antwort: Zusammen 3/(2x).",
+   "h": "Bringe beide auf den Nenner 2x."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Rohre füllen einen 3 000-l-Tank. Rohr A allein braucht 6 h, Rohr B allein 12 h. Wie viele Stunden brauchen beide zusammen?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "h"
+   },
+   "c": "1 / (1/6 + 1/12)",
+   "w": "Gegeben: 1/6 + 1/12 pro Stunde; das Volumen spielt keine Rolle. Gesucht: Zeit zusammen. Ansatz: Anteile addieren, Kehrwert. Rechnung: 2/12 + 1/12 = 3/12 = 1/4 ⇒ 4 h. Antwort: Zusammen brauchen sie 4 Stunden.",
+   "h": "Welche Angabe brauchst du nicht?"
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Radfahrer fährt 30 km mit v km/h hin und wegen Gegenwind mit (v − 5) km/h zurück: 30/v + 30/(v − 5) Stunden. Wie viele Minuten ist er für v = 15 unterwegs?"
+   },
+   "o": {
+    "wert": 300,
+    "einheit": "min"
+   },
+   "c": "(30 / 15 + 30 / 10) * 60",
+   "w": "Gegeben: v = 15. Gesucht: Gesamtzeit in Minuten. Ansatz: Einsetzen, addieren, umrechnen. Rechnung: 2 + 3 = 5 h = 300 min. Antwort: Er ist 300 Minuten unterwegs.",
+   "h": "Achte auf die Einheit."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Pumpen schaffen pro Stunde 1/x und 1/(2x) eines Beckens. Jemand rechnet: 1/x + 1/(2x) = 2/(3x). Was stimmt?"
+   },
+   "a": [
+    "Falsch: Nenner nicht addieren – 2/(2x) + 1/(2x) = 3/(2x).",
+    "Falsch: 1/(3x).",
+    "Richtig.",
+    "Falsch: 2/(2x)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: 1/x + 1/(2x). Gesucht: Fehler. Ansatz: Hauptnenner bilden. Rechnung: 3/(2x). Antwort: Richtig ist 3/(2x).",
+   "h": "Darf man Nenner addieren?"
   },
   {
    "l": "addieren",
@@ -4428,6 +5249,66 @@
    "l": "multiplizieren",
    "t": "multiplizieren",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Berechne und kürze: (6x + 12)/x · x²/(x + 2)"
+   },
+   "a": [
+    "6/x",
+    "6x",
+    "6x²",
+    "(6x + 12)x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "6x + 12 = 6(x + 2). Zähler: 6(x + 2) · x², Nenner: x(x + 2). Mit x(x + 2) kürzen: 6x.",
+   "h": "Klammere im ersten Zähler aus. Dann kürzt sich eine Klammer weg."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Ergebnis von (3x − 6)/(x + 1) : (x − 2)/(2x + 2) ist eine Zahl. Welche?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 * 2",
+   "w": "3x − 6 = 3(x − 2) und 2x + 2 = 2(x + 1). Kehrbruch: 3(x − 2)/(x + 1) · 2(x + 1)/(x − 2) = 3 · 2 = 6.",
+   "h": "Klammere zuerst aus. Dann kürzt sich alles mit x weg.",
+   "g": "pruefung"
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Rechteck ist (x + 1)/2 m lang und 4/(x + 1) m breit. Wie groß ist sein Flächeninhalt?"
+   },
+   "a": [
+    "(x + 5)/2 m²",
+    "2 m²",
+    "2(x + 1) m²",
+    "(x + 1)²/8 m²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A = (x + 1)/2 · 4/(x + 1) = 4(x + 1)/(2(x + 1)) = 2 – unabhängig von x.",
+   "h": "Multipliziere und kürze die Klammer."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -4450,27 +5331,6 @@
    "l": "multiplizieren",
    "t": "multiplizieren",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Berechne und kürze: (6x + 12)/x · x²/(x + 2)"
-   },
-   "a": [
-    "6/x",
-    "6x",
-    "6x²",
-    "(6x + 12)x"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "6x + 12 = 6(x + 2). Zähler: 6(x + 2) · x², Nenner: x(x + 2). Mit x(x + 2) kürzen: 6x.",
-   "h": "Klammere im ersten Zähler aus. Dann kürzt sich eine Klammer weg."
-  },
-  {
-   "l": "multiplizieren",
-   "t": "multiplizieren",
-   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -4486,8 +5346,7 @@
     "index": 0
    },
    "w": "Zähler: 4 · 5x³ = 20x³. Nenner: 9x² · 6 = 54x². 20x³/(54x²) mit 2x² kürzen: 10x/27.",
-   "h": "Erst multiplizieren (bei „:“ mit dem Kehrbruch), dann Zahlen und x getrennt kürzen.",
-   "g": "direkt"
+   "h": "Erst multiplizieren (bei „:“ mit dem Kehrbruch), dann Zahlen und x getrennt kürzen."
   },
   {
    "l": "multiplizieren",
@@ -4511,8 +5370,7 @@
     "7"
    ],
    "w": "Mit dem Kehrbruch von 5/(4x³) multiplizieren: 5x/7 · 4x³/5. Zähler: 5x · 4x³ = 20x⁴. Nenner: 7 · 5 = 35. 20x⁴/35 mit 5 kürzen: 4x⁴/7.",
-   "h": "Erst multiplizieren (bei „:“ mit dem Kehrbruch), dann Zahlen und x getrennt kürzen.",
-   "g": "mehrschritt"
+   "h": "Erst multiplizieren (bei „:“ mit dem Kehrbruch), dann Zahlen und x getrennt kürzen."
   },
   {
    "l": "multiplizieren",
@@ -4555,48 +5413,6 @@
    },
    "w": "Mit dem Kehrbruch von 7x/9 multiplizieren: 7/(9x³) · 9/(7x). Zähler: 7 · 9 = 63. Nenner: 9x³ · 7x = 63x⁴. 63/(63x⁴) mit 63 kürzen: 1/x⁴.",
    "h": "Erst multiplizieren (bei „:“ mit dem Kehrbruch), dann Zahlen und x getrennt kürzen."
-  },
-  {
-   "l": "multiplizieren",
-   "t": "multiplizieren",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Berechne und kürze: (5x/9) : (9/(7x³))"
-   },
-   "a": [
-    "35x⁴/81",
-    "81/(35x⁴)",
-    "35/(81x²)",
-    "5/(7x²)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Mit dem Kehrbruch von 9/(7x³) multiplizieren: 5x/9 · 7x³/9. Zähler: 5x · 7x³ = 35x⁴. Nenner: 9 · 9 = 81. Nichts zu kürzen: 35x⁴/81.",
-   "h": "Erst multiplizieren (bei „:“ mit dem Kehrbruch), dann Zahlen und x getrennt kürzen."
-  },
-  {
-   "l": "multiplizieren",
-   "t": "multiplizieren",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Berechne und kürze: (3x + 18)/x · x²/(x + 6)"
-   },
-   "a": [
-    "3x",
-    "(3x + 18)x",
-    "3/x",
-    "3x²"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "3x + 18 = 3(x + 6). Zähler: 3(x + 6) · x², Nenner: x(x + 6). Mit x(x + 6) kürzen: 3x.",
-   "h": "Klammere im ersten Zähler aus. Dann kürzt sich eine Klammer weg."
   },
   {
    "l": "multiplizieren",
@@ -4683,6 +5499,22 @@
     "index": 2
    },
    "w": "Mit dem Kehrbruch von 5x²/8 multiplizieren: 5/(6x²) · 8/(5x²). Zähler: 5 · 8 = 40. Nenner: 6x² · 5x² = 30x⁴. 40/(30x⁴) mit 10 kürzen: 4/(3x⁴)."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Käse kostet 18/x Euro pro kg, man kauft x/6 kg. Was kostet das?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "€"
+   },
+   "c": "18 / 6",
+   "w": "Gegeben: (18/x) · (x/6). Gesucht: Preis. Ansatz: Kürzen. Rechnung: 3. Antwort: 3 €."
   },
   {
    "l": "multiplizieren",
@@ -4813,6 +5645,80 @@
   {
    "l": "multiplizieren",
    "t": "multiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stoff kostet 10/x Euro pro Meter, man kauft x/2 Meter. Was kostet das?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "€"
+   },
+   "c": "10 / 2",
+   "w": "Gegeben: (10/x) · (x/2). Gesucht: Preis. Ansatz: Kürzen. Rechnung: 5. Antwort: 5 €."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Beet ist 9x/4 m lang und 8/(3x) m breit. Wie groß ist die Fläche?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "m²"
+   },
+   "c": "9 * 8 / (4 * 3)",
+   "w": "Gegeben: (9x/4) · (8/(3x)). Gesucht: Fläche. Ansatz: Kürzen. Rechnung: 72/12 = 6. Antwort: 6 m²."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Berechne und kürze: (5x/9) : (9/(7x³))"
+   },
+   "a": [
+    "35x⁴/81",
+    "81/(35x⁴)",
+    "35/(81x²)",
+    "5/(7x²)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mit dem Kehrbruch von 9/(7x³) multiplizieren: 5x/9 · 7x³/9. Zähler: 5x · 7x³ = 35x⁴. Nenner: 9 · 9 = 81. Nichts zu kürzen: 35x⁴/81.",
+   "h": "Erst multiplizieren (bei „:“ mit dem Kehrbruch), dann Zahlen und x getrennt kürzen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Berechne und kürze: (3x + 18)/x · x²/(x + 6)"
+   },
+   "a": [
+    "3x",
+    "(3x + 18)x",
+    "3/x",
+    "3x²"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3x + 18 = 3(x + 6). Zähler: 3(x + 6) · x², Nenner: x(x + 6). Mit x(x + 6) kürzen: 3x.",
+   "h": "Klammere im ersten Zähler aus. Dann kürzt sich eine Klammer weg."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
    "p": "uebung",
    "s": 2,
    "y": "auswahl",
@@ -4892,25 +5798,7 @@
     "index": 3
    },
    "w": "x² − 9 = (x + 3)(x − 3). Dann (x + 3)(x − 3) · 4x/(2x(x + 3)) = 2(x − 3).",
-   "h": "Zerlege x² − 9 mit der binomischen Formel, dann kürzen.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "multiplizieren",
-   "t": "multiplizieren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Ergebnis von (3x − 6)/(x + 1) : (x − 2)/(2x + 2) ist eine Zahl. Welche?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "3 * 2",
-   "w": "3x − 6 = 3(x − 2) und 2x + 2 = 2(x + 1). Kehrbruch: 3(x − 2)/(x + 1) · 2(x + 1)/(x − 2) = 3 · 2 = 6.",
-   "h": "Klammere zuerst aus. Dann kürzt sich alles mit x weg.",
-   "g": "pruefung"
+   "h": "Zerlege x² − 9 mit der binomischen Formel, dann kürzen."
   },
   {
    "l": "multiplizieren",
@@ -4960,30 +5848,7 @@
    "l": "multiplizieren",
    "t": "multiplizieren",
    "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Rechteck ist (x + 1)/2 m lang und 4/(x + 1) m breit. Wie groß ist sein Flächeninhalt?"
-   },
-   "a": [
-    "(x + 5)/2 m²",
-    "2 m²",
-    "2(x + 1) m²",
-    "(x + 1)²/8 m²"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "A = (x + 1)/2 · 4/(x + 1) = 4(x + 1)/(2(x + 1)) = 2 – unabhängig von x.",
-   "h": "Multipliziere und kürze die Klammer."
-  },
-  {
-   "l": "multiplizieren",
-   "t": "multiplizieren",
-   "p": "uebung",
    "s": 3,
-   "g": "fehler",
    "y": "auswahl",
    "f": {
     "text": "Jemand rechnet (2/x) : (4/x) = 8/x². Was stimmt?"
@@ -5005,7 +5870,6 @@
    "t": "multiplizieren",
    "p": "uebung",
    "s": 3,
-   "g": "begruenden",
    "y": "auswahl",
    "f": {
     "text": "Stimmt: „Das Produkt zweier Bruchterme mit x ist nie eine ganze Zahl“?"
@@ -5061,6 +5925,139 @@
    ],
    "w": "Rückwärts: mit 3/x malnehmen. 2x² · 3/x = 6x.",
    "h": "Das Gegenteil von „durch 3/x teilen“ ist „mal 3/x“."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stoff kostet 24/x Euro pro Meter. Man kauft x/3 Meter. Was kostet das?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "€"
+   },
+   "c": "24 / 3",
+   "w": "Gegeben: (24/x) · (x/3). Gesucht: Preis. Ansatz: Multiplizieren, x kürzen. Rechnung: 24x/(3x) = 8. Antwort: Es kostet 8 €.",
+   "h": "Multipliziere Zähler mit Zähler, Nenner mit Nenner."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zug fährt 90/x km pro Minute, und zwar 2x Minuten lang. Wie weit fährt er?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "km"
+   },
+   "c": "90 * 2",
+   "w": "Gegeben: (90/x) · 2x. Gesucht: Strecke. Ansatz: Multiplizieren, kürzen. Rechnung: 180x/x = 180. Antwort: Er fährt 180 km.",
+   "h": "Strecke = Geschwindigkeit · Zeit."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 6x/5 m lang und 10/(3x) m breit. Wie groß ist seine Fläche?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m²"
+   },
+   "c": "6 * 10 / (5 * 3)",
+   "w": "Gegeben: (6x/5) · (10/(3x)). Gesucht: Fläche. Ansatz: Multiplizieren, kürzen. Rechnung: 60x/(15x) = 4. Antwort: Die Fläche ist 4 m².",
+   "h": "Was kürzt sich weg?"
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Drucker druckt 60/x Seiten pro Sekunde, und zwar 5x/2 Sekunden lang. Das Papier wiegt 80 g pro m². Wie viele Seiten druckt er?"
+   },
+   "o": {
+    "wert": 150
+   },
+   "c": "60 * 5 / 2",
+   "w": "Gegeben: (60/x) · (5x/2); das Papiergewicht spielt keine Rolle. Gesucht: Seitenzahl. Ansatz: Multiplizieren, kürzen. Rechnung: 300x/(2x) = 150. Antwort: Er druckt 150 Seiten.",
+   "h": "Welche Angabe brauchst du nicht?"
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Saft kostet 4/x Euro pro Liter, man kauft x/2 Liter. Jemand rechnet: (4/x) · (x/2) = 4x/(2x²) = 2/x. Was stimmt?"
+   },
+   "a": [
+    "Falsch: 8 €.",
+    "Richtig.",
+    "Falsch: x · 2 ist kein x²; richtig ist 4x/(2x) = 2 €.",
+    "Falsch: 2x €."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: (4/x) · (x/2). Gesucht: richtiges Ergebnis. Ansatz: Nenner x · 2 = 2x. Rechnung: 4x/(2x) = 2. Antwort: Es kostet 2 €.",
+   "h": "Was ergibt x · 2 im Nenner?"
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Radfahrer fährt 36/x km pro Minute genau x Minuten lang. Jemand sagt: „Wie weit er kommt, hängt von x ab.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: Je größer x, desto kürzer.",
+    "Falsch: (36/x) · x = 36 km, für jedes x.",
+    "Falsch: Er kommt 36x km weit.",
+    "Richtig: Je größer x, desto weiter."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: (36/x) · x. Gesucht: Abhängig von x? Ansatz: Kürzen. Rechnung: 36. Antwort: Er fährt immer 36 km.",
+   "h": "Was kürzt sich?"
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken wird erst 2x/3 Minuten lang mit 300/x Litern pro Minute gefüllt, danach 4 Minuten mit 50 Litern pro Minute. Wie viele Liter sind dann darin?"
+   },
+   "o": {
+    "wert": 400,
+    "einheit": "l"
+   },
+   "c": "300 * 2 / 3 + 50 * 4",
+   "w": "Gegeben: (300/x) · (2x/3) + 50 · 4. Gesucht: Gesamtmenge. Ansatz: Beide Abschnitte berechnen, addieren. Rechnung: 200 + 200 = 400. Antwort: Es sind 400 Liter darin.",
+   "h": "Rechne die beiden Abschnitte getrennt."
   },
   {
    "l": "multiplizieren",
@@ -5168,6 +6165,48 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung ist FALSCH?"
+   },
+   "a": [
+    "1/x + 1/3 = 2/(x + 3)",
+    "(x² − 9)/(x − 3) = x + 3",
+    "5/(5x) = 1/x",
+    "3/x · 7/x = 21/x²"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: 1/x + 1/3 = 2/(x + 3). Hauptnenner 3x: richtig ist (x + 3)/(3x).",
+   "h": "Suche ein Gegenbeispiel durch Einsetzen."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung ist richtig (für alle x aus D)?"
+   },
+   "a": [
+    "(x² − 9)/(x − 3) = x + 3",
+    "3/x + 2/x = 5/(2x)",
+    "(x + 3)/3 = x + 1",
+    "1/x + 1/3 = 2/(x + 3)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig: (x² − 9)/(x − 3) = x + 3. 3. binomische Formel: x² − 9 = (x + 3)(x − 3). Bei den anderen findest du durch Einsetzen ein Gegenbeispiel.",
+   "h": "Setze eine einfache Zahl ein, z. B. x = 1, und vergleiche beide Seiten."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -5229,92 +6268,6 @@
    "w": "Richtig: 5/x · 6/x = 30/x². Zähler mal Zähler, Nenner mal Nenner. Bei den anderen findest du durch Einsetzen ein Gegenbeispiel.",
    "h": "Setze eine einfache Zahl ein, z. B. x = 1, und vergleiche beide Seiten.",
    "g": "erkennen"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Umformung ist FALSCH?"
-   },
-   "a": [
-    "1/x + 1/3 = 2/(x + 3)",
-    "(x² − 9)/(x − 3) = x + 3",
-    "5/(5x) = 1/x",
-    "3/x · 7/x = 21/x²"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Falsch: 1/x + 1/3 = 2/(x + 3). Hauptnenner 3x: richtig ist (x + 3)/(3x).",
-   "h": "Suche ein Gegenbeispiel durch Einsetzen."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Umformung ist richtig (für alle x aus D)?"
-   },
-   "a": [
-    "(x² − 9)/(x − 3) = x + 3",
-    "3/x + 2/x = 5/(2x)",
-    "(x + 3)/3 = x + 1",
-    "1/x + 1/3 = 2/(x + 3)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Richtig: (x² − 9)/(x − 3) = x + 3. 3. binomische Formel: x² − 9 = (x + 3)(x − 3). Bei den anderen findest du durch Einsetzen ein Gegenbeispiel.",
-   "h": "Setze eine einfache Zahl ein, z. B. x = 1, und vergleiche beide Seiten."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Umformung ist FALSCH?"
-   },
-   "a": [
-    "4/(4x) = 1/x",
-    "(−x − 9)/(x + 9) = −1",
-    "(x + 9)/9 = x + 1",
-    "(x/9) : 5 = x/45"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Falsch: (x + 9)/9 = x + 1. Aus der Summe x + 9 darf man nicht kürzen. Richtig: x/9 + 1.",
-   "h": "Suche ein Gegenbeispiel durch Einsetzen.",
-   "g": "umkehr"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Warum darf man in (x + 6)/(x + 2) die x nicht kürzen?"
-   },
-   "a": [
-    "Weil 6 und 2 verschieden sind.",
-    "Kürzen geht nur mit Faktoren, x ist hier ein Summand.",
-    "Weil x auch 0 sein kann.",
-    "Man darf es doch kürzen."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Teste x = 1: (1 + 6)/(1 + 2) = 7/3, aber 6/2 = 3. Kürzen darf man nur gemeinsame Faktoren.",
-   "h": "Teste mit einer einfachen Zahl, z. B. x = 1.",
-   "g": "begruenden"
   },
   {
    "l": "fehler_finden",
@@ -5399,8 +6352,46 @@
     "index": 0
    },
    "w": "Richtig: (x/7) : 9 = x/63. Durch 9 teilen heißt mit 1/9 multiplizieren. Bei den anderen findest du durch Einsetzen ein Gegenbeispiel.",
-   "h": "Setze eine einfache Zahl ein, z. B. x = 1, und vergleiche beide Seiten.",
-   "g": "erkennen"
+   "h": "Setze eine einfache Zahl ein, z. B. x = 1, und vergleiche beide Seiten."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Umformung (x + 6)/(x + 2) = 6/2 ist falsch. Für welches x ergibt sie trotzdem eine wahre Aussage?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "(x + 6)/(x + 2) = 3 ⇔ x + 6 = 3x + 6 ⇔ x = 0. Nur bei x = 0 stimmt es zufällig: 6/2 = 3.",
+   "h": "Löse (x + 6)/(x + 2) = 3.",
+   "g": "transfer"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Zahl kannst du zeigen, dass 1/x + 1/2 = 2/(x + 2) falsch ist?"
+   },
+   "a": [
+    "mit keiner, die Umformung stimmt",
+    "x = 0",
+    "x = 2",
+    "x = −2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x = 2: links 1/2 + 1/2 = 1, rechts 2/4 = 0,5. Ungleich – Gegenbeispiel. x = 0 und x = −2 darf man nicht einsetzen.",
+   "h": "Ein Gegenbeispiel muss erlaubt sein (in D liegen).",
+   "g": "pruefung"
   },
   {
    "l": "fehler_finden",
@@ -5481,6 +6472,21 @@
     "index": 3
    },
    "w": "Richtig: 6/x · 3/x = 18/x². Zähler mal Zähler, Nenner mal Nenner. Bei den anderen findest du durch Einsetzen ein Gegenbeispiel."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Pumpen schaffen je 1/4 eines Beckens pro Stunde. Jemand rechnet 1/4 + 1/4 = 2/8. Welcher Anteil ist es richtig (als Dezimalzahl)?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "1/4 + 1/4",
+   "w": "Gegeben: 1/4 + 1/4. Gesucht: Summe. Ansatz: Zähler addieren. Rechnung: 2/4 = 0,5. Antwort: 0,5, also die Hälfte."
   },
   {
    "l": "fehler_finden",
@@ -5605,170 +6611,34 @@
   {
    "l": "fehler_finden",
    "t": "fehler_finden",
-   "p": "uebung",
+   "p": "sicherung",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Umformung ist FALSCH?"
-   },
-   "a": [
-    "6/x · 8/x = 48/x²",
-    "(6x)/6 = x",
-    "(−x − 6)/(x + 6) = −1",
-    "6/x + 8/x = 14/(2x)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Falsch: 6/x + 8/x = 14/(2x). Die Nenner werden nicht addiert. Richtig: 14/x.",
-   "h": "Suche ein Gegenbeispiel durch Einsetzen."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Warum ist 5/x + 2/x nicht 7/(2x)?"
-   },
-   "a": [
-    "Weil x nicht 0 sein darf.",
-    "Weil man die Zähler multiplizieren muss.",
-    "Es stimmt doch: 7/(2x) ist richtig.",
-    "Beim Addieren bleibt der gemeinsame Nenner; nur die Zähler werden addiert."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Teste x = 1: 5 + 2 = 7, aber 7/2 = 3,5. Richtig ist 7/x.",
-   "h": "Teste mit einer einfachen Zahl, z. B. x = 1.",
-   "g": "begruenden"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Umformung ist richtig (für alle x aus D)?"
-   },
-   "a": [
-    "(x + 4)/x = 4",
-    "x/(x + 4) = 1/4",
-    "(2x + 4)/2 = x + 4",
-    "(2x + 4)/2 = x + 2"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "(2x + 4)/2 = 2(x + 2)/2 = x + 2. Die anderen kürzen Summanden statt Faktoren.",
-   "h": "Kürzen geht nur mit gemeinsamen Faktoren."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Umformung ist FALSCH (für alle x aus D)?"
-   },
-   "a": [
-    "(x − 3)/(3 − x) = −1",
-    "(x + 2)²/(x + 2) = x + 2",
-    "(x² + 4)/(x + 2) = x + 2",
-    "x/(2x) = 1/2"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "x² + 4 ist keine binomische Formel; (x + 2)² wäre x² + 4x + 4. Gegenbeispiel x = 1: 5/3 ≠ 3.",
-   "h": "Setze eine Zahl ein, z. B. x = 1.",
-   "g": "umkehr"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Lena prüft (x² + x)/x = x + 1 mit x = 0 und sagt: „Stimmt nicht.“ Was stimmt?"
-   },
-   "a": [
-    "Die Umformung stimmt nur für x = 1.",
-    "Lenas Probe zählt nicht: x = 0 gehört nicht zu D. Für alle x ≠ 0 stimmt die Umformung.",
-    "Lena hat recht: Kürzen mit x ist verboten.",
-    "Lena hat recht: Ein Gegenbeispiel genügt."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Für x = 0 ist der linke Term gar nicht definiert. (x² + x)/x = x(x + 1)/x = x + 1 gilt für jedes x aus D = ℚ \\ {0}.",
-   "h": "Darf man x = 0 überhaupt einsetzen?",
-   "g": "fehler"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Die Umformung (x + 6)/(x + 2) = 6/2 ist falsch. Für welches x ergibt sie trotzdem eine wahre Aussage?"
+    "text": "Ein Stoff kostet 12/x Euro pro Meter, man kauft x/4 Meter. Jemand rechnet 12/(4x). Was kostet es richtig?"
    },
    "o": {
-    "wert": 0
+    "wert": 3,
+    "einheit": "€"
    },
-   "c": "0",
-   "w": "(x + 6)/(x + 2) = 3 ⇔ x + 6 = 3x + 6 ⇔ x = 0. Nur bei x = 0 stimmt es zufällig: 6/2 = 3.",
-   "h": "Löse (x + 6)/(x + 2) = 3.",
-   "g": "transfer"
+   "c": "12 / 4",
+   "w": "Gegeben: (12/x) · (x/4). Gesucht: Preis. Ansatz: Kürzen. Rechnung: 3. Antwort: 3 €."
   },
   {
    "l": "fehler_finden",
    "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Mit welcher Zahl kannst du zeigen, dass 1/x + 1/2 = 2/(x + 2) falsch ist?"
+    "text": "Kosten von (8x + 16) € werden auf 8 Personen verteilt. Jemand kürzt zu x + 16. Was zahlt jeder richtig für x = 3?"
    },
-   "a": [
-    "mit keiner, die Umformung stimmt",
-    "x = 0",
-    "x = 2",
-    "x = −2"
-   ],
    "o": {
-    "index": 2
+    "wert": 5,
+    "einheit": "€"
    },
-   "w": "x = 2: links 1/2 + 1/2 = 1, rechts 2/4 = 0,5. Ungleich – Gegenbeispiel. x = 0 und x = −2 darf man nicht einsetzen.",
-   "h": "Ein Gegenbeispiel muss erlaubt sein (in D liegen).",
-   "g": "pruefung"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 1,
-   "g": "direkt",
-   "y": "auswahl",
-   "f": {
-    "text": "Ist 3/x + 2/x = 5/x richtig (für x ≠ 0)?"
-   },
-   "a": [
-    "Nein, es ist 5/(2x).",
-    "Ja: Bei gleichem Nenner addiert man nur die Zähler.",
-    "Nein, es ist 6/x."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "3/x + 2/x = (3 + 2)/x = 5/x. Der Nenner bleibt gleich.",
-   "h": "Was passiert beim Addieren gleichnamiger Brüche mit dem Nenner?"
+   "c": "3 + 2",
+   "w": "Gegeben: (8x + 16)/8 = x + 2. Gesucht: Wert bei 3. Ansatz: Richtig kürzen, einsetzen. Rechnung: 5. Antwort: 5 €."
   },
   {
    "l": "fehler_finden",
@@ -5819,6 +6689,177 @@
    "t": "fehler_finden",
    "p": "uebung",
    "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung ist FALSCH?"
+   },
+   "a": [
+    "4/(4x) = 1/x",
+    "(−x − 9)/(x + 9) = −1",
+    "(x + 9)/9 = x + 1",
+    "(x/9) : 5 = x/45"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Falsch: (x + 9)/9 = x + 1. Aus der Summe x + 9 darf man nicht kürzen. Richtig: x/9 + 1.",
+   "h": "Suche ein Gegenbeispiel durch Einsetzen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum darf man in (x + 6)/(x + 2) die x nicht kürzen?"
+   },
+   "a": [
+    "Weil 6 und 2 verschieden sind.",
+    "Kürzen geht nur mit Faktoren, x ist hier ein Summand.",
+    "Weil x auch 0 sein kann.",
+    "Man darf es doch kürzen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Teste x = 1: (1 + 6)/(1 + 2) = 7/3, aber 6/2 = 3. Kürzen darf man nur gemeinsame Faktoren.",
+   "h": "Teste mit einer einfachen Zahl, z. B. x = 1.",
+   "g": "begruenden"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung ist FALSCH?"
+   },
+   "a": [
+    "6/x · 8/x = 48/x²",
+    "(6x)/6 = x",
+    "(−x − 6)/(x + 6) = −1",
+    "6/x + 8/x = 14/(2x)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch: 6/x + 8/x = 14/(2x). Die Nenner werden nicht addiert. Richtig: 14/x.",
+   "h": "Suche ein Gegenbeispiel durch Einsetzen."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist 5/x + 2/x nicht 7/(2x)?"
+   },
+   "a": [
+    "Weil x nicht 0 sein darf.",
+    "Weil man die Zähler multiplizieren muss.",
+    "Es stimmt doch: 7/(2x) ist richtig.",
+    "Beim Addieren bleibt der gemeinsame Nenner; nur die Zähler werden addiert."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Teste x = 1: 5 + 2 = 7, aber 7/2 = 3,5. Richtig ist 7/x.",
+   "h": "Teste mit einer einfachen Zahl, z. B. x = 1."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung ist richtig (für alle x aus D)?"
+   },
+   "a": [
+    "(x + 4)/x = 4",
+    "x/(x + 4) = 1/4",
+    "(2x + 4)/2 = x + 4",
+    "(2x + 4)/2 = x + 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(2x + 4)/2 = 2(x + 2)/2 = x + 2. Die anderen kürzen Summanden statt Faktoren.",
+   "h": "Kürzen geht nur mit gemeinsamen Faktoren."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umformung ist FALSCH (für alle x aus D)?"
+   },
+   "a": [
+    "(x − 3)/(3 − x) = −1",
+    "(x + 2)²/(x + 2) = x + 2",
+    "(x² + 4)/(x + 2) = x + 2",
+    "x/(2x) = 1/2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x² + 4 ist keine binomische Formel; (x + 2)² wäre x² + 4x + 4. Gegenbeispiel x = 1: 5/3 ≠ 3.",
+   "h": "Setze eine Zahl ein, z. B. x = 1."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lena prüft (x² + x)/x = x + 1 mit x = 0 und sagt: „Stimmt nicht.“ Was stimmt?"
+   },
+   "a": [
+    "Die Umformung stimmt nur für x = 1.",
+    "Lenas Probe zählt nicht: x = 0 gehört nicht zu D. Für alle x ≠ 0 stimmt die Umformung.",
+    "Lena hat recht: Kürzen mit x ist verboten.",
+    "Lena hat recht: Ein Gegenbeispiel genügt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für x = 0 ist der linke Term gar nicht definiert. (x² + x)/x = x(x + 1)/x = x + 1 gilt für jedes x aus D = ℚ \\ {0}.",
+   "h": "Darf man x = 0 überhaupt einsetzen?",
+   "g": "fehler"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "auswahl",
+   "f": {
+    "text": "Ist 3/x + 2/x = 5/x richtig (für x ≠ 0)?"
+   },
+   "a": [
+    "Nein, es ist 5/(2x).",
+    "Ja: Bei gleichem Nenner addiert man nur die Zähler.",
+    "Nein, es ist 6/x."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "3/x + 2/x = (3 + 2)/x = 5/x. Der Nenner bleibt gleich.",
+   "h": "Was passiert beim Addieren gleichnamiger Brüche mit dem Nenner?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
    "g": "darstellung",
    "y": "auswahl",
    "f": {
@@ -5841,7 +6882,6 @@
    "t": "fehler_finden",
    "p": "uebung",
    "s": 3,
-   "g": "verknuepfen",
    "y": "auswahl",
    "f": {
     "text": "Welche Umformung ist richtig?"
@@ -5857,6 +6897,130 @@
    },
    "w": "x² + 2x + 1 = (x + 1)² (binomische Formel). Gekürzt durch (x + 1) bleibt x + 1. x² + 1 und x² + 4 lassen sich nicht zerlegen.",
    "h": "Welcher Zähler ist eine binomische Formel?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Pumpen leeren pro Stunde 2/x und 3/x eines Beckens. Welche Rechnung für den gemeinsamen Anteil stimmt?"
+   },
+   "a": [
+    "2/x + 3/x = 5/(2x)",
+    "2/x + 3/x = 6/x",
+    "2/x + 3/x = 5/x²",
+    "2/x + 3/x = 5/x"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: 2/x + 3/x. Gesucht: richtige Rechnung. Ansatz: Gleicher Nenner bleibt. Rechnung: 5/x. Antwort: 5/x ist richtig.",
+   "h": "Was passiert mit dem Nenner bei gleichnamigen Brüchen?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Kosten von (30 + 6x) € werden auf 6 Personen verteilt. Jemand kürzt: (30 + 6x)/6 = 30 + x. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Jeder Summand wird geteilt – 5 + x.",
+    "Falsch: 36x : 6 = 6x.",
+    "Falsch: 5 + 6x."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: (30 + 6x)/6. Gesucht: richtiger Term. Ansatz: 6 ausklammern. Rechnung: 6(5 + x)/6 = 5 + x. Antwort: Jeder zahlt 5 + x Euro.",
+   "h": "Wurde die 30 auch durch 6 geteilt?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Jemand rechnet die Gesamtzeit für Hin- und Rückweg 10/v + 10/v bei v = 5 so: „10/10 = 1 Stunde.“ Wie viele Stunden sind es richtig?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "h"
+   },
+   "c": "10 / 5 + 10 / 5",
+   "w": "Gegeben: 10/v + 10/v = 20/v, v = 5. Gesucht: richtige Zeit. Ansatz: Zähler addieren, Nenner bleibt. Rechnung: 2 + 2 = 4. Antwort: Es sind 4 Stunden.",
+   "h": "Was passiert beim Addieren mit dem Nenner?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Radfahrer (Rad 12 kg) fährt 24 km mit v km/h hin und mit (v + 4) km/h zurück. Jemand schreibt für die Gesamtzeit 48/(2v + 4). Was stimmt?"
+   },
+   "a": [
+    "Falsch: Brüche nicht durch Addieren von Zählern und Nennern zusammenfassen; richtig ist 24/v + 24/(v + 4).",
+    "Falsch: 24/(2v + 4).",
+    "Falsch: 48/(v + 4).",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: 24/v + 24/(v + 4); das Radgewicht spielt keine Rolle. Gesucht: Fehler. Ansatz: Probe mit v = 4: 6 + 3 = 9; 48/12 = 4. Rechnung: Die Werte stimmen nicht überein. Antwort: Die Umformung ist falsch.",
+   "h": "Mache eine Probe mit einer Zahl."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Jemand rechnet die Kosten pro Person (200 + 10x)/x bei 25 Personen so: „200 + 10 = 210 €.“ Wie viel Euro sind es richtig?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "€"
+   },
+   "c": "(200 + 10 * 25) / 25",
+   "w": "Gegeben: x = 25. Gesucht: richtiger Wert. Ansatz: Einsetzen, dann teilen. Rechnung: 450 : 25 = 18. Antwort: Es sind 18 € pro Person.",
+   "h": "Darf man x einfach wegkürzen?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "auswahl",
+   "f": {
+    "text": "Maler A braucht allein 6 Stunden für eine Wand, Maler B 3 Stunden. Jemand sagt: „Zusammen brauchen sie 6 + 3 = 9 Stunden.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: 4,5 Stunden.",
+    "Falsch: 1/6 + 1/3 = 1/2 pro Stunde – zusammen 2 Stunden.",
+    "Falsch: 3 Stunden."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: 1/6 + 1/3 pro Stunde. Gesucht: Zeit zusammen. Ansatz: Anteile addieren, Kehrwert. Rechnung: 1/6 + 2/6 = 1/2 ⇒ 2 h. Antwort: Zusammen 2 Stunden.",
+   "h": "Werden zwei Maler langsamer als einer?"
   },
   {
    "l": "fehler_finden",

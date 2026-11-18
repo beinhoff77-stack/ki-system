@@ -902,6 +902,99 @@ def datei():
     return d, anz
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('messen.prisma_zylinder', 22_8_12)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+PI = '3.141592653589793'
+TX.huerde_alt('zylinder_volumen', r'Wie hoch muss er mindestens sein', 'deuten')
+TX.huerde_alt('sach', r'so viele wie passen', 'deuten')
+TX.huerde_alt('sach', r'Wie viele Minuten dauert es', 'deuten')
+
+# --- prisma_volumen ---
+TX.u('prisma_volumen', 'direkt', TZ('Ein Pralinenkarton hat die Form eines Dreiecksprismas. Die dreieckige Grundfläche ist 24 cm² groß, der Karton ist 15 cm lang. Wie viel cm³ passen hinein?', '24 * 15',
+    TW('G = 24 cm², Länge (Höhe des Prismas) 15 cm.', 'Volumen.', 'V = G · h.', 'V = 24 · 15 = 360 cm³.', 'In den Karton passen 360 cm³.'), 'Welche Fläche ist die Grundfläche, welche Länge die Höhe des Prismas?', einheit='cm³'))
+TX.u('prisma_volumen', 'einkleidung', TZ('Ein Zelt hat die Form eines Dreiecksprismas. Die Vorderseite ist ein Dreieck mit 2,4 m Breite und 1,5 m Höhe, das Zelt ist 3 m lang. Wie viel m³ Luft sind im Zelt?', '2.4 * 1.5 / 2 * 3',
+    TW('Dreieck g = 2,4 m, h = 1,5 m; Länge 3 m.', 'Luftvolumen.', 'G = g · h : 2, dann V = G · Länge.', 'G = 2,4 · 1,5 : 2 = 1,8 m². V = 1,8 · 3 = 5,4 m³.', 'Im Zelt sind 5,4 m³ Luft.'), 'Die Vorderseite ist die Grundfläche.', einheit='m³'))
+TX.u('prisma_volumen', 'mehrschritt', TZ('Ein Schwimmbecken ist 25 m lang und 10 m breit. Am einen Ende ist es 1 m tief, zum anderen Ende hin wird es gleichmäßig bis 3 m tief. Wie viel m³ Wasser passen hinein?', '(1 + 3) / 2 * 25 * 10',
+    TW('Länge 25 m, Breite 10 m, Tiefe von 1 m bis 3 m.', 'Volumen des Beckens.', 'Von der Seite gesehen ist das Becken ein Trapez: G = (a + c) : 2 · h; dann · Breite.', 'G = (1 + 3) : 2 · 25 = 50 m². V = 50 · 10 = 500 m³.', 'Es passen 500 m³ Wasser hinein.'),
+    'Schau von der Seite auf das Becken: Welche Figur siehst du?', einheit='m³'))
+TX.u('prisma_volumen', 'pruefung', TZ('Ein Pferdetrog ist ein Prisma mit trapezförmigem Querschnitt: oben 60 cm, unten 40 cm breit, 30 cm tief und 2 m lang. Er steht auf vier 50 cm hohen Beinen und wiegt 35 kg. Wie viele Liter Wasser fasst er?',
+    '(60 + 40) / 2 * 30 * 200 / 1000', TW('Trapez 60 cm / 40 cm, Tiefe 30 cm, Länge 200 cm. Beine und Gewicht spielen keine Rolle.', 'Fassungsvermögen in Litern.', 'G = (a + c) : 2 · h, V = G · Länge, 1 l = 1 000 cm³.',
+    'G = 50 · 30 = 1 500 cm². V = 1 500 · 200 = 300 000 cm³ = 300 l.', 'Der Trog fasst 300 l.'), 'Welche Angaben beschreiben den Innenraum des Trogs?', einheit='l'), huerde='ueberfluessig')
+TX.u('prisma_volumen', 'rueckwaerts', TZ('Ein Blumenkasten ist ein Quader, 80 cm lang und 20 cm breit. Es sollen 40 l Erde hinein, und oben sollen noch 2 cm frei bleiben. Wie hoch muss der Kasten mindestens sein?', '40000 / (80 * 20) + 2',
+    TW('Grundfläche 80 cm · 20 cm, 40 l Erde, 2 cm Rand.', 'Mindesthöhe.', 'Höhe der Erde = V : G, dann den freien Rand dazu.', '40 l = 40 000 cm³. 40 000 : 1 600 = 25 cm. 25 + 2 = 27 cm.', 'Der Kasten muss mindestens 27 cm hoch sein.'),
+    'Wie hoch liegt die Erde? Und was kommt dann noch dazu?', einheit='cm'), huerde='zwei')
+TX.s('prisma_volumen', TZ('Ein Stück Käse hat die Form eines Dreiecksprismas: Die Grundfläche ist 18 cm² groß, das Stück ist 9 cm lang. Wie viel cm³ Käse sind das?', '18 * 9',
+    TW('G = 18 cm², h = 9 cm.', 'Volumen.', 'V = G · h.', 'V = 18 · 9 = 162 cm³.', 'Das Stück hat 162 cm³.'), einheit='cm³'))
+TX.k('prisma_volumen', TZ('Ein Kanal hat einen rechteckigen Querschnitt, 4 m breit und 1,5 m tief, und ist 200 m lang. Wie viel m³ Wasser sind darin, wenn er ganz voll ist?', '4 * 1.5 * 200',
+    TW('Querschnitt 4 m · 1,5 m, Länge 200 m.', 'Wasservolumen.', 'V = G · Länge.', 'G = 6 m². V = 6 · 200 = 1 200 m³.', 'Im vollen Kanal sind 1 200 m³ Wasser.'), einheit='m³'))
+
+# --- prisma_oberflaeche ---
+TX.u('prisma_oberflaeche', 'direkt', TZ('Ein würfelförmiges Geschenk mit 12 cm Kantenlänge wird ganz mit Papier beklebt, ohne Überlappung. Wie viel cm² Papier braucht man?', '6 * 12**2',
+    TW('Würfel, a = 12 cm.', 'Oberfläche.', 'O = 6 · a².', 'O = 6 · 144 = 864 cm².', 'Man braucht 864 cm² Papier.'), 'Wie viele gleiche Flächen hat ein Würfel?', einheit='cm²'))
+TX.u('prisma_oberflaeche', 'einkleidung', TZ('Ein Aquarium ist ein Quader, 60 cm lang, 30 cm breit und 35 cm hoch, und oben offen. Wie viel cm² Glas hat es?', '60 * 30 + 2 * 60 * 35 + 2 * 30 * 35',
+    TW('Quader 60 · 30 · 35 cm, ohne Deckel.', 'Glasfläche.', 'Boden + zwei lange + zwei kurze Seiten.', '1 800 + 2 · 2 100 + 2 · 1 050 = 8 100 cm².', 'Das Aquarium hat 8 100 cm² Glas.'), 'Welche Fläche fehlt, weil es oben offen ist?', einheit='cm²'))
+TX.u('prisma_oberflaeche', 'pruefung', TZ('Eine Schokoladenverpackung ist ein Dreiecksprisma. Ihre Grundfläche ist ein gleichseitiges Dreieck mit 6 cm Seitenlänge und 5,2 cm Höhe, die Verpackung ist 20 cm lang. Sie enthält 200 g und kostet 3,49 €. Wie viel cm² Karton braucht man ohne Klebelaschen? Runde auf ganze cm².',
+    '2 * 6 * 5.2 / 2 + 3 * 6 * 20', TW('Dreieck g = 6 cm, h = 5,2 cm; drei Rechtecke 6 cm · 20 cm. Gewicht und Preis spielen keine Rolle.', 'Oberfläche.', 'O = 2 · G + M.',
+    'G = 6 · 5,2 : 2 = 15,6 cm². 2G = 31,2 cm². M = 3 · 120 = 360 cm². O = 391,2 cm².', 'Man braucht etwa 391 cm² Karton.'), 'Welche Angaben brauchst du für die Flächen der Verpackung?', einheit='cm²', toleranz=1), huerde='ueberfluessig')
+TX.u('prisma_oberflaeche', 'begruenden', TX.A('Zwei Geschenkkartons haben beide 1 000 cm³ Volumen: ein Würfel mit 10 cm Kante und ein Quader mit 20 cm × 10 cm × 5 cm. Für welchen braucht man weniger Geschenkpapier?',
+    'Für den Würfel: 600 cm² statt 700 cm².', ['Für den Quader, weil er flacher ist.', 'Für beide gleich viel, weil das Volumen gleich ist.', 'Für den Würfel: 100 cm² statt 1 000 cm².'],
+    TW('Würfel a = 10 cm; Quader 20 · 10 · 5 cm.', 'Welcher braucht weniger Papier?', 'Beide Oberflächen berechnen.', 'Würfel: 6 · 100 = 600 cm². Quader: 2 · (200 + 100 + 50) = 700 cm².', 'Der Würfel braucht weniger Papier.'),
+    'Gleiches Volumen heißt nicht gleiche Oberfläche – rechne beide aus.'), huerde='entscheidung')
+
+# --- prisma_umstellen ---
+TX.u('prisma_umstellen', 'direkt', TZ('Ein Milchkarton ist ein Quader mit 50 cm² Grundfläche und fasst 1 l, also 1 000 cm³. Wie hoch ist er?', '1000 / 50',
+    TW('G = 50 cm², V = 1 000 cm³.', 'Höhe.', 'V = G · h ⇒ h = V : G.', 'h = 1 000 : 50 = 20 cm.', 'Der Karton ist 20 cm hoch.'), 'Welche Rechnung macht „mal G“ rückgängig?', einheit='cm'))
+TX.u('prisma_umstellen', 'pruefung', TZ('Ein Sandkasten ist 1,5 m lang und 1,2 m breit. Der Spielsand soll 20 cm hoch liegen. Ein Sack enthält 25 l Sand. Wie viele Säcke muss man kaufen?', '-(-(15 * 12 * 2) // 25)',
+    TW('1,5 m · 1,2 m, Höhe 0,2 m, Sack 25 l.', 'Anzahl der Säcke.', 'Volumen in dm³ (= l), durch 25, aufrunden.', 'V = 15 dm · 12 dm · 2 dm = 360 l. 360 : 25 = 14,4.', 'Man muss 15 Säcke kaufen.'), 'Rechne alle Maße in dm um: 1 dm³ = 1 l.'), huerde='deuten')
+TX.u('prisma_umstellen', 'begruenden', TX.A('In ein 45 cm hohes Aquarium mit 80 cm × 35 cm Grundfläche werden 112 l Wasser gefüllt. Die Fische brauchen mindestens 40 cm Wasserhöhe. Reicht das Wasser?',
+    'Ja, das Wasser steht genau 40 cm hoch.', ['Nein, es steht nur 35 cm hoch.', 'Ja, es steht 45 cm hoch.', 'Nein, 112 l sind weniger als 40 cm.'],
+    TW('G = 80 cm · 35 cm, V = 112 l, Bedingung h ≥ 40 cm.', 'Wasserhöhe und Entscheidung.', 'h = V : G, mit V in cm³.', 'G = 2 800 cm². h = 112 000 : 2 800 = 40 cm.', 'Es reicht genau: Das Wasser steht 40 cm hoch.'),
+    'Rechne die Wasserhöhe aus und vergleiche mit 40 cm.'), huerde='entscheidung')
+
+# --- zylinder_volumen ---
+TX.u('zylinder_volumen', 'pruefung', TZ('Ein zylinderförmiger Wasserkocher hat innen 8 cm Radius. Er hat 1 800 Watt, das Wasser steht 9 cm hoch. Wie viele Liter Wasser sind darin? Runde auf zwei Nachkommastellen.', f'{PI} * 8**2 * 9 / 1000',
+    TW('r = 8 cm, Wasserhöhe 9 cm. Die Leistung spielt keine Rolle.', 'Wassermenge in Litern.', 'V = π · r² · h, 1 l = 1 000 cm³.', 'V = π · 64 · 9 ≈ 1 809,6 cm³ ≈ 1,81 l.', 'Im Kocher sind etwa 1,81 l Wasser.'),
+    'Welche Höhe zählt – die des Kochers oder die des Wassers?', einheit='l', toleranz=0.01), huerde='ueberfluessig')
+
+# --- zylinder_oberflaeche ---
+TX.u('zylinder_oberflaeche', 'direkt', TZ('Eine Dose hat 3 cm Radius und ist 10 cm hoch. Ein Etikett bedeckt genau den Mantel. Wie viel cm² Papier braucht man? Runde auf ganze cm².', f'2 * {PI} * 3 * 10',
+    TW('r = 3 cm, h = 10 cm.', 'Mantelfläche.', 'M = 2 · π · r · h.', 'M = 2 · π · 3 · 10 ≈ 188,5 cm².', 'Das Etikett hat etwa 188 cm².'), 'Das Etikett ist der Mantel – Umfang mal Höhe.', einheit='cm²', toleranz=1))
+TX.u('zylinder_oberflaeche', 'transfer', TZ('Eine Küchenrolle hat innen eine Papprolle, 25 cm lang mit 4 cm Durchmesser, an beiden Enden offen. Wie viel cm² Pappe hat die Rolle? Runde auf ganze cm².', f'{PI} * 4 * 25',
+    TW('d = 4 cm, Länge 25 cm, offen.', 'Pappfläche.', 'Nur der Mantel, keine Kreise: M = π · d · h.', 'M = π · 4 · 25 ≈ 314 cm².', 'Die Rolle hat etwa 314 cm² Pappe.'), 'Welche Teile eines Zylinders hat die Rolle gar nicht?', einheit='cm²', toleranz=1), huerde='fehlend')
+TX.u('zylinder_oberflaeche', 'pruefung', TZ('Für 500 Konservendosen (r = 4 cm, h = 11 cm, mit Boden und Deckel) wird Blech bestellt. Blech wird nur in ganzen m² verkauft. Wie viele m² muss man bestellen?',
+    f'-(-(500 * (2 * {PI} * 4**2 + 2 * {PI} * 4 * 11)) // 10000)', TW('r = 4 cm, h = 11 cm, 500 Stück, ganze m².', 'zu bestellende m².', 'O = 2πr² + 2πrh, · 500, in m² (1 m² = 10 000 cm²), aufrunden.',
+    'O ≈ 100,5 + 276,5 = 377 cm². 500 · 377 ≈ 188 500 cm² ≈ 18,85 m².', 'Man muss 19 m² bestellen.'), 'Erst eine Dose, dann alle; und wie viele ganze m² reichen?'), huerde='deuten')
+
+# --- verstehen ---
+TX.u('verstehen', 'direkt', TZ('Ein Paket ist ein Quader. Ein zweites Paket ist genauso lang und breit, aber doppelt so hoch. Wie viel Mal so viel passt in das zweite Paket?', '2',
+    TW('Länge und Breite gleich, Höhe · 2.', 'Faktor des Volumens.', 'V = G · h, G bleibt gleich.', 'Faktor 2.', 'Es passt doppelt so viel hinein.'), 'Was ändert sich an V = G · h?'))
+TX.u('verstehen', 'einkleidung', TZ('Ein Hersteller macht seine würfelförmigen Zuckerstücke größer: Jede Kante wird doppelt so lang. Wie viel Mal so viel Zucker steckt in einem neuen Stück?', '2**3',
+    TW('Kante · 2.', 'Faktor des Volumens.', 'Alle drei Längen werden verdoppelt.', '2 · 2 · 2 = 8.', 'Ein neues Stück enthält 8-mal so viel Zucker.'), 'Wie viele Längen eines Würfels werden verdoppelt?'))
+TX.u('verstehen', 'umkehr', TZ('Ein zylinderförmiger Becher soll bei gleicher Höhe 4-mal so viel fassen. Mit welcher Zahl muss man seinen Radius malnehmen?', '2',
+    TW('h gleich, V · 4.', 'Faktor des Radius.', 'V = π · r² · h: Der Radius zählt im Quadrat, k² = 4.', 'k = 2.', 'Der Radius muss doppelt so groß werden.'), 'Welche Zahl ergibt im Quadrat 4?'))
+TX.u('verstehen', 'pruefung', TZ('Eine Litfaßsäule wird im Maßstab 1 : 20 als Modell gebaut. Für den Mantel des Modells braucht man 6 ml Farbe. Farbe gibt es in 1-l-Dosen. Wie viele Dosen braucht man für die echte Säule?', '-(-(6 * 20**2) // 1000)',
+    TW('Maßstab 1 : 20, Modell 6 ml, Dosen zu 1 l.', 'Anzahl der Dosen.', 'Flächen wachsen mit 20² = 400; dann in l umrechnen und aufrunden.', '6 ml · 400 = 2 400 ml = 2,4 l.', 'Man braucht 3 Dosen.'),
+    'Farbe hängt von der Fläche ab – mit welchem Faktor wächst eine Fläche?'), huerde='deuten')
+TX.u('verstehen', 'rueckwaerts', TZ('Ein würfelförmiger Eiswürfel hat 27 cm³. Eine neue Form soll Würfel mit 8-mal so viel Volumen machen. Wie lang ist eine Kante des neuen Eiswürfels?', '3 * 2',
+    TW('V alt = 27 cm³, V neu = 8 · V alt.', 'Kante des neuen Würfels.', 'Alte Kante aus 27 = a³; Volumenfaktor 8 = 2³, also Kante · 2.', 'a alt = 3 cm. a neu = 3 · 2 = 6 cm.', 'Die neue Kante ist 6 cm lang.'),
+    'Welche Kante hat ein Würfel mit 27 cm³?', einheit='cm'), huerde='fehlend')
+TX.s('verstehen', TZ('Ein Aquarium wird in Länge, Breite und Höhe verdoppelt. Wie viel Mal so viel Wasser passt hinein?', '2**3',
+    TW('Alle drei Maße · 2.', 'Faktor des Volumens.', 'Jede Länge zählt einmal mit.', '2 · 2 · 2 = 8.', 'Es passt 8-mal so viel Wasser hinein.')))
+TX.s('verstehen', TZ('Ein Rohr wird bei gleicher Länge mit doppeltem Innenradius gebaut. Wie viel Mal so viel Wasser passt hinein?', '2**2',
+    TW('Länge gleich, r · 2.', 'Faktor des Volumens.', 'V = π · r² · h: r zählt im Quadrat.', '2² = 4.', 'Es passt 4-mal so viel Wasser hinein.')))
+TX.k('verstehen', TZ('Ein Karton wird in Länge, Breite und Höhe dreimal so groß gebaut. Wie viel Mal so viel Pappe braucht man?', '3**2',
+    TW('Alle Maße · 3.', 'Faktor der Oberfläche.', 'Flächen wachsen mit dem Quadrat.', '3² = 9.', 'Man braucht 9-mal so viel Pappe.')))
+
+_datei_stufen = datei
+def datei():
+    d, anz = _datei_stufen()
+    text_auf_datei(TX, d)
+    return d, anz
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     d_, anz = datei()
     schreiben(ZIEL, d_, anz)

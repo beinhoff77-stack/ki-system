@@ -923,6 +923,138 @@ ST.knobel('beurteilen', SZ('Wie viele Punkte mit positiven ganzzahligen Koordina
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('funktionen.gebrochen', 22_8_9)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+# --- indirekt ---
+TX.u('indirekt', 'mehrschritt', TZ('6 Maler wollen eine Halle in 10 Tagen streichen. Nach 4 Tagen kommen 3 Maler dazu. Wie viele Tage dauert der Rest der Arbeit?', '6 * 6 / 9',
+    TW('6 Maler, 10 Tage; nach 4 Tagen 9 Maler.', 'Restdauer.', 'Restarbeit = 6 Maler · 6 Tage, auf 9 Maler verteilen.', '36 : 9 = 4.', 'Der Rest dauert noch 4 Tage.'), 'Wie viel Arbeit ist nach 4 Tagen noch übrig?', einheit='Tage'))
+TX.u('indirekt', 'pruefung', TZ('Ein Futtervorrat reicht für 12 Pferde 30 Tage. Der Stall hat 20 Boxen. 3 Pferde werden verkauft. Wie lange reicht der Vorrat jetzt?', '12 * 30 / 9',
+    TW('12 Pferde → 30 Tage; jetzt 9 Pferde; die Boxen spielen keine Rolle.', 'Tage für 9 Pferde.', 'indirekt proportional: Produkt bleibt gleich.', '360 : 9 = 40.', 'Der Vorrat reicht 40 Tage.'), 'Welche Angabe brauchst du nicht?', einheit='Tage'), huerde='ueberfluessig')
+TX.u('indirekt', 'begruenden', TX.A('Ein Auto braucht mit 100 km/h für eine Strecke 3 Stunden. Jemand sagt: „Mit 50 km/h braucht es 1,5 Stunden.“ Was stimmt?',
+    'Falsch: Halbe Geschwindigkeit, doppelte Zeit – 6 Stunden.', ['Richtig: halbe Geschwindigkeit, halbe Zeit.', 'Falsch: 4,5 Stunden.', 'Falsch: 3 Stunden, die Strecke bleibt gleich.'],
+    TW('100 km/h → 3 h.', 'Zeit bei 50 km/h.', 'Strecke = 300 km bleibt gleich.', '300 : 50 = 6.', 'Es braucht 6 Stunden.'), 'Wie lang ist die Strecke?'), huerde='entscheidung')
+
+# --- definitionsmenge ---
+TX.u('definitionsmenge', 'direkt', TX.A('Die Busmiete für einen Ausflug wird geteilt: Jeder zahlt k(x) = 480/x Euro (x Personen). Für welche Personenzahl ist der Term nicht definiert?', '0', ['1', '480', '48'],
+    TW('k(x) = 480/x.', 'ausgeschlossene Zahl.', 'Nenner darf nicht 0 sein.', 'x = 0.', 'Für 0 Personen ist der Term nicht definiert.'), 'Wann wäre der Nenner 0?'))
+TX.u('definitionsmenge', 'einkleidung', TZ('Ein Boot fährt 150 km flussaufwärts. Die Strömung bremst um 10 km/h, deshalb gilt für die Fahrzeit t(v) = 150/(v − 10) Stunden. Für welches v ist t nicht definiert?', '10',
+    TW('t(v) = 150/(v − 10).', 'ausgeschlossenes v.', 'Nenner = 0 setzen.', 'v − 10 = 0 ⇒ v = 10.', 'Für v = 10 km/h ist t nicht definiert – das Boot käme nicht voran.'), 'Setze den Nenner gleich 0.', einheit='km/h'))
+TX.u('definitionsmenge', 'mehrschritt', TX.A('Die Busmiete von 600 € wird auf alle Mitfahrenden außer den 3 Lehrkräften verteilt: k(x) = 600/(x − 3) Euro, x = Anzahl aller Mitfahrenden. Welche Definitionsmenge ist sinnvoll?',
+    '{4; 5; 6; …}', ['ℝ \\ {3}', '{0; 1; 2; …}', '{3; 4; 5; …}'],
+    TW('Nenner x − 3, x ganze Personen.', 'sinnvolle Definitionsmenge.', 'Nenner ≠ 0 und mindestens ein zahlendes Kind.', 'x ≠ 3, x ganz, x > 3.', 'D = {4; 5; 6; …}.'), 'Zwei Fragen: Wann ist der Nenner 0? Welche Personenzahlen gibt es überhaupt?'))
+TX.u('definitionsmenge', 'pruefung', TZ('Ein Verlag in einer Stadt mit 40 000 Einwohnern berechnet für ein Fotobuch pro Stück k(x) = (90 + 12x)/x Euro bei x Exemplaren. Welche Zahl gehört nicht zur Definitionsmenge?', '0',
+    TW('k(x) = (90 + 12x)/x; die Einwohnerzahl spielt keine Rolle.', 'ausgeschlossene Zahl.', 'Nenner = 0.', 'x = 0.', 'x = 0 ist ausgeschlossen.'), 'Was steht im Nenner?'), huerde='ueberfluessig')
+TX.u('definitionsmenge', 'fehler', TX.A('Für eine 240 km lange Fahrt gilt t(v) = 240/v Stunden. Jemand gibt als Definitionsmenge D = ℝ an. Was stimmt?',
+    'Falsch: v = 0 ist ausgeschlossen; sinnvoll ist v > 0.', ['Richtig.', 'Falsch: D = {240}.', 'Falsch: v = 240 ist ausgeschlossen.'],
+    TW('t(v) = 240/v.', 'richtige Definitionsmenge.', 'Nenner ≠ 0, Sachbezug prüfen.', 'v ≠ 0; Geschwindigkeiten sind positiv.', 'D = ]0; ∞[ – die Angabe ist falsch.'), 'Was passiert bei v = 0?'), huerde='entscheidung')
+TX.u('definitionsmenge', 'transfer', TX.A('Ein Becken wird mit x gleichen Pumpen in t(x) = 36/x Stunden geleert. Es gibt höchstens 6 Pumpen. Welche Definitionsmenge ist sinnvoll?',
+    '{1; 2; 3; 4; 5; 6}', ['ℝ \\ {0}', ']0; 6]', '{0; 1; 2; 3; 4; 5; 6}'],
+    TW('t(x) = 36/x, x ganze Pumpen, höchstens 6.', 'D.', 'Nenner ≠ 0 und Sachbedingungen.', 'x ∈ {1; …; 6}.', 'D = {1; 2; 3; 4; 5; 6}.'), 'Gibt es 2,5 Pumpen? Gibt es 0 Pumpen?'), huerde='zwei')
+TX.s('definitionsmenge', TZ('Der Preis pro Person ist p(x) = 240/(x + 2) Euro. Welche Zahl ist ausgeschlossen?', '-2',
+    TW('Nenner x + 2.', 'ausgeschlossene Zahl.', 'x + 2 = 0.', 'x = −2.', 'x = −2 ist ausgeschlossen.')))
+TX.s('definitionsmenge', TZ('Die Fahrzeit für 60 km beträgt t = 60/v Stunden. Welches v ist ausgeschlossen?', '0',
+    TW('Nenner v.', 'ausgeschlossenes v.', 'v = 0.', 'v = 0.', 'v = 0 ist ausgeschlossen.'), einheit='km/h'))
+TX.k('definitionsmenge', TZ('Ein Kurs kostet pro Teilnehmer (300 + 5x)/x Euro. Welche Zahl ist ausgeschlossen?', '0',
+    TW('Nenner x.', 'ausgeschlossene Zahl.', 'x = 0.', 'x = 0.', 'x = 0 ist ausgeschlossen.')))
+
+# --- asymptoten ---
+TX.u('asymptoten', 'direkt', TZ('Ein Druckauftrag kostet pro Stück k(x) = 800/x + 3 Euro. Gib die waagerechte Asymptote an: y = □.', '3',
+    TW('k(x) = 800/x + 3.', 'waagerechte Asymptote.', '800/x wird sehr klein.', 'y = 3.', 'Die Asymptote ist y = 3.'), 'Was bleibt übrig, wenn x sehr groß wird?'))
+TX.u('asymptoten', 'einkleidung', TZ('Ein Verein druckt Kalender: 450 € Einrichtung und 2,50 € pro Stück. Für die Stückkosten gilt k(x) = 450/x + 2,5. Welchem Betrag nähern sich die Stückkosten bei sehr großer Auflage?', '2.5',
+    TW('k(x) = 450/x + 2,5.', 'Grenzwert.', 'Der Anteil der Einrichtung wird winzig.', 'y = 2,5.', 'Die Stückkosten nähern sich 2,50 €.'), 'Welcher Teil der Kosten wird bei vielen Kalendern klein?', einheit='€'))
+TX.u('asymptoten', 'darstellung', TX.A('Gibt man zu 3 l Saft x Liter Wasser, ist der Saftanteil p(x) = 3/(x + 3). Welche Asymptoten hat der Graph?', 'x = −3 und y = 0', ['x = 3 und y = 0', 'x = −3 und y = 3', 'x = 0 und y = 3'],
+    TW('p(x) = 3/(x + 3).', 'Asymptoten.', 'Nenner = 0; Verhalten für große x.', 'x = −3; p → 0.', 'Senkrecht x = −3, waagerecht y = 0.'), 'Wo ist der Nenner 0? Was passiert mit sehr viel Wasser?'))
+TX.u('asymptoten', 'pruefung', TZ('Flyer im Format 21 cm × 10 cm kosten pro Stück k(x) = 1 200/x + 0,8 Euro. Unter welchen Betrag können die Stückkosten nie fallen?', '0.8',
+    TW('k(x) = 1 200/x + 0,8; das Format spielt keine Rolle.', 'untere Grenze.', 'waagerechte Asymptote.', 'y = 0,8.', 'Die Stückkosten fallen nie unter 0,80 €.'), 'Welche Angabe gehört nicht zur Funktion?', einheit='€'), huerde='ueberfluessig')
+TX.u('asymptoten', 'transfer', TZ('Bei einer Busreise kostet jeder Platz k(x) = 900/x + 25 Euro (x Personen). Ab wie vielen Personen kostet jeder Platz höchstens 40 €?', '900 / (40 - 25)',
+    TW('900/x + 25 ≤ 40.', 'kleinste Personenzahl.', 'Umformen.', '900/x ≤ 15 ⇒ x ≥ 60.', 'Ab 60 Personen.'), 'Wie viel darf der Anteil der Busmiete höchstens sein?'), huerde='deuten')
+TX.u('asymptoten', 'verknuepfen', TX.A('Für einen Workshop gilt k(x) = 500/x + 4 Euro pro Person. Jemand sagt: „Wenn genug Leute mitmachen, wird es fast kostenlos.“ Was stimmt?',
+    'Falsch: Die Kosten nähern sich 4 €, werden aber nie kleiner.', ['Richtig: Bei sehr vielen Personen ist es fast 0 €.', 'Richtig: ab 500 Personen.', 'Falsch: Es kostet immer 504 €.'],
+    TW('k(x) = 500/x + 4.', 'Grenzverhalten.', 'waagerechte Asymptote bestimmen.', 'y = 4.', 'Es kostet immer mehr als 4 €.'), 'Welcher Teil der Kosten bleibt bei jeder Personenzahl?'), huerde='entscheidung')
+TX.s('asymptoten', TZ('Für die Stückkosten gilt k(x) = 300/x + 7. Gib die waagerechte Asymptote an: y = □.', '7',
+    TW('k(x) = 300/x + 7.', 'Asymptote.', '300/x → 0.', 'y = 7.', 'y = 7.')))
+TX.s('asymptoten', TZ('Bei Gegenwind gilt für eine Fahrt t(v) = 200/(v − 20). Gib die senkrechte Asymptote an: v = □.', '20',
+    TW('Nenner v − 20.', 'senkrechte Asymptote.', 'Nenner = 0.', 'v = 20.', 'v = 20.')))
+TX.k('asymptoten', TZ('Für die Kosten pro Stück gilt k(x) = 60/x + 1,5. Gib die waagerechte Asymptote an: y = □.', '1.5',
+    TW('k(x) = 60/x + 1,5.', 'Asymptote.', '60/x → 0.', 'y = 1,5.', 'y = 1,5.')))
+
+# --- achsenpunkte ---
+TX.u('achsenpunkte', 'direkt', TZ('Beim Kuchenverkauf gilt für den Gewinn pro Stück g(x) = 2 − 120/x Euro (x verkaufte Stücke). Bei wie vielen Stücken ist g(x) = 0?', '120 / 2',
+    TW('2 − 120/x = 0.', 'Nullstelle.', 'Gleich 0 setzen.', '120/x = 2 ⇒ x = 60.', 'Bei 60 Stücken.'), 'Setze g(x) = 0.'))
+TX.u('achsenpunkte', 'einkleidung', TZ('Ein Kiosk macht pro Getränk den Gewinn g(x) = 1,2 − 300/x Euro (x verkaufte Getränke im Monat). Bestimme die Nullstelle.', '300 / 1.2',
+    TW('1,2 − 300/x = 0.', 'Nullstelle.', 'Gleich 0 setzen.', '300/x = 1,2 ⇒ x = 250.', 'Bei 250 Getränken ist der Gewinn 0.'), 'Was muss 300/x sein?'))
+TX.u('achsenpunkte', 'mehrschritt', TZ('Gibt man zu 5 l Saft x Liter Wasser, ist der Saftanteil p(x) = 5/(x + 5). Welchen Wert hat p am Schnittpunkt mit der y-Achse?', '5 / 5',
+    TW('p(x) = 5/(x + 5).', 'p(0).', 'x = 0 einsetzen.', '5 : 5 = 1.', 'p(0) = 1, also 100 % Saft ohne Wasser.'), 'Welcher x-Wert gehört zur y-Achse?'))
+TX.u('achsenpunkte', 'pruefung', TZ('Eine Schülerzeitung mit 24 Seiten macht pro Heft den Gewinn g(x) = 1,5 − 240/x Euro (x verkaufte Hefte). Ab wie vielen verkauften Heften macht sie Gewinn?', '240 / 1.5 + 1',
+    TW('g(x) > 0; die Seitenzahl spielt keine Rolle.', 'kleinste Heftzahl.', 'Nullstelle, dann deuten.', 'x = 160 ⇒ Gewinn ab 161.', 'Ab 161 Heften macht sie Gewinn.'), 'Bei der Nullstelle ist der Gewinn genau 0.'), huerde='ueberfluessig')
+TX.u('achsenpunkte', 'fehler', TX.A('Für die Temperatur eines Tees gilt vereinfacht T(t) = 120/(t + 2) + 20 (°C, t in min). Jemand sagt: „Am Anfang hat der Tee 120 °C.“ Was stimmt?',
+    'Falsch: T(0) = 60 + 20 = 80 °C.', ['Richtig.', 'Falsch: T(0) = 20 °C.', 'Falsch: T(0) = 140 °C.'],
+    TW('T(t) = 120/(t + 2) + 20.', 'T(0).', 'y-Achsenabschnitt: t = 0 einsetzen.', '120 : 2 + 20 = 80.', 'Am Anfang hat der Tee 80 °C.'), 'Setze t = 0 ein.'), huerde='entscheidung')
+TX.u('achsenpunkte', 'verknuepfen', TZ('Für die Temperatur eines Kakaos gilt T(t) = 150/(t + 3) + 20 (°C, t in min). Er soll höchstens 50 °C haben. Nach wie vielen Minuten ist das erreicht?', '150 / 30 - 3',
+    TW('150/(t + 3) + 20 = 50.', 't.', 'Gleichung lösen, dann deuten.', '150/(t + 3) = 30 ⇒ t + 3 = 5 ⇒ t = 2.', 'Nach 2 Minuten hat er 50 °C, danach ist er kühler.'), 'Wie groß muss der Bruch sein?', einheit='min'), huerde='deuten')
+TX.u('achsenpunkte', 'transfer', TZ('Bei einem Turnier zahlt jedes Team s(x) = 1 200/x + 15 Euro (x Teams). Ab wie vielen Teams sind es höchstens 45 €?', '1200 / (45 - 15)',
+    TW('1 200/x + 15 ≤ 45.', 'kleinste Teamzahl.', 'Umformen.', '1 200/x ≤ 30 ⇒ x ≥ 40.', 'Ab 40 Teams.'), 'Wie groß darf der Anteil 1 200/x höchstens sein?'))
+TX.s('achsenpunkte', TZ('Für den Gewinn pro Stück gilt g(x) = 3 − 450/x. Bestimme die Nullstelle.', '450 / 3',
+    TW('3 − 450/x = 0.', 'Nullstelle.', 'Gleich 0.', 'x = 150.', 'x = 150.')))
+TX.s('achsenpunkte', TZ('Für den Saftanteil gilt p(x) = 6/(x + 4). Bestimme p(0).', '6 / 4',
+    TW('x = 0.', 'p(0).', 'Einsetzen.', '6 : 4 = 1,5.', 'p(0) = 1,5.')))
+TX.k('achsenpunkte', TZ('Für den Gewinn pro Stück gilt g(x) = 0,5 − 40/x. Bestimme die Nullstelle.', '40 / 0.5',
+    TW('0,5 − 40/x = 0.', 'Nullstelle.', 'Gleich 0.', 'x = 80.', 'x = 80.')))
+
+# --- parameter ---
+TX.u('parameter', 'direkt', TX.A('Die Stückkosten k(x) = 500/x + 2 entstehen aus dem Graphen von 500/x. Wie wurde er verschoben?', 'um 2 nach oben', ['um 2 nach rechts', 'um 2 nach unten', 'um 500 nach oben'],
+    TW('500/x + 2.', 'Verschiebung.', '+2 außerhalb des Bruchs.', 'nach oben.', 'Um 2 nach oben.'), 'Steht die 2 im Nenner oder dahinter?'))
+TX.u('parameter', 'einkleidung', TZ('Für die Stückkosten gilt k(x) = a/x + 3 Euro. Bei 50 Stück kostet jedes 13 €. Wie groß sind die Fixkosten a?', '(13 - 3) * 50',
+    TW('a/50 + 3 = 13.', 'a.', 'Einsetzen und lösen.', 'a/50 = 10 ⇒ a = 500.', 'Die Fixkosten betragen 500 €.'), 'Setze x = 50 und k = 13 ein.', einheit='€'))
+TX.u('parameter', 'umkehr', TZ('Für eine Fahrt gilt t(v) = s/v. Mit 80 km/h dauert sie 2,5 Stunden. Wie lang ist die Strecke s?', '80 * 2.5',
+    TW('s/80 = 2,5.', 's.', 'Mit 80 multiplizieren.', '80 · 2,5 = 200.', 's = 200 km.'), 'Strecke = Geschwindigkeit · Zeit.', einheit='km'))
+TX.u('parameter', 'mehrschritt', TZ('Für die Stückkosten gilt k(x) = a/x + b. Bei 10 Stück kostet jedes 25 €, bei 20 Stück 15 €. Wie groß ist b?', '25 - (25 - 15) * 2',
+    TW('a/10 + b = 25, a/20 + b = 15.', 'b.', 'Differenz: a/20 = 10.', 'a = 200, b = 25 − 20 = 5.', 'b = 5 €.'), 'Ziehe die beiden Gleichungen voneinander ab.', einheit='€'))
+TX.u('parameter', 'pruefung', TZ('Eine Backstube öffnet um 4 Uhr. Für die Kosten je Brötchen gilt k(x) = a/x + 0,4 Euro. Bei 500 Brötchen kostet jedes 1 €. Wie hoch sind die Fixkosten a pro Tag?', '(1 - 0.4) * 500',
+    TW('a/500 + 0,4 = 1; die Uhrzeit spielt keine Rolle.', 'a.', 'Einsetzen, lösen.', 'a/500 = 0,6 ⇒ a = 300.', 'a = 300 €.'), 'Welche Angabe gehört nicht in die Gleichung?', einheit='€'), huerde='ueberfluessig')
+TX.u('parameter', 'verknuepfen', TX.A('Zwei Druckereien: A berechnet k(x) = 300/x + 5, B k(x) = 600/x + 3 Euro pro Stück. Welche ist bei 100 Stück günstiger?', 'A: 8 € statt 9 €', ['B: 9 € statt 8 €', 'Beide kosten 8 €.', 'B: 3 € statt 5 €'],
+    TW('A(100), B(100).', 'günstiger.', 'Einsetzen und vergleichen.', 'A: 3 + 5 = 8; B: 6 + 3 = 9.', 'A ist bei 100 Stück günstiger.'), 'Berechne beide Stückkosten.'), huerde='entscheidung')
+TX.s('parameter', TZ('Für die Stückkosten gilt k(x) = a/x + 1. Bei 40 Stück kostet jedes 6 €. Wie groß ist a?', '(6 - 1) * 40',
+    TW('a/40 + 1 = 6.', 'a.', 'Lösen.', 'a = 200.', 'a = 200.')))
+TX.s('parameter', TZ('Für eine Fahrt gilt t(v) = s/v. Mit 60 km/h dauert sie 3 Stunden. Wie lang ist s?', '60 * 3',
+    TW('s/60 = 3.', 's.', 'Lösen.', 's = 180.', 's = 180 km.'), einheit='km'))
+TX.k('parameter', TZ('Für die Stückkosten gilt k(x) = a/x + 2. Bei 25 Stück kostet jedes 10 €. Wie groß ist a?', '(10 - 2) * 25',
+    TW('a/25 + 2 = 10.', 'a.', 'Lösen.', 'a = 200.', 'a = 200.')))
+
+# --- beurteilen ---
+TX.u('beurteilen', 'erkennen', TX.A('Für die Stückkosten gilt k(x) = 400/x + 5 Euro. Welche Aussage stimmt?', 'Je mehr Stück, desto billiger ist jedes Stück.', ['Je mehr Stück, desto teurer ist jedes Stück.', 'Bei 0 Stück kostet jedes 5 €.', 'Ab 80 Stück ist es kostenlos.'],
+    TW('k(x) = 400/x + 5.', 'richtige Aussage.', 'Verhalten für wachsendes x.', '400/x wird kleiner.', 'Jedes Stück wird billiger, aber nie unter 5 €.'), 'Was passiert mit 400/x, wenn x wächst?'))
+TX.u('beurteilen', 'einkleidung', TX.A('Für eine Fahrt gilt t(v) = 180/v Stunden. Was passiert, wenn man doppelt so schnell fährt?', 'Die Fahrzeit halbiert sich.', ['Die Fahrzeit verdoppelt sich.', 'Die Fahrzeit bleibt gleich.', 'Die Fahrzeit sinkt um 2 h.'],
+    TW('t(v) = 180/v.', 'Wirkung von 2v.', 'Doppelter Nenner.', '180/(2v) = t/2.', 'Die Fahrzeit halbiert sich.'), 'Was passiert mit einem Bruch, wenn der Nenner doppelt so groß wird?'))
+TX.u('beurteilen', 'mehrschritt', TZ('Für die Stückkosten gilt k(x) = 240/x + 6 Euro. Um wie viel Euro sinken sie, wenn man 40 statt 20 Stück herstellt?', '240 / 20 - 240 / 40',
+    TW('k(20), k(40).', 'Differenz.', 'Beide berechnen und abziehen.', '18 − 12 = 6.', 'Sie sinken um 6 €.'), 'Berechne beide Werte.', einheit='€'))
+TX.u('beurteilen', 'pruefung', TX.A('Ein Fotograf kommt um 8 Uhr in die Schule. Ein Klassenfoto kostet pro Kind k(x) = 90/x + 2 Euro. Jemand sagt: „Für 25 Kinder sind es 5,60 € pro Kind.“ Was stimmt?',
+    'Richtig: 90 : 25 + 2 = 5,60.', ['Falsch: 92 : 25 = 3,68.', 'Falsch: 90 · 25 + 2.', 'Falsch: 2 €.'],
+    TW('k(25); die Uhrzeit spielt keine Rolle.', 'Prüfung.', 'Einsetzen.', '3,6 + 2 = 5,6.', 'Die Aussage stimmt.'), 'Welche Angabe brauchst du nicht?'), huerde='ueberfluessig')
+TX.u('beurteilen', 'transfer', TZ('Für ein Konzert kostet der Saal 1 500 €, dazu kommen 8 € pro Gast für die Technik. Eine Karte kostet 20 €. Ab wie vielen Gästen decken die Karten die Kosten pro Gast?', '1500 / (20 - 8)',
+    TW('k(x) = 1 500/x + 8 ≤ 20.', 'kleinste Gästezahl.', 'Ungleichung lösen.', '1 500/x ≤ 12 ⇒ x ≥ 125.', 'Ab 125 Gästen.'), 'Stelle die Kosten pro Gast auf und vergleiche mit 20 €.'), huerde='zwei')
+TX.u('beurteilen', 'fehler', TX.A('Für eine Fahrt gilt t(v) = 120/v Stunden. Jemand sagt: „Mit 0 km/h dauert es 0 Stunden.“ Was stimmt?',
+    'Falsch: v = 0 ist nicht erlaubt – man käme nie an.', ['Richtig.', 'Falsch: Es dauert 120 Stunden.', 'Falsch: Es dauert 1 Stunde.'],
+    TW('t(v) = 120/v.', 'Prüfung bei v = 0.', 'Nenner 0 ist verboten.', 't(0) ist nicht definiert.', 'Die Aussage ist falsch.'), 'Darf man durch 0 teilen?'), huerde='entscheidung')
+TX.s('beurteilen', TZ('Für die Stückkosten gilt k(x) = 150/x + 4. Berechne k(30).', '150 / 30 + 4',
+    TW('x = 30.', 'k(30).', 'Einsetzen.', '5 + 4 = 9.', '9 €.'), einheit='€'))
+TX.s('beurteilen', TZ('Für eine Fahrt gilt t(v) = 90/v Stunden. Wie lange dauert sie mit 60 km/h?', '90 / 60',
+    TW('v = 60.', 't(60).', 'Einsetzen.', '1,5.', '1,5 Stunden.'), einheit='h'))
+TX.k('beurteilen', TZ('Für die Stückkosten gilt k(x) = 200/x + 3. Berechne k(50).', '200 / 50 + 3',
+    TW('x = 50.', 'k(50).', 'Einsetzen.', '4 + 3 = 7.', '7 €.'), einheit='€'))
+
+# --- indirekt_sach ---
+TX.u('indirekt_sach', 'parameter', TZ('8 Erntehelfer brauchen für eine Ernte 15 Tage. Die Ernte soll in höchstens 9 Tagen fertig sein. Wie viele Helfer braucht man mindestens?', '-(-(8 * 15) // 9)',
+    TW('8 Helfer → 15 Tage; höchstens 9 Tage.', 'kleinste Helferzahl.', 'Produkt 120 bleibt gleich, aufrunden.', '120 : 9 ≈ 13,3.', 'Man braucht mindestens 14 Helfer.'), 'Reichen 13 Helfer?'), huerde='deuten')
+TX.u('indirekt_sach', 'fehler', TX.A('Ein Heuvorrat reicht 10 Kühen 18 Tage. Jemand rechnet für 15 Kühe: 18 · 15 : 10 = 27 Tage. Was stimmt?',
+    'Falsch: Mehr Kühe – weniger Tage: 18 · 10 : 15 = 12 Tage.', ['Richtig.', 'Falsch: 23 Tage.', 'Falsch: 18 Tage, der Vorrat bleibt gleich.'],
+    TW('10 Kühe → 18 Tage.', 'Tage für 15 Kühe.', 'indirekt proportional.', '180 : 15 = 12.', 'Der Vorrat reicht 12 Tage.'), 'Reicht der Vorrat für mehr Kühe länger oder kürzer?'), huerde='entscheidung')
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Indirekte Proportionalität', ['indirekt']), ('Hyperbeln untersuchen', ['definitionsmenge', 'asymptoten', 'achsenpunkte']),

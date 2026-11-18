@@ -35,7 +35,8 @@
    {
     "titel": "Anwenden",
     "lernziele": [
-     "anwendung"
+     "anwendung",
+     "schnittwinkel"
     ]
    }
   ],
@@ -698,6 +699,59 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "schnittwinkel",
+    "titel": "Schnittwinkel zweier Geraden",
+    "einstieg": "Zwei gerade Straßen kreuzen sich auf einer Karte. Wie spitz ist die Kreuzung? Aus den Steigungen der beiden Geraden berechnest du den ⟦Schnittwinkel⟧.",
+    "woerter": [
+     [
+      "Steigungswinkel α",
+      "der Winkel zwischen x-Achse und Gerade; es gilt tan α = m"
+     ],
+     [
+      "Schnittwinkel",
+      "der kleinere der beiden Winkel zwischen zwei Geraden, höchstens 90°"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 0,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": 0.5,
+       "t": 0,
+       "name": "h"
+      }
+     ]
+    },
+    "schritte": [
+     {
+      "text": "g: y = 2x hat den Steigungswinkel α ≈ 63,43°, denn tan α = 2."
+     },
+     {
+      "text": "h: y = 0,5x hat tan β = 0,5, also β ≈ 26,57°."
+     },
+     {
+      "text": "Schnittwinkel: 63,43° − 26,57° ≈ ⟦36,9°⟧."
+     }
+    ],
+    "fehler": "Die Steigungen abziehen ist falsch: tan⁻¹(2 − 0,5) ≈ 56,3°. Man zieht die ⟦Winkel⟧ voneinander ab, nicht die Steigungen.",
+    "regel": "Steigungswinkel: ⟦tan α = m⟧. Schnittwinkel = Unterschied der Steigungswinkel; über 90° nimm 180° minus den Wert."
    }
   ],
   "teilfaehigkeiten": [
@@ -742,6 +796,13 @@
     "lernziele": [
      "anwendung"
     ]
+   },
+   {
+    "k": "schnittwinkel",
+    "text": "Steigungswinkel und Schnittwinkel von Geraden",
+    "lernziele": [
+     "schnittwinkel"
+    ]
    }
   ],
   "bewertung": {
@@ -753,7 +814,9 @@
     "beziehungen",
     "anwendung"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "schnittwinkel"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -6394,6 +6457,583 @@
    "p": "bonus",
    "s": 3,
    "g": "knobel"
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Steigungswinkel der Geraden y = 3x + 1 auf eine Dezimale."
+   },
+   "o": {
+    "wert": 71.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(71.56505117707799, 1)",
+   "w": "tan α = 3 ⇒ α = tan⁻¹(3) ≈ 71,6°. Der y-Achsenabschnitt spielt keine Rolle.",
+   "h": "Nur die Steigung m zählt: tan α = m."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Gerade hat den Steigungswinkel 45°. Welche Steigung hat sie?"
+   },
+   "a": [
+    "1",
+    "0,5",
+    "45",
+    "0,45"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "tan 45° = 1: Auf 1 nach rechts geht es 1 nach oben.",
+   "h": "Denke an ein gleichschenklig-rechtwinkliges Steigungsdreieck."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 3x und y = x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 26.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(26.56505117707799, 1)",
+   "w": "tan α = 3 ⇒ α ≈ 71,57°; tan β = 1 ⇒ β ≈ 45°. Unterschied ≈ 26,57°, gerundet 26,6°.",
+   "h": "Berechne zuerst beide Steigungswinkel mit tan⁻¹."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gerade durch den Ursprung hat den Steigungswinkel 30°. Gib ihre Steigung auf zwei Dezimalen an."
+   },
+   "o": {
+    "wert": 0.58,
+    "toleranz": 0.01
+   },
+   "c": "round(0.5773502691896257, 2)",
+   "w": "m = tan 30° ≈ 0,58.",
+   "h": "Rückwärts: m = tan α."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gerade g hat die Steigung 1. Eine steilere Gerade h schneidet g unter 30°. Welche Steigung hat h? Runde auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 3.73,
+    "toleranz": 0.01
+   },
+   "c": "round(3.7320508075688776, 2)",
+   "w": "g: α = 45°. h ist steiler: 45° + 30° = 75°. m = tan 75° ≈ 3,73.",
+   "h": "Welchen Steigungswinkel hat g?"
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = 0,5x und y = −2x + 5 schneiden sich. Wie groß ist der Schnittwinkel?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(90.0, 1)",
+   "w": "α ≈ 26,57°, β ≈ −63,43°. Unterschied 26,57° − (−63,43°) = 90°. Passt: 0,5 · (−2) = −1, die Geraden stehen senkrecht.",
+   "h": "Vergleiche auch mit der Regel m₁ · m₂ = −1."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Steigungswinkel der Geraden y = 0,8x − 2 auf eine Dezimale."
+   },
+   "o": {
+    "wert": 38.7,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(38.659808254090095, 1)",
+   "w": "tan α = 0,8 ⇒ α = tan⁻¹(0,8) ≈ 38,7°.",
+   "h": "Nur die Steigung m zählt: tan α = m."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gerade hat den größeren Steigungswinkel: y = 2x oder y = 3x?"
+   },
+   "a": [
+    "y = 2x",
+    "Beide haben denselben.",
+    "y = 3x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Je größer die (positive) Steigung, desto steiler die Gerade und desto größer der Steigungswinkel.",
+   "h": "Welche Gerade ist steiler?"
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 2x + 1 und y = 0,25x − 3 auf eine Dezimale."
+   },
+   "o": {
+    "wert": 49.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(49.39870535499553, 1)",
+   "w": "tan α = 2 ⇒ α ≈ 63,43°; tan β = 0,25 ⇒ β ≈ 14,04°. Unterschied ≈ 49,4°.",
+   "h": "Berechne zuerst beide Steigungswinkel mit tan⁻¹."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Eine steigende Gerade schneidet die x-Achse unter 60°. Gib ihre Steigung auf zwei Dezimalen an."
+   },
+   "o": {
+    "wert": 1.73,
+    "toleranz": 0.01
+   },
+   "c": "round(1.7320508075688767, 2)",
+   "w": "m = tan 60° ≈ 1,73.",
+   "h": "Rückwärts: m = tan α."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Rampe steigt auf 4 m waagrecht um 1 m an. Ein Weg daneben steigt auf 4 m waagrecht um 2 m an. Unter welchem Winkel laufen die beiden auseinander? Runde auf eine Dezimale."
+   },
+   "o": {
+    "wert": 12.5,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(12.528807709151511, 1)",
+   "w": "Steigungen 1 : 4 = 0,25 und 2 : 4 = 0,5. Winkel ≈ 14,04° und ≈ 26,57°. Unterschied ≈ 12,5°.",
+   "h": "Bestimme zuerst beide Steigungen."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "zahl",
+   "f": {
+    "text": "Lies die Steigungen der beiden Geraden im Bild ab. Unter welchem Winkel schneiden sie sich?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      5
+     ],
+     "y": [
+      -2,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 1,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 3,
+       "name": "h"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(90.0, 1)",
+   "w": "g steigt mit m = 1 (α = 45°), h fällt mit m = −1 (β = −45°). Unterschied 45° − (−45°) = 90°.",
+   "h": "Geh von einem Punkt 1 nach rechts."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine steigende Gerade h schneidet die x-Achse unter 20°. Wie groß ist ihre Steigung? Runde auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 0.36,
+    "toleranz": 0.01
+   },
+   "c": "round(0.36397023426620234, 2)",
+   "w": "Die x-Achse hat den Steigungswinkel 0°. h hat also 20°: m = tan 20° ≈ 0,36.",
+   "h": "Welchen Steigungswinkel hat die x-Achse?"
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gerade geht durch A(0 | 1) und B(4 | 4). Unter welchem Winkel schneidet sie die x-Achse? Runde auf eine Dezimale."
+   },
+   "o": {
+    "wert": 36.9,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(36.86989764584402, 1)",
+   "w": "m = (4 − 1) : (4 − 0) = 0,75. α = tan⁻¹(0,75) ≈ 36,9°.",
+   "h": "Berechne zuerst die Steigung aus den zwei Punkten."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Parallele Geraden haben denselben Steigungswinkel.“"
+   },
+   "a": [
+    "Nur wenn beide durch den Ursprung gehen.",
+    "Nein, der Winkel hängt auch vom y-Achsenabschnitt ab.",
+    "Ja: Gleiche Steigung heißt gleiches tan α, also gleicher Winkel."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Steigungswinkel hängt nur von m ab (tan α = m). Parallele Geraden haben dasselbe m.",
+   "h": "Wovon hängt tan α ab?"
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet den Schnittwinkel von y = 4x und y = −x so: 76,0° − (−45,0°) = 121,0°. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Man zieht die Steigungen ab: 4 − (−1) = 5.",
+    "Richtig.",
+    "Falsch: Über 90° nimmt man 180° − 121,0° = 59,0°."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Schnittwinkel ist der kleinere der beiden Winkel und höchstens 90°: 180° − 121,0° = 59,0°.",
+   "h": "Wie groß darf ein Schnittwinkel höchstens sein?"
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = m · x (m > 0) ist flacher als y = x und schneidet sie unter 15°. Wie groß ist m? Runde auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 0.58,
+    "toleranz": 0.01
+   },
+   "c": "round(0.5773502691896257, 2)",
+   "w": "y = x hat 45°. Flacher um 15°: 30°. m = tan 30° ≈ 0,58.",
+   "h": "Welchen Steigungswinkel muss die gesuchte Gerade haben?"
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dach hat zwei Flächen. Die linke steigt mit 50 % zum First an, die rechte fällt mit 100 % wieder ab. Wie groß ist der Winkel am First zwischen den Dachflächen? Runde auf eine Dezimale."
+   },
+   "o": {
+    "wert": 108.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(108.43494882292202, 1)",
+   "w": "Links: tan α = 0,5 ⇒ α ≈ 26,57°. Rechts: tan β = 1 ⇒ β = 45°. Im Dreieck aus Dachflächen und Boden: 180° − 26,57° − 45° ≈ 108,4°.",
+   "h": "Zeichne das Dreieck aus beiden Dachflächen und dem Dachboden."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = 2x und y = 3x schneiden sich unter dem Winkel δ. Die Gerade y = 3x und eine noch steilere Gerade y = m · x schneiden sich unter demselben Winkel δ. Wie groß ist m? Runde auf eine Dezimale."
+   },
+   "o": {
+    "wert": 5.5,
+    "toleranz": 0.1
+   },
+   "c": "round(5.500000000000003, 1)",
+   "w": "δ ≈ 71,57° − 63,43° ≈ 8,13°. Die steilere Gerade hat ≈ 79,7°, also m = tan(≈ 79,70°) ≈ 5,5.",
+   "h": "Addiere δ zum Steigungswinkel von y = 3x."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine steigende Gerade durch den Ursprung bildet mit der x-Achse und mit der y-Achse gleich große Winkel. Welche Steigung hat sie?"
+   },
+   "o": {
+    "wert": 1,
+    "toleranz": 0.01
+   },
+   "c": "round(0.9999999999999999, 2)",
+   "w": "Die beiden Winkel ergeben zusammen 90°, sind also je 45°. m = tan 45° = 1.",
+   "h": "Wie groß ist der Winkel zwischen x-Achse und y-Achse?"
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 4x und y = x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 31,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(30.963756532073532, 1)",
+   "w": "tan α = 4 ⇒ α ≈ 75,96°; tan β = 1 ⇒ β ≈ 45°. Unterschied ≈ 30,96°, gerundet 31°."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 2x und y = x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 18.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(18.43494882292201, 1)",
+   "w": "tan α = 2 ⇒ α ≈ 63,43°; tan β = 1 ⇒ β ≈ 45°. Unterschied ≈ 18,43°, gerundet 18,4°."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 5x und y = 0,5x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 52.1,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(52.125016348901795, 1)",
+   "w": "tan α = 5 ⇒ α ≈ 78,69°; tan β = 0,5 ⇒ β ≈ 26,57°. Unterschied ≈ 52,13°, gerundet 52,1°."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 1,5x und y = 0,2x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(45.0, 1)",
+   "w": "tan α = 1,5 ⇒ α ≈ 56,31°; tan β = 0,2 ⇒ β ≈ 11,31°. Unterschied ≈ 45°."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 3x und y = 0,5x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(45.0, 1)",
+   "w": "tan α = 3 ⇒ α ≈ 71,57°; tan β = 0,5 ⇒ β ≈ 26,57°. Unterschied ≈ 45°."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 4x und y = 2x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 12.5,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(12.528807709151522, 1)",
+   "w": "tan α = 4 ⇒ α ≈ 75,96°; tan β = 2 ⇒ β ≈ 63,43°. Unterschied ≈ 12,53°, gerundet 12,5°."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = x und y = 0,1x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 39.3,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(39.28940686250036, 1)",
+   "w": "tan α = 1 ⇒ α ≈ 45°; tan β = 0,1 ⇒ β ≈ 5,71°. Unterschied ≈ 39,29°, gerundet 39,3°."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 6x und y = 1,2x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 30.3,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(30.34324888423958, 1)",
+   "w": "tan α = 6 ⇒ α ≈ 80,54°; tan β = 1,2 ⇒ β ≈ 50,19°. Unterschied ≈ 30,34°, gerundet 30,3°."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 0,6x und y = 0,3x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 14.3,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(14.2645122980799, 1)",
+   "w": "tan α = 0,6 ⇒ α ≈ 30,96°; tan β = 0,3 ⇒ β ≈ 16,7°. Unterschied ≈ 14,26°, gerundet 14,3°."
+  },
+  {
+   "l": "schnittwinkel",
+   "t": "schnittwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittwinkel der Geraden y = 2,5x und y = 0,4x auf eine Dezimale."
+   },
+   "o": {
+    "wert": 46.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(46.39718102729637, 1)",
+   "w": "tan α = 2,5 ⇒ α ≈ 68,2°; tan β = 0,4 ⇒ β ≈ 21,8°. Unterschied ≈ 46,4°."
   }
  ],
  "offen": [

@@ -22,7 +22,8 @@
     "lernziele": [
      "pfad_mult",
      "pfad_add",
-     "ohne_zuruecklegen"
+     "ohne_zuruecklegen",
+     "unabhaengig"
     ]
    },
    {
@@ -442,6 +443,109 @@
        "alle",
        "5",
        "4"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "unabhaengig",
+    "titel": "Abhängig oder unabhängig?",
+    "regel": "Unabhängig, wenn ⟦P(A ∩ B) = P(A) · P(B)⟧. Sonst sind A und B abhängig.",
+    "schritte": [
+     {
+      "text": "P(Kopf) = 0,5, P(Rot) = 0,4, P(beides) = 0,2."
+     },
+     {
+      "text": "P(Kopf) · P(Rot) = 0,5 · 0,4 = 0,2.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Wert"
+       ],
+       "zeilen": [
+        [
+         "P(Kopf)",
+         "0,5"
+        ],
+        [
+         "P(Rot)",
+         "0,4"
+        ],
+        [
+         "P(Kopf ∩ Rot)",
+         "0,2"
+        ],
+        [
+         "P(Kopf) · P(Rot)",
+         "0,2"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Das ist genau P(beides): ⟦unabhängig⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Wert"
+       ],
+       "zeilen": [
+        [
+         "P(Kopf)",
+         "0,5"
+        ],
+        [
+         "P(Rot)",
+         "0,4"
+        ],
+        [
+         "P(Kopf ∩ Rot)",
+         "0,2"
+        ],
+        [
+         "P(Kopf) · P(Rot)",
+         "0,2 ✓"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "„A und B können nie zusammen eintreten, also unabhängig“ ist falsch. Tritt A ein, ist B ausgeschlossen: ⟦abhängig⟧.",
+    "einstieg": "Eine Münze zeigt Kopf, ein Glücksrad bleibt auf Rot stehen. Das eine beeinflusst das andere nicht. Solche Ereignisse heißen ⟦unabhängig⟧.",
+    "woerter": [
+     [
+      "unabhängig",
+      "das Wissen über B ändert die Wahrscheinlichkeit von A nicht"
+     ],
+     [
+      "abhängig",
+      "das Wissen über B ändert die Wahrscheinlichkeit von A"
+     ],
+     [
+      "P(A | B)",
+      "andere Schreibweise für P_B(A): Wahrscheinlichkeit von A, wenn B schon eingetreten ist"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Wert"
+     ],
+     "zeilen": [
+      [
+       "P(Kopf)",
+       "0,5"
+      ],
+      [
+       "P(Rot)",
+       "0,4"
+      ],
+      [
+       "P(Kopf ∩ Rot)",
+       "0,2"
       ]
      ]
     }
@@ -1659,6 +1763,13 @@
     "lernziele": [
      "verstehen"
     ]
+   },
+   {
+    "k": "unabhaengig",
+    "text": "Abhängig oder unabhängig?",
+    "lernziele": [
+     "unabhaengig"
+    ]
    }
   ],
   "bewertung": {
@@ -1672,7 +1783,9 @@
     "pi_schaetzen",
     "verstehen"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "unabhaengig"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -9908,6 +10021,842 @@
    ],
    "w": "KKK und ZZZ: 2 von 8 gleich wahrscheinlichen Fällen = 1/4. Der Fehler: Welche zwei Münzen gleich sind, steht vorher nicht fest – die „dritte Münze“ ist keine feste Münze.",
    "h": "Zähle alle 8 Möglichkeiten."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig. P(A) = 0,3, P(B) = 0,4. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.12
+   },
+   "c": "0.3 * 0.4",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,3 · 0,4 = 0,12.",
+   "h": "Bei unabhängigen Ereignissen darf man die Einzelwahrscheinlichkeiten multiplizieren.",
+   "g": "direkt"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Mitglieder eines Sportvereins. Sind die Merkmale „Fußball“ und „unter 18“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "14",
+       "6",
+       "20"
+      ],
+      [
+       "andere Sportart",
+       "56",
+       "24",
+       "80"
+      ],
+      [
+       "Summe",
+       "70",
+       "30",
+       "100"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Fußball) = 0,2, P(Fußball | unter 18) = 14 : 70 = 0,2. Gleich: unabhängig.",
+   "h": "Vergleiche den Anteil „Fußball“ unter allen mit dem Anteil „Fußball“ in der Spalte „unter 18“.",
+   "g": "darstellung"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B schließen sich aus (A ∩ B = ∅), P(A) = 0,4, P(B) = 0,4. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Unabhängig: Sie haben ja nichts miteinander zu tun.",
+    "Das kann man ohne weitere Angaben nicht sagen.",
+    "Abhängig: Tritt A ein, kann B nicht mehr eintreten.",
+    "Unabhängig, weil P(A ∩ B) = 0 ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "P(A ∩ B) = 0, aber P(A) · P(B) = 0,16 ≠ 0. Also abhängig.",
+   "h": "Vergleiche P(A ∩ B) = 0 mit P(A) · P(B).",
+   "g": "begruenden"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig. P(A) = 0,4, P(B) = 0,2. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.08
+   },
+   "c": "0.4 * 0.2",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,4 · 0,2 = 0,08.",
+   "h": "Bei unabhängigen Ereignissen darf man die Einzelwahrscheinlichkeiten multiplizieren.",
+   "g": "direkt"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A) = 0,5 und P(B) = 0,3. Wie groß ist P(A | B)?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.5",
+   "w": "Unabhängig heißt: Das Wissen über B ändert nichts. P(A | B) = P(A) = 0,5.",
+   "h": "Was bedeutet „unabhängig“ für die bedingte Wahrscheinlichkeit?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Fahrgäste eines Busses. Sind die Merkmale „Monatskarte“ und „pendelt täglich“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "pendelt täglich",
+      "pendelt nicht täglich",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Monatskarte",
+       "48",
+       "32",
+       "80"
+      ],
+      [
+       "Einzelticket",
+       "12",
+       "8",
+       "20"
+      ],
+      [
+       "Summe",
+       "60",
+       "40",
+       "100"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Monatskarte) = 0,8, P(Monatskarte | pendelt täglich) = 48 : 60 = 0,8. Gleich: unabhängig.",
+   "h": "Vergleiche den Anteil „Monatskarte“ unter allen mit dem Anteil „Monatskarte“ in der Spalte „pendelt täglich“.",
+   "g": "darstellung"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 500 Befragten treiben 400 Sport (A), 200 spielen ein Instrument (B). Wie viele müssen beides tun, damit A und B unabhängig sind?"
+   },
+   "o": {
+    "wert": 160
+   },
+   "c": "400 / 500 * 200 / 500 * 500",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,8 · 0,4 = 0,32. Anzahl: 0,32 · 500 = 160.",
+   "h": "Rechne mit Anteilen: P(A) · P(B), dann mal die Gesamtzahl.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Pumpen arbeiten unabhängig voneinander. Pumpe 1 fällt an einem Tag mit der Wahrscheinlichkeit 0,1 aus, Pumpe 2 mit 0,3. Wie groß ist die Wahrscheinlichkeit, dass an einem Tag mindestens eine Pumpe ausfällt?"
+   },
+   "o": {
+    "wert": 0.37
+   },
+   "c": "1 - (1 - 0.1) * (1 - 0.3)",
+   "w": "Gegenereignis: beide laufen. Unabhängig: 0,9 · 0,7 = 0,63. P = 1 − 0,63 = 0,37.",
+   "h": "„Mindestens eine“: Rechne erst die Wahrscheinlichkeit, dass keine ausfällt.",
+   "g": "transfer"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B schließen sich aus (A ∩ B = ∅), P(A) = 0,3, P(B) = 0,1. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Unabhängig, weil P(A ∩ B) = 0 ist.",
+    "Unabhängig: Sie haben ja nichts miteinander zu tun.",
+    "Das kann man ohne weitere Angaben nicht sagen.",
+    "Abhängig: Tritt A ein, kann B nicht mehr eintreten."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "P(A ∩ B) = 0, aber P(A) · P(B) = 0,03 ≠ 0. Also abhängig.",
+   "h": "Vergleiche P(A ∩ B) = 0 mit P(A) · P(B).",
+   "g": "begruenden"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,3, P(B) = 0,9, P(A ∩ B) = 0,27. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(A) · P(B) = 0,27 = P(A ∩ B): unabhängig.",
+   "h": "Vergleiche P(A ∩ B) mit P(A) · P(B).",
+   "g": "erkennen"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Würfel zeigt eine 6 mit der Wahrscheinlichkeit 1/6, eine Münze zeigt Kopf mit 1/2. Beide werden unabhängig geworfen. Wie groß ist P(6 und Kopf)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner eintragen (gekürzt)."
+   },
+   "o": {
+    "werte": [
+     1,
+     12
+    ]
+   },
+   "c": [
+    "1",
+    "12"
+   ],
+   "w": "Unabhängig: 1/6 · 1/2 = 1/12.",
+   "h": "Multipliziere die beiden Wahrscheinlichkeiten.",
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A) = 0,3 und P(B) = 0,3. Wie groß ist P(A | B)?"
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.3",
+   "w": "Unabhängig heißt: Das Wissen über B ändert nichts. P(A | B) = P(A) = 0,3.",
+   "h": "Was bedeutet „unabhängig“ für die bedingte Wahrscheinlichkeit?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Befragte einer Umfrage. Sind die Merkmale „liest E-Books“ und „unter 30“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "120",
+       "40",
+       "160"
+      ],
+      [
+       "liest keine E-Books",
+       "200",
+       "40",
+       "240"
+      ],
+      [
+       "Summe",
+       "320",
+       "80",
+       "400"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(liest E-Books) = 0,4, P(liest E-Books | unter 30) = 120 : 320 = 0,375. Verschieden: abhängig.",
+   "h": "Vergleiche den Anteil „liest E-Books“ unter allen mit dem Anteil „liest E-Books“ in der Spalte „unter 30“.",
+   "g": "darstellung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Eine Ampel ist mit der Wahrscheinlichkeit 0,4 rot, eine zweite – unabhängig davon – mit 0,5. Wie groß ist die Wahrscheinlichkeit, dass beide rot sind?"
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "0.4*0.5",
+   "w": "Unabhängig: 0,4 · 0,5 = 0,2.",
+   "h": "Unabhängig heißt: multiplizieren.",
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A ∩ B) = 0,12 und P(A) = 0,3. Wie groß ist P(B)?"
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.12/0.3",
+   "w": "0,3 · P(B) = 0,12 ⇒ P(B) = 0,4.",
+   "h": "Setze in P(A ∩ B) = P(A) · P(B) ein.",
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 200 Befragten treiben 80 Sport (A), 180 spielen ein Instrument (B). Wie viele müssen beides tun, damit A und B unabhängig sind?"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "80 / 200 * 180 / 200 * 200",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,4 · 0,9 = 0,36. Anzahl: 0,36 · 200 = 72.",
+   "h": "Rechne mit Anteilen: P(A) · P(B), dann mal die Gesamtzahl.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Pumpen arbeiten unabhängig voneinander. Pumpe 1 fällt an einem Tag mit der Wahrscheinlichkeit 0,01 aus, Pumpe 2 mit 0,2. Wie groß ist die Wahrscheinlichkeit, dass an einem Tag mindestens eine Pumpe ausfällt?"
+   },
+   "o": {
+    "wert": 0.208
+   },
+   "c": "1 - (1 - 0.01) * (1 - 0.2)",
+   "w": "Gegenereignis: beide laufen. Unabhängig: 0,99 · 0,8 = 0,792. P = 1 − 0,792 = 0,208.",
+   "h": "„Mindestens eine“: Rechne erst die Wahrscheinlichkeit, dass keine ausfällt.",
+   "g": "transfer"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine faire Münze zeigte 5-mal hintereinander Kopf. Wie groß ist die Wahrscheinlichkeit, dass der nächste Wurf Kopf zeigt?"
+   },
+   "a": [
+    "größer als 1/2, Kopf ist gerade dran",
+    "kleiner als 1/2, Zahl ist jetzt fällig",
+    "1/2 – die Münze hat kein Gedächtnis.",
+    "1/64"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Würfe sind unabhängig. P(Kopf | vorher Kopf-Serie) = P(Kopf) = 1/2.",
+   "h": "Hängt der nächste Wurf von den vorherigen ab?",
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,5, P(B) = p und P(A ∩ B) = 0,15. Für welches p sind A und B unabhängig?"
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.15/0.5",
+   "w": "Unabhängig: 0,5 · p = 0,15 ⇒ p = 0,3.",
+   "h": "Setze die Bedingung für Unabhängigkeit an.",
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Würfel werden geworfen. A: „Der erste Würfel zeigt eine gerade Zahl.“ B: „Die Augensumme ist 7.“ Sind A und B unabhängig?"
+   },
+   "a": [
+    "Das kann man nicht berechnen.",
+    "Ja.",
+    "Nein, die Summe hängt vom ersten Würfel ab.",
+    "Nein, A und B schließen sich aus."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(A) = 1/2, P(B) = 6/36 = 1/6. A ∩ B: (2,5), (4,3), (6,1) – 3 von 36 = 1/12 = 1/2 · 1/6. Überraschend: Egal was der erste Würfel zeigt, genau eine Zahl des zweiten ergibt 7.",
+   "h": "Zähle die Paare für A ∩ B.",
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft muss man eine faire Münze mindestens werfen, damit die Wahrscheinlichkeit für „mindestens einmal Kopf“ größer als 0,99 ist?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "P(mindestens einmal Kopf) = 1 − 0,5ⁿ. Gefordert 0,5ⁿ < 0,01. 0,5⁶ = 1/64 ≈ 0,016 ist noch zu groß, 0,5⁷ = 1/128 ≈ 0,008 reicht. Also 7 Würfe.",
+   "h": "Rechne mit dem Gegenereignis „nie Kopf“.",
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A) = 0,2 und P(B) = 0,7. Wie groß ist P(A | B)?"
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "0.2",
+   "w": "Unabhängig heißt: Das Wissen über B ändert nichts. P(A | B) = P(A) = 0,2."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Mitglieder eines Sportvereins. Sind die Merkmale „Fußball“ und „unter 18“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "80",
+       "80",
+       "160"
+      ],
+      [
+       "andere Sportart",
+       "120",
+       "120",
+       "240"
+      ],
+      [
+       "Summe",
+       "200",
+       "200",
+       "400"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Fußball) = 0,4, P(Fußball | unter 18) = 80 : 200 = 0,4. Gleich: unabhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 200 Mitglieder eines Sportvereins. Sind die Merkmale „Fußball“ und „unter 18“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "42",
+       "58",
+       "100"
+      ],
+      [
+       "andere Sportart",
+       "58",
+       "42",
+       "100"
+      ],
+      [
+       "Summe",
+       "100",
+       "100",
+       "200"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(Fußball) = 0,5, P(Fußball | unter 18) = 42 : 100 = 0,42. Verschieden: abhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A) = 0,3 und P(B) = 0,7. Wie groß ist P(A | B)?"
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.3",
+   "w": "Unabhängig heißt: Das Wissen über B ändert nichts. P(A | B) = P(A) = 0,3."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A) = 0,4 und P(B) = 0,3. Wie groß ist P(A | B)?"
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.4",
+   "w": "Unabhängig heißt: Das Wissen über B ändert nichts. P(A | B) = P(A) = 0,4."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Mitglieder eines Sportvereins. Sind die Merkmale „Fußball“ und „unter 18“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "24",
+       "16",
+       "40"
+      ],
+      [
+       "andere Sportart",
+       "56",
+       "4",
+       "60"
+      ],
+      [
+       "Summe",
+       "80",
+       "20",
+       "100"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(Fußball) = 0,4, P(Fußball | unter 18) = 24 : 80 = 0,3. Verschieden: abhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A) = 0,7 und P(B) = 0,3. Wie groß ist P(A | B)?"
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "0.7",
+   "w": "Unabhängig heißt: Das Wissen über B ändert nichts. P(A | B) = P(A) = 0,7."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Schülerinnen und Schüler. Sind die Merkmale „Brille“ und „Fahrrad“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Fahrrad",
+      "kein Fahrrad",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Brille",
+       "76",
+       "4",
+       "80"
+      ],
+      [
+       "keine Brille",
+       "4",
+       "16",
+       "20"
+      ],
+      [
+       "Summe",
+       "80",
+       "20",
+       "100"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(Brille) = 0,8, P(Brille | Fahrrad) = 76 : 80 = 0,95. Verschieden: abhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 200 Mitglieder eines Sportvereins. Sind die Merkmale „Fußball“ und „unter 18“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "24",
+       "36",
+       "60"
+      ],
+      [
+       "andere Sportart",
+       "56",
+       "84",
+       "140"
+      ],
+      [
+       "Summe",
+       "80",
+       "120",
+       "200"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Fußball) = 0,3, P(Fußball | unter 18) = 24 : 80 = 0,3. Gleich: unabhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 200 Mitglieder eines Sportvereins. Sind die Merkmale „Fußball“ und „unter 18“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "92",
+       "48",
+       "140"
+      ],
+      [
+       "andere Sportart",
+       "28",
+       "32",
+       "60"
+      ],
+      [
+       "Summe",
+       "120",
+       "80",
+       "200"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(Fußball) = 0,7, P(Fußball | unter 18) = 92 : 120 = 23/30. Verschieden: abhängig."
   }
  ],
  "offen": [

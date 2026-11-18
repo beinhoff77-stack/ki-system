@@ -1960,3 +1960,10 @@ if __name__ == '__main__':
               mehrere(ersetze_in('text', 'die Koordinatenachse schneidet', 'die x-Achse schneidet'), ersetze_in('w', ': x = (', ': x-Wert ('))),
     ])
 # ---- KORREKTUR ENDE ----
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('abbildungen.kongruenz')
+# ---- AUFLOESEN ENDE ----

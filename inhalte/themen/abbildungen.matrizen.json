@@ -4,7 +4,7 @@
  "block_id": 74,
  "klasse": {
   "rs_by": 10,
-  "ib_myp": 4
+  "ib_myp": 5
  },
  "autor": "Claude (Paket Realschule)",
  "inhalt": {
@@ -36,7 +36,8 @@
    {
     "titel": "Skalarprodukt",
     "lernziele": [
-     "skalarprodukt"
+     "skalarprodukt",
+     "abstand"
     ]
    }
   ],
@@ -682,6 +683,109 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "abstand",
+    "titel": "Abstand Punkt–Gerade",
+    "einstieg": "Ein Leuchtturm steht neben einer geraden Küstenstraße. Wie weit ist er von der Straße entfernt? Gemeint ist der kürzeste Weg, senkrecht zur Straße. Das ist der ⟦Abstand⟧.",
+    "woerter": [
+     [
+      "Abstand Punkt–Gerade",
+      "die Länge des kürzesten Wegs vom Punkt zur Geraden; dieser Weg steht senkrecht auf ihr"
+     ],
+     [
+      "Lotfußpunkt F",
+      "der Punkt, an dem der senkrechte Weg die Gerade trifft"
+     ],
+     [
+      "Richtungsvektor u",
+      "ein Pfeil, der in Richtung der Geraden zeigt"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      8
+     ],
+     "y": [
+      -1,
+      12
+     ],
+     "schritt_x": 2,
+     "schritt_y": 2,
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0.75,
+       "t": 0,
+       "name": "g"
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 11,
+       "name": "P"
+      }
+     ]
+    },
+    "schritte": [
+     {
+      "text": "Gesucht ist der Abstand Punkt–Gerade von P(−2 | 11) zu g."
+     },
+     {
+      "text": "g geht durch O mit dem Richtungsvektor u = (4 | 3)."
+     },
+     {
+      "text": "Der Lotfußpunkt F = (4t | 3t) erfüllt (P − F) · u = 0."
+     },
+     {
+      "text": "Ausrechnen: 25 − 25t = 0, also t = 1 und F(4 | 3).",
+      "bild": {
+       "punkte": [
+        {
+         "x": -2,
+         "y": 11,
+         "name": "P"
+        },
+        {
+         "x": 4,
+         "y": 3,
+         "name": "F"
+        }
+       ]
+      }
+     },
+     {
+      "text": "PF = (6 | −8) ist √(36 + 64) = ⟦10⟧ lang.",
+      "bild": {
+       "punkte": [
+        {
+         "x": -2,
+         "y": 11,
+         "name": "P"
+        },
+        {
+         "x": 4,
+         "y": 3,
+         "name": "F"
+        }
+       ],
+       "strecken": [
+        [
+         -2,
+         11,
+         4,
+         3,
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "Der Abstand ist nicht |OP| = √(4 + 121) ≈ 11,2. Gemessen wird ⟦senkrecht⟧ zur Geraden, nicht zu irgendeinem Punkt auf ihr.",
+    "regel": "Abstand = Länge von ⟦PF⟧. F liegt auf g. PF steht senkrecht auf g: (P − F) · u = 0."
    }
   ],
   "teilfaehigkeiten": [
@@ -726,6 +830,13 @@
     "lernziele": [
      "skalarprodukt"
     ]
+   },
+   {
+    "k": "abstand",
+    "text": "Abstand eines Punktes von einer Geraden berechnen",
+    "lernziele": [
+     "abstand"
+    ]
    }
   ],
   "bewertung": {
@@ -735,7 +846,8 @@
     "drehung",
     "rechnen",
     "inverse",
-    "skalarprodukt"
+    "skalarprodukt",
+    "abstand"
    ],
    "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1
@@ -6003,6 +6115,563 @@
    "p": "bonus",
    "s": 3,
    "g": "knobel"
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(11 | 2) von g."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((11 - 4 * 2) ** 2 + (2 - 3 * 2) ** 2) // 5",
+   "w": "F = (4t | 3t). (P − F) · u = (11 − 4t) · 4 + (2 − 3t) · 3 = 50 − 25t = 0 ⇒ t = 2, F(8 | 6). PF = (−3 | 4), Länge √(9 + 16) = 5.",
+   "h": "Setze F = (4t | 3t) an und rechne mit (P − F) · u = 0."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Weg vom Punkt P zur Geraden g gibt den Abstand an?"
+   },
+   "a": [
+    "der waagrechte Weg",
+    "der Weg parallel zu g",
+    "der Weg, der senkrecht auf g steht",
+    "der Weg zum Ursprung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der senkrechte Weg ist der kürzeste. Jeder schräge Weg ist eine Hypotenuse und damit länger.",
+   "h": "Welcher Weg ist der kürzeste?"
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(−5 | 15) von g."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "((-5 - 4 * 1) ** 2 + (15 - 3 * 1) ** 2) // 15",
+   "w": "F = (4t | 3t). (P − F) · u = (−5 − 4t) · 4 + (15 − 3t) · 3 = 25 − 25t = 0 ⇒ t = 1, F(4 | 3). PF = (9 | −12), Länge √(81 + 144) = 15.",
+   "h": "Setze F = (4t | 3t) an und rechne mit (P − F) · u = 0."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "luecken",
+   "f": {
+    "text": "Der Lotfußpunkt von P auf g (durch O mit u = (4 | 3)) ist F(8 | 6). P hat von g den Abstand 5 und liegt oberhalb von g. Gib P an.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Zwei ganze Zahlen."
+   },
+   "o": {
+    "werte": [
+     5,
+     10
+    ]
+   },
+   "c": [
+    "8 + (-3)",
+    "6 + 4"
+   ],
+   "w": "Senkrecht zu u = (4 | 3) ist (−3 | 4), Länge 5. Nach oben: P = F + (−3 | 4) = (5 | 10).",
+   "h": "Welcher Vektor der Länge 5 steht senkrecht auf (4 | 3)?"
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Punkt P auf der y-Achse liegt oberhalb von g: y = 0,75x und hat von g den Abstand 4. Gib die y-Koordinate von P an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "4 * 5 // 4",
+   "w": "P(0 | p). F = (4t | 3t) mit (0 − 4t) · 4 + (p − 3t) · 3 = 0 ⇒ t = 3p : 25. PF hat dann die Länge 4p : 5 = 0,8p. 0,8p = 4 ⇒ p = 5.",
+   "h": "Rechne allgemein mit P(0 | p) und setze die Länge gleich 4."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Flächeninhalt des Dreiecks mit O(0 | 0), A(8 | 6) und P(−3 | 4)?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "10 * 5 / 2",
+   "w": "Grundseite [OA]: Länge √(64 + 36) = 10. Höhe = Abstand von P zur Geraden OA: F = O, denn (−3 | 4) · (8 | 6) = 0; Höhe 5. Fläche 10 · 5 : 2 = 25.",
+   "h": "Nimm [OA] als Grundseite. Die Höhe ist der Abstand von P zur Geraden OA."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O mit u = (4 | 3). Der Lotfußpunkt von P(5 | 10) ist F(8 | 6). Wie groß ist der Abstand von P zu g?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((5 - 8) ** 2 + (10 - 6) ** 2) // 5",
+   "w": "PF = (8 − 5 | 6 − 10) = (3 | −4). Länge √(9 + 16) = √25 = 5.",
+   "h": "Berechne die Länge des Vektors PF."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Steht der Vektor PF = (3 | −4) senkrecht auf u = (4 | 3)?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das kann man nicht prüfen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Skalarprodukt: 3 · 4 + (−4) · 3 = 12 − 12 = 0. Also senkrecht.",
+   "h": "Berechne das Skalarprodukt."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(15 | 5) von g."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((15 - 4 * 3) ** 2 + (5 - 3 * 3) ** 2) // 5",
+   "w": "F = (4t | 3t). (P − F) · u = (15 − 4t) · 4 + (5 − 3t) · 3 = 75 − 25t = 0 ⇒ t = 3, F(12 | 9). PF = (−3 | 4), Länge √(9 + 16) = 5.",
+   "h": "Setze F = (4t | 3t) an und rechne mit (P − F) · u = 0."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "luecken",
+   "f": {
+    "text": "Der Lotfußpunkt von P auf g (durch O mit u = (4 | 3)) ist F(−4 | −3). P hat von g den Abstand 10 und liegt oberhalb von g. Gib P an.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     -10,
+     5
+    ]
+   },
+   "c": [
+    "-4 + 2 * (-3)",
+    "-3 + 2 * 4"
+   ],
+   "w": "Senkrecht zu u nach oben zeigt (−3 | 4) mit der Länge 5. Doppelt so lang ergibt 10: P = (−4 − 6 | −3 + 8) = (−10 | 5).",
+   "h": "Welcher Vektor der Länge 5 steht senkrecht auf u und zeigt nach oben?"
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerader Wanderweg führt von O(0 | 0) in Richtung u = (4 | 3) (Einheit 100 m). Eine Hütte steht bei H(−1 | 18). Wie weit ist die Hütte vom Weg entfernt (in 100 m)?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "((-1 - 4 * 2) ** 2 + (18 - 3 * 2) ** 2) // 15",
+   "w": "F = (4t | 3t). (H − F) · u = (−1 − 4t) · 4 + (18 − 3t) · 3 = 50 − 25t = 0 ⇒ t = 2, F(8 | 6). HF = (9 | −12), Länge √(81 + 144) = 15.",
+   "h": "Gesucht ist der Abstand der Hütte vom Weg."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "zahl",
+   "f": {
+    "text": "Im Bild siehst du die Gerade g: y = 0,75x und den Punkt P(0 | 5). Wie weit ist P von g entfernt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 0.75,
+       "t": 0,
+       "name": "g"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 5,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "u = (4 | 3). F = (4t | 3t): (0 − 4t) · 4 + (5 − 3t) · 3 = 15 − 25t = 0 ⇒ t = 0,6, F(2,4 | 1,8). PF = (2,4 | −3,2), Länge √(5,76 + 10,24) = √16 = 4.",
+   "h": "Lies P ab und nimm u = (4 | 3) als Richtung von g."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "luecken",
+   "f": {
+    "text": "F(4 | 3) ist der Lotfußpunkt von P auf g (durch O mit u = (4 | 3)). Der Abstand ist 15, P liegt unterhalb von g. Gib P an.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     13,
+     -9
+    ]
+   },
+   "c": [
+    "4 + 3 * 3",
+    "3 + 3 * (-4)"
+   ],
+   "w": "Senkrecht zu u nach unten: (3 | −4), Länge 5. Dreimal so lang ergibt 15: P = (4 + 9 | 3 − 12) = (13 | −9).",
+   "h": "Welcher Vektor der Länge 5 steht senkrecht auf u und zeigt nach unten?"
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M(−6 | 8) berührt die Gerade g durch O mit u = (4 | 3). Wie groß ist sein Radius?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((-6 - 4 * 0) ** 2 + (8 - 3 * 0) ** 2) // 10",
+   "w": "F = (4t | 3t). (M − F) · u = (−6 − 4t) · 4 + (8 − 3t) · 3 = −25t = 0 ⇒ t = 0, F(0 | 0). MF = (6 | −8), Länge √(36 + 64) = 10.",
+   "h": "Der Radius zum Berührpunkt steht senkrecht auf der Tangente."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Liegt P auf der Geraden g, dann ist sein Abstand von g gleich 0.“"
+   },
+   "a": [
+    "Nein, der Abstand ist dann unendlich.",
+    "Nur wenn g durch den Ursprung geht.",
+    "Ja: Dann ist F = P, und PF hat die Länge 0."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der kürzeste Weg von einem Punkt auf g zu g hat die Länge 0.",
+   "h": "Wo liegt der Lotfußpunkt, wenn P schon auf g liegt?"
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet den Abstand von P(5 | 10) zur Geraden g: y = 0,75x als |OP| = √(25 + 100) ≈ 11,2. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Gemessen wird senkrecht zu g. Mit F(8 | 6) ist der Abstand 5.",
+    "Richtig.",
+    "Falsch: Der Abstand ist die y-Koordinate 10."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "O ist irgendein Punkt auf g, nicht der nächste. Der Lotfußpunkt ist F(8 | 6), PF = (3 | −4) hat die Länge 5.",
+   "h": "Steht OP senkrecht auf g?"
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welches c > 0 hat der Punkt P(c | 0) von der Geraden g: y = 0,75x den Abstand 6?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "6 / 0.6",
+   "w": "F = (4t | 3t) mit (c − 4t) · 4 + (0 − 3t) · 3 = 4c − 25t = 0 ⇒ t = 4c : 25. PF = (9c : 25 | −12c : 25), Länge 15c : 25 = 0,6c. 0,6c = 6 ⇒ c = 10.",
+   "h": "Rechne mit P(c | 0) allgemein und setze die Länge gleich 6."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schiff fährt von O(0 | 0) geradeaus in Richtung u = (4 | 3) (Einheit km). Ein Leuchtturm steht bei L(−4 | 22). Wie nah kommt das Schiff dem Leuchtturm höchstens?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "((-4 - 4 * 2) ** 2 + (22 - 3 * 2) ** 2) // 20",
+   "w": "F = (4t | 3t). (L − F) · u = (−4 − 4t) · 4 + (22 − 3t) · 3 = 50 − 25t = 0 ⇒ t = 2, F(8 | 6). LF = (12 | −16), Länge √(144 + 256) = 20.",
+   "h": "Am nächsten ist das Schiff am Lotfußpunkt."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Punkte mit ganzzahligen Koordinaten im Quadrat 0 ≤ x ≤ 10, 0 ≤ y ≤ 10 haben von der Geraden y = 0,75x genau den Abstand 1?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Der Abstand von P(x | y) zu g ist |3x − 4y| : 5 (wie in den Aufgaben: PF hat die Länge |3x − 4y| : 5). Abstand 1 heißt 3x − 4y = 5 oder 3x − 4y = −5. Im Quadrat: (3 | 1), (7 | 4) und (1 | 2), (5 | 5), (9 | 8). Das sind 5 Punkte.",
+   "h": "Zeige zuerst: Der Abstand von P(x | y) ist |3x − 4y| : 5."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden g: y = 0,75x und h: y = 0,75x − 5 sind parallel. Wie weit sind sie voneinander entfernt?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Nimm den Punkt (0 | −5) auf h und berechne seinen Abstand von g: F = (4t | 3t) mit (0 − 4t) · 4 + (−5 − 3t) · 3 = −15 − 25t = 0 ⇒ t = −0,6, F(−2,4 | −1,8). PF = (−2,4 | 3,2), Länge 4.",
+   "h": "Wähle einen bequemen Punkt auf h und berechne seinen Abstand von g."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(7 | −1) von g."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((7 - 4 * 1) ** 2 + (-1 - 3 * 1) ** 2) // 5",
+   "w": "F = (4t | 3t). (P − F) · u = (7 − 4t) · 4 + (−1 − 3t) · 3 = 25 − 25t = 0 ⇒ t = 1, F(4 | 3). PF = (−3 | 4), Länge √(9 + 16) = 5."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(6 | 17) von g."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((6 - 4 * 3) ** 2 + (17 - 3 * 3) ** 2) // 10",
+   "w": "F = (4t | 3t). (P − F) · u = (6 − 4t) · 4 + (17 − 3t) · 3 = 75 − 25t = 0 ⇒ t = 3, F(12 | 9). PF = (6 | −8), Länge √(36 + 64) = 10."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(−7 | 1) von g."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((-7 - 4 * -1) ** 2 + (1 - 3 * -1) ** 2) // 5",
+   "w": "F = (4t | 3t). (P − F) · u = (−7 − 4t) · 4 + (1 − 3t) · 3 = −25 − 25t = 0 ⇒ t = −1, F(−4 | −3). PF = (3 | −4), Länge √(9 + 16) = 5."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(14 | −2) von g."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((14 - 4 * 2) ** 2 + (-2 - 3 * 2) ** 2) // 10",
+   "w": "F = (4t | 3t). (P − F) · u = (14 − 4t) · 4 + (−2 − 3t) · 3 = 50 − 25t = 0 ⇒ t = 2, F(8 | 6). PF = (−6 | 8), Länge √(36 + 64) = 10."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(1 | 7) von g."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((1 - 4 * 1) ** 2 + (7 - 3 * 1) ** 2) // 5",
+   "w": "F = (4t | 3t). (P − F) · u = (1 − 4t) · 4 + (7 − 3t) · 3 = 25 − 25t = 0 ⇒ t = 1, F(4 | 3). PF = (3 | −4), Länge √(9 + 16) = 5."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(13 | 16) von g."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((13 - 4 * 4) ** 2 + (16 - 3 * 4) ** 2) // 5",
+   "w": "F = (4t | 3t). (P − F) · u = (13 − 4t) · 4 + (16 − 3t) · 3 = 100 − 25t = 0 ⇒ t = 4, F(16 | 12). PF = (3 | −4), Länge √(9 + 16) = 5."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(−14 | 2) von g."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((-14 - 4 * -2) ** 2 + (2 - 3 * -2) ** 2) // 10",
+   "w": "F = (4t | 3t). (P − F) · u = (−14 − 4t) · 4 + (2 − 3t) · 3 = −50 − 25t = 0 ⇒ t = −2, F(−8 | −6). PF = (6 | −8), Länge √(36 + 64) = 10."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(13 | −9) von g."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "((13 - 4 * 1) ** 2 + (-9 - 3 * 1) ** 2) // 15",
+   "w": "F = (4t | 3t). (P − F) · u = (13 − 4t) · 4 + (−9 − 3t) · 3 = 25 − 25t = 0 ⇒ t = 1, F(4 | 3). PF = (−9 | 12), Länge √(81 + 144) = 15."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(3 | 21) von g."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "((3 - 4 * 3) ** 2 + (21 - 3 * 3) ** 2) // 15",
+   "w": "F = (4t | 3t). (P − F) · u = (3 − 4t) · 4 + (21 − 3t) · 3 = 75 − 25t = 0 ⇒ t = 3, F(12 | 9). PF = (9 | −12), Länge √(81 + 144) = 15."
+  },
+  {
+   "l": "abstand",
+   "t": "abstand",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P(2 | −11) von g."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((2 - 4 * -1) ** 2 + (-11 - 3 * -1) ** 2) // 10",
+   "w": "F = (4t | 3t). (P − F) · u = (2 − 4t) · 4 + (−11 − 3t) · 3 = −25 − 25t = 0 ⇒ t = −1, F(−4 | −3). PF = (−6 | 8), Länge √(36 + 64) = 10."
   }
  ],
  "offen": [

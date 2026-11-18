@@ -4856,7 +4856,7 @@
    "a": [
     "Ja, hoch 0 ist immer 0.",
     "Nein, 10⁰ = 1.",
-    "Nein, 10⁰ = 10."
+    "Nein, hoch 0 ändert die Zahl 10 nicht."
    ],
    "o": {
     "index": 1

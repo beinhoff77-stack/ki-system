@@ -4325,3 +4325,42 @@ nav.lern-reiter { background: transparent; padding: 0; border-radius: 0; box-sha
 .lern-plan-themen li > span.lern-plan-flug { display: block; }
 .lern-plan-flug > b, .lern-plan-flug > .lern-plan-jg { display: inline; }
 .lern-plan-flug > .lern-plan-jg { white-space: normal; font-weight: 500; font-size: 0.82rem; color: var(--text-muted); }
+/* LA-7: Lehrplan-Übersicht als Tabelle */
+.lp-kopf h2 { margin: 0 0 4px; }
+.lp-filter { display: grid; gap: 8px; }
+.lp-sa, .lp-kl { flex-wrap: wrap; gap: 6px; }
+.lp-sa .lern-chip[aria-pressed="true"], .lp-kl .lern-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.lp-kl .lern-chip { min-height: 36px; padding: 0 12px; }
+.lp-kindmarke { display: inline-grid; place-items: center; min-width: 18px; height: 18px; margin-left: 5px; border-radius: 9px; background: var(--warn-bg); color: var(--warn); font-size: 0.7rem; font-weight: 800; }
+.lp-filter .row { align-items: center; gap: 12px; flex-wrap: wrap; }
+.lp-filter input[type=search] { flex: 1 1 14em; }
+.lp-tabelle-lehrplan { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 12px; font-size: 0.86rem; }
+.lp-tabelle-lehrplan th, .lp-tabelle-lehrplan td { padding: 4px 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.lp-tabelle-lehrplan thead th { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; }
+.lp-tabelle-lehrplan tbody th a { color: var(--text); text-decoration: none; }
+.lp-tabelle-lehrplan .lern-aendern { margin-top: 2px; }
+.lp-klickbar { cursor: pointer; }
+.lp-klickbar:hover { background: var(--surface-muted); }
+.lp-gruppe-zeile th { background: var(--surface-muted); font-size: 0.78rem; color: var(--text-muted); padding-top: 6px; }
+.lp-inhalt-zelle { white-space: nowrap; }
+.lp-fertig .lp-inhalt-zelle { color: var(--ok); } .lp-pruefung .lp-inhalt-zelle { color: var(--warn); } .lp-leer .lp-inhalt-zelle { color: var(--text-muted); }
+.lp-tabelle-lehrplan td.lp-stand { white-space: nowrap; }
+tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0; padding: 0; }
+.lp-tabelle-lehrplan td.lp-stand { border-radius: 0; background: none; font-size: 0.8rem; }
+.lp-tabelle-lehrplan td.lp-stand.ok { color: var(--ok); font-weight: 700; }
+.lp-tabelle-lehrplan td.lp-stand.laeuft { color: var(--warn); }
+.lp-kopf h2 { font-size: 1.3rem; }
+.lp-kopf p { margin: 2px 0 8px; }
+.lp-filter { margin-bottom: 8px; }
+.lp-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; border: 2px solid currentColor; box-sizing: border-box; }
+.lp-dot-fertig { background: var(--ok); border-color: var(--ok); }
+.lp-dot-pruefung { border-color: #C99A00; background: linear-gradient(90deg, #C99A00 50%, transparent 50%); }
+.lp-dot-leer { border-color: #9AA6B2; background: transparent; }
+.lp-kacheln-klein { display: block; margin: 0 0 8px; }
+.lp-kacheln-klein .lp-kacheln { display: flex; flex-wrap: wrap; gap: 6px; }
+.lp-kacheln-klein .lp-kachel { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px; border-radius: 99px; flex-direction: row; min-width: 0; }
+.lp-kacheln-klein .lp-kachel b { font-size: 1rem; }
+.lp-tabelle-lehrplan .lern-aendern { border: 0; padding: 0; margin: 0; background: none; display: inline-block; }
+.lp-tabelle-lehrplan .lern-aendern > summary { font-size: 0.75rem; font-weight: 600; min-height: 0; padding: 0; }
+.lp-tabelle-lehrplan tbody th { white-space: nowrap; }
+.lp-tabelle-lehrplan .lern-aendern { margin-left: 8px; }

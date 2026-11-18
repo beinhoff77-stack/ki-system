@@ -401,25 +401,25 @@ test('Lernen: Test ohne Lösungen bis zur Abgabe, danach Auswertung', async (t) 
   assert.equal(calls.filter((c) => c.aktion === 'schule_test_abschliessen').length, 1);
 });
 
-test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhalte prüfen, Bauen lassen', async (t) => {
+test('Lehrplan-Übersicht (LA-7): Tabelle je Schulart und Klasse, Klassen der Kinder markiert, Inhaltsstand, Inhalte ansehen, Bauen lassen', async (t) => {
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/lehrplan');
   await page.getByRole('heading', { name: 'Lehrplan-Übersicht' }).waitFor();
-  // Alle 5 Themen, nach Gymnasium-Klasse gruppiert; das reine Realschul-Thema steht am Ende.
-  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['5', '1', '1', '3']);
-  await page.getByRole('heading', { name: /Klasse 8.*Kind B/ }).waitFor();
-  await page.getByRole('heading', { name: /Nicht im Gymnasium-Lehrplan/ }).waitFor();
-  await page.getByRole('heading', { name: 'Zahlen · 1 von 2 mit Inhalt' }).waitFor();
-  await page.getByRole('heading', { name: /^Funktionen/ }).waitFor();
-  assert.equal(await page.getByRole('button', { name: 'Realschule' }).count(), 0);
-  await page.locator('.lp-zeile.lp-fertig', { hasText: 'Große natürliche Zahlen' }).getByText('Kind A: geschafft').waitFor();
-  await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).getByText('Gym 5 · RS 5 · IB MYP-Jahr 1').waitFor();
+  // vorbelegt mit der Klasse des ersten Kindes (Kind A, Gym 5); Klasse 8 trägt die Marke von Kind B
+  const kl = page.getByRole('group', { name: 'Klasse' });
+  assert.equal(await kl.locator('[aria-pressed=true]').innerText(), 'Kl. 5A');
+  assert.equal(await kl.getByRole('button', { name: /Kl\. 8/ }).innerText(), 'Kl. 8B');
+  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['2', '1', '1', '0']);
+  assert.deepEqual(await page.locator('.lp-tabelle-lehrplan thead th').allInnerTexts(), ['FLUG', 'ORT', 'ANDERE SCHULARTEN', 'INHALT', 'KIND A', 'KIND B']);
+  const gross = page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' });
+  assert.deepEqual((await gross.locator('td').allInnerTexts()).map((x) => x.trim()), ['Rom', 'RS 5 · IB MYP-Jahr 1', 'fertig · 1 Auftrag', 'geschafft', '–']);
+  await page.locator('.lp-zeile', { hasText: 'Teilbarkeit' }).locator('.lp-dot-pruefung').waitFor();
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/lehrplan-390.png'), fullPage: true });
-  await page.getByRole('combobox', { name: 'Klasse' }).selectOption('5');
-  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['2', '1', '1', '0']);
-  await page.getByRole('combobox', { name: 'Klasse' }).selectOption('');
-  await page.getByRole('combobox', { name: 'Inhalt' }).selectOption('leer');
+  // alle Klassen, nur „fehlt“
+  await kl.getByRole('button', { name: 'alle Klassen' }).click();
+  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['4', '1', '1', '2']);
+  await page.locator('.lp-kachel.lp-leer').click();
   const lf = page.locator('.lp-zeile', { hasText: 'Lineare Funktionen' });
   assert.equal(await lf.getByRole('button', { name: 'Bauen lassen' }).count(), 0, 'E-3: ein Knopf überall');
   await lf.getByText('✎ Ändern lassen').click();
@@ -427,11 +427,14 @@ test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhal
   await lf.getByText('Danke – der Auftrag ist angekommen', { exact: false }).waitFor();
   const rm = calls.find((c) => c.aktion === 'schule_rueckmeldung_geben').daten;
   assert.equal(rm.art, 'thema_fehlt'); assert.equal(rm.bezug, 'flug'); assert.equal(rm.block_id, 70); assert.match(rm.text, /Lineare Funktionen/);
-  await page.getByRole('combobox', { name: 'Klasse' }).selectOption('99');
-  await page.locator('.lp-zeile', { hasText: 'Nur Realschule' }).getByText('RS 7').waitFor();
-  await page.getByRole('combobox', { name: 'Klasse' }).selectOption('');
-  await page.getByRole('combobox', { name: 'Inhalt' }).selectOption('');
-  await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).getByRole('link', { name: 'Inhalte ansehen' }).click();
+  // Realschule: das reine Realschul-Thema
+  await page.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: 'Realschule' }).click();
+  await kl.getByRole('button', { name: 'alle Klassen' }).click();
+  await page.locator('.lp-kachel').first().click();
+  await page.locator('.lp-zeile', { hasText: 'Nur Realschule' }).waitFor();
+  await page.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: 'Gymnasium' }).click();
+  // Zeile antippen → Inhalte ansehen
+  await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).locator('td').first().click();
   await page.waitForURL(/#\/inhalte\/1$/);
   await page.getByText('3 Etappen · 2 Bordkarten zum Üben · 1 für Test und Nachtest', { exact: false }).waitFor();
   await page.locator('details.lp-karte > summary').first().click();
@@ -1537,8 +1540,8 @@ test('LA-1: Seite des Kindes mit 4 Reitern; alte Adressen leiten um; Reiter „S
   await page.locator('.lern-chips-zeile[aria-label="Schulart"] a', { hasText: 'Realschule' }).click();
   await page.waitForURL(/#\/kind\/1-stand-rs_by$/);
   // alte Adressen
-  for (const [alt, neu] of [['lernstand/1', /#\/kind\/1-stand$/], ['lernstand/1-rs_by', /#\/kind\/1-stand-rs_by$/], ['wackelt/1', /#\/kind\/1-wackelt$/], ['plan/1', /#\/kind\/1-plan$/]]) {
-    await page.goto(origin + '/#/' + alt); await page.waitForURL(neu); await page.locator('.lern-reiter').waitFor();
+  for (const [alt, neu, reiter] of [['lernstand/1', /#\/kind\/1-stand$/, 'Stand'], ['wackelt/1', /#\/kind\/1-wackelt$/, 'Was wackelt'], ['lernstand/1-rs_by', /#\/kind\/1-stand-rs_by$/, 'Stand'], ['plan/1', /#\/kind\/1-plan$/, 'Plan']]) {
+    await page.goto(origin + '/#/' + alt); await page.waitForURL(neu); await page.locator('.lern-reiter a[aria-current]', { hasText: reiter }).waitFor();
   }
   // „Alle Kinder im Vergleich“ ist nicht mehr verlinkt
   await page.goto(origin + '/#/lernen'); await page.locator('.lern-zutun').waitFor();
@@ -2049,6 +2052,22 @@ test('LA-5: geschaffter Ort steht nicht im Plan, sondern zugeklappt unter „Ges
   // Überblick: zuletzt geschafft
   await page.getByRole('link', { name: 'Überblick', exact: true }).click();
   await page.locator('.lern-geschafft-kurz li').first().waitFor();
+});
+
+test('LA-7: Lehrplan Gym 5 (14 Flüge) passt auf einen Tablet-Bildschirm', async (t) => {
+  const { page } = await setup(t, { anpassen: (aktion, e) => { if (aktion !== 'schule_lehrplan_uebersicht') return null; const x = structuredClone(e);
+    const gebiete = ['Zahlen', 'Geometrie', 'Daten'];
+    x.themen = Array.from({ length: 14 }, (_, i) => ({ thema_id: 100 + i, titel: `Flug ${i + 1} der Klasse 5`, gebiet: gebiete[i % 3], ort: ['Rom', 'Athen', 'Kairo', 'Lima'][i % 4], block_id: 40 + i,
+      jahrgang: { gym_by: 5, rs_by: 5 + (i % 2), ib_myp: 1 }, einheit: i % 3 ? { id: 200 + i, status: 'geprueft', karten: 4, aufgaben: 30, neu: 0 } : null, stand: { 1: i < 4 ? 'erledigt' : 'offen', 2: 'keine_einheit' }, geplant: [1], rueckmeldungen: 0 }));
+    return x; } });
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto(origin + '/#/lehrplan');
+  const rows = page.locator('.lp-tabelle-lehrplan tbody tr.lp-zeile'); await rows.nth(13).waitFor();
+  const b = await rows.nth(13).boundingBox();
+  await page.screenshot({ path: path.join(root, 'test-results/la7-lehrplan-820.png') });
+  assert.ok(b.y + b.height <= 1180, 'Gym 5 passt auf das Tablet: ' + Math.round(b.y + b.height));
+  await page.setViewportSize({ width: 400, height: 860 }); await page.screenshot({ path: path.join(root, 'test-results/la7-lehrplan-400.png'), fullPage: true });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.screenshot({ path: path.join(root, 'test-results/la7-lehrplan-1280.png'), fullPage: true });
 });
 
 // ---------- IB einheitlich beschriften (18.11.): MYP-Jahr = Klasse − 5, Hinweis „entspricht etwa Klasse 6–10“ ----------

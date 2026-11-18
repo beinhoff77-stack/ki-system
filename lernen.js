@@ -3116,7 +3116,7 @@ function lernEtappeStandText(x) {
   return `${x.serie || 0} von ${x.ziel || 6} richtig · ${x.richtig} richtig, ${x.falsch} falsch`;
 }
 
-// ---------- Eltern/Lehrer: Info-Seite „So funktioniert’s“ (E-1). Text aus inhalte/pruefung/eltern/info-seite.md, gegen den Code geprüft (Stand 0.79.0). ----------
+// ---------- Eltern/Lehrer: Info-Seite „So funktioniert’s“ (E-1). Text aus inhalte/pruefung/eltern/info-seite.md, gegen den Code geprüft (Stand 0.80.0). ----------
 // Ändert sich eine Regel aus „Wie wird gelernt?“ (Etappe sitzt, Wiederholung, Tests), diesen Text im selben Schritt anpassen.
 const LERN_INFO_FRAGEN = [
   ['Worauf baut die App auf?', [
@@ -3147,7 +3147,7 @@ const LERN_INFO_FRAGEN = [
     'Keine Zeitvorgaben, keine Uhr, keine Ranglisten.']],
   ['Wie entstehen die Inhalte, und wer prüft sie?', [
     'Erklärungen und Bordkarten erstellt eine KI (Claude) nach festen Regeln: Bezug zum Lehrplan, Alltagseinstieg, einfache Sprache, jede Lösung vom Programm berechnet und geprüft.',
-    'Ein neuer Flug ist zuerst „in Prüfung“: Nur das Testkind sieht ihn. Nach der Freigabe ist er „fertig“ und für alle Kinder da. Die Lehrplan-Übersicht zeigt den Stand: grau = noch kein Inhalt, gelb = in Prüfung, grün = fertig.',
+    'Ein neuer Flug ist zuerst „in Prüfung“: Nur das Testkind sieht ihn. Nach der Freigabe ist er „fertig“ und für alle Kinder da. Die Lehrplan-Übersicht (Nachschlagen auf der Startseite) zeigt je Schulart und Klasse eine Tabelle aller Flüge: Ort, andere Schularten, Inhalt (● fertig, ◐ in Prüfung, ○ fehlt) und den Stand je Kind; die Klassen der Kinder sind an den Knöpfen markiert. Eine Zeile antippen öffnet „Inhalte ansehen“.',
     'Jeder Inhalt ist mit allen Lösungen einsehbar („Inhalte ansehen“).']],
   ['Was kann ich selbst ändern?', [
     ['Plan je Kind', ' (Reiter „Plan“): links nur die offenen Orte in der Reihenfolge der Lernreise (am Griff ⠿ ziehen oder ↑ ↓), rechts der Lehrplan – Schulart und Klasse antippen, „Klasse 5: 13 von 14 Flügen im Plan“, eingeplante Orte mit ✓, fehlende mit ⠿ zum Hineinziehen oder „+“. Einen Ort antippen zeigt seine Flüge: „im Plan“ (Häkchen links; ein abgewählter Flug fehlt in der Lernreise und zählt nicht für den Stempel), „kann schon“ je Flug (zählt wie gelandet, ohne Wiederholungen und Mischkarten; wieder abhaken geht ohne Verlust) und „alle Flüge: kann schon“ für den ganzen Ort. Ein Flug einer höheren Klasse trägt den Hinweis „Gym 6 – höhere Klasse“. Geschaffte Orte stehen darunter im zugeklappten Block „Geschafft“ – mit gelandet am, Nachtest und nächster Wiederholung; die Reihenfolge der Lernreise ändert das nicht. Jede Änderung wird sofort gespeichert; „↶ Rückgängig“ oben holt den Stand davor zurück. Hat jemand anderes den Plan inzwischen geändert, meldet die App das und überschreibt nichts – dann neu laden.'],
@@ -3252,6 +3252,8 @@ function lernInhaltZustand(t) {
   return { k: 'pruefung', text: `In Prüfung · ${e.karten} Etappen · ${e.aufgaben} Bordkarten` };
 }
 let lernLpFilter = null;
+// LA-7: Lehrplan-Übersicht als kompakte Tabelle – oben Reiter Schulart, Klassen-Knöpfe (Klassen der Kinder markiert), Suche; eine Zeile je Flug:
+// Flug · Ort · andere Schularten · Inhalt (● fertig, ◐ in Prüfung, ○ fehlt) · Stand je Kind. Antippen → „Inhalte ansehen“. Vorbelegt mit der Klasse des ersten Kindes.
 async function viewLehrplan() {
   setChrome('Lehrplan', { back: true, showTabs: false });
   const live = viewGuard();
@@ -3259,73 +3261,64 @@ async function viewLehrplan() {
   const d = await lernCall('schule_lehrplan_uebersicht');
   if (!live()) return;
   const kinder = d.kinder || [];
-  const f = lernLpFilter || (lernLpFilter = { kl: '', inhalt: '', q: '' });
-  const gk = (t) => t.jahrgang?.gym_by || 99; // Gruppe: Klasse im Gymnasium (alle Kinder sind am Gymnasium)
+  const erstes = kinder[0];
+  const f = lernLpFilter || (lernLpFilter = { sa: erstes?.schulart || 'gym_by', kl: String((erstes && lernStufe(erstes, erstes.schulart || 'gym_by')) || ''), inhalt: '', q: '' });
+  const y = () => LERN_SYS.find((q) => q.sa === f.sa) || LERN_SYS[0];
+  const marke = (c) => { const w = String(c.name || '').trim().split(/\s+/); return (w.length > 1 && w[w.length - 1].length <= 2 ? w[w.length - 1] : w[0].slice(0, 1)).toUpperCase(); };
+  const saReiter = el('div', { class: 'lern-chips-zeile lp-sa', role: 'group', 'aria-label': 'Schulart' });
+  const klKnoepfe = el('div', { class: 'lern-chips-zeile lp-kl', role: 'group', 'aria-label': 'Klasse' });
   const kacheln = el('div', { class: 'lp-kacheln' });
-  const liste = el('div', { class: 'lp-liste' });
-  const klSel = el('select', { 'aria-label': 'Klasse' });
-  const klName = (k) => k === 99 ? 'Nicht im Gymnasium-Lehrplan' : `Klasse ${k}` + kinder.filter((c) => c.klasse === k).map((c) => ' · ' + c.name).join('');
-  const fuelleKlassen = () => {
-    const ks = [...new Set((d.themen || []).map(gk))].sort((a, b) => a - b);
-    lernErsetze(klSel, el('option', { value: '' }, 'Alle Klassen'), ...ks.map((k) => el('option', { value: k, selected: String(k) === String(f.kl) }, klName(k))));
-  };
-  klSel.addEventListener('change', () => { f.kl = klSel.value; zeichne(); });
-  const inhSel = el('select', { 'aria-label': 'Inhalt' }, ...[['', 'Alle Flüge'], ['fertig', 'Fertig'], ['pruefung', 'In Prüfung'], ['leer', 'Noch kein Inhalt']]
-    .map(([v, t]) => el('option', { value: v, selected: f.inhalt === v }, t)));
-  inhSel.addEventListener('change', () => { f.inhalt = inhSel.value; zeichne(); });
+  const tbody = el('tbody');
   const suche = el('input', { type: 'search', placeholder: 'Flug suchen …', 'aria-label': 'Flug suchen', value: f.q });
   suche.addEventListener('input', () => { f.q = suche.value; zeichne(); });
-  const status = el('p', { class: 'small muted', role: 'status' });
+  const inhaltZeichen = { fertig: ['●', 'fertig'], pruefung: ['◐', 'in Prüfung'], leer: ['○', 'fehlt'] };
+  const zeichneWahl = () => {
+    lernErsetze(saReiter, ...LERN_SYS.map((q) => el('button', { type: 'button', class: 'lern-chip', 'aria-pressed': String(q.sa === f.sa),
+      onclick: () => { f.sa = q.sa; const c = kinder.find((k) => lernStufe(k, q.sa)); f.kl = String((c && lernStufe(c, q.sa)) || ''); zeichneWahl(); zeichne(); } }, q.name)));
+    lernErsetze(klKnoepfe, ...y().stufen.map((n) => { const ks = kinder.filter((c) => lernStufe(c, f.sa) === n);
+      return el('button', { type: 'button', class: 'lern-chip', 'aria-pressed': String(String(n) === f.kl), title: ks.map((c) => c.name).join(', ') || null,
+        onclick: () => { f.kl = String(n); zeichneWahl(); zeichne(); } }, f.sa === 'ib_myp' ? y().label(n) : 'Kl. ' + n, ...ks.map((c) => el('span', { class: 'lp-kindmarke', 'aria-label': c.name }, marke(c)))); }),
+      el('button', { type: 'button', class: 'lern-chip', 'aria-pressed': String(!f.kl), onclick: () => { f.kl = ''; zeichneWahl(); zeichne(); } }, 'alle Klassen'));
+  };
+  const andere = (t) => LERN_SYS.filter((q) => q.sa !== f.sa && t.jahrgang?.[q.sa]).map((q) => q.sa === 'ib_myp' ? 'IB ' + q.label(t.jahrgang[q.sa]) : `${q.kurz === 'GYM' ? 'Gym' : q.kurz} ${t.jahrgang[q.sa]}`).join(' · ');
   const zeile = (t) => {
-    const z = lernInhaltZustand(t);
-    const stand = kinder.map((c) => {
-      const s = t.stand?.[c.id] || 'keine_einheit'; const [txt, kl] = LERN_STAND[s] || [s, ''];
-      const geplant = (t.geplant || []).includes(c.id);
-      return el('span', { class: 'lp-stand ' + kl }, `${c.name}: ${txt}${geplant ? ' · im Plan' : ''}`);
-    });
-    return el('article', { class: 'lp-zeile lp-' + z.k },
-      el('div', { class: 'lp-text' }, el('b', {}, t.titel),
-        el('span', { class: 'lern-plan-jg' }, lernJahrgangText(t.jahrgang) || 'ohne Lehrplan-Zuordnung'),
-        t.beschreibung ? el('small', {}, t.beschreibung) : null,
-        (t.gliederung || []).length ? el('ol', { class: 'lp-gliederung' }, ...t.gliederung.map((x) => el('li', {}, x))) : null,
-        t.ort ? el('small', { class: 'muted' }, 'Ort der Lernreise: ' + t.ort) : null,
-        el('span', { class: 'lp-inhalt' }, el('i', { class: 'lp-punkt', 'aria-hidden': 'true' }), z.text),
-        el('div', { class: 'lp-staende' }, ...stand),
-        t.rueckmeldungen ? el('a', { class: 'small', href: '#/lernauftraege' }, `${t.rueckmeldungen} offene${t.rueckmeldungen > 1 ? ' Aufträge' : 'r Auftrag'}`) : null),
-      el('div', { class: 'lp-aktionen' },
-        t.einheit ? el('a', { class: 'btn secondary', href: `#/inhalte/${t.einheit.id}` }, 'Inhalte ansehen') : null),
-      // E-3: „Bauen lassen“ ist jetzt „✎ Ändern lassen“ mit der Art „Neuer Flug“ und einem Vorschlag für den Text
-      t.einheit ? null : lernAendern({ block_id: t.block_id }, { bezug: 'flug', wo: `Flug „${t.titel}“`, art: 'neu',
-        text: `Bitte Inhalte bauen: „${t.titel}“ (${t.ort || t.gebiet}, ${lernJahrgangText(t.jahrgang)}).` }));
+    const z = lernInhaltZustand(t); const [zeichen, wort] = inhaltZeichen[z.k];
+    const oeffnen = t.einheit ? () => route('inhalte', t.einheit.id) : null;
+    return el('tr', { class: 'lp-zeile lp-' + z.k + (oeffnen ? ' lp-klickbar' : ''), onclick: (ev) => { if (oeffnen && !ev.target.closest('a,button,details,summary,input,textarea,select')) oeffnen(); } },
+      el('th', { scope: 'row' }, t.einheit ? el('a', { href: `#/inhalte/${t.einheit.id}`, 'aria-label': `${t.titel}: Inhalte ansehen` }, el('b', {}, t.titel)) : el('b', {}, t.titel),
+        t.einheit ? null : lernAendern({ block_id: t.block_id }, { bezug: 'flug', wo: `Flug „${t.titel}“`, art: 'neu',
+          text: `Bitte Inhalte bauen: „${t.titel}“ (${t.ort || t.gebiet}, ${lernJahrgangText(t.jahrgang)}).` })),
+      el('td', {}, t.ort || '–'),
+      el('td', { class: 'small' }, andere(t) || '–'),
+      el('td', { class: 'lp-inhalt-zelle', title: z.text }, el('i', { class: 'lp-dot lp-dot-' + z.k, 'aria-hidden': 'true' }), ' ' + wort,
+        t.rueckmeldungen ? el('a', { class: 'small lp-auftrag', href: '#/lernauftraege' }, ` · ${t.rueckmeldungen} ${t.rueckmeldungen > 1 ? 'Aufträge' : 'Auftrag'}`) : null),
+      ...kinder.map((c) => { const s = t.stand?.[c.id] || 'keine_einheit'; const [txt, kl] = LERN_STAND[s] || [s, ''];
+        return el('td', { class: 'lp-stand ' + kl }, txt + ((t.geplant || []).includes(c.id) ? ' · im Plan' : '')); }));
   };
   const zeichne = () => {
     const q = f.q.trim().toLowerCase();
-    const basis = (d.themen || []).filter((t) => !f.kl || String(gk(t)) === String(f.kl));
-    const zahl = (k) => basis.filter((t) => lernInhaltZustand(t).k === k).length;
-    lernErsetze(kacheln, 
-      ...[['', 'Flüge', basis.length, ''], ['fertig', 'fertig', zahl('fertig'), ' lp-fertig'], ['pruefung', 'in Prüfung', zahl('pruefung'), ' lp-pruefung'], ['leer', 'ohne Inhalt', zahl('leer'), ' lp-leer']]
-        .map(([wert, text, n, kl]) => el('button', { type: 'button', class: 'lp-kachel' + kl + (f.inhalt === wert ? ' on' : ''), 'aria-pressed': String(f.inhalt === wert),
-          onclick: () => { f.inhalt = wert; inhSel.value = wert; zeichne(); } }, el('b', {}, String(n)), el('small', {}, text))));
-    const treffer = basis.filter((t) => (!f.inhalt || lernInhaltZustand(t).k === f.inhalt)
-      && (!q || `${t.titel} ${t.ort} ${t.gebiet}`.toLowerCase().includes(q)));
-    const gruppen = new Map();
-    for (const t of treffer.sort((a, b) => gk(a) - gk(b))) {
-      const g = gk(t); if (!gruppen.has(g)) gruppen.set(g, []); gruppen.get(g).push(t);
-    }
-    lernErsetze(liste, ...[...gruppen].map(([kl, ts]) => el('section', { class: 'lp-gruppe' },
-      el('h3', {}, klName(kl), el('small', { class: 'muted' }, ` · ${ts.length} ${ts.length === 1 ? 'Flug' : 'Flüge'}`)),
-      ...[...ts.reduce((m, t) => m.set(t.gebiet || 'Weitere', [...(m.get(t.gebiet || 'Weitere') || []), t]), new Map())].flatMap(([g, gs]) => [
-        el('h4', { class: 'lp-gebiet' }, g, el('small', { class: 'muted' }, ` · ${gs.filter((t) => lernInhaltZustand(t).k === 'fertig').length} von ${gs.length} mit Inhalt`)),
-        ...gs.map(zeile)]))));
-    if (!treffer.length) lernAnhaengen(liste, el('p', { class: 'muted' }, 'Keine Flüge für diese Auswahl.'));
+    const inSa = (d.themen || []).filter((t) => t.jahrgang?.[f.sa] && (!f.kl || String(t.jahrgang[f.sa]) === f.kl));
+    const zahl = (k) => inSa.filter((t) => lernInhaltZustand(t).k === k).length;
+    lernErsetze(kacheln, ...[['', 'Flüge', inSa.length, ''], ['fertig', 'fertig', zahl('fertig'), ' lp-fertig'], ['pruefung', 'in Prüfung', zahl('pruefung'), ' lp-pruefung'], ['leer', 'fehlt', zahl('leer'), ' lp-leer']]
+      .map(([wert, text, n, kl]) => el('button', { type: 'button', class: 'lp-kachel' + kl + (f.inhalt === wert ? ' on' : ''), 'aria-pressed': String(f.inhalt === wert),
+        onclick: () => { f.inhalt = wert; zeichne(); } }, wert ? el('i', { class: 'lp-dot lp-dot-' + wert, 'aria-hidden': 'true' }) : null, el('b', {}, String(n)), el('small', {}, text))));
+    const treffer = inSa.filter((t) => (!f.inhalt || lernInhaltZustand(t).k === f.inhalt) && (!q || `${t.titel} ${t.ort} ${t.gebiet}`.toLowerCase().includes(q)))
+      .sort((a, b) => (Number(a.jahrgang[f.sa]) - Number(b.jahrgang[f.sa])) || String(a.gebiet || '').localeCompare(String(b.gebiet || '')) || String(a.ort || '').localeCompare(String(b.ort || '')));
+    const zeilen = []; let g = null;
+    for (const t of treffer) { const k = `${t.jahrgang[f.sa]}·${t.gebiet || ''}`;
+      if (k !== g) { g = k; zeilen.push(el('tr', { class: 'lp-gruppe-zeile' }, el('th', { colspan: String(4 + kinder.length) }, `${f.sa === 'ib_myp' ? y().label(Number(t.jahrgang[f.sa])) : 'Klasse ' + t.jahrgang[f.sa]} · ${t.gebiet || 'Weitere'}`))); }
+      zeilen.push(zeile(t)); }
+    lernErsetze(tbody, ...zeilen);
+    if (!treffer.length) lernAnhaengen(tbody, el('tr', {}, el('td', { colspan: String(4 + kinder.length), class: 'muted' }, 'Keine Flüge für diese Auswahl.')));
   };
-  fuelleKlassen(); zeichne();
+  zeichneWahl(); zeichne();
   lernErsetze(main, lernInfoLink(),
-    el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'ELTERN UND LEHRER'), el('h2', {}, 'Lehrplan-Übersicht'),
-      el('p', {}, 'Alle Mathe-Flüge, sortiert nach Klasse im Gymnasium. Hinter jedem Flug steht, wann er laut Lehrplan dran ist: Gym = Gymnasium, RS = Realschule, IB = MYP-Jahr (' + LERN_IB_HINWEIS + '). Grün = Inhalt fertig, gelb = gebaut und in Prüfung, grau = noch nichts da.')),
-    el('div', { class: 'card lp-filter' }, el('div', { class: 'row' }, klSel, inhSel, suche)),
-    el('p', {}, el('a', { href: '#/expeditionen' }, '⛰ Expeditionen ansehen ›'), el('span', { class: 'small muted' }, ' – größere Bordkarten über mehrere Flüge')), // W176 Teil 4
-    kacheln, status, liste);
+    el('section', { class: 'lp-kopf' }, el('h2', {}, 'Lehrplan-Übersicht'),
+      el('p', { class: 'small muted' }, `Alle Mathe-Flüge je Schulart und Klasse. Zeile antippen → Inhalte ansehen. IB: ${LERN_IB_HINWEIS}.`)),
+    el('div', { class: 'lp-filter' }, saReiter, klKnoepfe, el('div', { class: 'row' }, suche, el('a', { class: 'small', href: '#/expeditionen' }, '⛰ Expeditionen ansehen ›'))),
+    el('div', { class: 'lp-kacheln lp-kacheln-klein' }, kacheln),
+    el('div', { class: 'lern-tabelle-rollen' }, el('table', { class: 'lp-tabelle-lehrplan' },
+      el('thead', {}, el('tr', {}, el('th', {}, 'Flug'), el('th', {}, 'Ort'), el('th', {}, 'andere Schularten'), el('th', {}, 'Inhalt'), ...kinder.map((c) => el('th', {}, c.name)))), tbody)));
 }
 
 // ---------- Eltern/Lehrer: Inhalte einer Einheit prüfen (Erklärungen, Fehler, alle Aufgaben mit Lösung) ----------

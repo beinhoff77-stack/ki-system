@@ -2,6 +2,28 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-18 – FERTIG: Auftrag LA (LA-1 bis LA-7) – App 0.80.0
+
+Zweig `bau-lehrer` (von `lernen-app` b8f910e), kein Merge. Reihenfolge wie verlangt: LA-1 → LA-2 → LA-6 → LA-3 → LA-5 → LA-4 → LA-7; je Paket eine Meldung unten.
+- **Migrationen** (nur als Datei, nicht ausgeführt, unabhängig von Auftrag H einspielbar – andere Ersetz-Stellen): `20261119_la_3_besprochen.sql`, `20261119_la_4_kann_schon_fluege.sql`;
+  Rauchtests `supabase/tests/la_3_rauchtest.sql`, `la_4_rauchtest.sql`. Keine neue Aktion in `lernen-api`, kein DROP, kein DELETE.
+- **App 0.80.0**; ohne die Migrationen läuft alles, nur „Besprochen ✓“ meldet „geht, sobald die Datenbank dafür bereit ist“ und „kann schon“ je Flug zeigt einen Hinweis statt Häkchen.
+- **Tests:** lernen 80 von 80; Suche: dieselben 9 alten Fehler wie auf lernen-app (Reisen/PWA, nicht Lernen).
+- **„Fertig, wenn“:** Tablet-Startseite mit „Zu tun“ und Tabelle ohne Rollen ✓ · Kind B mit 0 Lerntagen rot ✓ · Startseite → falsche Antworten einer wackelnden Etappe: 1 Tipp ✓ ·
+  Plan 820 px zweispaltig, Abdeckung sichtbar, „kann schon“ je Flug zählt ✓ · Geschafftes nicht mehr zwischen offenen ✓ · Klasse/Stufen/Notizen nur im ⚙-Blatt ✓ · Lehrplan Gym 5 (14 Flüge) auf einem Tablet-Bildschirm ✓ (je eigener Test).
+- **Bilder** (Mock-Daten): `docs/previews/la/` – la2-start-*, la1-ueberblick-*, la6-blatt-*, la3-wackelt-*, la4-plan-*, la5-geschafft-820, la7-lehrplan-* (820 / 400 / 1280).
+- **Offen / nicht gebaut:** „Pausen/Reisetage“ als Ausnahme für rot (gibt es noch nicht, Abweichung 4); Ampel für die Stand-Zellen (bewusst weggelassen, s. LA-2);
+  „Kurz gesagt“ in allen Themen-Dateien vorhanden? – nicht geprüft (Inhalts-Chats).
+
+## 2026-11-18 – FERTIG: LA-7 Nachschlagen (7A)
+
+- Lehrplan-Übersicht `#/lehrplan` als **kompakte Tabelle**: oben Reiter Gymnasium · Realschule · IB MYP, Klassen-Knöpfe mit Marken der Kinder (Klasse des Kindes: Buchstabe, z. B. „A“, „B“), „alle Klassen“, Suche, „⛰ Expeditionen ansehen“.
+- Eine Zeile je Flug: Flug · Ort · andere Schularten · Inhalt (● fertig, ◐ in Prüfung, ○ fehlt; Punkte als Formen, nicht Schriftzeichen) · Stand je Kind (Spalte je Kind, „· im Plan“).
+  Zeilen nach Klasse und Kontinent gruppiert. Zeile antippen → „Inhalte ansehen“; fehlt der Inhalt, steht klein „✎ Ändern lassen“ (Auftrag „Neuer Flug“ wie bisher).
+- Vorbelegt mit Schulart und Klasse des ersten Kindes; Zähler (Flüge · fertig · in Prüfung · fehlt) sind zugleich Filter.
+- Ziel „eine Klasse passt auf einen Tablet-Bildschirm“: Test mit 14 Flügen Gym 5 bei 820 × 1180 ✓. Info-Seite: Abschnitt zur Lehrplan-Übersicht angepasst.
+- Bilder: `la7-lehrplan-820.png`, `la7-lehrplan-400.png`, `la7-lehrplan-1280.png`.
+
 ## 2026-11-18 – Zwischenmeldung nach LA-4 (Bilder)
 
 `docs/previews/la/`: Plan Tablet 820 px `la4-plan-820.png` (zwei Spalten, Rom aufgeklappt, „kann schon“ je Flug), Handy 400 px `la4-plan-400.png`, Rechner `la4-plan-1280.png`,

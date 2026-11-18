@@ -78,15 +78,15 @@ begin
   raise notice 'ok H6: heute_selbst zählt nur eigene Lösungen (+1, Tipp nicht); Tag des Kindes in Zeitzone % → %', 'UTC+14', schule.heute_selbst(v_l);
 
   -- ---------- H13: Dosierung der Mischkarten (Server-Teil; Auswahl in der App: tests/lernen.test.cjs „H13“) ----------
-  select a.einheit_id into v_n from schule.aufgabe a join schule.einheit e on e.id = a.einheit_id where a.pool = 'uebung' and a.freigegeben and e.status = 'freigegeben' order by a.id limit 1;
+  select au.einheit_id into v_n from schule.aufgabe au join schule.einheit e on e.id = au.einheit_id where au.pool = 'uebung' and au.freigegeben and e.status = 'freigegeben' order by au.id limit 1; -- au/xa: a und x sind Variablen
   update schule.lernender set klasse = 5 where id = v_l;
   if (schule.einheit_lesen_intern(v_l, v_n)->>'misch_jede')::int <> 6 then raise exception 'FEHLER H13a: Klasse 5 nicht jede 6.'; end if;
   update schule.lernender set klasse = 8 where id = v_l;
   r := schule.einheit_lesen_intern(v_l, v_n);
   if (r->>'misch_jede')::int <> 4 or (r->>'misch_ab')::int < 3 then raise exception 'FEHLER H13b: Klasse 8: %/%', r->>'misch_jede', r->>'misch_ab'; end if;
   if jsonb_array_length(r->'mischkarten') > 8
-     or exists (select 1 from jsonb_array_elements(r->'mischkarten') m join schule.aufgabe x on x.id = (m->>'id')::bigint
-                 where not x.freigegeben or x.pool <> 'uebung' or not exists (select 1 from schule.karte_stand k where k.lernender_id = v_l and k.einheit_id = x.einheit_id and k.lernziel = x.variante_gruppe and k.sitzt)) then
+     or exists (select 1 from jsonb_array_elements(r->'mischkarten') m join schule.aufgabe xa on xa.id = (m->>'id')::bigint
+                 where not xa.freigegeben or xa.pool <> 'uebung' or not exists (select 1 from schule.karte_stand k where k.lernender_id = v_l and k.einheit_id = xa.einheit_id and k.lernziel = xa.variante_gruppe and k.sitzt)) then
     raise exception 'FEHLER H13c: Mischkarten: mehr als 8, gesperrt oder aus nicht gelandeter Etappe'; end if;
   raise notice 'ok H13: Klasse 5 → jede 6., Klasse 8 → jede 4., ab % gelandeten; höchstens 8 Mischkarten (hier %), nur freigegeben und aus gelandeten Etappen', r->>'misch_ab', jsonb_array_length(r->'mischkarten');
 end $$;

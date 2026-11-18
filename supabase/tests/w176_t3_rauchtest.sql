@@ -28,8 +28,8 @@ begin
   -- falsch als Mischkarte → am nächsten Lerntag fällig, keine Abzüge
   perform schule.misch_buchen(v_l, v_a, false, 0::smallint, now());
   select * into k from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
-  if not k.sitzt or k.wdh_fehler <> 1 or k.wdh_lerntage <> 1 then raise exception 'FEHLER 4: %', row_to_json(k); end if;
-  raise notice 'ok 4: falsch → fällig am nächsten Lerntag (wdh_lerntage 1), Etappe bleibt gelandet, eigene Lösungen % unverändert', k.eigene_loesungen;
+  if not k.sitzt or k.wdh_fehler <> 0 or k.wdh_lerntage <> 1 then raise exception 'FEHLER 4: %', row_to_json(k); end if; -- seit H8: Fehler in Mischkarte macht nur fällig, wdh_fehler bleibt
+  raise notice 'ok 4: falsch → fällig am nächsten Lerntag (wdh_lerntage 1), wdh_fehler bleibt 0 (H8), Etappe bleibt gelandet, eigene Lösungen % unverändert', k.eigene_loesungen;
   -- Trigger: Versuch mit misch = true bucht über misch_buchen
   insert into schule.versuch(lernender_id, aufgabe_id, client_id, antwort, richtig, punkte, punkte_max, hilfe, versuch_nr, anlauf, misch)
   values (v_l, v_a, 'rauchtest-misch-' || gen_random_uuid(), '{}'::jsonb, true, 1, 1, 0, 1, 1, true);

@@ -27,14 +27,14 @@ comment on column schule.karte_stand.gezaehlt is 'W176 H3: Aufgaben, die als eig
 update schule.karte_stand k set gezaehlt = x.m
   from (select v.lernender_id, a.einheit_id, a.variante_gruppe lz, jsonb_object_agg(a.id::text, v.erst) m
           from (select v.lernender_id, v.aufgabe_id, min(v.am) erst from schule.versuch v
-                 where v.testsitzung_id is null and v.richtig and coalesce(v.hilfe, 0) = 0 and coalesce(v.anlauf, 1) = 1 and not v.misch group by 1, 2) v
+                 where v.testsitzung_id is null and v.richtig and coalesce(v.hilfe, 0) = 0 and coalesce(v.anlauf, 1) = 1 and not coalesce(v.misch, false) group by 1, 2) v
           join schule.aufgabe a on a.id = v.aufgabe_id and a.pool = 'uebung'
          group by 1, 2, 3) x
  where k.lernender_id = x.lernender_id and k.einheit_id = x.einheit_id and k.lernziel = x.lz and k.gezaehlt = '{}'::jsonb;
 
 -- ---------- H2 Bestand: „folge“ offener Etappen nachrechnen ----------
 do $$
-declare r record; v record; f int; n_neu int := 0; n_null int := 0; n_gleich int := 0;
+declare r record; w record; f int; -- w, nicht v: v ist unten Tabellen-Alias n_neu int := 0; n_null int := 0; n_gleich int := 0;
 begin
   for r in select k.* from schule.karte_stand k
             where not k.sitzt and k.folge > 0
@@ -44,11 +44,11 @@ begin
     if r.sitzt_am is not null then f := 0; -- war schon einmal gelandet: Reihenfolge nach dem Öffnen nicht eindeutig → 0
     else
       f := 0;
-      for v in select v.richtig, v.hilfe, v.anlauf from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id
+      for w in select v.richtig, v.hilfe, v.anlauf from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id
                 where v.lernender_id = r.lernender_id and a.einheit_id = r.einheit_id and a.variante_gruppe = r.lernziel and a.pool = 'uebung'
                   and v.testsitzung_id is null and not (coalesce(v.anlauf, 0) = 1 and not v.richtig) order by v.am, v.id loop
-        if v.richtig and coalesce(v.hilfe, 0) = 0 and coalesce(v.anlauf, 1) = 1 then f := f + 1;
-        elsif not v.richtig then f := 0; end if; -- Tipp/2. Versuch richtig: Folge bleibt
+        if w.richtig and coalesce(w.hilfe, 0) = 0 and coalesce(w.anlauf, 1) = 1 then f := f + 1;
+        elsif not w.richtig then f := 0; end if; -- Tipp/2. Versuch richtig: Folge bleibt
       end loop;
     end if;
     if f = r.folge then n_gleich := n_gleich + 1;

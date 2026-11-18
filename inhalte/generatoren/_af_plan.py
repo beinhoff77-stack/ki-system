@@ -45,3 +45,23 @@ PLAN['bruch.brueche'] = [
         'Von 5 gleichen Teilen der Klasse sind 2 Teile Mädchen und 5 − 2 = 3 Teile Jungen. Also Mädchen : Jungen = 2 : 3.',
         'Teile die Klasse in 5 gleiche Teile. Wie viele davon sind Jungen?', hinweis='Zwei ganze Zahlen, vollständig gekürzt.')),
 ]
+
+
+# =====================================================================================================================
+# groessen.proportional (Kl. 5) ← groessen.verhaeltnisse: aenderung (B). Vertiefung (nur IB), am Ende hinter sach.
+# Ersetzt: Prozentpunkte (Prozent erst Kl. 6) und Ungleichung mit r (Ungleichungen erst Kl. 8). Knobel-Lösungsweg ohne Gleichung.
+# =====================================================================================================================
+PLAN['groessen.proportional'] = [
+    karte_her('groessen.verhaeltnisse', 'aenderung', 'Anwenden', vertiefung=True, nach='sach'),
+    ersetze('aenderung', r'^Ein Handyakku zeigt 80 %', Z(
+        'Eine Seilbahn fährt von der Talstation auf 600 m Höhe zur Bergstation auf 1 800 m Höhe. Sie steigt jede Sekunde um 5 m. Wie viele Minuten dauert die Fahrt?',
+        4, '(1800 - 600) / 5 / 60', 'Höhenunterschied: 1 800 m − 600 m = 1 200 m. Bei 5 m pro Sekunde: 1 200 : 5 = 240 Sekunden. 240 s = 4 min.',
+        'Rechne zuerst aus, wie viele Meter die Bahn insgesamt steigt. Achte auf Sekunden und Minuten.', einheit='min')),
+    ersetze('aenderung', r'^Ein Becken enthält 100 l\. Für welche Zuflussraten r', Z(
+        'Ein Becken enthält 100 l. Es fließen r Liter pro Minute zu. Für welchen Wert von r sind nach 10 Minuten genau 150 l darin?',
+        5, '(150 - 100) / 10', 'In 10 Minuten müssen 150 − 100 = 50 l dazukommen. 50 : 10 = 5, also r = 5 Liter pro Minute.',
+        'Wie viele Liter müssen in den 10 Minuten insgesamt dazukommen?')),
+    W('aenderung', 'Kerze A ist 20 cm hoch und brennt in 4 Stunden ganz ab',
+      'A wird pro Stunde 20 : 4 = 5 cm kürzer, B nur 15 : 5 = 3 cm. A holt also jede Stunde 2 cm auf. Am Anfang ist A 5 cm höher: '
+      '5 : 2 = 2,5 Stunden. Dann sind beide 7,5 cm hoch (20 − 12,5 und 15 − 7,5).'),
+]

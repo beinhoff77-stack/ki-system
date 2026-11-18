@@ -1800,3 +1800,25 @@ Rahmen wie Bau-Auftrag G (Migrationen nur als Datei, kein DROP/DELETE, Lernstän
 8. **Foto des Rechenwegs:** nicht in der App speichern. Hinweis für Eltern: „Unsicher beim Rechenweg? Blatt fotografieren und im Chat mit Claude prüfen lassen.“
 9. **Reise:** Der Stempel für den Ort bleibt, wie er ist (alle Flüge geschafft). Die bestandene Ortsprüfung gibt ein eigenes Zeichen am Ort (Vorschlag: Siegel im Reisepass). Eine nicht bestandene Prüfung nimmt nichts weg.
 10. **Tests:** Freischalten nur durch Eltern/Lehrer; Abgabe und Auswertung; Weg-Haken ändern das Ergebnis; Schwelle/Zeitbonus/Wiederholung mit anderer Fassung und Faktor; Abrechnung; Entwurf nur Testkind; kein Prüfungs-Teil taucht je im Üben auf.
+
+---
+
+# Expeditionen – Korrekturen nach der fachlichen Prüfung (18.11., Werkstatt-Nachricht 853)
+
+Ergebnis der Prüfung durch ChatGPT: 17 von 21 Expeditionen freigabereif, 4 mit Auflagen, 0 nicht freigabefähig. Alle 64 Zahl-/Lückenlösungen wurden nachgerechnet und stimmen. Es geht nur um Texte, keine Rechnung ändert sich.
+
+Regeln wie im Abschnitt „Expeditionen – Inhalte für Klasse 5 und Klasse 8“. Nur die genannten Dateien und ihre Generatoren ändern. Danach `python3 -I tools/inhalt_pruefen.py --alle`. Nichts in die Datenbank schreiben; kein Merge nach `main`.
+
+## Chat `expedition-kl5` (Zweig `expedition-kl5`, Meldung in `inhalte/postfach/expedition-kl5.md`)
+
+1. **`5-flug_toronto` (Muss):** Die vier Teile (Flugzeiten, Outfits, Wäscherei, Gepäck) sind bisher einzelne Reise-Aufgaben. Baue einen durchgehenden Zusammenhang ein: Ein Teil muss ein Ergebnis oder eine Entscheidung aus der Geschichte brauchen (jeder Teil nennt weiter alle nötigen Zahlen selbst – kein Folgefehler). Zusätzlich: „Toronto = Berlin − 6 Stunden“ als Annahme für diesen Reisetag kennzeichnen.
+2. **`5-schatzsuche` (Muss):** Teil d nutzt die Quersummenregel für 9. Der Lehrplan Klasse 5 nennt nur die Regeln für 2, 3, 5 und 10. Gib die 9er-Regel im Aufgabentext oder im Tipp ausdrücklich an („Eine Zahl ist durch 9 teilbar, wenn ihre Quersumme durch 9 teilbar ist.“).
+3. **`5-roemerstrasse` (Sollte):** Die 144 Meilen als Strecke ab Meile 0 kennzeichnen – das Kind wandert nicht 213 km.
+4. **`5-pyramide` (Sollte):** Den Wechsel vom kleinen Würfelmodell zur großen Pyramide mit einem Satz verbinden.
+
+## Chat `expedition-kl8` (Zweig `expedition-kl8`, Meldung in `inhalte/postfach/expedition-kl8.md`)
+
+1. **`8-radtour` (Muss):** In Teil c und d klarstellen, dass Kilometer 36 im Graph ein Zwischenpunkt ist und der See bei Kilometer 42 liegt (die Route ist 36 km lang und beginnt bei Kilometer 6). Sonst wirken 30 km aus dem Graph wie ein Widerspruch.
+2. **`8-pool` (Muss):** Teil d „wenn es ganz über dem Wasser hängt“ umformulieren – ein Dreieckssegel mit 4 m Seitenlänge passt nicht in einen Kreis mit 3,6 m Durchmesser. Vorschlag: „Selbst wenn die gesamte Segelfläche Schatten auf das Wasser wirft …“. Rechnung und Antwort bleiben.
+
+Fertig, wenn: Dateien und Generatoren stimmen überein, Prüfskript ohne Fehler, Meldung „FERTIG: Korrekturen 853“ im Postfach mit dem alten und neuen Wortlaut jeder geänderten Stelle.

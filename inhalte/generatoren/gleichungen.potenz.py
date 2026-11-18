@@ -726,8 +726,8 @@ ST.neu('anzahl', 'direkt', L('Gleichung x⁴ = 81: Wie viele Lösungen hat sie, 
        'Gerader Exponent, c > 0: zwei Lösungen, ±3, denn 3⁴ = 81.', 'Gerade oder ungerade?'))
 ST.neu('anzahl', 'einkleidung', A('Eine Zahl hoch 6 soll genau 0 ergeben. Wie viele solche Zahlen gibt es?', 'genau eine (die 0)', ['keine', 'zwei', 'sechs'],
        'Ein Produkt ist nur 0, wenn ein Faktor 0 ist. x⁶ = 0 nur für x = 0.', 'Wann ist ein Produkt null?'))
-ST.knobel('anzahl', Z('Wie viele Lösungen hat x⁴ − 5x² + 4 = 0?', 4, '2 + 2',
-          'Mit u = x²: u² − 5u + 4 = 0, also (u − 1)(u − 4) = 0. x² = 1 liefert ±1, x² = 4 liefert ±2. Vier Lösungen.', 'Gib x² einen eigenen Namen.'))
+ST.knobel('anzahl', Z('Wie viele Lösungen hat (x² − 5)⁴ = 16?', 4, '2 + 2',
+          'Gerader Exponent und 16 > 0: Die Klammer ist 2 oder −2, denn 2⁴ = (−2)⁴ = 16. x² − 5 = 2 gibt x² = 7, also x = √7 oder x = −√7. x² − 5 = −2 gibt x² = 3, also x = √3 oder x = −√3. Zusammen vier verschiedene Lösungen.', 'Löse zuerst nach der Klammer auf.'))
 ST.knobel('anzahl', Z('Wie viele Lösungen hat x⁶ = x²?', 3, '1 + 2',
           'x⁶ − x² = 0 ⇒ x²(x⁴ − 1) = 0 ⇒ x = 0 oder x⁴ = 1, also x = ±1. Drei Lösungen. Wer durch x² teilt, verliert die 0.', 'Nicht teilen – ausklammern.'))
 
@@ -752,8 +752,8 @@ ST.neu('umformen', 'parameter', Z('Für welche Zahl a hat a · x⁴ − 32 = 0 d
        'Einsetzen von 2: 16a − 32 = 0 ⇒ a = 2.', 'Setze x = 2 ein.'))
 ST.knobel('umformen', Z('Löse (x³ − 7)² = 400. Gib die positive Lösung an.', 3, '3',
           'x³ − 7 = 20 oder x³ − 7 = −20. Also x³ = 27 (x = 3) oder x³ = −13 (x negativ). Positiv: x = 3.', 'Welche Zahlen ergeben quadriert 400?'))
-ST.knobel('umformen', Z('Löse x⁴ − 13x² + 36 = 0. Gib die größte Lösung an.', 3, '3',
-          'Mit u = x²: u² − 13u + 36 = 0 ⇒ (u − 4)(u − 9) = 0. x² = 4 oder x² = 9: Lösungen ±2 und ±3. Größte: 3.', 'Gib x² einen eigenen Namen.'))
+ST.knobel('umformen', Z('Löse (x² − 10)³ = −1. Gib die größte Lösung an.', 3, '3',
+          'Ungerader Exponent: (x² − 10)³ = −1 hat für die Klammer genau eine Lösung, x² − 10 = −1, denn (−1)³ = −1. Also x² = 9 mit den Lösungen 3 und −3. Größte: 3.', 'Löse zuerst nach der Klammer auf.'))
 
 # naeherung
 ST.stufenleiter('naeherung', 'ⁿ√c mit dem Taschenrechner bestimmen und sinnvoll runden.',

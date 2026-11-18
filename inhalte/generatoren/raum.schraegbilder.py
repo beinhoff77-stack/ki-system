@@ -726,12 +726,13 @@ def stufen():
                                   'Die Ecke mit dem rechten Winkel liegt nicht auf der Achse; sie beschreibt einen Kreis – auf beiden Seiten entsteht eine Kegelspitze.', 'Welche Ecken liegen auf der Achse?'))
     S.neu('rotation', 'rueckwaerts', Z('Ein Zylinder mit r = 3 cm und h = 8 cm entstand durch Drehung eines Rechtecks um eine Seite. Welchen Flächeninhalt hatte das Rechteck?', 24, '3 * 8',
                                        'Das Rechteck hatte die Seiten r = 3 cm und h = 8 cm: 24 cm².', 'Welche Seiten hatte das Rechteck?', einheit='cm²'))
-    S.neu('rotation', 'pruefung', ZR('Ein rechtwinkliges Dreieck mit den Katheten 6 cm und 8 cm dreht sich um die 8-cm-Kathete. Berechne das Volumen des entstehenden Kegels. Runde auf ganze cm³.',
-                                     math.pi * 36 * 8 / 3, 0, 'r = 6 cm, h = 8 cm: V = 1/3 · π · 36 · 8 = 96π ≈ 302 cm³.', 'Radius und Höhe aus den Katheten, dann V = 1/3 · π · r² · h.', einheit='cm³'))
+    S.neu('rotation', 'pruefung', Z('Ein rechtwinkliges Dreieck mit den Katheten 6 cm und 8 cm dreht sich um die 8-cm-Kathete. Wie weit ist die Spitze des entstehenden Kegels vom Rand seiner Grundfläche entfernt?',
+                                    10, '10', 'Die Strecke von der Spitze zum Rand ist die Hypotenuse des gedrehten Dreiecks: √(6² + 8²) = √100 = 10 cm.',
+                                    'Welche Seite des Dreiecks verbindet die Spitze mit dem Rand?', einheit='cm'))
     S.bonus('rotation', Z('Ein Quadrat (Seite 2 cm) dreht sich einmal um eine Seite und einmal um eine Mittellinie (parallel zu einer Seite). Wievielmal so groß ist das Volumen im ersten Fall?', 4, '(2 ** 2 * 2) // (1 ** 2 * 2)',
                           'Erster Fall: r = 2, h = 2, V = 8π. Zweiter Fall: r = 1, h = 2, V = 2π. Verhältnis 4 – halber Radius, Viertel Volumen.', 'Bestimme jeweils r und h.'))
-    S.bonus('rotation', L('Ein rechtwinkliges Dreieck (Katheten 3 cm und 4 cm) dreht sich einmal um die 3-cm- und einmal um die 4-cm-Kathete. In welchem Verhältnis stehen die Volumina (erster : zweiter)?', '□ : □', [4, 3], ['4', '3'],
-                          'Um 3 cm: r = 4, h = 3, V = 1/3 · π · 16 · 3 = 16π. Um 4 cm: r = 3, h = 4, V = 12π. 16π : 12π = 4 : 3. Der Radius zählt quadratisch, deshalb gewinnt der größere Radius.',
+    S.bonus('rotation', L('Ein Rechteck (3 cm × 4 cm) dreht sich einmal um die 3-cm-Seite und einmal um die 4-cm-Seite. In welchem Verhältnis stehen die Volumina der beiden Zylinder (erster : zweiter)?', '□ : □', [4, 3], ['4', '3'],
+                          'Um die 3-cm-Seite: r = 4, h = 3, V = π · 16 · 3 = 48π. Um die 4-cm-Seite: r = 3, h = 4, V = π · 9 · 4 = 36π. 48π : 36π = 4 : 3. Der Radius zählt quadratisch, deshalb gewinnt der größere Radius.',
                           'Bestimme jeweils r und h.', hinweis='gekürztes Verhältnis'))
 
     # --- axialschnitt ---
@@ -750,7 +751,8 @@ def stufen():
     S.neu('axialschnitt', 'pruefung', Z('Der Axialschnitt eines Kegels hat den Flächeninhalt 48 cm² und die Breite 12 cm. Wie lang ist eine Mantellinie?', 10, '10',
                                         'Dreieck: 1/2 · 12 · h = 48 ⇒ h = 8 cm. r = 6 cm. Mantellinie s = √(6² + 8²) = 10 cm.', 'Bestimme zuerst die Höhe aus der Dreiecksfläche.', einheit='cm'))
     S.bonus('axialschnitt', Z('Der Axialschnitt eines Zylinders hat den Umfang 40 cm. Bei welcher Höhe ist seine Fläche am größten?', 10, '40 / 4',
-                              'Umfang 2 · (2r + h) = 40 ⇒ 2r + h = 20. Fläche 2r · h ist bei fester Summe am größten, wenn beide Teile gleich sind: 2r = h = 10 cm (ein Quadrat).',
+                              'Umfang 2 · (2r + h) = 40 ⇒ 2r + h = 20. Schreibe 2r = 10 + d und h = 10 − d. Dann ist die Fläche 2r · h = (10 + d)(10 − d) = 100 − d². '
+                              'Sie ist am größten für d = 0: 2r = h = 10 cm (ein Quadrat).',
                               'Probiere einige Paare (Breite, Höhe) mit Summe 20.', einheit='cm'))
     S.bonus('axialschnitt', Z('Ein Kegel und ein Zylinder haben denselben Radius und dieselbe Höhe. Wievielmal so groß ist der Axialschnitt des Zylinders wie der des Kegels?', 2, '2',
                               'Zylinder: Rechteck 2r · h. Kegel: Dreieck 1/2 · 2r · h = r · h. Verhältnis 2.', 'Vergleiche Rechteck und Dreieck mit gleicher Grundseite und Höhe.'))

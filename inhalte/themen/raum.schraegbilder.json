@@ -6850,16 +6850,15 @@
    "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck mit den Katheten 6 cm und 8 cm dreht sich um die 8-cm-Kathete. Berechne das Volumen des entstehenden Kegels. Runde auf ganze cm³."
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 6 cm und 8 cm dreht sich um die 8-cm-Kathete. Wie weit ist die Spitze des entstehenden Kegels vom Rand seiner Grundfläche entfernt?"
    },
    "o": {
-    "wert": 302,
-    "einheit": "cm³",
-    "toleranz": 1
+    "wert": 10,
+    "einheit": "cm"
    },
-   "c": "round(301.592894744620)",
-   "w": "r = 6 cm, h = 8 cm: V = 1/3 · π · 36 · 8 = 96π ≈ 302 cm³.",
-   "h": "Radius und Höhe aus den Katheten, dann V = 1/3 · π · r² · h."
+   "c": "10",
+   "w": "Die Strecke von der Spitze zum Rand ist die Hypotenuse des gedrehten Dreiecks: √(6² + 8²) = √100 = 10 cm.",
+   "h": "Welche Seite des Dreiecks verbindet die Spitze mit dem Rand?"
   },
   {
    "l": "rotation",
@@ -7046,7 +7045,7 @@
    "g": "knobel",
    "y": "luecken",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck (Katheten 3 cm und 4 cm) dreht sich einmal um die 3-cm- und einmal um die 4-cm-Kathete. In welchem Verhältnis stehen die Volumina (erster : zweiter)?",
+    "text": "Ein Rechteck (3 cm × 4 cm) dreht sich einmal um die 3-cm-Seite und einmal um die 4-cm-Seite. In welchem Verhältnis stehen die Volumina der beiden Zylinder (erster : zweiter)?",
     "schablone": "□ : □",
     "hinweis": "gekürztes Verhältnis"
    },
@@ -7060,7 +7059,7 @@
     "4",
     "3"
    ],
-   "w": "Um 3 cm: r = 4, h = 3, V = 1/3 · π · 16 · 3 = 16π. Um 4 cm: r = 3, h = 4, V = 12π. 16π : 12π = 4 : 3. Der Radius zählt quadratisch, deshalb gewinnt der größere Radius.",
+   "w": "Um die 3-cm-Seite: r = 4, h = 3, V = π · 16 · 3 = 48π. Um die 4-cm-Seite: r = 3, h = 4, V = π · 9 · 4 = 36π. 48π : 36π = 4 : 3. Der Radius zählt quadratisch, deshalb gewinnt der größere Radius.",
    "h": "Bestimme jeweils r und h."
   },
   {
@@ -7806,7 +7805,7 @@
     "einheit": "cm"
    },
    "c": "40 / 4",
-   "w": "Umfang 2 · (2r + h) = 40 ⇒ 2r + h = 20. Fläche 2r · h ist bei fester Summe am größten, wenn beide Teile gleich sind: 2r = h = 10 cm (ein Quadrat).",
+   "w": "Umfang 2 · (2r + h) = 40 ⇒ 2r + h = 20. Schreibe 2r = 10 + d und h = 10 − d. Dann ist die Fläche 2r · h = (10 + d)(10 − d) = 100 − d². Sie ist am größten für d = 0: 2r = h = 10 cm (ein Quadrat).",
    "h": "Probiere einige Paare (Breite, Höhe) mit Summe 20."
   },
   {

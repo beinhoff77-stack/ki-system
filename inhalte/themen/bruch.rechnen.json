@@ -5,7 +5,7 @@
  "klasse": {
   "gym_by": 6,
   "rs_by": 6,
-  "ib_myp": 1
+  "ib_myp": 2
  },
  "autor": "Claude (Opus), Paket Klasse 6",
  "inhalt": {
@@ -7253,7 +7253,7 @@
     "wert": 50
    },
    "c": "50",
-   "w": "Fasse Paare zusammen: (−1) + 2 = 1, (−3) + 4 = 1, … , (−99) + 100 = 1. Es sind 50 Paare, also 50.",
+   "w": "Fasse jede negative Zahl mit der folgenden positiven zusammen: (−1) + 2 = 1, (−3) + 4 = 1, und so weiter bis (−99) + 100 = 1. Die Zahlen 1 bis 100 bilden 100 : 2 = 50 solche Paare, jedes ergibt 1. Summe: 50.",
    "h": "Fasse immer zwei Zahlen zusammen."
   },
   {
@@ -7270,7 +7270,7 @@
     "wert": 0
    },
    "c": "1 + (-1) + 2 + (-2)",
-   "w": "4 hat nur die Teiler 1, 2, 4. Vier verschiedene ganze Zahlen mit Produkt 4 gehen nur als 1, −1, 2, −2 (1 · (−1) · 2 · (−2) = 4). Ihre Summe ist 0.",
+   "w": "Als Faktoren kommen nur 1, −1, 2, −2, 4 und −4 in Frage. Ist 4 oder −4 dabei, müssten die drei anderen zusammen das Produkt 1 oder −1 haben – dafür gibt es aber nur die zwei Zahlen 1 und −1. Also sind 4 und −4 nicht dabei, und es bleiben genau 1, −1, 2, −2: 1 · (−1) · 2 · (−2) = 4. Ihre Summe ist 0.",
    "h": "Welche ganzen Zahlen kommen als Faktoren von 4 überhaupt in Frage?"
   },
   {
@@ -7752,7 +7752,7 @@
    "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Für wie viele natürliche Zahlen n ist n · 0,3 kleiner als 2?"
+    "text": "Für wie viele natürliche Zahlen n ab 1 ist n · 0,3 kleiner als 2?"
    },
    "o": {
     "wert": 6
@@ -7828,7 +7828,7 @@
     "wert": 0.9
    },
    "c": "0.9",
-   "w": "Ohne Komma: Zwei Zahlen mit Produkt 72 und Summe 17 – das sind 8 und 9. Also 0,8 und 0,9; die größere ist 0,9.",
+   "w": "Ohne Komma: Beide Zahlen haben eine Nachkommastelle, also gesucht sind zwei Zahlen mit Produkt 72 und Summe 17. Zerlegungen von 72: 1 · 72, 2 · 36, 3 · 24, 4 · 18, 6 · 12, 8 · 9. Nur bei 8 und 9 ist die Summe 17. Also 0,8 und 0,9; die größere ist 0,9. Probe: 0,8 · 0,9 = 0,72 und 0,8 + 0,9 = 1,7.",
    "h": "Rechne ohne Komma: Welche zwei Zahlen haben das Produkt 72?"
   },
   {
@@ -9328,7 +9328,7 @@
    "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Für wie viele natürliche Zahlen n ist n · 3/8 eine natürliche Zahl kleiner als 10?"
+    "text": "Für wie viele natürliche Zahlen n ab 1 ist n · 3/8 eine natürliche Zahl kleiner als 10?"
    },
    "o": {
     "wert": 3
@@ -9395,7 +9395,7 @@
     "1",
     "10"
    ],
-   "w": "Jeder Zähler kürzt sich mit dem Nenner davor: 2 mit 2, 3 mit 3, … , 9 mit 9. Übrig bleiben die 1 oben und die 10 unten: 1/10.",
+   "w": "Schreibe alles auf einen Bruchstrich: oben 1 · 2 · 3 · 4 · 5 · 6 · 7 · 8 · 9, unten 2 · 3 · 4 · 5 · 6 · 7 · 8 · 9 · 10. Jede der Zahlen 2 bis 9 steht einmal oben und einmal unten und kürzt sich weg. Übrig bleiben die 1 oben und die 10 unten: 1/10.",
    "h": "Schreibe alles auf einen Bruchstrich und kürze."
   },
   {
@@ -9522,14 +9522,14 @@
    "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Für wie viele natürliche Zahlen n von 1 bis 10 ist 6 : n/5 eine natürliche Zahl?"
+    "text": "Für wie viele natürliche Zahlen n von 1 bis 10 ist 6 : (n/5) eine natürliche Zahl?"
    },
    "o": {
     "wert": 6
    },
    "c": "6",
-   "w": "6 : n/5 = 30/n. Ganz ist das für die Teiler von 30 bis 10: 1, 2, 3, 5, 6, 10. Also 6.",
-   "h": "Rechne 6 : n/5 als 6 · 5/n."
+   "w": "6 : (n/5) = 30/n. Ganz ist das für die Teiler von 30 bis 10: 1, 2, 3, 5, 6, 10. Also 6.",
+   "h": "Rechne 6 : (n/5) als 6 · 5/n."
   },
   {
    "l": "brueche_geteilt",
@@ -10260,7 +10260,7 @@
     "1",
     "2"
    ],
-   "w": "x · x = x : 2. Teilt man beide Seiten durch x, bleibt x = 1/2. Probe: (1/2)² = 1/4 und die Hälfte von 1/2 ist auch 1/4.",
+   "w": "Die Hälfte einer Zahl ist die Zahl mal 1/2. Verglichen werden also x · x und x · 1/2. Probiere: Für x = 1/2 sind beide 1/4. Ist x positiv und größer als 1/2, ist x · x größer als x · 1/2; ist x positiv und kleiner als 1/2, ist x · x kleiner. Für negative x ist x · x positiv, die Hälfte aber negativ. Also nur x = 1/2.",
    "h": "Probiere einfache Brüche aus."
   },
   {

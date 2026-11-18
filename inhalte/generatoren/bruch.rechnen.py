@@ -1476,9 +1476,9 @@ N(lz, A('pruefung', 'Welcher Term hat den größten Wert?', '(−2) · (−3)', 
 N(lz, Z('transfer', 'Ein Frosch sitzt auf dem Zahlenstrahl bei 0. Er springt abwechselnd 1,5 nach rechts und 2 nach links, zuerst nach rechts. Wo sitzt er nach 6 Sprüngen?', -1.5, '3 * (1.5 - 2)',
         'Je zwei Sprünge bringen ihn 1,5 − 2 = −0,5 weiter. Nach 6 Sprüngen: 3 · (−0,5) = −1,5.', 'Was ändert sich nach jeweils zwei Sprüngen?'))
 K(lz, Z('knobel', 'Berechne (−1) + 2 + (−3) + 4 + (−5) + … + (−99) + 100.', 50, '50',
-        'Fasse Paare zusammen: (−1) + 2 = 1, (−3) + 4 = 1, … , (−99) + 100 = 1. Es sind 50 Paare, also 50.', 'Fasse immer zwei Zahlen zusammen.'))
+        'Fasse jede negative Zahl mit der folgenden positiven zusammen: (−1) + 2 = 1, (−3) + 4 = 1, und so weiter bis (−99) + 100 = 1. Die Zahlen 1 bis 100 bilden 100 : 2 = 50 solche Paare, jedes ergibt 1. Summe: 50.', 'Fasse immer zwei Zahlen zusammen.'))
 K(lz, Z('knobel', 'Das Produkt von vier verschiedenen ganzen Zahlen ist 4. Wie groß ist ihre Summe?', 0, '1 + (-1) + 2 + (-2)',
-        '4 hat nur die Teiler 1, 2, 4. Vier verschiedene ganze Zahlen mit Produkt 4 gehen nur als 1, −1, 2, −2 (1 · (−1) · 2 · (−2) = 4). Ihre Summe ist 0.',
+        'Als Faktoren kommen nur 1, −1, 2, −2, 4 und −4 in Frage. Ist 4 oder −4 dabei, müssten die drei anderen zusammen das Produkt 1 oder −1 haben – dafür gibt es aber nur die zwei Zahlen 1 und −1. Also sind 4 und −4 nicht dabei, und es bleiben genau 1, −1, 2, −2: 1 · (−1) · 2 · (−2) = 4. Ihre Summe ist 0.',
         'Welche ganzen Zahlen kommen als Faktoren von 4 überhaupt in Frage?'))
 
 # --- brueche_mal ---
@@ -1495,14 +1495,14 @@ N(lz, A('begruenden', 'Stimmt die Aussage? „Beim Malnehmen mit einem Bruch wir
         ['Ja, das stimmt immer.', 'Ja, außer bei der Zahl 0.'], 'Nur bei Brüchen kleiner als 1 wird das Ergebnis kleiner.', 'Was passiert bei 3/2?'))
 N(lz, L('rueckwaerts', 'Eine Zahl wird mit 2/3 malgenommen und danach mit 3/4. Es kommt 1/4 heraus. Wie hieß die Zahl?', B, [1, 2], ['1', '2'],
         '2/3 · 3/4 = 1/2. Die Zahl mal 1/2 ist 1/4, also war sie 1/2.', 'Fasse die beiden Faktoren zuerst zusammen.'))
-N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n ist n · 3/8 eine natürliche Zahl kleiner als 10?', 3, '3',
+N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n ab 1 ist n · 3/8 eine natürliche Zahl kleiner als 10?', 3, '3',
         'n · 3/8 ist natürlich, wenn n ein Vielfaches von 8 ist: n = 8 → 3, n = 16 → 6, n = 24 → 9, n = 32 → 12 (zu groß). Also 3.', 'Wann kürzt sich die 8 weg?'))
 N(lz, Z('pruefung', 'Ein Garten ist 12 m lang und 8 m breit. 3/4 der Fläche ist Rasen, davon liegt 1/3 im Schatten. Wie viele m² Rasen liegen im Schatten?', 24, '12 * 8 * 3 / 4 / 3',
         'Fläche 96 m². Rasen: 3/4 · 96 = 72 m². Im Schatten: 1/3 · 72 = 24 m².', 'Berechne zuerst die ganze Fläche.', einheit='m²'))
 N(lz, Z('transfer', 'Ein Ball springt nach jedem Aufprall auf 2/3 seiner vorigen Höhe. Er fällt aus 2,7 m Höhe. Wie hoch springt er nach dem dritten Aufprall?', 0.8, '2.7 * 2 / 3 * 2 / 3 * 2 / 3',
         '2,7 m → 1,8 m → 1,2 m → 0,8 m.', 'Rechne Aufprall für Aufprall.', einheit='m'))
 K(lz, L('knobel', 'Berechne 1/2 · 2/3 · 3/4 · 4/5 · 5/6 · 6/7 · 7/8 · 8/9 · 9/10.', B, [1, 10], ['1', '10'],
-        'Jeder Zähler kürzt sich mit dem Nenner davor: 2 mit 2, 3 mit 3, … , 9 mit 9. Übrig bleiben die 1 oben und die 10 unten: 1/10.', 'Schreibe alles auf einen Bruchstrich und kürze.'))
+        'Schreibe alles auf einen Bruchstrich: oben 1 · 2 · 3 · 4 · 5 · 6 · 7 · 8 · 9, unten 2 · 3 · 4 · 5 · 6 · 7 · 8 · 9 · 10. Jede der Zahlen 2 bis 9 steht einmal oben und einmal unten und kürzt sich weg. Übrig bleiben die 1 oben und die 10 unten: 1/10.', 'Schreibe alles auf einen Bruchstrich und kürze.'))
 K(lz, A('knobel', 'Ein Rechteck wird um die Hälfte länger und um ein Drittel schmaler. Wie ändert sich der Flächeninhalt?', 'Er bleibt gleich.',
         ['Er wird um 1/6 größer.', 'Er wird um 1/6 kleiner.', 'Er wird halb so groß.'],
         'Neue Länge: 3/2 der alten, neue Breite: 2/3 der alten. Neue Fläche: 3/2 · 2/3 = 1-mal die alte. Sie bleibt gleich.', 'Mit welchen Brüchen werden Länge und Breite malgenommen?'))
@@ -1520,8 +1520,8 @@ N(lz, L('fehler', 'Ein Kind rechnet 5/6 : 2/3 = 6/5 · 2/3 = 4/5. Wie heißt das
         'Es hat den falschen Bruch umgedreht. Richtig: 5/6 · 3/2 = 15/12 = 5/4.', 'Welcher Bruch wird beim Teilen umgedreht?'))
 N(lz, L('rueckwaerts', 'Eine Zahl wird durch 3/4 geteilt, dann wird 1/2 abgezogen. Es kommt 1/6 heraus. Wie hieß die Zahl?', B, [1, 2], ['1', '2'],
         'Zurück: 1/6 + 1/2 = 2/3. Dann mal 3/4 (statt durch 3/4): 2/3 · 3/4 = 1/2.', 'Was ist das Gegenteil von „durch 3/4 teilen“?'))
-N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n von 1 bis 10 ist 6 : n/5 eine natürliche Zahl?', 6, '6',
-        '6 : n/5 = 30/n. Ganz ist das für die Teiler von 30 bis 10: 1, 2, 3, 5, 6, 10. Also 6.', 'Rechne 6 : n/5 als 6 · 5/n.'))
+N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n von 1 bis 10 ist 6 : (n/5) eine natürliche Zahl?', 6, '6',
+        '6 : (n/5) = 30/n. Ganz ist das für die Teiler von 30 bis 10: 1, 2, 3, 5, 6, 10. Also 6.', 'Rechne 6 : (n/5) als 6 · 5/n.'))
 N(lz, Z('pruefung', 'Eine Flasche enthält 1 1/2 l Saft. Gläser werden mit je 1/5 l gefüllt. Wie viele Gläser werden ganz voll?', 7, '15 // 2',
         '1 1/2 : 1/5 = 3/2 · 5 = 15/2 = 7 1/2. Also 7 volle Gläser, ein halbes bleibt übrig (1/10 l).', 'Teile und überlege, was mit dem Rest passiert.'))
 K(lz, Z('knobel', 'Teilt man eine Zahl durch 2/3, erhält man dasselbe, wie wenn man 1/2 zu ihr addiert. Wie heißt die Zahl?', 1, '1',
@@ -1543,14 +1543,14 @@ N(lz, Z('direkt', 'Nimm 0,4 mit 3 mal.', 1.2, '0.4 * 3', '4 · 3 = 12, eine Nach
 N(lz, A('begruenden', 'Stimmt die Aussage? „0,5 · 0,5 ist größer als 0,5.“', 'Nein, 0,5 · 0,5 = 0,25 – die Hälfte von 0,5.', ['Ja, Malnehmen macht größer.', 'Nein, beide sind gleich.'],
         'Mal eine Zahl kleiner als 1 macht kleiner: 0,5 · 0,5 = 0,25.', 'Was ist die Hälfte von 0,5?'))
 N(lz, Z('rueckwaerts', 'Eine Zahl wird mit 0,2 malgenommen, dann wird 1,5 addiert. Es kommt 2,3 heraus. Wie hieß die Zahl?', 4, '(2.3 - 1.5) / 0.2', 'Zurück: 2,3 − 1,5 = 0,8, dann durch 0,2: 4.', 'Mache die Schritte von hinten rückgängig.'))
-N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n ist n · 0,3 kleiner als 2?', 6, '6', 'n · 0,3 < 2: n = 1 bis 6 (6 · 0,3 = 1,8); bei 7 sind es 2,1. Also 6 Zahlen.', 'Probiere n = 6 und n = 7.'))
+N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n ab 1 ist n · 0,3 kleiner als 2?', 6, '6', 'n · 0,3 < 2: n = 1 bis 6 (6 · 0,3 = 1,8); bei 7 sind es 2,1. Also 6 Zahlen.', 'Probiere n = 6 und n = 7.'))
 N(lz, Z('verknuepfen', 'Ein Rechteck ist 2,5 m lang und 1,2 m breit. Wie groß ist sein Flächeninhalt?', 3, '2.5 * 1.2', '2,5 · 1,2 = 3 m².', 'Fläche = Länge mal Breite.', einheit='m²'))
 N(lz, Z('transfer', 'Ein Blatt Papier ist 0,1 mm dick. Wie hoch ist ein Stapel aus 2 500 Blättern in Zentimetern?', 25, '2500 * 0.1 / 10', '2 500 · 0,1 mm = 250 mm = 25 cm.', 'Rechne erst in mm, dann in cm.', einheit='cm'))
 K(lz, Z('knobel', 'Wie viele Nachkommastellen hat das Ergebnis von 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 (zehnmal 0,5)?', 10, '10',
         'Ohne Komma ist 5 · 5 · … · 5 eine Zahl, die auf 5 endet – es fällt also keine Null am Ende weg. Die zehn Faktoren haben je eine Nachkommastelle: 10 Stellen (0,0009765625).',
         'Endet 5 · 5 · 5 · … auf 0?'))
 K(lz, Z('knobel', 'Zwei Dezimalzahlen mit je einer Nachkommastelle haben das Produkt 0,72 und die Summe 1,7. Wie heißt die größere?', 0.9, '0.9',
-        'Ohne Komma: Zwei Zahlen mit Produkt 72 und Summe 17 – das sind 8 und 9. Also 0,8 und 0,9; die größere ist 0,9.', 'Rechne ohne Komma: Welche zwei Zahlen haben das Produkt 72?'))
+        'Ohne Komma: Beide Zahlen haben eine Nachkommastelle, also gesucht sind zwei Zahlen mit Produkt 72 und Summe 17. Zerlegungen von 72: 1 · 72, 2 · 36, 3 · 24, 4 · 18, 6 · 12, 8 · 9. Nur bei 8 und 9 ist die Summe 17. Also 0,8 und 0,9; die größere ist 0,9. Probe: 0,8 · 0,9 = 0,72 und 0,8 + 0,9 = 1,7.', 'Rechne ohne Komma: Welche zwei Zahlen haben das Produkt 72?'))
 
 # --- dezimal_geteilt ---
 lz = 'dezimal_geteilt'
@@ -1586,7 +1586,7 @@ N(lz, L('umkehr', 'Welcher positive Bruch ergibt quadriert 9/16?', B, [3, 4], ['
 K(lz, Z('knobel', 'Für welche kleinste natürliche Zahl n ist (1/2)ⁿ kleiner als 0,01?', 7, '7', '(1/2)ⁿ = 1/2ⁿ. 1/2ⁿ < 1/100 heißt 2ⁿ > 100. 2⁶ = 64 ist zu klein, 2⁷ = 128 reicht. Also n = 7.',
         'Schreibe 0,01 als Bruch und vergleiche die Nenner.'))
 K(lz, L('knobel', 'Das Quadrat einer Zahl (nicht 0) ist so groß wie ihre Hälfte. Welche Zahl ist es?', B, [1, 2], ['1', '2'],
-        'x · x = x : 2. Teilt man beide Seiten durch x, bleibt x = 1/2. Probe: (1/2)² = 1/4 und die Hälfte von 1/2 ist auch 1/4.', 'Probiere einfache Brüche aus.'))
+        'Die Hälfte einer Zahl ist die Zahl mal 1/2. Verglichen werden also x · x und x · 1/2. Probiere: Für x = 1/2 sind beide 1/4. Ist x positiv und größer als 1/2, ist x · x größer als x · 1/2; ist x positiv und kleiner als 1/2, ist x · x kleiner. Für negative x ist x · x positiv, die Hälfte aber negativ. Also nur x = 1/2.', 'Probiere einfache Brüche aus.'))
 
 # --- rechenvorteile ---
 lz = 'rechenvorteile'

@@ -7,7 +7,9 @@
   "gebiet": "Zahlen",
   "titel": "Natürliche Zahlen",
   "klasse": {
-   "gym_by": 5
+   "gym_by": 5,
+   "rs_by": 5,
+   "ib_myp": 1
   },
   "reihenfolge": {
    "gym_by": 1
@@ -95,7 +97,9 @@
   "gebiet": "Zahlen",
   "titel": "Teilbarkeit",
   "klasse": {
-   "gym_by": 5
+   "gym_by": 5,
+   "rs_by": 5,
+   "ib_myp": 1
   },
   "reihenfolge": {
    "gym_by": 8
@@ -134,7 +138,7 @@
   "titel": "Direkte Proportionalität und Dreisatz",
   "klasse": {
    "gym_by": 5,
-   "rs_by": 5,
+   "rs_by": 6,
    "ib_myp": 2
   },
   "reihenfolge": {
@@ -284,8 +288,8 @@
   "titel": "Zehnerpotenzen und wissenschaftliche Schreibweise",
   "klasse": {
    "gym_by": 6,
-   "rs_by": 5,
-   "ib_myp": 3
+   "rs_by": 7,
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 6
@@ -351,7 +355,7 @@
   "klasse": {
    "gym_by": 6,
    "rs_by": 6,
-   "ib_myp": 1
+   "ib_myp": 2
   },
   "reihenfolge": {
    "gym_by": 3
@@ -416,7 +420,9 @@
   "gebiet": "Geld und Verhältnisse",
   "titel": "Zinsen",
   "klasse": {
-   "gym_by": 6
+   "gym_by": 6,
+   "rs_by": 7,
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 9
@@ -481,7 +487,7 @@
   "klasse": {
    "gym_by": 8,
    "rs_by": 7,
-   "ib_myp": 2
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 4
@@ -501,7 +507,8 @@
   "titel": "Intervalle",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 3
@@ -519,7 +526,8 @@
   "titel": "Bruchterme",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 8
+   "rs_by": 8,
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 7
@@ -539,7 +547,8 @@
   "gebiet": "Algebra",
   "titel": "Formeln umstellen",
   "klasse": {
-   "gym_by": 8
+   "gym_by": 8,
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 9
@@ -559,7 +568,8 @@
   "titel": "Bruch- und Verhältnisgleichungen",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 8
+   "rs_by": 8,
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 8
@@ -580,7 +590,7 @@
   "klasse": {
    "gym_by": 8,
    "rs_by": 9,
-   "ib_myp": 3
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 11
@@ -603,7 +613,7 @@
   "klasse": {
    "gym_by": 8,
    "rs_by": 8,
-   "ib_myp": 1
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 1
@@ -689,7 +699,7 @@
   "titel": "Schrägbilder und Raumdarstellung",
   "klasse": {
    "gym_by": 10,
-   "rs_by": 5,
+   "rs_by": 8,
    "ib_myp": 4
   },
   "reihenfolge": {
@@ -712,7 +722,7 @@
   "klasse": {
    "gym_by": 8,
    "rs_by": 9,
-   "ib_myp": 2
+   "ib_myp": 3
   },
   "reihenfolge": {
    "gym_by": 12
@@ -731,7 +741,8 @@
   "gebiet": "Fläche und Raum",
   "titel": "Flächen von Parallelogramm, Dreieck und Trapez",
   "klasse": {
-   "gym_by": 6
+   "gym_by": 6,
+   "rs_by": 6
   },
   "reihenfolge": {
    "gym_by": 4
@@ -752,7 +763,8 @@
   "gebiet": "Fläche und Raum",
   "titel": "Volumen",
   "klasse": {
-   "gym_by": 6
+   "gym_by": 6,
+   "rs_by": 6
   },
   "reihenfolge": {
    "gym_by": 5
@@ -773,7 +785,8 @@
   "gebiet": "Fläche und Raum",
   "titel": "Prismen und Zylinder",
   "klasse": {
-   "gym_by": 8
+   "gym_by": 8,
+   "rs_by": 9
   },
   "reihenfolge": {
    "gym_by": 14
@@ -795,7 +808,7 @@
   "titel": "Zufall und Laplace",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 8,
+   "rs_by": 9,
    "ib_myp": 2
   },
   "reihenfolge": {
@@ -861,7 +874,7 @@
   "klasse": {
    "gym_by": 9,
    "rs_by": 9,
-   "ib_myp": 3
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 2
@@ -881,7 +894,8 @@
   "titel": "Rationale Exponenten und n-te Wurzel",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 5
   },
   "reihenfolge": {
    "gym_by": 8
@@ -924,7 +938,8 @@
   "titel": "Potenzgleichungen",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 10
@@ -964,7 +979,7 @@
   "titel": "Quadratische Funktionen",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 8,
+   "rs_by": 9,
    "ib_myp": 4
   },
   "reihenfolge": {
@@ -1052,7 +1067,7 @@
   "klasse": {
    "gym_by": 9,
    "rs_by": 9,
-   "ib_myp": 3
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 12
@@ -1093,7 +1108,8 @@
   "titel": "Trigonometrische Gleichungen",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 5
   },
   "reihenfolge": {
    "gym_by": 14
@@ -1113,7 +1129,7 @@
   "titel": "Verknüpfte Ereignisse",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 8,
+   "rs_by": 9,
    "ib_myp": 4
   },
   "reihenfolge": {
@@ -1133,8 +1149,9 @@
   "gebiet": "Geld und Verhältnisse",
   "titel": "Vermehrter und verminderter Grundwert",
   "klasse": {
+   "gym_by": 7,
    "rs_by": 7,
-   "gym_by": 7
+   "ib_myp": 3
   },
   "reihenfolge": {
    "gym_by": 6
@@ -1175,7 +1192,9 @@
   "gebiet": "Algebra",
   "titel": "Terme umformen",
   "klasse": {
-   "gym_by": 7
+   "gym_by": 7,
+   "rs_by": 7,
+   "ib_myp": 3
   },
   "reihenfolge": {
    "gym_by": 2
@@ -1215,7 +1234,9 @@
   "gebiet": "Geometrie",
   "titel": "Winkelsätze",
   "klasse": {
-   "gym_by": 7
+   "gym_by": 7,
+   "rs_by": 7,
+   "ib_myp": 2
   },
   "reihenfolge": {
    "gym_by": 4
@@ -1234,8 +1255,8 @@
   "gebiet": "Geometrie",
   "titel": "Konstruktionen, Kongruenz und Beweise",
   "klasse": {
-   "rs_by": 6,
    "gym_by": 7,
+   "rs_by": 7,
    "ib_myp": 3
   },
   "reihenfolge": {
@@ -1279,9 +1300,9 @@
   "gebiet": "Daten und Zufall",
   "titel": "Median, Quartile, Boxplot",
   "klasse": {
-   "rs_by": 7,
    "gym_by": 7,
-   "ib_myp": 2
+   "rs_by": 7,
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 7
@@ -1303,8 +1324,9 @@
   "gebiet": "Algebra",
   "titel": "Exponentialgleichungen",
   "klasse": {
+   "gym_by": 10,
    "rs_by": 10,
-   "gym_by": 10
+   "ib_myp": 5
   },
   "reihenfolge": {
    "gym_by": 2
@@ -1342,9 +1364,9 @@
   "gebiet": "Funktionen",
   "titel": "Exponential- und Logarithmusfunktionen",
   "klasse": {
-   "rs_by": 10,
    "gym_by": 10,
-   "ib_myp": 4
+   "rs_by": 10,
+   "ib_myp": 5
   },
   "reihenfolge": {
    "gym_by": 1
@@ -1363,9 +1385,9 @@
   "gebiet": "Funktionen",
   "titel": "Sinus- und Kosinusfunktion",
   "klasse": {
-   "rs_by": 10,
    "gym_by": 10,
-   "ib_myp": 4
+   "rs_by": 10,
+   "ib_myp": 5
   },
   "reihenfolge": {
    "gym_by": 5
@@ -1385,7 +1407,7 @@
   "titel": "Ganzrationale Funktionen",
   "klasse": {
    "gym_by": 10,
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "reihenfolge": {
    "gym_by": 6
@@ -1428,8 +1450,9 @@
   "gebiet": "Daten und Zufall",
   "titel": "Mehrstufige Zufallsexperimente",
   "klasse": {
+   "gym_by": 10,
    "rs_by": 10,
-   "gym_by": 10
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 3
@@ -1485,7 +1508,8 @@
   "gebiet": "Daten und Zufall",
   "titel": "Stichproben und Aussagekraft",
   "klasse": {
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 2
   },
   "umfang": "Repräsentativität und Grenzen von Aussagen.",
   "lehrplan_gym": [],
@@ -1534,7 +1558,8 @@
   "gebiet": "Funktionen",
   "titel": "Graphentransformation",
   "klasse": {
-   "rs_by": 9
+   "rs_by": 9,
+   "ib_myp": 5
   },
   "umfang": "Graphen verschieben, strecken, spiegeln.",
   "lehrplan_gym": [],
@@ -1551,7 +1576,8 @@
   "gebiet": "Algebra",
   "titel": "Reinquadratische Gleichungen",
   "klasse": {
-   "rs_by": 9
+   "rs_by": 9,
+   "ib_myp": 4
   },
   "umfang": "Gleichungen der Form x² = a lösen (zwei, eine oder keine Lösung).",
   "lehrplan_gym": [],
@@ -1586,7 +1612,7 @@
   "titel": "Matrizen und Abbildungen mit Matrizen",
   "klasse": {
    "rs_by": 10,
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Abbildungen (Spiegelung, Drehung) mit Matrizen, Matrizenrechnung.",
   "lehrplan_gym": [],
@@ -1607,7 +1633,7 @@
   "titel": "Umkehrfunktionen",
   "klasse": {
    "rs_by": 10,
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Umkehrbarkeit und Umkehrfunktion.",
   "lehrplan_gym": [],
@@ -1622,7 +1648,7 @@
   "gebiet": "Entdecker-Inseln",
   "titel": "Mengen und Venn-Diagramme",
   "klasse": {
-   "ib_myp": 1
+   "ib_myp": 3
   },
   "umfang": "Elemente, Schnitt, Vereinigung; Wahrscheinlichkeit separat.",
   "lehrplan_gym": [],
@@ -1660,7 +1686,7 @@
   "gebiet": "Daten und Zufall",
   "titel": "Zweidimensionale Daten",
   "klasse": {
-   "ib_myp": 3
+   "ib_myp": 5
   },
   "umfang": "Streudiagramme, Zusammenhang, Korrelation und Kausalität.",
   "lehrplan_gym": [],
@@ -1678,7 +1704,7 @@
   "gebiet": "Daten und Zufall",
   "titel": "Standardabweichung",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Streuung berechnen und interpretieren.",
   "lehrplan_gym": [],
@@ -1695,7 +1721,7 @@
   "gebiet": "Daten und Zufall",
   "titel": "Bedingte Wahrscheinlichkeit",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Bedingung, Bezugsmenge, Abhängigkeit/Unabhängigkeit.",
   "lehrplan_gym": [],
@@ -1712,7 +1738,7 @@
   "gebiet": "Funktionen",
   "titel": "Betragsfunktion",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Graph und stückweise Beschreibung.",
   "lehrplan_gym": [],
@@ -1727,7 +1753,7 @@
   "gebiet": "Funktionen",
   "titel": "Folgen",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Arithmetische und geometrische Folgen und Reihen, Summenschreibweise.",
   "lehrplan_gym": [],
@@ -1744,7 +1770,7 @@
   "gebiet": "Funktionen",
   "titel": "Reihen",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Summen von Folgengliedern.",
   "lehrplan_gym": [],
@@ -1776,7 +1802,7 @@
   "gebiet": "Entdecker-Inseln",
   "titel": "Lineare Optimierung",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Optimierung mit linearen Ungleichungssystemen (IB-Verlagsinhalt).",
   "lehrplan_gym": [],
@@ -1790,7 +1816,7 @@
   "ort": "Suva",
   "gebiet": "Daten und Zufall",
   "titel": "Normalverteilung",
-  "klasse": {},
+  "klasse": {"ib_myp": 5},
   "umfang": "Verteilungsmodell und Anwendungen (Verlagsinhalt IB Extended).",
   "lehrplan_gym": [],
   "lehrplan_andere": [],
@@ -1803,7 +1829,7 @@
   "ort": "Boston",
   "gebiet": "Geld und Verhältnisse",
   "titel": "Zinseszins",
-  "klasse": {},
+  "klasse": {"ib_myp": 4},
   "umfang": "Wiederholte Verzinsung, Wachstumsfaktor.",
   "lehrplan_gym": [],
   "lehrplan_andere": [],
@@ -1816,7 +1842,7 @@
   "ort": "Honolulu",
   "gebiet": "Entdecker-Inseln",
   "titel": "Aussagenlogik",
-  "klasse": {},
+  "klasse": {"ib_myp": 4},
   "umfang": "Verknüpfungen, Wahrheitstafeln (Verlagsinhalt).",
   "lehrplan_gym": [],
   "lehrplan_andere": [],
@@ -1829,7 +1855,7 @@
   "ort": "Honolulu",
   "gebiet": "Entdecker-Inseln",
   "titel": "Schranken und Genauigkeit",
-  "klasse": {},
+  "klasse": {"ib_myp": 5},
   "umfang": "Obere/untere Schranken bei gerundeten Größen.",
   "lehrplan_gym": [],
   "lehrplan_andere": [],
@@ -1889,7 +1915,8 @@
   "titel": "Indirekte Proportionalität",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 4
   },
   "reihenfolge": {
    "gym_by": 5

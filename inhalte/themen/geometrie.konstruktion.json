@@ -1967,7 +1967,7 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Wie viele verschiedene gleichschenklige Dreiecke gibt es, deren Winkel ganze Gradzahlen sind und deren Spitzenwinkel ein Vielfaches von 10° ist?"
+    "text": "Gleichschenklige Dreiecke sollen nur ganzzahlige Winkel (in Grad) haben, und der Spitzenwinkel soll ein Vielfaches von 10° sein. Wie viele verschiedene Winkelkombinationen gibt es (die Größe des Dreiecks zählt nicht)?"
    },
    "o": {
     "wert": 17
@@ -5891,7 +5891,7 @@
    "g": "knobel",
    "y": "auswahl",
    "f": {
-    "text": "In einem Parallelogramm, das kein Rechteck ist, zeichnet man alle vier Winkelhalbierenden. Sie begrenzen ein neues Viereck. Welches ist es sicher?"
+    "text": "In einem Parallelogramm, das weder ein Rechteck noch eine Raute ist, zeichnet man alle vier Winkelhalbierenden. Sie begrenzen ein neues Viereck. Welches ist es sicher?"
    },
    "a": [
     "ein Parallelogramm ohne rechten Winkel",

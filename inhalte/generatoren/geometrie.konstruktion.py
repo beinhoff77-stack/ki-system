@@ -1175,7 +1175,7 @@ ST.knobel('gleichschenklig', ST.Z('Im Dreieck ABC ist AB = AC. Auf [AC] liegt ei
                                   'Dreieck BCD ist gleichschenklig (BD = BC), also ∢BCD = ∢BDC = 2x. Dreieck ABC ist gleichschenklig (AB = AC), also ∢ABC = ∢ACB = 2x. '
                                   'Winkelsumme in ABC: x + 2x + 2x = 180°, also x = 36°.',
                                   'Nenne den gesuchten Winkel x und arbeite dich über die gleichschenkligen Teildreiecke vor.', einheit='°'))
-ST.knobel('gleichschenklig', ST.Z('Wie viele verschiedene gleichschenklige Dreiecke gibt es, deren Winkel ganze Gradzahlen sind und deren Spitzenwinkel ein Vielfaches von 10° ist?', 17, '170 / 10',
+ST.knobel('gleichschenklig', ST.Z('Gleichschenklige Dreiecke sollen nur ganzzahlige Winkel (in Grad) haben, und der Spitzenwinkel soll ein Vielfaches von 10° sein. Wie viele verschiedene Winkelkombinationen gibt es (die Größe des Dreiecks zählt nicht)?', 17, '170 / 10',
                                   'Spitzenwinkel s, Basiswinkel (180° − s) : 2. Bei jedem Vielfachen von 10° ist 180° − s gerade, der Basiswinkel also ganzzahlig. '
                                   'Möglich sind s = 10°, 20°, …, 170° (0° und 180° ergeben kein Dreieck): 17 Werte. Verschiedene Spitzenwinkel ergeben verschiedene Winkelsätze.',
                                   'Welche Spitzenwinkel sind möglich, und wird der Basiswinkel dann ganzzahlig?'))
@@ -1302,7 +1302,7 @@ ST.neu('vierecke', 3, 'pruefung', ST.Z('In einem Rechteck schneiden sich die Dia
                                        'Welche Teildreiecke entstehen, und welcher Winkel liegt der längeren Seite gegenüber?', einheit='°'))
 ST.knobel('vierecke', ST.Z('In einem Viereck ist ein Winkel halb so groß wie die drei anderen zusammen. Wie groß ist dieser Winkel?', 120, '360 / 3',
                            'Ist der Winkel x, sind die drei anderen zusammen 2x. Summe x + 2x = 360°, also x = 120°.', 'Drücke die Winkelsumme mit diesem Winkel aus.', einheit='°'))
-ST.knobel('vierecke', ST.A('In einem Parallelogramm, das kein Rechteck ist, zeichnet man alle vier Winkelhalbierenden. Sie begrenzen ein neues Viereck. Welches ist es sicher?', 'ein Rechteck',
+ST.knobel('vierecke', ST.A('In einem Parallelogramm, das weder ein Rechteck noch eine Raute ist, zeichnet man alle vier Winkelhalbierenden. Sie begrenzen ein neues Viereck. Welches ist es sicher?', 'ein Rechteck',
                            ['eine Raute', 'ein Parallelogramm ohne rechten Winkel', 'ein Drachenviereck ohne rechten Winkel'],
                            'Je zwei Nachbarwinkel des Parallelogramms ergeben 180°, ihre Hälften also 90°. Im Dreieck aus der gemeinsamen Seite und den beiden Halbierenden bleibt für den Schnittwinkel 180° − 90° = 90°. '
                            'Das gilt an allen vier Ecken des neuen Vierecks: vier rechte Winkel, also ein Rechteck.',

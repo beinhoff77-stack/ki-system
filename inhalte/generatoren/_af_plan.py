@@ -143,3 +143,15 @@ PLAN['funktionen.reihen'] = [
                                    ['explizite Formel', 'aₙ direkt aus der Platznummer n berechnen, z. B. aₙ = 2n + 14']]),
     abschnitt('Schreibweise', 'Folgen und Schreibweise'),
 ]
+
+
+# =====================================================================================================================
+# bruch.prozent_grundwert (Kl. 7) ← finanzen.zinseszins: formel (B). Vertiefung (nur IB), nach mehrfach.
+# q und „Zinseszins“ führte die entfallene Karte faktor bzw. der Flug ein → als Wörter ergänzt (Potenz ist aus Kl. 5 bekannt).
+# =====================================================================================================================
+PLAN['bruch.prozent_grundwert'] = [
+    karte_her('finanzen.zinseszins', 'formel', 'Komplexere Aufgaben', vertiefung=True, nach='mehrfach'),
+    karte('formel', woerter=[['Zinseszins', 'die Zinsen bleiben auf dem Konto und bringen im nächsten Jahr selbst Zinsen'],
+                             ['q', 'der Zinsfaktor: q = 1 + p/100, bei 2 % also 1,02'],
+                             ['K₀, Kₙ', 'das Anfangskapital und das Kapital nach n Jahren']]),
+]

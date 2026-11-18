@@ -995,3 +995,10 @@ if __name__ == '__main__':
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
     stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('bruch.prozent_grundwert')
+# ---- AUFLOESEN ENDE ----

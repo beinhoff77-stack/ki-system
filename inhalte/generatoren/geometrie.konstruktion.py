@@ -1366,3 +1366,10 @@ if __name__ == '__main__':
     einfuegen(META['thema_schluessel'], luecken(), 7250, quelle=_LUECKEN_QUELLE, offen=_LUECKEN_OFFEN)  # Achtzehnte Runde: zuletzt
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
     stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('geometrie.konstruktion')
+# ---- BEREINIGEN ENDE ----

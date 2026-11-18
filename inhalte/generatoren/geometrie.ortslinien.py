@@ -594,3 +594,10 @@ stufen_anwenden(DATEI, 'geometrie.ortslinien')
 
 if __name__ == '__main__':
     schreibe(DATEI)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('geometrie.ortslinien')
+# ---- BEREINIGEN ENDE ----

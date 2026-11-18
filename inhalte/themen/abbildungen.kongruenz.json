@@ -38,7 +38,6 @@
     "lernziele": [
      "symmetrie",
      "vierecke_ordnen",
-     "parkett",
      "eigenschaften"
     ]
    }
@@ -50,7 +49,7 @@
     "regel": "Spiegeln heißt: ⟦gleich weit⟧ auf die andere Seite der Achse. Die Strecke PP' steht senkrecht auf der Achse.",
     "schritte": [
      {
-      "text": "P(4 | 3) wird an der Achse x = 1 gespiegelt."
+      "text": "P(4 | 3) wird an der senkrechten Achse durch (1 | 0) gespiegelt."
      },
      {
       "text": "P liegt 3 Kästchen rechts von der Achse.",
@@ -93,7 +92,7 @@
       }
      },
      {
-      "text": "An der Geraden y = x tauschen x und y die Plätze: P'(3 | 4).",
+      "text": "Achse durch O und (1 | 1): x und y tauschen, also P'(3 | 4).",
       "bild": {
        "typ": "koordinaten",
        "x": [
@@ -109,7 +108,7 @@
          "art": "linear",
          "m": 1,
          "t": 0,
-         "name": "y = x"
+         "name": "a"
         }
        ],
        "punkte": [
@@ -1971,191 +1970,6 @@
     "regel": "Je mehr Symmetrie, desto weiter unten im Haus der Vierecke. Ein Viereck unten hat alle ⟦Eigenschaften⟧ der Vierecke darüber."
    },
    {
-    "lernziel": "parkett",
-    "titel": "Lückenlos auslegen (Parkett)",
-    "regel": "360° muss durch den ⟦Innenwinkel⟧ teilbar sein. Nur dann passen die Fliesen lückenlos.",
-    "schritte": [
-     {
-      "text": "Ein gleichseitiges Dreieck hat an jeder Ecke einen Innenwinkel von 60°."
-     },
-     {
-      "text": "Um eine Ecke ist Platz für 360°. 360° : 60° = 6.",
-      "bild": {
-       "typ": "figur",
-       "punkte": {
-        "O": [
-         0,
-         0
-        ],
-        "_h0": [
-         3.0,
-         0.0
-        ],
-        "_h1": [
-         1.5,
-         2.6
-        ],
-        "_h2": [
-         -1.5,
-         2.6
-        ],
-        "_h3": [
-         -3.0,
-         0.0
-        ],
-        "_h4": [
-         -1.5,
-         -2.6
-        ],
-        "_h5": [
-         1.5,
-         -2.6
-        ]
-       },
-       "linien": [
-        [
-         "O",
-         "_h0"
-        ],
-        [
-         "_h0",
-         "_h1"
-        ],
-        [
-         "O",
-         "_h1"
-        ],
-        [
-         "O",
-         "_h1"
-        ],
-        [
-         "_h1",
-         "_h2"
-        ],
-        [
-         "O",
-         "_h2"
-        ],
-        [
-         "O",
-         "_h2"
-        ],
-        [
-         "_h2",
-         "_h3"
-        ],
-        [
-         "O",
-         "_h3"
-        ],
-        [
-         "O",
-         "_h3"
-        ],
-        [
-         "_h3",
-         "_h4"
-        ],
-        [
-         "O",
-         "_h4"
-        ],
-        [
-         "O",
-         "_h4"
-        ],
-        [
-         "_h4",
-         "_h5"
-        ],
-        [
-         "O",
-         "_h5"
-        ],
-        [
-         "O",
-         "_h5"
-        ],
-        [
-         "_h5",
-         "_h0"
-        ],
-        [
-         "O",
-         "_h0"
-        ]
-       ],
-       "winkel": [
-        [
-         "O",
-         "_h0",
-         "_h1",
-         "60°"
-        ]
-       ]
-      }
-     },
-     {
-      "text": "Sechs Dreiecke passen genau: ⟦ein Parkett⟧."
-     },
-     {
-      "text": "Fünfeck: 360° : 108° = 3,33…, es bleibt eine ⟦Lücke⟧."
-     }
-    ],
-    "fehler": "Nicht jedes regelmäßige Vieleck passt. Drei Fünfecke sind 324°, es bleibt ein Spalt von 36°. Vier wären mit 432° zu viel.",
-    "bild": {
-     "typ": "figur",
-     "punkte": {
-      "O": [
-       0,
-       0
-      ],
-      "_h0": [
-       3.0,
-       0.0
-      ],
-      "_h1": [
-       1.5,
-       2.6
-      ]
-     },
-     "linien": [
-      [
-       "O",
-       "_h0"
-      ],
-      [
-       "_h0",
-       "_h1"
-      ],
-      [
-       "O",
-       "_h1"
-      ]
-     ],
-     "winkel": [
-      [
-       "O",
-       "_h0",
-       "_h1",
-       "60°"
-      ]
-     ]
-    },
-    "einstieg": "Im Bad liegen Fliesen dicht an dicht, ohne Lücke. Mit Quadraten geht das, mit Sechsecken auch, mit Fünfecken nicht. So eine lückenlose Auslegung heißt ⟦Parkett⟧.",
-    "woerter": [
-     [
-      "Innenwinkel",
-      "der Winkel innen an einer Ecke"
-     ],
-     [
-      "360°",
-      "eine volle Umdrehung um eine Ecke"
-     ]
-    ]
-   },
-   {
     "lernziel": "eigenschaften",
     "titel": "Was bleibt bei Abbildungen gleich?",
     "regel": "Kongruenzabbildungen erhalten ⟦Längen und Winkel⟧. Nur das Achsenspiegeln dreht den Umlaufsinn um.",
@@ -2388,13 +2202,6 @@
     ]
    },
    {
-    "k": "parkett",
-    "text": "Lückenlos auslegen (Parkett)",
-    "lernziele": [
-     "parkett"
-    ]
-   },
-   {
     "k": "eigenschaften",
     "text": "Was bleibt bei Abbildungen gleich?",
     "lernziele": [
@@ -2414,8 +2221,7 @@
    ],
    "lernziele_vertiefung": [
     "verschiebung",
-    "drehung",
-    "parkett"
+    "drehung"
    ],
    "testaufgaben_je_lernziel": 1
   },
@@ -2433,7 +2239,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(2 | −5) an der Geraden x = 3 (senkrecht zur x-Achse).",
+    "text": "Spiegle P(2 | −5) an der senkrechten Achse durch (3 | 0).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -2522,7 +2328,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−4 | −5) an der Geraden y = 2 (parallel zur x-Achse).",
+    "text": "Spiegle P(−4 | −5) an der waagrechten Achse durch (0 | 2).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -2560,143 +2366,6 @@
    "w": "Abstand zur Achse: −5 − 2 = −7. Auf der anderen Seite: 2 − (−7) = 9. x bleibt −4.",
    "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite.",
    "g": "mehrschritt"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "P(−2 | 5) wird an einer Geraden parallel zur x-Achse auf P'(−2 | 11) gespiegelt. Gib die Achse an.",
-    "schablone": "y = □",
-    "hinweis": "Trage die Zahl ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -3,
-      1
-     ],
-     "y": [
-      -1,
-      12
-     ],
-     "punkte": [
-      {
-       "x": -2,
-       "y": 5,
-       "name": "P"
-      },
-      {
-       "x": -2,
-       "y": 11,
-       "name": "P'"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     8
-    ]
-   },
-   "c": [
-    "(5 + 11) // 2"
-   ],
-   "w": "Die Achse geht durch die Mitte von P und P': y = (5 + 11) : 2 = 8.",
-   "h": "Die Achse liegt genau in der Mitte zwischen P und P'.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(3 | −2) an der Geraden x = −1 (senkrecht zur x-Achse).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -2,
-      4
-     ],
-     "y": [
-      -3,
-      1
-     ],
-     "punkte": [
-      {
-       "x": 3,
-       "y": -2,
-       "name": "P"
-      }
-     ],
-     "senkrecht": [
-      -1
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -5,
-     -2
-    ]
-   },
-   "c": [
-    "-1 - (3 - (-1))",
-    "-2"
-   ],
-   "w": "P ist 4 rechts von der Achse x = −1. P' liegt 4 links davon: x = −5. y bleibt −2.",
-   "h": "Wie weit ist P von der Achse entfernt? Genauso weit auf die andere Seite.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(−1 | −7) an der Geraden y = 3 (parallel zur x-Achse).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -2,
-      1
-     ],
-     "y": [
-      -8,
-      14
-     ],
-     "punkte": [
-      {
-       "x": -1,
-       "y": -7,
-       "name": "P"
-      }
-     ],
-     "waagrecht": [
-      3
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -1,
-     13
-    ]
-   },
-   "c": [
-    "-1",
-    "13"
-   ],
-   "w": "Abstand zur Achse: −7 − 3 = −10. Auf der anderen Seite: 3 − (−10) = 13. x bleibt −1.",
-   "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite."
   },
   {
    "l": "achsenspiegelung",
@@ -2748,7 +2417,98 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(0 | 5) an der Winkelhalbierenden y = x.",
+    "text": "Spiegle P(3 | −2) an der senkrechten Achse durch (−1 | 0).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": -2,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      -1
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -5,
+     -2
+    ]
+   },
+   "c": [
+    "-1 - (3 - (-1))",
+    "-2"
+   ],
+   "w": "P ist 4 rechts von der Achse x-Wert −1. P' liegt 4 links davon: x-Wert −5. y bleibt −2.",
+   "h": "Wie weit ist P von der Achse entfernt? Genauso weit auf die andere Seite.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(−1 | −7) an der waagrechten Achse durch (0 | 3).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      1
+     ],
+     "y": [
+      -8,
+      14
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -7,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      3
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -1,
+     13
+    ]
+   },
+   "c": [
+    "-1",
+    "13"
+   ],
+   "w": "Abstand zur Achse: −7 − 3 = −10. Auf der anderen Seite: 3 − (−10) = 13. x bleibt −1.",
+   "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite."
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(0 | 5) an der Geraden durch (0 | 0) und (1 | 1).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate ein.",
     "grafik": {
@@ -2773,7 +2533,7 @@
        "art": "linear",
        "m": 1,
        "t": 0,
-       "name": "y = x"
+       "name": "a"
       }
      ]
     }
@@ -2788,8 +2548,8 @@
     "5",
     "0"
    ],
-   "w": "Bei der Spiegelung an y = x tauschen x und y die Plätze: P'(5 | 0).",
-   "h": "An y = x werden die Koordinaten vertauscht.",
+   "w": "Bei der Spiegelung an dieser Geraden tauschen x und y die Plätze: P'(5 | 0).",
+   "h": "An dieser Geraden werden die Koordinaten vertauscht.",
    "g": "mehrschritt"
   },
   {
@@ -2797,17 +2557,89 @@
    "t": "achsenspiegelung",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Ein Punkt P(x | 2) wird an der Geraden x = 4 gespiegelt und landet bei P'(−1 | 2). Wie groß ist x?"
+    "text": "P(−2 | 5) wird an einer Geraden parallel zur x-Achse auf P'(−2 | 11) gespiegelt. Gib den Punkt an, in dem die Achse die Koordinatenachse schneidet.",
+    "schablone": "(0 | □)",
+    "hinweis": "Trage die Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      1
+     ],
+     "y": [
+      -1,
+      12
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 11,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
-    "wert": 9
+    "werte": [
+     8
+    ]
    },
-   "c": "4 + (4 - (-1))",
-   "w": "P' liegt 5 links von der Achse (−1 bis 4). P liegt 5 rechts davon: x = 9.",
-   "h": "Rückwärts denken: Wie weit ist P' von der Achse entfernt?",
+   "c": [
+    "(5 + 11) // 2"
+   ],
+   "w": "Die Achse geht durch die Mitte von P und P': y = (5 + 11) : 2 = 8.",
+   "h": "Die Achse liegt genau in der Mitte zwischen P und P'.",
    "g": "rueckwaerts"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(−2 | −5) an der x-Achse.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      1
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -5,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -2,
+     5
+    ]
+   },
+   "c": [
+    "-2",
+    "5"
+   ],
+   "w": "An der x-Achse ändert sich das Vorzeichen der y-Koordinate: P'(−2 | 5).",
+   "h": "Welche Koordinate ändert sich, welche bleibt?",
+   "g": "direkt"
   },
   {
    "l": "achsenspiegelung",
@@ -2816,7 +2648,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−3 | 1) an der Geraden y = −4 (parallel zur x-Achse).",
+    "text": "Spiegle P(−3 | 1) an der waagrechten Achse durch (0 | −4).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -2858,11 +2690,79 @@
    "l": "achsenspiegelung",
    "t": "achsenspiegelung",
    "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(−5 | 1) an der Geraden durch (0 | 0) und (1 | 1).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      2
+     ],
+     "y": [
+      -6,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 1,
+       "name": "P"
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 0,
+       "name": "a"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     -5
+    ]
+   },
+   "c": [
+    "1",
+    "-5"
+   ],
+   "w": "An dieser Geraden werden die Koordinaten vertauscht: P'(1 | −5).",
+   "h": "An dieser Geraden tauschen x- und y-Koordinate die Plätze.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Punkt P(x | 2) wird an der senkrechten Achse durch (4 | 0) gespiegelt und landet bei P'(−1 | 2). Wie groß ist x?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "4 + (4 - (-1))",
+   "w": "P' liegt 5 links von der Achse (−1 bis 4). P liegt 5 rechts davon: x-Wert 9.",
+   "h": "Rückwärts denken: Wie weit ist P' von der Achse entfernt?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Die Raute ABCD mit A(−3 | 1), B(1 | −1), C(5 | 1) und D(1 | 3) ist achsensymmetrisch. Eine Symmetrieachse ist parallel zur y-Achse. Gib sie an.",
-    "schablone": "x = □",
+    "text": "Die Raute ABCD mit A(−3 | 1), B(1 | −1), C(5 | 1) und D(1 | 3) ist achsensymmetrisch. Eine Symmetrieachse ist parallel zur y-Achse. Gib den Punkt an, in dem sie die x-Achse schneidet.",
+    "schablone": "(□ | 0)",
     "hinweis": "Trage die Zahl ein.",
     "grafik": {
      "typ": "koordinaten",
@@ -2932,103 +2832,9 @@
    "c": [
     "(-3 + 5) // 2"
    ],
-   "w": "Die Achse halbiert die Diagonale [AC]: Mitte von −3 und 5 ist 1. Sie geht durch B und D (beide x = 1). Achse: x = 1.",
+   "w": "Die Achse halbiert die Diagonale [AC]: Mitte von −3 und 5 ist 1. Sie geht durch B und D (beide x-Wert 1). Achse: x-Wert 1.",
    "h": "Eine Symmetrieachse der Raute ist eine Diagonale. Welche Diagonale ist senkrecht?",
    "g": "verknuepfen"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(−5 | 1) an der Winkelhalbierenden y = x.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -6,
-      2
-     ],
-     "y": [
-      -6,
-      2
-     ],
-     "punkte": [
-      {
-       "x": -5,
-       "y": 1,
-       "name": "P"
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 0,
-       "name": "y = x"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     1,
-     -5
-    ]
-   },
-   "c": [
-    "1",
-    "-5"
-   ],
-   "w": "An y = x werden die Koordinaten vertauscht: P'(1 | −5).",
-   "h": "Bei y = x tauschen x- und y-Koordinate die Plätze.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(−2 | −5) an der x-Achse.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -3,
-      1
-     ],
-     "y": [
-      -6,
-      6
-     ],
-     "punkte": [
-      {
-       "x": -2,
-       "y": -5,
-       "name": "P"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -2,
-     5
-    ]
-   },
-   "c": [
-    "-2",
-    "5"
-   ],
-   "w": "An der x-Achse ändert sich das Vorzeichen der y-Koordinate: P'(−2 | 5).",
-   "h": "Welche Koordinate ändert sich, welche bleibt?",
-   "g": "direkt"
   },
   {
    "l": "achsenspiegelung",
@@ -3037,7 +2843,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−4 | −1) an der Geraden y = −x.",
+    "text": "Spiegle P(−4 | −1) an der Geraden durch (0 | 0) und (1 | −1).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3062,7 +2868,7 @@
        "art": "linear",
        "m": -1,
        "t": 0,
-       "name": "y = −x"
+       "name": "a"
       }
      ]
     }
@@ -3077,9 +2883,425 @@
     "1",
     "4"
    ],
-   "w": "An y = −x werden die Koordinaten vertauscht und beide Vorzeichen geändert: P'(1 | 4).",
-   "h": "Wie bei y = x tauschen die Koordinaten – zusätzlich ändern sich beide Vorzeichen.",
+   "w": "An dieser Geraden werden die Koordinaten vertauscht und beide Vorzeichen geändert: P'(1 | 4).",
+   "h": "Wie an der Geraden durch (0 | 0) und (1 | 1) tauschen die Koordinaten – zusätzlich ändern sich beide Vorzeichen.",
    "g": "transfer"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Punkt wird an der x-Achse gespiegelt. Welche Koordinate ändert ihr Vorzeichen?"
+   },
+   "a": [
+    "die y-Koordinate",
+    "beide Koordinaten",
+    "keine von beiden",
+    "die x-Koordinate"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die x-Achse ist waagrecht. Der Bildpunkt liegt genau gegenüber, also gleich weit rechts, aber auf der anderen Seite der Achse: Nur die y-Koordinate wechselt das Vorzeichen.",
+   "h": "Wohin wandert ein Punkt, wenn man an einer waagrechten Linie spiegelt?"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(−3 | 1) an der y-Achse.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -1,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 1,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     1
+    ]
+   },
+   "c": [
+    "3",
+    "1"
+   ],
+   "w": "An der y-Achse ändert sich das Vorzeichen der x-Koordinate: P'(3 | 1).",
+   "h": "Welche Koordinate ändert sich, welche bleibt?",
+   "g": "direkt"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(6 | −4) an der waagrechten Achse durch (0 | 4).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -5,
+      13
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": -4,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      4
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     6,
+     12
+    ]
+   },
+   "c": [
+    "6",
+    "12"
+   ],
+   "w": "Abstand zur Achse: −4 − 4 = −8. Auf der anderen Seite: 4 − (−8) = 12. x bleibt 6.",
+   "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "luecken",
+   "f": {
+    "text": "Nach einer Spiegelung an der y-Achse liegt der Bildpunkt bei P'(−2 | 7). Wo lag P?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "c": [
+    "2",
+    "7"
+   ],
+   "w": "Spiegelt man P' zurück an der y-Achse, erhält man P(2 | 7). Probe: P(2 | 7) an der y-Achse ergibt (−2 | 7) ✓.",
+   "h": "Spiegle einfach zurück."
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(−8 | 6) an der waagrechten Achse durch (0 | 4).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -9,
+      1
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -8,
+       "y": 6,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      4
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -8,
+     2
+    ]
+   },
+   "c": [
+    "-8",
+    "2"
+   ],
+   "w": "Abstand zur Achse: 6 − 4 = 2. Auf der anderen Seite: 4 − 2 = 2. x bleibt −8.",
+   "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite."
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "luecken",
+   "f": {
+    "text": "Auf einer Karte fließt ein gerader Fluss entlang der y-Achse. Ein Haus steht bei H(3 | 5). Genau gegenüber, gleich weit vom Fluss entfernt, steht eine Scheune. Wo?",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein."
+   },
+   "o": {
+    "werte": [
+     -3,
+     5
+    ]
+   },
+   "c": [
+    "-3",
+    "5"
+   ],
+   "w": "Die Scheune ist das Spiegelbild des Hauses an der y-Achse: S(−3 | 5).",
+   "h": "An welcher Achse wird gespiegelt?"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "P(7 | 4) wird an einer Geraden senkrecht zur x-Achse auf P'(−3 | 4) gespiegelt. Gib den Punkt an, in dem die Achse die Koordinatenachse schneidet.",
+    "schablone": "(□ | 0)",
+    "hinweis": "Trage die Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      8
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 4,
+       "name": "P"
+      },
+      {
+       "x": -3,
+       "y": 4,
+       "name": "P'"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "c": [
+    "(7 + -3) // 2"
+   ],
+   "w": "Die Achse geht durch die Mitte von P und P': x = (7 + (−3)) : 2 = 2.",
+   "h": "Die Achse liegt genau in der Mitte zwischen P und P'.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "luecken",
+   "f": {
+    "text": "Das Dreieck A(1 | 1), B(5 | 1), C(2 | 4) wird an der senkrechten Geraden durch (6 | 0) gespiegelt. Gib C' an.",
+    "schablone": "C'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein."
+   },
+   "o": {
+    "werte": [
+     10,
+     4
+    ]
+   },
+   "c": [
+    "6 + (6 - 2)",
+    "4"
+   ],
+   "w": "C liegt 4 Einheiten links von der Achse (6 − 2 = 4). C' liegt 4 Einheiten rechts davon: x = 10. Die y-Koordinate bleibt 4. C'(10 | 4).",
+   "h": "Wie weit ist C von der Achse entfernt?"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bei einer Achsenspiegelung wird A(−2 | 3) auf A'(4 | 3) abgebildet. Wohin wird B(−1 | 0) bei derselben Spiegelung abgebildet?",
+    "schablone": "B'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 3,
+       "name": "A'"
+      },
+      {
+       "x": -1,
+       "y": 0,
+       "name": "B"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     0
+    ]
+   },
+   "c": [
+    "1 + (1 - (-1))",
+    "0"
+   ],
+   "w": "Die Achse ist die Mittelsenkrechte von [AA']: x = (−2 + 4) : 2 = 1. B ist 2 links von der Achse, B' liegt 2 rechts: B'(3 | 0).",
+   "h": "Bestimme zuerst die Achse: Sie liegt genau in der Mitte zwischen A und A'.",
+   "g": "transfer"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(4 | −3) wird erst an der x-Achse und danach an der y-Achse gespiegelt. Welche einzelne Abbildung hat dieselbe Wirkung?"
+   },
+   "a": [
+    "Punktspiegelung am Ursprung O",
+    "Drehung um O um 90°",
+    "Achsenspiegelung an der Geraden durch (0 | 0) und (1 | 1)",
+    "Verschiebung mit v = (−8 | 6)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x-Achse: (4 | −3) → (4 | 3). y-Achse: → (−4 | 3). Beide Vorzeichen sind umgedreht: Das ist die Punktspiegelung an O (Drehung um 180°) – für jeden Punkt.",
+   "h": "Verfolge den Punkt durch beide Spiegelungen. Was passiert mit den Vorzeichen?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand spiegelt P(4 | −3) an der x-Achse und erhält P'(−4 | −3). Was stimmt?"
+   },
+   "a": [
+    "Falsch: Er hat an der y-Achse gespiegelt; richtig ist P'(4 | 3).",
+    "Falsch: Richtig ist P'(−4 | 3).",
+    "Falsch: Richtig ist P'(3 | −4).",
+    "Richtig gespiegelt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "An der x-Achse bleibt x gleich und y wechselt das Vorzeichen: P'(4 | 3). Wechselt x das Vorzeichen, ist an der y-Achse gespiegelt worden.",
+   "h": "Welche Koordinate darf sich bei der x-Achse ändern?"
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "P(1 | 2) wird abwechselnd gespiegelt: zuerst an der x-Achse, dann an der y-Achse, dann wieder an der x-Achse usw. Insgesamt sind es 2025 Spiegelungen. Wo liegt der Punkt am Ende?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     -2
+    ]
+   },
+   "c": [
+    "1",
+    "-2"
+   ],
+   "w": "Verfolge die ersten Schritte: (1 | 2) → x-Achse (1 | −2) → y-Achse (−1 | −2) → x-Achse (−1 | 2) → y-Achse (1 | 2). Nach 4 Spiegelungen ist der Punkt wieder am Start. 2025 = 4 · 506 + 1. Nach 2024 Spiegelungen ist er also bei (1 | 2), die 2025. ist eine Spiegelung an der x-Achse: (1 | −2).",
+   "h": "Rechne die ersten Spiegelungen aus und suche eine Regelmäßigkeit."
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Billardkugel liegt bei A(1 | 3) und soll über die Bande (die x-Achse) genau zur Kugel B(7 | 1) rollen. Sie prallt so ab wie ein Lichtstrahl an einem Spiegel. An welcher x-Stelle trifft sie die Bande?"
+   },
+   "o": {
+    "wert": 5.5
+   },
+   "c": "1 + 6 * 3 / 4",
+   "w": "Denke den Weg nach dem Abprallen hinter der Bande weiter: Er führt dann geradlinig zum Spiegelbild B'(7 | −1). Von A(1 | 3) nach B'(7 | −1) geht es 6 nach rechts und 4 nach unten. Bis zur Bande (y-Wert 0) sind es 3 der 4 Einheiten nach unten, also 3/4 des Weges: 6 · 3/4 = 4,5 nach rechts. 1 + 4,5 = 5,5.",
+   "h": "Einfallswinkel gleich Ausfallswinkel. Wie sieht der Weg aus, wenn man ihn hinter der Bande weiterdenkt?"
   },
   {
    "l": "achsenspiegelung",
@@ -3088,7 +3310,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−7 | 8) an der Geraden x = 1 (senkrecht zur x-Achse).",
+    "text": "Spiegle P(−7 | 8) an der senkrechten Achse durch (1 | 0).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3132,7 +3354,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−4 | −2) an der Geraden x = −1 (senkrecht zur x-Achse).",
+    "text": "Spiegle P(−4 | −2) an der senkrechten Achse durch (−1 | 0).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3176,7 +3398,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−3 | −6) an der Geraden y = 3 (parallel zur x-Achse).",
+    "text": "Spiegle P(−3 | −6) an der waagrechten Achse durch (0 | 3).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3220,7 +3442,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(1 | 1) an der Geraden x = 2 (senkrecht zur x-Achse).",
+    "text": "Spiegle P(1 | 1) an der senkrechten Achse durch (2 | 0).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3264,7 +3486,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(7 | 6) an der Geraden x = −5 (senkrecht zur x-Achse).",
+    "text": "Spiegle P(7 | 6) an der senkrechten Achse durch (−5 | 0).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3308,7 +3530,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(4 | −4) an der Geraden x = 1 (senkrecht zur x-Achse).",
+    "text": "Spiegle P(4 | −4) an der senkrechten Achse durch (1 | 0).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3352,7 +3574,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(7 | 1) an der Geraden y = 5 (parallel zur x-Achse).",
+    "text": "Spiegle P(7 | 1) an der waagrechten Achse durch (0 | 5).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3396,7 +3618,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−3 | −2) an der Geraden y = −5 (parallel zur x-Achse).",
+    "text": "Spiegle P(−3 | −2) an der waagrechten Achse durch (0 | −5).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3440,7 +3662,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−2 | −1) an der Geraden x = 5 (senkrecht zur x-Achse).",
+    "text": "Spiegle P(−2 | −1) an der senkrechten Achse durch (5 | 0).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3484,7 +3706,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−2 | −6) an der Geraden x = 5 (senkrecht zur x-Achse).",
+    "text": "Spiegle P(−2 | −6) an der senkrechten Achse durch (5 | 0).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -7690,453 +7912,6 @@
    "w": "360° : 9 = 40°."
   },
   {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein regelmäßiges Achteck hat Innenwinkel von 135°. Man legt 2 Achtecke an eine Ecke. Wie groß ist die Lücke?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "360 - 2 * 135",
-   "w": "360° − 2 · 135° = 90°. Die Lücke ist genau ein Quadrat-Winkel.",
-   "h": "Eine volle Ecke hat 360°.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "An einer Ecke liegen 3 Ecken regelmäßiger Sechsecke (je 120°). Wie groß ist der Winkel zusammen?"
-   },
-   "o": {
-    "wert": 360,
-    "einheit": "°"
-   },
-   "c": "3 * 120",
-   "w": "3 · 120° = 360° – genau 360°.",
-   "h": "Multipliziere die Anzahl mit dem Innenwinkel.",
-   "g": "direkt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein regelmäßiges Fünfeck hat Innenwinkel von 108°. Man legt 3 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
-   },
-   "o": {
-    "wert": 36,
-    "einheit": "°"
-   },
-   "c": "360 - 3 * 108",
-   "w": "3 · 108° = 324°. Lücke: 360° − 324° = 36°. Ein weiteres passt nicht mehr (432° > 360°).",
-   "h": "Rechne aus, wie viel Winkel die Ecken zusammen belegen.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "An einer Ecke liegen 3 Ecken von Quadraten (je 90°). Wie groß ist der Winkel zusammen?"
-   },
-   "o": {
-    "wert": 270,
-    "einheit": "°"
-   },
-   "c": "3 * 90",
-   "w": "3 · 90° = 270°.",
-   "h": "Multipliziere die Anzahl mit dem Innenwinkel.",
-   "g": "direkt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Quadrat hat Innenwinkel von 90°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
-   },
-   "a": [
-    "Nein, denn 360° : 90° ist keine ganze Zahl.",
-    "Ja, mit jedem regelmäßigen Vieleck geht das.",
-    "Ja, denn 360° : 90° ist eine ganze Zahl.",
-    "Nein, das geht nur mit Quadraten."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "360° : 90° = 4.",
-   "h": "An jeder Ecke müssen die Innenwinkel zusammen genau 360° ergeben.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "An einer Ecke treffen ein Quadrat, ein regelmäßiges Sechseck und ein regelmäßiges Zwölfeck zusammen. Passt das lückenlos?"
-   },
-   "a": [
-    "Nein: Verschiedene Vielecke passen nie zusammen.",
-    "Nein: 90° + 120° + 150° = 330°.",
-    "Ja: 90° + 120° + 150° = 360°.",
-    "Ja, weil es drei Vielecke sind."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Innenwinkel: Quadrat 90°, Sechseck 120°, Zwölfeck 150°. Summe 360°: Die Ecke ist genau voll.",
-   "h": "Bestimme alle drei Innenwinkel und addiere.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein regelmäßiges Fünfeck hat Innenwinkel von 108°. Jemand legt 4 davon um eine Ecke. Um wie viel Grad ist das zu viel?"
-   },
-   "o": {
-    "wert": 72,
-    "einheit": "°"
-   },
-   "c": "4 * 108 - 360",
-   "w": "4 · 108° = 432° – das sind 72° mehr als 360°. Die Vielecke würden sich überlappen.",
-   "h": "Vergleiche die Summe der Winkel mit 360°.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Lässt sich eine Ecke lückenlos mit 3 gleichseitigen Dreiecken und 2 Quadraten auslegen?"
-   },
-   "a": [
-    "Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren.",
-    "Nein: 3 · 60° + 2 · 90° = 330°.",
-    "Nein: Es müssen immer gleich viele von jeder Sorte sein.",
-    "Ja: 3 · 60° + 2 · 90° = 360°."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "3 · 60° + 2 · 90° = 180° + 180° = 360°. Die Ecke ist genau voll – das Muster kommt in echten Parketten vor.",
-   "h": "Addiere alle Winkel an der Ecke und vergleiche mit 360°.",
-   "g": "begruenden"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein regelmäßiges Neuneck hat Innenwinkel von 140°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
-   },
-   "o": {
-    "wert": 80,
-    "einheit": "°"
-   },
-   "c": "360 - 2 * 140",
-   "w": "2 · 140° = 280°. Lücke: 360° − 280° = 80°. Ein weiteres passt nicht mehr (420° > 360°).",
-   "h": "Rechne aus, wie viel Winkel die Ecken zusammen belegen.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei regelmäßige Zwölfecke liegen an einer Ecke. Welches regelmäßige Vieleck schließt die Lücke genau? Gib die Zahl seiner Ecken an."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Innenwinkel Zwölfeck: (12 − 2) · 180° : 12 = 150°. Lücke: 360° − 300° = 60°. 60° hat das gleichseitige Dreieck: 3 Ecken.",
-   "h": "Berechne zuerst den Innenwinkel des Zwölfecks mit (n − 2) · 180° : n.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Warum kann man mit regelmäßigen Fünfecken allein die Ebene nicht lückenlos auslegen?"
-   },
-   "a": [
-    "Weil Fünfecke zu viele Ecken haben.",
-    "Weil Fünfecke keine rechten Winkel haben.",
-    "Weil 5 eine ungerade Zahl ist.",
-    "Weil 360° : 108° keine ganze Zahl ist."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Der Innenwinkel ist 108°. 3 Fünfecke: 324° (Lücke), 4 Fünfecke: 432° (Überlappung). 360 : 108 ≈ 3,33.",
-   "h": "Was muss für die Winkel an einer Ecke gelten?",
-   "g": "begruenden"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "An einer Ecke liegen 4 Ecken regelmäßiger Sechsecke (je 120°). Wie groß ist der Winkel zusammen?"
-   },
-   "o": {
-    "wert": 480,
-    "einheit": "°"
-   },
-   "c": "4 * 120",
-   "w": "4 · 120° = 480°.",
-   "h": "Multipliziere die Anzahl mit dem Innenwinkel.",
-   "g": "direkt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein regelmäßiges Zwölfeck hat Innenwinkel von 150°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "360 - 2 * 150",
-   "w": "2 · 150° = 300°. Lücke: 360° − 300° = 60°. Ein weiteres passt nicht mehr (450° > 360°).",
-   "h": "Rechne aus, wie viel Winkel die Ecken zusammen belegen.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "An einer Ecke liegen 2 Ecken regelmäßiger Sechsecke (je 120°) und ein weiteres regelmäßiges Vieleck. Welchen Innenwinkel muss es haben?"
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "°"
-   },
-   "c": "360 - 2 * 120",
-   "w": "360° − 2 · 120° = 120°. Das ist das regelmäßiges Sechseck.",
-   "h": "Was fehlt noch bis 360°?",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein regelmäßiges Achteck hat Innenwinkel von 135°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
-   },
-   "a": [
-    "Ja, denn 360° : 135° ist eine ganze Zahl.",
-    "Nein, denn 360° : 135° ist keine ganze Zahl.",
-    "Nein, das geht nur mit Quadraten.",
-    "Ja, mit jedem regelmäßigen Vieleck geht das."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "360° : 135° = 8/3 – keine ganze Zahl, es bleibt eine Lücke."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein regelmäßiges Fünfeck hat Innenwinkel von 108°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
-   },
-   "a": [
-    "Nein, denn 360° : 108° ist keine ganze Zahl.",
-    "Ja, mit jedem regelmäßigen Vieleck geht das.",
-    "Ja, denn 360° : 108° ist eine ganze Zahl.",
-    "Nein, das geht nur mit Quadraten."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "360° : 108° = 10/3 – keine ganze Zahl, es bleibt eine Lücke."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein regelmäßiges Zehneck hat Innenwinkel von 144°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
-   },
-   "o": {
-    "wert": 72,
-    "einheit": "°"
-   },
-   "c": "360 - 2 * 144",
-   "w": "2 · 144° = 288°. Lücke: 360° − 288° = 72°. Ein weiteres passt nicht mehr (432° > 360°)."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein regelmäßiges Sechseck hat Innenwinkel von 120°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
-   },
-   "a": [
-    "Ja, denn 360° : 120° ist eine ganze Zahl.",
-    "Ja, mit jedem regelmäßigen Vieleck geht das.",
-    "Nein, denn 360° : 120° ist keine ganze Zahl.",
-    "Nein, das geht nur mit Quadraten."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "360° : 120° = 3."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein gleichseitiges Dreieck hat Innenwinkel von 60°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
-   },
-   "a": [
-    "Ja, denn 360° : 60° ist eine ganze Zahl.",
-    "Nein, das geht nur mit Quadraten.",
-    "Nein, denn 360° : 60° ist keine ganze Zahl.",
-    "Ja, mit jedem regelmäßigen Vieleck geht das."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "360° : 60° = 6."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um eine Ecke passen genau 3 gleiche regelmäßige Vielecke ohne Lücke. Wie groß ist ihr Innenwinkel?"
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "°"
-   },
-   "c": "360 / 3",
-   "w": "360° : 3 = 120°. Das ist das regelmäßiges Sechseck."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein regelmäßiges Neuneck hat Innenwinkel von 140°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
-   },
-   "a": [
-    "Nein, denn 360° : 140° ist keine ganze Zahl.",
-    "Nein, das geht nur mit Quadraten.",
-    "Ja, mit jedem regelmäßigen Vieleck geht das.",
-    "Ja, denn 360° : 140° ist eine ganze Zahl."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "360° : 140° = 18/7 – keine ganze Zahl, es bleibt eine Lücke."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um eine Ecke passen genau 6 gleiche regelmäßige Vielecke ohne Lücke. Wie groß ist ihr Innenwinkel?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "360 / 6",
-   "w": "360° : 6 = 60°. Das ist das gleichseitiges Dreieck."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein regelmäßiges Zehneck hat Innenwinkel von 144°. Jemand legt 3 davon um eine Ecke. Um wie viel Grad ist das zu viel?"
-   },
-   "o": {
-    "wert": 72,
-    "einheit": "°"
-   },
-   "c": "3 * 144 - 360",
-   "w": "3 · 144° = 432° – das sind 72° mehr als 360°. Die Vielecke würden sich überlappen."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein regelmäßiges Achteck hat Innenwinkel von 135°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "360 - 2 * 135",
-   "w": "2 · 135° = 270°. Lücke: 360° − 270° = 90°. Ein weiteres passt nicht mehr (405° > 360°)."
-  },
-  {
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
@@ -9475,422 +9250,6 @@
     "index": 2
    },
    "w": "Drehung um O um 90° gegen den Uhrzeigersinn: (x | y) → (−y | x), der Umlaufsinn bleibt."
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "P(7 | 4) wird an einer Geraden senkrecht zur x-Achse auf P'(−3 | 4) gespiegelt. Gib die Achse an.",
-    "schablone": "x = □",
-    "hinweis": "Trage die Zahl ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      8
-     ],
-     "y": [
-      -1,
-      5
-     ],
-     "punkte": [
-      {
-       "x": 7,
-       "y": 4,
-       "name": "P"
-      },
-      {
-       "x": -3,
-       "y": 4,
-       "name": "P'"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     2
-    ]
-   },
-   "c": [
-    "(7 + -3) // 2"
-   ],
-   "w": "Die Achse geht durch die Mitte von P und P': x = (7 + (−3)) : 2 = 2.",
-   "h": "Die Achse liegt genau in der Mitte zwischen P und P'.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Punkt wird an der x-Achse gespiegelt. Welche Koordinate ändert ihr Vorzeichen?"
-   },
-   "a": [
-    "die y-Koordinate",
-    "beide Koordinaten",
-    "keine von beiden",
-    "die x-Koordinate"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die x-Achse ist waagrecht. Der Bildpunkt liegt genau gegenüber, also gleich weit rechts, aber auf der anderen Seite der Achse: Nur die y-Koordinate wechselt das Vorzeichen.",
-   "h": "Wohin wandert ein Punkt, wenn man an einer waagrechten Linie spiegelt?"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "luecken",
-   "f": {
-    "text": "Das Dreieck A(1 | 1), B(5 | 1), C(2 | 4) wird an der senkrechten Geraden durch (6 | 0) gespiegelt. Gib C' an.",
-    "schablone": "C'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate ein."
-   },
-   "o": {
-    "werte": [
-     10,
-     4
-    ]
-   },
-   "c": [
-    "6 + (6 - 2)",
-    "4"
-   ],
-   "w": "C liegt 4 Einheiten links von der Achse (6 − 2 = 4). C' liegt 4 Einheiten rechts davon: x = 10. Die y-Koordinate bleibt 4. C'(10 | 4).",
-   "h": "Wie weit ist C von der Achse entfernt?"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(6 | −4) an der Geraden y = 4 (parallel zur x-Achse).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      7
-     ],
-     "y": [
-      -5,
-      13
-     ],
-     "punkte": [
-      {
-       "x": 6,
-       "y": -4,
-       "name": "P"
-      }
-     ],
-     "waagrecht": [
-      4
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     6,
-     12
-    ]
-   },
-   "c": [
-    "6",
-    "12"
-   ],
-   "w": "Abstand zur Achse: −4 − 4 = −8. Auf der anderen Seite: 4 − (−8) = 12. x bleibt 6.",
-   "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(−3 | 1) an der y-Achse.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      4
-     ],
-     "y": [
-      -1,
-      2
-     ],
-     "punkte": [
-      {
-       "x": -3,
-       "y": 1,
-       "name": "P"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     3,
-     1
-    ]
-   },
-   "c": [
-    "3",
-    "1"
-   ],
-   "w": "An der y-Achse ändert sich das Vorzeichen der x-Koordinate: P'(3 | 1).",
-   "h": "Welche Koordinate ändert sich, welche bleibt?",
-   "g": "direkt"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Bei einer Achsenspiegelung wird A(−2 | 3) auf A'(4 | 3) abgebildet. Wohin wird B(−1 | 0) bei derselben Spiegelung abgebildet?",
-    "schablone": "B'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -3,
-      5
-     ],
-     "y": [
-      -1,
-      4
-     ],
-     "punkte": [
-      {
-       "x": -2,
-       "y": 3,
-       "name": "A"
-      },
-      {
-       "x": 4,
-       "y": 3,
-       "name": "A'"
-      },
-      {
-       "x": -1,
-       "y": 0,
-       "name": "B"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     3,
-     0
-    ]
-   },
-   "c": [
-    "1 + (1 - (-1))",
-    "0"
-   ],
-   "w": "Die Achse ist die Mittelsenkrechte von [AA']: x = (−2 + 4) : 2 = 1. B ist 2 links von x = 1, B' liegt 2 rechts: B'(3 | 0).",
-   "h": "Bestimme zuerst die Achse: Sie liegt genau in der Mitte zwischen A und A'.",
-   "g": "transfer"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(−8 | 6) an der Geraden y = 4 (parallel zur x-Achse).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -9,
-      1
-     ],
-     "y": [
-      -1,
-      7
-     ],
-     "punkte": [
-      {
-       "x": -8,
-       "y": 6,
-       "name": "P"
-      }
-     ],
-     "waagrecht": [
-      4
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -8,
-     2
-    ]
-   },
-   "c": [
-    "-8",
-    "2"
-   ],
-   "w": "Abstand zur Achse: 6 − 4 = 2. Auf der anderen Seite: 4 − 2 = 2. x bleibt −8.",
-   "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite."
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "P(4 | −3) wird erst an der x-Achse und danach an der y-Achse gespiegelt. Welche einzelne Abbildung hat dieselbe Wirkung?"
-   },
-   "a": [
-    "Punktspiegelung am Ursprung O",
-    "Drehung um O um 90°",
-    "Achsenspiegelung an der Geraden y = x",
-    "Verschiebung mit v = (−8 | 6)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x-Achse: (4 | −3) → (4 | 3). y-Achse: → (−4 | 3). Beide Vorzeichen sind umgedreht: Das ist die Punktspiegelung an O (Drehung um 180°) – für jeden Punkt.",
-   "h": "Verfolge den Punkt durch beide Spiegelungen. Was passiert mit den Vorzeichen?",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 2,
-   "g": "umkehr",
-   "y": "luecken",
-   "f": {
-    "text": "Nach einer Spiegelung an der y-Achse liegt der Bildpunkt bei P'(−2 | 7). Wo lag P?",
-    "schablone": "P(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate ein."
-   },
-   "o": {
-    "werte": [
-     2,
-     7
-    ]
-   },
-   "c": [
-    "2",
-    "7"
-   ],
-   "w": "Spiegelt man P' zurück an der y-Achse, erhält man P(2 | 7). Probe: P(2 | 7) an der y-Achse ergibt (−2 | 7) ✓.",
-   "h": "Spiegle einfach zurück."
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand spiegelt P(4 | −3) an der x-Achse und erhält P'(−4 | −3). Was stimmt?"
-   },
-   "a": [
-    "Falsch: Er hat an der y-Achse gespiegelt; richtig ist P'(4 | 3).",
-    "Falsch: Richtig ist P'(−4 | 3).",
-    "Falsch: Richtig ist P'(3 | −4).",
-    "Richtig gespiegelt."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "An der x-Achse bleibt x gleich und y wechselt das Vorzeichen: P'(4 | 3). Wechselt x das Vorzeichen, ist an der y-Achse gespiegelt worden.",
-   "h": "Welche Koordinate darf sich bei der x-Achse ändern?"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "luecken",
-   "f": {
-    "text": "Auf einer Karte fließt ein gerader Fluss entlang der y-Achse. Ein Haus steht bei H(3 | 5). Genau gegenüber, gleich weit vom Fluss entfernt, steht eine Scheune. Wo?",
-    "schablone": "S(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate ein."
-   },
-   "o": {
-    "werte": [
-     -3,
-     5
-    ]
-   },
-   "c": [
-    "-3",
-    "5"
-   ],
-   "w": "Die Scheune ist das Spiegelbild des Hauses an der y-Achse: S(−3 | 5).",
-   "h": "An welcher Achse wird gespiegelt?"
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "luecken",
-   "f": {
-    "text": "P(1 | 2) wird abwechselnd gespiegelt: zuerst an der x-Achse, dann an der y-Achse, dann wieder an der x-Achse usw. Insgesamt sind es 2025 Spiegelungen. Wo liegt der Punkt am Ende?",
-    "schablone": "P(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate ein."
-   },
-   "o": {
-    "werte": [
-     1,
-     -2
-    ]
-   },
-   "c": [
-    "1",
-    "-2"
-   ],
-   "w": "Verfolge die ersten Schritte: (1 | 2) → x-Achse (1 | −2) → y-Achse (−1 | −2) → x-Achse (−1 | 2) → y-Achse (1 | 2). Nach 4 Spiegelungen ist der Punkt wieder am Start. 2025 = 4 · 506 + 1. Nach 2024 Spiegelungen ist er also bei (1 | 2), die 2025. ist eine Spiegelung an der x-Achse: (1 | −2).",
-   "h": "Rechne die ersten Spiegelungen aus und suche eine Regelmäßigkeit."
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Eine Billardkugel liegt bei A(1 | 3) und soll über die Bande (die x-Achse) genau zur Kugel B(7 | 1) rollen. Sie prallt so ab wie ein Lichtstrahl an einem Spiegel. An welcher x-Stelle trifft sie die Bande?"
-   },
-   "o": {
-    "wert": 5.5
-   },
-   "c": "1 + 6 * 3 / 4",
-   "w": "Denke den Weg nach dem Abprallen hinter der Bande weiter: Er führt dann geradlinig zum Spiegelbild B'(7 | −1). Von A(1 | 3) nach B'(7 | −1) geht es 6 nach rechts und 4 nach unten. Bis zur Bande (y = 0) sind es 3 der 4 Einheiten nach unten, also 3/4 des Weges: 6 · 3/4 = 4,5 nach rechts. 1 + 4,5 = 5,5.",
-   "h": "Einfallswinkel gleich Ausfallswinkel. Wie sieht der Weg aus, wenn man ihn hinter der Bande weiterdenkt?"
   },
   {
    "l": "punktspiegelung",
@@ -11677,210 +11036,6 @@
    "c": "360 / 72",
    "w": "Dreht man die Figur um 72°, wird auch ihre Achse mitgedreht – und muss wieder eine Achse sein. So entstehen Achsen im Abstand von 72°: 0°, 72°, 144°, 216° (= 36°), 288° (= 108°) – fünf verschiedene Geraden. Mehr gibt es nicht: Zwei Achsen, die einen Winkel θ bilden, ergeben zusammen eine Drehung um 2θ, und die muss ein Vielfaches von 72° sein. Also liegen alle Achsen im Abstand von Vielfachen von 36° – genau diese fünf. Beispiel: das regelmäßige Fünfeck.",
    "h": "Was passiert mit einer Symmetrieachse, wenn man die Figur um 72° dreht?"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bad wird mit regelmäßigen sechseckigen Fliesen (Innenwinkel 120°) lückenlos gefliest. Wie viele Fliesen treffen an jeder inneren Ecke zusammen?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "360 / 120",
-   "w": "Um eine Ecke sind 360°. 360° : 120° = 3 Fliesen.",
-   "h": "Wie oft passt 120° in 360°?"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Lässt sich eine Ecke lückenlos mit 4 gleichseitigen Dreiecken und einem Quadrat auslegen?"
-   },
-   "a": [
-    "Ja: Dreiecke und Quadrate passen immer zusammen.",
-    "Ja: 4 · 60° + 90° = 360°.",
-    "Nein: 4 · 60° + 90° = 330°, es bleibt eine Lücke von 30°.",
-    "Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "4 · 60° + 90° = 240° + 90° = 330°. Bis 360° fehlen 30°, die Ecke ist nicht lückenlos.",
-   "h": "Addiere alle Winkel an der Ecke und vergleiche mit 360°.",
-   "g": "begruenden"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 3,
-   "g": "transfer",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Fußball ist aus regelmäßigen Fünfecken (108°) und Sechsecken (120°) genäht. An jeder Ecke treffen ein Fünfeck und zwei Sechsecke zusammen. Wie groß ist die Winkelsumme an einer Ecke?"
-   },
-   "o": {
-    "wert": 348
-   },
-   "c": "108 + 2 * 120",
-   "w": "108° + 2 · 120° = 348°. Das sind 12° weniger als 360° – deshalb lassen sich die Flicken nicht flach legen, sondern wölben sich zu einer Kugel.",
-   "h": "Addiere die drei Winkel."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "An einer Ecke liegen 2 Ecken von Quadraten (je 90°). Wie viele gleichseitige Dreiecke (60°) braucht man noch, damit die Ecke lückenlos ist?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "(360 - 2 * 90) / 60",
-   "w": "360° − 180° = 180°; 180° : 60° = 3.",
-   "h": "Erst den Rest bis 360°, dann durch 60° teilen.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um eine Ecke passen genau 4 gleiche regelmäßige Vielecke ohne Lücke. Wie groß ist ihr Innenwinkel?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "360 / 4",
-   "w": "360° : 4 = 90°. Das ist das Quadrat.",
-   "h": "Die Winkel an der Ecke ergeben zusammen 360°.",
-   "g": "umkehr"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem regelmäßigen Vieleck ist jeder Innenwinkel 140° groß. Wie viele Ecken hat es?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "360 / (180 - 140)",
-   "w": "Winkelsumme (n − 2) · 180° = n · 140°. Also 180n − 360 = 140n, 40n = 360 und n = 9.",
-   "h": "Die Winkelsumme im n-Eck ist (n − 2) · 180°. Stelle eine Gleichung auf.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welches regelmäßige Vieleck hat Innenwinkel von 120°?"
-   },
-   "a": [
-    "das Achteck",
-    "das Quadrat",
-    "das Fünfeck",
-    "das Sechseck"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Regelmäßiges Sechseck: 120°. Fünfeck 108°, Achteck 135°, Quadrat 90°.",
-   "h": "Drei davon passen genau um eine Ecke."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Mit welchen regelmäßigen Vielecken (nur eine Sorte) kann man die Ebene lückenlos auslegen?"
-   },
-   "a": [
-    "Quadrate, Fünfecke und Sechsecke",
-    "Dreiecke, Quadrate und Sechsecke",
-    "Dreiecke, Quadrate und Fünfecke",
-    "nur Quadrate"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Der Innenwinkel muss 360° teilen: 60° (3-Eck), 90° (4-Eck), 120° (6-Eck) passen. 108° (5-Eck) nicht: 360 : 108 ist keine ganze Zahl.",
-   "h": "Prüfe, ob 360° durch den Innenwinkel teilbar ist.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "An einer Ecke liegen 4 Ecken gleichseitiger Dreiecke (je 60°). Wie groß ist der Winkel zusammen?"
-   },
-   "o": {
-    "wert": 240,
-    "einheit": "°"
-   },
-   "c": "4 * 60",
-   "w": "4 · 60° = 240°.",
-   "h": "Multipliziere die Anzahl mit dem Innenwinkel.",
-   "g": "direkt"
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Der Innenwinkel eines regelmäßigen n-Ecks ist 180° − 360° : n. An einer Ecke kommen genau drei regelmäßige Vielecke lückenlos zusammen: ein Dreieck, ein Zehneck und ein drittes. Wie viele Ecken hat das dritte?"
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "360 / (180 - (360 - 60 - 144))",
-   "w": "Dreieck 60°, Zehneck 180° − 36° = 144°. Zusammen 204°. Für das dritte bleiben 360° − 204° = 156°. Es muss gelten 180° − 360° : n = 156°, also 360° : n = 24° und n = 15. Probe: 180° − 24° = 156° ✓.",
-   "h": "Berechne zuerst, wie viel Grad für das dritte Vieleck übrig bleiben."
-  },
-  {
-   "l": "parkett",
-   "t": "parkett",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Auf wie viele verschiedene Arten kann man eine Ecke lückenlos nur mit gleichseitigen Dreiecken (60°) und Quadraten (90°) auslegen, wenn es nur auf die Anzahlen ankommt?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Gesucht sind Anzahlen a (Dreiecke) und b (Quadrate) mit 60a + 90b = 360. Probiere b: b = 0 → a = 6; b = 1 → 60a = 270, keine ganze Zahl; b = 2 → a = 3; b = 3 → 60a = 90, keine ganze Zahl; b = 4 → a = 0. Also drei Möglichkeiten: 6 + 0, 3 + 2, 0 + 4.",
-   "h": "Gehe die möglichen Anzahlen von Quadraten der Reihe nach durch."
   },
   {
    "l": "eigenschaften",

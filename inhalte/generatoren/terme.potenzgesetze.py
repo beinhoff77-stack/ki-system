@@ -847,3 +847,10 @@ K(lz, Z('knobel', 'Berechne (−2)³ + (−2)² + (−2)¹ + (−2)⁰.', -5, '(
 if __name__ == '__main__':
     schreibe(DATEI)
     stufen_datei('terme.potenzgesetze', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('terme.potenzgesetze')
+# ---- BEREINIGEN ENDE ----

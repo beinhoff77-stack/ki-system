@@ -9,12 +9,11 @@
  },
  "autor": "Claude (Opus), Paket Klasse 5 Rest",
  "inhalt": {
-  "ziel": "Quader und Würfel beschreiben, ihren Oberflächeninhalt berechnen – auch bei zusammengesetzten Körpern und im Alltag – und ihr Volumen bestimmen.",
+  "ziel": "Quader und Würfel beschreiben und ihren Oberflächeninhalt berechnen – auch bei zusammengesetzten Körpern und im Alltag. Das Volumen kommt in Klasse 6.",
   "merke": [
    "Quader: 6 Flächen, 12 Kanten, 8 Ecken. Kantenlänge gesamt: 4 · (a + b + c).",
    "Oberfläche Quader: O = 2ab + 2ac + 2bc. Würfel: O = 6a².",
-   "Zusammengesetzt: Berührflächen fallen weg (je zweimal).",
-   "Volumen Quader: V = a · b · c (cm³). Würfel: V = a³."
+   "Zusammengesetzt: Berührflächen fallen weg (je zweimal)."
   ],
   "abschnitte": [
    {
@@ -32,9 +31,8 @@
     ]
    },
    {
-    "titel": "Volumen und Verstehen",
+    "titel": "Verstehen",
     "lernziele": [
-     "volumen",
      "verstehen"
     ]
    }
@@ -637,94 +635,6 @@
     }
    },
    {
-    "lernziel": "volumen",
-    "titel": "Volumen von Quader und Würfel",
-    "regel": "Volumen = ⟦a · b · c⟧. Beim Würfel: a · a · a.",
-    "schritte": [
-     {
-      "text": "Der Quader ist 5 cm lang, 3 cm breit und 2 cm hoch."
-     },
-     {
-      "text": "Eine Schicht auf dem Boden: 5 · 3 = 15 Würfel.",
-      "bild": {
-       "zeilen": [
-        [
-         "1. Schicht",
-         "15"
-        ],
-        [
-         "2. Schicht",
-         "?"
-        ],
-        [
-         "zusammen",
-         "?"
-        ]
-       ]
-      }
-     },
-     {
-      "text": "Er ist 2 cm hoch: 2 Schichten, also 15 · 2 = 30.",
-      "bild": {
-       "zeilen": [
-        [
-         "1. Schicht",
-         "15"
-        ],
-        [
-         "2. Schicht",
-         "15"
-        ],
-        [
-         "zusammen",
-         "30"
-        ]
-       ]
-      }
-     },
-     {
-      "text": "Das Volumen ist ⟦30 cm³⟧."
-     }
-    ],
-    "fehler": "Volumen und Oberfläche verwechseln. Das Volumen zählt Würfel (cm³), die Oberfläche zählt Quadrate (cm²).",
-    "einstieg": "In einen Karton sollen Bauklötze mit 1 cm Kantenlänge. Du legst eine Schicht auf den Boden und stapelst Schicht auf Schicht. Wie viele hineinpassen, heißt ⟦Volumen⟧.",
-    "woerter": [
-     [
-      "Volumen",
-      "wie viele Einheitswürfel in einen Körper passen; abgekürzt V"
-     ],
-     [
-      "cm³",
-      "Kubikzentimeter: ein Würfel mit 1 cm Kante"
-     ],
-     [
-      "Schicht",
-      "eine Lage Würfel auf gleicher Höhe"
-     ]
-    ],
-    "bild": {
-     "typ": "tabelle",
-     "kopf": [
-      "Schicht",
-      "Würfel"
-     ],
-     "zeilen": [
-      [
-       "1. Schicht",
-       "?"
-      ],
-      [
-       "2. Schicht",
-       "?"
-      ],
-      [
-       "zusammen",
-       "?"
-      ]
-     ]
-    }
-   },
-   {
     "lernziel": "verstehen",
     "titel": "Quader-Aussagen prüfen",
     "regel": "Prüfe Aussagen mit einem ⟦Zahlenbeispiel⟧. Achte darauf, ob cm, cm² oder cm³ gefragt ist.",
@@ -802,13 +712,6 @@
     ]
    },
    {
-    "k": "volumen",
-    "text": "Volumen von Quader und Würfel",
-    "lernziele": [
-     "volumen"
-    ]
-   },
-   {
     "k": "verstehen",
     "text": "Quader-Aussagen prüfen",
     "lernziele": [
@@ -824,9 +727,7 @@
     "zusammengesetzt",
     "verstehen"
    ],
-   "lernziele_vertiefung": [
-    "volumen"
-   ],
+   "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -5571,673 +5472,6 @@
    "w": "10 sichtbare Quadrate zu je 9 cm²: 90 cm²."
   },
   {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 5 Würfel lang, 2 Würfel breit, 3 Schichten hoch. Wie viele Würfel sind es?"
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "5 * 2 * 3",
-   "w": "Eine Schicht: 5 · 2 = 10. 3 Schichten: 30 Würfel. Das Volumen ist also 30 cm³.",
-   "h": "Zähle zuerst die Würfel einer Schicht."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 4 cm."
-   },
-   "o": {
-    "wert": 64,
-    "einheit": "cm³"
-   },
-   "c": "4 ** 3",
-   "w": "V = 4 · 4 · 4 = 64 cm³.",
-   "h": "Dreimal die Kantenlänge malnehmen.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 5 Würfel lang, 2 Würfel breit, 2 Schichten hoch. Wie viele Würfel sind es?"
-   },
-   "o": {
-    "wert": 20
-   },
-   "c": "5 * 2 * 2",
-   "w": "Eine Schicht: 5 · 2 = 10. 2 Schichten: 20 Würfel. Das Volumen ist also 20 cm³.",
-   "h": "Zähle zuerst die Würfel einer Schicht."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 9 cm."
-   },
-   "o": {
-    "wert": 729,
-    "einheit": "cm³"
-   },
-   "c": "9 ** 3",
-   "w": "V = 9 · 9 · 9 = 729 cm³.",
-   "h": "Dreimal die Kantenlänge malnehmen.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat das Volumen 480 cm³. Er ist 8 cm lang und 10 cm breit. Wie hoch ist er?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "480 / (8 * 10)",
-   "w": "Grundfläche 8 · 10 = 80 cm². Höhe: 480 : 80 = 6 cm.",
-   "h": "Teile das Volumen durch die Grundfläche.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 3 Würfel lang, 3 Würfel breit, 4 Schichten hoch. Wie viele Würfel sind es?"
-   },
-   "o": {
-    "wert": 36
-   },
-   "c": "3 * 3 * 4",
-   "w": "Eine Schicht: 3 · 3 = 9. 4 Schichten: 36 Würfel. Das Volumen ist also 36 cm³.",
-   "h": "Zähle zuerst die Würfel einer Schicht.",
-   "g": "direkt"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Einheit passt zum Volumen?"
-   },
-   "a": [
-    "kg",
-    "cm³",
-    "cm²",
-    "cm"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Volumen misst man in Würfeln: cm³.",
-   "h": "Was ist ein Kubikzentimeter?"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 4 Würfel lang, 3 Würfel breit, 3 Schichten hoch. Wie viele Würfel sind es?"
-   },
-   "o": {
-    "wert": 36
-   },
-   "c": "4 * 3 * 3",
-   "w": "Eine Schicht: 4 · 3 = 12. 3 Schichten: 36 Würfel. Das Volumen ist also 36 cm³.",
-   "h": "Zähle zuerst die Würfel einer Schicht."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 5 cm lang, 3 cm breit und 9 cm hoch ist."
-   },
-   "o": {
-    "wert": 135,
-    "einheit": "cm³"
-   },
-   "c": "5 * 3 * 9",
-   "w": "V = 5 · 3 · 9 = 135 cm³.",
-   "h": "V = Länge · Breite · Höhe.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 7 cm."
-   },
-   "o": {
-    "wert": 343,
-    "einheit": "cm³"
-   },
-   "c": "7 ** 3",
-   "w": "V = 7 · 7 · 7 = 343 cm³.",
-   "h": "Dreimal die Kantenlänge malnehmen."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel mit 12 cm Kantenlänge wird in kleine Würfel mit 4 cm Kantenlänge zerlegt. Wie viele kleine Würfel entstehen?"
-   },
-   "o": {
-    "wert": 27
-   },
-   "c": "(12 / 4) ** 3",
-   "w": "In jeder Richtung 12 : 4 = 3 Würfel: 3 · 3 · 3 = 27.",
-   "h": "Wie viele kleine Würfel passen in jede Richtung?",
-   "g": "transfer"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat das Volumen 160 cm³. Er ist 10 cm lang und 2 cm breit. Wie hoch ist er?"
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "cm"
-   },
-   "c": "160 / (10 * 2)",
-   "w": "Grundfläche 10 · 2 = 20 cm². Höhe: 160 : 20 = 8 cm.",
-   "h": "Teile das Volumen durch die Grundfläche.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel mit 10 cm Kantenlänge wird in kleine Würfel mit 2 cm Kantenlänge zerlegt. Wie viele kleine Würfel entstehen?"
-   },
-   "o": {
-    "wert": 125
-   },
-   "c": "(10 / 2) ** 3",
-   "w": "In jeder Richtung 10 : 2 = 5 Würfel: 5 · 5 · 5 = 125.",
-   "h": "Wie viele kleine Würfel passen in jede Richtung?"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 2 Würfel lang, 2 Würfel breit, 3 Schichten hoch. Wie viele Würfel sind es?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "2 * 2 * 3",
-   "w": "Eine Schicht: 2 · 2 = 4. 3 Schichten: 12 Würfel. Das Volumen ist also 12 cm³.",
-   "h": "Zähle zuerst die Würfel einer Schicht.",
-   "g": "direkt"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Einheitswürfel (1 cm³) passen in einen Würfel mit 2 cm Kantenlänge?"
-   },
-   "a": [
-    "4",
-    "6",
-    "8",
-    "2"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "2 · 2 · 2 = 8 Einheitswürfel.",
-   "h": "Zwei Schichten zu je 2 · 2 Würfeln."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 6 Würfel lang, 5 Würfel breit, 3 Schichten hoch. Wie viele Würfel sind es?"
-   },
-   "o": {
-    "wert": 90
-   },
-   "c": "6 * 5 * 3",
-   "w": "Eine Schicht: 6 · 5 = 30. 3 Schichten: 90 Würfel. Das Volumen ist also 90 cm³.",
-   "h": "Zähle zuerst die Würfel einer Schicht."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 12 cm lang, 3 cm breit und 5 cm hoch ist."
-   },
-   "o": {
-    "wert": 180,
-    "einheit": "cm³"
-   },
-   "c": "12 * 3 * 5",
-   "w": "V = 12 · 3 · 5 = 180 cm³.",
-   "h": "V = Länge · Breite · Höhe.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 10 cm."
-   },
-   "o": {
-    "wert": 1000,
-    "einheit": "cm³"
-   },
-   "c": "10 ** 3",
-   "w": "V = 10 · 10 · 10 = 1000 cm³.",
-   "h": "Dreimal die Kantenlänge malnehmen."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 8 cm lang, 5 cm breit und 3 cm hoch ist."
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "cm³"
-   },
-   "c": "8 * 5 * 3",
-   "w": "V = 8 cm · 5 cm · 3 cm = 120 cm³.",
-   "h": "Volumen = Länge · Breite · Höhe."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel hat das Volumen 125 cm³. Wie lang ist eine Kante?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "5",
-   "w": "5 · 5 · 5 = 125. Die Kante ist 5 cm lang.",
-   "h": "Welche Zahl dreimal mit sich selbst malgenommen ergibt 125?",
-   "g": "umkehr"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Schuhkarton ist 30 cm lang, 20 cm breit und 10 cm hoch. Wie viele cm³ passen hinein?"
-   },
-   "o": {
-    "wert": 6000,
-    "einheit": "cm³"
-   },
-   "c": "30 * 20 * 10",
-   "w": "30 · 20 · 10 = 6 000 cm³.",
-   "h": "Länge mal Breite mal Höhe."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel mit 15 cm Kantenlänge wird in kleine Würfel mit 5 cm Kantenlänge zerlegt. Wie viele kleine Würfel entstehen?"
-   },
-   "o": {
-    "wert": 27
-   },
-   "c": "(15 / 5) ** 3",
-   "w": "In jeder Richtung 15 : 5 = 3 Würfel: 3 · 3 · 3 = 27.",
-   "h": "Wie viele kleine Würfel passen in jede Richtung?",
-   "g": "transfer"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Aquarium ist 50 cm lang, 30 cm breit und 40 cm hoch. Es wird bis 5 cm unter den Rand gefüllt. Wie viele Liter Wasser sind darin? (1 Liter = 1 000 cm³)"
-   },
-   "o": {
-    "wert": 52.5,
-    "einheit": "l"
-   },
-   "c": "50 * 30 * (40 - 5) / 1000",
-   "w": "Wasserhöhe: 35 cm. V = 50 · 30 · 35 = 52 500 cm³ = 52,5 Liter.",
-   "h": "Wie hoch steht das Wasser?",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel mit 6 cm Kantenlänge wird in kleine Würfel mit 3 cm Kantenlänge zerlegt. Wie viele kleine Würfel entstehen?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "(6 / 3) ** 3",
-   "w": "In jeder Richtung 6 : 3 = 2 Würfel: 2 · 2 · 2 = 8.",
-   "h": "Wie viele kleine Würfel passen in jede Richtung?"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schachtel ist innen 6 cm lang, 4 cm breit und 3 cm hoch. Wie viele Würfel mit 2 cm Kantenlänge passen höchstens hinein?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "(6 // 2) * (4 // 2) * (3 // 2)",
-   "w": "Längs passen 3, quer 2, in der Höhe nur 1 (3 cm reichen nicht für 2 Würfel). 3 · 2 · 1 = 6. Volumen geteilt (72 : 8 = 9) wäre falsch.",
-   "h": "Zähle in jeder Richtung, wie viele ganze Würfel passen.",
-   "g": "pruefung"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Kantenlänge eines Würfels wird verdreifacht. Wie oft so groß wird sein Volumen?"
-   },
-   "o": {
-    "wert": 27
-   },
-   "c": "3 * 3 * 3",
-   "w": "Länge, Breite und Höhe werden je verdreifacht: 3 · 3 · 3 = 27-mal.",
-   "h": "Probiere es aus: Kante 1 cm und Kante 3 cm.",
-   "g": "begruenden"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat das Volumen 360 cm³. Seine Grundfläche ist ein Quadrat mit 6 cm Seitenlänge. Wie hoch ist er?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "cm"
-   },
-   "c": "360 / (6 * 6)",
-   "w": "Grundfläche: 6 cm · 6 cm = 36 cm². Höhe: 360 : 36 = 10 cm.",
-   "h": "Volumen = Grundfläche · Höhe.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader aus Einheitswürfeln hat das Volumen 24 cm³ und ist 2 cm hoch. Wie viele verschiedene Grundflächen (Länge · Breite in ganzen cm, gedreht nicht neu) sind möglich?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Die Grundfläche muss 24 : 2 = 12 cm² haben: 1 · 12, 2 · 6, 3 · 4. Das sind 3.",
-   "h": "Wie groß muss die Grundfläche sein?"
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Würfel mit 1 cm Kantenlänge braucht man für einen hohlen Würfel mit 5 cm Außenkante und 1 cm dicken Wänden?"
-   },
-   "o": {
-    "wert": 98
-   },
-   "c": "5 ** 3 - 3 ** 3",
-   "w": "Voller Würfel: 125. Innen hohl bleibt ein Würfel mit 3 cm Kante: 27. 125 − 27 = 98.",
-   "h": "Rechne den vollen Würfel minus den leeren Innenraum."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 3 cm."
-   },
-   "o": {
-    "wert": 27,
-    "einheit": "cm³"
-   },
-   "c": "3 ** 3",
-   "w": "V = 3 · 3 · 3 = 27 cm³."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 14 cm lang, 5 cm breit und 3 cm hoch ist."
-   },
-   "o": {
-    "wert": 210,
-    "einheit": "cm³"
-   },
-   "c": "14 * 5 * 3",
-   "w": "V = 14 · 5 · 3 = 210 cm³."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 3 cm lang, 2 cm breit und 10 cm hoch ist."
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "cm³"
-   },
-   "c": "3 * 2 * 10",
-   "w": "V = 3 · 2 · 10 = 60 cm³."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 13 cm lang, 5 cm breit und 9 cm hoch ist."
-   },
-   "o": {
-    "wert": 585,
-    "einheit": "cm³"
-   },
-   "c": "13 * 5 * 9",
-   "w": "V = 13 · 5 · 9 = 585 cm³."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 6 cm lang, 8 cm breit und 5 cm hoch ist."
-   },
-   "o": {
-    "wert": 240,
-    "einheit": "cm³"
-   },
-   "c": "6 * 8 * 5",
-   "w": "V = 6 · 8 · 5 = 240 cm³."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 4 cm lang, 4 cm breit und 2 cm hoch ist."
-   },
-   "o": {
-    "wert": 32,
-    "einheit": "cm³"
-   },
-   "c": "4 * 4 * 2",
-   "w": "V = 4 · 4 · 2 = 32 cm³."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 3 cm lang, 5 cm breit und 9 cm hoch ist."
-   },
-   "o": {
-    "wert": 135,
-    "einheit": "cm³"
-   },
-   "c": "3 * 5 * 9",
-   "w": "V = 3 · 5 · 9 = 135 cm³."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 6 cm lang, 10 cm breit und 3 cm hoch ist."
-   },
-   "o": {
-    "wert": 180,
-    "einheit": "cm³"
-   },
-   "c": "6 * 10 * 3",
-   "w": "V = 6 · 10 · 3 = 180 cm³."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Quaders, der 15 cm lang, 9 cm breit und 4 cm hoch ist."
-   },
-   "o": {
-    "wert": 540,
-    "einheit": "cm³"
-   },
-   "c": "15 * 9 * 4",
-   "w": "V = 15 · 9 · 4 = 540 cm³."
-  },
-  {
-   "l": "volumen",
-   "t": "volumen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 5 cm."
-   },
-   "o": {
-    "wert": 125,
-    "einheit": "cm³"
-   },
-   "c": "5 ** 3",
-   "w": "V = 5 · 5 · 5 = 125 cm³."
-  },
-  {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
@@ -6304,22 +5538,23 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "einkleidung",
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Für einen Würfelkarton mit 10 cm Kantenlänge reichen 500 cm² Geschenkpapier.“"
+   },
    "a": [
-    "Ja, 2 · 2 · 2 = 8.",
-    "Nein, viermal so groß.",
-    "Nein, doppelt so groß."
+    "Nein: Man braucht 1 000 cm².",
+    "Ja, das reicht.",
+    "Ja, man braucht nur 400 cm².",
+    "Nein: Man braucht mindestens 6 · 100 cm² = 600 cm²."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "f": {
-    "text": "Stimmt die Aussage? „Verdoppelt man die Kantenlänge eines Würfels, wird das Volumen achtmal so groß.“"
-   },
-   "w": "Ja, 2 · 2 · 2 = 8.",
-   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
-   "g": "begruenden"
+   "w": "Oberfläche: 6 Quadrate zu je 100 cm² = 600 cm².",
+   "h": "Berechne die Oberfläche."
   },
   {
    "l": "verstehen",
@@ -6387,22 +5622,22 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "g": "begruenden",
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Schneidet man einen Würfel parallel zu einer Fläche genau in der Mitte durch, hat jede Hälfte die halbe Oberfläche.“"
+   },
    "a": [
-    "Nein, 6 · 2 cm = 12 cm.",
-    "Nein, 8 · 2 cm = 16 cm.",
-    "Ja, 12 · 2 cm = 24 cm."
+    "Ja, aber nur bei Würfeln mit gerader Kantenlänge.",
+    "Nein: Jede Hälfte bekommt eine neue Schnittfläche dazu.",
+    "Ja: Halber Würfel, halbe Oberfläche."
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "f": {
-    "text": "Stimmt die Aussage? „Bei einem Würfel mit 2 cm Kantenlänge sind alle Kanten zusammen 24 cm lang.“"
-   },
-   "w": "Ja, 12 · 2 cm = 24 cm.",
-   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
-   "g": "mehrschritt"
+   "w": "Beispiel mit 2 cm Kante: Der Würfel hat 6 · 4 cm² = 24 cm². Eine Hälfte ist ein Quader 2 cm × 2 cm × 1 cm mit 2 · (4 + 2 + 2) cm² = 16 cm², nicht 12 cm². Die Schnittfläche kommt dazu.",
+   "h": "Rechne ein Beispiel: Würfel mit 2 cm Kante. Welcher Quader ist eine Hälfte?"
   },
   {
    "l": "verstehen",
@@ -6422,90 +5657,6 @@
     "text": "Stimmt die Aussage? „Oberfläche misst man in cm³.“"
    },
    "w": "Nein, Flächen in cm², Volumen in cm³.",
-   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
-   "g": "erkennen"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, wenn beide Körper Quader sind.",
-    "Ja, gleich viel Inhalt heißt gleich viel Fläche.",
-    "Nein: 1 × 1 × 8 (O = 34) und 2 × 2 × 2 (O = 24) haben beide V = 8."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Zwei Quader mit gleichem Volumen haben immer die gleiche Oberfläche.“"
-   },
-   "w": "Nein: 1 × 1 × 8 (O = 34) und 2 × 2 × 2 (O = 24) haben beide V = 8.",
-   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
-   "g": "begruenden"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Nein, 2 · 5 · 6 = 60 cm².",
-    "Ja, 2 · (10 + 12 + 30) = 104 cm².",
-    "Nein, 10 + 12 + 30 = 52 cm², jede Fläche einmal."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Ein Quader 2 cm × 5 cm × 6 cm hat die Oberfläche 104 cm².“"
-   },
-   "w": "Ja, 2 · (10 + 12 + 30) = 104 cm².",
-   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
-   "g": "erkennen"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, doppelte Kante, doppelte Oberfläche.",
-    "Nein, sie wird achtmal so groß.",
-    "Nein, sie wird viermal so groß (2 · 2 = 4)."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Verdoppelt man die Kantenlänge eines Würfels, verdoppelt sich die Oberfläche.“"
-   },
-   "w": "Nein, sie wird viermal so groß (2 · 2 = 4).",
-   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
-   "g": "fehler"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Nein, 6 · 5 cm = 30 cm.",
-    "Nein, 8 · 5 cm = 40 cm.",
-    "Ja, 12 · 5 cm = 60 cm."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Bei einem Würfel mit 5 cm Kantenlänge sind alle Kanten zusammen 60 cm lang.“"
-   },
-   "w": "Ja, 12 · 5 cm = 60 cm.",
    "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
    "g": "erkennen"
   },
@@ -6536,17 +5687,17 @@
    "s": 1,
    "y": "auswahl",
    "a": [
-    "Ja, es ist derselbe Quader, nur gedreht.",
-    "Nein, nur das Volumen bleibt gleich.",
-    "Nein, die Höhe ist eine andere, also auch die Oberfläche."
+    "Nein, 2 · 5 · 6 = 60 cm².",
+    "Ja, 2 · (10 + 12 + 30) = 104 cm².",
+    "Nein, 10 + 12 + 30 = 52 cm², jede Fläche einmal."
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
    "f": {
-    "text": "Stimmt die Aussage? „Ein Quader 4 × 4 × 5 und ein Quader 5 × 4 × 4 haben dieselbe Oberfläche.“"
+    "text": "Stimmt die Aussage? „Ein Quader 2 cm × 5 cm × 6 cm hat die Oberfläche 104 cm².“"
    },
-   "w": "Ja, es ist derselbe Quader, nur gedreht.",
+   "w": "Ja, 2 · (10 + 12 + 30) = 104 cm².",
    "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
    "g": "erkennen"
   },
@@ -6574,17 +5725,17 @@
    "s": 1,
    "y": "auswahl",
    "a": [
-    "Nein, nur das Volumen bleibt gleich.",
-    "Nein, die Höhe ist eine andere, also auch die Oberfläche.",
-    "Ja, es ist derselbe Quader, nur gedreht."
+    "Nein, 6 · 5 cm = 30 cm.",
+    "Nein, 8 · 5 cm = 40 cm.",
+    "Ja, 12 · 5 cm = 60 cm."
    ],
    "o": {
     "index": 2
    },
    "f": {
-    "text": "Stimmt die Aussage? „Ein Quader 5 × 3 × 2 und ein Quader 2 × 5 × 3 haben dieselbe Oberfläche.“"
+    "text": "Stimmt die Aussage? „Bei einem Würfel mit 5 cm Kantenlänge sind alle Kanten zusammen 60 cm lang.“"
    },
-   "w": "Ja, es ist derselbe Quader, nur gedreht.",
+   "w": "Ja, 12 · 5 cm = 60 cm.",
    "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
    "g": "erkennen"
   },
@@ -6615,6 +5766,90 @@
    "p": "uebung",
    "s": 1,
    "y": "auswahl",
+   "a": [
+    "Ja, es ist derselbe Quader, nur gedreht.",
+    "Nein, nur das Volumen bleibt gleich.",
+    "Nein, die Höhe ist eine andere, also auch die Oberfläche."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 4 × 4 × 5 und ein Quader 5 × 4 × 4 haben dieselbe Oberfläche.“"
+   },
+   "w": "Ja, es ist derselbe Quader, nur gedreht.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, 6 · 2 cm = 12 cm.",
+    "Nein, 8 · 2 cm = 16 cm.",
+    "Ja, 12 · 2 cm = 24 cm."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Bei einem Würfel mit 2 cm Kantenlänge sind alle Kanten zusammen 24 cm lang.“"
+   },
+   "w": "Ja, 12 · 2 cm = 24 cm.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, nur das Volumen bleibt gleich.",
+    "Nein, die Höhe ist eine andere, also auch die Oberfläche.",
+    "Ja, es ist derselbe Quader, nur gedreht."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 5 × 3 × 2 und ein Quader 2 × 5 × 3 haben dieselbe Oberfläche.“"
+   },
+   "w": "Ja, es ist derselbe Quader, nur gedreht.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel hat die Oberfläche 54 cm². Stimmt die Aussage? „Seine Kanten sind 3 cm lang.“"
+   },
+   "a": [
+    "Nein: 54 : 6 = 9, also sind die Kanten 9 cm lang.",
+    "Nein: 54 : 4 = 13,5, also sind die Kanten 13,5 cm lang.",
+    "Ja: 54 cm² : 6 = 9 cm² je Fläche, und 3 cm · 3 cm = 9 cm²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Würfel hat 6 gleiche Quadrate: 54 cm² : 6 = 9 cm². Ein Quadrat mit 9 cm² hat 3 cm lange Seiten (3 · 3 = 9). Die Aussage stimmt.",
+   "h": "Wie viele gleiche Flächen hat ein Würfel? Wie groß ist dann eine davon?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
    "f": {
     "text": "Stimmt die Aussage? „Ein Würfel ist ein besonderer Quader.“"
    },
@@ -6635,65 +5870,42 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
    "y": "auswahl",
    "f": {
-    "text": "Stimmt die Aussage? „Ein Quader mit 2 cm, 3 cm und 4 cm hat das Volumen 24 cm³.“"
+    "text": "Stimmt die Aussage? „Für das Kantenmodell eines Würfels mit 6 cm Kantenlänge reicht ein 70 cm langer Draht.“"
    },
    "a": [
-    "Nein: 2 + 3 + 4 = 9 cm³.",
-    "Nein: Das sind 52 cm³.",
-    "Ja: 2 · 3 · 4 = 24."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "V = 2 cm · 3 cm · 4 cm = 24 cm³.",
-   "h": "Volumen = Länge · Breite · Höhe.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "g": "umkehr",
-   "y": "auswahl",
-   "f": {
-    "text": "Stimmt die Aussage? „Ein Würfel mit dem Volumen 27 cm³ hat 3 cm lange Kanten.“"
-   },
-   "a": [
-    "Ja: 3 · 3 · 3 = 27.",
-    "Nein: Man kann die Kante nicht bestimmen.",
-    "Nein: Die Kanten sind 27 cm lang.",
-    "Nein: Die Kanten sind 9 cm lang."
+    "Nein: 12 · 6 cm = 72 cm, es fehlen 2 cm.",
+    "Ja: 8 · 6 cm = 48 cm reichen.",
+    "Ja: 6 · 6 cm = 36 cm reichen."
    ],
    "o": {
     "index": 0
    },
-   "w": "Probe: 3 cm · 3 cm · 3 cm = 27 cm³.",
-   "h": "Welche Zahl dreimal mit sich selbst malgenommen ergibt 27?"
+   "w": "Ein Würfel hat 12 Kanten, jede 6 cm lang: 12 · 6 cm = 72 cm. 70 cm reichen also nicht.",
+   "h": "Zähle die Kanten eines Würfels – nicht die Ecken und nicht die Flächen."
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
+   "s": 3,
    "y": "auswahl",
-   "f": {
-    "text": "Stimmt die Aussage? „Für einen Würfelkarton mit 10 cm Kantenlänge reichen 500 cm² Geschenkpapier.“"
-   },
    "a": [
-    "Nein: Man braucht 1 000 cm².",
-    "Ja, das reicht.",
-    "Ja, man braucht nur 400 cm².",
-    "Nein: Man braucht mindestens 6 · 100 cm² = 600 cm²."
+    "Ja, doppelte Kante, doppelte Oberfläche.",
+    "Nein, sie wird achtmal so groß.",
+    "Nein, sie wird viermal so groß (2 · 2 = 4)."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Oberfläche: 6 Quadrate zu je 100 cm² = 600 cm².",
-   "h": "Berechne die Oberfläche."
+   "f": {
+    "text": "Stimmt die Aussage? „Verdoppelt man die Kantenlänge eines Würfels, verdoppelt sich die Oberfläche.“"
+   },
+   "w": "Nein, sie wird viermal so groß (2 · 2 = 4).",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor.",
+   "g": "fehler"
   },
   {
    "l": "verstehen",
@@ -6743,80 +5955,74 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bei welchem Würfel haben Oberfläche (in cm²) und Volumen (in cm³) dieselbe Maßzahl? Gib die Kantenlänge an."
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "6",
-   "w": "Oberfläche 6 · a · a, Volumen a · a · a. Gleich, wenn a = 6: 6 · 36 = 216 und 6 · 6 · 6 = 216.",
-   "h": "Probiere Kantenlängen aus und vergleiche.",
-   "g": "parameter"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
+   "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Stimmt die Aussage? „Ein Quader mit größerem Volumen hat immer auch die größere Oberfläche.“"
+    "text": "Stimmt die Aussage? „Bei jedem Quader sind alle Kanten zusammen viermal so lang wie Länge + Breite + Höhe.“"
    },
    "a": [
-    "Ja, immer.",
-    "Nein, Volumen und Oberfläche sind immer gleich.",
-    "Nein: 3 × 3 × 3 hat V = 27 cm³ und O = 54 cm², 1 × 1 × 20 hat V = 20 cm³, aber O = 82 cm².",
-    "Ja, mehr Inhalt braucht mehr Hülle."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ein Gegenbeispiel genügt: Der lange, dünne Quader hat weniger Volumen, aber mehr Oberfläche.",
-   "h": "Vergleiche einen Würfel mit einer langen Stange.",
-   "g": "begruenden"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand gibt das Volumen eines Würfels mit 3 cm Kantenlänge mit 9 cm³ an. Was ist falsch?"
-   },
-   "a": [
-    "Es wurde nur a · a gerechnet. Richtig: 3 · 3 · 3 = 27 cm³.",
-    "Richtig ist 3 · 3 · 6 = 54 cm³.",
-    "Nichts, das stimmt.",
-    "Richtig ist 3 + 3 + 3 = 9 cm³."
+    "Ja: Jede der drei Längen kommt als Kante genau viermal vor.",
+    "Nein: Das gilt nur für Würfel.",
+    "Nein: Es ist nur doppelt so lang."
    ],
    "o": {
     "index": 0
    },
-   "w": "Beim Volumen braucht man alle drei Kanten: 3 · 3 · 3 = 27 cm³. 9 cm² ist eine Seitenfläche.",
-   "h": "Wie viele Faktoren braucht man beim Volumen?",
-   "g": "fehler"
+   "w": "Ein Quader hat 12 Kanten: 4 Kanten sind so lang wie die Länge, 4 wie die Breite und 4 wie die Höhe. Zusammen 4 · (Länge + Breite + Höhe).",
+   "h": "Wie viele Kanten hat ein Quader, und wie viele davon sind gleich lang?"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
-   "p": "bonus",
+   "p": "uebung",
    "s": 3,
-   "g": "knobel",
+   "g": "rueckwaerts",
    "y": "zahl",
    "f": {
-    "text": "Ein Quader hat ganzzahlige Kantenlängen. Alle Kanten zusammen sind 24 cm lang, die Oberfläche ist 22 cm². Wie groß ist sein Volumen?"
+    "text": "Ein Quader ist 4 cm lang und 3 cm breit. Seine Oberfläche ist 94 cm². Wie hoch ist er in cm?"
    },
    "o": {
-    "wert": 6,
-    "einheit": "cm³"
+    "wert": 5,
+    "einheit": "cm"
    },
-   "c": "1 * 2 * 3",
-   "w": "Länge + Breite + Höhe = 24 : 4 = 6. Möglichkeiten: 1, 1, 4 (Oberfläche 18), 1, 2, 3 (Oberfläche 2 · (2 + 3 + 6) = 22), 2, 2, 2 (24). Passend ist 1 · 2 · 3: Volumen 6 cm³.",
-   "h": "Was ergeben die drei Kantenlängen zusammen?"
+   "c": "(94 - 2*4*3) // (2*(4 + 3))",
+   "w": "Boden und Deckel: 2 · 4 · 3 = 24 cm². Für die vier Seitenflächen bleiben 94 − 24 = 70 cm². Sie haben zusammen die Breite 2 · (4 + 3) = 14 cm, also Höhe 70 : 14 = 5 cm.",
+   "h": "Rechne zuerst Boden und Deckel aus. Wie viel Fläche bleibt für die Seiten?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist a cm lang, 2 cm breit und 1 cm hoch. Für welche Zahl a ist seine Oberfläche 28 cm²?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(28 // 2 - 2) // 3",
+   "w": "Oberfläche = 2 · (2a + a + 2) = 6a + 4. Aus 6a + 4 = 28 folgt 6a = 24, also a = 4. Probe: 2 · (8 + 4 + 2) = 28.",
+   "h": "Schreibe die drei Flächen auf: a · 2, a · 1 und 2 · 1. Jede kommt zweimal vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat 3 cm lange Kanten. Wie viele mm² beträgt seine Oberfläche?"
+   },
+   "o": {
+    "wert": 5400,
+    "einheit": "mm²"
+   },
+   "c": "6*3*3*100",
+   "w": "Oberfläche: 6 · 3 cm · 3 cm = 54 cm². 1 cm² = 100 mm², also 54 cm² = 5 400 mm².",
+   "h": "Rechne die Oberfläche erst in cm² aus. Wie viele mm² hat 1 cm²?"
   },
   {
    "l": "verstehen",
@@ -6835,6 +6041,24 @@
    "c": "27 * 6 - 6 * 9",
    "w": "Großer Würfel: 6 · 9 = 54 cm². 27 kleine Würfel: 27 · 6 = 162 cm². Unterschied 108 cm².",
    "h": "Wie viele kleine Würfel entstehen?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleiche Quader mit 1 cm, 2 cm und 3 cm Kantenlänge werden so zusammengestellt, dass eine Fläche des einen genau auf einer gleich großen Fläche des anderen liegt. Wie groß ist die kleinste mögliche Oberfläche des neuen Körpers in cm²?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "cm²"
+   },
+   "c": "2*2*(1*2 + 1*3 + 2*3) - 2*2*3",
+   "w": "Ein Quader hat 2 · (2 + 3 + 6) cm² = 22 cm², zwei also 44 cm². Beim Zusammenstellen verschwinden zwei aufeinanderliegende Flächen. Am meisten spart man mit der größten Fläche 2 cm · 3 cm = 6 cm²: 44 − 2 · 6 = 32 cm².",
+   "h": "Was passiert mit den beiden Flächen, die aufeinanderliegen? Welche Fläche ist die größte?"
   },
   {
    "l": "verstehen",

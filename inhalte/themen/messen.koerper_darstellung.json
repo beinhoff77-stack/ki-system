@@ -5356,99 +5356,6 @@
    "l": "schraegbild",
    "t": "schraegbild",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 14,5 cm lang. Wie lang ist sie in Wirklichkeit?"
-   },
-   "o": {
-    "wert": 29,
-    "einheit": "cm"
-   },
-   "c": "(29/2) * 2",
-   "w": "Gezeichnet = wahr · 1/2 → wahr = 14,5 · 2 = 29 cm.",
-   "h": "Rechne rückwärts: durch q teilen.",
-   "g": "umkehr"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Flächen eines Quaders erscheinen im Schrägbild (Vorderfläche parallel zur Zeichenebene) als Parallelogramm?"
-   },
-   "a": [
-    "nur die Vorderfläche",
-    "die Seitenflächen und die Deckfläche",
-    "alle sechs Flächen",
-    "keine"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Vorder- und Rückfläche bleiben Rechtecke. Alle Flächen, die nach hinten laufen (Seiten, Deck- und Bodenfläche), werden schräg verzerrt.",
-   "h": "Was liegt parallel zur Zeichenebene?",
-   "g": "darstellung"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 11 cm breit, 9 cm hoch und 10 cm tief. Wie lang zeichnest du im Schrägbild (q = 1/2, ω = 45°) die Breite?"
-   },
-   "o": {
-    "wert": 11,
-    "einheit": "cm"
-   },
-   "c": "11",
-   "w": "Die Breite liegt in der Vorderfläche und wird in wahrer Größe gezeichnet: 11 cm.",
-   "h": "Nur Kanten nach hinten werden verkürzt.",
-   "g": "erkennen"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kante führt 10 cm nach hinten. Wie lang zeichnest du sie im Schrägbild mit q = 1/2?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "10 / 2",
-   "w": "10 cm · 1/2 = 5 cm.",
-   "h": "Nach hinten: mit dem Verkürzungsfaktor multiplizieren.",
-   "g": "direkt"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 7,5 cm lang. Wie lang ist sie in Wirklichkeit?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "cm"
-   },
-   "c": "(15/2) * 2",
-   "w": "Gezeichnet = wahr · 1/2 → wahr = 7,5 · 2 = 15 cm.",
-   "h": "Rechne rückwärts: durch q teilen."
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
@@ -5563,6 +5470,78 @@
    "l": "schraegbild",
    "t": "schraegbild",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Würfels ist eine nach hinten führende Kante 3 cm lang gezeichnet. Wie groß ist die Oberfläche des Würfels?"
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "cm²"
+   },
+   "c": "6 * (3 * 2)**2",
+   "w": "Wirkliche Kante: 3 cm · 2 = 6 cm. Oberfläche: 6 · 6² = 216 cm².",
+   "h": "Rechne zuerst die wahre Kantenlänge aus.",
+   "g": "pruefung"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 11 cm breit, 9 cm hoch und 10 cm tief. Wie lang zeichnest du im Schrägbild (q = 1/2, ω = 45°) die Breite?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "cm"
+   },
+   "c": "11",
+   "w": "Die Breite liegt in der Vorderfläche und wird in wahrer Größe gezeichnet: 11 cm.",
+   "h": "Nur Kanten nach hinten werden verkürzt.",
+   "g": "erkennen"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante führt 10 cm nach hinten. Wie lang zeichnest du sie im Schrägbild mit q = 1/2?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "10 / 2",
+   "w": "10 cm · 1/2 = 5 cm.",
+   "h": "Nach hinten: mit dem Verkürzungsfaktor multiplizieren.",
+   "g": "direkt"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 14,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 29,
+    "einheit": "cm"
+   },
+   "c": "(29/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 14,5 · 2 = 29 cm.",
+   "h": "Rechne rückwärts: durch q teilen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -5575,6 +5554,45 @@
    "c": "5 / 2",
    "w": "5 cm · 1/2 = 2,5 cm.",
    "h": "Nach hinten: mit dem Verkürzungsfaktor multiplizieren."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Flächen eines Quaders erscheinen im Schrägbild (Vorderfläche parallel zur Zeichenebene) als Parallelogramm?"
+   },
+   "a": [
+    "nur die Vorderfläche",
+    "die Seitenflächen und die Deckfläche",
+    "alle sechs Flächen",
+    "keine"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorder- und Rückfläche bleiben Rechtecke. Alle Flächen, die nach hinten laufen (Seiten, Deck- und Bodenfläche), werden schräg verzerrt.",
+   "h": "Was liegt parallel zur Zeichenebene?",
+   "g": "darstellung"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist eine nach hinten laufende Kante 7,5 cm lang. Wie lang ist sie in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "(15/2) * 2",
+   "w": "Gezeichnet = wahr · 1/2 → wahr = 7,5 · 2 = 15 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
   },
   {
    "l": "schraegbild",
@@ -5712,18 +5730,198 @@
    "t": "schraegbild",
    "p": "uebung",
    "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader wird im Schrägbild (q = 3/4, ω = 45°) gezeichnet, Vorderfläche parallel zur Zeichenebene. Welche Strecke erscheint in wahrer Länge?"
+   },
+   "a": [
+    "die Diagonale der rechten Seitenfläche",
+    "die Kante, die von vorne nach hinten führt",
+    "die senkrechte Kante vorne rechts",
+    "die Raumdiagonale"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Strecken in der Vorderfläche (oder parallel dazu) erscheinen in wahrer Länge. Kanten und Diagonalen mit Anteil nach hinten werden verzerrt.",
+   "h": "Was liegt parallel zur Zeichenebene?",
+   "g": "transfer"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrägbild zeigt ein Modell eines Bauteils im Maßstab 1 : 10. Wie viel Mal so groß ist das Volumen des echten Bauteils?"
+   },
+   "a": [
+    "30-mal",
+    "1 000-mal",
+    "10-mal",
+    "100-mal"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Länge, Breite und Höhe sind je 10-mal so groß: 10 · 10 · 10 = 1 000.",
+   "h": "Wie viele Längen gehen in das Volumen ein?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand zeichnet einen Quader im Schrägbild mit q = 1 statt q = 1/2. Wie wirkt der gezeichnete Quader?"
+   },
+   "a": [
+    "flacher, als er wirklich ist",
+    "breiter, als er wirklich ist",
+    "genauso wie mit q = 1/2",
+    "tiefer, als er wirklich ist"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Mit q = 1/2 sieht die verkürzte Tiefe natürlich aus. Mit q = 1 wird die Tiefe voll gezeichnet – durch die Schräge wirkt der Körper dann zu tief.",
+   "h": "Was macht q mit den Kanten nach hinten?",
+   "g": "fehler"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Würfels ist eine nach hinten führende Kante 3 cm lang gezeichnet. Wie groß ist die Oberfläche des Würfels?"
+    "text": "Eine 12 cm lange Kante nach hinten ist im Schrägbild 9 cm lang gezeichnet. Welcher Verkürzungsfaktor q wurde benutzt? Gib ihn als Dezimalzahl an."
    },
    "o": {
-    "wert": 216,
+    "wert": 0.75
+   },
+   "c": "9 / 12",
+   "w": "q = gezeichnet : wirklich = 9 : 12 = 0,75.",
+   "h": "Teile die gezeichnete durch die wirkliche Länge."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) eines Quaders sind Breite 6 cm, Höhe 4 cm und die Kante nach hinten 1,5 cm gezeichnet. Wie groß ist die Oberfläche des echten Quaders?"
+   },
+   "o": {
+    "wert": 108,
     "einheit": "cm²"
    },
-   "c": "6 * (3 * 2)**2",
-   "w": "Wirkliche Kante: 3 cm · 2 = 6 cm. Oberfläche: 6 · 6² = 216 cm².",
-   "h": "Rechne zuerst die wahre Kantenlänge aus.",
-   "g": "pruefung"
+   "c": "2 * (6 * 4 + 6 * 3 + 4 * 3)",
+   "w": "Echte Tiefe 3 cm. O = 2 · (24 + 18 + 12) = 108 cm².",
+   "h": "Rechne zuerst die echte Tiefe aus."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pool ist 8 m lang, 4 m breit und 1,5 m tief und fasst 48 000 l. Er wird im Maßstab 1 : 100 als Schrägbild (q = 1/2, ω = 45°) gezeichnet, die Länge vorn. Wie lang wird die Breite gezeichnet, die nach hinten läuft?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "400 / 100 / 2",
+   "w": "Gegeben: Breite 4 m nach hinten, Maßstab 1 : 100, q = 1/2. Die Literzahl spielt keine Rolle. Gesucht: gezeichnete Breite. Ansatz: Maßstab, dann Verkürzung. Rechnung: 400 cm : 100 = 4 cm; · 1/2 = 2 cm. Antwort: Die Breite wird 2 cm lang gezeichnet.",
+   "h": "Welche Kante läuft nach hinten, welche Angabe brauchst du nicht?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Für einen Bastelbogen soll ein Würfel mit 6 cm Kante als Schrägbild (q = 1/2) gezeichnet werden. Kind A zeichnet die Kante nach hinten 6 cm lang, Kind B 3 cm. Wer hat recht?"
+   },
+   "a": [
+    "Kind B: Nach hinten wird mit q = 1/2 verkürzt.",
+    "Kind A: Alle Würfelkanten sind gleich lang.",
+    "Beide, das ist Geschmackssache.",
+    "Keins: Es müssten 12 cm sein."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: a = 6 cm, q = 1/2. Gesucht: richtige Länge nach hinten. Ansatz: Nur Kanten nach hinten werden mit q verkürzt. Rechnung: 6 · 1/2 = 3 cm. Antwort: Kind B hat recht.",
+   "h": "Was bedeutet q = 1/2?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante führt 7 cm nach hinten. Wie lang zeichnest du sie im Schrägbild mit q = 1/2?"
+   },
+   "o": {
+    "wert": 3.5,
+    "einheit": "cm"
+   },
+   "c": "7 / 2",
+   "w": "7 cm · 1/2 = 3,5 cm.",
+   "h": "Nach hinten: mit dem Verkürzungsfaktor multiplizieren."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Kanten eines Quaders zeichnet man im Schrägbild in wahrer Länge?"
+   },
+   "a": [
+    "die Kanten nach hinten",
+    "alle Kanten",
+    "die Kanten der Vorderfläche",
+    "keine Kante"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Vorderfläche liegt parallel zur Zeichenebene und wird unverändert gezeichnet. Nur Kanten nach hinten werden verkürzt.",
+   "h": "Welche Fläche liegt parallel zum Blatt?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Gartenhaus ist 4 m tief. Im Plan steht 1 cm für 1 m. Wie lang zeichnest du die Tiefe im Schrägbild mit q = 1/2?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "4 / 2",
+   "w": "Gegeben: Tiefe 4 m → 4 cm im Plan, q = 1/2. Gesucht: gezeichnete Tiefe. Ansatz: Kanten nach hinten mal q. Rechnung: 4 cm · 1/2 = 2 cm. Antwort: Du zeichnest 2 cm.",
+   "h": "Erst in Plan-Zentimeter umrechnen, dann verkürzen."
   },
   {
    "l": "schraegbild",
@@ -5763,6 +5961,406 @@
    "c": "6 * 2",
    "w": "Gezeichnet = wahr · 1/2 → wahr = 6 · 2 = 12 cm.",
    "h": "Rechne rückwärts: durch q teilen."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Schrägbild (q = 1/2, ω = 45°) zeigt einen Quader. Wie tief ist der Quader in Wirklichkeit?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       5.12,
+       2.12
+      ],
+      "D": [
+       2.12,
+       2.12
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       3,
+       2
+      ],
+      "G": [
+       5.12,
+       4.12
+      ],
+      "H": [
+       2.12,
+       4.12
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "3 cm"
+      ],
+      [
+       "B",
+       "F",
+       "2 cm"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C",
+       "3 cm"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "3 * 2",
+   "w": "Die Kante nach hinten ist gezeichnet 3 cm lang. Wahre Tiefe = 3 cm : 1/2 = 6 cm.",
+   "h": "Die schräge Kante ist verkürzt gezeichnet. Rechne rückwärts."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten eines Würfels werden im üblichen Schrägbild gestrichelt (verdeckt) gezeichnet?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Verdeckt ist die hintere untere linke Ecke. Von ihr gehen 3 Kanten aus – diese werden gestrichelt.",
+   "h": "Welche Ecke sieht man nicht?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schuhkarton ist 30 cm breit, 12 cm hoch und 18 cm tief. Er wird in Originalgröße im Schrägbild (q = 1/2, ω = 45°) gezeichnet, die Breite vorn. Wie lang wird die Tiefe gezeichnet?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "18 / 2",
+   "w": "Gegeben: Tiefe 18 cm, q = 1/2. Gesucht: gezeichnete Tiefe. Ansatz: Nur die Kanten nach hinten werden verkürzt. Rechnung: 18 · 1/2 = 9. Antwort: Die Tiefe wird 9 cm lang gezeichnet.",
+   "h": "Welche Kante läuft nach hinten?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Prospekt ist ein Regal im Maßstab 1 : 20 als Schrägbild (q = 1/2) gezeichnet. Die nach hinten laufende Kante ist dort 2,5 cm lang. Wie tief ist das Regal in Wirklichkeit?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "cm"
+   },
+   "c": "2.5 * 2 * 20",
+   "w": "Gegeben: gezeichnet 2,5 cm, q = 1/2, Maßstab 1 : 20. Gesucht: wirkliche Tiefe. Ansatz: Erst die Verkürzung rückgängig (· 2), dann den Maßstab (· 20). Rechnung: 2,5 · 2 = 5 cm; 5 · 20 = 100 cm. Antwort: Das Regal ist 100 cm tief.",
+   "h": "Welche zwei Verkleinerungen musst du rückgängig machen?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ist 80 cm breit, 40 cm hoch und 35 cm tief. Es wird im Maßstab 1 : 10 als Schrägbild (q = 1/2) gezeichnet. Wie lang wird die Tiefe gezeichnet?"
+   },
+   "o": {
+    "wert": 1.75,
+    "einheit": "cm"
+   },
+   "c": "35 / 10 / 2",
+   "w": "Gegeben: Tiefe 35 cm, Maßstab 1 : 10, q = 1/2. Gesucht: gezeichnete Tiefe. Ansatz: Maßstab, dann Verkürzung. Rechnung: 35 : 10 = 3,5 cm; 3,5 · 1/2 = 1,75 cm. Antwort: Die Tiefe wird 1,75 cm lang.",
+   "h": "Erst verkleinern, dann verkürzen."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum zeichnet man im Schrägbild die Kanten nach hinten verkürzt?"
+   },
+   "a": [
+    "Weil Kanten nach hinten wirklich kürzer sind.",
+    "Damit die Zeichnung räumlich wirkt – voll lang sähe der Körper zu tief aus.",
+    "Das ist nur bei Würfeln so.",
+    "Damit die Zeichnung aufs Blatt passt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Auge schätzt nach hinten führende Strecken kürzer ein. Die echte Länge ändert sich nicht.",
+   "h": "Sind die Kanten in Wirklichkeit kürzer?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Quader (8 cm × 5 cm × 6 cm) wird an einer Ecke ein Würfel mit 2 cm Kantenlänge herausgeschnitten. Wie groß ist das Volumen des Restkörpers?"
+   },
+   "o": {
+    "wert": 232,
+    "einheit": "cm³"
+   },
+   "c": "8 * 5 * 6 - 2**3",
+   "w": "Quader: 240 cm³. Würfel: 8 cm³. Rest: 232 cm³.",
+   "h": "Ganzer Quader minus Würfel.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Prisma hat als Vorderfläche ein rechtwinkliges Dreieck mit den Katheten 4 cm und 3 cm. Im Schrägbild (q = 1/2) ist die Kante nach hinten 5 cm lang gezeichnet. Berechne das Volumen."
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm³"
+   },
+   "c": "4 * 3 / 2 * (5 * 2)",
+   "w": "Grundfläche: 4 · 3 : 2 = 6 cm². Wahre Tiefe: 5 cm · 2 = 10 cm. V = 6 · 10 = 60 cm³ (nicht 30 cm³).",
+   "h": "Die gezeichnete Tiefe ist verkürzt.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus einer Ecke eines Quaders wird ein kleiner Würfel herausgeschnitten. Wie ändert sich die Oberfläche?"
+   },
+   "a": [
+    "Sie wird kleiner.",
+    "Das hängt von der Größe des Würfels ab.",
+    "Sie bleibt gleich groß.",
+    "Sie wird größer."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Drei kleine Quadrate fallen außen weg, drei gleich große Quadrate kommen innen in der Ecke dazu. Die Oberfläche bleibt gleich – das Volumen nicht.",
+   "h": "Zähle, welche Flächen weg- und welche dazukommen.",
+   "g": "begruenden"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) ist ein Quader 5 cm breit, 3 cm hoch und nach hinten 2 cm tief gezeichnet. Wie viele Würfel mit 1 cm Kantenlänge passen genau hinein?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "Würfel"
+   },
+   "c": "5 * 3 * (2 * 2)",
+   "w": "Wahre Tiefe: 4 cm. Also 5 · 3 · 4 = 60 Würfel.",
+   "h": "Erst die wahre Tiefe bestimmen.",
+   "g": "transfer"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand zeichnet einen Würfel (Kante 4 cm) im Schrägbild mit q = 1/2 und zeichnet auch die senkrechten Kanten 2 cm lang. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Nur die nach hinten führenden Kanten werden verkürzt; die senkrechten bleiben 4 cm.",
+    "Falsch: Alle Kanten müssen 2 cm lang sein.",
+    "Falsch: Die senkrechten Kanten müssen 8 cm lang sein."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Vorderfläche erscheint unverzerrt als Quadrat 4 cm × 4 cm.",
+   "h": "Welche Richtung wird verkürzt?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "luecken",
+   "f": {
+    "text": "Im Schrägbild eines Würfels mit 6 cm Kantenlänge sind die nach hinten führenden Kanten 4 cm lang gezeichnet. Welcher Verkürzungsfaktor q wurde verwendet?",
+    "schablone": "q = □/□",
+    "hinweis": "gekürzter Bruch"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "3"
+   ],
+   "w": "q = 4 : 6 = 2/3.",
+   "h": "q = gezeichnete Länge : wahre Länge."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 4 cm Kantenlänge wird im Schrägbild (q = 1/2, ω = 45°) gezeichnet. Wie lang ist im Bild die Diagonale AC der Grundfläche (A vorne links, C hinten rechts)? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 5.6,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(5.595865303864, 1)",
+   "w": "Gezeichnet: AB = 4 cm waagrecht, BC = 2 cm unter 45°, also um √2 ≈ 1,41 cm nach rechts und nach oben. AC = √((4 + 1,41)² + 1,41²) ≈ √31,3 ≈ 5,6 cm (wahre Länge 5,66 cm).",
+   "h": "Zerlege die schräge Kante in einen waagrechten und einen senkrechten Anteil."
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird mit q = 1/2 gezeichnet, die Kanten nach hinten sind 2,5 cm lang. Wie viele solche Würfel passen in einen Karton von 50 cm × 50 cm × 50 cm?"
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "(50 / 5)**3",
+   "w": "Echte Kante 5 cm. In jede Richtung passen 50 : 5 = 10 Würfel: 10 · 10 · 10 = 1 000.",
+   "h": "Wie lang ist die Würfelkante wirklich?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2) sind alle 12 Kanten eines Quaders zusammen 34 cm lang gezeichnet. Er ist 4 cm breit und 3 cm hoch. Wie tief ist er wirklich?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "(34 - 16 - 12) / 2",
+   "w": "Gezeichnet: 4 Breiten (16 cm) + 4 Höhen (12 cm) + 4 halbe Tiefen = 2t. 28 + 2t = 34 ⇒ t = 3 cm.",
+   "h": "Welche Kanten sind verkürzt, welche nicht?"
+  },
+  {
+   "l": "schraegbild",
+   "t": "schraegbild",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird im Schrägbild mit q = 1/2 gezeichnet. Wie viel Prozent der Gesamtlänge aller 12 Kanten spart man beim Zeichnen? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 16.7,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(16.666666666667, 1)",
+   "w": "Von 12 gleich langen Kanten führen 4 nach hinten und werden halb so lang. Gespart: 4 · 1/2 = 2 Kantenlängen von 12, also 1/6 ≈ 16,7 %.",
+   "h": "Wie viele Kanten führen nach hinten?"
   },
   {
    "l": "schraegbild",
@@ -6263,443 +6861,6 @@
    },
    "c": "5 * 2 * 20",
    "w": "Gegeben: gezeichnet 5 cm, q = 1/2, 1 : 20. Gesucht: wirkliche Länge. Ansatz: Verkürzung und Maßstab rückgängig machen. Rechnung: 5 · 2 = 10 cm; 10 · 20 = 200 cm. Antwort: Das Bett ist 200 cm lang."
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kante führt 7 cm nach hinten. Wie lang zeichnest du sie im Schrägbild mit q = 1/2?"
-   },
-   "o": {
-    "wert": 3.5,
-    "einheit": "cm"
-   },
-   "c": "7 / 2",
-   "w": "7 cm · 1/2 = 3,5 cm.",
-   "h": "Nach hinten: mit dem Verkürzungsfaktor multiplizieren."
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Quader wird im Schrägbild (q = 3/4, ω = 45°) gezeichnet, Vorderfläche parallel zur Zeichenebene. Welche Strecke erscheint in wahrer Länge?"
-   },
-   "a": [
-    "die Diagonale der rechten Seitenfläche",
-    "die Kante, die von vorne nach hinten führt",
-    "die senkrechte Kante vorne rechts",
-    "die Raumdiagonale"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Alle Strecken in der Vorderfläche (oder parallel dazu) erscheinen in wahrer Länge. Kanten und Diagonalen mit Anteil nach hinten werden verzerrt.",
-   "h": "Was liegt parallel zur Zeichenebene?",
-   "g": "transfer"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Das Schrägbild (q = 1/2, ω = 45°) zeigt einen Quader. Wie tief ist der Quader in Wirklichkeit?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       3,
-       0
-      ],
-      "C": [
-       5.12,
-       2.12
-      ],
-      "D": [
-       2.12,
-       2.12
-      ],
-      "E": [
-       0,
-       2
-      ],
-      "F": [
-       3,
-       2
-      ],
-      "G": [
-       5.12,
-       4.12
-      ],
-      "H": [
-       2.12,
-       4.12
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "3 cm"
-      ],
-      [
-       "B",
-       "F",
-       "2 cm"
-      ],
-      [
-       "F",
-       "E"
-      ],
-      [
-       "E",
-       "A"
-      ],
-      [
-       "B",
-       "C",
-       "3 cm"
-      ],
-      [
-       "C",
-       "G"
-      ],
-      [
-       "G",
-       "F"
-      ],
-      [
-       "E",
-       "H"
-      ],
-      [
-       "H",
-       "G"
-      ],
-      [
-       "A",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "D",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "D",
-       "H",
-       "",
-       "gestrichelt"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "3 * 2",
-   "w": "Die Kante nach hinten ist gezeichnet 3 cm lang. Wahre Tiefe = 3 cm : 1/2 = 6 cm.",
-   "h": "Die schräge Kante ist verkürzt gezeichnet. Rechne rückwärts."
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Kanten eines Würfels werden im üblichen Schrägbild gestrichelt (verdeckt) gezeichnet?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Verdeckt ist die hintere untere linke Ecke. Von ihr gehen 3 Kanten aus – diese werden gestrichelt.",
-   "h": "Welche Ecke sieht man nicht?"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Schrägbild zeigt ein Modell eines Bauteils im Maßstab 1 : 10. Wie viel Mal so groß ist das Volumen des echten Bauteils?"
-   },
-   "a": [
-    "30-mal",
-    "1 000-mal",
-    "10-mal",
-    "100-mal"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Länge, Breite und Höhe sind je 10-mal so groß: 10 · 10 · 10 = 1 000.",
-   "h": "Wie viele Längen gehen in das Volumen ein?",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand zeichnet einen Quader im Schrägbild mit q = 1 statt q = 1/2. Wie wirkt der gezeichnete Quader?"
-   },
-   "a": [
-    "flacher, als er wirklich ist",
-    "breiter, als er wirklich ist",
-    "genauso wie mit q = 1/2",
-    "tiefer, als er wirklich ist"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Mit q = 1/2 sieht die verkürzte Tiefe natürlich aus. Mit q = 1 wird die Tiefe voll gezeichnet – durch die Schräge wirkt der Körper dann zu tief.",
-   "h": "Was macht q mit den Kanten nach hinten?",
-   "g": "fehler"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Kanten eines Quaders zeichnet man im Schrägbild in wahrer Länge?"
-   },
-   "a": [
-    "die Kanten nach hinten",
-    "alle Kanten",
-    "die Kanten der Vorderfläche",
-    "keine Kante"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Vorderfläche liegt parallel zur Zeichenebene und wird unverändert gezeichnet. Nur Kanten nach hinten werden verkürzt.",
-   "h": "Welche Fläche liegt parallel zum Blatt?"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Warum zeichnet man im Schrägbild die Kanten nach hinten verkürzt?"
-   },
-   "a": [
-    "Weil Kanten nach hinten wirklich kürzer sind.",
-    "Damit die Zeichnung räumlich wirkt – voll lang sähe der Körper zu tief aus.",
-    "Das ist nur bei Würfeln so.",
-    "Damit die Zeichnung aufs Blatt passt."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Das Auge schätzt nach hinten führende Strecken kürzer ein. Die echte Länge ändert sich nicht.",
-   "h": "Sind die Kanten in Wirklichkeit kürzer?"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 3,
-   "g": "parameter",
-   "y": "zahl",
-   "f": {
-    "text": "Eine 12 cm lange Kante nach hinten ist im Schrägbild 9 cm lang gezeichnet. Welcher Verkürzungsfaktor q wurde benutzt? Gib ihn als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.75
-   },
-   "c": "9 / 12",
-   "w": "q = gezeichnet : wirklich = 9 : 12 = 0,75.",
-   "h": "Teile die gezeichnete durch die wirkliche Länge."
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 3,
-   "g": "rueckwaerts",
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2) eines Quaders sind Breite 6 cm, Höhe 4 cm und die Kante nach hinten 1,5 cm gezeichnet. Wie groß ist die Oberfläche des echten Quaders?"
-   },
-   "o": {
-    "wert": 108,
-    "einheit": "cm²"
-   },
-   "c": "2 * (6 * 4 + 6 * 3 + 4 * 3)",
-   "w": "Echte Tiefe 3 cm. O = 2 · (24 + 18 + 12) = 108 cm².",
-   "h": "Rechne zuerst die echte Tiefe aus."
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 1,
-   "g": "direkt",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Gartenhaus ist 4 m tief. Im Plan steht 1 cm für 1 m. Wie lang zeichnest du die Tiefe im Schrägbild mit q = 1/2?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "cm"
-   },
-   "c": "4 / 2",
-   "w": "Gegeben: Tiefe 4 m → 4 cm im Plan, q = 1/2. Gesucht: gezeichnete Tiefe. Ansatz: Kanten nach hinten mal q. Rechnung: 4 cm · 1/2 = 2 cm. Antwort: Du zeichnest 2 cm.",
-   "h": "Erst in Plan-Zentimeter umrechnen, dann verkürzen."
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Schuhkarton ist 30 cm breit, 12 cm hoch und 18 cm tief. Er wird in Originalgröße im Schrägbild (q = 1/2, ω = 45°) gezeichnet, die Breite vorn. Wie lang wird die Tiefe gezeichnet?"
-   },
-   "o": {
-    "wert": 9,
-    "einheit": "cm"
-   },
-   "c": "18 / 2",
-   "w": "Gegeben: Tiefe 18 cm, q = 1/2. Gesucht: gezeichnete Tiefe. Ansatz: Nur die Kanten nach hinten werden verkürzt. Rechnung: 18 · 1/2 = 9. Antwort: Die Tiefe wird 9 cm lang gezeichnet.",
-   "h": "Welche Kante läuft nach hinten?"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 2,
-   "g": "umkehr",
-   "y": "zahl",
-   "f": {
-    "text": "In einem Prospekt ist ein Regal im Maßstab 1 : 20 als Schrägbild (q = 1/2) gezeichnet. Die nach hinten laufende Kante ist dort 2,5 cm lang. Wie tief ist das Regal in Wirklichkeit?"
-   },
-   "o": {
-    "wert": 100,
-    "einheit": "cm"
-   },
-   "c": "2.5 * 2 * 20",
-   "w": "Gegeben: gezeichnet 2,5 cm, q = 1/2, Maßstab 1 : 20. Gesucht: wirkliche Tiefe. Ansatz: Erst die Verkürzung rückgängig (· 2), dann den Maßstab (· 20). Rechnung: 2,5 · 2 = 5 cm; 5 · 20 = 100 cm. Antwort: Das Regal ist 100 cm tief.",
-   "h": "Welche zwei Verkleinerungen musst du rückgängig machen?"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 2,
-   "g": "mehrschritt",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Aquarium ist 80 cm breit, 40 cm hoch und 35 cm tief. Es wird im Maßstab 1 : 10 als Schrägbild (q = 1/2) gezeichnet. Wie lang wird die Tiefe gezeichnet?"
-   },
-   "o": {
-    "wert": 1.75,
-    "einheit": "cm"
-   },
-   "c": "35 / 10 / 2",
-   "w": "Gegeben: Tiefe 35 cm, Maßstab 1 : 10, q = 1/2. Gesucht: gezeichnete Tiefe. Ansatz: Maßstab, dann Verkürzung. Rechnung: 35 : 10 = 3,5 cm; 3,5 · 1/2 = 1,75 cm. Antwort: Die Tiefe wird 1,75 cm lang.",
-   "h": "Erst verkleinern, dann verkürzen."
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Pool ist 8 m lang, 4 m breit und 1,5 m tief und fasst 48 000 l. Er wird im Maßstab 1 : 100 als Schrägbild (q = 1/2, ω = 45°) gezeichnet, die Länge vorn. Wie lang wird die Breite gezeichnet, die nach hinten läuft?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "cm"
-   },
-   "c": "400 / 100 / 2",
-   "w": "Gegeben: Breite 4 m nach hinten, Maßstab 1 : 100, q = 1/2. Die Literzahl spielt keine Rolle. Gesucht: gezeichnete Breite. Ansatz: Maßstab, dann Verkürzung. Rechnung: 400 cm : 100 = 4 cm; · 1/2 = 2 cm. Antwort: Die Breite wird 2 cm lang gezeichnet.",
-   "h": "Welche Kante läuft nach hinten, welche Angabe brauchst du nicht?"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "uebung",
-   "s": 3,
-   "g": "begruenden",
-   "y": "auswahl",
-   "f": {
-    "text": "Für einen Bastelbogen soll ein Würfel mit 6 cm Kante als Schrägbild (q = 1/2) gezeichnet werden. Kind A zeichnet die Kante nach hinten 6 cm lang, Kind B 3 cm. Wer hat recht?"
-   },
-   "a": [
-    "Kind B: Nach hinten wird mit q = 1/2 verkürzt.",
-    "Kind A: Alle Würfelkanten sind gleich lang.",
-    "Beide, das ist Geschmackssache.",
-    "Keins: Es müssten 12 cm sein."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Gegeben: a = 6 cm, q = 1/2. Gesucht: richtige Länge nach hinten. Ansatz: Nur Kanten nach hinten werden mit q verkürzt. Rechnung: 6 · 1/2 = 3 cm. Antwort: Kind B hat recht.",
-   "h": "Was bedeutet q = 1/2?"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel wird mit q = 1/2 gezeichnet, die Kanten nach hinten sind 2,5 cm lang. Wie viele solche Würfel passen in einen Karton von 50 cm × 50 cm × 50 cm?"
-   },
-   "o": {
-    "wert": 1000
-   },
-   "c": "(50 / 5)**3",
-   "w": "Echte Kante 5 cm. In jede Richtung passen 50 : 5 = 10 Würfel: 10 · 10 · 10 = 1 000.",
-   "h": "Wie lang ist die Würfelkante wirklich?"
-  },
-  {
-   "l": "schraegbild",
-   "t": "schraegbild",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2) sind alle 12 Kanten eines Quaders zusammen 34 cm lang gezeichnet. Er ist 4 cm breit und 3 cm hoch. Wie tief ist er wirklich?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "(34 - 16 - 12) / 2",
-   "w": "Gezeichnet: 4 Breiten (16 cm) + 4 Höhen (12 cm) + 4 halbe Tiefen = 2t. 28 + 2t = 34 ⇒ t = 3 cm.",
-   "h": "Welche Kanten sind verkürzt, welche nicht?"
   },
   {
    "l": "ansichten",

@@ -29,7 +29,8 @@
     "lernziele": [
      "innenwinkelsumme",
      "aussenwinkel",
-     "vieleck"
+     "vieleck",
+     "parkett"
     ]
    },
    {
@@ -1834,6 +1835,191 @@
     "regel": "Ein n-Eck hat die Winkelsumme ⟦(n − 2) · 180°⟧. Ein Viereck hat also 360°."
    },
    {
+    "lernziel": "parkett",
+    "titel": "Lückenlos auslegen (Parkett)",
+    "regel": "360° muss durch den ⟦Innenwinkel⟧ teilbar sein. Nur dann passen die Fliesen lückenlos.",
+    "schritte": [
+     {
+      "text": "Ein gleichseitiges Dreieck hat an jeder Ecke einen Innenwinkel von 60°."
+     },
+     {
+      "text": "Um eine Ecke ist Platz für 360°. 360° : 60° = 6.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "O": [
+         0,
+         0
+        ],
+        "_h0": [
+         3.0,
+         0.0
+        ],
+        "_h1": [
+         1.5,
+         2.6
+        ],
+        "_h2": [
+         -1.5,
+         2.6
+        ],
+        "_h3": [
+         -3.0,
+         0.0
+        ],
+        "_h4": [
+         -1.5,
+         -2.6
+        ],
+        "_h5": [
+         1.5,
+         -2.6
+        ]
+       },
+       "linien": [
+        [
+         "O",
+         "_h0"
+        ],
+        [
+         "_h0",
+         "_h1"
+        ],
+        [
+         "O",
+         "_h1"
+        ],
+        [
+         "O",
+         "_h1"
+        ],
+        [
+         "_h1",
+         "_h2"
+        ],
+        [
+         "O",
+         "_h2"
+        ],
+        [
+         "O",
+         "_h2"
+        ],
+        [
+         "_h2",
+         "_h3"
+        ],
+        [
+         "O",
+         "_h3"
+        ],
+        [
+         "O",
+         "_h3"
+        ],
+        [
+         "_h3",
+         "_h4"
+        ],
+        [
+         "O",
+         "_h4"
+        ],
+        [
+         "O",
+         "_h4"
+        ],
+        [
+         "_h4",
+         "_h5"
+        ],
+        [
+         "O",
+         "_h5"
+        ],
+        [
+         "O",
+         "_h5"
+        ],
+        [
+         "_h5",
+         "_h0"
+        ],
+        [
+         "O",
+         "_h0"
+        ]
+       ],
+       "winkel": [
+        [
+         "O",
+         "_h0",
+         "_h1",
+         "60°"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Sechs Dreiecke passen genau: ⟦ein Parkett⟧."
+     },
+     {
+      "text": "Fünfeck: 360° : 108° = 3,33…, es bleibt eine ⟦Lücke⟧."
+     }
+    ],
+    "fehler": "Nicht jedes regelmäßige Vieleck passt. Drei Fünfecke sind 324°, es bleibt ein Spalt von 36°. Vier wären mit 432° zu viel.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "O": [
+       0,
+       0
+      ],
+      "_h0": [
+       3.0,
+       0.0
+      ],
+      "_h1": [
+       1.5,
+       2.6
+      ]
+     },
+     "linien": [
+      [
+       "O",
+       "_h0"
+      ],
+      [
+       "_h0",
+       "_h1"
+      ],
+      [
+       "O",
+       "_h1"
+      ]
+     ],
+     "winkel": [
+      [
+       "O",
+       "_h0",
+       "_h1",
+       "60°"
+      ]
+     ]
+    },
+    "einstieg": "Im Bad liegen Fliesen dicht an dicht, ohne Lücke. Mit Quadraten geht das, mit Sechsecken auch, mit Fünfecken nicht. So eine lückenlose Auslegung heißt ⟦Parkett⟧.",
+    "woerter": [
+     [
+      "Innenwinkel",
+      "der Winkel innen an einer Ecke"
+     ],
+     [
+      "360°",
+      "eine volle Umdrehung um eine Ecke"
+     ]
+    ]
+   },
+   {
     "lernziel": "figuren",
     "titel": "Winkel in Figuren bestimmen",
     "einstieg": "Zwischen zwei parallelen Regalbrettern steht eine dreieckige Stütze. Zwei ihrer Winkel sind bekannt. Bei jedem Schritt hilft dir ein ⟦Winkelsatz⟧.",
@@ -2197,6 +2383,13 @@
     "lernziele": [
      "beweisen"
     ]
+   },
+   {
+    "k": "parkett",
+    "text": "Lückenlos auslegen (Parkett)",
+    "lernziele": [
+     "parkett"
+    ]
    }
   ],
   "bewertung": {
@@ -2210,7 +2403,8 @@
     "beweisen"
    ],
    "lernziele_vertiefung": [
-    "aussenwinkel"
+    "aussenwinkel",
+    "parkett"
    ],
    "testaufgaben_je_lernziel": 1,
    "hilfen_im_test": false
@@ -4250,6 +4444,164 @@
    "l": "stufen_wechsel",
    "t": "stufen_wechsel",
    "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Bei S ist der Winkel rechts oberhalb α. Für welches α ist der Winkel bei T links oberhalb genau doppelt so groß wie α?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 / 3",
+   "w": "Bei T rechts oberhalb ist α (Stufenwinkel), links oberhalb also 180° − α. Es soll 180° − α = 2α sein, also 3α = 180° und α = 60°.",
+   "h": "Drücke den Winkel bei T links oberhalb mit α aus."
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "g ∥ h. Jemand sagt: „Bei S ist der Winkel rechts oberhalb 70°, also ist der Winkel bei T links unterhalb 110°.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Er ist 70°, denn es sind Wechselwinkel.",
+    "Falsch: Er ist 20°.",
+    "Falsch: Er ist 250°.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei S: rechts oberhalb 70°, also links unterhalb auch 70° (Scheitelwinkel). Bei T links unterhalb ist es derselbe Winkel in gleicher Lage (Stufenwinkel): 70°.",
+   "h": "Gehe über den Scheitelwinkel bei S."
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Bei S ist der Winkel rechts unterhalb 150° groß. Wie groß ist der Winkel bei T in derselben Lage?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       7.196,
+       3.0
+      ],
+      "_SR": [
+       8.796,
+       3.0
+      ],
+      "_SL": [
+       5.596,
+       3.0
+      ],
+      "_SU": [
+       8.582,
+       3.8
+      ],
+      "_SD": [
+       5.811,
+       2.2
+      ],
+      "T": [
+       2.0,
+       0.0
+      ],
+      "_TR": [
+       3.6,
+       0.0
+      ],
+      "_TL": [
+       0.4,
+       0.0
+      ],
+      "_TU": [
+       3.386,
+       0.8
+      ],
+      "_TD": [
+       0.614,
+       -0.8
+      ],
+      "_g1": [
+       -1.0,
+       3
+      ],
+      "_g2": [
+       10.196,
+       3
+      ],
+      "_h1": [
+       -1.0,
+       0.0
+      ],
+      "_h2": [
+       10.196,
+       0.0
+      ],
+      "_k1": [
+       0.614,
+       -0.8
+      ],
+      "_k2": [
+       8.582,
+       3.8
+      ]
+     },
+     "linien": [
+      [
+       "_g1",
+       "_g2",
+       "g"
+      ],
+      [
+       "_h1",
+       "_h2",
+       "h"
+      ],
+      [
+       "_k1",
+       "_k2",
+       "k"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_SD",
+       "_SR",
+       "150°"
+      ],
+      [
+       "T",
+       "_TD",
+       "_TR",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "°"
+   },
+   "c": "150",
+   "w": "Stufenwinkel an Parallelen sind gleich groß: 150°.",
+   "h": "Gleiche Lage an beiden Kreuzungen: Stufenwinkel.",
+   "g": "direkt"
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -4614,194 +4966,66 @@
    "l": "stufen_wechsel",
    "t": "stufen_wechsel",
    "p": "uebung",
-   "s": 1,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "g ∥ h. Bei S ist der Winkel rechts unterhalb 150° groß. Wie groß ist der Winkel bei T in derselben Lage?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       7.196,
-       3.0
-      ],
-      "_SR": [
-       8.796,
-       3.0
-      ],
-      "_SL": [
-       5.596,
-       3.0
-      ],
-      "_SU": [
-       8.582,
-       3.8
-      ],
-      "_SD": [
-       5.811,
-       2.2
-      ],
-      "T": [
-       2.0,
-       0.0
-      ],
-      "_TR": [
-       3.6,
-       0.0
-      ],
-      "_TL": [
-       0.4,
-       0.0
-      ],
-      "_TU": [
-       3.386,
-       0.8
-      ],
-      "_TD": [
-       0.614,
-       -0.8
-      ],
-      "_g1": [
-       -1.0,
-       3
-      ],
-      "_g2": [
-       10.196,
-       3
-      ],
-      "_h1": [
-       -1.0,
-       0.0
-      ],
-      "_h2": [
-       10.196,
-       0.0
-      ],
-      "_k1": [
-       0.614,
-       -0.8
-      ],
-      "_k2": [
-       8.582,
-       3.8
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_k1",
-       "_k2",
-       "k"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_SD",
-       "_SR",
-       "150°"
-      ],
-      [
-       "T",
-       "_TD",
-       "_TR",
-       "?"
-      ]
-     ]
-    }
+    "text": "Eine Rampe steigt um 38° gegen die Waagrechte an. Der Handlauf ist parallel zur Rampe, die Pfosten stehen senkrecht. Wie groß ist der spitze Winkel zwischen Pfosten und Handlauf?"
    },
    "o": {
-    "wert": 150,
+    "wert": 52,
     "einheit": "°"
    },
-   "c": "150",
-   "w": "Stufenwinkel an Parallelen sind gleich groß: 150°.",
-   "h": "Gleiche Lage an beiden Kreuzungen: Stufenwinkel.",
-   "g": "direkt"
+   "c": "90 - 38",
+   "w": "Pfosten und Waagrechte bilden 90°. Der Handlauf ist um 38° geneigt (Stufenwinkel zur Rampe). Spitzer Winkel zum Pfosten: 90° − 38° = 52°.",
+   "h": "Der Pfosten steht senkrecht auf der Waagrechten.",
+   "g": "transfer"
   },
   {
    "l": "stufen_wechsel",
    "t": "stufen_wechsel",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "g ∥ h. Bei S ist der Winkel rechts oberhalb 27° groß. Wie groß ist der Winkel bei T links oberhalb?",
+    "text": "g ∥ h. Ein Weg führt von A auf g zu einem Punkt P zwischen den Geraden und weiter zu B auf h. Bei A ist der Winkel 32°, bei B 51° (siehe Bild). Wie groß ist der Winkel bei P?",
     "grafik": {
      "typ": "figur",
      "punkte": {
-      "S": [
-       7.888,
-       3.0
+      "A": [
+       0,
+       4
       ],
-      "_SR": [
-       9.488,
-       3.0
+      "P": [
+       3.201,
+       2.0
       ],
-      "_SL": [
-       6.288,
-       3.0
-      ],
-      "_SU": [
-       9.313,
-       3.726
-      ],
-      "_SD": [
-       6.462,
-       2.274
-      ],
-      "T": [
-       2.0,
+      "B": [
+       1.581,
        0.0
-      ],
-      "_TR": [
-       3.6,
-       0.0
-      ],
-      "_TL": [
-       0.4,
-       0.0
-      ],
-      "_TU": [
-       3.426,
-       0.726
-      ],
-      "_TD": [
-       0.574,
-       -0.726
       ],
       "_g1": [
-       -1.0,
-       3
+       -1.5,
+       4
       ],
       "_g2": [
-       10.888,
-       3
+       5.201,
+       4
       ],
       "_h1": [
-       -1.0,
-       0.0
+       -1.5,
+       0
       ],
       "_h2": [
-       10.888,
-       0.0
+       5.201,
+       0
       ],
-      "_k1": [
-       0.574,
-       -0.726
+      "_AR": [
+       1.5,
+       4
       ],
-      "_k2": [
-       9.313,
-       3.726
+      "_BR": [
+       3.081,
+       0
       ]
      },
      "linien": [
@@ -4816,35 +5040,83 @@
        "h"
       ],
       [
-       "_k1",
-       "_k2",
-       "k"
+       "A",
+       "P"
+      ],
+      [
+       "P",
+       "B"
       ]
      ],
      "winkel": [
       [
-       "S",
-       "_SR",
-       "_SU",
-       "27°"
+       "A",
+       "_AR",
+       "P",
+       "32°"
       ],
       [
-       "T",
-       "_TU",
-       "_TL",
+       "B",
+       "_BR",
+       "P",
+       "51°"
+      ],
+      [
+       "P",
+       "A",
+       "B",
        "?"
       ]
      ]
     }
    },
    "o": {
-    "wert": 153,
+    "wert": 83,
     "einheit": "°"
    },
-   "c": "153",
-   "w": "Stufenwinkel: Bei T rechts oberhalb ist auch 27°. Der gesuchte Winkel ist dessen Nebenwinkel: 180° − 27° = 153°.",
-   "h": "Übertrage den Winkel zuerst mit dem Stufenwinkel nach T.",
-   "g": "mehrschritt"
+   "c": "32 + 51",
+   "w": "Hilfslinie durch P parallel zu g: Sie teilt den Winkel bei P in die Wechselwinkel 32° und 51°. Zusammen 83°.",
+   "h": "Zeichne durch P eine dritte Parallele.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Zwei Wechselwinkel sind (4x + 20)° und 80° groß. Berechne x."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(80 - 20) / 4",
+   "w": "Wechselwinkel sind gleich: 4x + 20 = 80 → 4x = 60 → x = 15.",
+   "h": "Wechselwinkel an Parallelen sind gleich groß. Stelle eine Gleichung auf.",
+   "g": "parameter"
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Scheitelwinkel sind gleich groß, auch wenn keine Parallelen da sind.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Nebenwinkel ergänzen sich zu 180°.",
+    "Richtig: Scheitelwinkel liegen an derselben Kreuzung.",
+    "Falsch: Wechselwinkel an Parallelen sind gleich groß.",
+    "Falsch: Nur wenn die beiden Geraden parallel sind."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Scheitelwinkel liegen an derselben Kreuzung.",
+   "h": "Denke an das Bild mit zwei Geraden und einer Geraden, die beide schneidet.",
+   "g": "fehler"
   },
   {
    "l": "stufen_wechsel",
@@ -4968,6 +5240,146 @@
    "l": "stufen_wechsel",
    "t": "stufen_wechsel",
    "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "g ∥ h, und k schneidet beide. Welche Winkelpaare an den beiden Kreuzungen sind immer gleich groß?"
+   },
+   "a": [
+    "Stufenwinkel und Wechselwinkel",
+    "nur Stufenwinkel",
+    "nur Wechselwinkel",
+    "alle acht Winkel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "An Parallelen sind Stufenwinkel (gleiche Lage) und Wechselwinkel (Z-Form) gleich groß. Alle acht sind nur gleich, wenn k senkrecht steht.",
+   "h": "Denke an die F-Form und die Z-Form."
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Bei S ist der Winkel rechts oberhalb 27° groß. Wie groß ist der Winkel bei T links oberhalb?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       7.888,
+       3.0
+      ],
+      "_SR": [
+       9.488,
+       3.0
+      ],
+      "_SL": [
+       6.288,
+       3.0
+      ],
+      "_SU": [
+       9.313,
+       3.726
+      ],
+      "_SD": [
+       6.462,
+       2.274
+      ],
+      "T": [
+       2.0,
+       0.0
+      ],
+      "_TR": [
+       3.6,
+       0.0
+      ],
+      "_TL": [
+       0.4,
+       0.0
+      ],
+      "_TU": [
+       3.426,
+       0.726
+      ],
+      "_TD": [
+       0.574,
+       -0.726
+      ],
+      "_g1": [
+       -1.0,
+       3
+      ],
+      "_g2": [
+       10.888,
+       3
+      ],
+      "_h1": [
+       -1.0,
+       0.0
+      ],
+      "_h2": [
+       10.888,
+       0.0
+      ],
+      "_k1": [
+       0.574,
+       -0.726
+      ],
+      "_k2": [
+       9.313,
+       3.726
+      ]
+     },
+     "linien": [
+      [
+       "_g1",
+       "_g2",
+       "g"
+      ],
+      [
+       "_h1",
+       "_h2",
+       "h"
+      ],
+      [
+       "_k1",
+       "_k2",
+       "k"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_SR",
+       "_SU",
+       "27°"
+      ],
+      [
+       "T",
+       "_TU",
+       "_TL",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 153,
+    "einheit": "°"
+   },
+   "c": "153",
+   "w": "Stufenwinkel: Bei T rechts oberhalb ist auch 27°. Der gesuchte Winkel ist dessen Nebenwinkel: 180° − 27° = 153°.",
+   "h": "Übertrage den Winkel zuerst mit dem Stufenwinkel nach T.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
    "s": 2,
    "g": "einkleidung",
    "y": "zahl",
@@ -4981,6 +5393,245 @@
    "c": "180 - 65",
    "w": "Am zweiten Gleis ist der Winkel rechts oberhalb ebenfalls 65° (Stufenwinkel). Links oberhalb ist sein Nebenwinkel: 180° − 65° = 115°.",
    "h": "Bestimme zuerst den Winkel in derselben Lage."
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Bei S ist der Winkel links oberhalb 154° groß. Wie groß ist der Winkel bei T rechts oberhalb?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       8.151,
+       3.0
+      ],
+      "_SR": [
+       9.751,
+       3.0
+      ],
+      "_SL": [
+       6.551,
+       3.0
+      ],
+      "_SU": [
+       9.589,
+       3.701
+      ],
+      "_SD": [
+       6.713,
+       2.299
+      ],
+      "T": [
+       2.0,
+       0.0
+      ],
+      "_TR": [
+       3.6,
+       0.0
+      ],
+      "_TL": [
+       0.4,
+       0.0
+      ],
+      "_TU": [
+       3.438,
+       0.701
+      ],
+      "_TD": [
+       0.562,
+       -0.701
+      ],
+      "_g1": [
+       -1.0,
+       3
+      ],
+      "_g2": [
+       11.151,
+       3
+      ],
+      "_h1": [
+       -1.0,
+       0.0
+      ],
+      "_h2": [
+       11.151,
+       0.0
+      ],
+      "_k1": [
+       0.562,
+       -0.701
+      ],
+      "_k2": [
+       9.589,
+       3.701
+      ]
+     },
+     "linien": [
+      [
+       "_g1",
+       "_g2",
+       "g"
+      ],
+      [
+       "_h1",
+       "_h2",
+       "h"
+      ],
+      [
+       "_k1",
+       "_k2",
+       "k"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_SU",
+       "_SL",
+       "154°"
+      ],
+      [
+       "T",
+       "_TR",
+       "_TU",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "°"
+   },
+   "c": "180 - 154",
+   "w": "Bei S rechts oberhalb: Nebenwinkel 180° − 154° = 26°. Stufenwinkel bei T: 26°.",
+   "h": "Erst Nebenwinkel bei S, dann Stufenwinkel."
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "g ∥ h. Wie heißen der Winkel bei S rechts oberhalb und der Winkel bei T rechts oberhalb?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       3.732,
+       3.0
+      ],
+      "_SR": [
+       5.332,
+       3.0
+      ],
+      "_SL": [
+       2.132,
+       3.0
+      ],
+      "_SU": [
+       4.532,
+       4.386
+      ],
+      "_SD": [
+       2.932,
+       1.614
+      ],
+      "T": [
+       2.0,
+       0.0
+      ],
+      "_TR": [
+       3.6,
+       0.0
+      ],
+      "_TL": [
+       0.4,
+       0.0
+      ],
+      "_TU": [
+       2.8,
+       1.386
+      ],
+      "_TD": [
+       1.2,
+       -1.386
+      ],
+      "_g1": [
+       -1.0,
+       3
+      ],
+      "_g2": [
+       6.732,
+       3
+      ],
+      "_h1": [
+       -1.0,
+       0.0
+      ],
+      "_h2": [
+       6.732,
+       0.0
+      ],
+      "_k1": [
+       1.2,
+       -1.386
+      ],
+      "_k2": [
+       4.532,
+       4.386
+      ]
+     },
+     "linien": [
+      [
+       "_g1",
+       "_g2",
+       "g"
+      ],
+      [
+       "_h1",
+       "_h2",
+       "h"
+      ],
+      [
+       "_k1",
+       "_k2",
+       "k"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_SR",
+       "_SU",
+       "1"
+      ],
+      [
+       "T",
+       "_TR",
+       "_TU",
+       "2"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Wechselwinkel",
+    "weder noch",
+    "Stufenwinkel",
+    "Scheitelwinkel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleiche Lage an beiden Kreuzungen: Stufenwinkel. Über Kreuz zwischen den Parallelen: Wechselwinkel. Scheitelwinkel liegen an derselben Kreuzung.",
+   "h": "Liegen beide in gleicher Lage oder über Kreuz zwischen g und h?",
+   "g": "darstellung"
   },
   {
    "l": "stufen_wechsel",
@@ -5110,28 +5761,6 @@
    "l": "stufen_wechsel",
    "t": "stufen_wechsel",
    "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "g ∥ h, und k schneidet beide. Welche Winkelpaare an den beiden Kreuzungen sind immer gleich groß?"
-   },
-   "a": [
-    "Stufenwinkel und Wechselwinkel",
-    "nur Stufenwinkel",
-    "nur Wechselwinkel",
-    "alle acht Winkel"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "An Parallelen sind Stufenwinkel (gleiche Lage) und Wechselwinkel (Z-Form) gleich groß. Alle acht sind nur gleich, wenn k senkrecht steht.",
-   "h": "Denke an die F-Form und die Z-Form."
-  },
-  {
-   "l": "stufen_wechsel",
-   "t": "stufen_wechsel",
-   "p": "uebung",
    "s": 3,
    "g": "pruefung",
    "y": "zahl",
@@ -5153,394 +5782,73 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Rampe steigt um 38° gegen die Waagrechte an. Der Handlauf ist parallel zur Rampe, die Pfosten stehen senkrecht. Wie groß ist der spitze Winkel zwischen Pfosten und Handlauf?"
+    "text": "g ∥ h. Ein Dreieck hat eine Ecke C auf g und die beiden anderen Ecken auf h. Bei C bilden die Dreiecksseiten mit g die Winkel 50° (links) und 65° (rechts). Wie groß ist der Innenwinkel des Dreiecks bei C?"
    },
    "o": {
-    "wert": 52,
+    "wert": 65,
     "einheit": "°"
    },
-   "c": "90 - 38",
-   "w": "Pfosten und Waagrechte bilden 90°. Der Handlauf ist um 38° geneigt (Stufenwinkel zur Rampe). Spitzer Winkel zum Pfosten: 90° − 38° = 52°.",
-   "h": "Der Pfosten steht senkrecht auf der Waagrechten.",
-   "g": "transfer"
-  },
-  {
-   "l": "stufen_wechsel",
-   "t": "stufen_wechsel",
-   "p": "uebung",
-   "s": 3,
-   "g": "parameter",
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der Winkel rechts oberhalb α. Für welches α ist der Winkel bei T links oberhalb genau doppelt so groß wie α?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "180 / 3",
-   "w": "Bei T rechts oberhalb ist α (Stufenwinkel), links oberhalb also 180° − α. Es soll 180° − α = 2α sein, also 3α = 180° und α = 60°.",
-   "h": "Drücke den Winkel bei T links oberhalb mit α aus."
-  },
-  {
-   "l": "stufen_wechsel",
-   "t": "stufen_wechsel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Bei S ist der Winkel links oberhalb 154° groß. Wie groß ist der Winkel bei T rechts oberhalb?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       8.151,
-       3.0
-      ],
-      "_SR": [
-       9.751,
-       3.0
-      ],
-      "_SL": [
-       6.551,
-       3.0
-      ],
-      "_SU": [
-       9.589,
-       3.701
-      ],
-      "_SD": [
-       6.713,
-       2.299
-      ],
-      "T": [
-       2.0,
-       0.0
-      ],
-      "_TR": [
-       3.6,
-       0.0
-      ],
-      "_TL": [
-       0.4,
-       0.0
-      ],
-      "_TU": [
-       3.438,
-       0.701
-      ],
-      "_TD": [
-       0.562,
-       -0.701
-      ],
-      "_g1": [
-       -1.0,
-       3
-      ],
-      "_g2": [
-       11.151,
-       3
-      ],
-      "_h1": [
-       -1.0,
-       0.0
-      ],
-      "_h2": [
-       11.151,
-       0.0
-      ],
-      "_k1": [
-       0.562,
-       -0.701
-      ],
-      "_k2": [
-       9.589,
-       3.701
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_k1",
-       "_k2",
-       "k"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_SU",
-       "_SL",
-       "154°"
-      ],
-      [
-       "T",
-       "_TR",
-       "_TU",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 26,
-    "einheit": "°"
-   },
-   "c": "180 - 154",
-   "w": "Bei S rechts oberhalb: Nebenwinkel 180° − 154° = 26°. Stufenwinkel bei T: 26°.",
-   "h": "Erst Nebenwinkel bei S, dann Stufenwinkel."
-  },
-  {
-   "l": "stufen_wechsel",
-   "t": "stufen_wechsel",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
-   "y": "auswahl",
-   "f": {
-    "text": "g ∥ h. Jemand sagt: „Bei S ist der Winkel rechts oberhalb 70°, also ist der Winkel bei T links unterhalb 110°.“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: Er ist 70°, denn es sind Wechselwinkel.",
-    "Falsch: Er ist 20°.",
-    "Falsch: Er ist 250°.",
-    "Richtig."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei S: rechts oberhalb 70°, also links unterhalb auch 70° (Scheitelwinkel). Bei T links unterhalb ist es derselbe Winkel in gleicher Lage (Stufenwinkel): 70°.",
-   "h": "Gehe über den Scheitelwinkel bei S."
-  },
-  {
-   "l": "stufen_wechsel",
-   "t": "stufen_wechsel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "g ∥ h. Ein Weg führt von A auf g zu einem Punkt P zwischen den Geraden und weiter zu B auf h. Bei A ist der Winkel 32°, bei B 51° (siehe Bild). Wie groß ist der Winkel bei P?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       4
-      ],
-      "P": [
-       3.201,
-       2.0
-      ],
-      "B": [
-       1.581,
-       0.0
-      ],
-      "_g1": [
-       -1.5,
-       4
-      ],
-      "_g2": [
-       5.201,
-       4
-      ],
-      "_h1": [
-       -1.5,
-       0
-      ],
-      "_h2": [
-       5.201,
-       0
-      ],
-      "_AR": [
-       1.5,
-       4
-      ],
-      "_BR": [
-       3.081,
-       0
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "A",
-       "P"
-      ],
-      [
-       "P",
-       "B"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "_AR",
-       "P",
-       "32°"
-      ],
-      [
-       "B",
-       "_BR",
-       "P",
-       "51°"
-      ],
-      [
-       "P",
-       "A",
-       "B",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 83,
-    "einheit": "°"
-   },
-   "c": "32 + 51",
-   "w": "Hilfslinie durch P parallel zu g: Sie teilt den Winkel bei P in die Wechselwinkel 32° und 51°. Zusammen 83°.",
-   "h": "Zeichne durch P eine dritte Parallele.",
+   "c": "180 - 50 - 65",
+   "w": "An C liegen auf der Geraden g drei Winkel nebeneinander: 50°, der Innenwinkel und 65°. Zusammen 180°: 180° − 50° − 65° = 65°.",
+   "h": "Auf einer Geraden ergeben die Winkel nebeneinander 180°.",
    "g": "verknuepfen"
   },
   {
    "l": "stufen_wechsel",
    "t": "stufen_wechsel",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Bei S ist ein Winkel (3x + 15)° groß (rechts oberhalb), bei T der Winkel links oberhalb 45°. Berechne x."
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "(180 - 45 - 15) / 3",
+   "w": "Links oberhalb bei T ist Nebenwinkel des Stufenwinkels: (3x + 15)° + 45° = 180° → 3x = 120° → x = 40.",
+   "h": "Der Winkel links oberhalb bei T ergänzt den Stufenwinkel zu 180°.",
+   "g": "parameter"
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Leiter lehnt an einer senkrechten Wand und bildet mit dem waagrechten Boden 70°. Eine zweite Leiter steht parallel zur ersten. Welchen Winkel bildet die zweite Leiter mit der Wand?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "°"
+   },
+   "c": "90 - 70",
+   "w": "Die zweite Leiter bildet mit dem Boden ebenfalls 70° (Stufenwinkel an Parallelen). Wand und Boden stehen senkrecht: 90° − 70° = 20°.",
+   "h": "Welchen Winkel bildet die zweite Leiter mit dem Boden?"
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "g ∥ h. Wie heißen der Winkel bei S rechts oberhalb und der Winkel bei T rechts oberhalb?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       3.732,
-       3.0
-      ],
-      "_SR": [
-       5.332,
-       3.0
-      ],
-      "_SL": [
-       2.132,
-       3.0
-      ],
-      "_SU": [
-       4.532,
-       4.386
-      ],
-      "_SD": [
-       2.932,
-       1.614
-      ],
-      "T": [
-       2.0,
-       0.0
-      ],
-      "_TR": [
-       3.6,
-       0.0
-      ],
-      "_TL": [
-       0.4,
-       0.0
-      ],
-      "_TU": [
-       2.8,
-       1.386
-      ],
-      "_TD": [
-       1.2,
-       -1.386
-      ],
-      "_g1": [
-       -1.0,
-       3
-      ],
-      "_g2": [
-       6.732,
-       3
-      ],
-      "_h1": [
-       -1.0,
-       0.0
-      ],
-      "_h2": [
-       6.732,
-       0.0
-      ],
-      "_k1": [
-       1.2,
-       -1.386
-      ],
-      "_k2": [
-       4.532,
-       4.386
-      ]
-     },
-     "linien": [
-      [
-       "_g1",
-       "_g2",
-       "g"
-      ],
-      [
-       "_h1",
-       "_h2",
-       "h"
-      ],
-      [
-       "_k1",
-       "_k2",
-       "k"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_SR",
-       "_SU",
-       "1"
-      ],
-      [
-       "T",
-       "_TR",
-       "_TU",
-       "2"
-      ]
-     ]
-    }
+    "text": "Jemand sagt: „Stufenwinkel sind immer gleich groß.“ Was stimmt?"
    },
    "a": [
-    "Wechselwinkel",
-    "weder noch",
-    "Stufenwinkel",
-    "Scheitelwinkel"
+    "Falsch: Wechselwinkel an Parallelen sind gleich groß.",
+    "Falsch: Nur wenn die beiden Geraden parallel sind.",
+    "Falsch: Nebenwinkel ergänzen sich zu 180°.",
+    "Richtig: Scheitelwinkel liegen an derselben Kreuzung."
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "Gleiche Lage an beiden Kreuzungen: Stufenwinkel. Über Kreuz zwischen den Parallelen: Wechselwinkel. Scheitelwinkel liegen an derselben Kreuzung.",
-   "h": "Liegen beide in gleicher Lage oder über Kreuz zwischen g und h?",
-   "g": "darstellung"
+   "w": "Falsch: Nur wenn die beiden Geraden parallel sind.",
+   "h": "Denke an das Bild mit zwei Geraden und einer Geraden, die beide schneidet.",
+   "g": "fehler"
   },
   {
    "l": "stufen_wechsel",
@@ -5575,6 +5883,24 @@
    "c": "35",
    "w": "Am Spiegel gilt: Einfallswinkel = Ausfallswinkel, der Strahl verlässt den ersten Spiegel also auch unter 35°. Zwischen den Spiegeln ist er eine Querlinie zu zwei Parallelen: Am zweiten Spiegel trifft er unter dem Wechselwinkel, wieder 35°. So geht es immer weiter – bei jedem Auftreffen 35°.",
    "h": "Verfolge den Strahl von Spiegel zu Spiegel. Welche Winkelpaare entstehen?"
+  },
+  {
+   "l": "stufen_wechsel",
+   "t": "stufen_wechsel",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "g ∥ h. Die Gerade k schneidet g unter 50°, die Gerade l schneidet h unter 70° (beide Winkel rechts oberhalb). k und l schneiden sich zwischen g und h. Wie groß ist der spitze Winkel zwischen k und l?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "°"
+   },
+   "c": "70 - 50",
+   "w": "Zeichne durch den Schnittpunkt P von k und l eine Parallele p zu g und h. Dann bildet k mit p wieder 50° und l mit p 70° (Stufenwinkel, beide rechts oberhalb). k und l verlaufen also in Richtungen, die sich um 70° − 50° = 20° unterscheiden. Der spitze Winkel zwischen ihnen ist 20°.",
+   "h": "Zeichne durch den Schnittpunkt von k und l eine weitere Parallele."
   },
   {
    "l": "stufen_wechsel",
@@ -8713,24 +9039,6 @@
    "l": "innenwinkelsumme",
    "t": "innenwinkelsumme",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist γ = 82°. α ist um 32° größer als β. Wie groß ist α?"
-   },
-   "o": {
-    "wert": 65,
-    "einheit": "°"
-   },
-   "c": "(180 - 82 + 32) / 2",
-   "w": "Für α und β bleiben 98°. Ohne den Unterschied: 98° − 32° = 66°, je 33°. α = 33° + 32° = 65°.",
-   "h": "Was bleibt für α und β? Nimm dann den Unterschied weg.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "innenwinkelsumme",
-   "t": "innenwinkelsumme",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -8756,6 +9064,24 @@
    "s": 3,
    "y": "zahl",
    "f": {
+    "text": "In einem Dreieck ist γ = 82°. α ist um 32° größer als β. Wie groß ist α?"
+   },
+   "o": {
+    "wert": 65,
+    "einheit": "°"
+   },
+   "c": "(180 - 82 + 32) / 2",
+   "w": "Für α und β bleiben 98°. Ohne den Unterschied: 98° − 32° = 66°, je 33°. α = 33° + 32° = 65°.",
+   "h": "Was bleibt für α und β? Nimm dann den Unterschied weg.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
     "text": "Die Winkel eines Dreiecks verhalten sich wie 4 : 5 : 6. Wie groß ist der größte Winkel?"
    },
    "o": {
@@ -8766,6 +9092,102 @@
    "w": "15 Teile = 180°, ein Teil = 12°. Größter Winkel: 6 · 12° = 72°.",
    "h": "Wie viele gleiche Teile sind es zusammen?",
    "g": "verknuepfen"
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck wird durch eine Strecke von einer Ecke zur Gegenseite in zwei Dreiecke geteilt. Jemand sagt: „Dann hat das große Dreieck 2 · 180° = 360°.“ Was ist falsch?"
+   },
+   "a": [
+    "Die Teildreiecke haben je 90°.",
+    "Die zwei neuen Winkel an der Gegenseite (zusammen 180°) gehören nicht zum großen Dreieck: 360° − 180° = 180°.",
+    "Nichts, große Dreiecke haben mehr Winkelsumme.",
+    "Man muss 3 · 180° rechnen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die beiden Teildreiecke haben zusammen 360°. Davon liegen 180° als Nebenwinkel auf der Gegenseite und zählen nicht zum großen Dreieck.",
+   "h": "Welche Winkel gehören zu den Teildreiecken, aber nicht zum großen Dreieck?",
+   "g": "fehler"
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 77° und γ = 36°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       2.114,
+       9.156
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "α = 77°"
+      ],
+      [
+       "C",
+       "A",
+       "B",
+       "γ = 36°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 67,
+    "einheit": "°"
+   },
+   "c": "180 - 77 - 36",
+   "w": "β = 180° − 77° − 36° = 67°.",
+   "h": "Die Winkelsumme ist 180°.",
+   "g": "direkt"
   },
   {
    "l": "innenwinkelsumme",
@@ -8784,46 +9206,6 @@
    "w": "Für α und β bleiben 180° − 44° = 136°, je die Hälfte: 68°.",
    "h": "Was bleibt für α und β zusammen?",
    "g": "mehrschritt"
-  },
-  {
-   "l": "innenwinkelsumme",
-   "t": "innenwinkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC teilt die Strecke [CM] den Winkel γ in δ und ε. Es gilt α = δ und β = ε. Welche Rechnung zeigt γ = 90°?"
-   },
-   "a": [
-    "δ + ε = 180°, also γ = 180°.",
-    "γ = δ · ε = 90°.",
-    "α + β + γ = 180° und α + β = δ + ε = γ, also γ + γ = 180°.",
-    "α + β = 90°, weil zwei Winkel immer 90° ergeben."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ersetzt man α + β durch δ + ε, also durch γ, ergibt die Winkelsumme γ + γ = 180°, also γ = 90°.",
-   "h": "Ersetze in der Winkelsumme α + β.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "innenwinkelsumme",
-   "t": "innenwinkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck ist rechtwinklig. Ein spitzer Winkel ist um 40° größer als der andere. Wie groß ist der größere spitze Winkel?"
-   },
-   "o": {
-    "wert": 65,
-    "einheit": "°"
-   },
-   "c": "(90 + 40) / 2",
-   "w": "Die spitzen Winkel ergeben zusammen 90°. Nimm den Unterschied weg: 90° − 40° = 50°, je Winkel 25°. Der größere: 25° + 40° = 65°.",
-   "h": "Die beiden spitzen Winkel ergeben zusammen 90°.",
-   "g": "rueckwaerts"
   },
   {
    "l": "innenwinkelsumme",
@@ -8927,10 +9309,116 @@
    "l": "innenwinkelsumme",
    "t": "innenwinkelsumme",
    "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC teilt die Strecke [CM] den Winkel γ in δ und ε. Es gilt α = δ und β = ε. Welche Rechnung zeigt γ = 90°?"
+   },
+   "a": [
+    "δ + ε = 180°, also γ = 180°.",
+    "γ = δ · ε = 90°.",
+    "α + β + γ = 180° und α + β = δ + ε = γ, also γ + γ = 180°.",
+    "α + β = 90°, weil zwei Winkel immer 90° ergeben."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ersetzt man α + β durch δ + ε, also durch γ, ergibt die Winkelsumme γ + γ = 180°, also γ = 90°.",
+   "h": "Ersetze in der Winkelsumme α + β.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck ist rechtwinklig. Ein spitzer Winkel ist um 40° größer als der andere. Wie groß ist der größere spitze Winkel?"
+   },
+   "o": {
+    "wert": 65,
+    "einheit": "°"
+   },
+   "c": "(90 + 40) / 2",
+   "w": "Die spitzen Winkel ergeben zusammen 90°. Nimm den Unterschied weg: 90° − 40° = 50°, je Winkel 25°. Der größere: 25° + 40° = 65°.",
+   "h": "Die beiden spitzen Winkel ergeben zusammen 90°.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann der größte Innenwinkel eines Dreiecks 58° groß sein?"
+   },
+   "a": [
+    "Ja, zum Beispiel 58°, 58° und 64°.",
+    "Nein, der größte Winkel muss stumpf sein.",
+    "Ja, jeder spitze Winkel ist möglich.",
+    "Nein: Alle Winkel wären höchstens 58°, zusammen höchstens 174°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Wenn 58° der größte Winkel ist, sind alle höchstens 58°: 3 · 58° = 174° < 180°. Der größte Winkel ist immer mindestens 60°.",
+   "h": "Was ist die größtmögliche Summe, wenn kein Winkel über 58° liegt?",
+   "g": "begruenden"
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „In einem rechtwinkligen Dreieck ist α = 33°, also β = 147°.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: β = 90° + 33° = 123°.",
+    "Richtig: β = 180° − 33° = 147°.",
+    "Falsch: β = 180° − 90° − 33° = 57°.",
+    "Falsch: β = 33°, weil beide spitzen Winkel gleich sind."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Falsch: β = 180° − 90° − 33° = 57°.",
+   "h": "Rechne die Winkelsumme nach.",
+   "g": "fehler"
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie groß ist die Summe der drei Innenwinkel in jedem Dreieck?"
+   },
+   "a": [
+    "90°",
+    "Das hängt vom Dreieck ab.",
+    "360°",
+    "180°"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "In jedem Dreieck ergeben die drei Innenwinkel zusammen 180°.",
+   "h": "Das gilt für spitze, rechtwinklige und stumpfe Dreiecke gleich."
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "In einem Dreieck ist α = 77° und γ = 36°. Wie groß ist β?",
+    "text": "In einem Dreieck ist α = 42° und γ = 76°. Wie groß ist β?",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -8943,8 +9431,8 @@
        0
       ],
       "C": [
-       2.114,
-       9.156
+       4.057,
+       3.653
       ]
      },
      "flaeche": [
@@ -8971,13 +9459,13 @@
        "A",
        "B",
        "C",
-       "α = 77°"
+       "α = 42°"
       ],
       [
        "C",
        "A",
        "B",
-       "γ = 36°"
+       "γ = 76°"
       ],
       [
        "B",
@@ -8989,11 +9477,84 @@
     }
    },
    "o": {
-    "wert": 67,
+    "wert": 62,
     "einheit": "°"
    },
-   "c": "180 - 77 - 36",
-   "w": "β = 180° − 77° − 36° = 67°.",
+   "c": "180 - 42 - 76",
+   "w": "β = 180° − 42° − 76° = 62°.",
+   "h": "Die Winkelsumme ist 180°."
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck ist α = 54° und β = 98°. Wie groß ist γ?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       7.439,
+       10.239
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "α = 54°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β = 98°"
+      ],
+      [
+       "C",
+       "A",
+       "B",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "°"
+   },
+   "c": "180 - 54 - 98",
+   "w": "γ = 180° − 54° − 98° = 28°.",
    "h": "Die Winkelsumme ist 180°.",
    "g": "direkt"
   },
@@ -9088,64 +9649,6 @@
    "c": "180 - 90 - 35",
    "w": "180° − 90° − 35° = 55°.",
    "h": "Wie groß ist ein rechter Winkel?"
-  },
-  {
-   "l": "innenwinkelsumme",
-   "t": "innenwinkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Dreieck ist γ = 42°. α ist um 30° größer als β. Wie groß ist α?"
-   },
-   "o": {
-    "wert": 84,
-    "einheit": "°"
-   },
-   "c": "(180 - 42 + 30) / 2",
-   "w": "Für α und β bleiben 138°. Ohne den Unterschied: 138° − 30° = 108°, je 54°. α = 54° + 30° = 84°.",
-   "h": "Was bleibt für α und β? Nimm dann den Unterschied weg.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "innenwinkelsumme",
-   "t": "innenwinkelsumme",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Winkel eines Dreiecks verhalten sich wie 1 : 3 : 5. Wie groß ist der größte Winkel?"
-   },
-   "o": {
-    "wert": 100,
-    "einheit": "°"
-   },
-   "c": "180 / (1 + 3 + 5) * 5",
-   "w": "9 Teile = 180°, ein Teil = 20°. Größter Winkel: 5 · 20° = 100°.",
-   "h": "Wie viele gleiche Teile sind es zusammen?",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "innenwinkelsumme",
-   "t": "innenwinkelsumme",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Wie groß ist die Summe der drei Innenwinkel in jedem Dreieck?"
-   },
-   "a": [
-    "90°",
-    "Das hängt vom Dreieck ab.",
-    "360°",
-    "180°"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "In jedem Dreieck ergeben die drei Innenwinkel zusammen 180°.",
-   "h": "Das gilt für spitze, rechtwinklige und stumpfe Dreiecke gleich."
   },
   {
    "l": "innenwinkelsumme",
@@ -9250,95 +9753,36 @@
    "t": "innenwinkelsumme",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Ein Dreieck wird durch eine Strecke von einer Ecke zur Gegenseite in zwei Dreiecke geteilt. Jemand sagt: „Dann hat das große Dreieck 2 · 180° = 360°.“ Was ist falsch?"
+    "text": "In einem Dreieck ist γ = 42°. α ist um 30° größer als β. Wie groß ist α?"
    },
-   "a": [
-    "Die Teildreiecke haben je 90°.",
-    "Die zwei neuen Winkel an der Gegenseite (zusammen 180°) gehören nicht zum großen Dreieck: 360° − 180° = 180°.",
-    "Nichts, große Dreiecke haben mehr Winkelsumme.",
-    "Man muss 3 · 180° rechnen."
-   ],
    "o": {
-    "index": 1
+    "wert": 84,
+    "einheit": "°"
    },
-   "w": "Die beiden Teildreiecke haben zusammen 360°. Davon liegen 180° als Nebenwinkel auf der Gegenseite und zählen nicht zum großen Dreieck.",
-   "h": "Welche Winkel gehören zu den Teildreiecken, aber nicht zum großen Dreieck?",
-   "g": "fehler"
+   "c": "(180 - 42 + 30) / 2",
+   "w": "Für α und β bleiben 138°. Ohne den Unterschied: 138° − 30° = 108°, je 54°. α = 54° + 30° = 84°.",
+   "h": "Was bleibt für α und β? Nimm dann den Unterschied weg.",
+   "g": "rueckwaerts"
   },
   {
    "l": "innenwinkelsumme",
    "t": "innenwinkelsumme",
    "p": "uebung",
-   "s": 1,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einem Dreieck ist α = 42° und γ = 76°. Wie groß ist β?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       4.057,
-       3.653
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "α = 42°"
-      ],
-      [
-       "C",
-       "A",
-       "B",
-       "γ = 76°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "?"
-      ]
-     ]
-    }
+    "text": "Die Winkel eines Dreiecks verhalten sich wie 1 : 3 : 5. Wie groß ist der größte Winkel?"
    },
    "o": {
-    "wert": 62,
+    "wert": 100,
     "einheit": "°"
    },
-   "c": "180 - 42 - 76",
-   "w": "β = 180° − 42° − 76° = 62°.",
-   "h": "Die Winkelsumme ist 180°."
+   "c": "180 / (1 + 3 + 5) * 5",
+   "w": "9 Teile = 180°, ein Teil = 20°. Größter Winkel: 5 · 20° = 100°.",
+   "h": "Wie viele gleiche Teile sind es zusammen?",
+   "g": "verknuepfen"
   },
   {
    "l": "innenwinkelsumme",
@@ -9347,94 +9791,60 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Kann der größte Innenwinkel eines Dreiecks 58° groß sein?"
+    "text": "Jemand sagt: „Ein Dreieck hat die Winkel 28°, 58° und 104°.“ Was stimmt?"
    },
    "a": [
-    "Ja, zum Beispiel 58°, 58° und 64°.",
-    "Nein, der größte Winkel muss stumpf sein.",
-    "Ja, jeder spitze Winkel ist möglich.",
-    "Nein: Alle Winkel wären höchstens 58°, zusammen höchstens 174°."
+    "Richtig: Alle drei Winkel sind kleiner als 180°.",
+    "Falsch: Ein Winkel ist zu klein.",
+    "Richtig: 28° + 58° + 104° = 180°.",
+    "Falsch: Die Summe ist 190°, nicht 180°."
    ],
    "o": {
     "index": 3
    },
-   "w": "Wenn 58° der größte Winkel ist, sind alle höchstens 58°: 3 · 58° = 174° < 180°. Der größte Winkel ist immer mindestens 60°.",
-   "h": "Was ist die größtmögliche Summe, wenn kein Winkel über 58° liegt?",
+   "w": "Falsch: Die Summe ist 190°, nicht 180°.",
+   "h": "Rechne die Winkelsumme nach.",
+   "g": "fehler"
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann der größte Innenwinkel eines Dreiecks 55° groß sein?"
+   },
+   "a": [
+    "Ja: 55° ist ein spitzer Winkel.",
+    "Nein: Der größte Winkel muss immer stumpf sein.",
+    "Nein: Alle drei Winkel wären höchstens 55°, zusammen höchstens 165° < 180°.",
+    "Ja, zum Beispiel 55°, 55° und 70°."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ist 55° der größte Winkel, sind die anderen höchstens 55°. Dann ist die Summe höchstens 3 · 55° = 165°, aber sie muss 180° sein. (Der größte Winkel ist immer mindestens 60°.)",
+   "h": "Was ist die größtmögliche Winkelsumme, wenn kein Winkel größer als 55° ist?",
    "g": "begruenden"
   },
   {
    "l": "innenwinkelsumme",
    "t": "innenwinkelsumme",
    "p": "uebung",
-   "s": 1,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einem Dreieck ist α = 54° und β = 98°. Wie groß ist γ?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       7.439,
-       10.239
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "α = 54°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "β = 98°"
-      ],
-      [
-       "C",
-       "A",
-       "B",
-       "?"
-      ]
-     ]
-    }
+    "text": "Ein fünfzackiger Stern wird ohne Absetzen aus fünf Strecken gezeichnet (Pentagramm). Wie groß ist die Summe der fünf Winkel an den Spitzen?"
    },
    "o": {
-    "wert": 28,
+    "wert": 180,
     "einheit": "°"
    },
-   "c": "180 - 54 - 98",
-   "w": "γ = 180° − 54° − 98° = 28°.",
-   "h": "Die Winkelsumme ist 180°.",
-   "g": "direkt"
+   "c": "180",
+   "w": "Beim regelmäßigen Stern ist jede Spitze 36° groß: 5 · 36° = 180°. Man kann zeigen, dass die Summe bei jedem solchen Stern 180° ist (Außenwinkel-Überlegung im Dreieck).",
+   "h": "Rechne beim regelmäßigen Stern: Das innere Fünfeck hat Winkel von 108°, die Nebenwinkel sind 72°.",
+   "g": "transfer"
   },
   {
    "l": "innenwinkelsumme",
@@ -9469,6 +9879,23 @@
    "c": "180 / 3 + 1",
    "w": "Ist der mittlere Winkel m, sind die Winkel m − 1, m, m + 1. Zusammen 3m = 180°, also m = 60°. Die Winkel sind 59°, 60°, 61° – der größte ist 61°.",
    "h": "Beschreibe alle drei Winkel mit dem mittleren."
+  },
+  {
+   "l": "innenwinkelsumme",
+   "t": "innenwinkelsumme",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Alle drei Winkel eines Dreiecks sind Vielfache von 20°. Wie viele verschiedene Winkelkombinationen gibt es (die Reihenfolge zählt nicht)?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "In 20°-Schritten gerechnet: drei positive ganze Zahlen mit Summe 180 : 20 = 9. Aufzählen mit a ≤ b ≤ c: 1+1+7, 1+2+6, 1+3+5, 1+4+4, 2+2+5, 2+3+4, 3+3+3. Das sind 7 Kombinationen, z. B. 20°, 20°, 140° oder 60°, 60°, 60°.",
+   "h": "Zähle in 20°-Einheiten. Welche Summe müssen die drei Anzahlen haben?"
   },
   {
    "l": "innenwinkelsumme",
@@ -18053,6 +18480,657 @@
     "index": 1
    },
    "w": "Die Diagonalen von einer Ecke teilen das Sechseck in vier Dreiecke mit je 180°."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Achteck hat Innenwinkel von 135°. Man legt 2 Achtecke an eine Ecke. Wie groß ist die Lücke?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 135",
+   "w": "360° − 2 · 135° = 90°. Die Lücke ist genau ein Quadrat-Winkel.",
+   "h": "Eine volle Ecke hat 360°.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 3 Ecken regelmäßiger Sechsecke (je 120°). Wie groß ist der Winkel zusammen?"
+   },
+   "o": {
+    "wert": 360,
+    "einheit": "°"
+   },
+   "c": "3 * 120",
+   "w": "3 · 120° = 360° – genau 360°.",
+   "h": "Multipliziere die Anzahl mit dem Innenwinkel.",
+   "g": "direkt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Fünfeck hat Innenwinkel von 108°. Man legt 3 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "°"
+   },
+   "c": "360 - 3 * 108",
+   "w": "3 · 108° = 324°. Lücke: 360° − 324° = 36°. Ein weiteres passt nicht mehr (432° > 360°).",
+   "h": "Rechne aus, wie viel Winkel die Ecken zusammen belegen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 3 Ecken von Quadraten (je 90°). Wie groß ist der Winkel zusammen?"
+   },
+   "o": {
+    "wert": 270,
+    "einheit": "°"
+   },
+   "c": "3 * 90",
+   "w": "3 · 90° = 270°.",
+   "h": "Multipliziere die Anzahl mit dem Innenwinkel.",
+   "g": "direkt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quadrat hat Innenwinkel von 90°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Nein, denn 360° : 90° ist keine ganze Zahl.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das.",
+    "Ja, denn 360° : 90° ist eine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "360° : 90° = 4.",
+   "h": "An jeder Ecke müssen die Innenwinkel zusammen genau 360° ergeben.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "An einer Ecke treffen ein Quadrat, ein regelmäßiges Sechseck und ein regelmäßiges Zwölfeck zusammen. Passt das lückenlos?"
+   },
+   "a": [
+    "Nein: Verschiedene Vielecke passen nie zusammen.",
+    "Nein: 90° + 120° + 150° = 330°.",
+    "Ja: 90° + 120° + 150° = 360°.",
+    "Ja, weil es drei Vielecke sind."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Innenwinkel: Quadrat 90°, Sechseck 120°, Zwölfeck 150°. Summe 360°: Die Ecke ist genau voll.",
+   "h": "Bestimme alle drei Innenwinkel und addiere.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Fünfeck hat Innenwinkel von 108°. Jemand legt 4 davon um eine Ecke. Um wie viel Grad ist das zu viel?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "4 * 108 - 360",
+   "w": "4 · 108° = 432° – das sind 72° mehr als 360°. Die Vielecke würden sich überlappen.",
+   "h": "Vergleiche die Summe der Winkel mit 360°.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lässt sich eine Ecke lückenlos mit 3 gleichseitigen Dreiecken und 2 Quadraten auslegen?"
+   },
+   "a": [
+    "Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren.",
+    "Nein: 3 · 60° + 2 · 90° = 330°.",
+    "Nein: Es müssen immer gleich viele von jeder Sorte sein.",
+    "Ja: 3 · 60° + 2 · 90° = 360°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3 · 60° + 2 · 90° = 180° + 180° = 360°. Die Ecke ist genau voll – das Muster kommt in echten Parketten vor.",
+   "h": "Addiere alle Winkel an der Ecke und vergleiche mit 360°.",
+   "g": "begruenden"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Neuneck hat Innenwinkel von 140°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 140",
+   "w": "2 · 140° = 280°. Lücke: 360° − 280° = 80°. Ein weiteres passt nicht mehr (420° > 360°).",
+   "h": "Rechne aus, wie viel Winkel die Ecken zusammen belegen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 4 Ecken regelmäßiger Sechsecke (je 120°). Wie groß ist der Winkel zusammen?"
+   },
+   "o": {
+    "wert": 480,
+    "einheit": "°"
+   },
+   "c": "4 * 120",
+   "w": "4 · 120° = 480°.",
+   "h": "Multipliziere die Anzahl mit dem Innenwinkel.",
+   "g": "direkt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Zwölfeck hat Innenwinkel von 150°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 150",
+   "w": "2 · 150° = 300°. Lücke: 360° − 300° = 60°. Ein weiteres passt nicht mehr (450° > 360°).",
+   "h": "Rechne aus, wie viel Winkel die Ecken zusammen belegen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei regelmäßige Zwölfecke liegen an einer Ecke. Welches regelmäßige Vieleck schließt die Lücke genau? Gib die Zahl seiner Ecken an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Innenwinkel Zwölfeck: (12 − 2) · 180° : 12 = 150°. Lücke: 360° − 300° = 60°. 60° hat das gleichseitige Dreieck: 3 Ecken.",
+   "h": "Berechne zuerst den Innenwinkel des Zwölfecks mit (n − 2) · 180° : n.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum kann man mit regelmäßigen Fünfecken allein die Ebene nicht lückenlos auslegen?"
+   },
+   "a": [
+    "Weil Fünfecke zu viele Ecken haben.",
+    "Weil Fünfecke keine rechten Winkel haben.",
+    "Weil 5 eine ungerade Zahl ist.",
+    "Weil 360° : 108° keine ganze Zahl ist."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Innenwinkel ist 108°. 3 Fünfecke: 324° (Lücke), 4 Fünfecke: 432° (Überlappung). 360 : 108 ≈ 3,33.",
+   "h": "Was muss für die Winkel an einer Ecke gelten?",
+   "g": "begruenden"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 2 Ecken regelmäßiger Sechsecke (je 120°) und ein weiteres regelmäßiges Vieleck. Welchen Innenwinkel muss es haben?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 120",
+   "w": "360° − 2 · 120° = 120°. Das ist das regelmäßiges Sechseck.",
+   "h": "Was fehlt noch bis 360°?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welches regelmäßige Vieleck hat Innenwinkel von 120°?"
+   },
+   "a": [
+    "das Achteck",
+    "das Quadrat",
+    "das Fünfeck",
+    "das Sechseck"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Regelmäßiges Sechseck: 120°. Fünfeck 108°, Achteck 135°, Quadrat 90°.",
+   "h": "Drei davon passen genau um eine Ecke."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 4 Ecken gleichseitiger Dreiecke (je 60°). Wie groß ist der Winkel zusammen?"
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "°"
+   },
+   "c": "4 * 60",
+   "w": "4 · 60° = 240°.",
+   "h": "Multipliziere die Anzahl mit dem Innenwinkel.",
+   "g": "direkt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bad wird mit regelmäßigen sechseckigen Fliesen (Innenwinkel 120°) lückenlos gefliest. Wie viele Fliesen treffen an jeder inneren Ecke zusammen?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "360 / 120",
+   "w": "Um eine Ecke sind 360°. 360° : 120° = 3 Fliesen.",
+   "h": "Wie oft passt 120° in 360°?"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um eine Ecke passen genau 4 gleiche regelmäßige Vielecke ohne Lücke. Wie groß ist ihr Innenwinkel?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 / 4",
+   "w": "360° : 4 = 90°. Das ist das Quadrat.",
+   "h": "Die Winkel an der Ecke ergeben zusammen 360°.",
+   "g": "umkehr"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welchen regelmäßigen Vielecken (nur eine Sorte) kann man die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Quadrate, Fünfecke und Sechsecke",
+    "Dreiecke, Quadrate und Sechsecke",
+    "Dreiecke, Quadrate und Fünfecke",
+    "nur Quadrate"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Innenwinkel muss 360° teilen: 60° (3-Eck), 90° (4-Eck), 120° (6-Eck) passen. 108° (5-Eck) nicht: 360 : 108 ist keine ganze Zahl.",
+   "h": "Prüfe, ob 360° durch den Innenwinkel teilbar ist.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lässt sich eine Ecke lückenlos mit 4 gleichseitigen Dreiecken und einem Quadrat auslegen?"
+   },
+   "a": [
+    "Ja: Dreiecke und Quadrate passen immer zusammen.",
+    "Ja: 4 · 60° + 90° = 360°.",
+    "Nein: 4 · 60° + 90° = 330°, es bleibt eine Lücke von 30°.",
+    "Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4 · 60° + 90° = 240° + 90° = 330°. Bis 360° fehlen 30°, die Ecke ist nicht lückenlos.",
+   "h": "Addiere alle Winkel an der Ecke und vergleiche mit 360°.",
+   "g": "begruenden"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fußball ist aus regelmäßigen Fünfecken (108°) und Sechsecken (120°) genäht. An jeder Ecke treffen ein Fünfeck und zwei Sechsecke zusammen. Wie groß ist die Winkelsumme an einer Ecke?"
+   },
+   "o": {
+    "wert": 348
+   },
+   "c": "108 + 2 * 120",
+   "w": "108° + 2 · 120° = 348°. Das sind 12° weniger als 360° – deshalb lassen sich die Flicken nicht flach legen, sondern wölben sich zu einer Kugel.",
+   "h": "Addiere die drei Winkel."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 2 Ecken von Quadraten (je 90°). Wie viele gleichseitige Dreiecke (60°) braucht man noch, damit die Ecke lückenlos ist?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(360 - 2 * 90) / 60",
+   "w": "360° − 180° = 180°; 180° : 60° = 3.",
+   "h": "Erst den Rest bis 360°, dann durch 60° teilen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem regelmäßigen Vieleck ist jeder Innenwinkel 140° groß. Wie viele Ecken hat es?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "360 / (180 - 140)",
+   "w": "Winkelsumme (n − 2) · 180° = n · 140°. Also 180n − 360 = 140n, 40n = 360 und n = 9.",
+   "h": "Die Winkelsumme im n-Eck ist (n − 2) · 180°. Stelle eine Gleichung auf.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Der Innenwinkel eines regelmäßigen n-Ecks ist 180° − 360° : n. An einer Ecke kommen genau drei regelmäßige Vielecke lückenlos zusammen: ein Dreieck, ein Zehneck und ein drittes. Wie viele Ecken hat das dritte?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "360 / (180 - (360 - 60 - 144))",
+   "w": "Dreieck 60°, Zehneck 180° − 36° = 144°. Zusammen 204°. Für das dritte bleiben 360° − 204° = 156°. Es muss gelten 180° − 360° : n = 156°, also 360° : n = 24° und n = 15. Probe: 180° − 24° = 156° ✓.",
+   "h": "Berechne zuerst, wie viel Grad für das dritte Vieleck übrig bleiben."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Auf wie viele verschiedene Arten kann man eine Ecke lückenlos nur mit gleichseitigen Dreiecken (60°) und Quadraten (90°) auslegen, wenn es nur auf die Anzahlen ankommt?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Gesucht sind Anzahlen a (Dreiecke) und b (Quadrate) mit 60a + 90b = 360. Probiere b: b = 0 → a = 6; b = 1 → 60a = 270, keine ganze Zahl; b = 2 → a = 3; b = 3 → 60a = 90, keine ganze Zahl; b = 4 → a = 0. Also drei Möglichkeiten: 6 + 0, 3 + 2, 0 + 4.",
+   "h": "Gehe die möglichen Anzahlen von Quadraten der Reihe nach durch."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein regelmäßiges Achteck hat Innenwinkel von 135°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Ja, denn 360° : 135° ist eine ganze Zahl.",
+    "Nein, denn 360° : 135° ist keine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "360° : 135° = 8/3 – keine ganze Zahl, es bleibt eine Lücke."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein regelmäßiges Fünfeck hat Innenwinkel von 108°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Nein, denn 360° : 108° ist keine ganze Zahl.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das.",
+    "Ja, denn 360° : 108° ist eine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "360° : 108° = 10/3 – keine ganze Zahl, es bleibt eine Lücke."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Zehneck hat Innenwinkel von 144°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 144",
+   "w": "2 · 144° = 288°. Lücke: 360° − 288° = 72°. Ein weiteres passt nicht mehr (432° > 360°)."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein regelmäßiges Sechseck hat Innenwinkel von 120°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Ja, denn 360° : 120° ist eine ganze Zahl.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das.",
+    "Nein, denn 360° : 120° ist keine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "360° : 120° = 3."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein gleichseitiges Dreieck hat Innenwinkel von 60°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Ja, denn 360° : 60° ist eine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten.",
+    "Nein, denn 360° : 60° ist keine ganze Zahl.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "360° : 60° = 6."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um eine Ecke passen genau 3 gleiche regelmäßige Vielecke ohne Lücke. Wie groß ist ihr Innenwinkel?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "360 / 3",
+   "w": "360° : 3 = 120°. Das ist das regelmäßiges Sechseck."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein regelmäßiges Neuneck hat Innenwinkel von 140°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Nein, denn 360° : 140° ist keine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das.",
+    "Ja, denn 360° : 140° ist eine ganze Zahl."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "360° : 140° = 18/7 – keine ganze Zahl, es bleibt eine Lücke."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um eine Ecke passen genau 6 gleiche regelmäßige Vielecke ohne Lücke. Wie groß ist ihr Innenwinkel?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "360 / 6",
+   "w": "360° : 6 = 60°. Das ist das gleichseitiges Dreieck."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Zehneck hat Innenwinkel von 144°. Jemand legt 3 davon um eine Ecke. Um wie viel Grad ist das zu viel?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "3 * 144 - 360",
+   "w": "3 · 144° = 432° – das sind 72° mehr als 360°. Die Vielecke würden sich überlappen."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Achteck hat Innenwinkel von 135°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 135",
+   "w": "2 · 135° = 270°. Lücke: 360° − 270° = 90°. Ein weiteres passt nicht mehr (405° > 360°)."
   }
  ],
  "offen": [

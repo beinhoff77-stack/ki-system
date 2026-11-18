@@ -802,3 +802,10 @@ if __name__ == '__main__':
     d_, anz = datei()
     schreiben(ZIEL, d_, anz)
     stufen_datei('messen.volumen', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('messen.volumen')
+# ---- BEREINIGEN ENDE ----

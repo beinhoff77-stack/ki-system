@@ -3782,19 +3782,19 @@
    "l": "geometrie",
    "t": "geometrie",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Prisma hat das Volumen 196 cm³ und die Grundfläche G = 14 cm². Wie hoch ist es?"
+    "text": "Ein Quadrat hat den Umfang 108 cm. Wie lang ist eine Seite?"
    },
    "o": {
-    "wert": 14,
+    "wert": 27,
     "einheit": "cm"
    },
-   "c": "196 / 14",
-   "w": "V = G · h → h = V : G = 196 : 14 = 14 cm.",
-   "h": "Stelle V = G · h nach h um.",
-   "g": "umkehr"
+   "c": "108 / 4",
+   "w": "u = 4 · a → a = u : 4 = 108 : 4 = 27 cm.",
+   "h": "Stelle u = 4 · a nach a um.",
+   "g": "direkt"
   },
   {
    "l": "geometrie",
@@ -3818,19 +3818,19 @@
    "l": "geometrie",
    "t": "geometrie",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
+   "g": "umkehr",
    "y": "zahl",
    "f": {
-    "text": "Ein Quadrat hat den Umfang 108 cm. Wie lang ist eine Seite?"
+    "text": "Der Zaun um ein rechteckiges Grundstück ist 86 m lang. Das Grundstück ist 25 m lang. Wie breit ist es?"
    },
    "o": {
-    "wert": 27,
-    "einheit": "cm"
+    "wert": 18,
+    "einheit": "m"
    },
-   "c": "108 / 4",
-   "w": "u = 4 · a → a = u : 4 = 108 : 4 = 27 cm.",
-   "h": "Stelle u = 4 · a nach a um.",
-   "g": "direkt"
+   "c": "86 / 2 - 25",
+   "w": "Gegeben: u = 86 m, a = 25 m. Gesucht: Breite b. Ansatz: u = 2 · (a + b) ⇒ b = u : 2 − a. Rechnung: b = 43 − 25 = 18. Antwort: Es ist 18 m breit.",
+   "h": "Wie lang sind eine Länge und eine Breite zusammen?"
   },
   {
    "l": "geometrie",
@@ -3849,78 +3849,6 @@
    "w": "V = a · b · c → c = V : (a · b) = 112 : 8 = 14 cm.",
    "h": "Teile das Volumen durch die Grundfläche a · b.",
    "g": "mehrschritt"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Prisma hat das Volumen 225 cm³ und die Grundfläche G = 15 cm². Wie hoch ist es?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "cm"
-   },
-   "c": "225 / 15",
-   "w": "V = G · h → h = V : G = 225 : 15 = 15 cm.",
-   "h": "Stelle V = G · h nach h um.",
-   "g": "umkehr"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Trapez hat A = 76 cm² und die parallelen Seiten a = 7 cm und c = 12 cm. Berechne die Höhe h."
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "cm"
-   },
-   "c": "2 * 76 / (7 + 12)",
-   "w": "A = (a + c) · h : 2 → h = 2 · A : (a + c) = 152 : 19 = 8 cm.",
-   "h": "Stelle nach h um: · 2, dann durch (a + c).",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat den Flächeninhalt 18 cm² und die Höhe 4 cm. Wie lang ist die zugehörige Grundseite?"
-   },
-   "o": {
-    "wert": 9,
-    "einheit": "cm"
-   },
-   "c": "2 * 18 / 4",
-   "w": "g = 2 · A : h = 36 : 4 = 9 cm.",
-   "h": "A = g · h : 2. Das „: 2“ nicht vergessen.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Trapez hat den Flächeninhalt 54 cm² und die Höhe 6 cm. Eine der parallelen Seiten ist doppelt so lang wie die andere. Wie lang ist die kürzere?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "54 * 2 / 6 / 3",
-   "w": "a + c = 2A : h = 108 : 6 = 18. Mit c = 2a: 3a = 18 ⇔ a = 6 cm (und c = 12 cm).",
-   "h": "Stelle zuerst nach a + c um. Dann nutze c = 2a.",
-   "g": "transfer"
   },
   {
    "l": "geometrie",
@@ -3947,16 +3875,16 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat das Volumen 45 cm³ und die Grundfläche 27 cm². Wie hoch ist sie? (V = G · h : 3)"
+    "text": "Ein Dreieck hat den Flächeninhalt 18 cm² und die Höhe 4 cm. Wie lang ist die zugehörige Grundseite?"
    },
    "o": {
-    "wert": 5,
+    "wert": 9,
     "einheit": "cm"
    },
-   "c": "3 * 45 / 27",
-   "w": "h = 3 · V : G = 135 : 27 = 5 cm.",
-   "h": "Stelle V = G · h : 3 nach h um.",
-   "g": "umkehr"
+   "c": "2 * 18 / 4",
+   "w": "g = 2 · A : h = 36 : 4 = 9 cm.",
+   "h": "A = g · h : 2. Das „: 2“ nicht vergessen.",
+   "g": "mehrschritt"
   },
   {
    "l": "geometrie",
@@ -3975,6 +3903,384 @@
    "w": "96 l = 96 dm³. h = V : (l · b) = 96 : 24 = 4 dm.",
    "h": "1 Liter = 1 dm³.",
    "g": "einkleidung"
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Parallelogramm ist 6 cm hoch und hat den Flächeninhalt 75 cm². Wie lang ist die Grundseite?"
+   },
+   "o": {
+    "wert": 12.5,
+    "einheit": "cm"
+   },
+   "c": "75 / 6",
+   "w": "A = g · h, umgestellt g = A : h = 75 cm² : 6 cm = 12,5 cm.",
+   "h": "Stelle A = g · h nach g um."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Trapez hat A = 76 cm² und die parallelen Seiten a = 7 cm und c = 12 cm. Berechne die Höhe h."
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "2 * 76 / (7 + 12)",
+   "w": "A = (a + c) · h : 2 → h = 2 · A : (a + c) = 152 : 19 = 8 cm.",
+   "h": "Stelle nach h um: · 2, dann durch (a + c).",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Trapez hat den Flächeninhalt 54 cm² und die Höhe 6 cm. Eine der parallelen Seiten ist doppelt so lang wie die andere. Wie lang ist die kürzere?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "54 * 2 / 6 / 3",
+   "w": "a + c = 2A : h = 108 : 6 = 18. Mit c = 2a: 3a = 18 ⇔ a = 6 cm (und c = 12 cm).",
+   "h": "Stelle zuerst nach a + c um. Dann nutze c = 2a.",
+   "g": "transfer"
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Rechteck und ein Parallelogramm haben dieselbe Grundseite und denselben Flächeninhalt. Was gilt für ihre Höhen?"
+   },
+   "a": [
+    "Das Parallelogramm ist höher, weil es schief ist.",
+    "Man kann es nicht sagen.",
+    "Sie sind gleich, denn bei beiden ist h = A : g.",
+    "Das Rechteck ist höher."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beide Flächen berechnet man mit A = g · h. Gleiche A und gleiche g ergeben dieselbe Höhe.",
+   "h": "Welche Formel gilt für beide Figuren?"
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Garage ist ein Quader mit 18 m² Grundfläche und 45 m³ Volumen. Ihr Tor ist 2,4 m breit. Wie hoch ist die Garage?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "m"
+   },
+   "c": "45 / 18",
+   "w": "Gegeben: G = 18 m², V = 45 m³; die Torbreite spielt keine Rolle. Gesucht: Höhe h. Ansatz: V = G · h ⇒ h = V : G. Rechnung: h = 45 : 18 = 2,5. Antwort: Die Garage ist 2,5 m hoch.",
+   "h": "Welche Formel verbindet Volumen und Grundfläche?"
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Parallelogramm hat A = 196 cm² und die Grundseite g = 14 cm. Berechne die Höhe h."
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "196 / 14",
+   "w": "A = g · h → h = A : g = 196 : 14 = 14 cm.",
+   "h": "Stelle A = g · h nach h um."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Formel gehört zum Flächeninhalt eines Parallelogramms?"
+   },
+   "a": [
+    "A = g · h",
+    "A = 4 · a",
+    "A = (a + c) · h : 2",
+    "A = g · h : 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Parallelogramm lässt sich in ein Rechteck mit derselben Grundseite und Höhe umlegen: A = g · h.",
+   "h": "Denk an das Umlegen zu einem Rechteck."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiger Teppich soll 12 m² groß und 3 m breit sein. Wie lang ist er?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "12 / 3",
+   "w": "Gegeben: A = 12 m², b = 3 m. Gesucht: Länge a. Ansatz: A = a · b ⇒ a = A : b. Rechnung: a = 12 : 3 = 4. Antwort: Der Teppich ist 4 m lang.",
+   "h": "Welche Formel gehört zum Rechteck?"
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 1144 cm³, die Länge 11 cm und die Breite 8 cm. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm"
+   },
+   "c": "1144 / (11 * 8)",
+   "w": "V = a · b · c → c = V : (a · b) = 1144 : 88 = 13 cm.",
+   "h": "Teile das Volumen durch die Grundfläche a · b."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 50 cm und die Breite 7,5 cm. Wie lang ist es?"
+   },
+   "o": {
+    "wert": 17.5,
+    "einheit": "cm"
+   },
+   "c": "50 / 2 - 7.5",
+   "w": "u : 2 = l + b ⇔ 25 = l + 7,5 ⇔ l = 17,5 cm.",
+   "h": "Der halbe Umfang ist Länge plus Breite.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein dreieckiges Segel hat 7,5 m² Fläche, seine untere Kante ist 3 m lang. Wie hoch ist das Segel?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m"
+   },
+   "c": "2 * 7.5 / 3",
+   "w": "Gegeben: A = 7,5 m², g = 3 m. Gesucht: Höhe h. Ansatz: A = g · h : 2 ⇒ h = 2 · A : g. Rechnung: h = 15 : 3 = 5. Antwort: Das Segel ist 5 m hoch.",
+   "h": "Vergiss das „: 2“ der Dreiecksformel nicht."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 5 cm hoch und hat das Volumen 120 cm³. Wie groß ist seine Grundfläche in cm²?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm²"
+   },
+   "c": "120 // 5",
+   "w": "V = G · h, umgestellt G = V : h = 120 cm³ : 5 cm = 24 cm².",
+   "h": "Volumen = Grundfläche · Höhe. Stelle nach der Grundfläche um."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader mit der Grundfläche 5 cm × 8 cm hat dasselbe Volumen wie ein Würfel mit der Kantenlänge 10 cm. Wie hoch ist der Quader?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "10**3 / (5 * 8)",
+   "w": "Würfel: V = 10 · 10 · 10 = 1 000 cm³. Quader: 40 cm² · h = 1 000 cm³ ⇔ h = 25 cm.",
+   "h": "Berechne zuerst das Würfelvolumen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 30 cm. Seine Länge ist doppelt so groß wie seine Breite. Berechne den Flächeninhalt."
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "cm²"
+   },
+   "c": "10 * 5",
+   "w": "2 · (2b + b) = 30 ⇔ 6b = 30 ⇔ b = 5 cm, l = 10 cm. A = 10 · 5 = 50 cm².",
+   "h": "Drücke die Länge durch die Breite aus.",
+   "g": "transfer"
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat A = 24 cm² und g = 8 cm. Jemand rechnet h = A : g = 3 cm. Was stimmt?"
+   },
+   "a": [
+    "Falsch: h = g : A = 1/3 cm.",
+    "Falsch: h = 2 · A : g = 6 cm, weil A = g · h : 2.",
+    "Falsch: h = A − g = 16 cm.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Probe: 8 · 3 : 2 = 12, nicht 24. Mit h = 6: 8 · 6 : 2 = 24.",
+   "h": "Mach die Probe mit der Dreiecksformel."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen V und die Grundfläche 4 cm mal a cm. Welcher Term gibt seine Höhe an?"
+   },
+   "a": [
+    "h = V − 4a",
+    "h = 4a : V",
+    "h = V : 4 + a",
+    "h = V : (4a)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "V = 4 · a · h ⇒ h = V : (4 · a).",
+   "h": "Stelle V = Länge · Breite · Höhe nach h um."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein trapezförmiges Beet soll 30 m² groß werden, seine parallelen Seiten sind 7 m und 5 m lang. Der Garten ist 6 m tief. Passt das Beet in den Garten?"
+   },
+   "a": [
+    "Ja, es braucht genau 6 m.",
+    "Ja, das Beet ist 5 m tief.",
+    "Nein, es braucht 7 m.",
+    "Nein, es braucht 10 m Tiefe."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: A = 30 m², a = 7 m, c = 5 m, Garten 6 m tief. Gesucht: Höhe h und Entscheidung. Ansatz: A = (a + c) : 2 · h ⇒ h = 2 · A : (a + c). Rechnung: h = 60 : 12 = 5. Antwort: Es passt: Das Beet ist 5 m tief, der Garten 6 m.",
+   "h": "Berechne die Höhe des Trapezes und vergleiche."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Rechteck (10 cm × 6 cm) wird ein Dreieck mit der Grundseite 10 cm ausgeschnitten. Der Rest ist noch 39 cm² groß. Wie hoch ist das Dreieck in cm?"
+   },
+   "o": {
+    "wert": 4.2,
+    "einheit": "cm"
+   },
+   "c": "2 * (10 * 6 - 39) / 10",
+   "w": "Rechteck: 60 cm². Dreieck: 60 − 39 = 21 cm². Aus A = g · h : 2 folgt h = 2 · A : g = 2 · 21 : 10 = 4,2 cm.",
+   "h": "Wie groß ist das Dreieck? Stelle dann A = g · h : 2 nach h um."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat drei verschiedene Seitenflächen mit 12 cm², 15 cm² und 20 cm². Wie groß ist sein Volumen?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm³"
+   },
+   "c": "3 * 4 * 5",
+   "w": "Mit den Kanten a, b, c: ab = 12, bc = 15, ac = 20. Multipliziert: (abc)² = 12 · 15 · 20 = 3 600, also abc = 60. (Kanten 3, 4 und 5 cm.)",
+   "h": "Multipliziere die drei Flächen miteinander."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck mit ganzzahligen Seitenlängen hat den Umfang 20 cm. Welchen größten Flächeninhalt kann es haben?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm²"
+   },
+   "c": "5 * 5",
+   "w": "a + b = 10. Mögliche Flächen: 1 · 9 = 9, 2 · 8 = 16, 3 · 7 = 21, 4 · 6 = 24, 5 · 5 = 25. Am größten ist das Quadrat.",
+   "h": "Liste alle Paare von Seitenlängen auf."
   },
   {
    "l": "geometrie",
@@ -4079,22 +4385,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Prisma hat das Volumen 16 cm³ und die Grundfläche G = 8 cm². Wie hoch ist es?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "cm"
-   },
-   "c": "16 / 8",
-   "w": "V = G · h → h = V : G = 16 : 8 = 2 cm."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Ein Quader hat das Volumen 336 cm³, die Länge 6 cm und die Breite 4 cm. Wie hoch ist er?"
    },
    "o": {
@@ -4183,347 +4473,6 @@
    },
    "c": "1.8 / 1.2",
    "w": "Gegeben: A = 1,8 m², b = 1,2 m. Gesucht: Höhe. Ansatz: A = b · h ⇒ h = A : b. Rechnung: h = 1,8 : 1,2 = 1,5. Antwort: Das Fenster ist 1,5 m hoch."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "g": "begruenden",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Rechteck und ein Parallelogramm haben dieselbe Grundseite und denselben Flächeninhalt. Was gilt für ihre Höhen?"
-   },
-   "a": [
-    "Das Parallelogramm ist höher, weil es schief ist.",
-    "Man kann es nicht sagen.",
-    "Sie sind gleich, denn bei beiden ist h = A : g.",
-    "Das Rechteck ist höher."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Beide Flächen berechnet man mit A = g · h. Gleiche A und gleiche g ergeben dieselbe Höhe.",
-   "h": "Welche Formel gilt für beide Figuren?"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zelt ist ein dreiseitiges Prisma: Die dreieckige Vorderseite ist 2 m breit und 1,5 m hoch, das Zelt ist 3 m lang. Ein zweites Zelt soll dasselbe Volumen haben, ist aber 2,5 m breit und genauso lang. Wie hoch muss es sein?"
-   },
-   "o": {
-    "wert": 1.2,
-    "einheit": "m"
-   },
-   "c": "2 * 15/10 / (25/10)",
-   "w": "Erstes Zelt: V = (2 · 1,5 : 2) · 3 = 4,5 m³. Zweites: (2,5 · h : 2) · 3 = 4,5 ⇒ 2,5 · h = 3 ⇒ h = 1,2 m.",
-   "h": "Berechne erst das Volumen des ersten Zelts."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Prisma hat das Volumen 495 cm³ und die Grundfläche G = 33 cm². Wie hoch ist es?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "cm"
-   },
-   "c": "495 / 33",
-   "w": "V = G · h → h = V : G = 495 : 33 = 15 cm.",
-   "h": "Stelle V = G · h nach h um."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Parallelogramm hat A = 196 cm² und die Grundseite g = 14 cm. Berechne die Höhe h."
-   },
-   "o": {
-    "wert": 14,
-    "einheit": "cm"
-   },
-   "c": "196 / 14",
-   "w": "A = g · h → h = A : g = 196 : 14 = 14 cm.",
-   "h": "Stelle A = g · h nach h um."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat das Volumen 1144 cm³, die Länge 11 cm und die Breite 8 cm. Wie hoch ist er?"
-   },
-   "o": {
-    "wert": 13,
-    "einheit": "cm"
-   },
-   "c": "1144 / (11 * 8)",
-   "w": "V = a · b · c → c = V : (a · b) = 1144 : 88 = 13 cm.",
-   "h": "Teile das Volumen durch die Grundfläche a · b."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck hat den Umfang 50 cm und die Breite 7,5 cm. Wie lang ist es?"
-   },
-   "o": {
-    "wert": 17.5,
-    "einheit": "cm"
-   },
-   "c": "50 / 2 - 7.5",
-   "w": "u : 2 = l + b ⇔ 25 = l + 7,5 ⇔ l = 17,5 cm.",
-   "h": "Der halbe Umfang ist Länge plus Breite.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader mit der Grundfläche 5 cm × 8 cm hat dasselbe Volumen wie ein Würfel mit der Kantenlänge 10 cm. Wie hoch ist der Quader?"
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "cm"
-   },
-   "c": "10**3 / (5 * 8)",
-   "w": "Würfel: V = 10 · 10 · 10 = 1 000 cm³. Quader: 40 cm² · h = 1 000 cm³ ⇔ h = 25 cm.",
-   "h": "Berechne zuerst das Würfelvolumen.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck hat den Umfang 30 cm. Seine Länge ist doppelt so groß wie seine Breite. Berechne den Flächeninhalt."
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "cm²"
-   },
-   "c": "10 * 5",
-   "w": "2 · (2b + b) = 30 ⇔ 6b = 30 ⇔ b = 5 cm, l = 10 cm. A = 10 · 5 = 50 cm².",
-   "h": "Drücke die Länge durch die Breite aus.",
-   "g": "transfer"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Formel gehört zum Flächeninhalt eines Parallelogramms?"
-   },
-   "a": [
-    "A = g · h",
-    "A = 4 · a",
-    "A = (a + c) · h : 2",
-    "A = g · h : 2"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Ein Parallelogramm lässt sich in ein Rechteck mit derselben Grundseite und Höhe umlegen: A = g · h.",
-   "h": "Denk an das Umlegen zu einem Rechteck."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat A = 24 cm² und g = 8 cm. Jemand rechnet h = A : g = 3 cm. Was stimmt?"
-   },
-   "a": [
-    "Falsch: h = g : A = 1/3 cm.",
-    "Falsch: h = 2 · A : g = 6 cm, weil A = g · h : 2.",
-    "Falsch: h = A − g = 16 cm.",
-    "Richtig."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Probe: 8 · 3 : 2 = 12, nicht 24. Mit h = 6: 8 · 6 : 2 = 24.",
-   "h": "Mach die Probe mit der Dreiecksformel."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "g": "parameter",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Quader hat das Volumen V und die Grundfläche 4 cm mal a cm. Welcher Term gibt seine Höhe an?"
-   },
-   "a": [
-    "h = V − 4a",
-    "h = 4a : V",
-    "h = V : 4 + a",
-    "h = V : (4a)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "V = 4 · a · h ⇒ h = V : (4 · a).",
-   "h": "Stelle V = Länge · Breite · Höhe nach h um."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 1,
-   "g": "direkt",
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechteckiger Teppich soll 12 m² groß und 3 m breit sein. Wie lang ist er?"
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "m"
-   },
-   "c": "12 / 3",
-   "w": "Gegeben: A = 12 m², b = 3 m. Gesucht: Länge a. Ansatz: A = a · b ⇒ a = A : b. Rechnung: a = 12 : 3 = 4. Antwort: Der Teppich ist 4 m lang.",
-   "h": "Welche Formel gehört zum Rechteck?"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Ein dreieckiges Segel hat 7,5 m² Fläche, seine untere Kante ist 3 m lang. Wie hoch ist das Segel?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "m"
-   },
-   "c": "2 * 7.5 / 3",
-   "w": "Gegeben: A = 7,5 m², g = 3 m. Gesucht: Höhe h. Ansatz: A = g · h : 2 ⇒ h = 2 · A : g. Rechnung: h = 15 : 3 = 5. Antwort: Das Segel ist 5 m hoch.",
-   "h": "Vergiss das „: 2“ der Dreiecksformel nicht."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 2,
-   "g": "umkehr",
-   "y": "zahl",
-   "f": {
-    "text": "Der Zaun um ein rechteckiges Grundstück ist 86 m lang. Das Grundstück ist 25 m lang. Wie breit ist es?"
-   },
-   "o": {
-    "wert": 18,
-    "einheit": "m"
-   },
-   "c": "86 / 2 - 25",
-   "w": "Gegeben: u = 86 m, a = 25 m. Gesucht: Breite b. Ansatz: u = 2 · (a + b) ⇒ b = u : 2 − a. Rechnung: b = 43 − 25 = 18. Antwort: Es ist 18 m breit.",
-   "h": "Wie lang sind eine Länge und eine Breite zusammen?"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "zahl",
-   "f": {
-    "text": "Eine Garage ist ein Quader mit 18 m² Grundfläche und 45 m³ Volumen. Ihr Tor ist 2,4 m breit. Wie hoch ist die Garage?"
-   },
-   "o": {
-    "wert": 2.5,
-    "einheit": "m"
-   },
-   "c": "45 / 18",
-   "w": "Gegeben: G = 18 m², V = 45 m³; die Torbreite spielt keine Rolle. Gesucht: Höhe h. Ansatz: V = G · h ⇒ h = V : G. Rechnung: h = 45 : 18 = 2,5. Antwort: Die Garage ist 2,5 m hoch.",
-   "h": "Welche Formel verbindet Volumen und Grundfläche?"
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "uebung",
-   "s": 3,
-   "g": "begruenden",
-   "y": "auswahl",
-   "f": {
-    "text": "Ein trapezförmiges Beet soll 30 m² groß werden, seine parallelen Seiten sind 7 m und 5 m lang. Der Garten ist 6 m tief. Passt das Beet in den Garten?"
-   },
-   "a": [
-    "Ja, es braucht genau 6 m.",
-    "Ja, das Beet ist 5 m tief.",
-    "Nein, es braucht 7 m.",
-    "Nein, es braucht 10 m Tiefe."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gegeben: A = 30 m², a = 7 m, c = 5 m, Garten 6 m tief. Gesucht: Höhe h und Entscheidung. Ansatz: A = (a + c) : 2 · h ⇒ h = 2 · A : (a + c). Rechnung: h = 60 : 12 = 5. Antwort: Es passt: Das Beet ist 5 m tief, der Garten 6 m.",
-   "h": "Berechne die Höhe des Trapezes und vergleiche."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat drei verschiedene Seitenflächen mit 12 cm², 15 cm² und 20 cm². Wie groß ist sein Volumen?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "cm³"
-   },
-   "c": "3 * 4 * 5",
-   "w": "Mit den Kanten a, b, c: ab = 12, bc = 15, ac = 20. Multipliziert: (abc)² = 12 · 15 · 20 = 3 600, also abc = 60. (Kanten 3, 4 und 5 cm.)",
-   "h": "Multipliziere die drei Flächen miteinander."
-  },
-  {
-   "l": "geometrie",
-   "t": "geometrie",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck mit ganzzahligen Seitenlängen hat den Umfang 20 cm. Welchen größten Flächeninhalt kann es haben?"
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "cm²"
-   },
-   "c": "5 * 5",
-   "w": "a + b = 10. Mögliche Flächen: 1 · 9 = 9, 2 · 8 = 16, 3 · 7 = 21, 4 · 6 = 24, 5 · 5 = 25. Am größten ist das Quadrat.",
-   "h": "Liste alle Paare von Seitenlängen auf."
   },
   {
    "l": "ein_schritt",
@@ -4691,6 +4640,22 @@
    "c": "1",
    "w": "Setzt man y = z : x in die erste Formel ein: x = (z : x) : z = 1 : x. Also x · x = 1 und, weil x positiv ist, x = 1.",
    "h": "Setze die zweite Formel in die erste ein."
+  },
+  {
+   "l": "geometrie",
+   "t": "geometrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 270 cm³, die Länge 9 cm und die Breite 5 cm. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "270 // (9 * 5)",
+   "w": "Grundfläche 9 · 5 = 45 cm². Höhe = 270 : 45 = 6 cm."
   }
  ]
 }

@@ -2078,91 +2078,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 5^(2x) = 165. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 1.59,
-    "toleranz": 0.01
-   },
-   "c": "round(1.586251148445, 2)",
-   "w": "2x = log₅(165) ≈ 3,1725 ⇒ x ≈ 1,59.",
-   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2^(3x + 1) = 299. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 2.41,
-    "toleranz": 0.01
-   },
-   "c": "round(2.408000558066, 2)",
-   "w": "3x + 1 = log₂(299) ≈ 8,224 ⇒ x ≈ 2,41.",
-   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5^(2x − 2) = 41. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 2.15,
-    "toleranz": 0.01
-   },
-   "c": "round(2.153686028524, 2)",
-   "w": "2x − 2 = log₅(41) ≈ 2,3074 ⇒ x ≈ 2,15.",
-   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5^(3x + 1) = 254. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 0.81,
-    "toleranz": 0.01
-   },
-   "c": "round(0.813513074811, 2)",
-   "w": "3x + 1 = log₅(254) ≈ 3,4405 ⇒ x ≈ 0,81.",
-   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5^(2x − 1) = 45. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 1.68,
-    "toleranz": 0.01
-   },
-   "c": "round(1.682606194486, 2)",
-   "w": "2x − 1 = log₅(45) ≈ 2,3652 ⇒ x ≈ 1,68.",
-   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Löse 7 · 1,2^x = 91. Runde auf zwei Nachkommastellen."
    },
    "o": {
@@ -2171,196 +2086,6 @@
    },
    "c": "round(14.068272576019, 2)",
    "w": "1,2^x = 91 : 7 = 13 ⇒ x = lg(13) : lg 1,2 ≈ 14,07.",
-   "h": "Erst durch den Faktor teilen, dann logarithmieren."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3^x = 104. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 104 zum Abschätzen.)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      6
-     ],
-     "y": [
-      0,
-      146
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 1,
-       "b": 3
-      }
-     ],
-     "waagrecht": [
-      104
-     ]
-    }
-   },
-   "o": {
-    "wert": 4.23,
-    "toleranz": 0.01
-   },
-   "c": "round(4.227506780187, 2)",
-   "w": "Der Schnittpunkt liegt etwa bei x ≈ 4. Genau: x = log₃(104) = lg 104 : lg 3 ≈ 4,23.",
-   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten.",
-   "g": "direkt"
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6 · 3^x = 20. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 1.1,
-    "toleranz": 0.01
-   },
-   "c": "round(1.095903274289, 2)",
-   "w": "3^x = 20 : 6 = 10/3 ⇒ x = lg(10/3) : lg 3 ≈ 1,1.",
-   "h": "Erst durch den Faktor teilen, dann logarithmieren."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Zwischen welchen ganzen Zahlen liegt die Lösung von 2^x = 20?"
-   },
-   "a": [
-    "zwischen 4 und 5",
-    "zwischen 3 und 4",
-    "zwischen 10 und 11",
-    "zwischen 5 und 6"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "2⁴ = 16 < 20 < 32 = 2⁵, also liegt x zwischen 4 und 5 (x ≈ 4,32).",
-   "h": "Welche Zweierpotenzen liegen um 20?"
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 9 · 0,5^x = 6,8. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 0.4,
-    "toleranz": 0.01
-   },
-   "c": "round(0.404390255079, 2)",
-   "w": "0,5^x = 6,8 : 9 = 34/45 ⇒ x = lg(34/45) : lg 0,5 ≈ 0,4.",
-   "h": "Erst durch den Faktor teilen, dann logarithmieren."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3^x = 174. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 174 zum Abschätzen.)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      6
-     ],
-     "y": [
-      0,
-      244
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 1,
-       "b": 3
-      }
-     ],
-     "waagrecht": [
-      174
-     ]
-    }
-   },
-   "o": {
-    "wert": 4.7,
-    "toleranz": 0.01
-   },
-   "c": "round(4.695974505682, 2)",
-   "w": "Der Schnittpunkt liegt etwa bei x ≈ 5. Genau: x = log₃(174) = lg 174 : lg 3 ≈ 4,7.",
-   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten.",
-   "g": "direkt"
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6 · 3^x = 58. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 2.07,
-    "toleranz": 0.01
-   },
-   "c": "round(2.065044752111, 2)",
-   "w": "3^x = 58 : 6 = 29/3 ⇒ x = lg(29/3) : lg 3 ≈ 2,07.",
-   "h": "Erst durch den Faktor teilen, dann logarithmieren."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Wie schreibt man die Lösung von 7^x = 30 mit dem Logarithmus?"
-   },
-   "a": [
-    "x = 30 : 7",
-    "x = log₃₀(7)",
-    "x = lg 7 : lg 30",
-    "x = log₇(30)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "7^x = 30 heißt: x ist der Exponent, der aus 7 die Zahl 30 macht, also x = log₇(30) = lg 30 : lg 7.",
-   "h": "Welche Zahl ist die Basis?"
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2 · 1,2^x = 33. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 15.38,
-    "toleranz": 0.01
-   },
-   "c": "round(15.375912921118, 2)",
-   "w": "1,2^x = 33 : 2 = 16,5 ⇒ x = lg(16,5) : lg 1,2 ≈ 15,38.",
    "h": "Erst durch den Faktor teilen, dann logarithmieren."
   },
   {
@@ -2408,15 +2133,32 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 3 · 2^x = 51. Runde auf zwei Nachkommastellen."
+    "text": "Löse 6 · 3^x = 20. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 4.09,
+    "wert": 1.1,
     "toleranz": 0.01
    },
-   "c": "round(4.087462841250, 2)",
-   "w": "2^x = 51 : 3 = 17 ⇒ x = lg(17) : lg 2 ≈ 4,09.",
-   "h": "Erst durch den Faktor teilen, dann logarithmieren.",
+   "c": "round(1.095903274289, 2)",
+   "w": "3^x = 20 : 6 = 10/3 ⇒ x = lg(10/3) : lg 3 ≈ 1,1.",
+   "h": "Erst durch den Faktor teilen, dann logarithmieren."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2^(2x + 3) = 54. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.38,
+    "toleranz": 0.01
+   },
+   "c": "round(1.377443751082, 2)",
+   "w": "2x + 3 = log₂(54) ≈ 5,7549 ⇒ x ≈ 1,38.",
+   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen.",
    "g": "mehrschritt"
   },
   {
@@ -2462,19 +2204,96 @@
    "t": "mit_log_loesen",
    "p": "uebung",
    "s": 2,
-   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Eine Kultur startet mit 3 Bakterien, die sich jede Stunde verdoppeln. Nach wie vielen Stunden sind es 1 000? Runde auf zwei Nachkommastellen."
+    "text": "Löse 9 · 0,5^x = 6,8. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 8.38,
-    "einheit": "h",
+    "wert": 0.4,
     "toleranz": 0.01
    },
-   "c": "round(8.380821783941, 2)",
-   "w": "3 · 2^x = 1 000 ⇒ 2^x = 333,3… ⇒ x = lg(1 000 : 3) : lg 2 ≈ 8,38 h.",
-   "h": "Stelle die Gleichung auf und teile zuerst durch 3."
+   "c": "round(0.404390255079, 2)",
+   "w": "0,5^x = 6,8 : 9 = 34/45 ⇒ x = lg(34/45) : lg 0,5 ≈ 0,4.",
+   "h": "Erst durch den Faktor teilen, dann logarithmieren."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5 · 1,2^x + 3 = 18. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.03,
+    "toleranz": 0.01
+   },
+   "c": "round(6.025685102665, 2)",
+   "w": "5 · 1,2^x = 15, also 1,2^x = 3. x = lg 3 : lg 1,2 ≈ 6,03.",
+   "h": "Zuerst 3 abziehen, dann durch 5 teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3^x = 104. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 104 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      0,
+      146
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3
+      }
+     ],
+     "waagrecht": [
+      104
+     ]
+    }
+   },
+   "o": {
+    "wert": 4.23,
+    "toleranz": 0.01
+   },
+   "c": "round(4.227506780187, 2)",
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 4. Genau: x = log₃(104) = lg 104 : lg 3 ≈ 4,23.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten.",
+   "g": "direkt"
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen ganzen Zahlen liegt die Lösung von 2^x = 20?"
+   },
+   "a": [
+    "zwischen 4 und 5",
+    "zwischen 3 und 4",
+    "zwischen 10 und 11",
+    "zwischen 5 und 6"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2⁴ = 16 < 20 < 32 = 2⁵, also liegt x zwischen 4 und 5 (x ≈ 4,32).",
+   "h": "Welche Zweierpotenzen liegen um 20?"
   },
   {
    "l": "mit_log_loesen",
@@ -2521,16 +2340,183 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 2^(2x + 3) = 54. Runde auf zwei Nachkommastellen."
+    "text": "Löse 2^(3x + 1) = 299. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 1.38,
+    "wert": 2.41,
     "toleranz": 0.01
    },
-   "c": "round(1.377443751082, 2)",
-   "w": "2x + 3 = log₂(54) ≈ 5,7549 ⇒ x ≈ 1,38.",
-   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen.",
+   "c": "round(2.408000558066, 2)",
+   "w": "3x + 1 = log₂(299) ≈ 8,224 ⇒ x ≈ 2,41.",
+   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5^(2x − 2) = 41. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 2.15,
+    "toleranz": 0.01
+   },
+   "c": "round(2.153686028524, 2)",
+   "w": "2x − 2 = log₅(41) ≈ 2,3074 ⇒ x ≈ 2,15.",
+   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 6 · 3^x = 58. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 2.07,
+    "toleranz": 0.01
+   },
+   "c": "round(2.065044752111, 2)",
+   "w": "3^x = 58 : 6 = 29/3 ⇒ x = lg(29/3) : lg 3 ≈ 2,07.",
+   "h": "Erst durch den Faktor teilen, dann logarithmieren."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kultur startet mit 3 Bakterien, die sich jede Stunde verdoppeln. Nach wie vielen Stunden sind es 1 000? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 8.38,
+    "einheit": "h",
+    "toleranz": 0.01
+   },
+   "c": "round(8.380821783941, 2)",
+   "w": "3 · 2^x = 1 000 ⇒ 2^x = 333,3… ⇒ x = lg(1 000 : 3) : lg 2 ≈ 8,38 h.",
+   "h": "Stelle die Gleichung auf und teile zuerst durch 3."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3 · 2^x = 51. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 4.09,
+    "toleranz": 0.01
+   },
+   "c": "round(4.087462841250, 2)",
+   "w": "2^x = 51 : 3 = 17 ⇒ x = lg(17) : lg 2 ≈ 4,09.",
+   "h": "Erst durch den Faktor teilen, dann logarithmieren.",
    "g": "mehrschritt"
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2^x + 2^(x + 1) = 15. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 2.32,
+    "toleranz": 0.01
+   },
+   "c": "round(2.321928094887, 2)",
+   "w": "2^(x + 1) = 2 · 2^x. Ausklammern: 2^x · 3 = 15, also 2^x = 5 und x = lg 5 : lg 2 ≈ 2,32.",
+   "h": "Klammere 2^x aus, bevor du logarithmierst.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand wächst nach f(x) = a · 1,5^x. Bei x = 4 ist f(x) = 81. Für welches x ist f(x) = 200? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.23,
+    "toleranz": 0.01
+   },
+   "c": "round(6.229213300481, 2)",
+   "w": "a = 81 : 1,5⁴ = 81 : 5,0625 = 16. Dann 16 · 1,5^x = 200 ⇒ 1,5^x = 12,5 ⇒ x = lg 12,5 : lg 1,5 ≈ 6,23.",
+   "h": "Bestimme zuerst a aus dem bekannten Wert."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3^x = 174. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 174 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      0,
+      244
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3
+      }
+     ],
+     "waagrecht": [
+      174
+     ]
+    }
+   },
+   "o": {
+    "wert": 4.7,
+    "toleranz": 0.01
+   },
+   "c": "round(4.695974505682, 2)",
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 5. Genau: x = log₃(174) = lg 174 : lg 3 ≈ 4,7.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten.",
+   "g": "direkt"
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie schreibt man die Lösung von 7^x = 30 mit dem Logarithmus?"
+   },
+   "a": [
+    "x = 30 : 7",
+    "x = log₃₀(7)",
+    "x = lg 7 : lg 30",
+    "x = log₇(30)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "7^x = 30 heißt: x ist der Exponent, der aus 7 die Zahl 30 macht, also x = log₇(30) = lg 30 : lg 7.",
+   "h": "Welche Zahl ist die Basis?"
   },
   {
    "l": "mit_log_loesen",
@@ -2575,6 +2561,74 @@
    "t": "mit_log_loesen",
    "p": "uebung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5^(2x) = 165. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.59,
+    "toleranz": 0.01
+   },
+   "c": "round(1.586251148445, 2)",
+   "w": "2x = log₅(165) ≈ 3,1725 ⇒ x ≈ 1,59.",
+   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5^(3x + 1) = 254. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.81,
+    "toleranz": 0.01
+   },
+   "c": "round(0.813513074811, 2)",
+   "w": "3x + 1 = log₅(254) ≈ 3,4405 ⇒ x ≈ 0,81.",
+   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5^(2x − 1) = 45. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.68,
+    "toleranz": 0.01
+   },
+   "c": "round(1.682606194486, 2)",
+   "w": "2x − 1 = log₅(45) ≈ 2,3652 ⇒ x ≈ 1,68.",
+   "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2 · 1,2^x = 33. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 15.38,
+    "toleranz": 0.01
+   },
+   "c": "round(15.375912921118, 2)",
+   "w": "1,2^x = 33 : 2 = 16,5 ⇒ x = lg(16,5) : lg 1,2 ≈ 15,38.",
+   "h": "Erst durch den Faktor teilen, dann logarithmieren."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Für welche Zahl c hat die Gleichung 3^x = c die Lösung x = −2?",
@@ -2594,24 +2648,6 @@
     "3 ** 2"
    ],
    "g": "umkehr"
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5 · 1,2^x + 3 = 18. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 6.03,
-    "toleranz": 0.01
-   },
-   "c": "round(6.025685102665, 2)",
-   "w": "5 · 1,2^x = 15, also 1,2^x = 3. x = lg 3 : lg 1,2 ≈ 6,03.",
-   "h": "Zuerst 3 abziehen, dann durch 5 teilen.",
-   "g": "mehrschritt"
   },
   {
    "l": "mit_log_loesen",
@@ -2655,24 +2691,6 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 2^x + 2^(x + 1) = 15. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 2.32,
-    "toleranz": 0.01
-   },
-   "c": "round(2.321928094887, 2)",
-   "w": "2^(x + 1) = 2 · 2^x. Ausklammern: 2^x · 3 = 15, also 2^x = 5 und x = lg 5 : lg 2 ≈ 2,32.",
-   "h": "Klammere 2^x aus, bevor du logarithmierst.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Bestimme die kleinste ganze Zahl x mit 6 · 0,8^x < 1,5."
    },
    "o": {
@@ -2700,24 +2718,6 @@
    "w": "5^x · 2^x = (5 · 2)^x = 10^x. Also 10^x = 300 und x = lg 300 ≈ 2,48.",
    "h": "Gleiche Exponenten: Fasse die Basen zu einer Potenz zusammen.",
    "g": "verknuepfen"
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 3,
-   "g": "rueckwaerts",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bestand wächst nach f(x) = a · 1,5^x. Bei x = 4 ist f(x) = 81. Für welches x ist f(x) = 200? Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 6.23,
-    "toleranz": 0.01
-   },
-   "c": "round(6.229213300481, 2)",
-   "w": "a = 81 : 1,5⁴ = 81 : 5,0625 = 16. Dann 16 · 1,5^x = 200 ⇒ 1,5^x = 12,5 ⇒ x = lg 12,5 : lg 1,5 ≈ 6,23.",
-   "h": "Bestimme zuerst a aus dem bekannten Wert."
   },
   {
    "l": "mit_log_loesen",
@@ -2797,6 +2797,76 @@
    "c": "round(0.630929753571, 2)",
    "w": "2 · 3^x − 4 = 0 ⇒ 3^x = 2 ⇒ x = lg 2 : lg 3 ≈ 0,63.",
    "h": "Setze f(x) = 0 und stelle die Potenz allein."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand verdreifacht sich in 10 Jahren (exponentielles Wachstum). Wie lange dauert es, bis er sich verdoppelt? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 6.3,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(6.309297535715, 1)",
+   "w": "b¹⁰ = 3 ⇒ lg b = lg 3 : 10. Verdopplung: b^T = 2 ⇒ T = lg 2 : lg b = 10 · lg 2 : lg 3 ≈ 6,3 Jahre.",
+   "h": "Du brauchst b nicht auszurechnen: Nutze lg b = lg 3 : 10.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2^(2^x) = 256."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Außen: 256 = 2⁸, also 2^x = 8. Innen: 8 = 2³, also x = 3. Probe: 2^(2³) = 2⁸ = 256.",
+   "h": "Löse von außen nach innen."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x erfüllt 3^x = 7. Berechne 9^x + 3^(x + 1), ohne x auszurechnen."
+   },
+   "o": {
+    "wert": 70
+   },
+   "c": "7 ** 2 + 3 * 7",
+   "w": "9^x = (3²)^x = (3^x)² = 49 und 3^(x + 1) = 3 · 3^x = 21. Summe 70.",
+   "h": "Schreibe beide Potenzen mit 3^x."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Bestand X halbiert sich alle 3 Tage, Bestand Y drittelt sich alle 4 Tage. Beide beginnen mit 1 296 Einheiten. Wie viele Einheiten hat X nach 12 Tagen mehr als Y?"
+   },
+   "o": {
+    "wert": 33
+   },
+   "c": "1296 // 2 ** 4 - 1296 // 3 ** 3",
+   "w": "12 Tage: X wird 4-mal halbiert, 1 296 : 16 = 81; Y wird 3-mal gedrittelt, 1 296 : 27 = 48. Unterschied 81 − 48 = 33.",
+   "h": "Wie oft wird in 12 Tagen halbiert, wie oft gedrittelt?"
   },
   {
    "l": "mit_log_loesen",
@@ -2957,40 +3027,6 @@
    },
    "c": "round(1.206450877467, 2)",
    "w": "0,5^x = 1,3 : 3 = 13/30 ⇒ x = lg(13/30) : lg 0,5 ≈ 1,21."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2^(2^x) = 256."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Außen: 256 = 2⁸, also 2^x = 8. Innen: 8 = 2³, also x = 3. Probe: 2^(2³) = 2⁸ = 256.",
-   "h": "Löse von außen nach innen."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Eine Zahl x erfüllt 3^x = 7. Berechne 9^x + 3^(x + 1), ohne x auszurechnen."
-   },
-   "o": {
-    "wert": 70
-   },
-   "c": "7 ** 2 + 3 * 7",
-   "w": "9^x = (3²)^x = (3^x)² = 49 und 3^(x + 1) = 3 · 3^x = 21. Summe 70.",
-   "h": "Schreibe beide Potenzen mit 3^x."
   },
   {
    "l": "potenzregel",
@@ -3739,19 +3775,38 @@
    "l": "wachstum",
    "t": "wachstum",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 30 Tagen. Anfangs sind 400 mg vorhanden. Wie viel ist nach 90 Tagen noch da?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "mg"
+   },
+   "c": "400 * 0.5 ** 3",
+   "w": "90 Tage = 3 Halbwertszeiten: 400 · 0,5³ = 50 mg.",
+   "h": "Wie oft passt die Halbwertszeit in die Zeitspanne?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Medikament wird mit einer Halbwertszeit von 25 Stunden abgebaut. Nach welcher Zeit sind noch 30 % vorhanden (eine Nachkommastelle)?"
+    "text": "Ein Medikament wird mit einer Halbwertszeit von 8 Stunden abgebaut. Nach welcher Zeit sind noch 30 % vorhanden (eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 43.4,
+    "wert": 13.9,
     "einheit": "h",
     "toleranz": 0.1
    },
-   "c": "round(43.424139854155, 1)",
-   "w": "0,5^(t/25) = 0,3 ⇒ t = 25 · lg 0,3 : lg 0,5 ≈ 43,4 h.",
-   "h": "Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen."
+   "c": "round(13.895724753330, 1)",
+   "w": "0,5^(t/8) = 0,3 ⇒ t = 8 · lg 0,3 : lg 0,5 ≈ 13,9 h.",
+   "h": "Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen.",
+   "g": "rueckwaerts"
   },
   {
    "l": "wachstum",
@@ -3760,49 +3815,52 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Guthaben wird mit 3 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
+    "text": "Ein Guthaben wird mit 5 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
    },
    "o": {
-    "wert": 24,
+    "wert": 15,
     "einheit": "Jahre"
    },
-   "c": "-(-23.449772250438 // 1)",
-   "w": "1,03^t = 2 ⇒ t = lg 2 : lg 1,03 ≈ 23,45, also nach 24 Jahren.",
-   "h": "Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben."
+   "c": "-(-14.206699082890 // 1)",
+   "w": "1,05^t = 2 ⇒ t = lg 2 : lg 1,05 ≈ 14,21, also nach 15 Jahren.",
+   "h": "Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben.",
+   "g": "einkleidung"
   },
   {
    "l": "wachstum",
    "t": "wachstum",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 12 Tagen. Anfangs sind 80 mg vorhanden. Wie viel ist nach 48 Tagen noch da?"
+    "text": "Eine Kinokarte kostete 2021 genau 9,00 € und 2024 genau 10,80 €. Der Preis stieg jedes Jahr um denselben Prozentsatz. Um wie viel Prozent pro Jahr? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 5,
-    "einheit": "mg"
+    "wert": 6.3,
+    "einheit": "%",
+    "toleranz": 0.1
    },
-   "c": "80 * 0.5 ** 4",
-   "w": "48 Tage = 4 Halbwertszeiten: 80 · 0,5⁴ = 5 mg.",
-   "h": "Wie oft passt die Halbwertszeit in die Zeitspanne?"
+   "c": "round(6.265856918261, 1)",
+   "w": "9 · q³ = 10,80, also q³ = 1,2 und q = 1,2^(1/3) ≈ 1,0627. Das sind etwa 6,3 % pro Jahr.",
+   "h": "Zwischen 2021 und 2024 liegen 3 Jahre. Stelle 9 · q³ = 10,80 auf.",
+   "g": "pruefung"
   },
   {
    "l": "wachstum",
    "t": "wachstum",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Guthaben wird mit 6 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
+    "text": "Konto A: 5 000 € mit 2 % Zinseszins. Konto B: 4 000 € mit 4 % Zinseszins. Nach wie vielen vollen Jahren hat Konto B erstmals mehr Geld als Konto A?"
    },
    "o": {
-    "wert": 12,
-    "einheit": "Jahre"
+    "wert": 12
    },
-   "c": "-(-11.895661045942 // 1)",
-   "w": "1,06^t = 2 ⇒ t = lg 2 : lg 1,06 ≈ 11,9, also nach 12 Jahren.",
-   "h": "Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben."
+   "c": "12",
+   "w": "4 000 · 1,04^t > 5 000 · 1,02^t ⇔ (1,04 : 1,02)^t > 1,25 ⇔ t > lg 1,25 : lg(1,04 : 1,02) ≈ 11,49. Also nach 12 Jahren.",
+   "h": "Setze beide Kontostände an und teile durch 4 000 · 1,02^t.",
+   "g": "transfer"
   },
   {
    "l": "wachstum",
@@ -3845,18 +3903,22 @@
    "t": "wachstum",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
+   "g": "erkennen",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Löse 2 000 · 1,02^t = 2 500, um zu sehen, wann es auf 2 500 € angewachsen ist. Runde auf eine Nachkommastelle."
+    "text": "2 000 € werden mit 3 % Zinseszins angelegt. Welche Gleichung beschreibt, wann es 2 500 € sind?"
    },
+   "a": [
+    "2 000 + 1,03 · t = 2 500",
+    "2 000 · 1,3^t = 2 500",
+    "2 000 · 0,03^t = 2 500",
+    "2 000 · 1,03^t = 2 500"
+   ],
    "o": {
-    "wert": 11.3,
-    "einheit": "Jahre",
-    "toleranz": 0.1
+    "index": 3
    },
-   "c": "round(11.268381108059, 1)",
-   "w": "t = lg(2 500 : 2 000) : lg 1,02 = lg 1,25 : lg 1,02 ≈ 11,3 Jahre.",
-   "h": "Teile zuerst durch den Anfangswert. Dann logarithmieren: t = lg(rechte Seite) : lg(Basis)."
+   "w": "Wachstumsfaktor q = 1 + 3/100 = 1,03; nach t Jahren 2 000 · 1,03^t.",
+   "h": "Wie groß ist q bei 3 %?"
   },
   {
    "l": "wachstum",
@@ -3881,23 +3943,168 @@
    "l": "wachstum",
    "t": "wachstum",
    "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Guthaben wird mit 3 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "Jahre"
+   },
+   "c": "-(-23.449772250438 // 1)",
+   "w": "1,03^t = 2 ⇒ t = lg 2 : lg 1,03 ≈ 23,45, also nach 24 Jahren.",
+   "h": "Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bakterienkultur verdreifacht sich in 3 Stunden. Um wie viel Prozent wächst sie pro Stunde? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 44.2,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(44.224957030741, 1)",
+   "w": "q³ = 3 ⇒ q = 3^(1/3) ≈ 1,4422, also Wachstum ≈ 44,2 % pro Stunde.",
+   "h": "Gesucht ist der Faktor q pro Stunde: q hoch Stundenzahl ergibt die Vervielfachung.",
+   "g": "umkehr"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Wert eines Geräts nimmt jedes Jahr um 20 % ab. Nach wie vielen Jahren ist er auf die Hälfte gesunken (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 3.1,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(3.106283719505, 1)",
+   "w": "0,8^t = 0,5 ⇒ t = lg 0,5 : lg 0,8 ≈ 3,1 Jahre.",
+   "h": "Abnahme um p %: Faktor 1 − p/100.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Medikament wird mit einer Halbwertszeit von 25 Stunden abgebaut. Nach welcher Zeit sind noch 70 % vorhanden (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 12.9,
+    "einheit": "h",
+    "toleranz": 0.1
+   },
+   "c": "round(12.864329320744, 1)",
+   "w": "0,5^(t/25) = 0,7 ⇒ t = 25 · lg 0,7 : lg 0,5 ≈ 12,9 h.",
+   "h": "Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kinokarte kostete 2021 genau 9,00 € und 2024 genau 10,80 € (gleicher Prozentsatz jedes Jahr). In welchem Jahr kostet sie bei gleicher Entwicklung erstmals mehr als 15 €?"
+   },
+   "o": {
+    "wert": 2030
+   },
+   "c": "2021 + 9",
+   "w": "q³ = 1,2. 9 · q^t > 15 ⇔ q^t > 5/3 ⇔ t > lg(5/3) : lg q = 3 · lg(5/3) : lg 1,2 ≈ 8,41. Also t = 9, das Jahr 2021 + 9 = 2030.",
+   "h": "Zähle t ab 2021. Nutze lg q = lg 1,2 : 3.",
+   "g": "pruefung"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stoff zerfällt mit fester Halbwertszeit. Nach wie vielen Halbwertszeiten ist erstmals weniger als 1 % übrig?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "0,5^n < 0,01 ⇔ n > lg 0,01 : lg 0,5 ≈ 6,64. Also nach 7 Halbwertszeiten (0,5⁷ ≈ 0,8 %).",
+   "h": "Nach n Halbwertszeiten ist der Anteil 0,5^n übrig. Die Halbwertszeit selbst brauchst du nicht.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
    "y": "auswahl",
    "f": {
-    "text": "2 000 € werden mit 3 % Zinseszins angelegt. Welche Gleichung beschreibt, wann es 2 500 € sind?"
+    "text": "Jemand sagt: „Bei 4 % Zinsen verdoppelt sich ein Kapital nach 100 % : 4 % = 25 Jahren.“ Was stimmt?"
    },
    "a": [
-    "2 000 + 1,03 · t = 2 500",
-    "2 000 · 1,3^t = 2 500",
-    "2 000 · 0,03^t = 2 500",
-    "2 000 · 1,03^t = 2 500"
+    "Falsch: nach 50 Jahren.",
+    "Falsch: Mit Zinseszins gilt 1,04^t = 2, t ≈ 17,7; verdoppelt nach 18 Jahren.",
+    "Falsch: nach 2 Jahren.",
+    "Richtig."
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Wachstumsfaktor q = 1 + 3/100 = 1,03; nach t Jahren 2 000 · 1,03^t.",
-   "h": "Wie groß ist q bei 3 %?"
+   "w": "Die Zinsen werden mitverzinst. t = lg 2 : lg 1,04 ≈ 17,7, also nach 18 vollen Jahren – viel früher als 25.",
+   "h": "Rechne mit dem Faktor 1,04."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ort A hat 50 000 Einwohner und schrumpft jedes Jahr um 2 %. Ort B hat 30 000 Einwohner und wächst jedes Jahr um 3 %. Nach wie vielen Jahren sind es gleich viele? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 10.3,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(10.265476837267, 1)",
+   "w": "30 000 · 1,03^t = 50 000 · 0,98^t ⇒ (1,03 : 0,98)^t = 5/3 ⇒ t = lg(5/3) : lg(1,03 : 0,98) ≈ 10,3 Jahre.",
+   "h": "Setze beide Terme gleich und bringe alle Potenzen mit t auf eine Seite.",
+   "g": "transfer"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Löse 2 000 · 1,02^t = 2 500, um zu sehen, wann es auf 2 500 € angewachsen ist. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 11.3,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(11.268381108059, 1)",
+   "w": "t = lg(2 500 : 2 000) : lg 1,02 = lg 1,25 : lg 1,02 ≈ 11,3 Jahre.",
+   "h": "Teile zuerst durch den Anfangswert. Dann logarithmieren: t = lg(rechte Seite) : lg(Basis)."
   },
   {
    "l": "wachstum",
@@ -3965,16 +4172,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 30 Tagen. Anfangs sind 400 mg vorhanden. Wie viel ist nach 90 Tagen noch da?"
+    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 12 Tagen. Anfangs sind 80 mg vorhanden. Wie viel ist nach 48 Tagen noch da?"
    },
    "o": {
-    "wert": 50,
+    "wert": 5,
     "einheit": "mg"
    },
-   "c": "400 * 0.5 ** 3",
-   "w": "90 Tage = 3 Halbwertszeiten: 400 · 0,5³ = 50 mg.",
-   "h": "Wie oft passt die Halbwertszeit in die Zeitspanne?",
-   "g": "einkleidung"
+   "c": "80 * 0.5 ** 4",
+   "w": "48 Tage = 4 Halbwertszeiten: 80 · 0,5⁴ = 5 mg.",
+   "h": "Wie oft passt die Halbwertszeit in die Zeitspanne?"
   },
   {
    "l": "wachstum",
@@ -3983,35 +4189,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Bakterienkultur verdreifacht sich in 3 Stunden. Um wie viel Prozent wächst sie pro Stunde? Runde auf eine Nachkommastelle."
+    "text": "Ein Guthaben wird mit 6 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
    },
    "o": {
-    "wert": 44.2,
-    "einheit": "%",
-    "toleranz": 0.1
-   },
-   "c": "round(44.224957030741, 1)",
-   "w": "q³ = 3 ⇒ q = 3^(1/3) ≈ 1,4422, also Wachstum ≈ 44,2 % pro Stunde.",
-   "h": "Gesucht ist der Faktor q pro Stunde: q hoch Stundenzahl ergibt die Vervielfachung.",
-   "g": "umkehr"
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Guthaben wird mit 5 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
-   },
-   "o": {
-    "wert": 15,
+    "wert": 12,
     "einheit": "Jahre"
    },
-   "c": "-(-14.206699082890 // 1)",
-   "w": "1,05^t = 2 ⇒ t = lg 2 : lg 1,05 ≈ 14,21, also nach 15 Jahren.",
-   "h": "Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben.",
-   "g": "einkleidung"
+   "c": "-(-11.895661045942 // 1)",
+   "w": "1,06^t = 2 ⇒ t = lg 2 : lg 1,06 ≈ 11,9, also nach 12 Jahren.",
+   "h": "Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben."
   },
   {
    "l": "wachstum",
@@ -4030,25 +4216,6 @@
    "w": "q⁴ = 3, also q = 3^(1/4) ≈ 1,32.",
    "h": "Vier gleiche Faktoren q ergeben zusammen 3.",
    "g": "umkehr"
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Der Wert eines Geräts nimmt jedes Jahr um 20 % ab. Nach wie vielen Jahren ist er auf die Hälfte gesunken (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 3.1,
-    "einheit": "Jahre",
-    "toleranz": 0.1
-   },
-   "c": "round(3.106283719505, 1)",
-   "w": "0,8^t = 0,5 ⇒ t = lg 0,5 : lg 0,8 ≈ 3,1 Jahre.",
-   "h": "Abnahme um p %: Faktor 1 − p/100.",
-   "g": "einkleidung"
   },
   {
    "l": "wachstum",
@@ -4111,72 +4278,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Medikament wird mit einer Halbwertszeit von 8 Stunden abgebaut. Nach welcher Zeit sind noch 30 % vorhanden (eine Nachkommastelle)?"
+    "text": "Ein Medikament wird mit einer Halbwertszeit von 25 Stunden abgebaut. Nach welcher Zeit sind noch 30 % vorhanden (eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 13.9,
+    "wert": 43.4,
     "einheit": "h",
     "toleranz": 0.1
    },
-   "c": "round(13.895724753330, 1)",
-   "w": "0,5^(t/8) = 0,3 ⇒ t = 8 · lg 0,3 : lg 0,5 ≈ 13,9 h.",
-   "h": "Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kinokarte kostete 2021 genau 9,00 € und 2024 genau 10,80 €. Der Preis stieg jedes Jahr um denselben Prozentsatz. Um wie viel Prozent pro Jahr? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 6.3,
-    "einheit": "%",
-    "toleranz": 0.1
-   },
-   "c": "round(6.265856918261, 1)",
-   "w": "9 · q³ = 10,80, also q³ = 1,2 und q = 1,2^(1/3) ≈ 1,0627. Das sind etwa 6,3 % pro Jahr.",
-   "h": "Zwischen 2021 und 2024 liegen 3 Jahre. Stelle 9 · q³ = 10,80 auf.",
-   "g": "pruefung"
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Medikament wird mit einer Halbwertszeit von 25 Stunden abgebaut. Nach welcher Zeit sind noch 70 % vorhanden (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 12.9,
-    "einheit": "h",
-    "toleranz": 0.1
-   },
-   "c": "round(12.864329320744, 1)",
-   "w": "0,5^(t/25) = 0,7 ⇒ t = 25 · lg 0,7 : lg 0,5 ≈ 12,9 h.",
-   "h": "Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kinokarte kostete 2021 genau 9,00 € und 2024 genau 10,80 € (gleicher Prozentsatz jedes Jahr). In welchem Jahr kostet sie bei gleicher Entwicklung erstmals mehr als 15 €?"
-   },
-   "o": {
-    "wert": 2030
-   },
-   "c": "2021 + 9",
-   "w": "q³ = 1,2. 9 · q^t > 15 ⇔ q^t > 5/3 ⇔ t > lg(5/3) : lg q = 3 · lg(5/3) : lg 1,2 ≈ 8,41. Also t = 9, das Jahr 2021 + 9 = 2030.",
-   "h": "Zähle t ab 2021. Nutze lg q = lg 1,2 : 3.",
-   "g": "pruefung"
+   "c": "round(43.424139854155, 1)",
+   "w": "0,5^(t/25) = 0,3 ⇒ t = 25 · lg 0,3 : lg 0,5 ≈ 43,4 h.",
+   "h": "Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen."
   },
   {
    "l": "wachstum",
@@ -4204,54 +4315,167 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Konto A: 5 000 € mit 2 % Zinseszins. Konto B: 4 000 € mit 4 % Zinseszins. Nach wie vielen vollen Jahren hat Konto B erstmals mehr Geld als Konto A?"
+    "text": "Ein Grundstück kostete 2018 genau 240 000 € und 2023 genau 300 000 €. Der Preis steigt exponentiell. In welchem Jahr kostet es bei gleicher Entwicklung erstmals mehr als 400 000 €?"
    },
    "o": {
-    "wert": 12
+    "wert": 2030
    },
-   "c": "12",
-   "w": "4 000 · 1,04^t > 5 000 · 1,02^t ⇔ (1,04 : 1,02)^t > 1,25 ⇔ t > lg 1,25 : lg(1,04 : 1,02) ≈ 11,49. Also nach 12 Jahren.",
-   "h": "Setze beide Kontostände an und teile durch 4 000 · 1,02^t.",
-   "g": "transfer"
+   "c": "2018 + 12",
+   "w": "b⁵ = 300 000 : 240 000 = 1,25. 240 000 · b^t > 400 000 ⇔ b^t > 5/3 ⇔ t > 5 · lg(5/3) : lg 1,25 ≈ 11,45. Also t = 12, das Jahr 2030.",
+   "h": "Zähle t ab 2018. Aus 5 Jahren folgt b⁵ = 1,25.",
+   "g": "pruefung"
   },
   {
    "l": "wachstum",
    "t": "wachstum",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Stoff zerfällt mit fester Halbwertszeit. Nach wie vielen Halbwertszeiten ist erstmals weniger als 1 % übrig?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "7",
-   "w": "0,5^n < 0,01 ⇔ n > lg 0,01 : lg 0,5 ≈ 6,64. Also nach 7 Halbwertszeiten (0,5⁷ ≈ 0,8 %).",
-   "h": "Nach n Halbwertszeiten ist der Anteil 0,5^n übrig. Die Halbwertszeit selbst brauchst du nicht.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
    "y": "auswahl",
    "f": {
-    "text": "Jemand sagt: „Bei 4 % Zinsen verdoppelt sich ein Kapital nach 100 % : 4 % = 25 Jahren.“ Was stimmt?"
+    "text": "Jemand löst 80 · 1,04^t = 240 so: „t = 240 : 80 : 1,04 ≈ 2,9“. Was stimmt?"
    },
    "a": [
-    "Falsch: nach 50 Jahren.",
-    "Falsch: Mit Zinseszins gilt 1,04^t = 2, t ≈ 17,7; verdoppelt nach 18 Jahren.",
-    "Falsch: nach 2 Jahren.",
+    "Falsch: t = (240 − 80) : 4 = 40.",
+    "Falsch: 1,04^t = 3, also t = lg 3 : lg 1,04 ≈ 28,0.",
+    "Falsch: t = 240 : 80 · 1,04 ≈ 3,1.",
     "Richtig."
    ],
    "o": {
     "index": 1
    },
-   "w": "Die Zinsen werden mitverzinst. t = lg 2 : lg 1,04 ≈ 17,7, also nach 18 vollen Jahren – viel früher als 25.",
-   "h": "Rechne mit dem Faktor 1,04."
+   "w": "t steht im Exponenten. Nach dem Teilen durch 80 bleibt 1,04^t = 3; man muss logarithmieren: t = lg 3 : lg 1,04 ≈ 28,0.",
+   "h": "Wo steht t? Durch welche Rechnung holt man es dort heraus?",
+   "g": "fehler"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wachstumsfaktor b verdoppelt sich ein Bestand f(t) = a · b^t in genau 10 Jahren? Runde auf vier Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.0718,
+    "toleranz": 0.0001
+   },
+   "c": "round(1.071773462536, 4)",
+   "w": "b¹⁰ = 2 ⇒ b = 2^(1/10) ≈ 1,0718 – unabhängig vom Anfangswert a.",
+   "h": "Setze f(10) = 2a."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bestand wächst exponentiell und in 5 Jahren um 50 %. Stimmt: „Dann wächst er in 10 Jahren um 100 %“?"
+   },
+   "a": [
+    "Nein: In 10 Jahren ist der Faktor 1,5² = 2,25, also wächst er um 125 %.",
+    "Ja: 2 · 50 % = 100 %.",
+    "Nein: Er wächst um 75 %.",
+    "Nein: Er wächst um 150 %."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Zweimal je 5 Jahre: Faktor 1,5 · 1,5 = 2,25. Prozente werden bei exponentiellem Wachstum nicht addiert.",
+   "h": "Schreibe beide 5-Jahres-Abschnitte als Faktoren."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kopierer verkleinert ein Bild bei jedem Kopiervorgang auf 80 % der Länge und Breite. Nach wie vielen Vorgängen ist die Bildfläche zum ersten Mal kleiner als ein Zehntel der ursprünglichen Fläche?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Längen mal 0,8 heißt Fläche mal 0,8² = 0,64. 0,64ⁿ < 0,1 ⇒ n > lg 0,1 : lg 0,64 ≈ 5,16. Also nach 6 Vorgängen.",
+   "h": "Wie ändert sich eine Fläche, wenn alle Längen mit 0,8 malgenommen werden?"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Licht verliert in einem See je Meter Wassertiefe 8 % seiner Helligkeit. In welcher Tiefe ist nur noch 1 % des Lichts vorhanden? Runde auf ganze Meter."
+   },
+   "o": {
+    "wert": 55,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(55.230047064147)",
+   "w": "0,92^d = 0,01 ⇒ d = lg 0,01 : lg 0,92 ≈ 55,2, also etwa 55 m.",
+   "h": "Die Tiefe spielt hier die Rolle der Zeit."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Konto wird jedes Jahr mit 10 % verzinst; am Ende jedes Jahres werden danach 100 € abgehoben. Bei welchem Startkapital bleibt der Kontostand Jahr für Jahr gleich?"
+   },
+   "o": {
+    "wert": 1000,
+    "einheit": "€"
+   },
+   "c": "100 / (1.1 - 1)",
+   "w": "Gleich bleiben heißt: Die Zinsen eines Jahres sind genau 100 €. 10 % von K = 100 ⇒ K = 1 000 €. Probe: 1 000 · 1,1 − 100 = 1 000.",
+   "h": "Was muss mit den Zinsen passieren, damit sich nichts ändert?"
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Von Stoff A sind anfangs doppelt so viele Gramm da wie von Stoff B. A hat die Halbwertszeit 2 Tage, B die Halbwertszeit 3 Tage. Nach wie vielen Tagen sind von beiden gleich viele Gramm da?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "Tage"
+   },
+   "c": "6",
+   "w": "2 · 0,5^(t/2) = 0,5^(t/3) ⇒ 2 = 0,5^(t/3 − t/2) = 2^(t/2 − t/3) = 2^(t/6) ⇒ t/6 = 1 ⇒ t = 6. Probe: A: 2 · 1/8 = 1/4, B: 1/4.",
+   "h": "Teile durch 0,5^(t/2) und schreibe alles als Zweierpotenz."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Kapital A wächst mit 4 % pro Jahr, das doppelt so große Kapital B mit 2 % pro Jahr. Nach wie vielen ganzen Jahren ist A zum ersten Mal größer als B?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "Jahre"
+   },
+   "c": "36",
+   "w": "A · 1,04^t > 2A · 1,02^t ⇒ (1,04 : 1,02)^t > 2. 1,04 : 1,02 ≈ 1,019608, t > lg 2 : lg 1,019608 ≈ 35,7. Also nach 36 Jahren.",
+   "h": "Teile durch A und fasse die beiden Potenzen mit gleichem Exponenten zusammen."
   },
   {
    "l": "wachstum",
@@ -4419,42 +4643,6 @@
    },
    "c": "round(20.475318857634, 1)",
    "w": "t = lg(3 000 : 2 000) : lg 1,02 = lg 1,5 : lg 1,02 ≈ 20,5 Jahre."
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Konto wird jedes Jahr mit 10 % verzinst; am Ende jedes Jahres werden danach 100 € abgehoben. Bei welchem Startkapital bleibt der Kontostand Jahr für Jahr gleich?"
-   },
-   "o": {
-    "wert": 1000,
-    "einheit": "€"
-   },
-   "c": "100 / (1.1 - 1)",
-   "w": "Gleich bleiben heißt: Die Zinsen eines Jahres sind genau 100 €. 10 % von K = 100 ⇒ K = 1 000 €. Probe: 1 000 · 1,1 − 100 = 1 000.",
-   "h": "Was muss mit den Zinsen passieren, damit sich nichts ändert?"
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Von Stoff A sind anfangs doppelt so viele Gramm da wie von Stoff B. A hat die Halbwertszeit 2 Tage, B die Halbwertszeit 3 Tage. Nach wie vielen Tagen sind von beiden gleich viele Gramm da?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "Tage"
-   },
-   "c": "6",
-   "w": "2 · 0,5^(t/2) = 0,5^(t/3) ⇒ 2 = 0,5^(t/3 − t/2) = 2^(t/2 − t/3) = 2^(t/6) ⇒ t/6 = 1 ⇒ t = 6. Probe: A: 2 · 1/8 = 1/4, B: 1/4.",
-   "h": "Teile durch 0,5^(t/2) und schreibe alles als Zweierpotenz."
   },
   {
    "l": "verstehen",

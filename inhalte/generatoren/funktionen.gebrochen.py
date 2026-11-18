@@ -1063,3 +1063,10 @@ if __name__ == '__main__':
          ['Indirekt proportional: x · y = konstant, y = k/x.', 'f(x) = a/(x + b) + c: D = ℚ \\ {−b}, Asymptoten x = −b und y = c.',
           'x − 3 in der Klammer: 3 nach rechts. + c: c nach oben.'],
          offen=['Hyperbeln selbst zeichnen lassen (Kind zeichnet) kann die App noch nicht; Ablesen von Asymptoten und „Term zum Graphen“ sind eingebaut.'])
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('funktionen.gebrochen')
+# ---- BEREINIGEN ENDE ----

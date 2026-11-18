@@ -808,3 +808,10 @@ if __name__ == '__main__':
                 'Vertiefung ohne_loesung nutzt negative Zahlen (Thema zahlen.ganz, Kl. 5) für „Lösung in ℤ statt in ℕ“; sollte zeitlich nach zahlen.ganz kommen.',
                 'Waage als Figur gezeichnet (Balken, Drehpunkt, zwei Schalen mit Beschriftung). Einzelne Gewichte/Dosen als Symbole kann die App nicht zeichnen; die Schalen tragen deshalb Terme wie „x + x + 3“.'],
          vertiefung=['ohne_loesung'], teil=TEIL)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('gleichungen.einfach')
+# ---- BEREINIGEN ENDE ----

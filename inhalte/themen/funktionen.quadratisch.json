@@ -4086,22 +4086,25 @@
    "l": "nullstellen",
    "t": "nullstellen",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
+   "s": 1,
+   "y": "luecken",
    "f": {
-    "text": "Wie viele Nullstellen hat die Funktion f mit f(x) = x² + x + 3?"
+    "text": "Bestimme die Nullstellen von y = (x + 2) · (x − 6).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
    },
-   "a": [
-    "genau eine Nullstelle",
-    "zwei Nullstellen",
-    "keine Nullstelle"
-   ],
    "o": {
-    "index": 2
+    "werte": [
+     -2,
+     6
+    ]
    },
-   "w": "D = 1² − 4 · 1 · 3 = −11, also keine Nullstelle.",
-   "h": "Berechne die Diskriminante.",
-   "g": "verknuepfen"
+   "w": "Ein Produkt ist null, wenn ein Faktor null ist: x = −2 oder x = 6.",
+   "h": "Setze jeden Faktor gleich null.",
+   "c": [
+    "min(-2, 6)",
+    "max(-2, 6)"
+   ]
   },
   {
    "l": "nullstellen",
@@ -4125,6 +4128,53 @@
    "c": [
     "min((-(10) - 18) / (2 * (2)), (-(10) + 18) / (2 * (2)))",
     "max((-(10) - 18) / (2 * (2)), (-(10) + 18) / (2 * (2)))"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Werte von c hat y = x² + 6x + c zwei Nullstellen?"
+   },
+   "a": [
+    "c > 9",
+    "c = 9",
+    "c < 9",
+    "c < 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = 36 − 4c > 0 heißt c < 9. Bei c = 9 ist y = (x + 3)², eine Nullstelle.",
+   "h": "Die Diskriminante muss positiv sein.",
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = x² + 4x − 5.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     1
+    ]
+   },
+   "w": "0 = x² + 4x − 5; D = 36; x₁,₂ = (−4 ± 6) / 2: −5 und 1.",
+   "h": "Setze y = 0 und löse die quadratische Gleichung.",
+   "c": [
+    "min((-(4) - 6) / (2 * (1)), (-(4) + 6) / (2 * (1)))",
+    "max((-(4) - 6) / (2 * (1)), (-(4) + 6) / (2 * (1)))"
    ],
    "g": "mehrschritt"
   },
@@ -4181,21 +4231,21 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Bestimme die Nullstellen von y = x² + 4x − 5.",
+    "text": "Bestimme die Nullstellen von y = −x² − 8x − 12.",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "kleinere zuerst"
    },
    "o": {
     "werte": [
-     -5,
-     1
+     -6,
+     -2
     ]
    },
-   "w": "0 = x² + 4x − 5; D = 36; x₁,₂ = (−4 ± 6) / 2: −5 und 1.",
+   "w": "0 = −x² − 8x − 12; D = 16; x₁,₂ = (8 ± 4) / −2: −6 und −2.",
    "h": "Setze y = 0 und löse die quadratische Gleichung.",
    "c": [
-    "min((-(4) - 6) / (2 * (1)), (-(4) + 6) / (2 * (1)))",
-    "max((-(4) - 6) / (2 * (1)), (-(4) + 6) / (2 * (1)))"
+    "min((-(-8) - 4) / (2 * (-1)), (-(-8) + 4) / (2 * (-1)))",
+    "max((-(-8) - 4) / (2 * (-1)), (-(-8) + 4) / (2 * (-1)))"
    ],
    "g": "mehrschritt"
   },
@@ -4228,25 +4278,26 @@
    "l": "nullstellen",
    "t": "nullstellen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Bestimme die Nullstellen von y = (x + 2) · (x − 6).",
+    "text": "Bestimme die Nullstellen von y = (x + 2)² − 1.",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "kleinere zuerst"
    },
    "o": {
     "werte": [
-     -2,
-     6
+     -3,
+     -1
     ]
    },
-   "w": "Ein Produkt ist null, wenn ein Faktor null ist: x = −2 oder x = 6.",
-   "h": "Setze jeden Faktor gleich null.",
+   "w": "0 = (x + 2)² − 1 ⇔ (x + 2)² = 1 ⇔ x + 2 = ±1: x₁ = −3, x₂ = −1.",
+   "h": "Setze y = 0, bringe e auf die andere Seite, teile durch a und ziehe die Wurzel.",
    "c": [
-    "min(-2, 6)",
-    "max(-2, 6)"
-   ]
+    "-2 - ((-(-1)) / (1)) / 1",
+    "-2 + ((-(-1)) / (1)) / 1"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "nullstellen",
@@ -4279,21 +4330,21 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Bestimme die Nullstellen von y = −x² − 8x − 12.",
+    "text": "Bestimme die Nullstellen von y = (x + 1)² − 25.",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "kleinere zuerst"
    },
    "o": {
     "werte": [
      -6,
-     -2
+     4
     ]
    },
-   "w": "0 = −x² − 8x − 12; D = 16; x₁,₂ = (8 ± 4) / −2: −6 und −2.",
-   "h": "Setze y = 0 und löse die quadratische Gleichung.",
+   "w": "0 = (x + 1)² − 25 ⇔ (x + 1)² = 25 ⇔ x + 1 = ±5: x₁ = −6, x₂ = 4.",
+   "h": "Setze y = 0, bringe e auf die andere Seite, teile durch a und ziehe die Wurzel.",
    "c": [
-    "min((-(-8) - 4) / (2 * (-1)), (-(-8) + 4) / (2 * (-1)))",
-    "max((-(-8) - 4) / (2 * (-1)), (-(-8) + 4) / (2 * (-1)))"
+    "-1 - ((-(-25)) / (1)) / 5",
+    "-1 + ((-(-25)) / (1)) / 5"
    ],
    "g": "mehrschritt"
   },
@@ -4320,24 +4371,20 @@
    "t": "nullstellen",
    "p": "uebung",
    "s": 2,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Bestimme die Nullstellen von y = (x + 2)² − 1.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere zuerst"
+    "text": "Wie viele Nullstellen hat die Funktion f mit f(x) = −x² − 8x − 16?"
    },
-   "o": {
-    "werte": [
-     -3,
-     -1
-    ]
-   },
-   "w": "0 = (x + 2)² − 1 ⇔ (x + 2)² = 1 ⇔ x + 2 = ±1: x₁ = −3, x₂ = −1.",
-   "h": "Setze y = 0, bringe e auf die andere Seite, teile durch a und ziehe die Wurzel.",
-   "c": [
-    "-2 - ((-(-1)) / (1)) / 1",
-    "-2 + ((-(-1)) / (1)) / 1"
+   "a": [
+    "zwei Nullstellen",
+    "keine Nullstelle",
+    "genau eine Nullstelle"
    ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = (−8)² − 4 · (−1) · (−16) = 0, also genau eine Nullstelle.",
+   "h": "Berechne die Diskriminante.",
    "g": "mehrschritt"
   },
   {
@@ -4370,23 +4417,65 @@
    "t": "nullstellen",
    "p": "uebung",
    "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat die Funktion f mit f(x) = −4x² − 16x − 16?"
+   },
+   "a": [
+    "keine Nullstelle",
+    "zwei Nullstellen",
+    "genau eine Nullstelle"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = (−16)² − 4 · (−4) · (−16) = 0, also genau eine Nullstelle.",
+   "h": "Berechne die Diskriminante.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat die Funktion f mit f(x) = x² + x + 3?"
+   },
+   "a": [
+    "genau eine Nullstelle",
+    "zwei Nullstellen",
+    "keine Nullstelle"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = 1² − 4 · 1 · 3 = −11, also keine Nullstelle.",
+   "h": "Berechne die Diskriminante.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Bestimme die Nullstellen von y = (x + 1)² − 25.",
+    "text": "Bestimme die Nullstellen von y = −(x + 3)² + 1.",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "kleinere zuerst"
    },
    "o": {
     "werte": [
-     -6,
-     4
+     -4,
+     -2
     ]
    },
-   "w": "0 = (x + 1)² − 25 ⇔ (x + 1)² = 25 ⇔ x + 1 = ±5: x₁ = −6, x₂ = 4.",
+   "w": "0 = −(x + 3)² + 1 ⇔ (x + 3)² = 1 ⇔ x + 3 = ±1: x₁ = −4, x₂ = −2.",
    "h": "Setze y = 0, bringe e auf die andere Seite, teile durch a und ziehe die Wurzel.",
    "c": [
-    "-1 - ((-(-25)) / (1)) / 5",
-    "-1 + ((-(-25)) / (1)) / 5"
+    "-3 - ((-(1)) / (-1)) / 1",
+    "-3 + ((-(1)) / (-1)) / 1"
    ],
    "g": "mehrschritt"
   },
@@ -4411,6 +4500,222 @@
    "w": "(x − 3)² = 0 nur für x = 3. x² − 3: zwei (±√3); x² + 3: keine; (x − 3)(x + 3): zwei.",
    "h": "Löse jeweils f(x) = 0 im Kopf.",
    "g": "begruenden"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von f(x) = 2x² − 8x − 10.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     5
+    ]
+   },
+   "w": "f(x) = 0 ⇔ x² − 4x − 5 = 0 ⇔ (x − 5)(x + 1) = 0. Nullstellen −1 und 5.",
+   "h": "Erst durch 2 teilen.",
+   "c": [
+    "-1",
+    "5"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = x² + bx + 12 hat die Nullstelle 3. Wo liegt die zweite Nullstelle?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 / 3",
+   "w": "Mit den Nullstellen gilt y = (x − 3)(x − n). Das Zahlglied ist 3 · n = 12, also n = 4. (Dann b = −7.)",
+   "h": "Denke an die Produktform: Was ergibt das Produkt der Nullstellen?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von y = x² − 6x + 8.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "w": "(x − 2)(x − 4) = 0, also 2 und 4.",
+   "h": "Produkt 8, Summe 6.",
+   "c": [
+    "2",
+    "4"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest bei y = (x − 3)(x + 2) die Nullstellen −3 und 2 ab. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es gibt nur die Nullstelle −6.",
+    "Richtig.",
+    "Falsch: Die Nullstellen sind 3 und −2.",
+    "Falsch: Die Nullstellen sind 3 und 2."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 3 = 0 bei x = 3, x + 2 = 0 bei x = −2.",
+   "h": "Setze jeden Faktor gleich 0.",
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat y = 2(x + 1)² + 3?"
+   },
+   "a": [
+    "zwei Nullstellen",
+    "genau eine Nullstelle",
+    "keine Nullstelle"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Scheitel S(−1 | 3) liegt über der x-Achse, nach oben geöffnet: keine Nullstelle.",
+   "h": "Lage des Scheitels und Öffnung betrachten.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Torbogen hat die Form y = −0,5x² + 2x (x, y in m, der Boden ist y = 0). Wie breit ist das Tor am Boden?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "2 / 0.5",
+   "w": "Nullstellen: x(−0,5x + 2) = 0, also x = 0 und x = 4. Breite 4 m.",
+   "h": "Klammere x aus.",
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben ist f(x) = x² − 2x − 15. a) Bestimme die Nullstellen (kleinere zuerst). b) Gib den Scheitel an.",
+    "schablone": "a) x₁ = □; x₂ = □; b) S(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -3,
+     5,
+     1,
+     -16
+    ]
+   },
+   "c": [
+    "-3",
+    "5",
+    "(-3 + 5) // 2",
+    "1 - 2 - 15"
+   ],
+   "w": "a) (x + 3)(x − 5) = 0: x = −3, x = 5. b) Der Scheitel liegt mittig: x = 1, f(1) = 1 − 2 − 15 = −16.",
+   "h": "Der Scheitel liegt in der Mitte zwischen den Nullstellen.",
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl c hat die Parabel y = x² − 6x + c genau eine Nullstelle?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "6 * 6 // 4",
+   "w": "Genau eine Nullstelle heißt: Die Diskriminante ist 0. (−6)² − 4 · 1 · c = 0, also 36 = 4c und c = 9. Dann ist y = (x − 3)².",
+   "h": "Wann hat die Lösungsformel nur eine Lösung?"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = x² + bx + c hat die Nullstellen 2 und 5. Welche Nullstellen hat dann y = x² − bx + c? (kleinere zuerst)",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -2
+    ]
+   },
+   "c": [
+    "-5",
+    "-2"
+   ],
+   "w": "Aus (x − 2)(x − 5) = x² − 7x + 10 folgt b = −7, c = 10. Dann y = x² + 7x + 10 = (x + 2)(x + 5) mit den Nullstellen −5 und −2. Allgemein: b umdrehen spiegelt die Parabel an der y-Achse.",
+   "h": "Bestimme zuerst b und c.",
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Eine Parabel y = x² + px + q hat zwei Nullstellen mit der Summe 10 und dem Produkt 21. Welches ist ihr kleinster Funktionswert?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "25 - 50 + 21",
+   "w": "Nullstellen mit Summe 10 und Produkt 21 sind 3 und 7. Also y = (x − 3)(x − 7) = x² − 10x + 21. Der Scheitel liegt in der Mitte bei x = 5: y = 25 − 50 + 21 = −4.",
+   "h": "Welche zwei Zahlen haben Summe 10 und Produkt 21?",
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
    "l": "nullstellen",
@@ -4641,319 +4946,6 @@
     "min((-(-28) - 4) / (2 * (2)), (-(-28) + 4) / (2 * (2)))",
     "max((-(-28) - 4) / (2 * (2)), (-(-28) + 4) / (2 * (2)))"
    ]
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Nullstellen hat die Funktion f mit f(x) = −x² − 8x − 16?"
-   },
-   "a": [
-    "zwei Nullstellen",
-    "keine Nullstelle",
-    "genau eine Nullstelle"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "D = (−8)² − 4 · (−1) · (−16) = 0, also genau eine Nullstelle.",
-   "h": "Berechne die Diskriminante.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Parabel y = x² + bx + 12 hat die Nullstelle 3. Wo liegt die zweite Nullstelle?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "12 / 3",
-   "w": "Mit den Nullstellen gilt y = (x − 3)(x − n). Das Zahlglied ist 3 · n = 12, also n = 4. (Dann b = −7.)",
-   "h": "Denke an die Produktform: Was ergibt das Produkt der Nullstellen?",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Nullstellen hat die Funktion f mit f(x) = −4x² − 16x − 16?"
-   },
-   "a": [
-    "keine Nullstelle",
-    "zwei Nullstellen",
-    "genau eine Nullstelle"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "D = (−16)² − 4 · (−4) · (−16) = 0, also genau eine Nullstelle.",
-   "h": "Berechne die Diskriminante.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Die Parabel y = x² − 2x − 3 und die Gerade y = x + 1 schneiden sich zweimal. Bestimme die x-Koordinaten der Schnittpunkte.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -1,
-     4
-    ]
-   },
-   "w": "Gleichsetzen: x² − 2x − 3 = x + 1 ⇔ x² − 3x − 4 = 0 ⇔ (x − 4)(x + 1) = 0.",
-   "h": "Gleichsetzen und alles auf eine Seite bringen.",
-   "c": [
-    "-1",
-    "4"
-   ],
-   "g": "verknuepfen"
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Bestimme die Nullstellen von y = −(x + 3)² + 1.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere zuerst"
-   },
-   "o": {
-    "werte": [
-     -4,
-     -2
-    ]
-   },
-   "w": "0 = −(x + 3)² + 1 ⇔ (x + 3)² = 1 ⇔ x + 3 = ±1: x₁ = −4, x₂ = −2.",
-   "h": "Setze y = 0, bringe e auf die andere Seite, teile durch a und ziehe die Wurzel.",
-   "c": [
-    "-3 - ((-(1)) / (-1)) / 1",
-    "-3 + ((-(1)) / (-1)) / 1"
-   ],
-   "g": "mehrschritt"
-  },
-  {
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand liest bei y = (x − 3)(x + 2) die Nullstellen −3 und 2 ab. Was stimmt?"
-   },
-   "a": [
-    "Falsch: Es gibt nur die Nullstelle −6.",
-    "Richtig.",
-    "Falsch: Die Nullstellen sind 3 und −2.",
-    "Falsch: Die Nullstellen sind 3 und 2."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 3 = 0 bei x = 3, x + 2 = 0 bei x = −2.",
-   "h": "Setze jeden Faktor gleich 0.",
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler"
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Bestimme die Nullstellen von f(x) = 2x² − 8x − 10.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -1,
-     5
-    ]
-   },
-   "w": "f(x) = 0 ⇔ x² − 4x − 5 = 0 ⇔ (x − 5)(x + 1) = 0. Nullstellen −1 und 5.",
-   "h": "Erst durch 2 teilen.",
-   "c": [
-    "-1",
-    "5"
-   ],
-   "g": "mehrschritt"
-  },
-  {
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche Werte von c hat y = x² + 6x + c zwei Nullstellen?"
-   },
-   "a": [
-    "c > 9",
-    "c = 9",
-    "c < 9",
-    "c < 3"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "D = 36 − 4c > 0 heißt c < 9. Bei c = 9 ist y = (x + 3)², eine Nullstelle.",
-   "h": "Die Diskriminante muss positiv sein.",
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 3,
-   "g": "parameter"
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Bestimme die Nullstellen von y = x² − 6x + 8.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     2,
-     4
-    ]
-   },
-   "w": "(x − 2)(x − 4) = 0, also 2 und 4.",
-   "h": "Produkt 8, Summe 6.",
-   "c": [
-    "2",
-    "4"
-   ],
-   "g": "mehrschritt"
-  },
-  {
-   "y": "zahl",
-   "f": {
-    "text": "Ein Torbogen hat die Form y = −0,5x² + 2x (x, y in m, der Boden ist y = 0). Wie breit ist das Tor am Boden?"
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "m"
-   },
-   "c": "2 / 0.5",
-   "w": "Nullstellen: x(−0,5x + 2) = 0, also x = 0 und x = 4. Breite 4 m.",
-   "h": "Klammere x aus.",
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 3,
-   "g": "transfer"
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Nullstellen hat y = 2(x + 1)² + 3?"
-   },
-   "a": [
-    "zwei Nullstellen",
-    "genau eine Nullstelle",
-    "keine Nullstelle"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Scheitel S(−1 | 3) liegt über der x-Achse, nach oben geöffnet: keine Nullstelle.",
-   "h": "Lage des Scheitels und Öffnung betrachten.",
-   "g": "mehrschritt"
-  },
-  {
-   "y": "luecken",
-   "f": {
-    "text": "Gegeben ist f(x) = x² − 2x − 15. a) Bestimme die Nullstellen (kleinere zuerst). b) Gib den Scheitel an.",
-    "schablone": "a) x₁ = □; x₂ = □; b) S(□ | □)",
-    "hinweis": "Je Lücke eine ganze Zahl."
-   },
-   "o": {
-    "werte": [
-     -3,
-     5,
-     1,
-     -16
-    ]
-   },
-   "c": [
-    "-3",
-    "5",
-    "(-3 + 5) // 2",
-    "1 - 2 - 15"
-   ],
-   "w": "a) (x + 3)(x − 5) = 0: x = −3, x = 5. b) Der Scheitel liegt mittig: x = 1, f(1) = 1 − 2 − 15 = −16.",
-   "h": "Der Scheitel liegt in der Mitte zwischen den Nullstellen.",
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung"
-  },
-  {
-   "y": "luecken",
-   "f": {
-    "text": "Die Parabel y = x² + bx + c hat die Nullstellen 2 und 5. Welche Nullstellen hat dann y = x² − bx + c? (kleinere zuerst)",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "Je Lücke eine ganze Zahl."
-   },
-   "o": {
-    "werte": [
-     -5,
-     -2
-    ]
-   },
-   "c": [
-    "-5",
-    "-2"
-   ],
-   "w": "Aus (x − 2)(x − 5) = x² − 7x + 10 folgt b = −7, c = 10. Dann y = x² + 7x + 10 = (x + 2)(x + 5) mit den Nullstellen −5 und −2. Allgemein: b umdrehen spiegelt die Parabel an der y-Achse.",
-   "h": "Bestimme zuerst b und c.",
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel"
-  },
-  {
-   "y": "zahl",
-   "f": {
-    "text": "Eine Parabel y = x² + px + q hat zwei Nullstellen mit der Summe 10 und dem Produkt 21. Welches ist ihr kleinster Funktionswert?"
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "25 - 50 + 21",
-   "w": "Nullstellen mit Summe 10 und Produkt 21 sind 3 und 7. Also y = (x − 3)(x − 7) = x² − 10x + 21. Der Scheitel liegt in der Mitte bei x = 5: y = 25 − 50 + 21 = −4.",
-   "h": "Welche zwei Zahlen haben Summe 10 und Produkt 21?",
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel"
   },
   {
    "l": "punkte",
@@ -7371,6 +7363,23 @@
    "l": "schnittpunkte",
    "t": "schnittpunkte",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = x + 1 schneidet die Parabel y = x² − 1 in zwei Punkten P und Q. Berechne die y-Koordinate des Mittelpunkts M der Strecke [PQ]."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(0 + 3) / 2",
+   "w": "x² − 1 = x + 1 ⇒ x² − x − 2 = 0 ⇒ x = −1 oder x = 2. P(−1 | 0), Q(2 | 3). Der Mittelpunkt hat die Mittelwerte der Koordinaten: y = (0 + 3) : 2 = 1,5.",
+   "h": "Erst P und Q berechnen. Der Mittelpunkt liegt genau in der Mitte: Mittelwert der y-Werte.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
    "s": 1,
    "y": "luecken",
    "f": {
@@ -7455,23 +7464,6 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Die Gerade y = x + 1 schneidet die Parabel y = x² − 1 in zwei Punkten P und Q. Berechne die y-Koordinate des Mittelpunkts M der Strecke [PQ]."
-   },
-   "o": {
-    "wert": 1.5
-   },
-   "c": "(0 + 3) / 2",
-   "w": "x² − 1 = x + 1 ⇒ x² − x − 2 = 0 ⇒ x = −1 oder x = 2. P(−1 | 0), Q(2 | 3). Der Mittelpunkt hat die Mittelwerte der Koordinaten: y = (0 + 3) : 2 = 1,5.",
-   "h": "Erst P und Q berechnen. Der Mittelpunkt liegt genau in der Mitte: Mittelwert der y-Werte.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Eine Ursprungsgerade y = m · x mit m > 0 berührt die Parabel y = x² + 1. Bestimme m."
    },
    "o": {
@@ -7481,6 +7473,35 @@
    "w": "x² + 1 = mx ⇒ x² − mx + 1 = 0. Berühren: D = m² − 4 = 0 ⇒ m = 2 (m > 0).",
    "h": "Berühren heißt: genau eine Lösung. Stelle D in Abhängigkeit von m auf.",
    "g": "transfer"
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die Schnittpunkte der Parabeln y = x² − 2x − 3 und y = −x² + 4x + 5 (kleineres x zuerst).",
+    "schablone": "S₁(□ | □); S₂(□ | □)",
+    "hinweis": "x und y des ersten, dann des zweiten Punkts"
+   },
+   "o": {
+    "werte": [
+     -1,
+     0,
+     4,
+     5
+    ]
+   },
+   "w": "Gleichsetzen: 2x² − 6x − 8 = 0 ⇒ x² − 3x − 4 = 0 ⇒ x = −1 oder x = 4. In y = x² − 2x − 3: y = 0 und y = 5.",
+   "h": "Gleichsetzen, auf null bringen und durch den Faktor vor x² teilen.",
+   "c": [
+    "-1",
+    "(-1) ** 2 - 2 * (-1) - 3",
+    "4",
+    "4 ** 2 - 2 * 4 - 3"
+   ],
+   "g": "verknuepfen"
   },
   {
    "l": "schnittpunkte",
@@ -7632,6 +7653,87 @@
    "w": "x² − 2x − t = 0 hat zwei Lösungen, wenn D = 4 + 4t > 0, also t > −1. Bei t = −1 berührt die Gerade nur.",
    "h": "Stelle D in Abhängigkeit von t auf. Wann ist D > 0?",
    "g": "parameter"
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand setzt y = x² + 2x und y = 4x + 3 gleich und schreibt: x² + 2x − 4x + 3 = 0. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Es muss x² − 2x − 3 = 0 heißen, die 3 wechselt das Vorzeichen.",
+    "Falsch: Es muss x² + 6x + 3 = 0 heißen.",
+    "Falsch: Man darf nicht gleichsetzen, sondern muss y = 0 setzen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Von x² + 2x = 4x + 3 auf beiden Seiten 4x und 3 abziehen: x² − 2x − 3 = 0.",
+   "h": "Was passiert mit + 3, wenn es auf die linke Seite kommt?",
+   "g": "fehler"
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Parabel y = x² − 2x − 3 und die Gerade y = x + 1 schneiden sich zweimal. Bestimme die x-Koordinaten der Schnittpunkte.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     4
+    ]
+   },
+   "w": "Gleichsetzen: x² − 2x − 3 = x + 1 ⇔ x² − 3x − 4 = 0 ⇔ (x − 4)(x + 1) = 0.",
+   "h": "Gleichsetzen und alles auf eine Seite bringen.",
+   "c": [
+    "-1",
+    "4"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen m hat die Gerade y = mx keinen gemeinsamen Punkt mit der Parabel y = x² + 4?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "2 * 3 + 1",
+   "w": "Gleichsetzen: x² − mx + 4 = 0. Keine Lösung, wenn D = m² − 16 < 0, also −4 < m < 4. Ganze Zahlen: −3, −2, …, 3, das sind 7.",
+   "h": "Wann hat eine quadratische Gleichung keine Lösung?",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = 4 schneidet die Parabel y = x² in A und B, die Gerade y = 16 schneidet sie in C und D. Wie groß ist das Trapez mit den Ecken A, B, D, C?"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "(4 + 8) * 12 // 2",
+   "w": "y = 4: x = ±2, also AB = 4. y = 16: x = ±4, also CD = 8. Abstand der Parallelen: 16 − 4 = 12. Fläche (4 + 8) : 2 · 12 = 72.",
+   "h": "Bestimme die Schnittpunkte und zeichne das Trapez.",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
    "l": "schnittpunkte",
@@ -7866,91 +7968,6 @@
    },
    "c": "2",
    "w": "Gleichsetzen ergibt x² + 4x − 3 = 0. D = 28 > 0: zwei Lösungen, 2 Schnittpunkte."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne die Schnittpunkte der Parabeln y = x² − 2x − 3 und y = −x² + 4x + 5 (kleineres x zuerst).",
-    "schablone": "S₁(□ | □); S₂(□ | □)",
-    "hinweis": "x und y des ersten, dann des zweiten Punkts"
-   },
-   "o": {
-    "werte": [
-     -1,
-     0,
-     4,
-     5
-    ]
-   },
-   "w": "Gleichsetzen: 2x² − 6x − 8 = 0 ⇒ x² − 3x − 4 = 0 ⇒ x = −1 oder x = 4. In y = x² − 2x − 3: y = 0 und y = 5.",
-   "h": "Gleichsetzen, auf null bringen und durch den Faktor vor x² teilen.",
-   "c": [
-    "-1",
-    "(-1) ** 2 - 2 * (-1) - 3",
-    "4",
-    "4 ** 2 - 2 * 4 - 3"
-   ],
-   "g": "verknuepfen"
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand setzt y = x² + 2x und y = 4x + 3 gleich und schreibt: x² + 2x − 4x + 3 = 0. Was stimmt?"
-   },
-   "a": [
-    "Richtig.",
-    "Falsch: Es muss x² − 2x − 3 = 0 heißen, die 3 wechselt das Vorzeichen.",
-    "Falsch: Es muss x² + 6x + 3 = 0 heißen.",
-    "Falsch: Man darf nicht gleichsetzen, sondern muss y = 0 setzen."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Von x² + 2x = 4x + 3 auf beiden Seiten 4x und 3 abziehen: x² − 2x − 3 = 0.",
-   "h": "Was passiert mit + 3, wenn es auf die linke Seite kommt?",
-   "g": "fehler"
-  },
-  {
-   "y": "zahl",
-   "f": {
-    "text": "Für wie viele ganze Zahlen m hat die Gerade y = mx keinen gemeinsamen Punkt mit der Parabel y = x² + 4?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "2 * 3 + 1",
-   "w": "Gleichsetzen: x² − mx + 4 = 0. Keine Lösung, wenn D = m² − 16 < 0, also −4 < m < 4. Ganze Zahlen: −3, −2, …, 3, das sind 7.",
-   "h": "Wann hat eine quadratische Gleichung keine Lösung?",
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel"
-  },
-  {
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = 4 schneidet die Parabel y = x² in A und B, die Gerade y = 16 schneidet sie in C und D. Wie groß ist das Trapez mit den Ecken A, B, D, C?"
-   },
-   "o": {
-    "wert": 72
-   },
-   "c": "(4 + 8) * 12 // 2",
-   "w": "y = 4: x = ±2, also AB = 4. y = 16: x = ±4, also CD = 8. Abstand der Parallelen: 16 − 4 = 12. Fläche (4 + 8) : 2 · 12 = 72.",
-   "h": "Bestimme die Schnittpunkte und zeichne das Trapez.",
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel"
   }
  ],
  "offen": [

@@ -2756,357 +2756,6 @@
    "l": "pyr_volumen",
    "t": "pyr_volumen",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante a = 10 cm und die Höhe h = 12 cm. Wie lang ist eine Seitenkante? Runde auf eine Nachkommastelle.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       10,
-       0
-      ],
-      "C": [
-       13.54,
-       3.54
-      ],
-      "D": [
-       3.54,
-       3.54
-      ],
-      "F": [
-       6.77,
-       1.77
-      ],
-      "S": [
-       6.77,
-       13.77
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "a = 10 cm"
-      ],
-      [
-       "B",
-       "C",
-       ""
-      ],
-      [
-       "A",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "D",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "S",
-       "A"
-      ],
-      [
-       "S",
-       "B"
-      ],
-      [
-       "S",
-       "C"
-      ],
-      [
-       "S",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "F",
-       "S",
-       "h = 12 cm",
-       "gestrichelt"
-      ],
-      [
-       "A",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "B",
-       "D",
-       "",
-       "gestrichelt"
-      ]
-     ],
-     "label": "Schrägbild einer quadratischen Pyramide (verdeckte Kanten gestrichelt)"
-    }
-   },
-   "o": {
-    "wert": 13.9,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(13.928388277184, 1)",
-   "w": "Halbe Diagonale der Grundfläche: (d/2)² = (10/2)² + (10/2)² = 50. Seitenkante: k² = h² + (d/2)² = 144 + 50 = 194 ⇒ k ≈ 13,9 cm.",
-   "h": "Die Seitenkante geht von einer Ecke zur Spitze. Der Fußpunkt der Höhe liegt in der Mitte der Diagonale: zweimal Pythagoras."
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 8 cm und Höhe 8 cm. Die Pyramide ist 3 cm hoch. Berechne ihr Volumen."
-   },
-   "o": {
-    "wert": 32,
-    "einheit": "cm³"
-   },
-   "c": "8 * 8 / 2 * 3 / 3",
-   "w": "G = ½ · 8 · 8 = 32 cm²; V = ⅓ · 32 · 3 = 32 cm³.",
-   "h": "Die Grundfläche ist ein Dreieck: G = ½ · g · h_g."
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat eine rechteckige Grundfläche (8 cm × 3 cm) und die Höhe 2 cm. Berechne ihr Volumen."
-   },
-   "o": {
-    "wert": 16,
-    "einheit": "cm³"
-   },
-   "c": "8 * 3 * 2 / 3",
-   "w": "V = ⅓ · 8 · 3 · 2 = 16 cm³.",
-   "h": "Grundfläche = Länge · Breite."
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide mit Grundkante 6 cm hat das Volumen 228 cm³. Wie hoch ist sie?"
-   },
-   "o": {
-    "wert": 19,
-    "einheit": "cm"
-   },
-   "c": "3 * 228 / 6 ** 2",
-   "w": "h = 3V : G = 3 · 228 : 36 = 19 cm.",
-   "h": "Stelle V = ⅓ · G · h nach h um."
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante a = 7 cm und die Höhe h = 3 cm. Berechne ihr Volumen.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       3.5,
-       3
-      ],
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       7,
-       0
-      ],
-      "_H": [
-       3.5,
-       0
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "S"
-     ],
-     "linien": [
-      [
-       "A",
-       "B",
-       "a = 7 cm"
-      ],
-      [
-       "A",
-       "S",
-       ""
-      ],
-      [
-       "B",
-       "S",
-       ""
-      ],
-      [
-       "_H",
-       "S",
-       "h = 3 cm",
-       "gestrichelt"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "_H",
-       "B",
-       "S"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 49,
-    "einheit": "cm³"
-   },
-   "c": "7 ** 2 * 3 / 3",
-   "w": "G = 7² = 49 cm²; V = ⅓ · 49 · 3 = 49 cm³.",
-   "h": "Erst die Grundfläche, dann V = ⅓ · G · h.",
-   "g": "direkt"
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Formel gilt für das Volumen jeder Pyramide?"
-   },
-   "a": [
-    "V = 1/3 · a · h",
-    "V = 1/2 · G · h",
-    "V = G · h",
-    "V = 1/3 · G · h"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Eine Pyramide fasst ein Drittel des Prismas mit gleicher Grundfläche und Höhe.",
-   "h": "Denke an das Zelt und die Kiste."
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante a = 5 cm und die Höhe h = 12 cm. Berechne ihr Volumen.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       2.5,
-       12
-      ],
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       5,
-       0
-      ],
-      "_H": [
-       2.5,
-       0
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "S"
-     ],
-     "linien": [
-      [
-       "A",
-       "B",
-       "a = 5 cm"
-      ],
-      [
-       "A",
-       "S",
-       ""
-      ],
-      [
-       "B",
-       "S",
-       ""
-      ],
-      [
-       "_H",
-       "S",
-       "h = 12 cm",
-       "gestrichelt"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "_H",
-       "B",
-       "S"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 100,
-    "einheit": "cm³"
-   },
-   "c": "5 ** 2 * 12 / 3",
-   "w": "G = 5² = 25 cm²; V = ⅓ · 25 · 12 = 100 cm³.",
-   "h": "Erst die Grundfläche, dann V = ⅓ · G · h.",
-   "g": "direkt"
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Was ist bei einer Pyramide die Höhe h?"
-   },
-   "a": [
-    "die Höhe eines Seitendreiecks",
-    "der senkrechte Abstand der Spitze von der Grundfläche",
-    "die Länge einer Seitenkante",
-    "die Länge einer Grundkante"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "h wird senkrecht gemessen, von der Spitze bis zur Grundfläche.",
-   "h": "Wie misst man die Höhe eines Zelts?"
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -3289,6 +2938,120 @@
    "l": "pyr_volumen",
    "t": "pyr_volumen",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 2 cm hat das Volumen 4 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "3 * 4 / 2 ** 2",
+   "w": "h = 3V : G = 3 · 4 : 4 = 3 cm.",
+   "h": "Stelle V = ⅓ · G · h nach h um.",
+   "g": "umkehr"
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 7 cm und die Höhe h = 3 cm. Berechne ihr Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       3.5,
+       3
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       7,
+       0
+      ],
+      "_H": [
+       3.5,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 7 cm"
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "_H",
+       "S",
+       "h = 3 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "S"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 49,
+    "einheit": "cm³"
+   },
+   "c": "7 ** 2 * 3 / 3",
+   "w": "G = 7² = 49 cm²; V = ⅓ · 49 · 3 = 49 cm³.",
+   "h": "Erst die Grundfläche, dann V = ⅓ · G · h.",
+   "g": "direkt"
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Formel gilt für das Volumen jeder Pyramide?"
+   },
+   "a": [
+    "V = 1/3 · a · h",
+    "V = 1/2 · G · h",
+    "V = G · h",
+    "V = 1/3 · G · h"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine Pyramide fasst ein Drittel des Prismas mit gleicher Grundfläche und Höhe.",
+   "h": "Denke an das Zelt und die Kiste."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -3365,16 +3128,148 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine quadratische Pyramide mit Grundkante 2 cm hat das Volumen 4 cm³. Wie hoch ist sie?"
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (9 cm × 4 cm) und die Höhe 16 cm. Berechne ihr Volumen."
    },
    "o": {
-    "wert": 3,
+    "wert": 192,
+    "einheit": "cm³"
+   },
+   "c": "9 * 4 * 16 / 3",
+   "w": "V = ⅓ · 9 · 4 · 16 = 192 cm³.",
+   "h": "Grundfläche = Länge · Breite.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat die Grundfläche 32 cm² und das Volumen 96 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 9,
     "einheit": "cm"
    },
-   "c": "3 * 4 / 2 ** 2",
-   "w": "h = 3V : G = 3 · 4 : 4 = 3 cm.",
-   "h": "Stelle V = ⅓ · G · h nach h um.",
+   "c": "3 * 96 / 32",
+   "w": "h = 3V : G = 3 · 96 : 32 = 9 cm.",
+   "h": "Stelle V = 1/3 · G · h nach h um.",
    "g": "umkehr"
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Würfel mit der Kante 6 cm wird eine Ecke abgeschnitten: Der Schnitt geht durch die drei Nachbarecken dieser Ecke. Welches Volumen hat das abgeschnittene Stück?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm³"
+   },
+   "c": "(6 * 6 / 2) * 6 / 3",
+   "w": "Das Stück ist eine Pyramide. Grundfläche: rechtwinkliges Dreieck mit den Katheten 6 cm, also G = 1/2 · 6 · 6 = 18 cm². Höhe: die dritte Kante, 6 cm. V = 1/3 · 18 · 6 = 36 cm³ (ein Sechstel des Würfels).",
+   "h": "Das abgeschnittene Stück ist eine Pyramide mit dreieckiger Grundfläche. Welche Kante steht senkrecht darauf?",
+   "g": "transfer"
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 5 cm und die Höhe h = 12 cm. Berechne ihr Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       2.5,
+       12
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "_H": [
+       2.5,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 5 cm"
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "_H",
+       "S",
+       "h = 12 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "S"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "cm³"
+   },
+   "c": "5 ** 2 * 12 / 3",
+   "w": "G = 5² = 25 cm²; V = ⅓ · 25 · 12 = 100 cm³.",
+   "h": "Erst die Grundfläche, dann V = ⅓ · G · h.",
+   "g": "direkt"
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist bei einer Pyramide die Höhe h?"
+   },
+   "a": [
+    "die Höhe eines Seitendreiecks",
+    "der senkrechte Abstand der Spitze von der Grundfläche",
+    "die Länge einer Seitenkante",
+    "die Länge einer Grundkante"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "h wird senkrecht gemessen, von der Spitze bis zur Grundfläche.",
+   "h": "Wie misst man die Höhe eines Zelts?"
   },
   {
    "l": "pyr_volumen",
@@ -3456,16 +3351,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat eine rechteckige Grundfläche (9 cm × 4 cm) und die Höhe 16 cm. Berechne ihr Volumen."
+    "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 8 cm und Höhe 8 cm. Die Pyramide ist 3 cm hoch. Berechne ihr Volumen."
    },
    "o": {
-    "wert": 192,
+    "wert": 32,
     "einheit": "cm³"
    },
-   "c": "9 * 4 * 16 / 3",
-   "w": "V = ⅓ · 9 · 4 · 16 = 192 cm³.",
-   "h": "Grundfläche = Länge · Breite.",
-   "g": "mehrschritt"
+   "c": "8 * 8 / 2 * 3 / 3",
+   "w": "G = ½ · 8 · 8 = 32 cm²; V = ⅓ · 32 · 3 = 32 cm³.",
+   "h": "Die Grundfläche ist ein Dreieck: G = ½ · g · h_g."
   },
   {
    "l": "pyr_volumen",
@@ -3474,16 +3368,32 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat die Grundfläche 32 cm² und das Volumen 96 cm³. Wie hoch ist sie?"
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (8 cm × 3 cm) und die Höhe 2 cm. Berechne ihr Volumen."
    },
    "o": {
-    "wert": 9,
+    "wert": 16,
+    "einheit": "cm³"
+   },
+   "c": "8 * 3 * 2 / 3",
+   "w": "V = ⅓ · 8 · 3 · 2 = 16 cm³.",
+   "h": "Grundfläche = Länge · Breite."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 6 cm hat das Volumen 228 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 19,
     "einheit": "cm"
    },
-   "c": "3 * 96 / 32",
-   "w": "h = 3V : G = 3 · 96 : 32 = 9 cm.",
-   "h": "Stelle V = 1/3 · G · h nach h um.",
-   "g": "umkehr"
+   "c": "3 * 228 / 6 ** 2",
+   "w": "h = 3V : G = 3 · 228 : 36 = 19 cm.",
+   "h": "Stelle V = ⅓ · G · h nach h um."
   },
   {
    "l": "pyr_volumen",
@@ -3525,346 +3435,19 @@
    "l": "pyr_volumen",
    "t": "pyr_volumen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante a = 4 cm, jede Seitenkante ist 7 cm lang. Wie hoch ist die Pyramide? Runde auf eine Nachkommastelle.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       4,
-       0
-      ],
-      "C": [
-       5.41,
-       1.41
-      ],
-      "D": [
-       1.41,
-       1.41
-      ],
-      "F": [
-       2.71,
-       0.7
-      ],
-      "S": [
-       2.71,
-       7.1
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "a = 4 cm"
-      ],
-      [
-       "B",
-       "C",
-       ""
-      ],
-      [
-       "A",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "D",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "S",
-       "A"
-      ],
-      [
-       "S",
-       "B"
-      ],
-      [
-       "S",
-       "C"
-      ],
-      [
-       "S",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "F",
-       "S",
-       "h = ?",
-       "gestrichelt"
-      ],
-      [
-       "A",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "B",
-       "D",
-       "",
-       "gestrichelt"
-      ]
-     ],
-     "label": "Schrägbild einer quadratischen Pyramide (verdeckte Kanten gestrichelt)"
-    }
+    "text": "Eine Pyramide hat das Volumen 45 cm³ und die Grundfläche 27 cm². Wie hoch ist sie? (V = G · h : 3)"
    },
    "o": {
-    "wert": 6.4,
-    "einheit": "cm",
-    "toleranz": 0.1
+    "wert": 5,
+    "einheit": "cm"
    },
-   "c": "round(6.403124237433, 1)",
-   "w": "(d/2)² = (4/2)² + (4/2)² = 8. h² = k² − (d/2)² = 49 − 8 = 41 ⇒ h ≈ 6,4 cm.",
-   "h": "Rechtwinkliges Dreieck aus Höhe, halber Diagonale und Seitenkante – die halbe Diagonale erst mit Pythagoras bestimmen.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Von einem Würfel mit der Kante 6 cm wird eine Ecke abgeschnitten: Der Schnitt geht durch die drei Nachbarecken dieser Ecke. Welches Volumen hat das abgeschnittene Stück?"
-   },
-   "o": {
-    "wert": 36,
-    "einheit": "cm³"
-   },
-   "c": "(6 * 6 / 2) * 6 / 3",
-   "w": "Das Stück ist eine Pyramide. Grundfläche: rechtwinkliges Dreieck mit den Katheten 6 cm, also G = 1/2 · 6 · 6 = 18 cm². Höhe: die dritte Kante, 6 cm. V = 1/3 · 18 · 6 = 36 cm³ (ein Sechstel des Würfels).",
-   "h": "Das abgeschnittene Stück ist eine Pyramide mit dreieckiger Grundfläche. Welche Kante steht senkrecht darauf?",
-   "g": "transfer"
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante a = 4 cm und die Höhe h = 10 cm. Wie lang ist eine Seitenkante? Runde auf eine Nachkommastelle.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       4,
-       0
-      ],
-      "C": [
-       5.41,
-       1.41
-      ],
-      "D": [
-       1.41,
-       1.41
-      ],
-      "F": [
-       2.71,
-       0.7
-      ],
-      "S": [
-       2.71,
-       10.7
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "a = 4 cm"
-      ],
-      [
-       "B",
-       "C",
-       ""
-      ],
-      [
-       "A",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "D",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "S",
-       "A"
-      ],
-      [
-       "S",
-       "B"
-      ],
-      [
-       "S",
-       "C"
-      ],
-      [
-       "S",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "F",
-       "S",
-       "h = 10 cm",
-       "gestrichelt"
-      ],
-      [
-       "A",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "B",
-       "D",
-       "",
-       "gestrichelt"
-      ]
-     ],
-     "label": "Schrägbild einer quadratischen Pyramide (verdeckte Kanten gestrichelt)"
-    }
-   },
-   "o": {
-    "wert": 10.4,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(10.392304845413, 1)",
-   "w": "Halbe Diagonale der Grundfläche: (d/2)² = (4/2)² + (4/2)² = 8. Seitenkante: k² = h² + (d/2)² = 100 + 8 = 108 ⇒ k ≈ 10,4 cm.",
-   "h": "Die Seitenkante geht von einer Ecke zur Spitze. Der Fußpunkt der Höhe liegt in der Mitte der Diagonale: zweimal Pythagoras.",
-   "g": "pruefung"
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante a = 8 cm, jede Seitenkante ist 14 cm lang. Wie hoch ist die Pyramide? Runde auf eine Nachkommastelle.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       8,
-       0
-      ],
-      "C": [
-       10.83,
-       2.83
-      ],
-      "D": [
-       2.83,
-       2.83
-      ],
-      "F": [
-       5.42,
-       1.42
-      ],
-      "S": [
-       5.42,
-       14.23
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "a = 8 cm"
-      ],
-      [
-       "B",
-       "C",
-       ""
-      ],
-      [
-       "A",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "D",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "S",
-       "A"
-      ],
-      [
-       "S",
-       "B"
-      ],
-      [
-       "S",
-       "C"
-      ],
-      [
-       "S",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "F",
-       "S",
-       "h = ?",
-       "gestrichelt"
-      ],
-      [
-       "A",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "B",
-       "D",
-       "",
-       "gestrichelt"
-      ]
-     ],
-     "label": "Schrägbild einer quadratischen Pyramide (verdeckte Kanten gestrichelt)"
-    }
-   },
-   "o": {
-    "wert": 12.8,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(12.806248474866, 1)",
-   "w": "(d/2)² = (8/2)² + (8/2)² = 32. h² = k² − (d/2)² = 196 − 32 = 164 ⇒ h ≈ 12,8 cm.",
-   "h": "Rechtwinkliges Dreieck aus Höhe, halber Diagonale und Seitenkante – die halbe Diagonale erst mit Pythagoras bestimmen.",
-   "g": "verknuepfen"
+   "c": "3 * 45 / 27",
+   "w": "h = 3 · V : G = 135 : 27 = 5 cm.",
+   "h": "Stelle V = G · h : 3 nach h um.",
+   "g": "umkehr"
   },
   {
    "l": "pyr_volumen",
@@ -3947,6 +3530,103 @@
    },
    "w": "180 cm³ ist das Volumen des Quaders mit gleicher Grundfläche und Höhe. Die Pyramide fasst ein Drittel.",
    "h": "Was passt in die Kiste, was ins Zelt?"
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide und ein Quader haben dieselbe Grundfläche 36 cm² und dieselbe Höhe 6 cm. Wie viele cm³ fasst der Quader mehr als die Pyramide?"
+   },
+   "o": {
+    "wert": 144,
+    "einheit": "cm³"
+   },
+   "c": "36 * 6 - 36 * 6 // 3",
+   "w": "Quader: 36 · 6 = 216 cm³. Pyramide: 1/3 · 216 = 72 cm³. Unterschied 144 cm³.",
+   "h": "Eine Pyramide fasst ein Drittel des passenden Prismas."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zelt hat die Form einer quadratischen Pyramide mit 3 m Grundkante und 2,5 m Höhe. Wie viele m³ Luft sind darin?"
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "m³"
+   },
+   "c": "3 * 3 * 25 / 30",
+   "w": "G = 3 m · 3 m = 9 m². V = 1/3 · 9 m² · 2,5 m = 7,5 m³.",
+   "h": "Erst die Grundfläche, dann V = 1/3 · G · h."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide ist 12 cm hoch und hat das Volumen 256 cm³. Wie groß ist ihre Grundfläche?"
+   },
+   "o": {
+    "wert": 64,
+    "einheit": "cm²"
+   },
+   "c": "3 * 256 // 12",
+   "w": "V = 1/3 · G · h, also G = 3 · V : h = 3 · 256 : 12 = 64 cm².",
+   "h": "Stelle V = 1/3 · G · h nach G um."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "Eine Pyramide wird auf halber Höhe parallel zur Grundfläche durchgeschnitten. Welcher Anteil ihres Volumens liegt im oberen Teil?",
+    "schablone": "□/□",
+    "hinweis": "gekürzter Bruch"
+   },
+   "o": {
+    "werte": [
+     1,
+     8
+    ]
+   },
+   "c": [
+    "1",
+    "8"
+   ],
+   "w": "Der obere Teil ist eine kleine Pyramide mit halber Höhe und halben Grundkanten. Grundfläche ein Viertel, Höhe die Hälfte: 1/4 · 1/2 = 1/8.",
+   "h": "Wie ändern sich Grundfläche und Höhe der kleinen Pyramide?"
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Würfel mit der Kante 6 cm verbindet man vier Ecken, von denen keine zwei an derselben Kante liegen, zu einem Tetraeder. Welches Volumen hat es?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "cm³"
+   },
+   "c": "216 - 4 * 36",
+   "w": "Vom Würfel (216 cm³) werden vier Eckpyramiden abgeschnitten, jede mit V = 1/3 · (1/2 · 6 · 6) · 6 = 36 cm³. Übrig: 216 − 144 = 72 cm³ – genau ein Drittel des Würfels.",
+   "h": "Was wird vom Würfel weggeschnitten?"
   },
   {
    "l": "pyr_volumen",
@@ -4107,49 +3787,6 @@
    },
    "c": "10 * 9 * 14 / 3",
    "w": "V = ⅓ · 10 · 9 · 14 = 420 cm³."
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "luecken",
-   "f": {
-    "text": "Eine Pyramide wird auf halber Höhe parallel zur Grundfläche durchgeschnitten. Welcher Anteil ihres Volumens liegt im oberen Teil?",
-    "schablone": "□/□",
-    "hinweis": "gekürzter Bruch"
-   },
-   "o": {
-    "werte": [
-     1,
-     8
-    ]
-   },
-   "c": [
-    "1",
-    "8"
-   ],
-   "w": "Der obere Teil ist eine kleine Pyramide mit halber Höhe und halben Grundkanten. Grundfläche ein Viertel, Höhe die Hälfte: 1/4 · 1/2 = 1/8.",
-   "h": "Wie ändern sich Grundfläche und Höhe der kleinen Pyramide?"
-  },
-  {
-   "l": "pyr_volumen",
-   "t": "pyr_volumen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "In einem Würfel mit der Kante 6 cm verbindet man vier Ecken, von denen keine zwei an derselben Kante liegen, zu einem Tetraeder. Welches Volumen hat es?"
-   },
-   "o": {
-    "wert": 72,
-    "einheit": "cm³"
-   },
-   "c": "216 - 4 * 36",
-   "w": "Vom Würfel (216 cm³) werden vier Eckpyramiden abgeschnitten, jede mit V = 1/3 · (1/2 · 6 · 6) · 6 = 36 cm³. Übrig: 216 − 144 = 72 cm³ – genau ein Drittel des Würfels.",
-   "h": "Was wird vom Würfel weggeschnitten?"
   },
   {
    "l": "pyr_oberflaeche",

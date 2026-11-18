@@ -8,7 +8,7 @@
  },
  "autor": "Claude (Paket Klasse 8)",
  "inhalt": {
-  "ziel": "Schrägbilder von Prismen und Pyramiden verstehen, Lagebeziehungen im Raum erkennen, Rotationskörper und Axialschnitte beschreiben und Punkte im Raum mit Koordinaten angeben.",
+  "ziel": "Pyramiden beschreiben und ihre Schrägbilder verstehen, Lagebeziehungen im Raum erkennen, Rotationskörper und Axialschnitte beschreiben und Punkte im Raum mit Koordinaten angeben. Schrägbilder von Prismen: Klasse 8.",
   "merke": [
    "Pyramide: n + 1 Ecken, 2n Kanten, n + 1 Flächen.",
    "Schrägbild: parallel zur Zeichenebene wahr, nach hinten mit q verkürzt.",
@@ -17,10 +17,9 @@
   ],
   "abschnitte": [
    {
-    "titel": "Prismen und Pyramiden",
+    "titel": "Pyramiden",
     "lernziele": [
-     "pyramide",
-     "laengen"
+     "pyramide"
     ]
    },
    {
@@ -148,410 +147,6 @@
       [
        "_S",
        "_D",
-       "",
-       "gestrichelt"
-      ]
-     ]
-    }
-   },
-   {
-    "lernziel": "laengen",
-    "titel": "Schrägbilder von Prismen und Pyramiden",
-    "regel": "Nur Kanten ⟦nach hinten⟧ werden verkürzt, meist auf die Hälfte. Breite und Höhe bleiben in wahrer Länge.",
-    "schritte": [
-     {
-      "text": "Die Pyramide hat Grundkante 6 cm, Höhe 8 cm und q = 1/2."
-     },
-     {
-      "text": "Vorne 6 cm, nach hinten 6 · 1/2 = 3 cm unter 45°.",
-      "bild": {
-       "punkte": {
-        "A": [
-         0,
-         0
-        ],
-        "B": [
-         6,
-         0
-        ],
-        "C": [
-         8.12,
-         2.12
-        ],
-        "D": [
-         2.12,
-         2.12
-        ]
-       },
-       "linien": [
-        [
-         "A",
-         "B",
-         "6 cm"
-        ],
-        [
-         "B",
-         "C",
-         "3 cm"
-        ],
-        [
-         "A",
-         "D",
-         "",
-         "gestrichelt"
-        ],
-        [
-         "D",
-         "C",
-         "",
-         "gestrichelt"
-        ]
-       ]
-      }
-     },
-     {
-      "text": "Die Diagonalen schneiden sich im Fußpunkt F.",
-      "bild": {
-       "punkte": {
-        "A": [
-         0,
-         0
-        ],
-        "B": [
-         6,
-         0
-        ],
-        "C": [
-         8.12,
-         2.12
-        ],
-        "D": [
-         2.12,
-         2.12
-        ],
-        "F": [
-         4.06,
-         1.06
-        ]
-       },
-       "linien": [
-        [
-         "A",
-         "B",
-         "6 cm"
-        ],
-        [
-         "B",
-         "C",
-         "3 cm"
-        ],
-        [
-         "A",
-         "D",
-         "",
-         "gestrichelt"
-        ],
-        [
-         "D",
-         "C",
-         "",
-         "gestrichelt"
-        ],
-        [
-         "A",
-         "C",
-         "",
-         "gestrichelt"
-        ],
-        [
-         "B",
-         "D",
-         "",
-         "gestrichelt"
-        ]
-       ]
-      }
-     },
-     {
-      "text": "Von F ⟦8 cm⟧ senkrecht hoch zur Spitze S.",
-      "bild": {
-       "punkte": {
-        "A": [
-         0,
-         0
-        ],
-        "B": [
-         6,
-         0
-        ],
-        "C": [
-         8.12,
-         2.12
-        ],
-        "D": [
-         2.12,
-         2.12
-        ],
-        "F": [
-         4.06,
-         1.06
-        ],
-        "S": [
-         4.06,
-         9.06
-        ]
-       },
-       "linien": [
-        [
-         "A",
-         "B",
-         "6 cm"
-        ],
-        [
-         "B",
-         "C",
-         "3 cm"
-        ],
-        [
-         "A",
-         "D",
-         "",
-         "gestrichelt"
-        ],
-        [
-         "D",
-         "C",
-         "",
-         "gestrichelt"
-        ],
-        [
-         "S",
-         "A"
-        ],
-        [
-         "S",
-         "B"
-        ],
-        [
-         "S",
-         "C"
-        ],
-        [
-         "S",
-         "D",
-         "",
-         "gestrichelt"
-        ],
-        [
-         "F",
-         "S",
-         "h = 8 cm",
-         "gestrichelt"
-        ],
-        [
-         "A",
-         "C",
-         "",
-         "gestrichelt"
-        ],
-        [
-         "B",
-         "D",
-         "",
-         "gestrichelt"
-        ]
-       ]
-      }
-     }
-    ],
-    "fehler": "Die Höhe wird nicht verkürzt. Sie steht ⟦senkrecht⟧ und bleibt in wahrer Länge: 8 cm.",
-    "bild": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       8.12,
-       2.12
-      ],
-      "D": [
-       2.12,
-       2.12
-      ],
-      "F": [
-       4.06,
-       1.06
-      ],
-      "S": [
-       4.06,
-       9.06
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "6 cm"
-      ],
-      [
-       "B",
-       "C",
-       "3 cm"
-      ],
-      [
-       "A",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "D",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "S",
-       "A"
-      ],
-      [
-       "S",
-       "B"
-      ],
-      [
-       "S",
-       "C"
-      ],
-      [
-       "S",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "F",
-       "S",
-       "h = 8 cm",
-       "gestrichelt"
-      ],
-      [
-       "A",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "B",
-       "D",
-       "",
-       "gestrichelt"
-      ]
-     ]
-    },
-    "einstieg": "Ein Zelt soll räumlich ins Heft. Vorne echte Größe, nach hinten schräg und kürzer, die Stange senkrecht. So entsteht ein ⟦Schrägbild⟧.",
-    "woerter": [
-     [
-      "q",
-      "der Verkürzungsfaktor: Kanten nach hinten werden mal q gezeichnet, meist 1/2"
-     ],
-     [
-      "Fußpunkt F",
-      "dort steht die Höhe auf der Grundfläche"
-     ],
-     [
-      "Diagonale",
-      "Strecke zwischen gegenüberliegenden Ecken"
-     ]
-    ],
-    "fehler_bild": {
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       8.12,
-       2.12
-      ],
-      "D": [
-       2.12,
-       2.12
-      ],
-      "F": [
-       4.06,
-       1.06
-      ],
-      "S": [
-       4.06,
-       5.06
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B",
-       "6 cm"
-      ],
-      [
-       "B",
-       "C",
-       "3 cm"
-      ],
-      [
-       "A",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "D",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "S",
-       "A"
-      ],
-      [
-       "S",
-       "B"
-      ],
-      [
-       "S",
-       "C"
-      ],
-      [
-       "S",
-       "D",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "F",
-       "S",
-       "4 cm?",
-       "gestrichelt"
-      ],
-      [
-       "A",
-       "C",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "B",
-       "D",
        "",
        "gestrichelt"
       ]
@@ -1252,13 +847,6 @@
     ]
    },
    {
-    "k": "laengen",
-    "text": "Schrägbilder von Prismen und Pyramiden",
-    "lernziele": [
-     "laengen"
-    ]
-   },
-   {
     "k": "lage",
     "text": "Parallel, schneidend oder windschief?",
     "lernziele": [
@@ -1290,7 +878,6 @@
   "bewertung": {
    "lernziele_pflicht": [
     "pyramide",
-    "laengen",
     "rotation",
     "axialschnitt"
    ],
@@ -1306,6 +893,407 @@
   }
  },
  "aufgaben": [
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Flächen hat eine achtseitige Pyramide?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "8 + 1",
+   "w": "8 Dreiecke + 1 Grundfläche = 9.",
+   "h": "Zähle Grundfläche und Spitze getrennt.",
+   "g": "direkt"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat 11 Ecken. Wie viele Ecken hat ihre Grundfläche?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "11 - 1",
+   "w": "n + 1 = 11 → n = 10.",
+   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1.",
+   "g": "umkehr"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten hat eine vierseitige Pyramide?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 * 4",
+   "w": "4 Grundkanten + 4 Seitenkanten = 8.",
+   "h": "Zähle Grundfläche und Spitze getrennt.",
+   "g": "direkt"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine zwölfseitige Pyramide hat als Grundfläche ein regelmäßiges 12-Eck mit Seitenlänge 3 cm, jede Seitenkante ist 16 cm lang. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 228,
+    "einheit": "cm"
+   },
+   "c": "12 * 3 + 12 * 16",
+   "w": "12 Grundkanten: 36 cm, 12 Seitenkanten: 192 cm. Zusammen 228 cm.",
+   "h": "Grundkanten und Seitenkanten getrennt zählen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten hat eine zehnseitige Pyramide?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "2 * 10",
+   "w": "10 Grundkanten + 10 Seitenkanten = 20.",
+   "h": "Zähle Grundfläche und Spitze getrennt.",
+   "g": "direkt"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne für eine siebenseitige Pyramide: Ecken + Flächen − Kanten."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(7 + 1) + (7 + 1) - 2 * 7",
+   "w": "8 Ecken, 8 Flächen, 14 Kanten: 8 + 8 − 14 = 2.",
+   "h": "Nutze n + 1, n + 1 und 2n.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat genau eine Spitze und ein Vieleck als Grundfläche?"
+   },
+   "a": [
+    "Zylinder",
+    "Kegel",
+    "Prisma",
+    "Pyramide"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Kegel hat eine Spitze, aber einen Kreis als Grundfläche. Prisma und Zylinder haben keine Spitze.",
+   "h": "Achte auf Spitze und Grundfläche."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide (Grundkante 10 cm, Höhe 3 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die vordere Grundkante?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "10",
+   "w": "Die vordere Kante liegt parallel zur Zeichenebene: wahre Länge 10 cm.",
+   "h": "Parallel zur Zeichenebene: wahre Länge.",
+   "g": "direkt"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat 7 Flächen. Wie viele Ecken hat ihre Grundfläche?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "7 - 1",
+   "w": "n + 1 = 7 → n = 6.",
+   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1.",
+   "g": "umkehr"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Körper hat 9 Flächen und 16 Kanten. Was ist er?"
+   },
+   "a": [
+    "Kegel",
+    "Achtseitiges Prisma",
+    "Siebenseitiges Prisma",
+    "Achtseitige Pyramide"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Pyramide: n + 1 = 9 → n = 8, Kanten 2 · 8 = 16 ✓. Prisma mit 9 Flächen hätte n = 7 und 3 · 7 = 21 Kanten ✗.",
+   "h": "Prüfe beide Möglichkeiten: Pyramide (n + 1 Flächen, 2n Kanten) und Prisma (n + 2 Flächen, 3n Kanten).",
+   "g": "darstellung"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten haben ein zehnseitiges Prisma und eine dreiseitige Pyramide zusammen?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "3 * 10 + 2 * 3",
+   "w": "Prisma: 3 · 10 = 30 Kanten. Pyramide: 2 · 3 = 6 Kanten. Zusammen 36.",
+   "h": "Prisma 3n Kanten, Pyramide 2n Kanten.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kantenmodell einer quadratischen Pyramide aus Draht: Grundkante 8 cm, jede Seitenkante 12 cm. Man hat 1 m Draht. Wie viele cm bleiben übrig?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "100 - (4 * 8 + 4 * 12)",
+   "w": "Kanten: 4 · 8 cm + 4 · 12 cm = 80 cm. Übrig: 100 cm − 80 cm = 20 cm.",
+   "h": "Zähle Grundkanten und Seitenkanten getrennt. 1 m = 100 cm.",
+   "g": "transfer"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 6 cm und die Höhe 4 cm. Wie lang ist eine Seitenkante? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 5.8,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(5.830951894845, 1)",
+   "w": "Halbe Diagonale der Grundfläche: 6 · √2 : 2 ≈ 4,24 cm. Seitenkante = √(4² + 4,24²) = √34 ≈ 5,8 cm.",
+   "h": "Rechtwinkliges Dreieck aus Höhe, halber Diagonale und Seitenkante."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 4 cm, jede Seitenkante ist 7 cm lang. Wie hoch ist die Pyramide? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       5.41,
+       1.41
+      ],
+      "D": [
+       1.41,
+       1.41
+      ],
+      "F": [
+       2.71,
+       0.7
+      ],
+      "S": [
+       2.71,
+       7.1
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 4 cm"
+      ],
+      [
+       "B",
+       "C",
+       ""
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "S",
+       "A"
+      ],
+      [
+       "S",
+       "B"
+      ],
+      [
+       "S",
+       "C"
+      ],
+      [
+       "S",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "F",
+       "S",
+       "h = ?",
+       "gestrichelt"
+      ],
+      [
+       "A",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "B",
+       "D",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "label": "Schrägbild einer quadratischen Pyramide (verdeckte Kanten gestrichelt)"
+    }
+   },
+   "o": {
+    "wert": 6.4,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(6.403124237433, 1)",
+   "w": "(d/2)² = (4/2)² + (4/2)² = 8. h² = k² − (d/2)² = 49 − 8 = 41 ⇒ h ≈ 6,4 cm.",
+   "h": "Rechtwinkliges Dreieck aus Höhe, halber Diagonale und Seitenkante – die halbe Diagonale erst mit Pythagoras bestimmen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Flächen hat eine zehnseitige Pyramide?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "10 + 1",
+   "w": "10 Dreiecke + 1 Grundfläche = 11.",
+   "h": "Zähle Grundfläche und Spitze getrennt."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was gilt für jede Pyramide?"
+   },
+   "a": [
+    "Ihre Grundfläche ist ein Quadrat.",
+    "Alle Kanten sind gleich lang.",
+    "Ihre Seitenflächen sind Dreiecke.",
+    "Sie hat 5 Ecken."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Jede Seitenfläche verbindet eine Grundkante mit der Spitze: ein Dreieck. Die Grundfläche kann jedes Vieleck sein.",
+   "h": "Denke an eine dreiseitige und eine sechsseitige Pyramide."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide (Grundkante 10 cm, Höhe 9 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du eine Grundkante, die nach hinten führt?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "10 / 2",
+   "w": "Nach hinten: 10 · 1/2 = 5 cm.",
+   "h": "Nach hinten: mit q multiplizieren.",
+   "g": "direkt"
+  },
   {
    "l": "pyramide",
    "t": "pyramide",
@@ -1379,208 +1367,6 @@
    "l": "pyramide",
    "t": "pyramide",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Flächen hat eine zehnseitige Pyramide?"
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "10 + 1",
-   "w": "10 Dreiecke + 1 Grundfläche = 11.",
-   "h": "Zähle Grundfläche und Spitze getrennt."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Flächen hat eine achtseitige Pyramide?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "8 + 1",
-   "w": "8 Dreiecke + 1 Grundfläche = 9.",
-   "h": "Zähle Grundfläche und Spitze getrennt.",
-   "g": "direkt"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Körper hat genau eine Spitze und ein Vieleck als Grundfläche?"
-   },
-   "a": [
-    "Zylinder",
-    "Kegel",
-    "Prisma",
-    "Pyramide"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein Kegel hat eine Spitze, aber einen Kreis als Grundfläche. Prisma und Zylinder haben keine Spitze.",
-   "h": "Achte auf Spitze und Grundfläche."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Kanten hat eine vierseitige Pyramide?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "2 * 4",
-   "w": "4 Grundkanten + 4 Seitenkanten = 8.",
-   "h": "Zähle Grundfläche und Spitze getrennt.",
-   "g": "direkt"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Was gilt für jede Pyramide?"
-   },
-   "a": [
-    "Ihre Grundfläche ist ein Quadrat.",
-    "Alle Kanten sind gleich lang.",
-    "Ihre Seitenflächen sind Dreiecke.",
-    "Sie hat 5 Ecken."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Jede Seitenfläche verbindet eine Grundkante mit der Spitze: ein Dreieck. Die Grundfläche kann jedes Vieleck sein.",
-   "h": "Denke an eine dreiseitige und eine sechsseitige Pyramide."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Kanten hat eine zehnseitige Pyramide?"
-   },
-   "o": {
-    "wert": 20
-   },
-   "c": "2 * 10",
-   "w": "10 Grundkanten + 10 Seitenkanten = 20.",
-   "h": "Zähle Grundfläche und Spitze getrennt.",
-   "g": "direkt"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat 11 Ecken. Wie viele Ecken hat ihre Grundfläche?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "11 - 1",
-   "w": "n + 1 = 11 → n = 10.",
-   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1.",
-   "g": "umkehr"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine zwölfseitige Pyramide hat als Grundfläche ein regelmäßiges 12-Eck mit Seitenlänge 3 cm, jede Seitenkante ist 16 cm lang. Wie lang sind alle Kanten zusammen?"
-   },
-   "o": {
-    "wert": 228,
-    "einheit": "cm"
-   },
-   "c": "12 * 3 + 12 * 16",
-   "w": "12 Grundkanten: 36 cm, 12 Seitenkanten: 192 cm. Zusammen 228 cm.",
-   "h": "Grundkanten und Seitenkanten getrennt zählen.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat 7 Flächen. Wie viele Ecken hat ihre Grundfläche?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "7 - 1",
-   "w": "n + 1 = 7 → n = 6.",
-   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1.",
-   "g": "umkehr"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Körper hat 9 Flächen und 16 Kanten. Was ist er?"
-   },
-   "a": [
-    "Kegel",
-    "Achtseitiges Prisma",
-    "Siebenseitiges Prisma",
-    "Achtseitige Pyramide"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Pyramide: n + 1 = 9 → n = 8, Kanten 2 · 8 = 16 ✓. Prisma mit 9 Flächen hätte n = 7 und 3 · 7 = 21 Kanten ✗.",
-   "h": "Prüfe beide Möglichkeiten: Pyramide (n + 1 Flächen, 2n Kanten) und Prisma (n + 2 Flächen, 3n Kanten).",
-   "g": "darstellung"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Kanten haben ein zehnseitiges Prisma und eine dreiseitige Pyramide zusammen?"
-   },
-   "o": {
-    "wert": 36
-   },
-   "c": "3 * 10 + 2 * 3",
-   "w": "Prisma: 3 · 10 = 30 Kanten. Pyramide: 2 · 3 = 6 Kanten. Zusammen 36.",
-   "h": "Prisma 3n Kanten, Pyramide 2n Kanten.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1633,41 +1419,6 @@
    "w": "Fünfseitige Pyramide: 5 + 1 = 6 Ecken, 5 + 1 = 6 Flächen. Der Würfel hat 8 Ecken, das dreiseitige Prisma 5 Flächen.",
    "h": "Bei einer Pyramide ist Ecken = Flächen = n + 1.",
    "g": "darstellung"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kantenmodell einer quadratischen Pyramide aus Draht: Grundkante 8 cm, jede Seitenkante 12 cm. Man hat 1 m Draht. Wie viele cm bleiben übrig?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "cm"
-   },
-   "c": "100 - (4 * 8 + 4 * 12)",
-   "w": "Kanten: 4 · 8 cm + 4 · 12 cm = 80 cm. Übrig: 100 cm − 80 cm = 20 cm.",
-   "h": "Zähle Grundkanten und Seitenkanten getrennt. 1 m = 100 cm.",
-   "g": "transfer"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne für eine siebenseitige Pyramide: Ecken + Flächen − Kanten."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "(7 + 1) + (7 + 1) - 2 * 7",
-   "w": "8 Ecken, 8 Flächen, 14 Kanten: 8 + 8 − 14 = 2.",
-   "h": "Nutze n + 1, n + 1 und 2n.",
-   "g": "verknuepfen"
   },
   {
    "l": "pyramide",
@@ -1769,19 +1520,252 @@
    "t": "pyramide",
    "p": "uebung",
    "s": 3,
-   "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante 6 cm und die Höhe 4 cm. Wie lang ist eine Seitenkante? Runde auf eine Nachkommastelle."
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 4 cm und die Höhe h = 10 cm. Wie lang ist eine Seitenkante? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       5.41,
+       1.41
+      ],
+      "D": [
+       1.41,
+       1.41
+      ],
+      "F": [
+       2.71,
+       0.7
+      ],
+      "S": [
+       2.71,
+       10.7
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 4 cm"
+      ],
+      [
+       "B",
+       "C",
+       ""
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "S",
+       "A"
+      ],
+      [
+       "S",
+       "B"
+      ],
+      [
+       "S",
+       "C"
+      ],
+      [
+       "S",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "F",
+       "S",
+       "h = 10 cm",
+       "gestrichelt"
+      ],
+      [
+       "A",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "B",
+       "D",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "label": "Schrägbild einer quadratischen Pyramide (verdeckte Kanten gestrichelt)"
+    }
    },
    "o": {
-    "wert": 5.8,
+    "wert": 10.4,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(5.830951894845, 1)",
-   "w": "Halbe Diagonale der Grundfläche: 6 · √2 : 2 ≈ 4,24 cm. Seitenkante = √(4² + 4,24²) = √34 ≈ 5,8 cm.",
-   "h": "Rechtwinkliges Dreieck aus Höhe, halber Diagonale und Seitenkante."
+   "c": "round(10.392304845413, 1)",
+   "w": "Halbe Diagonale der Grundfläche: (d/2)² = (4/2)² + (4/2)² = 8. Seitenkante: k² = h² + (d/2)² = 100 + 8 = 108 ⇒ k ≈ 10,4 cm.",
+   "h": "Die Seitenkante geht von einer Ecke zur Spitze. Der Fußpunkt der Höhe liegt in der Mitte der Diagonale: zweimal Pythagoras.",
+   "g": "pruefung"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 8 cm, jede Seitenkante ist 14 cm lang. Wie hoch ist die Pyramide? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8,
+       0
+      ],
+      "C": [
+       10.83,
+       2.83
+      ],
+      "D": [
+       2.83,
+       2.83
+      ],
+      "F": [
+       5.42,
+       1.42
+      ],
+      "S": [
+       5.42,
+       14.23
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 8 cm"
+      ],
+      [
+       "B",
+       "C",
+       ""
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "S",
+       "A"
+      ],
+      [
+       "S",
+       "B"
+      ],
+      [
+       "S",
+       "C"
+      ],
+      [
+       "S",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "F",
+       "S",
+       "h = ?",
+       "gestrichelt"
+      ],
+      [
+       "A",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "B",
+       "D",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "label": "Schrägbild einer quadratischen Pyramide (verdeckte Kanten gestrichelt)"
+    }
+   },
+   "o": {
+    "wert": 12.8,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(12.806248474866, 1)",
+   "w": "(d/2)² = (8/2)² + (8/2)² = 32. h² = k² − (d/2)² = 196 − 32 = 164 ⇒ h ≈ 12,8 cm.",
+   "h": "Rechtwinkliges Dreieck aus Höhe, halber Diagonale und Seitenkante – die halbe Diagonale erst mit Pythagoras bestimmen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "An allen 8 Ecken eines Würfels wird eine kleine Ecke so abgeschnitten, dass jeweils ein Dreieck als neue Fläche entsteht. Wie viele Kanten hat der neue Körper?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "12 + 8 * 3",
+   "w": "Die 12 Würfelkanten bleiben (gekürzt) erhalten. Jedes der 8 neuen Dreiecke bringt 3 neue Kanten: 12 + 24 = 36.",
+   "h": "Welche Kanten bleiben, welche kommen dazu?"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleiche quadratische Pyramiden werden mit ihren Grundflächen genau aufeinandergeklebt. Wie viele Kanten hat der neue Körper?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "4 + 4 + 4",
+   "w": "Die 4 Grundkanten werden gemeinsam genutzt, dazu je 4 Seitenkanten oben und unten: 4 + 4 + 4 = 12 (ein Oktaeder).",
+   "h": "Welche Kanten fallen beim Kleben zusammen?"
   },
   {
    "l": "pyramide",
@@ -1947,740 +1931,6 @@
    },
    "c": "7 - 1",
    "w": "n + 1 = 7 → n = 6."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "An allen 8 Ecken eines Würfels wird eine kleine Ecke so abgeschnitten, dass jeweils ein Dreieck als neue Fläche entsteht. Wie viele Kanten hat der neue Körper?"
-   },
-   "o": {
-    "wert": 36
-   },
-   "c": "12 + 8 * 3",
-   "w": "Die 12 Würfelkanten bleiben (gekürzt) erhalten. Jedes der 8 neuen Dreiecke bringt 3 neue Kanten: 12 + 24 = 36.",
-   "h": "Welche Kanten bleiben, welche kommen dazu?"
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Zwei gleiche quadratische Pyramiden werden mit ihren Grundflächen genau aufeinandergeklebt. Wie viele Kanten hat der neue Körper?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "4 + 4 + 4",
-   "w": "Die 4 Grundkanten werden gemeinsam genutzt, dazu je 4 Seitenkanten oben und unten: 4 + 4 + 4 = 12 (ein Oktaeder).",
-   "h": "Welche Kanten fallen beim Kleben zusammen?"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kante führt 6 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/3 gezeichnet?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "cm"
-   },
-   "c": "6 * (1/3)",
-   "w": "6 · 1/3 = 2 cm.",
-   "h": "Multipliziere die wahre Länge mit q."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 10 cm lang. Wie tief ist das Prisma wirklich?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "cm"
-   },
-   "c": "10 * 2",
-   "w": "wahr = gezeichnet : q = 10 : 1/2 = 20 cm.",
-   "h": "Rechne rückwärts: durch q teilen."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kante führt 15 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 2/3 gezeichnet?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "cm"
-   },
-   "c": "15 * (2/3)",
-   "w": "15 · 2/3 = 10 cm.",
-   "h": "Multipliziere die wahre Länge mit q."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 6 cm breit, 2 cm hoch und 5 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 42,
-    "einheit": "cm"
-   },
-   "c": "4 * 6 + 4 * 2 + 4 * 5 / 2",
-   "w": "4 Breiten (24 cm) und 4 Höhen (8 cm) in wahrer Länge, 4 Tiefen zu 2,5 cm (10 cm). Zusammen 42 cm.",
-   "h": "Nur die 4 Kanten nach hinten werden verkürzt."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kante führt 8 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/2 gezeichnet?"
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "cm"
-   },
-   "c": "8 * (1/2)",
-   "w": "8 · 1/2 = 4 cm.",
-   "h": "Multipliziere die wahre Länge mit q."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 5 cm lang. Wie tief ist das Prisma wirklich?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "cm"
-   },
-   "c": "5 * 2",
-   "w": "wahr = gezeichnet : q = 5 : 1/2 = 10 cm.",
-   "h": "Rechne rückwärts: durch q teilen."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide (Grundkante 14 cm, Höhe 14 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du eine Grundkante, die nach hinten führt?"
-   },
-   "o": {
-    "wert": 7,
-    "einheit": "cm"
-   },
-   "c": "14 / 2",
-   "w": "Nach hinten: 14 · 1/2 = 7 cm.",
-   "h": "Nach hinten: mit q multiplizieren."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide (Grundkante 8 cm, Höhe 5 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die Höhe?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "5",
-   "w": "Die Höhe steht senkrecht, also parallel zur Zeichenebene: 5 cm.",
-   "h": "Senkrechte Strecken werden nicht verkürzt."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide (Grundkante 10 cm, Höhe 3 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die vordere Grundkante?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "cm"
-   },
-   "c": "10",
-   "w": "Die vordere Kante liegt parallel zur Zeichenebene: wahre Länge 10 cm.",
-   "h": "Parallel zur Zeichenebene: wahre Länge.",
-   "g": "direkt"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Kanten zeichnet man im Schrägbild verkürzt?"
-   },
-   "a": [
-    "keine Kante",
-    "alle Kanten",
-    "nur die senkrechten Kanten",
-    "nur die Kanten, die nach hinten führen"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Breite und Höhe erscheinen in wahrer Länge; nur die Tiefe wird mit q verkürzt.",
-   "h": "Was soll den räumlichen Eindruck erzeugen?"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide (Grundkante 10 cm, Höhe 9 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du eine Grundkante, die nach hinten führt?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "10 / 2",
-   "w": "Nach hinten: 10 · 1/2 = 5 cm.",
-   "h": "Nach hinten: mit q multiplizieren.",
-   "g": "direkt"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Unter welchem Winkel ω zeichnet man im Schrägbild üblicherweise die nach hinten führenden Kanten?"
-   },
-   "a": [
-    "60°",
-    "90°",
-    "45°",
-    "30°"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Üblich sind q = 1/2 und ω = 45°.",
-   "h": "Denke an die Zeichnung auf Karopapier."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kante führt 2 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/2 gezeichnet?"
-   },
-   "o": {
-    "wert": 1,
-    "einheit": "cm"
-   },
-   "c": "2 * (1/2)",
-   "w": "2 · 1/2 = 1 cm.",
-   "h": "Multipliziere die wahre Länge mit q.",
-   "g": "direkt"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 2,5 cm lang. Wie tief ist das Prisma wirklich?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "(5/2) * 2",
-   "w": "wahr = gezeichnet : q = 2,5 : 1/2 = 5 cm.",
-   "h": "Rechne rückwärts: durch q teilen.",
-   "g": "umkehr"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 8 cm breit, 6 cm hoch und 17 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "cm"
-   },
-   "c": "4 * 8 + 4 * 6 + 4 * 17 / 2",
-   "w": "4 Breiten (32 cm) und 4 Höhen (24 cm) in wahrer Länge, 4 Tiefen zu 8,5 cm (34 cm). Zusammen 90 cm.",
-   "h": "Nur die 4 Kanten nach hinten werden verkürzt.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 6 cm lang. Wie tief ist das Prisma wirklich?"
-   },
-   "o": {
-    "wert": 12,
-    "einheit": "cm"
-   },
-   "c": "6 * 2",
-   "w": "wahr = gezeichnet : q = 6 : 1/2 = 12 cm.",
-   "h": "Rechne rückwärts: durch q teilen.",
-   "g": "umkehr"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel mit 6 cm Kantenlänge wird im Schrägbild (q = 1/2) gezeichnet. Wie lang sind alle 12 gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "cm"
-   },
-   "c": "8 * 6 + 4 * 3",
-   "w": "8 Kanten in wahrer Länge (6 cm), 4 Kanten nach hinten verkürzt (3 cm): 48 + 12 = 60 cm.",
-   "h": "Wie viele Kanten führen nach hinten?",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild mit q = 2/3 ist eine nach hinten führende Kante 4 cm lang gezeichnet. Wie lang ist sie in Wirklichkeit?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "4 * 3 / 2",
-   "w": "Gezeichnet = wahr · 2/3. Wahre Länge = 4 : 2/3 = 4 · 3/2 = 6 cm.",
-   "h": "Rückwärts: durch q teilen.",
-   "g": "umkehr"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Schuhkarton (30 cm breit, 12 cm hoch, 18 cm tief) wird im Maßstab 1 : 3 als Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die Tiefe?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "18 / 3 / 2",
-   "w": "Maßstab: 18 cm : 3 = 6 cm; verkürzt mit q = 1/2: 3 cm.",
-   "h": "Erst den Maßstab, dann q."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Aus einem Quader (8 cm × 5 cm × 6 cm) wird an einer Ecke ein Würfel mit 2 cm Kantenlänge herausgeschnitten. Wie groß ist das Volumen des Restkörpers?"
-   },
-   "o": {
-    "wert": 232,
-    "einheit": "cm³"
-   },
-   "c": "8 * 5 * 6 - 2**3",
-   "w": "Quader: 240 cm³. Würfel: 8 cm³. Rest: 232 cm³.",
-   "h": "Ganzer Quader minus Würfel.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Prisma hat als Vorderfläche ein rechtwinkliges Dreieck mit den Katheten 4 cm und 3 cm. Im Schrägbild (q = 1/2) ist die Kante nach hinten 5 cm lang gezeichnet. Berechne das Volumen."
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "cm³"
-   },
-   "c": "4 * 3 / 2 * (5 * 2)",
-   "w": "Grundfläche: 4 · 3 : 2 = 6 cm². Wahre Tiefe: 5 cm · 2 = 10 cm. V = 6 · 10 = 60 cm³ (nicht 30 cm³).",
-   "h": "Die gezeichnete Tiefe ist verkürzt.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Aus einer Ecke eines Quaders wird ein kleiner Würfel herausgeschnitten. Wie ändert sich die Oberfläche?"
-   },
-   "a": [
-    "Sie wird kleiner.",
-    "Das hängt von der Größe des Würfels ab.",
-    "Sie bleibt gleich groß.",
-    "Sie wird größer."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Drei kleine Quadrate fallen außen weg, drei gleich große Quadrate kommen innen in der Ecke dazu. Die Oberfläche bleibt gleich – das Volumen nicht.",
-   "h": "Zähle, welche Flächen weg- und welche dazukommen.",
-   "g": "begruenden"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2) ist ein Quader 5 cm breit, 3 cm hoch und nach hinten 2 cm tief gezeichnet. Wie viele Würfel mit 1 cm Kantenlänge passen genau hinein?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "Würfel"
-   },
-   "c": "5 * 3 * (2 * 2)",
-   "w": "Wahre Tiefe: 4 cm. Also 5 · 3 · 4 = 60 Würfel.",
-   "h": "Erst die wahre Tiefe bestimmen.",
-   "g": "transfer"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand zeichnet einen Würfel (Kante 4 cm) im Schrägbild mit q = 1/2 und zeichnet auch die senkrechten Kanten 2 cm lang. Was stimmt?"
-   },
-   "a": [
-    "Richtig.",
-    "Falsch: Nur die nach hinten führenden Kanten werden verkürzt; die senkrechten bleiben 4 cm.",
-    "Falsch: Alle Kanten müssen 2 cm lang sein.",
-    "Falsch: Die senkrechten Kanten müssen 8 cm lang sein."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Die Vorderfläche erscheint unverzerrt als Quadrat 4 cm × 4 cm.",
-   "h": "Welche Richtung wird verkürzt?"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "g": "parameter",
-   "y": "luecken",
-   "f": {
-    "text": "Im Schrägbild eines Würfels mit 6 cm Kantenlänge sind die nach hinten führenden Kanten 4 cm lang gezeichnet. Welcher Verkürzungsfaktor q wurde verwendet?",
-    "schablone": "q = □/□",
-    "hinweis": "gekürzter Bruch"
-   },
-   "o": {
-    "werte": [
-     2,
-     3
-    ]
-   },
-   "c": [
-    "2",
-    "3"
-   ],
-   "w": "q = 4 : 6 = 2/3.",
-   "h": "q = gezeichnete Länge : wahre Länge."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel mit 4 cm Kantenlänge wird im Schrägbild (q = 1/2, ω = 45°) gezeichnet. Wie lang ist im Bild die Diagonale AC der Grundfläche (A vorne links, C hinten rechts)? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 5.6,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(5.595865303864, 1)",
-   "w": "Gezeichnet: AB = 4 cm waagrecht, BC = 2 cm unter 45°, also um √2 ≈ 1,41 cm nach rechts und nach oben. AC = √((4 + 1,41)² + 1,41²) ≈ √31,3 ≈ 5,6 cm (wahre Länge 5,66 cm).",
-   "h": "Zerlege die schräge Kante in einen waagrechten und einen senkrechten Anteil."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "g": "verknuepfen",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader (6 cm breit, 4 cm tief) wird im Schrägbild mit q = 1/2 und ω = 45° gezeichnet. Wie groß ist die gezeichnete Grundfläche (ein Parallelogramm)? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 8.5,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(8.485281374239, 1)",
-   "w": "Seiten 6 cm und 2 cm, Winkel 45°: Höhe 2 · sin 45° ≈ 1,41 cm. Fläche 6 · 1,41 ≈ 8,5 cm² (wahre Fläche 24 cm²).",
-   "h": "Parallelogramm: Grundseite mal Höhe; die Höhe liefert der Sinus."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 4,5 cm lang. Wie tief ist das Prisma wirklich?"
-   },
-   "o": {
-    "wert": 9,
-    "einheit": "cm"
-   },
-   "c": "(9/2) * 2",
-   "w": "wahr = gezeichnet : q = 4,5 : 1/2 = 9 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 10 cm breit, 15 cm hoch und 3 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 106,
-    "einheit": "cm"
-   },
-   "c": "4 * 10 + 4 * 15 + 4 * 3 / 2",
-   "w": "4 Breiten (40 cm) und 4 Höhen (60 cm) in wahrer Länge, 4 Tiefen zu 1,5 cm (6 cm). Zusammen 106 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 7 cm lang. Wie tief ist das Prisma wirklich?"
-   },
-   "o": {
-    "wert": 14,
-    "einheit": "cm"
-   },
-   "c": "7 * 2",
-   "w": "wahr = gezeichnet : q = 7 : 1/2 = 14 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 9 cm breit, 14 cm hoch und 5 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 102,
-    "einheit": "cm"
-   },
-   "c": "4 * 9 + 4 * 14 + 4 * 5 / 2",
-   "w": "4 Breiten (36 cm) und 4 Höhen (56 cm) in wahrer Länge, 4 Tiefen zu 2,5 cm (10 cm). Zusammen 102 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 4 cm breit, 11 cm hoch und 7 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 74,
-    "einheit": "cm"
-   },
-   "c": "4 * 4 + 4 * 11 + 4 * 7 / 2",
-   "w": "4 Breiten (16 cm) und 4 Höhen (44 cm) in wahrer Länge, 4 Tiefen zu 3,5 cm (14 cm). Zusammen 74 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 3 cm lang. Wie tief ist das Prisma wirklich?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "3 * 2",
-   "w": "wahr = gezeichnet : q = 3 : 1/2 = 6 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 4 cm breit, 12 cm hoch und 10 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 84,
-    "einheit": "cm"
-   },
-   "c": "4 * 4 + 4 * 12 + 4 * 10 / 2",
-   "w": "4 Breiten (16 cm) und 4 Höhen (48 cm) in wahrer Länge, 4 Tiefen zu 5 cm (20 cm). Zusammen 84 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 4 cm breit, 11 cm hoch und 14 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 88,
-    "einheit": "cm"
-   },
-   "c": "4 * 4 + 4 * 11 + 4 * 14 / 2",
-   "w": "4 Breiten (16 cm) und 4 Höhen (44 cm) in wahrer Länge, 4 Tiefen zu 7 cm (28 cm). Zusammen 88 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 7 cm breit, 15 cm hoch und 2 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 92,
-    "einheit": "cm"
-   },
-   "c": "4 * 7 + 4 * 15 + 4 * 2 / 2",
-   "w": "4 Breiten (28 cm) und 4 Höhen (60 cm) in wahrer Länge, 4 Tiefen zu 1 cm (4 cm). Zusammen 92 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 10 cm breit, 7 cm hoch und 10 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 88,
-    "einheit": "cm"
-   },
-   "c": "4 * 10 + 4 * 7 + 4 * 10 / 2",
-   "w": "4 Breiten (40 cm) und 4 Höhen (28 cm) in wahrer Länge, 4 Tiefen zu 5 cm (20 cm). Zusammen 88 cm."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel wird im Schrägbild mit q = 1/2 gezeichnet. Wie viel Prozent der Gesamtlänge aller 12 Kanten spart man beim Zeichnen? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 16.7,
-    "einheit": "%",
-    "toleranz": 0.1
-   },
-   "c": "round(16.666666666667, 1)",
-   "w": "Von 12 gleich langen Kanten führen 4 nach hinten und werden halb so lang. Gespart: 4 · 1/2 = 2 Kantenlängen von 12, also 1/6 ≈ 16,7 %.",
-   "h": "Wie viele Kanten führen nach hinten?"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 4 cm breit und 4 cm hoch. Im Schrägbild mit q = 1/2 sind alle gezeichneten Kanten gleich lang. Wie tief ist der Quader in Wirklichkeit?"
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "cm"
-   },
-   "c": "4 * 2",
-   "w": "Die Tiefe wird halbiert gezeichnet und soll 4 cm lang erscheinen: wahre Tiefe 8 cm. Das Bild sieht aus wie ein Würfel – ist aber keiner.",
-   "h": "Rechne rückwärts mit q."
   },
   {
    "l": "lage",

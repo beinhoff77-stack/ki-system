@@ -9470,6 +9470,23 @@
    "t": "gleichungen",
    "p": "uebung",
    "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Gleichung x : 17 = −19. Wie groß ist x?"
+   },
+   "o": {
+    "wert": -323
+   },
+   "c": "(-19) * (17)",
+   "w": "Umkehraufgabe von „geteilt durch 17“ ist „mal 17“: x = (−19) · 17 = −323. Probe: (−323) : 17 = −19 ✓",
+   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel.",
+   "g": "direkt"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welche Umkehraufgabe löst die Gleichung (−6) · x = 42?"
@@ -9565,6 +9582,51 @@
    "l": "umkehraufgabe_mal",
    "t": "gleichungen",
    "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke so, dass die Rechnung stimmt: □ : (−6) = −70",
+    "schablone": "□ : (−6) = −70",
+    "hinweis": "Trage die fehlende Zahl ein (mit Minus, falls negativ)."
+   },
+   "o": {
+    "werte": [
+     420
+    ]
+   },
+   "c": [
+    "(-70) * (-6)"
+   ],
+   "w": "Umkehraufgabe: □ = (−70) · (−6) = 420. Probe: 420 : (−6) = −70 ✓",
+   "h": "Kehre „geteilt durch (−6)“ mit „mal (−6)“ um.",
+   "g": "umkehr"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung passt zu: „Das (−4)-Fache einer Zahl ist 28.“"
+   },
+   "a": [
+    "x + (−4) = 28",
+    "(−4) · x = 28",
+    "x : (−4) = 28",
+    "4 · x = −28"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "„Das (−4)-Fache von x“ heißt (−4) · x.",
+   "h": "Was bedeutet „das Fache“?"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
@@ -9577,6 +9639,45 @@
    "w": "Probieren: x = −2 ergibt (−2) · (−3) = 6 und (−2) + 8 = 6 ✓. Für positive Zahlen ist „mal −3“ negativ, „plus 8“ aber positiv – die Zahl muss negativ sein.",
    "h": "Probiere kleine negative Zahlen aus: −1, −2, −3 …",
    "g": "transfer"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ich teile eine Zahl durch (−2) und addiere 9. Ich erhalte 3. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(3 - 9) * (-2)",
+   "w": "Rückwärts: 3 − 9 = −6. −6 · (−2) = 12. Probe: 12 : (−2) + 9 = 3.",
+   "h": "Mach die Schritte in umgekehrter Reihenfolge rückgängig."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Die Gleichung 0 · x = 5 hat keine Lösung.“"
+   },
+   "a": [
+    "Ja: 0 mal jede Zahl ist 0, nie 5.",
+    "Nein: x = 5.",
+    "Nein: x = 0.",
+    "Nein: Jede Zahl ist eine Lösung."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Egal welche Zahl man für x einsetzt, 0 · x ist immer 0.",
+   "h": "Setz ein paar Zahlen für x ein."
   },
   {
    "l": "umkehraufgabe_mal",
@@ -9623,38 +9724,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse die Gleichung x : 17 = −19. Wie groß ist x?"
+    "text": "Löse x : 4 = 10."
    },
    "o": {
-    "wert": -323
+    "wert": 40
    },
-   "c": "(-19) * (17)",
-   "w": "Umkehraufgabe von „geteilt durch 17“ ist „mal 17“: x = (−19) · 17 = −323. Probe: (−323) : 17 = −19 ✓",
-   "h": "Kehre geteilt mit mal um. Denk an die Vorzeichenregel.",
+   "c": "10 * 4",
+   "w": "Umkehrung von Geteilt ist Mal: x = 10 · 4 = 40. Probe: 40 : 4 = 10 ✓",
+   "h": "Rechne rückwärts. Was ist die Umkehrung von Geteilt?",
    "g": "direkt"
-  },
-  {
-   "l": "umkehraufgabe_mal",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Ergänze die Lücke so, dass die Rechnung stimmt: □ : (−6) = −70",
-    "schablone": "□ : (−6) = −70",
-    "hinweis": "Trage die fehlende Zahl ein (mit Minus, falls negativ)."
-   },
-   "o": {
-    "werte": [
-     420
-    ]
-   },
-   "c": [
-    "(-70) * (-6)"
-   ],
-   "w": "Umkehraufgabe: □ = (−70) · (−6) = 420. Probe: 420 : (−6) = −70 ✓",
-   "h": "Kehre „geteilt durch (−6)“ mit „mal (−6)“ um.",
-   "g": "umkehr"
   },
   {
    "l": "umkehraufgabe_mal",
@@ -9678,28 +9756,6 @@
    "t": "gleichungen",
    "p": "uebung",
    "s": 2,
-   "g": "darstellung",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Gleichung passt zu: „Das (−4)-Fache einer Zahl ist 28.“"
-   },
-   "a": [
-    "x + (−4) = 28",
-    "(−4) · x = 28",
-    "x : (−4) = 28",
-    "4 · x = −28"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "„Das (−4)-Fache von x“ heißt (−4) · x.",
-   "h": "Was bedeutet „das Fache“?"
-  },
-  {
-   "l": "umkehraufgabe_mal",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 2,
    "g": "einkleidung",
    "y": "zahl",
    "f": {
@@ -9717,18 +9773,40 @@
    "l": "umkehraufgabe_mal",
    "t": "gleichungen",
    "p": "uebung",
-   "s": 3,
-   "g": "rueckwaerts",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ich teile eine Zahl durch (−2) und addiere 9. Ich erhalte 3. Welche Zahl habe ich mir gedacht?"
+    "text": "Löse 72 : x = 9."
    },
    "o": {
-    "wert": 12
+    "wert": 8
    },
-   "c": "(3 - 9) * (-2)",
-   "w": "Rückwärts: 3 − 9 = −6. −6 · (−2) = 12. Probe: 12 : (−2) + 9 = 3.",
-   "h": "Mach die Schritte in umgekehrter Reihenfolge rückgängig."
+   "c": "72 // 9",
+   "w": "72 wird durch x geteilt, es kommt 9 heraus. Also ist x = 72 : 9 = 8. Probe: 72 : 8 = 9 ✓",
+   "h": "Achtung, hier wird durch x geteilt. In wie viele Teile musst du 72 teilen, damit jedes Teil 9 ist?",
+   "g": "umkehr"
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Rechnung führt zur Lösung von x : 6 = 27?"
+   },
+   "a": [
+    "27 − 6",
+    "27 : 6",
+    "27 · 6",
+    "6 : 27"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x wurde durch 6 geteilt. Rückwärts wird mit 6 malgenommen: x = 27 · 6 = 162.",
+   "h": "Was ist die Umkehrung von Geteilt?",
+   "g": "darstellung"
   },
   {
    "l": "umkehraufgabe_mal",
@@ -9751,28 +9829,6 @@
    },
    "w": "Probe: (−7) · (−8) = 56. Mit −392 käme etwas ganz anderes heraus.",
    "h": "Mach die Probe."
-  },
-  {
-   "l": "umkehraufgabe_mal",
-   "t": "gleichungen",
-   "p": "uebung",
-   "s": 3,
-   "g": "begruenden",
-   "y": "auswahl",
-   "f": {
-    "text": "Stimmt die Aussage? „Die Gleichung 0 · x = 5 hat keine Lösung.“"
-   },
-   "a": [
-    "Ja: 0 mal jede Zahl ist 0, nie 5.",
-    "Nein: x = 5.",
-    "Nein: x = 0.",
-    "Nein: Jede Zahl ist eine Lösung."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Egal welche Zahl man für x einsetzt, 0 · x ist immer 0.",
-   "h": "Setz ein paar Zahlen für x ein."
   },
   {
    "l": "umkehraufgabe_mal",
@@ -9854,6 +9910,45 @@
   {
    "l": "umkehraufgabe_mal",
    "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl, teile sie durch 7 und nehme das Ergebnis mal 3. Ich erhalte 27. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 63
+   },
+   "c": "27 // 3 * 7",
+   "w": "Rückwärts: 27 : 3 = 9, dann 9 · 7 = 63.",
+   "h": "Mach den letzten Schritt zuerst rückgängig."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Bei x : 8 = 5 rechnet man x = 5 : 8.“"
+   },
+   "a": [
+    "Ja, das stimmt.",
+    "Nein: x = 8 − 5.",
+    "Nein: Die Umkehrung von „: 8“ ist „· 8“, also x = 40.",
+    "Nein: x = 8 : 5."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Probe: 40 : 8 = 5. Mit 5 : 8 käme keine natürliche Zahl heraus.",
+   "h": "Mach die Probe mit deinem Ergebnis."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
    "p": "bonus",
    "s": 3,
    "g": "knobel",
@@ -9884,6 +9979,23 @@
    "c": "2",
    "w": "x = 0 passt (0 = 0). Ist x nicht 0, kann man durch x teilen: x = −4. Probe: 16 = 16. Also 2 Lösungen.",
    "h": "Vergiss nicht die besondere Zahl, bei der beide Seiten 0 sind."
+  },
+  {
+   "l": "umkehraufgabe_mal",
+   "t": "gleichungen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl wird verdoppelt, das Ergebnis verdreifacht und dieses vervierfacht. Man erhält 600. Welche Zahl war es?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "600 // 24",
+   "w": "Insgesamt wurde mit 2 · 3 · 4 = 24 multipliziert. 600 : 24 = 25.",
+   "h": "Mit welcher Zahl wurde insgesamt multipliziert?"
   },
   {
    "l": "umkehraufgabe_mal",

@@ -1421,19 +1421,19 @@
    "l": "thales",
    "t": "thales",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Ecke eines Zeichendreiecks (rechter Winkel) wird so zwischen zwei Nägel A und B gelegt, dass die Schenkel an den Nägeln anliegen. A und B sind 14 cm voneinander entfernt. Auf welchem Kreis wandert die Ecke, wenn man das Dreieck verschiebt? Gib seinen Radius an."
+    "text": "Über einer 3 cm langen Strecke [AB] wird der Thaleskreis gezeichnet. Wie groß ist sein Radius?"
    },
    "o": {
-    "wert": 7,
+    "wert": 1.5,
     "einheit": "cm"
    },
-   "c": "14 / 2",
-   "w": "Umkehrung des Thalessatzes: Die Ecke mit dem rechten Winkel liegt auf dem Thaleskreis über [AB], r = 14 : 2 = 7 cm.",
-   "h": "Rechter Winkel bei der Ecke – an welchen Satz erinnert das?",
-   "g": "transfer"
+   "c": "3 / 2",
+   "w": "[AB] ist der Durchmesser: r = 3 cm : 2 = 1,5 cm.",
+   "h": "Die Strecke ist der Durchmesser des Thaleskreises.",
+   "g": "mehrschritt"
   },
   {
    "l": "thales",
@@ -1506,131 +1506,6 @@
    "w": "Nach dem Satz des Thales ist der Winkel bei C ein rechter Winkel: γ = 90°.",
    "h": "Was sagt der Satz des Thales über den Winkel bei C?",
    "g": "direkt"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Über einer 3 cm langen Strecke [AB] wird der Thaleskreis gezeichnet. Wie groß ist sein Radius?"
-   },
-   "o": {
-    "wert": 1.5,
-    "einheit": "cm"
-   },
-   "c": "3 / 2",
-   "w": "[AB] ist der Durchmesser: r = 3 cm : 2 = 1,5 cm.",
-   "h": "Die Strecke ist der Durchmesser des Thaleskreises.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 75°. Wie groß ist β?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       -3,
-       0
-      ],
-      "B": [
-       3,
-       0
-      ],
-      "C": [
-       -2.6,
-       1.5
-      ],
-      "M": [
-       0,
-       0
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "C",
-       "A",
-       "B"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "75°"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "β"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": "M",
-       "r": 3
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "°"
-   },
-   "c": "180 - 90 - 75",
-   "w": "Thales: γ = 90°. β = 180° − 90° − 75° = 15°.",
-   "h": "Erst γ mit Thales, dann die Winkelsumme.",
-   "g": "direkt"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "C liegt auf dem Thaleskreis über [AB], M ist die Mitte von [AB]. Warum haben die Dreiecke AMC und MBC den gleichen Flächeninhalt?"
-   },
-   "a": [
-    "Weil bei C ein rechter Winkel ist.",
-    "Sie haben gleich lange Grundseiten (AM = MB) und dieselbe Höhe (Abstand von C zu AB).",
-    "Weil sie kongruent sind.",
-    "Weil beide Dreiecke gleichschenklig sind."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Fläche = Grundseite · Höhe : 2. AM = MB, und die Höhe ist für beide der Abstand von C zur Geraden AB. Kongruent sind sie meist nicht.",
-   "h": "Denke an die Formel für den Flächeninhalt eines Dreiecks.",
-   "g": "begruenden"
   },
   {
    "l": "thales",
@@ -1724,6 +1599,109 @@
    "s": 1,
    "y": "zahl",
    "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 75°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -2.6,
+       1.5
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "75°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 75",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 75° = 15°.",
+   "h": "Erst γ mit Thales, dann die Winkelsumme.",
+   "g": "direkt"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Ecke eines Zeichendreiecks (rechter Winkel) wird so zwischen zwei Nägel A und B gelegt, dass die Schenkel an den Nägeln anliegen. A und B sind 14 cm voneinander entfernt. Auf welchem Kreis wandert die Ecke, wenn man das Dreieck verschiebt? Gib seinen Radius an."
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "14 / 2",
+   "w": "Umkehrung des Thalessatzes: Die Ecke mit dem rechten Winkel liegt auf dem Thaleskreis über [AB], r = 14 : 2 = 7 cm.",
+   "h": "Rechter Winkel bei der Ecke – an welchen Satz erinnert das?",
+   "g": "transfer"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
     "text": "Über einer 7 cm langen Strecke [AB] wird der Thaleskreis gezeichnet. Wie groß ist sein Radius?"
    },
    "o": {
@@ -1734,6 +1712,28 @@
    "w": "[AB] ist der Durchmesser: r = 7 cm : 2 = 3,5 cm.",
    "h": "Die Strecke ist der Durchmesser des Thaleskreises.",
    "g": "direkt"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "C liegt auf dem Thaleskreis über [AB], M ist die Mitte von [AB]. Warum haben die Dreiecke AMC und MBC den gleichen Flächeninhalt?"
+   },
+   "a": [
+    "Weil bei C ein rechter Winkel ist.",
+    "Sie haben gleich lange Grundseiten (AM = MB) und dieselbe Höhe (Abstand von C zu AB).",
+    "Weil sie kongruent sind.",
+    "Weil beide Dreiecke gleichschenklig sind."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Fläche = Grundseite · Höhe : 2. AM = MB, und die Höhe ist für beide der Abstand von C zur Geraden AB. Kongruent sind sie meist nicht.",
+   "h": "Denke an die Formel für den Flächeninhalt eines Dreiecks.",
+   "g": "begruenden"
   },
   {
    "l": "thales",
@@ -1752,6 +1752,349 @@
    "w": "γ = 90°, also α + β = 90°. Mit β = α + 20°: 2α + 20° = 90°, α = 35°.",
    "h": "Was gilt für α + β, wenn γ = 90° ist?",
    "g": "rueckwaerts"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist Durchmesser des Kreises um M, C liegt auf dem Kreis, α = 27°. Wie groß ist der Winkel ∠BMC?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "C": [
+       1.76,
+       2.43
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ],
+      [
+       "M",
+       "C",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "27°"
+      ],
+      [
+       "M",
+       "B",
+       "C",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 54,
+    "einheit": "°"
+   },
+   "c": "2 * 27",
+   "w": "Dreieck AMC ist gleichschenklig (MA = MC): ∠ACM = 27°. ∠AMC = 180° − 2 · 27° = 126°. ∠BMC = 180° − 126° = 54°.",
+   "h": "MA und MC sind Radien. Nutze das gleichschenklige Dreieck AMC.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Über einer 4 cm langen Strecke [AB] wird der Thaleskreis gezeichnet. Wie groß ist sein Radius?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "4 / 2",
+   "w": "[AB] ist der Durchmesser: r = 4 cm : 2 = 2 cm.",
+   "h": "Die Strecke ist der Durchmesser des Thaleskreises."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 67°. Wie groß ist γ?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -2.08,
+       2.16
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "67°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "180 - 90",
+   "w": "Nach dem Satz des Thales ist der Winkel bei C ein rechter Winkel: γ = 90°.",
+   "h": "Was sagt der Satz des Thales über den Winkel bei C?",
+   "g": "direkt"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis (C ≠ A, B). Was gilt sicher?"
+   },
+   "a": [
+    "Die Winkel bei A und B sind gleich groß.",
+    "Der Winkel bei C ist ein rechter Winkel.",
+    "Der Winkel bei A ist ein rechter Winkel.",
+    "Das Dreieck ABC ist gleichseitig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Satz des Thales: Liegt C auf dem Kreis über dem Durchmesser [AB], ist der Winkel bei C ein rechter Winkel. Über A und B sagt der Satz nichts.",
+   "h": "Welcher Ecke liegt der Durchmesser gegenüber?"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Halbkreisfenster hat 1,2 m Durchmesser. Zwei Streben verbinden die Enden des Durchmessers mit einem Punkt auf dem Bogen; eine Strebe bildet mit dem Durchmesser einen Winkel von 50°. Welchen Winkel bilden die beiden Streben an dem Punkt auf dem Bogen?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90",
+   "w": "Die Streben bilden mit dem Durchmesser ein Dreieck, dessen dritte Ecke auf dem Halbkreis liegt. Nach Thales ist der Winkel dort 90° – egal wie groß das Fenster ist.",
+   "h": "Welcher Satz handelt von einem Punkt auf einem Halbkreis über einem Durchmesser?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist β = 22°. Wie groß ist α?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -2.16,
+       2.08
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "α"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "22°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 22",
+   "w": "Thales: γ = 90°. α = 180° − 90° − 22° = 68°.",
+   "h": "Erst γ mit Thales, dann die Winkelsumme.",
+   "g": "umkehr"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Über [AB] mit A(−3 | 1) und B(5 | 1) wird der Thaleskreis gezeichnet. Liegt C(1 | 5) auf diesem Kreis?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      6
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 5,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 1,
+       "y": 5,
+       "name": "C"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Ja: Jeder Punkt über [AB] liegt darauf.",
+    "Nein: Der Radius ist 8.",
+    "Ja: M(1 | 1), Radius 4, und C ist 4 über M.",
+    "Nein: C liegt nicht auf der Strecke [AB]."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "M ist die Mitte von [AB]: (1 | 1). Radius = 8 : 2 = 4. C(1 | 5) liegt genau 4 Einheiten über M, also auf dem Kreis.",
+   "h": "Bestimme Mittelpunkt und Radius des Thaleskreises.",
+   "g": "mehrschritt"
   },
   {
    "l": "thales",
@@ -1810,6 +2153,78 @@
    "w": "Thales: γ = 90°, also α + β = 90°. α + 2α = 90° → α = 90° : 3 = 30°.",
    "h": "α + β = 90°.",
    "g": "rueckwaerts"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist so gezeichnet, dass alle vier Ecken auf einem Kreis mit dem Radius 5 cm liegen. Wie lang ist eine Diagonale des Rechtecks?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "2 * 5",
+   "w": "Jede Ecke hat einen rechten Winkel. Nach der Umkehrung des Thalessatzes ist die Diagonale gegenüber ein Durchmesser: 2 · 5 cm = 10 cm.",
+   "h": "Betrachte das Dreieck aus zwei Seiten und einer Diagonale. Wo ist der rechte Winkel?",
+   "g": "transfer"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Kreis mit Mittelpunkt M ist [AB] ein Durchmesser; C liegt auf dem Kreis. Der Winkel ∠BAC ist 28°. Wie groß ist der Winkel ∠BMC?"
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "°"
+   },
+   "c": "2 * 28",
+   "w": "MA = MC (Radien), also ist das Dreieck AMC gleichschenklig: ∠MCA = 28°. ∠AMC = 180° − 56° = 124°. ∠BMC ist sein Nebenwinkel: 56° = 2 · 28°.",
+   "h": "Welche Strecken im Dreieck AMC sind Radien?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, M ist die Mitte von [AB], und α = 25°. Wie groß ist der Winkel ∠AMC?"
+   },
+   "o": {
+    "wert": 130,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 25",
+   "w": "C liegt auf dem Thaleskreis über [AB] mit dem Mittelpunkt M, also MA = MC. Das Dreieck AMC ist gleichschenklig: ∢ACM = ∢MAC = 25°. Winkelsumme im Dreieck AMC: ∢AMC = 180° − 25° − 25° = 130°.",
+   "h": "Welche Strecken sind gleich lang, wenn C auf dem Thaleskreis liegt?"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine 4 m lange Leiter rutscht an einer senkrechten Wand nach unten, ihr Fuß gleitet über den waagrechten Boden. Welchen Abstand hat die Mitte der Leiter stets von der Ecke zwischen Wand und Boden?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "m"
+   },
+   "c": "4 / 2",
+   "w": "Wand, Boden und Leiter bilden ein rechtwinkliges Dreieck mit dem rechten Winkel in der Ecke E. Nach der Umkehrung des Thalessatzes liegt E auf dem Kreis über der Leiter als Durchmesser. Sein Mittelpunkt ist die Leitermitte, sein Radius die halbe Leiter. Also ist die Mitte immer 2 m von der Ecke entfernt – sie bewegt sich auf einem Viertelkreis.",
+   "h": "Welcher Kreis geht durch die Ecke, wenn die Leiter ein Durchmesser ist?"
   },
   {
    "l": "thales",
@@ -2637,94 +3052,6 @@
    "l": "umkehrung",
    "t": "umkehrung",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Der Punkt C liegt INNERHALB des Thaleskreises über [AB] (nicht auf [AB]). Was gilt für den Winkel γ bei C?"
-   },
-   "a": [
-    "γ ist größer als 90° (stumpf).",
-    "Das hängt von der Länge von [AB] ab.",
-    "γ ist kleiner als 90° (spitz).",
-    "γ ist genau 90°."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Auf dem Kreis ist γ = 90°. Rückt C nach innen (näher an [AB]), öffnet sich der Winkel: γ > 90°. Außerhalb wird er spitz.",
-   "h": "Stell dir vor, C rutscht vom Kreis aus Richtung Mitte M. Wird der Winkel größer oder kleiner?",
-   "g": "begruenden"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−5 | −1), B(1 | −1). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -6,
-      2
-     ],
-     "y": [
-      -2,
-      1
-     ],
-     "punkte": [
-      {
-       "x": -5,
-       "y": -1,
-       "name": "A"
-      },
-      {
-       "x": 1,
-       "y": -1,
-       "name": "B"
-      }
-     ],
-     "strecken": [
-      [
-       -5,
-       -1,
-       1,
-       -1
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "6 / 2",
-   "w": "[AB] ist 6 cm lang (Durchmesser). r = 6 : 2 = 3 cm.",
-   "h": "Der Radius ist die halbe Länge von [AB]."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist γ = 90° und [AB] 12 cm lang. M ist die Mitte von [AB]. Wie lang ist [MC]?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "12 / 2",
-   "w": "C liegt auf dem Thaleskreis über [AB] mit Mittelpunkt M. [MC] ist ein Radius: 12 cm : 2 = 6 cm.",
-   "h": "Auf welchem Kreis liegt C?",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -2792,6 +3119,286 @@
    "l": "umkehrung",
    "t": "umkehrung",
    "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−4 | 4), B(−4 | 10). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -1,
+      11
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 4,
+       "name": "A"
+      },
+      {
+       "x": -4,
+       "y": 10,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -4,
+       4,
+       -4,
+       10
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "6 / 2",
+   "w": "[AB] ist 6 cm lang (Durchmesser). r = 6 : 2 = 3 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB]."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Punkt C liegt INNERHALB des Thaleskreises über [AB] (nicht auf [AB]). Was gilt für den Winkel γ bei C?"
+   },
+   "a": [
+    "γ ist größer als 90° (stumpf).",
+    "Das hängt von der Länge von [AB] ab.",
+    "γ ist kleiner als 90° (spitz).",
+    "γ ist genau 90°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Auf dem Kreis ist γ = 90°. Rückt C nach innen (näher an [AB]), öffnet sich der Winkel: γ > 90°. Außerhalb wird er spitz.",
+   "h": "Stell dir vor, C rutscht vom Kreis aus Richtung Mitte M. Wird der Winkel größer oder kleiner?",
+   "g": "begruenden"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90° und [AB] 12 cm lang. M ist die Mitte von [AB]. Wie lang ist [MC]?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "12 / 2",
+   "w": "C liegt auf dem Thaleskreis über [AB] mit Mittelpunkt M. [MC] ist ein Radius: 12 cm : 2 = 6 cm.",
+   "h": "Auf welchem Kreis liegt C?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tischler prüft eine Ecke C: Er markiert auf den beiden Kanten Punkte A und B mit [AB] = 50 cm und misst den Abstand von C zur Mitte M von [AB]. Wie groß muss er sein, damit die Ecke rechtwinklig ist?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "50 / 2",
+   "w": "Bei rechtem Winkel liegt C auf dem Thaleskreis über [AB]: MC = MA = 25 cm. Ist MC kleiner, ist die Ecke stumpf, ist er größer, ist sie spitz.",
+   "h": "Welchen Radius hat der Thaleskreis über [AB]?"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−2 | −3), B(2 | −3). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -4,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -3,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": -3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -2,
+       -3,
+       2,
+       -3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "4 / 2",
+   "w": "[AB] ist 4 cm lang (Durchmesser). r = 4 : 2 = 2 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB].",
+   "g": "direkt"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−6 | 1), B(−6 | 7). Gib den Mittelpunkt des Kreises an, auf dem C liegt.",
+    "schablone": "M(□ | □)",
+    "hinweis": "Trage in jedes Feld eine ganze Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": -6,
+       "y": 7,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -6,
+       1,
+       -6,
+       7
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -6,
+     4
+    ]
+   },
+   "c": [
+    "(-6 + -6) // 2",
+    "(1 + 7) // 2"
+   ],
+   "w": "Thaleskreis über [AB]: Mittelpunkt = Mitte von [AB] = ((−6 + (−6)) : 2 | (1 + 7) : 2) = M(−6 | 4).",
+   "h": "Der Mittelpunkt ist die Mitte der Seite gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was sagt die Umkehrung des Thalessatzes?"
+   },
+   "a": [
+    "Hat das Dreieck ABC bei C einen rechten Winkel, liegt C auf dem Kreis mit dem Durchmesser [AB].",
+    "Jedes Dreieck hat einen Umkreis.",
+    "Liegt C auf dem Kreis über [AB], ist der Winkel bei C ein rechter.",
+    "Hat ein Dreieck einen rechten Winkel, ist es gleichschenklig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Thalessatz schließt von „C auf dem Kreis“ auf „rechter Winkel“. Die Umkehrung schließt vom rechten Winkel auf „C liegt auf dem Kreis“.",
+   "h": "Was ist gegeben, was folgt?"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−5 | −1), B(1 | −1). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      2
+     ],
+     "y": [
+      -2,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -1,
+       "name": "A"
+      },
+      {
+       "x": 1,
+       "y": -1,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       -1,
+       1,
+       -1
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "6 / 2",
+   "w": "[AB] ist 6 cm lang (Durchmesser). r = 6 : 2 = 3 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB]."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -2808,6 +3415,123 @@
    },
    "w": "γ = 180° − 20° − 50° = 110°. Kein rechter Winkel → C liegt nicht darauf.",
    "h": "Berechne γ. C liegt genau dann auf dem Thaleskreis, wenn γ = 90° ist."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Gärtner steckt ein rechtwinkliges Beet ab. Die Seite gegenüber dem rechten Winkel soll 8 m lang sein. Wie weit ist die Ecke mit dem rechten Winkel von der Mitte dieser Seite entfernt?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "8 / 2",
+   "w": "Die Ecke liegt auf dem Thaleskreis über der 8-m-Seite. Sein Radius ist 8 m : 2 = 4 m.",
+   "h": "Auf welchem Kreis liegt die Ecke mit dem rechten Winkel?"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(2 | −4), B(2 | 4). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      3
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": -4,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 4,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       -4,
+       2,
+       4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "8 / 2",
+   "w": "[AB] ist 8 cm lang (Durchmesser). r = 8 : 2 = 4 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB].",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Dreieck ABC mit A(1 | 2) und B(1 | 10) soll bei C einen rechten Winkel haben. Ist C(5 | 6) ein möglicher Punkt?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      11
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 1,
+       "y": 10,
+       "name": "B"
+      },
+      {
+       "x": 5,
+       "y": 6,
+       "name": "C"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Ja: Jeder Punkt rechts von [AB] passt.",
+    "Nein: C ist 5 von M entfernt.",
+    "Nein: C muss auf der Strecke [AB] liegen.",
+    "Ja: C ist 4 von M(1 | 6) entfernt, so weit wie A und B."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "M(1 | 6) ist die Mitte von [AB], Radius 4. C(5 | 6) liegt 4 rechts von M, also auf dem Thaleskreis: rechter Winkel bei C.",
+   "h": "Liegt C auf dem Kreis über [AB]?",
+   "g": "umkehr"
   },
   {
    "l": "umkehrung",
@@ -2863,19 +3587,142 @@
    "l": "umkehrung",
    "t": "umkehrung",
    "p": "uebung",
-   "s": 2,
-   "g": "einkleidung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 51° und β = 37°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?"
+   },
+   "a": [
+    "Nein, denn γ = 92° ist kein rechter Winkel.",
+    "Ja, denn α + β < 180°.",
+    "Das kann man ohne Zeichnung nicht entscheiden.",
+    "Ja, weil jedes Dreieck einen Umkreis hat."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "γ = 180° − 51° − 37° = 92°. Kein rechter Winkel → C liegt nicht darauf.",
+   "h": "Berechne γ. C liegt genau dann auf dem Thaleskreis, wenn γ = 90° ist.",
+   "g": "begruenden"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Gärtner steckt ein rechtwinkliges Beet ab. Die Seite gegenüber dem rechten Winkel soll 8 m lang sein. Wie weit ist die Ecke mit dem rechten Winkel von der Mitte dieser Seite entfernt?"
+    "text": "Ein Dreieck hat die Winkel α = 2x, β = 3x und γ = 90°. Wie groß ist α?"
    },
    "o": {
-    "wert": 4,
-    "einheit": "m"
+    "wert": 36,
+    "einheit": "°"
    },
-   "c": "8 / 2",
-   "w": "Die Ecke liegt auf dem Thaleskreis über der 8-m-Seite. Sein Radius ist 8 m : 2 = 4 m.",
-   "h": "Auf welchem Kreis liegt die Ecke mit dem rechten Winkel?"
+   "c": "2 * 90 / 5",
+   "w": "α + β = 90°: 5x = 90°, x = 18°. α = 2 · 18° = 36°.",
+   "h": "α und β ergeben zusammen 90°.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Im Dreieck ABC ist γ = 100°, also liegt C außerhalb des Thaleskreises über [AB].“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: C liegt genau auf dem Thaleskreis.",
+    "Falsch: C liegt auf [AB].",
+    "Falsch: Bei stumpfem γ liegt C innerhalb des Thaleskreises.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Auf dem Kreis ist γ = 90°. Rückt C näher an [AB] heran (in den Kreis hinein), wird der Winkel größer, also stumpf. Außerhalb des Kreises ist γ spitz.",
+   "h": "Wie verändert sich der Winkel, wenn C näher an [AB] rückt?"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Das Dreieck hat die Ecken A(1 | 1), B(7 | 1) und C(4 | 4). Hat es bei C einen rechten Winkel?"
+   },
+   "a": [
+    "Nein: MC ist 4.",
+    "Ja: M(4 | 1) ist die Mitte von [AB] und MC = 3 = MA, also liegt C auf dem Thaleskreis.",
+    "Ja: Alle Seiten sind gleich lang.",
+    "Nein: C liegt nicht über A."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mitte von [AB]: (4 | 1), Radius 3. C(4 | 4) liegt 3 Einheiten senkrecht über M, also auf dem Thaleskreis. Nach dem Thalessatz ist der Winkel bei C ein rechter.",
+   "h": "Bestimme die Mitte von [AB] und vergleiche MC mit MA."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Satz des Thales: „Wenn C auf dem Kreis mit dem Durchmesser [AB] liegt, dann ist der Winkel bei C ein rechter Winkel.“ Wie lautet der Kehrsatz?"
+   },
+   "a": [
+    "Wenn C auf dem Kreis liegt, dann ist das Dreieck gleichschenklig.",
+    "Wenn der Winkel bei C ein rechter Winkel ist, dann liegt C auf dem Kreis mit dem Durchmesser [AB].",
+    "Wenn der Winkel bei C ein rechter Winkel ist, dann ist [AB] ein Radius.",
+    "Wenn C nicht auf dem Kreis liegt, dann ist der Winkel bei C kein rechter."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beim Kehrsatz werden Voraussetzung („C auf dem Kreis“) und Folgerung („rechter Winkel bei C“) vertauscht. Dieser Kehrsatz ist sogar wahr.",
+   "h": "Vertausche Wenn-Teil und Dann-Teil.",
+   "g": "transfer"
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist M die Mitte von [AB], und es gilt MC = MA. Wie groß ist γ?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "180 / 2",
+   "w": "MA = MB = MC. Die Dreiecke AMC und BMC sind gleichschenklig: ∢ACM = α und ∢BCM = β. Also γ = α + β. Winkelsumme im Dreieck ABC: α + β + γ = 2γ = 180°, also γ = 90°. (Das ist genau der Beweis der Umkehrung.)",
+   "h": "Suche gleichschenklige Teildreiecke und nutze die Winkelsumme."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Die Punkte A und B sind 10 cm voneinander entfernt. Wie viele Punkte C gibt es, sodass das Dreieck ABC bei C rechtwinklig ist und C von der Geraden AB genau 5 cm Abstand hat?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "C muss auf dem Thaleskreis über [AB] liegen (Radius 5 cm) und auf einer der beiden Parallelen zu AB im Abstand 5 cm. Diese Parallelen berühren den Kreis genau in seinem höchsten und tiefsten Punkt – je ein Punkt. Also 2 Punkte (über der Mitte von [AB] und darunter). Bei 6 cm gäbe es keinen.",
+   "h": "Auf welchen zwei Ortslinien liegt C?"
   },
   {
    "l": "umkehrung",
@@ -3528,6 +4375,28 @@
    "l": "beweis",
    "t": "beweis",
    "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Eine Zeichnung allein ist ein Beweis.",
+    "Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
+    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.",
+   "h": "Was unterscheidet Messen von Begründen?",
+   "g": "erkennen"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -3607,17 +4476,122 @@
     "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
    },
    "a": [
-    "Eine Zeichnung allein ist ein Beweis.",
-    "Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.",
     "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
-    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen."
+    "Ein einziges Gegenbeispiel widerlegt eine Vermutung.",
+    "Eine Zeichnung allein ist ein Beweis.",
+    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt."
    ],
    "o": {
     "index": 1
    },
-   "w": "Richtig: Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.",
+   "w": "Richtig: Ein einziges Gegenbeispiel widerlegt eine Vermutung.",
    "h": "Was unterscheidet Messen von Begründen?",
    "g": "erkennen"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Im Beweis des Thalessatzes steht α + β + (α + β) = 180°. Wie groß ist dann α + β?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "180 / 2",
+   "w": "2 · (α + β) = 180°, also α + β = 90° – das ist γ.",
+   "h": "Fasse links zusammen."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.",
+    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
+    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig: Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.",
+   "h": "Was unterscheidet Messen von Begründen?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Vermutung: „Die Summe zweier ungerader Zahlen ist immer gerade.“ Was ist ein Beweis?"
+   },
+   "a": [
+    "3 + 5 = 8 und 7 + 9 = 16 sind gerade.",
+    "(2a + 1) + (2b + 1) = 2(a + b + 1), und das ist durch 2 teilbar.",
+    "Weil es so im Heft steht.",
+    "Weil ungerade plus ungerade nie ungerade sein kann."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beispiele zeigen nur Einzelfälle. Mit Variablen (ungerade Zahl = 2a + 1) gilt die Rechnung für alle ungeraden Zahlen.",
+   "h": "Ein Beweis muss für alle Zahlen gelten, nicht nur für Beispiele.",
+   "g": "darstellung"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist falsch?"
+   },
+   "a": [
+    "Ein einziges Gegenbeispiel widerlegt eine Vermutung.",
+    "Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.",
+    "Eine Zeichnung allein ist ein Beweis.",
+    "Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Falsch: Eine Zeichnung allein ist ein Beweis. Messungen sind ungenau und decken nie alle Fälle ab.",
+   "h": "Was unterscheidet Messen von Begründen?",
+   "g": "umkehr"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Beweis des Thalessatzes: (1) MA = MB = MC. (2) Die Dreiecke AMC und BMC sind gleichschenklig. (3) ∠ACM = α und ∠BCM = β. (4) γ = α + β. ◀ (5) α + β + γ = 180°, also 2γ = 180° und γ = 90°. Welche Begründung gehört zu Schritt (4)?"
+   },
+   "a": [
+    "Nebenwinkel ergänzen sich zu 180°.",
+    "Weil man es in der Zeichnung messen kann.",
+    "Stufenwinkel an Parallelen sind gleich groß.",
+    "Die Strecke [MC] teilt den Winkel γ in die beiden Teilwinkel."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Schritt (4): γ = α + β. Begründung: Die Strecke [MC] teilt den Winkel γ in die beiden Teilwinkel.",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt – nicht einen früheren oder späteren?",
+   "g": "mehrschritt"
   },
   {
    "l": "beweis",
@@ -3645,23 +4619,111 @@
    "l": "beweis",
    "t": "beweis",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Vermutung: „Die Summe zweier ungerader Zahlen ist immer gerade.“ Was ist ein Beweis?"
+    "text": "Beweis des Thalessatzes: (1) MA = MB = MC. (2) Die Dreiecke AMC und BMC sind gleichschenklig. ◀ (3) ∠ACM = α und ∠BCM = β. (4) γ = α + β. (5) α + β + γ = 180°, also 2γ = 180° und γ = 90°. Welche Begründung gehört zu Schritt (2)?"
    },
    "a": [
-    "3 + 5 = 8 und 7 + 9 = 16 sind gerade.",
-    "(2a + 1) + (2b + 1) = 2(a + b + 1), und das ist durch 2 teilbar.",
-    "Weil es so im Heft steht.",
-    "Weil ungerade plus ungerade nie ungerade sein kann."
+    "Die Strecke [MC] teilt den Winkel γ in die beiden Teilwinkel.",
+    "Je zwei ihrer Seiten sind gleich lang (Schritt 1).",
+    "Die Diagonalen eines Rechtecks sind gleich lang.",
+    "Weil man es in der Zeichnung messen kann."
    ],
    "o": {
     "index": 1
    },
-   "w": "Beispiele zeigen nur Einzelfälle. Mit Variablen (ungerade Zahl = 2a + 1) gilt die Rechnung für alle ungeraden Zahlen.",
-   "h": "Ein Beweis muss für alle Zahlen gelten, nicht nur für Beispiele.",
-   "g": "darstellung"
+   "w": "Schritt (2): Die Dreiecke AMC und BMC sind gleichschenklig. Begründung: Je zwei ihrer Seiten sind gleich lang (Schritt 1).",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt – nicht einen früheren oder späteren?",
+   "g": "begruenden"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Beweis, dass ∠BMC = 2 · ∠BAC ist ([AB] Durchmesser, C auf dem Kreis um M). Bringe in die richtige Reihenfolge. Kärtchen 1: „∠AMC = 180° − 2α (Winkelsumme im Dreieck AMC)“ Kärtchen 2: „MA = MC, also ∠MCA = α (Basiswinkel)“ Kärtchen 3: „∠BMC = 180° − ∠AMC = 2α (Nebenwinkel)“",
+    "schablone": "1. Schritt: □; 2. Schritt: □; 3. Schritt: □",
+    "hinweis": "Trage die Nummern der Kärtchen ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "1",
+    "3"
+   ],
+   "w": "Zuerst braucht man die gleichen Basiswinkel (2), dann die Winkelsumme im Dreieck AMC (1), dann den Nebenwinkel bei M (3).",
+   "h": "Welcher Schritt braucht keinen anderen? Kärtchen 1 benutzt, dass beide Basiswinkel α sind.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Kreis um M ist [AB] ein Durchmesser, C liegt auf dem Kreis. ∠BAC = α und ∠BMC = δ. Was gilt immer?"
+   },
+   "a": [
+    "δ = α",
+    "δ = 180° − α",
+    "δ = 2α",
+    "δ = 90° − α"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Dreieck AMC ist gleichschenklig (Radien), also ∠MCA = α und ∠AMC = 180° − 2α. δ ist der Nebenwinkel: 180° − (180° − 2α) = 2α.",
+   "h": "Nutze das gleichschenklige Dreieck AMC und den Nebenwinkel bei M.",
+   "g": "transfer"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Ist die Summe von vier aufeinanderfolgenden natürlichen Zahlen immer durch 4 teilbar?"
+   },
+   "a": [
+    "Ja, aber nur bei geraden Startzahlen.",
+    "Nein: Sie lässt beim Teilen durch 4 immer den Rest 2.",
+    "Nein, aber manchmal schon.",
+    "Ja: Bei drei Zahlen ist sie ja auch durch 3 teilbar."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Allgemein: n + (n + 1) + (n + 2) + (n + 3) = 4n + 6 = 4(n + 1) + 2. Das ist ein Vielfaches von 4 plus 2 – nie durch 4 teilbar. Beispiel: 1 + 2 + 3 + 4 = 10. Bei drei Zahlen klappt es: (n − 1) + n + (n + 1) = 3n.",
+   "h": "Schreibe die vier Zahlen mit einer Variablen und fasse zusammen."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Die Vermutung „n² + n + 41 ist für jede natürliche Zahl n eine Primzahl“ stimmt für n = 0, 1, 2, …, 39. Für welches kleinste n stimmt sie nicht?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "40",
+   "w": "Für n = 40: 40² + 40 + 41 = 40 · (40 + 1) + 41 = 40 · 41 + 41 = 41 · 41. Das ist keine Primzahl. Vorher ist jeder Wert prim (nachprüfbar). Die Aufgabe zeigt: Auch 40 bestätigende Beispiele sind kein Beweis.",
+   "h": "Suche ein n, bei dem man 41 ausklammern kann."
   },
   {
    "l": "beweis",
@@ -6715,1028 +7777,6 @@
     "index": 3
    },
    "w": "γ = 90°. Größter Winkel 90°: rechtwinklig → Thales: Mitte der Hypotenuse."
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck ist so gezeichnet, dass alle vier Ecken auf einem Kreis mit dem Radius 5 cm liegen. Wie lang ist eine Diagonale des Rechtecks?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "cm"
-   },
-   "c": "2 * 5",
-   "w": "Jede Ecke hat einen rechten Winkel. Nach der Umkehrung des Thalessatzes ist die Diagonale gegenüber ein Durchmesser: 2 · 5 cm = 10 cm.",
-   "h": "Betrachte das Dreieck aus zwei Seiten und einer Diagonale. Wo ist der rechte Winkel?",
-   "g": "transfer"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Über einer 4 cm langen Strecke [AB] wird der Thaleskreis gezeichnet. Wie groß ist sein Radius?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "cm"
-   },
-   "c": "4 / 2",
-   "w": "[AB] ist der Durchmesser: r = 4 cm : 2 = 2 cm.",
-   "h": "Die Strecke ist der Durchmesser des Thaleskreises."
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "[AB] ist Durchmesser des Kreises um M, C liegt auf dem Kreis, α = 27°. Wie groß ist der Winkel ∠BMC?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       -3,
-       0
-      ],
-      "B": [
-       3,
-       0
-      ],
-      "M": [
-       0,
-       0
-      ],
-      "C": [
-       1.76,
-       2.43
-      ]
-     },
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ],
-      [
-       "M",
-       "C",
-       "",
-       "gestrichelt"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "27°"
-      ],
-      [
-       "M",
-       "B",
-       "C",
-       "?"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": "M",
-       "r": 3
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": 54,
-    "einheit": "°"
-   },
-   "c": "2 * 27",
-   "w": "Dreieck AMC ist gleichschenklig (MA = MC): ∠ACM = 27°. ∠AMC = 180° − 2 · 27° = 126°. ∠BMC = 180° − 126° = 54°.",
-   "h": "MA und MC sind Radien. Nutze das gleichschenklige Dreieck AMC.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Halbkreisfenster hat 1,2 m Durchmesser. Zwei Streben verbinden die Enden des Durchmessers mit einem Punkt auf dem Bogen; eine Strebe bildet mit dem Durchmesser einen Winkel von 50°. Welchen Winkel bilden die beiden Streben an dem Punkt auf dem Bogen?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "90",
-   "w": "Die Streben bilden mit dem Durchmesser ein Dreieck, dessen dritte Ecke auf dem Halbkreis liegt. Nach Thales ist der Winkel dort 90° – egal wie groß das Fenster ist.",
-   "h": "Welcher Satz handelt von einem Punkt auf einem Halbkreis über einem Durchmesser?",
-   "g": "einkleidung"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 67°. Wie groß ist γ?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       -3,
-       0
-      ],
-      "B": [
-       3,
-       0
-      ],
-      "C": [
-       -2.08,
-       2.16
-      ],
-      "M": [
-       0,
-       0
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "67°"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": "M",
-       "r": 3
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "180 - 90",
-   "w": "Nach dem Satz des Thales ist der Winkel bei C ein rechter Winkel: γ = 90°.",
-   "h": "Was sagt der Satz des Thales über den Winkel bei C?",
-   "g": "direkt"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist β = 22°. Wie groß ist α?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       -3,
-       0
-      ],
-      "B": [
-       3,
-       0
-      ],
-      "C": [
-       -2.16,
-       2.08
-      ],
-      "M": [
-       0,
-       0
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ],
-     "rechter_winkel": [
-      [
-       "C",
-       "A",
-       "B"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "α"
-      ],
-      [
-       "B",
-       "C",
-       "A",
-       "22°"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": "M",
-       "r": 3
-      }
-     ]
-    }
-   },
-   "o": {
-    "wert": 68,
-    "einheit": "°"
-   },
-   "c": "180 - 90 - 22",
-   "w": "Thales: γ = 90°. α = 180° − 90° − 22° = 68°.",
-   "h": "Erst γ mit Thales, dann die Winkelsumme.",
-   "g": "umkehr"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Über [AB] mit A(−3 | 1) und B(5 | 1) wird der Thaleskreis gezeichnet. Liegt C(1 | 5) auf diesem Kreis?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      6
-     ],
-     "y": [
-      -1,
-      6
-     ],
-     "punkte": [
-      {
-       "x": -3,
-       "y": 1,
-       "name": "A"
-      },
-      {
-       "x": 5,
-       "y": 1,
-       "name": "B"
-      },
-      {
-       "x": 1,
-       "y": 5,
-       "name": "C"
-      }
-     ]
-    }
-   },
-   "a": [
-    "Ja: Jeder Punkt über [AB] liegt darauf.",
-    "Nein: Der Radius ist 8.",
-    "Ja: M(1 | 1), Radius 4, und C ist 4 über M.",
-    "Nein: C liegt nicht auf der Strecke [AB]."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "M ist die Mitte von [AB]: (1 | 1). Radius = 8 : 2 = 4. C(1 | 5) liegt genau 4 Einheiten über M, also auf dem Kreis.",
-   "h": "Bestimme Mittelpunkt und Radius des Thaleskreises.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis (C ≠ A, B). Was gilt sicher?"
-   },
-   "a": [
-    "Die Winkel bei A und B sind gleich groß.",
-    "Der Winkel bei C ist ein rechter Winkel.",
-    "Der Winkel bei A ist ein rechter Winkel.",
-    "Das Dreieck ABC ist gleichseitig."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Satz des Thales: Liegt C auf dem Kreis über dem Durchmesser [AB], ist der Winkel bei C ein rechter Winkel. Über A und B sagt der Satz nichts.",
-   "h": "Welcher Ecke liegt der Durchmesser gegenüber?"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, M ist die Mitte von [AB], und α = 25°. Wie groß ist der Winkel ∠AMC?"
-   },
-   "o": {
-    "wert": 130,
-    "einheit": "°"
-   },
-   "c": "180 - 2 * 25",
-   "w": "C liegt auf dem Thaleskreis über [AB] mit dem Mittelpunkt M, also MA = MC. Das Dreieck AMC ist gleichschenklig: ∢ACM = ∢MAC = 25°. Winkelsumme im Dreieck AMC: ∢AMC = 180° − 25° − 25° = 130°.",
-   "h": "Welche Strecken sind gleich lang, wenn C auf dem Thaleskreis liegt?"
-  },
-  {
-   "l": "thales",
-   "t": "thales",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Eine 4 m lange Leiter rutscht an einer senkrechten Wand nach unten, ihr Fuß gleitet über den waagrechten Boden. Welchen Abstand hat die Mitte der Leiter stets von der Ecke zwischen Wand und Boden?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "m"
-   },
-   "c": "4 / 2",
-   "w": "Wand, Boden und Leiter bilden ein rechtwinkliges Dreieck mit dem rechten Winkel in der Ecke E. Nach der Umkehrung des Thalessatzes liegt E auf dem Kreis über der Leiter als Durchmesser. Sein Mittelpunkt ist die Leitermitte, sein Radius die halbe Leiter. Also ist die Mitte immer 2 m von der Ecke entfernt – sie bewegt sich auf einem Viertelkreis.",
-   "h": "Welcher Kreis geht durch die Ecke, wenn die Leiter ein Durchmesser ist?"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−2 | −3), B(2 | −3). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -3,
-      3
-     ],
-     "y": [
-      -4,
-      1
-     ],
-     "punkte": [
-      {
-       "x": -2,
-       "y": -3,
-       "name": "A"
-      },
-      {
-       "x": 2,
-       "y": -3,
-       "name": "B"
-      }
-     ],
-     "strecken": [
-      [
-       -2,
-       -3,
-       2,
-       -3
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "cm"
-   },
-   "c": "4 / 2",
-   "w": "[AB] ist 4 cm lang (Durchmesser). r = 4 : 2 = 2 cm.",
-   "h": "Der Radius ist die halbe Länge von [AB].",
-   "g": "direkt"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−6 | 1), B(−6 | 7). Gib den Mittelpunkt des Kreises an, auf dem C liegt.",
-    "schablone": "M(□ | □)",
-    "hinweis": "Trage in jedes Feld eine ganze Zahl ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -7,
-      1
-     ],
-     "y": [
-      -1,
-      8
-     ],
-     "punkte": [
-      {
-       "x": -6,
-       "y": 1,
-       "name": "A"
-      },
-      {
-       "x": -6,
-       "y": 7,
-       "name": "B"
-      }
-     ],
-     "strecken": [
-      [
-       -6,
-       1,
-       -6,
-       7
-      ]
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -6,
-     4
-    ]
-   },
-   "c": [
-    "(-6 + -6) // 2",
-    "(1 + 7) // 2"
-   ],
-   "w": "Thaleskreis über [AB]: Mittelpunkt = Mitte von [AB] = ((−6 + (−6)) : 2 | (1 + 7) : 2) = M(−6 | 4).",
-   "h": "Der Mittelpunkt ist die Mitte der Seite gegenüber dem rechten Winkel."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC ist α = 51° und β = 37°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?"
-   },
-   "a": [
-    "Nein, denn γ = 92° ist kein rechter Winkel.",
-    "Ja, denn α + β < 180°.",
-    "Das kann man ohne Zeichnung nicht entscheiden.",
-    "Ja, weil jedes Dreieck einen Umkreis hat."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "γ = 180° − 51° − 37° = 92°. Kein rechter Winkel → C liegt nicht darauf.",
-   "h": "Berechne γ. C liegt genau dann auf dem Thaleskreis, wenn γ = 90° ist.",
-   "g": "begruenden"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(2 | −4), B(2 | 4). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      3
-     ],
-     "y": [
-      -5,
-      5
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": -4,
-       "name": "A"
-      },
-      {
-       "x": 2,
-       "y": 4,
-       "name": "B"
-      }
-     ],
-     "strecken": [
-      [
-       2,
-       -4,
-       2,
-       4
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "cm"
-   },
-   "c": "8 / 2",
-   "w": "[AB] ist 8 cm lang (Durchmesser). r = 8 : 2 = 4 cm.",
-   "h": "Der Radius ist die halbe Länge von [AB].",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Das Dreieck ABC mit A(1 | 2) und B(1 | 10) soll bei C einen rechten Winkel haben. Ist C(5 | 6) ein möglicher Punkt?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      6
-     ],
-     "y": [
-      -1,
-      11
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 2,
-       "name": "A"
-      },
-      {
-       "x": 1,
-       "y": 10,
-       "name": "B"
-      },
-      {
-       "x": 5,
-       "y": 6,
-       "name": "C"
-      }
-     ]
-    }
-   },
-   "a": [
-    "Ja: Jeder Punkt rechts von [AB] passt.",
-    "Nein: C ist 5 von M entfernt.",
-    "Nein: C muss auf der Strecke [AB] liegen.",
-    "Ja: C ist 4 von M(1 | 6) entfernt, so weit wie A und B."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "M(1 | 6) ist die Mitte von [AB], Radius 4. C(5 | 6) liegt 4 rechts von M, also auf dem Thaleskreis: rechter Winkel bei C.",
-   "h": "Liegt C auf dem Kreis über [AB]?",
-   "g": "umkehr"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Was sagt die Umkehrung des Thalessatzes?"
-   },
-   "a": [
-    "Hat das Dreieck ABC bei C einen rechten Winkel, liegt C auf dem Kreis mit dem Durchmesser [AB].",
-    "Jedes Dreieck hat einen Umkreis.",
-    "Liegt C auf dem Kreis über [AB], ist der Winkel bei C ein rechter.",
-    "Hat ein Dreieck einen rechten Winkel, ist es gleichschenklig."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Der Thalessatz schließt von „C auf dem Kreis“ auf „rechter Winkel“. Die Umkehrung schließt vom rechten Winkel auf „C liegt auf dem Kreis“.",
-   "h": "Was ist gegeben, was folgt?"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "g": "transfer",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Tischler prüft eine Ecke C: Er markiert auf den beiden Kanten Punkte A und B mit [AB] = 50 cm und misst den Abstand von C zur Mitte M von [AB]. Wie groß muss er sein, damit die Ecke rechtwinklig ist?"
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "cm"
-   },
-   "c": "50 / 2",
-   "w": "Bei rechtem Winkel liegt C auf dem Thaleskreis über [AB]: MC = MA = 25 cm. Ist MC kleiner, ist die Ecke stumpf, ist er größer, ist sie spitz.",
-   "h": "Welchen Radius hat der Thaleskreis über [AB]?"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Winkel α = 2x, β = 3x und γ = 90°. Wie groß ist α?"
-   },
-   "o": {
-    "wert": 36,
-    "einheit": "°"
-   },
-   "c": "2 * 90 / 5",
-   "w": "α + β = 90°: 5x = 90°, x = 18°. α = 2 · 18° = 36°.",
-   "h": "α und β ergeben zusammen 90°.",
-   "g": "rueckwaerts"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "g": "fehler",
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand sagt: „Im Dreieck ABC ist γ = 100°, also liegt C außerhalb des Thaleskreises über [AB].“ Was stimmt?"
-   },
-   "a": [
-    "Falsch: C liegt genau auf dem Thaleskreis.",
-    "Falsch: C liegt auf [AB].",
-    "Falsch: Bei stumpfem γ liegt C innerhalb des Thaleskreises.",
-    "Richtig."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Auf dem Kreis ist γ = 90°. Rückt C näher an [AB] heran (in den Kreis hinein), wird der Winkel größer, also stumpf. Außerhalb des Kreises ist γ spitz.",
-   "h": "Wie verändert sich der Winkel, wenn C näher an [AB] rückt?"
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−4 | 4), B(−4 | 10). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -5,
-      1
-     ],
-     "y": [
-      -1,
-      11
-     ],
-     "punkte": [
-      {
-       "x": -4,
-       "y": 4,
-       "name": "A"
-      },
-      {
-       "x": -4,
-       "y": 10,
-       "name": "B"
-      }
-     ],
-     "strecken": [
-      [
-       -4,
-       4,
-       -4,
-       10
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "6 / 2",
-   "w": "[AB] ist 6 cm lang (Durchmesser). r = 6 : 2 = 3 cm.",
-   "h": "Der Radius ist die halbe Länge von [AB]."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "g": "pruefung",
-   "y": "auswahl",
-   "f": {
-    "text": "Das Dreieck hat die Ecken A(1 | 1), B(7 | 1) und C(4 | 4). Hat es bei C einen rechten Winkel?"
-   },
-   "a": [
-    "Nein: MC ist 4.",
-    "Ja: M(4 | 1) ist die Mitte von [AB] und MC = 3 = MA, also liegt C auf dem Thaleskreis.",
-    "Ja: Alle Seiten sind gleich lang.",
-    "Nein: C liegt nicht über A."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Mitte von [AB]: (4 | 1), Radius 3. C(4 | 4) liegt 3 Einheiten senkrecht über M, also auf dem Thaleskreis. Nach dem Thalessatz ist der Winkel bei C ein rechter.",
-   "h": "Bestimme die Mitte von [AB] und vergleiche MC mit MA."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist M die Mitte von [AB], und es gilt MC = MA. Wie groß ist γ?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "180 / 2",
-   "w": "MA = MB = MC. Die Dreiecke AMC und BMC sind gleichschenklig: ∢ACM = α und ∢BCM = β. Also γ = α + β. Winkelsumme im Dreieck ABC: α + β + γ = 2γ = 180°, also γ = 90°. (Das ist genau der Beweis der Umkehrung.)",
-   "h": "Suche gleichschenklige Teildreiecke und nutze die Winkelsumme."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Die Punkte A und B sind 10 cm voneinander entfernt. Wie viele Punkte C gibt es, sodass das Dreieck ABC bei C rechtwinklig ist und C von der Geraden AB genau 5 cm Abstand hat?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "C muss auf dem Thaleskreis über [AB] liegen (Radius 5 cm) und auf einer der beiden Parallelen zu AB im Abstand 5 cm. Diese Parallelen berühren den Kreis genau in seinem höchsten und tiefsten Punkt – je ein Punkt. Also 2 Punkte (über der Mitte von [AB] und darunter). Bei 6 cm gäbe es keinen.",
-   "h": "Auf welchen zwei Ortslinien liegt C?"
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Beweis des Thalessatzes: (1) MA = MB = MC. (2) Die Dreiecke AMC und BMC sind gleichschenklig. ◀ (3) ∠ACM = α und ∠BCM = β. (4) γ = α + β. (5) α + β + γ = 180°, also 2γ = 180° und γ = 90°. Welche Begründung gehört zu Schritt (2)?"
-   },
-   "a": [
-    "Die Strecke [MC] teilt den Winkel γ in die beiden Teilwinkel.",
-    "Je zwei ihrer Seiten sind gleich lang (Schritt 1).",
-    "Die Diagonalen eines Rechtecks sind gleich lang.",
-    "Weil man es in der Zeichnung messen kann."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Schritt (2): Die Dreiecke AMC und BMC sind gleichschenklig. Begründung: Je zwei ihrer Seiten sind gleich lang (Schritt 1).",
-   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt – nicht einen früheren oder späteren?",
-   "g": "begruenden"
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Vermutung und Beweis ist falsch?"
-   },
-   "a": [
-    "Ein einziges Gegenbeispiel widerlegt eine Vermutung.",
-    "Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.",
-    "Eine Zeichnung allein ist ein Beweis.",
-    "Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Falsch: Eine Zeichnung allein ist ein Beweis. Messungen sind ungenau und decken nie alle Fälle ab.",
-   "h": "Was unterscheidet Messen von Begründen?",
-   "g": "umkehr"
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
-   },
-   "a": [
-    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
-    "Ein einziges Gegenbeispiel widerlegt eine Vermutung.",
-    "Eine Zeichnung allein ist ein Beweis.",
-    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Richtig: Ein einziges Gegenbeispiel widerlegt eine Vermutung.",
-   "h": "Was unterscheidet Messen von Begründen?",
-   "g": "erkennen"
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Beweis, dass ∠BMC = 2 · ∠BAC ist ([AB] Durchmesser, C auf dem Kreis um M). Bringe in die richtige Reihenfolge. Kärtchen 1: „∠AMC = 180° − 2α (Winkelsumme im Dreieck AMC)“ Kärtchen 2: „MA = MC, also ∠MCA = α (Basiswinkel)“ Kärtchen 3: „∠BMC = 180° − ∠AMC = 2α (Nebenwinkel)“",
-    "schablone": "1. Schritt: □; 2. Schritt: □; 3. Schritt: □",
-    "hinweis": "Trage die Nummern der Kärtchen ein."
-   },
-   "o": {
-    "werte": [
-     2,
-     1,
-     3
-    ]
-   },
-   "c": [
-    "2",
-    "1",
-    "3"
-   ],
-   "w": "Zuerst braucht man die gleichen Basiswinkel (2), dann die Winkelsumme im Dreieck AMC (1), dann den Nebenwinkel bei M (3).",
-   "h": "Welcher Schritt braucht keinen anderen? Kärtchen 1 benutzt, dass beide Basiswinkel α sind.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
-   },
-   "a": [
-    "Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.",
-    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt.",
-    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
-    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Richtig: Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.",
-   "h": "Was unterscheidet Messen von Begründen?"
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Kreis um M ist [AB] ein Durchmesser, C liegt auf dem Kreis. ∠BAC = α und ∠BMC = δ. Was gilt immer?"
-   },
-   "a": [
-    "δ = α",
-    "δ = 180° − α",
-    "δ = 2α",
-    "δ = 90° − α"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Das Dreieck AMC ist gleichschenklig (Radien), also ∠MCA = α und ∠AMC = 180° − 2α. δ ist der Nebenwinkel: 180° − (180° − 2α) = 2α.",
-   "h": "Nutze das gleichschenklige Dreieck AMC und den Nebenwinkel bei M.",
-   "g": "transfer"
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Beweis des Thalessatzes: (1) MA = MB = MC. (2) Die Dreiecke AMC und BMC sind gleichschenklig. (3) ∠ACM = α und ∠BCM = β. (4) γ = α + β. ◀ (5) α + β + γ = 180°, also 2γ = 180° und γ = 90°. Welche Begründung gehört zu Schritt (4)?"
-   },
-   "a": [
-    "Nebenwinkel ergänzen sich zu 180°.",
-    "Weil man es in der Zeichnung messen kann.",
-    "Stufenwinkel an Parallelen sind gleich groß.",
-    "Die Strecke [MC] teilt den Winkel γ in die beiden Teilwinkel."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Schritt (4): γ = α + β. Begründung: Die Strecke [MC] teilt den Winkel γ in die beiden Teilwinkel.",
-   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt – nicht einen früheren oder späteren?",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "uebung",
-   "s": 1,
-   "g": "direkt",
-   "y": "zahl",
-   "f": {
-    "text": "Im Beweis des Thalessatzes steht α + β + (α + β) = 180°. Wie groß ist dann α + β?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "180 / 2",
-   "w": "2 · (α + β) = 180°, also α + β = 90° – das ist γ.",
-   "h": "Fasse links zusammen."
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "auswahl",
-   "f": {
-    "text": "Ist die Summe von vier aufeinanderfolgenden natürlichen Zahlen immer durch 4 teilbar?"
-   },
-   "a": [
-    "Ja, aber nur bei geraden Startzahlen.",
-    "Nein: Sie lässt beim Teilen durch 4 immer den Rest 2.",
-    "Nein, aber manchmal schon.",
-    "Ja: Bei drei Zahlen ist sie ja auch durch 3 teilbar."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Allgemein: n + (n + 1) + (n + 2) + (n + 3) = 4n + 6 = 4(n + 1) + 2. Das ist ein Vielfaches von 4 plus 2 – nie durch 4 teilbar. Beispiel: 1 + 2 + 3 + 4 = 10. Bei drei Zahlen klappt es: (n − 1) + n + (n + 1) = 3n.",
-   "h": "Schreibe die vier Zahlen mit einer Variablen und fasse zusammen."
-  },
-  {
-   "l": "beweis",
-   "t": "beweis",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Die Vermutung „n² + n + 41 ist für jede natürliche Zahl n eine Primzahl“ stimmt für n = 0, 1, 2, …, 39. Für welches kleinste n stimmt sie nicht?"
-   },
-   "o": {
-    "wert": 40
-   },
-   "c": "40",
-   "w": "Für n = 40: 40² + 40 + 41 = 40 · (40 + 1) + 41 = 40 · 41 + 41 = 41 · 41. Das ist keine Primzahl. Vorher ist jeder Wert prim (nachprüfbar). Die Aufgabe zeigt: Auch 40 bestätigende Beispiele sind kein Beweis.",
-   "h": "Suche ein n, bei dem man 41 ausklammern kann."
   },
   {
    "l": "lage",

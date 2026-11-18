@@ -124,3 +124,22 @@ PLAN['funktionen.linear'] = [
 PLAN['gleichungen.lgs2'] = [
     karte_her('funktionen.scharen', 'loesung_parameter', 'Verstehen und Anwenden', vertiefung=True, nach='loesbarkeit'),
 ]
+
+
+# =====================================================================================================================
+# funktionen.reihen (IB, Plan Kl. 10) ← funktionen.folgen: rekursiv (C), arithmetisch, geometrisch (B) als erste drei Karten.
+# Pflicht innerhalb des Flugs: Der ganze Flug ist freiwillig (Entscheidung 2), und arith/geom bauen auf diesen Karten auf.
+# Die entfallene Karte explizit hat „Folge“, „aₙ“ und „explizite Formel“ eingeführt → als Wörter in rekursiv bzw. arithmetisch.
+# =====================================================================================================================
+PLAN['funktionen.reihen'] = [
+    karte_her('funktionen.folgen', 'rekursiv', 'Schreibweise', vertiefung=False, vor='summenzeichen'),
+    karte_her('funktionen.folgen', 'arithmetisch', 'Schreibweise', vertiefung=False, vor='summenzeichen'),
+    karte_her('funktionen.folgen', 'geometrisch', 'Schreibweise', vertiefung=False, vor='summenzeichen'),
+    karte('rekursiv', woerter=[['Folge', 'eine geordnete Liste von Zahlen a₁, a₂, a₃, …; aₙ ist das Glied an Platz n'],
+                               ['rekursiv', 'jedes Glied wird aus dem vorigen berechnet'],
+                               ['aₙ₊₁', 'das Glied direkt nach aₙ; a₁ heißt Startwert']]),
+    karte('arithmetisch', woerter=[['arithmetische Folge', 'immer dieselbe Zahl d kommt dazu'],
+                                   ['d', 'die Differenz zweier Nachbarglieder'],
+                                   ['explizite Formel', 'aₙ direkt aus der Platznummer n berechnen, z. B. aₙ = 2n + 14']]),
+    abschnitt('Schreibweise', 'Folgen und Schreibweise'),
+]

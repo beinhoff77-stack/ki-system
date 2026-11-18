@@ -2,6 +2,18 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-18 – FERTIG: LA-6 Einstellungen (6B)
+
+- „⚙ Einstellen“ (mit Text) in der Tabellenzeile/Karte der Startseite und im Kopf der Kind-Seite öffnet ein Blatt „Kind A einstellen“ – Tablet/Rechner von rechts, Handy von unten; Esc, × oder Tippen daneben schließt.
+- Karten, alles speichert sofort (`schule_kind_setzen`, `schule_notiz_setzen`, `schule_plan_setzen` – keine neue Aktion, keine Migration):
+  1. Schule: Hauptschulart (Knöpfe) und Klasse (Knöpfe 5–10) – „Bestimmt seine Klasse in Lernreise und Plan.“
+  2. Stand messen gegen …: Stufe je Schulart (Gym, RS, IB MYP; „aus Klasse (…)“, IB unter Klasse 6 „noch kein MYP-Jahr“) – „Nur für die Anzeige ‚Wo steht es?‘ – ändert nichts an der Lernreise.“
+  3. Notizen und Verlauf (zugeklappt).
+  4. Neuer Plan aus Lehrplan-Vorlage – **mit Rückfrage** („Ja, Plan ersetzen“ / „Abbrechen“), danach „↶ Rückgängig“ im Blatt.
+- Der Plan zeigt Vorlage, Klasse, Stufen, Notizen, Verlauf nicht mehr. Schließen nach einer Änderung zeichnet die Seite neu.
+- Schlichteste Lösung, wo der Text offen ist: Klasse als Knöpfe 5–10 (die Datenbank nimmt 1–13; andere Werte bleiben erhalten, solange niemand einen Knopf drückt).
+- Bilder: `docs/previews/la/la6-blatt-820.png`, `la6-blatt-400.png`. Info-Seite: Abschnitt „⚙ Einstellen“. Tests: lernen 74 von 74.
+
 ## 2026-11-18 – Zwischenmeldung nach LA-2 (Bilder)
 
 Bilder (Mock-Daten, keine Kinderdaten) in `docs/previews/la/`:

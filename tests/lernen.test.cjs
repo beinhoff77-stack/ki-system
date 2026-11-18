@@ -489,10 +489,12 @@ test('Kinderplan: Schulart und Klasse setzen', async (t) => {
   assert.equal(await page.getByRole('combobox', { name: 'Schulart' }).inputValue(), 'gym_by');
   assert.equal(await page.getByRole('combobox', { name: 'Klasse', exact: true }).inputValue(), '5');
   await page.screenshot({ path: path.join(root, 'test-results/themenplan-390.png'), fullPage: true });
-  // M2: Klasse ist eine Auswahl und speichert sofort – kein eigener Knopf
-  assert.equal(await page.locator('.lp-kindform button').count(), 0);
-  await page.getByRole('combobox', { name: 'Klasse des Kindes' }).selectOption('6');
-  await page.locator('.lp-kindform [role=status]', { hasText: 'Gespeichert' }).waitFor();
+  // LA-6: Klasse steht im Blatt „⚙ Einstellen“ und speichert sofort – kein eigener Knopf
+  assert.equal(await page.getByRole('combobox', { name: 'Klasse des Kindes' }).count(), 0, 'nicht mehr im Plan');
+  await page.locator('.lern-kind-kopf').getByRole('button', { name: 'Kind A einstellen' }).click();
+  const blatt = page.getByRole('dialog', { name: 'Kind A einstellen' });
+  await blatt.getByRole('group', { name: 'Klasse' }).getByRole('button', { name: '6', exact: true }).click();
+  await blatt.locator('[role=status]', { hasText: 'Gespeichert' }).first().waitFor();
   assert.deepEqual(calls.find((c) => c.aktion === 'schule_kind_setzen').daten, { lernender_id: 1, klasse: 6 });
 });
 
@@ -1239,17 +1241,22 @@ test('E-4: Neuer Plan aus Lehrplan-Vorlage – Orte der Klasse in Lehrplan-Reihe
     { block_id: 202, titel: 'C', stadt: 'Prag', kontinent: 'Zahlen', themen: [{ thema_id: 4, titel: 'Nur 6', jahrgang: { gym_by: 6 } }] }];
   const db = await planDb(page, calls, { orte, plan: [202] });
   await page.goto(origin + '/#/plan/1');
-  await page.locator('.lern-vorlage summary').click();
-  const knopf = page.locator('.lern-vorlage button');
+  await page.locator('.lern-kind-kopf').getByRole('button', { name: /einstellen$/ }).click(); // LA-6: Vorlage im Blatt „⚙ Einstellen“, mit Rückfrage
+  const blatt = page.getByRole('dialog');
+  await blatt.locator('.lern-vorlage summary').click();
+  const knopf = blatt.locator('.lern-vorlage .row > button').first();
   assert.equal(await knopf.innerText(), 'Plan ersetzen (2 Orte)');
-  assert.match(await page.locator('.lern-vorlage-vorschau').innerText(), /in Lehrplan-Reihenfolge[\s\S]*Wien[\s\S]*Oslo/);
+  assert.match(await blatt.locator('.lern-vorlage-vorschau').innerText(), /in Lehrplan-Reihenfolge[\s\S]*Wien[\s\S]*Oslo/);
   await knopf.click();
-  await page.waitForFunction(() => document.querySelector('.lern-plan-stand').textContent === 'Gespeichert');
+  assert.equal(calls.filter((c) => c.aktion === 'schule_plan_setzen').length, 0, 'erst nach der Rückfrage');
+  await blatt.getByRole('button', { name: 'Ja, Plan ersetzen' }).click();
+  await blatt.getByText('Plan ersetzt und gespeichert.').waitFor();
   assert.deepEqual(db.eintraege.map((x) => [x.block_id, x.ausgelassen]), [[201, []], [200, [2]]]);
-  await page.locator('.lern-plan-rueck').click();
-  await page.locator('.lern-plan-stand', { hasText: 'Rückgängig gemacht · Gespeichert' }).waitFor();
-  await page.waitForFunction(() => document.querySelectorAll('.lern-plan-zeile').length === 1);
+  await blatt.getByRole('button', { name: '↶ Rückgängig' }).click();
+  await blatt.getByText('Rückgängig gemacht · Gespeichert').waitFor();
   assert.deepEqual(db.eintraege.map((x) => x.block_id), [202]);
+  await blatt.getByRole('button', { name: 'Schließen' }).click();
+  await page.waitForFunction(() => document.querySelectorAll('.lern-plan-zeile').length === 1);
 });
 
 // ---------- Schritt E: Befunde M1–M9 der Nachprüfung 0.74.5 und P1–P3 der Nachprüfung Phase 2 ----------
@@ -1329,11 +1336,11 @@ test('M2/M3/M4: Flugplan – Klasse ohne Speichern-Knopf; Häkchen in der Zeile 
   assert.ok(Math.abs((h.y + h.height / 2) - (n.y + n.height / 2)) < 12 && h.x < n.x, 'Häkchen links neben dem Flugnamen');
   assert.ok((await flug.boundingBox()).height <= 60, 'eine Zeile je Flug');
   await page.screenshot({ path: path.join(root, 'test-results/m3-ort-aufgeklappt-820.png') });
-  // M2: kein Knopf „Speichern“, Klasse speichert sofort
-  assert.equal(await page.locator('.lp-kindform button').count(), 0);
-  await page.getByRole('combobox', { name: 'Klasse des Kindes' }).selectOption('8');
-  await page.locator('.lp-kindform [role=status]', { hasText: 'Gespeichert' }).waitFor();
-  assert.equal(await page.locator('.lern-plan-ueber').count(), 0, 'mit Klasse 8 liegt nichts mehr darüber');
+  // M2/LA-6: Klasse im Blatt „⚙ Einstellen“ speichert sofort; beim Schließen wird der Plan neu gezeichnet
+  await page.locator('.lern-kind-kopf').getByRole('button', { name: /einstellen$/ }).click();
+  await page.getByRole('dialog').getByRole('group', { name: 'Klasse' }).getByRole('button', { name: '8', exact: true }).click();
+  await page.getByRole('dialog').locator('[role=status]', { hasText: 'Gespeichert' }).first().waitFor();
+  assert.ok(calls.some((c) => c.aktion === 'schule_kind_setzen' && c.daten.klasse === 8));
 });
 
 test('M8: Menüknopf schwebt nicht über dem Inhalt (Handy und Tablet, beim Rollen)', async (t) => {
@@ -1889,6 +1896,47 @@ test('LA-2: „Alles ruhig.“, wenn nichts zu tun ist', async (t) => {
     if (b.aktion === 'schule_rueckmeldungen') return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, rueckmeldungen: [] } }) }); return route.fallback(); });
   await page.goto(origin + '/#/lernen');
   await page.locator('.lern-zutun').getByText('Alles ruhig.').waitFor();
+});
+
+test('LA-6: ⚙ Einstellen – Blatt aus der Zeile und vom Kopf; Schule, Stand messen gegen …, Notizen, Vorlage; Esc schließt', async (t) => {
+  const mitStufen = (aktion, e) => { if (aktion !== 'schule_plan_lesen') return null; const x = structuredClone(e); x.kind.stufen = {}; x.kind.schulart = 'gym_by';
+    x.notizen = [{ von: 'eltern:Mama', text: 'Prüfung am 3.12.', am: '2026-11-10T08:00:00Z' }]; x.verlauf = [{ am: '2026-11-10T08:00:00Z', akteur: 'eltern:Mama', anlass: 'plan' }]; return x; };
+  const { page, calls } = await setup(t, { anpassen: mitStufen });
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto(origin + '/#/lernen');
+  await page.locator('.lern-kinder-tabelle tr', { hasText: 'Kind A' }).getByRole('button', { name: 'Kind A einstellen' }).click();
+  const blatt = page.getByRole('dialog', { name: 'Kind A einstellen' });
+  await blatt.getByRole('heading', { name: 'Schule' }).waitFor();
+  assert.equal(await page.locator('.lern-einstellen').first().innerText(), '⚙ Einstellen', 'Zahnrad mit Text');
+  assert.deepEqual(await blatt.locator('h3, summary b').allInnerTexts(), ['Schule', 'Stand messen gegen …', 'Notizen und Verlauf (1)', 'Neuer Plan aus Lehrplan-Vorlage']);
+  await blatt.getByText('Bestimmt seine Klasse in Lernreise und Plan.').waitFor();
+  await blatt.getByText('Nur für die Anzeige „Wo steht es?“ – ändert nichts an der Lernreise.', { exact: false }).waitFor();
+  assert.equal(await blatt.getByRole('combobox', { name: 'Stufe IB MYP' }).locator('option').first().innerText(), 'aus Klasse (noch kein MYP-Jahr)');
+  assert.equal(await blatt.getByRole('group', { name: 'Klasse' }).getByRole('button', { name: '5', exact: true }).getAttribute('aria-pressed'), 'true');
+  await page.screenshot({ path: path.join(root, 'test-results/la6-blatt-820.png') });
+  // Schulart wechseln speichert sofort
+  await blatt.getByRole('group', { name: 'Hauptschulart' }).getByRole('button', { name: 'Realschule' }).click();
+  await blatt.locator('[role=status]', { hasText: 'Gespeichert' }).first().waitFor();
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_kind_setzen').at(-1).daten, { lernender_id: 1, schulart: 'rs_by' });
+  await blatt.getByRole('combobox', { name: 'Stufe Gymnasium' }).selectOption('6');
+  await page.waitForFunction(() => document.querySelectorAll('.lern-blatt [role=status]')[1]?.textContent === 'Gespeichert');
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_kind_setzen').at(-1).daten, { lernender_id: 1, stufen: { gym_by: 6, rs_by: null, ib_myp: null } });
+  // Notizen und Verlauf zugeklappt
+  assert.equal(await blatt.getByText('Prüfung am 3.12.').isVisible(), false);
+  await blatt.getByText('Notizen und Verlauf (1)').click();
+  await blatt.getByText('Prüfung am 3.12.').waitFor(); await blatt.getByText('Plan geändert', { exact: false }).waitFor();
+  await page.keyboard.press('Escape');
+  await blatt.waitFor({ state: 'detached' });
+  // vom Kopf der Kind-Seite; auf dem Handy von unten
+  await page.setViewportSize({ width: 400, height: 860 });
+  await page.goto(origin + '/#/kind/1-plan');
+  await page.locator('.lern-kind-kopf').getByRole('button', { name: 'Kind A einstellen' }).click();
+  await page.getByRole('dialog').getByRole('heading', { name: 'Schule' }).waitFor();
+  const b = await page.locator('.lern-blatt').boundingBox(); assert.ok(b.y > 50 && Math.round(b.y + b.height) >= 859, 'Handy: Blatt von unten');
+  await page.screenshot({ path: path.join(root, 'test-results/la6-blatt-400.png') });
+  // Plan-Seite hat keine Klasse, Stufen, Notizen, Vorlage mehr
+  await page.getByRole('dialog').getByRole('button', { name: 'Schließen' }).click();
+  for (const x of ['.lp-kindform', '.lern-plan-spalten ~ .lern-vorlage', 'textarea[aria-label="Notiz"]']) assert.equal(await page.locator('#main ' + x).count(), 0, x);
 });
 
 // ---------- IB einheitlich beschriften (18.11.): MYP-Jahr = Klasse − 5, Hinweis „entspricht etwa Klasse 6–10“ ----------

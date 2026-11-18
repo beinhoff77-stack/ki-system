@@ -4259,3 +4259,18 @@ nav.lern-reiter { background: transparent; padding: 0; border-radius: 0; box-sha
 .lern-kinder-tabelle .lern-st-zelle b { white-space: nowrap; }
 .lern-kinder-tabelle td:nth-child(6) .lern-st-zelle b { white-space: normal; font-size: 0.85rem; max-width: 7em; }
 @media (max-width: 1099px) { .lern-zeile-knoepfe { display: flex; flex-direction: column; align-items: stretch; gap: 6px; } .lern-zeile-knoepfe .btn.lern-start { margin-right: 0; justify-content: center; } }
+/* LA-6: Blatt „⚙ Einstellen“ */
+.lern-blatt-huelle { position: fixed; inset: 0; z-index: 50; background: rgba(15, 25, 40, 0.35); display: flex; justify-content: flex-end; align-items: stretch; }
+.lern-blatt { background: var(--bg); width: min(440px, 100%); height: 100%; overflow-y: auto; padding: 14px 16px 24px; box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; gap: 10px; }
+@media (max-width: 699px) { .lern-blatt-huelle { align-items: flex-end; } .lern-blatt { width: 100%; height: auto; max-height: 88vh; border-radius: 16px 16px 0 0; box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.15); } }
+.lern-blatt-kopf { display: flex; justify-content: space-between; align-items: center; position: sticky; top: -14px; background: var(--bg); padding: 4px 0; z-index: 1; }
+.lern-blatt-kopf h2 { margin: 0; font-size: 1.2rem; }
+.lern-blatt-zu { min-width: 44px; min-height: 44px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); font-size: 1.4rem; cursor: pointer; }
+.lern-blatt-inhalt { display: flex; flex-direction: column; gap: 10px; }
+.lern-blatt-karte h3 { margin: 0 0 8px; font-size: 1rem; }
+.lern-blatt-knoepfe { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.lern-blatt-knoepfe .lern-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.lern-blatt-stufen { display: grid; gap: 8px; }
+.lern-blatt-stufen label { display: grid; grid-template-columns: 7em 1fr; align-items: center; gap: 8px; }
+.lern-blatt-rueckfrage { margin-top: 8px; padding: 10px; border-radius: 10px; background: var(--warn-bg); }
+.lern-blatt-verlauf h4 { margin: 10px 0 4px; }

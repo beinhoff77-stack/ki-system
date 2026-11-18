@@ -4183,3 +4183,79 @@ details.lern-vorlage summary { cursor: pointer; min-height: 44px; display: flex;
 .lern-exp-teile li { margin: 10px 0; }
 .lr-lp-kl.klein { font-size: 9px; }
 .lern-ib-hinweis { margin: 4px 0; }
+
+/* ---------- Bau-Auftrag LA: Lehrer-Aufbau ---------- */
+.lern-h-start { margin: 0; font-size: 1.5rem; }
+.lern-was-ist-los { margin-bottom: 8px; }
+.lern-zutun h2, .lern-kinder h2 { margin: 0 0 8px; font-size: 1.1rem; }
+.lern-zutun-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.lern-zutun-liste a { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 6px 10px; border-radius: 10px; color: var(--text); text-decoration: none; background: var(--surface-muted); }
+.lern-zutun-liste a:hover { filter: brightness(0.97); }
+.lern-zutun-liste .zt-punkt { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.lern-zutun-liste span:nth-child(2) { flex: 1; }
+.zt-rot a { background: var(--err-bg); } .zt-rot .zt-punkt { background: var(--err); }
+.zt-gelb a { background: var(--warn-bg); } .zt-gelb .zt-punkt { background: #d99a00; }
+.zt-blau a { background: var(--info-bg); } .zt-blau .zt-punkt { background: var(--info); }
+.lern-zutun-ruhig { margin: 0; color: var(--ok); font-weight: 600; }
+.lern-kinder { margin: 12px 0; }
+.lern-kinder-tabelle { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 12px; overflow: hidden; font-size: 0.92rem; }
+.lern-kinder-tabelle th, .lern-kinder-tabelle td { padding: 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+.lern-kinder-tabelle thead th { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+.lern-kinder-tabelle tbody tr { cursor: pointer; }
+.lern-kinder-tabelle tbody tr:hover { background: var(--surface-muted); }
+.lern-kinder-tabelle th[scope="row"] a { color: var(--text); text-decoration: none; }
+.lern-kinder-tabelle th[scope="row"] small { display: block; color: var(--text-muted); font-weight: 400; }
+.amp-rot { background: var(--err-bg); color: var(--err); }
+.amp-gelb { background: var(--warn-bg); color: var(--warn); }
+.amp-gruen { background: var(--ok-bg); color: var(--ok); }
+.lern-st-zelle { display: inline-grid; grid-template-columns: auto auto; gap: 0 6px; align-items: baseline; }
+.lern-st-zelle.eigen b { text-decoration: underline; text-underline-offset: 3px; }
+.lern-st-balken { grid-column: 1 / -1; display: block; height: 4px; width: 64px; border-radius: 3px; background: var(--surface-muted); overflow: hidden; }
+.lern-st-balken > i { display: block; height: 100%; background: var(--f, var(--accent)); }
+.lern-zeile-knoepfe { white-space: nowrap; text-align: right; }
+.lern-zeile-knoepfe .btn.lern-start, .lern-kind-kopf .btn.lern-start, .lern-kind-karte .btn.lern-start { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 700; text-decoration: none; margin-right: 6px; }
+.lern-einstellen { min-height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.lern-einstellen:hover { background: var(--info-bg); }
+.lern-kinder-karten { display: none; gap: 10px; }
+.lern-kind-karte { cursor: pointer; }
+.lern-kind-karte p { margin: 6px 0; padding: 4px 8px; border-radius: 8px; }
+.lern-kind-karte-kopf { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.lern-kind-karte-kopf a { color: var(--text); text-decoration: none; font-size: 1.05rem; }
+.lern-kind-karte-kopf small { color: var(--text-muted); flex: 1; }
+.lern-kind-karte-stand { display: flex; gap: 14px; flex-wrap: wrap; margin: 6px 0; }
+.lern-kind-karte-stand > span { display: grid; gap: 2px; }
+@media (max-width: 559px) { .lern-kinder-breit { display: none; } .lern-kinder-karten { display: grid; } }
+.lern-nachschlagen { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin: 14px 0; padding: 10px 12px; border-top: 1px solid var(--border); }
+.lern-nachschlagen a { min-height: 40px; display: inline-flex; align-items: center; font-weight: 600; }
+.lern-verwalten { border-top: none; padding-top: 0; }
+.lern-kind-kopf { margin-bottom: 10px; }
+.lern-kind-kopf-zeile { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+.lern-kind-kopf h2 { margin: 0; }
+.lern-kind-kopf-knoepfe { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.lern-reiter { display: flex; gap: 4px; margin-top: 10px; border-bottom: 1px solid var(--border); overflow-x: auto; }
+.lern-reiter a { padding: 10px 14px; min-height: 44px; display: inline-flex; align-items: center; color: var(--text-muted); text-decoration: none; font-weight: 600; border-bottom: 3px solid transparent; white-space: nowrap; }
+.lern-reiter a[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
+.lern-fragen { display: grid; gap: 10px; }
+@media (min-width: 700px) { .lern-fragen { grid-template-columns: 1fr 1fr; } }
+.lern-frage h3 { margin: 0 0 6px; font-size: 1rem; }
+.lern-frage.amp-rot, .lern-frage.amp-gelb, .lern-frage.amp-gruen { color: var(--text); border-left: 6px solid; }
+.lern-frage.amp-rot { border-left-color: var(--err); } .lern-frage.amp-gelb { border-left-color: #d99a00; } .lern-frage.amp-gruen { border-left-color: var(--ok); }
+.lern-frage-stand { display: flex; gap: 16px; flex-wrap: wrap; }
+.lern-st-link { display: grid; color: var(--text); text-decoration: none; }
+.lern-kurzliste { margin: 0; padding-left: 18px; }
+.lern-kind-kopf-knoepfe .lern-info-oben { margin: 0; }
+.lern-kind-kopf { margin-bottom: 6px; }
+.lern-kind-kopf h2 { font-size: 1.3rem; }
+.lern-reiter { margin-top: 6px; }
+.lern-plan-kopf-text { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0 6px; }
+.lern-plan-kopf-text .lern-plan-stand::before { content: '· '; }
+nav.lern-reiter { background: transparent; padding: 0; border-radius: 0; box-shadow: none; }
+.lern-kind-kopf-zeile > div:first-child { display: flex; align-items: baseline; gap: 4px 10px; flex-wrap: wrap; }
+.lern-kind-kopf-zeile { align-items: center; }
+.lern-kinder-tabelle th, .lern-kinder-tabelle thead th { white-space: nowrap; }
+.lern-kinder-tabelle td { min-width: 0; }
+.lern-kinder-tabelle td.amp-rot, .lern-kinder-tabelle td.amp-gelb, .lern-kinder-tabelle td.amp-gruen { min-width: 96px; }
+.lern-kinder-tabelle .lern-st-zelle { grid-template-columns: auto; }
+.lern-kinder-tabelle .lern-st-zelle b { white-space: nowrap; }
+.lern-kinder-tabelle td:nth-child(6) .lern-st-zelle b { white-space: normal; font-size: 0.85rem; max-width: 7em; }
+@media (max-width: 1099px) { .lern-zeile-knoepfe { display: flex; flex-direction: column; align-items: stretch; gap: 6px; } .lern-zeile-knoepfe .btn.lern-start { margin-right: 0; justify-content: center; } }

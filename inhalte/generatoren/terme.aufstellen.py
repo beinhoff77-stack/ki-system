@@ -811,15 +811,15 @@ ST.neu('termwert', 3, 'fehler', ST.A('Lea setzt x = −3 in x² + 2 ein und rech
                                      'Für x wird die ganze Zahl −3 eingesetzt, also mit Klammer: (−3)² + 2 = 9 + 2 = 11. −3² bedeutet −(3²) = −9.',
                                      'Was passiert, wenn man die negative Zahl ohne Klammer einsetzt?'))
 ST.neu('termwert', 3, 'rueckwaerts', ST.Z('Für eine Zahl x hat der Term 2x + 1 den Wert 9. Welchen Wert hat der Term 6x − 1 für dieselbe Zahl x?', 23, '6 * ((9 - 1) / 2) - 1',
-                                          '2x + 1 = 9 → 2x = 8 → x = 4. Dann 6 · 4 − 1 = 23.', 'Finde zuerst x, dann setze es in den zweiten Term ein.'))
+                                          'Rückwärts: 2x + 1 = 9, also 2x = 9 − 1 = 8 und x = 8 : 2 = 4. Dann 6 · 4 − 1 = 23.', 'Finde zuerst x, dann setze es in den zweiten Term ein.'))
 ST.neu('termwert', 3, 'begruenden', ST.A('Stimmt die Aussage: „Der Term x² ist für jede Zahl x größer als x“?', 'Nein: Für x = 0,5 ist x² = 0,25 kleiner als 0,5.',
                                          ['Ja: Quadrieren macht jede Zahl größer.', 'Nein: Nur für negative x ist x² kleiner.', 'Ja, außer für x = 0.'],
                                          'Ein Gegenbeispiel genügt: x = 0,5 ergibt 0,25 < 0,5 (auch x = 1 ergibt 1 = 1, also nicht größer). Für negative x ist x² dagegen größer als x.',
                                          'Probiere Zahlen zwischen 0 und 1.'))
 ST.knobel('termwert', ST.Z('Für wie viele der Zahlen n = 1, 2, 3, …, 20 ist der Termwert von n² + n durch 4 teilbar?', 10, '20 / 2',
-                           'n² + n = n · (n + 1) ist das Produkt zweier Nachbarzahlen. Durch 4 teilbar ist es, wenn eine der beiden durch 4 teilbar ist '
+                           'n² + n heißt n · n + n: n-mal n und noch einmal n, zusammen (n + 1)-mal n. Das ist das Produkt der Nachbarzahlen n und n + 1. Durch 4 teilbar ist es, wenn eine der beiden durch 4 teilbar ist '
                            '(zwei Nachbarzahlen können nicht beide gerade sein). Das gilt für n = 3, 4, 7, 8, 11, 12, 15, 16, 19, 20 – also 10 Zahlen.',
-                           'Schreibe n² + n als Produkt. Was weißt du über zwei Nachbarzahlen?'))
+                           'Wie oft kommt n in n · n + n vor? Was weißt du über zwei Nachbarzahlen?'))
 ST.knobel('termwert', ST.Z('Ein Term hat die Form a · x + b. Für x = 1 hat er den Wert 5, für x = 2 den Wert 8. Welchen Wert hat er für x = 10?', 32, '3 * 10 + 2',
                            'Von x = 1 zu x = 2 wächst der Wert um 3, also ist a = 3 (jedes x mehr bringt a dazu). Dann 3 · 1 + b = 5, b = 2. Für x = 10: 3 · 10 + 2 = 32.',
                            'Was passiert mit dem Wert, wenn x um 1 wächst?'))
@@ -844,16 +844,16 @@ ST.neu('uebersetzen', 3, 'fehler', ST.A('Jemand übersetzt „die Hälfte der Su
                                         'Bei x + 6 : 2 wird wegen Punkt vor Strich nur die 6 halbiert. Gemeint ist die Summe, also Klammer: (x + 6) : 2.',
                                         'Was wird bei x + 6 : 2 zuerst gerechnet?'))
 ST.neu('uebersetzen', 3, 'parameter', ST.Z('Für welche Zahl a ist „das a-Fache der Summe aus x und 2“ gleich dem Term 3x + 6?', 3, '6 / 2',
-                                           'a · (x + 2) = ax + 2a. Das soll 3x + 6 sein: a = 3 (und 2 · 3 = 6 passt).', 'Multipliziere a · (x + 2) aus und vergleiche.'))
+                                           'Setze für x eine Zahl ein, z. B. x = 0: Das a-Fache von 0 + 2 ist 2a, und 3 · 0 + 6 = 6. Also 2a = 6 und a = 3. Probe mit x = 1: 3 · (1 + 2) = 9 und 3 · 1 + 6 = 9 ✓.', 'Setze für x eine einfache Zahl ein und vergleiche beide Werte.'))
 ST.knobel('uebersetzen', ST.Z('Zaubertrick: Denke dir eine Zahl, verdopple sie, addiere 10, halbiere das Ergebnis und ziehe die gedachte Zahl ab. Es kommt immer 5 heraus. '
                               'Welche Zahl muss statt 10 stehen, damit immer 7 herauskommt?', 14, '7 * 2',
-                              'Mit der gedachten Zahl x und der Zahl z statt 10: (2x + z) : 2 − x = x + z : 2 − x = z : 2. Es kommt also immer die Hälfte von z heraus. '
+                              'Mit der gedachten Zahl x und der Zahl z statt 10: Nach Verdoppeln und Addieren hat man 2x + z. Halbiert man das, wird jeder Teil halbiert: Aus 2x wird x, aus z wird die Hälfte von z. Zieht man x ab, bleibt nur die Hälfte von z. '
                               'Für 7 braucht man z = 14.',
                               'Schreibe den Trick als Term mit x und einer unbekannten Zahl statt 10. Was bleibt übrig?'))
 ST.knobel('uebersetzen', ST.Z('Die Summe von drei aufeinanderfolgenden ganzen Zahlen (z. B. 4 + 5 + 6) ist immer durch eine bestimmte Zahl teilbar. Welche ist die größte Zahl, die jede solche Summe teilt?',
-                              3, '3', 'Mit der kleinsten Zahl n: n + (n + 1) + (n + 2) = 3n + 3 = 3 · (n + 1). Jede Summe ist durch 3 teilbar. '
+                              3, '3', 'Nimm von der größten der drei Zahlen 1 weg und gib es der kleinsten: Die Summe bleibt gleich, und jetzt stehen dreimal die mittlere Zahl da (4 + 5 + 6 = 5 + 5 + 5). Jede Summe ist also das Dreifache der mittleren Zahl und durch 3 teilbar. '
                               'Eine größere Zahl teilt nicht jede Summe: 1 + 2 + 3 = 6 und 2 + 3 + 4 = 9 haben als größten gemeinsamen Teiler 3.',
-                              'Nenne die kleinste Zahl n und schreibe die Summe als Term.'))
+                              'Vergleiche die drei Zahlen mit der mittleren.'))
 # sachsituation
 ST.leiter('sachsituation', 'Grundgebühr plus Preis pro Einheit als Term aufschreiben.',
           'Situationen mit zwei Bezügen, Rabatt, Einheitenwechsel, Tabelle → Term, Vergleich zweier Angebote.',
@@ -885,7 +885,7 @@ ST.neu('sachsituation', 3, 'fehler', ST.A('Ein Verleih verlangt 4 € Grundgebü
                                           'Was pro Stunde anfällt, steht vor dem x: 2,5x. Die Grundgebühr kommt einmal dazu: + 4. Probe: 2 Stunden kosten 9 €, mit 4x + 2,5 wären es 10,50 €.',
                                           'Was wird mit der Zahl der Stunden malgenommen?'))
 ST.neu('sachsituation', 3, 'parameter', ST.Z('Ein Verleih verlangt eine Grundgebühr g € und 3 € je Stunde. Für 5 Stunden zahlt man 22 €. Wie hoch ist g?', 7, '22 - 3 * 5',
-                                             'Kosten: 3 · 5 + g = 22 → 15 + g = 22 → g = 7 €.', 'Stelle den Term mit g auf und setze 5 Stunden ein.', einheit='€'))
+                                             '5 Stunden kosten 3 · 5 = 15 €. Der Rest von 22 € ist die Grundgebühr: 22 − 15 = 7 €.', 'Stelle den Term mit g auf und setze 5 Stunden ein.', einheit='€'))
 ST.neu('sachsituation', 3, 'pruefung', ST.A('Eine Klasse fährt ins Museum. Der Bus kostet 300 € für alle, der Eintritt 6 € pro Kind. Welcher Term gibt die Kosten pro Kind an, wenn x Kinder mitfahren?',
                                             '(300 + 6x) : x', ['300 + 6x : x', '300 : x + 6x', '(300 + 6) : x'],
                                             'Gesamtkosten 300 + 6x, gerecht geteilt durch x Kinder: (300 + 6x) : x. Ohne Klammer würde nur 6x geteilt.',
@@ -893,7 +893,7 @@ ST.neu('sachsituation', 3, 'pruefung', ST.A('Eine Klasse fährt ins Museum. Der 
 ST.knobel('sachsituation', ST.Z('Kinokarten kosten einzeln 9 €, eine Fünferkarte (5 Besuche) kostet 40 €. Wie viel Euro kosten 13 Kinobesuche mindestens?',
                                 107, '2 * 40 + 3 * 9',
                                 'Eine Fünferkarte spart 5 € gegenüber 5 Einzelkarten. Möglichkeiten: 2 Fünferkarten + 3 einzeln = 80 + 27 = 107 €; 3 Fünferkarten = 120 € (zwei Besuche verfallen); '
-                                '1 Fünferkarte + 8 einzeln = 112 €. Am günstigsten: 107 €.',
+                                '1 Fünferkarte + 8 einzeln = 112 €; 13 einzeln = 117 €. Am günstigsten: 107 €.',
                                 'Vergleiche: Lohnt sich eine Fünferkarte auch, wenn du nicht alle 5 Besuche nutzt?', einheit='€'))
 ST.knobel('sachsituation', ST.Z('Ein Taxi kostet 4 € Grundpreis und 2 € je Kilometer. Zwei Freunde fahren 6 km zusammen, dann steigt einer aus, der andere fährt noch 4 km weiter. '
                                 'Den Grundpreis teilen sie halb-halb, die gemeinsamen Kilometer auch; die letzten 4 km zahlt der, der länger fährt. Wie viel zahlt er?', 16,
@@ -919,20 +919,20 @@ ST.neu('muster', 1, 'erkennen', ST.Z('Eine Folge hat 5, 8, 11, 14 Plättchen. Wi
                                      'Von 5 auf 8, von 8 auf 11, von 11 auf 14: jedes Mal 3 mehr.', 'Vergleiche zwei Nachbarfiguren.'))
 ST.neu('muster', 2, 'mehrschritt', ST.L('Für n Tische in einer Reihe braucht man 2n + 2 Stühle. Wie viele Stühle braucht man für 15 Tische, und wie viele Tische für 40 Stühle?',
                                         '15 Tische: □ Stühle; 40 Stühle: □ Tische', [32, 19], ['2 * 15 + 2', '(40 - 2) / 2'],
-                                        '2 · 15 + 2 = 32 Stühle. Für 40 Stühle: 2n + 2 = 40 → 2n = 38 → n = 19 Tische.',
+                                        '2 · 15 + 2 = 32 Stühle. Für 40 Stühle rückwärts: 40 − 2 = 38, 38 : 2 = 19 Tische. Probe: 2 · 19 + 2 = 40 ✓.',
                                         'Einmal einsetzen, einmal rückwärts denken.'))
 ST.neu('muster', 3, 'fehler', ST.A('Eine Folge hat 5, 9, 13, 17 Plättchen. Jemand schreibt den Term n + 4. Was stimmt?', 'Falsch: Pro Figur kommen 4 dazu, richtig ist 4n + 1.',
                                    ['Richtig: Es kommen immer 4 dazu.', 'Falsch: Richtig ist 5n.', 'Falsch: Richtig ist 4n + 5.'],
                                    'Die Zunahme pro Figur (4) gehört vor das n: 4n. Probe mit Figur 1: 4 · 1 + 1 = 5 ✓. n + 4 ergäbe für Figur 2 nur 6.',
                                    'Setze n = 2 in den Term ein und vergleiche mit der Folge.'))
 ST.neu('muster', 3, 'parameter', ST.Z('Eine Figurenfolge hat a · n + 2 Plättchen. Figur 5 hat 32 Plättchen. Wie groß ist a?', 6, '(32 - 2) / 5',
-                                      'a · 5 + 2 = 32 → 5a = 30 → a = 6.', 'Setze n = 5 ein und denke rückwärts.'))
+                                      'Rückwärts: 32 − 2 = 30 Plättchen sind a · 5, also a = 30 : 5 = 6. Probe: 6 · 5 + 2 = 32 ✓.', 'Setze n = 5 ein und denke rückwärts.'))
 ST.knobel('muster', ST.Z('Aus Streichhölzern wird ein quadratisches Gitter aus 3 × 3 kleinen Quadraten gelegt (jede Kante ist ein Holz). Wie viele Streichhölzer braucht man?', 24, '2 * 3 * 4',
                          'Waagrechte Linien: 4 Reihen mit je 3 Hölzern = 12. Senkrechte Linien: 4 Spalten mit je 3 Hölzern = 12. Zusammen 24. '
                          '(Für n × n Quadrate allgemein 2 · n · (n + 1).)',
                          'Zähle nicht Quadrate, sondern Linien: Wie viele waagrechte und senkrechte Linien gibt es?'))
-ST.knobel('muster', ST.Z('Um ein Quadrat aus n × n Plättchen wird ein Rahmen gelegt, der eine Plättchen breit ist. Wie viele Plättchen hat der Rahmen bei n = 10?', 44, '12 * 12 - 10 * 10',
-                         'Mit Rahmen ist das Quadrat (n + 2) × (n + 2) groß. Rahmen = (n + 2)² − n² = 4n + 4. Für n = 10: 144 − 100 = 44. '
+ST.knobel('muster', ST.Z('Um ein Quadrat aus n × n Plättchen wird ein Rahmen gelegt, der ein Plättchen breit ist. Wie viele Plättchen hat der Rahmen bei n = 10?', 44, '12 * 12 - 10 * 10',
+                         'Mit Rahmen ist das Quadrat 12 × 12 = 144 Plättchen groß, das innere 10 × 10 = 100. Rahmen: 144 − 100 = 44. '
                          '(Oder: 4 Seiten mit je 10 Plättchen plus 4 Ecken = 44.)',
                          'Vergleiche das große Quadrat mit Rahmen mit dem inneren.'))
 # deuten
@@ -954,7 +954,7 @@ ST.regel('deuten', 3, 'Mia', 'begruenden')
 ST.neu('deuten', 1, 'direkt', ST.Z('Ein Parkhaus berechnet P = 2x + 3 (x = Stunden, P in €). Was kostet Parken für 4 Stunden?', 11, '2 * 4 + 3',
                                    '2 · 4 + 3 = 11 €.', 'Setze für x die Stunden ein.', einheit='€'))
 ST.neu('deuten', 3, 'parameter', ST.Z('Ein Handytarif kostet K = 0,1x + g (x = Minuten, K in €). Bei 60 Minuten kostet er 14 €. Wie hoch ist die Grundgebühr g?', 8, '14 - 0.1 * 60',
-                                      '0,1 · 60 = 6. 6 + g = 14 → g = 8 €.', 'Setze 60 Minuten ein. Was bleibt für die Grundgebühr?', einheit='€'))
+                                      '60 Minuten kosten 0,1 · 60 = 6 €. Der Rest von 14 € ist die Grundgebühr: 14 − 6 = 8 €.', 'Setze 60 Minuten ein. Was bleibt für die Grundgebühr?', einheit='€'))
 ST.knobel('deuten', ST.Z('Kerze A ist 30 cm hoch und brennt 2 cm pro Stunde ab, Kerze B ist 20 cm hoch und brennt 1 cm pro Stunde ab. Beide werden gleichzeitig angezündet. '
                          'Nach wie vielen Stunden sind beide gleich hoch?', 10, '(30 - 20) / (2 - 1)',
                          'Höhen: A = 30 − 2x, B = 20 − x. Am Anfang ist A 10 cm höher. Jede Stunde holt B 1 cm auf (A verliert 2, B nur 1). Nach 10 Stunden: A = 10 cm, B = 10 cm.',

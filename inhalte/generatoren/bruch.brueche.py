@@ -1160,7 +1160,7 @@ N(lz, A('begruenden', 'In Gruppe A sind 3 von 4 Kindern Mädchen, in Gruppe B 6 
 N(lz, Z('parameter', 'Eine Klasse hat 8 Mädchen. Ihr Anteil ist größer als 1/2, aber kleiner als 2/3. Wie viele verschiedene Klassengrößen sind möglich?', 3, '3',
         '8 ist mehr als die Hälfte, wenn die Klasse weniger als 16 Kinder hat. 8 ist weniger als 2/3, wenn sie mehr als 12 hat. Möglich: 13, 14, 15 – also 3.', 'Probiere Klassengrößen aus: Ab wann ist 8 nicht mehr die Mehrheit?'))
 K(lz, Z('knobel', 'Auf einem Fest sind 2/3 der Gäste Kinder. Es kommen 6 Erwachsene dazu. Jetzt ist genau die Hälfte der Gäste Kinder. Wie viele Kinder sind auf dem Fest?', 12, '12',
-        'Am Anfang sind doppelt so viele Kinder wie Erwachsene. Danach gleich viele. Also sind 6 Erwachsene so viele wie die ursprünglichen Erwachsenen: 6 Erwachsene vorher, 12 Kinder.',
+        'Vorher sind 2/3 Kinder und 1/3 Erwachsene: doppelt so viele Kinder wie Erwachsene. Nachher ist die Hälfte Kinder: gleich viele Kinder wie Erwachsene. Die Kinder bleiben dieselben, also sind es nachher doppelt so viele Erwachsene wie vorher. Die 6 neuen Erwachsenen sind darum genauso viele wie die Erwachsenen vorher: 6. Kinder: 2 · 6 = 12. Probe: 12 von 18 Gästen sind 2/3, 12 von 24 Gästen sind 1/2.',
         'Vergleiche Kinder und Erwachsene vorher und nachher. Die Zahl der Kinder ändert sich nicht.'))
 K(lz, L('knobel', 'Ein Quadrat wird senkrecht in 4 gleiche Streifen geteilt, einer wird gefärbt. Dann wird es waagrecht in 3 gleiche Streifen geteilt, einer davon wird auch gefärbt. Welcher Anteil des Quadrats ist gefärbt?',
         B, [1, 2], ['(3 + 4 - 1) // 6', '(4 * 3) // 6'],
@@ -1266,7 +1266,7 @@ T(lz, 'Ein Band ist 5 1/4 m lang. Wie viele Stücke von je 1/4 m kann man abschn
 T(lz, 'Welche Aussage über 2 1/2 stimmt?', 'begruenden')
 N(lz, A('erkennen', 'Welche Zahl ist eine gemischte Zahl?', '2 1/3', ['7/3', '2/3', '23'], '2 1/3 besteht aus einer ganzen Zahl und einem echten Bruch.', 'Eine gemischte Zahl hat einen Ganzen-Teil und einen Bruch.'))
 N(lz, M('darstellung', 'Markiere 2 3/4 am Zahlenstrahl (von 0 bis 4, 16 gleiche Teile).', 0, 4, 16, 2.75,
-        'Jeder Teil ist 1/4. 2 3/4 = 11/4 liegt beim 11. Strich.', 'Wie groß ist ein Teil? Schreibe 2 3/4 als Viertel.'))
+        'Jeder Teil ist 1/4. 2 3/4 = 11/4, also 11 Abschnitte nach der 0.', 'Wie groß ist ein Teil? Schreibe 2 3/4 als Viertel.'))
 N(lz, L('umkehr', 'Ein unechter Bruch mit dem Nenner 5 ist gleich 3 2/5. Wie heißt sein Zähler?', '□/5', [17], ['3 * 5 + 2'], '3 Ganze sind 15 Fünftel, dazu 2: 17/5.', 'Wie viele Fünftel sind 3 Ganze?'))
 N(lz, Z('rueckwaerts', 'Eine gemischte Zahl hat die ganze Zahl 3 und den Nenner 7. Als unechter Bruch hat sie den Zähler 26. Wie heißt der Zähler ihres Bruchteils?', 5, '26 - 3 * 7',
         '3 Ganze sind 21 Siebtel. 26 − 21 = 5, also 3 5/7.', 'Wie viele Siebtel stecken in den 3 Ganzen?'))
@@ -1291,7 +1291,7 @@ N(lz, A('direkt', 'Welcher der Brüche 2/9, 7/9 und 4/9 liegt der Größe nach i
 N(lz, A('einkleidung', 'In Klasse A fahren 2/3 der Kinder mit dem Rad, in Klasse B 3/5. In welcher Klasse ist der Anteil der Radfahrer größer?', 'in Klasse A', ['in Klasse B', 'Er ist gleich groß.'],
         'Hauptnenner 15: 2/3 = 10/15, 3/5 = 9/15. 10/15 ist größer.', 'Bringe beide Brüche auf denselben Nenner.'))
 N(lz, M('darstellung', 'Markiere den größeren der Brüche 2/3 und 3/4 am Zahlenstrahl (von 0 bis 1, 12 gleiche Teile).', 0, 1, 12, 0.75,
-        '2/3 = 8/12 und 3/4 = 9/12. Größer ist 3/4, also der 9. Strich.', 'Schreibe beide Brüche in Zwölfteln.'))
+        '2/3 = 8/12 und 3/4 = 9/12. Größer ist 3/4, also 9 Abschnitte nach der 0.', 'Schreibe beide Brüche in Zwölfteln.'))
 N(lz, A('fehler', 'Ein Kind sagt: „2/7 ist größer als 2/5, weil 7 größer ist als 5.“ Was ist der Fehler?',
         'Bei gleichem Zähler ist der Bruch mit dem größeren Nenner kleiner, weil die Teile kleiner sind: 2/7 < 2/5.',
         ['Es gibt keinen Fehler.', 'Man muss die Zähler vergleichen: 2 = 2, also gleich groß.', 'Man muss die Nenner addieren.'],
@@ -1299,7 +1299,7 @@ N(lz, A('fehler', 'Ein Kind sagt: „2/7 ist größer als 2/5, weil 7 größer i
 N(lz, A('pruefung', 'Drei Kinder essen von gleich großen Pizzen: Kind A 3/8, Kind B 2/5, Kind C 1/3 einer Pizza. Wer hat am meisten gegessen?', 'Kind B', ['Kind A', 'Kind C', 'Alle gleich viel'],
         'Hauptnenner 120: 3/8 = 45/120, 2/5 = 48/120, 1/3 = 40/120. B hat am meisten.', 'Suche einen gemeinsamen Nenner für 8, 5 und 3.'))
 K(lz, A('knobel', 'Welcher der Brüche 5/11, 7/15 und 9/20 ist am größten?', '7/15', ['5/11', '9/20', 'Alle sind gleich groß.'],
-        'Alle drei sind etwas kleiner als 1/2. 5/11 fehlt 1/22 bis zur Hälfte, 7/15 fehlt 1/30, 9/20 fehlt 1/20. Am wenigsten fehlt bei 7/15, also ist er am größten.',
+        'Alle drei sind etwas kleiner als 1/2. Erweitere jeden Bruch und die Hälfte auf denselben Nenner: 5/11 = 10/22, die Hälfte ist 11/22 – es fehlt 1/22. 7/15 = 14/30, die Hälfte ist 15/30 – es fehlt 1/30. 9/20, die Hälfte ist 10/20 – es fehlt 1/20. 1/30 ist der kleinste dieser Stammbrüche. Am wenigsten fehlt also bei 7/15, er ist am größten.',
         'Vergleiche nicht direkt, sondern mit einer bekannten Zahl in der Nähe.'))
 K(lz, Z('knobel', 'Wie viele Brüche mit dem Zähler 1 liegen zwischen 1/5 und 2/3? (Die Grenzen zählen nicht.)', 3, '3',
         'Stammbrüche werden kleiner, je größer der Nenner ist. 1/2 und 1/3 sind kleiner als 2/3, 1/4 ist größer als 1/5, 1/5 zählt nicht. Also 1/2, 1/3, 1/4 – das sind 3. (1/1 ist größer als 2/3.)',
@@ -1316,20 +1316,20 @@ ST.typ_bau(lz, 3, 'Markiere 7/4 am Zahlenstrahl (von 1', 'transfer'); ST.typ_bau
 T(lz, 'Markiere die Zahl, die genau in der Mitte zwischen 1/4 und 1/2 liegt (Zahlenstrahl von 0 bis 1, 8 gleiche Teile).', 'verknuepfen')
 T(lz, 'Markiere die Zahl, die um 3/10 größer ist als 3/2 (Zahlenstrahl von 0 bis 2, 10 gleiche Teile).', 'verknuepfen')
 T(lz, 'Auf einem Zahlenstrahl liegt 3/5 genau beim 9. Strich nach der 0. In wie viele gleiche Teile ist die Strecke von 0 bis 1 geteilt?', 'rueckwaerts')
-N(lz, M('mehrschritt', 'Markiere 2/3 am Zahlenstrahl (von 0 bis 1, 12 gleiche Teile).', 0, 1, 12, '2/3', '2/3 = 8/12, also der 8. Strich.', 'Erweitere 2/3 so, dass der Nenner 12 ist.'))
+N(lz, M('mehrschritt', 'Markiere 2/3 am Zahlenstrahl (von 0 bis 1, 12 gleiche Teile).', 0, 1, 12, '2/3', '2/3 = 8/12. Der Punkt liegt 8 Abschnitte nach der 0.', 'Erweitere 2/3 so, dass der Nenner 12 ist.'))
 N(lz, M('einkleidung', 'Ein Wanderweg ist 1 km lang (Zahlenstrahl von 0 bis 1 km, 10 gleiche Teile). Nach 3/5 des Weges steht eine Bank. Markiere die Bank.', 0, 1, 10, 0.6,
-        '3/5 = 6/10, also der 6. Strich.', 'Erweitere 3/5 auf Zehntel.'))
-N(lz, L('umkehr', 'Die Strecke von 0 bis 1 ist in 8 gleiche Teile geteilt. Ein Punkt liegt beim 6. Strich. Welcher vollständig gekürzte Bruch ist das?', B, [3, 4], ['6 // 2', '8 // 2'],
-        'Beim 6. Strich liegt 6/8. Gekürzt mit 2: 3/4.', 'Lies zuerst als Achtel ab, dann kürze.'))
-N(lz, M('mehrschritt', 'Markiere 1 1/3 am Zahlenstrahl (von 0 bis 2, 12 gleiche Teile).', 0, 2, 12, '4/3', 'Jeder Teil ist 1/6. 1 1/3 = 8/6, also der 8. Strich.', 'Wie groß ist ein Teil, wenn 2 Ganze in 12 Teile geteilt sind?'))
-N(lz, L('fehler', 'Der Zahlenstrahl geht von 0 bis 2 und ist in 8 gleiche Teile geteilt. Ein Kind soll 3/8 markieren und setzt den Punkt auf den 3. Strich. Welche Zahl hat es wirklich markiert?', B, [3, 4], ['3', '4'],
-        'Von 0 bis 2 in 8 Teilen ist jeder Teil 2/8 = 1/4. Der 3. Strich ist 3/4, nicht 3/8.', 'Wie groß ist ein Teil, wenn der Strahl bis 2 geht?'))
+        '3/5 = 6/10. Die Bank steht 6 Abschnitte nach der 0.', 'Erweitere 3/5 auf Zehntel.'))
+N(lz, L('umkehr', 'Die Strecke von 0 bis 1 ist in 8 gleiche Teile geteilt. Ein Punkt liegt 6 Abschnitte rechts von der 0. Welcher vollständig gekürzte Bruch ist das?', B, [3, 4], ['6 // 2', '8 // 2'],
+        'Ein Abschnitt ist 1/8. 6 Abschnitte sind 6/8. Gekürzt mit 2: 3/4.', 'Lies zuerst als Achtel ab, dann kürze.'))
+N(lz, M('mehrschritt', 'Markiere 1 1/3 am Zahlenstrahl (von 0 bis 2, 12 gleiche Teile).', 0, 2, 12, '4/3', 'Jeder Teil ist 1/6. 1 1/3 = 8/6, also 8 Abschnitte nach der 0.', 'Wie groß ist ein Teil, wenn 2 Ganze in 12 Teile geteilt sind?'))
+N(lz, L('fehler', 'Der Zahlenstrahl geht von 0 bis 2 und ist in 8 gleiche Teile geteilt. Ein Kind soll 3/8 markieren und setzt den Punkt 3 Abschnitte rechts von der 0. Welche Zahl hat es wirklich markiert?', B, [3, 4], ['3', '4'],
+        'Von 0 bis 2 in 8 Teilen ist jeder Teil 2/8 = 1/4. 3 Abschnitte sind also 3/4, nicht 3/8.', 'Wie groß ist ein Teil, wenn der Strahl bis 2 geht?'))
 N(lz, A('begruenden', 'Stimmt die Aussage? „Am Zahlenstrahl liegt 5/4 links von 1.“', 'Nein, 5/4 ist größer als 1 und liegt rechts davon.', ['Ja, weil 4 kleiner ist als 5.', 'Ja, Brüche liegen immer links von 1.'],
         '5/4 = 1 1/4. Größere Zahlen liegen weiter rechts.', 'Ist 5/4 größer oder kleiner als 4/4?'))
 N(lz, Z('parameter', 'Die Strecke von 0 bis 1 wird in n gleiche Teile geteilt. Sowohl 2/3 als auch 3/4 sollen genau auf einem Strich liegen. Wie groß ist n mindestens?', 12, '12',
         'n muss durch 3 und durch 4 teilbar sein. Das kleinste gemeinsame Vielfache ist 12.', 'Bei welchen Teilungen liegt 2/3 auf einem Strich?'))
 K(lz, L('knobel', 'Am Zahlenstrahl liegt A bei 1/3 und B bei 1/2. Ein Punkt C liegt so, dass B genau in der Mitte zwischen A und C liegt. Bei welcher Zahl liegt C?', B, [2, 3], ['2', '3'],
-        'Von A nach B sind es 1/2 − 1/3 = 1/6. C liegt noch einmal 1/6 weiter: 1/2 + 1/6 = 4/6 = 2/3.', 'Schreibe alles in Sechsteln.'))
+        'In Sechsteln: A = 1/3 = 2/6, B = 1/2 = 3/6. Von A nach B ist es 1 Sechstel. C liegt noch einmal 1 Sechstel weiter: 4/6 = 2/3.', 'Schreibe alles in Sechsteln.'))
 K(lz, Z('knobel', 'Zwischen 0 und 1 werden alle Brüche mit dem Nenner 4 und alle mit dem Nenner 6 markiert (0 und 1 nicht). Wie viele verschiedene Punkte sind das?', 7, '3 + 5 - 1',
         'Viertel: 1/4, 2/4, 3/4 (3 Punkte). Sechstel: 1/6 bis 5/6 (5 Punkte). 2/4 und 3/6 sind beide 1/2 – derselbe Punkt. 3 + 5 − 1 = 7.',
         'Gibt es Punkte, die zu beiden Teilungen gehören?'))
@@ -1345,16 +1345,16 @@ T(lz, 'Ein Kind sagt: „−2/5 ist kleiner als −3/5, weil 2 kleiner ist als 3
 T(lz, 'Ordne −1/2, 1/3, −2/3 und 1/4 der Größe nach, mit der kleinsten Zahl zuerst. Welche Zahl steht an zweiter Stelle?', 'mehrschritt', s=2)
 T(lz, 'Welche Zahl ist am kleinsten: −7/2, −3 oder −13/4?', 'mehrschritt', s=2)
 N(lz, A('einkleidung', 'Ein Taucher ist 3/4 m unter der Wasseroberfläche (−3/4 m). Ein zweiter Taucher ist 1/2 m tiefer. Welche Zahl beschreibt seine Lage?', '−5/4 m', ['−1/4 m', '5/4 m', '−1/2 m'],
-        'Tiefer heißt weiter ins Minus: −3/4 − 2/4 = −5/4 m.', 'Zeichne einen senkrechten Zahlenstrahl mit 0 an der Wasseroberfläche.'))
+        '1/2 m = 2/4 m. Der zweite Taucher ist 3/4 m + 2/4 m = 5/4 m unter der Oberfläche (3 Viertel und 2 Viertel sind 5 Viertel). Unter der Oberfläche heißt negativ: −5/4 m.', 'Zeichne einen senkrechten Zahlenstrahl mit 0 an der Wasseroberfläche.'))
 N(lz, Z('parameter', 'Für wie viele ganze Zahlen n liegt n/3 zwischen −2 und 1? (Die Grenzen zählen nicht.)', 8, '8',
         '−2 = −6/3 und 1 = 3/3. Dazwischen liegen n = −5, −4, −3, −2, −1, 0, 1, 2 – das sind 8.', 'Schreibe −2 und 1 als Drittel.'))
 N(lz, L('rueckwaerts', 'Ein Punkt wird am Zahlenstrahl an der 0 gespiegelt und danach um 1/2 nach rechts verschoben. Er landet bei −1/4. Wo lag er am Anfang?', B, [3, 4], ['3', '4'],
-        'Rückwärts: −1/4 − 1/2 = −3/4 (zurückschieben), dann spiegeln: 3/4.', 'Mache die Schritte von hinten rückgängig.'))
+        'Rückwärts: 1/2 = 2/4. Zurückschieben heißt 2 Viertel nach links: von −1/4 nach −3/4. Dann zurückspiegeln: 3/4. Probe: 3/4 → gespiegelt −3/4 → 2 Viertel nach rechts −1/4.', 'Mache die Schritte von hinten rückgängig.'))
 K(lz, Z('knobel', 'Für wie viele ganze Zahlen k liegt k/5 zwischen −3/2 und 7/4? (Die Grenzen zählen nicht.)', 16, '8 - (-7) + 1',
-        '−3/2 = −7,5/5 und 7/4 = 8,75/5. Also muss k zwischen −7,5 und 8,75 liegen: k = −7, −6, …, 8. Das sind 16 Zahlen.',
-        'Schreibe beide Grenzen mit dem Nenner 5 – auch wenn der Zähler dabei keine ganze Zahl wird.'))
+        'Gemeinsamer Nenner 20: −3/2 = −30/20, 7/4 = 35/20 und k/5 = (4 · k)/20. Gesucht: 4 · k liegt zwischen −30 und 35. Das gilt für k von −7 (−28) bis 8 (32); k = −8 ergibt −32, k = 9 ergibt 36 – beide liegen außerhalb. Von −7 bis 8 sind es 7 negative Zahlen, die 0 und 8 positive: 16 Zahlen.',
+        'Schreibe alle drei Brüche mit demselben Nenner.'))
 K(lz, L('knobel', 'Die Zahlen −1/2, a und 1 liegen am Zahlenstrahl in dieser Reihenfolge, und a hat zu beiden den gleichen Abstand. Wie heißt a?', B, [1, 4], ['1', '4'],
-        'Der Abstand von −1/2 bis 1 ist 3/2. Die Hälfte davon ist 3/4. a = −1/2 + 3/4 = 1/4.', 'Wie weit ist es von −1/2 bis 1?'))
+        'In Vierteln: −1/2 = −2/4 und 1 = 4/4. Von −2/4 bis 4/4 sind es 6 Viertel. Die Mitte liegt 3 Viertel rechts von −2/4: bei 1/4.', 'Wie weit ist es von −1/2 bis 1?'))
 
 # --- verstehen ---
 lz = 'verstehen'
@@ -1365,8 +1365,8 @@ ST.typ_bau(lz, 2, 'Stimmt die Aussage? „In einer Klasse', 'einkleidung')
 N(lz, L('direkt', 'Schreibe den Anteil „drei von acht“ als Bruch.', B, [3, 8], ['3', '8'], 'Drei von acht: Zähler 3, Nenner 8.', 'Wie viele von wie vielen?'))
 N(lz, A('umkehr', 'Stimmt die Aussage? „Wenn 1/4 einer Strecke 5 m sind, ist die ganze Strecke 20 m lang.“', 'Ja: 4 · 5 m = 20 m.', ['Nein, sie ist 9 m lang.', 'Nein, sie ist 1,25 m lang.'],
         'Die ganze Strecke sind 4 Viertel, also 4 · 5 m = 20 m.', 'Wie viele Viertel hat das Ganze?'))
-N(lz, A('parameter', 'Für welche natürlichen Zahlen n stimmt: „n/7 ist kleiner als 1/2“?', 'für n = 1, 2, 3', ['für n = 1, 2, 3, 4', 'nur für n = 1', 'für alle n kleiner als 7'],
-        '1/2 = 3,5/7. Kleiner ist n/7 also für n = 1, 2, 3. Bei n = 4 ist 4/7 schon größer als 1/2.', 'Wie viele Siebtel sind die Hälfte?'))
+N(lz, A('parameter', 'Für welche der Zahlen n = 1, 2, 3, 4, 5, 6 stimmt: „n/7 ist kleiner als 1/2“?', 'für n = 1, 2, 3', ['für n = 1, 2, 3, 4', 'nur für n = 1', 'für alle n kleiner als 7'],
+        'Erweitere auf Vierzehntel: 1/2 = 7/14 und n/7 = (2 · n)/14. Kleiner als 7/14 heißt 2 · n kleiner als 7: n = 1, 2, 3. Bei n = 4 ist 4/7 = 8/14 schon größer als 1/2.', 'Wie viele Siebtel sind die Hälfte?'))
 N(lz, Z('transfer', 'Ein Kind sagt: „Ich habe 3/4 meiner Aufgaben erledigt. Mir fehlen noch 5 Aufgaben.“ Wie viele Aufgaben sind es insgesamt?', 20, '5 * 4',
         'Es fehlt 1/4 der Aufgaben, das sind 5. Also sind es insgesamt 4 · 5 = 20.', 'Welcher Bruchteil fehlt noch?'))
 N(lz, A('verknuepfen', 'Stimmt die Aussage? „Ist der Nenner eine Primzahl, lässt sich kein echter Bruch mit diesem Nenner kürzen.“',

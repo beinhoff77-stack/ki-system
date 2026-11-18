@@ -145,7 +145,7 @@ KARTEN = {
   'neu': [
    ('erkennen', A('Welche Zahl ist ein gemeinsamer Teiler von 18 und 24?', '6', ['4', '9', '8'], '18 : 6 = 3 und 24 : 6 = 4. 4 und 8 teilen 18 nicht, 9 teilt 24 nicht.', 'Prüfe für jede Zahl beide Divisionen.')),
    ('erkennen', A('Was bedeutet ggT(8, 12)?', 'der größte Teiler, den 8 und 12 gemeinsam haben', ['das kleinste Vielfache von 8 und 12', 'das Produkt von 8 und 12', 'der kleinste gemeinsame Teiler'], 'ggT steht für „größter gemeinsamer Teiler“. Hier ist er 4.', 'Wofür stehen die drei Buchstaben?')),
-   ('mehrschritt', Z('Bestimme den ggT von 36, 48 und 60.', 12, '12', 'Teiler von 36: …, 12, 18, 36. 12 teilt auch 48 und 60, 18 nicht. ggT = 12.', 'Suche den größten Teiler von 36, der auch 48 und 60 teilt.')),
+   ('mehrschritt', Z('Bestimme den ggT von 36, 48 und 60.', 12, '12', 'Prüfe die Teiler von 36 von groß nach klein. 36 und 18 teilen 48 nicht (48 : 18 geht nicht auf). 12 teilt 48 (48 = 4 · 12) und 60 (60 = 5 · 12). Also ggT = 12.', 'Suche den größten Teiler von 36, der auch 48 und 60 teilt.')),
    ('umkehr', Z('Der ggT zweier Zahlen ist 6. Eine Zahl ist 18, die andere liegt zwischen 20 und 29. Wie heißt sie?', 24, '24', 'Die andere muss ein Vielfaches von 6 sein: 24 (zwischen 20 und 29). ggT(18, 24) = 6 stimmt.', 'Die andere Zahl muss durch 6 teilbar sein.')),
    ('darstellung', Z('Teiler von 20: 1, 2, 4, 5, 10, 20. Teiler von 30: 1, 2, 3, 5, 6, 10, 15, 30. Wie groß ist ggT(20, 30)?', 10, '10', 'Gemeinsame Teiler: 1, 2, 5, 10. Der größte ist 10.', 'Markiere die Zahlen, die in beiden Listen stehen.')),
    ('einkleidung', Z('Ein Gärtner hat 42 Tulpen und 56 Narzissen. Er bindet möglichst viele gleiche Sträuße, ohne dass eine Blume übrig bleibt. Wie viele Sträuße werden es?', 14, '14',

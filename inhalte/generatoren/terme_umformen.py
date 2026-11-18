@@ -501,13 +501,14 @@ ST.neu('zusammenfassen', 3, 'fehler', ST.A('Jemand fasst 5x² + 3x zu 8x³ zusam
                                            'Sind x² und x gleichartig?'))
 ST.knobel('zusammenfassen', ST.L('Zehn Terme: a, a + 3, a + 6, a + 9, …, a + 27 (jeder 3 mehr als der vorige). Fasse die Summe aller zehn Terme zusammen.', '□a + □', [10, 135],
                                  ['10', '3 * (0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9)'],
-                                 'Zehnmal a ergibt 10a. Die Zahlen sind 0 + 3 + 6 + … + 27 = 3 · (0 + 1 + … + 9) = 3 · 45 = 135. '
-                                 'Geschickt: Erster und letzter Summand ergeben 27, zweiter und vorletzter auch – 5 Paare · 27 = 135. Ergebnis 10a + 135.',
+                                 'Zehnmal a ergibt 10a. Die Zahlen sind 0, 3, 6, 9, 12, 15, 18, 21, 24 und 27. '
+                                 'Paare von vorne und hinten: 0 + 27, 3 + 24, 6 + 21, 9 + 18, 12 + 15 – fünf Paare mit je 27, zusammen 5 · 27 = 135. Ergebnis 10a + 135.',
                                  'Zähle die a getrennt. Für die Zahlen: Bilde Paare von vorne und hinten.', _HT))
 ST.knobel('zusammenfassen', ST.L('In einem Zauberquadrat aus 3 × 3 Feldern ergeben alle Zeilen, Spalten und beide Diagonalen dieselbe Summe. Im mittleren Feld steht x + 2. Wie groß ist diese Summe?',
                                  '□x + □', [3, 6], ['3', '3 * 2'],
-                                 'Die mittlere Zeile, die mittlere Spalte und die beiden Diagonalen gehen durch die Mitte. Zusammen enthalten sie alle neun Felder einmal und die Mitte noch dreimal mehr: '
-                                 '4S = (Summe aller Felder) + 3 · Mitte = 3S + 3 · Mitte. Also S = 3 · Mitte = 3(x + 2) = 3x + 6.',
+                                 'Nenne die gesuchte Summe S. Die mittlere Zeile, die mittlere Spalte und die beiden Diagonalen gehen durch die Mitte; zusammen ergeben sie 4S. '
+                                 'In diesen vier Linien kommt jedes Feld genau einmal vor, nur das Mittelfeld viermal, also dreimal zu viel. Alle neun Felder zusammen sind die drei Zeilen, also 3S. '
+                                 'Damit 4S = 3S + 3 · Mitte, und es bleibt S = 3 · Mitte = 3 · (x + 2) = 3x + 6.',
                                  'Addiere die vier Linien durch die Mitte. Wie oft kommt jedes Feld darin vor?', _HT))
 # produkte
 ST.leiter('produkte', 'Zwei Faktoren mit Zahl und Variable malnehmen (2x · 5y).',
@@ -651,7 +652,7 @@ ST.regel('ausklammern', 3, 'Jemand klammert aus', 'fehler')
 ST.regel('ausklammern', 3, 'ab −', 'verknuepfen')
 ST.regel('ausklammern', 3, 'Klammere −4', 'transfer')
 ST.regel('ausklammern', 3, 'Rechteck', 'rueckwaerts')
-ST.neu('ausklammern', 1, 'erkennen', ST.Z('Welche größte Zahl steckt als Faktor in 6x und in 15?', 3, '3', '6 = 3 · 2 und 15 = 3 · 5. Der größte gemeinsame Faktor ist 3.',
+ST.neu('ausklammern', 1, 'erkennen', ST.Z('Welches ist die größte Zahl, die sowohl in 6x als auch in 15 als Faktor steckt?', 3, '3', '6 = 3 · 2 und 15 = 3 · 5. Der größte gemeinsame Faktor ist 3.',
                                          'Suche die größte Zahl, die 6 und 15 teilt.'))
 ST.neu('ausklammern', 1, 'direkt', ST.L('Klammere x aus: x² + 7x', 'x(□x + □)', [1, 7], ['1', '7'], 'x² = x · x und 7x = x · 7. Also x(x + 7).', 'In beiden Gliedern steckt x.',
                                         'Tippe den ganzen Term mit Klammer ein, z. B. x(x + 2).'))
@@ -660,7 +661,7 @@ ST.neu('ausklammern', 2, 'einkleidung', ST.L('Ein Garten hat den Flächeninhalt 
                                              '8x + 12 = 4(2x + 3). Breite 4 m, also Länge (2x + 3) m.', 'Klammere die Breite 4 aus.', _HT))
 ST.neu('ausklammern', 3, 'begruenden', ST.A('Ist 6x + 9 = 3(2x + 3) vollständig ausgeklammert?', 'Ja: 2x und 3 haben keinen gemeinsamen Faktor mehr.',
                                             ['Nein: Man kann noch 2 ausklammern.', 'Nein: Man muss 9 ausklammern.', 'Ja, aber nur, wenn x gerade ist.'],
-                                            'Vollständig heißt: In der Klammer steckt kein gemeinsamer Faktor mehr. 2x und 3 haben keinen (3 ist ungerade, 2x nicht durch 3 teilbar).',
+                                            'Vollständig heißt: In der Klammer steckt kein gemeinsamer Faktor mehr. Die Zahlen 2 und 3 haben keinen gemeinsamen Faktor außer 1, und x kommt in 3 nicht vor. Also ist nichts mehr auszuklammern.',
                                             'Prüfe, ob die Glieder in der Klammer noch einen gemeinsamen Faktor haben.'))
 ST.neu('ausklammern', 3, 'parameter', ST.Z('Für welche Zahl k gilt kx + 20 = 4(3x + 5)?', 12, '4 * 3', '4(3x + 5) = 12x + 20. Also k = 12.', 'Multipliziere die rechte Seite aus.'))
 ST.neu('ausklammern', 3, 'pruefung', ST.L('Ergänze: 12a²b + 8ab² = □ab(3a + □b)', '□ab(3a + □b)', [4, 2], ['12 / 3', '8 / 4'],
@@ -671,7 +672,7 @@ ST.knobel('ausklammern', ST.Z('Berechne ohne Taschenrechner: 2 024 · 2 023 − 
                               'Klammere 2 023 aus: 2 023 · (2 024 − 2 022) = 2 023 · 2 = 4 046.', 'Welcher Faktor steckt in beiden Produkten?'))
 ST.knobel('ausklammern', ST.Z('Für welche natürliche Zahl n ergibt (n² + 5n) : (n + 5) genau 12?', 12, '12',
                               'n² + 5n = n(n + 5). Geteilt durch n + 5 bleibt n. Also n = 12. (Probe: 144 + 60 = 204, 204 : 17 = 12 ✓.)',
-                              'Klammere im Zähler aus. Was kürzt sich weg?'))
+                              'Klammere in n² + 5n einen Faktor aus. Was bleibt nach dem Teilen durch n + 5 übrig?'))
 # aequivalenz
 ST.leiter('aequivalenz', 'Termwerte berechnen und einsetzen, um zu vergleichen; ausmultiplizierte Form erkennen.',
           'Zwei Terme mit einer Zahl vergleichen, äquivalente Paare finden, Gegenbeispiel wählen, Wertetabelle → Term, Sachsituation zweier Kassen.',
@@ -731,7 +732,7 @@ ST.regel('binomisch', 3, 'Jemand rechnet', 'fehler')
 ST.regel('binomisch', 3, 'Ergänze', 'rueckwaerts')
 ST.neu('binomisch', 1, 'erkennen', ST.A('Welche binomische Formel passt zu (x − 5)(x + 5)?', 'die 3. binomische Formel', ['die 1. binomische Formel', 'die 2. binomische Formel'],
                                         '(a + b)(a − b) = a² − b² ist die 3. Formel: eine Klammer mit plus, eine mit minus.', 'Wie sehen die beiden Klammern aus?'))
-ST.neu('binomisch', 2, 'einkleidung', ST.L('Ein quadratischer Platz mit Seite x m wird auf beiden Seiten um 3 m verlängert. Gib die neue Fläche ohne Klammer an.', 'x² + □x + □', [6, 9],
+ST.neu('binomisch', 2, 'einkleidung', ST.L('Ein quadratischer Platz hat die Seitenlänge x m. Jede Seite wird um 3 m länger, der Platz bleibt quadratisch. Gib die neue Fläche ohne Klammer an.', 'x² + □x + □', [6, 9],
                                            ['2 * 3', '3 * 3'], 'Neue Seite x + 3. (x + 3)² = x² + 6x + 9.', 'Schreibe die neue Seite als Term und quadriere.', 'Tippe den Term ein, z. B. x² + 4x + 4.'))
 ST.neu('binomisch', 2, 'umkehr', ST.Z('Schreibe als Quadrat: x² + 10x + 25 = (x + □)²', 5, '10 / 2', '25 = 5² und 10x = 2 · x · 5. Also (x + 5)².', 'Welche Zahl ergibt quadriert 25?'))
 ST.neu('binomisch', 2, 'darstellung', ST.A('Ein Quadrat mit der Seite a + b wird in ein Quadrat a², ein Quadrat b² und zwei gleiche Rechtecke zerlegt. Welchen Flächeninhalt hat eines der Rechtecke?',
@@ -741,7 +742,7 @@ ST.neu('binomisch', 3, 'begruenden', ST.A('Stimmt für alle Zahlen: (a − b)² 
                                           ['Nein: Das Vorzeichen ändert sich.', 'Nein, nur wenn a = b ist.', 'Ja, aber nur für positive Zahlen.'],
                                           '(a − b)² = a² − 2ab + b² und (b − a)² = b² − 2ab + a² – dasselbe. Auch anschaulich: a − b und b − a unterscheiden sich nur im Vorzeichen, Quadrieren macht beides gleich.',
                                           'Multipliziere beide aus.'))
-ST.neu('binomisch', 3, 'parameter', ST.Z('Für welche positive Zahl k ist x² + kx + 16 eine binomische Formel?', 8, '2 * 4', '16 = 4². (x + 4)² = x² + 8x + 16, also k = 8.', 'Welche Zahl ergibt quadriert 16?'))
+ST.neu('binomisch', 3, 'parameter', ST.Z('Für welche positive Zahl k lässt sich x² + kx + 16 als Quadrat (x + □)² schreiben?', 8, '2 * 4', '16 = 4². (x + 4)² = x² + 8x + 16, also k = 8.', 'Welche Zahl ergibt quadriert 16?'))
 ST.neu('binomisch', 3, 'pruefung', ST.L('Vereinfache so weit wie möglich: (x + 3)² − (x − 3)²', '□x', [12], ['4 * 3'],
                                         '(x + 3)² = x² + 6x + 9, (x − 3)² = x² − 6x + 9. Differenz: 12x.', 'Wende auf beide Quadrate eine binomische Formel an.',
                                         'Tippe den Term ein, z. B. 5x.'))

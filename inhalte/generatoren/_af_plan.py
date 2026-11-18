@@ -86,3 +86,23 @@ PLAN['stochastik.verknuepft'] = [
                                    ['P(A | B)', 'andere Schreibweise für P_B(A): Wahrscheinlichkeit von A, wenn B schon eingetreten ist']]),
     abschnitt('Ereignisse verknüpfen', 'Mengen und Ereignisse verknüpfen'),
 ]
+
+
+# =====================================================================================================================
+# abbildungen.kongruenz (Kl. 7) ← abbildungen.vektoren: gegenvektor (B). PFLICHT (RS alle Zweige, M7 LB2).
+# Achtung: Die Gym-Karte verschiebung davor ist Vertiefung (Gym M7 ohne Verschiebung) – im Bericht gemeldet.
+# „Vektor“ kam bisher nur in der entfallenen Karte vektor_bestimmen → als Wort ergänzt. Knobel mit Gleichung 2 · v = …
+# (lineare Gleichungen erst nach diesem Flug) durch eine Knobel ohne Gleichung ersetzt.
+# =====================================================================================================================
+PLAN['abbildungen.kongruenz'] = [
+    karte_her('abbildungen.vektoren', 'gegenvektor', 'Verschieben und Drehen', vertiefung=False, nach='verschiebung'),
+    karte('gegenvektor', woerter=[['Vektor', 'anderes Wort für den Verschiebungspfeil v = (x | y)'],
+                                  ['Gegenvektor', 'gleich lang, aber genau entgegengesetzt; zu v gehört −v'],
+                                  ['Urpunkt', 'der Punkt vor der Verschiebung']]),
+    ersetze('gegenvektor', r'^Für welchen Vektor v ist der Gegenvektor −v genauso groß wie', L(
+        'Ein Punkt P wird mit v verschoben und landet bei P′(1 | 4). Derselbe Punkt P wird mit dem Gegenvektor −v verschoben und landet bei Q′(7 | 0). Gib v an.',
+        'v = (□ | □)', [-3, 2], ['1 - (1 + 7) // 2', '4 - (4 + 0) // 2'],
+        'P′ und Q′ liegen gleich weit von P weg, aber in entgegengesetzter Richtung. Also liegt P genau in der Mitte: P((1 + 7) : 2 | (4 + 0) : 2) = P(4 | 2). '
+        'Dann ist v = (1 − 4 | 4 − 2) = (−3 | 2). Probe: (4 | 2) mit −v = (3 | −2) verschoben ergibt (7 | 0).',
+        'Wo liegt P im Vergleich zu P′ und Q′?', hinweis='Zwei ganze Zahlen, auch negative.')),
+]

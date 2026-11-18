@@ -30,6 +30,7 @@
     "titel": "Verschieben und Drehen",
     "lernziele": [
      "verschiebung",
+     "gegenvektor",
      "drehung"
     ]
    },
@@ -1069,6 +1070,120 @@
       "der Verschiebungspfeil: 3 nach links, 4 nach oben"
      ]
     ]
+   },
+   {
+    "lernziel": "gegenvektor",
+    "titel": "Gegenvektor und Rückweg",
+    "regel": "Gegenvektor: beide Vorzeichen umdrehen. Mit ⟦−v⟧ kommt jeder Bildpunkt zurück zum Urpunkt.",
+    "schritte": [
+     {
+      "text": "P′(1 | 2) entstand durch v = (4 | −3). Gesucht ist der Urpunkt P."
+     },
+     {
+      "text": "Gegenvektor: Vorzeichen umdrehen, −v = (−4 | 3).",
+      "bild": {
+       "pfeile": [
+        [
+         1,
+         2,
+         -3,
+         5,
+         "−v"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "P = (1 + (−4) | 2 + 3) = ⟦P(−3 | 5)⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 2,
+         "name": "P′"
+        },
+        {
+         "x": -3,
+         "y": 5,
+         "name": "P"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Probe: P plus v ergibt wieder (1 | 2).",
+      "bild": {
+       "pfeile": [
+        [
+         -3,
+         5,
+         1,
+         2,
+         "v"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "Nochmal v addieren schiebt weiter statt zurück: (5 | −1) ist falsch. Für den Rückweg brauchst du den ⟦Gegenvektor⟧.",
+    "einstieg": "Der Spielstein soll zurück an seinen Start. Dafür geht er denselben Weg rückwärts: nach links statt nach rechts, nach oben statt nach unten. Dieser Rückweg heißt ⟦Gegenvektor⟧.",
+    "woerter": [
+     [
+      "Vektor",
+      "anderes Wort für den Verschiebungspfeil v = (x | y)"
+     ],
+     [
+      "Gegenvektor",
+      "gleich lang, aber genau entgegengesetzt; zu v gehört −v"
+     ],
+     [
+      "Urpunkt",
+      "der Punkt vor der Verschiebung"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      6
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "P′"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "P′"
+      },
+      {
+       "x": 5,
+       "y": -1,
+       "name": "falsch"
+      }
+     ],
+     "pfeile": [
+      [
+       1,
+       2,
+       5,
+       -1,
+       "v"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "drehung",
@@ -2207,6 +2322,13 @@
     "lernziele": [
      "eigenschaften"
     ]
+   },
+   {
+    "k": "gegenvektor",
+    "text": "Gegenvektor und Rückweg",
+    "lernziele": [
+     "gegenvektor"
+    ]
    }
   ],
   "bewertung": {
@@ -2217,7 +2339,8 @@
     "winkelhalbierende",
     "symmetrie",
     "vierecke_ordnen",
-    "eigenschaften"
+    "eigenschaften",
+    "gegenvektor"
    ],
    "lernziele_vertiefung": [
     "verschiebung",
@@ -14519,6 +14642,753 @@
     "index": 3
    },
    "w": "Raute: genau zwei Symmetrieachsen, die durch Ecken gehen."
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (−4 | 6) entsteht der Bildpunkt P'(−9 | 12). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -5,
+     6
+    ]
+   },
+   "w": "Gegenvektor −v = (4 | −6). P = (−9 + 4 | 12 + (−6)) = (−5 | 6).",
+   "h": "Gehe mit dem Gegenvektor zurück.",
+   "c": [
+    "(-9) - (-4)",
+    "(12) - (6)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Gegenvektor zu v = (−6 | −9) an.",
+    "schablone": "−v = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     6,
+     9
+    ]
+   },
+   "w": "Beide Koordinaten bekommen das andere Vorzeichen: −v = (6 | 9).",
+   "h": "Gleich lang, aber genau entgegengesetzt.",
+   "c": [
+    "-(-6)",
+    "-(-9)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (5 | 6) entsteht der Bildpunkt P'(−1 | 10). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -6,
+     4
+    ]
+   },
+   "w": "Gegenvektor −v = (−5 | −6). P = (−1 + (−5) | 10 + (−6)) = (−6 | 4).",
+   "h": "Gehe mit dem Gegenvektor zurück.",
+   "c": [
+    "(-1) - (5)",
+    "(10) - (6)"
+   ],
+   "g": "umkehr"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welchem Vektor macht man die Verschiebung mit v = (4 | 3) wieder rückgängig?"
+   },
+   "a": [
+    "(3 | 4)",
+    "(−4 | 3)",
+    "(−4 | −3)",
+    "(4 | 3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Umkehrabbildung ist die Verschiebung mit dem Gegenvektor −v = (−4 | −3).",
+   "h": "Welcher Vektor führt genau zurück?",
+   "g": "erkennen"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Verschiebung mit v = (7 | 6) ist P'(10 | 6) der Bildpunkt. Wo lag P?"
+   },
+   "a": [
+    "P(−10 | −6)",
+    "P(17 | 12)",
+    "P(3 | 12)",
+    "P(3 | 0)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegenvektor −v = (−7 | −6). P = (10 + (−7) | 6 + (−6)) = (3 | 0).",
+   "h": "Nicht weiter schieben, sondern zurück: Gegenvektor.",
+   "g": "umkehr"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Roboter fährt von P(0 | 0) erst um (−5 | 5), dann um (−3 | 6). Mit welchem Vektor kommt er auf direktem Weg zurück nach P?",
+    "schablone": "Vektor = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     8,
+     -11
+    ]
+   },
+   "w": "Gesamtweg: (−5 | 5) + (−3 | 6) = (−8 | 11). Zurück: Gegenvektor (8 | −11).",
+   "h": "Fasse beide Fahrten zu einem Vektor zusammen und nimm dann den Gegenvektor.",
+   "c": [
+    "-((-5) + (-3))",
+    "-((5) + (6))"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Vektor v ist gleich seinem Gegenvektor −v. Gib v an.",
+    "schablone": "v = (□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     0
+    ]
+   },
+   "c": [
+    "0",
+    "0"
+   ],
+   "w": "Eine Zahl, die gleich ihrer Gegenzahl ist, ist 0. Also v = (0 | 0): Der Nullvektor verschiebt gar nicht.",
+   "h": "Welche Zahl bleibt gleich, wenn man ihr Vorzeichen umdreht?",
+   "g": "begruenden"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Gegenvektor zu v = (0 | −5) an.",
+    "schablone": "−v = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     0,
+     5
+    ]
+   },
+   "w": "Beide Koordinaten bekommen das andere Vorzeichen: −v = (0 | 5).",
+   "h": "Gleich lang, aber genau entgegengesetzt.",
+   "c": [
+    "-(0)",
+    "-(-5)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Vektor ist der Gegenvektor zu v = (3 | −5)?"
+   },
+   "a": [
+    "(−3 | −5)",
+    "(5 | −3)",
+    "(−3 | 5)",
+    "(3 | 5)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beim Gegenvektor drehen beide Vorzeichen um: (−3 | 5).",
+   "h": "Beide Koordinaten ändern das Vorzeichen.",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Roboter fährt von P(−3 | 6) erst um (−7 | −3), dann um (−1 | 0). Mit welchem Vektor kommt er auf direktem Weg zurück nach P?",
+    "schablone": "Vektor = (□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     8,
+     3
+    ]
+   },
+   "w": "Gesamtweg: (−7 | −3) + (−1 | 0) = (−8 | −3). Zurück: Gegenvektor (8 | 3).",
+   "h": "Fasse beide Fahrten zu einem Vektor zusammen und nimm dann den Gegenvektor.",
+   "c": [
+    "-((-7) + (-1))",
+    "-((-3) + (0))"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Verschiebung mit v = (5 | 1) ist P'(5 | 1) der Bildpunkt. Wo lag P?"
+   },
+   "a": [
+    "P(10 | 2)",
+    "P(0 | 0)",
+    "P(0 | 2)",
+    "P(−5 | −1)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegenvektor −v = (−5 | −1). P = (5 + (−5) | 1 + (−1)) = (0 | 0).",
+   "h": "Nicht weiter schieben, sondern zurück: Gegenvektor.",
+   "g": "umkehr"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kran hebt eine Kiste vom Platz (2 | 0) mit dem Vektor (7 | 4) an eine neue Stelle (Maße in m). Mit welchem Vektor bringt er sie zurück?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -7,
+     -4
+    ]
+   },
+   "c": [
+    "-7",
+    "-4"
+   ],
+   "w": "Zurück geht es mit dem Gegenvektor (−7 | −4). Wo die Kiste startet, spielt dafür keine Rolle.",
+   "h": "Was macht eine Verschiebung rückgängig?",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Punkte P′(2x | x − 1) sind Bildpunkte bei der Verschiebung mit v = (−1 | 4). Gib die Urpunkte P in Abhängigkeit von x an.",
+    "schablone": "P(□ · x + □ | x + □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     -5
+    ]
+   },
+   "c": [
+    "2",
+    "1",
+    "-1 - 4"
+   ],
+   "w": "Gegenvektor −v = (1 | −4). P = (2x + 1 | x − 1 − 4) = (2 · x + 1 | x − 5).",
+   "h": "Mit dem Gegenvektor kommst du vom Bild zurück.",
+   "g": "parameter"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Viereck wurde verschoben. A(−3 | 5) hat den Bildpunkt A′(0 | 0). Der Bildpunkt von C ist C′(4 | 2). Berechne C.",
+    "schablone": "C(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     7
+    ]
+   },
+   "c": [
+    "4 - (0 - (-3))",
+    "2 - (0 - 5)"
+   ],
+   "w": "v = A′ − A = (3 | −5). Zurück mit −v = (−3 | 5): C = (4 − 3 | 2 + 5) = (1 | 7).",
+   "h": "Erst v bestimmen, dann mit dem Gegenvektor zurückrechnen.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Verschiebung bildet P(2 | 3) auf Q(6 | 1) ab. Wohin wird Q bei derselben Verschiebung abgebildet?",
+    "schablone": "Q′(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     10,
+     -1
+    ]
+   },
+   "c": [
+    "6 + 4",
+    "1 - 2"
+   ],
+   "w": "v = Q − P = (4 | −2). Q′ = Q + v = (10 | −1).",
+   "h": "Welcher Vektor bringt P nach Q?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bildpunkt P′(4 | −1), Vektor v = (−2 | 3). Jemand rechnet: P = (4 + (−2) | −1 + 3) = (2 | 2). Was stimmt?"
+   },
+   "a": [
+    "Richtig gerechnet.",
+    "Falsch: Richtig ist P(−6 | 4).",
+    "Falsch: Er schiebt weiter statt zurück. Richtig ist P(6 | −4).",
+    "Falsch: Richtig ist P(2 | −4)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zurück geht es mit −v = (2 | −3): P = (4 + 2 | −1 − 3) = (6 | −4). Er hat v noch einmal addiert.",
+   "h": "Mit welchem Vektor kommst du vom Bildpunkt zurück?",
+   "g": "fehler"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Punkt wird zuerst mit v = (3 | −4) und dann mit einem Vektor w verschoben. Danach liegt er genau 2 Einheiten rechts von seinem Start. Berechne w.",
+    "schablone": "w = (□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     4
+    ]
+   },
+   "c": [
+    "2 - 3",
+    "0 - (-4)"
+   ],
+   "w": "Insgesamt soll (2 | 0) herauskommen: v + w = (2 | 0). Also w = (2 − 3 | 0 + 4) = (−1 | 4).",
+   "h": "Welcher Vektor beschreibt „2 nach rechts“?",
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: v + (−v) ergibt immer den Nullvektor (0 | 0)?"
+   },
+   "a": [
+    "Nur wenn v nach rechts zeigt.",
+    "Ja: Hin und wieder zurück, man landet am Start.",
+    "Nein, das Doppelte von v.",
+    "Nein, (0 | 0) gibt es nicht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(a | b) + (−a | −b) = (0 | 0). Eine Verschiebung mit v und danach mit −v bringt jeden Punkt an seinen Platz zurück.",
+   "h": "Addiere ein Beispiel.",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Dreieck wurde mit v = (4 | −3) verschoben. Die Bildpunkte sind A′(2 | 1), B′(6 | 1) und C′(3 | 5). a) Gib −v an. b) Berechne A und C.",
+    "schablone": "−v = (□ | □); A(□ | □); C(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -4,
+     3,
+     -2,
+     4,
+     -1,
+     8
+    ]
+   },
+   "c": [
+    "-4",
+    "3",
+    "2 - 4",
+    "1 + 3",
+    "3 - 4",
+    "5 + 3"
+   ],
+   "w": "a) −v = (−4 | 3). b) A = A′ + (−v) = (−2 | 4), C = (3 − 4 | 5 + 3) = (−1 | 8).",
+   "h": "Zurück geht es mit dem Gegenvektor.",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Von (0 | 0) aus wird nacheinander verschoben mit v, 2 · (−v), 3 · v, 4 · (−v), …, bis 10 · (−v). Dabei ist v = (1 | 2). Wo landet man?",
+    "schablone": "(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -10
+    ]
+   },
+   "c": [
+    "1 - 2 + 3 - 4 + 5 - 6 + 7 - 8 + 9 - 10",
+    "2 * (-5)"
+   ],
+   "w": "Zusammen ist es (1 − 2 + 3 − 4 + … + 9 − 10) · v. Je zwei Summanden ergeben −1, fünf Paare also −5. −5 · (1 | 2) = (−5 | −10).",
+   "h": "Fasse immer zwei Schritte zusammen.",
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "Ein Punkt P wird mit v verschoben und landet bei P′(1 | 4). Derselbe Punkt P wird mit dem Gegenvektor −v verschoben und landet bei Q′(7 | 0). Gib v an.",
+    "schablone": "v = (□ | □)",
+    "hinweis": "Zwei ganze Zahlen, auch negative."
+   },
+   "o": {
+    "werte": [
+     -3,
+     2
+    ]
+   },
+   "c": [
+    "1 - (1 + 7) // 2",
+    "4 - (4 + 0) // 2"
+   ],
+   "w": "P′ und Q′ liegen gleich weit von P weg, aber in entgegengesetzter Richtung. Also liegt P genau in der Mitte: P((1 + 7) : 2 | (4 + 0) : 2) = P(4 | 2). Dann ist v = (1 − 4 | 4 − 2) = (−3 | 2). Probe: (4 | 2) mit −v = (3 | −2) verschoben ergibt (7 | 0).",
+   "h": "Wo liegt P im Vergleich zu P′ und Q′?"
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (1 | −5) entsteht der Bildpunkt P'(3 | −3). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     2,
+     2
+    ]
+   },
+   "w": "Gegenvektor −v = (−1 | 5). P = (3 + (−1) | −3 + 5) = (2 | 2).",
+   "c": [
+    "(3) - (1)",
+    "(-3) - (-5)"
+   ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (6 | 7) entsteht der Bildpunkt P'(4 | 9). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "Gegenvektor −v = (−6 | −7). P = (4 + (−6) | 9 + (−7)) = (−2 | 2).",
+   "c": [
+    "(4) - (6)",
+    "(9) - (7)"
+   ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (−7 | −5) entsteht der Bildpunkt P'(−9 | −7). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2
+    ]
+   },
+   "w": "Gegenvektor −v = (7 | 5). P = (−9 + 7 | −7 + 5) = (−2 | −2).",
+   "c": [
+    "(-9) - (-7)",
+    "(-7) - (-5)"
+   ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (5 | 0) entsteht der Bildpunkt P'(1 | 2). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "w": "Gegenvektor −v = (−5 | 0). P = (1 + (−5) | 2 + 0) = (−4 | 2).",
+   "c": [
+    "(1) - (5)",
+    "(2) - (0)"
+   ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (−4 | −4) entsteht der Bildpunkt P'(2 | −2). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     6,
+     2
+    ]
+   },
+   "w": "Gegenvektor −v = (4 | 4). P = (2 + 4 | −2 + 4) = (6 | 2).",
+   "c": [
+    "(2) - (-4)",
+    "(-2) - (-4)"
+   ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (5 | −4) entsteht der Bildpunkt P'(10 | 1). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     5,
+     5
+    ]
+   },
+   "w": "Gegenvektor −v = (−5 | 4). P = (10 + (−5) | 1 + 4) = (5 | 5).",
+   "c": [
+    "(10) - (5)",
+    "(1) - (-4)"
+   ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (−2 | 5) entsteht der Bildpunkt P'(−6 | 2). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -3
+    ]
+   },
+   "w": "Gegenvektor −v = (2 | −5). P = (−6 + 2 | 2 + (−5)) = (−4 | −3).",
+   "c": [
+    "(-6) - (-2)",
+    "(2) - (5)"
+   ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (−3 | −2) entsteht der Bildpunkt P'(−6 | −6). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -4
+    ]
+   },
+   "w": "Gegenvektor −v = (3 | 2). P = (−6 + 3 | −6 + 2) = (−3 | −4).",
+   "c": [
+    "(-6) - (-3)",
+    "(-6) - (-2)"
+   ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (0 | 6) entsteht der Bildpunkt P'(5 | 8). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "w": "Gegenvektor −v = (0 | −6). P = (5 + 0 | 8 + (−6)) = (5 | 2).",
+   "c": [
+    "(5) - (0)",
+    "(8) - (6)"
+   ]
+  },
+  {
+   "l": "gegenvektor",
+   "t": "gegenvektor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bei der Verschiebung mit v = (7 | 5) entsteht der Bildpunkt P'(1 | 5). Berechne den Urpunkt P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x-Koordinate, y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     -6,
+     0
+    ]
+   },
+   "w": "Gegenvektor −v = (−7 | −5). P = (1 + (−7) | 5 + (−5)) = (−6 | 0).",
+   "c": [
+    "(1) - (7)",
+    "(5) - (5)"
+   ]
   }
  ],
  "offen": [

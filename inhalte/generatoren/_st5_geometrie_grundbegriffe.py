@@ -22,7 +22,7 @@ KARTEN = {
                   'Das Rechteck ist 8 breit und 6 hoch. Auf dem Rand liegt alle Einheit ein Gitterpunkt: Umfang 2 · (8 + 6) = 28 Einheiten, also 28 Punkte.', 'Geh einmal um das Rechteck herum und zähle.')),
   ],
   'knobel': [
-   Z('Wie viele Punkte mit ganzzahligen Koordinaten erreicht man vom Ursprung aus mit genau 3 Schritten entlang der Gitterlinien, wenn man nie zurückgeht (also |x| + |y| = 3)?', 12, '12',
+   Z('Für wie viele Punkte (x | y) mit ganzzahligen Koordinaten gilt |x| + |y| = 3?', 12, '12',
      'Auf den Achsen: (3 | 0), (−3 | 0), (0 | 3), (0 | −3) – 4 Punkte. In jedem der vier Viertel: (1 | 2) und (2 | 1) mit passenden Vorzeichen – 4 · 2 = 8. Zusammen 12.', 'Zähle die Punkte auf den Achsen und in jedem Viertel getrennt.'),
    Z('Eine Figur springt im Koordinatensystem entweder 2 nach rechts und 1 nach oben oder 1 nach rechts und 2 nach oben. Wie viele Sprünge braucht sie von (0 | 0) nach (5 | 4)?', 3, '3',
      'Mit a Sprüngen der ersten und b der zweiten Art: 2 · a + b = 5 und a + 2 · b = 4. Addiert: 3 · (a + b) = 9, also a + b = 3 Sprünge (a = 2, b = 1).', 'Jeder Sprung bringt rechts und oben zusammen 3 weiter.'),
@@ -85,7 +85,7 @@ KARTEN = {
   'knobel': [
    Z('Drei Kreise mit dem Radius 2 cm liegen so, dass jeder die beiden anderen von außen berührt. Wie lang ist der Weg von Mittelpunkt zu Mittelpunkt zu Mittelpunkt und zurück zum ersten?', 12, '3 * (2 + 2)',
      'Berühren sich zwei Kreise von außen, ist der Abstand der Mittelpunkte r₁ + r₂ = 4 cm. Der Weg hat drei solche Stücke: 12 cm.', 'Wie weit sind die Mittelpunkte zweier sich außen berührender Kreise voneinander entfernt?', einheit='cm'),
-   Z('Zwei Kreise mit den Radien 3 cm und 5 cm berühren sich in genau einem Punkt. Wie weit können ihre Mittelpunkte höchstens auseinander liegen, und wie weit mindestens? Gib den kleineren Abstand in cm an.', 2, '5 - 3',
+   Z('Zwei Kreise mit den Radien 3 cm und 5 cm berühren sich in genau einem Punkt. Für den Abstand der Mittelpunkte gibt es zwei Möglichkeiten. Gib die kleinere in cm an.', 2, '5 - 3',
      'Von außen berührend: 3 cm + 5 cm = 8 cm. Liegt der kleine Kreis innen und berührt den großen von innen: 5 cm − 3 cm = 2 cm. Der kleinere Abstand ist 2 cm.', 'Ein Kreis kann den anderen auch von innen berühren.', einheit='cm'),
   ],
  },

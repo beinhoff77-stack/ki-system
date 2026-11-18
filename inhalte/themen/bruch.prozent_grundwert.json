@@ -4250,7 +4250,7 @@
     "wert": 4
    },
    "c": "4",
-   "w": "Jede Stunde Faktor 1,5: nach 1 h 1,5, nach 2 h 2,25, nach 3 h 3,375, nach 4 h 5,0625. Erst nach 4 Stunden ist das Fünffache überschritten. Wer „5 = 1 + 4 · 50 %“ rechnet, käme auf 8 Stunden – das übersieht, dass jede Stunde 50 % vom schon gewachsenen Bestand dazukommen.",
+   "w": "Jede Stunde Faktor 1,5: nach 1 h 1,5, nach 2 h 2,25, nach 3 h 3,375, nach 4 h 5,0625. Erst nach 4 Stunden ist das Fünffache überschritten. Wer jede Stunde nur 50 % des Anfangsbestands dazurechnet (1 + 8 · 0,5 = 5), käme auf 8 Stunden – das übersieht, dass jede Stunde 50 % vom schon gewachsenen Bestand dazukommen.",
    "h": "Multipliziere Stunde für Stunde mit dem Faktor."
   },
   {
@@ -5435,7 +5435,7 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "In einem Dorf haben 70 % der Haushalte ein Fahrrad und 60 % ein Auto. Wie viel Prozent der Haushalte haben mindestens beides?"
+    "text": "In einem Dorf haben 70 % der Haushalte ein Fahrrad und 60 % ein Auto. Wie viel Prozent der Haushalte haben dann mindestens sowohl ein Fahrrad als auch ein Auto?"
    },
    "o": {
     "wert": 30,

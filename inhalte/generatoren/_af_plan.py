@@ -256,3 +256,13 @@ PLAN['funktionen.potenz'] = [
                               'punkte': [{'x': 2, 'y': 4, 'name': 'P'}, {'x': 4, 'y': 2, 'name': 'P′'}], 'strecken': [[2, 4, 4, 2, 'gestrichelt']]}}],
           fehler='P′(−2 | −4) ist falsch, das wäre am ⟦Ursprung⟧ gespiegelt. An y = x werden die Koordinaten getauscht.'),
 ]
+
+
+# stochastik.mehrstufig (Kl. 10) ← stochastik.bedingt: unabhaengig (C). Vertiefung (nur IB), nach ohne_zuruecklegen.
+# P(A | B) ist im Gym-Flug stochastik.verknuepft als P_B(A) geschrieben → als Wort ergänzt.
+PLAN['stochastik.mehrstufig'] = [
+    karte_her('stochastik.bedingt', 'unabhaengig', 'Pfadregeln', vertiefung=True, nach='ohne_zuruecklegen'),
+    karte('unabhaengig', woerter=[['unabhängig', 'das Wissen über B ändert die Wahrscheinlichkeit von A nicht'],
+                                  ['abhängig', 'das Wissen über B ändert die Wahrscheinlichkeit von A'],
+                                  ['P(A | B)', 'andere Schreibweise für P_B(A): Wahrscheinlichkeit von A, wenn B schon eingetreten ist']]),
+]

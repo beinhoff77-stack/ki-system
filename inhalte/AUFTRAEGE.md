@@ -1738,3 +1738,27 @@ Stand der Prüfung: `main`, App 0.78.1, Live-Funktionen lesend geprüft. Urteil:
 5. **„Häufigster Fehler“ (LA-3):** nur zeigen, wo `grund` bei mindestens zwei falschen Antworten vorkommt; sonst „–“. Keine Aussage erfinden, wie das Kind gerechnet hat.
 6. **IB:** einheitlich MYP-Jahr = Klasse − 5 (seit 0.78.0); unter Klasse 6 „noch kein MYP-Jahr“.
 7. **Entwurf:** Der Auswahl-Entwurf „Lehrer-Ansicht: neuer Aufbau“ liegt nicht im Repository. Maßgeblich ist der Text in `umsetzung.md`. Wo er eine Frage offenlässt, die schlichteste Lösung nehmen und in der Meldung nennen.
+
+# Vierundzwanzigste Runde (18.11.): Realschul-/IB-Themen auflösen, wo der Stoff schon da ist
+
+**Entscheidungen von Sebastian (18.11.) zu `inhalte/pruefung/klassen/doppelt-rsib.md`:**
+1. Grundsatz angenommen: **11 Themen auflösen, 13 bleiben, keine neuen Themen.**
+2. Von den 13 bleibenden sind im Plan der Kinder **Pflicht** nur die zwei für alle Realschul-Zweige (`abbildungen.determinanten2`, `daten.stichproben`). Alle anderen (IB Standard, IB Extended, Zusatz, mathematischer Realschul-Zweig) werden **freiwillig angeboten**. (Das stellt der Haupt-Chat im Plan ein – nicht Teil dieses Auftrags.)
+3. `terme.quadratische_extreme` bleibt als eigener Flug in Klasse 8 (Realschule verlangt es dort); die entsprechenden Gymnasium-Lernkarten in Klasse 9 werden zur kurzen Wiederholung mit Verweis.
+4. Das Dualsystem wird ergänzt (Realschule M5 1.2).
+
+**Ein Chat, Zweig `aufloesen` (von aktuellem `lernen-app`), Meldungen in `inhalte/postfach/aufloesen.md`.** Grundlage ist `doppelt-rsib.md`: Teil 2 (je Thema Lernkarte für Lernkarte mit Gruppe A/B/C und Zielthema) und Teil 3a (fünf neue Lernkarten statt vier neuer Themen). Vorher lesen: `inhalte/README.md` (Themen-Bausatz, „Stufen und Aufgabentypen“, Vertiefung), `inhalte/postfach/stufen-kl5.md` (oberste Meldung: Fehlerarten bei neuen Aufgaben).
+
+**Teil A – die 11 Themen auflösen** (`abbildungen.vektoren`, `funktionen.scharen`, `funktionen.transformation`, `gleichungen.reinquadratisch`, `funktionen.umkehr`, `mengen.grundbegriffe`, `groessen.verhaeltnisse`, `stochastik.bedingt`, `funktionen.folgen`, `finanzen.zinseszins`; Sonderfall `terme.quadratische_extreme` siehe Teil C):
+- **A-Lernkarten** (Stoff steht schon im Gymnasium-Flug): entfallen. Aufgaben, die dort einen fehlenden Typ oder eine fehlende Stufe ergänzen, dürfen in die Gymnasium-Lernkarte umziehen (keine doppelten Fragetexte).
+- **B- und C-Lernkarten:** ziehen als Lernkarte in das in `doppelt-rsib.md` genannte Zielthema, an die dort genannte Stelle, mit Erklärung, „Kurz gesagt“, Beispiel und allen Pools. **Pflicht**, wenn der Stoff für alle Realschul-Zweige verlangt ist (so in `doppelt-rsib.md` vermerkt); sonst **Vertiefung** (IB, mathematischer Realschul-Zweig, Zusatz). Der Lernkarten-Schlüssel `l` bleibt, wenn er im Zielthema frei ist.
+- Die Themendatei des aufgelösten Themas bleibt unverändert liegen (sie ist in der Datenbank ein Entwurf ohne Lernstände; der Haupt-Chat legt sie still). Nicht löschen, nicht aus der Themenliste nehmen.
+- Vorwissen: Eine umgezogene Lernkarte darf nichts voraussetzen, was im Zielthema und in der Reihenfolge von `inhalte/themenliste.json` erst später kommt. Sonst an die spätere passende Stelle oder als Vertiefung ans Ende – im Bericht begründen.
+
+**Teil B – fünf neue Lernkarten in bestehenden Flügen** (aus `doppelt-rsib.md` Teil 3a, die „C“-Karten der vier nicht mehr geplanten Themen) **und das Dualsystem** (eine Lernkarte in Klasse 5 im passenden Flug zu Stellenwertsystemen, vermutlich `zahlen.natuerlich`; prüfen, was dort schon steht – nur ergänzen, was fehlt; Pflicht für die Realschule, für das Gymnasium Vertiefung, falls der Lehrplan M5 es nicht nennt).
+
+**Teil C – `terme.quadratische_extreme`:** Der Flug bleibt (Klasse 8). In den Gymnasium-Themen der Klasse 9, die denselben Stoff enthalten, wird die Lernkarte gekürzt zu einer Wiederholung (Erklärung verweist auf den Flug in Klasse 8, die besten Aufgaben bleiben, Mindestmengen halten). Nichts doppelt.
+
+**Für alle neuen oder umgezogenen Lernkarten gelten die Regeln der Zwanzigsten Runde:** jede freie Übung mit `g`; Stufe 1 mindestens 4 aus 2 Typen, Stufe 2 mindestens 6 aus 3 Typen, Stufe 3 mindestens 8 aus 4 Typen; 2 Knobel-Bordkarten; Lösungen rechnet der Generator. **Und die Prüfkriterien für neue Aufgaben:** jede Lösung nachrechnen (bei „höchstens/mindestens/wie viele/immer“ alle Fälle); keine mehrdeutige Zählweise („k. Strich“); keine Begriffe aus späterem Stoff, auch nicht in Tipp und Lösungsweg; keine Buchstaben als Unbekannte vor dem Stoff, der sie einführt; keine falschen Rechnungen in Antwortoptionen; Lösungswege ohne Sprünge. Alte Aufgaben der Zielthemen bleiben Zeichen für Zeichen gleich.
+
+**Bericht (Pflicht):** Umzugstabelle `altes Thema / Lernkarte → Zielthema / Lernkarte · Pflicht oder Vertiefung · Klasse · Zahl der Aufgaben`; Liste der entfallenen A-Lernkarten mit dem Gymnasium-Gegenstück; neue Lernkarten aus Teil B; was sich für ein Kind ändert, das den Zielflug schon abgeschlossen hat (neue Pflicht-Lernkarte = Flug wieder offen – je Zielthema nennen); was nicht geprüft wurde. Ein Zielthema = ein Commit + Push. Prüfskript OK je Thema. Kein Merge, keine Datenbank, kein App-Code, keine Tests. Ohne Rückfragen durcharbeiten; bei Unklarheit die sinnvollste Lesart nehmen und nennen.

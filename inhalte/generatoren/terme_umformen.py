@@ -565,7 +565,7 @@ ST.neu('minusklammer', 3, 'verknuepfen', ST.L('Ein Dreieck hat den Umfang 10x + 
                                               ['10 - 3 - 2', '4 - 1 + 2'], '10x + 4 − (3x + 1) − (2x − 2) = 10x + 4 − 3x − 1 − 2x + 2 = 5x + 5.',
                                               'Umfang minus die beiden bekannten Seiten – jede als ganze Klammer.', _HT))
 ST.knobel('minusklammer', ST.Z('Berechne geschickt: 1 − 2 + 3 − 4 + 5 − 6 + … + 99 − 100', -50, '50 * (-1)',
-                               'Fasse je zwei Zahlen zusammen: (1 − 2) + (3 − 4) + … + (99 − 100). Das sind 50 Klammern mit je −1. Ergebnis −50.',
+                               'Fasse je zwei Nachbarzahlen zusammen: 1 − 2 = −1, 3 − 4 = −1, 5 − 6 = −1 und so weiter bis 99 − 100 = −1. Die 100 Zahlen bilden 50 solche Paare, jedes ergibt −1. Ergebnis 50 · (−1) = −50.',
                                'Bilde Paare aus Nachbarzahlen.'))
 ST.knobel('minusklammer', ST.Z('Setze in 10 − 9 − 8 − 7 genau ein Klammerpaar so, dass das Ergebnis möglichst groß wird. Wie groß ist es?', 16, '10 - (9 - 8 - 7)',
                                'Ohne Klammer: −14. Eine Klammer hinter dem ersten Minus dreht alle Vorzeichen darin: 10 − (9 − 8 − 7) = 10 − 9 + 8 + 7 = 16. '

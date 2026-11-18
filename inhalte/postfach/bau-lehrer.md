@@ -2,6 +2,41 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-18 – Zwischenmeldung nach LA-4 (Bilder)
+
+`docs/previews/la/`: Plan Tablet 820 px `la4-plan-820.png` (zwei Spalten, Rom aufgeklappt, „kann schon“ je Flug), Handy 400 px `la4-plan-400.png`, Rechner `la4-plan-1280.png`,
+Block „Geschafft“ `la5-geschafft-820.png`. Mock-Daten, keine Kinderdaten.
+„Fertig, wenn“: Plan auf dem Tablet in zwei Spalten ✓ (Test misst es); Abdeckung der Klasse sichtbar ✓; „kann schon“ je Flug zählt im Stand ✓ (Server: thema_stand/ort_stand; App: Stand-Modell, Abflugtafel);
+geschaffte Orte nicht mehr zwischen offenen ✓; Klasse, Stufen, Notizen nur im ⚙-Blatt ✓.
+
+## 2026-11-18 – FERTIG: LA-4 Flugplan (4A)
+
+**Migration** `supabase/migrations/20261119_la_4_kann_schon_fluege.sql` (nicht ausgeführt; pglast ok; alle Ersetz-Stellen im Live-Text je genau einmal; kein DROP, kein DELETE; Kollisions-Prüfung ohne Treffer):
+- `route.kann_schon_themen bigint[]` (Abweichung 3), entsprechend `ausgelassen`. `schule_plan_setzen` nimmt `eintraege[].kann_schon_themen` (fehlt es, bleibt die Liste; Flug muss zum Ort gehören);
+  wird „kann schon“ in einem fertigen Ort zurückgenommen, prüft der Server den Ort wie bei „ausgelassen“ und macht ihn ggf. wieder offen – **Rückgängig ohne Verlust**.
+- Zählt wie gelandet in `thema_stand` (Lehrplan-Übersicht, Konto) und `ort_stand` (Ort-Abschluss → Status „fertig“, Stempel wie bisher), **nicht** als `karte_stand.sitzt` → keine Mischkarten, Wiederholungen, Expeditionen daraus.
+  Neue Hilfsfunktion `schule.thema_kann_schon` (Flug einzeln oder ganzer Ort). `schule_plan_lesen`: `plan[].kann_schon_themen`, `themen[].kann_schon`; `schule_uebersicht`: `route[].kann_schon_themen`.
+- Das bisherige „kann schon“ des ganzen Orts bleibt („alle Flüge: kann schon“).
+- Rauchtest `supabase/tests/la_4_rauchtest.sql` (Rollback, Testkind): ein Flug → thema_stand erledigt; alle Flüge → Ort abgeschlossen, keine Karte angelegt; zurückgenommen → wie vorher; wdh_in.
+
+**App (Reiter „Plan“):**
+- Zwei Spalten ab 700 px (Tablet hochkant eingeschlossen), Handy untereinander. Kopf „Gymnasium Kl. 5 · n offen · n geschafft · Gespeichert · ↶ Rückgängig“.
+- Links nur offene Orte (Griff ⠿, ↑ ↓; Ziehen/Pfeile bewegen zwischen den offenen, die Lernreise-Reihenfolge der geschafften bleibt).
+- Ort aufgeklappt: je Flug „im Plan“ (links), Klassen, Stand, rechts „kann schon“ je Flug (erst wenn die Datenbank das Feld liefert; vorher Hinweis), „ansehen“; Flug einer höheren Klasse: „Gym 6 – höhere Klasse“ (L9).
+- Rechts der Lehrplan: Reiter Gymnasium · Realschule · IB MYP, Klassen-Knöpfe (vorbelegt mit Klasse/Stufe des Kindes, „alle“), Zeile „Klasse 5: n von m Flügen im Plan“ mit Balken,
+  alle Orte der Klasse: eingeplante mit ✓ (grau, „im Plan“), fehlende mit ⠿ und „+“; Suche bleibt.
+- „Kann schon“ je Flug in der App: Stand (Lernstand-Modell, eigener Zustand „kann schon“), Abflugtafel des Kindes (Gruppe „konnte ich schon“), Überblick „Zuletzt geschafft“.
+- Tests: LA-4 ×2 (zwei Spalten, Abdeckung, ✓, „kann schon“ speichert `kann_schon_themen`, Hinweis höhere Klasse, Stand-Modell).
+
+## 2026-11-18 – FERTIG: LA-5 Geschafftes (5A)
+
+- Geschaffte Orte (Status „fertig“, ganzer Ort „kann schon“ oder alle geplanten Flüge gelandet/„kann schon“) stehen nicht mehr im Plan, sondern darunter im **zugeklappten** Block „Geschafft (n)“.
+- Je Flug: Ort · Flug · gelandet am (letzte Landung, aus `schule_lernstand`; bei „kann schon“ ohne Landung: „kann schon“) · Nachtest (aus `schule_merkheft`: bestanden / fällig / fällig in n Lerntagen)
+  · nächste Wiederholung (neu `wdh_in` je Etappe, Migration LA-4; „jetzt fällig“ / „in n Lerntagen“; ohne Migration „–“).
+- Überblick: die letzten 3 geschafften Flüge als Zeile (seit LA-1; jetzt mit „kann schon“-Flügen hinten, ohne Datum).
+- Reihenfolge der Lernreise unverändert; nur die Anzeige trennt Offen und Geschafft. Als Liste statt Tabelle (in der linken Spalte des Tablets ist eine 5-spaltige Tabelle zu schmal).
+- Test LA-5 (Ort fertig → nicht in der Liste, „Geschafft (1)“ zugeklappt, Werte je Flug). Tests gesamt: lernen 79 von 79.
+
 ## 2026-11-18 – FERTIG: LA-3 Was wackelt (3B)
 
 **Migration** `supabase/migrations/20261119_la_3_besprochen.sql` (nicht ausgeführt; pglast ok; Ersetz-Stellen im Live-Text je genau einmal geprüft; kein DROP, kein DELETE; Skript-Prüfung auf Variable/Alias-Kollisionen ohne Treffer):

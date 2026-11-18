@@ -4291,3 +4291,37 @@ nav.lern-reiter { background: transparent; padding: 0; border-radius: 0; box-sha
 .ls-kurz { margin: 6px 0; padding: 8px 10px; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 6px; }
 .ls-alle { margin-top: 12px; }
 .ls-alle > summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
+/* LA-4/LA-5: Plan */
+@media (min-width: 700px) { .lern-plan-spalten { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); } .lern-plan-lehrplan { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow: auto; } }
+.lern-plan-sa, .lern-plan-kl { flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.lern-plan-sa .lern-chip, .lern-plan-kl .lern-chip { min-height: 36px; padding: 0 12px; }
+.lern-plan-sa .lern-chip[aria-pressed="true"], .lern-plan-kl .lern-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.lern-plan-abdeckung p { display: grid; gap: 4px; margin: 4px 0; }
+.lern-plan-abdeckung .lern-mini-balken { display: block; height: 6px; border-radius: 3px; background: var(--surface-muted); overflow: hidden; }
+.lern-plan-abdeckung .lern-mini-balken > i { display: block; height: 100%; background: var(--accent); }
+.lern-plan-drin { opacity: 0.6; }
+.lern-plan-haken { width: 36px; text-align: center; color: var(--ok); font-weight: 700; }
+.lern-plan-kann-je { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 0.85rem; white-space: nowrap; cursor: pointer; }
+.lern-plan-kann-flug > span b { color: var(--ok); }
+.lern-plan-hoeher { color: var(--warn); font-weight: 600; }
+.lern-geschafft { margin-top: 10px; }
+.lern-geschafft > summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; }
+.lern-geschafft-tabelle { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.lern-geschafft-tabelle th, .lern-geschafft-tabelle td { padding: 6px; border-bottom: 1px solid var(--border); text-align: left; }
+.lern-geschafft-tabelle thead th { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; }
+.lern-plan-themen li { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 0 10px; flex-wrap: nowrap; }
+.lern-plan-themen li > span.lern-plan-flug { min-width: 0; line-height: 1.25; }
+.lern-plan-flug-stand { display: block; font-size: 0.78rem; }
+.lern-plan-themen li > a { font-size: 0.8rem; }
+.lern-plan-kann-je { margin-left: 0; }
+.lern-plan-themen li { grid-template-columns: auto minmax(0, 1fr) auto; }
+.lern-plan-flug-rechts { display: flex; flex-direction: column; align-items: flex-end; gap: 0; }
+.lern-plan-flug-rechts .lern-plan-kann-je { min-height: 36px; }
+.lern-geschafft-liste { list-style: none; margin: 6px 0; padding: 0; display: grid; gap: 6px; }
+.lern-geschafft-liste li { padding: 6px 0; border-bottom: 1px solid var(--border); }
+.lern-geschafft-liste small { display: flex; flex-wrap: wrap; gap: 2px 12px; color: var(--text-muted); margin-top: 2px; }
+.lern-geschafft-liste small b { color: var(--text); font-weight: 600; }
+.lern-geschafft-ort { color: var(--text-muted); }
+.lern-plan-themen li > span.lern-plan-flug { display: block; }
+.lern-plan-flug > b, .lern-plan-flug > .lern-plan-jg { display: inline; }
+.lern-plan-flug > .lern-plan-jg { white-space: normal; font-weight: 500; font-size: 0.82rem; color: var(--text-muted); }

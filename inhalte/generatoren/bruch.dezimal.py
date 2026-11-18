@@ -953,7 +953,7 @@ N(lz, A('direkt', 'Welche dieser Zahlen ist am kleinsten: 0,9; 0,09; 0,19?', '0,
 N(lz, A('einkleidung', 'Äpfel kosten 2,49 € je kg, Birnen 2,5 € je kg. Welche Sorte ist teurer?', 'Birnen', ['Äpfel', 'Beide kosten gleich viel.'],
         '2,5 € = 2,50 €. 2,50 € ist mehr als 2,49 €, also sind Birnen teurer.', 'Schreibe beide Preise mit zwei Nachkommastellen.'))
 N(lz, A('begruenden', 'Stimmt die Aussage? „Zwischen 0,1 und 0,2 liegen genau 9 Dezimalzahlen.“', 'Nein, es liegen unendlich viele dazwischen, z. B. 0,15; 0,151; 0,1511.',
-        ['Ja: 0,11 bis 0,19.', 'Nein, es sind genau 10.', 'Nein, dazwischen liegt keine Zahl.'], 'Man kann immer weitere Stellen anhängen: 0,15 – 0,151 – 0,1511 – …', 'Darf eine Zahl mehr als zwei Nachkommastellen haben?'))
+        ['Ja: 0,11 bis 0,19.', 'Nein, es sind genau 10.', 'Nein, dazwischen liegt keine Zahl.'], 'Man kann immer weitere Stellen anhängen: 0,15 liegt dazwischen, 0,151 auch, 0,1511 auch – und so weiter ohne Ende. Es gibt also unendlich viele Dezimalzahlen zwischen 0,1 und 0,2.', 'Darf eine Zahl mehr als zwei Nachkommastellen haben?'))
 N(lz, A('verknuepfen', 'Welche Zahl ist größer: −2,5 oder −2,45?', '−2,45', ['−2,5', 'Beide sind gleich groß.'],
         'Bei negativen Zahlen ist die Zahl größer, die näher an 0 liegt. 2,45 ist kleiner als 2,5, also liegt −2,45 näher an 0.', 'Denke an den Zahlenstrahl mit 0 in der Mitte.'))
 N(lz, Z('transfer', 'Eine Zahl mit zwei Nachkommastellen liegt zwischen 4,5 und 4,6. Ihre Hundertstelziffer ist um 3 größer als ihre Zehntelziffer. Wie heißt die Zahl?', 4.58, '4 + 5 / 10 + 8 / 100',
@@ -1089,7 +1089,7 @@ T(lz, 'Ein Kind sagt: 1/6 = 0,1̅6̅. Was stimmt?', 'fehler')
 T(lz, 'Welche Zahl ist größer: 0,3̅ oder 0,33?', 'begruenden')
 N(lz, L('umkehr', 'Welcher Bruch mit dem Nenner 3 ist gleich 0,6̅?', '□/3', [2], ['2'], '1/3 = 0,3̅, also 2/3 = 0,6̅.', 'Wie sieht 1/3 als Dezimalzahl aus?'))
 N(lz, Z('einkleidung', 'Drei Kinder teilen sich 1 Liter Saft gerecht. Jedes bekommt 1/3 Liter. Welche Ziffer steht in der Dezimalzahl an der 4. Nachkommastelle?', 3, '1000 * 10 // 3 % 10',
-        '1 : 3 = 0,3333… Jede Nachkommastelle ist 3.', 'Teile 1 durch 3 schriftlich.'))
+        '1 : 3 = 0,3̅: Bei der schriftlichen Division bleibt jedes Mal der Rest 1, darum kommt an jeder Nachkommastelle wieder eine 3. Auch die 4. Nachkommastelle ist 3.', 'Teile 1 durch 3 schriftlich.'))
 N(lz, L('rueckwaerts', 'Ein Bruch mit dem Nenner 9 ergibt 0,7̅. Wie heißt sein Zähler?', '□/9', [7], ['7'], '1/9 = 0,1̅, also 7/9 = 0,7̅.', 'Wie sieht 1/9 als Dezimalzahl aus?'))
 N(lz, Z('parameter', 'Für wie viele Zähler a von 1 bis 11 ist a/12 eine endliche Dezimalzahl?', 3, '11 // 3',
         '12 = 2 · 2 · 3. Ein vollständig gekürzter Bruch ist nur endlich, wenn sein Nenner keine anderen Primfaktoren als 2 und 5 hat. Die 3 muss sich also wegkürzen: a muss durch 3 teilbar sein: 3, 6, 9 (3/12 = 1/4, 6/12 = 1/2, 9/12 = 3/4) – drei Zähler.', 'Zerlege 12 in Primfaktoren.'))

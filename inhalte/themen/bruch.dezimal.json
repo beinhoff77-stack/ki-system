@@ -3767,7 +3767,7 @@
     "wert": 3
    },
    "c": "1000 * 10 // 3 % 10",
-   "w": "1 : 3 = 0,3333… Jede Nachkommastelle ist 3.",
+   "w": "1 : 3 = 0,3̅: Bei der schriftlichen Division bleibt jedes Mal der Rest 1, darum kommt an jeder Nachkommastelle wieder eine 3. Auch die 4. Nachkommastelle ist 3.",
    "h": "Teile 1 durch 3 schriftlich."
   },
   {
@@ -5011,7 +5011,7 @@
    "o": {
     "index": 0
    },
-   "w": "Man kann immer weitere Stellen anhängen: 0,15 – 0,151 – 0,1511 – …",
+   "w": "Man kann immer weitere Stellen anhängen: 0,15 liegt dazwischen, 0,151 auch, 0,1511 auch – und so weiter ohne Ende. Es gibt also unendlich viele Dezimalzahlen zwischen 0,1 und 0,2.",
    "h": "Darf eine Zahl mehr als zwei Nachkommastellen haben?"
   },
   {

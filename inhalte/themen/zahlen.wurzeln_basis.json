@@ -1676,7 +1676,7 @@
    },
    "a": [
     "Nein, zum Beispiel ist 4 · 9 = 36 keine Quadratzahl.",
-    "Ja, denn √(4n) = 2 · √n ist wieder natürlich.",
+    "Ja: Ist n = m · m, dann ist 4 · n = (2 · m) · (2 · m).",
     "Nur für n = 1.",
     "Nur wenn n gerade ist."
    ],
@@ -1759,7 +1759,7 @@
     "wert": 49
    },
    "c": "7 ** 2",
-   "w": "Gesucht: √x + 3 = x − 39. Setze w = √x, dann ist x = w · w: w + 3 = w · w − 39, also w · w − w = 42. Probieren: 7 · 7 − 7 = 42. Also w = 7 und x = 49. Probe: √49 + 3 = 10 und 49 − 39 = 10.",
+   "w": "Gesucht: √x + 3 = x − 39. Setze w = √x, dann ist x = w · w: w + 3 = w · w − 39, also w · w − w = 42. Probieren: 7 · 7 − 7 = 42. Für w > 7 wird w · w − w größer, für 0 ≤ w < 7 kleiner, also ist w = 7 die einzige Möglichkeit und x = 49. Probe: √49 + 3 = 10 und 49 − 39 = 10.",
    "h": "Gib der Wurzel einen eigenen Namen. Was ist dann x?",
    "l": "quadratwurzel",
    "t": "quadratwurzel",
@@ -2650,14 +2650,14 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Für wie viele natürliche Zahlen n von 1 bis 100 ist √(n/100) eine endliche Dezimalzahl?"
+    "text": "Für wie viele natürliche Zahlen n von 1 bis 100 ist √(n/100) eine Dezimalzahl mit höchstens einer Nachkommastelle (oder eine natürliche Zahl)?"
    },
    "o": {
     "wert": 10
    },
    "c": "100 // 10",
-   "w": "Es gilt √(n/100) = √n : 10. Durch 10 teilen verschiebt nur das Komma. Also muss √n selbst eine endliche Dezimalzahl sein. Das klappt bei natürlichem n nur, wenn n eine Quadratzahl ist (sonst geht die Dezimalzahl nie zu Ende, z. B. √2 = 1,414…). Quadratzahlen von 1 bis 100: 1, 4, 9, …, 100 – das sind 10.",
-   "h": "Zieh die Wurzel aus Zähler und Nenner getrennt.",
+   "w": "Eine Zahl mit höchstens einer Nachkommastelle lässt sich als m : 10 schreiben (m natürlich), z. B. 0,7 = 7 : 10 oder 1 = 10 : 10. Ihr Quadrat ist m · m : 100. Also muss n/100 = m · m/100 sein, d. h. n = m · m ist eine Quadratzahl. Quadratzahlen von 1 bis 100: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100 – das sind 10.",
+   "h": "Schreibe die Wurzel als m : 10 und quadriere.",
    "l": "wurzel_dezimal",
    "t": "wurzel_dezimal",
    "p": "bonus",

@@ -842,7 +842,7 @@ def stufen():
                              'Vergleiche beide mit 1,5: 2^1,5 = 2 · √2 ≈ 2,83 < 3, also log₂(3) > 1,5. 3^1,5 = 3 · √3 ≈ 5,20 > 5, also log₃(5) < 1,5. Damit ist log₂(3) größer.',
                              'Suche eine Zahl, die zwischen beiden liegt.'))
     S.bonus('logarithmus', Z('Für wie viele ganze Zahlen x von 1 bis 1 000 ist log₂(x) eine ganze Zahl?', 10, '9 - 0 + 1',
-                             'log₂(x) ist genau dann ganz, wenn x eine Zweierpotenz ist: 1, 2, 4, …, 512 (2⁰ bis 2⁹). 1 024 ist schon zu groß. Das sind 10 Zahlen.',
+                             'log₂(x) ist genau dann ganz, wenn x eine Zweierpotenz ist: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512 (2⁰ bis 2⁹). 1 024 ist schon zu groß. Das sind 10 Zahlen.',
                              'Welche x haben einen ganzzahligen Zweierlogarithmus? Vergiss x = 1 nicht.'))
 
     # --- gleiche_basis ---
@@ -882,7 +882,7 @@ def stufen():
     S.neu('mit_log_loesen', 'erkennen', A('Wie schreibt man die Lösung von 7^x = 30 mit dem Logarithmus?', 'x = log₇(30)', ['x = log₃₀(7)', 'x = 30 : 7', 'x = lg 7 : lg 30'],
                                           '7^x = 30 heißt: x ist der Exponent, der aus 7 die Zahl 30 macht, also x = log₇(30) = lg 30 : lg 7.', 'Welche Zahl ist die Basis?'))
     S.neu('mit_log_loesen', 'einkleidung', ZR('Eine Kultur startet mit 3 Bakterien, die sich jede Stunde verdoppeln. Nach wie vielen Stunden sind es 1 000? Runde auf zwei Nachkommastellen.',
-                                              lg(1000 / 3) / lg(2), 2, '3 · 2^x = 1 000 ⇒ 2^x = 333,3… ⇒ x = lg(1 000 : 3) : lg 2 ≈ 8,38 h.', 'Stelle die Gleichung auf und teile zuerst durch 3.', einheit='h'))
+                                              lg(1000 / 3) / lg(2), 2, '3 · 2^x = 1 000 ⇒ 2^x = 1 000 : 3 ≈ 333,3 ⇒ x = lg(1 000 : 3) : lg 2 ≈ 8,38 h.', 'Stelle die Gleichung auf und teile zuerst durch 3.', einheit='h'))
     S.neu('mit_log_loesen', 'einkleidung', Z('Ein Ball springt nach jedem Aufprall auf 70 % der vorigen Höhe. Er fällt aus 2 m Höhe. Nach dem wievielten Aufprall springt er zum ersten Mal weniger als 10 cm hoch?',
                                              9, '9', 'Nach n Aufprallen: 2 · 0,7ⁿ m. 2 · 0,7ⁿ < 0,1 ⇒ 0,7ⁿ < 0,05 ⇒ n > lg 0,05 : lg 0,7 ≈ 8,4. Also beim 9. Aufprall.',
                                              'Rechne in Metern: 10 cm = 0,1 m.'))
@@ -970,7 +970,7 @@ def stufen():
                            'Wie verhalten sich die beiden Seiten, wenn x wächst?'))
     S.bonus('verstehen', Z('Für welche Zahl c hat die Gleichung 2^x + 2^(−x) = c genau eine Lösung?', 2, '1 + 1',
                            'Mit x ist auch −x eine Lösung (der Term ändert sich nicht). Genau eine Lösung gibt es also nur, wenn sie x = 0 ist: c = 2⁰ + 2⁰ = 2. '
-                           '(Für alle anderen x ist der Term größer als 2.)', 'Was passiert, wenn du x durch −x ersetzt?'))
+                           'Und c = 2 hat wirklich nur x = 0: Mit u = 2^x > 0 ist u + 1/u − 2 = (u − 1)² : u, und das ist nur für u = 1, also x = 0, gleich 0.', 'Was passiert, wenn du x durch −x ersetzt?'))
     S.anwenden()
 
 

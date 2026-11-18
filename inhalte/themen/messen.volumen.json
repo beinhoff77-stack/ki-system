@@ -10397,7 +10397,7 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein U-förmiger Betonblock ist 12 dm breit, 4 dm tief und 6 dm hoch. Von oben ist eine Rinne ausgespart: 6 dm breit, 3 dm tief, über die ganze Tiefe. Wie viel Beton ist das?"
+    "text": "Ein U-förmiger Betonblock ist 12 dm breit, 4 dm tief und 6 dm hoch. Von oben ist eine Rinne ausgespart: 6 dm breit und 3 dm hoch; sie geht von vorn bis hinten ganz durch. Wie viel Beton ist das?"
    },
    "o": {
     "wert": 216,
@@ -12044,7 +12044,7 @@
     "einheit": "cm"
    },
    "c": "6",
-   "w": "Volumen a · a · a, Oberfläche 6 · a · a. Gleich sind sie, wenn a = 6: 216 cm³ und 6 · 36 = 216 cm².",
+   "w": "Volumen a · a · a, Oberfläche 6 · a · a. Beide haben den Faktor a · a. Gleich sind sie also genau dann, wenn der dritte Faktor gleich ist: a = 6. Probe: 6 · 6 · 6 = 216 cm³ und 6 · 36 = 216 cm².",
    "h": "Vergleiche a · a · a mit 6 · a · a."
   },
   {

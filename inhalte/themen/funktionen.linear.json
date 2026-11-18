@@ -3752,7 +3752,7 @@
     "Richtig: Mehr Saft kostet mehr.",
     "Falsch: Bei Proportionalität müssten 5 l 11 € kosten.",
     "Falsch: 5 l müssten 10 € kosten.",
-    "Richtig: 9 : 5 = 2,20."
+    "Richtig: 5 l kosten mehr als 1 l."
    ],
    "o": {
     "index": 1
@@ -5690,13 +5690,13 @@
    "a": [
     "Falsch: A holt B nie ein.",
     "Richtig: A holt B bei km 15 ein.",
-    "Richtig: Treffpunkt bei km 18 nach 1,5 h – aber das ist hinter dem Ziel, A holt B also nicht ein.",
+    "Falsch: Nach 1,5 h wären beide bei km 18 – hinter dem Ziel. Vor dem Ziel holt A B nicht ein.",
     "Falsch: A holt B nach 0,5 h ein."
    ],
    "o": {
     "index": 2
    },
-   "w": "Gegeben: A: 12x, B: 10x + 3, Ziel bei km 15. Gesucht: Treffpunkt vor dem Ziel? Ansatz: Gleichsetzen, dann mit dem Ziel vergleichen. Rechnung: 12x = 10x + 3 ⇒ x = 1,5; 12 · 1,5 = 18 > 15. Antwort: Die Zeit stimmt, aber der Treffpunkt liegt hinter dem Ziel.",
+   "w": "Gegeben: A: 12x, B: 10x + 3, Ziel bei km 15. Gesucht: Treffpunkt vor dem Ziel? Ansatz: Gleichsetzen, dann mit dem Ziel vergleichen. Rechnung: 12x = 10x + 3 ⇒ x = 1,5; 12 · 1,5 = 18 > 15. Antwort: Die Zeit 1,5 h stimmt, aber der Treffpunkt läge hinter dem Ziel; die Aussage ist falsch.",
    "h": "Berechne auch, bei welchem km sie sich treffen würden."
   },
   {
@@ -6609,7 +6609,7 @@
    "g": "verknuepfen",
    "y": "zahl",
    "f": {
-    "text": "Zwei Tarife: A kostet y = 0,15x + 4, B kostet y = m · x + 10 Euro. Für welches m sind die Graphen parallel und was kostet B dann bei 100 Minuten?"
+    "text": "Zwei Tarife: A kostet y = 0,15x + 4, B kostet y = m · x + 10 Euro. Die Graphen sind parallel. Was kostet B bei 100 Minuten?"
    },
    "o": {
     "wert": 25,
@@ -8110,7 +8110,7 @@
    "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Ein Graph beginnt bei (0 | 40) und fällt bis (5 | 0); er zeigt den Akkustand eines Staubsaugers in Prozent. Jemand sagt: „Der Akku war am Anfang voll.“ Was stimmt?"
+    "text": "Ein Graph beginnt bei (0 | 40) und fällt bis (5 | 0); er zeigt den Akkustand eines Staubsaugers in Prozent (x in Minuten). Jemand sagt: „Der Akku war am Anfang voll.“ Was stimmt?"
    },
    "a": [
     "Falsch: Er startete bei 40 % und war nach 5 Minuten leer.",

@@ -34,7 +34,7 @@ update schule.karte_stand k set gezaehlt = x.m
 
 -- ---------- H2 Bestand: „folge“ offener Etappen nachrechnen ----------
 do $$
-declare r record; w record; f int; -- w, nicht v: v ist unten Tabellen-Alias n_neu int := 0; n_null int := 0; n_gleich int := 0;
+declare r record; w record; f int; n_neu int := 0; n_null int := 0; n_gleich int := 0; -- w, nicht v: v ist unten Tabellen-Alias
 begin
   for r in select k.* from schule.karte_stand k
             where not k.sitzt and k.folge > 0

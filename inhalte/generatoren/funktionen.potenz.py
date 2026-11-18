@@ -867,3 +867,10 @@ ST.knobel('wurzelfunktion', Z('Die Graphen von y = ∛x und y = x/4 schneiden si
 
 if __name__ == '__main__':
     stufen('funktionen.potenz', ST)
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('funktionen.potenz')
+# ---- AUFLOESEN ENDE ----

@@ -204,3 +204,55 @@ PLAN['funktionen.quadratisch'] = [
 PLAN['funktionen.exponential_log'] = [
     karte_her('funktionen.transformation', 'punkte', 'Graphen und Logarithmus', vertiefung=True, nach='graph'),
 ]
+
+
+# =====================================================================================================================
+# funktionen.potenz (Kl. 9) ← funktionen.umkehr: umkehrbar, linear (C) vor wurzelfunktion; quadratisch, spiegeln (B) danach.
+# Vertiefung (RS Gruppe I Kl. 10; Gym-Lehrplan nicht geprüft). Exponentialfunktionen kommen erst in Klasse 10:
+# 5 Aufgaben mit 2ˣ/0,5ˣ/3ˣ ersetzt (gleicher Typ, gleiche Stufe), Beispiel von spiegeln auf y = x² und √x umgestellt.
+# Die entfallene Karte werte führte „Umkehrfunktion“ und „f⁻¹“ ein → als Wörter in linear (wurzelfunktion kommt erst danach).
+# =====================================================================================================================
+_JA_NEIN = ['Das hängt vom x-Wert ab.']
+PLAN['funktionen.potenz'] = [
+    karte_her('funktionen.umkehr', 'umkehrbar', 'Erweiterung des Potenzbegriffs', vertiefung=True, vor='wurzelfunktion'),
+    karte_her('funktionen.umkehr', 'linear', 'Erweiterung des Potenzbegriffs', vertiefung=True, vor='wurzelfunktion'),
+    karte_her('funktionen.umkehr', 'quadratisch', 'Erweiterung des Potenzbegriffs', vertiefung=True, nach='wurzelfunktion'),
+    karte_her('funktionen.umkehr', 'spiegeln', 'Erweiterung des Potenzbegriffs', vertiefung=True, nach='quadratisch'),
+    karte('linear', woerter=[['Umkehrfunktion', 'rechnet rückwärts: aus f(a) = b wird f⁻¹(b) = a'],
+                             ['f⁻¹', 'gelesen „f hoch minus eins“: die Umkehrfunktion, kein Kehrwert'],
+                             ['nach y auflösen', 'umformen, bis y allein auf einer Seite steht']]),
+    ersetze('umkehrbar', r'^Ist f\(x\) = 0,5ˣ', A('Ist f(x) = −x³ (x ∈ ℝ) umkehrbar?', 'Ja', ['Nein'] + _JA_NEIN,
+        'Der Graph von −x³ fällt überall. Jede waagrechte Gerade trifft ihn genau einmal.', 'Kommt ein y-Wert mehrmals vor?')),
+    ersetze('umkehrbar', r'^Ist f\(x\) = 2ˣ', A('Ist f(x) = 0,5x² (x ∈ ℝ) umkehrbar?', 'Nein', ['Ja'] + _JA_NEIN,
+        '0,5x² macht aus 2 und aus −2 dieselbe Zahl 2. Die waagrechte Gerade y = 2 trifft den Graphen zweimal.', 'Kommt ein y-Wert mehrmals vor?')),
+    ersetze('umkehrbar', r'^Jemand behauptet: „f\(x\) = 2ˣ', A(
+        'Jemand behauptet: „f(x) = x³ (x ∈ ℝ) ist umkehrbar, weil zu jedem x genau ein y gehört.“ Was stimmt?',
+        'Ergebnis stimmt, Begründung nicht: Es kommt darauf an, dass jeder y-Wert nur einmal vorkommt.',
+        ['Richtig, genau so begründet man es.', 'Falsch: Umkehrbar sind nur Geraden.', 'Falsch: Keine Funktion ist umkehrbar.'],
+        'x³ steigt überall, also kommt jeder y-Wert nur einmal vor. Dass zu jedem x genau ein y gehört, gilt für jede Funktion.',
+        'Was muss für die Umkehrung eindeutig sein?')),
+    ersetze('umkehrbar', r'^Warum ist f\(x\) = 2 · 0,5ˣ \+ 1', A(
+        'Warum ist f(x) = −2x⁵ + 1 (x ∈ ℝ) umkehrbar?', 'Weil der Graph überall fällt: Jeder y-Wert kommt nur einmal vor.',
+        ['Weil zu jedem x genau ein y gehört.', 'Weil der Graph die y-Achse bei 1 schneidet.', 'Weil der Exponent 5 größer als 1 ist.'],
+        'x⁵ steigt überall. Mal −2 fällt der Graph überall, + 1 schiebt ihn nur nach oben. Eine waagrechte Gerade trifft ihn höchstens einmal.',
+        'Steigt oder fällt der Graph überall?')),
+    ersetze('umkehrbar', r'^Wie viele der Funktionen x, x², x³, x⁴, x⁵, 2ˣ', Z(
+        'Wie viele der Funktionen x, x², x³, x⁴, x⁵, x⁻¹ und x⁻² (bei x⁻¹ und x⁻² ist x ≠ 0) sind auf ihrer ganzen Definitionsmenge umkehrbar?',
+        4, '4', 'Umkehrbar: x, x³, x⁵ (steigen überall) und x⁻¹ = 1/x (jeder y-Wert ≠ 0 kommt genau einmal vor). '
+        'Nicht umkehrbar: x², x⁴ und x⁻² (x und −x haben denselben y-Wert). Also 4.',
+        'Prüfe bei jeder Funktion, ob ein y-Wert doppelt vorkommt.')),
+    ersetze('spiegeln', r'^f\(x\) = 3ˣ \+ 1', L(
+        'f(x) = x³ + 2. Wo schneidet der Graph von f⁻¹ die x-Achse?', 'N(□ | □)', [2, 0], ['0**3 + 2', '0'],
+        'f(0) = 0 + 2 = 2, also liegt (0 | 2) auf f. Gespiegelt an y = x: (2 | 0) liegt auf f⁻¹.', 'Berechne zuerst f(0).',
+        hinweis='Trage die Zahlen ein.')),
+    karte('spiegeln',
+          bild={'typ': 'koordinaten', 'x': [-1, 6], 'y': [-1, 6],
+                'graphen': [{'art': 'poly', 'k': [0, 0, 1], 'bereich': [0, 2.4], 'name': 'y = x²'}, {'art': 'linear', 'm': 1, 't': 0, 'name': 'y = x'}]},
+          schritte=[{'text': 'P(2 | 4) liegt auf y = x² (nur x ≥ 0).', 'bild': {'punkte': [{'x': 2, 'y': 4, 'name': 'P'}]}},
+                    {'text': 'Spiegeln an der Winkelhalbierenden heißt: x und y tauschen.'},
+                    {'text': 'So entsteht ⟦P′(4 | 2)⟧ auf y = √x.',
+                     'bild': {'graphen': [{'art': 'poly', 'k': [0, 0, 1], 'bereich': [0, 2.4], 'name': 'y = x²'}, {'art': 'linear', 'm': 1, 't': 0, 'name': 'y = x'},
+                                          {'art': 'wurzel', 'bereich': [0, 6], 'name': '√x'}],
+                              'punkte': [{'x': 2, 'y': 4, 'name': 'P'}, {'x': 4, 'y': 2, 'name': 'P′'}], 'strecken': [[2, 4, 4, 2, 'gestrichelt']]}}],
+          fehler='P′(−2 | −4) ist falsch, das wäre am ⟦Ursprung⟧ gespiegelt. An y = x werden die Koordinaten getauscht.'),
+]

@@ -5949,7 +5949,7 @@
     "wert": 11
    },
    "c": "40 - 30 + 1",
-   "w": "75 % von 40 = 30. Mindestens 30 Punkte: 30, 31, …, 40 – das sind 11.",
+   "w": "75 % von 40 = 30. Mindestens 30 Punkte: alle Punktzahlen von 30 bis 40. Das sind 40 − 30 + 1 = 11.",
    "h": "Wie viele Punkte sind 75 %?"
   },
   {
@@ -6002,7 +6002,7 @@
     "einheit": "%"
    },
    "c": "10 + 10 - 1",
-   "w": "Mit 7 an der Einerstelle: 7, 17, …, 97 (10 Zahlen). Mit 7 an der Zehnerstelle: 70 bis 79 (10 Zahlen). 77 wurde doppelt gezählt: 19 Zahlen von 100 = 19 %.",
+   "w": "Mit 7 an der Einerstelle: 7, 17, 27 und so weiter bis 97 – in jedem Zehner eine, also 10 Zahlen. Mit 7 an der Zehnerstelle: 70 bis 79 (10 Zahlen). 77 wurde doppelt gezählt: 19 Zahlen von 100 = 19 %.",
    "h": "Zähle Einer und Zehner getrennt. Was zählst du doppelt?"
   },
   {

@@ -38,7 +38,7 @@ KARTEN = {
    ('einkleidung', A('Ein Bus fährt alle 15 Minuten, der erste um 6:00 Uhr. Fährt um 8:40 Uhr ein Bus ab?', 'Nein: Von 6:00 bis 8:40 sind es 160 Minuten, kein Vielfaches von 15.', ['Ja, um 8:40 Uhr fährt ein Bus.', 'Ja, weil 40 durch 5 teilbar ist.'],
                      'Busse fahren 6:00, 6:15, …, 8:30, 8:45. 160 ist kein Vielfaches von 15.', 'Wie viele Minuten sind seit 6:00 Uhr vergangen?')),
    ('fehler', A('Jemand zählt die Vielfachen von 4 auf: 4, 8, 12, 14, 16. Was ist falsch?', '14 ist kein Vielfaches von 4.', ['Nichts, die Liste stimmt.', 'Die 4 gehört nicht dazu.', 'Die 16 ist zu groß.'], 'Vielfache von 4: 4, 8, 12, 16. 14 : 4 = 3 Rest 2.', 'Prüfe jede Zahl: Geht sie durch 4 ohne Rest?')),
-   ('rueckwaerts', Z('Eine Zahl ist ein Vielfaches von 9 und liegt zwischen 50 und 60. Wie heißt sie, und was ergibt die Hälfte davon? Gib die Hälfte an.', 27, '54 // 2', 'Das einzige Vielfache von 9 zwischen 50 und 60 ist 54. Die Hälfte ist 27.', 'Schreib die Vielfachen von 9 auf.')),
+   ('rueckwaerts', Z('Eine Zahl ist ein Vielfaches von 9 und liegt zwischen 50 und 60. Gib die Hälfte dieser Zahl an.', 27, '54 // 2', 'Das einzige Vielfache von 9 zwischen 50 und 60 ist 54. Die Hälfte ist 27.', 'Schreib die Vielfachen von 9 auf.')),
    ('parameter', Z('Wie heißt die kleinste natürliche Zahl a, für die 7 · a ein Vielfaches von 12 ist?', 12, '12', '7 und 12 haben keinen gemeinsamen Teiler außer 1. Darum muss a selbst ein Vielfaches von 12 sein: a = 12.', 'Probiere a = 1, 2, 3, … Was fällt auf?')),
    ('verknuepfen', Z('Wie viele Vielfache von 5 liegen zwischen −22 und 22?', 9, '9', '−20, −15, −10, −5, 0, 5, 10, 15, 20 – auch 0 und die negativen zählen: 9.', 'Denk auch an 0 und an negative Vielfache.')),
   ],
@@ -134,7 +134,7 @@ KARTEN = {
   'knobel': [
    Z('Welche ist die kleinste Zahl, die durch jede der Zahlen 2, 3, 4, 5, 6, 7, 8, 9 und 10 teilbar ist?', 2520, '2 ** 3 * 3 ** 2 * 5 * 7',
      'Man braucht so viele Primfaktoren, dass jede Zahl hineinpasst: 2 · 2 · 2 (für 8), 3 · 3 (für 9), 5 und 7. 8 · 9 · 5 · 7 = 2 520.', 'Welche Primfaktoren und wie oft braucht man mindestens?'),
-   Z('Wie viele Teiler hat 2⁵ · 3?', 12, '6 * 2', 'Jeder Teiler hat die Form 2ᵃ · 3ᵇ mit a von 0 bis 5 (6 Möglichkeiten) und b gleich 0 oder 1 (2 Möglichkeiten): 6 · 2 = 12 Teiler.', 'Aus welchen Primfaktoren kann ein Teiler bestehen?'),
+   Z('Wie viele Teiler hat 2⁵ · 3?', 12, '6 * 2', '2⁵ · 3 = 96. Teiler ohne Faktor 3: 1, 2, 4, 8, 16, 32 – das sind 6. Jeden davon kann man noch mit 3 malnehmen: 3, 6, 12, 24, 48, 96 – noch 6. Zusammen 12.', 'Aus welchen Primfaktoren kann ein Teiler bestehen?'),
   ],
  },
  'ggt': {

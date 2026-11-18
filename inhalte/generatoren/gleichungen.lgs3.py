@@ -782,7 +782,7 @@ ST.neu('stufenform', 'verknuepfen', Z('Löse (I) x + y + z = 2; (II) 2y + z = 1,
 ST.neu('stufenform', 'pruefung', L('Löse (I) x − 2y + z = 3; (II) 3y − z = 2; (III) 2z = 8.', 'z = □; y = □; x = □', [4, 2, 3], ['8 // 2', '(2 + 4) // 3', '3 + 2 * 2 - 4'],
        '(III) z = 4. (II) 3y = 6, y = 2. (I) x − 4 + 4 = 3, x = 3.', 'Von unten nach oben.'))
 ST.knobel('stufenform', Z('Es gilt z = 1, y = z + 1, x = y + z + 1 und w = x + y + z + 1. Wie groß ist w?', 8, '4 + 2 + 1 + 1',
-          'Von unten: z = 1, y = 2, x = 2 + 1 + 1 = 4, w = 4 + 2 + 1 + 1 = 8. Jede neue Zahl ist doppelt so groß wie die vorige (1, 2, 4, 8), denn die Summe aller vorigen plus 1 verdoppelt sich jedes Mal.',
+          'Von unten: z = 1, y = 2, x = 2 + 1 + 1 = 4, w = 4 + 2 + 1 + 1 = 8. Jede neue Zahl ist doppelt so groß wie die vorige (1, 2, 4, 8): Zum Beispiel ist x = y + (z + 1), und z + 1 ist gerade y; also x = y + y.',
           'Rechne von unten. Fällt dir ein Muster auf?'))
 
 # eliminieren
@@ -870,10 +870,10 @@ ST.neu('parabel', 'darstellung', L('Eine Parabel y = ax² + bx + c hat die Werte
 ST.neu('parabel', 'parameter', Z('Für welche Zahl a geht die Parabel y = ax² + 2x + 1 durch (2 | 1)?', -1, '(1 - 4 - 1) // 4',
        '1 = 4a + 4 + 1 ⇒ 4a = −4 ⇒ a = −1.', 'Setze den Punkt ein.'))
 ST.neu('parabel', 'pruefung', L('Ein Ball wird bei x = 0 aus 1 m Höhe geworfen. Bei x = 1 m ist er 4 m hoch, bei x = 2 m 5 m hoch. a) Bestimme a, b, c. b) Bei welchem x ist er am höchsten?', 'a) a = □; b = □; c = □; b) x = □', [-1, 4, 1, 2],
-       ['-1', '4', '1', '4 // 2'], 'a) c = 1; a + b = 3; 4a + 2b = 4. Also 2a = −2, a = −1, b = 4: y = −x² + 4x + 1. b) Scheitel bei x = −b/(2a) = 2.', 'Erst c, dann zwei Gleichungen für a und b.'))
+       ['-1', '4', '1', '4 // 2'], 'a) c = 1; a + b = 3; 4a + 2b = 4. Also 2a = −2, a = −1, b = 4: y = −x² + 4x + 1. b) Scheitelform: −x² + 4x + 1 = −(x − 2)² + 5, der höchste Punkt liegt bei x = 2.', 'Erst c, dann zwei Gleichungen für a und b.'))
 ST.knobel('parabel', Z('Eine Parabel y = ax² + bx + c geht durch (1 | 3), (2 | 7) und (3 | 13). Welchen Wert hat sie bei x = 10?', 111, '100 + 10 + 1',
-          'Die Abstände der y-Werte sind 4 und 6, sie wachsen um 2. Das passt zu a = 1. Aus a + b + c = 3 und 4a + 2b + c = 7: 3 + b = 4, b = 1, c = 1. y = x² + x + 1, bei x = 10: 111.',
-          'Schau auf die Abstände der y-Werte.'))
+          'Einsetzen: (I) a + b + c = 3, (II) 4a + 2b + c = 7, (III) 9a + 3b + c = 13. (II) − (I): 3a + b = 4. (III) − (II): 5a + b = 6. Diese beiden voneinander abziehen: 2a = 2, a = 1. Dann b = 1 und c = 1. y = x² + x + 1, bei x = 10: 100 + 10 + 1 = 111.',
+          'Ziehe die Gleichungen nacheinander voneinander ab, dann fällt c weg.'))
 ST.knobel('parabel', A('Wie viele Parabeln y = ax² + bx + c mit a ≠ 0 gehen durch (0 | 0), (1 | 1) und (2 | 2)?', 'keine', ['genau eine', 'unendlich viele', 'genau zwei'],
           'c = 0; a + b = 1; 4a + 2b = 2, also 2a + b = 1. Abziehen: a = 0. Dann wäre es die Gerade y = x, keine Parabel. Die drei Punkte liegen auf einer Geraden.',
           'Liegen die drei Punkte vielleicht auf einer Geraden?'))
@@ -899,7 +899,7 @@ ST.knobel('sachaufgabe', Z('Drei Geschwister sind zusammen 30 Jahre alt. Vor 2 J
           'a + b + c = 30. Vor 2 Jahren: a − 2 = (b − 2) + (c − 2), also a = b + c − 2. Einsetzen: a = 30 − a − 2, a = 14. Dann b + c = 16 und b = c + 4, also c = 6.',
           'Achte darauf, dass vor 2 Jahren alle drei 2 Jahre jünger waren.'))
 ST.knobel('sachaufgabe', Z('Für genau 100 € werden genau 100 Tiere gekauft: Kühe zu 10 €, Schweine zu 3 € und Hühner zu 0,50 €, von jeder Art mindestens eins. Wie viele Kühe sind es?', 5, '5',
-          'k + s + h = 100 und 10k + 3s + 0,5h = 100, also 20k + 6s + h = 200. Abziehen: 19k + 5s = 100. Mit k, s ≥ 1 ganzzahlig: k = 5, s = 1 (95 + 5 = 100). Dann h = 94.',
+          'k + s + h = 100 und 10k + 3s + 0,5h = 100, also 20k + 6s + h = 200. Abziehen: 19k + 5s = 100. 5s = 100 − 19k muss durch 5 teilbar sein, also auch 19k – das geht nur, wenn k durch 5 teilbar ist. k = 5 gibt 5s = 5, s = 1. k = 10 ist schon zu groß (190 > 100). Also k = 5, s = 1, h = 94. Probe: 50 + 3 + 47 = 100 €.',
           'Zwei Gleichungen, drei Unbekannte – aber nur ganze Zahlen sind erlaubt.'))
 
 if __name__ == '__main__':

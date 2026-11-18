@@ -4,7 +4,7 @@
  "block_id": 70,
  "klasse": {
   "gym_by": 9,
-  "rs_by": 8,
+  "rs_by": 9,
   "ib_myp": 4
  },
  "autor": "Claude (Paket Klasse 9)",
@@ -4358,7 +4358,7 @@
     "einheit": "m"
    },
    "c": "6",
-   "w": "−0,25x² + x + 3 = 0, mal (−4): x² − 4x − 12 = 0, also (x − 6)(x + 2) = 0. Positiv: x = 6 m. Probe: −9 + 6 + 3 = 0.",
+   "w": "−0,25x² + x + 3 = 0, mal (−4): x² − 4x − 12 = 0. D = 16 + 48 = 64, x = (4 ± 8) : 2, also x = 6 oder x = −2. Positiv: x = 6 m. Probe: −9 + 6 + 3 = 0.",
    "h": "Setze h = 0 und mache den Faktor vor x² zu 1.",
    "l": "nullstellen",
    "t": "nullstellen",
@@ -4650,7 +4650,7 @@
     "(-3 + 5) // 2",
     "1 - 2 - 15"
    ],
-   "w": "a) (x + 3)(x − 5) = 0: x = −3, x = 5. b) Der Scheitel liegt mittig: x = 1, f(1) = 1 − 2 − 15 = −16.",
+   "w": "a) D = 4 + 60 = 64, x = (2 ± 8) : 2, also x = −3 und x = 5. b) Der Scheitel liegt mittig: x = 1, f(1) = 1 − 2 − 15 = −16.",
    "h": "Der Scheitel liegt in der Mitte zwischen den Nullstellen.",
    "l": "nullstellen",
    "t": "nullstellen",
@@ -5758,8 +5758,8 @@
     "wert": 3
    },
    "c": "4 - 2 + 1",
-   "w": "f(x) < 5 heißt x² − 6x + 5 < 0, also (x − 1)(x − 5) < 0. Das gilt zwischen den Nullstellen 1 und 5: x = 2, 3, 4. Drei Zahlen.",
-   "h": "Wann ist f(x) genau 5? Was gilt dazwischen?",
+   "w": "Scheitelform: f(x) = (x − 3)² + 1. f(x) < 5 heißt (x − 3)² < 4. Bei ganzen x ist x − 3 dann −1, 0 oder 1 (bei ±2 wäre das Quadrat schon 4). Also x = 2, 3, 4: drei Zahlen.",
+   "h": "Bringe f in Scheitelform.",
    "l": "punkte",
    "t": "punkte",
    "p": "bonus",
@@ -6463,7 +6463,7 @@
   {
    "y": "auswahl",
    "f": {
-    "text": "Stimmt: Durch zwei verschiedene Punkte geht genau eine Parabel y = ax² + bx + c?"
+    "text": "Stimmt: Durch zwei Punkte mit verschiedenen x-Werten geht genau eine Parabel y = ax² + bx + c?"
    },
    "a": [
     "Ja, genau eine.",
@@ -6520,7 +6520,7 @@
   {
    "y": "luecken",
    "f": {
-    "text": "Eine Normalparabel (a = 1) hat den Scheitel S(1 | −4). a) Prüfe, für welches a sie durch P(3 | 0) geht. b) Schreibe sie in allgemeiner Form.",
+    "text": "Eine Parabel y = a(x − 1)² − 4 geht durch den Punkt P(3 | 0). a) Bestimme a. b) Schreibe die Parabel in der Form y = x² + bx + c.",
     "schablone": "a) a = □; b) y = x² + □x + □",
     "hinweis": "Je Lücke eine ganze Zahl."
    },
@@ -6877,7 +6877,7 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Bei festem Umfang hat ein Rechteck höchstens 49 cm² Flächeninhalt. Wie groß ist der Umfang?"
+    "text": "Unter allen Rechtecken mit demselben Umfang hat das größte 49 cm² Flächeninhalt. Wie groß ist dieser Umfang?"
    },
    "o": {
     "wert": 28,
@@ -7231,7 +7231,7 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Zwei Zahlen haben die Summe 10. Wie klein kann die Summe ihrer Quadrate höchstens werden?"
+    "text": "Zwei Zahlen haben die Summe 10. Wie groß ist die Summe ihrer Quadrate mindestens?"
    },
    "o": {
     "wert": 50

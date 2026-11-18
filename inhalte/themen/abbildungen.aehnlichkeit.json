@@ -2079,7 +2079,7 @@
     "4 + (6 - 4) // 2",
     "(4 - 0) // 2"
    ],
-   "w": "Erst: (6 | 4). Dann von Z₂(4 | 0): Vektor (2 | 4), halbiert (1 | 2), also (5 | 2). Bemerkenswert: Insgesamt ist P nur um 2 nach rechts verschoben worden – das gilt für jeden Punkt.",
+   "w": "Erst: (6 | 4). Dann von Z₂(4 | 0): Vektor (2 | 4), halbiert (1 | 2), also (5 | 2). Bemerkenswert: Insgesamt ist P nur um 2 nach rechts verschoben worden. Das gilt für jeden Punkt (x | y): Aus (2x | 2y) wird (4 + 0,5 · (2x − 4) | 0,5 · 2y) = (x + 2 | y).",
    "h": "Rechne beide Streckungen nacheinander.",
    "l": "streckung",
    "t": "streckung",

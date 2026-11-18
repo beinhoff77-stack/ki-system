@@ -2,6 +2,109 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 04:20 – STATUS
+Inhaltliche Prüfung aller neuen Aufgaben, Klasse 9 (Korrektur nach der Zwanzigsten Runde)
+
+**Umfang:**
+- Alle 14 Themen mit klasse.gym_by = 9.
+- „Neu“: Pool uebung oder bonus, Fragetext nicht in 4eda8cb.
+- Vorher `origin/lernen-app` nach `stufen-kl9` geholt; der Stand ließ sich vorspulen, es war kein Merge-Commit nötig.
+
+**Geprüft:**
+- 697 neue Aufgaben: 516 Übungen und 181 Knobel-Bordkarten.
+- Je Aufgabe vollständig gelesen: Fragetext, alle Optionen, Tipp und Lösungsweg.
+- Jede Lösung von Hand nachgerechnet.
+- Alle Zähl-, „höchstens“- und „mindestens“-Knobel zusätzlich per Programm durchgezählt, 25 Fälle, alle bestätigt.
+- Formal geprüft: keine doppelten Optionen, 3–4 Optionen je Auswahl, Typ g und Tipp h vorhanden.
+
+**Geändert:** 40 neue Aufgaben, alte Aufgaben unverändert. Je Thema meldet inhalt_pruefen OK mit 0 Gruppen „gleich gebaut hintereinander“, der Nachweis ist OK.
+
+| Thema | geändert |
+|---|---|
+| zahlen.wurzeln_basis | 3 |
+| zahlen.reell | 3 |
+| funktionen.quadratisch | 7 |
+| gleichungen.quadratisch | 3 |
+| gleichungen.lgs3 | 4 |
+| stochastik.verknuepft | 3 |
+| abbildungen.aehnlichkeit | 1 |
+| zahlen.rationale_exponenten | 6 |
+| funktionen.potenz | 1 |
+| gleichungen.potenz | 2 |
+| trigo.pythagoras | 3 |
+| trigo.rechtwinklig | 2 |
+| trigo.allgemein | 1 |
+| gleichungen.trig | 1 |
+
+**Nach Fehlerart** (je Aufgabe die Hauptart):
+- **a) Falsche oder nicht eindeutige Lösung: 1**
+  - funktionen.quadratisch/bestimmen. Vorher: „Stimmt: Durch zwei verschiedene Punkte geht genau eine Parabel y = ax² + bx + c?“ Die Antwort „unendlich viele“ ist falsch, wenn beide Punkte denselben x-Wert haben; dann gibt es keine.
+  - Nachher: „… Durch zwei Punkte mit verschiedenen x-Werten …“
+- **b) Mehrdeutige Zählweise: 0**
+  - In den neuen Aufgaben der Klasse 9 kommt kein Zahlenstrahl vor und kein „k. Strich“, „k. Stelle“ oder „nach dem Anfang“. Gesucht wurde nach Strich, Stelle und Anfang.
+- **c) Stoff aus späteren Themen: 11**
+  - Hauptfall: Lösen über Substitution (u = x², u = sin x, u = x^(1/4), w = √x). Das ist Stoff von Kl. 10 gleichungen.polynom.
+  - Beispiel gleichungen.potenz/anzahl, vorher: „Wie viele Lösungen hat x⁴ − 5x² + 4 = 0?“, Weg „Mit u = x²: u² − 5u + 4 = 0 …“.
+  - Nachher: „Wie viele Lösungen hat (x² − 5)⁴ = 16?“, Weg über „die Klammer ist 2 oder −2“.
+  - Ebenso: zwei Knobel in gleichungen.potenz, je einer in gleichungen.trig, funktionen.potenz, zahlen.rationale_exponenten, gleichungen.quadratisch und zahlen.wurzeln_basis.
+  - Außerdem:
+    - Pfadregel 0,6 · 0,5 (Kl. 10 stochastik.mehrstufig) ersetzt durch Rechnen mit 100 Kindern.
+    - Bakterienwachstum innerhalb der Stunde mit 16^(1/4) (Exponentialmodell, Kl. 10) ersetzt durch Würfelkante a = V^(1/3).
+    - In zahlen.wurzeln_basis (laut Umfang „ohne Irrationalität und Wurzelalgebra“): √(4n) = 2√n ersetzt; ebenso die Behauptung „sonst endet die Dezimalzahl nie“.
+- **d) Unklare Fragen: 9**
+  - Beispiel funktionen.quadratisch/extremwert, vorher: „Wie klein kann die Summe ihrer Quadrate höchstens werden?“ Nachher: „Wie groß ist die Summe ihrer Quadrate mindestens?“
+  - Ebenso:
+    - „Eine Normalparabel (a = 1) … Prüfe, für welches a …“ (Widerspruch im Text)
+    - „Bei festem Umfang hat ein Rechteck höchstens 49 cm²“
+    - „Nach dem Rationalmachen steht da 2√a/a. Vorher hieß … Jetzt steht …“
+    - „… damit es genau ein Dreieck mit β = 90° gibt“
+  - 4 Tipps verwiesen auf „die Lernkarte“ oder „das Beispiel mit 27^(2/3)“; in Mischkarten fehlt dieser Bezug. Sie sind durch eigenständige Tipps ersetzt.
+- **e) Antwortoptionen: 1**
+  - zahlen.reell/heron, Knobel. Vorher hatte die Ja-Option als Begründung die Behauptung selbst: „Ja, denn (x + a : x) : 2 ≥ √a gilt immer.“
+  - Nachher: „Ja: Der Mittelwert von x und a : x ist nie kleiner als √a.“ Den fehlenden Schritt im Weg habe ich ergänzt.
+- **f) Lösungswege mit Sprüngen: 18**
+  - Beispiel gleichungen.lgs3, Knobel „100 Tiere“. Vorher: „Mit k, s ≥ 1 ganzzahlig: k = 5, s = 1.“
+  - Nachher: „5s = 100 − 19k muss durch 5 teilbar sein, also auch 19k – das geht nur, wenn k durch 5 teilbar ist. k = 5 gibt s = 1, k = 10 ist zu groß.“
+  - Weitere Fälle:
+    - Faktorisieren von x² − 4x − 12 in funktionen.quadratisch; die Karte lehrt die Lösungsformel, Faktorisieren kommt erst im nächsten Thema. Ersetzt durch D und die Formel.
+    - „Scheitel bei x = −b/(2a)“ (nicht eingeführt)
+    - „Abstände der y-Werte wachsen um 2, das passt zu a = 1“
+    - Eindeutigkeit bei „Durchprobieren“ (Pythagoras 25, 2¹², 64^(1/n), Quadratzahlen mit Abstand 7)
+    - Kehrwerte bei tan 30° und tan 60°
+    - Spinne: Weg über zwei Wände, obwohl nur Boden und eine Wand erlaubt sind
+
+**Gewählte Lesarten:**
+- **c) Maßstab:** Reihenfolge der Themen in themenliste.json. Vorgriffe auf eine spätere Lernkarte desselben Themas zählen nicht als Fehler.
+- **f) Auslassungspunkte:** „…“ in Aufzählungen mit klarer Regel („45², 46², …, 54²“) und in Dezimalentwicklungen („0,1212…“) zählt nicht als Fehler. Gezählt habe ich nur ausgelassene Gedankenschritte.
+- **Zinseszins:** Wachstum mit ganzzahliger Zahl von Jahren und demselben Faktor ist erlaubt, wie in alten Aufgaben.
+- **Riesenrad:** Das Riesenrad-Bild in Tipps zu gleichungen.trig ist die Methode der Lernkarten und kein Verweis auf eine bestimmte Lernkarte.
+
+**Technisch:**
+- **Neuer Nachweis:** In _stufen_kl9.py gibt es jetzt den Modus `korrektur` gegen origin/lernen-app. Er prüft:
+  - Alle Aufgaben, deren Text es schon in 4eda8cb gab, und alle Nicht-Übungen sind vollständig gleich, auch g und s.
+  - Geänderte neue Aufgaben behalten Lernkarte, Pool, g, s und y.
+  - Die Zahl der Aufgaben ist gleich.
+  - Die Typregeln gelten weiter.
+- **Klassenfeld:** Der Neubau gleicht in 7 Dateien das Feld klasse (rs_by/ib_myp) an themenliste.json an:
+  - zahlen.reell
+  - funktionen.quadratisch
+  - stochastik.verknuepft
+  - zahlen.rationale_exponenten
+  - gleichungen.potenz
+  - trigo.rechtwinklig
+  - gleichungen.trig
+
+  Die JSON-Dateien auf lernen-app waren dort veraltet. Der Nachweis lässt das nur zu, wenn der neue Wert gleich themenliste.json ist.
+- **Commits:** ein Commit je Thema. Abweichungen:
+  - Die vier Tipp-Korrekturen (d) in stochastik.verknuepft, zahlen.rationale_exponenten und trigo.rechtwinklig stehen gemeinsam in einem Nachtrags-Commit.
+  - zahlen.wurzeln_basis hat zwei Commits.
+
+**Nicht geprüft:**
+- Wie Schablonen mit Dezimal-Lücken („□,□“) und negative Lücken in der App angezeigt werden (kein App-Code).
+- Ob Rundungen mit einem anderen Taschenrechner-Modus abweichen. Alle Werte sind mit Gradmaß gerechnet; Toleranzen nach README.
+- Ob jede Formulierung zum LehrplanPLUS-Wortlaut passt. Maßstab war nur themenliste.json mit umfang und lehrplan_gym.
+- Alte Aufgaben, wie im Auftrag festgelegt.
+
 ## 2026-11-17 15:09 – FERTIG
 Abschlussbericht Zwanzigste Runde, Klasse 9: alle 14 Themen erledigt. Zweig stufen-kl9, ein Commit je Thema, kein Merge. Keine Datenbank, kein App-Code, keine Tests.
 

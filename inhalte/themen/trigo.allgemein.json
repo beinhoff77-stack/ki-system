@@ -4852,7 +4852,7 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Gegeben sind a = 6 cm und α = 30°. Wie lang muss b sein, damit es genau ein Dreieck mit β = 90° gibt?"
+    "text": "Gegeben sind a = 6 cm und α = 30°. Wie lang muss b sein, damit der Winkel β genau 90° groß ist?"
    },
    "o": {
     "wert": 12,

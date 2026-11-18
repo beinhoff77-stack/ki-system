@@ -260,6 +260,51 @@ def nachweis(thema):
     return ok
 
 
+VOR_RUNDE = '4eda8cb'  # Stand vor der Zwanzigsten Runde
+
+
+def _git_json(rev, thema):
+    roh = subprocess.run(['git', 'show', f'{rev}:inhalte/themen/{thema}.json'], capture_output=True, text=True, cwd=THEMEN.parent.parent)
+    return json.loads(roh.stdout) if roh.returncode == 0 else {'aufgaben': []}
+
+
+def nachweis_korrektur(thema):
+    """Korrektur-Runde (18.11.): gegen origin/lernen-app. Alte Aufgaben (Fragetext gab es schon in VOR_RUNDE) und alle Nicht-Übungen
+    bleiben vollständig gleich (auch g und s). Geänderte neue Aufgaben (Pool uebung/bonus) behalten Lernkarte, Pool, Typ g, Stufe s und Antworttyp y."""
+    basis, neu = _alt(thema), json.loads((THEMEN / f'{thema}.json').read_text(encoding='utf-8'))
+    vor = {a['f']['text'] for a in _git_json(VOR_RUNDE, thema)['aufgaben']}
+    ok = True
+    if json.dumps(basis['inhalt'], sort_keys=True) != json.dumps(neu['inhalt'], sort_keys=True): ok = False; print('FEHLER: inhalt (Lernkarten) geändert')
+    liste = {x['thema_schluessel']: x for x in json.loads((THEMEN.parent / 'themenliste.json').read_text(encoding='utf-8'))}
+    for k in basis:
+        if k in ('inhalt', 'aufgaben') or basis[k] == neu.get(k): continue
+        if k == 'klasse' and neu.get(k) == liste.get(thema, {}).get('klasse'):
+            print(f'Hinweis: Feld klasse beim Neubau an themenliste.json angeglichen ({basis[k]} → {neu[k]})'); continue
+        ok = False; print(f'FEHLER: Feld {k} geändert')
+    if len(basis['aufgaben']) != len(neu['aufgaben']): ok = False; print('FEHLER: Zahl der Aufgaben geändert')
+    voll = lambda a: json.dumps(a, ensure_ascii=False, sort_keys=True)
+    pool = collections.Counter(voll(a) for a in neu['aufgaben'])
+    weg = []
+    for a in basis['aufgaben']:
+        if pool[voll(a)] > 0: pool[voll(a)] -= 1; continue
+        weg.append(a)
+    dazu = [a for a in neu['aufgaben'] if pool[voll(a)] > 0 and not pool.subtract({voll(a): 1})]
+    for a in weg:
+        if a['f']['text'] in vor or a['p'] not in ('uebung', 'bonus'):
+            ok = False; print('FEHLER: alte Aufgabe geändert:', a['l'], a['p'], a['f']['text'][:70])
+    je = collections.defaultdict(list)
+    for a in dazu: je[(a['l'], a['p'], a.get('g'), a.get('s'), a['y'])].append(a)
+    for a in weg:
+        k = (a['l'], a['p'], a.get('g'), a.get('s'), a['y'])
+        if not je[k]: ok = False; print('FEHLER: kein Ersatz mit gleicher Lernkarte/Pool/Typ/Stufe/Antworttyp:', a['l'], a['p'], a.get('g'), a['f']['text'][:60])
+        else: je[k].pop(0)
+    for k, rest in je.items():
+        for a in rest: ok = False; print('FEHLER: zusätzliche Aufgabe:', a['l'], a['f']['text'][:60])
+    for x in pruefen(neu, thema): ok = False; print('FEHLER', x)
+    print(f'{thema}: geändert {len(weg)} neue Aufgaben, alte Aufgaben unverändert – ' + ('NACHWEIS OK' if ok else 'NACHWEIS FEHLER'))
+    return ok
+
+
 def vorschlag(a):
     t, s = a['f']['text'], a['s']
     sach = re.search(r'\b(cm|m|km|Liter|€|kg|g|Kiste|Karton|Würfel|Leiter|Turm|Schiff|Rampe|Straße|Weg|Garten|Feld|Grundstück|Becher|Baum|Fluss|Gondel|Hafen)\b', t)
@@ -289,4 +334,4 @@ def dump(thema):
 
 
 if __name__ == '__main__':
-    {'dump': dump, 'nachweis': nachweis}[sys.argv[1]](sys.argv[2])
+    {'dump': dump, 'nachweis': nachweis, 'korrektur': nachweis_korrektur}[sys.argv[1]](sys.argv[2])

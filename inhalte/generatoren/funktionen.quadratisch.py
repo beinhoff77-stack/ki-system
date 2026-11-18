@@ -1115,7 +1115,7 @@ ST.typ('nullstellen', 'Welche Funktion hat genau eine', 'begruenden')
 ST.typ('nullstellen', 'Die Parabel y = x² + bx + 12', 'rueckwaerts')
 ST.typ('nullstellen', 'Die Parabel y = x² − 2x − 3 und', 'verknuepfen')
 ST.neu('nullstellen', 'einkleidung', Z('Ein Ball fliegt auf der Bahn h(x) = −0,25x² + x + 3 (x und h in m). In welcher Entfernung x > 0 landet er (h = 0)?', 6, '6',
-       '−0,25x² + x + 3 = 0, mal (−4): x² − 4x − 12 = 0, also (x − 6)(x + 2) = 0. Positiv: x = 6 m. Probe: −9 + 6 + 3 = 0.', 'Setze h = 0 und mache den Faktor vor x² zu 1.', einheit='m'))
+       '−0,25x² + x + 3 = 0, mal (−4): x² − 4x − 12 = 0. D = 16 + 48 = 64, x = (4 ± 8) : 2, also x = 6 oder x = −2. Positiv: x = 6 m. Probe: −9 + 6 + 3 = 0.', 'Setze h = 0 und mache den Faktor vor x² zu 1.', einheit='m'))
 ST.neu('nullstellen', 'umkehr', L('Eine Parabel y = x² + bx + c hat die Nullstellen 2 und 7. Bestimme b und c.', 'b = □; c = □', [-9, 14], ['-(2 + 7)', '2 * 7'],
        'y = (x − 2)(x − 7) = x² − 9x + 14. Also b = −9 und c = 14.', 'Schreib die Produktform und multipliziere aus.'))
 ST.neu('nullstellen', 'fehler', A('Jemand liest bei y = (x − 3)(x + 2) die Nullstellen −3 und 2 ab. Was stimmt?', 'Falsch: Die Nullstellen sind 3 und −2.', ['Richtig.', 'Falsch: Die Nullstellen sind 3 und 2.', 'Falsch: Es gibt nur die Nullstelle −6.'],
@@ -1125,7 +1125,7 @@ ST.neu('nullstellen', 'parameter', A('Für welche Werte von c hat y = x² + 6x +
 ST.neu('nullstellen', 'transfer', Z('Ein Torbogen hat die Form y = −0,5x² + 2x (x, y in m, der Boden ist y = 0). Wie breit ist das Tor am Boden?', 4, '2 / 0.5',
        'Nullstellen: x(−0,5x + 2) = 0, also x = 0 und x = 4. Breite 4 m.', 'Klammere x aus.', einheit='m'))
 ST.neu('nullstellen', 'pruefung', L('Gegeben ist f(x) = x² − 2x − 15. a) Bestimme die Nullstellen (kleinere zuerst). b) Gib den Scheitel an.', 'a) x₁ = □; x₂ = □; b) S(□ | □)', [-3, 5, 1, -16], ['-3', '5', '(-3 + 5) // 2', '1 - 2 - 15'],
-       'a) (x + 3)(x − 5) = 0: x = −3, x = 5. b) Der Scheitel liegt mittig: x = 1, f(1) = 1 − 2 − 15 = −16.', 'Der Scheitel liegt in der Mitte zwischen den Nullstellen.'))
+       'a) D = 4 + 60 = 64, x = (2 ± 8) : 2, also x = −3 und x = 5. b) Der Scheitel liegt mittig: x = 1, f(1) = 1 − 2 − 15 = −16.', 'Der Scheitel liegt in der Mitte zwischen den Nullstellen.'))
 ST.knobel('nullstellen', L('Die Parabel y = x² + bx + c hat die Nullstellen 2 und 5. Welche Nullstellen hat dann y = x² − bx + c? (kleinere zuerst)', 'x₁ = □; x₂ = □', [-5, -2], ['-5', '-2'],
           'Aus (x − 2)(x − 5) = x² − 7x + 10 folgt b = −7, c = 10. Dann y = x² + 7x + 10 = (x + 2)(x + 5) mit den Nullstellen −5 und −2. Allgemein: b umdrehen spiegelt die Parabel an der y-Achse.',
           'Bestimme zuerst b und c.'))
@@ -1160,8 +1160,8 @@ ST.knobel('punkte', Z('Eine Parabel y = x² + bx + c geht durch (1 | 3) und (2 |
           'Einsetzen: 1 + b + c = 3 und 4 + 2b + c = 9. Zweite minus erste: 3 + b = 6, also b = 3, dann c = −1. f(3) = 9 + 9 − 1 = 17.',
           'Zwei Punkte, zwei Unbekannte. Ziehe die Gleichungen voneinander ab.'))
 ST.knobel('punkte', Z('Für f(x) = x² − 6x + 10: Für wie viele ganze Zahlen x ist f(x) < 5?', 3, '4 - 2 + 1',
-          'f(x) < 5 heißt x² − 6x + 5 < 0, also (x − 1)(x − 5) < 0. Das gilt zwischen den Nullstellen 1 und 5: x = 2, 3, 4. Drei Zahlen.',
-          'Wann ist f(x) genau 5? Was gilt dazwischen?'))
+          'Scheitelform: f(x) = (x − 3)² + 1. f(x) < 5 heißt (x − 3)² < 4. Bei ganzen x ist x − 3 dann −1, 0 oder 1 (bei ±2 wäre das Quadrat schon 4). Also x = 2, 3, 4: drei Zahlen.',
+          'Bringe f in Scheitelform.'))
 
 # bestimmen
 ST.stufenleiter('bestimmen', 'Mit Scheitel und einem Punkt den Faktor a bestimmen.',
@@ -1183,13 +1183,13 @@ ST.neu('bestimmen', 'mehrschritt', Z('Eine Parabel hat die Nullstellen 1 und 5, 
        'Der Scheitel liegt mittig bei x = 3. Dort: a · 2 · (−2) = −4a = −8, also a = 2.', 'Wo liegt der Scheitel zwischen den Nullstellen?'))
 ST.neu('bestimmen', 'fehler', A('Jemand setzt für den Scheitel S(3 | 2) an: y = a(x + 3)² + 2. Was stimmt?', 'Falsch: Es heißt y = a(x − 3)² + 2.', ['Richtig.', 'Falsch: y = a(x + 3)² − 2.', 'Falsch: y = a(x − 2)² + 3.'],
        'In y = a(x − d)² + e steht d mit Minus. Bei d = 3: (x − 3).', 'Wo ist die Klammer null?'))
-ST.neu('bestimmen', 'begruenden', A('Stimmt: Durch zwei verschiedene Punkte geht genau eine Parabel y = ax² + bx + c?', 'Nein, es gibt unendlich viele; man braucht drei Punkte.', ['Ja, genau eine.', 'Ja, aber nur, wenn die Punkte gleich hoch liegen.', 'Nein, es gibt keine.'],
+ST.neu('bestimmen', 'begruenden', A('Stimmt: Durch zwei Punkte mit verschiedenen x-Werten geht genau eine Parabel y = ax² + bx + c?', 'Nein, es gibt unendlich viele; man braucht drei Punkte.', ['Ja, genau eine.', 'Ja, aber nur, wenn die Punkte gleich hoch liegen.', 'Nein, es gibt keine.'],
        'Drei Unbekannte a, b, c brauchen drei Bedingungen. Durch (0 | 0) und (1 | 1) gehen z. B. y = x² und y = 2x² − x.', 'Zähle die Unbekannten.'))
 ST.neu('bestimmen', 'parameter', Z('Die Parabeln y = a(x − 2)(x − 6) haben alle dieselben Nullstellen. Für welches a geht die Parabel durch (4 | 8)?', -2, '8 // ((4 - 2) * (4 - 6))',
        'Einsetzen: 8 = a · 2 · (−2) = −4a, also a = −2.', 'Setze den Punkt ein.'))
 ST.neu('bestimmen', 'transfer', Z('Ein Ball wird bei x = 0 aus 2 m Höhe geworfen. Bei x = 4 m erreicht er die größte Höhe 6 m. In welcher Höhe ist er bei x = 6 m?', 5, '-0.25 * 4 + 6',
        'Scheitel S(4 | 6): y = a(x − 4)² + 6. (0 | 2): 2 = 16a + 6, a = −0,25. y(6) = −0,25 · 4 + 6 = 5 m.', 'Der höchste Punkt ist der Scheitel.', einheit='m'))
-ST.neu('bestimmen', 'pruefung', L('Eine Normalparabel (a = 1) hat den Scheitel S(1 | −4). a) Prüfe, für welches a sie durch P(3 | 0) geht. b) Schreibe sie in allgemeiner Form.', 'a) a = □; b) y = x² + □x + □', [1, -2, -3], ['4 // 4', '-2', '1 - 4'],
+ST.neu('bestimmen', 'pruefung', L('Eine Parabel y = a(x − 1)² − 4 geht durch den Punkt P(3 | 0). a) Bestimme a. b) Schreibe die Parabel in der Form y = x² + bx + c.', 'a) a = □; b) y = x² + □x + □', [1, -2, -3], ['4 // 4', '-2', '1 - 4'],
        'a) 0 = a · 2² − 4, also a = 1. b) (x − 1)² − 4 = x² − 2x + 1 − 4 = x² − 2x − 3.', 'Binomische Formel für (x − 1)².'))
 ST.knobel('bestimmen', Z('Eine Parabel hat die Nullstellen −2 und 6 und geht durch (2 | 8). Welchen Wert hat sie bei x = 4?', 6, '-0.5 * (4 + 2) * (4 - 6)',
           'Ansatz y = a(x + 2)(x − 6). (2 | 8): 8 = a · 4 · (−4) = −16a, a = −0,5. Bei x = 4: −0,5 · 6 · (−2) = 6.',
@@ -1209,7 +1209,7 @@ ST.typ('extremwert', 'Zwei Zahlen haben die Summe', 'mehrschritt')
 ST.typ('extremwert', '/^(Ein Ball fliegt|Mit 16 m Zaun)/', 'transfer')
 ST.typ('extremwert', '/^(Rechtecke liegen|Die Differenz zweier)/', 'verknuepfen')
 ST.typ('extremwert', 'Ein Händler', 'pruefung')
-ST.neu('extremwert', 'umkehr', Z('Bei festem Umfang hat ein Rechteck höchstens 49 cm² Flächeninhalt. Wie groß ist der Umfang?', 28, '4 * 7',
+ST.neu('extremwert', 'umkehr', Z('Unter allen Rechtecken mit demselben Umfang hat das größte 49 cm² Flächeninhalt. Wie groß ist dieser Umfang?', 28, '4 * 7',
        'Die größte Fläche hat das Quadrat. 49 cm² heißt Seite 7 cm, Umfang 4 · 7 = 28 cm.', 'Welches Rechteck hat bei festem Umfang die größte Fläche?', einheit='cm'))
 ST.neu('extremwert', 'fehler', A('Jemand sucht das größte Rechteck mit 40 m Umfang: A(x) = x · (40 − x), größte Fläche bei x = 20. Was stimmt?', 'Falsch: Die zweite Seite ist 20 − x; größte Fläche bei x = 10 mit 100 m².',
        ['Richtig, 400 m².', 'Falsch: größte Fläche bei x = 40.', 'Falsch: Die zweite Seite ist 40 − 2x.'],
@@ -1220,7 +1220,7 @@ ST.neu('extremwert', 'begruenden', A('Stimmt: Von allen Rechtecken mit gleichem 
 ST.knobel('extremwert', Z('Aus 60 cm Draht wird ein Rechteck gebogen, das zusätzlich eine Mittelstrebe parallel zu einer Seite bekommt. Wie groß ist die Fläche des Rechtecks höchstens?', 150, '10 * 15',
           'Drei Stücke der Länge x (zwei Seiten und die Strebe) und zwei Stücke der Länge y: 3x + 2y = 60, also y = 30 − 1,5x. A(x) = x(30 − 1,5x), Nullstellen 0 und 20, Scheitel bei x = 10. y = 15, A = 150 cm².',
           'Die Strebe ist so lang wie die Seiten, zu denen sie parallel ist.', einheit='cm²'))
-ST.knobel('extremwert', Z('Zwei Zahlen haben die Summe 10. Wie klein kann die Summe ihrer Quadrate höchstens werden?', 50, '5 ** 2 + 5 ** 2',
+ST.knobel('extremwert', Z('Zwei Zahlen haben die Summe 10. Wie groß ist die Summe ihrer Quadrate mindestens?', 50, '5 ** 2 + 5 ** 2',
           'Zahlen x und 10 − x: S(x) = x² + (10 − x)² = 2x² − 20x + 100 = 2(x − 5)² + 50. Kleinster Wert 50 bei x = 5.',
           'Schreib die Summe der Quadrate mit einer Unbekannten.'))
 

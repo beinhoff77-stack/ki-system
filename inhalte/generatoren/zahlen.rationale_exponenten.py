@@ -719,7 +719,7 @@ ST.knobel('nte_wurzel', A('Welche Zahl ist größer: ⁵√5 oder ³√3?', '³�
           'Beide hoch 15 nehmen: (⁵√5)¹⁵ = 5³ = 125 und (³√3)¹⁵ = 3⁵ = 243. Wegen 243 > 125 ist ³√3 größer (≈ 1,442 gegen ≈ 1,380).',
           'Mit welcher Potenz verschwinden beide Wurzeln?'))
 ST.knobel('nte_wurzel', Z('Für wie viele natürliche Zahlen n ≥ 1 ist ⁿ√(2¹²) eine natürliche Zahl?', 6, '6',
-          'ⁿ√(2¹²) ist natürlich, wenn n ein Teiler von 12 ist: n = 1, 2, 3, 4, 6, 12. Dann ergibt sich 2^(12 : n). Für andere n liegt das Ergebnis zwischen zwei Zweierpotenzen. Also 6 Zahlen.',
+          'ⁿ√(2¹²) ist natürlich, wenn n ein Teiler von 12 ist: n = 1, 2, 3, 4, 6, 12. Dann ergibt sich 2^(12 : n). Für andere n nicht: Ist ⁿ√(2¹²) = m natürlich, dann ist mⁿ = 2¹². Dann hat m keinen anderen Primfaktor als 2, also m = 2^j und j · n = 12; n teilt 12. Also 6 Zahlen.',
           'Welche n teilen den Exponenten 12?'))
 
 # potenz_wert
@@ -734,7 +734,7 @@ ST.typ('potenz_wert', '/^Berechne [\\d,]+\\^\\(−?\\d\\/\\d\\)/', 'mehrschritt'
 ST.typ('potenz_wert', 'Welche Zahl ist größer', 'begruenden')
 ST.typ('potenz_wert', '/^(Für den Grundumsatz|Für Planeten)/', 'transfer')
 ST.neu('potenz_wert', 'erkennen', A('Was bedeutet der Nenner 3 im Exponenten von 8^(2/3)?', 'Ziehe die dritte Wurzel.', ['Teile durch 3.', 'Nimm mal 3.', 'Nimm hoch 3.'],
-       'Nenner = Wurzel, Zähler = Potenz: 8^(2/3) = (³√8)² = 4.', 'Denk an das Beispiel mit 27^(2/3).'))
+       'Nenner = Wurzel, Zähler = Potenz: 8^(2/3) = (³√8)² = 4.', 'Hoch 1/3 heißt dritte Wurzel.'))
 ST.neu('potenz_wert', 'erkennen', A('Welcher Term ist gleich 9^(1/2)?', '√9', ['9 : 2', '9²', '1/9'],
        'Hoch 1/2 heißt Quadratwurzel: 9^(1/2) = √9 = 3.', 'Was bedeutet der Nenner 2?'))
 ST.neu('potenz_wert', 'umkehr', Z('Für welche Zahl a gilt a^(1/2) = 7?', 49, '7 ** 2',
@@ -742,7 +742,7 @@ ST.neu('potenz_wert', 'umkehr', Z('Für welche Zahl a gilt a^(1/2) = 7?', 49, '7
 ST.neu('potenz_wert', 'fehler', A('Jemand rechnet 16^(3/4) = 16³ : 4 = 1 024. Was stimmt?', 'Falsch: Der Nenner 4 heißt vierte Wurzel: (⁴√16)³ = 2³ = 8.', ['Richtig.', 'Falsch: 16^(3/4) = 12.', 'Falsch: 16^(3/4) = 64.'],
        'Nicht durch 4 teilen, sondern die vierte Wurzel ziehen: ⁴√16 = 2, dann hoch 3.', 'Was bedeutet der Nenner?'))
 ST.neu('potenz_wert', 'parameter', Z('Für wie viele natürliche Zahlen n ≥ 1 ist 64^(1/n) eine natürliche Zahl?', 4, '4',
-       '64 = 2⁶. 64^(1/n) = 2^(6 : n) ist natürlich für n = 1, 2, 3, 6 (Teiler von 6). Für n = 4 oder 5 ist es keine natürliche Zahl.', 'Schreibe 64 als Zweierpotenz.'))
+       '64 = 2⁶. 64^(1/n) = 2^(6 : n) ist natürlich für n = 1, 2, 3, 6 (Ergebnisse 64, 8, 4, 2). Für n = 4 und n = 5 liegt das Ergebnis zwischen 2 und 3 (2⁴ = 16 < 64 < 81 = 3⁴, 2⁵ = 32 < 64 < 243 = 3⁵), für n ≥ 7 zwischen 1 und 2 (2⁷ = 128 > 64). Also 4 Zahlen.', 'Schreibe 64 als Zweierpotenz.'))
 ST.neu('potenz_wert', 'pruefung', L('Berechne a) 25^(1/2), b) 27^(2/3), c) 16^(−1/4) als Bruch 1/□.', 'a) □; b) □; c) 1/□', [5, 9, 2], ['5', '3 ** 2', '2'],
        'a) √25 = 5. b) (³√27)² = 3² = 9. c) 1 : ⁴√16 = 1/2.', 'Nenner = Wurzel, Zähler = Potenz, Minus = Kehrwert.'))
 ST.knobel('potenz_wert', Z('Berechne (2^(1/2) · 8^(1/2))^(1/2).', 2, '2',
@@ -826,12 +826,12 @@ ST.neu('gleichung_exp', 'fehler', A('Jemand löst x^(1/2) = 9 mit x = 3. Was sti
 ST.neu('gleichung_exp', 'begruenden', A('Hat x^(1/2) = −3 eine Lösung (x ≥ 0)?', 'Nein, x^(1/2) = √x ist nie negativ.', ['Ja, x = 9.', 'Ja, x = −9.', 'Ja, x = −1,5.'],
        'Für x ≥ 0 ist √x ≥ 0. Eine negative Zahl kann nie herauskommen. Quadrieren würde die Scheinlösung 9 liefern: √9 = 3 ≠ −3.', 'Kann eine Quadratwurzel negativ sein?'))
 ST.neu('gleichung_exp', 'parameter', Z('Für welche positive Zahl k haben x^(1/2) = k und x^(1/3) = k dieselbe Lösung x?', 1, '1',
-       'Dieselbe Lösung heißt x^(1/2) = x^(1/3). Für x > 0 gilt das nur bei x = 1, also k = 1.', 'Wann sind Quadrat- und Kubikwurzel gleich?'))
+       'Dieselbe Lösung heißt x^(1/2) = x^(1/3). Beide Seiten hoch 6: x³ = x². Für x > 0 durch x² teilen: x = 1. Also k = 1^(1/2) = 1.', 'Wann sind Quadrat- und Kubikwurzel gleich?'))
 ST.neu('gleichung_exp', 'pruefung', L('Löse für x > 0: a) x^(1/4) = 2, b) x^(3/2) = 27, c) 4 · x^(1/3) = 20.', 'a) □; b) □; c) □', [16, 9, 125], ['2 ** 4', '3 ** 2', '5 ** 3'],
        'a) x = 2⁴ = 16. b) x = 27^(2/3) = 9. c) x^(1/3) = 5, x = 125.', 'Mit dem Kehrwert des Exponenten potenzieren.'))
 ST.knobel('gleichung_exp', Z('Löse x^(1/2) + x^(1/4) = 6 für x > 0.', 16, '2 ** 4',
-          'Mit u = x^(1/4) ist x^(1/2) = u². u² + u − 6 = 0 ⇒ (u + 3)(u − 2) = 0. u ist positiv, also u = 2 und x = 2⁴ = 16. Probe: 4 + 2 = 6.',
-          'Gib x^(1/4) einen eigenen Namen.'))
+          'Es gilt x^(1/2) = (x^(1/4))². Gesucht ist also eine positive Zahl x^(1/4), deren Quadrat plus sie selbst 6 ergibt: 2² + 2 = 6. Also x^(1/4) = 2 und x = 2⁴ = 16. Es gibt keine andere Lösung: Wird x größer, werden beide Summanden größer, wird x kleiner, beide kleiner. Probe: √16 + ⁴√16 = 4 + 2 = 6.',
+          'Schreibe x^(1/2) als Quadrat von x^(1/4).'))
 ST.knobel('gleichung_exp', Z('Für die Oberfläche eines Würfels gilt O = 6 · V^(2/3) (O in cm², V in cm³). Für welches Volumen ist O = 54 cm²?', 27, '3 ** 3',
           'V^(2/3) = 9 ⇒ V = 9^(3/2) = (√9)³ = 27 cm³. Probe: Kante 3 cm, Oberfläche 6 · 9 = 54 cm².', 'Teile zuerst durch 6.', einheit='cm³'))
 
@@ -851,8 +851,8 @@ ST.typ('verstehen', 'Für welche Zahlen x', 'parameter')
 ST.typ('verstehen', 'Ein Würfel soll', 'transfer')
 ST.neu('verstehen', 'direkt', L('Berechne 36^(−1/2) als Bruch.', _B, [1, 6], ['1', '6'],
        'Minus heißt Kehrwert: 1 : 36^(1/2) = 1 : 6 = 1/6.', 'Erst die Wurzel, dann der Kehrwert.'))
-ST.neu('verstehen', 'einkleidung', Z('Eine Bakterienkultur wird jede Stunde 16-mal so groß, gleichmäßig über die Stunde verteilt. Wie viel Mal so groß wird sie in einer Viertelstunde?', 2, '2',
-       'Eine Viertelstunde entspricht dem Exponenten 1/4: 16^(1/4) = ⁴√16 = 2. Probe: 2 · 2 · 2 · 2 = 16.', 'Eine Viertelstunde ist ein Viertel der Stunde im Exponenten.'))
+ST.neu('verstehen', 'einkleidung', Z('Für die Kante eines Würfels gilt a = V^(1/3). Ein Würfel hat 125 cm³ Volumen. Wie lang ist seine Kante?', 5, '5',
+       'a = 125^(1/3) = ³√125 = 5 cm, denn 5 · 5 · 5 = 125.', 'Hoch 1/3 heißt dritte Wurzel.', einheit='cm'))
 ST.neu('verstehen', 'umkehr', Z('Für welche Basis a > 0 gilt a^(−1/2) = 1/5?', 25, '5 ** 2',
        'a^(−1/2) = 1/√a = 1/5, also √a = 5 und a = 25.', 'Kehrwert auf beiden Seiten.'))
 ST.neu('verstehen', 'darstellung', A('Welche Schreibweise ist gleich 1/√x (x > 0)?', 'x^(−1/2)', ['x^(1/2)', 'x^(−2)', '−x^(1/2)'],

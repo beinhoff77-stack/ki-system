@@ -762,7 +762,7 @@ ST.knobel('hypotenuse', Z('Ein rechtwinkliges Dreieck hat den Umfang 30 cm und d
           'a + b = 30 − 13 = 17 und a² + b² = 169. (a + b)² = a² + 2ab + b² ⇒ 289 = 169 + 2ab ⇒ ab = 60. Fläche ab : 2 = 30 cm² (Seiten 5 und 12).',
           'Quadriere a + b.', einheit='cm²'))
 ST.knobel('hypotenuse', Z('Wie viele rechtwinklige Dreiecke mit ganzzahligen Seiten haben die Hypotenuse 25 cm?', 2, '2',
-          'Gesucht a < b mit a² + b² = 625. Durchprobieren der Quadrate: 7² + 24² = 49 + 576 und 15² + 20² = 225 + 400. Sonst passt nichts. Also 2 Dreiecke.',
+          'Gesucht a < b mit a² + b² = 625. Wegen a < b ist a² < 312,5, also a ≤ 17. Für a = 1, 2, …, 17 prüfen, ob 625 − a² eine Quadratzahl ist: Das klappt nur bei a = 7 (625 − 49 = 576 = 24²) und a = 15 (625 − 225 = 400 = 20²). Also 2 Dreiecke.',
           'Ziehe Quadratzahlen von 625 ab und prüfe, ob wieder eine Quadratzahl übrig bleibt.'))
 
 # kathete
@@ -783,7 +783,7 @@ ST.neu('kathete', 'einkleidung', Z('Ein 5 m langes Seil ist von der Spitze eines
 ST.neu('kathete', 'darstellung', Z('Der Punkt P(x | 6) mit x > 0 ist vom Ursprung 10 Einheiten entfernt. Bestimme x.', 8, '(100 - 36) // 8',
        'x² + 6² = 10², also x² = 64, x = 8.', 'Abstand vom Ursprung ist die Hypotenuse.'))
 ST.neu('kathete', 'parameter', Z('Eine Kathete ist 20 cm lang. Welche kleinste ganzzahlige Hypotenuse (in cm) passt, wenn auch die andere Kathete ganzzahlig sein soll?', 25, '25',
-       '400 = c² − b² = (c − b)(c + b). Kleinstes c: c − b = 10, c + b = 40, also c = 25, b = 15. Probe: 15² + 20² = 625 = 25².', 'Zerlege 400 in zwei gleich gerade Faktoren.', einheit='cm'))
+       'Die Hypotenuse ist länger als 20 cm. Probiere c = 21, 22, …: c² − 400 ist 41, 84, 129, 176 – keine Quadratzahl. Bei c = 25: 625 − 400 = 225 = 15². Also c = 25, die andere Kathete ist 15 cm.', 'Probiere Hypotenusen ab 21 cm und prüfe, ob c² − 400 eine Quadratzahl ist.', einheit='cm'))
 ST.knobel('kathete', Z('Eine 5 m lange Leiter steht unten 3 m von der Wand entfernt. Oben rutscht sie 1 m an der Wand hinunter. Um wie viele Meter rutscht der Fuß dabei weiter weg?', 1, '4 - 3',
           'Vorher: Höhe √(25 − 9) = 4 m. Nachher: Höhe 3 m, Fuß √(25 − 9) = 4 m von der Wand. Der Fuß rutscht 4 − 3 = 1 m weg – die Rollen von 3 und 4 tauschen.',
           'Berechne Höhe vorher und Fußabstand nachher.', einheit='m'))
@@ -872,7 +872,7 @@ ST.neu('raum', 'darstellung', A('Im Würfel ABCDEFGH (Grundfläche ABCD, G über
 ST.neu('raum', 'fehler', A('Jemand rechnet die Raumdiagonale eines Quaders 2 cm × 3 cm × 6 cm als √(2 + 3 + 6) ≈ 3,3 cm. Was stimmt?', 'Falsch: Die Kanten müssen quadriert werden: √(4 + 9 + 36) = 7 cm.',
        ['Richtig.', 'Falsch: 2 + 3 + 6 = 11 cm.', 'Falsch: √(2² + 3²) ≈ 3,6 cm.'], 'd = √(a² + b² + c²). Eine Raumdiagonale von 3,3 cm wäre kürzer als die 6-cm-Kante – unmöglich.', 'Vergleiche mit der längsten Kante.'))
 ST.knobel('raum', Z('In einem Zimmer (Boden 3 m × 4 m, 2 m hoch) sitzt eine Spinne in einer Bodenecke. Sie will zur gegenüberliegenden Deckenecke, nur über Boden und Wand. Wie lang ist der kürzeste Weg? Runde auf zwei Nachkommastellen.', 6.4, '6.4031242374328485',
-          'Klappe eine Wand in die Bodenebene. Mögliche Rechtecke: (3 + 2) × 4 ergibt √(25 + 16) ≈ 6,40 m; (4 + 2) × 3 ergibt √45 ≈ 6,71 m; (3 + 4) × 2 ergibt √53 ≈ 7,28 m. Am kürzesten: ≈ 6,40 m.',
+          'Klappe eine Wand in die Bodenebene. Je nachdem, welche Wand sie benutzt: Wand an der 4-m-Seite ergibt ein Rechteck (3 + 2) × 4, Weg √(25 + 16) = √41 ≈ 6,40 m; Wand an der 3-m-Seite ergibt (4 + 2) × 3, Weg √45 ≈ 6,71 m. Am kürzesten: ≈ 6,40 m.',
           'Falte den Raum auf. Es gibt mehrere Möglichkeiten.', einheit='m', toleranz=0.01))
 ST.knobel('raum', Z('Die Flächendiagonalen eines Quaders haben die Quadrate 13, 20 und 25 (in cm²). Wie groß ist sein Volumen?', 24, '2 * 3 * 4',
           'a² + b² = 13, b² + c² = 20, a² + c² = 25. Addieren: 2(a² + b² + c²) = 58, also a² + b² + c² = 29. Daraus c² = 16, a² = 9, b² = 4: a = 3, b = 2, c = 4. V = 24 cm³.',

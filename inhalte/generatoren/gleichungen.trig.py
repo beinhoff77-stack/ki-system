@@ -895,9 +895,9 @@ ST.neu('umformen', 'parameter', A(f'Für welche Zahlen c hat 2 cos x + 3 = c {B}
        'cos x = (c − 3) : 2 muss zwischen −1 und 1 liegen: −2 ≤ c − 3 ≤ 2, also 1 ≤ c ≤ 5.', 'Stelle nach cos x um.'))
 ST.neu('umformen', 'pruefung', L(f'Löse {B}: a) 2 sin x + 3 = 4, b) 5 tan x = 5, c) 4 cos x = 4.', 'a) □° und □°; b) □° und □°; c) □°', [30, 150, 45, 225, 0],
        ['30', '180 - 30', '45', '45 + 180', '0'], 'a) sin x = 0,5: 30°, 150°. b) tan x = 1: 45°, 225°. c) cos x = 1: 0°.', 'Immer zuerst sin x, tan x oder cos x allein stellen.'))
-ST.knobel('umformen', L(f'Löse 2 (sin x)² + sin x − 1 = 0 {B}.', 'x₁ = □°; x₂ = □°; x₃ = □°', [30, 150, 270], ['30', '180 - 30', '270'],
-          'Setze u = sin x: 2u² + u − 1 = 0, also u = (−1 ± 3) : 4, u = 0,5 oder u = −1. sin x = 0,5 gibt 30° und 150°, sin x = −1 gibt 270°.',
-          'Ersetze sin x durch u und löse die quadratische Gleichung.', hinweis='der Größe nach'))
+ST.knobel('umformen', L(f'Löse (2 sin x − 1) · (sin x + 1) = 0 {B}.', 'x₁ = □°; x₂ = □°; x₃ = □°', [30, 150, 270], ['30', '180 - 30', '270'],
+          'Ein Produkt ist null, wenn ein Faktor null ist. Erster Faktor: 2 sin x − 1 = 0, also sin x = 0,5 mit den Lösungen 30° und 180° − 30° = 150°. Zweiter Faktor: sin x + 1 = 0, also sin x = −1, die Gondel ganz unten: 270°. Zusammen drei Lösungen.',
+          'Wann ist ein Produkt null?', hinweis='der Größe nach'))
 ST.knobel('umformen', L(f'Löse (sin x)² = 3 · (cos x)² {B}.', 'x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°', [60, 120, 240, 300], ['60', '180 - 60', '180 + 60', '360 - 60'],
           'Teile durch (cos x)² (cos x = 0 ist keine Lösung, denn dann wäre auch sin x = 0): (tan x)² = 3, tan x = √3 oder tan x = −√3. tan x = √3: 60°, 240°. tan x = −√3: 120°, 300°.',
           'Teile durch (cos x)².', hinweis='der Größe nach'))

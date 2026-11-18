@@ -780,7 +780,7 @@ ST.neu('verhaeltnisse', 'direkt', L('Von α aus ist die Gegenkathete 9 cm und di
 ST.neu('verhaeltnisse', 'einkleidung', Z('Eine Rampe ist 5 m lang und führt 3 m hoch. Wie groß ist der Sinus des Steigungswinkels?', 0.6, '3 / 5',
        'Die Rampe ist die Hypotenuse, die Höhe die Gegenkathete: sin α = 3 : 5 = 0,6.', 'Welche Strecke ist die Hypotenuse?'))
 ST.neu('verhaeltnisse', 'fehler', A('Jemand schreibt: sin α = Ankathete : Hypotenuse. Was stimmt?', 'Falsch: Das ist cos α; sin α = Gegenkathete : Hypotenuse.', ['Richtig.', 'Falsch: sin α = Gegenkathete : Ankathete.', 'Falsch: sin α = Hypotenuse : Gegenkathete.'],
-       'sin: Gegenkathete/Hypotenuse, cos: Ankathete/Hypotenuse, tan: Gegenkathete/Ankathete.', 'Denk an die Merkregel der Lernkarte.'))
+       'sin: Gegenkathete/Hypotenuse, cos: Ankathete/Hypotenuse, tan: Gegenkathete/Ankathete.', 'Welche Seite gehört zum Sinus: die gegenüber oder die am Winkel?'))
 ST.neu('verhaeltnisse', 'parameter', Z('Im Dreieck ABC ist γ = 90° und a = 7 cm. Für welche Länge b gilt tan α = 1?', 7, '7',
        'tan α = a : b = 1 heißt a = b = 7 cm.', 'Wann ist ein Bruch gleich 1?', einheit='cm'))
 ST.neu('verhaeltnisse', 'pruefung', L('Im Dreieck ABC ist γ = 90°, a = 8 cm, b = 6 cm. Berechne a) c, b) sin α als gekürzten Bruch, c) tan β als gekürzten Bruch.', 'a) □ cm; b) □/□; c) □/□', [10, 4, 5, 3, 4],
@@ -903,7 +903,7 @@ ST.neu('anwendung', 'begruenden', A('Stimmt: Doppelte Steigung in Prozent heißt
 ST.neu('anwendung', 'pruefung', L('Eine Seilbahn fährt auf einem 1 200 m langen geraden Seil unter 25° nach oben. a) Wie groß ist der Höhenunterschied? b) Wie weit ist es waagrecht? (jeweils ganze Meter)', 'a) □ m; b) □ m', [507, 1088],
        ['507', '1088'], 'a) 1 200 · sin 25° ≈ 507 m. b) 1 200 · cos 25° ≈ 1 088 m.', 'Das Seil ist die Hypotenuse.'))
 ST.knobel('anwendung', Z('Ein Turm wirft bei 30° Sonnenhöhe einen Schatten, der 20 m länger ist als bei 60° Sonnenhöhe. Wie hoch ist der Turm? Runde auf eine Nachkommastelle.', 17.3, '17.32050807568877',
-          'Schatten s = h : tan α. h : tan 30° − h : tan 60° = 20. Mit tan 30° ≈ 0,577 und tan 60° ≈ 1,732: h · (1,732 − 0,577) = 20, h ≈ 17,3 m (genau 10√3 m).',
+          'Schatten s = h : tan α (tan α = h : s). Also h : tan 30° − h : tan 60° = 20. Es ist 1 : tan 30° ≈ 1 : 0,577 ≈ 1,732 und 1 : tan 60° ≈ 1 : 1,732 ≈ 0,577. Damit h · 1,732 − h · 0,577 = 20, also h · 1,155 = 20 und h ≈ 17,3 m.',
           'Schreibe beide Schattenlängen mit h.', einheit='m', toleranz=0.1))
 ST.knobel('anwendung', Z('Eine Straße mit 10 % Steigung ist (entlang der Straße gemessen) 1 km lang. Um wie viele Meter steigt sie? Runde auf eine Nachkommastelle.', 99.5, '99.50371902099893',
           '10 % heißt tan α = 0,1, α ≈ 5,71°. Entlang der Straße ist der Weg die Hypotenuse: h = 1 000 · sin α ≈ 99,5 m – also nicht ganz 100 m.',

@@ -4,7 +4,8 @@
  "block_id": 57,
  "klasse": {
   "gym_by": 9,
-  "rs_by": 10
+  "rs_by": 10,
+  "ib_myp": 4
  },
  "autor": "Claude (Paket Klasse 9)",
  "inhalt": {
@@ -3143,14 +3144,14 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Wie viele Lösungen hat x⁴ − 5x² + 4 = 0?"
+    "text": "Wie viele Lösungen hat (x² − 5)⁴ = 16?"
    },
    "o": {
     "wert": 4
    },
    "c": "2 + 2",
-   "w": "Mit u = x²: u² − 5u + 4 = 0, also (u − 1)(u − 4) = 0. x² = 1 liefert ±1, x² = 4 liefert ±2. Vier Lösungen.",
-   "h": "Gib x² einen eigenen Namen.",
+   "w": "Gerader Exponent und 16 > 0: Die Klammer ist 2 oder −2, denn 2⁴ = (−2)⁴ = 16. x² − 5 = 2 gibt x² = 7, also x = √7 oder x = −√7. x² − 5 = −2 gibt x² = 3, also x = √3 oder x = −√3. Zusammen vier verschiedene Lösungen.",
+   "h": "Löse zuerst nach der Klammer auf.",
    "l": "anzahl",
    "t": "anzahl",
    "p": "bonus",
@@ -3992,14 +3993,14 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Löse x⁴ − 13x² + 36 = 0. Gib die größte Lösung an."
+    "text": "Löse (x² − 10)³ = −1. Gib die größte Lösung an."
    },
    "o": {
     "wert": 3
    },
    "c": "3",
-   "w": "Mit u = x²: u² − 13u + 36 = 0 ⇒ (u − 4)(u − 9) = 0. x² = 4 oder x² = 9: Lösungen ±2 und ±3. Größte: 3.",
-   "h": "Gib x² einen eigenen Namen.",
+   "w": "Ungerader Exponent: (x² − 10)³ = −1 hat für die Klammer genau eine Lösung, x² − 10 = −1, denn (−1)³ = −1. Also x² = 9 mit den Lösungen 3 und −3. Größte: 3.",
+   "h": "Löse zuerst nach der Klammer auf.",
    "l": "umformen",
    "t": "umformen",
    "p": "bonus",

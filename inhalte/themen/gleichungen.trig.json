@@ -4,7 +4,8 @@
  "block_id": 76,
  "klasse": {
   "gym_by": 9,
-  "rs_by": 10
+  "rs_by": 10,
+  "ib_myp": 5
  },
  "autor": "Claude (Paket Klasse 9)",
  "inhalt": {
@@ -4943,7 +4944,7 @@
   {
    "y": "luecken",
    "f": {
-    "text": "Löse 2 (sin x)² + sin x − 1 = 0 im Bereich 0° ≤ x < 360°.",
+    "text": "Löse (2 sin x − 1) · (sin x + 1) = 0 im Bereich 0° ≤ x < 360°.",
     "schablone": "x₁ = □°; x₂ = □°; x₃ = □°",
     "hinweis": "der Größe nach"
    },
@@ -4959,8 +4960,8 @@
     "180 - 30",
     "270"
    ],
-   "w": "Setze u = sin x: 2u² + u − 1 = 0, also u = (−1 ± 3) : 4, u = 0,5 oder u = −1. sin x = 0,5 gibt 30° und 150°, sin x = −1 gibt 270°.",
-   "h": "Ersetze sin x durch u und löse die quadratische Gleichung.",
+   "w": "Ein Produkt ist null, wenn ein Faktor null ist. Erster Faktor: 2 sin x − 1 = 0, also sin x = 0,5 mit den Lösungen 30° und 180° − 30° = 150°. Zweiter Faktor: sin x + 1 = 0, also sin x = −1, die Gondel ganz unten: 270°. Zusammen drei Lösungen.",
+   "h": "Wann ist ein Produkt null?",
    "l": "umformen",
    "t": "umformen",
    "p": "bonus",

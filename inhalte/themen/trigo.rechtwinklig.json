@@ -5,7 +5,7 @@
  "klasse": {
   "gym_by": 9,
   "rs_by": 9,
-  "ib_myp": 3
+  "ib_myp": 4
  },
  "autor": "Claude (Paket Klasse 9)",
  "inhalt": {
@@ -3019,7 +3019,7 @@
     "index": 0
    },
    "w": "sin: Gegenkathete/Hypotenuse, cos: Ankathete/Hypotenuse, tan: Gegenkathete/Ankathete.",
-   "h": "Denk an die Merkregel der Lernkarte.",
+   "h": "Welche Seite gehört zum Sinus: die gegenüber oder die am Winkel?",
    "l": "verhaeltnisse",
    "t": "verhaeltnisse",
    "p": "uebung",
@@ -6368,7 +6368,7 @@
     "toleranz": 0.1
    },
    "c": "round(17.32050807568877, 1)",
-   "w": "Schatten s = h : tan α. h : tan 30° − h : tan 60° = 20. Mit tan 30° ≈ 0,577 und tan 60° ≈ 1,732: h · (1,732 − 0,577) = 20, h ≈ 17,3 m (genau 10√3 m).",
+   "w": "Schatten s = h : tan α (tan α = h : s). Also h : tan 30° − h : tan 60° = 20. Es ist 1 : tan 30° ≈ 1 : 0,577 ≈ 1,732 und 1 : tan 60° ≈ 1 : 1,732 ≈ 0,577. Damit h · 1,732 − h · 0,577 = 20, also h · 1,155 = 20 und h ≈ 17,3 m.",
    "h": "Schreibe beide Schattenlängen mit h.",
    "l": "anwendung",
    "t": "anwendung",

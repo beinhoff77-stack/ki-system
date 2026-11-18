@@ -861,7 +861,7 @@ ST.typ('wurzelfunktion', '/^(Für die Schwingungsdauer|Wie weit man)/', 'transfe
 ST.neu('wurzelfunktion', 'fehler', A('Jemand sagt: „Die Umkehrfunktion von f(x) = x² (x ≥ 0) ist g(x) = 1/x².“ Was stimmt?', 'Falsch: Sie ist g(x) = √x.', ['Richtig.', 'Falsch: Sie ist g(x) = −x².', 'Falsch: Sie ist g(x) = x : 2.'],
        'Die Umkehrfunktion macht das Quadrieren rückgängig: aus 9 wird wieder 3 = √9. 1/x² ist der Kehrwert, keine Umkehrung.', 'Was macht Quadrieren rückgängig?'))
 ST.knobel('wurzelfunktion', Z('Für welche positive Zahl x gilt √x + √x = x?', 4, '2 ** 2',
-          '2√x = x. Setze w = √x: 2w = w², also w = 2 (w > 0). Dann x = 4. Probe: 2 + 2 = 4.', 'Gib √x einen eigenen Namen.'))
+          'Links steht 2√x, also 2√x = x. Beide Seiten quadrieren: 4x = x². Für x > 0 durch x teilen: x = 4. Probe: √4 + √4 = 2 + 2 = 4.', 'Fasse links zusammen und quadriere beide Seiten.'))
 ST.knobel('wurzelfunktion', Z('Die Graphen von y = ∛x und y = x/4 schneiden sich in einem Punkt mit x > 0. Bei welchem x?', 8, '8',
           '∛x = x/4. Hoch drei: x = x³/64, also (x > 0) x² = 64 und x = 8. Probe: ∛8 = 2 = 8/4.', 'Nimm beide Seiten hoch 3.'))
 

@@ -740,7 +740,7 @@ ST.neu('quadratwurzel', 'fehler', A('Jemand rechnet: √1 600 = 400, weil √16 
        'Falsch: Die Nullen werden halbiert, √1 600 = 40.', ['Richtig.', 'Falsch: √1 600 = 4 000.', 'Falsch: √1 600 = 800.'],
        '40 · 40 = 1 600, aber 400 · 400 = 160 000. Beim Wurzelziehen wird aus zwei Nullen eine.', 'Mach die Probe: Quadriere das Ergebnis.'))
 ST.neu('quadratwurzel', 'begruenden', A('Stimmt die Aussage: „Ist n eine Quadratzahl, dann ist auch 4 · n eine Quadratzahl.“?',
-       'Ja, denn √(4n) = 2 · √n ist wieder natürlich.', ['Nein, zum Beispiel ist 4 · 9 = 36 keine Quadratzahl.', 'Nur wenn n gerade ist.', 'Nur für n = 1.'],
+       'Ja: Ist n = m · m, dann ist 4 · n = (2 · m) · (2 · m).', ['Nein, zum Beispiel ist 4 · 9 = 36 keine Quadratzahl.', 'Nur wenn n gerade ist.', 'Nur für n = 1.'],
        'Ist n = m · m, dann ist 4n = (2m) · (2m). Beispiel: 4 · 9 = 36 = 6 · 6.', 'Schreibe n = m · m und 4 = 2 · 2.'))
 ST.neu('quadratwurzel', 'parameter', Z('Für welche kleinste natürliche Zahl k > 0 ist √(12 · k) eine natürliche Zahl?', 3, '36 // 12',
        '12 = 4 · 3. Damit 12k eine Quadratzahl ist, muss noch der Faktor 3 dazu: k = 3, √36 = 6.', 'Zerlege 12 in Faktoren. Welcher Faktor fehlt zur Quadratzahl?'))
@@ -751,8 +751,8 @@ ST.knobel('quadratwurzel', Z('Wie viele Quadratzahlen liegen zwischen 2 000 und 
           'Grenzen über Wurzeln: 44² = 1 936 < 2 000 < 2 025 = 45², und 54² = 2 916 < 3 000 < 3 025 = 55². Die Quadratzahlen dazwischen sind 45², 46², …, 54². Das sind 54 − 45 + 1 = 10 Zahlen.',
           'Du musst nicht alle Zahlen prüfen. Was weißt du über die Zahl, deren Quadrat knapp über 2 000 liegt?'))
 ST.knobel('quadratwurzel', Z('Eine Zahl x ist größer als 0. Zieht man aus x die Wurzel und zählt 3 dazu, kommt dasselbe heraus, wie wenn man von x die Zahl 39 abzieht. Welche Zahl ist x?', 49, '7 ** 2',
-          'Gesucht: √x + 3 = x − 39. Setze w = √x, dann ist x = w · w: w + 3 = w · w − 39, also w · w − w = 42. Probieren: 7 · 7 − 7 = 42. Also w = 7 und x = 49. Probe: √49 + 3 = 10 und 49 − 39 = 10.',
-          'Gib der Wurzel einen eigenen Namen. Was ist dann x?'))
+          'Gesucht: √x + 3 = x − 39. Schreibe x = √x · √x: √x + 3 = √x · √x − 39, also √x · √x − √x = 42, d. h. √x · (√x − 1) = 42. Gesucht ist eine Zahl, die mit der um 1 kleineren Zahl malgenommen 42 ergibt: 7 · 6 = 42. Größere Zahlen ergeben ein größeres Produkt, kleinere ein kleineres, also √x = 7 und x = 49. Probe: √49 + 3 = 10 und 49 − 39 = 10.',
+          'Schreibe x als √x · √x.'))
 
 # wurzel_dezimal
 ST.stufenleiter('wurzel_dezimal', 'Wurzel aus einer Dezimalzahl mit gerader Stellenzahl oder aus einem Bruch ziehen.',
@@ -790,9 +790,9 @@ ST.neu('wurzel_dezimal', 'pruefung', L('Ein quadratischer Gartenteich hat 6,25 m
 ST.knobel('wurzel_dezimal', Z('Wie groß ist √(0,1 · 0,4) + √(0,9 · 0,4)?', 0.8, '0.2 + 0.6',
           'Unter der Wurzel steht jeweils ein Produkt: 0,1 · 0,4 = 0,04 und 0,9 · 0,4 = 0,36. √0,04 = 0,2, √0,36 = 0,6. Zusammen 0,8.',
           'Rechne zuerst unter jeder Wurzel aus.'))
-ST.knobel('wurzel_dezimal', Z('Für wie viele natürliche Zahlen n von 1 bis 100 ist √(n/100) eine endliche Dezimalzahl?', 10, '100 // 10',
-          'Es gilt √(n/100) = √n : 10. Durch 10 teilen verschiebt nur das Komma. Also muss √n selbst eine endliche Dezimalzahl sein. Das klappt bei natürlichem n nur, wenn n eine Quadratzahl ist (sonst geht die Dezimalzahl nie zu Ende, z. B. √2 = 1,414…). Quadratzahlen von 1 bis 100: 1, 4, 9, …, 100 – das sind 10.',
-          'Zieh die Wurzel aus Zähler und Nenner getrennt.'))
+ST.knobel('wurzel_dezimal', Z('Für wie viele natürliche Zahlen n von 1 bis 100 ist √(n/100) eine Dezimalzahl mit höchstens einer Nachkommastelle (oder eine natürliche Zahl)?', 10, '100 // 10',
+          'Eine Zahl mit höchstens einer Nachkommastelle lässt sich als m : 10 schreiben (m natürlich), z. B. 0,7 = 7 : 10 oder 1 = 10 : 10. Ihr Quadrat ist m · m : 100. Also muss n/100 = m · m/100 sein, d. h. n = m · m ist eine Quadratzahl. Quadratzahlen von 1 bis 100: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100 – das sind 10.',
+          'Schreibe die Wurzel als m : 10 und quadriere.'))
 
 # kubikwurzel
 ST.stufenleiter('kubikwurzel', 'Dritte Wurzel einer Kubikzahl angeben, Kubikzahlen erkennen.',

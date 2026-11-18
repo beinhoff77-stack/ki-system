@@ -1223,7 +1223,7 @@ ST.neu('sinussatz_winkel', 'parameter', A('Gegeben sind a = 5 cm und α = 30°. 
        'sin β = b · 0,5 : 5 = b : 10. Zwei Winkel gibt es bei sin β < 1, also b < 10 cm. Der stumpfe passt nur, wenn b > a = 5 cm ist (sonst ist β < α).', 'Wann ist sin β < 1, wann ist β größer als α möglich?'))
 ST.neu('sinussatz_winkel', 'pruefung', L('Gegeben a = 8 cm, b = 6 cm und α = 70°. a) Berechne β, b) berechne γ (beide auf ganze Grad), c) Wie viele Dreiecke gibt es?', 'a) □°; b) □°; c) □', [45, 65, 1],
        ['round(44.810922533528014, 0)', '180 - 70 - 45', '1'], 'a) sin β = 6 · sin 70° : 8 ≈ 0,705, β ≈ 44,8° ≈ 45°. b) γ ≈ 180° − 70° − 45° = 65°. c) b < a, der stumpfe Wert 135,2° passt nicht: ein Dreieck.', 'Bei c) die Winkelsumme prüfen.'))
-ST.knobel('sinussatz_winkel', Z('Gegeben sind a = 6 cm und α = 30°. Wie lang muss b sein, damit es genau ein Dreieck mit β = 90° gibt?', 12, '6 * 1 / 0.5',
+ST.knobel('sinussatz_winkel', Z('Gegeben sind a = 6 cm und α = 30°. Wie lang muss b sein, damit der Winkel β genau 90° groß ist?', 12, '6 * 1 / 0.5',
           'Bei β = 90° ist sin β = 1. Sinussatz: b = a · sin β : sin α = 6 · 1 : 0,5 = 12 cm. Für b knapp darunter gäbe es zwei Dreiecke, darüber keines.',
           'Setze sin β = 1 ein.', einheit='cm'))
 ST.knobel('sinussatz_winkel', Z('Gegeben sind a = 7 cm, b = 10 cm und α = 35°. Es gibt zwei Dreiecke. Um wie viel Grad unterscheiden sich ihre Winkel γ? Runde auf eine Nachkommastelle.', 70.0, '69.9514647517104',

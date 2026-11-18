@@ -842,7 +842,7 @@ ST.neu('streckung', 'begruenden', A('Stimmt: Bei einer zentrischen Streckung ble
 ST.neu('streckung', 'pruefung', L("Das Dreieck A(1 | 1), B(3 | 1), C(1 | 4) wird mit Z(0 | 0) und k = 2 gestreckt. a) Gib C' an. b) Gib die Flächeninhalte von ABC und A'B'C' an (in Flächeneinheiten).", "a) C'(□ | □); b) □ und □", [2, 8, 3, 12],
        ['2 * 1', '2 * 4', '2 * 3 // 2', '4 * 3'], "a) C'(2 | 8). b) ABC ist rechtwinklig mit Katheten 2 und 3: Fläche 3. Das Bild hat k² = 4-mal so viel: 12.", 'Längen mal 2, Fläche mal 4.'))
 ST.knobel('streckung', L('P(3 | 2) wird erst mit dem Zentrum Z₁(0 | 0) und k = 2 gestreckt, das Ergebnis dann mit dem Zentrum Z₂(4 | 0) und k = 0,5. Wo landet P?', _P, [5, 2], ['4 + (6 - 4) // 2', '(4 - 0) // 2'],
-          "Erst: (6 | 4). Dann von Z₂(4 | 0): Vektor (2 | 4), halbiert (1 | 2), also (5 | 2). Bemerkenswert: Insgesamt ist P nur um 2 nach rechts verschoben worden – das gilt für jeden Punkt.",
+          "Erst: (6 | 4). Dann von Z₂(4 | 0): Vektor (2 | 4), halbiert (1 | 2), also (5 | 2). Bemerkenswert: Insgesamt ist P nur um 2 nach rechts verschoben worden. Das gilt für jeden Punkt (x | y): Aus (2x | 2y) wird (4 + 0,5 · (2x − 4) | 0,5 · 2y) = (x + 2 | y).",
           'Rechne beide Streckungen nacheinander.'))
 ST.knobel('streckung', Z('Ein Quadrat ABCD mit 4 cm Seite wird mit dem Zentrum A und k = 0,5 gestreckt. Wie viel Prozent des großen Quadrats bedeckt das kleine?', 25, '0.5 ** 2 * 100',
           'Das kleine Quadrat hat die Ecke A gemeinsam und 2 cm Seite, liegt also ganz im großen. Fläche 4 cm² von 16 cm²: 25 %. Allgemein: Fläche mal k² = 0,25.',

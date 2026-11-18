@@ -458,19 +458,23 @@ test('Zeichnungen: Koordinatensystem, Figur, Diagramme und Tabelle in den Erklä
     await page.locator('svg.lern-zeichnung').nth(i).screenshot({ path: path.join(root, `test-results/zeichnung-${n}.png`) });
 });
 
-test('Was wackelt? – je Lernkarte mit den echten falschen Antworten (eigener Knopf an der Kinderkarte)', async (t) => {
+test('Was wackelt? (LA-3) – Tabelle der Etappen mit Fehlern, aufgeklappt die echten falschen Antworten und „Kurz gesagt“', async (t) => {
   const { page } = await setup(t);
   await page.goto(origin + '/#/lernen');
   await page.getByRole('link', { name: 'Kind A', exact: true }).click(); // LA-1: Zeile → Seite des Kindes → Reiter „Was wackelt“
   await page.getByRole('link', { name: 'Was wackelt', exact: true }).click();
   await page.waitForURL(/#\/kind\/1-wackelt$/);
   await page.getByRole('heading', { name: 'Was wackelt?', exact: true }).waitFor();
-  await page.locator('.ls-wackelt .ls-karte', { hasText: 'Runden' }).getByText('5 falsch').waitFor();
-  await page.getByText('Letzte 7 Tage: 30 Bordkarten, davon 22 richtig, 4-mal mit Tipp.', { exact: false }).waitFor();
-  await page.getByText('Letzte falsche Antworten (1)').click();
+  await page.getByText('Diese Woche: 30 Bordkarten, 22 richtig, 4-mal mit Tipp', { exact: false }).waitFor();
+  assert.deepEqual(await page.locator('.ls-tabelle thead th').allInnerTexts(), ['ETAPPE', 'RICHTIG / FALSCH', 'HÄUFIGSTER FEHLER', 'SEIT']);
+  const zeilen = page.locator('.ls-tabelle tbody tr.ls-zeile');
+  assert.deepEqual(await zeilen.locator('th b').allInnerTexts(), ['Runden', 'Welchen Wert hat eine Ziffer?'], 'wackelt zuerst');
+  await zeilen.first().getByText('2 / 5').waitFor();
+  assert.equal(await page.getByText('Was kommt wann wieder?').count(), 0, 'Regelblock steht auf „So funktioniert’s“');
+  await zeilen.first().click();
   await page.getByText('Antwort: 929 000').waitFor();
   await page.getByText('richtig: 930 000').waitFor();
-  await page.locator('.ls-karte.ls-ok', { hasText: 'Welchen Wert hat eine Ziffer?' }).waitFor();
+  await page.locator('.ls-detail').getByRole('link', { name: 'Erklärung ansehen ›' }).waitFor();
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/lernstand-390.png'), fullPage: true });
 });
@@ -1229,6 +1233,7 @@ test('K4: Eltern – Stand über Schularten: Übersicht, Landkarte mit Einstiegs
   assert.ok(calls.some((c) => c.aktion === 'schule_lernstand' && c.daten.lernender_id === 1));
   // Lernstand zeigt die Zahl ebenfalls
   await page.getByRole('link', { name: /Was wackelt\?/ }).click();
+  await page.locator('.ls-alle summary').click(); // LA-3: Stand je Etappe unter „Alle Etappen mit Stand“
   await page.locator('.ls-bis-sitzt').waitFor();
   assert.equal(await page.locator('.ls-bis-sitzt').innerText(), 'sitzt nach 9 Bordkarten');
 });
@@ -1506,7 +1511,7 @@ test('F: Knobeln des Tages auf der Abflugtafel (einmal je Tag), Knobel-Sterne im
   assert.equal(await page.locator('.lr-knobel-tag').count(), 0, 'heute nur einmal');
   await page.goto(origin + '/#/reisepass/1'); await page.getByText('★ Knobel-Sterne: 2').waitFor();
   // Eltern: Lernstand und Inhalte
-  await page.goto(origin + '/#/wackelt/1'); await page.locator('.ls-knobel').first().waitFor();
+  await page.goto(origin + '/#/wackelt/1'); await page.locator('.ls-alle summary').click(); await page.locator('.ls-knobel').first().waitFor();
   assert.equal(await page.locator('.ls-knobel').first().innerText(), 'Knobel: 1 von 2');
   await page.goto(origin + '/#/inhalte/1'); await page.locator('details.lp-karte summary').first().click();
   const zeilen = page.locator('details.lp-karte').first().locator('.lp-tabelle tbody tr');
@@ -1588,7 +1593,7 @@ test('W176 T1: gelandet und sicher – Kind sieht „Gelandet“/„Sicher“, E
     Object.assign(y.einheiten[0].karten[1], { eigene_loesungen: 2, folge: 0, typen_anzahl: 1, sicher: false }); return y; };
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: ls });
   await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/Sicher! Du kannst trotzdem weiterüben./).waitFor();
-  await page.goto(origin + '/#/wackelt/1');
+  await page.goto(origin + '/#/wackelt/1'); await page.locator('.ls-alle summary').click();
   await page.locator('.ls-karte', { hasText: 'Welchen Wert hat eine Ziffer?' }).getByText('sicher', { exact: true }).waitFor();
   await page.locator('.ls-karte', { hasText: 'Runden' }).getByText('2 eigene Lösungen · 0 in Folge · 1 Art von Bordkarten').waitFor();
 });
@@ -1778,7 +1783,7 @@ test('H4/H1: Eltern – „Flug-Nachtest bestanden“ getrennt von „sicher“,
     Object.assign(y.einheiten[0].karten[0], { eigene_loesungen: 6, folge: 3, typen_anzahl: 2, sitzt: true, sicher: false, flug_nachtest: true });
     Object.assign(y.einheiten[0].karten[1], { eigene_loesungen: 4, folge: 0, typen_anzahl: 2, sitzt: false, wieder_offen: true, richtig: 6, falsch: 2 }); return y; };
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: ls });
-  await page.goto(origin + '/#/wackelt/1');
+  await page.goto(origin + '/#/wackelt/1'); await page.locator('.ls-alle summary').click();
   const a = page.locator('.ls-karte', { hasText: 'Welchen Wert hat eine Ziffer?' });
   await a.getByText('Flug-Nachtest bestanden').waitFor();
   assert.equal(await a.getByText('sicher', { exact: true }).count(), 0);
@@ -1841,8 +1846,8 @@ async function laLage(page, extra = {}) {
       if (d.lernender_id === 2) return antw({ kind: { id: 2, name: 'Kind B', klasse: 7 }, lerntage: [], woche: { aufgaben: 0, richtig: 0, mit_tipp: 0 }, einheiten: [], ...(extra.b || {}) });
       return antw({ kind: { id: 1, name: 'Kind A', klasse: 5 }, lerntage: [tagVor(0), tagVor(2)], woche: { aufgaben: 30, richtig: 22, mit_tipp: 4 },
         einheiten: [{ einheit_id: 1, titel: 'Natürliche Zahlen', ort: 'Rom', status: 'geprueft', zuletzt: new Date().toISOString(), karten: [
-          { lernziel: 'stellenwert', titel: 'Welchen Wert hat eine Ziffer?', serie: 2, ziel: 2, sitzt: true, sitzt_am: new Date(Date.now() - 864e5).toISOString(), richtig: 6, falsch: 1, mit_tipp: 0, faellig: false, fehler: [] },
-          { lernziel: 'runden', titel: 'Runden', serie: 0, ziel: 4, sitzt: false, richtig: 2, falsch: 5, mit_tipp: 3, faellig: false, zuletzt: new Date().toISOString(), regel: 'Ab 5 wird aufgerundet.',
+          { lernziel: 'stellenwert', titel: 'Welchen Wert hat eine Ziffer?', serie: 2, ziel: 2, sitzt: true, sitzt_am: new Date(Date.now() - 864e5).toISOString(), richtig: 6, falsch: 1, mit_tipp: 0, faellig: false, fehler: [], fehler_gruende: { vorzeichen: 1 } },
+          { lernziel: 'runden', titel: 'Runden', serie: 0, ziel: 4, sitzt: false, richtig: 2, falsch: 5, mit_tipp: 3, faellig: false, zuletzt: new Date().toISOString(), regel: 'Ab 5 wird aufgerundet.', fehler_gruende: { gerundet: 2, komma: 1 }, ...(extra.runden || {}),
             fehler: [{ frage: 'Runde 929 773 auf Tausender.', antwort: { wert: '929 000' }, antworttyp: 'zahl', loesung: { wert: 930000 }, am: new Date().toISOString(), grund: 'gerundet' },
               { frage: 'Runde 4 550 auf Hunderter.', antwort: { wert: '4 500' }, antworttyp: 'zahl', loesung: { wert: 4600 }, am: new Date().toISOString(), grund: 'gerundet' }] }] }], ...(extra.a || {}) });
     }
@@ -1863,7 +1868,7 @@ test('LA-2: Startseite „Was ist los?“ – Zu tun rot → gelb → blau, Kind
   assert.deepEqual(await zt.evaluateAll((ls) => ls.map((l) => l.className)), ['zt-rot', 'zt-rot', 'zt-gelb', 'zt-blau']);
   assert.deepEqual((await zt.allInnerTexts()).map((x) => x.replace('›', '').trim()), ['Kind B: kein Lerntag in den letzten 4 Wochen', 'Kind B: Rückreise Pisa – Nachtest nicht bestanden',
     'Kind A: „Runden“ wackelt (5 falsch)', 'Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen']);
-  assert.deepEqual(await zt.locator('a').evaluateAll((as) => as.map((a) => a.getAttribute('href'))), ['#/kind/2-ueberblick', '#/kind/2-plan', '#/kind/1-wackelt', '#/lernauftraege']);
+  assert.deepEqual(await zt.locator('a').evaluateAll((as) => as.map((a) => a.getAttribute('href'))), ['#/kind/2-ueberblick', '#/kind/2-plan', '#/kind/1-wackelt-1.runden', '#/lernauftraege']);
   // Tabelle: Kind B rot (0 Lerntage), Kind A grün
   const b = page.locator('.lern-kinder-tabelle tbody tr', { hasText: 'Kind B' });
   assert.match(await b.locator('td').nth(0).getAttribute('class'), /amp-rot/);
@@ -1937,6 +1942,35 @@ test('LA-6: ⚙ Einstellen – Blatt aus der Zeile und vom Kopf; Schule, Stand m
   // Plan-Seite hat keine Klasse, Stufen, Notizen, Vorlage mehr
   await page.getByRole('dialog').getByRole('button', { name: 'Schließen' }).click();
   for (const x of ['.lp-kindform', '.lern-plan-spalten ~ .lern-vorlage', 'textarea[aria-label="Notiz"]']) assert.equal(await page.locator('#main ' + x).count(), 0, x);
+});
+
+test('LA-3: Was wackelt – häufigster Fehler (erst ab 2), Kurz gesagt, „Besprochen ✓“ nimmt die Etappe aus „Zu tun“; von der Startseite mit einem Tipp', async (t) => {
+  const { page, calls } = await setup(t, { anpassen: laUebersicht });
+  await laLage(page);
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto(origin + '/#/lernen');
+  // ein Tipp: gelber Eintrag öffnet die Etappe aufgeklappt
+  await page.locator('.lern-zutun .zt-gelb a').click();
+  await page.waitForURL(/#\/kind\/1-wackelt-1\.runden$/);
+  const det = page.locator('.ls-detail');
+  await det.getByText('Antwort: 929 000').waitFor();
+  await det.getByText('Kurz gesagt: Ab 5 wird aufgerundet.').waitFor();
+  const zeilen = page.locator('.ls-tabelle tbody tr.ls-zeile');
+  assert.equal(await zeilen.nth(0).locator('td').nth(1).innerText(), 'falsch gerundet (2×)');
+  assert.equal(await zeilen.nth(1).locator('td').nth(1).innerText(), '–', 'nur eine Antwort mit grund → „–“');
+  await page.screenshot({ path: path.join(root, 'test-results/la3-wackelt-820.png'), fullPage: true });
+  await det.getByRole('button', { name: 'Besprochen ✓' }).click();
+  await zeilen.nth(0).getByText(/^besprochen \d/).waitFor();
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_notiz_setzen').at(-1).daten, { lernender_id: 1, besprochen: { einheit_id: 1, lernziel: 'runden' } });
+  await page.setViewportSize({ width: 400, height: 860 }); await page.screenshot({ path: path.join(root, 'test-results/la3-wackelt-400.png'), fullPage: true });
+});
+
+test('LA-3: besprochene Etappe steht nicht in „Zu tun“, bleibt aber in der Tabelle', async (t) => {
+  const { page } = await setup(t);
+  await laLage(page, { runden: { besprochen_am: new Date().toISOString() } });
+  await page.goto(origin + '/#/lernen'); await page.locator('.lern-zutun').waitFor();
+  assert.equal(await page.locator('.lern-zutun .zt-gelb').count(), 0);
+  await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-tabelle').getByText(/besprochen \d/).waitFor();
 });
 
 // ---------- IB einheitlich beschriften (18.11.): MYP-Jahr = Klasse − 5, Hinweis „entspricht etwa Klasse 6–10“ ----------

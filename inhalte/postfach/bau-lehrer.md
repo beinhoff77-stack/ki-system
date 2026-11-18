@@ -2,6 +2,26 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-18 – FERTIG: LA-3 Was wackelt (3B)
+
+**Migration** `supabase/migrations/20261119_la_3_besprochen.sql` (nicht ausgeführt; pglast ok; Ersetz-Stellen im Live-Text je genau einmal geprüft; kein DROP, kein DELETE; Skript-Prüfung auf Variable/Alias-Kollisionen ohne Treffer):
+- Neue Tabelle `schule.besprochen` (Kind, Einheit, Lernkarte, von, am; eine Zeile je Kind + Etappe, RLS an wie die übrigen schule-Tabellen).
+  `schule.besprochen_aktiv(…)`: gilt, solange danach keine **endgültig** falsche Antwort in der Etappe kam (1. Versuch mit zweiter Chance zählt nicht).
+- Setzen über die **bestehende** Aktion `schule_notiz_setzen` mit `{lernender_id, besprochen: {einheit_id, lernziel}}` – keine neue Aktion in `lernen-api`. Lehrer und Eltern (ist_leiter), Zugriff auf das Kind geprüft.
+- `schule_lernstand` je Etappe neu: `regel` („Kurz gesagt“), `besprochen_am`/`besprochen_von` (nur gültig), `fehler_gruende` {grund: Anzahl}; in `fehler[]` je Antwort `grund`.
+  `grund` wird – wie beim Prüfen – aus der gespeicherten Antwort berechnet (`antwort_bewerten`); in `versuch` gibt es keine Spalte dafür.
+- Rauchtest `supabase/tests/la_3_rauchtest.sql` (Rollback, Testkind): besprochen aktiv → 1. Versuch falsch bleibt → endgültig falsch holt zurück; Fehlerarten als Objekt.
+
+**App:** Reiter „Was wackelt“ = Kopfzeile „Diese Woche: n Bordkarten, n richtig · n Lerntage“, dann **eine Tabelle** aller Etappen mit Fehlern (wackelt zuerst, dann nach Datum): Etappe (Ort darunter) · richtig / falsch · häufigster Fehler · seit.
+- Häufigster Fehler nur, wenn ein `grund` bei mindestens zwei falschen Antworten vorkommt, sonst „–“ (Abweichung 5). Keine Aussage, wie das Kind gerechnet hat.
+- „seit“ = Datum der ältesten der (bis zu 3) gespeicherten letzten falschen Antworten – schlichteste Lösung; die Datenbank liefert keinen „wackelt seit“.
+- Zeile antippen: letzte 3 falsche Antworten (Bordkarte · Antwort · richtig), „Kurz gesagt“, „Erklärung ansehen ›“, „Besprochen ✓“. Danach Marke „besprochen 18.11.“, Etappe fällt aus „Zu tun“.
+  Ohne Migration meldet der Knopf „‚Besprochen‘ geht, sobald die Datenbank dafür bereit ist.“
+- Gelber „Zu tun“-Eintrag öffnet die Etappe schon aufgeklappt → **1 Tipp** von der Startseite zu den falschen Antworten (Ziel: höchstens 2).
+- Regelblock „Was kommt wann wieder?“ entfällt hier (steht auf „So funktioniert’s“ unter „Wie wird gelernt?“). Der bisherige Stand je Etappe steht zugeklappt unter „Alle Etappen mit Stand“.
+- „Kurz gesagt“ fehlt in keiner Etappe der Themen-Dateien? – nicht geprüft (Inhalts-Chats); fehlt `regel`, entfällt die Zeile.
+- Bilder: `docs/previews/la/la3-wackelt-820.png`, `la3-wackelt-400.png`. Info-Seite: Eintrag „Was wackelt“. Tests: lernen 76 von 76.
+
 ## 2026-11-18 – FERTIG: LA-6 Einstellungen (6B)
 
 - „⚙ Einstellen“ (mit Text) in der Tabellenzeile/Karte der Startseite und im Kopf der Kind-Seite öffnet ein Blatt „Kind A einstellen“ – Tablet/Rechner von rechts, Handy von unten; Esc, × oder Tippen daneben schließt.

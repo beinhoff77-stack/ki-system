@@ -4274,3 +4274,20 @@ nav.lern-reiter { background: transparent; padding: 0; border-radius: 0; box-sha
 .lern-blatt-stufen label { display: grid; grid-template-columns: 7em 1fr; align-items: center; gap: 8px; }
 .lern-blatt-rueckfrage { margin-top: 8px; padding: 10px; border-radius: 10px; background: var(--warn-bg); }
 .lern-blatt-verlauf h4 { margin: 10px 0 4px; }
+/* LA-3: Was wackelt */
+.ls-woche { margin: 4px 0 10px; font-weight: 600; }
+.ls-tabelle { width: 100%; border-collapse: collapse; }
+.ls-tabelle th, .ls-tabelle td { padding: 8px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.ls-tabelle thead th { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; white-space: nowrap; }
+.ls-zeile { cursor: pointer; }
+.ls-zeile:hover { background: var(--surface-muted); }
+.ls-zeile th small { display: block; color: var(--text-muted); font-weight: 400; }
+.ls-auf { background: none; border: 0; padding: 0; font: inherit; color: var(--text); text-align: left; cursor: pointer; min-height: 32px; }
+.ls-marke { display: inline-block; margin-top: 4px; margin-right: 6px; padding: 1px 8px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; }
+.ls-marke-w { background: var(--warn-bg); color: var(--warn); }
+.ls-marke-b { background: var(--ok-bg); color: var(--ok); }
+.ls-detail td { background: var(--surface-muted); }
+.ls-antworten { margin: 4px 0 8px; padding-left: 18px; display: grid; gap: 6px; }
+.ls-kurz { margin: 6px 0; padding: 8px 10px; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 6px; }
+.ls-alle { margin-top: 12px; }
+.ls-alle > summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }

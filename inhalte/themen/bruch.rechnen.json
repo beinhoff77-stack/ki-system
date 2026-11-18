@@ -7811,8 +7811,8 @@
     "wert": 10
    },
    "c": "10",
-   "w": "Ohne Komma ist 5 · 5 · … · 5 eine Zahl, die auf 5 endet – es fällt also keine Null am Ende weg. Die zehn Faktoren haben je eine Nachkommastelle: 10 Stellen (0,0009765625).",
-   "h": "Endet 5 · 5 · 5 · … auf 0?"
+   "w": "Ohne Komma ist das Produkt aus zehn Fünfen eine Zahl, die auf 5 endet – es fällt also keine Null am Ende weg. Die zehn Faktoren haben je eine Nachkommastelle: 10 Stellen (0,0009765625).",
+   "h": "Auf welche Ziffer endet ein Produkt aus lauter Fünfen?"
   },
   {
    "l": "dezimal_mal",
@@ -8045,7 +8045,7 @@
    "g": "transfer",
    "y": "zahl",
    "f": {
-    "text": "Ein Läufer schafft 400 m in 1 min 20 s. Wie viele Meter läuft er im Durchschnitt in einer Sekunde?"
+    "text": "Ein Läufer schafft 400 m in 1 min 20 s. Wie viele Meter läuft er in einer Sekunde, wenn er immer gleich schnell läuft?"
    },
    "o": {
     "wert": 5,

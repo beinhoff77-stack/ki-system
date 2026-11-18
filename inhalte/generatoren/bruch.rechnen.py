@@ -1547,8 +1547,8 @@ N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n ab 1 ist n · 0,3 klei
 N(lz, Z('verknuepfen', 'Ein Rechteck ist 2,5 m lang und 1,2 m breit. Wie groß ist sein Flächeninhalt?', 3, '2.5 * 1.2', '2,5 · 1,2 = 3 m².', 'Fläche = Länge mal Breite.', einheit='m²'))
 N(lz, Z('transfer', 'Ein Blatt Papier ist 0,1 mm dick. Wie hoch ist ein Stapel aus 2 500 Blättern in Zentimetern?', 25, '2500 * 0.1 / 10', '2 500 · 0,1 mm = 250 mm = 25 cm.', 'Rechne erst in mm, dann in cm.', einheit='cm'))
 K(lz, Z('knobel', 'Wie viele Nachkommastellen hat das Ergebnis von 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 · 0,5 (zehnmal 0,5)?', 10, '10',
-        'Ohne Komma ist 5 · 5 · … · 5 eine Zahl, die auf 5 endet – es fällt also keine Null am Ende weg. Die zehn Faktoren haben je eine Nachkommastelle: 10 Stellen (0,0009765625).',
-        'Endet 5 · 5 · 5 · … auf 0?'))
+        'Ohne Komma ist das Produkt aus zehn Fünfen eine Zahl, die auf 5 endet – es fällt also keine Null am Ende weg. Die zehn Faktoren haben je eine Nachkommastelle: 10 Stellen (0,0009765625).',
+        'Auf welche Ziffer endet ein Produkt aus lauter Fünfen?'))
 K(lz, Z('knobel', 'Zwei Dezimalzahlen mit je einer Nachkommastelle haben das Produkt 0,72 und die Summe 1,7. Wie heißt die größere?', 0.9, '0.9',
         'Ohne Komma: Beide Zahlen haben eine Nachkommastelle, also gesucht sind zwei Zahlen mit Produkt 72 und Summe 17. Zerlegungen von 72: 1 · 72, 2 · 36, 3 · 24, 4 · 18, 6 · 12, 8 · 9. Nur bei 8 und 9 ist die Summe 17. Also 0,8 und 0,9; die größere ist 0,9. Probe: 0,8 · 0,9 = 0,72 und 0,8 + 0,9 = 1,7.', 'Rechne ohne Komma: Welche zwei Zahlen haben das Produkt 72?'))
 
@@ -1568,7 +1568,7 @@ N(lz, Z('parameter', 'Für wie viele natürliche Zahlen n von 1 bis 20 ist 6 : n
         'Das gilt, wenn 60 : n ganz ist: n = 1, 2, 3, 4, 5, 6, 10, 12, 15, 20. Zum Beispiel 6 : 4 = 1,5 und 6 : 15 = 0,4. Bei n = 8 kommt 0,75 heraus. Also 10.', 'Rechne 6 : n als 60 : n Zehntel.'))
 N(lz, Z('pruefung', 'Ein Auto braucht 6,4 l Benzin auf 100 km. Der Tank fasst 48 l. Wie viele Kilometer kommt es mit einem vollen Tank?', 750, '48 / 6.4 * 100',
         '48 : 6,4 = 480 : 64 = 7,5. Also 7,5 · 100 km = 750 km.', 'Wie oft passen 6,4 l in 48 l?', einheit='km'))
-N(lz, Z('transfer', 'Ein Läufer schafft 400 m in 1 min 20 s. Wie viele Meter läuft er im Durchschnitt in einer Sekunde?', 5, '400 / 80', '1 min 20 s = 80 s. 400 m : 80 s = 5 m je Sekunde.', 'Rechne die Zeit zuerst in Sekunden um.', einheit='m'))
+N(lz, Z('transfer', 'Ein Läufer schafft 400 m in 1 min 20 s. Wie viele Meter läuft er in einer Sekunde, wenn er immer gleich schnell läuft?', 5, '400 / 80', '1 min 20 s = 80 s. 400 m : 80 s = 5 m je Sekunde.', 'Rechne die Zeit zuerst in Sekunden um.', einheit='m'))
 K(lz, Z('knobel', 'Teilt man eine Zahl durch 0,25, erhält man dasselbe, wie wenn man 12 zu ihr addiert. Wie heißt die Zahl?', 4, '12 / 3',
         'Durch 0,25 teilen heißt mal 4 nehmen. Das Vierfache ist um 12 größer als die Zahl, also sind 3-mal die Zahl 12: Die Zahl ist 4. Probe: 4 : 0,25 = 16 = 4 + 12.',
         'Womit kannst du „durch 0,25“ ersetzen?'))

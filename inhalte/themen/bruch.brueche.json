@@ -33,6 +33,8 @@
      "erweitern",
      "ggt",
      "kuerzen",
+     "verhaeltnis_kuerzen",
+     "gleichwertig",
      "gemischte_zahlen"
     ]
    },
@@ -361,6 +363,96 @@
        "teile": 12,
        "gefaerbt": 9,
        "teil_text": "9/12"
+      }
+     ]
+    }
+   },
+   {
+    "lernziel": "verhaeltnis_kuerzen",
+    "titel": "Verhältnisse kürzen",
+    "regel": "Verhältnis kürzen: ⟦beide Zahlen durch dieselbe Zahl⟧ teilen. Vorher gleiche Einheiten herstellen.",
+    "schritte": [
+     {
+      "text": "Mädchen : Jungen = 12 : 18."
+     },
+     {
+      "text": "Zum Kürzen: Beide Zahlen sind durch 6 teilbar."
+     },
+     {
+      "text": "12 : 6 = 2 und 18 : 6 = 3. Gekürzt: ⟦2 : 3⟧.",
+      "bild": {
+       "zeilen": [
+        {
+         "teile": 5,
+         "gefaerbt": 2
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "1 m : 25 cm ist nicht 1 : 25. Erst ⟦gleiche Einheiten⟧: 100 cm : 25 cm = 4 : 1.",
+    "einstieg": "In der Klasse sind 12 Mädchen und 18 Jungen. Auf 2 Mädchen kommen also 3 Jungen. So einen Vergleich nennt man ⟦Verhältnis⟧, geschrieben 2 : 3.",
+    "woerter": [
+     [
+      "Verhältnis",
+      "Vergleich zweier Größen, geschrieben a : b"
+     ],
+     [
+      "kürzen",
+      "beide Zahlen durch dieselbe Zahl teilen"
+     ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 30,
+     "gefaerbt": 12,
+     "ganzes": "30 Kinder",
+     "teil_text": "12 Mädchen"
+    }
+   },
+   {
+    "lernziel": "gleichwertig",
+    "titel": "Gleichwertige Verhältnisse",
+    "regel": "Gleichwertig: beide Zahlen ⟦mit derselben Zahl malnehmen⟧ oder teilen. Addieren verändert das Verhältnis.",
+    "schritte": [
+     {
+      "text": "Gesucht: 3 : 5 = □ : 20."
+     },
+     {
+      "text": "Von 5 nach 20 nimmt man mal 4."
+     },
+     {
+      "text": "Also auch 3 · 4 = 12: ⟦3 : 5 = 12 : 20⟧.",
+      "bild": {
+       "zeilen": [
+        {
+         "teile": 32,
+         "gefaerbt": 12
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "18 : 20 ist falsch: Zu beiden 15 addieren verändert den Geschmack. Bei Verhältnissen wird ⟦multipliziert⟧.",
+    "einstieg": "Für Saft mischst du 3 Becher Sirup mit 5 Bechern Wasser. Für eine große Kanne nimmst du von beidem viermal so viel. Der Saft schmeckt gleich: Die Verhältnisse sind ⟦gleichwertig⟧.",
+    "woerter": [
+     [
+      "gleichwertig",
+      "beide Zahlen mit derselben Zahl malgenommen; das Verhältnis bleibt gleich"
+     ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 8,
+     "gefaerbt": 3,
+     "ganzes": "8 Becher",
+     "teil_text": "3 Sirup"
+    },
+    "fehler_bild": {
+     "zeilen": [
+      {
+       "teile": 38,
+       "gefaerbt": 18
       }
      ]
     }
@@ -898,6 +990,20 @@
     "lernziele": [
      "kgv"
     ]
+   },
+   {
+    "k": "verhaeltnis_kuerzen",
+    "text": "Verhältnisse kürzen",
+    "lernziele": [
+     "verhaeltnis_kuerzen"
+    ]
+   },
+   {
+    "k": "gleichwertig",
+    "text": "Gleichwertige Verhältnisse",
+    "lernziele": [
+     "gleichwertig"
+    ]
    }
   ],
   "bewertung": {
@@ -915,7 +1021,10 @@
     "ggt",
     "kgv"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "verhaeltnis_kuerzen",
+    "gleichwertig"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -13457,6 +13566,1440 @@
    },
    "c": "18 * 1",
    "w": "Vielfache von 18: 18. Das erste, das auch zu 6 passt, ist 18."
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 105 : 180 so weit wie möglich.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     7,
+     12
+    ]
+   },
+   "w": "105 und 180 haben den größten gemeinsamen Teiler 15. Gekürzt: 7 : 12.",
+   "h": "Kürze schrittweise, z. B. erst durch 2, dann weiter, bis es nicht mehr geht.",
+   "c": [
+    "105 // 15",
+    "180 // 15"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Im Zoo sind heute 27 Erwachsene und 63 Kinder. Gib das Verhältnis Erwachsene : Kinder gekürzt an.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "w": "Größter gemeinsamer Teiler: 9. 27 : 9 = 3, 63 : 9 = 7. Also 3 : 7.",
+   "h": "Teile beide Zahlen durch ihren größten gemeinsamen Teiler.",
+   "c": [
+    "27 // 9",
+    "63 // 9"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 12 : 18 so weit wie möglich.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "12 und 18 haben den größten gemeinsamen Teiler 6. Gekürzt: 2 : 3.",
+   "h": "Kürze schrittweise, z. B. erst durch 2, dann weiter, bis es nicht mehr geht.",
+   "c": [
+    "12 // 6",
+    "18 // 6"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Klasse sind 63 Mädchen und 45 Jungen. Gib das Verhältnis Mädchen : Jungen gekürzt an.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     7,
+     5
+    ]
+   },
+   "w": "Größter gemeinsamer Teiler: 9. 63 : 9 = 7, 45 : 9 = 5. Also 7 : 5.",
+   "h": "Teile beide Zahlen durch ihren größten gemeinsamen Teiler.",
+   "c": [
+    "63 // 9",
+    "45 // 9"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 5 m : 40 cm.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     25,
+     2
+    ]
+   },
+   "w": "5 m = 500 cm. 500 : 40 gekürzt durch 20: 25 : 2.",
+   "h": "Rechne zuerst m in cm um.",
+   "c": [
+    "500 // 20",
+    "40 // 20"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Dose liegen 28 rote und 12 blaue Perlen. Gib das Verhältnis rote : blaue Perlen gekürzt an.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     7,
+     3
+    ]
+   },
+   "w": "Größter gemeinsamer Teiler: 4. 28 : 4 = 7, 12 : 4 = 3. Also 7 : 3.",
+   "h": "Teile beide Zahlen durch ihren größten gemeinsamen Teiler.",
+   "c": [
+    "28 // 4",
+    "12 // 4"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 2 h : 30 min.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     4,
+     1
+    ]
+   },
+   "w": "2 h = 120 min. 120 : 30 gekürzt durch 30: 4 : 1.",
+   "h": "Rechne zuerst h in min um.",
+   "c": [
+    "120 // 30",
+    "30 // 30"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Kiste liegen 20 Äpfel und 32 Birnen. Gib das Verhältnis Äpfel : Birnen gekürzt an.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "w": "Größter gemeinsamer Teiler: 4. 20 : 4 = 5, 32 : 4 = 8. Also 5 : 8.",
+   "h": "Teile beide Zahlen durch ihren größten gemeinsamen Teiler.",
+   "c": [
+    "20 // 4",
+    "32 // 4"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 5 l : 250 ml.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     20,
+     1
+    ]
+   },
+   "w": "5 l = 5 000 ml. 5 000 : 250 gekürzt durch 250: 20 : 1.",
+   "h": "Rechne zuerst l in ml um.",
+   "c": [
+    "5000 // 250",
+    "250 // 250"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Saft wird aus 8 l Orangensaft, 12 l Apfelsaft und 16 l Wasser gemischt. Gib das Verhältnis gekürzt an.",
+    "schablone": "□ : □ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     2,
+     3,
+     4
+    ]
+   },
+   "w": "Alle drei Zahlen durch 4 teilen: 2 : 3 : 4.",
+   "h": "Auch bei drei Zahlen: durch den gemeinsamen Teiler aller drei teilen.",
+   "c": [
+    "8 // 4",
+    "12 // 4",
+    "16 // 4"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 4 € : 15 ct.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     80,
+     3
+    ]
+   },
+   "w": "4 € = 400 ct. 400 : 15 gekürzt durch 5: 80 : 3.",
+   "h": "Rechne zuerst € in ct um.",
+   "c": [
+    "400 // 5",
+    "15 // 5"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 1,5 : 0,5 auf ganze Zahlen.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     3,
+     1
+    ]
+   },
+   "w": "Mit 2 multiplizieren: 1,5 · 2 = 3, 0,5 · 2 = 1. Also 3 : 1.",
+   "h": "Multipliziere zuerst beide Zahlen, bis keine Kommazahl mehr da ist.",
+   "c": [
+    "1.5 * 2",
+    "0.5 * 2"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Dose liegen 12 rote und 16 blaue Perlen. Gib das Verhältnis rote : blaue Perlen gekürzt an.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "Größter gemeinsamer Teiler: 4. 12 : 4 = 3, 16 : 4 = 4. Also 3 : 4.",
+   "h": "Teile beide Zahlen durch ihren größten gemeinsamen Teiler.",
+   "c": [
+    "12 // 4",
+    "16 // 4"
+   ],
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verhältnis ist 12 : 18 vollständig gekürzt?"
+   },
+   "a": [
+    "3 : 2",
+    "6 : 9",
+    "2 : 3",
+    "4 : 6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "12 und 18 sind beide durch 6 teilbar: 12 : 6 = 2, 18 : 6 = 3. 4 : 6 und 6 : 9 lassen sich noch weiter kürzen.",
+   "h": "Suche den größten gemeinsamen Teiler.",
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 2 : 3,5 auf ganze Zahlen.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     4,
+     7
+    ]
+   },
+   "w": "Mit 2 multiplizieren: 2 · 2 = 4, 3,5 · 2 = 7. Also 4 : 7.",
+   "h": "Multipliziere zuerst beide Zahlen, bis keine Kommazahl mehr da ist.",
+   "c": [
+    "2.0 * 2",
+    "3.5 * 2"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Klasse ist das Verhältnis Mädchen : Jungen = 3 : 4. Welcher Anteil der Klasse sind Mädchen?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner eintragen."
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "c": [
+    "3",
+    "3 + 4"
+   ],
+   "w": "3 + 4 = 7 Teile, davon 3 Mädchen: 3/7.",
+   "h": "Wie viele Teile sind es insgesamt?",
+   "g": "darstellung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Verhältnis wurde durch 5 gekürzt und lautet jetzt 3 : 8. Wie hieß die erste Zahl vorher?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "3 * 5",
+   "w": "Kürzen durch 5 heißt: beide Zahlen wurden durch 5 geteilt. Rückwärts: 3 · 5 = 15 (und 8 · 5 = 40).",
+   "h": "Mache das Kürzen rückgängig.",
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Saft wird aus 40 l Orangensaft, 48 l Apfelsaft und 32 l Wasser gemischt. Gib das Verhältnis gekürzt an.",
+    "schablone": "□ : □ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     5,
+     6,
+     4
+    ]
+   },
+   "w": "Alle drei Zahlen durch 8 teilen: 5 : 6 : 4.",
+   "h": "Auch bei drei Zahlen: durch den gemeinsamen Teiler aller drei teilen.",
+   "c": [
+    "40 // 8",
+    "48 // 8",
+    "32 // 8"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe das Verhältnis 3/4 : 1/2 mit möglichst kleinen ganzen Zahlen.",
+    "schablone": "□ : □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "c": [
+    "3",
+    "2"
+   ],
+   "w": "Mal 4: 3/4 · 4 = 3 und 1/2 · 4 = 2. Also 3 : 2.",
+   "h": "Multipliziere beide Teile mit dem gemeinsamen Nenner.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Gruppe ist das Verhältnis Mädchen : Jungen = 2 : 3. Kommen 2 Mädchen dazu, ist es 1 : 1. Wie viele Kinder waren es vorher?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5*2",
+   "w": "Bei 2 : 3 haben die Jungen 1 Teil mehr als die Mädchen. Mit 2 neuen Mädchen sind es gleich viele, also ist 1 Teil = 2 Kinder. Vorher: 2 · 2 = 4 Mädchen und 3 · 2 = 6 Jungen, zusammen 10. Probe: 6 : 6 = 1 : 1.",
+   "h": "Probiere k = 1, 2, 3 für 2k : 3k.",
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand kürzt 24 : 36 zu 4 : 6 und sagt: „Weiter geht es nicht.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Richtig ist 3 : 4.",
+    "Falsch: 4 : 6 lässt sich noch durch 2 kürzen: 2 : 3.",
+    "Falsch: Richtig ist 6 : 9."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4 und 6 sind beide gerade. Mit dem größten gemeinsamen Teiler 12 kürzt man direkt: 24 : 36 = 2 : 3.",
+   "h": "Haben 4 und 6 noch einen gemeinsamen Teiler?",
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: Das Verhältnis 7 : 9 lässt sich nicht weiter kürzen?"
+   },
+   "a": [
+    "Nur, wenn man Dezimalzahlen erlaubt.",
+    "Ja, 7 und 9 haben außer 1 keinen gemeinsamen Teiler.",
+    "Nein, durch 7.",
+    "Nein, durch 3."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Teiler von 7: 1, 7. Teiler von 9: 1, 3, 9. Gemeinsam ist nur die 1, also ist 7 : 9 schon vollständig gekürzt.",
+   "h": "Schreibe die Teiler beider Zahlen auf.",
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "In einer Schule sind 240 Mädchen und 288 Jungen. a) Gib das Verhältnis Mädchen : Jungen gekürzt an. b) Welcher Anteil aller Kinder sind Mädchen? Gib ihn als gekürzten Bruch an.",
+    "schablone": "a) □ : □; b) □/□",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
+     6,
+     5,
+     11
+    ]
+   },
+   "c": [
+    "240 // 48",
+    "288 // 48",
+    "5",
+    "5 + 6"
+   ],
+   "w": "a) Größter gemeinsamer Teiler 48: 5 : 6. b) 5 von 5 + 6 = 11 Teilen: 5/11.",
+   "h": "Bei b) zählen alle Teile zusammen.",
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Zahlen stehen im Verhältnis 3 : 5. Addiert man zu jeder 4, stehen sie im Verhältnis 2 : 3. Wie heißen die Zahlen?",
+    "schablone": "□ und □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     12,
+     20
+    ]
+   },
+   "c": [
+    "3 * 4",
+    "5 * 4"
+   ],
+   "w": "Probiere gleichwertige Paare zu 3 : 5 und addiere jeweils 4: 3 und 5 → 7 : 9; 6 und 10 → 10 : 14 = 5 : 7; 9 und 15 → 13 : 19; 12 und 20 → 16 : 24 = 2 : 3. Also 12 und 20.",
+   "h": "Schreibe die Zahlen als 3k und 5k.",
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Es gilt a : b = 2 : 3 und b : c = 4 : 5. Gib a : b : c mit möglichst kleinen ganzen Zahlen an.",
+    "schablone": "□ : □ : □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     8,
+     12,
+     15
+    ]
+   },
+   "c": [
+    "8",
+    "12",
+    "15"
+   ],
+   "w": "b muss in beiden Verhältnissen gleich sein. 3 und 4 haben das kleinste gemeinsame Vielfache 12: a : b = 8 : 12 und b : c = 12 : 15. Also 8 : 12 : 15.",
+   "h": "Bringe b in beiden Verhältnissen auf dieselbe Zahl.",
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 120 : 56 so weit wie möglich.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     15,
+     7
+    ]
+   },
+   "w": "120 und 56 haben den größten gemeinsamen Teiler 8. Gekürzt: 15 : 7.",
+   "c": [
+    "120 // 8",
+    "56 // 8"
+   ]
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 2 m : 10 cm.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     20,
+     1
+    ]
+   },
+   "w": "2 m = 200 cm. 200 : 10 gekürzt durch 10: 20 : 1.",
+   "c": [
+    "200 // 10",
+    "10 // 10"
+   ]
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 1 h : 45 min.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "w": "1 h = 60 min. 60 : 45 gekürzt durch 15: 4 : 3.",
+   "c": [
+    "60 // 15",
+    "45 // 15"
+   ]
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 5 h : 10 min.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     30,
+     1
+    ]
+   },
+   "w": "5 h = 300 min. 300 : 10 gekürzt durch 10: 30 : 1.",
+   "c": [
+    "300 // 10",
+    "10 // 10"
+   ]
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 1 m : 10 cm.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     10,
+     1
+    ]
+   },
+   "w": "1 m = 100 cm. 100 : 10 gekürzt durch 10: 10 : 1.",
+   "c": [
+    "100 // 10",
+    "10 // 10"
+   ]
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 5 € : 300 ct.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     5,
+     3
+    ]
+   },
+   "w": "5 € = 500 ct. 500 : 300 gekürzt durch 100: 5 : 3.",
+   "c": [
+    "500 // 100",
+    "300 // 100"
+   ]
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 3 kg : 400 g.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     15,
+     2
+    ]
+   },
+   "w": "3 kg = 3 000 g. 3 000 : 400 gekürzt durch 200: 15 : 2.",
+   "c": [
+    "3000 // 200",
+    "400 // 200"
+   ]
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 5 l : 300 ml.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     50,
+     3
+    ]
+   },
+   "w": "5 l = 5 000 ml. 5 000 : 300 gekürzt durch 100: 50 : 3.",
+   "c": [
+    "5000 // 100",
+    "300 // 100"
+   ]
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 4 h : 10 min.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     24,
+     1
+    ]
+   },
+   "w": "4 h = 240 min. 240 : 10 gekürzt durch 10: 24 : 1.",
+   "c": [
+    "240 // 10",
+    "10 // 10"
+   ]
+  },
+  {
+   "l": "verhaeltnis_kuerzen",
+   "t": "verhaeltnis_kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 3 l : 400 ml.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     15,
+     2
+    ]
+   },
+   "w": "3 l = 3 000 ml. 3 000 : 400 gekürzt durch 200: 15 : 2.",
+   "c": [
+    "3000 // 200",
+    "400 // 200"
+   ]
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 5 : 8 = 45 : □"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "8 * 9",
+   "w": "5 · 9 = 45, also auch 8 · 9 = 72.",
+   "h": "Mit welcher Zahl wird 5 multipliziert, um 45 zu erhalten?",
+   "g": "direkt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mischung A: Sirup und Wasser im Verhältnis 3 : 4. Mischung B: 1 : 8. Welche schmeckt stärker nach Sirup?"
+   },
+   "a": [
+    "Beide gleich stark",
+    "Mischung B",
+    "Mischung A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleichnamig machen: A = 24 : 32, B = 4 : 32. Bei gleicher Wassermenge hat A mehr Sirup.",
+   "h": "Bringe beide Verhältnisse auf dieselbe Wassermenge.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 7 : 6 = 28 : □"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "6 * 4",
+   "w": "7 · 4 = 28, also auch 6 · 4 = 24.",
+   "h": "Mit welcher Zahl wird 7 multipliziert, um 28 zu erhalten?",
+   "g": "direkt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verhältnis ist gleichwertig zu 6 : 7?"
+   },
+   "a": [
+    "28 : 24",
+    "24 : 29",
+    "12 : 13",
+    "24 : 28"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "6 · 4 = 24 und 7 · 4 = 28: beide Zahlen mit 4 multipliziert.",
+   "h": "Prüfe, ob beide Zahlen mit derselben Zahl multipliziert wurden.",
+   "g": "erkennen"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 6 : 11 = □ : 22"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "6 * 2",
+   "w": "11 · 2 = 22, also auch 6 · 2 = 12.",
+   "h": "Mit welcher Zahl wird 11 multipliziert, um 22 zu erhalten?",
+   "g": "direkt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mischung A: Sirup und Wasser im Verhältnis 5 : 3. Mischung B: 2 : 7. Welche schmeckt stärker nach Sirup?"
+   },
+   "a": [
+    "Mischung B",
+    "Beide gleich stark",
+    "Mischung A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleichnamig machen: A = 35 : 21, B = 6 : 21. Bei gleicher Wassermenge hat A mehr Sirup.",
+   "h": "Bringe beide Verhältnisse auf dieselbe Wassermenge.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mehl, Zucker und Butter stehen im Verhältnis 5 : 2 : 3. Man nimmt 600 g Butter. Wie viel Gramm Mehl braucht man?"
+   },
+   "o": {
+    "wert": 1000,
+    "einheit": "g"
+   },
+   "c": "600/3*5",
+   "w": "3 Teile = 600 g ⇒ 1 Teil = 200 g. Mehl: 5 · 200 g = 1 000 g.",
+   "h": "Wie viel ist ein Teil?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ina sagt: „8 : 3 = 16 : 11, weil ich zu beiden Zahlen 8 addiert habe.“ Stimmt das?"
+   },
+   "a": [
+    "Falsch: Man muss multiplizieren, richtig ist 8 : 3 = 48 : 18.",
+    "Richtig, man darf zu beiden Zahlen dasselbe addieren.",
+    "Richtig, weil der Unterschied 5 gleich bleibt.",
+    "Falsch: Man muss 8 abziehen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "8 : 3 und 16 : 11 sind nicht gleichwertig (Probe: 8 · 11 = 88, aber 3 · 16 = 48). Gleichwertig wird es nur durch Multiplizieren.",
+   "h": "Prüfe mit Kürzen: Lässt sich das neue Verhältnis auf das alte kürzen?",
+   "g": "fehler"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 2 : 11 = □ : 55"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "2 * 5",
+   "w": "11 · 5 = 55, also auch 2 · 5 = 10.",
+   "h": "Mit welcher Zahl wird 11 multipliziert, um 55 zu erhalten?",
+   "g": "direkt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verhältnis ist gleichwertig zu 8 : 9?"
+   },
+   "a": [
+    "10 : 11",
+    "24 : 27",
+    "27 : 24",
+    "24 : 28"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "8 · 3 = 24 und 9 · 3 = 27: beide Zahlen mit 3 multipliziert.",
+   "h": "Prüfe, ob beide Zahlen mit derselben Zahl multipliziert wurden.",
+   "g": "erkennen"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mädchen und Jungen stehen im Verhältnis 3 : 4. Es sind 12 Mädchen. Wie viele Kinder sind es insgesamt?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "12/3*7",
+   "w": "3 Teile = 12 ⇒ 1 Teil = 4. Insgesamt 7 Teile = 28 Kinder.",
+   "h": "Bestimme zuerst einen Teil.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bild zeigt 2 Becher Mehl und 1 Becher Milch. Welches Verhältnis Mehl : Milch ist dazu gleichwertig?"
+   },
+   "a": [
+    "2 : 3",
+    "3 : 6",
+    "6 : 3",
+    "4 : 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mehl : Milch = 2 : 1. Mal 3 erweitert: 6 : 3.",
+   "h": "Lies erst das Verhältnis am Bild ab.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modellauto ist im Verhältnis 1 : 18 gebaut. Das echte Auto ist 4,5 m lang. Wie lang ist das Modell in cm?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "450 / 18",
+   "w": "4,5 m = 450 cm. 450 cm : 18 = 25 cm.",
+   "h": "Rechne zuerst in cm um.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ina sagt: „7 : 6 = 12 : 11, weil ich zu beiden Zahlen 5 addiert habe.“ Stimmt das?"
+   },
+   "a": [
+    "Richtig, weil der Unterschied 1 gleich bleibt.",
+    "Falsch: Man muss multiplizieren, richtig ist 7 : 6 = 56 : 48.",
+    "Richtig, man darf zu beiden Zahlen dasselbe addieren.",
+    "Falsch: Man muss 5 abziehen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "7 : 6 und 12 : 11 sind nicht gleichwertig (Probe: 7 · 11 = 77, aber 6 · 12 = 72). Gleichwertig wird es nur durch Multiplizieren.",
+   "h": "Prüfe mit Kürzen: Lässt sich das neue Verhältnis auf das alte kürzen?",
+   "g": "fehler"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl x gilt 3 : x = x : 12?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Gleichwertig heißt: Von 3 zu x und von x zu 12 nimmt man mit demselben Faktor mal. 3 · 2 = 6 und 6 · 2 = 12. Also x = 6: 3 : 6 = 6 : 12 = 1 : 2.",
+   "h": "Probiere x = 4, 5, 6 … und vergleiche die gekürzten Verhältnisse.",
+   "g": "parameter"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche beiden Verhältnisse sind gleichwertig?"
+   },
+   "a": [
+    "4 : 6 und 6 : 8",
+    "6 : 8 und 10 : 15",
+    "4 : 6 und 9 : 12",
+    "4 : 6 und 10 : 15"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gekürzt: 4 : 6 = 2 : 3, 10 : 15 = 2 : 3, 6 : 8 = 3 : 4, 9 : 12 = 3 : 4. Gleich sind 4 : 6 und 10 : 15 (und 6 : 8 und 9 : 12).",
+   "h": "Kürze jedes Verhältnis vollständig.",
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Fruchtschorle mischt man Saft und Wasser im Verhältnis 2 : 3. Man hat schon 1 l Saft und 1 l Wasser gemischt. Wie viel Liter Wasser muss man noch dazugeben?"
+   },
+   "o": {
+    "wert": 0.5,
+    "einheit": "l"
+   },
+   "c": "1 * 3 / 2 - 1",
+   "w": "Zu 1 l Saft gehören 1 · 3 : 2 = 1,5 l Wasser. Es fehlen noch 0,5 l.",
+   "h": "Wie viel Wasser gehört zu 1 l Saft?",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "luecken",
+   "f": {
+    "text": "In einer Klasse sind 2/5 der Kinder Mädchen, die anderen sind Jungen. Gib das Verhältnis Mädchen : Jungen an.",
+    "schablone": "□ : □",
+    "hinweis": "Zwei ganze Zahlen, vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "5 - 2"
+   ],
+   "w": "Von 5 gleichen Teilen der Klasse sind 2 Teile Mädchen und 5 − 2 = 3 Teile Jungen. Also Mädchen : Jungen = 2 : 3.",
+   "h": "Teile die Klasse in 5 gleiche Teile. Wie viele davon sind Jungen?"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Sirup und Wasser wurden im Verhältnis 1 : 5 gemischt. Nach dem Dazugießen von 100 ml Wasser ist das Verhältnis 1 : 7. Wie viel ml Sirup ist im Getränk?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "ml"
+   },
+   "c": "100 // 2",
+   "w": "Der Sirup bleibt gleich, nur das Wasser wächst: vorher 5 Teile, nachher 7 Teile. Die 2 Teile mehr sind 100 ml, also ist 1 Teil = 50 ml. Das ist der Sirup. Probe: 50 : 350 = 1 : 7.",
+   "h": "Schreibe den Sirup als s.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "a) Sind 6 : 9 und 10 : 15 gleichwertig? (1 = ja, 0 = nein) b) Sind 4 : 5 und 12 : 16 gleichwertig? c) Ergänze: 9 : 12 = □ : 20.",
+    "schablone": "a) □; b) □; c) □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     1,
+     0,
+     15
+    ]
+   },
+   "c": [
+    "1",
+    "0",
+    "15"
+   ],
+   "w": "a) Beide gekürzt 2 : 3: ja. b) 4 : 5 und 3 : 4: nein. c) 9 : 12 = 3 : 4 = 15 : 20.",
+   "h": "Kürze die Verhältnisse zum Vergleichen.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl x sind x : 6 und 6 : (x + 5) gleichwertig?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Probiere kleine Zahlen: x = 2 → 2 : 6 = 1 : 3, aber 6 : 7 nicht. x = 3 → 3 : 6 = 1 : 2, aber 6 : 8 = 3 : 4. x = 4 → 4 : 6 = 2 : 3 und 6 : 9 = 2 : 3. Also x = 4.",
+   "h": "Schreibe die Bedingung als Produkt und probiere.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Verhältnisse a : b mit natürlichen Zahlen a und b, beide höchstens 20, sind gleichwertig zu 3 : 4?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "20 // 4",
+   "w": "Gleichwertig sind 3k : 4k. Damit 4k ≤ 20 gilt, ist k = 1, …, 5: 3 : 4, 6 : 8, 9 : 12, 12 : 16, 15 : 20. Also 5.",
+   "h": "Erweitere 3 : 4 schrittweise.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 3 : 7 = □ : 63"
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "3 * 9",
+   "w": "7 · 9 = 63, also auch 3 · 9 = 27."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 12 : 9 = □ : 3"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 // 3",
+   "w": "9 : 3 = 3, also auch 12 : 3 = 4."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verhältnis ist gleichwertig zu 9 : 2?"
+   },
+   "a": [
+    "12 : 5",
+    "45 : 11",
+    "10 : 45",
+    "45 : 10"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "9 · 5 = 45 und 2 · 5 = 10: beide Zahlen mit 5 multipliziert."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 3 : 2 = 24 : □"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "2 * 8",
+   "w": "3 · 8 = 24, also auch 2 · 8 = 16."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 4 : 9 = 36 : □"
+   },
+   "o": {
+    "wert": 81
+   },
+   "c": "9 * 9",
+   "w": "4 · 9 = 36, also auch 9 · 9 = 81."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 9 : 10 = 63 : □"
+   },
+   "o": {
+    "wert": 70
+   },
+   "c": "10 * 7",
+   "w": "9 · 7 = 63, also auch 10 · 7 = 70."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 2 : 9 = 6 : □"
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "9 * 3",
+   "w": "2 · 3 = 6, also auch 9 · 3 = 27."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 18 : 66 = □ : 11"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "18 // 6",
+   "w": "66 : 6 = 11, also auch 18 : 6 = 3."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verhältnis ist gleichwertig zu 5 : 2?"
+   },
+   "a": [
+    "7 : 4",
+    "16 : 40",
+    "40 : 16",
+    "40 : 17"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "5 · 8 = 40 und 2 · 8 = 16: beide Zahlen mit 8 multipliziert."
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 2 : 7 = □ : 42"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 6",
+   "w": "7 · 6 = 42, also auch 2 · 6 = 12."
   }
  ],
  "offen": [

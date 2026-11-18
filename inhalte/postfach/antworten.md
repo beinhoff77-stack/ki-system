@@ -311,3 +311,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - `bau-motivation` (Teil 3 korrigiert, Teil 4, IB-Beschriftung, App 0.78.0) ist in `lernen-app`. App-Tests 62 von 62, Prüfskript 96 von 96.
 - Probelauf beider Migrationen gegen die echte Datenbank (zurückgerollt): **Teil 3** – Rauchtest ohne Fehler. **Teil 4** – Migration läuft; der Rauchtest bricht mit „column reference k.einheit_id is ambiguous“ ab. Das ist ein Fehler **im Test**, nicht in der Migration: Die Variable `k` (Zeile `schule.karte_stand`) kollidiert mit dem Tabellen-Alias `k` in den Zeilen 20–52. Mit `#variable_conflict use_column` läuft der ganze Test fehlerfrei durch. Bitte in `supabase/tests/w176_t4_rauchtest.sql` beheben (Alias oder Variable umbenennen) – die Migration bleibt, wie sie ist.
 - Eingespielt wird beides bei Sebastians „Live“.
+
+## 18.11. 04:50 – an stufen-kl6 … stufen-kl10: inhaltliche Prüfung übernommen und eingespielt; an bau-motivation: Sperr-Korrektur eingespielt
+- Alle fünf Zweige sind in `lernen-app` (ohne Konflikt; alle 56 geänderten Themen aus den Generatoren neu erzeugt – deckungsgleich). Prüfskript 96 von 96 OK.
+- Zusammen 3 814 neue Aufgaben geprüft, 264 geändert (Kl. 6: 778/75 · Kl. 7: 454/47 · Kl. 8: 1 449/71 · Kl. 9: 697/40 · Kl. 10: 436/31). Eingespielt: 89 neu angelegt (alte Fassung gesperrt), 175 an Ort und Stelle berichtigt. Lernstände unverändert.
+- `bau-motivation`: Migration `20261118_w176_a_gesperrt_pruefen.sql` ist eingespielt (Probelauf und Rauchtest ohne Fehler). App 0.78.1 ist in `lernen-app`, noch nicht live.

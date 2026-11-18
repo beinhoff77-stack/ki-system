@@ -903,7 +903,7 @@ ST.neu('anwendung', 'begruenden', A('Stimmt: Doppelte Steigung in Prozent heißt
 ST.neu('anwendung', 'pruefung', L('Eine Seilbahn fährt auf einem 1 200 m langen geraden Seil unter 25° nach oben. a) Wie groß ist der Höhenunterschied? b) Wie weit ist es waagrecht? (jeweils ganze Meter)', 'a) □ m; b) □ m', [507, 1088],
        ['507', '1088'], 'a) 1 200 · sin 25° ≈ 507 m. b) 1 200 · cos 25° ≈ 1 088 m.', 'Das Seil ist die Hypotenuse.'))
 ST.knobel('anwendung', Z('Ein Turm wirft bei 30° Sonnenhöhe einen Schatten, der 20 m länger ist als bei 60° Sonnenhöhe. Wie hoch ist der Turm? Runde auf eine Nachkommastelle.', 17.3, '17.32050807568877',
-          'Schatten s = h : tan α. h : tan 30° − h : tan 60° = 20. Mit tan 30° ≈ 0,577 und tan 60° ≈ 1,732: h · (1,732 − 0,577) = 20, h ≈ 17,3 m (genau 10√3 m).',
+          'Schatten s = h : tan α (tan α = h : s). Also h : tan 30° − h : tan 60° = 20. Es ist 1 : tan 30° ≈ 1 : 0,577 ≈ 1,732 und 1 : tan 60° ≈ 1 : 1,732 ≈ 0,577. Damit h · 1,732 − h · 0,577 = 20, also h · 1,155 = 20 und h ≈ 17,3 m.',
           'Schreibe beide Schattenlängen mit h.', einheit='m', toleranz=0.1))
 ST.knobel('anwendung', Z('Eine Straße mit 10 % Steigung ist (entlang der Straße gemessen) 1 km lang. Um wie viele Meter steigt sie? Runde auf eine Nachkommastelle.', 99.5, '99.50371902099893',
           '10 % heißt tan α = 0,1, α ≈ 5,71°. Entlang der Straße ist der Weg die Hypotenuse: h = 1 000 · sin α ≈ 99,5 m – also nicht ganz 100 m.',

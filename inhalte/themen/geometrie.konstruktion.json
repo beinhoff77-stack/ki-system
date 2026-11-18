@@ -1973,7 +1973,7 @@
     "wert": 17
    },
    "c": "170 / 10",
-   "w": "Spitzenwinkel s, Basiswinkel (180° − s) : 2. Bei jedem Vielfachen von 10° ist 180° − s gerade, der Basiswinkel also ganzzahlig. Möglich sind s = 10°, 20°, …, 170° (0° und 180° ergeben kein Dreieck): 17 Werte. Verschiedene Spitzenwinkel ergeben verschiedene Winkelsätze.",
+   "w": "Spitzenwinkel s, Basiswinkel (180° − s) : 2. Bei jedem Vielfachen von 10° ist 180° − s gerade, der Basiswinkel also ganzzahlig. Möglich sind alle Vielfachen von 10° von 10° bis 170° (0° und 180° ergeben kein Dreieck), also 170 : 10 = 17 Werte. Verschiedene Spitzenwinkel ergeben verschiedene Winkelsätze.",
    "h": "Welche Spitzenwinkel sind möglich, und wird der Basiswinkel dann ganzzahlig?"
   },
   {

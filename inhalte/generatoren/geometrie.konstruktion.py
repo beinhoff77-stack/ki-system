@@ -1177,7 +1177,7 @@ ST.knobel('gleichschenklig', ST.Z('Im Dreieck ABC ist AB = AC. Auf [AC] liegt ei
                                   'Nenne den gesuchten Winkel x und arbeite dich über die gleichschenkligen Teildreiecke vor.', einheit='°'))
 ST.knobel('gleichschenklig', ST.Z('Gleichschenklige Dreiecke sollen nur ganzzahlige Winkel (in Grad) haben, und der Spitzenwinkel soll ein Vielfaches von 10° sein. Wie viele verschiedene Winkelkombinationen gibt es (die Größe des Dreiecks zählt nicht)?', 17, '170 / 10',
                                   'Spitzenwinkel s, Basiswinkel (180° − s) : 2. Bei jedem Vielfachen von 10° ist 180° − s gerade, der Basiswinkel also ganzzahlig. '
-                                  'Möglich sind s = 10°, 20°, …, 170° (0° und 180° ergeben kein Dreieck): 17 Werte. Verschiedene Spitzenwinkel ergeben verschiedene Winkelsätze.',
+                                  'Möglich sind alle Vielfachen von 10° von 10° bis 170° (0° und 180° ergeben kein Dreieck), also 170 : 10 = 17 Werte. Verschiedene Spitzenwinkel ergeben verschiedene Winkelsätze.',
                                   'Welche Spitzenwinkel sind möglich, und wird der Basiswinkel dann ganzzahlig?'))
 # kongruenzsatz
 ST.leiter('kongruenzsatz', 'Passenden Kongruenzsatz bei Standardlage erkennen; dritten Winkel bei WSW berechnen.',

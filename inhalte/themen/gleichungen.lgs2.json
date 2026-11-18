@@ -35,6 +35,7 @@
     "titel": "Verstehen und Anwenden",
     "lernziele": [
      "loesbarkeit",
+     "loesung_parameter",
      "sachaufgabe"
     ]
    }
@@ -592,6 +593,90 @@
     ]
    },
    {
+    "lernziel": "loesung_parameter",
+    "titel": "Lösungen, die vom Parameter abhängen",
+    "regel": "Vor dem Teilen prüfen: Wann ist der Term mit k gleich 0? Dann gibt es ⟦keine Lösung⟧.",
+    "schritte": [
+     {
+      "text": "Gleich teuer: 2x + 4 = kx, also (k − 2) · x = 4."
+     },
+     {
+      "text": "Lösung: x = 4 : (k − 2)."
+     },
+     {
+      "text": "Für k = 4: x = 4 : 2 = ⟦2⟧. Schnittpunkt bei 2 km.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 2,
+         "y": 8,
+         "name": "S"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Für k = 2 teilst du durch 0: ⟦keine Lösung⟧, die Geraden sind parallel.",
+      "bild": {
+       "punkte": null,
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": 4,
+         "name": "A"
+        },
+        {
+         "art": "linear",
+         "m": 2,
+         "t": 0,
+         "name": "k = 2"
+        }
+       ]
+      }
+     }
+    ],
+    "fehler": "Nur „x = 4 : (k − 2)“ hinschreiben ist unvollständig. Für ⟦k = 2⟧ ist das Teilen verboten, es gibt keine Lösung.",
+    "einstieg": "Taxi A kostet 4 € Grundgebühr und 2 € pro Kilometer. Taxi B hat keine Grundgebühr, aber k € pro Kilometer. Ab wann sind beide gleich teuer? Das hängt von k ab.",
+    "woerter": [
+     [
+      "Schnittpunkt",
+      "die Stelle, an der beide Taxis gleich viel kosten"
+     ],
+     [
+      "durch 0",
+      "durch null teilen ist verboten; dann gibt es keine Lösung"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      5
+     ],
+     "y": [
+      0,
+      18
+     ],
+     "name_x": "km",
+     "name_y": "€",
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 4,
+       "name": "A"
+      },
+      {
+       "art": "linear",
+       "m": 4,
+       "t": 0,
+       "name": "k = 4"
+      }
+     ]
+    }
+   },
+   {
     "lernziel": "sachaufgabe",
     "titel": "Sachaufgaben mit zwei Unbekannten",
     "regel": "Für jede gesuchte Größe eine ⟦Variable⟧, für jede Angabe eine Gleichung. Dann lösen und im Satz antworten.",
@@ -725,6 +810,13 @@
     "lernziele": [
      "sachaufgabe"
     ]
+   },
+   {
+    "k": "loesung_parameter",
+    "text": "Lösungen, die vom Parameter abhängen",
+    "lernziele": [
+     "loesung_parameter"
+    ]
    }
   ],
   "bewertung": {
@@ -738,7 +830,9 @@
     "loesbarkeit",
     "sachaufgabe"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "loesung_parameter"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -9232,6 +9326,607 @@
    "c": "6 * 4 / 2",
    "w": "Schnittpunkt der Geraden: 2x = −x + 6 ⇒ (2 | 4). Mit der x-Achse: y = 2x bei (0 | 0), y = −x + 6 bei (6 | 0). Grundseite 6, Höhe 4: A = 6 · 4 : 2 = 12.",
    "h": "Bestimme die drei Eckpunkte."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = −3x − 4 und y = k · x − 2 schneiden sich. Berechne die x-Koordinate des Schnittpunkts für k = 5."
+   },
+   "o": {
+    "wert": -0.25
+   },
+   "c": "((-2) - (-4)) / ((-3) - (5))",
+   "w": "−3x − 4 = 5x − 2 ⇔ −8x = 2 ⇔ x = −0,25.",
+   "h": "Gleichsetzen, alle x auf eine Seite, dann teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse k · x = 10 für k = 5."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "10 / (5)",
+   "w": "x = 10 : 5 = 2.",
+   "h": "Teile durch k.",
+   "g": "direkt"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches k hat die Gleichung (k + 4) · x = 6 keine Lösung?"
+   },
+   "a": [
+    "k = 4",
+    "k = −4",
+    "k = 0",
+    "k = 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für k = −4 wird die Klammer 0: 0 · x = 6 ist nie erfüllt. Sonst ist x = 6 : (k + 4).",
+   "h": "Wann wird der Faktor vor x null?",
+   "g": "umkehr"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = −x − 1 und y = k · x − 2 schneiden sich. Berechne die x-Koordinate des Schnittpunkts für k = −3."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "((-2) - (-1)) / ((-1) - (-3))",
+   "w": "−x − 1 = −3x − 2 ⇔ 2x = −1 ⇔ x = −0,5.",
+   "h": "Gleichsetzen, alle x auf eine Seite, dann teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von k haben die Geraden y = −4x − 2 und y = k · x − 3 keinen Schnittpunkt?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-4",
+   "w": "Keinen Schnittpunkt haben parallele Geraden (verschiedene y-Achsenabschnitte −2 und −3): k = −4.",
+   "h": "Wann sind zwei Geraden parallel?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse k · x = 24 für k = −4."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "24 / (-4)",
+   "w": "x = 24 : (−4) = −6.",
+   "h": "Teile durch k.",
+   "g": "direkt"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches k hat die Gleichung (k + 4) · x = 4 keine Lösung?"
+   },
+   "a": [
+    "k = 4",
+    "k = −4",
+    "k = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für k = −4 wird die Klammer 0: 0 · x = 4 ist nie erfüllt. Sonst ist x = 4 : (k + 4).",
+   "h": "Wann wird der Faktor vor x null?",
+   "g": "umkehr"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = −2x + 3 und y = k · x − 1 schneiden sich. Berechne die x-Koordinate des Schnittpunkts für k = −3."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "((-1) - (3)) / ((-2) - (-3))",
+   "w": "−2x + 3 = −3x − 1 ⇔ x = −4 ⇔ x = −4.",
+   "h": "Gleichsetzen, alle x auf eine Seite, dann teilen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat (k + 4) · x = 5?"
+   },
+   "a": [
+    "Immer genau eine: x = 5 : (k + 4).",
+    "Für k = −4 unendlich viele, sonst eine.",
+    "Für k ≠ −4 genau eine (x = 5 : (k + 4)), für k = −4 keine.",
+    "Für k = 0 keine, sonst eine."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Für k = −4 steht 0 · x = 5 da – unmöglich. Sonst darf man durch k + 4 teilen.",
+   "h": "Was passiert, wenn der Faktor vor x null wird?",
+   "g": "begruenden"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von k haben die Geraden y = −2x + 3 und y = k · x − 1 keinen Schnittpunkt?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Keinen Schnittpunkt haben parallele Geraden (verschiedene y-Achsenabschnitte 3 und −1): k = −2.",
+   "h": "Wann sind zwei Geraden parallel?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches k hat die Gleichung (k − 2) · x = k − 2 unendlich viele Lösungen?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Für k = 2 steht da 0 · x = 0. Das stimmt für jedes x: unendlich viele Lösungen. Für k ≠ 2 ist x = 1 die einzige Lösung.",
+   "h": "Setze den Wert ein, für den die Klammer 0 wird. Was steht dann da?",
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat für k = 0 keine Lösung?"
+   },
+   "a": [
+    "k · x = 4",
+    "x = k",
+    "k + x = 0",
+    "x + k = 4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für k = 0 wird k · x = 4 zu 0 = 4, das stimmt für kein x. Die anderen werden zu x = 4, x = 0 und x = 0.",
+   "h": "Setze k = 0 ein.",
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Löse (k − 1) · x = 12 für k = 4."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "12 // 3",
+   "w": "Für k = 4: 3x = 12 ⇒ x = 4.",
+   "h": "Erst k einsetzen.",
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches k hat die Gleichung (k − 3) · x = 12 keine Lösung?"
+   },
+   "a": [
+    "k = −3",
+    "k = 12",
+    "k = 0",
+    "k = 3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für k = 3 wird die Klammer 0: 0 · x = 12 ist nie erfüllt. Sonst ist x = 12 : (k − 3).",
+   "h": "Wann wird der Faktor vor x null?",
+   "g": "umkehr"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (k + 2) · x = 4k für k = −4."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "4 * (-4) / ((-4) - (-2))",
+   "w": "k = −4: (−4 + 2) · x = 4 · (−4) ⇔ −2x = −16 ⇔ x = 8.",
+   "h": "Erst k überall einsetzen, dann nach x auflösen.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Tarif A kostet 4 € Grundgebühr plus 2 € pro Stunde, Tarif B kostet k € pro Stunde ohne Grundgebühr. Für k = 3: Nach wie vielen Stunden kosten beide gleich viel?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "Stunden"
+   },
+   "c": "4 // (3 - 2)",
+   "w": "2x + 4 = 3x ⇒ (3 − 2) · x = 4 ⇒ x = 4 Stunden.",
+   "h": "Setze beide Kosten gleich.",
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat (k − 5) · x = −6?"
+   },
+   "a": [
+    "Für k ≠ 5 genau eine (x = −6 : (k − 5)), für k = 5 keine.",
+    "Für k = 0 keine, sonst eine.",
+    "Für k = 5 unendlich viele, sonst eine.",
+    "Immer genau eine: x = −6 : (k − 5)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für k = 5 steht 0 · x = −6 da – unmöglich. Sonst darf man durch k − 5 teilen.",
+   "h": "Was passiert, wenn der Faktor vor x null wird?",
+   "g": "begruenden"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von k haben die Geraden y = −2x − 4 und y = k · x + 4 keinen Schnittpunkt?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Keinen Schnittpunkt haben parallele Geraden (verschiedene y-Achsenabschnitte −4 und 4): k = −2.",
+   "h": "Wann sind zwei Geraden parallel?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches k schneiden sich die Geraden y = 2x + 4 und y = k · x genau bei x = 4?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(2*4 + 4)/4",
+   "w": "Bei x = 4 hat die erste Gerade y = 12. Dann muss 12 = k · 4 sein, also k = 3.",
+   "h": "Welchen y-Wert hat die erste Gerade bei x = 4?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche k ist die Lösung der Gleichung (k + 1) · x = 6 positiv?"
+   },
+   "a": [
+    "für k > 0",
+    "für k > −1",
+    "für k < −1",
+    "für k > 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x = 6 : (k + 1) ist positiv, wenn k + 1 positiv ist: k > −1.",
+   "h": "Wann ist 6 geteilt durch eine Zahl positiv?",
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst (k − 3) · x = 6 und schreibt: „x = 6 : (k − 3) für jedes k.“ Was fehlt?"
+   },
+   "a": [
+    "Für k = 0 gibt es keine Lösung.",
+    "Für k = 3 darf man nicht teilen: Dann gibt es keine Lösung.",
+    "Nichts, das stimmt immer.",
+    "Für k = 6 gibt es unendlich viele Lösungen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für k = 3 steht da 0 · x = 6, das stimmt für kein x. Durch null darf man nicht teilen.",
+   "h": "Wann wird der Faktor vor x null?",
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen k ist die Lösung von (k + 1) · x = 12 eine ganze Zahl?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 6",
+   "w": "x = 12 : (k + 1) ist ganz, wenn k + 1 ein Teiler von 12 ist – auch negativ: ±1, ±2, ±3, ±4, ±6, ±12. Das sind 12 Werte für k + 1, also 12 Werte für k.",
+   "h": "Auch negative Teiler zählen.",
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung (k − 2) · x = k² − 4 hat für k = 2 unendlich viele Lösungen. Welche Lösung hat sie für k = 7?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "7 + 2",
+   "w": "k² − 4 = (k − 2)(k + 2). Für k ≠ 2 darf man durch k − 2 teilen: x = k + 2. Für k = 7: x = 9. Probe: 5 · 9 = 45 = 49 − 4.",
+   "h": "Zerlege k² − 4 in ein Produkt.",
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = x + 1 und y = k · x + 4 schneiden sich. Berechne die x-Koordinate des Schnittpunkts für k = −2."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "((4) - (1)) / ((1) - (-2))",
+   "w": "x + 1 = −2x + 4 ⇔ 3x = 3 ⇔ x = 1."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = 3x − 4 und y = k · x + 3 schneiden sich. Berechne die x-Koordinate des Schnittpunkts für k = 2."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "((3) - (-4)) / ((3) - (2))",
+   "w": "3x − 4 = 2x + 3 ⇔ x = 7 ⇔ x = 7."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = x + 2 und y = k · x + 3 schneiden sich. Berechne die x-Koordinate des Schnittpunkts für k = 2."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "((3) - (2)) / ((1) - (2))",
+   "w": "x + 2 = 2x + 3 ⇔ −x = 1 ⇔ x = −1."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = 2x + 2 und y = k · x + 3 schneiden sich. Berechne die x-Koordinate des Schnittpunkts für k = 3."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "((3) - (2)) / ((2) - (3))",
+   "w": "2x + 2 = 3x + 3 ⇔ −x = 1 ⇔ x = −1."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches k hat die Gleichung (k − 5) · x = 12 keine Lösung?"
+   },
+   "a": [
+    "k = −5",
+    "k = 5",
+    "k = 12",
+    "k = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für k = 5 wird die Klammer 0: 0 · x = 12 ist nie erfüllt. Sonst ist x = 12 : (k − 5)."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches k hat die Gleichung (k − 5) · x = 8 keine Lösung?"
+   },
+   "a": [
+    "k = 0",
+    "k = −5",
+    "k = 5",
+    "k = 8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Für k = 5 wird die Klammer 0: 0 · x = 8 ist nie erfüllt. Sonst ist x = 8 : (k − 5)."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches k hat die Gleichung (k + 5) · x = 12 keine Lösung?"
+   },
+   "a": [
+    "k = −5",
+    "k = 12",
+    "k = 5",
+    "k = 0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für k = −5 wird die Klammer 0: 0 · x = 12 ist nie erfüllt. Sonst ist x = 12 : (k + 5)."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = −2x − 3 und y = k · x + 2 schneiden sich. Berechne die x-Koordinate des Schnittpunkts für k = 3."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "((2) - (-3)) / ((-2) - (3))",
+   "w": "−2x − 3 = 3x + 2 ⇔ −5x = 5 ⇔ x = −1."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches k hat die Gleichung (k + 1) · x = 3 keine Lösung?"
+   },
+   "a": [
+    "k = 3",
+    "k = −1",
+    "k = 1",
+    "k = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für k = −1 wird die Klammer 0: 0 · x = 3 ist nie erfüllt. Sonst ist x = 3 : (k + 1)."
+  },
+  {
+   "l": "loesung_parameter",
+   "t": "loesung_parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden y = −2x + 1 und y = k · x + 2 schneiden sich. Berechne die x-Koordinate des Schnittpunkts für k = 2."
+   },
+   "o": {
+    "wert": -0.25
+   },
+   "c": "((2) - (1)) / ((-2) - (2))",
+   "w": "−2x + 1 = 2x + 2 ⇔ −4x = 1 ⇔ x = −0,25."
   }
  ],
  "offen": [

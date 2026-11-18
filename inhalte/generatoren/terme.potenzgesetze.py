@@ -760,7 +760,7 @@ N(lz, Z('rueckwaerts', 'Von einer Zahl x wird die Potenz x⁻¹ genommen und mit
 N(lz, A('pruefung', 'Welche der Zahlen 2⁻¹, 2⁰, 2⁻² und (−2)⁻¹ ist am kleinsten?', '(−2)⁻¹', ['2⁻²', '2⁻¹', '2⁰'], '(−2)⁻¹ = −1/2 ist negativ. Die anderen: 1/2, 1, 1/4.', 'Schreibe alle als Bruch.'))
 K(lz, L('knobel', 'Berechne 2⁻¹ + 2⁻² + 2⁻³ + 2⁻⁴ + 2⁻⁵.', B, [31, 32], ['2 ** 5 - 1', '2 ** 5'],
         'Das ist 1/2 + 1/4 + 1/8 + 1/16 + 1/32. Bis 1 fehlt immer genau der letzte Summand: Es fehlt 1/32. Also 31/32.', 'Stell dir vor, du gehst bis zur Hälfte, dann die Hälfte vom Rest, … Wie viel fehlt bis 1?'))
-K(lz, Z('knobel', 'Für welche ganze Zahl n gilt 8ⁿ = 1/8?', -1, '-1', '8⁻¹ = 1/8. Also n = −1. (Andere Exponenten geben 8, 64, 1/64, …)', 'Was bedeutet ein Minus im Exponenten?'))
+K(lz, Z('knobel', 'Für welche ganze Zahl n gilt 8ⁿ = 1/8?', -1, '-1', '8⁻¹ = 1/8¹ = 1/8. Also n = −1. Zum Vergleich: n = 1 ergibt 8, n = 2 ergibt 64, n = −2 ergibt 1/64.', 'Was bedeutet ein Minus im Exponenten?'))
 
 lz = 'mal_gleiche_basis'
 ST.leiter(lz, 'Bei gleicher Basis die Exponenten addieren; die passende Regel erkennen.', 'Mit negativen Exponenten und Variablen, drei Faktoren, fehlenden Exponenten ergänzen, als Dezimalzahl.',
@@ -839,9 +839,9 @@ N(lz, Z('direkt', 'Rechne nach: Wie viel ist 2⁵?', 32, '2 ** 5', '2 · 2 · 2 
 N(lz, Z('einkleidung', 'Ein Kind sagt: „Ein Würfel mit 3 cm Kantenlänge hat ein Volumen von 9 cm³.“ Wie groß ist das Volumen richtig?', 27, '3 ** 3', 'Volumen = 3³ = 27 cm³. Das Kind hat 3² gerechnet.', 'Volumen eines Würfels: Kante hoch 3.', einheit='cm³'))
 N(lz, Z('umkehr', 'Ein Kind soll k in 2ᵏ = 32 finden und schreibt k = 16. Wie groß ist k richtig?', 5, '5', '2⁵ = 32. Das Kind hat 32 : 2 gerechnet.', 'Wie oft musst du 2 mit sich malnehmen, um 32 zu erhalten?'))
 N(lz, A('parameter', 'Die Regel „a² · a³ = a⁶“ ist falsch. Für welche Zahlen a stimmt sie trotzdem?', 'für a = 0 und a = 1', ['nur für a = 2', 'für keine Zahl', 'für alle Zahlen'],
-        'Richtig ist a² · a³ = a⁵. a⁵ und a⁶ sind nur für a = 0 und a = 1 gleich (0 = 0 und 1 = 1).', 'Für welche Zahlen ist jede Potenz gleich?'))
-N(lz, Z('rueckwaerts', 'Ein Kind hat bei aᵏ · a² die Exponenten malgenommen und a¹² erhalten. Was wäre der richtige Exponent gewesen?', 8, '12 // 2 + 2', 'k · 2 = 12, also k = 6. Richtig: a⁶ · a² = a⁸.', 'Bestimme zuerst k.'))
-K(lz, Z('knobel', 'Ein Kind schreibt 2⁵ + 2⁵ = 2¹⁰. Richtig ist 2ᵏ. Wie groß ist k?', 6, '6', '2⁵ + 2⁵ = 2 · 2⁵ = 2⁶ = 64. Das Kind hat die Exponenten addiert, als ob es malnehmen würde.', 'Was ist eine Zahl plus dieselbe Zahl?'))
+        'Ausgeschrieben: a² · a³ = (a · a) · (a · a · a) = a⁵, also 5 Faktoren, nicht 6. a⁵ und a⁶ sind nur gleich, wenn ein zusätzlicher Faktor a nichts ändert: für a = 0 (0 = 0) und a = 1 (1 = 1).', 'Für welche Zahlen ist jede Potenz gleich?'))
+N(lz, Z('rueckwaerts', 'Ein Kind hat bei aᵏ · a² die Exponenten malgenommen und a¹² erhalten. Was wäre der richtige Exponent gewesen?', 8, '12 // 2 + 2', 'k · 2 = 12, also k = 6. Ausgeschrieben hat a⁶ · a² zuerst 6 und dann noch 2 Faktoren a: 6 + 2 = 8. Richtig: a⁸.', 'Bestimme zuerst k.'))
+K(lz, Z('knobel', 'Ein Kind schreibt 2⁵ + 2⁵ = 2¹⁰. Richtig ist 2ᵏ. Wie groß ist k?', 6, '6', '2⁵ + 2⁵ = 2 · 2⁵ = 2⁶ = 64. Zwei gleiche Summanden sind das Doppelte: Zu den fünf Faktoren 2 kommt ein sechster Faktor 2 dazu. 2¹⁰ = 1 024 wäre viel zu groß.', 'Was ist eine Zahl plus dieselbe Zahl?'))
 K(lz, Z('knobel', 'Berechne (−2)³ + (−2)² + (−2)¹ + (−2)⁰.', -5, '(-2) ** 3 + (-2) ** 2 + (-2) + 1', '(−2)³ = −8, (−2)² = 4, (−2)¹ = −2, (−2)⁰ = 1. Zusammen: −8 + 4 − 2 + 1 = −5.', 'Achte bei jeder Potenz auf das Vorzeichen.'))
 
 if __name__ == '__main__':

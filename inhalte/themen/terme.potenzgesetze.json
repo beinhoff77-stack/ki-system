@@ -1439,7 +1439,7 @@
     "wert": -1
    },
    "c": "-1",
-   "w": "8⁻¹ = 1/8. Also n = −1. (Andere Exponenten geben 8, 64, 1/64, …)",
+   "w": "8⁻¹ = 1/8¹ = 1/8. Also n = −1. Zum Vergleich: n = 1 ergibt 8, n = 2 ergibt 64, n = −2 ergibt 1/64.",
    "h": "Was bedeutet ein Minus im Exponenten?"
   },
   {
@@ -2542,7 +2542,7 @@
    "o": {
     "index": 1
    },
-   "w": "Richtig ist a² · a³ = a⁵. a⁵ und a⁶ sind nur für a = 0 und a = 1 gleich (0 = 0 und 1 = 1).",
+   "w": "Ausgeschrieben: a² · a³ = (a · a) · (a · a · a) = a⁵, also 5 Faktoren, nicht 6. a⁵ und a⁶ sind nur gleich, wenn ein zusätzlicher Faktor a nichts ändert: für a = 0 (0 = 0) und a = 1 (1 = 1).",
    "h": "Für welche Zahlen ist jede Potenz gleich?"
   },
   {
@@ -2559,7 +2559,7 @@
     "wert": 8
    },
    "c": "12 // 2 + 2",
-   "w": "k · 2 = 12, also k = 6. Richtig: a⁶ · a² = a⁸.",
+   "w": "k · 2 = 12, also k = 6. Ausgeschrieben hat a⁶ · a² zuerst 6 und dann noch 2 Faktoren a: 6 + 2 = 8. Richtig: a⁸.",
    "h": "Bestimme zuerst k."
   },
   {
@@ -2576,7 +2576,7 @@
     "wert": 6
    },
    "c": "6",
-   "w": "2⁵ + 2⁵ = 2 · 2⁵ = 2⁶ = 64. Das Kind hat die Exponenten addiert, als ob es malnehmen würde.",
+   "w": "2⁵ + 2⁵ = 2 · 2⁵ = 2⁶ = 64. Zwei gleiche Summanden sind das Doppelte: Zu den fünf Faktoren 2 kommt ein sechster Faktor 2 dazu. 2¹⁰ = 1 024 wäre viel zu groß.",
    "h": "Was ist eine Zahl plus dieselbe Zahl?"
   },
   {

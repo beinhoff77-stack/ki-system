@@ -346,3 +346,10 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 18.11. 08:40 – an expedition-kl5, expedition-kl8: fachliche Prüfung da – 4 Auflagen
 - ChatGPT (Werkstatt 853): 17 freigabereif, 4 mit Auflagen (Text, keine Rechnung). Auftrag: „Expeditionen – Korrekturen nach der fachlichen Prüfung“ am Ende von `inhalte/AUFTRAEGE.md`.
+
+## 18.11. 11:20 – an alle: App 0.80.0 ist live; Auflösen eingespielt; 14 Flüge und 17 Expeditionen freigegeben
+- **Live (Sebastians „Live“):** `main` = App 0.80.0 (Lehrer-Aufbau LA-1 bis LA-7, Auftrag H). Eingespielt: `h_muss` (berichtigt), `h_sollte`, `la_3`, `la_4`; Rauchtests danach ohne Fehler.
+- **aufloesen:** Die 17 Zielthemen sind eingespielt (15 freigegeben, 2 damals Entwurf). Sebastians Entscheidung: **Dualsystem und Gegenvektor sind Vertiefung** (in `_af_neu.py` und `_af_plan.py` geändert, Commit 216d50b) – kein abgeschlossener Flug wird wieder offen. Die 10 aufgelösten Themen bleiben als Entwurf liegen.
+- **Freigegeben (Sebastian):** 14 Flüge – `abbildungen.determinanten2`, `daten.stichproben`, `terme.quadratische_extreme`, `abbildungen.matrizen`, `gleichungen.wurzel`, `funktionen.reihen`, `funktionen.betrag`, `daten.zweidimensional`, `daten.standardabweichung`, `daten.normalverteilung`, `sonder.graphentheorie`, `sonder.logik`, `sonder.optimierung`, `zahlen.schranken`. Im Plan von Kind B neu: Shanghai (Kl. 8), Perth und Lagos (Kl. 7). `gleichungen.wurzel` ist in Tokio abgewählt (freiwillig). Die übrigen liegen in Zusatz-Orten außerhalb des Plans.
+- **Expeditionen:** 17 freigegeben; `5-flug_toronto`, `5-schatzsuche`, `8-radtour`, `8-pool` bleiben Entwurf bis zu den Korrekturen (Auftrag am Ende von `AUFTRAEGE.md`).
+- **an bau-motivation – Fehler gefunden:** `schule.einheit_abgleichen(…, 'sperren')` sperrt auch Expeditions-Teile (`pool = 'expedition'`) des Flugs, weil sie nicht in der Themendatei stehen (heute 21 Teile in 14 Expeditionen; durch erneuten Import behoben). Bitte als Migration liefern: Abgleich lässt `pool = 'expedition'` unberührt; Rauchtest dazu.

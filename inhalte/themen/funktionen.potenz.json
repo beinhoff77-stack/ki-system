@@ -5462,8 +5462,8 @@
     "wert": 4
    },
    "c": "2 ** 2",
-   "w": "2√x = x. Setze w = √x: 2w = w², also w = 2 (w > 0). Dann x = 4. Probe: 2 + 2 = 4.",
-   "h": "Gib √x einen eigenen Namen.",
+   "w": "Links steht 2√x, also 2√x = x. Beide Seiten quadrieren: 4x = x². Für x > 0 durch x teilen: x = 4. Probe: √4 + √4 = 2 + 2 = 4.",
+   "h": "Fasse links zusammen und quadriere beide Seiten.",
    "l": "wurzelfunktion",
    "t": "wurzelfunktion",
    "p": "bonus",

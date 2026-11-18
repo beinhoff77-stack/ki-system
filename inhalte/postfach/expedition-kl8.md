@@ -4,3 +4,4 @@ Neueste Meldung oben. Format: `inhalte/README.md`, Abschnitt „Expeditionen“.
 (gemeinsame Helfer in `_exp8.py`), Prüfung mit `python3 -I tools/inhalt_pruefen.py inhalte/expeditionen/<datei>.json`.
 
 ## STATUS (je Expedition eine Zeile)
+- 8-klassenfahrt: OK  – Teile und Themen siehe Abschlussbericht.

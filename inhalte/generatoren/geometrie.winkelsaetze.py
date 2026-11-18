@@ -1179,7 +1179,7 @@ ST.knobel('scheitel_neben', ST.Z('Vier Geraden gehen durch einen Punkt und bilde
                                  'Wäre jeder größer als 45°, wäre die Summe größer als 180°. Also ist der kleinste höchstens 45°. Das geht genau: vier Geraden im Abstand von 45°.',
                                  'Wie hängen die acht Winkel paarweise zusammen, und was ergibt ihre Summe?'))
 ST.knobel('scheitel_neben', ST.Z('Zwei Geraden schneiden sich. Ein Winkel ist um 24° kleiner als das Doppelte seines Nebenwinkels. Wie groß ist er?', 112, '(360 - 24) / 3',
-                                 'Nennt man den Nebenwinkel n, ist der Winkel 2n − 24°. Zusammen 180°: n + 2n − 24° = 180°, also 3n = 204° und n = 68°. '
+                                 'Winkel und Nebenwinkel ergeben zusammen 180°. Der Winkel ist das Doppelte des Nebenwinkels minus 24°. Gäbe man die 24° dazu, wären es zusammen dreimal der Nebenwinkel: 180° + 24° = 204°. Also ist der Nebenwinkel 204° : 3 = 68°. '
                                  'Der Winkel ist 180° − 68° = 112°. Probe: 2 · 68° − 24° = 112° ✓.',
                                  'Beschreibe beide Winkel mit dem Nebenwinkel und nutze ihre Summe.'))
 # stufen_wechsel
@@ -1200,11 +1200,11 @@ ST.neu('stufen_wechsel', 2, 'einkleidung', ST.Z('Eine gerade Straße kreuzt zwei
                                                 115, '180 - 65', 'Am zweiten Gleis ist der Winkel rechts oberhalb ebenfalls 65° (Stufenwinkel). Links oberhalb ist sein Nebenwinkel: 180° − 65° = 115°.',
                                                 'Bestimme zuerst den Winkel in derselben Lage.', einheit='°'))
 ST.neu('stufen_wechsel', 3, 'fehler', ST.A('g ∥ h. Jemand sagt: „Bei S ist der Winkel rechts oberhalb 70°, also ist der Winkel bei T links unterhalb 110°.“ Was stimmt?',
-                                           'Falsch: Er ist 70°, denn es sind Wechselwinkel.', ['Richtig.', 'Falsch: Er ist 20°.', 'Falsch: Er ist 250°.'],
+                                           'Falsch: Er ist auch 70° (Scheitelwinkel bei S, dann Stufenwinkel bei T).', ['Richtig.', 'Falsch: Er ist 20°.', 'Falsch: Er ist 250°.'],
                                            'Bei S: rechts oberhalb 70°, also links unterhalb auch 70° (Scheitelwinkel). Bei T links unterhalb ist es derselbe Winkel in gleicher Lage (Stufenwinkel): 70°.',
                                            'Gehe über den Scheitelwinkel bei S.'))
 ST.neu('stufen_wechsel', 3, 'parameter', ST.Z('g ∥ h. Bei S ist der Winkel rechts oberhalb α. Für welches α ist der Winkel bei T links oberhalb genau doppelt so groß wie α?', 60, '180 / 3',
-                                              'Bei T rechts oberhalb ist α (Stufenwinkel), links oberhalb also 180° − α. Es soll 180° − α = 2α sein, also 3α = 180° und α = 60°.',
+                                              'Bei T rechts oberhalb ist α (Stufenwinkel), links oberhalb also der Nebenwinkel. Beide zusammen ergeben 180°. Ist der Nebenwinkel doppelt so groß wie α, sind es zusammen dreimal α: 180° : 3 = 60°. Probe: 60° und 120° ✓.',
                                               'Drücke den Winkel bei T links oberhalb mit α aus.', einheit='°'))
 ST.neu('stufen_wechsel', 3, 'pruefung', ST.Z('Zwei Paare paralleler Geraden (g ∥ h und k ∥ l) bilden ein Parallelogramm. Ein Innenwinkel ist 65° groß. Wie groß ist ein benachbarter Innenwinkel?',
                                              115, '180 - 65', 'Benachbarte Innenwinkel liegen an einer Querlinie zwischen zwei Parallelen: Über Stufenwinkel und Nebenwinkel ergänzen sie sich zu 180°. 180° − 65° = 115°.',
@@ -1300,9 +1300,9 @@ ST.neu('aussenwinkel', 3, 'fehler', ST.A('Jemand rechnet: „α = 40°, β = 75�
                                          'Was hat er eigentlich ausgerechnet?'))
 ST.knobel('aussenwinkel', ST.Z('Ein fünfzackiger Stern wird in einem Zug aus fünf geraden Strecken gezeichnet; die Zacken dürfen verschieden spitz sein. Wie groß ist die Summe der fünf Winkel an den Spitzen?',
                                180, '180',
-                               'Nenne die Spitzen der Reihe nach A, B, C, D, E. Die Strecken von A und von C kreuzen sich mit den Strecken von B in zwei Punkten; dort entsteht ein kleines Dreieck mit der Spitze B. '
-                               'Seine beiden anderen Winkel sind Außenwinkel zweier anderer Dreiecke: Der eine ist so groß wie die Spitzenwinkel bei A und D zusammen, der andere wie die bei C und E zusammen. '
-                               'Im Dreieck mit der Spitze B stehen also alle fünf Spitzenwinkel – ihre Summe ist 180°.',
+                               'Nenne die Spitzen im Kreis herum A, B, C, D, E; der Stern besteht aus den Strecken AC, CE, EB, BD und DA. Die Strecke EB schneidet AC in P und AD in Q. Das kleine Dreieck APQ hat bei A den Spitzenwinkel von A. '
+                               'Der Winkel bei P ist Außenwinkel des Dreiecks PCE, also so groß wie die Spitzenwinkel bei C und E zusammen. Ebenso ist der Winkel bei Q Außenwinkel des Dreiecks QBD: so groß wie die Spitzenwinkel bei B und D zusammen. '
+                               'Im Dreieck APQ stehen also alle fünf Spitzenwinkel – ihre Summe ist 180°.',
                                'Suche ein Dreieck, in dem ein Spitzenwinkel steht, und deute seine beiden anderen Winkel als Außenwinkel.'))
 ST.knobel('aussenwinkel', ST.Z('Die drei Außenwinkel eines Dreiecks (an jeder Ecke einer) verhalten sich wie 3 : 4 : 5. Wie groß ist der größte Innenwinkel?', 90, '180 - 360 / 12 * 3',
                                'Jeder Außenwinkel ist 180° minus Innenwinkel. Zusammen: 3 · 180° − 180° = 360°. Bei 3 : 4 : 5 sind das 12 Teile zu 30°: 90°, 120°, 150°. '

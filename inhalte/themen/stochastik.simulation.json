@@ -1520,14 +1520,14 @@
    },
    "a": [
     "1 oder 2 = Treffer, sonst kein Treffer.",
-    "Fünfmal würfeln, eine Sechs = Treffer.",
+    "Zweimal würfeln, Augensumme 5 = Treffer.",
     "1 = Treffer, sonst kein Treffer.",
     "1 = Treffer, 2 bis 5 = kein Treffer, bei einer 6 noch einmal würfeln."
    ],
    "o": {
     "index": 3
    },
-   "w": "Verwirft man die 6, bleiben 5 gleich wahrscheinliche Augenzahlen; eine davon ist Treffer: 1/5. Die anderen Regeln liefern 1/6, 1/3 bzw. etwas anderes.",
+   "w": "Verwirft man die 6, bleiben 5 gleich wahrscheinliche Augenzahlen; eine davon ist Treffer: 1/5. Die anderen Regeln: „1 oder 2“ liefert 2/6 = 1/3, „nur 1“ liefert 1/6, „Augensumme 5“ liefert 4/36 = 1/9 (1 + 4, 2 + 3, 3 + 2, 4 + 1).",
    "h": "Wie viele gleich wahrscheinliche Ergebnisse braucht man?"
   },
   {
@@ -2280,7 +2280,7 @@
    "o": {
     "index": 0
    },
-   "w": "Nach dem Überspringen bleiben 7 gleich wahrscheinliche Ziffern; eine davon ist Treffer: 1/7. Die anderen Regeln liefern 1/10, 2/7 bzw. 1/10.",
+   "w": "Nach dem Überspringen bleiben 7 gleich wahrscheinliche Ziffern; eine davon ist Treffer: 1/7. Die anderen Regeln: „0 bis 9, 0 = Treffer“ liefert 1/10, „0 bis 6, 0 und 1 = Treffer“ liefert 2/7, „nur 7 = Treffer“ liefert 1/10.",
    "h": "Man darf Ziffern überspringen."
   },
   {
@@ -5052,7 +5052,7 @@
     "text": "„Mindestens ein Treffer“ soll mit p = 0,5 simuliert werden. Man dreht Rad A (120°-Trefferfeld) und Rad B (90°-Trefferfeld) je einmal. Ist das geeignet?"
    },
    "a": [
-    "Ja, weil 1/3 + 1/4 ungefähr 1/2 ist.",
+    "Nein: 1/3 + 1/4 = 7/12 ist mehr als 1/2.",
     "Ja: P(mindestens ein Treffer) = 1 − 2/3 · 3/4 = 1/2.",
     "Nein: Man bräuchte zwei gleiche Räder.",
     "Nein: 120° + 90° = 210° sind mehr als die Hälfte."

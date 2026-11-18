@@ -616,8 +616,8 @@ def stufen():
                                'Die drei gültigen Ausgänge WW, WZ, ZW sind gleich wahrscheinlich; ZZ wird verworfen. Also hat WW den Anteil 1 von 3. „Dreimal werfen, genau einmal Wappen“ hätte 3/8.',
                                'Man darf Ergebnisse verwerfen und neu werfen.'))
     S.bonus('zufallsgeraet', A('Mit einem Würfel soll p = 1/5 simuliert werden. Welche Regel liefert genau 1/5?', '1 = Treffer, 2 bis 5 = kein Treffer, bei einer 6 noch einmal würfeln.',
-                               ['1 = Treffer, sonst kein Treffer.', '1 oder 2 = Treffer, sonst kein Treffer.', 'Fünfmal würfeln, eine Sechs = Treffer.'],
-                               'Verwirft man die 6, bleiben 5 gleich wahrscheinliche Augenzahlen; eine davon ist Treffer: 1/5. Die anderen Regeln liefern 1/6, 1/3 bzw. etwas anderes.',
+                               ['1 = Treffer, sonst kein Treffer.', '1 oder 2 = Treffer, sonst kein Treffer.', 'Zweimal würfeln, Augensumme 5 = Treffer.'],
+                               'Verwirft man die 6, bleiben 5 gleich wahrscheinliche Augenzahlen; eine davon ist Treffer: 1/5. Die anderen Regeln: „1 oder 2“ liefert 2/6 = 1/3, „nur 1“ liefert 1/6, „Augensumme 5“ liefert 4/36 = 1/9 (1 + 4, 2 + 3, 3 + 2, 4 + 1).',
                                'Wie viele gleich wahrscheinliche Ergebnisse braucht man?'))
 
     # --- regel ---
@@ -641,7 +641,7 @@ def stufen():
                        'Nur 6 von 10 Ziffern sind gültig. Für 60 gültige Ziffern braucht man im Mittel 60 : 0,6 = 100 Ziffern.', 'Welcher Anteil der Ziffern ist brauchbar?'))
     S.bonus('regel', A('Mit einer Zufallsziffer je Versuch soll p = 1/7 simuliert werden. Welche Regel passt?', 'Ziffern 1 bis 7 verwenden (0, 8, 9 überspringen), 1 = Treffer',
                        ['Ziffern 0 bis 9 verwenden, 0 = Treffer', 'Ziffern 0 bis 6 verwenden, 0 und 1 = Treffer', 'Ziffer 7 = Treffer, alle anderen nicht'],
-                       'Nach dem Überspringen bleiben 7 gleich wahrscheinliche Ziffern; eine davon ist Treffer: 1/7. Die anderen Regeln liefern 1/10, 2/7 bzw. 1/10.',
+                       'Nach dem Überspringen bleiben 7 gleich wahrscheinliche Ziffern; eine davon ist Treffer: 1/7. Die anderen Regeln: „0 bis 9, 0 = Treffer“ liefert 1/10, „0 bis 6, 0 und 1 = Treffer“ liefert 2/7, „nur 7 = Treffer“ liefert 1/10.',
                        'Man darf Ziffern überspringen.'))
 
     # --- zufallsziffern ---
@@ -740,7 +740,7 @@ def stufen():
     S.neu('beurteilen', 'pruefung', A('Ein Glücksrad mit den Ziffern 1 bis 4 wird dreimal gedreht; die Ziffern ergeben eine dreistellige Zahl. Welcher Term gibt die Anzahl der möglichen Zahlen an?', '4³',
                                       ['3⁴', '4 · 3', '4 + 4 + 4'], 'Für jede der 3 Stellen gibt es 4 Möglichkeiten: 4 · 4 · 4 = 4³ = 64.', 'Wie viele Äste hat das Baumdiagramm an jeder Stufe?'))
     S.bonus('beurteilen', A('„Mindestens ein Treffer“ soll mit p = 0,5 simuliert werden. Man dreht Rad A (120°-Trefferfeld) und Rad B (90°-Trefferfeld) je einmal. Ist das geeignet?',
-                            'Ja: P(mindestens ein Treffer) = 1 − 2/3 · 3/4 = 1/2.', ['Nein: 120° + 90° = 210° sind mehr als die Hälfte.', 'Nein: Man bräuchte zwei gleiche Räder.', 'Ja, weil 1/3 + 1/4 ungefähr 1/2 ist.'],
+                            'Ja: P(mindestens ein Treffer) = 1 − 2/3 · 3/4 = 1/2.', ['Nein: 120° + 90° = 210° sind mehr als die Hälfte.', 'Nein: Man bräuchte zwei gleiche Räder.', 'Nein: 1/3 + 1/4 = 7/12 ist mehr als 1/2.'],
                             'Kein Treffer bei A: 2/3, bei B: 3/4. Keiner: 2/3 · 3/4 = 1/2. Also mindestens einer: 1/2 – genau passend.', 'Rechne über das Gegenereignis „kein Treffer“.'))
     S.bonus('beurteilen', B('Spielshow mit 4 Türen: hinter einer ein Auto, hinter drei Ziegen. Nach der Wahl öffnet der Moderator eine andere Tür mit einer Ziege. Man wechselt zufällig zu einer der beiden anderen geschlossenen Türen. Wie groß ist die Gewinnwahrscheinlichkeit?', 3, 8,
                             'Die erste Wahl ist mit 3/4 falsch. Dann steht das Auto hinter einer der beiden anderen geschlossenen Türen, man trifft sie mit 1/2: 3/4 · 1/2 = 3/8. War die erste Wahl richtig (1/4), verliert man durch Wechseln.',

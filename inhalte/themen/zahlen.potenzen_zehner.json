@@ -4,8 +4,8 @@
  "block_id": 44,
  "klasse": {
   "gym_by": 6,
-  "rs_by": 5,
-  "ib_myp": 3
+  "rs_by": 7,
+  "ib_myp": 4
  },
  "autor": "Claude (Opus), Paket Klasse 6",
  "inhalt": {
@@ -4247,7 +4247,7 @@
     "wert": 3
    },
    "c": "8 - 3 - 2",
-   "w": "Dreimal mit 10 und einmal mit 100 sind zusammen 10⁵. 10⁸ : 10⁵ = 10³, also n = 3.",
+   "w": "Jedes Mal mit 10 hängt eine Null an, mal 100 hängt zwei Nullen an: zusammen 3 + 2 = 5 Nullen. 10⁸ hat 8 Nullen, also hatte die Zahl 8 − 5 = 3 Nullen: 10³, n = 3.",
    "h": "Wie viele Nullen kommen insgesamt dazu?"
   },
   {
@@ -4264,7 +4264,7 @@
     "wert": 9
    },
    "c": "9",
-   "w": "10⁵ · 10⁴ = 10⁹ = 1 000 000 000 (10 Stellen). Zieht man 1 ab, erhält man 999 999 999 – eine Zahl mit 9 Stellen.",
+   "w": "10⁵ · 10⁴ = 100 000 · 10 000 = 1 000 000 000 (5 + 4 = 9 Nullen, also 10 Stellen). Zieht man 1 ab, erhält man 999 999 999 – eine Zahl mit 9 Stellen.",
    "h": "Rechne zuerst 10⁵ · 10⁴. Was passiert, wenn man von 1 000 eins abzieht?"
   },
   {
@@ -4281,7 +4281,7 @@
     "wert": 4
    },
    "c": "4",
-   "w": "20⁴ = 2⁴ · 10⁴ = 16 · 10 000 = 160 000. Sie endet mit 4 Nullen.",
+   "w": "20⁴ = 20 · 20 · 20 · 20 = (2 · 2 · 2 · 2) · (10 · 10 · 10 · 10) = 16 · 10 000 = 160 000. Sie endet mit 4 Nullen.",
    "h": "Schreibe 20 als 2 · 10."
   },
   {
@@ -4449,7 +4449,7 @@
     "wert": 6
    },
    "c": "9 - 4 + 1",
-   "w": "a · 10⁷ = a · 10 Millionen. Größer als 35 Millionen für a = 4, 5, …, 9 – also 6 Ziffern.",
+   "w": "a · 10⁷ = a · 10 Millionen. Größer als 35 Millionen für a = 4 bis a = 9 (40 bis 90 Millionen) – also 6 Ziffern.",
    "h": "Wie viel ist 1 · 10⁷?"
   },
   {
@@ -4460,13 +4460,13 @@
    "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Der Mond ist etwa 3,84 · 10⁵ km von der Erde entfernt. Ein Flugzeug fliegt 900 km pro Stunde. Wie viele volle Stunden bräuchte es bis zum Mond?"
+    "text": "Der Mond ist etwa 3,84 · 10⁵ km von der Erde entfernt. Ein Flugzeug fliegt 900 km pro Stunde. Wie viele Stunden bräuchte es ungefähr bis zum Mond? Runde auf ganze Stunden."
    },
    "o": {
-    "wert": 426
+    "wert": 427
    },
-   "c": "384000 // 900",
-   "w": "3,84 · 10⁵ km = 384 000 km. 384 000 : 900 ≈ 426,7. Also 426 volle Stunden (fast 18 Tage).",
+   "c": "round(384000 / 900)",
+   "w": "3,84 · 10⁵ km = 384 000 km. 384 000 : 900 ≈ 426,7. Gerundet etwa 427 Stunden (fast 18 Tage).",
    "h": "Schreibe die Entfernung zuerst ohne Zehnerpotenz."
   },
   {
@@ -4483,7 +4483,7 @@
     "wert": 11
    },
    "c": "11",
-   "w": "2 · 5 = 10, und 10 · 10⁶ · 10³ = 10¹⁰. Das ist eine 1 mit 10 Nullen, also 11 Stellen.",
+   "w": "Ordne um: (2 · 5) · 10⁶ · 10³ = 10 · 1 000 000 · 1 000. Das sind 1 + 6 + 3 = 10 Nullen: eine 1 mit 10 Nullen, also 11 Stellen.",
    "h": "Fasse geschickt zusammen: Was ergibt 2 · 5?"
   },
   {
@@ -4634,7 +4634,7 @@
     "wert": 6
    },
    "c": "10 - 5 + 1",
-   "w": "4 500 kW = 4,5 MW. Mehr ist es für n = 5, 6, …, 10 – also 6 Zahlen.",
+   "w": "4 500 kW = 4,5 MW. Mehr ist es für n = 5 bis n = 10 – also 6 Zahlen.",
    "h": "Rechne 4 500 kW in MW um."
   },
   {
@@ -4903,7 +4903,7 @@
     "wert": 19
    },
    "c": "20 - 1",
-   "w": "10⁻¹ = 0,1 (keine Null), 10⁻² = 0,01 (eine Null), … Bei 10⁻ⁿ stehen n − 1 Nullen vor der 1. Bei 10⁻²⁰ sind es 19.",
+   "w": "10⁻¹ = 0,1 (keine Null), 10⁻² = 0,01 (eine Null), 10⁻³ = 0,001 (zwei Nullen). Mit jedem Schritt rückt die 1 eine Stelle nach rechts, es kommt eine Null dazu. Zwischen Komma und 1 steht also immer eine Null weniger als die Zahl im Exponenten (ohne Minus). Bei 10⁻²⁰ sind es 19.",
    "h": "Schau dir 10⁻¹, 10⁻² und 10⁻³ an."
   },
   {
@@ -4920,7 +4920,7 @@
     "wert": 0.055
    },
    "c": "(0.01 + 0.1) / 2",
-   "w": "10⁻² = 0,01 und 10⁻¹ = 0,1. Die Mitte: (0,01 + 0,1) : 2 = 0,11 : 2 = 0,055 – nicht 10⁻¹,⁵ oder 0,05.",
+   "w": "10⁻² = 0,01 und 10⁻¹ = 0,1. Die Mitte: (0,01 + 0,1) : 2 = 0,11 : 2 = 0,055 – nicht 0,05.",
    "h": "Schreibe beide als Dezimalzahlen."
   },
   {
@@ -5121,8 +5121,8 @@
     "wert": 10000000
    },
    "c": "10 ** -3 / 10 ** -10",
-   "w": "1 mm = 10⁻³ m. Wie oft 10⁻¹⁰ in 10⁻³ passt: 10⁻³ : 10⁻¹⁰ = 10⁷ = 10 000 000 Atome – zehn Millionen.",
-   "h": "Schreibe 1 mm in Metern als Zehnerpotenz."
+   "w": "10⁻¹⁰ m = 1/10 000 000 000 m: In 1 m passen 10 000 000 000 Atome. 1 mm ist ein Tausendstel Meter, dort passen 10 000 000 000 : 1 000 = 10 000 000 Atome – zehn Millionen.",
+   "h": "Wie viele Atome passen in 1 m?"
   },
   {
    "l": "vorsilben_klein",
@@ -5217,8 +5217,8 @@
    "o": {
     "index": 0
    },
-   "w": "10⁻⁶ : 10⁻⁹ = 10³ = 1 000. Mikro ist eine Stufe größer als Nano.",
-   "h": "Vergleiche die Exponenten."
+   "w": "1 µm = 0,000 001 m und 1 nm = 0,000 000 001 m. Schiebt man das Komma bei 1 nm um drei Stellen nach rechts, erhält man 1 µm: 1 µm = 1 000 nm. Mikro ist eine Stufe (mal 1 000) größer als Nano.",
+   "h": "Schreibe beide Zahlen aus."
   },
   {
    "l": "vorsilben_klein",

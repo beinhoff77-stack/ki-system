@@ -939,7 +939,7 @@ ST.neu('beide_seiten', 3, 'fehler', ST.A('Jemand löst 7x − 4 = 3x + 8 so: „
                                          'Auf beiden Seiten + 4 rechnen: 7x = 3x + 12. Dann − 3x: 4x = 12, x = 3. Probe: 21 − 4 = 17 = 9 + 8 ✓.', 'Mache die Probe mit x = 1.'))
 ST.neu('beide_seiten', 3, 'rueckwaerts', ST.Z('Lea denkt sich eine Zahl. Das Fünffache der Zahl minus 6 ist so viel wie das Doppelte der Zahl plus 9. Welche Zahl?', 5, '(9 + 6) / (5 - 2)',
                                               '5x − 6 = 2x + 9. Minus 2x: 3x − 6 = 9. Plus 6: 3x = 15, x = 5. Probe: 25 − 6 = 19 = 10 + 9 ✓.', 'Übersetze beide Seiten in Terme.'))
-ST.neu('beide_seiten', 3, 'pruefung', ST.Z('Löse die Gleichung 1,2x + 0,8 = 0,4x + 4,8.', 5, '(4.8 - 0.8) / (1.2 - 0.4)', '0,8x = 4, x = 5. Probe: 6 + 0,8 = 6,8 = 2 + 4,8 ✓.', 'Bringe zuerst alle x auf die linke Seite.'))
+ST.neu('beide_seiten', 3, 'pruefung', ST.Z('Löse die Gleichung 1,2x + 0,8 = 0,4x + 4,8.', 5, '(4.8 - 0.8) / (1.2 - 0.4)', 'Auf beiden Seiten − 0,4x: 0,8x + 0,8 = 4,8. Auf beiden Seiten − 0,8: 0,8x = 4. Durch 0,8: x = 5. Probe: 6 + 0,8 = 6,8 = 2 + 4,8 ✓.', 'Bringe zuerst alle x auf die linke Seite.'))
 ST.knobel('beide_seiten', ST.Z('Ich bin 24 Jahre alt und jetzt dreimal so alt, wie du warst, als ich so alt war, wie du jetzt bist. Wie alt bist du?', 16, '96 / 6',
                                'Du bist y Jahre alt, der Altersunterschied ist 24 − y. Als ich y war, war das vor 24 − y Jahren; du warst damals y − (24 − y) = 2y − 24. '
                                'Bedingung: 24 = 3(2y − 24) = 6y − 72, also 6y = 96 und y = 16. Probe: Unterschied 8; als ich 16 war, warst du 8, und 24 = 3 · 8 ✓.',
@@ -998,8 +998,8 @@ ST.neu('probe', 1, 'erkennen', ST.A('Was macht man bei der Probe einer Gleichung
                                     'Nur die ursprüngliche Gleichung zeigt, ob die Zahl wirklich passt. Ein Fehler in einer Umformung würde sich in der letzten Zeile nicht zeigen.',
                                     'In welche Gleichung muss man einsetzen, damit auch Umformungsfehler auffallen?'))
 ST.neu('probe', 2, 'einkleidung', ST.A('Mia hat 4 volle Packungen Stifte und 3 einzelne Stifte, zusammen 39 Stifte. Sie sagt: „In einer Packung sind 9 Stifte.“ Stimmt das?', 'Ja: 4 · 9 + 3 = 39.',
-                                       ['Nein: 4 · 9 + 3 = 40.', 'Nein: Es sind 9,75 Stifte.', 'Ja: 39 : 4 ≈ 9.'],
-                                       'Gleichung 4x + 3 = 39. Probe mit x = 9: 36 + 3 = 39 ✓. Die Antwort „39 : 4 ≈ 9“ vergisst die 3 einzelnen Stifte.', 'Setze 9 in die Gleichung 4x + 3 = 39 ein.'))
+                                       ['Nein: 39 : 4 = 9,75, also passt es nicht.', 'Nein: 4 · 10 = 40, also sind es 10 Stifte.', 'Nein: 39 ist ungerade, das geht mit Packungen nicht.'],
+                                       'Gleichung 4x + 3 = 39. Probe mit x = 9: 36 + 3 = 39 ✓. Wer 39 : 4 oder 4 · 10 rechnet, vergisst die 3 einzelnen Stifte.', 'Setze 9 in die Gleichung 4x + 3 = 39 ein.'))
 ST.neu('probe', 3, 'pruefung', ST.A('Welche der Zahlen −3, −1, 1, 3 ist eine Lösung von 2(x − 1) = 5x + 7?', '−3', ['−1', '1', '3'],
                                     'x = −3: links 2 · (−4) = −8, rechts −15 + 7 = −8 ✓. Bei −1: −4 und 2; bei 1: 0 und 12; bei 3: 4 und 22.', 'Setze jede Zahl in beide Seiten ein.'))
 ST.knobel('probe', ST.Z('Die Gleichung ax + 6 = 2x + b hat die Lösungen x = 1 und x = 2. Wie groß ist a + b?', 8, '2 + 6',

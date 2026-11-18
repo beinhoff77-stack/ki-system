@@ -1885,7 +1885,7 @@
     "wert": 5
    },
    "c": "(4.8 - 0.8) / (1.2 - 0.4)",
-   "w": "0,8x = 4, x = 5. Probe: 6 + 0,8 = 6,8 = 2 + 4,8 ✓.",
+   "w": "Auf beiden Seiten − 0,4x: 0,8x + 0,8 = 4,8. Auf beiden Seiten − 0,8: 0,8x = 4. Durch 0,8: x = 5. Probe: 6 + 0,8 = 6,8 = 2 + 4,8 ✓.",
    "h": "Bringe zuerst alle x auf die linke Seite."
   },
   {
@@ -5022,15 +5022,15 @@
     "text": "Mia hat 4 volle Packungen Stifte und 3 einzelne Stifte, zusammen 39 Stifte. Sie sagt: „In einer Packung sind 9 Stifte.“ Stimmt das?"
    },
    "a": [
-    "Nein: 4 · 9 + 3 = 40.",
-    "Ja: 39 : 4 ≈ 9.",
+    "Nein: 39 : 4 = 9,75, also passt es nicht.",
+    "Nein: 39 ist ungerade, das geht mit Packungen nicht.",
     "Ja: 4 · 9 + 3 = 39.",
-    "Nein: Es sind 9,75 Stifte."
+    "Nein: 4 · 10 = 40, also sind es 10 Stifte."
    ],
    "o": {
     "index": 2
    },
-   "w": "Gleichung 4x + 3 = 39. Probe mit x = 9: 36 + 3 = 39 ✓. Die Antwort „39 : 4 ≈ 9“ vergisst die 3 einzelnen Stifte.",
+   "w": "Gleichung 4x + 3 = 39. Probe mit x = 9: 36 + 3 = 39 ✓. Wer 39 : 4 oder 4 · 10 rechnet, vergisst die 3 einzelnen Stifte.",
    "h": "Setze 9 in die Gleichung 4x + 3 = 39 ein."
   },
   {

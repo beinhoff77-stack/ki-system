@@ -266,3 +266,15 @@ PLAN['stochastik.mehrstufig'] = [
                                   ['abhängig', 'das Wissen über B ändert die Wahrscheinlichkeit von A'],
                                   ['P(A | B)', 'andere Schreibweise für P_B(A): Wahrscheinlichkeit von A, wenn B schon eingetreten ist']]),
 ]
+
+
+# =====================================================================================================================
+# Teil B: neue Lernkarten (Definitionen in _af_neu.py)
+# =====================================================================================================================
+from _af_neu import DUAL, BILDGERADE, SCHWERPUNKT, SCHNITTWINKEL, ADDITION, ABSTAND  # noqa: E402
+
+PLAN['zahlen.natuerlich'] = DUAL
+PLAN['abbildungen.aehnlichkeit'] = BILDGERADE + SCHWERPUNKT
+PLAN['trigo.rechtwinklig'] = SCHNITTWINKEL
+PLAN['trigo.allgemein'] = ADDITION
+PLAN['abbildungen.matrizen'] = ABSTAND

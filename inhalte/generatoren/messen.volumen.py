@@ -538,7 +538,7 @@ def gen_zusammengesetzt(R, st):
     if art == 'u_form':
         a, b, c, w = R.choice([(8, 5, 4, 2), (10, 6, 5, 2), (12, 4, 6, 3)])
         V = a * b * c - (a - 2 * w) * b * (c - w)
-        return Z(f'Ein U-förmiger Betonblock ist {a} dm breit, {b} dm tief und {c} dm hoch. Von oben ist eine Rinne ausgespart: {a - 2 * w} dm breit, {c - w} dm tief, über die ganze Tiefe. '
+        return Z(f'Ein U-förmiger Betonblock ist {a} dm breit, {b} dm tief und {c} dm hoch. Von oben ist eine Rinne ausgespart: {a - 2 * w} dm breit und {c - w} dm hoch; sie geht von vorn bis hinten ganz durch. '
                  f'Wie viel Beton ist das?', V, f'{a} * {b} * {c} - ({a} - 2 * {w}) * {b} * ({c} - {w})',
                  f'Ganzer Block: {a * b * c} dm³. Rinne: {a - 2 * w} · {b} · {c - w} = {(a - 2 * w) * b * (c - w)} dm³. Beton: {V} dm³.', 'Block minus Rinne.', 'dm³')
     l, h, d_ = R.choice([(Fr(12), Fr(1), Fr(3, 10)), (Fr(8), Fr(15, 10), Fr(24, 100)), (Fr(20), Fr(1, 2), Fr(2, 10))])
@@ -796,7 +796,7 @@ SN(lz, SZ('direkt', 'Wie viele cm³ hat ein Würfel mit 3 cm Kantenlänge?', 27,
 SK(lz, SZ('knobel', 'Ein Quader ist 2 cm · 3 cm · 4 cm groß. Jede Kante wird um 1 cm länger. Um wie viele cm³ wächst das Volumen?', 36, '3 * 4 * 5 - 2 * 3 * 4',
          'Vorher: 24 cm³. Nachher: 3 · 4 · 5 = 60 cm³. Es wächst um 36 cm³ – viel mehr, als man denkt.', 'Rechne beide Volumen aus.', einheit='cm³'))
 SK(lz, SZ('knobel', 'Bei einem Würfel ist die Zahl für das Volumen (in cm³) gleich der Zahl für die Oberfläche (in cm²). Wie lang ist seine Kante?', 6, '6',
-         'Volumen a · a · a, Oberfläche 6 · a · a. Gleich sind sie, wenn a = 6: 216 cm³ und 6 · 36 = 216 cm².', 'Vergleiche a · a · a mit 6 · a · a.', einheit='cm'))
+         'Volumen a · a · a, Oberfläche 6 · a · a. Beide haben den Faktor a · a. Gleich sind sie also genau dann, wenn der dritte Faktor gleich ist: a = 6. Probe: 6 · 6 · 6 = 216 cm³ und 6 · 36 = 216 cm².', 'Vergleiche a · a · a mit 6 · a · a.', einheit='cm'))
 
 if __name__ == '__main__':
     d_, anz = datei()

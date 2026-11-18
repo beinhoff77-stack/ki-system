@@ -1212,7 +1212,7 @@
    "o": {
     "index": 1
    },
-   "w": "Relativ heißt: bezogen auf alle. 6 von 24 sind 6/24 = 1/4.",
+   "w": "Relativ heißt: bezogen auf alle Ergebnisse. Beispiel: Kommt etwas 6-mal bei 24 Ergebnissen vor, ist die relative Häufigkeit 6/24 = 1/4. Die Anzahl 6 allein ist die absolute Häufigkeit.",
    "h": "Wovon hängt „relativ“ ab?"
   },
   {
@@ -5858,7 +5858,7 @@
     "wert": 15
    },
    "c": "(12 + 18) / 2",
-   "w": "x ist ein Drittel der Summe, also sind die anderen beiden zusammen zwei Drittel: 12 + 18 = 30 = 2x. Also x = 15.",
+   "w": "x ist ein Drittel aller Stimmen, also sind die anderen beiden zusammen zwei Drittel: 12 + 18 = 30. Zwei Drittel sind 30, ein Drittel also 15. Also x = 15. Probe: 12 + 15 + 18 = 45, ein Drittel davon ist 15.",
    "h": "Wenn x ein Drittel ist, was sind dann 12 + 18?"
   },
   {
@@ -5927,7 +5927,7 @@
     "wert": 15
    },
    "c": "15",
-   "w": "Ein Drittel der Mädchen = die Hälfte der Jungen. Probiere: 15 Mädchen und 10 Jungen: 5 und 5. Andere Aufteilungen von 25 passen nicht.",
+   "w": "Die Zahl der Mädchen ist durch 3 teilbar, die der Jungen durch 2. Möglich sind 3, 9, 15 oder 21 Mädchen (dann 22, 16, 10 oder 4 Jungen). Radfahrer: 1 und 11, 3 und 8, 5 und 5, 7 und 2. Gleich viele nur bei 15 Mädchen und 10 Jungen.",
    "h": "Die Zahl der Mädchen muss durch 3, die der Jungen durch 2 teilbar sein."
   },
   {
@@ -6389,14 +6389,14 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "In einem Kreisdiagramm sind die Winkel für A, B und C im Verhältnis 1 : 2 : 3. Wie groß ist der Winkel für C?"
+    "text": "Ein Kreisdiagramm hat drei Teile A, B und C. Der Winkel für B ist doppelt so groß wie der für A, der für C dreimal so groß wie der für A. Wie groß ist der Winkel für C?"
    },
    "o": {
     "wert": 180,
     "einheit": "°"
    },
    "c": "360 * 3 / 6",
-   "w": "Das Verhältnis 1 : 2 : 3 teilt den Kreis in 1 + 2 + 3 = 6 gleiche Teile. Ein Teil hat 360° : 6 = 60°, C hat 3 Teile = 180°.",
+   "w": "A ist 1 Teil, B 2 Teile, C 3 Teile: Der Kreis zerfällt in 1 + 2 + 3 = 6 gleiche Teile. Ein Teil hat 360° : 6 = 60°, C hat 3 Teile = 180°.",
    "h": "In wie viele gleiche Teile zerfällt der Kreis?"
   },
   {

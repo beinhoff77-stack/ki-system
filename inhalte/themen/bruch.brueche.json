@@ -7045,7 +7045,7 @@
    "o": {
     "index": 6
    },
-   "w": "3/5 = 6/10, also der 6. Strich.",
+   "w": "3/5 = 6/10. Die Bank steht 6 Abschnitte nach der 0.",
    "h": "Erweitere 3/5 auf Zehntel."
   },
   {
@@ -7093,7 +7093,7 @@
    "o": {
     "index": 8
    },
-   "w": "2/3 = 8/12, also der 8. Strich.",
+   "w": "2/3 = 8/12. Der Punkt liegt 8 Abschnitte nach der 0.",
    "h": "Erweitere 2/3 so, dass der Nenner 12 ist."
   },
   {
@@ -7104,7 +7104,7 @@
    "g": "umkehr",
    "y": "luecken",
    "f": {
-    "text": "Die Strecke von 0 bis 1 ist in 8 gleiche Teile geteilt. Ein Punkt liegt beim 6. Strich. Welcher vollständig gekürzte Bruch ist das?",
+    "text": "Die Strecke von 0 bis 1 ist in 8 gleiche Teile geteilt. Ein Punkt liegt 6 Abschnitte rechts von der 0. Welcher vollständig gekürzte Bruch ist das?",
     "schablone": "□/□",
     "hinweis": "Je Lücke eine ganze Zahl."
    },
@@ -7118,7 +7118,7 @@
     "6 // 2",
     "8 // 2"
    ],
-   "w": "Beim 6. Strich liegt 6/8. Gekürzt mit 2: 3/4.",
+   "w": "Ein Abschnitt ist 1/8. 6 Abschnitte sind 6/8. Gekürzt mit 2: 3/4.",
    "h": "Lies zuerst als Achtel ab, dann kürze."
   },
   {
@@ -7188,7 +7188,7 @@
    "o": {
     "index": 8
    },
-   "w": "Jeder Teil ist 1/6. 1 1/3 = 8/6, also der 8. Strich.",
+   "w": "Jeder Teil ist 1/6. 1 1/3 = 8/6, also 8 Abschnitte nach der 0.",
    "h": "Wie groß ist ein Teil, wenn 2 Ganze in 12 Teile geteilt sind?"
   },
   {
@@ -8781,7 +8781,7 @@
     "wert": 12
    },
    "c": "12",
-   "w": "Am Anfang sind doppelt so viele Kinder wie Erwachsene. Danach gleich viele. Also sind 6 Erwachsene so viele wie die ursprünglichen Erwachsenen: 6 Erwachsene vorher, 12 Kinder.",
+   "w": "Vorher sind 2/3 Kinder und 1/3 Erwachsene: doppelt so viele Kinder wie Erwachsene. Nachher ist die Hälfte Kinder: gleich viele Kinder wie Erwachsene. Die Kinder bleiben dieselben, also sind es nachher doppelt so viele Erwachsene wie vorher. Die 6 neuen Erwachsenen sind darum genauso viele wie die Erwachsenen vorher: 6. Kinder: 2 · 6 = 12. Probe: 12 von 18 Gästen sind 2/3, 12 von 24 Gästen sind 1/2.",
    "h": "Vergleiche Kinder und Erwachsene vorher und nachher. Die Zahl der Kinder ändert sich nicht."
   },
   {
@@ -9966,7 +9966,7 @@
    "g": "fehler",
    "y": "luecken",
    "f": {
-    "text": "Der Zahlenstrahl geht von 0 bis 2 und ist in 8 gleiche Teile geteilt. Ein Kind soll 3/8 markieren und setzt den Punkt auf den 3. Strich. Welche Zahl hat es wirklich markiert?",
+    "text": "Der Zahlenstrahl geht von 0 bis 2 und ist in 8 gleiche Teile geteilt. Ein Kind soll 3/8 markieren und setzt den Punkt 3 Abschnitte rechts von der 0. Welche Zahl hat es wirklich markiert?",
     "schablone": "□/□",
     "hinweis": "Je Lücke eine ganze Zahl."
    },
@@ -9980,7 +9980,7 @@
     "3",
     "4"
    ],
-   "w": "Von 0 bis 2 in 8 Teilen ist jeder Teil 2/8 = 1/4. Der 3. Strich ist 3/4, nicht 3/8.",
+   "w": "Von 0 bis 2 in 8 Teilen ist jeder Teil 2/8 = 1/4. 3 Abschnitte sind also 3/4, nicht 3/8.",
    "h": "Wie groß ist ein Teil, wenn der Strahl bis 2 geht?"
   },
   {
@@ -10139,7 +10139,7 @@
     "2",
     "3"
    ],
-   "w": "Von A nach B sind es 1/2 − 1/3 = 1/6. C liegt noch einmal 1/6 weiter: 1/2 + 1/6 = 4/6 = 2/3.",
+   "w": "In Sechsteln: A = 1/3 = 2/6, B = 1/2 = 3/6. Von A nach B ist es 1 Sechstel. C liegt noch einmal 1 Sechstel weiter: 4/6 = 2/3.",
    "h": "Schreibe alles in Sechsteln."
   },
   {
@@ -10316,7 +10316,7 @@
    "g": "parameter",
    "y": "auswahl",
    "f": {
-    "text": "Für welche natürlichen Zahlen n stimmt: „n/7 ist kleiner als 1/2“?"
+    "text": "Für welche der Zahlen n = 1, 2, 3, 4, 5, 6 stimmt: „n/7 ist kleiner als 1/2“?"
    },
    "a": [
     "für alle n kleiner als 7",
@@ -10327,7 +10327,7 @@
    "o": {
     "index": 3
    },
-   "w": "1/2 = 3,5/7. Kleiner ist n/7 also für n = 1, 2, 3. Bei n = 4 ist 4/7 schon größer als 1/2.",
+   "w": "Erweitere auf Vierzehntel: 1/2 = 7/14 und n/7 = (2 · n)/14. Kleiner als 7/14 heißt 2 · n kleiner als 7: n = 1, 2, 3. Bei n = 4 ist 4/7 = 8/14 schon größer als 1/2.",
    "h": "Wie viele Siebtel sind die Hälfte?"
   },
   {
@@ -10746,7 +10746,7 @@
    "o": {
     "index": 11
    },
-   "w": "Jeder Teil ist 1/4. 2 3/4 = 11/4 liegt beim 11. Strich.",
+   "w": "Jeder Teil ist 1/4. 2 3/4 = 11/4, also 11 Abschnitte nach der 0.",
    "h": "Wie groß ist ein Teil? Schreibe 2 3/4 als Viertel."
   },
   {
@@ -11254,7 +11254,7 @@
    "o": {
     "index": 9
    },
-   "w": "2/3 = 8/12 und 3/4 = 9/12. Größer ist 3/4, also der 9. Strich.",
+   "w": "2/3 = 8/12 und 3/4 = 9/12. Größer ist 3/4, also 9 Abschnitte nach der 0.",
    "h": "Schreibe beide Brüche in Zwölfteln."
   },
   {
@@ -11503,7 +11503,7 @@
    "o": {
     "index": 1
    },
-   "w": "Alle drei sind etwas kleiner als 1/2. 5/11 fehlt 1/22 bis zur Hälfte, 7/15 fehlt 1/30, 9/20 fehlt 1/20. Am wenigsten fehlt bei 7/15, also ist er am größten.",
+   "w": "Alle drei sind etwas kleiner als 1/2. Erweitere jeden Bruch und die Hälfte auf denselben Nenner: 5/11 = 10/22, die Hälfte ist 11/22 – es fehlt 1/22. 7/15 = 14/30, die Hälfte ist 15/30 – es fehlt 1/30. 9/20, die Hälfte ist 10/20 – es fehlt 1/20. 1/30 ist der kleinste dieser Stammbrüche. Am wenigsten fehlt also bei 7/15, er ist am größten.",
    "h": "Vergleiche nicht direkt, sondern mit einer bekannten Zahl in der Nähe."
   },
   {
@@ -11732,7 +11732,7 @@
    "o": {
     "index": 1
    },
-   "w": "Tiefer heißt weiter ins Minus: −3/4 − 2/4 = −5/4 m.",
+   "w": "1/2 m = 2/4 m. Der zweite Taucher ist 3/4 m + 2/4 m = 5/4 m unter der Oberfläche (3 Viertel und 2 Viertel sind 5 Viertel). Unter der Oberfläche heißt negativ: −5/4 m.",
    "h": "Zeichne einen senkrechten Zahlenstrahl mit 0 an der Wasseroberfläche."
   },
   {
@@ -12211,7 +12211,7 @@
     "3",
     "4"
    ],
-   "w": "Rückwärts: −1/4 − 1/2 = −3/4 (zurückschieben), dann spiegeln: 3/4.",
+   "w": "Rückwärts: 1/2 = 2/4. Zurückschieben heißt 2 Viertel nach links: von −1/4 nach −3/4. Dann zurückspiegeln: 3/4. Probe: 3/4 → gespiegelt −3/4 → 2 Viertel nach rechts −1/4.",
    "h": "Mache die Schritte von hinten rückgängig."
   },
   {
@@ -12228,8 +12228,8 @@
     "wert": 16
    },
    "c": "8 - (-7) + 1",
-   "w": "−3/2 = −7,5/5 und 7/4 = 8,75/5. Also muss k zwischen −7,5 und 8,75 liegen: k = −7, −6, …, 8. Das sind 16 Zahlen.",
-   "h": "Schreibe beide Grenzen mit dem Nenner 5 – auch wenn der Zähler dabei keine ganze Zahl wird."
+   "w": "Gemeinsamer Nenner 20: −3/2 = −30/20, 7/4 = 35/20 und k/5 = (4 · k)/20. Gesucht: 4 · k liegt zwischen −30 und 35. Das gilt für k von −7 (−28) bis 8 (32); k = −8 ergibt −32, k = 9 ergibt 36 – beide liegen außerhalb. Von −7 bis 8 sind es 7 negative Zahlen, die 0 und 8 positive: 16 Zahlen.",
+   "h": "Schreibe alle drei Brüche mit demselben Nenner."
   },
   {
    "l": "zahlbereiche",
@@ -12253,7 +12253,7 @@
     "1",
     "4"
    ],
-   "w": "Der Abstand von −1/2 bis 1 ist 3/2. Die Hälfte davon ist 3/4. a = −1/2 + 3/4 = 1/4.",
+   "w": "In Vierteln: −1/2 = −2/4 und 1 = 4/4. Von −2/4 bis 4/4 sind es 6 Viertel. Die Mitte liegt 3 Viertel rechts von −2/4: bei 1/4.",
    "h": "Wie weit ist es von −1/2 bis 1?"
   },
   {
@@ -12504,7 +12504,7 @@
     "wert": 12
    },
    "c": "12",
-   "w": "Teiler von 36: …, 12, 18, 36. 12 teilt auch 48 und 60, 18 nicht. ggT = 12.",
+   "w": "Prüfe die Teiler von 36 von groß nach klein. 36 und 18 teilen 48 nicht (48 : 18 geht nicht auf). 12 teilt 48 (48 = 4 · 12) und 60 (60 = 5 · 12). Also ggT = 12.",
    "h": "Suche den größten Teiler von 36, der auch 48 und 60 teilt."
   },
   {
@@ -12608,7 +12608,7 @@
    },
    "a": [
     "Ja: Ein Teiler einer Zahl ist nie größer als die Zahl selbst.",
-    "Nein: ggT(4, 6) = 12.",
+    "Nein, der ggT kann auch größer sein als beide Zahlen.",
     "Nein: Er ist immer das Produkt.",
     "Ja, aber nur bei geraden Zahlen."
    ],

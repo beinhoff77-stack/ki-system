@@ -864,10 +864,10 @@ SN(lz, SZ('darstellung', 'In einem Hunderterfeld sind 3 ganze Reihen und 4 einze
 SN(lz, SZ('fehler', 'Ein Kind rechnet: „15 von 60 sind 60 : 15 = 4 %.“ Wie viel Prozent sind es richtig?', 25, '15 / 60 * 100', 'Es hat Grundwert durch Prozentwert geteilt. Richtig: 15/60 = 1/4 = 25 %.', 'Was steht beim Anteil oben, was unten?', einheit='%'))
 SN(lz, SA('begruenden', 'Ein Preis steigt von 50 € auf 60 € und sinkt danach wieder auf 50 €. Stimmt: „Steigung und Senkung waren gleich viel Prozent.“?', 'Nein: Er stieg um 20 % (10 von 50), sank aber nur um etwa 16,7 % (10 von 60).',
         ['Ja, beide Male 10 €, also gleich viel Prozent.', 'Ja, beide Male 20 %.'], 'Der Grundwert ist verschieden: einmal 50 €, einmal 60 €.', 'Worauf bezieht sich jede Änderung?'))
-SN(lz, SZ('parameter', 'Für wie viele Punktzahlen x von 0 bis 40 ist x von 40 Punkten mindestens 75 %?', 11, '40 - 30 + 1', '75 % von 40 = 30. Mindestens 30 Punkte: 30, 31, …, 40 – das sind 11.', 'Wie viele Punkte sind 75 %?'))
+SN(lz, SZ('parameter', 'Für wie viele Punktzahlen x von 0 bis 40 ist x von 40 Punkten mindestens 75 %?', 11, '40 - 30 + 1', '75 % von 40 = 30. Mindestens 30 Punkte: alle Punktzahlen von 30 bis 40. Das sind 40 − 30 + 1 = 11.', 'Wie viele Punkte sind 75 %?'))
 SN(lz, SZ('pruefung', 'Bei einer Wahl stimmen 168 von 280 Kindern für Kandidat A, der Rest für Kandidat B. Wie viel Prozent bekommt B?', 40, '(280 - 168) / 280 * 100', 'B: 280 − 168 = 112. 112/280 = 2/5 = 40 %.', 'Berechne zuerst die Stimmen für B.', einheit='%'))
 SK(lz, SZ('knobel', 'Wie viel Prozent der Zahlen von 1 bis 100 enthalten mindestens eine Ziffer 7?', 19, '10 + 10 - 1',
-          'Mit 7 an der Einerstelle: 7, 17, …, 97 (10 Zahlen). Mit 7 an der Zehnerstelle: 70 bis 79 (10 Zahlen). 77 wurde doppelt gezählt: 19 Zahlen von 100 = 19 %.', 'Zähle Einer und Zehner getrennt. Was zählst du doppelt?', einheit='%'))
+          'Mit 7 an der Einerstelle: 7, 17, 27 und so weiter bis 97 – in jedem Zehner eine, also 10 Zahlen. Mit 7 an der Zehnerstelle: 70 bis 79 (10 Zahlen). 77 wurde doppelt gezählt: 19 Zahlen von 100 = 19 %.', 'Zähle Einer und Zehner getrennt. Was zählst du doppelt?', einheit='%'))
 SK(lz, SZ('knobel', 'Ein Rechteck wird um 20 % länger und um 20 % schmaler. Um wie viel Prozent wird seine Fläche kleiner?', 4, '100 - 120 * 80 / 100',
           'Nimm ein Rechteck 10 cm · 10 cm (100 cm²). Neu: 12 cm · 8 cm = 96 cm². Das sind 4 % weniger – nicht gleich viel, obwohl beide Seiten um 20 % geändert wurden.', 'Rechne mit einem Beispiel.', einheit='%'))
 

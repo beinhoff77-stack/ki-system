@@ -433,7 +433,7 @@ SN(lz, SZ('transfer', 'Ein Fahrrad kostet 600 €. Beim Ratenkauf zahlt man 12 R
 SK(lz, SZ('knobel', 'Ein Kredit über 1 000 € kostet 10 % Zinsen im Jahr. Nach einem Jahr zahlt man 500 € zurück. Der Rest wird im zweiten Jahr wieder mit 10 % verzinst. Wie viel schuldet man nach zwei Jahren?', 660, '(1000 * 1.1 - 500) * 1.1',
           'Nach einem Jahr: 1 100 €. Nach der Zahlung: 600 €. Im zweiten Jahr 10 % dazu: 660 €.', 'Rechne Jahr für Jahr.', einheit=E))
 SK(lz, SZ('knobel', 'Ein Kind möchte in einem Jahr genau 300 € haben. Das Sparbuch zahlt 2 %. Wie viel muss es heute einzahlen? Runde auf Cent.', 294.12, 'round(300 / 1.02, 2)',
-          '300 € sollen 102 % sein. 1 % = 300 € : 102 ≈ 2,941 €, 100 % ≈ 294,12 €. (Nicht 300 € − 6 €, denn die 2 % beziehen sich auf den kleineren Betrag.)', 'Wie viel Prozent des eingezahlten Geldes sind 300 €?', einheit=E))
+          '300 € sollen 102 % sein. 100 % = 300 € : 102 · 100 = 30 000 € : 102 ≈ 294,118 €, auf Cent gerundet 294,12 €. (Nicht 300 € − 6 €, denn die 2 % beziehen sich auf den kleineren Betrag.)', 'Wie viel Prozent des eingezahlten Geldes sind 300 €?', einheit=E))
 
 lz = 'jahreszinsen'
 ST.leiter(lz, 'Jahreszinsen mit Z = K · p/100 berechnen; die Formel erkennen.', 'Guthaben und Rückzahlung, zusammengelegtes Kapital, mehrere Jahre mit Abheben, Zinssatz aus Zinsen.',

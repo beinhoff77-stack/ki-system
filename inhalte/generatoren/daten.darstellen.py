@@ -801,7 +801,7 @@ ST.leiter(lz, 'Relative Häufigkeit als Bruch „Anzahl durch Gesamtzahl“ ange
           'Gruppen verschiedener Größe vergleichen, Diagramm mit Bruch verknüpfen, Buchstaben zählen, neue Kinder kommen dazu, Fehler deuten, wie oft muss es fallen.')
 STB(lz, 2, '18 von 45', 'darstellung'); STB(lz, 2, 'Haustier', 'umkehr')
 STB(lz, 3, 'Lieblingsobst', 'umkehr', neu_s=2); STB(lz, 3, 'In Gruppe A', 'begruenden'); STB(lz, 3, 'Das Diagramm', 'verknuepfen'); STB(lz, 3, 'In einer Klasse', 'rueckwaerts')
-SN(lz, SA('erkennen', 'Was gibt die relative Häufigkeit an?', 'den Anteil an allen Ergebnissen', ['die Anzahl, wie oft etwas vorkam', 'den größten Wert'], 'Relativ heißt: bezogen auf alle. 6 von 24 sind 6/24 = 1/4.', 'Wovon hängt „relativ“ ab?'))
+SN(lz, SA('erkennen', 'Was gibt die relative Häufigkeit an?', 'den Anteil an allen Ergebnissen', ['die Anzahl, wie oft etwas vorkam', 'den größten Wert'], 'Relativ heißt: bezogen auf alle Ergebnisse. Beispiel: Kommt etwas 6-mal bei 24 Ergebnissen vor, ist die relative Häufigkeit 6/24 = 1/4. Die Anzahl 6 allein ist die absolute Häufigkeit.', 'Wovon hängt „relativ“ ab?'))
 SN(lz, SZ('parameter', 'Wie oft muss bei 40 Münzwürfen „Kopf“ fallen, damit die relative Häufigkeit genau 0,35 ist?', 14, '40 * 0.35', '0,35 · 40 = 14.', 'Relative Häufigkeit mal Gesamtzahl.'))
 SN(lz, SZ('pruefung', 'Von 250 befragten Kindern lesen 40 % jeden Tag. Von den übrigen liest die Hälfte nur am Wochenende. Wie viele Kinder lesen nur am Wochenende?', 75, '250 * 0.6 / 2', 'Täglich: 100 Kinder. Übrig 150, davon die Hälfte: 75.', 'Berechne zuerst die Kinder, die nicht täglich lesen.'))
 SN(lz, SZ('transfer', 'Ein Würfel wird 60-mal geworfen. Die relative Häufigkeit der 6 ist 0,15, die der 1 doppelt so groß. Wie oft fiel die 1?', 18, '60 * 0.15 * 2', 'Die 1 hat 0,3. 0,3 · 60 = 18.', 'Wie groß ist die relative Häufigkeit der 1?'))
@@ -822,7 +822,7 @@ SN(lz, SZ('einkleidung', 'Die 6a hat 26 Kinder. 9 kommen mit dem Bus und 7 mit d
 SN(lz, SZ('fehler', 'In einer Tabelle stehen 10 Mädchen und 15 Jungen; mit dem Rad kommen 4 Mädchen und 6 Jungen. Ein Kind sagt: „10 % fahren Rad.“ Wie viel Prozent sind es wirklich?', 40, '(4 + 6) / (10 + 15) * 100',
           'Es hat die Anzahl 10 als Prozent gelesen. Richtig: 10 von 25 Kindern = 40 %.', 'Wie viele Kinder sind es insgesamt?', einheit='%'))
 SN(lz, SZ('parameter', 'Eine Tabelle zeigt für drei Sorten 12, x und 18 Stimmen. Die mittlere Sorte hat genau ein Drittel aller Stimmen. Wie groß ist x?', 15, '(12 + 18) / 2',
-          'x ist ein Drittel der Summe, also sind die anderen beiden zusammen zwei Drittel: 12 + 18 = 30 = 2x. Also x = 15.', 'Wenn x ein Drittel ist, was sind dann 12 + 18?'))
+          'x ist ein Drittel aller Stimmen, also sind die anderen beiden zusammen zwei Drittel: 12 + 18 = 30. Zwei Drittel sind 30, ein Drittel also 15. Also x = 15. Probe: 12 + 15 + 18 = 45, ein Drittel davon ist 15.', 'Wenn x ein Drittel ist, was sind dann 12 + 18?'))
 SN(lz, SZ('pruefung', 'In der 6a sind 14 Mädchen und 12 Jungen, in der 6b 11 Mädchen und 15 Jungen. Wie viel Prozent aller Kinder beider Klassen sind Mädchen? Runde auf ganze Prozent.', 48, 'round(25 / 52 * 100)',
           'Mädchen: 14 + 11 = 25, alle Kinder: 52. 25 : 52 ≈ 0,48 = 48 %.', 'Zähle zuerst alle Mädchen und alle Kinder.', einheit='%'))
 SN(lz, SZ('transfer', 'In einer Klasse mit 30 Kindern haben 18 ein Haustier. Es sind 12 Mädchen, davon haben 8 ein Haustier. Wie viele Jungen haben kein Haustier?', 8, '(30 - 12) - (18 - 8)',
@@ -830,7 +830,7 @@ SN(lz, SZ('transfer', 'In einer Klasse mit 30 Kindern haben 18 ein Haustier. Es 
 SK(lz, SZ('knobel', 'Eine Tabelle zeigt die Stimmen für A, B und C. A hat 3 mehr als B, C hat doppelt so viele wie B. Zusammen sind es 43 Stimmen. Wie viele hat C?', 20, '2 * (43 - 3) // 4',
           'Schreibe B als Kästchen: A = □ + 3, C = □ + □. Zusammen 4 Kästchen + 3 = 43, also ein Kästchen 10. C = 20.', 'Drücke alles durch die Stimmen von B aus.'))
 SK(lz, SZ('knobel', 'Eine Klasse hat 25 Kinder. 1/3 der Mädchen und 1/2 der Jungen fahren Rad – das sind gleich viele Mädchen wie Jungen. Wie viele Mädchen hat die Klasse?', 15, '15',
-          'Ein Drittel der Mädchen = die Hälfte der Jungen. Probiere: 15 Mädchen und 10 Jungen: 5 und 5. Andere Aufteilungen von 25 passen nicht.', 'Die Zahl der Mädchen muss durch 3, die der Jungen durch 2 teilbar sein.'))
+          'Die Zahl der Mädchen ist durch 3 teilbar, die der Jungen durch 2. Möglich sind 3, 9, 15 oder 21 Mädchen (dann 22, 16, 10 oder 4 Jungen). Radfahrer: 1 und 11, 3 und 8, 5 und 5, 7 und 2. Gleich viele nur bei 15 Mädchen und 10 Jungen.', 'Die Zahl der Mädchen muss durch 3, die der Jungen durch 2 teilbar sein.'))
 
 lz = 'saeulendiagramm'
 ST.leiter(lz, 'Säulenhöhe mit Maßstab in Anzahl umrechnen; eine Säule ablesen.', 'Summen, Unterschiede, Prozent aus Diagrammen, Säulenhöhe aus Tabelle mit Maßstab.',
@@ -851,7 +851,7 @@ STB(lz, 3, 'In einem Kreisdiagramm über 60', 'rueckwaerts'); STB(lz, 3, 'Im Kre
 SN(lz, SA('begruenden', 'Stimmt die Aussage? „Ein Kreisdiagramm mit genau drei Teilen von 90°, 120° und 140° kann stimmen.“', 'Nein, zusammen sind es nur 350°, nicht 360°.', ['Ja, das stimmt.', 'Nein, ein Kreis hat 180°.'],
           '90 + 120 + 140 = 350. Alle Teile eines Kreisdiagramms ergeben 360°.', 'Addiere die Winkel.'))
 SN(lz, SZ('parameter', 'Bei wie vielen Befragten steht im Kreisdiagramm jede einzelne Person für genau 7,5°?', 48, '360 / 7.5', '360° : 7,5° = 48 Personen.', 'Teile den ganzen Kreis durch 7,5°.'))
-SK(lz, SZ('knobel', 'In einem Kreisdiagramm sind die Winkel für A, B und C im Verhältnis 1 : 2 : 3. Wie groß ist der Winkel für C?', 180, '360 * 3 / 6', 'Das Verhältnis 1 : 2 : 3 teilt den Kreis in 1 + 2 + 3 = 6 gleiche Teile. Ein Teil hat 360° : 6 = 60°, C hat 3 Teile = 180°.', 'In wie viele gleiche Teile zerfällt der Kreis?', einheit='°'))
+SK(lz, SZ('knobel', 'Ein Kreisdiagramm hat drei Teile A, B und C. Der Winkel für B ist doppelt so groß wie der für A, der für C dreimal so groß wie der für A. Wie groß ist der Winkel für C?', 180, '360 * 3 / 6', 'A ist 1 Teil, B 2 Teile, C 3 Teile: Der Kreis zerfällt in 1 + 2 + 3 = 6 gleiche Teile. Ein Teil hat 360° : 6 = 60°, C hat 3 Teile = 180°.', 'In wie viele gleiche Teile zerfällt der Kreis?', einheit='°'))
 SK(lz, SZ('knobel', 'Ein Kreisdiagramm zeigt 90 Kinder. Teil A hat einen Winkel von 100°. Wie viele Kinder sind das?', 25, '90 * 100 / 360', 'Der ganze Kreis hat 360° für 90 Kinder, also steht jedes Kind für 360° : 90 = 4°. 100° : 4° = 25 Kinder – es geht genau auf.', 'Wie viel Grad steht ein Kind?'))
 
 lz = 'irrefuehrend'

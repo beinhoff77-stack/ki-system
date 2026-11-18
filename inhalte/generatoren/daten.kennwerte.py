@@ -642,7 +642,7 @@ SN(lz, SZ('parameter', 'Für welche Zahl x ist der Mittelwert von 4, 9 und x gen
 SN(lz, SZ('pruefung', 'Ein Kind springt 3,20 m; 3,40 m; 2,90 m und 3,30 m. Der schlechteste Sprung wird gestrichen. Wie groß ist der Mittelwert der übrigen Sprünge?', 3.3, '(3.2 + 3.4 + 3.3) / 3', 'Gestrichen wird 2,90 m. (3,20 + 3,40 + 3,30) : 3 = 9,90 : 3 = 3,30 m.', 'Welcher Sprung fällt weg?', einheit='m'))
 SK(lz, SZ('knobel', 'Der Mittelwert von 10 Zahlen ist 20. Eine der Zahlen wird von 35 auf 15 geändert. Wie groß ist der neue Mittelwert?', 18, '(10 * 20 - 35 + 15) / 10',
           'Die Summe war 200. Sie wird um 20 kleiner: 180. Der neue Mittelwert ist 180 : 10 = 18.', 'Was passiert mit der Summe?'))
-SK(lz, SZ('knobel', 'Fünf verschiedene natürliche Zahlen haben den Mittelwert 10. Wie groß kann die größte höchstens sein?', 40, '5 * 10 - (1 + 2 + 3 + 4)',
+SK(lz, SZ('knobel', 'Fünf verschiedene natürliche Zahlen (ab 1) haben den Mittelwert 10. Wie groß kann die größte höchstens sein?', 40, '5 * 10 - (1 + 2 + 3 + 4)',
           'Die Summe ist 50. Die größte Zahl wird am größten, wenn die anderen vier so klein wie möglich sind: 1, 2, 3, 4 (zusammen 10). Bleibt 40.', 'Wie klein können die anderen vier Zahlen sein?'))
 
 lz = 'mittel_tabelle'
@@ -662,7 +662,7 @@ SN(lz, SZ('pruefung', 'Notenspiegel: Note 1: 3, Note 2: 7, Note 3: 8, Note 4: 4,
 SK(lz, SZ('knobel', 'Eine Klasse hat den Notenschnitt 2,5. Kommt ein Kind mit der Note 1 dazu, ist der Schnitt 2,4. Wie viele Kinder hat die Klasse jetzt?', 15, '15',
           'Mit n Kindern ist die Notensumme 2,5 · n. Danach 2,5 · n + 1 = 2,4 · (n + 1). Probieren: n = 14 ergibt 35 + 1 = 36 und 2,4 · 15 = 36. Also sind es jetzt 15 Kinder.', 'Schreibe die Notensumme vorher und nachher auf.'))
 SK(lz, SL('knobel', 'In einer Tabelle kommt der Wert 1 a-mal vor, der Wert 2 doppelt so oft und der Wert 3 dreimal so oft wie der Wert 1. Wie groß ist der Mittelwert? (Als Bruch)', '□/□', [7, 3], ['14 // 2', '6 // 2'],
-          'Summe: 1 · a + 2 · 2a + 3 · 3a = 14a. Anzahl: a + 2a + 3a = 6a. Mittelwert 14a : 6a = 14/6 = 7/3 – egal, wie groß a ist.', 'Probiere a = 1 aus.'))
+          'Für a = 1: Die 1 kommt 1-mal, die 2 kommt 2-mal, die 3 kommt 3-mal vor. Summe 1 + 4 + 9 = 14, Anzahl 6, Mittelwert 14/6 = 7/3. Für a = 2 verdoppeln sich Summe und Anzahl (28 und 12), für a = 3 verdreifachen sie sich – der Mittelwert bleibt 7/3, egal wie groß a ist.', 'Probiere a = 1 aus.'))
 
 lz = 'mittel_rueckwaerts'
 ST.leiter(lz, 'Aus Mittelwert und Anzahl die Summe berechnen; die passende Rechnung erkennen.', 'Fehlenden Wert bestimmen, ein Wert kommt dazu, Ziel-Mittelwert erreichen, Gesamtzeit aus Mittelwert.',

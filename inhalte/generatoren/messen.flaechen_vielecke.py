@@ -318,7 +318,7 @@ def gen_dreieck(R, st):
     if art == 'fehler':
         g, h = R.randint(5, 12), R.randint(3, 9)
         return Z(f'Lea berechnet ein Dreieck mit g = {g} cm und h = {h} cm: {g} · {h} = {g * h} cm². Was ist der richtige Flächeninhalt?', Fr(g * h, 2), f'{g} * {h} / 2',
-                 f'Lea hat das Parallelogramm berechnet. Das Dreieck ist die Hälfte: {g * h} : 2 = {z(Fr(g * h, 2))} cm².', 'Wie viele solche Dreiecke passen in das Parallelogramm?', 'cm²')
+                 f'Lea hat das Parallelogramm berechnet. Das Dreieck ist die Hälfte: {g * h} : 2 = {z(Fr(g * h, 2))} cm².', 'Wie viele solche Dreiecke passen in ein Parallelogramm mit derselben Grundseite und derselben Höhe?', 'cm²')
     if art == 'im_rechteck':
         a_, b_ = R.randint(5, 12), R.randint(4, 10)
         return Z(f'In ein Rechteck ({a_} cm lang, {b_} cm breit) wird ein Dreieck gezeichnet. Seine Grundseite ist die untere Rechteckseite, seine Spitze liegt auf der oberen. '
@@ -403,9 +403,9 @@ def gen_trapez(R, st):
         if (a_ + c_) % 2: c_ += 1
         h = R.randint(3, 9)
         m = (a_ + c_) // 2
-        return Z(f'Bei einem Trapez ist a = {a_} cm und c = {c_} cm. Die Strecke genau in halber Höhe, parallel zu a, ist so lang wie der Mittelwert von a und c. '
+        return Z(f'Bei einem Trapez ist a = {a_} cm und c = {c_} cm. Die Strecke genau in halber Höhe, parallel zu a, ist halb so lang wie a und c zusammen. '
                  f'Das Trapez ist {h} cm hoch. Wie groß ist es?', m * h, f'({a_} + {c_}) / 2 * {h}',
-                 f'Mittelwert: ({a_} + {c_}) : 2 = {m} cm. Das Trapez ist so groß wie ein Rechteck {m} cm · {h} cm = {m * h} cm².', '(a + c) : 2 ist der Mittelwert.', 'cm²')
+                 f'Die Strecke in halber Höhe: ({a_} + {c_}) : 2 = {m} cm. Das Trapez ist so groß wie ein Rechteck {m} cm · {h} cm = {m * h} cm².', 'Vergleiche (a + c) : 2 mit der Trapezformel.', 'cm²')
     if art == 'zerlegt':
         c_, l, r, h = R.randint(3, 8), R.randint(1, 4), R.randint(1, 4), R.randint(2, 6)
         a_ = l + c_ + r
@@ -679,9 +679,9 @@ def gen_oberflaeche(R, st):
     g, h, s = R.choice([(6, 4, 5), (8, 3, 5), (12, 8, 10)])
     l = R.randint(10, 20)
     O = g * h + (g + 2 * s) * l
-    return Z(f'Eine Schachtel (Dreieck: g = {g} cm, h = {h} cm, schräge Seiten {s} cm; Länge {l} cm) wird aus einem rechteckigen Karton ausgeschnitten. '
-             f'Für Klebelaschen kommen 10 % der Oberfläche dazu. Wie viel cm² Karton braucht man mindestens?', O + Fr(O, 10), f'({g} * {h} + ({g} + 2 * {s}) * {l}) * 1.1',
-             f'Oberfläche: {g} · {h} + ({g} + {s} + {s}) · {l} = {O} cm². 10 % dazu: {O} + {z(Fr(O, 10))} = {z(O + Fr(O, 10))} cm².', '10 % sind ein Zehntel.', 'cm²')
+    return Z(f'Eine Schachtel (Dreieck: g = {g} cm, h = {h} cm, schräge Seiten {s} cm; Länge {l} cm) wird aus Karton gebaut. '
+             f'Für Klebelaschen kommt noch ein Zehntel der Oberfläche dazu. Wie viel cm² Karton braucht man?', O + Fr(O, 10), f'({g} * {h} + ({g} + 2 * {s}) * {l}) * 1.1',
+             f'Oberfläche: {g} · {h} + ({g} + {s} + {s}) · {l} = {O} cm². Ein Zehntel davon: {O} : 10 = {z(Fr(O, 10))} cm². Zusammen: {O} + {z(Fr(O, 10))} = {z(O + Fr(O, 10))} cm².', 'Berechne zuerst die Oberfläche, dann ein Zehntel davon.', 'cm²')
 
 
 def gen_verstehen(R, st):
@@ -779,7 +779,7 @@ def fest(R):
         Z('Ein Rechteck ist 6 cm hoch. Darin liegt ein Dreieck: Grundseite auf der unteren Seite, Spitze auf der oberen. Das Dreieck hat 27 cm². Wie lang ist seine Grundseite?',
           9, '2 * 27 / 6', 'Das Dreieck ist 6 cm hoch (so hoch wie das Rechteck). g · 6 : 2 = 27, also g · 6 = 54 und g = 9 cm.', 'Wie hoch ist das Dreieck?', 'cm', art=P),
         Z('Das Parallelogramm ABCD hat A(1|1), B(5|1), C(7|4), D(3|4) (1 Kästchen = 1 cm). Ein Dreieck ABE soll genauso groß sein. Wie hoch muss es über [AB] sein?', 6,
-          '2 * (5 - 1) * (4 - 1) / (5 - 1)', 'Parallelogramm: 4 · 3 = 12 cm². Dreieck mit g = 4 cm: 4 · h : 2 = 12, also h = 6 cm. E liegt auf der Linie y = 7.',
+          '2 * (5 - 1) * (4 - 1) / (5 - 1)', 'Parallelogramm: 4 · 3 = 12 cm². Dreieck mit g = 4 cm: 4 · h : 2 = 12, also h = 6 cm. E liegt also 6 Kästchen über [AB], auf der Höhe 7 (zweite Koordinate 7).',
           'Das Dreieck braucht die doppelte Höhe.', 'cm', art=P, grafik=koord([(1, 1), (5, 1), (7, 4), (3, 4)], 'ABCD', [0, 9], [0, 8])),
         Z('In einem Quadrat mit 10 cm Seitenlänge wird ein Punkt P auf der oberen Seite mit den beiden unteren Ecken verbunden. Wie groß ist das Dreieck – egal, wo P liegt?',
           50, '10 * 10 / 2', 'Grundseite 10 cm (untere Seite), Höhe 10 cm (P liegt immer oben). A = 10 · 10 : 2 = 50 cm² – immer die Hälfte des Quadrats.',
@@ -830,7 +830,7 @@ def fest(R):
           '1 cm auf der Karte sind 50 000 cm = 500 m = 0,5 km. Der See ist etwa 2 km · 1 km = 2 km² groß.', 'Rechne die Seiten zuerst in km um.', 'km²', art=P),
         A(R, 'Ein Dreieck und ein Parallelogramm haben die gleiche Grundseite und den gleichen Flächeninhalt. Was gilt für ihre Höhen?', 'Das Dreieck ist doppelt so hoch.',
           ['Beide sind gleich hoch.', 'Das Parallelogramm ist doppelt so hoch.', 'Das hängt von der Form ab.'],
-          'g · h_D : 2 = g · h_P. Also h_D : 2 = h_P, das heißt h_D = 2 · h_P.', 'Setze beide Formeln gleich.', art=K)]
+          'Ein Dreieck ist nur halb so groß wie ein Parallelogramm mit derselben Grundseite und derselben Höhe. Damit es trotzdem gleich groß ist, muss es doppelt so hoch sein. Beispiel: g = 4 cm, Parallelogramm 3 cm hoch: 12 cm². Dreieck 6 cm hoch: 4 · 6 : 2 = 12 cm².', 'Vergleiche die beiden Formeln: Was hat das Dreieck zusätzlich?', art=K)]
     return F
 
 
@@ -881,7 +881,7 @@ SK(lz, SZ('knobel', 'Ein Parallelogramm hat die Seiten 8 cm und 5 cm. Wie groß 
          'A = g · h. Mit g = 8 cm kann die Höhe höchstens so lang sein wie die andere Seite, 5 cm – dann steht sie senkrecht und das Parallelogramm ist ein Rechteck. Größter Flächeninhalt: 40 cm².',
          'Wie lang kann die Höhe höchstens werden?', einheit='cm²'))
 SK(lz, SZ('knobel', 'In einem Parallelogramm mit 60 cm² verbindet man die Mittelpunkte der vier Seiten. Wie groß ist das innere Viereck?', 30, '60 / 2',
-         'Die Verbindungen der Mitten zerlegen das Parallelogramm in das innere Viereck und vier Eckdreiecke. Jedes Eckdreieck ist so groß wie ein Viertel eines kleinen Parallelogramms, zusammen die Hälfte. Innen bleiben 30 cm².',
+         'Zeichne die beiden Mittellinien ein (sie verbinden gegenüberliegende Seitenmitten und sind parallel zu den Seiten). Sie teilen das Parallelogramm in 4 gleiche kleine Parallelogramme mit je 60 : 4 = 15 cm². Jede Seite des inneren Vierecks ist eine Diagonale eines kleinen Parallelogramms und teilt es in zwei gleiche Dreiecke. Von jedem kleinen Parallelogramm liegt also genau die Hälfte innen: 4 · 7,5 cm² = 30 cm².',
          'Zeichne die Mittellinien parallel zu den Seiten ein.', einheit='cm²'))
 
 lz = 'dreieck'
@@ -920,7 +920,7 @@ for t, g in (('Ein Parallelogramm hat die Seiten a = 8', 'pruefung'), ('Ein Drei
              ('Ein Trapez ist 4 cm hoch', 'rueckwaerts'), ('Ein Beet', 'rueckwaerts')):
     STB(lz, 3, t, g)
 SK(lz, SZ('knobel', 'Ein Trapez ist 4 cm hoch und hat 30 cm². Die Seite a ist 3 cm länger als die Seite c. Wie lang ist a?', 9, '(30 * 2 / 4 + 3) / 2',
-         '(a + c) · 4 : 2 = 30 ergibt a + c = 15. Wenn a um 3 länger ist: c + 3 + c = 15, also 2c = 12, c = 6 und a = 9 cm.', 'Bestimme zuerst a + c.', einheit='cm'))
+         '(a + c) · 4 : 2 = 30 ergibt a + c = 15. a ist 3 cm länger als c. Nimm die 3 cm von 15 cm weg: Es bleiben 12 cm, das ist zweimal c. Also c = 6 cm und a = 6 cm + 3 cm = 9 cm. Probe: (9 + 6) · 4 : 2 = 30.', 'Bestimme zuerst a + c.', einheit='cm'))
 SK(lz, SZ('knobel', 'Ein Dreieck hat 36 cm². Grundseite und Höhe sind ganze Zentimeter. Wie viele Möglichkeiten gibt es für die Länge der Grundseite?', 12, '12',
          'g · h : 2 = 36 heißt g · h = 72. g kann jeder Teiler von 72 sein: 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72 – das sind 12 Möglichkeiten.', 'Was muss g · h ergeben?'))
 

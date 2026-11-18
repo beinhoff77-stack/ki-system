@@ -3690,7 +3690,7 @@
     "einheit": "cm²"
    },
    "c": "60 / 2",
-   "w": "Die Verbindungen der Mitten zerlegen das Parallelogramm in das innere Viereck und vier Eckdreiecke. Jedes Eckdreieck ist so groß wie ein Viertel eines kleinen Parallelogramms, zusammen die Hälfte. Innen bleiben 30 cm².",
+   "w": "Zeichne die beiden Mittellinien ein (sie verbinden gegenüberliegende Seitenmitten und sind parallel zu den Seiten). Sie teilen das Parallelogramm in 4 gleiche kleine Parallelogramme mit je 60 : 4 = 15 cm². Jede Seite des inneren Vierecks ist eine Diagonale eines kleinen Parallelogramms und teilt es in zwei gleiche Dreiecke. Von jedem kleinen Parallelogramm liegt also genau die Hälfte innen: 4 · 7,5 cm² = 30 cm².",
    "h": "Zeichne die Mittellinien parallel zu den Seiten ein."
   },
   {
@@ -4559,7 +4559,7 @@
     "einheit": "cm"
    },
    "c": "2 * (5 - 1) * (4 - 1) / (5 - 1)",
-   "w": "Parallelogramm: 4 · 3 = 12 cm². Dreieck mit g = 4 cm: 4 · h : 2 = 12, also h = 6 cm. E liegt auf der Linie y = 7.",
+   "w": "Parallelogramm: 4 · 3 = 12 cm². Dreieck mit g = 4 cm: 4 · h : 2 = 12, also h = 6 cm. E liegt also 6 Kästchen über [AB], auf der Höhe 7 (zweite Koordinate 7).",
    "h": "Das Dreieck braucht die doppelte Höhe.",
    "g": "verknuepfen"
   },
@@ -4596,7 +4596,7 @@
    },
    "c": "7 * 7 / 2",
    "w": "Lea hat das Parallelogramm berechnet. Das Dreieck ist die Hälfte: 49 : 2 = 24,5 cm².",
-   "h": "Wie viele solche Dreiecke passen in das Parallelogramm?",
+   "h": "Wie viele solche Dreiecke passen in ein Parallelogramm mit derselben Grundseite und derselben Höhe?",
    "g": "fehler"
   },
   {
@@ -6485,15 +6485,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Trapez ist a = 13 cm und c = 5 cm. Die Strecke genau in halber Höhe, parallel zu a, ist so lang wie der Mittelwert von a und c. Das Trapez ist 7 cm hoch. Wie groß ist es?"
+    "text": "Bei einem Trapez ist a = 13 cm und c = 5 cm. Die Strecke genau in halber Höhe, parallel zu a, ist halb so lang wie a und c zusammen. Das Trapez ist 7 cm hoch. Wie groß ist es?"
    },
    "o": {
     "wert": 63,
     "einheit": "cm²"
    },
    "c": "(13 + 5) / 2 * 7",
-   "w": "Mittelwert: (13 + 5) : 2 = 9 cm. Das Trapez ist so groß wie ein Rechteck 9 cm · 7 cm = 63 cm².",
-   "h": "(a + c) : 2 ist der Mittelwert.",
+   "w": "Die Strecke in halber Höhe: (13 + 5) : 2 = 9 cm. Das Trapez ist so groß wie ein Rechteck 9 cm · 7 cm = 63 cm².",
+   "h": "Vergleiche (a + c) : 2 mit der Trapezformel.",
    "g": "transfer"
   },
   {
@@ -7983,7 +7983,7 @@
     "einheit": "cm"
    },
    "c": "(30 * 2 / 4 + 3) / 2",
-   "w": "(a + c) · 4 : 2 = 30 ergibt a + c = 15. Wenn a um 3 länger ist: c + 3 + c = 15, also 2c = 12, c = 6 und a = 9 cm.",
+   "w": "(a + c) · 4 : 2 = 30 ergibt a + c = 15. a ist 3 cm länger als c. Nimm die 3 cm von 15 cm weg: Es bleiben 12 cm, das ist zweimal c. Also c = 6 cm und a = 6 cm + 3 cm = 9 cm. Probe: (9 + 6) · 4 : 2 = 30.",
    "h": "Bestimme zuerst a + c."
   },
   {
@@ -10682,15 +10682,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Schachtel (Dreieck: g = 6 cm, h = 4 cm, schräge Seiten 5 cm; Länge 15 cm) wird aus einem rechteckigen Karton ausgeschnitten. Für Klebelaschen kommen 10 % der Oberfläche dazu. Wie viel cm² Karton braucht man mindestens?"
+    "text": "Eine Schachtel (Dreieck: g = 6 cm, h = 4 cm, schräge Seiten 5 cm; Länge 15 cm) wird aus Karton gebaut. Für Klebelaschen kommt noch ein Zehntel der Oberfläche dazu. Wie viel cm² Karton braucht man?"
    },
    "o": {
     "wert": 290.4,
     "einheit": "cm²"
    },
    "c": "(6 * 4 + (6 + 2 * 5) * 15) * 1.1",
-   "w": "Oberfläche: 6 · 4 + (6 + 5 + 5) · 15 = 264 cm². 10 % dazu: 264 + 26,4 = 290,4 cm².",
-   "h": "10 % sind ein Zehntel.",
+   "w": "Oberfläche: 6 · 4 + (6 + 5 + 5) · 15 = 264 cm². Ein Zehntel davon: 264 : 10 = 26,4 cm². Zusammen: 264 + 26,4 = 290,4 cm².",
+   "h": "Berechne zuerst die Oberfläche, dann ein Zehntel davon.",
    "g": "pruefung"
   },
   {
@@ -12055,8 +12055,8 @@
    "o": {
     "index": 0
    },
-   "w": "g · h_D : 2 = g · h_P. Also h_D : 2 = h_P, das heißt h_D = 2 · h_P.",
-   "h": "Setze beide Formeln gleich.",
+   "w": "Ein Dreieck ist nur halb so groß wie ein Parallelogramm mit derselben Grundseite und derselben Höhe. Damit es trotzdem gleich groß ist, muss es doppelt so hoch sein. Beispiel: g = 4 cm, Parallelogramm 3 cm hoch: 12 cm². Dreieck 6 cm hoch: 4 · 6 : 2 = 12 cm².",
+   "h": "Vergleiche die beiden Formeln: Was hat das Dreieck zusätzlich?",
    "g": "transfer"
   },
   {

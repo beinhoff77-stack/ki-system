@@ -618,14 +618,16 @@ def lot(P):
     return t, F, PF, d2
 
 
-def ab_aufg(P, text=None, h='Setze F = (4t | 3t) an und rechne mit (P − F) · u = 0.'):
+def ab_aufg(P, text=None, h='Setze F = (4t | 3t) an und rechne mit (P − F) · u = 0.', name='P'):
     t, F, PF, d2 = lot(P)
     d = math.isqrt(int(d2))
     assert t.denominator == 1 and d * d == d2, (P, t, d2)
     text = text or f'Die Gerade g geht durch O(0 | 0) mit dem Richtungsvektor u = (4 | 3). Berechne den Abstand des Punktes P{pt(P)} von g.'
     t = int(t)
-    w = (f'F = (4t | 3t). (P − F) · u = ({zt(P[0])} − 4t) · 4 + ({zt(P[1])} − 3t) · 3 = {zt(4 * P[0] + 3 * P[1])} − 25t = 0 ⇒ t = {zt(t)}, F{pt((4 * t, 3 * t))}. '
-         f'PF = ({zt(int(F[0] - P[0]))} | {zt(int(F[1] - P[1]))}), Länge √({zt(int(PF[0] ** 2))} + {zt(int(PF[1] ** 2))}) = {zt(d)}.')
+    k0 = 4 * P[0] + 3 * P[1]
+    links = f'{zt(k0)} − 25t' if k0 else '−25t'
+    w = (f'F = (4t | 3t). ({name} − F) · u = ({zt(P[0])} − 4t) · 4 + ({zt(P[1])} − 3t) · 3 = {links} = 0 ⇒ t = {zt(t)}, F{pt((4 * t, 3 * t))}. '
+         f'{name}F = ({zt(int(F[0] - P[0]))} | {zt(int(F[1] - P[1]))}), Länge √({zt(int(PF[0] ** 2))} + {zt(int(PF[1] ** 2))}) = {zt(d)}.')
     return Z(text, d, f'(({P[0]} - 4 * {t}) ** 2 + ({P[1]} - 3 * {t}) ** 2) // {d}', w, h)
 
 
@@ -641,14 +643,15 @@ ABSTAND_KARTE = {
                 ['Richtungsvektor u', 'ein Pfeil, der in Richtung der Geraden zeigt']],
     'bild': {'typ': 'koordinaten', 'x': [-4, 8], 'y': [-1, 12], 'schritt_x': 2, 'schritt_y': 2,
              'graphen': [{'art': 'linear', 'm': 0.75, 't': 0, 'name': 'g'}], 'punkte': [{'x': -2, 'y': 11, 'name': 'P'}]},
-    'schritte': [{'text': 'g geht durch O mit u = (4 | 3). Gesucht ist der Abstand von P(−2 | 11).'},
-                 {'text': 'F liegt auf g, also F = (4t | 3t). Senkrecht heißt: (P − F) · u = 0.'},
-                 {'text': '(−2 − 4t) · 4 + (11 − 3t) · 3 = 25 − 25t = 0, also t = 1 und F(4 | 3).',
+    'schritte': [{'text': 'Gesucht ist der Abstand Punkt–Gerade von P(−2 | 11) zu g.'},
+                 {'text': 'g geht durch O mit dem Richtungsvektor u = (4 | 3).'},
+                 {'text': 'Der Lotfußpunkt F = (4t | 3t) erfüllt (P − F) · u = 0.'},
+                 {'text': 'Ausrechnen: 25 − 25t = 0, also t = 1 und F(4 | 3).',
                   'bild': {'punkte': [{'x': -2, 'y': 11, 'name': 'P'}, {'x': 4, 'y': 3, 'name': 'F'}]}},
-                 {'text': 'PF = (6 | −8) hat die Länge √(36 + 64) = ⟦10⟧.',
+                 {'text': 'PF = (6 | −8) ist √(36 + 64) = ⟦10⟧ lang.',
                   'bild': {'punkte': [{'x': -2, 'y': 11, 'name': 'P'}, {'x': 4, 'y': 3, 'name': 'F'}], 'strecken': [[-2, 11, 4, 3, 'gestrichelt']]}}],
     'fehler': 'Der Abstand ist nicht |OP| = √(4 + 121) ≈ 11,2. Gemessen wird ⟦senkrecht⟧ zur Geraden, nicht zu irgendeinem Punkt auf ihr.',
-    'regel': 'Abstand = Länge von ⟦PF⟧. F liegt auf g, und PF steht senkrecht auf g: (P − F) · u = 0.',
+    'regel': 'Abstand = Länge von ⟦PF⟧. F liegt auf g. PF steht senkrecht auf g: (P − F) · u = 0.',
 }
 
 ABSTAND = karte_ops(
@@ -670,7 +673,7 @@ ABSTAND = karte_ops(
                   ['-4 + 2 * (-3)', '-3 + 2 * 4'], 'Senkrecht zu u nach oben zeigt (−3 | 4) mit der Länge 5. Doppelt so lang ergibt 10: P = (−4 − 6 | −3 + 8) = (−10 | 5).',
                   'Welcher Vektor der Länge 5 steht senkrecht auf u und zeigt nach oben?', hinweis='Zwei ganze Zahlen, auch negative.')),
      ('einkleidung', ab_aufg(P_aus(2, 3), text='Ein gerader Wanderweg führt von O(0 | 0) in Richtung u = (4 | 3) (Einheit 100 m). Eine Hütte steht bei H(−1 | 18). '
-                                                 'Wie weit ist die Hütte vom Weg entfernt (in 100 m)?', h='Gesucht ist der Abstand der Hütte vom Weg.')),
+                                                 'Wie weit ist die Hütte vom Weg entfernt (in 100 m)?', h='Gesucht ist der Abstand der Hütte vom Weg.', name='H')),
      ('darstellung', Z('Im Bild siehst du die Gerade g: y = 0,75x und den Punkt P(0 | 5). Wie weit ist P von g entfernt?', 4, '4',
                        'u = (4 | 3). F = (4t | 3t): (0 − 4t) · 4 + (5 − 3t) · 3 = 15 − 25t = 0 ⇒ t = 0,6, F(2,4 | 1,8). PF = (2,4 | −3,2), Länge √(5,76 + 10,24) = √16 = 4.',
                        'Lies P ab und nimm u = (4 | 3) als Richtung von g.',
@@ -686,7 +689,7 @@ ABSTAND = karte_ops(
                        'Grundseite [OA]: Länge √(64 + 36) = 10. Höhe = Abstand von P zur Geraden OA: F = O, denn (−3 | 4) · (8 | 6) = 0; Höhe 5. Fläche 10 · 5 : 2 = 25.',
                        'Nimm [OA] als Grundseite. Die Höhe ist der Abstand von P zur Geraden OA.')),
      ('verknuepfen', ab_aufg((-6, 8), text='Ein Kreis um M(−6 | 8) berührt die Gerade g durch O mit u = (4 | 3). Wie groß ist sein Radius?',
-                             h='Der Radius zum Berührpunkt steht senkrecht auf der Tangente.')),
+                             h='Der Radius zum Berührpunkt steht senkrecht auf der Tangente.', name='M')),
      ('begruenden', A('Stimmt die Aussage? „Liegt P auf der Geraden g, dann ist sein Abstand von g gleich 0.“', 'Ja: Dann ist F = P, und PF hat die Länge 0.',
                       ['Nein, der Abstand ist dann unendlich.', 'Nur wenn g durch den Ursprung geht.'],
                       'Der kürzeste Weg von einem Punkt auf g zu g hat die Länge 0.', 'Wo liegt der Lotfußpunkt, wenn P schon auf g liegt?')),
@@ -697,7 +700,7 @@ ABSTAND = karte_ops(
                      'F = (4t | 3t) mit (c − 4t) · 4 + (0 − 3t) · 3 = 4c − 25t = 0 ⇒ t = 4c : 25. PF = (9c : 25 | −12c : 25), Länge 15c : 25 = 0,6c. 0,6c = 6 ⇒ c = 10.',
                      'Rechne mit P(c | 0) allgemein und setze die Länge gleich 6.')),
      ('transfer', ab_aufg(P_aus(2, 4), text='Ein Schiff fährt von O(0 | 0) geradeaus in Richtung u = (4 | 3) (Einheit km). Ein Leuchtturm steht bei L(−4 | 22). '
-                                              'Wie nah kommt das Schiff dem Leuchtturm höchstens?', h='Am nächsten ist das Schiff am Lotfußpunkt.'))],
+                                              'Wie nah kommt das Schiff dem Leuchtturm höchstens?', h='Am nächsten ist das Schiff am Lotfußpunkt.', name='L'))],
     [Z('Wie viele Punkte mit ganzzahligen Koordinaten im Quadrat 0 ≤ x ≤ 10, 0 ≤ y ≤ 10 haben von der Geraden y = 0,75x genau den Abstand 1?',
        sum(1 for x in range(11) for y in range(11) if abs(3 * x - 4 * y) == 5), str(sum(1 for x in range(11) for y in range(11) if abs(3 * x - 4 * y) == 5)),
        'Der Abstand von P(x | y) zu g ist |3x − 4y| : 5 (wie in den Aufgaben: PF hat die Länge |3x − 4y| : 5). Abstand 1 heißt 3x − 4y = 5 oder 3x − 4y = −5. '

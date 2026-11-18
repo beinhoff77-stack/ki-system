@@ -773,3 +773,10 @@ if __name__ == '__main__':
     umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
     durchsicht(d)
     stufen('abbildungen.matrizen', ST)
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('abbildungen.matrizen')
+# ---- AUFLOESEN ENDE ----

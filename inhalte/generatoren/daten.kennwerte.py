@@ -689,14 +689,16 @@ STB(lz, 3, 'Eine Datenreihe hat', 'umkehr', neu_s=2)
 STB(lz, 3, 'Welchen Modalwert', 'begruenden'); STB(lz, 3, 'Zur Reihe', 'rueckwaerts'); STB(lz, 3, 'Das Diagramm', 'parameter'); STB(lz, 3, 'Ein Kind sagt', 'fehler')
 SN(lz, SA('erkennen', 'Was ist die Spannweite einer Datenreihe?', 'größter Wert minus kleinster Wert', ['der häufigste Wert', 'der Wert in der Mitte'], 'Die Spannweite zeigt, wie weit die Werte auseinanderliegen.', 'Wie weit liegen die Werte auseinander?'))
 SN(lz, SZ('transfer', 'Ein Würfel wird 10-mal geworfen. Jede Augenzahl kommt vor, die 4 ist der einzige Modalwert. Wie oft fiel die 4 mindestens?', 3, '3',
-          'Fiele die 4 nur 2-mal, dürften die anderen fünf Zahlen je höchstens 1-mal fallen: 2 + 5 = 7 Würfe, zu wenig. Bei 3-mal: 3 + 7 = 10 geht (z. B. zweimal 1, 2, 3, einmal 5, 6).', 'Probiere, wie oft die 4 mindestens fallen muss.'))
+          'Fiele die 4 nur 2-mal, dürften die anderen fünf Zahlen je höchstens 1-mal fallen: 2 + 5 = 7 Würfe, zu wenig. Bei 3-mal: 3 + 7 = 10 geht (z. B. die 4 dreimal, die 1 und die 2 je zweimal, die 3, 5 und 6 je einmal: 3 + 2 + 2 + 1 + 1 + 1 = 10).', 'Probiere, wie oft die 4 mindestens fallen muss.'))
 SN(lz, SL('verknuepfen', 'Wie groß ist die Spannweite von 1/2, 3/4, 1/3 und 5/6?', '□/□', [1, 2], ['1', '2'], 'Größter Wert 5/6, kleinster 1/3 = 2/6. 5/6 − 2/6 = 3/6 = 1/2.', 'Finde zuerst den größten und kleinsten Bruch.'))
 SN(lz, SZ('pruefung', 'Punkte einer Gruppe: 12, 15, 9, 15, 18, 7, 15, 11. Wie groß ist die Summe aus Modalwert und Spannweite?', 26, '15 + (18 - 7)', 'Modalwert 15 (dreimal), Spannweite 18 − 7 = 11. Summe 26.', 'Bestimme beide Kennwerte einzeln.'))
 SN(lz, SA('begruenden', 'Stimmt die Aussage? „Eine Datenreihe kann zwei Modalwerte haben.“', 'Ja, z. B. 2, 2, 5, 5, 7: 2 und 5 kommen gleich oft am häufigsten vor.', ['Nein, es gibt immer genau einen.', 'Nein, dann gibt es keinen Modalwert.'],
           'Kommen zwei Werte gleich oft und am häufigsten vor, sind beide Modalwerte.', 'Suche ein Beispiel.'))
 SK(lz, SZ('knobel', 'Vier natürliche Zahlen haben den Modalwert 5, die Spannweite 6 und die Summe 20. Wie heißt die größte Zahl?', 8, '8',
-          'Zweimal die 5 sind 10, die beiden anderen Zahlen ergeben zusammen 10. Ist 5 die kleinste Zahl, müsste die größte 11 sein und die vierte −1 – geht nicht. Also sind die anderen kleinste und größte: Unterschied 6, Summe 10 → 2 und 8.',
-          'Welche zwei Zahlen haben die Summe 10 und den Unterschied 6?'))
+          'Die 5 kommt mindestens zweimal vor. Dreimal geht nicht: Dann wäre die vierte Zahl 20 − 15 = 5 und die Spannweite 0. Also genau zweimal; die beiden anderen Zahlen ergeben zusammen 10. '
+          'Wäre 5 die kleinste Zahl, müsste die größte 11 sein und die vierte −1; wäre 5 die größte, müsste die kleinste −1 sein – beides geht nicht. '
+          'Also ist eine der beiden anderen Zahlen die kleinste und die andere die größte: Unterschied 6, Summe 10. Das passt nur für 2 und 8 (2 + 8 = 10, 8 − 2 = 6).',
+          'Wie oft kommt die 5 vor, und was bleibt dann für die anderen Zahlen übrig?'))
 SK(lz, SZ('knobel', 'Fünf Zahlen haben die Spannweite 0 und die Summe 35. Wie heißt der Modalwert?', 7, '35 / 5', 'Spannweite 0 heißt: Alle Zahlen sind gleich. Jede ist 35 : 5 = 7, also ist der Modalwert 7.', 'Was bedeutet die Spannweite 0?'))
 
 lz = 'median'
@@ -724,7 +726,8 @@ SN(lz, SZ('umkehr', 'Ein Kind sagt: „Mein Mittelwert aus 3 Tests ist 9.“ Wie
 SN(lz, SA('pruefung', 'Taschengeld von sechs Kindern: 2, 3, 3, 4, 5 und 50 €. Welcher Kennwert passt am besten für eine Meldung „So viel bekommt ein typisches Kind“?', 'der Median: 3,50 €',
           ['der Mittelwert: etwa 11,17 €', 'die Spannweite: 48 €'], 'Der Ausreißer 50 € zieht den Mittelwert hoch. Der Median (3 + 4) : 2 = 3,50 € beschreibt die meisten Kinder.', 'Welcher Kennwert lässt sich von einem einzelnen großen Wert nicht stören?'))
 SK(lz, SZ('knobel', 'Fünf ganze Zahlen haben den einzigen Modalwert 3, den Median 4 und den Mittelwert 5. Wie groß kann die größte Zahl höchstens sein?', 10, '25 - 3 - 3 - 4 - 5',
-          'Geordnet: 3, 3, 4, a, b (Summe 25, also a + b = 14). a darf nicht 4 sein, sonst gäbe es zwei Modalwerte – also a mindestens 5 und b höchstens 25 − 3 − 3 − 4 − 5 = 10.', 'Schreibe die geordnete Reihe auf und beachte, dass 3 der einzige Modalwert bleiben muss.'))
+          'Die 3 muss mindestens zweimal vorkommen. Sie ist kleiner als der Median 4, steht also auf Platz 1 und 2. Geordnet: 3, 3, 4, a, b mit der Summe 5 · 5 = 25, also a + b = 25 − 10 = 15. '
+          'a darf nicht 4 sein, sonst gäbe es zwei Modalwerte – also ist a mindestens 5 und b höchstens 15 − 5 = 10. Probe: 3, 3, 4, 5, 10 hat Summe 25, Median 4 und nur den Modalwert 3.', 'Schreibe die geordnete Reihe auf und beachte, dass 3 der einzige Modalwert bleiben muss.'))
 SK(lz, SZ('knobel', 'Der Mittelwert von 6 Zahlen ist 10. Man addiert zu jeder Zahl 3 und verdoppelt dann jede Zahl. Wie groß ist der neue Mittelwert?', 26, '(10 + 3) * 2',
           'Addiert man zu jeder Zahl 3, wächst der Mittelwert um 3 auf 13. Verdoppelt man jede Zahl, verdoppelt sich der Mittelwert: 26.', 'Was passiert mit dem Mittelwert, wenn sich jede Zahl gleich ändert?'))
 

@@ -154,7 +154,7 @@
    },
    "a": [
     "Ja: Etwa 240 € Einnahmen stehen etwa 210 € für Preise gegenüber, es bleiben etwa 30 € übrig.",
-    "Nein: Jeder Preis kostet mehr als eine Drehung, also macht die Klasse Verlust.",
+    "Nein: Die Preise kosten zusammen mehr, als die Drehungen einbringen.",
     "Ja: Es bleiben genau 240 € übrig, weil die Preise schon bezahlt sind.",
     "Nein: Bei 240 Drehungen gibt es auch 240 Gewinne."
    ],

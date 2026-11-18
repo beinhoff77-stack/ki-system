@@ -38,7 +38,7 @@ schreibe({
         auswahl('d', 'Eine Drehung am Glücksrad kostet 1 €. Bei 240 Drehungen rechnet die Klasse mit etwa 60 Gewinnen. Jeder Gewinn ist ein Preis, den die Klasse für 3,50 € eingekauft hat. '
                      'Bleibt am Glücksrad voraussichtlich Geld übrig?',
                 'Ja: Etwa 240 € Einnahmen stehen etwa 210 € für Preise gegenüber, es bleiben etwa 30 € übrig.',
-                ['Nein: Jeder Preis kostet mehr als eine Drehung, also macht die Klasse Verlust.', 'Ja: Es bleiben genau 240 € übrig, weil die Preise schon bezahlt sind.',
+                ['Nein: Die Preise kosten zusammen mehr, als die Drehungen einbringen.', 'Ja: Es bleiben genau 240 € übrig, weil die Preise schon bezahlt sind.',
                  'Nein: Bei 240 Drehungen gibt es auch 240 Gewinne.'],
                 'Gegeben: 240 Drehungen zu 1 €, etwa 60 Gewinne zu je 3,50 €. Gesucht: Bleibt Geld übrig? Ansatz: Einnahmen − Kosten > 0. '
                 'Rechnung: 240 − 60 · 3,50 = 240 − 210 = 30 > 0. Allgemein bleibt Geld übrig, solange 240 − 60p > 0, also p < 4 € je Preis. '

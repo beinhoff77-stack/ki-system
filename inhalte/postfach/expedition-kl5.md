@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 04:54 – STATUS: Expedition 10 „Das Aquarium“ (5-aquarium) fertig
+4 Teile, Themen: gleichungen.einfach, groessen.proportional, messen.koerper_berechnung. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
+
 ## 2026-11-18 04:54 – STATUS: Expedition 9 „Die Schatzsuche“ (5-schatzsuche) fertig
 5 Teile, Themen: geometrie.grundbegriffe, geometrie.winkel, groessen.einheiten, stochastik.kombinatorik, zahlen.teilbarkeit. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
 

@@ -707,7 +707,7 @@ ST.leiter('laplace', 'P = günstige : mögliche Ergebnisse bei einer Urne berech
 T('laplace', (r'^In einer Urne liegen \d+ rote( Kugeln)?, \d+ blaue', 'direkt'), (r'Skatblatt', 'einkleidung'), (r'Rest blau', 'umkehr'), (r'^Ein fairer Würfel|Glücksrad hat \d+ gleich|Nummern 1 bis 20', 'mehrschritt'),
   (r'dazulegen', 'rueckwaerts'), (r'größer als 10', 'pruefung'), (r'Augensumme', 'transfer'), (r'Säckchen', 'begruenden'), (r'zweite Zahl größer', 'verknuepfen'))
 ST.neu('laplace', 'erkennen', SA('Wann darf man P(E) = Anzahl günstiger : Anzahl möglicher Ergebnisse rechnen?', 'wenn alle Ergebnisse gleich wahrscheinlich sind', ['bei jedem Zufallsversuch', 'nur bei Würfeln', 'nur wenn es zwei Ergebnisse gibt'],
-    'Das ist die Laplace-Regel; sie gilt nur bei gleich wahrscheinlichen Ergebnissen (fairer Würfel, gut gemischte Karten …).', 'Wie heißt diese Regel, und welche Voraussetzung hat sie?'))
+    'Das ist die Laplace-Regel; sie gilt nur bei gleich wahrscheinlichen Ergebnissen (z. B. fairer Würfel oder gut gemischte Karten).', 'Wie heißt diese Regel, und welche Voraussetzung hat sie?'))
 ST.neu('laplace', 'fehler', SA('Tom sagt: „Bei zwei Würfeln ist die Augensumme 2 genauso wahrscheinlich wie die Summe 7, denn beides ist eine von 11 möglichen Summen.“ Was stimmt?', 'Falsch: Die 11 Summen sind nicht gleich wahrscheinlich; P(2) = 1/36, P(7) = 6/36.',
     ['Richtig, beide haben 1/11.', 'Falsch: Die 2 ist wahrscheinlicher.', 'Falsch: Beide haben 1/36.'],
     'Laplace geht nur mit gleich wahrscheinlichen Ergebnissen – das sind die 36 Zahlenpaare. Die 2 kommt nur als (1|1), die 7 als (1|6), (2|5), (3|4), (4|3), (5|2), (6|1).', 'Zähle die Zahlenpaare für jede Summe.'))
@@ -775,7 +775,7 @@ ST.knobel('grosse_zahlen', SZ('Ein Würfel wird 6 000-mal geworfen. Wie oft erwa
     'Primzahlen bis 6: 2, 3, 5; dazu die 1 – vier von sechs Ergebnissen. 4/6 · 6 000 = 4 000.', 'Welche Augenzahlen gehören dazu?'))
 ST.knobel('grosse_zahlen', SA('Ein Kronkorken lag bei 1 000 Würfen 380-mal „oben“. Er wird noch 1 000-mal geworfen. Welche Aussage ist am vernünftigsten?', 'Man erwartet wieder etwa 380-mal „oben“, genau vorhersagen kann man es nicht.',
     ['Jetzt kommt öfter „oben“, damit es ausgeglichen wird.', 'Es kommt genau 380-mal „oben“.', 'Man kann gar nichts erwarten.'],
-    'Die Schätzung P ≈ 0,38 gilt weiter; der Kronkorken gleicht nichts aus. Wegen des Zufalls wird es nicht genau 380 sein.', 'Hat der Kronkorken ein Gedächtnis?'))
+    'Die Schätzung P ≈ 0,38 gilt weiter; der Kronkorken gleicht nichts aus. Wegen des Zufalls wird es meist nicht genau 380 sein.', 'Hat der Kronkorken ein Gedächtnis?'))
 baue = mit_stufen(baue, ST)
 # ---- STUFEN ENDE ----
 
@@ -856,7 +856,7 @@ TX.u('gegenereignis', 'umkehr', TZ('Bei einer Tombola gewinnen 30 % der Lose nic
 TX.u('gegenereignis', 'pruefung', TZ('Der Wetterdienst sagt für Samstag 35 % Regen voraus, dazu 22 °C und Wind mit 15 km/h. Wie groß ist die Wahrscheinlichkeit in Prozent, dass es nicht regnet?', '100 - 35',
     TW('P(Regen) = 35 %. Temperatur und Wind spielen keine Rolle.', 'P(kein Regen).', 'Gegenereignis.', '100 − 35 = 65.', 'Mit 65 % regnet es nicht.'), 'Welche Angabe gehört zum Ereignis „Regen“?', einheit='%'), huerde='ueberfluessig')
 TX.u('gegenereignis', 'begruenden', TX.A('Ein Bus hat mit der Wahrscheinlichkeit 0,2 Verspätung. Jemand sagt: „Dann kommt er in 80 % der Fälle zu früh.“ Was stimmt?',
-    'Falsch: 80 % heißt „keine Verspätung“, also pünktlich oder zu früh.', ['Richtig, das ist das Gegenereignis.', 'Falsch: Er kommt in 20 % der Fälle zu früh.', 'Richtig, denn 1 − 0,2 = 0,8.'],
+    'Falsch: 80 % heißt „keine Verspätung“, also pünktlich oder zu früh.', ['Richtig, das ist das Gegenereignis.', 'Falsch: Er kommt in 20 % der Fälle zu früh.', 'Richtig: Wenn er nicht zu spät kommt, kommt er zu früh.'],
     TW('P(Verspätung) = 0,2.', 'Was bedeutet 0,8?', 'Das Gegenereignis von „Verspätung“ ist „keine Verspätung“.', '1 − 0,2 = 0,8 für „keine Verspätung“.', 'Die Aussage ist falsch: Die 80 % umfassen pünktlich und zu früh.'),
     'Was genau ist das Gegenteil von „Verspätung“?'), huerde='entscheidung')
 TX.s('gegenereignis', TZ('Ein Handyakku hält mit der Wahrscheinlichkeit 0,92 einen ganzen Tag. Wie groß ist die Wahrscheinlichkeit, dass er vorher leer ist?', '1 - 0.92',

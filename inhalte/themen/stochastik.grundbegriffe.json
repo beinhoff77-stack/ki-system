@@ -2826,7 +2826,7 @@
    "o": {
     "index": 1
    },
-   "w": "Das ist die Laplace-Regel; sie gilt nur bei gleich wahrscheinlichen Ergebnissen (fairer Würfel, gut gemischte Karten …).",
+   "w": "Das ist die Laplace-Regel; sie gilt nur bei gleich wahrscheinlichen Ergebnissen (z. B. fairer Würfel oder gut gemischte Karten).",
    "h": "Wie heißt diese Regel, und welche Voraussetzung hat sie?"
   },
   {
@@ -4967,7 +4967,7 @@
    },
    "a": [
     "Falsch: Er kommt in 20 % der Fälle zu früh.",
-    "Richtig, denn 1 − 0,2 = 0,8.",
+    "Richtig: Wenn er nicht zu spät kommt, kommt er zu früh.",
     "Falsch: 80 % heißt „keine Verspätung“, also pünktlich oder zu früh.",
     "Richtig, das ist das Gegenereignis."
    ],
@@ -5710,7 +5710,7 @@
    "o": {
     "index": 0
    },
-   "w": "Die Schätzung P ≈ 0,38 gilt weiter; der Kronkorken gleicht nichts aus. Wegen des Zufalls wird es nicht genau 380 sein.",
+   "w": "Die Schätzung P ≈ 0,38 gilt weiter; der Kronkorken gleicht nichts aus. Wegen des Zufalls wird es meist nicht genau 380 sein.",
    "h": "Hat der Kronkorken ein Gedächtnis?"
   }
  ],

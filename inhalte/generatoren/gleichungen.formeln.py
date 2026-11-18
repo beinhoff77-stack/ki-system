@@ -731,10 +731,10 @@ ST.neu('pruefen', 'einkleidung', SA('Für eine Taxifahrt gilt K = 4 + 2 · s (K 
 ST.neu('pruefen', 'umkehr', SA('Welche Ausgangsformel passt zur Umstellung b = 2 · A : h − a?', 'A = (a + b) · h : 2', ['A = a · b : 2', 'A = (a − b) · h : 2', 'A = 2 · (a + b) · h'],
     'Aus A = (a + b) · h : 2 folgt 2A = (a + b) · h, dann 2A : h = a + b und b = 2A : h − a.', 'Stelle jede Formel nach b um.'))
 ST.neu('pruefen', 'darstellung', SA('Eine Wertetabelle zu s = v · t enthält die Zeile v = 4, t = 3, s = 12. Jemand stellt nach t um und schreibt t = v : s. Was zeigt die Zeile?', 'Die Umstellung ist falsch: v : s = 4 : 12 ≈ 0,33, nicht 3.',
-    ['Die Umstellung ist richtig: 12 : 4 = 3.', 'Die Zeile passt nicht zur Formel.', 'Man kann mit einer Zeile nichts prüfen.'],
+    ['Die Umstellung ist richtig, weil die Zeile zur Formel passt.', 'Die Zeile passt nicht zur Formel.', 'Man kann mit einer Zeile nichts prüfen.'],
     'Setzt man die Tabellenwerte in t = v : s ein, kommt 1/3 statt 3 heraus. Richtig ist t = s : v = 12 : 4 = 3.', 'Setze die Werte der Zeile in die umgestellte Formel ein.'))
 ST.neu('pruefen', 'verknuepfen', SA('Die Formel W = G · p : 100 wird nach p umgestellt: p = 100 · W : G. Stimmt das, und welches p ergibt sich für W = 18 und G = 240?', 'Ja; p = 7,5',
-    ['Ja; p = 0,075', 'Nein, p = W : (100 · G); p = 0,00075', 'Nein, p = G : W · 100; p = 1 333'],
+    ['Ja; p = 0,075', 'Nein, p = W : (100 · G); p = 0,00075', 'Nein, p = G : W · 100; p ≈ 1 333'],
     'Mal 100, dann durch G: p = 100 · W : G. Mit den Zahlen: 1 800 : 240 = 7,5 (Prozent).', 'Prüfe mit der Probe: 240 · 7,5 : 100 = ?'))
 ST.neu('pruefen', 'parameter', SA('Für welche Werte von m ist die Umstellung x = (y − t) : m von y = m · x + t erlaubt?', 'für alle m ≠ 0', ['für alle m', 'nur für m > 0', 'nur für m = 1'],
     'Durch 0 darf man nicht teilen. Für m = 0 ist y = t, und x lässt sich gar nicht bestimmen.', 'Durch welche Zahl darf man nie teilen?'))
@@ -791,8 +791,8 @@ ST.neu('geometrie', 'parameter', SA('Ein Quader hat das Volumen V und die Grundf
 ST.neu('geometrie', 'pruefung', SZ('Ein Zelt ist ein dreiseitiges Prisma: Die dreieckige Vorderseite ist 2 m breit und 1,5 m hoch, das Zelt ist 3 m lang. Ein zweites Zelt soll dasselbe Volumen haben, ist aber 2,5 m breit und genauso lang. Wie hoch muss es sein?', 1.2, '2 * 15/10 / (25/10)',
     'Erstes Zelt: V = (2 · 1,5 : 2) · 3 = 4,5 m³. Zweites: (2,5 · h : 2) · 3 = 4,5 ⇒ 2,5 · h = 3 ⇒ h = 1,2 m.', 'Berechne erst das Volumen des ersten Zelts.', einheit='m'))
 ST.knobel('geometrie', SZ('Ein Quader hat drei verschiedene Seitenflächen mit 12 cm², 15 cm² und 20 cm². Wie groß ist sein Volumen?', 60, '3 * 4 * 5',
-    'Mit den Kanten a, b, c: ab = 12, bc = 15, ac = 20. Multipliziert: (abc)² = 12 · 15 · 20 = 3 600, also abc = 60. (Kanten 3, 4 und 5 cm.)',
-    'Multipliziere die drei Flächen miteinander.', einheit='cm³'))
+    'Mit den Kanten a, b, c: ab = 12, bc = 15, ac = 20. Aus ab = 12 und ac = 20 folgt c : b = 20 : 12 = 5 : 3, also c = 5b : 3. Eingesetzt in bc = 15: b · 5b : 3 = 15 ⇒ b · b = 9 ⇒ b = 3 (positiv). Dann a = 12 : 3 = 4 und c = 15 : 3 = 5. V = 3 · 4 · 5 = 60 cm³.',
+    'Vergleiche zwei Flächen, die eine Kante gemeinsam haben.', einheit='cm³'))
 ST.knobel('geometrie', SZ('Ein Rechteck mit ganzzahligen Seitenlängen hat den Umfang 20 cm. Welchen größten Flächeninhalt kann es haben?', 25, '5 * 5',
     'a + b = 10. Mögliche Flächen: 1 · 9 = 9, 2 · 8 = 16, 3 · 7 = 21, 4 · 6 = 24, 5 · 5 = 25. Am größten ist das Quadrat.', 'Liste alle Paare von Seitenlängen auf.', einheit='cm²'))
 baue = mit_stufen(baue, ST)

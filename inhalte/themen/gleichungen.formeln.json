@@ -2293,7 +2293,7 @@
     "text": "Die Formel W = G · p : 100 wird nach p umgestellt: p = 100 · W : G. Stimmt das, und welches p ergibt sich für W = 18 und G = 240?"
    },
    "a": [
-    "Nein, p = G : W · 100; p = 1 333",
+    "Nein, p = G : W · 100; p ≈ 1 333",
     "Nein, p = W : (100 · G); p = 0,00075",
     "Ja; p = 7,5",
     "Ja; p = 0,075"
@@ -2859,7 +2859,7 @@
     "text": "Eine Wertetabelle zu s = v · t enthält die Zeile v = 4, t = 3, s = 12. Jemand stellt nach t um und schreibt t = v : s. Was zeigt die Zeile?"
    },
    "a": [
-    "Die Umstellung ist richtig: 12 : 4 = 3.",
+    "Die Umstellung ist richtig, weil die Zeile zur Formel passt.",
     "Die Umstellung ist falsch: v : s = 4 : 12 ≈ 0,33, nicht 3.",
     "Man kann mit einer Zeile nichts prüfen.",
     "Die Zeile passt nicht zur Formel."
@@ -4261,8 +4261,8 @@
     "einheit": "cm³"
    },
    "c": "3 * 4 * 5",
-   "w": "Mit den Kanten a, b, c: ab = 12, bc = 15, ac = 20. Multipliziert: (abc)² = 12 · 15 · 20 = 3 600, also abc = 60. (Kanten 3, 4 und 5 cm.)",
-   "h": "Multipliziere die drei Flächen miteinander."
+   "w": "Mit den Kanten a, b, c: ab = 12, bc = 15, ac = 20. Aus ab = 12 und ac = 20 folgt c : b = 20 : 12 = 5 : 3, also c = 5b : 3. Eingesetzt in bc = 15: b · 5b : 3 = 15 ⇒ b · b = 9 ⇒ b = 3 (positiv). Dann a = 12 : 3 = 4 und c = 15 : 3 = 5. V = 3 · 4 · 5 = 60 cm³.",
+   "h": "Vergleiche zwei Flächen, die eine Kante gemeinsam haben."
   },
   {
    "l": "geometrie",

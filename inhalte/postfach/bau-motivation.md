@@ -2,6 +2,25 @@
 
 Neueste oben.
 
+## 2026-11-18 – FERTIG: Auftrag H (korrigiert)
+
+**Ursache** „record "v" is not assigned yet“: Im H2-Block von `20261119_w176_h_muss.sql` hieß die Schleifenvariable `v` wie der Tabellen-Alias `schule.versuch v`. Variable heißt jetzt `w`.
+
+**Geprüft mit einem Skript** (Variablen jedes `declare` gegen Tabellen-/Funktions-Aliase im selben Block; erkennt die gemeldeten Fälle in den alten Fassungen):
+- `h_sollte`: zweite Kollision gefunden und behoben – in `expedition_importieren` (H12-Prüfungen) liefen `jsonb_array_elements(…) t` / `… v` gegen die Variablen `t`, `v` → Aliase `tt`, `vv`.
+- In die Live-Funktionen eingesetzte Stücke (`uebung_pruefen_intern`, `etappen_stand`, `schule_lernstand`, `schule_uebersicht`, `einheit_lesen_intern`, `expeditionen_kind`) gegen deren `declare` geprüft: keine Kollision.
+- Danach: keine Treffer mehr in `h8`, `h_muss`, `h_sollte` und allen Rauchtests.
+- Nebenbei: Bestandsfüllung H3 nimmt `misch` jetzt mit `coalesce(…, false)`.
+
+**Rauchtests**
+- `w176_t4_rauchtest.sql`: „a_ids is not a known variable“ – ein Kommentar stand mitten in der `declare`-Zeile und verschluckte `a_ids` und `v_n` (seit der Umbenennung k → ks). Behoben. Schritt 5 erwartet seit H8 `wdh_fehler = 0` (nur fällig).
+- `w176_t3_rauchtest.sql` Schritt 4: erwartet jetzt `wdh_fehler = 0`, `wdh_lerntage = 1`, Etappe gelandet (H8).
+- `w176_t1_rauchtest.sql`: an H3 angepasst (6-mal dieselbe Bordkarte → eigene 1, folge 6; Landen mit genug verschiedenen Bordkarten).
+- `w176_h_muss_rauchtest.sql`: Variable `a` → `ag` (kollidierte mit `schule.aufgabe a`). `w176_h_sollte_rauchtest.sql`: Aliase `a`, `x` im H13-Teil → `au`, `xa`.
+- Reihenfolge Probelauf: `h_muss` → `h_sollte` → Rauchtests `h8`, `t1`, `t3`, `t4`, `gesperrt`, `h_muss`, `h_sollte`.
+
+Fachlich unverändert gegenüber „FERTIG: Auftrag H“; App unverändert (0.79.0).
+
 ## 2026-11-18 – FERTIG: Auftrag H (H1–H4, H9–H11 Muss; H5–H7, H12–H15 Sollte) – App 0.79.0
 
 **Migrationen** (nicht ausgeführt; pglast ok; alle Ersetz-Stellen vorher im Live-Text geprüft, Abbruch mit Meldung, falls eine fehlt; kein DROP, kein DELETE; gelandete Etappen bleiben gelandet, Lernstände bleiben).

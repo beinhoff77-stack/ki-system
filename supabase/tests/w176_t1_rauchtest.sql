@@ -1,9 +1,9 @@
--- Rauchtest W176 Teil 1 (Punkteregel „gelandet“ ohne Minuspunkte). Erst NACH der Migration 20261118_w176_t1_punkteregel.sql ausführen.
+-- Rauchtest W176 Teil 1 (Punkteregel „gelandet“ ohne Minuspunkte). Stand nach Auftrag H (20261119_w176_h_muss.sql: jede Aufgabe zählt einmal).
 -- Läuft in einer Transaktion und wird zurückgerollt – es bleibt nichts zurück. Nutzt nur das Testkind (lernender.ist_test).
 -- Ergebnis: NOTICE-Zeilen „ok …“; bei einem Fehler bricht der Block mit „FEHLER …“ ab.
 begin;
 do $$
-declare v_l bigint; v_e bigint; v_lz text; v_s3 bigint; v_s1a bigint; v_s1b bigint; v_typ3 text; v_typ1 text; v_bonus bigint; k schule.karte_stand;
+declare v_l bigint; v_e bigint; v_lz text; v_s3 bigint; v_s1a bigint; v_s1b bigint; v_typ3 text; v_typ1 text; v_bonus bigint; k schule.karte_stand; v_x bigint;
   procedure_reset text;
 begin
   select id into v_l from schule.lernender where ist_test and aktiv order by id limit 1;
@@ -21,31 +21,34 @@ begin
 
   -- 1) 6 richtige ohne Typvielfalt (immer dieselbe schwere Bordkarte) → nicht gelandet
   insert into schule.karte_stand(lernender_id, einheit_id, lernziel) values (v_l, v_e, v_lz) on conflict do nothing;
-  update schule.karte_stand set serie = 0, sitzt = false, sitzt_am = null, schwer_ok = false, eigene_loesungen = 0, typen = '{}', folge = 0, fehler_folge = 0, stufe_senkung = 0, wdh_stufe = 0
+  update schule.karte_stand set serie = 0, sitzt = false, sitzt_am = null, schwer_ok = false, eigene_loesungen = 0, typen = '{}', folge = 0, fehler_folge = 0, stufe_senkung = 0, wdh_stufe = 0, gezaehlt = '{}'
    where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
   for i in 1..6 loop perform schule.karte_buchen(v_l, v_s3, true, 0::smallint, now()); end loop;
   select * into k from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
-  if k.sitzt or k.eigene_loesungen <> 6 or k.folge <> 6 then raise exception 'FEHLER 1: %', row_to_json(k); end if;
-  raise notice 'ok 1: 6 richtige mit nur einem Typ → nicht gelandet (eigene 6, Typen %)', k.typen;
+  if k.sitzt or k.eigene_loesungen <> 1 or k.folge <> 6 then raise exception 'FEHLER 1: %', row_to_json(k); end if; -- seit H3: dieselbe Aufgabe zählt einmal
+  raise notice 'ok 1: 6-mal dieselbe Bordkarte richtig → nicht gelandet (eigene 1, folge 6, Typen %)', k.typen;
 
   -- 2) zweiter Typ dazu, aber die letzte falsch → nicht gelandet; danach 3 in Folge → gelandet
   perform schule.karte_buchen(v_l, v_s1b, true, 0::smallint, now());
   update schule.karte_stand set sitzt = false, sitzt_am = null where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz; -- falls schon gelandet: zurück vor den Fehler
   perform schule.karte_buchen(v_l, v_s1a, false, 0::smallint, now());
   select * into k from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
-  if k.sitzt or k.folge <> 0 or k.eigene_loesungen <> 7 then raise exception 'FEHLER 2a: %', row_to_json(k); end if;
+  if k.sitzt or k.folge <> 0 or k.eigene_loesungen <> 2 then raise exception 'FEHLER 2a: %', row_to_json(k); end if;
   raise notice 'ok 2a: letzte falsch → folge 0, eigene Lösungen bleiben (%), keine Abzüge', k.eigene_loesungen;
   -- 3) Tipp-Treffer zählt nicht und bricht die Folge nicht
   perform schule.karte_buchen(v_l, v_s1a, true, 0::smallint, now());
   perform schule.karte_buchen(v_l, v_s1b, true, 1::smallint, now()); -- mit Tipp
   select * into k from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
-  if k.folge <> 1 or k.eigene_loesungen <> 8 or k.sitzt then raise exception 'FEHLER 3: %', row_to_json(k); end if;
-  raise notice 'ok 3: Tipp-Treffer zählt nicht (eigene 8), folge bleibt 1';
-  perform schule.karte_buchen(v_l, v_s1b, true, 0::smallint, now());
-  perform schule.karte_buchen(v_l, v_s3, true, 0::smallint, now());
+  if k.folge <> 1 or k.eigene_loesungen <> 3 or k.sitzt then raise exception 'FEHLER 3: %', row_to_json(k); end if;
+  raise notice 'ok 3: Tipp-Treffer zählt nicht (eigene 3), folge bleibt 1';
+  -- H3: zum Landen braucht es genug verschiedene Bordkarten – alle Übungen dieser Etappe je einmal richtig (mindestens 6)
+  for v_x in select id from schule.aufgabe where einheit_id = v_e and variante_gruppe = v_lz and pool = 'uebung' and freigegeben order by id loop
+    exit when (select sitzt from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz);
+    perform schule.karte_buchen(v_l, v_x, true, 0::smallint, now());
+  end loop;
   select * into k from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
   if not k.sitzt then raise exception 'FEHLER 2b: %', row_to_json(k); end if;
-  raise notice 'ok 2b: 3 richtige in Folge → gelandet';
+  raise notice 'ok 2b: genug verschiedene eigene Lösungen und 3 in Folge → gelandet (eigene %)', k.eigene_loesungen;
 
   -- 4) 2 Fehler in Folge senken die Stufe um 1, einer nicht
   update schule.karte_stand set sitzt = false, sitzt_am = null, folge = 0, fehler_folge = 0, stufe_senkung = 0 where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;

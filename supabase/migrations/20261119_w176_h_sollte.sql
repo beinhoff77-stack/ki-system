@@ -29,12 +29,12 @@ begin
   if coalesce(p->>'schluessel', '') = '' or jsonb_typeof(p->'teile') is distinct from 'array' then raise exception 'Datei unvollständig (schluessel, teile)'; end if;
   -- H12: Prüfung vor jedem Schreiben – 3–5 Teile, ≥ 3 Themen, gültige Lernkarten, jeder Bezug unter den Voraussetzungen, Freigabe nur mit freigegebenen Bezugs-Flügen
   if jsonb_array_length(p->'teile') not between 3 and 5 then raise exception 'Eine Expedition hat 3 bis 5 Teile (hier %)', jsonb_array_length(p->'teile'); end if;
-  if (select count(distinct t->>'k') from jsonb_array_elements(p->'teile') t) <> jsonb_array_length(p->'teile') or exists (select 1 from jsonb_array_elements(p->'teile') t where coalesce(t->>'k', '') = '') then
+  if (select count(distinct tt->>'k') from jsonb_array_elements(p->'teile') tt) <> jsonb_array_length(p->'teile') or exists (select 1 from jsonb_array_elements(p->'teile') tt where coalesce(tt->>'k', '') = '') then
     raise exception 'Jeder Teil braucht einen eigenen Buchstaben k'; end if;
   if jsonb_typeof(p->'voraussetzungen') is distinct from 'array' or jsonb_array_length(p->'voraussetzungen') = 0 then raise exception 'Voraussetzungen fehlen'; end if;
   for t in select * from jsonb_array_elements(p->'teile') loop
     if not (t->>'y' = any(v_y)) or t->'o' is null or jsonb_typeof(t->'f') is distinct from 'object' then raise exception 'Teil %: Antworttyp, Frage oder Lösung fehlt', t->>'k'; end if;
-    if not exists (select 1 from jsonb_array_elements(p->'voraussetzungen') v where v->>'thema_schluessel' = t->'bezug'->>'thema_schluessel' and v->>'lernziel' = t->'bezug'->>'lernziel') then
+    if not exists (select 1 from jsonb_array_elements(p->'voraussetzungen') vv where vv->>'thema_schluessel' = t->'bezug'->>'thema_schluessel' and vv->>'lernziel' = t->'bezug'->>'lernziel') then
       raise exception 'Teil %: Bezug %/% steht nicht unter den Voraussetzungen', t->>'k', t->'bezug'->>'thema_schluessel', t->'bezug'->>'lernziel'; end if;
     if not exists (select 1 from schule.aufgabe a join schule.einheit e on e.id = a.einheit_id join schule.thema th on th.id = e.thema_id
                     where th.schluessel = t->'bezug'->>'thema_schluessel' and a.variante_gruppe = t->'bezug'->>'lernziel' and a.pool = 'uebung' and e.status <> 'ersetzt') then
@@ -45,8 +45,8 @@ begin
   select * into v_alt from schule.expedition where schluessel = p->>'schluessel';
   v_status := coalesce(p_status, v_alt.status, 'entwurf');
   if v_status in ('geprueft', 'freigegeben') and exists (
-       select 1 from jsonb_array_elements(p->'teile') t
-        where not exists (select 1 from schule.einheit e join schule.thema th on th.id = e.thema_id where th.schluessel = t->'bezug'->>'thema_schluessel'
+       select 1 from jsonb_array_elements(p->'teile') tt
+        where not exists (select 1 from schule.einheit e join schule.thema th on th.id = e.thema_id where th.schluessel = tt->'bezug'->>'thema_schluessel'
                            and e.status = case v_status when 'freigegeben' then 'freigegeben' else e.status end and e.status in ('geprueft', 'freigegeben'))) then
     raise exception 'Status %: alle Bezugs-Flüge müssen % sein', v_status, case v_status when 'freigegeben' then 'freigegeben' else 'geprüft oder freigegeben' end; end if;
   for v in select * from jsonb_array_elements(coalesce(p->'voraussetzungen', '[]'::jsonb)) loop

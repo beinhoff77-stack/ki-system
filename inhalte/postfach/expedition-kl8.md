@@ -12,3 +12,4 @@ Neueste Meldung oben. Format: `inhalte/README.md`, Abschnitt „Expeditionen“.
 - 8-pool: OK – Teile und Themen siehe Abschlussbericht.
 - 8-schulfest: OK – Teile und Themen siehe Abschlussbericht.
 - 8-saftbar: OK – Teile und Themen siehe Abschlussbericht.
+- 8-zelt: OK – Teile und Themen siehe Abschlussbericht.

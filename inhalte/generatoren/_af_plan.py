@@ -155,3 +155,46 @@ PLAN['bruch.prozent_grundwert'] = [
                              ['q', 'der Zinsfaktor: q = 1 + p/100, bei 2 % also 1,02'],
                              ['K₀, Kₙ', 'das Anfangskapital und das Kapital nach n Jahren']]),
 ]
+
+
+# =====================================================================================================================
+# funktionen.quadratisch (Kl. 9)
+#  Teil A ← funktionen.transformation: spiegeln (B), Vertiefung (RS Gruppe I), nach parameter.
+#  Teil C: umformen und extremwert werden zur Wiederholung des Flugs terme.quadratische_extreme (Klasse 8):
+#          Titel und Einstieg verweisen darauf; Beispiel, Merksatz, Fehler, Bild bleiben. Übungen auf die Mindestmengen der
+#          Zwanzigsten Runde gekürzt (Stufe 1/2/3: 4/6/8 mit 2/3/4 Typen, 2 Knobel); Test/Korrektur/Sicherung bleiben.
+#          Behalten wird, was über Klasse 8 hinausgeht (Parabel, Graph, −b/(2a), Faktor vor x², alle Stufe-3-Aufgaben).
+# =====================================================================================================================
+def _weg_alle(lz, texte):
+    return [weg(lz, '^' + re.escape(t) + '$', 1) for t in texte]
+
+
+_UMFORMEN_WEG = [
+    'Bestimme den Scheitel von y = x² − 4x + 7.', 'Bestimme den Scheitel von y = x² + 14x + 55.',
+    'Bestimme den Scheitel von y = x² + 14x + 42.', 'Bei y = x² + 10x + 29 liegt der Scheitel bei x = −b/(2a). Berechne die x-Koordinate des Scheitels.',
+    'Bestimme den Scheitel von y = x² − 4x + 4.', 'Bestimme den Scheitel von y = x² − 14x + 42.',  # Stufe 1 (2 davon überzählig)
+    'Bestimme den Scheitel von y = −x² − 2x + 1.', 'Bestimme den Scheitel von y = −x² + 14x − 47.', 'Bestimme den Scheitel von y = −x² − 8x − 16.',
+    'Bestimme den Scheitel von y = −x² + 2x + 5.', 'Bestimme den Scheitel von y = 3x² − 36x + 113.', 'Bestimme den Scheitel von y = −2x² + 12x − 17.',
+    'Bestimme den Scheitel von y = 2x² − 8x.', 'Bestimme den Scheitel von y = −x² + 2x − 10.', 'Bestimme den Scheitel von y = 2x² + 4x + 7.',
+]
+_EXTREMWERT_WEG = [
+    'Welchen kleinsten Wert nimmt f(x) = x² + 4x an?', 'Welchen größten Wert nimmt f(x) = −2x² − 8x − 2 an?',
+    'Welchen kleinsten Wert nimmt f(x) = x² − 4x + 4 an?', 'Welchen größten Wert nimmt f(x) = −x² − 6x − 4 an?',
+    'Ein rechteckiges Gehege soll mit 108 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?',
+    'Zwei Zahlen haben die Summe 36. Wie groß ist ihr Produkt höchstens?',  # überzählig
+    'Ein rechteckiges Gehege soll mit 12 m Zaun umgeben werden. Welchen größten Flächeninhalt kann es haben?',  # überzählig
+    'An einer Hauswand soll ein rechteckiger Auslauf mit 76 m Zaun abgegrenzt werden (die Wand ersetzt eine Seite). Welche Fläche ist höchstens möglich?',  # überzählig
+    'An einer Hauswand soll ein rechteckiger Auslauf mit 96 m Zaun abgegrenzt werden (die Wand ersetzt eine Seite). Welche Fläche ist höchstens möglich?',  # überzählig
+]
+
+PLAN['funktionen.quadratisch'] = [
+    karte_her('funktionen.transformation', 'spiegeln', 'Parabeln lesen', vertiefung=True, nach='parameter'),
+    karte('umformen', titel='Wiederholung: Scheitelform bestimmen',
+          einstieg='Die quadratische Ergänzung kennst du aus dem Flug „Quadratische Terme und Extremwerte“ (Klasse 8). '
+                   'Hier nutzt du sie für Parabeln: Die Scheitelform zeigt dir sofort den ⟦Scheitel⟧.'),
+    karte('extremwert', titel='Wiederholung: Extremwertprobleme',
+          einstieg='Das größte Gehege mit festem Zaun kennst du aus dem Flug „Quadratische Terme und Extremwerte“ (Klasse 8). '
+                   'Neu ist der Blick auf die Parabel: Ihr Scheitel ist der ⟦Extremwert⟧.'),
+    *_weg_alle('umformen', _UMFORMEN_WEG),
+    *_weg_alle('extremwert', _EXTREMWERT_WEG),
+]

@@ -58,10 +58,10 @@ begin
   select count(*) into v_n from schule.sterne where lernender_id = v_l and grund = 'expedition' and bezug = 'expedition:' || v_x;
   if schule.expedition_zustand(v_l, x) <> 'geschafft' or v_n <> 1 then raise exception 'FEHLER 8: % / %', schule.expedition_zustand(v_l, x), v_n; end if;
   raise notice 'ok 8: alle Teile erledigt → geschafft, Sterne genau einmal (%), Stempel %', schule.sterne_regel('sterne_expedition_geschafft'), schule.konto(v_l)->'expeditions_stempel';
-  -- erneuter Import: nichts geändert; ohne Teil d: Teil d gesperrt, nichts gelöscht
+  -- erneuter Import: nichts geändert; ohne Teil b: Teil b gesperrt, nichts gelöscht
   r := schule.expedition_importieren(datei);
   if (r->>'teile_neu')::int <> 0 or (r->>'teile_geaendert')::int <> 0 then raise exception 'FEHLER 9: %', r; end if;
-  r := schule.expedition_importieren(jsonb_set(datei, '{teile}', (datei->'teile') - 3));
+  r := schule.expedition_importieren(jsonb_set(datei, '{teile}', (datei->'teile') - 1)); -- ohne Teil b (H12: weiter 3 Teile, 3 Themen)
   if (r->>'teile_gesperrt')::int <> 1 or (select count(*) from schule.aufgabe where expedition_id = v_x) <> 4 then raise exception 'FEHLER 9b: %', r; end if;
   raise notice 'ok 9: Abgleich ändert nichts ohne Änderung; entfernter Teil wird gesperrt, nicht gelöscht';
 end $$;

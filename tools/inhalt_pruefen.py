@@ -392,6 +392,8 @@ def pruefe_expedition(pfad):
         pruefe_antwort(wo, t, F, W)
     benutzt = {((t.get('bezug') or {}).get('thema_schluessel'), (t.get('bezug') or {}).get('lernziel')) for t in teile}
     for v in sorted(vs - benutzt, key=str): W(f'Voraussetzung {v[0]}/{v[1]} wird in keinem Teil gebraucht')
+    themen = {b[0] for b in benutzt if b[0]}
+    if teile and len(themen) < 3: F(f'Eine Expedition verbindet mindestens 3 Themen (hier {len(themen)}) – Server lehnt sonst ab (H12)')
     info = {'expedition': d['schluessel'], 'teile': len(teile), 'voraussetzungen': len(vor), 'nachgerechnet': sum(1 for t in teile if 'c' in t)}
     return fehler, warn, info
 

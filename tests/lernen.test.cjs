@@ -293,7 +293,7 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2 000');
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
-  await page.getByText('1 von 2 Punkten').waitFor();
+  await page.getByText('1 von 2 richtig').waitFor(); // H7: keine „Punkte“ mehr in Kindertexten
   // Zur Erklärung und zurück: Aufgabe und Rückmeldung bleiben stehen.
   await page.getByRole('tab', { name: 'Erklären' }).click();
   await sichtbar.locator('.lr-stellentafel').first().waitFor();
@@ -1621,6 +1621,7 @@ test('W176 T3: Mischkarte beim Üben – neutral gekennzeichnet, ohne Erklärung
   await page.getByText('Das war: Große Zahlen lesen – New York').waitFor();
   const c = calls.filter((x) => x.aktion === 'schule_uebung_pruefen').at(-1);
   assert.equal(c.daten.misch, true); assert.equal(c.daten.aufgabe_id, 14);
+  assert.equal(c.daten.aktuell_einheit, 1); assert.equal(c.daten.aktuell_lernziel, 'stellenwert'); // H10: der Server prüft, dass es nicht die aktuelle Etappe ist
   assert.equal(await page.locator('.lr-checkliste').innerText(), vorher, 'aktuelle Etappe unverändert');
   // Knobel-Bordkarten kommen nie als Mischkarte: die nächste Bordkarte ist eine normale aus Rom
   await page.getByRole('button', { name: /Neue Bordkarte/ }).click();
@@ -1691,7 +1692,8 @@ test('W176 T4: Expedition – Angebot auf der Abflugtafel, Teil falsch → 2. Ve
   await page.getByRole('button', { name: 'Weiter mit Teil C ›' }).click();
   await page.locator('.lr-exp-teil input').fill('71'); await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByRole('button', { name: 'Zum Abschluss ›' }).click();
-  await page.getByText('EXPEDITION GESCHAFFT').waitFor();
+  await page.getByText('EXPEDITION ABGESCHLOSSEN').waitFor();
+  await page.getByText('2 von 3 Teilen selbst gelöst; bei den anderen hast du den Lösungsweg gesehen.').waitFor(); // H15: abgeschlossen ≠ selbst gelöst
   await page.getByText('+50 Sterne').waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/w176-expedition-390.png'), fullPage: true });
   await page.goto(origin + '/#/reisepass/1'); await page.getByText('⛰ Expeditions-Stempel: 1').waitFor();
@@ -1722,6 +1724,103 @@ test('W176 T4: Eltern – Expeditionen lesbar mit Lösung, im Lernstand je Kind 
   await page.goto(origin + '/#/inhalte/1'); await page.locator('details.lp-karte').first().waitFor();
   assert.equal(await page.getByText('EXPEDITIONSTEIL').count(), 0);
   await page.goto(origin + '/#/lehrplan'); await page.getByRole('link', { name: '⛰ Expeditionen ansehen ›' }).waitFor();
+});
+
+// ---------- Bau-Auftrag H (Befunde der ChatGPT-Prüfung zu W176) ----------
+const tippe = async (page, ziffern) => { for (const z of ziffern) await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: z, exact: true }).click();
+  await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click(); };
+const mitKarte = (lesen, karte) => (aktion, e) => {
+  if (aktion === 'schule_uebung_pruefen' && e.karte) return { ...e, karte: { ...e.karte, ...karte } };
+  return lesen(aktion, e);
+};
+
+test('H1: wieder geöffnete Etappe gilt in der App sofort als offen (Server-Antwort fertig = false), Checkliste statt „Gelandet“', async (t) => {
+  const lesen = neueRegel({ stellenwert: { eigene_loesungen: 2, folge: 2, typen_anzahl: 1, sitzt: true, fertig: true, faellig: true } });
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: mitKarte(lesen, { sitzt: false, fertig: false, eigene_loesungen: 2, folge: 0, folge_ziel: 2, typen_anzahl: 1, typen_noetig: 1, wieder_offen: true }) });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText('Gelandet – heute wiederholen').waitFor();
+  for (const runde of [0, 1]) {
+    await tippe(page, ['5']);
+    if (runde === 0) { await page.getByText(/Versuch/).first().waitFor(); const loesch = page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: /Löschen|⌫/ }); if (await loesch.count()) await loesch.first().click(); }
+  }
+  await page.getByText('Die nächste zählt wieder voll.').waitFor();
+  await page.locator('.lr-checkliste').waitFor();
+  assert.equal(await page.getByText(/Gelandet/).count(), 0, 'nicht mehr „Gelandet“');
+  assert.match(await page.locator('.lr-checkliste').innerText(), /2 in Folge: 0\/2/);
+});
+
+test('H3: dieselbe Bordkarte noch einmal richtig – „Die kennst du schon – gut wiederholt.“; ungezählte kommen zuerst', async (t) => {
+  const lesen = (aktion, e) => { const x = neueRegel({ stellenwert: { eigene_loesungen: 1, folge: 1, gezaehlt: [11] } })(aktion, e); if (x) x.heute_selbst = 4; return x; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: mitKarte(lesen, { neu_gezaehlt: false, eigene_loesungen: 1, folge: 2, folge_ziel: 2, typen_anzahl: 1, typen_noetig: 1, gezaehlt: [11], heute_selbst: 5 }) });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  assert.match(await page.locator('.lr-heute').innerText(), /heute 4 Aufgaben selbst gelöst/); // H6: Zähler vom Server
+  await tippe(page, ['2', '0', '0', '0']);
+  await page.getByText('Die kennst du schon – gut wiederholt.').waitFor();
+  assert.match(await page.locator('.lr-heute').innerText(), /heute 5 Aufgaben/);
+  const r = await page.evaluate(() => {
+    const k = (id) => ({ id, stufe: 1, typ: 'direkt', frage: { text: `Aufgabe ${id}` } });
+    const w = [k(1), k(2), k(3)]; lernWaehleBordkarte(w, { ziel: 6, neueRegel: true, eigene: 1, gezaehlt: new Set([1, 2]) }, null, new Set());
+    const v = [k(1), k(2)]; lernWaehleBordkarte(v, { ziel: 6, neueRegel: true, eigene: 2, gezaehlt: new Set([1, 2]) }, null, new Set());
+    return [w[0].id, v.length];
+  });
+  assert.deepEqual(r, [3, 2], 'ungezählte zuerst; sind alle gezählt, geht es trotzdem weiter');
+});
+
+test('H4/H1: Eltern – „Flug-Nachtest bestanden“ getrennt von „sicher“, wieder geöffnete Etappe als „wieder offen“', async (t) => {
+  const ls = (aktion, e) => {
+    if (aktion !== 'schule_lernstand') return null; const y = structuredClone(e);
+    Object.assign(y.einheiten[0].karten[0], { eigene_loesungen: 6, folge: 3, typen_anzahl: 2, sitzt: true, sicher: false, flug_nachtest: true });
+    Object.assign(y.einheiten[0].karten[1], { eigene_loesungen: 4, folge: 0, typen_anzahl: 2, sitzt: false, wieder_offen: true, richtig: 6, falsch: 2 }); return y; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: ls });
+  await page.goto(origin + '/#/wackelt/1');
+  const a = page.locator('.ls-karte', { hasText: 'Welchen Wert hat eine Ziffer?' });
+  await a.getByText('Flug-Nachtest bestanden').waitFor();
+  assert.equal(await a.getByText('sicher', { exact: true }).count(), 0);
+  const b = page.locator('.ls-karte', { hasText: 'Runden' });
+  await b.getByText('wieder offen', { exact: true }).waitFor();
+  await b.getByText(/War schon gelandet; in der Wiederholung zweimal falsch/).waitFor();
+});
+
+test('H7: Texte ohne „Serie“/„Punkte“ – Tipp „zählt nicht als eigene Lösung; unterbricht deine Folge nicht“', async (t) => {
+  const quelle = fs.readFileSync(path.join(root, 'lernen.js'), 'utf8');
+  assert.doesNotMatch(quelle, /zählt nicht für die Serie|deine Punkte bleiben|Punkte gesammelt|von \$\{[^}]+\} Punkten/);
+  assert.match(quelle, /zählt nicht als eigene Lösung; unterbricht deine Folge nicht/);
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/info'); await page.getByText('Wie wird gelernt?').click();
+  const info = await page.locator('#main').innerText();
+  assert.doesNotMatch(info, /\bSerie\b/);
+  assert.match(info, /Wieder offen:/); assert.match(info, /Flug-Nachtest bestanden/);
+});
+
+test('H13: Dosierung der Mischkarten – Klasse 5 jede 6., Klasse 8 jede 4., nie mit nur 2 gelandeten, nie bei gewählter Stufe, alle 8 verbraucht, nach Neustart wieder von vorn', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  const r = await page.evaluate(() => {
+    const acht = () => Array.from({ length: 8 }, (_, i) => ({ id: 100 + i, quelle: ['flug', 'kontinent', 'aelter'][i % 3] }));
+    const lauf = (jede, gelandet, n, opt = {}) => { const rest = acht(), z = { n: 0 }, treffer = [];
+      for (let nr = 1; nr <= n; nr++) { const m = lernMischWahl(rest, { nr, jede, ab: 3, gelandet, zaehler: z, ...opt }); if (m) treffer.push(nr); } return [treffer, rest.length]; };
+    return { kl5: lauf(6, 3, 24)[0], kl8: lauf(4, 3, 16)[0], zwei: lauf(4, 2, 40)[0], stufe: lauf(4, 5, 40, { aus: true })[0],
+      alle: lauf(4, 5, 60), neustart: [lauf(4, 3, 8)[0], lauf(4, 3, 8)[0]] };
+  });
+  assert.deepEqual(r.kl5, [6, 12, 18, 24]);
+  assert.deepEqual(r.kl8, [4, 8, 12, 16]);
+  assert.deepEqual(r.zwei, []); assert.deepEqual(r.stufe, []);
+  assert.deepEqual(r.alle, [[4, 8, 12, 16, 20, 24, 28, 32], 0], 'alle 8 genau einmal, danach keine mehr');
+  assert.deepEqual(r.neustart[0], r.neustart[1], 'Lernkarte wechseln / Browser neu: Zählung beginnt neu, gleiche Abstände');
+});
+
+test('H13: nach einer falschen Mischkarte geht es normal weiter – dieselbe Mischkarte kommt in der Sitzung nicht wieder', async (t) => {
+  const misch = (aktion, e) => {
+    if (aktion !== 'schule_einheit_lesen') return null; const x = neueRegel({ strahl: { sitzt: true } })(aktion, e);
+    x.mischkarten = [{ ...zeig(AUFG[14]), stufe: 2, einheit_id: 2, quelle: 'flug', stadt: 'New York', etappe: 'Große Zahlen lesen' }];
+    x.misch_jede = 1; x.misch_ab = 1; return x; };
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: misch });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneuntausend…', { exact: true }).click(); await page.getByRole('button', { name: 'Prüfen' }).click(); // nur 2 Antworten: kein 2. Versuch
+  await page.getByText('Das war: Große Zahlen lesen – New York').waitFor();
+  await page.getByRole('button', { name: /Neue Bordkarte/ }).click();
+  await page.getByText(/BORDKARTE 2 · ROM/).waitFor();
+  assert.equal(calls.filter((c) => c.aktion === 'schule_uebung_pruefen' && c.daten.aufgabe_id === 14).length, 1, 'Mischkarte genau einmal');
 });
 
 // ---------- IB einheitlich beschriften (18.11.): MYP-Jahr = Klasse − 5, Hinweis „entspricht etwa Klasse 6–10“ ----------

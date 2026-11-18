@@ -8275,7 +8275,7 @@
     "toleranz": 0.01
    },
    "c": "round(0.793700525984, 2)",
-   "w": "Der Saft bildet einen kleineren, ähnlichen Kegel. Volumen ∼ k³: k³ = 1/2 ⇒ k = ∛0,5 ≈ 0,79. Bei 79 % der Höhe ist das Glas schon halb voll.",
+   "w": "Der Saft bildet einen kleineren, ähnlichen Kegel mit Radius k · r und Höhe k · h. Sein Volumen ist 1/3 · π · (k · r)² · (k · h) = k³ · (1/3 · π · r² · h), also k³-mal das Glasvolumen. k³ = 1/2 ⇒ k = ∛0,5 ≈ 0,79. Bei 79 % der Höhe ist das Glas schon halb voll.",
    "h": "Wie hängt das Volumen ähnlicher Kegel vom Streckfaktor ab?"
   },
   {
@@ -10815,7 +10815,7 @@
     "toleranz": 0.1
    },
    "c": "round(10.392304845413, 1)",
-   "w": "Abwickeln: Sektor mit s = 6 cm und φ = 360° · 2 : 6 = 120°. Der kürzeste Weg ist die gerade Strecke zwischen den beiden Randpunkten: 2 · 6 · sin 60° ≈ 10,4 cm.",
+   "w": "Abwickeln: Sektor mit s = 6 cm und φ = 360° · 2 : 6 = 120°. Der kürzeste Weg ist die gerade Strecke zwischen den beiden Randpunkten. Sie ist die Grundseite eines gleichschenkligen Dreiecks mit Schenkeln 6 cm und 120° an der Spitze. Die Höhe teilt es in zwei rechtwinklige Dreiecke mit 60° an der Spitze: halbe Strecke = 6 · sin 60° ≈ 5,20 cm, ganze Strecke = 2 · 6 · sin 60° ≈ 10,4 cm.",
    "h": "Wickle den Mantel ab – auf dem flachen Papier ist der kürzeste Weg gerade."
   },
   {

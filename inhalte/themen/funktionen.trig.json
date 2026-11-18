@@ -3,9 +3,9 @@
  "thema_id": 38,
  "block_id": 67,
  "klasse": {
-  "rs_by": 10,
   "gym_by": 10,
-  "ib_myp": 4
+  "rs_by": 10,
+  "ib_myp": 5
  },
  "autor": "Claude (Paket Klasse 10)",
  "inhalt": {
@@ -1534,7 +1534,7 @@
    "g": "erkennen",
    "y": "auswahl",
    "f": {
-    "text": "Ungefähr wie viel Grad sind 1 im Bogenmaß?"
+    "text": "Ungefähr wie viel Grad hat ein Winkel, der im Bogenmaß 1 beträgt?"
    },
    "a": [
     "1°",
@@ -2956,7 +2956,7 @@
     "wert": 0
    },
    "c": "0",
-   "w": "Die Winkel π/6, 2π/6, …, 12π/6 = 2π verteilen sich gleichmäßig über eine volle Runde. Zu jedem Winkel x gehört x + π mit sin(x + π) = −sin x: π/6 mit 7π/6, 2π/6 mit 8π/6 usw. Die Paare heben sich auf, die Summe ist 0.",
+   "w": "Die zwölf Winkel verteilen sich gleichmäßig über eine volle Runde. Zu jedem Winkel x gehört x + π mit sin(x + π) = −sin x. Die Paare sind π/6 und 7π/6, 2π/6 und 8π/6, 3π/6 und 9π/6, 4π/6 und 10π/6, 5π/6 und 11π/6, 6π/6 und 12π/6 (beide 0). In jedem Paar heben sich die Werte auf, die Summe ist 0.",
    "h": "Suche Paare, deren Sinuswerte sich aufheben."
   },
   {
@@ -2973,7 +2973,7 @@
     "wert": 25
    },
    "c": "(97 - 1) // 4 + 1",
-   "w": "sin(n · π/2) = 1 bei π/2, 5π/2, 9π/2, … also für n = 1, 5, 9, …, 97 (Rest 1 beim Teilen durch 4): 25 Zahlen.",
+   "w": "sin(n · π/2) = 1 gilt bei π/2, dann wieder eine volle Runde (2π = 4 · π/2) später: n = 1, 5, 9 und so weiter, also für alle n mit Rest 1 beim Teilen durch 4. Das sind n = 4k + 1 für k = 0 bis 24 (größtes n = 97): 25 Zahlen.",
    "h": "Schreibe die ersten Werte für n = 1, 2, 3, 4, 5 auf."
   },
   {
@@ -4091,13 +4091,13 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Eine Funktion f hat die Periode 6 und auch die Periode 10. Welche kleinere positive Zahl ist dann sicher ebenfalls eine Periode?"
+    "text": "Eine Funktion f hat die Periode 6 und auch die Periode 10. Welche kleinste positive Zahl ist dann sicher ebenfalls eine Periode?"
    },
    "o": {
     "wert": 2
    },
    "c": "2 * 6 - 10",
-   "w": "f(x + 2) = f(x + 12 − 10) = f(x + 12) = f(x) (zweimal +6, einmal −10). Allgemein ist der ggT von 6 und 10 eine Periode.",
+   "w": "Auch 4 = 10 − 6 ist eine Periode, und 2 = 6 − 4: f(x + 2) = f(x + 12 − 10) = f(x) (zweimal +6, einmal −10). Eine kleinere Zahl ist nicht sicher: sin(π · x) hat die Perioden 6 und 10, aber keine Periode kleiner als 2.",
    "h": "Kombiniere Schritte von +6 und −10."
   },
   {

@@ -924,8 +924,8 @@ def stufen():
     S.bonus('pfad_add', B('Zwei Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme eine Primzahl ist?', 5, 12,
                           'Primzahlen 2, 3, 5, 7, 11 mit 1, 2, 4, 6, 2 Pfaden: zusammen 15 von 36 = 5/12.', 'Zähle für jede mögliche Primzahl die Paare.'))
     S.bonus('pfad_add', B('Anna und Ben werfen abwechselnd eine Münze, Anna beginnt. Wer zuerst Kopf wirft, gewinnt. Wie groß ist Annas Gewinnwahrscheinlichkeit?', 2, 3,
-                          'Anna gewinnt im 1., 3., 5., … Wurf: 1/2 + 1/8 + 1/32 + … Oder kürzer: Hat Anna p, dann hat Ben p/2 (er ist in derselben Lage, aber erst nach Annas Zahl). '
-                          'p + p/2 = 1 ⇒ p = 2/3.', 'Vergleiche Annas und Bens Lage: Was muss passieren, bevor Ben überhaupt werfen darf?'))
+                          'Annas Gewinnwahrscheinlichkeit sei p. Wirft Anna im 1. Wurf Zahl (Wahrscheinlichkeit 1/2), ist Ben genau in Annas Anfangslage und gewinnt dann mit p. '
+                          'Ben gewinnt also mit 1/2 · p. Einer von beiden gewinnt sicher: p + p/2 = 1 ⇒ p = 2/3.', 'Vergleiche Annas und Bens Lage: Was muss passieren, bevor Ben überhaupt werfen darf?'))
 
     # --- ohne_zuruecklegen ---
     S.stufenleiter('ohne_zuruecklegen', 'Die Äste der zweiten Stufe anpassen (Nenner und Zähler werden kleiner) und gleiche Farben berechnen.',
@@ -943,7 +943,7 @@ def stufen():
     S.neu('ohne_zuruecklegen', 'fehler', A('5 Lose, davon 2 Gewinne; man zieht 2 Lose. Jemand rechnet: „P(zwei Gewinne) = 2/5 · 2/5 = 4/25.“ Was stimmt?',
                                            'Falsch: Nach dem ersten Gewinn ist noch 1 Gewinn unter 4 Losen: 2/5 · 1/4 = 1/10.', ['Richtig.', 'Falsch: 2/5 · 1/5 = 2/25.', 'Falsch: 2/5 + 1/4 = 13/20.'],
                                            'Das gezogene Los kommt nicht zurück. Zweiter Ast: 1 von 4.', 'Was ist beim zweiten Zug anders?'))
-    S.neu('ohne_zuruecklegen', 'pruefung', Z('In einem Beutel liegen 6 Äpfel und 4 Birnen. Man nimmt ohne hinzusehen nacheinander Früchte heraus (ohne Zurücklegen). Wie viele Früchte muss man höchstens herausnehmen, um sicher zwei Birnen zu haben?',
+    S.neu('ohne_zuruecklegen', 'pruefung', Z('In einem Beutel liegen 6 Äpfel und 4 Birnen. Man nimmt ohne hinzusehen nacheinander Früchte heraus (ohne Zurücklegen). Wie viele Früchte muss man herausnehmen, damit auf jeden Fall zwei Birnen dabei sind?',
                                              8, '6 + 2', 'Schlimmster Fall: erst alle 6 Äpfel. Danach sind nur noch Birnen drin: 6 + 2 = 8 Früchte.', 'Denke an den ungünstigsten Fall.'))
     S.neu('ohne_zuruecklegen', 'rueckwaerts', Z('Aus einer Urne mit 3 roten und einigen blauen Kugeln wird zweimal ohne Zurücklegen gezogen. Am Ast „rot, dann rot“ steht beim zweiten Zug 2/7. Wie viele blaue Kugeln liegen in der Urne?',
                                                 5, '7 + 1 - 3', 'Nach einer roten Kugel sind noch 2 rote von 7 Kugeln da. Also waren es 8 Kugeln, davon 3 rot: 5 blaue.', 'Wie viele Kugeln waren vor dem ersten Zug drin?'))
@@ -1028,7 +1028,7 @@ def stufen():
                                       -25, '100 * (3 * 1 / 4 - 1)', 'Zweimal Kopf hat 1/4: in 100 Spielen etwa 25-mal, also 75 € Auszahlung. Einsatz 100 €. Ergebnis 75 − 100 = −25 €.',
                                       'Wie oft gewinnt man in 100 Spielen etwa?', einheit='€'))
     S.bonus('simulation', Z('Ein Würfel wird 60-mal geworfen. Welche Augensumme aller 60 Würfe erwartet man?', 210, '60 * 21 / 6',
-                            'Jede Augenzahl erwartet man 10-mal: 10 · (1 + 2 + … + 6) = 10 · 21 = 210. Oder: Der mittlere Wurf hat 3,5 Augen, 60 · 3,5 = 210.',
+                            'Jede Augenzahl erwartet man 10-mal: 10 · (1 + 2 + 3 + 4 + 5 + 6) = 10 · 21 = 210. Oder: Der mittlere Wurf hat 3,5 Augen, 60 · 3,5 = 210.',
                             'Wie oft erwartet man jede einzelne Augenzahl?'))
     S.bonus('simulation', Z('Aus einer Urne mit 1 roten und 2 blauen Kugeln wird mit Zurücklegen gezogen, bis Rot kommt. Wie viele Züge braucht man im Mittel (rote Kugel mitgezählt)?', 3, '1 / (1 / 3)',
                             'Bei sehr vielen Zügen ist jeder dritte rot. Bei 300 Zügen kommen etwa 100 rote – die 300 Züge zerfallen also in etwa 100 Abschnitte „bis Rot“, je im Mittel 3 Züge lang.',
@@ -1040,8 +1040,8 @@ def stufen():
                    'Grenzen der Verfahren begründen, Streifenzahl als Parameter, Fehler „π/4 statt π“, Punkte mit Pythagoras prüfen, rückwärts zur Mindestzahl, Ring zwischen zwei Viertelkreisen.')
     S.g('pi_schaetzen', direkt=[238, 240, 241], erkennen=[239], darstellung=[242], mehrschritt=[243, 244, 248, 249], umkehr=[246], einkleidung=[247],
         begruenden=[245, 251, 254], parameter=[250], fehler=[252], verknuepfen=[253], rueckwaerts=[255])
-    S.neu('pi_schaetzen', 'erkennen', A('Welcher Punkt liegt NICHT im Viertelkreis mit Radius 1 um (0 | 0)?', '(0,8 | 0,7)', ['(0,5 | 0,5)', '(0,6 | 0,8)', '(0,1 | 0,9)'],
-                                        'Prüfe x² + y² ≤ 1: 0,64 + 0,49 = 1,13 > 1. Die anderen: 0,5; 1,0 (auf dem Bogen, zählt mit); 0,82.', 'Rechne x² + y² aus.'))
+    S.neu('pi_schaetzen', 'erkennen', A('Welcher Punkt liegt NICHT im Viertelkreis mit Radius 1 um (0 | 0)?', '(0,8 | 0,7)', ['(0,5 | 0,5)', '(0,6 | 0,7)', '(0,1 | 0,9)'],
+                                        'Prüfe x² + y² ≤ 1: 0,64 + 0,49 = 1,13 > 1. Die anderen: 0,5; 0,85; 0,82 – alle kleiner als 1.', 'Rechne x² + y² aus.'))
     S.neu('pi_schaetzen', 'einkleidung', ZR('Auf ein quadratisches Brett (Seite 40 cm) mit aufgemaltem Kreis (Durchmesser 40 cm) werfen Kinder blind Erbsen. 250 landen auf dem Brett, 193 davon im Kreis. '
                                             'Welchen Näherungswert für π ergibt das? Runde auf zwei Nachkommastellen.', 4 * 193 / 250, 2,
                                             'Kreis : Quadrat = π · 20² : 40² = π/4. Also π ≈ 4 · 193 : 250 = 3,088 ≈ 3,09.', 'Welchen Anteil des Quadrats bedeckt der Kreis?'))
@@ -1051,8 +1051,8 @@ def stufen():
     S.bonus('pi_schaetzen', ZR('Im Einheitsquadrat liegen zwei Viertelkreise mit Radius 1: einer um (0 | 0), einer um (1 | 1). Wie groß ist die Wahrscheinlichkeit, dass ein Zufallspunkt in beiden liegt? Runde auf drei Nachkommastellen.',
                                math.pi / 2 - 1, 3, 'Jeder Viertelkreis hat π/4. Zusammen bedecken sie das ganze Quadrat (jeder Punkt liegt in mindestens einem), also gilt π/4 + π/4 − Überlappung = 1. '
                                'Überlappung = π/2 − 1 ≈ 0,571.', 'Liegt jeder Punkt des Quadrats in mindestens einem der beiden Viertelkreise?'))
-    S.bonus('pi_schaetzen', Z('Mit wie vielen Zufallspunkten kann der Schätzwert 4 · Treffer : Anzahl frühestens genau 3,14 ergeben?', 200, '200',
-                              '4 · T/n = 3,14 ⇒ T/n = 0,785 = 157/200. Weil 157 und 200 keinen gemeinsamen Teiler haben, muss n ein Vielfaches von 200 sein. Frühestens n = 200 (mit T = 157).',
+    S.bonus('pi_schaetzen', Z('Wie viele Zufallspunkte braucht man mindestens, damit der Schätzwert 4 · Treffer : Anzahl genau 3,14 sein kann?', 200, '200',
+                              '4 · T/n = 3,14 ⇒ T/n = 0,785 = 157/200. 157/200 lässt sich nicht kürzen (157 ist eine Primzahl). Also muss die Anzahl n ein Vielfaches von 200 sein; die kleinste ist n = 200 (mit T = 157).',
                               'Schreibe 3,14 : 4 als gekürzten Bruch.', einheit='Punkte'))
 
     # --- verstehen ---

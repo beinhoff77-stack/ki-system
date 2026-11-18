@@ -269,5 +269,46 @@ def nachweis(thema, stand='origin/lernen-app'):
     print('NACHWEIS OK')
 
 
+def nachweis_korrektur(thema, stand='origin/lernen-app', basis='4eda8cb'):
+    """Nachweis für die inhaltliche Prüfung: Gegenüber stand dürfen sich nur Aufgaben ändern, deren Fragetext es in basis
+    (Stand vor der Zwanzigsten Runde) in keinem Thema gab. Reihenfolge, Lernkarte, Pool, Typ, Stufe und Aufgabenart bleiben gleich."""
+    wurzel = HIER.parent.parent
+    def zeige(st, pfad):
+        return subprocess.run(['git', 'show', f'{st}:{pfad}'], capture_output=True, text=True, check=True, cwd=wurzel).stdout
+    namen = subprocess.run(['git', 'ls-tree', '--name-only', f'{basis}:inhalte/themen'], capture_output=True, text=True, check=True,
+                           cwd=wurzel).stdout.split()
+    texte_basis = set()
+    for n in namen:
+        if n.endswith('.json'):
+            for a in json.loads(zeige(basis, f'inhalte/themen/{n}')).get('aufgaben', []):
+                texte_basis.add(a['f']['text'])
+    alt = json.loads(zeige(stand, f'inhalte/themen/{thema}.json'))
+    neu = json.loads((THEMEN / f'{thema}.json').read_text(encoding='utf-8'))
+    # Der Kopf darf sich nur beim Feld klasse ändern, und nur hin zum Wert aus themenliste.json (der Generator liest ihn dort).
+    liste = json.loads((HIER.parent / 'themenliste.json').read_text(encoding='utf-8'))
+    liste = liste if isinstance(liste, list) else liste.get('themen', liste)
+    klasse_liste = next(t['klasse'] for t in liste if t['thema_schluessel'] == thema)
+    kopf = lambda d: {k: v for k, v in d.items() if k not in ('aufgaben', 'klasse')}
+    assert _k(kopf(alt)) == _k(kopf(neu)), 'außer den Aufgaben hat sich etwas geändert'
+    assert neu['klasse'] in (alt['klasse'], klasse_liste), 'klasse weder unverändert noch wie in themenliste.json'
+    if alt['klasse'] != neu['klasse']:
+        print(f'  Kopf: klasse {alt["klasse"]} → {neu["klasse"]} (aus themenliste.json)')
+    assert len(alt['aufgaben']) == len(neu['aufgaben']), 'Zahl der Aufgaben geändert'
+    z = collections.Counter()
+    for a, b in zip(alt['aufgaben'], neu['aufgaben']):
+        if _k(a) == _k(b):
+            continue
+        assert a['f']['text'] not in texte_basis, f'alte Aufgabe verändert: {a["f"]["text"][:70]}'
+        assert a['p'] in ('uebung', 'bonus'), f'Aufgabe außerhalb uebung/bonus verändert: {a["f"]["text"][:70]}'
+        for f in ('l', 't', 'p', 'g', 's', 'y'):
+            assert a.get(f) == b.get(f), f'{f} geändert: {a["f"]["text"][:70]}'
+        z['geändert ' + a['p']] += 1
+    print(f'{thema}: {len(neu["aufgaben"])} Aufgaben; ' + (', '.join(f'{k} {v}' for k, v in z.items()) or 'nichts geändert'))
+    print('NACHWEIS OK')
+
+
 if __name__ == '__main__':
-    nachweis(sys.argv[1])
+    if len(sys.argv) > 2 and sys.argv[2] == 'korrektur':
+        nachweis_korrektur(sys.argv[1])
+    else:
+        nachweis(sys.argv[1])

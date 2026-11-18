@@ -728,7 +728,7 @@ def stufen():
     S.neu('grad', 'umkehr', A('Welche Funktion hat den Grad 3, den Leitkoeffizienten −2 und das Absolutglied 4?', 'f(x) = −2x³ + x + 4', ['f(x) = 4x³ + x − 2', 'f(x) = −2x⁴ + x³ + 4', 'f(x) = −2x³ + 4x'],
                               'Höchste Hochzahl 3 mit Faktor −2, Glied ohne x ist 4. Bei −2x³ + 4x fehlt das Absolutglied (es ist 0).', 'Prüfe alle drei Kennzahlen bei jedem Term.'))
     S.neu('grad', 'einkleidung', Z('Aus einem quadratischen Karton (20 cm × 20 cm) wird eine Schachtel gefaltet; an den Ecken werden Quadrate der Seite x ausgeschnitten. Ihr Volumen ist V(x) = x · (20 − 2x)². Welchen Grad hat V?',
-                                   3, '1 + 2', 'x · (…)² enthält als höchste Potenz x · (−2x)² = 4x³: Grad 3.', 'Welche höchste Potenz entsteht beim Ausmultiplizieren?'))
+                                   3, '1 + 2', 'x · (20 − 2x)² enthält als höchste Potenz x · (−2x)² = 4x³: Grad 3.', 'Welche höchste Potenz entsteht beim Ausmultiplizieren?'))
     S.neu('grad', 'darstellung', A('Der Graph einer ganzrationalen Funktion schneidet die y-Achse bei (0 | 3). Was folgt daraus?', 'Das Absolutglied ist 3.',
                                    ['Der Grad ist 3.', 'Der Leitkoeffizient ist 3.', 'Die Funktion hat 3 Nullstellen.'], 'f(0) ist immer das Absolutglied, weil alle Glieder mit x bei x = 0 wegfallen.', 'Setze x = 0 ein.'))
     S.neu('grad', 'mehrschritt', Z('Ein Würfel mit der Kante x wird in alle Richtungen um 1 cm verlängert: V(x) = (x + 1)³. Welchen Koeffizienten hat x² nach dem Ausmultiplizieren?', 3, '3',
@@ -736,10 +736,12 @@ def stufen():
     S.neu('grad', 'fehler', A('Jemand sagt: „f(x) = 3x² − x⁴ + 7 hat den Grad 2, weil 3x² vorne steht.“ Was stimmt?', 'Falsch: Der Grad ist die höchste Hochzahl, also 4.',
                               ['Richtig.', 'Falsch: Der Grad ist 7.', 'Falsch: Der Grad ist 3.'], 'Die Reihenfolge der Glieder ist egal; −x⁴ hat die höchste Hochzahl 4.', 'Suche die größte Hochzahl, nicht das erste Glied.'))
     S.bonus('grad', Z('Welchen Grad hat f(x) = (x + 1)¹⁰ − (x − 1)¹⁰?', 9, '9',
-                      'Beide haben x¹⁰ mit Faktor 1, das hebt sich weg. Bei x⁹: (x + 1)¹⁰ liefert 10x⁹, (x − 1)¹⁰ liefert −10x⁹. Differenz 20x⁹ ≠ 0. Also Grad 9.',
+                      'Beide haben x¹⁰ mit Faktor 1, das hebt sich weg. Ein x⁹-Glied entsteht, wenn man aus 9 der 10 Klammern x und aus einer die Zahl nimmt – dafür gibt es 10 Möglichkeiten. '
+                      'Also liefert (x + 1)¹⁰ das Glied 10x⁹ und (x − 1)¹⁰ das Glied −10x⁹. Differenz 20x⁹ ≠ 0. Also Grad 9.',
                       'Was passiert mit den höchsten Gliedern?'))
     S.bonus('grad', Z('Wie groß ist die Summe der Koeffizienten aller Glieder mit gerader Hochzahl (mit Absolutglied) von f(x) = (x + 1)⁶?', 32, '(2 ** 6 + 0 ** 6) // 2',
-                      'f(1) ist die Summe aller Koeffizienten (64), f(−1) die Summe mit wechselnden Vorzeichen (0). Gerade Glieder: (f(1) + f(−1)) : 2 = 32.',
+                      'f(1) = 2⁶ = 64 ist die Summe aller Koeffizienten. In f(−1) = 0⁶ = 0 haben die Glieder mit ungerader Hochzahl ein Minus, die mit gerader ein Plus. '
+                      'In f(1) + f(−1) heben sich die ungeraden Glieder weg, die geraden zählen doppelt: Gerade Glieder = (64 + 0) : 2 = 32.',
                       'Vergleiche f(1) und f(−1).'))
 
     # --- ausmultiplizieren ---
@@ -765,7 +767,8 @@ def stufen():
     S.neu('ausmultiplizieren', 'pruefung', L('Faktorisiere f(x) = x³ − 9x vollständig.', 'x(x + □)(x − □)', [3, 3], ['3', '3'],
                                              'x ausklammern: x(x² − 9). Dritte binomische Formel: x(x + 3)(x − 3).', 'Erst x ausklammern, dann eine binomische Formel.', hinweis='positive Zahlen'))
     S.bonus('ausmultiplizieren', Z('Wie viele Glieder hat (x + 1)(x² + 1)(x⁴ + 1) nach dem Ausmultiplizieren und Zusammenfassen?', 8, '8',
-                                   'Ergebnis x⁷ + x⁶ + x⁵ + x⁴ + x³ + x² + x + 1: Jede Hochzahl 0 bis 7 entsteht genau einmal (wie im Zweiersystem). 8 Glieder.',
+                                   'Aus jeder Klammer nimmt man entweder die 1 oder x, x² bzw. x⁴. Die Hochzahl ist dann eine Summe aus 1, 2 und 4 (jede höchstens einmal): 0, 1, 2, 3 (= 1 + 2), 4, 5, 6, 7 – jede genau einmal. '
+                                   'Ergebnis x⁷ + x⁶ + x⁵ + x⁴ + x³ + x² + x + 1: 8 Glieder.',
                                    'Welche Hochzahlen können entstehen, und wie oft?'))
     S.bonus('ausmultiplizieren', Z('Welchen Koeffizienten hat x in (x + 1)(x + 2)(x + 3)(x + 4)?', 50, '2*3*4 + 1*3*4 + 1*2*4 + 1*2*3',
                                    'Ein x-Glied entsteht, wenn man aus genau einer Klammer x und aus den anderen die Zahl nimmt: 2·3·4 + 1·3·4 + 1·2·4 + 1·2·3 = 24 + 12 + 8 + 6 = 50.',
@@ -799,7 +802,7 @@ def stufen():
                                'f(x) = x⁴ · (x − 1 000). x⁴ ≥ 0, also f(x) > 0 genau für x > 1 000 (und x ≠ 0). Kleinste ganze Zahl: 1 001. Das Randverhalten setzt sich erst spät durch.',
                                'Klammere x⁴ aus.'))
     S.bonus('randverhalten', Z('f(x) = (x − 1)(x − 2)(x − 3) · … · (x − 10). Wie viele der neun Intervalle (1; 2), (2; 3), …, (9; 10) liegen unterhalb der x-Achse?', 5, '5',
-                               'Rechts von 10 ist f > 0 (Grad 10, Leitkoeffizient 1). An jeder einfachen Nullstelle wechselt das Vorzeichen: (9; 10) negativ, (8; 9) positiv, … Negativ sind (1; 2), (3; 4), (5; 6), (7; 8), (9; 10): fünf.',
+                               'Rechts von 10 ist f > 0 (Grad 10, Leitkoeffizient 1). An jeder einfachen Nullstelle wechselt das Vorzeichen: (9; 10) negativ, (8; 9) positiv, (7; 8) negativ, (6; 7) positiv, (5; 6) negativ, (4; 5) positiv, (3; 4) negativ, (2; 3) positiv, (1; 2) negativ. Negativ sind also fünf Intervalle.',
                                'Beginne rechts von 10 und gehe nach links.'))
 
     # --- symmetrie ---
@@ -851,7 +854,7 @@ def stufen():
                                          ['Nein, sie hat immer drei.', 'Nein, sie hat immer genau eine.', 'Ja, aber nur, wenn der Leitkoeffizient negativ ist.'],
                                          'x² · (x − 1) hat die Nullstellen 0 (doppelt) und 1 – zwei verschiedene.', 'Denke an mehrfache Nullstellen.'))
     S.bonus('nullstellen', Z('Wie viele Nullstellen hat f(x) = (x² − 1)(x² − 4)(x² − 9) · … · (x² − 100)?', 20, '2 * 10',
-                             'Die Faktoren sind x² − k² für k = 1, …, 10. Jeder liefert zwei Nullstellen ±k, alle verschieden: 20 Nullstellen.', 'Welche Nullstellen hat x² − k²?'))
+                             'Die Faktoren sind x² − k² für k = 1 bis 10. Jeder liefert zwei Nullstellen ±k, alle verschieden: 20 Nullstellen.', 'Welche Nullstellen hat x² − k²?'))
     S.bonus('nullstellen', Z('Wie viele verschiedene Nullstellen hat f(x) = x(x − 1)(x − 2)(x − 3) + 1?', 2, '2',
                              'Geschickt paaren: x(x − 3) = x² − 3x = u und (x − 1)(x − 2) = x² − 3x + 2 = u + 2. Dann f = u(u + 2) + 1 = (u + 1)². '
                              'Nullstellen: x² − 3x + 1 = 0 hat zwei Lösungen (Diskriminante 5 > 0) – beide doppelt. Also 2 verschiedene.',
@@ -877,7 +880,7 @@ def stufen():
                                     'Falsch: Berühren heißt doppelte Nullstelle: (x − 2)² · (x + 1).', ['Richtig.', 'Falsch: (x + 2)(x − 1).', 'Falsch: (x − 2)(x + 1)².'],
                                     'Bei einer einfachen Nullstelle würde der Graph bei 2 schneiden.', 'Welche Vielfachheit gehört zum Berühren?'))
     S.neu('graph_term', 'begruenden', A('Kann der Graph von f(x) = (x − 1)² · (x + 2)² irgendwo unterhalb der x-Achse verlaufen?', 'Nein: Beide Faktoren sind Quadrate, also ist f(x) ≥ 0.',
-                                        ['Ja, zwischen −2 und 1.', 'Ja, links von −2.', 'Nein, weil der Grad gerade ist.'],
+                                        ['Ja, zwischen −2 und 1.', 'Ja, links von −2.', 'Ja, für sehr große x.'],
                                         'Ein Produkt von Quadraten ist nie negativ. (Gerader Grad allein reicht als Grund nicht: x² − 1 ist bei 0 negativ.)', 'Kann ein Quadrat negativ sein?'))
     S.neu('graph_term', 'pruefung', Z('Eine ganzrationale Funktion 3. Grades hat die Nullstellen 0, 2 und 4 und den Leitkoeffizienten −1. Berechne f(1).', -3, '-1 * (1 - 0) * (1 - 2) * (1 - 4)',
                                       'f(x) = −x(x − 2)(x − 4); f(1) = −1 · (−1) · (−3) = −3.', 'Stelle zuerst den Term in Produktform auf.'))

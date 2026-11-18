@@ -966,8 +966,8 @@ def stufen():
                         'Faktoren: 1,25³ · 0,8³ = (1,25 · 0,8)³. Und 1,25 · 0,8 = 5/4 · 4/5 = 1. Also ist der Bestand am Ende genau so groß wie am Anfang: 100 %.',
                         'Ordne die sechs Faktoren geschickt zu Paaren.', einheit='%'))
     S.bonus('faktor', Z('Ein Kapital wird jedes Jahr mit 8 % verzinst (Zinseszins). Nach wie vielen ganzen Jahren hat es sich zum ersten Mal mehr als verdoppelt?', 10, '10',
-                        '1,08² = 1,1664; 1,08⁴ ≈ 1,3605; 1,08⁸ ≈ 1,8509; 1,08⁹ ≈ 1,9990 – knapp unter 2! 1,08¹⁰ ≈ 2,1589. Also erst nach 10 Jahren. '
-                        'Die Faustregel „72 : 8 = 9 Jahre“ trifft hier gerade nicht.', 'Quadriere geschickt: 1,08², dann (1,08²)², … und prüfe die Grenze genau.', einheit='Jahre'))
+                        '1,08² = 1,1664; 1,08⁴ = 1,1664² ≈ 1,3605; 1,08⁸ ≈ 1,3605² ≈ 1,8509; 1,08⁹ = 1,08⁸ · 1,08 ≈ 1,9990 – knapp unter 2! 1,08¹⁰ ≈ 1,9990 · 1,08 ≈ 2,1589. '
+                        'Also erst nach 10 Jahren. Weil 1,08⁹ so knapp unter 2 liegt, muss man hier genau rechnen.', 'Quadriere geschickt: erst 1,08², dann 1,08⁴ = (1,08²)², dann 1,08⁸. Prüfe die Grenze genau.', einheit='Jahre'))
 
     # --- linear_oder_exponentiell ---
     S.stufenleiter('linear_oder_exponentiell', 'Differenzen und Quotienten bilden, lineares und exponentielles Wachstum erkennen.',
@@ -991,7 +991,7 @@ def stufen():
     S.neu('linear_oder_exponentiell', 'parameter', Z('f(x) = 2 · b^x und g(x) = 2 + 6x haben an der Stelle x = 1 denselben Wert. Für welche Basis b gilt das?', 4, '(2 + 6) / 2',
                                                     'g(1) = 8. Also 2 · b = 8 und b = 4.', 'Setze x = 1 in beide Terme ein.'))
     S.bonus('linear_oder_exponentiell', Z('Auf das erste Feld eines Schachbretts legt man 1 Reiskorn, auf jedes weitere Feld doppelt so viele wie auf das vorige. Auf welchem Feld liegen zum ersten Mal mehr als eine Million Körner?',
-                                          21, '21', 'Auf Feld n liegen 2^(n − 1) Körner. Idee: 2¹⁰ = 1 024 ≈ 1 000, also 2²⁰ = 1 024² ≈ 1 048 576 > 1 000 000, aber 2¹⁹ = 524 288 zu wenig. '
+                                          21, '21', 'Auf Feld n liegen 2^(n − 1) Körner. Idee: 2¹⁰ = 1 024 ≈ 1 000, also 2²⁰ = 1 024² = 1 048 576 > 1 000 000, aber 2¹⁹ = 524 288 zu wenig. '
                                           'Feld n mit n − 1 = 20: Feld 21.', 'Merke dir 2¹⁰ ≈ 1 000. Achtung: Auf Feld 1 liegt 2⁰.'))
     S.bonus('linear_oder_exponentiell', Z('Größe A wächst linear: 1 000; 1 100; 1 200; … Größe B wächst exponentiell: 1; 2; 4; 8; … (beide je Schritt, Start bei Schritt 0). Nach wie vielen Schritten ist B zum ersten Mal größer als A?',
                                           12, '12', 'Nach n Schritten: A = 1 000 + 100n, B = 2ⁿ. n = 10: 1 024 < 2 000. n = 11: 2 048 < 2 100 (knapp!). n = 12: 4 096 > 2 200. Also nach 12 Schritten.',

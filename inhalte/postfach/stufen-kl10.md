@@ -3,6 +3,69 @@
 Arbeitsweise (gilt für alle Themen): Hilfsdatei `inhalte/generatoren/_stufen_kl10.py`, je Generator ein Abschnitt „STUFEN“ ganz am Ende.
 **Annahme zu „überzählig“:** Überzählige Übungen (gleicher Typ und gleicher Satzbau ab der dritten, sowie dieselbe Vorlage zum vierten Mal) bekommen **kein** `g` und behalten ihre Stufe. Gäbe man ihnen ein `g`, meldete das Prüfskript für die ganze Lernkarte „mehr als 2 Aufgaben mit gleichem Satzbau“. So bleibt jede Datei OK. Zusätzlich prüft das Skript jede Datei **ohne** die überzähligen mit allen strengen Regeln (wie nach dem Sperren). Die überzähligen sind so eingestreut, dass es keine Gruppe „gleich gebaut hintereinander“ gibt. Bitte sperren; Liste im Abschlussbericht.
 
+## 2026-11-18 – STATUS: Inhaltliche Prüfung der neuen Aufgaben, Klasse 10
+
+Kurz: **436 neue Aufgaben geprüft, 31 geändert** (in 9 Themen, je Thema ein Commit auf `stufen-kl10`). Typ `g` und Stufe `s` sind bei allen gleich geblieben.
+Jedes Thema: Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“. Nachweis gegen `origin/lernen-app` OK mit `python3 inhalte/generatoren/_stufen_kl10.py <thema> korrektur`
+(neu in `_stufen_kl10.py`: Geändert sein dürfen nur Aufgaben aus `uebung`/`bonus`, deren Fragetext es in `4eda8cb` in keinem Thema gab; `l`, `t`, `p`, `g`, `s`, `y` und die Reihenfolge bleiben gleich).
+Alte Aufgaben: Zeichen für Zeichen unverändert.
+
+### Geprüft (neu = Fragetext nicht in 4eda8cb, Pool uebung oder bonus)
+| Thema | geprüft | geändert |
+|---|---|---|
+| funktionen.exponential_log | 49 | 2 |
+| gleichungen.exponential | 51 | 3 |
+| stochastik.mehrstufig | 64 | 5 |
+| stochastik.simulation | 49 | 3 |
+| funktionen.trig | 34 | 4 |
+| funktionen.ganzrational | 63 | 7 |
+| gleichungen.polynom | 36 | 2 |
+| raum.schraegbilder | 38 | 3 |
+| raum.pyramide_kegel_kugel | 52 | 2 |
+| **Summe** | **436** (316 Übungen, 120 Knobel) | **31** |
+
+Jede Lösung habe ich nachgerechnet. Knobel mit „höchstens/mindestens/wie viele/immer“ zusätzlich per Programm (u. a. Würfel- und Urnenzählungen, Parameter k bei Biquadrat, Perioden, Nullstellenzahlen, Gitterpunkte, π-Schätzung n = 200).
+
+### Nach Fehlerart (jede Aufgabe einmal gezählt, bei der wichtigsten Art)
+- **a) Lösung falsch oder nicht eindeutig: 2**
+  - trig/periode (Knobel): „Periode 6 und 10. Welche **kleinere** positive Zahl ist dann sicher ebenfalls eine Periode?“ – 4 = 10 − 6 ist auch richtig. → „Welche **kleinste** positive Zahl …?“ (Lösung 2), Lösungsweg nennt 4 und 2 und das Beispiel sin(π · x).
+  - mehrstufig/pi_schaetzen: Option (0,6 | 0,8) liegt genau auf dem Viertelkreisbogen – ob „im Viertelkreis“ den Rand einschließt, ist nicht klar. → (0,6 | 0,7).
+- **b) Mehrdeutige Zählweise („k. Strich“): 0** – kam in Kl. 10 nicht vor.
+- **c) Späterer Stoff: 3**
+  - schraegbilder/rotation (Stufe 3): „… Berechne das Volumen des entstehenden Kegels.“ (Kegelvolumen kommt erst in raum.pyramide_kegel_kugel) → „Wie weit ist die Spitze des entstehenden Kegels vom Rand seiner Grundfläche entfernt?“ (10 cm, Pythagoras).
+  - schraegbilder/rotation (Knobel): Volumenverhältnis zweier Kegel → Volumenverhältnis zweier Zylinder aus einem 3 × 4-Rechteck (weiter 4 : 3).
+  - polynom/substitution (Knobel): Lösungsweg mit Produkt und Summe der Lösungen (Vieta, steht in keinem Thema) → mit der Lösungsformel z = (k ± √(k² − 36)) : 2.
+- **d) Unklare Fragen: 3**
+  - mehrstufig/ohne_zuruecklegen: „Wie viele Früchte muss man **höchstens** herausnehmen, um sicher zwei Birnen zu haben?“ → „Wie viele Früchte muss man herausnehmen, damit auf jeden Fall zwei Birnen dabei sind?“
+  - mehrstufig/pi_schaetzen (Knobel): „Mit wie vielen Zufallspunkten kann der Schätzwert … **frühestens** genau 3,14 ergeben?“ → „Wie viele Zufallspunkte braucht man mindestens, damit …?“
+  - trig/bogenmass: „Ungefähr wie viel Grad sind 1 im Bogenmaß?“ → „Ungefähr wie viel Grad hat ein Winkel, der im Bogenmaß 1 beträgt?“
+- **e) Unpassende Antwortoptionen: 3**
+  - ganzrational/graph_term: Option „Nein, weil der Grad gerade ist.“ – Ergebnis richtig, Begründung falsch (neben der richtigen Option). → „Ja, für sehr große x.“
+  - simulation/beurteilen (Knobel): „Ja, weil 1/3 + 1/4 ungefähr 1/2 ist.“ → „Nein: 1/3 + 1/4 = 7/12 ist mehr als 1/2.“ (Rechnung jetzt richtig, Option bleibt falsch)
+  - simulation/zufallsgeraet (Knobel): Option „Fünfmal würfeln, eine Sechs = Treffer“ (unklar, was genau zählt; Lösungsweg sagte nur „etwas anderes“) → „Zweimal würfeln, Augensumme 5 = Treffer“ (1/9).
+- **f) Lösungswege mit „…“, Sprüngen oder nicht erklärten Tricks: 20**
+  - Beispiel ganzrational/ausmultiplizieren (Knobel): „Jede Hochzahl 0 bis 7 entsteht genau einmal (wie im Zweiersystem).“ → „Aus jeder Klammer nimmt man entweder die 1 oder x, x² bzw. x⁴. Die Hochzahl ist dann eine Summe aus 1, 2 und 4 …: 0, 1, 2, 3 (= 1 + 2), 4, 5, 6, 7 – jede genau einmal.“
+  - Weitere: exponential_log (Faustregel 72 : 8; „1 024² ≈ 1 048 576“), gleichungen.exponential (2 × „…“, Eindeutigkeit bei c = 2 begründet), mehrstufig (unendliche Reihe beim Münzspiel, „1 + 2 + … + 6“), simulation (Werte der falschen Regeln genannt), trig (2 × „…“), ganzrational (x⁹-Koeffizient, (f(1) + f(−1)) : 2, Vorzeichenwechsel, 3 × „…“), polynom (Gauß-Summe), schraegbilder (Maximum der Fläche über 100 − d²), pyramide_kegel_kugel (k³ beim Kegel hergeleitet, Sehne über rechtwinklige Dreiecke).
+
+### Annahmen
+- „Neu“ = Fragetext kommt in **keiner** Themendatei von `4eda8cb` vor (Aufgaben, die die Runde „Bereinigen“ nur zwischen Themen verschoben hat, zählen damit als alt und blieben unverändert).
+- Maßstab für c): `themenliste.json` (Klasse, dann `reihenfolge.gym_by`). Pythagoras, Trigonometrie im Dreieck, Kreis, Prisma/Zylinder und Wurzeln/∛ gelten als bekannt (Kl. 8/9). Kegel- und Pyramidenvolumen erst ab raum.pyramide_kegel_kugel. Vieta habe ich als nicht eingeführt gewertet.
+- Kopf der Themendateien: Bei 6 Themen schreibt der Generator `klasse` neu aus `themenliste.json` (z. B. `ib_myp` 4 → 5). Das kam nicht von mir von Hand; der Nachweis lässt nur diesen Wert zu.
+
+### Nicht geprüft
+- Darstellung in der App (Grafiken, Tabellen, Lückenschablonen) – nur die Daten.
+- Ob die Reihenfolge innerhalb einer Klasse zum tatsächlichen Unterricht der Kinder passt.
+- Alte Aufgaben (nicht Auftrag).
+
+### Für die Datenbank: geänderte Fragetexte (alt → neu)
+- stochastik.mehrstufig: „… Wie viele Früchte muss man höchstens herausnehmen, um sicher zwei Birnen zu haben?“ → „… Wie viele Früchte muss man herausnehmen, damit auf jeden Fall zwei Birnen dabei sind?“
+- stochastik.mehrstufig: „Mit wie vielen Zufallspunkten kann der Schätzwert 4 · Treffer : Anzahl frühestens genau 3,14 ergeben?“ → „Wie viele Zufallspunkte braucht man mindestens, damit der Schätzwert 4 · Treffer : Anzahl genau 3,14 sein kann?“
+- funktionen.trig: „Ungefähr wie viel Grad sind 1 im Bogenmaß?“ → „Ungefähr wie viel Grad hat ein Winkel, der im Bogenmaß 1 beträgt?“
+- funktionen.trig: „… Welche kleinere positive Zahl ist dann sicher ebenfalls eine Periode?“ → „… Welche kleinste positive Zahl ist dann sicher ebenfalls eine Periode?“
+- raum.schraegbilder: „… Berechne das Volumen des entstehenden Kegels. Runde auf ganze cm³.“ → „… Wie weit ist die Spitze des entstehenden Kegels vom Rand seiner Grundfläche entfernt?“ (Antwort jetzt 10 cm)
+- raum.schraegbilder: „Ein rechtwinkliges Dreieck (Katheten 3 cm und 4 cm) dreht sich …“ → „Ein Rechteck (3 cm × 4 cm) dreht sich einmal um die 3-cm-Seite und einmal um die 4-cm-Seite. In welchem Verhältnis stehen die Volumina der beiden Zylinder (erster : zweiter)?“
+- Bei den übrigen 25 Aufgaben blieb der Fragetext gleich (geändert: Optionen, Lösungsweg oder Hinweis).
+
 ## 2026-11-17 – FERTIG: Abschlussbericht Zwanzigste Runde, Klasse 10
 
 Kurz: Alle 9 Themen (60 Lernkarten) sind fertig. Jede Übung hat jetzt einen Aufgabentyp `g`, außer den überzähligen.

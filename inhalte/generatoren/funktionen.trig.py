@@ -1461,7 +1461,7 @@ def stufen():
         verknuepfen=[13, 16, 243], rueckwaerts=[14, 244], parameter=[198], transfer=[199, 200, 245], fehler=[201])
     S.ueberzaehlig(10, 11, 7, 9, 8)
     S.neu('bogenmass', 'erkennen', A('Wie groß ist ein voller Kreis im Bogenmaß?', '2π', ['π', '360', 'π/2'], 'Der Einheitskreis hat den Umfang 2π; das gehört zu 360°.', 'Denke an den Umfang des Einheitskreises.'))
-    S.neu('bogenmass', 'erkennen', A('Ungefähr wie viel Grad sind 1 im Bogenmaß?', 'etwa 57°', ['1°', '180°', '90°'],
+    S.neu('bogenmass', 'erkennen', A('Ungefähr wie viel Grad hat ein Winkel, der im Bogenmaß 1 beträgt?', 'etwa 57°', ['1°', '180°', '90°'],
                                      '1 · 180° : π ≈ 57,3°. Ein Bogen so lang wie der Radius gehört zu etwa 57°.', 'π ist etwa 3,14 und gehört zu 180°.'))
     S.bonus('bogenmass', Z('Ein Zeiger dreht sich um den Winkel 1 000 (im Bogenmaß). Wie viele volle Umdrehungen hat er dabei gemacht?', 159, '159',
                            'Eine Umdrehung ist 2π ≈ 6,283. 1 000 : 6,283 ≈ 159,15, also 159 volle Umdrehungen.', 'Wie groß ist eine Umdrehung im Bogenmaß?'))
@@ -1484,10 +1484,11 @@ def stufen():
     S.neu('werte', 'einkleidung', Z('Die Mitte eines Riesenrads liegt 12 m über dem Boden, der Radius ist 10 m. Eine Gondel startet rechts auf Höhe der Mitte und dreht sich um π/6 nach oben. Wie hoch ist sie dann über dem Boden?',
                                     17, '12 + 10 * 0.5', 'Höhe über der Mitte: 10 · sin(π/6) = 10 · 0,5 = 5 m. Über dem Boden: 12 + 5 = 17 m.', 'Die Höhe über der Mitte ist r · sin x.', einheit='m'))
     S.bonus('werte', Z('Berechne ohne Taschenrechner: sin(π/6) + sin(2π/6) + sin(3π/6) + … + sin(12π/6) (zwölf Summanden).', 0, '0',
-                       'Die Winkel π/6, 2π/6, …, 12π/6 = 2π verteilen sich gleichmäßig über eine volle Runde. Zu jedem Winkel x gehört x + π mit sin(x + π) = −sin x: '
-                       'π/6 mit 7π/6, 2π/6 mit 8π/6 usw. Die Paare heben sich auf, die Summe ist 0.', 'Suche Paare, deren Sinuswerte sich aufheben.'))
+                       'Die zwölf Winkel verteilen sich gleichmäßig über eine volle Runde. Zu jedem Winkel x gehört x + π mit sin(x + π) = −sin x. Die Paare sind '
+                       'π/6 und 7π/6, 2π/6 und 8π/6, 3π/6 und 9π/6, 4π/6 und 10π/6, 5π/6 und 11π/6, 6π/6 und 12π/6 (beide 0). In jedem Paar heben sich die Werte auf, die Summe ist 0.', 'Suche Paare, deren Sinuswerte sich aufheben.'))
     S.bonus('werte', Z('Für wie viele ganze Zahlen n mit 1 ≤ n ≤ 100 gilt sin(n · π/2) = 1?', 25, '(97 - 1) // 4 + 1',
-                       'sin(n · π/2) = 1 bei π/2, 5π/2, 9π/2, … also für n = 1, 5, 9, …, 97 (Rest 1 beim Teilen durch 4): 25 Zahlen.', 'Schreibe die ersten Werte für n = 1, 2, 3, 4, 5 auf.'))
+                       'sin(n · π/2) = 1 gilt bei π/2, dann wieder eine volle Runde (2π = 4 · π/2) später: n = 1, 5, 9 und so weiter, also für alle n mit Rest 1 beim Teilen durch 4. '
+                       'Das sind n = 4k + 1 für k = 0 bis 24 (größtes n = 97): 25 Zahlen.', 'Schreibe die ersten Werte für n = 1, 2, 3, 4, 5 auf.'))
 
     # --- periode ---
     S.stufenleiter('periode', 'Die Periode von sin(bx) und cos(bx) mit 360° : b bzw. 2π : b angeben; Periodizität erkennen.',
@@ -1502,8 +1503,9 @@ def stufen():
                                    'Periode p heißt: f(x + p) = f(x) für alle x.', 'Was passiert mit dem Graphen nach einer Periode?'))
     S.neu('periode', 'erkennen', A('Welche Funktion hat die kleinste Periode?', 'sin(4x)', ['sin(x)', 'sin(0,5x)', 'sin(2x)'],
                                    'p = 2π : b – je größer b, desto kleiner die Periode: sin(4x) hat π/2.', 'Wie hängt die Periode von b ab?'))
-    S.bonus('periode', Z('Eine Funktion f hat die Periode 6 und auch die Periode 10. Welche kleinere positive Zahl ist dann sicher ebenfalls eine Periode?', 2, '2 * 6 - 10',
-                         'f(x + 2) = f(x + 12 − 10) = f(x + 12) = f(x) (zweimal +6, einmal −10). Allgemein ist der ggT von 6 und 10 eine Periode.',
+    S.bonus('periode', Z('Eine Funktion f hat die Periode 6 und auch die Periode 10. Welche kleinste positive Zahl ist dann sicher ebenfalls eine Periode?', 2, '2 * 6 - 10',
+                         'Auch 4 = 10 − 6 ist eine Periode, und 2 = 6 − 4: f(x + 2) = f(x + 12 − 10) = f(x) (zweimal +6, einmal −10). Eine kleinere Zahl ist nicht sicher: '
+                         'sin(π · x) hat die Perioden 6 und 10, aber keine Periode kleiner als 2.',
                          'Kombiniere Schritte von +6 und −10.'))
     S.bonus('periode', L('Welche kleinste Periode hat f(x) = sin(x/2) + cos(x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.', '□ · π', [12], ['12'],
                          'sin(x/2) hat die Periode 4π, cos(x/3) die Periode 6π. Beide wiederholen sich erst gemeinsam beim kleinsten gemeinsamen Vielfachen: 12π.',

@@ -1024,7 +1024,8 @@ def stufen():
     S.neu('kegel_volumen', 'rueckwaerts', Z('Ein kegelförmiger Sandhaufen enthält 100π m³ Sand und ist 12 m hoch. Wie groß ist sein Radius?', 5, '5',
                                             '1/3 · π · r² · 12 = 100π ⇒ 4r² = 100 ⇒ r² = 25 ⇒ r = 5 m.', 'Setze ein und teile durch π.', einheit='m'))
     S.bonus('kegel_volumen', ZR('Ein kegelförmiges Glas (Spitze unten) ist genau halb voll. Welcher Anteil der Glashöhe ist mit Saft gefüllt? Runde auf zwei Nachkommastellen.', 0.5 ** (1 / 3), 2,
-                                'Der Saft bildet einen kleineren, ähnlichen Kegel. Volumen ∼ k³: k³ = 1/2 ⇒ k = ∛0,5 ≈ 0,79. Bei 79 % der Höhe ist das Glas schon halb voll.',
+                                'Der Saft bildet einen kleineren, ähnlichen Kegel mit Radius k · r und Höhe k · h. Sein Volumen ist 1/3 · π · (k · r)² · (k · h) = k³ · (1/3 · π · r² · h), '
+                                'also k³-mal das Glasvolumen. k³ = 1/2 ⇒ k = ∛0,5 ≈ 0,79. Bei 79 % der Höhe ist das Glas schon halb voll.',
                                 'Wie hängt das Volumen ähnlicher Kegel vom Streckfaktor ab?'))
     S.bonus('kegel_volumen', Z('Ein Kegel wird auf halber Höhe parallel zur Grundfläche zerschnitten. Wievielmal so groß ist das Volumen des unteren Stücks wie das der oberen Spitze?', 7, '8 - 1',
                                'Die Spitze ist ein Kegel mit halbem Radius und halber Höhe: 1/8 des Volumens. Unten bleiben 7/8. Verhältnis 7.', 'Welchen Anteil hat die kleine Spitze?'))
@@ -1051,7 +1052,8 @@ def stufen():
     S.bonus('kegel_mantel', Z('Ein Kegel hat den Öffnungswinkel 60° (Winkel an der Spitze im Axialschnitt). Welchen Mittelpunktswinkel hat sein abgewickelter Mantel?', 180, '360 // 2',
                               'Halber Öffnungswinkel 30°: r : s = sin 30° = 1/2. φ = 360° · r : s = 180° – ein Halbkreis.', 'Betrachte das rechtwinklige Dreieck aus h, r und s.', einheit='°'))
     S.bonus('kegel_mantel', ZR('Eine Ameise läuft auf dem Mantel eines Kegels (s = 6 cm, r = 2 cm) von einem Punkt des Randes einmal um den Kegel herum zurück zum selben Punkt. Wie lang ist der kürzeste Weg? Runde auf eine Nachkommastelle.',
-                               2 * 6 * _m.sin(_m.radians(60)), 1, 'Abwickeln: Sektor mit s = 6 cm und φ = 360° · 2 : 6 = 120°. Der kürzeste Weg ist die gerade Strecke zwischen den beiden Randpunkten: 2 · 6 · sin 60° ≈ 10,4 cm.',
+                               2 * 6 * _m.sin(_m.radians(60)), 1, 'Abwickeln: Sektor mit s = 6 cm und φ = 360° · 2 : 6 = 120°. Der kürzeste Weg ist die gerade Strecke zwischen den beiden Randpunkten. Sie ist die Grundseite eines gleichschenkligen Dreiecks mit Schenkeln 6 cm und 120° an der Spitze. '
+                               'Die Höhe teilt es in zwei rechtwinklige Dreiecke mit 60° an der Spitze: halbe Strecke = 6 · sin 60° ≈ 5,20 cm, ganze Strecke = 2 · 6 · sin 60° ≈ 10,4 cm.',
                                'Wickle den Mantel ab – auf dem flachen Papier ist der kürzeste Weg gerade.', einheit='cm'))
 
     # --- kugel ---

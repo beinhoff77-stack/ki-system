@@ -4,7 +4,7 @@
  "block_id": 66,
  "klasse": {
   "gym_by": 10,
-  "ib_myp": 4
+  "ib_myp": 5
  },
  "autor": "Claude (Paket Klasse 10)",
  "inhalt": {
@@ -1095,7 +1095,7 @@
     "wert": 3
    },
    "c": "1 + 2",
-   "w": "x · (…)² enthält als höchste Potenz x · (−2x)² = 4x³: Grad 3.",
+   "w": "x · (20 − 2x)² enthält als höchste Potenz x · (−2x)² = 4x³: Grad 3.",
    "h": "Welche höchste Potenz entsteht beim Ausmultiplizieren?"
   },
   {
@@ -1447,7 +1447,7 @@
     "wert": 9
    },
    "c": "9",
-   "w": "Beide haben x¹⁰ mit Faktor 1, das hebt sich weg. Bei x⁹: (x + 1)¹⁰ liefert 10x⁹, (x − 1)¹⁰ liefert −10x⁹. Differenz 20x⁹ ≠ 0. Also Grad 9.",
+   "w": "Beide haben x¹⁰ mit Faktor 1, das hebt sich weg. Ein x⁹-Glied entsteht, wenn man aus 9 der 10 Klammern x und aus einer die Zahl nimmt – dafür gibt es 10 Möglichkeiten. Also liefert (x + 1)¹⁰ das Glied 10x⁹ und (x − 1)¹⁰ das Glied −10x⁹. Differenz 20x⁹ ≠ 0. Also Grad 9.",
    "h": "Was passiert mit den höchsten Gliedern?"
   },
   {
@@ -1464,7 +1464,7 @@
     "wert": 32
    },
    "c": "(2 ** 6 + 0 ** 6) // 2",
-   "w": "f(1) ist die Summe aller Koeffizienten (64), f(−1) die Summe mit wechselnden Vorzeichen (0). Gerade Glieder: (f(1) + f(−1)) : 2 = 32.",
+   "w": "f(1) = 2⁶ = 64 ist die Summe aller Koeffizienten. In f(−1) = 0⁶ = 0 haben die Glieder mit ungerader Hochzahl ein Minus, die mit gerader ein Plus. In f(1) + f(−1) heben sich die ungeraden Glieder weg, die geraden zählen doppelt: Gerade Glieder = (64 + 0) : 2 = 32.",
    "h": "Vergleiche f(1) und f(−1)."
   },
   {
@@ -2489,7 +2489,7 @@
     "wert": 8
    },
    "c": "8",
-   "w": "Ergebnis x⁷ + x⁶ + x⁵ + x⁴ + x³ + x² + x + 1: Jede Hochzahl 0 bis 7 entsteht genau einmal (wie im Zweiersystem). 8 Glieder.",
+   "w": "Aus jeder Klammer nimmt man entweder die 1 oder x, x² bzw. x⁴. Die Hochzahl ist dann eine Summe aus 1, 2 und 4 (jede höchstens einmal): 0, 1, 2, 3 (= 1 + 2), 4, 5, 6, 7 – jede genau einmal. Ergebnis x⁷ + x⁶ + x⁵ + x⁴ + x³ + x² + x + 1: 8 Glieder.",
    "h": "Welche Hochzahlen können entstehen, und wie oft?"
   },
   {
@@ -3746,7 +3746,7 @@
     "wert": 5
    },
    "c": "5",
-   "w": "Rechts von 10 ist f > 0 (Grad 10, Leitkoeffizient 1). An jeder einfachen Nullstelle wechselt das Vorzeichen: (9; 10) negativ, (8; 9) positiv, … Negativ sind (1; 2), (3; 4), (5; 6), (7; 8), (9; 10): fünf.",
+   "w": "Rechts von 10 ist f > 0 (Grad 10, Leitkoeffizient 1). An jeder einfachen Nullstelle wechselt das Vorzeichen: (9; 10) negativ, (8; 9) positiv, (7; 8) negativ, (6; 7) positiv, (5; 6) negativ, (4; 5) positiv, (3; 4) negativ, (2; 3) positiv, (1; 2) negativ. Negativ sind also fünf Intervalle.",
    "h": "Beginne rechts von 10 und gehe nach links."
   },
   {
@@ -5539,7 +5539,7 @@
     "wert": 20
    },
    "c": "2 * 10",
-   "w": "Die Faktoren sind x² − k² für k = 1, …, 10. Jeder liefert zwei Nullstellen ±k, alle verschieden: 20 Nullstellen.",
+   "w": "Die Faktoren sind x² − k² für k = 1 bis 10. Jeder liefert zwei Nullstellen ±k, alle verschieden: 20 Nullstellen.",
    "h": "Welche Nullstellen hat x² − k²?"
   },
   {
@@ -7319,7 +7319,7 @@
    "a": [
     "Ja, zwischen −2 und 1.",
     "Nein: Beide Faktoren sind Quadrate, also ist f(x) ≥ 0.",
-    "Nein, weil der Grad gerade ist.",
+    "Ja, für sehr große x.",
     "Ja, links von −2."
    ],
    "o": {

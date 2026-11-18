@@ -982,3 +982,10 @@ ST.knobel('anwendung', Z('Ein 1,6 m großes Kind steht 3 m von einem 4 m hohen B
 
 if __name__ == '__main__':
     stufen('abbildungen.aehnlichkeit', ST)
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('abbildungen.aehnlichkeit')
+# ---- AUFLOESEN ENDE ----

@@ -32,6 +32,11 @@ def zt(x):
     return ('−' if x < 0 else '') + s
 
 
+def zk(x):
+    """Zahl für Rechnungen: negative Zahlen geklammert."""
+    return f'({zt(x)})' if x < 0 else zt(x)
+
+
 def karte_ops(thema_lz, abschnitt, etappe, tf, nach, vertiefung, uebungen, knobels, test, korrektur, sicherung):
     lz = thema_lz
     ops = [karte_neu(lz, abschnitt, etappe, tf, nach=nach, vertiefung=vertiefung)]
@@ -174,7 +179,7 @@ def bg(m, t, k, text=None):
     assert float(tk).is_integer() and float(m).is_integer()
     text = text or f'Die Gerade g: y = {gt(m, t)} wird mit dem Zentrum O(0 | 0) und k = {zt(k)} gestreckt. Gib die Bildgerade an.'
     return L(text, 'y = □x + □', [int(m), int(tk)], [f'{m}', f'{t} * {k}'],
-             f'Die Bildgerade ist parallel, die Steigung bleibt {zt(m)}. Der y-Achsenabschnitt wird mal {zt(k)} genommen: {zt(t)} · {zt(k)} = {zt(tk)}. '
+             f'Die Bildgerade ist parallel, die Steigung bleibt {zt(m)}. Der y-Achsenabschnitt wird mal {zt(k)} genommen: {zk(t)} · {zk(k)} = {zt(tk)}. '
              f'Also y = {gt(m, tk)}.', 'Was passiert mit der Steigung, was mit dem y-Achsenabschnitt?', hinweis='Zwei ganze Zahlen, auch negative.')
 
 
@@ -187,7 +192,7 @@ def gt(m, t):
 
 BILDGERADE_KARTE = {
     'titel': 'Bildgerade und Bildparabel',
-    'einstieg': 'Ein Beamer vergrößert eine Folie mit einer Geraden. Der Beamer steht im Ursprung O. '
+    'einstieg': 'Ein Beamer vergrößert eine Folie mit einer Geraden. Der Beamer steht im Ursprung, dem Zentrum O. '
                 'Die vergrößerte Gerade heißt ⟦Bildgerade⟧. Sie läuft parallel zur alten.',
     'woerter': [['Bildgerade', 'die Gerade, auf der alle gestreckten Punkte einer Geraden liegen'],
                 ['Zentrum O', 'der Ursprung (0 | 0) als Zentrum der Streckung'],
@@ -196,7 +201,8 @@ BILDGERADE_KARTE = {
     'schritte': [{'text': 'g: y = x + 1 wird von O aus mit k = 3 gestreckt.'},
                  {'text': 'Der Punkt (0 | 1) auf g wird zu (0 | 3).', 'bild': {'punkte': [{'x': 0, 'y': 1, 'name': 'P'}, {'x': 0, 'y': 3, 'name': "P'"}]}},
                  {'text': 'Die Bildgerade ist parallel zu g. Die Steigung bleibt also 1.'},
-                 {'text': "Also ⟦g': y = x + 3⟧.", 'bild': {'graphen': [{'art': 'linear', 'm': 1, 't': 1, 'name': 'g'}, {'art': 'linear', 'm': 1, 't': 3, 'name': "g'"}]}}],
+                 {'text': "Also ⟦g': y = x + 3⟧.", 'bild': {'graphen': [{'art': 'linear', 'm': 1, 't': 1, 'name': 'g'}, {'art': 'linear', 'm': 1, 't': 3, 'name': "g'"}]}},
+                 {'text': 'Die Parabel y = x² wird zur Bildparabel y = x² : 3.'}],
     'fehler': 'y = 3x + 3 ist falsch. Die Steigung bleibt gleich, weil Bild und Gerade ⟦parallel⟧ sind. Nur t wird mal 3 genommen.',
     'fehler_bild': {'graphen': [{'art': 'linear', 'm': 1, 't': 1, 'name': 'g'}, {'art': 'linear', 'm': 3, 't': 3, 'name': 'falsch'}]},
     'regel': 'Die Bildgerade ist ⟦parallel⟧, ihr y-Achsenabschnitt ist k-mal so groß. Aus y = a · x² wird y = (a : k) · x².',
@@ -231,7 +237,7 @@ BILDGERADE = karte_ops(
                        'Der y-Achsenabschnitt 2 cm wird mal 4 genommen: 8 cm.', 'Was passiert mit dem y-Achsenabschnitt?', einheit='cm')),
      ('darstellung', A('Im Bild siehst du g: y = x − 1 und drei weitere Geraden. Welche ist das Bild von g bei einer Streckung mit dem Zentrum O und k = 2?',
                        'Gerade 1', ['Gerade 2', 'Gerade 3'],
-                       'Das Bild ist parallel zu g (Steigung 1) und schneidet die y-Achse bei −1 · 2 = −2: y = x − 2. Das ist Gerade 1.',
+                       'Das Bild ist parallel zu g (Steigung 1) und schneidet die y-Achse bei (−1) · 2 = −2: y = x − 2. Das ist Gerade 1.',
                        'Welche Gerade ist parallel zu g?',
                        grafik={'typ': 'koordinaten', 'x': [-3, 5], 'y': [-4, 5],
                                'graphen': [{'art': 'linear', 'm': 1, 't': -1, 'name': 'g'}, {'art': 'linear', 'm': 1, 't': -2, 'name': '1'},
@@ -290,7 +296,7 @@ def sp_aufg(A_, B_, C_, text=None, h='Addiere die drei x-Werte und teile durch 3
     S = sp(A_, B_, C_)
     text = text or f'Berechne den Schwerpunkt des Dreiecks mit A{pt(A_)}, B{pt(B_)} und C{pt(C_)}.'
     return L(text, 'S(□ | □)', list(S), [f'({A_[0]} + {B_[0]} + {C_[0]}) // 3', f'({A_[1]} + {B_[1]} + {C_[1]}) // 3'],
-             f'x: ({zt(A_[0])} + {zt(B_[0])} + {zt(C_[0])}) : 3 = {zt(S[0])}. y: ({zt(A_[1])} + {zt(B_[1])} + {zt(C_[1])}) : 3 = {zt(S[1])}. Also S{pt(S)}.',
+             f'x: ({zt(A_[0])} + {zk(B_[0])} + {zk(C_[0])}) : 3 = {zt(S[0])}. y: ({zt(A_[1])} + {zk(B_[1])} + {zk(C_[1])}) : 3 = {zt(S[1])}. Also S{pt(S)}.',
              h, hinweis='Zwei ganze Zahlen, auch negative.', grafik=grafik)
 
 
@@ -305,8 +311,8 @@ SCHWERPUNKT_KARTE = {
              'punkte': [{'x': 0, 'y': 0, 'name': 'A'}, {'x': 6, 'y': 0, 'name': 'B'}, {'x': 3, 'y': 6, 'name': 'C'}]},
     'schritte': [{'text': 'Das Dreieck hat die Ecken A(0 | 0), B(6 | 0) und C(3 | 6).'},
                  {'text': 'x-Werte addieren und durch 3 teilen: (0 + 6 + 3) : 3 = 3.'},
-                 {'text': 'Ebenso die y-Werte: (0 + 0 + 6) : 3 = 2.'},
-                 {'text': 'Der Schwerpunkt ist ⟦S(3 | 2)⟧. Er liegt auf der Seitenhalbierenden von C zur Mitte (3 | 0).',
+                 {'text': 'y-Werte: (0 + 0 + 6) : 3 = 2, also ⟦S(3 | 2)⟧.'},
+                 {'text': 'Der Schwerpunkt S liegt auf der Seitenhalbierenden von C zum Mittelpunkt (3 | 0).',
                   'bild': {'strecken': [[0, 0, 6, 0], [6, 0, 3, 6], [3, 6, 0, 0], [3, 6, 3, 0, 'gestrichelt']],
                            'punkte': [{'x': 0, 'y': 0, 'name': 'A'}, {'x': 6, 'y': 0, 'name': 'B'}, {'x': 3, 'y': 6, 'name': 'C'}, {'x': 3, 'y': 2, 'name': 'S'}]}}],
     'fehler': 'Durch 2 teilen ist falsch: (0 + 6 + 3) : 2 = 4,5. Ein Dreieck hat ⟦drei⟧ Ecken, also teilst du durch 3.',

@@ -1895,3 +1895,25 @@ test('Gesperrt nach dem Laden: Knobel und Wiederholung – keine Fehlermeldung, 
   assert.ok(calls.filter((c) => c.aktion === 'schule_wiederholung').length > wdh0, 'Wiederholung neu geladen');
   assert.equal(await page.locator('.err-text').count(), 0);
 });
+
+// W177: Flugtest schon geschrieben, danach neue Pflicht-Etappen → Nachtragstest statt Sackgasse („Test bereit“, aber kein Test)
+test('W177: Nachtragstest für Etappen, die nach dem Flugtest dazukamen', async (t) => {
+  const mitStand = (offen) => (aktion, e) => aktion === 'schule_einheit_lesen'
+    ? { ...e, blocktest_fertig: true, nachtest: { grund: 'einheit_offen' }, etappen_stand: Object.fromEntries(ETAPPEN.map((x) => [x.lernziel, { fertig: true, sitzt: true, ziel: 2, serie: 2 }])), stand: ETAPPEN.map((x, i) => ({ lernziel: x.lernziel, pflicht: true, status: i < offen ? 'offen' : 'nachgewiesen' })) } : null;
+  const { page, calls } = await setup(t, { anpassen: mitStand(2) });
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByRole('heading', { name: 'Test zu den neuen Etappen' }).waitFor();
+  assert.match(await page.locator('.lern-test').innerText(), /Seit deinem Test sind 2 neue Etappen dazugekommen/);
+  assert.equal(await page.getByRole('button', { name: 'Test starten', exact: true }).count(), 0, 'kein zweiter voller Flugtest');
+  await page.getByRole('button', { name: 'Test zu den neuen Etappen starten' }).click();
+  await page.getByText('Wie liest man 11 490 051?').waitFor();
+  assert.equal(calls.find((c) => c.aktion === 'schule_test_starten')?.daten?.art, 'blocktest');
+  // Flug-Seite (Erklären): Knopf direkt zum Nachtragstest
+  await page.goto(origin + '/#/lerneinheit/1-1-erklaeren');
+  await page.getByRole('link', { name: 'Alle Etappen sitzen – Test zu den neuen Etappen' }).waitFor();
+  // ohne offene Pflicht-Etappe: kein Nachtragstest, alte Anzeige
+  const zwei = await setup(t, { anpassen: mitStand(0) });
+  await zwei.page.goto(origin + '/#/lerneinheit/1-1-test');
+  await zwei.page.getByText('Gerade gibt es keinen Test. Üb weiter!').waitFor();
+  assert.equal(await zwei.page.getByRole('heading', { name: 'Test zu den neuen Etappen' }).count(), 0);
+});

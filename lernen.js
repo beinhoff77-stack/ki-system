@@ -1676,6 +1676,7 @@ function lernTestTeil(ctx, etappen) {
   const offen = pflicht.filter((e) => !e.fertig).length;
   if (!pflicht.length) return el('p', { class: 'lr-gesperrt' }, 'Dieser Flug wird gerade vorbereitet. Schau bald wieder vorbei.');
   if (daten.laufender_test) return el('a', { class: 'lr-knopf', href: `${ctx.basis}-test` }, 'Angefangenen Test weitermachen');
+  if (daten.blocktest_fertig && !offen && lernNeueEtappen(daten.stand)) return el('a', { class: 'lr-knopf', href: `${ctx.basis}-test` }, 'Alle Etappen sitzen – Test zu den neuen Etappen');
   if (daten.blocktest_fertig) return el('a', { class: 'lr-zeile', href: `${ctx.basis}-test` }, el('span', { class: 'lr-zeile-icon' }, lernIcon(LI.stempel, 22)),
     el('span', { class: 'lr-zeile-text' }, el('b', {}, 'Test, Verbessern und Nachtests'), el('small', {}, daten.nachtest?.grund === 'faellig' ? 'Ein Nachtest ist jetzt dran.' : 'Hier siehst du, was als Nächstes kommt.')), lernIcon(LI.pfeil, 20));
   if (!offen) return el('a', { class: 'lr-knopf', href: `${ctx.basis}-test` }, 'Alle Etappen sitzen – Test starten');
@@ -2278,6 +2279,8 @@ async function viewMerkheft(arg) {
 // ---------- Test ----------
 const lernNtTitel = (nt) => nt.art === 'wiederholung' ? 'Nachtest wiederholen' : nt.folgerunde ? 'Weiterer Nachtest (bis alles sicher ist)' : `Nachtest ${nt.runde} von 3`;
 
+// W177: Pflicht-Etappen, die nach dem Flugtest dazukamen und noch durch keinen Test gegangen sind
+const lernNeueEtappen = (stand) => (stand || []).filter((s) => s.pflicht && s.status === 'offen').length;
 function lernTestStart(ctx, body) {
   const box = el('div', { class: 'lern-test' });
   const stand = ctx.daten.stand || [];
@@ -2307,6 +2310,8 @@ function lernTestStart(ctx, body) {
     el('button', { type: 'button', class: 'primary', onclick: () => start(offen.art) }, 'Weitermachen')));
   else {
     if (!blockFertig) lernAnhaengen(box, knopf('Test', 'blocktest', 'Eine Bordkarte je Etappe, ohne Tipps. Die Lösungen siehst du nach dem Abgeben.'));
+    // W177: Nach dem Flugtest neu hinzugekommene Pflicht-Etappen (Status „offen“) – Nachtragstest, sonst Sackgasse („Test bereit“, aber kein Test)
+    else if (lernNeueEtappen(stand)) lernAnhaengen(box, knopf('Test zu den neuen Etappen', 'blocktest', `Seit deinem Test sind ${lernNeueEtappen(stand)} neue Etappen dazugekommen. Eine Bordkarte je neuer Etappe, ohne Tipps.`));
     if (hatFehler) lernAnhaengen(box, knopf('Verbessern', 'korrektur', 'Nur die Etappen, die noch nicht geklappt haben – mit neuen Bordkarten. Übe sie vorher noch einmal.'));
     if (nt.grund === 'faellig') lernAnhaengen(box, knopf(lernNtTitel(nt), 'nachtest',
       'Alle Etappen des Flugs, ohne Tipps. Ab 80 % zählt die Runde. Unter 60 % geht es auf eine Rückreise zu diesem Ort.'));

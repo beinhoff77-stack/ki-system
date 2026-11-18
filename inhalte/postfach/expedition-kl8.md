@@ -1,0 +1,6 @@
+# Postfach expedition-kl8 (Expeditionen Klasse 8, Werkstatt-Wunsch 176)
+
+Neueste Meldung oben. Format: `inhalte/README.md`, Abschnitt „Expeditionen“. Je Expedition ein Generator `inhalte/generatoren/expedition_<name>.py`
+(gemeinsame Helfer in `_exp8.py`), Prüfung mit `python3 -I tools/inhalt_pruefen.py inhalte/expeditionen/<datei>.json`.
+
+## STATUS (je Expedition eine Zeile)

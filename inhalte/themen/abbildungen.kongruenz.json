@@ -2274,7 +2274,7 @@
     "4",
     "-5"
    ],
-   "w": "Abstand zur Achse: 2 − 3 = −1. Auf der anderen Seite: 3 − (−1) = 4. y bleibt −5.",
+   "w": "P liegt 1 links von der Achse (x-Wert 3). P' liegt 1 rechts davon: x-Wert 4. y bleibt −5.",
    "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite.",
    "g": "mehrschritt"
   },
@@ -2363,7 +2363,7 @@
     "-4",
     "9"
    ],
-   "w": "Abstand zur Achse: −5 − 2 = −7. Auf der anderen Seite: 2 − (−7) = 9. x bleibt −4.",
+   "w": "P liegt 7 unter der Achse (y-Wert 2). P' liegt 7 über ihr: y-Wert 9. x bleibt −4.",
    "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite.",
    "g": "mehrschritt"
   },
@@ -2452,7 +2452,7 @@
     "-1 - (3 - (-1))",
     "-2"
    ],
-   "w": "P ist 4 rechts von der Achse x-Wert −1. P' liegt 4 links davon: x-Wert −5. y bleibt −2.",
+   "w": "P liegt 4 rechts von der Achse (x-Wert −1). P' liegt 4 links davon: x-Wert −5. y bleibt −2.",
    "h": "Wie weit ist P von der Achse entfernt? Genauso weit auf die andere Seite.",
    "g": "mehrschritt"
   },
@@ -2498,7 +2498,7 @@
     "-1",
     "13"
    ],
-   "w": "Abstand zur Achse: −7 − 3 = −10. Auf der anderen Seite: 3 − (−10) = 13. x bleibt −1.",
+   "w": "P liegt 10 unter der Achse (y-Wert 3). P' liegt 10 über ihr: y-Wert 13. x bleibt −1.",
    "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite."
   },
   {
@@ -2559,7 +2559,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "P(−2 | 5) wird an einer Geraden parallel zur x-Achse auf P'(−2 | 11) gespiegelt. Gib den Punkt an, in dem die Achse die Koordinatenachse schneidet.",
+    "text": "P(−2 | 5) wird an einer Geraden parallel zur x-Achse auf P'(−2 | 11) gespiegelt. Gib den Punkt an, in dem die Achse die y-Achse schneidet.",
     "schablone": "(0 | □)",
     "hinweis": "Trage die Zahl ein.",
     "grafik": {
@@ -2594,7 +2594,7 @@
    "c": [
     "(5 + 11) // 2"
    ],
-   "w": "Die Achse geht durch die Mitte von P und P': y = (5 + 11) : 2 = 8.",
+   "w": "Die Achse geht durch die Mitte von P und P': y-Wert (5 + 11) : 2 = 8.",
    "h": "Die Achse liegt genau in der Mitte zwischen P und P'.",
    "g": "rueckwaerts"
   },
@@ -2994,7 +2994,7 @@
     "6",
     "12"
    ],
-   "w": "Abstand zur Achse: −4 − 4 = −8. Auf der anderen Seite: 4 − (−8) = 12. x bleibt 6.",
+   "w": "P liegt 8 unter der Achse (y-Wert 4). P' liegt 8 über ihr: y-Wert 12. x bleibt 6.",
    "h": "Wie weit ist P von der Achse entfernt? Gleich weit auf die andere Seite.",
    "g": "mehrschritt"
   },
@@ -3100,7 +3100,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "P(7 | 4) wird an einer Geraden senkrecht zur x-Achse auf P'(−3 | 4) gespiegelt. Gib den Punkt an, in dem die Achse die Koordinatenachse schneidet.",
+    "text": "P(7 | 4) wird an einer Geraden senkrecht zur x-Achse auf P'(−3 | 4) gespiegelt. Gib den Punkt an, in dem die Achse die x-Achse schneidet.",
     "schablone": "(□ | 0)",
     "hinweis": "Trage die Zahl ein.",
     "grafik": {
@@ -3135,7 +3135,7 @@
    "c": [
     "(7 + -3) // 2"
    ],
-   "w": "Die Achse geht durch die Mitte von P und P': x = (7 + (−3)) : 2 = 2.",
+   "w": "Die Achse geht durch die Mitte von P und P': x-Wert (7 + (−3)) : 2 = 2.",
    "h": "Die Achse liegt genau in der Mitte zwischen P und P'.",
    "g": "rueckwaerts"
   },
@@ -10611,8 +10611,8 @@
    "o": {
     "index": 1
    },
-   "w": "Probe mit (1 | 0): Er wandert auf die positive y-Achse nach (0 | 1). Das passt nur zu (−y | x).",
-   "h": "Teste die Regeln mit dem Punkt (1 | 0)."
+   "w": "Probe mit (1 | 0): Er wandert auf die positive y-Achse nach (0 | 1). Das passt zu (−y | x) und zu (y | x). Zweite Probe mit (0 | 1): Er wandert auf die negative x-Achse nach (−1 | 0). Das passt nur noch zu (−y | x).",
+   "h": "Teste die Regeln mit den Punkten (1 | 0) und (0 | 1)."
   },
   {
    "l": "drehung",
@@ -11961,7 +11961,7 @@
     "8 / 2",
     "6 / 2"
    ],
-   "w": "Die Mittelsenkrechte von [AB] ist senkrecht durch (4 | 0), die von [AC] waagrecht durch (0 | 3). Sie schneiden sich in M(4 | 3). M ist zugleich die Mitte von [BC] – beim rechtwinkligen Dreieck liegt der Punkt immer dort.",
+   "w": "Die Mittelsenkrechte von [AB] ist senkrecht durch (4 | 0), die von [AC] waagrecht durch (0 | 3). Sie schneiden sich in M(4 | 3). Probe: M(4 | 3) ist auch die Mitte von [BC], denn (8 + 0) : 2 = 4 und (0 + 6) : 2 = 3.",
    "h": "Schneide zwei Mittelsenkrechte."
   },
   {
@@ -12018,7 +12018,7 @@
    "o": {
     "index": 3
    },
-   "w": "Der Mittelpunkt (3 | 2) stimmt. Aber die Mittelsenkrechte steht senkrecht auf [AB]. Da [AB] waagrecht ist, ist sie senkrecht (alle Punkte mit x = 3).",
+   "w": "Der Mittelpunkt (3 | 2) stimmt. Aber die Mittelsenkrechte steht senkrecht auf [AB]. Da [AB] waagrecht ist, ist sie senkrecht (alle Punkte mit dem x-Wert 3).",
    "h": "Wie steht die Mittelsenkrechte zur Strecke?"
   },
   {
@@ -13225,7 +13225,7 @@
     "wert": 2
    },
    "c": "2",
-   "w": "Gleich weit von der y-Achse und der senkrechten Geraden durch (8 | 0): Der Punkt liegt genau in der Mitte, x = 4. Sein Abstand zu beiden ist 4. Auch zur x-Achse muss er 4 betragen: y = 4 oder y = −4. Also zwei Punkte: (4 | 4) und (4 | −4).",
+   "w": "Gleich weit von der y-Achse und der senkrechten Geraden durch (8 | 0): Der Punkt liegt genau in der Mitte, beim x-Wert 4. Sein Abstand zu beiden ist 4. Auch zur x-Achse muss er 4 betragen: y-Wert 4 oder −4. Also zwei Punkte: (4 | 4) und (4 | −4).",
    "h": "Beginne mit den beiden senkrechten Geraden."
   },
   {

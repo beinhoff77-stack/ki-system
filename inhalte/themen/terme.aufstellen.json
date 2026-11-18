@@ -3446,7 +3446,7 @@
     "2 * 15 + 2",
     "(40 - 2) / 2"
    ],
-   "w": "2 · 15 + 2 = 32 Stühle. Für 40 Stühle: 2n + 2 = 40 → 2n = 38 → n = 19 Tische.",
+   "w": "2 · 15 + 2 = 32 Stühle. Für 40 Stühle rückwärts: 40 − 2 = 38, 38 : 2 = 19 Tische. Probe: 2 · 19 + 2 = 40 ✓.",
    "h": "Einmal einsetzen, einmal rückwärts denken."
   },
   {
@@ -5566,7 +5566,7 @@
     "wert": 23
    },
    "c": "6 * ((9 - 1) / 2) - 1",
-   "w": "2x + 1 = 9 → 2x = 8 → x = 4. Dann 6 · 4 − 1 = 23.",
+   "w": "Rückwärts: 2x + 1 = 9, also 2x = 9 − 1 = 8 und x = 8 : 2 = 4. Dann 6 · 4 − 1 = 23.",
    "h": "Finde zuerst x, dann setze es in den zweiten Term ein."
   },
   {
@@ -5661,8 +5661,8 @@
     "wert": 10
    },
    "c": "20 / 2",
-   "w": "n² + n = n · (n + 1) ist das Produkt zweier Nachbarzahlen. Durch 4 teilbar ist es, wenn eine der beiden durch 4 teilbar ist (zwei Nachbarzahlen können nicht beide gerade sein). Das gilt für n = 3, 4, 7, 8, 11, 12, 15, 16, 19, 20 – also 10 Zahlen.",
-   "h": "Schreibe n² + n als Produkt. Was weißt du über zwei Nachbarzahlen?"
+   "w": "n² + n heißt n · n + n: n-mal n und noch einmal n, zusammen (n + 1)-mal n. Das ist das Produkt der Nachbarzahlen n und n + 1. Durch 4 teilbar ist es, wenn eine der beiden durch 4 teilbar ist (zwei Nachbarzahlen können nicht beide gerade sein). Das gilt für n = 3, 4, 7, 8, 11, 12, 15, 16, 19, 20 – also 10 Zahlen.",
+   "h": "Wie oft kommt n in n · n + n vor? Was weißt du über zwei Nachbarzahlen?"
   },
   {
    "l": "termwert",
@@ -5870,8 +5870,8 @@
     "wert": 3
    },
    "c": "6 / 2",
-   "w": "a · (x + 2) = ax + 2a. Das soll 3x + 6 sein: a = 3 (und 2 · 3 = 6 passt).",
-   "h": "Multipliziere a · (x + 2) aus und vergleiche."
+   "w": "Setze für x eine Zahl ein, z. B. x = 0: Das a-Fache von 0 + 2 ist 2a, und 3 · 0 + 6 = 6. Also 2a = 6 und a = 3. Probe mit x = 1: 3 · (1 + 2) = 9 und 3 · 1 + 6 = 9 ✓.",
+   "h": "Setze für x eine einfache Zahl ein und vergleiche beide Werte."
   },
   {
    "l": "uebersetzen",
@@ -5912,7 +5912,7 @@
     "wert": 14
    },
    "c": "7 * 2",
-   "w": "Mit der gedachten Zahl x und der Zahl z statt 10: (2x + z) : 2 − x = x + z : 2 − x = z : 2. Es kommt also immer die Hälfte von z heraus. Für 7 braucht man z = 14.",
+   "w": "Mit der gedachten Zahl x und der Zahl z statt 10: Nach Verdoppeln und Addieren hat man 2x + z. Halbiert man das, wird jeder Teil halbiert: Aus 2x wird x, aus z wird die Hälfte von z. Zieht man x ab, bleibt nur die Hälfte von z. Für 7 braucht man z = 14.",
    "h": "Schreibe den Trick als Term mit x und einer unbekannten Zahl statt 10. Was bleibt übrig?"
   },
   {
@@ -5929,8 +5929,8 @@
     "wert": 3
    },
    "c": "3",
-   "w": "Mit der kleinsten Zahl n: n + (n + 1) + (n + 2) = 3n + 3 = 3 · (n + 1). Jede Summe ist durch 3 teilbar. Eine größere Zahl teilt nicht jede Summe: 1 + 2 + 3 = 6 und 2 + 3 + 4 = 9 haben als größten gemeinsamen Teiler 3.",
-   "h": "Nenne die kleinste Zahl n und schreibe die Summe als Term."
+   "w": "Nimm von der größten der drei Zahlen 1 weg und gib es der kleinsten: Die Summe bleibt gleich, und jetzt stehen dreimal die mittlere Zahl da (4 + 5 + 6 = 5 + 5 + 5). Jede Summe ist also das Dreifache der mittleren Zahl und durch 3 teilbar. Eine größere Zahl teilt nicht jede Summe: 1 + 2 + 3 = 6 und 2 + 3 + 4 = 9 haben als größten gemeinsamen Teiler 3.",
+   "h": "Vergleiche die drei Zahlen mit der mittleren."
   },
   {
    "l": "sachsituation",
@@ -5993,7 +5993,7 @@
     "einheit": "€"
    },
    "c": "22 - 3 * 5",
-   "w": "Kosten: 3 · 5 + g = 22 → 15 + g = 22 → g = 7 €.",
+   "w": "5 Stunden kosten 3 · 5 = 15 €. Der Rest von 22 € ist die Grundgebühr: 22 − 15 = 7 €.",
    "h": "Stelle den Term mit g auf und setze 5 Stunden ein."
   },
   {
@@ -6246,7 +6246,7 @@
     "einheit": "€"
    },
    "c": "2 * 40 + 3 * 9",
-   "w": "Eine Fünferkarte spart 5 € gegenüber 5 Einzelkarten. Möglichkeiten: 2 Fünferkarten + 3 einzeln = 80 + 27 = 107 €; 3 Fünferkarten = 120 € (zwei Besuche verfallen); 1 Fünferkarte + 8 einzeln = 112 €. Am günstigsten: 107 €.",
+   "w": "Eine Fünferkarte spart 5 € gegenüber 5 Einzelkarten. Möglichkeiten: 2 Fünferkarten + 3 einzeln = 80 + 27 = 107 €; 3 Fünferkarten = 120 € (zwei Besuche verfallen); 1 Fünferkarte + 8 einzeln = 112 €; 13 einzeln = 117 €. Am günstigsten: 107 €.",
    "h": "Vergleiche: Lohnt sich eine Fünferkarte auch, wenn du nicht alle 5 Besuche nutzt?"
   },
   {
@@ -6466,7 +6466,7 @@
     "wert": 6
    },
    "c": "(32 - 2) / 5",
-   "w": "a · 5 + 2 = 32 → 5a = 30 → a = 6.",
+   "w": "Rückwärts: 32 − 2 = 30 Plättchen sind a · 5, also a = 30 : 5 = 6. Probe: 6 · 5 + 2 = 32 ✓.",
    "h": "Setze n = 5 ein und denke rückwärts."
   },
   {
@@ -6811,13 +6811,13 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Um ein Quadrat aus n × n Plättchen wird ein Rahmen gelegt, der eine Plättchen breit ist. Wie viele Plättchen hat der Rahmen bei n = 10?"
+    "text": "Um ein Quadrat aus n × n Plättchen wird ein Rahmen gelegt, der ein Plättchen breit ist. Wie viele Plättchen hat der Rahmen bei n = 10?"
    },
    "o": {
     "wert": 44
    },
    "c": "12 * 12 - 10 * 10",
-   "w": "Mit Rahmen ist das Quadrat (n + 2) × (n + 2) groß. Rahmen = (n + 2)² − n² = 4n + 4. Für n = 10: 144 − 100 = 44. (Oder: 4 Seiten mit je 10 Plättchen plus 4 Ecken = 44.)",
+   "w": "Mit Rahmen ist das Quadrat 12 × 12 = 144 Plättchen groß, das innere 10 × 10 = 100. Rahmen: 144 − 100 = 44. (Oder: 4 Seiten mit je 10 Plättchen plus 4 Ecken = 44.)",
    "h": "Vergleiche das große Quadrat mit Rahmen mit dem inneren."
   },
   {
@@ -6922,7 +6922,7 @@
     "einheit": "€"
    },
    "c": "14 - 0.1 * 60",
-   "w": "0,1 · 60 = 6. 6 + g = 14 → g = 8 €.",
+   "w": "60 Minuten kosten 0,1 · 60 = 6 €. Der Rest von 14 € ist die Grundgebühr: 14 − 6 = 8 €.",
    "h": "Setze 60 Minuten ein. Was bleibt für die Grundgebühr?"
   },
   {

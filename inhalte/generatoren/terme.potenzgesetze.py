@@ -778,7 +778,7 @@ N(lz, Z('pruefung', 'Schreibe 8 · 16 · 32 als Zweierpotenz 2ᵉ. Wie groß ist
 N(lz, Z('transfer', 'Wie viele Dreierpotenzen 3ⁿ (n mindestens 1, jede höchstens 3⁵) muss man mindestens malnehmen, um 3¹² zu erhalten?', 3, '-(-12 // 5)',
         'Jeder Faktor bringt höchstens 5 zum Exponenten. Zwei Faktoren schaffen höchstens 10, drei schaffen 12 (z. B. 3⁵ · 3⁵ · 3²).', 'Wie viel kann jeder Faktor höchstens beitragen?'))
 K(lz, Z('knobel', '2¹⁰ + 2¹⁰ = 2ᵏ. Wie groß ist k?', 11, '11', 'Zweimal dieselbe Zahl ist das Doppelte: 2 · 2¹⁰ = 2¹ · 2¹⁰ = 2¹¹. Also k = 11 (nicht 20!).', 'Was ist eine Zahl plus dieselbe Zahl?'))
-K(lz, Z('knobel', '4⁵ · 8⁴ = 2ᵏ. Wie groß ist k?', 22, '2 * 5 + 3 * 4', '4 = 2², also 4⁵ = 2¹⁰. 8 = 2³, also 8⁴ = 2¹². Zusammen 2¹⁰ · 2¹² = 2²².', 'Schreibe 4 und 8 als Zweierpotenzen.'))
+K(lz, Z('knobel', '4⁵ · 8⁴ = 2ᵏ. Wie groß ist k?', 22, '2 * 5 + 3 * 4', '4⁵ ist ein Produkt aus 5 Vieren. Jede Vier ist 2 · 2, das sind 5 · 2 = 10 Zweien: 4⁵ = 2¹⁰. 8⁴ ist ein Produkt aus 4 Achten, jede Acht ist 2 · 2 · 2, das sind 4 · 3 = 12 Zweien: 8⁴ = 2¹². Zusammen 2¹⁰ · 2¹² = 2²².', 'Schreibe 4 und 8 als Zweierpotenzen.'))
 
 lz = 'geteilt_gleiche_basis'
 ST.leiter(lz, 'Bei gleicher Basis die Exponenten subtrahieren; die passende Regel erkennen.', 'Negative Ergebnisse, Variablen, Malnehmen und Teilen gemischt, fehlenden Exponenten ergänzen, Sachsituation.',
@@ -786,7 +786,7 @@ ST.leiter(lz, 'Bei gleicher Basis die Exponenten subtrahieren; die passende Rege
 for t in ('y⁵', 'a⁻³', '3⁴ :', 'z⁻²', '2¹ :', '2³ · 2³', '3⁵ · 3³', 'x⁸', '5³ :'):
     TB(lz, 2, t, 'mehrschritt')
 TB(lz, 3, 'Eine Festplatte', 'verknuepfen'); TB(lz, 3, '2¹⁰ : 2ⁿ', 'rueckwaerts')
-N(lz, A('erkennen', 'Welche Regel gilt bei a⁷ : a³?', 'Exponenten abziehen: a⁴', ['Exponenten teilen: a⁷ʹ³', 'Basen teilen: 1⁴'], 'Gleiche Basis beim Teilen: Exponenten abziehen, 7 − 3 = 4.', 'Kürze a⁷/a³ in Gedanken.'))
+N(lz, A('erkennen', 'Welche Regel gilt bei a⁷ : a³?', 'Exponenten abziehen: a⁴', ['Exponenten teilen: 7 : 3', 'Basen teilen: 1⁴'], 'Gleiche Basis beim Teilen: Exponenten abziehen, 7 − 3 = 4.', 'Schreibe a⁷ : a³ als Bruch mit lauter a und kürze in Gedanken.'))
 N(lz, Z('umkehr', 'Ergänze: 7ᵏ : 7² = 7⁵. Wie groß ist k?', 7, '5 + 2', 'k − 2 = 5, also k = 7.', 'Welcher Exponent minus 2 ergibt 5?'))
 N(lz, Z('einkleidung', 'Ein Lager hat 10⁶ Schrauben. Sie werden in Kisten zu je 10² Stück verpackt. Es sind 10ᵏ Kisten. Wie groß ist k?', 4, '6 - 2', '10⁶ : 10² = 10⁴ = 10 000 Kisten.', 'Teilen bei gleicher Basis: Exponenten abziehen.'))
 N(lz, A('begruenden', 'Stimmt die Aussage? „a⁵ : a⁵ = a⁰ = 0“', 'Nein: a⁵ : a⁵ = 1, also ist a⁰ = 1.', ['Ja, das stimmt.', 'Nein: a⁵ : a⁵ = a.'], 'Eine Zahl geteilt durch sich selbst ist 1. Deshalb gilt a⁰ = 1 (für a nicht 0).', 'Was ist 8 : 8?'))
@@ -807,7 +807,7 @@ N(lz, A('begruenden', 'Stimmt die Aussage? „2³ + 5³ = 7³“', 'Nein: 8 + 12
 N(lz, Z('rueckwaerts', 'Eine positive Zahl wird quadriert und mit 4² malgenommen. Es kommt 400 heraus. Welche Zahl war es?', 5, '5', 'x² · 4² = (4x)² = 400 = 20². Also 4x = 20, x = 5.', 'Fasse x² · 4² zu einem Quadrat zusammen.'))
 N(lz, Z('parameter', 'Für welche natürliche Zahl a gilt a³ · 5³ = 1 000 000?', 20, '100 // 5', 'a³ · 5³ = (5a)³ = 1 000 000 = 100³. Also 5a = 100, a = 20.', '1 000 000 ist eine Kubikzahl. Von welcher Zahl?'))
 N(lz, Z('verknuepfen', 'Ein Würfel mit 4 cm Kantenlänge wird aus kleinen Würfeln mit 0,5 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?', 512, '(4 / 0.5) ** 3', 'Je Kante passen 4 : 0,5 = 8 kleine Würfel. 8³ = 512.', 'Wie viele kleine Würfel liegen entlang einer Kante?'))
-N(lz, Z('pruefung', 'Berechne 4⁵ · 25⁵ geschickt. Wie viele Nullen hat das Ergebnis?', 10, '10', '4⁵ · 25⁵ = (4 · 25)⁵ = 100⁵ = 10¹⁰: eine 1 mit 10 Nullen.', 'Was ergibt 4 · 25?'))
+N(lz, Z('pruefung', 'Berechne 4⁵ · 25⁵ geschickt. Wie viele Nullen hat das Ergebnis?', 10, '10', '4⁵ · 25⁵ = (4 · 25)⁵ = 100⁵ = 100 · 100 · 100 · 100 · 100. Jeder Faktor 100 bringt 2 Nullen: eine 1 mit 5 · 2 = 10 Nullen.', 'Was ergibt 4 · 25?'))
 K(lz, Z('knobel', 'Welche Ziffer steht am Anfang der Zahl 2²⁰ · 5¹⁹?', 2, '2', '2²⁰ · 5¹⁹ = 2 · 2¹⁹ · 5¹⁹ = 2 · 10¹⁹. Das ist eine 2 mit 19 Nullen.', 'Nimm einen Faktor 2 heraus, damit gleiche Exponenten entstehen.'))
 K(lz, Z('knobel', 'Wie viele Stellen hat die Zahl 2¹⁰ · 5⁸?', 9, '9', '2¹⁰ · 5⁸ = 2² · 2⁸ · 5⁸ = 4 · 10⁸ = 400 000 000. Das sind 9 Stellen.', 'Mache die Exponenten gleich, indem du Zweien abspaltest.'))
 
@@ -819,7 +819,7 @@ TB(lz, 2, '10⁹ :', 'mehrschritt'); TB(lz, 2, '3⁶ :', 'mehrschritt')
 TB(lz, 3, 'Was ergibt 3³', 'mehrschritt', neu_s=2); TB(lz, 3, '16 · 32', 'darstellung', neu_s=2)
 TB(lz, 3, 'Ein Blatt Papier ist', 'verknuepfen'); TB(lz, 3, 'Welche Zahl ist größer', 'begruenden')
 N(lz, A('erkennen', 'Welches Potenzgesetz brauchst du für 3⁴ · 3²?', 'gleiche Basis: Exponenten addieren', ['gleicher Exponent: Basen malnehmen', 'Exponenten malnehmen'], 'Die Basis 3 ist gleich, also 3⁴ · 3² = 3⁶.', 'Was ist gleich: die Basis oder der Exponent?'))
-N(lz, Z('fehler', 'Ein Kind rechnet 2⁴ · 2³ = 4⁷. Wie viel ist das Ergebnis richtig als Zahl?', 128, '2 ** 7', 'Die Basis bleibt 2: 2⁴ · 2³ = 2⁷ = 128.', 'Was passiert mit der Basis?'))
+N(lz, Z('fehler', 'Ein Kind rechnet 2⁴ · 2³ = 4⁷. Das ist falsch. Welche Zahl ist das richtige Ergebnis?', 128, '2 ** 7', 'Die Basis bleibt 2: 2⁴ · 2³ = 2⁷ = 128.', 'Was passiert mit der Basis?'))
 N(lz, Z('rueckwaerts', 'Ein Blatt wird mehrmals in der Mitte gefaltet. Jedes Falten verdoppelt die Lagen. Am Ende liegen 128 Lagen übereinander. Wie oft wurde gefaltet?', 7, '7', '128 = 2⁷. Also wurde 7-mal gefaltet.', 'Schreibe 128 als Zweierpotenz.'))
 N(lz, Z('parameter', 'Für welche natürliche Zahl n gilt 2ⁿ · 5ⁿ = 1 000 000?', 6, '6', '2ⁿ · 5ⁿ = 10ⁿ = 1 000 000 = 10⁶. Also n = 6.', 'Fasse 2ⁿ · 5ⁿ zusammen.'))
 N(lz, Z('pruefung', 'Ein Land hat etwa 9 · 10⁶ Einwohner und eine Fläche von etwa 4,5 · 10⁵ km². Wie viele Einwohner kommen im Mittel auf 1 km²?', 20, '9 * 10 ** 6 / (4.5 * 10 ** 5)',

@@ -1946,7 +1946,7 @@
     "10",
     "3 * (0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9)"
    ],
-   "w": "Zehnmal a ergibt 10a. Die Zahlen sind 0 + 3 + 6 + … + 27 = 3 · (0 + 1 + … + 9) = 3 · 45 = 135. Geschickt: Erster und letzter Summand ergeben 27, zweiter und vorletzter auch – 5 Paare · 27 = 135. Ergebnis 10a + 135.",
+   "w": "Zehnmal a ergibt 10a. Die Zahlen sind 0, 3, 6, 9, 12, 15, 18, 21, 24 und 27. Paare von vorne und hinten: 0 + 27, 3 + 24, 6 + 21, 9 + 18, 12 + 15 – fünf Paare mit je 27, zusammen 5 · 27 = 135. Ergebnis 10a + 135.",
    "h": "Zähle die a getrennt. Für die Zahlen: Bilde Paare von vorne und hinten."
   },
   {
@@ -1971,7 +1971,7 @@
     "3",
     "3 * 2"
    ],
-   "w": "Die mittlere Zeile, die mittlere Spalte und die beiden Diagonalen gehen durch die Mitte. Zusammen enthalten sie alle neun Felder einmal und die Mitte noch dreimal mehr: 4S = (Summe aller Felder) + 3 · Mitte = 3S + 3 · Mitte. Also S = 3 · Mitte = 3(x + 2) = 3x + 6.",
+   "w": "Nenne die gesuchte Summe S. Die mittlere Zeile, die mittlere Spalte und die beiden Diagonalen gehen durch die Mitte; zusammen ergeben sie 4S. In diesen vier Linien kommt jedes Feld genau einmal vor, nur das Mittelfeld viermal, also dreimal zu viel. Alle neun Felder zusammen sind die drei Zeilen, also 3S. Damit 4S = 3S + 3 · Mitte, und es bleibt S = 3 · Mitte = 3 · (x + 2) = 3x + 6.",
    "h": "Addiere die vier Linien durch die Mitte. Wie oft kommt jedes Feld darin vor?"
   },
   {
@@ -3456,7 +3456,7 @@
     "wert": -50
    },
    "c": "50 * (-1)",
-   "w": "Fasse je zwei Zahlen zusammen: (1 − 2) + (3 − 4) + … + (99 − 100). Das sind 50 Klammern mit je −1. Ergebnis −50.",
+   "w": "Fasse je zwei Nachbarzahlen zusammen: 1 − 2 = −1, 3 − 4 = −1, 5 − 6 = −1 und so weiter bis 99 − 100 = −1. Die 100 Zahlen bilden 50 solche Paare, jedes ergibt −1. Ergebnis 50 · (−1) = −50.",
    "h": "Bilde Paare aus Nachbarzahlen."
   },
   {
@@ -5701,7 +5701,7 @@
    "g": "erkennen",
    "y": "zahl",
    "f": {
-    "text": "Welche größte Zahl steckt als Faktor in 6x und in 15?"
+    "text": "Welches ist die größte Zahl, die sowohl in 6x als auch in 15 als Faktor steckt?"
    },
    "o": {
     "wert": 3
@@ -5874,7 +5874,7 @@
    "o": {
     "index": 3
    },
-   "w": "Vollständig heißt: In der Klammer steckt kein gemeinsamer Faktor mehr. 2x und 3 haben keinen (3 ist ungerade, 2x nicht durch 3 teilbar).",
+   "w": "Vollständig heißt: In der Klammer steckt kein gemeinsamer Faktor mehr. Die Zahlen 2 und 3 haben keinen gemeinsamen Faktor außer 1, und x kommt in 3 nicht vor. Also ist nichts mehr auszuklammern.",
    "h": "Prüfe, ob die Glieder in der Klammer noch einen gemeinsamen Faktor haben."
   },
   {
@@ -5934,7 +5934,7 @@
    },
    "c": "12",
    "w": "n² + 5n = n(n + 5). Geteilt durch n + 5 bleibt n. Also n = 12. (Probe: 144 + 60 = 204, 204 : 17 = 12 ✓.)",
-   "h": "Klammere im Zähler aus. Was kürzt sich weg?"
+   "h": "Klammere in n² + 5n einen Faktor aus. Was bleibt nach dem Teilen durch n + 5 übrig?"
   },
   {
    "l": "aequivalenz",
@@ -7289,7 +7289,7 @@
    "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Für welche positive Zahl k ist x² + kx + 16 eine binomische Formel?"
+    "text": "Für welche positive Zahl k lässt sich x² + kx + 16 als Quadrat (x + □)² schreiben?"
    },
    "o": {
     "wert": 8
@@ -7355,7 +7355,7 @@
    "g": "einkleidung",
    "y": "luecken",
    "f": {
-    "text": "Ein quadratischer Platz mit Seite x m wird auf beiden Seiten um 3 m verlängert. Gib die neue Fläche ohne Klammer an.",
+    "text": "Ein quadratischer Platz hat die Seitenlänge x m. Jede Seite wird um 3 m länger, der Platz bleibt quadratisch. Gib die neue Fläche ohne Klammer an.",
     "schablone": "x² + □x + □",
     "hinweis": "Tippe den Term ein, z. B. x² + 4x + 4."
    },
@@ -8009,7 +8009,7 @@
     "wert": 22
    },
    "c": "2 * 5 + 3 * 4",
-   "w": "4 = 2², also 4⁵ = 2¹⁰. 8 = 2³, also 8⁴ = 2¹². Zusammen 2¹⁰ · 2¹² = 2²².",
+   "w": "4⁵ ist ein Produkt aus 5 Vieren. Jede Vier ist 2 · 2, das sind 5 · 2 = 10 Zweien: 4⁵ = 2¹⁰. 8⁴ ist ein Produkt aus 4 Achten, jede Acht ist 2 · 2 · 2, das sind 4 · 3 = 12 Zweien: 8⁴ = 2¹². Zusammen 2¹⁰ · 2¹² = 2²².",
    "h": "Schreibe 4 und 8 als Zweierpotenzen."
   },
   {
@@ -8710,7 +8710,7 @@
     "wert": 10
    },
    "c": "10",
-   "w": "4⁵ · 25⁵ = (4 · 25)⁵ = 100⁵ = 10¹⁰: eine 1 mit 10 Nullen.",
+   "w": "4⁵ · 25⁵ = (4 · 25)⁵ = 100⁵ = 100 · 100 · 100 · 100 · 100. Jeder Faktor 100 bringt 2 Nullen: eine 1 mit 5 · 2 = 10 Nullen.",
    "h": "Was ergibt 4 · 25?"
   },
   {
@@ -9141,13 +9141,13 @@
    "a": [
     "Exponenten abziehen: a⁴",
     "Basen teilen: 1⁴",
-    "Exponenten teilen: a⁷ʹ³"
+    "Exponenten teilen: 7 : 3"
    ],
    "o": {
     "index": 0
    },
    "w": "Gleiche Basis beim Teilen: Exponenten abziehen, 7 − 3 = 4.",
-   "h": "Kürze a⁷/a³ in Gedanken."
+   "h": "Schreibe a⁷ : a³ als Bruch mit lauter a und kürze in Gedanken."
   },
   {
    "l": "geteilt_gleiche_basis",
@@ -10084,7 +10084,7 @@
    "g": "fehler",
    "y": "zahl",
    "f": {
-    "text": "Ein Kind rechnet 2⁴ · 2³ = 4⁷. Wie viel ist das Ergebnis richtig als Zahl?"
+    "text": "Ein Kind rechnet 2⁴ · 2³ = 4⁷. Das ist falsch. Welche Zahl ist das richtige Ergebnis?"
    },
    "o": {
     "wert": 128

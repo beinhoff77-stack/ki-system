@@ -3184,7 +3184,7 @@
     "wert": 112
    },
    "c": "(360 - 24) / 3",
-   "w": "Nennt man den Nebenwinkel n, ist der Winkel 2n − 24°. Zusammen 180°: n + 2n − 24° = 180°, also 3n = 204° und n = 68°. Der Winkel ist 180° − 68° = 112°. Probe: 2 · 68° − 24° = 112° ✓.",
+   "w": "Winkel und Nebenwinkel ergeben zusammen 180°. Der Winkel ist das Doppelte des Nebenwinkels minus 24°. Gäbe man die 24° dazu, wären es zusammen dreimal der Nebenwinkel: 180° + 24° = 204°. Also ist der Nebenwinkel 204° : 3 = 68°. Der Winkel ist 180° − 68° = 112°. Probe: 2 · 68° − 24° = 112° ✓.",
    "h": "Beschreibe beide Winkel mit dem Nebenwinkel und nutze ihre Summe."
   },
   {
@@ -4455,7 +4455,7 @@
     "einheit": "°"
    },
    "c": "180 / 3",
-   "w": "Bei T rechts oberhalb ist α (Stufenwinkel), links oberhalb also 180° − α. Es soll 180° − α = 2α sein, also 3α = 180° und α = 60°.",
+   "w": "Bei T rechts oberhalb ist α (Stufenwinkel), links oberhalb also der Nebenwinkel. Beide zusammen ergeben 180°. Ist der Nebenwinkel doppelt so groß wie α, sind es zusammen dreimal α: 180° : 3 = 60°. Probe: 60° und 120° ✓.",
    "h": "Drücke den Winkel bei T links oberhalb mit α aus."
   },
   {
@@ -4469,7 +4469,7 @@
     "text": "g ∥ h. Jemand sagt: „Bei S ist der Winkel rechts oberhalb 70°, also ist der Winkel bei T links unterhalb 110°.“ Was stimmt?"
    },
    "a": [
-    "Falsch: Er ist 70°, denn es sind Wechselwinkel.",
+    "Falsch: Er ist auch 70° (Scheitelwinkel bei S, dann Stufenwinkel bei T).",
     "Falsch: Er ist 20°.",
     "Falsch: Er ist 250°.",
     "Richtig."
@@ -11422,7 +11422,7 @@
     "wert": 180
    },
    "c": "180",
-   "w": "Nenne die Spitzen der Reihe nach A, B, C, D, E. Die Strecken von A und von C kreuzen sich mit den Strecken von B in zwei Punkten; dort entsteht ein kleines Dreieck mit der Spitze B. Seine beiden anderen Winkel sind Außenwinkel zweier anderer Dreiecke: Der eine ist so groß wie die Spitzenwinkel bei A und D zusammen, der andere wie die bei C und E zusammen. Im Dreieck mit der Spitze B stehen also alle fünf Spitzenwinkel – ihre Summe ist 180°.",
+   "w": "Nenne die Spitzen im Kreis herum A, B, C, D, E; der Stern besteht aus den Strecken AC, CE, EB, BD und DA. Die Strecke EB schneidet AC in P und AD in Q. Das kleine Dreieck APQ hat bei A den Spitzenwinkel von A. Der Winkel bei P ist Außenwinkel des Dreiecks PCE, also so groß wie die Spitzenwinkel bei C und E zusammen. Ebenso ist der Winkel bei Q Außenwinkel des Dreiecks QBD: so groß wie die Spitzenwinkel bei B und D zusammen. Im Dreieck APQ stehen also alle fünf Spitzenwinkel – ihre Summe ist 180°.",
    "h": "Suche ein Dreieck, in dem ein Spitzenwinkel steht, und deute seine beiden anderen Winkel als Außenwinkel."
   },
   {

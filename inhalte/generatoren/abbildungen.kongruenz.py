@@ -1669,7 +1669,7 @@ ST.regel('drehung', 3, 'Jemand gibt', 'fehler')
 ST.regel('drehung', 3, 'Wo lag P', 'rueckwaerts')
 ST.regel('drehung', 3, 'zweimal', 'verknuepfen')
 ST.neu('drehung', 1, 'erkennen', ST.A('Bei einer Drehung um O um 90° gegen den Uhrzeigersinn wird aus P(x | y) der Punkt …', 'P\'(−y | x)', ['P\'(y | −x)', 'P\'(−x | −y)', 'P\'(y | x)'],
-                                      'Probe mit (1 | 0): Er wandert auf die positive y-Achse nach (0 | 1). Das passt nur zu (−y | x).', 'Teste die Regeln mit dem Punkt (1 | 0).'))
+                                      'Probe mit (1 | 0): Er wandert auf die positive y-Achse nach (0 | 1). Das passt zu (−y | x) und zu (y | x). Zweite Probe mit (0 | 1): Er wandert auf die negative x-Achse nach (−1 | 0). Das passt nur noch zu (−y | x).', 'Teste die Regeln mit den Punkten (1 | 0) und (0 | 1).'))
 ST.neu('drehung', 1, 'direkt', _P('Drehe P(4 | 0) um O um 180°.', 'P\'', [-4, 0], ['-4', '0'], 'Eine halbe Drehung bringt P genau auf die Gegenseite: P\'(−4 | 0).', 'Wo ist die Gegenseite?'))
 ST.neu('drehung', 2, 'einkleidung', _P('Ein Riesenrad dreht sich um seine Mitte M(0 | 0) (1 Einheit = 1 m). Eine Gondel ist ganz unten bei G(0 | −10). Wo ist sie nach einer Vierteldrehung gegen den Uhrzeigersinn?',
                                        'G\'', [10, 0], ['10', '0'], 'Von ganz unten gegen den Uhrzeigersinn um 90° kommt die Gondel nach ganz rechts: G\'(10 | 0).',
@@ -1810,11 +1810,11 @@ ST.regel('mittelsenkrechte', 3, '', 'begruenden')
 ST.neu('mittelsenkrechte', 3, 'fehler', ST.A('A(1 | 2) und B(5 | 2). Jemand sagt: „Die Mittelsenkrechte von [AB] geht durch (3 | 2) und ist waagrecht.“ Was stimmt?',
                                             'Falsch: [AB] ist waagrecht, die Mittelsenkrechte steht senkrecht darauf.',
                                             ['Richtig.', 'Falsch: Sie geht durch (2 | 2).', 'Falsch: Sie geht durch (3 | 0) und ist waagrecht.'],
-                                            'Der Mittelpunkt (3 | 2) stimmt. Aber die Mittelsenkrechte steht senkrecht auf [AB]. Da [AB] waagrecht ist, ist sie senkrecht (alle Punkte mit x = 3).',
+                                            'Der Mittelpunkt (3 | 2) stimmt. Aber die Mittelsenkrechte steht senkrecht auf [AB]. Da [AB] waagrecht ist, ist sie senkrecht (alle Punkte mit dem x-Wert 3).',
                                             'Wie steht die Mittelsenkrechte zur Strecke?'))
 ST.neu('mittelsenkrechte', 3, 'pruefung', _P('Ein Dreieck hat die Ecken A(0 | 0), B(8 | 0) und C(0 | 6). Welcher Punkt ist von allen drei Ecken gleich weit entfernt?', 'M', [4, 3], ['8 / 2', '6 / 2'],
                                              'Die Mittelsenkrechte von [AB] ist senkrecht durch (4 | 0), die von [AC] waagrecht durch (0 | 3). Sie schneiden sich in M(4 | 3). '
-                                             'M ist zugleich die Mitte von [BC] – beim rechtwinkligen Dreieck liegt der Punkt immer dort.',
+                                             'Probe: M(4 | 3) ist auch die Mitte von [BC], denn (8 + 0) : 2 = 4 und (0 + 6) : 2 = 3.',
                                              'Schneide zwei Mittelsenkrechte.'))
 ST.knobel('mittelsenkrechte', ST.Z('A, B und C sind drei verschiedene Punkte auf einer Geraden. Wie viele Punkte gibt es, die von A und B gleich weit entfernt sind und zugleich von A und C gleich weit?', 0, '0',
                                    'Gesucht sind Punkte, die auf der Mittelsenkrechten von [AB] und auf der von [AC] liegen. Beide stehen senkrecht auf derselben Geraden, sind also parallel. '
@@ -1854,8 +1854,8 @@ ST.knobel('winkelhalbierende', ST.Z('Drei Strahlen gehen von einem Punkt S aus u
                                     'Für γ bleibt 360° − 200° = 160°.',
                                     'Aus welchen Teilwinkeln setzt sich der Winkel zwischen den beiden Halbierenden zusammen?'))
 ST.knobel('winkelhalbierende', ST.Z('Wie viele Punkte sind von der x-Achse, der y-Achse und der senkrechten Geraden durch (8 | 0) gleich weit entfernt?', 2, '2',
-                                    'Gleich weit von der y-Achse und der senkrechten Geraden durch (8 | 0): Der Punkt liegt genau in der Mitte, x = 4. Sein Abstand zu beiden ist 4. '
-                                    'Auch zur x-Achse muss er 4 betragen: y = 4 oder y = −4. Also zwei Punkte: (4 | 4) und (4 | −4).',
+                                    'Gleich weit von der y-Achse und der senkrechten Geraden durch (8 | 0): Der Punkt liegt genau in der Mitte, beim x-Wert 4. Sein Abstand zu beiden ist 4. '
+                                    'Auch zur x-Achse muss er 4 betragen: y-Wert 4 oder −4. Also zwei Punkte: (4 | 4) und (4 | −4).',
                                     'Beginne mit den beiden senkrechten Geraden.'))
 # vierecke_ordnen
 ST.leiter('vierecke_ordnen', 'Vierecke an Symmetrieachsen erkennen; wahre Aussagen im Haus der Vierecke.',
@@ -1919,3 +1919,44 @@ if __name__ == '__main__':
     from _bereinigen import bereinigen_datei
     bereinigen_datei('abbildungen.kongruenz')
 # ---- BEREINIGEN ENDE ----
+
+
+# ---- KORREKTUR (Prüfung neuer Aufgaben Kl. 7, nach dem Bereinigen) ----
+def _zahlen(s):
+    import re
+    return [int(z.replace('−', '-')) for z in re.findall(r'−?\d+', s)]
+
+
+def _zt(z):
+    return str(z).replace('-', '−')
+
+
+def _w_achse(a):
+    """Lösungsweg ohne „negativen Abstand“: wie weit und auf welcher Seite der Achse liegt P?"""
+    x, y, ax, ay = _zahlen(a['f']['text'])[:4]
+    if 'senkrechten Achse' in a['f']['text']:
+        d = abs(x - ax); seite, gegen = ('rechts', 'links') if x > ax else ('links', 'rechts')
+        bx = 2 * ax - x
+        assert a['o']['werte'] == [bx, y]
+        a['w'] = f'P liegt {d} {seite} von der Achse (x-Wert {_zt(ax)}). P\' liegt {d} {gegen} davon: x-Wert {_zt(bx)}. y bleibt {_zt(y)}.'
+    else:
+        d = abs(y - ay); seite, gegen = ('über', 'unter') if y > ay else ('unter', 'über')
+        by = 2 * ay - y
+        assert a['o']['werte'] == [x, by]
+        a['w'] = f'P liegt {d} {seite} der Achse (y-Wert {_zt(ay)}). P\' liegt {d} {gegen} ihr: y-Wert {_zt(by)}. x bleibt {_zt(x)}.'
+
+
+if __name__ == '__main__':
+    from _korrektur_kl7 import korrektur_datei, regel, ersetze_in, mehrere
+    korrektur_datei('abbildungen.kongruenz', [
+        regel('achsenspiegelung', r'^Spiegle P\(2 \| −5\) an der senkrechten Achse durch \(3 \| 0\)', _w_achse),
+        regel('achsenspiegelung', r'^Spiegle P\(−4 \| −5\) an der waagrechten Achse durch \(0 \| 2\)', _w_achse),
+        regel('achsenspiegelung', r'^Spiegle P\(3 \| −2\) an der senkrechten Achse durch \(−1 \| 0\)', _w_achse),
+        regel('achsenspiegelung', r'^Spiegle P\(−1 \| −7\) an der waagrechten Achse durch \(0 \| 3\)', _w_achse),
+        regel('achsenspiegelung', r'^Spiegle P\(6 \| −4\) an der waagrechten Achse durch \(0 \| 4\)', _w_achse),
+        regel('achsenspiegelung', r'parallel zur x-Achse auf P.*die Koordinatenachse schneidet',
+              mehrere(ersetze_in('text', 'die Koordinatenachse schneidet', 'die y-Achse schneidet'), ersetze_in('w', ': y = (', ': y-Wert ('))),
+        regel('achsenspiegelung', r'senkrecht zur x-Achse auf P.*die Koordinatenachse schneidet',
+              mehrere(ersetze_in('text', 'die Koordinatenachse schneidet', 'die x-Achse schneidet'), ersetze_in('w', ': x = (', ': x-Wert ('))),
+    ])
+# ---- KORREKTUR ENDE ----

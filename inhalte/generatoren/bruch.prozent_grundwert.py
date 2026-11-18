@@ -834,7 +834,7 @@ ST.neu('vermehrt', 3, 'pruefung', ST.Z('Ein Konzertticket kostet 48 €. Beim Vo
                                        '12,5 % von 48 € = 6 €. 48 € + 6 € = 54 € (oder 48 € · 1,125).', 'Rechne die Gebühr in Euro aus oder nutze den Faktor.', einheit='€'))
 ST.knobel('vermehrt', ST.Z('Eine Bakterienkultur wächst jede Stunde um 50 %. Nach wie vielen vollen Stunden hat sie sich zum ersten Mal mehr als verfünffacht?', 4, '4',
                            'Jede Stunde Faktor 1,5: nach 1 h 1,5, nach 2 h 2,25, nach 3 h 3,375, nach 4 h 5,0625. Erst nach 4 Stunden ist das Fünffache überschritten. '
-                           'Wer „5 = 1 + 4 · 50 %“ rechnet, käme auf 8 Stunden – das übersieht, dass jede Stunde 50 % vom schon gewachsenen Bestand dazukommen.',
+                           'Wer jede Stunde nur 50 % des Anfangsbestands dazurechnet (1 + 8 · 0,5 = 5), käme auf 8 Stunden – das übersieht, dass jede Stunde 50 % vom schon gewachsenen Bestand dazukommen.',
                            'Multipliziere Stunde für Stunde mit dem Faktor.'))
 ST.knobel('vermehrt', ST.Z('Anna verdient 20 % mehr als Ben. Zusammen verdienen sie 4 400 €. Wie viel verdient Ben?', 2000, '4400 / 2.2',
                            'Ben verdient b, Anna 1,2 · b. Zusammen 2,2 · b = 4 400 €, also b = 2 000 € und Anna 2 400 €. Probe: 2 400 € sind 20 % mehr als 2 000 € ✓. '
@@ -977,7 +977,7 @@ ST.knobel('argumente', ST.A('Artikel 1: „Die Zahl der Unfälle sank um 50 % un
                             'nur Artikel 2', ['nur Artikel 1', 'beide', 'keiner'],
                             'Artikel 1: 0,5 · 1,5 = 0,75 – es sind 25 % weniger als früher. Artikel 2: 2 · 0,5 = 1 – tatsächlich wie früher. Nur der zweite Artikel hat recht.',
                             'Schreibe jede Änderung als Faktor und multipliziere.'))
-ST.knobel('argumente', ST.Z('In einem Dorf haben 70 % der Haushalte ein Fahrrad und 60 % ein Auto. Wie viel Prozent der Haushalte haben mindestens beides?', 30, '70 + 60 - 100',
+ST.knobel('argumente', ST.Z('In einem Dorf haben 70 % der Haushalte ein Fahrrad und 60 % ein Auto. Wie viel Prozent der Haushalte haben dann mindestens sowohl ein Fahrrad als auch ein Auto?', 30, '70 + 60 - 100',
                             'Zusammen ergeben die Anteile 130 %. Mehr als 100 % aller Haushalte gibt es nicht, also müssen mindestens 30 % doppelt gezählt sein – sie haben beides. '
                             'Genau 30 % ist möglich: wenn jeder Haushalt mindestens eines von beiden hat.',
                             'Was passiert, wenn man die Haushalte mit Fahrrad und die mit Auto zusammenzählt?', einheit='%'))

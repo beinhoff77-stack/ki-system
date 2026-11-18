@@ -1009,7 +1009,7 @@
       "text": "Die Zweierzahl 10110 steht in der Tafel."
      },
      {
-      "text": "Jede Stelle ist doppelt so viel wert wie die rechts daneben."
+      "text": "Die Stellenwerte verdoppeln sich von rechts nach links: 1, 2, 4, 8, 16."
      },
      {
       "text": "Eine 1 steht bei 16, bei 4 und bei 2.",

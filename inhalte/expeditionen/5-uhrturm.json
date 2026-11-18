@@ -1,0 +1,107 @@
+{
+ "schluessel": "5-uhrturm",
+ "klasse": {
+  "gym_by": 5
+ },
+ "titel": "Der Uhrturm",
+ "autor": "Claude (Expeditionen Klasse 5)",
+ "einleitung": "In Timbuktu steigst du auf einen alten Turm mit einer großen Uhr, einer Glocke und einer Lampe. Die Uhr hat einen Stundenzeiger und einen Minutenzeiger.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "geometrie.winkel",
+   "lernziel": "uhr"
+  },
+  {
+   "thema_schluessel": "groessen.einheiten",
+   "lernziel": "zeit"
+  },
+  {
+   "thema_schluessel": "zahlen.teilbarkeit",
+   "lernziel": "vielfache"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der kleinere Winkel zwischen Stunden- und Minutenzeiger um 4:00 Uhr?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "4 * 30",
+   "w": "Zwischen zwei benachbarten Zahlen auf dem Zifferblatt liegen 360° : 12 = 30°. Um 4:00 Uhr liegen 4 solche Abstände zwischen den Zeigern: 4 · 30° = 120°.",
+   "h": "Wie viel Grad liegen zwischen zwei benachbarten Zahlen?",
+   "bezug": {
+    "thema_schluessel": "geometrie.winkel",
+    "lernziel": "uhr"
+   }
+  },
+  {
+   "k": "b",
+   "y": "zahl",
+   "f": {
+    "text": "Die Turmuhr geht jeden Tag 3 Minuten nach. Nach wie vielen Tagen zeigt sie genau eine Stunde zu wenig an?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "60 // 3",
+   "w": "Eine Stunde sind 60 Minuten. Jeden Tag kommen 3 Minuten dazu: 60 : 3 = 20 Tage.",
+   "h": "Rechne eine Stunde in Minuten um.",
+   "bezug": {
+    "thema_schluessel": "groessen.einheiten",
+    "lernziel": "zeit"
+   }
+  },
+  {
+   "k": "c",
+   "y": "luecken",
+   "f": {
+    "text": "Die Glocke schlägt alle 15 Minuten, eine Lampe auf dem Turm blinkt alle 6 Minuten. Um 12:00 Uhr passiert beides gleichzeitig. Um wie viel Uhr passiert es zum nächsten Mal gleichzeitig?",
+    "schablone": "□:□ Uhr",
+    "hinweis": "Stunden und Minuten je als ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     12,
+     30
+    ]
+   },
+   "c": [
+    "12",
+    "30"
+   ],
+   "w": "Glocke: 15, 30, 45 … Minuten nach 12 Uhr. Lampe: 6, 12, 18, 24, 30 … Minuten. Die erste gemeinsame Zahl ist 30: um 12:30 Uhr.",
+   "h": "Schreib für beide auf, wie viele Minuten nach 12 Uhr sie dran sind.",
+   "bezug": {
+    "thema_schluessel": "zahlen.teilbarkeit",
+    "lernziel": "vielfache"
+   }
+  },
+  {
+   "k": "d",
+   "y": "auswahl",
+   "f": {
+    "text": "Für ein Foto sollen die beiden Zeiger genau einen rechten Winkel bilden. Welche Uhrzeit passt?"
+   },
+   "a": [
+    "3:00 Uhr",
+    "3:30 Uhr",
+    "9:30 Uhr",
+    "6:15 Uhr"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Um 3:00 Uhr: 3 Abstände · 30° = 90°. Um halb steht der Stundenzeiger schon in der Mitte zwischen zwei Zahlen (15° weiter): 3:30 Uhr ergibt 75°, 9:30 Uhr 105°. Um 6:15 Uhr steht der Stundenzeiger ein Viertel hinter der 6 (7,5°), es sind 97,5°.",
+   "h": "Der Stundenzeiger bewegt sich auch zwischen den vollen Stunden weiter.",
+   "bezug": {
+    "thema_schluessel": "geometrie.winkel",
+    "lernziel": "uhr"
+   }
+  }
+ ]
+}

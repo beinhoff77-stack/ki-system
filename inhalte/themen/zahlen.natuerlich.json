@@ -1131,10 +1131,11 @@
     "runden_sinnvoll",
     "unendlich",
     "roemisch_schreiben",
-    "roemisch_system",
+    "roemisch_system"
+   ],
+   "lernziele_vertiefung": [
     "dualsystem"
    ],
-   "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {

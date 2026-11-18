@@ -528,12 +528,14 @@ ADD_KARTE = {
     'woerter': [['Additionstheorem', 'Formel für sin(α + β) oder cos(α + β) aus den Werten von α und β'],
                 ['sin(α + β)', 'der Sinus des ganzen Winkels α + β – nicht dasselbe wie sin α + sin β']],
     'bild': {'typ': 'tabelle', 'kopf': ['', 'α', 'β'], 'zeilen': [['sin', '0,6', '0,28'], ['cos', '0,8', '0,96']]},
-    'schritte': [{'text': 'Gegeben: sin α = 0,6, cos α = 0,8, sin β = 0,28 und cos β = 0,96.'},
-                 {'text': 'Formel: sin(α + β) = sin α · cos β + cos α · sin β.'},
+    'schritte': [{'text': 'Aus der Tabelle: sin α = 0,6 und cos α = 0,8.'},
+                 {'text': 'Für β: sin β = 0,28 und cos β = 0,96.'},
+                 {'text': 'sin(α + β) = sin α · cos β + cos α · sin β.'},
                  {'text': 'Einsetzen: 0,6 · 0,96 + 0,8 · 0,28 = 0,576 + 0,224.'},
                  {'text': 'Also ist ⟦sin(α + β) = 0,8⟧.'}],
-    'fehler': 'sin(α + β) ist nicht sin α + sin β: 0,6 + 0,28 = 0,88 statt 0,8. Den Sinus darf man ⟦nicht aufteilen⟧.',
-    'regel': '⟦sin(α + β) = sin α · cos β + cos α · sin β⟧. Dazu gilt cos(α + β) = cos α · cos β − sin α · sin β.',
+    'fehler': 'sin(α + β) ist nicht sin α + sin β. Das wäre 0,88 statt 0,8. Den Sinus darf man ⟦nicht aufteilen⟧.',
+    'regel': 'Den Sinus einer Summe ⟦darf man nicht aufteilen⟧. sin(α + β) = sin α · cos β + cos α · sin β. '
+             'cos(α + β) = cos α · cos β − sin α · sin β.',
 }
 
 ADDITION = karte_ops(
@@ -546,8 +548,9 @@ ADDITION = karte_ops(
      ('erkennen', A('Welcher Term ist gleich cos(α + β)?', 'cos α · cos β − sin α · sin β',
                     ['cos α · cos β + sin α · sin β', 'cos α + cos β', 'sin α · cos β − cos α · sin β'],
                     'Beim Kosinus stehen zuerst die beiden Kosinus, dann wird das Produkt der Sinus abgezogen.', 'Achte auf das Rechenzeichen in der Mitte.')),
-     ('mehrschritt', add_aufg(W2, W4, 'sin', text='α und β sind spitze Winkel mit sin α = 0,8 und sin β = 0,96. Berechne zuerst cos α und cos β, dann sin(α + β).',
-                              h='cos α = √(1 − sin² α).')),
+     ('mehrschritt', Z('α und β sind spitze Winkel mit sin α = 0,8 und sin β = 0,96. Berechne zuerst cos α und cos β, dann sin(α + β).', Fr('0.8'),
+                       '0.8 * 0.28 + 0.6 * 0.96', 'cos α = √(1 − 0,64) = 0,6 und cos β = √(1 − 0,9216) = 0,28 (spitze Winkel, also positiv). '
+                       'sin(α + β) = 0,8 · 0,28 + 0,6 · 0,96 = 0,224 + 0,576 = 0,8.', 'Nutze sin² α + cos² α = 1.')),
      ('mehrschritt', Z('Es gilt sin 30° = 0,5, cos 30° ≈ 0,866, sin 60° ≈ 0,866 und cos 60° = 0,5. Berechne mit dem Additionstheorem sin(30° + 60°) auf zwei Dezimalen.',
                        1, '0.5 * 0.5 + 0.866 * 0.866',
                        'sin 30° · cos 60° + cos 30° · sin 60° = 0,5 · 0,5 + 0,866 · 0,866 ≈ 0,25 + 0,75 = 1,00. Passt: sin 90° = 1.',

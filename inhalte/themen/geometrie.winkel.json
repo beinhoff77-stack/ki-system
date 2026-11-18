@@ -3435,14 +3435,14 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Vier Geraden gehen durch einen Punkt und erzeugen 8 Winkel. Wie groß ist die Summe von vier Winkeln, die immer abwechselnd liegen (jeder zweite)?"
+    "text": "Vier Geraden gehen durch einen Punkt und erzeugen 8 Winkel. Wie groß sind vier direkt nebeneinanderliegende dieser Winkel zusammen?"
    },
    "o": {
     "wert": 180
    },
    "c": "360 // 2",
-   "w": "Zu jedem Winkel liegt sein gegenüberliegender Winkel genau vier Plätze weiter und ist gleich groß. Darum sind die „ungeraden“ und die „geraden“ Winkel zusammen gleich groß, jede Gruppe also 360° : 2 = 180°.",
-   "h": "Welcher Winkel liegt einem Winkel gegenüber, und wie groß ist er?"
+   "w": "Vier nebeneinanderliegende Winkel reichen von einem Strahl einer Geraden bis zum gegenüberliegenden Strahl derselben Geraden. Das ist ein gestreckter Winkel: 180°. Die anderen vier Winkel bilden ebenso 180°.",
+   "h": "Wo endet der vierte Winkel, wenn du bei einer Geraden anfängst?"
   },
   {
    "l": "kreuzung",

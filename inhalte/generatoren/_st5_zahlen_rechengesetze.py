@@ -20,7 +20,7 @@ KARTEN = {
    Z('Zwischen die Zahlen 1 2 3 4 5 wird jeweils ein + oder ein · gesetzt (Punkt vor Strich). Wie groß ist das größte Ergebnis, das kleiner als 100 ist?', 63, '1 + 2 + 3 * 4 * 5',
      'Mit 3 · 4 · 5 = 60 kommt man nah an 100: 1 + 2 + 60 = 63, 1 · 2 + 60 = 62. Größer wird es nur mit 2 · 3 · 4 · 5 = 120 – das ist über 100. Andere Verteilungen bleiben unter 63 (z. B. 1 + 2 · 3 · 4 + 5 = 30). Antwort: 63.',
      'Welche Malketten werden groß, aber nicht zu groß?'),
-   Z('Ein Term lautet 2 + 3 · 4 + 5 · 6. Man darf genau ein Malzeichen durch ein Pluszeichen ersetzen. Wie klein kann das Ergebnis höchstens werden?', 25, '2 + 3 * 4 + 5 + 6',
+   Z('Ein Term lautet 2 + 3 · 4 + 5 · 6. Man darf genau ein Malzeichen durch ein Pluszeichen ersetzen. Wie heißt das kleinste mögliche Ergebnis?', 25, '2 + 3 * 4 + 5 + 6',
      'Ohne Änderung: 2 + 12 + 30 = 44. Ersetzt man das erste Malzeichen: 2 + 3 + 4 + 30 = 39. Ersetzt man das zweite: 2 + 12 + 5 + 6 = 25. Am kleinsten ist 25.',
      'Welches Produkt bringt mehr, wenn man es auflöst?'),
   ],
@@ -36,7 +36,7 @@ KARTEN = {
    ('erkennen', A('Was rechnest du bei 5 · (9 − 4) zuerst?', '9 − 4', ['5 · 9', '5 · 4', '9 · 4'], 'Klammern zuerst: 9 − 4 = 5, dann 5 · 5 = 25.', 'Was hat Vorrang vor allem anderen?')),
    ('einkleidung', Z('Ein Kind kauft 4 Packungen mit je 6 Saftflaschen und 3 einzelne Flaschen. Beim Fest werden alle bis auf 5 getrunken. Wie viele Flaschen werden getrunken?', 22, '(4 * 6 + 3) - 5',
                      'Term: (4 · 6 + 3) − 5 = 27 − 5 = 22.', 'Rechne zuerst aus, wie viele Flaschen es insgesamt sind.')),
-   ('fehler', A('Jemand rechnet 30 − (10 − 4) = 30 − 10 − 4 = 16. Was ist falsch?', 'Die Klammer zieht 6 ab: 30 − 6 = 24.', ['Nichts, 16 stimmt.', 'Richtig ist 30 − 10 + 4 = 16.', 'Richtig ist 30 − 10 − 4 = 24.'],
+   ('fehler', A('Jemand rechnet 30 − (10 − 4) = 30 − 10 − 4 = 16. Was ist falsch?', 'Die Klammer zieht 6 ab: 30 − 6 = 24.', ['Nichts, 16 stimmt.', 'Richtig ist 30 − 10 = 20.', 'Richtig ist 30 − 4 = 26.'],
                 'In der Klammer steht 10 − 4 = 6. Abgezogen werden also nur 6, nicht 14. Ohne Klammer müsste es 30 − 10 + 4 heißen.', 'Rechne zuerst die Klammer aus.')),
    ('begruenden', A('Stimmt die Aussage? „Sind a, b und c größer als 1, dann ist (a + b) · c größer als a + b · c.“', 'Ja: Mit Klammer wird auch a mit c malgenommen.',
                     ['Nein: Beide sind immer gleich.', 'Nein: Ohne Klammer ist es immer größer.', 'Ja, aber nur, wenn c = 2 ist.'],
@@ -79,7 +79,7 @@ KARTEN = {
   'knobel': [
    Z('Ein Term hat die Form □ · (□ + □). In die Kästchen kommen die Zahlen 2, 5 und 7, jede genau einmal. Wie groß ist der größte mögliche Wert?', 49, '7 * (2 + 5)',
      'Möglich sind 2 · 12 = 24, 5 · 9 = 45 und 7 · 7 = 49. Am größten ist 7 · (2 + 5) = 49.', 'Probiere alle Möglichkeiten für den Faktor vor der Klammer.'),
-   A('Bei welchem Term darf man die Klammer NICHT weglassen, ohne dass sich der Wert ändern kann?', '(a + b) · c', ['(a · b) + c', 'a + (b · c)', 'a + (b + c)'],
+   A('Bei welchem Term ändert sich der Wert, wenn man die Klammer weglässt?', '(a + b) · c', ['(a · b) + c', 'a + (b · c)', 'a + (b + c)'],
      '(a · b) + c = a · b + c und a + (b · c) = a + b · c wegen Punkt vor Strich; bei a + (b + c) ist die Reihenfolge egal. Nur bei (a + b) · c ändert sich der Wert: z. B. (1 + 2) · 3 = 9, aber 1 + 2 · 3 = 7.',
      'Prüfe jeden Term mit kleinen Zahlen.'),
   ],
@@ -123,7 +123,7 @@ KARTEN = {
   ],
   'knobel': [
    Z('In 9 □ 8 □ 7 □ 6 □ 5 □ 4 □ 3 □ 2 □ 1 wird jedes □ durch + oder − ersetzt. Das Ergebnis soll 1 sein. Wie viele Minuszeichen braucht man mindestens?', 4, '4',
-     'Alle mit Plus ergäben 45. Jede abgezogene Zahl senkt das Ergebnis um das Doppelte. 45 − 2 · S = 1, also müssen die abgezogenen Zahlen zusammen S = 22 ergeben. Mit drei Zahlen kommt man höchstens auf 8 + 7 + 6 = 21. Mit vier geht es: 8 + 7 + 6 + 1 = 22. Also mindestens 4.',
+     'Alle mit Plus ergäben 45. Jede abgezogene Zahl senkt das Ergebnis um das Doppelte. 45 − 2 · S = 1, also müssen die abgezogenen Zahlen zusammen S = 22 ergeben. Vor der 9 steht kein Zeichen, sie wird immer addiert. Mit drei Zahlen kommt man darum höchstens auf 8 + 7 + 6 = 21. Mit vier geht es: 8 + 7 + 6 + 1 = 22. Also mindestens 4.',
      'Um wie viel ändert sich das Ergebnis, wenn man ein Plus in ein Minus verwandelt?'),
    Z('Berechne 1 − 3 + 5 − 7 + … + 97 − 99.', -50, '25 * (-2)', 'Je zwei Zahlen ergeben −2: (1 − 3) + (5 − 7) + … + (97 − 99). Das sind 25 Paare: 25 · (−2) = −50.', 'Fasse immer zwei Nachbarn zusammen.'),
   ],
@@ -171,7 +171,7 @@ KARTEN = {
   ],
   'knobel': [
    Z('Vier verschiedene ganze Zahlen haben das Produkt 9. Wie groß ist ihre Summe?', 0, '1 + (-1) + 3 + (-3)',
-     'Die Zahlen müssen Teiler von 9 sein: ±1, ±3, ±9. Vier verschiedene mit Produkt 9: 1 · (−1) · 3 · (−3) = 9. Mit 9 ginge es nicht (9 · 1 · (−1) braucht noch −1). Summe 0.', 'Welche ganzen Zahlen kommen als Faktoren überhaupt in Frage?'),
+     'Jede Zahl muss ohne Rest in 9 passen: 1, −1, 3, −3, 9, −9. Vier verschiedene mit Produkt 9: 1 · (−1) · 3 · (−3) = 9. Mit 9 ginge es nicht (9 · 1 · (−1) braucht noch −1). Summe 0.', 'Welche ganzen Zahlen kommen als Faktoren überhaupt in Frage?'),
    Z('Wie viele der Produkte (−1) · (−2), (−1) · (−2) · (−3), …, (−1) · (−2) · … · (−10) sind negativ?', 4, '4',
      'Ein Produkt ist negativ, wenn die Zahl der Faktoren ungerade ist: 3, 5, 7 oder 9 Faktoren. Das sind 4 Produkte.', 'Wann ist ein Produkt negativ?'),
   ],
@@ -194,7 +194,7 @@ KARTEN = {
    ('rueckwaerts', Z('Ich teile eine Zahl durch (−6) und subtrahiere dann 4. Ich erhalte −1. Welche Zahl habe ich mir gedacht?', -18, '(-1 + 4) * (-6)', 'Rückwärts: −1 + 4 = 3. 3 · (−6) = −18. Probe: (−18) : (−6) − 4 = 3 − 4 = −1.', 'Mach die Schritte in umgekehrter Reihenfolge rückgängig.')),
   ],
   'knobel': [
-   Z('Für wie viele ganze Zahlen a ist 36 : a eine ganze Zahl?', 18, '2 * 9', 'Die positiven Teiler von 36 sind 1, 2, 3, 4, 6, 9, 12, 18, 36 – das sind 9. Dazu kommen ihre Gegenzahlen. Zusammen 18.', 'Vergiss die negativen Teiler nicht.'),
+   Z('Für wie viele ganze Zahlen a ist 36 : a eine ganze Zahl?', 18, '2 * 9', 'Ohne Rest in 36 passen die positiven Zahlen 1, 2, 3, 4, 6, 9, 12, 18, 36 – das sind 9. Dazu kommen ihre Gegenzahlen. Zusammen 18.', 'Vergiss die negativen Zahlen nicht.'),
    Z('Für zwei ganze Zahlen gilt a : b = −3 und a + b = 10. Wie groß ist a?', 15, '15', 'a = −3 · b. Dann a + b = −3 · b + b = −2 · b = 10, also b = −5 und a = 15. Probe: 15 : (−5) = −3, 15 + (−5) = 10.', 'Drücke a durch b aus.'),
   ],
  },
@@ -256,7 +256,7 @@ KARTEN = {
           (r'S1:^Rechne im Kopf', 'direkt'), (r'^Rechne im Kopf: [\d ]+ : [\d ]+$', 'direkt'), (r'^Rechne im Kopf', 'mehrschritt')],
   'neu': [
    ('rueckwaerts', Z('Ich halbiere eine Zahl und multipliziere das Ergebnis mit 4. Es kommt 260 heraus. Welche Zahl war es?', 130, '260 // 4 * 2', 'Rückwärts: 260 : 4 = 65, 65 · 2 = 130.', 'Mach die Schritte rückgängig.')),
-   ('begruenden', A('Stimmt die Aussage? „25 · 48 kann man im Kopf als 100 · 12 rechnen.“', 'Ja: 48 = 4 · 12 und 25 · 4 = 100.', ['Nein: Das ergibt etwas anderes.', 'Ja, weil 25 + 48 = 100 − 27.', 'Nein: Man muss 25 · 50 rechnen.'],
+   ('begruenden', A('Stimmt die Aussage? „25 · 48 kann man im Kopf als 100 · 12 rechnen.“', 'Ja: 48 = 4 · 12 und 25 · 4 = 100.', ['Nein: Das ergibt etwas anderes.', 'Nein: Man darf 48 nicht zerlegen.', 'Nein: Man muss 25 · 50 rechnen.'],
                     '25 · 48 = 25 · 4 · 12 = 100 · 12 = 1 200.', 'Zerlege 48.')),
    ('parameter', Z('Für welche Zahl a gilt 99 · a = 100 · a − 37?', 37, '37', '100 · a − 99 · a = a. Also muss a = 37 sein.', 'Wie groß ist der Unterschied zwischen 100 · a und 99 · a?')),
    ('pruefung', Z('Rechne im Kopf: 125 · 8 − 999', 1, '125 * 8 - 999', '125 · 8 = 1 000. 1 000 − 999 = 1.', 'Merke dir: 125 · 8 = 1 000.')),
@@ -267,7 +267,7 @@ KARTEN = {
   'knobel': [
    Z('Rechne im Kopf: 999 · 999 + 999', 999000, '999 * 1000', '999 · 999 + 999 · 1 = 999 · 1 000 = 999 000.', 'Klammere 999 aus.'),
    Z('Welche zweistellige Zahl ergibt mit sich selbst multipliziert 2 025?', 45, '45',
-     'Die Zahl endet auf 5 (nur 5 · 5 endet auf 25). Mit dem Trick aus 15 · 15: n5 · n5 = n · (n + 1) Hunderter + 25. 2 025 = 20 Hunderter + 25 und 20 = 4 · 5. Also 45.', 'Mit welcher Ziffer muss die Zahl enden?'),
+     '40 · 40 = 1 600 und 50 · 50 = 2 500, also liegt die Zahl zwischen 40 und 50. Sie endet auf 5, weil nur 5 · 5 auf 25 endet: 45. Probe: 45 · 45 = 2 025.', 'Mit welcher Ziffer muss die Zahl enden?'),
   ],
  },
  'umkehraufgabe_mal': {
@@ -285,13 +285,13 @@ KARTEN = {
    ('begruenden', A('Stimmt die Aussage? „Die Gleichung 0 · x = 5 hat keine Lösung.“', 'Ja: 0 mal jede Zahl ist 0, nie 5.', ['Nein: x = 5.', 'Nein: x = 0.', 'Nein: Jede Zahl ist eine Lösung.'], 'Egal welche Zahl man für x einsetzt, 0 · x ist immer 0.', 'Setz ein paar Zahlen für x ein.')),
    ('parameter', Z('Für welche Zahl a hat die Gleichung a · x = −48 die Lösung x = −6?', 8, '-48 // -6', 'a · (−6) = −48, also a = (−48) : (−6) = 8.', 'Setze die Lösung ein.')),
    ('pruefung', L('Ergänze die beiden Lücken: □ · □ = −45. Die erste Zahl ist negativ, die zweite größer als 6, und die erste ist um 14 kleiner als die zweite.', '□ · □ = −45', [-5, 9], ['-5', '9'],
-                  '(−5) · 9 = −45, und −5 ist um 14 kleiner als 9. (Das Paar −9 und 5 passt nicht, weil 5 nicht größer als 6 ist.)', 'Suche Teilerpaare von 45.', hinweis='Je Lücke eine ganze Zahl.')),
+                  '(−5) · 9 = −45, und −5 ist um 14 kleiner als 9. (Das Paar −9 und 5 passt nicht, weil 5 nicht größer als 6 ist.)', 'Suche zwei Zahlen, die malgenommen 45 ergeben.', hinweis='Je Lücke eine ganze Zahl.')),
    ('verknuepfen', Z('Löse die Gleichung (−3) · x = 2 · (−15) + 6.', 8, '(2 * (-15) + 6) // (-3)', 'Rechte Seite: −30 + 6 = −24. x = (−24) : (−3) = 8.', 'Rechne zuerst die rechte Seite aus.')),
    ('transfer', Z('Ein Konto ändert sich jeden Monat um denselben Betrag. In 6 Monaten fällt es von 30 € auf −42 €. Um wie viel ändert es sich pro Monat?', -12, '(-42 - 30) // 6', 'Gesamtänderung: −42 − 30 = −72 €. Pro Monat: (−72) : 6 = −12 €.', 'Bestimme zuerst die gesamte Änderung.', einheit='€')),
   ],
   'knobel': [
    Z('Für wie viele ganze Zahlen x ist (−60) : x eine ganze Zahl, die größer als 5 ist?', 7, '7',
-     'Das Ergebnis ist positiv, also muss x negativ sein. (−60) : x > 5 heißt: der Betrag von x ist kleiner als 12 und teilt 60. Möglich: −1, −2, −3, −4, −5, −6, −10. Das sind 7.', 'Welches Vorzeichen muss x haben?'),
+     'Das Ergebnis ist positiv, also muss x negativ sein. (−60) : x > 5 heißt: der Betrag von x ist kleiner als 12 und passt ohne Rest in 60. Möglich: −1, −2, −3, −4, −5, −6, −10. Das sind 7.', 'Welches Vorzeichen muss x haben?'),
    Z('Wie viele ganze Zahlen x erfüllen x · x = x · (−4)?', 2, '2', 'x = 0 passt (0 = 0). Ist x nicht 0, kann man durch x teilen: x = −4. Probe: 16 = 16. Also 2 Lösungen.', 'Vergiss nicht die besondere Zahl, bei der beide Seiten 0 sind.'),
   ],
  },

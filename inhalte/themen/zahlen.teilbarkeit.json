@@ -1781,7 +1781,7 @@
    "g": "rueckwaerts",
    "y": "zahl",
    "f": {
-    "text": "Eine Zahl ist ein Vielfaches von 9 und liegt zwischen 50 und 60. Wie heißt sie, und was ergibt die Hälfte davon? Gib die Hälfte an."
+    "text": "Eine Zahl ist ein Vielfaches von 9 und liegt zwischen 50 und 60. Gib die Hälfte dieser Zahl an."
    },
    "o": {
     "wert": 27
@@ -5017,7 +5017,7 @@
     "wert": 12
    },
    "c": "6 * 2",
-   "w": "Jeder Teiler hat die Form 2ᵃ · 3ᵇ mit a von 0 bis 5 (6 Möglichkeiten) und b gleich 0 oder 1 (2 Möglichkeiten): 6 · 2 = 12 Teiler.",
+   "w": "2⁵ · 3 = 96. Teiler ohne Faktor 3: 1, 2, 4, 8, 16, 32 – das sind 6. Jeden davon kann man noch mit 3 malnehmen: 3, 6, 12, 24, 48, 96 – noch 6. Zusammen 12.",
    "h": "Aus welchen Primfaktoren kann ein Teiler bestehen?"
   },
   {

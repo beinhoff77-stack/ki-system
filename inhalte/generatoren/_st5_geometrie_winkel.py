@@ -36,8 +36,8 @@ KARTEN = {
   ],
   'knobel': [
    Z('Zwei Geraden schneiden sich. Drei der vier Winkel sind zusammen 4-mal so groß wie der vierte. Wie groß ist der vierte?', 72, '360 // 5', 'Der vierte sei x. Die anderen drei sind 360° − x = 4 · x. Also 5 · x = 360°, x = 72°.', 'Was ergeben alle vier Winkel zusammen?'),
-   Z('Vier Geraden gehen durch einen Punkt und erzeugen 8 Winkel. Wie groß ist die Summe von vier Winkeln, die immer abwechselnd liegen (jeder zweite)?', 180, '360 // 2',
-     'Zu jedem Winkel liegt sein gegenüberliegender Winkel genau vier Plätze weiter und ist gleich groß. Darum sind die „ungeraden“ und die „geraden“ Winkel zusammen gleich groß, jede Gruppe also 360° : 2 = 180°.', 'Welcher Winkel liegt einem Winkel gegenüber, und wie groß ist er?'),
+   Z('Vier Geraden gehen durch einen Punkt und erzeugen 8 Winkel. Wie groß sind vier direkt nebeneinanderliegende dieser Winkel zusammen?', 180, '360 // 2',
+     'Vier nebeneinanderliegende Winkel reichen von einem Strahl einer Geraden bis zum gegenüberliegenden Strahl derselben Geraden. Das ist ein gestreckter Winkel: 180°. Die anderen vier Winkel bilden ebenso 180°.', 'Wo endet der vierte Winkel, wenn du bei einer Geraden anfängst?'),
   ],
  },
  'um_punkt': {

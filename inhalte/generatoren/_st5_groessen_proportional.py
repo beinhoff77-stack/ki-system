@@ -138,7 +138,7 @@ KARTEN = {
    ('mehrschritt', Z('Ein Bus braucht für 150 km 3 Stunden. Wie viele Minuten braucht er bei gleichem Tempo für 250 km?', 300, '250 // 50 * 60', 'In 1 Stunde 50 km. 250 km sind 5 Stunden = 300 Minuten.', 'Schließe auf 1 Stunde und rechne dann in Minuten um.', einheit='min')),
    ('fehler', A('Jemand sagt: „4 Maler streichen eine Wand in 6 Stunden, also brauchen 8 Maler 12 Stunden.“ Was ist falsch?', 'Mehr Maler brauchen weniger Zeit; die Zuordnung ist nicht proportional.',
                 ['Nichts, das stimmt.', 'Richtig sind 24 Stunden.', 'Richtig sind 10 Stunden.'], 'Doppelt so viele Maler schaffen die Arbeit schneller, nicht langsamer.', 'Was passiert mit der Zeit, wenn mehr Leute mithelfen?')),
-   ('pruefung', Z('Ein Rezept für 4 Portionen braucht 600 g Kartoffeln. Es kommen 6 Gäste. Wie viel g Kartoffeln braucht man?', 900, '600 // 2 * 3', '2 Portionen: 300 g. 6 Portionen: 900 g.', 'Schließe auf 2 Portionen.', einheit='g')),
+   ('pruefung', Z('Ein Rezept für 4 Portionen braucht 500 g Nudeln. Es sollen 6 Portionen werden. Wie viel g Nudeln braucht man?', 750, '500 // 2 * 3', '2 Portionen: 250 g. 6 Portionen: 750 g.', 'Schließe auf 2 Portionen.', einheit='g')),
   ],
   'knobel': [
    Z('Eine Badewanne fasst 120 l. Der Hahn lässt 10 l pro Minute einlaufen, durch den offenen Abfluss laufen 6 l pro Minute ab. Nach wie vielen Minuten ist die leere Wanne voll?', 30, '120 // (10 - 6)', 'Pro Minute kommen 10 l − 6 l = 4 l dazu. 120 l : 4 l = 30 Minuten.', 'Wie viel Wasser bleibt pro Minute wirklich in der Wanne?', einheit='min'),

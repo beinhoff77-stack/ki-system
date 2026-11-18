@@ -1974,7 +1974,7 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Wie viele Punkte mit ganzzahligen Koordinaten erreicht man vom Ursprung aus mit genau 3 Schritten entlang der Gitterlinien, wenn man nie zurückgeht (also |x| + |y| = 3)?"
+    "text": "Für wie viele Punkte (x | y) mit ganzzahligen Koordinaten gilt |x| + |y| = 3?"
    },
    "o": {
     "wert": 12
@@ -4929,7 +4929,7 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Zwei Kreise mit den Radien 3 cm und 5 cm berühren sich in genau einem Punkt. Wie weit können ihre Mittelpunkte höchstens auseinander liegen, und wie weit mindestens? Gib den kleineren Abstand in cm an."
+    "text": "Zwei Kreise mit den Radien 3 cm und 5 cm berühren sich in genau einem Punkt. Für den Abstand der Mittelpunkte gibt es zwei Möglichkeiten. Gib die kleinere in cm an."
    },
    "o": {
     "wert": 2,

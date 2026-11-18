@@ -2169,7 +2169,7 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Ein Term lautet 2 + 3 · 4 + 5 · 6. Man darf genau ein Malzeichen durch ein Pluszeichen ersetzen. Wie klein kann das Ergebnis höchstens werden?"
+    "text": "Ein Term lautet 2 + 3 · 4 + 5 · 6. Man darf genau ein Malzeichen durch ein Pluszeichen ersetzen. Wie heißt das kleinste mögliche Ergebnis?"
    },
    "o": {
     "wert": 25
@@ -2757,8 +2757,8 @@
    "a": [
     "Nichts, 16 stimmt.",
     "Die Klammer zieht 6 ab: 30 − 6 = 24.",
-    "Richtig ist 30 − 10 + 4 = 16.",
-    "Richtig ist 30 − 10 − 4 = 24."
+    "Richtig ist 30 − 10 = 20.",
+    "Richtig ist 30 − 4 = 26."
    ],
    "o": {
     "index": 1
@@ -3647,16 +3647,16 @@
    "g": "knobel",
    "y": "auswahl",
    "f": {
-    "text": "Bei welchem Term darf man die Klammer NICHT weglassen, ohne dass sich der Wert ändern kann?"
+    "text": "Bei welchem Term ändert sich der Wert, wenn man die Klammer weglässt?"
    },
    "a": [
-    "(a + b) · c",
+    "a + (b · c)",
     "a + (b + c)",
     "(a · b) + c",
-    "a + (b · c)"
+    "(a + b) · c"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
    "w": "(a · b) + c = a · b + c und a + (b · c) = a + b · c wegen Punkt vor Strich; bei a + (b + c) ist die Reihenfolge egal. Nur bei (a + b) · c ändert sich der Wert: z. B. (1 + 2) · 3 = 9, aber 1 + 2 · 3 = 7.",
    "h": "Prüfe jeden Term mit kleinen Zahlen."
@@ -5041,7 +5041,7 @@
     "wert": 4
    },
    "c": "4",
-   "w": "Alle mit Plus ergäben 45. Jede abgezogene Zahl senkt das Ergebnis um das Doppelte. 45 − 2 · S = 1, also müssen die abgezogenen Zahlen zusammen S = 22 ergeben. Mit drei Zahlen kommt man höchstens auf 8 + 7 + 6 = 21. Mit vier geht es: 8 + 7 + 6 + 1 = 22. Also mindestens 4.",
+   "w": "Alle mit Plus ergäben 45. Jede abgezogene Zahl senkt das Ergebnis um das Doppelte. 45 − 2 · S = 1, also müssen die abgezogenen Zahlen zusammen S = 22 ergeben. Vor der 9 steht kein Zeichen, sie wird immer addiert. Mit drei Zahlen kommt man darum höchstens auf 8 + 7 + 6 = 21. Mit vier geht es: 8 + 7 + 6 + 1 = 22. Also mindestens 4.",
    "h": "Um wie viel ändert sich das Ergebnis, wenn man ein Plus in ein Minus verwandelt?"
   },
   {
@@ -6454,7 +6454,7 @@
     "wert": 0
    },
    "c": "1 + (-1) + 3 + (-3)",
-   "w": "Die Zahlen müssen Teiler von 9 sein: ±1, ±3, ±9. Vier verschiedene mit Produkt 9: 1 · (−1) · 3 · (−3) = 9. Mit 9 ginge es nicht (9 · 1 · (−1) braucht noch −1). Summe 0.",
+   "w": "Jede Zahl muss ohne Rest in 9 passen: 1, −1, 3, −3, 9, −9. Vier verschiedene mit Produkt 9: 1 · (−1) · 3 · (−3) = 9. Mit 9 ginge es nicht (9 · 1 · (−1) braucht noch −1). Summe 0.",
    "h": "Welche ganzen Zahlen kommen als Faktoren überhaupt in Frage?"
   },
   {
@@ -7155,8 +7155,8 @@
     "wert": 18
    },
    "c": "2 * 9",
-   "w": "Die positiven Teiler von 36 sind 1, 2, 3, 4, 6, 9, 12, 18, 36 – das sind 9. Dazu kommen ihre Gegenzahlen. Zusammen 18.",
-   "h": "Vergiss die negativen Teiler nicht."
+   "w": "Ohne Rest in 36 passen die positiven Zahlen 1, 2, 3, 4, 6, 9, 12, 18, 36 – das sind 9. Dazu kommen ihre Gegenzahlen. Zusammen 18.",
+   "h": "Vergiss die negativen Zahlen nicht."
   },
   {
    "l": "geteilt_ganz",
@@ -9062,7 +9062,7 @@
    },
    "a": [
     "Ja: 48 = 4 · 12 und 25 · 4 = 100.",
-    "Ja, weil 25 + 48 = 100 − 27.",
+    "Nein: Man darf 48 nicht zerlegen.",
     "Nein: Das ergibt etwas anderes.",
     "Nein: Man muss 25 · 50 rechnen."
    ],
@@ -9176,7 +9176,7 @@
     "wert": 45
    },
    "c": "45",
-   "w": "Die Zahl endet auf 5 (nur 5 · 5 endet auf 25). Mit dem Trick aus 15 · 15: n5 · n5 = n · (n + 1) Hunderter + 25. 2 025 = 20 Hunderter + 25 und 20 = 4 · 5. Also 45.",
+   "w": "40 · 40 = 1 600 und 50 · 50 = 2 500, also liegt die Zahl zwischen 40 und 50. Sie endet auf 5, weil nur 5 · 5 auf 25 endet: 45. Probe: 45 · 45 = 2 025.",
    "h": "Mit welcher Ziffer muss die Zahl enden?"
   },
   {
@@ -9870,7 +9870,7 @@
     "9"
    ],
    "w": "(−5) · 9 = −45, und −5 ist um 14 kleiner als 9. (Das Paar −9 und 5 passt nicht, weil 5 nicht größer als 6 ist.)",
-   "h": "Suche Teilerpaare von 45."
+   "h": "Suche zwei Zahlen, die malgenommen 45 ergeben."
   },
   {
    "l": "umkehraufgabe_mal",
@@ -9960,7 +9960,7 @@
     "wert": 7
    },
    "c": "7",
-   "w": "Das Ergebnis ist positiv, also muss x negativ sein. (−60) : x > 5 heißt: der Betrag von x ist kleiner als 12 und teilt 60. Möglich: −1, −2, −3, −4, −5, −6, −10. Das sind 7.",
+   "w": "Das Ergebnis ist positiv, also muss x negativ sein. (−60) : x > 5 heißt: der Betrag von x ist kleiner als 12 und passt ohne Rest in 60. Möglich: −1, −2, −3, −4, −5, −6, −10. Das sind 7.",
    "h": "Welches Vorzeichen muss x haben?"
   },
   {

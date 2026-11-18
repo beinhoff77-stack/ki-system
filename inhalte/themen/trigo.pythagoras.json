@@ -2181,7 +2181,7 @@
     "wert": 2
    },
    "c": "2",
-   "w": "Gesucht a < b mit a² + b² = 625. Durchprobieren der Quadrate: 7² + 24² = 49 + 576 und 15² + 20² = 225 + 400. Sonst passt nichts. Also 2 Dreiecke.",
+   "w": "Gesucht a < b mit a² + b² = 625. Wegen a < b ist a² < 312,5, also a ≤ 17. Für a = 1, 2, …, 17 prüfen, ob 625 − a² eine Quadratzahl ist: Das klappt nur bei a = 7 (625 − 49 = 576 = 24²) und a = 15 (625 − 225 = 400 = 20²). Also 2 Dreiecke.",
    "h": "Ziehe Quadratzahlen von 625 ab und prüfe, ob wieder eine Quadratzahl übrig bleibt.",
    "l": "hypotenuse",
    "t": "hypotenuse",
@@ -2885,8 +2885,8 @@
     "einheit": "cm"
    },
    "c": "25",
-   "w": "400 = c² − b² = (c − b)(c + b). Kleinstes c: c − b = 10, c + b = 40, also c = 25, b = 15. Probe: 15² + 20² = 625 = 25².",
-   "h": "Zerlege 400 in zwei gleich gerade Faktoren.",
+   "w": "Die Hypotenuse ist länger als 20 cm. Probiere c = 21, 22, …: c² − 400 ist 41, 84, 129, 176 – keine Quadratzahl. Bei c = 25: 625 − 400 = 225 = 15². Also c = 25, die andere Kathete ist 15 cm.",
+   "h": "Probiere Hypotenusen ab 21 cm und prüfe, ob c² − 400 eine Quadratzahl ist.",
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
@@ -5592,7 +5592,7 @@
     "toleranz": 0.01
    },
    "c": "round(6.4031242374328485, 2)",
-   "w": "Klappe eine Wand in die Bodenebene. Mögliche Rechtecke: (3 + 2) × 4 ergibt √(25 + 16) ≈ 6,40 m; (4 + 2) × 3 ergibt √45 ≈ 6,71 m; (3 + 4) × 2 ergibt √53 ≈ 7,28 m. Am kürzesten: ≈ 6,40 m.",
+   "w": "Klappe eine Wand in die Bodenebene. Je nachdem, welche Wand sie benutzt: Wand an der 4-m-Seite ergibt ein Rechteck (3 + 2) × 4, Weg √(25 + 16) = √41 ≈ 6,40 m; Wand an der 3-m-Seite ergibt (4 + 2) × 3, Weg √45 ≈ 6,71 m. Am kürzesten: ≈ 6,40 m.",
    "h": "Falte den Raum auf. Es gibt mehrere Möglichkeiten.",
    "l": "raum",
    "t": "raum",

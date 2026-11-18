@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 04:54 – STATUS: Expedition 3 „In der Oase“ (5-oase) fertig
+5 Teile, Themen: geometrie.grundbegriffe, geometrie.ortslinien, geometrie.winkel, groessen.einheiten. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
+
 ## 2026-11-18 04:54 – STATUS: Expedition 2 „Die Römerstraße“ (5-roemerstrasse) fertig
 4 Teile, Themen: groessen.einheiten, zahlen.natuerlich, zahlen.teilbarkeit. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
 

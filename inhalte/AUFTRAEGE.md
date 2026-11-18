@@ -1655,3 +1655,23 @@ Voraussetzung erfüllt: Das Format steht in `inhalte/README.md`, Abschnitt „Ex
 - Themenmischung über die 10 Expeditionen: Jedes früh liegende Thema kommt mindestens zweimal vor; keine zwei Expeditionen mit derselben Geschichte.
 - Prüfwerkzeug muss für jede Datei OK melden. Eine Expedition = ein Commit + Push. Kein Merge, keine Datenbank-, App- oder Server-Änderung.
 - Bericht: Tabelle Expedition · Situation · Teile mit Thema/Lernkarte · Antwortformen · Grafik; je Expedition der Wortlaut eines Teils; was nicht geprüft wurde (z. B. wie die App die Grafik zeichnet).
+
+# Dreiundzwanzigste Runde (18.11.): Was an den 24 Realschul-/IB-Themen ist wirklich neu? (nur Prüfung und Vorschlag)
+
+**Anlass (Sebastian):** „Die lernen doch grundsätzlich dasselbe Mathe – warum so viele neue Themen?“ Der Vorschlag `inhalte/pruefung/klassen/vorschlag-mindeststand.md` plant alle 24 Themen ohne Gymnasium-Klasse als zusätzliche Flüge ein. Vermutung: Ein großer Teil davon steckt schon in Gymnasium-Flügen und wäre doppelt.
+
+**Ein Chat, Zweig `doppelt-pruefen`, Ergebnis `inhalte/pruefung/klassen/doppelt-rsib.md`, Meldung in `inhalte/postfach/doppelt-pruefen.md`.** Nur lesen und vorschlagen: keine Änderung an Themendateien, Themenliste, Datenbank oder App. Kein Merge.
+
+**Die 24 Themen** (alle in `inhalte/themenliste.json` ohne `klasse.gym_by`): abbildungen.determinanten2, abbildungen.vektoren, abbildungen.matrizen, daten.stichproben, funktionen.scharen, terme.quadratische_extreme, funktionen.transformation, gleichungen.reinquadratisch, gleichungen.wurzel, funktionen.umkehr, mengen.grundbegriffe, groessen.verhaeltnisse, daten.zweidimensional, daten.standardabweichung, stochastik.bedingt, funktionen.betrag, funktionen.folgen, funktionen.reihen, sonder.graphentheorie, sonder.optimierung, daten.normalverteilung, finanzen.zinseszins, sonder.logik, zahlen.schranken.
+
+**Arbeit je Thema – Lernkarte für Lernkarte** (Feld `l`, Titel und Merksatz in `lernkarten`, dazu Stichproben der Aufgaben), verglichen mit **allen 71 Gymnasium-Themen** in `inhalte/themen/`:
+1. Steht derselbe Stoff schon in einem Gymnasium-Flug? Dann: Thema/Lernkarte nennen und belegen (Titel, zwei Beispielaufgaben beider Seiten im Wortlaut).
+2. Einordnung jeder Lernkarte in genau eine Gruppe:
+   - **A – schon da:** Gymnasium-Flug deckt es ab → entfällt als eigener Stoff.
+   - **B – kleiner Zusatz:** passt als eine Lernkarte (oder ein paar Aufgaben) in einen bestehenden Gymnasium-Flug → Zielthema, Stelle in der Reihenfolge, Klasse nennen; als Vertiefung oder Pflicht?
+   - **C – wirklich neu:** kein Gymnasium-Flug enthält es → bleibt eigener Stoff.
+3. Urteil je Thema: **auflösen** (alles A/B) · **verkleinern** (Rest-Flug nur aus C-Karten, mindestens 3 Lernkarten, sonst in ein anderes Thema) · **bleibt** (überwiegend C).
+4. Für jedes Thema, das bleibt oder verkleinert wird: für wen ist es Pflicht? Realschule alle Zweige · nur Realschule Wahlpflichtgruppe I (mathematischer Zweig) · nur IB (Standard oder Extended) · keines (Zusatz). Mit Lehrplanstelle (LehrplanPLUS Realschule Bayern, Jahrgangsstufe und Lernbereich; IB Mathematics guide/Lehrwerk wie in `vorschlag-rsib.md`). Vorschlag für Plan-Klasse und Ort.
+5. Gegenprobe in die andere Richtung: Gibt es Stoff, den Realschule (alle Zweige) oder IB bis Jahr 4 verlangen und der in **keinem** Flug steht? (Abgleich mit `vorschlag-rsib.md`, Teil 2 und „Was aus dem Framework fehlt“.) Die vier dort vorgeschlagenen neuen Themen ebenso einordnen: wirklich nötig oder als Lernkarten in bestehende Flüge?
+
+**Ergebnisdatei:** Kurzfassung oben (Zahl der Themen je Urteil; Zahl der Flüge, die Kind A und Kind B danach zusätzlich hätten – nur als Kind A, Klasse 5, und Kind B, Klasse 8); Tabelle aller 24 Themen (Urteil, Pflicht für wen, Plan-Klasse); je Thema die Lernkarten-Tabelle mit Gruppe A/B/C und Beleg; Liste „Für Sebastian zu entscheiden“ (z. B. ob der mathematische Realschul-Zweig abgedeckt werden soll). Tatsachen, Annahmen und Meinungen trennen; sagen, was nicht geprüft wurde. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.

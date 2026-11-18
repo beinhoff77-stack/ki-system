@@ -1177,7 +1177,7 @@
    "o": {
     "index": 1
    },
-   "w": "x² − 2x = x(x − 2) ist für x = 0 und x = 2 null, also D = ℚ \\ {0; 2}. Beim ersten fehlt nur die 2. Kürzen ändert die Werte, aber nicht die ursprüngliche Definitionsmenge.",
+   "w": "x² − 2x = x(x − 2) ist für x = 0 und x = 2 null, also D = ℚ \\ {0; 2}. Beim ersten fehlt nur die 2. Kürzen ändert die Definitionsmenge des ursprünglichen Terms nicht.",
    "h": "Zerlege den Nenner x² − 2x in Faktoren."
   },
   {
@@ -1234,7 +1234,7 @@
    "o": {
     "index": 2
    },
-   "w": "Gegeben: Nenner v und v − 8. Gesucht: ausgeschlossene Zahlen. Ansatz: Jeden Nenner = 0 setzen. Rechnung: v = 0, v = 8. Antwort: D = ℝ \\ {0; 8}.",
+   "w": "Gegeben: Nenner v und v − 8. Gesucht: ausgeschlossene Zahlen. Ansatz: Jeden Nenner = 0 setzen. Rechnung: v = 0, v = 8. Antwort: D = ℚ \\ {0; 8}.",
    "h": "Es gibt zwei Nenner."
   },
   {
@@ -1289,7 +1289,7 @@
    "a": [
     "{4; 5; …; 30}",
     "{5; 6; …; 30}",
-    "ℝ \\ {4}",
+    "ℚ \\ {4}",
     "{0; 1; …; 30}"
    ],
    "o": {
@@ -2205,7 +2205,7 @@
     "wert": 0.1
    },
    "c": "1 / 10",
-   "w": "Das Produkt ist 1/2 · 2/3 · 3/4 · … · 9/10. Jeder Nenner kürzt sich mit dem nächsten Zähler, übrig bleiben 1 oben und 10 unten: 1/10 = 0,1.",
+   "w": "Das Produkt ist 1/2 · 2/3 · 3/4 · 4/5 · 5/6 · 6/7 · 7/8 · 8/9 · 9/10. Jeder Nenner kürzt sich mit dem nächsten Zähler, übrig bleiben 1 oben und 10 unten: 1/10 = 0,1.",
    "h": "Schreib die ersten drei Faktoren nebeneinander und schau, was sich kürzt."
   },
   {
@@ -6073,7 +6073,7 @@
     "wert": 5
    },
    "c": "10 / 2",
-   "w": "Jede Klammer ist ein Bruch: 3/2 · 4/3 · 5/4 · … · 10/9. Jeder Zähler kürzt sich mit dem nächsten Nenner, übrig bleibt 10/2 = 5.",
+   "w": "Jede Klammer ist ein Bruch: 3/2 · 4/3 · 5/4 · 6/5 · 7/6 · 8/7 · 9/8 · 10/9. Jeder Zähler kürzt sich mit dem nächsten Nenner, übrig bleibt 10/2 = 5.",
    "h": "Schreib jede Klammer als einen einzigen Bruch."
   },
   {
@@ -7052,18 +7052,18 @@
    "g": "knobel",
    "y": "auswahl",
    "f": {
-    "text": "Jemand „kürzt“ 16/64, indem er die beiden Sechsen streicht, und erhält zufällig richtig 1/4. Bei welchem Bruch klappt dieser falsche Trick auch?"
+    "text": "Jemand „kürzt“ 16/64, indem er die beiden Sechsen streicht, und erhält zufällig richtig 1/4. Bei welchem Bruch führt dasselbe Streichen gleicher Ziffern auch zum richtigen Wert?"
    },
    "a": [
-    "15/56 = 1/6",
-    "12/24 = 1/4",
-    "19/95 = 1/5",
-    "13/39 = 1/9"
+    "15/56 → 1/6",
+    "12/24 → 1/4",
+    "19/95 → 1/5",
+    "13/39 → 1/9"
    ],
    "o": {
     "index": 2
    },
-   "w": "19/95 = 1/5 stimmt wirklich (95 = 5 · 19). 12/24 = 1/2, 13/39 = 1/3, 15/56 ist nicht 1/6. Der Trick funktioniert nur in seltenen Zufällen.",
+   "w": "Rechnet man richtig, gilt 19/95 = 1/5 (95 = 5 · 19). Dagegen ist 12/24 = 1/2, 13/39 = 1/3, und 15/56 ist nicht 1/6. Das Streichen von Ziffern ist kein Kürzen und stimmt nur in seltenen Zufällen.",
    "h": "Rechne jeden Bruch wirklich aus und vergleiche."
   }
  ],

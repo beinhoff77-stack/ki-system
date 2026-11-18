@@ -1760,7 +1760,7 @@
     "einheit": "€"
    },
    "c": "round(300 / 1.02, 2)",
-   "w": "300 € sollen 102 % sein. 1 % = 300 € : 102 ≈ 2,941 €, 100 % ≈ 294,12 €. (Nicht 300 € − 6 €, denn die 2 % beziehen sich auf den kleineren Betrag.)",
+   "w": "300 € sollen 102 % sein. 100 % = 300 € : 102 · 100 = 30 000 € : 102 ≈ 294,118 €, auf Cent gerundet 294,12 €. (Nicht 300 € − 6 €, denn die 2 % beziehen sich auf den kleineren Betrag.)",
    "h": "Wie viel Prozent des eingezahlten Geldes sind 300 €?"
   },
   {

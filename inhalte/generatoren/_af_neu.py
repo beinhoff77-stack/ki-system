@@ -408,9 +408,10 @@ def sw_aufg(m1, m2, text=None):
     exakt = sw(m1, m2)
     w = wink(exakt)
     a1, a2 = deg(m1), deg(m2)
-    text = text or f'Berechne den Schnittwinkel der Geraden y = {zt(m1)}x und y = {zt(m2)}x auf eine Dezimale.'
+    text = text or f'Berechne den Schnittwinkel der Geraden y = {gt(m1, 0)} und y = {gt(m2, 0)} auf eine Dezimale.'
     weg = (f'tan α = {zt(m1)} ⇒ α ≈ {zt(round(a1, 2))}°; tan β = {zt(m2)} ⇒ β ≈ {zt(round(a2, 2))}°. '
-           f'Unterschied ≈ {zt(round(abs(a1 - a2), 2))}°' + (f', über 90°: 180° − {zt(round(abs(a1 - a2), 2))}° ≈ {zt(w)}°.' if abs(a1 - a2) > 90 else f' ≈ {zt(w)}°.'))
+           f'Unterschied ≈ {zt(round(abs(a1 - a2), 2))}°' + (f', über 90°: 180° − {zt(round(abs(a1 - a2), 2))}° ≈ {zt(w)}°.' if abs(a1 - a2) > 90 else
+                                                             ('.' if round(abs(a1 - a2), 2) == w else f', gerundet {zt(w)}°.')))
     return Z(text, w, f'{exakt!r}', weg, 'Berechne zuerst beide Steigungswinkel mit tan⁻¹.', einheit='°', toleranz=0.1)
 
 
@@ -422,7 +423,7 @@ SCHNITT_KARTE = {
                 ['Schnittwinkel', 'der kleinere der beiden Winkel zwischen zwei Geraden, höchstens 90°']],
     'bild': {'typ': 'koordinaten', 'x': [-1, 6], 'y': [-1, 6],
              'graphen': [{'art': 'linear', 'm': 2, 't': 0, 'name': 'g'}, {'art': 'linear', 'm': 0.5, 't': 0, 'name': 'h'}]},
-    'schritte': [{'text': 'g: y = 2x hat tan α = 2, also α ≈ 63,43°.'},
+    'schritte': [{'text': 'g: y = 2x hat den Steigungswinkel α ≈ 63,43°, denn tan α = 2.'},
                  {'text': 'h: y = 0,5x hat tan β = 0,5, also β ≈ 26,57°.'},
                  {'text': 'Schnittwinkel: 63,43° − 26,57° ≈ ⟦36,9°⟧.'}],
     'fehler': 'Die Steigungen abziehen ist falsch: tan⁻¹(2 − 0,5) ≈ 56,3°. Man zieht die ⟦Winkel⟧ voneinander ab, nicht die Steigungen.',
@@ -472,7 +473,7 @@ SCHNITTWINKEL = karte_ops(
                       ['Nein, der Winkel hängt auch vom y-Achsenabschnitt ab.', 'Nur wenn beide durch den Ursprung gehen.'],
                       'Der Steigungswinkel hängt nur von m ab (tan α = m). Parallele Geraden haben dasselbe m.', 'Wovon hängt tan α ab?')),
      ('fehler', A('Jemand berechnet den Schnittwinkel von y = 4x und y = −x so: 76,0° − (−45,0°) = 121,0°. Was stimmt?',
-                  'Falsch: Über 90° nimmt man 180° − 121,0° = 59,0°.', ['Richtig.', 'Falsch: Man muss 76,0° + 45,0° = 121,0° rechnen, das Ergebnis bleibt.'],
+                  'Falsch: Über 90° nimmt man 180° − 121,0° = 59,0°.', ['Richtig.', 'Falsch: Man zieht die Steigungen ab: 4 − (−1) = 5.'],
                   'Der Schnittwinkel ist der kleinere der beiden Winkel und höchstens 90°: 180° − 121,0° = 59,0°.', 'Wie groß darf ein Schnittwinkel höchstens sein?')),
      ('parameter', Z('Die Gerade y = m · x (m > 0) ist flacher als y = x und schneidet sie unter 15°. Wie groß ist m? Runde auf zwei Dezimalen.',
                      round(math.tan(math.radians(30)), 2), repr(math.tan(math.radians(30))),

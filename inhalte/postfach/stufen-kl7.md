@@ -2,6 +2,46 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 – STATUS: Prüfung aller neuen Aufgaben Kl. 7
+Stand: `origin/lernen-app` (76beb1d) in `stufen-kl7` geholt (Fast-Forward, keine Konflikte). „Neu“ = Pool uebung oder bonus, Fragetext in keiner Themendatei von 4eda8cb.
+Geprüft: **454 neue Aufgaben** (315 Übungen, 139 Knobel) in 9 Themen, jede vollständig gelesen (Frage, Optionen, Tipp, Lösungsweg) und nachgerechnet.
+Knobel mit „höchstens/mindestens/wie viele/immer“ zusätzlich per Programm geprüft (Klammerungen, Springerzüge, Dreiecke mit Umfang 12, Stäbe, Würfelwürfe, Modalwert-Aufgaben, Parkett, Kino, Fläche): alle Lösungen bestätigt.
+Geändert: **47 neue Aufgaben in 8 Themen**, alte Aufgaben Zeichen für Zeichen unverändert, g und s gleich. Je Thema: Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“, Nachweis OK. geometrie.kreis: alles korrekt, keine Änderung.
+
+| Thema | geprüft | geändert | a | b | c | d | e | f |
+|---|---|---|---|---|---|---|---|---|
+| terme.aufstellen | 33 | 11 | 0 | 0 | 10 | 0 | 0 | 1 |
+| terme.umformen | 99 | 12 | 1 | 0 | 3 | 4 | 1 | 3 |
+| abbildungen.kongruenz | 71 | 11 | 1 | 0 | 3 | 2 | 0 | 5 |
+| geometrie.winkelsaetze | 52 | 4 | 0 | 0 | 2 | 0 | 1 | 1 |
+| gleichungen.linear | 34 | 2 | 0 | 0 | 0 | 0 | 1 | 1 |
+| bruch.prozent_grundwert | 42 | 2 | 0 | 0 | 0 | 1 | 0 | 1 |
+| daten.boxplot | 48 | 3 | 0 | 0 | 0 | 0 | 0 | 3 |
+| geometrie.konstruktion | 41 | 2 | 1 | 0 | 0 | 1 | 0 | 0 |
+| geometrie.kreis | 34 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| **Summe** | **454** | **47** | **3** | **0** | **18** | **8** | **3** | **15** |
+
+**Je Fehlerart ein Beispiel (vorher → nachher)**
+- **a) falsch/nicht eindeutig (3):** geometrie.konstruktion/vierecke, Knobel „Parallelogramm, das kein Rechteck ist … die vier Winkelhalbierenden begrenzen sicher ein Rechteck“. Bei einer Raute fallen die Halbierenden auf die Diagonalen und schneiden sich in einem Punkt, dann gibt es kein Viereck. → „Parallelogramm, das weder ein Rechteck noch eine Raute ist“. (Weitere: Drehregel-Probe mit (1 | 0) schloss (y | x) nicht aus; Begründung „2x nicht durch 3 teilbar“ falsch für x = 3.)
+- **b) mehrdeutige Zählweise (0):** keine gefunden. In Klasse 7 kommen keine Strich- oder Stellen-Zählungen vor; „an 4. Stelle der geordneten Liste“ ist eindeutig.
+- **c) späterer Stoff (18):** terme.aufstellen/uebersetzen, Lösungsweg „a · (x + 2) = ax + 2a“ (Ausmultiplizieren kommt erst in terme.umformen) → „Setze für x eine Zahl ein, z. B. x = 0: 2a = 6, also a = 3; Probe mit x = 1“. Ebenso: Gleichungsumformungen mit Pfeilen vor dem Thema gleichungen.linear durch Rückwärtsrechnen ersetzt; „Potenz einer Potenz“ (4⁵ = 2¹⁰, 100⁵ = 10¹⁰) durch Zählen der Faktoren erklärt; Thales-Aussage in kongruenz, „x = 3“ als Geradenschreibweise → „x-Wert 3“.
+- **d) unklare Frage (8):** terme.umformen/binomisch: „Ein quadratischer Platz … wird auf beiden Seiten um 3 m verlängert“ (+3 oder +6?) → „Jede Seite wird um 3 m länger, der Platz bleibt quadratisch“. Weitere: „die Koordinatenachse“ → „die y-Achse“ bzw. „die x-Achse“, „Wie viele verschiedene gleichschenklige Dreiecke“ → „… Winkelkombinationen“, „mindestens beides“ präzisiert.
+- **e) Antwortoptionen (3):** gleichungen.linear/probe „In einer Packung sind 9 Stifte – stimmt das?“: Optionen „Nein: 4 · 9 + 3 = 40.“ (falsche Rechnung) und „Ja: 39 : 4 ≈ 9.“ (zweites Ja mit unpassender Begründung) → „Nein: 4 · 10 = 40, also sind es 10 Stifte.“ und „Nein: 39 ist ungerade, das geht mit Packungen nicht.“ Weitere: Option „Exponenten teilen: a⁷ʹ³“ (kaputtes Zeichen) → „Exponenten teilen: 7 : 3“; „denn es sind Wechselwinkel“ → passend zum Lösungsweg.
+- **f) Lösungsweg (15):** daten.boxplot/mittel_median, Knobel „Modalwert 3, Median 4, Mittelwert 5“: „(Summe 25, also a + b = 14)“ (Rechenfehler) → „a + b = 25 − 10 = 15“ mit Begründung, warum die 3 auf Platz 1 und 2 steht. Weitere: negative „Abstände zur Achse“ (−7) in 5 Spiegelaufgaben → „P liegt 7 unter der Achse“; falsches Würfelbeispiel (Summe 11 statt 10); „1 + 4 · 50 % = 5“; Lösungswege mit „…“; Pentagramm-Beweis ohne benannte Punkte.
+
+**Technik und Lesarten**
+- Änderungen im Generator: STUFEN-Aufgaben direkt an ihrer Quelle. Die beim Bereinigen umformulierten Spiegelaufgaben ändert ein neuer letzter Schritt KORREKTUR (`_korrektur_kl7.py`, in abbildungen.kongruenz.py); er trifft nur neue Aufgaben und rechnet die Lösungswege aus den Zahlen der Aufgabe neu.
+- Aus anderen Generatoren umgezogene Karten habe ich an ihrer Quelle geändert: Potenz-Karten in terme.potenzgesetze.py, Kennwert-Aufgaben in daten.kennwerte.py. terme.potenzgesetze.json und daten.kennwerte.json bleiben unverändert.
+- Nachweis: Das bisherige `_stufen_nachweis.py` meldet gegen origin/lernen-app jede geänderte neue Aufgabe als Fehler, weil die Zwanzigste Runde dort schon enthalten ist. Deshalb gibt es neu `_pruefung_kl7_nachweis.py <thema>`. Es prüft: alte Aufgaben (Text in 4eda8cb) Zeichen für Zeichen gleich; nur neue Aufgaben geändert; Lernkarte, Pool, g, s und y gleich; alles außerhalb von „aufgaben“ gleich.
+- Lesart zu c): Der Maßstab ist die Reihenfolge der Themen. Innerhalb eines Themas ist der Stoff einer späteren Lernkarte erlaubt (z. B. Ausmultiplizieren in terme.umformen). Einfache Schritte wie „3α = 180°, also α = 60°“ in Themen nach gleichungen.linear zählen nicht als späterer Stoff.
+- Zwei Themen haben einen Nachtrag-Commit (Lösungswege mit „…“, terme.umformen und geometrie.konstruktion).
+
+**Nicht prüfen konnte ich**
+- Grafiken: Ob Bilder (Koordinatensysteme, Boxplots) zu den Texten passen, habe ich nur über die Daten geprüft, nicht als Bild.
+- Darstellung in der App, z. B. Lückenaufgaben mit negativen Werten (−3 in „□x + □y“).
+- Lehrbuchabhängige Begriffe: ob „Wechselwinkel“ auch für die äußeren Z-Winkel üblich ist und ob das Quadrat im „Haus der Vierecke“ als gleichschenkliges Trapez und Drachenviereck gilt. Ich habe die gängige Festlegung angenommen und nur die Option angepasst, die dem Lösungsweg widersprach.
+- Alte Aufgaben (nicht im Umfang).
+
 ## 2026-11-17 – ABSCHLUSSBERICHT Zwanzigste Runde (Klasse 7)
 
 Zweig `stufen-kl7`, 9 Themen, je ein Commit. Alle Themen: `python3 -I tools/inhalt_pruefen.py` OK ohne Typfehler, 0 Gruppen „gleich gebaut hintereinander“; `python3 -I inhalte/generatoren/_stufen_nachweis.py <thema>` OK (alte Aufgaben nur in g/s geändert, Lernkarten-Texte unverändert).

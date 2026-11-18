@@ -734,7 +734,7 @@ ST.typ('potenz_wert', '/^Berechne [\\d,]+\\^\\(−?\\d\\/\\d\\)/', 'mehrschritt'
 ST.typ('potenz_wert', 'Welche Zahl ist größer', 'begruenden')
 ST.typ('potenz_wert', '/^(Für den Grundumsatz|Für Planeten)/', 'transfer')
 ST.neu('potenz_wert', 'erkennen', A('Was bedeutet der Nenner 3 im Exponenten von 8^(2/3)?', 'Ziehe die dritte Wurzel.', ['Teile durch 3.', 'Nimm mal 3.', 'Nimm hoch 3.'],
-       'Nenner = Wurzel, Zähler = Potenz: 8^(2/3) = (³√8)² = 4.', 'Denk an das Beispiel mit 27^(2/3).'))
+       'Nenner = Wurzel, Zähler = Potenz: 8^(2/3) = (³√8)² = 4.', 'Hoch 1/3 heißt dritte Wurzel.'))
 ST.neu('potenz_wert', 'erkennen', A('Welcher Term ist gleich 9^(1/2)?', '√9', ['9 : 2', '9²', '1/9'],
        'Hoch 1/2 heißt Quadratwurzel: 9^(1/2) = √9 = 3.', 'Was bedeutet der Nenner 2?'))
 ST.neu('potenz_wert', 'umkehr', Z('Für welche Zahl a gilt a^(1/2) = 7?', 49, '7 ** 2',

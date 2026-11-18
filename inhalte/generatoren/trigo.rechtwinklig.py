@@ -780,7 +780,7 @@ ST.neu('verhaeltnisse', 'direkt', L('Von α aus ist die Gegenkathete 9 cm und di
 ST.neu('verhaeltnisse', 'einkleidung', Z('Eine Rampe ist 5 m lang und führt 3 m hoch. Wie groß ist der Sinus des Steigungswinkels?', 0.6, '3 / 5',
        'Die Rampe ist die Hypotenuse, die Höhe die Gegenkathete: sin α = 3 : 5 = 0,6.', 'Welche Strecke ist die Hypotenuse?'))
 ST.neu('verhaeltnisse', 'fehler', A('Jemand schreibt: sin α = Ankathete : Hypotenuse. Was stimmt?', 'Falsch: Das ist cos α; sin α = Gegenkathete : Hypotenuse.', ['Richtig.', 'Falsch: sin α = Gegenkathete : Ankathete.', 'Falsch: sin α = Hypotenuse : Gegenkathete.'],
-       'sin: Gegenkathete/Hypotenuse, cos: Ankathete/Hypotenuse, tan: Gegenkathete/Ankathete.', 'Denk an die Merkregel der Lernkarte.'))
+       'sin: Gegenkathete/Hypotenuse, cos: Ankathete/Hypotenuse, tan: Gegenkathete/Ankathete.', 'Welche Seite gehört zum Sinus: die gegenüber oder die am Winkel?'))
 ST.neu('verhaeltnisse', 'parameter', Z('Im Dreieck ABC ist γ = 90° und a = 7 cm. Für welche Länge b gilt tan α = 1?', 7, '7',
        'tan α = a : b = 1 heißt a = b = 7 cm.', 'Wann ist ein Bruch gleich 1?', einheit='cm'))
 ST.neu('verhaeltnisse', 'pruefung', L('Im Dreieck ABC ist γ = 90°, a = 8 cm, b = 6 cm. Berechne a) c, b) sin α als gekürzten Bruch, c) tan β als gekürzten Bruch.', 'a) □ cm; b) □/□; c) □/□', [10, 4, 5, 3, 4],

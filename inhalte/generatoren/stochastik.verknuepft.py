@@ -776,7 +776,7 @@ ST.typ('verknuepfen', '/^(Aus den Zahlen|Beim Würfeln)/', 'mehrschritt')
 ST.neu('verknuepfen', 'einkleidung', Z('In einer Klasse mit 25 Kindern spielen 10 Fußball, 8 Handball und 3 beides. Wie viele Kinder spielen Fußball, aber nicht Handball?', 7, '10 - 3',
        'Fußball, aber nicht Handball ist F ∩ H̄: alle Fußballer ohne die, die beides spielen: 10 − 3 = 7.', 'Wer spielt beides? Diese Kinder musst du abziehen.'))
 ST.neu('verknuepfen', 'fehler', A('Jemand sagt: „A ∪ B heißt: A und B treten beide ein.“ Was stimmt?', 'Falsch: A ∪ B heißt mindestens eines tritt ein; beide zugleich ist A ∩ B.',
-       ['Richtig.', 'Falsch: A ∪ B heißt keines tritt ein.', 'Falsch: A ∪ B heißt genau eines tritt ein.'], 'Vereinigung (∪) = „oder“ = mindestens eines. Schnitt (∩) = „und“ = beide.', 'Denk an das Beispiel der Lernkarte.'))
+       ['Richtig.', 'Falsch: A ∪ B heißt keines tritt ein.', 'Falsch: A ∪ B heißt genau eines tritt ein.'], 'Vereinigung (∪) = „oder“ = mindestens eines. Schnitt (∩) = „und“ = beide.', 'Übersetze ∪ mit „oder“ und ∩ mit „und“.'))
 ST.neu('verknuepfen', 'parameter', A('Aus den Zahlen 1 bis 20 wird eine gezogen. A: „durch k teilbar“, B: „gerade“. Für welches k gilt A ∩ B = A, also jede Zahl aus A ist auch gerade?', 'k = 4', ['k = 3', 'k = 5', 'k = 7'],
        'A ∩ B = A heißt: A liegt ganz in B. Alle Vielfachen von 4 sind gerade. Bei 3, 5 und 7 gibt es ungerade Vielfache (3, 5, 7).', 'Suche ein ungerades Vielfaches.'))
 ST.knobel('verknuepfen', Z('Wie viele der Zahlen von 1 bis 100 sind weder durch 2 noch durch 3 teilbar?', 33, '100 - 50 - 33 + 16',
@@ -916,7 +916,7 @@ ST.typ('verstehen', 'Welche Angaben sind unmöglich', 'verknuepfen')
 ST.neu('verstehen', 'direkt', Z('Eine Münze wird zweimal geworfen. Berechne P(mindestens einmal Kopf) über das Gegenereignis.', 0.75, '1 - 0.25',
        'Gegenereignis: keinmal Kopf, also ZZ mit 1/4 = 0,25. Gesucht: 1 − 0,25 = 0,75.', 'Was ist das Gegenteil von „mindestens einmal“?'))
 ST.neu('verstehen', 'einkleidung', A('Im Wetterbericht: Regen 60 %, Sonne 70 % am selben Tag. Jemand sagt: „Regen und Sonne schließen sich heute aus.“ Kann das stimmen?', 'Nein: Unvereinbar hieße 60 % + 70 % = 130 % > 100 %.',
-       ['Ja.', 'Ja, wenn es abends regnet.', 'Nein, Regen und Sonne treten nie zusammen auf.'], 'Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten, die Summe dürfte höchstens 1 sein.', 'Wie bei der Behauptung auf der Lernkarte.'))
+       ['Ja.', 'Ja, wenn es abends regnet.', 'Nein, Regen und Sonne treten nie zusammen auf.'], 'Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten, die Summe dürfte höchstens 1 sein.', 'Was wäre P(Regen oder Sonne), wenn beides nie zusammen vorkommt?'))
 ST.neu('verstehen', 'darstellung', A('In einer Tafel mit Wahrscheinlichkeiten steht im Feld A ∩ B eine 0. Was bedeutet das?', 'A und B sind unvereinbar.', ['A ist das Gegenereignis von B.', 'A tritt nie ein.', 'B tritt sicher ein.'],
        'P(A ∩ B) = 0: A und B treten nie gemeinsam ein. Das heißt unvereinbar. Gegenereignis wäre zusätzlich P(Ā ∩ B̄) = 0.', 'Was bedeutet das Feld A ∩ B?'))
 ST.neu('verstehen', 'einkleidung', A('Beim Würfeln: A „Augenzahl mindestens 5“, B „Augenzahl höchstens 2“. Was stimmt?', 'A und B sind unvereinbar, aber B ist nicht das Gegenereignis von A.',

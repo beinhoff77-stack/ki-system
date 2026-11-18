@@ -1280,7 +1280,7 @@
     "index": 2
    },
    "w": "Vereinigung (∪) = „oder“ = mindestens eines. Schnitt (∩) = „und“ = beide.",
-   "h": "Denk an das Beispiel der Lernkarte.",
+   "h": "Übersetze ∪ mit „oder“ und ∩ mit „und“.",
    "l": "verknuepfen",
    "t": "verknuepfen",
    "p": "uebung",
@@ -6460,7 +6460,7 @@
     "index": 0
    },
    "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten, die Summe dürfte höchstens 1 sein.",
-   "h": "Wie bei der Behauptung auf der Lernkarte.",
+   "h": "Was wäre P(Regen oder Sonne), wenn beides nie zusammen vorkommt?",
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",

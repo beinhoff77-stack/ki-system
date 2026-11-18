@@ -1014,14 +1014,14 @@ ST.neu('nenner_rational', 'erkennen', A('Womit erweiterst du 5/√2, damit im Ne
        '√2 · √2 = 2. Also 5/√2 = 5√2/2.', 'Was ergibt √2 · √2?'))
 ST.neu('nenner_rational', 'direkt', L('Schreibe 10/√5 ohne Wurzel im Nenner.', '□√□', [2, 5], ['2', '5'],
        '10/√5 = 10√5/5 = 2√5.', 'Erweitere mit √5 und kürze.'))
-ST.neu('nenner_rational', 'umkehr', Z('Nach dem Rationalmachen steht da 2√a/a. Vorher hieß der Bruch 2/√a. Jetzt steht 2√5/5. Wie groß ist a?', 5, '5',
-       '2/√a = 2√a/a. Vergleich mit 2√5/5: a = 5. Der alte Bruch war 2/√5.', 'Mach das Erweitern rückgängig.'))
+ST.neu('nenner_rational', 'umkehr', Z('Der Bruch 2/√a (a natürliche Zahl) wird mit √a erweitert, damit im Nenner keine Wurzel mehr steht. Heraus kommt 2√5/5. Wie groß ist a?', 5, '5',
+       'Erweitern mit √a: 2/√a = 2√a/(√a · √a) = 2√a/a. Vergleich mit 2√5/5: a = 5. Der Bruch war 2/√5.', 'Mach das Erweitern rückgängig.'))
 ST.neu('nenner_rational', 'begruenden', A('Welche Zahl ist größer: 1/√2 oder 0,7?', '1/√2', ['0,7', 'Beide sind gleich.', 'Das lässt sich nicht entscheiden.'],
        '1/√2 = √2/2. Wegen 1,4² = 1,96 < 2 ist √2 > 1,4, also √2/2 > 0,7.', 'Mache den Nenner rational und schätze √2.'))
 ST.neu('nenner_rational', 'parameter', Z('Für welche natürliche Zahl a gilt 6/√a = 2√3?', 3, '36 // 12',
        '6/√a = 2√3 heißt √a = 6/(2√3) = 3/√3 = √3. Also a = 3. Probe: 6/√3 = 6√3/3 = 2√3.', 'Löse nach √a auf.'))
 ST.neu('nenner_rational', 'rueckwaerts', Z('Nach dem Rationalmachen von 6/(□ − √3) steht da 3 + √3. Welche Zahl gehört in das Kästchen?', 3, '(6 + 6) // 4',
-       'Mit □ = 3: 6/(3 − √3) · (3 + √3)/(3 + √3) = 6(3 + √3)/(9 − 3) = 3 + √3. Rückwärts: Der Nenner muss 9 − 3 = 6 werden, damit sich die 6 wegkürzt, also □² − 3 = 6 und □ = 3.',
+       'Mit □ = 3: 6/(3 − √3) · (3 + √3)/(3 + √3) = 6(3 + √3)/(9 − 3) = 3 + √3. Rückwärts: Aus 6/(□ − √3) = 3 + √3 folgt □ − √3 = 6/(3 + √3) = 6(3 − √3)/(9 − 3) = 3 − √3, also □ = 3.',
        'Was ergibt (□ − √3)(□ + √3)?'))
 ST.neu('nenner_rational', 'pruefung', L('Gegeben ist 8/(√5 + 1). a) Womit erweiterst du? b) Gib das Ergebnis an.', 'a) √5 − □; b) □√5 − □', [1, 2, 2], ['1', '8 // 4', '8 // 4'],
        'a) Mit √5 − 1, dann steht unten (√5 + 1)(√5 − 1) = 5 − 1 = 4. b) 8(√5 − 1)/4 = 2√5 − 2.', 'Dritte binomische Formel im Nenner.'))
@@ -1059,9 +1059,9 @@ ST.neu('heron', 'pruefung', L('Heron-Verfahren für √60 mit dem Startwert 8. a
 ST.knobel('heron', L('Heron für √2 mit dem Startwert 1 liefert 3/2, dann 17/12. Welcher Bruch kommt als nächster (x₃)?', '□/□', [577, 408], ['577', '408'],
           'x₃ = (17/12 + 2 : (17/12)) : 2 = (17/12 + 24/17) : 2. Gemeinsamer Nenner 204: 17/12 = 289/204, 24/17 = 288/204. Summe 577/204, halbiert 577/408. Probe: 577/408 ≈ 1,414216, √2 ≈ 1,414214.',
           'Ein gemeinsamer Nenner hilft; 12 · 17 = 204.'))
-ST.knobel('heron', A('Ist der Wert x₁ nach einem Heron-Schritt immer mindestens so groß wie √a (bei positivem Startwert)?', 'Ja, denn (x + a : x) : 2 ≥ √a gilt immer.',
+ST.knobel('heron', A('Ist der Wert x₁ nach einem Heron-Schritt immer mindestens so groß wie √a (bei positivem Startwert)?', 'Ja: Der Mittelwert von x und a : x ist nie kleiner als √a.',
           ['Nein, nur wenn der Startwert zu groß war.', 'Nein, x₁ ist immer kleiner als √a.', 'Das hängt von a ab.'],
-          'Mit y = a : x gilt x · y = a. Es ist (x − y)² ≥ 0, also x² + y² ≥ 2xy und (x + y)² ≥ 4xy = 4a. Damit (x + y) : 2 ≥ √a. Ab dem ersten Schritt nähert sich das Verfahren also von oben.',
+          'Mit y = a : x gilt x · y = a. Es ist (x − y)² ≥ 0, also x² + y² ≥ 2xy. Auf beiden Seiten 2xy addieren: (x + y)² ≥ 4xy = 4a. Beide Seiten sind positiv, Wurzel ziehen: x + y ≥ 2√a, also (x + y) : 2 ≥ √a. Ab dem ersten Schritt nähert sich das Verfahren also von oben.',
           'Nenne die zweite Seite y. Was weißt du über (x − y)²?'))
 
 if __name__ == '__main__':

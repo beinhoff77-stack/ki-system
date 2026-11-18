@@ -275,8 +275,12 @@ def nachweis_korrektur(thema):
     vor = {a['f']['text'] for a in _git_json(VOR_RUNDE, thema)['aufgaben']}
     ok = True
     if json.dumps(basis['inhalt'], sort_keys=True) != json.dumps(neu['inhalt'], sort_keys=True): ok = False; print('FEHLER: inhalt (Lernkarten) geändert')
+    liste = {x['thema_schluessel']: x for x in json.loads((THEMEN.parent / 'themenliste.json').read_text(encoding='utf-8'))}
     for k in basis:
-        if k not in ('inhalt', 'aufgaben') and basis[k] != neu.get(k): ok = False; print(f'FEHLER: Feld {k} geändert')
+        if k in ('inhalt', 'aufgaben') or basis[k] == neu.get(k): continue
+        if k == 'klasse' and neu.get(k) == liste.get(thema, {}).get('klasse'):
+            print(f'Hinweis: Feld klasse beim Neubau an themenliste.json angeglichen ({basis[k]} → {neu[k]})'); continue
+        ok = False; print(f'FEHLER: Feld {k} geändert')
     if len(basis['aufgaben']) != len(neu['aufgaben']): ok = False; print('FEHLER: Zahl der Aufgaben geändert')
     voll = lambda a: json.dumps(a, ensure_ascii=False, sort_keys=True)
     pool = collections.Counter(voll(a) for a in neu['aufgaben'])

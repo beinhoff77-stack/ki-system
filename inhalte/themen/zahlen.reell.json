@@ -5,7 +5,7 @@
  "klasse": {
   "gym_by": 9,
   "rs_by": 9,
-  "ib_myp": 3
+  "ib_myp": 4
  },
  "autor": "Claude (Paket Klasse 9)",
  "inhalt": {
@@ -6042,13 +6042,13 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Nach dem Rationalmachen steht da 2√a/a. Vorher hieß der Bruch 2/√a. Jetzt steht 2√5/5. Wie groß ist a?"
+    "text": "Der Bruch 2/√a (a natürliche Zahl) wird mit √a erweitert, damit im Nenner keine Wurzel mehr steht. Heraus kommt 2√5/5. Wie groß ist a?"
    },
    "o": {
     "wert": 5
    },
    "c": "5",
-   "w": "2/√a = 2√a/a. Vergleich mit 2√5/5: a = 5. Der alte Bruch war 2/√5.",
+   "w": "Erweitern mit √a: 2/√a = 2√a/(√a · √a) = 2√a/a. Vergleich mit 2√5/5: a = 5. Der Bruch war 2/√5.",
    "h": "Mach das Erweitern rückgängig.",
    "l": "nenner_rational",
    "t": "nenner_rational",
@@ -6251,7 +6251,7 @@
     "wert": 3
    },
    "c": "(6 + 6) // 4",
-   "w": "Mit □ = 3: 6/(3 − √3) · (3 + √3)/(3 + √3) = 6(3 + √3)/(9 − 3) = 3 + √3. Rückwärts: Der Nenner muss 9 − 3 = 6 werden, damit sich die 6 wegkürzt, also □² − 3 = 6 und □ = 3.",
+   "w": "Mit □ = 3: 6/(3 − √3) · (3 + √3)/(3 + √3) = 6(3 + √3)/(9 − 3) = 3 + √3. Rückwärts: Aus 6/(□ − √3) = 3 + √3 folgt □ − √3 = 6/(3 + √3) = 6(3 − √3)/(9 − 3) = 3 − √3, also □ = 3.",
    "h": "Was ergibt (□ − √3)(□ + √3)?",
    "l": "nenner_rational",
    "t": "nenner_rational",
@@ -7043,12 +7043,12 @@
     "Das hängt von a ab.",
     "Nein, nur wenn der Startwert zu groß war.",
     "Nein, x₁ ist immer kleiner als √a.",
-    "Ja, denn (x + a : x) : 2 ≥ √a gilt immer."
+    "Ja: Der Mittelwert von x und a : x ist nie kleiner als √a."
    ],
    "o": {
     "index": 3
    },
-   "w": "Mit y = a : x gilt x · y = a. Es ist (x − y)² ≥ 0, also x² + y² ≥ 2xy und (x + y)² ≥ 4xy = 4a. Damit (x + y) : 2 ≥ √a. Ab dem ersten Schritt nähert sich das Verfahren also von oben.",
+   "w": "Mit y = a : x gilt x · y = a. Es ist (x − y)² ≥ 0, also x² + y² ≥ 2xy. Auf beiden Seiten 2xy addieren: (x + y)² ≥ 4xy = 4a. Beide Seiten sind positiv, Wurzel ziehen: x + y ≥ 2√a, also (x + y) : 2 ≥ √a. Ab dem ersten Schritt nähert sich das Verfahren also von oben.",
    "h": "Nenne die zweite Seite y. Was weißt du über (x − y)²?",
    "l": "heron",
    "t": "heron",

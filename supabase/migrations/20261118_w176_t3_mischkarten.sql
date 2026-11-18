@@ -23,7 +23,7 @@ insert into schule.regel(schluessel, wert, hinweis) values
   ('misch_ab_gelandet', '3'::jsonb, 'W176: Mischkarten erst, wenn im aktuellen Flug so viele Etappen gelandet sind')
   on conflict (schluessel) do nothing;
 
--- Kandidaten: je gelandeter Etappe des Kindes eine Bordkarte (Pool uebung, Stufe 2–3, freigegeben; Entwürfe nur für das Testkind), am seltensten gesehen.
+-- Kandidaten: je gelandeter Etappe des Kindes eine Bordkarte (Pool uebung, Stufe 2–3, nur freigegebene Aufgaben – auch beim Testkind; Entwurfs-Flüge nur für das Testkind), am seltensten gesehen.
 -- Reihenfolge: gleicher Flug, gleicher Kontinent, älterer Flug. Die gerade geübte Etappe schließt die App aus (sie kennt sie).
 create or replace function schule.mischkarten(p_lernender bigint, p_einheit bigint, p_anzahl int default 8)
  returns jsonb
@@ -38,7 +38,7 @@ as $function$
            case when k.einheit_id = p_einheit then 'flug' when b.kontinent_id = (select kontinent_id from hier) then 'kontinent' else 'aelter' end quelle,
            (select a.id from schule.aufgabe a
              where a.einheit_id = k.einheit_id and a.variante_gruppe = k.lernziel and a.pool = 'uebung' and a.stufe in (2, 3)
-               and (a.freigegeben or (select test from ich))
+               and a.freigegeben -- gesperrte Aufgaben nie, auch nicht für das Testkind (Korrektur 18.11.); Entwurfs-Flüge des Testkinds über e.status unten
              order by (select count(*) from schule.versuch v where v.lernender_id = p_lernender and v.aufgabe_id = a.id), random() limit 1) aufgabe_id
       from schule.karte_stand k join schule.einheit e on e.id = k.einheit_id join schule.block b on b.id = e.block_id
      where k.lernender_id = p_lernender and k.sitzt
@@ -142,5 +142,25 @@ begin
   d := pg_get_functiondef('api.schule_lernstand(text, jsonb)'::regprocedure);
   if position('''sicher'', coalesce(schule.karte_sicher(k), false),' in d) = 0 then raise exception 'Stelle in schule_lernstand nicht gefunden (Teil 1 eingespielt?)'; end if;
   d := replace(d, '''sicher'', coalesce(schule.karte_sicher(k), false),', '''sicher'', coalesce(schule.karte_sicher(k), false), ''misch_ok'', k.misch_ok_am is not null,');
+  execute d;
+end $$;
+
+-- Korrektur 18.11. (Probelauf: Rauchtest „FEHLER 2“): Gesperrte Aufgaben (freigegeben = false, z. B. die seit 17.11. gesperrten überzähligen Übungen) bekommt auch das Testkind nicht mehr.
+-- Dieselbe Stelle gab es an drei weiteren Orten; dort gilt jetzt dieselbe Regel. Entwurfs-Flüge sieht das Testkind weiter – das regelt der Status der Einheit
+-- (einheit_pruefen_sichtbar bzw. e.status), nicht das Feld freigegeben der Aufgabe.
+do $$
+declare d text;
+begin
+  d := pg_get_functiondef('schule.einheit_lesen_intern(bigint, bigint)'::regprocedure); -- Übungen und Knobel-Bordkarten der Einheit
+  if position('(a.freigegeben or exists (select 1 from schule.lernender l where l.id = p_lernender and l.ist_test))' in d) = 0 then raise exception 'Stelle in einheit_lesen_intern nicht gefunden'; end if;
+  d := replace(d, '(a.freigegeben or exists (select 1 from schule.lernender l where l.id = p_lernender and l.ist_test))', '(a.freigegeben)');
+  execute d;
+  d := pg_get_functiondef('api.schule_wiederholung(text, jsonb)'::regprocedure);
+  if position('(a.freigegeben or coalesce(v_test, false))' in d) = 0 then raise exception 'Stelle in schule_wiederholung nicht gefunden'; end if;
+  d := replace(d, '(a.freigegeben or coalesce(v_test, false))', '(a.freigegeben)');
+  execute d;
+  d := pg_get_functiondef('schule.uebung_pruefen_intern(bigint, jsonb)'::regprocedure);
+  if position('if not a.freigegeben and not exists (select 1 from schule.lernender l where l.id = p_lernender and l.ist_test) then' in d) = 0 then raise exception 'Stelle in uebung_pruefen_intern (freigegeben) nicht gefunden'; end if;
+  d := replace(d, 'if not a.freigegeben and not exists (select 1 from schule.lernender l where l.id = p_lernender and l.ist_test) then', 'if not a.freigegeben then');
   execute d;
 end $$;

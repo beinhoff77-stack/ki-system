@@ -1099,7 +1099,7 @@ test('E-2: Startseite je Kind ein Bereich mit drei Schularten; darunter „Für 
   await a.waitFor();
   assert.deepEqual(await a.locator('.lern-mini-name').allInnerTexts(), ['GYM 5', 'RS 5', 'IB 1']);
   await a.getByText('Jetzt: Rom · Natürliche Zahlen (2/4)').waitFor();
-  assert.deepEqual(await a.locator('.lern-kindbereich-knoepfe a').allInnerTexts(), ['Lernstand', 'Was wackelt?', 'Flugplan', 'Lernreise ansehen']);
+  assert.deepEqual(await a.locator('.lern-kindbereich-knoepfe a').allInnerTexts(), ['Lernen starten ›', 'Lernstand', 'Was wackelt?', 'Flugplan']);
   assert.equal(await page.locator('.lern-kindbereich').count(), 2, 'je Kind ein Bereich (Testkind nicht)');
   await page.getByText('FÜR ALLE KINDER').waitFor();
   for (const t2 of ['Lehrplan-Übersicht', 'Meine Aufträge', 'So funktioniert’s']) await page.locator('.lern-kinderliste').getByText(t2, { exact: true }).waitFor();
@@ -1617,4 +1617,28 @@ test('W176 T3: Mischkarte beim Üben – neutral gekennzeichnet, ohne Erklärung
   // Knobel-Bordkarten kommen nie als Mischkarte: die nächste Bordkarte ist eine normale aus Rom
   await page.getByRole('button', { name: /Neue Bordkarte/ }).click();
   await page.getByText(/BORDKARTE 2 · ROM/).waitFor();
+});
+
+// ---------- Wunsch 18.11.: „Lernen starten“ an der Kinderkarte ----------
+test('Kinderkarte: „Lernen starten“ ist der erste, hervorgehobene Knopf, auf dem Handy allein in der ersten Zeile, und öffnet die Abflugtafel', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  for (const [b, h] of [[390, 844], [820, 1180], [1280, 800]]) {
+    await page.setViewportSize({ width: b, height: h });
+    await page.goto(origin + '/#/lernen');
+    const karte = page.locator('.lern-kindbereich', { hasText: 'Kind A' });
+    const knoepfe = karte.locator('.lern-kindbereich-knoepfe a');
+    await knoepfe.first().waitFor();
+    assert.equal(await knoepfe.first().innerText(), 'Lernen starten ›');
+    assert.equal(await knoepfe.first().getAttribute('href'), '#/reise/1');
+    const [farbe, andere] = await knoepfe.evaluateAll((as) => [getComputedStyle(as[0]).backgroundColor, getComputedStyle(as[1]).backgroundColor]);
+    assert.notEqual(farbe, andere, 'hervorgehoben');
+    const boxen = await knoepfe.evaluateAll((as) => as.map((a) => a.getBoundingClientRect()).map((r) => ({ top: Math.round(r.top), left: Math.round(r.left), w: Math.round(r.width) })));
+    assert.ok(boxen.slice(1).every((x) => x.top >= boxen[0].top), `${b} px: „Lernen starten“ steht in der ersten Zeile`);
+    if (b === 390) assert.ok(boxen.slice(1).every((x) => x.top > boxen[0].top), '390 px: allein in der ersten Zeile');
+  }
+  await page.locator('.lern-kindbereich', { hasText: 'Kind A' }).getByRole('link', { name: 'Lernen starten: Kind A' }).click();
+  await page.waitForURL(/#\/reise\/1$/);
+  await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  await page.goto(origin + '/#/info');
+  await page.getByText('Auf der Startseite hat jede Kinderkarte oben den Knopf „Lernen starten“', { exact: false }).waitFor();
 });

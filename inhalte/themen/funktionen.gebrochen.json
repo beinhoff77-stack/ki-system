@@ -1320,7 +1320,7 @@
    "a": [
     "{0; 1; 2; …}",
     "{3; 4; 5; …}",
-    "ℝ \\ {3}",
+    "ℚ \\ {3}",
     "{4; 5; 6; …}"
    ],
    "o": {
@@ -1354,7 +1354,7 @@
    "g": "fehler",
    "y": "auswahl",
    "f": {
-    "text": "Für eine 240 km lange Fahrt gilt t(v) = 240/v Stunden. Jemand gibt als Definitionsmenge D = ℝ an. Was stimmt?"
+    "text": "Für eine 240 km lange Fahrt gilt t(v) = 240/v Stunden. Jemand gibt als Definitionsmenge D = ℚ an. Was stimmt?"
    },
    "a": [
     "Falsch: v = 0 ist ausgeschlossen; sinnvoll ist v > 0.",
@@ -1382,12 +1382,12 @@
     "{0; 1; 2; 3; 4; 5; 6}",
     "{1; 2; 3; 4; 5; 6}",
     "]0; 6]",
-    "ℝ \\ {0}"
+    "ℚ \\ {0}"
    ],
    "o": {
     "index": 1
    },
-   "w": "Gegeben: t(x) = 36/x, x ganze Pumpen, höchstens 6. Gesucht: D. Ansatz: Nenner ≠ 0 und Sachbedingungen. Rechnung: x ∈ {1; …; 6}. Antwort: D = {1; 2; 3; 4; 5; 6}.",
+   "w": "Gegeben: t(x) = 36/x, x ganze Pumpen, höchstens 6. Gesucht: D. Ansatz: Nenner ≠ 0 und Sachbedingungen. Rechnung: x = 1, 2, 3, 4, 5 oder 6. Antwort: D = {1; 2; 3; 4; 5; 6}.",
    "h": "Gibt es 2,5 Pumpen? Gibt es 0 Pumpen?"
   },
   {
@@ -2037,13 +2037,13 @@
    "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Gegeben f(x) = 6/(x + 2) − 3. Gib die Asymptoten an und berechne die Nullstelle. Gib die Nullstelle an."
+    "text": "Gegeben f(x) = 6/(x + 2) − 3. Berechne die Nullstelle."
    },
    "o": {
     "wert": 0
    },
    "c": "6 / 3 - 2",
-   "w": "Asymptoten: x = −2 und y = −3. Nullstelle: 6/(x + 2) = 3 ⇒ x + 2 = 2 ⇒ x = 0 (der Graph geht durch den Ursprung).",
+   "w": "Nullstelle: 6/(x + 2) − 3 = 0 ⇒ 6/(x + 2) = 3 ⇒ x + 2 = 2 ⇒ x = 0 (der Graph geht durch den Ursprung).",
    "h": "Setze f(x) = 0 und löse."
   },
   {
@@ -2593,13 +2593,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für den Saftanteil gilt p(x) = 6/(x + 4). Bestimme p(0)."
+    "text": "Aus einem Tank fließt Wasser ab. Nach t Stunden sind noch V(t) = 6/(t + 4) Kubikmeter darin. Wie viel ist am Anfang darin?"
    },
    "o": {
-    "wert": 1.5
+    "wert": 1.5,
+    "einheit": "m³"
    },
    "c": "6 / 4",
-   "w": "Gegeben: x = 0. Gesucht: p(0). Ansatz: Einsetzen. Rechnung: 6 : 4 = 1,5. Antwort: p(0) = 1,5."
+   "w": "Gegeben: V(t) = 6/(t + 4), Anfang t = 0. Gesucht: V(0). Ansatz: Einsetzen. Rechnung: 6 : 4 = 1,5. Antwort: Am Anfang sind 1,5 m³ im Tank."
   },
   {
    "l": "achsenpunkte",
@@ -3864,19 +3865,19 @@
    "g": "transfer",
    "y": "auswahl",
    "f": {
-    "text": "Der Graph von f(x) = 1/(x − 1) + 1 wird an der Geraden y = x gespiegelt. Welche Funktion gehört zum gespiegelten Graphen?"
+    "text": "Der Graph von f(x) = 1/(x − 1) + 1 wird um 1 nach links und um 1 nach unten verschoben. Welche Funktion gehört zum verschobenen Graphen?"
    },
    "a": [
-    "f(x) = x − 1",
-    "wieder f(x) = 1/(x − 1) + 1",
-    "f(x) = −1/(x − 1) + 1",
-    "f(x) = 1/(x + 1) − 1"
+    "g(x) = 1/x + 2",
+    "g(x) = 1/x",
+    "g(x) = 1/(x − 2) + 2",
+    "g(x) = 1/(x − 2)"
    ],
    "o": {
     "index": 1
    },
-   "w": "Beim Spiegeln an y = x vertauscht man x und y: x − 1 = 1/(y − 1) ⇒ y − 1 = 1/(x − 1). Es kommt derselbe Term heraus – der Graph ist zu y = x symmetrisch.",
-   "h": "Vertausche x und y und löse nach y auf."
+   "w": "Die Asymptoten von f sind x = 1 und y = 1. Nach der Verschiebung liegen sie bei x = 0 und y = 0. Am Term: 1 nach links heißt x + 1 statt x: 1/((x + 1) − 1) + 1 = 1/x + 1; 1 nach unten: 1/x + 1 − 1 = 1/x.",
+   "h": "Wo liegen die Asymptoten vorher und nachher?"
   },
   {
    "l": "parameter",
@@ -3944,15 +3945,15 @@
    "g": "mehrschritt",
    "y": "zahl",
    "f": {
-    "text": "Für die Stückkosten gilt k(x) = a/x + b. Bei 10 Stück kostet jedes 25 €, bei 20 Stück 15 €. Wie groß ist b?"
+    "text": "Für die Stückkosten gilt k(x) = a/x + 4 Euro. Bei 20 Stück kostet jedes 14 €. Was kostet jedes Stück bei 50 Stück?"
    },
    "o": {
-    "wert": 5,
+    "wert": 8,
     "einheit": "€"
    },
-   "c": "25 - (25 - 15) * 2",
-   "w": "Gegeben: a/10 + b = 25, a/20 + b = 15. Gesucht: b. Ansatz: Differenz: a/20 = 10. Rechnung: a = 200, b = 25 − 20 = 5. Antwort: b = 5 €.",
-   "h": "Ziehe die beiden Gleichungen voneinander ab."
+   "c": "(14 - 4) * 20 / 50 + 4",
+   "w": "Gegeben: k(x) = a/x + 4, k(20) = 14. Gesucht: k(50). Ansatz: Erst a bestimmen, dann x = 50 einsetzen. Rechnung: a/20 = 10 ⇒ a = 200; k(50) = 200 : 50 + 4 = 8. Antwort: Bei 50 Stück kostet jedes 8 €.",
+   "h": "Bestimme zuerst a."
   },
   {
    "l": "parameter",
@@ -5018,7 +5019,7 @@
     "wert": 2
    },
    "c": "2",
-   "w": "Probieren: x = 2 ergibt 1/2 und −2 + 2,5 = 0,5 ✓. x = 0,5 ergibt 2 und 2 ✓. Beide Graphen sind spiegelbildlich zu y = x, deshalb gehört zu (2 | 0,5) auch (0,5 | 2). Für x < 0 ist 1/x negativ, die Gerade aber positiv – dort gibt es keinen Schnitt. Also 2.",
+   "w": "Probieren: x = 2 ergibt 1/2 und −2 + 2,5 = 0,5 ✓. x = 0,5 ergibt 2 und 2 ✓. Beide Graphen sind spiegelbildlich zu y = x, deshalb gehört zu (2 | 0,5) auch (0,5 | 2). Für x < 0 ist 1/x negativ, die Gerade aber positiv – dort gibt es keinen Schnitt. Mehr als zwei Schnitte mit x > 0 gibt es nicht: Ein Schnittpunkt (x | y) erfüllt x + y = 2,5 und x · y = 1. Für zwei positive Zahlen mit der Summe 2,5 wird das Produkt x · (2,5 − x) bis x = 1,25 immer größer und danach spiegelbildlich wieder kleiner – den Wert 1 erreicht es also auf jeder Seite nur einmal. Also 2.",
    "h": "Probiere einfache Zahlen und nutze die Symmetrie zu y = x."
   },
   {

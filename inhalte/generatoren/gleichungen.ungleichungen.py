@@ -829,9 +829,9 @@ ST.neu('umformen', 'transfer', SZ('Ein Zug soll eine 120 km lange Strecke in hö
 ST.neu('umformen', 'pruefung', SZ('Für wie viele natürliche Zahlen n ist 3n − 4 kleiner als 2n + 1 und zugleich größer als 0?', 3, '4 - 2 + 1',
     '3n − 4 < 2n + 1 ⇒ n < 5. 3n − 4 > 0 ⇒ n > 4/3. Also n = 2, 3, 4: drei Zahlen.', 'Löse beide Bedingungen einzeln und suche die natürlichen Zahlen dazwischen.'))
 ST.neu('umformen', 'verknuepfen', SZ('Ein Dreieck hat die Seiten 5 cm, 8 cm und x cm (x ganzzahlig). Wie viele Werte für x sind möglich? (Zwei Seiten zusammen müssen länger sein als die dritte.)', 9, '12 - 4 + 1',
-    '5 + x > 8 ⇒ x > 3, und 5 + 8 > x ⇒ x < 13 (5 + x > 8 gilt dann ohnehin). Möglich sind 4, 5, …, 12: neun Werte.', 'Schreibe für jede Seite die Dreiecksungleichung auf.'))
+    '5 + x > 8 ⇒ x > 3, und 5 + 8 > x ⇒ x < 13 (5 + x > 8 gilt dann ohnehin). Möglich sind alle ganzen Zahlen von 4 bis 12: neun Werte.', 'Schreibe für jede Seite die Dreiecksungleichung auf.'))
 ST.knobel('umformen', SZ('Die Summe dreier aufeinanderfolgender ganzer Zahlen liegt zwischen 100 und 110 (Grenzen ausgeschlossen). Wie viele Möglichkeiten gibt es für die mittlere Zahl?', 3, '36 - 34 + 1',
-    'Nennt man die mittlere Zahl m, sind die drei Zahlen m − 1, m und m + 1. Ihre Summe ist 3m. Aus 100 < 3m < 110 folgt 33,3… < m < 36,6…, also m = 34, 35 oder 36. Probe: 102, 105, 108 liegen zwischen 100 und 110. Es gibt drei Möglichkeiten.',
+    'Nennt man die mittlere Zahl m, sind die drei Zahlen m − 1, m und m + 1. Ihre Summe ist 3m. Aus 100 < 3m < 110 folgt 100 : 3 < m < 110 : 3, also etwa 33,3 < m < 36,7, also m = 34, 35 oder 36. Probe: 102, 105, 108 liegen zwischen 100 und 110. Es gibt drei Möglichkeiten.',
     'Wie lässt sich die Summe dreier aufeinanderfolgender Zahlen mit nur einer Variablen schreiben?'))
 ST.knobel('umformen', SZ('Eine ganze Zahl x ist größer als die Hälfte von x + 7, aber kleiner als ein Drittel von x + 20. Wie viele solche Zahlen gibt es?', 2, '9 - 8 + 1',
     'x > (x + 7) : 2 ⇒ 2x > x + 7 ⇒ x > 7. x < (x + 20) : 3 ⇒ 3x < x + 20 ⇒ 2x < 20 ⇒ x < 10. Also x = 8 oder x = 9: zwei Zahlen. Probe mit 8: 8 > 7,5 und 8 < 9,33.',
@@ -852,10 +852,10 @@ ST.neu('umdrehen', 'rueckwaerts', SZ('Eine Zahl wird mit (−3) multipliziert, d
 ST.neu('umdrehen', 'parameter', SZ('Für welchen Wert von a hat a · x ≤ −10 die Lösungsmenge x ≥ 2?', -5, '-10 / 2',
     'Das Zeichen hat sich umgedreht, also ist a negativ. Dann gilt x ≥ −10 : a = 2, also a = −5. Probe: −5x ≤ −10 ⇒ x ≥ 2.', 'Was sagt das umgedrehte Zeichen über das Vorzeichen von a?'))
 ST.neu('umdrehen', 'transfer', SZ('Ein Konto steht bei 50 €. Jeden Monat werden 12 € abgebucht, sonst passiert nichts. Nach wie vielen vollen Monaten ist es zum ersten Mal im Minus?', 5, '50 // 12 + 1',
-    '50 − 12m < 0 ⇒ −12m < −50 ⇒ m > 4,1… Nach 4 Monaten sind noch 2 € da, nach 5 Monaten −10 €.', 'Stelle den Kontostand nach m Monaten als Term auf.'))
+    '50 − 12m < 0 ⇒ −12m < −50 ⇒ m > 50 : 12 ≈ 4,17 Nach 4 Monaten sind noch 2 € da, nach 5 Monaten −10 €.', 'Stelle den Kontostand nach m Monaten als Term auf.'))
 ST.neu('umdrehen', 'pruefung', SA('Löse 5 − 2x ≥ x + 8 und prüfe: Welche der Zahlen −4, −1, 0 und 2 sind Lösungen?', '−4 und −1', ['nur −4', '0 und 2', '−1, 0 und 2'],
     '5 − 2x ≥ x + 8 ⇒ −3x ≥ 3 ⇒ x ≤ −1. Von den Zahlen sind −4 und −1 Lösungen (−1 mit Gleichheit: 7 ≥ 7).', 'Erst lösen, dann jede Zahl mit der Lösungsmenge vergleichen.'))
-ST.neu('umdrehen', 'verknuepfen', SZ('Für welche x ist der Term 2 − 3x positiv und zugleich kleiner als 11? Wie viele ganze Zahlen sind das?', 3, '0 - (-2) + 1',
+ST.neu('umdrehen', 'verknuepfen', SZ('Für wie viele ganze Zahlen x ist der Term 2 − 3x positiv und zugleich kleiner als 11?', 3, '0 - (-2) + 1',
     '2 − 3x > 0 ⇒ x < 2/3. 2 − 3x < 11 ⇒ −3x < 9 ⇒ x > −3. Ganze Zahlen dazwischen: −2, −1, 0. Das sind drei.', 'Zwei Ungleichungen: einmal „> 0“, einmal „< 11“.'))
 ST.knobel('umdrehen', SZ('Für welche ganze Zahl a hat (a − 3) · x < 6 die Lösungsmenge x > −3?', 1, '3 - 2',
     'Das Zeichen hat sich umgedreht, also ist a − 3 negativ. Dann gilt x > 6 : (a − 3). Das soll −3 sein: 6 : (a − 3) = −3 ⇒ a − 3 = −2 ⇒ a = 1. Probe: −2x < 6 ⇒ x > −3.',
@@ -887,8 +887,8 @@ ST.neu('klammern', 'rueckwaerts', SZ('Die größte ganze Lösung von 2(x + 1) < 
 ST.neu('klammern', 'transfer', SZ('Ein Saal hat drei Reihen mit je (x + 4) Stühlen und eine letzte Reihe mit 2x Stühlen. Es sollen mindestens 37 Plätze sein. Wie viele Stühle hat die letzte Reihe mindestens?', 10, '2 * (37 - 12) / 5',
     '3(x + 4) + 2x ≥ 37 ⇒ 5x + 12 ≥ 37 ⇒ x ≥ 5. Die letzte Reihe hat 2x ≥ 10 Stühle.', 'Stelle die Platzzahl als Term mit x auf – gefragt ist am Ende 2x.'))
 ST.knobel('klammern', SZ('Für welche ganzen Zahlen n gilt 2(n + 3) < 3(n − 1) < 2(n + 8)? Gib die Summe all dieser Zahlen an.', 126, '(10 + 18) * 9 / 2',
-    'Linker Teil: 2n + 6 < 3n − 3 ⇒ n > 9. Rechter Teil: 3n − 3 < 2n + 16 ⇒ n < 19. Also n = 10, 11, …, 18 (neun Zahlen). Summe: (10 + 18) · 9 : 2 = 126.',
-    'Teile die Doppelungleichung in zwei Ungleichungen; für die Summe hilft ein Trick wie beim kleinen Gauß.'))
+    'Linker Teil: 2n + 6 < 3n − 3 ⇒ n > 9. Rechter Teil: 3n − 3 < 2n + 16 ⇒ n < 19. Also n = 10 bis 18 (neun Zahlen). Summe: 10 + 11 + 12 + 13 + 14 + 15 + 16 + 17 + 18 = 126.',
+    'Teile die Doppelungleichung in zwei Ungleichungen; dann addiere alle passenden Zahlen.'))
 ST.knobel('klammern', SA('Welche Zahlen x erfüllen 5(x − 2) − 3(x − 4) ≥ 2(x + 1)?', 'jede Zahl', ['keine Zahl', 'nur x ≥ 1', 'nur x ≤ 0'],
     'Links: 5x − 10 − 3x + 12 = 2x + 2. Rechts: 2x + 2. Die Ungleichung heißt also 2x + 2 ≥ 2x + 2 – das stimmt immer (mit Gleichheit). Jede Zahl ist Lösung.',
     'Vereinfache beide Seiten ganz, bevor du nach x auflöst.'))
@@ -913,7 +913,7 @@ ST.knobel('intervall', SZ('Ein Intervall hat die Länge 3,5. Wie viele ganze Zah
     'Beginnt das Intervall genau bei einer ganzen Zahl und enthält diese, etwa [0; 3,5], liegen 0, 1, 2 und 3 darin – vier Zahlen. Fünf ganze Zahlen bräuchten von der kleinsten bis zur größten mindestens die Länge 4. Also höchstens vier.',
     'Wie weit liegen die kleinste und die größte von n ganzen Zahlen mindestens auseinander?'))
 ST.knobel('intervall', SZ('Wie viele ganze Zahlen x haben von der Zahl 3 einen Abstand kleiner als 5?', 9, '7 - (-1) + 1',
-    'Abstand kleiner als 5 heißt: 3 − 5 < x < 3 + 5, also −2 < x < 8 – das Intervall ]−2; 8[. Ganze Zahlen darin: −1, 0, 1, …, 7, also 7 − (−1) + 1 = 9 Zahlen.',
+    'Abstand kleiner als 5 heißt: 3 − 5 < x < 3 + 5, also −2 < x < 8 – das Intervall ]−2; 8[. Ganze Zahlen darin: alle ganzen Zahlen von −1 bis 7, also 7 − (−1) + 1 = 9 Zahlen.',
     'Schreibe „Abstand kleiner als 5“ als Doppelungleichung.'))
 
 # --- pruefen ---
@@ -924,7 +924,7 @@ T('pruefen', (r'^Welche Zahl ist', 'erkennen'), (r'^Gib die (kleinste|größte)'
   (r'^Tom', 'begruenden'), (r'positive ganze Zahlen', 'pruefung'), (r'a · x ≥ 6', 'parameter'))
 ST.neu('pruefen', 'direkt', SZ('Mach die Probe für x = −2 bei 3 − 4x > 10: Welchen Wert hat die linke Seite?', 11, '3 - 4 * (-2)',
     '3 − 4 · (−2) = 3 + 8 = 11. Da 11 > 10 ist, ist x = −2 eine Lösung.', 'Setze −2 in Klammern für x ein.'))
-ST.neu('pruefen', 'einkleidung', SZ('Ein Becken fasst 500 l und enthält schon 140 l. Pro Minute fließen 25 l zu. Nach wie vielen ganzen Minuten ist es höchstens voll, aber noch nicht übergelaufen? Gib die größte Minutenzahl an.', 14, '(500 - 140) // 25',
+ST.neu('pruefen', 'einkleidung', SZ('Ein Becken fasst 500 l und enthält schon 140 l. Pro Minute fließen 25 l zu. Wie viele volle Minuten kann das Wasser höchstens laufen, ohne dass das Becken überläuft?', 14, '(500 - 140) // 25',
     '140 + 25t ≤ 500 ⇒ 25t ≤ 360 ⇒ t ≤ 14,4. Die größte ganze Zahl ist 14.', 'Stelle den Inhalt nach t Minuten als Term auf.'))
 ST.neu('pruefen', 'umkehr', SZ('Welche Zahl a ergibt für 4x − a < 2 die Lösungsmenge x < 3?', 10, '4 * 3 - 2',
     '4x − a < 2 ⇒ 4x < 2 + a ⇒ x < (2 + a) : 4. Das soll 3 sein: 2 + a = 12 ⇒ a = 10.', 'Löse mit dem Buchstaben a nach x auf.'))
@@ -978,12 +978,12 @@ ST.neu('sachaufgabe', 'darstellung', SA('Eine Tabelle zeigt einen Tarif: 1 Paket
     'Jedes Paket kostet 3,50 € mehr; zurückgerechnet bleiben 8,50 € − 3,50 € = 5 € Grundpreis. Also 5 + 3,5x ≤ 30.', 'Um wie viel steigt der Preis pro Paket, und was bleibt für 0 Pakete?'))
 ST.neu('sachaufgabe', 'fehler', SA('Eine Kugel Eis kostet 1,80 €. Jemand rechnet für 50 €: „50 : 1,80 ≈ 27,8, also 28 Kugeln.“ Was ist falsch?',
     'Man muss abrunden: 28 Kugeln kosten 50,40 €, das ist zu viel; höchstens 27.', ['Nichts, 28 stimmt.', 'Man muss 50 · 1,80 rechnen.', 'Es sind höchstens 26 Kugeln.'],
-    '1,80x ≤ 50 ⇒ x ≤ 27,7… Bei „höchstens“ zählt nur die ganze Zahl unterhalb: 27 Kugeln (48,60 €).', 'Probiere: Was kosten 28 Kugeln?'))
+    '1,80x ≤ 50 ⇒ x ≤ 27,78 (gerundet) Bei „höchstens“ zählt nur die ganze Zahl unterhalb: 27 Kugeln (48,60 €).', 'Probiere: Was kosten 28 Kugeln?'))
 ST.neu('sachaufgabe', 'begruenden', SA('Studio A kostet 20 € im Monat plus 2 € je Besuch, Studio B 30 € im Monat plus 2 € je Besuch. Ab wie vielen Besuchen ist B billiger?',
     'Nie: B ist immer genau 10 € teurer.', ['Ab 6 Besuchen.', 'Ab 11 Besuchen.', 'Ab 21 Besuchen.'],
     '30 + 2x < 20 + 2x ⇒ 30 < 20 – das ist falsch, für jedes x. Gleicher Preis je Besuch heißt: Der Unterschied bleibt immer 10 €.', 'Stelle die Ungleichung auf und vereinfache.'))
 ST.knobel('sachaufgabe', SZ('Ein Bus kostet 300 € fest, dazu 12 € Eintritt pro Person. Alle zahlen gleich viel, jeder höchstens 22 €. In den Bus passen höchstens 50 Personen. Wie viele verschiedene Gruppengrößen sind möglich?', 21, '50 - 30 + 1',
-    'Kosten pro Person bei n Personen: (300 + 12n) : n = 300 : n + 12. Das soll höchstens 22 sein: 300 : n ≤ 10 ⇒ n ≥ 30. Zusammen mit n ≤ 50: n = 30, 31, …, 50. Das sind 21 Gruppengrößen.',
+    'Kosten pro Person bei n Personen: (300 + 12n) : n = 300 : n + 12. Das soll höchstens 22 sein: 300 : n ≤ 10 ⇒ n ≥ 30. Zusammen mit n ≤ 50: alle ganzen n von 30 bis 50. Das sind 21 Gruppengrößen.',
     'Teile die Gesamtkosten auf die Personen auf – welcher Teil hängt von n ab?'))
 ST.knobel('sachaufgabe', SZ('Sitzplätze kosten 15 €, Stehplätze 9 €. Eine Gruppe von genau 26 Personen hat 300 € und möchte möglichst viele Sitzplätze. Wie viele Sitzplätze sind höchstens möglich?', 11, '(300 - 9 * 26) // 6',
     'Mit s Sitzplätzen: 15s + 9(26 − s) ≤ 300 ⇒ 6s + 234 ≤ 300 ⇒ 6s ≤ 66 ⇒ s ≤ 11. Probe: 11 · 15 + 15 · 9 = 165 + 135 = 300 €.',
@@ -1099,7 +1099,7 @@ TX.u('pruefen', 'mehrschritt', TZ('Für eine Party gilt: 12 € Raummiete plus 3
 TX.u('pruefen', 'pruefung', TX.A('Ein Lkw darf mit Ladung höchstens 12 t wiegen, leer wiegt er 7,2 t. Er ist 9 m lang. Der Fahrer lädt 25 Säcke zu je 0,2 t. Darf er so fahren?', 'Nein, er wöge 12,2 t.', ['Ja, er wiegt genau 12 t.', 'Ja, er wiegt 7,4 t.', 'Nein, er ist zu lang.'],
     TW('7,2 + 0,2 · 25 ≤ 12? Die Länge spielt keine Rolle.', 'Ist die Ladung erlaubt?', 'Einsetzen und vergleichen.', '7,2 + 5 = 12,2 > 12.', 'Nein, der Lkw ist 0,2 t zu schwer.'), 'Was zählt für die Gewichtsgrenze?'), huerde='ueberfluessig')
 TX.u('pruefen', 'begruenden', TX.A('In die Klassenkasse kommen 4 € am Anfang und dann 2,50 € pro Woche; es sollen mindestens 50 € werden. Jemand sagt: „Nach 18 Wochen reicht es.“ Was stimmt?',
-    'Falsch: Nach 18 Wochen sind es erst 49 €; man braucht 19 Wochen.', ['Richtig: 4 + 2,5 · 18 = 50.', 'Falsch: Man braucht 20 Wochen.', 'Richtig: schon nach 17 Wochen.'],
+    'Falsch: Nach 18 Wochen sind es erst 49 €; man braucht 19 Wochen.', ['Richtig: Dann sind genau 50 € in der Kasse.', 'Falsch: Man braucht 20 Wochen.', 'Richtig: schon nach 17 Wochen.'],
     TW('4 + 2,5x ≥ 50, Behauptung x = 18.', 'Stimmt die Behauptung?', 'Einsetzen, dann die kleinste Lösung bestimmen.', '4 + 45 = 49 < 50. x ≥ 18,4 ⇒ 19 Wochen.', 'Die Aussage ist falsch: Es reicht erst nach 19 Wochen.'), 'Mache die Probe mit 18.'), huerde='entscheidung')
 TX.u('pruefen', 'transfer', TZ('Ein Rucksack für eine Bergtour soll mindestens 4 kg und höchstens 9 kg wiegen. Leer wiegt er 1,5 kg, jede Wasserflasche 0,75 kg. Wie viele Flaschen dürfen höchstens hinein?', '(9 - 1.5) / 0.75',
     TW('4 ≤ 1,5 + 0,75x ≤ 9.', 'höchste Flaschenzahl.', 'Obere Bedingung umformen; untere prüfen.', '0,75x ≤ 7,5 ⇒ x ≤ 10. Untere: x ≥ 3,3.', 'Höchstens 10 Flaschen (und mindestens 4).'), 'Welche der beiden Bedingungen begrenzt nach oben?'), huerde='zwei')

@@ -1341,7 +1341,7 @@
     "wert": 9
    },
    "c": "12 - 4 + 1",
-   "w": "5 + x > 8 ⇒ x > 3, und 5 + 8 > x ⇒ x < 13 (5 + x > 8 gilt dann ohnehin). Möglich sind 4, 5, …, 12: neun Werte.",
+   "w": "5 + x > 8 ⇒ x > 3, und 5 + 8 > x ⇒ x < 13 (5 + x > 8 gilt dann ohnehin). Möglich sind alle ganzen Zahlen von 4 bis 12: neun Werte.",
    "h": "Schreibe für jede Seite die Dreiecksungleichung auf."
   },
   {
@@ -1462,7 +1462,7 @@
     "wert": 3
    },
    "c": "36 - 34 + 1",
-   "w": "Nennt man die mittlere Zahl m, sind die drei Zahlen m − 1, m und m + 1. Ihre Summe ist 3m. Aus 100 < 3m < 110 folgt 33,3… < m < 36,6…, also m = 34, 35 oder 36. Probe: 102, 105, 108 liegen zwischen 100 und 110. Es gibt drei Möglichkeiten.",
+   "w": "Nennt man die mittlere Zahl m, sind die drei Zahlen m − 1, m und m + 1. Ihre Summe ist 3m. Aus 100 < 3m < 110 folgt 100 : 3 < m < 110 : 3, also etwa 33,3 < m < 36,7, also m = 34, 35 oder 36. Probe: 102, 105, 108 liegen zwischen 100 und 110. Es gibt drei Möglichkeiten.",
    "h": "Wie lässt sich die Summe dreier aufeinanderfolgender Zahlen mit nur einer Variablen schreiben?"
   },
   {
@@ -2210,7 +2210,7 @@
     "wert": 5
    },
    "c": "50 // 12 + 1",
-   "w": "50 − 12m < 0 ⇒ −12m < −50 ⇒ m > 4,1… Nach 4 Monaten sind noch 2 € da, nach 5 Monaten −10 €.",
+   "w": "50 − 12m < 0 ⇒ −12m < −50 ⇒ m > 50 : 12 ≈ 4,17 Nach 4 Monaten sind noch 2 € da, nach 5 Monaten −10 €.",
    "h": "Stelle den Kontostand nach m Monaten als Term auf."
   },
   {
@@ -2221,7 +2221,7 @@
    "g": "verknuepfen",
    "y": "zahl",
    "f": {
-    "text": "Für welche x ist der Term 2 − 3x positiv und zugleich kleiner als 11? Wie viele ganze Zahlen sind das?"
+    "text": "Für wie viele ganze Zahlen x ist der Term 2 − 3x positiv und zugleich kleiner als 11?"
    },
    "o": {
     "wert": 3
@@ -3260,8 +3260,8 @@
     "wert": 126
    },
    "c": "(10 + 18) * 9 / 2",
-   "w": "Linker Teil: 2n + 6 < 3n − 3 ⇒ n > 9. Rechter Teil: 3n − 3 < 2n + 16 ⇒ n < 19. Also n = 10, 11, …, 18 (neun Zahlen). Summe: (10 + 18) · 9 : 2 = 126.",
-   "h": "Teile die Doppelungleichung in zwei Ungleichungen; für die Summe hilft ein Trick wie beim kleinen Gauß."
+   "w": "Linker Teil: 2n + 6 < 3n − 3 ⇒ n > 9. Rechter Teil: 3n − 3 < 2n + 16 ⇒ n < 19. Also n = 10 bis 18 (neun Zahlen). Summe: 10 + 11 + 12 + 13 + 14 + 15 + 16 + 17 + 18 = 126.",
+   "h": "Teile die Doppelungleichung in zwei Ungleichungen; dann addiere alle passenden Zahlen."
   },
   {
    "l": "klammern",
@@ -4211,7 +4211,7 @@
     "wert": 9
    },
    "c": "7 - (-1) + 1",
-   "w": "Abstand kleiner als 5 heißt: 3 − 5 < x < 3 + 5, also −2 < x < 8 – das Intervall ]−2; 8[. Ganze Zahlen darin: −1, 0, 1, …, 7, also 7 − (−1) + 1 = 9 Zahlen.",
+   "w": "Abstand kleiner als 5 heißt: 3 − 5 < x < 3 + 5, also −2 < x < 8 – das Intervall ]−2; 8[. Ganze Zahlen darin: alle ganzen Zahlen von −1 bis 7, also 7 − (−1) + 1 = 9 Zahlen.",
    "h": "Schreibe „Abstand kleiner als 5“ als Doppelungleichung."
   },
   {
@@ -4460,7 +4460,7 @@
    "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Ein Becken fasst 500 l und enthält schon 140 l. Pro Minute fließen 25 l zu. Nach wie vielen ganzen Minuten ist es höchstens voll, aber noch nicht übergelaufen? Gib die größte Minutenzahl an."
+    "text": "Ein Becken fasst 500 l und enthält schon 140 l. Pro Minute fließen 25 l zu. Wie viele volle Minuten kann das Wasser höchstens laufen, ohne dass das Becken überläuft?"
    },
    "o": {
     "wert": 14
@@ -4986,7 +4986,7 @@
    },
    "a": [
     "Richtig: schon nach 17 Wochen.",
-    "Richtig: 4 + 2,5 · 18 = 50.",
+    "Richtig: Dann sind genau 50 € in der Kasse.",
     "Falsch: Nach 18 Wochen sind es erst 49 €; man braucht 19 Wochen.",
     "Falsch: Man braucht 20 Wochen."
    ],
@@ -7290,7 +7290,7 @@
    "o": {
     "index": 1
    },
-   "w": "1,80x ≤ 50 ⇒ x ≤ 27,7… Bei „höchstens“ zählt nur die ganze Zahl unterhalb: 27 Kugeln (48,60 €).",
+   "w": "1,80x ≤ 50 ⇒ x ≤ 27,78 (gerundet) Bei „höchstens“ zählt nur die ganze Zahl unterhalb: 27 Kugeln (48,60 €).",
    "h": "Probiere: Was kosten 28 Kugeln?"
   },
   {
@@ -7329,7 +7329,7 @@
     "wert": 21
    },
    "c": "50 - 30 + 1",
-   "w": "Kosten pro Person bei n Personen: (300 + 12n) : n = 300 : n + 12. Das soll höchstens 22 sein: 300 : n ≤ 10 ⇒ n ≥ 30. Zusammen mit n ≤ 50: n = 30, 31, …, 50. Das sind 21 Gruppengrößen.",
+   "w": "Kosten pro Person bei n Personen: (300 + 12n) : n = 300 : n + 12. Das soll höchstens 22 sein: 300 : n ≤ 10 ⇒ n ≥ 30. Zusammen mit n ≤ 50: alle ganzen n von 30 bis 50. Das sind 21 Gruppengrößen.",
    "h": "Teile die Gesamtkosten auf die Personen auf – welcher Teil hängt von n ab?"
   },
   {

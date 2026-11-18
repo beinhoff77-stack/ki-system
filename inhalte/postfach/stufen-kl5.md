@@ -2,6 +2,14 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 03:48 – STATUS: Korrektur nach Durchsicht aller neuen Aufgaben
+Anlass: Sebastian hat `zahlen.ganz/zahlengerade` („tippt den 6. Strich nach dem Anfang“) als unverständlich gemeldet. Danach habe ich alle 788 neuen Aufgaben (561 Übungen, 227 Knobel) noch einmal gelesen und nachgerechnet. Geändert: 31 neue Aufgaben in 8 Themen, alte Aufgaben unverändert. Prüfskript und Nachweis sind je Thema wieder OK, 0 Gruppen „gleich gebaut hintereinander“.
+- **Falsche Lösung (1):** geometrie.winkel, Knobel „vier Geraden, jeder zweite Winkel = 180°“ – stimmt nicht allgemein (Gegenbeispiel 10°, 80°, 10°, 80°). Ersetzt durch „vier nebeneinanderliegende Winkel = 180°“.
+- **„k. Strich nach dem Anfang“ mehrdeutig (6):** Wird der Anfangsstrich mitgezählt oder nicht? Jetzt durchgehend „k Abschnitte nach …“ bzw. „der Strich bei 6“: zahlen.ganz/zahlengerade (fehler, pruefung), zahlen.natuerlich/strahl_ablesen (2× umkehr, einkleidung, begruenden), zahlen.natuerlich/strahl_eintragen (fehler).
+- **Begriffe aus späterem Stoff (9):** „Teiler“, „ggT“ und „teilt“ kamen in zahlen.natuerlich und zahlen.rechengesetze vor (Teilbarkeit kommt erst danach) → „passt ohne Rest in …“. Potenzgesetze ((2³)¹⁰, Exponent 0) in zahlen.potenzen_basis und zahlen.teilbarkeit → durch Zusammenfassen von Faktoren erklärt.
+- **Unklare oder verwirrende Formulierungen (11):** u. a. „Bei welchem Term darf man die Klammer NICHT weglassen, ohne dass sich der Wert ändern kann?“, „Wie klein kann das Ergebnis höchstens werden?“, falsche Rechnungen in Antwortoptionen („30 − 10 + 4 = 16“), eine wahre Nebenrechnung als falsche Ja-Option, „6 Gäste“ (mit oder ohne Gastgeber?), Gitterweg „nie zurückgehen“, Lösungswege mit „…“ oder Verweis auf einen nicht erklärten „Trick“.
+- **Meinung:** Die Strich-Zählung war ein Denkfehler beim Schreiben: Ich hatte „Strich k“ wie den Index der App gemeint (Anfang = 0), das steht aber nirgends für das Kind.
+
 ## 2026-11-17 15:13 – FERTIG: Zwanzigste Runde, Klasse 5
 
 ### Kurz

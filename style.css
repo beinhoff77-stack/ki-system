@@ -4170,3 +4170,16 @@ details.lern-vorlage summary { cursor: pointer; min-height: 44px; display: flex;
 .lern-kindbereich-knoepfe .btn.lern-start { background: var(--accent, #1F6FEB); border-color: var(--accent, #1F6FEB); color: #fff; font-size: 1.05rem; padding: 0 20px; }
 .lern-kindbereich-knoepfe .btn.lern-start:hover { filter: brightness(1.08); background: var(--accent, #1F6FEB); }
 @media (max-width: 600px) { .lern-kindbereich-knoepfe .btn.lern-start { flex: 1 0 100%; justify-content: center; } }
+
+/* W176 Teil 4: Expeditionen */
+.lr-expedition-angebot { border: 2px solid var(--lr-linie); }
+.lr-exp-teil.erledigt { opacity: 1; padding: 8px 14px; border-left: 4px solid var(--lr-linie); margin: 0 0 10px; }
+.lr-exp-teil.erledigt p { margin: 4px 0; }
+.lr-exp-einleitung p { margin: 4px 0; }
+.lr-expedition-fertig { text-align: center; }
+.lern-exp-liste { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.lern-exp-liste li { display: flex; justify-content: space-between; gap: 10px; border-top: 1px solid var(--border, #eee); padding-top: 6px; }
+.lern-exp-geschafft { font-weight: 700; }
+.lern-exp-teile li { margin: 10px 0; }
+.lr-lp-kl.klein { font-size: 9px; }
+.lern-ib-hinweis { margin: 4px 0; }

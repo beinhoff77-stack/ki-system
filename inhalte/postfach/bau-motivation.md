@@ -2,6 +2,46 @@
 
 Neueste oben.
 
+## 2026-11-18 – FERTIG: Teil 4 (P3 Expeditionen, Technik) – App 0.78.0 – wartet auf Migration
+
+**Migration** `supabase/migrations/20261118_w176_t4_expeditionen.sql` (nicht ausgeführt; pglast ok; Ersetzungsstellen im Live-Text vorhanden; setzt Teil 1 und Teil 3 voraus; kein DROP von Tabellen/Spalten/Funktionen, kein DELETE).
+**Ausnahme wie bei Migration F:** `aufgabe_pool_check` (+ `expedition`) und `sterne_grund_check` (+ `expedition`) werden als „drop constraint + add constraint“ in einem Befehl erweitert.
+
+- **Datenmodell (Entscheidung):** Kopf in neuer Tabelle `schule.expedition` (schluessel, klasse, titel, einleitung, grafik, voraussetzungen mit thema_id, autor, status entwurf/geprueft/freigegeben, version);
+  **Teile als Zeilen in `schule.aufgabe`** (pool `expedition`, `expedition_id`, `teil`; einheit_id/variante_gruppe = Etappe des Bezugs). Begründung: Teile sind Bordkarten – Bewertung, zweiter Versuch,
+  Lösung und `schule.versuch` (aufgabe_id Pflicht) laufen unverändert; der eigene Pool hält Teile aus Übung, Mischkarten, Wiederholung und Tests heraus. `aufgabe_schutz` nimmt Expeditions-Teile aus
+  (sonst wären Teile mit Bezug auf einen freigegebenen Flug nicht abgleichbar).
+- **Import/Abgleich:** `schule.expedition_importieren(datei jsonb, status text default null)` – neu anlegen oder nach `schluessel` bzw. Teil-Kennung `k` abgleichen; Teile, die nicht mehr in der Datei stehen,
+  werden gesperrt, nichts gelöscht. Neu = `entwurf` (nur Testkind), Status per zweitem Argument.
+- **Angebot:** nur wenn **alle** Voraussetzungs-Lernkarten beim Kind gelandet sind (jede Version der Einheit des Themas), Plan-Reihenfolge egal; Entwurf nur Testkind.
+- **Ablauf/Belege:** Teil erledigt = richtig oder endgültig (2. Versuch bzw. Lösung gezeigt). Richtig im 1. Versuch ohne Tipp → `karte_stand.angewandt_am` der Bezugs-Etappe (Anzeige mit P5).
+  Endgültig falsch → Bezugs-Etappe am nächsten Lerntag fällig (wie eine falsche Mischkarte; gebucht über `karte_buchen` mit einer Übung dieser Etappe). Keine Minuspunkte, zählt nicht für „gelandet“.
+- **Sterne/Stempel:** Vorschlag `sterne_expedition_geschafft` = 50 (ein Ort 100) bei „alle Teile erledigt“, je Expedition einmal; jeder richtige Teil wie jede Bordkarte 10. Stempel = `konto.expeditions_stempel`.
+- **Felder für die App (keine neue Aktion in lernen-api):** `schule_konto.expeditionen` (angeboten/begonnen/geschafft, mit Teilen; Lösung nur bei erledigten), `konto.expeditions_stempel`;
+  `schule_uebung_pruefen` nimmt Teile an und antwortet mit `expedition: {id, teil, erledigt, geschafft, sterne}`; `schule_uebersicht`: je Kind `expeditionen [{id, zustand}]`,
+  für Eltern/Lehrer oben `expeditionen` (alle, mit Lösungen).
+
+**App 0.78.0** (ohne Migration: keine Expeditionen sichtbar)
+- Kind: Karte „⛰ EXPEDITION“ auf der Abflugtafel (begonnene zuerst), Seite `#/expedition/<kind>-<id>`: Einleitung und Grafik, Teil für Teil mit 2 Versuchen; danach Lösung und Weg,
+  „Keine Abzüge – im nächsten Teil geht es mit den richtigen Zahlen weiter.“, „Weiter mit Teil B ›“; erledigte Teile bleiben sichtbar; Abbruch jederzeit (Stand kommt vom Server);
+  Abschluss „EXPEDITION GESCHAFFT“ mit Sternen; Reisepass „⛰ Expeditions-Stempel: n“.
+- Eltern/Lehrer: Lehrplan-Übersicht → „Expeditionen ansehen“ (`#/expeditionen`, mit Status, Voraussetzungen, Teilen, Lösungen); Lernstand des Kindes: Abschnitt „Expeditionen“ (angeboten/begonnen/geschafft);
+  in „Inhalte ansehen“ eines Flugs erscheinen Expeditions-Teile nicht. Info-Seite: „Expeditionen“.
+- Grafik: die App zeichnet wie bisher; das Kind liest ab und wählt aus, gezeichnet wird nicht.
+
+**Rauchtest** `supabase/tests/w176_t4_rauchtest.sql` (nach dem Einspielen; Rollback; Testkind; importiert „Handytarif“ als Entwurf): Entwurf nur Testkind · ohne alle Voraussetzungen kein Angebot ·
+alle gelandet → angeboten · Teil falsch → erledigt, Bezugs-Etappe fällig · Abbruch verliert nichts · Teil richtig → Beleg · alle Teile → geschafft, Sterne genau einmal · Abgleich ohne Änderung ändert nichts,
+entfernter Teil wird gesperrt, nicht gelöscht.
+**Tests:** lernen 62 von 62 (neu T4: Angebot und Durchlauf mit Fehler/2. Versuch/Lösung/nächster Teil/Abschluss; Abbruch und kein Angebot; Eltern-Ansichten). Suche: bekannte alte Fehler (diesmal 10, schwankend).
+**Nicht geprüft:** Migration gegen echte Daten; die Handytarif-Grafik in der echten App (nur im Test-Mock ohne Grafik).
+
+## 2026-11-18 – FERTIG: IB richtig beschriften (Auftrag 18.11. 03:33, Punkt 2) – in App 0.78.0
+
+- Einheitlich **MYP-Jahr = Klasse − 5** (vorher an einer Stelle Klasse − 4); ein Kind in Klasse 5 steht **vor MYP-Jahr 1** (Stufe 0, Anzeige „vor MYP-Jahr 1“, 0 Flüge). Linienplan unverändert (MYP-Jahr n unter Klasse n + 5).
+- Beschriftung überall „MYP-Jahr n“ (Lernstand-Tabelle, Einstieg prüfen, Mini-Linien, Passkarte, Lehrplan-Übersicht „IB MYP-Jahr n“, Flugplan, Vorlage, Stufen-Auswahl), Hinweis „MYP-Jahr 1–5 entspricht etwa Klasse 6–10“
+  (Linienplan-Name, IB-Reiter im Lernstand, Lehrplan-Übersicht, Stufen im Flugplan, Info-Seite „Worauf baut die App auf?“ – vorher stand dort „MYP 1–4“).
+- Test: Umrechnung (Kl. 5 → 0, Kl. 8 → 3, Kl. 10 → 5, gesetzte Stufe bleibt), Spaltenköpfe „MYP-Jahr 1…5“, Hinweis, Info-Seite, kein „Klasse − 4“ mehr im Quelltext. Punkte 1 und 3 des Auftrags: siehe Eintrag „Teil 3 (korrigiert)“ unten.
+
 ## 2026-11-18 – FERTIG: Teil 3 (korrigiert) und Wunsch „Lernen starten“ – App 0.77.1
 
 **Korrektur Migration** `supabase/migrations/20261118_w176_t3_mischkarten.sql` (weiter nicht eingespielt; pglast ok; Stellen im Live-Text vorhanden):

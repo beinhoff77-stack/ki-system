@@ -29,6 +29,9 @@ const AUFG = {
   13: { id: 13, lernziel: 'binomisch', antworttyp: 'luecken', frage: { text: 'Multipliziere aus: (x + 1)²', schablone: '□x² + □x + □' }, loesung: { werte: [1, 2, 1] } },
   15: { id: 15, lernziel: 'binomisch', stufe: 3, antworttyp: 'luecken', frage: { text: 'Kürze 6/8 vollständig.', schablone: '□/□' }, loesung: { werte: [3, 4] } },
   16: { id: 16, lernziel: 'binomisch', stufe: 3, antworttyp: 'luecken', frage: { text: 'Löse das Gleichungssystem.', schablone: 'x = □; y = □' }, loesung: { werte: [2, -1] } },
+  601: { id: 601, k: 'a', expedition: 7, lernziel: 'stellenwert', antworttyp: 'zahl', frage: { text: 'Teil a: Wie viel kostet Tarif A bei 30 Minuten (5 € + 0,10 € je Minute)?' }, loesung: { wert: 8 } },
+  602: { id: 602, k: 'b', expedition: 7, lernziel: 'strahl', antworttyp: 'zahl', frage: { text: 'Teil b: Tarif A kostet 8 € bei 30 Minuten. Wie viel kostet er bei 60 Minuten?' }, loesung: { wert: 11 } },
+  603: { id: 603, k: 'c', expedition: 7, lernziel: 'stellenwert', antworttyp: 'zahl', frage: { text: 'Teil c: Ab wie vielen Minuten ist eine Flat für 12 € günstiger?' }, loesung: { wert: 71 } },
   501: { id: 501, lernziel: 'stellenwert', stufe: 3, typ: 'knobel', bonus: true, antworttyp: 'zahl', frage: { text: 'Knobel: Welche Zahl ist um 4 kleiner, wenn man sie erst um 20 % erhöht und dann um 20 % senkt?' }, loesung: { wert: 100 } },
   14: { id: 14, lernziel: 'lesen', antworttyp: 'auswahl', frage: { text: 'Wie liest man 11 490 051?' }, antworten: ['elf Millionen vierhundertneuntausend…', 'elf Millionen vierhundertneunzigtausendeinundfünfzig'], loesung: { index: 1 } },
 };
@@ -142,6 +145,11 @@ async function setup(t, opt = {}) {
       { einheit_id: 2, block_id: 52, stadt: 'New York', ort_titel: 'Zinsen', etappen: ETAPPEN.slice(0, 2), stand: { stellenwert: { fertig: true } }, blocktest_fertig: false, nachtest: { grund: 'einheit_offen' } }] };
     else if (b.aktion === 'schule_uebung_pruefen') {
       const a = AUFG[d.aufgabe_id]; const r = bewerte(a, d.antwort);
+      if (a.expedition) { // W176 Teil 4: wie die Datenbank nach Migration T4
+        e = r.format_ok && !r.richtig && d.anlauf === 1 ? { ok: true, format_ok: true, richtig: false, nochmal: true }
+          : { ok: true, ...r, loesung: a.loesung, loesungsweg: 'So wird gerechnet.', expedition: { id: a.expedition, teil: a.k, erledigt: true, geschafft: a.id === 603, sterne: a.id === 603 ? 50 : 0 } };
+        await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) }); return;
+      }
       if (d.misch && !(r.format_ok && !r.richtig && d.anlauf === 1)) { // W176 Teil 3: Mischkarte – kein Karten-Stand der aktuellen Etappe, dafür die Herkunft
         e = { ok: true, ...r, loesung: a.loesung, loesungsweg: 'Weg zur Lösung.', misch: { etappe: 'Große Zahlen lesen', stadt: 'New York', ok: r.richtig && !d.hilfe && d.anlauf !== 2 } };
         await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) }); return;
@@ -405,7 +413,7 @@ test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhal
   await page.getByRole('heading', { name: /^Funktionen/ }).waitFor();
   assert.equal(await page.getByRole('button', { name: 'Realschule' }).count(), 0);
   await page.locator('.lp-zeile.lp-fertig', { hasText: 'Große natürliche Zahlen' }).getByText('Kind A: geschafft').waitFor();
-  await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).getByText('Gym 5 · RS 5 · IB 1').waitFor();
+  await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).getByText('Gym 5 · RS 5 · IB MYP-Jahr 1').waitFor();
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/lehrplan-390.png'), fullPage: true });
   await page.getByRole('combobox', { name: 'Klasse' }).selectOption('5');
@@ -475,7 +483,7 @@ test('Kinderplan: Schulart und Klasse setzen', async (t) => {
   assert.equal(await rom.getByText('Ganze Zahlen').count(), 0);
   await rom.locator('.lern-plan-ort').click();
   await rom.getByText('Ganze Zahlen').waitFor();
-  await rom.getByText('Gym 5 · RS 5 · IB 2').waitFor();
+  await rom.getByText('Gym 5 · RS 5 · IB MYP-Jahr 2').waitFor();
   // Rechts der Lehrplan der eigenen Schulart und Klasse
   assert.equal(await page.getByRole('combobox', { name: 'Schulart' }).inputValue(), 'gym_by');
   assert.equal(await page.getByRole('combobox', { name: 'Klasse', exact: true }).inputValue(), '5');
@@ -1097,7 +1105,7 @@ test('E-2: Startseite je Kind ein Bereich mit drei Schularten; darunter „Für 
   await page.goto(origin + '/#/lernen');
   const a = page.locator('.lern-kindbereich', { hasText: 'Kind A' });
   await a.waitFor();
-  assert.deepEqual(await a.locator('.lern-mini-name').allInnerTexts(), ['GYM 5', 'RS 5', 'IB 1']);
+  assert.deepEqual(await a.locator('.lern-mini-name').allInnerTexts(), ['GYM 5', 'RS 5', 'IB vor MYP-Jahr 1']); // IB: MYP-Jahr = Klasse − 5 → Klasse 5 steht vor MYP-Jahr 1
   await a.getByText('Jetzt: Rom · Natürliche Zahlen (2/4)').waitFor();
   assert.deepEqual(await a.locator('.lern-kindbereich-knoepfe a').allInnerTexts(), ['Lernen starten ›', 'Lernstand', 'Was wackelt?', 'Flugplan']);
   assert.equal(await page.locator('.lern-kindbereich').count(), 2, 'je Kind ein Bereich (Testkind nicht)');
@@ -1155,9 +1163,9 @@ test('K3: Abflugtafel mit Mini-Linien GYM · RS · IB; Mein Weg · Stand in drei
   await page.goto(origin + '/#/reise/1');
   const mini = page.locator('.lr-mini3 .lr-mini');
   await mini.first().waitFor();
-  // Rechenregel: GYM 5 = Rom (gelandet, 4/4 Etappen), Rom „Ganze Zahlen“ (offen), Athen (Ort fertig) → 2 von 3; RS Stufe 6 aus „stufen“ → Athen 1/1; IB MYP 1 (= Klasse − 4) → 1/1
+  // Rechenregel: GYM 5 = Rom (gelandet, 4/4 Etappen), Rom „Ganze Zahlen“ (offen), Athen (Ort fertig) → 2 von 3; RS Stufe 6 aus „stufen“ → Athen 1/1; IB: Klasse 5 steht vor MYP-Jahr 1 (MYP-Jahr = Klasse − 5) → 0/0
   assert.deepEqual(await mini.evaluateAll((as) => as.map((a) => a.getAttribute('aria-label'))),
-    ['Gymnasium Klasse 5: 2 von 3 Flügen gelandet', 'Realschule Klasse 6: 1 von 1 Flügen gelandet', 'IB MYP 1: 1 von 1 Flügen gelandet']);
+    ['Gymnasium Klasse 5: 2 von 3 Flügen gelandet', 'Realschule Klasse 6: 1 von 1 Flügen gelandet', 'IB vor MYP-Jahr 1: 0 von 0 Flügen gelandet']);
   assert.equal(await page.locator('.lr-jgstand').count(), 0, 'alte Jahrgangs-Box entfällt, wenn die Linien da sind');
   await mini.first().click();
   await page.waitForURL(/#\/weg\/1-stand-gym_by-5$/);
@@ -1641,4 +1649,93 @@ test('Kinderkarte: „Lernen starten“ ist der erste, hervorgehobene Knopf, auf
   await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
   await page.goto(origin + '/#/info');
   await page.getByText('Auf der Startseite hat jede Kinderkarte oben den Knopf „Lernen starten“', { exact: false }).waitFor();
+});
+
+// ---------- Bau-Auftrag G (W176) Teil 4: Expeditionen ----------
+const expKonto = (erledigt = []) => (aktion, e) => {
+  if (aktion === 'schule_konto') { const x = structuredClone(e); x.konto.expeditions_stempel = 1;
+    x.expeditionen = [{ id: 7, schluessel: '8-handytarif', titel: 'Handytarif', klasse: { gym_by: 8 }, einleitung: 'Du brauchst einen neuen Handytarif. Tarif A kostet 5 € Grundgebühr und 0,10 € je Minute.',
+      zustand: erledigt.length ? 'begonnen' : 'angeboten', teile_gesamt: 3, teile_erledigt: erledigt.length,
+      teile: [601, 602, 603].map((id) => ({ ...zeig(AUFG[id]), k: AUFG[id].k, erledigt: erledigt.includes(id), richtig_erst: false, ...(erledigt.includes(id) ? { loesung: AUFG[id].loesung, loesungsweg: 'So wird gerechnet.' } : {}) })) }];
+    return x; }
+  if (aktion === 'schule_uebersicht') { const x = structuredClone(e); x.lernende[0].expeditionen = [{ id: 7, zustand: 'begonnen' }]; x.lernende[1].expeditionen = [];
+    x.expeditionen = [{ id: 7, schluessel: '8-handytarif', titel: 'Handytarif', klasse: { gym_by: 8 }, status: 'entwurf', einleitung: 'Du brauchst einen neuen Handytarif.',
+      voraussetzungen: [{ thema_schluessel: 'funktionen.linear', lernziel: 'aufstellen' }], teile: [601, 602, 603].map((id) => ({ ...AUFG[id], lernziel: AUFG[id].lernziel, loesungsweg: 'So wird gerechnet.' })) }];
+    return x; }
+  if (aktion === 'schule_inhalt_lesen' && e.aufgaben?.length) { const x = structuredClone(e); x.aufgaben.push({ id: 601, lernziel: x.aufgaben[0].lernziel, pool: 'expedition', antworttyp: 'zahl', frage: { text: 'EXPEDITIONSTEIL' }, loesung: { wert: 8 } }); return x; }
+  return null;
+};
+
+test('W176 T4: Expedition – Angebot auf der Abflugtafel, Teil falsch → 2. Versuch → Lösung → nächster Teil, am Ende geschafft mit Sternen', async (t) => {
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: expKonto() });
+  await page.goto(origin + '/#/reise/1');
+  const box = page.locator('.lr-expedition-angebot'); await box.waitFor();
+  assert.match(await box.innerText(), /EXPEDITION[\s\S]*Handytarif – 3 Teile[\s\S]*Freiwillig/);
+  await box.getByRole('link', { name: 'Expedition starten ›' }).click();
+  await page.waitForURL(/#\/expedition\/1-7$/);
+  await page.getByText('TEIL A VON 3').waitFor();
+  await page.getByText('Zählt nicht für „gelandet“', { exact: false }).waitFor();
+  const eingabe = page.locator('.lr-exp-teil input');
+  await eingabe.fill('9'); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Du hast einen zweiten Versuch.', { exact: false }).waitFor();
+  await eingabe.fill('7'); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Richtig ist: 8').waitFor();
+  await page.getByText('Keine Abzüge – im nächsten Teil geht es mit den richtigen Zahlen weiter.').waitFor();
+  const ca = calls.filter((c) => c.aktion === 'schule_uebung_pruefen' && c.daten.aufgabe_id === 601).map((c) => c.daten.anlauf);
+  assert.deepEqual(ca, [1, 2]);
+  await page.getByRole('button', { name: 'Weiter mit Teil B ›' }).click();
+  await page.getByText('TEIL B VON 3').waitFor();
+  assert.match(await page.locator('.lr-exp-teil.erledigt').innerText(), /TEIL A[\s\S]*Lösung: 8/);
+  await page.locator('.lr-exp-teil input').fill('11'); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Richtig!').waitFor();
+  await page.getByRole('button', { name: 'Weiter mit Teil C ›' }).click();
+  await page.locator('.lr-exp-teil input').fill('71'); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByRole('button', { name: 'Zum Abschluss ›' }).click();
+  await page.getByText('EXPEDITION GESCHAFFT').waitFor();
+  await page.getByText('+50 Sterne').waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/w176-expedition-390.png'), fullPage: true });
+  await page.goto(origin + '/#/reisepass/1'); await page.getByText('⛰ Expeditions-Stempel: 1').waitFor();
+});
+
+test('W176 T4: Abbruch verliert nichts – erledigte Teile stehen da, es geht beim offenen Teil weiter; ohne Angebot keine Karte', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: expKonto([601]) });
+  await page.goto(origin + '/#/reise/1');
+  await page.getByRole('link', { name: 'Expedition fortsetzen ›' }).click();
+  await page.getByText('TEIL B VON 3').waitFor();
+  assert.equal(await page.locator('.lr-exp-teil.erledigt').count(), 1);
+  // ohne Expeditionen (Server bietet keine an, z. B. Voraussetzungen fehlen): keine Karte
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht' });
+  await p2.goto(origin + '/#/reise/1'); await p2.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  assert.equal(await p2.locator('.lr-expedition-angebot').count(), 0);
+  await p2.goto(origin + '/#/expedition/1-7'); await p2.getByText('Diese Expedition ist gerade nicht offen.').waitFor();
+});
+
+test('W176 T4: Eltern – Expeditionen lesbar mit Lösung, im Lernstand je Kind der Zustand, nicht bei der Etappe des Bezugs', async (t) => {
+  const { page } = await setup(t, { anpassen: expKonto() });
+  await page.goto(origin + '/#/lernstand/1');
+  const sec = page.locator('.lern-exp-stand'); await sec.waitFor();
+  assert.match(await sec.innerText(), /Handytarif\s*begonnen/);
+  await sec.getByRole('link', { name: 'Alle Expeditionen ansehen ›' }).click();
+  await page.waitForURL(/#\/expeditionen$/);
+  await page.locator('details.lern-exp summary').click();
+  assert.match(await page.locator('details.lern-exp').innerText(), /Entwurf \(nur Testkind\)[\s\S]*Voraussetzungen: funktionen.linear \/ aufstellen[\s\S]*Lösung: 8/);
+  await page.goto(origin + '/#/inhalte/1'); await page.locator('details.lp-karte').first().waitFor();
+  assert.equal(await page.getByText('EXPEDITIONSTEIL').count(), 0);
+  await page.goto(origin + '/#/lehrplan'); await page.getByRole('link', { name: '⛰ Expeditionen ansehen ›' }).waitFor();
+});
+
+// ---------- IB einheitlich beschriften (18.11.): MYP-Jahr = Klasse − 5, Hinweis „entspricht etwa Klasse 6–10“ ----------
+test('IB: MYP-Jahr = Klasse − 5 überall gleich; Beschriftung „MYP-Jahr n“ mit Hinweis auf Klasse 6–10', async (t) => {
+  const { page } = await setup(t, { anpassen: standAnpassen() });
+  await page.goto(origin + '/#/lernen'); await page.locator('.lern-kindbereich').first().waitFor();
+  const r = await page.evaluate(() => [lernStufe({ klasse: 5, schulart: 'gym_by' }, 'ib_myp'), lernStufe({ klasse: 8, schulart: 'gym_by' }, 'ib_myp'), lernStufe({ klasse: 10, schulart: 'rs_by' }, 'ib_myp'),
+    lernStufe({ klasse: 8, schulart: 'gym_by', stufen: { ib_myp: 2 } }, 'ib_myp'), LERN_SYS[2].kl(1), LERN_SYS[2].kl(5), LERN_SYS[2].label(3), LERN_SYS[2].label(0)]);
+  assert.deepEqual(r, [0, 3, 5, 2, 6, 10, 'MYP-Jahr 3', 'vor MYP-Jahr 1']);
+  await page.goto(origin + '/#/lernstand/2-ib_myp'); await page.locator('.lern-stand-raster').waitFor();
+  assert.deepEqual(await page.locator('.lern-stand-raster thead th').allInnerTexts().then((x) => x.slice(1)), ['MYP-Jahr 1', 'MYP-Jahr 2', 'MYP-Jahr 3', 'MYP-Jahr 4', 'MYP-Jahr 5']);
+  await page.getByText('MYP-Jahr 1–5 entspricht etwa Klasse 6–10', { exact: false }).first().waitFor();
+  await page.goto(origin + '/#/info'); await page.getByText('Worauf baut die App auf?').click();
+  assert.match(await page.locator('#main').innerText(), /MYP-Jahr 1–5; entspricht etwa Klasse 6–10/);
+  const quelle = fs.readFileSync(path.join(root, 'lernen.js'), 'utf8');
+  assert.doesNotMatch(quelle, /klasse - 4|Klasse − 4|'MYP ' \+/);
 });

@@ -1597,7 +1597,7 @@
    "g": "mehrschritt",
    "y": "zahl",
    "f": {
-    "text": "3 Hefte und 2 Stifte kosten 7,50 €, 1 Heft und 4 Stifte kosten 6,50 €. Jemand sagt, ein Heft kostet 1,50 €. Wie viel kostet dann ein Stift laut der ersten Gleichung – und passt das zur zweiten?"
+    "text": "3 Hefte und 2 Stifte kosten 7,50 €, 1 Heft und 4 Stifte kosten 6,50 €. Jemand sagt, ein Heft kostet 1,50 €. Wie viel kostet ein Stift dann laut der ersten Gleichung?"
    },
    "o": {
     "wert": 1.5,
@@ -4930,7 +4930,7 @@
    "o": {
     "index": 0
    },
-   "w": "Gleichsetzen verbindet die beiden rechten Seiten zweier Gleichungen y = …",
+   "w": "Gleichsetzen verbindet die beiden rechten Seiten zweier Gleichungen der Form y = Term",
    "h": "Welche zwei Terme stehen links und rechts?"
   },
   {
@@ -5002,7 +5002,7 @@
    "g": "verknuepfen",
    "y": "zahl",
    "f": {
-    "text": "Für welches x haben die Terme 3(x − 2) und 2x + 5 denselben Wert? Gib diesen Wert an."
+    "text": "Für ein x haben die Terme 3(x − 2) und 2x + 5 denselben Wert. Wie groß ist dieser Wert?"
    },
    "o": {
     "wert": 27

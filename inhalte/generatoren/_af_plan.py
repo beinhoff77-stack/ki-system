@@ -106,3 +106,21 @@ PLAN['abbildungen.kongruenz'] = [
         'Dann ist v = (1 − 4 | 4 − 2) = (−3 | 2). Probe: (4 | 2) mit −v = (3 | −2) verschoben ergibt (7 | 0).',
         'Wo liegt P im Vergleich zu P′ und Q′?', hinweis='Zwei ganze Zahlen, auch negative.')),
 ]
+
+
+# =====================================================================================================================
+# funktionen.linear (Kl. 8) ← funktionen.scharen: einsetzen, wirkung (B), bueschel (C). Vertiefung (RS Gruppe I bzw. ohne Beleg).
+# Nach lage, weil wirkung „parallel zu …“ braucht. Hinweis Vorwissen: wirkung fragt „Für welche k fallen die Geraden?“
+# (k − 4 < 0 ⇒ k < 4). Das ist Vorzeichen-Denken, keine Umformung von Ungleichungen; formal kommt gleichungen.ungleichungen
+# erst zwei Flüge später. Bewusst so gelassen (Bericht).
+# =====================================================================================================================
+PLAN['funktionen.linear'] = [
+    karte_her('funktionen.scharen', 'einsetzen', 'Geraden bestimmen', vertiefung=True, nach='lage'),
+    karte_her('funktionen.scharen', 'wirkung', 'Geraden bestimmen', vertiefung=True, nach='einsetzen'),
+    karte_her('funktionen.scharen', 'bueschel', 'Geraden bestimmen', vertiefung=True, nach='wirkung'),
+]
+
+# gleichungen.lgs2 (Kl. 8) ← funktionen.scharen: loesung_parameter (B). Vertiefung, nach loesbarkeit.
+PLAN['gleichungen.lgs2'] = [
+    karte_her('funktionen.scharen', 'loesung_parameter', 'Verstehen und Anwenden', vertiefung=True, nach='loesbarkeit'),
+]

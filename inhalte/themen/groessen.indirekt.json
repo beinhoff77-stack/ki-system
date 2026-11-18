@@ -3127,7 +3127,7 @@
    "a": [
     "Ja: Alle Produkte sind 24.",
     "Ja: Mehr Rohre brauchen weniger Zeit.",
-    "Nein: 3 · 8 = 11, also passt nichts.",
+    "Nein: Bei Rohren und Zeiten gibt es nie eine Proportionalität.",
     "Nein: 6 · 5 = 30, die anderen Produkte sind 24."
    ],
    "o": {
@@ -3557,7 +3557,7 @@
     "wert": 9
    },
    "c": "9",
-   "w": "x muss ein Teiler von 36 sein: 1, 2, 3, 4, 6, 9, 12, 18, 36 – neun Teiler, also neun Paare (1 | 36), (2 | 18), …, (36 | 1).",
+   "w": "x muss ein Teiler von 36 sein: 1, 2, 3, 4, 6, 9, 12, 18, 36 – neun Teiler, also neun Paare (1 | 36), (2 | 18), (3 | 12), (4 | 9), (6 | 6), (9 | 4), (12 | 3), (18 | 2) und (36 | 1).",
    "h": "Welche x sind möglich, wenn y eine natürliche Zahl sein soll?"
   },
   {
@@ -5715,13 +5715,13 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Die Hyperbeln y = 8 : x und y = 2 · x schneiden sich für x > 0 in einem Punkt. Welche x-Koordinate hat er?"
+    "text": "Die Hyperbel y = 8 : x und die Gerade y = 2 · x schneiden sich für x > 0 in einem Punkt. Welche x-Koordinate hat er?"
    },
    "o": {
     "wert": 2
    },
    "c": "2",
-   "w": "8 : x = 2x ⇒ 2x² = 8 ⇒ x² = 4 ⇒ x = 2 (x > 0). Probe: 8 : 2 = 4 = 2 · 2.",
+   "w": "8 : x = 2x ⇒ 8 = 2 · x · x ⇒ x · x = 4. Die positive Zahl, die mit sich selbst malgenommen 4 ergibt, ist 2. Probe: 8 : 2 = 4 = 2 · 2.",
    "h": "Setze beide Terme gleich und multipliziere mit x."
   },
   {

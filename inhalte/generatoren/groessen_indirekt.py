@@ -1093,7 +1093,7 @@ ST.typ('produkt@3', r'Ergänze den fehlenden Wert\.$', 'verknuepfen')
 ST.knobel('produkt', SZ('In einer Tabelle einer indirekten Proportionalität stehen die Paare (x | 18) und (x + 3 | 12). Wie groß ist x?', 6, '3 * 12 / (18 - 12)',
     'x · 18 = (x + 3) · 12 ⇒ 18x = 12x + 36 ⇒ x = 6. Probe: 6 · 18 = 108 = 9 · 12.', 'Beide Paare haben dasselbe Produkt.'))
 ST.knobel('produkt', SZ('Bei einer indirekten Proportionalität ist das Produkt 36. Wie viele Paare aus zwei natürlichen Zahlen (x | y) gehören dazu?', 9, '9',
-    'x muss ein Teiler von 36 sein: 1, 2, 3, 4, 6, 9, 12, 18, 36 – neun Teiler, also neun Paare (1 | 36), (2 | 18), …, (36 | 1).', 'Welche x sind möglich, wenn y eine natürliche Zahl sein soll?'))
+    'x muss ein Teiler von 36 sein: 1, 2, 3, 4, 6, 9, 12, 18, 36 – neun Teiler, also neun Paare (1 | 36), (2 | 18), (3 | 12), (4 | 9), (6 | 6), (9 | 4), (12 | 3), (18 | 2) und (36 | 1).', 'Welche x sind möglich, wenn y eine natürliche Zahl sein soll?'))
 
 # --- dreisatz ---
 ST.leiter('dreisatz', 'Dreisatz: auf eine Einheit (mal), dann auf den gesuchten Wert (geteilt)',
@@ -1124,8 +1124,8 @@ ST.neu('graph', 'rueckwaerts', SZ('Ein Punkt P der Hyperbel y = k : x (x > 0) bi
 ST.neu('graph', 'transfer', SA('Eine Wertetabelle enthält (1 | 20), (2 | 10), (4 | 5), (5 | 4). Wie sieht der Graph aus?', 'eine Kurve, die von links oben nach rechts unten fällt und immer flacher wird',
     ['eine fallende Gerade', 'eine steigende Gerade durch den Ursprung', 'eine Kurve, die die x-Achse bei x = 20 trifft'],
     'Alle Produkte sind 20: Hyperbel y = 20 : x. Sie fällt erst steil (von 20 auf 10), dann immer flacher (von 5 auf 4).', 'Prüfe die Produkte und wie stark y jeweils fällt.'))
-ST.knobel('graph', SZ('Die Hyperbeln y = 8 : x und y = 2 · x schneiden sich für x > 0 in einem Punkt. Welche x-Koordinate hat er?', 2, '2',
-    '8 : x = 2x ⇒ 2x² = 8 ⇒ x² = 4 ⇒ x = 2 (x > 0). Probe: 8 : 2 = 4 = 2 · 2.', 'Setze beide Terme gleich und multipliziere mit x.'))
+ST.knobel('graph', SZ('Die Hyperbel y = 8 : x und die Gerade y = 2 · x schneiden sich für x > 0 in einem Punkt. Welche x-Koordinate hat er?', 2, '2',
+    '8 : x = 2x ⇒ 8 = 2 · x · x ⇒ x · x = 4. Die positive Zahl, die mit sich selbst malgenommen 4 ergibt, ist 2. Probe: 8 : 2 = 4 = 2 · 2.', 'Setze beide Terme gleich und multipliziere mit x.'))
 ST.knobel('graph', SZ('Auf der Hyperbel y = 24 : x liegen A(2 | 12) und B(6 | 4). Wie groß ist die Fläche des Dreiecks aus A, B und dem Punkt C(6 | 12)?', 16, '(6 - 2) * (12 - 4) / 2',
     'Bei C ist ein rechter Winkel: AC ist waagrecht (Länge 6 − 2 = 4), BC senkrecht (Länge 12 − 4 = 8). Fläche 4 · 8 : 2 = 16.', 'Zeichne die drei Punkte ein.', einheit='FE'))
 
@@ -1201,7 +1201,7 @@ TX.u('produkt', 'pruefung', TZ('Wer eine Radtour mit 20 km/h fährt, braucht 3 S
     TW('20 km/h → 3 h. Dörfer und Höhenmeter spielen keine Rolle.', 'Zeit bei 15 km/h.', 'Geschwindigkeit · Zeit = Strecke bleibt gleich.', '20 · 3 = 60 km. 60 : 15 = 4.', 'Man braucht 4 Stunden.'),
     'Welche Angaben gehören zu „Tempo mal Zeit“?', einheit='h'), huerde='ueberfluessig')
 TX.u('produkt', 'begruenden', TX.A('Ein Bauer misst: 3 Rohre füllen sein Becken in 8 h, 4 Rohre in 6 h, 6 Rohre in 5 h. Er sagt: „Rohre → Zeit ist indirekt proportional.“ Was stimmt?',
-    'Nein: 6 · 5 = 30, die anderen Produkte sind 24.', ['Ja: Mehr Rohre brauchen weniger Zeit.', 'Ja: Alle Produkte sind 24.', 'Nein: 3 · 8 = 11, also passt nichts.'],
+    'Nein: 6 · 5 = 30, die anderen Produkte sind 24.', ['Ja: Mehr Rohre brauchen weniger Zeit.', 'Ja: Alle Produkte sind 24.', 'Nein: Bei Rohren und Zeiten gibt es nie eine Proportionalität.'],
     TW('(3 | 8), (4 | 6), (6 | 5).', 'Ist die Zuordnung indirekt proportional?', 'Alle Produkte vergleichen.', '3 · 8 = 24, 4 · 6 = 24, 6 · 5 = 30.', 'Nicht indirekt proportional: Ein Produkt weicht ab (mit 6 Rohren müssten es 4 h sein).'),
     '„Je mehr, desto weniger“ reicht nicht – prüfe die Produkte.'), huerde='entscheidung')
 TX.s('produkt', TZ('Für eine Feier werden 96 Stühle in gleich lange Reihen gestellt. Bei 12 Reihen stehen 8 Stühle in jeder Reihe. Wie viele Stühle stehen in jeder Reihe, wenn es 16 Reihen sind?', '96 / 16',

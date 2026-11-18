@@ -3,9 +3,9 @@
  "thema_id": 37,
  "block_id": 68,
  "klasse": {
-  "rs_by": 10,
   "gym_by": 10,
-  "ib_myp": 4
+  "rs_by": 10,
+  "ib_myp": 5
  },
  "autor": "Claude (Paket Klasse 10)",
  "inhalt": {
@@ -2398,8 +2398,8 @@
     "einheit": "Jahre"
    },
    "c": "10",
-   "w": "1,08² = 1,1664; 1,08⁴ ≈ 1,3605; 1,08⁸ ≈ 1,8509; 1,08⁹ ≈ 1,9990 – knapp unter 2! 1,08¹⁰ ≈ 2,1589. Also erst nach 10 Jahren. Die Faustregel „72 : 8 = 9 Jahre“ trifft hier gerade nicht.",
-   "h": "Quadriere geschickt: 1,08², dann (1,08²)², … und prüfe die Grenze genau."
+   "w": "1,08² = 1,1664; 1,08⁴ = 1,1664² ≈ 1,3605; 1,08⁸ ≈ 1,3605² ≈ 1,8509; 1,08⁹ = 1,08⁸ · 1,08 ≈ 1,9990 – knapp unter 2! 1,08¹⁰ ≈ 1,9990 · 1,08 ≈ 2,1589. Also erst nach 10 Jahren. Weil 1,08⁹ so knapp unter 2 liegt, muss man hier genau rechnen.",
+   "h": "Quadriere geschickt: erst 1,08², dann 1,08⁴ = (1,08²)², dann 1,08⁸. Prüfe die Grenze genau."
   },
   {
    "l": "linear_oder_exponentiell",
@@ -3373,7 +3373,7 @@
     "wert": 21
    },
    "c": "21",
-   "w": "Auf Feld n liegen 2^(n − 1) Körner. Idee: 2¹⁰ = 1 024 ≈ 1 000, also 2²⁰ = 1 024² ≈ 1 048 576 > 1 000 000, aber 2¹⁹ = 524 288 zu wenig. Feld n mit n − 1 = 20: Feld 21.",
+   "w": "Auf Feld n liegen 2^(n − 1) Körner. Idee: 2¹⁰ = 1 024 ≈ 1 000, also 2²⁰ = 1 024² = 1 048 576 > 1 000 000, aber 2¹⁹ = 524 288 zu wenig. Feld n mit n − 1 = 20: Feld 21.",
    "h": "Merke dir 2¹⁰ ≈ 1 000. Achtung: Auf Feld 1 liegt 2⁰."
   },
   {

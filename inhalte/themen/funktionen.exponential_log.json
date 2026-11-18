@@ -30,6 +30,7 @@
     "titel": "Graphen und Logarithmus",
     "lernziele": [
      "graph",
+     "punkte",
      "logfunktion"
     ]
    }
@@ -690,6 +691,134 @@
     ]
    },
    {
+    "lernziel": "punkte",
+    "titel": "Punkte mit abbilden",
+    "regel": "x-Wert plus d, y-Wert mal a plus e. So wird P(x | y) zu ⟦P′(x + d | a · y + e)⟧.",
+    "schritte": [
+     {
+      "text": "Gegeben: P(1 | 4) und g(x) = 2 · f(x − 3) − 1."
+     },
+     {
+      "text": "x: f(x − 3) heißt 3 nach rechts, 1 + 3 = 4.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 4,
+         "name": "P"
+        },
+        {
+         "x": 4,
+         "y": 4,
+         "name": "_Q"
+        }
+       ],
+       "pfeile": [
+        [
+         1,
+         4,
+         4,
+         4
+        ]
+       ]
+      }
+     },
+     {
+      "text": "y: erst mal 2, dann minus 1: 2 · 4 − 1 = 7.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": 4,
+         "name": "P"
+        },
+        {
+         "x": 4,
+         "y": 4,
+         "name": "_Q"
+        },
+        {
+         "x": 4,
+         "y": 7,
+         "name": "P′"
+        }
+       ],
+       "pfeile": [
+        [
+         1,
+         4,
+         4,
+         4
+        ],
+        [
+         4,
+         4,
+         4,
+         7
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Der Bildpunkt ist ⟦P′(4 | 7)⟧."
+     }
+    ],
+    "fehler": "f(x − 3) schiebt nicht nach links. Es heißt ⟦3 nach rechts⟧, also x + 3, wie bei (x − 3)².",
+    "einstieg": "Auf der Schablone ist ein Punkt P markiert. Verschiebst du die Schablone, wandert P mit. Sein Ziel kannst du ausrechnen, ohne die Gleichung zu kennen. Es heißt ⟦Bildpunkt⟧.",
+    "woerter": [
+     [
+      "Bildpunkt",
+      "wohin P nach dem Abbilden kommt; geschrieben P′"
+     ],
+     [
+      "f(x − 3)",
+      "der Graph von f, um 3 nach rechts verschoben"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": 1,
+       "y": 4,
+       "name": "P"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "x": 1,
+       "y": 4,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 7,
+       "name": "falsch"
+      }
+     ],
+     "pfeile": [
+      [
+       1,
+       4,
+       -2,
+       7
+      ]
+     ]
+    }
+   },
+   {
     "lernziel": "logfunktion",
     "titel": "Die Logarithmusfunktion",
     "regel": "log_b(x) ist die Umkehrfunktion von b^x. Sie gilt nur für ⟦x > 0⟧ und geht durch (1 | 0).",
@@ -817,6 +946,13 @@
     "lernziele": [
      "logfunktion"
     ]
+   },
+   {
+    "k": "punkte",
+    "text": "Punkte mit abbilden",
+    "lernziele": [
+     "punkte"
+    ]
    }
   ],
   "bewertung": {
@@ -828,7 +964,9 @@
     "graph",
     "logfunktion"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "punkte"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -6201,6 +6339,783 @@
    "c": "2 ** 4",
    "w": "Idee: Ist log₄(x) = y, dann x = 4^y = 2^(2y), also log₂(x) = 2y. Die Gleichung heißt 2y − y = 2, also y = 2 und x = 4² = 16. Probe: log₂ 16 − log₄ 16 = 4 − 2 = 2.",
    "h": "Schreibe 4 als 2² und vergleiche log₂(x) mit log₄(x)."
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(−2 | −5) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x) + 3?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2
+    ]
+   },
+   "w": "Verschiebung um 3 nach oben: P'(−2 | −2).",
+   "h": "Eine Zahl hinter f(x) verschiebt nach oben oder unten.",
+   "c": [
+    "-2",
+    "(-5) + (3)"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | −4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 2 · f(x − 1) + 5?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     -3
+    ]
+   },
+   "w": "x: −1 + 1 = 0. y: 2 · (−4) + 5 = −3. P'(0 | −3).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(-1) + (1)",
+    "2 * (-4) + (5)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(5 | 4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x − 2)?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     7,
+     4
+    ]
+   },
+   "w": "f(x − 2) ist um 2 nach rechts verschoben: P'(7 | 4).",
+   "h": "Klammer mit x − d heißt: nach rechts um d.",
+   "c": [
+    "(5) + (2)",
+    "4"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 0,5 · f(x − 1) + 4?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -3,
+     7
+    ]
+   },
+   "w": "x: −4 + 1 = −3. y: 0,5 · 6 + 4 = 7. P'(−3 | 7).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(-4) + (1)",
+    "(1/2) * (6) + (4)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x − 2)?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -2,
+     6
+    ]
+   },
+   "w": "f(x − 2) ist um 2 nach rechts verschoben: P'(−2 | 6).",
+   "h": "Klammer mit x − d heißt: nach rechts um d.",
+   "c": [
+    "(-4) + (2)",
+    "6"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | −2) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 3 · f(x + 3) − 2?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -8
+    ]
+   },
+   "w": "x: 2 − 3 = −1. y: 3 · (−2) − 2 = −8. P'(−1 | −8).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(2) + (-3)",
+    "3 * (-2) + (-2)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | −5) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x + 3)?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -7,
+     -5
+    ]
+   },
+   "w": "f(x + 3) ist um 3 nach links verschoben: P'(−7 | −5).",
+   "h": "Klammer mit x − d heißt: nach rechts um d.",
+   "c": [
+    "(-4) + (-3)",
+    "-5"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −f(x − 1) + 1?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     -5
+    ]
+   },
+   "w": "x: −1 + 1 = 0. y: −1 · 6 + 1 = −5. P'(0 | −5).",
+   "h": "x: um d verschieben. y: erst mal a, dann plus e.",
+   "c": [
+    "(-1) + (1)",
+    "-1 * (6) + (1)"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(3 | −5) liegt auf f. Jemand rechnet für g(x) = f(x − 2) den Bildpunkt P'(1 | −5). Was stimmt?"
+   },
+   "a": [
+    "Falsch: f(x − 2) schiebt nach rechts, also P'(5 | −5).",
+    "Richtig.",
+    "Falsch: P'(5 | −3).",
+    "Falsch: P'(3 | −7)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "g(5) = f(5 − 2) = f(3) = −5. Also liegt (5 | −5) auf g.",
+   "h": "Probe: Setze den vermuteten x-Wert in g ein.",
+   "g": "fehler"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Punkt P′(5 | 1) liegt auf dem Graphen von g(x) = f(x − 2) + 3. Welcher Punkt P des Graphen von f gehört dazu?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     -2
+    ]
+   },
+   "c": [
+    "5 - 2",
+    "1 - 3"
+   ],
+   "w": "Zurück: x − 2 und y − 3. P(3 | −2).",
+   "h": "Mache beide Verschiebungen rückgängig.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | −6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = f(x + 4)?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -6
+    ]
+   },
+   "w": "f(x + 4) ist um 4 nach links verschoben: P'(−5 | −6).",
+   "h": "Klammer mit x − d heißt: nach rechts um d.",
+   "c": [
+    "(-1) + (-4)",
+    "-6"
+   ],
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Verschiebung beschreibt g(x) = f(x + 4)?"
+   },
+   "a": [
+    "um 4 nach rechts",
+    "um 4 nach links",
+    "um 4 nach oben",
+    "um 4 nach unten"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Was bei f an der Stelle x passiert, passiert bei g schon an der Stelle x − 4. Der Graph rückt 4 nach links.",
+   "h": "Für welches x ist das Argument von f gleich 0?",
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "P(−4 | −3) liegt auf dem Graphen von f. Welcher Punkt liegt auf g(x) = 2 · f(x − 4) + 2?"
+   },
+   "a": [
+    "P'(−8 | −8)",
+    "P'(0 | −2)",
+    "P'(0 | −4)",
+    "P'(−8 | −4)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x: −4 + 4 = 0; y: 2 · (−3) + 2 = −4.",
+   "h": "Reihenfolge bei y: erst strecken, dann verschieben.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Es ist f(x) = x² und g(x) = 2 · f(x − 1) − 3. Gib g in Scheitelform an.",
+    "schablone": "g(x) = □ · (x − □)² − □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "1",
+    "3"
+   ],
+   "w": "f(x − 1) = (x − 1)². Also g(x) = 2(x − 1)² − 3.",
+   "h": "Ersetze in f das x durch (x − 1).",
+   "g": "darstellung"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(2 | 4) liegt auf dem Graphen von g(x) = f(x − 2). Welchen Wert hat f(0)?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "g(2) = f(2 − 2) = f(0). Weil P auf g liegt, ist g(2) = 4. Also f(0) = 4.",
+   "h": "Setze x = 2 in g(x) = f(x − 2) ein.",
+   "g": "umkehr"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Auf dem Graphen von g(x) = 0,5 · f(x + 3) − 4 liegt P'(−8 | −2). Welcher Punkt P auf dem Graphen von f gehört dazu?",
+    "schablone": "P(□ | □)",
+    "hinweis": "x, y"
+   },
+   "o": {
+    "werte": [
+     -5,
+     4
+    ]
+   },
+   "w": "Rückwärts: x = −8 + 3 = −5; y = (−2 + 4) : 0,5 = 4.",
+   "h": "Schritte rückwärts: erst e abziehen, dann durch a teilen; x um d zurückschieben.",
+   "c": [
+    "(-8) - (-3)",
+    "((-2) - (-4)) / (1/2)"
+   ],
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von f hat den Scheitel S(1 | 2). Gib den Scheitel des Graphen von g(x) = −f(x + 3) + 1 an.",
+    "schablone": "S′(□ | □)",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1
+    ]
+   },
+   "c": [
+    "1 - 3",
+    "-2 + 1"
+   ],
+   "w": "x: f(x + 3) schiebt 3 nach links: 1 − 3 = −2. y: mal −1, dann plus 1: −2 + 1 = −1.",
+   "h": "Erst x, dann y: Vorzeichen umdrehen, dann 1 dazu.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(4 | −5) liegt auf f. Jemand rechnet für g(x) = f(x + 2) den Bildpunkt P'(6 | −5). Was stimmt?"
+   },
+   "a": [
+    "Falsch: P'(4 | −3).",
+    "Richtig.",
+    "Falsch: f(x + 2) schiebt nach links, also P'(2 | −5).",
+    "Falsch: P'(2 | −7)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "g(2) = f(2 + 2) = f(4) = −5. Also liegt (2 | −5) auf g.",
+   "h": "Probe: Setze den vermuteten x-Wert in g ein.",
+   "g": "fehler"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Es ist g(x) = f(x − 3) + 2. Welcher Punkt des Graphen von f wird auf sich selbst abgebildet?"
+   },
+   "a": [
+    "Keiner: Jeder Punkt wandert 3 nach rechts und 2 nach oben.",
+    "Der Scheitel",
+    "Der Punkt (3 | 2)",
+    "Alle Punkte auf der x-Achse"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Jeder Punkt (x | y) wird zu (x + 3 | y + 2). Das ist nie derselbe Punkt.",
+   "h": "Was passiert mit einem beliebigen Punkt (x | y)?",
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "P(2 | 3) liegt auf dem Graphen von f. Für welches c liegt der zugehörige Punkt auf dem Graphen von g(x) = f(x − c) auf der y-Achse?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "f(x − c) verschiebt um c nach rechts: Bildpunkt (2 + c | 3). Auf der y-Achse: 2 + c = 0 ⇒ c = −2 (also 2 nach links).",
+   "h": "Wohin wandert die x-Koordinate?",
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "P(1 | 2) und Q(3 | −1) liegen auf dem Graphen von f. Es ist g(x) = −f(x − 2) + 4. a) Gib den Bildpunkt von P an. b) Gib den Bildpunkt von Q an.",
+    "schablone": "P′(□ | □); Q′(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     2,
+     5,
+     5
+    ]
+   },
+   "c": [
+    "1 + 2",
+    "-2 + 4",
+    "3 + 2",
+    "1 + 4"
+   ],
+   "w": "x: 2 nach rechts. y: erst das Vorzeichen umdrehen, dann plus 4. P′(3 | −2 + 4) = (3 | 2). Q′(5 | 1 + 4) = (5 | 5).",
+   "h": "Erst x, dann y Schritt für Schritt.",
+   "l": "punkte",
+   "t": "punkte",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Die Abbildung „g(x) = f(x − 2) + 1“ wird dreimal hintereinander angewendet. Wohin kommt der Punkt P(0 | 0)?",
+    "schablone": "P‴(□ | □)",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     6,
+     3
+    ]
+   },
+   "c": [
+    "3 * 2",
+    "3 * 1"
+   ],
+   "w": "Jede Anwendung schiebt um 2 nach rechts und 1 nach oben. Dreimal: 6 nach rechts, 3 nach oben, also (6 | 3).",
+   "h": "Was macht eine einzelne Anwendung mit einem Punkt?",
+   "l": "punkte",
+   "t": "punkte",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Es ist g(x) = −f(x) + 4. Welche Punkte des Graphen von f liegen auch auf dem Graphen von g an derselben Stelle (Punkt und Bild gleich)?"
+   },
+   "a": [
+    "alle Punkte mit y = 2",
+    "alle Punkte mit y = 4",
+    "keine",
+    "nur der Scheitel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Punkt (x | y) wird zu (x | −y + 4). Gleich bleibt er, wenn −y + 4 = y, also y = 2.",
+   "h": "Setze y und Bild-y gleich.",
+   "l": "punkte",
+   "t": "punkte",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | −1) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 3 · f(x + 3) − 1?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -4
+    ]
+   },
+   "w": "x: 2 − 3 = −1. y: 3 · (−1) − 1 = −4. P'(−1 | −4).",
+   "c": [
+    "(2) + (-3)",
+    "3 * (-1) + (-1)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | −4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −2 · f(x − 3) + 5?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     13
+    ]
+   },
+   "w": "x: −4 + 3 = −1. y: −2 · (−4) + 5 = 13. P'(−1 | 13).",
+   "c": [
+    "(-4) + (3)",
+    "-2 * (-4) + (5)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(4 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 2 · f(x + 3) + 3?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     15
+    ]
+   },
+   "w": "x: 4 − 3 = 1. y: 2 · 6 + 3 = 15. P'(1 | 15).",
+   "c": [
+    "(4) + (-3)",
+    "2 * (6) + (3)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(3 | −3) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −f(x + 2) − 5?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     -2
+    ]
+   },
+   "w": "x: 3 − 2 = 1. y: −1 · (−3) − 5 = −2. P'(1 | −2).",
+   "c": [
+    "(3) + (-2)",
+    "-1 * (-3) + (-5)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | −4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 2 · f(x + 2) − 4?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     -12
+    ]
+   },
+   "w": "x: 2 − 2 = 0. y: 2 · (−4) − 4 = −12. P'(0 | −12).",
+   "c": [
+    "(2) + (-2)",
+    "2 * (-4) + (-4)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(2 | 6) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −2 · f(x + 3) + 3?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -9
+    ]
+   },
+   "w": "x: 2 − 3 = −1. y: −2 · 6 + 3 = −9. P'(−1 | −9).",
+   "c": [
+    "(2) + (-3)",
+    "-2 * (6) + (3)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | −5) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −f(x − 1) + 3?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     8
+    ]
+   },
+   "w": "x: −1 + 1 = 0. y: −1 · (−5) + 3 = 8. P'(0 | 8).",
+   "c": [
+    "(-1) + (1)",
+    "-1 * (-5) + (3)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | 5) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 3 · f(x − 3) − 1?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     14
+    ]
+   },
+   "w": "x: −4 + 3 = −1. y: 3 · 5 − 1 = 14. P'(−1 | 14).",
+   "c": [
+    "(-4) + (3)",
+    "3 * (5) + (-1)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(5 | 4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = 0,5 · f(x − 3) − 1?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     8,
+     1
+    ]
+   },
+   "w": "x: 5 + 3 = 8. y: 0,5 · 4 − 1 = 1. P'(8 | 1).",
+   "c": [
+    "(5) + (3)",
+    "(1/2) * (4) + (-1)"
+   ]
+  },
+  {
+   "l": "punkte",
+   "t": "punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(5 | 4) liegt auf dem Graphen von f. Wohin kommt P auf dem Graphen von g(x) = −f(x + 3) + 5?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     1
+    ]
+   },
+   "w": "x: 5 − 3 = 2. y: −1 · 4 + 5 = 1. P'(2 | 1).",
+   "c": [
+    "(5) + (-3)",
+    "-1 * (4) + (5)"
+   ]
   }
  ],
  "offen": [

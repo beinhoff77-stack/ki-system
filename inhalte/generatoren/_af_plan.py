@@ -198,3 +198,9 @@ PLAN['funktionen.quadratisch'] = [
     *_weg_alle('umformen', _UMFORMEN_WEG),
     *_weg_alle('extremwert', _EXTREMWERT_WEG),
 ]
+
+
+# funktionen.exponential_log (Kl. 10) ← funktionen.transformation: punkte (C). Vertiefung (RS Gruppe I Kl. 10), nach graph.
+PLAN['funktionen.exponential_log'] = [
+    karte_her('funktionen.transformation', 'punkte', 'Graphen und Logarithmus', vertiefung=True, nach='graph'),
+]

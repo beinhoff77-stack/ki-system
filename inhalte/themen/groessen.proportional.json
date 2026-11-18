@@ -5667,14 +5667,14 @@
    "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 4 Portionen braucht 600 g Kartoffeln. Es kommen 6 Gäste. Wie viel g Kartoffeln braucht man?"
+    "text": "Ein Rezept für 4 Portionen braucht 500 g Nudeln. Es sollen 6 Portionen werden. Wie viel g Nudeln braucht man?"
    },
    "o": {
-    "wert": 900,
+    "wert": 750,
     "einheit": "g"
    },
-   "c": "600 // 2 * 3",
-   "w": "2 Portionen: 300 g. 6 Portionen: 900 g.",
+   "c": "500 // 2 * 3",
+   "w": "2 Portionen: 250 g. 6 Portionen: 750 g.",
    "h": "Schließe auf 2 Portionen."
   },
   {

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 04:54 – STATUS: Expedition 7 „Flug nach Toronto“ (5-flug_toronto) fertig
+5 Teile, Themen: groessen.einheiten, groessen.proportional, stochastik.kombinatorik, zahlen.ganz. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
+
 ## 2026-11-18 04:54 – STATUS: Expedition 6 „Die Kettennachricht“ (5-kettennachricht) fertig
 5 Teile, Themen: groessen.einheiten, zahlen.natuerlich, zahlen.potenzen_basis. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
 

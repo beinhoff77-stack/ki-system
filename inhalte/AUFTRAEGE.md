@@ -1721,3 +1721,20 @@ Stand der Prüfung: `main`, App 0.78.1, Live-Funktionen lesend geprüft. Urteil:
 **H13 – Dosis der Mischkarten als Test:** Klasse 5 und 8; nur zwei gelandete Etappen; Wechsel der Lernkarte und Neustart des Browsers; manuelle Stufenwahl; alle acht Kandidaten verbraucht; Abbruch nach einem Mischfehler.
 **H14 – Rauchtests über die echte Antwortstrecke** (Teil 4 und „gesperrte Bordkarte“): äußerer API-Weg, 1./2. Versuch, Tipp, Fortsetzung nach Abbruch, „geladen, danach gesperrt“.
 **H15 – Botschaft der Expedition:** „Expedition abgeschlossen“ (Durchhalten, Stempel) klar trennen von „selbst gelöst/angewandt“ (Beleg je Teil); kein Straftext. Prüfen, ob ein alter Misch-Beleg nach späteren Fehlern noch als aktuell gelten soll (Vorschlag: Beleg muss nach der letzten Landung liegen – passt zu H4).
+
+# Bau-Auftrag LA (18.11.): Lehrer-Aufbau – Pakete LA-1 bis LA-7
+
+**Auswahl Sebastian:** 1A · 2B · 3B · 4A · 5A · 6B · 7A. **Der vollständige Bauauftrag steht in `inhalte/pruefung/lehrer/umsetzung.md`**, die Befunde dazu (L1–L9, App 0.78.1) in `inhalte/pruefung/lehrer/bericht.md`, Bilder des heutigen Stands in `inhalte/pruefung/lehrer/bilder/` (alle drei aus dem Zweig `pruefung-kinderansicht` nach `lernen-app` übernommen). Dieser Abschnitt legt nur fest, was dort offen ist oder von unseren Regeln abweicht.
+
+**Wer baut:** der Bau-Chat (nicht der Haupt-Chat, anders als in der Tabelle „Wer macht was“). Zweig `bau-lehrer` von aktuellem `lernen-app`, **erst nachdem H8 und H1–H4 aus Bau-Auftrag H gemeldet sind** – es baut immer nur ein Chat am App-Code. Datenbank: Migrationen als Datei nach `supabase/migrations/20261119_la_<paket>_<name>.sql`, nicht ausführen; kein DROP, kein DELETE; Lernstände und Pläne bleiben erhalten. Meldungen in `inhalte/postfach/bau-lehrer.md`, je Paket „FERTIG: LA-n“. Kein Merge nach `lernen-app` oder `main`. Reisewörter überall; Info-Seite „So funktioniert’s“ im selben Schritt; Tests in `tests/lernen.test.cjs` je Paket.
+
+**Reihenfolge und Lieferung:** LA-1 → LA-2 → LA-6 → LA-3 → LA-5 → LA-4 → LA-7. Nach LA-2 und nach LA-4 je eine Zwischenmeldung mit Bildern (Tablet 820 px, Handy 400 px, Rechner), damit der Prüf-Chat nachprüfen kann.
+
+**Abweichungen und Klarstellungen:**
+1. **„Lernen starten“ bleibt für Eltern.** Die Kinder haben derzeit keinen eigenen Zugang; sie kommen über den Eltern-Zugang und den Knopf „Lernen starten“ auf ihre Abflugtafel. Deshalb: Bei der Rolle **Eltern** steht „Lernen starten“ in jeder Tabellenzeile bzw. Kind-Karte (LA-2) und im Kopf der Kind-Seite als deutlicher Knopf. Bei der Rolle **Lehrer** entfällt er wie in LA-2 beschrieben; dort bleibt „Lernreise ansehen“ klein im Kopf der Kind-Seite.
+2. **„Besprochen ✓“ (LA-3):** neue Tabelle (Kind, Einheit, Lernkarte, wer, wann); Lehrer und Eltern dürfen setzen; neue endgültig falsche Antworten nach dem Zeitpunkt holen die Etappe zurück nach „Zu tun“. Keine neue Aktion in `lernen-api`, wenn es über eine bestehende geht – sonst melden.
+3. **„Kann schon“ je Flug (LA-4):** neues Feld am Plan (z. B. `route.kann_schon_themen bigint[]`, entsprechend `ausgelassen`); zählt in `thema_stand`, Lernstand-Tabelle, Abflugtafel und Ort-Abschluss wie gelandet, aber als eigener Zustand („kann schon“), nicht als `karte_stand.sitzt` – Mischkarten, Wiederholungen und Expeditionen entstehen daraus **nicht**. Das bisherige „kann schon“ für den ganzen Ort bleibt und setzt alle Flüge. Rückgängig ohne Verlust.
+4. **„Zu tun“ rot (LA-2):** „eingetragene Pausen/Reisetage“ gibt es noch nicht. Bis dahin ohne diese Ausnahme bauen; nichts Neues dafür anlegen, nur im Bericht nennen.
+5. **„Häufigster Fehler“ (LA-3):** nur zeigen, wo `grund` bei mindestens zwei falschen Antworten vorkommt; sonst „–“. Keine Aussage erfinden, wie das Kind gerechnet hat.
+6. **IB:** einheitlich MYP-Jahr = Klasse − 5 (seit 0.78.0); unter Klasse 6 „noch kein MYP-Jahr“.
+7. **Entwurf:** Der Auswahl-Entwurf „Lehrer-Ansicht: neuer Aufbau“ liegt nicht im Repository. Maßgeblich ist der Text in `umsetzung.md`. Wo er eine Frage offenlässt, die schlichteste Lösung nehmen und in der Meldung nennen.

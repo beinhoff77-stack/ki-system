@@ -1639,7 +1639,7 @@
     "wert": 512
    },
    "c": "2 ** 9",
-   "w": "Feld 1: 2⁰ = 1, Feld 2: 2¹, …, Feld 10: 2⁹ = 512.",
+   "w": "Bis zum 10. Feld wird 9-mal verdoppelt: 2 · 2 · … · 2 (9 Faktoren) = 2⁹ = 512.",
    "h": "Wie oft wurde bis zum 10. Feld verdoppelt?"
   },
   {
@@ -2401,8 +2401,8 @@
    "o": {
     "index": 1
    },
-   "w": "2³⁰ = (2³)¹⁰ = 8¹⁰ und 3²⁰ = (3²)¹⁰ = 9¹⁰. Weil 9 > 8, ist 3²⁰ größer.",
-   "h": "Schreib beide als Potenz mit dem Exponenten 10."
+   "w": "Fasse in 2³⁰ je drei Zweien zu 8 zusammen: 10 Faktoren 8, also 8¹⁰. Fasse in 3²⁰ je zwei Dreien zu 9 zusammen: 10 Faktoren 9, also 9¹⁰. Weil 9 > 8, ist 3²⁰ größer.",
+   "h": "Fasse die Faktoren so zusammen, dass beide Zahlen aus 10 Faktoren bestehen."
   },
   {
    "l": "berechnen",
@@ -3779,8 +3779,8 @@
     "wert": 4
    },
    "c": "2 ** 40 // 4 ** 19",
-   "w": "4¹⁹ = (2²)¹⁹ = 2³⁸. 2⁴⁰ : 2³⁸ = 2² = 4.",
-   "h": "Schreib 4 als Potenz von 2."
+   "w": "Jede 4 ist 2 · 2. 4¹⁹ besteht also aus 38 Faktoren 2, 2⁴⁰ aus 40. Übrig bleiben 2 · 2 = 4.",
+   "h": "Schreib jede 4 als 2 · 2 und zähle die Zweien."
   },
   {
    "l": "vertauschen",
@@ -4496,8 +4496,8 @@
    "o": {
     "index": 0
    },
-   "w": "2⁶⁰ = (2¹⁰)⁶ = 1 024⁶. Das ist etwas mehr als (10³)⁶ = 10¹⁸, aber viel weniger als 10²⁰ (dafür müsste 1 024⁶ hundertmal so groß sein wie 10¹⁸). Also ist 10²⁰ größer.",
-   "h": "Schreib 2⁶⁰ mit 2¹⁰ und vergleiche mit 10³."
+   "w": "Fasse je zehn Zweien zu 1 024 zusammen: 2⁶⁰ = 1 024 · 1 024 · … (6 Faktoren). Jeder Faktor ist kleiner als 2 000, also ist 2⁶⁰ kleiner als 2 000 · 2 000 · … (6 Faktoren) = 64 · 10¹⁸. Das ist kleiner als 100 · 10¹⁸ = 10²⁰.",
+   "h": "Fasse je zehn Zweien zusammen und vergleiche jeden Faktor mit 1 000 und 2 000."
   },
   {
    "l": "zehner",

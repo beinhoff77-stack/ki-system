@@ -15,7 +15,7 @@ KARTEN = {
    ('pruefung', Z('Gib die kleinste Zahl größer als 1 an, die man sowohl als Quadratzahl (Exponent 2) als auch als Potenz mit Exponent 3 schreiben kann.', 64, '8 ** 2',
                   'Potenzen mit Exponent 3: 8, 27, 64, … 8 und 27 sind keine Quadratzahlen, aber 64 = 8² = 4³.', 'Schreib die Potenzen mit Exponent 3 der Reihe nach auf.')),
    ('transfer', Z('Auf das erste Feld legt ein Kind 1 Reiskorn, auf das zweite 2, auf das dritte 4 und so weiter, immer doppelt so viele. Wie viele Körner liegen auf dem 10. Feld?', 512, '2 ** 9',
-                  'Feld 1: 2⁰ = 1, Feld 2: 2¹, …, Feld 10: 2⁹ = 512.', 'Wie oft wurde bis zum 10. Feld verdoppelt?')),
+                  'Bis zum 10. Feld wird 9-mal verdoppelt: 2 · 2 · … · 2 (9 Faktoren) = 2⁹ = 512.', 'Wie oft wurde bis zum 10. Feld verdoppelt?')),
   ],
   'knobel': [
    Z('Welche Ziffer steht am Ende von 3²⁰?', 1, '3 ** 20 % 10', 'Die letzten Ziffern der Dreierpotenzen wiederholen sich: 3, 9, 7, 1, 3, 9, 7, 1, … Alle vier Schritte kommt 1. 20 ist durch 4 teilbar, also endet 3²⁰ auf 1.', 'Schreib die letzten Ziffern von 3¹, 3², 3³, … auf.'),
@@ -41,7 +41,7 @@ KARTEN = {
   ],
   'knobel': [
    A('Welche Zahl ist größer: 2³⁰ oder 3²⁰?', '3²⁰', ['2³⁰', 'Beide sind gleich groß.'],
-     '2³⁰ = (2³)¹⁰ = 8¹⁰ und 3²⁰ = (3²)¹⁰ = 9¹⁰. Weil 9 > 8, ist 3²⁰ größer.', 'Schreib beide als Potenz mit dem Exponenten 10.'),
+     'Fasse in 2³⁰ je drei Zweien zu 8 zusammen: 10 Faktoren 8, also 8¹⁰. Fasse in 3²⁰ je zwei Dreien zu 9 zusammen: 10 Faktoren 9, also 9¹⁰. Weil 9 > 8, ist 3²⁰ größer.', 'Fasse die Faktoren so zusammen, dass beide Zahlen aus 10 Faktoren bestehen.'),
    Z('Berechne 1 + 2 + 4 + 8 + … + 512 (alle Zweierpotenzen von 2⁰ bis 2⁹).', 1023, '2 ** 10 - 1',
      'Addiert man der Reihe nach: 1, 3, 7, 15, … – die Summe ist immer um 1 kleiner als die nächste Zweierpotenz. Bis 512 ergibt sich 1 024 − 1 = 1 023.', 'Schau dir die Zwischensummen an.'),
   ],
@@ -82,7 +82,7 @@ KARTEN = {
   'knobel': [
    Z('Für wie viele natürliche Zahlen a von 1 bis 10 ist 2ᵃ größer als a²?', 7, '7',
      'a = 1: 2 > 1 ja. a = 2, 3, 4: 4 = 4, 8 < 9, 16 = 16 – nein. Ab a = 5 ist 2ᵃ immer größer (32 > 25, 64 > 36, …). Also a = 1 und a = 5 bis 10: 7 Zahlen.', 'Prüfe die kleinen Zahlen einzeln. Was passiert ab 5?'),
-   Z('Wie oft passt 4¹⁹ in 2⁴⁰?', 4, '2 ** 40 // 4 ** 19', '4¹⁹ = (2²)¹⁹ = 2³⁸. 2⁴⁰ : 2³⁸ = 2² = 4.', 'Schreib 4 als Potenz von 2.'),
+   Z('Wie oft passt 4¹⁹ in 2⁴⁰?', 4, '2 ** 40 // 4 ** 19', 'Jede 4 ist 2 · 2. 4¹⁹ besteht also aus 38 Faktoren 2, 2⁴⁰ aus 40. Übrig bleiben 2 · 2 = 4.', 'Schreib jede 4 als 2 · 2 und zähle die Zweien.'),
   ],
  },
  'zehner': {
@@ -105,7 +105,7 @@ KARTEN = {
   'knobel': [
    Z('Wie viele Ziffern hat die Zahl 10¹⁰⁰ − 1?', 100, '100', '10¹⁰⁰ ist eine 1 mit 100 Nullen (101 Ziffern). Zieht man 1 ab, entsteht eine Zahl aus 100 Neunen.', 'Was ist 10² − 1, was ist 10³ − 1?'),
    A('Welche Zahl ist größer: 10²⁰ oder 2⁶⁰? (Hinweis: 2¹⁰ = 1 024)', '10²⁰', ['2⁶⁰', 'Beide sind gleich groß.'],
-     '2⁶⁰ = (2¹⁰)⁶ = 1 024⁶. Das ist etwas mehr als (10³)⁶ = 10¹⁸, aber viel weniger als 10²⁰ (dafür müsste 1 024⁶ hundertmal so groß sein wie 10¹⁸). Also ist 10²⁰ größer.', 'Schreib 2⁶⁰ mit 2¹⁰ und vergleiche mit 10³.'),
+     'Fasse je zehn Zweien zu 1 024 zusammen: 2⁶⁰ = 1 024 · 1 024 · … (6 Faktoren). Jeder Faktor ist kleiner als 2 000, also ist 2⁶⁰ kleiner als 2 000 · 2 000 · … (6 Faktoren) = 64 · 10¹⁸. Das ist kleiner als 100 · 10¹⁸ = 10²⁰.', 'Fasse je zehn Zweien zusammen und vergleiche jeden Faktor mit 1 000 und 2 000.'),
   ],
  },
  'negativ': {

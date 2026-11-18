@@ -2,6 +2,25 @@
 
 Neueste oben.
 
+## 2026-11-18 – FERTIG: Fehler „Diese Aufgabe ist noch nicht freigegeben“ beim Prüfen; Rauchtest Teil 4 korrigiert – App 0.78.1
+
+**Server – Migration** `supabase/migrations/20261118_w176_a_gesperrt_pruefen.sql` (nicht ausgeführt; pglast ok; Stelle im Live-Text genau einmal vorhanden; kein DROP, kein DELETE):
+- `schule.uebung_pruefen_intern`: Eine gesperrte Bordkarte (`freigegeben = false`) wird beim **Prüfen** noch normal gewertet, wenn ihr Flug **geprüft oder freigegeben** ist. Die Sperre greift nur bei der
+  **Auswahl** neuer Bordkarten (Übung, Wiederholung, Mischkarten, Knobel, Tests – unverändert). Entwurfs-Flüge bleiben für echte Kinder gesperrt (vorher schon über `einheit_pruefen_sichtbar`;
+  gesperrte Bordkarte im Entwurf nur fürs Testkind, wie bisher).
+- Die Datei läuft auf dem heutigen Stand **und** vor oder nach W176 Teil 1/3/4 (erkennt beide Fassungen der Stelle, zweimal einspielen schadet nicht). Sie kann sofort und unabhängig von „Live“ eingespielt werden.
+- **Geändert in Teil 3** (`20261118_w176_t3_mischkarten.sql`, noch nicht eingespielt): fasst `uebung_pruefen_intern` an dieser Stelle nicht mehr an (sonst hätte Teil 3 die Prüf-Sperre fürs Testkind wieder verschärft
+  bzw. die Stelle nicht mehr gefunden). Die beiden Auswahl-Stellen (Flug laden, Wiederholung) bleiben in Teil 3.
+- Rauchtest `supabase/tests/w176_gesperrt_rauchtest.sql` (Rollback, ohne Namen): gesperrte Übung in freigegebenem Flug wird gewertet · gesperrte Übung im Entwurf bleibt für echte Kinder gesperrt.
+
+**App 0.78.1** – kommt beim Prüfen trotzdem „… nicht freigegeben“ (z. B. bevor die Migration eingespielt ist): keine rote Meldung. Üben (auch Mischkarten), Wiederholung und Expedition laden still neu
+und zeigen die nächste Bordkarte; eine Knobel-Bordkarte schließt sich still; im Test geht es zur nächsten Bordkarte (der Server prüft im Test nicht auf die Sperre – nur zur Sicherheit).
+Gewertet wurde nichts, die Checkliste bleibt unverändert. Tests: Üben (neu geladen, keine Meldung, Checkliste gleich), Knobel und Wiederholung.
+
+**Rauchtest Teil 4** `supabase/tests/w176_t4_rauchtest.sql`: Variable `k` → `ks` (kollidierte mit dem Tabellen-Alias `k`). Migration Teil 4 unverändert.
+
+**Tests:** lernen 64 von 64; Suche: 9 bekannte alte Fehler.
+
 ## 2026-11-18 – FERTIG: Teil 4 (P3 Expeditionen, Technik) – App 0.78.0 – wartet auf Migration
 
 **Migration** `supabase/migrations/20261118_w176_t4_expeditionen.sql` (nicht ausgeführt; pglast ok; Ersetzungsstellen im Live-Text vorhanden; setzt Teil 1 und Teil 3 voraus; kein DROP von Tabellen/Spalten/Funktionen, kein DELETE).

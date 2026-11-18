@@ -1739,3 +1739,60 @@ test('IB: MYP-Jahr = Klasse − 5 überall gleich; Beschriftung „MYP-Jahr n“
   const quelle = fs.readFileSync(path.join(root, 'lernen.js'), 'utf8');
   assert.doesNotMatch(quelle, /klasse - 4|Klasse − 4|'MYP ' \+/);
 });
+
+// ---------- Betrieb 18.11.: Bordkarte wurde während der Sitzung gesperrt („nicht freigegeben“) ----------
+const sperre = async (page, ids, calls) => page.route('**/functions/v1/lernen-api/**', async (route) => {
+  const b = JSON.parse(route.request().postData() || '{}');
+  if (b.aktion === 'schule_uebung_pruefen' && ids.includes(b.daten.aufgabe_id) && !route.request().postData().includes('"x-erlaubt"')) {
+    calls.push({ aktion: 'gesperrt', daten: b.daten });
+    return route.fulfill({ contentType: 'application/json', status: 400, body: JSON.stringify({ ok: false, fehler: 'Diese Aufgabe ist noch nicht freigegeben' }) });
+  }
+  return route.fallback();
+});
+
+test('Gesperrt nach dem Laden: Üben – keine rote Meldung, Flug lädt still neu, Checkliste unverändert', async (t) => {
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: neueRegel({ stellenwert: { eigene_loesungen: 1, folge: 1 } }) });
+  await sperre(page, [11], calls);
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  const vorher = await page.locator('.lr-checkliste').innerText();
+  const laden = () => calls.filter((c) => c.aktion === 'schule_einheit_lesen').length;
+  const l0 = laden();
+  for (const z of ['2', '0', '0', '0']) await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: z, exact: true }).click();
+  await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
+  await page.waitForFunction((n) => true, l0);
+  await page.waitForTimeout(400);
+  assert.ok(calls.some((c) => c.aktion === 'gesperrt'));
+  assert.ok(laden() > l0, 'Flug neu geladen');
+  await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  assert.equal(await page.locator('.err-text').count(), 0, 'keine Fehlermeldung');
+  assert.equal(await page.getByText(/nicht freigegeben/).count(), 0);
+  assert.equal(await page.locator('.lr-checkliste').innerText(), vorher);
+});
+
+test('Gesperrt nach dem Laden: Knobel und Wiederholung – keine Fehlermeldung, es geht weiter', async (t) => {
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: mitBonus });
+  await sperre(page, [501, 11, 12], calls);
+  // Knobel: die Knobel-Karte schließt sich still
+  await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  await page.evaluate(() => { const box = document.createElement('div'); box.id = 'kb'; document.querySelector('.lr-inhalt').append(box);
+    lernKnobel(box, { id: 501, stufe: 3, bonus: true, antworttyp: 'zahl', frage: { text: 'Knobel?' } }, { kind: 1 }, { zurueck: () => box.remove() }); });
+  await page.locator('#kb input').fill('96'); await page.locator('#kb').getByRole('button', { name: 'Prüfen' }).click();
+  await page.locator('#kb').waitFor({ state: 'detached' });
+  assert.equal(await page.locator('.err-text').count(), 0);
+  // Wiederholung: lädt neu, keine Meldung
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}');
+    if (b.aktion !== 'schule_wiederholung') return route.fallback();
+    calls.push({ aktion: 'schule_wiederholung' });
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, faellig: 1, aufgaben: [{ ...AUFG[11], einheit_id: 1, stadt: 'Rom' }] } }) });
+  });
+  await page.goto(origin + '/#/wiederholen/1');
+  await page.getByText('Welchen Wert hat die Ziffer 2', { exact: false }).waitFor();
+  const wdh0 = calls.filter((c) => c.aktion === 'schule_wiederholung').length;
+  const tf = page.getByRole('group', { name: 'Tastenfeld' });
+  if (await tf.count()) { for (const z of ['2', '0', '0', '0']) await tf.getByRole('button', { name: z, exact: true }).click(); await tf.getByRole('button', { name: 'Prüfen' }).click(); }
+  else { await page.locator('main input').first().fill('2000'); await page.getByRole('button', { name: 'Prüfen' }).click(); }
+  await page.waitForTimeout(500);
+  assert.ok(calls.filter((c) => c.aktion === 'schule_wiederholung').length > wdh0, 'Wiederholung neu geladen');
+  assert.equal(await page.locator('.err-text').count(), 0);
+});

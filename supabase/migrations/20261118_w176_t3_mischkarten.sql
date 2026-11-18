@@ -146,7 +146,7 @@ begin
 end $$;
 
 -- Korrektur 18.11. (Probelauf: Rauchtest „FEHLER 2“): Gesperrte Aufgaben (freigegeben = false, z. B. die seit 17.11. gesperrten überzähligen Übungen) bekommt auch das Testkind nicht mehr.
--- Dieselbe Stelle gab es an drei weiteren Orten; dort gilt jetzt dieselbe Regel. Entwurfs-Flüge sieht das Testkind weiter – das regelt der Status der Einheit
+-- Dieselbe Stelle gab es an zwei weiteren Auswahl-Orten; dort gilt jetzt dieselbe Regel (Prüfen siehe 20261118_w176_a_gesperrt_pruefen.sql). Entwurfs-Flüge sieht das Testkind weiter – das regelt der Status der Einheit
 -- (einheit_pruefen_sichtbar bzw. e.status), nicht das Feld freigegeben der Aufgabe.
 do $$
 declare d text;
@@ -159,8 +159,6 @@ begin
   if position('(a.freigegeben or coalesce(v_test, false))' in d) = 0 then raise exception 'Stelle in schule_wiederholung nicht gefunden'; end if;
   d := replace(d, '(a.freigegeben or coalesce(v_test, false))', '(a.freigegeben)');
   execute d;
-  d := pg_get_functiondef('schule.uebung_pruefen_intern(bigint, jsonb)'::regprocedure);
-  if position('if not a.freigegeben and not exists (select 1 from schule.lernender l where l.id = p_lernender and l.ist_test) then' in d) = 0 then raise exception 'Stelle in uebung_pruefen_intern (freigegeben) nicht gefunden'; end if;
-  d := replace(d, 'if not a.freigegeben and not exists (select 1 from schule.lernender l where l.id = p_lernender and l.ist_test) then', 'if not a.freigegeben then');
-  execute d;
+  -- schule.uebung_pruefen_intern: bewusst NICHT mehr hier (Betrieb 18.11.) – beim Prüfen gilt die Regel aus 20261118_w176_a_gesperrt_pruefen.sql
+  -- (gesperrte Bordkarte in geprüften/freigegebenen Flügen wird noch gewertet; die Sperre greift nur bei der Auswahl).
 end $$;

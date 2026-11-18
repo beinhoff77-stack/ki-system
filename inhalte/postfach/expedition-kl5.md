@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 04:54 – STATUS: Expedition 5 „Die Stufenpyramide“ (5-pyramide) fertig
+5 Teile, Themen: zahlen.natuerlich, zahlen.potenzen_basis, zahlen.rechengesetze. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
+
 ## 2026-11-18 04:54 – STATUS: Expedition 4 „Der Uhrturm“ (5-uhrturm) fertig
 4 Teile, Themen: geometrie.winkel, groessen.einheiten, zahlen.teilbarkeit. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
 

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-18 04:54 – STATUS: Expedition 9 „Die Schatzsuche“ (5-schatzsuche) fertig
+5 Teile, Themen: geometrie.grundbegriffe, geometrie.winkel, groessen.einheiten, stochastik.kombinatorik, zahlen.teilbarkeit. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
+
 ## 2026-11-18 04:54 – STATUS: Expedition 8 „Der Zeltplatz“ (5-zeltplatz) fertig
 5 Teile, Themen: geometrie.grundbegriffe, geometrie.ortslinien, groessen.proportional, messen.flaechen. Prüfskript OK, alle Lösungen vom Generator berechnet und nachgerechnet.
 

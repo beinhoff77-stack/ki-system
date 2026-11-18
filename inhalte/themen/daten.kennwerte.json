@@ -2521,7 +2521,7 @@
    "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Fünf verschiedene natürliche Zahlen haben den Mittelwert 10. Wie groß kann die größte höchstens sein?"
+    "text": "Fünf verschiedene natürliche Zahlen (ab 1) haben den Mittelwert 10. Wie groß kann die größte höchstens sein?"
    },
    "o": {
     "wert": 40
@@ -2862,7 +2862,7 @@
     "14 // 2",
     "6 // 2"
    ],
-   "w": "Summe: 1 · a + 2 · 2a + 3 · 3a = 14a. Anzahl: a + 2a + 3a = 6a. Mittelwert 14a : 6a = 14/6 = 7/3 – egal, wie groß a ist.",
+   "w": "Für a = 1: Die 1 kommt 1-mal, die 2 kommt 2-mal, die 3 kommt 3-mal vor. Summe 1 + 4 + 9 = 14, Anzahl 6, Mittelwert 14/6 = 7/3. Für a = 2 verdoppeln sich Summe und Anzahl (28 und 12), für a = 3 verdreifachen sie sich – der Mittelwert bleibt 7/3, egal wie groß a ist.",
    "h": "Probiere a = 1 aus."
   },
   {

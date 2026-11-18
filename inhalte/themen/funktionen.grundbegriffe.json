@@ -2173,7 +2173,7 @@
    "o": {
     "index": 3
    },
-   "w": "Die Zuordnung selbst ist eine Funktion (jede Zahl hat genau einen kleinsten Teiler > 1). Umgekehrt hat aber z. B. 2 viele Urbilder: 2, 4, 6, 8 …",
+   "w": "Die Zuordnung selbst ist eine Funktion (jede Zahl hat genau einen kleinsten Teiler > 1). Umgekehrt gehören aber zum kleinsten Teiler 2 viele Zahlen, z. B. 2, 4 und 6 …",
    "h": "Welche Zahlen haben den kleinsten Teiler 2?"
   },
   {
@@ -2566,7 +2566,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Bus hat 45 Plätze, die Fahrt kostet 3 € pro Person. Wie groß ist der größte Wert der Wertemenge?"
+    "text": "Ein Bus hat 45 Plätze, die Fahrt kostet 3 € pro Person. Jeder Zahl x der Mitfahrenden werden die Einnahmen zugeordnet. Wie groß ist der größte Wert der Wertemenge?"
    },
    "o": {
     "wert": 135,
@@ -2702,7 +2702,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Museum verlangt 6 € Eintritt pro Person, höchstens 50 Personen dürfen hinein. Wie groß ist der größte Wert der Wertemenge?"
+    "text": "Ein Museum verlangt 6 € Eintritt pro Person, höchstens 50 Personen dürfen hinein. Jeder Personenzahl x werden die Einnahmen zugeordnet. Wie groß ist der größte Wert der Wertemenge?"
    },
    "o": {
     "wert": 300,
@@ -2725,7 +2725,7 @@
     "einheit": "h"
    },
    "c": "20 / 2",
-   "w": "Gegeben: 20 cm, 2 cm pro Stunde. Gesucht: größtes t. Ansatz: Wann ist die Kerze abgebrannt? Rechnung: 20 : 2 = 10. Antwort: D = [0; 10]."
+   "w": "Gegeben: 20 cm, 2 cm pro Stunde. Gesucht: größtes t. Ansatz: Wann ist die Kerze abgebrannt? Rechnung: 20 : 2 = 10. Antwort: Die größte sinnvolle Brenndauer ist 10 Stunden."
   },
   {
    "l": "mengen",
@@ -2934,13 +2934,13 @@
    "a": [
     "{0; 1; 2; 3; 4; 5; 6}",
     "{1; 2; 3; 4; 5; 6}",
-    "alle reellen Zahlen",
-    "[0; 6]"
+    "alle Zahlen von 0 bis 6, auch Kommazahlen",
+    "alle ganzen Zahlen"
    ],
    "o": {
     "index": 0
    },
-   "w": "Gegeben: Erdgeschoss 0 bis Stock 6. Gesucht: sinnvolle x-Werte. Ansatz: Nur ganze Stockwerke von 0 bis 6. Rechnung: D = {0; 1; …; 6}. Antwort: D = {0; 1; 2; 3; 4; 5; 6}.",
+   "w": "Gegeben: Erdgeschoss 0 bis Stock 6. Gesucht: sinnvolle x-Werte. Ansatz: Nur ganze Stockwerke von 0 bis 6, das Erdgeschoss zählt mit. Rechnung: Sieben Stockwerke: 0, 1, 2, 3, 4, 5, 6. Antwort: D = {0; 1; 2; 3; 4; 5; 6}.",
    "h": "Gibt es ein Stockwerk 2,5?"
   },
   {
@@ -2976,7 +2976,7 @@
     "einheit": "min"
    },
    "c": "200 / 4",
-   "w": "Gegeben: 2 m = 200 cm Tiefe, 4 cm pro Minute; die Länge spielt keine Rolle. Gesucht: größtes t. Ansatz: Wann ist das Becken voll? Rechnung: 200 : 4 = 50. Antwort: D = [0; 50], größte Zahl 50.",
+   "w": "Gegeben: 2 m = 200 cm Tiefe, 4 cm pro Minute; die Länge spielt keine Rolle. Gesucht: größtes t. Ansatz: Wann ist das Becken voll? Rechnung: 200 : 4 = 50. Antwort: Nach 50 Minuten ist das Becken voll; die größte sinnvolle Zahl ist 50.",
    "h": "Welche Angaben bestimmen, wann das Becken voll ist?"
   },
   {
@@ -2987,18 +2987,18 @@
    "g": "fehler",
    "y": "auswahl",
    "f": {
-    "text": "Ein Taxi kostet 4 € Grundpreis und 2 € pro km. Jemand gibt für Strecke → Preis die Wertemenge W = [0; ∞[ an. Was stimmt?"
+    "text": "Ein Taxi kostet 4 € Grundpreis und 2 € pro km. Jemand sagt über die Wertemenge von Strecke → Preis: „Der Preis kann jeden Betrag ab 0 € annehmen.“ Was stimmt?"
    },
    "a": [
-    "Falsch: W = ]0; 4].",
-    "Falsch: W = [2; ∞[.",
-    "Falsch: Der Preis ist mindestens 4 €, also W = [4; ∞[.",
+    "Falsch: Der Preis liegt immer zwischen 0 € und 4 €.",
+    "Falsch: Der Preis ist mindestens 2 €.",
+    "Falsch: Der Preis ist mindestens 4 €, weil der Grundpreis immer anfällt.",
     "Richtig."
    ],
    "o": {
     "index": 2
    },
-   "w": "Gegeben: Preis = 4 + 2x, x ≥ 0. Gesucht: richtige Wertemenge. Ansatz: Kleinsten Preis bestimmen. Rechnung: Bei x = 0: 4 €. Antwort: W = [4; ∞[; die Angabe ist falsch.",
+   "w": "Gegeben: Preis = 4 + 2x, x ≥ 0. Gesucht: richtige Wertemenge. Ansatz: Kleinsten Preis bestimmen. Rechnung: Bei x = 0: 4 €; mit jedem km wird es teurer. Antwort: Die Wertemenge enthält nur Beträge ab 4 €; die Aussage ist falsch.",
    "h": "Was kostet die kürzeste mögliche Fahrt?"
   },
   {
@@ -3009,7 +3009,7 @@
    "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Ein Tank verliert pro Stunde 25 l, bis er leer ist. Die sinnvolle Definitionsmenge ist D = [0; 16]. Wie viele Liter waren am Anfang im Tank?"
+    "text": "Ein Tank verliert pro Stunde 25 l, bis er leer ist. Die sinnvolle Definitionsmenge enthält alle Zeiten von 0 bis 16 Stunden. Wie viele Liter waren am Anfang im Tank?"
    },
    "o": {
     "wert": 400,
@@ -3017,7 +3017,7 @@
    },
    "c": "25 * 16",
    "w": "Gegeben: 25 l pro Stunde, leer nach 16 h. Gesucht: Anfangsmenge. Ansatz: Rückwärts rechnen. Rechnung: 25 · 16 = 400. Antwort: Am Anfang waren 400 l im Tank.",
-   "h": "Was bedeutet die Zahl 16 in D?"
+   "h": "Was bedeutet die Zahl 16 hier?"
   },
   {
    "l": "mengen",
@@ -3034,7 +3034,7 @@
     "einheit": "h"
    },
    "c": "(100 - 10) / 5",
-   "w": "Gegeben: 100 − 5x, an bis 10 %. Gesucht: größtes x. Ansatz: 100 − 5x ≥ 10 und x ≥ 0. Rechnung: 5x ≤ 90 ⇒ x ≤ 18. Antwort: D = [0; 18], größte Zahl 18.",
+   "w": "Gegeben: 100 − 5x, an bis 10 %. Gesucht: größtes x. Ansatz: 100 − 5x ≥ 10 und x ≥ 0. Rechnung: 5x ≤ 90 ⇒ x ≤ 18. Antwort: Das Handy läuft 18 Stunden; die größte Zahl der Definitionsmenge ist 18.",
    "h": "Bis zu welchem Ladestand läuft das Handy?"
   },
   {
@@ -6061,7 +6061,7 @@
    "a": [
     "Ja, wenn er die x-Achse nur einmal schneidet.",
     "Nein: Dann gehörten zu x = 0 zwei Werte.",
-    "Nur bei Parabeln.",
+    "Nur wenn er gebogen ist.",
     "Ja, immer."
    ],
    "o": {
@@ -9467,7 +9467,7 @@
     "wert": 7
    },
    "c": "7",
-   "w": "B billiger als A: 2h < 10 + h ⇒ h < 10. B billiger als C: 2h < 16 ⇒ h < 8. Beides für h = 1, …, 7: sieben Stundenzahlen.",
+   "w": "B billiger als A: 2h < 10 + h ⇒ h < 10. B billiger als C: 2h < 16 ⇒ h < 8. Beides gilt für h = 1, 2, 3, 4, 5, 6, 7: sieben Stundenzahlen.",
    "h": "Vergleiche B mit jedem der beiden anderen Tarife einzeln."
   },
   {
@@ -10127,7 +10127,7 @@
     "wert": 32
    },
    "c": "2 + 10 * 3",
-   "w": "Mit jedem Schritt um 1 nach rechts wächst der Wert um 3: f(1) = 5, f(2) = 8, … f(10) = 2 + 10 · 3 = 32.",
+   "w": "Mit jedem Schritt um 1 nach rechts wächst der Wert um 3: f(1) = 5, f(2) = 8, f(3) = 11. Von 0 bis 10 sind es 10 Schritte, jeder bringt 3 dazu: f(10) = 2 + 10 · 3 = 32.",
    "h": "Rechne f(1), f(2), f(3) aus und such das Muster."
   },
   {

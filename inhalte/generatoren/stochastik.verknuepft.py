@@ -894,8 +894,8 @@ ST.neu('bedingt', 'einkleidung', L('In einer Klasse tragen 12 von 30 Kindern ein
        'Bedingung: Brille. Nur die 12 Brillenträger zählen: 4/12 = 1/3.', 'Wer zählt, wenn man schon weiß, dass das Kind eine Brille trägt?'))
 ST.neu('bedingt', 'fehler', A('Spalte B hat 50 Personen, Zeile A hat 80, A ∩ B = 20. Jemand rechnet P_B(A) = 20/80. Was stimmt?', 'Falsch: Bei der Bedingung B zählt die Spalte B: P_B(A) = 20/50 = 0,4.',
        ['Richtig.', 'Falsch: P_B(A) = 50/80.', 'Falsch: P_B(A) = 20/130.'], '20/80 = 0,25 wäre P_A(B), also die Bedingung A. Bei P_B(A) teilt man durch die Anzahl in B.', 'Was steht unten im Bruch bei der Bedingung B?'))
-ST.knobel('bedingt', Z('In einer Klasse sind 60 % Mädchen. 50 % der Mädchen und 25 % der Jungen spielen ein Instrument. Ein Kind mit Instrument wird zufällig gewählt. Mit welcher Wahrscheinlichkeit ist es ein Mädchen?', 0.75, '0.3 / (0.3 + 0.1)',
-          'Mädchen mit Instrument: 0,6 · 0,5 = 0,3. Jungen mit Instrument: 0,4 · 0,25 = 0,1. Bedingung Instrument: 0,3 : (0,3 + 0,1) = 0,75.',
+ST.knobel('bedingt', Z('In einer Klasse sind 60 % Mädchen. 50 % der Mädchen und 25 % der Jungen spielen ein Instrument. Ein Kind mit Instrument wird zufällig gewählt. Mit welcher Wahrscheinlichkeit ist es ein Mädchen?', 0.75, '30 / (30 + 10)',
+          'Stell dir 100 Kinder vor: 60 Mädchen und 40 Jungen. 50 % von 60 sind 30 Mädchen mit Instrument, 25 % von 40 sind 10 Jungen mit Instrument. Bedingung Instrument: Nur diese 40 Kinder zählen, davon 30 Mädchen. 30 : 40 = 0,75.',
           'Rechne mit 100 Kindern: Wie viele Mädchen und wie viele Jungen spielen ein Instrument?'))
 ST.knobel('bedingt', L('Zwei Münzen werden geworfen. Du erfährst: Mindestens eine zeigt Kopf. Mit welcher Wahrscheinlichkeit zeigen beide Kopf?', '□/□', [1, 3], ['1', '3'],
           'Ergebnisse: KK, KZ, ZK, ZZ. Mindestens einmal Kopf lässt KK, KZ, ZK übrig – drei gleich wahrscheinliche. Nur KK hat zweimal Kopf: 1/3, nicht 1/2.',

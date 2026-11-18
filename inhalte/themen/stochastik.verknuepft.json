@@ -4,7 +4,7 @@
  "block_id": 91,
  "klasse": {
   "gym_by": 9,
-  "rs_by": 8,
+  "rs_by": 9,
   "ib_myp": 4
  },
  "autor": "Claude (Paket Klasse 9)",
@@ -6257,8 +6257,8 @@
    "o": {
     "wert": 0.75
    },
-   "c": "0.3 / (0.3 + 0.1)",
-   "w": "Mädchen mit Instrument: 0,6 · 0,5 = 0,3. Jungen mit Instrument: 0,4 · 0,25 = 0,1. Bedingung Instrument: 0,3 : (0,3 + 0,1) = 0,75.",
+   "c": "30 / (30 + 10)",
+   "w": "Stell dir 100 Kinder vor: 60 Mädchen und 40 Jungen. 50 % von 60 sind 30 Mädchen mit Instrument, 25 % von 40 sind 10 Jungen mit Instrument. Bedingung Instrument: Nur diese 40 Kinder zählen, davon 30 Mädchen. 30 : 40 = 0,75.",
    "h": "Rechne mit 100 Kindern: Wie viele Mädchen und wie viele Jungen spielen ein Instrument?",
    "l": "bedingt",
    "t": "bedingt",

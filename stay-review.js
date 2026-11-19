@@ -171,9 +171,15 @@ function stayField(t,key,trip) {
   if(key==='gehzeit' && value!==null) box.append(el('small',{},t.station_name?'Zur Station '+t.station_name:'Ziel nicht benannt'),el('small',{},t.gehzeit_art==='geschaetzt'?'geschätzt':['route','ors'].includes(t.gehzeit_art)?'berechneter Fußweg':'Art unbekannt'));
   return box;
 }
+// W178: Angebote mit eigenem Zeitraum (z. B. Council-Auswahl) – Nächte aus Gesamtpreis/Preis je Nacht, sonst Suchzeitraum
+function stayAngebotNaechte(t,trip) {
+  const a=t?.angebot||{}, g=Number(a.preis_gesamt_eur), n=Number(a.preis_nacht_eur);
+  if(g>0&&n>0) return Math.max(1,Math.round(g/n));
+  return (Date.parse(trip?.abreise||t._trip?.abreise)-Date.parse(trip?.anreise||t._trip?.anreise))/86400000;
+}
 // W98c: eine Preiszeile statt zwei Felder – „188 € gesamt · Ø 94 €/Nacht · 2 Nächte“
 function stayPreisZeile(t,trip) {
-  const g=stayFieldValue(t,'preis',trip), n=stayFieldValue(t,'nacht',trip), naechte=(Date.parse(trip?.abreise||t._trip?.abreise)-Date.parse(trip?.anreise||t._trip?.anreise))/86400000, ca=t.angebot?.preis_art==='geschaetzt'?'ca. ':'';
+  const g=stayFieldValue(t,'preis',trip), n=stayFieldValue(t,'nacht',trip), naechte=stayAngebotNaechte(t,trip), ca=t.angebot?.preis_art==='geschaetzt'?'ca. ':'';
   if(g===null) return el('span',{class:'preis-zeile'},'Preis unbekannt');
   return el('span',{class:'preis-zeile'},el('strong',{},ca+sucheEuro(g)+' gesamt'),n!==null&&naechte>1?el('small',{},' · Ø '+sucheEuro(n)+'/Nacht · '+naechte+' Nächte'):naechte===1?el('small',{},' · 1 Nacht'):null);
 }
@@ -223,7 +229,7 @@ function stayKurz(t,key,trip) {
 function stayReviewFields(){return stayKarten().direkt;}
 // Durchsehen-Details: oben Preis + Schnell-Infos, darunter die Info-Box nach Themen.
 function stayReviewInfo(t,trip) {
-  const nights=(Date.parse(trip.abreise)-Date.parse(trip.anreise))/86400000;
+  const nights=stayAngebotNaechte(t,trip);
   const labels={preis:nights>0?'Gesamt · '+nights+' Nächte':'Gesamtpreis',nacht:'Pro Nacht'};
   return el('div',{class:'review-info'},
     el('dl',{class:'review-schnell'},[...STAY_IMMER,...stayKarten().direkt].map(key=>el('div',{'data-field':key},el('dt',{},labels[key]||STAY_FIELDS[key]),el('dd',{},stayAnzeigeText(t,key,trip))))),

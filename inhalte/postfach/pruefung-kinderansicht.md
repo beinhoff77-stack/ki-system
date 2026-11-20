@@ -44,3 +44,9 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 ## 2026-11-18 – Lehrer-Aufbau ausgewählt
 - Durchspielprobe 0.78.1: `inhalte/pruefung/lehrer/bericht.md` (L1–L9).
 - Sebastians Auswahl 1A · 2B · 3B · 4A · 5A · 6B · 7A, Bauauftrag `inhalte/pruefung/lehrer/umsetzung.md` (LA-1 bis LA-7).
+
+## 2026-11-20 – FERTIG: Nachprüfung Lehrer-Aufbau
+- Bericht: `inhalte/pruefung/lehrer/nachpruefung.md` (App 0.80.0, main 15d2c2d; Eltern und Lehrer, 400 / 820 / 1280 px, erfundene Daten). Bilder `inhalte/pruefung/lehrer/bilder-0800/`, Skript `nachpruefung.test.cjs`, Messwerte `nachpruefung-messung.json`.
+- Erfüllt: LA-1, LA-4, LA-5, LA-6, Rollen („Lernen starten“ nur Eltern, „Lernreise ansehen“ für Lehrer). Teilweise: LA-2 (keine Ampel in den Stand-Zellen, keine Pausen-Ausnahme, Belohnungskasten über „Zu tun“), LA-3 und LA-7 auf dem Handy, Texte.
+- Muss: „Was wackelt“ auf dem Handy (Wörter zerbrechen, Spalte „seit“ abgeschnitten). Sollte: 5, Kann: 6.
+- Nichts an App, Tests oder Datenbank geändert; kein Merge.

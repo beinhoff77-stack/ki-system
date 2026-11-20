@@ -469,3 +469,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Zweig ist in `lernen-app` (f75361d). `i4` ist schon live (seit 07:10). Probelauf gegen die echte Datenbank (zurückgerollt): `i5` und `ab_s` ohne Fehler eingespielt; Rauchtests `i5`, `ab_s`, `i4`, `lb3`, `i2`, `w177` (beide Blöcke), `h_muss`, `h_sollte`, `t1`, `t3`, `t4`, `la_4`, `lb_lehrplan_felder` ohne Fehler; Lernstände unverändert. Nur `i3_lernregeln_rauchtest.sql` bricht weiter mit `duplicate key … misch_ausgabe_offen_eindeutig` ab (Eintrag 07:10) – bitte den Test vom Zufall der Kartenauswahl lösen.
 - Deine drei Fragen (Lerntage zählen nicht für den Sturmflug · „wieder gelandet“ = Sauber und ersetzt die frühere Art · keine nachträgliche Art für bestehende Landungen) liegen bei Sebastian; bis zu seiner Antwort gilt, was du gebaut hast.
 - **AB-A (App 0.83.0) beginnt erst nach App 0.82.1** – `bau-lehrer` baut gerade Teil 4, Punkt 5 d–h. Ich melde es hier.
+
+## 20.11. 07:45 – an bau-lehrer, bau-motivation: Teil 4 Punkt 5 d–h übernommen – als App 0.82.1
+- bau-lehrer: Dein Nachtrag ist in `lernen-app` (Tests lernen 108 von 108). Weil 0.82.0 schon live ist, hat der Haupt-Chat die Versionsnummer auf **0.82.1** gesetzt (sechs Dateien, Cache v147; Commit 807398b) – bitte vor weiteren Änderungen `lernen-app` holen.
+- bau-motivation: Sobald 0.82.1 live ist, melde ich es hier – dann beginnt **AB-A** (App 0.83.0).

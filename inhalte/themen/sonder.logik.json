@@ -3,7 +3,7 @@
  "thema_id": 84,
  "block_id": 97,
  "klasse": {
-  "zusatz": 10
+  "ib_myp": 4
  },
  "autor": "Claude (Paket IB)",
  "inhalt": {
@@ -847,7 +847,7 @@
    "o": {
     "index": 3
    },
-   "w": "„n ist eine gerade Zahl.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.",
+   "w": "„n ist eine gerade Zahl.“ enthält die unbestimmte Variable n – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.",
    "h": "Eine Aussage muss eindeutig wahr oder falsch sein – auch „falsch“ zählt.",
    "g": "mehrschritt"
   },
@@ -971,7 +971,7 @@
    "o": {
     "index": 3
    },
-   "w": "„Schließ bitte das Fenster.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.",
+   "w": "„Schließ bitte das Fenster.“ ist eine Bitte (ein Befehl) – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.",
    "h": "Eine Aussage muss eindeutig wahr oder falsch sein – auch „falsch“ zählt.",
    "g": "mehrschritt"
   },
@@ -1059,7 +1059,7 @@
    "o": {
     "index": 3
    },
-   "w": "„Schließ bitte das Fenster.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.",
+   "w": "„Schließ bitte das Fenster.“ ist eine Bitte (ein Befehl) – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.",
    "h": "Eine Aussage muss eindeutig wahr oder falsch sein – auch „falsch“ zählt."
   },
   {
@@ -1164,7 +1164,7 @@
    "o": {
     "index": 1
    },
-   "w": "„Wie spät ist es?“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
+   "w": "„Wie spät ist es?“ ist eine Frage – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
   },
   {
    "l": "aussagen",
@@ -1184,7 +1184,7 @@
    "o": {
     "index": 2
    },
-   "w": "„Mathe ist das schönste Fach.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
+   "w": "„Mathe ist das schönste Fach.“ ist eine Meinung – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
   },
   {
    "l": "aussagen",
@@ -1204,7 +1204,7 @@
    "o": {
     "index": 3
    },
-   "w": "„x ist größer als 3.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
+   "w": "„x ist größer als 3.“ enthält die unbestimmte Variable x – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
   },
   {
    "l": "aussagen",
@@ -1224,7 +1224,7 @@
    "o": {
     "index": 3
    },
-   "w": "„Ist 7 eine Primzahl?“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
+   "w": "„Ist 7 eine Primzahl?“ ist eine Frage – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
   },
   {
    "l": "aussagen",
@@ -1264,7 +1264,7 @@
    "o": {
     "index": 3
    },
-   "w": "„Mathe ist das schönste Fach.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
+   "w": "„Mathe ist das schönste Fach.“ ist eine Meinung – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
   },
   {
    "l": "aussagen",
@@ -1284,7 +1284,7 @@
    "o": {
     "index": 2
    },
-   "w": "„Mathe ist das schönste Fach.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
+   "w": "„Mathe ist das schönste Fach.“ ist eine Meinung – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
   },
   {
    "l": "aussagen",
@@ -1304,7 +1304,7 @@
    "o": {
     "index": 1
    },
-   "w": "„n ist eine gerade Zahl.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
+   "w": "„n ist eine gerade Zahl.“ enthält die unbestimmte Variable n – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
   },
   {
    "l": "aussagen",
@@ -1324,7 +1324,7 @@
    "o": {
     "index": 0
    },
-   "w": "„Schließ bitte das Fenster.“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
+   "w": "„Schließ bitte das Fenster.“ ist eine Bitte (ein Befehl) – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch."
   },
   {
    "l": "aussagen",
@@ -1659,7 +1659,7 @@
    "o": {
     "index": 1
    },
-   "w": "Die äußere Verneinung macht aus „alle … nicht“ ein „mindestens einer“ (bzw. aus „höchstens“ ein „mindestens“). Also: „Mindestens 4 Plätze sind frei.“",
+   "w": "„Höchstens 3“ heißt 0, 1, 2 oder 3 freie Plätze. Das Gegenteil sind alle übrigen Anzahlen: 4 oder mehr. Also: „Mindestens 4 Plätze sind frei.“",
    "h": "Verneine Schritt für Schritt von außen nach innen. Zwei Verneinungen heben sich auf.",
    "g": "begruenden"
   },
@@ -1853,7 +1853,7 @@
    "o": {
     "index": 2
    },
-   "w": "Die äußere Verneinung macht aus „alle … nicht“ ein „mindestens einer“ (bzw. aus „höchstens“ ein „mindestens“). Also: „Es gab mindestens einen Tag ohne Regen.“",
+   "w": "Das Gegenteil von „es gab keinen Tag ohne Regen“ ist „es gab mindestens einen Tag ohne Regen“. Also: „Es gab mindestens einen Tag ohne Regen.“",
    "h": "Verneine Schritt für Schritt von außen nach innen. Zwei Verneinungen heben sich auf.",
    "g": "begruenden"
   },
@@ -2438,7 +2438,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Man weiß: p ∨ q ist wahr und q ⇒ p ist falsch. Welche Wahrheitswerte haben p und q?"
+    "text": "Man weiß: p ∨ q ist wahr und p ∨ ¬q ist falsch. Welche Wahrheitswerte haben p und q?"
    },
    "a": [
     "p falsch, q falsch",
@@ -3456,7 +3456,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Haben p ⇒ q und q ⇒ p in allen Zeilen denselben Wahrheitswert (sind sie gleichwertig)?"
+    "text": "Haben p ∧ ¬q und ¬p ∧ q in allen Zeilen denselben Wahrheitswert (sind sie gleichwertig)?"
    },
    "a": [
     "Ja",
@@ -3466,7 +3466,7 @@
    "o": {
     "index": 1
    },
-   "w": "p ⇒ q: w, f, w, w. q ⇒ p: w, w, f, w. In mindestens einer Zeile verschieden.",
+   "w": "p ∧ ¬q: f, w, f, f. ¬p ∧ q: f, f, w, f. In mindestens einer Zeile verschieden.",
    "h": "Stelle für beide Ausdrücke die Spalte auf und vergleiche Zeile für Zeile.",
    "g": "begruenden"
   },
@@ -3502,15 +3502,15 @@
     "text": "Welcher Ausdruck ist in allen 4 Zeilen der Wahrheitstafel wahr?"
    },
    "a": [
-    "p ⇒ (p ∧ q)",
-    "(p ∧ q) ⇒ p",
-    "p ⇒ q",
+    "¬p ∨ (p ∧ q)",
+    "¬(p ∧ ¬p)",
+    "¬p ∨ q",
     "p ∧ ¬p"
    ],
    "o": {
     "index": 1
    },
-   "w": "(p ∧ q) ⇒ p ist in jeder Zeile wahr. p ∧ ¬p ist nie wahr, die anderen sind mindestens in einer Zeile falsch.",
+   "w": "¬(p ∧ ¬p) ist in jeder Zeile wahr. p ∧ ¬p ist nie wahr, die anderen sind mindestens in einer Zeile falsch.",
    "h": "Suche für jeden Ausdruck eine Zeile, in der er falsch ist.",
    "g": "verknuepfen"
   },

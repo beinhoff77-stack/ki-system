@@ -151,7 +151,7 @@
    {
     "lernziel": "euler",
     "titel": "Alle Kanten genau einmal",
-    "regel": "Zähle die ⟦ungeraden Knoten⟧: 0 heißt Eulerkreis, 2 heißt Eulerweg, sonst keiner.",
+    "regel": "Ist der Graph ⟦zusammenhängend⟧, zähle die ⟦ungeraden Knoten⟧: 0 heißt Eulerkreis, 2 heißt Eulerweg, sonst keiner.",
     "schritte": [
      {
       "text": "Grade: A 2, B 3, C 4, D 3, E 2.",

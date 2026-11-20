@@ -2339,12 +2339,12 @@
     "winkelhalbierende",
     "symmetrie",
     "vierecke_ordnen",
-    "eigenschaften",
-    "gegenvektor"
+    "eigenschaften"
    ],
    "lernziele_vertiefung": [
     "verschiebung",
-    "drehung"
+    "drehung",
+    "gegenvektor"
    ],
    "testaufgaben_je_lernziel": 1
   },

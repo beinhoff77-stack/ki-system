@@ -88,3 +88,21 @@ Reisewörter wie gehabt: Flug = Thema, Etappe = Lernkarte, Bordkarte = Aufgabe, 
 - Geschaffte Orte stehen nicht mehr zwischen offenen.
 - Klasse, Stufen, Notizen nur noch im ⚙-Blatt.
 - Lehrplan Gym 5 passt auf einen Tablet-Bildschirm.
+
+## LA-8 Lehrplan-Spalte: Themengebiet statt Ort, Ansicht nach Gebiet (Sebastian, 2026-11-20)
+
+Ergänzt LA-4 (Flugplan, rechte Spalte) und LA-7 (Lehrplan-Übersicht). Entwurf: `entwurf/lehrplan-spalte.html` (mit echter Themenliste), Bild `bilder/lehrplan-spalte-entwurf.png`. Gilt für Lehrer- und Elternansicht; die Kinderansicht behält die Orte.
+
+1. **Überschrift jeder Zeile = „Themengebiet – Thema“** statt „Ort – Thema“, z. B. „Algebra – Terme umformen“ statt „Samarkand – Terme umformen“. Bei mehreren Flügen: Flugtitel mit „und“ verbunden, ab 3 die ersten zwei + „…“. Darunter klein: „Gym 7 · RS 7 · MYP 3 · 2 Flüge“. Gilt links im Plan und rechts im Lehrplan. Links steht der Ort nur noch klein am Ende („Ort in der Reise: Samarkand“), weil das Kind ihn so sieht.
+2. **Zwei Ansichten rechts, Umschalter oben:** „Nach Themengebiet“ (Standard, links im Umschalter) | „Nach Klasse (Lehrplan)“.
+3. **Nach Themengebiet:**
+   - Gebiet-Knöpfe: Zahlen · Algebra · Geometrie · Fläche und Raum · Geld und Verhältnisse · Daten und Zufall · Funktionen · Entdecker-Inseln. Vorbelegt mit dem Gebiet des aktuellen Ortes im Plan.
+   - Darunter „Sortiert nach Klasse in: Gymnasium | Realschule | IB MYP“, vorbelegt mit der Schulart des Kindes.
+   - Liste: alle Orte des Gebiets aus **allen Klassen**, sortiert nach Klasse in der gewählten Schulart, innerhalb der Klasse nach Lehrplan-Reihenfolge. Klasse der gewählten Schulart fett, die anderen dahinter.
+   - Gestrichelte Linie „ab hier über Klasse X des Kindes“ vor dem ersten Ort über seiner Klasse.
+   - Kopf: „Zahlen: 4 von 8 Orten im Plan · von leicht nach schwer“ mit Balken.
+   - Jeder Ort ist mit „+“ oder Ziehen einplanbar, unabhängig von der Klasse. Eingeplante: grau mit „✓ im Plan“.
+4. **Nach Klasse (Lehrplan):** wie in LA-4 (Schulart, Klasse, „X von Y Flügen im Plan“), mit den neuen Überschriften.
+5. **Farbe je Klasse, Basis Gymnasium-Klasse:** Kästchen mit der Zahl vor dem Titel und farbiger linker Rand mit hellem Verlauf, links im Plan und rechts gleich. Farben: 5 grün #2E7D32 · 6 blau #0277BD · 7 lila #6A1B9A · 8 rot #C62828 · 9 orange #EF6C00 · 10 grau-blau #455A64. Ohne Gymnasium-Klasse: graues „–“. Legende unten in der Spalte. Die Farbe richtet sich immer nach Gymnasium, auch wenn nach Realschule/IB sortiert wird.
+
+Fertig, wenn: Plan öffnen zeigt rechts „Nach Themengebiet“ mit dem Gebiet des aktuellen Ortes; kein Ortsname mehr in einer Überschrift (Lehrer/Eltern); ein Gym-9-Thema lässt sich mit einem Tipp in den Plan eines Klasse-5-Kindes setzen; jede Zeile zeigt Kästchen und Rand in der Farbe ihrer Gymnasium-Klasse.

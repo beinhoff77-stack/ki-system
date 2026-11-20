@@ -346,3 +346,37 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 18.11. 08:40 – an expedition-kl5, expedition-kl8: fachliche Prüfung da – 4 Auflagen
 - ChatGPT (Werkstatt 853): 17 freigabereif, 4 mit Auflagen (Text, keine Rechnung). Auftrag: „Expeditionen – Korrekturen nach der fachlichen Prüfung“ am Ende von `inhalte/AUFTRAEGE.md`.
+
+## 18.11. 11:20 – an alle: App 0.80.0 ist live; Auflösen eingespielt; 14 Flüge und 17 Expeditionen freigegeben
+- **Live (Sebastians „Live“):** `main` = App 0.80.0 (Lehrer-Aufbau LA-1 bis LA-7, Auftrag H). Eingespielt: `h_muss` (berichtigt), `h_sollte`, `la_3`, `la_4`; Rauchtests danach ohne Fehler.
+- **aufloesen:** Die 17 Zielthemen sind eingespielt (15 freigegeben, 2 damals Entwurf). Sebastians Entscheidung: **Dualsystem und Gegenvektor sind Vertiefung** (in `_af_neu.py` und `_af_plan.py` geändert, Commit 216d50b) – kein abgeschlossener Flug wird wieder offen. Die 10 aufgelösten Themen bleiben als Entwurf liegen.
+- **Freigegeben (Sebastian):** 14 Flüge – `abbildungen.determinanten2`, `daten.stichproben`, `terme.quadratische_extreme`, `abbildungen.matrizen`, `gleichungen.wurzel`, `funktionen.reihen`, `funktionen.betrag`, `daten.zweidimensional`, `daten.standardabweichung`, `daten.normalverteilung`, `sonder.graphentheorie`, `sonder.logik`, `sonder.optimierung`, `zahlen.schranken`. Im Plan von Kind B neu: Shanghai (Kl. 8), Perth und Lagos (Kl. 7). `gleichungen.wurzel` ist in Tokio abgewählt (freiwillig). Die übrigen liegen in Zusatz-Orten außerhalb des Plans.
+- **Expeditionen:** 17 freigegeben; `5-flug_toronto`, `5-schatzsuche`, `8-radtour`, `8-pool` bleiben Entwurf bis zu den Korrekturen (Auftrag am Ende von `AUFTRAEGE.md`).
+- **an bau-motivation – Fehler gefunden:** `schule.einheit_abgleichen(…, 'sperren')` sperrt auch Expeditions-Teile (`pool = 'expedition'`) des Flugs, weil sie nicht in der Themendatei stehen (heute 21 Teile in 14 Expeditionen; durch erneuten Import behoben). Bitte als Migration liefern: Abgleich lässt `pool = 'expedition'` unberührt; Rauchtest dazu.
+
+## 18.11. 11:25 – an bau-motivation: „Abgleich ohne Expeditionen“ eingespielt; Rauchtest bricht ab
+- Migration `20261119_abgleich_ohne_expeditionen.sql` ist eingespielt (md5 verglichen). Eigener Probelauf: 17 Themen erneut abgeglichen, freie Expeditions-Teile 90 → 90.
+- `abgleich_ohne_expeditionen_rauchtest.sql` bricht ab: „Aufgaben einer freigegebenen Einheit sind unveränderlich“. Der Test muss den Flug vorher auf `geprueft` setzen (so läuft auch das Einspielen) oder einen Entwurfs-Flug nehmen. Bitte bei Gelegenheit anpassen – nicht dringend.
+
+## 20.11. 02:55 – an alle: übernommen; neuer Bau-Auftrag I
+- **bau-lehrer, bau-motivation:** eure Test-Korrekturen sind in `lernen-app` (Tests lernen 81 von 81).
+- **expedition-kl5, expedition-kl8:** Korrekturen 853 sind in `lernen-app` (Prüfskript 116 von 116, Generatoren = Dateien). Die vier Expeditionen mit Auflagen gehen noch einmal an ChatGPT und bleiben bis dahin Entwurf.
+- **pruefung-kinderansicht:** Nachprüfung übernommen (`inhalte/pruefung/lehrer/nachpruefung.md`). 1 Muss, 5 Sollte, 6 Kann.
+- **ChatGPT (Werkstatt 872, 873):** Auftrag H – 2 Muss offen (H10 Mischkarte nicht serverseitig gebunden, H2 Nachrechnung der Folge), Rest geschlossen oder Sollte. Nachtragstest – kein Muss.
+- **Neuer Auftrag:** „Bau-Auftrag I (20.11.)“ am Ende von `inhalte/AUFTRAEGE.md`. **Zuerst Teil 1 (`bau-lehrer`), danach Teil 2 (`bau-motivation`)** – nicht gleichzeitig.
+
+## 20.11. 03:10 – an bau-lehrer: Auftrag I, Teil 1 hat einen Zusatz (Punkt 10)
+- Sebastian hat entschieden: **Reisetage und Pausen** werden eintragbar (Punkt 10 in Teil 1). Die Stand-Zellen bleiben ohne Ampel. Falls du schon begonnen hast: Punkt 10 bitte mit aufnehmen.
+- An bau-motivation (Teil 2, Punkt 6): Die Frist nach einem Nachtragstest bleibt, wie sie ist – nur beschreiben.
+
+## 20.11. 03:35 – an bau-lehrer: zusätzlich Teil 1b (LA-8 „Lehrplan nach Themengebiet“)
+- Sebastian hat LA-8 freigegeben. Auftrag: „Teil 1b“ im Abschnitt „Bau-Auftrag I (20.11.)“ in `inhalte/AUFTRAEGE.md`; Vorgabe `inhalte/pruefung/lehrer/umsetzung.md` Abschnitt LA-8, Entwurf `inhalte/pruefung/lehrer/entwurf/lehrplan-spalte.html` (jetzt in `lernen-app`). Nach Teil 1, im selben Zweig, eine Version 0.81.0.
+
+## 20.11. 03:35 – an expedition-kl5: zwei Sätze nach ChatGPTs Nachprüfung (875) vom Haupt-Chat geändert
+- `5-flug_toronto` Teil d: „Von der Landung bis zur Ankunft im Hotel vergehen insgesamt 1 h 30 min – einschließlich Aussteigen, Gepäckabholen und Fahrt.“ `5-pyramide` Teil c: „Die echten großen Pyramiden bestehen aus Steinblöcken und sind viel größer als die beiden Holzmodelle.“ Beides im Generator geändert, Prüfskript OK. Bitte vor weiteren Änderungen `lernen-app` holen.
+
+## 20.11. 03:55 – an bau-lehrer, bau-motivation, pruefung-kinderansicht, pruefung-neu-1/2: übernommen
+- **bau-lehrer:** Auftrag I Teil 1 und Teil 1b (LA-8) sind in `lernen-app` (App 0.81.0, Tests lernen 94 von 94). `20261120_i_pause.sql` mit Rauchtest im Probelauf (zurückgerollt) ohne Fehler. Eingespielt und live erst mit Sebastians „Live“.
+- **bau-motivation:** Teil 1 ist zusammengeführt – **Teil 2 kann beginnen** (Stand `lernen-app` 67dae64 oder neuer holen; Version 0.81.1).
+- **pruefung-kinderansicht:** Der Bau ist fertig zum Nachprüfen (Mängel aus der Nachprüfung, Reisetage, LA-8) – Stand `lernen-app`, noch nicht live.
+- **pruefung-neu-1, pruefung-neu-2:** Korrekturen übernommen (Prüfskript 116 von 116, Generatoren = Dateien); werden eingespielt, sobald kein Kind übt.

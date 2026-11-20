@@ -5,7 +5,7 @@
  },
  "titel": "Flug nach Toronto",
  "autor": "Claude (Expeditionen Klasse 5)",
- "einleitung": "Deine Familie fliegt von Berlin nach Toronto. Du kümmerst dich um die Uhrzeiten, um deinen Koffer und um die Wäsche. Im Flugzeug sind 23 kg Gepäck erlaubt.",
+ "einleitung": "Deine Familie fliegt von Berlin nach Toronto. Du planst den Reisetag: Wann landet ihr, wann seid ihr im Hotel, schafft ihr es noch zur Wäscherei – und passt am Ende alles wieder in den Koffer? Im Flugzeug sind 23 kg Gepäck erlaubt.",
  "voraussetzungen": [
   {
    "thema_schluessel": "groessen.einheiten",
@@ -58,7 +58,7 @@
    "k": "b",
    "y": "luecken",
    "f": {
-    "text": "In Toronto gehen die Uhren anders: Toronto-Zeit = Berliner Zeit + (−6 h). In Berlin ist es 19:55 Uhr. Wie spät ist es in Toronto?",
+    "text": "In Toronto gehen die Uhren anders. Für diesen Reisetag gilt (Annahme): Toronto-Zeit = Berliner Zeit + (−6 h), also 6 Stunden weniger. In Berlin ist es bei der Landung 19:55 Uhr. Wie spät ist es in Toronto?",
     "schablone": "□:□ Uhr",
     "hinweis": "Stunden und Minuten je als ganze Zahl."
    },
@@ -98,17 +98,21 @@
   },
   {
    "k": "d",
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Im Hotel in Toronto kostet das Waschen von 3 kg Wäsche 12 Dollar. Was kostet das Waschen von 5 kg?"
+    "text": "Ihr landet um 13:55 Uhr Toronto-Zeit. Von der Landung bis zur Ankunft im Hotel vergehen insgesamt 1 h 30 min – einschließlich Aussteigen, Gepäckabholen und Fahrt. Die Hotelwäscherei nimmt nur bis 16:00 Uhr Wäsche an; 3 kg Wäsche kosten dort 12 Dollar. Ihr wollt noch heute 5 kg Wäsche abgeben. Schafft ihr das, und was kostet es?"
    },
+   "a": [
+    "Ja: Ihr seid um 15:25 Uhr im Hotel, das Waschen kostet 20 Dollar.",
+    "Nein: Ihr seid erst um 16:25 Uhr im Hotel.",
+    "Ja: Ihr seid um 15:25 Uhr im Hotel, das Waschen kostet 60 Dollar.",
+    "Ja: Ihr seid um 15:25 Uhr im Hotel, das Waschen kostet 14 Dollar."
+   ],
    "o": {
-    "wert": 20,
-    "einheit": "Dollar"
+    "index": 0
    },
-   "c": "12 / 3 * 5",
-   "w": "1 kg kostet 12 : 3 = 4 Dollar. 5 kg kosten 5 · 4 = 20 Dollar.",
-   "h": "Schließe zuerst auf 1 kg.",
+   "w": "Ankunft im Hotel: 13:55 Uhr + 1 h 30 min = 15:25 Uhr – vor 16:00 Uhr. 1 kg kostet 12 : 3 = 4 Dollar, 5 kg kosten 5 · 4 = 20 Dollar.",
+   "h": "Rechne erst die Ankunft im Hotel aus, dann den Preis für 1 kg.",
    "bezug": {
     "thema_schluessel": "groessen.proportional",
     "lernziel": "dreisatz"
@@ -118,7 +122,7 @@
    "k": "e",
    "y": "auswahl",
    "f": {
-    "text": "Am Rückflug wiegt der Koffer 25 kg 300 g, erlaubt sind 23 kg. Du kannst herausnehmen: Schuhe (1 kg 200 g), Hose (900 g), Pullover (600 g), Buch (500 g). Du willst so wenig Gewicht wie möglich herausnehmen. Was nimmst du heraus?"
+    "text": "Nach der Reise wiegt der Koffer mit der gewaschenen Wäsche und den Andenken für den Rückflug 25 kg 300 g, erlaubt sind 23 kg. Du kannst herausnehmen: Schuhe (1 kg 200 g), Hose (900 g), Pullover (600 g), Buch (500 g). Du willst so wenig Gewicht wie möglich herausnehmen. Was nimmst du heraus?"
    },
    "a": [
     "Schuhe und Hose",

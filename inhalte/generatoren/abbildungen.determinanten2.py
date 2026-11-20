@@ -636,8 +636,8 @@ ST.neu('det_berechnen', 'fehler', A('Jemand rechnet die Determinante von a = (4 
 ST.neu('det_berechnen', 'fehler', A('Jemand rechnet die Determinante von a = (5 | −2) und b = (3 | 1) so: 5 · 1 − (−2) · 3 = 5 − 6 = −1. Was stimmt?', 'Falsch: − (−2) · 3 = + 6, also 5 + 6 = 11.',
        ['Richtig.', 'Falsch: 5 · 3 − (−2) · 1 = 17.', 'Falsch: Das Ergebnis ist 1.'],
        '(−2) · 3 = −6. Davon wird abgezogen: 5 − (−6) = 5 + 6 = 11. Der Fehler steckt im Vorzeichen.', 'Rechne (−2) · 3 erst aus und ziehe dann ab.'))
-ST.neu('det_berechnen', 'parameter', L('Für welche Zahlen t hat die Determinante der Vektoren a = (t | 2) und b = (8 | t) den Wert 0?', 't₁ = □; t₂ = □', [-4, 4], ['-4', '4'],
-       'Determinante: t · t − 2 · 8 = t² − 16. t² = 16 hat die Lösungen −4 und 4.', 'Stelle die Determinante als Term mit t auf.'))
+ST.neu('det_berechnen', 'parameter', L('Für welche Zahl t hat die Determinante der Vektoren a = (t | 2) und b = (8 | 4) den Wert 0?', 't = □', [4], ['16 / 4'],
+       'Determinante: t · 4 − 2 · 8 = 4t − 16. 4t − 16 = 0 ⇒ 4t = 16 ⇒ t = 4. Probe: a = (4 | 2) und b = (8 | 4) = 2 · a zeigen in dieselbe Richtung.', 'Stelle die Determinante als Term mit t auf.'))
 ST.neu('det_berechnen', 'begruenden', A('Stimmt: Addiert man zu b das Doppelte von a, ändert sich die Determinante von a und b nicht?', 'Ja: Es kommt zweimal die Determinante von a mit a dazu, und die ist 0.',
        ['Nein, sie verdoppelt sich.', 'Nein, sie wird 0.', 'Nur wenn a = b ist.'],
        'Beispiel a = (2 | 1), b = (1 | 3): Determinante 5. b + 2a = (5 | 5): 2 · 5 − 1 · 5 = 5. Allgemein: Die Determinante von a mit a ist immer 0 – darum ändert sich nichts.', 'Probiere es mit einem Beispiel aus.'))
@@ -734,10 +734,10 @@ ST.neu('umlaufsinn', 'umkehr', A('Für A, B, C ergibt die Determinante aus AB un
 ST.neu('umlaufsinn', 'einkleidung', A('Auf einem Sportplatz läuft jemand von der Ecke A(0 | 0) zur Fahne B(30 | 10), dann zur Fahne C(10 | 40) und zurück zu A. Läuft er gegen den Uhrzeigersinn?', 'Ja, die Determinante ist 1 100 > 0.',
        ['Nein, die Determinante ist −1 100.', 'Nein, die Punkte liegen auf einer Geraden.', 'Das kann man ohne Zeichnung nicht sagen.'],
        'AB = (30 | 10), AC = (10 | 40). 30 · 40 − 10 · 10 = 1 100 > 0: gegen den Uhrzeigersinn.', 'Berechne die Determinante aus AB und AC.'))
-ST.knobel('umlaufsinn', Z('A(0 | 0) und B(5 | 0) sind fest. C hat ganzzahlige Koordinaten mit −3 ≤ x ≤ 3 und −3 ≤ y ≤ 3. Für wie viele solche Punkte C laufen A → B → C gegen den Uhrzeigersinn?', 21, '3 * 7',
+ST.knobel('umlaufsinn', Z('A(0 | 0) und B(5 | 0) sind fest. C(x | y) hat ganzzahlige Koordinaten mit −3 ≤ x ≤ 3 und −3 ≤ y ≤ 3. Für wie viele solche Punkte C laufen A → B → C gegen den Uhrzeigersinn?', 21, '3 * 7',
           'AB = (5 | 0), AC = (x | y). Determinante 5 · y − 0 · x = 5y. Sie ist positiv genau für y > 0, also y = 1, 2, 3. Für x gibt es jeweils 7 Werte: 3 · 7 = 21. Auf x kommt es gar nicht an.',
           'Schreibe die Determinante mit x und y auf. Welche Koordinate zählt?'))
-ST.knobel('umlaufsinn', Z('A(1 | 2), B(4 | 3) und C(x | 6) mit einer ganzen Zahl x. Wie klein kann der Flächeninhalt des Dreiecks ABC höchstens werden, wenn es ein echtes Dreieck sein soll?', 0.5, '1 / 2',
+ST.knobel('umlaufsinn', Z('A(1 | 2), B(4 | 3) und C(x | 6) mit einer ganzen Zahl x. Welchen kleinsten Flächeninhalt kann das Dreieck ABC haben, wenn es ein echtes Dreieck sein soll (Fläche nicht 0)?', 0.5, '1 / 2',
           'AB = (3 | 1), AC = (x − 1 | 4). Determinante: 3 · 4 − 1 · (x − 1) = 13 − x. Für x = 13 liegen die Punkte auf einer Geraden (Fläche 0). '
           'Kleinster Wert ungleich 0: x = 12 oder x = 14 mit |13 − x| = 1, Fläche ½ · 1 = 0,5 FE.', 'Wann ist die Fläche 0? Was liegt knapp daneben?', einheit='FE'))
 

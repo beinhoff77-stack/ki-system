@@ -3,7 +3,7 @@
  "thema_id": 79,
  "block_id": 88,
  "klasse": {
-  "ib_myp": 4
+  "ib_myp": 5
  },
  "autor": "Claude (Paket IB)",
  "inhalt": {
@@ -1394,7 +1394,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Werte: 19; 20; 1; 12, x̄ = 13. Mia rechnet die Varianz und erhält −15, weil sie (−12)² = −144 gesetzt hat. Was stimmt?"
+    "text": "Werte: 19; 20; 1; 12, x̄ = 13. Mia rechnet die Varianz und erhält −15, weil sie die Quadrate der negativen Abweichungen negativ gesetzt hat, z. B. (−12)² = −144. Was stimmt?"
    },
    "a": [
     "Mia hat recht, die Varianz ist −15.",
@@ -1577,7 +1577,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Werte: 23; 23; 4; 4; 1, x̄ = 11. Mia rechnet die Varianz und erhält 18, weil sie (−7)² = −49 gesetzt hat. Was stimmt?"
+    "text": "Werte: 23; 23; 4; 4; 1, x̄ = 11. Mia rechnet die Varianz und erhält 18, weil sie die Quadrate der negativen Abweichungen negativ gesetzt hat, z. B. (−7)² = −49. Was stimmt?"
    },
    "a": [
     "(−7)² = 49, nicht −49. Die Varianz ist 97,2.",
@@ -2711,25 +2711,18 @@
    "t": "eigenschaften",
    "p": "uebung",
    "s": 3,
-   "y": "luecken",
+   "y": "zahl",
    "f": {
-    "text": "Ein Test hat höchstens 50 Punkte. Ergebnis: x̄ = 21 Punkte, σ = 3 Punkte. Die Lehrkraft rechnet alle Ergebnisse in Prozent um (mal 2). Wie groß sind danach Mittelwert und Standardabweichung?",
-    "schablone": "x̄ = □ %; σ = □ %",
-    "hinweis": "Zwei ganze Zahlen"
+    "text": "Tagestemperaturen eines Monats: x̄ = 17 °C, σ = 5 °C. In Fahrenheit rechnet man F = 1,8 · C + 32. Wie groß ist σ in °F?"
    },
    "o": {
-    "werte": [
-     42,
-     6
-    ]
+    "wert": 9,
+    "einheit": "°F"
    },
-   "w": "Jeder Wert wird mit 2 multipliziert. Mittelwert: 21 · 2 = 42 %. Standardabweichung: 3 · 2 = 6 %.",
-   "h": "Mal k wirkt auf den Mittelwert und auf σ.",
-   "c": [
-    "21 * 2",
-    "3 * 2"
-   ],
-   "g": "begruenden"
+   "c": "5.0 * 1.8",
+   "w": "Mal 1,8 vergrößert alle Abstände: 5 · 1,8 = 9. Plus 32 verschiebt nur. σ = 9 °F.",
+   "h": "Welcher Teil der Umrechnung ändert die Abstände, welcher nur die Lage?",
+   "g": "verknuepfen"
   },
   {
    "l": "eigenschaften",
@@ -2775,18 +2768,25 @@
    "t": "eigenschaften",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Tagestemperaturen eines Monats: x̄ = 17 °C, σ = 5 °C. In Fahrenheit rechnet man F = 1,8 · C + 32. Wie groß ist σ in °F?"
+    "text": "Ein Test hat höchstens 20 Punkte. Ergebnis: x̄ = 16 Punkte, σ = 4 Punkte. Die Lehrkraft rechnet alle Ergebnisse in Prozent um (mal 5). Wie groß sind danach Mittelwert und Standardabweichung?",
+    "schablone": "x̄ = □ %; σ = □ %",
+    "hinweis": "Zwei ganze Zahlen"
    },
    "o": {
-    "wert": 9,
-    "einheit": "°F"
+    "werte": [
+     80,
+     20
+    ]
    },
-   "c": "5.0 * 1.8",
-   "w": "Mal 1,8 vergrößert alle Abstände: 5 · 1,8 = 9. Plus 32 verschiebt nur. σ = 9 °F.",
-   "h": "Welcher Teil der Umrechnung ändert die Abstände, welcher nur die Lage?",
-   "g": "verknuepfen"
+   "w": "Jeder Wert wird mit 5 multipliziert. Mittelwert: 16 · 5 = 80 %. Standardabweichung: 4 · 5 = 20 %.",
+   "h": "Mal k wirkt auf den Mittelwert und auf σ.",
+   "c": [
+    "16 * 5",
+    "4 * 5"
+   ],
+   "g": "transfer"
   },
   {
    "l": "eigenschaften",
@@ -2815,22 +2815,18 @@
    "t": "eigenschaften",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Ein Datensatz hat die Standardabweichung σ = 0. Welche Aussage stimmt sicher?"
+    "text": "Tagestemperaturen eines Monats: x̄ = 19 °C, σ = 2 °C. In Fahrenheit rechnet man F = 1,8 · C + 32. Wie groß ist σ in °F?"
    },
-   "a": [
-    "Alle Werte sind gleich.",
-    "Es gibt nur einen einzigen Wert.",
-    "Alle Werte sind 0.",
-    "Der Mittelwert ist 0."
-   ],
    "o": {
-    "index": 0
+    "wert": 3.6,
+    "einheit": "°F"
    },
-   "w": "σ = 0 heißt: Kein Wert weicht vom Mittelwert ab. Also sind alle Werte gleich dem Mittelwert – welcher Zahl, ist offen.",
-   "h": "Was bedeutet es, wenn alle Abweichungen 0 sind?",
-   "g": "begruenden"
+   "c": "2.0 * 1.8",
+   "w": "Mal 1,8 vergrößert alle Abstände: 2 · 1,8 = 3,6. Plus 32 verschiebt nur. σ = 3,6 °F.",
+   "h": "Welcher Teil der Umrechnung ändert die Abstände, welcher nur die Lage?",
+   "g": "verknuepfen"
   },
   {
    "l": "eigenschaften",
@@ -2957,41 +2953,23 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Ein Test hat höchstens 20 Punkte. Ergebnis: x̄ = 16 Punkte, σ = 4 Punkte. Die Lehrkraft rechnet alle Ergebnisse in Prozent um (mal 5). Wie groß sind danach Mittelwert und Standardabweichung?",
+    "text": "Ein Test hat höchstens 50 Punkte. Ergebnis: x̄ = 21 Punkte, σ = 3 Punkte. Die Lehrkraft rechnet alle Ergebnisse in Prozent um (mal 2). Wie groß sind danach Mittelwert und Standardabweichung?",
     "schablone": "x̄ = □ %; σ = □ %",
     "hinweis": "Zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     80,
-     20
+     42,
+     6
     ]
    },
-   "w": "Jeder Wert wird mit 5 multipliziert. Mittelwert: 16 · 5 = 80 %. Standardabweichung: 4 · 5 = 20 %.",
+   "w": "Jeder Wert wird mit 2 multipliziert. Mittelwert: 21 · 2 = 42 %. Standardabweichung: 3 · 2 = 6 %.",
    "h": "Mal k wirkt auf den Mittelwert und auf σ.",
    "c": [
-    "16 * 5",
-    "4 * 5"
+    "21 * 2",
+    "3 * 2"
    ],
    "g": "transfer"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Tagestemperaturen eines Monats: x̄ = 19 °C, σ = 2 °C. In Fahrenheit rechnet man F = 1,8 · C + 32. Wie groß ist σ in °F?"
-   },
-   "o": {
-    "wert": 3.6,
-    "einheit": "°F"
-   },
-   "c": "2.0 * 1.8",
-   "w": "Mal 1,8 vergrößert alle Abstände: 2 · 1,8 = 3,6. Plus 32 verschiebt nur. σ = 3,6 °F.",
-   "h": "Welcher Teil der Umrechnung ändert die Abstände, welcher nur die Lage?",
-   "g": "verknuepfen"
   },
   {
    "l": "eigenschaften",
@@ -3009,6 +2987,28 @@
    "w": "Mal k macht σ k-mal so groß: 6 : 2 = 3.",
    "h": "Wie hängen altes σ, neues σ und der Faktor zusammen?",
    "g": "rueckwaerts"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Datensatz hat die Standardabweichung σ = 0. Welche Aussage stimmt sicher?"
+   },
+   "a": [
+    "Alle Werte sind gleich.",
+    "Es gibt nur einen einzigen Wert.",
+    "Alle Werte sind 0.",
+    "Der Mittelwert ist 0."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "σ = 0 heißt: Kein Wert weicht vom Mittelwert ab. Also sind alle Werte gleich dem Mittelwert – welcher Zahl, ist offen.",
+   "h": "Was bedeutet es, wenn alle Abweichungen 0 sind?",
+   "g": "begruenden"
   },
   {
    "l": "eigenschaften",
@@ -3193,7 +3193,7 @@
     "7 * 10",
     "4 * 10"
    ],
-   "g": "begruenden"
+   "g": "verknuepfen"
   },
   {
    "y": "auswahl",

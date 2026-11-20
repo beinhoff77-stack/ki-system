@@ -3,7 +3,7 @@
  "thema_id": 70,
  "block_id": 97,
  "klasse": {
-  "zusatz": 10
+  "ib_myp": 5
  },
  "autor": "Claude (Paket IB)",
  "inhalt": {
@@ -847,13 +847,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Die Zahl der Teilnehmer wurde auf Zehner gerundet: 890. Wie viele Teilnehmer waren es mindestens?"
+    "text": "Die Zahl der Teilnehmer wurde auf Zehner gerundet: 890. Wie viele verschiedene Werte sind für die Zahl der Teilnehmer möglich?"
    },
    "o": {
-    "wert": 885
+    "wert": 10
    },
-   "c": "885",
-   "w": "Fehlerbereich 885 ≤ n < 895. Mindestens 885.",
+   "c": "10",
+   "w": "Fehlerbereich 885 ≤ n < 895. Möglich sind die ganzen Zahlen 885 bis 894, das sind 895 − 885 = 10 Werte.",
    "h": "Personen zählt man ganz. Die obere Schranke selbst gehört nicht dazu.",
    "g": "transfer"
   },
@@ -1309,15 +1309,15 @@
     "text": "Der wahre Wert einer Messung (Laufzeit über 100 m) liegt zwischen 16,25 s und 16,35 s. Wie genau wurde gemessen?"
    },
    "a": [
-    "auf 10 cm genau gemessen",
-    "auf Zehntelsekunden gestoppt",
-    "auf ganze cm gemessen",
-    "auf 0,1 kg genau gewogen"
+    "auf 0,01 s genau",
+    "auf 0,1 s genau",
+    "auf 0,05 s genau",
+    "auf 1 s genau"
    ],
    "o": {
     "index": 1
    },
-   "w": "Die Breite des Bereichs (0,1 s) ist die Messgenauigkeit: auf Zehntelsekunden gestoppt.",
+   "w": "Die Breite des Bereichs (0,1 s) ist die Messgenauigkeit: auf Zehntelsekunden gestoppt. Die halbe Breite (0,05 s) ist nur der größte Fehler.",
    "h": "Wie breit ist der Bereich?",
    "g": "umkehr"
   },
@@ -1440,15 +1440,15 @@
     "text": "Der wahre Wert einer Messung (Länge eines Tisches) liegt zwischen 123,5 cm und 124,5 cm. Wie genau wurde gemessen?"
    },
    "a": [
-    "auf Zehntelsekunden gestoppt",
-    "auf 0,1 kg genau gewogen",
-    "auf 10 cm genau gemessen",
-    "auf ganze cm gemessen"
+    "auf 10 cm genau",
+    "auf 0,5 cm genau",
+    "auf 0,1 cm genau",
+    "auf 1 cm genau"
    ],
    "o": {
     "index": 3
    },
-   "w": "Die Breite des Bereichs (1 cm) ist die Messgenauigkeit: auf ganze cm gemessen.",
+   "w": "Die Breite des Bereichs (1 cm) ist die Messgenauigkeit: auf ganze cm gemessen. Die halbe Breite (0,5 cm) ist nur der größte Fehler.",
    "h": "Wie breit ist der Bereich?",
    "g": "umkehr"
   },
@@ -1620,15 +1620,15 @@
     "text": "Der wahre Wert einer Messung (Länge eines Tisches) liegt zwischen 119,5 cm und 120,5 cm. Wie genau wurde gemessen?"
    },
    "a": [
-    "auf 10 cm genau gemessen",
-    "auf ganze cm gemessen",
-    "auf 0,1 kg genau gewogen",
-    "auf Zehntelsekunden gestoppt"
+    "auf 0,1 cm genau",
+    "auf 1 cm genau",
+    "auf 0,5 cm genau",
+    "auf 10 cm genau"
    ],
    "o": {
     "index": 1
    },
-   "w": "Die Breite des Bereichs (1 cm) ist die Messgenauigkeit: auf ganze cm gemessen.",
+   "w": "Die Breite des Bereichs (1 cm) ist die Messgenauigkeit: auf ganze cm gemessen. Die halbe Breite (0,5 cm) ist nur der größte Fehler.",
    "h": "Wie breit ist der Bereich?",
    "g": "umkehr"
   },
@@ -1716,15 +1716,15 @@
     "text": "Der wahre Wert einer Messung (Breite eines Zimmers) liegt zwischen 3,75 m und 3,85 m. Wie genau wurde gemessen?"
    },
    "a": [
-    "auf 10 cm genau gemessen",
-    "auf 0,1 kg genau gewogen",
-    "auf ganze cm gemessen",
-    "auf Zehntelsekunden gestoppt"
+    "auf 0,1 m genau",
+    "auf 1 m genau",
+    "auf 0,05 m genau",
+    "auf 0,01 m genau"
    ],
    "o": {
     "index": 0
    },
-   "w": "Die Breite des Bereichs (0,1 m) ist die Messgenauigkeit: auf 10 cm genau gemessen."
+   "w": "Die Breite des Bereichs (0,1 m) ist die Messgenauigkeit: auf 10 cm genau gemessen. Die halbe Breite (0,05 m) ist nur der größte Fehler."
   },
   {
    "l": "messen",
@@ -2617,7 +2617,7 @@
    },
    "c": "round(299.5 / 60.5, 2)",
    "w": "Kleinste Geschwindigkeit: untere Strecke : obere Zeit = 299,5 : 60,5 ≈ 4,95 m/s.",
-   "h": "Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen.",
+   "h": "Bei einem Quotienten: Für das Minimum durch die größte Zahl teilen.",
    "g": "mehrschritt"
   },
   {
@@ -2691,7 +2691,7 @@
    },
    "c": "round(99.5 / 80.5, 2)",
    "w": "Kleinste Geschwindigkeit: untere Strecke : obere Zeit = 99,5 : 80,5 ≈ 1,24 m/s.",
-   "h": "Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen.",
+   "h": "Bei einem Quotienten: Für das Minimum durch die größte Zahl teilen.",
    "g": "mehrschritt"
   },
   {
@@ -2727,7 +2727,7 @@
    },
    "c": "round(76.5 / 9.5, 2)",
    "w": "Breite = Fläche : Länge. Kleinste Fläche durch größte Länge: 76,5 : 9,5 ≈ 8,05 cm.",
-   "h": "Breite = Fläche : Länge. Beim Teilen: Für das Maximum durch die kleinste Zahl teilen.",
+   "h": "Breite = Fläche : Länge. Beim Teilen: Für das Minimum durch die größte Zahl teilen.",
    "g": "rueckwaerts"
   },
   {
@@ -2915,7 +2915,7 @@
    },
    "c": "round(199.5 / 80.5, 2)",
    "w": "Kleinste Geschwindigkeit: untere Strecke : obere Zeit = 199,5 : 80,5 ≈ 2,48 m/s.",
-   "h": "Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen."
+   "h": "Bei einem Quotienten: Für das Minimum durch die größte Zahl teilen."
   },
   {
    "l": "produkt",
@@ -2950,7 +2950,7 @@
    },
    "c": "round(80.5 / 6.5, 2)",
    "w": "Breite = Fläche : Länge. Kleinste Fläche durch größte Länge: 80,5 : 6,5 ≈ 12,38 cm.",
-   "h": "Breite = Fläche : Länge. Beim Teilen: Für das Maximum durch die kleinste Zahl teilen.",
+   "h": "Breite = Fläche : Länge. Beim Teilen: Für das Minimum durch die größte Zahl teilen.",
    "g": "rueckwaerts"
   },
   {
@@ -3197,7 +3197,7 @@
    },
    "c": "round(51.5 / 9.5, 2)",
    "w": "Breite = Fläche : Länge. Kleinste Fläche durch größte Länge: 51,5 : 9,5 ≈ 5,42 cm.",
-   "h": "Breite = Fläche : Länge. Beim Teilen: Für das Maximum durch die kleinste Zahl teilen."
+   "h": "Breite = Fläche : Länge. Beim Teilen: Für das Minimum durch die größte Zahl teilen."
   },
   {
    "l": "produkt",
@@ -3287,9 +3287,9 @@
     "text": "Ein Schrank ist 114 cm breit, die Lücke in der Küche 116 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist der Schrank zu breit.",
+    "Sicher nicht: der Schrank ist auf jeden Fall zu breit."
    ],
    "o": {
     "index": 0
@@ -3308,9 +3308,9 @@
     "text": "Ein Aufzug darf höchstens 488 kg tragen. 6 Personen wiegen je 81 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher erlaubt.",
+    "Nicht sicher: im ungünstigsten Fall ist es zu schwer.",
+    "Sicher nicht: es ist auf jeden Fall zu schwer."
    ],
    "o": {
     "index": 1
@@ -3329,9 +3329,9 @@
     "text": "Aus einem 151 cm langen Brett sollen 5 Stücke von je 29 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 0
@@ -3459,9 +3459,9 @@
     "text": "Ein Schrank ist 120 cm breit, die Lücke in der Küche 120 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist der Schrank zu breit.",
+    "Sicher nicht: der Schrank ist auf jeden Fall zu breit."
    ],
    "o": {
     "index": 1
@@ -3480,9 +3480,9 @@
     "text": "Ein Aufzug darf höchstens 563 kg tragen. 8 Personen wiegen je 70 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher erlaubt.",
+    "Nicht sicher: im ungünstigsten Fall ist es zu schwer.",
+    "Sicher nicht: es ist auf jeden Fall zu schwer."
    ],
    "o": {
     "index": 1
@@ -3501,9 +3501,9 @@
     "text": "Ein Schrank ist 88 cm breit, die Lücke in der Küche 90 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist der Schrank zu breit.",
+    "Sicher nicht: der Schrank ist auf jeden Fall zu breit."
    ],
    "o": {
     "index": 0
@@ -3521,9 +3521,9 @@
     "text": "Ein Schrank ist 113 cm breit, die Lücke in der Küche 113 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist der Schrank zu breit.",
+    "Sicher nicht: der Schrank ist auf jeden Fall zu breit."
    ],
    "o": {
     "index": 1
@@ -3541,9 +3541,9 @@
     "text": "Aus einem 170 cm langen Brett sollen 4 Stücke von je 41 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 0
@@ -3624,9 +3624,9 @@
     "text": "Aus einem 179 cm langen Brett sollen 6 Stücke von je 29 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 0
@@ -3644,9 +3644,9 @@
     "text": "Aus einem 285 cm langen Brett sollen 8 Stücke von je 35 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 0
@@ -3686,9 +3686,9 @@
     "text": "Aus einem 199 cm langen Brett sollen 5 Stücke von je 39 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 0
@@ -3705,9 +3705,9 @@
     "text": "Aus einem 156 cm langen Brett sollen 6 Stücke von je 25 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 0
@@ -3744,9 +3744,9 @@
     "text": "Aus einem 172 cm langen Brett sollen 5 Stücke von je 34 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 1
@@ -3763,9 +3763,9 @@
     "text": "Aus einem 334 cm langen Brett sollen 8 Stücke von je 41 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 0
@@ -3782,9 +3782,9 @@
     "text": "Aus einem 139 cm langen Brett sollen 4 Stücke von je 34 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 0
@@ -3801,9 +3801,9 @@
     "text": "Aus einem 144 cm langen Brett sollen 4 Stücke von je 36 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 1
@@ -3820,9 +3820,9 @@
     "text": "Aus einem 283 cm langen Brett sollen 7 Stücke von je 40 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 1
@@ -3859,9 +3859,9 @@
     "text": "Aus einem 220 cm langen Brett sollen 5 Stücke von je 43 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
    },
    "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
+    "Ja, sicher.",
+    "Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.",
+    "Sicher nicht: das Brett ist auf jeden Fall zu kurz."
    ],
    "o": {
     "index": 0

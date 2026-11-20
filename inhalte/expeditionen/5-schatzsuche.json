@@ -117,7 +117,7 @@
    "k": "d",
    "y": "zahl",
    "f": {
-    "text": "Auf einem Zettel steht: „Der Code ist durch 9 teilbar.“ Wie viele dreistellige Codes aus drei verschiedenen Ziffern von 1 bis 5 sind durch 9 teilbar?"
+    "text": "Auf einem Zettel steht: „Der Code ist durch 9 teilbar.“ Dazu gibt es eine Regel: Eine Zahl ist durch 9 teilbar, wenn ihre Quersumme durch 9 teilbar ist. Wie viele dreistellige Codes aus drei verschiedenen Ziffern von 1 bis 5 sind durch 9 teilbar?"
    },
    "o": {
     "wert": 12

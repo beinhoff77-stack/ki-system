@@ -18,6 +18,15 @@ assert (an_h, an_m) == (19, 55) and to_h == 13
 HOSEN, SHIRTS, PULLIS = 3, 4, 2
 WAESCHE_KG, WAESCHE_DOLLAR, NEU_KG = 3, 12, 5
 waesche = Fr(WAESCHE_DOLLAR, WAESCHE_KG) * NEU_KG
+FAHRT_H, FAHRT_M, SCHLUSS = 1, 30, 16          # Fahrt vom Flughafen zum Hotel, Wäscherei nimmt bis 16:00 Uhr an
+hotel_min = to_h * 60 + an_m + FAHRT_H * 60 + FAHRT_M
+hotel_h, hotel_m = divmod(hotel_min, 60)
+assert hotel_min < SCHLUSS * 60 and (hotel_h, hotel_m) == (15, 25)
+d_ant = [f'Ja: Ihr seid um {hotel_h}:{hotel_m:02d} Uhr im Hotel, das Waschen kostet {zt(waesche)} Dollar.',
+         f'Nein: Ihr seid erst um {hotel_h + 1}:{hotel_m:02d} Uhr im Hotel.',
+         f'Ja: Ihr seid um {hotel_h}:{hotel_m:02d} Uhr im Hotel, das Waschen kostet {WAESCHE_DOLLAR * NEU_KG} Dollar.',
+         f'Ja: Ihr seid um {hotel_h}:{hotel_m:02d} Uhr im Hotel, das Waschen kostet {WAESCHE_DOLLAR + NEU_KG - WAESCHE_KG} Dollar.']
+assert len(set(d_ant)) == 4
 KOFFER_G, ERLAUBT_G = 25300, 23000
 teilsachen = {'Schuhe': 1200, 'Hose': 900, 'Pullover': 600, 'Buch': 500}
 kombis = [('Schuhe', 'Hose'), ('Schuhe', 'Pullover', 'Buch'), ('Schuhe', 'Hose', 'Buch'), ('Hose', 'Pullover')]
@@ -37,7 +46,8 @@ teile = [
             f'{AB_H}:{AB_M:02d} Uhr + {DAUER_H} h = {AB_H + DAUER_H}:{AB_M:02d} Uhr. Dazu {DAUER_M} min: {AB_M} + {DAUER_M} = {AB_M + DAUER_M} min, '
             f'also {an_h}:{an_m:02d} Uhr.',
             'Addiere erst die Stunden, dann die Minuten. 60 Minuten sind eine Stunde.', B('groessen.einheiten', 'zeit')),
-    luecken('b', f'In Toronto gehen die Uhren anders: Toronto-Zeit = Berliner Zeit + ({zt(VERSCH)} h). In Berlin ist es {an_h}:{an_m:02d} Uhr. Wie spät ist es in Toronto?',
+    luecken('b', f'In Toronto gehen die Uhren anders. Für diesen Reisetag gilt (Annahme): Toronto-Zeit = Berliner Zeit + ({zt(VERSCH)} h), also 6 Stunden weniger. '
+                 f'In Berlin ist es bei der Landung {an_h}:{an_m:02d} Uhr. Wie spät ist es in Toronto?',
             '□:□ Uhr', [to_h, an_m], [f'{an_h} + ({VERSCH})', f'{an_m}'], 'Stunden und Minuten je als ganze Zahl.',
             f'{an_h} + ({zt(VERSCH)}) = {an_h} − {-VERSCH} = {to_h}. Die Minuten bleiben: {to_h}:{an_m:02d} Uhr.',
             'Eine negative Zahl addieren heißt: abziehen.', B('zahlen.ganz', 'sach')),
@@ -47,11 +57,13 @@ teile = [
          f'Zu jeder Hose passen {SHIRTS} T-Shirts: {HOSEN} · {SHIRTS} = {HOSEN * SHIRTS}. Zu jeder dieser Kombinationen passen {PULLIS} Pullover: '
          f'{HOSEN * SHIRTS} · {PULLIS} = {HOSEN * SHIRTS * PULLIS}.',
          'Zählprinzip: die Anzahlen malnehmen.', B('stochastik.kombinatorik', 'zaehlprinzip')),
-    zahl('d', f'Im Hotel in Toronto kostet das Waschen von {WAESCHE_KG} kg Wäsche {WAESCHE_DOLLAR} Dollar. Was kostet das Waschen von {NEU_KG} kg?',
-         waesche, f'{WAESCHE_DOLLAR} / {WAESCHE_KG} * {NEU_KG}',
-         f'1 kg kostet {WAESCHE_DOLLAR} : {WAESCHE_KG} = {WAESCHE_DOLLAR // WAESCHE_KG} Dollar. {NEU_KG} kg kosten {NEU_KG} · {WAESCHE_DOLLAR // WAESCHE_KG} = {zt(waesche)} Dollar.',
-         'Schließe zuerst auf 1 kg.', B('groessen.proportional', 'dreisatz'), einheit='Dollar'),
-    auswahl('e', f'Am Rückflug wiegt der Koffer {zt(KOFFER_G // 1000)} kg {KOFFER_G % 1000} g, erlaubt sind {ERLAUBT_G // 1000} kg. '
+    auswahl('d', f'Ihr landet um {to_h}:{an_m:02d} Uhr Toronto-Zeit. Von der Landung bis zur Ankunft im Hotel vergehen insgesamt {FAHRT_H} h {FAHRT_M} min – einschließlich Aussteigen, Gepäckabholen und Fahrt. Die Hotelwäscherei nimmt nur bis {SCHLUSS}:00 Uhr Wäsche an; '
+                 f'{WAESCHE_KG} kg Wäsche kosten dort {WAESCHE_DOLLAR} Dollar. Ihr wollt noch heute {NEU_KG} kg Wäsche abgeben. Schafft ihr das, und was kostet es?',
+            d_ant[0], d_ant[1:],
+            f'Ankunft im Hotel: {to_h}:{an_m:02d} Uhr + {FAHRT_H} h {FAHRT_M} min = {hotel_h}:{hotel_m:02d} Uhr – vor {SCHLUSS}:00 Uhr. '
+            f'1 kg kostet {WAESCHE_DOLLAR} : {WAESCHE_KG} = {WAESCHE_DOLLAR // WAESCHE_KG} Dollar, {NEU_KG} kg kosten {NEU_KG} · {WAESCHE_DOLLAR // WAESCHE_KG} = {zt(waesche)} Dollar.',
+            'Rechne erst die Ankunft im Hotel aus, dann den Preis für 1 kg.', B('groessen.proportional', 'dreisatz'), ordnung=d_ant),
+    auswahl('e', f'Nach der Reise wiegt der Koffer mit der gewaschenen Wäsche und den Andenken für den Rückflug {zt(KOFFER_G // 1000)} kg {KOFFER_G % 1000} g, erlaubt sind {ERLAUBT_G // 1000} kg. '
                  'Du kannst herausnehmen: Schuhe (1 kg 200 g), Hose (900 g), Pullover (600 g), Buch (500 g). '
                  'Du willst so wenig Gewicht wie möglich herausnehmen. Was nimmst du heraus?',
             txt(beste), [txt(k) for k in kombis if k != beste],
@@ -62,5 +74,6 @@ teile = [
 ]
 
 schreibe(expedition('flug_toronto', 'Flug nach Toronto',
-                    'Deine Familie fliegt von Berlin nach Toronto. Du kümmerst dich um die Uhrzeiten, um deinen Koffer und um die Wäsche. '
+                    'Deine Familie fliegt von Berlin nach Toronto. Du planst den Reisetag: Wann landet ihr, wann seid ihr im Hotel, schafft ihr es noch zur Wäscherei – '
+                    'und passt am Ende alles wieder in den Koffer? '
                     'Im Flugzeug sind 23 kg Gepäck erlaubt.', teile))

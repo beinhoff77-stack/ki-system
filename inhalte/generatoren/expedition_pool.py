@@ -38,9 +38,9 @@ schreibe({
              'Rechnung: 14 h = 840 min; 840 : 3 = 280. Antwort: Mit drei Schläuchen dauert es 280 Minuten (4 h 40 min).',
              'Drei Schläuche schaffen dreimal so viel pro Stunde. Rechne am Ende in Minuten um.', I, einheit='min'),
         auswahl('d', 'Die Wasserfläche ist ein Kreis mit 1,8 m Radius. Ein dreieckiges Sonnensegel hat eine 4 m lange Grundseite und ist 2,4 m hoch. '
-                     'Es soll mindestens die Hälfte der Wasserfläche beschatten können (wenn es ganz über dem Wasser hängt). Reicht das Segel?',
+                     'Selbst wenn die gesamte Segelfläche Schatten auf das Wasser wirft: Ist das Segel groß genug, um mindestens die Hälfte der Wasserfläche zu beschatten?',
                 'Nein: Das Segel hat 4,8 m², die Hälfte der Wasserfläche sind etwa 5,1 m².',
-                ['Ja: Das Segel ist größer als die halbe Wasserfläche.', 'Ja, weil die Grundseite 4 m länger ist als der Durchmesser 3,6 m.', 'Das kann man nicht entscheiden, weil ein Dreieck und ein Kreis verschiedene Formen haben.'],
+                ['Ja: Das Segel ist größer als die halbe Wasserfläche.', 'Ja, weil die Grundseite mit 4 m länger ist als der Durchmesser von 3,6 m.', 'Das kann man nicht entscheiden, weil ein Dreieck und ein Kreis verschiedene Formen haben.'],
                 'Gegeben: Kreis r = 1,8 m, Dreieck g = 4 m, h = 2,4 m. Gesucht: Ist das Dreieck mindestens halb so groß wie der Kreis? '
                 'Ansatz: A_Kreis = π · r², A_Dreieck = g · h : 2. Rechnung: π · 3,24 ≈ 10,18 m², die Hälfte ≈ 5,09 m²; 4 · 2,4 : 2 = 4,8 m². 4,8 < 5,09. '
                 'Antwort: Das Segel ist etwas zu klein.',

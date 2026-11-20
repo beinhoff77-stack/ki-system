@@ -8,6 +8,9 @@ declare v_l bigint; r jsonb; v_x bigint; x schule.expedition; ids bigint[]; a sc
 begin
   select id into v_l from schule.lernender where ist_test and aktiv order by id limit 1;
   if v_l is null then raise exception 'FEHLER kein Testkind'; end if;
+  -- Schlüssel, den es in der Datenbank nicht gibt („8-handytarif“ liegt schon als Entwurf vor – sonst schlägt H12b/H12d fehl)
+  datei := jsonb_set(datei, '{schluessel}', '"8-rauchtest-h12"');
+  if exists (select 1 from schule.expedition where schluessel = datei->>'schluessel') then raise exception 'FEHLER Vorbedingung: Schlüssel % gibt es schon', datei->>'schluessel'; end if;
 
   -- ---------- H12: Import prüft vorab ----------
   foreach falsch in array array[

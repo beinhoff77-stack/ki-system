@@ -95,7 +95,7 @@ PLAN['stochastik.verknuepft'] = [
 # (lineare Gleichungen erst nach diesem Flug) durch eine Knobel ohne Gleichung ersetzt.
 # =====================================================================================================================
 PLAN['abbildungen.kongruenz'] = [
-    karte_her('abbildungen.vektoren', 'gegenvektor', 'Verschieben und Drehen', vertiefung=False, nach='verschiebung'),
+    karte_her('abbildungen.vektoren', 'gegenvektor', 'Verschieben und Drehen', vertiefung=True, nach='verschiebung'),  # Vertiefung (Sebastian 18.11.): Grundkarte verschiebung ist auch Vertiefung
     karte('gegenvektor', woerter=[['Vektor', 'anderes Wort für den Verschiebungspfeil v = (x | y)'],
                                   ['Gegenvektor', 'gleich lang, aber genau entgegengesetzt; zu v gehört −v'],
                                   ['Urpunkt', 'der Punkt vor der Verschiebung']]),

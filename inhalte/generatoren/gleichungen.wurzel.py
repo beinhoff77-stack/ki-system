@@ -417,7 +417,7 @@ def durchsicht(d):
                 Z(3, 'Für die Aufprallgeschwindigkeit gilt v = √(20 · h). Aus 5 m prallt man mit 10 m/s auf. Aus welcher Höhe prallt man mit 30 m/s auf?',
                   45, '30**2/20', '√(20h) = 30 ⇒ 20h = 900 ⇒ h = 45 m. Dreifache Geschwindigkeit braucht neunfache Höhe.', 'Quadriere beide Seiten.', einheit='m'),
             T('Aus welcher Höhe muss etwas fallen, um mit 35 m/s aufzuprallen?'):
-                Z(3, 'Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Dabei wird seine Fläche viermal so groß. Wie groß war die Fläche vorher?',
+                Z(3, 'Jede Seite eines quadratischen Beets wird um 3 m länger. Dabei wird seine Fläche viermal so groß. Wie groß war die Fläche vorher?',
                   9, '3*3', 'Alte Seite s: (s + 3)² = 4s² ⇒ s + 3 = 2s ⇒ s = 3 m. Fläche 9 m².', 'Viermal die Fläche heißt doppelte Seite.', einheit='m²'),
         },
         neu={

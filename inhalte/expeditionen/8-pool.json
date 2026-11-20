@@ -85,12 +85,12 @@
    "k": "d",
    "y": "auswahl",
    "f": {
-    "text": "Die Wasserfläche ist ein Kreis mit 1,8 m Radius. Ein dreieckiges Sonnensegel hat eine 4 m lange Grundseite und ist 2,4 m hoch. Es soll mindestens die Hälfte der Wasserfläche beschatten können (wenn es ganz über dem Wasser hängt). Reicht das Segel?"
+    "text": "Die Wasserfläche ist ein Kreis mit 1,8 m Radius. Ein dreieckiges Sonnensegel hat eine 4 m lange Grundseite und ist 2,4 m hoch. Selbst wenn die gesamte Segelfläche Schatten auf das Wasser wirft: Ist das Segel groß genug, um mindestens die Hälfte der Wasserfläche zu beschatten?"
    },
    "a": [
     "Nein: Das Segel hat 4,8 m², die Hälfte der Wasserfläche sind etwa 5,1 m².",
     "Ja: Das Segel ist größer als die halbe Wasserfläche.",
-    "Ja, weil die Grundseite 4 m länger ist als der Durchmesser 3,6 m.",
+    "Ja, weil die Grundseite mit 4 m länger ist als der Durchmesser von 3,6 m.",
     "Das kann man nicht entscheiden, weil ein Dreieck und ein Kreis verschiedene Formen haben."
    ],
    "o": {

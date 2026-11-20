@@ -3,7 +3,7 @@
  "thema_id": 80,
  "block_id": 88,
  "klasse": {
-  "zusatz": 10
+  "ib_myp": 5
  },
  "autor": "Claude (Paket IB)",
  "inhalt": {
@@ -3178,7 +3178,7 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 500 h und σ = 100 h. Ab welchem Wert gehört man zu den 16 % mit den kleinsten Werten?"
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 500 h und σ = 100 h. Unter welchem Wert liegen etwa die 16 % kleinsten Werte?"
    },
    "o": {
     "wert": 1400,

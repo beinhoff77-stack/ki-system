@@ -3,7 +3,7 @@
  "thema_id": 59,
  "block_id": 89,
  "klasse": {
-  "ib_myp": 3
+  "ib_myp": 5
  },
  "autor": "Claude (Paket IB)",
  "inhalt": {
@@ -1682,7 +1682,7 @@
       },
       {
        "x": 10,
-       "y": 80
+       "y": 83
       }
      ],
      "name_x": "Lernzeit in h",
@@ -1694,7 +1694,7 @@
     "wert": 10
    },
    "c": "10",
-   "w": "Der höchste Punkt liegt bei y = 80, sein x-Wert ist 10.",
+   "w": "Der höchste Punkt liegt bei y = 83, sein x-Wert ist 10.",
    "h": "Suche den höchsten Punkt und lies dann seinen x-Wert ab.",
    "g": "umkehr"
   },
@@ -1705,7 +1705,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Das Streudiagramm zeigt das Alter von Autos und ihren Wert in Tausend €. Wie viel Euro ist das Auto wert, das 1 Jahre alt ist? Gib den Betrag in € an.",
+    "text": "Das Streudiagramm zeigt das Alter von Autos und ihren Wert in Tausend €. Wie viel Euro ist das Auto wert, das 1 Jahr alt ist? Gib den Betrag in € an.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -1814,7 +1814,7 @@
     "wert": 1
    },
    "c": "1",
-   "w": "Rechts von x = 4 liegen 4 Punkte. Davon liegen 1 über der Höhe 16.",
+   "w": "Rechts von x = 4 liegen 4 Punkte. Davon liegt 1 über der Höhe 16.",
    "h": "Denke dir eine senkrechte Linie bei x = 4 und eine waagrechte bei y = 16. Zähle nur im passenden Viertel.",
    "g": "mehrschritt"
   },
@@ -2376,7 +2376,7 @@
      "punkte": [
       {
        "x": 1,
-       "y": 295
+       "y": 298
       },
       {
        "x": 2,
@@ -2412,7 +2412,7 @@
     "wert": 1
    },
    "c": "1",
-   "w": "Der höchste Punkt liegt bei y = 295, sein x-Wert ist 1."
+   "w": "Der höchste Punkt liegt bei y = 298, sein x-Wert ist 1."
   },
   {
    "l": "ablesen",
@@ -4632,7 +4632,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "x: Alter des Geräts in Jahre, y: Wert. Die Ausgleichsgerade hat die Gleichung y = −4x + 70. Was bedeutet die Zahl −4?",
+    "text": "x: Alter des Geräts in Jahren, y: Wert. Die Ausgleichsgerade hat die Gleichung y = −4x + 70. Was bedeutet die Zahl −4?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -4684,7 +4684,7 @@
        ]
       }
      ],
-     "name_x": "Alter des Geräts in Jahre",
+     "name_x": "Alter des Geräts in Jahren",
      "name_y": "Wert in €",
      "schritt_y": 10
     }
@@ -4698,7 +4698,7 @@
    "o": {
     "index": 3
    },
-   "w": "Die Steigung -4 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 70 ist der Wert bei x = 0.",
+   "w": "Die Steigung −4 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 70 ist der Wert bei x = 0.",
    "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?",
    "g": "einkleidung"
   },
@@ -5340,7 +5340,7 @@
    "o": {
     "index": 0
    },
-   "w": "Die Steigung -2 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 60 ist der Wert bei x = 0.",
+   "w": "Die Steigung −2 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 60 ist der Wert bei x = 0.",
    "h": "Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?",
    "g": "einkleidung"
   },
@@ -5553,7 +5553,7 @@
     "wert": 10
    },
    "c": "(75) // 8 + 1",
-   "w": "8x + 25 > 100 ⇒ 8x > 75 ⇒ x > 9,38. Die kleinste ganze Zahl ist 10. Spätestens dort taugt die Gerade nicht mehr (Extrapolation).",
+   "w": "8x + 25 > 100 ⇒ 8x > 75 ⇒ x > 9,375. Die kleinste ganze Zahl ist 10. Spätestens dort taugt die Gerade nicht mehr (Extrapolation).",
    "h": "Stelle die Ungleichung „Schätzung > 100“ auf und löse sie nach x.",
    "g": "rueckwaerts"
   },
@@ -5995,7 +5995,7 @@
    "o": {
     "index": 2
    },
-   "w": "Die Steigung -2 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 80 ist der Wert bei x = 0."
+   "w": "Die Steigung −2 sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt 80 ist der Wert bei x = 0."
   },
   {
    "l": "gerade",
@@ -8717,7 +8717,7 @@
    "o": {
     "index": 0
    },
-   "w": "die Größe des Restaurants beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht.",
+   "w": "Die dritte Größe ist: die Größe des Restaurants. Sie beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht.",
    "h": "Suche eine Größe, die beide Beobachtungen gleichzeitig beeinflusst.",
    "g": "einkleidung"
   },
@@ -9155,7 +9155,7 @@
    "o": {
     "index": 3
    },
-   "w": "das Alter beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
+   "w": "Die dritte Größe ist: das Alter. Sie beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
   },
   {
    "l": "kausal",
@@ -9195,7 +9195,7 @@
    "o": {
     "index": 2
    },
-   "w": "ländliche Gegenden mit mehr Familien und mehr Nistplätzen beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
+   "w": "Die dritte Größe ist: ländliche Gegenden mit mehr Familien und mehr Nistplätzen. Sie beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
   },
   {
    "l": "kausal",
@@ -9215,7 +9215,7 @@
    "o": {
     "index": 2
    },
-   "w": "vorhandene Lernschwierigkeiten beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
+   "w": "Die dritte Größe ist: vorhandene Lernschwierigkeiten. Sie beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
   },
   {
    "l": "kausal",
@@ -9224,18 +9224,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "„Kinder, die mehr Zeit im Freien verbringen, sind im Durchschnitt seltener kurzsichtig.“ Welche dritte Größe erklärt diesen Zusammenhang am besten?"
+    "text": "„Städte mit mehr Kirchen haben mehr Gaststätten.“ Welche dritte Größe erklärt diesen Zusammenhang am besten?"
    },
    "a": [
-    "das Tageslicht draußen und weniger Nahsehen",
-    "der Geburtsmonat",
-    "die Farbe der Kleidung",
-    "die Schuhgröße"
+    "die Einwohnerzahl der Stadt",
+    "der Geburtsmonat des Bürgermeisters",
+    "die Farbe der Kirchtürme",
+    "das Alter der Pfarrer"
    ],
    "o": {
     "index": 0
    },
-   "w": "das Tageslicht draußen und weniger Nahsehen beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
+   "w": "Die dritte Größe ist: die Einwohnerzahl der Stadt. Sie beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
   },
   {
    "l": "kausal",
@@ -9315,7 +9315,7 @@
    "o": {
     "index": 2
    },
-   "w": "das sonnige Wetter beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
+   "w": "Die dritte Größe ist: das sonnige Wetter. Sie beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht."
   },
   {
    "l": "kausal",

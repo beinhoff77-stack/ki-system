@@ -1822,3 +1822,89 @@ Regeln wie im Abschnitt „Expeditionen – Inhalte für Klasse 5 und Klasse 8�
 2. **`8-pool` (Muss):** Teil d „wenn es ganz über dem Wasser hängt“ umformulieren – ein Dreieckssegel mit 4 m Seitenlänge passt nicht in einen Kreis mit 3,6 m Durchmesser. Vorschlag: „Selbst wenn die gesamte Segelfläche Schatten auf das Wasser wirft …“. Rechnung und Antwort bleiben.
 
 Fertig, wenn: Dateien und Generatoren stimmen überein, Prüfskript ohne Fehler, Meldung „FERTIG: Korrekturen 853“ im Postfach mit dem alten und neuen Wortlaut jeder geänderten Stelle.
+
+---
+
+# Bau-Auftrag I (20.11.): Mängel aus drei Nachprüfungen
+
+Grundlagen: Nachprüfung Lehrer-Aufbau `inhalte/pruefung/lehrer/nachpruefung.md` (Prüf-Chat, mit Bildern), Prüfergebnisse von ChatGPT in der Werkstatt – Nachricht 872 (Auftrag H) und 873 (Nachtragstest W177). Die Texte der beiden Nachrichten stehen sinngemäß unten; die Nachprüfung liegt im Arbeitszweig.
+
+**Es baut immer nur EIN Chat am App-Code.** Reihenfolge: zuerst Teil 1 (Chat `bau-lehrer`), danach Teil 2 (Chat `bau-motivation`). Teil 2 beginnt erst, wenn Teil 1 in `lernen-app` zusammengeführt ist (Meldung des Haupt-Chats in `inhalte/postfach/antworten.md`).
+
+Für beide Teile: Zweig vom aktuellen `lernen-app`; Datenbank nur lesen; Migrationen als Datei mit Rauchtest (Rollback, nur Testkind, eigene Namen für Variablen – keine Tabellen-Aliase doppelt belegen, keine Kommentare mitten in `declare`-Zeilen; Tests dürfen nicht von Daten abhängen, die schon in der Datenbank liegen); App-Tests vollständig laufen lassen; kein Merge nach `main`. Keine Kinderdaten, keine Schlüssel. Meldung „FERTIG: Auftrag I, Teil n“ im eigenen Postfach, getrennt nach „gesehen/getestet“ und „nicht geprüft“.
+
+## Teil 1 – Lehrer-Aufbau (Chat `bau-lehrer`, Zweig `bau-lehrer`, App 0.81.0)
+
+**Muss**
+1. **„Was wackelt“ auf dem Handy (400 px):** Wörter brechen mitten im Wort, die Spalte „seit“ und der Reiter „Plan“ sind abgeschnitten. Unter 560 px je Etappe eine Karte (wie die Kinder-Karten der Startseite) statt Tabelle; Reiterband ohne Abschneiden.
+
+**Sollte**
+2. **Eltern-Startseite:** „Wartet auf dich“ (Belohnung einlösen) als blauer Eintrag in „Zu tun“ statt als Kasten darüber. Danach passt die Kinder-Tabelle auf dem Rechner (1280 × 800) ohne Rollen – per Test messen.
+3. **Lehrplan-Übersicht auf dem Handy:** als Liste oder mit fester erster Spalte, ohne abgeschnittene Inhalte.
+4. **Reisewörter beim ersten Vorkommen erklären** (klein, in Klammern oder als Hinweis): Rückreise = Wiederholung nach nicht bestandenem Nachtest; Etappe = Lernschritt; Flug = Thema; Bordkarte = Aufgabe.
+5. **Nachtragstest-Link (W177, Befund 7):** Der Link auf der Flugseite hängt an `!offen` und heißt „Alle Etappen sitzen – Test zu den neuen Etappen“. Den Link nur an „Flug-Test abgeschlossen und neue offene Pflicht-Etappen“ binden, Text neutral „Test zu den neuen Etappen“.
+
+**Kann** (mitnehmen, wenn es ohne Umbau geht)
+6. Überblick: nicht „Nichts wackelt.“ direkt über „Rückreise … offen“ – z. B. „Keine Etappe wackelt · Rückreise Pisa offen“.
+7. Geschafft: Flug ohne Inhalt als „noch kein Inhalt“ statt dreimal „–“.
+8. Tablet: Rahmen der ⚙-Zelle ausrichten; „noch kein MYP-Jahr“ kürzer („– (ab Kl. 6)“); Spaltenkopf „AKTIONEN“ weglassen; Hinweis „über der Klasse des Kindes“ nicht abschneiden.
+9. Hinweise mit dem Wort „Datenbank“ durch neutrale Sätze ersetzen.
+
+**Zusatz (Sebastians Entscheidung 20.11.)**
+10. **Reisetage und Pausen eintragen.** Eltern und Lehrer können je Kind Zeiträume ohne Lernen eintragen (von–bis, optional ein Wort wie „Reisetag“, „krank“, „Ferien“; auch für alle Kinder zugleich). Ort: „⚙ Einstellen“ des Kindes und ein kurzer Weg von der Startseite („Reisetag eintragen“). Wirkung: Eingetragene Tage zählen nicht für „rot/gelb“ bei „Lernt“ und nicht für „kein Lerntag seit …“ in „Zu tun“; in der Zeile steht dann z. B. „Pause bis 24.11.“. An Lernregeln, Wiederholungen und Nachtests ändert sich nichts (die zählen ohnehin in Lerntagen). Eintragen, ändern und löschen muss gehen; vergangene Einträge bleiben sichtbar. Datenbank: Migration als Datei (Tabelle z. B. `schule.pause`: Kind oder alle, von, bis, grund, wer, wann) mit Rauchtest; Zugriff nur für Eltern/Lehrer. Info-Seite um einen Satz ergänzen.
+
+**Entschieden, nicht bauen:** Die Stand-Zellen (GYM, RS, IB) bleiben ohne Ampelfarbe.
+
+## Teil 1b – LA-8 „Lehrplan nach Themengebiet“ (Chat `bau-lehrer`, gleicher Zweig, nach Teil 1; von Sebastian am 20.11. freigegeben)
+
+Vorgabe des Gestalters: `inhalte/pruefung/lehrer/umsetzung.md`, Abschnitt **LA-8** (vollständig, mit „Fertig, wenn“). Entwurf zum Ansehen: `inhalte/pruefung/lehrer/entwurf/lehrplan-spalte.html` (im Browser öffnen, enthält die echte Themenliste). Bild: `inhalte/pruefung/lehrer/bilder/lehrplan-spalte-entwurf.png`. LA-8 ergänzt LA-4 (Flugplan, rechte Spalte) und LA-7 (Lehrplan-Übersicht). Es gilt für Lehrer und Eltern; **die Kinderansicht behält die Orte**.
+
+Kurz, maßgeblich ist der Abschnitt LA-8:
+1. Überschrift jeder Zeile „Themengebiet – Thema“ statt „Ort – Thema“ (mehrere Flüge mit „und“, ab 3 die ersten zwei und „…“); darunter klein „Gym 7 · RS 7 · MYP 3 · 2 Flüge“. Links im Plan steht der Ort nur noch klein am Ende („Ort in der Reise: Samarkand“).
+2. Rechte Spalte mit Umschalter „Nach Themengebiet“ (Standard) | „Nach Klasse (Lehrplan)“.
+3. „Nach Themengebiet“: Knöpfe für die acht Gebiete (vorbelegt mit dem Gebiet des aktuellen Ortes), „Sortiert nach Klasse in: Gymnasium | Realschule | IB MYP“ (vorbelegt mit der Schulart des Kindes), alle Orte des Gebiets aus allen Klassen von leicht nach schwer, gestrichelte Linie „ab hier über Klasse X des Kindes“, Kopf „Zahlen: 4 von 8 Orten im Plan · von leicht nach schwer“ mit Balken, jeder Ort mit „+“ oder Ziehen einplanbar, eingeplante grau mit „✓ im Plan“.
+4. „Nach Klasse (Lehrplan)“ wie LA-4, mit den neuen Überschriften.
+5. Farbe je Klasse nach der Gymnasium-Klasse (Kästchen mit Klassenzahl, farbiger linker Rand mit hellem Verlauf, links und rechts gleich): 5 #2E7D32 · 6 #0277BD · 7 #6A1B9A · 8 #C62828 · 9 #EF6C00 · 10 #455A64; ohne Gymnasium-Klasse graues „–“; Legende unten.
+
+Hinweise des Haupt-Chats: Themengebiet = `schule.kontinent.titel` des Ortes (Zahlen, Geld und Verhältnisse, Algebra, Funktionen, Geometrie, Fläche und Raum, Daten und Zufall, Entdecker-Inseln). Klassen je Schulart kommen aus `schule.thema_jahrgang` (Realschule und IB sind seit dem 18.11. fest eingetragen; IB als MYP-Jahr = Klasse − 5). Orte, die nur Entwurfs-Flüge haben (10 aufgelöste Themen), erscheinen nicht. Seit dem 18.11. gibt es Orte ohne Gymnasium-Klasse (Zusatz-Orte) – die bekommen das graue „–“ und sortieren bei „Gymnasium“ ans Ende. Braucht die App dafür neue Felder vom Server: Migration als Datei mit Rauchtest. Farben auch in der dunklen Gestaltung lesbar halten (Kontrast messen). Tests für alle vier „Fertig, wenn“-Punkte. Version 0.81.0 zusammen mit Teil 1. Meldung „FERTIG: Auftrag I, Teil 1b (LA-8)“ – der Gestalter prüft nach.
+
+## Teil 2 – Lernregeln (Chat `bau-motivation`, Zweig `bau-motivation`, App 0.81.1)
+
+**Muss**
+1. **H10 – Mischkarte serverseitig binden.** Heute glaubt der Server dem Gerät, welche Etappe „die aktuelle“ ist (`aktuell_einheit`, `aktuell_lernziel`); damit lässt sich jede Übung einer gelandeten Etappe als Mischkarte melden und erzeugt einen Beleg (`misch_ok_am`) – und darüber „sicher“. Lösung: Der Server merkt sich, welche Mischkarten er einem Kind ausgegeben hat (z. B. Tabelle `schule.misch_ausgabe`: Kind, Aufgabe, ausgegeben am, eingelöst am; Eintrag beim Ausliefern durch `schule.mischkarten`), und `misch_buchen` zählt nur eine ausgegebene, noch nicht eingelöste Karte der letzten 24 Stunden. Ohne passende Ausgabe: normale Buchung als Übung, kein Misch-Beleg. Die alte App (0.80.0) darf dabei nicht brechen – sie bekommt dann schlicht keinen Misch-Beleg. Rauchtest mit gefälschtem Kontext (Negativfall) und echtem Ablauf (Positivfall).
+2. **H2 – Folge richtig nachrechnen.** Die Nachrechnung in `h_muss` blendet jede falsche Antwort mit `anlauf = 1` aus – auch einen endgültigen Fehler bei einer Auswahl ohne zweite Chance. Regel sauber fassen (endgültig falsch = letzter Versuch dieser Bordkarte in dieser Runde ist falsch, gleich welcher Anlauf) und als Funktion liefern, die die laufende Buchung und eine Nachrechnung gemeinsam benutzen. Bestand: Der Haupt-Chat hat am 20.11. gelesen – bei den echten Kindern gibt es 3 offene Etappen mit Folge > 0, keine davon ist betroffen. Deshalb **keine** Bestandsänderung, nur die Funktion und ein Negativtest.
+
+**Sollte**
+3. **H4/H11/H14 – fehlende Tests:** Nachtest mit 80 % bestanden, aber diese Etappe falsch → nicht „sicher“ (Negativtest); Expedition bei zwei Versionen eines Themas über die ganze Buchung (nicht nur die Hilfsfunktion); Expedition unterbrochen und fortgesetzt.
+4. **H12 – Import:** zusätzlich angegebene Voraussetzungen auch auf vorhandene Lernkarte (Lernziel) prüfen, nicht nur auf das Thema.
+5. **H6 – Tageszähler:** Die App nimmt für „heute selbst gelöst“ den Tag, den der Server liefert, nicht den Kalendertag des Geräts.
+6. **W177 – Nachtragstest:** Rauchtest um Sterne (vorher/nachher, keine Doppelbuchung bei Abbruch und Wiederaufnahme) und um den Fall „offene und fehlerhafte Pflicht-Etappen zugleich“ ergänzen. Frist des nächsten Nachtests nach einem Nachtragstest: im Bericht beschreiben, was heute geschieht (beginnt die 10-Lerntage-Frist neu?) – nichts ändern, Sebastian entscheidet.
+7. **H5/H13:** im Bericht ehrlich festhalten, was nur über die innere Funktion und was über den äußeren Zugang getestet ist. Ein Test über den äußeren Zugang braucht einen Schlüssel und entfällt.
+
+---
+
+# Fünfundzwanzigste Runde (20.11.): unabhängige Prüfung der 14 neu freigegebenen Flüge
+
+Sebastian hat am 18.11. 14 Flüge freigegeben, die bisher nur von ihren Autoren-Chats und vom Prüfskript geprüft sind. Diese Runde holt die unabhängige inhaltliche Prüfung nach. **Wer hier prüft, darf keines dieser Themen selbst geschrieben haben** – deshalb zwei neue Chats.
+
+- **Chat `pruefung-neu-1`** (Zweig `pruefung-neu-1`, Meldungen `inhalte/postfach/pruefung-neu-1.md`) – zuerst die Flüge, die im Plan eines Kindes stehen: `abbildungen.determinanten2`, `daten.stichproben`, `terme.quadratische_extreme`, dann `gleichungen.wurzel`, `abbildungen.matrizen`, `funktionen.reihen`, `funktionen.betrag`.
+- **Chat `pruefung-neu-2`** (Zweig `pruefung-neu-2`, Meldungen `inhalte/postfach/pruefung-neu-2.md`): `daten.zweidimensional`, `daten.standardabweichung`, `daten.normalverteilung`, `sonder.graphentheorie`, `sonder.logik`, `sonder.optimierung`, `zahlen.schranken`.
+
+Beide Zweige vom aktuellen `lernen-app`. Vorher lesen: `inhalte/README.md` (Themen-Bausatz, „Stufen und Aufgabentypen“, Vertiefung) und `inhalte/postfach/stufen-kl5.md` (oberste Meldung: Beispiele für die Fehlerarten).
+
+**Was zu prüfen ist – je Thema jede Lernkarte und jede Aufgabe in allen Pools** (Übung, Knobel, Test, Korrektur, Sicherung) aus `inhalte/themen/<thema>.json`:
+
+a) **Lösung falsch oder nicht eindeutig.** Jede Lösung selbst nachrechnen, unabhängig vom Generator. Bei „höchstens / mindestens / wie viele / immer / nie“ alle Fälle durchgehen. Bei Auswahl-Aufgaben: genau eine Option richtig, keine zweite vertretbar.
+b) **Mehrdeutige Frage oder Zählweise** („der k. Strich“, „zwischen“, „bis“), fehlende Angabe, unklare Einheit, unklare Rundung.
+c) **Späterer Stoff.** Nichts voraussetzen, was nach der Reihenfolge in `inhalte/themenliste.json` erst später kommt – auch nicht in Tipp, Lösungsweg, Antwortoptionen oder Erklärung. Maßgeblich ist die Klasse des Themas (Feld `klasse`, bei Realschul-Themen `rs_by`, bei IB `ib_myp` + 5).
+d) **Erklärung der Lernkarte** (Einstieg, Wörter, Bild, Schritte, typischer Fehler, „Kurz gesagt“): fachlich richtig, vollständig genug für die Aufgaben der Karte, Beispielrechnung stimmt, kein Sprung.
+e) **Lösungsweg und Tipp:** führt wirklich zur Lösung, keine Sprünge, Tipp verrät nicht das Ergebnis; falsche Antwortoptionen beruhen auf echten Denkfehlern und enthalten keine falschen Rechnungen als „Begründung“, die ein Kind für richtig halten könnte.
+f) **Stufe und Typ:** Stufe 1/2/3 und Aufgabentyp (`g`) passen zum Anspruch; Stufe 3 ist wirklich schwerer als Stufe 2 und nicht nur „größere Zahlen“. Realistische Zahlen, Einheiten und Sachsituationen; keine Namen realer Personen; nichts wörtlich aus Schulbüchern oder Prüfungen.
+
+Zusätzlich je Thema ein Satz: **Passt der Flug zur angegebenen Klasse und zum Lehrplan** (Realschule Bayern bzw. IB MYP), und fehlt etwas Wesentliches? Quelle nennen (lehrplanplus.bayern.de mit Abrufdatum bzw. das IB-Dokument); was nicht belegbar ist, als Annahme kennzeichnen.
+
+**Fehler beheben, nicht nur melden:** im Generator des Themas ändern (`inhalte/generatoren/…`), Themendatei neu erzeugen, `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden. Mindestmengen halten (Stufe 1/2/3 mindestens 4/6/8 freie Übungen mit 2/3/4 Typen, 2 Knobel, Test 1, Korrektur 3, Sicherung 6). Geänderte Aufgaben behalten Typ und Stufe, sofern nicht gerade die falsch waren. Ein Thema = ein Commit + Push.
+
+**Bericht je Thema im Postfach:** Zahl der gelesenen und nachgerechneten Aufgaben; Zahl der Änderungen je Fehlerart a–f; jede Änderung der Art a (falsche Lösung) mit altem und neuem Wortlaut; Urteil „in Ordnung / mit Korrekturen in Ordnung / nicht freigabefähig“ – bei „nicht freigabefähig“ sofort melden, nicht erst am Ende. Tatsachen (nachgerechnet, gelesen) von Annahmen trennen; nennen, was nicht geprüft wurde.
+
+Kein Merge nach `main`, nichts in die Datenbank schreiben, kein App-Code, keine Kinderdaten. Ohne Rückfragen durcharbeiten; bei Unklarheit die sinnvollste Lesart nehmen und im Bericht nennen. Am Ende „FERTIG: Prüfung neu, Chat n“.

@@ -161,7 +161,7 @@ def g_stueckweise(s):
             m, t = -a, a * d + e
             bed = f'x < {dz(d)}'
         return luecken(f'Schreibe f(x) = {bterm(a, d, e)} für {bed} ohne Betragsstriche.', '□x + □', 'Term eintippen, z. B. -2x + 5', [m, t],
-                       (f'Für {bed} ist x {plus(-d)} {"≥ 0, der Betrag fällt weg" if seite == "rechts" else "< 0, also |x " + plus(-d) + "| = −(x " + plus(-d) + ")"}. '
+                       (f'Für {bed} ist {inn(d)} {"≥ 0, der Betrag fällt weg" if seite == "rechts" else "< 0, also |" + inn(d) + "| = −(" + inn(d) + ")"}. '
                         f'f(x) = {poly(m, t)}.'),
                        'Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.', c=[str(m), str(t)])
     if art == 'wert_links':
@@ -239,7 +239,7 @@ def g_verstehen(s):
         r = f'Falsch: Es fehlt x = {dz(d - c)}.'
         return auswahl(f'Ali löst |{inn(d)}| = {c} und schreibt: „x = {dz(d + c)}“. Ist das vollständig?', r,
                        ['Ja, das ist die einzige Lösung.', f'Falsch: Richtig ist nur x = {dz(d - c)}.', f'Falsch: Es fehlt x = {dz(-d - c)}.'],
-                       f'Auch {dz(d - c)} hat von {dz(d)} den Abstand {c}: |{dz(d - c)} {plus(-d)}| = {c}.', 'Gibt es links von der Mitte auch eine Zahl mit diesem Abstand?')
+                       f'Auch {dz(d - c)} hat von {dz(d)} den Abstand {c}: |{dz(d - c)}{"" if d == 0 else " " + plus(-d)}| = {c}.', 'Gibt es links von der Mitte auch eine Zahl mit diesem Abstand?')
     r = 'Für alle x ≥ 0.'
     return auswahl('Für welche Zahlen x gilt |x| = x?', r, ['Für alle x.', 'Nur für x = 0.', 'Für alle x ≤ 0.'],
                    'Für x ≥ 0 bleibt x beim Betrag unverändert. Für negative x ist |x| = −x > x.', 'Teste eine positive, eine negative Zahl und 0.')

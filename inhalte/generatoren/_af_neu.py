@@ -111,7 +111,7 @@ DUAL_KARTE = {
 }
 
 DUAL = karte_ops(
-    'dualsystem', 'Zahlsysteme', DUAL_KARTE, 'Zahlen im Zweiersystem lesen und schreiben', 'roemisch_system', False,
+    'dualsystem', 'Zahlsysteme', DUAL_KARTE, 'Zahlen im Zweiersystem lesen und schreiben', 'roemisch_system', True,  # Vertiefung (Sebastian 18.11.): Gym M5 nennt kein Zweiersystem; als Pflicht würde der abgeschlossene Flug wieder offen
     [('direkt', W_Z('Welche Zahl ist die Zweierzahl 1011?', '1011', H_LESEN)),
      ('direkt', W_Z('Welche Zahl ist die Zweierzahl 11001?', '11001', H_LESEN)),
      ('erkennen', A('Welche Ziffern gibt es im Zweiersystem?', 'nur 0 und 1', ['0 bis 9', 'nur 1 und 2', '0, 1 und 2'],

@@ -4254,7 +4254,7 @@ nav.lern-reiter { background: transparent; padding: 0; border-radius: 0; box-sha
 .lern-kind-kopf-zeile { align-items: center; }
 .lern-kinder-tabelle th, .lern-kinder-tabelle thead th { white-space: nowrap; }
 .lern-kinder-tabelle td { min-width: 0; }
-.lern-kinder-tabelle td.amp-rot, .lern-kinder-tabelle td.amp-gelb, .lern-kinder-tabelle td.amp-gruen { min-width: 96px; }
+.lern-kinder-tabelle td.amp-rot, .lern-kinder-tabelle td.amp-gelb, .lern-kinder-tabelle td.amp-gruen, .lern-kinder-tabelle td.amp-pause { min-width: 96px; }
 .lern-kinder-tabelle .lern-st-zelle { grid-template-columns: auto; }
 .lern-kinder-tabelle .lern-st-zelle b { white-space: nowrap; }
 .lern-kinder-tabelle td:nth-child(6) .lern-st-zelle b { white-space: normal; font-size: 0.85rem; max-width: 7em; }
@@ -4364,3 +4364,86 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lp-tabelle-lehrplan .lern-aendern > summary { font-size: 0.75rem; font-weight: 600; min-height: 0; padding: 0; }
 .lp-tabelle-lehrplan tbody th { white-space: nowrap; }
 .lp-tabelle-lehrplan .lern-aendern { margin-left: 8px; }
+/* Bau-Auftrag I, Teil 1 */
+.lern-wort-erkl { font-size: 0.78em; font-weight: 400; color: var(--text-muted); }
+.zt-wunsch .zt-zeile { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-height: 44px; padding: 6px 10px; border-radius: 10px; background: var(--info-bg); }
+.zt-wunsch .zt-zeile > span:nth-child(2) { flex: 1 1 14em; }
+.zt-knoepfe { display: flex; gap: 6px; }
+.zt-knoepfe button { min-height: 36px; padding: 0 12px; }
+.lern-kinder-tabelle td.lern-zeile-zelle { text-align: right; white-space: nowrap; }
+.lern-zeile-knoepfe { display: inline-flex; gap: 6px; align-items: center; }
+@media (max-width: 1099px) { .lern-zeile-knoepfe { display: inline-flex; flex-direction: column; align-items: stretch; } }
+.lern-plan-ort .lern-plan-ueber { white-space: normal; overflow: visible; text-overflow: clip; }
+.ls-karten { display: none; gap: 8px; }
+.ls-karte-m { padding: 10px 12px; }
+.ls-karte-m.ls-zeile-wackelt { border-left: 5px solid #d99a00; }
+.ls-karte-kopf { display: grid; width: 100%; text-align: left; gap: 2px; }
+.ls-karte-kopf small { color: var(--text-muted); font-weight: 400; }
+.ls-karte-werte { display: grid; gap: 2px; margin: 6px 0 0; }
+.ls-karte-detail { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+.lp-liste { display: none; }
+.lp-liste-gruppe { margin: 12px 0 4px; font-size: 0.85rem; color: var(--text-muted); }
+.lp-liste-eintrag { padding: 8px 10px; border-bottom: 1px solid var(--border); background: var(--surface); display: grid; gap: 3px; }
+.lp-liste-kopf { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.lp-liste-kopf a { color: var(--text); text-decoration: none; }
+.lp-liste-kinder { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.8rem; }
+@media (max-width: 559px) {
+  .ls-breit, .lp-breit { display: none; }
+  .ls-karten { display: grid; }
+  .lp-liste { display: block; }
+  .lern-reiter { gap: 0; overflow-x: visible; }
+  .lern-reiter a { padding: 10px 7px; font-size: 0.9rem; flex: 1 1 auto; justify-content: center; }
+}
+.lern-was-ist-los { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 0 0 8px; }
+.lern-was-ist-los .lern-info-oben { margin: 0; }
+.lern-zutun { padding-top: 12px; padding-bottom: 12px; }
+.lern-zutun h2 { margin-bottom: 6px; }
+.lern-zutun-liste a, .zt-wunsch .zt-zeile { min-height: 44px; padding-top: 2px; padding-bottom: 2px; }
+.zt-knoepfe button { min-height: 32px; }
+.lern-kinder { margin-top: 10px; }
+.lern-kinder { margin-top: 6px; }
+.lern-kinder h2 { margin-bottom: 6px; }
+.lern-zutun { padding-top: 10px; padding-bottom: 10px; }
+.lern-kinder-tabelle td:nth-child(6) .lern-st-zelle b { white-space: nowrap; }
+/* I-10: Reisetage und Pausen */
+.amp-pause { background: var(--info-bg); color: var(--info); }
+.lern-zutun-kopf { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+.lern-zutun-kopf h2 { margin: 0; }
+.lern-pause-knopf { min-height: 36px; font-size: 0.85rem; }
+.lern-pause-form { display: grid; gap: 8px; margin: 6px 0 10px; }
+.lern-pause-zeit { display: flex; gap: 10px; flex-wrap: wrap; }
+.lern-pause-zeit label, .lern-pause-wer { display: grid; gap: 2px; font-size: 0.85rem; }
+.lern-pause-form .lern-blatt-knoepfe { margin: 0; }
+.lern-pause-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.lern-pause-liste li { display: grid; gap: 4px; padding: 6px 0; border-top: 1px solid var(--border); }
+.lern-pause-liste li.vorbei { opacity: 0.65; }
+.lern-pause-knoepfe { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.lern-pause-knoepfe button { min-height: 36px; padding: 0 12px; }
+.lern-frage.amp-pause { color: var(--text); border-left: 6px solid var(--info); }
+/* LA-8: Lehrplan nach Themengebiet – Farbe je Gymnasium-Klasse */
+.lern-kl-rand { --kl: #8a96a3; border-left: 5px solid var(--kl) !important; background-image: linear-gradient(90deg, color-mix(in srgb, var(--kl) 13%, transparent), transparent 45%); }
+.lern-kl-kasten { --kl: #8a96a3; display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; padding: 0 4px; border-radius: 6px; background: var(--kl); color: #fff; font-weight: 700; font-size: 13px; line-height: 1; flex: none; vertical-align: middle; }
+.lern-kl-kasten.hell { color: #1b1b1b; }
+.lern-kl-kasten.ohne { background: var(--surface-muted); color: var(--text-muted); border: 1px solid var(--border); }
+/* Eltern/Lehrer-Bereich ist fest hell (body[data-area=lernen] color-scheme: light) – keine eigene dunkle Variante nötig */
+.lern-plan-ort.lern-kl-zeile { display: grid; grid-template-columns: 26px minmax(0, 1fr); column-gap: 8px; row-gap: 0; align-content: center; }
+.lern-plan-ort.lern-kl-zeile > .lern-kl-kasten { grid-row: 1 / span 2; align-self: start; margin-top: 1px; }
+.lern-plan-ort.lern-kl-zeile > :not(.lern-kl-kasten) { grid-column: 2; }
+/* Tablet: eine Zeile je Ort (E-2: 12 Orte, höchstens 72 px), voller Text im Tooltip und aufgeklappt; auf dem Handy und ab 1100 px umbrechen wie im Entwurf */
+.lern-plan-vorrat-zeile .lern-plan-ort > b { white-space: normal; overflow: visible; text-overflow: clip; }
+@media (min-width: 1100px), (max-width: 699px) { .lern-plan-ort.lern-kl-zeile > b, .lern-plan-ort.lern-kl-zeile > small { white-space: normal; overflow: visible; text-overflow: clip; } }
+.lern-plan-reiseort { font-style: italic; }
+.lern-plan-vorrat-zeile.lern-kl-rand { grid-template-columns: 30px 26px minmax(0, 1fr) auto; border-radius: 8px; margin-bottom: 4px; padding-left: 6px; }
+.lern-plan-vorrat-zeile.lern-plan-drin { grid-template-columns: 26px minmax(0, 1fr) auto; }
+.lern-plan-vorrat-zeile.lern-plan-drin .lern-plan-ort > b { color: var(--text-muted); font-weight: 600; }
+.lern-plan-vorrat-zeile .lern-plan-ort small { white-space: normal; }
+.lern-plan-implan { color: var(--ok); font-weight: 700; white-space: nowrap; }
+.lern-plan-umschalter { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--surface-muted); border-radius: 999px; padding: 4px; margin: 8px 0; }
+.lern-plan-umschalter button { border: 0; border-radius: 999px; min-height: 44px; background: transparent; color: var(--text); font-weight: 700; }
+.lern-plan-umschalter button[aria-pressed="true"] { background: var(--accent-strong, var(--text)); color: var(--surface); }
+.lern-plan-sortiert { margin: 4px 0 0; }
+.lern-plan-gebiet-kopf { margin: 8px 0; }
+.lern-plan-gebiet-kopf .lern-mini-balken { display: block; margin-top: 4px; }
+.lern-plan-ab-hier { border-top: 2px dashed var(--warn); color: var(--warn); font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 6px 0 4px; margin: 8px 0 4px; }
+.lern-kl-legende { margin-top: 12px; line-height: 2; }
+.lern-kl-legende .lern-kl-kasten { margin-right: 3px; }

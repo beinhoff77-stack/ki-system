@@ -46,7 +46,7 @@
    "k": "b",
    "y": "luecken",
    "f": {
-    "text": "Eine römische Meile ist etwa 1 480 m lang. Wie lang sind 144 Meilen? Gib das Ergebnis in km und m an.",
+    "text": "Der Meilenstein zeigt, wie weit diese Stelle vom Anfang der Straße (Meile 0) entfernt ist – gewandert bist du selbst nur ein kurzes Stück. Eine römische Meile ist etwa 1 480 m lang. Wie weit ist es von Meile 0 bis zu diesem Stein? Gib das Ergebnis in km und m an.",
     "schablone": "□ km □ m",
     "hinweis": "Je Lücke eine ganze Zahl."
    },

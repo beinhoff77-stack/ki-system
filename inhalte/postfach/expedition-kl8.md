@@ -3,6 +3,25 @@
 Neueste Meldung oben. Format: `inhalte/README.md`, Abschnitt „Expeditionen“. Je Expedition ein Generator `inhalte/generatoren/expedition_<name>.py`
 (gemeinsame Helfer in `_exp8.py`), Prüfung mit `python3 -I tools/inhalt_pruefen.py inhalte/expeditionen/<datei>.json`.
 
+## 2026-11-20 · FERTIG: Korrekturen 853
+
+Umgesetzt im Zweig `expedition-kl8` (vorher auf den Stand von `lernen-app` gebracht). Nur Texte geändert, keine Rechnung, keine Lösung. Generatoren und JSON stimmen überein, `inhalt_pruefen.py --alle` ohne Fehler (alle Dateien OK). Nichts in die Datenbank geschrieben, kein Merge nach `main`.
+
+**1. `8-radtour` (Muss) – Kilometerstein 36 ist Zwischenpunkt, See bei Kilometerstein 42**
+- Teil c, alt: „Der Graph zeigt die Fahrt: Beim Start (0 Stunden) ist die Gruppe am Kilometerstein 6, nach 2 Stunden am Kilometerstein 36. Sie fährt gleichmäßig. Wie viele Kilometer schafft sie in einer Stunde?“
+- Teil c, neu: „Die Route führt an einer Straße mit Kilometersteinen entlang. Sie beginnt am Kilometerstein 6; der See liegt am Kilometerstein 42 (6 km + 36 km Route). Der Graph zeigt die Fahrt: Beim Start (0 Stunden) ist die Gruppe am Kilometerstein 6, nach 2 Stunden kommt sie am Kilometerstein 36 vorbei – das ist ein Zwischenpunkt, noch nicht der See. Sie fährt gleichmäßig. Wie viele Kilometer schafft sie in einer Stunde?“
+- Teil c, Lösungsweg ergänzt: „Die 30 km sind die ersten 30 der 36 km Route; bis zum See (Kilometerstein 42) fehlen noch 6 km.“
+- Teil c, Grafik: zusätzlicher Punkt „See“ bei (2,4 | 42), dem Ende der eingezeichneten Geraden.
+- Teil d, alt: „Die Gruppe startet um 9:00 Uhr und fährt die 36 km mit 15 km/h. …“
+- Teil d, neu: „Die Gruppe startet um 9:00 Uhr am Kilometerstein 6 und fährt die ganze Route von 36 km bis zum See am Kilometerstein 42 mit 15 km/h. …“ (Rest unverändert)
+
+**2. `8-pool` (Muss) – Segel passt nicht in den Kreis**
+- Teil d, alt: „Es soll mindestens die Hälfte der Wasserfläche beschatten können (wenn es ganz über dem Wasser hängt). Reicht das Segel?“
+- Teil d, neu: „Selbst wenn die gesamte Segelfläche Schatten auf das Wasser wirft: Ist das Segel groß genug, um mindestens die Hälfte der Wasserfläche zu beschatten?“
+- Nebenbei, sprachlich: falsche Option alt „Ja, weil die Grundseite 4 m länger ist als der Durchmesser 3,6 m.“ → neu „Ja, weil die Grundseite mit 4 m länger ist als der Durchmesser von 3,6 m.“ (alt las sich wie „um 4 m länger“).
+
+Nicht geprüft: wie die App den zusätzlichen Punkt „See“ beschriftet.
+
 ## 2026-11-18 · Abschlussbericht: 10 Expeditionen Klasse 8 (Zweig expedition-kl8)
 
 **Ergebnis:** 10 neue Expeditionen, je 4 Teile, alle `inhalt_pruefen.py` = OK (Handytarif-Beispiel unverändert ebenfalls OK). Je Expedition ein Generator, ein Commit, gepusht. Kein Merge, keine Datenbank-, App- oder Server-Änderung.

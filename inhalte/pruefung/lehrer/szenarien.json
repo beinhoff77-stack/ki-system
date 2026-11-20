@@ -1,0 +1,167 @@
+{
+ "tablet": {
+  "s0": [
+   "ⓘ So funktioniert’s",
+   "Die Kinder",
+   "Kind A",
+   "GYM 52/14",
+   "RS 52/12",
+   "IB vor MYP-Jahr 1–",
+   "Lernen starten ›",
+   "Lernstand",
+   "Was wackelt?",
+   "Flugplan",
+   "Kind B",
+   "GYM 82/13",
+   "RS 81/5",
+   "IB MYP-Jahr 30/11",
+   "Lernen starten ›",
+   "Lernstand",
+   "Was wackelt?",
+   "Flugplan",
+   "Neue Antworten auf eure Aufträge",
+   "Rom – Natürliche Zahlen:",
+   "Meine Aufträge ›",
+   "Lehrplan-ÜbersichtAlle Flüge je Schulart und Klass",
+   "Lehrplan-Übersicht",
+   "Alle Kinder im VergleichAlle Kinder × Gymnasium, R"
+  ],
+  "s1": {
+   "aufStart": null,
+   "nach1Tipp": {
+    "y": 271,
+    "imBild": true
+   }
+  },
+  "s2": {
+   "falscheSichtbar": [
+    {
+     "s": "Was kommt wann wieder? 1 Etappe sitzt, 0 davon sind zum Wied",
+     "offen": false
+    },
+    {
+     "s": "Letzte falsche Antworten (1)",
+     "offen": false
+    }
+   ],
+   "text": "LERNSTAND\nKind A\nLetzte 7 Tage: 30 Bordkarten, davon 22 richtig, 4-mal mit Tipp. Lerntage in 4 Wochen: 2 (zuletzt 14.11.).\nWas kommt wann wieder? 1 Etappe sitzt, 0 davon sind zum Wiederholen dran\nWiederholung: Sitzt eine Etappe, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder – jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind in Mathe übt; in Pausen (Reisetage) wartet die Etappe.\nBei einem Fehler in der Wiederholung geht die Etappe eine Stufe zurück und kommt am nächsten Lerntag wieder. Erst beim zweiten Fehler hintereinander muss das Kind sie neu üben.\nVor einem Flug kommen höchstens 6 Wiederholungen pro Tag; weitere werden nur angeboten.\nNachtest: Nach einem bestandenen Flug-Test folgt später ein kurzer Nachtest zum selben Flug, ebenfalls nach Lerntagen gezählt.\nWas wackelt?\nRunden\n5 falsch\nRom · Natürliche Zahlen\n„Wackelt“ heißt: mindestens 3 falsche Antworten und mehr falsche als richtige. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten.\nRom: Natürliche Zahlen\nInhalte ansehen\n1 von 3 Etappen sitzen · zuletzt 14.11.\nWelchen Wert hat eine Ziffer?\nsitzt\n6 richtig · 1 falsch · zuletzt 14.11.\nRunden\nwackelt\n2 richtig · 5 falsch · 3-mal Tipp · zuletzt 14.11.\nLetzte falsche Antworten (1)\nZahlenstrahl\nnoch nicht geübt"
+  },
+  "s3": {
+   "tipps": 3,
+   "gespeichert": 1,
+   "zeile": "⠿\n3\nAthen – Teilbarkeit\nZahlen · Gym 5 · 0/1 Flug · kann schon\n↑\n↓\nTeilbarkeit und Primzahlen · Gym 5 · RS 5 · IB MYP-Jahr 1\nnoch nicht begonnen\nansehen\nkann es schon\nEntfernen"
+  },
+  "s4": {
+   "proFlug": [
+    "Ganze Zahlen im Plan",
+    "Natürliche Zahlen und Stellenwertsysteme im Plan",
+    "Zehnerpotenzen und wissenschaftliche Schreibweise im Plan",
+    "Grundrechenarten und Rechengesetze im Plan",
+    "Potenzen als Schreibweise im Plan",
+    "kann es schon"
+   ],
+   "hoeheOffen": 401
+  },
+  "s5": {
+   "pfeilTipps": 6
+  },
+  "s6": [
+   "Platz 2 geschafft"
+  ],
+  "s7": {
+   "stufeY": {
+    "y": 1990,
+    "imBild": false
+   },
+   "seitenHoehe": 2690
+  },
+  "s8": {
+   "feldDa": 1,
+   "text": "ⓘ So funktioniert’s\nAlle Kinder\n›\nLernstand Kind A · Gymnasium\n›\nZahlen · Klasse 5\nZahlen · Klasse 5\nGanze Zahlen\nRom · zählt auch für RS 5 · MYP-Jahr 2\nläuft\n▶\nNatürliche Zahlen und Stellenwertsysteme\nRom · zählt auch für RS 5 · MYP-Jahr 1\nWelchen Wert hat eine Ziffer?\nsitzt\nRunden\n0 von 4 Punkten · 2 richtig, 5 falsch\nZahlenstrahl\nnoch nicht geübt\njetzt dran\n✓\nGrundrechenarten und Rechengesetze\nRom · zählt auch für RS 5 · MYP-Jahr 1\ngelandet\nPotenzen als Schreibweise\nRom · zählt auch für RS 5 · MYP-Jahr 1\noffen\nTeilbarkeit und Primzahlen\nAthen · zählt auch für RS 5 · MYP-Jahr 1\noffen\nWas wackelt? – Kind A mit den echten falschen Antworten ›",
+   "url": "/lernstand/1-gym_by-0-0-5"
+  },
+  "s9": "ⓘ So funktioniert’s\nGYMNASIUM · KLASSE 5\nLernstand Kind A\nWas wackelt? – Etappen mit den echten falschen Antworten ›\nAlle Kinder im Vergleich\n›\nLernstand Kind A · Gymnasium\nGymnasium\nRealschule\nIB MYP\nEinstieg prüfen:\naus\nKl. 6\nKl. 7\nKl. 8\nKl. 9\nKl. 10\n14 %\nEinstieg Gymnasium Klasse 6: 2 von 14 Flügen bis Klasse 5 gelandet. Noch deutliche Lücken. Orientierung, keine Einstufung durch eine Schule.\n\tKl. 5\tKl. 6\tKl. 7\tKl. 8\tKl. 9\tKl. 10\nZahlen\nEuropa\n\t\n1/5\n\t\n0/5\n\t·\t·\t\n0/3\n\t·\nGeld und Verhältnisse\nNordamerika\n\t\n1/2\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t·\t·\nAlgebra\nAsien\n\t\n0/1\n\t·\t\n0/3\n\t\n0/6\n\t\n0/3\n\t\n0/2\nFunktionen\nAntarktis\n\t·\t·\t·\t\n0/3\n\t\n0/2\n\t\n0/3\nGeometrie\nAfrika\n\t\n0/3\n\t·\t\n0/3\n\t·\t\n0/5\n\t·\nFläche und Raum\nSüdamerika\n\t\n0/2\n\t·\t·\t\n0/2\n\t·\t\n0/2\nDaten und Zufall\nAustralien und Ozeanien\n\t\n0/1\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t\n0/1\n\t\n0/2\nGesamt\t14 %\t0 %\t0 %\t0 %\t0 %\t0 %\noffen\nläuft\nteilweise\nalles gelandet\nwackelt\nFür den Einstieg fehlen (12)\nFeld antippen → Flüge in diesem Kontinent und dieser Klasse, mit dem Stand der Etappen.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert.",
+  "s10": {
+   "hoehe": 1180,
+   "aendern": 4,
+   "text": "ROM · GYM 5 · RS 5\nGroße natürliche Zahlen\nFertig · 3 Etappen · 2 Bordkarten zum Üben · 1 für Test und Nachtest · 1 noch in Prüfung (nur für das Testkind sichtbar)\nZiel: Große Zahlen lesen.\n1 · Welchen Wert hat eine Ziffer?\n2 · Zahlenstrahl\n3 · Binomische Formeln\n✎ Ändern lassen\n1 · Welchen Wert hat eine Ziffer? · 2 Bordkarten · 1 Anmerkung\n2 · Zahlenstrahl · 1 Bordkarte (1 in Prüfung)\n3 · Binomische Formeln · 0 Bordkarten"
+  }
+ },
+ "handy": {
+  "s0": [
+   "ⓘ So funktioniert’s",
+   "Die Kinder",
+   "Kind A",
+   "GYM 52/14",
+   "RS 52/12",
+   "IB vor MYP-Jahr 1–",
+   "Lernen starten ›",
+   "Lernstand",
+   "Was wackelt?",
+   "Flugplan",
+   "Kind B",
+   "GYM 82/13",
+   "RS 81/5"
+  ],
+  "s1": {
+   "aufStart": null,
+   "nach1Tipp": {
+    "y": 277,
+    "imBild": true
+   }
+  },
+  "s2": {
+   "falscheSichtbar": [
+    {
+     "s": "Was kommt wann wieder? 1 Etappe sitzt, 0 davon sind zum Wied",
+     "offen": false
+    },
+    {
+     "s": "Letzte falsche Antworten (1)",
+     "offen": false
+    }
+   ],
+   "text": "LERNSTAND\nKind A\nLetzte 7 Tage: 30 Bordkarten, davon 22 richtig, 4-mal mit Tipp. Lerntage in 4 Wochen: 2 (zuletzt 14.11.).\nWas kommt wann wieder? 1 Etappe sitzt, 0 davon sind zum Wiederholen dran\nWiederholung: Sitzt eine Etappe, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder – jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind in Mathe übt; in Pausen (Reisetage) wartet die Etappe.\nBei einem Fehler in der Wiederholung geht die Etappe eine Stufe zurück und kommt am nächsten Lerntag wieder. Erst beim zweiten Fehler hintereinander muss das Kind sie neu üben.\nVor einem Flug kommen höchstens 6 Wiederholungen pro Tag; weitere werden nur angeboten.\nNachtest: Nach einem bestandenen Flug-Test folgt später ein kurzer Nachtest zum selben Flug, ebenfalls nach Lerntagen gezählt.\nWas wackelt?\nRunden\n5 falsch\nRom · Natürliche Zahlen\n„Wackelt“ heißt: mindestens 3 falsche Antworten und mehr falsche als richtige. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten.\nRom: Natürliche Zahlen\nInhalte ansehen\n1 von 3 Etappen sitzen · zuletzt 14.11.\nWelchen Wert hat eine Ziffer?\nsitzt\n6 richtig · 1 falsch · zuletzt 14.11.\nRunden\nwackelt\n2 richtig · 5 falsch · 3-mal Tipp · zuletzt 14.11.\nLetzte falsche Antworten (1)\nZahlenstrahl\nnoch nicht geübt"
+  },
+  "s3": {
+   "tipps": 3,
+   "gespeichert": 1,
+   "zeile": "⠿\n3\nAthen – Teilbarkeit\nZahlen · Gym 5 · 0/1 Flug · kann schon\n↑\n↓\nTeilbarkeit und Primzahlen · Gym 5 · RS 5 · IB MYP-Jahr 1\nnoch nicht begonnen\nansehen\nkann es schon\nEntfernen"
+  },
+  "s4": {
+   "proFlug": [
+    "Ganze Zahlen im Plan",
+    "Natürliche Zahlen und Stellenwertsysteme im Plan",
+    "Zehnerpotenzen und wissenschaftliche Schreibweise im Plan",
+    "Grundrechenarten und Rechengesetze im Plan",
+    "Potenzen als Schreibweise im Plan",
+    "kann es schon"
+   ],
+   "hoeheOffen": 670
+  },
+  "s5": {
+   "pfeilTipps": 6
+  },
+  "s6": [
+   "Platz 2 geschafft"
+  ],
+  "s7": {
+   "stufeY": {
+    "y": 2093,
+    "imBild": false
+   },
+   "seitenHoehe": 2998
+  },
+  "s8": {
+   "feldDa": 1,
+   "text": "ⓘ So funktioniert’s\nAlle Kinder\n›\nLernstand Kind A · Gymnasium\n›\nZahlen · Klasse 5\nZahlen · Klasse 5\nGanze Zahlen\nRom · zählt auch für RS 5 · MYP-Jahr 2\nläuft\n▶\nNatürliche Zahlen und Stellenwertsysteme\nRom · zählt auch für RS 5 · MYP-Jahr 1\nWelchen Wert hat eine Ziffer?\nsitzt\nRunden\n0 von 4 Punkten · 2 richtig, 5 falsch\nZahlenstrahl\nnoch nicht geübt\njetzt dran\n✓\nGrundrechenarten und Rechengesetze\nRom · zählt auch für RS 5 · MYP-Jahr 1\ngelandet\nPotenzen als Schreibweise\nRom · zählt auch für RS 5 · MYP-Jahr 1\noffen\nTeilbarkeit und Primzahlen\nAthen · zählt auch für RS 5 · MYP-Jahr 1\noffen\nWas wackelt? – Kind A mit den echten falschen Antworten ›",
+   "url": "/lernstand/1-gym_by-0-0-5"
+  },
+  "s9": "ⓘ So funktioniert’s\nGYMNASIUM · KLASSE 5\nLernstand Kind A\nWas wackelt? – Etappen mit den echten falschen Antworten ›\nAlle Kinder im Vergleich\n›\nLernstand Kind A · Gymnasium\nGymnasium\nRealschule\nIB MYP\nEinstieg prüfen:\naus\nKl. 6\nKl. 7\nKl. 8\nKl. 9\nKl. 10\n14 %\nEinstieg Gymnasium Klasse 6: 2 von 14 Flügen bis Klasse 5 gelandet. Noch deutliche Lücken. Orientierung, keine Einstufung durch eine Schule.\n\tKl. 5\tKl. 6\tKl. 7\tKl. 8\tKl. 9\tKl. 10\nZahlen\nEuropa\n\t\n1/5\n\t\n0/5\n\t·\t·\t\n0/3\n\t·\nGeld und Verhältnisse\nNordamerika\n\t\n1/2\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t·\t·\nAlgebra\nAsien\n\t\n0/1\n\t·\t\n0/3\n\t\n0/6\n\t\n0/3\n\t\n0/2\nFunktionen\nAntarktis\n\t·\t·\t·\t\n0/3\n\t\n0/2\n\t\n0/3\nGeometrie\nAfrika\n\t\n0/3\n\t·\t\n0/3\n\t·\t\n0/5\n\t·\nFläche und Raum\nSüdamerika\n\t\n0/2\n\t·\t·\t\n0/2\n\t·\t\n0/2\nDaten und Zufall\nAustralien und Ozeanien\n\t\n0/1\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t\n0/1\n\t\n0/2\nGesamt\t14 %\t0 %\t0 %\t0 %\t0 %\t0 %\noffen\nläuft\nteilweise\nalles gelandet\nwackelt\nFür den Einstieg fehlen (12)\nFeld antippen → Flüge in diesem Kontinent und dieser Klasse, mit dem Stand der Etappen.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert.",
+  "s10": {
+   "hoehe": 1035,
+   "aendern": 4,
+   "text": "ROM · GYM 5 · RS 5\nGroße natürliche Zahlen\nFertig · 3 Etappen · 2 Bordkarten zum Üben · 1 für Test und Nachtest · 1 noch in Prüfung (nur für das Testkind sichtbar)\nZiel: Große Zahlen lesen.\n1 · Welchen Wert hat eine Ziffer?\n2 · Zahlenstrahl\n3 · Binomische Formeln\n✎ Ändern lassen\n1 · Welchen Wert hat eine Ziffer? · 2 Bordkarten · 1 Anmerkung\n2 · Zahlenstrahl · 1 Bordkarte (1 in Prüfung)\n3 · Binomische Formeln · 0 Bordkarten"
+  }
+ }
+}

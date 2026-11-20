@@ -101,6 +101,14 @@ ETAPPEN = [
 ]
 
 
+def gr_text(q):
+    """Prüfung neu 2: Grenze exakt zeigen (vorher „x > 9,38“ für 9,375); nicht abbrechende Brüche als „a/b (≈ …)“."""
+    try:
+        return dz(q)
+    except ValueError:
+        return f'{q.numerator}/{q.denominator} (≈ {dz(round(float(q), 2))})'
+
+
 def g_ablesen(s):
     sach = R.choice([x for x in SACH if x[4][1] - x[4][0] <= 12])
     xn, xe, yn, ye = sach[:4]
@@ -125,6 +133,14 @@ def g_ablesen(s):
                                'Ein Punkt = ein Objekt mit zwei Werten.', len(xs), f'{len(xs)}'), bild)
     if art == 'groesste':
         i = max(range(len(ys)), key=lambda k: ys[k])
+        # Prüfung neu 2: höchster Punkt muss im Bild klar höher liegen (vorher z. B. 80 gegen 78 bei 50 Einheiten Achse)
+        lo_, hi_ = bild['y']
+        abst = -(-(hi_ - lo_) // 10)
+        j = max((k for k in range(len(ys)) if k != i), key=lambda k: ys[k])
+        if ys[i] - ys[j] < abst:
+            if ys[j] + abst <= hi_: ys[i] = ys[j] + abst
+            else: ys[j] = ys[i] - abst
+            for k in (i, j): bild['punkte'][k]['y'] = ys[k]
         return mit_grafik(zahl(f'Das Streudiagramm zeigt {xn} und {yn}. Welchen x-Wert hat der Punkt mit dem größten y-Wert?', f'Der höchste Punkt liegt bei y = {ys[i]}, sein x-Wert ist {xs[i]}.',
                                'Suche den höchsten Punkt und lies dann seinen x-Wert ab.', xs[i], f'{xs[i]}'), bild)
     if art == 'ueber':
@@ -209,7 +225,7 @@ def g_gerade(s):
     t = R.choice([10, 20, 30, 40, 50]) if m > 0 else R.choice([60, 70, 80])
     xn, xe, yn, ye, x1 = R.choice([('Übungszeit', 'h', 'Punkte', '', 'Stunde mehr Übungszeit'), ('Werbeausgaben', 'Tausend €', 'Verkäufe', 'Stück', '1000 € mehr Werbung'),
                                    ('Temperatur', '°C', 'Besucher', '', 'Grad mehr')])
-    if m < 0: xn, xe, yn, ye, x1 = R.choice([('Alter des Geräts', 'Jahre', 'Wert', '€', 'Jahr mehr Alter'), ('Nutzungsdauer', 'h', 'Akkustand', '%', 'Stunde mehr Nutzung'),
+    if m < 0: xn, xe, yn, ye, x1 = R.choice([('Alter des Geräts', 'Jahren', 'Wert', '€', 'Jahr mehr Alter'), ('Nutzungsdauer', 'h', 'Akkustand', '%', 'Stunde mehr Nutzung'),
                                             ('Fehlstunden', 'h', 'Punkte', '', 'Fehlstunde mehr')])
     art = R.choice({1: ['rechnen', 'rechnen', 'ablesen'], 2: ['rechnen', 'ablesen', 'steigung'], 3: ['umkehr', 'extrapol', 'steigung']}[s])
     xs = sorted(R.sample(range(1, 11), 7))
@@ -230,7 +246,7 @@ def g_gerade(s):
         r = f'Pro {x1} {"steigt" if m > 0 else "sinkt"} der Wert „{yn}“ um etwa {abs(m)}.'
         return mit_grafik(auswahl(f'x: {xn}' + (f' in {xe}' if xe else '') + f', y: {yn}. Die Ausgleichsgerade hat die Gleichung {gl}. Was bedeutet die Zahl {dz(m)}?', r,
                                   [f'Bei x = 0 ist der Wert „{yn}“ gleich {abs(m)}.', f'Pro {x1} {"sinkt" if m > 0 else "steigt"} der Wert „{yn}“ um etwa {abs(m)}.', f'Es wurden {abs(m)} Werte gemessen.'],
-                                  f'Die Steigung {m} sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt {t} ist der Wert bei x = 0.',
+                                  f'Die Steigung {dz(m)} sagt, wie sich y ändert, wenn x um 1 wächst. Der Achsenabschnitt {t} ist der Wert bei x = 0.',
                                   'Welche Zahl in y = m · x + t gibt die Änderung pro Schritt an?'), bild)
     if art == 'umkehr':
         x = R.choice([v for v in range(1, 12) if v not in xs])
@@ -314,7 +330,7 @@ DRITTE = [
     ('Familien mit mehr Autos haben größere Wohnungen.', 'das Einkommen der Familie', ['die Farbe der Autos', 'die Anzahl der Fenster', 'die Länge des Arbeitswegs']),
     ('In Jahren mit mehr Geburten sieht man mehr Störche (Beispiel aus einer alten Statistik).', 'ländliche Gegenden mit mehr Familien und mehr Nistplätzen', ['die Flugstrecke der Störche', 'die Zahl der Krankenhäuser in der Stadt', 'die Länge des Winters']),
     ('Wer mehr Kaffee trinkt, hat im Durchschnitt mehr graue Haare.', 'das Alter', ['die Kaffeesorte', 'die Haarlänge', 'die Tasse']),
-    ('Kinder, die mehr Zeit im Freien verbringen, sind im Durchschnitt seltener kurzsichtig.', 'das Tageslicht draußen und weniger Nahsehen', ['die Farbe der Kleidung', 'die Schuhgröße', 'der Geburtsmonat']),
+    ('Städte mit mehr Kirchen haben mehr Gaststätten.', 'die Einwohnerzahl der Stadt', ['die Farbe der Kirchtürme', 'das Alter der Pfarrer', 'der Geburtsmonat des Bürgermeisters']),  # Prüfung neu 2: Tageslicht war Wirkweg, keine dritte Größe
     ('Restaurants mit mehr Tischen haben mehr Personal.', 'die Größe des Restaurants', ['die Farbe der Tischdecken', 'die Länge der Speisekarte', 'die Öffnungszeit am Sonntag']),
     ('Je mehr Hausaufgaben eine Klasse bekommt, desto mehr Bleistifte werden gekauft.', 'die Menge an schriftlicher Arbeit insgesamt', ['die Farbe der Hefte', 'die Größe des Klassenzimmers', 'das Alter der Lehrkraft']),
 ]
@@ -338,7 +354,7 @@ def g_kausal(s):
     if art == 'dritte':
         beob, dritte, falsch = R.choice(DRITTE)
         return auswahl(f'„{beob}“ Welche dritte Größe erklärt diesen Zusammenhang am besten?', dritte, falsch,
-                       f'{dritte} beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht.',
+                       f'Die dritte Größe ist: {dritte}. Sie beeinflusst beide beobachteten Größen. Deshalb hängen sie zusammen, ohne dass die eine die andere verursacht.',
                        'Suche eine Größe, die beide Beobachtungen gleichzeitig beeinflusst.')
     if art == 'experiment':
         r = 'Zwei gleich starke Gruppen bilden, nur eine Gruppe übt täglich 10 Minuten zusätzlich, dann beide Ergebnisse vergleichen.'
@@ -370,7 +386,7 @@ def ablesen3(art, sach, xs, ys, bild, st):
         if ye != 'Tausend €': return None
         i = R.randrange(n)
         if ys[i] % (st // 2 or 1): return None
-        return mit_grafik(zahl(f'Das Streudiagramm zeigt das Alter von Autos und ihren Wert in Tausend €. Wie viel Euro ist das Auto wert, das {xs[i]} Jahre alt ist? Gib den Betrag in € an.',
+        return mit_grafik(zahl(f'Das Streudiagramm zeigt das Alter von Autos und ihren Wert in Tausend €. Wie viel Euro ist das Auto wert, das {xs[i]} {"Jahr" if xs[i] == 1 else "Jahre"} alt ist? Gib den Betrag in € an.',
                                f'Bei x = {xs[i]} liegt der Punkt bei y = {ys[i]}. Die Achse zählt in Tausend €: {ys[i]} · 1000 € = {dz(ys[i] * 1000)} €.',
                                'Lies den y-Wert ab und achte auf die Einheit an der y-Achse.', ys[i] * 1000, f'{ys[i]} * 1000', einheit='€', tol=st / 2 * 1000), bild)
     # Grenze in y für „über/unter der Höhe g“: kein Punkt näher als eine halbe Kästchenhöhe
@@ -386,7 +402,7 @@ def ablesen3(art, sach, xs, ys, bild, st):
         treffer = [k for k in rechts if (ys[k] > g) == oben]
         if not treffer or len(treffer) == len(rechts): return None
         return mit_grafik(zahl(f'Das Streudiagramm zeigt {xn} und {yn}. Bei wie vielen Punkten ist der x-Wert größer als {gx} und zugleich der y-Wert {"größer" if oben else "kleiner"} als {dz(g)}?',
-                               f'Rechts von x = {gx} liegen {len(rechts)} Punkte. Davon liegen {len(treffer)} {"über" if oben else "unter"} der Höhe {dz(g)}.',
+                               f'Rechts von x = {gx} liegen {len(rechts)} Punkte. Davon {"liegt" if len(treffer) == 1 else "liegen"} {len(treffer)} {"über" if oben else "unter"} der Höhe {dz(g)}.',
                                f'Denke dir eine senkrechte Linie bei x = {gx} und eine waagrechte bei y = {dz(g)}. Zähle nur im passenden Viertel.', len(treffer), f'{len(treffer)}'), bild)
     if art == 'mittel':
         if len(ueber) < 2: return None
@@ -491,13 +507,13 @@ def gerade3(art):
         x = next(v for v in range(1, 100) if m * v + t > 100)
         return zahl(f'Die Ausgleichsgerade y = {m}x + {t} schätzt die Testpunkte (y) aus der Übungszeit in Stunden (x). Der Test hat höchstens 100 Punkte. '
                     'Ab welcher ganzen Stundenzahl sagt die Gerade mehr als 100 Punkte voraus?',
-                    f'{m}x + {t} > 100 ⇒ {m}x > {100 - t} ⇒ x > {dz(round((100 - t) / m, 2))}. Die kleinste ganze Zahl ist {x}. Spätestens dort taugt die Gerade nicht mehr (Extrapolation).',
+                    f'{m}x + {t} > 100 ⇒ {m}x > {100 - t} ⇒ x > {gr_text(Fr(100 - t, m))}. Die kleinste ganze Zahl ist {x}. Spätestens dort taugt die Gerade nicht mehr (Extrapolation).',
                     'Stelle die Ungleichung „Schätzung > 100“ auf und löse sie nach x.', x, f'({100 - t}) // {m} + 1')
     m, t = R.choice([(-8, 100), (-7, 95), (-9, 100), (-6, 90), (-12, 100)])
     x = next(v for v in range(1, 100) if m * v + t < 0)
     return zahl(f'Die Ausgleichsgerade y = {poly(m, t)} schätzt den Akkustand in % (y) aus der Nutzungsdauer in Stunden (x). '
                 'Ab welcher ganzen Stundenzahl sagt sie einen Akkustand unter 0 % voraus?',
-                f'{poly(m, t)} < 0 ⇒ {abs(m)}x > {t} ⇒ x > {dz(round(t / abs(m), 2))}. Die kleinste ganze Zahl ist {x}. Ein Akku unter 0 % ist unmöglich: Die Gerade gilt dort nicht mehr.',
+                f'{poly(m, t)} < 0 ⇒ {abs(m)}x > {t} ⇒ x > {gr_text(Fr(t, abs(m)))}. Die kleinste ganze Zahl ist {x}. Ein Akku unter 0 % ist unmöglich: Die Gerade gilt dort nicht mehr.',
                 'Stelle die Ungleichung „Schätzung < 0“ auf und löse sie nach x.', x, f'{t} // {abs(m)} + 1')
 
 

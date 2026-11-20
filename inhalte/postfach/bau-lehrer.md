@@ -2,6 +2,37 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-20 – FERTIG: Auftrag I, Teil 1 (Punkte 1–10) – App 0.81.0
+
+Zweig `bau-lehrer` (Stand `lernen-app` mit Zusatz Punkt 10 übernommen). Kein Merge. Datenbank nur gelesen. Bilder: `docs/previews/la/i1-wackelt-400.png`, `i2-eltern-1280.png`, `i3-lehrplan-400.png`, `i8-start-820.png`, `i10-start-1280.png`, `i10-einstellen-400.png`.
+
+**Umgesetzt**
+1. **Was wackelt auf dem Handy (< 560 px):** je Etappe eine Karte (Kopf antippbar, Marken, „richtig / falsch“, „häufigster Fehler“, „seit“, aufklappbare Fehler mit „Besprochen ✓“); Tabelle nur ab 560 px. Reiterband passt auf 400 px.
+2. **Wunsch in „Zu tun“:** Einlöse-Wunsch eines Kindes als blauer Eintrag mit „Bestätigen“/„Ablehnen“ direkt im Eintrag; Kasten „Wartet auf dich“ entfällt auf der Eltern-Startseite. Kopf „Was ist los?“ einzeilig, damit die Kinder-Tabelle auf 1280 × 800 ohne Rollen sichtbar ist.
+3. **Lehrplan auf dem Handy:** Liste je Ort (Gruppe, Flug, Ort/andere Schularten, je Kind „geschafft/offen …“) statt Tabelle.
+4. **Reisewörter erklärt:** Rückreise (Wiederholung nach nicht bestandenem Nachtest), Etappe (Lernschritt), Flug (Thema), Bordkarte (Aufgabe) – in Zu tun, Überblick, Was wackelt.
+5. **Nachtragstest:** Link „Test zu den neuen Etappen“, wenn der Blocktest fertig ist und neue Etappen dazugekommen sind.
+6.–9. Überblick-Satz mit Rückreise-Erklärung; „noch kein Inhalt“ bei Flügen ohne Einheit; Kinder-Tabelle (IB unter Kl. 6 „– (ab Kl. 6)“, Knöpfe nebeneinander, gleiche Zeilenhöhe); alle Texte mit „Datenbank“ durch „geht hier noch nicht“ ersetzt.
+10. **Reisetage und Pausen:**
+   - Migration `supabase/migrations/20261120_i_pause.sql` (nicht ausgeführt): Tabelle `schule.pause` (Kind, von, bis, grund ≤ 40 Zeichen, wer, am, geaendert_am, geloescht_am; höchstens 1 Jahr; RLS an). Löschen = als gelöscht markieren (kein DELETE).
+     Eintragen/ändern/löschen über die **bestehende** Aktion `schule_notiz_setzen` mit `pause` (`{lernender_id, pause}`, `{alle: true, pause}` für alle sichtbaren Kinder ohne Testkinder, `{pause: {id, …}}`, `{pause: {id, loeschen: true}}`) – nur Eltern/Lehrer, Zugriff aufs Kind geprüft. Zweige „besprochen“ (LA-3) und Notiz unverändert. `schule_lernstand` liefert `pausen[]`. lernen-api braucht keine Änderung.
+   - Rauchtest `supabase/tests/i_pause_rauchtest.sql` (Rollback, nur Testkind, legt eigene Einträge an).
+   - App: „⚙ Einstellen“ des Kindes hat die Karte „Reisetage und Pausen“ (Eintragen mit von/bis, Wahl Reisetag/krank/Ferien oder eigenes Wort; Liste mit Ändern/Löschen; vergangene grau mit „vorbei“). Startseite: „+ Reisetag eintragen“ oben in „Zu tun“ (Blatt, vorbelegt heute und „alle Kinder“).
+     Wirkung: heute in einer Pause → „Lernt“ blau „Pause bis 23.11. (Reisetag)“ statt rot/gelb, kein „kein Lerntag“ in Zu tun. Vergangene Pausentage werden beim Zählen „seit … kein Lerntag“ ausgelassen (Text in Zu tun dann z. B. „seit 6 Tagen kein Lerntag (ohne Pausentage: 3)“). Lernregeln unverändert.
+   - Solange die Migration nicht eingespielt ist, steht im Blatt „Reisetage lassen sich hier noch nicht eintragen.“ und der Startseiten-Knopf fehlt.
+   - Info-Seite: Absatz „Reisetage und Pausen“.
+- Entschieden, nicht gebaut: Stand-Zellen bleiben ohne Ampelfarbe.
+
+**Gesehen/getestet**
+- lernen: 91 von 91 (neu I-1 bis I-10; angepasst u. a. Eltern-Wunsch, Lehrplan/Wackelt bei 820 px, Reisewörter, E-2, IB, LA-2, LA-6, W177).
+- Suche: 138 bestanden, 10 Fehler – die bekannten alten aus Reisen/PWA (13, 15, 101, 103, 105, 111, 113, 126, 127) plus 108, der gelegentlich wackelt; keiner betrifft die Lern-Seiten.
+- Migration und Rauchtest: mit pglast geparst; keine Variablen-/Alias-Doppelungen; Ankerstelle in `schule_lernstand` und der heutige Text von `schule_notiz_setzen` (mit LA-3-Zweig) vorher lesend geprüft.
+
+**Nicht geprüft**
+- Migration und Rauchtest nicht ausgeführt (Haupt-Chat). Der Weg über `schule_notiz_setzen` mit echtem Zugangsschlüssel (`alle`, Zugriffsprüfung) ist nur im Rauchtest-Umfang (Funktionstext enthält den Zweig) geprüft, nicht als Aufruf.
+- „Pause“ zählt nach dem Kalender des Geräts (Ortszeit); Lerntage kommen aus der Datenbank – an einem Tag mit Zeitzonenwechsel kann ein Tag verrutschen.
+- Echte Geräte (iPhone, iPad) nicht; nur Chromium bei 400/820/1280 px.
+
 ## 2026-11-20 – Test „LA-1: Seite des Kindes mit 4 Reitern“ stabil
 
 - Stand von `lernen-app` übernommen. Im Test wird jetzt nach `waitForURL` erst auf den gezeichneten Reiter gewartet (`.lern-reiter a[aria-current]` „Überblick“), dann werden die Reiter gelesen. Sonst nichts geändert.

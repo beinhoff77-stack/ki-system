@@ -1922,7 +1922,7 @@ test('LA-6: ⚙ Einstellen – Blatt aus der Zeile und vom Kopf; Schule, Stand m
   const blatt = page.getByRole('dialog', { name: 'Kind A einstellen' });
   await blatt.getByRole('heading', { name: 'Schule' }).waitFor();
   assert.equal(await page.locator('.lern-einstellen').first().innerText(), '⚙ Einstellen', 'Zahnrad mit Text');
-  assert.deepEqual(await blatt.locator('h3, summary b').allInnerTexts(), ['Schule', 'Stand messen gegen …', 'Notizen und Verlauf (1)', 'Neuer Plan aus Lehrplan-Vorlage']);
+  assert.deepEqual(await blatt.locator('h3, summary b').allInnerTexts(), ['Schule', 'Stand messen gegen …', 'Reisetage und Pausen', 'Notizen und Verlauf (1)', 'Neuer Plan aus Lehrplan-Vorlage']);
   await blatt.getByText('Bestimmt seine Klasse in Lernreise und Plan.').waitFor();
   await blatt.getByText('Nur für die Anzeige „Wo steht es?“ – ändert nichts an der Lernreise.', { exact: false }).waitFor();
   assert.equal(await blatt.getByRole('combobox', { name: 'Stufe IB MYP' }).locator('option').first().innerText(), 'aus Klasse (noch kein MYP-Jahr)');
@@ -2186,6 +2186,75 @@ test('I-8: Plan – Hinweis „über der Klasse des Kindes“ auf dem Tablet nic
   const u = page.locator('.lern-plan-ueber').first(); await u.waitFor();
   assert.match(await u.innerText(), /über der Klasse des Kindes · Kind sieht ihn unter „Später“/);
   assert.deepEqual(await abgeschnitten(page.locator('.lern-plan-ueber')), []);
+});
+
+// I-10: Reisetage und Pausen
+const tagAls = (iso) => new Date(iso + 'T00:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' });
+test('I-10: Startseite – „Pause bis …“ statt rot, kein „kein Lerntag“ in Zu tun; „+ Reisetag eintragen“ für alle Kinder', async (t) => {
+  const { page, calls } = await setup(t, { anpassen: laUebersicht });
+  await laLage(page, { a: { pausen: [] }, b: { pausen: [{ id: 5, von: tagVor(1), bis: tagVor(-3), grund: 'Reisetag', wer: 'lehrer:Herr Lehrer', am: new Date().toISOString() }] } });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(origin + '/#/lernen');
+  const zeileB = page.locator('.lern-kinder-tabelle tr', { hasText: 'Kind B' }); await zeileB.waitFor();
+  const lernt = zeileB.locator('td.amp-pause');
+  assert.equal(await lernt.innerText(), `Pause bis ${tagAls(tagVor(-3))} (Reisetag)`);
+  assert.equal(await zeileB.locator('td').first().getAttribute('class'), 'amp-pause', 'Lernt: Pause statt rot');
+  const zuTun = await page.locator('.lern-zutun li').allInnerTexts();
+  assert.ok(!zuTun.some((x) => /Kind B.*Lerntag/.test(x)), 'kein „kein Lerntag“ für Kind B: ' + zuTun);
+  assert.ok(zuTun.some((x) => /Kind B.*Pisa/.test(x)), 'Rückreise bleibt');
+  // kurzer Weg: für alle Kinder
+  await page.getByRole('button', { name: '+ Reisetag eintragen' }).click();
+  const blatt = page.getByRole('dialog', { name: 'Reisetag eintragen' });
+  assert.equal(await blatt.getByRole('combobox', { name: 'Für wen' }).inputValue(), 'alle');
+  await blatt.getByLabel('bis').fill(tagVor(-2));
+  await blatt.getByRole('button', { name: 'krank' }).click();
+  await blatt.getByRole('button', { name: 'Eintragen' }).click();
+  await blatt.waitFor({ state: 'detached' });
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_notiz_setzen').at(-1).daten, { alle: true, pause: { von: tagVor(0), bis: tagVor(-2), grund: 'krank' } });
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/i10-start-1280.png') });
+});
+
+test('I-10: vergangene Pause zählt nicht für „seit … kein Lerntag“ – grün statt rot', async (t) => {
+  const { page } = await setup(t, { anpassen: laUebersicht });
+  await laLage(page, { a: { lerntage: [tagVor(5)], pausen: [{ id: 6, von: tagVor(4), bis: tagVor(1), grund: null, wer: 'eltern:App' }] } });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(origin + '/#/lernen');
+  const zeileA = page.locator('.lern-kinder-tabelle tr', { hasText: 'Kind A' }); await zeileA.waitFor();
+  assert.equal(await zeileA.locator('td.amp-gruen', { hasText: 'zuletzt' }).count(), 1, 'nur 1 Tag ohne Pause → grün');
+  assert.ok(!(await page.locator('.lern-zutun li').allInnerTexts()).some((x) => /Kind A.*Lerntag/.test(x)));
+});
+
+test('I-10: ⚙ Einstellen – Reisetage eintragen, ändern, löschen; vergangene bleiben sichtbar', async (t) => {
+  const { page, calls } = await setup(t, { anpassen: laUebersicht });
+  await laLage(page, { a: { pausen: [{ id: 7, von: tagVor(-5), bis: tagVor(-8), grund: 'Ferien', wer: 'eltern:Mama' }, { id: 6, von: tagVor(12), bis: tagVor(10), grund: 'krank', wer: 'eltern:App' }] } });
+  await page.setViewportSize({ width: 400, height: 860 });
+  await page.goto(origin + '/#/kind/1-ueberblick');
+  await page.locator('.lern-kind-kopf').getByRole('button', { name: /einstellen$/ }).click();
+  const karte = page.locator('.lern-pause'); await karte.getByRole('heading', { name: 'Reisetage und Pausen' }).waitFor();
+  const eintraege = karte.locator('.lern-pause-liste li'); await eintraege.first().waitFor();
+  assert.equal(await eintraege.count(), 2);
+  assert.match(await eintraege.nth(1).innerText(), /krank · vorbei/);
+  assert.equal(await eintraege.nth(1).evaluate((li) => li.classList.contains('vorbei')), true);
+  // eintragen (nur dieses Kind)
+  await karte.locator('.lern-pause-form').first().getByRole('button', { name: 'Reisetag' }).click();
+  await karte.locator('.lern-pause-form').first().getByRole('button', { name: 'Eintragen' }).click();
+  await page.waitForFunction(() => document.querySelector('.lern-pause .lern-pause-liste'));
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_notiz_setzen').at(-1).daten, { lernender_id: 1, pause: { von: tagVor(0), bis: tagVor(0), grund: 'Reisetag' } });
+  // ändern
+  await karte.locator('.lern-pause-liste li').first().getByRole('button', { name: 'Ändern' }).click();
+  const f2 = karte.locator('.lern-pause-liste li').first().locator('.lern-pause-form');
+  await f2.getByLabel('bis').fill(tagVor(-9));
+  await f2.getByRole('button', { name: 'Ändern' }).click();
+  await page.waitForFunction(() => document.querySelectorAll('.lern-pause .lern-pause-liste .lern-pause-form').length === 0);
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_notiz_setzen').at(-1).daten, { pause: { von: tagVor(-5), bis: tagVor(-9), grund: 'Ferien', id: 7 } });
+  // löschen
+  await karte.locator('.lern-pause-liste li').nth(1).getByRole('button', { name: /löschen$/ }).click();
+  await page.waitForFunction(() => true);
+  await page.waitForTimeout(200);
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_notiz_setzen').at(-1).daten, { pause: { id: 6, loeschen: true } });
+  assert.ok(await ohneQuerrollen(page));
+  await page.screenshot({ path: path.join(root, 'test-results/i10-einstellen-400.png'), fullPage: true });
 });
 
 // ---------- IB einheitlich beschriften (18.11.): MYP-Jahr = Klasse − 5, Hinweis „entspricht etwa Klasse 6–10“ ----------

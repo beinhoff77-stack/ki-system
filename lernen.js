@@ -605,10 +605,26 @@ function lernKindLage(u, k, ls) {
   const wackelt = karten.filter(lernKarteWackelt);
   const ortName = new Map((u.orte || []).map((o) => [o.block_id, o.stadt || o.titel]));
   const rueck = (k.route || []).filter((r) => r.art === 'rueckreise' && !['fertig', 'entfernt'].includes(r.status)).map((r) => ortName.get(r.block_id) || 'ein Ort');
-  return { zuletzt, seit, woche, karten, wackelt, offen: wackelt.filter((x) => !x.besprochen_am), rueck, w: ls?.woche || {}, ls };
+  // I-10: eingetragene Reisetage/Pausen zählen nicht für „Lernt“ (rot/gelb) und „kein Lerntag seit …“
+  const pausen = ls?.pausen || []; const p = lernPauseLage(pausen, zuletzt);
+  return { zuletzt, seit, seitEff: p.seitEff, pause: p.heute, woche, karten, wackelt, offen: wackelt.filter((x) => !x.besprochen_am), rueck, w: ls?.woche || {}, ls, pausen };
 }
-const lernLerntAmpel = (l) => (l.seit === null || l.seit >= 3 ? 'rot' : l.seit === 2 ? 'gelb' : 'gruen');
-const lernLerntText = (l) => l.seit === null ? 'kein Lerntag in 4 Wochen' : `${l.woche} ${l.woche === 1 ? 'Lerntag' : 'Lerntage'} diese Woche · zuletzt ${l.seit === 0 ? 'heute' : l.seit === 1 ? 'gestern' : lernTag(l.zuletzt)}`;
+// I-10: Tage als JJJJ-MM-TT im Ortskalender; Pause heute und „Tage seit dem letzten Lerntag ohne eingetragene Pausen“
+const lernIso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+function lernPauseLage(pausen, zuletzt) {
+  const heute = new Date(); heute.setHours(0, 0, 0, 0); const iso = lernIso(heute);
+  const inPause = (tag) => pausen.some((p) => String(p.von).slice(0, 10) <= tag && tag <= String(p.bis).slice(0, 10));
+  const aktuell = pausen.filter((p) => String(p.von).slice(0, 10) <= iso && iso <= String(p.bis).slice(0, 10)).sort((a, b) => String(b.bis).localeCompare(String(a.bis)))[0] || null;
+  // Tage seit dem letzten Lerntag (ohne ihn) bis heute, ohne Pausentage; ohne Lerntag: die letzten 28 Tage
+  const start = zuletzt ? new Date(String(zuletzt).slice(0, 10) + 'T00:00:00') : new Date(heute.getTime() - 28 * 864e5);
+  let n = 0; for (const d = new Date(start.getTime() + 864e5); d <= heute; d.setDate(d.getDate() + 1)) if (!inPause(lernIso(d))) n++;
+  if (!zuletzt && n >= 3) n = null; // „kein Lerntag in 4 Wochen“ bleibt, außer die Pausen decken fast alles ab
+  return { heute: aktuell, seitEff: n };
+}
+const lernSeitOhnePause = (l) => (l.seitEff === undefined ? l.seit : l.seitEff);
+const lernLerntAmpel = (l) => { if (l.pause) return 'pause'; const s = lernSeitOhnePause(l); return s === null || s >= 3 ? 'rot' : s === 2 ? 'gelb' : 'gruen'; };
+const lernLerntText = (l) => l.pause ? `Pause bis ${lernTag(String(l.pause.bis).slice(0, 10) + 'T00:00:00')}${l.pause.grund ? ` (${l.pause.grund})` : ''}`
+  : l.seit === null ? 'kein Lerntag in 4 Wochen' : `${l.woche} ${l.woche === 1 ? 'Lerntag' : 'Lerntage'} diese Woche · zuletzt ${l.seit === 0 ? 'heute' : l.seit === 1 ? 'gestern' : lernTag(l.zuletzt)}`;
 // Stand je Schulart als Prozent (Rechenregel K3: gelandete Flüge der Stufe / alle Flüge der Stufe). IB unter Klasse 6: „noch kein MYP-Jahr“.
 function lernStandZellen(u, k) {
   if (!k?.klasse) return LERN_SYS.map((y) => ({ y, text: '–', pz: null, sa: y.sa }));
@@ -624,13 +640,16 @@ const lernErklaert = (wort, art) => el('span', { class: 'lern-wort' }, wort, el(
 function lernZuTun(kinder, lagen, rm, wuensche = [], meldung = null) {
   const eintraege = [];
   for (const k of kinder) { const l = lagen.get(k.id);
-    if (lernLerntAmpel(l) === 'rot') eintraege.push(['rot', `${k.name}: ${l.seit === null ? 'kein Lerntag in den letzten 4 Wochen' : `seit ${l.seit} Tagen kein Lerntag`}`, `#/kind/${k.id}-ueberblick`]);
+    if (lernLerntAmpel(l) === 'rot') eintraege.push(['rot', `${k.name}: ${l.seit === null ? 'kein Lerntag in den letzten 4 Wochen' : `seit ${l.seit} Tagen kein Lerntag`}${l.seit !== null && lernSeitOhnePause(l) !== l.seit ? ` (ohne Pausentage: ${lernSeitOhnePause(l)})` : ''}`, `#/kind/${k.id}-ueberblick`]);
     for (const o of l.rueck) eintraege.push(['rot', [`${k.name}: `, lernErklaert(`Rückreise ${o}`, 'rueckreise')], `#/kind/${k.id}-plan`]); }
   for (const k of kinder) for (const x of lagen.get(k.id).offen) eintraege.push(['gelb', `${k.name}: „${x.titel}“ wackelt (${x.falsch} falsch)`, `#/kind/${k.id}-wackelt-${x.einheit_id}.${x.lernziel}`]);
   const neu = (rm?.rueckmeldungen || []).filter((r) => r.antwort && r.status !== 'offen' && (!r.am || lernTageSeit(r.beantwortet_am || r.am) <= 7));
   for (const w of wuensche) eintraege.push(['blau', w.text, null, w.knoepfe]); // I-2: Belohnung einlösen
   if (neu.length) eintraege.push(['blau', neu.length === 1 ? `Neue Antwort auf euren Auftrag: ${neu[0].flug || neu[0].ort || 'Allgemein'}` : `${neu.length} neue Antworten auf eure Aufträge`, '#/lernauftraege']);
-  return el('section', { class: 'card lern-zutun', 'aria-label': 'Zu tun' }, el('h2', {}, 'Zu tun'),
+  const kannPause = kinder.some((k) => Array.isArray(lagen.get(k.id)?.ls?.pausen));
+  return el('section', { class: 'card lern-zutun', 'aria-label': 'Zu tun' },
+    el('div', { class: 'lern-zutun-kopf' }, el('h2', {}, 'Zu tun'),
+      kannPause ? el('button', { type: 'button', class: 'lern-einstellen lern-pause-knopf', onclick: () => lernPauseBlatt(kinder) }, '+ Reisetag eintragen') : null),
     eintraege.length ? el('ul', { class: 'lern-zutun-liste' }, ...eintraege.map(([f, t, h, knoepfe]) => el('li', { class: 'zt-' + f + (knoepfe ? ' zt-wunsch' : '') },
       knoepfe ? el('div', { class: 'zt-zeile' }, el('i', { class: 'zt-punkt', 'aria-hidden': 'true' }), el('span', {}, t), el('span', { class: 'zt-knoepfe' }, ...knoepfe))
         : el('a', { href: h }, el('i', { class: 'zt-punkt', 'aria-hidden': 'true' }), el('span', {}, ...[t].flat()), el('span', { class: 'zt-pfeil', 'aria-hidden': 'true' }, '›')))))
@@ -731,6 +750,64 @@ function lernGeschaffteFluege(u, k, ls) {
   const kann = lernStandModell(u, k).themen.filter((t) => t.kannSchon).map((t) => ({ titel: t.titel, ort: t.stadt || '', am: null, kannSchon: true }));
   return [...liste.sort((a, b) => String(b.am || '').localeCompare(String(a.am || ''))), ...kann];
 }
+// I-10: Reisetage und Pausen – Formular (eintragen, ändern), Liste mit Ändern/Löschen; speichert über schule_notiz_setzen {pause}
+const LERN_PAUSE_GRUND = ['Reisetag', 'krank', 'Ferien'];
+function lernPauseFormular({ kinder = [], kindId = null, eintrag = null, fertig }) {
+  const heute = lernIso(new Date());
+  const von = el('input', { type: 'date', value: eintrag ? String(eintrag.von).slice(0, 10) : heute, 'aria-label': 'von', required: true });
+  const bis = el('input', { type: 'date', value: eintrag ? String(eintrag.bis).slice(0, 10) : heute, 'aria-label': 'bis', required: true });
+  const grund = el('input', { type: 'text', maxlength: '40', value: eintrag?.grund || '', placeholder: 'z. B. Reisetag', 'aria-label': 'Grund (ein Wort, freiwillig)', list: 'lern-pause-gruende' });
+  const vorschlaege = el('datalist', { id: 'lern-pause-gruende' }, ...LERN_PAUSE_GRUND.map((g) => el('option', { value: g })));
+  const chips = el('div', { class: 'lern-blatt-knoepfe', role: 'group', 'aria-label': 'Grund wählen' }, ...LERN_PAUSE_GRUND.map((g) => el('button', { type: 'button', class: 'lern-chip', onclick: () => { grund.value = g; } }, g)));
+  const wer = !eintrag && kinder.length > 1 ? el('select', { 'aria-label': 'Für wen' }, el('option', { value: 'alle' }, 'alle Kinder'),
+    ...kinder.map((k) => el('option', { value: String(k.id), selected: k.id === kindId }, k.name))) : null;
+  const status = el('span', { class: 'small muted', role: 'status', 'aria-live': 'polite' });
+  const form = el('form', { class: 'lern-pause-form' },
+    el('div', { class: 'lern-pause-zeit' }, el('label', {}, el('span', {}, 'von'), von), el('label', {}, el('span', {}, 'bis'), bis)),
+    chips, grund, vorschlaege, wer ? el('label', { class: 'lern-pause-wer' }, el('span', {}, 'für'), wer) : null,
+    el('div', { class: 'row' }, el('button', { type: 'submit', class: 'primary' }, eintrag ? 'Ändern' : 'Eintragen'), status));
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    if (bis.value < von.value) { status.textContent = '„bis“ darf nicht vor „von“ liegen.'; return; }
+    const pause = { von: von.value, bis: bis.value, ...(grund.value.trim() ? { grund: grund.value.trim() } : {}) };
+    const ziel = eintrag ? { pause: { ...pause, id: eintrag.id } } : (wer ? wer.value : String(kindId)) === 'alle' ? { alle: true, pause } : { lernender_id: Number(wer ? wer.value : kindId), pause };
+    status.textContent = 'Speichere …';
+    try { await lernCall('schule_notiz_setzen', ziel); status.textContent = 'Gespeichert'; fertig?.(); }
+    catch (err) { status.textContent = /Notiz leer/.test(err.message) ? 'Reisetage lassen sich hier noch nicht speichern.' : 'Nicht gespeichert: ' + err.message; }
+  });
+  return form;
+}
+function lernPauseListe(pausen, { neu }) {
+  const heute = lernIso(new Date());
+  const tag = (d) => lernTag(String(d).slice(0, 10) + 'T00:00:00');
+  if (!pausen.length) return el('p', { class: 'small muted' }, 'Noch nichts eingetragen.');
+  return el('ul', { class: 'lern-pause-liste' }, ...pausen.map((p) => {
+    const vorbei = String(p.bis).slice(0, 10) < heute; const platz = el('div');
+    const meldung = el('span', { class: 'small muted', role: 'status' });
+    return el('li', { class: vorbei ? 'vorbei' : '' },
+      el('span', {}, el('b', {}, p.von === p.bis ? tag(p.von) : `${tag(p.von)}–${tag(p.bis)}`), p.grund ? ` · ${p.grund}` : '', vorbei ? el('small', { class: 'muted' }, ' · vorbei') : null,
+        p.wer ? el('small', { class: 'muted' }, ` · ${String(p.wer).replace(/^[a-z]+:/, '')}`) : null),
+      el('span', { class: 'lern-pause-knoepfe' },
+        el('button', { type: 'button', class: 'secondary', onclick: () => lernErsetze(platz, lernPauseFormular({ eintrag: p, fertig: neu })) }, 'Ändern'),
+        el('button', { type: 'button', class: 'secondary', 'aria-label': `Eintrag ${tag(p.von)} löschen`, onclick: async () => {
+          try { await lernCall('schule_notiz_setzen', { pause: { id: p.id, loeschen: true } }); neu(); } catch (err) { meldung.textContent = err.message; } } }, 'Löschen'), meldung),
+      platz);
+  }));
+}
+// kurzer Weg von der Startseite: „Reisetag eintragen“ – eigenes Blatt, vorbelegt „alle Kinder“, heute
+function lernPauseBlatt(kinder) {
+  document.querySelector('.lern-blatt-huelle')?.remove();
+  const taste = (ev) => { if (ev.key === 'Escape') zu(); };
+  let geaendert = false;
+  const zu = () => { huelle.remove(); document.removeEventListener('keydown', taste); if (geaendert) render(); };
+  const blatt = el('section', { class: 'lern-blatt', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'lern-pause-titel' },
+    el('div', { class: 'lern-blatt-kopf' }, el('h2', { id: 'lern-pause-titel' }, 'Reisetag eintragen'), el('button', { type: 'button', class: 'lern-blatt-zu', 'aria-label': 'Schließen', onclick: () => zu() }, '×')),
+    el('section', { class: 'card lern-blatt-karte' }, el('p', { class: 'small muted' }, 'Eingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht. Ändern und löschen: „⚙ Einstellen“ des Kindes.'),
+      lernPauseFormular({ kinder, kindId: kinder.length === 1 ? kinder[0].id : null, fertig: () => { geaendert = true; setTimeout(zu, 400); } })));
+  const huelle = el('div', { class: 'lern-blatt-huelle', onclick: (ev) => { if (ev.target === huelle) zu(); } }, blatt);
+  document.body.append(huelle); document.addEventListener('keydown', taste);
+  blatt.querySelector('input')?.focus();
+}
 // LA-6: ⚙ Einstellen – Blatt (Tablet/Rechner von rechts, Handy von unten). Alles speichert sofort; Schließen zeichnet die Seite neu, wenn sich etwas geändert hat.
 async function lernEinstellenBlatt(id) {
   document.querySelector('.lern-blatt-huelle')?.remove();
@@ -743,7 +820,8 @@ async function lernEinstellenBlatt(id) {
   const blatt = el('section', { class: 'lern-blatt', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'lern-blatt-titel' }, el('div', { class: 'lern-blatt-kopf' }, titel, schliessen), inhalt);
   const huelle = el('div', { class: 'lern-blatt-huelle', onclick: (ev) => { if (ev.target === huelle) zu(); } }, blatt);
   document.body.append(huelle); document.addEventListener('keydown', taste); schliessen.focus();
-  let p; try { p = await lernCall('schule_plan_lesen', { lernender_id: id }); } catch (err) { lernErsetze(inhalt, el('p', { class: 'err-text' }, err.message)); return; }
+  let p, ls; try { [p, ls] = await Promise.all([lernCall('schule_plan_lesen', { lernender_id: id }), lernCall('schule_lernstand', { lernender_id: id }).catch(() => null)]); }
+  catch (err) { lernErsetze(inhalt, el('p', { class: 'err-text' }, err.message)); return; }
   if (!huelle.isConnected) return;
   const k = p.kind; titel.textContent = `${k.name} einstellen`;
   const speichern = async (daten, status) => {
@@ -806,7 +884,18 @@ async function lernEinstellenBlatt(id) {
         el('button', { type: 'button', class: 'secondary', onclick: () => { rueckfrage.hidden = true; } }, 'Abbrechen')));
   });
   lernAnhaengen(vorlage, rueckfrage);
-  lernErsetze(inhalt, karte1, karte2, karte3, vorlage);
+  // 5. I-10: Reisetage und Pausen
+  const karte5 = el('section', { class: 'card lern-blatt-karte lern-pause' });
+  const zeichnePausen = async (neu) => {
+    if (neu) { ls = await lernCall('schule_lernstand', { lernender_id: id }).catch(() => ls); geaendert = true; }
+    if (!Array.isArray(ls?.pausen)) { lernErsetze(karte5, el('h3', {}, 'Reisetage und Pausen'), el('p', { class: 'small muted' }, 'Reisetage lassen sich hier noch nicht eintragen.')); return; }
+    lernErsetze(karte5, el('h3', {}, 'Reisetage und Pausen'),
+      el('p', { class: 'small muted' }, 'Eingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht.'),
+      lernPauseFormular({ kindId: id, fertig: () => zeichnePausen(true) }),
+      lernPauseListe(ls.pausen, { neu: () => zeichnePausen(true) }));
+  };
+  zeichnePausen(false);
+  lernErsetze(inhalt, karte1, karte2, karte5, karte3, vorlage);
 }
 
 function lernElternBereich(e, { ohneWuensche = false } = {}) {
@@ -3200,6 +3289,7 @@ async function viewInfo() {
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'FÜR ELTERN UND LEHRER'), el('h2', {}, 'So funktioniert’s'),
       el('p', {}, 'Die Lernreise in Kürze: erst die vier wichtigsten Schritte, darunter Antworten auf die häufigsten Fragen.'),
       el('p', {}, el('b', {}, 'Startseite: '), 'Oben „Zu tun“ – rot: seit 3 Tagen kein Lerntag oder eine Rückreise (Nachtest nicht bestanden); gelb: eine Etappe wackelt und ist noch nicht besprochen; blau: ein Wunsch eines Kindes, eine Belohnung einzulösen (Bestätigen oder Ablehnen direkt im Eintrag), oder eine neue Antwort auf einen Auftrag. Darunter je Kind eine Zeile: Lernt (Lerntage diese Woche, zuletzt), Wackelt, Stand in Gymnasium, Realschule und IB MYP (Prozent der Flüge der Klasse, die gelandet sind) und was jetzt dran ist. Auf dem Handy steht statt der Tabelle je Kind eine Karte.'),
+      el('p', {}, el('b', {}, 'Reisetage und Pausen: '), 'Über „+ Reisetag eintragen“ in „Zu tun“ oder im „⚙ Einstellen“ des Kindes lassen sich Tage ohne Lernen eintragen (für ein Kind oder alle); sie zählen nicht für „Lernt“ und „kein Lerntag seit …“, dort steht dann „Pause bis …“. Lernregeln, Wiederholungen und Nachtests ändern sich dadurch nicht.'),
       el('p', {}, el('b', {}, 'Seite des Kindes: '), 'Eine Zeile antippen öffnet sie, mit vier Reitern: Überblick (Lernt es? Wo hakt es? Wo steht es? Was kommt?), Was wackelt, Stand und Plan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.'),
       el('p', {}, el('b', {}, 'Lernen starten: '), 'Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel des Kindes. Im Lehrer-Zugang steht dort klein „Lernreise ansehen“.')),
     el('h3', {}, 'Erste Schritte'),

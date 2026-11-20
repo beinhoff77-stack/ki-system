@@ -4254,7 +4254,7 @@ nav.lern-reiter { background: transparent; padding: 0; border-radius: 0; box-sha
 .lern-kind-kopf-zeile { align-items: center; }
 .lern-kinder-tabelle th, .lern-kinder-tabelle thead th { white-space: nowrap; }
 .lern-kinder-tabelle td { min-width: 0; }
-.lern-kinder-tabelle td.amp-rot, .lern-kinder-tabelle td.amp-gelb, .lern-kinder-tabelle td.amp-gruen { min-width: 96px; }
+.lern-kinder-tabelle td.amp-rot, .lern-kinder-tabelle td.amp-gelb, .lern-kinder-tabelle td.amp-gruen, .lern-kinder-tabelle td.amp-pause { min-width: 96px; }
 .lern-kinder-tabelle .lern-st-zelle { grid-template-columns: auto; }
 .lern-kinder-tabelle .lern-st-zelle b { white-space: nowrap; }
 .lern-kinder-tabelle td:nth-child(6) .lern-st-zelle b { white-space: normal; font-size: 0.85rem; max-width: 7em; }
@@ -4405,3 +4405,18 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lern-kinder h2 { margin-bottom: 6px; }
 .lern-zutun { padding-top: 10px; padding-bottom: 10px; }
 .lern-kinder-tabelle td:nth-child(6) .lern-st-zelle b { white-space: nowrap; }
+/* I-10: Reisetage und Pausen */
+.amp-pause { background: var(--info-bg); color: var(--info); }
+.lern-zutun-kopf { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+.lern-zutun-kopf h2 { margin: 0; }
+.lern-pause-knopf { min-height: 36px; font-size: 0.85rem; }
+.lern-pause-form { display: grid; gap: 8px; margin: 6px 0 10px; }
+.lern-pause-zeit { display: flex; gap: 10px; flex-wrap: wrap; }
+.lern-pause-zeit label, .lern-pause-wer { display: grid; gap: 2px; font-size: 0.85rem; }
+.lern-pause-form .lern-blatt-knoepfe { margin: 0; }
+.lern-pause-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.lern-pause-liste li { display: grid; gap: 4px; padding: 6px 0; border-top: 1px solid var(--border); }
+.lern-pause-liste li.vorbei { opacity: 0.65; }
+.lern-pause-knoepfe { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.lern-pause-knoepfe button { min-height: 36px; padding: 0 12px; }
+.lern-frage.amp-pause { color: var(--text); border-left: 6px solid var(--info); }

@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "messen.flaechen",
+ "kurz": "Du lernst auszurechnen, wie groß eine Fläche ist und wie lang ihr Rand ist – auch bei Gärten und Zimmern.",
+ "etappen": {
+  "einheitsquadrate": "den Flächeninhalt durch Zählen von Reihen und Einheitsquadraten bestimmen",
+  "rechteck": "Flächeninhalt und Umfang von Rechtecken und Quadraten berechnen, auch rückwärts",
+  "einheiten": "Flächen zwischen mm², cm², dm², m², a, ha und km² umrechnen",
+  "kommaschreibweise": "Flächenangaben mit Komma schreiben und in zwei Einheiten zerlegen",
+  "zerlegen": "Flächen und Umfänge von L-Formen und anderen Figuren aus Rechtecken berechnen",
+  "sachaufgaben": "bei Zaun, Rasen oder Wand entscheiden, ob Umfang oder Fläche gefragt ist, und rechnen",
+  "verstehen": "Aussagen über Fläche, Umfang und Flächeneinheiten prüfen"
+ }
+}

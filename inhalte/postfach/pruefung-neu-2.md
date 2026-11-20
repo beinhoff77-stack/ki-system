@@ -2,6 +2,27 @@
 
 Neueste Meldung oben. Dieser Chat hat keines der geprüften Themen geschrieben.
 
+## 2026-11-20 – sonder.graphentheorie (Graphentheorie)
+
+**Urteil: in Ordnung** (eine Ergänzung in der Lernkarte, keine Aufgabe geändert).
+
+### Umfang (Fakt)
+- Gelesen: 5 Lernkarten und alle 181 Aufgaben (121 Übungen, 5 Test, 15 Korrektur, 30 Sicherung, 10 Knobel).
+- Nachgerechnet: alle 181 von Hand, die Graph-Aufgaben zusätzlich mit eigenem Skript direkt aus den Kanten der Zeichnung: Grade (auch jede Gradliste im Lösungsweg), Kantenzahl, Gradsumme, ungerade Knoten, Zusammenhang, Euler-Einordnung, „welche zusätzliche Kante“ (genau eine Option richtig), alle kürzesten Wege per vollständiger Wegsuche (Länge, Eindeutigkeit des kürzesten Wegs, „zweitbester“ im Lösungsweg, Längen aller Auswahl-Wege, Sperrung, Pflichthalt, Erreichbarkeit), Kruskal (Gesamtkosten, Ersparnis, erste übersprungene Kante, teuerste Baumkante, neue Leitung). 0 Abweichungen. Gradlisten-Aufgaben („Kann es einen Graphen … geben?“) mit Havel-Hakimi geprüft.
+- Prüfskript: OK, 0 Gruppen „gleich gebaut hintereinander“.
+
+### Änderungen je Fehlerart
+- **a)–c), e), f): 0.**
+- **d) Lernkarte: 1.** euler, angezeigte Regel „Zähle die ungeraden Knoten: 0 heißt Eulerkreis, 2 heißt Eulerweg, sonst keiner.“ – ohne die Bedingung „zusammenhängend“ ist die Regel falsch (zwei getrennte Dreiecke: alle Grade gerade, kein Eulerkreis). Jetzt: „Ist der Graph zusammenhängend, zähle die ungeraden Knoten: …“. Alle gezeichneten Graphen der Aufgaben sind zusammenhängend (geprüft).
+
+### Nicht geändert, zur Kenntnis
+- Fakt: Zwei Kruskal-Aufgaben haben gleiche Gewichte (neue Leitung 3 neben CE 3; 4 neben CG 4); das Ergebnis hängt davon nicht ab.
+- Meinung: „mindestens 3 Kanten hinzufügen“ bei 6 ungeraden Knoten setzt stillschweigend voraus, dass Mehrfachkanten erlaubt sind (falls zwei ungerade Knoten schon verbunden sind). Für das Niveau vertretbar.
+- Fakt: Feld `klasse` unverändert `{"ib_myp": 4}` (stimmte schon mit der Themenliste überein).
+
+### Lehrplan
+- Annahme: IB MYP Jahr 4 (Klasse 9). Graphentheorie wird in Sekundärquellen als Extended-Kapitel geführt („Graph Theory and Vectors“: Netzwerktypen, Wege und Kreise – revisiondojo.com/myp/myp-extended-mathematics/notes, abgerufen 20.11.2026; IB-Dokument nicht frei abrufbar). Hamiltonkreise fehlen bewusst (unter `offen`); ob sie im Schul-Curriculum vorkommen, ist **nicht belegbar**.
+
 ## 2026-11-20 – sonder.logik (Aussagenlogik)
 
 **Urteil: mit Korrekturen in Ordnung.**

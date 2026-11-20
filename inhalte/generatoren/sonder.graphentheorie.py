@@ -559,7 +559,7 @@ UMBAU = {
             {'text': 'Ein Eulerkreis geht nicht, weil B und D ungerade sind.'},
         ],
         'fehler': 'Bei vier ungeraden Knoten gibt es keinen Eulerweg. An einem ungeraden Zwischenknoten ⟦bleibt eine Kante übrig⟧.',
-        'regel': 'Zähle die ⟦ungeraden Knoten⟧: 0 heißt Eulerkreis, 2 heißt Eulerweg, sonst keiner.',
+        'regel': 'Ist der Graph ⟦zusammenhängend⟧, zähle die ⟦ungeraden Knoten⟧: 0 heißt Eulerkreis, 2 heißt Eulerweg, sonst keiner.',  # Prüfung neu 2: Bedingung ergänzt
     },
     'kuerzester': {
         'einstieg': 'Von Dorf A nach Dorf B sind es direkt 7 km. Über Dorf C sind es 2 km und 3 km. Welcher Weg ist kürzer? '

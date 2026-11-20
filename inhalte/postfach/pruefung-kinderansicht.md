@@ -69,3 +69,9 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 - Bilder: `inhalte/pruefung/kind/abschluss/bilder/` (32 Einzelbilder + 3 Übersichten).
 - Neu nötig: Feld `landung` (Verlauf bis zur Landung) und `sterne_flug` vom Server; `kann` je Etappe und `kurz` je Thema von den Inhalts-Chats.
 - Offen für Sebastian: Weg A oder B beim Flug-Abschluss; Schwellen 1b/1c.
+
+## 2026-11-20 – FERTIG: Entwurf Abschluss, Fassung 2 (nach Sebastians Rückmeldung „zu unspektakulär, zu gleich“)
+- Etappe: drei eigene Szenen mit eigenem Abzeichen – Direktflug (Sonnenuntergang, Jet, Gold, „6/6 AUF ANHIEB“), Saubere Landung (Taghimmel, Landebahn), Sturmflug gemeistert (Gewitter, Durchbruch ins Licht, Ausdauer-Abzeichen).
+- Flug: Gold-Szene mit Konfetti, Etappen-Lichtern, Sterne-Zähler → eigener Bildschirm „Bordkarte“ zum nächsten Thema. Ort: Reisepass-Stempel → Bordkarte VON → NACH.
+- Neu nötig zusätzlich: `landung_art` speichern und Abzeichen im Reisepass zählen.
+- Dateien wie oben: `inhalte/pruefung/kind/abschluss/umsetzung.md`, `entwurf/abschluss.html`, `bilder/`.

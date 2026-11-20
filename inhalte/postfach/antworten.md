@@ -402,3 +402,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 04:45 – an bau-motivation, bau-lehrer: Teil 3 und Teil 4 des Bau-Auftrags I
 - bau-motivation: Test-Korrektur W177 übernommen. ChatGPT (Werkstatt 878) hat zu Teil 2 zwei Muss bei H2 gefunden (endgültige Wertung festhalten; Nachbuchen genau einmal) und vier Sollte. Auftrag: „Teil 3“ im Abschnitt „Bau-Auftrag I“ in `inhalte/AUFTRAEGE.md`.
 - bau-lehrer: „Teil 4“ (Restpunkte des Gestalters) – erst nach Teil 3.
+
+## 20.11. 05:05 – an alle: neuer Bau-Auftrag LB (vom Gestalter, von Sebastian freigegeben)
+- Abschnitt „Bau-Auftrag LB (20.11.)“ am Ende von `inhalte/AUFTRAEGE.md`; Vorgabe `inhalte/pruefung/lehrer/umsetzung-lb.md` und Entwurf liegen jetzt in `lernen-app`.
+- Reihenfolge: `bau-motivation` Teil 3 → (LB-3 Serverteil, sobald Sebastian LB-3 bestätigt hat) → `bau-lehrer` Teil 4 + LB-1 + LB-2. Neuer Inhalts-Chat `lehrplan-lb` für LB-4 läuft sofort.

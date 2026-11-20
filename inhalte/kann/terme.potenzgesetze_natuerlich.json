@@ -1,0 +1,10 @@
+{
+ "thema_schluessel": "terme.potenzgesetze_natuerlich",
+ "kurz": "Du lernst, Potenzen mit gleicher Basis oder gleichem Exponenten geschickt zusammenzufassen.",
+ "etappen": {
+  "mal_gleiche_basis": "bei gleicher Basis Potenzen malnehmen, indem du die Exponenten addierst",
+  "gleicher_exponent": "bei gleichem Exponenten die Basen zusammenfassen und so geschickt rechnen",
+  "geteilt_gleiche_basis": "bei gleicher Basis Potenzen teilen, indem du die Exponenten subtrahierst",
+  "anwenden": "erkennen, welches Potenzgesetz passt, und Zahlen dafür als Potenz schreiben"
+ }
+}

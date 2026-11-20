@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "messen.flaechen_vielecke",
+ "kurz": "Du lernst auszurechnen, wie groß schiefe Vierecke und Dreiecke sind – auch wenn sie zusammengesetzt sind.",
+ "etappen": {
+  "parallelogramm": "den Flächeninhalt eines Parallelogramms mit Grundseite und Höhe berechnen",
+  "dreieck": "den Flächeninhalt eines Dreiecks mit Grundseite und zugehöriger Höhe berechnen",
+  "trapez": "den Flächeninhalt eines Trapezes aus den parallelen Seiten und der Höhe berechnen",
+  "rueckwaerts": "aus Flächeninhalt und Grundseite die fehlende Höhe berechnen",
+  "zusammengesetzt": "Flächen aus Rechtecken, Dreiecken und Trapezen durch Zerlegen oder Ergänzen berechnen",
+  "oberflaeche": "die Oberfläche von Keilen und Schachteln mit dreieckigen Seiten berechnen",
+  "verstehen": "Flächen vergleichen und Aussagen über Flächeninhalt und Umfang prüfen"
+ }
+}

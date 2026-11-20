@@ -1,0 +1,9 @@
+{
+ "thema_schluessel": "daten.kennwerte",
+ "kurz": "Du lernst, den Durchschnitt auszurechnen, etwa bei Noten oder Toren – und rückwärts damit zu rechnen.",
+ "etappen": {
+  "mittelwert": "den Mittelwert aus einzelnen Werten berechnen und Gruppen damit vergleichen",
+  "mittel_tabelle": "den Mittelwert berechnen, wenn Werte mehrfach vorkommen, etwa bei einem Notenspiegel",
+  "mittel_rueckwaerts": "aus Mittelwert und Anzahl die Summe oder einen fehlenden Wert berechnen"
+ }
+}

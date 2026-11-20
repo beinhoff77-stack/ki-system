@@ -2,6 +2,93 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: AB-S (Server: Abschluss nach Etappe, Flug und Ort)
+
+Stand `lernen-app` 10a3155 in `bau-motivation` zusammengeführt. Nur Migration und Rauchtest – kein `lernen.js`, keine neue App-Version. Datenbank nur gelesen (alle Einfügestellen im Live-Text je einmal vorhanden;
+`karte_buchen` lokal bytegleich nachgebaut, md5 = live). Kein Merge nach `main`.
+**Migration** `supabase/migrations/20261120_ab_s_abschluss.sql` (nach `i4` und `i5`, von beiden unabhängig; nicht ausgeführt; pglast ok; kein DROP, kein DELETE, keine Bestandsänderung; wiederholt ausführbar).
+**Rauchtest** `supabase/tests/ab_s_abschluss_rauchtest.sql` (Rollback, nur Testkind; über `uebung_pruefen_intern`, `test_starten_intern`, `test_abschliessen_intern`, `einheit_lesen_intern`, `konto`).
+
+### Neu in der Datenbank
+- `karte_stand.landung_art` (`direkt` | `sauber` | `sturm`, Check) und `karte_stand.landung` (jsonb, Zählung) – gesetzt in `karte_buchen` genau beim Landen (neue Funktion `schule.landung_speichern`), bei „wieder gelandet“ überschrieben.
+  Gesetzte Landungen (LB-3) laufen nicht über `karte_buchen` → bekommen keine Art.
+- `schule.landung_zaehlen(kind, flug, lernziel)` – nur lesen. Gezählt seit Beginn bzw. seit dem letzten „wieder offen“ (`geoeffnet_am`) bis `sitzt_am`; nur `pool = 'uebung'` dieser Etappe, ohne Mischkarten, Knobel, Expedition, Test.
+- Schwellen in `schule.regel`: `landung_sauber_fehler_max` 2 · `landung_sauber_mehr_max` 4 · `landung_sauber_stufe_gesenkt_max` 0 · `landung_sauber_lerntage_max` **null (aus)** – siehe Offene Punkte.
+- `testsitzung.ort_geschafft` (beim Abschluss festgehalten, damit „Test ansehen“ später dasselbe zeigt).
+- Ablage für AB-I: `thema.kurz` und Tabelle `schule.etappe_text(thema_id, lernziel, kann, geaendert_am)`, PK (thema_id, lernziel), RLS an (wie alle `schule`-Tabellen, ohne Policy).
+- Hilfsfunktionen: `schule.flug_im_ort`, `schule.flug_karte`, `schule.naechster_flug`, `schule.flug_abschluss`.
+
+### Regel für `landung_art` (wie umgesetzt)
+| Art | Bedingung |
+|---|---|
+| `direkt` | `bordkarten <= ziel`, `fehler_endgueltig = 0`, `mit_tipp = 0`, `zweite_versuche = 0` |
+| `sauber` | sonst `fehler_endgueltig <= 2`, `stufe_gesenkt <= 0`, `bordkarten <= ziel + 4` (und Lerntage, falls die Regel gesetzt wird) – **oder** `wieder_gelandet` (Szene 1b) |
+| `sturm` | alles andere |
+Zählweise: `bordkarten` = Antworten ohne 2. Anlauf (je Bordkarte eine) · `fehler_endgueltig` = Wertung `falsch` (ein 1. Anlauf, nach dem der 2. Anlauf kommt, zählt nicht) · `mit_tipp` = Antworten ohne 2. Anlauf mit `hilfe > 0` ·
+`zweite_versuche` = Antworten mit `anlauf = 2` · `stufe_gesenkt` = aus den Versuchen nachgerechnet wie in `karte_buchen` (jeder 2. Fehler in Folge, höchstens bis Stufe 2; im Zählfenster ab 0) · `lerntage` = verschiedene Tage (Zeitzone des Kindes) mit Versuchen im Zählfenster.
+
+### Für AB-A (App): Felder
+**1. Antwort auf eine Übung** (`schule_uebung_pruefen`) – neues Feld **`landung`** auf oberster Ebene, **nur** in der Antwort, mit der die Etappe gerade landet (nicht bei Wiederholung, Mischkarte, Knobel, nicht bei erneutem Senden derselben `client_id`):
+```
+landung: { landung_art: 'direkt'|'sauber'|'sturm', bordkarten: n, ziel: n, fehler_endgueltig: n, mit_tipp: n, zweite_versuche: n,
+           stufe_gesenkt: n, lerntage: n, wieder_gelandet: bool, eigene_loesungen: n, folge_ziel: n, am: zeit, kann?: text }
+```
+- Direktflug: „{ziel}/{ziel} AUF ANHIEB“ · Saubere Landung: Chips `bordkarten` · `eigene_loesungen` selbst gelöst · `folge_ziel` in Folge; `wieder_gelandet` → Titel „WIEDER GELANDET“ ·
+  Sturmflug: `bordkarten`, `stufe_gesenkt` (1 einmal · 2 zweimal · ≥3 mehrmals · 0 Einschub weglassen), `folge_ziel` – keine Fehlerzahl zeigen.
+- `kann` fehlt, solange kein Text da ist (jsonb_strip_nulls der Antwort) → „Kurz gesagt“ bzw. Etappen-Titel.
+- Die bisherigen Felder (`karte.neu_sitzt` usw.) bleiben; `landung` ist da, genau wenn `karte.neu_sitzt` aus einer eigenen Landung kommt.
+**2. Reisepass** (`schule_konto`): `konto.abzeichen = { direkt: n, sauber: n, sturm: n }` (je Kind und Etappe die letzte Art).
+**3. Flug lesen** (`schule_einheit_lesen`): `kurz: text|null` · `kann: { <lernziel>: text|null }` (alle Etappen aus `inhalt.etappen`) · `landungen: { <lernziel>: 'direkt'|'sauber'|'sturm' }` (nur Etappen mit gespeicherter Art; Ersatz, falls die Lande-Antwort fehlt).
+**4. Test-Ergebnis** (`schule_test_abschliessen`, auch erneutes Lesen) – zusätzlich auf oberster Ebene; alle bisherigen Felder unverändert:
+```
+sterne_flug:   { test: n, summe: n }     test = Sterne dieses Tests; summe = Übungs-, Knobel- und Test-Sterne aller Versionen dieses Flugs (ohne Expedition, ohne Ort-Sterne)
+kurz:          text|null                 Satz zum Flug
+flug:          Bordkarte (s. u.) des gerade geschafften Flugs
+etappen:       [{ lernziel, titel, kann: text|null }]   Reihenfolge wie inhalt.etappen – Liste „Das kannst du jetzt“, je Etappe ein Licht
+ort_geschafft: bool                      Ort durch DIESEN Abschluss geschafft (war vorher nicht fertig) → Ort-Bildschirm
+ort_sterne:    n                         gebuchte Ort-Sterne (100), sonst 0
+ort_fluege:    [{ thema_id, titel, zustand }]           Flüge des Orts ohne abgewählte – „Deine Flüge in {Ort}“
+naechster_flug: Bordkarte | null         nächster Flug laut Plan; null → „Alles geschafft, was im Plan steht …“
+ort_wechsel:   bool | null               nächster Flug in anderem Ort → „VON … NACH …“, Knopf „Abflug nach {Ort}“
+Bordkarte = { thema_id, einheit_id, titel, gebiet, kurz, block_id, ort, land, flug: { nr, von }, etappen: n, erste_etappe: { lernziel, titel } }
+```
+- „Boarding“ → `naechster_flug.einheit_id` + `erste_etappe.lernziel` (Erklärung der ersten Etappe).
+- Plan-Reihenfolge für `naechster_flug`: Orte nach `position`, Flüge nach `block_thema.reihenfolge`; übersprungen: abgewählt, „kann schon“ (Flug oder Ort), „kann er – aber wiederholen“, ohne geprüften Flug, erledigt, der gerade geschaffte Flug; Orte `fertig`/`entfernt` zählen nicht.
+- Stempel-Nummer „REISEPASS · STEMPEL {n}“ = `konto.stempel` nach dem Abschluss (Konto neu laden). „{v} verbessert“ bleibt App-Sache (wie im Entwurf).
+**Alte App:** bekommt nur zusätzliche Felder; nichts entfernt oder umbenannt.
+
+### Rauchtest `ab_s_abschluss_rauchtest.sql`
+1 Direktflug (genau `ziel` Bordkarten; `landung` nur in der Lande-Antwort; gespeichert) · 2 Saubere Landung (1 Fehler, 1 Tipp, 1 zweiter Versuch) · 3 Sturmflug (3 Fehler, Stufe 1× gesenkt), Reisepass je +1 ·
+4 wieder gelandet → `sauber`, nur Bordkarten seit dem Öffnen gezählt, Art überschrieben · 5 `einheit_lesen`: `kurz`, `kann` (fehlend = null), `landungen` ·
+6 Flug-Test im eigenen Plan: `sterne_flug`, Ort geschafft (+100), `ort_fluege`, nächster Flug in anderem Ort, Flug 1 von 1 · 7 erneut gelesen: `ort_geschafft` bleibt, alte Felder da · 8 ohne weiteren Flug im Plan → `naechster_flug` null.
+Hinweise für den Probelauf: Schritt 4 schiebt im Test `versuch.am` der Etappe zurück (in einer Transaktion ist `now()` fest). Etappen-Auswahl: nur Auswahl-Bordkarten (heute 6 Etappen passend, alle vom Testkind ungeübt).
+
+### Bestand
+43 gelandete Etappen (heute) bekommen **keine** nachträgliche Art (nichts erfunden); der Reisepass zählt ab dem Einspielen. Sitzungen, die vor dem Einspielen abgeschlossen wurden: `ort_geschafft` wird beim ersten Lesen festgehalten (dann meist `false`, weil der Ort schon fertig ist).
+
+### Offene Punkte (bitte entscheiden)
+1. **Widerspruch in `umsetzung.md`:** Tabelle 1c nennt „über mehrere Lerntage“ als Grund für Sturmflug, die Bedingungstabelle und die Freigabe (Abschnitt 7) nennen es nicht. Umgesetzt nach Freigabe: Lerntage zählen **nicht**
+   (`landung_sauber_lerntage_max = null`). Soll „mehr als 1 Lerntag → Sturmflug“ gelten, genügt `update schule.regel set wert = '1' where schluessel = 'landung_sauber_lerntage_max'`.
+2. „Wieder gelandet“ zählt im Reisepass als **Sauber**-Abzeichen (Szene 1b, `landung_art = 'sauber'`) und ersetzt die Art der ersten Landung derselben Etappe.
+3. Direktflug mit `bordkarten <= ziel` statt `== ziel` (weniger als `ziel` ist praktisch unmöglich; so fällt kein Sonderfall in „Sturm“).
+4. `ort_geschafft` setzt einen Plan-Eintrag des Orts voraus (ohne Route keine Ort-Sterne, also `false`).
+
+### Gesehen/getestet
+Lokale Nachbildung (PostgreSQL 16): Tabellen und Funktionen des Lande-, Test- und Misch-Pfads aus dem Live-Text abgeschrieben, Inhalte erfunden, `test_starten_intern` als vereinfachter Stub.
+Migrationen `i4`, `i5`, `ab_s` je **zweimal** eingespielt ohne Fehler; Rauchtests **`i4` (5/5), `i5` (4/4), `ab_s` (8/8)** ohne Fehler. Dabei einen Fehler gefunden und behoben (Alias `r` kollidierte in `test_abschliessen_intern` mit einer Variablen).
+**Nicht geprüft:** gegen die echte Datenbank nicht ausgeführt (Probelauf beim Haupt-Chat); echtes `test_starten_intern` nur gelesen; Laufzeit von `naechster_flug` (ruft `thema_stand` je Flug im Plan) nicht gemessen.
+
+## 2026-11-20 – FERTIG: `thema_stufe` sieht den offenen Nachtragstest (Befund 20.11. 06:00)
+
+**Migration** `supabase/migrations/20261120_i5_stufe_nachtragstest.sql` (nach `lb3`; Ersetzung im Live-Text, Stelle einmal vorhanden; wiederholt ausführbar; pglast ok). **Rauchtest** `supabase/tests/i5_stufe_nachtragstest_rauchtest.sql`.
+- „Alle Etappen gelandet, aber Flug-Test noch nicht geschrieben“ gilt jetzt auch, wenn der Flug-Test geschrieben ist und eine Pflicht-Etappe in `lernziel_stand` noch `offen` steht – genau die Bedingung, unter der `test_starten_intern` seit W177 den Nachtragstest startet.
+  Ergebnis im Fall aus dem Betrieb: `▶ dran`, `test_offen: true` (vorher `↻`, `false`). Gesetzte Flüge (LB-3) wie bisher ausgenommen. Ist die offene Etappe noch nicht gelandet: `▶` über „begonnen“, `test_offen: false`.
+- Rauchtest: alles nachgewiesen → ↻ · offene gelandete Pflicht-Etappe → ▶, test_offen · Nachtragstest startbar · offene Etappe nicht gelandet → ▶ ohne test_offen. Lokal 4/4 (s. AB-S).
+
+## 2026-11-20 – Nachtrag zu „Misch-Ausgaben wiederverwenden“
+Unverändert gegenüber der Meldung darunter (Commit 78ca3c7, jetzt mit `lernen-app` 10a3155 zusammengeführt). Neu: Migration und `i4_misch_ausgabe_rauchtest.sql` in der lokalen Nachbildung ausgeführt – 5/5 ohne Fehler.
+Reihenfolge zum Einspielen: `i4` → `i5` → `ab_s`.
+
 ## 2026-11-20 – FERTIG: Misch-Ausgaben wiederverwenden (Befund 20.11. 05:55)
 
 Stand `lernen-app` c750ad2 übernommen. Nur Migration und Rauchtest – kein `lernen.js`, keine neue App-Version. Datenbank nur gelesen (I-3 eingespielt, `misch_ausgabe` hat 8 Zeilen; Ersetzungsstelle in `misch_buchen` einmal vorhanden). Kein Merge.

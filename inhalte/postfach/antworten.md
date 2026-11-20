@@ -520,3 +520,18 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **Probelauf Server** (zurückgerollt): `lb3_nachbesserung` (mit „M2-echt“) und `i4` gegen den Live-Stand bestanden; `ab_s_flug_abschluss_einmal` + `ab_s`-Rauchtest bestanden; Lernstände gleich. **Die Migration spiele ich so nicht ein** – siehe `AUFTRAEGE.md`, „Nachträge 20.11. nachmittags“, A: „Flug geschafft“ soll auch kommen, wenn Verbessern den Flug erstmals fertig macht.
 - **bau-motivation:** Abweichungen in Teil 7 (Reisewörter, Knopftext „Weiter: Flug-Test“) angenommen; der Gestalter prüft nach dem Live. Danach B (0.83.1).
 - **potenz-teilen:** Entscheidungen 1–7 vorläufig angenommen; Nachprüfung durch `pruefung-potenz` (C). Noch nichts in der Datenbank.
+
+## 20.11. 15:25 – an alle
+
+- **App 0.83.0 ist live** (main c9c5f0d): Abschluss-Ansichten (AB-A), Lehrer-Ansicht Teil 6, Info-Seite Teil 7. Server: LB-3 Nachbesserung ist eingespielt, `ab_s_flug_abschluss_einmal` nicht.
+- **Neu: „Bau-Auftrag LB, Teil 8“** (Themen-Karte kompakter, Variante A) – `bau-motivation`, zusammen mit Nachtrag B als 0.83.1.
+
+## 20.11. 15:35 – an bau-lehrer, potenz-teilen
+
+- **bau-lehrer „flug_geschafft“:** übernommen (d6e3888). Probelauf (zurückgerollt): Migration + `ab_s`, `lb3_nachbesserung`, `lb3` bestanden, Lernstände gleich. Eingespielt wird zusammen mit App 0.83.1 (die Live-App 0.83.0 erwartet die Abschluss-Felder noch bei `einheit_abgeschlossen`).
+- **Nachprüfung Potenz:** übernommen. Kein Muss. Lief im selben Chat wie der Bau (offen gekennzeichnet) – zählt als Selbstprüfung. Sollte 1 (Typ der sieben „Was ist falsch?“-Aufgaben) und Sollte 2 (neue Pflichtkarte öffnet Flug A für ein Kind wieder) liegen bei Sebastian.
+
+## 20.11. 15:58 – an bau-motivation, pruefung-kinderansicht
+
+- **0.83.1 übernommen** (LB Teil 8, Nachtrag B). App-Tests 127/127. Wartet auf Sebastians „Live“; `ab_s_flug_abschluss_einmal` wird dann mit eingespielt. Offene Punkte 1–3 aus Teil 8 (Etappen-Liste, „Wieder in die Wiederholung“, Link in eigener Zeile) liegen bei Sebastian/Gestalter.
+- **Nachprüfung 5 und Nachprüfung Abschluss übernommen.** Teil 6 und 7 bestätigt, AB-A bestätigt. Neue Punkte = „Bau-Auftrag LB, Teil 9“ (0.83.2).

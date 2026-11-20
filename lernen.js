@@ -2915,7 +2915,7 @@ function lernTestLauf(ctx, box, t) {
         // Teil 4 Punkt 5h: Stand des Flugs neu vom Server holen, bevor Knöpfe gezeichnet werden (sonst alter Stand → wieder „Verbessern“)
         try { const neu = await lernCall('schule_einheit_lesen', { lernender_id: ctx.kind, einheit_id: ctx.einheit }); if (neu && neu.ok !== false) ctx.daten = neu; } catch { /* Ergebnis trotzdem zeigen */ }
         if (ctx.live()) { lernTestErgebnis(ctx, box, r);
-          if (lernNeu(ctx.kindObj) && lernFlugGeschafft(ctx, r) && !r.nachtest_ergebnis) lernAbschlussFlugStart(ctx, r); } // AB-A
+          if (lernNeu(ctx.kindObj) && lernFlugAbschlussFaellig(ctx, r)) lernAbschlussFlugStart(ctx, r); } // AB-A, 0.83.1: nach flug_geschafft
       } catch (e) { abgeben.disabled = false; lernErsetze(meldung, el('p', { class: 'err-text' }, e.message)); }
     } }, 'Abgeben');
     lernErsetze(box, el('div', { class: 'card' },
@@ -2933,6 +2933,9 @@ function lernTestLauf(ctx, box, t) {
 // Teil 4 Punkt 5h: Fehler-Etappen aus dem frisch geladenen Stand (Fallback: Antwort des Tests)
 const lernTestFehler = (ctx, r) => { const st = ctx.daten?.stand; // frischer Stand zählt, sobald er Test-Ergebnisse trägt
   return Array.isArray(st) && st.some((x) => x.status && x.status !== 'offen') ? st.filter((s) => s.pflicht !== false && s.status === 'fehler') : (r.lernziele || []).filter((s) => s.pflicht !== false && s.status === 'fehler'); };
+// 0.83.1 (Nachtrag B): Die Abschluss-Ansicht des Flugs hängt am Server – flug_geschafft (dieser Abschluss macht den Flug zum ersten Mal fertig,
+// über den Flug-Test oder über Verbessern) oder ort_geschafft. Kennt der Server das Feld nicht (alter Server), gilt die Regel von 0.83.0.
+const lernFlugAbschlussFaellig = (ctx, r) => (r && 'flug_geschafft' in r) ? !!(r.flug_geschafft || r.ort_geschafft) : (lernFlugGeschafft(ctx, r) && !r.nachtest_ergebnis);
 const lernFlugGeschafft = (ctx, r) => !!r.einheit_abgeschlossen || (!!ctx.daten?.blocktest_fertig && !lernTestFehler(ctx, r).length && !lernNeueEtappen(ctx.daten?.stand) && !ctx.daten?.laufender_test);
 function lernTestErgebnis(ctx, box, r) {
   const ort = r.ort || {};
@@ -3088,7 +3091,7 @@ function lernStufeSchaetzen(t, imPlan, ortFertig = false) {
   return { stufe: imPlan ? 'kommt' : 'nicht_im_plan', geschaetzt: true };
 }
 // LB-3 Nachbesserung (Sollte 5) / LB Teil 6 Punkt 6: „Kann er komplett“, aber eine früher gelandete Etappe ist wieder offen – die Stufe bleibt ◉ (Entscheidung des Lehrers), der Rückfall wird genannt.
-const lernRueckfall = (s) => s?.hinweis === 'rueckfall';
+const lernRueckfall = (s) => s?.hinweis === 'rueckfall' && s.stufe === 'komplett';
 const lernRueckfallText = (s) => { if (!lernRueckfall(s)) return ''; const n = Number(s.wieder_offen) || 0; return n ? ` · Rückfall: ${n} ${n === 1 ? 'Etappe' : 'Etappen'} wieder offen` : ' · Rückfall: eine Etappe wieder offen'; };
 // Zusatz rechts: „Wdh 3 von 5 · nächste in 4 Lerntagen“, „3 von 7 Etappen“, „wieder offen“ …
 function lernStufeZusatz(s) {
@@ -3272,16 +3275,22 @@ async function viewPlan(arg) {
       kannAbwaehlen && drin ? k('aus', 'Aus dem Plan nehmen', 'Fortschritt bleibt gespeichert', false) : null,
       kannWdh && s.stufe === 'komplett' ? k('wieder', 'Wieder in die Wiederholung', 'alle Etappen wieder ab Stufe 1', false) : null);
   };
-  // Etappen mit Stand (aus dem Lernstand) – für das Aufklappen
-  const etappenChips = (t) => {
-    const k = new Map(((t.einheit && proEinheit.get(t.einheit.id))?.karten || []).map((x) => [x.lernziel, x]));
-    const et = t.etappen || [];
-    if (!et.length) return t.einheit ? el('small', { class: 'muted' }, `${t.einheit.karten || 0} Etappen`) : el('small', { class: 'muted' }, 'noch kein Inhalt');
-    return el('div', { class: 'lern-st-etappen' }, ...et.map((e, i) => { const x = k.get(e.lernziel);
-      const z = !x ? '' : x.sicher ? ' sicher' : x.wieder_offen ? ' wieder-offen' : x.sitzt ? ' gelandet' : (x.richtig || x.falsch) ? ' begonnen' : '';
-      // LB Teil 5 S4: Titel und Stand sichtbar (kein Überfahren mit der Maus auf Tablet/Handy)
-      const wort = !x ? 'offen' : x.sicher ? 'sicher' : x.wieder_offen ? 'wieder offen' : x.sitzt ? 'gelandet' : (x.richtig || x.falsch) ? 'begonnen' : 'offen';
-      return el('span', { class: 'lern-st-etappe' + z }, el('b', {}, `${i + 1} `), el('span', { class: 'lern-st-et-titel' }, e.titel || `Etappe ${i + 1}`), el('small', { class: 'lern-st-et-stand' }, wort)); })); // LB Teil 6 N5
+  // LB Teil 8 (Variante A): aufgeklappte Karte im Lehrplan – „Inhalte ansehen (n Etappen)“ · Ort, darunter eine Zeile „Stufe ⓘ“ mit drei schmalen Knöpfen
+  // und rechts als roter Textlink „Aus dem Plan nehmen“ bzw. „In den Plan nehmen“. Wirkung und Speichern wie knoepfe() (LB-3, LB-5).
+  const inhaltZeile = (t, o) => { const n = (t.etappen || []).length || t.einheit?.karten || 0;
+    return el('div', { class: 'lern-lp-inhalt' }, t.einheit ? el('a', { class: 'lern-lp-inhalte', href: `#/inhalte/${t.einheit.id}` }, `Inhalte ansehen (${n} ${n === 1 ? 'Etappe' : 'Etappen'})`)
+      : el('span', { class: 'muted small' }, 'noch kein Inhalt'), el('small', { class: 'lern-lp-ort muted' }, `Ort: ${o.stadt || o.titel || '?'}`)); };
+  const stufenZeile = (t, blockId) => {
+    const x = plan.find((y) => y.block_id === blockId); const s = stufeVon(t, blockId); const drin = imPlan(t, x);
+    const aktiv = !drin ? null : x.kann_schon || x.kann.includes(t.thema_id) ? 'komplett' : x.kw.includes(t.thema_id) ? 'wiederholen' : 'lernen';
+    const k = (wahl, text) => { const an = aktiv === wahl; return el('button', { type: 'button', class: 'lern-lp-stufe-knopf lern-lp-stufe-' + wahl, 'aria-pressed': String(an),
+      'aria-label': `${t.titel}: ${text}`, onclick: () => aendere(() => setze(blockId, t.thema_id, wahl)) }, an ? '✓ ' : '', text); };
+    return el('div', { class: 'lern-lp-stufen', role: 'group', 'aria-label': `Stufe für ${t.titel}` },
+      el('span', { class: 'lern-lp-stufe-wort' }, 'Stufe ', el('a', { href: '#/info/stufen', class: 'lern-lp-info', 'aria-label': 'Was die Stufen bedeuten (So funktioniert’s)', title: 'Was die Stufen bedeuten' }, 'ⓘ')),
+      el('span', { class: 'lern-lp-stufe-knoepfe' }, k('lernen', 'Lernen'), kannWdh ? k('wiederholen', 'Kann er – wiederholen') : null, kannJeFlug ? k('komplett', 'Kann er komplett') : null),
+      kannWdh && s.stufe === 'komplett' ? el('button', { type: 'button', class: 'lern-lp-textlink lern-lp-wieder', onclick: () => aendere(() => setze(blockId, t.thema_id, 'wieder')) }, 'Wieder in die Wiederholung') : null,
+      drin ? (kannAbwaehlen ? el('button', { type: 'button', class: 'lern-lp-textlink lern-lp-raus', 'aria-label': `${t.titel}: Aus dem Plan nehmen`, onclick: () => aendere(() => setze(blockId, t.thema_id, 'aus')) }, 'Aus dem Plan nehmen') : null)
+        : el('button', { type: 'button', class: 'lern-lp-textlink lern-lp-rein', 'aria-label': `${t.titel}: In den Plan nehmen`, onclick: () => aendere(() => setze(blockId, t.thema_id, 'lernen')) }, 'In den Plan nehmen'));
   };
   const auswahlKey = (blockId, themaId) => `${blockId}:${themaId}`;
   const auswahlBox = (blockId, ts, name) => {
@@ -3458,9 +3467,7 @@ async function viewPlan(arg) {
       auf ? el('div', { class: 'lern-lp-detail' },
         ((Array.isArray(t.lehrplan?.[fett]) ? t.lehrplan[fett].length : t.lehrplan?.[fett]) || t.lernbereich?.[fett]) ? el('p', { class: 'small' }, el('b', {}, 'Lehrplan: '), (Array.isArray(t.lehrplan?.[fett]) ? t.lehrplan[fett].join(' · ') : t.lehrplan?.[fett]) || lernLbText(t.lernbereich[fett])) : null, // K4
         t.beschreibung ? el('p', { class: 'small muted' }, t.beschreibung) : null,
-        el('div', { class: 'lern-lp-etappen' }, etappenChips(t), t.einheit ? el('a', { class: 'small', href: `#/inhalte/${t.einheit.id}` }, 'Inhalte ansehen ›') : null,
-          el('small', { class: 'muted' }, `Ort in der Reise: ${o.stadt || o.titel}`)),
-        knoepfe(t, o.block_id)) : null);
+        inhaltZeile(t, o), stufenZeile(t, o.block_id)) : null); // LB Teil 8
   };
   const zeichneVorrat = () => {
     const y = yVon(); const fett = vSa;
@@ -3522,7 +3529,7 @@ async function viewPlan(arg) {
     }
     return auf ? el('div', { class: 'lern-plan-vorrat-ort' }, zeile, el('ul', { class: 'lern-plan-themen' }, ...(o.themen || []).map((t) => { const s = stufeVon(t, o.block_id);
       return el('li', { class: 'lern-plan-flug-zeile ' + (LERN_STUFE[s.stufe]?.kl || '') }, el('div', { class: 'lern-plan-flug-kopf' }, lernStufeZeichenEl(s), el('span', { class: 'lern-plan-flug' }, el('b', {}, t.titel),
-        el('small', { class: 'lern-plan-flug-stand' }, LERN_STUFE[s.stufe]?.wort, ' · ', lernStufeZusatz(s)))), knoepfe(t, o.block_id)); }))) : zeile;
+        el('small', { class: 'lern-plan-flug-stand' }, LERN_STUFE[s.stufe]?.wort, ' · ', lernStufeZusatz(s)))), el('div', { class: 'lern-lp-detail lern-lp-detail-ort' }, inhaltZeile(t, o), stufenZeile(t, o.block_id))); }))) : zeile; // LB Teil 8
   };
   // LA-8: Ansicht „Nach Themengebiet“ (Standard) – alle Orte eines Gebiets aus allen Klassen, von leicht nach schwer
   let ansicht = 'gebiet', gSa = LERN_SYS.some((q) => q.sa === sa) ? sa : 'gym_by';
@@ -3816,7 +3823,7 @@ const LERN_INFO_FRAGEN = [
     'Code und Link getrennt weitergeben.']],
 ];
 
-async function viewInfo() {
+async function viewInfo(arg) {
   setChrome('So funktioniert’s', { back: true, showTabs: false });
   const live = viewGuard();
   loading();
@@ -3844,6 +3851,10 @@ async function viewInfo() {
     el('h3', {}, 'Fragen'),
     ...LERN_INFO_FRAGEN.map(([frage, teile], i) => el('details', { class: 'card lern-info-frage' },
       el('summary', {}, frage), el('ul', {}, ...teile.map(zeile)))));
+  if (arg === 'stufen') { // LB Teil 8: „Stufe ⓘ“ im Lehrplan führt hierher
+    const d = [...main.querySelectorAll('details.lern-info-frage')].find((x) => x.querySelector('summary')?.textContent === 'Was kann ich selbst ändern?');
+    if (d) { d.open = true; d.id = 'info-stufen'; d.scrollIntoView({ block: 'start' }); }
+  }
 }
 
 async function viewZugaenge() {

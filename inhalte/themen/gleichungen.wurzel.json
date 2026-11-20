@@ -4377,7 +4377,7 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Dabei wird seine Fläche viermal so groß. Wie groß war die Fläche vorher?"
+    "text": "Jede Seite eines quadratischen Beets wird um 3 m länger. Dabei wird seine Fläche viermal so groß. Wie groß war die Fläche vorher?"
    },
    "o": {
     "wert": 9,

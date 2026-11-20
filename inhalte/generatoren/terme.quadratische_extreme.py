@@ -542,8 +542,8 @@ ST.neu('scheitelform', 'fehler', A('Jemand formt x² + 8x + 3 um zu (x + 8)² �
        ['Richtig.', 'Falsch: (x + 4)² + 3.', 'Falsch: (x + 8)² + 3.'], 'Ergänzt wird (8 : 2)² = 16: x² + 8x + 16 − 16 + 3 = (x + 4)² − 13. Mit (x + 8)² stünde 16x statt 8x da.', 'Multipliziere (x + 8)² zur Probe aus.'))
 ST.neu('scheitelform', 'parameter', A('Für welche Zahlen c ist x² + 4x + c für jedes x positiv?', 'für c > 4', ['für c > 0', 'für c > 2', 'für c < 4'],
        'x² + 4x + c = (x + 2)² + c − 4. Der kleinste Wert ist c − 4 (bei x = −2). Er ist positiv, wenn c > 4.', 'Bringe den Term in die Scheitelform.'))
-ST.neu('scheitelform', 'transfer', Z('Ein Wasserstrahl hat die Höhe h(x) = −x² + 6x + 1 (alles in dm, x ist der waagrechte Abstand). Wie hoch steigt der Strahl höchstens?', 10, '9 + 1',
-       '−x² + 6x + 1 = −(x² − 6x + 9) + 9 + 1 = −(x − 3)² + 10. Höchste Höhe 10 dm bei x = 3 dm.', 'Klammere das Minus vor x² aus und ergänze.', einheit='dm'))
+ST.neu('scheitelform', 'transfer', Z('Eine Hängebrücke für Kinder hängt durch. Die Höhe über dem Bach ist h(x) = x² − 6x + 13 (alles in dm, x ist der waagrechte Abstand vom linken Ende). Wie hoch ist die Brücke an ihrer tiefsten Stelle?', 4, '13 - 9',
+       'x² − 6x + 13 = x² − 6x + 9 − 9 + 13 = (x − 3)² + 4. Das Quadrat ist nie negativ, darum ist die Höhe mindestens 4 dm (bei x = 3 dm).', 'Bringe h(x) in die Form (x − d)² + e. Wie klein kann das Quadrat werden?', einheit='dm'))
 ST.neu('scheitelform', 'pruefung', L('Gegeben ist T(x) = x² − 10x + 21. a) Bringe T in die Form (x + d)² + e. b) Für welches x ist die Klammer 0? c) Welchen Wert hat T dann?',
        'a) d = □; e = □; b) □; c) □', [-5, -4, 5, -4], ['-5', '21 - 25', '5', '0 - 4'],
        'a) x² − 10x + 25 − 25 + 21 = (x − 5)² − 4: d = −5, e = −4. b) x = 5. c) T(5) = −4.', 'Hälfte von −10 ist −5.'))
@@ -601,7 +601,7 @@ ST.neu('mit_faktor', 'begruenden', A('Stimmt: T(x) = 3x² + 6x + 10 und S(x) = x
        ['Nein, T hat es bei x = −3.', 'Ja, und beide haben den Wert 10.', 'Nein, T hat ein Maximum.'],
        'T(x) = 3(x² + 2x) + 10 = 3(x + 1)² + 7, S(x) = (x + 1)² + 9. Beide Klammern sind bei x = −1 null.', 'Klammere bei T die 3 aus und vergleiche die Klammern.'))
 ST.neu('mit_faktor', 'fehler', A('Jemand bestimmt für T(x) = −2x² + 8x + 1 „das Minimum 9 bei x = 2“. Was stimmt?', 'Falsch: Wegen −2 ist es ein Maximum, 9 bei x = 2.',
-       ['Richtig.', 'Falsch: Minimum 1 bei x = 0.', 'Falsch: Maximum 17 bei x = 2.'], '−2(x² − 4x) + 1 = −2(x − 2)² + 8 + 1 = −2(x − 2)² + 9. Der Faktor −2 öffnet nach unten: Maximum.', 'Achte auf das Vorzeichen von a.'))
+       ['Richtig.', 'Falsch: Minimum 1 bei x = 0.', 'Falsch: Maximum 17 bei x = 2.'], '−2(x² − 4x) + 1 = −2(x − 2)² + 8 + 1 = −2(x − 2)² + 9. Der Faktor −2 vor der Klammer heißt: Von 9 wird immer etwas abgezogen (außer bei x = 2) – also Maximum.', 'Achte auf das Vorzeichen von a.'))
 ST.neu('mit_faktor', 'pruefung', L('Gegeben ist T(x) = −3x² + 12x − 5. Bringe T in die Form a · (x − d)² + e und gib a, d und e an.', 'a = □; d = □; e = □', [-3, 2, 7], ['-3', '2', '12 - 5'],
        '−3(x² − 4x) − 5 = −3(x² − 4x + 4 − 4) − 5 = −3(x − 2)² + 12 − 5 = −3(x − 2)² + 7. Größter Wert 7 bei x = 2.', 'Klammere −3 aus den ersten beiden Gliedern aus.'))
 ST.knobel('mit_faktor', L('Für welches x ist das Produkt x · (12 − 2x) am größten, und wie groß ist es dann?', 'x = □; Produkt □', [3, 18], ['3', '3 * 6'],

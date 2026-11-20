@@ -3,7 +3,7 @@
  "thema_id": 75,
  "block_id": 65,
  "klasse": {
-  "ib_myp": 4
+  "ib_myp": 5
  },
  "autor": "Claude (Paket IB)",
  "inhalt": {
@@ -2521,7 +2521,7 @@
      0
     ]
    },
-   "w": "Für x ≥ 0 ist x + 0 ≥ 0, der Betrag fällt weg. f(x) = x.",
+   "w": "Für x ≥ 0 ist x ≥ 0, der Betrag fällt weg. f(x) = x.",
    "c": [
     "1",
     "0"
@@ -2582,7 +2582,7 @@
      -4
     ]
    },
-   "w": "Für x ≥ 0 ist x + 0 ≥ 0, der Betrag fällt weg. f(x) = 3x − 4.",
+   "w": "Für x ≥ 0 ist x ≥ 0, der Betrag fällt weg. f(x) = 3x − 4.",
    "c": [
     "3",
     "-4"
@@ -3515,7 +3515,7 @@
    "o": {
     "index": 1
    },
-   "w": "Auch −8 hat von 0 den Abstand 8: |−8 + 0| = 8.",
+   "w": "Auch −8 hat von 0 den Abstand 8: |−8| = 8.",
    "h": "Gibt es links von der Mitte auch eine Zahl mit diesem Abstand?",
    "g": "umkehr"
   },

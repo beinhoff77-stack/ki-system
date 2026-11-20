@@ -65,11 +65,13 @@ SZEN = [
 FEHLER_ART = ['Die Stichprobe ist zu klein.', 'Die Auswahl ist einseitig.', 'Die Frage ist suggestiv (lenkt die Antwort).',
               'Nur Freiwillige antworten.']
 
-SUGGESTIV = ['Sie sind doch sicher auch dafür, dass {x}?', 'Finden Sie nicht auch, dass {x}?', 'Jeder vernünftige Mensch ist dafür, dass {x}. Sie auch?']
+SUGGESTIV = ['Sie sind doch sicher auch dafür, dass {x}?', 'Finden Sie nicht auch, dass es gut wäre, wenn {x}?', 'Jeder vernünftige Mensch ist dafür, dass {x}. Sie auch?']
 SUG_X = ['die Pause länger wird', 'der Spielplatz erneuert wird', 'mehr Radwege gebaut werden', 'das Schwimmbad länger öffnet',
          'es in der Mensa mehr Gemüse gibt', 'der Bus öfter fährt']
-FREI = ['Eine Zeitschrift ruft ihre Leser auf, im Internet zum Thema „{x}“ abzustimmen.', 'Ein Radiosender bittet Hörer, zum Thema „{x}“ anzurufen.',
-        'An der Schultür hängt ein Zettel: Wer möchte, kann seine Meinung zum Thema „{x}“ in den Briefkasten werfen.']
+FREI = ['Eine Zeitschrift will wissen, was ihre Leser zum Thema „{x}“ denken, und ruft sie auf, im Internet abzustimmen.',
+        'Ein Radiosender will wissen, was seine Hörer zum Thema „{x}“ denken, und bittet sie anzurufen.',
+        'Eine Schule will wissen, was ihre Kinder zum Thema „{x}“ denken. An der Schultür hängt ein Zettel: Wer möchte, wirft seine Meinung in den Briefkasten.']
+FREI_SCHULE = {800: 80, 1200: 120, 3500: 350, 9000: 450}  # Prüfung neu 1: 9 000 Antworten an einer Schule sind unrealistisch
 FREI_X = ['Neues Jugendzentrum', 'Handyverbot an Schulen', 'Längere Ladenöffnungszeiten', 'Autofreier Sonntag', 'Mehr Hausaufgaben']
 
 
@@ -234,8 +236,14 @@ def g_repraesentativ(s):
         fal = [x[0][0].upper() + x[0][1:] for x in schl]
         if R.random() < 0.5:
             andere = [g for x in SZEN if x[0] != gg for _, g in x[4] if g != gr and 'gehören nicht' not in g]
+            R.sample(andere, 3)  # Zufallsfolge wie bisher halten (Prüfung neu 1)
+            # Prüfung neu 1: allgemeine Gründe („eine einseitige Gruppe …“, „nur eine Altersgruppe …“) passen auf jede
+            # schlechte Auswahl und waren so eine zweite richtige Antwort. Jetzt: zwei echte Denkfehler + ein fremder Grund.
+            fremd = sorted(g for g in andere if 'zu stark vertreten' in g and g.split()[0] not in gr)
+            falsch = [f'{n} Personen sind zu viele.', 'Man darf nie nur einen Teil befragen, nur alle.',
+                      fremd[(n + len(gr)) % len(fremd)]]
             return auswahl(f'Um herauszufinden, {merk}, werden {n} Personen befragt: {a}. Warum ist das keine geeignete Stichprobe?',
-                           gr[0].upper() + gr[1:] + '.', [x[0].upper() + x[1:] + '.' for x in R.sample(andere, 3)],
+                           gr[0].upper() + gr[1:] + '.', [x[0].upper() + x[1:] + ('' if x.endswith('.') else '.') for x in falsch],
                            f'Grundgesamtheit sind {gg}. Bei dieser Auswahl gilt: {gr}.', 'Wer ist in dieser Gruppe besonders häufig – oder wer fehlt?')
         return auswahl(f'Man will wissen, {merk} (Grundgesamtheit: {gg}). Jeweils {n} Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?', gute, fal,
                        f'Am besten: {gut}. Die anderen sind einseitig: ' + '; '.join(x[1] for x in schl) + '.',
@@ -282,13 +290,18 @@ def g_fehlerquellen(s):
         w = 'Die Frage drängt zu einem „Ja“ (suggestiv). Neutral wäre eine Frage ohne Wertung, z. B. „Sind Sie dafür oder dagegen?“'
     else:
         x = R.choice(FREI_X)
-        txt = R.choice(FREI).format(x=x) + f' Es kommen {dz(R.choice([800, 1200, 3500, 9000]))} Antworten.'
+        vorl = R.choice(FREI)
+        anz = R.choice([800, 1200, 3500, 9000])
+        if vorl.startswith('Eine Schule'): anz = FREI_SCHULE[anz]
+        txt = vorl.format(x=x) + f' Es kommen {dz(anz)} Antworten.'
         richtig = FEHLER_ART[3]
         w = 'Es antworten nur Freiwillige – meist Menschen mit einer starken Meinung. Die vielen Antworten ändern daran nichts.'
     if s == 3 and R.random() < 0.5:
         # Verbesserung vorschlagen
         bess = {0: 'Mehr Personen zufällig auswählen.', 1: 'Statt einer besonderen Gruppe Personen aus allen Gruppen zufällig auswählen.',
                 2: 'Die Frage neutral stellen, ohne Wertung.', 3: 'Nicht auf Meldungen warten, sondern Personen per Los auswählen und gezielt ansprechen.'}
+        if art in (1, 3):  # Prüfung neu 1: „mehr zufällig auswählen“ wäre hier auch vertretbar – echter Denkfehler ist „einfach mehr“
+            bess[0] = 'Einfach mehr Personen auf dieselbe Art befragen.'
         aus = {0: (), 1: (3,), 2: (), 3: (1,)}[art]
         return auswahl(txt + ' Wie verbessert man die Umfrage am wirksamsten?', bess[art], [v for k, v in bess.items() if k != art and k not in aus],
                        w, 'Finde zuerst die Fehlerquelle, dann die passende Verbesserung.')
@@ -388,13 +401,14 @@ UMBAU = {
             {'text': 'Ihr Stichprobenumfang n = ⟦50⟧.'},
         ],
         'fehler': 'Die 50 Befragten sind nicht die Grundgesamtheit. Die Grundgesamtheit ist ⟦die ganze Gruppe⟧, hier alle 620 Kinder.',
-        'regel': 'Grundgesamtheit = alle, Stichprobe = der befragte Teil. Ihre Größe heißt ⟦Stichprobenumfang n⟧.',
+        'regel': 'Grundgesamtheit = alle, Stichprobe = der befragte Teil. Ihre Größe heißt ⟦Stichprobenumfang n⟧. Befragt man alle, heißt das ⟦Vollerhebung⟧.',
     },
     'hochrechnen': {
         'einstieg': 'Von 80 befragten Kindern kommen 28 mit dem Rad. Wie viele sind es an der ganzen Schule mit 640 Kindern? '
                     'Man überträgt den Anteil auf alle. Das heißt ⟦Hochrechnung⟧.',
         'woerter': [['relative Häufigkeit', 'der Anteil in der Stichprobe: Anzahl geteilt durch n'],
-                    ['Hochrechnung', 'den Anteil der Stichprobe auf alle übertragen; ergibt eine Schätzung']],
+                    ['Hochrechnung', 'den Anteil der Stichprobe auf alle übertragen; ergibt eine Schätzung'],
+                    ['Prozentpunkte', 'Unterschied zwischen zwei Prozentangaben, z. B. 40 % − 35 % = 5 Prozentpunkte']],
         'bild': {'typ': 'bruchstreifen', 'teile': 20, 'gefaerbt': 7, 'ganzes': '80 Kinder', 'teil_text': '28 mit Rad'},
         'schritte': [
             {'text': 'Relative Häufigkeit: 28 : 80 = 0,35, also 35 %.'},
@@ -474,7 +488,7 @@ def durchsicht(d):
             T('Von 100 befragten Jugendlichen eines Landkreises mit 860 Jugendlichen spielen 20'): 2,
             T('Von 200 befragten Fahrgästen einer Bahnlinie mit 2 600 Fahrgästen'): 2,
             T('„Jeder vernünftige Mensch ist dafür, dass der Bus öfter fährt. Sie auch?“'): 2,
-            T('„Handyverbot an Schulen“ abzustimmen. Es kommen 1 200 Antworten'): 2,
+            T('„Handyverbot an Schulen“ denken, und ruft sie auf, im Internet abzustimmen. Es kommen 1 200 Antworten'): 2,
             T('Klasse 7a befragt 10 zufällig gewählte Kinder'): 2,
             T('Klasse 7a befragt 20 zufällig gewählte Kinder'): 2,
         },
@@ -609,7 +623,7 @@ ST.neu('begriffe', 'umkehr', Z('Eine Stichprobe von 60 Kindern ist ein Fünftel 
 ST.neu('begriffe', 'fehler', A('Jemand sagt: „Wir haben alle 30 Kinder der Klasse 7a befragt. Das ist eine Stichprobe der Klasse 7a.“ Was stimmt?', 'Falsch: Wer alle befragt, macht eine Vollerhebung der Klasse 7a.',
        ['Richtig.', 'Falsch: 30 Kinder sind zu wenige für eine Stichprobe.', 'Falsch: Eine Stichprobe muss genau 10 Kinder haben.'],
        'Eine Stichprobe ist nur ein Teil der Grundgesamtheit. Für die Klasse 7a ist das eine Vollerhebung. Eine Stichprobe wäre es erst für eine größere Grundgesamtheit, etwa die ganze Schule.', 'Wurden alle oder nur ein Teil befragt?'))
-ST.neu('begriffe', 'parameter', Z('Man befragt jede k-te Person einer Liste mit 1 200 Personen. Es sollen genau 60 Personen werden. Wie groß muss k sein?', 20, '1200 // 60',
+ST.neu('begriffe', 'parameter', Z('Man befragt jede k-te Person einer Liste mit 1 200 Personen. Es sollen genau 60 Personen befragt werden. Wie groß muss k sein?', 20, '1200 // 60',
        '1 200 : k = 60 ⇒ k = 1 200 : 60 = 20. Jede 20. Person wird befragt.', 'Wie oft passt der Abstand k in die Liste?'))
 ST.neu('begriffe', 'pruefung', L('Ein Verein hat 480 Mitglieder: Fußball 200, Tennis 120, Turnen 100, Schwimmen 60. 48 Mitglieder sollen befragt werden, jede Abteilung nach ihrem Anteil. Wie viele kommen aus dem Fußball, wie viele aus dem Schwimmen?',
        'Fußball □; Schwimmen □', [20, 6], ['200 * 48 // 480', '60 * 48 // 480'],
@@ -672,7 +686,7 @@ ST.stufenleiter('fehlerquellen', 'Eine Fehlerquelle benennen (suggestive Frage, 
                 'Fehlerquellen in Umfragen von Sender, Zeitschrift und Verein, mehrere Fehler zugleich, passende Situation zu einer Fehlerquelle.',
                 'Wirksamste Verbesserung wählen, mehrere Mängel finden, Wirkung einer größeren Stichprobe begründen, Werbeaussage prüfen, Bewertung einer ganzen Umfrage wie in einer Prüfung.')
 ST.typ('fehlerquellen', 'Welche Frage ist neutral', 'erkennen')
-ST.typ('fehlerquellen', '/^(Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 200|Ein Radiosender bittet Hörer, zum Thema „Mehr|Eine Zeitschrift)/', 'einkleidung')
+ST.typ('fehlerquellen', '/^(Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 200|Ein Radiosender will wissen, was seine Hörer zum Thema „Mehr|Eine Zeitschrift)/', 'einkleidung')
 ST.typ('fehlerquellen', '/Welche Fehlerquelle liegt vor\\?$/', 'erkennen')
 ST.typ('fehlerquellen', '/^(Um herauszufinden, ob die Fahrgäste|Um herauszufinden, wen).*wirksamsten/', 'transfer')
 ST.typ('fehlerquellen', '/wirksamsten\\?$/', 'begruenden')
@@ -718,7 +732,7 @@ ST.neu('aussagen', 'pruefung', L('Zwei Zufallsumfragen zu „Soll der Pausenhof 
 ST.knobel('aussagen', Z('Eine Umfrage meldet genau 37 % „ja“. Wie viele Personen müssen mindestens befragt worden sein?', 100, '100',
           '37 % = 37/100, und dieser Bruch lässt sich nicht kürzen (37 ist eine Primzahl). Also muss die Zahl der Befragten ein Vielfaches von 100 sein: mindestens 100.', 'Schreibe 37 % als Bruch und kürze, wenn möglich.'))
 ST.knobel('aussagen', Z('Eine Umfrage meldet „gerundet 43 %“. Wie viele Personen wurden mindestens befragt?', 7, '7',
-          'Gesucht ist ein Bruch k/n zwischen 42,5 % und 43,5 % mit kleinem n. n = 1 bis 6 liefert nur 0 %, 14 %, 17 %, 20 %, 25 %, 29 %, 33 %, 40 %, 50 %, 60 % usw. Erst 3/7 ≈ 42,9 % passt. Also mindestens 7.',
+          'Gesucht ist ein Bruch k/n zwischen 42,5 % und 43,5 % mit kleinem n. n = 1 bis 6 liefert gerundet nur 0 %, 17 %, 20 %, 25 %, 33 %, 40 %, 50 %, 60 %, 67 %, 75 %, 80 %, 83 % und 100 %. Erst 3/7 ≈ 42,9 % passt. Also mindestens 7.',
           'Probiere n = 1, 2, 3, … und alle möglichen Anteile.'))
 
 

@@ -3,7 +3,8 @@
  "thema_id": 81,
  "block_id": 93,
  "klasse": {
-  "rs_by": 7
+  "rs_by": 7,
+  "ib_myp": 2
  },
  "autor": "Claude (Paket Realschule)",
  "inhalt": {
@@ -35,7 +36,7 @@
    {
     "lernziel": "begriffe",
     "titel": "Grundgesamtheit und Stichprobe",
-    "regel": "Grundgesamtheit = alle, Stichprobe = der befragte Teil. Ihre Größe heißt ⟦Stichprobenumfang n⟧.",
+    "regel": "Grundgesamtheit = alle, Stichprobe = der befragte Teil. Ihre Größe heißt ⟦Stichprobenumfang n⟧. Befragt man alle, heißt das ⟦Vollerhebung⟧.",
     "schritte": [
      {
       "text": "Die Schule will wissen, wie alle 620 Kinder zur Schule kommen.",
@@ -143,6 +144,10 @@
      [
       "Hochrechnung",
       "den Anteil der Stichprobe auf alle übertragen; ergibt eine Schätzung"
+     ],
+     [
+      "Prozentpunkte",
+      "Unterschied zwischen zwei Prozentangaben, z. B. 40 % − 35 % = 5 Prozentpunkte"
      ]
     ],
     "bild": {
@@ -1151,7 +1156,7 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Man befragt jede k-te Person einer Liste mit 1 200 Personen. Es sollen genau 60 Personen werden. Wie groß muss k sein?"
+    "text": "Man befragt jede k-te Person einer Liste mit 1 200 Personen. Es sollen genau 60 Personen befragt werden. Wie groß muss k sein?"
    },
    "o": {
     "wert": 20
@@ -2267,8 +2272,8 @@
     "text": "Um herauszufinden, wie viele Haushalte ein Haustier haben, werden 100 Personen befragt: nur Kunden einer Zoohandlung. Warum ist das keine geeignete Stichprobe?"
    },
    "a": [
-    "Nur eine Altersgruppe wird befragt.",
-    "Unzufriedene sind zu stark vertreten.",
+    "Man darf nie nur einen Teil befragen, nur alle.",
+    "100 Personen sind zu viele.",
     "Radfahrer sind zu stark vertreten.",
     "Tierbesitzer sind zu stark vertreten."
    ],
@@ -2355,9 +2360,9 @@
     "text": "Um herauszufinden, ob die Einwohner ein neues Hallenbad wollen, werden 100 Personen befragt: nur die Besucher des alten Hallenbads. Warum ist das keine geeignete Stichprobe?"
    },
    "a": [
-    "Eine einseitige Gruppe wird befragt.",
-    "Fans der Bahn sind zu stark vertreten.",
-    "Wer die Kantine meidet, fehlt.",
+    "100 Personen sind zu viele.",
+    "Verärgerte sind zu stark vertreten.",
+    "Man darf nie nur einen Teil befragen, nur alle.",
     "Schwimmer sind eher dafür."
    ],
    "o": {
@@ -2437,8 +2442,8 @@
    "a": [
     "Nur eine kleine, besondere Gruppe wird befragt.",
     "Tierbesitzer sind zu stark vertreten.",
-    "Nur eine Abteilung wird befragt.",
-    "Radfahrer sind zu stark vertreten."
+    "Man darf nie nur einen Teil befragen, nur alle.",
+    "40 Personen sind zu viele."
    ],
    "o": {
     "index": 0
@@ -2455,10 +2460,10 @@
     "text": "Um herauszufinden, ob die Fahrgäste mit der Pünktlichkeit zufrieden sind, werden 500 Personen befragt: nur Fahrgäste, die gerade auf einen verspäteten Bus warten. Warum ist das keine geeignete Stichprobe?"
    },
    "a": [
-    "Anhänger einer Partei sind zu stark vertreten.",
-    "Nur eine Wohnform wird erfasst.",
+    "Tierbesitzer sind zu stark vertreten.",
+    "500 Personen sind zu viele.",
     "Verärgerte sind zu stark vertreten.",
-    "Sie sind gar nicht wahlberechtigt."
+    "Man darf nie nur einen Teil befragen, nur alle."
    ],
    "o": {
     "index": 2
@@ -2475,10 +2480,10 @@
     "text": "Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 80 Personen befragt: nur Zuschauer bei einem Heimspiel. Warum ist das keine geeignete Stichprobe?"
    },
    "a": [
-    "Verärgerte sind zu stark vertreten.",
-    "Busfahrer sind zu stark vertreten.",
+    "80 Personen sind zu viele.",
+    "Man darf nie nur einen Teil befragen, nur alle.",
     "Viele Zuschauer sind keine Mitglieder.",
-    "Tierbesitzer sind zu stark vertreten."
+    "Anhänger einer Partei sind zu stark vertreten."
    ],
    "o": {
     "index": 2
@@ -2495,10 +2500,10 @@
     "text": "Um herauszufinden, wie die Kinder zur Schule kommen, werden 80 Personen befragt: nur die Kinder der 5. Klassen. Warum ist das keine geeignete Stichprobe?"
    },
    "a": [
-    "Sportler sind zu stark vertreten.",
+    "80 Personen sind zu viele.",
     "Nur eine Jahrgangsstufe wird befragt.",
-    "Schwimmer sind eher dafür.",
-    "Viele Zuschauer sind keine Mitglieder."
+    "Man darf nie nur einen Teil befragen, nur alle.",
+    "Tierbesitzer sind zu stark vertreten."
    ],
    "o": {
     "index": 1
@@ -2515,9 +2520,9 @@
     "text": "Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 60 Personen befragt: nur die Mitglieder des Vorstands. Warum ist das keine geeignete Stichprobe?"
    },
    "a": [
-    "Nur eine Tageszeit wird erfasst.",
-    "Schwimmer sind eher dafür.",
-    "Nur ein Ort wird befragt.",
+    "60 Personen sind zu viele.",
+    "Unzufriedene sind zu stark vertreten.",
+    "Man darf nie nur einen Teil befragen, nur alle.",
     "Nur eine kleine, besondere Gruppe wird befragt."
    ],
    "o": {
@@ -2714,7 +2719,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Radiosender bittet Hörer, zum Thema „Mehr Hausaufgaben“ anzurufen. Es kommen 800 Antworten. Welche Fehlerquelle liegt vor?"
+    "text": "Ein Radiosender will wissen, was seine Hörer zum Thema „Mehr Hausaufgaben“ denken, und bittet sie anzurufen. Es kommen 800 Antworten. Welche Fehlerquelle liegt vor?"
    },
    "a": [
     "Die Auswahl ist einseitig.",
@@ -2758,12 +2763,12 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ein Radiosender bittet Hörer, zum Thema „Autofreier Sonntag“ anzurufen. Es kommen 1 200 Antworten. Wie verbessert man die Umfrage am wirksamsten?"
+    "text": "Ein Radiosender will wissen, was seine Hörer zum Thema „Autofreier Sonntag“ denken, und bittet sie anzurufen. Es kommen 1 200 Antworten. Wie verbessert man die Umfrage am wirksamsten?"
    },
    "a": [
     "Die Frage neutral stellen, ohne Wertung.",
     "Nicht auf Meldungen warten, sondern Personen per Los auswählen und gezielt ansprechen.",
-    "Mehr Personen zufällig auswählen."
+    "Einfach mehr Personen auf dieselbe Art befragen."
    ],
    "o": {
     "index": 1
@@ -2779,7 +2784,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Bei einer Umfrage unter 400 zufällig ausgewählten Personen lautet die Frage: „Finden Sie nicht auch, dass der Spielplatz erneuert wird?“ Welche Fehlerquelle liegt vor?"
+    "text": "Bei einer Umfrage unter 400 zufällig ausgewählten Personen lautet die Frage: „Finden Sie nicht auch, dass es gut wäre, wenn der Spielplatz erneuert wird?“ Welche Fehlerquelle liegt vor?"
    },
    "a": [
     "Die Auswahl ist einseitig.",
@@ -2801,7 +2806,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Zeitschrift ruft ihre Leser auf, im Internet zum Thema „Handyverbot an Schulen“ abzustimmen. Es kommen 9 000 Antworten. Welche Fehlerquelle liegt vor?"
+    "text": "Eine Zeitschrift will wissen, was ihre Leser zum Thema „Handyverbot an Schulen“ denken, und ruft sie auf, im Internet abzustimmen. Es kommen 9 000 Antworten. Welche Fehlerquelle liegt vor?"
    },
    "a": [
     "Die Stichprobe ist zu klein.",
@@ -2849,7 +2854,7 @@
    },
    "a": [
     "Die Frage neutral stellen, ohne Wertung.",
-    "Mehr Personen zufällig auswählen.",
+    "Einfach mehr Personen auf dieselbe Art befragen.",
     "Statt einer besonderen Gruppe Personen aus allen Gruppen zufällig auswählen."
    ],
    "o": {
@@ -2888,11 +2893,11 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "An der Schultür hängt ein Zettel: Wer möchte, kann seine Meinung zum Thema „Autofreier Sonntag“ in den Briefkasten werfen. Es kommen 3 500 Antworten. Wie verbessert man die Umfrage am wirksamsten?"
+    "text": "Eine Schule will wissen, was ihre Kinder zum Thema „Autofreier Sonntag“ denken. An der Schultür hängt ein Zettel: Wer möchte, wirft seine Meinung in den Briefkasten. Es kommen 350 Antworten. Wie verbessert man die Umfrage am wirksamsten?"
    },
    "a": [
     "Die Frage neutral stellen, ohne Wertung.",
-    "Mehr Personen zufällig auswählen.",
+    "Einfach mehr Personen auf dieselbe Art befragen.",
     "Nicht auf Meldungen warten, sondern Personen per Los auswählen und gezielt ansprechen."
    ],
    "o": {
@@ -3019,7 +3024,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Zeitschrift ruft ihre Leser auf, im Internet zum Thema „Handyverbot an Schulen“ abzustimmen. Es kommen 1 200 Antworten. Welche Fehlerquelle liegt vor?"
+    "text": "Eine Zeitschrift will wissen, was ihre Leser zum Thema „Handyverbot an Schulen“ denken, und ruft sie auf, im Internet abzustimmen. Es kommen 1 200 Antworten. Welche Fehlerquelle liegt vor?"
    },
    "a": [
     "Die Auswahl ist einseitig.",
@@ -3189,7 +3194,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Zeitschrift ruft ihre Leser auf, im Internet zum Thema „Längere Ladenöffnungszeiten“ abzustimmen. Es kommen 800 Antworten. Welche Fehlerquelle liegt vor?"
+    "text": "Eine Zeitschrift will wissen, was ihre Leser zum Thema „Längere Ladenöffnungszeiten“ denken, und ruft sie auf, im Internet abzustimmen. Es kommen 800 Antworten. Welche Fehlerquelle liegt vor?"
    },
    "a": [
     "Die Frage ist suggestiv (lenkt die Antwort).",
@@ -3229,7 +3234,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bei einer Umfrage unter 250 zufällig ausgewählten Personen lautet die Frage: „Finden Sie nicht auch, dass mehr Radwege gebaut werden?“ Welche Fehlerquelle liegt vor?"
+    "text": "Bei einer Umfrage unter 250 zufällig ausgewählten Personen lautet die Frage: „Finden Sie nicht auch, dass es gut wäre, wenn mehr Radwege gebaut werden?“ Welche Fehlerquelle liegt vor?"
    },
    "a": [
     "Die Auswahl ist einseitig.",
@@ -3269,7 +3274,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "An der Schultür hängt ein Zettel: Wer möchte, kann seine Meinung zum Thema „Neues Jugendzentrum“ in den Briefkasten werfen. Es kommen 9 000 Antworten. Welche Fehlerquelle liegt vor?"
+    "text": "Eine Schule will wissen, was ihre Kinder zum Thema „Neues Jugendzentrum“ denken. An der Schultür hängt ein Zettel: Wer möchte, wirft seine Meinung in den Briefkasten. Es kommen 450 Antworten. Welche Fehlerquelle liegt vor?"
    },
    "a": [
     "Die Frage ist suggestiv (lenkt die Antwort).",
@@ -3333,7 +3338,7 @@
    },
    "a": [
     "Statt einer besonderen Gruppe Personen aus allen Gruppen zufällig auswählen.",
-    "Mehr Personen zufällig auswählen.",
+    "Einfach mehr Personen auf dieselbe Art befragen.",
     "Die Frage neutral stellen, ohne Wertung."
    ],
    "o": {
@@ -4162,7 +4167,7 @@
     "wert": 7
    },
    "c": "7",
-   "w": "Gesucht ist ein Bruch k/n zwischen 42,5 % und 43,5 % mit kleinem n. n = 1 bis 6 liefert nur 0 %, 14 %, 17 %, 20 %, 25 %, 29 %, 33 %, 40 %, 50 %, 60 % usw. Erst 3/7 ≈ 42,9 % passt. Also mindestens 7.",
+   "w": "Gesucht ist ein Bruch k/n zwischen 42,5 % und 43,5 % mit kleinem n. n = 1 bis 6 liefert gerundet nur 0 %, 17 %, 20 %, 25 %, 33 %, 40 %, 50 %, 60 %, 67 %, 75 %, 80 %, 83 % und 100 %. Erst 3/7 ≈ 42,9 % passt. Also mindestens 7.",
    "h": "Probiere n = 1, 2, 3, … und alle möglichen Anteile.",
    "l": "aussagen",
    "t": "aussagen",

@@ -380,3 +380,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-motivation:** Teil 1 ist zusammengeführt – **Teil 2 kann beginnen** (Stand `lernen-app` 67dae64 oder neuer holen; Version 0.81.1).
 - **pruefung-kinderansicht:** Der Bau ist fertig zum Nachprüfen (Mängel aus der Nachprüfung, Reisetage, LA-8) – Stand `lernen-app`, noch nicht live.
 - **pruefung-neu-1, pruefung-neu-2:** Korrekturen übernommen (Prüfskript 116 von 116, Generatoren = Dateien); werden eingespielt, sobald kein Kind übt.
+
+## 20.11. 04:00 – an alle: App 0.81.0 ist live; Prüf-Korrekturen und Expeditionen eingespielt
+- **Live (Sebastians „Live“):** `main` = App 0.81.0 (Auftrag I Teil 1 und 1b). `20261120_i_pause.sql` ist eingespielt, Rauchtest danach ohne Fehler.
+- **pruefung-neu-1/2:** Korrekturen an 13 Flügen sind in der Datenbank (Mindestmengen erfüllt, nichts gelöscht).
+- **Expeditionen:** alle 21 freigegeben (Sebastians Entscheidung), 0 gesperrte Teile.
+- **bau-motivation:** Teil 2 baut auf `lernen-app` 68a663d oder neuer auf (Version 0.81.1).

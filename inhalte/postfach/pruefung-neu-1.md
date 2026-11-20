@@ -7,6 +7,20 @@ Allgemein gilt für alle Berichte:
 - Übungen ohne `g` sind laut Zwanzigster Runde „überzählig“ und werden beim Einspielen gesperrt. Sie wurden auf richtige Lösung (a) geprüft, nicht auf Stufe/Typ (f).
 - Lehrplan: Die Seiten von lehrplanplus.bayern.de konnte ich in dieser Sitzung nicht direkt abrufen (Abruf brauchte eine Freigabe, die nicht beantwortet wurde). Lehrplanaussagen stützen sich daher auf `lehrplan_andere` in `themenliste.json` und auf ISB-Dokumente aus der Websuche (Abruf 20.11.2026); was nicht belegt ist, steht als Annahme da.
 
+## 2026-11-20 – abbildungen.matrizen (RS 10, IB MYP 5): in Ordnung
+
+**Gelesen und nachgerechnet (Fakt):** 7 Lernkarten und alle 263 Aufgaben (179 Übungen, 14 Knobel, 7 Test, 21 Korrektur, 42 Sicherung). 136 Aufgaben mit eigenem Skript aus dem Fragetext nachgerechnet (Bildpunkt, Urbild mit Inverser, Drehung x′/y′ mit cos/sin auf zwei Dezimalen, A · B, A + B, Inverse, Determinante, Skalarprodukt, „senkrecht?“, Parameter t und x, Abstand Punkt–Gerade über die Kreuzformel) – keine Abweichung (zwei Meldungen des Skripts waren eigene Lesefehler: zweimal abbilden, „Determinante 1“ statt „keine Inverse“; beide Lösungen von Hand bestätigt). Die übrigen 127 (Auswahl, Verkettungen, Fehler-/Begründungsaufgaben, Lotfußpunkt rückwärts, Knobel) von Hand nachgerechnet – alle richtig, z. B. A · B ≠ B · A in beiden Gegenbeispielen, Gitterpunkte mit Abstand 1 (5 Stück), „für kein a ganzzahlige Inverse“. Beispielrechnungen aller 7 Karten stimmen.
+
+**Änderungen je Fehlerart:** a) 0 · b) 0 · c) 0 · d) 0 · e) 0 · f) 0
+
+**Meinung, nicht geändert:** In der Karte `inverse` nennt Schritt 1 „Determinante von M“, ohne M im Text zu nennen; M steht nur im Bild darüber. Reicht, weil das Bild zuerst gezeigt wird. „Berechne den Betrag (die Länge) von a = (6 | 8)“ ist als Stufe 2 / mehrschritt eher leicht.
+
+**Lehrplan:** Passt zu RS 10 (Koordinatenabbildungen mit Matrizen, Skalarprodukt/Orthogonalität/Winkel, `lehrplan_andere`) und zu IB MYP (Matrizenrechnung, Inverse); nicht gegen lehrplanplus.bayern.de bzw. das IB-Dokument geprüft (Annahme). Bewusst weggelassen laut `offen`: Spiegelung an beliebigen Ursprungsgeraden, Parkettierungen, LGS mit Inverser nur als Urpunkt-Aufgabe – für RS 10 vertretbar, für IB MYP 4/5 fehlt das Lösen von Gleichungssystemen mit der Inversen als eigene Fähigkeit (Annahme, Lehrplanabgleich offen).
+
+**Nicht geprüft:** Koordinatenbilder nur im JSON. Übungen ohne `g` (überzählig, gesperrt) nur auf Lösung.
+
+Prüfskript: unverändert OK (keine Datei geändert).
+
 ## 2026-11-20 – gleichungen.wurzel (RS 9): in Ordnung (eine kleine Klarstellung)
 
 **Gelesen und nachgerechnet (Fakt):** 6 Lernkarten und alle 227 Aufgaben (155 Übungen, 12 Knobel, 6 Test, 18 Korrektur, 36 Sicherung). 112 Aufgaben („Löse …“, „Welche Lösungsmenge hat …“, „Gib die Definitionsmenge … an“) mit eigenem Skript aus dem Fragetext gelöst – reelle Lösungen der Gleichung, jede mit Probe in der Ausgangsgleichung, Scheinlösungen verworfen – 0 Abweichungen. Die übrigen 115 (Auswahl, Fehler-/Begründungsaufgaben, Sachaufgaben Fallzeit/Aufprall/Pendel/Horizont, Knobel) von Hand nachgerechnet – alle richtig. Beispielrechnungen der 6 Karten stimmen (z. B. x² + x − 6 = 0 → −3 und 2, L = {2}).

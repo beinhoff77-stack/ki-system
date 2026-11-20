@@ -2,6 +2,11 @@
 
 Neueste oben.
 
+## 2026-11-20 – Rauchtest „Abgleich ohne Expeditionen“ angepasst
+
+- `supabase/tests/abgleich_ohne_expeditionen_rauchtest.sql`: setzt den gewählten Flug vor dem Abgleich auf `geprueft` (nur wenn er `freigegeben` ist; im Rollback, nichts bleibt) –
+  wie beim Einspielen, weil Aufgaben freigegebener Einheiten unveränderlich sind. Sonst unverändert. pglast ok, nicht ausgeführt.
+
 ## 2026-11-18 – FERTIG: Abgleich ohne Expeditionen
 
 Stand von `lernen-app` übernommen (enthält 9d2f9be – dein berichtigter Kommentar in `h_muss` bleibt so).

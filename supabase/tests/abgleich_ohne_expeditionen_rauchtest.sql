@@ -1,5 +1,5 @@
 -- Rauchtest: einheit_abgleichen(…, 'sperren') lässt Expeditions-Teile unberührt. Nach 20261119_abgleich_ohne_expeditionen.sql ausführen. Rollback, keine Namen.
--- Vor der Migration schlägt Schritt 2 fehl (FEHLER 2) – so lässt sich der Fehler auch nachweisen.
+-- Vor der Migration schlägt Schritt 2 fehl (FEHLER 2) – so lässt sich der Fehler auch nachweisen. Der Flug wird im Test (zurückgerollt) auf „geprueft“ gesetzt.
 begin;
 do $$
 declare v_e bigint; v_x bigint; datei jsonb; r jsonb; v_teile int; v_frei int; v_uebung_frei int;
@@ -20,6 +20,8 @@ begin
                                   where kv.value <> 'null'::jsonb) j -- nur oberste Ebene ohne null (wie in der Datei), Frage/Lösung unverändert
                             from schule.aufgabe a where a.einheit_id = e.id and a.pool <> 'expedition') o))
     into datei from schule.einheit e join schule.thema t on t.id = e.thema_id where e.id = v_e;
+  -- Aufgaben freigegebener Flüge sind unveränderlich: wie beim Einspielen den Flug vorher auf „geprueft“ setzen (im Rollback, wird nicht gespeichert)
+  update schule.einheit set status = 'geprueft' where id = v_e and status = 'freigegeben';
   -- 1. Abgleich mit „sperren“
   r := schule.einheit_abgleichen(datei, 'sperren');
   if (r->>'einheit_id')::bigint <> v_e or (r->>'aufgaben_neu')::int <> 0 then raise exception 'FEHLER 1: falsche Einheit oder Datei nicht erkannt: %', r; end if;

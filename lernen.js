@@ -86,6 +86,7 @@ function lernReiseDaten(u, kindId) {
     }
     if (r?.kann_schon || r?.status === 'fertig') return 'kann'; // geschaffte Orte wandern zu „zum Wiederholen“
     if (e.thema_id && (r?.kann_schon_themen || []).includes(e.thema_id)) return 'kann'; // LA-4: „kann schon“ je Flug
+    if (e.thema_id && (r?.kann_wdh_themen || []).includes(e.thema_id) && !Number(stand.get(e.id)?.wieder_offen || 0)) return 'kann'; // LB-3: gesetzt gelandet, nur Wiederholungen (wieder offen → üben)
     if (mitPlan && ueber(e.block_id) && !vorgezogen(e.block_id)) { const s0 = stand.get(e.id) || {}; if (!Number(s0.fertig || 0) && !s0.laeuft && !s0.blocktest) return 'spaeter'; }
     if (mitPlan) return 'jetzt'; // im Plan: Eltern/Lehrer haben es bewusst eingeplant
     // Ohne Plan entscheidet die Klasse laut Lehrplan der Schulart: höhere Klassen später,
@@ -101,7 +102,7 @@ function lernReiseDaten(u, kindId) {
   const mit = einheiten.map((e) => {
     const s = stand.get(e.id) || {};
     const n = e.pflicht_anzahl || 0, f = Number(s.fertig || 0);
-    return { ...e, gruppe: gruppe(e), fertig: f, n, geschafft: n > 0 && f >= n, fehler: Number(s.fehler || 0), laeuft: !!s.laeuft, blocktest: !!s.blocktest, ortFertig: route.get(e.block_id)?.status === 'fertig' };
+    return { ...e, gruppe: gruppe(e), fertig: f, n, geschafft: n > 0 && f >= n, fehler: Number(s.fehler || 0), laeuft: !!s.laeuft, blocktest: !!s.blocktest, ohneTest: !!s.ohne_test, ortFertig: route.get(e.block_id)?.status === 'fertig' };
   }).sort((a, b) => pos(a) - pos(b) || lernReihe(a, kind) - lernReihe(b, kind) || a.id - b.id);
   const ortZustand = (o) => {
     const r = route.get(o.block_id);
@@ -962,7 +963,7 @@ async function viewReise(arg) {
     const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
     const ortN = d.orte.find((o) => o.block_id === n.block_id) || {};
     // Ein einziger Startknopf: erst die fälligen Wiederholungen, dann direkt ins Üben des Themas.
-    const testDran = !n.laeuft && et.n > 0 && et.f >= et.n; // alle Etappen sitzen → als Nächstes der Test, nicht wieder üben
+    const testDran = !n.laeuft && !n.ohneTest && et.n > 0 && et.f >= et.n; // alle Etappen sitzen → als Nächstes der Test, nicht wieder üben (LB-3: gesetzte Flüge ohne Test)
     const ziel = n.laeuft || testDran ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : `#/lerneinheit/${kind.id}-${n.id}-ueben`;
     teile.push(el('section', { class: 'lr-karte-box lr-haupt' },
       el('p', { class: 'lr-ueber' }, `JETZT DRAN · ${(n.stadt || '').toUpperCase()}`),
@@ -1013,7 +1014,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
   const zeile = (e, status, klasse = '') => el('a', { class: 'lr-flug' + klasse, href: `#/lerneinheit/${kind.id}-${e.id}` },
     el('span', { class: 'lr-flug-ort' }, el('b', {}, code(e)), el('small', {}, e.titel)),
     el('span', { class: 'lr-flug-status' }, el('b', {}, status), kl(e) ? el('small', {}, `Klasse ${kl(e)}`) : null));
-  const testDran = !n.laeuft && et.n > 0 && et.f >= et.n; // alle Etappen sitzen → als Nächstes der Test, nicht wieder üben
+  const testDran = !n.laeuft && !n.ohneTest && et.n > 0 && et.f >= et.n; // alle Etappen sitzen → als Nächstes der Test, nicht wieder üben
   const ziel = n.laeuft || testDran ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : `#/lerneinheit/${kind.id}-${n.id}-ueben`;
   const weitere = d.jetzt.filter((e) => e !== n);
   const maxZ = kind.klasse && kind.klasse <= 6 ? 3 : 6;
@@ -1921,9 +1922,12 @@ function lernCheckliste(e) {
 const lernGeraetTag = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
 const lernHeuteLesen = (kind) => { try { return JSON.parse(localStorage.getItem('lern.heute.' + kind) || 'null'); } catch { return null; } };
 const lernHeuteSchreiben = (kind, x) => { try { localStorage.setItem('lern.heute.' + kind, JSON.stringify(x)); } catch { /* egal */ } };
-const lernHeuteSetzen = (kind, n, tag) => { if (n === undefined || n === null) return; lernHeuteSchreiben(kind, { tag: tag ? String(tag).slice(0, 10) : lernGeraetTag(), n: Number(n) || 0, server: !!tag }); };
-const lernHeute = (kind) => { const x = lernHeuteLesen(kind); return !x ? 0 : x.server || x.tag === lernGeraetTag() ? Number(x.n) || 0 : 0; };
-const lernHeutePlus = (kind) => { const x = lernHeuteLesen(kind); lernHeuteSchreiben(kind, x && (x.server || x.tag === lernGeraetTag()) ? { ...x, n: (Number(x.n) || 0) + 1 } : { tag: lernGeraetTag(), n: 1, server: false }); };
+// I-3/H6: Tageswechsel – ein neuer Server-Tag ersetzt den Stand; ist seit dem letzten Server-Stand auch auf dem Gerät ein neuer Tag (Seite über Nacht offen),
+// gilt der alte Stand nicht mehr (0), bis der Server beim nächsten Laden oder Antworten den neuen Tag nennt.
+const lernHeuteSetzen = (kind, n, tag) => { if (n === undefined || n === null) return; lernHeuteSchreiben(kind, { tag: tag ? String(tag).slice(0, 10) : lernGeraetTag(), n: Number(n) || 0, server: !!tag, geraet: lernGeraetTag() }); };
+const lernHeuteGilt = (x) => !!x && (x.server ? (x.geraet || x.tag) === lernGeraetTag() : x.tag === lernGeraetTag());
+const lernHeute = (kind) => { const x = lernHeuteLesen(kind); return lernHeuteGilt(x) ? Number(x.n) || 0 : 0; };
+const lernHeutePlus = (kind) => { const x = lernHeuteLesen(kind); lernHeuteSchreiben(kind, lernHeuteGilt(x) ? { ...x, n: (Number(x.n) || 0) + 1 } : { tag: lernGeraetTag(), n: 1, server: false, geraet: lernGeraetTag() }); };
 // Punkte für die Serie: ●●○○ (gefüllt = richtig in Folge), bei „sitzt“ alle gefüllt.
 function lernPunkte(e, { gross = false } = {}) {
   const n = Math.max(1, e.ziel || 4), voll = e.sitzt || e.fertig ? n : Math.min(n, e.serie || 0);
@@ -2603,6 +2607,10 @@ function lernTestStart(ctx, body) {
   const knopf = (t, art, text) => el('div', { class: 'card' }, el('h3', {}, t), el('p', { class: 'small' }, text),
     el('button', { type: 'button', class: 'primary', onclick: () => start(art) }, t + ' starten'));
   if (ctx.daten.verblasst) lernAnhaengen(box, el('p', { class: 'lern-hinweis' }, 'Rückreise: Diese Einheit sitzt noch nicht sicher. Erst verbessern, dann den Nachtest wiederholen.'));
+  if (!offen && ctx.daten.ohne_test) { // LB-3: „Kann er – aber wiederholen“ – kein Flug-Test, keine Nachtests
+    lernAnhaengen(box, el('p', { class: 'card lern-ohne-test' }, 'Für diesen Flug gibt es keinen Test. Du wiederholst ihn nur – die Wiederholungen kommen von selbst.'));
+    return box;
+  }
   if (offen) lernAnhaengen(box, el('div', { class: 'card' }, el('h3', {}, 'Angefangener Test'), el('p', { class: 'small' }, 'Deine bisherigen Antworten sind gespeichert.'),
     el('button', { type: 'button', class: 'primary', onclick: () => start(offen.art) }, 'Weitermachen')));
   else {

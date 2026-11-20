@@ -1797,13 +1797,19 @@ test('I-2/H6: „heute selbst gelöst“ nach dem Tag des Servers, nicht nach de
   await page.addInitScript(() => { try { localStorage.setItem('lern.heute.1', JSON.stringify({ tag: '2000-01-01', n: 9, server: false })); } catch { /* egal */ } });
   await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
   assert.match(await page.locator('.lr-heute').innerText(), /heute 4 Aufgaben selbst gelöst/);
-  assert.deepEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('lern.heute.1'))), { tag: '2026-11-19', n: 4, server: true }, 'Tag vom Server gespeichert');
+  assert.deepEqual(await page.evaluate(() => { const x = JSON.parse(localStorage.getItem('lern.heute.1')); return [x.tag, x.n, x.server, x.geraet === lernGeraetTag()]; }), ['2026-11-19', 4, true, true], 'Tag vom Server gespeichert');
   await tippe(page, ['2', '0', '0', '0']);
   await page.getByText('Die kennst du schon – gut wiederholt.').waitFor();
   assert.match(await page.locator('.lr-heute').innerText(), /heute 5 Aufgaben/);
   assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('lern.heute.1')).tag), '2026-11-19');
   // ohne Server-Tag (alter Server): Gerät zählt selbst, nach Gerätetag
   assert.deepEqual(await page.evaluate(() => { localStorage.removeItem('lern.heute.1'); lernHeutePlus(1); lernHeutePlus(1); const x = JSON.parse(localStorage.getItem('lern.heute.1')); return [x.n, x.server, x.tag === lernGeraetTag(), lernHeute(1)]; }), [2, false, true, 2]);
+  // I-3: Tageswechsel – Seite über Nacht offen: alter Server-Stand gilt nicht mehr; Antwort ohne Karte zählt neu; neuer Server-Tag ersetzt den Stand
+  assert.deepEqual(await page.evaluate(() => {
+    localStorage.setItem('lern.heute.1', JSON.stringify({ tag: '2026-11-19', n: 7, server: true, geraet: '2000-01-01' }));
+    const vorher = lernHeute(1); lernHeutePlus(1); const nachPlus = lernHeute(1);
+    lernHeuteSetzen(1, 2, '2026-11-20'); const neu = JSON.parse(localStorage.getItem('lern.heute.1'));
+    return [vorher, nachPlus, neu.tag, neu.n, lernHeute(1)]; }), [0, 1, '2026-11-20', 2, 2]);
 });
 
 test('H4/H1: Eltern – „Flug-Nachtest bestanden“ getrennt von „sicher“, wieder geöffnete Etappe als „wieder offen“', async (t) => {
@@ -2454,6 +2460,18 @@ test('Gesperrt nach dem Laden: Knobel und Wiederholung – keine Fehlermeldung, 
   await page.waitForTimeout(500);
   assert.ok(calls.filter((c) => c.aktion === 'schule_wiederholung').length > wdh0, 'Wiederholung neu geladen');
   assert.equal(await page.locator('.err-text').count(), 0);
+});
+
+// LB-3: „Kann er – aber wiederholen“ – kein Flug-Test, keine Nachtests; die Testseite sagt es dem Kind
+test('LB-3: gesetzter Flug (wiederholen) – Testseite ohne Test, kein „Test starten“', async (t) => {
+  const ohneTest = (aktion, e) => aktion === 'schule_einheit_lesen'
+    ? { ...e, blocktest_fertig: false, ohne_test: true, nachtest: { faellig: false, grund: 'gesetzt' },
+        etappen_stand: Object.fromEntries(ETAPPEN.map((x) => [x.lernziel, { fertig: true, sitzt: true, ziel: 2, serie: 0 }])) } : null;
+  const { page, calls } = await setup(t, { anpassen: ohneTest });
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByText('Für diesen Flug gibt es keinen Test.', { exact: false }).waitFor();
+  assert.equal(await page.getByRole('button', { name: /starten$/ }).count(), 0, 'kein Test-Knopf');
+  assert.equal(calls.filter((c) => c.aktion === 'schule_test_starten').length, 0);
 });
 
 // W177: Flugtest schon geschrieben, danach neue Pflicht-Etappen → Nachtragstest statt Sackgasse („Test bereit“, aber kein Test)

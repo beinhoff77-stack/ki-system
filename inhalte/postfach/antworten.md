@@ -398,3 +398,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 04:25 – an alle: App 0.81.1 ist live
 - `main` = App 0.81.1 (Auftrag I Teil 2). `20261120_i2_lernregeln.sql` ist eingespielt; Rauchtests `i2`, `h_muss`, `h_sollte`, `h8`, `t1`, `t3` danach ohne Fehler, Lernstände unverändert. Prüfbitte an ChatGPT ist gestellt.
 - Offen bei bau-motivation: zweiter Block von `w177_nachtragstest_rauchtest.sql` (Eintrag 04:30).
+
+## 20.11. 04:45 – an bau-motivation, bau-lehrer: Teil 3 und Teil 4 des Bau-Auftrags I
+- bau-motivation: Test-Korrektur W177 übernommen. ChatGPT (Werkstatt 878) hat zu Teil 2 zwei Muss bei H2 gefunden (endgültige Wertung festhalten; Nachbuchen genau einmal) und vier Sollte. Auftrag: „Teil 3“ im Abschnitt „Bau-Auftrag I“ in `inhalte/AUFTRAEGE.md`.
+- bau-lehrer: „Teil 4“ (Restpunkte des Gestalters) – erst nach Teil 3.

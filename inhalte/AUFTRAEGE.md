@@ -1908,3 +1908,27 @@ Zusätzlich je Thema ein Satz: **Passt der Flug zur angegebenen Klasse und zum L
 **Bericht je Thema im Postfach:** Zahl der gelesenen und nachgerechneten Aufgaben; Zahl der Änderungen je Fehlerart a–f; jede Änderung der Art a (falsche Lösung) mit altem und neuem Wortlaut; Urteil „in Ordnung / mit Korrekturen in Ordnung / nicht freigabefähig“ – bei „nicht freigabefähig“ sofort melden, nicht erst am Ende. Tatsachen (nachgerechnet, gelesen) von Annahmen trennen; nennen, was nicht geprüft wurde.
 
 Kein Merge nach `main`, nichts in die Datenbank schreiben, kein App-Code, keine Kinderdaten. Ohne Rückfragen durcharbeiten; bei Unklarheit die sinnvollste Lesart nehmen und im Bericht nennen. Am Ende „FERTIG: Prüfung neu, Chat n“.
+
+## Teil 3 – Nachprüfung von ChatGPT zu Teil 2 (Werkstatt-Nachricht 878; Chat `bau-motivation`, App 0.81.2)
+
+Teil 2 ist live (0.81.1). ChatGPT hat gelesen (nicht ausgeführt): H10 auf dem normalen Weg geschlossen; bei H2 zwei Muss. Beides sind Randfälle – bei den echten Kindern ist nichts beschädigt; **keine Bestandsänderung**.
+
+**Muss**
+1. **H2 – endgültige Wertung festhalten.** Fall: zwei richtige; Bordkarte X im 1. Anlauf falsch; dann Y richtig (X wird endgültig falsch gebucht, Folge 0, Y → 1); danach doch noch X im 2. Anlauf richtig, innerhalb von 30 Minuten. Die laufende Buchung bleibt bei Folge 1, `folge_nachrechnen` wertet X rückwirkend als „ersetzt“ und kommt auf 3. Lösung: die getroffene Entscheidung am Versuch speichern (z. B. Spalte `wertung_fest`: `falsch`/`ersetzt`/`eigen`/`neutral`), `versuch_wertung` und `folge_nachrechnen` lesen zuerst diesen Wert; ein späterer 2. Anlauf ändert eine schon endgültig gebuchte Wertung nicht mehr (er zählt dann als normaler neutraler Versuch). Negativtest genau dieses Falls: Buchung = Nachrechnung.
+2. **H2 – Nachbuchen genau einmal.** Das Nachbuchen offener erster Anläufe (`wertung_offen`) läuft ohne Sperre: Zwei gleichzeitige Antworten desselben Kindes (zwei Tabs) könnten denselben offenen Fehler doppelt buchen. Lösung: offene Zeilen in einem Schritt beanspruchen (`update … set wertung_offen = false … returning` bzw. `for update skip locked`) und nur die beanspruchten buchen. Test, so weit ohne echte Gleichzeitigkeit möglich: zweimaliges Nachbuchen derselben Zeile bucht einmal.
+
+**Sollte**
+3. **H10 – Einlösen atomar:** `misch_buchen` bucht den Beleg nur, wenn das Einlösen tatsächlich eine Ausgabe getroffen hat (`update … returning`); eindeutiger Index auf offene Ausgaben je Kind und Bordkarte (nur, wenn im Bestand keine Dopplung liegt – vorher lesend prüfen und berichten); `schule.mischkarten` legt Ausgaben konfliktfest an.
+4. **H10 – Ausgabe an die Lage binden:** In `misch_ausgabe` die Etappe mitschreiben, für die die Karten ausgeliefert wurden (Einheit, Lernziel); `misch_gueltig` vergleicht mit dieser gespeicherten Etappe statt mit den Angaben des Geräts.
+5. **H2 – 30-Minuten-Grenze:** Offene erste Anläufe, die älter als 30 Minuten sind, auch beim Lesen des Flugs (`einheit_lesen_intern`) und beim Start eines Tests entscheiden – nicht erst bei der nächsten Übungsantwort. Test mit abgelaufener Zeit.
+6. **H6 – Tageswechsel:** Der Zähler „heute selbst gelöst“ verwirft einen gespeicherten Stand, wenn der Server-Tag gewechselt hat (auch bei über Nacht offener Seite: beim nächsten Laden oder Antworten).
+
+Migration als Datei mit Rauchtest (Rollback, nur Testkind); alle bisherigen Rauchtests müssen weiter laufen – nenne im Bericht, welche du angepasst hast. Die alte App (0.81.1) darf nicht brechen. Meldung „FERTIG: Auftrag I, Teil 3“.
+
+## Teil 4 – Restpunkte des Gestalters aus Nachprüfung 2 (Chat `bau-lehrer`, **nach** Teil 3; App 0.81.3)
+
+Grundlage: `inhalte/pruefung/lehrer/nachpruefung-2.md` (mit Bildern).
+1. Umschalter „Nach Themengebiet | Nach Klasse (Lehrplan)“ auf dem Tablet ohne Trennung im Wort (kürzere Beschriftung „Themengebiet | Klasse“ unter 1100 px ist in Ordnung).
+2. Plan links auf dem Handy: lange Überschriften nicht mitten im Wort trennen (kleinere Schrift, Pfeile unter den Text oder Kürzen mit „…“ wie auf dem Tablet).
+3. Kann, wenn ohne Umbau: heller Verlauf auch links im Plan; gestrichelte Linie bei IB auch für ein Kind ohne MYP-Jahr (dann ganz oben); Legende auf Tablet und Rechner ohne inneres Rollen sichtbar; Vorlese-Namen der Knöpfe an die sichtbare Überschrift angleichen; doppeltes „–“ in der IB-Zelle für Klasse 5 weglassen; im Info-Text ein Satz, dass ein Pausentag nach dem Kalendertag am Aufenthaltsort des Kindes zählt.
+Tests für 1 und 2 (Messung: kein Wort wird getrennt). Meldung „FERTIG: Auftrag I, Teil 4“.

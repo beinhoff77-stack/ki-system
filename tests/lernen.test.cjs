@@ -1790,6 +1790,22 @@ test('H3: dieselbe Bordkarte noch einmal richtig – „Die kennst du schon – 
   assert.deepEqual(r, [3, 2], 'ungezählte zuerst; sind alle gezählt, geht es trotzdem weiter');
 });
 
+test('I-2/H6: „heute selbst gelöst“ nach dem Tag des Servers, nicht nach dem Kalendertag des Geräts', async (t) => {
+  const lesen = (aktion, e) => { const x = neueRegel({ stellenwert: { eigene_loesungen: 1, folge: 1, gezaehlt: [11] } })(aktion, e); if (x) Object.assign(x, { heute_selbst: 4, heute_tag: '2026-11-19' }); return x; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: mitKarte(lesen, { neu_gezaehlt: false, eigene_loesungen: 1, folge: 2, folge_ziel: 2, typen_anzahl: 1, typen_noetig: 1, gezaehlt: [11], heute_selbst: 5, heute_tag: '2026-11-19' }) });
+  // auf dem Gerät liegt ein Zähler eines anderen (Geräte-)Tags – er zählt nicht
+  await page.addInitScript(() => { try { localStorage.setItem('lern.heute.1', JSON.stringify({ tag: '2000-01-01', n: 9, server: false })); } catch { /* egal */ } });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  assert.match(await page.locator('.lr-heute').innerText(), /heute 4 Aufgaben selbst gelöst/);
+  assert.deepEqual(await page.evaluate(() => JSON.parse(localStorage.getItem('lern.heute.1'))), { tag: '2026-11-19', n: 4, server: true }, 'Tag vom Server gespeichert');
+  await tippe(page, ['2', '0', '0', '0']);
+  await page.getByText('Die kennst du schon – gut wiederholt.').waitFor();
+  assert.match(await page.locator('.lr-heute').innerText(), /heute 5 Aufgaben/);
+  assert.equal(await page.evaluate(() => JSON.parse(localStorage.getItem('lern.heute.1')).tag), '2026-11-19');
+  // ohne Server-Tag (alter Server): Gerät zählt selbst, nach Gerätetag
+  assert.deepEqual(await page.evaluate(() => { localStorage.removeItem('lern.heute.1'); lernHeutePlus(1); lernHeutePlus(1); const x = JSON.parse(localStorage.getItem('lern.heute.1')); return [x.n, x.server, x.tag === lernGeraetTag(), lernHeute(1)]; }), [2, false, true, 2]);
+});
+
 test('H4/H1: Eltern – „Flug-Nachtest bestanden“ getrennt von „sicher“, wieder geöffnete Etappe als „wieder offen“', async (t) => {
   const ls = (aktion, e) => {
     if (aktion !== 'schule_lernstand') return null; const y = structuredClone(e);

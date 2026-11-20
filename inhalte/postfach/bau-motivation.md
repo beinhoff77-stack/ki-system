@@ -2,6 +2,52 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: Auftrag I, Teil 2 (Lernregeln) – App 0.81.1
+
+Zweig `bau-motivation`, Stand `lernen-app` 68a663d (Teil 1 und 1b enthalten) übernommen. Kein Merge. Datenbank nur gelesen (Funktionstexte, Stellen je einmal vorhanden geprüft).
+**Migration** `supabase/migrations/20261120_i2_lernregeln.sql` (nicht ausgeführt; pglast ok; kein DROP, kein DELETE, keine Bestandsänderung; wiederholt ausführbar).
+**Rauchtests** (nicht ausgeführt, Rollback, nur Testkind): neu `supabase/tests/i2_lernregeln_rauchtest.sql`; ergänzt `w177_nachtragstest_rauchtest.sql` (zweiter Block);
+angepasst `w176_h_muss_rauchtest.sql` (H10a legt jetzt eine Ausgabe an – ohne sie wäre der alte Fall nach I-2 zu Recht keine Mischkarte mehr).
+
+**Muss**
+1. **H10 – Mischkarte serverseitig gebunden.** Neue Tabelle `schule.misch_ausgabe` (Kind, Bordkarte, ausgegeben am, eingelöst am). `schule.mischkarten` merkt jede ausgelieferte Karte
+   (die bisherige Auswahl heißt jetzt `schule.mischkarten_waehlen`, unverändert); schon offene Ausgaben werden nur aufgefrischt. `misch_gueltig` verlangt zusätzlich eine
+   ausgegebene, nicht eingelöste Ausgabe der letzten 24 Stunden; `misch_buchen` löst sie ein. `uebung_pruefen_intern` prüft einmal vor dem Speichern (sonst wäre die Ausgabe
+   für die Antwort schon verbraucht). Ohne Ausgabe: normale Buchung als Übung, kein Misch-Beleg, kein `misch` in der Antwort.
+   **App 0.80.0** holt ihre Mischkarten über `schule_einheit_lesen` → sie sind ausgegeben, der Ablauf bleibt gleich; sie bricht nicht.
+   Rauchtest: gefälschter Kontext ohne Ausgabe und mit Ausgabe älter als 24 h → kein Beleg (Negativ); Flug lesen → Ausgabe → Antwort → Beleg, `misch.ok`, eingelöst (Positiv); dieselbe Karte zweimal → beim zweiten Mal kein Beleg.
+2. **H2 – eine Regel für „endgültig falsch“.** `schule.versuch_wertung(versuch)` = `eigen | neutral | falsch | ersetzt | offen | test`: ohne zweite Chance oder im 2. Anlauf falsch → sofort `falsch`;
+   falscher 1. Anlauf → `offen`, bis ein 2. Anlauf derselben Bordkarte kommt (`ersetzt`, der 2. Anlauf entscheidet) oder das Kind weitergeht bzw. 30 Minuten vergehen (`falsch`).
+   Der Trigger `versuch_karte` bucht damit (`schule.versuch_buchen`) und merkt sich offene erste Anläufe (`versuch.wertung_offen`); beim nächsten Versuch des Kindes werden sie entschieden und,
+   wenn endgültig falsch, nachgebucht. `schule.folge_nachrechnen(kind, einheit, lernziel, ab)` rechnet „folge“ mit derselben Regel nach (nur lesen).
+   **Keine Bestandsänderung:** alte Zeilen haben `wertung_offen = null` und werden nie nachgebucht.
+   **Verhaltensänderung in der laufenden Buchung:** Ein falscher 1. Anlauf, den das Kind liegen lässt, bricht jetzt die Folge (bisher wurde er nie gebucht).
+   Rauchtest (Negativ): 2 richtig → 1. Anlauf falsch, liegengelassen → nächste richtig → Folge 1 (vorher 3); Nachrechnung = Buchung. Dazu: 1. Anlauf falsch + 2. richtig → Folge bleibt; ohne zweite Chance falsch → 0.
+
+**Sollte**
+3. **H4/H11/H14 – Tests** (im neuen Rauchtest): H4 Nachtest 4/5 bestanden, diese Etappe falsch → nicht „sicher“, Gegenprobe richtig → sicher. H11 über die ganze Buchung: Expedition-Teil zeigt auf eine
+   neue Version des Flugs (im Test angelegt), Antwort über `uebung_pruefen_intern` bucht „angewandt“ auf die gelandete alte Version. H14: Teil a → „begonnen“, Unterbrechung mit Rückfall einer Voraussetzung,
+   Teile b und c → „geschafft“, Sterne einmal, auch wenn Teil a wiederholt wird.
+4. **H12 – Import:** `expedition_importieren` prüft jede angegebene Voraussetzung auch auf eine vorhandene Lernkarte (Lernziel mit Übungen, Flug nicht „ersetzt“), vor jedem Schreiben.
+   Alle 21 vorhandenen Expeditionen erfüllen das (gelesen). Rauchtest: unbekannte Lernkarte → Fehler „Voraussetzung: Lernkarte …“, nichts geschrieben; gültige Datei läuft.
+5. **H6 – Tageszähler:** Server liefert `heute_tag` (Kalendertag in der Zeitzone des Kindes, `schule.heute_tag`) in `schule_einheit_lesen` und in `schule_uebung_pruefen.karte`.
+   App speichert `{tag, n, server}` und zeigt den Server-Zähler unabhängig vom Gerätetag; nur ohne Server-Tag (alter Server) zählt das Gerät nach seinem Tag.
+6. **W177 – Nachtragstest** (Rauchtest ergänzt): offen + fehlerhaft zugleich → Nachtragstest nur für die offene Etappe, danach Korrektur nur für die fehlerhafte; Abbruch und Wiederaufnahme → dieselbe Sitzung,
+   Antwort einmal gespeichert; Sterne vorher/nachher = richtige × Regel, zweiter Abschluss bucht nichts. Läuft der Nachtragstest, bekommt eine Korrektur-Anfrage den laufenden Test zurück (heutiges Verhalten, nur notiert).
+   **Frist des nächsten Nachtests (nichts geändert – Sebastian entscheidet):** Der Nachtragstest ist technisch ein Flugtest (`blocktest`). Solange es **noch keinen Nachtest** gab, ist der Anker
+   der letzte Abschluss eines Flugtests oder einer Korrektur → **die 10-Lerntage-Frist beginnt nach dem Nachtragstest (und nach jeder folgenden Korrektur) neu.** Gab es **schon einen Nachtest**,
+   zählt die Frist ab diesem Nachtest weiter; der Nachtragstest verschiebt sie nicht. Solange eine Pflicht-Etappe offen oder fehlerhaft ist, ist ohnehin kein Nachtest fällig.
+7. **H5/H13 – was wie getestet ist:**
+   - Über die **innere Funktion** (Rauchtest, Rollback): alle Fälle oben – `schule.uebung_pruefen_intern`, `schule.einheit_lesen_intern`, `schule.mischkarten`, `schule.test_starten_intern`,
+     `schule.test_abschliessen_intern`, `schule.expedition_importieren`; dahinter echte Trigger (`versuch_karte`, Sterne). Die Testsitzung für H4 und Testantworten im W177-Block werden direkt eingetragen.
+   - Über den **äußeren Zugang** (`api.schule_*` mit Zugangsschlüssel, Edge-Funktion `lernen-api`): **nicht getestet** – braucht einen Schlüssel, der in keine Datei gehört. Die `api.*`-Funktionen sind unverändert
+     und rufen genau diese inneren Funktionen nach der Zugriffsprüfung auf.
+   - App: Playwright mit nachgebildeten Server-Antworten (H6).
+
+**Gesehen/getestet:** lernen 95 von 95 (neu I-2/H6); Suche 138 bestanden, 10 Fehler – die bekannten alten (13, 15, 101, 103, 105, 111, 113, 126, 127) plus 108, der gelegentlich wackelt; keiner betrifft die Lern-Seiten. Migration und Rauchtests mit pglast geparst, keine Variablen-/Alias-Doppelungen; Ersetzungsstellen im Live-Text je einmal vorhanden.
+**Nicht geprüft:** Migration und Rauchtests nicht ausgeführt. Die 30-Minuten-Grenze für „weitergegangen“ ist eine Annahme (im Rauchtest nur der Fall „andere Bordkarte“). Einzelne Ausgaben,
+die nie beantwortet werden, bleiben als offene Zeilen in `misch_ausgabe` liegen (zählen nach 24 h nicht mehr; kein Aufräumen, weil kein DELETE).
+
 ## 2026-11-20 – Rauchtest „Abgleich ohne Expeditionen“ angepasst
 
 - `supabase/tests/abgleich_ohne_expeditionen_rauchtest.sql`: setzt den gewählten Flug vor dem Abgleich auf `geprueft` (nur wenn er `freigegeben` ist; im Rollback, nichts bleibt) –

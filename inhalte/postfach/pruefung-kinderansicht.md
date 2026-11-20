@@ -84,3 +84,8 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 - Erfüllt: RS 7 = 18 Themen, Gym 8 in Lehrplan-Reihenfolge mit Lernbereichen, 4 Stufen überall gleich, alle Knöpfe, Sammelaktion = ein Speichern.
 - Muss: M1 Tablet 820 – Lehrplan-Spalte zu schmal (Wörter gebrochen, Überlappung). Sollte: S1 Auswahlmodus kompakt, S2 gleiche Einheit Kopf/Abschnitte, S3 Lehrplan-Übersicht nach Lernbereich und Lehrplan-Reihenfolge, S4 Etappen-Titel sichtbar.
 - Nicht geprüft: LB-3-Serverregeln, echte Daten/Geräte.
+
+## 2026-11-20 – FERTIG: Nachprüfung 4 (App 0.82.2)
+- Bericht: `inhalte/pruefung/lehrer/nachpruefung-4.md`, Bilder `inhalte/pruefung/lehrer/n4/bilder/`.
+- Alle Punkte aus Nachprüfung 3 erledigt (M1, S1–S4, K1–K4).
+- Neu: N1 Muss – „Nach Themengebiet“ (Standard-Ansicht) bricht auf dem Tablet 16 Wörter (Handy 2), gleiche Ursache wie M1. N2 Sollte – Plan-Titel links auf Handy/Tablet einzeilig abgeschnitten. N3 Sollte – Kopf „20 ↻“ gegen Abschnitt „24 Flüge“. N4/N5 Kann.

@@ -1,0 +1,20 @@
+{
+ "thema_schluessel": "bruch.brueche",
+ "kurz": "Du lernst, mit Anteilen wie drei Viertel zu rechnen und Brüche zu vergleichen, zu kürzen und zu erweitern.",
+ "etappen": {
+  "bruchteil_von": "einen Bruchteil einer Größe ausrechnen, zum Beispiel 3/4 von 20 €",
+  "anteil_bestimmen": "angeben, welcher Anteil gefärbt oder gemeint ist, und den Bruch kürzen",
+  "ganzes_bestimmen": "aus einem bekannten Teil das Ganze berechnen",
+  "erweitern": "Zähler und Nenner mit derselben Zahl malnehmen und zwei Brüche gleichnamig machen",
+  "ggt": "den größten gemeinsamen Teiler zweier Zahlen finden und in Aufgaben nutzen",
+  "kuerzen": "Zähler und Nenner durch dieselbe Zahl teilen, bis sich nichts mehr kürzen lässt",
+  "verhaeltnis_kuerzen": "Verhältnisse wie 27 : 63 so weit wie möglich kürzen",
+  "gleichwertig": "fehlende Zahlen in Verhältnissen wie 5 : 8 = 45 : □ ergänzen und Mischungen vergleichen",
+  "gemischte_zahlen": "gemischte Zahlen in unechte Brüche umwandeln und zurück",
+  "kgv": "das kleinste gemeinsame Vielfache zweier Zahlen finden und in Aufgaben nutzen",
+  "vergleichen": "Brüche mit verschiedenen Nennern über den Hauptnenner vergleichen",
+  "zahlenstrahl": "Brüche zwischen 0 und 1 auf dem Zahlenstrahl markieren und ablesen",
+  "zahlbereiche": "negative Brüche am Zahlenstrahl finden und Brüche der Größe nach ordnen",
+  "verstehen": "Aussagen über Brüche prüfen und mit einem Gegenbeispiel widerlegen"
+ }
+}

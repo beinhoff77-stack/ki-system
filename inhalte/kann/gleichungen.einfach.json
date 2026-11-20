@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "gleichungen.einfach",
+ "kurz": "Du lernst, eine gesuchte Zahl in Rechenrätseln wie x + 9 = 22 zu finden und deine Lösung zu prüfen.",
+ "etappen": {
+  "waage": "prüfen, ob eine Zahl eine Lösung ist, und eine Waage im Gleichgewicht halten",
+  "zwei_schritte": "Gleichungen wie 3 · x + 4 = 19 durch Rückwärtsrechnen in zwei Schritten lösen",
+  "probe": "eine Lösung durch Einsetzen prüfen und falsche Lösungen erkennen",
+  "aufstellen": "aus Zahlenrätseln und Textaufgaben eine Gleichung aufstellen und lösen",
+  "ohne_loesung": "erkennen, wann eine Gleichung keine Lösung in den natürlichen Zahlen hat"
+ }
+}

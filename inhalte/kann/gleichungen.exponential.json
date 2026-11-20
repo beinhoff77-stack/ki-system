@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "gleichungen.exponential",
+ "kurz": "Du lernst, Gleichungen zu lösen, bei denen x oben im Exponenten steht, etwa bei Zinsen.",
+ "etappen": {
+  "logarithmus": "ohne Taschenrechner Logarithmen wie lg(0,1) oder log₂(1/2) bestimmen",
+  "gleiche_basis": "eine Gleichung wie 9^x = 2 187 lösen, indem du gleiche Basen herstellst",
+  "mit_log_loesen": "eine Gleichung wie 7 · 1,2^x = 91 durch Logarithmieren nach x auflösen",
+  "potenzregel": "mit log(a^r) = r · log(a) rechnen und Gleichungen wie 7^x = 2^(x − 2) lösen",
+  "wachstum": "bei Zinsen und Halbwertszeiten ausrechnen, wann ein Wert erreicht ist",
+  "verstehen": "erkennen, wann eine Gleichung wie 3^x = −81 keine Lösung hat, und Fehler finden"
+ }
+}

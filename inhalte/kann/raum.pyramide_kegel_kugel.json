@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "raum.pyramide_kegel_kugel",
+ "kurz": "Du lernst, wie viel in spitze und runde Körper passt und wie viel Material ihre Hülle braucht.",
+ "etappen": {
+  "pyr_volumen": "bei einer Pyramide mit V = 1/3 · G · h das Volumen oder die Höhe berechnen",
+  "pyr_oberflaeche": "für eine quadratische Pyramide Seitenhöhe, Mantel und Oberfläche berechnen",
+  "kegel_volumen": "bei einem Kegel das Volumen berechnen und die Höhe zurückrechnen",
+  "kegel_mantel": "für einen Kegel Mantelfläche, Oberfläche und Sektorwinkel berechnen",
+  "kugel": "für eine Kugel Volumen und Oberfläche berechnen und den Radius zurückrechnen",
+  "sachkontext": "zusammengesetzte Körper wie eine Eistüte zerlegen und berechnen",
+  "verstehen": "sagen, wie sich Volumen und Flächen ändern, wenn Längen sich ändern"
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "gleichungen.potenz",
+ "kurz": "Du lernst, Gleichungen wie x⁴ = 16 zu lösen und zu begründen, wie viele Lösungen sie haben.",
+ "etappen": {
+  "gerade": "eine Gleichung wie x⁴ = 256 mit beiden Lösungen lösen",
+  "ungerade": "eine Gleichung wie x³ = −216 lösen, auch wenn die Lösung negativ ist",
+  "anzahl": "an Exponent und Ergebnis ablesen, ob xⁿ = c zwei, eine oder keine Lösung hat",
+  "umformen": "eine Gleichung wie 3x⁴ + 9 = 57 erst umformen und dann lösen",
+  "naeherung": "mit dem Taschenrechner Lösungen wie bei x³ = 83 bestimmen und sinnvoll runden",
+  "sachaufgabe": "zu Würfeln, Flächen und Zinsen eine Gleichung xⁿ = c aufstellen und lösen"
+ }
+}

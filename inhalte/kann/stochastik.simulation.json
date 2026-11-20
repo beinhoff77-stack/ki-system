@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "stochastik.simulation",
+ "kurz": "Du lernst, einen Zufallsversuch mit Würfel, Urne oder Zufallszahlen nachzuspielen.",
+ "etappen": {
+  "zufallsgeraet": "ein Zufallsgerät wählen, das genau die gesuchte Wahrscheinlichkeit hat",
+  "regel": "bei Zufallsziffern oder -zahlen festlegen, welche Werte als Treffer zählen",
+  "zufallsziffern": "in einer Liste von Zufallsziffern die Treffer nach einer Regel zählen",
+  "auswerten": "aus Treffern und Durchgängen eine Wahrscheinlichkeit schätzen und hochrechnen",
+  "monte_carlo": "mit Zufallspunkten in einem Quadrat die Fläche einer Figur schätzen",
+  "beurteilen": "beurteilen, ob eine Simulation die richtige Wahrscheinlichkeit nachbildet"
+ }
+}

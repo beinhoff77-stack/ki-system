@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "messen.volumen",
+ "kurz": "Du lernst auszurechnen, wie viel in eine Kiste, einen Karton oder ein Becken hineinpasst.",
+ "etappen": {
+  "einheitswuerfel": "das Volumen durch Zählen von Einheitswürfeln in Schichten bestimmen",
+  "quader": "das Volumen eines Quaders oder Würfels mit Länge mal Breite mal Höhe berechnen",
+  "einheiten": "Volumen zwischen mm³, cm³, dm³ und m³ umrechnen",
+  "liter": "zwischen l, ml, dm³ und cm³ umrechnen, zum Beispiel bei Flaschen und Eimern",
+  "rueckwaerts": "aus dem Volumen eine fehlende Kante oder die Füllhöhe berechnen",
+  "zusammengesetzt": "das Volumen von Treppen und anderen Körpern aus Quadern berechnen",
+  "verstehen": "Volumenangaben schätzen, Rechnungen prüfen und Fehler bei Einheiten finden"
+ }
+}

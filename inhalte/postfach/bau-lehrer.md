@@ -2,6 +2,47 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-20 – FERTIG: LB-1/LB-2/LB-5 – App 0.82.0
+
+Zweig `bau-lehrer`, Stand `lernen-app` (c750ad2) übernommen. Kein Merge. Vorgabe: `inhalte/pruefung/lehrer/umsetzung-lb.md`, Entwurf `lehrplan-klasse-4-stufen.html`; Server-Felder LB-3 laut `bau-motivation.md`.
+Bilder: `docs/previews/la/lb-plan-400.png`, `lb-plan-820.png`, `lb-plan-1280.png`, `lb5-auswahl-1280.png`, `la7-lehrplan-820.png`, `la4-plan-820.png`.
+
+**Umgesetzt**
+- **LB-2 – 4 Stufen überall gleich** (◉ Kann er komplett · ↻ In Wiederholung „Wdh x von 5 · nächste in n Lerntagen“ · ▶ Gerade dran · ○ Kommt noch · + Nicht im Plan; gleiche Zeichen, Farben, Wörter): Plan links (je Ort und je Flug aufgeklappt), „Nach Themengebiet“ (Stufe statt „✓ im Plan“), „Nach Klasse“, Lehrplan-Übersicht (Stufe je Kind, Ort-Spalte entfernt, „Gebiet · andere Schularten“ unter dem Titel), Überblick „Zuletzt geschafft“ mit ◉/↻. Quelle: `stufe` vom Server; ohne Server-Stufe aus dem Stand geschätzt.
+- **LB-1 „Nach Klasse“:** eine Zeile je Flug, Filter streng (genau diese Klasse der gewählten Schulart), Reihenfolge Lehrplan (`lehrplan_reihenfolge`, sonst Themenliste), RS/IB „Reihenfolge vorläufig wie Gymnasium.“, „Nur Realschule“/„Nur IB MYP“ am Ende, Lernbereich-Zwischenüberschriften (sobald `lernbereich` da ist), Eingeplante bleiben an ihrem Platz. Aufklappen: Lehrplan-Bezug, Kurzbeschreibung, Etappen mit Stand, „Inhalte ansehen“, 4 Knöpfe. „+ In den Plan“ nimmt den Ort nur mit diesem Flug auf (andere ausgelassen). Oben nur „Gym 8: X von Y Themen im Plan oder schon gekonnt“ mit Balken.
+- **LB-5 Plan = Cockpit:** Kopf „Gymnasium Kl. 8 · n ▶ · n ○ · n ↻ · n ◉ · Gespeichert · Auswählen · ↶ Rückgängig“ (gezählt je Flug). Links „Unser Lehrplan“ nach Stufe: ▶ und ○ ziehbar/↑↓, ↻ mit Wdh-Angabe, ◉ zugeklappt mit Datum (ersetzt „Geschafft“). Knöpfe an jedem Flug, bei ◉ zusätzlich „Wieder in die Wiederholung“. Auswahlmodus (Häkchen je Flug/Ort, links und rechts) mit Sammelleiste: Lernen · Kann er – aber wiederholen · Kann er komplett · Aus dem Plan nehmen · Wieder in die Wiederholung. Speichert sofort; Rückgängig schickt `rueckgaengig: <schritt_id>`. Nach jedem Speichern werden die Stufen neu gelesen.
+- „Kann er – aber wiederholen“ und „Wieder in die Wiederholung“ nur, wenn `kann_wdh` kommt. Ohne LB-4-Felder läuft alles (getestet mit Testdaten ohne `lernbereich`/`lehrplan`).
+- **Migration als Datei (nicht ausgeführt):** `supabase/migrations/20261120_lb_lehrplan_felder.sql` – Spalten `schule.thema.lernbereich`/`lehrplan` (jsonb) und Ausgabe von `beschreibung`, `lernbereich`, `lehrplan`, `etappen` (Lernziel/Titel) in `schule_plan_lesen` sowie `lernbereich`, `lehrplan`, `lehrplan_reihenfolge` in `schule_lehrplan_uebersicht`. Anker in den Live-Funktionen nur lesend geprüft. Rauchtest `supabase/tests/lb_lehrplan_felder_rauchtest.sql` (Rollback, nur Testdaten). Die Inhalte der Felder (LB-4) füllt der Haupt-Chat.
+- Info-Seite: Plan-Absatz neu (Stufen, Knöpfe, Auswählen), Lehrplan-Übersicht „Stufe je Kind“.
+
+**Gesehen/getestet**
+- lernen: 102 von 102. Neu: 6 Gym-7-Flüge per Auswahl mit **einem** `schule_plan_setzen` auf `kann_wdh_themen`; ◉-Flug „Wieder in die Wiederholung“ (`wieder_wdh_themen`) und Rückgängig mit `rueckgaengig: 901`; alle Knöpfe links und rechts erreichbar; 400/820/1280 ohne Querrollen und ohne gebrochene Wörter (Wortbereich über zwei Zeilen gemessen).
+- Angepasst: Plan-, LA-4/5/7/8-, I-7/I-8-, E-2-Tests auf Stufen und neue Klasse-Ansicht; Reisewörter-Test lässt den Vorgabe-Satz „Themen im Plan oder schon gekonnt“ zu.
+- Suche: 139 bestanden, 9 Fehler – die bekannten alten (13, 15, 101, 103, 105, 111, 113, 126, 127).
+
+**Nicht geprüft / Abweichungen**
+- Nur mit Testdaten, nicht mit echten Lernständen im Browser angesehen.
+- Im Auswahlmodus klappen links alle Orte auf (damit jeder Flug ein Häkchen hat) – auf dem Handy lang.
+- Zähler im Kopf zählt Flüge (nicht Orte).
+- Lehrplan-Übersicht: „andere Schularten“ steht jetzt klein hinter dem Titel statt in eigener Spalte (Zeile wie LB-1, passt weiter aufs Tablet).
+
+## 2026-11-20 – FERTIG: Auftrag I, Teil 4 – App 0.82.0
+
+Bilder: `docs/previews/la/teil4-fertig-390.png`, `lb-plan-820.png`.
+
+**Umgesetzt**
+1. Umschalter: unter 1100 px kurz „Themengebiet | Klasse“, ab 1100 px lang; kein Wort gebrochen.
+2. Plan links auf dem Handy: lange Überschriften einzeilig mit „…“ (wie Tablet).
+3. Kann-Punkte: Legende oben in der Spalte (kein inneres Rollen nötig); IB-Linie auch ohne MYP-Jahr (oben); kein doppeltes „–“ in der IB-Zelle bei Kl. 5 (Kinder-Tabelle, Karten, Überblick); Satz zum Pausentag (Kalendertag am Ort des Kindes) auf der Info-Seite und unter „Reisetage und Pausen“. Vorlese-Namen der Plan-Knöpfe nennen jetzt den Flug-Titel.
+4. Inhalte ansehen: In geprüften/freigegebenen Flügen sind gesperrte Bordkarten „aussortiert“ (nicht „in Prüfung“), zugeklappt am Ende der Etappe „n aussortierte Bordkarten (ersetzt oder überzählig) anzeigen“; Etappen-Zeile und Kopf zählen nur aktive; Lehrplan-Übersicht „Fertig · n Etappen · m Bordkarten“ ohne aussortierte. „In Prüfung“ nur für Flüge im Entwurf. Info-Seite ergänzt.
+5. Kinderansicht: a) nach dem Knobeln vom Landebildschirm (richtig, falsch, abgebrochen) zurück auf den Landebildschirm; b) gelandete, nicht fällige Etappe zeigt „Hier bist du fertig ✓“ mit großem Weiter-Knopf (nächste offene Etappe · „Zum Test“ · „Weiter zum nächsten Flug“ → Abflugtafel) und kleinem „Trotzdem weiterüben“; der Weiter-Knopf bleibt über jeder weiteren Bordkarte; c) Abflugtafel/„Weiter geht’s“ öffnen ohne Etappen-Nummer die empfohlene Etappe (fällig, sonst offen) – eine gelandete nur, wenn nichts offen ist, und dann mit dem Weiter-Knopf aus b).
+
+**Gesehen/getestet** (in den 102 oben)
+- Kein Wort gebrochen: Umschalter 820, Plan-Überschriften 400; Zählung ohne aussortierte (Inhalte ansehen + Lehrplan-Übersicht); Knobel → zurück auf Landung (abgebrochen und falsch); gelandete Etappe zeigt Weiter-Knopf, auch nach einer weiteren Bordkarte.
+
+**Nicht geprüft**
+- 5c nur über den Code und Test b), kein eigener Test für die Abflugtafel. In der alten (nicht „neu“) Kinderansicht führt Knobel-Zurück auf „Hier bist du fertig ✓“ statt auf einen eigenen Landebildschirm (dort gibt es keinen).
+
 ## 2026-11-20 – FERTIG: Auftrag I, Teil 1b (LA-8) – App 0.81.0 (zusammen mit Teil 1)
 
 Zweig `bau-lehrer`, Stand `lernen-app` (mit Entwurf `lehrplan-spalte.html`) übernommen. Kein Merge. **Keine Migration nötig:** `schule_plan_lesen` liefert je Ort schon `kontinent` (= `schule.kontinent.titel`), `reihenfolge`, je Flug `jahrgang` (aus `schule.thema_jahrgang`, IB als MYP-Jahr) und `lehrplan_reihenfolge` (lesend geprüft). Die 10 aufgelösten Themen hängen an keinem Ort und erscheinen daher nicht (66 Orte, 95 Flüge).

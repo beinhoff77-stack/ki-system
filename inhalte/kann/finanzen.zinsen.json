@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "finanzen.zinsen",
+ "kurz": "Du lernst auszurechnen, wie viel Geld die Bank dir fürs Sparen gibt – oder was ein geliehener Betrag kostet.",
+ "etappen": {
+  "begriffe": "Kapital, Zinssatz und Zinsen auseinanderhalten und den neuen Kontostand angeben",
+  "rollen": "sagen, wer beim Sparen und beim Leihen Zinsen zahlt und wer sie bekommt",
+  "jahreszinsen": "die Zinsen für ein Jahr über 1 % berechnen und Angebote vergleichen",
+  "jahreszinsen_komma": "Jahreszinsen auch bei Zinssätzen wie 2,5 % oder 4,5 % berechnen",
+  "zinssatz": "aus Kapital und Zinsen den Jahreszinssatz in Prozent berechnen",
+  "kapital": "aus Zinsen und Zinssatz das angelegte oder geliehene Geld berechnen",
+  "monatszinsen": "Zinsen für einige Monate als Teil der Jahreszinsen berechnen",
+  "zeitanteil": "Zinsen für ein halbes Jahr oder ein Vierteljahr berechnen"
+ }
+}

@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "funktionen.gebrochen",
+ "kurz": "Du lernst Funktionen kennen, bei denen x im Nenner steht, und wie ihre Graphen aussehen.",
+ "etappen": {
+  "definitionsmenge": "die Zahl finden, die man in a/(x + b) + c nicht einsetzen darf",
+  "asymptoten": "die senkrechte und die waagrechte Asymptote am Term und am Graphen ablesen",
+  "achsenpunkte": "die Schnittpunkte des Graphen mit der y-Achse und der x-Achse berechnen",
+  "parameter": "beschreiben, wie b und c den Graphen von a/x nach links, rechts, oben oder unten schieben",
+  "beurteilen": "mit Definitionsmenge, Asymptoten und Werten prüfen, ob Aussagen über Hyperbeln stimmen"
+ }
+}

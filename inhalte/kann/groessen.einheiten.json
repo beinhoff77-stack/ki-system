@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "groessen.einheiten",
+ "kurz": "Du lernst, Längen, Gewichte, Zeiten und Geld zu schätzen, umzurechnen und damit zu rechnen.",
+ "etappen": {
+  "schaetzen": "Längen, Gewichte und Zeiten mit bekannten Vergleichsgrößen sinnvoll schätzen",
+  "laenge": "Längen zwischen mm, cm, dm, m und km umrechnen",
+  "masse": "Massen zwischen g, kg und t umrechnen und vergleichen",
+  "zeit": "Zeitspannen ausrechnen und zwischen Tagen, Stunden, Minuten und Sekunden umrechnen",
+  "kommaschreibweise": "Größen mit Komma schreiben und wieder in zwei Einheiten zerlegen",
+  "rechnen": "mit Geld, Längen und Gewichten rechnen, nachdem du die Einheiten angeglichen hast",
+  "massstab": "mit dem Maßstab Längen auf Karten in echte Längen umrechnen und umgekehrt",
+  "verstehen": "Angaben zu Größen prüfen und falsche Umrechnungen erkennen"
+ }
+}

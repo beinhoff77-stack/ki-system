@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "bruch.dezimal",
+ "kurz": "Du lernst, Kommazahlen zu lesen, zu vergleichen, zu runden und in Brüche umzuwandeln – und zurück.",
+ "etappen": {
+  "stellenwerte": "Zehntel, Hundertstel und Tausendstel in Kommazahlen erkennen und als Dezimalzahl schreiben",
+  "vergleichen_ordnen": "Kommazahlen Stelle für Stelle vergleichen, ordnen und am Zahlenstrahl markieren",
+  "runden": "Dezimalzahlen auf Zehntel, Hundertstel oder Ganze runden",
+  "bruch_zu_dezimal": "Brüche durch Erweitern oder Teilen in Dezimalzahlen umwandeln",
+  "dezimal_zu_bruch": "Dezimalzahlen als vollständig gekürzten Bruch schreiben",
+  "merkwerte": "häufige Brüche wie 1/4 oder 3/8 im Kopf als Dezimalzahl und Prozent angeben",
+  "periodisch": "erkennen, wann sich Nachkommaziffern endlos wiederholen, und sie mit Strich schreiben",
+  "verstehen": "Aussagen über Dezimalzahlen Stelle für Stelle prüfen und widerlegen"
+ }
+}

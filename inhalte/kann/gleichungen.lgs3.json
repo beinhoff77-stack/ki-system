@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "gleichungen.lgs3",
+ "kurz": "Du lernst, Rätsel mit drei Unbekannten zu lösen, bei denen drei Angaben zugleich stimmen müssen.",
+ "etappen": {
+  "pruefen": "prüfen, ob ein Zahlentripel alle drei Gleichungen erfüllt",
+  "stufenform": "ein Gleichungssystem in Stufenform von unten nach oben lösen",
+  "eliminieren": "zwei Gleichungen so verrechnen, dass eine Unbekannte wegfällt",
+  "loesen": "ein lineares Gleichungssystem mit drei Unbekannten vollständig lösen",
+  "parabel": "die Parabel y = ax² + bx + c durch drei gegebene Punkte bestimmen",
+  "sachaufgabe": "aus drei Angaben ein Gleichungssystem aufstellen, lösen und passend antworten"
+ }
+}

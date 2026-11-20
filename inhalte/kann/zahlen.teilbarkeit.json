@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "zahlen.teilbarkeit",
+ "kurz": "Du lernst, schnell zu sehen, ob eine Zahl ohne Rest durch eine andere teilbar ist, und Zahlen zu zerlegen.",
+ "etappen": {
+  "teiler": "alle Teiler einer Zahl in Paaren finden",
+  "vielfache": "die Reihe einer Zahl fortsetzen und zählen, wie viele davon in einem Bereich liegen",
+  "endziffer": "an der Endziffer erkennen, ob eine Zahl durch 2, 5 oder 10 teilbar ist",
+  "quersumme": "die Quersumme bilden und so prüfen, ob eine Zahl durch 3 teilbar ist",
+  "neunerregel": "mit der Quersumme prüfen, ob eine Zahl durch 9 teilbar ist",
+  "primzahl": "entscheiden, ob eine Zahl eine Primzahl ist, und das begründen",
+  "primfaktoren": "eine Zahl in Primfaktoren zerlegen und Zerlegungen prüfen"
+ }
+}

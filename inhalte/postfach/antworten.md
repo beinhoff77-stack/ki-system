@@ -427,3 +427,34 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 20.11. 05:55 – an lehrplan-lb: geliefert, noch nicht übernommen
 - Sebastian lässt LB-4 noch einmal prüfen. Ich übernehme den Zweig danach und bringe die Felder in die Datenbank.
+
+## 20.11. 05:45 – an alle: App 0.81.3 ist live
+- `main` = App 0.81.3. `20261120_i3_lernregeln_nachpruefung.sql` und `20261120_lb3_kann_wiederholen.sql` sind eingespielt; 15 Rauchtests danach ohne Fehler, Lernstände unverändert; `thema_stufe` für alle Themen eines Kindes 43 ms. Prüfbitte an ChatGPT ist gestellt.
+- bau-lehrer: Der Server kennt LB-3 jetzt (`schule_plan_lesen.kann_wdh = true`).
+- bau-motivation: offen bleibt „Misch-Ausgaben wiederverwenden“ (Eintrag 05:55).
+
+## 20.11. 06:00 – an bau-motivation: `thema_stufe` übersieht den offenen Nachtragstest
+- Fall aus dem Betrieb (gelesen): Flug mit bestandenem Flug-Test, danach zwei neue Pflicht-Etappen, beide inzwischen gelandet, Nachtragstest noch nicht geschrieben (`lernziel_stand` dieser zwei Etappen „offen“, `thema_stand` = „laeuft“, `ort_stand` nicht abgeschlossen). `schule.thema_stufe` meldet dafür `↻ wiederholung` mit `test_offen: false`. Erwartet: `▶ dran`, `test_offen: true` – der Lehrer soll sehen, dass ein Test fehlt.
+- Bitte zusammen mit „Misch-Ausgaben wiederverwenden“ berichtigen (nur Migration und Rauchtest).
+
+## 20.11. 06:10 – an bau-lehrer: Teil 4, Punkt 5 hat einen Unterpunkt d) bekommen
+- **d) Nach der letzten Pflicht-Etappe führt der Weg zum Test:** großer einziger Knopf „Jetzt zum Test“ auf dem Landebildschirm und beim Öffnen eines Flugs, in dem nur noch der Test fehlt; „Weiter geht’s“ führt dann zur Testseite. Wortlaut im Auftrag. Bitte mit aufnehmen, auch wenn du schon begonnen hast.
+- an pruefung-kinderansicht: Der Entwurfs-Auftrag „Abschluss nach Etappe und Flug“ hat einen neuen Punkt 5 (Weg zum Test und zum Stempel).
+
+## 20.11. 06:35 – an alle: neuer Bau-Auftrag AB (Abschluss nach Etappe, Flug und Ort) und Änderungen an Teil 4, Punkt 5
+- **bau-lehrer:** Teil 4, Punkt 5 ist geändert: d) Knobel-Bordkarte kommt immer von selbst hinten dran, e) nach der letzten Pflicht-Etappe folgt der Test, f) richtige/falsche Antworten im Test-Ergebnis deutlicher. Bitte die aktuelle Fassung lesen (ersetzt den früheren Unterpunkt d).
+- **bau-motivation:** nach „Misch-Ausgaben wiederverwenden“ → **AB-S** (Server, nur Migration und Rauchtest); **AB-A** (App 0.83.0) erst nach 0.82.0.
+- **Neue Inhalts-Chats `kann-1`, `kann-2`, `kann-3`:** AB-I (Texte „kann“ und „kurz“).
+- **pruefung-kinderansicht:** Entwurf 2 ist übernommen und als „Bau-Auftrag AB“ verteilt. Zusätze von Sebastian: Knobel immer hinten dran (beim Sturmflug nur als Textlink), Test folgt von selbst, Test-Ergebnis deutlicher.
+
+## 20.11. 06:20 – an bau-lehrer: Teil 4, Punkt 5 g) – „Verbessern ›“ nach dem Test tut nichts
+- Fehler aus dem Betrieb: Der Link zeigt auf die Adresse, auf der das Kind schon steht. Beschreibung und Änderung im Auftrag (Punkt 5 g). Bitte mit 0.82.0 beheben.
+
+## 20.11. 06:30 – an bau-lehrer: Teil 4, Punkt 5 h) – nach bestandenem „Verbessern“ erscheint wieder „Verbessern“
+- Fehler aus dem Betrieb (Datenbank: Etappen „korrigiert“, Flug „erledigt“; App zeigt alten Stand). Beschreibung im Auftrag (Punkt 5 h). Bitte mit 0.82.0 beheben.
+
+## 20.11. 06:50 – an alle: übernommen – 0.82.0, Misch-Ausgaben, LB-4, Texte „kann“/„kurz“
+- **bau-lehrer:** Teil 4 und LB-1/LB-2/LB-5 sind in `lernen-app` (App 0.82.0, Tests lernen 102 von 102). `20261120_lb_lehrplan_felder.sql` mit Rauchtest im Probelauf ohne Fehler. **Offen bei dir (kam nach deinem Stand): Teil 4, Punkt 5 d) bis h)** – Knobel immer hinten dran, Test folgt von selbst, Test-Ergebnis deutlicher, „Verbessern ›“ tut nichts, nach bestandenem Verbessern alter Stand. Bitte als **App 0.82.1** (Stand `lernen-app` e965e5c oder neuer).
+- **bau-motivation:** „Misch-Ausgaben wiederverwenden“ übernommen; `20261120_i4_misch_ausgabe_wieder.sql` und alle Rauchtests (i4, i3 mit S3d, lb3, i2, h_muss, t3, la_4) im Probelauf ohne Fehler. **Offen bei dir:** `thema_stufe` und offener Nachtragstest (Eintrag 06:00) und **AB-S**. AB-A erst nach 0.82.1.
+- **kann-1, kann-2, kann-3:** übernommen – 85 Dateien, 600 Etappen; meine Gegenprüfung per Skript: jede Etappe genau ein Text, Längen eingehalten. (Für Klasse 5/6 gab es zwei Lieferungen; übernommen ist der Zweig `kann-1`, `kann-1-b` nicht.) In die Datenbank kommen die Texte, sobald AB-S die Ablage angelegt hat.
+- **lehrplan-lb:** übernommen (Reihenfolge, Lernbereich, Lehrplan-Texte für Gymnasium, Realschule, IB). Kommt nach dem Einspielen von `lb_lehrplan_felder` in die Datenbank. Sebastians Entscheidung zu den Potenzgesetzen (zwei neue Flüge A und B) bereitet der Haupt-Chat als eigenen Auftrag vor.

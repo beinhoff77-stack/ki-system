@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "zahlen.rationale_exponenten",
+ "kurz": "Du lernst, Wurzeln als Potenzen zu schreiben und damit zu rechnen.",
+ "etappen": {
+  "nte_wurzel": "vierte, sechste und andere n-te Wurzeln wie ⁴√0,0016 berechnen",
+  "potenz_wert": "ohne Taschenrechner Potenzen wie 27^(2/3) oder 8^(−2/3) ausrechnen",
+  "umwandeln": "eine Wurzel wie ⁴√(x⁷) als Potenz mit Bruch-Exponent schreiben und kürzen",
+  "zusammenfassen": "bei gleicher Basis Potenzen mit Bruch-Exponenten zu einer Potenz zusammenfassen",
+  "gleichung_exp": "eine Gleichung wie x^(3/5) = 8 lösen, indem du mit dem Kehrwert potenzierst",
+  "verstehen": "typische Fehler bei Bruch- und Minus-Exponenten erkennen und erklären"
+ }
+}

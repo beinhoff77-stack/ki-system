@@ -4431,7 +4431,7 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lern-plan-ort.lern-kl-zeile > :not(.lern-kl-kasten) { grid-column: 2; }
 /* Tablet: eine Zeile je Ort (E-2: 12 Orte, höchstens 72 px), voller Text im Tooltip und aufgeklappt; auf dem Handy und ab 1100 px umbrechen wie im Entwurf */
 .lern-plan-vorrat-zeile .lern-plan-ort > b { white-space: normal; overflow: visible; text-overflow: clip; }
-@media (min-width: 1100px), (max-width: 699px) { .lern-plan-ort.lern-kl-zeile > b, .lern-plan-ort.lern-kl-zeile > small { white-space: normal; overflow: visible; text-overflow: clip; } }
+@media (min-width: 1100px) { .lern-plan-ort.lern-kl-zeile > b, .lern-plan-ort.lern-kl-zeile > small { white-space: normal; overflow: visible; text-overflow: clip; } }
 .lern-plan-reiseort { font-style: italic; }
 .lern-plan-vorrat-zeile.lern-kl-rand { grid-template-columns: 30px 26px minmax(0, 1fr) auto; border-radius: 8px; margin-bottom: 4px; padding-left: 6px; }
 .lern-plan-vorrat-zeile.lern-plan-drin { grid-template-columns: 26px minmax(0, 1fr) auto; }
@@ -4447,3 +4447,89 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lern-plan-ab-hier { border-top: 2px dashed var(--warn); color: var(--warn); font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 6px 0 4px; margin: 8px 0 4px; }
 .lern-kl-legende { margin-top: 12px; line-height: 2; }
 .lern-kl-legende .lern-kl-kasten { margin-right: 3px; }
+/* LB-2: die 4 Stufen – gleiche Zeichen, Farben und Wörter überall */
+:root { --st1: #0F6B45; --st1h: #DDF0E5; --st2: #2F8A57; --st2h: #EDF7EF; --st3: #B07D00; --st3r: #D99A00; --st3h: #FFF4D2; --st4: #6B7580; --st4r: #8C96A0; --st4h: #F3F4F5; --st5: #B4471F; }
+.lern-st-sym { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 99px; font-size: 14px; font-weight: 800; flex: none; line-height: 1; }
+.lern-st-sym.st-1 { background: var(--st1); color: #fff; }
+.lern-st-sym.st-2 { background: var(--st2h); color: var(--st2); border: 2px solid var(--st2); }
+.lern-st-sym.st-3 { background: var(--st3r); color: #14202B; }
+.lern-st-sym.st-4 { background: #fff; color: var(--st4); border: 2px solid var(--st4r); }
+.lern-st-sym.st-5 { background: #fff; color: var(--st4); border: 2px dashed var(--st4r); }
+.lern-st-wort { display: flex; flex-direction: column; align-items: flex-end; text-align: right; font-size: 13px; min-width: 0; }
+.lern-st-wort b { white-space: nowrap; }
+.lern-st-wort small { color: var(--text-muted); }
+.lern-st-wort.st-1 b { color: var(--st1); } .lern-st-wort.st-2 b { color: var(--st2); } .lern-st-wort.st-3 b { color: #8a6100; } .lern-st-wort.st-4 b, .lern-st-wort.st-5 b { color: var(--st4); }
+.lern-st-mini { font-weight: 700; } .lern-st-mini.st-1 { color: var(--st1); } .lern-st-mini.st-2 { color: var(--st2); } .lern-st-mini.st-3 { color: #8a6100; }
+.lern-st-zahl { font-weight: 700; } .lern-st-zahl.st-1 { color: var(--st1); } .lern-st-zahl.st-2 { color: var(--st2); } .lern-st-zahl.st-3 { color: #8a6100; } .lern-st-zahl.st-4 { color: var(--st4); }
+.lern-st-knoepfe { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; margin: 6px 0 4px; }
+.lern-st-knopf { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; text-align: left; min-height: 44px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); cursor: pointer; }
+.lern-st-knopf b { font-size: 14px; } .lern-st-knopf small { font-size: 12px; color: var(--text-muted); }
+.lern-st-knopf[aria-pressed="true"] { border: 2px solid var(--st1); background: var(--st1h); }
+.lern-st-knopf-aus b { color: var(--st5); }
+.lern-st-knopf-wieder { border-style: dashed; }
+.lern-plan-sammel .lern-st-knopf { min-height: 40px; flex-direction: row; align-items: center; }
+.lern-plan-gruppe { list-style: none; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); margin: 12px 0 2px; }
+.lern-plan-gruppe.st-3 span { color: #8a6100; } .lern-plan-gruppe.st-2 span { color: var(--st2); }
+.lern-plan-unser { margin: 0 0 4px; }
+.lern-plan-wdh { margin-top: 6px; }
+.lern-plan-komplett { margin-top: 10px; } .lern-plan-komplett summary b { color: var(--st1); }
+.lern-plan-nr-sym { background: none !important; }
+.lern-plan-griff-leer { visibility: hidden; }
+.lern-plan-flug-zeile { display: grid; gap: 4px; padding: 6px 0; border-top: 1px solid var(--border); list-style: none; }
+.lern-plan-flug-kopf { display: flex; align-items: flex-start; gap: 8px; }
+.lern-plan-flug-kopf .lern-plan-flug { flex: 1; min-width: 0; }
+.lern-plan-flug-zeile.lern-plan-aus .lern-plan-flug b { color: var(--text-muted); text-decoration: line-through; }
+.lern-st-wahl { display: inline-flex; align-items: center; min-width: 32px; min-height: 32px; justify-content: center; }
+.lern-st-wahl input { width: 20px; height: 20px; }
+.lern-plan-auswahl-knopf { min-height: 40px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); padding: 0 12px; font-weight: 700; }
+.lern-plan-auswahl-knopf[aria-pressed="true"] { background: var(--st1h); border-color: var(--st1); }
+.lern-plan-sammel { position: sticky; top: 72px; z-index: 6; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; background: var(--surface); border: 2px solid var(--st1); border-radius: 12px; padding: 8px 10px; margin: 6px 0 10px; box-shadow: 0 6px 18px rgb(0 0 0 / 8%); }
+.lern-plan-sammel > b { margin-right: 6px; }
+/* LB-1: Nach Klasse – eine Zeile je Thema, Stufenfarbe am linken Rand */
+.lern-lp-zeile { border: 1px solid var(--border); border-left: 6px solid var(--st4r); border-radius: 10px; background: var(--surface); margin: 5px 0; }
+.lern-lp-zeile.st-1 { border-left-color: var(--st1); } .lern-lp-zeile.st-2 { border-left-color: var(--st2); } .lern-lp-zeile.st-3 { border-left-color: var(--st3r); }
+.lern-lp-zeile.st-5 { border-left-style: dashed; border-left-color: #c8ccd0; background: #FBFAF7; }
+.lern-lp-kopf { display: flex; align-items: center; gap: 8px; padding: 6px 8px; min-height: 52px; }
+.lern-lp-titel { all: unset; box-sizing: border-box; flex: 1; min-width: 0; cursor: pointer; display: flex; flex-direction: column; }
+.lern-lp-titel b { overflow-wrap: normal; word-break: normal; hyphens: manual; }
+.lern-lp-titel small { color: var(--text-muted); }
+.lern-lp-titel:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.lern-lp-detail { padding: 2px 10px 10px; border-top: 1px dashed var(--border); }
+.lern-lp-etappen { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 6px 0; }
+.lern-st-etappen { display: flex; flex-wrap: wrap; gap: 4px; }
+.lern-st-etappe { font-size: 12px; border: 1px solid var(--border); border-radius: 99px; padding: 1px 8px; background: var(--surface); }
+.lern-st-etappe.begonnen { background: var(--st3h); border-color: var(--st3r); }
+.lern-st-etappe.gelandet { background: var(--st2h); border-color: var(--st2); }
+.lern-st-etappe.sicher { background: var(--st1h); border-color: var(--st1); }
+.lern-st-etappe.wieder-offen { background: var(--st3h); border-color: var(--st5); }
+.lern-lp-lernbereich { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); margin: 12px 0 2px; }
+.lern-lp-vorlaeufig { margin: 0 0 6px; }
+.lern-kl-kind { font-size: 10px; font-weight: 800; background: #FFD23F; color: #14202B; border-radius: 6px; padding: 0 4px; margin-left: 4px; }
+.lern-plan-vorrat-ort .lern-plan-themen { margin: 0 0 8px 8px; padding: 0; }
+.lern-plan-implan { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 700; white-space: nowrap; color: var(--text-muted); }
+.lern-st-leg { display: inline-block; margin-right: 10px; white-space: nowrap; font-weight: 700; }
+.lern-st-leg.st-1 { color: var(--st1); } .lern-st-leg.st-2 { color: var(--st2); } .lern-st-leg.st-3 { color: #8a6100; }
+/* Teil 4: Legende ohne inneres Rollen sichtbar (klebt unten in der Spalte) */
+.lern-plan-lehrplan .lern-kl-legende { padding: 0 0 6px; margin: 0 0 6px; border-bottom: 1px solid var(--border); }
+.lern-plan-lehrplan .lern-kl-legende p { margin: 2px 0; line-height: 1.8; }
+/* Teil 4: Umschalter – unter 1100 px kurze Beschriftung, kein Wort getrennt */
+.lern-plan-umschalter button { overflow-wrap: normal; word-break: normal; hyphens: manual; white-space: nowrap; }
+.lern-um-kurz { display: none; }
+@media (max-width: 1099px) { .lern-um-lang { display: none; } .lern-um-kurz { display: inline; } }
+/* Teil 4: Plan links auf dem Handy – Überschriften wie auf dem Tablet einzeilig mit „…“ (kein Wort mitten getrennt) */
+@media (max-width: 699px) { .lern-plan-ort.lern-kl-zeile > b, .lern-plan-ort.lern-kl-zeile > small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } }
+.lern-plan-zweit { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 8px; }
+.lern-plan-unser { margin: 0 0 2px; font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.lern-plan-kompakt > .lern-plan-gruppe { margin: 4px 0 -4px; line-height: 1.2; }
+.lern-plan-themen li.lern-plan-flug-zeile { display: grid; grid-template-columns: minmax(0, 1fr); align-items: stretch; gap: 4px; min-height: 0; padding: 6px 0; }
+.lern-plan-themen li.lern-plan-flug-zeile > * { min-width: 0; }
+.lern-plan-detail { min-width: 0; }
+@media (max-width: 699px) { .lern-plan-detail { padding-left: 4px; } }
+.lp-tabelle-lehrplan th small.lp-gebiet { display: inline; margin: 0 0 0 8px; padding: 0; border: 0; font-weight: 500; color: var(--text-muted); font-size: 12px; text-transform: none; letter-spacing: 0; }
+.lp-stufe { white-space: nowrap; } .lp-stufe .lern-st-sym { width: 22px; height: 22px; font-size: 12px; vertical-align: middle; }
+.lp-aus { color: var(--text-muted); font-style: italic; } .lp-aussortiert { margin-top: 8px; } .lp-aussortiert summary { cursor: pointer; color: var(--text-muted); font-size: 0.9rem; min-height: 36px; }
+/* Teil 4 Punkt 5b: gelandete Etappe – fertig, nächster Schritt groß */
+.lr-fertig-hier { display: grid; gap: 10px; justify-items: start; }
+.lr-fertig-hier .lr-weiter-schritt { width: 100%; text-align: center; }
+.lr-fertig-hier.lr-fertig-klein { padding-block: 10px; }
+.lr-trotzdem { font-size: 0.9rem; }

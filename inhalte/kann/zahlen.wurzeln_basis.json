@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "zahlen.wurzeln_basis",
+ "kurz": "Du lernst, aus der Fläche eines Quadrats oder dem Volumen eines Würfels die Seite zu finden.",
+ "etappen": {
+  "quadratwurzel": "die Wurzel aus Quadratzahlen wie 64 oder 169 im Kopf bestimmen",
+  "wurzel_dezimal": "aus Dezimalzahlen wie 0,36 und Brüchen wie 49/100 die Wurzel ziehen",
+  "kubikwurzel": "dritte Wurzeln wie ∛343 oder ∛0,001 bestimmen",
+  "abschaetzen": "sagen, zwischen welchen zwei ganzen Zahlen eine Wurzel wie √73 liegt",
+  "wurzel_deuten": "beide Lösungen von x² = 169 angeben und falsche Wurzelrechnungen erkennen",
+  "wurzel_sache": "aus Fläche oder Volumen die Seiten- oder Kantenlänge berechnen"
+ }
+}

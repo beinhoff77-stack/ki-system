@@ -1,0 +1,17 @@
+{
+ "thema_schluessel": "zahlen.ganz",
+ "kurz": "Du lernst Zahlen unter null kennen und rechnest mit ihnen plus und minus, zum Beispiel bei Temperaturen.",
+ "etappen": {
+  "deuten": "negative Zahlen bei Temperatur, Schulden oder Stockwerken richtig deuten",
+  "zahlengerade": "Zahlen unter null auf der Zahlengeraden finden, ablesen und die Mitte dazwischen bestimmen",
+  "ordnen": "positive und negative Zahlen vergleichen und der Größe nach ordnen",
+  "betrag": "zu einer Zahl den Abstand zur Null und die Zahl gegenüber angeben und damit rechnen",
+  "schriftlich_plus_minus": "große Zahlen untereinander Stelle für Stelle addieren und subtrahieren, mit Überschlag",
+  "addieren": "negative und positive Zahlen zusammenzählen, auch wenn beide negativ sind",
+  "subtrahieren": "negative Zahlen subtrahieren, indem du die Gegenzahl addierst",
+  "umkehraufgabe": "Gleichungen wie x + 11 = 6 mit der Umkehraufgabe lösen und die Probe machen",
+  "ketten": "lange Plus-Minus-Ketten mit negativen Zahlen und Klammern ausrechnen",
+  "verstehen": "Aussagen über ganze Zahlen mit einem Gegenbeispiel widerlegen",
+  "sach": "Aufgaben zu Temperatur, Kontostand oder Tauchtiefe mit negativen Zahlen lösen"
+ }
+}

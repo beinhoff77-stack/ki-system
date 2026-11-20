@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "groessen.indirekt",
+ "kurz": "Du lernst, wie man rechnet, wenn doppelt so viele Helfer nur halb so lange brauchen.",
+ "etappen": {
+  "erkennen": "erkennen, ob eine Zuordnung indirekt proportional ist, statt nur „je mehr, desto weniger“",
+  "vervielfachen": "fehlende Werte ergänzen: die eine Größe mal 3, die andere geteilt durch 3",
+  "produkt": "mit gleichen Produkten x · y prüfen, ob eine Tabelle indirekt proportional ist",
+  "dreisatz": "mit dem Dreisatz rechnen, wenn mehr Helfer oder Pumpen weniger Zeit brauchen",
+  "graph": "den Graphen y = k : x als Hyperbel erkennen und Punkte darauf prüfen",
+  "unterscheiden": "an Quotient oder Produkt erkennen, ob eine Zuordnung direkt, indirekt oder keins ist",
+  "sach": "bei Sachaufgaben erst die Zuordnungsart prüfen, dann rechnen und das Ergebnis prüfen"
+ }
+}

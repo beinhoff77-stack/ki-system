@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "daten.standardabweichung",
+ "kurz": "Du lernst, mit einer Zahl zu beschreiben, wie stark Werte um ihren Mittelwert streuen.",
+ "etappen": {
+  "abweichung": "die Abweichung eines Wertes vom Mittelwert berechnen und vergleichen",
+  "varianz": "die Varianz als Mittelwert der quadrierten Abweichungen berechnen",
+  "sigma": "σ als Wurzel der Varianz berechnen, mit derselben Einheit wie die Daten",
+  "eigenschaften": "sagen, wie sich σ ändert, wenn alle Werte verschoben oder vervielfacht werden",
+  "deuten": "mit Mittelwert und σ Datensätze vergleichen und den Bereich x̄ ± σ angeben"
+ }
+}

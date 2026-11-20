@@ -1,0 +1,17 @@
+{
+ "thema_schluessel": "funktionen.linear",
+ "kurz": "Du lernst, wie man Geraden mit einer Gleichung beschreibt, zeichnet und Schnittpunkte berechnet.",
+ "etappen": {
+  "ablesen": "aus einer Geradengleichung die Steigung m und den y-Achsenabschnitt t ablesen",
+  "graph_ablesen": "eine Gerade mit Achsenabschnitt und Steigungsdreieck zeichnen und am Bild ablesen",
+  "zwei_punkte": "m aus zwei Punkten berechnen und prüfen, ob drei Punkte auf einer Geraden liegen",
+  "proportional": "bei y = k · x den Faktor k bestimmen und damit fehlende Werte berechnen",
+  "aufstellen": "die Gleichung einer Geraden aus Steigung und Punkt oder aus zwei Punkten aufstellen",
+  "schnittpunkte": "den Schnittpunkt zweier Geraden und die Schnittpunkte mit den Achsen berechnen",
+  "lage": "an den Steigungen erkennen, ob zwei Geraden parallel oder senkrecht sind",
+  "einsetzen": "für k eine Zahl einsetzen und die passende Gerade einer Schar angeben",
+  "wirkung": "erklären, ob ein Parameter die Gerade dreht oder verschiebt, und passende k finden",
+  "bueschel": "den gemeinsamen Punkt aller Geraden einer Schar finden und nutzen",
+  "deuten": "im Sachzusammenhang erklären, was m und t bedeuten, und damit Werte berechnen"
+ }
+}

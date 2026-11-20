@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "zahlen.potenzen_basis",
+ "kurz": "Du lernst eine Kurzschrift für Mal-Aufgaben, in denen immer dieselbe Zahl vorkommt, und rechnest damit.",
+ "etappen": {
+  "schreibweise": "Produkte mit gleichen Faktoren als Potenz schreiben und Potenzen lang ausschreiben",
+  "berechnen": "Potenzen Schritt für Schritt ausrechnen, auch in kleinen Rechenausdrücken",
+  "quadrat": "die Quadratzahlen bis 20² = 400 schnell angeben und mit ihnen rechnen",
+  "vertauschen": "Potenzen wie 2⁴ und 4² vergleichen, ohne Basis und Exponent zu vertauschen",
+  "zehner": "große Zahlen mit Zehnerpotenzen schreiben und Zehnerpotenzen ausschreiben",
+  "negativ": "Aufgaben wie (−4)³ berechnen und am Exponenten das Vorzeichen erkennen",
+  "sach": "Verdoppeln und Würfel aus kleinen Würfeln mit Potenzen berechnen"
+ }
+}

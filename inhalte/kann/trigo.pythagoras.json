@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "trigo.pythagoras",
+ "kurz": "Du lernst, in Dreiecken mit einer rechten Ecke fehlende Seiten auszurechnen.",
+ "etappen": {
+  "hypotenuse": "die längste Seite eines rechtwinkligen Dreiecks aus den Katheten berechnen",
+  "kathete": "eine fehlende Kathete aus Hypotenuse und anderer Kathete berechnen",
+  "umkehrung": "mit a² + b² = c² prüfen, ob ein Dreieck rechtwinklig ist und wo",
+  "koordinaten": "den Abstand zweier Punkte im Koordinatensystem berechnen",
+  "raum": "die Diagonale einer Fläche und die Raumdiagonale eines Quaders berechnen",
+  "anwendung": "bei Leitern, Bildschirmen und Abkürzungen fehlende Längen mit Pythagoras berechnen"
+ }
+}

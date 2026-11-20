@@ -1,0 +1,16 @@
+{
+ "thema_schluessel": "abbildungen.kongruenz",
+ "kurz": "Du lernst, wie man Figuren spiegelt, verschiebt und dreht und dabei Koordinaten berechnet.",
+ "etappen": {
+  "achsenspiegelung": "einen Punkt an der x-Achse, an der y-Achse oder an einer Parallelen dazu spiegeln",
+  "punktspiegelung": "einen Punkt an einem Zentrum spiegeln und aus Punkt und Bildpunkt das Zentrum finden",
+  "mittelsenkrechte": "alle Punkte finden, die von A und B gleich weit weg sind, und ein Lot fällen",
+  "winkelhalbierende": "alle Punkte finden, die von zwei Geraden oder Schenkeln gleich weit entfernt sind",
+  "verschiebung": "einen Punkt mit einem Pfeil wie (1 | −4) verschieben und den Pfeil selbst bestimmen",
+  "gegenvektor": "den Gegenvektor angeben und damit vom Bildpunkt zum Urpunkt zurückrechnen",
+  "drehung": "einen Punkt um den Ursprung um 90° drehen, mit und gegen den Uhrzeigersinn",
+  "symmetrie": "bei Figuren Symmetrieachsen zählen und prüfen, ob sie punktsymmetrisch sind",
+  "vierecke_ordnen": "symmetrische Vierecke wie Raute, Drachen und Trapez genau benennen und einordnen",
+  "eigenschaften": "sagen, was bei Abbildungen gleich bleibt und welche Abbildung den Umlaufsinn umdreht"
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "messen.koerper_darstellung",
+ "kurz": "Du lernst, wie man Körper aufklappt, schräg zeichnet und von vorn, von der Seite und von oben sieht.",
+ "etappen": {
+  "prisma": "die Zahl der Ecken, Kanten und Flächen eines Prismas berechnen",
+  "netz": "prüfen, ob sich ein Netz zum Würfel falten lässt, und Flächen von Netzen berechnen",
+  "zylinder": "das Mantelrechteck eines Zylinders aus Umfang und Höhe berechnen",
+  "schraegbild": "im Schrägbild nach hinten laufende Kanten halbieren und wahre Längen zurückrechnen",
+  "ansichten": "zu Vorder-, Seiten- und Draufsicht den passenden Körper finden",
+  "beurteilen": "begründen, welche Körper Prismen sind und welche nicht"
+ }
+}

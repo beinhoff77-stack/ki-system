@@ -1,0 +1,18 @@
+{
+ "thema_schluessel": "terme.umformen",
+ "kurz": "Du lernst, wie man lange Rechenausdrücke mit Buchstaben kürzer und übersichtlicher schreibt.",
+ "etappen": {
+  "zusammenfassen": "gleichartige Glieder wie 3x und −5x zusammenfassen, auch mit x² und Minuszeichen",
+  "produkte": "bei Produkten wie (−3x) · 6y Zahlen und Variablen zusammenfassen, mit richtigem Vorzeichen",
+  "mal_gleiche_basis": "bei gleicher Basis Potenzen malnehmen, indem du die Exponenten addierst",
+  "gleicher_exponent": "bei gleichem Exponenten die Basen zusammenfassen und so geschickt rechnen",
+  "geteilt_gleiche_basis": "bei gleicher Basis Potenzen teilen, indem du die Exponenten subtrahierst",
+  "anwenden": "erkennen, welches Potenzgesetz passt, und Zahlen dafür als Potenz schreiben",
+  "minusklammer": "eine Klammer mit Minus davor auflösen, indem du alle Vorzeichen darin umdrehst",
+  "ausmultiplizieren": "einen Faktor mit jedem Glied einer Klammer malnehmen, samt Vorzeichen",
+  "summe_mal_summe": "zwei Klammern ausmultiplizieren, jedes Glied mal jedes, und dann zusammenfassen",
+  "ausklammern": "den größten gemeinsamen Faktor vor die Klammer ziehen und durch Ausmultiplizieren prüfen",
+  "aequivalenz": "prüfen, ob zwei Terme für jede Zahl gleich sind, und sonst ein Gegenbeispiel finden",
+  "binomisch": "mit den binomischen Formeln (x + 10)² oder (a + b)(a − b) ohne Klammern schreiben"
+ }
+}

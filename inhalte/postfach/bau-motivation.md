@@ -2,6 +2,23 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: Misch-Ausgaben wiederverwenden (Befund 20.11. 05:55)
+
+Stand `lernen-app` c750ad2 übernommen. Nur Migration und Rauchtest – kein `lernen.js`, keine neue App-Version. Datenbank nur gelesen (I-3 eingespielt, `misch_ausgabe` hat 8 Zeilen; Ersetzungsstelle in `misch_buchen` einmal vorhanden). Kein Merge.
+**Migration** `supabase/migrations/20261120_i4_misch_ausgabe_wieder.sql` (nach I-3; nicht ausgeführt; pglast ok; kein DROP, kein DELETE, keine Bestandsänderung; wiederholt ausführbar):
+- neue Spalte `misch_ausgabe.verfallen_am`.
+- `schule.mischkarten(kind, flug, anzahl)`: 1. offene Ausgaben dieses Kindes für einen **anderen Flug**, **älter als 24 Stunden** oder **nicht mehr gültig** (Etappe nicht mehr gelandet, Bordkarte gesperrt, Flug nicht mehr geprüft/freigegeben) → `verfallen_am = now()` (nicht löschen);
+  2. die noch offenen Ausgaben **für diesen Flug** werden wieder ausgegeben (dieselben Karten, je Etappe höchstens eine, älteste zuerst); 3. **aufgefüllt** wird nur, wenn weniger als gewünscht offen sind, und nur aus Etappen ohne offene Karte
+  (Auswahl wie bisher über `mischkarten_waehlen`; eine verfallene Ausgabe derselben Bordkarte wird dabei wiederbelebt statt eine zweite Zeile anzulegen – der eindeutige Index bleibt). Antwort im bisherigen Format (`einheit_id`, `quelle`, `stadt`, `etappe`), sortiert Flug → Kontinent → älter.
+- `misch_gueltig` und `misch_buchen` zählen verfallene Ausgaben nicht.
+**Rauchtests**
+- neu `supabase/tests/i4_misch_ausgabe_rauchtest.sql` (Rollback, nur Testkind, eigene zwei gelandete Etappen, alle anderen im Test „nicht gelandet“): zweimal gelesen → dieselben Karten, keine neuen Ausgaben · eine eingelöst → die andere bleibt, nur die fehlende Etappe wird aufgefüllt ·
+  anderer Flug → alte Ausgaben verfallen, offene = ausgelieferte · älter als 24 h → verfällt, neu ausgestellt · Etappe nicht mehr gelandet → Ausgabe verfällt, keine Karte mehr daraus.
+- angepasst `i3_lernregeln_rauchtest.sql`: **S3d** prüft jetzt „zweimal ausgeliefert → dieselben Karten, offene Ausgaben = ausgelieferte Karten“ (hängt nicht mehr davon ab, wie viele Etappen gelandet sind);
+  **S4a** wählt die Ausgabe gezielt (offen, nicht verfallen, dieser Flug). Damit braucht `i3` die I-4-Migration (Spalte `verfallen_am`).
+- Durchgesehen, unverändert passend: `i2` (H10b: 25 h alte Ausgabe verfällt beim nächsten Ausliefern), `lb3`, `w176_t3`, `w176_h8`, `w176_h_muss`, `w176_h_sollte` – gelesen, nicht ausgeführt.
+**Nicht geprüft:** Migration und Rauchtests nicht ausgeführt.
+
 ## 2026-11-20 – FERTIG: LB-3 Serverteil („Kann er – aber wiederholen“, „Wieder in die Wiederholung“, Sammelaktionen, 4 Stufen) – App 0.81.3
 
 Auftrag I, Teil 3 war schon fertig (83da72d, Meldung darunter; Teil-3-Text in `lernen-app` 752acf0 unverändert) – nichts neu gebaut; LB-3 setzt darauf auf.

@@ -7,6 +7,22 @@ Allgemein gilt für alle Berichte:
 - Übungen ohne `g` sind laut Zwanzigster Runde „überzählig“ und werden beim Einspielen gesperrt. Sie wurden auf richtige Lösung (a) geprüft, nicht auf Stufe/Typ (f).
 - Lehrplan: Die Seiten von lehrplanplus.bayern.de konnte ich in dieser Sitzung nicht direkt abrufen (Abruf brauchte eine Freigabe, die nicht beantwortet wurde). Lehrplanaussagen stützen sich daher auf `lehrplan_andere` in `themenliste.json` und auf ISB-Dokumente aus der Websuche (Abruf 20.11.2026); was nicht belegt ist, steht als Annahme da.
 
+## 2026-11-20 – gleichungen.wurzel (RS 9): in Ordnung (eine kleine Klarstellung)
+
+**Gelesen und nachgerechnet (Fakt):** 6 Lernkarten und alle 227 Aufgaben (155 Übungen, 12 Knobel, 6 Test, 18 Korrektur, 36 Sicherung). 112 Aufgaben („Löse …“, „Welche Lösungsmenge hat …“, „Gib die Definitionsmenge … an“) mit eigenem Skript aus dem Fragetext gelöst – reelle Lösungen der Gleichung, jede mit Probe in der Ausgangsgleichung, Scheinlösungen verworfen – 0 Abweichungen. Die übrigen 115 (Auswahl, Fehler-/Begründungsaufgaben, Sachaufgaben Fallzeit/Aufprall/Pendel/Horizont, Knobel) von Hand nachgerechnet – alle richtig. Beispielrechnungen der 6 Karten stimmen (z. B. x² + x − 6 = 0 → −3 und 2, L = {2}).
+
+**Änderungen je Fehlerart:** a) 0 · b) 1 · c) 0 · d) 0 · e) 0 · f) 0
+
+- b) `sachaufgabe`, Stufe 3, rueckwaerts: „Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Dabei wird seine Fläche viermal so groß.“ – „an jeder Seite um 3 m verlängert“ lässt auch „an beiden Enden je 3 m“ (Seite + 6 m) zu; dann wäre die Lösung eine andere. Jetzt: „Jede Seite eines quadratischen Beets wird um 3 m länger. …“ (Lösung 9 m² unverändert). Bei den 12 Aufgaben mit derselben Einleitung steht die Gleichung √A + d = … dabei, dort ist es eindeutig – gelassen.
+
+**Meinung, nicht geändert:** Die Falschoptionen „Ja, aber nur, wenn man die Wurzel auf 8 rundet“ / „Nein, aber nur weil die Probe eine Dezimalzahl ergibt“ (Probe-Aufgaben) sind schwache Ablenker, aber nicht vertretbar richtig.
+
+**Lehrplan:** Passt zu RS 9 („Wurzelgleichungen unter Berücksichtigung ihres Definitionsbereichs lösen“, `lehrplan_andere`; nicht gegen lehrplanplus.bayern.de geprüft). Quadratische Gleichungen (Karte `zwei_seiten`) kommen in der Themenliste vorher (`gleichungen.quadratisch`, RS 9). Nichts Wesentliches fehlt.
+
+**Nicht geprüft:** Zahlenstrahl- und Tabellenbilder nur im JSON. Übungen ohne `g` (22, gesperrt) nur auf Lösung.
+
+Prüfskript: OK, 0 Gruppen „gleich gebaut hintereinander“. Vergleich alt/neu: nur die genannte Aufgabe geändert.
+
 ## 2026-11-20 – terme.quadratische_extreme (RS 8): mit Korrekturen in Ordnung
 
 **Gelesen und nachgerechnet (Fakt):** 5 Lernkarten und alle 196 Aufgaben (136 Übungen, 10 Knobel, 5 Test, 15 Korrektur, 30 Sicherung). 87 Lücken-Aufgaben (Ergänzen, Scheitelform, Ausmultiplizieren, Stelle und Wert des Extremums) mit eigenem Skript aus dem Fragetext nachgerechnet (Term einlesen, Koeffizienten, x = −b : (2a)) – 0 Abweichungen. Die übrigen 109 (Auswahl, Sachaufgaben Zaun/Mauer/Kiosk/Kino, Knobel) von Hand nachgerechnet, u. a. alle Kiosk-Einnahmen (337,50 €, 225 €, 270 €, 433,50 €, 726 €) und Beispielrechnungen und Wertetabelle der Karten – alles richtig.

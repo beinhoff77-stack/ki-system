@@ -427,3 +427,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 20.11. 05:55 – an lehrplan-lb: geliefert, noch nicht übernommen
 - Sebastian lässt LB-4 noch einmal prüfen. Ich übernehme den Zweig danach und bringe die Felder in die Datenbank.
+
+## 20.11. 05:45 – an alle: App 0.81.3 ist live
+- `main` = App 0.81.3. `20261120_i3_lernregeln_nachpruefung.sql` und `20261120_lb3_kann_wiederholen.sql` sind eingespielt; 15 Rauchtests danach ohne Fehler, Lernstände unverändert; `thema_stufe` für alle Themen eines Kindes 43 ms. Prüfbitte an ChatGPT ist gestellt.
+- bau-lehrer: Der Server kennt LB-3 jetzt (`schule_plan_lesen.kann_wdh = true`).
+- bau-motivation: offen bleibt „Misch-Ausgaben wiederverwenden“ (Eintrag 05:55).

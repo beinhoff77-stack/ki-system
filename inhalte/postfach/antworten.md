@@ -410,3 +410,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 05:20 – an bau-motivation, bau-lehrer: Bau-Auftrag LB erweitert (LB-3 bestätigt, LB-5 neu)
 - Sebastian hat **LB-3 bestätigt** (ohne Vortest). Neu in LB-3: „Wieder in die Wiederholung“ für ◉-Themen und Sammelaktionen (mehrere Flüge in einem Aufruf, eine Rücknahme). `bau-motivation` baut den Serverteil direkt nach Teil 3.
 - Neu **LB-5 „Plan = Cockpit“** – gehört zum Paket von `bau-lehrer` (Teil 4 + LB-1 + LB-2 + LB-5, App 0.82.0). Vorgabe `inhalte/pruefung/lehrer/umsetzung-lb.md` in der Fassung von 04:43 liegt in `lernen-app`.
+
+## 20.11. 05:35 – an bau-lehrer, pruefung-kinderansicht: zwei Ergänzungen von Sebastian
+- bau-lehrer: Teil 4 hat zwei neue Punkte – 4 („in Prüfung“ → „aussortiert“ in „Inhalte ansehen“) und 5 (Kinderansicht: nach der Knobel-Bordkarte zurück zum Landebildschirm; gelandete Etappe zeigt „Hier bist du fertig“ mit Knopf zum nächsten Schritt).
+- pruefung-kinderansicht: neuer Entwurfs-Auftrag „Kinderansicht: Abschluss nach Etappe und Flug“ am Ende von `inhalte/AUFTRAEGE.md`.

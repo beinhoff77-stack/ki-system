@@ -2462,6 +2462,18 @@ test('Gesperrt nach dem Laden: Knobel und Wiederholung – keine Fehlermeldung, 
   assert.equal(await page.locator('.err-text').count(), 0);
 });
 
+// LB-3: „Kann er – aber wiederholen“ – kein Flug-Test, keine Nachtests; die Testseite sagt es dem Kind
+test('LB-3: gesetzter Flug (wiederholen) – Testseite ohne Test, kein „Test starten“', async (t) => {
+  const ohneTest = (aktion, e) => aktion === 'schule_einheit_lesen'
+    ? { ...e, blocktest_fertig: false, ohne_test: true, nachtest: { faellig: false, grund: 'gesetzt' },
+        etappen_stand: Object.fromEntries(ETAPPEN.map((x) => [x.lernziel, { fertig: true, sitzt: true, ziel: 2, serie: 0 }])) } : null;
+  const { page, calls } = await setup(t, { anpassen: ohneTest });
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByText('Für diesen Flug gibt es keinen Test.', { exact: false }).waitFor();
+  assert.equal(await page.getByRole('button', { name: /starten$/ }).count(), 0, 'kein Test-Knopf');
+  assert.equal(calls.filter((c) => c.aktion === 'schule_test_starten').length, 0);
+});
+
 // W177: Flugtest schon geschrieben, danach neue Pflicht-Etappen → Nachtragstest statt Sackgasse („Test bereit“, aber kein Test)
 test('W177: Nachtragstest für Etappen, die nach dem Flugtest dazukamen', async (t) => {
   const mitStand = (offen) => (aktion, e) => aktion === 'schule_einheit_lesen'

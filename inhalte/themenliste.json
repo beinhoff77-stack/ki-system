@@ -460,7 +460,7 @@
   "reihenfolge": {
    "gym_by": 6,
    "rs_by": 4,
-   "ib_myp": 3
+   "ib_myp": 2
   },
   "lernbereich": {
    "gym_by": "M6 1 Rationale Zahlen",
@@ -601,7 +601,7 @@
   "reihenfolge": {
    "gym_by": 7,
    "rs_by": 1,
-   "ib_myp": 2
+   "ib_myp": 1
   },
   "lernbereich": {
    "gym_by": "M6 1 Rationale Zahlen",
@@ -671,7 +671,7 @@
   "reihenfolge": {
    "gym_by": 9,
    "rs_by": 16,
-   "ib_myp": 14
+   "ib_myp": 13
   },
   "lernbereich": {
    "gym_by": "M6 3 Prozentrechnung, Daten und Diagramme",
@@ -775,7 +775,7 @@
   "reihenfolge": {
    "gym_by": 4,
    "rs_by": 14,
-   "ib_myp": 6
+   "ib_myp": 5
   },
   "lernbereich": {
    "gym_by": "M8 2 Lineare Funktionen",
@@ -809,7 +809,7 @@
   "reihenfolge": {
    "gym_by": 3,
    "rs_by": 13,
-   "ib_myp": 5
+   "ib_myp": 4
   },
   "lernbereich": {
    "gym_by": "M8 2 Lineare Funktionen",
@@ -841,7 +841,7 @@
   "reihenfolge": {
    "gym_by": 7,
    "rs_by": 3,
-   "ib_myp": 8
+   "ib_myp": 7
   },
   "lernbereich": {
    "gym_by": "M8 4 Bruchterme und Bruchgleichungen",
@@ -876,14 +876,14 @@
   "reihenfolge": {
    "gym_by": 8,
    "rs_by": 3,
-   "ib_myp": 2
+   "ib_myp": 1
   },
   "lernbereich": {
    "gym_by": "M8 4 Bruchterme und Bruchgleichungen",
    "rs_by": "M7 1 Potenzen",
    "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
-  "umfang": "Potenzgesetze für ganzzahlige Exponenten plausibel machen und anwenden: gleiche Basis malnehmen und teilen, gleicher Exponent, Potenz einer Potenz, Terme mit Variablen vereinfachen und als Bruchterm schreiben.",
+  "umfang": "Potenzgesetze für ganzzahlige Exponenten plausibel machen und anwenden: gleiche Basis malnehmen und teilen, gleicher Exponent, Potenz einer Potenz, Terme mit Variablen vereinfachen und als Bruch schreiben.",
   "lehrplan_gym": [
    "M8 4 Rechengesetze für Potenzen mit ganzzahligen Exponenten plausibel machen und in einfachen Fällen anwenden"
   ],
@@ -908,7 +908,7 @@
   },
   "reihenfolge": {
    "gym_by": 10,
-   "ib_myp": 7
+   "ib_myp": 6
   },
   "lernbereich": {
    "gym_by": "M8 4 Bruchterme und Bruchgleichungen",
@@ -938,7 +938,7 @@
   "reihenfolge": {
    "gym_by": 9,
    "rs_by": 4,
-   "ib_myp": 9
+   "ib_myp": 8
   },
   "lernbereich": {
    "gym_by": "M8 4 Bruchterme und Bruchgleichungen",
@@ -972,7 +972,7 @@
   "reihenfolge": {
    "gym_by": 12,
    "rs_by": 10,
-   "ib_myp": 18
+   "ib_myp": 17
   },
   "lernbereich": {
    "gym_by": "M8 6 Lineare Gleichungssysteme",
@@ -1008,7 +1008,7 @@
   "reihenfolge": {
    "gym_by": 1,
    "rs_by": 5,
-   "ib_myp": 17
+   "ib_myp": 16
   },
   "lernbereich": {
    "gym_by": "M8 1 Funktion und Term",
@@ -1042,7 +1042,7 @@
   "reihenfolge": {
    "gym_by": 2,
    "rs_by": 6,
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "lernbereich": {
    "gym_by": "M8 2 Lineare Funktionen",
@@ -1076,7 +1076,7 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "ib_myp": 21
+   "ib_myp": 20
   },
   "lernbereich": {
    "gym_by": "M8 3 Elementare gebrochen-rationale Funktionen",
@@ -1108,7 +1108,7 @@
   "reihenfolge": {
    "gym_by": 14,
    "rs_by": 9,
-   "ib_myp": 8
+   "ib_myp": 9
   },
   "lernbereich": {
    "gym_by": "M8 7 Kreis und Zylinder",
@@ -1142,7 +1142,7 @@
   "reihenfolge": {
    "gym_by": 8,
    "rs_by": 1,
-   "ib_myp": 26
+   "ib_myp": 25
   },
   "lernbereich": {
    "gym_by": "M10 5 Fortführung der Raumgeometrie",
@@ -1177,7 +1177,7 @@
   "reihenfolge": {
    "gym_by": 13,
    "rs_by": 7,
-   "ib_myp": 7
+   "ib_myp": 8
   },
   "lernbereich": {
    "gym_by": "M8 7 Kreis und Zylinder",
@@ -1405,7 +1405,7 @@
   "reihenfolge": {
    "gym_by": 2,
    "rs_by": 2,
-   "ib_myp": 4
+   "ib_myp": 3
   },
   "lernbereich": {
    "gym_by": "M9 1 Quadratwurzeln",
@@ -1474,7 +1474,7 @@
   "reihenfolge": {
    "gym_by": 4,
    "rs_by": 13,
-   "ib_myp": 12
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M9 2 Quadratische Funktionen",
@@ -1509,7 +1509,7 @@
   "reihenfolge": {
    "gym_by": 10,
    "rs_by": 6,
-   "ib_myp": 13
+   "ib_myp": 12
   },
   "lernbereich": {
    "gym_by": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs",
@@ -1566,7 +1566,7 @@
   "reihenfolge": {
    "gym_by": 3,
    "rs_by": 11,
-   "ib_myp": 19
+   "ib_myp": 18
   },
   "lernbereich": {
    "gym_by": "M9 2 Quadratische Funktionen",
@@ -1602,7 +1602,7 @@
   "reihenfolge": {
    "gym_by": 9,
    "rs_by": 7,
-   "ib_myp": 20
+   "ib_myp": 19
   },
   "lernbereich": {
    "gym_by": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs",
@@ -1636,7 +1636,7 @@
   "reihenfolge": {
    "gym_by": 7,
    "rs_by": 4,
-   "ib_myp": 10
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M9 4 Ähnlichkeit und Strahlensatz",
@@ -1671,7 +1671,7 @@
   "reihenfolge": {
    "gym_by": 11,
    "rs_by": 5,
-   "ib_myp": 11
+   "ib_myp": 12
   },
   "lernbereich": {
    "gym_by": "M9 6 Satz des Pythagoras",
@@ -1705,7 +1705,7 @@
   "reihenfolge": {
    "gym_by": 12,
    "rs_by": 6,
-   "ib_myp": 23
+   "ib_myp": 22
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
@@ -1739,7 +1739,7 @@
   "reihenfolge": {
    "gym_by": 13,
    "rs_by": 1,
-   "ib_myp": 24
+   "ib_myp": 23
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
@@ -1807,7 +1807,7 @@
   "reihenfolge": {
    "gym_by": 6,
    "rs_by": 16,
-   "ib_myp": 28
+   "ib_myp": 27
   },
   "lernbereich": {
    "gym_by": "M9 3 Wahrscheinlichkeit verknüpfter Ereignisse",
@@ -1841,7 +1841,7 @@
   "reihenfolge": {
    "gym_by": 7,
    "rs_by": 15,
-   "ib_myp": 3
+   "ib_myp": 4
   },
   "lernbereich": {
    "gym_by": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung",
@@ -1905,27 +1905,28 @@
   "klasse": {
    "gym_by": 7,
    "rs_by": 7,
-   "ib_myp": 4
+   "ib_myp": 3
   },
   "reihenfolge": {
    "gym_by": 2,
    "rs_by": 2,
-   "ib_myp": 1
+   "ib_myp": 2
   },
   "lernbereich": {
    "gym_by": "M7 1 Terme mit Variablen",
    "rs_by": "M7 1 Potenzen",
-   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
+   "ib_myp": "MYP 3 Numerical and abstract reasoning (Zahl und Algebra)"
   },
-  "umfang": "Potenzen mit natürlichen Exponenten zusammenfassen: bei gleicher Basis malnehmen und teilen, bei gleichem Exponenten die Basen zusammenfassen, die Gesetze geschickt nutzen.",
+  "umfang": "Potenzen mit natürlichen Exponenten zusammenfassen: bei gleicher Basis malnehmen und teilen, bei gleichem Exponenten die Basen zusammenfassen, Potenzen von Potenzen vereinfachen, die Gesetze geschickt nutzen.",
   "lehrplan_gym": [
-   "M7 1.2 Produkte von Potenzen mit natürlichen Exponenten bei gleicher Basis oder gleichem Exponenten zusammenfassen"
+   "M7 1.2 Produkte von Potenzen mit natürlichen Exponenten bei gleicher Basis oder gleichem Exponenten zusammenfassen",
+   "M7 1.2 Potenzen von Potenzen mit natürlichen Exponenten zusammenfassen"
   ],
   "lehrplan_rs": [
    "Potenzgesetze anwenden, zuerst mit natürlichen Exponenten (Aufteilung auf zwei Flüge: Annahme)"
   ],
   "lehrplan_ib": [
-   "MYP 4–5 Standard (Annahme): Potenzgesetze, hier mit natürlichen Exponenten"
+   "Annahme: MYP 3 wie im Gymnasium vor terme.umformen, das die Gesetze benutzt; im Framework stehen Potenzgesetze unter MYP 4–5 Standard"
   ],
   "datei": "inhalte/themen/terme.potenzgesetze_natuerlich.json"
  },
@@ -1944,7 +1945,7 @@
   "reihenfolge": {
    "gym_by": 3,
    "rs_by": 11,
-   "ib_myp": 1
+   "ib_myp": 3
   },
   "lernbereich": {
    "gym_by": "M7 1 Terme mit Variablen",
@@ -1956,7 +1957,7 @@
    "M7 1.2 Umformen von Termen"
   ],
   "lehrplan_rs": [
-   "Terme vereinfachen, auch mit Potenzgesetzen; Äquivalenz von Termen begründen"
+   "Terme vereinfachen; Äquivalenz von Termen begründen (die Potenzgesetze stehen in eigenen Flügen)"
   ],
   "lehrplan_ib": [
    "MYP 4–5 Standard (Annahme): Mit Termen rechnen, ausmultiplizieren und faktorisieren"
@@ -1978,7 +1979,7 @@
   "reihenfolge": {
    "gym_by": 4,
    "rs_by": 4,
-   "ib_myp": 5
+   "ib_myp": 6
   },
   "lernbereich": {
    "gym_by": "M7 2 Geometrische Figuren: Symmetrie und Winkel",
@@ -2047,7 +2048,7 @@
   "reihenfolge": {
    "gym_by": 9,
    "rs_by": 8,
-   "ib_myp": 6
+   "ib_myp": 7
   },
   "lernbereich": {
    "gym_by": "M7 5 Kongruenz, besondere Dreiecke und Dreieckskonstruktionen",
@@ -2082,7 +2083,7 @@
   "reihenfolge": {
    "gym_by": 10,
    "rs_by": 10,
-   "ib_myp": 25
+   "ib_myp": 24
   },
   "lernbereich": {
    "gym_by": "M7 5 Kongruenz, besondere Dreiecke und Dreieckskonstruktionen",
@@ -2118,7 +2119,7 @@
   "reihenfolge": {
    "gym_by": 8,
    "rs_by": 19,
-   "ib_myp": 27
+   "ib_myp": 26
   },
   "lernbereich": {
    "gym_by": "M7 4 Kenngrößen von Daten",
@@ -2307,7 +2308,7 @@
   "reihenfolge": {
    "gym_by": 9,
    "rs_by": 9,
-   "ib_myp": 9
+   "ib_myp": 10
   },
   "lernbereich": {
    "gym_by": "M10 5 Fortführung der Raumgeometrie",
@@ -2344,7 +2345,7 @@
   "reihenfolge": {
    "gym_by": 3,
    "rs_by": 11,
-   "ib_myp": 29
+   "ib_myp": 28
   },
   "lernbereich": {
    "gym_by": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen",
@@ -2545,7 +2546,7 @@
   },
   "reihenfolge": {
    "rs_by": 3,
-   "ib_myp": 11
+   "ib_myp": 10
   },
   "lernbereich": {
    "rs_by": "M9 1 Reelle Zahlen",
@@ -2666,7 +2667,7 @@
    "ib_myp": 3
   },
   "reihenfolge": {
-   "ib_myp": 12
+   "ib_myp": 13
   },
   "lernbereich": {
    "ib_myp": "MYP 3 Reasoning with data (Daten und Wahrscheinlichkeit)"
@@ -2875,7 +2876,7 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "ib_myp": 22
+   "ib_myp": 21
   },
   "lernbereich": {
    "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
@@ -2945,7 +2946,7 @@
   "titel": "Zinseszins",
   "klasse": {"ib_myp": 4},
   "reihenfolge": {
-   "ib_myp": 15
+   "ib_myp": 14
   },
   "lernbereich": {
    "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
@@ -2967,7 +2968,7 @@
   "titel": "Aussagenlogik",
   "klasse": {"ib_myp": 4},
   "reihenfolge": {
-   "ib_myp": 16
+   "ib_myp": 15
   },
   "lernbereich": {
    "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
@@ -3088,7 +3089,7 @@
   "reihenfolge": {
    "gym_by": 5,
    "rs_by": 17,
-   "ib_myp": 10
+   "ib_myp": 9
   },
   "lernbereich": {
    "gym_by": "M8 3 Elementare gebrochen-rationale Funktionen",

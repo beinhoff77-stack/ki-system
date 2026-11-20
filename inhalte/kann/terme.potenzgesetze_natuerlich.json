@@ -4,6 +4,7 @@
  "etappen": {
   "mal_gleiche_basis": "bei gleicher Basis Potenzen malnehmen, indem du die Exponenten addierst",
   "gleicher_exponent": "bei gleichem Exponenten die Basen zusammenfassen und so geschickt rechnen",
+  "potenz_von_potenz": "eine Potenz einer Potenz wie (2³)⁴ vereinfachen, indem du die Exponenten malnimmst",
   "geteilt_gleiche_basis": "bei gleicher Basis Potenzen teilen, indem du die Exponenten subtrahierst",
   "anwenden": "erkennen, welches Potenzgesetz passt, und Zahlen dafür als Potenz schreiben"
  }

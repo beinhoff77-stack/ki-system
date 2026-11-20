@@ -2160,3 +2160,27 @@ Geprüft werden `inhalte/themen/terme.potenzgesetze_natuerlich.json` (Flug A, 19
 Bericht: Muss / Sollte / Kann mit Fundstelle (Flug, Karte, Fragetext), dazu was nicht geprüft wurde. Keine Kinderdaten, nichts in die Datenbank, kein App-Code. Am Ende „FERTIG: Prüfung Potenz“.
 
 **Nachtrag zur Sechsundzwanzigsten Runde – Entscheidung Sebastian (20.11.):** In Flug A werden die vier leichten „Stimmt die Rechnung? …“-Aufgaben (aus Gym 6 umgezogen, derzeit Stufe 3 „fehler“ in `mal_gleiche_basis`) zu **Stufe 1, Typ „erkennen“**. Grund: Eine Landung verlangt eine gelöste Stufe-3-Aufgabe; leichte Aufgaben dort entwerten die Hürde. `potenz-teilen` setzt das zusammen mit den Ergebnissen der Siebenundzwanzigsten Runde um (eine Nachbesserung, nicht zwei); der Prüf-Chat nennt weitere Stufe-3-Aufgaben, die zu leicht sind.
+
+---
+
+# Achtundzwanzigste Runde (20.11.): Potenzgesetz-Flüge nachbessern – nach der unabhängigen Prüfung
+
+Chat **`potenz-teilen`** (weiter auf seinem Zweig, vorher `lernen-app` holen). Grundlage: `inhalte/pruefung/potenz/bericht.md` – jede Fundstelle dort genau lesen. Kein Rechenfehler gefunden; es geht um Trennung, Ablenker, Stufe/Typ, Einordnung.
+
+**Muss**
+1. Gym 6, `negativer_exponent`, Aufgabe 35: Tipp ohne Potenzgesetz („Rechne beide Potenzen aus und teile.“).
+2. Flug A, `mal_gleiche_basis`, Aufgabe 11: Tipp ohne negative Exponenten.
+
+**Sollte (alle umsetzen)**
+1. Gym 6: Tipps zu Hoch 0 (Aufgaben 31, 37) ohne Quotientengesetz, über das Muster der Lernkarte.
+2. Flug A, `geteilt_gleiche_basis`, Aufgaben 131 und 135: nach Flug B verlegen und in Flug A gleichwertig ersetzen (erster Exponent nie kleiner).
+3. Flug A: die sechs unpassenden Ablenker (Aufgaben 14, 16, 18, 68, 88, 136) durch typische Fehler ersetzen, die zur jeweiligen Rechnung passen.
+4. **Stufe und Typ der 23 umgezogenen Aufgaben** (Entscheidung Sebastian + Prüfbericht; ersetzt „alle Stufe 3 fehler“ aus der Sechsundzwanzigsten Runde): die **sechs** „Stimmt die Rechnung?“ mit richtiger Rechnung (2, 4, 6, 112, 116, 122) → Stufe 1 `erkennen`; 26 → `parameter`; 31 → `rueckwaerts`; 178 → `begruenden`; 43 zurück in den Knobel-Pool oder ersetzen (zu nah an 44). Stufe folgt dem Typ laut README. Danach Mindestmengen und Typ-Mischung je Karte neu prüfen (Stufe 3 von `mal_gleiche_basis` nicht mehr von „fehler“ beherrscht).
+5. **IB:** Flug A nach MYP 3, vor `terme.umformen` (wie im Gymnasium); Reihenfolgen MYP 3 und MYP 4 nachziehen, weiter als Annahme gekennzeichnet.
+6. Flug A: Aufgaben 75, 76 bekommen einen Typ; 30, 154, 156 einheitlich einstufen.
+
+**Kann (umsetzen):** 1 („Bruch“ statt „Bruchterm“, wo der Begriff in RS/IB noch fehlt) · 2 (Hinweis-Satz in „Gleiche Basis: teilen“) · 3 (`offen` in Gym 6 bereinigen) · 4 (`lehrplan_rs` von `terme.umformen`) · 5 (kann-Text `kurz` Gym 6) · 7 (Einstieg `terme_vereinfachen`). Kann 8 bleibt.
+
+**Kann 6 („Potenzen von Potenzen“ als Karte in Flug A, M7 1.2): nur bauen, wenn der Haupt-Chat Sebastians Ja im Postfach meldet.** Dann als **Pflichtkarte** mit eigenem Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz; die vier bestehenden Schlüssel bleiben unverändert.
+
+Prüfskript `--alle` OK, Selbstprüfung der Reihenfolgen, Bericht mit alt → neu je geänderter Aufgabe. Nichts in die Datenbank, kein App-Code. Am Ende „FERTIG: Potenz nachgebessert“.

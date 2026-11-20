@@ -2,6 +2,16 @@
 
 Neueste Meldung oben.
 
+## 2026-11-20 06:10 – ENTSCHEIDUNG SEBASTIAN zum Auftragsentwurf Potenzgesetze
+
+Sebastian hat am 20.11. im Chat `lehrplan-lb` entschieden:
+1. **Klassen der neuen Flüge wie vorgeschlagen:**
+   - Flug A „Potenzgesetze“: `gym_by` 7 · `rs_by` 7 · `ib_myp` 4.
+   - Flug B „Potenzgesetze mit ganzzahligen Exponenten“: `gym_by` 8 · `rs_by` 7 · `ib_myp` 4.
+2. **Die 19 Aufgaben** in „Fehler finden“ von `terme.potenzgesetze` (Gym 6), die ein Potenzgesetz voraussetzen, **ziehen nach Flug A um**. Aufgaben mit negativen Exponenten darunter gehen nach Flug B. In Gym 6 bleiben in „Fehler finden“ nur Aufgaben zu Potenzbegriff, Hoch 0 und negativem Exponenten. Reichen sie danach nicht mehr für Übung, Test, Korrektur und Sicherung, muss der Inhalts-Chat Aufgaben nachbauen.
+
+Umsetzung weiter durch den Haupt-Chat (IDs, Ort, Lernstand) und einen Inhalts-Chat. In diesem Zweig ist nichts davon umgesetzt.
+
 ## 2026-11-20 06:00 – AUFTRAGSENTWURF: Potenzgesetze in zwei eigene Flüge teilen (von Sebastian gewählt)
 
 Sebastian will die Potenzgesetze nach Klassen aufteilen. Der Lehrer soll sie dann gebündelt oder einzeln in den Plan nehmen können (LB-1/LB-5: Knöpfe je Flug, Sammelaktion für mehrere Flüge). **Nichts davon ist umgesetzt.** Neue Flüge brauchen `thema_id`, `block_id` und Ort aus der Datenbank. Die vergibt der Haupt-Chat; danach baut ein Inhalts-Chat. Alle Zahlen unten habe ich per Skript aus den Themendateien gezählt (Zweig `lernen-app`, Stand 752acf0).

@@ -91,20 +91,23 @@ begin
      or schule.thema_stand(v_l, v_tx) <> 'laeuft' then raise exception 'FEHLER 4: %', schule.thema_stufe(v_l, v_tx); end if;
   raise notice 'ok 4: zwei Fehler in der Wiederholung → Etappe wieder offen, Flug ▶ (wieder_offen), thema_stand „läuft“';
 
-  -- ---------- 5. Rücknahme eines Flugs (Zustand ohne ihn) ----------
-  select t into v_tr from unnest(v_t7) t where t <> v_tx and schule.thema_einheit(t) <> v_pre_e limit 1;
-  r := schule.plan_setzen_intern(v_l, jsonb_build_object('eintraege', pg_temp.lb3_eintraege(v_bloecke, array(select t from unnest(v_t7) t where t <> v_tr), '{}', '{}')), 'lehrer:Rauchtest');
-  if exists (select 1 from schule.karte_stand where lernender_id = v_l and einheit_id = schule.thema_einheit(v_tr) and (sitzt or gesetzt_am is not null))
-     or schule.thema_stufe(v_l, v_tr)->>'stufe' <> 'kommt' then raise exception 'FEHLER 5: %', schule.thema_stufe(v_l, v_tr); end if;
-  raise notice 'ok 5: Rücknahme eines Flugs → gesetzte Landungen aufgehoben (ohne eigene Versuche), Stufe ○';
-
-  -- ---------- 6. Rückgängig des ganzen Sammelschritts ----------
+  -- ---------- 6. Rückgängig des ganzen Sammelschritts (direkt nach Prüfung 4: der Sammelschritt ist noch der jüngste Plan-Schritt) ----------
   r := schule.plan_setzen_intern(v_l, jsonb_build_object('rueckgaengig', v_sa, 'eintraege', pg_temp.lb3_eintraege(v_bloecke, '{}', '{}', '{}')), 'lehrer:Rauchtest');
   if exists (select 1 from schule.karte_stand where lernender_id = v_l and einheit_id = any(v_es) and gesetzt_am is not null) then raise exception 'FEHLER 6a: gesetzt bleibt'; end if;
   if exists (select 1 from schule.karte_stand where lernender_id = v_l and einheit_id = any(v_es) and sitzt and not (einheit_id = v_pre_e and lernziel = v_pre_lz)) then raise exception 'FEHLER 6b: Landung bleibt'; end if;
   if not (select sitzt and wdh_stufe = 2 from schule.karte_stand where lernender_id = v_l and einheit_id = v_pre_e and lernziel = v_pre_lz) then raise exception 'FEHLER 6c: selbst gelandete Etappe verloren oder Wiederholungsstufe nicht zurück'; end if;
   if (select richtig + falsch from schule.karte_stand where lernender_id = v_l and einheit_id = v_ex and lernziel = v_lzx) < 2 then raise exception 'FEHLER 6d: eigene Versuche verloren'; end if;
   raise notice 'ok 6: Rückgängig (% Karten zurück) → keine gesetzte Landung mehr, selbst gelandete Etappe und eigene Versuche bleiben', r->>'karten_zurueck';
+
+  -- ---------- 5. Rücknahme eines Flugs (Zustand ohne ihn) ----------
+  select t into v_tr from unnest(v_t7) t where t <> v_tx and schule.thema_einheit(t) <> v_pre_e limit 1;
+  -- seit der LB-3 Nachbesserung (Sollte 4) geht Rückgängig nur für den jüngsten Schritt: Prüfung 6 läuft deshalb vor dieser Rücknahme;
+  -- hier werden die 6 Flüge zuerst wieder gesetzt, dann wird einer zurückgenommen
+  r := schule.plan_setzen_intern(v_l, jsonb_build_object('eintraege', pg_temp.lb3_eintraege(v_bloecke, v_t7, '{}', '{}')), 'lehrer:Rauchtest');
+  r := schule.plan_setzen_intern(v_l, jsonb_build_object('eintraege', pg_temp.lb3_eintraege(v_bloecke, array(select t from unnest(v_t7) t where t <> v_tr), '{}', '{}')), 'lehrer:Rauchtest');
+  if exists (select 1 from schule.karte_stand where lernender_id = v_l and einheit_id = schule.thema_einheit(v_tr) and (sitzt or gesetzt_am is not null))
+     or schule.thema_stufe(v_l, v_tr)->>'stufe' <> 'kommt' then raise exception 'FEHLER 5: %', schule.thema_stufe(v_l, v_tr); end if;
+  raise notice 'ok 5: Rücknahme eines Flugs → gesetzte Landungen aufgehoben (ohne eigene Versuche), Stufe ○';
 
   -- ---------- 7. Einstellungen schließen einander aus ----------
   v_ok := false;

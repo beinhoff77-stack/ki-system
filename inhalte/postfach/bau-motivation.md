@@ -2,6 +2,15 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: lb3-Rauchtest
+
+Anlass: `antworten.md`, „20.11. 13:25“ – `supabase/tests/lb3_rauchtest.sql` brach nach der LB-3 Nachbesserung mit „Inzwischen wurde etwas anderes geändert.“ ab (Prüfung 6 machte den Sammelschritt rückgängig, nachdem Prüfung 5 schon einen neueren Plan-Schritt angelegt hatte; neue Regel Sollte 4).
+**Nur die Testdatei geändert** (Stand `lernen-app` f1a0ad7 übernommen; kein App-Code, nichts in der Datenbank, kein Merge):
+- Prüfung **6** (Rückgängig des Sammelschritts) läuft jetzt direkt nach Prüfung 4 – der Sammelschritt ist dann noch der jüngste Plan-Schritt (Prüfungen 2–4 legen keinen Plan-Schritt an). Prüfungen und Erwartungen von 6 unverändert (6c prüft weiter, dass die selbst gelandete Etappe mit Wiederholungsstufe 2 zurückkommt).
+- Prüfung **5** (Rücknahme eines Flugs) danach: zuerst werden die 6 Flüge wieder gesetzt, dann wird einer zurückgenommen – gleiche Erwartung (keine gesetzte Landung, Stufe ○).
+- Prüfungen 1–4 und 7–10 unverändert; die Meldungen „ok n“ erscheinen in der Reihenfolge 1, 2, 3, 4, 6, 5, 7, 8, 9, 10.
+**Geprüft:** pglast ok. **Nicht ausgeführt** (Datenbank nur lesen) – bitte im nächsten Probelauf mit der Migration `lb3_nachbesserung`.
+
 ## 2026-11-20 – FERTIG: AB-A (App 0.83.0, Cache v149)
 
 Gebaut im Zweig `bau-lehrer` auf `lernen-app` e71a72d (App 0.82.2) – ich war der einzige Chat am App-Code. Datenbank nur gelesen (für AB-A nichts). Kein Merge nach `main`, keine Kinderdaten.

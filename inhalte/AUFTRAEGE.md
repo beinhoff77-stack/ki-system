@@ -2142,3 +2142,19 @@ Vorgabe des Gestalters mit allen neuen Texten **wörtlich**: `inhalte/pruefung/l
 - Abschluss-Ansichten und Abzeichen (AB-A) kommen in derselben Version: dafür einen kurzen Eintrag ergänzen, der genau das beschreibt, was AB-A zeigt (Text im Bericht nennen, der Gestalter prüft ihn).
 - Punkt 3 („Kann er – aber wiederholen“) beschreibt den Stand **nach** der LB-3-Nachbesserung am Server; steht die beim Live noch aus, meldet der Haupt-Chat das.
 - Tests: vorhandene Info-Seiten-Tests anpassen. Im Bericht „FERTIG: LB Teil 7“; der Gestalter prüft den Text gegen die App.
+
+---
+
+# Siebenundzwanzigste Runde (20.11.): Unabhängige Prüfung der geteilten Potenzgesetz-Flüge
+
+Prüf-Chat **`pruefung-potenz`**, Zweig `pruefung-potenz` vom aktuellen `lernen-app`, Bericht `inhalte/pruefung/potenz/bericht.md`, Meldung `inhalte/postfach/pruefung-potenz.md`. Grundlage: Sechsundzwanzigste Runde und der Bericht in `inhalte/postfach/potenz-teilen.md` (auch „Abweichungen vom Auftrag“ 1–6). Nur prüfen, nichts an den Inhalten ändern.
+
+Geprüft werden `inhalte/themen/terme.potenzgesetze_natuerlich.json` (Flug A, 191 Aufgaben), `terme.potenzgesetze_ganzzahlig.json` (Flug B, 175), `terme.potenzgesetze.json` (Karte „Fehler finden“, alle 32) und `terme.umformen.json` (nur: fehlen genau die vier Karten, ist der Rest unverändert, stimmen Einstieg/Ziel).
+
+1. **Jede Aufgabe selbst nachrechnen** (Lösung, alle falschen Antworten samt Begründung, Lösungsweg, Tipp) – unabhängig vom Generator, mit eigenem Skript oder von Hand; Ergebnis je Aufgabe.
+2. **Trennung:** Flug A enthält nirgends negative Exponenten (Text, Antworten, Lösungsweg, Ergebnis); Gym 6 setzt kein Potenzgesetz voraus; Flug B setzt nichts voraus, was in Gym 8 nach Bruchtermen kommt.
+3. **Lehrplan:** passt Flug B zu M8 4 („plausibel machen und in einfachen Fällen anwenden“) – nicht zu schwer, nicht zu leicht? Passen Stufe und Typ je Aufgabe (insbesondere die 23 nach Flug A umgezogenen Aufgaben, jetzt alle Stufe 3 „fehler“, und die in Flug B umgestuften 29)?
+4. **Erklärungen von Flug B** (5 Karten): fachlich richtig, für Klasse 8 verständlich, typischer Fehler treffend.
+5. **Themenliste und kann-Texte** der vier Flüge: Titel, `umfang`, Lehrplan-Bezüge, Reihenfolgen plausibel; kann-Texte treffen den Inhalt.
+
+Bericht: Muss / Sollte / Kann mit Fundstelle (Flug, Karte, Fragetext), dazu was nicht geprüft wurde. Keine Kinderdaten, nichts in die Datenbank, kein App-Code. Am Ende „FERTIG: Prüfung Potenz“.

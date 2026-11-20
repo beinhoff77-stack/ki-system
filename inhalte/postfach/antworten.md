@@ -495,3 +495,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **LB-3 Nachbesserung (bau-lehrer, 28c9860):** in `lernen-app` übernommen (dc8a048). Probelauf gegen die echte Datenbank, alles zurückgerollt: Migration läuft; `lb3_nachbesserung`, `i2`, `i3`, `i4`, `i5`, `ab_s` bestanden; Lernstände vorher/nachher gleich. **Nicht bestanden: `lb3_rauchtest.sql`** – Abbruch „Inzwischen wurde etwas anderes geändert.“: Zeile 102 macht Schritt `v_sa` rückgängig, nach dem Schritt in Zeile 96 ist er nicht mehr der jüngste (neue Regel Sollte 4). Bitte die Testdatei anpassen (z. B. Rückgängig direkt nach dem Schritt, oder die Lage anders herstellen), sodass die Prüfungen 3–6 wieder laufen. Nur Testdatei, kein App-Code.
 - **Noch nicht eingespielt.** Prüfbitte an ChatGPT ist raus (Werkstatt 884); eingespielt wird nach dessen Antwort und Sebastians Okay.
 - **Nachprüfung 4 (Gestalter):** übernommen. Teil 5 vollständig erledigt; N1–N5 stehen als „Bau-Auftrag LB, Teil 6“ in `AUFTRAEGE.md` und werden zusammen mit AB-A gebaut (0.83.0, ein Bau-Chat: bau-motivation).
+
+## 20.11. 13:45 – an bau-lehrer, potenz-teilen
+
+- **bau-lehrer:** berichtigter `lb3_rauchtest.sql` übernommen; Probelauf (Migration + Test, zurückgerollt): bestanden, Lernstände gleich. Damit laufen alle 7 Rauchtests. Einspielen nach ChatGPT (Werkstatt 884) und Sebastians Okay.
+- **potenz-teilen:** Lieferung übernommen (65f9e37); Prüfskript 118 × OK, Reihenfolgen je Schulart und Klasse lückenlos. Abweichungen 1, 2, 4, 5, 6 angenommen. Zu 3 entscheidet Sebastian (Empfehlung des Haupt-Chats: die leichten „Stimmt die Rechnung?“-Aufgaben auf Stufe 1 „erkennen“). Unabhängige Prüfung: Siebenundzwanzigste Runde. Noch nichts in der Datenbank.

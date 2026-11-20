@@ -2,6 +2,34 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-20 – FERTIG: Auftrag I, Teil 1b (LA-8) – App 0.81.0 (zusammen mit Teil 1)
+
+Zweig `bau-lehrer`, Stand `lernen-app` (mit Entwurf `lehrplan-spalte.html`) übernommen. Kein Merge. **Keine Migration nötig:** `schule_plan_lesen` liefert je Ort schon `kontinent` (= `schule.kontinent.titel`), `reihenfolge`, je Flug `jahrgang` (aus `schule.thema_jahrgang`, IB als MYP-Jahr) und `lehrplan_reihenfolge` (lesend geprüft). Die 10 aufgelösten Themen hängen an keinem Ort und erscheinen daher nicht (66 Orte, 95 Flüge).
+Bilder: `docs/previews/la/la8-plan-1280.png`, `la8-plan-400.png`.
+
+**Umgesetzt (nur Flugplan der Eltern/Lehrer; die Kinderansicht behält die Orte)**
+1. **Überschrift „Themengebiet – Thema“** links und rechts (z. B. „Zahlen – Natürliche Zahlen und Ganze Zahlen“; ab 3 Flügen „A, B …“). Darunter „Gym 5 · RS 5 · MYP 1 · 0/2 Flüge“, links am Ende kursiv „Ort in der Reise: Rom“. Rückreise-Hinweis ebenso. Vorlese-Namen der Knöpfe (↑ ↓, +, ziehen, entfernen) nennen weiter den Ort – sichtbar ist er nicht in der Überschrift.
+2. **Umschalter** oben in der Spalte: „Nach Themengebiet“ (Standard) | „Nach Klasse (Lehrplan)“.
+3. **Nach Themengebiet:** Gebiet-Knöpfe in der Reihenfolge des Gestalters (nur Gebiete mit Orten), vorbelegt mit dem Gebiet des ersten offenen Ortes im Plan; „Sortiert nach Klasse in: Gymnasium | Realschule | IB MYP“, vorbelegt mit der Schulart des Kindes; alle Orte des Gebiets aus allen Klassen, sortiert nach Klasse (gewählte Schulart, fett), dann Lehrplan-Reihenfolge, dann Reihenfolge der Orte; Orte ohne Klasse in der gewählten Schulart ans Ende. Gestrichelte Linie „ab hier über Klasse X des Kindes“ (IB: „MYP-Jahr X“). Kopf „Zahlen: 4 von 8 Orten im Plan · von leicht nach schwer“ mit Balken. „+“ oder Ziehen plant jeden Ort ein, eingeplante grau mit „✓ im Plan“.
+4. **Nach Klasse (Lehrplan):** wie LA-4 (Schulart, Klasse, „X von Y Flügen im Plan“, Suche), mit den neuen Überschriften und Farben.
+5. **Farbe je Gymnasium-Klasse:** Kästchen mit der Zahl und linker Rand mit hellem Verlauf, links und rechts gleich (5 #2E7D32 · 6 #0277BD · 7 #6A1B9A · 8 #C62828 · 9 #EF6C00 · 10 #455A64); ohne Gymnasium-Klasse graues „–“; Legende unten in der Spalte.
+- Info-Seite (Erste Schritte → Flugplan prüfen) um die zwei Ansichten und die Farben ergänzt.
+
+**Abweichungen / Entscheidungen**
+- **Kontrast:** Kästchen-Schrift weiß, bei Orange (9) dunkel – alle Kästchen ≥ 4,5 : 1 (im Test gemessen). Der orange Rand liegt auf der hellen Fläche bei 2,98 : 1 (Vorgabefarbe, knapp unter 3 : 1); die Klasse steht zusätzlich im Kästchen.
+- **Dunkle Gestaltung:** Den Eltern/Lehrer-Bereich gibt es nur hell (`body[data-area=lernen]` setzt `color-scheme: light`); auch bei dunkler Systemeinstellung bleibt er hell. Getestet: Farben und Kontraste bleiben dann gleich. Eine eigene dunkle Variante habe ich deshalb nicht gebaut.
+- **Tablet (700–1099 px):** links eine Zeile je Ort mit „…“ (voller Text als Tooltip und aufgeklappt), damit E-2 (12 Orte, Zeilen ≤ 72 px) weiter gilt. Handy und ab 1100 px brechen die Überschriften um wie im Entwurf.
+- Die Lehrplan-Übersicht (LA-7, eigene Seite) ist unverändert: dort ist jede Zeile ein Flug, der Ort steht in einer eigenen Spalte.
+
+**Gesehen/getestet**
+- lernen: 94 von 94 (neu LA-8 ×3 für alle vier „Fertig, wenn“-Punkte: Gebiet des aktuellen Ortes vorbelegt; kein Ortsname in Überschriften links/rechts; Gym-9-Ort mit einem Tipp in den Plan eines Klasse-5-Kindes, gespeichert; Kästchen- und Randfarbe je Gymnasium-Klasse gemessen, auch bei dunkler Systemeinstellung; Handy ohne Querrollen). Angepasst: Plan-Tests auf neue Überschriften bzw. vorher „Nach Klasse (Lehrplan)“ wählen; Info-Seiten-Test lässt „Themengebiet“ zu.
+- Suche: 139 bestanden, 9 Fehler – die bekannten alten (13, 15, 101, 103, 105, 111, 113, 126, 127).
+
+**Nicht geprüft**
+- Mit echten Daten (66 Orte) nur über die Datenlage gelesen, nicht im Browser angesehen; Testdaten sind nachgebildet.
+- Ziehen aus der Ansicht „Nach Themengebiet“ nutzt denselben Ablauf wie in „Nach Klasse“ (E-2-Test dort); im Gebiet selbst nur „+“ getestet.
+- Echte Geräte nicht.
+
 ## 2026-11-20 – FERTIG: Auftrag I, Teil 1 (Punkte 1–10) – App 0.81.0
 
 Zweig `bau-lehrer` (Stand `lernen-app` mit Zusatz Punkt 10 übernommen). Kein Merge. Datenbank nur gelesen. Bilder: `docs/previews/la/i1-wackelt-400.png`, `i2-eltern-1280.png`, `i3-lehrplan-400.png`, `i8-start-820.png`, `i10-start-1280.png`, `i10-einstellen-400.png`.
@@ -24,7 +52,7 @@ Zweig `bau-lehrer` (Stand `lernen-app` mit Zusatz Punkt 10 übernommen). Kein Me
 - Entschieden, nicht gebaut: Stand-Zellen bleiben ohne Ampelfarbe.
 
 **Gesehen/getestet**
-- lernen: 91 von 91 (neu I-1 bis I-10; angepasst u. a. Eltern-Wunsch, Lehrplan/Wackelt bei 820 px, Reisewörter, E-2, IB, LA-2, LA-6, W177).
+- lernen: 91 von 91 vor LA-8, 94 von 94 mit LA-8 (neu I-1 bis I-10; angepasst u. a. Eltern-Wunsch, Lehrplan/Wackelt bei 820 px, Reisewörter, E-2, IB, LA-2, LA-6, W177).
 - Suche: 138 bestanden, 10 Fehler – die bekannten alten aus Reisen/PWA (13, 15, 101, 103, 105, 111, 113, 126, 127) plus 108, der gelegentlich wackelt; keiner betrifft die Lern-Seiten.
 - Migration und Rauchtest: mit pglast geparst; keine Variablen-/Alias-Doppelungen; Ankerstelle in `schule_lernstand` und der heutige Text von `schule_notiz_setzen` (mit LA-3-Zweig) vorher lesend geprüft.
 

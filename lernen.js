@@ -2795,6 +2795,13 @@ async function viewRueckmeldungen() {
     reiter, box);
 }
 
+// LA-8: Farbe je Klasse (Basis Gymnasium-Klasse); ohne Gymnasium-Klasse graues „–“. Orange mit dunkler Schrift (Kontrast).
+const LERN_KL_FARBE = { 5: '#2E7D32', 6: '#0277BD', 7: '#6A1B9A', 8: '#C62828', 9: '#EF6C00', 10: '#455A64' };
+const LERN_KONT_REIHE_LA8 = ['Zahlen', 'Algebra', 'Geometrie', 'Fläche und Raum', 'Geld und Verhältnisse', 'Daten und Zufall', 'Funktionen', 'Entdecker-Inseln'];
+const lernGymKl = (o) => { const ks = (o?.themen || []).map((t) => Number(t.jahrgang?.gym_by)).filter(Boolean); return ks.length ? Math.min(...ks) : null; };
+const lernKlStil = (o) => { const k = lernGymKl(o); return LERN_KL_FARBE[k] ? `--kl:${LERN_KL_FARBE[k]}` : null; };
+const lernKlKasten = (o) => { const k = lernGymKl(o); const f = LERN_KL_FARBE[k];
+  return el('span', { class: 'lern-kl-kasten' + (f ? '' : ' ohne') + (k === 9 ? ' hell' : ''), style: f ? `--kl:${f}` : null, title: f ? `Gymnasium Klasse ${k}` : 'ohne Gymnasium-Klasse', 'aria-hidden': 'true' }, k ? String(k) : '–'); };
 async function viewPlan(arg) {
   setChrome('Flugplan', { back: true, showTabs: false });
   const live = viewGuard();
@@ -2823,6 +2830,12 @@ async function viewPlan(arg) {
   const kurzSa = { gym_by: 'Gym', rs_by: 'RS', ib_myp: 'MYP-Jahr' };
   const ortName = (o) => o ? `${o.stadt || o.titel}${o.stadt && o.titel !== o.stadt ? ' – ' + o.titel : ''}` : '?';
   const klasseVon = (o, s = 'gym_by') => Math.min(...(o?.themen || []).map((t) => Number(t.jahrgang?.[s]) || 99));
+  // LA-8: Überschrift „Themengebiet – Thema“ (Flüge mit „und“, ab 3 die ersten zwei und „…“), Klassen je Schulart, Farbe nach Gymnasium-Klasse
+  const themaTitel = (o) => { const ts = (o?.themen || []).map((t) => t.titel); return !ts.length ? (o?.titel || '?') : ts.length < 3 ? ts.join(' und ') : `${ts[0]}, ${ts[1]} …`; };
+  const ueberschrift = (o) => (o?.kontinent ? `${o.kontinent} – ${themaTitel(o)}` : themaTitel(o));
+  const klassenTeile = (o, fett) => [['gym_by', 'Gym'], ['rs_by', 'RS'], ['ib_myp', 'MYP']].map(([s2, k]) => { const n = klasseVon(o, s2); return n < 99 ? [s2, `${k} ${n}`] : null; }).filter(Boolean)
+    .flatMap(([s2, txt], i) => [i ? ' · ' : '', s2 === fett ? el('b', {}, txt) : txt]);
+  const nFluege = (n) => `${n} ${n === 1 ? 'Flug' : 'Flüge'}`;
   const standText = { erledigt: 'geschafft', laeuft: 'läuft', offen: 'noch nicht begonnen' };
   const fluegeKann = (x, t) => x.kann_schon || x.kann.includes(t.thema_id);
   // LA-5: Ort geschafft = Status „fertig“, ganzer Ort „kann schon“ oder alle geplanten Flüge gelandet bzw. „kann schon“
@@ -2867,11 +2880,11 @@ async function viewPlan(arg) {
   const aendere = (fn) => {
     if (gesperrt) return;
     vorher.push(kopie(plan)); if (vorher.length > 30) vorher.shift();
-    fn(); zeichne(); zeichneVorrat(); speichere();
+    fn(); zeichne(); zeichneRechts(); speichere();
   };
   function zuruecknehmen() {
     if (gesperrt || !vorher.length) return;
-    plan = vorher.pop(); rueckgaengig = true; zeichne(); zeichneVorrat(); speichere();
+    plan = vorher.pop(); rueckgaengig = true; zeichne(); zeichneRechts(); speichere();
   }
 
   // Linke Spalte: nur offene Orte, eine Zeile je Ort – ziehen am Griff ⠿ (Maus und Finger) oder ↑ ↓; aufgeklappt die Flüge mit „im Plan“ und „kann schon“
@@ -2910,13 +2923,13 @@ async function viewPlan(arg) {
       const griff = el('span', { class: 'lern-plan-griff', role: 'button', 'aria-label': `${ortName(o)} ziehen`, title: 'Ziehen zum Umsortieren' }, '⠿');
       griff.addEventListener('pointerdown', (ev) => ziehen(ev, j));
       const tausche = (k) => aendere(() => { [plan[sichtbar[k]], plan[i]] = [plan[i], plan[sichtbar[k]]]; });
-      return el('li', { class: 'lern-plan-zeile' + (auf ? ' offen' : ''), 'data-block': String(x.block_id) },
+      return el('li', { class: 'lern-plan-zeile lern-kl-rand' + (auf ? ' offen' : ''), style: lernKlStil(o), 'data-block': String(x.block_id) },
         griff,
         el('span', { class: 'lern-plan-nr' }, String(j + 1)),
-        el('button', { type: 'button', class: 'lern-plan-ort', 'aria-expanded': String(auf), onclick: () => { if (auf) offen.delete(x.block_id); else offen.add(x.block_id); zeichne(); } },
-          el('b', {}, ortName(o)),
-          el('small', {}, [o?.kontinent, kl < 99 ? `${kurzSa[sa] || 'Gym'} ${kl}` : null,
-            `${gesch}/${geplant.length} ${geplant.length === 1 ? 'Flug' : 'Flüge'}`, x.ausgelassen.length ? `${x.ausgelassen.length} abgewählt` : null].filter(Boolean).join(' · ')),
+        el('button', { type: 'button', class: 'lern-plan-ort lern-kl-zeile', 'aria-expanded': String(auf), 'aria-label': `${ueberschrift(o)} (Ort in der Reise: ${o?.stadt || o?.titel || '?'})`, onclick: () => { if (auf) offen.delete(x.block_id); else offen.add(x.block_id); zeichne(); } },
+          lernKlKasten(o), el('b', { title: ueberschrift(o) }, ueberschrift(o)),
+          el('small', {}, ...klassenTeile(o), ` · ${gesch}/${nFluege(geplant.length)}`, x.ausgelassen.length ? ` · ${x.ausgelassen.length} abgewählt` : '',
+            ' · ', el('i', { class: 'lern-plan-reiseort' }, `Ort in der Reise: ${o?.stadt || o?.titel || '?'}`)),
           ueber ? el('small', { class: 'lern-plan-ueber' }, `Klasse ${klG} – über der Klasse des Kindes · ${vorgezogen ? 'vorgezogen' : 'Kind sieht ihn unter „Später“'}`) : null),
         el('span', { class: 'lern-plan-pfeile' },
           el('button', { type: 'button', class: 'iconbtn', 'aria-label': `${ortName(o)} nach oben`, disabled: j === 0, onclick: () => tausche(j - 1) }, '↑'),
@@ -2994,6 +3007,7 @@ async function viewPlan(arg) {
       el('button', { type: 'button', class: 'lern-chip', 'aria-pressed': String(!vKl), onclick: () => { vKl = ''; zeichneWahl(); zeichneVorrat(); } }, 'alle'));
   };
   suche.addEventListener('input', () => zeichneVorrat());
+  const zeichneRechts = () => { if (ansicht === 'gebiet') zeichneGebiet(); else zeichneVorrat(); };
   const einfuegen = (blockId, an = plan.length) => aendere(() => plan.splice(an, 0, { block_id: blockId, kann_schon: false, status: 'offen', ausgelassen: [], kann: [] }));
   const zeichneVorrat = () => {
     const q = suche.value.trim().toLowerCase(); const imPlan = new Map(plan.map((x) => [x.block_id, x]));
@@ -3005,22 +3019,63 @@ async function viewPlan(arg) {
     lernErsetze(abdeckung, vKl ? el('p', { class: 'small' }, el('b', {}, `${yVon().label(Number(vKl))}: ${drin} von ${fluege.length} Flügen im Plan`),
       el('span', { class: 'lern-mini-balken', role: 'img', 'aria-label': `${drin} von ${fluege.length}` }, el('i', { style: `width:${lernPz(drin, fluege.length)}%` }))) : null);
     const treffer = (p.orte || []).filter(passt).sort((a, b) => (imPlan.has(a.block_id) - imPlan.has(b.block_id)) || klasseVon(a, vSa) - klasseVon(b, vSa));
-    lernErsetze(vorrat, ...treffer.map((o) => {
-      const ist = imPlan.has(o.block_id);
-      const info = el('span', { class: 'lern-plan-ort' }, el('b', {}, ortName(o)), el('small', {}, [o.kontinent, klasseVon(o, vSa) < 99 ? `${vSa === 'ib_myp' ? 'MYP-Jahr' : 'Kl.'} ${klasseVon(o, vSa)}` : null, `${(o.themen || []).length} ${(o.themen || []).length === 1 ? 'Flug' : 'Flüge'}`].filter(Boolean).join(' · ')));
-      if (ist) return el('div', { class: 'lern-plan-vorrat-zeile lern-plan-drin' }, el('span', { class: 'lern-plan-haken', 'aria-hidden': 'true' }, '✓'), info, el('small', { class: 'muted' }, 'im Plan'));
-      const griff = el('span', { class: 'lern-plan-griff', role: 'button', 'aria-label': `${ortName(o)} in den Plan ziehen`, title: 'In den Plan ziehen' }, '⠿');
-      griff.addEventListener('pointerdown', (ev) => hineinziehen(ev, o));
-      return el('div', { class: 'lern-plan-vorrat-zeile' }, griff, info,
-        el('button', { type: 'button', class: 'lern-chip', 'aria-label': `+ ${ortName(o)}`, onclick: () => einfuegen(o.block_id) }, '+'));
-    }));
+    lernErsetze(vorrat, ...treffer.map((o) => vorratZeile(o, imPlan.has(o.block_id), vSa)));
     if (!treffer.length) lernAnhaengen(vorrat, el('p', { class: 'muted small' }, 'Keine Orte für diese Auswahl.'));
+  };
+  // LA-8: eine Zeile im Lehrplan – Kästchen (Gymnasium-Klasse), „Themengebiet – Thema“, Klassen (gewählte Schulart fett), „+“/Ziehen oder „✓ im Plan“
+  const vorratZeile = (o, ist, fett) => {
+    const info = el('span', { class: 'lern-plan-ort' }, el('b', {}, ueberschrift(o)), el('small', {}, ...klassenTeile(o, fett), ' · ' + nFluege((o.themen || []).length)));
+    if (ist) return el('div', { class: 'lern-plan-vorrat-zeile lern-plan-drin lern-kl-rand', style: lernKlStil(o) }, lernKlKasten(o), info, el('small', { class: 'lern-plan-implan' }, '✓ im Plan'));
+    const griff = el('span', { class: 'lern-plan-griff', role: 'button', 'aria-label': `${ortName(o)} in den Plan ziehen`, title: 'In den Plan ziehen' }, '⠿');
+    griff.addEventListener('pointerdown', (ev) => hineinziehen(ev, o));
+    return el('div', { class: 'lern-plan-vorrat-zeile lern-kl-rand', style: lernKlStil(o) }, griff, lernKlKasten(o), info,
+      el('button', { type: 'button', class: 'lern-chip', 'aria-label': `+ ${ortName(o)}`, title: 'In den Plan', onclick: () => einfuegen(o.block_id) }, '+'));
+  };
+  // LA-8: Ansicht „Nach Themengebiet“ (Standard) – alle Orte eines Gebiets aus allen Klassen, von leicht nach schwer
+  let ansicht = 'gebiet', gSa = LERN_SYS.some((q) => q.sa === sa) ? sa : 'gym_by';
+  const gebiete = [...LERN_KONT_REIHE_LA8, ...new Set((p.orte || []).map((o) => o.kontinent).filter((k) => k && !LERN_KONT_REIHE_LA8.includes(k)))]
+    .filter((g) => (p.orte || []).some((o) => o.kontinent === g));
+  const aktuellerOrt = () => { const x = plan.find((y) => !geschafft(y)) || plan[0]; return x ? ortById.get(x.block_id) : null; };
+  let gebiet = aktuellerOrt()?.kontinent || gebiete[0] || '';
+  const umschalter = el('div', { class: 'lern-plan-umschalter', role: 'group', 'aria-label': 'Ansicht' });
+  const gebietWahl = el('div', { class: 'lern-plan-gebiet' });
+  const klasseWahl = el('div', { class: 'lern-plan-klasse' }, saReiter, klKnoepfe, abdeckung, suche, vorrat);
+  const reihe = (o, s2) => Math.min(999, ...(o.themen || []).map((t) => Number(t.lehrplan_reihenfolge?.[s2]) || 999));
+  const zeichneGebiet = () => {
+    const imPlan = new Set(plan.map((x) => x.block_id));
+    const orte = (p.orte || []).filter((o) => o.kontinent === gebiet)
+      .sort((a, b) => klasseVon(a, gSa) - klasseVon(b, gSa) || reihe(a, gSa) - reihe(b, gSa) || (a.reihenfolge ?? 0) - (b.reihenfolge ?? 0) || a.block_id - b.block_id);
+    const drin = orte.filter((o) => imPlan.has(o.block_id)).length;
+    const kindKl = lernStufe(p.kind, gSa);
+    const zeilen = []; let linie = false;
+    for (const o of orte) {
+      const k = klasseVon(o, gSa);
+      if (!linie && kindKl && k < 99 && k > kindKl) { linie = true;
+        zeilen.push(el('div', { class: 'lern-plan-ab-hier', role: 'separator' }, `ab hier über ${gSa === 'ib_myp' ? 'MYP-Jahr' : 'Klasse'} ${kindKl} des Kindes`)); }
+      zeilen.push(vorratZeile(o, imPlan.has(o.block_id), gSa));
+    }
+    lernErsetze(gebietWahl,
+      el('div', { class: 'lern-chips-zeile lern-plan-gebiete', role: 'group', 'aria-label': 'Themengebiet' }, ...gebiete.map((g) =>
+        el('button', { type: 'button', class: 'lern-chip', 'aria-pressed': String(g === gebiet), onclick: () => { gebiet = g; zeichneGebiet(); } }, g))),
+      el('p', { class: 'small muted lern-plan-sortiert' }, 'Sortiert nach Klasse in:'),
+      el('div', { class: 'lern-chips-zeile lern-plan-gsa', role: 'group', 'aria-label': 'Sortiert nach Klasse in' }, ...LERN_SYS.map((q) =>
+        el('button', { type: 'button', class: 'lern-chip', 'aria-pressed': String(q.sa === gSa), onclick: () => { gSa = q.sa; zeichneGebiet(); } }, q.name))),
+      el('p', { class: 'small lern-plan-gebiet-kopf' }, el('b', {}, `${gebiet}: ${drin} von ${orte.length} ${orte.length === 1 ? 'Ort' : 'Orten'} im Plan`), ' · von leicht nach schwer',
+        el('span', { class: 'lern-mini-balken', role: 'img', 'aria-label': `${drin} von ${orte.length}` }, el('i', { style: `width:${lernPz(drin, orte.length)}%` }))),
+      el('div', { class: 'lern-plan-vorrat' }, ...zeilen),
+      !orte.length ? el('p', { class: 'muted small' }, 'Keine Orte in diesem Themengebiet.') : null);
+  };
+  const zeichneAnsicht = () => {
+    lernErsetze(umschalter, ...[['gebiet', 'Nach Themengebiet'], ['klasse', 'Nach Klasse (Lehrplan)']].map(([w, txt]) =>
+      el('button', { type: 'button', 'aria-pressed': String(ansicht === w), onclick: () => { ansicht = w; zeichneAnsicht(); } }, txt)));
+    gebietWahl.hidden = ansicht !== 'gebiet'; klasseWahl.hidden = ansicht !== 'klasse';
+    if (ansicht === 'gebiet') zeichneGebiet(); else zeichneVorrat();
   };
   // Aus dem Lehrplan in den Plan ziehen: ein Abbild folgt dem Zeiger; losgelassen über dem Plan wird an der Stelle eingefügt.
   const hineinziehen = (ev, o) => {
     if (gesperrt || (ev.button !== undefined && ev.button !== 0)) return;
     ev.preventDefault();
-    const bild = el('div', { class: 'lern-plan-geist' }, ortName(o)); document.body.append(bild);
+    const bild = el('div', { class: 'lern-plan-geist' }, ueberschrift(o)); document.body.append(bild);
     const zeilen = [...liste.querySelectorAll(':scope > .lern-plan-zeile')];
     const stelle = (cy) => { const n = zeilen.filter((z) => { const b = z.getBoundingClientRect(); return b.top + b.height / 2 < cy; }).length; return n < sichtbar.length ? sichtbar[n] : plan.length; };
     const ueberPlan = (cx, cy) => { const b = liste.getBoundingClientRect(); return cx >= b.left && cx <= b.right && cy >= b.top - 30 && cy <= b.bottom + 40; };
@@ -3034,15 +3089,17 @@ async function viewPlan(arg) {
     window.addEventListener('pointermove', lauf); window.addEventListener('pointerup', ende); window.addEventListener('pointercancel', ende);
   };
   const vorratSpalte = el('section', { class: 'card lern-plan-lehrplan' }, el('h3', {}, 'Lehrplan'),
-    saReiter, klKnoepfe, abdeckung, suche, vorrat,
+    umschalter, gebietWahl, klasseWahl,
+    el('p', { class: 'small muted lern-kl-legende' }, '⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: ',
+      ...[5, 6, 7, 8, 9, 10].map((n) => lernKlKasten({ themen: [{ jahrgang: { gym_by: n } }] })), lernKlKasten({ themen: [] }), ' ohne Gymnasium-Klasse'),
     lernAendern({ lernender_id: kindId }, { bezug: 'plan', wo: `Flugplan ${p.kind.name}`, art: 'sonst' }));
-  zeichneWahl(); zeichne(); zeichneVorrat();
+  zeichneWahl(); zeichne(); zeichneAnsicht();
   // LA-6: Vorlage, Klasse, Stufen, Notizen und Verlauf stehen im Blatt „⚙ Einstellen“
   lernErsetze(main, ...[
     lernInfoLink(),
     kopf,
     el('p', { class: 'small muted lern-plan-hilfe' }, 'Reihenfolge der Lernreise: am Griff ⠿ ziehen oder ↑ ↓ · Ort antippen zeigt seine Flüge' + (kannAbwaehlen ? ' (einzeln abwählbar)' : '') + ' · speichert sofort.'),
-    rueck.length ? el('p', { class: 'card small' }, `Automatische Rückreise: ${rueck.map((r) => ortName(ortById.get(r.block_id))).join(', ')} – wird zuerst wiederholt, bis der Nachtest bestanden ist.`) : null,
+    rueck.length ? el('p', { class: 'card small' }, `Automatische Rückreise: ${rueck.map((r) => { const o = ortById.get(r.block_id); return `${ueberschrift(o)} (Ort in der Reise: ${o?.stadt || o?.titel || '?'})`; }).join(', ')} – wird zuerst wiederholt, bis der Nachtest bestanden ist.`) : null,
     el('div', { class: 'lern-plan-spalten' }, el('div', { class: 'lern-plan-links' }, liste, geschafftBox), vorratSpalte)].filter(Boolean));
 }
 
@@ -3294,7 +3351,7 @@ async function viewInfo() {
       el('p', {}, el('b', {}, 'Lernen starten: '), 'Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel des Kindes. Im Lehrer-Zugang steht dort klein „Lernreise ansehen“.')),
     el('h3', {}, 'Erste Schritte'),
     el('div', { class: 'lern-info-schritte' },
-      schritt(1, 'Flugplan prüfen', 'Reiter „Plan“ auf der Seite des Kindes: Lege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“ unter „⚙ Einstellen“. Jede Änderung wird sofort gespeichert.', jeKind('plan', 'Plan')),
+      schritt(1, 'Flugplan prüfen', 'Reiter „Plan“ auf der Seite des Kindes: Lege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Rechts steht der Lehrplan: „Nach Themengebiet“ zeigt alle Orte eines Themengebiets von leicht nach schwer (auch über der Klasse des Kindes), „Nach Klasse (Lehrplan)“ die Orte einer Klasse; „+“ oder Ziehen plant ein. Überschriften nennen Themengebiet und Flüge (z. B. „Algebra – Terme umformen“), die Farbe zeigt die Klasse im Gymnasium; das Kind sieht weiter die Orte. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“ unter „⚙ Einstellen“. Jede Änderung wird sofort gespeichert.', jeKind('plan', 'Plan')),
       schritt(2, 'Lernstand lesen', 'Reiter „Stand“ auf der Seite des Kindes: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner Schulart, mit „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule). Reiter „Was wackelt“: je Etappe, was sitzt und was wackelt, mit den echten falschen Antworten. Alle Kinder nebeneinander: die Tabelle auf der Startseite.', jeKind('stand', 'Stand'), jeKind('wackelt', 'Was wackelt')),
       schritt(3, 'Inhalte ansehen', 'In der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.', el('a', { href: '#/lehrplan' }, 'Lehrplan-Übersicht ›')),
       schritt(4, 'Ändern lassen', 'Fehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.', el('a', { href: '#/lernauftraege' }, 'Meine Aufträge ›'))),

@@ -485,18 +485,21 @@ test('Was wackelt? (LA-3) – Tabelle der Etappen mit Fehlern, aufgeklappt die e
   await page.screenshot({ path: path.join(root, 'test-results/lernstand-390.png'), fullPage: true });
 });
 
+// LA-8: rechts ist „Nach Themengebiet“ Standard – für die LA-4-Ansicht umschalten
+const nachKlasse = (page) => page.locator('.lern-plan-lehrplan').getByRole('button', { name: 'Nach Klasse (Lehrplan)' }).click();
 test('Kinderplan: Schulart und Klasse setzen', async (t) => {
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/plan/1');
   // Zugeklappt eine Zeile je Ort; aufgeklappt hinter jedem Flug die Klasse je Schulart.
   const rom = page.locator('.lern-plan-zeile', { hasText: 'Rom' });
   await rom.waitFor();
-  assert.equal(await rom.getByText('Ganze Zahlen').count(), 0);
+  assert.equal(await rom.locator('.lern-plan-themen').count(), 0); // LA-8: Flugtitel stehen in der Überschrift, die Flugliste erst aufgeklappt
   await rom.locator('.lern-plan-ort').click();
-  await rom.getByText('Ganze Zahlen').waitFor();
+  await rom.locator('.lern-plan-themen').getByText('Ganze Zahlen').waitFor();
   await rom.getByText('Gym 5 · RS 5 · IB MYP-Jahr 2').waitFor();
   // Rechts der Lehrplan der eigenen Schulart und Klasse
   const lp = page.locator('.lern-plan-lehrplan'); // LA-4: Reiter und Klassen-Knöpfe statt Auswahllisten
+  await nachKlasse(page);
   assert.equal(await lp.getByRole('group', { name: 'Schulart' }).locator('[aria-pressed=true]').innerText(), 'Gymnasium');
   assert.equal(await lp.getByRole('group', { name: 'Klasse' }).locator('[aria-pressed=true]').innerText(), '5');
   await page.screenshot({ path: path.join(root, 'test-results/themenplan-390.png'), fullPage: true });
@@ -731,7 +734,7 @@ test('Flugplan: Änderung bleibt nach Verlassen der Seite, Versionskonflikt übe
   // Seite verlassen und zurück: die Änderung ist da.
   await page.goto(origin + '/#/lernen'); await page.locator('.lern-zutun').waitFor();
   await page.goto(origin + '/#/plan/1'); await page.locator('.lern-plan-zeile').first().waitFor();
-  assert.deepEqual(await reihenfolge(), ['New York – Zinsen', 'Rom – Natürliche Zahlen']);
+  assert.deepEqual(await reihenfolge(), ['Geld – Zinsen', 'Zahlen – Natürliche Zahlen']);
   // Jemand anderes ändert den Plan: klare Meldung, Knopf „Neu laden“, Liste gesperrt, nichts überschrieben.
   db.fremd = true;
   await page.getByRole('button', { name: 'Rom – Natürliche Zahlen nach oben' }).click();
@@ -742,7 +745,7 @@ test('Flugplan: Änderung bleibt nach Verlassen der Seite, Versionskonflikt übe
   db.fremd = false; db.revision = 7; db.eintraege = [{ block_id: 48, kann_schon: false }, { block_id: 52, kann_schon: false }, { block_id: 49, kann_schon: false }];
   await page.locator('.lern-plan-kopf').getByRole('button', { name: 'Neu laden' }).click();
   await page.locator('.lern-plan-zeile', { hasText: 'Athen' }).waitFor();
-  assert.deepEqual(await reihenfolge(), ['Athen – Teilbarkeit', 'New York – Zinsen', 'Rom – Natürliche Zahlen']);
+  assert.deepEqual(await reihenfolge(), ['Zahlen – Teilbarkeit und Primzahlen', 'Geld – Zinsen', 'Zahlen – Natürliche Zahlen']);
   // Danach wird mit der neuen Revision gespeichert.
   await page.locator('.lern-plan-zeile', { hasText: 'Rom' }).locator('.lern-plan-ort').click();
   await page.getByRole('button', { name: 'Rom – Natürliche Zahlen aus dem Plan nehmen' }).click();
@@ -771,7 +774,7 @@ test('Info-Seite „So funktioniert’s“: ein Tipp von der Startseite und vom 
   await page.getByText('Zuerst kommt die Erklärung', { exact: false }).waitFor();
   await page.getByText('zuerst einen zweiten Versuch', { exact: false }).waitFor();
   const text = await page.locator('#main').innerText();
-  assert.doesNotMatch(text, /Lernkarte|Aufgabe|Thema\b|Themen|Themenplan/, 'nur Reisewörter');
+  assert.doesNotMatch(text, /Lernkarte|Aufgabe|Thema\b|Themen(?!gebiet)|Themenplan/, 'nur Reisewörter'); // LA-8: „Nach Themengebiet“ ist der Name der Ansicht
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/info-820.png'), fullPage: true });
   // aus dem Flugplan mit einem Tipp
@@ -1048,11 +1051,11 @@ test('E-2: Flugplan – Platz 10 → 2 mit einer Ziehbewegung, 12 Orte auf einem
   const gesetzt = calls.filter((c) => c.aktion === 'schule_plan_setzen');
   assert.equal(gesetzt.length, 1, 'eine Ziehbewegung = ein Speichern');
   assert.deepEqual(gesetzt[0].daten.eintraege.slice(0, 3).map((x) => x.block_id), [100, 109, 101]);
-  assert.equal(await zeilen.nth(1).locator('.lern-plan-ort b').innerText(), 'Melbourne – Flugort 10');
+  assert.equal(await zeilen.nth(1).locator('.lern-plan-ort b').innerText(), 'Zahlen – Flug A Melbourne und Flug B Melbourne');
   // Seite verlassen und zurück: Melbourne bleibt auf Platz 2
   await page.goto(origin + '/#/lernen'); await page.locator('.lern-zutun').waitFor();
   await page.goto(origin + '/#/plan/1'); await zeilen.nth(1).waitFor();
-  assert.equal(await zeilen.nth(1).locator('.lern-plan-ort b').innerText(), 'Melbourne – Flugort 10');
+  assert.equal(await zeilen.nth(1).locator('.lern-plan-ort b').innerText(), 'Zahlen – Flug A Melbourne und Flug B Melbourne');
   assert.equal(db.eintraege[1].block_id, 109);
 });
 
@@ -1062,7 +1065,8 @@ test('E-2: Ort aus dem Lehrplan in den Plan ziehen; Finger (Touch) zieht ebenso'
   await planDb(page, calls, { orte: vieleOrte(), plan: [100, 101, 102] });
   await page.goto(origin + '/#/plan/1');
   await page.locator('.lern-plan-zeile').nth(2).waitFor();
-  const quelle = page.locator('.lern-plan-vorrat-zeile', { hasText: 'Kairo' }).locator('.lern-plan-griff'); const q = await quelle.boundingBox();
+  await nachKlasse(page);
+  const quelle = page.locator('.lern-plan-klasse .lern-plan-vorrat-zeile', { hasText: 'Flug A Kairo' }).locator('.lern-plan-griff'); const q = await quelle.boundingBox();
   const ziel = await page.locator('.lern-plan-zeile').nth(1).boundingBox();
   await page.mouse.move(q.x + 10, q.y + 10); await page.mouse.down();
   await page.mouse.move(ziel.x + 80, ziel.y + 4, { steps: 10 }); await page.mouse.up();
@@ -2003,9 +2007,10 @@ test('LA-4: Plan zweispaltig auf dem Tablet; „kann schon“ je Flug speichert;
   assert.ok(b.x > a.x + a.width - 5 && Math.abs(b.y - a.y) < 40, 'zwei Spalten ab 700 px');
   assert.match((await page.locator('.lern-plan-kopf').textContent()).replace(/\s+/g, ' '), /Gymnasium Kl\. 5 · 2 offen · 0 geschafft/);
   // Lehrplan: vorbelegt Gymnasium, Klasse 5; Abdeckung; eingeplante mit ✓
+  await nachKlasse(page);
   assert.equal(await lp.getByRole('group', { name: 'Klasse' }).locator('[aria-pressed=true]').innerText(), '5');
   await lp.getByText('Klasse 5: 2 von 3 Flügen im Plan').waitFor();
-  await lp.locator('.lern-plan-drin', { hasText: 'Rom' }).getByText('im Plan').waitFor();
+  await lp.locator('.lern-plan-klasse .lern-plan-drin', { hasText: 'Natürliche Zahlen' }).getByText('im Plan').waitFor();
   await lp.getByRole('button', { name: '+ Athen – Teilbarkeit' }).waitFor();
   await lp.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: 'IB MYP' }).click();
   assert.equal(await lp.getByRole('group', { name: 'Klasse' }).locator('[aria-pressed=true]').innerText(), 'alle', 'Klasse 5: noch kein MYP-Jahr → alle');
@@ -2027,7 +2032,7 @@ test('LA-4: Flug einer höheren Klasse im Ort trägt den Hinweis; „kann schon�
   await page.setViewportSize({ width: 820, height: 1180 });
   await page.goto(origin + '/#/kind/1-plan');
   const delhi = page.getByRole('button', { name: '+ Delhi – Ungleichungen' }); // im Lehrplan unter „alle“
-  await page.locator('.lern-plan-lehrplan').getByRole('group', { name: 'Klasse' }).getByRole('button', { name: 'alle' }).click();
+  await nachKlasse(page); await page.locator('.lern-plan-lehrplan').getByRole('group', { name: 'Klasse' }).getByRole('button', { name: 'alle' }).click();
   await delhi.click(); await page.waitForFunction(() => document.querySelector('.lern-plan-stand').textContent === 'Gespeichert');
   const z = page.locator('.lern-plan-zeile', { hasText: 'Delhi' }); await z.locator('.lern-plan-ort').click();
   await z.getByText('Gym 8 – höhere Klasse', { exact: false }).waitFor();
@@ -2044,7 +2049,7 @@ test('LA-5: geschaffter Ort steht nicht im Plan, sondern zugeklappt unter „Ges
   await page.setViewportSize({ width: 820, height: 1180 });
   await page.goto(origin + '/#/kind/1-plan');
   await page.locator('.lern-plan-zeile').first().waitFor();
-  assert.deepEqual(await page.locator('.lern-plan-zeile .lern-plan-ort b').allInnerTexts(), ['New York – Zinsen'], 'nur offene Orte');
+  assert.deepEqual(await page.locator('.lern-plan-zeile .lern-plan-ort b').allInnerTexts(), ['Geld – Einfache Zinsen'], 'nur offene Orte');
   assert.match((await page.locator('.lern-plan-kopf').textContent()).replace(/\s+/g, ' '), /1 offen · 1 geschafft/);
   const g = page.locator('details.lern-geschafft');
   assert.equal(await g.locator('summary').innerText(), 'Geschafft (1)');
@@ -2181,7 +2186,7 @@ test('I-8: Plan – Hinweis „über der Klasse des Kindes“ auf dem Tablet nic
   const { page } = await setup(t, { anpassen: laPlan() });
   await page.setViewportSize({ width: 820, height: 1180 });
   await page.goto(origin + '/#/kind/1-plan');
-  await page.locator('.lern-plan-lehrplan').getByRole('group', { name: 'Klasse' }).getByRole('button', { name: 'alle' }).click();
+  await nachKlasse(page); await page.locator('.lern-plan-lehrplan').getByRole('group', { name: 'Klasse' }).getByRole('button', { name: 'alle' }).click();
   await page.getByRole('button', { name: '+ Delhi – Ungleichungen' }).click();
   const u = page.locator('.lern-plan-ueber').first(); await u.waitFor();
   assert.match(await u.innerText(), /über der Klasse des Kindes · Kind sieht ihn unter „Später“/);
@@ -2255,6 +2260,111 @@ test('I-10: ⚙ Einstellen – Reisetage eintragen, ändern, löschen; vergangen
   assert.deepEqual(calls.filter((c) => c.aktion === 'schule_notiz_setzen').at(-1).daten, { pause: { id: 6, loeschen: true } });
   assert.ok(await ohneQuerrollen(page));
   await page.screenshot({ path: path.join(root, 'test-results/i10-einstellen-400.png'), fullPage: true });
+});
+
+// ---------- Teil 1b – LA-8: Lehrplan nach Themengebiet (Flugplan rechts), Überschrift „Themengebiet – Thema“, Farbe je Gymnasium-Klasse ----------
+const la8Orte = (aktion, e) => { if (aktion !== 'schule_plan_lesen') return null; const x = structuredClone(e); x.kind.schulart = 'gym_by';
+  x.orte.push({ block_id: 70, titel: 'Wurzeln', stadt: 'Kyoto', kontinent: 'Zahlen', reihenfolge: 9, themen: [{ thema_id: 90, titel: 'Elementare Wurzeln', jahrgang: { gym_by: 9, rs_by: 9, ib_myp: 4 }, stand: 'keine_einheit', einheit: null },
+      { thema_id: 91, titel: 'Reelle Zahlen', jahrgang: { gym_by: 9, rs_by: 9, ib_myp: 4 }, stand: 'keine_einheit', einheit: null }, { thema_id: 92, titel: 'Rationale Exponenten', jahrgang: { gym_by: 10, rs_by: 10 }, stand: 'keine_einheit', einheit: null }] },
+    { block_id: 71, titel: 'Brüche', stadt: 'Pisa', kontinent: 'Zahlen', reihenfolge: 5, themen: [{ thema_id: 93, titel: 'Brüche und Anteile', jahrgang: { gym_by: 6, rs_by: 6, ib_myp: 1 }, stand: 'keine_einheit', einheit: null, lehrplan_reihenfolge: { gym_by: 1 } }] },
+    { block_id: 72, titel: 'Zusatz', stadt: 'Lissabon', kontinent: 'Zahlen', reihenfolge: 12, themen: [{ thema_id: 94, titel: 'Prozentrechnung im Alltag', jahrgang: { rs_by: 7 }, stand: 'keine_einheit', einheit: null }] });
+  return x; };
+const kontrast = (a, b) => { const L = ([r, g, bl]) => { const f = (c) => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(bl); };
+  const [h, d] = [L(a), L(b)].sort((x, y) => y - x); return (h + 0.05) / (d + 0.05); };
+const farbeLesen = (page, loc, prop) => loc.evaluateAll((xs, pr) => xs.map((x) => { const c = document.createElement('canvas').getContext('2d'); c.fillStyle = '#000'; c.fillStyle = getComputedStyle(x)[pr];
+  c.fillRect(0, 0, 1, 1); return [...c.getImageData(0, 0, 1, 1).data].slice(0, 3); }), prop);
+
+test('LA-8: Flugplan rechts „Nach Themengebiet“ mit dem Gebiet des aktuellen Ortes; Überschriften „Themengebiet – Thema“ ohne Ortsnamen', async (t) => {
+  const { page } = await setup(t, { anpassen: la8Orte });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(origin + '/#/plan/1');
+  const lp = page.locator('.lern-plan-lehrplan'); await lp.getByRole('group', { name: 'Ansicht' }).waitFor();
+  assert.deepEqual(await lp.getByRole('group', { name: 'Ansicht' }).getByRole('button').allInnerTexts(), ['Nach Themengebiet', 'Nach Klasse (Lehrplan)']);
+  assert.equal(await lp.getByRole('button', { name: 'Nach Themengebiet' }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await lp.getByRole('group', { name: 'Themengebiet' }).locator('[aria-pressed=true]').innerText(), 'Zahlen', 'Gebiet des aktuellen Ortes (Rom)');
+  assert.equal(await lp.getByRole('group', { name: 'Sortiert nach Klasse in' }).locator('[aria-pressed=true]').innerText(), 'Gymnasium');
+  // Überschriften links und rechts: kein Ortsname
+  const staedte = ['Rom', 'Athen', 'New York', 'Delhi', 'Kyoto', 'Pisa', 'Lissabon'];
+  const links = await page.locator('.lern-plan-zeile .lern-plan-ort > b').allInnerTexts();
+  const rechts = await lp.locator('.lern-plan-vorrat-zeile .lern-plan-ort > b').allInnerTexts();
+  assert.deepEqual(links, ['Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen', 'Geld – Einfache Zinsen']);
+  for (const h of [...links, ...rechts]) assert.ok(!staedte.some((st) => h.includes(st)), 'Ortsname in Überschrift: ' + h);
+  assert.match(await page.locator('.lern-plan-zeile').first().locator('.lern-plan-ort small').innerText(), /^Gym 5 · RS 5 · MYP 1 · 0\/2 Flüge · Ort in der Reise: Rom$/);
+  // Zahlen: alle Orte aus allen Klassen, leicht → schwer; Linie über Klasse 5; drei Flüge: die ersten zwei und „…“
+  assert.deepEqual(rechts, ['Zahlen – Teilbarkeit und Primzahlen', 'Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen', 'Zahlen – Brüche und Anteile',
+    'Zahlen – Elementare Wurzeln, Reelle Zahlen …', 'Zahlen – Prozentrechnung im Alltag']);
+  assert.match(await lp.locator('.lern-plan-gebiet-kopf').innerText(), /^Zahlen: 1 von 5 Orten im Plan · von leicht nach schwer/);
+  assert.equal(await lp.locator('.lern-plan-ab-hier').innerText(), 'AB HIER ÜBER KLASSE 5 DES KINDES');
+  assert.equal(await lp.locator('.lern-plan-ab-hier + .lern-plan-vorrat-zeile .lern-plan-ort > b').innerText(), 'Zahlen – Brüche und Anteile');
+  assert.match(await lp.locator('.lern-plan-drin').first().innerText(), /✓ im Plan/);
+  assert.equal(await lp.locator('.lern-plan-vorrat-zeile', { hasText: 'Brüche' }).locator('small b').innerText(), 'Gym 6', 'gewählte Schulart fett');
+  // Realschule: anders sortiert, Zusatz-Ort ohne Gymnasium-Klasse mit grauem „–“
+  await lp.getByRole('group', { name: 'Sortiert nach Klasse in' }).getByRole('button', { name: 'Realschule' }).click();
+  assert.equal(await lp.locator('.lern-plan-vorrat-zeile').nth(3).locator('.lern-plan-ort > b').innerText(), 'Zahlen – Prozentrechnung im Alltag');
+  assert.equal(await lp.locator('.lern-plan-vorrat-zeile', { hasText: 'Prozentrechnung' }).locator('.lern-kl-kasten').innerText(), '–');
+  // anderes Gebiet
+  await lp.getByRole('group', { name: 'Themengebiet' }).getByRole('button', { name: 'Algebra' }).click();
+  assert.deepEqual(await lp.locator('.lern-plan-vorrat-zeile .lern-plan-ort > b').allInnerTexts(), ['Algebra – Lineare Ungleichungen']);
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await lp.getByRole('group', { name: 'Themengebiet' }).getByRole('button', { name: 'Zahlen' }).click();
+  await lp.getByRole('group', { name: 'Sortiert nach Klasse in' }).getByRole('button', { name: 'Gymnasium' }).click();
+  await page.screenshot({ path: path.join(root, 'test-results/la8-plan-1280.png'), fullPage: true });
+});
+
+test('LA-8: ein Gym-9-Thema mit einem Tipp in den Plan eines Klasse-5-Kindes; „Nach Klasse (Lehrplan)“ bleibt', async (t) => {
+  const { page, calls } = await setup(t, { anpassen: la8Orte });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(origin + '/#/plan/1');
+  const lp = page.locator('.lern-plan-lehrplan'); await lp.getByRole('group', { name: 'Themengebiet' }).waitFor();
+  await lp.getByRole('button', { name: '+ Kyoto – Wurzeln' }).click();
+  await page.waitForFunction(() => document.querySelector('.lern-plan-stand')?.textContent === 'Gespeichert');
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_plan_setzen').at(-1).daten.eintraege.map((x) => x.block_id), [49, 52, 70]);
+  assert.match(await lp.locator('.lern-plan-vorrat-zeile', { hasText: 'Elementare Wurzeln' }).innerText(), /✓ im Plan/);
+  const neu = page.locator('.lern-plan-zeile').last();
+  assert.equal(await neu.locator('.lern-plan-ort > b').innerText(), 'Zahlen – Elementare Wurzeln, Reelle Zahlen …');
+  assert.match(await neu.innerText(), /Klasse 9 – über der Klasse des Kindes/);
+  // Nach Klasse (Lehrplan): Schulart, Klasse, Abdeckung – mit den neuen Überschriften
+  await lp.getByRole('button', { name: 'Nach Klasse (Lehrplan)' }).click();
+  await lp.getByRole('group', { name: 'Schulart' }).waitFor();
+  assert.equal(await lp.getByRole('group', { name: 'Themengebiet' }).count(), 0);
+  assert.match(await lp.locator('.lern-plan-abdeckung').innerText(), /Klasse 5: \d+ von \d+ Flügen im Plan/);
+  assert.ok((await lp.locator('.lern-plan-klasse .lern-plan-vorrat-zeile .lern-plan-ort > b').allInnerTexts()).includes('Zahlen – Teilbarkeit und Primzahlen'));
+  // Handy: Spalte unter dem Plan, nichts quer
+  await lp.getByRole('button', { name: 'Nach Themengebiet' }).click();
+  await page.setViewportSize({ width: 400, height: 860 });
+  assert.ok(await ohneQuerrollen(page), 'kein Querrollen auf dem Handy');
+  await page.screenshot({ path: path.join(root, 'test-results/la8-plan-400.png'), fullPage: true });
+});
+
+test('LA-8: Kästchen und Rand in der Farbe der Gymnasium-Klasse, links und rechts gleich; lesbar, auch bei dunkler Systemeinstellung', async (t) => {
+  const { page } = await setup(t, { anpassen: la8Orte });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(origin + '/#/plan/1');
+  const lp = page.locator('.lern-plan-lehrplan'); await lp.getByRole('group', { name: 'Themengebiet' }).waitFor();
+  const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+  const erwartet = { 5: '#2E7D32', 6: '#0277BD', 7: '#6A1B9A', 8: '#C62828', 9: '#EF6C00', 10: '#455A64' };
+  const zeilen = page.locator('.lern-plan-zeile, .lern-plan-vorrat .lern-plan-vorrat-zeile');
+  const daten = await zeilen.evaluateAll((zs) => zs.map((z) => ({ kl: z.querySelector('.lern-kl-kasten').textContent, rand: getComputedStyle(z).borderLeftColor, kasten: getComputedStyle(z.querySelector('.lern-kl-kasten')).backgroundColor })));
+  assert.ok(daten.length >= 6);
+  for (const d of daten) {
+    if (d.kl === '–') continue;
+    const rgb = `rgb(${hex(erwartet[d.kl]).join(', ')})`;
+    assert.equal(d.rand, rgb, `Rand Klasse ${d.kl}`); assert.equal(d.kasten, rgb, `Kästchen Klasse ${d.kl}`);
+  }
+  assert.deepEqual([...new Set(daten.map((d) => d.kl))].sort(), ['5', '6', '9', '–'].sort());
+  assert.deepEqual(await lp.locator('.lern-kl-legende .lern-kl-kasten').allInnerTexts(), ['5', '6', '7', '8', '9', '10', '–']);
+  for (const schema of ['light', 'dark']) {
+    await page.emulateMedia({ colorScheme: schema });
+    const kaesten = page.locator('.lern-kl-legende .lern-kl-kasten:not(.ohne)');
+    const vg = await farbeLesen(page, kaesten, 'color'); const hg = await farbeLesen(page, kaesten, 'backgroundColor');
+    vg.forEach((v, i) => assert.ok(kontrast(v, hg[i]) >= 4.5, `${schema}: Kästchen ${i + 5} Kontrast ${kontrast(v, hg[i]).toFixed(2)}`));
+    const flaeche = (await farbeLesen(page, lp, 'backgroundColor'))[0];
+    const raender = await farbeLesen(page, page.locator('.lern-plan-zeile, .lern-plan-vorrat .lern-plan-vorrat-zeile'), 'borderLeftColor');
+    // Der Eltern/Lehrer-Bereich bleibt auch bei dunkler Systemeinstellung hell. Rand ist Schmuck (die Klasse steht im Kästchen);
+    // Vorgabe-Orange #EF6C00 liegt auf der hellen Fläche knapp unter 3 : 1 → mindestens 2,9
+    raender.forEach((r) => assert.ok(kontrast(r, flaeche) >= 2.9, `${schema}: Rand Kontrast ${kontrast(r, flaeche).toFixed(2)} ${r} auf ${flaeche}`));
+    if (schema === 'dark') await page.screenshot({ path: path.join(root, 'test-results/la8-plan-dunkel-1280.png') });
+  }
 });
 
 // ---------- IB einheitlich beschriften (18.11.): MYP-Jahr = Klasse − 5, Hinweis „entspricht etwa Klasse 6–10“ ----------

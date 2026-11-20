@@ -4420,3 +4420,30 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lern-pause-knoepfe { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .lern-pause-knoepfe button { min-height: 36px; padding: 0 12px; }
 .lern-frage.amp-pause { color: var(--text); border-left: 6px solid var(--info); }
+/* LA-8: Lehrplan nach Themengebiet – Farbe je Gymnasium-Klasse */
+.lern-kl-rand { --kl: #8a96a3; border-left: 5px solid var(--kl) !important; background-image: linear-gradient(90deg, color-mix(in srgb, var(--kl) 13%, transparent), transparent 45%); }
+.lern-kl-kasten { --kl: #8a96a3; display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; padding: 0 4px; border-radius: 6px; background: var(--kl); color: #fff; font-weight: 700; font-size: 13px; line-height: 1; flex: none; vertical-align: middle; }
+.lern-kl-kasten.hell { color: #1b1b1b; }
+.lern-kl-kasten.ohne { background: var(--surface-muted); color: var(--text-muted); border: 1px solid var(--border); }
+/* Eltern/Lehrer-Bereich ist fest hell (body[data-area=lernen] color-scheme: light) – keine eigene dunkle Variante nötig */
+.lern-plan-ort.lern-kl-zeile { display: grid; grid-template-columns: 26px minmax(0, 1fr); column-gap: 8px; row-gap: 0; align-content: center; }
+.lern-plan-ort.lern-kl-zeile > .lern-kl-kasten { grid-row: 1 / span 2; align-self: start; margin-top: 1px; }
+.lern-plan-ort.lern-kl-zeile > :not(.lern-kl-kasten) { grid-column: 2; }
+/* Tablet: eine Zeile je Ort (E-2: 12 Orte, höchstens 72 px), voller Text im Tooltip und aufgeklappt; auf dem Handy und ab 1100 px umbrechen wie im Entwurf */
+.lern-plan-vorrat-zeile .lern-plan-ort > b { white-space: normal; overflow: visible; text-overflow: clip; }
+@media (min-width: 1100px), (max-width: 699px) { .lern-plan-ort.lern-kl-zeile > b, .lern-plan-ort.lern-kl-zeile > small { white-space: normal; overflow: visible; text-overflow: clip; } }
+.lern-plan-reiseort { font-style: italic; }
+.lern-plan-vorrat-zeile.lern-kl-rand { grid-template-columns: 30px 26px minmax(0, 1fr) auto; border-radius: 8px; margin-bottom: 4px; padding-left: 6px; }
+.lern-plan-vorrat-zeile.lern-plan-drin { grid-template-columns: 26px minmax(0, 1fr) auto; }
+.lern-plan-vorrat-zeile.lern-plan-drin .lern-plan-ort > b { color: var(--text-muted); font-weight: 600; }
+.lern-plan-vorrat-zeile .lern-plan-ort small { white-space: normal; }
+.lern-plan-implan { color: var(--ok); font-weight: 700; white-space: nowrap; }
+.lern-plan-umschalter { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--surface-muted); border-radius: 999px; padding: 4px; margin: 8px 0; }
+.lern-plan-umschalter button { border: 0; border-radius: 999px; min-height: 44px; background: transparent; color: var(--text); font-weight: 700; }
+.lern-plan-umschalter button[aria-pressed="true"] { background: var(--accent-strong, var(--text)); color: var(--surface); }
+.lern-plan-sortiert { margin: 4px 0 0; }
+.lern-plan-gebiet-kopf { margin: 8px 0; }
+.lern-plan-gebiet-kopf .lern-mini-balken { display: block; margin-top: 4px; }
+.lern-plan-ab-hier { border-top: 2px dashed var(--warn); color: var(--warn); font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 6px 0 4px; margin: 8px 0 4px; }
+.lern-kl-legende { margin-top: 12px; line-height: 2; }
+.lern-kl-legende .lern-kl-kasten { margin-right: 3px; }

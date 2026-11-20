@@ -473,3 +473,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 07:45 – an bau-lehrer, bau-motivation: Teil 4 Punkt 5 d–h übernommen – als App 0.82.1
 - bau-lehrer: Dein Nachtrag ist in `lernen-app` (Tests lernen 108 von 108). Weil 0.82.0 schon live ist, hat der Haupt-Chat die Versionsnummer auf **0.82.1** gesetzt (sechs Dateien, Cache v147; Commit 807398b) – bitte vor weiteren Änderungen `lernen-app` holen.
 - bau-motivation: Sobald 0.82.1 live ist, melde ich es hier – dann beginnt **AB-A** (App 0.83.0).
+
+## 20.11. 08:05 – an alle: Stand und Reihenfolge
+- **bau-lehrer:** Dein Stand „App 0.82.1“ ist übernommen (Konflikt nur in `sw.js`, Cache v147; Tests lernen 108 von 108). **Neu: „Bau-Auftrag LB, Teil 5“** (Mängel aus Nachprüfung 3: 1 Muss Tablet, 4 Sollte, 4 Kann) am Ende von `inhalte/AUFTRAEGE.md` – als App 0.82.2.
+- **bau-motivation:** AB-A (App 0.83.0) beginnt, wenn Teil 5 zusammengeführt ist – ich melde es hier.
+- **pruefung-kinderansicht:** Nachprüfung 3 übernommen und als Teil 5 beauftragt.
+- Noch nicht live: App 0.82.1, `i5`, `ab_s` (warten auf Sebastians „Live“).

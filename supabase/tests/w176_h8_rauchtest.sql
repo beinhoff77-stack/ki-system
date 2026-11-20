@@ -12,8 +12,16 @@ begin
   update schule.karte_stand set sitzt = true, sitzt_am = now(), wdh_stufe = 2, wdh_fehler = 1, wdh_ab = now(), wdh_lerntage = 7, faellig_am = now() + interval '7 days', misch_ok_am = now()
    where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
   -- 1) zwei endgültige Fehler in Mischkarten hintereinander
+  if to_regclass('schule.misch_ausgabe') is not null then -- seit Auftrag I (Teil 2/3) zählt eine Mischkarte nur mit Ausgabe
+    execute 'insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values ($1, $2) on conflict do nothing' using v_l, v_a;
+  end if;
   insert into schule.versuch(lernender_id, aufgabe_id, client_id, antwort, richtig, punkte, punkte_max, hilfe, versuch_nr, anlauf, misch)
-    values (v_l, v_a, 'h8-m1', '{}', false, 0, 1, 1, 1, 2, true), (v_l, v_a, 'h8-m2', '{}', false, 0, 1, 1, 2, 2, true);
+    values (v_l, v_a, 'h8-m1', '{}', false, 0, 1, 1, 1, 2, true);
+  if to_regclass('schule.misch_ausgabe') is not null then -- seit Auftrag I (Teil 2/3) zählt eine Mischkarte nur mit Ausgabe
+    execute 'insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values ($1, $2) on conflict do nothing' using v_l, v_a;
+  end if;
+  insert into schule.versuch(lernender_id, aufgabe_id, client_id, antwort, richtig, punkte, punkte_max, hilfe, versuch_nr, anlauf, misch)
+    values (v_l, v_a, 'h8-m2', '{}', false, 0, 1, 1, 2, 2, true);
   select * into ks from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
   if not ks.sitzt or ks.wdh_stufe <> 2 or ks.wdh_fehler <> 1 or ks.misch_ok_am is null or ks.wdh_lerntage <> 1 then raise exception 'FEHLER 1: %', row_to_json(ks); end if;
   raise notice 'ok 1: zwei Mischkarten-Fehler → bleibt gelandet, Belege unverändert, am nächsten Lerntag fällig';
@@ -23,6 +31,9 @@ begin
   update schule.aufgabe set einheit_id = v_e, variante_gruppe = v_lz where id = v_teil; -- Bezug im Test auf diese Etappe legen
   perform schule.expedition_buchen(v_l, v_teil, false, 1::smallint, 2::smallint, now());
   perform schule.expedition_buchen(v_l, v_teil, false, 1::smallint, 2::smallint, now());
+  if to_regclass('schule.misch_ausgabe') is not null then -- seit Auftrag I (Teil 2/3) zählt eine Mischkarte nur mit Ausgabe
+    execute 'insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values ($1, $2) on conflict do nothing' using v_l, v_a;
+  end if;
   perform schule.misch_buchen(v_l, v_a, false, 0::smallint, now());
   select * into ks from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
   if not ks.sitzt or ks.wdh_fehler <> 1 or ks.wdh_stufe <> 2 then raise exception 'FEHLER 2: %', row_to_json(ks); end if;

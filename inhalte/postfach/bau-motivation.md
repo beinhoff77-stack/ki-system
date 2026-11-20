@@ -2,6 +2,107 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: LB-3 Serverteil („Kann er – aber wiederholen“, „Wieder in die Wiederholung“, Sammelaktionen, 4 Stufen) – App 0.81.3
+
+Auftrag I, Teil 3 war schon fertig (83da72d, Meldung darunter; Teil-3-Text in `lernen-app` 752acf0 unverändert) – nichts neu gebaut; LB-3 setzt darauf auf.
+Zweig `bau-motivation`, Stand `lernen-app` 752acf0 übernommen. Kein Merge. Datenbank nur gelesen; alle Einfügestellen im Live-Text je einmal vorhanden.
+**Migration** `supabase/migrations/20261120_lb3_kann_wiederholen.sql` (nach I-2 und I-3; nicht ausgeführt; pglast ok; kein DROP, kein DELETE, keine Bestandsänderung; wiederholt ausführbar).
+**Rauchtest** `supabase/tests/lb3_rauchtest.sql` (Rollback, nur Testkind, nicht ausgeführt). Bisherige Rauchtests: keiner angepasst (Durchsicht: `karte_sicher`, `thema_stand`, `ort_stand`,
+`flug_nachtest` verhalten sich ohne gesetzte Flüge wie bisher; `la_4`, `i2`, `i3`, `w176_*`, `w177` laufen damit unverändert – gelesen, nicht gesehen).
+
+### Regeln (wie umgesetzt)
+- **„Kann er – aber wiederholen“ setzen:** für jede Etappe des Flugs (aktuelle geprüfte/freigegebene Version, `inhalt.etappen`), die noch nicht gelandet ist: `sitzt = true`, Wiederholung Stufe 1
+  (`wdh_stufe 0`, `wdh_lerntage 1`, fällig am nächsten Lerntag – genau wie nach einer eigenen Landung), Herkunft `karte_stand.gesetzt_am`/`gesetzt_von`. Schon gelandete Etappen und eigene Lösungen bleiben unberührt.
+  Danach die bestehenden Regeln: Fehler → nächster Lerntag; zwei Fehler hintereinander → wieder offen (▶).
+- **Kein Flug-Test, kein Nachtest** für diese Flüge: `test_starten_intern` (blocktest/nachtest) → `{ok:false, grund:'nichts_zu_testen', gesetzt:true}` (ein schon laufender Test bleibt fortsetzbar);
+  `nachtest_stand` → `{faellig:false, grund:'gesetzt'}`; `flug_nachtest` → `null` („entfällt“).
+- **„sicher“ für gesetzte Etappen:** gelandet + `wdh_stufe ≥ 4` (Wiederholung nach 14 Lerntagen bestanden) + Mischkarte richtig seit der Landung, **falls seit der Landung eine ausgegeben wurde** (`misch_ausgabe`); kein Nachtest.
+- **Stand:** `thema_stand`/`ort_stand` zählen kann_wdh-Flüge als erledigt (gelandet), außer eine Etappe ist wieder offen → „läuft“/Ort offen.
+- **Sterne:** keine Sterne für gesetzte Landungen (Landungen geben ohnehin keine Sterne). Ort-Sterne wie bei „kann schon“: Ist ein Ort dadurch komplett, wird er „fertig“ und `route_sterne` bucht die Ort-Sterne einmal.
+- **Rücknahme** (Flug aus `kann_wdh_themen` genommen, Ort aus dem Plan genommen oder Flug auf komplett/abgewählt gestellt): gesetzte Landungen, bei denen das Kind **seit dem Setzen keinen Versuch** gemacht hat, werden aufgehoben
+  (nicht gelandet, Wiederholung leer); mit eigenen Versuchen bleibt der Stand, nur die Herkunft „gesetzt“ fällt weg. Versuche, eigene Lösungen, Sterne bleiben; kein DELETE.
+- **„Wieder in die Wiederholung“:** alle gelandeten Etappen des Flugs → Stufe 1, fällig am nächsten Lerntag; „gelandet“ (`sitzt`, `sitzt_am`) und alle Belege bleiben. Bei „Kann er komplett“ gesetzt
+  (je Flug oder ganzer Ort) wird daraus „Kann er – aber wiederholen“ (Flug wandert von `kann_schon_themen` nach `kann_wdh_themen`; beim ganzen Ort werden die übrigen Flüge einzeln „komplett“).
+  **Flug-Nachtests selbst geschaffter Flüge laufen unverändert weiter** (Begründung: sie prüfen den Flug als Ganzes und sind Teil von „sicher“; der Flug war nicht gesetzt). Ein bestandener Flug-Test bleibt.
+- **Die 4 Stufen** (`schule.thema_stufe`, Reihenfolge der Prüfung): gesetzt komplett → ◉ · wieder offen oder Rückreise → ▶ · alle Etappen sicher → ◉ · Test läuft/Verbessern offen/alle gelandet, aber Flug-Test noch nicht geschrieben (nur ungesetzte Flüge) → ▶ ·
+  gesetzt wiederholen oder alle gelandet → ↻ · etwas begonnen → ▶ · im Plan → ○ · sonst +.
+
+### Für `bau-lehrer`: neue Felder und Aktionen
+**Lesen – `schule_plan_lesen`**
+- `kann_wdh: true` – Merkmal: der Server kennt LB-3 (Knöpfe „Kann er – aber wiederholen“ und „Wieder in die Wiederholung“ nur dann zeigen).
+- `plan[].kann_wdh_themen: [thema_id]` – wie `kann_schon_themen`.
+- `orte[].themen[].kann_wdh: bool` und **`orte[].themen[].stufe`** (für jeden Flug, auch nicht eingeplante):
+  `{ stufe: 'komplett'|'wiederholung'|'dran'|'kommt'|'nicht_im_plan', zeichen: '◉'|'↻'|'▶'|'○'|'+', gesetzt: 'komplett'|'wiederholen'|null, im_plan: bool,
+     etappen: n, begonnen: n, gelandet: n, sicher: n, wieder_offen: n, wdh_stufe_min: n|null, wdh_nr: 1–5|null („Wdh x von 5“), naechste_in: Lerntage|null (0 = fällig),
+     rueckreise: bool, test_offen: bool, ohne_test: bool }`
+- `verlauf[].schritt_id` (und `ereignis` ohne die Karten-Liste).
+**Lesen – weitere:** `schule_lehrplan_uebersicht.themen[].stufe = {kind_id: <wie oben>}`; `schule_lernstand.einheiten[].thema_id`, `.stufe` und `.karten[].gesetzt`, `.karten[].gesetzt_am`
+(Eltern: „gesetzt: kann er, wird wiederholt“); `schule_uebersicht.lernende[].route[].kann_wdh_themen`, `.stand[].ohne_test`; `schule_einheit_lesen.ohne_test`.
+**Schreiben – `schule_plan_setzen`** (dieselbe Aktion, ein Aufruf = ein Schritt; mehrere Flüge aus verschiedenen Orten, auch Orte, die noch nicht im Plan stehen – einfach als Eintrag mitschicken):
+- je Eintrag zusätzlich `kann_wdh_themen: [thema_id]` (Zustand; fehlt das Feld, bleibt die Liste) und `wieder_wdh_themen: [thema_id]` (Aktion, nur in diesem Aufruf).
+- Die vier Einstellungen je Flug: **Lernen** = in keiner Liste · **Kann er – aber wiederholen** = `kann_wdh_themen` · **Kann er komplett** = `kann_schon_themen` · **Aus dem Plan nehmen** = `ausgelassen`.
+  Schickt ein Eintrag denselben Flug in `kann_wdh_themen` und in `kann_schon_themen`/`ausgelassen` (oder `kann_schon: true` mit `kann_wdh_themen`), lehnt der Server ab
+  („Ein Flug kann nur eine Einstellung haben …“). Schickt ein Eintrag `kann_wdh_themen` nicht mit (alte App), gehen komplett/abgewählt vor und der Flug fällt aus `kann_wdh_themen`.
+- Antwort zusätzlich: **`schritt_id`** (und `karten_geaendert`, `karten_zurueck`).
+- **Rückgängig:** `schule_plan_setzen` mit `rueckgaengig: <schritt_id>` **und** den Einträgen von davor (wie heute) und der aktuellen `revision`. Der Server stellt die Karten-Stände dieses Schritts wieder her
+  (nur Etappen ohne eigene Versuche seither; einmal je Schritt) und wendet dann die Einträge an. So gilt eine Rücknahme für alle Flüge des Sammelschritts, auch für „Wieder in die Wiederholung“.
+- Beispiel Sammelschritt: 6 Flüge aus Gym 7 → alle betroffenen Orte als Einträge mit ihren `kann_wdh_themen`, ein Aufruf; `schritt_id` merken für „↶ Rückgängig“.
+
+### Rauchtest `lb3_rauchtest.sql`
+6 Flüge Gym 7 in einem Aufruf → alle Etappen gelandet (selbst gelandete Etappe unberührt), Stufe ↻, heute nicht, am nächsten Lerntag fällig · kein Flug-Test/Nachtest, `flug_nachtest` null, `ohne_test` ·
+Mischkarten aus gesetzten Etappen · zwei Fehler in der Wiederholung → wieder offen, ▶ · Rücknahme eines Flugs → ○ · Rückgängig des ganzen Sammelschritts (selbst gelandete Etappe und eigene Versuche bleiben) ·
+doppelte Einstellung abgelehnt · „Kann er komplett“ → Wieder in die Wiederholung → ↻ · selbst geschafft ◉ → Wieder in die Wiederholung → ↻ (Wdh 1 von 5, Nachtests laufen weiter) → Rückgängig → ◉ · keine Geschenk-Sterne.
+Der Weg geht über die neue innere Funktion `schule.plan_setzen_intern` (api ruft sie nach der Zugriffsprüfung); der äußere Zugang ist nicht getestet (Schlüssel).
+
+### App 0.81.3 (nur Kinderseite, damit nichts ins Leere läuft)
+Abflugtafel: gesetzte Flüge ohne „TEST BEREIT“ und unter „gelandet“, solange keine Etappe wieder offen ist; Testseite eines gesetzten Flugs: „Für diesen Flug gibt es keinen Test. Du wiederholst ihn nur …“.
+Die alte App 0.81.2 bricht nicht (neue Felder werden ignoriert; ein Test-Start bei gesetztem Flug endet mit „Gerade gibt es nichts zu testen.“).
+**Gesehen/getestet:** lernen 96 von 96 (neu: LB-3 Testseite ohne Test); Suche 139 bestanden, 9 Fehler – die bekannten alten (13, 15, 101, 103, 105, 111, 113, 126, 127).
+**Nicht geprüft:** Migration und Rauchtest nicht ausgeführt; Laufzeit von `thema_stufe` für alle 95 Flüge × Kinder in `schule_plan_lesen`/`schule_lehrplan_uebersicht` nicht gemessen
+(je Flug wenige kleine Abfragen; falls zu langsam, später als eine Abfrage je Kind); Lehrer-/Eltern-App für LB-1/2/5 baut `bau-lehrer`.
+
+## 2026-11-20 – FERTIG: Auftrag I, Teil 3 (Nachprüfung ChatGPT 878) – App 0.81.2
+
+Zweig `bau-motivation`, Stand `lernen-app` 23a8b6a übernommen. Kein Merge. Datenbank nur gelesen: I-2 ist eingespielt; `misch_ausgabe` hat heute **0 Zeilen, keine Dopplungen**;
+keine Versuche mit `wertung_offen`. Ersetzungsstellen (`einheit_lesen_intern`, `test_starten_intern`) im Live-Text je einmal vorhanden.
+**Migration** `supabase/migrations/20261120_i3_lernregeln_nachpruefung.sql` (nicht ausgeführt; pglast ok; kein DROP, kein DELETE, keine Bestandsänderung; wiederholt ausführbar; nach I-2).
+**Rauchtest** neu `supabase/tests/i3_lernregeln_rauchtest.sql` (Rollback, nur Testkind, nicht ausgeführt).
+
+**Muss**
+1. **Endgültige Wertung festgehalten:** neue Spalte `versuch.wertung_fest` (`eigen | neutral | falsch | ersetzt`), geschrieben, sobald der Trigger entscheidet. `versuch_wertung` liest sie zuerst
+   (also auch `folge_nachrechnen`). Ein 2. Anlauf, dessen 1. Anlauf schon endgültig falsch gebucht ist, gilt als `neutral` und bucht nichts – auch wenn er falsch ist.
+   Rauchtest genau des Falls aus 878 (2 richtig, X falsch, Y richtig, X im 2. Anlauf richtig): Buchung 1 = Nachrechnung 1 (vorher 1 ≠ 3); Gegenstück mit falschem spätem 2. Anlauf: kein zweiter Fehler.
+2. **Nachbuchen genau einmal:** neue Funktion `schule.offene_entscheiden(kind, ausser)` beansprucht offene erste Anläufe in einem Schritt
+   (`update … set wertung_offen = false where id in (select … for update skip locked) returning`) und bucht nur die beanspruchten; der Trigger ruft sie auf.
+   Rauchtest: zweimal entschieden → 1, dann 0; der Fehler steht einmal in `falsch`. Echte Gleichzeitigkeit (zwei Tabs) lässt sich im Rauchtest nicht erzeugen.
+
+**Sollte**
+3. **Einlösen atomar:** `misch_buchen` löst mit `update … returning` (Zeile mit `for update skip locked`) ein; nur wenn das eine Ausgabe trifft, gibt es die Mischkarten-Buchung, sonst normale Buchung.
+   Eindeutiger Index `misch_ausgabe_offen_eindeutig` (offene Ausgabe je Kind und Bordkarte); die Migration bricht mit Meldung ab, falls beim Einspielen doch Dopplungen liegen (heute keine).
+   `schule.mischkarten` legt Ausgaben mit `insert … on conflict … do update` an.
+4. **Ausgabe an die Lage gebunden:** `misch_ausgabe.einheit_id` (gelesener Flug) und `lernziel` (erste noch nicht gelandete Etappe dieses Flugs beim Ausliefern). `misch_gueltig` vergleicht mit dieser Lage,
+   nicht mit `aktuell_*` des Geräts. Ausgaben ohne Lage (aus 0.81.1, falls bis zum Einspielen welche entstehen) prüfen wie bisher die Geräte-Angaben.
+   Hinweis: Weil Mischkarten nur aus gelandeten Etappen kommen und die gespeicherte Etappe die erste nicht gelandete ist, schließt der Vergleich vor allem gefälschte/veraltete Geräte-Angaben aus.
+5. **30-Minuten-Grenze:** `einheit_lesen_intern` und `test_starten_intern` rufen `offene_entscheiden` auf. Rauchtest: über 30 Minuten alte erste Anläufe werden beim Lesen und beim Teststart entschieden, frische nicht.
+6. **Tageswechsel (App):** Der Zwischenspeicher merkt sich zusätzlich den Gerätetag beim letzten Server-Stand. Ist auf dem Gerät seither ein neuer Tag (Seite über Nacht offen), gilt der alte Stand nicht mehr (0);
+   eine Antwort ohne Karte (z. B. Mischkarte) zählt dann neu ab 1; der nächste Server-Stand (Laden oder Antwort) ersetzt alles, ein neuer Server-Tag verwirft den alten Stand. Test in Playwright.
+
+**Bisherige Rauchtests – angepasst**
+- `w176_t3_rauchtest.sql` und `w176_h8_rauchtest.sql`: rufen `misch_buchen` direkt bzw. legen Mischkarten-Versuche direkt an. Seit Teil 3 zählt das nur mit Ausgabe → vor jedem Aufruf wird eine Ausgabe angelegt
+  (nur wenn die Tabelle existiert). In h8 sind die zwei Mischkarten-Versuche dafür zwei Anweisungen statt einer.
+- Unverändert und nach Durchsicht weiter passend: `i2_lernregeln`, `w177_nachtragstest` (beide Blöcke), `w176_h_muss`, `w176_h_sollte`, `w176_t1`, `w176_t4`, `abgleich_ohne_expeditionen`, `i_pause`, `la_3`, `la_4`.
+  Nicht ausgeführt – „läuft weiter“ ist hier gelesen, nicht gesehen.
+
+**Alte App 0.81.1:** keine neue oder geänderte Aktion; Mischkarten kommen weiter über `schule_einheit_lesen`, `heute_selbst`/`heute_tag` unverändert.
+**Gesehen/getestet:** lernen 95 von 95 (H6-Test um den Tageswechsel erweitert); Suche 138 bestanden, 10 Fehler – die bekannten alten (13, 15, 101, 103, 105, 111, 113, 126, 127) plus 108, der gelegentlich wackelt. pglast ok für Migration und alle geänderten Rauchtests; keine Variablen-/Alias-Doppelungen.
+**Nicht geprüft:** Migration und Rauchtests nicht ausgeführt; Gleichzeitigkeit nur über die Sperr-Klausel abgesichert, nicht unter Last getestet; äußerer Zugang (api.*) nicht getestet (Schlüssel).
+
+## 2026-11-20 – Rauchtest W177, zweiter Block berichtigt (Antwort 20.11. 04:30)
+
+- `supabase/tests/w177_nachtragstest_rauchtest.sql`, Prüfung „FEHLER 7b“: `a.id = any((select aufgaben …))` las die Unterabfrage als Menge von Arrays → `bigint = bigint[]`.
+  Jetzt werden die Aufgaben der Korrektur-Sitzung zuerst in `v_ids` gelesen, dann `a.id = any(v_ids)` – wie in Prüfung 5b. Sonst unverändert.
+- Stand `lernen-app` übernommen. pglast ok, keine Variablen-/Alias-Doppelungen; in den übrigen Rauchtests kommt das Muster nicht vor. **Nicht ausgeführt** (keine Datenbank), kein Merge.
+
 ## 2026-11-20 – FERTIG: Auftrag I, Teil 2 (Lernregeln) – App 0.81.1
 
 Zweig `bau-motivation`, Stand `lernen-app` 68a663d (Teil 1 und 1b enthalten) übernommen. Kein Merge. Datenbank nur gelesen (Funktionstexte, Stellen je einmal vorhanden geprüft).

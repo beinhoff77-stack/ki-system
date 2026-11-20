@@ -21,16 +21,25 @@ begin
   raise notice 'ok 2: nur gelandete Etappen, Pool uebung, Stufe 2–3, freigegeben (quelle %)', j->0->>'quelle';
   v_a := (j->0->>'id')::bigint;
   -- richtig als Mischkarte → Beleg, keine Wiederholungsstufe vorgerückt
+  if to_regclass('schule.misch_ausgabe') is not null then -- seit Auftrag I (Teil 2/3) zählt eine Mischkarte nur mit Ausgabe
+    execute 'insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values ($1, $2) on conflict do nothing' using v_l, v_a;
+  end if;
   perform schule.misch_buchen(v_l, v_a, true, 0::smallint, now());
   select * into k from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
   if k.misch_ok_am is null or k.wdh_stufe <> 1 then raise exception 'FEHLER 3: %', row_to_json(k); end if;
   raise notice 'ok 3: richtig → misch_ok_am gesetzt, Wiederholung unverändert';
   -- falsch als Mischkarte → am nächsten Lerntag fällig, keine Abzüge
+  if to_regclass('schule.misch_ausgabe') is not null then -- seit Auftrag I (Teil 2/3) zählt eine Mischkarte nur mit Ausgabe
+    execute 'insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values ($1, $2) on conflict do nothing' using v_l, v_a;
+  end if;
   perform schule.misch_buchen(v_l, v_a, false, 0::smallint, now());
   select * into k from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
   if not k.sitzt or k.wdh_fehler <> 0 or k.wdh_lerntage <> 1 then raise exception 'FEHLER 4: %', row_to_json(k); end if; -- seit H8: Fehler in Mischkarte macht nur fällig, wdh_fehler bleibt
   raise notice 'ok 4: falsch → fällig am nächsten Lerntag (wdh_lerntage 1), wdh_fehler bleibt 0 (H8), Etappe bleibt gelandet, eigene Lösungen % unverändert', k.eigene_loesungen;
   -- Trigger: Versuch mit misch = true bucht über misch_buchen
+  if to_regclass('schule.misch_ausgabe') is not null then -- seit Auftrag I (Teil 2/3) zählt eine Mischkarte nur mit Ausgabe
+    execute 'insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values ($1, $2) on conflict do nothing' using v_l, v_a;
+  end if;
   insert into schule.versuch(lernender_id, aufgabe_id, client_id, antwort, richtig, punkte, punkte_max, hilfe, versuch_nr, anlauf, misch)
   values (v_l, v_a, 'rauchtest-misch-' || gen_random_uuid(), '{}'::jsonb, true, 1, 1, 0, 1, 1, true);
   raise notice 'ok 5: Versuch mit misch = true angenommen';

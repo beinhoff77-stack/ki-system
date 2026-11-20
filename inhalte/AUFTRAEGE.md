@@ -2078,3 +2078,41 @@ LB-3 ist live (seit App 0.81.3; die Knöpfe seit 0.82.0). ChatGPT hat den Code g
 7. Den wackeligen `i3_lernregeln_rauchtest.sql` vom Zufall der Kartenauswahl lösen (Eintrag im Postfach 07:10) – danach laufen auch die Kontext-Tests S4 dieses Blocks.
 
 Migration `…_lb3_nachbesserung.sql` mit Rauchtest (Rollback, nur Testkind); alle bisherigen Rauchtests müssen weiter laufen (nenne, welche du anpasst – `lb3_rauchtest.sql` erwartet heute den alten Zustand von Punkt 1). Kein `lernen.js` in diesem Schritt. Meldung „FERTIG: LB-3 Nachbesserung“. **Danach** AB-A (App 0.83.0) auf dem Stand `lernen-app` mit App 0.82.2.
+
+---
+
+# Sechsundzwanzigste Runde (20.11.): Potenzgesetze in zwei eigene Flüge teilen – Entscheidung von Sebastian
+
+Grundlage: `inhalte/postfach/lehrplan-lb.md`, Einträge „AUFTRAGSENTWURF: Potenzgesetze in zwei eigene Flüge teilen“ und „ENTSCHEIDUNG SEBASTIAN“ (beide lesen – sie gelten, soweit hier nichts anderes steht). Neuer Inhalts-Chat **`potenz-teilen`**, Zweig `potenz-teilen` vom aktuellen `lernen-app`, Meldungen `inhalte/postfach/potenz-teilen.md`. Vorher lesen: `inhalte/README.md` (Themen-Bausatz, Stufen und Aufgabentypen, Vertiefung), `inhalte/generatoren/_aufloesen.py` und `_af_plan.py` (Werkzeug zum Umziehen von Lernkarten aus der Vierundzwanzigsten Runde).
+
+**Vom Haupt-Chat vergeben (nicht ändern):**
+
+| | Flug A | Flug B |
+|---|---|---|
+| Titel | Potenzgesetze | Potenzgesetze mit ganzzahligen Exponenten |
+| `thema_schluessel` | `terme.potenzgesetze_natuerlich` | `terme.potenzgesetze_ganzzahlig` |
+| `thema_id` | 102 | 103 |
+| Ort (`block_id`) | Samarkand (62) – wie `terme.umformen` | Mumbai (60) – wie `terme.bruchterme` |
+| Themengebiet | Algebra | Algebra |
+| `klasse` | `gym_by` 7 · `rs_by` 7 · `ib_myp` 4 | `gym_by` 8 · `rs_by` 7 · `ib_myp` 4 |
+| `reihenfolge.gym_by` | 2 (hinter `terme.aufstellen`, vor `terme.umformen`) | 8 (hinter `terme.bruchterme`, vor `gleichungen.bruch`) |
+| Lernbereich Gymnasium | „M7 1 Terme mit Variablen“ | „M8 4 Bruchterme und Bruchgleichungen“ |
+
+**Flug A – aus `terme.umformen` herauslösen**
+- Die vier Lernkarten ziehen um und **behalten ihre Lernziel-Schlüssel**: `mal_gleiche_basis`, `gleicher_exponent` (Pflicht), `geteilt_gleiche_basis`, `anwenden` (Vertiefung). Das ist zwingend – der Haupt-Chat hängt damit den Lernstand eines Kindes um, das alle vier schon gelandet hat.
+- Die 22 Aufgaben mit negativen Exponenten gehen nach Flug B; in Flug A durch gleichwertige Aufgaben mit natürlichen Exponenten ersetzen (gleiche Stufe, gleicher Typ; auch die Testaufgabe von „Gleiche Basis: teilen“). Dazu kommen die Aufgaben aus „Fehler finden“ von `terme.potenzgesetze` (Gym 6), die ein Potenzgesetz voraussetzen (19 laut Zählung; die mit negativen Exponenten darunter gehen nach Flug B) – als Übungen vom Typ `fehler` in die passende Karte.
+- Mindestmengen je Lernkarte wie überall (Stufe 1/2/3: 4/6/8 freie Übungen mit 2/3/4 Typen, 2 Knobel, Test 1, Korrektur 3, Sicherung 6). Einstieg des Flugs neu schreiben (Ziel, Vorwissen: Potenzbegriff aus Klasse 6).
+- **`terme.umformen`:** die vier Lernziele aus den Lernkarten und aus `bewertung` streichen; es bleiben 8 Lernkarten. Einstieg/Ziel anpassen („Die Potenzgesetze stehen im Flug ‚Potenzgesetze‘“). Die übrigen 8 Karten nicht anfassen.
+- **`terme.potenzgesetze` (Gym 6):** Titel „Potenzen und negative Exponenten“, `umfang` und der dritte Eintrag von `lehrplan_gym` an den echten Inhalt anpassen (kein Versprechen von Potenzgesetzen). In „Fehler finden“ bleiben nur Aufgaben zu Potenzbegriff, Hoch 0 und negativem Exponenten; reichen sie nicht mehr für die Mindestmengen, nachbauen.
+
+**Flug B – neu bauen** (Lehrplan M8 4: Rechengesetze für Potenzen mit ganzzahligen Exponenten plausibel machen und in einfachen Fällen anwenden)
+- Lernkarten wie im Auftragsentwurf (1 Warum die Gesetze auch für negative Exponenten gelten · 2 Gleiche Basis malnehmen und teilen · 3 Gleicher Exponent und Potenz einer Potenz · 4 Terme mit Variablen vereinfachen, auch als Bruchterm · 5 Fehler finden, Vertiefung). Eigene, sprechende Lernziel-Schlüssel (nicht die vier von Flug A). Die 22 Aufgaben aus Flug A und die betroffenen aus Gym 6 sind Startbestand. Vollständig nach dem Themen-Bausatz: Erklärung je Karte (Einstieg, Wörter, Bild, Schritte, typischer Fehler, „Kurz gesagt“), alle Pools, Typen, Stufen.
+- Nichts voraussetzen, was in Gym 8 nach `terme.bruchterme` kommt.
+
+**Themenliste** (`inhalte/themenliste.json`, Format erhalten, nur gezielt ändern): zwei neue Einträge mit allen Feldern, die die anderen Themen haben (`thema_id`, `thema_schluessel`, `datei`, Titel, Gebiet, `umfang`, `klasse`, `reihenfolge` für alle drei Schularten, `lernbereich`, `lehrplan_gym`, `lehrplan_rs`, `lehrplan_ib`). `reihenfolge.gym_by` der übrigen Themen nachziehen: **Klasse 7** – ab `terme.umformen` alles +1 (Flug A = 2); **Klasse 8** – ab `gleichungen.bruch` alles +1 (Flug B = 8). Für `rs_by` (Klasse 7) und `ib_myp` (MYP 4) beide Flüge wie im Auftragsentwurf einordnen und die folgenden Nummern nachziehen; Lernbereiche und Lehrplan-Bezüge mit Quelle (Abschnitt, Abrufdatum) – was nicht belegbar ist, als Annahme kennzeichnen. Selbstprüfung per Skript: Reihenfolge je Schulart und Klasse lückenlos und eindeutig.
+
+**Texte für die Abschluss-Ansichten:** `inhalte/kann/terme.potenzgesetze_natuerlich.json` und `…_ganzzahlig.json` (Format wie die anderen Dateien dort: `kurz` ≤ 110 Zeichen, je Etappe `kann` ≤ 90 Zeichen, setzt „Du kannst jetzt …“ fort); `inhalte/kann/terme.umformen.json` und `terme.potenzgesetze.json` anpassen (die vier Lernziele dort streichen bzw. Texte an den neuen Inhalt angleichen).
+
+**Prüfen und melden:** Generatoren für beide neuen Flüge und die zwei geänderten; `python3 -I tools/inhalt_pruefen.py --alle` muss OK melden; jede Lösung selbst nachrechnen. Bericht: Zahl der Aufgaben je Flug, Karte, Pool und Stufe; welche Aufgaben wohin umgezogen sind (alte → neue Stelle); Lehrplan-Quellen; was nicht geprüft wurde. Ein Commit je Flug + einer für Themenliste und Texte. **Nichts in die Datenbank schreiben, kein App-Code, kein Merge nach `main`, keine Kinderdaten.** Am Ende „FERTIG: Potenzgesetze geteilt“.
+
+**Danach der Haupt-Chat:** Themen 102 und 103 in der Datenbank anlegen und den Orten zuordnen, Flüge einspielen (Entwurf), unabhängig prüfen lassen, den Lernstand des betroffenen Kindes von `terme.umformen` auf Flug A umhängen (Landungen, Wiederholungen, Nachweise – ohne Verlust; der abgeschlossene Ort bleibt abgeschlossen), Lehrplan-Felder nachziehen; Freigabe und Plan entscheidet Sebastian.

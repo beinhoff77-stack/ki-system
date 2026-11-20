@@ -2,6 +2,31 @@
 
 Neueste Meldung oben. Dieser Chat hat keines der geprüften Themen geschrieben.
 
+## 2026-11-20 – daten.zweidimensional (Zweidimensionale Daten)
+
+**Urteil: mit Korrekturen in Ordnung.**
+
+### Umfang (Fakt)
+- Gelesen: 5 Lernkarten und alle 184 Aufgaben (124 Übungen, 5 Test, 15 Korrektur, 30 Sicherung, 10 Knobel).
+- Nachgerechnet: alle Zahl- und Lückenaufgaben von Hand (Ablesen gegen die Punktdaten, Zählen in Vierteln, Mittelwerte/Prozente, Geradengleichungen, Ungleichungen). Per eigenem Skript zusätzlich: Korrelationskoeffizient r jeder Punktwolke gegen die Antwort „positiv/negativ/kein, stark/schwach“ (alle passend; schwächste „positiv“-Wolke r = 0,55, „kein“ immer |r| ≤ 0,18), jeder Ausreißer gegen eine Ausgleichsgerade ohne ihn (gesuchter Punkt hat immer den deutlich größten Abstand), Abstand des höchsten Punkts zum zweithöchsten.
+- Prüfskript nach der Änderung: OK, 0 Gruppen „gleich gebaut hintereinander“.
+
+### Änderungen je Fehlerart (14 Aufgaben)
+- **a) fachlich falsche Lösung: 1.** kausal, Sicherung: „Kinder, die mehr Zeit im Freien verbringen, sind seltener kurzsichtig. Welche dritte Größe erklärt diesen Zusammenhang?“ – richtig sollte sein „das Tageslicht draußen und weniger Nahsehen“. Das ist keine dritte Größe, die beide Merkmale beeinflusst, sondern der Wirkweg (Zeit draußen → Tageslicht → seltener kurzsichtig); der Lösungsweg „beeinflusst beide beobachteten Größen“ war falsch. Ersetzt durch: „Städte mit mehr Kirchen haben mehr Gaststätten.“ – Lösung „die Einwohnerzahl der Stadt“.
+- **b) Mehrdeutigkeit/Sprache: 4.**
+  - 2× „Welchen x-Wert hat der Punkt mit dem größten y-Wert?“: höchster und zweithöchster Punkt lagen nur 4 % der Achsenhöhe auseinander (80 gegen 78; 295 gegen 293) – im Bild kaum zu unterscheiden. Generator hebt den höchsten Punkt jetzt auf mindestens 10 % Abstand (83 bzw. 298); Lösung (x-Wert) unverändert.
+  - „das 1 Jahre alt ist“ → „1 Jahr“; „Alter des Geräts in Jahre“ → „in Jahren“.
+- **c) späterer Stoff: 0** (lineare Funktionen, Median, Prozent – alles früher).
+- **d) Lernkarten: 0.**
+- **e) Lösungsweg: 9.** „x > 9,38“ war für 8x > 75 falsch gerundet (x = 9,376 erfüllt die Ungleichung, ist aber < 9,38) → exakt „x > 9,375“ (nicht abbrechende Grenzen jetzt als Bruch mit ≈). „Die Steigung -4“ mit Bindestrich → „−4“ (3×). „Davon liegen 1 …“ → „liegt“. Lösungswege der Dritte-Größe-Aufgaben begannen klein und mit falschem Numerus („ländliche Gegenden … beeinflusst“) → „Die dritte Größe ist: … Sie beeinflusst …“ (5×, ohne die ersetzte Aufgabe).
+- **f) Stufe/Typ: 0.**
+
+### Nebenwirkung (Fakt)
+- Feld `klasse` aus der Themenliste übernommen: `{"ib_myp": 3}` → `{"ib_myp": 5}`.
+
+### Lehrplan
+- Annahme: Streudiagramm, Art/Stärke des Zusammenhangs, Ausgleichsgerade nach Augenmaß und „Korrelation ≠ Ursache“ passen zu IB MYP (Sekundärquelle revisiondojo.com/myp/myp-extended-mathematics/notes nennt „Covariance and Correlation“ als Extended-Kapitel, abgerufen 20.11.2026; IB-Dokument nicht frei abrufbar). **Widerspruch:** Die Datei war für MYP 3 gebaut (`offen`: „Regressionsrechnung ist nicht Stoff von MYP 3“), die Themenliste führt das Thema jetzt bei MYP 5 (Klasse 10). Für Klasse 10 fehlt dann vermutlich der Korrelationskoeffizient r (Bedeutung, grobe Einordnung) – Annahme, nicht geändert; Entscheidung beim Haupt-Chat.
+
 ## 2026-11-20 – daten.normalverteilung (Normalverteilung)
 
 **Urteil: mit Korrekturen in Ordnung** (eine Formulierung).

@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "funktionen.exponential_log",
+ "kurz": "Du lernst, Wachstum und Abnahme mit gleichem Faktor zu beschreiben und rückwärts zu rechnen.",
+ "etappen": {
+  "werte": "für a · bˣ Funktionswerte berechnen, auch für negative x",
+  "faktor": "eine Zu- oder Abnahme in Prozent in einen Wachstumsfaktor umrechnen und zurück",
+  "linear_oder_exponentiell": "an einer Tabelle erkennen, ob gleiches Plus oder gleicher Faktor vorliegt",
+  "modell": "aus Anfangswert und Verdopplungszeit oder zwei Punkten f(x) = a · bˣ aufstellen",
+  "graph": "beim Graphen von a · bˣ Schnitt mit der y-Achse, Steigen oder Fallen und Asymptote angeben",
+  "punkte": "berechnen, wohin ein Punkt beim Verschieben und Strecken eines Graphen wandert",
+  "logfunktion": "für log_b(x) Werte berechnen und Punkte des Graphen über bˣ finden"
+ }
+}

@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "raum.schraegbilder",
+ "kurz": "Du lernst, Körper im Raum genau zu beschreiben: mit Kanten, Geraden, Koordinaten und Schnitten.",
+ "etappen": {
+  "pyramide": "für eine Pyramide mit beliebiger Grundfläche Ecken, Kanten und Flächen zählen",
+  "lage": "im Quader erkennen, ob zwei Geraden parallel, schneidend oder windschief sind",
+  "koordinaten": "für Ecken und Mittelpunkte eines Quaders die drei Koordinaten (x | y | z) angeben",
+  "rotation": "angeben, welcher Körper entsteht, wenn sich eine Fläche um eine Achse dreht",
+  "axialschnitt": "für Zylinder und Kegel Fläche und Umfang des Schnitts durch die Achse berechnen"
+ }
+}

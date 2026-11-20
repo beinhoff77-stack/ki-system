@@ -1,0 +1,15 @@
+{
+ "thema_schluessel": "stochastik.mehrstufig",
+ "kurz": "Du lernst, Wahrscheinlichkeiten für Zufallsversuche zu berechnen, die in mehreren Schritten ablaufen.",
+ "etappen": {
+  "pfad_mult": "die Wahrscheinlichkeit eines Pfades durch Multiplizieren berechnen",
+  "pfad_add": "für Ereignisse mit mehreren Pfaden die Wahrscheinlichkeiten addieren",
+  "ohne_zuruecklegen": "bei Ziehungen ohne Zurücklegen die Äste der zweiten Stufe anpassen und rechnen",
+  "unabhaengig": "mit P(A ∩ B) = P(A) · P(B) prüfen, ob zwei Ereignisse unabhängig sind",
+  "gegenereignis": "über 1 − P(keinmal) schnell ausrechnen, wie wahrscheinlich „mindestens einmal“ ist",
+  "baum_ergaenzen": "fehlende Äste eines Baumdiagramms über Summe 1 und Teilen ergänzen",
+  "simulation": "erwartete Trefferzahlen mit n · p berechnen und relative Häufigkeiten deuten",
+  "pi_schaetzen": "π mit Zufallspunkten im Viertelkreis schätzen und mit Streifen eingrenzen",
+  "verstehen": "typische Fehler wie Addieren statt Multiplizieren entlang eines Pfades erkennen"
+ }
+}

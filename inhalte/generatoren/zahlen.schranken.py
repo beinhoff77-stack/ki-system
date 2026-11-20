@@ -124,10 +124,10 @@ def g_messen(s):
         return ja_nein(vor + f' Kann der wahre Wert {dz(v)} {ein} sein?', ok, f'Fehlerbereich: {dz(lo)} {ein} ≤ x < {dz(hi)} {ein}. {dz(v)} liegt {"darin" if ok else "nicht darin"}.',
                        'Bestimme den Fehlerbereich; Achtung bei den Grenzen.')
     x2 = wert_mit(sch, a, b)
-    r = wort
+    r = f'auf {dz(sch)} {ein} genau'  # Prüfung neu 2: Auswahl in derselben Größe, Denkfehler halbe Breite / Faktor 10
     return auswahl(f'Der wahre Wert einer Messung ({g}) liegt zwischen {dz(x2 - sch / 2)} {ein} und {dz(x2 + sch / 2)} {ein}. Wie genau wurde gemessen?', r,
-                   [w for _, _, _, w, _ in MESS if w != wort][:3],
-                   f'Die Breite des Bereichs ({dz(sch)} {ein}) ist die Messgenauigkeit: {wort}.', 'Wie breit ist der Bereich?')
+                   [f'auf {dz(sch / 2)} {ein} genau', f'auf {dz(sch * 10)} {ein} genau', f'auf {dz(sch / 10)} {ein} genau'],
+                   f'Die Breite des Bereichs ({dz(sch)} {ein}) ist die Messgenauigkeit: {wort}. Die halbe Breite ({dz(sch / 2)} {ein}) ist nur der größte Fehler.', 'Wie breit ist der Bereich?')
 
 
 def g_summe(s):
@@ -190,7 +190,7 @@ def g_produkt(s):
         w_ = (f'Größte Geschwindigkeit: obere Strecke : untere Zeit = {dz(hd)} : {dz(lt)} ≈ {dz(g)} m/s.' if art == 'tempo_max' else
               f'Kleinste Geschwindigkeit: untere Strecke : obere Zeit = {dz(ld)} : {dz(ht)} ≈ {dz(g)} m/s.')
         return zahl(f'Ein Läufer legt {d} m in {t} s zurück (beides auf ganze Einheiten gerundet). Berechne die {"obere" if art == "tempo_max" else "untere"} Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen).',
-                    w_, 'Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen.', g,
+                    w_, ('Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen.' if art == 'tempo_max' else 'Bei einem Quotienten: Für das Minimum durch die größte Zahl teilen.'), g,
                     f'round({float(hd)} / {float(lt)}, 2)' if art == 'tempo_max' else f'round({float(ld)} / {float(ht)}, 2)', einheit='m/s', tol=0.01)
     gesamt = R.choice([500, 1000, 1500, 2000])
     glas = R.choice([200, 250])
@@ -202,6 +202,11 @@ def g_produkt(s):
                 'Rechne mit der kleinsten Saftmenge und dem größten Glas.', sicher, f'{lg} // {hgl}')
 
 
+def jn3(text, ok, w, h, ja, nein, dritte):
+    """Prüfung neu 2: „sicher?“-Fragen mit drei klaren Antworten statt „lässt sich nicht entscheiden“ (war bei „Nein“ ebenfalls vertretbar)."""
+    return ja_nein(text, ja if ok else nein, w, h, ja=ja, nein=nein, dritte=dritte)
+
+
 def g_entscheiden(s):
     art = R.choice({1: ['aufzug', 'passt'], 2: ['fehler', 'brett'], 3: ['fehler', 'genauigkeit_ergebnis', 'aufzug', 'brett']}[s])  # Durchsicht 19
     if art == 'aufzug':
@@ -210,15 +215,17 @@ def g_entscheiden(s):
         grenze_ = R.choice([n * m + R.choice([2, 3, 4, 6, 8]), n * m + n // 2 + 10, n * m + n // 2 - 1])
         worst = n * (m + Fr(1, 2))
         ok = worst <= grenze_
-        return ja_nein(f'Ein Aufzug darf höchstens {grenze_} kg tragen. {n} Personen wiegen je {m} kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?', ok,
+        return jn3(f'Ein Aufzug darf höchstens {grenze_} kg tragen. {n} Personen wiegen je {m} kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?', ok,
                        f'Ungünstigster Fall: {n} · {dz(m + Fr(1, 2))} kg = {dz(worst)} kg {"≤" if ok else ">"} {grenze_} kg: {"sicher erlaubt" if ok else "nicht sicher erlaubt"}.',
-                       'Rechne mit der oberen Schranke des Gewichts.')
+                       'Rechne mit der oberen Schranke des Gewichts.',
+                       ja='Ja, sicher erlaubt.', nein='Nicht sicher: im ungünstigsten Fall ist es zu schwer.', dritte='Sicher nicht: es ist auf jeden Fall zu schwer.')
     if art == 'passt':
         b = R.randint(60, 120)
         luecke_ = b + R.choice([0, 2])
-        return ja_nein(f'Ein Schrank ist {b} cm breit, die Lücke in der Küche {luecke_} cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?', luecke_ - Fr(1, 2) >= b + Fr(1, 2),
+        return jn3(f'Ein Schrank ist {b} cm breit, die Lücke in der Küche {luecke_} cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?', luecke_ - Fr(1, 2) >= b + Fr(1, 2),
                        f'Ungünstigster Fall: Schrank {dz(b + Fr(1, 2))} cm, Lücke {dz(luecke_ - Fr(1, 2))} cm. ' + ('Passt sicher.' if luecke_ - Fr(1, 2) >= b + Fr(1, 2) else 'Nicht sicher – es kann knapp nicht passen.'),
-                       'Größtmöglicher Schrank gegen kleinstmögliche Lücke.')
+                       'Größtmöglicher Schrank gegen kleinstmögliche Lücke.',
+                       ja='Ja, sicher.', nein='Nicht sicher: im ungünstigsten Fall ist der Schrank zu breit.', dritte='Sicher nicht: der Schrank ist auf jeden Fall zu breit.')
     if art == 'fehler':
         a, b = R.randint(20, 60), R.randint(5, 19)
         r = f'Falsch: richtig ist {dz(a + Fr(1, 2))} − {dz(b - Fr(1, 2))} = {dz(a - b + 1)}.'
@@ -237,9 +244,10 @@ def g_entscheiden(s):
     lang = R.randint(25, 45)
     brett = n * lang + R.choice([0, 2, 3, 4, 5, 6])
     ok = (brett - Fr(1, 2)) >= n * (lang + Fr(1, 2))
-    return ja_nein(f'Aus einem {brett} cm langen Brett sollen {n} Stücke von je {lang} cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?', ok,
+    return jn3(f'Aus einem {brett} cm langen Brett sollen {n} Stücke von je {lang} cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?', ok,
                    f'Ungünstigster Fall: Brett {dz(brett - Fr(1, 2))} cm, Stücke {n} · {dz(lang + Fr(1, 2))} = {dz(n * (lang + Fr(1, 2)))} cm. ' + ('Reicht sicher.' if ok else 'Reicht nicht sicher.'),
-                   'Kürzestes Brett gegen längste Stücke.')
+                   'Kürzestes Brett gegen längste Stücke.',
+                       ja='Ja, sicher.', nein='Nicht sicher: im ungünstigsten Fall ist das Brett zu kurz.', dritte='Sicher nicht: das Brett ist auf jeden Fall zu kurz.')
 
 
 # ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-2) ----------
@@ -259,10 +267,10 @@ def grenzen3(art):
         g = R.choice(['Besucher', 'Zuschauer', 'Teilnehmer'])
         w = {10: 'Zehner', 100: 'Hunderter', 1000: 'Tausender'}[sch]
         hoch = R.random() < 0.6
-        r = x + sch // 2 - 1 if hoch else x - sch // 2
-        return zahl(f'Die Zahl der {g} wurde auf {w} gerundet: {dz(x)}. Wie viele {g} waren es {"höchstens" if hoch else "mindestens"}?',
+        r = x + sch // 2 - 1 if hoch else sch  # Prüfung neu 2: „mindestens“ war nur die untere Schranke (Stufe 1) → Zahl der möglichen Werte
+        return zahl(f'Die Zahl der {g} wurde auf {w} gerundet: {dz(x)}. ' + (f'Wie viele {g} waren es höchstens?' if hoch else f'Wie viele verschiedene Werte sind für die Zahl der {g} möglich?'),
                     (f'Fehlerbereich {dz(x - sch // 2)} ≤ n < {dz(x + sch // 2)}. Anzahlen sind ganze Zahlen, also höchstens {dz(r)}.' if hoch
-                     else f'Fehlerbereich {dz(x - sch // 2)} ≤ n < {dz(x + sch // 2)}. Mindestens {dz(r)}.'),
+                     else f'Fehlerbereich {dz(x - sch // 2)} ≤ n < {dz(x + sch // 2)}. Möglich sind die ganzen Zahlen {dz(x - sch // 2)} bis {dz(x + sch // 2 - 1)}, das sind {dz(x + sch // 2)} − {dz(x - sch // 2)} = {dz(sch)} Werte.'),
                     'Personen zählt man ganz. Die obere Schranke selbst gehört nicht dazu.', r, f'{r}')
     if art == 'werte':
         st = R.choice([(Fr(1, 10), Fr(1, 100), 'eine Nachkommastelle', 'eine Zahl mit (höchstens) zwei Nachkommastellen'), (Fr(10), Fr(1), 'Zehner', 'eine ganze Zahl'),
@@ -353,7 +361,7 @@ def produkt3(art):
         return zahl(f'Ein Rechteck hat die Fläche {A} cm² (auf ganze cm² gerundet) und die Länge {l} cm (auf ganze cm gerundet). Wie breit ist es {"höchstens" if hoch else "mindestens"}? (auf zwei Nachkommastellen)',
                     (f'Breite = Fläche : Länge. Größte Fläche durch kleinste Länge: {dz(A + Fr(1, 2))} : {dz(l - Fr(1, 2))} ≈ {dz(g)} cm.' if hoch
                      else f'Breite = Fläche : Länge. Kleinste Fläche durch größte Länge: {dz(A - Fr(1, 2))} : {dz(l + Fr(1, 2))} ≈ {dz(g)} cm.'),
-                    'Breite = Fläche : Länge. Beim Teilen: Für das Maximum durch die kleinste Zahl teilen.', g,
+                    ('Breite = Fläche : Länge. Beim Teilen: Für das Maximum durch die kleinste Zahl teilen.' if hoch else 'Breite = Fläche : Länge. Beim Teilen: Für das Minimum durch die größte Zahl teilen.'), g,
                     f'round({A + 0.5} / {l - 0.5}, 2)' if hoch else f'round({A - 0.5} / {l + 0.5}, 2)', einheit='cm', tol=0.01)
     # unterschied: Zwei Rechtecke, größter Flächenunterschied
     a1, b1, a2, b2 = R.randint(8, 15), R.randint(6, 12), R.randint(4, 9), R.randint(3, 8)

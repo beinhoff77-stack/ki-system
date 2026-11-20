@@ -48,7 +48,7 @@ Fehler: keine
 - Fachwörter in `kurz` vermieden, die erst im Flug erklärt werden (z. B. kein „Median“, „Asymptote“, „Laplace“, „Thales“, „Tangente“, „Äquivalenz“).
 - `terme.umformen` enthält vier Potenz-Etappen (`mal_gleiche_basis`, `gleicher_exponent`, `geteilt_gleiche_basis`, `anwenden`); die Texte beschreiben diese, `kurz` bleibt bei „Rechenausdrücke kürzer schreiben“.
 - `bruch.prozent_grundwert` enthält die Etappe `formel` (Zinseszins Kₙ = K₀ · qⁿ); `kann` nennt das, `kurz` nur Erhöhung/Rabatt/Zurückrechnen.
-- Fachlich bewusst knapp: Werte mit genau 90 Zeichen (Grenze eingehalten) bei `bruch.prozent_grundwert/vermindert`, `terme.umformen/ausklammern` u. a. – falls die App weniger Platz hat, bitte melden.
+- Knapp an der Grenze: genau 90 Zeichen bei `bruch.prozent_grundwert/mehrfach`, `geometrie.winkelsaetze/scheitel_neben`, `terme.umformen/produkte` (dazu drei mit 89) – falls die App weniger Platz hat, bitte melden.
 - Offen: keine.
 
 FERTIG: AB-I, Chat 2

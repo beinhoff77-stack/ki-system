@@ -15,12 +15,11 @@ Die vier Lehrplan-Seiten, die vorhin fehlten, habe ich heute gelesen: Gymnasium 
 
 **Bisher Annahme, jetzt belegt** (die Zuordnung bleibt gleich): `zahlen.intervalle` und `gleichungen.ungleichungen` → M8 2 („lineare Ungleichungen … Intervallschreibweise“). `gleichungen.formeln` → M8 4. `gleichungen.potenz` → M9 5. `gleichungen.trig` → M9 7.2. `daten.boxplot` ist jetzt für **alle** RS-Klassen 7–10 geprüft: Quartile und Boxplot kommen nicht vor.
 
-**Neuer Befund (nichts geändert):** `terme.potenzgesetze` hat Gym-Klasse 6. Der Gym-Lehrplan verteilt den Stoff aber auf drei Klassen:
-- M6 1.4: negative Exponenten
-- M7 1.2: Potenzgesetze mit natürlichen Exponenten
-- M8 4: Potenzgesetze mit ganzzahligen Exponenten „plausibel machen und anwenden“
-
-Der Eintrag in `lehrplan_gym` „Potenzgesetze mit ganzzahligen Exponenten in einfachen Fällen anwenden“ ist fast wörtlich die Formulierung aus M8 4 (G8). Vorschlag: Die Etappen zu den Potenzgesetzen für Gym 6 als Vertiefung kennzeichnen oder in eine spätere Klasse verschieben. Das entscheidest du.
+**Befund `terme.potenzgesetze` – berichtigt nach Blick in die Themendateien (20.11., 05:45):** Meine erste Fassung war im Kern falsch. Sie sagte, das Thema in Gym 6 enthalte den Stoff dreier Klassen. Die Themendateien zeigen etwas anderes:
+- `terme.potenzgesetze` (Gym 6) hat nur drei Lernkarten: „Was ist eine Potenz?“, „Negative Exponenten und Hoch 0“ (beide Pflicht) und „Fehler bei Potenzen finden“ (Vertiefung). Das passt zu M6 1.4. Das Ziel der Datei sagt selbst: „Die Potenzgesetze folgen in Klasse 7 (Terme umformen).“ Nur Titel („Potenzen und Potenzgesetze“), `umfang` und der dritte Eintrag in `lehrplan_gym` versprechen mehr. Ein Teil der Vertiefungs-Aufgaben („Fehler finden“) nutzt schon Potenzgesetze mit natürlichen Exponenten.
+- Die Potenzgesetze mit natürlichen Exponenten (M7 1.2) stehen in `terme.umformen` (Gym 7). Pflicht: „Gleiche Basis: malnehmen“, „Gleicher Exponent“. Vertiefung: „Gleiche Basis: teilen“, „Potenzgesetze geschickt nutzen“.
+- Für Potenzgesetze mit ganzzahligen Exponenten (M8 4) gibt es **kein eigenes Thema**. 14 Aufgaben in `terme.umformen` (Gym 7) nutzen schon negative Exponenten (z. B. „y⁻³ · y⁻¹ = yᵏ“).
+Die Aufteilung auf Klasse 6 und 7 besteht also schon. Es fehlt ein eigener Flug für M8 4, und die Potenzgesetze sind in Klasse 7 nicht vom Termumformen getrennt. Das Weitere entscheidet Sebastian.
 
 **Geprüft und richtig:** alle Titel der Lernbereiche (Gym 5–10, RS 5–10) gegen die Lehrplan-Seiten. Zahl und Reihenfolge der Lernbereiche passen. Kein Thema hängt an einem Lernbereich, der seinen Kern nicht enthält. Die Selbstprüfung ist unverändert, das Prüfskript meldet 116 × OK. Es bleibt der bekannte Befund Gym 6.
 

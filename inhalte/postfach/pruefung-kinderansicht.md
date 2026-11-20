@@ -1,5 +1,13 @@
 # Postfach pruefung-kinderansicht (Aufbau der Kinderansicht)
 
+## 2026-11-20 – FERTIG: Nachprüfung 5 (App 0.83.0) und Nachprüfung Abschluss
+
+- Lehrer: `inhalte/pruefung/lehrer/nachpruefung-5.md` – N1, N3, N4, N5, Rückgängig, Rückfall, Trennstriche erledigt; N2 teilweise. Info-Seite Teil 7 erledigt, alle drei Abweichungen in Ordnung. Neu: N6 (Sollte) gewählter Themengebiet-Knopf unter der Maus unlesbar; N7 (Sollte) Plan links auf dem Handy Titel fast immer gekürzt; N8 (Kann, Entscheidung Sebastian) „Themen“ vs. Reisewörter.
+- Kind: `inhalte/pruefung/kind/abschluss/nachpruefung.md` – AB-A erfüllt. Neu: N1 (Sollte) Datum im Ort-Stempel „20.11..“; N2/N3/N5 (Kann) kleine Gestaltungspunkte; N4 Test „AB-A 2“ wackelt (Testfehler, kein App-Fehler). `flug_geschafft` offen bis 0.83.1.
+
+FERTIG: Nachprüfung 5
+FERTIG: Nachprüfung Abschluss
+
 ## 2026-11-17 11:45 – NACHPRÜFUNG SCHRITT A (N1–N8, App 0.74.2)
 Bericht: `inhalte/pruefung/NACHPRUEFUNG-2026-11-17-N1-N8.md` (Stand lernen-app 9d092d0). Tests lernen 24/24 grün, alle 593 Etappen gerendert.
 - **Erfüllt:** N3, N4, N5 (laut Auftrag), N6, N7 (Hinweis: „grün“ ist in Ozean/Wüste Petrol), N8.

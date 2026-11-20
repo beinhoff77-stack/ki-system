@@ -535,3 +535,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 - **0.83.1 übernommen** (LB Teil 8, Nachtrag B). App-Tests 127/127. Wartet auf Sebastians „Live“; `ab_s_flug_abschluss_einmal` wird dann mit eingespielt. Offene Punkte 1–3 aus Teil 8 (Etappen-Liste, „Wieder in die Wiederholung“, Link in eigener Zeile) liegen bei Sebastian/Gestalter.
 - **Nachprüfung 5 und Nachprüfung Abschluss übernommen.** Teil 6 und 7 bestätigt, AB-A bestätigt. Neue Punkte = „Bau-Auftrag LB, Teil 9“ (0.83.2).
+
+## 21.11. 00:55 (Berlin) – an alle
+
+- **App 0.83.1 ist live** (main c8514a0): kompakte Themen-Karte (LB Teil 8), Flug-Abschluss an `flug_geschafft`. **Eingespielt:** `20261120_ab_s_flug_abschluss_einmal.sql`; Rauchtest `ab_s` danach bestanden (zurückgerollt). ChatGPT-Prüfbitte 887 dazu noch offen.
+- Offen beim Bau: „Bau-Auftrag LB, Teil 9“ (0.83.2) – noch nicht begonnen.

@@ -2233,3 +2233,21 @@ Neu, von oben nach unten:
 Wirkung und Speichern der Stufen bleiben unverändert (LB-3, LB-5), nur die Darstellung ändert sich. Der Rückfall-Hinweis aus Teil 6 bleibt sichtbar.
 Handy (400 px): Die Knöpfe dürfen umbrechen; „Aus dem Plan nehmen“ dann in eigener Zeile darunter, rechtsbündig.
 Abnahme bei 400, 820 und 1280 px: kein Wort mitten im Wort umbrochen, die Karte zugeklappt unverändert. Tests ergänzen. Offene Punkte (z. B. Etappen-Liste mit Stand aus Teil 5 S4 – bleibt sie hinter „Inhalte ansehen“ erreichbar?) im Bericht nennen. „FERTIG: LB Teil 8“.
+
+---
+
+# Bau-Auftrag LB, Teil 9 (20.11.): Nachprüfung 5 (Lehrer) und Nachprüfung Abschluss (Kind) – App 0.83.2
+
+Grundlage: `inhalte/pruefung/lehrer/nachpruefung-5.md` (N6–N8, Info-Seite) und `inhalte/pruefung/kind/abschluss/nachpruefung.md` (N1–N5); Fundstellen und Bilder dort. Teil 6 und Teil 7 sind bestätigt. Nur App. `bau-motivation`, Version 0.83.2.
+
+**Lehrer-Ansicht**
+1. **N6 (Sollte):** Gewählter Themengebiet-Knopf (`aria-pressed="true"`) bleibt beim Hover dunkel mit weißer Schrift.
+2. **N7 (Sollte):** Plan links auf dem Handy: Titel nur das Thema, Themengebiet klein und grau in der Zeile darunter; ↑ ↓ kleiner (32 px) oder untereinander. Ziel bei 400 px: höchstens wenige Titel mit „…“, nie Trennstrich und „…“ hintereinander.
+3. **N8 (Kann):** bleibt wie es ist, bis Sebastian entscheidet (Wort „Themen“ in der Lehrer-Ansicht).
+4. **Info-Seite (Kann):** Schritt 1 „Rechts (auf dem Handy darunter) der Lehrplan“.
+
+**Abschluss-Ansichten (Kind)**
+5. **N1 (Sollte):** Datum im Ort-Stempel ohne doppelten Punkt („20.11.“).
+6. **N2–N5 (Kann):** wie im Bericht (Abstand unter „2/2“, Blitz beim Sturmflug hinter dem Text bei 360 × 640, N4 laut Bericht, „Überspringen ›“ lesbar).
+
+Tests ergänzen (N6, N7 als Messung, N1), alle laufen lassen. „FERTIG: 0.83.2“.

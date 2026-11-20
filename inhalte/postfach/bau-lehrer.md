@@ -2,9 +2,9 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
-## 2026-11-20 – FERTIG: Auftrag I, Teil 4, Punkt 5 d–h (Nachtrag, weiter App 0.82.0)
+## 2026-11-20 – FERTIG: Teil 4, Punkt 5 d–h – App 0.82.1
 
-Stand `lernen-app` 10a3155 übernommen (Punkt 5 in der neuen Fassung a–h). Version bleibt 0.82.0 (noch nicht live). Kein Merge, keine Migration.
+Stand `lernen-app` e728367 übernommen (Punkt 5 a–h unverändert gegenüber 10a3155). a)–c) waren in 0.82.0; d)–h) jetzt als **0.82.1** (Version in app.js, sw.js, index.html, lernen/index.html, lernen/schule.js, tests/search.test.cjs). Datenbank nicht berührt (keine Migration nötig: `schule_test_starten` mit `art: korrektur` und `schule_einheit_lesen` gibt es schon). Kein Merge.
 Bilder: `docs/previews/la/teil4-test-folgt-390.png`, `teil4-ergebnis-entdecker-390.png`, `teil4-ergebnis-nacht-390.png`.
 
 **Umgesetzt**
@@ -14,7 +14,7 @@ Bilder: `docs/previews/la/teil4-test-folgt-390.png`, `teil4-ergebnis-entdecker-3
 - **g) Verbessern:** „Verbessern ›“ zeigte auf die eigene Adresse. Jetzt nach einem Ergebnis mit Fehlern genau zwei Wege: groß „Erst üben: <Etappe> ›“ und „Gleich verbessern ›“ (Knopf, startet `schule_test_starten` mit `art: korrektur` direkt), darunter klein „Zum Flug“ · „Zur Abflugtafel“. Geprüft: Kein Link der Ergebnisseite zeigt auf die eigene Adresse.
 - **h) Alter Stand:** Nach jedem abgeschlossenen Test (alle Arten) lädt die App `schule_einheit_lesen` neu, bevor sie Knöpfe zeichnet; Fehler-Etappen und „Flug geschafft“ kommen aus dem frischen Stand (Fallback: Antwort des Tests). Geschafft → „Flug geschafft! 🎉“ und „Weiter zum nächsten Flug ›“, kein „Verbessern“.
 
-**Gesehen/getestet** (lernen 108 von 108; Suche 139 bestanden, 9 bekannte alte Fehler)
+**Gesehen/getestet** (mit 0.82.1: lernen 108 von 108; Suche 138 + 1 bestanden – Nr. 108 war wie bekannt wackelig und besteht einzeln –, 9 bekannte alte Fehler 13, 15, 101, 103, 105, 111, 113, 126, 127)
 - d: Knobel kommt von selbst, falsch → „Weiter ›“ → Landebildschirm, kein zweiter Versuch; „Heute keine Knobel-Bordkarte“ → Landebildschirm.
 - e: nach der letzten Pflicht-Etappe nur „Jetzt zum Test ›“, führt auf die Testseite; Flug öffnen mit fehlendem Test → Aufforderung, keine Bordkarte.
 - f: hell und nacht, Wörter, Zeichen, Balkenbreite, Kontrast.

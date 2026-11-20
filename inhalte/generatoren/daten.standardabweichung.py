@@ -141,7 +141,8 @@ def g_varianz(s):
         x = neg[0]
         r = f'({dz(x - m)})² = {dz((x - m) ** 2)}, nicht {dz(-(x - m) ** 2)}. Die Varianz ist {dz(v)}.'
         falsch_v = sum((Fr(y) - m) ** 2 if y >= m else -(Fr(y) - m) ** 2 for y in xs) / n
-        return auswahl(f'Werte: {liste(xs)}, x̄ = {dz(m)}. Mia rechnet die Varianz und erhält {dz(falsch_v)}, weil sie ({dz(x - m)})² = {dz(-(x - m) ** 2)} gesetzt hat. Was stimmt?', r,
+        return auswahl(f'Werte: {liste(xs)}, x̄ = {dz(m)}. Mia rechnet die Varianz und erhält {dz(falsch_v)}, weil sie die Quadrate der negativen Abweichungen negativ gesetzt hat, '  # Prüfung neu 2: Text nannte nur eine
+                       f'z. B. ({dz(x - m)})² = {dz(-(x - m) ** 2)}. Was stimmt?', r,
                        [f'Mia hat recht, die Varianz ist {dz(falsch_v)}.', f'Man muss durch {n - 1} teilen, dann stimmt es.', f'Die Varianz ist {dz(v * n)}.'],
                        f'Quadrate sind nie negativ. Richtig: {weg}', 'Was ergibt eine negative Zahl zum Quadrat?')
     ys = datensatz(n, 1, 25)
@@ -684,6 +685,8 @@ ST.typ('eigenschaften', 'Ein Datensatz hat σ = 5. Jeder Wert wird mit 2 multipl
 ST.typ('eigenschaften', '/Wie groß ist der neue Mittelwert/', 'umkehr')
 ST.typ('eigenschaften', '/^/', 'mehrschritt', s=2)
 ST.typ('eigenschaften', 'Ein Test hat höchstens 20 Punkte', 'transfer')
+ST.typ('eigenschaften', 'Ein Test hat höchstens 50 Punkte', 'transfer')  # Prüfung neu 2: Rechenaufgabe, kein „begründen“
+ST.typ('eigenschaften', 'Ein Test hat höchstens 10 Punkte', 'verknuepfen')  # Prozent umrechnen = früherer Stoff
 ST.typ('eigenschaften', 'Tagestemperaturen', 'verknuepfen')
 ST.typ('eigenschaften', '/Was wurde gemacht|Mit welcher Zahl wurde/', 'rueckwaerts')
 ST.typ('eigenschaften', '/^/', 'begruenden', s=3)

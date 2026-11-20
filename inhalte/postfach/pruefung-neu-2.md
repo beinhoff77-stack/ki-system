@@ -2,6 +2,33 @@
 
 Neueste Meldung oben. Dieser Chat hat keines der geprüften Themen geschrieben.
 
+## 2026-11-20 – daten.standardabweichung (Standardabweichung)
+
+**Urteil: mit Korrekturen in Ordnung.**
+
+### Umfang (Fakt)
+- Gelesen: 5 Lernkarten und alle 181 Aufgaben (121 Übungen, 5 Test, 15 Korrektur, 30 Sicherung, 10 Knobel).
+- Nachgerechnet: alle 181 von Hand (Mittelwerte, Abweichungen, Varianzen, σ mit Rundung, Lineartransformationen, Bereich x̄ ± σ). Zusätzlich per eigenem Skript (unabhängig vom Generator): alle Varianz-Vergleiche A/B, alle angegebenen Mittelwerte, alle „Berechne Varianz/σ“-Aufgaben, alle Zählungen im Bereich x̄ ± σ (dort auch, ob x̄ und σ zum Datensatz passen) und „weicht am stärksten ab“ auf Gleichstand – 0 Abweichungen.
+- Prüfskript nach der Änderung: OK, 0 Gruppen „gleich gebaut hintereinander“.
+
+### Änderungen je Fehlerart (5 Aufgaben)
+- **a) falsche Lösung: 0.**
+- **b) unklare Angabe: 2.** varianz, Stufe 3 fehler: „Mia … erhält −15, weil sie (−12)² = −144 gesetzt hat“ – mit nur diesem Fehler käme −14,5 heraus; −15 entsteht erst, wenn *alle* negativen Abweichungen negativ quadriert werden (auch (−1)² = −1). Ebenso „erhält 18, weil sie (−7)² = −49 …“ (dort zusätzlich (−10)²). Jetzt: „… weil sie die Quadrate der negativen Abweichungen negativ gesetzt hat, z. B. (−12)² = −144.“ Lösung unverändert.
+- **c) späterer Stoff: 0** (Wurzel Kl. 9, Median Kl. 7, Prozent Kl. 6 – alles früher).
+- **d) Lernkarten: 0.**
+- **e) Tipp/Optionen: 0.**
+- **f) Typ: 3.** eigenschaften, Stufe 3: Zwei Umrechnungs-Aufgaben („Test … in Prozent umrechnen, x̄ und σ danach?“) standen als `begruenden`, sind aber reine Rechenaufgaben. Jetzt die 50-Punkte-Variante `transfer`, die 10-Punkte-Variante `verknuepfen` (Prozentrechnung). Dadurch hat sich die Reihenfolge der Stufe-3-Übungen dieser Lernkarte verschoben (gleiche Aufgaben, keine zwei gleichen Typen hintereinander); die σ-0-Aufgabe bleibt `begruenden`.
+
+### Nebenwirkung (Fakt)
+- Feld `klasse` beim Neuerzeugen aus der Themenliste übernommen: `{"ib_myp": 4}` → `{"ib_myp": 5}`.
+
+### Nicht geändert, zur Kenntnis
+- Meinung: „Test höchstens 10 Punkte, x̄ = 7, σ = 4“ ist möglich (σ ≤ √21 ≈ 4,58), aber eine sehr extreme Verteilung. Belassen.
+- Fakt: Lösungswege zeigen bei „auf zwei Nachkommastellen“ z. B. „≈ 4,1“ statt „4,10“ (Zahlformat des Generators); die Eingabe 4,1 wird angenommen.
+
+### Lehrplan
+- Annahme: Passt zu IB MYP Jahr 5 (Klasse 10), Extended Mathematics („standard deviation“ als Extended-Inhalt laut Sekundärquelle revisiondojo.com/blog/myp-math-statistics-and-probability, abgerufen 20.11.2026; IB-Originaldokument nicht frei abrufbar). Rechnung mit n (Gesamtheit) ist unter `offen` begründet. Es fehlt nichts Wesentliches; der Taschenrechner-Weg (GDC) wird bewusst nicht geübt.
+
 ## 2026-11-20 – zahlen.schranken (Schranken und Genauigkeit)
 
 **Urteil: mit Korrekturen in Ordnung.**

@@ -33,7 +33,7 @@
    "k": "a",
    "y": "zahl",
    "f": {
-    "text": "Eine große Modellpyramide hat unten eine Schicht aus 17 · 17 Würfeln. Wie viele Würfel sind das (17²)?",
+    "text": "Neben deinem kleinen Modell steht im Museum ein großes Modell aus denselben Holzwürfeln. Es hat unten eine Schicht aus 17 · 17 Würfeln. Wie viele Würfel sind das (17²)?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -88,7 +88,7 @@
    "k": "c",
    "y": "zahl",
    "f": {
-    "text": "Eine erfundene Riesenpyramide hätte 2 347 819 Steine. Runde diese Zahl auf Hunderttausender."
+    "text": "Die echten Pyramiden sind nicht aus Holzwürfeln, sondern aus riesigen Steinblöcken gebaut – und haben viel mehr Schichten als jedes Modell. Eine erfundene Riesenpyramide hätte 2 347 819 Steine. Runde diese Zahl auf Hunderttausender."
    },
    "o": {
     "wert": 2300000

@@ -24,14 +24,15 @@ antworten = [f'Ja, es bleiben {zt(fehlt)} Steine übrig.', f'Nein, es fehlen {zt
 tabelle = {'typ': 'tabelle', 'kopf': ['Schicht von oben', '1', '2', '3', '4', '5'], 'zeilen': [['Würfel'] + [str(s) for s in SCHICHTEN]]}
 
 teile = [
-    zahl('a', f'Eine große Modellpyramide hat unten eine Schicht aus {UNTEN} · {UNTEN} Würfeln. Wie viele Würfel sind das ({UNTEN}²)?',
+    zahl('a', f'Neben deinem kleinen Modell steht im Museum ein großes Modell aus denselben Holzwürfeln. Es hat unten eine Schicht aus {UNTEN} · {UNTEN} Würfeln. Wie viele Würfel sind das ({UNTEN}²)?',
          UNTEN ** 2, f'{UNTEN} * {UNTEN}', f'{UNTEN}² = {UNTEN} · {UNTEN} = {UNTEN ** 2} Würfel.',
          f'Rechne {UNTEN} · 10 + {UNTEN} · 7.', B('zahlen.potenzen_basis', 'quadrat'), grafik=tabelle),
     zahl('b', f'Die kleine Pyramide hat 5 Schichten mit {", ".join(map(str, SCHICHTEN[:-1]))} und {SCHICHTEN[-1]} Würfeln. Wie viele Würfel sind es zusammen? Rechne geschickt.',
          sum(SCHICHTEN), ' + '.join(map(str, SCHICHTEN)),
          f'Geschickt zusammenfassen: (1 + 9) + (4 + 16) + 25 = 10 + 20 + 25 = {sum(SCHICHTEN)}.',
          'Suche zwei Zahlen, die zusammen eine glatte Zehnerzahl ergeben.', B('zahlen.rechengesetze', 'vorteil')),
-    zahl('c', f'Eine erfundene Riesenpyramide hätte {zt(STEINE)} Steine. Runde diese Zahl auf Hunderttausender.',
+    zahl('c', f'Die echten Pyramiden sind nicht aus Holzwürfeln, sondern aus riesigen Steinblöcken gebaut – und haben viel mehr Schichten als jedes Modell. '
+              f'Eine erfundene Riesenpyramide hätte {zt(STEINE)} Steine. Runde diese Zahl auf Hunderttausender.',
          gerundet, f'{gerundet}', f'An der Hunderttausenderstelle steht 3, rechts daneben die Zehntausenderziffer 4: abrunden. {zt(STEINE)} ≈ {zt(gerundet)}.',
          'Welche Ziffer steht rechts neben der Hunderttausenderstelle?', B('zahlen.natuerlich', 'runden_regel')),
     zahl('d', f'Es gilt {zt(gerundet)} = 23 · 10 hoch ?. Welcher Exponent gehört an die Stelle des Fragezeichens?',

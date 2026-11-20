@@ -1,0 +1,20 @@
+{
+ "thema_schluessel": "zahlen.rechengesetze",
+ "kurz": "Du lernst, in welcher Reihenfolge man rechnet und wie man geschickt rechnet.",
+ "etappen": {
+  "punkt_strich": "bei gemischten Aufgaben Mal und Geteilt vor Plus und Minus ausrechnen",
+  "klammern": "mit Klammern rechnen, auch ineinander, und Klammern passend setzen",
+  "termaufbau": "an der letzten Rechnung erkennen, ob ein Term Summe, Differenz, Produkt oder Quotient ist",
+  "vorteil": "beim Plus und Mal Zahlen tauschen und so zusammenfassen, dass es leicht wird",
+  "differenz_summe": "beim geschickten Rechnen das Minuszeichen mit seiner Zahl mitnehmen",
+  "verteilen": "mit dem Verteilungsgesetz geschickt rechnen und ausklammern",
+  "kopfrechnen": "eine Zahl in leichte Teile zerlegen und so im Kopf malnehmen",
+  "mal_ganz": "mit negativen Zahlen malnehmen und das Vorzeichen richtig bestimmen",
+  "geteilt_ganz": "mit negativen Zahlen teilen und das Ergebnis mit der Malrechnung prüfen",
+  "umkehraufgabe_mal": "einfache Mal- und Geteilt-Gleichungen mit ganzen Zahlen rückwärts lösen",
+  "ueberschlag": "durch Runden ein ungefähres Ergebnis finden und so Rechenfehler entdecken",
+  "schriftlich": "schriftlich multiplizieren und durch einstellige Zahlen teilen",
+  "schriftlich_geteilt": "schriftlich durch zweistellige Zahlen teilen, auch mit Rest",
+  "sach": "eine Sachaufgabe vorwärts oder rückwärts lösen und die Probe machen"
+ }
+}

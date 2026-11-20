@@ -1,0 +1,19 @@
+{
+ "thema_schluessel": "zahlen.natuerlich",
+ "kurz": "Du lernst, große Zahlen zu lesen, zu schreiben, zu vergleichen und zu runden – auch römisch.",
+ "etappen": {
+  "stellenwert": "sagen, wie viel eine Ziffer an ihrer Stelle wert ist, und Zahlen in Stellenwerte zerlegen",
+  "zahlwort_zu_ziffern": "große Zahlen aus Zahlwörtern mit Ziffern schreiben, auch mit Nullen dazwischen",
+  "ziffern_zu_zahlwort": "große Zahlen in Dreiergruppen teilen und richtig vorlesen",
+  "strahl_ablesen": "den Wert eines Abschnitts ausrechnen und so die Zahl an einem Strich bestimmen",
+  "strahl_eintragen": "ausrechnen, wie viele Abschnitte du gehst, und so eine Zahl richtig eintragen",
+  "vergleichen": "große Zahlen Ziffer für Ziffer vergleichen und der Größe nach ordnen",
+  "runden_regel": "eine Zahl auf Zehner, Hunderter oder Tausender richtig auf- oder abrunden",
+  "runden_uebertrag": "richtig runden, wenn beim Aufrunden aus einer 9 eine 0 wird",
+  "runden_sinnvoll": "entscheiden, wann Runden passt, und aus gerundeten Angaben Grenzen ablesen",
+  "unendlich": "den Nachfolger bestimmen und begründen, warum es keine größte natürliche Zahl gibt",
+  "roemisch_schreiben": "unsere Zahlen mit römischen Zeichen schreiben und römische Zahlen lesen",
+  "roemisch_system": "erklären, warum bei uns die Stelle den Wert einer Ziffer bestimmt, bei den Römern nicht",
+  "dualsystem": "eine Zahl vom Zweiersystem ins Zehnersystem umrechnen und umgekehrt"
+ }
+}

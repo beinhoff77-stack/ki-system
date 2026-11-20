@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "messen.flaechen",
+ "kurz": "Du lernst, Umfang und Flächeninhalt von Rechtecken und zusammengesetzten Figuren zu berechnen.",
+ "etappen": {
+  "einheitsquadrate": "den Flächeninhalt mit Einheitsquadraten als Reihen mal Anzahl bestimmen",
+  "rechteck": "mit a · b und 2 · a + 2 · b Fläche und Umfang ausrechnen, auch rückwärts",
+  "einheiten": "zwischen mm², cm², dm², m², a, ha und km² umrechnen",
+  "kommaschreibweise": "eine Fläche mit Komma schreiben und in andere Einheiten umrechnen",
+  "zerlegen": "die Fläche von L-Formen und Rahmen durch Zerlegen oder Ergänzen berechnen",
+  "sachaufgaben": "im Alltag entscheiden, ob Umfang oder Fläche gefragt ist, und rechnen",
+  "verstehen": "eine Aussage über Umfang, Fläche und Flächeneinheiten prüfen"
+ }
+}

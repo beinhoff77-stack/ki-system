@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "geometrie.grundbegriffe",
+ "kurz": "Du lernst, Punkte auf einem Zahlengitter zu finden, Winkel zu sortieren und Vierecke zu erkennen.",
+ "etappen": {
+  "koordinaten": "die Lage eines Punktes mit zwei Zahlen angeben und eintragen, auch mit negativen Zahlen",
+  "strecken": "die Länge waagrechter und senkrechter Strecken im Koordinatensystem bestimmen",
+  "lagebeziehungen": "erkennen, ob Geraden parallel oder senkrecht sind, und Abstände angeben",
+  "kreis_lage": "mit Abstand und Radius entscheiden, ob eine Gerade Sekante, Tangente oder Passante ist",
+  "winkelarten": "jeden Winkel bis 360° als spitz, recht, stumpf, gestreckt, überstumpf oder voll einordnen",
+  "vierecke": "an Seiten, Parallelen und rechten Winkeln erkennen, welches Viereck es genau ist",
+  "verstehen": "mit Skizze und Gegenbeispiel prüfen, ob eine Aussage zu Figuren stimmt"
+ }
+}

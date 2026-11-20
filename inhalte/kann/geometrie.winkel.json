@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "geometrie.winkel",
+ "kurz": "Du lernst, fehlende Winkel auszurechnen – an Geraden, an der Uhr und bei Drehungen.",
+ "etappen": {
+  "ergaenzen": "fehlende Winkel zu 90°, 180° oder 360° ausrechnen",
+  "kreuzung": "an zwei sich schneidenden Geraden alle Winkel aus einem Winkel bestimmen",
+  "um_punkt": "einen fehlenden Winkel um einen Punkt oder an einer Geraden berechnen",
+  "uhr": "den Winkel zwischen den Uhrzeigern und ihren Drehwinkel in einer Zeitspanne berechnen",
+  "drehungen": "die Drehung zwischen zwei Himmelsrichtungen in Grad angeben und umgekehrt",
+  "figuren": "einen geteilten rechten Eckwinkel aus einem Teil oder einer Bedingung berechnen",
+  "verstehen": "eine Aussage über Winkel begründen oder mit einem Gegenbeispiel widerlegen"
+ }
+}

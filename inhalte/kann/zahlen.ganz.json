@@ -1,0 +1,17 @@
+{
+ "thema_schluessel": "zahlen.ganz",
+ "kurz": "Du lernst, was Zahlen unter null bedeuten und wie man mit ihnen rechnet.",
+ "etappen": {
+  "deuten": "negative Zahlen bei Temperatur, Konto und Stockwerken deuten und vergleichen",
+  "zahlengerade": "die Zahl an einem Strich ablesen und Zahlen auch links von 0 eintragen",
+  "ordnen": "ganze Zahlen vergleichen und der Größe nach ordnen, auch nur negative",
+  "betrag": "zu jeder ganzen Zahl ihren Abstand zur 0 und ihr Gegenstück angeben und damit rechnen",
+  "schriftlich_plus_minus": "große Zahlen untereinander plus und minus rechnen und mit Überschlag prüfen",
+  "addieren": "mit negativen Zahlen plus rechnen, auch wenn beide Zahlen negativ sind",
+  "subtrahieren": "mit negativen Zahlen minus rechnen, indem du die Gegenzahl addierst",
+  "umkehraufgabe": "einfache Gleichungen wie x + 11 = 6 mit der Umkehraufgabe lösen und die Probe machen",
+  "ketten": "lange Rechenketten mit Plus, Minus und Klammern bei ganzen Zahlen ausrechnen",
+  "verstehen": "eine falsche Aussage über ganze Zahlen mit einem Gegenbeispiel widerlegen",
+  "sach": "mit Temperaturen, Tiefen und Kontoständen unter null rechnen"
+ }
+}

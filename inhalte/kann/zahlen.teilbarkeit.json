@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "zahlen.teilbarkeit",
+ "kurz": "Du lernst, welche Zahlen sich ohne Rest teilen lassen, und Tricks, das schnell zu erkennen.",
+ "etappen": {
+  "teiler": "alle Teiler einer Zahl in Paaren finden",
+  "vielfache": "zu einer Zahl ihre Vielfachen finden und sie von ihren Teilern unterscheiden",
+  "endziffer": "an der Endziffer erkennen, ob eine Zahl durch 2, 5 oder 10 teilbar ist",
+  "quersumme": "die Quersumme bilden und damit die Teilbarkeit durch 3 prüfen",
+  "neunerregel": "mit der Quersumme die Teilbarkeit durch 9 prüfen",
+  "primzahl": "an ihren Teilern erkennen, ob eine Zahl eine Primzahl ist, und es begründen",
+  "primfaktoren": "eine Zahl vollständig in Primfaktoren zerlegen"
+ }
+}

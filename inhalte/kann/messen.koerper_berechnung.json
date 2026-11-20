@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "messen.koerper_berechnung",
+ "kurz": "Du lernst Quader und Würfel genau kennen und rechnest aus, wie groß alle ihre Flächen zusammen sind.",
+ "etappen": {
+  "quader": "die Flächen, Kanten und Ecken eines Quaders angeben und alle Kanten addieren",
+  "oberflaeche": "die Oberfläche von Quader und Würfel berechnen, auch rückwärts",
+  "sachaufgaben": "die Oberfläche von Kartons und Aquarien berechnen, auch ohne Deckel",
+  "zusammengesetzt": "die Oberfläche zusammengeklebter Würfel und Quader berechnen",
+  "verstehen": "eine Aussage über Quader mit Zahlen prüfen und cm, cm² und cm³ unterscheiden"
+ }
+}

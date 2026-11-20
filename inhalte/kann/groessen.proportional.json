@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "groessen.proportional",
+ "kurz": "Du lernst, wann doppelt so viel auch doppelt so teuer ist, und rechnest damit Preise aus.",
+ "etappen": {
+  "erkennen": "entscheiden, ob eine Zuordnung proportional ist, und das begründen",
+  "vervielfachen": "fehlende Werte durch Vervielfachen oder Teilen auf beiden Seiten finden",
+  "pruefen": "mit dem Quotienten prüfen, ob eine Tabelle proportional ist, und Lücken füllen",
+  "einheit": "den Wert für 1 Stück ausrechnen, indem du durch die Anzahl teilst",
+  "dreisatz": "in drei Schritten über 1 Stück auf den gesuchten Wert schließen",
+  "geschickt": "beim Dreisatz eine passende Zwischenmenge wählen",
+  "sach": "erst prüfen, ob es proportional ist, dann rechnen und Packungspreise vergleichen",
+  "aenderung": "eine Änderungsrate wie Liter pro Minute berechnen, auch wenn etwas abnimmt"
+ }
+}

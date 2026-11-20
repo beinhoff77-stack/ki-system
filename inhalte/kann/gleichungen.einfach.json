@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "gleichungen.einfach",
+ "kurz": "Du lernst, Zahlenrätsel wie 3 · x + 4 = 19 rückwärts zu lösen und aus Texten aufzustellen.",
+ "etappen": {
+  "waage": "mit dem Bild der Waage prüfen, ob eine Zahl eine Gleichung löst",
+  "zwei_schritte": "eine Gleichung wie 3 · x + 4 = 19 in zwei Schritten rückwärts lösen",
+  "probe": "die Probe machen und erkennen, ob die Lösung größer oder kleiner sein muss",
+  "aufstellen": "eine Textaufgabe in eine Gleichung mit x übersetzen und lösen",
+  "ohne_loesung": "erkennen, wann eine Gleichung in den natürlichen Zahlen keine Lösung hat"
+ }
+}

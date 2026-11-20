@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "geometrie.ortslinien",
+ "kurz": "Du lernst, alle Punkte zu finden, die einen bestimmten Abstand zu einem Punkt oder einer Geraden haben.",
+ "etappen": {
+  "kreislinie": "entscheiden, ob ein Punkt innerhalb, auf oder außerhalb eines Kreises liegt",
+  "parallelen": "alle Punkte mit festem Abstand zu einer Geraden als zwei Parallelen oder Streifen angeben",
+  "zwei_kreise": "die Orte mit vorgegebener Entfernung zu A und zu B als Schnittpunkte zweier Kreise finden",
+  "verknuepfen": "alle Punkte bestimmen, die einen Abstand zu einem Punkt und zu einer Geraden einhalten",
+  "sachsituationen": "bei Leinen, Reichweiten und Straßenrändern mit Kreisen und Streifen rechnen",
+  "verstehen": "mit Skizze prüfen, welche Punkte passen, und auf „genau“, „höchstens“, „mindestens“ achten"
+ }
+}

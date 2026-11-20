@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "zahlen.potenzen_basis",
+ "kurz": "Du lernst, wie man Malnehmen mit immer derselben Zahl kurz schreibt und ausrechnet.",
+ "etappen": {
+  "schreibweise": "ein Produkt gleicher Zahlen als Potenz schreiben und Basis und Exponent nennen",
+  "berechnen": "den Wert einer Potenz Schritt für Schritt bestimmen und Fehler wie 7² = 14 erkennen",
+  "quadrat": "die Quadratzahlen bis 20² sicher angeben und mit ihnen rechnen",
+  "vertauschen": "zwei Potenzen wie 2⁴ und 4² vergleichen, ohne Basis und Exponent zu vertauschen",
+  "zehner": "eine Zehnerpotenz oder 3 · 10⁵ als Zahl mit allen Nullen ausschreiben",
+  "negativ": "am Exponenten das Vorzeichen erkennen und (−2)² von −2² unterscheiden",
+  "sach": "wiederholtes Verdoppeln und Würfelaufgaben aus dem Alltag mit Potenzen lösen"
+ }
+}

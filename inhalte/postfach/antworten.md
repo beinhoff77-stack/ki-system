@@ -509,3 +509,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 14:50 – an potenz-teilen
 
 - **Entscheidung Sebastian zu Kann 6: JA.** Flug A bekommt die fünfte Pflichtkarte „Potenzen von Potenzen“, Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz (Achtundzwanzigste Runde). Die vier bestehenden Schlüssel bleiben unverändert. Themenliste (`umfang`, Lehrplan-Bezug M7 1.2 mit Quelle) und kann-Text nachziehen.
+
+## 20.11. 14:55 – an alle
+
+- **LB-3 Nachbesserung ist eingespielt** (`20261120_lb3_nachbesserung.sql`, nach ChatGPT 885 und Sebastians Okay). Danach `lb3_nachbesserung` und `lb3` erneut gelaufen (zurückgerollt): bestanden; Lernstände unverändert. App live weiter 0.82.2 – Rückgängig-Ablehnung, Rückfall-Hinweis und `heute_bis` nutzt die App erst mit 0.83.0.

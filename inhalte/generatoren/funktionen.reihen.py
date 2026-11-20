@@ -597,9 +597,9 @@ ST.neu('sach', 'fehler', A('Ein Läufer läuft in Woche 1 genau 5 km und jede Wo
        'Gefragt ist die Summe aller Wochen, nicht das letzte Glied.', 'Glied oder Summe?'))
 ST.neu('sach', 'pruefung', L('Ein Bauer stapelt Strohballen: unten 20, jede Reihe darüber 2 weniger, oben 2. a) Wie viele Reihen? b) Wie viele Ballen insgesamt?', 'a) □; b) □', [10, 110],
        ['(20 - 2)/2 + 1', '10*(20 + 2)/2'], 'a) 20, 18, …, 2: (20 − 2) : 2 + 1 = 10 Reihen. b) 10 · (20 + 2) : 2 = 110 Ballen.', 'Bestimme zuerst die Zahl der Reihen.'))
-ST.knobel('sach', Z('Ein Frosch springt am 1. Tag 1 m, an jedem weiteren Tag halb so weit wie am Vortag. Welche Strecke (in m) kann er auf diese Weise höchstens zurücklegen?', 2, '2',
-          '1 + 1/2 + 1/4 + … Nach jedem Tag fehlt bis 2 m genau so viel wie der letzte Sprung. Die Summe kommt 2 m beliebig nahe, erreicht sie aber nie: höchstens 2 m.',
-          'Wie viel fehlt nach 1, 2, 3 Tagen noch bis 2 m?', einheit='m'))
+ST.knobel('sach', Z('Ein Frosch springt am 1. Tag 1 m, an jedem weiteren Tag halb so weit wie am Vortag. Nach wie vielen Tagen ist er zum ersten Mal insgesamt mehr als 1,9 m weit gekommen?', 5, '5',
+          'Summen: 1; 1,5; 1,75; 1,875; 1,9375. Nach jedem Tag fehlt bis 2 m genau so viel wie der letzte Sprung: Sₙ = 2 − 1/2ⁿ⁻¹. Mehr als 1,9 m heißt 1/2ⁿ⁻¹ < 0,1, also 2ⁿ⁻¹ > 10: n − 1 = 4, n = 5.',
+          'Wie viel fehlt nach 1, 2, 3 Tagen noch bis 2 m?'))
 ST.knobel('sach', Z('Bei einer Feier stößt jeder Gast mit jedem anderen genau einmal an. Es klirrt 45-mal. Wie viele Gäste sind es?', 10, '10',
           'Der erste stößt mit n − 1 an, der zweite noch mit n − 2, … Zusammen 1 + 2 + … + (n − 1) = n(n − 1) : 2 = 45 ⇒ n(n − 1) = 90 ⇒ n = 10.', 'Zähle, mit wie vielen der 1., 2., 3. Gast neu anstößt.'))
 

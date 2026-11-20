@@ -7,6 +7,22 @@ Allgemein gilt für alle Berichte:
 - Übungen ohne `g` sind laut Zwanzigster Runde „überzählig“ und werden beim Einspielen gesperrt. Sie wurden auf richtige Lösung (a) geprüft, nicht auf Stufe/Typ (f).
 - Lehrplan: Die Seiten von lehrplanplus.bayern.de konnte ich in dieser Sitzung nicht direkt abrufen (Abruf brauchte eine Freigabe, die nicht beantwortet wurde). Lehrplanaussagen stützen sich daher auf `lehrplan_andere` in `themenliste.json` und auf ISB-Dokumente aus der Websuche (Abruf 20.11.2026); was nicht belegt ist, steht als Annahme da.
 
+## 2026-11-20 – funktionen.reihen (IB MYP 5): mit Korrekturen in Ordnung
+
+**Gelesen und nachgerechnet (Fakt):** 8 Lernkarten und alle 287 Aufgaben (191 Übungen, 16 Knobel, 8 Test, 24 Korrektur, 48 Sicherung). 114 Aufgaben mit eigenem Skript aus dem Fragetext nachgerechnet (Folge erkennen und Glieder direkt aufsummieren statt Formel, Rekursion Schritt für Schritt, explizite Formel, aₙ, q, „wie viele Glieder bis Summe …“, Läufer/Stämme/Sparen/Schachbrett) – 0 Abweichungen. Die übrigen 173 (Summenzeichen, Auswahl, Fehler-Aufgaben, Sachaufgaben, Knobel) von Hand nachgerechnet – alle richtig, u. a. Angebot A/B (Tag 18 bzw. 19), Teleskopsumme 99/100, a₁₀₀ = 199. Beispielrechnungen aller 8 Karten stimmen.
+
+**Änderungen je Fehlerart:** a) 0 · b) 1 · c) 1 (dieselbe Aufgabe) · d) 0 · e) 0 · f) 0
+
+- c) und b) Knobel `sach`: „Ein Frosch springt am 1. Tag 1 m, an jedem weiteren Tag halb so weit wie am Vortag. Welche Strecke (in m) kann er auf diese Weise höchstens zurücklegen?“ – Lösung 2 m ist ein Grenzwert, der nie erreicht wird („höchstens“ stimmt so nicht), und unendliche geometrische Reihen sind laut `offen` bewusst nicht Stoff dieses Flugs. Neu: „… Nach wie vielen Tagen ist er zum ersten Mal insgesamt mehr als 1,9 m weit gekommen?“ → 5 (Summen 1; 1,5; 1,75; 1,875; 1,9375), Einheit entfernt.
+
+**Meinung, nicht geändert:** Die Knobel-Karte „S = 1 + 2 + 4 + … ⇒ S = −1, wo ist der Fehler?“ streift unendliche Reihen und erwähnt im Lösungsweg „strebt gegen 2“. Die Frage selbst verlangt nur „mit einer unbeschränkt wachsenden Summe darf man nicht wie mit einer Zahl rechnen“ – als freiwillige Knobel-Karte vertretbar.
+
+**Lehrplan:** IB MYP 5 (Klasse 10): endliche arithmetische und geometrische Reihen, Summenzeichen – passt (Annahme, nicht gegen das IB-Dokument geprüft). Die drei Folgen-Karten (rekursiv, arithmetisch, geometrisch) stammen laut Generator aus `funktionen.folgen` („Auflösen“); doppelte Inhalte zwischen beiden Flügen habe ich nicht geprüft.
+
+**Nicht geprüft:** Säulenbilder nur im JSON. Übungen ohne `g` (gesperrt) nur auf Lösung.
+
+Prüfskript: OK, 0 Gruppen „gleich gebaut hintereinander“. Vergleich alt/neu: nur die genannte Knobel-Karte geändert.
+
 ## 2026-11-20 – abbildungen.matrizen (RS 10, IB MYP 5): in Ordnung
 
 **Gelesen und nachgerechnet (Fakt):** 7 Lernkarten und alle 263 Aufgaben (179 Übungen, 14 Knobel, 7 Test, 21 Korrektur, 42 Sicherung). 136 Aufgaben mit eigenem Skript aus dem Fragetext nachgerechnet (Bildpunkt, Urbild mit Inverser, Drehung x′/y′ mit cos/sin auf zwei Dezimalen, A · B, A + B, Inverse, Determinante, Skalarprodukt, „senkrecht?“, Parameter t und x, Abstand Punkt–Gerade über die Kreuzformel) – keine Abweichung (zwei Meldungen des Skripts waren eigene Lesefehler: zweimal abbilden, „Determinante 1“ statt „keine Inverse“; beide Lösungen von Hand bestätigt). Die übrigen 127 (Auswahl, Verkettungen, Fehler-/Begründungsaufgaben, Lotfußpunkt rückwärts, Knobel) von Hand nachgerechnet – alle richtig, z. B. A · B ≠ B · A in beiden Gegenbeispielen, Gitterpunkte mit Abstand 1 (5 Stück), „für kein a ganzzahlige Inverse“. Beispielrechnungen aller 7 Karten stimmen.

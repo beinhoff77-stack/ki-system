@@ -3268,14 +3268,13 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Ein Frosch springt am 1. Tag 1 m, an jedem weiteren Tag halb so weit wie am Vortag. Welche Strecke (in m) kann er auf diese Weise höchstens zurücklegen?"
+    "text": "Ein Frosch springt am 1. Tag 1 m, an jedem weiteren Tag halb so weit wie am Vortag. Nach wie vielen Tagen ist er zum ersten Mal insgesamt mehr als 1,9 m weit gekommen?"
    },
    "o": {
-    "wert": 2,
-    "einheit": "m"
+    "wert": 5
    },
-   "c": "2",
-   "w": "1 + 1/2 + 1/4 + … Nach jedem Tag fehlt bis 2 m genau so viel wie der letzte Sprung. Die Summe kommt 2 m beliebig nahe, erreicht sie aber nie: höchstens 2 m.",
+   "c": "5",
+   "w": "Summen: 1; 1,5; 1,75; 1,875; 1,9375. Nach jedem Tag fehlt bis 2 m genau so viel wie der letzte Sprung: Sₙ = 2 − 1/2ⁿ⁻¹. Mehr als 1,9 m heißt 1/2ⁿ⁻¹ < 0,1, also 2ⁿ⁻¹ > 10: n − 1 = 4, n = 5.",
    "h": "Wie viel fehlt nach 1, 2, 3 Tagen noch bis 2 m?",
    "l": "sach",
    "t": "sach",

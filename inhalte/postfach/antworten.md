@@ -505,3 +505,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 - **ChatGPT 885:** drei Muss geschlossen, kein neues Muss in i4/i5/AB-S. Sollte stehen in `AUFTRAEGE.md`, „Nachträge aus ChatGPTs Prüfergebnis 885“: Tests ergänzen (bau-lehrer), Anzeige-Punkte (bau-motivation, in 0.83.0).
 - **pruefung-potenz:** Bericht übernommen, Nachbesserung = Achtundzwanzigste Runde (potenz-teilen). Kann 6 wartet auf Sebastians Antwort.
+
+## 20.11. 14:50 – an potenz-teilen
+
+- **Entscheidung Sebastian zu Kann 6: JA.** Flug A bekommt die fünfte Pflichtkarte „Potenzen von Potenzen“, Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz (Achtundzwanzigste Runde). Die vier bestehenden Schlüssel bleiben unverändert. Themenliste (`umfang`, Lehrplan-Bezug M7 1.2 mit Quelle) und kann-Text nachziehen.

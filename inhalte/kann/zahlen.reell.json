@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "zahlen.reell",
+ "kurz": "Du lernst Zahlen kennen, die nie als Bruch aufgehen, und rechnest geschickt mit Wurzeln.",
+ "etappen": {
+  "zahlarten": "entscheiden, ob eine Zahl wie √144 oder √15 rational oder irrational ist",
+  "eingrenzen": "eine Wurzel auf eine Nachkommastelle genau zwischen zwei Zahlen eingrenzen",
+  "heron": "mit dem Heron-Verfahren Schritt für Schritt einen Näherungswert für √a berechnen",
+  "wurzel_mal": "zwei Wurzeln malnehmen oder teilen, indem du sie unter eine Wurzel ziehst",
+  "teilweise": "aus einer Wurzel die Quadratzahl herausziehen, etwa √180 = 6√5",
+  "zusammenfassen": "gleichartige Wurzeln zusammenfassen, z. B. √8 − √50 = −3√2",
+  "nenner_rational": "aus dem Nenner eines Bruchs die Wurzel entfernen, auch bei √7 + √5"
+ }
+}

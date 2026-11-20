@@ -1,0 +1,16 @@
+{
+ "thema_schluessel": "funktionen.potenz",
+ "kurz": "Du lernst, wie Graphen zu x³, x⁴ oder 1/x aussehen und wie man solche Rechnungen umkehrt.",
+ "etappen": {
+  "werte": "für a · xⁿ Funktionswerte berechnen, auch für negative x und Brüche",
+  "symmetrie": "am Exponenten erkennen, ob ein Graph achsen- oder punktsymmetrisch ist",
+  "verlauf": "beschreiben, woher ein Graph von a · xⁿ kommt und wohin er geht",
+  "parameter": "a oder n bestimmen, wenn ein Punkt des Graphen bekannt ist",
+  "negativ": "für x⁻ⁿ Werte als Kehrwert berechnen und den Graphen beschreiben",
+  "umkehrbar": "prüfen, ob eine Funktion umkehrbar ist, etwa mit waagrechten Geraden",
+  "linear": "zu einer Geraden die Umkehrfunktion durch Tauschen von x und y aufstellen",
+  "wurzelfunktion": "mit √x und ∛x Werte berechnen und so x² oder x³ rückwärts rechnen",
+  "quadratisch": "eine Parabel auf einem Ast umkehren und Werte von f⁻¹ berechnen",
+  "spiegeln": "durch Spiegeln an y = x Punkte auf dem Graphen der Umkehrfunktion finden"
+ }
+}

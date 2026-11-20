@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "trigo.rechtwinklig",
+ "kurz": "Du lernst, aus einem Winkel und einer Seite die übrigen Seiten eines rechtwinkligen Dreiecks zu finden.",
+ "etappen": {
+  "seiten": "zu einem Winkel Ankathete, Gegenkathete und Hypotenuse richtig benennen",
+  "verhaeltnisse": "sin, cos und tan eines Winkels als Seitenverhältnis angeben und berechnen",
+  "seite": "mit sin, cos oder tan eine fehlende Seite im rechtwinkligen Dreieck berechnen",
+  "winkel": "aus zwei Seiten einen Winkel mit sin⁻¹, cos⁻¹ oder tan⁻¹ berechnen",
+  "beziehungen": "mit sin² α + cos² α = 1 und tan α = sin α : cos α fehlende Werte finden",
+  "anwendung": "eine Steigung in Prozent in Grad umrechnen und Höhen von Türmen berechnen",
+  "schnittwinkel": "aus den Steigungen zweier Geraden berechnen, unter welchem Winkel sie sich schneiden"
+ }
+}

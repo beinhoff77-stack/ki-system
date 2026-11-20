@@ -1,0 +1,15 @@
+{
+ "thema_schluessel": "funktionen.quadratisch",
+ "kurz": "Du lernst, Parabeln zu lesen, zu verschieben und ihren höchsten oder tiefsten Punkt zu finden.",
+ "etappen": {
+  "scheitel": "den Scheitel an der Scheitelform ablesen, auch bei (x + 3)²",
+  "parameter": "sagen, wie a, d und e eine Parabel öffnen, strecken und verschieben",
+  "spiegeln": "eine Parabel an der x-Achse oder y-Achse spiegeln und ihren Scheitel angeben",
+  "umformen": "eine Parabelgleichung in die Scheitelform bringen und den Scheitel angeben",
+  "nullstellen": "die Nullstellen einer Parabel berechnen und ihre Anzahl begründen",
+  "punkte": "einen Funktionswert berechnen und prüfen, ob ein Punkt auf der Parabel liegt",
+  "bestimmen": "aus Scheitel, Nullstellen oder Punkten die Gleichung einer Parabel aufstellen",
+  "schnittpunkte": "durch Gleichsetzen berechnen, wo sich eine Parabel und eine Gerade schneiden",
+  "extremwert": "größte oder kleinste Werte, etwa die größte Fläche, mit dem Scheitel finden"
+ }
+}

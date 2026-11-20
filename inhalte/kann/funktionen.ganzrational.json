@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "funktionen.ganzrational",
+ "kurz": "Du lernst, Graphen von Funktionen mit x³, x⁴ und mehr zu verstehen und zu beschreiben.",
+ "etappen": {
+  "grad": "bei einem Funktionsterm Grad, Leitkoeffizient und Absolutglied angeben",
+  "ausmultiplizieren": "eine Produktform wie (x − 2)(x − 3)(x + 1) in eine Summe umwandeln",
+  "randverhalten": "an der höchsten Potenz ablesen, wie ein Graph für sehr große und kleine x verläuft",
+  "symmetrie": "an den Hochzahlen erkennen, ob ein Graph achsen- oder punktsymmetrisch ist",
+  "nullstellen": "die Nullstellen bestimmen und sagen, wo der Graph die x-Achse schneidet oder berührt",
+  "graph_term": "über Randverhalten, Nullstellen und f(0) einem Graphen den richtigen Term zuordnen",
+  "term_bestimmen": "aus Nullstellen und einem Punkt den Funktionsterm mit dem Faktor a aufstellen"
+ }
+}

@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "funktionen.betrag",
+ "kurz": "Du lernst Graphen kennen, die wie ein V aussehen, und rechnest mit Abständen auf dem Zahlenstrahl.",
+ "etappen": {
+  "betrag": "den Betrag einer Zahl berechnen und |a − b| als Abstand deuten",
+  "graph": "bei a · |x − d| + e den Knickpunkt ablesen und sagen, wie das V geöffnet ist",
+  "stueckweise": "einen Betragsterm in zwei Stücke ohne Betragsstriche aufteilen",
+  "gleichung": "eine Gleichung wie 3 · |x − 2| − 1 = 14 mit beiden Lösungen lösen",
+  "verstehen": "prüfen, ob Aussagen über Beträge stimmen, auch mit negativen Zahlen"
+ }
+}

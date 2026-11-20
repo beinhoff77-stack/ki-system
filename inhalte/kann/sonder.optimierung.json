@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "sonder.optimierung",
+ "kurz": "Du lernst, unter mehreren Bedingungen die beste Lösung zu finden, etwa den größten Gewinn.",
+ "etappen": {
+  "bereich": "prüfen, ob ein Punkt alle Ungleichungen erfüllt und damit zulässig ist",
+  "aufstellen": "aus Angaben wie „höchstens“ und „mindestens“ Ungleichungen aufstellen",
+  "ecken": "die Eckpunkte des zulässigen Bereichs als Schnitt zweier Randgeraden berechnen",
+  "optimum": "die Zielfunktion an allen Ecken berechnen und das Maximum oder Minimum finden",
+  "sach": "eine Optimierungsaufgabe von den Bedingungen bis zur Antwort im Sachzusammenhang lösen"
+ }
+}

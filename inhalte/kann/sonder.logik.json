@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "sonder.logik",
+ "kurz": "Du lernst, Sätze genau auf wahr oder falsch zu prüfen und sie richtig zu verknüpfen.",
+ "etappen": {
+  "aussagen": "entscheiden, ob ein Satz eine Aussage ist, und Aussageformen mit x prüfen",
+  "negation": "eine Aussage richtig verneinen, auch mit „alle“ und „höchstens“",
+  "verknuepfen": "den Wahrheitswert von Aussagen mit „und“, „oder“ und „nicht“ bestimmen",
+  "tafel": "eine Wahrheitstafel mit Hilfsspalten Zeile für Zeile ausfüllen",
+  "folgerung": "bei Wenn-dann-Sätzen den Wahrheitswert bestimmen und die Umkehrung nicht verwechseln"
+ }
+}

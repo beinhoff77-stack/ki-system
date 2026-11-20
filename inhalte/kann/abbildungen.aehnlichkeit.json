@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "abbildungen.aehnlichkeit",
+ "kurz": "Du lernst, Figuren maßstabsgetreu zu vergrößern und so unbekannte Längen zu bestimmen.",
+ "etappen": {
+  "streckung": "einen Punkt oder eine Strecke mit Zentrum und Faktor k zentrisch strecken",
+  "bildgerade": "die Gleichung einer gestreckten Geraden oder Parabel angeben",
+  "schwerpunkt": "aus den drei Ecken eines Dreiecks seinen Schwerpunkt berechnen",
+  "aehnlich": "prüfen, ob Dreiecke ähnlich sind, und fehlende Seiten berechnen",
+  "strahlensatz1": "mit dem 1. Strahlensatz fehlende Abschnitte auf den Strahlen berechnen",
+  "strahlensatz2": "mit dem 2. Strahlensatz die Länge paralleler Strecken berechnen",
+  "flaeche_volumen": "berechnen, wie Fläche und Volumen beim Vergrößern mit k² und k³ wachsen",
+  "anwendung": "über Schatten oder Daumensprung Höhen und Entfernungen mit Strahlensätzen ermitteln"
+ }
+}

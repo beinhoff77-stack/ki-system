@@ -153,13 +153,17 @@ NEGATIV_ERGEBNIS = ['3⁴ : 3⁸ = 3ᵏ. Wie groß ist k?', '2¹ : 2⁷ = 2ᵏ. 
                     '5⁴ : 5⁶ = 5ᵏ. Wie groß ist k?', '2¹ : 2⁸ = 2ᵏ. Wie groß ist k?', 'y⁴ : y⁶ = yᵏ. Wie groß ist k?', '10¹ : 10⁹ = 10ᵏ. Wie groß ist k?']
 
 
-def nach_b(a): return _mit_minus_exponent(a) or a['f']['text'] in NEGATIV_ERGEBNIS
+# … und (Achtundzwanzigste Runde, Prüfbericht Sollte 2) 2 weitere mit kleinerem erstem Exponenten im Rechenweg (2⁻² bzw. 10⁻⁴).
+ERSTER_KLEINER = ['2¹⁰ : 2ⁿ = 1/4. Wie groß ist n?', 'Berechne 10⁴ : 10⁴ : 10⁴ · 10⁸.']
+
+
+def nach_b(a): return _mit_minus_exponent(a) or a['f']['text'] in NEGATIV_ERGEBNIS + ERSTER_KLEINER
 
 
 def umzug_nach_b():
     d = start_a()
     xs = [a for a in d['aufgaben'] if nach_b(a)]
-    assert sum(1 for a in xs if _mit_minus_exponent(a)) == 22 and len(xs) == 29, len(xs)
+    assert sum(1 for a in xs if _mit_minus_exponent(a)) == 22 and len(xs) == 31, len(xs)
     return xs
 
 
@@ -205,18 +209,16 @@ ERSATZ_A = {
         ('y⁷ : y⁻⁴ = yᵏ. Wie groß ist k?', Z('x⁹ : x² = xᵏ. Wie groß ist k?', 7, '9 - 2', 'Gleiche Basis x: Exponenten subtrahieren, 9 − 2 = 7.')),
         ('10¹ : 10⁹ = 10ᵏ. Wie groß ist k?', Z('10⁹ : 10⁵ = 10ᵏ. Wie groß ist k?', 4, '9 - 5', 'Gleiche Basis 10: Exponenten subtrahieren, 9 − 5 = 4.')),
         ('x⁻⁴ : x⁷ = xᵏ. Wie groß ist k?', Z('b¹¹ : b³ = bᵏ. Wie groß ist k?', 8, '11 - 3', 'Gleiche Basis b: Exponenten subtrahieren, 11 − 3 = 8.')),
+        # Achtundzwanzigste Runde (Sollte 2): erster Exponent nie kleiner
+        ('2¹⁰ : 2ⁿ = 1/4. Wie groß ist n?', Z('2¹⁰ : 2ⁿ = 16. Wie groß ist n?', 6, '10 - 4', '16 = 2⁴. Also 10 − n = 4 und n = 6. Probe: 2¹⁰ : 2⁶ = 2⁴ = 16.',
+                                                'Schreibe 16 als Potenz von 2.')),
+        ('Berechne 10⁴ : 10⁴ : 10⁴ · 10⁸.',
+         Z('Ein Rechner schafft 10⁹ Rechenschritte pro Sekunde. 10³ Programme brauchen je 10⁸ Rechenschritte. Wie lange braucht er für alle? '
+           'Gib die Zeit als 10ᵏ Sekunden an. Wie groß ist k?', 2, '3 + 8 - 9',
+           'Alle Programme zusammen: 10³ · 10⁸ = 10¹¹ Rechenschritte. Geteilt durch 10⁹ pro Sekunde: 10¹¹ : 10⁹ = 10² = 100 Sekunden.',
+           'Rechne erst alle Rechenschritte zusammen, dann teile durch die Schritte pro Sekunde.')),
     ],
 }
-# Nur Lösungsweg und Tipp neu (Frage und Lösung bleiben): kommen ohne negativen Exponenten aus.
-WEG_A = [
-    ('geteilt_gleiche_basis', '2¹⁰ : 2ⁿ = 1/4. Wie groß ist n?',
-     {'w': '2¹⁰ : 2ⁿ = 1/4 heißt: 2ⁿ ist 4-mal so groß wie 2¹⁰. Also 2ⁿ = 2¹⁰ · 2² = 2¹² und n = 12.',
-      'h': 'Wie viel Mal so groß wie 2¹⁰ muss 2ⁿ sein?'}),
-    ('geteilt_gleiche_basis', 'Berechne 10⁴ : 10⁴ : 10⁴ · 10⁸.',
-     {'w': 'Von links: 10⁴ : 10⁴ = 1, dann 1 : 10⁴ = 1/10 000, dann 1/10 000 · 10⁸ = 10⁸ : 10⁴ = 10⁴ = 10 000.',
-      'h': 'Rechne von links nach rechts. Was ergibt 10⁴ : 10⁴?'}),
-]
-
 # Aus terme.potenzgesetze/fehler_finden (Gym 6): Aufgaben, die ein Potenzgesetz voraussetzen → Übungen vom Typ „fehler“.
 _TF_MAL = 'Schreib beide Potenzen aus und zähle die Faktoren.'
 _TF_TEIL = 'Schreib beide Potenzen aus. Wie viele Faktoren kürzen sich weg?'
@@ -277,47 +279,259 @@ def gym6_nach_a():
     return aus
 
 
+# =====================================================================================================================
+# Achtundzwanzigste Runde (20.11.): Nachbesserung nach der Prüfung (inhalte/pruefung/potenz/bericht.md)
+# Schritte auf Aufgaben, gesucht über Lernkarte + genauen Fragetext. Jede Änderung kommt mit alt → neu in den Bericht.
+#   ('h', lz, text, tipp)                 Tipp neu
+#   ('typ', lz, text, g)                  Typ neu, Stufe folgt aus dem Typ
+#   ('ohne_typ', lz, text)                Typ weg (überzählig, beim Einspielen gesperrt, nicht gelöscht)
+#   ('antwort', lz, text, {alt: neu})     falsche Antworten ersetzen (Frage und richtige Antwort bleiben)
+#   ('ersetze', lz, text, aufgabe)        Aufgabe an gleicher Stelle ersetzen (Pool, Stufe, Typ bleiben)
+#   ('karte', lz, {feld: wert})           Felder der Lernkarte
+# =====================================================================================================================
+_ERK = 'erkennen'
+NB_A = [
+    # Muss 2
+    ('h', 'mal_gleiche_basis', 'a⁵ · a¹ = aᵏ. Wie groß ist k?', 'a¹ ist a mit dem Exponenten 1. Addiere die Exponenten.'),
+    # Sollte 3: Ablenker passend zur Rechnung (typische Fehler)
+    ('antwort', 'mal_gleiche_basis', 'Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch?',
+     {'Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.': 'Die Exponenten werden malgenommen: 3¹⁶.',
+      'Exponenten subtrahieren, nicht teilen: 3¹².': 'Die Exponenten werden subtrahiert: 3⁰.'}),
+    ('antwort', 'mal_gleiche_basis', 'Ein Kind rechnet: 4⁴ · 4² = 4⁸. Was ist falsch?',
+     {'Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.': 'Die Exponenten werden subtrahiert: 4².'}),
+    ('antwort', 'mal_gleiche_basis', 'Ein Kind rechnet: 5⁴ · 5⁴ = 5¹⁶. Was ist falsch?',
+     {'Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.': 'Die Basen werden addiert: 10⁸.'}),
+    ('antwort', 'gleicher_exponent', 'Ein Kind rechnet: 2² · 5² = 10⁴. Was ist falsch?',
+     {'Exponenten subtrahieren, nicht teilen: 5⁴.': 'Verschiedene Basen darf man nie zusammenfassen.'}),
+    ('antwort', 'gleicher_exponent', 'Ein Kind rechnet: 2⁴ · 5⁴ = 10⁸. Was ist falsch?',
+     {'Exponenten subtrahieren, nicht teilen: 5⁶.': 'Verschiedene Basen darf man nie zusammenfassen.'}),
+    ('antwort', 'geteilt_gleiche_basis', 'Ein Kind rechnet: 5⁶ : 5² = 5³. Was ist falsch?',
+     {'Die Exponenten werden addiert, nicht malgenommen: 5⁵.': 'Die Basen werden geteilt: 1⁴.'}),
+    # Sollte 4: Stufe und Typ der 23 aus Gym 6 umgezogenen Aufgaben
+    ('typ', 'mal_gleiche_basis', 'Stimmt die Rechnung? 5² · 5² = 5⁴', _ERK),
+    ('typ', 'mal_gleiche_basis', 'Stimmt die Rechnung? 4⁴ · 4² = 4⁶', _ERK),
+    ('typ', 'mal_gleiche_basis', 'Stimmt die Rechnung? 2⁴ · 2³ = 2⁷', _ERK),
+    ('typ', 'geteilt_gleiche_basis', 'Stimmt die Rechnung? 4⁵ : 4² = 4³', _ERK),
+    ('typ', 'geteilt_gleiche_basis', 'Stimmt die Rechnung? 4⁷ : 4⁴ = 4³', _ERK),
+    ('typ', 'geteilt_gleiche_basis', 'Stimmt die Rechnung? 5⁵ : 5² = 5³', _ERK),
+    ('typ', 'mal_gleiche_basis', 'Die Regel „a² · a³ = a⁶“ ist falsch. Für welche Zahlen a stimmt sie trotzdem?', 'parameter'),
+    ('typ', 'mal_gleiche_basis', 'Ein Kind hat bei aᵏ · a² die Exponenten malgenommen und a¹² erhalten. Was wäre der richtige Exponent gewesen?', 'rueckwaerts'),
+    ('typ', 'anwenden', 'Welche Rechnung ist richtig?', 'begruenden'),
+    ('ersetze', 'mal_gleiche_basis', 'Ein Kind schreibt 2⁵ + 2⁵ = 2¹⁰. Richtig ist 2ᵏ. Wie groß ist k?',
+     Z('Ein Kind rechnet 2³ · 2⁴ · 2 = 2¹². Richtig ist 2ᵏ. Wie groß ist k?', 8, '3 + 4 + 1',
+       'Das Kind hat die Exponenten malgenommen: 3 · 4 · 1 = 12. Richtig ist addieren: 3 + 4 + 1 = 8. Die einzelne 2 ist 2¹.',
+       'Welchen Exponenten hat die einzelne 2? Malnehmen oder addieren?')),
+    # Sollte 4, Folge: Stufe 3 je Karte höchstens 3 × „fehler“ (Regel der Zwanzigsten Runde, Entscheidung Sebastian: keine leichten
+    # Aufgaben auf Stufe 3). Auswahl-Aufgaben, die nur den verletzten Rechenweg benennen lassen, werden Stufe 1 „erkennen“.
+    ('typ', 'mal_gleiche_basis', 'Stimmt die Rechnung? 5² · 5³ = 5⁶', _ERK),
+    ('typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch?', _ERK),
+    ('typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 4⁴ · 4² = 4⁸. Was ist falsch?', _ERK),
+    ('typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 5⁴ · 5⁴ = 5¹⁶. Was ist falsch?', _ERK),
+    ('typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig?', _ERK),
+    ('typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 4³ · 4³ = 4⁹. Welcher Satz beschreibt den Fehler richtig?', _ERK),
+    ('typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 4⁴ · 4² = 16⁶. Welcher Satz beschreibt den Fehler richtig?', _ERK),
+    ('typ', 'gleicher_exponent', 'Ein Kind rechnet: 2² · 5² = 10⁴. Was ist falsch?', _ERK),
+    # Sollte 6: Typen vereinheitlichen
+    ('typ', 'gleicher_exponent', 'Berechne geschickt: 2² · 50²', 'direkt'),
+    ('typ', 'gleicher_exponent', 'Berechne geschickt: 2³ · 5³', 'direkt'),
+    ('ohne_typ', 'gleicher_exponent', 'Berechne geschickt: 4² · 25²'),   # Spiegelbild von „25² · 4²“; sonst 3 gleich gebaute „direkt“
+    ('ohne_typ', 'gleicher_exponent', 'Berechne geschickt: 2³ · 50³'),   # Spiegelbild von „50³ · 2³“
+    ('typ', 'mal_gleiche_basis', '27 · 3⁵ = 3ᵏ. Wie groß ist k?', 'darstellung'),
+    # Kann 2: Hinweis für das Kind, dass hier der erste Exponent immer größer ist
+    ('karte', 'geteilt_gleiche_basis', {'regel': 'Bei ⟦gleicher Basis⟧ subtrahierst du beim Teilen die Exponenten. Hier ist der erste immer größer; '
+                                                 'den anderen Fall lernst du später.'}),
+]
+
+# Kann 6 (Sebastian: Ja): neue Pflichtkarte „Potenzen von Potenzen“ (M7 1.2), natürliche Exponenten.
+def _tab(kopf, zeilen): return {'typ': 'tabelle', 'kopf': kopf, 'zeilen': zeilen}
+
+
+_HP = 'Potenz einer Potenz: Was machst du mit den Exponenten?'
+KARTE_PVP = {
+    'lernziel': 'potenz_von_potenz', 'titel': 'Potenzen von Potenzen',
+    'regel': 'Bei einer ⟦Potenz einer Potenz⟧ nimmst du die Exponenten mal. So gilt: (aᵐ)ⁿ = aᵐ·ⁿ.',
+    'einstieg': 'Ein Würfel hat 2² cm lange Kanten. Sein Volumen ist (2²)³ cm³. '
+                'Hier wird eine Potenz noch einmal potenziert: eine ⟦Potenz einer Potenz⟧.',
+    'woerter': [['Potenz einer Potenz', 'eine Potenz in Klammern mit noch einem Exponenten, z. B. (2²)³'],
+                ['potenziert', 'mit einem Exponenten versehen, also mehrmals mit sich selbst malgenommen']],
+    'bild': _tab(['Term', 'ausgeschrieben', 'Faktoren 2'], [['(2²)³', '2² · 2² · 2²', '?']]),
+    'schritte': [{'text': '(2²)³ heißt: dreimal 2² malnehmen.'},
+                 {'text': 'Das sind 2 + 2 + 2 = 6 Faktoren 2.', 'bild': {'zeilen': [['(2²)³', '2² · 2² · 2²', '2 + 2 + 2 = 6']]}},
+                 {'text': 'Kürzer: Exponenten malnehmen, 2 · 3 = 6. Also ⟦2⁶ = 64 cm³⟧.',
+                  'bild': {'zeilen': [['(2²)³', '2² · 2² · 2²', '2 + 2 + 2 = 6'], ['kürzer', '2 · 3', '6']]}}],
+    'probe': '(2²)³ = 4³ = 64 und 2⁶ = 64 ✓',
+    'fehler': '(2²)³ = 2⁵ ist falsch. Es sind drei Gruppen mit je 2 Faktoren, also 2⁶. Addiert wird nur bei 2² · 2³.',
+    'fehler_bild': {'zeilen': [['(2²)³', '2⁵ (falsch)', '2 + 3 = 5'], ['(2²)³', '2² · 2² · 2²', '2 · 3 = 6']]},
+}
+AUFGABEN_PVP = [
+    U('direkt', Z('(3²)⁴ = 3ᵏ. Wie groß ist k?', 8, '2 * 4', 'Exponenten malnehmen: 2 · 4 = 8. Also 3⁸.', _HP)),
+    U('direkt', Z('(x³)⁵ = xᵏ. Wie groß ist k?', 15, '3 * 5', 'Exponenten malnehmen: 3 · 5 = 15. Also x¹⁵.', _HP)),
+    U('direkt', Z('(10²)³ = 10ᵏ. Wie groß ist k?', 6, '2 * 3', 'Exponenten malnehmen: 2 · 3 = 6. Also 10⁶ = 1 000 000.', _HP)),
+    U('direkt', Z('(a⁴)² = aᵏ. Wie groß ist k?', 8, '4 * 2', 'Exponenten malnehmen: 4 · 2 = 8. Also a⁸.', _HP)),
+    U('erkennen', A('Welche Regel gilt bei (b⁵)²?', 'Exponenten malnehmen: b¹⁰', ['Exponenten addieren: b⁷', 'Exponent hoch Exponent: b²⁵'],
+                    '(b⁵)² = b⁵ · b⁵ = b¹⁰: Potenz einer Potenz, Exponenten malnehmen.', 'Schreib (b⁵)² als Produkt aus.')),
+    U('erkennen', A('Welcher Term ist gleich 2³ · 2³ · 2³ · 2³?', '(2³)⁴', ['2⁷', '(2³)³', '4 · 2³'],
+                    'Viermal derselbe Faktor 2³ ist (2³)⁴ = 2¹². 2⁷ wäre 2³ · 2⁴, und 4 · 2³ ist eine Summe aus vier gleichen Summanden.',
+                    'Wie oft kommt 2³ als Faktor vor?')),
+    U('mehrschritt', Z('Berechne (2³)² mit dem Potenzgesetz. Gib das Ergebnis als Zahl an.', 64, '2 ** (3 * 2)', '(2³)² = 2⁶ = 64. Probe: 8² = 64.',
+                       'Erst die Exponenten malnehmen, dann ausrechnen.')),
+    U('mehrschritt', Z('(a²)³ · a⁴ = aᵏ. Wie groß ist k?', 10, '2 * 3 + 4', '(a²)³ = a⁶, dann a⁶ · a⁴ = a¹⁰.', 'Erst die Klammer, dann gleiche Basis.')),
+    U('mehrschritt', Z('(2³)² · 2 = 2ᵏ. Wie groß ist k?', 7, '3 * 2 + 1', '(2³)² = 2⁶, dann 2⁶ · 2¹ = 2⁷.', 'Erst die Klammer, dann gleiche Basis.')),
+    U('umkehr', Z('(5ᵏ)³ = 5¹². Wie groß ist k?', 4, '12 // 3', 'k · 3 = 12, also k = 4. Probe: (5⁴)³ = 5¹².', 'Welche Zahl mal 3 ergibt 12?')),
+    U('umkehr', Z('(y²)ᵏ = y¹⁰. Wie groß ist k?', 5, '10 // 2', '2 · k = 10, also k = 5.', 'Welche Zahl mal 2 ergibt 10?')),
+    U('einkleidung', Z('Ein Würfel hat die Kantenlänge 10² cm. Wie groß ist sein Volumen? Gib es als 10ᵏ cm³ an. Wie groß ist k?', 6, '2 * 3',
+                       'Volumen = (10²)³ cm³ = 10⁶ cm³. Das ist 1 m³.', 'Volumen eines Würfels: Kantenlänge hoch 3.')),
+    U('einkleidung', Z('Ein quadratisches Feld hat die Seitenlänge 3³ m. Wie groß ist seine Fläche? Gib sie als Zahl an.', 729, '3 ** (3 * 2)',
+                       'Fläche = (3³)² m² = 3⁶ m² = 729 m². Probe: 27 · 27 = 729.', 'Fläche eines Quadrats: Seite hoch 2.', einheit='m²')),
+    U('darstellung', A('Ein Würfel hat die Kantenlänge 5² cm. Welcher Term gibt sein Volumen in cm³ an?', '(5²)³ = 5⁶', ['5⁵', '5² · 3', '(5²)² = 5⁴'],
+                       'Volumen = Kante hoch 3: (5²)³ = 5⁶. 5² · 3 wäre dreimal die Kante, (5²)² die Fläche einer Seite.', 'Volumen eines Würfels: Kante hoch 3.')),
+    U('begruenden', A('Stimmt die Aussage? „(2³)² und (2²)³ sind gleich groß.“', 'Ja: Beides ist 2⁶ = 64, denn 3 · 2 = 2 · 3.',
+                      ['Nein: (2³)² = 2⁵ und (2²)³ = 2⁶.', 'Nein: (2³)² ist größer, weil 3 größer als 2 ist.', 'Nein, das kann man nicht vergleichen.'],
+                      '(2³)² = 8² = 64 und (2²)³ = 4³ = 64. Mit dem Gesetz: 3 · 2 = 6 und 2 · 3 = 6.', 'Rechne beide aus.')),
+    U('begruenden', A('Warum gilt (a⁴)³ = a¹²? Welche Begründung stimmt?', 'a⁴ · a⁴ · a⁴ hat 4 + 4 + 4 = 12 Faktoren a.',
+                      ['Weil man 4 und 3 addiert.', 'Weil man nur die Basis mit 3 malnimmt.', 'Weil a⁴ = 4a ist und 4a · 3 = 12a.'],
+                      '(a⁴)³ heißt dreimal a⁴ als Faktor. Jedes a⁴ hat 4 Faktoren a, zusammen 12. Darum Exponenten malnehmen.',
+                      'Schreib (a⁴)³ als Produkt aus.')),
+    U('fehler', Z('Ein Kind rechnet (x⁴)³ = x⁷. Richtig ist xᵏ. Wie groß ist k?', 12, '4 * 3',
+                  'Das Kind hat die Exponenten addiert. Bei einer Potenz einer Potenz wird malgenommen: 4 · 3 = 12.', 'Schreib (x⁴)³ als Produkt aus.')),
+    U('fehler', A('Ein Kind rechnet (3²)³ = 9⁶. Was ist falsch?', 'Die Basis bleibt 3, die Exponenten werden malgenommen: 3⁶.',
+                  ['Nichts, die Rechnung ist richtig.', 'Die Exponenten werden addiert: 3⁵.', 'Richtig wäre 9⁵.'],
+                  '(3²)³ = 3² · 3² · 3² = 3⁶ = 729. Das Kind hat zusätzlich die Basis quadriert: 9⁶ wäre viel größer.', 'Schreib (3²)³ als Produkt aus.')),
+    U('parameter', Z('Für wie viele natürliche Zahlen n von 1 bis 20 ist (2ⁿ)² höchstens 2²⁰?', 10, '20 // 2',
+                     '(2ⁿ)² = 2²ⁿ. Höchstens 2²⁰ heißt 2n ≤ 20, also n ≤ 10. Das sind n = 1, 2, …, 10, also 10 Zahlen.', 'Schreibe (2ⁿ)² als eine Potenz.')),
+    U('rueckwaerts', Z('Eine Zahl 2ᵏ wird erst quadriert und das Ergebnis dann hoch 3 genommen. Heraus kommt 2¹⁸. Wie groß ist k?', 3, '18 // 6',
+                       '((2ᵏ)²)³ = 2ᵏ·²·³ = 2⁶ᵏ. 6k = 18, also k = 3. Probe: (2³)² = 2⁶, (2⁶)³ = 2¹⁸.', 'Fasse beide Schritte zu einem Exponenten zusammen.')),
+    U('verknuepfen', Z('Ein Würfel hat 3² cm lange Kanten. Wie viele Würfel mit 1 cm Kantenlänge passen hinein?', 729, '(3 ** 2) ** 3',
+                       'Volumen: (3²)³ cm³ = 3⁶ cm³ = 729 cm³. Jeder kleine Würfel hat 1 cm³, also 729 Würfel. Probe: 9 · 9 · 9 = 729.',
+                       'Volumen eines Würfels: Kante hoch 3.')),
+    U('transfer', Z('Ein Würfel aus Zuckerstücken hat 2⁴ Stücke an jeder Kante. Aus solchen Würfeln baut man einen großen Würfel mit 2² Würfeln '
+                    'an jeder Kante. Wie viele Zuckerstücke sind es? Gib die Anzahl als 2ᵏ an. Wie groß ist k?', 18, '(4 + 2) * 3',
+                    'An jeder Kante des großen Würfels liegen 2⁴ · 2² = 2⁶ Stücke. Anzahl: (2⁶)³ = 2¹⁸.', 'Wie viele Stücke liegen an einer Kante des großen Würfels?')),
+    U('pruefung', Z('a) Vereinfache (x²)⁴ · x³. b) Berechne den Wert für x = 2. Gib den Wert aus b) an.', 2048, '2 ** (2 * 4 + 3)',
+                    'a) (x²)⁴ = x⁸, x⁸ · x³ = x¹¹. b) 2¹¹ = 2 048.', 'Erst vereinfachen, dann einsetzen.')),
+    K(Z('Welche Zahl ist größer: (2³)⁴ oder (3²)³? Gib die größere Zahl an.', 4096, 'max(2 ** 12, 3 ** 6)',
+        '(2³)⁴ = 2¹² = 4 096 und (3²)³ = 3⁶ = 729. Größer ist 4 096, obwohl die Basis 2 kleiner ist als 3.', 'Fasse jede Zahl zu einer Potenz zusammen.')),
+    K(Z('Schreibe 9² · 27³ als Dreierpotenz 3ᵏ. Wie groß ist k?', 13, '2 * 2 + 3 * 3',
+        '9 = 3² und 27 = 3³. 9² = (3²)² = 3⁴ und 27³ = (3³)³ = 3⁹. Zusammen 3⁴ · 3⁹ = 3¹³.', 'Schreibe 9 und 27 als Potenzen von 3.')),
+    T(Z('(7²)³ = 7ᵏ. Wie groß ist k?', 6, '2 * 3', 'Exponenten malnehmen: 2 · 3 = 6.')),
+    KO(Z('(b³)⁴ = bᵏ. Wie groß ist k?', 12, '3 * 4', 'Exponenten malnehmen: 3 · 4 = 12.')),
+    KO(Z('(2⁵)² = 2ᵏ. Wie groß ist k?', 10, '5 * 2', 'Exponenten malnehmen: 5 · 2 = 10.')),
+    KO(A('Welche Regel gilt bei (y²)⁵?', 'Exponenten malnehmen: y¹⁰', ['Exponenten addieren: y⁷', 'Basen malnehmen: (5y)²'], 'Potenz einer Potenz: 2 · 5 = 10.')),
+    SI(Z('(10⁴)² = 10ᵏ. Wie groß ist k?', 8, '4 * 2', 'Exponenten malnehmen: 4 · 2 = 8.')),
+    SI(Z('(a³)³ = aᵏ. Wie groß ist k?', 9, '3 * 3', 'Exponenten malnehmen: 3 · 3 = 9.')),
+    SI(Z('(x⁶)² = xᵏ. Wie groß ist k?', 12, '6 * 2', 'Exponenten malnehmen: 6 · 2 = 12.')),
+    SI(Z('(4²)² = 4ᵏ. Wie groß ist k?', 4, '2 * 2', 'Exponenten malnehmen: 2 · 2 = 4.')),
+    SI(Z('Berechne (3²)² mit dem Potenzgesetz und gib den Wert an.', 81, '3 ** (2 * 2)', '(3²)² = 3⁴ = 81.')),
+    SI(Z('(5²)³ = 5ᵏ. Wie groß ist k?', 6, '2 * 3', 'Exponenten malnehmen: 2 · 3 = 6.')),
+]
+
+
+def _kurz(a):
+    x = {k: a.get(k) for k in ('p', 's', 'g')}
+    return f"{x['p']}, Stufe {x['s']}, {x['g'] or 'ohne Typ'}"
+
+
+def nachbessern(d, thema, schritte):
+    nb = BERICHT[thema]['nachbessern']
+    for op in schritte:
+        art, lz = op[0], op[1]
+        if art == 'karte':
+            e = next(e for e in d['inhalt']['etappen'] if e['lernziel'] == lz)
+            for k, v in op[2].items():
+                nb.append({'lz': lz, 'was': f'Lernkarte, {k}', 'alt': e.get(k), 'neu': v}); e[k] = v
+            continue
+        text = op[2]
+        xs = [a for a in d['aufgaben'] if a['l'] == lz and a['f']['text'] == text]
+        assert len(xs) == 1, (thema, lz, text, len(xs))
+        a = xs[0]
+        if art == 'h':
+            nb.append({'lz': lz, 'text': text, 'was': 'Tipp', 'alt': a.get('h'), 'neu': op[3]}); a['h'] = op[3]
+        elif art == 'typ':
+            alt = _kurz(a); a['g'] = op[3]; a['s'] = STUFE_VON[op[3]]
+            nb.append({'lz': lz, 'text': text, 'was': 'Stufe/Typ', 'alt': alt, 'neu': _kurz(a)})
+        elif art == 'ohne_typ':
+            alt = _kurz(a); a.pop('g')
+            nb.append({'lz': lz, 'text': text, 'was': 'Stufe/Typ', 'alt': alt, 'neu': _kurz(a) + ' (überzählig)'})
+        elif art == 'antwort':
+            richtig = a['a'][a['o']['index']]
+            for alt, neu in op[3].items():
+                assert alt in a['a'] and alt != richtig and neu not in a['a'], (text, alt)
+                a['a'] = [neu if x == alt else x for x in a['a']]
+                nb.append({'lz': lz, 'text': text, 'was': 'falsche Antwort', 'alt': alt, 'neu': neu})
+            assert a['a'][a['o']['index']] == richtig
+        elif art == 'ersetze':
+            i = d['aufgaben'].index(a)
+            n = {k: a[k] for k in ('l', 't', 'p', 's', 'g') if k in a}
+            n.update(copy.deepcopy(op[3]))
+            assert n['f']['text'] not in {x['f']['text'] for x in d['aufgaben']}
+            d['aufgaben'][i] = n
+            nb.append({'lz': lz, 'text': text, 'was': 'Aufgabe ersetzt', 'alt': text, 'neu': n['f']['text']})
+        else:
+            raise ValueError(art)
+
+
+def karte_pvp(d, thema):
+    """Kann 6: Pflichtkarte potenz_von_potenz hinter gleicher_exponent."""
+    lz = 'potenz_von_potenz'
+    et = d['inhalt']['etappen']
+    et.insert(next(i for i, e in enumerate(et) if e['lernziel'] == 'gleicher_exponent') + 1, copy.deepcopy(KARTE_PVP))
+    d['inhalt']['teilfaehigkeiten'].append({'k': lz, 'text': KARTE_PVP['titel'], 'lernziele': [lz]})
+    d['inhalt']['bewertung']['lernziele_pflicht'].append(lz)
+    texte = {a['f']['text'] for a in d['aufgaben']}
+    neu = []
+    for p, g, a in AUFGABEN_PVP:
+        x = _aufgabe(lz, p, g, a)
+        assert x['f']['text'] not in texte, x['f']['text']
+        texte.add(x['f']['text']); neu.append(x)
+    i = max(i for i, a in enumerate(d['aufgaben']) if a['l'] == 'gleicher_exponent') + 1
+    d['aufgaben'][i:i] = neu
+    BERICHT[thema]['karte_neu'] = [{'lz': lz, 'p': x['p'], 's': x['s'], 'g': x.get('g'), 'text': x['f']['text']} for x in neu]
+
+
 def flug_a():
     thema = 'terme.potenzgesetze_natuerlich'
     d = start_a()
     weg_b = [a['f']['text'] for a in d['aufgaben'] if nach_b(a)]
     for lz, paare in ERSATZ_A.items():
         for alt, neu in paare: _ersetzen(d, thema, lz, alt, neu)
-    for lz, text, felder in WEG_A: _ersetzen(d, thema, lz, text, felder, felder=list(felder))
     assert not [a for a in d['aufgaben'] if nach_b(a)], 'negativer Exponent übrig'
     BERICHT[thema]['nach_b'] = weg_b
     for a, alt in gym6_nach_a():
         assert a['f']['text'] not in {x['f']['text'] for x in d['aufgaben']}, a['f']['text']
         d['aufgaben'].append(a)
         BERICHT[thema]['aus_gym6'].append({'lz': a['l'], 'vorher': alt, 'text': a['f']['text']})
-    for lz in LZ_A:
+    nachbessern(d, thema, NB_A)          # Achtundzwanzigste Runde
+    karte_pvp(d, thema)                  # Achtundzwanzigste Runde, Kann 6
+    for lz in LZ_A + ('potenz_von_potenz',):
         _ordnen_karte(d, lz)
-        _regeln(d, lz, je_typ_satzbau=True)
+        _regeln(d, lz)
+        assert sum(1 for a in d['aufgaben'] if a['l'] == lz and a['p'] == 'uebung' and a['s'] == 3 and a.get('g') == 'fehler') <= 3, lz
     rest = [a['f']['text'] for a in d['aufgaben'] if NEG.search(json.dumps([a['f'], a.get('a'), a.get('w'), a.get('h')], ensure_ascii=False))]
     assert not rest, f'negativer Exponent in Flug A: {rest}'
     inh = d['inhalt']
-    inh['abschnitte'] = [{'titel': 'Potenzen malnehmen', 'lernziele': ['mal_gleiche_basis', 'gleicher_exponent']},
+    inh['abschnitte'] = [{'titel': 'Potenzen malnehmen', 'lernziele': ['mal_gleiche_basis', 'gleicher_exponent', 'potenz_von_potenz']},
                          {'titel': 'Vertiefung: teilen und geschickt rechnen', 'lernziele': ['geteilt_gleiche_basis', 'anwenden']}]
-    out = {'thema_schluessel': thema, 'thema_id': 102, 'block_id': 62, 'klasse': {'gym_by': 7, 'rs_by': 7, 'ib_myp': 4},
-           'autor': 'Claude (Sechsundzwanzigste Runde, Generator terme.potenzgesetze_natuerlich.py; Lernkarten aus terme.umformen)',
+    out = {'thema_schluessel': thema, 'thema_id': 102, 'block_id': 62, 'klasse': {'gym_by': 7, 'rs_by': 7, 'ib_myp': 3},
+           'autor': 'Claude (Sechsundzwanzigste und Achtundzwanzigste Runde, Generator terme.potenzgesetze_natuerlich.py; vier Lernkarten aus terme.umformen)',
            'inhalt': {
                'ziel': 'Potenzen mit natürlichen Exponenten zusammenfassen: bei gleicher Basis malnehmen (Vertiefung: teilen), bei gleichem '
-                       'Exponenten die Basen zusammenfassen und die Gesetze geschickt nutzen. Vorwissen: Potenzen aus Klasse 6 (Basis, Exponent, '
+                       'Exponenten die Basen zusammenfassen, Potenzen von Potenzen vereinfachen und die Gesetze geschickt nutzen. Vorwissen: Potenzen aus Klasse 6 (Basis, Exponent, '
                        'Hoch 0). Die Gesetze mit negativen Exponenten folgen in Klasse 8 im Flug „Potenzgesetze mit ganzzahligen Exponenten“.',
-               'merke': ['Gleiche Basis: aᵐ · aⁿ = aᵐ⁺ⁿ (malnehmen) und aᵐ : aⁿ = aᵐ⁻ⁿ (teilen).', 'Gleicher Exponent: aⁿ · bⁿ = (a · b)ⁿ.',
+               'merke': ['Gleiche Basis: aᵐ · aⁿ = aᵐ⁺ⁿ (malnehmen) und aᵐ : aⁿ = aᵐ⁻ⁿ (teilen).', 'Gleicher Exponent: aⁿ · bⁿ = (a · b)ⁿ.', 'Potenz einer Potenz: (aᵐ)ⁿ = aᵐ·ⁿ.',
                          'Erst prüfen: gleiche Basis oder gleicher Exponent? Sonst ausrechnen.'],
                'abschnitte': inh['abschnitte'], 'etappen': inh['etappen'], 'teilfaehigkeiten': inh['teilfaehigkeiten'],
                'bewertung': {**inh['bewertung'], 'testaufgaben_je_lernziel': 1},
-               'quellen': {'erklaerungen': 'Lernkarten unverändert aus terme.umformen (dorthin in der Einundzwanzigsten Runde aus terme.potenzgesetze).',
+               'quellen': {'erklaerungen': 'Vier Lernkarten aus terme.umformen (dorthin in der Einundzwanzigsten Runde aus terme.potenzgesetze); '
+                                           'potenz_von_potenz eigene Fassung (Achtundzwanzigste Runde).',
                            'aufgaben': 'Vom Generator erzeugt und berechnet; Umzug und Ersatz: Sechsundzwanzigste Runde.',
                            'begriffe': 'Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium, Jahrgangsstufe 7, M7 1.2).'}},
            'aufgaben': d['aufgaben'],
            'offen': ['Sechsundzwanzigste Runde: Die vier Lernkarten stammen aus terme.umformen (Lernziel-Schlüssel unverändert, damit der Lernstand '
-                     'umgehängt werden kann). 29 Aufgaben mit negativem Exponenten (22 im Fragetext, 7 mit negativem Ergebnis-Exponenten) sind '
-                     'nach terme.potenzgesetze_ganzzahlig umgezogen und hier durch Aufgaben mit natürlichen Exponenten ersetzt (gleiche Karte, '
-                     'gleicher Pool, gleiche Stufe, gleicher Typ). Dazu 23 Aufgaben aus „Fehler finden“ von terme.potenzgesetze als Übungen vom Typ „fehler“.',
-                     'Lehrplan M7 1.2 nennt auch „Potenzen von Potenzen“ mit natürlichen Exponenten. Dafür gibt es hier (noch) keine Lernkarte; '
-                     'die Regel (aᵐ)ⁿ = aᵐ·ⁿ steht in Flug B (Karte exponent_und_potenz). Vorschlag: eigene Karte in Flug A, falls gewünscht.',
+                     'umgehängt werden kann). 31 Aufgaben mit negativem Exponenten (22 im Fragetext, 7 mit negativem Ergebnis-Exponenten, 2 mit kleinerem '
+                     'erstem Exponenten im Rechenweg) sind nach terme.potenzgesetze_ganzzahlig umgezogen und hier durch Aufgaben mit natürlichen '
+                     'Exponenten ersetzt (gleiche Karte, gleicher Pool, gleiche Stufe, gleicher Typ). Dazu 23 Aufgaben aus „Fehler finden“ von '
+                     'terme.potenzgesetze; Stufe und Typ nach der Prüfung (Achtundzwanzigste Runde) je Aufgabe gesetzt.',
+                     'Achtundzwanzigste Runde: neue Pflichtkarte potenz_von_potenz (M7 1.2 „Potenzen von Potenzen“, Entscheidung Sebastian).',
                      'Quotienten von Potenzen (geteilt_gleiche_basis) und anwenden bleiben Vertiefung wie bisher.']}
     return _schreiben(thema, out)
 
@@ -412,6 +626,14 @@ GYM6_KARTE = {
 }
 
 
+_H0 = 'Denk an das Muster 2² = 4, 2¹ = 2, 2⁰ = ?: Es wird jedes Mal durch 2 geteilt.'
+NB_GYM6 = [
+    ('h', 'negativer_exponent', 'Wie viel Mal so groß ist 2² wie 2⁻²?', 'Rechne beide Potenzen aus und teile.'),   # Muss 1
+    ('h', 'negativer_exponent', 'Was ergibt a⁰?', _H0),                                                       # Sollte 1
+    ('h', 'negativer_exponent', 'Was ergibt 12⁰?', _H0),
+]
+
+
 def gym6_datei():
     thema = 'terme.potenzgesetze'
     pfad = THEMEN / f'{thema}.json'
@@ -443,6 +665,7 @@ def gym6_datei():
               {'w': '2² = 4 und 2⁻² = 1/4. 4 : 1/4 = 4 · 4 = 16.'}, felder=['w'])
     _ersetzen(d, thema, 'fehler_finden', 'Ein Kind rechnet 2³ + 2³ = 2⁶. Welche Zahl ist richtig?',
               {'h': 'Rechne beide Potenzen aus und addiere dann.'}, felder=['h'])
+    nachbessern(d, thema, NB_GYM6)       # Achtundzwanzigste Runde
     e = next(e for e in d['inhalt']['etappen'] if e['lernziel'] == 'fehler_finden')
     e.update(copy.deepcopy(GYM6_KARTE))
     _ordnen_karte(d, 'fehler_finden')
@@ -452,7 +675,8 @@ def gym6_datei():
     inh = d['inhalt']
     inh['ziel'] = ('Potenzen mit natürlichen und negativen ganzzahligen Exponenten verstehen und berechnen, auch mit Brüchen, Dezimalzahlen '
                    'und negativer Basis. Die Potenzgesetze folgen in Klasse 7 im Flug „Potenzgesetze“.')
-    d['offen'] = [d['offen'][0], d['offen'][2],
+    d['offen'] = ['Rationale Exponenten stehen nicht in diesem Flug (Stoff Kl. 9, eigenes Thema zahlen.rationale_exponenten).',
+                  'Exponenten werden als Zahl abgefragt (z. B. „2ᵏ = 1/16, k = ?“), weil die App keine Hochstellung eingeben kann.',
                   'Sechsundzwanzigste Runde (20.11.): Die Potenzgesetze stehen in eigenen Flügen (terme.potenzgesetze_natuerlich, Klasse 7; '
                   'terme.potenzgesetze_ganzzahlig, Klasse 8). Die 23 Aufgaben aus „Fehler finden“, die ein Potenzgesetz voraussetzen, sind nach '
                   'terme.potenzgesetze_natuerlich umgezogen; „Fehler finden“ ist mit 14 neuen Aufgaben zu Potenzbegriff, Hoch 0 und negativem '
@@ -462,7 +686,7 @@ def gym6_datei():
         if e0['lernziel'] != 'fehler_finden': assert e0 in inh['etappen']
     alt_rest = [a for a in vorher['aufgaben'] if a['l'] != 'fehler_finden']
     neu_rest = [a for a in d['aufgaben'] if a['l'] != 'fehler_finden']
-    assert len(alt_rest) == len(neu_rest) and sum(1 for x, y in zip(alt_rest, neu_rest) if x != y) == 1  # nur der Lösungsweg oben
+    assert len(alt_rest) == len(neu_rest) and sum(1 for x, y in zip(alt_rest, neu_rest) if x != y) == 3  # Lösungsweg/Tipp „2² wie 2⁻²“, Tipps zu a⁰ und 12⁰
     pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + ('\n' if roh_text.endswith('\n') else ''), encoding='utf-8')
     f, w, info = pruefe(pfad)
     assert not f, '; '.join(f[:8])

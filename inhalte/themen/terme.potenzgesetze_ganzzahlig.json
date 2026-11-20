@@ -9,7 +9,7 @@
  },
  "autor": "Claude (Sechsundzwanzigste Runde, Generator terme.potenzgesetze_ganzzahlig.py)",
  "inhalt": {
-  "ziel": "Die Potenzgesetze für ganzzahlige Exponenten plausibel machen und in einfachen Fällen anwenden: gleiche Basis malnehmen und teilen, gleicher Exponent, Potenz einer Potenz, Terme mit Variablen auch als Bruchterm schreiben. Vorwissen: negative Exponenten (Klasse 6), Potenzgesetze mit natürlichen Exponenten (Flug „Potenzgesetze“, Klasse 7), Bruchterme.",
+  "ziel": "Die Potenzgesetze für ganzzahlige Exponenten plausibel machen und in einfachen Fällen anwenden: gleiche Basis malnehmen und teilen, gleicher Exponent, Potenz einer Potenz, Terme mit Variablen auch als Bruch schreiben. Vorwissen: negative Exponenten (Klasse 6), Potenzgesetze mit natürlichen Exponenten (Flug „Potenzgesetze“, Klasse 7), im Gymnasium auch Bruchterme.",
   "merke": [
    "aᵐ · aⁿ = aᵐ⁺ⁿ und aᵐ : aⁿ = aᵐ⁻ⁿ – auch für negative Exponenten.",
    "aⁿ · bⁿ = (a · b)ⁿ und (aᵐ)ⁿ = aᵐ·ⁿ.",
@@ -331,11 +331,11 @@
    {
     "lernziel": "terme_vereinfachen",
     "titel": "Terme vereinfachen, auch als Bruch",
-    "einstieg": "Im Algenmodell rechnest du oft mit Variablen. Terme wie 6x³ · x⁻⁵ fasst du zusammen. Dann schreibst du sie ohne negativen Exponenten als ⟦Bruchterm⟧.",
+    "einstieg": "Terme wie 6x³ · x⁻⁵ fasst du mit den Potenzgesetzen zusammen. Dann schreibst du sie ohne negativen Exponenten als ⟦Bruch⟧ mit der Variablen im Nenner.",
     "woerter": [
      [
-      "Bruchterm",
-      "ein Bruch mit einer Variablen im Nenner, z. B. 6/x²"
+      "Bruch",
+      "hier: ein Bruch mit einer Variablen im Nenner, z. B. 6/x²"
      ],
      [
       "Koeffizient",
@@ -387,7 +387,7 @@
          "6x⁻²"
         ],
         [
-         "als Bruchterm",
+         "als Bruch",
          "6/x²"
         ]
        ]
@@ -555,7 +555,7 @@
   },
   "quellen": {
    "erklaerungen": "Eigene Fassung (Claude), Format der Vorgabe vom 16.11.",
-   "aufgaben": "Vom Generator erzeugt und berechnet; 29 Aufgaben aus Flug A (terme.potenzgesetze_natuerlich).",
+   "aufgaben": "Vom Generator erzeugt und berechnet; 31 Aufgaben aus Flug A (terme.potenzgesetze_natuerlich).",
    "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium, Jahrgangsstufe 8, M8 4)."
   }
  },
@@ -1345,6 +1345,40 @@
    "l": "gleiche_basis_ganz",
    "t": "gleiche_basis_ganz",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 10² · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 1e-06
+   },
+   "c": "10**2 * 10**(-8)",
+   "w": "10² · 10⁻⁸ = 10⁻⁶ = 0,000001.",
+   "h": "Erst die Exponenten addieren, dann ausrechnen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gleiche_basis_ganz",
+   "t": "gleiche_basis_ganz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "3⁴ : 3⁸ = 3ᵏ. Wie groß ist k?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "4 - 8",
+   "w": "4 − 8 = −4. Also 3⁻⁴ = 1/3⁴.",
+   "h": "Der zweite Exponent ist größer – das Ergebnis hat einen negativen Exponenten.",
+   "g": "direkt"
+  },
+  {
+   "l": "gleiche_basis_ganz",
+   "t": "gleiche_basis_ganz",
+   "p": "uebung",
    "s": 1,
    "g": "erkennen",
    "y": "auswahl",
@@ -1369,14 +1403,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "3⁴ : 3⁸ = 3ᵏ. Wie groß ist k?"
+    "text": "z⁻² : z⁵ = zᵏ. Wie groß ist k?"
    },
    "o": {
-    "wert": -4
+    "wert": -7
    },
-   "c": "4 - 8",
-   "w": "4 − 8 = −4. Also 3⁻⁴ = 1/3⁴.",
-   "h": "Der zweite Exponent ist größer – das Ergebnis hat einen negativen Exponenten.",
+   "c": "(-2) - (5)",
+   "w": "Exponenten subtrahieren: (−2) − 5 = −7.",
+   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren.",
    "g": "direkt"
   },
   {
@@ -1395,23 +1429,6 @@
    "c": "-1 - 5",
    "w": "5 + k = −1, also k = −6.",
    "h": "Welche Zahl musst du zu 5 addieren, um −1 zu erhalten?"
-  },
-  {
-   "l": "gleiche_basis_ganz",
-   "t": "gleiche_basis_ganz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "z⁻² : z⁵ = zᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -7
-   },
-   "c": "(-2) - (5)",
-   "w": "Exponenten subtrahieren: (−2) − 5 = −7.",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren.",
-   "g": "direkt"
   },
   {
    "l": "gleiche_basis_ganz",
@@ -1437,15 +1454,32 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 10² · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an."
+    "text": "Berechne 10¹ : 10⁶ und gib das Ergebnis als Dezimalzahl an."
    },
    "o": {
-    "wert": 1e-06
+    "wert": 1e-05
    },
-   "c": "10**2 * 10**(-8)",
-   "w": "10² · 10⁻⁸ = 10⁻⁶ = 0,000001.",
-   "h": "Erst die Exponenten addieren, dann ausrechnen.",
+   "c": "10**1 / 10**6",
+   "w": "10¹ : 10⁶ = 10⁻⁵ = 1/100000 = 0,00001.",
+   "h": "Exponenten subtrahieren, dann den Kehrbruch als Dezimalzahl schreiben.",
    "g": "mehrschritt"
+  },
+  {
+   "l": "gleiche_basis_ganz",
+   "t": "gleiche_basis_ganz",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Term aᵏ wird erst mit a³ malgenommen und dann durch a⁻² geteilt. Heraus kommt a⁴. Wie groß ist k?"
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "4 - 3 - 2",
+   "w": "Für die Exponenten gilt k + 3 − (−2) = 4, also k + 5 = 4 und k = −1. Probe: a⁻¹ · a³ = a², a² : a⁻² = a⁴.",
+   "h": "Stelle eine Gleichung für die Exponenten auf."
   },
   {
    "l": "gleiche_basis_ganz",
@@ -1542,34 +1576,17 @@
    "t": "gleiche_basis_ganz",
    "p": "uebung",
    "s": 2,
+   "g": "mehrschritt",
    "y": "zahl",
    "f": {
-    "text": "Berechne 10¹ : 10⁶ und gib das Ergebnis als Dezimalzahl an."
+    "text": "Berechne 10⁴ : 10⁴ : 10⁴ · 10⁸."
    },
    "o": {
-    "wert": 1e-05
+    "wert": 10000
    },
-   "c": "10**1 / 10**6",
-   "w": "10¹ : 10⁶ = 10⁻⁵ = 1/100000 = 0,00001.",
-   "h": "Exponenten subtrahieren, dann den Kehrbruch als Dezimalzahl schreiben.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "gleiche_basis_ganz",
-   "t": "gleiche_basis_ganz",
-   "p": "uebung",
-   "s": 3,
-   "g": "rueckwaerts",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Term aᵏ wird erst mit a³ malgenommen und dann durch a⁻² geteilt. Heraus kommt a⁴. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "4 - 3 - 2",
-   "w": "Für die Exponenten gilt k + 3 − (−2) = 4, also k + 5 = 4 und k = −1. Probe: a⁻¹ · a³ = a², a² : a⁻² = a⁴.",
-   "h": "Stelle eine Gleichung für die Exponenten auf."
+   "c": "10 ** (4 - 4 - 4 + 8)",
+   "w": "Von links: 10⁴ : 10⁴ = 10⁰ = 1, dann 1 : 10⁴ = 10⁻⁴, dann 10⁻⁴ · 10⁸ = 10⁴ = 10 000.",
+   "h": "Rechne von links nach rechts mit den Exponenten."
   },
   {
    "l": "gleiche_basis_ganz",
@@ -1683,6 +1700,23 @@
    "c": "(2 ** -3 * 2 ** 7) / 2 ** 2",
    "w": "Klammer: 2⁻³ · 2⁷ = 2⁴. Dann 2⁴ : 2² = 2² = 4.",
    "h": "Erst die Klammer, dann teilen."
+  },
+  {
+   "l": "gleiche_basis_ganz",
+   "t": "gleiche_basis_ganz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "2¹⁰ : 2ⁿ = 1/4. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "10 + 2",
+   "h": "Schreibe 1/4 als Potenz von 2.",
+   "w": "1/4 = 2⁻². Also 10 − n = −2 und n = 12.",
+   "g": "rueckwaerts"
   },
   {
    "l": "gleiche_basis_ganz",
@@ -2611,7 +2645,7 @@
    "g": "erkennen",
    "y": "auswahl",
    "f": {
-    "text": "Welcher Bruchterm ist gleich 4x⁻²?"
+    "text": "Welcher Bruch ist gleich 4x⁻²?"
    },
    "a": [
     "4/x⁻²",
@@ -2658,13 +2692,13 @@
    "g": "darstellung",
    "y": "auswahl",
    "f": {
-    "text": "Welcher Bruchterm ist gleich 5x⁻³y²?"
+    "text": "Welcher Bruch ist gleich 5x⁻³y²?"
    },
    "a": [
-    "5x³/y²",
-    "5y²/x³",
     "1/(5x³y²)",
-    "5/(x³y²)"
+    "5y²/x³",
+    "5/(x³y²)",
+    "5x³/y²"
    ],
    "o": {
     "index": 1
@@ -3046,7 +3080,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Bruchterm ist gleich 7y⁻¹?"
+    "text": "Welcher Bruch ist gleich 7y⁻¹?"
    },
    "a": [
     "7y",
@@ -3158,13 +3192,13 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Bruchterm ist gleich 9x⁻⁴?"
+    "text": "Welcher Bruch ist gleich 9x⁻⁴?"
    },
    "a": [
     "9/x⁴",
-    "1/(9x⁴)",
     "−9x⁴",
-    "9x⁴"
+    "9x⁴",
+    "1/(9x⁴)"
    ],
    "o": {
     "index": 0
@@ -3832,8 +3866,8 @@
   }
  ],
  "offen": [
-  "Sechsundzwanzigste Runde: neu gebaut. Startbestand sind die 29 Aufgaben mit negativen Exponenten aus den vier Potenz-Lernkarten (bis dahin in terme.umformen). Sie behalten Fragetext, Antworten und Lösung; Stufe und Typ sind an diesen Flug angepasst (Zweierprodukte und -quotienten sind hier die Grundform, Stufe 1 „direkt“).",
-  "Vorwissen nach Gym-Reihenfolge: Bruchterme (terme.bruchterme) kommen direkt davor. Die Karte terme_vereinfachen schreibt nur einzelne Potenzen als Bruch (c/xⁿ), sie rechnet nicht mit Summen von Bruchtermen – so geht der Flug auch in der Realschule 7, wo Bruchterme erst in Klasse 8 kommen.",
+  "Sechsundzwanzigste Runde: neu gebaut. Startbestand sind die 31 Aufgaben mit negativen Exponenten (29 aus der Sechsundzwanzigsten, 2 aus der Achtundzwanzigsten Runde) aus den vier Potenz-Lernkarten (bis dahin in terme.umformen). Sie behalten Fragetext, Antworten und Lösung; Stufe und Typ sind an diesen Flug angepasst (Zweierprodukte und -quotienten sind hier die Grundform, Stufe 1 „direkt“).",
+  "Vorwissen nach Gym-Reihenfolge: Bruchterme (terme.bruchterme) kommen direkt davor. Die Karte terme_vereinfachen schreibt nur einzelne Potenzen als Bruch (c/xⁿ), sie rechnet nicht mit Summen von Bruchtermen – so geht der Flug auch in der Realschule 7 und in MYP 4, wo Bruchterme erst später kommen. Deshalb steht in Karte und Aufgaben „Bruch“, nicht „Bruchterm“ (Achtundzwanzigste Runde).",
   "Terme mit Bruch als Antwort: Die App kann c/xⁿ nicht als Term eintippen lassen; abgefragt wird über Lücken „c = □; n = □“ oder über Auswahl."
  ]
 }

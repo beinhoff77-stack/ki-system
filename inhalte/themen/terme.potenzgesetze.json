@@ -941,7 +941,7 @@
     "text": "Was ergibt a⁰?"
    },
    "w": "Jede Zahl (außer 0) hoch 0 ergibt 1: a⁰ = 1.",
-   "h": "Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰.",
+   "h": "Denk an das Muster 2² = 4, 2¹ = 2, 2⁰ = ?: Es wird jedes Mal durch 2 geteilt.",
    "g": "erkennen"
   },
   {
@@ -1017,7 +1017,7 @@
    },
    "c": "2**2 / 2**-2",
    "w": "2² = 4 und 2⁻² = 1/4. 4 : 1/4 = 4 · 4 = 16.",
-   "h": "Teile die beiden Potenzen. Exponenten subtrahieren: n − (−n).",
+   "h": "Rechne beide Potenzen aus und teile.",
    "g": "transfer"
   },
   {
@@ -1056,7 +1056,7 @@
     "text": "Was ergibt 12⁰?"
    },
    "w": "Jede Zahl (außer 0) hoch 0 ergibt 1: 12⁰ = 1.",
-   "h": "Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰.",
+   "h": "Denk an das Muster 2² = 4, 2¹ = 2, 2⁰ = ?: Es wird jedes Mal durch 2 geteilt.",
    "g": "erkennen"
   },
   {
@@ -2415,8 +2415,8 @@
   }
  ],
  "offen": [
-  "„umfang“ nennt auch rationale Exponenten; der Kl.-6-Lehrplan (lehrplan_gym) verlangt nur ganzzahlige Exponenten. Rationale Exponenten bewusst weggelassen (Stoff Kl. 9, eigenes Thema zahlen.rationale_exponenten).",
-  "Exponenten werden als Zahl abgefragt (z. B. „2³ · 2⁴ = 2ᵏ, k = ?“), weil die App keine Hochstellung eingeben kann.",
+  "Rationale Exponenten stehen nicht in diesem Flug (Stoff Kl. 9, eigenes Thema zahlen.rationale_exponenten).",
+  "Exponenten werden als Zahl abgefragt (z. B. „2ᵏ = 1/16, k = ?“), weil die App keine Hochstellung eingeben kann.",
   "Sechsundzwanzigste Runde (20.11.): Die Potenzgesetze stehen in eigenen Flügen (terme.potenzgesetze_natuerlich, Klasse 7; terme.potenzgesetze_ganzzahlig, Klasse 8). Die 23 Aufgaben aus „Fehler finden“, die ein Potenzgesetz voraussetzen, sind nach terme.potenzgesetze_natuerlich umgezogen; „Fehler finden“ ist mit 14 neuen Aufgaben zu Potenzbegriff, Hoch 0 und negativem Exponenten wieder aufgefüllt, Erklärung der Karte neu (Zahlenprobe 2⁴ statt Potenzgesetz)."
  ]
 }

@@ -144,7 +144,8 @@ Ton: standardmäßig keiner; optional später „Töne“ (aus) unter Gestaltung
 | Feld `landung` in `schule_antwort`, `landung_art` speichern, `sterne_flug` im Test-Ergebnis | Bau-Chat mit Datenbank (W1–W7) |
 | `kann` je Etappe, `kurz` je Thema | Inhalts-Chats |
 
-## 7. Offene Wahl für Sebastian
+## 7. Freigabe (Sebastian, 20.11.)
 
-- Schwellen für Saubere Landung / Sturmflug (`fehler_endgueltig <= 2`, `bordkarten <= ziel + 4`): so lassen oder anpassen.
-- Abzeichen im Reisepass zählen (empfohlen) oder nur auf dem Abschluss zeigen.
+- Entwurf 2 freigegeben, so wie im klickbaren Entwurf.
+- Schwellen bleiben: Saubere Landung = höchstens 2 endgültige Fehler, Stufe nie gesenkt, höchstens `ziel + 4` Bordkarten; alles darüber Sturmflug.
+- Abzeichen werden gespeichert und im Reisepass gezählt.

@@ -75,3 +75,6 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 - Flug: Gold-Szene mit Konfetti, Etappen-Lichtern, Sterne-Zähler → eigener Bildschirm „Bordkarte“ zum nächsten Thema. Ort: Reisepass-Stempel → Bordkarte VON → NACH.
 - Neu nötig zusätzlich: `landung_art` speichern und Abzeichen im Reisepass zählen.
 - Dateien wie oben: `inhalte/pruefung/kind/abschluss/umsetzung.md`, `entwurf/abschluss.html`, `bilder/`.
+
+## 2026-11-20 – Freigabe Entwurf Abschluss (Fassung 2)
+- Sebastian: „passt so“. Schwellen wie vorgeschlagen, Abzeichen im Reisepass zählen. Bitte als Bauauftrag verteilen (App, Datenbank, Inhalts-Chats – siehe umsetzung.md Abschnitt 6).

@@ -406,3 +406,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 05:05 – an alle: neuer Bau-Auftrag LB (vom Gestalter, von Sebastian freigegeben)
 - Abschnitt „Bau-Auftrag LB (20.11.)“ am Ende von `inhalte/AUFTRAEGE.md`; Vorgabe `inhalte/pruefung/lehrer/umsetzung-lb.md` und Entwurf liegen jetzt in `lernen-app`.
 - Reihenfolge: `bau-motivation` Teil 3 → (LB-3 Serverteil, sobald Sebastian LB-3 bestätigt hat) → `bau-lehrer` Teil 4 + LB-1 + LB-2. Neuer Inhalts-Chat `lehrplan-lb` für LB-4 läuft sofort.
+
+## 20.11. 05:20 – an bau-motivation, bau-lehrer: Bau-Auftrag LB erweitert (LB-3 bestätigt, LB-5 neu)
+- Sebastian hat **LB-3 bestätigt** (ohne Vortest). Neu in LB-3: „Wieder in die Wiederholung“ für ◉-Themen und Sammelaktionen (mehrere Flüge in einem Aufruf, eine Rücknahme). `bau-motivation` baut den Serverteil direkt nach Teil 3.
+- Neu **LB-5 „Plan = Cockpit“** – gehört zum Paket von `bau-lehrer` (Teil 4 + LB-1 + LB-2 + LB-5, App 0.82.0). Vorgabe `inhalte/pruefung/lehrer/umsetzung-lb.md` in der Fassung von 04:43 liegt in `lernen-app`.

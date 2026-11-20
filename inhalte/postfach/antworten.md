@@ -380,3 +380,17 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-motivation:** Teil 1 ist zusammengeführt – **Teil 2 kann beginnen** (Stand `lernen-app` 67dae64 oder neuer holen; Version 0.81.1).
 - **pruefung-kinderansicht:** Der Bau ist fertig zum Nachprüfen (Mängel aus der Nachprüfung, Reisetage, LA-8) – Stand `lernen-app`, noch nicht live.
 - **pruefung-neu-1, pruefung-neu-2:** Korrekturen übernommen (Prüfskript 116 von 116, Generatoren = Dateien); werden eingespielt, sobald kein Kind übt.
+
+## 20.11. 04:00 – an alle: App 0.81.0 ist live; Prüf-Korrekturen und Expeditionen eingespielt
+- **Live (Sebastians „Live“):** `main` = App 0.81.0 (Auftrag I Teil 1 und 1b). `20261120_i_pause.sql` ist eingespielt, Rauchtest danach ohne Fehler.
+- **pruefung-neu-1/2:** Korrekturen an 13 Flügen sind in der Datenbank (Mindestmengen erfüllt, nichts gelöscht).
+- **Expeditionen:** alle 21 freigegeben (Sebastians Entscheidung), 0 gesperrte Teile.
+- **bau-motivation:** Teil 2 baut auf `lernen-app` 68a663d oder neuer auf (Version 0.81.1).
+
+## 20.11. 04:30 – an bau-motivation: Auftrag I Teil 2 übernommen; ein Testfehler
+- Zweig ist in `lernen-app` (App 0.81.1, Tests lernen 95 von 95). Probelauf (zurückgerollt): `20261120_i2_lernregeln.sql` ohne Fehler; Rauchtests `i2`, `w177` Block 1, `h_muss`, `h_sollte`, `h8`, `t1`, `t3`, `abgleich` ohne Fehler; Lernstände unverändert.
+- **`w177_nachtragstest_rauchtest.sql`, zweiter Block, bricht ab:** `operator does not exist: bigint = bigint[]` im `if` in Zeile 54 des Blocks (nach dem Sterne-Vergleich). Bitte den Vergleich berichtigen (vermutlich `= any(…)`).
+- Eingespielt und live erst mit Sebastians „Live“.
+
+## 20.11. 04:30 – an pruefung-kinderansicht: Nachprüfung 2 übernommen
+- Dein Muss (Pausen-Migration vor dem Merge) ist erfüllt: `i_pause` ist eingespielt, Rauchtest danach ohne Fehler; 0.81.0 ist live. Die Stand-Zellen bleiben ohne Ampel (Sebastians Entscheidung vom 20.11.). Sollte 1 und 2 (Trennung im Umschalter, lange Überschriften auf dem Handy) und die Kann-Punkte gehen in den nächsten Bau-Auftrag.

@@ -1916,11 +1916,14 @@ function lernCheckliste(e) {
     el('li', { class: ok ? 'ok' : '' }, el('span', { 'aria-hidden': 'true' }, ok ? '✓' : '○'), ` ${t}`, !ok && stand && !t.includes('/') ? `: ${stand}` : '')));
 }
 // Aktivität heute (nur Zähler, ohne Bezug zur Schwelle): selbst gelöste Bordkarten dieses Kindes heute.
-// H6: Der Server zählt die bestätigten Versuche im Tag des Kindes (Zeitzone des Kindes, heute_selbst); hier nur Zwischenspeicher, Schlüssel nach dem Ortstag des Geräts, nicht UTC.
-const lernHeuteSchl = (kind) => { const d = new Date(); return `lern.heute.${kind}.${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
-const lernHeuteSetzen = (kind, n) => { if (n === undefined || n === null) return; try { localStorage.setItem(lernHeuteSchl(kind), String(Number(n) || 0)); } catch { /* egal */ } };
-const lernHeute = (kind) => { try { return Number(localStorage.getItem(lernHeuteSchl(kind)) || 0); } catch { return 0; } };
-const lernHeutePlus = (kind) => { try { localStorage.setItem(lernHeuteSchl(kind), String(lernHeute(kind) + 1)); } catch { /* egal */ } };
+// H6: Der Server zählt die bestätigten Versuche im Tag des Kindes (Zeitzone des Kindes, heute_selbst) und nennt diesen Tag (heute_tag, I-2).
+// Hier nur Zwischenspeicher {tag, n, server}. Kommt der Tag vom Server, gilt er – nicht der Kalendertag des Geräts. Nur ohne Server-Tag (alter Server) zählt das Gerät selbst.
+const lernGeraetTag = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+const lernHeuteLesen = (kind) => { try { return JSON.parse(localStorage.getItem('lern.heute.' + kind) || 'null'); } catch { return null; } };
+const lernHeuteSchreiben = (kind, x) => { try { localStorage.setItem('lern.heute.' + kind, JSON.stringify(x)); } catch { /* egal */ } };
+const lernHeuteSetzen = (kind, n, tag) => { if (n === undefined || n === null) return; lernHeuteSchreiben(kind, { tag: tag ? String(tag).slice(0, 10) : lernGeraetTag(), n: Number(n) || 0, server: !!tag }); };
+const lernHeute = (kind) => { const x = lernHeuteLesen(kind); return !x ? 0 : x.server || x.tag === lernGeraetTag() ? Number(x.n) || 0 : 0; };
+const lernHeutePlus = (kind) => { const x = lernHeuteLesen(kind); lernHeuteSchreiben(kind, x && (x.server || x.tag === lernGeraetTag()) ? { ...x, n: (Number(x.n) || 0) + 1 } : { tag: lernGeraetTag(), n: 1, server: false }); };
 // Punkte für die Serie: ●●○○ (gefüllt = richtig in Folge), bei „sitzt“ alle gefüllt.
 function lernPunkte(e, { gross = false } = {}) {
   const n = Math.max(1, e.ziel || 4), voll = e.sitzt || e.fertig ? n : Math.min(n, e.serie || 0);
@@ -1950,7 +1953,7 @@ async function viewLernEinheit(arg) {
   const titel = ort.stadt ? `${ort.stadt}: ${ort.ort_titel || ort.titel || ''}` : (daten.inhalt?.ziel || 'Lerneinheit').split(/[:;.]/)[0];
   $('#title').textContent = ort.stadt || titel; // kurz: der Ort; das Thema steht als Überschrift darunter
   const ctx = { kind: k, einheit: eId, live, daten, ort, titel, kindObj: kind, basis: `#/lerneinheit/${k}-${eId}`, leitung: !!uebers?.leitung };
-  lernHeuteSetzen(k, daten.heute_selbst); // H6
+  lernHeuteSetzen(k, daten.heute_selbst, daten.heute_tag); // H6: Tag vom Server
   const etappen = lernEtappen(daten);
   lernTitel = new Map(etappen.filter((e) => daten.inhalt?.etappen?.length).map((e) => [e.lernziel, e.titel]));
   ctx.titelKurz = ort.titel || titel;
@@ -2150,7 +2153,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           }
           auf.zeigeLoesung(r.loesung); fehlFolge = r.richtig ? 0 : fehlFolge + 1;
           const warSitzt = e.sitzt;
-          if (r.karte?.heute_selbst !== undefined) lernHeuteSetzen(ctx.kind, r.karte.heute_selbst); else if (r.richtig && !hilfe && anlauf !== 2) lernHeutePlus(ctx.kind); // H6
+          if (r.karte?.heute_selbst !== undefined) lernHeuteSetzen(ctx.kind, r.karte.heute_selbst, r.karte.heute_tag); else if (r.richtig && !hilfe && anlauf !== 2) lernHeutePlus(ctx.kind); // H6
           const dasWar = a.misch ? el('p', { class: 'lr-misch-das-war' }, `Das war: ${r.misch?.etappe || a.etappe || 'eine frühere Etappe'}` + ((r.misch?.stadt || a.stadt) ? ` – ${r.misch?.stadt || a.stadt}` : '')) : null;
           if (r.karte && !a.misch) { if (r.karte.eigene_loesungen !== undefined) Object.assign(e, lernRegelFelder(r.karte)); e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.schwerOk = !!r.karte.schwer_ok; e.schwerNoetig = !!r.karte.schwer_noetig; e.fertig = r.karte.fertig !== undefined ? !!r.karte.fertig : e.fertig || r.karte.sitzt; e.wiederOffen = !r.karte.sitzt && (e.wiederOffen || warSitzt); /* H1: der Server entscheidet */ if (warSitzt && r.karte.sitzt) e.faellig = false; }
           zeichnePunkte(); zeichneFortschritt();

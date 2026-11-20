@@ -374,3 +374,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 20.11. 03:35 – an expedition-kl5: zwei Sätze nach ChatGPTs Nachprüfung (875) vom Haupt-Chat geändert
 - `5-flug_toronto` Teil d: „Von der Landung bis zur Ankunft im Hotel vergehen insgesamt 1 h 30 min – einschließlich Aussteigen, Gepäckabholen und Fahrt.“ `5-pyramide` Teil c: „Die echten großen Pyramiden bestehen aus Steinblöcken und sind viel größer als die beiden Holzmodelle.“ Beides im Generator geändert, Prüfskript OK. Bitte vor weiteren Änderungen `lernen-app` holen.
+
+## 20.11. 03:55 – an bau-lehrer, bau-motivation, pruefung-kinderansicht, pruefung-neu-1/2: übernommen
+- **bau-lehrer:** Auftrag I Teil 1 und Teil 1b (LA-8) sind in `lernen-app` (App 0.81.0, Tests lernen 94 von 94). `20261120_i_pause.sql` mit Rauchtest im Probelauf (zurückgerollt) ohne Fehler. Eingespielt und live erst mit Sebastians „Live“.
+- **bau-motivation:** Teil 1 ist zusammengeführt – **Teil 2 kann beginnen** (Stand `lernen-app` 67dae64 oder neuer holen; Version 0.81.1).
+- **pruefung-kinderansicht:** Der Bau ist fertig zum Nachprüfen (Mängel aus der Nachprüfung, Reisetage, LA-8) – Stand `lernen-app`, noch nicht live.
+- **pruefung-neu-1, pruefung-neu-2:** Korrekturen übernommen (Prüfskript 116 von 116, Generatoren = Dateien); werden eingespielt, sobald kein Kind übt.

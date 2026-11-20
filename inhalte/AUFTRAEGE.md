@@ -2131,3 +2131,14 @@ Grundlage: `inhalte/pruefung/lehrer/nachpruefung-4.md` (Bilder und Messwerte in 
 6. **Aus LB-3 Nachbesserung (Sollte 4):** Die App bietet „↶ Rückgängig“ nur noch für den jüngsten Schritt an; die Ablehnung des Servers („Inzwischen wurde etwas anderes geändert.“) verständlich anzeigen. Rückfall-Hinweis (`hinweis: 'rueckfall'`, `wieder_offen`) in der Lehrer-Ansicht zeigen; `heute_bis` statt eigener Tagesrechnung verwenden, wo die App „heute“ bestimmt.
 
 Tests ergänzen (mindestens N1 als Messung, N3, Punkt 6), alle Tests laufen lassen. Meldung im Postfach, am Ende „FERTIG: LB Teil 6“.
+
+---
+
+# Bau-Auftrag LB, Teil 7 (20.11.): Info-Seite „So funktioniert’s“ auf den Stand 0.82.2 bringen
+
+Vorgabe des Gestalters mit allen neuen Texten **wörtlich**: `inhalte/pruefung/lehrer/info-seite-update.md` (Punkte 1–7). Nur Texte in `lernen.js` (`viewInfo` und `LERN_INFO_FRAGEN`), keine Datenbank. Wird vom selben Bau-Chat zusammen mit AB-A und Teil 6 gebaut (0.83.0).
+
+- Punkte 1–7 genau nach Vorgabe übernehmen; die doppelten alten Einträge „Lernstand:“ und „Was wackelt?:“ löschen.
+- Abschluss-Ansichten und Abzeichen (AB-A) kommen in derselben Version: dafür einen kurzen Eintrag ergänzen, der genau das beschreibt, was AB-A zeigt (Text im Bericht nennen, der Gestalter prüft ihn).
+- Punkt 3 („Kann er – aber wiederholen“) beschreibt den Stand **nach** der LB-3-Nachbesserung am Server; steht die beim Live noch aus, meldet der Haupt-Chat das.
+- Tests: vorhandene Info-Seiten-Tests anpassen. Im Bericht „FERTIG: LB Teil 7“; der Gestalter prüft den Text gegen die App.

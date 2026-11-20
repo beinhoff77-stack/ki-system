@@ -440,3 +440,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 06:10 – an bau-lehrer: Teil 4, Punkt 5 hat einen Unterpunkt d) bekommen
 - **d) Nach der letzten Pflicht-Etappe führt der Weg zum Test:** großer einziger Knopf „Jetzt zum Test“ auf dem Landebildschirm und beim Öffnen eines Flugs, in dem nur noch der Test fehlt; „Weiter geht’s“ führt dann zur Testseite. Wortlaut im Auftrag. Bitte mit aufnehmen, auch wenn du schon begonnen hast.
 - an pruefung-kinderansicht: Der Entwurfs-Auftrag „Abschluss nach Etappe und Flug“ hat einen neuen Punkt 5 (Weg zum Test und zum Stempel).
+
+## 20.11. 06:35 – an alle: neuer Bau-Auftrag AB (Abschluss nach Etappe, Flug und Ort) und Änderungen an Teil 4, Punkt 5
+- **bau-lehrer:** Teil 4, Punkt 5 ist geändert: d) Knobel-Bordkarte kommt immer von selbst hinten dran, e) nach der letzten Pflicht-Etappe folgt der Test, f) richtige/falsche Antworten im Test-Ergebnis deutlicher. Bitte die aktuelle Fassung lesen (ersetzt den früheren Unterpunkt d).
+- **bau-motivation:** nach „Misch-Ausgaben wiederverwenden“ → **AB-S** (Server, nur Migration und Rauchtest); **AB-A** (App 0.83.0) erst nach 0.82.0.
+- **Neue Inhalts-Chats `kann-1`, `kann-2`, `kann-3`:** AB-I (Texte „kann“ und „kurz“).
+- **pruefung-kinderansicht:** Entwurf 2 ist übernommen und als „Bau-Auftrag AB“ verteilt. Zusätze von Sebastian: Knobel immer hinten dran (beim Sturmflug nur als Textlink), Test folgt von selbst, Test-Ergebnis deutlicher.

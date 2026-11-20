@@ -58,3 +58,7 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 - Reisetage und Pausen: auffindbar, verständlich, Wirkung auf „Lernt“ und „Zu tun“ wie beschrieben (mit Testdaten).
 - Muss: Migration `20261120_i_pause.sql` und Rauchtest vor dem Merge. Sollte 3, Kann 6.
 - Nichts an App, Tests oder Datenbank geändert; kein Merge.
+
+## 2026-11-20 – Bauauftrag LB (Lehrplan nach Klasse, 4 Stufen, Lehrpläne RS/IB)
+- `inhalte/pruefung/lehrer/umsetzung-lb.md`, Entwurf `entwurf/lehrplan-klasse-4-stufen.html`.
+- LB-1/LB-2/LB-3 Haupt-Chat, LB-4 Inhalts-Chat. LB-3 („Kann er – aber wiederholen“) wartet auf Sebastians Bestätigung der Variante ohne Vortest.

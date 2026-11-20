@@ -961,9 +961,10 @@ test('N5–N7: Detektiv nur ohne Fehlermuster; Test-Kopf „Ort · Flug“; Test
   await page.getByRole('button', { name: 'Abgeben' }).click();
   await page.getByText('1 von 2 richtig').waitFor();
   const knoepfe = page.locator('.lr-test-knoepfe');
-  assert.deepEqual((await knoepfe.locator('a').allInnerTexts()).map((x) => x.trim()), ['Erst üben: Zahlenstrahl ›', 'Verbessern ›', 'Zum Flug', 'Zur Abflugtafel']);
+  // Teil 4 Punkt 5g: zwei klare Wege; „Gleich verbessern ›“ ist ein Knopf (startet die Korrektur), kein Link auf die eigene Adresse
+  assert.deepEqual((await knoepfe.locator('a, button').allInnerTexts()).map((x) => x.trim()), ['Erst üben: Zahlenstrahl ›', 'Gleich verbessern ›', 'Zum Flug', 'Zur Abflugtafel']);
   assert.equal(await knoepfe.locator('a.lr-knopf').getAttribute('href'), '#/lerneinheit/1-1-ueben-2');
-  assert.equal(await knoepfe.locator('a.lr-knopf-zweit').getAttribute('href'), '#/lerneinheit/1-1-test');
+  assert.equal(await knoepfe.locator('button.lr-knopf-zweit').innerText(), 'Gleich verbessern ›');
   assert.equal(await page.locator('.btn.primary, .btn.secondary').count(), 0);
   assert.equal(await page.locator('.lern-strahl .marke-richtig').count(), 1, 'richtige Markierung grün');
   assert.equal(await page.locator('.lern-strahl .marke-richtig').evaluate((x) => getComputedStyle(x).stroke), 'rgb(46, 158, 68)', 'A2: festes Grün');
@@ -1093,7 +1094,8 @@ test('E-2: Ort aus dem Lehrplan in den Plan ziehen; Finger (Touch) zieht ebenso'
   }, { x: g.x + g.width / 2, y: g.y + g.height / 2, y2: oben.y + 4 });
   for (let i = 0; i < 40 && calls.filter((c) => c.aktion === 'schule_plan_setzen').length < 2; i++) await page.waitForTimeout(50);
   assert.deepEqual(calls.filter((c) => c.aktion === 'schule_plan_setzen')[1].daten.eintraege.map((x) => x.block_id), [102, 100, 103, 101]);
-  assert.equal(await page.locator('.lern-plan-griff').first().evaluate((x) => getComputedStyle(x).touchAction), 'none');
+  // nach dem Speichern werden die Stufen neu gelesen und die Liste neu gezeichnet – am angehängten Griff messen
+  await page.waitForFunction(() => { const g = document.querySelector('.lern-plan-griff'); return g?.isConnected && getComputedStyle(g).touchAction === 'none'; });
   await page.screenshot({ path: path.join(root, 'test-results/e2-flugplan-1280.png') });
 });
 
@@ -1492,10 +1494,8 @@ test('F: Knobel-Bordkarte nach der Landung – freiwillig, ein Versuch, 30 Stern
     await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
     if (i === 0) { await page.getByText(/An Bord/).waitFor(); await page.getByRole('button', { name: 'Neue Bordkarte ›' }).click(); }
   }
-  await page.getByText('GELANDET').waitFor();
   const vorher = calls.filter((c) => c.aktion === 'schule_uebung_pruefen').length;
-  await page.getByRole('button', { name: '★ Knobel-Bordkarte (freiwillig)' }).click();
-  await page.locator('.lr-knobel .lr-stufe-bonus').waitFor();
+  await page.locator('.lr-knobel .lr-stufe-bonus').waitFor(); // Teil 4 Punkt 5d: kommt nach der Landung von selbst
   assert.match(await page.locator('.lr-knobel').innerText(), /zählt nicht für „sitzt“/);
   await page.locator('.lr-knobel input').fill('100');
   await page.locator('.lr-knobel').getByRole('button', { name: 'Prüfen' }).click();
@@ -2549,18 +2549,11 @@ test('Teil 4 Punkt 5: nach dem Knobeln zurück auf den Landebildschirm; gelandet
     await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
     if (i === 0) { await page.getByText(/An Bord/).waitFor(); await page.getByRole('button', { name: 'Neue Bordkarte ›' }).click(); }
   }
-  await page.getByText('GELANDET').waitFor();
-  // a) abgebrochen
-  await page.getByRole('button', { name: '★ Knobel-Bordkarte (freiwillig)' }).click();
-  await page.locator('.lr-ueben-flaeche').getByRole('button', { name: 'Zurück', exact: true }).click();
-  await page.locator('.lr-gelandet').getByText('GELANDET').waitFor();
-  assert.equal(await page.locator('.lr-bordkarte').count(), 0, 'nicht zurück in die Übungen');
-  // a) falsch beantwortet
-  await page.getByRole('button', { name: '★ Knobel-Bordkarte (freiwillig)' }).click();
+  // a) Knobel (kommt von selbst, Punkt 5d) falsch beantwortet → „Weiter ›“ zum Landebildschirm
   await page.locator('.lr-knobel input').fill('7'); await page.locator('.lr-knobel').getByRole('button', { name: 'Prüfen' }).click();
   await page.locator('.lr-knobel-falsch').waitFor();
-  await page.locator('.lr-ueben-flaeche').getByRole('button', { name: 'Zurück', exact: true }).click();
-  await page.locator('.lr-gelandet').waitFor();
+  await page.locator('.lr-ueben-flaeche').getByRole('button', { name: 'Weiter ›', exact: true }).click();
+  await page.locator('.lr-gelandet').getByText('GELANDET').waitFor();
   assert.equal(await page.locator('.lr-bordkarte').count(), 0);
   // b) zur nächsten Etappe und zurück auf die gelandete: fertig, großer Weiter-Knopf, „Trotzdem weiterüben“ klein
   await page.locator('.lr-gelandet .lr-knopf').first().click();
@@ -2663,4 +2656,141 @@ test('LB-1/LB-5: alle Knöpfe im Plan erreichbar; 400/820/1280 ohne Querrollen u
     await page.screenshot({ path: path.join(root, `test-results/lb-plan-${breite}.png`), fullPage: true });
     await page.close();
   }
+});
+
+
+// ---------- Teil 4 Punkt 5 d–h (Fassung 20.11. später): Knobel hinten dran, Test folgt, Ergebnis deutlicher, Verbessern ----------
+const nurStellenwertOffen = (aktion, e) => { if (aktion !== 'schule_einheit_lesen') return null; const x = structuredClone(e);
+  x.etappen_stand = { stellenwert: { fertig: false, ziel: 2 }, strahl: { fertig: true, sitzt: true, ziel: 2, serie: 2 }, binomisch: { fertig: true, sitzt: true, ziel: 2, serie: 2 } }; return x; };
+async function landeEtappe1(page) {
+  for (let i = 0; i < 2; i++) {
+    for (const z of ['2', '0', '0', '0']) await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: z, exact: true }).click();
+    await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
+    if (i === 0) { await page.getByText(/An Bord/).waitFor(); await page.getByRole('button', { name: 'Neue Bordkarte ›' }).click(); }
+  }
+}
+
+test('Teil 4 Punkt 5d: nach der Landung kommt die Knobel-Bordkarte von selbst, danach der Landebildschirm', async (t) => {
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: mitBonus });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  await landeEtappe1(page);
+  await page.getByText('Zum Schluss eine harte Nuss – falsch kostet nichts.', { exact: false }).waitFor();
+  await page.locator('.lr-knobel .lr-stufe-bonus').waitFor();
+  assert.equal(await page.getByRole('button', { name: '★ Knobel-Bordkarte (freiwillig)' }).count(), 0, 'kein Angebot zur Auswahl');
+  assert.equal(await page.getByRole('button', { name: 'Weiter ›' }).isVisible(), false, 'Weiter erst nach dem Prüfen');
+  await page.getByRole('button', { name: 'Heute keine Knobel-Bordkarte' }).waitFor();
+  await page.locator('.lr-knobel input').fill('7'); await page.locator('.lr-knobel').getByRole('button', { name: 'Prüfen' }).click();
+  await page.locator('.lr-knobel-falsch').waitFor();
+  assert.equal(calls.filter((c) => c.aktion === 'schule_uebung_pruefen' && c.daten.aufgabe_id === 501).length, 1);
+  await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.locator('.lr-gelandet').getByText('GELANDET').waitFor();
+  assert.equal(await page.locator('.lr-bordkarte').count(), 0, 'nicht zurück in die Übungen');
+  assert.equal(await page.getByRole('button', { name: '★ Knobel-Bordkarte (freiwillig)' }).count(), 0, 'kein zweiter Versuch');
+});
+
+test('Teil 4 Punkt 5d: „Heute keine Knobel-Bordkarte“ führt auf den Landebildschirm', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: mitBonus });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  await landeEtappe1(page);
+  await page.getByRole('button', { name: 'Heute keine Knobel-Bordkarte' }).click();
+  await page.locator('.lr-gelandet').getByText('GELANDET').waitFor();
+});
+
+test('Teil 4 Punkt 5e: nach der letzten Pflicht-Etappe nur „Jetzt zum Test“; Flug mit fehlendem Test öffnet die Test-Aufforderung', async (t) => {
+  let alleFertig = false;
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: (aktion, e) => { const x = nurStellenwertOffen(aktion, e);
+    if (x && alleFertig) x.etappen_stand.stellenwert = { fertig: true, sitzt: true, ziel: 2, serie: 2 }; return x; } });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  await landeEtappe1(page);
+  const l = page.locator('.lr-gelandet'); await l.getByText('GELANDET').waitFor();
+  assert.deepEqual(await l.locator('.lr-knopf').allInnerTexts(), ['Jetzt zum Test ›'], 'nur ein großer Knopf');
+  assert.match(await l.innerText(), /3 Bordkarten, ohne Tipps\. Bestehst du ihn, ist der Flug geschafft\./);
+  assert.equal(await l.getByText('Anschlussflug', { exact: false }).count(), 0);
+  await l.getByRole('link', { name: 'Pause – zur Abflugtafel' }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/teil4-test-folgt-390.png'), fullPage: true });
+  await l.getByRole('link', { name: 'Jetzt zum Test ›' }).click();
+  await page.waitForURL(/-test$/); await page.getByRole('button', { name: 'Test starten' }).waitFor();
+  // Flug öffnen (alle Pflicht-Etappen gelandet, nur der Test fehlt): erst die Aufforderung, nicht die Übungen
+  alleFertig = true;
+  for (const ziel of ['#/lerneinheit/1-1', '#/lerneinheit/1-1-ueben']) {
+    await page.goto(origin + '/' + ziel);
+    await page.getByText('Alle Etappen sind gelandet ✓').waitFor();
+    await page.getByRole('button', { name: 'Test starten' }).waitFor();
+    assert.equal(await page.locator('.lr-bordkarte').count(), 0);
+  }
+  await page.getByRole('link', { name: '‹ Zu den Etappen' }).click();
+  await page.waitForURL(/-erklaeren$/); await page.locator('.lr-tab, .lr-reiter, [role=tab]').first().waitFor();
+});
+
+test('Teil 4 Punkt 5f: Test-Ergebnis – richtig/falsch mit Fläche, ✓/✗ und Wort; Summe groß; Kontrast hell und nacht', async (t) => {
+  for (const gestaltung of ['entdecker', 'nacht']) {
+    const { page } = await setup(t, { gestaltung });
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(origin + '/#/lerneinheit/1-1-test');
+    await page.getByRole('button', { name: 'Test starten' }).click();
+    await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+    await page.getByRole('button', { name: 'Weiter ›' }).click();
+    await page.getByRole('button', { name: 'Markierung 2' }).click();
+    await page.getByRole('button', { name: 'Abgeben' }).click();
+    await page.locator('.lern-ergebnis-summe').waitFor();
+    assert.equal((await page.locator('.lern-ergebnis-summe').innerText()).replace(/\s+/g, ' ').trim(), '1 von 2 richtig');
+    assert.ok(parseFloat(await page.locator('.lern-ergebnis-summe b').evaluate((x) => getComputedStyle(x).fontSize)) >= 30, 'Summe groß');
+    const k = page.locator('.lern-rueck-karte');
+    assert.deepEqual(await k.locator('.lern-rk-wort').allInnerTexts(), ['RICHTIG', 'FALSCH']);
+    assert.deepEqual(await k.locator('.lern-rk-zeichen').allInnerTexts(), ['✓', '✗']);
+    const m = await k.evaluateAll((els) => els.map((x) => { const c = getComputedStyle(x); const z = getComputedStyle(x.querySelector('.lern-rk-zeichen'));
+      const lum = (s) => { const [r, g, b] = s.match(/\d+(\.\d+)?/g).slice(0, 3).map((v) => { v = v / 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+      const kon = (a, b) => { const [h, d] = [lum(a), lum(b)].sort((p, q) => q - p); return (h + 0.05) / (d + 0.05); };
+      return { balken: parseFloat(c.borderLeftWidth), text: kon(c.color, c.backgroundColor), zeichen: kon(z.color, z.backgroundColor), flaeche: c.backgroundColor }; }));
+    for (const x of m) { assert.ok(x.balken >= 8, `${gestaltung}: Balken ${x.balken}`); assert.ok(x.text >= 4.5, `${gestaltung}: Text ${x.text}`); assert.ok(x.zeichen >= 3, `${gestaltung}: Zeichen ${x.zeichen}`); }
+    assert.notEqual(m[0].flaeche, m[1].flaeche, 'Flächen unterscheiden sich');
+    await page.screenshot({ path: path.join(root, `test-results/teil4-ergebnis-${gestaltung}-390.png`), fullPage: true });
+    await page.close();
+  }
+});
+
+test('Teil 4 Punkt 5g: Ergebnis mit Fehler → „Gleich verbessern ›“ startet die Korrektur (hell und nacht)', async (t) => {
+  for (const gestaltung of ['entdecker', 'nacht']) {
+    const { page, calls } = await setup(t, { gestaltung });
+    await page.goto(origin + '/#/lerneinheit/1-1-test');
+    await page.getByRole('button', { name: 'Test starten' }).click();
+    await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+    await page.getByRole('button', { name: 'Weiter ›' }).click();
+    await page.getByRole('button', { name: 'Markierung 2' }).click();
+    await page.getByRole('button', { name: 'Abgeben' }).click();
+    const z = page.locator('.lr-test-knoepfe'); await z.waitFor();
+    assert.match(await z.locator('.lr-knopf').first().innerText(), /^Erst üben: .+ ›$/);
+    // kein Knopf/Link der Ergebnisseite zeigt auf die eigene Adresse
+    const eigen = await page.evaluate(() => [...document.querySelectorAll('#main a[href]')].filter((a) => a.getAttribute('href') === location.hash).map((a) => a.textContent));
+    assert.deepEqual(eigen, []);
+    await z.getByRole('button', { name: 'Gleich verbessern ›' }).click();
+    await page.getByText(/Verbessern · Bordkarte 1 von/).waitFor();
+    assert.equal(calls.filter((c) => c.aktion === 'schule_test_starten').at(-1).daten.art, 'korrektur');
+    await page.close();
+  }
+});
+
+test('Teil 4 Punkt 5h: Korrektur vollständig richtig → Flug geschafft, kein „Verbessern“ (Stand wird neu geladen)', async (t) => {
+  let abgeschlossen = false;
+  const { page, calls } = await setup(t, { anpassen: (aktion, e) => {
+    if (aktion === 'schule_einheit_lesen') { const x = structuredClone(e);
+      if (abgeschlossen) { x.blocktest_fertig = true; x.stand = x.stand.map((s) => ({ ...s, status: 'korrigiert' })); }
+      else { x.blocktest_fertig = true; x.stand = x.stand.map((s, i) => ({ ...s, status: i === 1 ? 'fehler' : 'nachgewiesen' })); }
+      return x; }
+    if (aktion === 'schule_test_abschliessen') { abgeschlossen = true; // wie im Betrieb: Antwort trägt noch den alten Stand
+      return { ...e, richtig: 2, gesamt: 2, ergebnisse: e.ergebnisse.map((x) => ({ ...x, richtig: true })), einheit_abgeschlossen: false }; }
+    return null; } });
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByRole('button', { name: 'Verbessern starten' }).click();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+  await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.getByRole('button', { name: 'Markierung 2' }).click();
+  await page.getByRole('button', { name: 'Abgeben' }).click();
+  await page.getByText('Flug geschafft! 🎉').waitFor();
+  assert.equal(await page.getByRole('button', { name: /verbessern/i }).count(), 0);
+  assert.equal(await page.getByText(/Erst üben/).count(), 0);
+  await page.getByRole('link', { name: 'Weiter zum nächsten Flug ›' }).waitFor();
+  assert.ok(calls.filter((c) => c.aktion === 'schule_einheit_lesen').length >= 2, 'Stand nach dem Test neu geladen');
 });

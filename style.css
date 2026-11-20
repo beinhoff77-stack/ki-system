@@ -4533,3 +4533,26 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lr-fertig-hier .lr-weiter-schritt { width: 100%; text-align: center; }
 .lr-fertig-hier.lr-fertig-klein { padding-block: 10px; }
 .lr-trotzdem { font-size: 0.9rem; }
+/* Teil 4 Punkt 5f: Test-Ergebnis – richtig/falsch deutlich (Fläche, breiter Balken, großes Zeichen und Wort) */
+.lern-ergebnis-summe { margin: 0 0 6px; font-size: 1.15rem; }
+.lern-ergebnis-summe b { font-size: 2.2rem; line-height: 1.1; }
+.lern-rueck-karte { border-left-width: 10px; }
+.lern-rueck-karte.ok { background: #E3F4E8; color: #12391F; border-left-color: #1E7B34; }
+.lern-rueck-karte.falsch { background: #FCE8E8; color: #5C1414; border-left-color: #C62828; }
+.lern-rueck-karte.ok *, .lern-rueck-karte.falsch * { color: inherit; }
+.lern-rk-kopf { display: flex; align-items: center; gap: 10px; margin: 0 0 6px !important; font-size: 0.95rem; }
+.lern-rk-zeichen { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; font-size: 1.6rem; font-weight: 800; flex: none; }
+.lern-rueck-karte.ok .lern-rk-zeichen { background: #1E7B34; color: #FFFFFF !important; }
+.lern-rueck-karte.falsch .lern-rk-zeichen { background: #C62828; color: #FFFFFF !important; }
+.lern-rk-wort { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.lern-rk-etappe { opacity: 0.85; }
+.lr-nacht .lern-rueck-karte.ok, .lr-abflug-nacht .lern-rueck-karte.ok { background: #123A22; color: #E4F7EA; border-left-color: #43C46E; }
+.lr-nacht .lern-rueck-karte.falsch, .lr-abflug-nacht .lern-rueck-karte.falsch { background: #431A1D; color: #FCE6E6; border-left-color: #F0646E; }
+.lr-nacht .lern-rueck-karte.ok .lern-rk-zeichen, .lr-abflug-nacht .lern-rueck-karte.ok .lern-rk-zeichen { background: #43C46E; color: #0B1F12 !important; }
+.lr-nacht .lern-rueck-karte.falsch .lern-rk-zeichen, .lr-abflug-nacht .lern-rueck-karte.falsch .lern-rk-zeichen { background: #F0646E; color: #2A0B0D !important; }
+/* Teil 4 Punkt 5d/e */
+.lr-knobel-vorne { margin: 0 0 10px; }
+.lr-knobel-ohne { display: block; margin: 10px auto 0; }
+.lr-test-auf { display: grid; gap: 8px; justify-items: center; text-align: center; }
+.lr-test-auf .lr-jetzt-test { width: 100%; text-align: center; }
+.lr-test-hinweis { margin-bottom: 12px; }

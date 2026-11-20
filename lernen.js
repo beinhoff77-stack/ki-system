@@ -257,13 +257,13 @@ function lernKnobelAngebot(e, oeffnen) {
   if (!offen.length) return null;
   return el('button', { type: 'button', class: 'lr-knopf-zweit lr-knobel-angebot', onclick: () => oeffnen(offen[0]) }, '★ Knobel-Bordkarte (freiwillig)');
 }
-function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDKARTE' } = {}) {
+function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDKARTE', zurueckText = 'Zurück', nachPruefen = null } = {}) {
   const auf = lernAufgabe(a, null, { tasten: false }); const cid = lernCid();
   const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
   const hilfeBox = el('div', { class: 'lr-hilfebox' });
   const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp))); } }, 'Tipp') : null;
   const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
-  const weiter = zurueck ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: zurueck }, 'Zurück') : null;
+  const weiter = zurueck ? el('button', { type: 'button', class: 'lr-knopf-zweit lr-knobel-zurueck', onclick: zurueck }, zurueckText) : null;
   pruefen.addEventListener('click', async () => {
     const w = auf.antwort();
     if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
@@ -272,7 +272,7 @@ function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDK
       const r = await lernCall('schule_uebung_pruefen', { lernender_id: ctx.kind, aufgabe_id: a.id, antwort: w, client_id: cid });
       if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis || 'Bitte prüfe die Eingabe.')); pruefen.disabled = false; return; }
       a.versuche = (a.versuche || 0) + 1; if (r.richtig) a.geloest = true;
-      auf.zeigeLoesung?.(r.loesung); pruefen.remove(); tipp?.remove();
+      auf.zeigeLoesung?.(r.loesung); pruefen.remove(); tipp?.remove(); nachPruefen?.(weiter);
       lernErsetze(meldung, r.richtig
         ? el('div', { class: 'lr-rueck lr-rueck-ok lr-knobel-ok' }, el('b', {}, '★ Geknackt!'), r.sterne ? el('p', { class: 'lr-sterne-neu' }, `+${r.sterne} Sterne · ein Knobel-Stern`) : null,
           r.knobel_sterne ? el('p', { class: 'lr-leise' }, `Knobel-Sterne: ${r.knobel_sterne}`) : null, r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
@@ -1959,12 +1959,15 @@ async function viewLernEinheit(arg) {
   const ort = (uebers?.einheiten || []).find((e) => e.id === eId) || {};
   const titel = ort.stadt ? `${ort.stadt}: ${ort.ort_titel || ort.titel || ''}` : (daten.inhalt?.ziel || 'Lerneinheit').split(/[:;.]/)[0];
   $('#title').textContent = ort.stadt || titel; // kurz: der Ort; das Thema steht als Überschrift darunter
-  const ctx = { kind: k, einheit: eId, live, daten, ort, titel, kindObj: kind, basis: `#/lerneinheit/${k}-${eId}`, leitung: !!uebers?.leitung };
+  const ctx = { kind: k, einheit: eId, live, daten, ort, titel, kindObj: kind, basis: `#/lerneinheit/${k}-${eId}`, leitung: !!uebers?.leitung, konto };
   lernHeuteSetzen(k, daten.heute_selbst, daten.heute_tag); // H6: Tag vom Server
   const etappen = lernEtappen(daten);
   lernTitel = new Map(etappen.filter((e) => daten.inhalt?.etappen?.length).map((e) => [e.lernziel, e.titel]));
   ctx.titelKurz = ort.titel || titel;
   if (teil === 'test' || (!teil && daten.laufender_test)) { lernEinheitTest(ctx); return; }
+  // Teil 4 Punkt 5e: Flug öffnen, wenn alle Pflicht-Etappen gelandet sind und nur der Test fehlt → zuerst die Test-Aufforderung, nicht die Übungen
+  // (nur beim Öffnen ohne Ziel bzw. „üben“ ohne Etappe; „-erklaeren“ und eine gewählte Etappe bleiben erreichbar)
+  if ((!teil || (teil === 'ueben' && !String(arg).split('-')[3])) && lernTestFaellig(daten, etappen)) { lernEinheitTest(ctx, lernTestFaellig(daten, etappen)); return; }
   // #/lerneinheit/k-e[-erklaeren|-ueben[-n]|-fehler|-n]
   const rest = String(arg).split('-').slice(3);
   const n = Number(teil);
@@ -1973,6 +1976,29 @@ async function viewLernEinheit(arg) {
 }
 
 // ---------- Thema: Erklären | Üben | Typische Fehler (Aufbau wie das Mathe-Lernblatt) ----------
+// Teil 4 Punkt 5e: Sind alle Pflicht-Etappen gelandet und fehlt nur der Test (oder ein Nachtragstest), kommt der Test von selbst.
+function lernTestFaellig(daten, etappen) {
+  const pflicht = etappen.filter((e) => !e.extra);
+  if (!pflicht.length || pflicht.some((e) => !e.fertig) || daten.ohne_test) return null;
+  if (daten.laufender_test) return { art: 'laeuft', n: pflicht.length };
+  if (!daten.blocktest_fertig) return { art: 'test', n: pflicht.length };
+  const neu = lernNeueEtappen(daten.stand); return neu ? { art: 'nachtrag', n: neu } : null;
+}
+// Was für den Stempel des Ortes nach diesem Flug noch fehlt (schule_konto.orte: themen, erledigt)
+function lernStempelRest(ctx) {
+  const o = (ctx.konto?.orte || []).find((x) => x.block_id === ctx.ort?.block_id); const stadt = ctx.ort?.stadt || 'diesem Ort';
+  if (!o || !o.themen) return null;
+  const rest = Math.max(0, o.themen - (o.erledigt || 0) - 1);
+  return rest ? `Für den Stempel von ${stadt} fehlen danach noch ${rest} ${rest === 1 ? 'Flug' : 'Flüge'}.` : `Danach gibt es den Stempel von ${stadt}.`;
+}
+function lernTestAufforderung(ctx, tf) {
+  const basis = ctx.basis;
+  return el('section', { class: 'lr-karte-box lr-test-auf' },
+    el('a', { class: 'lr-knopf lr-jetzt-test', href: `${basis}-test` }, tf.art === 'nachtrag' ? 'Test zu den neuen Etappen ›' : tf.art === 'laeuft' ? 'Angefangenen Test weitermachen ›' : 'Jetzt zum Test ›'),
+    el('p', { class: 'lr-leise' }, tf.art === 'nachtrag' ? `${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, ohne Tipps – eine je neuer Etappe.` : `${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, ohne Tipps. Bestehst du ihn, ist der Flug geschafft.`),
+    lernStempelRest(ctx) ? el('p', { class: 'lr-leise lr-stempel-rest' }, lernStempelRest(ctx)) : null,
+    el('a', { class: 'lr-textlink lr-pause', href: `#/reise/${ctx.kind}` }, 'Pause – zur Abflugtafel'));
+}
 function lernTestTeil(ctx, etappen) {
   const { daten } = ctx;
   const pflicht = etappen.filter((e) => !e.extra);
@@ -2097,10 +2123,10 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
     const nochOffen = etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length && !x.extra) || etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length);
     const fertigHier = (e.sitzt || e.fertig) && !e.faellig;
     if (fertigHier) {
-      const testOffen = !nochOffen && !pflicht.some((x) => !x.fertig) && !ctx.daten.ohne_test && (!ctx.daten.blocktest_fertig || lernNeueEtappen(ctx.daten.stand) || ctx.daten.laufender_test);
+      const tf = nochOffen ? null : lernTestFaellig(ctx.daten, etappen); const testOffen = !!tf;
       const weiterKnopf = nochOffen
         ? el('button', { type: 'button', class: 'lr-knopf lr-weiter-schritt', onclick: () => { if (neuKarte(nochOffen)) { erstErklaeren(nochOffen); return; } aktKarte = nochOffen; stufe = 0; weiterueben = false; zeichneUeben(); window.scrollTo(0, 0); } }, `Nächste Etappe: ${nochOffen.titel} ›`)
-        : testOffen ? el('a', { class: 'lr-knopf lr-weiter-schritt', href: `${ctx.basis}-test` }, ctx.daten.laufender_test ? 'Angefangenen Test weitermachen ›' : 'Zum Test ›')
+        : testOffen ? el('a', { class: 'lr-knopf lr-weiter-schritt', href: `${ctx.basis}-test` }, tf.art === 'laeuft' ? 'Angefangenen Test weitermachen ›' : tf.art === 'nachtrag' ? 'Test zu den neuen Etappen ›' : 'Jetzt zum Test ›')
           : el('a', { class: 'lr-knopf lr-weiter-schritt', href: `#/reise/${ctx.kind}` }, 'Weiter zum nächsten Flug ›');
       panels.ueben.prepend(el('div', { class: 'lr-karte-box lr-fertig-hier' + (weiterueben ? ' lr-fertig-klein' : '') },
         el('p', {}, el('b', {}, 'Hier bist du fertig ✓')), weiterKnopf,
@@ -2214,19 +2240,31 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           }
           if (jetztSitzt && neu) {
             // Teil 4 Punkt 5a: nach dem Knobeln (richtig, falsch oder abgebrochen) zurück auf diesen Landebildschirm, nicht in die Übungen
-            const zeigeLandung = () => lernErsetze(flaeche, el('section', { class: 'lr-gelandet' },
+            const tf = lernTestFaellig(ctx.daten, etappen);
+            const zeigeLandung = () => lernErsetze(flaeche, el('section', { class: 'lr-gelandet' + (tf ? ' lr-gelandet-test' : '') },
               el('p', { class: 'lr-ueber' }, `ETAPPE ${pos + 1} VON ${mitAufg.length}`),
               el('div', { class: 'lr-landestempel', 'aria-hidden': 'true' }, el('b', {}, 'GELANDET'), el('small', {}, ortCode)),
               el('h2', {}, e.titel, ' ✓'), el('p', {}, e.neueRegel ? `${e.eigene} Bordkarten selbst gelöst, die letzten ${e.folgeZiel} in Folge` + (e.schwerNoetig ? ' – auch eine schwere war dabei.' : '.')
                 : `${e.ziel || 6} Bordkarten richtig` + (e.schwerNoetig ? ' – auch eine schwere Bordkarte war dabei.' : '.')),
               sterne ? el('p', { class: 'lr-sterne-neu' }, lernIcon(LI.stern, 20), ` +${sterne} Sterne`) : null,
               el('p', { class: 'lr-leise' }, 'Sicher wird die Etappe, wenn du sie in ein paar Tagen wieder kannst.'),
-              lernKnobelAngebot(e, (k) => lernKnobel(flaeche, k, ctx, { ortCode, zurueck: () => { zeigeLandung(); window.scrollTo(0, 0); } })),
+              // Punkt 5e: alle Pflicht-Etappen gelandet → nur noch der Test (ein großer Knopf) und klein „Pause“
+              ...(tf ? [lernTestAufforderung(ctx, tf)] : [
               naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { if (neuKarte(naechsteKarte)) { erstErklaeren(naechsteKarte); return; } aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Anschlussflug: ${naechsteKarte.titel} ›`) : null,
               !naechsteKarte && !pflicht.some((x) => !x.fertig) ? lernTestTeil(ctx, etappen) : null,
               el('a', { class: 'lr-knopf-zweit', href: `#/reise/${ctx.kind}` }, 'Zur Abflugtafel'),
-              el('a', { class: 'lr-textlink', href: `#/wiederholen/${ctx.kind}` }, 'Wiederholungen ansehen, falls noch welche offen sind')));
-            zeigeLandung();
+              el('a', { class: 'lr-textlink', href: `#/wiederholen/${ctx.kind}` }, 'Wiederholungen ansehen, falls noch welche offen sind')])));
+            // Punkt 5d: Die Knobel-Bordkarte kommt immer von selbst hinten dran (eine noch nicht versuchte); danach der Landebildschirm
+            const knobel = (e.bonus || []).find((k) => !k.versuche);
+            if (knobel) {
+              const platz = el('div', { class: 'lr-knobel-platz' });
+              lernErsetze(flaeche, el('p', { class: 'lr-knobel-vorne' }, el('b', {}, `Gelandet: ${e.titel} ✓`), ' Zum Schluss eine harte Nuss – falsch kostet nichts.'), platz,
+                el('button', { type: 'button', class: 'lr-textlink lr-knobel-ohne', onclick: () => { zeigeLandung(); window.scrollTo(0, 0); } }, 'Heute keine Knobel-Bordkarte'));
+              // vor dem Prüfen nur der kleine Textlink; nach dem Prüfen ein großer Knopf „Weiter ›“ zum Landebildschirm
+              lernKnobel(platz, knobel, ctx, { ortCode, zurueckText: 'Weiter ›', zurueck: () => { zeigeLandung(); window.scrollTo(0, 0); },
+                nachPruefen: (zu) => { if (zu) { zu.hidden = false; zu.className = 'lr-knopf lr-knobel-zurueck'; } flaeche.querySelector('.lr-knobel-ohne')?.remove(); } });
+              const zu = platz.querySelector('.lr-knobel-zurueck'); if (zu) zu.hidden = true;
+            } else zeigeLandung();
             window.scrollTo(0, 0); flaeche.querySelector('.lr-knopf, .lr-knopf-zweit')?.focus({ preventScroll: true });
             return;
           }
@@ -2300,11 +2338,14 @@ function lernJahrgangText(j, kind) {
   return [['gym_by', 'Gym'], ['rs_by', 'RS'], ['ib_myp', 'IB MYP-Jahr']].filter(([k]) => j[k]).map(([k, t]) => `${t} ${j[k]}`).join(' · ');
 }
 
-function lernEinheitTest(ctx) {
+function lernEinheitTest(ctx, tf = null) {
   const body = el('div', { class: 'lern-body' });
+  if (tf && tf.art !== 'laeuft') lernAnhaengen(body, el('div', { class: 'card lr-test-hinweis' }, el('b', {}, 'Alle Etappen sind gelandet ✓'),
+    el('p', { class: 'small' }, tf.art === 'nachtrag' ? `Jetzt der Test zu den neuen Etappen: ${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, ohne Tipps.` : `Jetzt kommt der Test: ${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, ohne Tipps. Bestehst du ihn, ist der Flug geschafft.`),
+    lernStempelRest(ctx) ? el('p', { class: 'small' }, lernStempelRest(ctx)) : null));
   lernErsetze(main, lernRahmen(ctx.kindObj, 'weg',
     el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, 'TEST'), el('h1', { class: 'lr-titel' }, ctx.ort?.stadt ? `${ctx.ort.stadt} · ${ctx.titelKurz}` : ctx.titel)), // N6: „Ort · Flug“ wie im Erklären-Reiter
-    el('a', { class: 'lr-zurueck', href: ctx.basis }, '‹ Zu den Etappen'), body));
+    el('a', { class: 'lr-zurueck', href: `${ctx.basis}-erklaeren` }, '‹ Zu den Etappen'), body));
   lernAnhaengen(body, lernTestStart(ctx, body));
 }
 
@@ -2623,6 +2664,7 @@ function lernTestStart(ctx, body) {
       lernTestLauf(ctx, box, r);
     } catch (e) { lernErsetze(box, el('p', { class: 'card err-text' }, e.message)); }
   };
+  ctx.testStarten = start; // Teil 4 Punkt 5g: „Gleich verbessern ›“ startet die Korrektur direkt (die Adresse …-test ist schon die eigene)
   const knopf = (t, art, text) => el('div', { class: 'card' }, el('h3', {}, t), el('p', { class: 'small' }, text),
     el('button', { type: 'button', class: 'primary', onclick: () => start(art) }, t + ' starten'));
   if (ctx.daten.verblasst) lernAnhaengen(box, el('p', { class: 'lern-hinweis' }, 'Rückreise: Diese Einheit sitzt noch nicht sicher. Erst verbessern, dann den Nachtest wiederholen.'));
@@ -2681,6 +2723,8 @@ function lernTestLauf(ctx, box, t) {
         }
         abgeben.disabled = true;
         const r = await lernCall('schule_test_abschliessen', { lernender_id: ctx.kind, sitzung_id: t.sitzung_id });
+        // Teil 4 Punkt 5h: Stand des Flugs neu vom Server holen, bevor Knöpfe gezeichnet werden (sonst alter Stand → wieder „Verbessern“)
+        try { const neu = await lernCall('schule_einheit_lesen', { lernender_id: ctx.kind, einheit_id: ctx.einheit }); if (neu && neu.ok !== false) ctx.daten = neu; } catch { /* Ergebnis trotzdem zeigen */ }
         if (ctx.live()) lernTestErgebnis(ctx, box, r);
       } catch (e) { abgeben.disabled = false; lernErsetze(meldung, el('p', { class: 'err-text' }, e.message)); }
     } }, 'Abgeben');
@@ -2696,23 +2740,31 @@ function lernTestLauf(ctx, box, t) {
   zeige();
 }
 
+// Teil 4 Punkt 5h: Fehler-Etappen aus dem frisch geladenen Stand (Fallback: Antwort des Tests)
+const lernTestFehler = (ctx, r) => { const st = ctx.daten?.stand; // frischer Stand zählt, sobald er Test-Ergebnisse trägt
+  return Array.isArray(st) && st.some((x) => x.status && x.status !== 'offen') ? st.filter((s) => s.pflicht !== false && s.status === 'fehler') : (r.lernziele || []).filter((s) => s.pflicht !== false && s.status === 'fehler'); };
+const lernFlugGeschafft = (ctx, r) => !!r.einheit_abgeschlossen || (!!ctx.daten?.blocktest_fertig && !lernTestFehler(ctx, r).length && !lernNeueEtappen(ctx.daten?.stand) && !ctx.daten?.laufender_test);
 function lernTestErgebnis(ctx, box, r) {
   const ort = r.ort || {};
+  const geschafft = lernFlugGeschafft(ctx, r);
+  const stand = Array.isArray(ctx.daten?.stand) && ctx.daten.stand.some((x) => x.status && x.status !== 'offen') ? ctx.daten.stand : r.lernziele;
   lernErsetze(box, 
     el('div', { class: 'card lern-ergebnis' },
-      el('h3', {}, `${r.richtig} von ${r.gesamt} richtig`),
-      r.einheit_abgeschlossen ? el('p', { class: 'lern-rueck ok' }, el('b', {}, 'Flug geschafft! 🎉')) : el('p', { class: 'small' }, 'Bei „noch üben“: die passenden Etappen noch einmal üben, dann „Verbessern“.'),
+      el('p', { class: 'lern-ergebnis-summe' }, el('b', {}, `${r.richtig} von ${r.gesamt}`), ' richtig'),
+      geschafft ? el('p', { class: 'lern-rueck ok' }, el('b', {}, 'Flug geschafft! 🎉')) : lernTestFehler(ctx, r).length ? el('p', { class: 'small' }, 'Bei „noch üben“: die passenden Etappen noch einmal üben, dann „Verbessern“.') : null,
       r.nachtest_ergebnis ? el('p', { class: 'lern-rueck ' + (r.nachtest_ergebnis === 'bestanden' ? 'ok' : 'falsch') }, el('b', {}, {
         bestanden: r.nachtest?.folgerunde && r.nachtest_runde >= 3 ? 'Nachtest geschafft (ab 80 %).' : `Nachtest-Runde ${r.nachtest_runde} geschafft (ab 80 %).`,
         wiederholen: 'Unter 80 %: Diese Runde zählt noch nicht. Verbessere die falschen Etappen, dann kommt der Nachtest noch einmal.',
         rueckreise: 'Unter 60 %: Rückreise zu diesem Ort. Erst üben und verbessern, dann den Nachtest wiederholen.' }[r.nachtest_ergebnis])) : null,
       ort.abgeschlossen ? el('div', { class: 'lr-stempel-gross' }, el('div', { class: 'lr-stempel', style: '--dreh:-8deg' }, el('b', {}, 'GESCHAFFT'), el('small', {}, 'Neuer Stempel')),
         el('p', {}, el('b', {}, 'Ort geschafft! Der Stempel ist jetzt in deinem Reisepass.'))) : null,
-      lernStandZeile(r.lernziele)),
+      lernStandZeile(stand)),
     ...(r.ergebnisse || []).map((x) => {
       const a = { ...x, antworttyp: x.antworttyp || (x.loesung?.werte ? 'luecken' : x.loesung?.index !== undefined ? (x.antworten ? 'auswahl' : 'markierung') : x.loesung?.text !== undefined ? 'text' : 'zahl') };
       return el('div', { class: 'card lern-rueck-karte ' + (x.richtig ? 'ok' : 'falsch') },
-        el('p', { class: 'eyebrow' }, lernZielName(x.lernziel) + (x.richtig ? ' · ✓ richtig' : ' · ✗ falsch')),
+        // Teil 4 Punkt 5f: großes ✓/✗ mit Wort – nicht nur Farbe
+        el('p', { class: 'lern-rk-kopf' }, el('span', { class: 'lern-rk-zeichen', 'aria-hidden': 'true' }, x.richtig ? '✓' : '✗'),
+          el('b', { class: 'lern-rk-wort' }, x.richtig ? 'richtig' : 'falsch'), el('span', { class: 'lern-rk-etappe' }, ' · ' + lernZielName(x.lernziel))),
         el('p', { class: 'lern-frage' }, lernText(x.frage?.text)),
         x.frage?.grafik ? (x.frage.grafik.typ && x.frage.grafik.typ !== 'zahlenstrahl' ? lernBild(x.frage.grafik)
           : lernZahlenstrahl(a.antworttyp === 'markierung' ? { ...x.frage.grafik, _richtig: x.loesung?.index, _gewaehlt: x.antwort?.index } : x.frage.grafik, false)) : null,
@@ -2720,19 +2772,23 @@ function lernTestErgebnis(ctx, box, r) {
         x.richtig ? null : el('p', { class: 'small' }, 'Richtig: ', el('b', {}, lernLoesungText(a))),
         x.loesungsweg && !x.richtig ? el('p', { class: 'small muted' }, x.loesungsweg) : null);
     }),
-    lernTestKnoepfe(ctx, r));
+    lernTestKnoepfe(ctx, r, geschafft));
 }
 // N7: Knöpfe im Abflug-Stil. Bei „noch üben“: erst die Etappe üben, dann verbessern.
-function lernTestKnoepfe(ctx, r) {
+// Teil 4 Punkt 5g/h: mit Fehlern genau zwei klare Wege (Erst üben · Gleich verbessern); geschafft → nächster Schritt, kein „Verbessern“.
+function lernTestKnoepfe(ctx, r, geschafft = lernFlugGeschafft(ctx, r)) {
   const basis = ctx.basis || `#/lerneinheit/${ctx.kind}-${ctx.einheit}`;
   const etappen = ctx.daten?.inhalt?.etappen || [];
-  const ueben = (r.lernziele || []).filter((s) => s.pflicht !== false && s.status === 'fehler');
-  const erste = ueben[0]; const nr = erste ? etappen.findIndex((e) => e.lernziel === erste.lernziel) + 1 : 0;
+  const erste = geschafft ? null : lernTestFehler(ctx, r)[0]; const nr = erste ? etappen.findIndex((e) => e.lernziel === erste.lernziel) + 1 : 0;
+  if (!erste) return el('div', { class: 'lr-knopfzeile lr-test-knoepfe' },
+    el('a', { class: 'lr-knopf', href: `#/reise/${ctx.kind}` }, geschafft ? 'Weiter zum nächsten Flug ›' : 'Zur Abflugtafel ›'),
+    el('a', { class: 'lr-textlink', href: `${basis}-erklaeren` }, 'Zum Flug'));
+  const verbessern = el('button', { type: 'button', class: 'lr-knopf-zweit lr-gleich-verbessern', onclick: () => { if (ctx.testStarten) { window.scrollTo(0, 0); ctx.testStarten('korrektur'); } else render(); } }, 'Gleich verbessern ›');
   return el('div', { class: 'lr-knopfzeile lr-test-knoepfe' },
-    erste ? el('a', { class: 'lr-knopf', href: nr ? `${basis}-ueben-${nr}` : `${basis}-ueben` }, `Erst üben: ${lernZielName(erste.lernziel)} ›`) : null,
-    erste ? el('a', { class: 'lr-knopf-zweit', href: `${basis}-test` }, 'Verbessern ›') : null,
-    el('a', { class: erste ? 'lr-textlink' : 'lr-knopf', href: basis }, erste ? 'Zum Flug' : 'Zum Flug ›'),
-    el('a', { class: erste ? 'lr-textlink' : 'lr-knopf-zweit', href: `#/reise/${ctx.kind}` }, 'Zur Abflugtafel'));
+    el('a', { class: 'lr-knopf', href: nr ? `${basis}-ueben-${nr}` : `${basis}-ueben` }, `Erst üben: ${lernZielName(erste.lernziel)} ›`),
+    verbessern,
+    el('a', { class: 'lr-textlink', href: `${basis}-erklaeren` }, 'Zum Flug'),
+    el('a', { class: 'lr-textlink', href: `#/reise/${ctx.kind}` }, 'Zur Abflugtafel'));
 }
 
 

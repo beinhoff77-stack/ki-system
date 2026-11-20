@@ -2039,3 +2039,23 @@ Je freigegebenem Flug eine Datei **`inhalte/kann/<thema_schluessel>.json`**: `{"
 - **`kann`** (je Etappe, Schlüssel = `lernziel` aus `inhalt.etappen` der Themendatei, alle Etappen): setzt den Satz „Du kannst jetzt …“ fort, klein begonnen, ohne Punkt am Ende, höchstens 90 Zeichen, konkret und prüfbar. Beispiel: „gleichartige Glieder zusammenfassen, auch mit Minuszeichen“. Kein Lob, keine Wiederholung des Etappen-Titels Wort für Wort, nichts versprechen, was die Etappe nicht übt (Erklärung und Aufgaben der Etappe lesen).
 - Aufteilung nach `klasse.gym_by` in `inhalte/themenliste.json`: **Chat `kann-1`** Klasse 5 und 6 · **Chat `kann-2`** Klasse 7 und 8 · **Chat `kann-3`** Klasse 9 und 10 und alle Themen ohne Gymnasium-Klasse. Die 10 aufgelösten Themen (in der Datenbank Entwurf: `groessen.verhaeltnisse`, `mengen.grundbegriffe`, `abbildungen.vektoren`, `funktionen.scharen`, `funktionen.folgen`, `finanzen.zinseszins`, `gleichungen.reinquadratisch`, `funktionen.transformation`, `funktionen.umkehr`, `stochastik.bedingt`) auslassen.
 - Je Chat eigener Zweig (`kann-1`, `kann-2`, `kann-3`) vom aktuellen `lernen-app`, Meldungen in `inhalte/postfach/kann-<n>.md`. Selbstprüfung per Skript im Bericht: jede Etappe der Themendatei hat genau einen Eintrag, keine überzähligen Schlüssel, Längen eingehalten, gültiges JSON. Nur Dateien unter `inhalte/kann/` anlegen – keine Themendateien, keine Generatoren, kein App-Code, keine Datenbank, kein Merge. Ein Commit je Klasse. Am Ende „FERTIG: AB-I, Chat n“. Der Haupt-Chat bringt die Texte in die Datenbank.
+
+---
+
+# Bau-Auftrag LB, Teil 5 (20.11.): Mängel aus der Nachprüfung 3 des Gestalters (Chat `bau-lehrer`, App 0.82.2)
+
+Grundlage: `inhalte/pruefung/lehrer/nachpruefung-3.md` (mit Bildern unter `inhalte/pruefung/lehrer/n3/`). Ergebnis der Nachprüfung: 5 von 8 „Fertig, wenn“ erfüllt, 2 teilweise geprüft, 1 nicht prüfbar (Server-Regel, durch Rauchtest `lb3` belegt). Zweig vom aktuellen `lernen-app` (App 0.82.1). Datenbank nur lesen; alle App-Tests; kein Merge nach `main`.
+
+**Muss**
+- **M1 Tablet 820 px: Lehrplan-Spalte zu schmal.** In „Nach Klasse“ bricht die Unterzeile in Silben („Fun / ktio / nen“, „Alge / bra“), lange Titel laufen in das Stufenwort. Unter 1100 px steht das Stufenwort **unter** dem Titel (wie auf dem Handy), Unterzeile ohne Silbentrennung; alternativ Spaltenbreite 55 % / 45 %. **Mit echten Thementiteln messen**, nicht mit Testdaten: Die Tests laden dafür die Titel aus `inhalte/themenliste.json` (längster Titel je Klasse) – kein Wort getrennt, keine Überlappung, bei 400, 820 und 1280 px.
+
+**Sollte**
+- **S1 Auswahlmodus kompakt:** Orte bleiben zugeklappt; je Ort ein Häkchen (wählt alle seine Flüge), daneben „▸ einzeln“ zum Aufklappen; je Abschnitt ein Häkchen „alle auswählen“. Die vier Knöpfe je Flug und „alle Flüge: kann er komplett“ sind ausgeblendet, solange ausgewählt wird. Die Sammelleiste bleibt oben stehen.
+- **S2 Gleiche Einheit in Kopf und Abschnitten:** z. B. „○ KOMMT NOCH · 5 Orte, 8 Flüge“ – oder überall Flüge.
+- **S3 Lehrplan-Übersicht wie „Nach Klasse“ gliedern:** nach Lernbereich und in Lehrplan-Reihenfolge der gewählten Schulart (heute nach Gebiet, darin nicht in Lehrplan-Reihenfolge).
+- **S4 Etappen beim Aufklappen mit Titel** (nicht „Etappe 1 … 7“ mit Titel nur im Tooltip) und mit Stand (offen · begonnen · gelandet · sicher) – auf Tablet und Handy gibt es kein Überfahren mit der Maus.
+
+**Kann**
+- K1 Legende oben in der Lehrplan-Spalte zuklappbar oder einzeilig. K2 „Nach Themengebiet“: keine innere Bildlaufleiste, die Seite rollt. K3 IB-Lernbereiche: deutsche Bezeichnung zuerst, die englische in Klammern (nur Anzeige; die Daten bleiben). K4 Fehlt bei einem Thema der Lehrplan-Bezug für die gewählte Schulart (heute Gymnasium bei „Teilbarkeit und Primzahlen“ und „Intervalle“), zeigt die Zeile „Lehrplan:“ den Lernbereich statt leer zu bleiben.
+
+Meldung „FERTIG: LB, Teil 5“ in `inhalte/postfach/bau-lehrer.md` – der Gestalter prüft nach. **Danach** beginnt `bau-motivation` mit AB-A.

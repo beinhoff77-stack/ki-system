@@ -78,3 +78,9 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 
 ## 2026-11-20 – Freigabe Entwurf Abschluss (Fassung 2)
 - Sebastian: „passt so“. Schwellen wie vorgeschlagen, Abzeichen im Reisepass zählen. Bitte als Bauauftrag verteilen (App, Datenbank, Inhalts-Chats – siehe umsetzung.md Abschnitt 6).
+
+## 2026-11-20 – FERTIG: Nachprüfung 3
+- Bericht: `inhalte/pruefung/lehrer/nachpruefung-3.md`, Bilder `inhalte/pruefung/lehrer/n3/bilder/`, Skript `n3/n3.test.cjs`.
+- Erfüllt: RS 7 = 18 Themen, Gym 8 in Lehrplan-Reihenfolge mit Lernbereichen, 4 Stufen überall gleich, alle Knöpfe, Sammelaktion = ein Speichern.
+- Muss: M1 Tablet 820 – Lehrplan-Spalte zu schmal (Wörter gebrochen, Überlappung). Sollte: S1 Auswahlmodus kompakt, S2 gleiche Einheit Kopf/Abschnitte, S3 Lehrplan-Übersicht nach Lernbereich und Lehrplan-Reihenfolge, S4 Etappen-Titel sichtbar.
+- Nicht geprüft: LB-3-Serverregeln, echte Daten/Geräte.

@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "daten.zweidimensional",
+ "kurz": "Du lernst, zwei Merkmale gemeinsam darzustellen und Zusammenhänge zwischen ihnen zu prüfen.",
+ "etappen": {
+  "ablesen": "in einem Streudiagramm Werte ablesen und Punkte vergleichen",
+  "zusammenhang": "erkennen, ob ein Zusammenhang positiv, negativ oder gar nicht vorhanden ist",
+  "gerade": "mit einer Ausgleichsgeraden Werte schätzen und ihre Steigung deuten",
+  "ausreisser": "einen Ausreißer erkennen und sagen, wie er die Ausgleichsgerade verändert",
+  "kausal": "zwischen Korrelation und Ursache unterscheiden und eine dritte Größe als Grund finden"
+ }
+}

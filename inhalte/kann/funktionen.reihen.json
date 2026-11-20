@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "funktionen.reihen",
+ "kurz": "Du lernst, Zahlenfolgen fortzusetzen und viele ihrer Glieder schnell zusammenzuzählen.",
+ "etappen": {
+  "rekursiv": "aus einem Startwert und einer Regel die nächsten Glieder einer Folge berechnen",
+  "arithmetisch": "bei Folgen mit gleichem Abstand jedes Glied mit aₙ = a₁ + (n − 1) · d berechnen",
+  "geometrisch": "bei Folgen mit gleichem Faktor jedes Glied mit aₙ = a₁ · qⁿ⁻¹ berechnen",
+  "summenzeichen": "eine Summe mit ∑ ausschreiben und berechnen",
+  "arith": "die Summe vieler Glieder mit gleichem Abstand schnell berechnen, etwa 1 + … + 30",
+  "geom": "die Summe von Gliedern mit gleichem Faktor mit der Summenformel berechnen",
+  "sach": "bei Laufplänen, Stapeln oder Reiskörnern die passende Summenformel nutzen",
+  "verstehen": "die Anzahl der Glieder richtig zählen und Fehler in Summenformeln finden"
+ }
+}

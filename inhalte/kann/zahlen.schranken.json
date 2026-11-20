@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "zahlen.schranken",
+ "kurz": "Du lernst, wie genau gerundete Zahlen wirklich sind und was das beim Weiterrechnen bedeutet.",
+ "etappen": {
+  "grenzen": "zu einer gerundeten Zahl die Schranken und den Fehlerbereich angeben",
+  "messen": "aus der Messgenauigkeit den Bereich des wahren Werts bestimmen und umgekehrt",
+  "summe": "die größte und kleinste mögliche Summe oder Differenz gerundeter Werte berechnen",
+  "produkt": "die größten und kleinsten möglichen Produkte und Quotienten gerundeter Werte finden",
+  "entscheiden": "mit dem ungünstigsten Fall entscheiden, ob etwas sicher passt oder reicht"
+ }
+}

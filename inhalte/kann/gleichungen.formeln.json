@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "gleichungen.formeln",
+ "kurz": "Du lernst, wie man Formeln aus Geometrie und Physik nach der gesuchten Größe umstellt.",
+ "etappen": {
+  "ein_schritt": "eine Formel wie P = W : t mit einer Umkehrrechnung nach einer Größe umstellen",
+  "zwei_schritte": "eine Formel wie K = G + n · p in zwei Schritten nach der gesuchten Größe umstellen",
+  "pruefen": "eine Umstellung mit zwei erfundenen Zahlen prüfen und Fehler erkennen",
+  "einsetzen": "erst umstellen, dann Werte einsetzen und das Ergebnis mit passender Einheit angeben",
+  "geometrie": "fehlende Höhen oder Seiten aus den Flächenformeln von Dreieck und Vierecken berechnen"
+ }
+}

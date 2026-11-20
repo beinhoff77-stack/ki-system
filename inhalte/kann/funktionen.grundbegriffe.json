@@ -1,0 +1,15 @@
+{
+ "thema_schluessel": "funktionen.grundbegriffe",
+ "kurz": "Du lernst, wie Tabellen, Rechenvorschriften und Graphen zeigen, wie eine Größe von einer anderen abhängt.",
+ "etappen": {
+  "eindeutig": "prüfen, ob jeder Eingabe genau eine Ausgabe zugeordnet ist, auch am Graphen",
+  "mengen": "angeben, welche Zahlen man einsetzen darf und welche Werte dabei herauskommen",
+  "funktionswert": "in einen Funktionsterm eine Zahl einsetzen und f(x) berechnen, auch mit Quadraten",
+  "stelle": "zu einem gegebenen Funktionswert das passende x berechnen",
+  "wertetabelle": "fehlende Werte in Wertetabellen ergänzen und einen passenden Term finden",
+  "graph_lesen": "am Graphen f(x) zu einem x ablesen und alle x zu einem gegebenen y-Wert finden",
+  "nullstellen": "die Nullstellen einer Funktion berechnen, indem du f(x) = 0 löst",
+  "punkt_graph": "durch Einsetzen prüfen, ob ein Punkt auf dem Graphen einer Funktion liegt",
+  "sachzusammenhang": "zu Tarifen mit Grundgebühr einen Term angeben und Alltagsgraphen auswerten"
+ }
+}

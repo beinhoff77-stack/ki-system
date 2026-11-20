@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "gleichungen.linear",
+ "kurz": "Du lernst, wie man Gleichungen mit x Schritt für Schritt löst und damit Sachaufgaben knackt.",
+ "etappen": {
+  "waage": "eine Gleichung lösen, indem du auf beiden Seiten dasselbe rechnest",
+  "beide_seiten": "x-Glieder auf eine Seite bringen und Gleichungen mit x auf beiden Seiten lösen",
+  "klammern": "erst Klammern auflösen und dann die Gleichung lösen, auch mit Minus vor der Klammer",
+  "probe": "mit der Probe prüfen, ob eine Lösung stimmt, und Fehler in einer Rechnung finden",
+  "sonderfaelle": "erkennen, wann eine Gleichung gar keine Lösung hat oder jede Zahl passt",
+  "sach": "zu Sachaufgaben eine Gleichung aufstellen, lösen und im Satz antworten"
+ }
+}

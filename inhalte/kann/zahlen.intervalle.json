@@ -1,0 +1,10 @@
+{
+ "thema_schluessel": "zahlen.intervalle",
+ "kurz": "Du lernst, wie man ganze Zahlenbereiche kurz aufschreibt, mit oder ohne Randzahl.",
+ "etappen": {
+  "lesen": "an den Klammern eines Intervalls ablesen, ob die Grenzen dazugehören",
+  "schreiben": "aus −3 ≤ x ≤ 8 oder „mindestens −12“ ein Intervall mit passenden Klammern machen",
+  "enthalten": "entscheiden, ob eine Zahl im Intervall liegt, und die ganzen Zahlen darin zählen",
+  "beurteilen": "falsche Aussagen über Intervalle mit einem Gegenbeispiel widerlegen"
+ }
+}

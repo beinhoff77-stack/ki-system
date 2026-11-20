@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "geometrie.kreis",
+ "kurz": "Du lernst, welche rechten Winkel am Kreis entstehen und wie Geraden einen Kreis berühren.",
+ "etappen": {
+  "thales": "im Dreieck über einem Kreisdurchmesser Winkel berechnen, mit dem rechten Winkel bei C",
+  "umkehrung": "bei einem rechten Winkel Mittelpunkt und Radius des Kreises angeben, auf dem C liegt",
+  "beweis": "zwischen Vermutung durch Messen und Beweis unterscheiden und Beweisschritte ordnen",
+  "lage": "mit Abstand und Radius prüfen, ob eine Gerade den Kreis schneidet, berührt oder verfehlt",
+  "tangente": "mit dem rechten Winkel zwischen Tangente und Radius Winkel an Tangenten berechnen",
+  "umkreis_inkreis": "die Mittelpunkte von Um- und Inkreis eines Dreiecks bestimmen und Winkel daran berechnen"
+ }
+}

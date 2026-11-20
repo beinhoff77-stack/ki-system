@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "daten.boxplot",
+ "kurz": "Du lernst, wie man Datenreihen mit wenigen Kennzahlen beschreibt, zeichnet und vergleicht.",
+ "etappen": {
+  "median": "den mittleren Wert einer geordneten Liste bestimmen, auch bei gerader Anzahl",
+  "kennwerte": "den häufigsten Wert, die Spannweite und den Mittelwert einer Datenreihe bestimmen",
+  "mittel_median": "erklären, wie ein Ausreißer den Mittelwert verschiebt, den Median aber kaum",
+  "quartile": "das untere und obere Quartil und den Quartilsabstand einer Datenreihe bestimmen",
+  "boxplot": "aus einem Boxplot Median, Quartile und Anteile der Werte ablesen",
+  "vergleichen": "zwei Datensätze mit Boxplots nach Mitte und Streuung vergleichen"
+ }
+}

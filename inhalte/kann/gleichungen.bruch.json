@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "gleichungen.bruch",
+ "kurz": "Du lernst, Gleichungen zu lösen, in denen x im Nenner steht oder zwei Verhältnisse gleich sind.",
+ "etappen": {
+  "definitionsmenge": "vor dem Rechnen bestimmen, welche Zahlen bei einer Bruchgleichung verboten sind",
+  "ein_bruch": "eine Gleichung mit einem Bruch lösen, indem du mit dem Nenner malnimmst",
+  "ueber_kreuz": "bei einem Bruch auf jeder Seite über Kreuz multiplizieren und x berechnen",
+  "hauptnenner": "mit dem Hauptnenner alle Brüche einer Gleichung beseitigen und sie lösen",
+  "scheinloesung": "prüfen, ob ein Ergebnis zur Definitionsmenge gehört, und Scheinlösungen streichen",
+  "verhaeltnis": "bei a : b = c : d den fehlenden Wert berechnen, auch bei Mischungen",
+  "graphisch": "die Lösungen einer Bruchgleichung an den Schnittpunkten zweier Graphen ablesen"
+ }
+}

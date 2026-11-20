@@ -1,0 +1,15 @@
+{
+ "thema_schluessel": "gleichungen.lgs2",
+ "kurz": "Du lernst, wie man zwei Gleichungen mit zwei gesuchten Zahlen gemeinsam löst.",
+ "etappen": {
+  "pruefen": "durch Einsetzen in beide Gleichungen prüfen, ob ein Zahlenpaar die Lösung ist",
+  "grafisch": "die Lösung als Schnittpunkt zweier Geraden ablesen und durch Einsetzen kontrollieren",
+  "einsetzen": "ein System lösen, indem du y = … in die andere Gleichung einsetzt",
+  "gleichsetzen": "bei zweimal y = … die Terme gleichsetzen und dann x und y berechnen",
+  "addition": "zwei Gleichungen so addieren, dass eine Variable wegfällt, und das System lösen",
+  "verfahren": "an der Form der Gleichungen das geschickteste Lösungsverfahren auswählen",
+  "loesbarkeit": "erkennen, ob ein System keine, genau eine oder unendlich viele Lösungen hat",
+  "loesung_parameter": "bestimmen, für welchen Wert von k es keine Lösung gibt, und sonst x berechnen",
+  "sachaufgabe": "zu Sachaufgaben mit zwei gesuchten Größen zwei Gleichungen aufstellen und lösen"
+ }
+}

@@ -2,6 +2,31 @@
 
 Neueste Meldung oben. Dieser Chat hat keines der geprüften Themen geschrieben.
 
+## 2026-11-20 – daten.normalverteilung (Normalverteilung)
+
+**Urteil: mit Korrekturen in Ordnung** (eine Formulierung).
+
+### Umfang (Fakt)
+- Gelesen: 5 Lernkarten und alle 178 Aufgaben (118 Übungen, 5 Test, 15 Korrektur, 30 Sicherung, 10 Knobel).
+- Nachgerechnet: alle 178 von Hand – Grenzen μ ± kσ, Anteile nach 68-95-99,7 (Streifen 34 / 13,5 / 2,35 / 0,15 %), Anzahlen aus Anteilen, z-Werte und Umkehrungen, alle z-Vergleiche (auch die Richtung „um wie viel ist z in X größer“). Histogramm-Tabellen auf Symmetrie/Gipfel gelesen. Grafiken: nur die JSON-Parameter (μ, σ, Höhe a) gegen Text und Lösung geprüft.
+- Prüfskript nach der Änderung: OK, 0 Gruppen „gleich gebaut hintereinander“.
+
+### Änderungen je Fehlerart (1 Aufgabe)
+- **a) falsche Lösung: 0.**
+- **b) mehrdeutig: 1.** anteile, Stufe 3 rueckwaerts: „Ab welchem Wert gehört man zu den 16 % mit den kleinsten Werten?“ – „ab“ meint im Deutschen „von … an aufwärts“, gemeint war die Grenze nach unten. Jetzt: „Unter welchem Wert liegen etwa die 16 % kleinsten Werte?“ (Lösung 1 400 h unverändert). Die Variante „… mit den größten Werten“ bleibt.
+- **c) späterer Stoff: 0** (Standardabweichung, Median, Prozent – alles früher bzw. gleiche Klasse; keine Tabellen, kein GDC).
+- **d) Lernkarten: 0. e) Tipp/Optionen: 0. f) Stufe/Typ: 0.**
+
+### Nebenwirkung (Fakt)
+- Feld `klasse` aus der Themenliste übernommen: `{"zusatz": 10}` → `{"ib_myp": 5}`.
+
+### Nicht geändert, zur Kenntnis (Meinung)
+- regel, begruenden („Fahrzeiten μ = 12 min, σ = 7 min – passt eine Normalverteilung?“): Die falsche Option „Nein, weil σ größer als 5 min ist“ hat eine wahre Prämisse und das richtige „Nein“, nur eine untaugliche Begründung. Die richtige Option ist klar überlegen; belassen.
+- „|z| > 2 = ungewöhnlich“ ist eine Konvention, in der Lernkarte als solche eingeführt.
+
+### Lehrplan
+- Annahme: Passt zu IB MYP Jahr 5 (Klasse 10), Extended. Die Normalverteilung ist laut Sekundärquellen kein fester MYP-Kerninhalt, sondern schulabhängig (die Datei vermerkt „Verlagsinhalt IB Extended“); Belege: revisiondojo.com/blog/what-topics-are-in-myp-extended-mathematics (abgerufen 20.11.2026) nennt sie nicht ausdrücklich – also **nicht belegbar, Annahme**. Inhaltlich als Vorstufe zu IB DP passend; es fehlt nichts Wesentliches für die gewählte Tiefe (nur Faustregel).
+
 ## 2026-11-20 – daten.standardabweichung (Standardabweichung)
 
 **Urteil: mit Korrekturen in Ordnung.**

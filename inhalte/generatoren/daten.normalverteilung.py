@@ -342,7 +342,7 @@ def anteile3(art):
     k, p = R.choice([(1, '16'), (2, '2,5')])
     oben = R.random() < .5
     gr = mu + k * sg if oben else mu - k * sg
-    return zahl(f'{der(g)} {g} ist normalverteilt mit μ = {dz(mu)} {e} und σ = {dz(sg)} {e}. Ab welchem Wert gehört man zu den {p} % mit den {"größten" if oben else "kleinsten"} Werten?',
+    return zahl(f'{der(g)} {g} ist normalverteilt mit μ = {dz(mu)} {e} und σ = {dz(sg)} {e}. ' + (f'Ab welchem Wert gehört man zu den {p} % mit den größten Werten?' if oben else f'Unter welchem Wert liegen etwa die {p} % kleinsten Werte?'),  # Prüfung neu 2: „ab“ passte nicht zur unteren Seite
                 f'{p} % liegen {"über" if oben else "unter"} {grenzwort(k if oben else -k)} = {dz(mu)} {"+" if oben else "−"} {dz(k * sg)} = {dz(gr)} {e}.',
                 f'Welche σ-Grenze schneidet {p} % ab?', gr, f'{mu} {"+" if oben else "-"} {k} * {sg}', einheit=e)
 
@@ -634,7 +634,7 @@ ST.typ('anteile', '/mehr als 1 000 h/', 'erkennen')
 ST.typ('anteile', '/^/', 'direkt', s=1)
 ST.typ('anteile', '/Messwerte/', 'einkleidung')
 ST.typ('anteile', '/^/', 'mehrschritt', s=2)
-ST.typ('anteile', '/Ab welchem Wert/', 'rueckwaerts')
+ST.typ('anteile', '/Ab welchem Wert|Unter welchem Wert/', 'rueckwaerts')
 ST.typ('anteile', '/außerhalb|2 950/', 'transfer')
 ST.typ('anteile', '/^/', 'verknuepfen', s=3)
 ST.neu('anteile', 'umkehr', Z('Eine Größe ist normalverteilt mit μ = 76. Etwa 16 % der Werte liegen über 84. Wie groß ist σ?', 8, '84 - 76',

@@ -436,3 +436,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 06:00 – an bau-motivation: `thema_stufe` übersieht den offenen Nachtragstest
 - Fall aus dem Betrieb (gelesen): Flug mit bestandenem Flug-Test, danach zwei neue Pflicht-Etappen, beide inzwischen gelandet, Nachtragstest noch nicht geschrieben (`lernziel_stand` dieser zwei Etappen „offen“, `thema_stand` = „laeuft“, `ort_stand` nicht abgeschlossen). `schule.thema_stufe` meldet dafür `↻ wiederholung` mit `test_offen: false`. Erwartet: `▶ dran`, `test_offen: true` – der Lehrer soll sehen, dass ein Test fehlt.
 - Bitte zusammen mit „Misch-Ausgaben wiederverwenden“ berichtigen (nur Migration und Rauchtest).
+
+## 20.11. 06:10 – an bau-lehrer: Teil 4, Punkt 5 hat einen Unterpunkt d) bekommen
+- **d) Nach der letzten Pflicht-Etappe führt der Weg zum Test:** großer einziger Knopf „Jetzt zum Test“ auf dem Landebildschirm und beim Öffnen eines Flugs, in dem nur noch der Test fehlt; „Weiter geht’s“ führt dann zur Testseite. Wortlaut im Auftrag. Bitte mit aufnehmen, auch wenn du schon begonnen hast.
+- an pruefung-kinderansicht: Der Entwurfs-Auftrag „Abschluss nach Etappe und Flug“ hat einen neuen Punkt 5 (Weg zum Test und zum Stempel).

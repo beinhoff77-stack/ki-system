@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "messen.koerper_berechnung",
+ "kurz": "Du lernst, wie viel Papier oder Glas man braucht, um eine Schachtel ganz zu bekleben oder zu bauen.",
+ "etappen": {
+  "quader": "Flächen, Kanten und Ecken von Quader und Würfel angeben und Kantenlängen addieren",
+  "oberflaeche": "den Oberflächeninhalt von Quader und Würfel berechnen, auch rückwärts",
+  "sachaufgaben": "Oberflächen bei Kartons, Aquarien und Zimmern berechnen, ohne fehlende Flächen",
+  "zusammengesetzt": "die Oberfläche zusammengeklebter Würfel und Quader berechnen",
+  "verstehen": "Aussagen über Quader prüfen und cm, cm² und cm³ auseinanderhalten"
+ }
+}

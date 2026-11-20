@@ -1,0 +1,18 @@
+{
+ "thema_schluessel": "bruch.rechnen",
+ "kurz": "Du lernst, mit Brüchen und Kommazahlen plus, minus, mal und geteilt zu rechnen – auch mit Minuszeichen.",
+ "etappen": {
+  "brueche_plus_minus": "Brüche mit verschiedenen Nennern addieren und subtrahieren",
+  "dezimal_plus_minus": "Dezimalzahlen addieren und subtrahieren, Komma unter Komma",
+  "vorzeichen": "mit negativen Brüchen und Dezimalzahlen rechnen und das Vorzeichen richtig setzen",
+  "brueche_mal": "Zähler mal Zähler und Nenner mal Nenner rechnen und vorher über Kreuz kürzen",
+  "brueche_geteilt": "Aufgaben wie 3/4 : 1/2 lösen, indem du mit dem Kehrbruch malnimmst",
+  "dezimal_mal": "Kommazahlen malnehmen und das Komma im Ergebnis richtig setzen",
+  "dezimal_geteilt": "Aufgaben wie 3,5 : 0,25 lösen, indem du das Komma bei beiden Zahlen verschiebst",
+  "potenzen": "Aufgaben wie (2/3)² oder (−0,5)² berechnen, auch mit negativer Basis",
+  "rechenvorteile": "beim Malnehmen geschickt tauschen und zusammenfassen",
+  "gemischt": "mit Brüchen und Kommazahlen bei Punkt, Strich und Klammern richtig der Reihe nach rechnen",
+  "fehler_finden": "Fehler in Rechnungen mit Brüchen und Dezimalzahlen finden, auch mit Überschlag",
+  "sach": "Anteile von Anteilen in Sachaufgaben berechnen"
+ }
+}

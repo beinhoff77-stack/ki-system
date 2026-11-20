@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "bruch.prozent_grundwert",
+ "kurz": "Du lernst, wie man Preise nach einer Erhöhung oder einem Rabatt berechnet und zurückrechnet.",
+ "etappen": {
+  "faktor": "zu einer Zu- oder Abnahme in Prozent den passenden Faktor angeben und umgekehrt",
+  "vermehrt": "einen Wert nach einer Erhöhung um p % mit dem Faktor berechnen, etwa mit Mehrwertsteuer",
+  "vermindert": "einen Preis nach einem Rabatt mit dem Rest-Faktor berechnen, z. B. mal 0,7 bei 30 %",
+  "zurueck": "aus dem neuen Wert den ursprünglichen Wert berechnen, indem du durch den Faktor teilst",
+  "prozentsatz": "aus altem und neuem Wert ausrechnen, um wie viel Prozent sich etwas geändert hat",
+  "mehrfach": "mehrere Prozentänderungen nacheinander mit Faktoren verrechnen, statt Prozente zu addieren",
+  "formel": "das Endkapital nach mehreren Jahren Zinseszins mit Kₙ = K₀ · qⁿ berechnen",
+  "argumente": "mit einer Rechnung prüfen, ob Behauptungen über Prozente stimmen, z. B. bei Doppelrabatt"
+ }
+}

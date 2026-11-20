@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "zahlen.potenzen_zehner",
+ "kurz": "Du lernst, riesige und winzige Zahlen kurz zu schreiben – mit Hochzahlen und Wörtern wie Mega und Nano.",
+ "etappen": {
+  "zehnerpotenz": "Zehnerpotenzen als Zahl ausschreiben und Zahlen wie 1 000 als 10³ schreiben",
+  "gross_wissenschaftlich": "große Zahlen in der Form 9,2 · 10⁸ schreiben und zurückverwandeln",
+  "vorsilben_gross": "Angaben mit Kilo, Mega, Giga und Tera in die Grundeinheit umrechnen",
+  "negativer_exponent": "Zahlen wie 10⁻⁴ als Dezimalzahl schreiben und umgekehrt",
+  "klein_wissenschaftlich": "sehr kleine Zahlen in der Form 6,6 · 10⁻⁴ schreiben und zurückverwandeln",
+  "vorsilben_klein": "Angaben mit Milli, Mikro und Nano umrechnen und damit rechnen",
+  "vergleichen_pruefen": "Zahlen in Zehnerpotenz-Schreibweise vergleichen und Fehler darin finden"
+ }
+}

@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "gleichungen.ungleichungen",
+ "kurz": "Du lernst, wie man Aufgaben mit „kleiner als“ oder „höchstens“ löst und alle passenden Zahlen angibt.",
+ "etappen": {
+  "umformen": "einfache Ungleichungen wie 6x + 14 > 74 wie eine Gleichung lösen",
+  "umdrehen": "das Zeichen umdrehen, wenn du mit einer negativen Zahl malnimmst oder durch sie teilst",
+  "klammern": "bei Ungleichungen Klammern auflösen und x auf eine Seite bringen, mit richtigem Zeichen",
+  "intervall": "die Lösungsmenge einer Ungleichung als Intervall mit richtigen Klammern schreiben",
+  "pruefen": "durch Einsetzen Lösungen prüfen und den Fehler beim Zeichenumdrehen finden",
+  "grafisch": "am Bild zweier Geraden ablesen, für welche x die eine unter der anderen liegt",
+  "sachaufgabe": "bei „höchstens“ oder „mindestens“ eine Ungleichung aufstellen und Stückzahlen angeben"
+ }
+}

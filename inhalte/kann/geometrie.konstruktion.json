@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "geometrie.konstruktion",
+ "kurz": "Du lernst, wann ein Dreieck eindeutig zu zeichnen ist und wie man Aussagen über Figuren begründet.",
+ "etappen": {
+  "gleichschenklig": "in gleichschenkligen Dreiecken Basis- und Spitzenwinkel berechnen",
+  "kongruenzsatz": "erkennen, ob drei Angaben ein Dreieck eindeutig festlegen, und den passenden Satz nennen",
+  "konstruierbar": "prüfen, ob es ein Dreieck mit gegebenen Seiten oder Winkeln überhaupt gibt",
+  "planfigur": "mit einer Planfigur die Schritte einer Dreieckskonstruktion ordnen und ergänzen",
+  "vierecke": "fehlende Winkel in Parallelogramm, Drachenviereck und Trapez berechnen",
+  "satz_kehrsatz": "zu einem Wenn-dann-Satz den Kehrsatz bilden und ihn mit einem Gegenbeispiel prüfen"
+ }
+}

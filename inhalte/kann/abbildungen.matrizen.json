@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "abbildungen.matrizen",
+ "kurz": "Du lernst, Spiegeln, Drehen und Strecken mit einem Zahlenschema zu berechnen.",
+ "etappen": {
+  "bildpunkt": "mit einer Matrix den Bildpunkt berechnen und auch zurückrechnen",
+  "abbildungsmatrix": "für Spiegelungen, Drehungen um 90° und Streckungen die Matrix angeben",
+  "drehung": "einen Punkt mit der Drehmatrix um einen beliebigen Winkel drehen",
+  "rechnen": "zwei Matrizen multiplizieren sowie Matrizen addieren und vervielfachen",
+  "inverse": "die Determinante und die inverse Matrix einer 2×2-Matrix berechnen",
+  "skalarprodukt": "das Skalarprodukt berechnen und damit Winkel und rechte Winkel prüfen",
+  "abstand": "den Abstand eines Punktes von einer Geraden über den Lotfußpunkt berechnen"
+ }
+}

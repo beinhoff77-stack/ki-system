@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "terme.quadratische_extreme",
+ "kurz": "Du lernst, mit einem Rechentrick den kleinsten oder größten Wert eines Terms mit x² zu finden.",
+ "etappen": {
+  "ergaenzen": "einen Term wie x² + 6x so ergänzen, dass ein Binom entsteht",
+  "scheitelform": "einen Term wie x² + 4x − 4 in die Form (x + □)² + □ bringen",
+  "extremwert": "an Termen wie −(x − 1)² + 6 Stelle und Wert des Minimums oder Maximums ablesen",
+  "mit_faktor": "bei Termen wie 4x² + 16x + 5 erst ausklammern und dann das Extremum bestimmen",
+  "optimierung": "größte Flächen, größte Einnahmen oder kleinste Produkte mit einem Term in x finden"
+ }
+}

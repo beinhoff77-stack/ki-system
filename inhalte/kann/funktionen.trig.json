@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "funktionen.trig",
+ "kurz": "Du lernst, sich wiederholende Vorgänge wie Riesenrad oder Ebbe und Flut als Kurve zu beschreiben.",
+ "etappen": {
+  "bogenmass": "zwischen Grad und Bogenmaß umrechnen und die Länge eines Kreisbogens berechnen",
+  "werte": "exakte Werte wie sin(π/6) oder cos(4π/3) angeben und Vorzeichen bestimmen",
+  "periode": "die Periode von sin(b · x) berechnen und b aus einem Graphen bestimmen",
+  "parameter": "für a · sin(b · x) + d die Amplitude und die Wertemenge angeben",
+  "verschiebung_x": "sagen, um wie viel und wohin der Graph von sin(x + c) verschoben ist",
+  "zuordnen": "zu einem gezeichneten Graphen den passenden Sinus- oder Kosinusterm finden",
+  "eigenschaften": "für sin x und cos x Nullstellen, Hoch- und Tiefstellen und Symmetrie angeben",
+  "anwendung": "mit h(t) = a · sin(b · t) + d Höhen und Zeiten bei Riesenrad und Hafen berechnen"
+ }
+}

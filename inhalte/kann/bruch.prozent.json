@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "bruch.prozent",
+ "kurz": "Du lernst, mit Angaben wie 25 % zu rechnen – zum Beispiel, wie viel du im Sonderangebot sparst.",
+ "etappen": {
+  "prozent_bedeutung": "Brüche und Dezimalzahlen in Prozent umwandeln und umgekehrt",
+  "prozentwert": "ausrechnen, wie viel ein bestimmter Prozentsatz von einem Betrag ist",
+  "prozentsatz": "ausrechnen, wie viel Prozent ein Teil vom Ganzen ist",
+  "grundwert": "aus einem Teil und seinem Prozentsatz das Ganze berechnen",
+  "rabatt_aufschlag": "neue Preise nach Rabatt oder Aufschlag berechnen und Angebote vergleichen",
+  "verstehen": "Aussagen mit Prozent prüfen und dabei fragen: Prozent wovon?"
+ }
+}

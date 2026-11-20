@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "stochastik.kombinatorik",
+ "kurz": "Du lernst, geschickt zu zählen, wie viele Möglichkeiten es gibt – etwa für Outfits, Codes oder Sitzordnungen.",
+ "etappen": {
+  "systematisch": "alle Möglichkeiten geordnet aufschreiben, ohne eine zu vergessen oder doppelt zu zählen",
+  "zaehlprinzip": "Anzahlen mit dem Zählprinzip berechnen, zum Beispiel für Menüs oder Zahlenschlösser",
+  "reihenfolgen": "ausrechnen, wie viele Reihenfolgen es gibt, wenn jeder nur einmal drankommt",
+  "baumdiagramm": "Möglichkeiten mit einem Baumdiagramm darstellen und passende Pfade zählen",
+  "bedingungen": "Möglichkeiten zählen, wenn Bedingungen gelten, etwa „gerade“ oder „keine 0 vorne“",
+  "grenzen": "erkennen, wann die Reihenfolge egal ist, und dann richtig zählen, etwa bei Handschlägen",
+  "verstehen": "Aussagen über Anzahlen prüfen und auf Wiederholung und Reihenfolge achten"
+ }
+}

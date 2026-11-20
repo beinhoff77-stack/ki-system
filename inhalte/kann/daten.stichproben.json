@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "daten.stichproben",
+ "kurz": "Du lernst, wann eine Umfrage unter wenigen etwas über alle aussagt und wann nicht.",
+ "etappen": {
+  "begriffe": "bei einer Umfrage Grundgesamtheit, Stichprobe und Stichprobenumfang angeben",
+  "hochrechnen": "aus dem Anteil in einer Stichprobe auf die ganze Gruppe hochrechnen",
+  "repraesentativ": "beurteilen, ob eine Stichprobe zufällig und groß genug gewählt ist",
+  "fehlerquellen": "suggestive Fragen, einseitige Auswahl und zu kleine Stichproben erkennen",
+  "aussagen": "erklären, warum kleine Stichproben stark schwanken, und Schlagzeilen prüfen"
+ }
+}

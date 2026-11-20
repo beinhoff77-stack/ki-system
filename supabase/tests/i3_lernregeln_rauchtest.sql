@@ -106,13 +106,16 @@ begin
   perform schule.misch_buchen(v_l, v_ids1[1], true, 0::smallint, now());
   if (select misch_ok_am from schule.karte_stand where lernender_id = v_l and einheit_id = v_e1 and lernziel = v_lz1) is null
      or exists (select 1 from schule.misch_ausgabe where lernender_id = v_l and aufgabe_id = v_ids1[1] and eingeloest_am is null) then raise exception 'FEHLER S3c: Einlösen mit Ausgabe'; end if;
-  j := schule.mischkarten(v_l, v_e2); j := schule.mischkarten(v_l, v_e2);
-  select count(*) into v_n from schule.misch_ausgabe where lernender_id = v_l and eingeloest_am is null;
-  if jsonb_array_length(j) <> 1 or v_n <> 1 then raise exception 'FEHLER S3d: % Karten, % offene Ausgaben nach zweimal Ausliefern', jsonb_array_length(j), v_n; end if;
-  raise notice 'ok S3: ohne Ausgabe kein Beleg (normale Buchung); höchstens eine offene Ausgabe je Bordkarte; zweimal ausgeliefert → eine Ausgabe';
+  -- seit I-4: zweimal ausliefern gibt dieselben Karten wieder aus (unabhängig davon, wie viele Etappen das Testkind gelandet hat)
+  j := schule.mischkarten(v_l, v_e2); r := schule.mischkarten(v_l, v_e2);
+  select count(*) into v_n from schule.misch_ausgabe where lernender_id = v_l and eingeloest_am is null and verfallen_am is null;
+  if jsonb_array_length(j) < 1 or v_n <> jsonb_array_length(r)
+     or (select array_agg((x->>'id')::bigint order by (x->>'id')::bigint) from jsonb_array_elements(j) x) is distinct from (select array_agg((x->>'id')::bigint order by (x->>'id')::bigint) from jsonb_array_elements(r) x)
+  then raise exception 'FEHLER S3d: % / % Karten, % offene Ausgaben nach zweimal Ausliefern', jsonb_array_length(j), jsonb_array_length(r), v_n; end if;
+  raise notice 'ok S3: ohne Ausgabe kein Beleg (normale Buchung); höchstens eine offene Ausgabe je Bordkarte; zweimal ausgeliefert → dieselben Karten, keine neuen Ausgaben';
 
   -- ---------- Sollte 4: Ausgabe an die Lage gebunden ----------
-  select * into v_lage from schule.misch_ausgabe where lernender_id = v_l and eingeloest_am is null;
+  select * into v_lage from schule.misch_ausgabe where lernender_id = v_l and eingeloest_am is null and verfallen_am is null and einheit_id = v_e2 order by id limit 1;
   if v_lage.einheit_id is distinct from v_e2 then raise exception 'FEHLER S4a: Lage nicht gespeichert: %', row_to_json(v_lage); end if;
   select * into v_ag from schule.aufgabe where id = v_lage.aufgabe_id;
   -- Gerät behauptet, gerade genau diese Etappe zu üben – zählt trotzdem, weil der Server die Lage (Flug %) kennt

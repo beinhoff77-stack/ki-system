@@ -1,0 +1,15 @@
+{
+ "thema_schluessel": "geometrie.winkelsaetze",
+ "kurz": "Du lernst, wie man fehlende Winkel an Geraden, in Dreiecken und Vielecken berechnet und begründet.",
+ "etappen": {
+  "scheitel_neben": "an zwei sich schneidenden Geraden fehlende Winkel mit Scheitel- und Nebenwinkeln berechnen",
+  "stufen_wechsel": "an geschnittenen Parallelen gleich große Winkel finden und berechnen",
+  "parallel_pruefen": "mit Stufen- oder Wechselwinkeln prüfen, ob zwei Geraden parallel sind",
+  "innenwinkelsumme": "den dritten Winkel im Dreieck berechnen und begründen, warum die Summe 180° ist",
+  "aussenwinkel": "am Dreieck einen Außenwinkel aus den beiden nicht anliegenden Innenwinkeln berechnen",
+  "vieleck": "die Winkelsumme im n-Eck und die Innenwinkel regelmäßiger Vielecke berechnen",
+  "parkett": "prüfen, ob regelmäßige Vielecke an einer Ecke lückenlos zusammenpassen",
+  "figuren": "in Figuren mehrere Winkel nacheinander berechnen und jeden Schritt begründen",
+  "beweisen": "eine Beweiskette aus bekannten Winkelsätzen ordnen und fehlende Begründungen nennen"
+ }
+}

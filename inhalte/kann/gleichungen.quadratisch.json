@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "gleichungen.quadratisch",
+ "kurz": "Du lernst, Gleichungen mit x² zu lösen und vorher zu sehen, wie viele Lösungen es gibt.",
+ "etappen": {
+  "reinquadratisch": "eine Gleichung wie 3x² = 75 lösen und beide Lösungen angeben",
+  "ausklammern": "eine Gleichung wie 3x² + 12x = 0 durch Ausklammern lösen, ohne x = 0 zu verlieren",
+  "faktorisieren": "eine Gleichung wie (x + 2)(x − 8) = 0 lösen, auch nach dem Faktorisieren",
+  "ergaenzung": "quadratische Gleichungen mit der quadratischen Ergänzung lösen",
+  "loesungsformel": "quadratische Gleichungen mit der Lösungsformel lösen",
+  "bruchgleichung": "eine Bruchgleichung lösen, die auf x² führt, und Scheinlösungen aussortieren",
+  "diskriminante": "mit der Diskriminante sagen, ob es zwei, eine oder keine Lösung gibt",
+  "sachaufgabe": "zu Sachaufgaben eine quadratische Gleichung aufstellen und passend antworten"
+ }
+}

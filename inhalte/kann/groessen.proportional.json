@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "groessen.proportional",
+ "kurz": "Du lernst: Wenn 2 Hefte 4 € kosten, rechnest du Schritt für Schritt aus, was 7 Hefte kosten.",
+ "etappen": {
+  "erkennen": "erkennen, ob zur doppelten Menge auch der doppelte Wert gehört",
+  "vervielfachen": "fehlende Werte durch Verdoppeln, Verdreifachen oder Halbieren berechnen",
+  "pruefen": "mit dem Quotienten prüfen, ob eine Tabelle proportional ist, und Lücken füllen",
+  "einheit": "den Preis oder Wert für 1 Stück ausrechnen",
+  "dreisatz": "mit dem Dreisatz über 1 Stück auf die gesuchte Menge schließen",
+  "geschickt": "beim Dreisatz eine geschickte Zwischenmenge statt der 1 wählen",
+  "sach": "Rezepte, Preise und Wege mit dem Dreisatz berechnen und Angebote vergleichen",
+  "aenderung": "ausrechnen, um wie viel eine Größe pro Minute oder Stunde zu- oder abnimmt"
+ }
+}

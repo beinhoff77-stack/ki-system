@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "sonder.graphentheorie",
+ "kurz": "Du lernst, Netze aus Punkten und Linien zu untersuchen, etwa kürzeste Wege zwischen Orten.",
+ "etappen": {
+  "grundbegriffe": "den Grad von Knoten bestimmen, auch aus einer Tabelle, und Grade summieren",
+  "euler": "an den Graden erkennen, ob man jede Kante genau einmal entlanggehen kann",
+  "kuerzester": "in einem Graphen mit Gewichten den kürzesten oder schnellsten Weg finden",
+  "spannbaum": "das billigste Netz finden, das alle Knoten verbindet, ohne Kreise zu bilden",
+  "verstehen": "prüfen, ob es zu einer Liste von Graden überhaupt einen Graphen geben kann"
+ }
+}

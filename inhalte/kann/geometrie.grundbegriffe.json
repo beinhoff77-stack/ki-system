@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "geometrie.grundbegriffe",
+ "kurz": "Du lernst, Punkte, Linien, Kreise, Winkel und Vierecke genau zu beschreiben und im Gitter einzutragen.",
+ "etappen": {
+  "koordinaten": "Punkte mit Koordinaten in allen vier Bereichen ablesen und eintragen",
+  "strecken": "Längen waagrechter und senkrechter Strecken aus den Koordinaten berechnen",
+  "lagebeziehungen": "erkennen, ob Geraden parallel oder senkrecht sind, und Abstände als Lot bestimmen",
+  "kreis_lage": "mit Abstand und Radius entscheiden, ob eine Gerade Sekante, Tangente oder Passante ist",
+  "winkelarten": "Winkel bis 360° richtig als spitz, recht, stumpf, gestreckt oder überstumpf benennen",
+  "vierecke": "Quadrat, Rechteck, Raute, Parallelogramm, Trapez und Drachen erkennen und unterscheiden",
+  "verstehen": "Aussagen über Punkte, Geraden, Winkel und Vierecke prüfen und widerlegen"
+ }
+}

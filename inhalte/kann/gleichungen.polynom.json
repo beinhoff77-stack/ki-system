@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "gleichungen.polynom",
+ "kurz": "Du lernst, Gleichungen mit x³, x⁴ und höher zu lösen, indem du sie geschickt zerlegst.",
+ "etappen": {
+  "ausklammern": "eine Gleichung wie x⁵ − 16x³ = 0 durch Ausklammern vollständig lösen",
+  "nullprodukt": "aus einer Produktform wie (x − 1) · x · (x − 3) = 0 alle Lösungen ablesen",
+  "substitution": "eine Gleichung wie x⁴ − 13x² + 36 = 0 mit z = x² lösen",
+  "vielfachheit": "die Vielfachheit einer Nullstelle angeben und sagen, ob das Vorzeichen wechselt",
+  "verstehen": "begründen, wie viele Lösungen eine Gleichung höchstens hat, und Fehler finden"
+ }
+}

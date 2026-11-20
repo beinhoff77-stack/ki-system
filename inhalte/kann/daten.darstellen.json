@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "daten.darstellen",
+ "kurz": "Du lernst, Ergebnisse von Umfragen zu zählen, als Anteil anzugeben und in Säulen- und Kreisbildern zu zeigen.",
+ "etappen": {
+  "absolute_haeufigkeit": "mit einer Strichliste zählen, wie oft ein Wert vorkommt",
+  "relative_haeufigkeit": "Anteile als Bruch und in Prozent angeben und Gruppen verschiedener Größe vergleichen",
+  "tabelle_auswerten": "aus einer Tabelle die Gesamtzahl, den häufigsten Wert und Anteile bestimmen",
+  "saeulendiagramm": "Säulenhöhen mit einem Maßstab berechnen und Säulendiagramme ablesen",
+  "kreisdiagramm": "Winkel für Kreisdiagramme aus Anteilen berechnen und umgekehrt",
+  "irrefuehrend": "irreführende Diagramme an Achse und Anteilen erkennen"
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "gleichungen.wurzel",
+ "kurz": "Du lernst, Gleichungen zu lösen, bei denen x unter einer Wurzel steht.",
+ "etappen": {
+  "definitionsmenge": "angeben, für welche x ein Term wie √(4x − 32) erlaubt ist",
+  "quadrieren": "eine Gleichung wie √(x − 14) = 8 lösen, indem du beide Seiten quadrierst",
+  "isolieren": "bei Gleichungen wie 2 · √(x − 7) − 4 = 0 zuerst die Wurzel isolieren und lösen",
+  "probe": "mit der Probe Scheinlösungen erkennen, etwa bei √(x − 4) = −4",
+  "zwei_seiten": "eine Gleichung wie √(x + 7) = x + 1 lösen und die falsche Lösung aussortieren",
+  "sachaufgabe": "aus Formeln wie t = √(h : 5) die Größe unter der Wurzel ausrechnen"
+ }
+}

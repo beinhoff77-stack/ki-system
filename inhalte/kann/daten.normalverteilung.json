@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "daten.normalverteilung",
+ "kurz": "Du lernst, wie sich Messwerte oft um einen Mittelwert verteilen und was das für Anteile bedeutet.",
+ "etappen": {
+  "eigenschaften": "die Form einer Normalverteilung beschreiben: Spitze bei μ, symmetrisch, Breite durch σ",
+  "regel": "mit der 68-95-99,7-Regel angeben, wie viele Werte in μ ± σ, μ ± 2σ oder μ ± 3σ liegen",
+  "anteile": "über die Symmetrie Anteile über oder unter einer Grenze wie μ + σ angeben",
+  "zwert": "den z-Wert eines Messwerts berechnen und aus z den Wert x zurückrechnen",
+  "vergleichen": "mit z-Werten Ergebnisse aus verschiedenen Verteilungen fair vergleichen"
+ }
+}

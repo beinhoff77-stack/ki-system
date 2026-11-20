@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "abbildungen.determinanten2",
+ "kurz": "Du lernst, die Fläche von Vielecken im Koordinatensystem nur aus den Eckpunkten zu berechnen.",
+ "etappen": {
+  "det_berechnen": "aus zwei Vektoren durch Über-Kreuz-Rechnen die Determinante bestimmen",
+  "parallelogramm": "aus drei Eckpunkten berechnen, wie groß ein Parallelogramm ist",
+  "dreieck": "aus den drei Eckpunkten berechnen, wie groß ein Dreieck ist",
+  "umlaufsinn": "am Vorzeichen der Determinante erkennen, in welcher Richtung die Ecken laufen",
+  "viereck": "ein Viereck mit einer Diagonale teilen und seine Fläche berechnen",
+  "vieleck": "ein Vieleck von einer Ecke aus in Dreiecke zerlegen und seine Fläche berechnen"
+ }
+}

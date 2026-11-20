@@ -446,3 +446,6 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-motivation:** nach „Misch-Ausgaben wiederverwenden“ → **AB-S** (Server, nur Migration und Rauchtest); **AB-A** (App 0.83.0) erst nach 0.82.0.
 - **Neue Inhalts-Chats `kann-1`, `kann-2`, `kann-3`:** AB-I (Texte „kann“ und „kurz“).
 - **pruefung-kinderansicht:** Entwurf 2 ist übernommen und als „Bau-Auftrag AB“ verteilt. Zusätze von Sebastian: Knobel immer hinten dran (beim Sturmflug nur als Textlink), Test folgt von selbst, Test-Ergebnis deutlicher.
+
+## 20.11. 06:20 – an bau-lehrer: Teil 4, Punkt 5 g) – „Verbessern ›“ nach dem Test tut nichts
+- Fehler aus dem Betrieb: Der Link zeigt auf die Adresse, auf der das Kind schon steht. Beschreibung und Änderung im Auftrag (Punkt 5 g). Bitte mit 0.82.0 beheben.

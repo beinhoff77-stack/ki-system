@@ -2050,7 +2050,7 @@ test('LA-4: Plan zweispaltig auf dem Tablet; „kann schon“ je Flug speichert;
   assert.deepEqual(await lp.locator('.lern-plan-klasse .lern-lp-zeile .lern-lp-titel b').allInnerTexts(), ['Natürliche Zahlen und Stellenwertsysteme', 'Ganze Zahlen', 'Teilbarkeit und Primzahlen']);
   await lp.locator('.lern-lp-zeile', { hasText: 'Teilbarkeit' }).locator('.lern-st-wort', { hasText: 'Nicht im Plan' }).waitFor();
   await lp.locator('.lern-lp-zeile', { hasText: 'Teilbarkeit' }).locator('.lern-lp-titel').click();
-  await lp.getByRole('button', { name: 'Teilbarkeit und Primzahlen: + In den Plan' }).waitFor();
+  await lp.getByRole('button', { name: 'Teilbarkeit und Primzahlen: In den Plan nehmen' }).waitFor(); // LB Teil 8
   await lp.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: 'IB MYP' }).click();
   assert.equal(await lp.getByRole('group', { name: 'Klasse' }).locator('[aria-pressed=true]').innerText(), 'MYP-Jahr 1', 'Klasse 5: noch kein MYP-Jahr → MYP-Jahr 1');
   // Rom aufklappen: „Ganze Zahlen“ kann er komplett (LB-2: Knopf statt Häkchen)
@@ -2659,10 +2659,10 @@ test('LB-1/LB-5: alle Knöpfe im Plan erreichbar; 400/820/1280 ohne Querrollen u
     // rechts: Nach Klasse, Zeile aufklappen → „+ In den Plan“ und die anderen Knöpfe
     const lp = await lbKlasse7(page);
     await lp.locator('.lern-lp-zeile', { hasText: 'Gym-7-Flug 1' }).locator('.lern-lp-titel').click();
-    for (const k of ['+ In den Plan', 'Kann er – aber wiederholen', 'Kann er komplett'])
+    for (const k of ['In den Plan nehmen', 'Lernen', 'Kann er – wiederholen', 'Kann er komplett']) // LB Teil 8: kompakte Stufen-Zeile
       await lp.getByRole('button', { name: `Gym-7-Flug 1: ${k}` }).waitFor();
     assert.ok(await ohneQuerrollen(page), `${breite}: kein Querrollen`);
-    assert.deepEqual(await gebrocheneWoerter(page.locator('.lern-plan-kopf, .lern-st-knopf b, .lern-lp-titel b, .lern-plan-lehrplan .lern-chip')), [], `${breite}: gebrochene Wörter`);
+    assert.deepEqual(await gebrocheneWoerter(page.locator('.lern-plan-kopf, .lern-st-knopf b, .lern-lp-titel b, .lern-plan-lehrplan .lern-chip, .lern-lp-detail')), [], `${breite}: gebrochene Wörter`);
     await page.screenshot({ path: path.join(root, `test-results/lb-plan-${breite}.png`), fullPage: true });
     await page.close();
   }
@@ -2882,9 +2882,9 @@ test('LB Teil 5 S4/K3/K4: Etappen mit Titel und Stand; IB-Lernbereich deutsch zu
   await lp.getByRole('button', { name: /Klasse/ }).first().click();
   await lp.getByRole('group', { name: 'Klasse' }).getByRole('button', { name: /^Kl\. 8/ }).click();
   await lp.locator('.lern-lp-zeile', { hasText: 'Lineare Ungleichungen' }).locator('.lern-lp-titel').click();
-  const chips = await lp.locator('.lern-lp-detail .lern-st-etappe').allInnerTexts();
-  assert.ok(chips.length >= 3, 'Etappen da'); for (const c of chips) assert.match(c.replace(/\s+/g, ' ').trim(), /^\d+ .+ (offen|begonnen|gelandet|sicher|wieder offen)$/); // LB Teil 6 N5: Stand rechts in der Zeile, ohne „·“
-  assert.ok(!chips.some((c) => /^\d+ Etappe \d+/.test(c)), 'Titel statt „Etappe n“');
+  // LB Teil 8: die Etappen-Kästchen (S4) entfallen; die Karte nennt die Zahl der Etappen am Knopf „Inhalte ansehen“
+  assert.equal(await lp.locator('.lern-lp-detail .lern-st-etappe').count(), 0);
+  assert.match(await lp.locator('.lern-lp-detail .lern-lp-inhalte').innerText(), /^Inhalte ansehen \(7 Etappen\)$/);
   // K4: Thema ohne Gym-Lehrplanbezug → Lernbereich
   const ohne = THEMEN_ECHT.find((x) => x.klasse.gym_by && !(x.lehrplan_gym || []).length && x.lernbereich?.gym_by);
   if (ohne) { await lp.getByRole('group', { name: 'Klasse' }).getByRole('button', { name: new RegExp(`^Kl\\. ${ohne.klasse.gym_by}`) }).click();
@@ -3041,7 +3041,7 @@ test('AB-A 4: Bewegung höchstens 1,8 s, Antippen beendet sie, „weniger Bewegu
 });
 
 // Flug-Test bestanden (AB-S-Felder)
-const abFlug = ({ ortGeschafft = false, naechster = 'gleich' } = {}) => (aktion, e) => {
+const abFlug = ({ ortGeschafft = false, naechster = 'gleich', flugGeschafft } = {}) => (aktion, e) => {
   if (aktion === 'schule_test_abschliessen') {
     const nf = naechster === null ? null : { thema_id: 7, einheit_id: 2, titel: 'Ganze Zahlen', gebiet: 'Zahlen', kurz: 'Zahlen unter null: ordnen, Betrag und Rechnen mit Vorzeichen.',
       block_id: naechster === 'anders' ? 52 : 49, ort: naechster === 'anders' ? 'Athen' : 'Rom', flug: { nr: naechster === 'anders' ? 1 : 2, von: naechster === 'anders' ? 1 : 4 }, etappen: 9, erste_etappe: { lernziel: 'lesen', titel: 'Große Zahlen lesen' } };
@@ -3049,7 +3049,7 @@ const abFlug = ({ ortGeschafft = false, naechster = 'gleich' } = {}) => (aktion,
       sterne_flug: { test: 40, summe: 820 }, kurz: 'Du lernst große Zahlen lesen und schreiben.', etappen: [{ lernziel: 'stellenwert', titel: 'Stellenwert', kann: 'Ziffern nach ihrem Stellenwert lesen' }, { lernziel: 'strahl', titel: 'Zahlenstrahl', kann: null }, { lernziel: 'binomisch', titel: 'Binomisch', kann: 'Werte am Zahlenstrahl ablesen' }],
       flug: { thema_id: 1, einheit_id: 1, titel: 'Natürliche Zahlen', gebiet: 'Zahlen', ort: 'Rom', block_id: 49, flug: { nr: 1, von: 4 }, etappen: 3 },
       ort_geschafft: ortGeschafft, ort_sterne: ortGeschafft ? 100 : 0, ort_fluege: ortGeschafft ? [{ thema_id: 1, titel: 'Natürliche Zahlen', zustand: 'erledigt' }, { thema_id: 2, titel: 'Ganze Zahlen', zustand: 'erledigt' }] : [],
-      naechster_flug: nf, ort_wechsel: nf ? nf.ort !== 'Rom' : null };
+      naechster_flug: nf, ort_wechsel: nf ? nf.ort !== 'Rom' : null, ...(flugGeschafft !== undefined ? { flug_geschafft: flugGeschafft } : {}) }; // 0.83.1: ohne Angabe wie alter Server
   }
   if (aktion === 'schule_einheit_lesen' && e.einheit_id === 2) return { ...e, einheit_id: 2 };
   return null;
@@ -3199,20 +3199,7 @@ test('LB Teil 6 N3: Kopf und Abschnitte zeigen dieselbe Zahl je Stufe („16 Ort
   for (const z of r) { const m = z.match(/davon (\d+) in Orten weiter oben/); if (m) assert.ok(Number(m[1]) > 0, z); }
 });
 
-// N5 (Kann): Etappen-Liste auf dem Handy – Stand rechtsbündig in derselben Zeile wie der Titel
-test('LB Teil 6 N5: Etappen-Liste auf dem Handy – Stand rechts in der Titelzeile', async (t) => {
-  const { page } = await setup(t, { anpassen: echtAnpassen() });
-  await page.setViewportSize({ width: 400, height: 860 });
-  await page.goto(origin + '/#/plan/1');
-  const lp = page.locator('.lern-plan-lehrplan'); await lp.getByRole('button', { name: /Klasse/ }).first().click();
-  await lp.getByText('Lineare Ungleichungen', { exact: false }).first().click();
-  const et = lp.locator('.lern-st-etappe'); await et.first().waitFor();
-  const lage = await et.evaluateAll((es) => es.map((e) => { const t = e.querySelector('.lern-st-et-titel').getClientRects()[0], s = e.querySelector('.lern-st-et-stand').getBoundingClientRect(), b = e.getBoundingClientRect();
-    return { erste: [Math.round(t.top), Math.round(t.bottom)], stand: [Math.round(s.top), Math.round(s.bottom)], rechts: Math.round(b.right - s.right), text: e.innerText.replace(/\s+/g, ' ') }; }));
-  assert.ok(lage.length >= 3, 'Etappen da');
-  for (const l of lage) { const mitte = (l.stand[0] + l.stand[1]) / 2; assert.ok(mitte >= l.erste[0] && mitte <= l.erste[1], 'Stand in der ersten Titelzeile: ' + l.text + ' ' + JSON.stringify(l)); assert.ok(l.rechts <= 12, 'Stand rechtsbündig: ' + l.text); }
-  await lp.locator('.lern-lp-detail').first().screenshot({ path: path.join(root, 'test-results/lb6-etappen-400.png') });
-});
+// N5 (Etappen-Liste mit Stand) entfällt mit LB Teil 8 (Variante A: keine Etappen-Kästchen in der Karte).
 
 // Punkt 6 (aus LB-3 Nachbesserung): Rückgängig nur für den jüngsten Schritt, Ablehnung verständlich; Rückfall-Hinweis; heute_bis
 test('LB Teil 6 Punkt 6: „↶ Rückgängig“ nur für den jüngsten Schritt, Ablehnung des Servers verständlich', async (t) => {
@@ -3303,4 +3290,99 @@ test('LB Teil 7: Info-Seite – neue Texte, alte doppelte Einträge entfernt, Ei
     assert.ok(text.includes(s), 'fehlt: ' + s);
   for (const s of ['Lernstand: die Lehrplan-Landkarte', 'Was wackelt?: was sitzt', 'setzt Häkchen je Flug', 'Sie erscheinen, wenn eine Etappe sitzt', 'eine Tabelle aller Flüge', 'hake ab, was es schon kann'])
     assert.ok(!text.includes(s), 'noch da: ' + s);
+});
+
+// ---------- 0.83.1: LB Teil 8 (Themen-Karte kompakter, Variante A) und Nachtrag B (flug_geschafft) ----------
+test('LB Teil 8: aufgeklappte Karte – „Inhalte ansehen (n Etappen)“ · Ort, Stufe ⓘ mit drei schmalen Knöpfen, roter Textlink; 400/820/1280 ohne gebrochene Wörter', async (t) => {
+  for (const breite of [400, 820, 1280]) {
+    const { page, calls } = await lbOeffnen(t, breite);
+    const lp = await lbKlasse7(page);
+    const zeile = (n) => lp.locator('.lern-lp-zeile', { hasText: `Gym-7-Flug ${n}` });
+    const zuHoehe = await zeile(2).evaluate((x) => Math.round(x.getBoundingClientRect().height));
+    assert.equal(await zeile(1).locator('.lern-lp-detail').count(), 0, 'zugeklappt ohne Karte');
+    await zeile(1).locator('.lern-lp-titel').click();
+    const karte = zeile(1).locator('.lern-lp-detail'); await karte.waitFor();
+    // 3. Inhalte ansehen + Ort, keine Etappen-Kästchen, keine Erklärungszeilen unter den Knöpfen
+    const inh = karte.locator('.lern-lp-inhalte');
+    if (await inh.count()) { assert.match(await inh.innerText(), /^Inhalte ansehen \(\d+ Etappen?\)$/); assert.match(await inh.getAttribute('href'), /^#\/inhalte\/\d+$/);
+      assert.equal(await inh.evaluate((x) => getComputedStyle(x).borderTopStyle), 'solid', 'Knopf mit Rahmen'); }
+    else assert.match(await karte.locator('.lern-lp-inhalt').innerText(), /^noch kein Inhalt/); // Flug ohne Inhalt
+    assert.match(await karte.locator('.lern-lp-ort').innerText(), /^Ort: /);
+    assert.equal(await karte.locator('.lern-st-etappe, .lern-st-knopf small').count(), 0);
+    // 4./5. Stufe ⓘ, drei Knöpfe, rechts „In den Plan nehmen“ (nicht im Plan)
+    assert.equal(await karte.locator('.lern-lp-info').getAttribute('href'), '#/info/stufen');
+    assert.deepEqual(await karte.locator('.lern-lp-stufe-knopf').allInnerTexts(), ['Lernen', 'Kann er – wiederholen', 'Kann er komplett']);
+    const rein = karte.getByRole('button', { name: 'Gym-7-Flug 1: In den Plan nehmen' });
+    assert.deepEqual(await rein.evaluate((x) => [getComputedStyle(x).borderTopWidth, getComputedStyle(x).textDecorationLine]), ['0px', 'underline'], 'Textlink, kein Kasten');
+    assert.deepEqual(await gebrocheneWoerter(karte), [], `${breite}: gebrochene Wörter in der Karte`);
+    assert.ok(await ohneQuerrollen(page), `${breite}: kein Querrollen`);
+    // Wirkung wie bisher: „Kann er – wiederholen“ nimmt den Flug als „wiederholen“ in den Plan; aktiver Knopf grün mit ✓
+    await karte.getByRole('button', { name: 'Gym-7-Flug 1: Kann er – wiederholen' }).click();
+    await page.waitForFunction(() => document.querySelector('.lern-plan-stand').textContent === 'Gespeichert');
+    const setzen = calls.filter((c) => c.aktion === 'schule_plan_setzen').map((c) => c.daten); const letzte = setzen.at(-1);
+    assert.ok(letzte.eintraege.some((x) => (x.kann_wdh_themen || []).length), 'kann_wdh_themen gespeichert');
+    const k2 = zeile(1).locator('.lern-lp-detail');
+    const aktiv = k2.locator('.lern-lp-stufe-knopf[aria-pressed=true]');
+    assert.equal(await aktiv.innerText(), '✓ Kann er – wiederholen');
+    assert.equal(await aktiv.evaluate((x) => getComputedStyle(x).backgroundColor), await page.evaluate(() => { const d = document.createElement('i'); d.style.background = 'var(--st1h)'; document.body.append(d); const c = getComputedStyle(d).backgroundColor; d.remove(); return c; }), 'grün hinterlegt');
+    const raus = k2.getByRole('button', { name: 'Gym-7-Flug 1: Aus dem Plan nehmen' }); await raus.waitFor();
+    assert.equal(await raus.evaluate((x) => getComputedStyle(x).color), await page.evaluate(() => { const d = document.createElement('i'); d.style.color = 'var(--st5)'; document.body.append(d); const c = getComputedStyle(d).color; d.remove(); return c; }), 'rot');
+    { // rechts als Textlink: in derselben Zeile wie die Knöpfe oder (schmale Spalte, Handy) in eigener Zeile darunter – immer rechtsbündig
+      const [kn, ra, st] = await Promise.all([k2.locator('.lern-lp-stufe-knoepfe').boundingBox(), raus.boundingBox(), k2.locator('.lern-lp-stufen').boundingBox()]);
+      assert.ok(Math.abs((ra.x + ra.width) - (st.x + st.width)) <= 2, `${breite}: rechtsbündig`);
+      assert.ok(Math.abs(ra.y - kn.y) <= 6 || ra.y >= kn.y + kn.height - 1, `${breite}: dieselbe Zeile oder eigene Zeile darunter`);
+      if (breite === 400) assert.ok(ra.y >= kn.y + kn.height - 1, 'Handy: eigene Zeile');
+    }
+    assert.deepEqual(await gebrocheneWoerter(k2), [], `${breite}: gebrochene Wörter nach dem Umschalten`);
+    await k2.screenshot({ path: path.join(root, `test-results/lb8-karte-${breite}.png`) });
+    // zugeklappt unverändert
+    await zeile(1).locator('.lern-lp-titel').click(); await zeile(1).locator('.lern-lp-detail').waitFor({ state: 'detached' });
+    assert.equal(await zeile(2).evaluate((x) => Math.round(x.getBoundingClientRect().height)), zuHoehe, 'zugeklappte Zeilen unverändert');
+    assert.equal(await zeile(1).locator('.lern-lp-detail').count(), 0);
+    await page.close();
+  }
+});
+
+test('LB Teil 8: Themengebiet aufgeklappt mit derselben Stufen-Zeile; Rückfall bleibt sichtbar; „ⓘ“ öffnet die Stufen auf „So funktioniert’s“', async (t) => {
+  const { page } = await setup(t, { anpassen: (aktion, e) => { const x = echtAnpassen()(aktion, e); if (aktion !== 'schule_plan_lesen' || !x) return x;
+    const t1 = x.orte.flatMap((o) => o.themen).find((q) => q.stufe?.stufe === 'komplett'); t1.stufe = { ...t1.stufe, gesetzt: 'komplett', hinweis: 'rueckfall', wieder_offen: 1 };
+    const ort = x.orte.find((o) => o.themen.includes(t1)); const zeile = x.plan.find((q) => q.block_id === ort.block_id); if (zeile) zeile.kann_schon_themen = [t1.thema_id]; return x; } });
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto(origin + '/#/plan/1');
+  const lp = page.locator('.lern-plan-lehrplan'); const ort = lp.locator('.lern-plan-vorrat-zeile').first(); await ort.waitFor();
+  await ort.locator('.lern-plan-ort').click();
+  const fl = lp.locator('.lern-plan-vorrat-ort .lern-plan-flug-zeile').first(); await fl.waitFor();
+  assert.equal(await fl.locator('.lern-lp-stufe-knopf').count(), 3);
+  assert.equal(await fl.locator('.lern-st-knopf').count(), 0, 'keine großen Felder mehr');
+  assert.match(await fl.locator('.lern-lp-inhalte').innerText(), /^Inhalte ansehen \(\d+ Etappen?\)$/);
+  // Rückfall bleibt sichtbar (Nach Klasse, Kopf der Zeile)
+  await lp.getByRole('button', { name: /Klasse/ }).first().click(); let da = false;
+  for (const k of ['5', '6']) { await lp.getByRole('group', { name: 'Klasse' }).getByRole('button', { name: new RegExp('^Kl\\. ' + k) }).click(); if (await lp.locator('.lern-st-rueckfall').count()) { da = true; break; } }
+  assert.ok(da, 'Rückfall-Hinweis');
+  const z = lp.locator('.lern-lp-zeile', { has: page.locator('.lern-st-rueckfall') }).first(); await z.locator('.lern-lp-titel').click();
+  assert.match(await z.locator('.lern-st-rueckfall').innerText(), /Rückfall: 1 Etappe wieder offen/);
+  // ⓘ → So funktioniert’s, Frage mit den Stufen offen
+  await z.locator('.lern-lp-info').click(); await page.waitForURL(/#\/info\/stufen$/);
+  const d = page.locator('details.lern-info-frage', { hasText: 'Was kann ich selbst ändern?' });
+  await d.locator('summary').waitFor(); assert.equal(await d.evaluate((x) => x.open), true);
+  assert.ok(await d.getByText('Jeder Flug hat eine von vier Stufen', { exact: false }).isVisible());
+});
+
+test('Nachtrag B (0.83.1): Flug-Abschluss hängt an flug_geschafft bzw. ort_geschafft; ohne das Feld wie 0.83.0', async (t) => {
+  const abgeben = async (opt) => {
+    const { page } = await setup(t, { gestaltung: 'nacht', anpassen: abFlug(opt) });
+    await page.emulateMedia({ reducedMotion: 'reduce' }); await page.setViewportSize({ width: 400, height: 780 });
+    await page.goto(origin + '/#/lerneinheit/1-1-test');
+    await page.getByRole('button', { name: 'Test starten' }).click();
+    await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+    await page.getByRole('button', { name: 'Weiter ›' }).click();
+    await page.getByRole('button', { name: 'Markierung 2' }).click();
+    await page.getByRole('button', { name: 'Abgeben' }).click();
+    await page.locator('.lern-rueck-karte').first().waitFor(); await page.waitForTimeout(400);
+    const n = await page.locator('.lr-abschluss-flug').count(); await page.close(); return n;
+  };
+  assert.equal(await abgeben({ flugGeschafft: true }), 1, 'flug_geschafft → Flug-Abschluss');
+  assert.equal(await abgeben({ flugGeschafft: false }), 0, 'flug_geschafft false (z. B. zweites Verbessern) → keine Ansicht, auch wenn einheit_abgeschlossen');
+  assert.equal(await abgeben({ flugGeschafft: false, ortGeschafft: true }), 1, 'ort_geschafft → Ansicht');
+  assert.equal(await abgeben({}), 1, 'alter Server ohne flug_geschafft → wie 0.83.0 (einheit_abgeschlossen)');
 });

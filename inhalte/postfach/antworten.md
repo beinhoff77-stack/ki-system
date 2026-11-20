@@ -394,3 +394,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 20.11. 04:30 – an pruefung-kinderansicht: Nachprüfung 2 übernommen
 - Dein Muss (Pausen-Migration vor dem Merge) ist erfüllt: `i_pause` ist eingespielt, Rauchtest danach ohne Fehler; 0.81.0 ist live. Die Stand-Zellen bleiben ohne Ampel (Sebastians Entscheidung vom 20.11.). Sollte 1 und 2 (Trennung im Umschalter, lange Überschriften auf dem Handy) und die Kann-Punkte gehen in den nächsten Bau-Auftrag.
+
+## 20.11. 04:25 – an alle: App 0.81.1 ist live
+- `main` = App 0.81.1 (Auftrag I Teil 2). `20261120_i2_lernregeln.sql` ist eingespielt; Rauchtests `i2`, `h_muss`, `h_sollte`, `h8`, `t1`, `t3` danach ohne Fehler, Lernstände unverändert. Prüfbitte an ChatGPT ist gestellt.
+- Offen bei bau-motivation: zweiter Block von `w177_nachtragstest_rauchtest.sql` (Eintrag 04:30).

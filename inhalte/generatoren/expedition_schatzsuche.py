@@ -38,7 +38,7 @@ teile = [
               'Wie viele verschiedene Codes gibt es?',
          len(codes), '5 * 4 * 3', f'Erste Stelle: 5 Ziffern, zweite: noch 4, dritte: noch 3. 5 · 4 · 3 = {len(codes)} Codes.',
          'Wie viele Ziffern bleiben für die zweite und die dritte Stelle?', B('stochastik.kombinatorik', 'reihenfolgen')),
-    zahl('d', 'Auf einem Zettel steht: „Der Code ist durch 9 teilbar.“ Wie viele dreistellige Codes aus drei verschiedenen Ziffern von 1 bis 5 sind durch 9 teilbar?',
+    zahl('d', 'Auf einem Zettel steht: „Der Code ist durch 9 teilbar.“ Dazu gibt es eine Regel: Eine Zahl ist durch 9 teilbar, wenn ihre Quersumme durch 9 teilbar ist. Wie viele dreistellige Codes aus drei verschiedenen Ziffern von 1 bis 5 sind durch 9 teilbar?',
          len(neun), '2 * 6',
          'Durch 9 teilbar heißt: Die Quersumme ist durch 9 teilbar. Drei verschiedene Ziffern von 1 bis 5 ergeben höchstens 5 + 4 + 3 = 12, also muss die Quersumme 9 sein. '
          'Das geht nur mit 1, 3, 5 oder mit 2, 3, 4. Jede dieser Gruppen kann man auf 3 · 2 · 1 = 6 Arten anordnen: 2 · 6 = 12 Codes '

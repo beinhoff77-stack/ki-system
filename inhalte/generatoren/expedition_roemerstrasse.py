@@ -22,7 +22,8 @@ teile = [
     zahl('a', f'Auf einem Meilenstein steht {STEIN}. Welche Zahl ist das?', meilen, '100 + 40 + 4',
          f'C = 100, XL = 50 − 10 = 40, IV = 5 − 1 = 4. Zusammen 100 + 40 + 4 = {meilen}.',
          'Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen.', B('zahlen.natuerlich', 'roemisch_system')),
-    luecken('b', f'Eine römische Meile ist etwa {zt(M_LANG)} m lang. Wie lang sind {meilen} Meilen? Gib das Ergebnis in km und m an.',
+    luecken('b', f'Der Meilenstein zeigt, wie weit diese Stelle vom Anfang der Straße (Meile 0) entfernt ist – gewandert bist du selbst nur ein kurzes Stück. '
+                 f'Eine römische Meile ist etwa {zt(M_LANG)} m lang. Wie weit ist es von Meile 0 bis zu diesem Stein? Gib das Ergebnis in km und m an.',
             '□ km □ m', [km, m], [f'{meilen} * {M_LANG} // 1000', f'{meilen} * {M_LANG} - 1000 * ({meilen} * {M_LANG} // 1000)'],
             'Je Lücke eine ganze Zahl.',
             f'{meilen} · {zt(M_LANG)} m = {zt(gesamt_m)} m. 1 000 m = 1 km, also {zt(gesamt_m)} m = {km} km {m} m.',

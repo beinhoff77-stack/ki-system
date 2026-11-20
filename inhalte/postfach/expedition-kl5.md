@@ -2,6 +2,49 @@
 
 Neueste Meldung oben.
 
+## 2026-11-20 01:28 – FERTIG: Korrekturen 853
+
+Stand von lernen-app vorher in expedition-kl5 geholt (Merge von origin/lernen-app, ohne Konflikte). Geändert nur die vier genannten Expeditionen und ihre Generatoren; JSON neu erzeugt, Dateien und Generatoren stimmen überein. `python3 -I tools/inhalt_pruefen.py --alle`: keine Fehler (nur die bekannten Hinweise zu Lernkarten anderer Themen).
+
+- Fakt: Alle Rechnungen und Lösungen sind gleich geblieben (24 Outfits, 20 Dollar, 12 Codes, 213 km 120 m, 289, 2 300 000 usw.).
+- Fakt, eine Abweichung von „nur Texte“: `5-flug_toronto` Teil d ist jetzt eine Auswahl statt einer Zahl-Eingabe, weil die Frage jetzt eine Entscheidung verlangt (Schafft ihr die Wäscherei noch?) und den Preis. Die Rechnung (12 : 3 · 5 = 20 Dollar) ist unverändert, der Generator prüft beide Teile der richtigen Antwort und dass die vier Antworten verschieden sind.
+
+### 1. 5-flug_toronto (Muss): durchgehender Zusammenhang, Zeitverschiebung als Annahme
+
+**Einleitung** – alt: „Deine Familie fliegt von Berlin nach Toronto. Du kümmerst dich um die Uhrzeiten, um deinen Koffer und um die Wäsche. Im Flugzeug sind 23 kg Gepäck erlaubt.“
+neu: „Deine Familie fliegt von Berlin nach Toronto. Du planst den Reisetag: Wann landet ihr, wann seid ihr im Hotel, schafft ihr es noch zur Wäscherei – und passt am Ende alles wieder in den Koffer? Im Flugzeug sind 23 kg Gepäck erlaubt.“
+
+**Teil b** – alt: „In Toronto gehen die Uhren anders: Toronto-Zeit = Berliner Zeit + (−6 h). In Berlin ist es 19:55 Uhr. Wie spät ist es in Toronto?“
+neu: „In Toronto gehen die Uhren anders. Für diesen Reisetag gilt (Annahme): Toronto-Zeit = Berliner Zeit + (−6 h), also 6 Stunden weniger. In Berlin ist es bei der Landung 19:55 Uhr. Wie spät ist es in Toronto?“
+
+**Teil d** – alt: „Im Hotel in Toronto kostet das Waschen von 3 kg Wäsche 12 Dollar. Was kostet das Waschen von 5 kg?“
+neu: „Ihr landet um 13:55 Uhr Toronto-Zeit. Die Fahrt zum Hotel dauert 1 h 30 min. Die Hotelwäscherei nimmt nur bis 16:00 Uhr Wäsche an; 3 kg Wäsche kosten dort 12 Dollar. Ihr wollt noch heute 5 kg Wäsche abgeben. Schafft ihr das, und was kostet es?“
+Antwortform alt: Zahl (20 Dollar); neu: Auswahl – „Ja: Ihr seid um 15:25 Uhr im Hotel, das Waschen kostet 20 Dollar.“ / „Nein: Ihr seid erst um 16:25 Uhr im Hotel.“ / „Ja: Ihr seid um 15:25 Uhr im Hotel, das Waschen kostet 60 Dollar.“ / „Ja: Ihr seid um 15:25 Uhr im Hotel, das Waschen kostet 14 Dollar.“ (richtig: „Ja: Ihr seid um 15:25 Uhr im Hotel, das Waschen kostet 20 Dollar.“). Lösungsweg neu: Ankunft im Hotel: 13:55 Uhr + 1 h 30 min = 15:25 Uhr – vor 16:00 Uhr. 1 kg kostet 12 : 3 = 4 Dollar, 5 kg kosten 5 · 4 = 20 Dollar.
+
+**Teil e** – alt: „Am Rückflug wiegt der Koffer 25 kg 300 g, erlaubt sind 23 kg. Du kannst herausnehmen: Schuhe (1 kg 200 g), Hose (900 g), Pullover (600 g), Buch (500 g). Du willst so wenig Gewicht wie möglich herausnehmen. Was nimmst du heraus?“
+neu: „Nach der Reise wiegt der Koffer mit der gewaschenen Wäsche und den Andenken für den Rückflug 25 kg 300 g, erlaubt sind 23 kg. Du kannst herausnehmen: Schuhe (1 kg 200 g), Hose (900 g), Pullover (600 g), Buch (500 g). Du willst so wenig Gewicht wie möglich herausnehmen. Was nimmst du heraus?“
+
+Zusammenhang jetzt: Teil d braucht die Landezeit aus Teil b (13:55 Uhr Toronto-Zeit, im Text genannt) und entscheidet, ob die Wäscherei noch erreicht wird; Teil e knüpft an die gewaschene Wäsche an. Jeder Teil nennt seine Zahlen selbst, kein Folgefehler.
+
+### 2. 5-schatzsuche (Muss): 9er-Regel ausdrücklich
+
+**Teil d** – alt: „Auf einem Zettel steht: „Der Code ist durch 9 teilbar.“ Wie viele dreistellige Codes aus drei verschiedenen Ziffern von 1 bis 5 sind durch 9 teilbar?“
+neu: „Auf einem Zettel steht: „Der Code ist durch 9 teilbar.“ Dazu gibt es eine Regel: Eine Zahl ist durch 9 teilbar, wenn ihre Quersumme durch 9 teilbar ist. Wie viele dreistellige Codes aus drei verschiedenen Ziffern von 1 bis 5 sind durch 9 teilbar?“
+
+### 3. 5-roemerstrasse (Sollte): 144 Meilen = Strecke ab Meile 0
+
+**Teil b** – alt: „Eine römische Meile ist etwa 1 480 m lang. Wie lang sind 144 Meilen? Gib das Ergebnis in km und m an.“
+neu: „Der Meilenstein zeigt, wie weit diese Stelle vom Anfang der Straße (Meile 0) entfernt ist – gewandert bist du selbst nur ein kurzes Stück. Eine römische Meile ist etwa 1 480 m lang. Wie weit ist es von Meile 0 bis zu diesem Stein? Gib das Ergebnis in km und m an.“
+
+### 4. 5-pyramide (Sollte): Übergang vom Modell zur großen Pyramide
+
+**Teil a** – alt: „Eine große Modellpyramide hat unten eine Schicht aus 17 · 17 Würfeln. Wie viele Würfel sind das (17²)?“
+neu: „Neben deinem kleinen Modell steht im Museum ein großes Modell aus denselben Holzwürfeln. Es hat unten eine Schicht aus 17 · 17 Würfeln. Wie viele Würfel sind das (17²)?“
+
+**Teil c** – alt: „Eine erfundene Riesenpyramide hätte 2 347 819 Steine. Runde diese Zahl auf Hunderttausender.“
+neu: „Die echten Pyramiden sind nicht aus Holzwürfeln, sondern aus riesigen Steinblöcken gebaut – und haben viel mehr Schichten als jedes Modell. Eine erfundene Riesenpyramide hätte 2 347 819 Steine. Runde diese Zahl auf Hunderttausender.“
+
+
 ## 2026-11-18 04:55 – FERTIG: Expeditionen Klasse 5
 
 ### Kurz

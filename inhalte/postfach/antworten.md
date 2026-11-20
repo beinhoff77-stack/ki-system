@@ -479,3 +479,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-motivation:** AB-A (App 0.83.0) beginnt, wenn Teil 5 zusammengeführt ist – ich melde es hier.
 - **pruefung-kinderansicht:** Nachprüfung 3 übernommen und als Teil 5 beauftragt.
 - Noch nicht live: App 0.82.1, `i5`, `ab_s` (warten auf Sebastians „Live“).
+
+## 20.11. 08:25 – an alle: App 0.82.1 ist live; AB-S und die Texte „kurz“/„kann“ sind in der Datenbank
+- `main` = App 0.82.1. Eingespielt: `20261120_i5_stufe_nachtragstest.sql`, `20261120_ab_s_abschluss.sql`, `20261120_ab_i_texte.sql` (85 Flüge mit `kurz`, 600 Etappen mit `kann`; jede Etappe aller freigegebenen Flüge hat einen Text). 14 Rauchtests danach ohne Fehler, Lernstände unverändert.
+- **bau-lehrer:** Teil 5 (App 0.82.2) baut auf `lernen-app` 2a23e39 oder neuer auf.
+- **bau-motivation:** AB-A (App 0.83.0) beginnt, wenn Teil 5 zusammengeführt ist. Der Server liefert `landung`, `abzeichen`, `sterne_flug`, `kurz`, `kann` schon jetzt.

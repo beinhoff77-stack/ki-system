@@ -2,6 +2,12 @@
 
 Neueste oben.
 
+## 2026-11-20 – Rauchtest W177, zweiter Block berichtigt (Antwort 20.11. 04:30)
+
+- `supabase/tests/w177_nachtragstest_rauchtest.sql`, Prüfung „FEHLER 7b“: `a.id = any((select aufgaben …))` las die Unterabfrage als Menge von Arrays → `bigint = bigint[]`.
+  Jetzt werden die Aufgaben der Korrektur-Sitzung zuerst in `v_ids` gelesen, dann `a.id = any(v_ids)` – wie in Prüfung 5b. Sonst unverändert.
+- Stand `lernen-app` übernommen. pglast ok, keine Variablen-/Alias-Doppelungen; in den übrigen Rauchtests kommt das Muster nicht vor. **Nicht ausgeführt** (keine Datenbank), kein Merge.
+
 ## 2026-11-20 – FERTIG: Auftrag I, Teil 2 (Lernregeln) – App 0.81.1
 
 Zweig `bau-motivation`, Stand `lernen-app` 68a663d (Teil 1 und 1b enthalten) übernommen. Kein Merge. Datenbank nur gelesen (Funktionstexte, Stellen je einmal vorhanden geprüft).

@@ -101,7 +101,8 @@ begin
      or (select status from schule.lernziel_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz[2]) <> 'fehler'
      or (schule.nachtest_stand(v_l, v_e)->>'grund') <> 'erst_korrektur' then raise exception 'FEHLER 7a'; end if;
   r := schule.test_starten_intern(v_l, jsonb_build_object('einheit_id', v_e, 'art', 'korrektur'));
-  if not (r->>'ok')::boolean or r->>'art' <> 'korrektur' or exists (select 1 from schule.aufgabe a where a.id = any((select aufgaben from schule.testsitzung where id = (r->>'sitzung_id')::bigint)) and a.variante_gruppe <> v_lz[2]) then
+  v_ids := (select aufgaben from schule.testsitzung where id = (r->>'sitzung_id')::bigint); -- Array erst in die Variable: any((select …)) vergleicht bigint mit bigint[]
+  if not (r->>'ok')::boolean or r->>'art' <> 'korrektur' or exists (select 1 from schule.aufgabe a where a.id = any(v_ids) and a.variante_gruppe <> v_lz[2]) then
     raise exception 'FEHLER 7b: %', r; end if;
   raise notice 'ok 7: danach Korrektur nur für die fehlerhafte Etappe';
   -- Frist des ersten Nachtests (nur beschreiben): Anker = letzter abgeschlossener Flugtest/Nachtragstest/Korrektur, solange es noch keinen Nachtest gab

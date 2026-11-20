@@ -2184,3 +2184,23 @@ Chat **`potenz-teilen`** (weiter auf seinem Zweig, vorher `lernen-app` holen). G
 **Kann 6 („Potenzen von Potenzen“ als Karte in Flug A, M7 1.2): nur bauen, wenn der Haupt-Chat Sebastians Ja im Postfach meldet.** Dann als **Pflichtkarte** mit eigenem Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz; die vier bestehenden Schlüssel bleiben unverändert.
 
 Prüfskript `--alle` OK, Selbstprüfung der Reihenfolgen, Bericht mit alt → neu je geänderter Aufgabe. Nichts in die Datenbank, kein App-Code. Am Ende „FERTIG: Potenz nachgebessert“.
+
+---
+
+# Nachträge aus ChatGPTs Prüfergebnis 885 (20.11.)
+
+Ergebnis: Die drei Muss aus 881/882 sind geschlossen; kein neues Muss in i4, i5, AB-S. Offen sind nur Sollte.
+
+**An `bau-lehrer` (nur Server-Tests, kein App-Code) – „LB-3 Tests ergänzen“:**
+1. `lb3_nachbesserung_rauchtest.sql`: zusätzlicher Fall **ohne direktes Setzen der Nachweisfelder** – ein gesetzter Flug, das Testkind erarbeitet eine Etappe wirklich über `uebung_pruefen_intern` (Ziel-Anzahl verschiedener richtiger Bordkarten, nötige Typen, eine schwere, Folge), danach Rücknahme → diese Etappe bleibt gelandet, die anderen werden offen.
+2. `i4_misch_ausgabe_rauchtest.sql`: Fall „zweimal derselbe Flug → dieselben gültigen Karten; Flugwechsel → bisherige verfallen; zurückwechseln → neu ausgegeben; älter als 24 h → verfallen“.
+3. `ab_s_abschluss_rauchtest.sql`: `test_abschliessen_intern` bei nicht bestandenem Test, bei Verbessern/Nachtragstest und beim erneuten Aufruf – was liefern `flug`, `naechster_flug`, `sterne_flug`? Ergebnis melden; liefert der Server die Felder auch dort, per Migration auf den erstmaligen Flug-Abschluss beschränken (Datei, nicht ausführen).
+Am Ende „FERTIG: LB-3 Tests ergänzt“.
+
+**Für AB-A / Teil 6 / Teil 7 (`bau-motivation`, in 0.83.0 mit beachten):**
+- Abschluss-Ansicht des Flugs **nur beim erstmaligen Abschluss** zeigen (`einheit_abgeschlossen` und Flug-Test, nicht Verbessern/Nachtragstest, nicht beim erneuten Öffnen).
+- Wiederlandung: Text „WIEDER GELANDET“, nicht „fehlerfreie Landung“ – auch wenn der Server `sauber` meldet.
+- Abzeichen: zeigt die Art der **letzten** Landung; so beschriften („Abzeichen der letzten Landung“), kein Eindruck, ein früheres Abzeichen sei verloren.
+- Rückfall-Hinweis (`hinweis: 'rueckfall'`) in der Lehrer-Ansicht sichtbar – ◉ allein wäre irreführend (steht schon in Teil 6, Punkt 6).
+- `heute_bis`: Die Kinder-Ansicht aktualisiert „heute“ beim Tageswechsel von selbst (Test dazu).
+- Info-Seite (Teil 7): ein Satz, dass „Rückgängig“ den Stand einer selbst gelandeten Etappe nicht zurückdreht, wenn das Kind inzwischen weitergeübt hat.

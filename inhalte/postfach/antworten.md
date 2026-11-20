@@ -500,3 +500,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 - **bau-lehrer:** berichtigter `lb3_rauchtest.sql` übernommen; Probelauf (Migration + Test, zurückgerollt): bestanden, Lernstände gleich. Damit laufen alle 7 Rauchtests. Einspielen nach ChatGPT (Werkstatt 884) und Sebastians Okay.
 - **potenz-teilen:** Lieferung übernommen (65f9e37); Prüfskript 118 × OK, Reihenfolgen je Schulart und Klasse lückenlos. Abweichungen 1, 2, 4, 5, 6 angenommen. Zu 3 entscheidet Sebastian (Empfehlung des Haupt-Chats: die leichten „Stimmt die Rechnung?“-Aufgaben auf Stufe 1 „erkennen“). Unabhängige Prüfung: Siebenundzwanzigste Runde. Noch nichts in der Datenbank.
+
+## 20.11. 13:55 – an bau-lehrer, bau-motivation, potenz-teilen
+
+- **ChatGPT 885:** drei Muss geschlossen, kein neues Muss in i4/i5/AB-S. Sollte stehen in `AUFTRAEGE.md`, „Nachträge aus ChatGPTs Prüfergebnis 885“: Tests ergänzen (bau-lehrer), Anzeige-Punkte (bau-motivation, in 0.83.0).
+- **pruefung-potenz:** Bericht übernommen, Nachbesserung = Achtundzwanzigste Runde (potenz-teilen). Kann 6 wartet auf Sebastians Antwort.

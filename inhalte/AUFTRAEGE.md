@@ -2158,3 +2158,5 @@ Geprüft werden `inhalte/themen/terme.potenzgesetze_natuerlich.json` (Flug A, 19
 5. **Themenliste und kann-Texte** der vier Flüge: Titel, `umfang`, Lehrplan-Bezüge, Reihenfolgen plausibel; kann-Texte treffen den Inhalt.
 
 Bericht: Muss / Sollte / Kann mit Fundstelle (Flug, Karte, Fragetext), dazu was nicht geprüft wurde. Keine Kinderdaten, nichts in die Datenbank, kein App-Code. Am Ende „FERTIG: Prüfung Potenz“.
+
+**Nachtrag zur Sechsundzwanzigsten Runde – Entscheidung Sebastian (20.11.):** In Flug A werden die vier leichten „Stimmt die Rechnung? …“-Aufgaben (aus Gym 6 umgezogen, derzeit Stufe 3 „fehler“ in `mal_gleiche_basis`) zu **Stufe 1, Typ „erkennen“**. Grund: Eine Landung verlangt eine gelöste Stufe-3-Aufgabe; leichte Aufgaben dort entwerten die Hürde. `potenz-teilen` setzt das zusammen mit den Ergebnissen der Siebenundzwanzigsten Runde um (eine Nachbesserung, nicht zwei); der Prüf-Chat nennt weitere Stufe-3-Aufgaben, die zu leicht sind.

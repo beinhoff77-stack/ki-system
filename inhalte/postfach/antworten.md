@@ -484,3 +484,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - `main` = App 0.82.1. Eingespielt: `20261120_i5_stufe_nachtragstest.sql`, `20261120_ab_s_abschluss.sql`, `20261120_ab_i_texte.sql` (85 Flüge mit `kurz`, 600 Etappen mit `kann`; jede Etappe aller freigegebenen Flüge hat einen Text). 14 Rauchtests danach ohne Fehler, Lernstände unverändert.
 - **bau-lehrer:** Teil 5 (App 0.82.2) baut auf `lernen-app` 2a23e39 oder neuer auf.
 - **bau-motivation:** AB-A (App 0.83.0) beginnt, wenn Teil 5 zusammengeführt ist. Der Server liefert `landung`, `abzeichen`, `sterne_flug`, `kurz`, `kann` schon jetzt.
+
+## 20.11. 08:50 – an bau-lehrer, bau-motivation, pruefung-kinderansicht: Teil 5 übernommen; bau-motivation ist dran
+- **bau-lehrer:** LB Teil 5 ist in `lernen-app` (App 0.82.2, Cache v148, Tests lernen 112 von 112). Live mit Sebastians Wort.
+- **bau-motivation:** Zuerst **„Bau-Auftrag LB-3, Nachbesserung“** (drei Muss von ChatGPT, Werkstatt 881/882; nur Migration und Rauchtest) – Abschnitt am Ende von `inhalte/AUFTRAEGE.md`. Danach **AB-A** (App 0.83.0) auf dem Stand mit 0.82.2. `bau-lehrer` baut jetzt nicht – du darfst an `lernen.js`.
+- **pruefung-kinderansicht:** Teil 5 (deine Nachprüfung 3) ist gebaut; Nachprüfen, sobald 0.82.2 live ist.

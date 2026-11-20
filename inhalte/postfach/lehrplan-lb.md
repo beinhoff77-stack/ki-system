@@ -2,6 +2,42 @@
 
 Neueste Meldung oben.
 
+## 2026-11-20 06:00 – AUFTRAGSENTWURF: Potenzgesetze in zwei eigene Flüge teilen (von Sebastian gewählt)
+
+Sebastian will die Potenzgesetze nach Klassen aufteilen. Der Lehrer soll sie dann gebündelt oder einzeln in den Plan nehmen können (LB-1/LB-5: Knöpfe je Flug, Sammelaktion für mehrere Flüge). **Nichts davon ist umgesetzt.** Neue Flüge brauchen `thema_id`, `block_id` und Ort aus der Datenbank. Die vergibt der Haupt-Chat; danach baut ein Inhalts-Chat. Alle Zahlen unten habe ich per Skript aus den Themendateien gezählt (Zweig `lernen-app`, Stand 752acf0).
+
+**Heute (Tatsache):**
+
+| Klasse Gym | Lehrplan | wo heute | Karten |
+|---|---|---|---|
+| 6 | M6 1.4 negative Exponenten | `terme.potenzgesetze` (id 30, Paris) | Was ist eine Potenz? · Negative Exponenten und Hoch 0 (Pflicht) · Fehler finden (Vertiefung; 19 von 41 Aufgaben nutzen schon Potenzgesetze) |
+| 7 | M7 1.2 Potenzgesetze, natürliche Exponenten | 4 von 12 Karten in `terme.umformen` (id 29) | Gleiche Basis: malnehmen · Gleicher Exponent (Pflicht) · Gleiche Basis: teilen · Potenzgesetze geschickt nutzen (Vertiefung). Zusammen 168 Aufgaben, davon 22 mit negativen Exponenten. |
+| 8 | M8 4 Potenzgesetze, ganzzahlige Exponenten | kein Flug | – |
+
+**Vorschlag Flug A „Potenzgesetze“ (Gym 7, M7 1.2)** – aus `terme.umformen` herauslösen
+- Die vier Karten oben umziehen. Das geht mit dem Werkzeug der Vierundzwanzigsten Runde (`inhalte/generatoren/_aufloesen.py`, Baustein `karte_her`). Pflicht und Vertiefung bleiben wie heute. Die 22 Aufgaben mit negativen Exponenten gehören zu Flug B; in Flug A durch Aufgaben mit natürlichen Exponenten ersetzen (auch die Testaufgabe von „Gleiche Basis: teilen“).
+- `terme.umformen`: die vier Lernziele aus `bewertung` streichen. Danach bleiben 8 Karten (Termumformen, binomische Formeln).
+- Klasse (Vorschlag, Sebastian entscheidet): `gym_by` 7 · `rs_by` 7 (R7 M7 1 Potenzen) · `ib_myp` 4 (IBG: Potenzgesetze = MYP 4–5 Standard).
+- Reihenfolge Gym 7: hinter `terme.aufstellen`, vor `terme.umformen`, Lernbereich „M7 1 Terme mit Variablen“. Der Lehrplan M7 1.2 nennt die Potenzgesetze zuerst (G7). Realschule 7: Lernbereich „M7 1 Potenzen“, hinter `terme.potenzgesetze`.
+
+**Vorschlag Flug B „Potenzgesetze mit ganzzahligen Exponenten“ (Gym 8, M8 4)** – neu bauen
+- Lehrplan: „machen die Rechengesetze für Potenzen mit ganzzahligen Exponenten plausibel und wenden diese in einfachen Fällen an“ (G8, M8 4).
+- Lernkarten (Vorschlag, Muster wie in der Achten/Zwanzigsten Runde):
+  1. Warum die Gesetze auch für negative Exponenten gelten (Muster fortsetzen)
+  2. Gleiche Basis malnehmen und teilen mit negativen Exponenten
+  3. Gleicher Exponent und Potenz einer Potenz
+  4. Terme mit Variablen und negativen Exponenten vereinfachen, auch als Bruchterm schreiben
+  5. Fehler finden (Vertiefung)
+- Die 22 Aufgaben aus Flug A sind Startbestand.
+- Klasse (Vorschlag): `gym_by` 8 · `rs_by` 7 (R7 M7 1 enthält negative Exponenten und Potenzgesetze) · `ib_myp` 4.
+- Reihenfolge Gym 8: im Lernbereich „M8 4 Bruchterme und Bruchgleichungen“ hinter `terme.bruchterme`, vor `gleichungen.bruch`. Der Lehrplan nennt die Potenzgesetze dort nach dem Rechnen mit Bruchtermen (G8).
+
+**Folgen, die der Haupt-Chat lösen muss**
+- **Lernstand der Kinder:** Fortschritt auf den vier umziehenden Lernzielen (`karte_stand`, Wiederholungen, Sterne) muss in der Datenbank auf Flug A umgehängt werden, ohne Verlust (W1–W7).
+- **Reihenfolge Gym:** Die Nummern von `reihenfolge.gym_by` (Gym 7 und 8) verschieben sich. Die habe ich in LB-4 nicht anfassen dürfen.
+- **`terme.potenzgesetze` (Gym 6):** Titel „Potenzen und Potenzgesetze“, `umfang` („… rationalen Exponenten, Potenzgesetze“) und der dritte Eintrag in `lehrplan_gym` an den echten Inhalt anpassen. Vorschlag Titel: „Potenzen und negative Exponenten“. Die 19 Aufgaben in „Fehler finden“, die Potenzgesetze nutzen, als Vertiefung lassen oder nach Flug A verschieben (Sebastian).
+- Expeditionen verweisen auf keine der betroffenen Lernkarten (per Skript geprüft).
+
 ## 2026-11-20 – NACHPRÜFUNG LB-4 (auf Wunsch von Sebastian)
 
 Die vier Lehrplan-Seiten, die vorhin fehlten, habe ich heute gelesen: Gymnasium 8 und 9, Realschule 8 und 9 (I). Dazu kamen die Seiten der Realschule 8–10 (II/III). Danach habe ich jede Zuordnung erneut gegen den Lehrplan geprüft. Ein Skript hat außerdem jeden Lernbereich gegen die Kürzel in `lehrplan_gym` und `lehrplan_andere` abgeglichen.
@@ -18,7 +54,7 @@ Die vier Lehrplan-Seiten, die vorhin fehlten, habe ich heute gelesen: Gymnasium 
 **Befund `terme.potenzgesetze` – berichtigt nach Blick in die Themendateien (20.11., 05:45):** Meine erste Fassung war im Kern falsch. Sie sagte, das Thema in Gym 6 enthalte den Stoff dreier Klassen. Die Themendateien zeigen etwas anderes:
 - `terme.potenzgesetze` (Gym 6) hat nur drei Lernkarten: „Was ist eine Potenz?“, „Negative Exponenten und Hoch 0“ (beide Pflicht) und „Fehler bei Potenzen finden“ (Vertiefung). Das passt zu M6 1.4. Das Ziel der Datei sagt selbst: „Die Potenzgesetze folgen in Klasse 7 (Terme umformen).“ Nur Titel („Potenzen und Potenzgesetze“), `umfang` und der dritte Eintrag in `lehrplan_gym` versprechen mehr. Ein Teil der Vertiefungs-Aufgaben („Fehler finden“) nutzt schon Potenzgesetze mit natürlichen Exponenten.
 - Die Potenzgesetze mit natürlichen Exponenten (M7 1.2) stehen in `terme.umformen` (Gym 7). Pflicht: „Gleiche Basis: malnehmen“, „Gleicher Exponent“. Vertiefung: „Gleiche Basis: teilen“, „Potenzgesetze geschickt nutzen“.
-- Für Potenzgesetze mit ganzzahligen Exponenten (M8 4) gibt es **kein eigenes Thema**. 14 Aufgaben in `terme.umformen` (Gym 7) nutzen schon negative Exponenten (z. B. „y⁻³ · y⁻¹ = yᵏ“).
+- Für Potenzgesetze mit ganzzahligen Exponenten (M8 4) gibt es **kein eigenes Thema**. 22 Aufgaben in den vier Potenzgesetz-Karten von `terme.umformen` (Gym 7) nutzen schon negative Exponenten (z. B. „y⁻³ · y⁻¹ = yᵏ“), darunter 1 Testaufgabe.
 Die Aufteilung auf Klasse 6 und 7 besteht also schon. Es fehlt ein eigener Flug für M8 4, und die Potenzgesetze sind in Klasse 7 nicht vom Termumformen getrennt. Das Weitere entscheidet Sebastian.
 
 **Geprüft und richtig:** alle Titel der Lernbereiche (Gym 5–10, RS 5–10) gegen die Lehrplan-Seiten. Zahl und Reihenfolge der Lernbereiche passen. Kein Thema hängt an einem Lernbereich, der seinen Kern nicht enthält. Die Selbstprüfung ist unverändert, das Prüfskript meldet 116 × OK. Es bleibt der bekannte Befund Gym 6.

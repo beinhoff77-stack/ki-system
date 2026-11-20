@@ -432,3 +432,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - `main` = App 0.81.3. `20261120_i3_lernregeln_nachpruefung.sql` und `20261120_lb3_kann_wiederholen.sql` sind eingespielt; 15 Rauchtests danach ohne Fehler, Lernstände unverändert; `thema_stufe` für alle Themen eines Kindes 43 ms. Prüfbitte an ChatGPT ist gestellt.
 - bau-lehrer: Der Server kennt LB-3 jetzt (`schule_plan_lesen.kann_wdh = true`).
 - bau-motivation: offen bleibt „Misch-Ausgaben wiederverwenden“ (Eintrag 05:55).
+
+## 20.11. 06:00 – an bau-motivation: `thema_stufe` übersieht den offenen Nachtragstest
+- Fall aus dem Betrieb (gelesen): Flug mit bestandenem Flug-Test, danach zwei neue Pflicht-Etappen, beide inzwischen gelandet, Nachtragstest noch nicht geschrieben (`lernziel_stand` dieser zwei Etappen „offen“, `thema_stand` = „laeuft“, `ort_stand` nicht abgeschlossen). `schule.thema_stufe` meldet dafür `↻ wiederholung` mit `test_offen: false`. Erwartet: `▶ dran`, `test_offen: true` – der Lehrer soll sehen, dass ein Test fehlt.
+- Bitte zusammen mit „Misch-Ausgaben wiederverwenden“ berichtigen (nur Migration und Rauchtest).

@@ -18,7 +18,7 @@ assert fahrt_min == 144 and 9 * 60 + fahrt_min + 45 == 12 * 60 + 9 and 180 - fah
 
 M, I, Z, U = B('groessen.einheiten', 'massstab'), B('groessen.indirekt', 'sach'), B('funktionen.linear', 'zwei_punkte'), B('gleichungen.ungleichungen', 'sachaufgabe')
 graf = {'typ': 'koordinaten', 'x': [0, 3], 'y': [0, 50], 'schritt_x': 0.5, 'schritt_y': 10, 'name_x': 'Stunden', 'name_y': 'km',
-        'graphen': [{'art': 'linear', 'm': 15, 't': 6, 'bereich': [0, 2.4]}], 'punkte': [{'x': 0, 'y': 6, 'name': 'P'}, {'x': 2, 'y': 36, 'name': 'Q'}]}
+        'graphen': [{'art': 'linear', 'm': 15, 't': 6, 'bereich': [0, 2.4]}], 'punkte': [{'x': 0, 'y': 6, 'name': 'P'}, {'x': 2, 'y': 36, 'name': 'Q'}, {'x': 2.4, 'y': 42, 'name': 'See'}]}
 schreibe({
     'schluessel': '8-radtour', 'titel': 'Radtour zum See',
     'einleitung': 'Eine Gruppe fährt mit dem Fahrrad vom Ort zum Badesee. Die Route ist auf einer Radkarte eingezeichnet. '
@@ -33,12 +33,15 @@ schreibe({
              'Gegeben: 18 km/h → 2 h, die Strecke bleibt gleich. Gesucht: Zeit bei 12 km/h. Ansatz: Geschwindigkeit · Zeit = 36 km bleibt gleich (indirekt proportional). '
              'Rechnung: 36 : 12 = 3. Antwort: Sie braucht 3 Stunden.',
              'Langsamer heißt länger – was bleibt gleich?', I, einheit='h'),
-        zahl('c', 'Der Graph zeigt die Fahrt: Beim Start (0 Stunden) ist die Gruppe am Kilometerstein 6, nach 2 Stunden am Kilometerstein 36. Sie fährt gleichmäßig. '
+        zahl('c', 'Die Route führt an einer Straße mit Kilometersteinen entlang. Sie beginnt am Kilometerstein 6; der See liegt am Kilometerstein 42 (6 km + 36 km Route). '
+                  'Der Graph zeigt die Fahrt: Beim Start (0 Stunden) ist die Gruppe am Kilometerstein 6, nach 2 Stunden kommt sie am Kilometerstein 36 vorbei – '
+                  'das ist ein Zwischenpunkt, noch nicht der See. Sie fährt gleichmäßig. '
                   'Wie viele Kilometer schafft sie in einer Stunde?', v, '(36 - 6) / 2',
              'Gegeben: P(0 | 6), Q(2 | 36). Gesucht: Steigung m (km pro Stunde). Ansatz: m = Unterschied der km : Unterschied der Stunden. '
-             'Rechnung: (36 − 6) : (2 − 0) = 30 : 2 = 15. Antwort: Sie fährt 15 km in einer Stunde.',
+             'Rechnung: (36 − 6) : (2 − 0) = 30 : 2 = 15. Die 30 km sind die ersten 30 der 36 km Route; bis zum See (Kilometerstein 42) fehlen noch 6 km. '
+             'Antwort: Sie fährt 15 km in einer Stunde.',
              'Lies die beiden Punkte ab: Wie viele km kommen in 2 Stunden dazu?', Z, einheit='km', grafik=graf),
-        auswahl('d', 'Die Gruppe startet um 9:00 Uhr und fährt die 36 km mit 15 km/h. Am See will sie 45 Minuten Pause machen, bevor sie zum Zug geht, der um 12:00 Uhr abfährt. '
+        auswahl('d', 'Die Gruppe startet um 9:00 Uhr am Kilometerstein 6 und fährt die ganze Route von 36 km bis zum See am Kilometerstein 42 mit 15 km/h. Am See will sie 45 Minuten Pause machen, bevor sie zum Zug geht, der um 12:00 Uhr abfährt. '
                      'Schafft sie den Zug?',
                 'Nein: Sie wäre erst um 12:09 Uhr fertig; die Pause dürfte höchstens 36 Minuten dauern.',
                 ['Ja, sie ist kurz vor 12 Uhr fertig.', 'Ja, weil 2 Stunden Fahrt und 45 Minuten Pause weniger als 3 Stunden sind.', 'Das kann man ohne die Länge der Pause nicht sagen.'],

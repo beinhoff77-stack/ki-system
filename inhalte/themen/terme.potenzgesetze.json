@@ -9,7 +9,7 @@
  },
  "autor": "Claude (Opus), Paket Klasse 6",
  "inhalt": {
-  "ziel": "Potenzen mit natürlichen und ganzzahligen Exponenten verstehen und berechnen. Die Potenzgesetze folgen in Klasse 7 (Terme umformen).",
+  "ziel": "Potenzen mit natürlichen und negativen ganzzahligen Exponenten verstehen und berechnen, auch mit Brüchen, Dezimalzahlen und negativer Basis. Die Potenzgesetze folgen in Klasse 7 im Flug „Potenzgesetze“.",
   "merke": [
    "aⁿ = a · a · … · a (n Faktoren). a⁰ = 1, a⁻ⁿ = 1/aⁿ.",
    "Negative Basis in Klammern: (−2)² = 4, aber −2² = −4."
@@ -215,60 +215,56 @@
    {
     "lernziel": "fehler_finden",
     "titel": "Fehler bei Potenzen finden",
-    "regel": "Prüfe Potenzen mit einer ⟦Zahlenprobe⟧ oder schreib sie aus. Typisch: Exponenten malnehmen statt addieren.",
+    "regel": "Prüfe Potenzen mit einer ⟦Zahlenprobe⟧. Der Exponent zählt die Faktoren, ein Minus davor heißt Kehrbruch.",
     "schritte": [
      {
-      "text": "Links: 3² · 3³ = 9 · 27 = 243.",
+      "text": "Der Freund rechnet 2 · 4 = 8.",
       "bild": {
        "zeilen": [
         [
-         "3² · 3³",
-         "243"
+         "2 · 4",
+         "8"
         ],
         [
-         "3⁶",
+         "2⁴",
          "?"
         ]
        ]
       }
      },
      {
-      "text": "Rechts: 3⁶ = 729. Das passt nicht.",
+      "text": "Ausgeschrieben ist 2⁴ = 2 · 2 · 2 · 2.",
       "bild": {
        "zeilen": [
         [
-         "3² · 3³",
-         "243"
+         "2 · 4",
+         "8"
         ],
         [
-         "3⁶",
-         "729"
+         "2⁴ = 2 · 2 · 2 · 2",
+         "?"
         ]
        ]
       }
      },
      {
-      "text": "Aber 3⁵ = 243. Richtig ist ⟦3⁵⟧.",
+      "text": "Das ergibt ⟦16⟧, nicht 8. Der Exponent zählt die Faktoren.",
       "bild": {
        "zeilen": [
         [
-         "3² · 3³",
-         "243"
+         "2 · 4",
+         "8"
         ],
         [
-         "3⁶",
-         "729"
-        ],
-        [
-         "3⁵",
-         "243"
+         "2⁴ = 2 · 2 · 2 · 2",
+         "16"
         ]
        ]
       }
      }
     ],
-    "fehler": "Regeln nur auswendig anzuwenden führt zu Verwechslungen. Schreib aus: (3 · 3) · (3 · 3 · 3) sind 5 Faktoren.",
-    "einstieg": "Ein Freund sagt: „Beim Malnehmen werden Exponenten malgenommen“. Er rechnet 3² · 3³ = 3⁶. Du prüfst das mit einer ⟦Zahlenprobe⟧.",
+    "fehler": "Bei 2⁻³ denken viele an eine negative Zahl. Das ist falsch: 2⁻³ = 1/2³ = 1/8 ist positiv.",
+    "einstieg": "Ein Freund rechnet 2⁴ = 2 · 4 = 8. Du prüfst das, indem du die Potenz ausschreibst und ausrechnest. Das ist eine ⟦Zahlenprobe⟧.",
     "woerter": [
      [
       "Zahlenprobe",
@@ -283,12 +279,24 @@
      ],
      "zeilen": [
       [
-       "3² · 3³",
+       "2 · 4",
        "?"
       ],
       [
-       "3⁶",
+       "2⁴",
        "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "2⁻³",
+       "−8 (falsch)"
+      ],
+      [
+       "2⁻³ = 1/2³",
+       "1/8"
       ]
      ]
     }
@@ -933,7 +941,7 @@
     "text": "Was ergibt a⁰?"
    },
    "w": "Jede Zahl (außer 0) hoch 0 ergibt 1: a⁰ = 1.",
-   "h": "Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰.",
+   "h": "Denk an das Muster 2² = 4, 2¹ = 2, 2⁰ = ?: Es wird jedes Mal durch 2 geteilt.",
    "g": "erkennen"
   },
   {
@@ -1008,8 +1016,8 @@
     "wert": 16
    },
    "c": "2**2 / 2**-2",
-   "w": "2² : 2⁻² = 2⁴ = 16.",
-   "h": "Teile die beiden Potenzen. Exponenten subtrahieren: n − (−n).",
+   "w": "2² = 4 und 2⁻² = 1/4. 4 : 1/4 = 4 · 4 = 16.",
+   "h": "Rechne beide Potenzen aus und teile.",
    "g": "transfer"
   },
   {
@@ -1048,7 +1056,7 @@
     "text": "Was ergibt 12⁰?"
    },
    "w": "Jede Zahl (außer 0) hoch 0 ergibt 1: 12⁰ = 1.",
-   "h": "Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰.",
+   "h": "Denk an das Muster 2² = 4, 2¹ = 2, 2⁰ = ?: Es wird jedes Mal durch 2 geteilt.",
    "g": "erkennen"
   },
   {
@@ -1582,6 +1590,28 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Richtig wäre −12, denn man rechnet 4 · (−3).",
+    "Nichts, die Rechnung ist richtig.",
+    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻³ = 1/64.",
+    "Richtig wäre 1/12."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 4⁻³ = −64. Was ist falsch?"
+   },
+   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻³ = 1/64.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "a": [
@@ -1603,18 +1633,61 @@
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 1,
-   "g": "direkt",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻⁴ = 1/256.",
+    "Richtig wäre −16, denn man rechnet 4 · (−4).",
+    "Richtig wäre 1/16.",
+    "Nichts, die Rechnung ist richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 4⁻⁴ = −256. Was ist falsch?"
+   },
+   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻⁴ = 1/256.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Rechne nach: Wie viel ist 2⁵?"
+    "text": "Ein Kind rechnet −4² = 16. Wie heißt das richtige Ergebnis?"
    },
    "o": {
-    "wert": 32
+    "wert": -16
    },
-   "c": "2 ** 5",
-   "w": "2 · 2 · 2 · 2 · 2 = 32.",
-   "h": "Nimm die 2 fünfmal mit sich selbst mal."
+   "c": "-(4 ** 2)",
+   "h": "Ohne Klammer gehört das Minus nicht zur Basis.",
+   "w": "−4² = −(4 · 4) = −16. Nur (−4)² wäre 16.",
+   "g": "fehler"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, (−5) · (−5) = 25.",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Rechnung? (−5)² = −25"
+   },
+   "w": "Nein, (−5) · (−5) = 25.",
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "mehrschritt"
   },
   {
    "l": "fehler_finden",
@@ -1644,19 +1717,61 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Exponenten subtrahieren, nicht teilen: 4⁸.",
     "Nichts, die Rechnung ist richtig.",
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻³ = 1/64.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³."
+    "Richtig wäre −6, denn man rechnet 2 · (−3).",
+    "Richtig wäre 1/6.",
+    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 2⁻³ = 1/8."
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "f": {
-    "text": "Ein Kind rechnet: 4⁻³ = −64. Was ist falsch?"
+    "text": "Ein Kind rechnet: 2⁻³ = −8. Was ist falsch?"
    },
-   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻³ = 1/64.",
+   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 2⁻³ = 1/8.",
    "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind rechnet 3⁻² = −9. Wie heißt das richtige Ergebnis?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner als ganze Zahlen."
+   },
+   "o": {
+    "werte": [
+     1,
+     9
+    ]
+   },
+   "c": [
+    "1",
+    "3 ** 2"
+   ],
+   "w": "3⁻² ist der Kehrbruch von 3² = 9, also 3⁻² = 1/9. Das Ergebnis ist positiv.",
+   "h": "Was bedeutet ein Minus im Exponenten?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet (−1)⁴ = −1. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-1) ** 4",
+   "h": "Vier Minuszeichen als Faktoren: gerade Anzahl.",
+   "w": "(−1) · (−1) · (−1) · (−1) = 1. Bei geradem Exponenten wird es positiv.",
    "g": "mehrschritt"
   },
   {
@@ -1664,43 +1779,17 @@
    "t": "fehler_finden",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Nein, das ist falsch.",
-    "Ja, gleiche Basis: Exponenten addieren.",
-    "Das kann man nicht entscheiden."
-   ],
-   "o": {
-    "index": 1
-   },
+   "g": "direkt",
+   "y": "zahl",
    "f": {
-    "text": "Stimmt die Rechnung? 5² · 5² = 5⁴"
+    "text": "Rechne nach: Wie viel ist 2⁵?"
    },
-   "w": "Ja, gleiche Basis: Exponenten addieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
-   "g": "erkennen"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Kind rechnet: 3⁹ : 3³ = 3³. Welcher Satz beschreibt den Fehler richtig?"
-   },
-   "a": [
-    "Die Basen werden geteilt: 1³.",
-    "Die Exponenten werden addiert: 3¹².",
-    "Nichts, die Rechnung ist richtig.",
-    "Exponenten subtrahieren, nicht teilen: 3⁶."
-   ],
    "o": {
-    "index": 3
+    "wert": 32
    },
-   "w": "Gleiche Basis beim Teilen: Exponenten subtrahieren. 3⁹ : 3³ = 3⁹⁻³ = 3⁶, nicht 3⁹:³ = 3³.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "mehrschritt"
+   "c": "2 ** 5",
+   "w": "2 · 2 · 2 · 2 · 2 = 32.",
+   "h": "Nimm die 2 fünfmal mit sich selbst mal."
   },
   {
    "l": "fehler_finden",
@@ -1728,113 +1817,6 @@
    "t": "fehler_finden",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Nein, das ist falsch.",
-    "Ja, Exponenten subtrahieren."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? 4⁵ : 4² = 4³"
-   },
-   "w": "Ja, Exponenten subtrahieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, gleiche Basis: Exponenten addieren.",
-    "Nein, das ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? 4⁴ · 4² = 4⁶"
-   },
-   "w": "Ja, gleiche Basis: Exponenten addieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
-   "g": "erkennen"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻⁴ = 1/256.",
-    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁸.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.",
-    "Nichts, die Rechnung ist richtig."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Ein Kind rechnet: 4⁻⁴ = −256. Was ist falsch?"
-   },
-   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻⁴ = 1/256.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, gleiche Basis: Exponenten addieren.",
-    "Nein, das ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? 2⁴ · 2³ = 2⁷"
-   },
-   "w": "Ja, gleiche Basis: Exponenten addieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
-   "g": "erkennen"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 5⁻² = 1/25.",
-    "Nichts, die Rechnung ist richtig.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10².",
-    "Exponenten subtrahieren, nicht teilen: 5⁴."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Ein Kind rechnet: 2² · 5² = 10⁴. Was ist falsch?"
-   },
-   "w": "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10².",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
    "g": "einkleidung",
    "y": "zahl",
    "f": {
@@ -1847,27 +1829,6 @@
    "c": "3 ** 3",
    "w": "Volumen = 3³ = 27 cm³. Das Kind hat 3² gerechnet.",
    "h": "Volumen eines Würfels: Kante hoch 3."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, (−5) · (−5) = 25.",
-    "Ja, das stimmt.",
-    "Das kann man nicht entscheiden."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? (−5)² = −25"
-   },
-   "w": "Nein, (−5) · (−5) = 25.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
-   "g": "mehrschritt"
   },
   {
    "l": "fehler_finden",
@@ -1892,21 +1853,38 @@
    "p": "uebung",
    "s": 2,
    "y": "auswahl",
+   "f": {
+    "text": "Ein Kind rechnet 0,2² = 0,4. Was ist der Fehler?"
+   },
    "a": [
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³.",
-    "Nichts, die Rechnung ist richtig.",
-    "Die Exponenten werden addiert, nicht malgenommen: 2⁵.",
-    "Die Basis bleibt 2, nur die Exponenten werden addiert: 2⁵."
+    "Es hat 0,2 · 2 gerechnet. Richtig: 0,2 · 0,2 = 0,04.",
+    "Richtig wäre 4.",
+    "Es gibt keinen Fehler.",
+    "Richtig wäre 0,02."
    ],
    "o": {
     "index": 0
    },
-   "f": {
-    "text": "Ein Kind rechnet: 2³ · 5³ = 10⁶. Was ist falsch?"
-   },
-   "w": "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "h": "Der Exponent sagt, wie oft die Basis als Faktor vorkommt.",
+   "w": "0,2² = 0,2 · 0,2 = 0,04 (zwei Nachkommastellen).",
    "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet 2³ + 2³ = 2⁶. Welche Zahl ist richtig?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "2 ** 3 + 2 ** 3",
+   "h": "Rechne beide Potenzen aus und addiere dann.",
+   "w": "2³ + 2³ = 8 + 8 = 16 = 2⁴. 2⁶ wäre 64.",
+   "g": "verknuepfen"
   },
   {
    "l": "fehler_finden",
@@ -1915,42 +1893,131 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ein Kind rechnet: 3³ · 3³ = 9⁶. Welcher Satz beschreibt den Fehler richtig?"
+    "text": "Ein Kind behauptet: „aⁿ ist immer größer als a, wenn n größer als 1 ist.“ Welches Beispiel widerlegt das?"
    },
    "a": [
-    "Nichts, die Rechnung ist richtig.",
-    "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁶.",
-    "Die Exponenten werden subtrahiert: 3⁰.",
-    "Die Exponenten werden malgenommen: 3⁹."
+    "a = 3, n = 2",
+    "a = 1/2, n = 2",
+    "a = 2, n = 3",
+    "a = 10, n = 2"
    ],
    "o": {
     "index": 1
    },
-   "w": "Gleiche Basis: Die Basis bleibt 3, die Exponenten werden addiert. Also 3³ · 3³ = 3⁶, nicht 9⁶.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "fehler"
+   "h": "Probiere eine Zahl kleiner als 1.",
+   "w": "(1/2)² = 1/4 ist kleiner als 1/2. Die anderen Beispiele bestätigen die Behauptung nur.",
+   "g": "begruenden"
   },
   {
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
+   "s": 3,
+   "g": "fehler",
+   "y": "luecken",
    "f": {
-    "text": "Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig?"
+    "text": "Ein Kind rechnet (2/3)² = 4/3. Wie heißt das richtige Ergebnis?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner als ganze Zahlen."
    },
-   "a": [
-    "Nichts, die Rechnung ist richtig.",
-    "Die Exponenten werden subtrahiert: 4¹.",
-    "Die Exponenten werden malgenommen: 4⁶.",
-    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁵."
-   ],
    "o": {
-    "index": 3
+    "werte": [
+     4,
+     9
+    ]
    },
-   "w": "Gleiche Basis: Die Basis bleibt 4, die Exponenten werden addiert. Also 4³ · 4² = 4⁵, nicht 16⁵.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "mehrschritt"
+   "c": [
+    "2 ** 2",
+    "3 ** 2"
+   ],
+   "w": "(2/3)² = 2/3 · 2/3 = (2 · 2)/(3 · 3) = 4/9. Das Kind hat den Nenner nicht quadriert.",
+   "h": "Schreib die Potenz als Produkt aus."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind sollte 2ⁿ ausrechnen. Es hat aus Versehen 2 · n gerechnet und 10 erhalten. Welches Ergebnis wäre richtig gewesen?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "2 ** (10 // 2)",
+   "w": "2 · n = 10, also n = 5. Richtig ist 2⁵ = 2 · 2 · 2 · 2 · 2 = 32.",
+   "h": "Finde zuerst n aus der falschen Rechnung."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele natürliche Zahlen n von 1 bis 10 ist (−2)ⁿ negativ?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(10 + 1) // 2",
+   "w": "(−2)ⁿ ist negativ, wenn n ungerade ist: n = 1, 3, 5, 7, 9. Das sind 5 Zahlen.",
+   "h": "Probiere n = 1, 2, 3: Wann ist das Ergebnis negativ?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Datenblatt steht: Dicke 10⁻³ m. Ein Kind meint, das sei eine negative Dicke. Wie viele Millimeter sind 10⁻³ m wirklich?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "mm"
+   },
+   "c": "10 ** -3 * 1000",
+   "w": "10⁻³ m = 1/10³ m = 1/1 000 m = 1 mm. Die Dicke ist positiv.",
+   "h": "Schreibe 10⁻³ als Bruch."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2)³ + (−2)² + (−2)¹ + (−2)⁰."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(-2) ** 3 + (-2) ** 2 + (-2) + 1",
+   "w": "(−2)³ = −8, (−2)² = 4, (−2)¹ = −2, (−2)⁰ = 1. Zusammen: −8 + 4 − 2 + 1 = −5.",
+   "h": "Achte bei jeder Potenz auf das Vorzeichen."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind behauptet: (−1)¹⁰⁰ + (−1)¹⁰¹ + 1⁻¹⁰⁰ = 3. Was kommt wirklich heraus?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-1) ** 100 + (-1) ** 101 + 1 ** -100",
+   "w": "(−1)¹⁰⁰ = 1 (gerader Exponent), (−1)¹⁰¹ = −1 (ungerader Exponent), 1⁻¹⁰⁰ = 1/1¹⁰⁰ = 1. Zusammen: 1 − 1 + 1 = 1.",
+   "h": "Wann ist eine Potenz von −1 positiv, wann negativ?"
   },
   {
    "l": "fehler_finden",
@@ -1958,38 +2025,19 @@
    "p": "test",
    "s": 2,
    "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, das stimmt.",
-    "Nein, die Exponenten werden addiert: 5⁵."
-   ],
-   "o": {
-    "index": 2
-   },
    "f": {
-    "text": "Stimmt die Rechnung? 5² · 5³ = 5⁶"
+    "text": "Ein Kind rechnet: 10⁻² = −100. Was ist falsch?"
    },
-   "w": "Nein, die Exponenten werden addiert: 5⁵."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
    "a": [
+    "Richtig wäre −20, denn man rechnet 10 · (−2).",
     "Nichts, die Rechnung ist richtig.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.",
-    "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁸.",
-    "Exponenten subtrahieren, nicht teilen: 3¹²."
+    "Richtig wäre 1/20.",
+    "Ein negativer Exponent bedeutet Kehrbruch: 10⁻² = 1/100 = 0,01."
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "f": {
-    "text": "Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch?"
-   },
-   "w": "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁸."
+   "w": "10⁻² = 1/10² = 1/100 = 0,01. Das Ergebnis ist positiv."
   },
   {
    "l": "fehler_finden",
@@ -1999,8 +2047,8 @@
    "y": "auswahl",
    "a": [
     "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 5⁻⁴ = 1/625.",
-    "Exponenten subtrahieren, nicht teilen: 5⁹.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.",
+    "Richtig wäre −20, denn man rechnet 5 · (−4).",
+    "Richtig wäre 1/20.",
     "Nichts, die Rechnung ist richtig."
    ],
    "o": {
@@ -2016,39 +2064,34 @@
    "t": "fehler_finden",
    "p": "korrektur",
    "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Exponenten subtrahieren, nicht teilen: 5⁶.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.",
-    "Die Exponenten werden addiert, nicht malgenommen: 5⁶.",
-    "Nichts, die Rechnung ist richtig."
-   ],
-   "o": {
-    "index": 1
-   },
+   "y": "zahl",
    "f": {
-    "text": "Ein Kind rechnet: 2⁴ · 5⁴ = 10⁸. Was ist falsch?"
+    "text": "Ein Kind rechnet 0,3² = 0,9. Wie heißt das richtige Ergebnis?"
    },
-   "w": "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴."
+   "o": {
+    "wert": 0.09
+   },
+   "c": "0.3 ** 2",
+   "w": "0,3² = 0,3 · 0,3 = 0,09 (zwei Nachkommastellen)."
   },
   {
    "l": "fehler_finden",
    "t": "fehler_finden",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Rechnung? 7⁰ = 7"
+   },
    "a": [
+    "Ja, das stimmt.",
     "Das kann man nicht entscheiden.",
-    "Ja, Exponenten subtrahieren.",
-    "Nein, das ist falsch."
+    "Nein, jede Zahl außer 0 hoch 0 ergibt 1: 7⁰ = 1."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "f": {
-    "text": "Stimmt die Rechnung? 4⁷ : 4⁴ = 4³"
-   },
-   "w": "Ja, Exponenten subtrahieren."
+   "w": "Nein, jede Zahl außer 0 hoch 0 ergibt 1: 7⁰ = 1."
   },
   {
    "l": "fehler_finden",
@@ -2057,28 +2100,9 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, Exponenten subtrahieren.",
-    "Nein, das ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? 5⁵ : 5² = 5³"
-   },
-   "w": "Ja, Exponenten subtrahieren."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Die Basis bleibt 5, nur die Exponenten werden addiert: 5⁶.",
+    "Richtig wäre −10, denn man rechnet 5 · (−2).",
     "Nichts, die Rechnung ist richtig.",
-    "Exponenten subtrahieren, nicht teilen: 5⁴.",
+    "Richtig wäre 1/10.",
     "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 5⁻² = 1/25."
    ],
    "o": {
@@ -2094,20 +2118,45 @@
    "t": "fehler_finden",
    "p": "sicherung",
    "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻⁴ = 1/256.",
-    "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.",
-    "Nichts, die Rechnung ist richtig."
-   ],
-   "o": {
-    "index": 1
-   },
+   "y": "zahl",
    "f": {
-    "text": "Ein Kind rechnet: 4⁴ · 4² = 4⁸. Was ist falsch?"
+    "text": "Ein Kind rechnet 2⁻⁴ = −16. Wie heißt das richtige Ergebnis als Dezimalzahl?"
    },
-   "w": "Die Exponenten werden addiert, nicht malgenommen: 4⁶."
+   "o": {
+    "wert": 0.0625
+   },
+   "c": "2 ** -4",
+   "w": "2⁻⁴ = 1/2⁴ = 1/16 = 0,0625."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet (−3)² = −9. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(-3) ** 2",
+   "w": "(−3)² = (−3) · (−3) = 9."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet 4³ = 12. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "4 ** 3",
+   "w": "4³ = 4 · 4 · 4 = 64. Das Kind hat 4 · 3 gerechnet."
   },
   {
    "l": "fehler_finden",
@@ -2115,39 +2164,33 @@
    "p": "sicherung",
    "s": 2,
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Rechnung? (−2)³ = −8"
+   },
    "a": [
-    "Nichts, die Rechnung ist richtig.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.",
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 5⁻⁴ = 1/625.",
-    "Die Exponenten werden addiert, nicht malgenommen: 5⁸."
+    "Ja, (−2) · (−2) · (−2) = −8.",
+    "Nein, richtig ist −6.",
+    "Nein, richtig ist 8."
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "f": {
-    "text": "Ein Kind rechnet: 5⁴ · 5⁴ = 5¹⁶. Was ist falsch?"
-   },
-   "w": "Die Exponenten werden addiert, nicht malgenommen: 5⁸."
+   "w": "(−2) · (−2) = 4 und 4 · (−2) = −8. Ungerader Exponent, negative Basis: negativ."
   },
   {
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "sicherung",
    "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 5⁻³ = 1/125.",
-    "Exponenten subtrahieren, nicht teilen: 5⁴.",
-    "Nichts, die Rechnung ist richtig.",
-    "Die Exponenten werden addiert, nicht malgenommen: 5⁵."
-   ],
-   "o": {
-    "index": 1
-   },
+   "y": "zahl",
    "f": {
-    "text": "Ein Kind rechnet: 5⁶ : 5² = 5³. Was ist falsch?"
+    "text": "Ein Kind rechnet −2⁴ = 16. Wie heißt das richtige Ergebnis?"
    },
-   "w": "Exponenten subtrahieren, nicht teilen: 5⁴."
+   "o": {
+    "wert": -16
+   },
+   "c": "-(2 ** 4)",
+   "w": "−2⁴ = −(2 · 2 · 2 · 2) = −16. Nur (−2)⁴ wäre 16."
   },
   {
    "l": "potenz_begriff",
@@ -2341,262 +2384,6 @@
    "h": "Schreibe die Endziffern von 7¹, 7², 7³, … auf."
   },
   {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Kind rechnet: 4³ · 4³ = 4⁹. Welcher Satz beschreibt den Fehler richtig?"
-   },
-   "a": [
-    "Die Exponenten werden subtrahiert: 4⁰.",
-    "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
-    "Nichts, die Rechnung ist richtig.",
-    "Die Basen werden malgenommen: 16⁶."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gleiche Basis: Exponenten addieren. 4³ · 4³ = 4⁶, nicht 4⁹.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "fehler"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Kind rechnet: 4⁴ · 4² = 16⁶. Welcher Satz beschreibt den Fehler richtig?"
-   },
-   "a": [
-    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁶.",
-    "Die Exponenten werden malgenommen: 4⁸.",
-    "Die Exponenten werden subtrahiert: 4².",
-    "Nichts, die Rechnung ist richtig."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Gleiche Basis: Die Basis bleibt 4, die Exponenten werden addiert. Also 4⁴ · 4² = 4⁶, nicht 16⁶.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kind rechnet −4² = 16. Wie heißt das richtige Ergebnis?"
-   },
-   "o": {
-    "wert": -16
-   },
-   "c": "-(4 ** 2)",
-   "h": "Ohne Klammer gehört das Minus nicht zur Basis.",
-   "w": "−4² = −(4 · 4) = −16. Nur (−4)² wäre 16.",
-   "g": "fehler"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nichts, die Rechnung ist richtig.",
-    "Die Exponenten werden addiert, nicht malgenommen: 2⁶.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³.",
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 2⁻³ = 1/8."
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Ein Kind rechnet: 2⁻³ = −8. Was ist falsch?"
-   },
-   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 2⁻³ = 1/8.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kind rechnet 2³ + 2³ = 2⁶. Welche Zahl ist richtig?"
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "2 ** 3 + 2 ** 3",
-   "h": "Für Plus gibt es kein Potenzgesetz. Rechne aus.",
-   "w": "2³ + 2³ = 8 + 8 = 16 = 2⁴. 2⁶ wäre 64.",
-   "g": "verknuepfen"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kind rechnet (−1)⁴ = −1. Wie heißt das richtige Ergebnis?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(-1) ** 4",
-   "h": "Vier Minuszeichen als Faktoren: gerade Anzahl.",
-   "w": "(−1) · (−1) · (−1) · (−1) = 1. Bei geradem Exponenten wird es positiv.",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Rechnung ist richtig?"
-   },
-   "a": [
-    "3² · 3⁴ = 3⁶",
-    "2³ · 5³ = 10⁶",
-    "3⁴ : 3² = 1²",
-    "3² + 3⁴ = 3⁶"
-   ],
-   "o": {
-    "index": 0
-   },
-   "h": "Prüfe jede Rechnung mit dem passenden Potenzgesetz oder durch Ausrechnen.",
-   "w": "3² · 3⁴ = 3⁶ stimmt (Exponenten addieren). 3² + 3⁴ = 90, 3⁶ = 729. 3⁴ : 3² = 3². 2³ · 5³ = 10³.",
-   "g": "begruenden"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Kind rechnet 0,2² = 0,4. Was ist der Fehler?"
-   },
-   "a": [
-    "Es hat 0,2 · 2 gerechnet. Richtig: 0,2 · 0,2 = 0,04.",
-    "Richtig wäre 4.",
-    "Es gibt keinen Fehler.",
-    "Richtig wäre 0,02."
-   ],
-   "o": {
-    "index": 0
-   },
-   "h": "Der Exponent sagt, wie oft die Basis als Faktor vorkommt.",
-   "w": "0,2² = 0,2 · 0,2 = 0,04 (zwei Nachkommastellen).",
-   "g": "mehrschritt"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Kind behauptet: „aⁿ ist immer größer als a, wenn n größer als 1 ist.“ Welches Beispiel widerlegt das?"
-   },
-   "a": [
-    "a = 3, n = 2",
-    "a = 1/2, n = 2",
-    "a = 2, n = 3",
-    "a = 10, n = 2"
-   ],
-   "o": {
-    "index": 1
-   },
-   "h": "Probiere eine Zahl kleiner als 1.",
-   "w": "(1/2)² = 1/4 ist kleiner als 1/2. Die anderen Beispiele bestätigen die Behauptung nur.",
-   "g": "begruenden"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "g": "parameter",
-   "y": "auswahl",
-   "f": {
-    "text": "Die Regel „a² · a³ = a⁶“ ist falsch. Für welche Zahlen a stimmt sie trotzdem?"
-   },
-   "a": [
-    "für keine Zahl",
-    "für a = 0 und a = 1",
-    "nur für a = 2",
-    "für alle Zahlen"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ausgeschrieben: a² · a³ = (a · a) · (a · a · a) = a⁵, also 5 Faktoren, nicht 6. a⁵ und a⁶ sind nur gleich, wenn ein zusätzlicher Faktor a nichts ändert: für a = 0 (0 = 0) und a = 1 (1 = 1).",
-   "h": "Für welche Zahlen ist jede Potenz gleich?"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "g": "rueckwaerts",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kind hat bei aᵏ · a² die Exponenten malgenommen und a¹² erhalten. Was wäre der richtige Exponent gewesen?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "12 // 2 + 2",
-   "w": "k · 2 = 12, also k = 6. Ausgeschrieben hat a⁶ · a² zuerst 6 und dann noch 2 Faktoren a: 6 + 2 = 8. Richtig: a⁸.",
-   "h": "Bestimme zuerst k."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kind schreibt 2⁵ + 2⁵ = 2¹⁰. Richtig ist 2ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "6",
-   "w": "2⁵ + 2⁵ = 2 · 2⁵ = 2⁶ = 64. Zwei gleiche Summanden sind das Doppelte: Zu den fünf Faktoren 2 kommt ein sechster Faktor 2 dazu. 2¹⁰ = 1 024 wäre viel zu groß.",
-   "h": "Was ist eine Zahl plus dieselbe Zahl?"
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "bonus",
-   "s": 3,
-   "g": "knobel",
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−2)³ + (−2)² + (−2)¹ + (−2)⁰."
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "(-2) ** 3 + (-2) ** 2 + (-2) + 1",
-   "w": "(−2)³ = −8, (−2)² = 4, (−2)¹ = −2, (−2)⁰ = 1. Zusammen: −8 + 4 − 2 + 1 = −5.",
-   "h": "Achte bei jeder Potenz auf das Vorzeichen."
-  },
-  {
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "korrektur",
@@ -2628,8 +2415,8 @@
   }
  ],
  "offen": [
-  "„umfang“ nennt auch rationale Exponenten; der Kl.-6-Lehrplan (lehrplan_gym) verlangt nur ganzzahlige Exponenten. Rationale Exponenten bewusst weggelassen (Stoff Kl. 9, eigenes Thema zahlen.rationale_exponenten).",
-  "Potenz einer Potenz (aᵐ)ⁿ = aᵐ·ⁿ ist nicht enthalten, weil der Kl.-6-Lehrplan nur gleiche Basis bzw. gleichen Exponenten nennt. Falls gewünscht, als eigene Lernkarte ergänzen.",
-  "Exponenten werden als Zahl abgefragt (z. B. „2³ · 2⁴ = 2ᵏ, k = ?“), weil die App keine Hochstellung eingeben kann."
+  "Rationale Exponenten stehen nicht in diesem Flug (Stoff Kl. 9, eigenes Thema zahlen.rationale_exponenten).",
+  "Exponenten werden als Zahl abgefragt (z. B. „2ᵏ = 1/16, k = ?“), weil die App keine Hochstellung eingeben kann.",
+  "Sechsundzwanzigste Runde (20.11.): Die Potenzgesetze stehen in eigenen Flügen (terme.potenzgesetze_natuerlich, Klasse 7; terme.potenzgesetze_ganzzahlig, Klasse 8). Die 23 Aufgaben aus „Fehler finden“, die ein Potenzgesetz voraussetzen, sind nach terme.potenzgesetze_natuerlich umgezogen; „Fehler finden“ ist mit 14 neuen Aufgaben zu Potenzbegriff, Hoch 0 und negativem Exponenten wieder aufgefüllt, Erklärung der Karte neu (Zahlenprobe 2⁴ statt Potenzgesetz)."
  ]
 }

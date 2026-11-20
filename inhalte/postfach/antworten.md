@@ -489,3 +489,34 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-lehrer:** LB Teil 5 ist in `lernen-app` (App 0.82.2, Cache v148, Tests lernen 112 von 112). Live mit Sebastians Wort.
 - **bau-motivation:** Zuerst **„Bau-Auftrag LB-3, Nachbesserung“** (drei Muss von ChatGPT, Werkstatt 881/882; nur Migration und Rauchtest) – Abschnitt am Ende von `inhalte/AUFTRAEGE.md`. Danach **AB-A** (App 0.83.0) auf dem Stand mit 0.82.2. `bau-lehrer` baut jetzt nicht – du darfst an `lernen.js`.
 - **pruefung-kinderansicht:** Teil 5 (deine Nachprüfung 3) ist gebaut; Nachprüfen, sobald 0.82.2 live ist.
+
+## 20.11. 13:25 – an bau-lehrer, bau-motivation, pruefung-kinderansicht
+
+- **LB-3 Nachbesserung (bau-lehrer, 28c9860):** in `lernen-app` übernommen (dc8a048). Probelauf gegen die echte Datenbank, alles zurückgerollt: Migration läuft; `lb3_nachbesserung`, `i2`, `i3`, `i4`, `i5`, `ab_s` bestanden; Lernstände vorher/nachher gleich. **Nicht bestanden: `lb3_rauchtest.sql`** – Abbruch „Inzwischen wurde etwas anderes geändert.“: Zeile 102 macht Schritt `v_sa` rückgängig, nach dem Schritt in Zeile 96 ist er nicht mehr der jüngste (neue Regel Sollte 4). Bitte die Testdatei anpassen (z. B. Rückgängig direkt nach dem Schritt, oder die Lage anders herstellen), sodass die Prüfungen 3–6 wieder laufen. Nur Testdatei, kein App-Code.
+- **Noch nicht eingespielt.** Prüfbitte an ChatGPT ist raus (Werkstatt 884); eingespielt wird nach dessen Antwort und Sebastians Okay.
+- **Nachprüfung 4 (Gestalter):** übernommen. Teil 5 vollständig erledigt; N1–N5 stehen als „Bau-Auftrag LB, Teil 6“ in `AUFTRAEGE.md` und werden zusammen mit AB-A gebaut (0.83.0, ein Bau-Chat: bau-motivation).
+
+## 20.11. 13:45 – an bau-lehrer, potenz-teilen
+
+- **bau-lehrer:** berichtigter `lb3_rauchtest.sql` übernommen; Probelauf (Migration + Test, zurückgerollt): bestanden, Lernstände gleich. Damit laufen alle 7 Rauchtests. Einspielen nach ChatGPT (Werkstatt 884) und Sebastians Okay.
+- **potenz-teilen:** Lieferung übernommen (65f9e37); Prüfskript 118 × OK, Reihenfolgen je Schulart und Klasse lückenlos. Abweichungen 1, 2, 4, 5, 6 angenommen. Zu 3 entscheidet Sebastian (Empfehlung des Haupt-Chats: die leichten „Stimmt die Rechnung?“-Aufgaben auf Stufe 1 „erkennen“). Unabhängige Prüfung: Siebenundzwanzigste Runde. Noch nichts in der Datenbank.
+
+## 20.11. 13:55 – an bau-lehrer, bau-motivation, potenz-teilen
+
+- **ChatGPT 885:** drei Muss geschlossen, kein neues Muss in i4/i5/AB-S. Sollte stehen in `AUFTRAEGE.md`, „Nachträge aus ChatGPTs Prüfergebnis 885“: Tests ergänzen (bau-lehrer), Anzeige-Punkte (bau-motivation, in 0.83.0).
+- **pruefung-potenz:** Bericht übernommen, Nachbesserung = Achtundzwanzigste Runde (potenz-teilen). Kann 6 wartet auf Sebastians Antwort.
+
+## 20.11. 14:50 – an potenz-teilen
+
+- **Entscheidung Sebastian zu Kann 6: JA.** Flug A bekommt die fünfte Pflichtkarte „Potenzen von Potenzen“, Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz (Achtundzwanzigste Runde). Die vier bestehenden Schlüssel bleiben unverändert. Themenliste (`umfang`, Lehrplan-Bezug M7 1.2 mit Quelle) und kann-Text nachziehen.
+
+## 20.11. 14:55 – an alle
+
+- **LB-3 Nachbesserung ist eingespielt** (`20261120_lb3_nachbesserung.sql`, nach ChatGPT 885 und Sebastians Okay). Danach `lb3_nachbesserung` und `lb3` erneut gelaufen (zurückgerollt): bestanden; Lernstände unverändert. App live weiter 0.82.2 – Rückgängig-Ablehnung, Rückfall-Hinweis und `heute_bis` nutzt die App erst mit 0.83.0.
+
+## 20.11. 15:15 – an bau-lehrer, bau-motivation, potenz-teilen
+
+- **Alles übernommen** (2e384a2): App 0.83.0 (AB-A, Teil 6, Teil 7), ergänzte Tests, Potenz-Nachbesserung. App-Tests 125/125 im zweiten Lauf (erster Lauf 1 Fehlschlag, nicht wiederholbar – Name nicht festgehalten); Prüfskript 118 × OK.
+- **Probelauf Server** (zurückgerollt): `lb3_nachbesserung` (mit „M2-echt“) und `i4` gegen den Live-Stand bestanden; `ab_s_flug_abschluss_einmal` + `ab_s`-Rauchtest bestanden; Lernstände gleich. **Die Migration spiele ich so nicht ein** – siehe `AUFTRAEGE.md`, „Nachträge 20.11. nachmittags“, A: „Flug geschafft“ soll auch kommen, wenn Verbessern den Flug erstmals fertig macht.
+- **bau-motivation:** Abweichungen in Teil 7 (Reisewörter, Knopftext „Weiter: Flug-Test“) angenommen; der Gestalter prüft nach dem Live. Danach B (0.83.1).
+- **potenz-teilen:** Entscheidungen 1–7 vorläufig angenommen; Nachprüfung durch `pruefung-potenz` (C). Noch nichts in der Datenbank.

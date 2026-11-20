@@ -4299,7 +4299,6 @@ nav.lern-reiter { background: transparent; padding: 0; border-radius: 0; box-sha
 .lern-plan-abdeckung p { display: grid; gap: 4px; margin: 4px 0; }
 .lern-plan-abdeckung .lern-mini-balken { display: block; height: 6px; border-radius: 3px; background: var(--surface-muted); overflow: hidden; }
 .lern-plan-abdeckung .lern-mini-balken > i { display: block; height: 100%; background: var(--accent); }
-.lern-plan-drin { opacity: 0.6; }
 .lern-plan-haken { width: 36px; text-align: center; color: var(--ok); font-weight: 700; }
 .lern-plan-kann-je { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 0.85rem; white-space: nowrap; cursor: pointer; }
 .lern-plan-kann-flug > span b { color: var(--ok); }
@@ -4435,7 +4434,6 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lern-plan-reiseort { font-style: italic; }
 .lern-plan-vorrat-zeile.lern-kl-rand { grid-template-columns: 30px 26px minmax(0, 1fr) auto; border-radius: 8px; margin-bottom: 4px; padding-left: 6px; }
 .lern-plan-vorrat-zeile.lern-plan-drin { grid-template-columns: 26px minmax(0, 1fr) auto; }
-.lern-plan-vorrat-zeile.lern-plan-drin .lern-plan-ort > b { color: var(--text-muted); font-weight: 600; }
 .lern-plan-vorrat-zeile .lern-plan-ort small { white-space: normal; }
 .lern-plan-implan { color: var(--ok); font-weight: 700; white-space: nowrap; }
 .lern-plan-umschalter { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--surface-muted); border-radius: 999px; padding: 4px; margin: 8px 0; }
@@ -4583,3 +4581,160 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 /* LB Teil 5 M1: Tablet – Lehrplan-Spalte breiter (55 % / 45 %) */
 @media (min-width: 700px) and (max-width: 1099px) { .lern-plan-spalten { grid-template-columns: minmax(0, 55fr) minmax(0, 45fr); } }
 @media (min-width: 1100px) { .lern-lp-kopf > .lern-st-wort { flex: 0 1 auto; max-width: 42%; } .lern-lp-kopf > .lern-st-wort small { white-space: normal; } .lern-lp-kopf > .lern-lp-titel { flex: 1 1 50%; } }
+/* ---------- AB-A: Abschluss nach Etappe, Flug und Ort (Entwurf 2 des Gestalters) ---------- */
+html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
+.lr-abschluss { position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column; background: #000; color: #fff; font-family: inherit; line-height: 1.45; }
+.lr-abschluss * { box-sizing: border-box; }
+.lr-ab-app { position: relative; flex: 1 1 auto; height: 100%; min-height: 0; overflow: hidden; display: flex; flex-direction: column; color: #fff; }
+.lr-ab-szene { position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden; padding: 22px 22px 34px; display: flex; flex-direction: column; }
+.lr-ab-oben { font-size: 12px; font-weight: 800; letter-spacing: .12em; opacity: .85; position: relative; z-index: 3; padding-right: 110px; }
+.lr-ab-titel { font-size: 40px; font-weight: 900; line-height: .95; letter-spacing: -.01em; margin: 10px 0 6px; position: relative; z-index: 3; text-transform: uppercase; max-width: 270px; color: inherit; hyphens: manual; }
+.lr-ab-unter { font-size: 16px; opacity: .92; position: relative; z-index: 3; max-width: 330px; margin: 0; }
+.lr-ab-blatt { position: relative; z-index: 5; background: var(--ab-blatt); color: var(--ab-btx); border-radius: 26px 26px 0 0; padding: 16px 20px 18px; margin-top: -24px; flex: none; }
+.lr-ab-hell .lr-ab-blatt { --ab-blatt: #fff; --ab-btx: #0B3B52; --ab-ble: #4E6B78; --ab-bli: #DCE8EC; }
+.lr-ab-nacht .lr-ab-blatt { --ab-blatt: #121831; --ab-btx: #E8ECF8; --ab-ble: #A9B3D1; --ab-bli: #2D3762; }
+.lr-ab-kann { font-size: 15px; } .lr-ab-kann b { display: block; font-size: 11px; letter-spacing: .1em; color: var(--ab-ble); text-transform: uppercase; }
+.lr-ab-zeile { display: flex; align-items: center; gap: 10px; margin: 10px 0 0; }
+.lr-ab-sterne { font-size: 24px; font-weight: 900; color: #B07F00; } .lr-ab-nacht .lr-ab-sterne { color: #FFD23F; }
+.lr-ab-knobel-link { margin-left: auto; background: none; border: 0; color: var(--ab-ble); text-decoration: underline; font-size: 13px; min-height: 32px; cursor: pointer; }
+.lr-ab-leise { color: var(--ab-ble); font-size: 13.5px; margin: 8px 0 0; }
+.lr-ab-gross { display: grid; grid-template-columns: 1fr auto; align-items: center; width: 100%; min-height: 62px; border: 0; border-radius: 18px; font: inherit; font-weight: 900; font-size: 18px; padding: 10px 18px; margin-top: 12px; text-align: left; background: var(--ab-kb); color: var(--ab-kt); box-shadow: 0 6px 0 var(--ab-ks); text-decoration: none; cursor: pointer; }
+.lr-ab-gross .lr-ab-gross-text { grid-column: 1; grid-row: 1; }
+.lr-ab-gross small { grid-column: 1; grid-row: 2; font-weight: 600; font-size: 13px; opacity: .85; } .lr-ab-gross .lr-ab-pfeil { grid-column: 2; grid-row: 1 / span 2; font-size: 24px; }
+.lr-ab-gross:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--ab-ks); }
+.lr-ab-gross:focus-visible, .lr-ab-pause:focus-visible, .lr-ab-skip:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.lr-ab-pause { display: block; width: 100%; text-align: center; margin-top: 10px; background: none; border: 0; color: var(--ab-ble, #c9d1e6); text-decoration: underline; font: inherit; font-size: 14px; min-height: 32px; cursor: pointer; }
+.lr-ab-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; position: relative; z-index: 3; max-width: 250px; }
+.lr-ab-chips span { background: #ffffff26; border: 1px solid #ffffff40; border-radius: 99px; padding: 4px 10px; font-size: 13px; font-weight: 700; }
+.lr-ab-abz { position: absolute; z-index: 3; right: 18px; top: 46px; width: 98px; text-align: center; font-size: 11px; font-weight: 900; letter-spacing: .08em; }
+.lr-ab-abz svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 6px 14px #0006); }
+/* 1a Direktflug */
+.lr-ab-direkt .lr-ab-szene { background: radial-gradient(120% 80% at 80% 110%, #FF9A3C 0, #F0522B 28%, #7B1E6E 55%, #1B0C3A 82%); }
+.lr-ab-direkt { --ab-kb: #FFD23F; --ab-kt: #1B0C3A; --ab-ks: #B78D00; }
+.lr-ab-riesig { position: relative; z-index: 3; font-size: 92px; font-weight: 900; line-height: .9; color: #FFD23F; text-shadow: 0 0 30px #FFB80088; margin-top: 4px; }
+.lr-ab-riesig small { font-size: 22px; color: #fff; text-shadow: none; display: block; letter-spacing: .1em; }
+.lr-ab-jet { position: absolute; z-index: 2; left: 0; top: 300px; width: 100%; height: 120px; } .lr-ab-jet svg { width: 100%; height: 100%; }
+.lr-ab-jetflz { position: absolute; z-index: 2; right: 0; top: 272px; width: 78px; transform: rotate(-14deg); filter: drop-shadow(0 0 8px #FFE7A3); }
+.lr-ab-funken i { position: absolute; z-index: 2; width: 6px; height: 6px; border-radius: 50%; background: #FFD23F; box-shadow: 0 0 10px #FFD23F; opacity: .9; }
+/* 1b Saubere Landung */
+.lr-ab-sauber .lr-ab-szene { background: linear-gradient(180deg, #0A6FB8 0, #2FA4E7 45%, #9EDCF7 75%, #D9F2FB 100%); }
+.lr-ab-sauber { --ab-kb: #0E9F6E; --ab-kt: #fff; --ab-ks: #08724F; }
+.lr-ab-bahn { position: absolute; left: 0; right: 0; bottom: 0; height: 150px; z-index: 1; } .lr-ab-bahn svg { width: 100%; height: 100%; display: block; }
+.lr-ab-landeflz { position: absolute; z-index: 2; width: 120px; left: 50%; bottom: 70px; margin-left: -60px; transform: rotate(-90deg); }
+/* 1c Sturmflug */
+.lr-ab-sturm .lr-ab-szene { background: linear-gradient(170deg, #12101F 0, #2A2350 38%, #4B3A86 62%, #F6C35B 100%); }
+.lr-ab-sturm { --ab-kb: #F6C35B; --ab-kt: #221A44; --ab-ks: #B68A2E; }
+.lr-ab-wolken { position: absolute; inset: 0; z-index: 1; } .lr-ab-wolken svg { width: 100%; height: 100%; display: block; }
+.lr-ab-blitz { position: absolute; z-index: 1; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
+.lr-ab-sturmflz { position: absolute; z-index: 2; width: 120px; right: 26px; bottom: 30px; }
+.lr-ab-strahl { position: absolute; z-index: 1; right: -60px; bottom: -80px; width: 380px; height: 380px; background: radial-gradient(closest-side, #FFE6A0, #F6C35B00); }
+.lr-ab-ausdauer { position: relative; z-index: 3; display: inline-flex; gap: 8px; align-items: center; margin-top: 12px; background: #F6C35B; color: #221A44; font-weight: 900; font-size: 13px; letter-spacing: .08em; border-radius: 99px; padding: 6px 12px; align-self: flex-start; }
+/* 2 Flug geschafft */
+.lr-ab-flug .lr-ab-szene { background: radial-gradient(90% 70% at 50% 35%, #2B3A8F 0, #141C4D 55%, #090D26 100%); align-items: center; text-align: center; padding-top: 44px; }
+.lr-ab-flug { --ab-kb: #FFD23F; --ab-kt: #141C4D; --ab-ks: #B78D00; }
+.lr-ab-flug .lr-ab-oben, .lr-ab-ort .lr-ab-oben { padding-right: 0; }
+.lr-ab-flug .lr-ab-titel { font-size: 52px; color: #FFD23F; text-shadow: 0 0 34px #FFD23F66; max-width: none; }
+.lr-ab-ringe { position: relative; z-index: 3; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; max-width: 340px; margin: 10px auto 0; }
+.lr-ab-ringe i { width: 16px; height: 16px; border-radius: 50%; background: #FFD23F; box-shadow: 0 0 12px #FFD23F; }
+.lr-ab-zaehler { position: relative; z-index: 3; font-size: 44px; font-weight: 900; color: #fff; margin-top: 10px; } .lr-ab-zaehler small { font-size: 15px; font-weight: 700; opacity: .85; display: block; }
+.lr-ab-konfetti i { position: absolute; z-index: 2; top: -20px; width: 8px; height: 14px; border-radius: 2px; }
+.lr-ab-kannliste { font-size: 14px; max-height: 128px; overflow: auto; margin-top: 6px; }
+.lr-ab-kannliste div { break-inside: avoid; padding: 2px 0; } .lr-ab-kannliste div::before { content: "✓ "; color: #0E9F6E; font-weight: 900; }
+.lr-ab-wdh { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; } .lr-ab-wdh span { font-size: 12px; border: 1px solid var(--ab-bli); border-radius: 99px; padding: 1px 8px; }
+.lr-ab-skip { position: absolute; z-index: 9; right: 14px; top: 12px; background: #0006; border: 0; color: #fff; font-size: 13px; border-radius: 99px; padding: 6px 12px; min-height: 32px; cursor: pointer; }
+/* 2/3 Bordkarte */
+.lr-ab-neu { background: linear-gradient(160deg, #0B132B 0, #1C2541 60%, #3A506B 100%); padding: 22px; justify-content: center; overflow-y: auto; }
+.lr-ab-neu .lr-ab-oben { font-size: 13px; font-weight: 900; letter-spacing: .2em; color: #FFD23F; text-align: center; margin-bottom: 12px; padding-right: 0; opacity: 1; }
+.lr-ab-pass { background: #FFFDF6; color: #14202B; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px #0008; }
+.lr-ab-pass-kopf { background: #C0391E; color: #fff; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; font-weight: 900; letter-spacing: .12em; font-size: 12px; }
+.lr-ab-route { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 16px 16px 6px; }
+.lr-ab-route b { font-size: 30px; letter-spacing: .02em; line-height: 1; display: block; overflow-wrap: anywhere; } .lr-ab-route small, .lr-ab-flugname small, .lr-ab-felder small { font-size: 11px; color: #5c6570; letter-spacing: .12em; font-weight: 800; display: block; }
+.lr-ab-route .r { text-align: right; } .lr-ab-m { color: #C0391E; font-size: 26px; padding: 0 8px; }
+.lr-ab-flugname { padding: 6px 16px 2px; } .lr-ab-flugname b { font-size: 28px; line-height: 1.05; display: block; }
+.lr-ab-satz { padding: 4px 16px 10px; font-size: 15px; color: #3d4752; margin: 0; }
+.lr-ab-felder { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 6px 16px 14px; } .lr-ab-felder b { font-size: 16px; }
+.lr-ab-riss { border-top: 2px dashed #cfc8b8; margin: 0 14px; position: relative; } .lr-ab-riss::before, .lr-ab-riss::after { content: ""; position: absolute; top: -12px; width: 22px; height: 22px; border-radius: 50%; background: #1C2541; } .lr-ab-riss::before { left: -26px; } .lr-ab-riss::after { right: -26px; }
+.lr-ab-pass-unten { display: flex; align-items: center; gap: 12px; padding: 12px 16px 16px; } .lr-ab-pass-unten b { font-size: 13px; letter-spacing: .12em; }
+.lr-ab-strich { flex: 1; height: 40px; background: repeating-linear-gradient(90deg, #14202B 0 2px, transparent 2px 4px, #14202B 4px 7px, transparent 7px 9px); opacity: .85; }
+.lr-ab-neu { --ab-kb: #FFD23F; --ab-kt: #0B132B; --ab-ks: #B78D00; }
+.lr-ab-neu .lr-ab-gross { margin-top: 18px; font-size: 20px; } .lr-ab-neu .lr-ab-pause { color: #c9d1e6; }
+/* 3 Ort geschafft */
+.lr-ab-ort .lr-ab-szene { background: radial-gradient(100% 70% at 50% 40%, #F3E6C8 0, #E4CFA0 60%, #C9AE76 100%); color: #3B2A14; align-items: center; text-align: center; padding-top: 44px; }
+.lr-ab-ort { --ab-kb: #8C2F1B; --ab-kt: #fff; --ab-ks: #5E1E10; } .lr-ab-ort .lr-ab-oben { color: #5B3D14; opacity: 1; }
+.lr-ab-passstempel { position: relative; z-index: 3; width: 220px; height: 220px; border-radius: 50%; border: 8px double #B3261E; color: #B3261E; display: grid; place-items: center; transform: rotate(-11deg); margin: 14px auto 6px; background: #B3261E0d; text-align: center; }
+.lr-ab-passstempel b { font-size: 40px; letter-spacing: .08em; display: block; line-height: 1; overflow-wrap: anywhere; } .lr-ab-passstempel small { display: block; font-weight: 900; letter-spacing: .25em; font-size: 13px; } .lr-ab-passstempel em { font-style: normal; font-size: 13px; display: block; margin-top: 4px; font-weight: 700; }
+.lr-ab-ort .lr-ab-titel { color: #3B2A14; font-size: 34px; max-width: none; } .lr-ab-ort .lr-ab-unter { color: #5B3D14; }
+.lr-ab-dahinter { padding: 40px 0; text-align: center; }
+/* Tablet */
+@media (min-width: 700px) {
+  .lr-ab-szene { padding: 36px 44px 34px; } .lr-ab-blatt { padding: 22px 44px 26px; }
+  .lr-ab-titel { font-size: 66px; max-width: 560px; } .lr-ab-unter { font-size: 20px; max-width: 520px; }
+  .lr-ab-abz { right: 50px; top: 70px; width: 150px; font-size: 14px; } .lr-ab-oben { padding-right: 200px; }
+  .lr-ab-riesig { font-size: 150px; } .lr-ab-jet { top: 470px; } .lr-ab-jetflz { top: 438px; width: 120px; }
+  .lr-ab-chips { max-width: 520px; } .lr-ab-bahn { height: 230px; } .lr-ab-landeflz { width: 180px; margin-left: -90px; bottom: 110px; }
+  .lr-ab-sturmflz { width: 190px; right: 80px; bottom: 50px; }
+  .lr-ab-flug .lr-ab-titel { font-size: 86px; } .lr-ab-ringe { max-width: 560px; gap: 10px; } .lr-ab-ringe i { width: 30px; height: 30px; } .lr-ab-zaehler { font-size: 64px; }
+  .lr-ab-kannliste { columns: 2; max-height: 220px; }
+  .lr-ab-neu { padding: 60px 90px; } .lr-ab-route b { font-size: 56px; } .lr-ab-flugname b { font-size: 46px; }
+  .lr-ab-passstempel { width: 340px; height: 340px; } .lr-ab-passstempel b { font-size: 72px; } .lr-ab-ort .lr-ab-titel { font-size: 52px; }
+}
+/* Bewegung: nur ohne „weniger Bewegung“, höchstens 1,8 s; Antippen (lr-ab-fertig) zeigt sofort den Endzustand */
+@media (prefers-reduced-motion: no-preference) {
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-jetflz { animation: abHell .5s ease-out both .8s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-spur { stroke-dasharray: 900; stroke-dashoffset: 900; animation: abZeichnen 1s ease-out forwards; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-riesig { animation: abKnall .55s cubic-bezier(.2, 1.5, .4, 1) both .55s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-funken i { animation: abFunke .9s ease-out both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-abz { animation: abDreh .7s cubic-bezier(.2, 1.4, .4, 1) both .8s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-landeflz { animation: abLanden 1.1s cubic-bezier(.3, .7, .3, 1) both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-blitz { animation: abBlitz 1.1s ease-out both .1s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-sturmflz { animation: abDurch 1.3s cubic-bezier(.3, .7, .3, 1) both .2s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-strahl { animation: abHell 1.3s ease-out both .4s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-ausdauer { animation: abKnall .45s cubic-bezier(.2, 1.6, .4, 1) both 1.2s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim.lr-ab-flug .lr-ab-titel { animation: abKnall .6s cubic-bezier(.2, 1.4, .4, 1) both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-ringe i { animation: abKnall .3s cubic-bezier(.2, 1.6, .4, 1) both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-konfetti i { animation: abFallen 1.4s ease-in both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-pass { animation: abEinfahren .6s cubic-bezier(.2, 1.2, .4, 1) both .1s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-passstempel { animation: abStempel .5s cubic-bezier(.2, 1.4, .4, 1) both .2s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-blatt { animation: abHoch .45s ease-out both .9s; }
+}
+.lr-ab-konfetti i { opacity: 0; } /* Endzustand: Konfetti ist gefallen */
+@media (prefers-reduced-motion: no-preference) { .lr-abschluss:not(.lr-ab-fertig) .lr-ab-konfetti i { opacity: 1; } }
+.lr-ab-funken i { opacity: 0; } @media (prefers-reduced-motion: no-preference) { .lr-abschluss:not(.lr-ab-fertig) .lr-ab-funken i { opacity: .9; } }
+@keyframes abZeichnen { to { stroke-dashoffset: 0; } }
+@keyframes abKnall { from { transform: scale(.3); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes abFunke { from { transform: translate(0, 0) scale(1.4); opacity: 1; } to { transform: translate(var(--dx), var(--dy)) scale(.2); opacity: 0; } }
+@keyframes abDreh { from { transform: rotate(-160deg) scale(.2); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes abLanden { 0% { transform: translateY(160px) rotate(-90deg) scale(1.9); opacity: .2; } 100% { transform: rotate(-90deg) scale(1); opacity: 1; } }
+@keyframes abBlitz { 0%, 100% { opacity: 0; } 8% { opacity: .75; } 14% { opacity: 0; } 22% { opacity: .45; } 30% { opacity: 0; } }
+@keyframes abDurch { from { transform: translate(-220px, 120px) rotate(-18deg); opacity: .4; } to { transform: none; opacity: 1; } }
+@keyframes abHell { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: none; } }
+@keyframes abFallen { from { transform: translateY(0) rotate(0); } to { transform: translateY(900px) rotate(720deg); opacity: 1; } }
+@keyframes abEinfahren { from { transform: translateY(80px) rotate(-4deg); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes abStempel { 0% { transform: scale(2.2) rotate(-30deg); opacity: 0; } 70% { opacity: 1; } 100% { transform: scale(1) rotate(-11deg); opacity: 1; } }
+@keyframes abHoch { from { transform: translateY(60px); opacity: 0; } to { transform: none; opacity: 1; } }
+/* Reisepass: Abzeichen */
+.lr-abzeichen { font-size: 17px; font-weight: 800; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.lr-ab-ort .lr-ab-skip { background: #3B2A14d9; color: #fff; }
+/* LB Teil 6 (Nachprüfung 4) */
+/* N1: „Nach Themengebiet“ – unter 1100 px steht die Stufe unter dem Titel (wie „Nach Klasse“), damit kein Wort bricht */
+@media (max-width: 1099px) {
+  .lern-plan-vorrat-zeile > .lern-plan-implan, .lern-plan-vorrat-zeile > .lern-chip { grid-column: 1 / -1; grid-row: 2; justify-self: start; padding-left: 68px; margin-top: -4px; padding-bottom: 4px; white-space: normal; }
+  .lern-plan-vorrat-zeile.lern-kl-rand { grid-template-columns: 30px 26px minmax(0, 1fr); }
+  .lern-plan-vorrat-zeile.lern-plan-drin { grid-template-columns: auto 26px minmax(0, 1fr); }
+  .lern-plan-vorrat-zeile.lern-plan-drin > .lern-plan-implan { padding-left: 38px; }
+  .lern-plan-vorrat-zeile > .lern-plan-griff, .lern-plan-vorrat-zeile > .lern-st-wahl { grid-column: 1; grid-row: 1; }
+  .lern-plan-vorrat-zeile:has(> .lern-st-wahl) > .lern-plan-griff { display: none; }
+  .lern-plan-vorrat-zeile > .lern-kl-kasten { grid-column: 2; grid-row: 1; }
+  .lern-plan-vorrat-zeile > .lern-plan-ort { grid-column: 3; grid-row: 1; }
+  .lern-plan-vorrat-zeile > .lern-chip { min-height: 36px; min-width: 44px; font-size: 18px; padding: 0 12px; margin: -2px 0 6px 62px; }
+  /* N2: Plan-Zeilen links – Titel bis zu zwei Zeilen, erst danach „…“ */
+  .lern-plan-links .lern-plan-ort.lern-kl-zeile > b { white-space: normal; overflow: hidden; text-overflow: clip; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow-wrap: normal; word-break: normal; hyphens: auto; -webkit-hyphens: auto; font-size: 14px; line-height: 1.12; }
+  .lern-plan-links .lern-plan-ort.lern-kl-zeile > small { font-size: 12px; line-height: 1.25; }
+}
+/* N5: Etappen-Liste – Stand rechtsbündig in derselben Zeile wie der Titel */
+.lern-st-etappe { display: flex; align-items: baseline; gap: 4px 8px; }
+.lern-st-etappe > b { flex: none; }
+.lern-st-etappe .lern-st-et-titel { flex: 1 1 auto; min-width: 0; }
+.lern-st-etappe .lern-st-et-stand { margin-left: auto; flex: none; white-space: nowrap; text-align: right; }
+/* Punkt 6: Rückfall bei „Kann er komplett“ */
+.lern-st-wort.lern-st-rueckfall small { color: var(--st5, #b42318); font-weight: 600; }

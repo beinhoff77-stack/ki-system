@@ -2116,3 +2116,101 @@ Grundlage: `inhalte/postfach/lehrplan-lb.md`, Einträge „AUFTRAGSENTWURF: Pote
 **Prüfen und melden:** Generatoren für beide neuen Flüge und die zwei geänderten; `python3 -I tools/inhalt_pruefen.py --alle` muss OK melden; jede Lösung selbst nachrechnen. Bericht: Zahl der Aufgaben je Flug, Karte, Pool und Stufe; welche Aufgaben wohin umgezogen sind (alte → neue Stelle); Lehrplan-Quellen; was nicht geprüft wurde. Ein Commit je Flug + einer für Themenliste und Texte. **Nichts in die Datenbank schreiben, kein App-Code, kein Merge nach `main`, keine Kinderdaten.** Am Ende „FERTIG: Potenzgesetze geteilt“.
 
 **Danach der Haupt-Chat:** Themen 102 und 103 in der Datenbank anlegen und den Orten zuordnen, Flüge einspielen (Entwurf), unabhängig prüfen lassen, den Lernstand des betroffenen Kindes von `terme.umformen` auf Flug A umhängen (Landungen, Wiederholungen, Nachweise – ohne Verlust; der abgeschlossene Ort bleibt abgeschlossen), Lehrplan-Felder nachziehen; Freigabe und Plan entscheidet Sebastian.
+
+---
+
+# Bau-Auftrag LB, Teil 6 (20.11.): Nachprüfung 4 des Gestalters – Lehrer-Ansicht
+
+Grundlage: `inhalte/pruefung/lehrer/nachpruefung-4.md` (Bilder und Messwerte in `inhalte/pruefung/lehrer/n4/`). Teil 5 ist vollständig erledigt; neu aufgefallen sind fünf Punkte. Nur App (`lernen.js`/Stile), kein Server. Wird **zusammen mit AB-A** vom selben Bau-Chat gebaut (eine Version, 0.83.0).
+
+1. **N1 – Muss:** Ansicht „Nach Themengebiet“ (Standard) bricht auf Tablet (820) 16 und auf dem Handy (400) 2 Wörter. Wie in „Nach Klasse“: unter 1100 px steht das Stufenwort unter dem Titel. Abnahme: maschinell gezählt 0 gebrochene Wörter bei 400, 820, 1280 in allen 8 Gebieten.
+2. **N2 – Sollte:** Plan-Zeilen links auf Handy und Tablet: Titel bis zu zwei Zeilen, erst danach „…“.
+3. **N3 – Sollte:** Abschnittszähler zählt nur die Flüge der eigenen Stufe („16 Orte · 20 Flüge in Wiederholung“), sodass Kopf und Abschnitt dieselbe Zahl zeigen.
+4. **N4 – Kann:** „Nach Themengebiet“: eingeplante Zeilen nicht abblassen (wie „Nach Klasse“).
+5. **N5 – Kann:** Etappen-Liste auf dem Handy: Stand rechtsbündig in derselben Zeile wie der Titel.
+6. **Aus LB-3 Nachbesserung (Sollte 4):** Die App bietet „↶ Rückgängig“ nur noch für den jüngsten Schritt an; die Ablehnung des Servers („Inzwischen wurde etwas anderes geändert.“) verständlich anzeigen. Rückfall-Hinweis (`hinweis: 'rueckfall'`, `wieder_offen`) in der Lehrer-Ansicht zeigen; `heute_bis` statt eigener Tagesrechnung verwenden, wo die App „heute“ bestimmt.
+
+Tests ergänzen (mindestens N1 als Messung, N3, Punkt 6), alle Tests laufen lassen. Meldung im Postfach, am Ende „FERTIG: LB Teil 6“.
+
+---
+
+# Bau-Auftrag LB, Teil 7 (20.11.): Info-Seite „So funktioniert’s“ auf den Stand 0.82.2 bringen
+
+Vorgabe des Gestalters mit allen neuen Texten **wörtlich**: `inhalte/pruefung/lehrer/info-seite-update.md` (Punkte 1–7). Nur Texte in `lernen.js` (`viewInfo` und `LERN_INFO_FRAGEN`), keine Datenbank. Wird vom selben Bau-Chat zusammen mit AB-A und Teil 6 gebaut (0.83.0).
+
+- Punkte 1–7 genau nach Vorgabe übernehmen; die doppelten alten Einträge „Lernstand:“ und „Was wackelt?:“ löschen.
+- Abschluss-Ansichten und Abzeichen (AB-A) kommen in derselben Version: dafür einen kurzen Eintrag ergänzen, der genau das beschreibt, was AB-A zeigt (Text im Bericht nennen, der Gestalter prüft ihn).
+- Punkt 3 („Kann er – aber wiederholen“) beschreibt den Stand **nach** der LB-3-Nachbesserung am Server; steht die beim Live noch aus, meldet der Haupt-Chat das.
+- Tests: vorhandene Info-Seiten-Tests anpassen. Im Bericht „FERTIG: LB Teil 7“; der Gestalter prüft den Text gegen die App.
+
+---
+
+# Siebenundzwanzigste Runde (20.11.): Unabhängige Prüfung der geteilten Potenzgesetz-Flüge
+
+Prüf-Chat **`pruefung-potenz`**, Zweig `pruefung-potenz` vom aktuellen `lernen-app`, Bericht `inhalte/pruefung/potenz/bericht.md`, Meldung `inhalte/postfach/pruefung-potenz.md`. Grundlage: Sechsundzwanzigste Runde und der Bericht in `inhalte/postfach/potenz-teilen.md` (auch „Abweichungen vom Auftrag“ 1–6). Nur prüfen, nichts an den Inhalten ändern.
+
+Geprüft werden `inhalte/themen/terme.potenzgesetze_natuerlich.json` (Flug A, 191 Aufgaben), `terme.potenzgesetze_ganzzahlig.json` (Flug B, 175), `terme.potenzgesetze.json` (Karte „Fehler finden“, alle 32) und `terme.umformen.json` (nur: fehlen genau die vier Karten, ist der Rest unverändert, stimmen Einstieg/Ziel).
+
+1. **Jede Aufgabe selbst nachrechnen** (Lösung, alle falschen Antworten samt Begründung, Lösungsweg, Tipp) – unabhängig vom Generator, mit eigenem Skript oder von Hand; Ergebnis je Aufgabe.
+2. **Trennung:** Flug A enthält nirgends negative Exponenten (Text, Antworten, Lösungsweg, Ergebnis); Gym 6 setzt kein Potenzgesetz voraus; Flug B setzt nichts voraus, was in Gym 8 nach Bruchtermen kommt.
+3. **Lehrplan:** passt Flug B zu M8 4 („plausibel machen und in einfachen Fällen anwenden“) – nicht zu schwer, nicht zu leicht? Passen Stufe und Typ je Aufgabe (insbesondere die 23 nach Flug A umgezogenen Aufgaben, jetzt alle Stufe 3 „fehler“, und die in Flug B umgestuften 29)?
+4. **Erklärungen von Flug B** (5 Karten): fachlich richtig, für Klasse 8 verständlich, typischer Fehler treffend.
+5. **Themenliste und kann-Texte** der vier Flüge: Titel, `umfang`, Lehrplan-Bezüge, Reihenfolgen plausibel; kann-Texte treffen den Inhalt.
+
+Bericht: Muss / Sollte / Kann mit Fundstelle (Flug, Karte, Fragetext), dazu was nicht geprüft wurde. Keine Kinderdaten, nichts in die Datenbank, kein App-Code. Am Ende „FERTIG: Prüfung Potenz“.
+
+**Nachtrag zur Sechsundzwanzigsten Runde – Entscheidung Sebastian (20.11.):** In Flug A werden die vier leichten „Stimmt die Rechnung? …“-Aufgaben (aus Gym 6 umgezogen, derzeit Stufe 3 „fehler“ in `mal_gleiche_basis`) zu **Stufe 1, Typ „erkennen“**. Grund: Eine Landung verlangt eine gelöste Stufe-3-Aufgabe; leichte Aufgaben dort entwerten die Hürde. `potenz-teilen` setzt das zusammen mit den Ergebnissen der Siebenundzwanzigsten Runde um (eine Nachbesserung, nicht zwei); der Prüf-Chat nennt weitere Stufe-3-Aufgaben, die zu leicht sind.
+
+---
+
+# Achtundzwanzigste Runde (20.11.): Potenzgesetz-Flüge nachbessern – nach der unabhängigen Prüfung
+
+Chat **`potenz-teilen`** (weiter auf seinem Zweig, vorher `lernen-app` holen). Grundlage: `inhalte/pruefung/potenz/bericht.md` – jede Fundstelle dort genau lesen. Kein Rechenfehler gefunden; es geht um Trennung, Ablenker, Stufe/Typ, Einordnung.
+
+**Muss**
+1. Gym 6, `negativer_exponent`, Aufgabe 35: Tipp ohne Potenzgesetz („Rechne beide Potenzen aus und teile.“).
+2. Flug A, `mal_gleiche_basis`, Aufgabe 11: Tipp ohne negative Exponenten.
+
+**Sollte (alle umsetzen)**
+1. Gym 6: Tipps zu Hoch 0 (Aufgaben 31, 37) ohne Quotientengesetz, über das Muster der Lernkarte.
+2. Flug A, `geteilt_gleiche_basis`, Aufgaben 131 und 135: nach Flug B verlegen und in Flug A gleichwertig ersetzen (erster Exponent nie kleiner).
+3. Flug A: die sechs unpassenden Ablenker (Aufgaben 14, 16, 18, 68, 88, 136) durch typische Fehler ersetzen, die zur jeweiligen Rechnung passen.
+4. **Stufe und Typ der 23 umgezogenen Aufgaben** (Entscheidung Sebastian + Prüfbericht; ersetzt „alle Stufe 3 fehler“ aus der Sechsundzwanzigsten Runde): die **sechs** „Stimmt die Rechnung?“ mit richtiger Rechnung (2, 4, 6, 112, 116, 122) → Stufe 1 `erkennen`; 26 → `parameter`; 31 → `rueckwaerts`; 178 → `begruenden`; 43 zurück in den Knobel-Pool oder ersetzen (zu nah an 44). Stufe folgt dem Typ laut README. Danach Mindestmengen und Typ-Mischung je Karte neu prüfen (Stufe 3 von `mal_gleiche_basis` nicht mehr von „fehler“ beherrscht).
+5. **IB:** Flug A nach MYP 3, vor `terme.umformen` (wie im Gymnasium); Reihenfolgen MYP 3 und MYP 4 nachziehen, weiter als Annahme gekennzeichnet.
+6. Flug A: Aufgaben 75, 76 bekommen einen Typ; 30, 154, 156 einheitlich einstufen.
+
+**Kann (umsetzen):** 1 („Bruch“ statt „Bruchterm“, wo der Begriff in RS/IB noch fehlt) · 2 (Hinweis-Satz in „Gleiche Basis: teilen“) · 3 (`offen` in Gym 6 bereinigen) · 4 (`lehrplan_rs` von `terme.umformen`) · 5 (kann-Text `kurz` Gym 6) · 7 (Einstieg `terme_vereinfachen`). Kann 8 bleibt.
+
+**Kann 6 („Potenzen von Potenzen“ als Karte in Flug A, M7 1.2): nur bauen, wenn der Haupt-Chat Sebastians Ja im Postfach meldet.** Dann als **Pflichtkarte** mit eigenem Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz; die vier bestehenden Schlüssel bleiben unverändert.
+
+Prüfskript `--alle` OK, Selbstprüfung der Reihenfolgen, Bericht mit alt → neu je geänderter Aufgabe. Nichts in die Datenbank, kein App-Code. Am Ende „FERTIG: Potenz nachgebessert“.
+
+---
+
+# Nachträge aus ChatGPTs Prüfergebnis 885 (20.11.)
+
+Ergebnis: Die drei Muss aus 881/882 sind geschlossen; kein neues Muss in i4, i5, AB-S. Offen sind nur Sollte.
+
+**An `bau-lehrer` (nur Server-Tests, kein App-Code) – „LB-3 Tests ergänzen“:**
+1. `lb3_nachbesserung_rauchtest.sql`: zusätzlicher Fall **ohne direktes Setzen der Nachweisfelder** – ein gesetzter Flug, das Testkind erarbeitet eine Etappe wirklich über `uebung_pruefen_intern` (Ziel-Anzahl verschiedener richtiger Bordkarten, nötige Typen, eine schwere, Folge), danach Rücknahme → diese Etappe bleibt gelandet, die anderen werden offen.
+2. `i4_misch_ausgabe_rauchtest.sql`: Fall „zweimal derselbe Flug → dieselben gültigen Karten; Flugwechsel → bisherige verfallen; zurückwechseln → neu ausgegeben; älter als 24 h → verfallen“.
+3. `ab_s_abschluss_rauchtest.sql`: `test_abschliessen_intern` bei nicht bestandenem Test, bei Verbessern/Nachtragstest und beim erneuten Aufruf – was liefern `flug`, `naechster_flug`, `sterne_flug`? Ergebnis melden; liefert der Server die Felder auch dort, per Migration auf den erstmaligen Flug-Abschluss beschränken (Datei, nicht ausführen).
+Am Ende „FERTIG: LB-3 Tests ergänzt“.
+
+**Für AB-A / Teil 6 / Teil 7 (`bau-motivation`, in 0.83.0 mit beachten):**
+- Abschluss-Ansicht des Flugs **nur beim erstmaligen Abschluss** zeigen (`einheit_abgeschlossen` und Flug-Test, nicht Verbessern/Nachtragstest, nicht beim erneuten Öffnen).
+- Wiederlandung: Text „WIEDER GELANDET“, nicht „fehlerfreie Landung“ – auch wenn der Server `sauber` meldet.
+- Abzeichen: zeigt die Art der **letzten** Landung; so beschriften („Abzeichen der letzten Landung“), kein Eindruck, ein früheres Abzeichen sei verloren.
+- Rückfall-Hinweis (`hinweis: 'rueckfall'`) in der Lehrer-Ansicht sichtbar – ◉ allein wäre irreführend (steht schon in Teil 6, Punkt 6).
+- `heute_bis`: Die Kinder-Ansicht aktualisiert „heute“ beim Tageswechsel von selbst (Test dazu).
+- Info-Seite (Teil 7): ein Satz, dass „Rückgängig“ den Stand einer selbst gelandeten Etappe nicht zurückdreht, wenn das Kind inzwischen weitergeübt hat.
+
+---
+
+# Nachträge 20.11. nachmittags
+
+**A – `bau-lehrer`: „Flug geschafft“ auch nach Verbessern (Entscheidung Haupt-Chat, im Sinne von Sebastians Vorgabe „nach einem Flug eine spektakulärere Ansicht“).** `supabase/migrations/20261120_ab_s_flug_abschluss_einmal.sql` ist **nicht eingespielt** und wird so geändert: `flug_geschafft` = dieser Aufruf schließt die Sitzung ab **und der Flug wird dadurch zum ersten Mal fertig** – egal ob über den Flug-Test (`blocktest`) oder über Verbessern (`korrektur`). Weiter false: nicht bestandener Test, Nachtragstest, Nachtest, erneuter Aufruf einer anderen Sitzung, alles nach dem ersten Fertigwerden. Erneuter Aufruf derselben Sitzung liefert dasselbe wie beim ersten Mal. Rauchtest 9c entsprechend (Verbessern, das den Flug erstmals fertig macht → `flug_geschafft` true mit Feldern; zweites Verbessern/Nachtest → false). Nur Datei, nicht ausführen. „FERTIG: flug_geschafft“.
+
+**B – `bau-motivation` (erst nach A und nach dem Live von 0.83.0): App 0.83.1** – Abschluss-Ansicht des Flugs an `flug_geschafft` (oder `ort_geschafft`) hängen statt an `einheit_abgeschlossen`; fehlt das Feld (alter Server), Verhalten wie 0.83.0. Tests. „FERTIG: 0.83.1“.
+
+**C – `pruefung-potenz`: Nachprüfung der Nachbesserung.** Grundlage: Bericht „FERTIG: Potenz nachgebessert“ in `inhalte/postfach/potenz-teilen.md` (Entscheidungen 1–7 dort). Prüfen: (1) die neue Pflichtkarte `potenz_von_potenz` in Flug A vollständig – alle 35 Aufgaben nachrechnen, Erklärung, keine negativen Exponenten, passt zu M7 1.2; (2) jede in der Nachbesserung geänderte oder ersetzte Aufgabe (Liste alt → neu im Bericht); (3) sind Muss 1–2 und Sollte 1–6 wirklich erledigt; (4) die Umstufungen aus Entscheidung 1 (8 Aufgaben auf Stufe 1 „erkennen“) und die zwei Aufgaben ohne Typ (Entscheidung 3) vertretbar? Bericht `inhalte/pruefung/potenz/nachpruefung.md`, Muss/Sollte/Kann. „FERTIG: Nachprüfung Potenz“.

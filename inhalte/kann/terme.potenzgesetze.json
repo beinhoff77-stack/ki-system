@@ -1,9 +1,9 @@
 {
  "thema_schluessel": "terme.potenzgesetze",
- "kurz": "Du lernst, Mal-Aufgaben mit immer gleichen Zahlen kurz zu schreiben und auszurechnen.",
+ "kurz": "Du lernst, Potenzen zu berechnen, auch mit Hoch 0 und mit negativen Hochzahlen.",
  "etappen": {
   "potenz_begriff": "Potenzen mit Brüchen, Dezimalzahlen und negativer Basis berechnen und vergleichen",
   "negativer_exponent": "Potenzen mit negativem Exponenten und mit Exponent 0 berechnen",
-  "fehler_finden": "typische Fehler bei Potenzen erkennen und mit einer Zahlenprobe prüfen"
+  "fehler_finden": "Fehler bei Potenzen und negativen Exponenten finden und mit einer Zahlenprobe prüfen"
  }
 }

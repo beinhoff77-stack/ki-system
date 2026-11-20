@@ -96,7 +96,9 @@ begin
   perform schule.misch_buchen(v_l, v_ids1[1], true, 0::smallint, now()); -- ohne Ausgabe
   select * into v_ks from schule.karte_stand where lernender_id = v_l and einheit_id = v_e1 and lernziel = v_lz1;
   if v_ks.misch_ok_am is not null then raise exception 'FEHLER S3a: Beleg ohne Ausgabe'; end if;
-  insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values (v_l, v_ids1[1]);
+  -- LB-3 Nachbesserung, Sollte 7: unabhängig vom Zufall der Kartenauswahl – eine schon vorhandene (auch verfallene) offene Ausgabe wird übernommen
+  insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values (v_l, v_ids1[1])
+  on conflict (lernender_id, aufgabe_id) where eingeloest_am is null do update set ausgegeben_am = now(), verfallen_am = null, einheit_id = null, lernziel = null;
   v_ok := false;
   begin
     insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values (v_l, v_ids1[1]);
@@ -122,7 +124,8 @@ begin
   r := schule.uebung_pruefen_intern(v_l, jsonb_build_object('aufgabe_id', v_ag.id, 'client_id', 'i3-4a', 'antwort', v_ag.loesung, 'misch', true, 'aktuell_einheit', v_ag.einheit_id, 'aktuell_lernziel', v_ag.variante_gruppe));
   if not (select misch from schule.versuch where lernender_id = v_l and client_id = 'i3-4a') then raise exception 'FEHLER S4b: Geräte-Angabe statt gespeicherter Lage geprüft'; end if;
   -- gespeicherte Lage = Etappe der Karte selbst → keine Mischkarte, auch wenn das Gerät etwas anderes sagt
-  insert into schule.misch_ausgabe(lernender_id, aufgabe_id, einheit_id, lernziel) values (v_l, v_ag.id, v_ag.einheit_id, v_ag.variante_gruppe);
+  insert into schule.misch_ausgabe(lernender_id, aufgabe_id, einheit_id, lernziel) values (v_l, v_ag.id, v_ag.einheit_id, v_ag.variante_gruppe)
+  on conflict (lernender_id, aufgabe_id) where eingeloest_am is null do update set ausgegeben_am = now(), verfallen_am = null, einheit_id = excluded.einheit_id, lernziel = excluded.lernziel;
   if schule.misch_gueltig(v_l, v_ag, jsonb_build_object('misch', true, 'aktuell_einheit', v_e2, 'aktuell_lernziel', v_lz2)) then raise exception 'FEHLER S4c: Lage der Karte selbst gewertet'; end if;
   raise notice 'ok S4: Ausgabe merkt Flug % und Etappe %; misch_gueltig prüft die gespeicherte Lage, nicht die Angaben des Geräts', v_lage.einheit_id, coalesce(v_lage.lernziel, '(alle gelandet)');
 end $$;

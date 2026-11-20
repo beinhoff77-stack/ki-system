@@ -4,10 +4,6 @@
  "etappen": {
   "zusammenfassen": "gleichartige Glieder wie 3x und −5x zusammenfassen, auch mit x² und Minuszeichen",
   "produkte": "bei Produkten wie (−3x) · 6y Zahlen und Variablen zusammenfassen, mit richtigem Vorzeichen",
-  "mal_gleiche_basis": "bei gleicher Basis Potenzen malnehmen, indem du die Exponenten addierst",
-  "gleicher_exponent": "bei gleichem Exponenten die Basen zusammenfassen und so geschickt rechnen",
-  "geteilt_gleiche_basis": "bei gleicher Basis Potenzen teilen, indem du die Exponenten subtrahierst",
-  "anwenden": "erkennen, welches Potenzgesetz passt, und Zahlen dafür als Potenz schreiben",
   "minusklammer": "eine Klammer mit Minus davor auflösen, indem du alle Vorzeichen darin umdrehst",
   "ausmultiplizieren": "einen Faktor mit jedem Glied einer Klammer malnehmen, samt Vorzeichen",
   "summe_mal_summe": "zwei Klammern ausmultiplizieren, jedes Glied mal jedes, und dann zusammenfassen",

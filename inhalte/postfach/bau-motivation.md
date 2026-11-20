@@ -2,6 +2,108 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: AB-A und LB Teil 6 (dazu LB Teil 7) – App 0.83.0, Cache v150
+
+Stand `lernen-app` 1cc6edc übernommen (Zweig `bau-motivation`). Nur App (`lernen.js`, `style.css`, `sw.js`) und Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.
+
+**AB-A:** war beim Holen schon in `lernen-app` (Commit 9cea758, App 0.83.0, Cache v149, Meldung „FERTIG: AB-A“ weiter unten; gebaut über `bau-lehrer`). Nicht noch einmal gebaut. Die Version bleibt **0.83.0** (noch nicht live), Teil 6 und Teil 7 kommen dazu, Cache **v149 → v150**.
+
+**LB Teil 6 (Nachprüfung 4)**
+- **N1 (Muss) „Nach Themengebiet“:** Unter 1100 px steht die Stufe (bzw. „+“) unter dem Titel, die Zeilen haben feste Plätze (Griff/Häkchen · Klassen-Kasten · Titel), damit auch das Auswählen die Zeile nicht auseinanderzieht. **Messung mit dem Skript des Gestalters (`n4/n4.test.cjs`, echte Themenliste):** gebrochene Wörter in allen 8 Gebieten – vorher 400: 2, 820: 16, 1280: 0 → **jetzt 0 / 0 / 0**; „Nach Klasse“ weiter 0 in allen 17 Klassen. Hinweis zum Skript: Es rechnet die Wurzel als `../../..` von `n4/` aus und findet so `tests/lernen.test.cjs` nicht (läuft nur, wenn es zwei Ebenen tiefer liegt) – ich habe es dafür in einen Hilfsordner kopiert, nicht geändert.
+- **N2 (Sollte) Plan links:** Titel unter 1100 px bis zu zwei Zeilen (14 px, Silbentrennung `hyphens: auto`, Sprache `de`), erst danach „…“. Gekürzte Titel: 400 px **31 → 12** von 36, 820 px **28 → 3** von 36 (die übrigen brauchen mehr als zwei Zeilen). Die Schrift ist dafür 1 px kleiner, damit E-2 („12 Orte auf einem Tablet, Zeile ≤ 72 px“) weiter erfüllt ist. Lange Wörter werden jetzt mit Trennstrich umbrochen („Gleichungs-systeme“) statt abgeschnitten – bitte ansehen.
+- **N3 (Sollte) Zähler:** Jeder Abschnitt zählt nur die Flüge seiner Stufe, im ganzen Plan – dieselbe Zahl wie im Kopf, nach dem Muster der Vorgabe („16 Orte · 20 Flüge in Wiederholung“); mit den Testdaten des Gestalters z. B. „1 Ort · 1 Flug gerade dran“, „5 Orte · 9 Flüge kommen noch“ bei Kopf „1 ▶ · 9 ○“. Für ◉: „… Flüge komplett gekonnt“. Liegt ein Flug dieser Stufe in einem Ort weiter oben (z. B. ein ↻-Flug in einem ▶-Ort), steht „(davon n in Orten weiter oben)“ dabei.
+- **N4 (Kann):** eingeplante Zeilen in „Nach Themengebiet“ nicht mehr blass (Deckkraft 1, gleiche Titelfarbe wie die übrigen).
+- **N5 (Kann):** Etappen-Liste: Stand („offen“, „gelandet“ …) rechtsbündig in der ersten Titelzeile, ohne „·“.
+- **Punkt 6:** „↶ Rückgängig“ gilt nur für den jüngsten Schritt (war schon mit 9cea758 so; jetzt mit Test: nach einem Rückgängig kein zweiter Schritt zurück; lehnt der Server ab, steht „Rückgängig geht nur für die letzte Änderung. Inzwischen wurde etwas anderes geändert.“ mit „Neu laden“). **Rückfall:** `hinweis: 'rueckfall'` zeigt bei ◉ „gesetzt · Rückfall: n Etappen wieder offen“ (bzw. „alle Etappen sicher · Rückfall: …“), rot hervorgehoben – überall, wo die Stufe steht (Plan links, „Nach Klasse“, Themengebiet aufgeklappt). **heute_bis:** neu `lernHeuteTag(kind)` = Tag des Kindes vom Server, solange `heute_bis` nicht vorbei ist, sonst Kalendertag des Geräts; genutzt für „Knobeln des Tages“ (vorher UTC-Datum!) und die „Wiederholungsrunde heute“ (vorher Gerätedatum); der Tageszähler nutzte es schon (9cea758). Nicht umgestellt: Eltern-Seiten (Pausen, „seit … Tagen“) – dort gilt der Tag der Eltern bzw. die Pausenregel „Ortszeit des Kindes“ rechnet schon der Server; ein `heute_bis` je Kind liefert dort keine Aktion.
+
+**LB Teil 7 (Info-Seite, `info-seite-update.md` Punkte 1–7)** – wörtlich übernommen, mit diesen Abweichungen (bitte prüfen):
+- Punkt 1: „alle Flüge eines **Themen**gebiets“ statt „eines Gebiets“; Punkt 7: „in welchem Jahr ein **Flug** dran ist“ statt „ein Thema“ – sonst bricht der Test „Reisewörter auf allen Eltern-/Lehrerseiten“ (verboten: „Gebiet“, „Thema“).
+- Punkt 3 steht direkt hinter dem Satz mit den Knöpfen („… bei ◉ zusätzlich ‚Wieder in die Wiederholung‘.“), nicht mitten in der Klammer – sonst zerreißt der Satz.
+- Punkt 4: Knopftext „Weiter: Flug-Test“ statt „Jetzt zum Test ›“ – mit AB-A heißt der Knopf auf dem Landebildschirm so („Jetzt zum Test ›“ steht nur noch in der Flug-Übersicht).
+- „Lernstand:“ und „Was wackelt?:“ gelöscht.
+- **Neuer Eintrag (Punkt 8 / AB-A) in „Wie wird gelernt?“, hinter „Etappe gelandet“:**
+  > **Abschluss einer Etappe:** Nach der Landung (und der Knobel-Bordkarte) zeigt die App eine von drei Fassungen – jede mit eigenem Bild und eigener Farbe: Direktflug (alle Bordkarten im ersten Versuch richtig, ohne Tipp, genau so viele wie nötig), Saubere Landung (höchstens 2 endgültige Fehler, Stufe nie leichter geworden, höchstens 4 Bordkarten mehr als nötig; nach „wieder offen“ heißt sie „Wieder gelandet“) oder Sturmflug gemeistert (alles darüber; ohne Fehlerzahl, die Knobel-Bordkarte kommt dann nicht von selbst, nur als Textlink). Dazu ein Abzeichen – ⚡ Direkt, ✓ Sauber oder ⚡ Ausdauer –, das im Reisepass gezählt wird, der Satz „Du kannst jetzt …“ und genau ein Knopf zum nächsten Schritt (nächste Etappe, Flug-Test oder Abflugtafel); zurück in die Übungen derselben Etappe führt von dort kein Weg. Nach dem bestandenen Flug-Test: „Flug geschafft“ mit den Sternen des Flugs und der Liste „Das kannst du jetzt“, danach eine Bordkarte zum nächsten Flug im Plan („Boarding“ öffnet seine erste Erklärung). Mit dem letzten Flug eines Orts kommt dazwischen der Reisepass-Stempel. Landungen vor dieser Version haben kein Abzeichen.
+- Punkt 3 beschreibt den Stand nach der LB-3-Nachbesserung am Server (noch nicht eingespielt).
+
+**Getestet** (Playwright mit Chrome, lokal): **lernen 125 von 125** (neu 7: N1 als Messung 400/820/1280 × 8 Gebiete + N4, N2, N3, N5, Rückgängig nur jüngster Schritt mit Ablehnung, Rückfall + heute_bis, Info-Seite Teil 7; angepasst 4: Abschnittstexte in LB-5/LA-5/LB Teil 5 S2, Etappen-Format S4, „Teil 4 Punkt 1+2“ misst links jetzt „höchstens zwei Zeilen, nichts seitlich abgeschnitten“ statt „kein getrenntes Wort“). Alle Tests: 267 bestanden, 1 übersprungen, 9 Fehler – dieselben 9 wie vor meinen Änderungen auf demselben Stand (PWA-Hülle, „Lernen Schule: Startkarte“, W80 ×4, Review301, „Woanders gebucht“, W88; Reise-Bereich, nicht Lernen).
+
+**Nicht geprüft:** echte Geräte und Safari (Silbentrennung auf dem iPad), Bildschirmleser, gegen den echten Server (Rückfall-Hinweis und `heute_bis` kommen erst mit der LB-3-Nachbesserung).
+
+FERTIG: AB-A und LB Teil 6
+FERTIG: LB Teil 7
+
+## 2026-11-20 – FERTIG: LB-3 Tests ergänzt (Nachträge aus ChatGPT 885, an bau-lehrer)
+
+Stand `lernen-app` 6e04b10 übernommen. Nur Server-Tests und eine Migration als Datei – kein App-Code, **nichts in der Datenbank ausgeführt** (Live-Text nur gelesen, Einfügestellen je genau einmal vorhanden), kein Merge. pglast für alle Dateien ok; die Rauchtests selbst sind **nicht ausgeführt** – bitte im Probelauf.
+
+1. **`lb3_nachbesserung_rauchtest.sql`, neuer Fall „M2-echt“:** gesetzter Flug; das Testkind erarbeitet eine Etappe wirklich über `uebung_pruefen_intern` (verschiedene Auswahl-Bordkarten, richtig im ersten Anlauf: zuerst eine schwere, dann je Typ eine, dann weitere – bis `karte_landet` erfüllt ist: Ziel-Anzahl, Typen, schwere, Folge). Keine Nachweisfelder von Hand. Danach Rücknahme → diese Etappe bleibt gelandet (Herkunft selbst, eigene Lösungen ≥ Ziel), alle anderen Etappen des Flugs offen. Flug/Etappe werden dynamisch gewählt (nur Auswahl-Bordkarten, vom Testkind ungeübt; live 304 passende Etappen).
+2. **`i4_misch_ausgabe_rauchtest.sql`:** 1b – zweimal derselbe Flug → dieselben Karten, beide `misch_gueltig`; neu **4b** – Flugwechsel → Ausgaben des anderen Flugs verfallen; zurückgewechselt → neu ausgegeben (Ausgabezeit jetzt) und gültig; ein weiteres Mal zurück; älter als 24 h → verfallen.
+3. **`ab_s_abschluss_rauchtest.sql`, Befund und Migration:**
+   - **Befund (Live-Text gelesen):** `test_abschliessen_intern` hängt `schule.flug_abschluss(...)` an **jede** Antwort an. Bei nicht bestandenem Flug-Test, bei Verbessern, beim Nachtragstest, beim Nachtest und beim erneuten Aufruf kommen also `flug`, `etappen`, `kurz`, `sterne_flug` (Test-Sterne dieser Sitzung und Summe des Flugs), `naechster_flug`, `ort_wechsel`, `ort_fluege` mit; `ort_geschafft` ist dort false (festgehalten). `einheit_abgeschlossen` ist der **Stand** des Flugs (auch beim erneuten Aufruf und nach Nachtests true), kein Ereignis.
+   - **Migration** `supabase/migrations/20261120_ab_s_flug_abschluss_einmal.sql` (nicht ausgeführt): neue Spalte `testsitzung.flug_geschafft`, einmal festgehalten, wenn **dieser Aufruf** die Sitzung abschließt, es der **erste** abgeschlossene Flug-Test (`blocktest`) des Flugs ist und der Flug damit fertig ist. Verbessern, Nachtragstest (späterer `blocktest`), Nachtest, vor dem Einspielen abgeschlossene Sitzungen: false. Antwort: immer `flug_geschafft`; die Abschluss-Felder nur bei `flug_geschafft` oder `ort_geschafft` – auch beim erneuten Aufruf derselben Sitzung (gleiches Ergebnis für „Test ansehen“).
+   - **Rauchtest:** 6 und 7 prüfen zusätzlich `flug_geschafft` und dass die Felder beim ersten Abschluss da sind; neu **9a** nicht bestandener Flug-Test, **9b** erneuter Aufruf, **9c** Verbessern (Flug danach fertig), **9d** Nachtragstest – jeweils `flug_geschafft` false und keine Felder `flug`, `naechster_flug`, `sterne_flug` (9a auch `etappen`, `ort_wechsel`). Startet Verbessern oder Nachtragstest mit dem gewählten Flug nicht, meldet der Test „Info“ statt abzubrechen.
+   - **Für die App (bau-motivation, kein App-Code von mir):** die Abschluss-Ansicht des Flugs an `flug_geschafft` (oder `ort_geschafft`) hängen statt an `einheit_abgeschlossen`; die App 0.83.0 zeigt sie heute bei „Flug fertig und kein Nachtest“ (also auch nach Verbessern).
+   - **Annahme:** „Verbessern“, das einen Flug erstmals fertig macht, zeigt keine Abschluss-Ansicht (so steht es in den Nachträgen: „nicht Verbessern/Nachtragstest“). Soll das Kind dann doch „Flug geschafft“ sehen, genügt in der Migration `t.art in ('blocktest', 'korrektur')` und „kein früherer Abschluss“ – bitte entscheiden.
+
+## 2026-11-20 – FERTIG: lb3-Rauchtest
+
+Anlass: `antworten.md`, „20.11. 13:25“ – `supabase/tests/lb3_rauchtest.sql` brach nach der LB-3 Nachbesserung mit „Inzwischen wurde etwas anderes geändert.“ ab (Prüfung 6 machte den Sammelschritt rückgängig, nachdem Prüfung 5 schon einen neueren Plan-Schritt angelegt hatte; neue Regel Sollte 4).
+**Nur die Testdatei geändert** (Stand `lernen-app` f1a0ad7 übernommen; kein App-Code, nichts in der Datenbank, kein Merge):
+- Prüfung **6** (Rückgängig des Sammelschritts) läuft jetzt direkt nach Prüfung 4 – der Sammelschritt ist dann noch der jüngste Plan-Schritt (Prüfungen 2–4 legen keinen Plan-Schritt an). Prüfungen und Erwartungen von 6 unverändert (6c prüft weiter, dass die selbst gelandete Etappe mit Wiederholungsstufe 2 zurückkommt).
+- Prüfung **5** (Rücknahme eines Flugs) danach: zuerst werden die 6 Flüge wieder gesetzt, dann wird einer zurückgenommen – gleiche Erwartung (keine gesetzte Landung, Stufe ○).
+- Prüfungen 1–4 und 7–10 unverändert; die Meldungen „ok n“ erscheinen in der Reihenfolge 1, 2, 3, 4, 6, 5, 7, 8, 9, 10.
+**Geprüft:** pglast ok. **Nicht ausgeführt** (Datenbank nur lesen) – bitte im nächsten Probelauf mit der Migration `lb3_nachbesserung`.
+
+## 2026-11-20 – FERTIG: AB-A (App 0.83.0, Cache v149)
+
+Gebaut im Zweig `bau-lehrer` auf `lernen-app` e71a72d (App 0.82.2) – ich war der einzige Chat am App-Code. Datenbank nur gelesen (für AB-A nichts). Kein Merge nach `main`, keine Kinderdaten.
+Vorgabe: `inhalte/pruefung/kind/abschluss/umsetzung.md`, `entwurf/abschluss.html`, Zusätze von Sebastian in `AUFTRAEGE.md`. Server-Felder: AB-S (Meldung unten).
+Bilder: `docs/previews/ab/` – Etappe `direkt`/`sauber`/`sturm` × `tag`/`nacht` (400 × 780) und Tablet 820, Flug geschafft (tag/nacht 400, tag 820), Ort geschafft, Bordkarte (gleicher Ort, Ortswechsel).
+
+**Umgesetzt (nur Abflug-Gestaltung „tag“/„nacht“; die alte Gestaltung bleibt wie bisher)**
+- **1 Etappe gelandet:** Vollbild über der Seite, drei Fassungen nach `landung.landung_art` (Ersatz `einheit_lesen.landungen`, sonst „sauber“ bei altem Server): Direktflug (Sonnenuntergang, Jet, Funken, „{ziel}/{ziel} AUF ANHIEB“, Abzeichen Direkt), Saubere Landung (Taghimmel, Landebahn, Chips Bordkarten · selbst gelöst · in Folge; bei `wieder_gelandet` „WIEDER GELANDET“), Sturmflug gemeistert (Gewitter, Durchbruch, Satz ohne Fehlerzahl mit „einmal/zweimal/mehrmals neu angesetzt“, Band „⚡ AUSDAUER-ABZEICHEN“). Blatt: „Du kannst jetzt“ (`kann` → „Kurz gesagt“ → Titel), ★ +Sterne, ein Satz zur Wiederholung, **ein** großer Knopf (Weiter: nächste Etappe · Weiter: Flug-Test „{k} Bordkarten, eine je Etappe, ohne Tipps“ · Zur Abflugtafel), Textlink „Pause – zur Abflugtafel“. Kein Weg zurück in die Übungen; die Adresse wird beim Landen durch `…-erklaeren` ersetzt (Zurück-Taste führt nicht in die Bordkarten).
+- **Ablauf (Zusatz Sebastian):** Übungen → Knobel-Bordkarte von selbst → Abschluss-Ansicht. **Sturmflug:** Knobel kommt nicht von selbst, nur als kleiner Textlink im Blatt; danach wieder die Abschluss-Ansicht. Nach der letzten Pflicht-Etappe führt der Knopf zum Flug-Test.
+- **2 Flug geschafft** (nach bestandenem Flug-Test bzw. vollständiger Korrektur, nicht nach Nachtests): Gold-Szene, Konfetti, je Etappe ein Licht, Sterne-Zähler (`sterne_flug.summe`) mit „Test r von g{, v verbessert}“, Liste „Das kannst du jetzt – n Etappen“, Wiederholungs-Kette, Knopf „Weiter zum nächsten Thema“, Textlink „Test ansehen“ (schließt die Ansicht; darunter die Antwortliste mit Teil 4/5f). „Überspringen ›“.
+- **Bordkarte:** NEUES THEMA, ORT ✈ FLUG nr/von, Flugname, `kurz`, ETAPPEN · GEBIET · FLUG, Gate „ERKLÄRUNG“; „Boarding: {Titel}“ → `#/lerneinheit/{kind}-{einheit}-erklaeren-1` (Erklärung der ersten Etappe); „Später – zur Abflugtafel“. `naechster_flug: null` → „Alles geschafft, was im Plan steht …“ + „Zur Abflugtafel“. Alter Server ohne das Feld → Abflugtafel.
+- **3 Ort geschafft** (`ort_geschafft`): Papier-Szene, Stempel „GESCHAFFT / ORT / Gebiet · Datum“, „REISEPASS · STEMPEL n“ (Konto neu geladen), „Alle k Flüge · ★ +100 Ort-Sterne“, „Deine Flüge in …“, Knopf „Weiter: neuer Ort“ → Bordkarte „NEUES THEMA · NEUER ORT“, „VON … ✈ NACH …“, „Abflug nach {Ort}“.
+- **4 Bewegung:** nur CSS (+ Zähler), längste Bewegung 1,8 s (Funken und Konfetti gegenüber dem Entwurf verkürzt, damit 1,8 s eingehalten sind), Antippen der Szene beendet sie, bei „weniger Bewegung“ sofort Endzustand. Kein Ton.
+- **Reisepass:** Zeile „⚡ Direkt n · ✓ Sauber n · ⚡ Ausdauer n“ aus `konto.abzeichen` (nur wenn der Server sie liefert).
+- **H6 (LB-3 Nachbesserung, Sollte 6):** Der Tageszähler „heute selbst gelöst“ gilt bis `heute_bis` des Servers (unabhängig von Uhr und Zeitzone des Geräts); ohne `heute_bis` wie bisher.
+- **Rückgängig (LB-3 Nachbesserung, Sollte 4):** Die App bietet nach einem Rückgängig keinen weiteren Schritt zurück an; lehnt der Server ab, steht dort „Rückgängig geht nur für die letzte Änderung …“ mit „Neu laden“.
+
+**Getestet** (Playwright, Chromium; lernen 118 von 118; Suche 138 bestanden + Nr. 108 einzeln bestanden (bekannt wackelig), 9 bekannte alte Fehler 13, 15, 101, 103, 105, 111, 113, 126, 127; neu 6 Tests AB-A, angepasst 5 Tests aus Teil 4/5): drei Fassungen mit verschiedenen Szenen, je hell und nacht auf 400 × 780 ohne Scrollen, genau ein großer Knopf, kein Link in die Übungen, Adresse nach der Landung `…-erklaeren`; Sturmflug ohne Fehlerzahl und ohne Knobel von selbst, Knobel über den Textlink und zurück; Wieder gelandet; alter Server ohne `landung`; Reisepass-Zeile; Tablet 820; Bewegung ≤ 1,8 s, Antippen beendet, „weniger Bewegung“ ohne Animation; Flug → Bordkarte → Boarding öffnet `-erklaeren-1`; „Test ansehen“; Ort → Stempel → Bordkarte VON/NACH; ohne nächsten Flug.
+
+**Nicht geprüft / offen**
+- Gegen den echten Server nicht ausgeführt (AB-S-Felder nur nach der Feldbeschreibung nachgebildet).
+- „Zurück-Taste führt zur Etappen-Übersicht“: umgesetzt als Ersetzen der Adresse durch `…-erklaeren`; die Taste selbst führt dann zur vorigen Seite (z. B. Abflugtafel), nie in die Bordkarten.
+- Das Konfetti/Funken-Timing weicht leicht vom Entwurf ab (1,4 s bzw. 0,9 s statt 1,8 s/1,2 s), damit die Grenze von 1,8 s auch mit Verzögerung gilt.
+- Echte Geräte, Safari und Bildschirmleser nicht geprüft.
+
+## 2026-11-20 – FERTIG: LB-3 Nachbesserung (Server, Muss 1–3, Sollte 4–7)
+
+Gebaut im Zweig `bau-lehrer` (Stand `lernen-app` e71a72d übernommen). Nur Migration und Rauchtests – kein `lernen.js`. **Nichts in der Datenbank ausgeführt**, nur gelesen: alle Einfügestellen im Live-Text geprüft (je genau einmal vorhanden). Kein Merge nach `main`.
+**Bestand (lesend, 20.11.):** keine Route mit `kann_wdh_themen`, keine Karte mit `gesetzt_am`, 3 Plan-Schritte mit Karten-Lage → keine Bestandsänderung nötig.
+**Migration** `supabase/migrations/20261120_lb3_nachbesserung.sql` (nach `lb3`, `i5`, `ab_s`; pglast ok; kein DROP/DELETE; wiederholt ausführbar).
+**Rauchtest neu** `supabase/tests/lb3_nachbesserung_rauchtest.sql` (Rollback, nur Testkind, Flüge dynamisch aus dem Inhalt gewählt). **Angepasst:** `lb3_rauchtest.sql` (1c: selbst gelandete Etappe behält Landung/Herkunft, Wiederholung neu ab Stufe 1; 6c: Rückgängig stellt Stufe 2 wieder her), `i3_lernregeln_rauchtest.sql` (Sollte 7).
+**Nicht ausgeführt** – weder Migration noch Rauchtests (Datenbank nur lesen). Bitte im Probelauf: Migration, dann `lb3_nachbesserung`, `lb3`, `i3`, `i2`, `i4`, `i5`, `ab_s`.
+
+### Muss
+1. **Setzen = alle Etappen ab Wiederholungsstufe 1.** `flug_wdh_setzen`: auch schon gelandete Etappen gehen auf Stufe 1, fällig am nächsten Lerntag; `sitzt_am`, eigene Lösungen, Belege bleiben, kein `gesetzt_am` (Herkunft selbst). Lage davor steht im Schritt (Rückgängig stellt sie her). Neu `karte_stand.wdh_gesetzt_am` (Beginn der Wiederholung durch Setzen, für Muss 3). Test M1: vorher ◉ → ↻ Wdh 1 von 5, am nächsten Lerntag fällig; Rückgängig → wieder ◉.
+2. **Rücknahme/Rückgängig: nur belegte Landungen bleiben.** Gemeinsame Landeregel `schule.karte_landet(k)` (eigene Lösungen ≥ Ziel, Typen, schwere, Folge) – `karte_buchen` ruft sie jetzt auch auf. Damit sie für gesetzte Etappen etwas prüfen kann, zählt `karte_buchen` dort eigene Lösungen, Typen, schwere und Folge weiter (die Wiederholung läuft daneben unverändert). Rücknahme (`flug_wdh_zuruecknehmen`, auch beim Entfernen eines Ortes) und Rückgängig (`karten_wiederherstellen`): gesetzte Etappe bleibt nur bei `karte_landet`, sonst offen (`sitzt_am` null). Versuche, eigene Lösungen, Sterne bleiben. Tests: Fehler → offen; offener erster Anlauf → offen; eine richtige Wiederholung → offen mit 1 eigener Lösung; eigene Landung → bleibt (Herkunft selbst); dasselbe über Rückgängig (Setzen → Fehler → Rückgängig → offen).
+3. **sicher nach dem Flug.** `karte_sicher`: steht der Flug auf „Kann er – aber wiederholen“ (oder ist die Etappe gesetzt), gilt für alle Etappen: gelandet + Wiederholung nach 14 Lerntagen + Mischkarte richtig, falls seit dem Setzen (`wdh_gesetzt_am`) eine **eingelöst oder beantwortet** wurde; nur vorgeladen zählt nicht. Test M3: selbst gelandete Etappe ohne Nachtest + gesetzte, Wiederholungen bestanden → alle sicher, Flug ◉; vorgeladen → bleibt sicher; eingelöst ohne richtige → ↻, mit richtiger → ◉.
+
+### Sollte
+4. `plan_setzen_intern`: `rueckgaengig` nur für den jüngsten Plan-Schritt (`route_aenderung`, anlass `plan`) des Kindes, sonst „Inzwischen wurde etwas anderes geändert.“ Test: A → B → A rückgängig abgelehnt, B rückgängig angenommen. **Folge für die App:** ein zweites „↶ Rückgängig“ hintereinander wird abgelehnt – die App bietet nur noch einen Schritt an (in AB-A, 0.83.0).
+5. `thema_stufe`: „komplett“ gesetzt + wieder offene Etappe → Stufe ◉ bleibt, `hinweis: 'rueckfall'`, `wieder_offen` > 0.
+6. `schule.heute_bis(kind)` = nächster Tagesbeginn in der Zeitzone des Kindes; `einheit_lesen_intern` und `uebung_pruefen_intern` liefern `heute_bis` neben `heute_tag`.
+7. `i3_lernregeln_rauchtest.sql`: Ursache – der eindeutige Index `misch_ausgabe_offen_eindeutig` gilt für alle nicht eingelösten Ausgaben, **auch verfallene**; hat `mischkarten` im Test eine Ausgabe derselben Bordkarte angelegt und verfallen lassen, stieß das Einfügen von Hand darauf. Jetzt fügen beide Stellen mit `on conflict … do update` ein (wie `mischkarten` selbst); die Prüfung „zweite offene Ausgabe wird abgelehnt“ bleibt.
+
+### Annahmen / nicht geprüft
+- „Seit dem Setzen“ für Muss 3 = `wdh_gesetzt_am` (neu); für ältere gesetzte Karten ohne diesen Wert gilt `gesetzt_am`, sonst `sitzt_am`.
+- „gezeigt“ einer Mischkarte = beantwortet (Versuch mit `misch`); eine Anzeige ohne Antwort speichert der Server nicht.
+- Muss 2 „echte eigene Landung“ im Test über gesetzte Zähler (eigene Lösungen = Ziel, Typen, schwer, Folge 3) statt vieler Antworten.
+- Nichts davon ausgeführt.
+
 ## 2026-11-20 – FERTIG: AB-S (Server: Abschluss nach Etappe, Flug und Ort)
 
 Stand `lernen-app` 10a3155 in `bau-motivation` zusammengeführt. Nur Migration und Rauchtest – kein `lernen.js`, keine neue App-Version. Datenbank nur gelesen (alle Einfügestellen im Live-Text je einmal vorhanden;

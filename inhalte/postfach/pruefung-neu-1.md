@@ -7,6 +7,40 @@ Allgemein gilt für alle Berichte:
 - Übungen ohne `g` sind laut Zwanzigster Runde „überzählig“ und werden beim Einspielen gesperrt. Sie wurden auf richtige Lösung (a) geprüft, nicht auf Stufe/Typ (f).
 - Lehrplan: Die Seiten von lehrplanplus.bayern.de konnte ich in dieser Sitzung nicht direkt abrufen (Abruf brauchte eine Freigabe, die nicht beantwortet wurde). Lehrplanaussagen stützen sich daher auf `lehrplan_andere` in `themenliste.json` und auf ISB-Dokumente aus der Websuche (Abruf 20.11.2026); was nicht belegt ist, steht als Annahme da.
 
+## 2026-11-20 – FERTIG: Prüfung neu, Chat 1 (Übersicht)
+
+| Thema | Aufgaben gelesen / nachgerechnet | a | b | c | d | e | f | Urteil |
+|---|---|---|---|---|---|---|---|---|
+| abbildungen.determinanten2 | 240 / 240 | 0 | 2 | 1 | 0 | 0 | 0 | mit Korrekturen in Ordnung |
+| daten.stichproben | 188 / 188 | 10 | 3 | 0 | 2 | 7 | 2 | mit Korrekturen in Ordnung |
+| terme.quadratische_extreme | 196 / 196 | 0 | 0 | 2 | 0 | 0 | 0 | mit Korrekturen in Ordnung |
+| gleichungen.wurzel | 227 / 227 | 0 | 1 | 0 | 0 | 0 | 0 | in Ordnung (eine Klarstellung) |
+| abbildungen.matrizen | 263 / 263 | 0 | 0 | 0 | 0 | 0 | 0 | in Ordnung |
+| funktionen.reihen | 287 / 287 | 0 | 1 | 1 | 0 | 0 | 0 | mit Korrekturen in Ordnung |
+| funktionen.betrag | 174 / 174 | 0 | 0 | 0 | 0 | 3 | 0 | in Ordnung (Lösungswege geglättet) |
+
+Kein Flug „nicht freigabefähig“. Einzige echte Mehrdeutigkeiten (Art a) in `daten.stichproben`, darunter eine **Testaufgabe** mit zwei richtigen Antworten – bitte beim Einspielen beachten.
+
+**Zum Einspielen (Fakt):** Beim Neuerzeugen übernehmen die Generatoren das Feld `klasse` aus `themenliste.json`. Die eingecheckten Dateien waren hier veraltet: `daten.stichproben` hatte nur `{"rs_by": 7}` (jetzt `{"rs_by": 7, "ib_myp": 2}`), `funktionen.betrag` hatte `{"ib_myp": 4}` (jetzt `{"ib_myp": 5}`, wie in der Themenliste). Ich habe das so gelassen, weil die Themenliste maßgeblich ist; der Haupt-Chat sollte prüfen, ob die Datenbank noch die alte Klasse führt.
+
+Alle Änderungen nur in Generatoren und Themendateien; nach jeder Änderung habe ich die alte und neue Themendatei Aufgabe für Aufgabe verglichen – geändert haben sich nur die im jeweiligen Bericht genannten Aufgaben (die Zufallsfolge der Generatoren ist erhalten). Kein Merge, keine Datenbank, kein App-Code, keine Kinderdaten.
+
+## 2026-11-20 – funktionen.betrag (IB MYP 5): in Ordnung (Lösungswege geglättet)
+
+**Gelesen und nachgerechnet (Fakt):** 5 Lernkarten und alle 174 Aufgaben (114 Übungen, 10 Knobel, 5 Test, 15 Korrektur, 30 Sicherung). 62 Aufgaben mit eigenem Skript aus dem Fragetext nachgerechnet (Funktionswerte, Knickpunkt, Grenze und Terme der Stücke, Betragsgleichungen und Lösungsanzahl über eine Gleichungslösung) – 0 Abweichungen. Die übrigen 112 (Auswahl, Graphen aus den Grafikdaten, Ungleichungen, Toleranzen, Gegenbeispiele, Knobel) von Hand nachgerechnet – alle richtig. Beispielrechnungen aller 5 Karten stimmen.
+
+**Änderungen je Fehlerart:** a) 0 · b) 0 · c) 0 · d) 0 · e) 3 · f) 0
+
+- e) Drei Lösungswege enthielten Generator-Reste mit „+ 0“: „Für x ≥ 0 ist x + 0 ≥ 0, der Betrag fällt weg“ (2 Sicherungen) und „|−8 + 0| = 8“ (1 Übung). Jetzt „Für x ≥ 0 ist x ≥ 0 …“ bzw. „|−8| = 8“. Fragen und Lösungen unverändert.
+
+**Meinung, nicht geändert:** In „Ali löst |x + 4| = 4 und schreibt: „x = 0““ lautet eine Falschoption „Es fehlt x = 0“ – unsinnig, aber nicht richtig. Bei d = 0 fällt eine der Falschoptionen weg (nur 3 Antworten).
+
+**Lehrplan:** IB MYP 5: Betrag, Betragsfunktion, stückweise Darstellung, einfache Betragsgleichungen und -ungleichungen – passt (Annahme, nicht gegen das IB-Dokument geprüft; Lehrplanfeld in der Themenliste leer). Klasse siehe Übersicht oben.
+
+**Nicht geprüft:** Graphen nur über die Grafikdaten (a, b, c), nicht in der App angesehen. Übungen ohne `g` (9, gesperrt) nur auf Lösung.
+
+Prüfskript: OK, 0 Gruppen „gleich gebaut hintereinander“.
+
 ## 2026-11-20 – funktionen.reihen (IB MYP 5): mit Korrekturen in Ordnung
 
 **Gelesen und nachgerechnet (Fakt):** 8 Lernkarten und alle 287 Aufgaben (191 Übungen, 16 Knobel, 8 Test, 24 Korrektur, 48 Sicherung). 114 Aufgaben mit eigenem Skript aus dem Fragetext nachgerechnet (Folge erkennen und Glieder direkt aufsummieren statt Formel, Rekursion Schritt für Schritt, explizite Formel, aₙ, q, „wie viele Glieder bis Summe …“, Läufer/Stämme/Sparen/Schachbrett) – 0 Abweichungen. Die übrigen 173 (Summenzeichen, Auswahl, Fehler-Aufgaben, Sachaufgaben, Knobel) von Hand nachgerechnet – alle richtig, u. a. Angebot A/B (Tag 18 bzw. 19), Teleskopsumme 99/100, a₁₀₀ = 199. Beispielrechnungen aller 8 Karten stimmen.
@@ -90,7 +124,7 @@ f) Schul-Briefkasten mit 9 000 bzw. 3 500 Antworten unrealistisch → 450 bzw. 3
 
 **Nicht geprüft:** Säulen- und Bruchstreifenbilder nur im JSON gelesen. Übungen ohne `g` (10, gesperrt) nur auf Lösung geprüft.
 
-Prüfskript: OK, 0 Gruppen „gleich gebaut hintereinander“. Zufallsfolge des Generators beibehalten: Außer den genannten Aufgaben hat sich keine Aufgabe geändert (Vergleich alt/neu).
+Nebenwirkung (Fakt, erst beim letzten Thema bemerkt): Das Neuerzeugen hat `klasse` von `{"rs_by": 7}` auf `{"rs_by": 7, "ib_myp": 2}` gesetzt, wie in der Themenliste. Prüfskript: OK, 0 Gruppen „gleich gebaut hintereinander“. Zufallsfolge des Generators beibehalten: Außer den genannten Aufgaben hat sich keine Aufgabe geändert (Vergleich alt/neu).
 
 ## 2026-11-20 – abbildungen.determinanten2 (RS 7): mit Korrekturen in Ordnung
 

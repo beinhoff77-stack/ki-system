@@ -414,3 +414,16 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 05:35 – an bau-lehrer, pruefung-kinderansicht: zwei Ergänzungen von Sebastian
 - bau-lehrer: Teil 4 hat zwei neue Punkte – 4 („in Prüfung“ → „aussortiert“ in „Inhalte ansehen“) und 5 (Kinderansicht: nach der Knobel-Bordkarte zurück zum Landebildschirm; gelandete Etappe zeigt „Hier bist du fertig“ mit Knopf zum nächsten Schritt).
 - pruefung-kinderansicht: neuer Entwurfs-Auftrag „Kinderansicht: Abschluss nach Etappe und Flug“ am Ende von `inhalte/AUFTRAEGE.md`.
+
+## 20.11. 05:55 – an bau-motivation: Teil 3 und LB-3 übernommen; ein Befund zu den Misch-Ausgaben
+- Beide sind in `lernen-app` (App 0.81.3, Tests lernen 96 von 96). Probelauf gegen die echte Datenbank (zurückgerollt): `i3` und `lb3` ohne Fehler eingespielt; Rauchtests `lb3`, `i2`, `w177` (beide Blöcke), `h_muss`, `h_sollte`, `h8`, `t1`, `t3`, `t4`, `la_3`, `la_4`, `i_pause`, `abgleich`, `gesperrt` ohne Fehler; Lernstände unverändert. (Hinweis: `lb3_rauchtest.sql` legt vor dem `do`-Block eine Hilfsfunktion in `pg_temp` an – mein Probelauf führt sie jetzt mit aus.)
+- **`i3_lernregeln_rauchtest.sql` bricht ab: „FEHLER S3d: 1 Karten, 2 offene Ausgaben nach zweimal Ausliefern“.** Nachgestellt mit dem Testkind (zurückgerollt): `schule.mischkarten` liefert beim ersten Aufruf 6 Karten → 6 offene Ausgaben, beim zweiten Aufruf 6 **andere** Karten → 12 offene Ausgaben (keine Dopplung je Bordkarte). Jedes Laden eines Flugs stellt also neue Karten aus, die alten bleiben 24 Stunden offen. Das schwächt die Bindung aus H10 (viele offene Ausgaben) und der Test hängt an den Daten.
+  Bitte: `schule.mischkarten` gibt zuerst die noch offenen, nicht abgelaufenen Ausgaben dieses Kindes für diesen Flug wieder aus (dieselben Karten) und füllt nur auf, wenn weniger als gewünscht offen sind; Ausgaben, die zu einem anderen Flug gehören oder älter als 24 Stunden sind, werden beim Ausliefern als verfallen markiert (nicht löschen). Test S3d so, dass er nicht davon abhängt, wie viele Etappen das Testkind schon gelandet hat.
+  **Nur Migration und Rauchtest – kein `lernen.js`, keine neue App-Version** (parallel baut `bau-lehrer` an der App). Datei z. B. `20261120_i4_misch_ausgabe_wieder.sql`. Meldung „FERTIG: Misch-Ausgaben wiederverwenden“.
+
+## 20.11. 05:55 – an bau-lehrer: Du bist dran – Teil 4 + LB-1 + LB-2 + LB-5 (App 0.82.0)
+- Stand `lernen-app` 63d10b0 oder neuer holen. Der Serverteil LB-3 liegt als Migration `20261120_lb3_kann_wiederholen.sql` im Zweig; die neuen Felder und Aktionen stehen in `inhalte/postfach/bau-motivation.md` (oberster Eintrag, Abschnitt „Für bau-lehrer“). Teil 4 hat inzwischen die Punkte 4 und 5.
+- LB-4 (Lehrplan-Daten) ist geliefert, wird aber auf Sebastians Wunsch gerade noch einmal geprüft und ist noch nicht in `lernen-app`. Die App muss ohne diese Felder laufen.
+
+## 20.11. 05:55 – an lehrplan-lb: geliefert, noch nicht übernommen
+- Sebastian lässt LB-4 noch einmal prüfen. Ich übernehme den Zweig danach und bringe die Felder in die Datenbank.

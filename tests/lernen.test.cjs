@@ -165,8 +165,12 @@ async function setup(t, opt = {}) {
         if (Math.abs(v) === Math.abs(w)) grund = 'vorzeichen'; else if ([10, 100, 1000, 0.1, 0.01, 0.001].includes(v / w)) grund = 'komma'; }
       if (r.format_ok && !r.richtig && d.anlauf === 1) e = { ok: true, format_ok: true, richtig: false, nochmal: true, ...(grund ? { grund } : {}) };
       else {
-        if (r.format_ok) { if (r.richtig && !d.hilfe && d.anlauf !== 2) k.serie++; else if (!r.richtig) k.serie = Math.max(0, k.serie - 2); if (!k.sitzt && k.serie >= k.ziel) { k.sitzt = true; neu = true; } }
-        e = { ok: true, ...r, ...(grund ? { grund } : {}), loesung: a.loesung, loesungsweg: 'Weg zur Lösung.', karte: { ...k, neu_sitzt: neu } };
+        if (r.format_ok) { if (!k.sitzt) { k.n = (k.n || 0) + 1; if (!r.richtig) k.f = (k.f || 0) + 1; if (d.hilfe || d.anlauf === 2) k.um = true; }
+          if (r.richtig && !d.hilfe && d.anlauf !== 2) k.serie++; else if (!r.richtig) k.serie = Math.max(0, k.serie - 2); if (!k.sitzt && k.serie >= k.ziel) { k.sitzt = true; neu = true; } }
+        e = { ok: true, ...r, ...(grund ? { grund } : {}), loesung: a.loesung, loesungsweg: 'Weg zur Lösung.', karte: (({ n: _n, f: _f, um: _um, ...x }) => ({ ...x, neu_sitzt: neu }))(k) };
+        // AB-S: Feld landung nur in der Antwort, mit der die Etappe landet
+        if (neu) e.landung = { landung_art: !k.f && !k.um && k.n <= k.ziel ? 'direkt' : (k.f || 0) <= 2 ? 'sauber' : 'sturm', bordkarten: k.n, ziel: k.ziel, fehler_endgueltig: k.f || 0,
+          mit_tipp: 0, zweite_versuche: 0, stufe_gesenkt: (k.f || 0) > 2 ? 2 : 0, lerntage: 1, wieder_gelandet: false, eigene_loesungen: k.ziel, folge_ziel: Math.min(3, k.ziel) };
       }
     }
     else if (b.aktion === 'schule_test_starten') { stand.test = 77; e = { ok: true, sitzung_id: 77, art: d.art, aufgaben: [AUFG[14], AUFG[12]].map((a) => { const { loesung, ...r } = a; return r; }), beantwortet: [] }; }
@@ -2555,10 +2559,10 @@ test('Teil 4 Punkt 5: nach dem Knobeln zurück auf den Landebildschirm; gelandet
   await page.locator('.lr-knobel input').fill('7'); await page.locator('.lr-knobel').getByRole('button', { name: 'Prüfen' }).click();
   await page.locator('.lr-knobel-falsch').waitFor();
   await page.locator('.lr-ueben-flaeche').getByRole('button', { name: 'Weiter ›', exact: true }).click();
-  await page.locator('.lr-gelandet').getByText('GELANDET').waitFor();
+  await page.locator('.lr-abschluss-etappe').waitFor(); // AB-A: Abschluss-Ansicht der Etappe
   assert.equal(await page.locator('.lr-bordkarte').count(), 0);
   // b) zur nächsten Etappe und zurück auf die gelandete: fertig, großer Weiter-Knopf, „Trotzdem weiterüben“ klein
-  await page.locator('.lr-gelandet .lr-knopf').first().click();
+  await page.locator('.lr-abschluss-etappe .lr-ab-gross').click();
   if (await page.getByRole('button', { name: 'Jetzt du ›' }).count()) await page.getByRole('button', { name: 'Jetzt du ›' }).click(); // neue Etappe: erst die Erklärung
   await page.getByRole('button', { name: 'Vorige Etappe' }).click();
   const box = page.locator('.lr-fertig-hier'); await box.getByText('Hier bist du fertig ✓').waitFor();
@@ -2638,6 +2642,8 @@ test('LB-5: ◉-Flug „Wieder in die Wiederholung“; ↶ Rückgängig schickt 
   const s2 = calls.filter((c) => c.aktion === 'schule_plan_setzen').at(-1).daten;
   assert.equal(s2.rueckgaengig, 901); assert.deepEqual(s2.eintraege.find((x) => x.block_id === 49).kann_schon_themen, [16]);
   assert.equal(s2.eintraege.find((x) => x.block_id === 49).wieder_wdh_themen, undefined);
+  // LB-3 Nachbesserung (Sollte 4): nur der jüngste Schritt – nach einem Rückgängig ist der Knopf aus
+  assert.equal(await page.getByRole('button', { name: '↶ Rückgängig' }).isDisabled(), true);
 });
 
 test('LB-1/LB-5: alle Knöpfe im Plan erreichbar; 400/820/1280 ohne Querrollen und ohne gebrochene Wörter', async (t) => {
@@ -2686,7 +2692,7 @@ test('Teil 4 Punkt 5d: nach der Landung kommt die Knobel-Bordkarte von selbst, d
   await page.locator('.lr-knobel-falsch').waitFor();
   assert.equal(calls.filter((c) => c.aktion === 'schule_uebung_pruefen' && c.daten.aufgabe_id === 501).length, 1);
   await page.getByRole('button', { name: 'Weiter ›' }).click();
-  await page.locator('.lr-gelandet').getByText('GELANDET').waitFor();
+  await page.locator('.lr-abschluss-etappe').waitFor(); // AB-A: Abschluss-Ansicht der Etappe
   assert.equal(await page.locator('.lr-bordkarte').count(), 0, 'nicht zurück in die Übungen');
   assert.equal(await page.getByRole('button', { name: '★ Knobel-Bordkarte (freiwillig)' }).count(), 0, 'kein zweiter Versuch');
 });
@@ -2696,7 +2702,7 @@ test('Teil 4 Punkt 5d: „Heute keine Knobel-Bordkarte“ führt auf den Landebi
   await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
   await landeEtappe1(page);
   await page.getByRole('button', { name: 'Heute keine Knobel-Bordkarte' }).click();
-  await page.locator('.lr-gelandet').getByText('GELANDET').waitFor();
+  await page.locator('.lr-abschluss-etappe').waitFor(); // AB-A: Abschluss-Ansicht der Etappe
 });
 
 test('Teil 4 Punkt 5e: nach der letzten Pflicht-Etappe nur „Jetzt zum Test“; Flug mit fehlendem Test öffnet die Test-Aufforderung', async (t) => {
@@ -2706,13 +2712,13 @@ test('Teil 4 Punkt 5e: nach der letzten Pflicht-Etappe nur „Jetzt zum Test“;
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
   await landeEtappe1(page);
-  const l = page.locator('.lr-gelandet'); await l.getByText('GELANDET').waitFor();
-  assert.deepEqual(await l.locator('.lr-knopf').allInnerTexts(), ['Jetzt zum Test ›'], 'nur ein großer Knopf');
-  assert.match(await l.innerText(), /3 Bordkarten, ohne Tipps\. Bestehst du ihn, ist der Flug geschafft\./);
+  const l = page.locator('.lr-abschluss-etappe'); await l.waitFor(); // AB-A: Abschluss-Ansicht, ein großer Knopf zum Flug-Test
+  assert.equal(await l.locator('.lr-ab-gross').count(), 1, 'nur ein großer Knopf');
+  assert.match((await l.locator('.lr-ab-gross').innerText()).replace(/\s+/g, ' '), /^Weiter: Flug-Test 3 Bordkarten, eine je Etappe, ohne Tipps ›$/);
   assert.equal(await l.getByText('Anschlussflug', { exact: false }).count(), 0);
   await l.getByRole('link', { name: 'Pause – zur Abflugtafel' }).waitFor();
-  await page.screenshot({ path: path.join(root, 'test-results/teil4-test-folgt-390.png'), fullPage: true });
-  await l.getByRole('link', { name: 'Jetzt zum Test ›' }).click();
+  await page.screenshot({ path: path.join(root, 'test-results/teil4-test-folgt-390.png') });
+  await l.locator('.lr-ab-gross').click();
   await page.waitForURL(/-test$/); await page.getByRole('button', { name: 'Test starten' }).waitFor();
   // Flug öffnen (alle Pflicht-Etappen gelandet, nur der Test fehlt): erst die Aufforderung, nicht die Übungen
   alleFertig = true;
@@ -2941,4 +2947,183 @@ test('LB Teil 5 S3: Lehrplan-Übersicht nach Lernbereich und in Lehrplan-Reihenf
     assert.ok(gruppen.every((g) => new RegExp(`^M${n} \\d`, 'i').test(g)), sa + ': Lernbereich-Überschriften ' + gruppen.join(' | '));
   }
   await page.screenshot({ path: path.join(root, 'test-results/lb5-lehrplan-1280.png'), fullPage: true });
+});
+
+// ---------- Bau-Auftrag AB-A (20.11.): Abschluss nach Etappe, Flug und Ort (Entwurf 2 des Gestalters) ----------
+// Server-Felder wie AB-S (Meldung „FERTIG: AB-S“ in inhalte/postfach/bau-motivation.md); Inhalte erfunden.
+const abLandung = (art, x = {}) => (aktion, e) => { if (aktion === 'schule_uebung_pruefen' && e.landung) return { ...e, landung: { ...e.landung, landung_art: art, kann: 'Ziffern nach ihrem Stellenwert lesen', ...x } }; return null; };
+async function abLande(t, art, { gestaltung = 'nacht', breite = 400, hoehe = 780, x = {}, anpassen = null, bewegung = 'reduce' } = {}) {
+  const { page, calls } = await setup(t, { gestaltung, anpassen: (a, e) => (anpassen && anpassen(a, e)) || abLandung(art, x)(a, e) });
+  await page.emulateMedia({ reducedMotion: bewegung });
+  await page.setViewportSize({ width: breite, height: hoehe });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  await landeEtappe1(page);
+  if (art !== 'sturm' && await page.getByRole('button', { name: 'Heute keine Knobel-Bordkarte' }).count()) await page.getByRole('button', { name: 'Heute keine Knobel-Bordkarte' }).click();
+  await page.locator('.lr-abschluss-etappe').waitFor();
+  return { page, calls };
+}
+const abPasst = (page) => page.evaluate(() => { const h = document.querySelector('.lr-abschluss'); const b = (h.querySelector('.lr-ab-blatt') || h.querySelector('.lr-ab-pause:last-child') || h.querySelector('.lr-ab-app')).getBoundingClientRect();
+  return { scroll: h.scrollHeight > h.clientHeight + 1 || document.querySelector('.lr-ab-app').scrollHeight > document.querySelector('.lr-ab-app').clientHeight + 1, unten: Math.round(b.bottom), hoehe: innerHeight }; });
+
+test('AB-A 1: Etappe gelandet – drei Fassungen, je eigene Szene; 400 × 780 ohne Scrollen, hell und nacht; genau ein großer Knopf', async (t) => {
+  const hinter = {};
+  for (const art of ['direkt', 'sauber', 'sturm']) for (const g of ['tag', 'nacht']) {
+    const { page } = await abLande(t, art, { gestaltung: g, x: art === 'sturm' ? { bordkarten: 15, fehler_endgueltig: 6, stufe_gesenkt: 2 } : art === 'sauber' ? { bordkarten: 8, eigene_loesungen: 6 } : { bordkarten: 2 } });
+    const v = page.locator('.lr-abschluss-etappe');
+    assert.equal(await v.getAttribute('data-art'), art);
+    assert.equal(await page.locator('.lr-abschluss').count(), 1, 'genau eine Fassung');
+    const titel = { direkt: 'DIREKTFLUG', sauber: 'SAUBERE LANDUNG', sturm: 'STURMFLUG GEMEISTERT' }[art];
+    assert.equal((await v.locator('.lr-ab-titel').innerText()).trim(), titel);
+    hinter[art] = await v.locator('.lr-ab-szene').evaluate((x) => getComputedStyle(x).backgroundImage);
+    const p = await abPasst(page); assert.ok(!p.scroll && p.unten <= p.hoehe, `${art}/${g}: ohne Scrollen (${JSON.stringify(p)})`);
+    assert.equal(await v.locator('.lr-ab-gross').count(), 1, 'genau ein großer Knopf');
+    assert.equal(await page.evaluate(() => [...document.querySelectorAll('.lr-abschluss a[href]')].filter((a) => /-ueben/.test(a.getAttribute('href'))).length), 0, 'kein Weg zurück in die Übungen');
+    assert.match(page.url(), /#\/lerneinheit\/1-1-erklaeren$/, 'Zurück führt nicht in die Bordkarten');
+    assert.match(await v.locator('.lr-ab-kann').innerText(), /Du kannst jetzt\s*Ziffern nach ihrem Stellenwert lesen\./i);
+    assert.match((await v.locator('.lr-ab-gross').innerText()).replace(/\s+/g, ' '), /^Weiter: .+ Etappe 2 von 3 ›$/);
+    await v.getByRole('link', { name: 'Pause – zur Abflugtafel' }).waitFor();
+    if (art === 'direkt') { assert.match(await v.locator('.lr-ab-riesig').innerText(), /^2\/2\s*AUF ANHIEB$/); assert.equal((await v.locator('.lr-ab-abz span').innerText()).trim(), 'ABZEICHEN'); }
+    if (art === 'sauber') assert.deepEqual(await v.locator('.lr-ab-chips span').allInnerTexts(), ['8 Bordkarten', '6 selbst gelöst', '2 in Folge']);
+    if (art === 'sturm') { // 1c: keine Fehlerzahl, keine Knobel-Bordkarte von selbst (nur als kleiner Textlink)
+      assert.equal(await v.locator('.lr-ab-unter').innerText(), '15 Bordkarten, zweimal neu angesetzt – und nicht abgedreht. Am Ende 2 in Folge richtig.');
+      assert.ok(!/\b6\b|Fehler/.test(await page.locator('.lr-abschluss').innerText()), 'keine Fehlerzahl');
+      await v.getByText('⚡ AUSDAUER-ABZEICHEN').waitFor();
+      assert.equal(await page.locator('.lr-knobel').count(), 0, 'keine Knobel-Bordkarte von selbst');
+    }
+    const blatt = await v.locator('.lr-ab-blatt').evaluate((x) => getComputedStyle(x).backgroundColor);
+    assert.equal(blatt, g === 'nacht' ? 'rgb(18, 24, 49)' : 'rgb(255, 255, 255)', 'Blatt folgt der Gestaltung');
+    await page.screenshot({ path: path.join(root, `test-results/ab-etappe-${art}-${g}-400.png`) });
+    await page.close();
+  }
+  assert.equal(new Set(Object.values(hinter)).size, 3, 'drei verschiedene Szenen');
+});
+
+test('AB-A 1: Sturmflug – Knobel nur über den Textlink, danach wieder die Abschluss-Ansicht; Wieder gelandet; ohne AB-S-Server „sauber“', async (t) => {
+  const { page } = await abLande(t, 'sturm', { anpassen: mitBonus });
+  assert.equal(await page.locator('.lr-knobel').count(), 0, 'nicht von selbst');
+  await page.getByRole('button', { name: 'Knobel-Bordkarte (freiwillig)' }).click();
+  await page.locator('.lr-knobel input').fill('7'); await page.locator('.lr-knobel').getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.locator('.lr-abschluss-etappe[data-art="sturm"]').waitFor();
+  await page.close();
+  const w = await abLande(t, 'sauber', { x: { wieder_gelandet: true } });
+  assert.equal((await w.page.locator('.lr-ab-titel').innerText()).trim(), 'WIEDER GELANDET');
+  await w.page.close();
+  const alt = await abLande(t, 'sauber', { anpassen: (a, e) => (a === 'schule_uebung_pruefen' && e.landung ? (({ landung, ...x }) => x)(e) : null) });
+  assert.equal(await alt.page.locator('.lr-abschluss-etappe').getAttribute('data-art'), 'sauber');
+});
+
+test('AB-A 1: Abzeichen im Reisepass gezählt; Tablet 820', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: (a, e) => { if (a !== 'schule_konto') return null; const x = structuredClone(e); x.konto.abzeichen = { direkt: 4, sauber: 9, sturm: 3 }; return x; } });
+  await page.goto(origin + '/#/reisepass/1');
+  assert.equal((await page.locator('.lr-abzeichen').innerText()).replace(/\s+/g, ' ').trim(), '⚡ Direkt 4 · ✓ Sauber 9 · ⚡ Ausdauer 3');
+  await page.close();
+  for (const art of ['direkt', 'sauber', 'sturm']) {
+    const r = await abLande(t, art, { gestaltung: 'tag', breite: 820, hoehe: 1180 });
+    const p = await abPasst(r.page); assert.ok(!p.scroll, `${art}: Tablet ohne Scrollen`);
+    await r.page.screenshot({ path: path.join(root, `test-results/ab-etappe-${art}-tag-820.png`) });
+    await r.page.close();
+  }
+});
+
+test('AB-A 4: Bewegung höchstens 1,8 s, Antippen beendet sie, „weniger Bewegung“ zeigt sofort den Endzustand', async (t) => {
+  const { page } = await abLande(t, 'direkt', { bewegung: 'no-preference' });
+  const dauer = await page.evaluate(() => Math.max(0, ...document.querySelector('.lr-abschluss').getAnimations({ subtree: true }).map((a) => { const z = a.effect.getComputedTiming(); return (z.delay || 0) + (z.duration || 0); })));
+  assert.ok(dauer > 0 && dauer <= 1800, 'Dauer ' + dauer);
+  await page.locator('.lr-ab-szene').click({ position: { x: 20, y: 200 } });
+  assert.equal(await page.evaluate(() => document.querySelector('.lr-abschluss').getAnimations({ subtree: true }).length), 0, 'Antippen beendet die Bewegung');
+  await page.close();
+  const ruhig = await abLande(t, 'sturm', { bewegung: 'reduce' });
+  assert.equal(await ruhig.page.evaluate(() => document.querySelector('.lr-abschluss').getAnimations({ subtree: true }).length), 0);
+  assert.equal(await ruhig.page.locator('.lr-ab-blatt').evaluate((x) => getComputedStyle(x).opacity), '1');
+});
+
+// Flug-Test bestanden (AB-S-Felder)
+const abFlug = ({ ortGeschafft = false, naechster = 'gleich' } = {}) => (aktion, e) => {
+  if (aktion === 'schule_test_abschliessen') {
+    const nf = naechster === null ? null : { thema_id: 7, einheit_id: 2, titel: 'Ganze Zahlen', gebiet: 'Zahlen', kurz: 'Zahlen unter null: ordnen, Betrag und Rechnen mit Vorzeichen.',
+      block_id: naechster === 'anders' ? 52 : 49, ort: naechster === 'anders' ? 'Athen' : 'Rom', flug: { nr: naechster === 'anders' ? 1 : 2, von: naechster === 'anders' ? 1 : 4 }, etappen: 9, erste_etappe: { lernziel: 'lesen', titel: 'Große Zahlen lesen' } };
+    return { ...e, richtig: 2, gesamt: 2, ergebnisse: e.ergebnisse.map((x) => ({ ...x, richtig: true })), lernziele: e.lernziele.map((x) => ({ ...x, status: 'nachgewiesen' })), einheit_abgeschlossen: true, ort: { abgeschlossen: ortGeschafft },
+      sterne_flug: { test: 40, summe: 820 }, kurz: 'Du lernst große Zahlen lesen und schreiben.', etappen: [{ lernziel: 'stellenwert', titel: 'Stellenwert', kann: 'Ziffern nach ihrem Stellenwert lesen' }, { lernziel: 'strahl', titel: 'Zahlenstrahl', kann: null }, { lernziel: 'binomisch', titel: 'Binomisch', kann: 'Werte am Zahlenstrahl ablesen' }],
+      flug: { thema_id: 1, einheit_id: 1, titel: 'Natürliche Zahlen', gebiet: 'Zahlen', ort: 'Rom', block_id: 49, flug: { nr: 1, von: 4 }, etappen: 3 },
+      ort_geschafft: ortGeschafft, ort_sterne: ortGeschafft ? 100 : 0, ort_fluege: ortGeschafft ? [{ thema_id: 1, titel: 'Natürliche Zahlen', zustand: 'erledigt' }, { thema_id: 2, titel: 'Ganze Zahlen', zustand: 'erledigt' }] : [],
+      naechster_flug: nf, ort_wechsel: nf ? nf.ort !== 'Rom' : null };
+  }
+  if (aktion === 'schule_einheit_lesen' && e.einheit_id === 2) return { ...e, einheit_id: 2 };
+  return null;
+};
+async function abTest(t, opt = {}, { gestaltung = 'nacht', breite = 400, hoehe = 780 } = {}) {
+  const { page, calls } = await setup(t, { gestaltung, anpassen: abFlug(opt) });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: breite, height: hoehe });
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByRole('button', { name: 'Test starten' }).click();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+  await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.getByRole('button', { name: 'Markierung 2' }).click();
+  await page.getByRole('button', { name: 'Abgeben' }).click();
+  await page.locator('.lr-abschluss-flug').waitFor();
+  return { page, calls };
+}
+
+test('AB-A 2: Flug geschafft → Bordkarte zum nächsten Thema; Boarding öffnet die Erklärung der ersten Etappe; Antwortliste nur über „Test ansehen“', async (t) => {
+  for (const g of ['tag', 'nacht']) {
+    const { page } = await abTest(t, {}, { gestaltung: g });
+    const f = page.locator('.lr-abschluss-flug');
+    assert.equal((await f.locator('.lr-ab-titel').innerText()).trim(), 'FLUG GESCHAFFT');
+    assert.equal(await f.locator('.lr-ab-oben').innerText(), 'ROM · FLUG 1 VON 4 · NATÜRLICHE ZAHLEN');
+    assert.equal(await f.locator('.lr-ab-ringe i').count(), 3, 'je Etappe ein Licht');
+    assert.match((await f.locator('.lr-ab-zaehler').innerText()).replace(/\s+/g, ' '), /^820 ★ Sterne in diesem Flug · Test 2 von 2$/);
+    assert.deepEqual(await f.locator('.lr-ab-kannliste div').allInnerTexts(), ['Ziffern nach ihrem Stellenwert lesen', 'Zahlenstrahl', 'Werte am Zahlenstrahl ablesen']);
+    assert.match(await f.locator('.lr-ab-wdh').innerText(), /nach 1 Lerntag\s*3\s*7\s*14\s*30/);
+    assert.equal(await f.locator('.lr-ab-gross').count(), 1);
+    const p = await abPasst(page); assert.ok(!p.scroll && p.unten <= p.hoehe, `${g}: Flug ohne Scrollen ${JSON.stringify(p)}`);
+    assert.ok(!(await page.locator('.lern-rueck-karte').first().isVisible()) || (await page.locator('.lr-abschluss').isVisible()), 'Antwortliste verdeckt');
+    await page.screenshot({ path: path.join(root, `test-results/ab-flug-${g}-400.png`) });
+    if (g === 'tag') { // Test ansehen → Antwortliste
+      await f.getByRole('button', { name: 'Test ansehen' }).click();
+      assert.equal(await page.locator('.lr-abschluss').count(), 0); await page.locator('.lern-rueck-karte').first().waitFor();
+      await page.close(); continue;
+    }
+    await f.getByRole('button', { name: /Weiter zum nächsten Thema/ }).click();
+    const k = page.locator('.lr-abschluss-bordkarte'); await k.waitFor();
+    assert.equal(await k.locator('.lr-ab-oben').innerText(), 'NEUES THEMA');
+    assert.match((await k.locator('.lr-ab-route').innerText()).replace(/\s+/g, ' '), /ORT ROM ✈ FLUG 2 \/ 4/);
+    assert.equal(await k.locator('.lr-ab-flugname b').innerText(), 'Ganze Zahlen');
+    assert.match((await k.locator('.lr-ab-felder').innerText()).replace(/\s+/g, ' '), /ETAPPEN 9 GEBIET Zahlen FLUG 2 von 4/);
+    const b = k.locator('.lr-ab-gross'); assert.match((await b.innerText()).replace(/\s+/g, ' '), /^Boarding: Ganze Zahlen Zuerst kommt die Erklärung ›$/);
+    assert.equal(await b.getAttribute('href'), '#/lerneinheit/1-2-erklaeren-1');
+    await k.getByRole('link', { name: 'Später – zur Abflugtafel' }).waitFor();
+    const p2 = await abPasst(page); assert.ok(p2.unten <= p2.hoehe, 'Bordkarte passt');
+    await page.screenshot({ path: path.join(root, `test-results/ab-bordkarte-${g}-400.png`) });
+    await b.click(); await page.waitForURL(/1-2-erklaeren-1$/);
+    assert.equal(await page.locator('.lr-abschluss').count(), 0, 'Ansicht geschlossen');
+    await page.close();
+  }
+});
+
+test('AB-A 3: Ort geschafft → Reisepass-Stempel → Bordkarte VON → NACH; Überspringen; ohne nächsten Flug „Alles geschafft“', async (t) => {
+  const { page } = await abTest(t, { ortGeschafft: true, naechster: 'anders' });
+  await page.locator('.lr-abschluss-flug').getByRole('button', { name: 'Überspringen ›' }).click();
+  const o = page.locator('.lr-abschluss-ort'); await o.waitFor();
+  assert.match(await o.locator('.lr-ab-passstempel').innerText(), /GESCHAFFT\s*ROM\s*Zahlen · \d\d\.\d\d\./);
+  assert.equal(await o.locator('.lr-ab-titel').innerText(), 'ROM IST GESCHAFFT');
+  assert.equal(await o.locator('.lr-ab-unter').innerText(), 'Alle 2 Flüge · ★ +100 Ort-Sterne');
+  assert.deepEqual(await o.locator('.lr-ab-kannliste div').allInnerTexts(), ['Natürliche Zahlen', 'Ganze Zahlen']);
+  assert.match((await o.locator('.lr-ab-gross').innerText()).replace(/\s+/g, ' '), /^Weiter: neuer Ort Deine Bordkarte nach Athen ›$/);
+  assert.match(await o.locator('.lr-ab-oben').innerText(), /^REISEPASS · STEMPEL \d+$/);
+  const p = await abPasst(page); assert.ok(!p.scroll && p.unten <= p.hoehe, 'Ort ohne Scrollen');
+  await page.screenshot({ path: path.join(root, 'test-results/ab-ort-nacht-400.png') });
+  await o.locator('.lr-ab-gross').click();
+  const k = page.locator('.lr-abschluss-bordkarte'); await k.waitFor();
+  assert.equal(await k.locator('.lr-ab-oben').innerText(), 'NEUES THEMA · NEUER ORT');
+  assert.match((await k.locator('.lr-ab-route').innerText()).replace(/\s+/g, ' '), /VON ROM ✈ NACH ATHEN/);
+  assert.match(await k.locator('.lr-ab-gross').innerText(), /^Abflug nach Athen/);
+  await page.screenshot({ path: path.join(root, 'test-results/ab-bordkarte-ort-nacht-400.png') });
+  await page.close();
+  const leer = await abTest(t, { naechster: null }, { gestaltung: 'tag', breite: 820, hoehe: 1180 });
+  await leer.page.screenshot({ path: path.join(root, 'test-results/ab-flug-tag-820.png') });
+  await leer.page.locator('.lr-abschluss-flug .lr-ab-gross').click();
+  const kl = leer.page.locator('.lr-abschluss-bordkarte'); await kl.getByText('Alles geschafft, was im Plan steht. Deine Eltern legen fest, wie es weitergeht.').waitFor();
+  assert.equal(await kl.locator('.lr-ab-gross').getAttribute('href'), '#/reise/1');
 });

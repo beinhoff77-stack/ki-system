@@ -2,6 +2,31 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: AB-A (App 0.83.0, Cache v149)
+
+Gebaut im Zweig `bau-lehrer` auf `lernen-app` e71a72d (App 0.82.2) – ich war der einzige Chat am App-Code. Datenbank nur gelesen (für AB-A nichts). Kein Merge nach `main`, keine Kinderdaten.
+Vorgabe: `inhalte/pruefung/kind/abschluss/umsetzung.md`, `entwurf/abschluss.html`, Zusätze von Sebastian in `AUFTRAEGE.md`. Server-Felder: AB-S (Meldung unten).
+Bilder: `docs/previews/ab/` – Etappe `direkt`/`sauber`/`sturm` × `tag`/`nacht` (400 × 780) und Tablet 820, Flug geschafft (tag/nacht 400, tag 820), Ort geschafft, Bordkarte (gleicher Ort, Ortswechsel).
+
+**Umgesetzt (nur Abflug-Gestaltung „tag“/„nacht“; die alte Gestaltung bleibt wie bisher)**
+- **1 Etappe gelandet:** Vollbild über der Seite, drei Fassungen nach `landung.landung_art` (Ersatz `einheit_lesen.landungen`, sonst „sauber“ bei altem Server): Direktflug (Sonnenuntergang, Jet, Funken, „{ziel}/{ziel} AUF ANHIEB“, Abzeichen Direkt), Saubere Landung (Taghimmel, Landebahn, Chips Bordkarten · selbst gelöst · in Folge; bei `wieder_gelandet` „WIEDER GELANDET“), Sturmflug gemeistert (Gewitter, Durchbruch, Satz ohne Fehlerzahl mit „einmal/zweimal/mehrmals neu angesetzt“, Band „⚡ AUSDAUER-ABZEICHEN“). Blatt: „Du kannst jetzt“ (`kann` → „Kurz gesagt“ → Titel), ★ +Sterne, ein Satz zur Wiederholung, **ein** großer Knopf (Weiter: nächste Etappe · Weiter: Flug-Test „{k} Bordkarten, eine je Etappe, ohne Tipps“ · Zur Abflugtafel), Textlink „Pause – zur Abflugtafel“. Kein Weg zurück in die Übungen; die Adresse wird beim Landen durch `…-erklaeren` ersetzt (Zurück-Taste führt nicht in die Bordkarten).
+- **Ablauf (Zusatz Sebastian):** Übungen → Knobel-Bordkarte von selbst → Abschluss-Ansicht. **Sturmflug:** Knobel kommt nicht von selbst, nur als kleiner Textlink im Blatt; danach wieder die Abschluss-Ansicht. Nach der letzten Pflicht-Etappe führt der Knopf zum Flug-Test.
+- **2 Flug geschafft** (nach bestandenem Flug-Test bzw. vollständiger Korrektur, nicht nach Nachtests): Gold-Szene, Konfetti, je Etappe ein Licht, Sterne-Zähler (`sterne_flug.summe`) mit „Test r von g{, v verbessert}“, Liste „Das kannst du jetzt – n Etappen“, Wiederholungs-Kette, Knopf „Weiter zum nächsten Thema“, Textlink „Test ansehen“ (schließt die Ansicht; darunter die Antwortliste mit Teil 4/5f). „Überspringen ›“.
+- **Bordkarte:** NEUES THEMA, ORT ✈ FLUG nr/von, Flugname, `kurz`, ETAPPEN · GEBIET · FLUG, Gate „ERKLÄRUNG“; „Boarding: {Titel}“ → `#/lerneinheit/{kind}-{einheit}-erklaeren-1` (Erklärung der ersten Etappe); „Später – zur Abflugtafel“. `naechster_flug: null` → „Alles geschafft, was im Plan steht …“ + „Zur Abflugtafel“. Alter Server ohne das Feld → Abflugtafel.
+- **3 Ort geschafft** (`ort_geschafft`): Papier-Szene, Stempel „GESCHAFFT / ORT / Gebiet · Datum“, „REISEPASS · STEMPEL n“ (Konto neu geladen), „Alle k Flüge · ★ +100 Ort-Sterne“, „Deine Flüge in …“, Knopf „Weiter: neuer Ort“ → Bordkarte „NEUES THEMA · NEUER ORT“, „VON … ✈ NACH …“, „Abflug nach {Ort}“.
+- **4 Bewegung:** nur CSS (+ Zähler), längste Bewegung 1,8 s (Funken und Konfetti gegenüber dem Entwurf verkürzt, damit 1,8 s eingehalten sind), Antippen der Szene beendet sie, bei „weniger Bewegung“ sofort Endzustand. Kein Ton.
+- **Reisepass:** Zeile „⚡ Direkt n · ✓ Sauber n · ⚡ Ausdauer n“ aus `konto.abzeichen` (nur wenn der Server sie liefert).
+- **H6 (LB-3 Nachbesserung, Sollte 6):** Der Tageszähler „heute selbst gelöst“ gilt bis `heute_bis` des Servers (unabhängig von Uhr und Zeitzone des Geräts); ohne `heute_bis` wie bisher.
+- **Rückgängig (LB-3 Nachbesserung, Sollte 4):** Die App bietet nach einem Rückgängig keinen weiteren Schritt zurück an; lehnt der Server ab, steht dort „Rückgängig geht nur für die letzte Änderung …“ mit „Neu laden“.
+
+**Getestet** (Playwright, Chromium; lernen 118 von 118; Suche 138 bestanden + Nr. 108 einzeln bestanden (bekannt wackelig), 9 bekannte alte Fehler 13, 15, 101, 103, 105, 111, 113, 126, 127; neu 6 Tests AB-A, angepasst 5 Tests aus Teil 4/5): drei Fassungen mit verschiedenen Szenen, je hell und nacht auf 400 × 780 ohne Scrollen, genau ein großer Knopf, kein Link in die Übungen, Adresse nach der Landung `…-erklaeren`; Sturmflug ohne Fehlerzahl und ohne Knobel von selbst, Knobel über den Textlink und zurück; Wieder gelandet; alter Server ohne `landung`; Reisepass-Zeile; Tablet 820; Bewegung ≤ 1,8 s, Antippen beendet, „weniger Bewegung“ ohne Animation; Flug → Bordkarte → Boarding öffnet `-erklaeren-1`; „Test ansehen“; Ort → Stempel → Bordkarte VON/NACH; ohne nächsten Flug.
+
+**Nicht geprüft / offen**
+- Gegen den echten Server nicht ausgeführt (AB-S-Felder nur nach der Feldbeschreibung nachgebildet).
+- „Zurück-Taste führt zur Etappen-Übersicht“: umgesetzt als Ersetzen der Adresse durch `…-erklaeren`; die Taste selbst führt dann zur vorigen Seite (z. B. Abflugtafel), nie in die Bordkarten.
+- Das Konfetti/Funken-Timing weicht leicht vom Entwurf ab (1,4 s bzw. 0,9 s statt 1,8 s/1,2 s), damit die Grenze von 1,8 s auch mit Verzögerung gilt.
+- Echte Geräte, Safari und Bildschirmleser nicht geprüft.
+
 ## 2026-11-20 – FERTIG: LB-3 Nachbesserung (Server, Muss 1–3, Sollte 4–7)
 
 Gebaut im Zweig `bau-lehrer` (Stand `lernen-app` e71a72d übernommen). Nur Migration und Rauchtests – kein `lernen.js`. **Nichts in der Datenbank ausgeführt**, nur gelesen: alle Einfügestellen im Live-Text geprüft (je genau einmal vorhanden). Kein Merge nach `main`.

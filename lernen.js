@@ -548,6 +548,10 @@ async function viewLernen() {
   const offeneWuensche = (eltern?.einloesungen || []).filter((x) => x.status === 'beantragt');
   const meldung = el('p', { class: 'small muted', role: 'status' });
   const entscheide = async (id, status) => { try { await lernCall('schule_einloesung_entscheiden', { id, status }); render(); } catch (err) { meldung.textContent = err.message; } };
+  // I-2: auf der Leitungs-Startseite stehen die Wünsche als blaue Einträge in „Zu tun“; der Kasten bleibt nur für die Seite ohne Leitung
+  const wuensche = offeneWuensche.map((x) => ({ text: `${x.kind} möchte „${x.titel}“ einlösen (${lernZahl(x.sterne)} Sterne)`,
+    knoepfe: [el('button', { type: 'button', class: 'primary', onclick: () => entscheide(x.id, 'bestaetigt') }, 'Bestätigen'),
+      el('button', { type: 'button', class: 'secondary', onclick: () => entscheide(x.id, 'abgelehnt') }, 'Ablehnen')] }));
   const wartet = offeneWuensche.length ? el('section', { class: 'card lern-wartet' }, el('p', { class: 'eyebrow' }, 'WARTET AUF DICH'),
     ...offeneWuensche.map((x) => el('div', { class: 'lern-wunsch' }, el('span', {}, el('b', {}, x.kind), ` möchte „${x.titel}“ einlösen (${lernZahl(x.sterne)} Sterne)`),
       el('div', { class: 'row' }, el('button', { type: 'button', class: 'primary', onclick: () => entscheide(x.id, 'bestaetigt') }, 'Bestätigen'),
@@ -575,10 +579,9 @@ async function viewLernen() {
     eltern ? el('a', { href: '#/zugaenge' }, 'Zugänge') : null,
     !seite ? el('a', { href: 'lernen/', target: '_blank', rel: 'noopener' }, 'Eigene Lernen-Seite ↗') : null].filter(Boolean);
   lernErsetze(main, ...[
-    lernInfoLink(),
-    wartet,
-    el('section', { class: 'start-intro lern-neu lern-was-ist-los' }, el('p', { class: 'eyebrow' }, 'LERNREISE'), el('h1', { class: 'lern-h-start' }, 'Was ist los?')),
-    lernZuTun(echte, lagen, rm),
+    // I-2: Kopf in einer Zeile (Überschrift links, „So funktioniert’s“ rechts) – damit die Kinder-Tabelle auch auf dem Rechner ohne Rollen sichtbar ist
+    el('section', { class: 'lern-neu lern-was-ist-los' }, el('h1', { class: 'lern-h-start' }, 'Was ist los?'), lernInfoLink()),
+    lernZuTun(echte, lagen, rm, wuensche, meldung),
     echte.length ? lernKinderTabelle(u, echte, lagen) : el('p', { class: 'card muted' }, 'Kein Kind freigeschaltet.'),
     nachschlagen,
     verwalten.length ? el('nav', { class: 'lern-nachschlagen lern-verwalten', 'aria-label': 'Verwalten' }, el('span', { class: 'eyebrow' }, 'VERWALTEN'), ...verwalten) : null,
@@ -611,22 +614,27 @@ function lernStandZellen(u, k) {
   if (!k?.klasse) return LERN_SYS.map((y) => ({ y, text: '–', pz: null, sa: y.sa }));
   const m = lernStandModell(u, k);
   return LERN_SYS.map((y) => { const kl = m.stufe(y.sa); const c = m.zahl(y.sa, kl);
-    if (y.sa === 'ib_myp' && !kl) return { y, sa: y.sa, text: 'noch kein MYP-Jahr', pz: null };
+    if (y.sa === 'ib_myp' && !kl) return { y, sa: y.sa, text: '– (ab Kl. 6)', lang: 'noch kein MYP-Jahr', pz: null }; // I-8: kurz in Tabelle und Karten
     return { y, sa: y.sa, text: y.sa === 'ib_myp' ? y.label(kl) : 'Kl. ' + kl, pz: c.n ? lernPz(c.f, c.n) : null, f: c.f, n: c.n, eigen: y.sa === (k.schulart || 'gym_by') }; });
 }
 // LA-2 „Zu tun“: rot (seit 3 Tagen kein Lerntag, Rückreise) → gelb (Etappe wackelt, noch nicht besprochen) → blau (neue Antwort auf einen Auftrag)
-function lernZuTun(kinder, lagen, rm) {
+// I-4: Reisewörter beim ersten Vorkommen klein erklären
+const LERN_WORT = { rueckreise: 'Wiederholung nach nicht bestandenem Nachtest', etappe: 'Lernschritt', flug: 'Thema', bordkarte: 'Aufgabe' };
+const lernErklaert = (wort, art) => el('span', { class: 'lern-wort' }, wort, el('small', { class: 'lern-wort-erkl' }, ` (${LERN_WORT[art]})`));
+function lernZuTun(kinder, lagen, rm, wuensche = [], meldung = null) {
   const eintraege = [];
   for (const k of kinder) { const l = lagen.get(k.id);
     if (lernLerntAmpel(l) === 'rot') eintraege.push(['rot', `${k.name}: ${l.seit === null ? 'kein Lerntag in den letzten 4 Wochen' : `seit ${l.seit} Tagen kein Lerntag`}`, `#/kind/${k.id}-ueberblick`]);
-    for (const o of l.rueck) eintraege.push(['rot', `${k.name}: Rückreise ${o} – Nachtest nicht bestanden`, `#/kind/${k.id}-plan`]); }
+    for (const o of l.rueck) eintraege.push(['rot', [`${k.name}: `, lernErklaert(`Rückreise ${o}`, 'rueckreise')], `#/kind/${k.id}-plan`]); }
   for (const k of kinder) for (const x of lagen.get(k.id).offen) eintraege.push(['gelb', `${k.name}: „${x.titel}“ wackelt (${x.falsch} falsch)`, `#/kind/${k.id}-wackelt-${x.einheit_id}.${x.lernziel}`]);
   const neu = (rm?.rueckmeldungen || []).filter((r) => r.antwort && r.status !== 'offen' && (!r.am || lernTageSeit(r.beantwortet_am || r.am) <= 7));
+  for (const w of wuensche) eintraege.push(['blau', w.text, null, w.knoepfe]); // I-2: Belohnung einlösen
   if (neu.length) eintraege.push(['blau', neu.length === 1 ? `Neue Antwort auf euren Auftrag: ${neu[0].flug || neu[0].ort || 'Allgemein'}` : `${neu.length} neue Antworten auf eure Aufträge`, '#/lernauftraege']);
   return el('section', { class: 'card lern-zutun', 'aria-label': 'Zu tun' }, el('h2', {}, 'Zu tun'),
-    eintraege.length ? el('ul', { class: 'lern-zutun-liste' }, ...eintraege.map(([f, t, h]) => el('li', { class: 'zt-' + f },
-      el('a', { href: h }, el('i', { class: 'zt-punkt', 'aria-hidden': 'true' }), el('span', {}, t), el('span', { class: 'zt-pfeil', 'aria-hidden': 'true' }, '›')))))
-      : el('p', { class: 'lern-zutun-ruhig' }, 'Alles ruhig.'));
+    eintraege.length ? el('ul', { class: 'lern-zutun-liste' }, ...eintraege.map(([f, t, h, knoepfe]) => el('li', { class: 'zt-' + f + (knoepfe ? ' zt-wunsch' : '') },
+      knoepfe ? el('div', { class: 'zt-zeile' }, el('i', { class: 'zt-punkt', 'aria-hidden': 'true' }), el('span', {}, t), el('span', { class: 'zt-knoepfe' }, ...knoepfe))
+        : el('a', { href: h }, el('i', { class: 'zt-punkt', 'aria-hidden': 'true' }), el('span', {}, ...[t].flat()), el('span', { class: 'zt-pfeil', 'aria-hidden': 'true' }, '›')))))
+      : el('p', { class: 'lern-zutun-ruhig' }, 'Alles ruhig.'), meldung && wuensche.length ? meldung : null);
 }
 // LA-2 Kinder-Tabelle (ab 560 px) bzw. je Kind eine kompakte Karte (Handy) – dieselben Felder
 function lernKinderTabelle(u, kinder, lagen) {
@@ -641,7 +649,7 @@ function lernKinderTabelle(u, kinder, lagen) {
   const starten = (k) => eltern ? el('a', { class: 'btn lern-start', href: `#/reise/${k.id}`, 'aria-label': `Lernen starten: ${k.name}`, onclick: (ev) => ev.stopPropagation() }, 'Lernen starten ›') : null;
   const oeffne = (k) => (ev) => { if (ev.target.closest('a,button')) return; route('kind', `${k.id}-ueberblick`); };
   const tabelle = el('table', { class: 'lern-kinder-tabelle' },
-    el('thead', {}, el('tr', {}, el('th', {}, 'Kind'), el('th', {}, 'Lernt'), el('th', {}, 'Wackelt'), ...LERN_SYS.map((y) => el('th', {}, y.kurz)), el('th', {}, 'Jetzt'), el('th', {}, el('span', { class: 'sr-only' }, 'Aktionen')))),
+    el('thead', {}, el('tr', {}, el('th', {}, 'Kind'), el('th', {}, 'Lernt'), el('th', {}, 'Wackelt'), ...LERN_SYS.map((y) => el('th', {}, y.kurz)), el('th', {}, 'Jetzt'), el('th', { 'aria-label': 'Lernen starten und Einstellen' }))),
     el('tbody', {}, ...kinder.map((k) => { const l = lagen.get(k.id);
       return el('tr', { class: 'lern-kind-zeile', onclick: oeffne(k) },
         el('th', { scope: 'row' }, el('a', { href: `#/kind/${k.id}-ueberblick` }, el('b', {}, k.name)), el('small', {}, klasse(k))),
@@ -649,7 +657,7 @@ function lernKinderTabelle(u, kinder, lagen) {
         el('td', { class: 'amp-' + wackAmpel(l) }, wack(l)),
         ...lernStandZellen(u, k).map((z) => el('td', {}, zelle(z))),
         el('td', { class: 'small' }, jetzt(k)),
-        el('td', { class: 'lern-zeile-knoepfe' }, starten(k), einstellen(k))); })));
+        el('td', { class: 'lern-zeile-zelle' }, el('div', { class: 'lern-zeile-knoepfe' }, starten(k), einstellen(k)))); })));
   const karten = el('div', { class: 'lern-kinder-karten' }, ...kinder.map((k) => { const l = lagen.get(k.id);
     return el('section', { class: 'card lern-kind-karte', 'aria-label': k.name, onclick: oeffne(k) },
       el('div', { class: 'lern-kind-karte-kopf' }, el('a', { href: `#/kind/${k.id}-ueberblick` }, el('b', {}, k.name)), el('small', {}, klasse(k)), einstellen(k)),
@@ -702,13 +710,15 @@ async function viewKindUeberblick(id) {
   const geschafft = lernGeschaffteFluege(u, k, ls).slice(0, 3);
   lernErsetze(main, lernKindKopf(k, 'ueberblick'),
     el('div', { class: 'lern-fragen' },
-      frage('Lernt es?', lernLerntAmpel(l), [el('p', {}, lernLerntText(l)), el('p', { class: 'small muted' }, `Letzte 7 Tage: ${w.aufgaben || 0} Bordkarten, ${w.richtig || 0} richtig` + (w.mit_tipp ? `, ${w.mit_tipp}-mal mit Tipp` : ''))], null),
+      frage('Lernt es?', lernLerntAmpel(l), [el('p', {}, lernLerntText(l)), el('p', { class: 'small muted' }, `Letzte 7 Tage: ${w.aufgaben || 0} `, lernErklaert('Bordkarten', 'bordkarte'), `, ${w.richtig || 0} richtig` + (w.mit_tipp ? `, ${w.mit_tipp}-mal mit Tipp` : ''))], null),
       frage('Wo hakt es?', l.rueck.length ? 'rot' : l.offen.length ? 'gelb' : 'gruen', [
-        l.wackelt.length ? el('ul', { class: 'lern-kurzliste' }, ...l.wackelt.slice(0, 3).map((x) => el('li', {}, el('b', {}, x.titel), el('small', { class: 'muted' }, ` · ${x.ort || x.thema}`)))) : el('p', {}, 'Nichts wackelt.'),
-        ...l.rueck.map((o) => el('p', { class: 'small' }, `Rückreise ${o} – Nachtest nicht bestanden`))], el('a', { class: 'small', href: `#/kind/${k.id}-wackelt` }, 'Was wackelt ›')),
+        l.wackelt.length ? el('ul', { class: 'lern-kurzliste' }, ...l.wackelt.slice(0, 3).map((x) => el('li', {}, el('b', {}, x.titel), el('small', { class: 'muted' }, ` · ${x.ort || x.thema}`))))
+          : el('p', {}, 'Keine ', lernErklaert('Etappe', 'etappe'), ' wackelt', ...l.rueck.map((o) => ` · Rückreise ${o} offen`)), // I-6: kein „Nichts wackelt.“ über einer Rückreise
+        ...(l.rueck.length ? [el('p', { class: 'small' }, l.wackelt.length ? `Rückreise ${l.rueck.join(', ')} offen` : '', el('small', { class: 'lern-wort-erkl' }, `${l.wackelt.length ? ' ' : ''}(Rückreise = ${LERN_WORT.rueckreise})`))] : [])],
+        el('a', { class: 'small', href: `#/kind/${k.id}-wackelt` }, 'Was wackelt ›')),
       frage('Wo steht es?', null, [el('div', { class: 'lern-frage-stand' }, ...lernStandZellen(u, k).map((z) => el('a', { href: `#/kind/${k.id}-stand-${z.sa}`, class: 'lern-st-link' },
         el('small', {}, z.y.name), el('span', { class: 'lern-st-zelle' }, el('b', {}, z.text), el('small', {}, z.pz === null ? '–' : `${z.pz} %`)))))], el('a', { class: 'small', href: `#/kind/${k.id}-stand` }, 'Stand ›')),
-      frage('Was kommt?', null, [el('p', {}, n ? `Jetzt: ${n.stadt || n.ort_titel} · ${n.titel} (${n.fertig}/${n.n} Etappen)` : 'Gerade nichts offen.')], el('a', { class: 'small', href: `#/kind/${k.id}-plan` }, 'Plan ›'))),
+      frage('Was kommt?', null, [n ? el('p', {}, 'Jetzt: ', lernErklaert('Flug', 'flug'), ` ${n.stadt || n.ort_titel} · ${n.titel} (${n.fertig}/${n.n} Etappen)`) : el('p', {}, 'Gerade nichts offen.')], el('a', { class: 'small', href: `#/kind/${k.id}-plan` }, 'Plan ›'))),
     el('section', { class: 'card lern-geschafft-kurz' }, el('h3', {}, 'Zuletzt geschafft'),
       geschafft.length ? el('ul', { class: 'lern-kurzliste' }, ...geschafft.map((g) => el('li', {}, el('b', {}, g.titel), el('small', { class: 'muted' }, ` · ${g.ort}${g.am ? ' · ' + lernTag(g.am) : ''}${g.kannSchon ? ' · kann schon' : ''}`))))
         : el('p', { class: 'muted small' }, 'Noch kein Flug geschafft.')));
@@ -751,7 +761,7 @@ async function lernEinstellenBlatt(id) {
       knoepfe('Hauptschulart', Object.entries(LERN_SCHULART), sa, (w) => speichern({ schulart: w }, s1)),
       knoepfe('Klasse', [5, 6, 7, 8, 9, 10].map((n) => [n, String(n)]), Number(k.klasse) || null, (w) => speichern({ klasse: w }, s1)),
       el('p', { class: 'small muted' }, 'Bestimmt seine Klasse in Lernreise und Plan.'), s1);
-    if (k.stufen === undefined) { lernErsetze(karte2, el('h3', {}, 'Stand messen gegen …'), el('p', { class: 'small muted' }, 'Kommt, sobald die Datenbank Stufen je Schulart liefert.')); return; }
+    if (k.stufen === undefined) { lernErsetze(karte2, el('h3', {}, 'Stand messen gegen …'), el('p', { class: 'small muted' }, 'Die Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.')); return; }
     const wahl = Object.fromEntries(LERN_SYS.map((y) => { const aus = lernStufe({ ...k, stufen: {} }, y.sa);
       const s = el('select', { 'aria-label': 'Stufe ' + y.name }, el('option', { value: '' }, `aus Klasse (${aus ? y.label(aus) : y.sa === 'ib_myp' && aus === 0 ? 'noch kein MYP-Jahr' : '–'})`),
         ...y.stufen.map((n) => el('option', { value: String(n), selected: Number(k.stufen?.[y.sa]) === n }, y.label(n))));
@@ -1870,7 +1880,8 @@ function lernTestTeil(ctx, etappen) {
   const offen = pflicht.filter((e) => !e.fertig).length;
   if (!pflicht.length) return el('p', { class: 'lr-gesperrt' }, 'Dieser Flug wird gerade vorbereitet. Schau bald wieder vorbei.');
   if (daten.laufender_test) return el('a', { class: 'lr-knopf', href: `${ctx.basis}-test` }, 'Angefangenen Test weitermachen');
-  if (daten.blocktest_fertig && !offen && lernNeueEtappen(daten.stand)) return el('a', { class: 'lr-knopf', href: `${ctx.basis}-test` }, 'Alle Etappen sitzen – Test zu den neuen Etappen');
+  // I-5 (W177): nur an „Flug-Test abgeschlossen und neue offene Pflicht-Etappen“ gebunden, neutraler Text
+  if (daten.blocktest_fertig && lernNeueEtappen(daten.stand)) return el('a', { class: 'lr-knopf', href: `${ctx.basis}-test` }, 'Test zu den neuen Etappen');
   if (daten.blocktest_fertig) return el('a', { class: 'lr-zeile', href: `${ctx.basis}-test` }, el('span', { class: 'lr-zeile-icon' }, lernIcon(LI.stempel, 22)),
     el('span', { class: 'lr-zeile-text' }, el('b', {}, 'Test, Verbessern und Nachtests'), el('small', {}, daten.nachtest?.grund === 'faellig' ? 'Ein Nachtest ist jetzt dran.' : 'Hier siehst du, was als Nächstes kommt.')), lernIcon(LI.pfeil, 20));
   if (!offen) return el('a', { class: 'lr-knopf', href: `${ctx.basis}-test` }, 'Alle Etappen sitzen – Test starten');
@@ -2823,8 +2834,8 @@ async function viewPlan(arg) {
           el('button', { type: 'button', class: 'iconbtn', 'aria-label': `${ortName(o)} nach unten`, disabled: j === sichtbar.length - 1, onclick: () => tausche(j + 1) }, '↓')),
         auf ? el('div', { class: 'lern-plan-detail' },
           fluegeListe(o, x),
-          kannAbwaehlen ? null : el('p', { class: 'small muted' }, 'Einzelne Flüge abwählen geht, sobald die Datenbank dafür bereit ist.'),
-          kannJeFlug ? null : el('p', { class: 'small muted' }, '„kann schon“ je Flug geht, sobald die Datenbank dafür bereit ist.'),
+          kannAbwaehlen ? null : el('p', { class: 'small muted' }, 'Einzelne Flüge abwählen geht hier noch nicht.'),
+          kannJeFlug ? null : el('p', { class: 'small muted' }, '„kann schon“ je Flug geht hier noch nicht.'),
           el('div', { class: 'row' },
             el('label', { class: 'lern-plan-kann' }, el('input', { type: 'checkbox', checked: !!x.kann_schon, onchange: (ev) => { const v = ev.target.checked; aendere(() => { plan[i].kann_schon = v; }); } }), ' alle Flüge: kann schon'),
             el('button', { type: 'button', class: 'lern-plan-weg', 'aria-label': `${ortName(o)} aus dem Plan nehmen`, onclick: () => aendere(() => { plan.splice(i, 1); offen.delete(x.block_id); }) }, 'Entfernen'))) : null);
@@ -2848,7 +2859,8 @@ async function viewPlan(arg) {
         const teile = [['gelandet', kann && !am ? 'kann schon' : am ? lernTag(am) : '–'], ['Nachtest', kann && !e ? '–' : ntText(t.einheit ? nachtest.get(t.einheit.id) : null)],
           ['nächste Wiederholung', kann && !e ? '–' : wdh === 0 ? 'jetzt fällig' : typeof wdh === 'number' ? `in ${wdh} ${wdh === 1 ? 'Lerntag' : 'Lerntagen'}` : '–']];
         return el('li', {}, el('span', { class: 'lern-geschafft-ort' }, o?.stadt || o?.titel || ''), ' · ', el('b', {}, t.titel),
-          el('small', {}, ...teile.map(([k, v]) => el('span', { class: 'lern-geschafft-wert' }, `${k}: `, el('b', {}, v))))); }); });
+          !t.einheit && !kann ? el('small', {}, el('span', { class: 'lern-geschafft-wert' }, 'noch kein Inhalt')) // I-7
+            : el('small', {}, ...teile.map(([k, v]) => el('span', { class: 'lern-geschafft-wert' }, `${k}: `, el('b', {}, v))))); }); });
     geschafftBox.hidden = !orte.length;
     lernErsetze(geschafftBox, el('summary', {}, el('b', {}, `Geschafft (${orte.length})`)),
       el('ul', { class: 'lern-geschafft-liste' }, ...zeilen),
@@ -3009,7 +3021,7 @@ async function viewSchulstand(arg, alsLernstand = false) {
   const krumen = (teile) => el('nav', { class: 'lern-krumen', 'aria-label': 'Pfad' }, ...teile.flatMap(([t, h], i) => i < teile.length - 1 ? [el('a', { href: h }, t), el('span', { 'aria-hidden': 'true' }, '›')] : [el('b', {}, t)]));
   const kopf = el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'ELTERN UND LEHRER'), el('h2', {}, 'Alle Kinder im Vergleich'),
     el('p', {}, 'Wie weit jedes Kind in Gymnasium, Realschule und IB MYP ist – gezählt werden alle Flüge, die laut Lehrplan in die jeweilige Klasse gehören.'));
-  const hinweisFluege = modelle.size && ![...modelle.values()][0].alleFluege ? el('p', { class: 'small muted' }, 'Gezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert.') : null;
+  const hinweisFluege = modelle.size && ![...modelle.values()][0].alleFluege ? el('p', { class: 'small muted' }, 'Gezählt werden vorerst nur Flüge mit Inhalt.') : null;
   // Ebene 1
   if (!kind || !y) {
     if (alsLernstand && kidArg) { route('schulstand'); return; } // unbekanntes Kind
@@ -3110,7 +3122,7 @@ async function viewExpeditionen() {
         t.antworten ? el('p', { class: 'small' }, 'Antworten: ' + t.antworten.join(' · ')) : null,
         el('p', {}, el('b', {}, 'Lösung: '), lernLoesungText(t)), t.loesungsweg ? el('p', { class: 'small muted' }, lernText(t.loesungsweg)) : null,
         el('p', { class: 'small muted' }, `Bezug: Lernkarte „${t.lernziel}“`))))))) 
-      : el('p', { class: 'muted' }, Array.isArray(u.expeditionen) ? 'Noch keine Expeditionen eingespielt.' : 'Expeditionen kommen, sobald die Datenbank sie liefert.'));
+      : el('p', { class: 'muted' }, Array.isArray(u.expeditionen) ? 'Noch keine Expeditionen eingespielt.' : 'Noch keine Expeditionen da.'));
 }
 // K4: Stand einer Etappe in Worten – mit der Zahl der Bordkarten bis „sitzt“ (schule_lernstand.bis_sitzt, Migration D)
 function lernEtappeStandText(x) {
@@ -3187,7 +3199,7 @@ async function viewInfo() {
   lernErsetze(main,
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'FÜR ELTERN UND LEHRER'), el('h2', {}, 'So funktioniert’s'),
       el('p', {}, 'Die Lernreise in Kürze: erst die vier wichtigsten Schritte, darunter Antworten auf die häufigsten Fragen.'),
-      el('p', {}, el('b', {}, 'Startseite: '), 'Oben „Zu tun“ – rot: seit 3 Tagen kein Lerntag oder eine Rückreise (Nachtest nicht bestanden); gelb: eine Etappe wackelt und ist noch nicht besprochen; blau: eine neue Antwort auf einen Auftrag. Darunter je Kind eine Zeile: Lernt (Lerntage diese Woche, zuletzt), Wackelt, Stand in Gymnasium, Realschule und IB MYP (Prozent der Flüge der Klasse, die gelandet sind) und was jetzt dran ist. Auf dem Handy steht statt der Tabelle je Kind eine Karte.'),
+      el('p', {}, el('b', {}, 'Startseite: '), 'Oben „Zu tun“ – rot: seit 3 Tagen kein Lerntag oder eine Rückreise (Nachtest nicht bestanden); gelb: eine Etappe wackelt und ist noch nicht besprochen; blau: ein Wunsch eines Kindes, eine Belohnung einzulösen (Bestätigen oder Ablehnen direkt im Eintrag), oder eine neue Antwort auf einen Auftrag. Darunter je Kind eine Zeile: Lernt (Lerntage diese Woche, zuletzt), Wackelt, Stand in Gymnasium, Realschule und IB MYP (Prozent der Flüge der Klasse, die gelandet sind) und was jetzt dran ist. Auf dem Handy steht statt der Tabelle je Kind eine Karte.'),
       el('p', {}, el('b', {}, 'Seite des Kindes: '), 'Eine Zeile antippen öffnet sie, mit vier Reitern: Überblick (Lernt es? Wo hakt es? Wo steht es? Was kommt?), Was wackelt, Stand und Plan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.'),
       el('p', {}, el('b', {}, 'Lernen starten: '), 'Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel des Kindes. Im Lehrer-Zugang steht dort klein „Lernreise ansehen“.')),
     el('h3', {}, 'Erste Schritte'),
@@ -3274,6 +3286,7 @@ async function viewLehrplan() {
   const klKnoepfe = el('div', { class: 'lern-chips-zeile lp-kl', role: 'group', 'aria-label': 'Klasse' });
   const kacheln = el('div', { class: 'lp-kacheln' });
   const tbody = el('tbody');
+  const liste = el('div', { class: 'lp-liste' }); // I-3: unter 560 px eine Liste statt der breiten Tabelle
   const suche = el('input', { type: 'search', placeholder: 'Flug suchen …', 'aria-label': 'Flug suchen', value: f.q });
   suche.addEventListener('input', () => { f.q = suche.value; zeichne(); });
   const inhaltZeichen = { fertig: ['●', 'fertig'], pruefung: ['◐', 'in Prüfung'], leer: ['○', 'fehlt'] };
@@ -3315,6 +3328,20 @@ async function viewLehrplan() {
       zeilen.push(zeile(t)); }
     lernErsetze(tbody, ...zeilen);
     if (!treffer.length) lernAnhaengen(tbody, el('tr', {}, el('td', { colspan: String(4 + kinder.length), class: 'muted' }, 'Keine Flüge für diese Auswahl.')));
+    const lzeilen = []; let lg = null;
+    for (const t of treffer) { const k = `${t.jahrgang[f.sa]}·${t.gebiet || ''}`;
+      if (k !== lg) { lg = k; lzeilen.push(el('h3', { class: 'lp-liste-gruppe' }, `${f.sa === 'ib_myp' ? y().label(Number(t.jahrgang[f.sa])) : 'Klasse ' + t.jahrgang[f.sa]} · ${t.gebiet || 'Weitere'}`)); }
+      const z = lernInhaltZustand(t); const wort = inhaltZeichen[z.k][1];
+      lzeilen.push(el('div', { class: 'lp-liste-eintrag lp-' + z.k },
+        el('div', { class: 'lp-liste-kopf' }, t.einheit ? el('a', { href: `#/inhalte/${t.einheit.id}` }, el('b', {}, t.titel)) : el('b', {}, t.titel),
+          el('span', { class: 'lp-inhalt-zelle' }, el('i', { class: 'lp-dot lp-dot-' + z.k, 'aria-hidden': 'true' }), ' ' + wort)),
+        el('small', { class: 'muted' }, [t.ort, andere(t)].filter(Boolean).join(' · ')),
+        kinder.length ? el('div', { class: 'lp-liste-kinder' }, ...kinder.map((c) => { const st = t.stand?.[c.id] || 'keine_einheit'; const [txt, kl] = LERN_STAND[st] || [st, ''];
+          return el('span', { class: 'lp-stand ' + kl }, `${c.name}: ${txt}${(t.geplant || []).includes(c.id) ? ' · im Plan' : ''}`); })) : null,
+        t.einheit ? null : lernAendern({ block_id: t.block_id }, { bezug: 'flug', wo: `Flug „${t.titel}“`, art: 'neu',
+          text: `Bitte Inhalte bauen: „${t.titel}“ (${t.ort || t.gebiet}, ${lernJahrgangText(t.jahrgang)}).` }))); }
+    lernErsetze(liste, ...lzeilen);
+    if (!treffer.length) lernAnhaengen(liste, el('p', { class: 'muted' }, 'Keine Flüge für diese Auswahl.'));
   };
   zeichneWahl(); zeichne();
   lernErsetze(main, lernInfoLink(),
@@ -3322,7 +3349,8 @@ async function viewLehrplan() {
       el('p', { class: 'small muted' }, `Alle Mathe-Flüge je Schulart und Klasse. Zeile antippen → Inhalte ansehen. IB: ${LERN_IB_HINWEIS}.`)),
     el('div', { class: 'lp-filter' }, saReiter, klKnoepfe, el('div', { class: 'row' }, suche, el('a', { class: 'small', href: '#/expeditionen' }, '⛰ Expeditionen ansehen ›'))),
     el('div', { class: 'lp-kacheln lp-kacheln-klein' }, kacheln),
-    el('div', { class: 'lern-tabelle-rollen' }, el('table', { class: 'lp-tabelle-lehrplan' },
+    liste,
+    el('div', { class: 'lern-tabelle-rollen lp-breit' }, el('table', { class: 'lp-tabelle-lehrplan' },
       el('thead', {}, el('tr', {}, el('th', {}, 'Flug'), el('th', {}, 'Ort'), el('th', {}, 'andere Schularten'), el('th', {}, 'Inhalt'), ...kinder.map((c) => el('th', {}, c.name)))), tbody)));
 }
 
@@ -3423,29 +3451,44 @@ async function viewWackelt(arg) {
   const schluessel = (k) => `${k.einheit_id}.${k.lernziel}`;
   const offen = new Set(aufRoh ? [aufRoh] : []);
   const tbody = el('tbody');
-  const zeichne = () => lernErsetze(tbody, ...mitFehlern.flatMap((k) => {
-    const auf = offen.has(schluessel(k)); const w = lernKarteWackelt(k);
+  const karten = el('div', { class: 'ls-karten' }); // I-1: unter 560 px je Etappe eine Karte statt Tabelle
+  const umschalten = (k) => { if (offen.has(schluessel(k))) offen.delete(schluessel(k)); else offen.add(schluessel(k)); zeichne(); };
+  const marken = (k, w) => [w ? el('span', { class: 'ls-marke ls-marke-w' }, k.wieder_offen ? 'wieder offen' : 'wackelt') : null,
+    k.besprochen_am ? el('span', { class: 'ls-marke ls-marke-b' }, 'besprochen ' + lernTag(k.besprochen_am)) : null];
+  const detail = (k) => {
     const meldung = el('span', { class: 'small muted', role: 'status', 'aria-live': 'polite' });
-    const zeile = el('tr', { class: 'ls-zeile' + (w ? ' ls-zeile-wackelt' : '') + (auf ? ' offen' : ''), onclick: () => { if (auf) offen.delete(schluessel(k)); else offen.add(schluessel(k)); zeichne(); } },
-      el('th', { scope: 'row' }, el('button', { type: 'button', class: 'ls-auf', 'aria-expanded': String(auf) }, el('b', {}, k.titel)), el('small', {}, k.ort || k.thema),
-        w ? el('span', { class: 'ls-marke ls-marke-w' }, k.wieder_offen ? 'wieder offen' : 'wackelt') : null,
-        k.besprochen_am ? el('span', { class: 'ls-marke ls-marke-b' }, 'besprochen ' + lernTag(k.besprochen_am)) : null),
-      el('td', {}, `${k.richtig} / ${k.falsch}`),
-      el('td', {}, lernHaeufigsterFehler(k)),
-      el('td', {}, seit(k) ? lernTag(seit(k)) : '–'));
-    if (!auf) return [zeile];
     const besprochen = el('button', { type: 'button', class: 'secondary ls-besprochen', onclick: async (ev) => {
       ev.stopPropagation(); besprochen.disabled = true; meldung.textContent = 'Speichere …';
       try { const r = await lernCall('schule_notiz_setzen', { lernender_id: kindId, besprochen: { einheit_id: k.einheit_id, lernziel: k.lernziel } });
         k.besprochen_am = r?.besprochen_am || new Date().toISOString(); zeichne(); }
-      catch (err) { besprochen.disabled = false; meldung.textContent = /Notiz leer/.test(err.message) ? '„Besprochen“ geht, sobald die Datenbank dafür bereit ist.' : 'Nicht gespeichert: ' + err.message; } } },
+      catch (err) { besprochen.disabled = false; meldung.textContent = /Notiz leer/.test(err.message) ? '„Besprochen“ lässt sich hier noch nicht speichern.' : 'Nicht gespeichert: ' + err.message; } } },
       k.besprochen_am ? 'Erneut besprochen ✓' : 'Besprochen ✓');
-    return [zeile, el('tr', { class: 'ls-detail' }, el('td', { colspan: '4' },
-      (k.fehler || []).length ? el('div', {}, el('b', { class: 'small' }, `Letzte falsche Antworten (${k.fehler.length})`), el('ul', { class: 'ls-antworten' }, ...k.fehler.slice(0, 3).map(antwortZeile)))
+    return [(k.fehler || []).length ? el('div', {}, el('b', { class: 'small' }, `Letzte falsche Antworten (${k.fehler.length})`), el('ul', { class: 'ls-antworten' }, ...k.fehler.slice(0, 3).map(antwortZeile)))
         : el('p', { class: 'small muted' }, 'Keine falschen Antworten gespeichert.'),
       k.regel ? el('p', { class: 'ls-kurz' }, el('b', {}, 'Kurz gesagt: '), lernText(k.regel)) : null,
-      el('div', { class: 'row' }, el('a', { class: 'small', href: `#/inhalte/${k.einheit_id}` }, 'Erklärung ansehen ›'), besprochen, meldung)))];
-  }));
+      el('div', { class: 'row' }, el('a', { class: 'small', href: `#/inhalte/${k.einheit_id}` }, 'Erklärung ansehen ›'), besprochen, meldung)];
+  };
+  const zeichne = () => {
+    lernErsetze(tbody, ...mitFehlern.flatMap((k) => {
+      const auf = offen.has(schluessel(k)); const w = lernKarteWackelt(k);
+      const zeile = el('tr', { class: 'ls-zeile' + (w ? ' ls-zeile-wackelt' : '') + (auf ? ' offen' : ''), onclick: () => umschalten(k) },
+        el('th', { scope: 'row' }, el('button', { type: 'button', class: 'ls-auf', 'aria-expanded': String(auf) }, el('b', {}, k.titel)), el('small', {}, k.ort || k.thema), ...marken(k, w)),
+        el('td', {}, `${k.richtig} / ${k.falsch}`),
+        el('td', {}, lernHaeufigsterFehler(k)),
+        el('td', {}, seit(k) ? lernTag(seit(k)) : '–'));
+      return auf ? [zeile, el('tr', { class: 'ls-detail' }, el('td', { colspan: '4' }, ...detail(k)))] : [zeile];
+    }));
+    lernErsetze(karten, ...mitFehlern.map((k) => {
+      const auf = offen.has(schluessel(k)); const w = lernKarteWackelt(k);
+      return el('section', { class: 'card ls-karte-m' + (w ? ' ls-zeile-wackelt' : '') },
+        el('button', { type: 'button', class: 'ls-auf ls-karte-kopf', 'aria-expanded': String(auf), onclick: () => umschalten(k) },
+          el('b', {}, k.titel), el('small', {}, k.ort || k.thema)),
+        el('div', { class: 'ls-karte-marken' }, ...marken(k, w)),
+        el('p', { class: 'small ls-karte-werte' }, el('span', {}, `richtig / falsch: ${k.richtig} / ${k.falsch}`), el('span', {}, `häufigster Fehler: ${lernHaeufigsterFehler(k)}`),
+          el('span', {}, `seit: ${seit(k) ? lernTag(seit(k)) : '–'}`)),
+        auf ? el('div', { class: 'ls-karte-detail' }, ...detail(k)) : null);
+    }));
+  };
   zeichne();
   const w = d.woche || {}; const tageWoche = (d.lerntage || []).filter((x) => lernTageSeit(x) < 7).length;
   const proEinheit = (d.einheiten || []).map((e) => el('section', { class: 'card' },
@@ -3453,11 +3496,12 @@ async function viewWackelt(arg) {
     el('p', { class: 'small muted' }, `${(e.karten || []).filter((k) => k.sitzt).length} von ${(e.karten || []).length} Etappen sitzen` + (e.zuletzt ? ` · zuletzt ${lernTag(e.zuletzt)}` : '')),
     el('ul', { class: 'ls-liste' }, ...(e.karten || []).map(karte))));
   lernErsetze(main,
-    el('p', { class: 'ls-woche' }, `Diese Woche: ${w.aufgaben || 0} Bordkarten, ${w.richtig || 0} richtig` + (w.mit_tipp ? `, ${w.mit_tipp}-mal mit Tipp` : '') + ` · ${tageWoche} ${tageWoche === 1 ? 'Lerntag' : 'Lerntage'}`),
+    el('p', { class: 'ls-woche' }, `Diese Woche: ${w.aufgaben || 0} `, lernErklaert('Bordkarten', 'bordkarte'), `, ${w.richtig || 0} richtig` + (w.mit_tipp ? `, ${w.mit_tipp}-mal mit Tipp` : '') + ` · ${tageWoche} ${tageWoche === 1 ? 'Lerntag' : 'Lerntage'}`),
     el('section', { class: 'card ls-wackelt' }, el('h3', {}, 'Was wackelt?'),
-      mitFehlern.length ? el('div', { class: 'lern-tabelle-rollen' }, el('table', { class: 'ls-tabelle' },
-        el('thead', {}, el('tr', {}, el('th', {}, 'Etappe'), el('th', {}, 'richtig / falsch'), el('th', {}, 'häufigster Fehler'), el('th', {}, 'seit'))), tbody))
+      mitFehlern.length ? el('div', { class: 'lern-tabelle-rollen ls-breit' }, el('table', { class: 'ls-tabelle' },
+        el('thead', {}, el('tr', {}, el('th', {}, 'Etappe ', el('small', { class: 'lern-wort-erkl' }, '(Lernschritt)')), el('th', {}, 'richtig / falsch'), el('th', {}, 'häufigster Fehler'), el('th', {}, 'seit'))), tbody))
         : el('p', { class: 'muted' }, 'Im Moment nichts: Keine Etappe hat falsche Antworten.'),
+      mitFehlern.length ? karten : null,
       el('p', { class: 'small muted' }, '„Wackelt“: mindestens 3 falsche und mehr falsche als richtige Antworten. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten. „Besprochen ✓“ nimmt die Etappe aus „Zu tun“, bis wieder eine Antwort falsch ist.')),
     proEinheit.length ? el('details', { class: 'ls-alle' }, el('summary', {}, `Alle Etappen mit Stand (${alle.length})`), ...proEinheit) : el('p', { class: 'card muted' }, 'Noch nichts gelernt.'));
 }

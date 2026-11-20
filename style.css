@@ -4364,3 +4364,44 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lp-tabelle-lehrplan .lern-aendern > summary { font-size: 0.75rem; font-weight: 600; min-height: 0; padding: 0; }
 .lp-tabelle-lehrplan tbody th { white-space: nowrap; }
 .lp-tabelle-lehrplan .lern-aendern { margin-left: 8px; }
+/* Bau-Auftrag I, Teil 1 */
+.lern-wort-erkl { font-size: 0.78em; font-weight: 400; color: var(--text-muted); }
+.zt-wunsch .zt-zeile { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-height: 44px; padding: 6px 10px; border-radius: 10px; background: var(--info-bg); }
+.zt-wunsch .zt-zeile > span:nth-child(2) { flex: 1 1 14em; }
+.zt-knoepfe { display: flex; gap: 6px; }
+.zt-knoepfe button { min-height: 36px; padding: 0 12px; }
+.lern-kinder-tabelle td.lern-zeile-zelle { text-align: right; white-space: nowrap; }
+.lern-zeile-knoepfe { display: inline-flex; gap: 6px; align-items: center; }
+@media (max-width: 1099px) { .lern-zeile-knoepfe { display: inline-flex; flex-direction: column; align-items: stretch; } }
+.lern-plan-ort .lern-plan-ueber { white-space: normal; overflow: visible; text-overflow: clip; }
+.ls-karten { display: none; gap: 8px; }
+.ls-karte-m { padding: 10px 12px; }
+.ls-karte-m.ls-zeile-wackelt { border-left: 5px solid #d99a00; }
+.ls-karte-kopf { display: grid; width: 100%; text-align: left; gap: 2px; }
+.ls-karte-kopf small { color: var(--text-muted); font-weight: 400; }
+.ls-karte-werte { display: grid; gap: 2px; margin: 6px 0 0; }
+.ls-karte-detail { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+.lp-liste { display: none; }
+.lp-liste-gruppe { margin: 12px 0 4px; font-size: 0.85rem; color: var(--text-muted); }
+.lp-liste-eintrag { padding: 8px 10px; border-bottom: 1px solid var(--border); background: var(--surface); display: grid; gap: 3px; }
+.lp-liste-kopf { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.lp-liste-kopf a { color: var(--text); text-decoration: none; }
+.lp-liste-kinder { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.8rem; }
+@media (max-width: 559px) {
+  .ls-breit, .lp-breit { display: none; }
+  .ls-karten { display: grid; }
+  .lp-liste { display: block; }
+  .lern-reiter { gap: 0; overflow-x: visible; }
+  .lern-reiter a { padding: 10px 7px; font-size: 0.9rem; flex: 1 1 auto; justify-content: center; }
+}
+.lern-was-ist-los { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 0 0 8px; }
+.lern-was-ist-los .lern-info-oben { margin: 0; }
+.lern-zutun { padding-top: 12px; padding-bottom: 12px; }
+.lern-zutun h2 { margin-bottom: 6px; }
+.lern-zutun-liste a, .zt-wunsch .zt-zeile { min-height: 44px; padding-top: 2px; padding-bottom: 2px; }
+.zt-knoepfe button { min-height: 32px; }
+.lern-kinder { margin-top: 10px; }
+.lern-kinder { margin-top: 6px; }
+.lern-kinder h2 { margin-bottom: 6px; }
+.lern-zutun { padding-top: 10px; padding-bottom: 10px; }
+.lern-kinder-tabelle td:nth-child(6) .lern-st-zelle b { white-space: nowrap; }

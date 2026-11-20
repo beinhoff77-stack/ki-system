@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "terme.bruchterme",
+ "kurz": "Du lernst, mit Brüchen zu rechnen, bei denen x im Nenner steht.",
+ "etappen": {
+  "definitionsmenge": "bestimmen, für welche Zahlen ein Bruch mit x im Nenner nicht erlaubt ist",
+  "termwert": "in einen Bruchterm Zahlen einsetzen und den Wert berechnen oder x zu einem Wert finden",
+  "kuerzen": "erst ausklammern und dann kürzen, ohne Teile einer Summe zu streichen",
+  "erweitern": "einen Bruchterm auf einen neuen Nenner erweitern und den Hauptnenner finden",
+  "addieren": "über den Hauptnenner zwei Bruchterme zu einem zusammenfassen, mit Plus und Minus",
+  "multiplizieren": "zwei Bruchterme malnehmen oder mit dem Kehrbruch teilen und dann kürzen",
+  "fehler_finden": "falsche Umformungen bei Bruchtermen mit einer eingesetzten Zahl entlarven"
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "messen.kreisberechnung",
+ "kurz": "Du lernst, wie man Umfang und Fläche von Kreisen und Kreisteilen berechnet.",
+ "etappen": {
+  "umfang": "den Umfang eines Kreises aus Radius oder Durchmesser berechnen",
+  "flaeche": "die Fläche eines Kreises berechnen, auch aus Durchmesser oder Umfang",
+  "exakt": "mit π als Zeichen exakt rechnen und zum Beispiel aus 10π cm den Radius bestimmen",
+  "verstehen": "sagen, wie sich Umfang und Fläche ändern, wenn der Radius wächst, und Formelfehler finden",
+  "sektor": "über den Anteil α/360° Bogen und Fläche eines Kreisausschnitts berechnen",
+  "zusammengesetzt": "die Fläche von Kreisringen und Kreisabschnitten als Differenz berechnen"
+ }
+}

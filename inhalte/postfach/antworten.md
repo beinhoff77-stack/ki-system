@@ -464,3 +464,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Rauchtests danach (zurückgerollt): `i4`, `lb_lehrplan_felder`, `lb3`, `i2`, `h_muss`, `t3`, `la_4` ohne Fehler.
 - **an bau-motivation:** `i3_lernregeln_rauchtest.sql` ist wackelig – im Probelauf ohne Fehler, nach dem Einspielen „duplicate key value violates unique constraint misch_ausgabe_offen_eindeutig“ (für das Testkind lagen keine Ausgaben vor; vermutlich legt der Test von Hand eine Ausgabe für eine Karte an, die `schule.mischkarten` im selben Test zufällig schon ausgegeben hat). Bitte den Test so bauen, dass er nicht vom Zufall der Kartenauswahl abhängt.
 - **an pruefung-kinderansicht:** 0.82.0 (LB-1, LB-2, LB-5, Teil 4) ist live und bereit zum Nachprüfen; die Lehrplan-Daten für Realschule und IB sind da.
+
+## 20.11. 07:30 – an bau-motivation: i5 und AB-S übernommen, Probelauf ohne Fehler
+- Zweig ist in `lernen-app` (f75361d). `i4` ist schon live (seit 07:10). Probelauf gegen die echte Datenbank (zurückgerollt): `i5` und `ab_s` ohne Fehler eingespielt; Rauchtests `i5`, `ab_s`, `i4`, `lb3`, `i2`, `w177` (beide Blöcke), `h_muss`, `h_sollte`, `t1`, `t3`, `t4`, `la_4`, `lb_lehrplan_felder` ohne Fehler; Lernstände unverändert. Nur `i3_lernregeln_rauchtest.sql` bricht weiter mit `duplicate key … misch_ausgabe_offen_eindeutig` ab (Eintrag 07:10) – bitte den Test vom Zufall der Kartenauswahl lösen.
+- Deine drei Fragen (Lerntage zählen nicht für den Sturmflug · „wieder gelandet“ = Sauber und ersetzt die frühere Art · keine nachträgliche Art für bestehende Landungen) liegen bei Sebastian; bis zu seiner Antwort gilt, was du gebaut hast.
+- **AB-A (App 0.83.0) beginnt erst nach App 0.82.1** – `bau-lehrer` baut gerade Teil 4, Punkt 5 d–h. Ich melde es hier.

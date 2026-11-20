@@ -56,13 +56,15 @@ Gleiche Zeichen, Farben und Wörter in:
 
 ### LB-3 „Kann er – aber wiederholen“ (Haupt-Chat, Datenbank nach W1–W7 + App)
 
-Empfehlung (Sebastian bitte bestätigen): ohne Vortest, weil die Wiederholungsregeln selbst prüfen.
+Von Sebastian bestätigt (2026-11-20): ohne Vortest, die Wiederholungsregeln prüfen selbst. Typische Nutzung: ein Kind in Klasse 8 bekommt mehrere Themen aus Klasse 7 nur zur Wiederholung; schafft es die Durchläufe, wird das Thema wieder abgelegt (◉).
 - Setzt alle Etappen des Flugs auf **gelandet** und startet die Wiederholung bei Stufe 1 (fällig nach 1 Lerntag, dann 3, 7, 14, 30).
 - Es gelten die bestehenden Regeln: höchstens 6 Wiederholungen vor einem Flug; ein Fehler → am nächsten Lerntag wieder; zwei Fehler hintereinander → **wieder offen**, das Kind übt die Etappe (braucht 3 richtige in Folge). So fällt ein falsch eingeschätztes Thema von selbst zurück auf ▶.
 - Zählt im Stand als gelandet. Mischkarten und Expeditionen dürfen daraus entstehen.
 - Für diese Flüge kein Flug-Test und keine Flug-Nachtests; „sicher“ siehe oben.
 - Neues Feld je Kind + Flug (z. B. `route.kann_wdh_themen bigint[]` analog `kann_schon_themen`) und Buchung in `karte_stand` (sitzt = true, Wiederholungsstufe 1, Herkunft „gesetzt“) – genaue Umsetzung Haupt-Chat. Rückgängig: Einträge aus „gesetzt“ wieder entfernen, eigene Lösungen des Kindes bleiben.
 - Bei den Eltern sichtbar als „gesetzt: kann er, wird wiederholt“.
+- **Auch für abgelegte Themen (◉):** Knopf „Wieder in die Wiederholung“ – alle Etappen starten erneut bei Wiederholungsstufe 1 (bisherige Belege bleiben als Verlauf), Stufe ↻, nach bestandener Wiederholung am 14. Lerntag wieder ◉. Gilt für selbst geschaffte und für „Kann er komplett“ gesetzte Themen.
+- **Mehrere auf einmal:** Auswahlmodus (Häkchen je Thema) mit Sammelaktion „Kann er – aber wiederholen“, „Kann er komplett“, „Lernen“, „Aus dem Plan nehmen“; z. B. 6 Themen aus Gym 7 mit einem Schritt.
 
 ### LB-4 Lehrpläne Realschule und IB MYP, Lernbereiche Gymnasium (Inhalts-Chat)
 
@@ -73,14 +75,24 @@ Je Thema in `inhalte/themenliste.json` (und in der Datenbank, Übernahme durch H
 - Klassen-Zuordnung je Schulart prüfen (ein Thema = eine Klasse je Schulart).
 Quelle immer angeben (Lehrplan-Link/Abschnitt). Bis das fertig ist, zeigt LB-1 bei RS/IB den Hinweis „Reihenfolge vorläufig wie Gymnasium“.
 
+### LB-5 Plan = Cockpit des Lehrers (Haupt-Chat, App)
+
+Der Reiter „Plan“ ist der Hauptarbeitsplatz: hier wird unser individueller Lehrplan mit allen Funktionen bearbeitet. Andere Seiten (Lehrplan-Übersicht) sind nur Nachschlagen.
+- **Links „Unser Lehrplan“** nach Stufen gegliedert: ▶ Gerade dran · ○ Kommt noch (Reihenfolge ziehen/↑↓ wie heute) · ↻ In Wiederholung (mit „Wdh x von 5 · nächste in n Lerntagen“) · ◉ Kann er komplett (zugeklappt, mit Datum). Ersetzt den Block „Geschafft“.
+- Jede Zeile (Ort bzw. aufgeklappt je Flug) mit Stufe und denselben Knöpfen wie LB-1: Lernen · Kann er – aber wiederholen · Kann er komplett · Aus dem Plan nehmen; bei ◉ zusätzlich „Wieder in die Wiederholung“.
+- Auswahlmodus mit Sammelaktionen (LB-3) links und rechts.
+- **Rechts der Lehrplan** wie LA-8/LB-1 (Nach Themengebiet | Nach Klasse) mit Stufen und denselben Knöpfen – Themen lassen sich direkt von dort setzen, ohne den Plan zu verlassen.
+- Kopf: „Gymnasium Kl. 8 · 3 ▶ · 9 ○ · 6 ↻ · 14 ◉ · Gespeichert · ↶ Rückgängig“ (eine Zeile, kein Filter).
+
 ## Wer macht was
 
 | Paket | Wer | hängt ab von |
 |---|---|---|
 | LB-1 Lehrplan nach Klasse | Haupt-Chat (bau-lehrer) | – (RS/IB-Reihenfolge später aus LB-4) |
 | LB-2 4 Stufen überall | Haupt-Chat (bau-lehrer) | LB-1 (gleiche Zeile), LB-3 für ↻ „gesetzt“ |
-| LB-3 Kann er – aber wiederholen | Haupt-Chat, Datenbank (W1–W7) | Bestätigung Sebastian |
+| LB-3 Kann er – aber wiederholen | Haupt-Chat, Datenbank (W1–W7) | – (bestätigt) |
 | LB-4 Lehrpläne RS/IB, Lernbereiche | Inhalts-Chat | – |
+| LB-5 Plan als Cockpit | Haupt-Chat (bau-lehrer) | LB-1, LB-2, LB-3 |
 
 ## Fertig, wenn
 
@@ -90,3 +102,6 @@ Quelle immer angeben (Lehrplan-Link/Abschnitt). Bis das fertig ist, zeigt LB-1 b
 - Aus jeder Themenzeile heraus gehen mit einem Aufklappen: Lernen · Kann er – aber wiederholen · Kann er komplett · Aus dem Plan nehmen.
 - „Kann er – aber wiederholen“ erzeugt am nächsten Lerntag eine Wiederholung; zwei Fehler machen die Etappe wieder offen (▶).
 - Themenliste hat Reihenfolge und Lernbereich für alle drei Schularten.
+- Ein ◉-Thema lässt sich mit „Wieder in die Wiederholung“ zurückholen (↻, Wiederholung am nächsten Lerntag).
+- 6 Themen aus Gym 7 lassen sich in einem Schritt auf „Kann er – aber wiederholen“ setzen.
+- Der Plan zeigt links alle vier Stufen; alle Knöpfe sind im Plan erreichbar.

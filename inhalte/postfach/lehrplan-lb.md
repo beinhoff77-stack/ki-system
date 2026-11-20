@@ -2,6 +2,32 @@
 
 Neueste Meldung oben.
 
+## 2026-11-20 – NACHPRÜFUNG LB-4 (auf Wunsch von Sebastian)
+
+Die vier Lehrplan-Seiten, die vorhin fehlten, habe ich heute gelesen: Gymnasium 8 und 9, Realschule 8 und 9 (I). Dazu kamen die Seiten der Realschule 8–10 (II/III). Danach habe ich jede Zuordnung erneut gegen den Lehrplan geprüft. Ein Skript hat außerdem jeden Lernbereich gegen die Kürzel in `lehrplan_gym` und `lehrplan_andere` abgeglichen.
+
+**Fehler, die ich korrigiert habe:**
+1. **Bericht, Gruppe II/III, Klasse 9:** Dort stand, dass „Kreis“ in 9 II/III fehlt. **Das war falsch.** 9 II/III hat Lernbereich 4 „Kreis“ (R9-II). Ich hatte eine Lücke in einem ISB-Auszug als Fehlen gedeutet.
+2. **Bericht, Gruppe II/III, Klasse 8:** Dort stand „Lineare Funktionen erst in Klasse 9“. **Zu grob.** 8 II/III hat Lernbereich 5 „Funktionen“ mit Ursprungsgeraden y = mx und linearen Graphen. Erst 9 II/III nennt y = mx + t ausdrücklich, dazu Parallelenscharen (R8-II, R9-II).
+3. **`lehrplan_rs` von `abbildungen.aehnlichkeit`:** Dort stand „Ähnlichkeitssätze für Dreiecke“. Das stammte aus dem Verlags-Stoffverteilungsplan, nicht aus dem Lehrplan. Neu steht dort, was R9 nennt: Zahl mal Vektor, Parameterverfahren, Ähnlichkeit von Figuren prüfen.
+4. **`lehrplan_rs` von `messen.koerper_darstellung`:** „Netze und Schrägbilder **von Würfel und Quader**“ war eine Einschränkung, die ich auf der Seite R5 nicht belegen konnte. Jetzt steht dort nur „Netze und Schrägbilder“.
+5. **`lehrplan_ib` von `groessen.einheiten`:** „Uhrzeit und Zeitspannen“ stand unter dem Zweig Geometrie. Im Guide stehen Uhrzeit, Zeitzonen und Fahrpläne aber unter „Numerical and abstract reasoning“. Der Text ist jetzt korrigiert. Der Zweig des Themas bleibt Geometrie, weil sein Schwerpunkt das Umrechnen von Einheiten ist.
+
+**Bisher Annahme, jetzt belegt** (die Zuordnung bleibt gleich): `zahlen.intervalle` und `gleichungen.ungleichungen` → M8 2 („lineare Ungleichungen … Intervallschreibweise“). `gleichungen.formeln` → M8 4. `gleichungen.potenz` → M9 5. `gleichungen.trig` → M9 7.2. `daten.boxplot` ist jetzt für **alle** RS-Klassen 7–10 geprüft: Quartile und Boxplot kommen nicht vor.
+
+**Neuer Befund (nichts geändert):** `terme.potenzgesetze` hat Gym-Klasse 6. Der Gym-Lehrplan verteilt den Stoff aber auf drei Klassen:
+- M6 1.4: negative Exponenten
+- M7 1.2: Potenzgesetze mit natürlichen Exponenten
+- M8 4: Potenzgesetze mit ganzzahligen Exponenten „plausibel machen und anwenden“
+
+Der Eintrag in `lehrplan_gym` „Potenzgesetze mit ganzzahligen Exponenten in einfachen Fällen anwenden“ ist fast wörtlich die Formulierung aus M8 4 (G8). Vorschlag: Die Etappen zu den Potenzgesetzen für Gym 6 als Vertiefung kennzeichnen oder in eine spätere Klasse verschieben. Das entscheidest du.
+
+**Geprüft und richtig:** alle Titel der Lernbereiche (Gym 5–10, RS 5–10) gegen die Lehrplan-Seiten. Zahl und Reihenfolge der Lernbereiche passen. Kein Thema hängt an einem Lernbereich, der seinen Kern nicht enthält. Die Selbstprüfung ist unverändert, das Prüfskript meldet 116 × OK. Es bleibt der bekannte Befund Gym 6.
+
+**Was ungeprüft bleibt:**
+- Das Abruf-Werkzeug fasst Seiten zusammen. Nummern, Titel und Stichworte stimmen über mehrere Quellen überein. Wörtlich nachgelesen ist nur, was oben in Anführungszeichen steht.
+- IB: Die Spalten der Framework-Tabelle sind weiter nicht sicher zugeordnet. Deshalb ist die ganze IB-Reihenfolge Annahme.
+
 ## 2026-11-20 – FERTIG: LB-4
 
 Zweig `lehrplan-lb` (von `lernen-app`, Commit 752acf0). Drei Commits, je Schulart einer: Gymnasium 2d24925 · Realschule 908bb12 · IB 34cbe67. Nur `inhalte/themenliste.json` geändert (+ dieser Bericht). Kein App-Code, keine Datenbank, kein Merge. Klassen nicht geändert.
@@ -53,7 +79,7 @@ Die heutige `reihenfolge.gym_by`: 1 `bruch.brueche` · 2 `bruch.dezimal` · 3 `b
 ### Vorschläge zu Klassen (nichts geändert)
 | Thema | Schulart | heute | Vorschlag | Quelle / Grund |
 |---|---|---|---|---|
-| `daten.boxplot` | RS | 7 | keine RS-Klasse oder Vertiefung | R7, M7 8: Mittelwert, Zentralwert, Modalwert, Spannweite. Quartile und Boxplot kommen in RS 7 (Gruppe I) nicht vor. Die Zusammenfassung für RS 5–10 vom 17.11. hat sie auch nicht gefunden. |
+| `daten.boxplot` | RS | 7 | keine RS-Klasse oder Vertiefung | R7, M7 8: Mittelwert, Zentralwert, Modalwert, Spannweite. Quartile und Boxplot kommen in RS 7 (Gruppe I) nicht vor. Auch in R8 (M8 7), R9 (M9 8) und R10 (M10 5) nicht enthalten (Nachprüfung 20.11.). |
 | `funktionen.gebrochen` | RS | – | 10 (Annahme) | R10, M10 3: Potenzfunktionen y = a(x + b)^c + d mit Asymptoten. Die Hyperbel ist der Fall c = −1. |
 | `funktionen.linear` | IB | 3 | 4 | IBG: „Thinking with models“ gilt für MYP 1–3 als nicht altersgemäß; lineare Funktionen sind Standard (MYP 4–5). Das Lehrwerk Haese hat sie in Jahr 3 (Bericht vom 17.11.). |
 | `stochastik.kombinatorik` | IB | 2 | 5 oder keine IB-Klasse | IBG: Zählprinzipien, Permutationen und Fakultät stehen nur im Enrichment. |
@@ -65,20 +91,29 @@ Die heutige `reihenfolge.gym_by`: 1 `bruch.brueche` · 2 `bruch.dezimal` · 3 `b
 
 Hinweis zu IB: In der Abschrift des Framework stehen Terme und Gleichungen (Algebra) unter „MYP 4–5 Standard“. Das betrifft `terme.aufstellen`, `gleichungen.einfach` (MYP 1) und `gleichungen.linear` (MYP 2). Das Werkzeug warnt selbst, dass die Spalten der Tabelle verschoben sein können. Ich schlage deshalb keine Änderung vor und habe die Stufe als „Annahme“ markiert. Vor einer Entscheidung bitte im gedruckten Guide (S. 23–24) nachsehen.
 
-### Abweichungen der Gruppe II/III (Realschule, nur Hinweis)
-Die App hat nur ein Feld `rs_by`. Alle Angaben oben gelten für Gruppe I. Gruppe II/III weicht so ab:
-- **Klasse 8:** Lernbereich 1 heißt „Dreiecke und Vierecke“ (Dreieckskonstruktion erst hier, Gruppe I: M7 3). Lineare Funktionen erst in Klasse 9, Lernbereich 5 (Quellen: Mathe.Logo 8 II/III, nur Titel aus der Suche; RSP9).
-- **Klasse 9:** Lernbereiche Reelle Zahlen, Zentrische Streckung, Rechtwinklige Dreiecke, Lineare Funktionen, Systeme linearer Gleichungen, Daten und Zufall. Kreis, Raumgeometrie und quadratische Funktionen fehlen dort (Quelle RSP9).
-- **Klasse 10:** Lernbereich 3 „Exponentialfunktionen, Logarithmen“ und Lernbereich 4 „Quadratische Funktionen und quadratische Gleichungen“. Es gibt keinen Lernbereich „Abbildungen“ und keine Potenzfunktionen (Quelle RSP10).
-- Betroffen sind also vor allem `funktionen.linear` (II/III: 9), `funktionen.quadratisch`, `gleichungen.quadratisch` und `raum.pyramide_kegel_kugel` (II/III: 10). Dazu kommen `abbildungen.matrizen`, `zahlen.rationale_exponenten`, `funktionen.potenz`, `gleichungen.potenz` und `funktionen.umkehr`: Für sie gibt es in II/III keinen Beleg. Stand 17.11. (`vorschlag-rsib.md`, Spalte II/III); heute nur für 9 und 10 neu geprüft.
+### Abweichungen der Gruppe II/III (Realschule, nur Hinweis; am 20.11. geprüft)
+Die App hat nur ein Feld `rs_by`. Alle Angaben oben gelten für Gruppe I. Die Lernbereiche der Gruppe II/III:
+- **8 (II/III):** 1 Dreiecke und Vierecke · 2 Raumgeometrie (Schrägbilder von Prismen und Pyramiden) · 3 Terme und Gleichungen · 4 Bruchterme und Bruchgleichungen · 5 Funktionen (Ursprungsgeraden y = mx, lineare Graphen) · 6 Daten und Zufall (R8-II).
+- **9 (II/III):** 1 Reelle Zahlen · 2 Zentrische Streckung · 3 Rechtwinklige Dreiecke · 4 Kreis · 5 Lineare Funktionen (y = mx + t, Parallelenscharen, Determinanten) · 6 Systeme linearer Gleichungen · 7 Daten und Zufall (R9-II).
+- **10 (II/III):** 1 Trigonometrie · 2 Raumgeometrie · 3 Exponentialfunktionen, Logarithmen · 4 Quadratische Funktionen und quadratische Gleichungen · 5 Daten und Zufall. Abbildungen, Potenzfunktionen, rationale Exponenten, Umkehr- und Logarithmusfunktionen kommen nicht vor (R10-II).
+
+Was das für die Themen heißt (Gruppe I → II/III):
+- `geometrie.konstruktion`: 7 → 8
+- `raum.schraegbilder`: 8 → Schrägbilder 8, Axialschnitte 10, 3D-Koordinaten nicht enthalten
+- `funktionen.linear`: 8 → 9
+- `funktionen.scharen`: 8 → 9
+- `abbildungen.vektoren`, `abbildungen.determinanten2`: 7 → 7, Determinanten auch 9
+- `messen.prisma_zylinder`, `raum.pyramide_kegel_kugel`: 9 → 10
+- `funktionen.quadratisch`, `funktionen.transformation`, `gleichungen.quadratisch`: 9 → 10
+- `gleichungen.wurzel`: kein Beleg in II/III
+- In II/III **nicht enthalten:** `abbildungen.matrizen`, `zahlen.rationale_exponenten`, `gleichungen.potenz`, `funktionen.potenz`, `funktionen.umkehr`. Von `funktionen.exponential_log` nur der Exponentialteil.
+
+Die II/III-Zeilen zu `abbildungen.vektoren` und `gleichungen.wurzel` stützen sich auf den Bericht vom 17.11.; R7-II habe ich heute nicht gelesen.
 
 ### Grenzen (bitte lesen)
-- Das Abruf-Werkzeug **fasst Seiten zusammen**. Nummern, Titel und Stichworte der Lernbereiche sind stimmig und decken sich mit mehreren Quellen. Nicht jeder Satz ist wörtlich nachgeprüft.
-- **Nicht abrufbar heute** (das Werkzeug verlangte eine Freigabe, die niemand erteilen konnte): die LehrplanPLUS-Seiten Gymnasium 8 und 9 und Realschule 8 und 9 (wpfg1). Ersatz:
-  - Gym 8/9: Lernbereiche aus dem ISB-Dokument „Schwerpunktsetzungen 5–10“ (2022). Die Inhalte je Lernbereich stammen aus den ISB-Schwerpunktsetzungen 8 und 9 (2021). Diese geben den Lehrplantext nur auszugsweise wieder.
-  - RS 8/9 (Gruppe I): Titel und Inhalte aus den Stoffverteilungsplänen „Mathe.Logo 8 I / 9 I“ (C.C. Buchner). Das ist eine **Verlagsquelle**, keine amtliche. Die Titel von RS 9 decken sich mit dem ISB-Dokument RSP9.
-  - Ich habe nichts aus dem Gedächtnis ergänzt. Wo ich den Bericht vom 17.11. nutze, steht das dabei.
-- IB: Der Guide liegt nur als Kopie einer Schule vor (wottonhouseschool.co.uk). Die Spaltenzuordnung der Framework-Tabelle ist laut Werkzeug „stellenweise unsicher“, vor allem bei „Thinking with models“ und „Spatial reasoning“.
+- Das Abruf-Werkzeug **fasst Seiten zusammen**. Nummern, Titel und Stichworte der Lernbereiche stimmen und decken sich mit mehreren Quellen. Nicht jeder Satz ist wörtlich nachgeprüft.
+- Bei der ersten Fassung fehlten die Seiten Gym 8/9 und RS 8/9 (I). Ersatz waren damals ISB-Auszüge und die Stoffverteilungspläne Mathe.Logo. Bei der Nachprüfung habe ich alle vier Seiten gelesen; die Tabellen stützen sich jetzt darauf. Die Zuordnungen sind dadurch nicht anders geworden.
+- IB: Der Guide liegt nur als Kopie einer Schule vor (wottonhouseschool.co.uk). Die Spalten der Framework-Tabelle sind laut Werkzeug „stellenweise unsicher“ zugeordnet, vor allem bei „Thinking with models“ und „Spatial reasoning“.
 
 ### Tabellen je Schulart und Klasse
 Spalte „Beleg“: **belegt** = der Inhalt steht in den Stichworten des Lernbereichs der Quelle. **Annahme** = nicht wörtlich gefunden oder Zuordnung gewählt. Die Reihenfolge innerhalb eines Lernbereichs ist immer Annahme (siehe oben).
@@ -114,7 +149,7 @@ Spalte „Beleg“: **belegt** = der Inhalt steht in den Stichworten des Lernber
 | 4 | `messen.flaechen_vielecke` | M6 2 Flächeninhalt und Volumen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 5 | `messen.volumen` | M6 2 Flächeninhalt und Volumen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 6 | `zahlen.potenzen_zehner` | M6 1 Rationale Zahlen | belegt (negative Exponenten in M6 1.4) |
-| 7 | `terme.potenzgesetze` | M6 1 Rationale Zahlen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
+| 7 | `terme.potenzgesetze` | M6 1 Rationale Zahlen | belegt für negative Exponenten (M6 1.4); Potenzgesetze mit ganzzahligen Exponenten stehen erst in M8 4 (siehe Befund) |
 | 8 | `bruch.prozent` | M6 3 Prozentrechnung, Daten und Diagramme | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 9 | `finanzen.zinsen` | M6 3 Prozentrechnung, Daten und Diagramme | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 10 | `daten.darstellen` | M6 3 Prozentrechnung, Daten und Diagramme | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
@@ -134,30 +169,30 @@ Spalte „Beleg“: **belegt** = der Inhalt steht in den Stichworten des Lernber
 | 8 | `geometrie.konstruktion` | M7 5 Kongruenz, besondere Dreiecke und Dreieckskonstruktionen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 9 | `geometrie.kreis` | M7 5 Kongruenz, besondere Dreiecke und Dreieckskonstruktionen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 
-**Gymnasium Klasse 8** – Quelle GSP8 (+ GSP für die Titel)
+**Gymnasium Klasse 8** – Quelle G8 (+ GSP für die Titel)
 
 | Nr. | Thema | Lernbereich | Beleg |
 |---|---|---|---|
 | 1 | `funktionen.grundbegriffe` | M8 1 Funktion und Term | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 2 | `funktionen.linear` | M8 2 Lineare Funktionen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
-| 3 | `zahlen.intervalle` | M8 2 Lineare Funktionen | Annahme: in M8 nicht gefunden; gesetzt zu M8 2, weil graphisch an Geraden gelöst |
-| 4 | `gleichungen.ungleichungen` | M8 2 Lineare Funktionen | Annahme: in M8 nicht gefunden; zu M8 2 (graphisch an Geraden) |
+| 3 | `zahlen.intervalle` | M8 2 Lineare Funktionen | belegt (M8 2: Ungleichungen … in Intervallschreibweise) – bisher Annahme |
+| 4 | `gleichungen.ungleichungen` | M8 2 Lineare Funktionen | belegt (M8 2: lineare Ungleichungen graphisch und rechnerisch) – bisher Annahme |
 | 5 | `groessen.indirekt` | M8 3 Elementare gebrochen-rationale Funktionen | belegt (y = a/x „indirekt proportional“ in M8 3) |
 | 6 | `funktionen.gebrochen` | M8 3 Elementare gebrochen-rationale Funktionen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 7 | `terme.bruchterme` | M8 4 Bruchterme und Bruchgleichungen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 8 | `gleichungen.bruch` | M8 4 Bruchterme und Bruchgleichungen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
-| 9 | `gleichungen.formeln` | M8 4 Bruchterme und Bruchgleichungen | Annahme: in M8 nicht gefunden; zu M8 4 |
+| 9 | `gleichungen.formeln` | M8 4 Bruchterme und Bruchgleichungen | belegt (M8 4: Formeln nach einer Variablen auflösen) – bisher Annahme |
 | 10 | `stochastik.grundbegriffe` | M8 5 Laplace-Experimente | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 11 | `gleichungen.lgs2` | M8 6 Lineare Gleichungssysteme | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 12 | `messen.kreisberechnung` | M8 7 Kreis und Zylinder | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 13 | `messen.koerper_darstellung` | M8 7 Kreis und Zylinder | belegt (Schrägbilder, Netze von Prismen/Zylindern in M8 7) |
 | 14 | `messen.prisma_zylinder` | M8 7 Kreis und Zylinder | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 
-**Gymnasium Klasse 9** – Quelle GSP9 (+ GSP für die Titel)
+**Gymnasium Klasse 9** – Quelle G9 (+ GSP für die Titel)
 
 | Nr. | Thema | Lernbereich | Beleg |
 |---|---|---|---|
-| 1 | `zahlen.wurzeln_basis` | M9 1 Quadratwurzeln | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
+| 1 | `zahlen.wurzeln_basis` | M9 1 Quadratwurzeln | belegt M9 1; die Etappe zur allgemeinen Wurzel gehört zu M9 5 |
 | 2 | `zahlen.reell` | M9 1 Quadratwurzeln | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 3 | `funktionen.quadratisch` | M9 2 Quadratische Funktionen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 4 | `gleichungen.quadratisch` | M9 2 Quadratische Funktionen | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
@@ -166,11 +201,11 @@ Spalte „Beleg“: **belegt** = der Inhalt steht in den Stichworten des Lernber
 | 7 | `abbildungen.aehnlichkeit` | M9 4 Ähnlichkeit und Strahlensatz | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 8 | `zahlen.rationale_exponenten` | M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 9 | `funktionen.potenz` | M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
-| 10 | `gleichungen.potenz` | M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs | Annahme: xⁿ = c nicht wörtlich, folgt aus M9 5 (Wurzeln, Potenzbegriff) |
+| 10 | `gleichungen.potenz` | M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs | belegt (M9 5: Gleichungen xⁿ = c) |
 | 11 | `trigo.pythagoras` | M9 6 Satz des Pythagoras | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 12 | `trigo.rechtwinklig` | M9 7 Trigonometrie | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
 | 13 | `trigo.allgemein` | M9 7 Trigonometrie | belegt (Lehrplan-Stichworte des Lernbereichs, lehrplan_gym) |
-| 14 | `gleichungen.trig` | M9 7 Trigonometrie | Annahme: „Winkel zu Wert“ nicht wörtlich, Teil von M9 7.2 |
+| 14 | `gleichungen.trig` | M9 7 Trigonometrie | belegt (M9 7.2: Winkel zu gegebenem Sinus- oder Kosinuswert) |
 
 **Gymnasium Klasse 10** – Quelle G10 (+ GSP für die Titel)
 
@@ -241,10 +276,10 @@ Spalte „Beleg“: **belegt** = der Inhalt steht in den Stichworten des Lernber
 | 14 | `finanzen.zinsen` | M7 7 Proportionalitäten | belegt |
 | 15 | `groessen.indirekt` | M7 7 Proportionalitäten | belegt |
 | 16 | `daten.kennwerte` | M7 8 Auswertung von Daten | belegt |
-| 17 | `daten.boxplot` | M7 8 Auswertung von Daten | Annahme: Quartile/Boxplot im RS-Lehrplan nicht gefunden |
+| 17 | `daten.boxplot` | M7 8 Auswertung von Daten | Annahme: Quartile/Boxplot weder in M7 8 noch in M8 7, M9 8, M10 5 |
 | 18 | `daten.stichproben` | M7 8 Auswertung von Daten | belegt |
 
-**Realschule Klasse 8** – Quelle RML8
+**Realschule Klasse 8** – Quelle R8
 
 | Nr. | Thema | Lernbereich | Beleg |
 |---|---|---|---|
@@ -256,14 +291,14 @@ Spalte „Beleg“: **belegt** = der Inhalt steht in den Stichworten des Lernber
 | 6 | `funktionen.linear` | M8 6 Funktionen | belegt |
 | 7 | `funktionen.scharen` | M8 6 Funktionen | teilweise: Parallelenscharen belegt (M8 6); Parabelscharen = M9 7 |
 
-**Realschule Klasse 9** – Quelle RML9 · RSP9
+**Realschule Klasse 9** – Quelle R9
 
 | Nr. | Thema | Lernbereich | Beleg |
 |---|---|---|---|
 | 1 | `zahlen.wurzeln_basis` | M9 1 Reelle Zahlen | belegt |
-| 2 | `zahlen.reell` | M9 1 Reelle Zahlen | belegt |
+| 2 | `zahlen.reell` | M9 1 Reelle Zahlen | belegt (M9 1); Heron-Verfahren steht nicht im RS-Lehrplan |
 | 3 | `gleichungen.reinquadratisch` | M9 1 Reelle Zahlen | belegt |
-| 4 | `abbildungen.aehnlichkeit` | M9 2 Zentrische Streckung | belegt |
+| 4 | `abbildungen.aehnlichkeit` | M9 2 Zentrische Streckung | belegt (M9 2); Zahl mal Vektor und Parameterverfahren hat das Thema laut Bericht 17.11. nicht |
 | 5 | `trigo.pythagoras` | M9 3 Rechtwinklige Dreiecke | belegt |
 | 6 | `trigo.rechtwinklig` | M9 3 Rechtwinklige Dreiecke | belegt |
 | 7 | `messen.kreisberechnung` | M9 4 Kreis | belegt |
@@ -275,10 +310,10 @@ Spalte „Beleg“: **belegt** = der Inhalt steht in den Stichworten des Lernber
 | 13 | `gleichungen.quadratisch` | M9 7 Quadratische Funktionen und quadratische Gleichungen | belegt |
 | 14 | `gleichungen.wurzel` | M9 7 Quadratische Funktionen und quadratische Gleichungen | belegt |
 | 15 | `stochastik.grundbegriffe` | M9 8 Daten und Zufall | belegt |
-| 16 | `stochastik.verknuepft` | M9 8 Daten und Zufall | teilweise: Ereignis/Gegenereignis belegt; Additionssatz, bedingte WK kein Beleg |
+| 16 | `stochastik.verknuepft` | M9 8 Daten und Zufall | teilweise: Ereignis/Gegenereignis belegt (M9 8); Additionssatz, bedingte WK, Vierfeldertafel nicht in M9 (Vierfeldertafel: M8 7, M5 6) |
 | 17 | `stochastik.simulation` | M9 8 Daten und Zufall | belegt (Gesetz der großen Zahlen, Simulation); Monte-Carlo kein Beleg |
 
-**Realschule Klasse 10** – Quelle R10 · RSP10
+**Realschule Klasse 10** – Quelle R10
 
 | Nr. | Thema | Lernbereich | Beleg |
 |---|---|---|---|
@@ -409,13 +444,16 @@ Spalte „Beleg“: **belegt** = der Inhalt steht in den Stichworten des Lernber
 - **G5** LehrplanPLUS Gymnasium Mathematik 5 – https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/5/mathematik (M5 1–4 mit Unterkapiteln)
 - **G6** … Gymnasium 6 – https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/mathematik (M6 1.1–1.5, 2.1–2.2, 3)
 - **G7** … Gymnasium 7 – https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/7/mathematik (M7 1–5)
+- **G8 / G9** … Gymnasium 8 bzw. 9 – https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/8/mathematik · …/gymnasium/9/mathematik (M8 1–7; M9 1–7.2; bei der Nachprüfung gelesen)
 - **G10** … Gymnasium 10 – https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/10/mathematik (M10 1–5)
 - **GSP** ISB, Verbindliche Hinweise zu Schwerpunktsetzungen, Gymnasium Mathematik 5–10, Stand August 2022 (alle Lernbereichs-Titel 5–10) – https://www.distanzunterricht.bayern.de/fileadmin/user_upload/lernenzuhause/Gymnasium/August2022/M_Schwerpunktsetzungen_5_10_neu.pdf
 - **GSP8 / GSP9** ISB, Schwerpunktsetzungen Gymnasium Mathematik 8 bzw. 9, Stand August 2021 (Inhalte von M8 3, M8 7, M9 2.2, M9 5, M9 7.2) – https://www.distanzunterricht.bayern.de/fileadmin/user_upload/lernenzuhause/Gymnasium/deutsch_englisch_mathe/M_Schwerpunktsetzungen_8.pdf · …/M_Schwerpunktsetzungen_9.pdf
 - **R5 / R6** LehrplanPLUS Realschule Mathematik 5 bzw. 6 – https://www.lehrplanplus.bayern.de/fachlehrplan/realschule/5/mathematik · …/realschule/6/mathematik
 - **R7** LehrplanPLUS Realschule Mathematik 7 (I) – https://www.lehrplanplus.bayern.de/fachlehrplan/realschule/7/mathematik/wpfg1 (M7 1–8)
+- **R8 / R9** LehrplanPLUS Realschule Mathematik 8 (I) bzw. 9 (I) – https://www.lehrplanplus.bayern.de/fachlehrplan/realschule/8/mathematik/wpfg1 · …/realschule/9/mathematik/wpfg1 (bei der Nachprüfung gelesen)
+- **R8-II / R9-II / R10-II** LehrplanPLUS Realschule Mathematik 8, 9, 10 (II/III) – https://www.lehrplanplus.bayern.de/fachlehrplan/realschule/8/mathematik/wpfg2-3 · …/9/mathematik/wpfg2-3 · …/10/mathematik/wpfg2-3
 - **R10** LehrplanPLUS Realschule Mathematik 10 (I) – https://www.lehrplanplus.bayern.de/fachlehrplan/realschule/10/mathematik/wpfg1 (M10 1–5)
-- **RML8 / RML9** C.C. Buchner, Stoffverteilungsplan Mathe.Logo 8 I bzw. 9 I, Realschule Bayern (Verlagsquelle; zitiert die Lernbereiche des LehrplanPLUS) – https://www.ccbuchner.de/_files_media/mediathek/downloads/15120.pdf · https://www.ccbuchner.de/_files_media/mediathek/downloads/15129.pdf
+- **RML8 / RML9** C.C. Buchner, Stoffverteilungsplan Mathe.Logo 8 I bzw. 9 I, Realschule Bayern (Verlagsquelle; nur noch zum Abgleich) – https://www.ccbuchner.de/_files_media/mediathek/downloads/15120.pdf · https://www.ccbuchner.de/_files_media/mediathek/downloads/15129.pdf
 - **RSP9 / RSP10** ISB, Schwerpunktsetzungen Realschule Mathematik 9 bzw. 10, Stand 09.08.2022 (Lernbereichs-Titel I und II/III) – https://www.distanzunterricht.bayern.de/fileadmin/user_upload/lernenzuhause/Realschule/August2022/M_Schwerpunktsetzungen_9.pdf · …/M_Schwerpunktsetzungen_10.pdf
 - **IBG** IB, Middle Years Programme, Mathematics guide (for use from September 2020/January 2021), Framework S. 23–29 (Kopie einer Schule) – https://wottonhouseschool.co.uk/de/_files/ugd/e64f71_44e88284d1a84f7e8779a8766a508714.pdf
 - **IBB** IB, MYP Subject brief Mathematics (vier Zweige; Standard und Extended) – https://www.ibo.org/globalassets/new-structure/brochures-and-infographics/pdfs/myp-brief-mathematics-en.pdf

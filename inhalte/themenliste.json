@@ -205,7 +205,7 @@
    "Geld, Masse, Länge, Zeit und Hohlmaße schätzen, umrechnen, in Kommaschreibweise rechnen; Maßstab; Dreisatz in Sachaufgaben"
   ],
   "lehrplan_ib": [
-   "MYP 1–3: Metrische Einheiten umrechnen; Uhrzeit und Zeitspannen"
+   "MYP 1–3: Metrische Einheiten umrechnen (Uhrzeit, Zeitzonen und Fahrpläne stehen im Zweig Numerical and abstract reasoning)"
   ],
   "datei": "inhalte/themen/groessen.einheiten.json"
  },
@@ -1086,7 +1086,7 @@
    "Schrägbilder und Netze von Prismen und Zylindern"
   ],
   "lehrplan_rs": [
-   "Körper (Würfel, Quader, Prisma, Pyramide, Zylinder, Kegel, Kugel) beschreiben; Netze und Schrägbilder von Würfel und Quader"
+   "Körper (Würfel, Quader, Prisma, Pyramide, Zylinder, Kegel, Kugel) beschreiben; Netze und Schrägbilder"
   ],
   "lehrplan_ib": [
    "MYP 1–3: Körper und ihre Netze darstellen"
@@ -1615,7 +1615,7 @@
    "Entstehende Bruchgleichungen lösen"
   ],
   "lehrplan_rs": [
-   "Zentrische Streckung als Ähnlichkeitsabbildung; Streckungsfaktor; Strahlensätze; Ähnlichkeitssätze für Dreiecke"
+   "Zentrische Streckung als Ähnlichkeitsabbildung; Streckungsfaktor; Strahlensätze; Zahl mal Vektor, Parameterverfahren; Ähnlichkeit von Figuren, besonders Dreiecken, prüfen"
   ],
   "lehrplan_ib": [
    "MYP 4–5 Standard: Ähnlichkeit; Vergrößerungen"

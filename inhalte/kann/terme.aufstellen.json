@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "terme.aufstellen",
+ "kurz": "Du lernst, wie man Rechenwege und Muster mit Buchstaben wie x aufschreibt und deutet.",
+ "etappen": {
+  "struktur": "erkennen, ob ein Term eine Summe, Differenz, ein Produkt oder ein Quotient ist",
+  "termwert": "für Variablen Zahlen einsetzen und den Wert ausrechnen, auch mit negativen Zahlen",
+  "uebersetzen": "aus Worten wie „das Doppelte der Differenz aus x und 4“ einen Term machen",
+  "sachsituation": "zu Sachsituationen wie Grundgebühr plus Preis pro Stunde einen Term aufstellen",
+  "muster": "zu einer Figurenfolge einen Term für die Anzahl bei Figur n aufstellen",
+  "deuten": "erklären, was die Zahlen und Ergebnisse eines Terms in einer Sachsituation bedeuten"
+ }
+}

@@ -31,7 +31,7 @@ teile = [
          sum(SCHICHTEN), ' + '.join(map(str, SCHICHTEN)),
          f'Geschickt zusammenfassen: (1 + 9) + (4 + 16) + 25 = 10 + 20 + 25 = {sum(SCHICHTEN)}.',
          'Suche zwei Zahlen, die zusammen eine glatte Zehnerzahl ergeben.', B('zahlen.rechengesetze', 'vorteil')),
-    zahl('c', f'Die echten Pyramiden sind nicht aus Holzwürfeln, sondern aus riesigen Steinblöcken gebaut – und haben viel mehr Schichten als jedes Modell. '
+    zahl('c', f'Die echten großen Pyramiden bestehen aus Steinblöcken und sind viel größer als die beiden Holzmodelle. '
               f'Eine erfundene Riesenpyramide hätte {zt(STEINE)} Steine. Runde diese Zahl auf Hunderttausender.',
          gerundet, f'{gerundet}', f'An der Hunderttausenderstelle steht 3, rechts daneben die Zehntausenderziffer 4: abrunden. {zt(STEINE)} ≈ {zt(gerundet)}.',
          'Welche Ziffer steht rechts neben der Hunderttausenderstelle?', B('zahlen.natuerlich', 'runden_regel')),

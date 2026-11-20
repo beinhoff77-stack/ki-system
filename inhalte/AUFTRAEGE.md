@@ -2204,3 +2204,13 @@ Am Ende „FERTIG: LB-3 Tests ergänzt“.
 - Rückfall-Hinweis (`hinweis: 'rueckfall'`) in der Lehrer-Ansicht sichtbar – ◉ allein wäre irreführend (steht schon in Teil 6, Punkt 6).
 - `heute_bis`: Die Kinder-Ansicht aktualisiert „heute“ beim Tageswechsel von selbst (Test dazu).
 - Info-Seite (Teil 7): ein Satz, dass „Rückgängig“ den Stand einer selbst gelandeten Etappe nicht zurückdreht, wenn das Kind inzwischen weitergeübt hat.
+
+---
+
+# Nachträge 20.11. nachmittags
+
+**A – `bau-lehrer`: „Flug geschafft“ auch nach Verbessern (Entscheidung Haupt-Chat, im Sinne von Sebastians Vorgabe „nach einem Flug eine spektakulärere Ansicht“).** `supabase/migrations/20261120_ab_s_flug_abschluss_einmal.sql` ist **nicht eingespielt** und wird so geändert: `flug_geschafft` = dieser Aufruf schließt die Sitzung ab **und der Flug wird dadurch zum ersten Mal fertig** – egal ob über den Flug-Test (`blocktest`) oder über Verbessern (`korrektur`). Weiter false: nicht bestandener Test, Nachtragstest, Nachtest, erneuter Aufruf einer anderen Sitzung, alles nach dem ersten Fertigwerden. Erneuter Aufruf derselben Sitzung liefert dasselbe wie beim ersten Mal. Rauchtest 9c entsprechend (Verbessern, das den Flug erstmals fertig macht → `flug_geschafft` true mit Feldern; zweites Verbessern/Nachtest → false). Nur Datei, nicht ausführen. „FERTIG: flug_geschafft“.
+
+**B – `bau-motivation` (erst nach A und nach dem Live von 0.83.0): App 0.83.1** – Abschluss-Ansicht des Flugs an `flug_geschafft` (oder `ort_geschafft`) hängen statt an `einheit_abgeschlossen`; fehlt das Feld (alter Server), Verhalten wie 0.83.0. Tests. „FERTIG: 0.83.1“.
+
+**C – `pruefung-potenz`: Nachprüfung der Nachbesserung.** Grundlage: Bericht „FERTIG: Potenz nachgebessert“ in `inhalte/postfach/potenz-teilen.md` (Entscheidungen 1–7 dort). Prüfen: (1) die neue Pflichtkarte `potenz_von_potenz` in Flug A vollständig – alle 35 Aufgaben nachrechnen, Erklärung, keine negativen Exponenten, passt zu M7 1.2; (2) jede in der Nachbesserung geänderte oder ersetzte Aufgabe (Liste alt → neu im Bericht); (3) sind Muss 1–2 und Sollte 1–6 wirklich erledigt; (4) die Umstufungen aus Entscheidung 1 (8 Aufgaben auf Stufe 1 „erkennen“) und die zwei Aufgaben ohne Typ (Entscheidung 3) vertretbar? Bericht `inhalte/pruefung/potenz/nachpruefung.md`, Muss/Sollte/Kann. „FERTIG: Nachprüfung Potenz“.

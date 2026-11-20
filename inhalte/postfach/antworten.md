@@ -513,3 +513,10 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 14:55 – an alle
 
 - **LB-3 Nachbesserung ist eingespielt** (`20261120_lb3_nachbesserung.sql`, nach ChatGPT 885 und Sebastians Okay). Danach `lb3_nachbesserung` und `lb3` erneut gelaufen (zurückgerollt): bestanden; Lernstände unverändert. App live weiter 0.82.2 – Rückgängig-Ablehnung, Rückfall-Hinweis und `heute_bis` nutzt die App erst mit 0.83.0.
+
+## 20.11. 15:15 – an bau-lehrer, bau-motivation, potenz-teilen
+
+- **Alles übernommen** (2e384a2): App 0.83.0 (AB-A, Teil 6, Teil 7), ergänzte Tests, Potenz-Nachbesserung. App-Tests 125/125 im zweiten Lauf (erster Lauf 1 Fehlschlag, nicht wiederholbar – Name nicht festgehalten); Prüfskript 118 × OK.
+- **Probelauf Server** (zurückgerollt): `lb3_nachbesserung` (mit „M2-echt“) und `i4` gegen den Live-Stand bestanden; `ab_s_flug_abschluss_einmal` + `ab_s`-Rauchtest bestanden; Lernstände gleich. **Die Migration spiele ich so nicht ein** – siehe `AUFTRAEGE.md`, „Nachträge 20.11. nachmittags“, A: „Flug geschafft“ soll auch kommen, wenn Verbessern den Flug erstmals fertig macht.
+- **bau-motivation:** Abweichungen in Teil 7 (Reisewörter, Knopftext „Weiter: Flug-Test“) angenommen; der Gestalter prüft nach dem Live. Danach B (0.83.1).
+- **potenz-teilen:** Entscheidungen 1–7 vorläufig angenommen; Nachprüfung durch `pruefung-potenz` (C). Noch nichts in der Datenbank.

@@ -165,8 +165,63 @@ def kann():
     return zeilen, fehler
 
 
+# =====================================================================================================================
+# Achtundzwanzigste Runde (20.11.): Nachbesserung nach der Prüfung (Sollte 5, Kann 1, 4, 5, 6). Idempotent.
+# =====================================================================================================================
+IB3 = 'MYP 3 Numerical and abstract reasoning (Zahl und Algebra)'
+NB_LISTE = {
+    'terme.potenzgesetze_natuerlich': {
+        'umfang': 'Potenzen mit natürlichen Exponenten zusammenfassen: bei gleicher Basis malnehmen und teilen, bei gleichem Exponenten die Basen '
+                  'zusammenfassen, Potenzen von Potenzen vereinfachen, die Gesetze geschickt nutzen.',
+        'lehrplan_gym': ['M7 1.2 Produkte von Potenzen mit natürlichen Exponenten bei gleicher Basis oder gleichem Exponenten zusammenfassen',
+                         'M7 1.2 Potenzen von Potenzen mit natürlichen Exponenten zusammenfassen'],
+        'lehrplan_ib': ['Annahme: MYP 3 wie im Gymnasium vor terme.umformen, das die Gesetze benutzt; im Framework stehen Potenzgesetze '
+                        'unter MYP 4–5 Standard']},
+    'terme.potenzgesetze_ganzzahlig': {
+        'umfang': 'Potenzgesetze für ganzzahlige Exponenten plausibel machen und anwenden: gleiche Basis malnehmen und teilen, gleicher Exponent, '
+                  'Potenz einer Potenz, Terme mit Variablen vereinfachen und als Bruch schreiben.'},
+    'terme.umformen': {'lehrplan_rs': ['Terme vereinfachen; Äquivalenz von Termen begründen (die Potenzgesetze stehen in eigenen Flügen)']},
+}
+KANN_NB = {'terme.potenzgesetze': {'kurz': 'Du lernst, Potenzen zu berechnen, auch mit Hoch 0 und mit negativen Hochzahlen.'},
+           'terme.potenzgesetze_natuerlich': {'etappen.potenz_von_potenz': 'eine Potenz einer Potenz wie (2³)⁴ vereinfachen, indem du die Exponenten malnimmst'}}
+
+
+def nachbessern_liste():
+    alt_text = LISTE.read_text(encoding='utf-8')
+    d = json.loads(alt_text)
+    a = next(x for x in d if x['thema_schluessel'] == 'terme.potenzgesetze_natuerlich')
+    if a['klasse']['ib_myp'] == 4:   # Sollte 5: Flug A nach MYP 3 (MYP 3: Gym-6-Flug 1, Flug A 2, terme.umformen 3, Rest +1)
+        for x in d:
+            if x['klasse'].get('ib_myp') == 4 and x['reihenfolge']['ib_myp'] > a['reihenfolge']['ib_myp']: x['reihenfolge']['ib_myp'] -= 1
+        reih = {x['thema_schluessel']: x for x in d if x['klasse'].get('ib_myp') == 3}
+        for x in reih.values():
+            if x['reihenfolge']['ib_myp'] >= 3: x['reihenfolge']['ib_myp'] += 1
+        reih['terme.potenzgesetze']['reihenfolge']['ib_myp'] = 1
+        reih['terme.umformen']['reihenfolge']['ib_myp'] = 3
+        a['klasse']['ib_myp'] = 3; a['reihenfolge']['ib_myp'] = 2; a['lernbereich']['ib_myp'] = IB3
+    for schl, felder in NB_LISTE.items():
+        next(x for x in d if x['thema_schluessel'] == schl).update(felder)
+    neu_text = _liste_text(d, alt_text)
+    if neu_text != alt_text: LISTE.write_text(neu_text, encoding='utf-8')
+    for schl, felder in KANN_NB.items():
+        pf = KANN / f'{schl}.json'
+        k = json.loads(pf.read_text(encoding='utf-8'))
+        for f, v in felder.items():
+            if f.startswith('etappen.'):
+                lz = f.split('.', 1)[1]
+                if lz not in k['etappen']:   # Reihenfolge wie die Lernkarten
+                    reihe = [e['lernziel'] for e in json.loads((THEMEN / f'{schl}.json').read_text(encoding='utf-8'))['inhalt']['etappen']]
+                    k['etappen'][lz] = v
+                    k['etappen'] = {l: k['etappen'][l] for l in reihe}
+                else: k['etappen'][lz] = v
+            else: k[f] = v
+        pf.write_text(_dump(k), encoding='utf-8')
+    return json.loads(LISTE.read_text(encoding='utf-8'))
+
+
 if __name__ == '__main__':
-    d = themenliste()
+    themenliste()
+    d = nachbessern_liste()
     z1, f1 = selbstpruefung(d)
     z2, f2 = kann()
     print('\n'.join(z1 + z2))

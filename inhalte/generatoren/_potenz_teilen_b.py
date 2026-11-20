@@ -1,6 +1,6 @@
 """Sechsundzwanzigste Runde (Zweig potenz-teilen): Flug B terme.potenzgesetze_ganzzahlig (thema_id 103, Mumbai 60) – neu (M8 4).
 
-Bausteine und Startbestand (die 29 Aufgaben mit negativen Exponenten aus Flug A) aus _potenz_teilen.py.
+Bausteine und Startbestand (die 31 Aufgaben mit negativen Exponenten aus Flug A) aus _potenz_teilen.py.
 """
 import copy
 import sys
@@ -71,16 +71,16 @@ ETAPPEN_B = [
      'fehler_bild': {'zeilen': [['(2³)²', '2⁵ (falsch)', '32'], ['(2³)²', '2³ · 2³ = 2⁶', '64']]},
      'regel': 'Bei einer ⟦Potenz einer Potenz⟧ nimmst du die Exponenten mal. Bei gleichem Exponenten nimmst du die Basen mal.'},
     {'lernziel': 'terme_vereinfachen', 'titel': TITEL_B['terme_vereinfachen'],
-     'einstieg': 'Im Algenmodell rechnest du oft mit Variablen. Terme wie 6x³ · x⁻⁵ fasst du zusammen. '
-                 'Dann schreibst du sie ohne negativen Exponenten als ⟦Bruchterm⟧.',
-     'woerter': [['Bruchterm', 'ein Bruch mit einer Variablen im Nenner, z. B. 6/x²'],
+     'einstieg': 'Terme wie 6x³ · x⁻⁵ fasst du mit den Potenzgesetzen zusammen. '
+                 'Dann schreibst du sie ohne negativen Exponenten als ⟦Bruch⟧ mit der Variablen im Nenner.',
+     'woerter': [['Bruch', 'hier: ein Bruch mit einer Variablen im Nenner, z. B. 6/x²'],
                  ['Koeffizient', 'die Zahl vor der Variablen, z. B. die 6 in 6x³']],
      'bild': _tab(['Schritt', 'Term'], [['Start', '6x³ · x⁻⁵']]),
      'schritte': [{'text': 'Der Koeffizient 6 bleibt. Bei x addierst du: 3 + (−5) = −2.',
                    'bild': {'zeilen': [['Start', '6x³ · x⁻⁵'], ['zusammengefasst', '6x⁻²']]}},
                   {'text': 'Nur x hat den negativen Exponenten: x⁻² = 1/x².'},
                   {'text': 'Also 6x³ · x⁻⁵ = ⟦6/x²⟧ für x ≠ 0.',
-                   'bild': {'zeilen': [['Start', '6x³ · x⁻⁵'], ['zusammengefasst', '6x⁻²'], ['als Bruchterm', '6/x²']]}}],
+                   'bild': {'zeilen': [['Start', '6x³ · x⁻⁵'], ['zusammengefasst', '6x⁻²'], ['als Bruch', '6/x²']]}}],
      'probe': 'x = 2: 6 · 8 · 1/32 = 1,5 und 6/4 = 1,5 ✓',
      'fehler': '6x⁻² = 1/(6x²) ist falsch. Der Exponent −2 gehört nur zu x, nicht zur 6. Richtig ist 6/x².',
      'fehler_bild': {'zeilen': [['6x⁻²', '1/(6x²) (falsch)'], ['6x⁻²', '6 · 1/x² = 6/x²']]},
@@ -262,7 +262,7 @@ AUFGABEN_B = {
                       'Koeffizienten malnehmen: 3 · 4 = 12. Exponenten addieren: 2 + (−5) = −3. Also 12x⁻³ = 12/x³.', 'Zahlen malnehmen, Exponenten addieren.', hinweis=CN)),
         U('direkt', L('Fasse zusammen: 5y⁻² · 2y⁻¹ = c · yⁿ. Gib c und n an.', 'c = □; n = □', [10, -3], ['5 * 2', '-2 + (-1)'],
                       '5 · 2 = 10 und −2 + (−1) = −3. Also 10y⁻³ = 10/y³.', 'Zahlen malnehmen, Exponenten addieren.', hinweis=CN)),
-        U('erkennen', A('Welcher Bruchterm ist gleich 4x⁻²?', '4/x²', ['1/(4x²)', '−4x²', '4/x⁻²'], 'Der Exponent −2 gehört nur zu x: 4x⁻² = 4 · 1/x² = 4/x².',
+        U('erkennen', A('Welcher Bruch ist gleich 4x⁻²?', '4/x²', ['1/(4x²)', '−4x²', '4/x⁻²'], 'Der Exponent −2 gehört nur zu x: 4x⁻² = 4 · 1/x² = 4/x².',
                         'Zu welchem Teil gehört der Exponent?')),
         U('erkennen', A('Welcher Term ist gleich 1/b⁵?', 'b⁻⁵', ['−b⁵', 'b⁵', '5b⁻¹'], '1/b⁵ ist der Kehrbruch von b⁵, also b⁻⁵.', _HN)),
         U('mehrschritt', L('Vereinfache 12a³ : (4a⁵) zu c · aⁿ. Gib c und n an.', 'c = □; n = □', [3, -2], ['12 / 4', '3 - 5'],
@@ -271,7 +271,7 @@ AUFGABEN_B = {
                            '6 : 2 = 3. Exponenten: −2 + 4 − 5 = −3. Also 3x⁻³ = 3/x³.', 'Erst die Zahlen, dann die Exponenten von x.', hinweis=CN)),
         U('mehrschritt', L('Vereinfache (2a⁻¹)³ zu c · aⁿ. Gib c und n an.', 'c = □; n = □', [8, -3], ['2 ** 3', '-1 * 3'],
                            '(2a⁻¹)³ = 2³ · (a⁻¹)³ = 8a⁻³ = 8/a³.', 'Gleicher Exponent: Jeder Faktor in der Klammer bekommt den Exponenten 3.', hinweis=CN)),
-        U('darstellung', A('Welcher Bruchterm ist gleich 5x⁻³y²?', '5y²/x³', ['5/(x³y²)', '5x³/y²', '1/(5x³y²)'],
+        U('darstellung', A('Welcher Bruch ist gleich 5x⁻³y²?', '5y²/x³', ['5/(x³y²)', '5x³/y²', '1/(5x³y²)'],
                            'Nur x hat einen negativen Exponenten und kommt in den Nenner: 5 · y² · 1/x³ = 5y²/x³.', 'Welcher Faktor hat einen negativen Exponenten?')),
         U('darstellung', L('Schreibe 3/x⁴ in der Form c · xⁿ. Gib c und n an.', 'c = □; n = □', [3, -4], ['3', '0 - 4'], '3/x⁴ = 3 · 1/x⁴ = 3x⁻⁴.',
                            'Wie schreibst du 1/x⁴ als Potenz?', hinweis=CN)),
@@ -300,12 +300,12 @@ AUFGABEN_B = {
         K(Z('Der Term (x⁻²)³ · x⁸ hat für x = 10 einen Wert. Wie groß ist er?', 100, '((10 ** -2) ** 3) * 10 ** 8', '(x⁻²)³ · x⁸ = x⁻⁶ · x⁸ = x². Für x = 10: 100.',
             'Vereinfache zuerst, dann setze ein.')),
         T(L('Fasse zusammen: 2a⁻³ · 5a = c · aⁿ. Gib c und n an.', 'c = □; n = □', [10, -2], ['2 * 5', '-3 + 1'], '2 · 5 = 10 und −3 + 1 = −2. Also 10a⁻² = 10/a².', hinweis=CN)),
-        KO(A('Welcher Bruchterm ist gleich 7y⁻¹?', '7/y', ['1/(7y)', '−7y', '7y'], '7y⁻¹ = 7 · 1/y = 7/y.')),
+        KO(A('Welcher Bruch ist gleich 7y⁻¹?', '7/y', ['1/(7y)', '−7y', '7y'], '7y⁻¹ = 7 · 1/y = 7/y.')),
         KO(L('Vereinfache 15b² : (5b⁶) zu c · bⁿ. Gib c und n an.', 'c = □; n = □', [3, -4], ['15 / 5', '2 - 6'], '15 : 5 = 3 und 2 − 6 = −4. Also 3b⁻⁴ = 3/b⁴.', hinweis=CN)),
         KO(L('Fasse zusammen: 4x⁻² · 3x⁻¹ = c · xⁿ. Gib c und n an.', 'c = □; n = □', [12, -3], ['4 * 3', '-2 + (-1)'], '4 · 3 = 12 und −2 + (−1) = −3.', hinweis=CN)),
         SI(L('Fasse zusammen: 6y³ · 2y⁻⁵ = c · yⁿ. Gib c und n an.', 'c = □; n = □', [12, -2], ['6 * 2', '3 + (-5)'], '6 · 2 = 12 und 3 + (−5) = −2. Also 12/y².', hinweis=CN)),
         SI(L('Vereinfache 20a : (4a⁴) zu c · aⁿ. Gib c und n an.', 'c = □; n = □', [5, -3], ['20 / 4', '1 - 4'], '20 : 4 = 5 und 1 − 4 = −3. Also 5/a³.', hinweis=CN)),
-        SI(A('Welcher Bruchterm ist gleich 9x⁻⁴?', '9/x⁴', ['1/(9x⁴)', '−9x⁴', '9x⁴'], '9x⁻⁴ = 9 · 1/x⁴ = 9/x⁴.')),
+        SI(A('Welcher Bruch ist gleich 9x⁻⁴?', '9/x⁴', ['1/(9x⁴)', '−9x⁴', '9x⁴'], '9x⁻⁴ = 9 · 1/x⁴ = 9/x⁴.')),
         SI(A('Welcher Term ist gleich 1/x⁶?', 'x⁻⁶', ['−x⁶', 'x⁶', '6x⁻¹'], '1/x⁶ ist der Kehrbruch von x⁶, also x⁻⁶.')),
         SI(L('Schreibe 8/b² in der Form c · bⁿ. Gib c und n an.', 'c = □; n = □', [8, -2], ['8', '0 - 2'], '8/b² = 8 · 1/b² = 8b⁻².', hinweis=CN)),
         SI(L('Fasse zusammen: 3a⁻² · 3a⁻² = c · aⁿ. Gib c und n an.', 'c = □; n = □', [9, -4], ['3 * 3', '-2 + (-2)'], '3 · 3 = 9 und −2 + (−2) = −4. Also 9/a⁴.', hinweis=CN)),
@@ -385,6 +385,8 @@ UMZUG_B = {
     'Berechne 10⁶ · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an.': ('gleiche_basis_ganz', 'mehrschritt'),
     'Berechne 10² · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an.': ('gleiche_basis_ganz', 'mehrschritt'),
     'Berechne 10¹ : 10⁶ und gib das Ergebnis als Dezimalzahl an.': ('gleiche_basis_ganz', 'mehrschritt'),
+    '2¹⁰ : 2ⁿ = 1/4. Wie groß ist n?': ('gleiche_basis_ganz', 'rueckwaerts'),          # Achtundzwanzigste Runde
+    'Berechne 10⁴ : 10⁴ : 10⁴ · 10⁸.': ('gleiche_basis_ganz', 'mehrschritt'),           # Achtundzwanzigste Runde
     'Berechne geschickt: 2⁻¹ · 5⁻¹ und gib das Ergebnis als Dezimalzahl an.': ('exponent_und_potenz', 'mehrschritt'),
     'Berechne geschickt: 5⁻¹ · 20⁻¹ und gib das Ergebnis als Dezimalzahl an.': ('exponent_und_potenz', 'mehrschritt'),
 }
@@ -410,7 +412,7 @@ def flug_b():
         texte.append(a['f']['text'])
         aufgaben.append(a)
         BERICHT[thema]['aus_flug_a'].append({'vorher': alt, 'lz': lz, 'p': a['p'], 's': a['s'], 'g': a.get('g'), 'text': a['f']['text']})
-    assert len(BERICHT[thema]['aus_flug_a']) == 29
+    assert len(BERICHT[thema]['aus_flug_a']) == 31
     # Kartenreihenfolge: Aufgaben je Karte zusammen
     aufgaben.sort(key=lambda a: LZ_B.index(a['l']))
     d = {'aufgaben': aufgaben}
@@ -421,8 +423,8 @@ def flug_b():
            'autor': 'Claude (Sechsundzwanzigste Runde, Generator terme.potenzgesetze_ganzzahlig.py)',
            'inhalt': {
                'ziel': 'Die Potenzgesetze für ganzzahlige Exponenten plausibel machen und in einfachen Fällen anwenden: gleiche Basis malnehmen und teilen, '
-                       'gleicher Exponent, Potenz einer Potenz, Terme mit Variablen auch als Bruchterm schreiben. Vorwissen: negative Exponenten '
-                       '(Klasse 6), Potenzgesetze mit natürlichen Exponenten (Flug „Potenzgesetze“, Klasse 7), Bruchterme.',
+                       'gleicher Exponent, Potenz einer Potenz, Terme mit Variablen auch als Bruch schreiben. Vorwissen: negative Exponenten '
+                       '(Klasse 6), Potenzgesetze mit natürlichen Exponenten (Flug „Potenzgesetze“, Klasse 7), im Gymnasium auch Bruchterme.',
                'merke': ['aᵐ · aⁿ = aᵐ⁺ⁿ und aᵐ : aⁿ = aᵐ⁻ⁿ – auch für negative Exponenten.', 'aⁿ · bⁿ = (a · b)ⁿ und (aᵐ)ⁿ = aᵐ·ⁿ.',
                          'a⁻ⁿ = 1/aⁿ: Ein negativer Exponent heißt Kehrbruch, nicht negative Zahl.'],
                'abschnitte': [{'titel': 'Gesetze erweitern', 'lernziele': ['warum_gilt', 'gleiche_basis_ganz']},
@@ -432,15 +434,16 @@ def flug_b():
                'teilfaehigkeiten': [{'k': lz, 'text': TITEL_B[lz], 'lernziele': [lz]} for lz in LZ_B],
                'bewertung': {'lernziele_pflicht': list(LZ_B[:4]), 'lernziele_vertiefung': ['fehler_ganz'], 'testaufgaben_je_lernziel': 1},
                'quellen': {'erklaerungen': 'Eigene Fassung (Claude), Format der Vorgabe vom 16.11.',
-                           'aufgaben': 'Vom Generator erzeugt und berechnet; 29 Aufgaben aus Flug A (terme.potenzgesetze_natuerlich).',
+                           'aufgaben': 'Vom Generator erzeugt und berechnet; 31 Aufgaben aus Flug A (terme.potenzgesetze_natuerlich).',
                            'begriffe': 'Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium, Jahrgangsstufe 8, M8 4).'}},
            'aufgaben': d['aufgaben'],
-           'offen': ['Sechsundzwanzigste Runde: neu gebaut. Startbestand sind die 29 Aufgaben mit negativen Exponenten aus den vier Potenz-Lernkarten '
+           'offen': ['Sechsundzwanzigste Runde: neu gebaut. Startbestand sind die 31 Aufgaben mit negativen Exponenten (29 aus der Sechsundzwanzigsten, 2 aus der Achtundzwanzigsten Runde) aus den vier Potenz-Lernkarten '
                      '(bis dahin in terme.umformen). Sie behalten Fragetext, Antworten und Lösung; Stufe und Typ sind an diesen Flug angepasst '
                      '(Zweierprodukte und -quotienten sind hier die Grundform, Stufe 1 „direkt“).',
                      'Vorwissen nach Gym-Reihenfolge: Bruchterme (terme.bruchterme) kommen direkt davor. Die Karte terme_vereinfachen schreibt nur '
-                     'einzelne Potenzen als Bruch (c/xⁿ), sie rechnet nicht mit Summen von Bruchtermen – so geht der Flug auch in der Realschule 7, '
-                     'wo Bruchterme erst in Klasse 8 kommen.',
+                     'einzelne Potenzen als Bruch (c/xⁿ), sie rechnet nicht mit Summen von Bruchtermen – so geht der Flug auch in der Realschule 7 '
+                     'und in MYP 4, wo Bruchterme erst später kommen. Deshalb steht in Karte und Aufgaben „Bruch“, nicht „Bruchterm“ '
+                     '(Achtundzwanzigste Runde).',
                      'Terme mit Bruch als Antwort: Die App kann c/xⁿ nicht als Term eintippen lassen; abgefragt wird über Lücken „c = □; n = □“ '
                      'oder über Auswahl.']}
     return _schreiben(thema, out)

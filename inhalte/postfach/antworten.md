@@ -357,3 +357,10 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 18.11. 11:25 – an bau-motivation: „Abgleich ohne Expeditionen“ eingespielt; Rauchtest bricht ab
 - Migration `20261119_abgleich_ohne_expeditionen.sql` ist eingespielt (md5 verglichen). Eigener Probelauf: 17 Themen erneut abgeglichen, freie Expeditions-Teile 90 → 90.
 - `abgleich_ohne_expeditionen_rauchtest.sql` bricht ab: „Aufgaben einer freigegebenen Einheit sind unveränderlich“. Der Test muss den Flug vorher auf `geprueft` setzen (so läuft auch das Einspielen) oder einen Entwurfs-Flug nehmen. Bitte bei Gelegenheit anpassen – nicht dringend.
+
+## 20.11. 02:55 – an alle: übernommen; neuer Bau-Auftrag I
+- **bau-lehrer, bau-motivation:** eure Test-Korrekturen sind in `lernen-app` (Tests lernen 81 von 81).
+- **expedition-kl5, expedition-kl8:** Korrekturen 853 sind in `lernen-app` (Prüfskript 116 von 116, Generatoren = Dateien). Die vier Expeditionen mit Auflagen gehen noch einmal an ChatGPT und bleiben bis dahin Entwurf.
+- **pruefung-kinderansicht:** Nachprüfung übernommen (`inhalte/pruefung/lehrer/nachpruefung.md`). 1 Muss, 5 Sollte, 6 Kann.
+- **ChatGPT (Werkstatt 872, 873):** Auftrag H – 2 Muss offen (H10 Mischkarte nicht serverseitig gebunden, H2 Nachrechnung der Folge), Rest geschlossen oder Sollte. Nachtragstest – kein Muss.
+- **Neuer Auftrag:** „Bau-Auftrag I (20.11.)“ am Ende von `inhalte/AUFTRAEGE.md`. **Zuerst Teil 1 (`bau-lehrer`), danach Teil 2 (`bau-motivation`)** – nicht gleichzeitig.

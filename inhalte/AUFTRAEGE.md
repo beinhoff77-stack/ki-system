@@ -1822,3 +1822,45 @@ Regeln wie im Abschnitt „Expeditionen – Inhalte für Klasse 5 und Klasse 8�
 2. **`8-pool` (Muss):** Teil d „wenn es ganz über dem Wasser hängt“ umformulieren – ein Dreieckssegel mit 4 m Seitenlänge passt nicht in einen Kreis mit 3,6 m Durchmesser. Vorschlag: „Selbst wenn die gesamte Segelfläche Schatten auf das Wasser wirft …“. Rechnung und Antwort bleiben.
 
 Fertig, wenn: Dateien und Generatoren stimmen überein, Prüfskript ohne Fehler, Meldung „FERTIG: Korrekturen 853“ im Postfach mit dem alten und neuen Wortlaut jeder geänderten Stelle.
+
+---
+
+# Bau-Auftrag I (20.11.): Mängel aus drei Nachprüfungen
+
+Grundlagen: Nachprüfung Lehrer-Aufbau `inhalte/pruefung/lehrer/nachpruefung.md` (Prüf-Chat, mit Bildern), Prüfergebnisse von ChatGPT in der Werkstatt – Nachricht 872 (Auftrag H) und 873 (Nachtragstest W177). Die Texte der beiden Nachrichten stehen sinngemäß unten; die Nachprüfung liegt im Arbeitszweig.
+
+**Es baut immer nur EIN Chat am App-Code.** Reihenfolge: zuerst Teil 1 (Chat `bau-lehrer`), danach Teil 2 (Chat `bau-motivation`). Teil 2 beginnt erst, wenn Teil 1 in `lernen-app` zusammengeführt ist (Meldung des Haupt-Chats in `inhalte/postfach/antworten.md`).
+
+Für beide Teile: Zweig vom aktuellen `lernen-app`; Datenbank nur lesen; Migrationen als Datei mit Rauchtest (Rollback, nur Testkind, eigene Namen für Variablen – keine Tabellen-Aliase doppelt belegen, keine Kommentare mitten in `declare`-Zeilen; Tests dürfen nicht von Daten abhängen, die schon in der Datenbank liegen); App-Tests vollständig laufen lassen; kein Merge nach `main`. Keine Kinderdaten, keine Schlüssel. Meldung „FERTIG: Auftrag I, Teil n“ im eigenen Postfach, getrennt nach „gesehen/getestet“ und „nicht geprüft“.
+
+## Teil 1 – Lehrer-Aufbau (Chat `bau-lehrer`, Zweig `bau-lehrer`, App 0.81.0)
+
+**Muss**
+1. **„Was wackelt“ auf dem Handy (400 px):** Wörter brechen mitten im Wort, die Spalte „seit“ und der Reiter „Plan“ sind abgeschnitten. Unter 560 px je Etappe eine Karte (wie die Kinder-Karten der Startseite) statt Tabelle; Reiterband ohne Abschneiden.
+
+**Sollte**
+2. **Eltern-Startseite:** „Wartet auf dich“ (Belohnung einlösen) als blauer Eintrag in „Zu tun“ statt als Kasten darüber. Danach passt die Kinder-Tabelle auf dem Rechner (1280 × 800) ohne Rollen – per Test messen.
+3. **Lehrplan-Übersicht auf dem Handy:** als Liste oder mit fester erster Spalte, ohne abgeschnittene Inhalte.
+4. **Reisewörter beim ersten Vorkommen erklären** (klein, in Klammern oder als Hinweis): Rückreise = Wiederholung nach nicht bestandenem Nachtest; Etappe = Lernschritt; Flug = Thema; Bordkarte = Aufgabe.
+5. **Nachtragstest-Link (W177, Befund 7):** Der Link auf der Flugseite hängt an `!offen` und heißt „Alle Etappen sitzen – Test zu den neuen Etappen“. Den Link nur an „Flug-Test abgeschlossen und neue offene Pflicht-Etappen“ binden, Text neutral „Test zu den neuen Etappen“.
+
+**Kann** (mitnehmen, wenn es ohne Umbau geht)
+6. Überblick: nicht „Nichts wackelt.“ direkt über „Rückreise … offen“ – z. B. „Keine Etappe wackelt · Rückreise Pisa offen“.
+7. Geschafft: Flug ohne Inhalt als „noch kein Inhalt“ statt dreimal „–“.
+8. Tablet: Rahmen der ⚙-Zelle ausrichten; „noch kein MYP-Jahr“ kürzer („– (ab Kl. 6)“); Spaltenkopf „AKTIONEN“ weglassen; Hinweis „über der Klasse des Kindes“ nicht abschneiden.
+9. Hinweise mit dem Wort „Datenbank“ durch neutrale Sätze ersetzen.
+
+**Nicht bauen (wartet auf Sebastian):** Pausen/Reisetage als Ausnahme für „rot“; Ampelfarben in den Stand-Zellen.
+
+## Teil 2 – Lernregeln (Chat `bau-motivation`, Zweig `bau-motivation`, App 0.81.1)
+
+**Muss**
+1. **H10 – Mischkarte serverseitig binden.** Heute glaubt der Server dem Gerät, welche Etappe „die aktuelle“ ist (`aktuell_einheit`, `aktuell_lernziel`); damit lässt sich jede Übung einer gelandeten Etappe als Mischkarte melden und erzeugt einen Beleg (`misch_ok_am`) – und darüber „sicher“. Lösung: Der Server merkt sich, welche Mischkarten er einem Kind ausgegeben hat (z. B. Tabelle `schule.misch_ausgabe`: Kind, Aufgabe, ausgegeben am, eingelöst am; Eintrag beim Ausliefern durch `schule.mischkarten`), und `misch_buchen` zählt nur eine ausgegebene, noch nicht eingelöste Karte der letzten 24 Stunden. Ohne passende Ausgabe: normale Buchung als Übung, kein Misch-Beleg. Die alte App (0.80.0) darf dabei nicht brechen – sie bekommt dann schlicht keinen Misch-Beleg. Rauchtest mit gefälschtem Kontext (Negativfall) und echtem Ablauf (Positivfall).
+2. **H2 – Folge richtig nachrechnen.** Die Nachrechnung in `h_muss` blendet jede falsche Antwort mit `anlauf = 1` aus – auch einen endgültigen Fehler bei einer Auswahl ohne zweite Chance. Regel sauber fassen (endgültig falsch = letzter Versuch dieser Bordkarte in dieser Runde ist falsch, gleich welcher Anlauf) und als Funktion liefern, die die laufende Buchung und eine Nachrechnung gemeinsam benutzen. Bestand: Der Haupt-Chat hat am 20.11. gelesen – bei den echten Kindern gibt es 3 offene Etappen mit Folge > 0, keine davon ist betroffen. Deshalb **keine** Bestandsänderung, nur die Funktion und ein Negativtest.
+
+**Sollte**
+3. **H4/H11/H14 – fehlende Tests:** Nachtest mit 80 % bestanden, aber diese Etappe falsch → nicht „sicher“ (Negativtest); Expedition bei zwei Versionen eines Themas über die ganze Buchung (nicht nur die Hilfsfunktion); Expedition unterbrochen und fortgesetzt.
+4. **H12 – Import:** zusätzlich angegebene Voraussetzungen auch auf vorhandene Lernkarte (Lernziel) prüfen, nicht nur auf das Thema.
+5. **H6 – Tageszähler:** Die App nimmt für „heute selbst gelöst“ den Tag, den der Server liefert, nicht den Kalendertag des Geräts.
+6. **W177 – Nachtragstest:** Rauchtest um Sterne (vorher/nachher, keine Doppelbuchung bei Abbruch und Wiederaufnahme) und um den Fall „offene und fehlerhafte Pflicht-Etappen zugleich“ ergänzen. Frist des nächsten Nachtests nach einem Nachtragstest: im Bericht beschreiben, was heute geschieht (beginnt die 10-Lerntage-Frist neu?) – nichts ändern, Sebastian entscheidet.
+7. **H5/H13:** im Bericht ehrlich festhalten, was nur über die innere Funktion und was über den äußeren Zugang getestet ist. Ein Test über den äußeren Zugang braucht einen Schlüssel und entfällt.

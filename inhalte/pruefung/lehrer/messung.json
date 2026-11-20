@@ -1,0 +1,245 @@
+{
+ "tablet": {
+  "start": {
+   "url": "#/lernen",
+   "hoehe": 1707,
+   "knoepfe": 20,
+   "text": "ⓘ So funktioniert’s\nLERNREISE\nDie Kinder\nKind A\nGymnasium · Klasse 5\nGYM 5\n2/14\nRS 5\n2/12\nIB vor MYP-Jahr 1\n–\nJetzt: Rom · Natürliche Zahlen und Stellenwertsysteme (0/12)\nLernen starten ›\nLernstand\nWas wackelt?\nFlugplan\nKind B\nGymnasium · Klasse 8\nGYM 8\n2/13\nRS 8\n1/5\nIB MYP-Jahr 3\n0/11\nJetzt: Delhi · Lineare Gleichungen (0/6)\nLernen starten ›\nLernstand\nWas wackelt?\nFlugplan\nNeue Antworten auf eure Aufträge\nRom – Natürliche Zahlen: 6 neue Aufgaben ergänzt.\nMeine Aufträge ›\nFÜR ALLE KINDER\nLehrplan-Übersicht\nAlle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.\nÖffnen ›\nAlle Kinder im Vergleich\nAlle Kinder × Gymnasium, Realschule, IB MYP; den Lernstand eines Kindes öffnet „Lernstand“ an seiner Karte\nÖffnen ›\nMeine Aufträge\nWas ihr ändern lassen wollt – mit Status und Antwort\nÖffnen ›\nSo funktioniert’s\nErste Schritte und Antworten auf die häufigsten Fragen\nLesen ›"
+  },
+  "schulstand": {
+   "url": "#/schulstand",
+   "hoehe": 1180,
+   "knoepfe": 7,
+   "text": "ⓘ So funktioniert’s\nELTERN UND LEHRER\nAlle Kinder im Vergleich\nWie weit jedes Kind in Gymnasium, Realschule und IB MYP ist – gezählt werden alle Flüge, die laut Lehrplan in die jeweilige Klasse gehören.\n\tGymnasium\tRealschule\tIB MYP\nKind A\t\nKlasse 5\n2/14\n\t\nKlasse 5\n2/12\n\t\nvor MYP-Jahr 1\n0/0\nKind B\t\nKlasse 8\n2/13 · 2 wackelt\n\t\nKlasse 8\n1/5 · 2 wackelt\n\t\nMYP-Jahr 3\n0/11 · 1 wackelt\nFeld antippen → Lehrplan-Landkarte dieses Kindes in dieser Schulart, mit „Einstieg prüfen“. Die Stufe je Schulart setzt ihr im Flugplan.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert."
+  },
+  "lernstand-a": {
+   "url": "#/lernstand/1",
+   "hoehe": 1210,
+   "knoepfe": 39,
+   "text": "ⓘ So funktioniert’s\nGYMNASIUM · KLASSE 5\nLernstand Kind A\nWas wackelt? – Etappen mit den echten falschen Antworten ›\nAlle Kinder im Vergleich\n›\nLernstand Kind A · Gymnasium\nGymnasium\nRealschule\nIB MYP\nEinstieg prüfen:\naus\nKl. 6\nKl. 7\nKl. 8\nKl. 9\nKl. 10\n„Einstieg prüfen“ zeigt, was bis zu einer Klasse fehlt. Orientierung, keine Einstufung durch eine Schule.\n\tKl. 5\tKl. 6\tKl. 7\tKl. 8\tKl. 9\tKl. 10\nZahlen\nEuropa\n\t\n1/5\n\t\n0/5\n\t·\t·\t\n0/3\n\t·\nGeld und Verhältnisse\nNordamerika\n\t\n1/2\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t·\t·\nAlgebra\nAsien\n\t\n0/1\n\t·\t\n0/3\n\t\n0/6\n\t\n0/3\n\t\n0/2\nFunktionen\nAntarktis\n\t·\t·\t·\t\n0/3\n\t\n0/2\n\t\n0/3\nGeometrie\nAfrika\n\t\n0/3\n\t·\t\n0/3\n\t·\t\n0/5\n\t·\nFläche und Raum\nSüdamerika\n\t\n0/2\n\t·\t·\t\n0/2\n\t·\t\n0/2\nDaten und Zufall\nAustralien und Ozeanien\n\t\n0/1\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t\n0/1\n\t\n0/2\nGesamt\t14 %\t0 %\t0 %\t0 %\t0 %\t0 %\noffen\nläuft\nteilweise\nalles gelandet\nwackelt\nFeld antippen → Flüge in diesem Kontinent und dieser Klasse, mit dem Stand der Etappen.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert."
+  },
+  "wackelt-a": {
+   "url": "#/wackelt/1",
+   "hoehe": 1235,
+   "knoepfe": 3,
+   "text": "LERNSTAND\nKind A\nLetzte 7 Tage: 30 Bordkarten, davon 22 richtig, 4-mal mit Tipp. Lerntage in 4 Wochen: 2 (zuletzt 14.11.).\nWas kommt wann wieder? 1 Etappe sitzt, 0 davon sind zum Wiederholen dran\nWas wackelt?\nRunden\n5 falsch\nRom · Natürliche Zahlen\n„Wackelt“ heißt: mindestens 3 falsche Antworten und mehr falsche als richtige. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten.\nRom: Natürliche Zahlen\nInhalte ansehen\n1 von 3 Etappen sitzen · zuletzt 14.11.\nWelchen Wert hat eine Ziffer?\nsitzt\n6 richtig · 1 falsch · zuletzt 14.11.\nRunden\nwackelt\n2 richtig · 5 falsch · 3-mal Tipp · zuletzt 14.11.\nLetzte falsche Antworten (1)\nZahlenstrahl\nnoch nicht geübt"
+  },
+  "plan-a": {
+   "url": "#/plan/1",
+   "hoehe": 2557,
+   "knoepfe": 52,
+   "text": "ⓘ So funktioniert’s\nFlugplan Kind A\nAlles gespeichert\n↶ Rückgängig\nReihenfolge = Reihenfolge in der Lernreise. Ziehen am Griff ⠿ oder ↑ ↓; einen Ort antippen zeigt seine Flüge – dort lassen sich einzelne Flüge abwählen. Jede Änderung wird sofort gespeichert.\n⠿\n1\nRom – Natürliche und ganze Zahlen\nZahlen · Gym 5 · 1/5 Flüge\n↑\n↓\n⠿\n2\nToronto – Größen und Einheiten\nGeld und Verhältnisse · Gym 5 · 1/1 Flug · geschafft\n↑\n↓\n⠿\n3\nAthen – Teilbarkeit\nZahlen · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n4\nKairo – Formen und Grundbegriffe\nGeometrie · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n5\nChicago – Dreisatz und direkte Proportionalität\nGeld und Verhältnisse · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n6\nLima – Umfang und Fläche\nFläche und Raum · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n7\nBagdad – Einfache Gleichungen\nAlgebra · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n8\nCusco – Körper und Netze\nFläche und Raum · Gym 8 · 0/1 Flug\nKlasse 8 – über der Klasse des Kindes · vorgezogen\n↑\n↓\n⠿\n9\nAdelaide – Daten darstellen\nDaten und Zufall · Gym 6 · 0/1 Flug\nKlasse 6 – über der Klasse des Kindes · vorgezogen\n↑\n↓\n⠿\n10\nMelbourne – Zählen\nDaten und Zufall · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n11\nTimbuktu – Winkel\nGeometrie · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n12\nAlexandria – Kreis und Ortslinien\nGeometrie · Gym 5 · 0/2 Flüge\n↑\n↓\nLehrplan\nGymnasium\nRealschule\nIB MYP\nalle Klassen\nKlasse 5\nKlasse 6\nKlasse 7\nKlasse 8\nKlasse 9\nKlasse 10\n⠿\nRio de Janeiro – Volumen und Oberfläche\nFläche und Raum · Kl. 5 · 1 Flug\n+\n✎ Ändern lassen\nNeuer Plan aus Lehrplan-Vorlage\nKlasse\nKlasse \n–\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\nGymnasium. Bestimmt, welche Flüge beim Kind als „seine Klasse“ zählen. Wird sofort gespeichert.\nNotizen\nNotiz speichern\nPapa: Bruchrechnen hat in der Schule gewackelt. · 10.11.2026\nVerlauf"
+  },
+  "lehrplan": {
+   "url": "#/lehrplan",
+   "hoehe": 16719,
+   "knoepfe": 97,
+   "text": "ⓘ So funktioniert’s\nELTERN UND LEHRER\nLehrplan-Übersicht\nAlle Mathe-Flüge, sortiert nach Klasse im Gymnasium. Hinter jedem Flug steht, wann er laut Lehrplan dran ist: Gym = Gymnasium, RS = Realschule, IB = MYP-Jahr (MYP-Jahr 1–5 entspricht etwa Klasse 6–10). Grün = Inhalt fertig, gelb = gebaut und in Prüfung, grau = noch nichts da.\nAlle Klassen\nKlasse 5 · Kind A\nKlasse 6\nKlasse 7\nKlasse 8 · Kind B\nKlasse 9\nKlasse 10\nNicht im Gymnasium-Lehrplan\nAlle Flüge\nFertig\nIn Prüfung\nNoch kein Inhalt\n⛰ Expeditionen ansehen › – größere Bordkarten über mehrere Flüge\n91\nFlüge\n67\nfertig\n24\nin Prüfung\n0\nohne Inhalt\nKlasse 5 · Kind A · 14 Flüge\nZAHLEN · 5 von 5 mit Inhalt\nGanze Zahlen\nGym 5 · RS 5 · IB MYP-Jahr 2\nOrt der Lernreise: Rom\nFertig · 8 Etappen · 144 Bordkarten\nKind A: läuft · im Plan\nKind B: –\nInhalte ansehen\nNatürliche Zahlen und Stellenwertsysteme\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Rom\nFertig · 12 Etappen · 216 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nGrundrechenarten und Rechengesetze\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Rom\nFertig · 10 Etappen · 180 Bordkarten\nKind A: geschafft · im Plan\nKind B: –\nInhalte ansehen\nPotenzen als Schreibweise\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Rom\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nTeilbarkeit und Primzahlen\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Athen\nFertig · 8 Etappen · 144 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nGELD UND VERHÄLTNISSE · 2 von 2 mit Inhalt\nGrößen und Einheiten\nGym 5 · RS 5 · IB MYP-Jahr 2\nOrt der Lernreise: Toronto\nFertig · 8 Etappen · 144 Bordkarten\nKind A: geschafft · im Plan\nKind B: –\nInhalte ansehen\nDirekte Proportionalität und Dreisatz\nGym 5 · RS 6 · IB MYP-Jahr 2\nOrt der Lernreise: Chicago\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nALGEBRA · 1 von 1 mit Inhalt\nEinfache Gleichungen\nGym 5 · RS 6 · IB MYP-Jahr 1\nOrt der Lernreise: Bagdad\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nGEOMETRIE · 3 von 3 mit Inhalt\nGrundbegriffe und Figuren\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Kairo\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nMit Winkeln rechnen\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Timbuktu\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nOrtslinien und Ortsbereiche\nGym 5 · RS 7\nOrt der Lernrei"
+  },
+  "auftraege": {
+   "url": "#/lernauftraege",
+   "hoehe": 1180,
+   "knoepfe": 13,
+   "text": "ⓘ So funktioniert’s\nAN DIE ENTWICKLUNG\nMeine Aufträge\nWas ihr ändern lassen wollt, mit Status und Antwort. Zu einer bestimmten Erklärung, Etappe, Bordkarte oder einem Flug geht es direkt dort über „✎ Ändern lassen“; der Auftrag weiß dann, worum es geht.\n✎ Neuer Auftrag (allgemein)\nOffen (0)\nBeantwortet (1)\nAlle (1)\nMehr Bordkarten\nerledigt\nRom – Natürliche Zahlen\nMehr Aufgaben zum Runden.\nAntwort: 6 neue Aufgaben ergänzt.\nHerr Lehrer · 14.11.2026"
+  },
+  "expeditionen": {
+   "url": "#/expeditionen",
+   "hoehe": 1180,
+   "knoepfe": 1,
+   "text": "ⓘ So funktioniert’s\nELTERN UND LEHRER\nExpeditionen\nGrößere Bordkarten aus 3–5 Teilen, die Stoff aus mehreren Etappen verbinden. Ein Kind bekommt eine Expedition angeboten, sobald alle ihre Etappen bei ihm gelandet sind – freiwillig, sie zählt nicht für „gelandet“. Jeder Teil nennt seine Zahlen selbst, ein Fehler blockiert den nächsten Teil nicht.\nExpeditionen kommen, sobald die Datenbank sie liefert."
+  },
+  "zugaenge": {
+   "url": "#/zugaenge",
+   "hoehe": 1180,
+   "knoepfe": 1,
+   "text": "Das hat gerade nicht geklappt.\nPrüfe das Internet und versuch es nochmal.\nNochmal versuchen\nCannot read properties of undefined (reading 'zugaenge')"
+  },
+  "info": {
+   "url": "#/info",
+   "hoehe": 2222,
+   "knoepfe": 16,
+   "text": "FÜR ELTERN UND LEHRER\nSo funktioniert’s\nDie Lernreise in Kürze: erst die vier wichtigsten Schritte, darunter Antworten auf die häufigsten Fragen.\nLernen starten: Auf der Startseite hat jede Kinderkarte oben den Knopf „Lernen starten“ – er öffnet die Abflugtafel des Kindes. Daneben: „Lernstand“, „Was wackelt?“ und „Flugplan“.\nErste Schritte\n1\nFlugplan prüfen\nLege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“. Jede Änderung wird sofort gespeichert.\nFlugplan Kind A ›\nFlugplan Kind B ›\n2\nLernstand lesen\n„Lernstand“ an der Kinderkarte: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner Schulart, mit „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule). „Was wackelt?“: je Etappe, was sitzt und was wackelt, mit den echten falschen Antworten. Alle Kinder nebeneinander: „Alle Kinder im Vergleich“.\nLernstand Kind A ›\nLernstand Kind B ›\nWas wackelt? Kind A ›\nWas wackelt? Kind B ›\nAlle Kinder im Vergleich ›\n3\nInhalte ansehen\nIn der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.\nLehrplan-Übersicht ›\n4\nÄndern lassen\nFehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.\nMeine Aufträge ›\nFragen\nWorauf baut die App auf?\nWie ist die Lernreise aufgebaut?\nWie wird gelernt?\nWie entstehen die Inhalte, und wer prüft sie?\nWas kann ich selbst ändern?\nWie beauftrage ich eine Änderung?\nWer hat Zugang, und wie steht es um den Datenschutz?"
+  },
+  "reise-a": {
+   "url": "#/reise/1",
+   "hoehe": 2381,
+   "knoepfe": 76,
+   "text": "Hallo Kind A!\nJETZT DRAN · ROM\nNatürliche Zahlen und Stellenwertsysteme\nWeiter geht’s\nErst 1 Wiederholung, dann Rom.\n0 von 14 Etappen sitzen\nErst die Erklärungen ansehen\nDu bist in Rom\nRom hat 5 Flüge, 1 davon geschafft. Den Stempel gibt es, wenn alle geschafft sind.\n1\nStempel\n860\nSterne\n14\nLerntage\nReisepass und Belohnungen ansehen\nMEIN STAND · GYMNASIUM KLASSE 5\n2 von 14 Flügen\n14 davon kannst du schon lernen, die anderen kommen nach und nach dazu.\nAuch offen\nRom: Ganze Zahlen\nEuropa · Zahlen\n3/8\nRom: Potenzen als Schreibweise\nEuropa · Zahlen\n0/7\nRom: Zehnerpotenzen und wissenschaftliche Schreibweise\nEuropa · Zahlen\n0/7\nRom: Grundrechenarten und Rechengesetze\nEuropa · Zahlen\ngeschafft\nAthen: Teilbarkeit und Primzahlen\nEuropa · Zahlen\n0/8\nKairo: Grundbegriffe und Figuren\nAfrika · Geometrie\n0/7\nChicago: Direkte Proportionalität und Dreisatz\nNordamerika · Geld und Verhältnisse\n0/7\nLima: Umfang und Flächeninhalt\nSüdamerika · Fläche und Raum\n0/7\nBagdad: Einfache Gleichungen\nAsien · Algebra\n0/7\nCusco: Körper darstellen\nSüdamerika · Fläche und Raum\n0/6\nAdelaide: Daten erfassen und darstellen\nAustralien und Ozeanien · Daten und Zufall\n0/6\nMelbourne: Zählen und Kombinatorik\nAustralien und Ozeanien · Daten und Zufall\n0/7\nGeschafft oder kann schon – zum Wiederholen (1)\nSpäter – für höhere Klassen (53)\nHeute\nMein Weg\nMerkheft\nReisepass"
+  },
+  "plan-b": {
+   "url": "#/plan/2",
+   "hoehe": 2424,
+   "knoepfe": 39,
+   "text": "ⓘ So funktioniert’s\nFlugplan Kind B\nAlles gespeichert\n↶ Rückgängig\nReihenfolge = Reihenfolge in der Lernreise. Ziehen am Griff ⠿ oder ↑ ↓; einen Ort antippen zeigt seine Flüge – dort lassen sich einzelne Flüge abwählen. Jede Änderung wird sofort gespeichert.\nAutomatische Rückreise: Delhi – Lineare Gleichungen und Ungleichungen – wird zuerst wiederholt, bis der Nachtest bestanden ist.\n⠿\n1\nMcMurdo-Station – Funktionsbegriff\nFunktionen · Gym 8 · 0/1 Flug · geschafft\n↑\n↓\n⠿\n2\nNeumayer-Station III – Lineare Funktionen\nFunktionen · Gym 8 · 0/2 Flüge\n↑\n↓\n⠿\n3\nMumbai – Bruchterme und Formeln\nAlgebra · Gym 8 · 0/3 Flüge\n↑\n↓\n⠿\n4\nPeking – Gleichungssysteme\nAlgebra · Gym 8 · 0/1 Flug\n↑\n↓\n⠿\n5\nAmundsen-Scott-Südpolstation – Hyperbeln\nFunktionen · Gym 8 · 0/1 Flug\n↑\n↓\n⠿\n6\nBuenos Aires – Kreis und Zylinder\nFläche und Raum · Gym 8 · 0/1 Flug\n↑\n↓\n⠿\n7\nAuckland – Zufall und Laplace\nDaten und Zufall · Gym 8 · 0/1 Flug\n↑\n↓\nLehrplan\nGymnasium\nRealschule\nIB MYP\nalle Klassen\nKlasse 5\nKlasse 6\nKlasse 7\nKlasse 8\nKlasse 9\nKlasse 10\n⠿\nDelhi – Lineare Gleichungen und Ungleichungen\nAlgebra · Kl. 7 · 3 Flüge\n+\n⠿\nVancouver – Indirekte Proportionalität\nGeld und Verhältnisse · Kl. 8 · 1 Flug\n+\n⠿\nCusco – Körper und Netze\nFläche und Raum · Kl. 8 · 1 Flug\n+\n✎ Ändern lassen\nNeuer Plan aus Lehrplan-Vorlage\nKlasse\nKlasse \n–\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\nGymnasium. Bestimmt, welche Flüge beim Kind als „seine Klasse“ zählen. Wird sofort gespeichert.\nNotizen\nNotiz speichern\nPapa: Bruchrechnen hat in der Schule gewackelt. · 10.11.2026\nVerlauf"
+  },
+  "lernstand-b": {
+   "url": "#/lernstand/2",
+   "hoehe": 1210,
+   "knoepfe": 39,
+   "text": "ⓘ So funktioniert’s\nGYMNASIUM · KLASSE 8\nLernstand Kind B\nWas wackelt? – Etappen mit den echten falschen Antworten ›\nAlle Kinder im Vergleich\n›\nLernstand Kind B · Gymnasium\nGymnasium\nRealschule\nIB MYP\nEinstieg prüfen:\naus\nKl. 6\nKl. 7\nKl. 8\nKl. 9\nKl. 10\n„Einstieg prüfen“ zeigt, was bis zu einer Klasse fehlt. Orientierung, keine Einstufung durch eine Schule.\n\tKl. 5\tKl. 6\tKl. 7\tKl. 8\tKl. 9\tKl. 10\nZahlen\nEuropa\n\t\n0/5\n\t\n0/5\n\t·\t·\t\n0/3\n\t·\nGeld und Verhältnisse\nNordamerika\n\t\n0/2\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t·\t·\nAlgebra\nAsien\n\t\n0/1\n\t·\t\n0/3\n\t\n1/6\n\t\n0/3\n\t\n0/2\nFunktionen\nAntarktis\n\t·\t·\t·\t\n1/3\n\t\n0/2\n\t\n0/3\nGeometrie\nAfrika\n\t\n0/3\n\t·\t\n0/3\n\t·\t\n0/5\n\t·\nFläche und Raum\nSüdamerika\n\t\n0/2\n\t·\t·\t\n0/2\n\t·\t\n0/2\nDaten und Zufall\nAustralien und Ozeanien\n\t\n0/1\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t\n0/1\n\t\n0/2\nGesamt\t0 %\t0 %\t0 %\t15 %\t0 %\t0 %\noffen\nläuft\nteilweise\nalles gelandet\nwackelt\nFeld antippen → Flüge in diesem Kontinent und dieser Klasse, mit dem Stand der Etappen.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert."
+  },
+  "fehler": []
+ },
+ "handy": {
+  "start": {
+   "url": "#/lernen",
+   "hoehe": 2135,
+   "knoepfe": 20,
+   "text": "ⓘ So funktioniert’s\nLERNREISE\nDie Kinder\nKind A\nGymnasium · Klasse 5\nGYM 5\n2/14\nRS 5\n2/12\nIB vor MYP-Jahr 1\n–\nJetzt: Rom · Natürliche Zahlen und Stellenwertsysteme (0/12)\nLernen starten ›\nLernstand\nWas wackelt?\nFlugplan\nKind B\nGymnasium · Klasse 8\nGYM 8\n2/13\nRS 8\n1/5\nIB MYP-Jahr 3\n0/11\nJetzt: Delhi · Lineare Gleichungen (0/6)\nLernen starten ›\nLernstand\nWas wackelt?\nFlugplan\nNeue Antworten auf eure Aufträge\nRom – Natürliche Zahlen: 6 neue Aufgaben ergänzt.\nMeine Aufträge ›\nFÜR ALLE KINDER\nLehrplan-Übersicht\nAlle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.\nÖffnen ›\nAlle Kinder im Vergleich\nAlle Kinder × Gymnasium, Realschule, IB MYP; den Lernstand eines Kindes öffnet „Lernstand“ an seiner Karte\nÖffnen ›\nMeine Aufträge\nWas ihr ändern lassen wollt – mit Status und Antwort\nÖffnen ›\nSo funktioniert’s\nErste Schritte und Antworten auf die häufigsten Fragen\nLesen ›"
+  },
+  "schulstand": {
+   "url": "#/schulstand",
+   "hoehe": 844,
+   "knoepfe": 7,
+   "text": "ⓘ So funktioniert’s\nELTERN UND LEHRER\nAlle Kinder im Vergleich\nWie weit jedes Kind in Gymnasium, Realschule und IB MYP ist – gezählt werden alle Flüge, die laut Lehrplan in die jeweilige Klasse gehören.\n\tGymnasium\tRealschule\tIB MYP\nKind A\t\nKlasse 5\n2/14\n\t\nKlasse 5\n2/12\n\t\nvor MYP-Jahr 1\n0/0\nKind B\t\nKlasse 8\n2/13 · 2 wackelt\n\t\nKlasse 8\n1/5 · 2 wackelt\n\t\nMYP-Jahr 3\n0/11 · 1 wackelt\nFeld antippen → Lehrplan-Landkarte dieses Kindes in dieser Schulart, mit „Einstieg prüfen“. Die Stufe je Schulart setzt ihr im Flugplan.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert."
+  },
+  "lernstand-a": {
+   "url": "#/lernstand/1",
+   "hoehe": 1445,
+   "knoepfe": 39,
+   "text": "ⓘ So funktioniert’s\nGYMNASIUM · KLASSE 5\nLernstand Kind A\nWas wackelt? – Etappen mit den echten falschen Antworten ›\nAlle Kinder im Vergleich\n›\nLernstand Kind A · Gymnasium\nGymnasium\nRealschule\nIB MYP\nEinstieg prüfen:\naus\nKl. 6\nKl. 7\nKl. 8\nKl. 9\nKl. 10\n„Einstieg prüfen“ zeigt, was bis zu einer Klasse fehlt. Orientierung, keine Einstufung durch eine Schule.\n\tKl. 5\tKl. 6\tKl. 7\tKl. 8\tKl. 9\tKl. 10\nZahlen\nEuropa\n\t\n1/5\n\t\n0/5\n\t·\t·\t\n0/3\n\t·\nGeld und Verhältnisse\nNordamerika\n\t\n1/2\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t·\t·\nAlgebra\nAsien\n\t\n0/1\n\t·\t\n0/3\n\t\n0/6\n\t\n0/3\n\t\n0/2\nFunktionen\nAntarktis\n\t·\t·\t·\t\n0/3\n\t\n0/2\n\t\n0/3\nGeometrie\nAfrika\n\t\n0/3\n\t·\t\n0/3\n\t·\t\n0/5\n\t·\nFläche und Raum\nSüdamerika\n\t\n0/2\n\t·\t·\t\n0/2\n\t·\t\n0/2\nDaten und Zufall\nAustralien und Ozeanien\n\t\n0/1\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t\n0/1\n\t\n0/2\nGesamt\t14 %\t0 %\t0 %\t0 %\t0 %\t0 %\noffen\nläuft\nteilweise\nalles gelandet\nwackelt\nFeld antippen → Flüge in diesem Kontinent und dieser Klasse, mit dem Stand der Etappen.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert."
+  },
+  "wackelt-a": {
+   "url": "#/wackelt/1",
+   "hoehe": 1272,
+   "knoepfe": 3,
+   "text": "LERNSTAND\nKind A\nLetzte 7 Tage: 30 Bordkarten, davon 22 richtig, 4-mal mit Tipp. Lerntage in 4 Wochen: 2 (zuletzt 14.11.).\nWas kommt wann wieder? 1 Etappe sitzt, 0 davon sind zum Wiederholen dran\nWas wackelt?\nRunden\n5 falsch\nRom · Natürliche Zahlen\n„Wackelt“ heißt: mindestens 3 falsche Antworten und mehr falsche als richtige. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten.\nRom: Natürliche Zahlen\nInhalte ansehen\n1 von 3 Etappen sitzen · zuletzt 14.11.\nWelchen Wert hat eine Ziffer?\nsitzt\n6 richtig · 1 falsch · zuletzt 14.11.\nRunden\nwackelt\n2 richtig · 5 falsch · 3-mal Tipp · zuletzt 14.11.\nLetzte falsche Antworten (1)\nZahlenstrahl\nnoch nicht geübt"
+  },
+  "plan-a": {
+   "url": "#/plan/1",
+   "hoehe": 2642,
+   "knoepfe": 52,
+   "text": "ⓘ So funktioniert’s\nFlugplan Kind A\nAlles gespeichert\n↶ Rückgängig\nReihenfolge = Reihenfolge in der Lernreise. Ziehen am Griff ⠿ oder ↑ ↓; einen Ort antippen zeigt seine Flüge – dort lassen sich einzelne Flüge abwählen. Jede Änderung wird sofort gespeichert.\n⠿\n1\nRom – Natürliche und ganze Zahlen\nZahlen · Gym 5 · 1/5 Flüge\n↑\n↓\n⠿\n2\nToronto – Größen und Einheiten\nGeld und Verhältnisse · Gym 5 · 1/1 Flug · geschafft\n↑\n↓\n⠿\n3\nAthen – Teilbarkeit\nZahlen · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n4\nKairo – Formen und Grundbegriffe\nGeometrie · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n5\nChicago – Dreisatz und direkte Proportionalität\nGeld und Verhältnisse · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n6\nLima – Umfang und Fläche\nFläche und Raum · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n7\nBagdad – Einfache Gleichungen\nAlgebra · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n8\nCusco – Körper und Netze\nFläche und Raum · Gym 8 · 0/1 Flug\nKlasse 8 – über der Klasse des Kindes · vorgezogen\n↑\n↓\n⠿\n9\nAdelaide – Daten darstellen\nDaten und Zufall · Gym 6 · 0/1 Flug\nKlasse 6 – über der Klasse des Kindes · vorgezogen\n↑\n↓\n⠿\n10\nMelbourne – Zählen\nDaten und Zufall · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n11\nTimbuktu – Winkel\nGeometrie · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n12\nAlexandria – Kreis und Ortslinien\nGeometrie · Gym 5 · 0/2 Flüge\n↑\n↓\nLehrplan\nGymnasium\nRealschule\nIB MYP\nalle Klassen\nKlasse 5\nKlasse 6\nKlasse 7\nKlasse 8\nKlasse 9\nKlasse 10\n⠿\nRio de Janeiro – Volumen und Oberfläche\nFläche und Raum · Kl. 5 · 1 Flug\n+\n✎ Ändern lassen\nNeuer Plan aus Lehrplan-Vorlage\nKlasse\nKlasse \n–\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\nGymnasium. Bestimmt, welche Flüge beim Kind als „seine Klasse“ zählen. Wird sofort gespeichert.\nNotizen\nNotiz speichern\nPapa: Bruchrechnen hat in der Schule gewackelt. · 10.11.2026\nVerlauf"
+  },
+  "lehrplan": {
+   "url": "#/lehrplan",
+   "hoehe": 22143,
+   "knoepfe": 97,
+   "text": "ⓘ So funktioniert’s\nELTERN UND LEHRER\nLehrplan-Übersicht\nAlle Mathe-Flüge, sortiert nach Klasse im Gymnasium. Hinter jedem Flug steht, wann er laut Lehrplan dran ist: Gym = Gymnasium, RS = Realschule, IB = MYP-Jahr (MYP-Jahr 1–5 entspricht etwa Klasse 6–10). Grün = Inhalt fertig, gelb = gebaut und in Prüfung, grau = noch nichts da.\nAlle Klassen\nKlasse 5 · Kind A\nKlasse 6\nKlasse 7\nKlasse 8 · Kind B\nKlasse 9\nKlasse 10\nNicht im Gymnasium-Lehrplan\nAlle Flüge\nFertig\nIn Prüfung\nNoch kein Inhalt\n⛰ Expeditionen ansehen › – größere Bordkarten über mehrere Flüge\n91\nFlüge\n67\nfertig\n24\nin Prüfung\n0\nohne Inhalt\nKlasse 5 · Kind A · 14 Flüge\nZAHLEN · 5 von 5 mit Inhalt\nGanze Zahlen\nGym 5 · RS 5 · IB MYP-Jahr 2\nOrt der Lernreise: Rom\nFertig · 8 Etappen · 144 Bordkarten\nKind A: läuft · im Plan\nKind B: –\nInhalte ansehen\nNatürliche Zahlen und Stellenwertsysteme\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Rom\nFertig · 12 Etappen · 216 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nGrundrechenarten und Rechengesetze\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Rom\nFertig · 10 Etappen · 180 Bordkarten\nKind A: geschafft · im Plan\nKind B: –\nInhalte ansehen\nPotenzen als Schreibweise\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Rom\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nTeilbarkeit und Primzahlen\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Athen\nFertig · 8 Etappen · 144 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nGELD UND VERHÄLTNISSE · 2 von 2 mit Inhalt\nGrößen und Einheiten\nGym 5 · RS 5 · IB MYP-Jahr 2\nOrt der Lernreise: Toronto\nFertig · 8 Etappen · 144 Bordkarten\nKind A: geschafft · im Plan\nKind B: –\nInhalte ansehen\nDirekte Proportionalität und Dreisatz\nGym 5 · RS 6 · IB MYP-Jahr 2\nOrt der Lernreise: Chicago\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nALGEBRA · 1 von 1 mit Inhalt\nEinfache Gleichungen\nGym 5 · RS 6 · IB MYP-Jahr 1\nOrt der Lernreise: Bagdad\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nGEOMETRIE · 3 von 3 mit Inhalt\nGrundbegriffe und Figuren\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Kairo\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nMit Winkeln rechnen\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Timbuktu\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nOrtslinien und Ortsbereiche\nGym 5 · RS 7\nOrt der Lernrei"
+  },
+  "auftraege": {
+   "url": "#/lernauftraege",
+   "hoehe": 910,
+   "knoepfe": 13,
+   "text": "ⓘ So funktioniert’s\nAN DIE ENTWICKLUNG\nMeine Aufträge\nWas ihr ändern lassen wollt, mit Status und Antwort. Zu einer bestimmten Erklärung, Etappe, Bordkarte oder einem Flug geht es direkt dort über „✎ Ändern lassen“; der Auftrag weiß dann, worum es geht.\n✎ Neuer Auftrag (allgemein)\nOffen (0)\nBeantwortet (1)\nAlle (1)\nMehr Bordkarten\nerledigt\nRom – Natürliche Zahlen\nMehr Aufgaben zum Runden.\nAntwort: 6 neue Aufgaben ergänzt.\nHerr Lehrer · 14.11.2026"
+  },
+  "expeditionen": {
+   "url": "#/expeditionen",
+   "hoehe": 844,
+   "knoepfe": 1,
+   "text": "ⓘ So funktioniert’s\nELTERN UND LEHRER\nExpeditionen\nGrößere Bordkarten aus 3–5 Teilen, die Stoff aus mehreren Etappen verbinden. Ein Kind bekommt eine Expedition angeboten, sobald alle ihre Etappen bei ihm gelandet sind – freiwillig, sie zählt nicht für „gelandet“. Jeder Teil nennt seine Zahlen selbst, ein Fehler blockiert den nächsten Teil nicht.\nExpeditionen kommen, sobald die Datenbank sie liefert."
+  },
+  "zugaenge": {
+   "url": "#/zugaenge",
+   "hoehe": 844,
+   "knoepfe": 1,
+   "text": "Das hat gerade nicht geklappt.\nPrüfe das Internet und versuch es nochmal.\nNochmal versuchen\nCannot read properties of undefined (reading 'zugaenge')"
+  },
+  "info": {
+   "url": "#/info",
+   "hoehe": 2824,
+   "knoepfe": 16,
+   "text": "FÜR ELTERN UND LEHRER\nSo funktioniert’s\nDie Lernreise in Kürze: erst die vier wichtigsten Schritte, darunter Antworten auf die häufigsten Fragen.\nLernen starten: Auf der Startseite hat jede Kinderkarte oben den Knopf „Lernen starten“ – er öffnet die Abflugtafel des Kindes. Daneben: „Lernstand“, „Was wackelt?“ und „Flugplan“.\nErste Schritte\n1\nFlugplan prüfen\nLege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“. Jede Änderung wird sofort gespeichert.\nFlugplan Kind A ›\nFlugplan Kind B ›\n2\nLernstand lesen\n„Lernstand“ an der Kinderkarte: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner Schulart, mit „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule). „Was wackelt?“: je Etappe, was sitzt und was wackelt, mit den echten falschen Antworten. Alle Kinder nebeneinander: „Alle Kinder im Vergleich“.\nLernstand Kind A ›\nLernstand Kind B ›\nWas wackelt? Kind A ›\nWas wackelt? Kind B ›\nAlle Kinder im Vergleich ›\n3\nInhalte ansehen\nIn der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.\nLehrplan-Übersicht ›\n4\nÄndern lassen\nFehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.\nMeine Aufträge ›\nFragen\nWorauf baut die App auf?\nWie ist die Lernreise aufgebaut?\nWie wird gelernt?\nWie entstehen die Inhalte, und wer prüft sie?\nWas kann ich selbst ändern?\nWie beauftrage ich eine Änderung?\nWer hat Zugang, und wie steht es um den Datenschutz?"
+  },
+  "reise-a": {
+   "url": "#/reise/1",
+   "hoehe": 2735,
+   "knoepfe": 76,
+   "text": "Hallo Kind A!\nJETZT DRAN · ROM\nNatürliche Zahlen und Stellenwertsysteme\nWeiter geht’s\nErst 1 Wiederholung, dann Rom.\n0 von 14 Etappen sitzen\nErst die Erklärungen ansehen\nDu bist in Rom\nRom hat 5 Flüge, 1 davon geschafft. Den Stempel gibt es, wenn alle geschafft sind.\n1\nStempel\n860\nSterne\n14\nLerntage\nReisepass und Belohnungen ansehen\nMEIN STAND · GYMNASIUM KLASSE 5\n2 von 14 Flügen\n14 davon kannst du schon lernen, die anderen kommen nach und nach dazu.\nAuch offen\nRom: Ganze Zahlen\nEuropa · Zahlen\n3/8\nRom: Potenzen als Schreibweise\nEuropa · Zahlen\n0/7\nRom: Zehnerpotenzen und wissenschaftliche Schreibweise\nEuropa · Zahlen\n0/7\nRom: Grundrechenarten und Rechengesetze\nEuropa · Zahlen\ngeschafft\nAthen: Teilbarkeit und Primzahlen\nEuropa · Zahlen\n0/8\nKairo: Grundbegriffe und Figuren\nAfrika · Geometrie\n0/7\nChicago: Direkte Proportionalität und Dreisatz\nNordamerika · Geld und Verhältnisse\n0/7\nLima: Umfang und Flächeninhalt\nSüdamerika · Fläche und Raum\n0/7\nBagdad: Einfache Gleichungen\nAsien · Algebra\n0/7\nCusco: Körper darstellen\nSüdamerika · Fläche und Raum\n0/6\nAdelaide: Daten erfassen und darstellen\nAustralien und Ozeanien · Daten und Zufall\n0/6\nMelbourne: Zählen und Kombinatorik\nAustralien und Ozeanien · Daten und Zufall\n0/7\nGeschafft oder kann schon – zum Wiederholen (1)\nSpäter – für höhere Klassen (53)\nHeute\nMein Weg\nMerkheft\nReisepass"
+  },
+  "plan-b": {
+   "url": "#/plan/2",
+   "hoehe": 2514,
+   "knoepfe": 39,
+   "text": "ⓘ So funktioniert’s\nFlugplan Kind B\nAlles gespeichert\n↶ Rückgängig\nReihenfolge = Reihenfolge in der Lernreise. Ziehen am Griff ⠿ oder ↑ ↓; einen Ort antippen zeigt seine Flüge – dort lassen sich einzelne Flüge abwählen. Jede Änderung wird sofort gespeichert.\nAutomatische Rückreise: Delhi – Lineare Gleichungen und Ungleichungen – wird zuerst wiederholt, bis der Nachtest bestanden ist.\n⠿\n1\nMcMurdo-Station – Funktionsbegriff\nFunktionen · Gym 8 · 0/1 Flug · geschafft\n↑\n↓\n⠿\n2\nNeumayer-Station III – Lineare Funktionen\nFunktionen · Gym 8 · 0/2 Flüge\n↑\n↓\n⠿\n3\nMumbai – Bruchterme und Formeln\nAlgebra · Gym 8 · 0/3 Flüge\n↑\n↓\n⠿\n4\nPeking – Gleichungssysteme\nAlgebra · Gym 8 · 0/1 Flug\n↑\n↓\n⠿\n5\nAmundsen-Scott-Südpolstation – Hyperbeln\nFunktionen · Gym 8 · 0/1 Flug\n↑\n↓\n⠿\n6\nBuenos Aires – Kreis und Zylinder\nFläche und Raum · Gym 8 · 0/1 Flug\n↑\n↓\n⠿\n7\nAuckland – Zufall und Laplace\nDaten und Zufall · Gym 8 · 0/1 Flug\n↑\n↓\nLehrplan\nGymnasium\nRealschule\nIB MYP\nalle Klassen\nKlasse 5\nKlasse 6\nKlasse 7\nKlasse 8\nKlasse 9\nKlasse 10\n⠿\nDelhi – Lineare Gleichungen und Ungleichungen\nAlgebra · Kl. 7 · 3 Flüge\n+\n⠿\nVancouver – Indirekte Proportionalität\nGeld und Verhältnisse · Kl. 8 · 1 Flug\n+\n⠿\nCusco – Körper und Netze\nFläche und Raum · Kl. 8 · 1 Flug\n+\n✎ Ändern lassen\nNeuer Plan aus Lehrplan-Vorlage\nKlasse\nKlasse \n–\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\nGymnasium. Bestimmt, welche Flüge beim Kind als „seine Klasse“ zählen. Wird sofort gespeichert.\nNotizen\nNotiz speichern\nPapa: Bruchrechnen hat in der Schule gewackelt. · 10.11.2026\nVerlauf"
+  },
+  "lernstand-b": {
+   "url": "#/lernstand/2",
+   "hoehe": 1445,
+   "knoepfe": 39,
+   "text": "ⓘ So funktioniert’s\nGYMNASIUM · KLASSE 8\nLernstand Kind B\nWas wackelt? – Etappen mit den echten falschen Antworten ›\nAlle Kinder im Vergleich\n›\nLernstand Kind B · Gymnasium\nGymnasium\nRealschule\nIB MYP\nEinstieg prüfen:\naus\nKl. 6\nKl. 7\nKl. 8\nKl. 9\nKl. 10\n„Einstieg prüfen“ zeigt, was bis zu einer Klasse fehlt. Orientierung, keine Einstufung durch eine Schule.\n\tKl. 5\tKl. 6\tKl. 7\tKl. 8\tKl. 9\tKl. 10\nZahlen\nEuropa\n\t\n0/5\n\t\n0/5\n\t·\t·\t\n0/3\n\t·\nGeld und Verhältnisse\nNordamerika\n\t\n0/2\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t·\t·\nAlgebra\nAsien\n\t\n0/1\n\t·\t\n0/3\n\t\n1/6\n\t\n0/3\n\t\n0/2\nFunktionen\nAntarktis\n\t·\t·\t·\t\n1/3\n\t\n0/2\n\t\n0/3\nGeometrie\nAfrika\n\t\n0/3\n\t·\t\n0/3\n\t·\t\n0/5\n\t·\nFläche und Raum\nSüdamerika\n\t\n0/2\n\t·\t·\t\n0/2\n\t·\t\n0/2\nDaten und Zufall\nAustralien und Ozeanien\n\t\n0/1\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t\n0/1\n\t\n0/2\nGesamt\t0 %\t0 %\t0 %\t15 %\t0 %\t0 %\noffen\nläuft\nteilweise\nalles gelandet\nwackelt\nFeld antippen → Flüge in diesem Kontinent und dieser Klasse, mit dem Stand der Etappen.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert."
+  },
+  "fehler": []
+ },
+ "rechner": {
+  "start": {
+   "url": "#/lernen",
+   "hoehe": 1750,
+   "knoepfe": 20,
+   "text": "ⓘ So funktioniert’s\nLERNREISE\nDie Kinder\nKind A\nGymnasium · Klasse 5\nGYM 5\n2/14\nRS 5\n2/12\nIB vor MYP-Jahr 1\n–\nJetzt: Rom · Natürliche Zahlen und Stellenwertsysteme (0/12)\nLernen starten ›\nLernstand\nWas wackelt?\nFlugplan\nKind B\nGymnasium · Klasse 8\nGYM 8\n2/13\nRS 8\n1/5\nIB MYP-Jahr 3\n0/11\nJetzt: Delhi · Lineare Gleichungen (0/6)\nLernen starten ›\nLernstand\nWas wackelt?\nFlugplan\nNeue Antworten auf eure Aufträge\nRom – Natürliche Zahlen: 6 neue Aufgaben ergänzt.\nMeine Aufträge ›\nFÜR ALLE KINDER\nLehrplan-Übersicht\nAlle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.\nÖffnen ›\nAlle Kinder im Vergleich\nAlle Kinder × Gymnasium, Realschule, IB MYP; den Lernstand eines Kindes öffnet „Lernstand“ an seiner Karte\nÖffnen ›\nMeine Aufträge\nWas ihr ändern lassen wollt – mit Status und Antwort\nÖffnen ›\nSo funktioniert’s\nErste Schritte und Antworten auf die häufigsten Fragen\nLesen ›"
+  },
+  "schulstand": {
+   "url": "#/schulstand",
+   "hoehe": 900,
+   "knoepfe": 7,
+   "text": "ⓘ So funktioniert’s\nELTERN UND LEHRER\nAlle Kinder im Vergleich\nWie weit jedes Kind in Gymnasium, Realschule und IB MYP ist – gezählt werden alle Flüge, die laut Lehrplan in die jeweilige Klasse gehören.\n\tGymnasium\tRealschule\tIB MYP\nKind A\t\nKlasse 5\n2/14\n\t\nKlasse 5\n2/12\n\t\nvor MYP-Jahr 1\n0/0\nKind B\t\nKlasse 8\n2/13 · 2 wackelt\n\t\nKlasse 8\n1/5 · 2 wackelt\n\t\nMYP-Jahr 3\n0/11 · 1 wackelt\nFeld antippen → Lehrplan-Landkarte dieses Kindes in dieser Schulart, mit „Einstieg prüfen“. Die Stufe je Schulart setzt ihr im Flugplan.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert."
+  },
+  "lernstand-a": {
+   "url": "#/lernstand/1",
+   "hoehe": 1252,
+   "knoepfe": 39,
+   "text": "ⓘ So funktioniert’s\nGYMNASIUM · KLASSE 5\nLernstand Kind A\nWas wackelt? – Etappen mit den echten falschen Antworten ›\nAlle Kinder im Vergleich\n›\nLernstand Kind A · Gymnasium\nGymnasium\nRealschule\nIB MYP\nEinstieg prüfen:\naus\nKl. 6\nKl. 7\nKl. 8\nKl. 9\nKl. 10\n„Einstieg prüfen“ zeigt, was bis zu einer Klasse fehlt. Orientierung, keine Einstufung durch eine Schule.\n\tKl. 5\tKl. 6\tKl. 7\tKl. 8\tKl. 9\tKl. 10\nZahlen\nEuropa\n\t\n1/5\n\t\n0/5\n\t·\t·\t\n0/3\n\t·\nGeld und Verhältnisse\nNordamerika\n\t\n1/2\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t·\t·\nAlgebra\nAsien\n\t\n0/1\n\t·\t\n0/3\n\t\n0/6\n\t\n0/3\n\t\n0/2\nFunktionen\nAntarktis\n\t·\t·\t·\t\n0/3\n\t\n0/2\n\t\n0/3\nGeometrie\nAfrika\n\t\n0/3\n\t·\t\n0/3\n\t·\t\n0/5\n\t·\nFläche und Raum\nSüdamerika\n\t\n0/2\n\t·\t·\t\n0/2\n\t·\t\n0/2\nDaten und Zufall\nAustralien und Ozeanien\n\t\n0/1\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t\n0/1\n\t\n0/2\nGesamt\t14 %\t0 %\t0 %\t0 %\t0 %\t0 %\noffen\nläuft\nteilweise\nalles gelandet\nwackelt\nFeld antippen → Flüge in diesem Kontinent und dieser Klasse, mit dem Stand der Etappen.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert."
+  },
+  "wackelt-a": {
+   "url": "#/wackelt/1",
+   "hoehe": 1255,
+   "knoepfe": 3,
+   "text": "LERNSTAND\nKind A\nLetzte 7 Tage: 30 Bordkarten, davon 22 richtig, 4-mal mit Tipp. Lerntage in 4 Wochen: 2 (zuletzt 14.11.).\nWas kommt wann wieder? 1 Etappe sitzt, 0 davon sind zum Wiederholen dran\nWas wackelt?\nRunden\n5 falsch\nRom · Natürliche Zahlen\n„Wackelt“ heißt: mindestens 3 falsche Antworten und mehr falsche als richtige. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten.\nRom: Natürliche Zahlen\nInhalte ansehen\n1 von 3 Etappen sitzen · zuletzt 14.11.\nWelchen Wert hat eine Ziffer?\nsitzt\n6 richtig · 1 falsch · zuletzt 14.11.\nRunden\nwackelt\n2 richtig · 5 falsch · 3-mal Tipp · zuletzt 14.11.\nLetzte falsche Antworten (1)\nZahlenstrahl\nnoch nicht geübt"
+  },
+  "plan-a": {
+   "url": "#/plan/1",
+   "hoehe": 2110,
+   "knoepfe": 52,
+   "text": "ⓘ So funktioniert’s\nFlugplan Kind A\nAlles gespeichert\n↶ Rückgängig\nReihenfolge = Reihenfolge in der Lernreise. Ziehen am Griff ⠿ oder ↑ ↓; einen Ort antippen zeigt seine Flüge – dort lassen sich einzelne Flüge abwählen. Jede Änderung wird sofort gespeichert.\n⠿\n1\nRom – Natürliche und ganze Zahlen\nZahlen · Gym 5 · 1/5 Flüge\n↑\n↓\n⠿\n2\nToronto – Größen und Einheiten\nGeld und Verhältnisse · Gym 5 · 1/1 Flug · geschafft\n↑\n↓\n⠿\n3\nAthen – Teilbarkeit\nZahlen · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n4\nKairo – Formen und Grundbegriffe\nGeometrie · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n5\nChicago – Dreisatz und direkte Proportionalität\nGeld und Verhältnisse · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n6\nLima – Umfang und Fläche\nFläche und Raum · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n7\nBagdad – Einfache Gleichungen\nAlgebra · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n8\nCusco – Körper und Netze\nFläche und Raum · Gym 8 · 0/1 Flug\nKlasse 8 – über der Klasse des Kindes · vorgezogen\n↑\n↓\n⠿\n9\nAdelaide – Daten darstellen\nDaten und Zufall · Gym 6 · 0/1 Flug\nKlasse 6 – über der Klasse des Kindes · vorgezogen\n↑\n↓\n⠿\n10\nMelbourne – Zählen\nDaten und Zufall · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n11\nTimbuktu – Winkel\nGeometrie · Gym 5 · 0/1 Flug\n↑\n↓\n⠿\n12\nAlexandria – Kreis und Ortslinien\nGeometrie · Gym 5 · 0/2 Flüge\n↑\n↓\nLehrplan\nGymnasium\nRealschule\nIB MYP\nalle Klassen\nKlasse 5\nKlasse 6\nKlasse 7\nKlasse 8\nKlasse 9\nKlasse 10\n⠿\nRio de Janeiro – Volumen und Oberfläche\nFläche und Raum · Kl. 5 · 1 Flug\n+\n✎ Ändern lassen\nNeuer Plan aus Lehrplan-Vorlage\nKlasse\nKlasse \n–\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\nGymnasium. Bestimmt, welche Flüge beim Kind als „seine Klasse“ zählen. Wird sofort gespeichert.\nNotizen\nNotiz speichern\nPapa: Bruchrechnen hat in der Schule gewackelt. · 10.11.2026\nVerlauf"
+  },
+  "lehrplan": {
+   "url": "#/lehrplan",
+   "hoehe": 16761,
+   "knoepfe": 97,
+   "text": "ⓘ So funktioniert’s\nELTERN UND LEHRER\nLehrplan-Übersicht\nAlle Mathe-Flüge, sortiert nach Klasse im Gymnasium. Hinter jedem Flug steht, wann er laut Lehrplan dran ist: Gym = Gymnasium, RS = Realschule, IB = MYP-Jahr (MYP-Jahr 1–5 entspricht etwa Klasse 6–10). Grün = Inhalt fertig, gelb = gebaut und in Prüfung, grau = noch nichts da.\nAlle Klassen\nKlasse 5 · Kind A\nKlasse 6\nKlasse 7\nKlasse 8 · Kind B\nKlasse 9\nKlasse 10\nNicht im Gymnasium-Lehrplan\nAlle Flüge\nFertig\nIn Prüfung\nNoch kein Inhalt\n⛰ Expeditionen ansehen › – größere Bordkarten über mehrere Flüge\n91\nFlüge\n67\nfertig\n24\nin Prüfung\n0\nohne Inhalt\nKlasse 5 · Kind A · 14 Flüge\nZAHLEN · 5 von 5 mit Inhalt\nGanze Zahlen\nGym 5 · RS 5 · IB MYP-Jahr 2\nOrt der Lernreise: Rom\nFertig · 8 Etappen · 144 Bordkarten\nKind A: läuft · im Plan\nKind B: –\nInhalte ansehen\nNatürliche Zahlen und Stellenwertsysteme\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Rom\nFertig · 12 Etappen · 216 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nGrundrechenarten und Rechengesetze\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Rom\nFertig · 10 Etappen · 180 Bordkarten\nKind A: geschafft · im Plan\nKind B: –\nInhalte ansehen\nPotenzen als Schreibweise\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Rom\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nTeilbarkeit und Primzahlen\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Athen\nFertig · 8 Etappen · 144 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nGELD UND VERHÄLTNISSE · 2 von 2 mit Inhalt\nGrößen und Einheiten\nGym 5 · RS 5 · IB MYP-Jahr 2\nOrt der Lernreise: Toronto\nFertig · 8 Etappen · 144 Bordkarten\nKind A: geschafft · im Plan\nKind B: –\nInhalte ansehen\nDirekte Proportionalität und Dreisatz\nGym 5 · RS 6 · IB MYP-Jahr 2\nOrt der Lernreise: Chicago\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nALGEBRA · 1 von 1 mit Inhalt\nEinfache Gleichungen\nGym 5 · RS 6 · IB MYP-Jahr 1\nOrt der Lernreise: Bagdad\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nGEOMETRIE · 3 von 3 mit Inhalt\nGrundbegriffe und Figuren\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Kairo\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nMit Winkeln rechnen\nGym 5 · RS 5 · IB MYP-Jahr 1\nOrt der Lernreise: Timbuktu\nFertig · 7 Etappen · 126 Bordkarten\nKind A: offen · im Plan\nKind B: –\nInhalte ansehen\nOrtslinien und Ortsbereiche\nGym 5 · RS 7\nOrt der Lernrei"
+  },
+  "auftraege": {
+   "url": "#/lernauftraege",
+   "hoehe": 927,
+   "knoepfe": 13,
+   "text": "ⓘ So funktioniert’s\nAN DIE ENTWICKLUNG\nMeine Aufträge\nWas ihr ändern lassen wollt, mit Status und Antwort. Zu einer bestimmten Erklärung, Etappe, Bordkarte oder einem Flug geht es direkt dort über „✎ Ändern lassen“; der Auftrag weiß dann, worum es geht.\n✎ Neuer Auftrag (allgemein)\nOffen (0)\nBeantwortet (1)\nAlle (1)\nMehr Bordkarten\nerledigt\nRom – Natürliche Zahlen\nMehr Aufgaben zum Runden.\nAntwort: 6 neue Aufgaben ergänzt.\nHerr Lehrer · 14.11.2026"
+  },
+  "expeditionen": {
+   "url": "#/expeditionen",
+   "hoehe": 900,
+   "knoepfe": 1,
+   "text": "ⓘ So funktioniert’s\nELTERN UND LEHRER\nExpeditionen\nGrößere Bordkarten aus 3–5 Teilen, die Stoff aus mehreren Etappen verbinden. Ein Kind bekommt eine Expedition angeboten, sobald alle ihre Etappen bei ihm gelandet sind – freiwillig, sie zählt nicht für „gelandet“. Jeder Teil nennt seine Zahlen selbst, ein Fehler blockiert den nächsten Teil nicht.\nExpeditionen kommen, sobald die Datenbank sie liefert."
+  },
+  "zugaenge": {
+   "url": "#/zugaenge",
+   "hoehe": 900,
+   "knoepfe": 1,
+   "text": "Das hat gerade nicht geklappt.\nPrüfe das Internet und versuch es nochmal.\nNochmal versuchen\nCannot read properties of undefined (reading 'zugaenge')"
+  },
+  "info": {
+   "url": "#/info",
+   "hoehe": 2137,
+   "knoepfe": 16,
+   "text": "FÜR ELTERN UND LEHRER\nSo funktioniert’s\nDie Lernreise in Kürze: erst die vier wichtigsten Schritte, darunter Antworten auf die häufigsten Fragen.\nLernen starten: Auf der Startseite hat jede Kinderkarte oben den Knopf „Lernen starten“ – er öffnet die Abflugtafel des Kindes. Daneben: „Lernstand“, „Was wackelt?“ und „Flugplan“.\nErste Schritte\n1\nFlugplan prüfen\nLege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“. Jede Änderung wird sofort gespeichert.\nFlugplan Kind A ›\nFlugplan Kind B ›\n2\nLernstand lesen\n„Lernstand“ an der Kinderkarte: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner Schulart, mit „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule). „Was wackelt?“: je Etappe, was sitzt und was wackelt, mit den echten falschen Antworten. Alle Kinder nebeneinander: „Alle Kinder im Vergleich“.\nLernstand Kind A ›\nLernstand Kind B ›\nWas wackelt? Kind A ›\nWas wackelt? Kind B ›\nAlle Kinder im Vergleich ›\n3\nInhalte ansehen\nIn der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.\nLehrplan-Übersicht ›\n4\nÄndern lassen\nFehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.\nMeine Aufträge ›\nFragen\nWorauf baut die App auf?\nWie ist die Lernreise aufgebaut?\nWie wird gelernt?\nWie entstehen die Inhalte, und wer prüft sie?\nWas kann ich selbst ändern?\nWie beauftrage ich eine Änderung?\nWer hat Zugang, und wie steht es um den Datenschutz?"
+  },
+  "reise-a": {
+   "url": "#/reise/1",
+   "hoehe": 2397,
+   "knoepfe": 76,
+   "text": "Hallo Kind A!\nJETZT DRAN · ROM\nNatürliche Zahlen und Stellenwertsysteme\nWeiter geht’s\nErst 1 Wiederholung, dann Rom.\n0 von 14 Etappen sitzen\nErst die Erklärungen ansehen\nDu bist in Rom\nRom hat 5 Flüge, 1 davon geschafft. Den Stempel gibt es, wenn alle geschafft sind.\n1\nStempel\n860\nSterne\n14\nLerntage\nReisepass und Belohnungen ansehen\nMEIN STAND · GYMNASIUM KLASSE 5\n2 von 14 Flügen\n14 davon kannst du schon lernen, die anderen kommen nach und nach dazu.\nAuch offen\nRom: Ganze Zahlen\nEuropa · Zahlen\n3/8\nRom: Potenzen als Schreibweise\nEuropa · Zahlen\n0/7\nRom: Zehnerpotenzen und wissenschaftliche Schreibweise\nEuropa · Zahlen\n0/7\nRom: Grundrechenarten und Rechengesetze\nEuropa · Zahlen\ngeschafft\nAthen: Teilbarkeit und Primzahlen\nEuropa · Zahlen\n0/8\nKairo: Grundbegriffe und Figuren\nAfrika · Geometrie\n0/7\nChicago: Direkte Proportionalität und Dreisatz\nNordamerika · Geld und Verhältnisse\n0/7\nLima: Umfang und Flächeninhalt\nSüdamerika · Fläche und Raum\n0/7\nBagdad: Einfache Gleichungen\nAsien · Algebra\n0/7\nCusco: Körper darstellen\nSüdamerika · Fläche und Raum\n0/6\nAdelaide: Daten erfassen und darstellen\nAustralien und Ozeanien · Daten und Zufall\n0/6\nMelbourne: Zählen und Kombinatorik\nAustralien und Ozeanien · Daten und Zufall\n0/7\nGeschafft oder kann schon – zum Wiederholen (1)\nSpäter – für höhere Klassen (53)\nHeute\nMein Weg\nMerkheft\nReisepass"
+  },
+  "plan-b": {
+   "url": "#/plan/2",
+   "hoehe": 1971,
+   "knoepfe": 39,
+   "text": "ⓘ So funktioniert’s\nFlugplan Kind B\nAlles gespeichert\n↶ Rückgängig\nReihenfolge = Reihenfolge in der Lernreise. Ziehen am Griff ⠿ oder ↑ ↓; einen Ort antippen zeigt seine Flüge – dort lassen sich einzelne Flüge abwählen. Jede Änderung wird sofort gespeichert.\nAutomatische Rückreise: Delhi – Lineare Gleichungen und Ungleichungen – wird zuerst wiederholt, bis der Nachtest bestanden ist.\n⠿\n1\nMcMurdo-Station – Funktionsbegriff\nFunktionen · Gym 8 · 0/1 Flug · geschafft\n↑\n↓\n⠿\n2\nNeumayer-Station III – Lineare Funktionen\nFunktionen · Gym 8 · 0/2 Flüge\n↑\n↓\n⠿\n3\nMumbai – Bruchterme und Formeln\nAlgebra · Gym 8 · 0/3 Flüge\n↑\n↓\n⠿\n4\nPeking – Gleichungssysteme\nAlgebra · Gym 8 · 0/1 Flug\n↑\n↓\n⠿\n5\nAmundsen-Scott-Südpolstation – Hyperbeln\nFunktionen · Gym 8 · 0/1 Flug\n↑\n↓\n⠿\n6\nBuenos Aires – Kreis und Zylinder\nFläche und Raum · Gym 8 · 0/1 Flug\n↑\n↓\n⠿\n7\nAuckland – Zufall und Laplace\nDaten und Zufall · Gym 8 · 0/1 Flug\n↑\n↓\nLehrplan\nGymnasium\nRealschule\nIB MYP\nalle Klassen\nKlasse 5\nKlasse 6\nKlasse 7\nKlasse 8\nKlasse 9\nKlasse 10\n⠿\nDelhi – Lineare Gleichungen und Ungleichungen\nAlgebra · Kl. 7 · 3 Flüge\n+\n⠿\nVancouver – Indirekte Proportionalität\nGeld und Verhältnisse · Kl. 8 · 1 Flug\n+\n⠿\nCusco – Körper und Netze\nFläche und Raum · Kl. 8 · 1 Flug\n+\n✎ Ändern lassen\nNeuer Plan aus Lehrplan-Vorlage\nKlasse\nKlasse \n–\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\nGymnasium. Bestimmt, welche Flüge beim Kind als „seine Klasse“ zählen. Wird sofort gespeichert.\nNotizen\nNotiz speichern\nPapa: Bruchrechnen hat in der Schule gewackelt. · 10.11.2026\nVerlauf"
+  },
+  "lernstand-b": {
+   "url": "#/lernstand/2",
+   "hoehe": 1252,
+   "knoepfe": 39,
+   "text": "ⓘ So funktioniert’s\nGYMNASIUM · KLASSE 8\nLernstand Kind B\nWas wackelt? – Etappen mit den echten falschen Antworten ›\nAlle Kinder im Vergleich\n›\nLernstand Kind B · Gymnasium\nGymnasium\nRealschule\nIB MYP\nEinstieg prüfen:\naus\nKl. 6\nKl. 7\nKl. 8\nKl. 9\nKl. 10\n„Einstieg prüfen“ zeigt, was bis zu einer Klasse fehlt. Orientierung, keine Einstufung durch eine Schule.\n\tKl. 5\tKl. 6\tKl. 7\tKl. 8\tKl. 9\tKl. 10\nZahlen\nEuropa\n\t\n0/5\n\t\n0/5\n\t·\t·\t\n0/3\n\t·\nGeld und Verhältnisse\nNordamerika\n\t\n0/2\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t·\t·\nAlgebra\nAsien\n\t\n0/1\n\t·\t\n0/3\n\t\n1/6\n\t\n0/3\n\t\n0/2\nFunktionen\nAntarktis\n\t·\t·\t·\t\n1/3\n\t\n0/2\n\t\n0/3\nGeometrie\nAfrika\n\t\n0/3\n\t·\t\n0/3\n\t·\t\n0/5\n\t·\nFläche und Raum\nSüdamerika\n\t\n0/2\n\t·\t·\t\n0/2\n\t·\t\n0/2\nDaten und Zufall\nAustralien und Ozeanien\n\t\n0/1\n\t\n0/2\n\t\n0/1\n\t\n0/1\n\t\n0/1\n\t\n0/2\nGesamt\t0 %\t0 %\t0 %\t15 %\t0 %\t0 %\noffen\nläuft\nteilweise\nalles gelandet\nwackelt\nFeld antippen → Flüge in diesem Kontinent und dieser Klasse, mit dem Stand der Etappen.\nGezählt werden vorerst nur Flüge mit Inhalt; alle Flüge kommen, sobald die Datenbank sie liefert."
+  },
+  "fehler": []
+ }
+}

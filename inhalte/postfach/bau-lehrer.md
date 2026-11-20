@@ -2,6 +2,29 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-20 – FERTIG: Auftrag I, Teil 4, Punkt 5 d–h (Nachtrag, weiter App 0.82.0)
+
+Stand `lernen-app` 10a3155 übernommen (Punkt 5 in der neuen Fassung a–h). Version bleibt 0.82.0 (noch nicht live). Kein Merge, keine Migration.
+Bilder: `docs/previews/la/teil4-test-folgt-390.png`, `teil4-ergebnis-entdecker-390.png`, `teil4-ergebnis-nacht-390.png`.
+
+**Umgesetzt**
+- **d) Knobel hinten dran:** Nach der Landung kommt sofort die Knobel-Bordkarte der Etappe (eine noch nicht versuchte; sonst entfällt der Schritt), darüber „Gelandet: … ✓ Zum Schluss eine harte Nuss – falsch kostet nichts.“. Kein Angebot zur Auswahl mehr. Vor dem Prüfen klein „Heute keine Knobel-Bordkarte“, nach dem Prüfen groß „Weiter ›“ → Landebildschirm. Regeln der Knobel-Bordkarte unverändert.
+- **e) Test folgt:** Ist mit der Landung jede Pflicht-Etappe gelandet, hat der Landebildschirm nur einen großen Knopf „Jetzt zum Test ›“ („n Bordkarten, ohne Tipps. Bestehst du ihn, ist der Flug geschafft.“; Nachtrag: „Test zu den neuen Etappen ›“), dazu was für den Stempel des Ortes noch fehlt (aus `schule_konto.orte`), klein „Pause – zur Abflugtafel“. Öffnen des Flugs (ohne Ziel oder „üben“ ohne Etappe) zeigt dann die Testseite mit „Alle Etappen sind gelandet ✓“ statt der Übungen; „‹ Zu den Etappen“ führt auf `…-erklaeren` (sonst Kreis). Die Abflugtafel führte schon direkt zum Test (`testDran`). Gesetzte Flüge ohne Test (`ohne_test`) ausgenommen. Die gelandete Etappe aus b) zeigt in diesem Fall „Jetzt zum Test ›“.
+- **f) Test-Ergebnis:** Summe groß („**1 von 2** richtig“), jede Antwort mit kräftiger Fläche, 10-px-Balken, großem ✓/✗ im Kreis und dem Wort RICHTIG/FALSCH, hell und nacht. Kontrast im Test gemessen (Text ≥ 4,5 : 1, Zeichen ≥ 3 : 1).
+- **g) Verbessern:** „Verbessern ›“ zeigte auf die eigene Adresse. Jetzt nach einem Ergebnis mit Fehlern genau zwei Wege: groß „Erst üben: <Etappe> ›“ und „Gleich verbessern ›“ (Knopf, startet `schule_test_starten` mit `art: korrektur` direkt), darunter klein „Zum Flug“ · „Zur Abflugtafel“. Geprüft: Kein Link der Ergebnisseite zeigt auf die eigene Adresse.
+- **h) Alter Stand:** Nach jedem abgeschlossenen Test (alle Arten) lädt die App `schule_einheit_lesen` neu, bevor sie Knöpfe zeichnet; Fehler-Etappen und „Flug geschafft“ kommen aus dem frischen Stand (Fallback: Antwort des Tests). Geschafft → „Flug geschafft! 🎉“ und „Weiter zum nächsten Flug ›“, kein „Verbessern“.
+
+**Gesehen/getestet** (lernen 108 von 108; Suche 139 bestanden, 9 bekannte alte Fehler)
+- d: Knobel kommt von selbst, falsch → „Weiter ›“ → Landebildschirm, kein zweiter Versuch; „Heute keine Knobel-Bordkarte“ → Landebildschirm.
+- e: nach der letzten Pflicht-Etappe nur „Jetzt zum Test ›“, führt auf die Testseite; Flug öffnen mit fehlendem Test → Aufforderung, keine Bordkarte.
+- f: hell und nacht, Wörter, Zeichen, Balkenbreite, Kontrast.
+- g: hell und nacht, „Gleich verbessern ›“ → Korrektur läuft (`art: korrektur`).
+- h: Korrektur vollständig richtig, Testantwort mit altem Stand → „Flug geschafft“, kein „Verbessern“, Stand neu geladen.
+
+**Nicht geprüft / Hinweise**
+- d und e nur in der Abflug-Gestaltung (alle Kinder außer „alt“); in der alten Gestaltung bleibt das Knobel-Angebot nach „Etappe sitzt“.
+- „Was für den Stempel noch fehlt“ rechnet mit `schule_konto.orte` (themen, erledigt) – mit echten Daten nicht angesehen.
+
 ## 2026-11-20 – FERTIG: LB-1/LB-2/LB-5 – App 0.82.0
 
 Zweig `bau-lehrer`, Stand `lernen-app` (c750ad2) übernommen. Kein Merge. Vorgabe: `inhalte/pruefung/lehrer/umsetzung-lb.md`, Entwurf `lehrplan-klasse-4-stufen.html`; Server-Felder LB-3 laut `bau-motivation.md`.

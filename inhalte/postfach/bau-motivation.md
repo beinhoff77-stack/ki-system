@@ -2,6 +2,16 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: flug_geschafft (Nachträge 20.11. nachmittags, Teil A)
+
+Stand `lernen-app` e8450e0 übernommen. Nur Dateien – nichts ausgeführt, kein App-Code, kein Merge. pglast ok.
+**Migration** `supabase/migrations/20261120_ab_s_flug_abschluss_einmal.sql` (weiter nicht eingespielt): `flug_geschafft` = dieser Aufruf schließt die Sitzung ab **und der Flug wird dadurch zum ersten Mal fertig** – über den Flug-Test (`blocktest`) **oder** über Verbessern (`korrektur`). Geprüft wird
+- vorher nicht fertig (Stand der Pflicht-Etappen beim Betreten des Aufrufs, bevor die Ergebnisse gebucht werden) und
+- keine frühere abgeschlossene Flug-Test- oder Verbessern-Sitzung dieses Flugs mit `flug_geschafft` true oder unbekannt (`null`, vor dem Einspielen).
+Weiter false: nicht bestandener Test, zweites Verbessern, Nachtragstest, Nachtest, Sitzungen vor dem Einspielen. Erneuter Aufruf derselben Sitzung: dasselbe wie beim ersten Mal (Wert ist gespeichert). Die Abschluss-Felder kommen weiter nur bei `flug_geschafft` oder `ort_geschafft`.
+**Rauchtest** `ab_s_abschluss_rauchtest.sql`: **9c** neu – Verbessern macht den Flug erstmals fertig → `flug_geschafft` true mit `flug`, `etappen`, `sterne_flug`, `naechster_flug`; erneuter Aufruf gleich. **9c-2** neu – zweites Verbessern (eine Etappe wieder „fehler“) → false, keine Felder. 9a/9b (nicht bestanden, erneuter Aufruf) und 9d (Nachtragstest) unverändert false.
+**Grenzfall (Annahme):** Eine Sitzung von vor dem Einspielen zählt als „Ausgang unbekannt“ und verhindert die Ansicht für diesen Flug – außer sie wurde inzwischen erneut gelesen (dann steht dort false). Lieber einmal keine Ansicht als eine doppelte.
+
 ## 2026-11-20 – FERTIG: AB-A und LB Teil 6 (dazu LB Teil 7) – App 0.83.0, Cache v150
 
 Stand `lernen-app` 1cc6edc übernommen (Zweig `bau-motivation`). Nur App (`lernen.js`, `style.css`, `sw.js`) und Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.

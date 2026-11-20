@@ -13,11 +13,13 @@
   },
   "reihenfolge": {
    "gym_by": 1,
-   "rs_by": 1
+   "rs_by": 1,
+   "ib_myp": 1
   },
   "lernbereich": {
    "gym_by": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion",
-   "rs_by": "M5 1 Natürliche Zahlen"
+   "rs_by": "M5 1 Natürliche Zahlen",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Große natürliche Zahlen lesen, schreiben und am Zahlenstrahl darstellen, vergleichen und runden; das Zehnersystem mit römischen Zahlen vergleichen.",
   "lehrplan_gym": [
@@ -26,6 +28,9 @@
   "lehrplan_rs": [
    "Natürliche Zahlen im Zehnersystem lesen, schreiben, am Zahlenstrahl darstellen, ordnen und runden",
    "Dualsystem und römische Zahlen mit dem Zehnersystem vergleichen und umwandeln"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Zahlformen und Stellenwert; Zahlengerade; runden"
   ],
   "datei": "inhalte/themen/zahlen.natuerlich.json"
  },
@@ -43,11 +48,13 @@
   },
   "reihenfolge": {
    "gym_by": 2,
-   "rs_by": 6
+   "rs_by": 6,
+   "ib_myp": 1
   },
   "lernbereich": {
    "gym_by": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion",
-   "rs_by": "M5 2 Ganze Zahlen"
+   "rs_by": "M5 2 Ganze Zahlen",
+   "ib_myp": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Negative Zahlen deuten, ordnen, Betrag; mit ganzen Zahlen rechnen (Vorzeichenregeln).",
   "lehrplan_gym": [
@@ -58,6 +65,9 @@
   "lehrplan_rs": [
    "Negative Zahlen deuten, Gegenzahl und Betrag, an der Zahlengerade ordnen",
    "Mit ganzen Zahlen rechnen (Vorzeichenregeln), auch in Alltagsaufgaben"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Ganze Zahlen ordnen und mit ihnen rechnen; Zahlengerade"
   ],
   "datei": "inhalte/themen/zahlen.ganz.json"
  },
@@ -75,11 +85,13 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "rs_by": 2
+   "rs_by": 2,
+   "ib_myp": 2
   },
   "lernbereich": {
    "gym_by": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
-   "rs_by": "M5 1 Natürliche Zahlen"
+   "rs_by": "M5 1 Natürliche Zahlen",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Schriftliche Rechenverfahren, Vorrangregeln, Rechengesetze vorteilhaft nutzen, Überschlag.",
   "lehrplan_gym": [
@@ -90,6 +102,9 @@
   ],
   "lehrplan_rs": [
    "Schriftlich rechnen, Rechenregeln und Rechengesetze vorteilhaft nutzen, Sachaufgaben lösen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Rechenoperationen mit Zahlen; Rechengesetze und Reihenfolge der Rechenarten"
   ],
   "datei": "inhalte/themen/zahlen.rechengesetze.json"
  },
@@ -107,11 +122,13 @@
   },
   "reihenfolge": {
    "gym_by": 7,
-   "rs_by": 3
+   "rs_by": 3,
+   "ib_myp": 3
   },
   "lernbereich": {
    "gym_by": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
-   "rs_by": "M5 1 Natürliche Zahlen"
+   "rs_by": "M5 1 Natürliche Zahlen",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Natürliche Exponenten und Zehnerpotenzen als Schreibweise; getrennt von Potenzgesetzen und wissenschaftlicher Schreibweise.",
   "lehrplan_gym": [
@@ -120,6 +137,9 @@
   ],
   "lehrplan_rs": [
    "Potenzen und Zehnerpotenzen als Schreibweise; Quadratzahlen bis 400"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Potenzen und Exponenten als Schreibweise"
   ],
   "datei": "inhalte/themen/zahlen.potenzen_basis.json"
  },
@@ -137,16 +157,21 @@
   },
   "reihenfolge": {
    "gym_by": 8,
-   "rs_by": 4
+   "rs_by": 4,
+   "ib_myp": 4
   },
   "lernbereich": {
    "gym_by": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
-   "rs_by": "M5 1 Natürliche Zahlen"
+   "rs_by": "M5 1 Natürliche Zahlen",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Teiler und Vielfache finden, Teilbarkeit durch 2, 3, 5, 9 und 10 erkennen, Primzahlen bestimmen, Zahlen in Primfaktoren zerlegen und ggT und kgV berechnen.",
   "lehrplan_gym": [],
   "lehrplan_rs": [
    "Teilbarkeitsregeln anwenden, Teiler und Primfaktoren bestimmen, ggT und kgV an einfachen Beispielen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Teiler, Primzahlen und Primfaktoren; größter gemeinsamer Teiler und kleinstes gemeinsames Vielfaches"
   ],
   "datei": "inhalte/themen/zahlen.teilbarkeit.json"
  },
@@ -164,11 +189,13 @@
   },
   "reihenfolge": {
    "gym_by": 11,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 6
   },
   "lernbereich": {
    "gym_by": "M5 4 Größen und ihre Einheiten",
-   "rs_by": "M5 4 Größen"
+   "rs_by": "M5 4 Größen",
+   "ib_myp": "MYP 2 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Größen schätzen, Einheiten umrechnen (Geld, Länge, Masse, Zeit, Fläche, Volumen), Maßstab.",
   "lehrplan_gym": [
@@ -176,6 +203,9 @@
   ],
   "lehrplan_rs": [
    "Geld, Masse, Länge, Zeit und Hohlmaße schätzen, umrechnen, in Kommaschreibweise rechnen; Maßstab; Dreisatz in Sachaufgaben"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Metrische Einheiten umrechnen; Uhrzeit und Zeitspannen"
   ],
   "datei": "inhalte/themen/groessen.einheiten.json"
  },
@@ -193,11 +223,13 @@
   },
   "reihenfolge": {
    "gym_by": 12,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 5
   },
   "lernbereich": {
    "gym_by": "M5 4 Größen und ihre Einheiten",
-   "rs_by": "M6 6 Direkte Proportionalität"
+   "rs_by": "M6 6 Direkte Proportionalität",
+   "ib_myp": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Zuordnungen erkennen und darstellen, Dreisatz, Produktgleichheit.",
   "lehrplan_gym": [
@@ -205,6 +237,9 @@
   ],
   "lehrplan_rs": [
    "Zuordnungen darstellen; direkte Proportionalität erkennen und begründen, Proportionalitätsfaktor, Ursprungshalbgerade; Dreisatz"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Direkte Proportionalität (Verhältnisse: MYP 1–3)"
   ],
   "datei": "inhalte/themen/groessen.proportional.json"
  },
@@ -222,11 +257,13 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M5 2 Geometrische Figuren und Lagebeziehungen",
-   "rs_by": "M5 3 Geometrische Grundvorstellungen und Grundbegriffe"
+   "rs_by": "M5 3 Geometrische Grundvorstellungen und Grundbegriffe",
+   "ib_myp": "MYP 1 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Punkt, Gerade, Strecke, Winkel, Koordinatensystem; Dreiecks- und Vierecksarten.",
   "lehrplan_gym": [
@@ -235,6 +272,9 @@
   ],
   "lehrplan_rs": [
    "Punkt, Strecke, Gerade, Halbgerade, Kreis; Lagebeziehungen (parallel, senkrecht); Koordinatensystem; Dreiecke und Vierecke"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Formen und Winkel einteilen; Koordinaten; Symmetrie"
   ],
   "datei": "inhalte/themen/geometrie.grundbegriffe.json"
  },
@@ -252,11 +292,13 @@
   },
   "reihenfolge": {
    "gym_by": 5,
-   "rs_by": 8
+   "rs_by": 8,
+   "ib_myp": 12
   },
   "lernbereich": {
    "gym_by": "M5 2 Geometrische Figuren und Lagebeziehungen",
-   "rs_by": "M5 3 Geometrische Grundvorstellungen und Grundbegriffe"
+   "rs_by": "M5 3 Geometrische Grundvorstellungen und Grundbegriffe",
+   "ib_myp": "MYP 1 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Winkel bis 360°: Winkel ergänzen (90°, 180°, 360°), Winkel an einer Geradenkreuzung und um einen Punkt, Winkel an der Uhr und bei Drehungen, Winkel in Rechteck und Quadrat. (Winkelsätze an Parallelen und Winkelsummen: geometrie.winkelsaetze, Klasse 7.)",
   "lehrplan_gym": [
@@ -264,6 +306,9 @@
   ],
   "lehrplan_rs": [
    "Winkel von 0° bis 360° schätzen, messen und zeichnen; Scheitel- und Nebenwinkel"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Winkel messen und Winkeleigenschaften berechnen"
   ],
   "datei": "inhalte/themen/geometrie.winkel.json"
  },
@@ -309,11 +354,13 @@
   },
   "reihenfolge": {
    "gym_by": 13,
-   "rs_by": 11
+   "rs_by": 11,
+   "ib_myp": 13
   },
   "lernbereich": {
    "gym_by": "M5 4 Größen und ihre Einheiten",
-   "rs_by": "M5 5 Umfang und Flächeninhalt ebener Figuren"
+   "rs_by": "M5 5 Umfang und Flächeninhalt ebener Figuren",
+   "ib_myp": "MYP 1 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Umfang und Fläche von Rechteck, Dreieck, Parallelogramm, Trapez, Vielecken.",
   "lehrplan_gym": [
@@ -323,6 +370,9 @@
   ],
   "lehrplan_rs": [
    "Umfang von Rechteck, Quadrat und Vielecken; Flächeninhalt von Rechteck und Quadrat, Vielecke zerlegen; Flächeneinheiten umrechnen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Umfang und Flächeninhalt; metrische Einheiten umrechnen"
   ],
   "datei": "inhalte/themen/messen.flaechen.json"
  },
@@ -340,11 +390,13 @@
   },
   "reihenfolge": {
    "gym_by": 14,
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 14
   },
   "lernbereich": {
    "gym_by": "M5 4 Größen und ihre Einheiten",
-   "rs_by": "M6 4 Raumgeometrie"
+   "rs_by": "M6 4 Raumgeometrie",
+   "ib_myp": "MYP 1 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Volumen und Oberfläche von Quader, Prisma, Zylinder, Pyramide, Kegel, Kugel.",
   "lehrplan_gym": [
@@ -353,6 +405,9 @@
   ],
   "lehrplan_rs": [
    "Oberfläche von Quader und Würfel (M6 3) und Volumen (M6 4) in Sachaufgaben berechnen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Volumen, Oberfläche und Netze einfacher Körper"
   ],
   "datei": "inhalte/themen/messen.koerper_berechnung.json"
  },
@@ -370,11 +425,13 @@
   },
   "reihenfolge": {
    "gym_by": 9,
-   "rs_by": 5
+   "rs_by": 5,
+   "ib_myp": 12
   },
   "lernbereich": {
    "gym_by": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
-   "rs_by": "M5 1 Natürliche Zahlen"
+   "rs_by": "M5 1 Natürliche Zahlen",
+   "ib_myp": "MYP 2 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
   "umfang": "Anzahlen systematisch bestimmen, Zählprinzip, Baumdiagramm.",
   "lehrplan_gym": [
@@ -382,6 +439,9 @@
   ],
   "lehrplan_rs": [
    "Anzahlen systematisch bestimmen: Zählprinzip, Baumdiagramm, Tabelle"
+  ],
+  "lehrplan_ib": [
+   "Enrichment: Zählprinzipien, Permutationen und Fakultät stehen nur im Enrichment"
   ],
   "datei": "inhalte/themen/stochastik.kombinatorik.json"
  },
@@ -399,11 +459,13 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "rs_by": 2
+   "rs_by": 2,
+   "ib_myp": 1
   },
   "lernbereich": {
    "gym_by": "M6 1 Rationale Zahlen",
-   "rs_by": "M7 1 Potenzen"
+   "rs_by": "M7 1 Potenzen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Sehr große und kleine Zahlen mit Zehnerpotenzen und Vorsilben darstellen.",
   "lehrplan_gym": [
@@ -412,6 +474,9 @@
   ],
   "lehrplan_rs": [
    "Zehnerpotenzen und Vorsilben von 10⁻¹⁸ bis 10¹⁸ für Größenangaben nutzen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Wissenschaftliche Schreibweise (standard form)"
   ],
   "datei": "inhalte/themen/zahlen.potenzen_zehner.json"
  },
@@ -429,11 +494,13 @@
   },
   "reihenfolge": {
    "gym_by": 1,
-   "rs_by": 1
+   "rs_by": 1,
+   "ib_myp": 6
   },
   "lernbereich": {
    "gym_by": "M6 1 Rationale Zahlen",
-   "rs_by": "M6 1 Rationale Zahlen"
+   "rs_by": "M6 1 Rationale Zahlen",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Anteile als Brüche deuten, erweitern, kürzen, vergleichen, am Zahlenstrahl darstellen.",
   "lehrplan_gym": [
@@ -443,6 +510,9 @@
   ],
   "lehrplan_rs": [
    "Brüche als Anteile deuten, erweitern, kürzen, vergleichen und an der Zahlengerade darstellen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Brüche als Zahlform; Umwandlung zwischen Bruch, Dezimalzahl und Prozent"
   ],
   "datei": "inhalte/themen/bruch.brueche.json"
  },
@@ -460,11 +530,13 @@
   },
   "reihenfolge": {
    "gym_by": 2,
-   "rs_by": 2
+   "rs_by": 2,
+   "ib_myp": 7
   },
   "lernbereich": {
    "gym_by": "M6 1 Rationale Zahlen",
-   "rs_by": "M6 1 Rationale Zahlen"
+   "rs_by": "M6 1 Rationale Zahlen",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Dezimalzahlen, Stellenwerte, Runden, endliche und periodische Dezimalbrüche, Umwandlung.",
   "lehrplan_gym": [
@@ -472,6 +544,9 @@
   ],
   "lehrplan_rs": [
    "Dezimalzahlen runden, endliche und periodische Dezimalzahlen; zwischen Bruch, Dezimalzahl und Prozent umrechnen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Dezimalzahlen, auch periodische; Umwandlung zwischen den Zahlformen"
   ],
   "datei": "inhalte/themen/bruch.dezimal.json"
  },
@@ -489,11 +564,13 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 3
+   "rs_by": 3,
+   "ib_myp": 2
   },
   "lernbereich": {
    "gym_by": "M6 1 Rationale Zahlen",
-   "rs_by": "M6 1 Rationale Zahlen"
+   "rs_by": "M6 1 Rationale Zahlen",
+   "ib_myp": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Brüche und Dezimalzahlen addieren, subtrahieren, multiplizieren, dividieren; gemischte Rechnungen.",
   "lehrplan_gym": [
@@ -503,6 +580,9 @@
   ],
   "lehrplan_rs": [
    "Mit rationalen Zahlen (auch mit Vorzeichen) rechnen, auch mit Größen in Sachaufgaben"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Rechenoperationen mit Brüchen und Dezimalzahlen"
   ],
   "datei": "inhalte/themen/bruch.rechnen.json"
  },
@@ -520,11 +600,13 @@
   },
   "reihenfolge": {
    "gym_by": 7,
-   "rs_by": 1
+   "rs_by": 1,
+   "ib_myp": 2
   },
   "lernbereich": {
    "gym_by": "M6 1 Rationale Zahlen",
-   "rs_by": "M7 1 Potenzen"
+   "rs_by": "M7 1 Potenzen",
+   "ib_myp": "MYP 3 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Potenzen mit natürlichen, ganzen und rationalen Exponenten, Potenzgesetze.",
   "lehrplan_gym": [
@@ -534,6 +616,9 @@
   ],
   "lehrplan_rs": [
    "Potenzen mit negativen ganzzahligen Exponenten; Potenzgesetze anwenden"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Potenzgesetze mit ganzzahligen und negativen Exponenten"
   ],
   "datei": "inhalte/themen/terme.potenzgesetze.json"
  },
@@ -551,11 +636,13 @@
   },
   "reihenfolge": {
    "gym_by": 8,
-   "rs_by": 11
+   "rs_by": 11,
+   "ib_myp": 8
   },
   "lernbereich": {
    "gym_by": "M6 3 Prozentrechnung, Daten und Diagramme",
-   "rs_by": "M6 6 Direkte Proportionalität"
+   "rs_by": "M6 6 Direkte Proportionalität",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Prozentwert, Grundwert, Prozentsatz; vermehrter/verminderter Grundwert; Zinsen.",
   "lehrplan_gym": [
@@ -563,6 +650,9 @@
   ],
   "lehrplan_rs": [
    "Prozentwert, Grundwert und Prozentsatz berechnen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Prozente als Zahlform; Prozentaufgaben"
   ],
   "datei": "inhalte/themen/bruch.prozent.json"
  },
@@ -580,11 +670,13 @@
   },
   "reihenfolge": {
    "gym_by": 9,
-   "rs_by": 14
+   "rs_by": 14,
+   "ib_myp": 12
   },
   "lernbereich": {
    "gym_by": "M6 3 Prozentrechnung, Daten und Diagramme",
-   "rs_by": "M7 7 Proportionalitäten"
+   "rs_by": "M7 7 Proportionalitäten",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Kapital, Jahreszinssatz und Zinsen unterscheiden, Jahreszinsen berechnen (auch mit Komma-Zinssatz), Zinssatz und Kapital rückwärts bestimmen und Zinsen für Teile eines Jahres berechnen.",
   "lehrplan_gym": [
@@ -592,6 +684,9 @@
   ],
   "lehrplan_rs": [
    "Zinsrechnung: Kapital, Zinssatz, Jahres- und Tageszinsen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3 (Annahme): Geld und Finanzwissen (financial literacy) – Zinsrechnung nicht ausdrücklich genannt"
   ],
   "datei": "inhalte/themen/finanzen.zinsen.json"
  },
@@ -609,11 +704,13 @@
   },
   "reihenfolge": {
    "gym_by": 10,
-   "rs_by": 12
+   "rs_by": 12,
+   "ib_myp": 15
   },
   "lernbereich": {
    "gym_by": "M6 3 Prozentrechnung, Daten und Diagramme",
-   "rs_by": "M5 6 Auswertung von Daten"
+   "rs_by": "M5 6 Auswertung von Daten",
+   "ib_myp": "MYP 1 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
   "umfang": "Häufigkeiten, Tabellen, Diagramme, irreführende Darstellungen erkennen.",
   "lehrplan_gym": [
@@ -623,6 +720,9 @@
   ],
   "lehrplan_rs": [
    "Daten mit Strichliste, Tabelle, Diagramm und Vierfeldertafel darstellen und auswerten; Verzerrungen in Diagrammen erkennen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Einfache diskrete Daten erheben und darstellen (Säulen-, Kreis-, Stängel-Blatt-Diagramm, Piktogramm)"
   ],
   "datei": "inhalte/themen/daten.darstellen.json"
  },
@@ -640,11 +740,13 @@
   },
   "reihenfolge": {
    "gym_by": 11,
-   "rs_by": 16
+   "rs_by": 16,
+   "ib_myp": 9
   },
   "lernbereich": {
    "gym_by": "M6 3 Prozentrechnung, Daten und Diagramme",
-   "rs_by": "M7 8 Auswertung von Daten"
+   "rs_by": "M7 8 Auswertung von Daten",
+   "ib_myp": "MYP 2 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
   "umfang": "Mittelwert, Median, Modalwert, Spannweite, Quartile, Boxplot.",
   "lehrplan_gym": [
@@ -652,6 +754,9 @@
   ],
   "lehrplan_rs": [
    "Arithmetisches Mittel, Zentralwert, Modalwert und Spannweite bestimmen und ihre Aussagekraft beurteilen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Mittelwert, Modalwert, Median und Spannweite"
   ],
   "datei": "inhalte/themen/daten.kennwerte.json"
  },
@@ -669,11 +774,13 @@
   },
   "reihenfolge": {
    "gym_by": 4,
-   "rs_by": 12
+   "rs_by": 12,
+   "ib_myp": 4
   },
   "lernbereich": {
    "gym_by": "M8 2 Lineare Funktionen",
-   "rs_by": "M7 6 Terme, Gleichungen und Ungleichungen"
+   "rs_by": "M7 6 Terme, Gleichungen und Ungleichungen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Lineare Ungleichungen lösen (Umdrehen des Zeichens bei Multiplikation mit negativer Zahl), Lösungsmenge als Intervall oder Menge angeben.",
   "lehrplan_gym": [
@@ -681,6 +788,9 @@
   ],
   "lehrplan_rs": [
    "Ungleichungen der Form ax + b ⋚ c lösen; „höchstens, mindestens, mehr als, weniger als“ in Sachaufgaben"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Ungleichungen lösen, auch zusammengesetzte"
   ],
   "datei": "inhalte/themen/gleichungen.ungleichungen.json"
  },
@@ -698,16 +808,21 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 11
+   "rs_by": 11,
+   "ib_myp": 3
   },
   "lernbereich": {
    "gym_by": "M8 2 Lineare Funktionen",
-   "rs_by": "M7 6 Terme, Gleichungen und Ungleichungen"
+   "rs_by": "M7 6 Terme, Gleichungen und Ungleichungen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Zahlenbereiche mit offenen/geschlossenen Grenzen darstellen.",
   "lehrplan_gym": [],
   "lehrplan_rs": [
    "Lösungsmengen in Intervall- und Mengenschreibweise angeben"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Ungleichungen und Zahlbereiche darstellen, auch Doppel-Ungleichungen"
   ],
   "datei": "inhalte/themen/zahlen.intervalle.json"
  },
@@ -725,11 +840,13 @@
   },
   "reihenfolge": {
    "gym_by": 7,
-   "rs_by": 3
+   "rs_by": 3,
+   "ib_myp": 6
   },
   "lernbereich": {
    "gym_by": "M8 4 Bruchterme und Bruchgleichungen",
-   "rs_by": "M8 5 Bruchterme und Bruchgleichungen"
+   "rs_by": "M8 5 Bruchterme und Bruchgleichungen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Terme mit Variablen im Nenner, Definitionsmenge, Rechnen mit Bruchtermen.",
   "lehrplan_gym": [
@@ -738,6 +855,9 @@
   ],
   "lehrplan_rs": [
    "Bruchterme erkennen und ihre Definitionsmenge bestimmen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard (Annahme): Algebraische Terme mit Brüchen umformen"
   ],
   "datei": "inhalte/themen/terme.bruchterme.json"
  },
@@ -753,14 +873,19 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "gym_by": 9
+   "gym_by": 9,
+   "ib_myp": 5
   },
   "lernbereich": {
-   "gym_by": "M8 4 Bruchterme und Bruchgleichungen"
+   "gym_by": "M8 4 Bruchterme und Bruchgleichungen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Formeln nach einer gesuchten Größe auflösen.",
   "lehrplan_gym": [
    "Formeln nach einer Variablen auflösen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Formeln nutzen und nach einer Variablen umstellen"
   ],
   "datei": "inhalte/themen/gleichungen.formeln.json"
  },
@@ -778,11 +903,13 @@
   },
   "reihenfolge": {
    "gym_by": 8,
-   "rs_by": 4
+   "rs_by": 4,
+   "ib_myp": 7
   },
   "lernbereich": {
    "gym_by": "M8 4 Bruchterme und Bruchgleichungen",
-   "rs_by": "M8 5 Bruchterme und Bruchgleichungen"
+   "rs_by": "M8 5 Bruchterme und Bruchgleichungen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Gleichungen mit der Variablen im Nenner lösen, Definitionsmenge beachten; Verhältnisgleichungen lösen.",
   "lehrplan_gym": [
@@ -790,6 +917,9 @@
   ],
   "lehrplan_rs": [
    "Einfache Bruchgleichungen und Verhältnisgleichungen lösen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard (Annahme): Gleichungen mit Brüchen aufstellen und lösen"
   ],
   "datei": "inhalte/themen/gleichungen.bruch.json"
  },
@@ -807,11 +937,13 @@
   },
   "reihenfolge": {
    "gym_by": 11,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 16
   },
   "lernbereich": {
    "gym_by": "M8 6 Lineare Gleichungssysteme",
-   "rs_by": "M9 6 Systeme linearer Gleichungen"
+   "rs_by": "M9 6 Systeme linearer Gleichungen",
+   "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Lineare Gleichungssysteme mit zwei Unbekannten grafisch und rechnerisch (Einsetzen, Gleichsetzen, Addition) lösen, Lösbarkeit begründen, Sachaufgaben.",
   "lehrplan_gym": [
@@ -821,6 +953,9 @@
   ],
   "lehrplan_rs": [
    "Systeme linearer Gleichungen grafisch und rechnerisch lösen (Einsetzungs-, Gleichsetzungs-, Additionsverfahren); Sachaufgaben"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Gleichungssysteme grafisch und algebraisch lösen"
   ],
   "datei": "inhalte/themen/gleichungen.lgs2.json"
  },
@@ -838,11 +973,13 @@
   },
   "reihenfolge": {
    "gym_by": 1,
-   "rs_by": 5
+   "rs_by": 5,
+   "ib_myp": 15
   },
   "lernbereich": {
    "gym_by": "M8 1 Funktion und Term",
-   "rs_by": "M8 6 Funktionen"
+   "rs_by": "M8 6 Funktionen",
+   "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Funktion als eindeutige Zuordnung; Tabelle, Graph, Term; Definitions- und Wertemenge, Nullstellen.",
   "lehrplan_gym": [
@@ -850,6 +987,9 @@
   ],
   "lehrplan_rs": [
    "Funktionsbegriff; Funktionen in Tabelle, Graph und Gleichung darstellen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard / Extended: Zuordnungen und Funktionsschreibweise (Definitions- und Wertebereich: Extended)"
   ],
   "datei": "inhalte/themen/funktionen.grundbegriffe.json"
  },
@@ -867,11 +1007,13 @@
   },
   "reihenfolge": {
    "gym_by": 2,
-   "rs_by": 6
+   "rs_by": 6,
+   "ib_myp": 4
   },
   "lernbereich": {
    "gym_by": "M8 2 Lineare Funktionen",
-   "rs_by": "M8 6 Funktionen"
+   "rs_by": "M8 6 Funktionen",
+   "ib_myp": "MYP 3 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "y = mx + t deuten und zeichnen, Geradengleichungen aufstellen, Schnittpunkte, Parallelität/Orthogonalität.",
   "lehrplan_gym": [
@@ -881,6 +1023,9 @@
   ],
   "lehrplan_rs": [
    "Lineare Funktionen y = mx und y = mx + t; Steigung, Steigungsdreieck; Geraden aus zwei Bestimmungsstücken; parallele und orthogonale Geraden"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Lineare Funktionen y = mx + c; parallele und senkrechte Geraden"
   ],
   "datei": "inhalte/themen/funktionen.linear.json"
  },
@@ -896,16 +1041,21 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "gym_by": 6
+   "gym_by": 6,
+   "ib_myp": 19
   },
   "lernbereich": {
-   "gym_by": "M8 3 Elementare gebrochen-rationale Funktionen"
+   "gym_by": "M8 3 Elementare gebrochen-rationale Funktionen",
+   "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Hyperbeln y = a/(x+b)+c, Asymptoten, indirekte Proportionalität.",
   "lehrplan_gym": [
    "Definitionsmenge und Achsenschnittpunkte von a/(x+b)+c",
    "Einfluss der Parameter b und c",
    "Graphen mit Asymptoten zeichnen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Gebrochen-rationale Funktionen (rational functions)"
   ],
   "datei": "inhalte/themen/funktionen.gebrochen.json"
  },
@@ -923,11 +1073,13 @@
   },
   "reihenfolge": {
    "gym_by": 13,
-   "rs_by": 9
+   "rs_by": 9,
+   "ib_myp": 8
   },
   "lernbereich": {
    "gym_by": "M8 7 Kreis und Zylinder",
-   "rs_by": "M5 3 Geometrische Grundvorstellungen und Grundbegriffe"
+   "rs_by": "M5 3 Geometrische Grundvorstellungen und Grundbegriffe",
+   "ib_myp": "MYP 3 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Körper erkennen, Netze, Schrägbilder, Lage im Raum, wahre Größen.",
   "lehrplan_gym": [
@@ -935,6 +1087,9 @@
   ],
   "lehrplan_rs": [
    "Körper (Würfel, Quader, Prisma, Pyramide, Zylinder, Kegel, Kugel) beschreiben; Netze und Schrägbilder von Würfel und Quader"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Körper und ihre Netze darstellen"
   ],
   "datei": "inhalte/themen/messen.koerper_darstellung.json"
  },
@@ -952,11 +1107,13 @@
   },
   "reihenfolge": {
    "gym_by": 8,
-   "rs_by": 1
+   "rs_by": 1,
+   "ib_myp": 24
   },
   "lernbereich": {
    "gym_by": "M10 5 Fortführung der Raumgeometrie",
-   "rs_by": "M8 3 Raumgeometrie"
+   "rs_by": "M8 3 Raumgeometrie",
+   "ib_myp": "MYP 4 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Schrägbilder von Prismen und Pyramiden, wahre Größen, Lagebeziehungen im Raum, Rotationskörper und Axialschnitte, Raumkoordinaten",
   "lehrplan_gym": [
@@ -965,6 +1122,9 @@
   ],
   "lehrplan_rs": [
    "Symmetrische Körper; Axialschnitte von Rotationskörpern; Punkte im dreidimensionalen Koordinatensystem (Schrägbilder von Prismen und Pyramiden: M7 4)"
+  ],
+  "lehrplan_ib": [
+   "Enrichment: Dreidimensionale Koordinatengeometrie (nur Enrichment)"
   ],
   "datei": "inhalte/themen/raum.schraegbilder.json"
  },
@@ -982,11 +1142,13 @@
   },
   "reihenfolge": {
    "gym_by": 12,
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 7
   },
   "lernbereich": {
    "gym_by": "M8 7 Kreis und Zylinder",
-   "rs_by": "M9 4 Kreis"
+   "rs_by": "M9 4 Kreis",
+   "ib_myp": "MYP 3 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Kreisumfang und -fläche, π, Sektor und Segment.",
   "lehrplan_gym": [
@@ -994,6 +1156,9 @@
   ],
   "lehrplan_rs": [
    "Kreisumfang und Kreisfläche; Kreissektor, Kreisbogen, Kreissegment; zusammengesetzte Figuren"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Kreisumfang und Kreisfläche"
   ],
   "datei": "inhalte/themen/messen.kreisberechnung.json"
  },
@@ -1101,11 +1266,13 @@
   },
   "reihenfolge": {
    "gym_by": 10,
-   "rs_by": 15
+   "rs_by": 15,
+   "ib_myp": 10
   },
   "lernbereich": {
    "gym_by": "M8 5 Laplace-Experimente",
-   "rs_by": "M9 8 Daten und Zufall"
+   "rs_by": "M9 8 Daten und Zufall",
+   "ib_myp": "MYP 2 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
   "umfang": "Zufallsexperiment, Ergebnis, Ereignis, relative Häufigkeit, Gesetz der großen Zahlen, Laplace.",
   "lehrplan_gym": [
@@ -1114,6 +1281,9 @@
   ],
   "lehrplan_rs": [
    "Ergebnisraum; Laplace-Wahrscheinlichkeit; Wahrscheinlichkeiten schätzen und berechnen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3 / Standard: Wahrscheinlichkeit qualitativ (MYP 1–3); einfache Ereignisse und Ergebnismengen (Standard)"
   ],
   "datei": "inhalte/themen/stochastik.grundbegriffe.json"
  },
@@ -1131,11 +1301,13 @@
   },
   "reihenfolge": {
    "gym_by": 4,
-   "rs_by": 17
+   "rs_by": 17,
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen",
-   "rs_by": "M9 8 Daten und Zufall"
+   "rs_by": "M9 8 Daten und Zufall",
+   "ib_myp": "MYP 2 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
   "umfang": "Zufallsexperimente simulieren, Monte-Carlo.",
   "lehrplan_gym": [
@@ -1143,6 +1315,9 @@
   ],
   "lehrplan_rs": [
    "Empirisches Gesetz der großen Zahlen; Zufallsexperimente simulieren"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Theoretische und experimentelle Wahrscheinlichkeit"
   ],
   "datei": "inhalte/themen/stochastik.simulation.json"
  },
@@ -1160,11 +1335,13 @@
   },
   "reihenfolge": {
    "gym_by": 1,
-   "rs_by": 1
+   "rs_by": 1,
+   "ib_myp": 5
   },
   "lernbereich": {
    "gym_by": "M9 1 Quadratwurzeln",
-   "rs_by": "M9 1 Reelle Zahlen"
+   "rs_by": "M9 1 Reelle Zahlen",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Wurzel als Umkehrung des Quadrierens/Potenzierens; ohne Irrationalität und Wurzelalgebra.",
   "lehrplan_gym": [
@@ -1173,6 +1350,9 @@
   ],
   "lehrplan_rs": [
    "Quadratwurzeln bestimmen und abschätzen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Quadratzahlen und Quadratwurzeln"
   ],
   "datei": "inhalte/themen/zahlen.wurzeln_basis.json"
  },
@@ -1190,11 +1370,13 @@
   },
   "reihenfolge": {
    "gym_by": 2,
-   "rs_by": 2
+   "rs_by": 2,
+   "ib_myp": 2
   },
   "lernbereich": {
    "gym_by": "M9 1 Quadratwurzeln",
-   "rs_by": "M9 1 Reelle Zahlen"
+   "rs_by": "M9 1 Reelle Zahlen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Quadratwurzeln, irrationale Zahlen, reelle Zahlen; Wurzelterme vereinfachen, Nenner rational machen.",
   "lehrplan_gym": [
@@ -1202,6 +1384,9 @@
   ],
   "lehrplan_rs": [
    "Irrationale Zahlen; mit Wurzeln rechnen; Nenner rational machen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Irrationale Zahlen; Wurzeln vereinfachen (Nenner rational machen: Enrichment)"
   ],
   "datei": "inhalte/themen/zahlen.reell.json"
  },
@@ -1219,11 +1404,13 @@
   },
   "reihenfolge": {
    "gym_by": 8,
-   "rs_by": 5
+   "rs_by": 5,
+   "ib_myp": 2
   },
   "lernbereich": {
    "gym_by": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs",
-   "rs_by": "M10 3 Potenzen und Potenzfunktionen"
+   "rs_by": "M10 3 Potenzen und Potenzfunktionen",
+   "ib_myp": "MYP 5 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "n-te Wurzel, Gleichungen x^n = c, rationale Exponenten und Wurzeln umwandeln",
   "lehrplan_gym": [
@@ -1232,6 +1419,9 @@
   ],
   "lehrplan_rs": [
    "Potenzen mit rationalen Exponenten; n-te Wurzel als Potenz schreiben; Potenzgesetze"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Potenzgesetze mit gebrochenen (rationalen) Exponenten"
   ],
   "datei": "inhalte/themen/zahlen.rationale_exponenten.json"
  },
@@ -1249,11 +1439,13 @@
   },
   "reihenfolge": {
    "gym_by": 4,
-   "rs_by": 13
+   "rs_by": 13,
+   "ib_myp": 10
   },
   "lernbereich": {
    "gym_by": "M9 2 Quadratische Funktionen",
-   "rs_by": "M9 7 Quadratische Funktionen und quadratische Gleichungen"
+   "rs_by": "M9 7 Quadratische Funktionen und quadratische Gleichungen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Quadratische Gleichungen der Form ax² + bx + c = 0 mit passender Methode (Faktorisieren, quadratische Ergänzung, Lösungsformel) lösen; Lösungsanzahl über die Diskriminante begründen.",
   "lehrplan_gym": [
@@ -1262,6 +1454,9 @@
   ],
   "lehrplan_rs": [
    "Quadratische Gleichungen mit der Lösungsformel lösen; Diskriminante; Schnittpunkte von Parabeln und Geraden"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Quadratische Terme faktorisieren und quadratische Gleichungen lösen"
   ],
   "datei": "inhalte/themen/gleichungen.quadratisch.json"
  },
@@ -1279,11 +1474,13 @@
   },
   "reihenfolge": {
    "gym_by": 10,
-   "rs_by": 6
+   "rs_by": 6,
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs",
-   "rs_by": "M10 3 Potenzen und Potenzfunktionen"
+   "rs_by": "M10 3 Potenzen und Potenzfunktionen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Gleichungen der Form xⁿ = c lösen und die Anzahl der Lösungen begründen.",
   "lehrplan_gym": [
@@ -1292,6 +1489,9 @@
   ],
   "lehrplan_rs": [
    "Gleichungen xⁿ = a mit der n-ten Wurzel lösen (Annahme: im Lehrplan als Teil von „n-te Wurzel“)"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard (Annahme): Gleichungen mit Potenzen und Wurzeln lösen"
   ],
   "datei": "inhalte/themen/gleichungen.potenz.json"
  },
@@ -1331,11 +1531,13 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 11
+   "rs_by": 11,
+   "ib_myp": 17
   },
   "lernbereich": {
    "gym_by": "M9 2 Quadratische Funktionen",
-   "rs_by": "M9 7 Quadratische Funktionen und quadratische Gleichungen"
+   "rs_by": "M9 7 Quadratische Funktionen und quadratische Gleichungen",
+   "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Parabeln in verschiedenen Formen, Scheitel, Parameter, Extremwertprobleme.",
   "lehrplan_gym": [
@@ -1345,6 +1547,9 @@
   ],
   "lehrplan_rs": [
    "Normalparabel, Scheitelform und allgemeine Form; Extremwertprobleme"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Quadratische Funktionen"
   ],
   "datei": "inhalte/themen/funktionen.quadratisch.json"
  },
@@ -1362,11 +1567,13 @@
   },
   "reihenfolge": {
    "gym_by": 9,
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 18
   },
   "lernbereich": {
    "gym_by": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs",
-   "rs_by": "M10 3 Potenzen und Potenzfunktionen"
+   "rs_by": "M10 3 Potenzen und Potenzfunktionen",
+   "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Graphen von y = a·xⁿ (auch rationale Exponenten), Symmetrie, Umkehrung.",
   "lehrplan_gym": [
@@ -1374,6 +1581,9 @@
   ],
   "lehrplan_rs": [
    "Potenzfunktionen y = a(x + b)^c + d mit Definitions- und Wertemenge und Asymptoten"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Darstellung und Verlauf komplexerer Funktionen"
   ],
   "datei": "inhalte/themen/funktionen.potenz.json"
  },
@@ -1391,11 +1601,13 @@
   },
   "reihenfolge": {
    "gym_by": 7,
-   "rs_by": 4
+   "rs_by": 4,
+   "ib_myp": 10
   },
   "lernbereich": {
    "gym_by": "M9 4 Ähnlichkeit und Strahlensatz",
-   "rs_by": "M9 2 Zentrische Streckung"
+   "rs_by": "M9 2 Zentrische Streckung",
+   "ib_myp": "MYP 3 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Zentrische Streckung, Ähnlichkeit, Strahlensätze, Maßstabswirkung auf Fläche/Volumen.",
   "lehrplan_gym": [
@@ -1404,6 +1616,9 @@
   ],
   "lehrplan_rs": [
    "Zentrische Streckung als Ähnlichkeitsabbildung; Streckungsfaktor; Strahlensätze; Ähnlichkeitssätze für Dreiecke"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Ähnlichkeit; Vergrößerungen"
   ],
   "datei": "inhalte/themen/abbildungen.aehnlichkeit.json"
  },
@@ -1421,11 +1636,13 @@
   },
   "reihenfolge": {
    "gym_by": 11,
-   "rs_by": 5
+   "rs_by": 5,
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M9 6 Satz des Pythagoras",
-   "rs_by": "M9 3 Rechtwinklige Dreiecke"
+   "rs_by": "M9 3 Rechtwinklige Dreiecke",
+   "ib_myp": "MYP 3 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Satz und Umkehrung, Längen in Ebene und Raum, Abstände im Koordinatensystem.",
   "lehrplan_gym": [
@@ -1433,6 +1650,9 @@
   ],
   "lehrplan_rs": [
    "Satz des Pythagoras und Umkehrung; Streckenlängen im Koordinatensystem und im Raum"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Satz des Pythagoras und seine Umkehrung"
   ],
   "datei": "inhalte/themen/trigo.pythagoras.json"
  },
@@ -1450,11 +1670,13 @@
   },
   "reihenfolge": {
    "gym_by": 12,
-   "rs_by": 6
+   "rs_by": 6,
+   "ib_myp": 21
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
-   "rs_by": "M9 3 Rechtwinklige Dreiecke"
+   "rs_by": "M9 3 Rechtwinklige Dreiecke",
+   "ib_myp": "MYP 4 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Sinus, Kosinus, Tangens als Seitenverhältnisse, Anwendungen.",
   "lehrplan_gym": [
@@ -1462,6 +1684,9 @@
   ],
   "lehrplan_rs": [
    "Sinus, Kosinus und Tangens im rechtwinkligen Dreieck"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Trigonometrische Verhältnisse im rechtwinkligen Dreieck; Peilungen"
   ],
   "datei": "inhalte/themen/trigo.rechtwinklig.json"
  },
@@ -1479,11 +1704,13 @@
   },
   "reihenfolge": {
    "gym_by": 13,
-   "rs_by": 1
+   "rs_by": 1,
+   "ib_myp": 22
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
-   "rs_by": "M10 1 Trigonometrie"
+   "rs_by": "M10 1 Trigonometrie",
+   "ib_myp": "MYP 4 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Einheitskreis, Sinus- und Kosinussatz, Flächenformel, Additionstheoreme.",
   "lehrplan_gym": [
@@ -1491,6 +1718,9 @@
   ],
   "lehrplan_rs": [
    "Sinus, Kosinus, Tangens am Einheitskreis; Supplement- und Komplementbeziehungen; Additionstheoreme; Sinus- und Kosinussatz, Flächeninhalt mit Sinus"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Sinus- und Kosinussatz mit Anwendungen (Flächenformel mit Sinus und Einheitskreis: Enrichment)"
   ],
   "datei": "inhalte/themen/trigo.allgemein.json"
  },
@@ -1508,11 +1738,13 @@
   },
   "reihenfolge": {
    "gym_by": 14,
-   "rs_by": 3
+   "rs_by": 3,
+   "ib_myp": 13
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
-   "rs_by": "M10 1 Trigonometrie"
+   "rs_by": "M10 1 Trigonometrie",
+   "ib_myp": "MYP 5 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Gleichungen mit Sinus/Kosinus/Tangens in Anwendungen lösen (Winkel zu gegebenem Wert, Mehrdeutigkeit).",
   "lehrplan_gym": [
@@ -1520,6 +1752,9 @@
   ],
   "lehrplan_rs": [
    "Trigonometrische Gleichungen lösen; Anwendungen in ebener und räumlicher Geometrie"
+  ],
+  "lehrplan_ib": [
+   "Annahme Extended: Winkel aus trigonometrischen Werten bestimmen (trigonometrische Identitäten: Enrichment)"
   ],
   "datei": "inhalte/themen/gleichungen.trig.json"
  },
@@ -1537,11 +1772,13 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "rs_by": 16
+   "rs_by": 16,
+   "ib_myp": 26
   },
   "lernbereich": {
    "gym_by": "M9 3 Wahrscheinlichkeit verknüpfter Ereignisse",
-   "rs_by": "M9 8 Daten und Zufall"
+   "rs_by": "M9 8 Daten und Zufall",
+   "ib_myp": "MYP 4 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
   "umfang": "Mengen, Venn-Diagramme, Vierfeldertafel, Additionssatz, bedingte Wahrscheinlichkeit.",
   "lehrplan_gym": [
@@ -1549,6 +1786,9 @@
   ],
   "lehrplan_rs": [
    "Ereignisse und Gegenereignisse als Teilmengen des Ergebnisraums (Additionssatz und bedingte Wahrscheinlichkeit: kein Beleg)"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Wahrscheinlichkeit mit Venn-Diagrammen; sich ausschließende und verknüpfte Ereignisse; Additionsregel"
   ],
   "datei": "inhalte/themen/stochastik.verknuepft.json"
  },
@@ -1566,11 +1806,13 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "rs_by": 13
+   "rs_by": 13,
+   "ib_myp": 3
   },
   "lernbereich": {
    "gym_by": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung",
-   "rs_by": "M7 7 Proportionalitäten"
+   "rs_by": "M7 7 Proportionalitäten",
+   "ib_myp": "MYP 3 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Prozentrechnung mit erhöhtem oder verringertem Grundwert, komplexere Prozentaufgaben",
   "lehrplan_gym": [
@@ -1579,6 +1821,9 @@
   ],
   "lehrplan_rs": [
    "Vermehrter und verminderter Grundwert (z. B. Preise mit und ohne Mehrwertsteuer)"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Prozentaufgaben mit Zu- und Abnahme (Annahme: Teil von „Zahlformen und Prozent“)"
   ],
   "datei": "inhalte/themen/bruch.prozent_grundwert.json"
  },
@@ -1596,11 +1841,13 @@
   },
   "reihenfolge": {
    "gym_by": 1,
-   "rs_by": 8
+   "rs_by": 8,
+   "ib_myp": 9
   },
   "lernbereich": {
    "gym_by": "M7 1 Terme mit Variablen",
-   "rs_by": "M6 5 Terme und Gleichungen"
+   "rs_by": "M6 5 Terme und Gleichungen",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Zusammenhänge und Muster mit Variablen beschreiben, Termwerte berechnen, Termstruktur benennen.",
   "lehrplan_gym": [
@@ -1608,6 +1855,9 @@
   ],
   "lehrplan_rs": [
    "Terme mit Variablen aufstellen, Termwerte berechnen, Grundmenge; Äquivalenz von Termen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3 (Annahme): Terme mit Variablen aufstellen und Werte einsetzen (Spalte im Framework nicht eindeutig lesbar)"
   ],
   "datei": "inhalte/themen/terme.aufstellen.json"
  },
@@ -1625,11 +1875,13 @@
   },
   "reihenfolge": {
    "gym_by": 2,
-   "rs_by": 9
+   "rs_by": 9,
+   "ib_myp": 1
   },
   "lernbereich": {
    "gym_by": "M7 1 Terme mit Variablen",
-   "rs_by": "M7 6 Terme, Gleichungen und Ungleichungen"
+   "rs_by": "M7 6 Terme, Gleichungen und Ungleichungen",
+   "ib_myp": "MYP 3 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Terme vereinfachen: gleichartige Glieder zusammenfassen, Produkte vereinfachen, Klammern auflösen und ausmultiplizieren, ausklammern, Äquivalenz prüfen und die binomischen Formeln anwenden.",
   "lehrplan_gym": [
@@ -1637,6 +1889,9 @@
   ],
   "lehrplan_rs": [
    "Terme vereinfachen, auch mit Potenzgesetzen; Äquivalenz von Termen begründen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard (Annahme): Mit Termen rechnen, ausmultiplizieren und faktorisieren"
   ],
   "datei": "inhalte/themen/terme.umformen.json"
  },
@@ -1654,11 +1909,13 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 4
+   "rs_by": 4,
+   "ib_myp": 5
   },
   "lernbereich": {
    "gym_by": "M7 2 Geometrische Figuren: Symmetrie und Winkel",
-   "rs_by": "M6 2 Achsenspiegelung und Symmetrie"
+   "rs_by": "M6 2 Achsenspiegelung und Symmetrie",
+   "ib_myp": "MYP 3 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Achsenspiegelung, Verschiebung, Drehung, Punktspiegelung; Symmetrie; Parkettierungen.",
   "lehrplan_gym": [
@@ -1667,6 +1924,9 @@
   "lehrplan_rs": [
    "Achsenspiegelung als Kongruenzabbildung: Punkte und Figuren abbilden, Symmetrieachsen finden",
    "Grundkonstruktionen: Senkrechte, Mittelsenkrechte, Lot, Winkelhalbierende"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3 / Standard: Symmetrie und Spiegelung (MYP 1–3); Kongruenzabbildungen und Parkettierungen (Standard)"
   ],
   "datei": "inhalte/themen/abbildungen.kongruenz.json"
  },
@@ -1684,11 +1944,13 @@
   },
   "reihenfolge": {
    "gym_by": 4,
-   "rs_by": 5
+   "rs_by": 5,
+   "ib_myp": 7
   },
   "lernbereich": {
    "gym_by": "M7 2 Geometrische Figuren: Symmetrie und Winkel",
-   "rs_by": "M7 2 Parallelverschiebung"
+   "rs_by": "M7 2 Parallelverschiebung",
+   "ib_myp": "MYP 2 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Scheitel- und Nebenwinkel, Stufen- und Wechselwinkel an Parallelen, Parallelität prüfen, Innenwinkelsumme im Dreieck (Beweis), Außenwinkel, Winkelsumme im Vieleck, Winkel in Figuren berechnen und begründen.",
   "lehrplan_gym": [
@@ -1696,6 +1958,9 @@
   ],
   "lehrplan_rs": [
    "Stufen-, Wechsel- und Ergänzungswinkel an Parallelen; Innenwinkelsumme und Außenwinkelsatz begründen und anwenden"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Winkeleigenschaften; Winkel an geschnittenen Parallelen"
   ],
   "datei": "inhalte/themen/geometrie.winkelsaetze.json"
  },
@@ -1713,11 +1978,13 @@
   },
   "reihenfolge": {
    "gym_by": 8,
-   "rs_by": 6
+   "rs_by": 6,
+   "ib_myp": 6
   },
   "lernbereich": {
    "gym_by": "M7 5 Kongruenz, besondere Dreiecke und Dreieckskonstruktionen",
-   "rs_by": "M7 3 Dreiecke"
+   "rs_by": "M7 3 Dreiecke",
+   "ib_myp": "MYP 3 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Konstruktionen mit Zirkel und Lineal/Software, Ortslinien, Kongruenzsätze, Satz und Kehrsatz.",
   "lehrplan_gym": [
@@ -1726,6 +1993,9 @@
   ],
   "lehrplan_rs": [
    "Existenz von Dreiecken prüfen; Dreiecke konstruieren; Kongruenzsätze anwenden und Kongruenz begründen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Kongruenz von Dreiecken; Dreieckseigenschaften"
   ],
   "datei": "inhalte/themen/geometrie.konstruktion.json"
  },
@@ -1743,11 +2013,13 @@
   },
   "reihenfolge": {
    "gym_by": 9,
-   "rs_by": 8
+   "rs_by": 8,
+   "ib_myp": 23
   },
   "lernbereich": {
    "gym_by": "M7 5 Kongruenz, besondere Dreiecke und Dreieckskonstruktionen",
-   "rs_by": "M7 5 Geometrische Ortslinien und Ortsbereiche"
+   "rs_by": "M7 5 Geometrische Ortslinien und Ortsbereiche",
+   "ib_myp": "MYP 4 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Satz des Thales, Tangenten, Kreiswinkel, Umkreis/Inkreis.",
   "lehrplan_gym": [
@@ -1757,6 +2029,9 @@
   ],
   "lehrplan_rs": [
    "Lage von Kreis und Gerade, Tangente; Thaleskreis; Umkreis, Inkreis und Schwerpunkt des Dreiecks"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Kreisgeometrie (Um- und Inkreis: Enrichment)"
   ],
   "datei": "inhalte/themen/geometrie.kreis.json"
  },
@@ -1774,11 +2049,13 @@
   },
   "reihenfolge": {
    "gym_by": 7,
-   "rs_by": 17
+   "rs_by": 17,
+   "ib_myp": 25
   },
   "lernbereich": {
    "gym_by": "M7 4 Kenngrößen von Daten",
-   "rs_by": "M7 8 Auswertung von Daten"
+   "rs_by": "M7 8 Auswertung von Daten",
+   "ib_myp": "MYP 4 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
   "umfang": "Median, Modalwert, Spannweite, Quartile, Boxplots lesen und vergleichen",
   "lehrplan_gym": [
@@ -1789,6 +2066,9 @@
   ],
   "lehrplan_rs": [
    "Kenngrößen von Daten vergleichen (Quartile und Boxplot stehen nicht im Lehrplan – Annahme: Vertiefung)"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Quartile, Perzentile, Interquartilsabstand; Boxplots"
   ],
   "datei": "inhalte/themen/daten.boxplot.json"
  },
@@ -1806,11 +2086,13 @@
   },
   "reihenfolge": {
    "gym_by": 2,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 3
   },
   "lernbereich": {
    "gym_by": "M10 1 Exponentielles Wachstum und Logarithmus",
-   "rs_by": "M10 4 Exponentialfunktionen, Logarithmen und Logarithmusfunktionen"
+   "rs_by": "M10 4 Exponentialfunktionen, Logarithmen und Logarithmusfunktionen",
+   "ib_myp": "MYP 5 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Exponentialgleichungen mit dem Logarithmus lösen, auch in Wachstumsaufgaben.",
   "lehrplan_gym": [
@@ -1818,6 +2100,9 @@
   ],
   "lehrplan_rs": [
    "Logarithmus als Lösung von aˣ = b; Logarithmensätze; Gleichungen k · a^(x − b) + c = 0"
+  ],
+  "lehrplan_ib": [
+   "Extended / Enrichment: Logarithmen und ihre Gesetze (Extended); Exponentialgleichungen (Enrichment)"
   ],
   "datei": "inhalte/themen/gleichungen.exponential.json"
  },
@@ -1857,11 +2142,13 @@
   },
   "reihenfolge": {
    "gym_by": 1,
-   "rs_by": 9
+   "rs_by": 9,
+   "ib_myp": 9
   },
   "lernbereich": {
    "gym_by": "M10 1 Exponentielles Wachstum und Logarithmus",
-   "rs_by": "M10 4 Exponentialfunktionen, Logarithmen und Logarithmusfunktionen"
+   "rs_by": "M10 4 Exponentialfunktionen, Logarithmen und Logarithmusfunktionen",
+   "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Exponentielles Wachstum/Zerfall, Logarithmus, Graphen und Modelle.",
   "lehrplan_gym": [
@@ -1869,6 +2156,9 @@
   ],
   "lehrplan_rs": [
    "Exponential- und Logarithmusfunktionen mit Asymptoten; exponentielles Wachstum und Abklingen"
+  ],
+  "lehrplan_ib": [
+   "Extended / Enrichment: Exponentialfunktionen darstellen (Extended); Logarithmusfunktionen (Enrichment)"
   ],
   "datei": "inhalte/themen/funktionen.exponential_log.json"
  },
@@ -1886,11 +2176,13 @@
   },
   "reihenfolge": {
    "gym_by": 5,
-   "rs_by": 2
+   "rs_by": 2,
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M10 3 Sinus- und Kosinusfunktion",
-   "rs_by": "M10 1 Trigonometrie"
+   "rs_by": "M10 1 Trigonometrie",
+   "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Sinus-/Kosinusfunktion, Bogenmaß, Periodizität, Parameter.",
   "lehrplan_gym": [
@@ -1898,6 +2190,9 @@
   ],
   "lehrplan_rs": [
    "Graphen trigonometrischer Funktionen; periodische Vorgänge"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Graphen trigonometrischer Funktionen (Bogenmaß: Enrichment)"
   ],
   "datei": "inhalte/themen/funktionen.trig.json"
  },
@@ -1913,14 +2208,19 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "gym_by": 6
+   "gym_by": 6,
+   "ib_myp": 8
   },
   "lernbereich": {
-   "gym_by": "M10 4 Ganzrationale Funktionen"
+   "gym_by": "M10 4 Ganzrationale Funktionen",
+   "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Polynome, Randverhalten, Nullstellen mit Vielfachheit, Symmetrie.",
   "lehrplan_gym": [
    "Ganzrationale Funktionen"
+  ],
+  "lehrplan_ib": [
+   "Enrichment: Kubische Funktionen transformieren"
   ],
   "datei": "inhalte/themen/funktionen.ganzrational.json"
  },
@@ -1938,11 +2238,13 @@
   },
   "reihenfolge": {
    "gym_by": 9,
-   "rs_by": 9
+   "rs_by": 9,
+   "ib_myp": 9
   },
   "lernbereich": {
    "gym_by": "M10 5 Fortführung der Raumgeometrie",
-   "rs_by": "M9 5 Raumgeometrie"
+   "rs_by": "M9 5 Raumgeometrie",
+   "ib_myp": "MYP 3 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Volumen und Oberfläche von Pyramide, Kegel, Kugel und zusammengesetzten Körpern; Cavalieri; Extremwerte an Körpern",
   "lehrplan_gym": [
@@ -1953,6 +2255,9 @@
   ],
   "lehrplan_rs": [
    "Pyramide, Kegel und Kugel: Oberfläche und Volumen; zusammengesetzte Körper"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3 / Extended: Volumen und Oberfläche (weitere Körper: Extended)"
   ],
   "datei": "inhalte/themen/raum.pyramide_kegel_kugel.json"
  },
@@ -1970,11 +2275,13 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 11
+   "rs_by": 11,
+   "ib_myp": 27
   },
   "lernbereich": {
    "gym_by": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen",
-   "rs_by": "M10 5 Daten und Zufall"
+   "rs_by": "M10 5 Daten und Zufall",
+   "ib_myp": "MYP 4 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
   "umfang": "Baumdiagramme, Pfadregeln.",
   "lehrplan_gym": [
@@ -1982,6 +2289,9 @@
   ],
   "lehrplan_rs": [
    "Mehrstufige Zufallsexperimente mit Baumdiagramm; Pfadregeln"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Baumdiagramme; Multiplikationsregel"
   ],
   "datei": "inhalte/themen/stochastik.mehrstufig.json"
  },
@@ -2052,15 +2362,20 @@
    "ib_myp": 2
   },
   "reihenfolge": {
-   "rs_by": 18
+   "rs_by": 18,
+   "ib_myp": 8
   },
   "lernbereich": {
-   "rs_by": "M7 8 Auswertung von Daten"
+   "rs_by": "M7 8 Auswertung von Daten",
+   "ib_myp": "MYP 2 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
   "umfang": "Repräsentativität und Grenzen von Aussagen.",
   "lehrplan_gym": [],
   "lehrplan_rs": [
    "Stichproben auf Repräsentativität prüfen; manipulative Darstellungen erkennen"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3: Daten erheben (Umfragen); Grenzen und Kontext statistischer Untersuchungen"
   ],
   "lehrplan_andere": [
    "RS 7: Stichprobeneignung/Repräsentativität beurteilen."
@@ -2129,15 +2444,20 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "rs_by": 12
+   "rs_by": 12,
+   "ib_myp": 6
   },
   "lernbereich": {
-   "rs_by": "M9 7 Quadratische Funktionen und quadratische Gleichungen"
+   "rs_by": "M9 7 Quadratische Funktionen und quadratische Gleichungen",
+   "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Graphen verschieben, strecken, spiegeln.",
   "lehrplan_gym": [],
   "lehrplan_rs": [
    "Bedeutung der Parameter in der Scheitelform; Parabelscharen (Abbildungen anderer Graphen: M10 2)"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Transformationen quadratischer Funktionen (kubische und trigonometrische: Enrichment)"
   ],
   "lehrplan_andere": [
    "RS 10: Transformierte Potenz-/Exponential-/Logarithmusgleichungen bestimmen; Spiegelachsen: Koordinatenachsen, y=x."
@@ -2156,15 +2476,20 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "rs_by": 3
+   "rs_by": 3,
+   "ib_myp": 9
   },
   "lernbereich": {
-   "rs_by": "M9 1 Reelle Zahlen"
+   "rs_by": "M9 1 Reelle Zahlen",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Gleichungen der Form x² = a lösen (zwei, eine oder keine Lösung).",
   "lehrplan_gym": [],
   "lehrplan_rs": [
    "Gleichungen der Form x² = a lösen"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Quadratische Gleichungen der Form x² = a lösen"
   ],
   "lehrplan_andere": [
    "RS 9: Wurzelwerte näherungsweise einschätzen und x²=a lösen."
@@ -2209,15 +2534,20 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "rs_by": 4
+   "rs_by": 4,
+   "ib_myp": 14
   },
   "lernbereich": {
-   "rs_by": "M10 2 Abbildungen"
+   "rs_by": "M10 2 Abbildungen",
+   "ib_myp": "MYP 5 Spatial reasoning (Geometrie und Trigonometrie)"
   },
   "umfang": "Abbildungen (Spiegelung, Drehung) mit Matrizen, Matrizenrechnung.",
   "lehrplan_gym": [],
   "lehrplan_rs": [
    "Abbildungen mit Vektoren und Matrizen berechnen (Achsenspiegelung an Ursprungsgeraden, Drehung); Hintereinanderausführung"
+  ],
+  "lehrplan_ib": [
+   "kein Beleg: Matrizen – im Framework 2020 nicht gefunden (Vektoren: Enrichment)"
   ],
   "lehrplan_andere": [
    "RS 10: Koordinatenabbildungen",
@@ -2239,15 +2569,20 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "rs_by": 8
+   "rs_by": 8,
+   "ib_myp": 10
   },
   "lernbereich": {
-   "rs_by": "M10 3 Potenzen und Potenzfunktionen"
+   "rs_by": "M10 3 Potenzen und Potenzfunktionen",
+   "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Umkehrbarkeit und Umkehrfunktion.",
   "lehrplan_gym": [],
   "lehrplan_rs": [
    "Umkehrfunktion bestimmen (auch in M10 4 bei Exponential- und Logarithmusfunktionen)"
+  ],
+  "lehrplan_ib": [
+   "Enrichment: Umkehrfunktionen und verkettete Funktionen"
   ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/funktionen.umkehr.json"
@@ -2262,8 +2597,17 @@
   "klasse": {
    "ib_myp": 3
   },
+  "reihenfolge": {
+   "ib_myp": 12
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 3 Reasoning with data (Daten und Wahrscheinlichkeit)"
+  },
   "umfang": "Elemente, Schnitt, Vereinigung; Wahrscheinlichkeit separat.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Mengen: Schreibweise und Operationen, bis zu drei Mengen"
+  ],
   "lehrplan_andere": [
    "IB MYP 1: Venn-Diagramme",
    "IB MYP 4–5 Standard: Mengenoperationen und Venn-Diagramme"
@@ -2280,8 +2624,17 @@
   "klasse": {
    "ib_myp": 2
   },
+  "reihenfolge": {
+   "ib_myp": 4
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
+  },
   "umfang": "Verhältnisse kürzen und vergleichen, Proportionen, Einheitsraten, Änderungsraten.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "MYP 1–3: Verhältnisse angeben, vereinfachen und anwenden"
+  ],
   "lehrplan_andere": [
    "IB MYP 2: Gleichwertige Verhältnisse",
    "IB MYP 2: Proportionen lösen",
@@ -2300,8 +2653,17 @@
   "klasse": {
    "ib_myp": 5
   },
+  "reihenfolge": {
+   "ib_myp": 16
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 5 Reasoning with data (Daten und Wahrscheinlichkeit)"
+  },
   "umfang": "Streudiagramme, Zusammenhang, Korrelation und Kausalität.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "Standard / Extended: Streudiagramm, Ausgleichsgerade, qualitative Korrelation (Standard); quantitative Korrelation (Extended)"
+  ],
   "lehrplan_andere": [
    "IB MYP 3: Zweidimensionale Datendarstellung",
    "IB MYP 3: Korrelation und Kausalität"
@@ -2318,8 +2680,17 @@
   "klasse": {
    "ib_myp": 5
   },
+  "reihenfolge": {
+   "ib_myp": 15
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 5 Reasoning with data (Daten und Wahrscheinlichkeit)"
+  },
   "umfang": "Streuung berechnen und interpretieren.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Standardabweichung (mit Technologie; von Hand: Enrichment)"
+  ],
   "lehrplan_andere": [
    "IB MYP 4: Datenanalyse, Standardabweichung, zweidimensionale Daten"
   ],
@@ -2335,8 +2706,17 @@
   "klasse": {
    "ib_myp": 5
   },
+  "reihenfolge": {
+   "ib_myp": 17
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 5 Reasoning with data (Daten und Wahrscheinlichkeit)"
+  },
   "umfang": "Bedingung, Bezugsmenge, Abhängigkeit/Unabhängigkeit.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Bedingte Wahrscheinlichkeit; abhängige und unabhängige Ereignisse"
+  ],
   "lehrplan_andere": [
    "IB MYP 4–5 Extended: Unabhängige Ereignisse und bedingte Wahrscheinlichkeit"
   ],
@@ -2352,8 +2732,17 @@
   "klasse": {
    "ib_myp": 5
   },
+  "reihenfolge": {
+   "ib_myp": 7
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
+  },
   "umfang": "Graph und stückweise Beschreibung.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "Annahme Extended: Betragsfunktion – Betrag als Zahl: Standard; Funktion nicht ausdrücklich genannt"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/funktionen.betrag.json"
  },
@@ -2367,8 +2756,17 @@
   "klasse": {
    "ib_myp": 5
   },
+  "reihenfolge": {
+   "ib_myp": 4
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 5 Numerical and abstract reasoning (Zahl und Algebra)"
+  },
   "umfang": "Arithmetische und geometrische Folgen und Reihen, Summenschreibweise.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Arithmetische und geometrische Folgen beschreiben und fortsetzen"
+  ],
   "lehrplan_andere": [
    "IB MYP 4: Arithmetische/geometrische Folgen, Reihen, Summenschreibweise"
   ],
@@ -2384,8 +2782,17 @@
   "klasse": {
    "ib_myp": 5
   },
+  "reihenfolge": {
+   "ib_myp": 5
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 5 Numerical and abstract reasoning (Zahl und Algebra)"
+  },
   "umfang": "Summen von Folgengliedern.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "Enrichment: Arithmetische und geometrische Reihen, Summenzeichen, Konvergenz"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/funktionen.reihen.json"
  },
@@ -2399,8 +2806,17 @@
   "klasse": {
    "ib_myp": 4
   },
+  "reihenfolge": {
+   "ib_myp": 20
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
+  },
   "umfang": "Graphen, Wege, Graphenalgorithmen (IB-Verlagsinhalt).",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Netzwerke: Kanten, Knoten, Wege; gewichtete Netzwerke"
+  ],
   "lehrplan_andere": [
    "IB MYP 4: Graphentheorie, Graphenalgorithmen, Zahlentheorie"
   ],
@@ -2416,8 +2832,17 @@
   "klasse": {
    "ib_myp": 5
   },
+  "reihenfolge": {
+   "ib_myp": 12
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
+  },
   "umfang": "Optimierung mit linearen Ungleichungssystemen (IB-Verlagsinhalt).",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Lineare Optimierung mit Ungleichungen"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/sonder.optimierung.json"
  },
@@ -2429,8 +2854,17 @@
   "gebiet": "Daten und Zufall",
   "titel": "Normalverteilung",
   "klasse": {"ib_myp": 5},
+  "reihenfolge": {
+   "ib_myp": 18
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 5 Reasoning with data (Daten und Wahrscheinlichkeit)"
+  },
   "umfang": "Verteilungsmodell und Anwendungen (Verlagsinhalt IB Extended).",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "Annahme: Histogramme mit stetigen Klassen (Extended); Normalverteilung selbst nicht genannt"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/daten.normalverteilung.json"
  },
@@ -2442,8 +2876,17 @@
   "gebiet": "Geld und Verhältnisse",
   "titel": "Zinseszins",
   "klasse": {"ib_myp": 4},
+  "reihenfolge": {
+   "ib_myp": 13
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
+  },
   "umfang": "Wiederholte Verzinsung, Wachstumsfaktor.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "Annahme: Zinseszins – im Framework nicht ausdrücklich genannt (geometrische Folgen: Standard)"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/finanzen.zinseszins.json"
  },
@@ -2455,8 +2898,17 @@
   "gebiet": "Entdecker-Inseln",
   "titel": "Aussagenlogik",
   "klasse": {"ib_myp": 4},
+  "reihenfolge": {
+   "ib_myp": 14
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
+  },
   "umfang": "Verknüpfungen, Wahrheitstafeln (Verlagsinhalt).",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "kein Beleg: Aussagenlogik – im Framework nicht gefunden"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/sonder.logik.json"
  },
@@ -2468,8 +2920,17 @@
   "gebiet": "Entdecker-Inseln",
   "titel": "Schranken und Genauigkeit",
   "klasse": {"ib_myp": 5},
+  "reihenfolge": {
+   "ib_myp": 1
+  },
+  "lernbereich": {
+   "ib_myp": "MYP 5 Numerical and abstract reasoning (Zahl und Algebra)"
+  },
   "umfang": "Obere/untere Schranken bei gerundeten Größen.",
   "lehrplan_gym": [],
+  "lehrplan_ib": [
+   "MYP 4–5 Extended: Obere und untere Schranken"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/zahlen.schranken.json"
  },
@@ -2487,11 +2948,13 @@
   },
   "reihenfolge": {
    "gym_by": 10,
-   "rs_by": 9
+   "rs_by": 9,
+   "ib_myp": 10
   },
   "lernbereich": {
    "gym_by": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
-   "rs_by": "M6 5 Terme und Gleichungen"
+   "rs_by": "M6 5 Terme und Gleichungen",
+   "ib_myp": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Gleichungen wie a + x = b oder a · x = b durch Umkehrrechnung oder erste Äquivalenzumformung lösen und im Sachzusammenhang aufstellen.",
   "lehrplan_gym": [
@@ -2500,6 +2963,9 @@
   ],
   "lehrplan_rs": [
    "Gleichungen der Form a · x = c und x + b = c mit Äquivalenzumformungen lösen, auch in Sachaufgaben"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3 (Annahme): Einfache Gleichungen aufstellen und lösen (Spalte im Framework nicht eindeutig lesbar)"
   ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/gleichungen.einfach.json"
@@ -2518,11 +2984,13 @@
   },
   "reihenfolge": {
    "gym_by": 5,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 3
   },
   "lernbereich": {
    "gym_by": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung",
-   "rs_by": "M7 6 Terme, Gleichungen und Ungleichungen"
+   "rs_by": "M7 6 Terme, Gleichungen und Ungleichungen",
+   "ib_myp": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Lineare Gleichungen (auch mit Klammern und Variable auf beiden Seiten) durch Äquivalenzumformungen lösen, Probe machen, aus Sachsituationen aufstellen und Lösungen deuten.",
   "lehrplan_gym": [
@@ -2530,6 +2998,9 @@
   ],
   "lehrplan_rs": [
    "Gleichungen der Form ax + b = c lösen, auch in Sachaufgaben"
+  ],
+  "lehrplan_ib": [
+   "MYP 1–3 (Annahme): Lineare Gleichungen aufstellen und lösen (Spalte im Framework nicht eindeutig lesbar)"
   ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/gleichungen.linear.json"
@@ -2548,11 +3019,13 @@
   },
   "reihenfolge": {
    "gym_by": 5,
-   "rs_by": 15
+   "rs_by": 15,
+   "ib_myp": 8
   },
   "lernbereich": {
    "gym_by": "M8 3 Elementare gebrochen-rationale Funktionen",
-   "rs_by": "M7 7 Proportionalitäten"
+   "rs_by": "M7 7 Proportionalitäten",
+   "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Indirekte Proportionalität erkennen, Produktgleichheit, Zuordnungsarten unterscheiden",
   "lehrplan_gym": [
@@ -2560,6 +3033,9 @@
   ],
   "lehrplan_rs": [
    "Indirekte Proportionalität (produktgleich, Hyperbelast, Dreisatz); direkte, indirekte und nicht proportionale Zuordnungen unterscheiden"
+  ],
+  "lehrplan_ib": [
+   "MYP 4–5 Standard: Indirekte Proportionalität"
   ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/groessen.indirekt.json"

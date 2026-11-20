@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entwurf: Abschluss nach Etappe, Flug und Ort</title>
+<style>
+:root { --seite: #EEF0EC; --text: #14202B; --leise: #55606B; --linie: #D9D4C7; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--seite); color: var(--text); font-size: 16px; line-height: 1.45; }
+button { font: inherit; cursor: pointer; }
+.huelle { max-width: 1320px; margin: 0 auto; padding: 18px 14px 80px; }
+.einl h1 { font-size: 25px; margin: 0 0 6px; } .einl p { margin: 0 0 6px; color: var(--leise); max-width: 900px; }
+.steuer { position: sticky; top: 0; z-index: 5; background: #EEF0ECee; backdrop-filter: blur(6px); padding: 10px 0; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; border-bottom: 1px solid var(--linie); margin-bottom: 8px; }
+.gruppe { display: flex; gap: 4px; align-items: center; } .gruppe > span { font-size: 13px; color: var(--leise); margin-right: 4px; }
+.gruppe button { border: 1px solid var(--linie); background: #fff; border-radius: 99px; padding: 6px 12px; font-size: 14px; }
+.gruppe button.an { background: var(--text); color: #fff; border-color: var(--text); }
+.nav { display: flex; flex-wrap: wrap; gap: 6px; } .nav a { font-size: 14px; padding: 5px 10px; border-radius: 99px; background: #fff; border: 1px solid var(--linie); color: var(--text); text-decoration: none; }
+section.fall { background: #fff; border-radius: 20px; padding: 18px; margin: 20px 0; border: 1px solid #dcdcd3; scroll-margin-top: 70px; }
+section.fall > h2 { margin: 0 0 4px; font-size: 21px; } section.fall > .wann { margin: 0 0 6px; color: var(--leise); font-size: 15px; }
+.regel { background: #FFF6D6; border-radius: 10px; padding: 8px 12px; font-size: 14.5px; margin: 0 0 12px; }
+.empf { display: inline-block; background: #0F7A50; color: #fff; font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 99px; margin-left: 6px; vertical-align: 3px; }
+.buehne { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+.geraet { width: 400px; max-width: 100%; border-radius: 28px; overflow: hidden; box-shadow: 0 6px 24px #0002; border: 8px solid #20262c; flex: none; position: relative; }
+body.tablet .geraet { width: 820px; border-width: 12px; }
+.geraet .bar { height: 22px; background: #20262c; color: #9aa; font-size: 11px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; }
+.notiz { flex: 1; min-width: 260px; font-size: 14.5px; color: var(--leise); } .notiz h4 { margin: 0 0 4px; color: var(--text); font-size: 15px; } .notiz ul { margin: 0 0 10px; padding-left: 18px; }
+.nochmal { border: 1px solid var(--linie); background: #fff; border-radius: 10px; padding: 6px 12px; font-size: 14px; margin-top: 6px; }
+
+/* ---------- App-Fläche: hell (Ozean) und nacht ---------- */
+.lr { --r: 22px; background: var(--bg); color: var(--tx); min-height: 760px; padding: 18px 18px 26px; position: relative; overflow: hidden; }
+body.tablet .lr { min-height: 900px; padding: 28px 40px 34px; }
+.hell .lr, .lr.hell { --bg: #E8F7F9; --fl: #fff; --tx: #0B3B52; --le: #3F6B7D; --ak: #D9482A; --akt: #A93A1D; --auf: #fff; --gut: #0E7C86; --li: #BFDDE3; --gold: #C98A00; --gold2: #FFF1C9; --mut: #6B4FA0; --muth: #EEE7FA; --tinte: #0E7C86; }
+.nacht .lr, .lr.nacht { --bg: #0D1226; --fl: #161D3A; --tx: #E8ECF8; --le: #A9B3D1; --ak: #C9F26B; --akt: #8FB33A; --auf: #0D1226; --gut: #C9F26B; --li: #2D3762; --gold: #FFD23F; --gold2: #2A2A1A; --mut: #C7B4FF; --muth: #251F45; --tinte: #C9F26B; }
+.lr .ueber { font-size: 12px; font-weight: 800; letter-spacing: .09em; color: var(--le); margin: 0 0 6px; text-transform: uppercase; }
+.lr h2 { font-size: 30px; line-height: 1.1; margin: 4px 0 6px; letter-spacing: -.01em; } body.tablet .lr h2 { font-size: 40px; }
+.lr p { margin: 0 0 8px; }
+.lr .leise { color: var(--le); font-size: 14.5px; }
+.lr .karte { background: var(--fl); border: 1px solid var(--li); border-radius: 16px; padding: 12px 14px; margin: 10px 0; }
+.lr .kann { border-left: 5px solid var(--gut); } .lr .kann b { display: block; font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--le); margin-bottom: 2px; }
+.lr .sterne { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; font-size: 20px; color: var(--gold); }
+.lr .knopf { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 60px; border: 0; border-radius: 16px; background: var(--ak); color: var(--auf); font-weight: 800; font-size: 18px; padding: 0 18px; margin-top: 14px; text-align: left; }
+.lr .knopf { display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 10px 18px; } .lr .knopf small { display: block; grid-column: 1; grid-row: 2; font-weight: 600; font-size: 13px; opacity: .85; } .lr .knopf > span { grid-column: 2; grid-row: 1 / span 2; font-size: 22px; }
+.lr .zweit { display: block; text-align: center; margin-top: 10px; color: var(--le); font-size: 15px; text-decoration: underline; background: none; border: 0; width: 100%; }
+.lr .knobel { display: flex; align-items: center; gap: 10px; } .lr .knobel .k-t { flex: 1; font-size: 14.5px; } .lr .knobel button { border: 1px solid var(--li); background: transparent; color: var(--tx); border-radius: 10px; padding: 8px 12px; font-weight: 700; }
+.lr .zahlen { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 4px; } .lr .zahlen span { background: var(--fl); border: 1px solid var(--li); border-radius: 99px; padding: 4px 10px; font-size: 14px; }
+.lr .zahlen span b { font-size: 15px; }
+
+/* Stempel */
+.stempel { width: 128px; height: 128px; border-radius: 50%; border: 4px solid var(--tinte); color: var(--tinte); display: grid; place-items: center; text-align: center; transform: rotate(-9deg); margin: 6px 0 8px; position: relative; }
+.stempel::before { content: ""; position: absolute; inset: 6px; border: 2px dashed var(--tinte); border-radius: 50%; opacity: .6; }
+.stempel b { font-size: 17px; letter-spacing: .06em; line-height: 1.05; } .stempel small { display: block; font-size: 11px; font-weight: 800; letter-spacing: .12em; margin-top: 2px; }
+.stempel.gold { --tinte: var(--gold); } .stempel.mut { --tinte: var(--mut); }
+.kopfzeile { display: flex; align-items: center; gap: 16px; } .kopfzeile .t { flex: 1; min-width: 0; }
+body.tablet .stempel { width: 150px; height: 150px; }
+.band { display: inline-block; background: var(--muth); color: var(--mut); font-weight: 800; font-size: 12px; letter-spacing: .08em; padding: 3px 9px; border-radius: 99px; margin-bottom: 4px; }
+.band.gold { background: var(--gold2); color: var(--gold); }
+.direkt-linie { height: 34px; position: relative; margin: 0 0 4px; } .direkt-linie svg { width: 100%; height: 34px; overflow: visible; }
+
+/* Flug */
+.flug-kopf { text-align: center; padding: 6px 0 4px; } .flug-kopf h2 { font-size: 38px; } body.tablet .flug-kopf h2 { font-size: 54px; }
+.flug-kopf .titel { font-size: 18px; font-weight: 700; color: var(--le); }
+.etappen { display: grid; grid-template-columns: 1fr; gap: 4px; margin: 4px 0; } body.tablet .etappen { grid-template-columns: 1fr 1fr; column-gap: 18px; }
+.etappen div { display: flex; gap: 8px; align-items: baseline; font-size: 14.5px; padding: 3px 0; border-bottom: 1px solid var(--li); }
+.etappen div i { font-style: normal; color: var(--gut); font-weight: 900; }
+.mehr { background: none; border: 0; color: var(--le); text-decoration: underline; padding: 4px 0; font-size: 14px; }
+.drei { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0; } .drei div { background: var(--fl); border: 1px solid var(--li); border-radius: 14px; padding: 8px; text-align: center; font-size: 13px; color: var(--le); } .drei b { display: block; font-size: 22px; color: var(--tx); }
+.wdh-kette { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; } .wdh-kette span { font-size: 12px; border: 1px solid var(--li); border-radius: 99px; padding: 2px 8px; }
+
+/* Neues Thema */
+.neu { position: absolute; inset: 0; background: var(--ak); color: var(--auf); padding: 26px 22px; display: flex; flex-direction: column; }
+body.tablet .neu { padding: 50px 60px; }
+.neu .ueber { color: var(--auf); opacity: .85; font-size: 14px; }
+.neu h2 { font-size: 44px; margin: 6px 0 10px; } body.tablet .neu h2 { font-size: 64px; }
+.neu .satz { font-size: 18px; max-width: 560px; } body.tablet .neu .satz { font-size: 21px; }
+.neu .ortchip { display: inline-flex; align-items: center; gap: 8px; border: 2px solid currentColor; border-radius: 99px; padding: 6px 14px; font-weight: 800; margin: 10px 0; align-self: flex-start; }
+.neu .los { margin-top: auto; background: var(--auf); color: var(--ak); border: 0; border-radius: 18px; min-height: 66px; font-weight: 900; font-size: 20px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+.neu .spaeter { background: none; border: 0; color: var(--auf); opacity: .85; text-decoration: underline; margin-top: 12px; font-size: 15px; }
+.route { margin: 14px 0 6px; } .route svg { width: 100%; height: 90px; } .route text { font: 800 15px ui-sans-serif, system-ui; fill: currentColor; }
+.neu-b { background: var(--ak); color: var(--auf); border-radius: 20px; padding: 18px; margin-top: 16px; }
+.neu-b h3 { font-size: 30px; margin: 4px 0 6px; } .neu-b .ueber { color: var(--auf); opacity: .85; }
+.neu-b .los { width: 100%; margin-top: 12px; background: var(--auf); color: var(--ak); border: 0; border-radius: 14px; min-height: 58px; font-weight: 900; font-size: 18px; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; }
+
+/* Ort */
+.ort-buehne { text-align: center; padding-top: 6px; }
+.pass { width: 230px; height: 230px; margin: 10px auto 12px; border-radius: 50%; border: 6px double var(--gold); color: var(--gold); display: grid; place-items: center; transform: rotate(-7deg); }
+.pass b { font-size: 34px; letter-spacing: .1em; display: block; } .pass small { display: block; font-weight: 800; letter-spacing: .2em; font-size: 12px; } .pass em { font-style: normal; font-size: 12px; display: block; margin-top: 4px; }
+.fluege-ort { text-align: left; }
+
+/* Bewegung */
+@media (prefers-reduced-motion: no-preference) {
+  body:not(.ruhig) .anim .stempel, body:not(.ruhig) .anim .pass { animation: stempeln .45s cubic-bezier(.2, 1.4, .4, 1) both .15s; }
+  body:not(.ruhig) .anim .sterne { animation: auf .4s ease-out both .55s; }
+  body:not(.ruhig) .anim .direkt-linie path { stroke-dasharray: 520; stroke-dashoffset: 520; animation: zeichnen .9s ease-out forwards .1s; }
+  body:not(.ruhig) .anim .direkt-linie .flz { animation: fliegen .9s ease-out both .1s; }
+  body:not(.ruhig) .anim .etappen div { animation: auf .25s ease-out both; }
+  body:not(.ruhig) .anim .flug-kopf h2 { animation: gross .5s cubic-bezier(.2, 1.3, .4, 1) both; }
+  body:not(.ruhig) .anim.neu, body:not(.ruhig) .anim .neu { animation: hoch .45s ease-out both; }
+  body:not(.ruhig) .anim .route path { stroke-dasharray: 600; stroke-dashoffset: 600; animation: zeichnen 1.1s ease-in-out forwards .3s; }
+  body:not(.ruhig) .anim .route .flz { animation: route 1.1s ease-in-out both .3s; }
+}
+@keyframes stempeln { 0% { transform: scale(1.8) rotate(-24deg); opacity: 0; } 70% { opacity: 1; } 100% { transform: scale(1) rotate(-9deg); opacity: 1; } }
+@keyframes auf { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes zeichnen { to { stroke-dashoffset: 0; } }
+@keyframes fliegen { from { transform: translateX(-100%); opacity: 0; } 20% { opacity: 1; } to { transform: none; } }
+@keyframes gross { from { transform: scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes hoch { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes route { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+.ueberspringen { position: absolute; right: 12px; top: 10px; background: none; border: 0; color: var(--le); font-size: 12px; text-decoration: underline; }
+</style>
+</head>
+<body class="hell">
+<div class="huelle">
+  <div class="einl">
+    <h1>Entwurf: Abschluss nach Etappe, Flug und Ort</h1>
+    <p>Kinderansicht, zum Antippen. Oben umschalten: Handy (400 px) oder Tablet (820 px), hell oder nacht, Bewegung an oder aus. Knöpfe in den Geräten führen zum nächsten Schritt. Beispiele erfunden (Kind A, Flug „Natürliche Zahlen“ in Rom), keine Kinderdaten.</p>
+  </div>
+  <div class="steuer">
+    <div class="gruppe"><span>Gerät</span><button data-g="handy" class="an">Handy 400</button><button data-g="tablet">Tablet 820</button></div>
+    <div class="gruppe"><span>Gestaltung</span><button data-t="hell" class="an">hell</button><button data-t="nacht">nacht</button></div>
+    <div class="gruppe"><span>Bewegung</span><button data-b="an" class="an">an</button><button data-b="aus">aus</button></div>
+    <nav class="nav"><a href="#e1">1a Direktflug</a><a href="#e2">1b Sauber</a><a href="#e3">1c Drangeblieben</a><a href="#e4">1d letzte Etappe</a><a href="#f1">2 Flug (Weg A)</a><a href="#f2">2 Flug (Weg B)</a><a href="#o1">3 Ort</a></nav>
+  </div>
+  <div id="faelle"></div>
+</div>
+<script>
+'use strict';
+const ETAPPEN = ['Welchen Wert hat eine Ziffer?', 'Große Zahlen schreiben', 'Große Zahlen lesen', 'Zahlenstrahl ablesen', 'Zahl am Zahlenstrahl finden', 'Welche Zahl ist größer?', 'Runden', 'Runden mit der 9', 'Wann darf man runden?', 'Gibt es eine größte natürliche Zahl?', 'Römische Zahlen schreiben', 'Warum sind römische Zahlen anders?', 'Zahlen im Zweiersystem'];
+const KANN = ['Ziffern nach ihrem Stellenwert lesen', 'große Zahlen aus Worten in Ziffern schreiben', 'große Zahlen richtig aussprechen', 'Werte am Zahlenstrahl ablesen', 'Zahlen am Zahlenstrahl eintragen', 'Zahlen der Größe nach vergleichen', 'auf eine Stelle runden – ab 5 wird aufgerundet', 'runden, auch wenn eine 9 überläuft', 'begründen, wann Runden sinnvoll ist', 'erklären, warum es keine größte Zahl gibt', 'römische Zahlen schreiben', 'römische und unsere Schreibweise vergleichen', 'Zahlen im Zweiersystem lesen'];
+const Z = {};
+const flz = '<g class="flz"><path d="M0 0 l14 5 l-14 5 l3 -5z" fill="currentColor"/></g>';
+
+function etappe(f) {
+  const nr = f.nr ?? 7, titel = ETAPPEN[nr - 1];
+  const fassung = {
+    direkt: { band: '<span class="band gold">DIREKTFLUG</span>', st: '<div class="stempel gold"><div><b>DIREKT</b><small>ROM</small></div></div>', h: 'Direktflug.',
+      p: '6 Bordkarten – alle beim ersten Versuch richtig.', z: [['6', 'von 6 auf Anhieb']], extra: '<div class="direkt-linie" aria-hidden="true"><svg viewBox="0 0 360 34"><path d="M4 28 Q180 -6 352 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="2 6" style="color:var(--gold)"/></svg></div>' },
+    sauber: { band: '', st: '<div class="stempel"><div><b>GELANDET</b><small>ROM</small></div></div>', h: f.wieder ? 'Wieder gelandet.' : 'Sauber gelandet.',
+      p: f.wieder ? 'Nach der Wiederholung wieder 3 in Folge richtig.' : '8 Bordkarten, 6 davon selbst gelöst, die letzten 3 in Folge.', z: [['6', 'selbst gelöst'], ['3', 'in Folge']] },
+    kampf: { band: '<span class="band">DRANGEBLIEBEN</span>', st: '<div class="stempel mut"><div><b>GELANDET</b><small>ROM</small></div></div>', h: 'Drangeblieben – gelandet.',
+      p: '15 Bordkarten, zweimal neu angesetzt – und am Ende 3 in Folge richtig. Genau so lernt man etwas Schweres.', z: [['15', 'Bordkarten'], ['3', 'in Folge zum Schluss']] } }[f.art];
+  const letzte = f.letzte;
+  return `<div class="lr anim">${fassung.extra || ''}
+    <p class="ueber">Etappe ${nr} von 13 · ${f.art === 'direkt' ? 'Natürliche Zahlen' : 'Natürliche Zahlen'}</p>
+    <div class="kopfzeile">${fassung.st}<div class="t">${fassung.band}<h2>${fassung.h}</h2><p class="leise">${titel}</p></div></div>
+    <p>${fassung.p}</p>
+    <div class="karte kann"><b>Du kannst jetzt</b>${KANN[nr - 1].charAt(0).toUpperCase() + KANN[nr - 1].slice(1)}.</div>
+    <span class="sterne">★ +${f.art === 'kampf' ? 60 : 60} Sterne</span>
+    ${f.art === 'kampf' ? '<p class="leise">In 1 Lerntag kommt die Etappe kurz wieder. Dann merkst du, wie gut sie schon sitzt.</p>' : '<p class="leise">In 1 Lerntag kommt die Etappe kurz zur Wiederholung.</p>'}
+    ${f.art !== 'kampf' ? `<div class="karte knobel"><span class="k-t"><b>Knobel-Bordkarte</b> – freiwillig, ein Versuch, richtig: ★ +30</span><button>Knobeln</button></div>` : ''}
+    ${letzte ? `<button class="knopf" data-x="test">Weiter: Flug-Test<small>13 Bordkarten, eine je Etappe, ohne Tipps</small><span>›</span></button>`
+      : `<button class="knopf">Weiter: ${ETAPPEN[nr]}<small>Etappe ${nr + 1} von 13</small><span>›</span></button>`}
+    <button class="zweit">Pause – zur Abflugtafel</button>
+  </div>`;
+}
+
+function flugA(sid) {
+  const s = Z[sid] || (Z[sid] = { schritt: 1 });
+  if (s.schritt === 2) return neuesThema(sid, false);
+  return flugSeite(sid, false);
+}
+function flugSeite(sid, mitNeu) {
+  const s = Z[sid] || (Z[sid] = {});
+  const zeigAlle = s.alle || document.body.classList.contains('tablet');
+  const liste = (zeigAlle ? KANN : KANN.slice(0, 5)).map((k, i) => `<div style="animation-delay:${Math.min(i, 9) * 70}ms"><i>✓</i><span>${k.charAt(0).toUpperCase() + k.slice(1)}</span></div>`).join('');
+  return `<div class="lr anim"><button class="ueberspringen" data-s="${sid}" data-a="weiter">Überspringen ›</button>
+    <div class="flug-kopf"><p class="ueber">Rom · Flug 1 von 4</p><div class="stempel gold" style="margin:6px auto 4px"><div><b>FLUG</b><small>GESCHAFFT</small></div></div><h2>Flug geschafft</h2><p class="titel">Natürliche Zahlen</p></div>
+    <div class="drei"><div><b>13/13</b>Etappen gelandet</div><div><b>12/13</b>im Flug-Test, 1 verbessert</div><div><b style="color:var(--gold)">★ 820</b>in diesem Flug</div></div>
+    <div class="karte"><p class="ueber" style="margin-bottom:2px">Das kannst du jetzt</p><div class="etappen">${liste}</div>
+      ${zeigAlle ? '' : `<button class="mehr" data-s="${sid}" data-a="alle">und 8 weitere anzeigen</button>`}</div>
+    <div class="karte"><b>Damit es bleibt:</b> Jede Etappe kommt in den nächsten Wochen ein paar Mal kurz wieder – je eine Bordkarte. Was man nach Tagen noch kann, sitzt wirklich.
+      <div class="wdh-kette"><span>nach 1 Lerntag</span><span>3</span><span>7</span><span>14</span><span>30</span></div></div>
+    ${mitNeu ? neuesThemaKarte() : `<button class="knopf" data-s="${sid}" data-a="weiter">Weiter<small>Was als Nächstes kommt</small><span>›</span></button>`}
+  </div>`;
+}
+function neuesThemaKarte() {
+  return `<div class="neu-b"><p class="ueber">Neues Thema · weiter in Rom</p><h3>Ganze Zahlen</h3><p>Zahlen unter null: ordnen, Betrag und Rechnen mit Vorzeichen.</p><p style="opacity:.85;font-size:14px">Flug 2 von 4 in Rom · 9 Etappen</p>
+    <button class="los">Los geht’s: Ganze Zahlen <span>›</span></button></div><button class="zweit">Später – zur Abflugtafel</button>`;
+}
+function neuesThema(sid, ortWechsel) {
+  const route = ortWechsel ? `<div class="route" aria-hidden="true"><svg viewBox="0 0 360 90"><text x="6" y="80">ROM</text><text x="300" y="80">ATHEN</text>
+      <path id="r-${sid}" d="M24 60 Q180 -20 330 60" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>
+      <circle cx="24" cy="60" r="6" fill="currentColor"/><circle cx="330" cy="60" r="6" fill="currentColor"/></svg></div>` : '';
+  return `<div class="lr"><div class="neu anim"><p class="ueber">${ortWechsel ? 'Neues Thema · Neuer Ort' : 'Neues Thema'}</p>${route}
+    <h2>${ortWechsel ? 'Teilbarkeit' : 'Ganze Zahlen'}</h2>
+    <p class="satz">${ortWechsel ? 'Teiler und Vielfache finden, Teilbarkeitsregeln für 2, 3, 5, 9 und 10, Primzahlen erkennen.' : 'Zahlen unter null: ordnen, Betrag und Rechnen mit Vorzeichen.'}</p>
+    <span class="ortchip">${ortWechsel ? '✈ Athen · Zahlen · Flug 1 von 1' : '📍 weiter in Rom · Flug 2 von 4'}</span>
+    <p style="opacity:.85">${ortWechsel ? '7 Etappen · zuerst kommt die Erklärung' : '9 Etappen · zuerst kommt die Erklärung'}</p>
+    <button class="los">${ortWechsel ? 'Abflug nach Athen' : 'Los geht’s: Ganze Zahlen'} <span>›</span></button>
+    <button class="spaeter">Später – zur Abflugtafel</button></div></div>`;
+}
+function ortSeite(sid) {
+  const s = Z[sid] || (Z[sid] = { schritt: 1 });
+  if (s.schritt === 1) return flugSeite(sid, false);
+  if (s.schritt === 3) return neuesThema(sid, true);
+  return `<div class="lr anim"><button class="ueberspringen" data-s="${sid}" data-a="weiter">Überspringen ›</button><div class="ort-buehne">
+    <p class="ueber">Alle Flüge in Rom geschafft</p>
+    <div class="pass"><div><small>GESCHAFFT</small><b>ROM</b><em>Zahlen · 20.11.</em></div></div>
+    <h2>Rom ist geschafft</h2><p class="leise">Der Stempel ist jetzt in deinem Reisepass – dein 3. Stempel.</p>
+    <span class="sterne">★ +100 Ort-Sterne</span></div>
+    <div class="karte fluege-ort"><p class="ueber" style="margin-bottom:2px">Deine Flüge in Rom</p><div class="etappen">
+      <div><i>✓</i>Natürliche Zahlen</div><div><i>✓</i>Ganze Zahlen</div><div><i>✓</i>Grundrechenarten und Rechengesetze</div><div><i>✓</i>Potenzen als Schreibweise</div></div></div>
+    <button class="knopf" data-s="${sid}" data-a="weiter">Weiter: neuer Ort<small>Wohin die Reise geht</small><span>›</span></button>
+    <button class="zweit">Reisepass ansehen</button></div>`;
+}
+
+const FAELLE = [
+  { id: 'e1', h: '1a · Etappe: Direktflug', wann: 'Gelandet mit genau dem Ziel an Bordkarten (meist 6), alle im ersten Versuch richtig, ohne Tipp.', bau: () => etappe({ art: 'direkt' }),
+    notiz: '<h4>Was anders ist</h4><ul><li>Goldener Stempel „DIREKT“, Band „DIREKTFLUG“, gestrichelte Flugbahn läuft einmal über den Kopf.</li><li>Gleicher Aufbau wie die anderen Fassungen – nur Stempel, Überschrift, ein Satz.</li></ul>' },
+  { id: 'e2', h: '1b · Etappe: Sauber gelandet', wann: 'Gelandet mit höchstens 2 endgültigen Fehlern, ohne gesenkte Stufe, höchstens 4 Bordkarten über dem Ziel.', bau: () => etappe({ art: 'sauber' }),
+    notiz: '<h4>Auch für „wieder gelandet“</h4><ul><li>War die Etappe „wieder offen“ (zwei Fehler in der Wiederholung), steht „Wieder gelandet.“ – gleicher Aufbau.</li></ul>' },
+  { id: 'e3', h: '1c · Etappe: Drangeblieben', wann: 'Alles andere: mehr als 2 endgültige Fehler, oder Stufe zwischendurch gesenkt, oder mehr als 4 Bordkarten über dem Ziel, oder über mehrere Lerntage.', bau: () => etappe({ art: 'kampf' }),
+    notiz: '<h4>Ton</h4><ul><li>Anerkennung fürs Dranbleiben, keine Zahl der Fehler, kein Vergleich. Lila Stempel statt grün/gold – eigene Farbe, nicht „schlechter“.</li><li>Kein Knobel-Angebot (nach einem harten Weg eher Pause/weiter); bleibt über die Etappe erreichbar.</li></ul>' },
+  { id: 'e4', h: '1d · Etappe: die letzte Etappe des Flugs', wann: 'Wie 1a–1c, aber der eine große Knopf führt zum Flug-Test.', bau: () => etappe({ art: 'sauber', nr: 13, letzte: true }),
+    notiz: '<h4>Ein Knopf</h4><ul><li>Kein „Nächste Etappe“, kein Weg zurück ins Üben derselben Etappe.</li></ul>' },
+  { id: 'f1', h: '2 · Flug geschafft – Weg A: zwei Schritte', empf: true, wann: 'Nach bestandenem Flug-Test (und ggf. Verbessern). Schritt 1 feiert, Schritt 2 ist eine eigene, ganzflächige Seite „Neues Thema“.', bau: (sid) => flugA(sid),
+    notiz: '<h4>Warum empfohlen</h4><ul><li>„Neues Thema“ ist ein eigener Bildschirm in der Akzentfarbe – unübersehbar, und der Wechsel ist ein bewusster Schritt.</li><li>Erst „Weiter“ antippen, dann erscheint das neue Thema.</li></ul>' },
+  { id: 'f2', h: '2 · Flug geschafft – Weg B: eine Seite', wann: 'Alles auf einer Seite; „Neues Thema“ als große farbige Karte am Ende.', bau: (sid) => flugSeite(sid, true),
+    notiz: '<h4>Abwägung</h4><ul><li>Ein Tipp weniger.</li><li>Auf dem Handy liegt „Neues Thema“ unter dem Bildrand – leichter zu übersehen. Deshalb Weg A empfohlen.</li></ul>' },
+  { id: 'o1', h: '3 · Ort geschafft – Flug, Stempel, neuer Ort', empf: false, wann: 'Wenn mit dem Flug der letzte Flug des Orts geschafft ist: Flug-Abschluss → eigene Stempel-Seite → „Neues Thema · Neuer Ort“ mit Flugroute.', bau: (sid) => ortSeite(sid),
+    notiz: '<h4>Abhebung vom Flug</h4><ul><li>Großer Reisepass-Stempel (Gold, doppelter Rand) statt kleinem Flug-Stempel, „+100 Ort-Sterne“, Liste der Flüge des Orts.</li><li>Danach zeichnet sich die Route Rom → Athen: Abschied und neuer Ort in einem Bild.</li><li>Heute steht der Ort-Abschluss nur als Zeile im Test-Ergebnis.</li></ul>' }];
+
+function zeichne() {
+  document.getElementById('faelle').innerHTML = FAELLE.map((f) => `<section class="fall" id="${f.id}"><h2>${f.h}${f.empf ? '<span class="empf">Empfehlung</span>' : ''}</h2><p class="wann">${f.wann}</p>
+    <div class="buehne"><div><div class="geraet"><div class="bar"><span>9:41</span><span>Lernen</span></div><div id="v-${f.id}">${f.bau(f.id)}</div></div>
+    <button class="nochmal" data-s="${f.id}" data-a="neu">↺ Von vorn / Bewegung nochmal</button></div><div class="notiz">${f.notiz}</div></div></section>`).join('');
+}
+function neu(sid) { const f = FAELLE.find((x) => x.id === sid); const el = document.getElementById('v-' + sid); el.innerHTML = f.bau(sid); }
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return; const d = b.dataset;
+  if (d.g) { document.body.classList.toggle('tablet', d.g === 'tablet'); b.parentElement.querySelectorAll('button').forEach((x) => x.classList.toggle('an', x === b)); zeichne(); return; }
+  if (d.t) { document.body.classList.remove('hell', 'nacht'); document.body.classList.add(d.t); b.parentElement.querySelectorAll('button').forEach((x) => x.classList.toggle('an', x === b)); return; }
+  if (d.b) { document.body.classList.toggle('ruhig', d.b === 'aus'); b.parentElement.querySelectorAll('button').forEach((x) => x.classList.toggle('an', x === b)); zeichne(); return; }
+  if (d.s) { const s = Z[d.s] || (Z[d.s] = { schritt: 1 });
+    if (d.a === 'neu') { Z[d.s] = { schritt: 1 }; }
+    else if (d.a === 'alle') s.alle = true;
+    else if (d.a === 'weiter') s.schritt = (s.schritt || 1) + 1;
+    neu(d.s); }
+});
+zeichne();
+</script>
+</body>
+</html>

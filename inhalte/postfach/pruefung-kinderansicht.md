@@ -62,3 +62,10 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 ## 2026-11-20 – Bauauftrag LB (Lehrplan nach Klasse, 4 Stufen, Lehrpläne RS/IB)
 - `inhalte/pruefung/lehrer/umsetzung-lb.md`, Entwurf `entwurf/lehrplan-klasse-4-stufen.html`.
 - LB-1/LB-2/LB-3 Haupt-Chat, LB-4 Inhalts-Chat. LB-3 („Kann er – aber wiederholen“) wartet auf Sebastians Bestätigung der Variante ohne Vortest.
+
+## 2026-11-20 – FERTIG: Entwurf Abschluss
+- Beschreibung: `inhalte/pruefung/kind/abschluss/umsetzung.md` (Etappe 1a Direktflug / 1b Sauber / 1c Drangeblieben mit Schwellen, Flug Weg A empfohlen / Weg B, Ort, Bewegung, Daten-Bedarf, „Fertig, wenn“).
+- Klickbarer Entwurf: `inhalte/pruefung/kind/abschluss/entwurf/abschluss.html` (Handy 400 / Tablet 820, hell / nacht, Bewegung an / aus).
+- Bilder: `inhalte/pruefung/kind/abschluss/bilder/` (32 Einzelbilder + 3 Übersichten).
+- Neu nötig: Feld `landung` (Verlauf bis zur Landung) und `sterne_flug` vom Server; `kann` je Etappe und `kurz` je Thema von den Inhalts-Chats.
+- Offen für Sebastian: Weg A oder B beim Flug-Abschluss; Schwellen 1b/1c.

@@ -2214,3 +2214,22 @@ Am Ende „FERTIG: LB-3 Tests ergänzt“.
 **B – `bau-motivation` (erst nach A und nach dem Live von 0.83.0): App 0.83.1** – Abschluss-Ansicht des Flugs an `flug_geschafft` (oder `ort_geschafft`) hängen statt an `einheit_abgeschlossen`; fehlt das Feld (alter Server), Verhalten wie 0.83.0. Tests. „FERTIG: 0.83.1“.
 
 **C – `pruefung-potenz`: Nachprüfung der Nachbesserung.** Grundlage: Bericht „FERTIG: Potenz nachgebessert“ in `inhalte/postfach/potenz-teilen.md` (Entscheidungen 1–7 dort). Prüfen: (1) die neue Pflichtkarte `potenz_von_potenz` in Flug A vollständig – alle 35 Aufgaben nachrechnen, Erklärung, keine negativen Exponenten, passt zu M7 1.2; (2) jede in der Nachbesserung geänderte oder ersetzte Aufgabe (Liste alt → neu im Bericht); (3) sind Muss 1–2 und Sollte 1–6 wirklich erledigt; (4) die Umstufungen aus Entscheidung 1 (8 Aufgaben auf Stufe 1 „erkennen“) und die zwei Aufgaben ohne Typ (Entscheidung 3) vertretbar? Bericht `inhalte/pruefung/potenz/nachpruefung.md`, Muss/Sollte/Kann. „FERTIG: Nachprüfung Potenz“.
+
+---
+
+# Bau-Auftrag LB, Teil 8 (20.11.): Aufgeklappte Themen-Karte im Lehrplan kompakter – Variante A (von Sebastian gewählt)
+
+Betrifft die aufgeklappte Themen-Karte im Lehrplan des Plans, Ansichten „Nach Klasse“ und „Nach Themengebiet“ (LB-2). Vorlage: Entwurf des Gestalters im Chat mit Sebastian („Variante A“); es gibt keine Entwurfsdatei – die folgende Beschreibung ist die Vorgabe. Nur App, kein Server. Wird von `bau-motivation` zusammen mit Nachtrag B (`flug_geschafft`) als **0.83.1** gebaut.
+
+Heute: vier große Felder für die Stufen (je zwei Zeilen Erklärung) nehmen die halbe Karte ein, „Inhalte ansehen ›“ ist nur ein kleiner Link neben dem Ort, darüber neun Etappen-Kästchen.
+
+Neu, von oben nach unten:
+1. Kopf unverändert: Zeichen + Thema, darunter Themengebiet · Klassen; rechts Stufe und „im Plan“.
+2. „Lehrplan: …“ und der Beschreibungstext unverändert.
+3. Eine Zeile: Knopf „Inhalte ansehen (n Etappen)“ mit Rahmen in Akzentfarbe (öffnet wie bisher die Inhalte des Themas), daneben klein und grau „Ort: <Ort>“. Die Etappen-Kästchen entfallen.
+4. Trennlinie, darunter eine Zeile: „Stufe ⓘ“ (ⓘ führt zu „So funktioniert’s“, Abschnitt zu den Stufen), dann drei schmale Knöpfe nebeneinander: „Lernen“, „Kann er – wiederholen“, „Kann er komplett“. Der aktive Knopf grün hinterlegt mit ✓. Keine Erklärungszeilen unter den Knöpfen.
+5. In derselben Zeile ganz rechts als roter Textlink (kein Kasten): „Aus dem Plan nehmen“. Für Themen außerhalb des Plans steht dort stattdessen „In den Plan nehmen“.
+
+Wirkung und Speichern der Stufen bleiben unverändert (LB-3, LB-5), nur die Darstellung ändert sich. Der Rückfall-Hinweis aus Teil 6 bleibt sichtbar.
+Handy (400 px): Die Knöpfe dürfen umbrechen; „Aus dem Plan nehmen“ dann in eigener Zeile darunter, rechtsbündig.
+Abnahme bei 400, 820 und 1280 px: kein Wort mitten im Wort umbrochen, die Karte zugeklappt unverändert. Tests ergänzen. Offene Punkte (z. B. Etappen-Liste mit Stand aus Teil 5 S4 – bleibt sie hinter „Inhalte ansehen“ erreichbar?) im Bericht nennen. „FERTIG: LB Teil 8“.

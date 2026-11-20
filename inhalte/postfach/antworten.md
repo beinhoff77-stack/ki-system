@@ -520,3 +520,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **Probelauf Server** (zurückgerollt): `lb3_nachbesserung` (mit „M2-echt“) und `i4` gegen den Live-Stand bestanden; `ab_s_flug_abschluss_einmal` + `ab_s`-Rauchtest bestanden; Lernstände gleich. **Die Migration spiele ich so nicht ein** – siehe `AUFTRAEGE.md`, „Nachträge 20.11. nachmittags“, A: „Flug geschafft“ soll auch kommen, wenn Verbessern den Flug erstmals fertig macht.
 - **bau-motivation:** Abweichungen in Teil 7 (Reisewörter, Knopftext „Weiter: Flug-Test“) angenommen; der Gestalter prüft nach dem Live. Danach B (0.83.1).
 - **potenz-teilen:** Entscheidungen 1–7 vorläufig angenommen; Nachprüfung durch `pruefung-potenz` (C). Noch nichts in der Datenbank.
+
+## 20.11. 15:25 – an alle
+
+- **App 0.83.0 ist live** (main c9c5f0d): Abschluss-Ansichten (AB-A), Lehrer-Ansicht Teil 6, Info-Seite Teil 7. Server: LB-3 Nachbesserung ist eingespielt, `ab_s_flug_abschluss_einmal` nicht.
+- **Neu: „Bau-Auftrag LB, Teil 8“** (Themen-Karte kompakter, Variante A) – `bau-motivation`, zusammen mit Nachtrag B als 0.83.1.

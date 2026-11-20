@@ -4299,7 +4299,6 @@ nav.lern-reiter { background: transparent; padding: 0; border-radius: 0; box-sha
 .lern-plan-abdeckung p { display: grid; gap: 4px; margin: 4px 0; }
 .lern-plan-abdeckung .lern-mini-balken { display: block; height: 6px; border-radius: 3px; background: var(--surface-muted); overflow: hidden; }
 .lern-plan-abdeckung .lern-mini-balken > i { display: block; height: 100%; background: var(--accent); }
-.lern-plan-drin { opacity: 0.6; }
 .lern-plan-haken { width: 36px; text-align: center; color: var(--ok); font-weight: 700; }
 .lern-plan-kann-je { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; min-height: 44px; font-size: 0.85rem; white-space: nowrap; cursor: pointer; }
 .lern-plan-kann-flug > span b { color: var(--ok); }
@@ -4435,7 +4434,6 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lern-plan-reiseort { font-style: italic; }
 .lern-plan-vorrat-zeile.lern-kl-rand { grid-template-columns: 30px 26px minmax(0, 1fr) auto; border-radius: 8px; margin-bottom: 4px; padding-left: 6px; }
 .lern-plan-vorrat-zeile.lern-plan-drin { grid-template-columns: 26px minmax(0, 1fr) auto; }
-.lern-plan-vorrat-zeile.lern-plan-drin .lern-plan-ort > b { color: var(--text-muted); font-weight: 600; }
 .lern-plan-vorrat-zeile .lern-plan-ort small { white-space: normal; }
 .lern-plan-implan { color: var(--ok); font-weight: 700; white-space: nowrap; }
 .lern-plan-umschalter { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--surface-muted); border-radius: 999px; padding: 4px; margin: 8px 0; }
@@ -4717,3 +4715,26 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 /* Reisepass: Abzeichen */
 .lr-abzeichen { font-size: 17px; font-weight: 800; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
 .lr-ab-ort .lr-ab-skip { background: #3B2A14d9; color: #fff; }
+/* LB Teil 6 (Nachprüfung 4) */
+/* N1: „Nach Themengebiet“ – unter 1100 px steht die Stufe unter dem Titel (wie „Nach Klasse“), damit kein Wort bricht */
+@media (max-width: 1099px) {
+  .lern-plan-vorrat-zeile > .lern-plan-implan, .lern-plan-vorrat-zeile > .lern-chip { grid-column: 1 / -1; grid-row: 2; justify-self: start; padding-left: 68px; margin-top: -4px; padding-bottom: 4px; white-space: normal; }
+  .lern-plan-vorrat-zeile.lern-kl-rand { grid-template-columns: 30px 26px minmax(0, 1fr); }
+  .lern-plan-vorrat-zeile.lern-plan-drin { grid-template-columns: auto 26px minmax(0, 1fr); }
+  .lern-plan-vorrat-zeile.lern-plan-drin > .lern-plan-implan { padding-left: 38px; }
+  .lern-plan-vorrat-zeile > .lern-plan-griff, .lern-plan-vorrat-zeile > .lern-st-wahl { grid-column: 1; grid-row: 1; }
+  .lern-plan-vorrat-zeile:has(> .lern-st-wahl) > .lern-plan-griff { display: none; }
+  .lern-plan-vorrat-zeile > .lern-kl-kasten { grid-column: 2; grid-row: 1; }
+  .lern-plan-vorrat-zeile > .lern-plan-ort { grid-column: 3; grid-row: 1; }
+  .lern-plan-vorrat-zeile > .lern-chip { min-height: 36px; min-width: 44px; font-size: 18px; padding: 0 12px; margin: -2px 0 6px 62px; }
+  /* N2: Plan-Zeilen links – Titel bis zu zwei Zeilen, erst danach „…“ */
+  .lern-plan-links .lern-plan-ort.lern-kl-zeile > b { white-space: normal; overflow: hidden; text-overflow: clip; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow-wrap: normal; word-break: normal; hyphens: auto; -webkit-hyphens: auto; font-size: 14px; line-height: 1.12; }
+  .lern-plan-links .lern-plan-ort.lern-kl-zeile > small { font-size: 12px; line-height: 1.25; }
+}
+/* N5: Etappen-Liste – Stand rechtsbündig in derselben Zeile wie der Titel */
+.lern-st-etappe { display: flex; align-items: baseline; gap: 4px 8px; }
+.lern-st-etappe > b { flex: none; }
+.lern-st-etappe .lern-st-et-titel { flex: 1 1 auto; min-width: 0; }
+.lern-st-etappe .lern-st-et-stand { margin-left: auto; flex: none; white-space: nowrap; text-align: right; }
+/* Punkt 6: Rückfall bei „Kann er komplett“ */
+.lern-st-wort.lern-st-rueckfall small { color: var(--st5, #b42318); font-weight: 600; }

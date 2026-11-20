@@ -2,6 +2,36 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: AB-A und LB Teil 6 (dazu LB Teil 7) – App 0.83.0, Cache v150
+
+Stand `lernen-app` 1cc6edc übernommen (Zweig `bau-motivation`). Nur App (`lernen.js`, `style.css`, `sw.js`) und Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.
+
+**AB-A:** war beim Holen schon in `lernen-app` (Commit 9cea758, App 0.83.0, Cache v149, Meldung „FERTIG: AB-A“ weiter unten; gebaut über `bau-lehrer`). Nicht noch einmal gebaut. Die Version bleibt **0.83.0** (noch nicht live), Teil 6 und Teil 7 kommen dazu, Cache **v149 → v150**.
+
+**LB Teil 6 (Nachprüfung 4)**
+- **N1 (Muss) „Nach Themengebiet“:** Unter 1100 px steht die Stufe (bzw. „+“) unter dem Titel, die Zeilen haben feste Plätze (Griff/Häkchen · Klassen-Kasten · Titel), damit auch das Auswählen die Zeile nicht auseinanderzieht. **Messung mit dem Skript des Gestalters (`n4/n4.test.cjs`, echte Themenliste):** gebrochene Wörter in allen 8 Gebieten – vorher 400: 2, 820: 16, 1280: 0 → **jetzt 0 / 0 / 0**; „Nach Klasse“ weiter 0 in allen 17 Klassen. Hinweis zum Skript: Es rechnet die Wurzel als `../../..` von `n4/` aus und findet so `tests/lernen.test.cjs` nicht (läuft nur, wenn es zwei Ebenen tiefer liegt) – ich habe es dafür in einen Hilfsordner kopiert, nicht geändert.
+- **N2 (Sollte) Plan links:** Titel unter 1100 px bis zu zwei Zeilen (14 px, Silbentrennung `hyphens: auto`, Sprache `de`), erst danach „…“. Gekürzte Titel: 400 px **31 → 12** von 36, 820 px **28 → 3** von 36 (die übrigen brauchen mehr als zwei Zeilen). Die Schrift ist dafür 1 px kleiner, damit E-2 („12 Orte auf einem Tablet, Zeile ≤ 72 px“) weiter erfüllt ist. Lange Wörter werden jetzt mit Trennstrich umbrochen („Gleichungs-systeme“) statt abgeschnitten – bitte ansehen.
+- **N3 (Sollte) Zähler:** Jeder Abschnitt zählt nur die Flüge seiner Stufe, im ganzen Plan – dieselbe Zahl wie im Kopf, nach dem Muster der Vorgabe („16 Orte · 20 Flüge in Wiederholung“); mit den Testdaten des Gestalters z. B. „1 Ort · 1 Flug gerade dran“, „5 Orte · 9 Flüge kommen noch“ bei Kopf „1 ▶ · 9 ○“. Für ◉: „… Flüge komplett gekonnt“. Liegt ein Flug dieser Stufe in einem Ort weiter oben (z. B. ein ↻-Flug in einem ▶-Ort), steht „(davon n in Orten weiter oben)“ dabei.
+- **N4 (Kann):** eingeplante Zeilen in „Nach Themengebiet“ nicht mehr blass (Deckkraft 1, gleiche Titelfarbe wie die übrigen).
+- **N5 (Kann):** Etappen-Liste: Stand („offen“, „gelandet“ …) rechtsbündig in der ersten Titelzeile, ohne „·“.
+- **Punkt 6:** „↶ Rückgängig“ gilt nur für den jüngsten Schritt (war schon mit 9cea758 so; jetzt mit Test: nach einem Rückgängig kein zweiter Schritt zurück; lehnt der Server ab, steht „Rückgängig geht nur für die letzte Änderung. Inzwischen wurde etwas anderes geändert.“ mit „Neu laden“). **Rückfall:** `hinweis: 'rueckfall'` zeigt bei ◉ „gesetzt · Rückfall: n Etappen wieder offen“ (bzw. „alle Etappen sicher · Rückfall: …“), rot hervorgehoben – überall, wo die Stufe steht (Plan links, „Nach Klasse“, Themengebiet aufgeklappt). **heute_bis:** neu `lernHeuteTag(kind)` = Tag des Kindes vom Server, solange `heute_bis` nicht vorbei ist, sonst Kalendertag des Geräts; genutzt für „Knobeln des Tages“ (vorher UTC-Datum!) und die „Wiederholungsrunde heute“ (vorher Gerätedatum); der Tageszähler nutzte es schon (9cea758). Nicht umgestellt: Eltern-Seiten (Pausen, „seit … Tagen“) – dort gilt der Tag der Eltern bzw. die Pausenregel „Ortszeit des Kindes“ rechnet schon der Server; ein `heute_bis` je Kind liefert dort keine Aktion.
+
+**LB Teil 7 (Info-Seite, `info-seite-update.md` Punkte 1–7)** – wörtlich übernommen, mit diesen Abweichungen (bitte prüfen):
+- Punkt 1: „alle Flüge eines **Themen**gebiets“ statt „eines Gebiets“; Punkt 7: „in welchem Jahr ein **Flug** dran ist“ statt „ein Thema“ – sonst bricht der Test „Reisewörter auf allen Eltern-/Lehrerseiten“ (verboten: „Gebiet“, „Thema“).
+- Punkt 3 steht direkt hinter dem Satz mit den Knöpfen („… bei ◉ zusätzlich ‚Wieder in die Wiederholung‘.“), nicht mitten in der Klammer – sonst zerreißt der Satz.
+- Punkt 4: Knopftext „Weiter: Flug-Test“ statt „Jetzt zum Test ›“ – mit AB-A heißt der Knopf auf dem Landebildschirm so („Jetzt zum Test ›“ steht nur noch in der Flug-Übersicht).
+- „Lernstand:“ und „Was wackelt?:“ gelöscht.
+- **Neuer Eintrag (Punkt 8 / AB-A) in „Wie wird gelernt?“, hinter „Etappe gelandet“:**
+  > **Abschluss einer Etappe:** Nach der Landung (und der Knobel-Bordkarte) zeigt die App eine von drei Fassungen – jede mit eigenem Bild und eigener Farbe: Direktflug (alle Bordkarten im ersten Versuch richtig, ohne Tipp, genau so viele wie nötig), Saubere Landung (höchstens 2 endgültige Fehler, Stufe nie leichter geworden, höchstens 4 Bordkarten mehr als nötig; nach „wieder offen“ heißt sie „Wieder gelandet“) oder Sturmflug gemeistert (alles darüber; ohne Fehlerzahl, die Knobel-Bordkarte kommt dann nicht von selbst, nur als Textlink). Dazu ein Abzeichen – ⚡ Direkt, ✓ Sauber oder ⚡ Ausdauer –, das im Reisepass gezählt wird, der Satz „Du kannst jetzt …“ und genau ein Knopf zum nächsten Schritt (nächste Etappe, Flug-Test oder Abflugtafel); zurück in die Übungen derselben Etappe führt von dort kein Weg. Nach dem bestandenen Flug-Test: „Flug geschafft“ mit den Sternen des Flugs und der Liste „Das kannst du jetzt“, danach eine Bordkarte zum nächsten Flug im Plan („Boarding“ öffnet seine erste Erklärung). Mit dem letzten Flug eines Orts kommt dazwischen der Reisepass-Stempel. Landungen vor dieser Version haben kein Abzeichen.
+- Punkt 3 beschreibt den Stand nach der LB-3-Nachbesserung am Server (noch nicht eingespielt).
+
+**Getestet** (Playwright mit Chrome, lokal): **lernen 125 von 125** (neu 7: N1 als Messung 400/820/1280 × 8 Gebiete + N4, N2, N3, N5, Rückgängig nur jüngster Schritt mit Ablehnung, Rückfall + heute_bis, Info-Seite Teil 7; angepasst 4: Abschnittstexte in LB-5/LA-5/LB Teil 5 S2, Etappen-Format S4, „Teil 4 Punkt 1+2“ misst links jetzt „höchstens zwei Zeilen, nichts seitlich abgeschnitten“ statt „kein getrenntes Wort“). Alle Tests: 267 bestanden, 1 übersprungen, 9 Fehler – dieselben 9 wie vor meinen Änderungen auf demselben Stand (PWA-Hülle, „Lernen Schule: Startkarte“, W80 ×4, Review301, „Woanders gebucht“, W88; Reise-Bereich, nicht Lernen).
+
+**Nicht geprüft:** echte Geräte und Safari (Silbentrennung auf dem iPad), Bildschirmleser, gegen den echten Server (Rückfall-Hinweis und `heute_bis` kommen erst mit der LB-3-Nachbesserung).
+
+FERTIG: AB-A und LB Teil 6
+FERTIG: LB Teil 7
+
 ## 2026-11-20 – FERTIG: LB-3 Tests ergänzt (Nachträge aus ChatGPT 885, an bau-lehrer)
 
 Stand `lernen-app` 6e04b10 übernommen. Nur Server-Tests und eine Migration als Datei – kein App-Code, **nichts in der Datenbank ausgeführt** (Live-Text nur gelesen, Einfügestellen je genau einmal vorhanden), kein Merge. pglast für alle Dateien ok; die Rauchtests selbst sind **nicht ausgeführt** – bitte im Probelauf.

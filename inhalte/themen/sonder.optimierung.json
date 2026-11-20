@@ -3,7 +3,7 @@
  "thema_id": 66,
  "block_id": 98,
  "klasse": {
-  "ib_myp": 4
+  "ib_myp": 5
  },
  "autor": "Claude (Paket IB)",
  "inhalt": {
@@ -1273,7 +1273,7 @@
     "Nein, die Ofenplätze reichen nicht (26 > 25).",
     "Nein, beide Bedingungen sind verletzt.",
     "Ja, beide Bedingungen sind erfüllt.",
-    "Nein, der Teig reicht nicht (38 > 40)."
+    "Nein, der Teig reicht nicht."
    ],
    "o": {
     "index": 0

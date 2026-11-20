@@ -2,6 +2,29 @@
 
 Neueste Meldung oben. Dieser Chat hat keines der geprüften Themen geschrieben.
 
+## 2026-11-20 – sonder.optimierung (Lineare Optimierung)
+
+**Urteil: in Ordnung** (eine Antwortoption geändert).
+
+### Umfang (Fakt)
+- Gelesen: 5 Lernkarten und alle 183 Aufgaben (123 Übungen, 5 Test, 15 Korrektur, 30 Sicherung, 10 Knobel).
+- Nachgerechnet: alle 183 von Hand; zusätzlich per eigenem Skript für alle 70 Aufgaben mit zwei Bedingungen: echte Eckpunkte des Bereichs aus den Ungleichungen berechnet und mit den im Text genannten Ecken verglichen (alle gleich), Zulässigkeit jedes Punkts Q, „Welcher Punkt liegt im Bereich?“ (genau eine Option zulässig), „welche Bedingung verletzt“, Optimum und optimaler Plan (eindeutig, außer in den drei Aufgaben, die gerade nach einer ganzen optimalen Kante fragen), „Um wie viel ist der beste Plan besser?“. Eckenlisten der Optimum-Karte auf Konvexität geprüft. Ganzzahliges Knobel-Optimum (2 | 3) durch Durchprobieren aller Gitterpunkte bestätigt.
+- Prüfskript nach der Änderung: OK, 0 Gruppen „gleich gebaut hintereinander“.
+
+### Änderungen je Fehlerart (1 Aufgabe)
+- **a)–d), f): 0.**
+- **e) Antwortoption: 1.** bereich, Stufe 2 einkleidung (Kiosk): Die falsche Option „Nein, der Teig reicht nicht (38 > 40).“ enthielt eine falsche Rechnung als Begründung. Jetzt „Nein, der Teig reicht nicht.“
+
+### Nebenwirkung (Fakt)
+- Feld `klasse` aus der Themenliste übernommen: `{"ib_myp": 4}` → `{"ib_myp": 5}`. Die Datei vermerkt unter `offen` noch „Annahme MYP 4“; inhaltlich passt sie auch zu MYP 5.
+
+### Nicht geändert, zur Kenntnis (Meinung)
+- „Ja / Nein / Das lässt sich nicht entscheiden“ bei „Liegt Q im Bereich?“: Die dritte Option ist hier nie vertretbar (Einsetzen entscheidet immer). Belassen.
+- „Minimum von K = x + 5y an diesen Ecken (ohne den Nullpunkt)“: inhaltlich richtig, aber ein Minimierungsproblem ohne Untergrenze wirkt künstlich. Belassen.
+
+### Lehrplan
+- Annahme: IB MYP Jahr 5 (Klasse 10), Extended. „Linear programming“ wird in Sekundärquellen als Extended-Inhalt genannt (revisiondojo.com/blog/what-topics-are-in-myp-extended-mathematics, abgerufen 20.11.2026); IB-Dokument nicht frei abrufbar. Vorausgesetzt werden lineare Gleichungssysteme (Themenliste: früher) – passt. Isogewinngeraden fehlen bewusst (unter `offen`).
+
 ## 2026-11-20 – sonder.graphentheorie (Graphentheorie)
 
 **Urteil: in Ordnung** (eine Ergänzung in der Lernkarte, keine Aufgabe geändert).

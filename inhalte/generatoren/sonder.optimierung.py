@@ -622,7 +622,7 @@ ST.typ('bereich', '/^/', 'rueckwaerts', s=3)
 ST.neu('bereich', 'direkt', Z('Setze den Punkt Q(3 | 2) in die Bedingung 4x + 5y ≤ 25 ein. Welcher Wert steht dann links?', 22, '4*3 + 5*2',
        '4 · 3 + 5 · 2 = 12 + 10 = 22. Da 22 ≤ 25, erfüllt Q diese Bedingung.', 'x = 3 und y = 2 einsetzen.'))
 ST.neu('bereich', 'einkleidung', A('Ein Kiosk backt x Brötchen und y Brezeln. Teig: 2x + y ≤ 40, Ofenplätze: x + y ≤ 25. Geht der Plan 12 Brötchen und 14 Brezeln?', 'Nein, die Ofenplätze reichen nicht (26 > 25).',
-       ['Ja, beide Bedingungen sind erfüllt.', 'Nein, der Teig reicht nicht (38 > 40).', 'Nein, beide Bedingungen sind verletzt.'],
+       ['Ja, beide Bedingungen sind erfüllt.', 'Nein, der Teig reicht nicht.', 'Nein, beide Bedingungen sind verletzt.'],
        'Teig: 2 · 12 + 14 = 38 ≤ 40 erfüllt. Ofen: 12 + 14 = 26 > 25 verletzt.', 'Setze in beide Bedingungen ein.'))
 ST.neu('bereich', 'fehler', A('Bedingungen I: 3x + 2y ≤ 18, II: x + y ≤ 7, x ≥ 0, y ≥ 0. Jemand prüft P(2 | 6) nur in I: 6 + 12 = 18 ≤ 18, und sagt: „P liegt im Bereich.“ Was stimmt?',
        'Falsch: II ist verletzt (2 + 6 = 8 > 7).', ['Richtig.', 'Falsch: I ist verletzt, weil 18 nicht kleiner als 18 ist.', 'Falsch: P liegt nicht im Bereich, weil x < y ist.'],

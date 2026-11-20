@@ -22,6 +22,22 @@ create function pg_temp.lbn_karte(p_e bigint, p_lz text, p_n int) returns schule
   select a.* from schule.aufgabe a where a.einheit_id = p_e and a.variante_gruppe = p_lz and a.pool = 'uebung' and a.freigegeben and a.antworttyp = 'auswahl'
      and jsonb_array_length(coalesce(a.antworten, '[]'::jsonb)) >= 2 order by a.id offset p_n - 1 limit 1;
 $f$;
+-- Nachtrag 885: kann eine Etappe nur mit Auswahl-Bordkarten nach der normalen Regel landen? (Ziel-Anzahl, Typen, schwere)
+create function pg_temp.lbn_erreichbar(p_e bigint, p_lz text) returns boolean language sql as $f$
+  select (select count(*) from schule.aufgabe a where a.einheit_id = p_e and a.variante_gruppe = p_lz and a.pool = 'uebung' and a.freigegeben and a.antworttyp = 'auswahl'
+            and jsonb_array_length(coalesce(a.antworten, '[]'::jsonb)) >= 2) >= schule.karte_ziel(p_e, p_lz)
+     and (select count(distinct a.typ) from schule.aufgabe a where a.einheit_id = p_e and a.variante_gruppe = p_lz and a.pool = 'uebung' and a.freigegeben and a.antworttyp = 'auswahl'
+            and a.typ is not null) >= schule.karte_typen_noetig(p_e, p_lz)
+     and (not schule.karte_schwer_noetig(p_e, p_lz) or exists (select 1 from schule.aufgabe a where a.einheit_id = p_e and a.variante_gruppe = p_lz and a.pool = 'uebung'
+            and a.freigegeben and a.antworttyp = 'auswahl' and a.stufe = 3 and (a.typ is null or a.typ in ('rueckwaerts', 'verknuepfen', 'begruenden', 'fehler', 'transfer', 'parameter', 'pruefung'))));
+$f$;
+-- Reihenfolge zum Landen: zuerst eine schwere, dann je Typ eine, dann der Rest (alle verschieden)
+create function pg_temp.lbn_reihe(p_e bigint, p_lz text) returns bigint[] language sql as $f$
+  select array_agg(id order by (stufe = 3 and (typ is null or typ in ('rueckwaerts', 'verknuepfen', 'begruenden', 'fehler', 'transfer', 'parameter', 'pruefung'))) desc, (typ is not null and rn = 1) desc, id)
+    from (select a.*, row_number() over (partition by a.typ order by a.id) rn from schule.aufgabe a
+           where a.einheit_id = p_e and a.variante_gruppe = p_lz and a.pool = 'uebung' and a.freigegeben and a.antworttyp = 'auswahl'
+             and jsonb_array_length(coalesce(a.antworten, '[]'::jsonb)) >= 2) q;
+$f$;
 create function pg_temp.lbn_falsch(a schule.aufgabe) returns jsonb language sql as $f$
   select jsonb_build_object('index', ((a.loesung->>'index')::int + 1) % jsonb_array_length(a.antworten));
 $f$;
@@ -29,6 +45,7 @@ $f$;
 do $$
 declare v_l bigint; v_f bigint[]; v_t1 bigint; v_t2 bigint; v_t3 bigint; v_t4 bigint; v_e bigint; v_b bigint; v_lz text[]; r jsonb; v_s1 bigint; v_s2 bigint;
   v_ks schule.karte_stand; v_a schule.aufgabe; v_ok boolean; v_n int; v_versuche int; v_bis timestamptz; v_tz text;
+  v_t5 bigint; v_lz5 text; v_reihe bigint[]; v_i int;
 begin
   select id, zeitzone into v_l, v_tz from schule.lernender where ist_test and aktiv order by id limit 1;
   if v_l is null then raise exception 'FEHLER kein Testkind'; end if;
@@ -130,6 +147,36 @@ begin
     raise exception 'FEHLER M2g: Rückgängig lässt unbelegte Landung stehen'; end if;
   if not (select sitzt from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz[4]) then raise exception 'FEHLER M2h: selbst gelandete Etappe durch Rückgängig verloren'; end if;
   raise notice 'ok M2 Rückgängig: Setzen → Fehler → Rückgängig → offen; selbst gelandete Etappe bleibt';
+
+  -- ---------- Muss 2, echt (Nachtrag 885): Etappe nach dem Setzen wirklich erarbeitet – ohne Nachweisfelder direkt zu setzen ----------
+  select t, x->>'lernziel' into v_t5, v_lz5 from unnest(v_f[5:cardinality(v_f)]) t, schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') x
+   where e.id = schule.thema_einheit(t) and pg_temp.lbn_erreichbar(e.id, x->>'lernziel')
+     and not exists (select 1 from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id where v.lernender_id = v_l and a.einheit_id = e.id)
+   order by t limit 1;
+  if v_t5 is null then raise exception 'FEHLER M2-echt: kein Flug mit erreichbarer Etappe (nur Auswahl-Bordkarten) und ohne Versuche des Testkinds'; end if;
+  v_e := schule.thema_einheit(v_t5); select block_id into v_b from schule.block_thema where thema_id = v_t5;
+  update schule.karte_stand set sitzt = false, sitzt_am = null, gesetzt_am = null, gesetzt_von = null, wdh_gesetzt_am = null, wdh_stufe = 0, faellig_am = null, wdh_ab = null,
+         wdh_lerntage = null, wdh_fehler = 0, eigene_loesungen = 0, serie = 0, typen = '{}', schwer_ok = false, folge = 0, fehler_folge = 0, gezaehlt = '{}', geoeffnet_am = null
+   where lernender_id = v_l and einheit_id = v_e;
+  r := schule.plan_setzen_intern(v_l, jsonb_build_object('eintraege', pg_temp.lbn_eintrag(v_b, array[v_t5])), 'lehrer:Rauchtest');
+  v_reihe := pg_temp.lbn_reihe(v_e, v_lz5); v_i := 0;
+  loop -- verschiedene Bordkarten richtig im ersten Anlauf über uebung_pruefen_intern (wie das Kind), bis die normale Landeregel erfüllt ist
+    select * into v_ks from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz5;
+    exit when schule.karte_landet(v_ks);
+    v_i := v_i + 1;
+    if v_i > cardinality(v_reihe) then raise exception 'FEHLER M2-echt: Landeregel nach % Bordkarten nicht erfüllt (eigene %, Typen %, schwer %, Folge %)', v_i - 1,
+      v_ks.eigene_loesungen, v_ks.typen, v_ks.schwer_ok, v_ks.folge; end if;
+    select * into v_a from schule.aufgabe where id = v_reihe[v_i];
+    r := schule.uebung_pruefen_intern(v_l, jsonb_build_object('aufgabe_id', v_a.id, 'client_id', 'lbn-7-' || v_a.id, 'antwort', v_a.loesung, 'anlauf', 1));
+    if not coalesce((r->>'richtig')::boolean, false) then raise exception 'FEHLER M2-echt: richtige Antwort als falsch gewertet: %', r; end if;
+  end loop;
+  if not v_ks.sitzt or v_ks.gesetzt_am is null then raise exception 'FEHLER M2-echt Vorbereitung: Etappe nicht gesetzt-gelandet'; end if;
+  r := schule.plan_setzen_intern(v_l, jsonb_build_object('eintraege', pg_temp.lbn_eintrag(v_b, '{}')), 'lehrer:Rauchtest'); -- Rücknahme
+  select * into v_ks from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz5;
+  if not v_ks.sitzt or v_ks.gesetzt_am is not null or v_ks.eigene_loesungen < schule.karte_ziel(v_e, v_lz5) then raise exception 'FEHLER M2-echt a: erarbeitete Etappe nicht behalten'; end if;
+  if exists (select 1 from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel <> v_lz5 and (sitzt or sitzt_am is not null or gesetzt_am is not null)) then
+    raise exception 'FEHLER M2-echt b: andere Etappen nicht offen'; end if;
+  raise notice 'ok M2-echt: gesetzter Flug, eine Etappe mit % verschiedenen richtigen Bordkarten über uebung_pruefen_intern erarbeitet → nach Rücknahme gelandet (Herkunft selbst), die anderen offen', v_i;
 
   -- ---------- Muss 3: sicher richtet sich nach dem Flug ----------
   v_e := schule.thema_einheit(v_t3); select block_id into v_b from schule.block_thema where thema_id = v_t3;

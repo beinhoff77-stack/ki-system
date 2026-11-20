@@ -25,6 +25,8 @@ begin
   select array_agg((x->>'id')::bigint order by (x->>'id')::bigint) into v_ids2 from jsonb_array_elements(j2) x;
   select count(*) into v_n from schule.misch_ausgabe where lernender_id = v_l and eingeloest_am is null and verfallen_am is null;
   if jsonb_array_length(j1) <> 2 or v_ids1 is distinct from v_ids2 or v_n <> 2 then raise exception 'FEHLER 1: % / % Karten, % offene Ausgaben', jsonb_array_length(j1), jsonb_array_length(j2), v_n; end if;
+  if exists (select 1 from unnest(v_ids2) x where not schule.misch_gueltig(v_l, (select a from schule.aufgabe a where a.id = x), jsonb_build_object('misch', true))) then
+    raise exception 'FEHLER 1b: wieder ausgegebene Karte nicht gültig'; end if; -- Nachtrag 885
   raise notice 'ok 1: zweimal gelesen → dieselben 2 Karten, 2 offene Ausgaben';
 
   -- 2. eine eingelöst → beim nächsten Lesen bleibt die andere, aufgefüllt wird nur für die Etappe ohne offene Karte
@@ -50,6 +52,27 @@ begin
   j2 := schule.mischkarten(v_l, v_f2);
   if exists (select 1 from schule.misch_ausgabe where lernender_id = v_l and eingeloest_am is null and verfallen_am is null and ausgegeben_am < now() - interval '24 hours') then raise exception 'FEHLER 4'; end if;
   raise notice 'ok 4: Ausgaben älter als 24 h verfallen; neu ausgestellt (%)', jsonb_array_length(j2);
+
+  -- 4b. Nachtrag 885: Flugwechsel und zurück – die Ausgaben des anderen Flugs verfallen, zurück im ersten Flug wird neu ausgegeben und ist gültig
+  j1 := schule.mischkarten(v_l, v_f2);                                    -- Ausgaben für Flug 2 (frisch, gültig)
+  select array_agg((x->>'id')::bigint order by (x->>'id')::bigint) into v_ids1 from jsonb_array_elements(j1) x;
+  j2 := schule.mischkarten(v_l, v_f1);                                    -- Flugwechsel zu Flug 1
+  if exists (select 1 from schule.misch_ausgabe where lernender_id = v_l and einheit_id = v_f2 and eingeloest_am is null and verfallen_am is null) then
+    raise exception 'FEHLER 4b-1: Ausgaben von Flug 2 nicht verfallen'; end if;
+  select count(*) into v_n from schule.misch_ausgabe where lernender_id = v_l and einheit_id = v_f1 and eingeloest_am is null and verfallen_am is null and ausgegeben_am = now();
+  if jsonb_array_length(j2) < 1 or v_n <> jsonb_array_length(j2)
+     or exists (select 1 from jsonb_array_elements(j2) x where not schule.misch_gueltig(v_l, (select a from schule.aufgabe a where a.id = (x->>'id')::bigint), jsonb_build_object('misch', true))) then
+    raise exception 'FEHLER 4b-2: Flug 1 – % Karten, % neu ausgegeben', jsonb_array_length(j2), v_n; end if;
+  j2 := schule.mischkarten(v_l, v_f2);                                    -- und wieder zurück zu Flug 2
+  select count(*) into v_n from schule.misch_ausgabe where lernender_id = v_l and einheit_id = v_f2 and eingeloest_am is null and verfallen_am is null and ausgegeben_am = now();
+  if v_n <> jsonb_array_length(j2) or exists (select 1 from schule.misch_ausgabe where lernender_id = v_l and einheit_id = v_f1 and eingeloest_am is null and verfallen_am is null)
+     or exists (select 1 from jsonb_array_elements(j2) x where not schule.misch_gueltig(v_l, (select a from schule.aufgabe a where a.id = (x->>'id')::bigint), jsonb_build_object('misch', true))) then
+    raise exception 'FEHLER 4b-3: zurück zu Flug 2 – % Karten, % neu ausgegeben', jsonb_array_length(j2), v_n; end if;
+  update schule.misch_ausgabe set ausgegeben_am = now() - interval '25 hours' where lernender_id = v_l and einheit_id = v_f2 and eingeloest_am is null and verfallen_am is null;
+  perform schule.mischkarten(v_l, v_f1);
+  if exists (select 1 from schule.misch_ausgabe where lernender_id = v_l and eingeloest_am is null and verfallen_am is null and ausgegeben_am < now() - interval '24 hours') then
+    raise exception 'FEHLER 4b-4: über 24 h alte Ausgabe nicht verfallen'; end if;
+  raise notice 'ok 4b: Flugwechsel → Ausgaben des anderen Flugs verfallen; zurückgewechselt → neu ausgegeben und gültig; älter als 24 h → verfallen';
 
   -- 5. Etappe nicht mehr gelandet → ihre Ausgabe verfällt, die Karte kommt nicht wieder
   update schule.karte_stand set sitzt = false where lernender_id = v_l and einheit_id = v_e1 and lernziel = v_lz1;

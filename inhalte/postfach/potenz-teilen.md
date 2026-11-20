@@ -1,6 +1,207 @@
 # Postfach potenz-teilen (Sechsundzwanzigste Runde: Potenzgesetze in zwei eigene Flüge teilen)
 
-Neueste Meldung oben. Zeiten: Ortszeit Adelaide (UTC+10:30).
+Neueste Meldung oben. Zeiten: Sechsundzwanzigste Runde Ortszeit Adelaide (UTC+10:30), ab der Achtundzwanzigsten Runde Europe/Berlin.
+
+## 2026-11-20 13:58 – FERTIG: Potenz nachgebessert
+
+Achtundzwanzigste Runde (Zweig `potenz-teilen`, vorher auf den Stand von `lernen-app` 72abf97 gebracht). Grundlage: `inhalte/pruefung/potenz/bericht.md`, Auftrag in `AUFTRAEGE.md`, Sebastians Ja zu Kann 6 (`antworten.md`, 20.11. 14:50). Nichts in die Datenbank, kein App-Code, kein Merge nach `main`.
+
+### Kurz
+- **Muss 1 und 2:** erledigt (zwei Tipps).
+- **Sollte 1–6:** alle erledigt.
+- **Kann 1–5 und 7:** erledigt. Kann 8 bleibt wie verlangt.
+- **Kann 6:** neue Pflichtkarte `potenz_von_potenz` in Flug A, mit 35 Aufgaben vollständig nach Bausatz. Die vier alten Schlüssel sind unverändert.
+- **Flüge jetzt:** Flug A 226 Aufgaben in 5 Karten, Flug B 177 Aufgaben, Gym 6 109 Aufgaben. `terme.umformen` ist unverändert.
+- **Prüfskript:** `python3 -I tools/inhalt_pruefen.py --alle` meldet **118 × OK** mit Rückgabewert 0. Bei den vier Potenz-Flügen gibt es keine Hinweise zu den Karten, „gleich gebaut hintereinander“ ist überall 0. Die Generatoren liefern beim zweiten Lauf Byte für Byte dasselbe.
+- **Nachgerechnet:**
+  - 126 Aufgaben von Flug A unabhängig per Skript (Terme aus dem Fragetext, zwei Belegungen), dabei 0 Fehler.
+  - Die übrigen neuen und geänderten Aufgaben von Hand, nämlich die neue Karte und die Ersatzaufgaben.
+  - Bei jeder geänderten Antwortliste habe ich geprüft: Die richtige Antwort bleibt richtig, und die neuen falschen Antworten sind wirklich falsch.
+
+### Entscheidungen, die ich getroffen habe (bitte ansehen)
+1. **Sollte 4, Folge:**
+   - Nach den verlangten Umstufungen hatte `mal_gleiche_basis` auf Stufe 3 noch 10 von 19 Übungen „fehler“, war also weiter davon beherrscht.
+   - Ich habe deshalb je Karte höchstens 3 „fehler“ auf Stufe 3 gelassen. Das ist die Regel der Zwanzigsten Runde, Sebastians Grund vom 20.11.: keine leichten Aufgaben auf Stufe 3.
+   - Die Auswahl-Aufgaben, bei denen das Kind nur benennt, welcher Rechenweg falsch war („Was ist falsch?“, „Welcher Satz beschreibt …“, „Stimmt die Rechnung? 5² · 5³ = 5⁶“), sind jetzt Stufe 1 „erkennen“: 7 in `mal_gleiche_basis`, 1 in `gleicher_exponent`.
+   - Auf Stufe 3 bleiben die Aufgaben, bei denen das Kind den richtigen Wert selbst bestimmt, und eine Auswahl-Aufgabe je Karte.
+   - Wenn Sebastian das anders will, lässt es sich in `NB_A` mit einer Zeile je Aufgabe zurückdrehen.
+2. **Sollte 4, Aufgabe 43** („2⁵ + 2⁵ = 2¹⁰“): ersetzt statt in den Knobel-Pool gelegt, weil sie zu nah an Knobel 44 liegt. Neu ist eine Aufgabe vom Typ „fehler“: „Ein Kind rechnet 2³ · 2⁴ · 2 = 2¹². Richtig ist 2ᵏ …“.
+3. **Sollte 6, Aufgaben 75 und 76:** Mit dem Typ „direkt“ hätten je 3 gleich gebaute Aufgaben auf Stufe 1 gestanden („2² · 50²“ neben „25² · 4²“ und „4² · 25²“). Das verbietet das Prüfskript. Deshalb haben die beiden Spiegelbild-Aufgaben „4² · 25²“ und „2³ · 50³“ ihren Typ verloren: Sie sind überzählig und werden beim Einspielen gesperrt, nicht gelöscht. Die Zahl der aktiven Übungen bleibt gleich.
+4. **Sollte 6, Aufgaben 30, 154 und 156:** In `anwenden` ist „27 · 3ᵉ“ die Grundform der Karte und bleibt Stufe 1 „direkt“. In `mal_gleiche_basis` kommt das Umschreiben einer Zahl als Potenz noch dazu. Dort ist „27 · 3⁵“ jetzt Stufe 2 „darstellung“ (vorher Stufe 3 „transfer“). Die Spanne ist damit eine Stufe, und beide Karten folgen ihrem eigenen Beispiel.
+5. **Sollte 5 (IB):** Flug A steht jetzt in MYP 3. Die Reihenfolge dort ist: Gym-6-Flug `terme.potenzgesetze` 1, Flug A 2, `terme.umformen` 3, alles Weitere +1.
+   - Den Gym-6-Flug habe ich vorgezogen (vorher 2 hinter `terme.umformen`), weil Flug A seinen Potenzbegriff und Hoch 0 voraussetzt.
+   - In MYP 4 rücken alle um 1 nach vorn, Flug B ist jetzt 1.
+   - Alles bleibt als Annahme gekennzeichnet.
+6. **Sollte 2:** Die zwei Aufgaben stehen jetzt in Flug B, Karte `gleiche_basis_ganz`. „Berechne 10⁴ : 10⁴ : 10⁴ · 10⁸.“ ist dort Stufe 2 „mehrschritt“ (vorher Stufe 3 „transfer“), weil das in Flug B die Standardrechnung ist. „2¹⁰ : 2ⁿ = 1/4“ bleibt Stufe 3 „rueckwaerts“. Der Ersatz in Flug A behält Pool, Stufe und Typ.
+7. **Kann 1:** In den Auswahl-Aufgaben steht jetzt „Bruch“ statt „Bruchterm“. Das ändert den Fragetext, und das Werkzeug mischt die Antworten nach dem Text. Deshalb ist ihre Reihenfolge neu gemischt; die Antworten selbst und die Lösung sind gleich. Flug B ist noch nicht freigegeben.
+
+### Zählung danach
+
+**terme.potenzgesetze_natuerlich** – 226 Aufgaben
+
+| Lernkarte | P/V | Übung S1 | S2 | S3 | davon „fehler“ in S3 | ohne Typ | Knobel | Test | Korr. | Sich. |
+|---|---|---|---|---|---|---|---|---|---|---|
+| mal_gleiche_basis | P | 19 | 14 | 11 | 3 | 0 | 2 | 1 | 3 | 6 |
+| gleicher_exponent | P | 11 | 12 | 10 | 3 | 2 | 2 | 1 | 3 | 6 |
+| potenz_von_potenz | P | 6 | 8 | 9 | 2 | 0 | 2 | 1 | 3 | 6 |
+| geteilt_gleiche_basis | V | 10 | 16 | 10 | 3 | 0 | 2 | 1 | 3 | 6 |
+| anwenden | V | 7 | 14 | 9 | 1 | 0 | 2 | 1 | 3 | 6 |
+
+**terme.potenzgesetze_ganzzahlig** – 177 Aufgaben
+
+| Lernkarte | P/V | Übung S1 | S2 | S3 | davon „fehler“ in S3 | ohne Typ | Knobel | Test | Korr. | Sich. |
+|---|---|---|---|---|---|---|---|---|---|---|
+| warum_gilt | P | 5 | 8 | 9 | 2 | 0 | 2 | 1 | 3 | 6 |
+| gleiche_basis_ganz | P | 9 | 10 | 9 | 2 | 0 | 2 | 1 | 4 | 10 |
+| exponent_und_potenz | P | 6 | 8 | 8 | 2 | 0 | 2 | 1 | 3 | 6 |
+| terme_vereinfachen | P | 5 | 7 | 8 | 2 | 0 | 2 | 1 | 3 | 6 |
+| fehler_ganz | V | 5 | 6 | 9 | 3 | 0 | 2 | 1 | 3 | 6 |
+
+**terme.potenzgesetze** – 109 Aufgaben
+
+| Lernkarte | P/V | Übung S1 | S2 | S3 | davon „fehler“ in S3 | ohne Typ | Knobel | Test | Korr. | Sich. |
+|---|---|---|---|---|---|---|---|---|---|---|
+| potenz_begriff | P | 8 | 11 | 8 | 1 | 0 | 2 | 1 | 3 | 6 |
+| negativer_exponent | P | 5 | 13 | 8 | 1 | 0 | 2 | 1 | 3 | 6 |
+| fehler_finden | V | 4 | 8 | 8 | 3 | 0 | 2 | 1 | 3 | 6 |
+
+### Alt → neu je geänderter Aufgabe
+**Gym 6 (`terme.potenzgesetze`)**
+
+| Karte | Aufgabe | was | alt | neu |
+|---|---|---|---|---|
+| negativer_exponent | Wie viel Mal so groß ist 2² wie 2⁻²? | Tipp | Teile die beiden Potenzen. Exponenten subtrahieren: n − (−n). | Rechne beide Potenzen aus und teile. |
+| negativer_exponent | Was ergibt a⁰? | Tipp | Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰. | Denk an das Muster 2² = 4, 2¹ = 2, 2⁰ = ?: Es wird jedes Mal durch 2 geteilt. |
+| negativer_exponent | Was ergibt 12⁰? | Tipp | Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰. | Denk an das Muster 2² = 4, 2¹ = 2, 2⁰ = ?: Es wird jedes Mal durch 2 geteilt. |
+
+**Flug A (`terme.potenzgesetze_natuerlich`), geänderte Aufgaben**
+
+| Karte | Aufgabe | was | alt | neu |
+|---|---|---|---|---|
+| mal_gleiche_basis | a⁵ · a¹ = aᵏ. Wie groß ist k? | Tipp | Auch negative Exponenten werden addiert. Achte auf die Vorzeichen. | a¹ ist a mit dem Exponenten 1. Addiere die Exponenten. |
+| mal_gleiche_basis | Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch? | falsche Antwort | Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴. | Die Exponenten werden malgenommen: 3¹⁶. |
+| mal_gleiche_basis | Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch? | falsche Antwort | Exponenten subtrahieren, nicht teilen: 3¹². | Die Exponenten werden subtrahiert: 3⁰. |
+| mal_gleiche_basis | Ein Kind rechnet: 4⁴ · 4² = 4⁸. Was ist falsch? | falsche Antwort | Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴. | Die Exponenten werden subtrahiert: 4². |
+| mal_gleiche_basis | Ein Kind rechnet: 5⁴ · 5⁴ = 5¹⁶. Was ist falsch? | falsche Antwort | Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴. | Die Basen werden addiert: 10⁸. |
+| gleicher_exponent | Ein Kind rechnet: 2² · 5² = 10⁴. Was ist falsch? | falsche Antwort | Exponenten subtrahieren, nicht teilen: 5⁴. | Verschiedene Basen darf man nie zusammenfassen. |
+| gleicher_exponent | Ein Kind rechnet: 2⁴ · 5⁴ = 10⁸. Was ist falsch? | falsche Antwort | Exponenten subtrahieren, nicht teilen: 5⁶. | Verschiedene Basen darf man nie zusammenfassen. |
+| geteilt_gleiche_basis | Ein Kind rechnet: 5⁶ : 5² = 5³. Was ist falsch? | falsche Antwort | Die Exponenten werden addiert, nicht malgenommen: 5⁵. | Die Basen werden geteilt: 1⁴. |
+| mal_gleiche_basis | Stimmt die Rechnung? 5² · 5² = 5⁴ | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| mal_gleiche_basis | Stimmt die Rechnung? 4⁴ · 4² = 4⁶ | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| mal_gleiche_basis | Stimmt die Rechnung? 2⁴ · 2³ = 2⁷ | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| geteilt_gleiche_basis | Stimmt die Rechnung? 4⁵ : 4² = 4³ | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| geteilt_gleiche_basis | Stimmt die Rechnung? 4⁷ : 4⁴ = 4³ | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| geteilt_gleiche_basis | Stimmt die Rechnung? 5⁵ : 5² = 5³ | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| mal_gleiche_basis | Die Regel „a² · a³ = a⁶“ ist falsch. Für welche Zahlen a stimmt sie trotzdem? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 3, parameter |
+| mal_gleiche_basis | Ein Kind hat bei aᵏ · a² die Exponenten malgenommen und a¹² erhalten. Was wäre der richtige Exponent gewesen? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 3, rueckwaerts |
+| anwenden | Welche Rechnung ist richtig? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 3, begruenden |
+| mal_gleiche_basis | Ein Kind schreibt 2⁵ + 2⁵ = 2¹⁰. Richtig ist 2ᵏ. Wie groß ist k? | Aufgabe ersetzt | Ein Kind schreibt 2⁵ + 2⁵ = 2¹⁰. Richtig ist 2ᵏ. Wie groß ist k? | Ein Kind rechnet 2³ · 2⁴ · 2 = 2¹². Richtig ist 2ᵏ. Wie groß ist k? |
+| mal_gleiche_basis | Stimmt die Rechnung? 5² · 5³ = 5⁶ | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| mal_gleiche_basis | Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| mal_gleiche_basis | Ein Kind rechnet: 4⁴ · 4² = 4⁸. Was ist falsch? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| mal_gleiche_basis | Ein Kind rechnet: 5⁴ · 5⁴ = 5¹⁶. Was ist falsch? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| mal_gleiche_basis | Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| mal_gleiche_basis | Ein Kind rechnet: 4³ · 4³ = 4⁹. Welcher Satz beschreibt den Fehler richtig? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| mal_gleiche_basis | Ein Kind rechnet: 4⁴ · 4² = 16⁶. Welcher Satz beschreibt den Fehler richtig? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| gleicher_exponent | Ein Kind rechnet: 2² · 5² = 10⁴. Was ist falsch? | Stufe/Typ | uebung, Stufe 3, fehler | uebung, Stufe 1, erkennen |
+| gleicher_exponent | Berechne geschickt: 2² · 50² | Stufe/Typ | uebung, Stufe 1, ohne Typ | uebung, Stufe 1, direkt |
+| gleicher_exponent | Berechne geschickt: 2³ · 5³ | Stufe/Typ | uebung, Stufe 1, ohne Typ | uebung, Stufe 1, direkt |
+| gleicher_exponent | Berechne geschickt: 4² · 25² | Stufe/Typ | uebung, Stufe 1, direkt | uebung, Stufe 1, ohne Typ (überzählig) |
+| gleicher_exponent | Berechne geschickt: 2³ · 50³ | Stufe/Typ | uebung, Stufe 1, direkt | uebung, Stufe 1, ohne Typ (überzählig) |
+| mal_gleiche_basis | 27 · 3⁵ = 3ᵏ. Wie groß ist k? | Stufe/Typ | uebung, Stufe 3, transfer | uebung, Stufe 2, darstellung |
+| geteilt_gleiche_basis | – | Lernkarte, regel | Bei ⟦gleicher Basis⟧ subtrahierst du beim Teilen die Exponenten. Die Basis bleibt. | Bei ⟦gleicher Basis⟧ subtrahierst du beim Teilen die Exponenten. Hier ist der erste immer größer; den anderen Fall lernst du später. |
+
+**Flug A → Flug B (Sollte 2), in Flug A an derselben Stelle ersetzt (Pool, Stufe, Typ gleich)**
+
+| Karte | alt (jetzt in Flug B) | neu in Flug A | in Flug B |
+|---|---|---|---|
+| geteilt_gleiche_basis | 2¹⁰ : 2ⁿ = 1/4. Wie groß ist n? | 2¹⁰ : 2ⁿ = 16. Wie groß ist n? | gleiche_basis_ganz, Übung, Stufe 3 rueckwaerts (vorher Stufe 3 rueckwaerts) |
+| geteilt_gleiche_basis | Berechne 10⁴ : 10⁴ : 10⁴ · 10⁸. | Ein Rechner schafft 10⁹ Rechenschritte pro Sekunde. 10³ Programme brauchen je 10⁸ Rechenschritte. Wie lange braucht er für alle? Gib die Zeit als 10ᵏ Sekunden an. Wie groß ist k? | gleiche_basis_ganz, Übung, Stufe 2 mehrschritt (vorher Stufe 3 transfer) |
+
+**Flug A, neue Pflichtkarte `potenz_von_potenz`** (35 Aufgaben)
+
+- uebung, Stufe 1, direkt: (3²)⁴ = 3ᵏ. Wie groß ist k?
+- uebung, Stufe 1, direkt: (x³)⁵ = xᵏ. Wie groß ist k?
+- uebung, Stufe 1, direkt: (10²)³ = 10ᵏ. Wie groß ist k?
+- uebung, Stufe 1, direkt: (a⁴)² = aᵏ. Wie groß ist k?
+- uebung, Stufe 1, erkennen: Welche Regel gilt bei (b⁵)²?
+- uebung, Stufe 1, erkennen: Welcher Term ist gleich 2³ · 2³ · 2³ · 2³?
+- uebung, Stufe 2, mehrschritt: Berechne (2³)² mit dem Potenzgesetz. Gib das Ergebnis als Zahl an.
+- uebung, Stufe 2, mehrschritt: (a²)³ · a⁴ = aᵏ. Wie groß ist k?
+- uebung, Stufe 2, mehrschritt: (2³)² · 2 = 2ᵏ. Wie groß ist k?
+- uebung, Stufe 2, umkehr: (5ᵏ)³ = 5¹². Wie groß ist k?
+- uebung, Stufe 2, umkehr: (y²)ᵏ = y¹⁰. Wie groß ist k?
+- uebung, Stufe 2, einkleidung: Ein Würfel hat die Kantenlänge 10² cm. Wie groß ist sein Volumen? Gib es als 10ᵏ cm³ an. Wie groß ist k?
+- uebung, Stufe 2, einkleidung: Ein quadratisches Feld hat die Seitenlänge 3³ m. Wie groß ist seine Fläche? Gib sie als Zahl an.
+- uebung, Stufe 2, darstellung: Ein Würfel hat die Kantenlänge 5² cm. Welcher Term gibt sein Volumen in cm³ an?
+- uebung, Stufe 3, begruenden: Stimmt die Aussage? „(2³)² und (2²)³ sind gleich groß.“
+- uebung, Stufe 3, begruenden: Warum gilt (a⁴)³ = a¹²? Welche Begründung stimmt?
+- uebung, Stufe 3, fehler: Ein Kind rechnet (x⁴)³ = x⁷. Richtig ist xᵏ. Wie groß ist k?
+- uebung, Stufe 3, fehler: Ein Kind rechnet (3²)³ = 9⁶. Was ist falsch?
+- uebung, Stufe 3, parameter: Für wie viele natürliche Zahlen n von 1 bis 20 ist (2ⁿ)² höchstens 2²⁰?
+- uebung, Stufe 3, rueckwaerts: Eine Zahl 2ᵏ wird erst quadriert und das Ergebnis dann hoch 3 genommen. Heraus kommt 2¹⁸. Wie groß ist k?
+- uebung, Stufe 3, verknuepfen: Ein Würfel hat 3² cm lange Kanten. Wie viele Würfel mit 1 cm Kantenlänge passen hinein?
+- uebung, Stufe 3, transfer: Ein Würfel aus Zuckerstücken hat 2⁴ Stücke an jeder Kante. Aus solchen Würfeln baut man einen großen Würfel mit 2² Würfeln an jeder Kante. Wie viele Zuckerstücke sind es? Gib die Anzahl als 2ᵏ an. Wie groß ist k?
+- uebung, Stufe 3, pruefung: a) Vereinfache (x²)⁴ · x³. b) Berechne den Wert für x = 2. Gib den Wert aus b) an.
+- bonus, Stufe 3, knobel: Welche Zahl ist größer: (2³)⁴ oder (3²)³? Gib die größere Zahl an.
+- bonus, Stufe 3, knobel: Schreibe 9² · 27³ als Dreierpotenz 3ᵏ. Wie groß ist k?
+- test, Stufe 2: (7²)³ = 7ᵏ. Wie groß ist k?
+- korrektur, Stufe 2: (b³)⁴ = bᵏ. Wie groß ist k?
+- korrektur, Stufe 2: (2⁵)² = 2ᵏ. Wie groß ist k?
+- korrektur, Stufe 2: Welche Regel gilt bei (y²)⁵?
+- sicherung, Stufe 2: (10⁴)² = 10ᵏ. Wie groß ist k?
+- sicherung, Stufe 2: (a³)³ = aᵏ. Wie groß ist k?
+- sicherung, Stufe 2: (x⁶)² = xᵏ. Wie groß ist k?
+- sicherung, Stufe 2: (4²)² = 4ᵏ. Wie groß ist k?
+- sicherung, Stufe 2: Berechne (3²)² mit dem Potenzgesetz und gib den Wert an.
+- sicherung, Stufe 2: (5²)³ = 5ᵏ. Wie groß ist k?
+
+**Flug B (`terme.potenzgesetze_ganzzahlig`), Kann 1 („Bruch“ statt „Bruchterm“): Fragetext geändert, Lösung und Antworten gleich**
+
+| Karte | alt | neu |
+|---|---|---|
+| terme_vereinfachen | Welcher Bruchterm ist gleich 4x⁻²? | Welcher Bruch ist gleich 4x⁻²? |
+
+
+**Flug B (`terme.potenzgesetze_ganzzahlig`), Kann 1 („Bruch“ statt „Bruchterm“): nur der Fragetext geändert; Antworten und Lösung gleich (Reihenfolge der Antworten neu gemischt)**
+
+| Karte | Pool | alt | neu |
+|---|---|---|---|
+| terme_vereinfachen | uebung | Welcher Bruchterm ist gleich 4x⁻²? | Welcher Bruch ist gleich 4x⁻²? |
+| terme_vereinfachen | uebung | Welcher Bruchterm ist gleich 5x⁻³y²? | Welcher Bruch ist gleich 5x⁻³y²? |
+| terme_vereinfachen | korrektur | Welcher Bruchterm ist gleich 7y⁻¹? | Welcher Bruch ist gleich 7y⁻¹? |
+| terme_vereinfachen | sicherung | Welcher Bruchterm ist gleich 9x⁻⁴? | Welcher Bruch ist gleich 9x⁻⁴? |
+
+Neu in Flug B (aus Flug A, siehe oben): „Berechne 10⁴ : 10⁴ : 10⁴ · 10⁸.“; „2¹⁰ : 2ⁿ = 1/4. Wie groß ist n?“.
+
+Lernkarte `terme_vereinfachen`, Feld `einstieg`: alt "Im Algenmodell rechnest du oft mit Variablen. Terme wie 6x³ · x⁻⁵ fasst du zusammen. Dann schreibst du sie ohne negativen Exponenten als ⟦Bruchterm⟧." → neu "Terme wie 6x³ · x⁻⁵ fasst du mit den Potenzgesetzen zusammen. Dann schreibst du sie ohne negativen Exponenten als ⟦Bruch⟧ mit der Variablen im Nenner."
+
+Lernkarte `terme_vereinfachen`, Feld `woerter`: alt [["Bruchterm", "ein Bruch mit einer Variablen im Nenner, z. B. 6/x²"], ["Koeffizient", "die Zahl vor der Variablen, z. B. die 6 in 6x³"]] → neu [["Bruch", "hier: ein Bruch mit einer Variablen im Nenner, z. B. 6/x²"], ["Koeffizient", "die Zahl vor der Variablen, z. B. die 6 in 6x³"]]
+
+Lernkarte `terme_vereinfachen`, Feld `schritte`: alt [{"text": "Der Koeffizient 6 bleibt. Bei x addierst du: 3 + (−5) = −2.", "bild": {"zeilen": [["Start", "6x³ · x⁻⁵"], ["zusammengefasst", "6x⁻²"]]}}, {"text": "Nur x hat den negativen Exponenten: x⁻² = 1/x²."}, {"text": "Also 6x³ · x⁻⁵ = ⟦6/x²⟧ für x ≠ 0.", "bild": {"zeilen": [["Start", "6x³ · x⁻⁵"], ["zusammengefasst", "6x⁻²"], ["als Bruchterm", "6/x²"]]}}] → neu [{"text": "Der Koeffizient 6 bleibt. Bei x addierst du: 3 + (−5) = −2.", "bild": {"zeilen": [["Start", "6x³ · x⁻⁵"], ["zusammengefasst", "6x⁻²"]]}}, {"text": "Nur x hat den negativen Exponenten: x⁻² = 1/x²."}, {"text": "Also 6x³ · x⁻⁵ = ⟦6/x²⟧ für x ≠ 0.", "bild": {"zeilen": [["Start", "6x³ · x⁻⁵"], ["zusammengefasst", "6x⁻²"], ["als Bruch", "6/x²"]]}}]
+
+
+**Sonstiges, ohne Aufgaben**
+- Gym 6, `offen`: „rationale Exponenten im umfang“ und das Beispiel „2³ · 2⁴ = 2ᵏ“ entfernt (Kann 3). Jetzt: „Rationale Exponenten stehen nicht in diesem Flug …“ und als Beispiel „2ᵏ = 1/16, k = ?“.
+- Flug A:
+  - Inhalt: Ziel, Merke („Potenz einer Potenz: (aᵐ)ⁿ = aᵐ·ⁿ.“), `offen` und `quellen` angepasst. Abschnitt „Potenzen malnehmen“ = `mal_gleiche_basis`, `gleicher_exponent`, `potenz_von_potenz`. Pflicht: `mal_gleiche_basis`, `gleicher_exponent`, `potenz_von_potenz`.
+  - `klasse.ib_myp` 4 → 3.
+- Flug B: Ziel und `offen` ohne „Bruchterm“ als Voraussetzung für RS/IB.
+- Themenliste:
+  - Flug A: `klasse`/`reihenfolge`/`lernbereich` für IB (MYP 3, Nummer 2), `umfang` mit „Potenzen von Potenzen“, `lehrplan_gym` um „M7 1.2 Potenzen von Potenzen mit natürlichen Exponenten zusammenfassen“ ergänzt, `lehrplan_ib` neu als Annahme.
+  - Flug B: `umfang` „als Bruch schreiben“.
+  - `terme.umformen`: `lehrplan_rs` „Terme vereinfachen; Äquivalenz von Termen begründen (die Potenzgesetze stehen in eigenen Flügen)“ (Kann 4).
+  - Reihenfolgen MYP 3 und MYP 4 wie oben.
+- kann-Texte: Gym 6, `kurz`: „Du lernst, Potenzen zu berechnen, auch mit Hoch 0 und mit negativen Hochzahlen.“ (Kann 5). Flug A neu `potenz_von_potenz`: „eine Potenz einer Potenz wie (2³)⁴ vereinfachen, indem du die Exponenten malnimmst“.
+- **Quelle M7 1.2 („Potenzen von Potenzen“):** LehrplanPLUS Gymnasium 7, https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/7/mathematik, Abschnitt M7 1.2. Abgerufen hat ihn am 20.11.2026 der Chat `lehrplan-lb`; das Zitat steht in `inhalte/pruefung/aufbau/klasse6.json` und im Prüfbericht. Ich selbst habe die Seite nicht geöffnet.
+
+### Selbstprüfung Reihenfolgen
+`python3 -I inhalte/generatoren/_potenz_teilen_liste.py`: Alle Schularten und Klassen sind lückenlos und eindeutig (MYP 3: 13 Themen, MYP 4: 28 Themen). Die Lernbereiche hängen zusammen. Die einzige Ausnahme ist der bekannte Befund Gym 6 aus LB-4. Ausgabe: „Selbstprüfung: OK“.
+
+### Nicht geprüft
+- Die Anzeige in der App: Tabellenbilder der neuen Karte.
+- Die Lehrplantexte im Original.
+- Der Lernstand eines Kindes: Für die umgestuften Aufgaben in Flug A gilt beim Einspielen dasselbe wie in der Sechsundzwanzigsten Runde. Gleicher Text heißt gleiche Aufgabe, nur Stufe und Typ sind neu.
 
 ## 2026-11-20 22:50 – FERTIG: Potenzgesetze geteilt
 

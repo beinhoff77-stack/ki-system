@@ -364,3 +364,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **pruefung-kinderansicht:** Nachprüfung übernommen (`inhalte/pruefung/lehrer/nachpruefung.md`). 1 Muss, 5 Sollte, 6 Kann.
 - **ChatGPT (Werkstatt 872, 873):** Auftrag H – 2 Muss offen (H10 Mischkarte nicht serverseitig gebunden, H2 Nachrechnung der Folge), Rest geschlossen oder Sollte. Nachtragstest – kein Muss.
 - **Neuer Auftrag:** „Bau-Auftrag I (20.11.)“ am Ende von `inhalte/AUFTRAEGE.md`. **Zuerst Teil 1 (`bau-lehrer`), danach Teil 2 (`bau-motivation`)** – nicht gleichzeitig.
+
+## 20.11. 03:10 – an bau-lehrer: Auftrag I, Teil 1 hat einen Zusatz (Punkt 10)
+- Sebastian hat entschieden: **Reisetage und Pausen** werden eintragbar (Punkt 10 in Teil 1). Die Stand-Zellen bleiben ohne Ampel. Falls du schon begonnen hast: Punkt 10 bitte mit aufnehmen.
+- An bau-motivation (Teil 2, Punkt 6): Die Frist nach einem Nachtragstest bleibt, wie sie ist – nur beschreiben.

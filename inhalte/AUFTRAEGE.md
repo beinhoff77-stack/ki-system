@@ -1850,7 +1850,10 @@ Für beide Teile: Zweig vom aktuellen `lernen-app`; Datenbank nur lesen; Migrati
 8. Tablet: Rahmen der ⚙-Zelle ausrichten; „noch kein MYP-Jahr“ kürzer („– (ab Kl. 6)“); Spaltenkopf „AKTIONEN“ weglassen; Hinweis „über der Klasse des Kindes“ nicht abschneiden.
 9. Hinweise mit dem Wort „Datenbank“ durch neutrale Sätze ersetzen.
 
-**Nicht bauen (wartet auf Sebastian):** Pausen/Reisetage als Ausnahme für „rot“; Ampelfarben in den Stand-Zellen.
+**Zusatz (Sebastians Entscheidung 20.11.)**
+10. **Reisetage und Pausen eintragen.** Eltern und Lehrer können je Kind Zeiträume ohne Lernen eintragen (von–bis, optional ein Wort wie „Reisetag“, „krank“, „Ferien“; auch für alle Kinder zugleich). Ort: „⚙ Einstellen“ des Kindes und ein kurzer Weg von der Startseite („Reisetag eintragen“). Wirkung: Eingetragene Tage zählen nicht für „rot/gelb“ bei „Lernt“ und nicht für „kein Lerntag seit …“ in „Zu tun“; in der Zeile steht dann z. B. „Pause bis 24.11.“. An Lernregeln, Wiederholungen und Nachtests ändert sich nichts (die zählen ohnehin in Lerntagen). Eintragen, ändern und löschen muss gehen; vergangene Einträge bleiben sichtbar. Datenbank: Migration als Datei (Tabelle z. B. `schule.pause`: Kind oder alle, von, bis, grund, wer, wann) mit Rauchtest; Zugriff nur für Eltern/Lehrer. Info-Seite um einen Satz ergänzen.
+
+**Entschieden, nicht bauen:** Die Stand-Zellen (GYM, RS, IB) bleiben ohne Ampelfarbe.
 
 ## Teil 2 – Lernregeln (Chat `bau-motivation`, Zweig `bau-motivation`, App 0.81.1)
 

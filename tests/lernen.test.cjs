@@ -1530,6 +1530,7 @@ test('LA-1: Seite des Kindes mit 4 Reitern; alte Adressen leiten um; Reiter „S
   await page.goto(origin + '/#/lernen');
   await page.getByRole('link', { name: 'Kind A', exact: true }).click();
   await page.waitForURL(/#\/kind\/1-ueberblick$/);
+  await page.locator('.lern-reiter a[aria-current]', { hasText: 'Überblick' }).waitFor(); // erst lesen, wenn die Reiter gezeichnet sind
   assert.deepEqual(await page.locator('.lern-reiter a').allInnerTexts(), ['Überblick', 'Was wackelt', 'Stand', 'Plan']);
   for (const f of ['Lernt es?', 'Wo hakt es?', 'Wo steht es?', 'Was kommt?']) await page.getByRole('heading', { name: f }).waitFor();
   await page.getByRole('link', { name: 'Stand', exact: true }).click();

@@ -2,6 +2,12 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-20 – Test „LA-1: Seite des Kindes mit 4 Reitern“ stabil
+
+- Stand von `lernen-app` übernommen. Im Test wird jetzt nach `waitForURL` erst auf den gezeichneten Reiter gewartet (`.lern-reiter a[aria-current]` „Überblick“), dann werden die Reiter gelesen. Sonst nichts geändert.
+- **Ergebnis:** lernen 81 von 81 – zweimal hintereinander im Gesamtlauf.
+  Suche: 138 bestanden, 10 Fehler – die bekannten alten aus Reisen/PWA (13, 15, 101, 103, 105, 111, 113, 126, 127) plus 108 („W80: Jede neue Suche hat eine Reise …“), der schon früher gelegentlich wackelte; keiner betrifft die Lern-Seiten.
+
 ## 2026-11-18 – FERTIG: Auftrag LA (LA-1 bis LA-7) – App 0.80.0
 
 Zweig `bau-lehrer` (von `lernen-app` b8f910e), kein Merge. Reihenfolge wie verlangt: LA-1 → LA-2 → LA-6 → LA-3 → LA-5 → LA-4 → LA-7; je Paket eine Meldung unten.

@@ -7,6 +7,23 @@ Allgemein gilt für alle Berichte:
 - Übungen ohne `g` sind laut Zwanzigster Runde „überzählig“ und werden beim Einspielen gesperrt. Sie wurden auf richtige Lösung (a) geprüft, nicht auf Stufe/Typ (f).
 - Lehrplan: Die Seiten von lehrplanplus.bayern.de konnte ich in dieser Sitzung nicht direkt abrufen (Abruf brauchte eine Freigabe, die nicht beantwortet wurde). Lehrplanaussagen stützen sich daher auf `lehrplan_andere` in `themenliste.json` und auf ISB-Dokumente aus der Websuche (Abruf 20.11.2026); was nicht belegt ist, steht als Annahme da.
 
+## 2026-11-20 – terme.quadratische_extreme (RS 8): mit Korrekturen in Ordnung
+
+**Gelesen und nachgerechnet (Fakt):** 5 Lernkarten und alle 196 Aufgaben (136 Übungen, 10 Knobel, 5 Test, 15 Korrektur, 30 Sicherung). 87 Lücken-Aufgaben (Ergänzen, Scheitelform, Ausmultiplizieren, Stelle und Wert des Extremums) mit eigenem Skript aus dem Fragetext nachgerechnet (Term einlesen, Koeffizienten, x = −b : (2a)) – 0 Abweichungen. Die übrigen 109 (Auswahl, Sachaufgaben Zaun/Mauer/Kiosk/Kino, Knobel) von Hand nachgerechnet, u. a. alle Kiosk-Einnahmen (337,50 €, 225 €, 270 €, 433,50 €, 726 €) und Beispielrechnungen und Wertetabelle der Karten – alles richtig.
+
+**Änderungen je Fehlerart:** a) 0 · b) 0 · c) 2 · d) 0 · e) 0 · f) 0
+
+- c) `scheitelform`, Stufe 3, transfer: „Ein Wasserstrahl hat die Höhe h(x) = −x² + 6x + 1 … Wie hoch steigt der Strahl höchstens?“ verlangte Maximum und Ausklammern von −1 – beides kommt erst in den späteren Karten `extremwert` und `mit_faktor` (der Tipp sagte sogar „Klammere das Minus vor x² aus“). Ersetzt durch eine Aufgabe mit dem Stoff der Karte: „Eine Hängebrücke für Kinder hängt durch. Die Höhe über dem Bach ist h(x) = x² − 6x + 13 (alles in dm …). Wie hoch ist die Brücke an ihrer tiefsten Stelle?“ → (x − 3)² + 4, 4 dm. Typ und Stufe gleich.
+- c) `mit_faktor`, Lösungsweg einer Fehler-Aufgabe: „Der Faktor −2 öffnet nach unten“ spricht von Parabeln (RS 9, laut `offen` bewusst ausgespart). Jetzt: „Der Faktor −2 vor der Klammer heißt: Von 9 wird immer etwas abgezogen (außer bei x = 2) – also Maximum.“
+
+**Meinung, nicht geändert:** Viele Aufgaben sagen „damit ein Binom entsteht“, die Karte sagt „vollständiges Quadrat“. Streng genommen ist schon x² + 6x ein Binom; gemeint ist das Quadrat eines Binoms. Das ist im bayerischen Unterricht übliche Sprechweise, darum gelassen – bei einer späteren Überarbeitung einheitlich „vollständiges Quadrat“ sagen.
+
+**Lehrplan:** Annahme (nicht gegen lehrplanplus.bayern.de geprüft): Quadratische Ergänzung und Extremwerte quadratischer Terme ohne Parabeln passen zu RS 8 (Wahlpflichtfächergruppe I); Scheitelpunkt und Parabeln folgen in RS 9 (`funktionen.quadratisch`). Nichts Wesentliches fehlt.
+
+**Nicht geprüft:** Figurenbilder der Karte `ergaenzen` nur über die Koordinaten im JSON. Übungen ohne `g` (27, gesperrt) nur auf Lösung.
+
+Prüfskript: OK, 0 Gruppen „gleich gebaut hintereinander“. Vergleich alt/neu: nur die zwei genannten Aufgaben geändert.
+
 ## 2026-11-20 – daten.stichproben (RS 7, IB MYP 2): mit Korrekturen in Ordnung
 
 **Gelesen und nachgerechnet (Fakt):** 5 Lernkarten und alle 188 Aufgaben (128 Übungen, 10 Knobel, 5 Test, 15 Korrektur, 30 Sicherung). Alle 74 Zahl-Aufgaben von Hand nachgerechnet (Hochrechnung, Prozentpunkte, Spannweite, Fang-Wiederfang, geschichtete Stichprobe, Knobel 37 %/43 %/Würfelmethode) – keine falsche Zahl. Alle 114 Auswahl-Aufgaben einzeln auf „genau eine vertretbare Antwort“ gelesen; dabei die Fehler unten gefunden.

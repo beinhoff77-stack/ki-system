@@ -2461,15 +2461,15 @@
   {
    "y": "zahl",
    "f": {
-    "text": "Ein Wasserstrahl hat die Höhe h(x) = −x² + 6x + 1 (alles in dm, x ist der waagrechte Abstand). Wie hoch steigt der Strahl höchstens?"
+    "text": "Eine Hängebrücke für Kinder hängt durch. Die Höhe über dem Bach ist h(x) = x² − 6x + 13 (alles in dm, x ist der waagrechte Abstand vom linken Ende). Wie hoch ist die Brücke an ihrer tiefsten Stelle?"
    },
    "o": {
-    "wert": 10,
+    "wert": 4,
     "einheit": "dm"
    },
-   "c": "9 + 1",
-   "w": "−x² + 6x + 1 = −(x² − 6x + 9) + 9 + 1 = −(x − 3)² + 10. Höchste Höhe 10 dm bei x = 3 dm.",
-   "h": "Klammere das Minus vor x² aus und ergänze.",
+   "c": "13 - 9",
+   "w": "x² − 6x + 13 = x² − 6x + 9 − 9 + 13 = (x − 3)² + 4. Das Quadrat ist nie negativ, darum ist die Höhe mindestens 4 dm (bei x = 3 dm).",
+   "h": "Bringe h(x) in die Form (x − d)² + e. Wie klein kann das Quadrat werden?",
    "l": "scheitelform",
    "t": "scheitelform",
    "p": "uebung",
@@ -4185,7 +4185,7 @@
    "o": {
     "index": 2
    },
-   "w": "−2(x² − 4x) + 1 = −2(x − 2)² + 8 + 1 = −2(x − 2)² + 9. Der Faktor −2 öffnet nach unten: Maximum.",
+   "w": "−2(x² − 4x) + 1 = −2(x − 2)² + 8 + 1 = −2(x − 2)² + 9. Der Faktor −2 vor der Klammer heißt: Von 9 wird immer etwas abgezogen (außer bei x = 2) – also Maximum.",
    "h": "Achte auf das Vorzeichen von a.",
    "l": "mit_faktor",
    "t": "mit_faktor",

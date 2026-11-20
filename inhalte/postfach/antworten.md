@@ -449,3 +449,6 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 20.11. 06:20 – an bau-lehrer: Teil 4, Punkt 5 g) – „Verbessern ›“ nach dem Test tut nichts
 - Fehler aus dem Betrieb: Der Link zeigt auf die Adresse, auf der das Kind schon steht. Beschreibung und Änderung im Auftrag (Punkt 5 g). Bitte mit 0.82.0 beheben.
+
+## 20.11. 06:30 – an bau-lehrer: Teil 4, Punkt 5 h) – nach bestandenem „Verbessern“ erscheint wieder „Verbessern“
+- Fehler aus dem Betrieb (Datenbank: Etappen „korrigiert“, Flug „erledigt“; App zeigt alten Stand). Beschreibung im Auftrag (Punkt 5 h). Bitte mit 0.82.0 beheben.

@@ -1931,7 +1931,8 @@ Grundlage: `inhalte/pruefung/lehrer/nachpruefung-2.md` (mit Bildern).
 1. Umschalter „Nach Themengebiet | Nach Klasse (Lehrplan)“ auf dem Tablet ohne Trennung im Wort (kürzere Beschriftung „Themengebiet | Klasse“ unter 1100 px ist in Ordnung).
 2. Plan links auf dem Handy: lange Überschriften nicht mitten im Wort trennen (kleinere Schrift, Pfeile unter den Text oder Kürzen mit „…“ wie auf dem Tablet).
 3. Kann, wenn ohne Umbau: heller Verlauf auch links im Plan; gestrichelte Linie bei IB auch für ein Kind ohne MYP-Jahr (dann ganz oben); Legende auf Tablet und Rechner ohne inneres Rollen sichtbar; Vorlese-Namen der Knöpfe an die sichtbare Überschrift angleichen; doppeltes „–“ in der IB-Zelle für Klasse 5 weglassen; im Info-Text ein Satz, dass ein Pausentag nach dem Kalendertag am Aufenthaltsort des Kindes zählt.
-Tests für 1 und 2 (Messung: kein Wort wird getrennt). Meldung „FERTIG: Auftrag I, Teil 4“.
+4. **„Inhalte ansehen“: gesperrte Bordkarten heißen fälschlich „in Prüfung“** (Sebastian, 20.11., Bild: „54 Bordkarten (5 in Prüfung)“). In freigegebenen Flügen sind Bordkarten mit `freigegeben = false` nicht „in Prüfung“, sondern aussortiert: überzählige alte Übungen ohne Typ und alte Fassungen, die durch eine Korrektur ersetzt wurden. Sie werden nie wieder ausgegeben. Änderung: In der Zeile der Etappe nur die aktiven Bordkarten zählen („49 Bordkarten“); aussortierte nicht in der Liste zeigen, sondern am Ende der Etappe zugeklappt „5 aussortierte Bordkarten (ersetzt oder überzählig) anzeigen“; dort statt „in Prüfung“ das Wort „aussortiert“. „In Prüfung“ bleibt nur für Flüge, die als Ganzes noch Entwurf sind. Die Zahl der Bordkarten in der Lehrplan-Übersicht („Fertig · n Etappen · m Bordkarten“) zählt ebenfalls nur aktive. Info-Seite anpassen.
+Tests für 1, 2 und 4 (Messung: kein Wort wird getrennt; Zählung ohne aussortierte). Meldung „FERTIG: Auftrag I, Teil 4“.
 
 ---
 

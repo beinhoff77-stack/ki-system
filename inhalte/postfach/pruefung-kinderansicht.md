@@ -50,3 +50,11 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 - Erfüllt: LA-1, LA-4, LA-5, LA-6, Rollen („Lernen starten“ nur Eltern, „Lernreise ansehen“ für Lehrer). Teilweise: LA-2 (keine Ampel in den Stand-Zellen, keine Pausen-Ausnahme, Belohnungskasten über „Zu tun“), LA-3 und LA-7 auf dem Handy, Texte.
 - Muss: „Was wackelt“ auf dem Handy (Wörter zerbrechen, Spalte „seit“ abgeschnitten). Sollte: 5, Kann: 6.
 - Nichts an App, Tests oder Datenbank geändert; kein Merge.
+
+## 2026-11-20 – FERTIG: Nachprüfung 2
+- Bericht: `inhalte/pruefung/lehrer/nachpruefung-2.md` (App 0.81.0, lernen-app 68a663d; Eltern und Lehrer, 400 / 820 / 1280 px, erfundene Daten). Bilder `inhalte/pruefung/lehrer/bilder-0810/`, Skript `nachpruefung-2.test.cjs`, Messwerte `nachpruefung-2-messung.json`.
+- Muss aus Nachprüfung 1 (Was wackelt auf dem Handy) behoben; Sollte 1–4 erfüllt; Sollte 5 (Ampel) wartet auf Sebastians Bestätigung.
+- LA-8 teilweise: drei von vier „Fertig, wenn“ erfüllt, Farbe ohne Verlauf links; Umschalter bricht auf dem Tablet im Wort, Plan links auf dem Handy ebenso; Linie fehlt bei IB für Kl. 5; Legende erst nach innerem Rollen.
+- Reisetage und Pausen: auffindbar, verständlich, Wirkung auf „Lernt“ und „Zu tun“ wie beschrieben (mit Testdaten).
+- Muss: Migration `20261120_i_pause.sql` und Rauchtest vor dem Merge. Sollte 3, Kann 6.
+- Nichts an App, Tests oder Datenbank geändert; kein Merge.

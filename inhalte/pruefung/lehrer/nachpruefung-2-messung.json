@@ -1,0 +1,906 @@
+{
+ "a-eltern-400": {
+  "zutun": [
+   "zt-rot | Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest) ›",
+   "zt-gelb | Kind A: „Runden“ wackelt (5 falsch) ›",
+   "zt-blau zt-wunsch | Kind A möchte „Eis“ einlösen (300 Sterne) Bestätigen Ablehnen",
+   "zt-blau | Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen ›"
+  ],
+  "zutunKopf": "Was ist los?\nⓘ So funktioniert’s || Zu tun",
+  "reisetagKnopf": 1,
+  "wartet": 0,
+  "tabelle": "Karten",
+  "karten": [
+   "Kind A\nGym Kl. 5\n⚙ Einstellen\n\nLernt: 2 Lerntage diese Woche · zuletzt heute\n\nWackelt: 1 Etappe\n\nGYM\nKl. 5\n0 %\nRS\nKl. 5\n–\nIB\n– (ab Kl. 6)\n–\n\nJetzt: Rom · Natürliche Zahlen (2/4)\n\nLernen starten ›",
+   "Kind B\nGym Kl. 7\n⚙ Einstellen\n\nLernt: Pause bis 23.11. (Reisetag)\n\nWackelt: Rückreise\n\nGYM\nKl. 7\n0 %\nRS\nKl. 7\n–\nIB\nMYP-Jahr 2\n–\n\nJetzt: New York · Einfache Zinsen (0/6)\n\nLernen starten ›"
+  ],
+  "quer": false,
+  "wackeltKarten": 2,
+  "wackeltTabelle": false,
+  "wackeltAbgeschn": [],
+  "wackeltText": "Kind A\nGymnasium · Klasse 5\nLernen starten ›\n⚙ Einstellen\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\n\nDiese Woche: 30 Bordkarten (Aufgabe), 22 richtig, 4-mal mit Tipp · 2 Lerntage\n\nWas wackelt?\nRunden\nRom\nwackelt\n\nrichtig / falsch: 2 / 5\nhäufigster Fehler: falsch gerundet (2×)\nseit: 20.11.\n\nWelchen Wert hat eine Ziffer?\nRom\n\nrichtig / falsch: 6 / 1\nhäufigster Fehler: –\nseit: –\n\n„Wackelt“: mindestens 3 falsche und mehr falsche als richtige Antworten. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten. „Besprochen ✓“ nimmt die Etappe aus „Zu tun“, bis wieder eine Antwort falsch ist.\n\nAlle Etappen mit Stand (2)",
+  "wackeltQuer": false,
+  "ueberblickB": "Kind B\nGymnasium · Klasse 7\nLernen starten ›\n⚙ Einstellen\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\nLernt es?\n\nPause bis 23.11. (Reisetag)\n\nLetzte 7 Tage: 0 Bordkarten (Aufgabe), 0 richtig\n\nWo hakt es?\n\nKeine Etappe (Lernschritt) wackelt · Rückreise Pisa offen\n\n(Rückreise = Wiederholung nach nicht bestandenem Nachtest)\n\nWas wackelt ›\nWo steht es?\nGymnasium\nKl. 7\n0 %\nRealschule\nKl. 7\n–\nIB MYP\nMYP-Jahr 2\n–\nStand ›\nWas kommt?\n\nJetzt: Flug (Thema) New York · Einfache Zinsen (0/6 Etappen)\n\nPlan ›\nZuletzt geschafft\n\nNoch kein Flug geschafft.",
+  "lehrplanListe": 2,
+  "lehrplanQuer": false,
+  "lehrplanAbgeschn": [],
+  "reisetagBlatt": "Reisetag eintragen\n×\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht. Ändern und löschen: „⚙ Einstellen“ des Kindes.\n\nvon\nbis\nReisetag\nkrank\nFerien\nfür\nalle Kinder\nKind A\nKind B\nEintragen",
+  "einstellen": "Kind A einstellen\n×\nSchule\nGymnasium\nRealschule\nIB MYP\n5\n6\n7\n8\n9\n10\n\nBestimmt seine Klasse in Lernreise und Plan.\n\nStand messen gegen …\n\nDie Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.\n\nReisetage und Pausen\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht.\n\nvon\nbis\nReisetag\nkrank\nFerien\nEintragen\n19.11.–23.11. · Reisetag · Herr Lehrer\nÄndern\nLöschen\nNotizen und Verlauf (0)\nNeuer Plan aus Lehrplan-Vorlage",
+  "info": "Reisetage und Pausen: Über „+ Reisetag eintragen“ in „Zu tun“ oder im „⚙ Einstellen“ des Kindes lassen sich Tage ohne Lernen eintragen (für ein Kind oder alle); sie zählen nicht für „Lernt“ und „kein Lerntag seit …“, dort steht dann „Pause bis …“. Lernregeln, Wiederholungen und Nachtests ändern sich dadurch nicht.\n\nSeite des Kindes: Eine Zeile antippen öffnet sie, mit vier Reitern: Überblick (Lernt es? Wo hakt es? Wo steht es? Was kommt?), Was wackelt, Stand und Plan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.\n\nLernen starten: Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel ",
+  "infoLa8": "ite des Kindes: Lege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Rechts steht der Lehrplan: „Nach Themengebiet“ zeigt alle Orte eines Themengebiets von leicht nach schwer (auch über der Klasse des Kindes), „Nach Klasse (Lehrplan)“ die Orte einer Klasse; „+“ oder Ziehen plant ein. Überschriften nennen Themengebiet und Flüge (z. B. „Algebra – Terme umformen“), die Farbe zeigt die Klasse im Gymnasium; das Kind sieht weiter die Orte. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“ unter „⚙ Einstellen“. Jede Änderung wird sofort gespeichert.\n\nPlan Kind A ›\nPlan Kind B ›\n2\nLernstand lesen\n\nReiter „Stand“ auf der Seite des Kindes: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner"
+ },
+ "b-eltern-400": {
+  "reisetagKnopf": 0,
+  "zutun": [
+   "Kind B: kein Lerntag in den letzten 4 Wochen\n›",
+   "Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest)\n›",
+   "Kind A: „Runden“ wackelt (5 falsch)\n›",
+   "Kind A möchte „Eis“ einlösen (300 Sterne)\nBestätigen\nAblehnen",
+   "Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen\n›"
+  ],
+  "einstellen": "Kind A einstellen\n×\nSchule\nGymnasium\nRealschule\nIB MYP\n5\n6\n7\n8\n9\n10\n\nBestimmt seine Klasse in Lernreise und Plan.\n\nStand messen gegen …\n\nDie Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.\n\nReisetage und Pausen\n\nReisetage lassen sich hier noch nicht eintragen.\n\nNotizen und Verlauf (0)\nNeuer Plan aus Lehrplan-Vorlage"
+ },
+ "c-eltern-400": {
+  "umschalter": [
+   "Nach Themengebiet *",
+   "Nach Klasse (Lehrplan)"
+  ],
+  "gebiete": [
+   "Zahlen *",
+   "Algebra",
+   "Geld"
+  ],
+  "sortiert": [
+   "Gymnasium *",
+   "Realschule",
+   "IB MYP"
+  ],
+  "kopf": "Zahlen: 1 von 5 Orten im Plan · von leicht nach schwer",
+  "linie": [
+   "AB HIER ÜBER KLASSE 5 DES KINDES",
+   "dashed",
+   "rgb(133, 94, 65)"
+  ],
+  "links": [
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 0/2 Flüge · Ort in der Reise: Rom",
+   "6 Geld – Einfache Zinsen Gym 6 · RS 7 · 0/1 Flug · Ort in der Reise: New York Klasse 6 – über der Klasse des Kindes · Kind sieht ihn unter „Später“"
+  ],
+  "rechts": [
+   "⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug +",
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan",
+   "⠿ 6 Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug +",
+   "⠿ 9 Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge +",
+   "⠿ – Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug +"
+  ],
+  "abgeschnLinks": [],
+  "abgeschnRechts": [],
+  "legende": {
+   "text": "⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse",
+   "unten": 2008,
+   "spalteUnten": 2130
+  },
+  "farben": [
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "none"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "none"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "linear-gradient(90deg, color(srgb 0.00784314 0.466667 0.7411"
+   ],
+   [
+    "9",
+    "rgb(239, 108, 0)",
+    "linear-gradient(90deg, color(srgb 0.937255 0.423529 0 / 0.13"
+   ],
+   [
+    "–",
+    "rgb(138, 150, 163)",
+    "linear-gradient(90deg, color(srgb 0.541176 0.588235 0.639216"
+   ]
+  ],
+  "quer": false,
+  "spalten": "eine",
+  "nachPlus": [
+   49,
+   52,
+   70
+  ],
+  "neuLinks": "⠿\n3\n9\nZahlen – Elementare Wurzeln, Reelle Zahlen …\nGym 9 · RS 9 · MYP 4 · 0/3 Flüge · Ort in der Reise: Kyoto\nKlasse 9 – über der Klasse des Kindes · Kind sieht ihn unter „Später“\n↑\n↓",
+  "rechtsRS": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge"
+  ],
+  "linieRS": "AB HIER ÜBER KLASSE 5 DES KINDES",
+  "linieIB": "-",
+  "rechtsIB": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug"
+  ],
+  "klasse": "Lehrplan Nach Themengebiet Nach Klasse (Lehrplan) Gymnasium Realschule IB MYP 5 6 7 8 9 10 alle Klasse 5: 2 von 3 Flügen im Plan ⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug + 5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan ⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse ✎ Ändern lassen"
+ },
+ "a-lehrer-400": {
+  "zutun": [
+   "zt-rot | Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest) ›",
+   "zt-gelb | Kind A: „Runden“ wackelt (5 falsch) ›",
+   "zt-blau | Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen ›"
+  ],
+  "zutunKopf": "Was ist los?\nⓘ So funktioniert’s || Zu tun",
+  "reisetagKnopf": 1,
+  "wartet": 0,
+  "tabelle": "Karten",
+  "karten": [
+   "Kind A\nGym Kl. 5\n⚙ Einstellen\n\nLernt: 2 Lerntage diese Woche · zuletzt heute\n\nWackelt: 1 Etappe\n\nGYM\nKl. 5\n0 %\nRS\nKl. 5\n–\nIB\n– (ab Kl. 6)\n–\n\nJetzt: Rom · Natürliche Zahlen (2/4)",
+   "Kind B\nGym Kl. 7\n⚙ Einstellen\n\nLernt: Pause bis 23.11. (Reisetag)\n\nWackelt: Rückreise\n\nGYM\nKl. 7\n0 %\nRS\nKl. 7\n–\nIB\nMYP-Jahr 2\n–\n\nJetzt: New York · Einfache Zinsen (0/6)"
+  ],
+  "quer": false,
+  "wackeltKarten": 2,
+  "wackeltTabelle": false,
+  "wackeltAbgeschn": [],
+  "wackeltText": "Kind A\nGymnasium · Klasse 5\n⚙ Einstellen\nLernreise ansehen ›\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\n\nDiese Woche: 30 Bordkarten (Aufgabe), 22 richtig, 4-mal mit Tipp · 2 Lerntage\n\nWas wackelt?\nRunden\nRom\nwackelt\n\nrichtig / falsch: 2 / 5\nhäufigster Fehler: falsch gerundet (2×)\nseit: 20.11.\n\nWelchen Wert hat eine Ziffer?\nRom\n\nrichtig / falsch: 6 / 1\nhäufigster Fehler: –\nseit: –\n\n„Wackelt“: mindestens 3 falsche und mehr falsche als richtige Antworten. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten. „Besprochen ✓“ nimmt die Etappe aus „Zu tun“, bis wieder eine Antwort falsch ist.\n\nAlle Etappen mit Stand (2)",
+  "wackeltQuer": false,
+  "ueberblickB": "Kind B\nGymnasium · Klasse 7\n⚙ Einstellen\nLernreise ansehen ›\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\nLernt es?\n\nPause bis 23.11. (Reisetag)\n\nLetzte 7 Tage: 0 Bordkarten (Aufgabe), 0 richtig\n\nWo hakt es?\n\nKeine Etappe (Lernschritt) wackelt · Rückreise Pisa offen\n\n(Rückreise = Wiederholung nach nicht bestandenem Nachtest)\n\nWas wackelt ›\nWo steht es?\nGymnasium\nKl. 7\n0 %\nRealschule\nKl. 7\n–\nIB MYP\nMYP-Jahr 2\n–\nStand ›\nWas kommt?\n\nJetzt: Flug (Thema) New York · Einfache Zinsen (0/6 Etappen)\n\nPlan ›\nZuletzt geschafft\n\nNoch kein Flug geschafft.",
+  "lehrplanListe": 2,
+  "lehrplanQuer": false,
+  "lehrplanAbgeschn": [],
+  "reisetagBlatt": "Reisetag eintragen\n×\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht. Ändern und löschen: „⚙ Einstellen“ des Kindes.\n\nvon\nbis\nReisetag\nkrank\nFerien\nfür\nalle Kinder\nKind A\nKind B\nEintragen",
+  "einstellen": "Kind A einstellen\n×\nSchule\nGymnasium\nRealschule\nIB MYP\n5\n6\n7\n8\n9\n10\n\nBestimmt seine Klasse in Lernreise und Plan.\n\nStand messen gegen …\n\nDie Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.\n\nReisetage und Pausen\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht.\n\nvon\nbis\nReisetag\nkrank\nFerien\nEintragen\n19.11.–23.11. · Reisetag · Herr Lehrer\nÄndern\nLöschen\nNotizen und Verlauf (0)\nNeuer Plan aus Lehrplan-Vorlage",
+  "info": "Reisetage und Pausen: Über „+ Reisetag eintragen“ in „Zu tun“ oder im „⚙ Einstellen“ des Kindes lassen sich Tage ohne Lernen eintragen (für ein Kind oder alle); sie zählen nicht für „Lernt“ und „kein Lerntag seit …“, dort steht dann „Pause bis …“. Lernregeln, Wiederholungen und Nachtests ändern sich dadurch nicht.\n\nSeite des Kindes: Eine Zeile antippen öffnet sie, mit vier Reitern: Überblick (Lernt es? Wo hakt es? Wo steht es? Was kommt?), Was wackelt, Stand und Plan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.\n\nLernen starten: Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel ",
+  "infoLa8": "ite des Kindes: Lege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Rechts steht der Lehrplan: „Nach Themengebiet“ zeigt alle Orte eines Themengebiets von leicht nach schwer (auch über der Klasse des Kindes), „Nach Klasse (Lehrplan)“ die Orte einer Klasse; „+“ oder Ziehen plant ein. Überschriften nennen Themengebiet und Flüge (z. B. „Algebra – Terme umformen“), die Farbe zeigt die Klasse im Gymnasium; das Kind sieht weiter die Orte. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“ unter „⚙ Einstellen“. Jede Änderung wird sofort gespeichert.\n\nPlan Kind A ›\nPlan Kind B ›\n2\nLernstand lesen\n\nReiter „Stand“ auf der Seite des Kindes: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner"
+ },
+ "b-lehrer-400": {
+  "reisetagKnopf": 0,
+  "zutun": [
+   "Kind B: kein Lerntag in den letzten 4 Wochen\n›",
+   "Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest)\n›",
+   "Kind A: „Runden“ wackelt (5 falsch)\n›",
+   "Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen\n›"
+  ],
+  "einstellen": "Kind A einstellen\n×\nSchule\nGymnasium\nRealschule\nIB MYP\n5\n6\n7\n8\n9\n10\n\nBestimmt seine Klasse in Lernreise und Plan.\n\nStand messen gegen …\n\nDie Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.\n\nReisetage und Pausen\n\nReisetage lassen sich hier noch nicht eintragen.\n\nNotizen und Verlauf (0)\nNeuer Plan aus Lehrplan-Vorlage"
+ },
+ "c-lehrer-400": {
+  "umschalter": [
+   "Nach Themengebiet *",
+   "Nach Klasse (Lehrplan)"
+  ],
+  "gebiete": [
+   "Zahlen *",
+   "Algebra",
+   "Geld"
+  ],
+  "sortiert": [
+   "Gymnasium *",
+   "Realschule",
+   "IB MYP"
+  ],
+  "kopf": "Zahlen: 1 von 5 Orten im Plan · von leicht nach schwer",
+  "linie": [
+   "AB HIER ÜBER KLASSE 5 DES KINDES",
+   "dashed",
+   "rgb(133, 94, 65)"
+  ],
+  "links": [
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 0/2 Flüge · Ort in der Reise: Rom",
+   "6 Geld – Einfache Zinsen Gym 6 · RS 7 · 0/1 Flug · Ort in der Reise: New York Klasse 6 – über der Klasse des Kindes · Kind sieht ihn unter „Später“"
+  ],
+  "rechts": [
+   "⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug +",
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan",
+   "⠿ 6 Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug +",
+   "⠿ 9 Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge +",
+   "⠿ – Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug +"
+  ],
+  "abgeschnLinks": [],
+  "abgeschnRechts": [],
+  "legende": {
+   "text": "⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse",
+   "unten": 2014,
+   "spalteUnten": 2136
+  },
+  "farben": [
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "none"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "none"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "linear-gradient(90deg, color(srgb 0.00784314 0.466667 0.7411"
+   ],
+   [
+    "9",
+    "rgb(239, 108, 0)",
+    "linear-gradient(90deg, color(srgb 0.937255 0.423529 0 / 0.13"
+   ],
+   [
+    "–",
+    "rgb(138, 150, 163)",
+    "linear-gradient(90deg, color(srgb 0.541176 0.588235 0.639216"
+   ]
+  ],
+  "quer": false,
+  "spalten": "eine",
+  "nachPlus": [
+   49,
+   52,
+   70
+  ],
+  "neuLinks": "⠿\n3\n9\nZahlen – Elementare Wurzeln, Reelle Zahlen …\nGym 9 · RS 9 · MYP 4 · 0/3 Flüge · Ort in der Reise: Kyoto\nKlasse 9 – über der Klasse des Kindes · Kind sieht ihn unter „Später“\n↑\n↓",
+  "rechtsRS": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge"
+  ],
+  "linieRS": "AB HIER ÜBER KLASSE 5 DES KINDES",
+  "linieIB": "-",
+  "rechtsIB": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug"
+  ],
+  "klasse": "Lehrplan Nach Themengebiet Nach Klasse (Lehrplan) Gymnasium Realschule IB MYP 5 6 7 8 9 10 alle Klasse 5: 2 von 3 Flügen im Plan ⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug + 5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan ⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse ✎ Ändern lassen"
+ },
+ "a-eltern-820": {
+  "zutun": [
+   "zt-rot | Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest) ›",
+   "zt-gelb | Kind A: „Runden“ wackelt (5 falsch) ›",
+   "zt-blau zt-wunsch | Kind A möchte „Eis“ einlösen (300 Sterne) Bestätigen Ablehnen",
+   "zt-blau | Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen ›"
+  ],
+  "zutunKopf": "Was ist los?\nⓘ So funktioniert’s || Zu tun",
+  "reisetagKnopf": 1,
+  "wartet": 0,
+  "tabelle": {
+   "unten": 784,
+   "kopf": [
+    "KIND",
+    "LERNT",
+    "WACKELT",
+    "GYM",
+    "RS",
+    "IB",
+    "JETZT",
+    ""
+   ],
+   "zeilen": [
+    "|Kind A Gym Kl. 5 ¦ amp-gruen|2 Lerntage diese Woche · zuletzt heute ¦ amp-gelb|1 Etappe ¦ |Kl. 5 0 % ¦ |Kl. 5 – ¦ |– (ab Kl. 6) – ¦ small|Rom · Natürliche Zahlen (2/4) ¦ lern-zeile-zelle|Lernen starten › ⚙ Einstellen",
+    "|Kind B Gym Kl. 7 ¦ amp-pause|Pause bis 23.11. (Reisetag) ¦ amp-rot|Rückreise ¦ |Kl. 7 0 % ¦ |Kl. 7 – ¦ |MYP-Jahr 2 – ¦ small|New York · Einfache Zinsen (0/6) ¦ lern-zeile-zelle|Lernen starten › ⚙ Einstellen"
+   ]
+  },
+  "quer": false,
+  "wackeltKarten": 2,
+  "wackeltTabelle": true,
+  "wackeltAbgeschn": [],
+  "wackeltText": "Kind A\nGymnasium · Klasse 5\nLernen starten ›\n⚙ Einstellen\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\n\nDiese Woche: 30 Bordkarten (Aufgabe), 22 richtig, 4-mal mit Tipp · 2 Lerntage\n\nWas wackelt?\nETAPPE (LERNSCHRITT)\tRICHTIG / FALSCH\tHÄUFIGSTER FEHLER\tSEIT\nRunden\nRom\nwackelt\t2 / 5\tfalsch gerundet (2×)\t20.11.\nWelchen Wert hat eine Ziffer?\nRom\n\t6 / 1\t–\t–\n\n„Wackelt“: mindestens 3 falsche und mehr falsche als richtige Antworten. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten. „Besprochen ✓“ nimmt die Etappe aus „Zu tun“, bis wieder eine Antwort falsch ist.\n\nAlle Etappen mit Stand (2)",
+  "wackeltQuer": false,
+  "ueberblickB": "Kind B\nGymnasium · Klasse 7\nLernen starten ›\n⚙ Einstellen\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\nLernt es?\n\nPause bis 23.11. (Reisetag)\n\nLetzte 7 Tage: 0 Bordkarten (Aufgabe), 0 richtig\n\nWo hakt es?\n\nKeine Etappe (Lernschritt) wackelt · Rückreise Pisa offen\n\n(Rückreise = Wiederholung nach nicht bestandenem Nachtest)\n\nWas wackelt ›\nWo steht es?\nGymnasium\nKl. 7\n0 %\nRealschule\nKl. 7\n–\nIB MYP\nMYP-Jahr 2\n–\nStand ›\nWas kommt?\n\nJetzt: Flug (Thema) New York · Einfache Zinsen (0/6 Etappen)\n\nPlan ›\nZuletzt geschafft\n\nNoch kein Flug geschafft.",
+  "lehrplanListe": 2,
+  "lehrplanQuer": false,
+  "lehrplanAbgeschn": [],
+  "reisetagBlatt": "Reisetag eintragen\n×\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht. Ändern und löschen: „⚙ Einstellen“ des Kindes.\n\nvon\nbis\nReisetag\nkrank\nFerien\nfür\nalle Kinder\nKind A\nKind B\nEintragen",
+  "einstellen": "Kind A einstellen\n×\nSchule\nGymnasium\nRealschule\nIB MYP\n5\n6\n7\n8\n9\n10\n\nBestimmt seine Klasse in Lernreise und Plan.\n\nStand messen gegen …\n\nDie Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.\n\nReisetage und Pausen\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht.\n\nvon\nbis\nReisetag\nkrank\nFerien\nEintragen\n19.11.–23.11. · Reisetag · Herr Lehrer\nÄndern\nLöschen\nNotizen und Verlauf (0)\nNeuer Plan aus Lehrplan-Vorlage",
+  "info": "Reisetage und Pausen: Über „+ Reisetag eintragen“ in „Zu tun“ oder im „⚙ Einstellen“ des Kindes lassen sich Tage ohne Lernen eintragen (für ein Kind oder alle); sie zählen nicht für „Lernt“ und „kein Lerntag seit …“, dort steht dann „Pause bis …“. Lernregeln, Wiederholungen und Nachtests ändern sich dadurch nicht.\n\nSeite des Kindes: Eine Zeile antippen öffnet sie, mit vier Reitern: Überblick (Lernt es? Wo hakt es? Wo steht es? Was kommt?), Was wackelt, Stand und Plan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.\n\nLernen starten: Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel ",
+  "infoLa8": "ite des Kindes: Lege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Rechts steht der Lehrplan: „Nach Themengebiet“ zeigt alle Orte eines Themengebiets von leicht nach schwer (auch über der Klasse des Kindes), „Nach Klasse (Lehrplan)“ die Orte einer Klasse; „+“ oder Ziehen plant ein. Überschriften nennen Themengebiet und Flüge (z. B. „Algebra – Terme umformen“), die Farbe zeigt die Klasse im Gymnasium; das Kind sieht weiter die Orte. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“ unter „⚙ Einstellen“. Jede Änderung wird sofort gespeichert.\n\nPlan Kind A ›\nPlan Kind B ›\n2\nLernstand lesen\n\nReiter „Stand“ auf der Seite des Kindes: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner"
+ },
+ "b-eltern-820": {
+  "reisetagKnopf": 0,
+  "zutun": [
+   "Kind B: kein Lerntag in den letzten 4 Wochen\n›",
+   "Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest)\n›",
+   "Kind A: „Runden“ wackelt (5 falsch)\n›",
+   "Kind A möchte „Eis“ einlösen (300 Sterne)\nBestätigen\nAblehnen",
+   "Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen\n›"
+  ],
+  "einstellen": "Einstellen\n×\n\nLade …"
+ },
+ "c-eltern-820": {
+  "umschalter": [
+   "Nach Themengebiet *",
+   "Nach Klasse (Lehrplan)"
+  ],
+  "gebiete": [
+   "Zahlen *",
+   "Algebra",
+   "Geld"
+  ],
+  "sortiert": [
+   "Gymnasium *",
+   "Realschule",
+   "IB MYP"
+  ],
+  "kopf": "Zahlen: 1 von 5 Orten im Plan · von leicht nach schwer",
+  "linie": [
+   "AB HIER ÜBER KLASSE 5 DES KINDES",
+   "dashed",
+   "rgb(133, 94, 65)"
+  ],
+  "links": [
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 0/2 Flüge · Ort in der Reise: Rom",
+   "6 Geld – Einfache Zinsen Gym 6 · RS 7 · 0/1 Flug · Ort in der Reise: New York Klasse 6 – über der Klasse des Kindes · Kind sieht ihn unter „Später“"
+  ],
+  "rechts": [
+   "⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug +",
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan",
+   "⠿ 6 Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug +",
+   "⠿ 9 Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge +",
+   "⠿ – Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug +"
+  ],
+  "abgeschnLinks": [
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen"
+  ],
+  "abgeschnRechts": [],
+  "legende": {
+   "text": "⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse",
+   "unten": 1650,
+   "spalteUnten": 1474
+  },
+  "farben": [
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "none"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "none"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "linear-gradient(90deg, color(srgb 0.00784314 0.466667 0.7411"
+   ],
+   [
+    "9",
+    "rgb(239, 108, 0)",
+    "linear-gradient(90deg, color(srgb 0.937255 0.423529 0 / 0.13"
+   ],
+   [
+    "–",
+    "rgb(138, 150, 163)",
+    "linear-gradient(90deg, color(srgb 0.541176 0.588235 0.639216"
+   ]
+  ],
+  "quer": false,
+  "spalten": "zwei",
+  "nachPlus": [
+   49,
+   52,
+   70
+  ],
+  "neuLinks": "⠿\n3\n9\nZahlen – Elementare Wurzeln, Reelle Zahlen …\nGym 9 · RS 9 · MYP 4 · 0/3 Flüge · Ort in der Reise: Kyoto\nKlasse 9 – über der Klasse des Kindes · Kind sieht ihn unter „Später“\n↑\n↓",
+  "rechtsRS": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge"
+  ],
+  "linieRS": "AB HIER ÜBER KLASSE 5 DES KINDES",
+  "linieIB": "-",
+  "rechtsIB": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug"
+  ],
+  "klasse": "Lehrplan Nach Themengebiet Nach Klasse (Lehrplan) Gymnasium Realschule IB MYP 5 6 7 8 9 10 alle Klasse 5: 2 von 3 Flügen im Plan ⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug + 5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan ⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse ✎ Ändern lassen"
+ },
+ "a-lehrer-820": {
+  "zutun": [
+   "zt-rot | Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest) ›",
+   "zt-gelb | Kind A: „Runden“ wackelt (5 falsch) ›",
+   "zt-blau | Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen ›"
+  ],
+  "zutunKopf": "Was ist los?\nⓘ So funktioniert’s || Zu tun",
+  "reisetagKnopf": 1,
+  "wartet": 0,
+  "tabelle": {
+   "unten": 682,
+   "kopf": [
+    "KIND",
+    "LERNT",
+    "WACKELT",
+    "GYM",
+    "RS",
+    "IB",
+    "JETZT",
+    ""
+   ],
+   "zeilen": [
+    "|Kind A Gym Kl. 5 ¦ amp-gruen|2 Lerntage diese Woche · zuletzt heute ¦ amp-gelb|1 Etappe ¦ |Kl. 5 0 % ¦ |Kl. 5 – ¦ |– (ab Kl. 6) – ¦ small|Rom · Natürliche Zahlen (2/4) ¦ lern-zeile-zelle|⚙ Einstellen",
+    "|Kind B Gym Kl. 7 ¦ amp-pause|Pause bis 23.11. (Reisetag) ¦ amp-rot|Rückreise ¦ |Kl. 7 0 % ¦ |Kl. 7 – ¦ |MYP-Jahr 2 – ¦ small|New York · Einfache Zinsen (0/6) ¦ lern-zeile-zelle|⚙ Einstellen"
+   ]
+  },
+  "quer": false,
+  "wackeltKarten": 2,
+  "wackeltTabelle": true,
+  "wackeltAbgeschn": [],
+  "wackeltText": "Kind A\nGymnasium · Klasse 5\n⚙ Einstellen\nLernreise ansehen ›\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\n\nDiese Woche: 30 Bordkarten (Aufgabe), 22 richtig, 4-mal mit Tipp · 2 Lerntage\n\nWas wackelt?\nETAPPE (LERNSCHRITT)\tRICHTIG / FALSCH\tHÄUFIGSTER FEHLER\tSEIT\nRunden\nRom\nwackelt\t2 / 5\tfalsch gerundet (2×)\t20.11.\nWelchen Wert hat eine Ziffer?\nRom\n\t6 / 1\t–\t–\n\n„Wackelt“: mindestens 3 falsche und mehr falsche als richtige Antworten. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten. „Besprochen ✓“ nimmt die Etappe aus „Zu tun“, bis wieder eine Antwort falsch ist.\n\nAlle Etappen mit Stand (2)",
+  "wackeltQuer": false,
+  "ueberblickB": "Kind B\nGymnasium · Klasse 7\n⚙ Einstellen\nLernreise ansehen ›\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\nLernt es?\n\nPause bis 23.11. (Reisetag)\n\nLetzte 7 Tage: 0 Bordkarten (Aufgabe), 0 richtig\n\nWo hakt es?\n\nKeine Etappe (Lernschritt) wackelt · Rückreise Pisa offen\n\n(Rückreise = Wiederholung nach nicht bestandenem Nachtest)\n\nWas wackelt ›\nWo steht es?\nGymnasium\nKl. 7\n0 %\nRealschule\nKl. 7\n–\nIB MYP\nMYP-Jahr 2\n–\nStand ›\nWas kommt?\n\nJetzt: Flug (Thema) New York · Einfache Zinsen (0/6 Etappen)\n\nPlan ›\nZuletzt geschafft\n\nNoch kein Flug geschafft.",
+  "lehrplanListe": 2,
+  "lehrplanQuer": false,
+  "lehrplanAbgeschn": [],
+  "reisetagBlatt": "Reisetag eintragen\n×\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht. Ändern und löschen: „⚙ Einstellen“ des Kindes.\n\nvon\nbis\nReisetag\nkrank\nFerien\nfür\nalle Kinder\nKind A\nKind B\nEintragen",
+  "einstellen": "Kind A einstellen\n×\nSchule\nGymnasium\nRealschule\nIB MYP\n5\n6\n7\n8\n9\n10\n\nBestimmt seine Klasse in Lernreise und Plan.\n\nStand messen gegen …\n\nDie Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.\n\nReisetage und Pausen\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht.\n\nvon\nbis\nReisetag\nkrank\nFerien\nEintragen\n19.11.–23.11. · Reisetag · Herr Lehrer\nÄndern\nLöschen\nNotizen und Verlauf (0)\nNeuer Plan aus Lehrplan-Vorlage",
+  "info": "Reisetage und Pausen: Über „+ Reisetag eintragen“ in „Zu tun“ oder im „⚙ Einstellen“ des Kindes lassen sich Tage ohne Lernen eintragen (für ein Kind oder alle); sie zählen nicht für „Lernt“ und „kein Lerntag seit …“, dort steht dann „Pause bis …“. Lernregeln, Wiederholungen und Nachtests ändern sich dadurch nicht.\n\nSeite des Kindes: Eine Zeile antippen öffnet sie, mit vier Reitern: Überblick (Lernt es? Wo hakt es? Wo steht es? Was kommt?), Was wackelt, Stand und Plan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.\n\nLernen starten: Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel ",
+  "infoLa8": "ite des Kindes: Lege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Rechts steht der Lehrplan: „Nach Themengebiet“ zeigt alle Orte eines Themengebiets von leicht nach schwer (auch über der Klasse des Kindes), „Nach Klasse (Lehrplan)“ die Orte einer Klasse; „+“ oder Ziehen plant ein. Überschriften nennen Themengebiet und Flüge (z. B. „Algebra – Terme umformen“), die Farbe zeigt die Klasse im Gymnasium; das Kind sieht weiter die Orte. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“ unter „⚙ Einstellen“. Jede Änderung wird sofort gespeichert.\n\nPlan Kind A ›\nPlan Kind B ›\n2\nLernstand lesen\n\nReiter „Stand“ auf der Seite des Kindes: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner"
+ },
+ "b-lehrer-820": {
+  "reisetagKnopf": 0,
+  "zutun": [
+   "Kind B: kein Lerntag in den letzten 4 Wochen\n›",
+   "Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest)\n›",
+   "Kind A: „Runden“ wackelt (5 falsch)\n›",
+   "Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen\n›"
+  ],
+  "einstellen": "Einstellen\n×\n\nLade …"
+ },
+ "c-lehrer-820": {
+  "umschalter": [
+   "Nach Themengebiet *",
+   "Nach Klasse (Lehrplan)"
+  ],
+  "gebiete": [
+   "Zahlen *",
+   "Algebra",
+   "Geld"
+  ],
+  "sortiert": [
+   "Gymnasium *",
+   "Realschule",
+   "IB MYP"
+  ],
+  "kopf": "Zahlen: 1 von 5 Orten im Plan · von leicht nach schwer",
+  "linie": [
+   "AB HIER ÜBER KLASSE 5 DES KINDES",
+   "dashed",
+   "rgb(133, 94, 65)"
+  ],
+  "links": [
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 0/2 Flüge · Ort in der Reise: Rom",
+   "6 Geld – Einfache Zinsen Gym 6 · RS 7 · 0/1 Flug · Ort in der Reise: New York Klasse 6 – über der Klasse des Kindes · Kind sieht ihn unter „Später“"
+  ],
+  "rechts": [
+   "⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug +",
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan",
+   "⠿ 6 Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug +",
+   "⠿ 9 Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge +",
+   "⠿ – Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug +"
+  ],
+  "abgeschnLinks": [
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen"
+  ],
+  "abgeschnRechts": [],
+  "legende": {
+   "text": "⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse",
+   "unten": 1650,
+   "spalteUnten": 1474
+  },
+  "farben": [
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "none"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "none"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "linear-gradient(90deg, color(srgb 0.00784314 0.466667 0.7411"
+   ],
+   [
+    "9",
+    "rgb(239, 108, 0)",
+    "linear-gradient(90deg, color(srgb 0.937255 0.423529 0 / 0.13"
+   ],
+   [
+    "–",
+    "rgb(138, 150, 163)",
+    "linear-gradient(90deg, color(srgb 0.541176 0.588235 0.639216"
+   ]
+  ],
+  "quer": false,
+  "spalten": "zwei",
+  "nachPlus": [
+   49,
+   52,
+   70
+  ],
+  "neuLinks": "⠿\n3\n9\nZahlen – Elementare Wurzeln, Reelle Zahlen …\nGym 9 · RS 9 · MYP 4 · 0/3 Flüge · Ort in der Reise: Kyoto\nKlasse 9 – über der Klasse des Kindes · Kind sieht ihn unter „Später“\n↑\n↓",
+  "rechtsRS": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge"
+  ],
+  "linieRS": "AB HIER ÜBER KLASSE 5 DES KINDES",
+  "linieIB": "-",
+  "rechtsIB": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug"
+  ],
+  "klasse": "Lehrplan Nach Themengebiet Nach Klasse (Lehrplan) Gymnasium Realschule IB MYP 5 6 7 8 9 10 alle Klasse 5: 2 von 3 Flügen im Plan ⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug + 5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan ⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse ✎ Ändern lassen"
+ },
+ "a-eltern-1280": {
+  "zutun": [
+   "zt-rot | Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest) ›",
+   "zt-gelb | Kind A: „Runden“ wackelt (5 falsch) ›",
+   "zt-blau zt-wunsch | Kind A möchte „Eis“ einlösen (300 Sterne) Bestätigen Ablehnen",
+   "zt-blau | Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen ›"
+  ],
+  "zutunKopf": "Was ist los?\nⓘ So funktioniert’s || Zu tun",
+  "reisetagKnopf": 1,
+  "wartet": 0,
+  "tabelle": {
+   "unten": 747,
+   "kopf": [
+    "KIND",
+    "LERNT",
+    "WACKELT",
+    "GYM",
+    "RS",
+    "IB",
+    "JETZT",
+    ""
+   ],
+   "zeilen": [
+    "|Kind A Gym Kl. 5 ¦ amp-gruen|2 Lerntage diese Woche · zuletzt heute ¦ amp-gelb|1 Etappe ¦ |Kl. 5 0 % ¦ |Kl. 5 – ¦ |– (ab Kl. 6) – ¦ small|Rom · Natürliche Zahlen (2/4) ¦ lern-zeile-zelle|Lernen starten › ⚙ Einstellen",
+    "|Kind B Gym Kl. 7 ¦ amp-pause|Pause bis 23.11. (Reisetag) ¦ amp-rot|Rückreise ¦ |Kl. 7 0 % ¦ |Kl. 7 – ¦ |MYP-Jahr 2 – ¦ small|New York · Einfache Zinsen (0/6) ¦ lern-zeile-zelle|Lernen starten › ⚙ Einstellen"
+   ]
+  },
+  "quer": false,
+  "wackeltKarten": 2,
+  "wackeltTabelle": true,
+  "wackeltAbgeschn": [],
+  "wackeltText": "Kind A\nGymnasium · Klasse 5\nLernen starten ›\n⚙ Einstellen\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\n\nDiese Woche: 30 Bordkarten (Aufgabe), 22 richtig, 4-mal mit Tipp · 2 Lerntage\n\nWas wackelt?\nETAPPE (LERNSCHRITT)\tRICHTIG / FALSCH\tHÄUFIGSTER FEHLER\tSEIT\nRunden\nRom\nwackelt\t2 / 5\tfalsch gerundet (2×)\t20.11.\nWelchen Wert hat eine Ziffer?\nRom\n\t6 / 1\t–\t–\n\n„Wackelt“: mindestens 3 falsche und mehr falsche als richtige Antworten. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten. „Besprochen ✓“ nimmt die Etappe aus „Zu tun“, bis wieder eine Antwort falsch ist.\n\nAlle Etappen mit Stand (2)",
+  "wackeltQuer": false,
+  "ueberblickB": "Kind B\nGymnasium · Klasse 7\nLernen starten ›\n⚙ Einstellen\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\nLernt es?\n\nPause bis 23.11. (Reisetag)\n\nLetzte 7 Tage: 0 Bordkarten (Aufgabe), 0 richtig\n\nWo hakt es?\n\nKeine Etappe (Lernschritt) wackelt · Rückreise Pisa offen\n\n(Rückreise = Wiederholung nach nicht bestandenem Nachtest)\n\nWas wackelt ›\nWo steht es?\nGymnasium\nKl. 7\n0 %\nRealschule\nKl. 7\n–\nIB MYP\nMYP-Jahr 2\n–\nStand ›\nWas kommt?\n\nJetzt: Flug (Thema) New York · Einfache Zinsen (0/6 Etappen)\n\nPlan ›\nZuletzt geschafft\n\nNoch kein Flug geschafft.",
+  "lehrplanListe": 2,
+  "lehrplanQuer": false,
+  "lehrplanAbgeschn": [],
+  "reisetagBlatt": "Reisetag eintragen\n×\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht. Ändern und löschen: „⚙ Einstellen“ des Kindes.\n\nvon\nbis\nReisetag\nkrank\nFerien\nfür\nalle Kinder\nKind A\nKind B\nEintragen",
+  "einstellen": "Kind A einstellen\n×\nSchule\nGymnasium\nRealschule\nIB MYP\n5\n6\n7\n8\n9\n10\n\nBestimmt seine Klasse in Lernreise und Plan.\n\nStand messen gegen …\n\nDie Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.\n\nReisetage und Pausen\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht.\n\nvon\nbis\nReisetag\nkrank\nFerien\nEintragen\n19.11.–23.11. · Reisetag · Herr Lehrer\nÄndern\nLöschen\nNotizen und Verlauf (0)\nNeuer Plan aus Lehrplan-Vorlage",
+  "info": "Reisetage und Pausen: Über „+ Reisetag eintragen“ in „Zu tun“ oder im „⚙ Einstellen“ des Kindes lassen sich Tage ohne Lernen eintragen (für ein Kind oder alle); sie zählen nicht für „Lernt“ und „kein Lerntag seit …“, dort steht dann „Pause bis …“. Lernregeln, Wiederholungen und Nachtests ändern sich dadurch nicht.\n\nSeite des Kindes: Eine Zeile antippen öffnet sie, mit vier Reitern: Überblick (Lernt es? Wo hakt es? Wo steht es? Was kommt?), Was wackelt, Stand und Plan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.\n\nLernen starten: Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel ",
+  "infoLa8": "ite des Kindes: Lege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Rechts steht der Lehrplan: „Nach Themengebiet“ zeigt alle Orte eines Themengebiets von leicht nach schwer (auch über der Klasse des Kindes), „Nach Klasse (Lehrplan)“ die Orte einer Klasse; „+“ oder Ziehen plant ein. Überschriften nennen Themengebiet und Flüge (z. B. „Algebra – Terme umformen“), die Farbe zeigt die Klasse im Gymnasium; das Kind sieht weiter die Orte. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“ unter „⚙ Einstellen“. Jede Änderung wird sofort gespeichert.\n\nPlan Kind A ›\nPlan Kind B ›\n2\nLernstand lesen\n\nReiter „Stand“ auf der Seite des Kindes: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner"
+ },
+ "b-eltern-1280": {
+  "reisetagKnopf": 0,
+  "zutun": [
+   "Kind B: kein Lerntag in den letzten 4 Wochen\n›",
+   "Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest)\n›",
+   "Kind A: „Runden“ wackelt (5 falsch)\n›",
+   "Kind A möchte „Eis“ einlösen (300 Sterne)\nBestätigen\nAblehnen",
+   "Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen\n›"
+  ],
+  "einstellen": "Kind A einstellen\n×\nSchule\nGymnasium\nRealschule\nIB MYP\n5\n6\n7\n8\n9\n10\n\nBestimmt seine Klasse in Lernreise und Plan.\n\nStand messen gegen …\n\nDie Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.\n\nReisetage und Pausen\n\nReisetage lassen sich hier noch nicht eintragen.\n\nNotizen und Verlauf (0)\nNeuer Plan aus Lehrplan-Vorlage"
+ },
+ "c-eltern-1280": {
+  "umschalter": [
+   "Nach Themengebiet *",
+   "Nach Klasse (Lehrplan)"
+  ],
+  "gebiete": [
+   "Zahlen *",
+   "Algebra",
+   "Geld"
+  ],
+  "sortiert": [
+   "Gymnasium *",
+   "Realschule",
+   "IB MYP"
+  ],
+  "kopf": "Zahlen: 1 von 5 Orten im Plan · von leicht nach schwer",
+  "linie": [
+   "AB HIER ÜBER KLASSE 5 DES KINDES",
+   "dashed",
+   "rgb(133, 94, 65)"
+  ],
+  "links": [
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 0/2 Flüge · Ort in der Reise: Rom",
+   "6 Geld – Einfache Zinsen Gym 6 · RS 7 · 0/1 Flug · Ort in der Reise: New York Klasse 6 – über der Klasse des Kindes · Kind sieht ihn unter „Später“"
+  ],
+  "rechts": [
+   "⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug +",
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan",
+   "⠿ 6 Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug +",
+   "⠿ 9 Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge +",
+   "⠿ – Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug +"
+  ],
+  "abgeschnLinks": [],
+  "abgeschnRechts": [],
+  "legende": {
+   "text": "⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse",
+   "unten": 1227,
+   "spalteUnten": 1118
+  },
+  "farben": [
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "none"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "none"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "linear-gradient(90deg, color(srgb 0.00784314 0.466667 0.7411"
+   ],
+   [
+    "9",
+    "rgb(239, 108, 0)",
+    "linear-gradient(90deg, color(srgb 0.937255 0.423529 0 / 0.13"
+   ],
+   [
+    "–",
+    "rgb(138, 150, 163)",
+    "linear-gradient(90deg, color(srgb 0.541176 0.588235 0.639216"
+   ]
+  ],
+  "quer": false,
+  "spalten": "zwei",
+  "nachPlus": [
+   49,
+   52,
+   70
+  ],
+  "neuLinks": "⠿\n3\n9\nZahlen – Elementare Wurzeln, Reelle Zahlen …\nGym 9 · RS 9 · MYP 4 · 0/3 Flüge · Ort in der Reise: Kyoto\nKlasse 9 – über der Klasse des Kindes · Kind sieht ihn unter „Später“\n↑\n↓",
+  "rechtsRS": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge"
+  ],
+  "linieRS": "AB HIER ÜBER KLASSE 5 DES KINDES",
+  "linieIB": "-",
+  "rechtsIB": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug"
+  ],
+  "klasse": "Lehrplan Nach Themengebiet Nach Klasse (Lehrplan) Gymnasium Realschule IB MYP 5 6 7 8 9 10 alle Klasse 5: 2 von 3 Flügen im Plan ⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug + 5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan ⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse ✎ Ändern lassen"
+ },
+ "a-lehrer-1280": {
+  "zutun": [
+   "zt-rot | Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest) ›",
+   "zt-gelb | Kind A: „Runden“ wackelt (5 falsch) ›",
+   "zt-blau | Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen ›"
+  ],
+  "zutunKopf": "Was ist los?\nⓘ So funktioniert’s || Zu tun",
+  "reisetagKnopf": 1,
+  "wartet": 0,
+  "tabelle": {
+   "unten": 629,
+   "kopf": [
+    "KIND",
+    "LERNT",
+    "WACKELT",
+    "GYM",
+    "RS",
+    "IB",
+    "JETZT",
+    ""
+   ],
+   "zeilen": [
+    "|Kind A Gym Kl. 5 ¦ amp-gruen|2 Lerntage diese Woche · zuletzt heute ¦ amp-gelb|1 Etappe ¦ |Kl. 5 0 % ¦ |Kl. 5 – ¦ |– (ab Kl. 6) – ¦ small|Rom · Natürliche Zahlen (2/4) ¦ lern-zeile-zelle|⚙ Einstellen",
+    "|Kind B Gym Kl. 7 ¦ amp-pause|Pause bis 23.11. (Reisetag) ¦ amp-rot|Rückreise ¦ |Kl. 7 0 % ¦ |Kl. 7 – ¦ |MYP-Jahr 2 – ¦ small|New York · Einfache Zinsen (0/6) ¦ lern-zeile-zelle|⚙ Einstellen"
+   ]
+  },
+  "quer": false,
+  "wackeltKarten": 2,
+  "wackeltTabelle": true,
+  "wackeltAbgeschn": [],
+  "wackeltText": "Kind A\nGymnasium · Klasse 5\n⚙ Einstellen\nLernreise ansehen ›\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\n\nDiese Woche: 30 Bordkarten (Aufgabe), 22 richtig, 4-mal mit Tipp · 2 Lerntage\n\nWas wackelt?\nETAPPE (LERNSCHRITT)\tRICHTIG / FALSCH\tHÄUFIGSTER FEHLER\tSEIT\nRunden\nRom\nwackelt\t2 / 5\tfalsch gerundet (2×)\t20.11.\nWelchen Wert hat eine Ziffer?\nRom\n\t6 / 1\t–\t–\n\n„Wackelt“: mindestens 3 falsche und mehr falsche als richtige Antworten. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten. „Besprochen ✓“ nimmt die Etappe aus „Zu tun“, bis wieder eine Antwort falsch ist.\n\nAlle Etappen mit Stand (2)",
+  "wackeltQuer": false,
+  "ueberblickB": "Kind B\nGymnasium · Klasse 7\n⚙ Einstellen\nLernreise ansehen ›\nⓘ So funktioniert’s\nÜberblick\nWas wackelt\nStand\nPlan\nLernt es?\n\nPause bis 23.11. (Reisetag)\n\nLetzte 7 Tage: 0 Bordkarten (Aufgabe), 0 richtig\n\nWo hakt es?\n\nKeine Etappe (Lernschritt) wackelt · Rückreise Pisa offen\n\n(Rückreise = Wiederholung nach nicht bestandenem Nachtest)\n\nWas wackelt ›\nWo steht es?\nGymnasium\nKl. 7\n0 %\nRealschule\nKl. 7\n–\nIB MYP\nMYP-Jahr 2\n–\nStand ›\nWas kommt?\n\nJetzt: Flug (Thema) New York · Einfache Zinsen (0/6 Etappen)\n\nPlan ›\nZuletzt geschafft\n\nNoch kein Flug geschafft.",
+  "lehrplanListe": 2,
+  "lehrplanQuer": false,
+  "lehrplanAbgeschn": [],
+  "reisetagBlatt": "Reisetag eintragen\n×\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht. Ändern und löschen: „⚙ Einstellen“ des Kindes.\n\nvon\nbis\nReisetag\nkrank\nFerien\nfür\nalle Kinder\nKind A\nKind B\nEintragen",
+  "einstellen": "Kind A einstellen\n×\nSchule\nGymnasium\nRealschule\nIB MYP\n5\n6\n7\n8\n9\n10\n\nBestimmt seine Klasse in Lernreise und Plan.\n\nStand messen gegen …\n\nDie Stufe je Schulart lässt sich hier noch nicht einstellen; gemessen wird an der Klasse.\n\nReisetage und Pausen\n\nEingetragene Tage zählen nicht für „Lernt“ und „kein Lerntag seit …“. Lernregeln, Wiederholungen und Nachtests ändern sich nicht.\n\nvon\nbis\nReisetag\nkrank\nFerien\nEintragen\n19.11.–23.11. · Reisetag · Herr Lehrer\nÄndern\nLöschen\nNotizen und Verlauf (0)\nNeuer Plan aus Lehrplan-Vorlage",
+  "info": "Reisetage und Pausen: Über „+ Reisetag eintragen“ in „Zu tun“ oder im „⚙ Einstellen“ des Kindes lassen sich Tage ohne Lernen eintragen (für ein Kind oder alle); sie zählen nicht für „Lernt“ und „kein Lerntag seit …“, dort steht dann „Pause bis …“. Lernregeln, Wiederholungen und Nachtests ändern sich dadurch nicht.\n\nSeite des Kindes: Eine Zeile antippen öffnet sie, mit vier Reitern: Überblick (Lernt es? Wo hakt es? Wo steht es? Was kommt?), Was wackelt, Stand und Plan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.\n\nLernen starten: Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel ",
+  "infoLa8": "ite des Kindes: Lege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Rechts steht der Lehrplan: „Nach Themengebiet“ zeigt alle Orte eines Themengebiets von leicht nach schwer (auch über der Klasse des Kindes), „Nach Klasse (Lehrplan)“ die Orte einer Klasse; „+“ oder Ziehen plant ein. Überschriften nennen Themengebiet und Flüge (z. B. „Algebra – Terme umformen“), die Farbe zeigt die Klasse im Gymnasium; das Kind sieht weiter die Orte. Neu anfangen: „Neuer Plan aus Lehrplan-Vorlage“ unter „⚙ Einstellen“. Jede Änderung wird sofort gespeichert.\n\nPlan Kind A ›\nPlan Kind B ›\n2\nLernstand lesen\n\nReiter „Stand“ auf der Seite des Kindes: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner"
+ },
+ "b-lehrer-1280": {
+  "reisetagKnopf": 0,
+  "zutun": [
+   "Kind B: kein Lerntag in den letzten 4 Wochen\n›",
+   "Kind B: Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest)\n›",
+   "Kind A: „Runden“ wackelt (5 falsch)\n›",
+   "Neue Antwort auf euren Auftrag: Rom – Natürliche Zahlen\n›"
+  ],
+  "einstellen": "Einstellen\n×\n\nLade …"
+ },
+ "c-lehrer-1280": {
+  "umschalter": [
+   "Nach Themengebiet *",
+   "Nach Klasse (Lehrplan)"
+  ],
+  "gebiete": [
+   "Zahlen *",
+   "Algebra",
+   "Geld"
+  ],
+  "sortiert": [
+   "Gymnasium *",
+   "Realschule",
+   "IB MYP"
+  ],
+  "kopf": "Zahlen: 1 von 5 Orten im Plan · von leicht nach schwer",
+  "linie": [
+   "AB HIER ÜBER KLASSE 5 DES KINDES",
+   "dashed",
+   "rgb(133, 94, 65)"
+  ],
+  "links": [
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 0/2 Flüge · Ort in der Reise: Rom",
+   "6 Geld – Einfache Zinsen Gym 6 · RS 7 · 0/1 Flug · Ort in der Reise: New York Klasse 6 – über der Klasse des Kindes · Kind sieht ihn unter „Später“"
+  ],
+  "rechts": [
+   "⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug +",
+   "5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan",
+   "⠿ 6 Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug +",
+   "⠿ 9 Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge +",
+   "⠿ – Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug +"
+  ],
+  "abgeschnLinks": [],
+  "abgeschnRechts": [],
+  "legende": {
+   "text": "⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse",
+   "unten": 1227,
+   "spalteUnten": 1118
+  },
+  "farben": [
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "none"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "none"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "5",
+    "rgb(46, 125, 50)",
+    "linear-gradient(90deg, color(srgb 0.180392 0.490196 0.196078"
+   ],
+   [
+    "6",
+    "rgb(2, 119, 189)",
+    "linear-gradient(90deg, color(srgb 0.00784314 0.466667 0.7411"
+   ],
+   [
+    "9",
+    "rgb(239, 108, 0)",
+    "linear-gradient(90deg, color(srgb 0.937255 0.423529 0 / 0.13"
+   ],
+   [
+    "–",
+    "rgb(138, 150, 163)",
+    "linear-gradient(90deg, color(srgb 0.541176 0.588235 0.639216"
+   ]
+  ],
+  "quer": false,
+  "spalten": "zwei",
+  "nachPlus": [
+   49,
+   52,
+   70
+  ],
+  "neuLinks": "⠿\n3\n9\nZahlen – Elementare Wurzeln, Reelle Zahlen …\nGym 9 · RS 9 · MYP 4 · 0/3 Flüge · Ort in der Reise: Kyoto\nKlasse 9 – über der Klasse des Kindes · Kind sieht ihn unter „Später“\n↑\n↓",
+  "rechtsRS": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge"
+  ],
+  "linieRS": "AB HIER ÜBER KLASSE 5 DES KINDES",
+  "linieIB": "-",
+  "rechtsIB": [
+   "Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug",
+   "Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge",
+   "Zahlen – Brüche und Anteile Gym 6 · RS 6 · MYP 1 · 1 Flug",
+   "Zahlen – Elementare Wurzeln, Reelle Zahlen … Gym 9 · RS 9 · MYP 4 · 3 Flüge",
+   "Zahlen – Prozentrechnung im Alltag RS 7 · 1 Flug"
+  ],
+  "klasse": "Lehrplan Nach Themengebiet Nach Klasse (Lehrplan) Gymnasium Realschule IB MYP 5 6 7 8 9 10 alle Klasse 5: 2 von 3 Flügen im Plan ⠿ 5 Zahlen – Teilbarkeit und Primzahlen Gym 5 · RS 5 · MYP 1 · 1 Flug + 5 Zahlen – Natürliche Zahlen und Stellenwertsysteme und Ganze Zahlen Gym 5 · RS 5 · MYP 1 · 2 Flüge ✓ im Plan ⠿ in den Plan ziehen oder „+“ antippen. Fett: Klasse in der gewählten Schulart. Farbe = Klasse im Gymnasium: 5678910– ohne Gymnasium-Klasse ✎ Ändern lassen"
+ }
+}

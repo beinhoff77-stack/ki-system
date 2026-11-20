@@ -2,6 +2,32 @@
 
 Neueste oben.
 
+## 2026-11-21 – FERTIG: 0.83.1 (LB Teil 8 und Nachtrag B) – App 0.83.1, Cache v151
+
+Stand `lernen-app` 31b73f6 übernommen, dazu `bau-lehrer` 80e67e8 („FERTIG: flug_geschafft“ lag vor); vor dem Push `lernen-app` 44a30d2 eingemischt (nur Postfach/Inhalte). Nur App (`lernen.js`, `style.css`), Versionsnummer in sechs Dateien (`app.js`, `index.html`, `lernen/index.html`, `lernen/schule.js`, `sw.js`, `tests/search.test.cjs`), Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.
+
+**LB Teil 8 – aufgeklappte Themen-Karte, Variante A** („Nach Klasse“ und aufgeklappter Ort in „Nach Themengebiet“)
+- Kopf, „Lehrplan: …“ und Beschreibung unverändert.
+- Eine Zeile: Knopf „Inhalte ansehen (n Etappen)“ mit Rahmen in Akzentfarbe (öffnet `#/inhalte/<Flug>` wie bisher), daneben klein und grau „Ort: <Ort>“; ohne Inhalt steht dort „noch kein Inhalt“. Die Etappen-Kästchen entfallen.
+- Trennlinie, dann „Stufe ⓘ“ (ⓘ öffnet „So funktioniert’s“ mit aufgeklappter Frage „Was kann ich selbst ändern?“, in der die vier Stufen erklärt sind – neue Adresse `#/info/stufen`) und drei schmale Knöpfe „Lernen“ · „Kann er – wiederholen“ · „Kann er komplett“; der aktive grün hinterlegt mit „✓“. Keine Erklärungszeilen mehr.
+- Rechts als roter Textlink „Aus dem Plan nehmen“, außerhalb des Plans „In den Plan nehmen“ (Akzentfarbe). Wirkung und Speichern unverändert (dieselbe `setze`-Funktion wie bisher).
+- Rückfall-Hinweis aus Teil 6 bleibt im Kopf der Zeile sichtbar. Nebenbei berichtigt: Er erscheint nur noch bei der Stufe ◉ (vorher auch, wenn die App einen „komplett“ gesetzten Flug lokal auf „Kommt noch“ umrechnete).
+- **Abweichungen / offen (bitte entscheiden):**
+  1. **Etappen-Liste mit Stand (Teil 5 S4) ist im Plan nicht mehr zu sehen.** „Inhalte ansehen“ zeigt die Inhalte, nicht den Stand des Kindes je Etappe. Den Stand je Etappe sehen Eltern/Lehrer weiter unter „Was wackelt“ (nur Etappen mit Fehlern) und auf der Abflugtafel des Kindes. Wenn er im Plan bleiben soll: Vorschlag ein zugeklappter Textlink „Etappen ▸“ in der Inhalte-Zeile.
+  2. **„Wieder in die Wiederholung“** steht bei ◉-Flügen weiter in der Stufen-Zeile, als grauer Textlink (sonst ginge die Funktion in der Karte verloren; Variante A nennt ihn nicht).
+  3. **„Aus dem Plan nehmen“ in derselben Zeile** passt nur, wenn die Spalte breit genug ist. Die Lehrplan-Spalte ist auch bei 1280 px nur etwa 450 px breit – dort und bei 820 px steht der Link rechtsbündig in einer eigenen Zeile unter den Knöpfen (wie auf dem Handy). Siehe `test-results/lb8-karte-{400,820,1280}.png` beim Testlauf.
+  4. Die alte Etappen-Liste mit Stand rechts (Teil 6 N5) ist damit ebenfalls weg; ihr Test entfällt.
+- Abnahme: 400, 820, 1280 – kein Wort mitten im Wort umbrochen in der Karte (gemessen vor und nach dem Umschalten), kein Querrollen, zugeklappte Zeilen unverändert.
+
+**Nachtrag B – Flug-Abschluss an `flug_geschafft`:** Die Abschluss-Ansicht des Flugs kommt, wenn die Antwort `flug_geschafft: true` oder `ort_geschafft: true` enthält. Steht `flug_geschafft` gar nicht in der Antwort (Server ohne `20261120_ab_s_flug_abschluss_einmal.sql`, also heute live), gilt die Regel von 0.83.0 (`einheit_abgeschlossen` bzw. Flug-Test bestanden, nicht nach Nachtest). Das Test-Ergebnis selbst (Liste, „Flug geschafft!“-Zeile, Knöpfe) ist unverändert. Die App ist damit vor und nach dem Einspielen der Migration richtig – sie kann also vor der Migration live gehen.
+
+**Getestet** (Playwright mit Chrome): **lernen 127 von 127** – neu 3 (Teil 8 Karte bei 400/820/1280 mit Wirkung, Farbe, Lage und zugeklappten Zeilen; Themengebiet + Rückfall + ⓘ; Nachtrag B mit `flug_geschafft` true/false, `ort_geschafft`, alter Server), angepasst 4 (LA-4, LB-1/LB-5, Teil 5 S4: neue Knopf-Texte und Karte; Teil 6 N5 entfällt). Alle Tests: 268 bestanden, 1 übersprungen, 10 Fehler – alle im Reise-Bereich: die 9 bekannten (PWA-Hülle, „Lernen Schule: Startkarte“, W80 ×4, Review301, „Woanders gebucht“, W88) und neu **W175 „Reiseplan-Kopf“** – hängt am Datum („Tag 11 von 110“, seit heute 21.11. Tag 12) und schlägt ohne meine Änderungen genauso fehl.
+
+**Nicht geprüft:** echte Geräte und Safari, Bildschirmleser, gegen den echten Server (`flug_geschafft` nur nach der Feldbeschreibung von bau-lehrer nachgebildet).
+
+FERTIG: LB Teil 8
+FERTIG: 0.83.1
+
 ## 2026-11-20 – FERTIG: flug_geschafft (Nachträge 20.11. nachmittags, Teil A)
 
 Stand `lernen-app` e8450e0 übernommen. Nur Dateien – nichts ausgeführt, kein App-Code, kein Merge. pglast ok.

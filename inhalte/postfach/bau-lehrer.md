@@ -2,6 +2,37 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-20 – FERTIG: LB, Teil 5 – App 0.82.2 (Cache v148)
+
+Stand `lernen-app` 5e3a975 übernommen. Grundlage `inhalte/pruefung/lehrer/nachpruefung-3.md`. Datenbank nicht berührt, keine Migration. Kein Merge.
+Bilder: `docs/previews/la/lb5-klasse-gym8-400.png`, `lb5-klasse-gym8-820.png`, `lb5-klasse-gym8-1280.png`, `lb5-auswahl-820.png`, `lb5-lehrplan-1280.png`.
+
+**Gemessen mit echten Daten:** Die neuen Tests laden den Lehrstoff aus `inhalte/themenliste.json` (95 Flüge: Titel, Lernbereiche, Lehrplan-Bezüge, Reihenfolgen, Etappen-Titel aus den Themendateien); der Lernstand eines Gym-8-Kindes ist erfunden (alle fünf Stufen, auch „gesetzt: wiederholen“).
+
+**Muss**
+- **M1:** „Nach Klasse“ – für **jede** Klasse aller drei Schularten (Gym 5–10, RS 5–10, MYP 1–5) bei 400, 820 und 1280 px gemessen: kein Wort über zwei Zeilen (Titel, Unterzeile, Stufenwort, Lernbereich), keine Überlappung Titel ↔ Stufenwort, kein Titel läuft über, kein Querrollen. Umsetzung: unter 1100 px steht das Stufenwort mit Zusatz **unter** dem Titel; Tablet 700–1099 px Spalten 55 % / 45 %; ab 1100 px Stufenwort höchstens 42 % breit und umbrechend; Unterzeilen ohne Silbentrennung; Wörter mit Bindestrich („n-te“) werden nicht am Bindestrich umbrochen. Die längsten Titel je Klasse schreibt der Test nach `test-results/lb5-laengste-titel.json`.
+
+**Sollte**
+- **S1 Auswahl kompakt:** Orte bleiben zugeklappt; je Ort ein Häkchen (alle geplanten Flüge) statt Griff, daneben „▸ einzeln“; je Abschnitt (▶, ○, ↻, ◉) ein Häkchen „alle auswählen“; Flug-Knöpfe, „alle Flüge: kann er komplett“ und „Ort aus dem Plan nehmen“ sind beim Auswählen ausgeblendet. Gemessen (820, echte Daten): Seite wächst nicht mehr um das 8-Fache (Test: < 1,6-fach).
+- **S2:** Abschnitte „▶ GERADE DRAN · 1 Ort, 2 Flüge“, „◉ Kann er komplett · 11 Orte, 11 Flüge“ usw.; Kopf weiter in Flügen.
+- **S3:** Lehrplan-Übersicht je Klasse in Lehrplan-Reihenfolge der gewählten Schulart, Gruppen nach Lernbereich (ohne Lernbereich-Daten wie bisher nach Gebiet). Getestet Gym 8 und RS 7 gegen die Reihenfolge der Themenliste.
+- **S4:** Aufgeklappt stehen die Etappen als Liste „1 Ungleichungen umformen · offen“ (Stand: offen · begonnen · gelandet · sicher · wieder offen), kein Tooltip nötig.
+
+**Kann**
+- K1 Legende: eine Zeile mit den fünf Zeichen und „Legende“, aufklappbar (Wörter und Klassenfarben darin).
+- K2 Lehrplan-Spalte ohne eigene Bildlaufleiste (nicht mehr klebend) – die Seite rollt, beide Ansichten.
+- K3 IB-Lernbereiche deutsch zuerst („MYP 3 Zahl und Algebra (Numerical and abstract reasoning)“), nur Anzeige.
+- K4 Fehlt der Lehrplan-Bezug der Schulart, zeigt „Lehrplan:“ den Lernbereich. Lehrplan-Bezüge als Liste werden mit „ · “ verbunden.
+
+**Gesehen/getestet**
+- lernen: 112 von 112 (neu 4 Tests LB Teil 5: M1 alle Klassen × 400/820/1280; S4/K3/K4; S1/S2/K1/K2; S3). Angepasst: Abschnitts-Texte („· 1 Ort, 2 Flüge“), Legende vor dem Messen der Farben aufklappen, Touch-Ziehen erst nach oben rollen (Spalte klebt nicht mehr).
+- Suche: 139 bestanden, 9 Fehler – die bekannten alten (13, 15, 101, 103, 105, 111, 113, 126, 127).
+
+**Nicht geprüft / Hinweise**
+- Mit echten Kinderdaten und echten Geräten nicht angesehen; nur Chromium.
+- Ob der Live-Server `lernbereich`/`lehrplan`/`lehrplan_reihenfolge` in `schule_lehrplan_uebersicht` liefert, habe ich nicht geprüft; ohne diese Felder gliedert die Übersicht wie bisher nach Gebiet.
+- Der Lehrplan rechts klebt nicht mehr beim Rollen (Folge von K2). Ziehen aus dem Lehrplan in den Plan funktioniert weiter (E-2-Test), bei langen Listen muss man aber rollen.
+
 ## 2026-11-20 – FERTIG: Teil 4, Punkt 5 d–h – App 0.82.1
 
 Stand `lernen-app` e728367 übernommen (Punkt 5 a–h unverändert gegenüber 10a3155). a)–c) waren in 0.82.0; d)–h) jetzt als **0.82.1** (Version in app.js, sw.js, index.html, lernen/index.html, lernen/schule.js, tests/search.test.cjs). Datenbank nicht berührt (keine Migration nötig: `schule_test_starten` mit `art: korrektur` und `schule_einheit_lesen` gibt es schon). Kein Merge.

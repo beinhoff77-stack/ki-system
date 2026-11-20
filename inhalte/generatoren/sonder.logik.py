@@ -46,6 +46,9 @@ def ausdr(name):
         'p ∧ ¬q': lambda p, q: p and not q, '¬p ∨ q': lambda p, q: (not p) or q, '¬(p ∧ q)': lambda p, q: not (p and q),
         '¬(p ∨ q)': lambda p, q: not (p or q), 'p ⇒ q': lambda p, q: (not p) or q, '¬p ∧ ¬q': lambda p, q: (not p) and (not q),
         'q ⇒ p': lambda p, q: (not q) or p, '¬p ∨ ¬q': lambda p, q: (not p) or (not q), '¬q ⇒ ¬p': lambda p, q: q or not p,
+        # Prüfung neu 2: Ausdrücke ohne ⇒ für die Lernkarten vor „folgerung“
+        'p ∨ ¬q': lambda p, q: p or not q, '¬p ∧ q': lambda p, q: (not p) and q,
+        '¬(p ∧ ¬q)': lambda p, q: not (p and not q), '¬(¬p ∧ q)': lambda p, q: not ((not p) and q),
     }[name]
 
 
@@ -93,6 +96,9 @@ ETAPPEN = [
 
 
 KEINE = ['Ist 7 eine Primzahl?', 'Rechne 5 + 3 aus!', 'x ist größer als 3.', 'Mathe ist das schönste Fach.', 'Schließ bitte das Fenster.', 'Wie spät ist es?', 'n ist eine gerade Zahl.']
+KEINE_GRUND = {'Ist 7 eine Primzahl?': 'ist eine Frage', 'Rechne 5 + 3 aus!': 'ist ein Befehl', 'x ist größer als 3.': 'enthält die unbestimmte Variable x',
+               'Mathe ist das schönste Fach.': 'ist eine Meinung', 'Schließ bitte das Fenster.': 'ist eine Bitte (ein Befehl)', 'Wie spät ist es?': 'ist eine Frage',
+               'n ist eine gerade Zahl.': 'enthält die unbestimmte Variable n'}  # Prüfung neu 2: Begründung passend zum Satz
 
 
 def g_aussagen(s):
@@ -109,7 +115,7 @@ def g_aussagen(s):
         k = R.choice(KEINE)
         t, _ = zahlaussage()
         return auswahl('Welcher Satz ist KEINE Aussage im Sinne der Logik?', f'„{k}“', [f'„{t}.“', '„Berlin liegt in Frankreich.“', '„Ein Quadrat hat vier Ecken.“'],
-                       f'„{k}“ ist eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.',
+                       f'„{k}“ {KEINE_GRUND[k]} – man kann nicht eindeutig wahr oder falsch sagen. Die anderen Sätze sind wahr oder falsch.',
                        'Eine Aussage muss eindeutig wahr oder falsch sein – auch „falsch“ zählt.')
     x = R.randint(1, 9)
     r = f'Erst wenn man für x eine Zahl einsetzt, z. B. x = {x}: Dann ist es {"wahr" if x > 3 else "falsch"}.'
@@ -183,7 +189,7 @@ def g_verknuepfen(s):
 
 
 def g_tafel(s):
-    pool = {1: ['p ∧ q', 'p ∨ q', '¬p'], 2: ['p ∧ ¬q', '¬p ∨ q', '¬(p ∧ q)', '¬(p ∨ q)', '¬p ∧ ¬q'], 3: ['¬p ∨ ¬q', '¬(p ∨ q)', 'p ⇒ q', 'q ⇒ p', '¬q ⇒ ¬p', '¬(p ∧ q)']}[s]
+    pool = {1: ['p ∧ q', 'p ∨ q', '¬p'], 2: ['p ∧ ¬q', '¬p ∨ q', '¬(p ∧ q)', '¬(p ∨ q)', '¬p ∧ ¬q'], 3: ['¬p ∨ ¬q', '¬(p ∨ q)', '¬(p ∧ ¬q)', 'p ∨ ¬q', '¬p ∧ q', '¬(p ∧ q)']}[s]  # Prüfung neu 2: kein ⇒ vor der Lernkarte folgerung
     art = R.choice({1: ['spalte', 'zeile'], 2: ['spalte', 'anzahl', 'zeile'], 3: ['spalte', 'gleich', 'anzahl']}[s])  # Durchsicht 19
     e = R.choice(pool)
     werte = [1 if ausdr(e)(p, q) else 0 for p, q in ZEILEN]
@@ -200,8 +206,8 @@ def g_tafel(s):
     if art == 'anzahl':
         return mit_grafik(zahl(f'In wie vielen der 4 Zeilen der Wahrheitstafel ist {e} wahr?', f'Spalte {e}: ' + ', '.join('w' if v else 'f' for v in werte) + f' – {sum(werte)}-mal wahr.',
                                'Fülle die Spalte im Kopf aus und zähle die w.', sum(werte), f'{" + ".join(map(str, werte))}'), tafel_bild([], e))
-    paare = [('¬(p ∧ q)', '¬p ∨ ¬q', True), ('¬(p ∨ q)', '¬p ∧ ¬q', True), ('p ⇒ q', '¬q ⇒ ¬p', True), ('p ⇒ q', 'q ⇒ p', False),
-             ('¬(p ∧ q)', '¬p ∧ ¬q', False), ('p ⇒ q', '¬p ∨ q', True), ('¬(p ∨ q)', '¬p ∨ ¬q', False)]
+    paare = [('¬(p ∧ q)', '¬p ∨ ¬q', True), ('¬(p ∨ q)', '¬p ∧ ¬q', True), ('¬(p ∧ ¬q)', '¬p ∨ q', True), ('p ∧ ¬q', '¬p ∧ q', False),
+             ('¬(p ∧ q)', '¬p ∧ ¬q', False), ('¬(¬p ∧ q)', 'p ∨ ¬q', True), ('¬(p ∨ q)', '¬p ∨ ¬q', False)]  # Prüfung neu 2: ohne ⇒
     a, b, gl = R.choice(paare)
     wa = ['w' if ausdr(a)(p, q) else 'f' for p, q in ZEILEN]
     wb = ['w' if ausdr(b)(p, q) else 'f' for p, q in ZEILEN]
@@ -358,6 +364,13 @@ DOPPELT = [
 ]
 
 
+DOPPELT_WEG = {
+    'Nicht alle Kinder haben keinen Hund.': '„Alle Kinder haben keinen Hund“ hieße: Kein Kind hat einen. „Nicht alle …“ heißt also: Mindestens ein Kind hat doch einen Hund.',
+    'Es stimmt nicht, dass keine Zahl im Kasten gerade ist.': 'Das Gegenteil von „keine Zahl ist gerade“ ist „mindestens eine Zahl ist gerade“.',
+    'Es ist falsch, dass höchstens 3 Plätze frei sind.': '„Höchstens 3“ heißt 0, 1, 2 oder 3 freie Plätze. Das Gegenteil sind alle übrigen Anzahlen: 4 oder mehr.',
+    'Nicht jeder Schüler hat nicht gefehlt.': '„Jeder Schüler hat nicht gefehlt“ hieße: Niemand hat gefehlt. „Nicht jeder …“ heißt also: Mindestens ein Schüler hat gefehlt.',
+    'Es stimmt nicht, dass es keinen Tag ohne Regen gab.': 'Das Gegenteil von „es gab keinen Tag ohne Regen“ ist „es gab mindestens einen Tag ohne Regen“.',
+}
 DOPPELT_NICHT = [
     ('Nicht alle Kinder haben keinen Hund.', 'Mindestens ein Kind hat einen Hund.', ['Alle Kinder haben einen Hund.', 'Kein Kind hat einen Hund.', 'Mindestens ein Kind hat keinen Hund.']),
     ('Es stimmt nicht, dass keine Zahl im Kasten gerade ist.', 'Mindestens eine Zahl im Kasten ist gerade.', ['Alle Zahlen im Kasten sind gerade.', 'Keine Zahl im Kasten ist ungerade.', 'Mindestens eine Zahl im Kasten ist ungerade.']),
@@ -371,7 +384,7 @@ def negation3(art):
     if art == 'doppelt_nicht':
         a, r, fs = R.choice(DOPPELT_NICHT)
         return auswahl(f'Welche Aussage bedeutet dasselbe wie „{a}“?', r, fs,
-                       f'Die äußere Verneinung macht aus „alle … nicht“ ein „mindestens einer“ (bzw. aus „höchstens“ ein „mindestens“). Also: „{r}“',
+                       f'{DOPPELT_WEG[a]} Also: „{r}“',  # Prüfung neu 2: „aus höchstens wird mindestens“ führte zu „mindestens 3“
                        'Verneine Schritt für Schritt von außen nach innen. Zwei Verneinungen heben sich auf.')
     if art in ('wenn_neg', 'doppelt'):
         a, r, fs = R.choice(WENN_NEG if art == 'wenn_neg' else DOPPELT)
@@ -409,7 +422,7 @@ def verknuepfen3(art):
                     'Zähle getrennt und achte auf Zahlen, die beides erfüllen.', len(L), f'{len(L)}')
     # finde_werte: aus drei Angaben p und q bestimmen
     p, q = R.choice(ZEILEN)
-    namen = ['p ∨ q', 'p ∧ q', 'p ∧ ¬q', '¬p ∨ q', '¬(p ∨ q)', '¬(p ∧ q)', 'q ⇒ p', '¬p ∧ ¬q']
+    namen = ['p ∨ q', 'p ∧ q', 'p ∧ ¬q', '¬p ∨ q', '¬(p ∨ q)', '¬(p ∧ q)', 'p ∨ ¬q', '¬p ∧ ¬q']  # Prüfung neu 2: „q ⇒ p“ → gleichwertig „p ∨ ¬q“
     hinweise = [(t, ausdr(t)(p, q)) for t in namen]
     for _ in range(60):
         h = R.sample(hinweise, 2)
@@ -438,7 +451,7 @@ def tafel3(art):
         return zahl(f'Eine Wahrheitstafel mit drei Aussagen p, q, r hat 2³ = 8 Zeilen. In wie vielen davon ist {e} wahr?',
                     f'Geht man alle 8 Kombinationen durch, ist {e} {n}-mal wahr.', 'Schreibe die 8 Zeilen auf (wie 4 Zeilen, einmal mit r wahr, einmal mit r falsch).', n, f'{n}')
     if art == 'gesucht':
-        kand = ['p ∧ q', 'p ∨ q', 'p ∧ ¬q', '¬p ∨ q', '¬(p ∧ q)', '¬(p ∨ q)', '¬p ∧ ¬q', 'q ⇒ p', '¬p ∨ ¬q']
+        kand = ['p ∧ q', 'p ∨ q', 'p ∧ ¬q', '¬p ∨ q', '¬(p ∧ q)', '¬(p ∨ q)', '¬p ∧ ¬q', 'p ∨ ¬q', '¬p ∨ ¬q']
         e = R.choice(kand)
         sp = tuple(ausdr(e)(p, q) for p, q in ZEILEN)
         gleiche = [k for k in kand if tuple(ausdr(k)(p, q) for p, q in ZEILEN) == sp]
@@ -449,8 +462,8 @@ def tafel3(art):
         return auswahl(f'Die Spalte eines Ausdrucks lautet für (p, q) = ww, wf, fw, ff: {werte}. Welcher Ausdruck ist es?', r, fs,
                        f'{r} hat genau die Werte {werte}. Bei den anderen weicht mindestens eine Zeile ab.', 'Prüfe zuerst die Zeilen mit f – sie trennen die Ausdrücke am schnellsten.')
     # immer: Tautologie
-    r = R.choice(['p ∨ ¬p', '(p ∧ q) ⇒ p'])
-    fs = ['p ∧ ¬p', 'p ⇒ (p ∧ q)', R.choice(['p ∨ q', '¬(p ∧ q)', 'p ⇒ q'])]
+    r = R.choice(['p ∨ ¬p', '¬(p ∧ ¬p)'])  # Prüfung neu 2: ohne ⇒
+    fs = ['p ∧ ¬p', '¬p ∨ (p ∧ q)', R.choice(['p ∨ q', '¬(p ∧ q)', '¬p ∨ q'])]
     return auswahl('Welcher Ausdruck ist in allen 4 Zeilen der Wahrheitstafel wahr?', r, fs,
                    f'{r} ist in jeder Zeile wahr. p ∧ ¬p ist nie wahr, die anderen sind mindestens in einer Zeile falsch.', 'Suche für jeden Ausdruck eine Zeile, in der er falsch ist.')
 

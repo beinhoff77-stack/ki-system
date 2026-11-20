@@ -2,6 +2,31 @@
 
 Neueste Meldung oben. Dieser Chat hat keines der geprüften Themen geschrieben.
 
+## 2026-11-20 – sonder.logik (Aussagenlogik)
+
+**Urteil: mit Korrekturen in Ordnung.**
+
+### Umfang (Fakt)
+- Gelesen: 5 Lernkarten und alle 174 Aufgaben (114 Übungen, 5 Test, 15 Korrektur, 30 Sicherung, 10 Knobel).
+- Nachgerechnet: alle 174 von Hand – jeder Wahrheitswert (Teilbarkeit, Quadrate, Primzahlen), jede Wahrheitstafel-Spalte, alle Zählaufgaben (1 bis N, Ein-/Ausschluss), alle Ritter-und-Lügner-Rätsel durch alle vier Fälle, alle Kartenaufgaben (Wason), alle Gegenbeispiel-Optionen (genau eine widerlegt, „erfüllt beides“ stimmt jeweils).
+- Prüfskript nach der Änderung: OK, 0 Gruppen „gleich gebaut hintereinander“.
+
+### Änderungen je Fehlerart (16 Aufgaben)
+- **a) falsche Lösung: 0.**
+- **b) mehrdeutig: 0.**
+- **c) Stoff einer späteren Lernkarte: 3.** Die Implikation ⇒ wird erst in der letzten Lernkarte „folgerung“ eingeführt, kam aber vorher schon vor: verknuepfen, Stufe 3 („… und q ⇒ p ist falsch“), tafel, Stufe 3 („Haben p ⇒ q und q ⇒ p … gleichwertig?“, „Welcher Ausdruck ist in allen Zeilen wahr? … (p ∧ q) ⇒ p“). Im Generator für diese Lernkarten durch gleichwertige bzw. gleich schwere Ausdrücke ohne ⇒ ersetzt (q ⇒ p → p ∨ ¬q; Paare jetzt z. B. ¬(p ∧ ¬q) / ¬p ∨ q; Tautologie ¬(p ∧ ¬p)). Lösungen jeweils neu nachgerechnet. Fakt: In den übrigen 171 Aufgaben steht ⇒ außerhalb von „folgerung“ nur noch als Folgepfeil im Lösungsweg einer Knobel-Karte.
+- **d) Lernkarten: 0.**
+- **e) Lösungsweg: 13.**
+  - 11× „Welcher Satz ist KEINE Aussage?“: Der Lösungsweg nannte für jeden Satz pauschal „eine Frage, ein Befehl, eine Meinung oder enthält eine unbestimmte Variable“. Jetzt der passende Grund (z. B. „„n ist eine gerade Zahl.“ enthält die unbestimmte Variable n“).
+  - 2× doppelte Verneinung: Weg „… (bzw. aus „höchstens“ ein „mindestens“)“ legte bei „Es ist falsch, dass höchstens 3 Plätze frei sind“ die falsche Option „mindestens 3“ nahe. Jetzt je Satz ein eigener Weg („Höchstens 3 heißt 0, 1, 2 oder 3 … das Gegenteil: 4 oder mehr“).
+- **f) Stufe/Typ: 0.**
+
+### Nebenwirkung (Fakt)
+- Feld `klasse` aus der Themenliste übernommen: `{"zusatz": 10}` → `{"ib_myp": 4}`.
+
+### Lehrplan
+- Annahme: IB MYP Jahr 4 (Klasse 9). Aussagenlogik ist laut Themenliste IB-Stoff; im frei zugänglichen Material (Sekundärquellen, siehe oben) **nicht belegbar** als fester MYP-Inhalt – die Datei vermerkt „Verlagsinhalt“. Für die gewählte Tiefe fehlt nichts Wesentliches; Äquivalenz ⇔ und ausschließendes Oder sind bewusst nur am Rand (unter `offen`).
+
 ## 2026-11-20 – daten.zweidimensional (Zweidimensionale Daten)
 
 **Urteil: mit Korrekturen in Ordnung.**

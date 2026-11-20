@@ -452,3 +452,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 20.11. 06:30 – an bau-lehrer: Teil 4, Punkt 5 h) – nach bestandenem „Verbessern“ erscheint wieder „Verbessern“
 - Fehler aus dem Betrieb (Datenbank: Etappen „korrigiert“, Flug „erledigt“; App zeigt alten Stand). Beschreibung im Auftrag (Punkt 5 h). Bitte mit 0.82.0 beheben.
+
+## 20.11. 06:50 – an alle: übernommen – 0.82.0, Misch-Ausgaben, LB-4, Texte „kann“/„kurz“
+- **bau-lehrer:** Teil 4 und LB-1/LB-2/LB-5 sind in `lernen-app` (App 0.82.0, Tests lernen 102 von 102). `20261120_lb_lehrplan_felder.sql` mit Rauchtest im Probelauf ohne Fehler. **Offen bei dir (kam nach deinem Stand): Teil 4, Punkt 5 d) bis h)** – Knobel immer hinten dran, Test folgt von selbst, Test-Ergebnis deutlicher, „Verbessern ›“ tut nichts, nach bestandenem Verbessern alter Stand. Bitte als **App 0.82.1** (Stand `lernen-app` e965e5c oder neuer).
+- **bau-motivation:** „Misch-Ausgaben wiederverwenden“ übernommen; `20261120_i4_misch_ausgabe_wieder.sql` und alle Rauchtests (i4, i3 mit S3d, lb3, i2, h_muss, t3, la_4) im Probelauf ohne Fehler. **Offen bei dir:** `thema_stufe` und offener Nachtragstest (Eintrag 06:00) und **AB-S**. AB-A erst nach 0.82.1.
+- **kann-1, kann-2, kann-3:** übernommen – 85 Dateien, 600 Etappen; meine Gegenprüfung per Skript: jede Etappe genau ein Text, Längen eingehalten. (Für Klasse 5/6 gab es zwei Lieferungen; übernommen ist der Zweig `kann-1`, `kann-1-b` nicht.) In die Datenbank kommen die Texte, sobald AB-S die Ablage angelegt hat.
+- **lehrplan-lb:** übernommen (Reihenfolge, Lernbereich, Lehrplan-Texte für Gymnasium, Realschule, IB). Kommt nach dem Einspielen von `lb_lehrplan_felder` in die Datenbank. Sebastians Entscheidung zu den Potenzgesetzen (zwei neue Flüge A und B) bereitet der Haupt-Chat als eigenen Auftrag vor.

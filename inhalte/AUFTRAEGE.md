@@ -1867,3 +1867,31 @@ Für beide Teile: Zweig vom aktuellen `lernen-app`; Datenbank nur lesen; Migrati
 5. **H6 – Tageszähler:** Die App nimmt für „heute selbst gelöst“ den Tag, den der Server liefert, nicht den Kalendertag des Geräts.
 6. **W177 – Nachtragstest:** Rauchtest um Sterne (vorher/nachher, keine Doppelbuchung bei Abbruch und Wiederaufnahme) und um den Fall „offene und fehlerhafte Pflicht-Etappen zugleich“ ergänzen. Frist des nächsten Nachtests nach einem Nachtragstest: im Bericht beschreiben, was heute geschieht (beginnt die 10-Lerntage-Frist neu?) – nichts ändern, Sebastian entscheidet.
 7. **H5/H13:** im Bericht ehrlich festhalten, was nur über die innere Funktion und was über den äußeren Zugang getestet ist. Ein Test über den äußeren Zugang braucht einen Schlüssel und entfällt.
+
+---
+
+# Fünfundzwanzigste Runde (20.11.): unabhängige Prüfung der 14 neu freigegebenen Flüge
+
+Sebastian hat am 18.11. 14 Flüge freigegeben, die bisher nur von ihren Autoren-Chats und vom Prüfskript geprüft sind. Diese Runde holt die unabhängige inhaltliche Prüfung nach. **Wer hier prüft, darf keines dieser Themen selbst geschrieben haben** – deshalb zwei neue Chats.
+
+- **Chat `pruefung-neu-1`** (Zweig `pruefung-neu-1`, Meldungen `inhalte/postfach/pruefung-neu-1.md`) – zuerst die Flüge, die im Plan eines Kindes stehen: `abbildungen.determinanten2`, `daten.stichproben`, `terme.quadratische_extreme`, dann `gleichungen.wurzel`, `abbildungen.matrizen`, `funktionen.reihen`, `funktionen.betrag`.
+- **Chat `pruefung-neu-2`** (Zweig `pruefung-neu-2`, Meldungen `inhalte/postfach/pruefung-neu-2.md`): `daten.zweidimensional`, `daten.standardabweichung`, `daten.normalverteilung`, `sonder.graphentheorie`, `sonder.logik`, `sonder.optimierung`, `zahlen.schranken`.
+
+Beide Zweige vom aktuellen `lernen-app`. Vorher lesen: `inhalte/README.md` (Themen-Bausatz, „Stufen und Aufgabentypen“, Vertiefung) und `inhalte/postfach/stufen-kl5.md` (oberste Meldung: Beispiele für die Fehlerarten).
+
+**Was zu prüfen ist – je Thema jede Lernkarte und jede Aufgabe in allen Pools** (Übung, Knobel, Test, Korrektur, Sicherung) aus `inhalte/themen/<thema>.json`:
+
+a) **Lösung falsch oder nicht eindeutig.** Jede Lösung selbst nachrechnen, unabhängig vom Generator. Bei „höchstens / mindestens / wie viele / immer / nie“ alle Fälle durchgehen. Bei Auswahl-Aufgaben: genau eine Option richtig, keine zweite vertretbar.
+b) **Mehrdeutige Frage oder Zählweise** („der k. Strich“, „zwischen“, „bis“), fehlende Angabe, unklare Einheit, unklare Rundung.
+c) **Späterer Stoff.** Nichts voraussetzen, was nach der Reihenfolge in `inhalte/themenliste.json` erst später kommt – auch nicht in Tipp, Lösungsweg, Antwortoptionen oder Erklärung. Maßgeblich ist die Klasse des Themas (Feld `klasse`, bei Realschul-Themen `rs_by`, bei IB `ib_myp` + 5).
+d) **Erklärung der Lernkarte** (Einstieg, Wörter, Bild, Schritte, typischer Fehler, „Kurz gesagt“): fachlich richtig, vollständig genug für die Aufgaben der Karte, Beispielrechnung stimmt, kein Sprung.
+e) **Lösungsweg und Tipp:** führt wirklich zur Lösung, keine Sprünge, Tipp verrät nicht das Ergebnis; falsche Antwortoptionen beruhen auf echten Denkfehlern und enthalten keine falschen Rechnungen als „Begründung“, die ein Kind für richtig halten könnte.
+f) **Stufe und Typ:** Stufe 1/2/3 und Aufgabentyp (`g`) passen zum Anspruch; Stufe 3 ist wirklich schwerer als Stufe 2 und nicht nur „größere Zahlen“. Realistische Zahlen, Einheiten und Sachsituationen; keine Namen realer Personen; nichts wörtlich aus Schulbüchern oder Prüfungen.
+
+Zusätzlich je Thema ein Satz: **Passt der Flug zur angegebenen Klasse und zum Lehrplan** (Realschule Bayern bzw. IB MYP), und fehlt etwas Wesentliches? Quelle nennen (lehrplanplus.bayern.de mit Abrufdatum bzw. das IB-Dokument); was nicht belegbar ist, als Annahme kennzeichnen.
+
+**Fehler beheben, nicht nur melden:** im Generator des Themas ändern (`inhalte/generatoren/…`), Themendatei neu erzeugen, `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden. Mindestmengen halten (Stufe 1/2/3 mindestens 4/6/8 freie Übungen mit 2/3/4 Typen, 2 Knobel, Test 1, Korrektur 3, Sicherung 6). Geänderte Aufgaben behalten Typ und Stufe, sofern nicht gerade die falsch waren. Ein Thema = ein Commit + Push.
+
+**Bericht je Thema im Postfach:** Zahl der gelesenen und nachgerechneten Aufgaben; Zahl der Änderungen je Fehlerart a–f; jede Änderung der Art a (falsche Lösung) mit altem und neuem Wortlaut; Urteil „in Ordnung / mit Korrekturen in Ordnung / nicht freigabefähig“ – bei „nicht freigabefähig“ sofort melden, nicht erst am Ende. Tatsachen (nachgerechnet, gelesen) von Annahmen trennen; nennen, was nicht geprüft wurde.
+
+Kein Merge nach `main`, nichts in die Datenbank schreiben, kein App-Code, keine Kinderdaten. Ohne Rückfragen durcharbeiten; bei Unklarheit die sinnvollste Lesart nehmen und im Bericht nennen. Am Ende „FERTIG: Prüfung neu, Chat n“.

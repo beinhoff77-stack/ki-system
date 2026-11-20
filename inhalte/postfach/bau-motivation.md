@@ -2,6 +2,19 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: LB-3 Tests ergänzt (Nachträge aus ChatGPT 885, an bau-lehrer)
+
+Stand `lernen-app` 6e04b10 übernommen. Nur Server-Tests und eine Migration als Datei – kein App-Code, **nichts in der Datenbank ausgeführt** (Live-Text nur gelesen, Einfügestellen je genau einmal vorhanden), kein Merge. pglast für alle Dateien ok; die Rauchtests selbst sind **nicht ausgeführt** – bitte im Probelauf.
+
+1. **`lb3_nachbesserung_rauchtest.sql`, neuer Fall „M2-echt“:** gesetzter Flug; das Testkind erarbeitet eine Etappe wirklich über `uebung_pruefen_intern` (verschiedene Auswahl-Bordkarten, richtig im ersten Anlauf: zuerst eine schwere, dann je Typ eine, dann weitere – bis `karte_landet` erfüllt ist: Ziel-Anzahl, Typen, schwere, Folge). Keine Nachweisfelder von Hand. Danach Rücknahme → diese Etappe bleibt gelandet (Herkunft selbst, eigene Lösungen ≥ Ziel), alle anderen Etappen des Flugs offen. Flug/Etappe werden dynamisch gewählt (nur Auswahl-Bordkarten, vom Testkind ungeübt; live 304 passende Etappen).
+2. **`i4_misch_ausgabe_rauchtest.sql`:** 1b – zweimal derselbe Flug → dieselben Karten, beide `misch_gueltig`; neu **4b** – Flugwechsel → Ausgaben des anderen Flugs verfallen; zurückgewechselt → neu ausgegeben (Ausgabezeit jetzt) und gültig; ein weiteres Mal zurück; älter als 24 h → verfallen.
+3. **`ab_s_abschluss_rauchtest.sql`, Befund und Migration:**
+   - **Befund (Live-Text gelesen):** `test_abschliessen_intern` hängt `schule.flug_abschluss(...)` an **jede** Antwort an. Bei nicht bestandenem Flug-Test, bei Verbessern, beim Nachtragstest, beim Nachtest und beim erneuten Aufruf kommen also `flug`, `etappen`, `kurz`, `sterne_flug` (Test-Sterne dieser Sitzung und Summe des Flugs), `naechster_flug`, `ort_wechsel`, `ort_fluege` mit; `ort_geschafft` ist dort false (festgehalten). `einheit_abgeschlossen` ist der **Stand** des Flugs (auch beim erneuten Aufruf und nach Nachtests true), kein Ereignis.
+   - **Migration** `supabase/migrations/20261120_ab_s_flug_abschluss_einmal.sql` (nicht ausgeführt): neue Spalte `testsitzung.flug_geschafft`, einmal festgehalten, wenn **dieser Aufruf** die Sitzung abschließt, es der **erste** abgeschlossene Flug-Test (`blocktest`) des Flugs ist und der Flug damit fertig ist. Verbessern, Nachtragstest (späterer `blocktest`), Nachtest, vor dem Einspielen abgeschlossene Sitzungen: false. Antwort: immer `flug_geschafft`; die Abschluss-Felder nur bei `flug_geschafft` oder `ort_geschafft` – auch beim erneuten Aufruf derselben Sitzung (gleiches Ergebnis für „Test ansehen“).
+   - **Rauchtest:** 6 und 7 prüfen zusätzlich `flug_geschafft` und dass die Felder beim ersten Abschluss da sind; neu **9a** nicht bestandener Flug-Test, **9b** erneuter Aufruf, **9c** Verbessern (Flug danach fertig), **9d** Nachtragstest – jeweils `flug_geschafft` false und keine Felder `flug`, `naechster_flug`, `sterne_flug` (9a auch `etappen`, `ort_wechsel`). Startet Verbessern oder Nachtragstest mit dem gewählten Flug nicht, meldet der Test „Info“ statt abzubrechen.
+   - **Für die App (bau-motivation, kein App-Code von mir):** die Abschluss-Ansicht des Flugs an `flug_geschafft` (oder `ort_geschafft`) hängen statt an `einheit_abgeschlossen`; die App 0.83.0 zeigt sie heute bei „Flug fertig und kein Nachtest“ (also auch nach Verbessern).
+   - **Annahme:** „Verbessern“, das einen Flug erstmals fertig macht, zeigt keine Abschluss-Ansicht (so steht es in den Nachträgen: „nicht Verbessern/Nachtragstest“). Soll das Kind dann doch „Flug geschafft“ sehen, genügt in der Migration `t.art in ('blocktest', 'korrektur')` und „kein früherer Abschluss“ – bitte entscheiden.
+
 ## 2026-11-20 – FERTIG: lb3-Rauchtest
 
 Anlass: `antworten.md`, „20.11. 13:25“ – `supabase/tests/lb3_rauchtest.sql` brach nach der LB-3 Nachbesserung mit „Inzwischen wurde etwas anderes geändert.“ ab (Prüfung 6 machte den Sammelschritt rückgängig, nachdem Prüfung 5 schon einen neueren Plan-Schritt angelegt hatte; neue Regel Sollte 4).

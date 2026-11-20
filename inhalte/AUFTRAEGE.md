@@ -2251,3 +2251,12 @@ Grundlage: `inhalte/pruefung/lehrer/nachpruefung-5.md` (N6–N8, Info-Seite) und
 6. **N2–N5 (Kann):** wie im Bericht (Abstand unter „2/2“, Blitz beim Sturmflug hinter dem Text bei 360 × 640, N4 laut Bericht, „Überspringen ›“ lesbar).
 
 Tests ergänzen (N6, N7 als Messung, N1), alle laufen lassen. „FERTIG: 0.83.2“.
+
+---
+
+# Entscheidungen Sebastian (21.11.) – „alles wie empfohlen“
+
+1. **Neue Pflicht-Etappe „Potenzen von Potenzen“ (Flug A):** Das betroffene Kind übt sie normal (Landung, dann Nachtragstest); sie wird nicht gesetzt. Der Ort zeigt bis dahin wieder einen offenen Flug; Stempel und Orts-Sterne bleiben.
+2. **Flug A, sieben Aufgaben „Ein Kind rechnet … Was ist falsch?“ / „Welcher Satz beschreibt den Fehler richtig?“** (6 in `mal_gleiche_basis`, 1 in `gleicher_exponent`, derzeit Stufe 1 `erkennen`): bekommen **keinen Typ** (überzählig, werden beim Einspielen gesperrt, nicht gelöscht). → **`potenz-teilen`, Neunundzwanzigste Runde:** genau das umsetzen, dazu aus der Nachprüfung Kann 2 (zwei Ablenker, die eine Basis verlieren), Kann 4 („2¹⁰ : 2ⁿ = 16“ → Stufe 2 `umkehr`), Kann 6 (Wort „potenziert“ einfacher), Kann 7 (Flug B `exponent_und_potenz` verweist auf Klasse 7). Mindestmengen und Typ-Mischung danach prüfen, Prüfskript `--alle` OK. „FERTIG: Potenz Runde 29“.
+3. **Etappen-Liste mit Stand im Plan kommt zurück** → Ergänzung zu **Bau-Auftrag LB, Teil 9 (0.83.2):** in der kompakten Themen-Karte ein zugeklappter Textlink „Etappen ▸“ in der Inhalte-Zeile; aufgeklappt die Liste wie in 0.83.0 (Nummer, Titel, Stand rechtsbündig).
+4. **Wort „Themen“ in der Lehrer-Ansicht ist erlaubt** → Ergänzung zu Teil 9, Punkt 3: Der Test „Reisewörter“ gilt nur noch für Kinderseiten; auf Eltern-/Lehrerseiten sind „Thema/Themen“ und „Themengebiet“ zulässig. Bestehende Texte der Info-Seite bleiben, wie sie sind.

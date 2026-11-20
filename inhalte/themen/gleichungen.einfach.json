@@ -26,8 +26,6 @@
    {
     "titel": "Rückwärts rechnen",
     "lernziele": [
-     "umkehr_plus",
-     "umkehr_mal",
      "zwei_schritte"
     ]
    },
@@ -49,15 +47,192 @@
    {
     "lernziel": "waage",
     "titel": "Eine Gleichung ist wie eine Waage",
-    "regel": "So löst du eine Gleichung an der Waage: Tu auf ⟦beiden Seiten⟧ dasselbe, dann bleibt die Waage im ⟦Gleichgewicht⟧. Die Zahl für x, bei der beide Seiten gleich sind, ist die ⟦Lösung⟧.",
+    "regel": "Tu auf ⟦beiden Seiten⟧ dasselbe. Dann bleibt die Waage im Gleichgewicht.",
     "schritte": [
-     "Links liegen die Dose x und 3 Murmeln, rechts 10 Murmeln: x + 3 = 10.",
-     "Nimm auf beiden Seiten 3 Murmeln weg. So bleibt die Waage im Gleichgewicht.",
-     "Links bleibt nur die Dose, rechts bleiben 10 − 3 = 7 Murmeln.",
-     "Also ist ⟦x = 7⟧: In der Dose sind 7 Murmeln."
+     {
+      "text": "Nimm auf beiden Seiten 3 Murmeln weg. Das Gleichgewicht bleibt.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x, rechts 10 − 3",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "10 − 3"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Links bleibt die Dose, rechts bleiben 10 − 3 = 7 Murmeln.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x, rechts 7",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "7"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also ist die Lösung ⟦x = 7⟧: In der Dose sind 7 Murmeln."
+     }
     ],
-    "probe": "7 + 3 = 10 ✓",
-    "fehler": "Nur auf einer Seite etwas wegnehmen: Wer links die 3 Murmeln wegnimmt und rechts nicht, bekommt x = 10. Aber 10 + 3 = 13, nicht 10 – die Waage kippt. Was du links tust, tust du auch ⟦rechts⟧.",
+    "fehler": "Nur links 3 wegnehmen ergibt x = 10. Aber 10 + 3 = 13, nicht 10: Die Waage kippt.",
+    "einstieg": "Auf einer Waage liegen links eine Dose und 3 Murmeln, rechts 10 Murmeln. Die Waage hängt gerade. Kurz geschrieben: x + 3 = 10, eine ⟦Gleichung⟧.",
+    "woerter": [
+     [
+      "x",
+      "die unbekannte Zahl, hier die Murmeln in der Dose"
+     ],
+     [
+      "Gleichgewicht",
+      "beide Seiten sind gleich schwer, die Waage hängt gerade"
+     ],
+     [
+      "Lösung",
+      "die Zahl für x, bei der beide Seiten gleich sind"
+     ]
+    ],
     "bild": {
      "typ": "figur",
      "label": "Waage im Gleichgewicht: links x + 3, rechts 10",
@@ -137,90 +312,147 @@
       ]
      ]
     },
-    "einstieg": "Auf einer Balkenwaage liegen links eine geschlossene Dose mit Murmeln und 3 einzelne Murmeln, rechts liegen 10 Murmeln. Die Waage hängt gerade – beide Seiten sind gleich schwer. Wie viele Murmeln sind in der Dose? Kurz aufgeschrieben: x + 3 = 10. So eine Aussage mit Gleichheitszeichen heißt ⟦Gleichung⟧.",
-    "woerter": [
-     [
-      "Balkenwaage",
-      "eine Waage mit zwei Schalen; die schwerere Seite sinkt nach unten"
+    "fehler_bild": {
+     "punkte": {
+      "_A": [
+       1.5,
+       1.5
+      ],
+      "_B": [
+       8.5,
+       2.5
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.1
+      ],
+      "_L2": [
+       3.5,
+       2.1
+      ],
+      "_R1": [
+       6.5,
+       3.1
+      ],
+      "_R2": [
+       10.5,
+       3.1
+      ],
+      "_LA": [
+       1.5,
+       2.1
+      ],
+      "_RA": [
+       8.5,
+       3.1
+      ]
+     },
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "10 + 3"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "10"
+      ]
      ],
-     [
-      "Gleichgewicht",
-      "beide Seiten sind gleich schwer, die Waage hängt gerade"
-     ],
-     [
-      "x",
-      "ein Buchstabe für die unbekannte Zahl – hier die Murmeln in der Dose"
-     ],
-     [
-      "Gleichung",
-      "zwei Seiten mit einem = dazwischen, z. B. x + 3 = 10"
-     ],
-     [
-      "Lösung",
-      "die Zahl für x, bei der beide Seiten gleich sind"
-     ]
-    ]
-   },
-   {
-    "lernziel": "umkehr_plus",
-    "titel": "Plus und Minus rückwärts rechnen",
-    "regel": "So rechnest du rückwärts: Die ⟦Umkehrung von Plus ist Minus⟧, die ⟦Umkehrung von Minus ist Plus⟧. Bei x + 8 = 20 ist x = 20 − 8, bei x − 15 = 27 ist x = 27 + 15.",
-    "schritte": [
-     "Schreib die Geschichte als Gleichung: x − 15 = 27. Dabei ist x das Geld vorher.",
-     "Vom Geld wurden 15 € abgezogen. Die Umkehrung von Minus ist Plus.",
-     "Rechne rückwärts: 27 + 15 = ⟦42⟧.",
-     "Vorher waren ⟦42 €⟧ im Geldbeutel."
-    ],
-    "probe": "42 − 15 = 27 ✓",
-    "fehler": "Bei x − 15 = 27 rechnen viele 27 − 15 = 12. Probe: 12 − 15 ergibt nicht 27. Wer etwas ausgegeben hat, hatte vorher ⟦mehr⟧ Geld. Die Umkehrung von Minus ist Plus: 27 + 15 = 42.",
-    "einstieg": "In deinem Geldbeutel war Geld. Du kaufst etwas für 15 € und hast danach noch 27 €. Wie viel war vorher drin? Du spielst die Geschichte rückwärts: Die 15 € kommen wieder in den Geldbeutel. So eine Rechnung, die eine andere rückgängig macht, heißt ⟦Umkehrung⟧.",
-    "woerter": [
-     [
-      "rückwärts rechnen",
-      "vom Ergebnis aus zurück zum Anfang rechnen"
-     ],
-     [
-      "Umkehrung",
-      "die Rechnung, die eine andere rückgängig macht: Minus macht Plus rückgängig und Plus macht Minus rückgängig"
-     ]
-    ]
-   },
-   {
-    "lernziel": "umkehr_mal",
-    "titel": "Mal und Geteilt rückwärts rechnen",
-    "regel": "So rechnest du rückwärts: Die ⟦Umkehrung von Mal ist Geteilt⟧: Bei 4 · x = 12 ist x = 12 : 4. Die ⟦Umkehrung von Geteilt ist Mal⟧: Bei x : 4 = 12 ist x = 12 · 4.",
-    "schritte": [
-     "4 Hefte zu je x € kosten 12 €: 4 · x = 12.",
-     "x wurde mit 4 malgenommen. Die Umkehrung von Mal ist Geteilt.",
-     "Rechne rückwärts: 12 : 4 = ⟦3⟧.",
-     "Ein Heft kostet ⟦3 €⟧."
-    ],
-    "probe": "4 · 3 = 12 ✓",
-    "fehler": "Bei x : 4 = 12 rechnen viele 12 : 4 = 3. Probe: 3 : 4 ergibt nicht 12. Ein Geldbetrag wurde gerecht auf 4 Kinder verteilt, jedes bekam 12 € – vorher war es also ⟦mehr⟧, nämlich 12 · 4 = 48 €.",
-    "einstieg": "4 gleich teure Hefte kosten zusammen 12 €. Wie viel kostet ein Heft? Du verteilst die 12 € gerecht auf die 4 Hefte. Teilen macht das Malnehmen rückgängig – auch das ist eine ⟦Umkehrung⟧.",
-    "woerter": [
-     [
-      "4 · x",
-      "4 mal die unbekannte Zahl, hier 4 Hefte zu je x €"
-     ],
-     [
-      "x : 4",
-      "die unbekannte Zahl geteilt durch 4"
-     ]
-    ]
+     "label": "Waage kippt nach links: links 13, rechts 10"
+    }
    },
    {
     "lernziel": "zwei_schritte",
     "titel": "Zwei Rechenschritte rückwärts",
-    "regel": "So löst du eine Gleichung mit zwei Rechenschritten: Geh die ⟦Rechenkette rückwärts⟧. Den ⟦letzten⟧ Schritt kehrst du zuerst um – bei 3 · x + 4 = 19 also erst − 4, dann : 3.",
+    "regel": "Kehre den ⟦letzten Schritt zuerst⟧ um. Bei 3 · x + 4 = 19: erst − 4, dann : 3.",
     "schritte": [
-     "Die Gleichung lautet 3 · x + 4 = 19. Vorwärts heißt das: erst mal 3, dann plus 4.",
-     "Kehre den letzten Schritt zuerst um und zieh das Popcorn ab: 19 − 4 = 15. So viel kosten die 3 Karten zusammen.",
-     "Kehre dann den ersten Schritt um und verteile auf 3 Karten: 15 : 3 = ⟦5⟧.",
-     "Eine Karte kostet ⟦5 €⟧."
+     {
+      "text": "3 · x + 4 = 19: vorwärts erst mal 3, dann plus 4."
+     },
+     {
+      "text": "Den letzten Schritt zuerst umkehren: 19 − 4 = 15.",
+      "bild": {
+       "zeilen": [
+        [
+         "vorwärts",
+         "x",
+         "· 3",
+         "?",
+         "+ 4",
+         "19"
+        ],
+        [
+         "rückwärts",
+         "?",
+         ": 3",
+         "15",
+         "− 4",
+         "19"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Dann den ersten: 15 : 3 = ⟦5⟧. Eine Karte kostet 5 €.",
+      "bild": {
+       "zeilen": [
+        [
+         "vorwärts",
+         "x",
+         "· 3",
+         "15",
+         "+ 4",
+         "19"
+        ],
+        [
+         "rückwärts",
+         "5",
+         ": 3",
+         "15",
+         "− 4",
+         "19"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "3 · 5 + 4 = 15 + 4 = 19 ✓",
-    "fehler": "Die Schritte in der falschen Reihenfolge umkehren – wie Socken ausziehen, bevor die Schuhe aus sind. Bei 2 · x + 6 = 20 rechnet man falsch 20 : 2 = 10 und 10 − 6 = 4. Probe: 2 · 4 + 6 = 14, nicht 20. Richtig ist ⟦erst − 6, dann : 2⟧: 20 − 6 = 14, 14 : 2 = 7.",
+    "fehler": "Bei 2 · x + 6 = 20 erst teilen: 10 − 6 = 4. Probe: 2 · 4 + 6 = 14, nicht 20.",
+    "einstieg": "3 Kinokarten und ein Popcorn für 4 € kosten 19 €. Gerechnet wurde erst mal 3, dann plus 4. Rückwärts baust du die ⟦Rechenkette⟧ von hinten ab.",
+    "woerter": [
+     [
+      "Rechenkette",
+      "mehrere Rechenschritte hintereinander"
+     ],
+     [
+      "umkehren",
+      "rückgängig machen: aus plus wird minus, aus mal wird geteilt (Umkehraufgaben, Flüge zu den ganzen Zahlen und zu den Rechengesetzen)"
+     ]
+    ],
     "bild": {
      "typ": "tabelle",
      "kopf": [
@@ -242,124 +474,688 @@
       ],
       [
        "rückwärts",
-       "5",
+       "?",
        ": 3",
-       "15",
+       "?",
        "− 4",
        "19"
       ]
      ]
-    },
-    "einstieg": "Im Kino kosten 3 Karten und eine Tüte Popcorn für 4 € zusammen 19 €. Hier wurde zweimal nacheinander gerechnet: erst der Kartenpreis mal 3, dann plus 4 € für das Popcorn. Mehrere Rechenschritte hintereinander nennt man eine ⟦Rechenkette⟧. Rückwärts baust du sie in umgekehrter Reihenfolge ab.",
-    "woerter": [
-     [
-      "Rechenkette",
-      "mehrere Rechenschritte nacheinander"
-     ],
-     [
-      "3 · x + 4",
-      "erst die unbekannte Zahl mal 3, dann plus 4"
-     ],
-     [
-      "Zwischenwert",
-      "das Ergebnis nach dem ersten Rechenschritt"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "probe",
     "titel": "Probe machen und Fehler finden",
-    "regel": "So machst du die Probe: Setze die Zahl für x in die ⟦ursprüngliche Gleichung⟧ ein und rechne die linke Seite aus. Kommt dasselbe heraus wie rechts, ⟦stimmt⟧ die Lösung.",
+    "regel": "Setze die Lösung in die ⟦Gleichung⟧ ein. Sind beide Seiten gleich, stimmt sie.",
     "schritte": [
-     "Die Gleichung lautet 5 · x − 8 = 27, die angebliche Lösung ist x = 7.",
-     "Setze 7 für x ein: 5 · 7 − 8.",
-     "Rechne die linke Seite aus: 35 − 8 = 27.",
-     "Rechts steht auch 27. Beide Seiten sind gleich – die Lösung ⟦stimmt⟧."
+     {
+      "text": "Die Gleichung: 5 · x − 8 = 27. Behauptet wird x = 7."
+     },
+     {
+      "text": "Einsetzen: 7 für x, also 5 · 7 − 8.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links 5 · 7 − 8, rechts 27",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "5 · 7 − 8"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "27"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Links: 35 − 8 = 27. Rechts steht auch 27.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links 27, rechts 27",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "27"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "27"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Beide Seiten sind gleich: Die Lösung ⟦stimmt⟧."
+     }
     ],
-    "fehler": "Die Probe mit der eigenen Rechnung statt mit der Gleichung machen. Wer bei x − 15 = 27 falsch 27 − 15 = 12 rechnet und dann prüft „27 − 15 = 12 ✓“, findet seinen Fehler nie. Setze immer in die ⟦Gleichung⟧ ein: 12 − 15 ergibt nicht 27.",
-    "einstieg": "Deine Freundin hat eine Gleichung gelöst und ruft: „x = 7!“ Stimmt das? Du musst nicht alles noch einmal rechnen. Du legst die 7 sozusagen in die Waage und schaust, ob sie im Gleichgewicht bleibt. Diese Kontrolle heißt ⟦Probe⟧.",
+    "fehler": "Die Probe mit der eigenen Rechnung statt mit der Gleichung machen. So findest du deinen Fehler nie.",
+    "einstieg": "Deine Freundin ruft: „x = 7!“ Stimmt das? Du setzt die 7 in die Gleichung ein und schaust, ob die Waage gerade hängt. Das heißt ⟦Probe⟧.",
     "woerter": [
      [
-      "Probe",
-      "die gefundene Zahl in die Gleichung einsetzen und nachrechnen"
-     ],
-     [
       "einsetzen",
-      "für x die Zahl hinschreiben"
+      "statt x die Zahl hinschreiben"
      ],
      [
-      "ursprüngliche Gleichung",
-      "die Gleichung so, wie sie in der Aufgabe steht"
+      "Probe",
+      "Kontrolle: Lösung einsetzen und beide Seiten vergleichen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links 5 · x − 8, rechts 27",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "5 · x − 8"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "27"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "aufstellen",
     "titel": "Textaufgaben als Gleichung",
-    "regel": "So stellst du eine Gleichung auf: Nenne die gesuchte Zahl ⟦x⟧ und übersetze den Text Stück für Stück: „das Dreifache“ heißt 3 · x, „vermehrt um 5“ heißt + 5, „ergibt“ oder „kostet zusammen“ heißt ⟦=⟧. Stell dir die Waage vor: Was liegt links, was rechts?",
+    "regel": "Gesuchte Zahl ⟦x⟧ nennen und Stück für Stück übersetzen. „Das Dreifache“ ist 3 · x, „ergibt“ ist =.",
     "schritte": [
-     "Nenne die gesuchte Zahl x: Hier ist x der Preis der Packung.",
-     "Übersetze Stück für Stück: Packung und Album sind x + 2, „kosten zusammen“ ist =, dann folgt 9. Die Gleichung lautet x + 2 = 9.",
-     "Rechne rückwärts: 9 − 2 = ⟦7⟧.",
-     "Die Packung kostet ⟦7 €⟧."
+     {
+      "text": "Nenne die gesuchte Zahl x: den Preis der Karten.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x, rechts ?",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "„Zusammen kosten“ heißt =. Gleichung aufstellen: x + 2 = 9.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x + 2, rechts 9",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x + 2"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "9"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Rückwärts: 9 − 2 = ⟦7⟧. Die Karten kosten 7 €.",
+      "bild": {
+       "typ": "figur",
+       "label": "Waage im Gleichgewicht: links x, rechts 7",
+       "punkte": {
+        "_A": [
+         1.5,
+         2
+        ],
+        "_B": [
+         8.5,
+         2
+        ],
+        "_S": [
+         5,
+         2
+        ],
+        "_F1": [
+         4,
+         0
+        ],
+        "_F2": [
+         6,
+         0
+        ],
+        "_L1": [
+         -0.5,
+         2.6
+        ],
+        "_L2": [
+         3.5,
+         2.6
+        ],
+        "_R1": [
+         6.5,
+         2.6
+        ],
+        "_R2": [
+         10.5,
+         2.6
+        ],
+        "_LA": [
+         1.5,
+         2.6
+        ],
+        "_RA": [
+         8.5,
+         2.6
+        ]
+       },
+       "flaeche": [
+        "_S",
+        "_F1",
+        "_F2"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B"
+        ],
+        [
+         "_A",
+         "_LA"
+        ],
+        [
+         "_B",
+         "_RA"
+        ],
+        [
+         "_L1",
+         "_L2",
+         "x"
+        ],
+        [
+         "_R1",
+         "_R2",
+         "7"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "7 + 2 = 9 ✓",
-    "fehler": "„Das Doppelte einer Zahl, vermindert um 4, ergibt 10“ ist nicht 2 · (x − 4) = 10. Erst wird verdoppelt, dann 4 abgezogen: ⟦2 · x − 4 = 10⟧, also x = 7. Mit der falschen Gleichung käme 9 heraus – aber 2 · 9 − 4 = 14, nicht 10.",
-    "einstieg": "Eine Packung Sammelkarten und ein Album für 2 € kosten zusammen 9 €. Was kostet die Packung? Bevor du rechnest, übersetzt du den Text in die Sprache der Mathematik – wie beim Übersetzen in eine andere Sprache, Wort für Wort. Das heißt, eine Gleichung ⟦aufstellen⟧.",
+    "fehler": "„Das Doppelte, vermindert um 4“ heißt 2 · x − 4. Falsch ist 2 · (x − 4): Erst wird verdoppelt, dann abgezogen.",
+    "einstieg": "Sammelkarten und ein Album für 2 € kosten zusammen 9 €. Was kosten die Karten? Erst übersetzt du den Text in eine ⟦Gleichung⟧.",
     "woerter": [
      [
       "aufstellen",
-      "aus einem Text eine Gleichung machen"
-     ],
-     [
-      "das Dreifache",
-      "3 · x"
-     ],
-     [
-      "vermehrt um 5, vermindert um 4",
-      "+ 5 und − 4"
-     ],
-     [
-      "ergibt, kostet zusammen",
-      "das Gleichheitszeichen ="
+      "einen Text in eine Gleichung übersetzen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links ?, rechts ?",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "?"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "?"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "ohne_loesung",
     "titel": "Gibt es immer eine Lösung?",
-    "regel": "So erkennst du, ob es in ℕ eine Lösung gibt: Rechne rückwärts. Kommt eine Zahl ⟦unter 0⟧ heraus oder geht das Teilen ⟦nicht ohne Rest⟧, gibt es in den ⟦natürlichen Zahlen⟧ keine Lösung. Mit den ⟦ganzen Zahlen⟧ hat x + 9 = 4 die Lösung −5.",
+    "regel": "In ℕ gibt es keine Lösung, wenn rückwärts etwas ⟦unter 0⟧ herauskommt. Ebenso, wenn Teilen nicht ohne Rest aufgeht.",
     "schritte": [
-     "Die Gleichung lautet x + 9 = 4.",
-     "Rückwärts gerechnet ist x = 4 − 9. Von 4 kannst du nicht 9 abziehen, ohne unter 0 zu kommen. In ℕ gibt es also keine Lösung.",
-     "Mit ganzen Zahlen geht es: 4 − 9 = ⟦−5⟧. Der Aufzug ist im 5. Untergeschoss losgefahren.",
-     "Genauso hat 3 · x = 10 in ℕ keine Lösung, denn 10 ist ⟦nicht durch 3 teilbar⟧."
+     {
+      "text": "Die Gleichung: x + 9 = 4. Rückwärts: x = 4 − 9."
+     },
+     {
+      "text": "Von 4 aus 9 nach unten: Unter 0 gibt es in ℕ keine Zahl.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 4,
+         "bis": -5,
+         "name": "−9"
+        }
+       ],
+       "bereich": {
+        "von": -6,
+        "bis": 0
+       }
+      }
+     },
+     {
+      "text": "Ganze Zahlen helfen: ⟦x = −5⟧, das 5. Untergeschoss.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "Ziel"
+        },
+        {
+         "wert": -5,
+         "name": "Start"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "(−5) + 9 = 4 ✓",
-    "fehler": "Bei x + 9 = 4 die Zahlen tauschen und 9 − 4 = 5 rechnen. Probe: 5 + 9 = 14, nicht 4 – der Aufzug wäre im 14. Stock gelandet. Die Umkehrung ist 4 − 9, und das ist ⟦keine natürliche Zahl⟧.",
-    "einstieg": "Ein Aufzug fährt 9 Stockwerke nach oben und hält im 4. Stock. Wo ist er losgefahren? Mit den Zahlen 0, 1, 2, 3, … klappt das nicht – er muss unter dem Erdgeschoss gestartet sein. Mit diesen Zahlen allein hat die Gleichung ⟦keine Lösung⟧.",
+    "fehler": "Bei x + 9 = 4 die Zahlen tauschen: 9 − 4 = 5. Probe: 5 + 9 = 14, nicht 4.",
+    "einstieg": "Ein Aufzug fährt 9 Stockwerke nach oben und hält im vierten Stock. Wo ist er losgefahren? Mit 0, 1, 2, 3 … allein gibt es ⟦keine Lösung⟧.",
     "woerter": [
      [
-      "natürliche Zahlen ℕ",
-      "die Zahlen zum Zählen: ℕ = {0; 1; 2; 3; …}"
-     ],
-     [
-      "{ … }",
-      "Mengenklammern: In ihnen stehen die Zahlen, die dazugehören"
+      "ℕ",
+      "die natürlichen Zahlen 0, 1, 2, 3 …"
      ],
      [
       "ganze Zahlen",
-      "die natürlichen Zahlen und ihre Minus-Zahlen: …, −2, −1, 0, 1, 2, …"
-     ],
-     [
-      "Untergeschoss",
-      "ein Stockwerk unter dem Erdgeschoss; im Aufzug oft −1, −2, …"
-     ],
-     [
-      "teilbar",
-      "lässt sich ohne Rest teilen"
+      "auch die negativen: … −2, −1, 0, 1, 2 …"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -6,
+     "ende": 6,
+     "abschnitte": 12,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 4,
+       "name": "Ziel"
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -375,8 +1171,6 @@
     "k": "umkehren",
     "text": "Gleichungen durch Umkehraufgaben lösen",
     "lernziele": [
-     "umkehr_plus",
-     "umkehr_mal",
      "zwei_schritte"
     ]
    },
@@ -398,8 +1192,6 @@
   "bewertung": {
    "lernziele_pflicht": [
     "waage",
-    "umkehr_plus",
-    "umkehr_mal",
     "zwei_schritte",
     "probe",
     "aufstellen"
@@ -420,6 +1212,220 @@
    "l": "waage",
    "t": "verstehen",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist die Lösung von 17 + x = 43? Probiere aus."
+   },
+   "a": [
+    "60",
+    "43",
+    "26",
+    "17"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "17 + 26 = 43 ✓. Mit 43 käme 60 heraus, mit 17 nur 34.",
+   "h": "Setze jede Zahl für x ein und rechne nach.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Links liegen zwei gleiche Dosen und 9 Murmeln, rechts eine solche Dose und 17 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?",
+    "grafik": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links x + x + 9, rechts x + 17",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "x + x + 9"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "x + 17"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "17 - 9",
+   "w": "Auf beiden Seiten eine Dose wegnehmen: links x + 9, rechts 17. Dann 9 wegnehmen: x = 17 − 9 = 8.",
+   "h": "Auf beiden Seiten liegt mindestens eine Dose. Was kannst du wegnehmen?",
+   "g": "transfer"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Links liegen zwei gleiche Dosen mit je x Murmeln und 5 Murmeln, rechts 9 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?",
+    "grafik": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links x + x + 5, rechts 9",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "x + x + 5"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "9"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(9 - 5) // 2",
+   "w": "Erst auf beiden Seiten 5 Murmeln wegnehmen: In zwei Dosen sind zusammen 4 Murmeln. In einer Dose: 4 : 2 = 2.",
+   "h": "Nimm zuerst die einzelnen Murmeln weg. Dann teile auf die Dosen auf.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
@@ -434,7 +1440,8 @@
     "index": 1
    },
    "w": "Einsetzen: 31 + 9 = 40. Rechts steht aber 22. Die Lösung ist 13, denn 13 + 9 = 22.",
-   "h": "Setze die Zahl für x ein und rechne die linke Seite aus."
+   "h": "Setze die Zahl für x ein und rechne die linke Seite aus.",
+   "g": "erkennen"
   },
   {
    "l": "waage",
@@ -529,7 +1536,414 @@
    },
    "c": "12 - 4",
    "w": "Auf beiden Seiten 4 wegnehmen: x = 12 − 4 = 8. Probe: 8 + 4 = 12 ✓",
-   "h": "Was musst du auf beiden Seiten wegnehmen, damit links nur x bleibt?"
+   "h": "Was musst du auf beiden Seiten wegnehmen, damit links nur x bleibt?",
+   "g": "direkt"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Waage ist im Gleichgewicht: 43 = x + 13. Welche Zahl ist x?",
+    "grafik": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links 43, rechts x + 13",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "43"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "x + 13"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "43 - 13",
+   "w": "Jetzt liegt x rechts. Auf beiden Seiten 13 wegnehmen: 43 − 13 = x, also x = 30.",
+   "h": "Die Gleichung steht andersherum. Das ändert nichts: Nimm auf beiden Seiten dasselbe weg.",
+   "g": "umkehr"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Waage ist im Gleichgewicht: x + 20 = 37. Welche Zahl ist x?",
+    "grafik": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links x + 20, rechts 37",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "x + 20"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "37"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "37 - 20",
+   "w": "Auf beiden Seiten 20 wegnehmen: x = 37 − 20 = 17. Probe: 17 + 20 = 37 ✓",
+   "h": "Nimm auf beiden Seiten dasselbe weg.",
+   "g": "darstellung"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist die Lösung von 20 + x = 53? Probiere aus."
+   },
+   "a": [
+    "53",
+    "20",
+    "73",
+    "33"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "20 + 33 = 53 ✓. Mit 53 käme 73 heraus, mit 20 nur 40.",
+   "h": "Setze jede Zahl für x ein und rechne nach.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Links liegen zwei gleiche Dosen und 2 Murmeln, rechts eine solche Dose und 8 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?",
+    "grafik": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links x + x + 2, rechts x + 8",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "x + x + 2"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "x + 8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "8 - 2",
+   "w": "Auf beiden Seiten eine Dose wegnehmen: links x + 2, rechts 8. Dann 2 wegnehmen: x = 8 − 2 = 6.",
+   "h": "Auf beiden Seiten liegt mindestens eine Dose. Was kannst du wegnehmen?",
+   "g": "transfer"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Links liegen zwei gleiche Dosen mit je x Murmeln und 3 Murmeln, rechts 21 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?",
+    "grafik": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links x + x + 3, rechts 21",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "x + x + 3"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "21"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(21 - 3) // 2",
+   "w": "Erst auf beiden Seiten 3 Murmeln wegnehmen: In zwei Dosen sind zusammen 18 Murmeln. In einer Dose: 18 : 2 = 9.",
+   "h": "Nimm zuerst die einzelnen Murmeln weg. Dann teile auf die Dosen auf.",
+   "g": "verknuepfen"
   },
   {
    "l": "waage",
@@ -549,7 +1963,8 @@
     "index": 2
    },
    "w": "Einsetzen: 6 + 7 = 13. Links und rechts steht dasselbe, die Waage ist im Gleichgewicht.",
-   "h": "Setze die Zahl für x ein und rechne die linke Seite aus."
+   "h": "Setze die Zahl für x ein und rechne die linke Seite aus.",
+   "g": "erkennen"
   },
   {
    "l": "waage",
@@ -644,7 +2059,104 @@
    },
    "c": "8 - 2",
    "w": "Auf beiden Seiten 2 wegnehmen: x = 8 − 2 = 6. Probe: 6 + 2 = 8 ✓",
-   "h": "Was musst du auf beiden Seiten wegnehmen, damit links nur x bleibt?"
+   "h": "Was musst du auf beiden Seiten wegnehmen, damit links nur x bleibt?",
+   "g": "direkt"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Waage ist im Gleichgewicht: 34 = x + 24. Welche Zahl ist x?",
+    "grafik": {
+     "typ": "figur",
+     "label": "Waage im Gleichgewicht: links 34, rechts x + 24",
+     "punkte": {
+      "_A": [
+       1.5,
+       2
+      ],
+      "_B": [
+       8.5,
+       2
+      ],
+      "_S": [
+       5,
+       2
+      ],
+      "_F1": [
+       4,
+       0
+      ],
+      "_F2": [
+       6,
+       0
+      ],
+      "_L1": [
+       -0.5,
+       2.6
+      ],
+      "_L2": [
+       3.5,
+       2.6
+      ],
+      "_R1": [
+       6.5,
+       2.6
+      ],
+      "_R2": [
+       10.5,
+       2.6
+      ],
+      "_LA": [
+       1.5,
+       2.6
+      ],
+      "_RA": [
+       8.5,
+       2.6
+      ]
+     },
+     "flaeche": [
+      "_S",
+      "_F1",
+      "_F2"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B"
+      ],
+      [
+       "_A",
+       "_LA"
+      ],
+      [
+       "_B",
+       "_RA"
+      ],
+      [
+       "_L1",
+       "_L2",
+       "34"
+      ],
+      [
+       "_R1",
+       "_R2",
+       "x + 24"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "34 - 24",
+   "w": "Jetzt liegt x rechts. Auf beiden Seiten 24 wegnehmen: 34 − 24 = x, also x = 10.",
+   "h": "Die Gleichung steht andersherum. Das ändert nichts: Nimm auf beiden Seiten dasselbe weg.",
+   "g": "umkehr"
   },
   {
    "l": "waage",
@@ -748,10 +2260,10 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Waage ist im Gleichgewicht: x + 20 = 37. Welche Zahl ist x?",
+    "text": "Die Waage ist im Gleichgewicht: 49 = x + 22. Welche Zahl ist x?",
     "grafik": {
      "typ": "figur",
-     "label": "Waage im Gleichgewicht: links x + 20, rechts 37",
+     "label": "Waage im Gleichgewicht: links 49, rechts x + 22",
      "punkte": {
       "_A": [
        1.5,
@@ -819,253 +2331,21 @@
       [
        "_L1",
        "_L2",
-       "x + 20"
+       "49"
       ],
       [
        "_R1",
        "_R2",
-       "37"
+       "x + 22"
       ]
      ]
     }
    },
    "o": {
-    "wert": 17
+    "wert": 27
    },
-   "c": "37 - 20",
-   "w": "Auf beiden Seiten 20 wegnehmen: x = 37 − 20 = 17. Probe: 17 + 20 = 37 ✓",
-   "h": "Nimm auf beiden Seiten dasselbe weg."
-  },
-  {
-   "l": "waage",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl ist die Lösung von 17 + x = 43? Probiere aus."
-   },
-   "a": [
-    "60",
-    "43",
-    "26",
-    "17"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "17 + 26 = 43 ✓. Mit 43 käme 60 heraus, mit 17 nur 34.",
-   "h": "Setze jede Zahl für x ein und rechne nach."
-  },
-  {
-   "l": "waage",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Waage ist im Gleichgewicht: 43 = x + 13. Welche Zahl ist x?",
-    "grafik": {
-     "typ": "figur",
-     "label": "Waage im Gleichgewicht: links 43, rechts x + 13",
-     "punkte": {
-      "_A": [
-       1.5,
-       2
-      ],
-      "_B": [
-       8.5,
-       2
-      ],
-      "_S": [
-       5,
-       2
-      ],
-      "_F1": [
-       4,
-       0
-      ],
-      "_F2": [
-       6,
-       0
-      ],
-      "_L1": [
-       -0.5,
-       2.6
-      ],
-      "_L2": [
-       3.5,
-       2.6
-      ],
-      "_R1": [
-       6.5,
-       2.6
-      ],
-      "_R2": [
-       10.5,
-       2.6
-      ],
-      "_LA": [
-       1.5,
-       2.6
-      ],
-      "_RA": [
-       8.5,
-       2.6
-      ]
-     },
-     "flaeche": [
-      "_S",
-      "_F1",
-      "_F2"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_A",
-       "_LA"
-      ],
-      [
-       "_B",
-       "_RA"
-      ],
-      [
-       "_L1",
-       "_L2",
-       "43"
-      ],
-      [
-       "_R1",
-       "_R2",
-       "x + 13"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "43 - 13",
-   "w": "Jetzt liegt x rechts. Auf beiden Seiten 13 wegnehmen: 43 − 13 = x, also x = 30.",
-   "h": "Die Gleichung steht andersherum. Das ändert nichts: Nimm auf beiden Seiten dasselbe weg."
-  },
-  {
-   "l": "waage",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl ist die Lösung von 20 + x = 53? Probiere aus."
-   },
-   "a": [
-    "53",
-    "20",
-    "73",
-    "33"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "20 + 33 = 53 ✓. Mit 53 käme 73 heraus, mit 20 nur 40.",
-   "h": "Setze jede Zahl für x ein und rechne nach."
-  },
-  {
-   "l": "waage",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Waage ist im Gleichgewicht: 34 = x + 24. Welche Zahl ist x?",
-    "grafik": {
-     "typ": "figur",
-     "label": "Waage im Gleichgewicht: links 34, rechts x + 24",
-     "punkte": {
-      "_A": [
-       1.5,
-       2
-      ],
-      "_B": [
-       8.5,
-       2
-      ],
-      "_S": [
-       5,
-       2
-      ],
-      "_F1": [
-       4,
-       0
-      ],
-      "_F2": [
-       6,
-       0
-      ],
-      "_L1": [
-       -0.5,
-       2.6
-      ],
-      "_L2": [
-       3.5,
-       2.6
-      ],
-      "_R1": [
-       6.5,
-       2.6
-      ],
-      "_R2": [
-       10.5,
-       2.6
-      ],
-      "_LA": [
-       1.5,
-       2.6
-      ],
-      "_RA": [
-       8.5,
-       2.6
-      ]
-     },
-     "flaeche": [
-      "_S",
-      "_F1",
-      "_F2"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_A",
-       "_LA"
-      ],
-      [
-       "_B",
-       "_RA"
-      ],
-      [
-       "_L1",
-       "_L2",
-       "34"
-      ],
-      [
-       "_R1",
-       "_R2",
-       "x + 24"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "34 - 24",
-   "w": "Jetzt liegt x rechts. Auf beiden Seiten 24 wegnehmen: 34 − 24 = x, also x = 10.",
+   "c": "49 - 22",
+   "w": "Jetzt liegt x rechts. Auf beiden Seiten 22 wegnehmen: 49 − 22 = x, also x = 27.",
    "h": "Die Gleichung steht andersherum. Das ändert nichts: Nimm auf beiden Seiten dasselbe weg."
   },
   {
@@ -1161,7 +2441,8 @@
    },
    "c": "45 - 16",
    "w": "Auf beiden Seiten 16 wegnehmen: x = 45 − 16 = 29. Probe: 29 + 16 = 45 ✓",
-   "h": "Nimm auf beiden Seiten dasselbe weg."
+   "h": "Nimm auf beiden Seiten dasselbe weg.",
+   "g": "darstellung"
   },
   {
    "l": "waage",
@@ -1170,283 +2451,32 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Waage ist im Gleichgewicht: 49 = x + 22. Welche Zahl ist x?",
-    "grafik": {
-     "typ": "figur",
-     "label": "Waage im Gleichgewicht: links 49, rechts x + 22",
-     "punkte": {
-      "_A": [
-       1.5,
-       2
-      ],
-      "_B": [
-       8.5,
-       2
-      ],
-      "_S": [
-       5,
-       2
-      ],
-      "_F1": [
-       4,
-       0
-      ],
-      "_F2": [
-       6,
-       0
-      ],
-      "_L1": [
-       -0.5,
-       2.6
-      ],
-      "_L2": [
-       3.5,
-       2.6
-      ],
-      "_R1": [
-       6.5,
-       2.6
-      ],
-      "_R2": [
-       10.5,
-       2.6
-      ],
-      "_LA": [
-       1.5,
-       2.6
-      ],
-      "_RA": [
-       8.5,
-       2.6
-      ]
-     },
-     "flaeche": [
-      "_S",
-      "_F1",
-      "_F2"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_A",
-       "_LA"
-      ],
-      [
-       "_B",
-       "_RA"
-      ],
-      [
-       "_L1",
-       "_L2",
-       "49"
-      ],
-      [
-       "_R1",
-       "_R2",
-       "x + 22"
-      ]
-     ]
-    }
+    "text": "Die Waage ist im Gleichgewicht: links x + x + 6, rechts 20. Welche Zahl ist x?"
    },
    "o": {
-    "wert": 27
+    "wert": 7
    },
-   "c": "49 - 22",
-   "w": "Jetzt liegt x rechts. Auf beiden Seiten 22 wegnehmen: 49 − 22 = x, also x = 27.",
-   "h": "Die Gleichung steht andersherum. Das ändert nichts: Nimm auf beiden Seiten dasselbe weg."
+   "c": "(20 - 6) / 2",
+   "w": "Auf beiden Seiten 6 wegnehmen: x + x = 14. Also x = 7.",
+   "h": "Nimm zuerst auf beiden Seiten 6 weg.",
+   "g": "mehrschritt"
   },
   {
    "l": "waage",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Links liegen zwei gleiche Dosen und 9 Murmeln, rechts eine solche Dose und 17 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?",
-    "grafik": {
-     "typ": "figur",
-     "label": "Waage im Gleichgewicht: links x + x + 9, rechts x + 17",
-     "punkte": {
-      "_A": [
-       1.5,
-       2
-      ],
-      "_B": [
-       8.5,
-       2
-      ],
-      "_S": [
-       5,
-       2
-      ],
-      "_F1": [
-       4,
-       0
-      ],
-      "_F2": [
-       6,
-       0
-      ],
-      "_L1": [
-       -0.5,
-       2.6
-      ],
-      "_L2": [
-       3.5,
-       2.6
-      ],
-      "_R1": [
-       6.5,
-       2.6
-      ],
-      "_R2": [
-       10.5,
-       2.6
-      ],
-      "_LA": [
-       1.5,
-       2.6
-      ],
-      "_RA": [
-       8.5,
-       2.6
-      ]
-     },
-     "flaeche": [
-      "_S",
-      "_F1",
-      "_F2"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_A",
-       "_LA"
-      ],
-      [
-       "_B",
-       "_RA"
-      ],
-      [
-       "_L1",
-       "_L2",
-       "x + x + 9"
-      ],
-      [
-       "_R1",
-       "_R2",
-       "x + 17"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "17 - 9",
-   "w": "Auf beiden Seiten eine Dose wegnehmen: links x + 9, rechts 17. Dann 9 wegnehmen: x = 17 − 9 = 8.",
-   "h": "Auf beiden Seiten liegt mindestens eine Dose. Was kannst du wegnehmen?"
-  },
-  {
-   "l": "waage",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Links liegen zwei gleiche Dosen und 2 Murmeln, rechts eine solche Dose und 8 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?",
-    "grafik": {
-     "typ": "figur",
-     "label": "Waage im Gleichgewicht: links x + x + 2, rechts x + 8",
-     "punkte": {
-      "_A": [
-       1.5,
-       2
-      ],
-      "_B": [
-       8.5,
-       2
-      ],
-      "_S": [
-       5,
-       2
-      ],
-      "_F1": [
-       4,
-       0
-      ],
-      "_F2": [
-       6,
-       0
-      ],
-      "_L1": [
-       -0.5,
-       2.6
-      ],
-      "_L2": [
-       3.5,
-       2.6
-      ],
-      "_R1": [
-       6.5,
-       2.6
-      ],
-      "_R2": [
-       10.5,
-       2.6
-      ],
-      "_LA": [
-       1.5,
-       2.6
-      ],
-      "_RA": [
-       8.5,
-       2.6
-      ]
-     },
-     "flaeche": [
-      "_S",
-      "_F1",
-      "_F2"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_A",
-       "_LA"
-      ],
-      [
-       "_B",
-       "_RA"
-      ],
-      [
-       "_L1",
-       "_L2",
-       "x + x + 2"
-      ],
-      [
-       "_R1",
-       "_R2",
-       "x + 8"
-      ]
-     ]
-    }
+    "text": "Links liegen 3 gleiche Dosen, rechts 1 solche Dose und 12 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?"
    },
    "o": {
     "wert": 6
    },
-   "c": "8 - 2",
-   "w": "Auf beiden Seiten eine Dose wegnehmen: links x + 2, rechts 8. Dann 2 wegnehmen: x = 8 − 2 = 6.",
-   "h": "Auf beiden Seiten liegt mindestens eine Dose. Was kannst du wegnehmen?"
+   "c": "12 / 2",
+   "w": "Auf beiden Seiten 1 Dose wegnehmen: 2 Dosen = 12 Murmeln. Eine Dose: 6 Murmeln.",
+   "h": "Nimm auf beiden Seiten dieselbe Dose weg.",
+   "g": "einkleidung"
   },
   {
    "l": "waage",
@@ -1550,93 +2580,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Links liegen zwei gleiche Dosen mit je x Murmeln und 5 Murmeln, rechts 9 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?",
-    "grafik": {
-     "typ": "figur",
-     "label": "Waage im Gleichgewicht: links x + x + 5, rechts 9",
-     "punkte": {
-      "_A": [
-       1.5,
-       2
-      ],
-      "_B": [
-       8.5,
-       2
-      ],
-      "_S": [
-       5,
-       2
-      ],
-      "_F1": [
-       4,
-       0
-      ],
-      "_F2": [
-       6,
-       0
-      ],
-      "_L1": [
-       -0.5,
-       2.6
-      ],
-      "_L2": [
-       3.5,
-       2.6
-      ],
-      "_R1": [
-       6.5,
-       2.6
-      ],
-      "_R2": [
-       10.5,
-       2.6
-      ],
-      "_LA": [
-       1.5,
-       2.6
-      ],
-      "_RA": [
-       8.5,
-       2.6
-      ]
-     },
-     "flaeche": [
-      "_S",
-      "_F1",
-      "_F2"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_A",
-       "_LA"
-      ],
-      [
-       "_B",
-       "_RA"
-      ],
-      [
-       "_L1",
-       "_L2",
-       "x + x + 5"
-      ],
-      [
-       "_R1",
-       "_R2",
-       "9"
-      ]
-     ]
-    }
+    "text": "Löse 4 · 3 + 5 · x = 47."
    },
    "o": {
-    "wert": 2
+    "wert": 7
    },
-   "c": "(9 - 5) // 2",
-   "w": "Erst auf beiden Seiten 5 Murmeln wegnehmen: In zwei Dosen sind zusammen 4 Murmeln. In einer Dose: 4 : 2 = 2.",
-   "h": "Nimm zuerst die einzelnen Murmeln weg. Dann teile auf die Dosen auf."
+   "c": "(47 - 4 * 3) / 5",
+   "w": "4 · 3 = 12. 12 + 5 · x = 47, also 5 · x = 35 und x = 7. Probe: 12 + 35 = 47.",
+   "h": "Rechne zuerst 4 · 3 aus. Was bleibt für 5 · x?",
+   "g": "verknuepfen"
   },
   {
    "l": "waage",
@@ -1645,93 +2597,92 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Links liegen zwei gleiche Dosen mit je x Murmeln und 3 Murmeln, rechts 21 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?",
-    "grafik": {
-     "typ": "figur",
-     "label": "Waage im Gleichgewicht: links x + x + 3, rechts 21",
-     "punkte": {
-      "_A": [
-       1.5,
-       2
-      ],
-      "_B": [
-       8.5,
-       2
-      ],
-      "_S": [
-       5,
-       2
-      ],
-      "_F1": [
-       4,
-       0
-      ],
-      "_F2": [
-       6,
-       0
-      ],
-      "_L1": [
-       -0.5,
-       2.6
-      ],
-      "_L2": [
-       3.5,
-       2.6
-      ],
-      "_R1": [
-       6.5,
-       2.6
-      ],
-      "_R2": [
-       10.5,
-       2.6
-      ],
-      "_LA": [
-       1.5,
-       2.6
-      ],
-      "_RA": [
-       8.5,
-       2.6
-      ]
-     },
-     "flaeche": [
-      "_S",
-      "_F1",
-      "_F2"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B"
-      ],
-      [
-       "_A",
-       "_LA"
-      ],
-      [
-       "_B",
-       "_RA"
-      ],
-      [
-       "_L1",
-       "_L2",
-       "x + x + 3"
-      ],
-      [
-       "_R1",
-       "_R2",
-       "21"
-      ]
-     ]
-    }
+    "text": "Auf einer Waage gilt: 2 Äpfel wiegen so viel wie 3 Birnen. Eine Birne wiegt 120 g. Wie viel wiegt ein Apfel?"
    },
    "o": {
-    "wert": 9
+    "wert": 180,
+    "einheit": "g"
    },
-   "c": "(21 - 3) // 2",
-   "w": "Erst auf beiden Seiten 3 Murmeln wegnehmen: In zwei Dosen sind zusammen 18 Murmeln. In einer Dose: 18 : 2 = 9.",
-   "h": "Nimm zuerst die einzelnen Murmeln weg. Dann teile auf die Dosen auf."
+   "c": "3 * 120 / 2",
+   "w": "3 Birnen: 360 g. Das wiegen auch 2 Äpfel. Ein Apfel: 360 g : 2 = 180 g.",
+   "h": "Was wiegen 3 Birnen zusammen?",
+   "g": "transfer"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Waage ist im Gleichgewicht: links 5 gleiche Würfel, rechts 2 solche Würfel und ein 60-g-Gewicht. Wie schwer ist ein Würfel?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "g"
+   },
+   "c": "60 / 3",
+   "w": "Auf beiden Seiten 2 Würfel wegnehmen: 3 Würfel = 60 g. Ein Würfel: 20 g.",
+   "h": "Nimm auf beiden Seiten gleich viele Würfel weg.",
+   "g": "pruefung"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei x + 7 = 15 nimmt jemand nur links 7 weg und schreibt x = 15. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, x = 15 stimmt.",
+    "Man muss rechts 7 dazulegen: x = 22.",
+    "Man muss durch 7 teilen.",
+    "Die 7 muss auch rechts weg: x = 15 − 7 = 8."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nur links wegnehmen bringt die Waage aus dem Gleichgewicht. Beide Seiten minus 7: x = 8. Probe: 8 + 7 = 15.",
+   "h": "Was passiert mit der Waage, wenn nur eine Seite leichter wird?",
+   "g": "fehler"
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Waage gilt: 3 Würfel wiegen so viel wie 2 Kugeln. Eine Kugel wiegt so viel wie ein Würfel und 50 g. Wie viel g wiegt ein Würfel?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "g"
+   },
+   "c": "2 * 50",
+   "w": "2 Kugeln = 2 Würfel + 100 g. Also 3 Würfel = 2 Würfel + 100 g. Nimm auf beiden Seiten 2 Würfel weg: 1 Würfel = 100 g.",
+   "h": "Ersetze die Kugeln durch Würfel und Gramm."
+  },
+  {
+   "l": "waage",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Dreieck und Kreis wiegen zusammen 10 g, Kreis und Quadrat 13 g, Dreieck und Quadrat 15 g. Wie viel g wiegt das Quadrat?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "g"
+   },
+   "c": "(10 + 13 + 15) // 2 - 10",
+   "w": "Alle drei Paare zusammen: 38 g. Darin kommt jede Form zweimal vor, also wiegen alle drei Formen zusammen 19 g. Ohne Dreieck und Kreis (10 g) bleibt das Quadrat: 9 g.",
+   "h": "Lege alle drei Paare zusammen auf eine Waage."
   },
   {
    "l": "waage",
@@ -2452,876 +3403,21 @@
    "w": "Jetzt liegt x rechts. Auf beiden Seiten 8 wegnehmen: 32 − 8 = x, also x = 24."
   },
   {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 2 = 5."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "5 - 2",
-   "w": "Umkehrung von Plus ist Minus: x = 5 − 2 = 3. Probe: 3 + 2 = 5 ✓",
-   "h": "Welche Zahl plus 2 ergibt 5? Rechne rückwärts."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 6 = 35."
-   },
-   "o": {
-    "wert": 29
-   },
-   "c": "35 - 6",
-   "w": "Umkehrung von Plus ist Minus: x = 35 − 6 = 29. Probe: 29 + 6 = 35 ✓",
-   "h": "Welche Zahl plus 6 ergibt 35? Rechne rückwärts."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 8 = 39."
-   },
-   "o": {
-    "wert": 31
-   },
-   "c": "39 - 8",
-   "w": "Umkehrung von Plus ist Minus: x = 39 − 8 = 31. Probe: 31 + 8 = 39 ✓",
-   "h": "Welche Zahl plus 8 ergibt 39? Rechne rückwärts."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x − 20 = 21."
-   },
-   "o": {
-    "wert": 41
-   },
-   "c": "21 + 20",
-   "w": "Umkehrung von Minus ist Plus: x = 21 + 20 = 41. Probe: 41 − 20 = 21 ✓",
-   "h": "Rechne rückwärts. Was ist die Umkehrung von Minus?"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x − 16 = 12."
-   },
-   "o": {
-    "wert": 28
-   },
-   "c": "12 + 16",
-   "w": "Umkehrung von Minus ist Plus: x = 12 + 16 = 28. Probe: 28 − 16 = 12 ✓",
-   "h": "Rechne rückwärts. Was ist die Umkehrung von Minus?"
-  },
-  {
-   "l": "umkehr_plus",
+   "l": "zwei_schritte",
    "t": "umkehren",
    "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 197 + x = 470."
+    "text": "Löse x : 3 + 33 = 48."
    },
    "o": {
-    "wert": 273
-   },
-   "c": "470 - 197",
-   "w": "Ob x vorne oder hinten steht, ist bei Plus egal: x = 470 − 197 = 273. Probe: 197 + 273 = 470 ✓",
-   "h": "Die Reihenfolge beim Addieren ist egal. Rechne rückwärts."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x − 31 = 277."
-   },
-   "o": {
-    "wert": 308
-   },
-   "c": "277 + 31",
-   "w": "x = 277 + 31 = 308. Probe: 308 − 31 = 277 ✓",
-   "h": "Umkehrung von Minus ist Plus."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x − 59 = 338."
-   },
-   "o": {
-    "wert": 397
-   },
-   "c": "338 + 59",
-   "w": "x = 338 + 59 = 397. Probe: 397 − 59 = 338 ✓",
-   "h": "Umkehrung von Minus ist Plus."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 94 = 241."
-   },
-   "o": {
-    "wert": 147
-   },
-   "c": "241 - 94",
-   "w": "x = 241 − 94 = 147. Probe: 147 + 94 = 241 ✓",
-   "h": "Umkehrung von Plus ist Minus."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 22 = 168."
-   },
-   "o": {
-    "wert": 146
-   },
-   "c": "168 - 22",
-   "w": "x = 168 − 22 = 146. Probe: 146 + 22 = 168 ✓",
-   "h": "Umkehrung von Plus ist Minus."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Rechnung führt zur Lösung von x − 177 = 362?"
-   },
-   "a": [
-    "362 + 177",
-    "177 − 362",
-    "362 − 177",
-    "177 + 177"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Von x wurde 177 abgezogen. Rückwärts wird 177 wieder addiert: x = 362 + 177 = 539.",
-   "h": "Was ist die Umkehrung von Minus?"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x − 78 = 247."
-   },
-   "o": {
-    "wert": 325
-   },
-   "c": "247 + 78",
-   "w": "x = 247 + 78 = 325. Probe: 325 − 78 = 247 ✓",
-   "h": "Umkehrung von Minus ist Plus."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 44 = 52 + 64."
-   },
-   "o": {
-    "wert": 72
-   },
-   "c": "52 + 64 - 44",
-   "w": "Erst die rechte Seite ausrechnen: 52 + 64 = 116. Dann x = 116 − 44 = 72.",
-   "h": "Rechne zuerst aus, was rechts steht."
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 131 − x = 57."
-   },
-   "o": {
-    "wert": 74
-   },
-   "c": "131 - 57",
-   "w": "Von 131 wird x abgezogen, es bleibt 57. Also ist x der Unterschied: x = 131 − 57 = 74. Probe: 131 − 74 = 57 ✓",
-   "h": "Achtung, x wird hier abgezogen. Wie viel musst du von 131 wegnehmen, damit 57 übrig bleibt?"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Rechnung führt zur Lösung von 47 − x = 18?"
-   },
-   "a": [
-    "47 − 18",
-    "18 − 47",
-    "47 + 18"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x ist das, was von 47 weggenommen wird, damit 18 bleibt: x = 47 − 18 = 29. Mit 47 + 18 = 65 wäre 47 − 65 gar nicht 18.",
-   "h": "Probiere mit kleinen Zahlen: 10 − x = 3. Welche Zahl ist x, und wie hast du sie gerechnet?"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Rechnung führt zur Lösung von 30 − x = 22?"
-   },
-   "a": [
-    "22 − 30",
-    "30 − 22",
-    "30 + 22"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "x ist das, was von 30 weggenommen wird, damit 22 bleibt: x = 30 − 22 = 8. Mit 30 + 22 = 52 wäre 30 − 52 gar nicht 22.",
-   "h": "Probiere mit kleinen Zahlen: 10 − x = 3. Welche Zahl ist x, und wie hast du sie gerechnet?"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 127 − x = 10."
-   },
-   "o": {
-    "wert": 117
-   },
-   "c": "127 - 10",
-   "w": "Von 127 wird x abgezogen, es bleibt 10. Also ist x der Unterschied: x = 127 − 10 = 117. Probe: 127 − 117 = 10 ✓",
-   "h": "Achtung, x wird hier abgezogen. Wie viel musst du von 127 wegnehmen, damit 10 übrig bleibt?"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 202 + x = 459."
-   },
-   "o": {
-    "wert": 257
-   },
-   "c": "459 - 202",
-   "w": "Ob x vorne oder hinten steht, ist bei Plus egal: x = 459 − 202 = 257. Probe: 202 + 257 = 459 ✓"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 128 + x = 464."
-   },
-   "o": {
-    "wert": 336
-   },
-   "c": "464 - 128",
-   "w": "Ob x vorne oder hinten steht, ist bei Plus egal: x = 464 − 128 = 336. Probe: 128 + 336 = 464 ✓"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 185 + x = 452."
-   },
-   "o": {
-    "wert": 267
-   },
-   "c": "452 - 185",
-   "w": "Ob x vorne oder hinten steht, ist bei Plus egal: x = 452 − 185 = 267. Probe: 185 + 267 = 452 ✓"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 38 + x = 204."
-   },
-   "o": {
-    "wert": 166
-   },
-   "c": "204 - 38",
-   "w": "Ob x vorne oder hinten steht, ist bei Plus egal: x = 204 − 38 = 166. Probe: 38 + 166 = 204 ✓"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 34 = 297."
-   },
-   "o": {
-    "wert": 263
-   },
-   "c": "297 - 34",
-   "w": "x = 297 − 34 = 263. Probe: 263 + 34 = 297 ✓"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 160 = 385."
-   },
-   "o": {
-    "wert": 225
-   },
-   "c": "385 - 160",
-   "w": "x = 385 − 160 = 225. Probe: 225 + 160 = 385 ✓"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 247 + x = 560."
-   },
-   "o": {
-    "wert": 313
-   },
-   "c": "560 - 247",
-   "w": "Ob x vorne oder hinten steht, ist bei Plus egal: x = 560 − 247 = 313. Probe: 247 + 313 = 560 ✓"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x − 107 = 305."
-   },
-   "o": {
-    "wert": 412
-   },
-   "c": "305 + 107",
-   "w": "x = 305 + 107 = 412. Probe: 412 − 107 = 305 ✓"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 123 + x = 391."
-   },
-   "o": {
-    "wert": 268
-   },
-   "c": "391 - 123",
-   "w": "Ob x vorne oder hinten steht, ist bei Plus egal: x = 391 − 123 = 268. Probe: 123 + 268 = 391 ✓"
-  },
-  {
-   "l": "umkehr_plus",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x − 56 = 210."
-   },
-   "o": {
-    "wert": 266
-   },
-   "c": "210 + 56",
-   "w": "x = 210 + 56 = 266. Probe: 266 − 56 = 210 ✓"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 4 = 10."
-   },
-   "o": {
-    "wert": 40
-   },
-   "c": "10 * 4",
-   "w": "Umkehrung von Geteilt ist Mal: x = 10 · 4 = 40. Probe: 40 : 4 = 10 ✓",
-   "h": "Rechne rückwärts. Was ist die Umkehrung von Geteilt?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 9 = 9."
-   },
-   "o": {
-    "wert": 81
-   },
-   "c": "9 * 9",
-   "w": "Umkehrung von Geteilt ist Mal: x = 9 · 9 = 81. Probe: 81 : 9 = 9 ✓",
-   "h": "Rechne rückwärts. Was ist die Umkehrung von Geteilt?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5 · x = 10."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "10 // 5",
-   "w": "Umkehrung von Mal ist Geteilt: x = 10 : 5 = 2. Probe: 5 · 2 = 10 ✓",
-   "h": "Welche Zahl mal 5 ergibt 10?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 8 = 7."
-   },
-   "o": {
-    "wert": 56
-   },
-   "c": "7 * 8",
-   "w": "Umkehrung von Geteilt ist Mal: x = 7 · 8 = 56. Probe: 56 : 8 = 7 ✓",
-   "h": "Rechne rückwärts. Was ist die Umkehrung von Geteilt?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 4 = 3."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "3 * 4",
-   "w": "Umkehrung von Geteilt ist Mal: x = 3 · 4 = 12. Probe: 12 : 4 = 3 ✓",
-   "h": "Rechne rückwärts. Was ist die Umkehrung von Geteilt?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6 · x = 114."
-   },
-   "o": {
-    "wert": 19
-   },
-   "c": "114 // 6",
-   "w": "x = 114 : 6 = 19. Probe: 6 · 19 = 114 ✓",
-   "h": "Umkehrung von Mal ist Geteilt."
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 9 · x = 207."
-   },
-   "o": {
-    "wert": 23
-   },
-   "c": "207 // 9",
-   "w": "x = 207 : 9 = 23. Probe: 9 · 23 = 207 ✓",
-   "h": "Umkehrung von Mal ist Geteilt."
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 6 = 13."
-   },
-   "o": {
-    "wert": 78
-   },
-   "c": "13 * 6",
-   "w": "x = 13 · 6 = 78. Probe: 78 : 6 = 13 ✓",
-   "h": "Umkehrung von Geteilt ist Mal."
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 25 · x = 550."
-   },
-   "o": {
-    "wert": 22
-   },
-   "c": "550 // 25",
-   "w": "x = 550 : 25 = 22. Probe: 25 · 22 = 550 ✓",
-   "h": "Umkehrung von Mal ist Geteilt."
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 20 = 17."
-   },
-   "o": {
-    "wert": 340
-   },
-   "c": "17 * 20",
-   "w": "x = 17 · 20 = 340. Probe: 340 : 20 = 17 ✓",
-   "h": "Umkehrung von Geteilt ist Mal."
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 9 · x = 171."
-   },
-   "o": {
-    "wert": 19
-   },
-   "c": "171 // 9",
-   "w": "x = 171 : 9 = 19. Probe: 9 · 19 = 171 ✓",
-   "h": "Umkehrung von Mal ist Geteilt."
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Rechnung führt zur Lösung von x : 6 = 27?"
-   },
-   "a": [
-    "27 − 6",
-    "27 : 6",
-    "27 · 6",
-    "6 : 27"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "x wurde durch 6 geteilt. Rückwärts wird mit 6 malgenommen: x = 27 · 6 = 162.",
-   "h": "Was ist die Umkehrung von Geteilt?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 72 : x = 9."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "72 // 9",
-   "w": "72 wird durch x geteilt, es kommt 9 heraus. Also ist x = 72 : 9 = 8. Probe: 72 : 8 = 9 ✓",
-   "h": "Achtung, hier wird durch x geteilt. In wie viele Teile musst du 72 teilen, damit jedes Teil 9 ist?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 9 : x = 3."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "9 // 3",
-   "w": "9 wird durch x geteilt, es kommt 3 heraus. Also ist x = 9 : 3 = 3. Probe: 9 : 3 = 3 ✓",
-   "h": "Achtung, hier wird durch x geteilt. In wie viele Teile musst du 9 teilen, damit jedes Teil 3 ist?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 110 : x = 11."
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "110 // 11",
-   "w": "110 wird durch x geteilt, es kommt 11 heraus. Also ist x = 110 : 11 = 10. Probe: 110 : 10 = 11 ✓",
-   "h": "Achtung, hier wird durch x geteilt. In wie viele Teile musst du 110 teilen, damit jedes Teil 11 ist?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 20 : x = 2."
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "20 // 2",
-   "w": "20 wird durch x geteilt, es kommt 2 heraus. Also ist x = 20 : 2 = 10. Probe: 20 : 10 = 2 ✓",
-   "h": "Achtung, hier wird durch x geteilt. In wie viele Teile musst du 20 teilen, damit jedes Teil 2 ist?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 40 : x = 10."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "40 // 10",
-   "w": "40 wird durch x geteilt, es kommt 10 heraus. Also ist x = 40 : 10 = 4. Probe: 40 : 4 = 10 ✓",
-   "h": "Achtung, hier wird durch x geteilt. In wie viele Teile musst du 40 teilen, damit jedes Teil 10 ist?"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 7 = 19."
-   },
-   "o": {
-    "wert": 133
-   },
-   "c": "19 * 7",
-   "w": "x = 19 · 7 = 133. Probe: 133 : 7 = 19 ✓"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6 · x = 168."
-   },
-   "o": {
-    "wert": 28
-   },
-   "c": "168 // 6",
-   "w": "x = 168 : 6 = 28. Probe: 6 · 28 = 168 ✓"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Rechnung führt zur Lösung von x : 11 = 28?"
-   },
-   "a": [
-    "28 − 11",
-    "28 · 11",
-    "11 : 28",
-    "28 : 11"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "x wurde durch 11 geteilt. Rückwärts wird mit 11 malgenommen: x = 28 · 11 = 308."
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 6 = 28."
-   },
-   "o": {
-    "wert": 168
-   },
-   "c": "28 * 6",
-   "w": "x = 28 · 6 = 168. Probe: 168 : 6 = 28 ✓"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 9 · x = 72."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "72 // 9",
-   "w": "x = 72 : 9 = 8. Probe: 9 · 8 = 72 ✓"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 12 · x = 72."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "72 // 12",
-   "w": "x = 72 : 12 = 6. Probe: 12 · 6 = 72 ✓"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 8 = 21."
-   },
-   "o": {
-    "wert": 168
-   },
-   "c": "21 * 8",
-   "w": "x = 21 · 8 = 168. Probe: 168 : 8 = 21 ✓"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 4 = 7."
-   },
-   "o": {
-    "wert": 28
-   },
-   "c": "7 * 4",
-   "w": "x = 7 · 4 = 28. Probe: 28 : 4 = 7 ✓"
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Rechnung führt zur Lösung von x : 9 = 19?"
-   },
-   "a": [
-    "19 : 9",
-    "9 : 19",
-    "19 · 9",
-    "19 − 9"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "x wurde durch 9 geteilt. Rückwärts wird mit 9 malgenommen: x = 19 · 9 = 171."
-  },
-  {
-   "l": "umkehr_mal",
-   "t": "umkehren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5 · x = 110."
-   },
-   "o": {
-    "wert": 22
-   },
-   "c": "110 // 5",
-   "w": "x = 110 : 5 = 22. Probe: 5 · 22 = 110 ✓"
+    "wert": 45
+   },
+   "c": "(48 - 33) * 3",
+   "w": "Erst − 33: 48 − 33 = 15. Dann · 3: 15 · 3 = 45. Probe: 45 : 3 + 33 = 48 ✓",
+   "h": "Kehre zuerst das „+ 33“ um, dann das „: 3“.",
+   "g": "mehrschritt"
   },
   {
    "l": "zwei_schritte",
@@ -3337,7 +3433,59 @@
    },
    "c": "(45 - 15) // 3",
    "w": "Erst − 15: 45 − 15 = 30. Dann : 3: 30 : 3 = 10. Probe: 3 · 10 + 15 = 45 ✓",
-   "h": "Kehre zuerst das „+ 15“ um, dann das „· 3“."
+   "h": "Kehre zuerst das „+ 15“ um, dann das „· 3“.",
+   "g": "direkt"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x : 12 + 6 = 19."
+   },
+   "o": {
+    "wert": 156
+   },
+   "c": "(19 - 6) * 12",
+   "w": "Erst − 6: 19 − 6 = 13. Dann · 12: 13 · 12 = 156. Probe: 156 : 12 + 6 = 19 ✓",
+   "h": "Kehre zuerst das „+ 6“ um, dann das „: 12“.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x − 4) · 4 = 20."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "20 // 4 + 4",
+   "w": "Rückwärts: erst : 4: 20 : 4 = 5. Dann + 4: x = 9. Probe: (9 − 4) · 4 = 20 ✓",
+   "h": "Die Klammer wird zuerst gerechnet. Welcher Schritt kommt also zuletzt?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7 · x + 7 = 147."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "(147 - 7) // 7",
+   "w": "147 − 7 = 140; 140 : 7 = 20. Probe: 7 · 20 + 7 = 147 ✓",
+   "h": "Den letzten Rechenschritt zuerst umkehren.",
+   "g": "mehrschritt"
   },
   {
    "l": "zwei_schritte",
@@ -3353,55 +3501,8 @@
    },
    "c": "(35 + 5) // 4",
    "w": "Erst + 5: 35 + 5 = 40. Dann : 4: 40 : 4 = 10. Probe: 4 · 10 − 5 = 35 ✓",
-   "h": "Kehre zuerst das „− 5“ um, dann das „· 4“."
-  },
-  {
-   "l": "zwei_schritte",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5 · x − 7 = 3."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "(3 + 7) // 5",
-   "w": "Erst + 7: 3 + 7 = 10. Dann : 5: 10 : 5 = 2. Probe: 5 · 2 − 7 = 3 ✓",
-   "h": "Kehre zuerst das „− 7“ um, dann das „· 5“."
-  },
-  {
-   "l": "zwei_schritte",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 4 · x − 9 = 27."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "(27 + 9) // 4",
-   "w": "Erst + 9: 27 + 9 = 36. Dann : 4: 36 : 4 = 9. Probe: 4 · 9 − 9 = 27 ✓",
-   "h": "Kehre zuerst das „− 9“ um, dann das „· 4“."
-  },
-  {
-   "l": "zwei_schritte",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 4 · x − 10 = 30."
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "(30 + 10) // 4",
-   "w": "Erst + 10: 30 + 10 = 40. Dann : 4: 40 : 4 = 10. Probe: 4 · 10 − 10 = 30 ✓",
-   "h": "Kehre zuerst das „− 10“ um, dann das „· 4“."
+   "h": "Kehre zuerst das „− 5“ um, dann das „· 4“.",
+   "g": "direkt"
   },
   {
    "l": "zwei_schritte",
@@ -3438,7 +3539,24 @@
    },
    "c": "(127 + 17) // 12",
    "w": "Rückwärts: 127 + 17 = 144, dann 144 : 12 = 12.",
-   "h": "Fange am Ende an und kehre jeden Schritt um."
+   "h": "Fange am Ende an und kehre jeden Schritt um.",
+   "g": "darstellung"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4 · x − 9 = 27."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(27 + 9) // 4",
+   "w": "Erst + 9: 27 + 9 = 36. Dann : 4: 36 : 4 = 9. Probe: 4 · 9 − 9 = 27 ✓",
+   "h": "Kehre zuerst das „− 9“ um, dann das „· 4“."
   },
   {
    "l": "zwei_schritte",
@@ -3459,7 +3577,97 @@
     "index": 0
    },
    "w": "Vorwärts wurde erst · 12, dann + 6 gerechnet. Rückwärts: erst − 6, dann : 12. Das ergibt x = 23.",
-   "h": "Welcher Rechenschritt wurde zuletzt gemacht?"
+   "h": "Welcher Rechenschritt wurde zuletzt gemacht?",
+   "g": "umkehr"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7 · x − 12 = 51."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(51 + 12) / 7",
+   "w": "Erst + 12: 7 · x = 63. Dann : 7: x = 9.",
+   "h": "Den letzten Schritt (− 12) zuerst umkehren.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 15) · 8 = 216."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "216 // 8 - 15",
+   "w": "Hier wurde zuerst + 15, dann · 8 gerechnet. Rückwärts: erst : 8: 216 : 8 = 27. Dann − 15: x = 12.",
+   "h": "Die Klammer wird zuerst gerechnet. Welcher Schritt kommt also zuletzt?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5 · x − 7 = 3."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(3 + 7) // 5",
+   "w": "Erst + 7: 3 + 7 = 10. Dann : 5: 10 : 5 = 2. Probe: 5 · 2 − 7 = 3 ✓",
+   "h": "Kehre zuerst das „− 7“ um, dann das „· 5“.",
+   "g": "direkt"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 5 · x + 3 = 38: Was rechnet man zuerst?"
+   },
+   "a": [
+    "38 : 5",
+    "5 · 3",
+    "38 − 3",
+    "38 + 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Rückwärts: Zuletzt wurde „+ 3“ gerechnet, das macht man zuerst rückgängig: 35, dann 35 : 5 = 7.",
+   "h": "Welcher Rechenschritt kam zuletzt?"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4 · x − 10 = 30."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(30 + 10) // 4",
+   "w": "Erst + 10: 30 + 10 = 40. Dann : 4: 40 : 4 = 10. Probe: 4 · 10 − 10 = 30 ✓",
+   "h": "Kehre zuerst das „− 10“ um, dann das „· 4“."
   },
   {
    "l": "zwei_schritte",
@@ -3480,23 +3688,8 @@
     "index": 1
    },
    "w": "Vorwärts wurde erst · 8, dann + 18 gerechnet. Rückwärts: erst − 18, dann : 8. Das ergibt x = 5.",
-   "h": "Welcher Rechenschritt wurde zuletzt gemacht?"
-  },
-  {
-   "l": "zwei_schritte",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x : 3 + 33 = 48."
-   },
-   "o": {
-    "wert": 45
-   },
-   "c": "(48 - 33) * 3",
-   "w": "Erst − 33: 48 − 33 = 15. Dann · 3: 15 · 3 = 45. Probe: 45 : 3 + 33 = 48 ✓",
-   "h": "Kehre zuerst das „+ 33“ um, dann das „: 3“."
+   "h": "Welcher Rechenschritt wurde zuletzt gemacht?",
+   "g": "umkehr"
   },
   {
    "l": "zwei_schritte",
@@ -3533,7 +3726,8 @@
    },
    "c": "(82 + 28) // 5",
    "w": "Rückwärts: 82 + 28 = 110, dann 110 : 5 = 22.",
-   "h": "Fange am Ende an und kehre jeden Schritt um."
+   "h": "Fange am Ende an und kehre jeden Schritt um.",
+   "g": "darstellung"
   },
   {
    "l": "zwei_schritte",
@@ -3542,62 +3736,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x : 12 + 6 = 19."
+    "text": "Löse x : 5 − 3 = 9."
    },
    "o": {
-    "wert": 156
+    "wert": 60
    },
-   "c": "(19 - 6) * 12",
-   "w": "Erst − 6: 19 − 6 = 13. Dann · 12: 13 · 12 = 156. Probe: 156 : 12 + 6 = 19 ✓",
-   "h": "Kehre zuerst das „+ 6“ um, dann das „: 12“."
-  },
-  {
-   "l": "zwei_schritte",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 7 · x + 7 = 147."
-   },
-   "o": {
-    "wert": 20
-   },
-   "c": "(147 - 7) // 7",
-   "w": "147 − 7 = 140; 140 : 7 = 20. Probe: 7 · 20 + 7 = 147 ✓",
-   "h": "Den letzten Rechenschritt zuerst umkehren."
-  },
-  {
-   "l": "zwei_schritte",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x − 4) · 4 = 20."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "20 // 4 + 4",
-   "w": "Rückwärts: erst : 4: 20 : 4 = 5. Dann + 4: x = 9. Probe: (9 − 4) · 4 = 20 ✓",
-   "h": "Die Klammer wird zuerst gerechnet. Welcher Schritt kommt also zuletzt?"
-  },
-  {
-   "l": "zwei_schritte",
-   "t": "umkehren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x + 15) · 8 = 216."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "216 // 8 - 15",
-   "w": "Hier wurde zuerst + 15, dann · 8 gerechnet. Rückwärts: erst : 8: 216 : 8 = 27. Dann − 15: x = 12.",
-   "h": "Die Klammer wird zuerst gerechnet. Welcher Schritt kommt also zuletzt?"
+   "c": "(9 + 3) * 5",
+   "w": "Erst + 3: x : 5 = 12. Dann · 5: x = 60.",
+   "h": "Den letzten Schritt zuerst umkehren.",
+   "g": "mehrschritt"
   },
   {
    "l": "zwei_schritte",
@@ -3613,7 +3760,8 @@
    },
    "c": "54 // 6 + 9",
    "w": "Rückwärts: erst : 6: 54 : 6 = 9. Dann + 9: x = 18. Probe: (18 − 9) · 6 = 54 ✓",
-   "h": "Die Klammer wird zuerst gerechnet. Welcher Schritt kommt also zuletzt?"
+   "h": "Die Klammer wird zuerst gerechnet. Welcher Schritt kommt also zuletzt?",
+   "g": "verknuepfen"
   },
   {
    "l": "zwei_schritte",
@@ -3634,7 +3782,8 @@
     "index": 3
    },
    "w": "In der Klammer wird zuerst + 8 gerechnet, danach · 4. Rückwärts also erst : 4, dann − 8: 88 : 4 − 8 = 14.",
-   "h": "Was wurde zuletzt gerechnet: das Plus in der Klammer oder das Mal?"
+   "h": "Was wurde zuletzt gerechnet: das Plus in der Klammer oder das Mal?",
+   "g": "begruenden"
   },
   {
    "l": "zwei_schritte",
@@ -3651,6 +3800,119 @@
    "c": "80 // 5 + 15",
    "w": "Rückwärts: erst : 5: 80 : 5 = 16. Dann + 15: x = 31. Probe: (31 − 15) · 5 = 80 ✓",
    "h": "Die Klammer wird zuerst gerechnet. Welcher Schritt kommt also zuletzt?"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze die Lücke: 6 · (□ − 12) = 42",
+    "schablone": "6 · (□ − 12) = 42",
+    "hinweis": "Trage die fehlende Zahl ein."
+   },
+   "o": {
+    "werte": [
+     19
+    ]
+   },
+   "c": [
+    "42 // 6 + 12"
+   ],
+   "w": "Die Klammer muss 42 : 6 = 7 ergeben. □ − 12 = 7, also □ = 19. Probe: 6 · 7 = 42.",
+   "h": "Was muss in der Klammer herauskommen?",
+   "g": "pruefung"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 7) : 3 = 11."
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "11 * 3 - 7",
+   "w": "Erst · 3: x + 7 = 33. Dann − 7: x = 26. Probe: 33 : 3 = 11.",
+   "h": "Die Klammer wird zuletzt geteilt – kehre das zuerst um.",
+   "g": "transfer"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl, verdopple sie, addiere 9 und teile das Ergebnis durch 5. Ich erhalte 7. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(7 * 5 - 9) / 2",
+   "w": "Rückwärts: 7 · 5 = 35, 35 − 9 = 26, 26 : 2 = 13. Probe: 13 · 2 + 9 = 35, 35 : 5 = 7.",
+   "h": "Drei Schritte rückwärts: den letzten zuerst.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 4 · x + 8 = 40 so: zuerst 40 : 4 = 10, dann 10 − 8 = 2. Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist x = 40 − 8 − 4 = 28.",
+    "Die Reihenfolge: zuerst − 8 (letzter Schritt), dann : 4. Richtig ist x = 8.",
+    "Man muss 40 · 4 rechnen.",
+    "Nichts, x = 2 stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Probe mit 2: 4 · 2 + 8 = 16. Richtig: 40 − 8 = 32, 32 : 4 = 8.",
+   "h": "Mach die Probe mit x = 2.",
+   "g": "fehler"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3 · (2 · x − 5) = 39."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(39 // 3 + 5) // 2",
+   "w": "Von außen nach innen: 39 : 3 = 13. 2 · x − 5 = 13, also 2 · x = 18 und x = 9.",
+   "h": "Teile zuerst durch 3."
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ich denke mir eine Zahl, addiere 5, nehme das Ergebnis mal 3 und ziehe dann meine gedachte Zahl ab. Ich erhalte 35. Welche Zahl habe ich mir gedacht?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(35 - 15) // 2",
+   "w": "3 · (x + 5) − x = 3 · x + 15 − x = 2 · x + 15. Also 2 · x + 15 = 35, 2 · x = 20, x = 10. Probe: (10 + 5) · 3 − 10 = 35.",
+   "h": "Probiere einige Zahlen und achte darauf, wie sich das Ergebnis ändert."
   },
   {
    "l": "zwei_schritte",
@@ -3916,6 +4178,50 @@
    "l": "probe",
    "t": "verstehen",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist die Lösung von 6 · x + 14 = 74? Mache die Probe."
+   },
+   "a": [
+    "11",
+    "10",
+    "60",
+    "12"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Probe mit 10: 6 · 10 + 14 = 74 ✓.",
+   "h": "Setze jede Zahl ein und vergleiche mit der rechten Seite.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "So wurde 5 · x + 20 = 30 gelöst: Schritt 1: 30 + 20 = 50. Schritt 2: 50 : 5 = 10. Ergebnis: x = 10. Wo steckt der Fehler?"
+   },
+   "a": [
+    "Schritt 2: Es muss 50 · 5 heißen.",
+    "Kein Fehler, die Lösung stimmt.",
+    "Schritt 1: Es muss 30 − 20 heißen.",
+    "Schritt 1: Zuerst muss durch 5 geteilt werden."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Umkehrung von + 20 ist − 20: 30 − 20 = 10, dann 10 : 5 = 2. Probe mit 10: 5 · 10 + 20 = 70, nicht 30.",
+   "h": "Mache die Probe. Was ist die Umkehrung von Plus?",
+   "g": "darstellung"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -3926,7 +4232,8 @@
    },
    "c": "3 * 1 + 20",
    "w": "3 · 1 + 20 = 3 + 20 = 23. Rechts steht 26, also ist 1 keine Lösung.",
-   "h": "Setze die Zahl für x ein. Punkt vor Strich!"
+   "h": "Setze die Zahl für x ein. Punkt vor Strich!",
+   "g": "direkt"
   },
   {
    "l": "probe",
@@ -3946,7 +4253,91 @@
     "index": 0
    },
    "w": "Einsetzen: 4 · 9 + 9 = 36 + 9 = 45. Links und rechts steht dasselbe.",
-   "h": "Setze die Zahl für x ein. Punkt vor Strich!"
+   "h": "Setze die Zahl für x ein. Punkt vor Strich!",
+   "g": "erkennen"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "So wurde 6 · x + 3 = 45 gelöst: Schritt 1: 45 + 3 = 48. Schritt 2: 48 : 6 = 8. Ergebnis: x = 8. Wo steckt der Fehler?"
+   },
+   "a": [
+    "Kein Fehler, die Lösung stimmt.",
+    "Schritt 1: Zuerst muss durch 6 geteilt werden.",
+    "Schritt 2: Es muss 48 · 6 heißen.",
+    "Schritt 1: Es muss 45 − 3 heißen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Umkehrung von + 3 ist − 3: 45 − 3 = 42, dann 42 : 6 = 7. Probe mit 8: 6 · 8 + 3 = 51, nicht 45.",
+   "h": "Mache die Probe. Was ist die Umkehrung von Plus?",
+   "g": "darstellung"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist die Lösung von 3 · x + 18 = 48? Mache die Probe."
+   },
+   "a": [
+    "11",
+    "30",
+    "10",
+    "16"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Probe mit 10: 3 · 10 + 18 = 48 ✓.",
+   "h": "Setze jede Zahl ein und vergleiche mit der rechten Seite.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 2 · x + 5 = 25 wird x = 12 getestet. Links kommt 29 heraus. Ist die Lösung größer oder kleiner als 12?"
+   },
+   "a": [
+    "Das kann man nicht sagen.",
+    "Genau 12",
+    "Kleiner als 12",
+    "Größer als 12"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Links kommt 29 heraus, rechts steht 25. Links ist zu viel, also muss x kleiner sein. Die Lösung ist x = 10.",
+   "h": "Ist links zu viel oder zu wenig? Was passiert, wenn x größer wird?",
+   "g": "begruenden"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 3 · x + 5 = 38 ergibt die Probe mit x = 12 links 41 und mit x = 10 links 35. Die Lösung ist eine ganze Zahl. Welche?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(38 - 5) / 3",
+   "w": "41 ist zu viel, 35 zu wenig – die Lösung liegt zwischen 10 und 12. Probe mit 11: 3 · 11 + 5 = 38. Also x = 11.",
+   "h": "Mit 12 ist links zu viel, mit 10 zu wenig. Welche Zahl liegt dazwischen? Mach die Probe.",
+   "g": "verknuepfen"
   },
   {
    "l": "probe",
@@ -3966,7 +4357,25 @@
     "index": 2
    },
    "w": "Einsetzen: 8 · 2 + 13 = 16 + 13 = 29. Rechts steht 37, also keine Lösung. Richtig wäre x = 3.",
-   "h": "Setze die Zahl für x ein. Punkt vor Strich!"
+   "h": "Setze die Zahl für x ein. Punkt vor Strich!",
+   "g": "erkennen"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Mache die Probe für x = 9 bei 2 · x + 18 = 38. Welche Zahl kommt links heraus?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "2 * 9 + 18",
+   "w": "2 · 9 + 18 = 18 + 18 = 36. Rechts steht 38, also ist 9 keine Lösung.",
+   "h": "Setze die Zahl für x ein. Punkt vor Strich!",
+   "g": "direkt"
   },
   {
    "l": "probe",
@@ -3992,85 +4401,6 @@
    "l": "probe",
    "t": "verstehen",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Mache die Probe für x = 9 bei 2 · x + 18 = 38. Welche Zahl kommt links heraus?"
-   },
-   "o": {
-    "wert": 36
-   },
-   "c": "2 * 9 + 18",
-   "w": "2 · 9 + 18 = 18 + 18 = 36. Rechts steht 38, also ist 9 keine Lösung.",
-   "h": "Setze die Zahl für x ein. Punkt vor Strich!"
-  },
-  {
-   "l": "probe",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl ist die Lösung von 6 · x + 14 = 74? Mache die Probe."
-   },
-   "a": [
-    "11",
-    "10",
-    "60",
-    "12"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Probe mit 10: 6 · 10 + 14 = 74 ✓.",
-   "h": "Setze jede Zahl ein und vergleiche mit der rechten Seite."
-  },
-  {
-   "l": "probe",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "So wurde 5 · x + 20 = 30 gelöst: Schritt 1: 30 + 20 = 50. Schritt 2: 50 : 5 = 10. Ergebnis: x = 10. Wo steckt der Fehler?"
-   },
-   "a": [
-    "Schritt 2: Es muss 50 · 5 heißen.",
-    "Kein Fehler, die Lösung stimmt.",
-    "Schritt 1: Es muss 30 − 20 heißen.",
-    "Schritt 1: Zuerst muss durch 5 geteilt werden."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Umkehrung von + 20 ist − 20: 30 − 20 = 10, dann 10 : 5 = 2. Probe mit 10: 5 · 10 + 20 = 70, nicht 30.",
-   "h": "Mache die Probe. Was ist die Umkehrung von Plus?"
-  },
-  {
-   "l": "probe",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "So wurde 6 · x + 3 = 45 gelöst: Schritt 1: 45 + 3 = 48. Schritt 2: 48 : 6 = 8. Ergebnis: x = 8. Wo steckt der Fehler?"
-   },
-   "a": [
-    "Kein Fehler, die Lösung stimmt.",
-    "Schritt 1: Zuerst muss durch 6 geteilt werden.",
-    "Schritt 2: Es muss 48 · 6 heißen.",
-    "Schritt 1: Es muss 45 − 3 heißen."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Umkehrung von + 3 ist − 3: 45 − 3 = 42, dann 42 : 6 = 7. Probe mit 8: 6 · 8 + 3 = 51, nicht 45.",
-   "h": "Mache die Probe. Was ist die Umkehrung von Plus?"
-  },
-  {
-   "l": "probe",
-   "t": "verstehen",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -4087,27 +4417,6 @@
    },
    "w": "Die Umkehrung von + 10 ist − 10: 25 − 10 = 15, dann 15 : 5 = 3. Probe mit 7: 5 · 7 + 10 = 45, nicht 25.",
    "h": "Mache die Probe. Was ist die Umkehrung von Plus?"
-  },
-  {
-   "l": "probe",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl ist die Lösung von 3 · x + 18 = 48? Mache die Probe."
-   },
-   "a": [
-    "11",
-    "30",
-    "10",
-    "16"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Probe mit 10: 3 · 10 + 18 = 48 ✓.",
-   "h": "Setze jede Zahl ein und vergleiche mit der rechten Seite."
   },
   {
    "l": "probe",
@@ -4149,28 +4458,46 @@
     "index": 1
    },
    "w": "Der letzte Schritt (+ 3) wird zuerst umgekehrt: 36 − 3 = 33, dann 33 : 3 = 11. Probe mit 9: 3 · 9 + 3 = 30, nicht 36.",
-   "h": "Mache die Probe mit dem Ergebnis. Welcher Rechenschritt wurde vorwärts zuletzt gemacht?"
+   "h": "Mache die Probe mit dem Ergebnis. Welcher Rechenschritt wurde vorwärts zuletzt gemacht?",
+   "g": "darstellung"
   },
   {
    "l": "probe",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bei 2 · x + 5 = 25 wird x = 12 getestet. Links kommt 29 heraus. Ist die Lösung größer oder kleiner als 12?"
+    "text": "Ist x = 7 eine Lösung von 3 · (x − 2) = 15?"
    },
    "a": [
-    "Das kann man nicht sagen.",
-    "Genau 12",
-    "Kleiner als 12",
-    "Größer als 12"
+    "Nein: 3 · (7 − 2) = 21.",
+    "Nein: 3 · 7 − 2 = 19.",
+    "Ja: 3 · (7 − 2) = 3 · 5 = 15."
    ],
    "o": {
     "index": 2
    },
-   "w": "Links kommt 29 heraus, rechts steht 25. Links ist zu viel, also muss x kleiner sein. Die Lösung ist x = 10.",
-   "h": "Ist links zu viel oder zu wenig? Was passiert, wenn x größer wird?"
+   "w": "Einsetzen: 3 · (7 − 2) = 3 · 5 = 15. Beide Seiten sind gleich.",
+   "h": "Rechne zuerst die Klammer aus.",
+   "g": "umkehr"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mache die Probe für x = 4 bei 50 − 6 · x = 26. Welche Zahl kommt links heraus?"
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "50 - 6 * 4",
+   "w": "50 − 6 · 4 = 50 − 24 = 26. Links steht auch 26: Die Lösung stimmt.",
+   "h": "Punkt vor Strich.",
+   "g": "mehrschritt"
   },
   {
    "l": "probe",
@@ -4191,7 +4518,8 @@
     "index": 3
    },
    "w": "Links kommt 23 heraus, rechts steht 27. Links ist zu wenig, also muss x größer sein. Die Lösung ist x = 6.",
-   "h": "Ist links zu viel oder zu wenig? Was passiert, wenn x größer wird?"
+   "h": "Ist links zu viel oder zu wenig? Was passiert, wenn x größer wird?",
+   "g": "begruenden"
   },
   {
    "l": "probe",
@@ -4200,19 +4528,20 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bei 3 · x + 5 = 38 wird x = 12 getestet. Links kommt 41 heraus. Ist die Lösung größer oder kleiner als 12?"
+    "text": "Welche der Zahlen 2, 4, 6 und 8 löst die Gleichung 5 · x + 9 = 29? Entscheide mit der Probe."
    },
    "a": [
-    "Größer als 12",
-    "Kleiner als 12",
-    "Genau 12",
-    "Das kann man nicht sagen."
+    "4",
+    "8",
+    "6",
+    "2"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Links kommt 41 heraus, rechts steht 38. Links ist zu viel, also muss x kleiner sein. Die Lösung ist x = 11.",
-   "h": "Ist links zu viel oder zu wenig? Was passiert, wenn x größer wird?"
+   "w": "Probe: 5 · 2 + 9 = 19, 5 · 4 + 9 = 29 ✓, 5 · 6 + 9 = 39, 5 · 8 + 9 = 49. Nur x = 4 passt.",
+   "h": "Setze jede Zahl für x ein und rechne die linke Seite aus.",
+   "g": "pruefung"
   },
   {
    "l": "probe",
@@ -4240,21 +4569,107 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche der Zahlen 3, 4, 5 und 6 gilt 2 · x + 7 = 4 · x − 3?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Probe mit 5: links 2 · 5 + 7 = 17, rechts 4 · 5 − 3 = 17. Gleich! (Bei 3, 4, 6 sind die Seiten verschieden.)",
+   "h": "Setze jede Zahl links und rechts ein.",
+   "g": "transfer"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bei 5 · x + 9 = 29 wird x = 3 getestet. Links kommt 24 heraus. Ist die Lösung größer oder kleiner als 3?"
+    "text": "Zwei Kinder lösen 5 · x − 20 = 30. Eins erhält x = 2, das andere x = 10. Wer hat recht?"
    },
    "a": [
-    "Genau 3",
-    "Kleiner als 3",
-    "Das kann man nicht sagen.",
-    "Größer als 3"
+    "Keins von beiden.",
+    "Das Kind mit x = 10.",
+    "Beide.",
+    "Das Kind mit x = 2."
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Links kommt 24 heraus, rechts steht 29. Links ist zu wenig, also muss x größer sein. Die Lösung ist x = 4.",
-   "h": "Ist links zu viel oder zu wenig? Was passiert, wenn x größer wird?"
+   "w": "Probe: 5 · 10 − 20 = 30 stimmt. 5 · 2 − 20 = −10 stimmt nicht.",
+   "h": "Mach mit beiden Zahlen die Probe.",
+   "g": "fehler"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 7 · x − 4 = 59 wird x = 10 getestet. Links kommt 66 heraus – zu viel. Wie heißt die richtige Lösung?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(59 + 4) / 7",
+   "w": "66 ist 7 zu viel, also ist x um 1 zu groß: x = 9. Probe: 63 − 4 = 59.",
+   "h": "Um wie viel ändert sich die linke Seite, wenn x um 1 kleiner wird?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 4 · x + 1 = 33 wird x = 7 getestet. Links kommt 29 heraus. Um wie viel muss x noch größer werden?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(33 - 1) / 4 - 7",
+   "w": "Es fehlen 33 − 29 = 4. Jede 1 bei x bringt links 4 mehr. Also x um 1 größer: x = 8.",
+   "h": "Um wie viel wächst die linke Seite, wenn x um 1 größer wird?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für x = 4 ergibt die linke Seite von 3 · x + a = 29 genau 20. Welche Zahl löst die Gleichung?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(29 - (20 - 12)) // 3",
+   "w": "Aus 3 · 4 + a = 20 folgt a = 8. Dann 3 · x + 8 = 29, 3 · x = 21, x = 7.",
+   "h": "Bestimme zuerst a."
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen haben die Summe 20 und den Unterschied 6. Wie heißt die größere?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(20 + 6) // 2",
+   "w": "Probieren: 13 + 7 = 20 und 13 − 7 = 6. Oder: Nimmt man den Unterschied weg, bleiben 14 für zwei gleiche Zahlen, also 7 und 13.",
+   "h": "Probiere Zahlenpaare mit der Summe 20."
   },
   {
    "l": "probe",
@@ -4450,6 +4865,24 @@
    "l": "aufstellen",
    "t": "anwenden",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 5 gleich teure Kinokarten und eine Tüte Popcorn für 3 € zahlt man zusammen 38 €. Wie viel kostet eine Kinokarte?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "€"
+   },
+   "c": "(38 - 3) // 5",
+   "w": "Gleichung: 5 · x + 3 = 38. Erst − 3: 35. Dann : 5: 7 €.",
+   "h": "Der Preis für eins ist x. Was kosten dann alle zusammen?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -4460,7 +4893,26 @@
    },
    "c": "31 + 32",
    "w": "Gleichung: x − 32 = 31. Rückwärts: x = 31 + 32 = 63.",
-   "h": "Nenne die gedachte Zahl x. Schreibe eine Gleichung und rechne rückwärts."
+   "h": "Nenne die gedachte Zahl x. Schreibe eine Gleichung und rechne rückwärts.",
+   "g": "direkt"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 6 gleich teure Kinokarten und eine Tüte Popcorn für 5 € zahlt man zusammen 41 €. Wie viel kostet eine Kinokarte?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "€"
+   },
+   "c": "(41 - 5) // 6",
+   "w": "Gleichung: 6 · x + 5 = 41. Erst − 5: 36. Dann : 6: 6 €.",
+   "h": "Der Preis für eins ist x. Was kosten dann alle zusammen?",
+   "g": "einkleidung"
   },
   {
    "l": "aufstellen",
@@ -4476,7 +4928,66 @@
    },
    "c": "80 + 19",
    "w": "Gleichung: x − 19 = 80. Rückwärts: x = 80 + 19 = 99.",
-   "h": "Nenne die gedachte Zahl x. Schreibe eine Gleichung und rechne rückwärts."
+   "h": "Nenne die gedachte Zahl x. Schreibe eine Gleichung und rechne rückwärts.",
+   "g": "direkt"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 2 gleich teure Busfahrkarten und einen Stadtplan für 4 € zahlt man zusammen 10 €. Wie viel kostet eine Busfahrkarte?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "€"
+   },
+   "c": "(10 - 4) // 2",
+   "w": "Gleichung: 2 · x + 4 = 10. Erst − 4: 6. Dann : 2: 3 €.",
+   "h": "Der Preis für eins ist x. Was kosten dann alle zusammen?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Mutter ist 3-mal so alt wie ihre Tochter. Zusammen sind sie 52 Jahre alt. Wie alt ist die Tochter?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "Jahre"
+   },
+   "c": "52 // 4",
+   "w": "Tochter x, Mutter 3 · x. Zusammen: x + 3 · x = 52. Das sind 4 gleiche Teile wie 4 Dosen auf der Waage: x = 52 : 4 = 13 Jahre.",
+   "h": "Die Mutter zählt wie 3 Töchter. Wie viele „Töchter-Alter“ sind es zusammen?",
+   "g": "transfer"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Geschichte passt zur Gleichung 4 · x + 2 = 34?"
+   },
+   "a": [
+    "Ein Buch und eine Tasche für 2 € kosten 34 €.",
+    "2 gleich teure Bücher und eine Tasche für 4 € kosten 34 €.",
+    "4 Bücher kosten zusammen 34 €, eines davon 2 €.",
+    "4 gleich teure Bücher und eine Tasche für 2 € kosten 34 €."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "4 · x steht für 4 gleiche Dinge, die je x kosten. + 2 ist ein Ding für 2 €. Zusammen = 34. Ein Buch kostet 8 €.",
+   "h": "Was bedeutet die Zahl vor dem x? Was bedeutet das „+“?",
+   "g": "pruefung"
   },
   {
    "l": "aufstellen",
@@ -4492,7 +5003,106 @@
    },
    "c": "60 // 6",
    "w": "Gleichung: 6 · x = 60. Rückwärts: x = 60 : 6 = 10.",
-   "h": "Nenne die gedachte Zahl x. Schreibe eine Gleichung und rechne rückwärts."
+   "h": "Nenne die gedachte Zahl x. Schreibe eine Gleichung und rechne rückwärts.",
+   "g": "direkt"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "„Das Vierfache einer Zahl, vermindert um 6, ergibt 70.“ Welche Gleichung passt?"
+   },
+   "a": [
+    "4 · (x − 6) = 70",
+    "x − 4 · 6 = 70",
+    "4 · x − 6 = 70",
+    "4 · x + 6 = 70"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Erst wird die Zahl mal 4 genommen, dann 6 abgezogen: 4 · x − 6 = 70. Die Lösung ist x = 19.",
+   "h": "Was passiert zuerst mit der Zahl, was danach?",
+   "g": "darstellung"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 3 gleich teure Hefte und einen Füller für 13 € zahlt man zusammen 22 €. Wie viel kostet ein Heft?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "€"
+   },
+   "c": "(22 - 13) // 3",
+   "w": "Gleichung: 3 · x + 13 = 22. Erst − 13: 9. Dann : 3: 3 €.",
+   "h": "Der Preis für eins ist x. Was kosten dann alle zusammen?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Geschichte passt zur Gleichung 2 · x + 4 = 20?"
+   },
+   "a": [
+    "Ein Buch und eine Tasche für 4 € kosten 20 €.",
+    "2 gleich teure Bücher und eine Tasche für 4 € kosten 20 €.",
+    "2 Bücher kosten zusammen 20 €, eines davon 4 €.",
+    "4 gleich teure Bücher und eine Tasche für 2 € kosten 20 €."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2 · x steht für 2 gleiche Dinge, die je x kosten. + 4 ist ein Ding für 4 €. Zusammen = 20. Ein Buch kostet 8 €.",
+   "h": "Was bedeutet die Zahl vor dem x? Was bedeutet das „+“?",
+   "g": "pruefung"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vater ist 28 Jahre älter als sein Sohn. Zusammen sind sie 46 Jahre alt. Wie alt ist der Sohn?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "Jahre"
+   },
+   "c": "(46 - 28) / 2",
+   "w": "Sohn x, Vater x + 28. Zusammen: x + x + 28 = 46, also 2 · x = 18 und x = 9 Jahre. Probe: 9 + 37 = 46.",
+   "h": "Nimm die 28 Jahre Unterschied weg. Der Rest verteilt sich auf zwei gleich große Alter.",
+   "g": "transfer"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 10 cm breit. Sein Umfang beträgt 32 cm. Wie lang ist es?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "(32 - 2 * 10) // 2",
+   "w": "Umfang = zweimal Länge + zweimal Breite: 2 · x + 20 = 32. Erst − 20: 12. Dann : 2: x = 6 cm.",
+   "h": "Der Umfang ist zweimal die Länge plus zweimal die Breite. Stelle eine Gleichung auf.",
+   "g": "verknuepfen"
   },
   {
    "l": "aufstellen",
@@ -4508,7 +5118,30 @@
    },
    "c": "55 // 5",
    "w": "Gleichung: 5 · x = 55. Rückwärts: x = 55 : 5 = 11.",
-   "h": "Nenne die gedachte Zahl x. Schreibe eine Gleichung und rechne rückwärts."
+   "h": "Nenne die gedachte Zahl x. Schreibe eine Gleichung und rechne rückwärts.",
+   "g": "direkt"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "„Ich denke mir eine Zahl und addiere 15. Ich erhalte 40.“ Welche Gleichung passt?"
+   },
+   "a": [
+    "x − 15 = 40",
+    "x · 15 = 40",
+    "x + 15 = 40",
+    "15 − x = 40"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gedachte Zahl x, plus 15, Ergebnis 40.",
+   "h": "Schreibe den Satz Schritt für Schritt mit x."
   },
   {
    "l": "aufstellen",
@@ -4533,23 +5166,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für 5 gleich teure Kinokarten und eine Tüte Popcorn für 3 € zahlt man zusammen 38 €. Wie viel kostet eine Kinokarte?"
-   },
-   "o": {
-    "wert": 7,
-    "einheit": "€"
-   },
-   "c": "(38 - 3) // 5",
-   "w": "Gleichung: 5 · x + 3 = 38. Erst − 3: 35. Dann : 5: 7 €.",
-   "h": "Der Preis für eins ist x. Was kosten dann alle zusammen?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Ich denke mir eine Zahl, nehme sie mal 6 und addiere dann 5. Ich erhalte 41. Welche Zahl habe ich mir gedacht?"
    },
    "o": {
@@ -4557,79 +5173,8 @@
    },
    "c": "(41 - 5) // 6",
    "w": "Gleichung: 6 · x + 5 = 41. Rückwärts: 41 − 5 = 36, 36 : 6 = 6.",
-   "h": "Schreibe die Gleichung auf. Kehre dann den letzten Schritt zuerst um."
-  },
-  {
-   "l": "aufstellen",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für 6 gleich teure Kinokarten und eine Tüte Popcorn für 5 € zahlt man zusammen 41 €. Wie viel kostet eine Kinokarte?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "€"
-   },
-   "c": "(41 - 5) // 6",
-   "w": "Gleichung: 6 · x + 5 = 41. Erst − 5: 36. Dann : 6: 6 €.",
-   "h": "Der Preis für eins ist x. Was kosten dann alle zusammen?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "„Das Vierfache einer Zahl, vermindert um 6, ergibt 70.“ Welche Gleichung passt?"
-   },
-   "a": [
-    "4 · (x − 6) = 70",
-    "x − 4 · 6 = 70",
-    "4 · x − 6 = 70",
-    "4 · x + 6 = 70"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Erst wird die Zahl mal 4 genommen, dann 6 abgezogen: 4 · x − 6 = 70. Die Lösung ist x = 19.",
-   "h": "Was passiert zuerst mit der Zahl, was danach?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für 2 gleich teure Busfahrkarten und einen Stadtplan für 4 € zahlt man zusammen 10 €. Wie viel kostet eine Busfahrkarte?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "€"
-   },
-   "c": "(10 - 4) // 2",
-   "w": "Gleichung: 2 · x + 4 = 10. Erst − 4: 6. Dann : 2: 3 €.",
-   "h": "Der Preis für eins ist x. Was kosten dann alle zusammen?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für 3 gleich teure Hefte und einen Füller für 13 € zahlt man zusammen 22 €. Wie viel kostet ein Heft?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "€"
-   },
-   "c": "(22 - 13) // 3",
-   "w": "Gleichung: 3 · x + 13 = 22. Erst − 13: 9. Dann : 3: 3 €.",
-   "h": "Der Preis für eins ist x. Was kosten dann alle zusammen?"
+   "h": "Schreibe die Gleichung auf. Kehre dann den letzten Schritt zuerst um.",
+   "g": "mehrschritt"
   },
   {
    "l": "aufstellen",
@@ -4652,77 +5197,41 @@
    "l": "aufstellen",
    "t": "anwenden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Mutter ist 3-mal so alt wie ihre Tochter. Zusammen sind sie 52 Jahre alt. Wie alt ist die Tochter?"
-   },
-   "o": {
-    "wert": 13,
-    "einheit": "Jahre"
-   },
-   "c": "52 // 4",
-   "w": "Tochter x, Mutter 3 · x. Zusammen: x + 3 · x = 52. Das sind 4 gleiche Teile wie 4 Dosen auf der Waage: x = 52 : 4 = 13 Jahre.",
-   "h": "Die Mutter zählt wie 3 Töchter. Wie viele „Töchter-Alter“ sind es zusammen?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Geschichte passt zur Gleichung 4 · x + 2 = 34?"
-   },
-   "a": [
-    "Ein Buch und eine Tasche für 2 € kosten 34 €.",
-    "2 gleich teure Bücher und eine Tasche für 4 € kosten 34 €.",
-    "4 Bücher kosten zusammen 34 €, eines davon 2 €.",
-    "4 gleich teure Bücher und eine Tasche für 2 € kosten 34 €."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "4 · x steht für 4 gleiche Dinge, die je x kosten. + 2 ist ein Ding für 2 €. Zusammen = 34. Ein Buch kostet 8 €.",
-   "h": "Was bedeutet die Zahl vor dem x? Was bedeutet das „+“?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Geschichte passt zur Gleichung 2 · x + 4 = 20?"
-   },
-   "a": [
-    "Ein Buch und eine Tasche für 4 € kosten 20 €.",
-    "2 gleich teure Bücher und eine Tasche für 4 € kosten 20 €.",
-    "2 Bücher kosten zusammen 20 €, eines davon 4 €.",
-    "4 gleich teure Bücher und eine Tasche für 2 € kosten 20 €."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "2 · x steht für 2 gleiche Dinge, die je x kosten. + 4 ist ein Ding für 4 €. Zusammen = 20. Ein Buch kostet 8 €.",
-   "h": "Was bedeutet die Zahl vor dem x? Was bedeutet das „+“?"
-  },
-  {
-   "l": "aufstellen",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Mutter ist 3-mal so alt wie ihre Tochter. Zusammen sind sie 36 Jahre alt. Wie alt ist die Tochter?"
+    "text": "Ein Kind ist 4 Jahre älter als sein Bruder. Zusammen sind sie 22 Jahre alt. Wie alt ist der Bruder?"
    },
    "o": {
     "wert": 9,
     "einheit": "Jahre"
    },
-   "c": "36 // 4",
-   "w": "Tochter x, Mutter 3 · x. Zusammen: x + 3 · x = 36. Das sind 4 gleiche Teile wie 4 Dosen auf der Waage: x = 36 : 4 = 9 Jahre.",
-   "h": "Die Mutter zählt wie 3 Töchter. Wie viele „Töchter-Alter“ sind es zusammen?"
+   "c": "(22 - 4) / 2",
+   "w": "x + (x + 4) = 22, also 2 · x = 18 und x = 9. Der Bruder ist 9, das Kind 13.",
+   "h": "Nimm zuerst die 4 Jahre Unterschied weg.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "„Die Hälfte einer Zahl, vermehrt um 8, ergibt 20.“ Welche Gleichung passt?"
+   },
+   "a": [
+    "(x + 8) : 2 = 20",
+    "x : 2 − 8 = 20",
+    "x · 2 + 8 = 20",
+    "x : 2 + 8 = 20"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Erst die Hälfte (x : 2), dann vermehrt um 8 (+ 8): x : 2 + 8 = 20.",
+   "h": "Was passiert zuerst mit der Zahl?",
+   "g": "darstellung"
   },
   {
    "l": "aufstellen",
@@ -4731,15 +5240,101 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck ist 10 cm breit. Sein Umfang beträgt 32 cm. Wie lang ist es?"
+    "text": "26 Kinder schlafen in 8 Zimmern. In jedem Zimmer schlafen 3 oder 4 Kinder. Wie viele Viererzimmer gibt es?"
    },
    "o": {
-    "wert": 6,
-    "einheit": "cm"
+    "wert": 2
    },
-   "c": "(32 - 2 * 10) // 2",
-   "w": "Umfang = zweimal Länge + zweimal Breite: 2 · x + 20 = 32. Erst − 20: 12. Dann : 2: x = 6 cm.",
-   "h": "Der Umfang ist zweimal die Länge plus zweimal die Breite. Stelle eine Gleichung auf."
+   "c": "2",
+   "w": "Wären alle 8 Zimmer Dreierzimmer, schliefen dort 24 Kinder. 2 Kinder fehlen – jedes Viererzimmer bringt 1 mehr: 2 Viererzimmer. Probe: 2 · 4 + 6 · 3 = 26.",
+   "h": "Stell dir zuerst vor, alle Zimmer wären Dreierzimmer.",
+   "g": "pruefung"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Subtrahiert man von 100 das Dreifache einer Zahl, erhält man 37. Wie heißt die Zahl?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "(100 - 37) / 3",
+   "w": "100 − 3 · x = 37. Also 3 · x = 63 und x = 21. Probe: 100 − 63 = 37.",
+   "h": "Schreibe die Gleichung auf: 100 − 3 · x = 37.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Drei aufeinanderfolgende natürliche Zahlen haben die Summe 72. Wie heißt die kleinste?"
+   },
+   "o": {
+    "wert": 23
+   },
+   "c": "23",
+   "w": "x + (x + 1) + (x + 2) = 72, also 3 · x + 3 = 72, 3 · x = 69, x = 23. Probe: 23 + 24 + 25 = 72.",
+   "h": "Die mittlere Zahl ist ein Drittel der Summe.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vater ist heute 40 Jahre alt, sein Sohn 10. In wie vielen Jahren ist der Vater doppelt so alt wie der Sohn?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "Jahre"
+   },
+   "c": "20",
+   "w": "40 + t = 2 · (10 + t). Probieren: In 20 Jahren ist der Vater 60, der Sohn 30 – doppelt so alt.",
+   "h": "Der Altersunterschied bleibt immer 30 Jahre.",
+   "g": "transfer"
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Hof gibt es Hühner (2 Beine) und Hasen (4 Beine), zusammen 10 Tiere mit 28 Beinen. Wie viele Hasen sind es?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(28 - 20) // 2",
+   "w": "Wären alle 10 Tiere Hühner, gäbe es 20 Beine. Es sind 8 Beine mehr; jeder Hase bringt 2 Beine mehr: 8 : 2 = 4 Hasen. Probe: 4 · 4 + 6 · 2 = 28.",
+   "h": "Stell dir vor, alle Tiere wären Hühner."
+  },
+  {
+   "l": "aufstellen",
+   "t": "anwenden",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Drei Geschwister sind zusammen 30 Jahre alt. Das mittlere ist 3 Jahre älter als das jüngste, das älteste 3 Jahre älter als das mittlere. Wie alt ist das älteste?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "30 // 3 + 3",
+   "w": "Das mittlere ist genau der Durchschnitt: 30 : 3 = 10. Das älteste ist 13, das jüngste 7. Probe: 7 + 10 + 13 = 30.",
+   "h": "Wer liegt genau in der Mitte?"
   },
   {
    "l": "aufstellen",
@@ -4929,7 +5524,29 @@
     "index": 1
    },
    "w": "9 · 5 = 45 und 9 · 6 = 54. 51 liegt dazwischen, also gibt es keine natürliche Zahl x.",
-   "h": "Ist 51 in der 9er-Reihe?"
+   "h": "Ist 51 in der 9er-Reihe?",
+   "g": "erkennen"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "37 Kinder sollen in Gruppen zu je 5 Kindern eingeteilt werden, ohne dass jemand übrig bleibt: 5 · x = 37. Geht das?"
+   },
+   "a": [
+    "Ja: Es gibt 7 Gruppen.",
+    "Ja: Es gibt 8 Gruppen.",
+    "Nein: 37 ist nicht durch 5 teilbar."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "5 · 7 = 35, dann bleiben 2 Kinder übrig. Die Gleichung hat keine Lösung in ℕ.",
+   "h": "Ist 37 in der 5er-Reihe?",
+   "g": "einkleidung"
   },
   {
    "l": "ohne_loesung",
@@ -4949,7 +5566,43 @@
     "index": 2
    },
    "w": "66 : 6 = 11. Probe: 6 · 11 = 66 ✓",
-   "h": "Ist 66 in der 6er-Reihe?"
+   "h": "Ist 66 in der 6er-Reihe?",
+   "g": "erkennen"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bis mittags steigt die Temperatur um 6 Grad auf 1 °C. Wie warm war es morgens?"
+   },
+   "o": {
+    "wert": -5,
+    "einheit": "°C"
+   },
+   "c": "1 - 6",
+   "w": "x + 6 = 1. Rückwärts: x = 1 − 6 = −5 °C. In ℕ gäbe es keine Lösung, mit ganzen Zahlen schon.",
+   "h": "Stelle eine Gleichung auf. Die Lösung darf unter null liegen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a hat die Gleichung a · x = 7 keine Lösung?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Für a = 0 steht da 0 · x = 7. 0 mal jede Zahl ist 0, nie 7: keine Lösung. Für jedes andere a gibt es x = 7 : a.",
+   "h": "Für welches a kommt links immer dasselbe heraus, egal was x ist?",
+   "g": "parameter"
   },
   {
    "l": "ohne_loesung",
@@ -4969,7 +5622,121 @@
     "index": 1
    },
    "w": "Eine natürliche Zahl plus 18 ist mindestens 18, also nie 8. Probe mit 10: 10 + 18 = 28, nicht 8.",
-   "h": "Wie klein kann x + 18 höchstens werden, wenn x eine natürliche Zahl ist?"
+   "h": "Wie klein kann x + 18 höchstens werden, wenn x eine natürliche Zahl ist?",
+   "g": "erkennen"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bis mittags steigt die Temperatur um 10 Grad auf 3 °C. Wie warm war es morgens?"
+   },
+   "o": {
+    "wert": -7,
+    "einheit": "°C"
+   },
+   "c": "3 - 10",
+   "w": "x + 10 = 3. Rückwärts: x = 3 − 10 = −7 °C. In ℕ gäbe es keine Lösung, mit ganzen Zahlen schon.",
+   "h": "Stelle eine Gleichung auf. Die Lösung darf unter null liegen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat keine Lösung in ℕ?"
+   },
+   "a": [
+    "4 · x = 40",
+    "4 · x = 33",
+    "x + 38 = 54",
+    "x − 20 = 20"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "4 · x = 33: Die Zahl rechts ist nicht durch 4 teilbar. Die anderen Gleichungen lassen sich rückwärts in ℕ lösen.",
+   "h": "Rechne jede Gleichung rückwärts. Wo kommt keine natürliche Zahl heraus?",
+   "g": "darstellung"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x + 21 = 4 mit ganzen Zahlen."
+   },
+   "o": {
+    "wert": -17
+   },
+   "c": "4 - 21",
+   "w": "Rückwärts: x = 4 − 21 = −17. Probe: (−17) + 21 = 4 ✓",
+   "h": "Rechne rückwärts wie immer. Das Ergebnis darf negativ sein.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "8 · x = 47 hat keine Lösung in ℕ. Welche ist die nächstgrößere Zahl statt 47, für die es eine Lösung gibt?"
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "(47 // 8 + 1) * 8",
+   "w": "Gesucht ist die nächste Zahl der 8er-Reihe nach 47: 48. Dann ist x = 6.",
+   "h": "Zähle die 8er-Reihe weiter.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "0 · x = 1. Wie viele Lösungen hat diese Gleichung?"
+   },
+   "a": [
+    "Genau eine: x = 0.",
+    "Keine Lösung.",
+    "Genau eine: x = 1.",
+    "Jede Zahl ist eine Lösung."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "0 mal irgendeine Zahl ist immer 0, nie 1. Also gibt es keine Lösung.",
+   "h": "Probiere ein paar Zahlen für x aus.",
+   "g": "begruenden"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche kleinste natürliche Zahl b hat x + 10 = b eine Lösung in ℕ?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10",
+   "w": "Die kleinste natürliche Zahl ist x = 0. Dann ist b = 0 + 10 = 10. Für kleinere b müsste x negativ sein.",
+   "h": "Welches ist die kleinste natürliche Zahl, die du für x einsetzen kannst?",
+   "g": "parameter"
   },
   {
    "l": "ohne_loesung",
@@ -4989,7 +5756,25 @@
     "index": 0
    },
    "w": "Eine natürliche Zahl plus 20 ist mindestens 20, also nie 12. Probe mit 8: 8 + 20 = 28, nicht 12.",
-   "h": "Wie klein kann x + 20 höchstens werden, wenn x eine natürliche Zahl ist?"
+   "h": "Wie klein kann x + 20 höchstens werden, wenn x eine natürliche Zahl ist?",
+   "g": "erkennen"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7 · x = 63 in ℕ."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "63 // 7",
+   "w": "63 : 7 = 9, Probe 7 · 9 = 63.",
+   "h": "Welche Zahl mal 7 ergibt 63?"
   },
   {
    "l": "ohne_loesung",
@@ -5016,81 +5801,6 @@
    "t": "loesbarkeit",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "37 Kinder sollen in Gruppen zu je 5 Kindern eingeteilt werden, ohne dass jemand übrig bleibt: 5 · x = 37. Geht das?"
-   },
-   "a": [
-    "Ja: Es gibt 7 Gruppen.",
-    "Ja: Es gibt 8 Gruppen.",
-    "Nein: 37 ist nicht durch 5 teilbar."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "5 · 7 = 35, dann bleiben 2 Kinder übrig. Die Gleichung hat keine Lösung in ℕ.",
-   "h": "Ist 37 in der 5er-Reihe?"
-  },
-  {
-   "l": "ohne_loesung",
-   "t": "loesbarkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bis mittags steigt die Temperatur um 6 Grad auf 1 °C. Wie warm war es morgens?"
-   },
-   "o": {
-    "wert": -5,
-    "einheit": "°C"
-   },
-   "c": "1 - 6",
-   "w": "x + 6 = 1. Rückwärts: x = 1 − 6 = −5 °C. In ℕ gäbe es keine Lösung, mit ganzen Zahlen schon.",
-   "h": "Stelle eine Gleichung auf. Die Lösung darf unter null liegen."
-  },
-  {
-   "l": "ohne_loesung",
-   "t": "loesbarkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bis mittags steigt die Temperatur um 10 Grad auf 3 °C. Wie warm war es morgens?"
-   },
-   "o": {
-    "wert": -7,
-    "einheit": "°C"
-   },
-   "c": "3 - 10",
-   "w": "x + 10 = 3. Rückwärts: x = 3 − 10 = −7 °C. In ℕ gäbe es keine Lösung, mit ganzen Zahlen schon.",
-   "h": "Stelle eine Gleichung auf. Die Lösung darf unter null liegen."
-  },
-  {
-   "l": "ohne_loesung",
-   "t": "loesbarkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Gleichung hat keine Lösung in ℕ?"
-   },
-   "a": [
-    "4 · x = 40",
-    "4 · x = 33",
-    "x + 38 = 54",
-    "x − 20 = 20"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "4 · x = 33: Die Zahl rechts ist nicht durch 4 teilbar. Die anderen Gleichungen lassen sich rückwärts in ℕ lösen.",
-   "h": "Rechne jede Gleichung rückwärts. Wo kommt keine natürliche Zahl heraus?"
-  },
-  {
-   "l": "ohne_loesung",
-   "t": "loesbarkeit",
-   "p": "uebung",
-   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bis mittags steigt die Temperatur um 6 Grad auf 2 °C. Wie warm war es morgens?"
@@ -5102,22 +5812,6 @@
    "c": "2 - 6",
    "w": "x + 6 = 2. Rückwärts: x = 2 − 6 = −4 °C. In ℕ gäbe es keine Lösung, mit ganzen Zahlen schon.",
    "h": "Stelle eine Gleichung auf. Die Lösung darf unter null liegen."
-  },
-  {
-   "l": "ohne_loesung",
-   "t": "loesbarkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x + 21 = 4 mit ganzen Zahlen."
-   },
-   "o": {
-    "wert": -17
-   },
-   "c": "4 - 21",
-   "w": "Rückwärts: x = 4 − 21 = −17. Probe: (−17) + 21 = 4 ✓",
-   "h": "Rechne rückwärts wie immer. Das Ergebnis darf negativ sein."
   },
   {
    "l": "ohne_loesung",
@@ -5137,23 +5831,47 @@
     "index": 1
    },
    "w": "3 · 5 = 15, dann bleiben 2 Kinder übrig. Die Gleichung hat keine Lösung in ℕ.",
-   "h": "Ist 17 in der 3er-Reihe?"
+   "h": "Ist 17 in der 3er-Reihe?",
+   "g": "einkleidung"
   },
   {
    "l": "ohne_loesung",
    "t": "loesbarkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat eine Lösung in ℕ?"
+   },
+   "a": [
+    "7 · x = 50",
+    "7 · x = 56",
+    "x + 12 = 5",
+    "20 − x = 25"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "7 · 8 = 56. Bei 50 bleibt beim Teilen ein Rest, bei den anderen müsste x negativ sein.",
+   "h": "Prüfe jede Gleichung mit Rückwärtsrechnen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "8 · x = 47 hat keine Lösung in ℕ. Welche ist die nächstgrößere Zahl statt 47, für die es eine Lösung gibt?"
+    "text": "Löse mit ganzen Zahlen: x + 12 = 5."
    },
    "o": {
-    "wert": 48
+    "wert": -7
    },
-   "c": "(47 // 8 + 1) * 8",
-   "w": "Gesucht ist die nächste Zahl der 8er-Reihe nach 47: 48. Dann ist x = 6.",
-   "h": "Zähle die 8er-Reihe weiter."
+   "c": "5 - 12",
+   "w": "x = 5 − 12 = −7. Probe: −7 + 12 = 5. In ℕ gäbe es keine Lösung.",
+   "h": "Rechne rückwärts – das Ergebnis darf negativ sein.",
+   "g": "mehrschritt"
   },
   {
    "l": "ohne_loesung",
@@ -5169,49 +5887,8 @@
    },
    "c": "(46 // 5 + 1) * 5",
    "w": "Gesucht ist die nächste Zahl der 5er-Reihe nach 46: 50. Dann ist x = 10.",
-   "h": "Zähle die 5er-Reihe weiter."
-  },
-  {
-   "l": "ohne_loesung",
-   "t": "loesbarkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "0 · x = 1. Wie viele Lösungen hat diese Gleichung?"
-   },
-   "a": [
-    "Genau eine: x = 0.",
-    "Keine Lösung.",
-    "Genau eine: x = 1.",
-    "Jede Zahl ist eine Lösung."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "0 mal irgendeine Zahl ist immer 0, nie 1. Also gibt es keine Lösung.",
-   "h": "Probiere ein paar Zahlen für x aus."
-  },
-  {
-   "l": "ohne_loesung",
-   "t": "loesbarkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "0 · x = 14. Wie viele Lösungen hat diese Gleichung?"
-   },
-   "a": [
-    "Keine Lösung.",
-    "Genau eine: x = 0.",
-    "Jede Zahl ist eine Lösung.",
-    "Genau eine: x = 14."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "0 mal irgendeine Zahl ist immer 0, nie 14. Also gibt es keine Lösung.",
-   "h": "Probiere ein paar Zahlen für x aus."
+   "h": "Zähle die 5er-Reihe weiter.",
+   "g": "rueckwaerts"
   },
   {
    "l": "ohne_loesung",
@@ -5220,14 +5897,111 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Für welche kleinste natürliche Zahl b hat x + 10 = b eine Lösung in ℕ?"
+    "text": "Ein 368 cm langes Band soll in Stücke von 15 cm geschnitten werden. Ohne Rest geht das nicht (15 · x = 368 hat keine Lösung in ℕ). Wie viele cm bleiben übrig, wenn man möglichst viele Stücke schneidet?"
    },
    "o": {
-    "wert": 10
+    "wert": 8,
+    "einheit": "cm"
    },
-   "c": "10",
-   "w": "Die kleinste natürliche Zahl ist x = 0. Dann ist b = 0 + 10 = 10. Für kleinere b müsste x negativ sein.",
-   "h": "Welches ist die kleinste natürliche Zahl, die du für x einsetzen kannst?"
+   "c": "368 % 15",
+   "w": "368 : 15 = 24 Rest 8. Es bleiben 8 cm übrig.",
+   "h": "Teile mit Rest.",
+   "g": "transfer"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahl rechts hat 4 · x = □ eine Lösung in ℕ?"
+   },
+   "a": [
+    "33",
+    "31",
+    "30",
+    "32"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nur 32 ist durch 4 teilbar: x = 8. 30, 31 und 33 lassen beim Teilen durch 4 einen Rest.",
+   "h": "Welche Zahl ist durch 4 teilbar?",
+   "g": "parameter"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele der Gleichungen 6 · x = 1, 6 · x = 2, 6 · x = 3, … , 6 · x = 50 haben eine Lösung in ℕ?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "Eine Lösung gibt es, wenn rechts ein Vielfaches von 6 steht: 6, 12, 18, 24, 30, 36, 42, 48. Das sind 8.",
+   "h": "Welche Zahlen bis 50 sind durch 6 teilbar?",
+   "g": "pruefung"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Gleichung hat jede Zahl als Lösung?"
+   },
+   "a": [
+    "1 · x = 0",
+    "0 · x = 5",
+    "x + 0 = 5",
+    "0 · x = 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "0 mal jede Zahl ist 0. Also stimmt 0 · x = 0 für jedes x. 0 · x = 5 hat keine Lösung, die anderen genau eine.",
+   "h": "Setze verschiedene Zahlen ein.",
+   "g": "begruenden"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele natürliche Zahlen b von 1 bis 30 hat 4 · x = b eine Lösung in ℕ?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "30 // 4",
+   "w": "b muss durch 4 teilbar sein: 4, 8, 12, 16, 20, 24, 28 – das sind 7.",
+   "h": "Welche b sind durch 4 teilbar?"
+  },
+  {
+   "l": "ohne_loesung",
+   "t": "loesbarkeit",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche kleinste natürliche Zahl c haben sowohl 6 · x = c als auch 8 · x = c eine Lösung in ℕ (mit x mindestens 1)?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "24",
+   "w": "c muss durch 6 und durch 8 teilbar sein. Vielfache von 8: 8, 16, 24 – 24 ist das erste, das auch durch 6 teilbar ist.",
+   "h": "Gehe die Vielfachen von 8 durch."
   },
   {
    "l": "ohne_loesung",

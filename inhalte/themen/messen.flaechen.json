@@ -45,12 +45,33 @@
    {
     "lernziel": "einheitsquadrate",
     "titel": "Fläche mit Einheitsquadraten",
-    "regel": "So bestimmst du den ⟦Flächeninhalt⟧: Zähle, wie viele ⟦Einheitsquadrate⟧ hineinpassen. Beim Rechteck rechnest du ⟦Reihen mal Quadrate pro Reihe⟧.",
+    "regel": "Flächeninhalt = ⟦Reihen mal Quadrate pro Reihe⟧. Zähle, wie viele Einheitsquadrate hineinpassen.",
     "schritte": [
-     "Ein Rechteck ist 5 cm lang und 3 cm breit. Lege in Gedanken Quadrate mit 1 cm Seitenlänge hinein.",
-     "In eine Reihe passen 5 Quadrate, denn das Rechteck ist 5 cm lang.",
-     "Es gibt 3 Reihen, denn es ist 3 cm breit. Zusammen sind das 3 · 5 = 15 Quadrate.",
-     "Jedes Quadrat ist 1 cm² groß. Also ist ⟦A = 15 cm²⟧."
+     {
+      "text": "Das Rechteck ist 5 cm lang: In eine Reihe passen 5 Einheitsquadrate."
+     },
+     {
+      "text": "Es ist 3 cm breit: Es gibt 3 Reihen."
+     },
+     {
+      "text": "3 · 5 = 15 Quadrate. Also ist der Flächeninhalt ⟦A = 15 cm²⟧."
+     }
+    ],
+    "fehler": "5 + 3 = 8 cm² ist falsch. Beim Flächeninhalt zählst du Fliesen: Reihen mal Fliesen pro Reihe.",
+    "einstieg": "Du legst den Boden eines Spielhauses mit quadratischen Fliesen aus. Wie groß der Boden ist, sagt die Zahl der Fliesen. Das heißt ⟦Flächeninhalt⟧.",
+    "woerter": [
+     [
+      "Flächeninhalt",
+      "wie viele Einheitsquadrate in eine Fläche passen"
+     ],
+     [
+      "Einheitsquadrat",
+      "ein Quadrat mit der Seitenlänge 1, zum Beispiel 1 cm"
+     ],
+     [
+      "cm²",
+      "Quadratzentimeter: die Fläche eines Quadrats mit 1 cm Seite"
+     ]
     ],
     "bild": {
      "typ": "figur",
@@ -182,37 +203,62 @@
        "gestrichelt"
       ]
      ]
-    },
-    "fehler": "5 + 3 = 8 cm² ist falsch: Das ist nur die halbe Länge des Randes. Beim Flächeninhalt zählst du ⟦Quadrate⟧ – Reihen ⟦mal⟧ Quadrate pro Reihe, wie Fliesen auf dem Boden.",
-    "einstieg": "Du willst den Boden eines kleinen Spielhauses mit quadratischen Fliesen auslegen. Wie groß der Boden ist, sagst du am besten mit der Zahl der Fliesen, die hineinpassen. In Mathe nimmt man dafür kleine Quadrate mit 1 cm, 1 m oder 1 km Seitenlänge. Wie viele davon in eine Fläche passen, heißt ⟦Flächeninhalt⟧.",
-    "woerter": [
-     [
-      "Flächeninhalt A",
-      "wie viele Einheitsquadrate in eine Fläche passen; abgekürzt A"
-     ],
-     [
-      "Einheitsquadrat",
-      "ein Quadrat mit der Seitenlänge 1, zum Beispiel 1 cm"
-     ],
-     [
-      "cm²",
-      "Quadratzentimeter: die Fläche eines Quadrats mit 1 cm Seitenlänge"
-     ],
-     [
-      "Reihe",
-      "eine Zeile von Quadraten nebeneinander"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "rechteck",
     "titel": "Rechteck und Quadrat berechnen",
-    "regel": "So rechnest du beim Rechteck: ⟦A = a · b⟧ und ⟦u = 2 · a + 2 · b⟧. Beim Quadrat mit der Seite a: ⟦A = a · a⟧ und ⟦u = 4 · a⟧. Vorher beide Seiten in ⟦dieselbe Längeneinheit⟧ bringen.",
+    "regel": "Fläche ist Länge mal Breite: ⟦A = a · b⟧. Umfang: u = 2 · a + 2 · b.",
     "schritte": [
-     "Das Zimmer ist ein Rechteck mit a = 8 m und b = 5 m. Zuerst der Flächeninhalt für den Teppich.",
-     "A = a · b = 8 m · 5 m = 40 m². Der Teppich muss ⟦40 m²⟧ groß sein.",
-     "Jetzt der Umfang für die Leiste: Der Rand hat zwei lange Seiten mit 8 m und zwei kurze mit 5 m.",
-     "u = 2 · 8 m + 2 · 5 m = 16 m + 10 m = ⟦26 m⟧."
+     {
+      "text": "Teppich: A = a · b = 8 m · 5 m = ⟦40 m²⟧."
+     },
+     {
+      "text": "Leiste: Der Rand hat zwei Seiten mit 8 m und zwei mit 5 m.",
+      "bild": {
+       "linien": [
+        [
+         "A",
+         "B",
+         "8 m"
+        ],
+        [
+         "B",
+         "C",
+         "5 m"
+        ],
+        [
+         "C",
+         "D",
+         "8 m"
+        ],
+        [
+         "D",
+         "A",
+         "5 m"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Umfang u = 2 · 8 m + 2 · 5 m = ⟦26 m⟧."
+     }
+    ],
+    "fehler": "Umfang und Fläche verwechseln ist der häufigste Fehler. Die Leiste kaufst du in Metern, den Teppich in Quadratmetern.",
+    "einstieg": "Ein Zimmer bekommt neuen Teppich und eine Fußleiste am Rand. Für den Teppich brauchst du die Fläche, für die Leiste die Länge des Randes. Diese Länge heißt ⟦Umfang⟧.",
+    "woerter": [
+     [
+      "A = a · b",
+      "Flächeninhalt = Länge mal Breite"
+     ],
+     [
+      "m²",
+      "Quadratmeter: die Fläche eines Quadrats mit 1 m Seite"
+     ],
+     [
+      "Umfang u",
+      "die Länge des ganzen Randes"
+     ]
     ],
     "bild": {
      "typ": "figur",
@@ -260,44 +306,31 @@
        "A"
       ]
      ]
-    },
-    "fehler": "Umfang und Fläche verwechseln ist der häufigste Fehler. Der Umfang ist eine ⟦Länge⟧ (m) – die Fußleiste kaufst du in Metern. Der Flächeninhalt ist eine ⟦Fläche⟧ (m²) – den Teppich kaufst du in Quadratmetern.",
-    "einstieg": "Ein Zimmer bekommt einen neuen Teppichboden und eine Fußleiste am Rand entlang. Für den Teppich brauchst du die Fläche des Bodens, für die Leiste die Länge des ganzen Randes. Die Fläche heißt Flächeninhalt, die Länge des Randes heißt ⟦Umfang⟧.",
-    "woerter": [
-     [
-      "Umfang u",
-      "die Länge des ganzen Randes einer Figur"
-     ],
-     [
-      "a, b",
-      "Länge und Breite des Rechtecks"
-     ],
-     [
-      "m²",
-      "Quadratmeter: die Fläche eines Quadrats mit 1 m Seitenlänge"
-     ],
-     [
-      "Formel",
-      "eine Rechenvorschrift mit Buchstaben"
-     ],
-     [
-      "A = a · b",
-      "Formel: Flächeninhalt = Länge mal Breite"
-     ],
-     [
-      "Fußleiste",
-      "eine Leiste unten an der Wand, am Rand des Bodens entlang"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "einheiten",
     "titel": "Flächeneinheiten umrechnen",
-    "regel": "So rechnest du Flächen um: km² → ha → a → m² → dm² → cm² → mm², bei jedem Schritt ist die ⟦Umrechnungszahl 100⟧. In die ⟦kleinere⟧ Einheit: mal 100. In die ⟦größere⟧: durch 100.",
+    "regel": "Bei Flächen ist die ⟦Umrechnungszahl 100⟧. km², ha, a, m², dm², cm², mm²: jeder Schritt mal oder durch 100.",
     "schritte": [
-     "Rechne 7 m² in dm² um. Ein Quadrat mit 1 m Seite ist 10 dm lang und 10 dm breit.",
-     "Darin liegen 10 Reihen mit je 10 kleinen Quadraten: 10 · 10 = 100. Also ist 1 m² = 100 dm².",
-     "7 m² sind 7-mal so viel: 7 · 100 = 700. Also ist ⟦7 m² = 700 dm²⟧."
+     {
+      "text": "Rechne 7 m² in dm² um. 1 m² sind 10 · 10 = 100 dm²."
+     },
+     {
+      "text": "7 m² sind 7-mal so viel: 7 · 100 = ⟦700 dm²⟧."
+     }
+    ],
+    "fehler": "1 m² = 10 dm² ist falsch. Die Seite ist 10-mal so lang, die Fläche aber 100-mal so groß.",
+    "einstieg": "Ein Quadrat mit 1 m Seite legst du mit Quadraten von 1 dm aus. 10 Reihen zu je 10 sind 100 Stück. Darum ist bei ⟦Flächeneinheiten⟧ die Umrechnungszahl 100.",
+    "woerter": [
+     [
+      "Flächeneinheit",
+      "eine Einheit für Flächen, zum Beispiel cm² oder m²"
+     ],
+     [
+      "dm²",
+      "Quadratdezimeter: Fläche eines Quadrats mit 10 cm Seite"
+     ]
     ],
     "bild": {
      "typ": "figur",
@@ -597,70 +630,241 @@
        "gestrichelt"
       ]
      ]
-    },
-    "fehler": "1 m² = 10 dm² ist falsch: Die Seite ist 10-mal so lang, die Fläche aber ⟦100-mal⟧ so groß.",
-    "einstieg": "Ein Quadrat mit 1 m Seitenlänge kannst du mit kleinen Quadraten von 1 dm Seitenlänge auslegen. In eine Reihe passen 10 kleine, und es gibt 10 Reihen – zusammen 100 kleine Quadrate. Darum ist bei allen ⟦Flächeneinheiten⟧ die Umrechnungszahl 100.",
-    "woerter": [
-     [
-      "Flächeneinheit",
-      "eine Einheit für Flächen, zum Beispiel cm² oder m²"
-     ],
-     [
-      "dm², mm²",
-      "Quadratdezimeter, Quadratmillimeter"
-     ],
-     [
-      "a",
-      "Ar: 100 m², etwa ein großer Garten"
-     ],
-     [
-      "ha",
-      "Hektar: 100 a = 10 000 m², etwa anderthalb Fußballfelder"
-     ],
-     [
-      "km²",
-      "Quadratkilometer: 100 ha"
-     ],
-     [
-      "Umrechnungszahl",
-      "die Zahl, mit der man beim Umrechnen malnimmt oder teilt"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "kommaschreibweise",
     "titel": "Flächen in Kommaschreibweise",
-    "regel": "So schreibst du Flächen mit Komma: Vor dem Komma steht die ⟦große Einheit⟧, dahinter bekommt jede kleinere Einheit ⟦zwei Stellen⟧: 3,25 m² = 3 m² 25 dm² und 4 a 7 m² = ⟦4,07 a⟧.",
+    "regel": "Bei Flächen bekommt jede kleinere Einheit ⟦zwei Stellen⟧. 3,25 m² = 3 m² 25 dm² und 4,07 a = 4 a 7 m².",
     "schritte": [
-     "Schreibe 6 m² 5 dm² in m². Vor das Komma kommen die 6 m².",
-     "Die dm² bekommen zwei Stellen hinter dem Komma, weil 1 m² = 100 dm² sind.",
-     "5 dm² schreibst du mit zwei Stellen als 05.",
-     "Ergebnis: ⟦6 m² 5 dm² = 6,05 m²⟧."
+     {
+      "text": "Schreibe 6 m² 5 dm² in m². Vor das Komma kommen die 6."
+     },
+     {
+      "text": "dm² bekommen zwei Stellen: Aus 5 wird 05.",
+      "bild": {
+       "zeilen": [
+        [
+         "6",
+         "05"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Ergebnis: ⟦6,05 m²⟧."
+     }
     ],
-    "probe": "6,05 m² = 605 dm² = 6 m² 5 dm² ✓",
-    "fehler": "6 m² 5 dm² = 6,5 m² ist falsch: 6,5 m² sind 6 m² ⟦50⟧ dm² – so wie 6,50 € etwas anderes sind als 6,05 €. Bei Flächen braucht jede Einheit zwei Stellen: 6,05 m².",
-    "einstieg": "Beim Geld weißt du: 4,07 € sind 4 € und 7 ct. Für die Cent gibt es zwei Stellen hinter dem Komma, weil 1 € = 100 ct sind. Bei Flächen ist es genauso, denn auch hier ist die Umrechnungszahl 100. So schreibst du Flächen in ⟦Kommaschreibweise⟧.",
+    "fehler": "6 m² 5 dm² = 6,5 m² ist falsch. 6,5 m² sind 6 m² 50 dm², so wie 6,50 € nicht 6,05 € sind.",
+    "einstieg": "Für Cent gibt es zwei Stellen hinter dem Komma: 4,07 €. Denn 1 € sind 100 ct, und bei Flächen ist es genauso. So schreibst du Flächen in ⟦Kommaschreibweise⟧.",
     "woerter": [
      [
       "Kommaschreibweise",
       "eine Fläche mit Komma in einer Einheit: 6,05 m² statt 6 m² 5 dm²"
-     ],
-     [
-      "zwei Stellen",
-      "bei Flächen bekommt jede kleinere Einheit zwei Ziffern hinter dem Komma"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "m²",
+      "dm²"
+     ],
+     "zeilen": [
+      [
+       "6",
+       "5"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "6",
+       "50"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "zerlegen",
     "titel": "Zerlegen und Ergänzen",
-    "regel": "So berechnest du eine ⟦zusammengesetzte Fläche⟧: ⟦Zerlegen⟧ – in Rechtecke aufteilen und die Flächen addieren. Oder ⟦ergänzen⟧ – zu einem großen Rechteck vervollständigen und das fehlende Stück abziehen. Beide Wege ergeben dasselbe.",
+    "regel": "⟦Zerlegen⟧ in Rechtecke und addieren oder ergänzen und abziehen. Beide Wege ergeben dasselbe.",
     "schritte": [
-     "Die L-Form im Bild passt in ein großes Rechteck von 8 m × 6 m. Oben rechts fehlt ein Stück von 3 m × 2 m.",
-     "Ergänzen: Das große Rechteck hat 8 · 6 = 48 m².",
-     "Das fehlende Stück hat 3 · 2 = 6 m². Ziehe es ab: 48 − 6 = ⟦42 m²⟧."
+     {
+      "text": "Ergänze zum großen Rechteck 8 m × 6 m. Es hat 48 m².",
+      "bild": {
+       "punkte": {
+        "_P0": [
+         0,
+         0
+        ],
+        "_P1": [
+         8,
+         0
+        ],
+        "_P2": [
+         8,
+         4
+        ],
+        "_P3": [
+         5,
+         4
+        ],
+        "_P4": [
+         5,
+         6
+        ],
+        "_P5": [
+         0,
+         6
+        ],
+        "_E": [
+         8,
+         6
+        ]
+       },
+       "linien": [
+        [
+         "_P0",
+         "_P1",
+         "8 m"
+        ],
+        [
+         "_P1",
+         "_P2",
+         "4 m"
+        ],
+        [
+         "_P2",
+         "_P3",
+         "3 m"
+        ],
+        [
+         "_P3",
+         "_P4",
+         "2 m"
+        ],
+        [
+         "_P4",
+         "_P5",
+         "5 m"
+        ],
+        [
+         "_P5",
+         "_P0",
+         "6 m"
+        ],
+        [
+         "_P2",
+         "_E",
+         "",
+         "gestrichelt"
+        ],
+        [
+         "_E",
+         "_P4",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Das fehlende Stück ist 3 m × 2 m = 6 m²."
+     },
+     {
+      "text": "Ziehe es ab: 48 − 6 = ⟦42 m²⟧."
+     },
+     {
+      "text": "Probe durch zerlegen: 32 m² + 10 m² = 42 m².",
+      "bild": {
+       "punkte": {
+        "_P0": [
+         0,
+         0
+        ],
+        "_P1": [
+         8,
+         0
+        ],
+        "_P2": [
+         8,
+         4
+        ],
+        "_P3": [
+         5,
+         4
+        ],
+        "_P4": [
+         5,
+         6
+        ],
+        "_P5": [
+         0,
+         6
+        ],
+        "_Z": [
+         0,
+         4
+        ]
+       },
+       "linien": [
+        [
+         "_P0",
+         "_P1",
+         "8 m"
+        ],
+        [
+         "_P1",
+         "_P2",
+         "4 m"
+        ],
+        [
+         "_P2",
+         "_P3",
+         "3 m"
+        ],
+        [
+         "_P3",
+         "_P4",
+         "2 m"
+        ],
+        [
+         "_P4",
+         "_P5",
+         "5 m"
+        ],
+        [
+         "_P5",
+         "_P0",
+         "6 m"
+        ],
+        [
+         "_P3",
+         "_Z",
+         "",
+         "gestrichelt"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "Zerlegen: unten 8 · 4 = 32, oben links 5 · 2 = 10, zusammen 42 m² ✓",
+    "fehler": "Alle Seiten der L-Form malnehmen ist falsch. Jedes Rechteck hat nur eine Länge und eine Breite.",
+    "einstieg": "In einem Zimmer fehlt eine Ecke, dort ist ein Schrank eingebaut. Der Boden hat die Form eines L. Du denkst dir die Ecke dazu: Das heißt ⟦ergänzen⟧.",
+    "woerter": [
+     [
+      "ergänzen",
+      "das fehlende Stück dazudenken und am Ende abziehen"
+     ],
+     [
+      "zerlegen",
+      "die Fläche in Rechtecke aufteilen und addieren"
+     ],
+     [
+      "8 m × 6 m",
+      "gelesen „8 m mal 6 m“: ein Rechteck, 8 m lang und 6 m breit"
+     ]
+    ],
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -729,75 +933,256 @@
        "6 m"
       ]
      ]
-    },
-    "fehler": "Alle Seiten der L-Form malzunehmen ist falsch. Zerlege zuerst in ⟦Rechtecke⟧ – jedes Rechteck hat nur ⟦eine⟧ Länge und ⟦eine⟧ Breite.",
-    "einstieg": "In einem Zimmer fehlt eine Ecke, weil dort ein Schrank eingebaut ist. Der Boden hat dann die Form eines L. Für so eine Fläche gibt es keine eigene Formel. Du teilst sie in Rechtecke auf oder denkst dir das fehlende Stück dazu. Das heißt ⟦zerlegen⟧ oder ⟦ergänzen⟧.",
-    "woerter": [
-     [
-      "zusammengesetzte Fläche",
-      "eine Fläche, die aus mehreren Rechtecken besteht, zum Beispiel eine L-Form"
-     ],
-     [
-      "zerlegen",
-      "die Fläche in Rechtecke aufteilen und deren Flächen addieren"
-     ],
-     [
-      "ergänzen",
-      "das fehlende Stück dazudenken: großes Rechteck minus fehlendes Stück"
-     ],
-     [
-      "8 m × 6 m",
-      "gelesen „8 m mal 6 m“: ein Rechteck, 8 m lang und 6 m breit"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "sachaufgaben",
     "titel": "Flächen im Alltag",
-    "regel": "So löst du Flächen-Sachaufgaben: Frage zuerst, ob eine ⟦Länge⟧ gesucht ist (Zaun, Rand, Leiste → ⟦Umfang⟧) oder eine ⟦Fläche⟧ (Rasen, Boden, Farbe → ⟦Flächeninhalt⟧). Dann rechnest du in ⟦einer⟧ Einheit.",
+    "regel": "Zaun, Rand, Leiste: ⟦Umfang⟧. Rasen, Boden, Farbe: Flächeninhalt. Rechne in einer Einheit.",
     "schritte": [
-     "Ein Garten ist 12 m lang und 7 m breit und bekommt einen Zaun ringsherum. Ein Zaun läuft am Rand entlang, gesucht ist also der Umfang.",
-     "Der Rand hat zwei Seiten mit 12 m und zwei Seiten mit 7 m.",
-     "u = 2 · 12 m + 2 · 7 m = 24 m + 14 m = ⟦38 m⟧. So viel Zaun brauchst du."
+     {
+      "text": "Der Garten ist 12 m lang und 7 m breit. Gesucht ist der Zaun ringsherum."
+     },
+     {
+      "text": "Ein Zaun läuft am Rand. Gesucht ist also der Umfang.",
+      "bild": {
+       "typ": "figur",
+       "punkte": {
+        "_A": [
+         0,
+         0
+        ],
+        "_B": [
+         12,
+         0
+        ],
+        "_C": [
+         12,
+         7
+        ],
+        "_D": [
+         0,
+         7
+        ]
+       },
+       "flaeche": [
+        "_A",
+        "_B",
+        "_C",
+        "_D"
+       ],
+       "linien": [
+        [
+         "_A",
+         "_B",
+         "12 m"
+        ],
+        [
+         "_B",
+         "_C",
+         "7 m"
+        ],
+        [
+         "_C",
+         "_D",
+         "12 m"
+        ],
+        [
+         "_D",
+         "_A",
+         "7 m"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "u = 2 · 12 m + 2 · 7 m = ⟦38 m⟧ Zaun."
+     }
     ],
-    "fehler": "Für einen Zaun den Flächeninhalt 12 · 7 = 84 auszurechnen ist falsch: Ein Zaun läuft am ⟦Rand⟧ entlang, gesucht ist der ⟦Umfang⟧.",
-    "einstieg": "Ein Garten soll einen Zaun bekommen und neuen Rasen. Für den Zaun gehst du am Rand entlang – du brauchst eine Länge. Für den Rasen bedeckst du den ganzen Boden – du brauchst eine Fläche. Bei jeder ⟦Sachaufgabe⟧ zu Flächen klärst du deshalb zuerst: Rand oder Fläche?",
+    "fehler": "Für den Zaun 12 · 7 = 84 rechnen ist falsch. Das ist die Rasenfläche in m², kein Zaun in Metern.",
+    "einstieg": "Ein Garten bekommt einen Zaun und neuen Rasen. Der Zaun läuft am Rand entlang, der Rasen bedeckt den Boden. Frag dich deshalb zuerst: ⟦Rand oder Fläche⟧?",
     "woerter": [
-     [
-      "Sachaufgabe",
-      "eine Rechenaufgabe, die als kleine Geschichte erzählt wird"
-     ],
      [
       "ringsherum",
       "einmal ganz um den Rand herum"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       12,
+       0
+      ],
+      "_C": [
+       12,
+       7
+      ],
+      "_D": [
+       0,
+       7
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "12 m"
+      ],
+      [
+       "_B",
+       "_C",
+       "7 m"
+      ],
+      [
+       "_C",
+       "_D",
+       ""
+      ],
+      [
+       "_D",
+       "_A",
+       ""
+      ]
+     ]
+    }
    },
    {
     "lernziel": "verstehen",
     "titel": "Fläche und Umfang verstehen",
-    "regel": "Merke: ⟦Gleicher Umfang⟧ heißt nicht gleiche Fläche – und umgekehrt. Verdoppelst du ⟦Länge und Breite⟧, wird die Fläche ⟦viermal⟧ so groß. So prüfst du Behauptungen: mit einem ⟦Zahlenbeispiel⟧ nachrechnen.",
+    "regel": "Gleicher Umfang heißt ⟦nicht gleiche Fläche⟧. Doppelte Länge und Breite ergeben die vierfache Fläche.",
     "schritte": [
-     "Garten 1 ist ein Rechteck mit 6 m × 2 m. Umfang: 2 · 6 m + 2 · 2 m = 16 m. Fläche: 6 · 2 = 12 m².",
-     "Garten 2 ist ein Quadrat mit 4 m × 4 m. Umfang: 4 · 4 m = 16 m. Fläche: 4 · 4 = 16 m².",
-     "Beide haben 16 m Zaun, aber ⟦verschiedene Flächen⟧: 12 m² und 16 m²."
+     {
+      "text": "Garten 1: 6 m × 2 m. Umfang 16 m, Fläche 12 m²."
+     },
+     {
+      "text": "Garten 2: 4 m × 4 m. Umfang 16 m, Fläche 16 m².",
+      "bild": {
+       "linien": [
+        [
+         "_A",
+         "_B",
+         "6 m"
+        ],
+        [
+         "_B",
+         "_C",
+         "2 m"
+        ],
+        [
+         "_C",
+         "_D"
+        ],
+        [
+         "_D",
+         "_A"
+        ],
+        [
+         "_E",
+         "_F",
+         "4 m"
+        ],
+        [
+         "_F",
+         "_G",
+         "4 m"
+        ],
+        [
+         "_G",
+         "_H"
+        ],
+        [
+         "_H",
+         "_E"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Gleicher Umfang, aber ⟦verschiedene Flächen⟧. Das ist ein Gegenbeispiel."
+     }
     ],
-    "fehler": "„Doppelte Seiten, doppelte Fläche“ ist falsch: 2 m × 3 m = 6 m², aber 4 m × 6 m = 24 m² – das ist ⟦viermal⟧ so viel.",
-    "einstieg": "Zwei Gärten haben beide einen Zaun von 16 m Länge. Ist dann in beiden gleich viel Platz zum Spielen? Nicht unbedingt! Ein langer, schmaler Garten kann bei gleich langem Zaun kleiner sein als ein quadratischer. Solche Behauptungen über ⟦Fläche und Umfang⟧ prüfst du mit Beispielen.",
+    "fehler": "„Doppelte Seiten, doppelte Fläche“ ist falsch. 2 m × 3 m sind 6 m². 4 m × 6 m sind 24 m², viermal so viel.",
+    "einstieg": "Zwei Gärten haben beide 16 m Zaun. Ist in beiden gleich viel Platz zum Spielen? Nicht unbedingt: ⟦Gleicher Umfang⟧ heißt nicht gleiche Fläche.",
     "woerter": [
-     [
-      "Behauptung",
-      "eine Aussage, die richtig oder falsch sein kann"
-     ],
-     [
-      "verdoppeln",
-      "mal 2 nehmen"
-     ],
      [
       "Gegenbeispiel",
       "ein Fall, der eine Behauptung widerlegt"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       6,
+       0
+      ],
+      "_C": [
+       6,
+       2
+      ],
+      "_D": [
+       0,
+       2
+      ],
+      "_E": [
+       8,
+       0
+      ],
+      "_F": [
+       12,
+       0
+      ],
+      "_G": [
+       12,
+       4
+      ],
+      "_H": [
+       8,
+       4
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "6 m"
+      ],
+      [
+       "_B",
+       "_C",
+       "2 m"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -870,6 +1255,337 @@
   }
  },
  "aufgaben": [
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Einheitsquadrate (1 cm²) passen in das Rechteck?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       3,
+       0
+      ],
+      "_C": [
+       3,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_x1u": [
+       1,
+       0
+      ],
+      "_x1o": [
+       1,
+       6
+      ],
+      "_x2u": [
+       2,
+       0
+      ],
+      "_x2o": [
+       2,
+       6
+      ],
+      "_y1l": [
+       0,
+       1
+      ],
+      "_y1r": [
+       3,
+       1
+      ],
+      "_y2l": [
+       0,
+       2
+      ],
+      "_y2r": [
+       3,
+       2
+      ],
+      "_y3l": [
+       0,
+       3
+      ],
+      "_y3r": [
+       3,
+       3
+      ],
+      "_y4l": [
+       0,
+       4
+      ],
+      "_y4r": [
+       3,
+       4
+      ],
+      "_y5l": [
+       0,
+       5
+      ],
+      "_y5r": [
+       3,
+       5
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "3 cm"
+      ],
+      [
+       "_B",
+       "_C",
+       "6 cm"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ],
+      [
+       "_x1u",
+       "_x1o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_x2u",
+       "_x2o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_y1l",
+       "_y1r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_y2l",
+       "_y2r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_y3l",
+       "_y3r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_y4l",
+       "_y4r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_y5l",
+       "_y5r",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "3 * 6",
+   "w": "6 Reihen zu je 3 Quadraten: 6 · 3 = 18 Einheitsquadrate. Der Flächeninhalt ist also 18 cm².",
+   "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist mit 64 Einheitsquadraten (1 cm²) ausgelegt. Eine Reihe hat 8 Quadrate. Wie viele Reihen sind es?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "64 / 8",
+   "w": "64 : 8 = 8 Reihen. Das Rechteck ist 8 cm breit.",
+   "h": "Teile die Anzahl der Quadrate durch die Quadrate pro Reihe.",
+   "g": "umkehr"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Einheitsquadrate (1 cm²) passen in das Rechteck?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       3,
+       0
+      ],
+      "_C": [
+       3,
+       3
+      ],
+      "_D": [
+       0,
+       3
+      ],
+      "_x1u": [
+       1,
+       0
+      ],
+      "_x1o": [
+       1,
+       3
+      ],
+      "_x2u": [
+       2,
+       0
+      ],
+      "_x2o": [
+       2,
+       3
+      ],
+      "_y1l": [
+       0,
+       1
+      ],
+      "_y1r": [
+       3,
+       1
+      ],
+      "_y2l": [
+       0,
+       2
+      ],
+      "_y2r": [
+       3,
+       2
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "3 cm"
+      ],
+      [
+       "_B",
+       "_C",
+       "3 cm"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ],
+      [
+       "_x1u",
+       "_x1o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_x2u",
+       "_x2o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_y1l",
+       "_y1r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_y2l",
+       "_y2r",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3 * 3",
+   "w": "3 Reihen zu je 3 Quadraten: 3 · 3 = 9 Einheitsquadrate. Der Flächeninhalt ist also 9 cm².",
+   "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist mit 28 Einheitsquadraten (1 cm²) ausgelegt. Eine Reihe hat 7 Quadrate. Wie viele Reihen sind es?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "28 / 7",
+   "w": "28 : 7 = 4 Reihen. Das Rechteck ist 4 cm breit.",
+   "h": "Teile die Anzahl der Quadrate durch die Quadrate pro Reihe.",
+   "g": "umkehr"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck aus 6 · 6 Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?"
+   },
+   "o": {
+    "wert": 144
+   },
+   "c": "(2 * 6) * (2 * 6)",
+   "w": "Neu: 12 · 12 = 144 Quadrate – viermal so viele wie 36.",
+   "h": "Rechne die neuen Seitenlängen aus.",
+   "g": "verknuepfen"
+  },
   {
    "l": "einheitsquadrate",
    "t": "einheitsquadrate",
@@ -1081,12 +1797,12 @@
     }
    },
    "o": {
-    "wert": 36,
-    "einheit": "cm²"
+    "wert": 36
    },
    "c": "9 * 4",
-   "w": "4 Reihen zu je 9 Quadraten: 4 · 9 = 36 cm².",
-   "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
+   "w": "4 Reihen zu je 9 Quadraten: 4 · 9 = 36 Einheitsquadrate. Der Flächeninhalt ist also 36 cm².",
+   "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen.",
+   "g": "erkennen"
   },
   {
    "l": "einheitsquadrate",
@@ -1095,456 +1811,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Einheitsquadrate (1 cm²) passen in das Rechteck?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       7,
-       0
-      ],
-      "_C": [
-       7,
-       3
-      ],
-      "_D": [
-       0,
-       3
-      ],
-      "_x1u": [
-       1,
-       0
-      ],
-      "_x1o": [
-       1,
-       3
-      ],
-      "_x2u": [
-       2,
-       0
-      ],
-      "_x2o": [
-       2,
-       3
-      ],
-      "_x3u": [
-       3,
-       0
-      ],
-      "_x3o": [
-       3,
-       3
-      ],
-      "_x4u": [
-       4,
-       0
-      ],
-      "_x4o": [
-       4,
-       3
-      ],
-      "_x5u": [
-       5,
-       0
-      ],
-      "_x5o": [
-       5,
-       3
-      ],
-      "_x6u": [
-       6,
-       0
-      ],
-      "_x6o": [
-       6,
-       3
-      ],
-      "_y1l": [
-       0,
-       1
-      ],
-      "_y1r": [
-       7,
-       1
-      ],
-      "_y2l": [
-       0,
-       2
-      ],
-      "_y2r": [
-       7,
-       2
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_B",
-      "_C",
-      "_D"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B",
-       "7 cm"
-      ],
-      [
-       "_B",
-       "_C",
-       "3 cm"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
-      ],
-      [
-       "_x1u",
-       "_x1o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_x2u",
-       "_x2o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_x3u",
-       "_x3o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_x4u",
-       "_x4o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_x5u",
-       "_x5o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_x6u",
-       "_x6o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_y1l",
-       "_y1r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_y2l",
-       "_y2r",
-       "",
-       "gestrichelt"
-      ]
-     ]
-    }
+    "text": "Ein Rechteck ist 6 cm lang und 5 cm breit. Wie viele Quadrate mit 1 cm Seitenlänge passen hinein?"
    },
    "o": {
-    "wert": 21,
-    "einheit": "cm²"
+    "wert": 30
    },
-   "c": "7 * 3",
-   "w": "3 Reihen zu je 7 Quadraten: 3 · 7 = 21 cm².",
-   "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Einheitsquadrate (1 cm²) passen in das Rechteck?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       3,
-       0
-      ],
-      "_C": [
-       3,
-       6
-      ],
-      "_D": [
-       0,
-       6
-      ],
-      "_x1u": [
-       1,
-       0
-      ],
-      "_x1o": [
-       1,
-       6
-      ],
-      "_x2u": [
-       2,
-       0
-      ],
-      "_x2o": [
-       2,
-       6
-      ],
-      "_y1l": [
-       0,
-       1
-      ],
-      "_y1r": [
-       3,
-       1
-      ],
-      "_y2l": [
-       0,
-       2
-      ],
-      "_y2r": [
-       3,
-       2
-      ],
-      "_y3l": [
-       0,
-       3
-      ],
-      "_y3r": [
-       3,
-       3
-      ],
-      "_y4l": [
-       0,
-       4
-      ],
-      "_y4r": [
-       3,
-       4
-      ],
-      "_y5l": [
-       0,
-       5
-      ],
-      "_y5r": [
-       3,
-       5
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_B",
-      "_C",
-      "_D"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B",
-       "3 cm"
-      ],
-      [
-       "_B",
-       "_C",
-       "6 cm"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
-      ],
-      [
-       "_x1u",
-       "_x1o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_x2u",
-       "_x2o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_y1l",
-       "_y1r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_y2l",
-       "_y2r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_y3l",
-       "_y3r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_y4l",
-       "_y4r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_y5l",
-       "_y5r",
-       "",
-       "gestrichelt"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 18,
-    "einheit": "cm²"
-   },
-   "c": "3 * 6",
-   "w": "6 Reihen zu je 3 Quadraten: 6 · 3 = 18 cm².",
-   "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Einheitsquadrate (1 cm²) passen in das Rechteck?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       3,
-       0
-      ],
-      "_C": [
-       3,
-       3
-      ],
-      "_D": [
-       0,
-       3
-      ],
-      "_x1u": [
-       1,
-       0
-      ],
-      "_x1o": [
-       1,
-       3
-      ],
-      "_x2u": [
-       2,
-       0
-      ],
-      "_x2o": [
-       2,
-       3
-      ],
-      "_y1l": [
-       0,
-       1
-      ],
-      "_y1r": [
-       3,
-       1
-      ],
-      "_y2l": [
-       0,
-       2
-      ],
-      "_y2r": [
-       3,
-       2
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_B",
-      "_C",
-      "_D"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B",
-       "3 cm"
-      ],
-      [
-       "_B",
-       "_C",
-       "3 cm"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
-      ],
-      [
-       "_x1u",
-       "_x1o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_x2u",
-       "_x2o",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_y1l",
-       "_y1r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_y2l",
-       "_y2r",
-       "",
-       "gestrichelt"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 9,
-    "einheit": "cm²"
-   },
-   "c": "3 * 3",
-   "w": "3 Reihen zu je 3 Quadraten: 3 · 3 = 9 cm².",
-   "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
+   "c": "6 * 5",
+   "w": "Eine Reihe: 6 Quadrate. 5 Reihen: 5 · 6 = 30.",
+   "h": "Reihen mal Quadrate pro Reihe.",
+   "g": "direkt"
   },
   {
    "l": "einheitsquadrate",
@@ -1701,12 +1976,289 @@
     }
    },
    "o": {
-    "wert": 14,
-    "einheit": "cm²"
+    "wert": 14
    },
    "c": "7 * 2",
-   "w": "2 Reihen zu je 7 Quadraten: 2 · 7 = 14 cm².",
+   "w": "2 Reihen zu je 7 Quadraten: 2 · 7 = 14 Einheitsquadrate. Der Flächeninhalt ist also 14 cm².",
    "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist mit 56 Einheitsquadraten (1 cm²) ausgelegt. Eine Reihe hat 8 Quadrate. Wie viele Reihen sind es?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "56 / 8",
+   "w": "56 : 8 = 7 Reihen. Das Rechteck ist 7 cm breit.",
+   "h": "Teile die Anzahl der Quadrate durch die Quadrate pro Reihe."
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 15 cm lang und 10 cm breit. Wie viele quadratische Fliesen mit 5 cm Seitenlänge passen hinein?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(15 / 5) * (10 / 5)",
+   "w": "In der Länge 15 : 5 = 3, in der Breite 10 : 5 = 2. 3 · 2 = 6 Fliesen.",
+   "h": "Wie viele Fliesen passen nebeneinander, wie viele hintereinander?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist mit 48 Einheitsquadraten (1 cm²) ausgelegt. Es hat 6 Reihen. Wie lang ist es?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "48 / 6",
+   "w": "48 Quadrate in 6 Reihen: 48 : 6 = 8 Quadrate pro Reihe, also 8 cm lang.",
+   "h": "Wie viele Quadrate liegen in einer Reihe?",
+   "g": "umkehr"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck aus 5 · 6 Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?"
+   },
+   "o": {
+    "wert": 120
+   },
+   "c": "(2 * 5) * (2 * 6)",
+   "w": "Neu: 10 · 12 = 120 Quadrate – viermal so viele wie 30.",
+   "h": "Rechne die neuen Seitenlängen aus.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 24 Einheitsquadraten soll ein Rechteck gelegt werden. Wie viele verschieden geformte Rechtecke gibt es? (Gedreht zählt nicht als neu.)"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "24 = 1 · 24 = 2 · 12 = 3 · 8 = 4 · 6. Das sind 4 Rechtecke.",
+   "h": "Suche alle Zahlenpaare, deren Produkt 24 ist.",
+   "g": "transfer"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Einheitsquadrate (1 cm²) passen in das Rechteck?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       7,
+       0
+      ],
+      "_C": [
+       7,
+       3
+      ],
+      "_D": [
+       0,
+       3
+      ],
+      "_x1u": [
+       1,
+       0
+      ],
+      "_x1o": [
+       1,
+       3
+      ],
+      "_x2u": [
+       2,
+       0
+      ],
+      "_x2o": [
+       2,
+       3
+      ],
+      "_x3u": [
+       3,
+       0
+      ],
+      "_x3o": [
+       3,
+       3
+      ],
+      "_x4u": [
+       4,
+       0
+      ],
+      "_x4o": [
+       4,
+       3
+      ],
+      "_x5u": [
+       5,
+       0
+      ],
+      "_x5o": [
+       5,
+       3
+      ],
+      "_x6u": [
+       6,
+       0
+      ],
+      "_x6o": [
+       6,
+       3
+      ],
+      "_y1l": [
+       0,
+       1
+      ],
+      "_y1r": [
+       7,
+       1
+      ],
+      "_y2l": [
+       0,
+       2
+      ],
+      "_y2r": [
+       7,
+       2
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "7 cm"
+      ],
+      [
+       "_B",
+       "_C",
+       "3 cm"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ],
+      [
+       "_x1u",
+       "_x1o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_x2u",
+       "_x2o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_x3u",
+       "_x3o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_x4u",
+       "_x4o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_x5u",
+       "_x5o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_x6u",
+       "_x6o",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_y1l",
+       "_y1r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_y2l",
+       "_y2r",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "7 * 3",
+   "w": "3 Reihen zu je 7 Quadraten: 3 · 7 = 21 Einheitsquadrate. Der Flächeninhalt ist also 21 cm².",
+   "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 9 cm lang und 2 cm breit. Wie viele Quadrate mit 1 cm Seitenlänge passen hinein?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "9 * 2",
+   "w": "Eine Reihe: 9 Quadrate. 2 Reihen: 2 · 9 = 18.",
+   "h": "Reihen mal Quadrate pro Reihe.",
+   "g": "direkt"
   },
   {
    "l": "einheitsquadrate",
@@ -1891,92 +2443,11 @@
     }
    },
    "o": {
-    "wert": 28,
-    "einheit": "cm²"
+    "wert": 28
    },
    "c": "7 * 4",
-   "w": "4 Reihen zu je 7 Quadraten: 4 · 7 = 28 cm².",
+   "w": "4 Reihen zu je 7 Quadraten: 4 · 7 = 28 Einheitsquadrate. Der Flächeninhalt ist also 28 cm².",
    "h": "Zähle die Quadrate in einer Reihe und die Anzahl der Reihen."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck ist 6 cm lang und 5 cm breit. Wie viele Quadrate mit 1 cm Seitenlänge passen hinein?"
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "6 * 5",
-   "w": "Eine Reihe: 6 Quadrate. 5 Reihen: 5 · 6 = 30.",
-   "h": "Reihen mal Quadrate pro Reihe."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck ist mit 64 Einheitsquadraten (1 cm²) ausgelegt. Eine Reihe hat 8 Quadrate. Wie viele Reihen sind es?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "64 / 8",
-   "w": "64 : 8 = 8 Reihen. Das Rechteck ist 8 cm breit.",
-   "h": "Teile die Anzahl der Quadrate durch die Quadrate pro Reihe."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck ist mit 28 Einheitsquadraten (1 cm²) ausgelegt. Eine Reihe hat 7 Quadrate. Wie viele Reihen sind es?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "28 / 7",
-   "w": "28 : 7 = 4 Reihen. Das Rechteck ist 4 cm breit.",
-   "h": "Teile die Anzahl der Quadrate durch die Quadrate pro Reihe."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck ist 9 cm lang und 2 cm breit. Wie viele Quadrate mit 1 cm Seitenlänge passen hinein?"
-   },
-   "o": {
-    "wert": 18
-   },
-   "c": "9 * 2",
-   "w": "Eine Reihe: 9 Quadrate. 2 Reihen: 2 · 9 = 18.",
-   "h": "Reihen mal Quadrate pro Reihe."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck ist mit 56 Einheitsquadraten (1 cm²) ausgelegt. Eine Reihe hat 8 Quadrate. Wie viele Reihen sind es?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "56 / 8",
-   "w": "56 : 8 = 7 Reihen. Das Rechteck ist 7 cm breit.",
-   "h": "Teile die Anzahl der Quadrate durch die Quadrate pro Reihe."
   },
   {
    "l": "einheitsquadrate",
@@ -1998,71 +2469,7 @@
    "l": "einheitsquadrate",
    "t": "einheitsquadrate",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck ist 15 cm lang und 10 cm breit. Wie viele quadratische Fliesen mit 5 cm Seitenlänge passen hinein?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "(15 / 5) * (10 / 5)",
-   "w": "In der Länge 15 : 5 = 3, in der Breite 10 : 5 = 2. 3 · 2 = 6 Fliesen.",
-   "h": "Wie viele Fliesen passen nebeneinander, wie viele hintereinander?"
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck aus 6 · 6 Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?"
-   },
-   "o": {
-    "wert": 144
-   },
-   "c": "(2 * 6) * (2 * 6)",
-   "w": "Neu: 12 · 12 = 144 Quadrate – viermal so viele wie 36.",
-   "h": "Rechne die neuen Seitenlängen aus."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck aus 5 · 6 Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?"
-   },
-   "o": {
-    "wert": 120
-   },
-   "c": "(2 * 5) * (2 * 6)",
-   "w": "Neu: 10 · 12 = 120 Quadrate – viermal so viele wie 30.",
-   "h": "Rechne die neuen Seitenlängen aus."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck aus 6 · 5 Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?"
-   },
-   "o": {
-    "wert": 120
-   },
-   "c": "(2 * 6) * (2 * 5)",
-   "w": "Neu: 12 · 10 = 120 Quadrate – viermal so viele wie 30.",
-   "h": "Rechne die neuen Seitenlängen aus."
-  },
-  {
-   "l": "einheitsquadrate",
-   "t": "einheitsquadrate",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck ist 12 cm lang und 9 cm breit. Wie viele quadratische Fliesen mit 3 cm Seitenlänge passen hinein?"
@@ -2072,13 +2479,32 @@
    },
    "c": "(12 / 3) * (9 / 3)",
    "w": "In der Länge 12 : 3 = 4, in der Breite 9 : 3 = 3. 4 · 3 = 12 Fliesen.",
-   "h": "Wie viele Fliesen passen nebeneinander, wie viele hintereinander?"
+   "h": "Wie viele Fliesen passen nebeneinander, wie viele hintereinander?",
+   "g": "mehrschritt"
   },
   {
    "l": "einheitsquadrate",
    "t": "einheitsquadrate",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat ist aus 49 Einheitsquadraten (1 cm²) gelegt. Wie lang ist eine Seite?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "7",
+   "w": "7 Reihen mit je 7 Quadraten: 7 · 7 = 49. Die Seite ist 7 cm lang.",
+   "h": "Welche Zahl mal sich selbst ergibt 49?",
+   "g": "umkehr"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Rechteck ist 8 cm lang und 6 cm breit. Wie viele quadratische Fliesen mit 2 cm Seitenlänge passen hinein?"
@@ -2089,6 +2515,149 @@
    "c": "(8 / 2) * (6 / 2)",
    "w": "In der Länge 8 : 2 = 4, in der Breite 6 : 2 = 3. 4 · 3 = 12 Fliesen.",
    "h": "Wie viele Fliesen passen nebeneinander, wie viele hintereinander?"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Albumseite ist 20 cm breit und 30 cm hoch. Sie wird mit quadratischen Stickern von 1 cm Seitenlänge lückenlos beklebt. Wie viele Sticker passen darauf?"
+   },
+   "o": {
+    "wert": 600
+   },
+   "c": "20 * 30",
+   "w": "20 Reihen zu je 30 Stickern: 600.",
+   "h": "Wie viele Sticker passen in eine Reihe, wie viele Reihen gibt es?"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck aus 4 · 3 Einheitsquadraten wird doppelt so lang und dreimal so breit. Wie viele Einheitsquadrate passen jetzt hinein?"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "(2 * 4) * (3 * 3)",
+   "w": "Neu: 8 · 9 = 72 Quadrate – sechsmal so viele wie 12 (2 · 3 = 6).",
+   "h": "Rechne die neuen Seitenlängen aus.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf ein Plakat sollen 24 Fotos geklebt werden, jedes 4 cm breit und 5 cm hoch, ohne Überlappung. Wie groß muss das Plakat mindestens sein (in cm²)?"
+   },
+   "o": {
+    "wert": 480,
+    "einheit": "cm²"
+   },
+   "c": "24 * 4 * 5",
+   "w": "Ein Foto: 4 cm · 5 cm = 20 cm². 24 Fotos: 24 · 20 cm² = 480 cm².",
+   "h": "Rechne zuerst die Fläche eines Fotos aus.",
+   "g": "pruefung"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat mit 4 cm Seitenlänge wird aus Einheitsquadraten (1 cm²) gelegt. Wie viele Einheitsquadrate liegen am Rand?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "4 * 4 - 2 * 2",
+   "w": "Alle: 4 · 4 = 16. Innen bleiben 2 · 2 = 4. Am Rand: 16 − 4 = 12.",
+   "h": "Zähle nicht jede Ecke doppelt. Tipp: alle minus die inneren.",
+   "g": "transfer"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck aus Einheitsquadraten ist 3-mal so lang wie breit und enthält 75 Quadrate. Wie viele Quadrate breit ist es?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Breite b, Länge 3 · b: 3 · b · b = 75, also b · b = 25 und b = 5.",
+   "h": "Probiere Breiten aus: 3 · 4 · 4 = 48, 3 · 5 · 5 = ?",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand zählt bei einem Rechteck aus 5 · 3 Einheitsquadraten nur die Kästchenlängen am Rand und sagt: „Der Flächeninhalt ist 16 cm².“ Was ist falsch?"
+   },
+   "a": [
+    "Nichts, das stimmt.",
+    "Der Flächeninhalt zählt alle Quadrate: 15 cm². 16 cm ist der Umfang.",
+    "Richtig sind 30 cm².",
+    "Richtig sind 8 cm²."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Flächeninhalt: 5 · 3 = 15 Quadrate. Der Rand ist 2 · (5 + 3) = 16 cm lang – das ist der Umfang.",
+   "h": "Was misst der Flächeninhalt, was der Umfang?"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Aus 36 Einheitsquadraten (1 cm²) werden verschiedene Rechtecke gelegt. Wie groß ist der kleinste mögliche Umfang?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm"
+   },
+   "c": "2 * (6 + 6)",
+   "w": "Möglich sind 1 · 36, 2 · 18, 3 · 12, 4 · 9 und 6 · 6. Die Umfänge: 74, 40, 30, 26 und 24 cm. Am kleinsten beim Quadrat: 24 cm.",
+   "h": "Je „quadratischer“ das Rechteck, desto …?"
+  },
+  {
+   "l": "einheitsquadrate",
+   "t": "einheitsquadrate",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck besteht aus 30 Einheitsquadraten. Genau 22 davon liegen am Rand. Wie viele Quadrate ist es lang (die längere Seite)?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10",
+   "w": "Bei a · b Quadraten liegen 2 · a + 2 · b − 4 am Rand (die Ecken nicht doppelt). 2 · a + 2 · b − 4 = 22 heißt a + b = 13. Mit a · b = 30 passt nur 10 und 3.",
+   "h": "Wie viele Quadrate liegen bei einem a · b-Rechteck am Rand? Denk an die Ecken."
   },
   {
    "l": "einheitsquadrate",
@@ -2302,7 +2871,26 @@
    },
    "c": "11 * 2",
    "w": "A = 11 dm · 2 dm = 22 dm².",
-   "h": "A = Länge mal Breite."
+   "h": "A = Länge mal Breite.",
+   "g": "direkt"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat den Umfang 8 m. Wie groß ist sein Flächeninhalt?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m²"
+   },
+   "c": "(8 / 4) ** 2",
+   "w": "Seite: 8 : 4 = 2 m. A = 2 · 2 = 4 m².",
+   "h": "Berechne zuerst die Seitenlänge.",
+   "g": "mehrschritt"
   },
   {
    "l": "rechteck",
@@ -2366,7 +2954,26 @@
    },
    "c": "2 * 10 + 2 * 12",
    "w": "u = 2 · 10 m + 2 · 12 m = 44 m.",
-   "h": "Der Umfang ist der ganze Rand: alle vier Seiten."
+   "h": "Der Umfang ist der ganze Rand: alle vier Seiten.",
+   "g": "direkt"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat den Flächeninhalt 289 dm². Wie lang ist eine Seite?"
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "dm"
+   },
+   "c": "17",
+   "w": "Welche Zahl mal sich selbst ergibt 289? 17 · 17 = 289. Seite: 17 dm.",
+   "h": "Denke an die Quadratzahlen.",
+   "g": "umkehr"
   },
   {
    "l": "rechteck",
@@ -2430,7 +3037,26 @@
    },
    "c": "3 * 6",
    "w": "A = 3 m · 6 m = 18 m².",
-   "h": "A = Länge mal Breite."
+   "h": "A = Länge mal Breite.",
+   "g": "direkt"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 3 m lang und 30 cm breit. Wie groß ist der Flächeninhalt in dm²?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "dm²"
+   },
+   "c": "(3 * 10) * (30 / 10)",
+   "w": "Gleiche Einheit: 3 m = 30 dm, 30 cm = 3 dm. A = 30 · 3 = 90 dm².",
+   "h": "Erst beide Seiten in dm umrechnen.",
+   "g": "mehrschritt"
   },
   {
    "l": "rechteck",
@@ -2494,7 +3120,44 @@
    },
    "c": "3 * 12",
    "w": "A = 3 cm · 12 cm = 36 cm².",
-   "h": "A = Länge mal Breite."
+   "h": "A = Länge mal Breite.",
+   "g": "direkt"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Flächeninhalt 105 m² und ist 15 m lang. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "m"
+   },
+   "c": "105 / 15",
+   "w": "b = A : a = 105 : 15 = 7 m.",
+   "h": "Umkehraufgabe: Fläche geteilt durch Länge.",
+   "g": "umkehr"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 6 m lang und 90 cm breit. Wie groß ist der Flächeninhalt in dm²?"
+   },
+   "o": {
+    "wert": 540,
+    "einheit": "dm²"
+   },
+   "c": "(6 * 10) * (90 / 10)",
+   "w": "Gleiche Einheit: 6 m = 60 dm, 90 cm = 9 dm. A = 60 · 9 = 540 dm².",
+   "h": "Erst beide Seiten in dm umrechnen.",
+   "g": "mehrschritt"
   },
   {
    "l": "rechteck",
@@ -2558,7 +3221,118 @@
    },
    "c": "2 * 4 + 2 * 2",
    "w": "u = 2 · 4 cm + 2 · 2 cm = 12 cm.",
-   "h": "Der Umfang ist der ganze Rand: alle vier Seiten."
+   "h": "Der Umfang ist der ganze Rand: alle vier Seiten.",
+   "g": "direkt"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 5 m lang und 50 cm breit. Wie groß ist der Flächeninhalt in dm²?"
+   },
+   "o": {
+    "wert": 250,
+    "einheit": "dm²"
+   },
+   "c": "(5 * 10) * (50 / 10)",
+   "w": "Gleiche Einheit: 5 m = 50 dm, 50 cm = 5 dm. A = 50 · 5 = 250 dm².",
+   "h": "Erst beide Seiten in dm umrechnen."
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "18 cm",
+    "14 cm²",
+    "9 cm",
+    "14 cm"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Rechteck ist 7 cm lang und 2 cm breit. Welche Angabe ist der Umfang?"
+   },
+   "w": "u = 2 · 7 cm + 2 · 2 cm = 18 cm. Ein Umfang ist eine Länge (cm). 14 cm² wäre der Flächeninhalt.",
+   "h": "Umfang: Länge in cm. Flächeninhalt: in cm².",
+   "g": "erkennen"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Flächeninhalt 110 cm² und ist 11 cm lang. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "110 / 11",
+   "w": "b = A : a = 110 : 11 = 10 cm.",
+   "h": "Umkehraufgabe: Fläche geteilt durch Länge.",
+   "g": "umkehr"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 2 m lang und 90 cm breit. Wie groß ist der Flächeninhalt in dm²?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "dm²"
+   },
+   "c": "(2 * 10) * (90 / 10)",
+   "w": "Gleiche Einheit: 2 m = 20 dm, 90 cm = 9 dm. A = 20 · 9 = 180 dm².",
+   "h": "Erst beide Seiten in dm umrechnen."
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Flächeninhalt 72 cm² und ist 6 cm breit. Wie groß ist sein Umfang?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm"
+   },
+   "c": "2 * (72 / 6) + 2 * 6",
+   "w": "Länge: 72 : 6 = 12 cm. Umfang: 2 · 12 cm + 2 · 6 cm = 36 cm.",
+   "h": "Bestimme zuerst die Länge.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechtecke mit ganzzahligen Seitenlängen (in cm) sollen den Umfang 14 cm haben. Wie groß ist der größte mögliche Flächeninhalt?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm²"
+   },
+   "c": "12",
+   "w": "Länge + Breite = 7 cm: 1 · 6 = 6, 2 · 5 = 10, 3 · 4 = 12. Am größten: 12 cm².",
+   "h": "Länge plus Breite ist der halbe Umfang. Probiere alle Möglichkeiten.",
+   "g": "transfer"
   },
   {
    "l": "rechteck",
@@ -2622,85 +3396,14 @@
    },
    "c": "2 * 6 + 2 * 12",
    "w": "u = 2 · 6 cm + 2 · 12 cm = 36 cm.",
-   "h": "Der Umfang ist der ganze Rand: alle vier Seiten."
+   "h": "Der Umfang ist der ganze Rand: alle vier Seiten.",
+   "g": "direkt"
   },
   {
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "18 cm",
-    "14 cm²",
-    "9 cm",
-    "14 cm"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Ein Rechteck ist 7 cm lang und 2 cm breit. Welche Angabe ist der Umfang?"
-   },
-   "w": "u = 2 · 7 cm + 2 · 2 cm = 18 cm. Ein Umfang ist eine Länge (cm). 14 cm² wäre der Flächeninhalt.",
-   "h": "Umfang: Länge in cm. Flächeninhalt: in cm²."
-  },
-  {
-   "l": "rechteck",
-   "t": "rechteck",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quadrat hat den Flächeninhalt 289 dm². Wie lang ist eine Seite?"
-   },
-   "o": {
-    "wert": 17,
-    "einheit": "dm"
-   },
-   "c": "17",
-   "w": "Welche Zahl mal sich selbst ergibt 289? 17 · 17 = 289. Seite: 17 dm.",
-   "h": "Denke an die Quadratzahlen."
-  },
-  {
-   "l": "rechteck",
-   "t": "rechteck",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quadrat hat den Umfang 8 m. Wie groß ist sein Flächeninhalt?"
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "m²"
-   },
-   "c": "(8 / 4) ** 2",
-   "w": "Seite: 8 : 4 = 2 m. A = 2 · 2 = 4 m².",
-   "h": "Berechne zuerst die Seitenlänge."
-  },
-  {
-   "l": "rechteck",
-   "t": "rechteck",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck hat den Flächeninhalt 105 m² und ist 15 m lang. Wie breit ist es?"
-   },
-   "o": {
-    "wert": 7,
-    "einheit": "m"
-   },
-   "c": "105 / 15",
-   "w": "b = A : a = 105 : 15 = 7 m.",
-   "h": "Umkehraufgabe: Fläche geteilt durch Länge."
-  },
-  {
-   "l": "rechteck",
-   "t": "rechteck",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "34 cm²",
@@ -2715,7 +3418,8 @@
     "text": "Ein Rechteck ist 9 cm lang und 8 cm breit. Welche Angabe ist der Flächeninhalt?"
    },
    "w": "A = 9 cm · 8 cm = 72 cm². Ein Flächeninhalt hat die Einheit cm². 34 cm wäre der Umfang.",
-   "h": "Umfang: Länge in cm. Flächeninhalt: in cm²."
+   "h": "Umfang: Länge in cm. Flächeninhalt: in cm².",
+   "g": "erkennen"
   },
   {
    "l": "rechteck",
@@ -2724,49 +3428,69 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck hat den Flächeninhalt 110 cm² und ist 11 cm lang. Wie breit ist es?"
+    "text": "Ein Rechteck ist 3 m lang und 60 cm breit. Wie groß ist der Flächeninhalt in dm²?"
    },
    "o": {
-    "wert": 10,
+    "wert": 180,
+    "einheit": "dm²"
+   },
+   "c": "(3 * 10) * (60 / 10)",
+   "w": "Gleiche Einheit: 3 m = 30 dm, 60 cm = 6 dm. A = 30 · 6 = 180 dm².",
+   "h": "Erst beide Seiten in dm umrechnen."
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 12 cm lang und hat den Umfang 34 cm. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 5,
     "einheit": "cm"
    },
-   "c": "110 / 11",
-   "w": "b = A : a = 110 : 11 = 10 cm.",
-   "h": "Umkehraufgabe: Fläche geteilt durch Länge."
+   "c": "34 / 2 - 12",
+   "w": "Länge + Breite = 34 cm : 2 = 17 cm. Breite: 17 cm − 12 cm = 5 cm.",
+   "h": "Der halbe Umfang ist Länge plus Breite.",
+   "g": "umkehr"
   },
   {
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck ist 3 m lang und 30 cm breit. Wie groß ist der Flächeninhalt in dm²?"
+    "text": "Ein Quadrat hat den Flächeninhalt 81 cm². Wie groß ist sein Umfang?"
    },
    "o": {
-    "wert": 90,
-    "einheit": "dm²"
+    "wert": 36,
+    "einheit": "cm"
    },
-   "c": "(3 * 10) * (30 / 10)",
-   "w": "Gleiche Einheit: 3 m = 30 dm, 30 cm = 3 dm. A = 30 · 3 = 90 dm².",
-   "h": "Erst beide Seiten in dm umrechnen."
+   "c": "4 * 9",
+   "w": "Seite: 9 cm, weil 9 · 9 = 81. Umfang: 4 · 9 cm = 36 cm.",
+   "h": "Bestimme zuerst die Seitenlänge.",
+   "g": "mehrschritt"
   },
   {
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck ist 6 m lang und 90 cm breit. Wie groß ist der Flächeninhalt in dm²?"
+    "text": "Ein Tischtuch ist 2 m lang und 1 m 50 cm breit. Wie viele dm² hat es?"
    },
    "o": {
-    "wert": 540,
+    "wert": 300,
     "einheit": "dm²"
    },
-   "c": "(6 * 10) * (90 / 10)",
-   "w": "Gleiche Einheit: 6 m = 60 dm, 90 cm = 9 dm. A = 60 · 9 = 540 dm².",
-   "h": "Erst beide Seiten in dm umrechnen."
+   "c": "20 * 15",
+   "w": "2 m = 20 dm, 1 m 50 cm = 15 dm. 20 dm · 15 dm = 300 dm².",
+   "h": "Rechne beide Seiten in dm um."
   },
   {
    "l": "rechteck",
@@ -2783,7 +3507,8 @@
    },
    "c": "14 * 5 - 7 * 5",
    "w": "Vorher 7 · 5 = 35 m², nachher 14 · 5 = 70 m². Zuwachs: 35 m².",
-   "h": "Rechne beide Flächen aus und vergleiche."
+   "h": "Rechne beide Flächen aus und vergleiche.",
+   "g": "verknuepfen"
   },
   {
    "l": "rechteck",
@@ -2792,49 +3517,161 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck ist 5 m lang und 50 cm breit. Wie groß ist der Flächeninhalt in dm²?"
+    "text": "Ein Rechteck ist 9 cm lang und 5 cm breit. Ein Quadrat hat denselben Umfang. Wie groß ist der Flächeninhalt des Quadrats?"
    },
    "o": {
-    "wert": 250,
-    "einheit": "dm²"
+    "wert": 49,
+    "einheit": "cm²"
    },
-   "c": "(5 * 10) * (50 / 10)",
-   "w": "Gleiche Einheit: 5 m = 50 dm, 50 cm = 5 dm. A = 50 · 5 = 250 dm².",
-   "h": "Erst beide Seiten in dm umrechnen."
+   "c": "((2 * 9 + 2 * 5) / 4) ** 2",
+   "w": "Umfang: 2 · 9 cm + 2 · 5 cm = 28 cm. Quadratseite: 28 cm : 4 = 7 cm. Fläche: 7 cm · 7 cm = 49 cm².",
+   "h": "Berechne den Umfang und teile ihn auf 4 gleiche Seiten.",
+   "g": "transfer"
   },
   {
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Ein Rechteck ist 2 m lang und 90 cm breit. Wie groß ist der Flächeninhalt in dm²?"
+    "text": "Ein Rechteck hat den Flächeninhalt 12 cm². Werden Länge und Breite je um 1 cm größer, hat es 20 cm². Wie lang und wie breit war es? (ganze cm)",
+    "schablone": "Länge □ cm, Breite □ cm",
+    "hinweis": "Trage zuerst die längere Seite ein."
    },
    "o": {
-    "wert": 180,
-    "einheit": "dm²"
+    "werte": [
+     4,
+     3
+    ]
    },
-   "c": "(2 * 10) * (90 / 10)",
-   "w": "Gleiche Einheit: 2 m = 20 dm, 90 cm = 9 dm. A = 20 · 9 = 180 dm².",
-   "h": "Erst beide Seiten in dm umrechnen."
+   "c": [
+    "4",
+    "3"
+   ],
+   "w": "Mögliche Rechtecke mit 12 cm²: 12 · 1, 6 · 2, 4 · 3. Nur 4 · 3 wird zu 5 · 4 = 20 cm².",
+   "h": "Probiere alle Rechtecke mit 12 cm² aus.",
+   "g": "rueckwaerts"
   },
   {
    "l": "rechteck",
    "t": "rechteck",
    "p": "uebung",
    "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet den Umfang eines Rechtecks mit 8 cm und 3 cm so: 8 + 3 = 11 cm. Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist 4 · 8 = 32 cm.",
+    "Jede Seite kommt zweimal vor: 2 · (8 + 3) = 22 cm.",
+    "Richtig ist 8 · 3 = 24 cm.",
+    "Nichts, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Umfang ist der Weg einmal ganz herum: 8 + 3 + 8 + 3 = 22 cm.",
+   "h": "Wie viele Seiten hat ein Rechteck?"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Verdoppelt man die Länge eines Rechtecks und lässt die Breite gleich, verdoppelt sich der Flächeninhalt.“"
+   },
+   "a": [
+    "Ja: A = 2 · a · b, also doppelt so groß.",
+    "Nein, er vervierfacht sich.",
+    "Nein, er bleibt gleich.",
+    "Nur bei Quadraten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das neue Rechteck besteht aus zwei alten Rechtecken nebeneinander.",
+   "h": "Lege zwei gleiche Rechtecke nebeneinander."
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck ist 3 m lang und 60 cm breit. Wie groß ist der Flächeninhalt in dm²?"
+    "text": "Ein Rechteck ist 4 cm breit. Für welche Länge a haben Umfang (in cm) und Flächeninhalt (in cm²) dieselbe Maßzahl?"
    },
    "o": {
-    "wert": 180,
-    "einheit": "dm²"
+    "wert": 4,
+    "einheit": "cm"
    },
-   "c": "(3 * 10) * (60 / 10)",
-   "w": "Gleiche Einheit: 3 m = 30 dm, 60 cm = 6 dm. A = 30 · 6 = 180 dm².",
-   "h": "Erst beide Seiten in dm umrechnen."
+   "c": "4",
+   "w": "Umfang 2 · a + 8, Flächeninhalt 4 · a. Gleich: 2 · a + 8 = 4 · a, also 2 · a = 8 und a = 4 (Quadrat: 16 cm und 16 cm²).",
+   "h": "Schreib Umfang und Flächeninhalt mit a auf."
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angabe ist richtig?"
+   },
+   "a": [
+    "4 cm und 6 cm ergeben 24 cm.",
+    "8 m und 300 cm ergeben 24 m².",
+    "5 dm und 20 cm ergeben 100 dm².",
+    "7 m und 2 m ergeben 18 m²."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "8 m · 3 m = 24 m². Die anderen: falsche Einheit (cm statt cm²), 5 dm · 2 dm = 10 dm², 7 m · 2 m = 14 m² (18 wäre der Umfang).",
+   "h": "Bring beide Seiten auf dieselbe Einheit und prüfe die Einheit des Ergebnisses."
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 20 cm und den Flächeninhalt 24 cm². Wie lang ist die längere Seite?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "6",
+   "w": "Länge + Breite = 10 cm und Länge · Breite = 24 cm². Probieren: 6 und 4.",
+   "h": "Was ergeben Länge und Breite zusammen?"
+  },
+  {
+   "l": "rechteck",
+   "t": "rechteck",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat wird in 3 gleiche Streifen (Rechtecke) zerlegt. Jeder Streifen hat den Umfang 24 cm. Wie groß ist der Flächeninhalt des Quadrats?"
+   },
+   "o": {
+    "wert": 81,
+    "einheit": "cm²"
+   },
+   "c": "9 * 9",
+   "w": "Ist die Quadratseite s, ist ein Streifen s lang und s : 3 breit. Umfang: 2 · s + 2 · (s : 3) = 24. Mit s = 9: 18 + 6 = 24. Flächeninhalt: 81 cm².",
+   "h": "Drücke die Streifenbreite durch die Quadratseite aus."
   },
   {
    "l": "rechteck",
@@ -3019,92 +3856,8 @@
    },
    "c": "2700 / 100",
    "w": "Umrechnungszahl 100: 2 700 : 100 = 27 a.",
-   "h": "In die größere Einheit: durch 100."
-  },
-  {
-   "l": "einheiten",
-   "t": "einheiten",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne um: 4 km² = ? ha"
-   },
-   "o": {
-    "wert": 400,
-    "einheit": "ha"
-   },
-   "c": "4 * 100",
-   "w": "Umrechnungszahl 100: 4 · 100 = 400 ha.",
-   "h": "In die kleinere Einheit: mal 100."
-  },
-  {
-   "l": "einheiten",
-   "t": "einheiten",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne um: 22 dm² = ? cm²"
-   },
-   "o": {
-    "wert": 2200,
-    "einheit": "cm²"
-   },
-   "c": "22 * 100",
-   "w": "Umrechnungszahl 100: 22 · 100 = 2 200 cm².",
-   "h": "In die kleinere Einheit: mal 100."
-  },
-  {
-   "l": "einheiten",
-   "t": "einheiten",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne um: 35 km² = ? ha"
-   },
-   "o": {
-    "wert": 3500,
-    "einheit": "ha"
-   },
-   "c": "35 * 100",
-   "w": "Umrechnungszahl 100: 35 · 100 = 3 500 ha.",
-   "h": "In die kleinere Einheit: mal 100."
-  },
-  {
-   "l": "einheiten",
-   "t": "einheiten",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne um: 3 100 a = ? ha"
-   },
-   "o": {
-    "wert": 31,
-    "einheit": "ha"
-   },
-   "c": "3100 / 100",
-   "w": "Umrechnungszahl 100: 3 100 : 100 = 31 ha.",
-   "h": "In die größere Einheit: durch 100."
-  },
-  {
-   "l": "einheiten",
-   "t": "einheiten",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne um: 5 700 mm² = ? cm²"
-   },
-   "o": {
-    "wert": 57,
-    "einheit": "cm²"
-   },
-   "c": "5700 / 100",
-   "w": "Umrechnungszahl 100: 5 700 : 100 = 57 cm².",
-   "h": "In die größere Einheit: durch 100."
+   "h": "In die größere Einheit: durch 100.",
+   "g": "direkt"
   },
   {
    "l": "einheiten",
@@ -3121,7 +3874,62 @@
    },
    "c": "9 * 100 + 69",
    "w": "9 km² = 900 ha, dazu 69: 969 ha.",
-   "h": "Größere Einheit umrechnen, dann addieren."
+   "h": "Größere Einheit umrechnen, dann addieren.",
+   "g": "darstellung"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 4 km² = ? ha"
+   },
+   "o": {
+    "wert": 400,
+    "einheit": "ha"
+   },
+   "c": "4 * 100",
+   "w": "Umrechnungszahl 100: 4 · 100 = 400 ha.",
+   "h": "In die kleinere Einheit: mal 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe in cm²: 14 dm² 76 cm²"
+   },
+   "o": {
+    "wert": 1476,
+    "einheit": "cm²"
+   },
+   "c": "14 * 100 + 76",
+   "w": "14 dm² = 1 400 cm², dazu 76: 1 476 cm².",
+   "h": "Größere Einheit umrechnen, dann addieren.",
+   "g": "darstellung"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 22 dm² = ? cm²"
+   },
+   "o": {
+    "wert": 2200,
+    "einheit": "cm²"
+   },
+   "c": "22 * 100",
+   "w": "Umrechnungszahl 100: 22 · 100 = 2 200 cm².",
+   "h": "In die kleinere Einheit: mal 100.",
+   "g": "direkt"
   },
   {
    "l": "einheiten",
@@ -3142,7 +3950,8 @@
     "text": "Ein Blatt Papier (DIN A4) hat ungefähr welche Fläche?"
    },
    "w": "Ein Blatt Papier (DIN A4) hat ungefähr 6 dm². Vergleiche: 1 m² ist ein Quadrat mit 1 m Seite, 1 a ein Quadrat mit 10 m Seite, 1 ha eines mit 100 m Seite.",
-   "h": "Stell dir Quadrate mit 1 cm, 10 cm, 1 m, 10 m und 100 m Seitenlänge vor."
+   "h": "Stell dir Quadrate mit 1 cm, 10 cm, 1 m, 10 m und 100 m Seitenlänge vor.",
+   "g": "einkleidung"
   },
   {
    "l": "einheiten",
@@ -3151,15 +3960,34 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Schreibe in cm²: 14 dm² 76 cm²"
+    "text": "Schreibe in m²: 17 a 14 m²"
    },
    "o": {
-    "wert": 1476,
-    "einheit": "cm²"
+    "wert": 1714,
+    "einheit": "m²"
    },
-   "c": "14 * 100 + 76",
-   "w": "14 dm² = 1 400 cm², dazu 76: 1 476 cm².",
-   "h": "Größere Einheit umrechnen, dann addieren."
+   "c": "17 * 100 + 14",
+   "w": "17 a = 1 700 m², dazu 14: 1 714 m².",
+   "h": "Größere Einheit umrechnen, dann addieren.",
+   "g": "darstellung"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 35 km² = ? ha"
+   },
+   "o": {
+    "wert": 3500,
+    "einheit": "ha"
+   },
+   "c": "35 * 100",
+   "w": "Umrechnungszahl 100: 35 · 100 = 3 500 ha.",
+   "h": "In die kleinere Einheit: mal 100.",
+   "g": "direkt"
   },
   {
    "l": "einheiten",
@@ -3180,7 +4008,8 @@
     "text": "Ein Handydisplay hat ungefähr welche Fläche?"
    },
    "w": "Ein Handydisplay hat ungefähr 1 dm². Vergleiche: 1 m² ist ein Quadrat mit 1 m Seite, 1 a ein Quadrat mit 10 m Seite, 1 ha eines mit 100 m Seite.",
-   "h": "Stell dir Quadrate mit 1 cm, 10 cm, 1 m, 10 m und 100 m Seitenlänge vor."
+   "h": "Stell dir Quadrate mit 1 cm, 10 cm, 1 m, 10 m und 100 m Seitenlänge vor.",
+   "g": "einkleidung"
   },
   {
    "l": "einheiten",
@@ -3197,30 +4026,14 @@
    },
    "c": "23 * 100 * 100",
    "w": "Zwei Schritte, jeweils mal 100: 23 · 10 000 = 230 000 dm².",
-   "h": "Zwischen a und dm² liegt noch m²."
+   "h": "Zwischen a und dm² liegt noch m².",
+   "g": "mehrschritt"
   },
   {
    "l": "einheiten",
    "t": "einheiten",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe in m²: 17 a 14 m²"
-   },
-   "o": {
-    "wert": 1714,
-    "einheit": "m²"
-   },
-   "c": "17 * 100 + 14",
-   "w": "17 a = 1 700 m², dazu 14: 1 714 m².",
-   "h": "Größere Einheit umrechnen, dann addieren."
-  },
-  {
-   "l": "einheiten",
-   "t": "einheiten",
-   "p": "uebung",
-   "s": 3,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 3 569 mm² = □ cm² □ mm²",
@@ -3238,24 +4051,8 @@
     "3569 % 100"
    ],
    "w": "3 569 : 100 = 35 Rest 69: 35 cm² 69 mm².",
-   "h": "Die letzten beiden Ziffern bleiben in der kleineren Einheit."
-  },
-  {
-   "l": "einheiten",
-   "t": "einheiten",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bauernhof hat 12 ha Ackerland. Wie viele m² sind das?"
-   },
-   "o": {
-    "wert": 120000,
-    "einheit": "m²"
-   },
-   "c": "12 * 100 * 100",
-   "w": "1 ha = 100 a = 10 000 m². 12 ha = 120 000 m².",
-   "h": "ha → a → m²: zweimal mal 100."
+   "h": "Die letzten beiden Ziffern bleiben in der kleineren Einheit.",
+   "g": "darstellung"
   },
   {
    "l": "einheiten",
@@ -3276,13 +4073,50 @@
     "text": "Welche Fläche ist am größten: 600 m², 70 000 m², 600 a, 8 a?"
    },
    "w": "In m²: 600 m² = 600 m², 70 000 m² = 70 000 m², 600 a = 60 000 m², 8 a = 800 m².",
-   "h": "Rechne alle in m² um. 1 a = 100 m², 1 ha = 10 000 m²."
+   "h": "Rechne alle in m² um. 1 a = 100 m², 1 ha = 10 000 m².",
+   "g": "verknuepfen"
   },
   {
    "l": "einheiten",
    "t": "einheiten",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 3 100 a = ? ha"
+   },
+   "o": {
+    "wert": 31,
+    "einheit": "ha"
+   },
+   "c": "3100 / 100",
+   "w": "Umrechnungszahl 100: 3 100 : 100 = 31 ha.",
+   "h": "In die größere Einheit: durch 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bauernhof hat 12 ha Ackerland. Wie viele m² sind das?"
+   },
+   "o": {
+    "wert": 120000,
+    "einheit": "m²"
+   },
+   "c": "12 * 100 * 100",
+   "w": "1 ha = 100 a = 10 000 m². 12 ha = 120 000 m².",
+   "h": "ha → a → m²: zweimal mal 100.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Zerlege: 1 621 m² = □ a □ m²",
@@ -3300,31 +4134,26 @@
     "1621 % 100"
    ],
    "w": "1 621 : 100 = 16 Rest 21: 16 a 21 m².",
-   "h": "Die letzten beiden Ziffern bleiben in der kleineren Einheit."
+   "h": "Die letzten beiden Ziffern bleiben in der kleineren Einheit.",
+   "g": "darstellung"
   },
   {
    "l": "einheiten",
    "t": "einheiten",
    "p": "uebung",
-   "s": 3,
-   "y": "luecken",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Zerlege: 2 301 cm² = □ dm² □ cm²",
-    "schablone": "□ dm² □ cm²",
-    "hinweis": "Erst dm², dann cm²."
+    "text": "Rechne um: 5 ha = ? m²"
    },
    "o": {
-    "werte": [
-     23,
-     1
-    ]
+    "wert": 50000,
+    "einheit": "m²"
    },
-   "c": [
-    "2301 // 100",
-    "2301 % 100"
-   ],
-   "w": "2 301 : 100 = 23 Rest 1: 23 dm² 1 cm².",
-   "h": "Die letzten beiden Ziffern bleiben in der kleineren Einheit."
+   "c": "5 * 100 * 100",
+   "w": "1 ha = 100 a = 10 000 m². 5 ha = 50 000 m².",
+   "h": "Von ha zu m² sind es zwei Schritte mit je mal 100.",
+   "g": "mehrschritt"
   },
   {
    "l": "einheiten",
@@ -3345,7 +4174,266 @@
     "text": "Welche Fläche ist am größten: 12 m², 70 000 a, 600 m², 70 000 m²?"
    },
    "w": "In m²: 12 m² = 12 m², 70 000 a = 7 000 000 m², 600 m² = 600 m², 70 000 m² = 70 000 m².",
-   "h": "Rechne alle in m² um. 1 a = 100 m², 1 ha = 10 000 m²."
+   "h": "Rechne alle in m² um. 1 a = 100 m², 1 ha = 10 000 m².",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 5 700 mm² = ? cm²"
+   },
+   "o": {
+    "wert": 57,
+    "einheit": "cm²"
+   },
+   "c": "5700 / 100",
+   "w": "Umrechnungszahl 100: 5 700 : 100 = 57 cm².",
+   "h": "In die größere Einheit: durch 100.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Umrechnungszahl gilt zwischen benachbarten Flächeneinheiten (z. B. m² und dm²)?"
+   },
+   "a": [
+    "10",
+    "100",
+    "60",
+    "1 000"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 m² = 10 dm · 10 dm = 100 dm².",
+   "h": "Ein Quadrat mit 1 m Seite – wie viele dm²?"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zerlege: 2 301 cm² = □ dm² □ cm²",
+    "schablone": "□ dm² □ cm²",
+    "hinweis": "Erst dm², dann cm²."
+   },
+   "o": {
+    "werte": [
+     23,
+     1
+    ]
+   },
+   "c": [
+    "2301 // 100",
+    "2301 % 100"
+   ],
+   "w": "2 301 : 100 = 23 Rest 1: 23 dm² 1 cm².",
+   "h": "Die letzten beiden Ziffern bleiben in der kleineren Einheit.",
+   "g": "darstellung"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 30 000 cm² = ? m²"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m²"
+   },
+   "c": "30000 / 100 / 100",
+   "w": "cm² → dm²: durch 100 (300 dm²). dm² → m²: durch 100 (3 m²).",
+   "h": "Zwei Schritte mit je durch 100.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Fläche hat ein Fußballfeld ungefähr?"
+   },
+   "a": [
+    "etwa 70 a",
+    "etwa 70 m²",
+    "etwa 70 km²",
+    "etwa 70 ha"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Fußballfeld ist etwa 105 m lang und 68 m breit: rund 7 000 m² = 70 a. Das ist knapp 1 ha.",
+   "h": "Schätze Länge und Breite in Metern und rechne um.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Fläche ist am kleinsten: 3 ha; 290 a; 31 000 m²; 0,03 km²?"
+   },
+   "a": [
+    "31 000 m²",
+    "290 a",
+    "3 ha",
+    "0,03 km²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In m²: 3 ha = 30 000 m², 290 a = 29 000 m², 31 000 m², 0,03 km² = 30 000 m². Am kleinsten: 290 a.",
+   "h": "Rechne alle Angaben in m² um.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 4 m² = 40 dm². Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist 4 000 dm².",
+    "Nichts, das stimmt.",
+    "Richtig ist 0,4 dm².",
+    "Bei Flächen ist die Umrechnungszahl 100: 4 m² = 400 dm²."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "1 m² ist ein Quadrat mit 10 dm · 10 dm = 100 dm². Also 4 m² = 400 dm².",
+   "h": "Zeichne 1 m² als Quadrat mit 10 dm Seitenlänge.",
+   "g": "fehler"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Quadrate mit 1 cm Seitenlänge passen in 1 m²?"
+   },
+   "o": {
+    "wert": 10000
+   },
+   "c": "100 * 100",
+   "w": "1 m = 100 cm. In 1 m² passen 100 Reihen mit je 100 Quadraten: 10 000.",
+   "h": "Wie viele cm-Quadrate liegen in einer Reihe von 1 m?",
+   "g": "transfer"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „1 m = 100 cm, also ist 1 m² = 100 cm².“"
+   },
+   "a": [
+    "Nein: 1 m² = 200 cm².",
+    "Ja, das stimmt.",
+    "Nein: 1 m² = 100 cm · 100 cm = 10 000 cm².",
+    "Nein: 1 m² = 1 000 cm²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei Flächen werden beide Seiten umgerechnet.",
+   "h": "Zeichne ein Quadrat mit 1 m Seite."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Grundstück wird in 8 gleich große Bauplätze von je 6 a geteilt. Wie viele m² hatte das Grundstück?"
+   },
+   "o": {
+    "wert": 4800,
+    "einheit": "m²"
+   },
+   "c": "8 * 600",
+   "w": "8 · 6 a = 48 a = 4 800 m².",
+   "h": "Rechne erst in a, dann in m²."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Fülle die Lücke: 2 ha − 75 a + □ m² = 1,5 ha. Welche Zahl gehört in die Lücke?"
+   },
+   "o": {
+    "wert": 2500
+   },
+   "c": "15000 - (20000 - 7500)",
+   "w": "2 ha = 20 000 m², 75 a = 7 500 m², 1,5 ha = 15 000 m². 20 000 − 7 500 = 12 500. Bis 15 000 fehlen 2 500.",
+   "h": "Rechne alles in m² um."
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Park hat genau 1 ha. Wie lang ist eine Seite in m?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "m"
+   },
+   "c": "100",
+   "w": "1 ha = 10 000 m² = 100 m · 100 m. Die Seite ist 100 m lang.",
+   "h": "Wie viele m² hat 1 ha? Welche Zahl mal sich selbst ergibt das?"
+  },
+  {
+   "l": "einheiten",
+   "t": "einheiten",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Quadrate mit 2 cm Seitenlänge passen lückenlos in 1 m²?"
+   },
+   "o": {
+    "wert": 2500
+   },
+   "c": "50 * 50",
+   "w": "In 1 m = 100 cm passen 50 Quadrate nebeneinander, in 50 Reihen: 50 · 50 = 2 500.",
+   "h": "Wie viele passen in eine Reihe von 1 m?"
   },
   {
    "l": "einheiten",
@@ -3530,92 +4618,8 @@
    },
    "c": "22 + 54 / 100",
    "w": "54 cm² sind 54 Hundertstel dm²: 22,54 dm².",
-   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma."
-  },
-  {
-   "l": "kommaschreibweise",
-   "t": "kommaschreibweise",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe in a: 18 a 67 m²"
-   },
-   "o": {
-    "wert": 18.67,
-    "einheit": "a"
-   },
-   "c": "18 + 67 / 100",
-   "w": "67 m² sind 67 Hundertstel a: 18,67 a.",
-   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma."
-  },
-  {
-   "l": "kommaschreibweise",
-   "t": "kommaschreibweise",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe in a: 8 a 37 m²"
-   },
-   "o": {
-    "wert": 8.37,
-    "einheit": "a"
-   },
-   "c": "8 + 37 / 100",
-   "w": "37 m² sind 37 Hundertstel a: 8,37 a.",
-   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma."
-  },
-  {
-   "l": "kommaschreibweise",
-   "t": "kommaschreibweise",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe in ha: 23 ha 7 a"
-   },
-   "o": {
-    "wert": 23.07,
-    "einheit": "ha"
-   },
-   "c": "23 + 7 / 100",
-   "w": "7 a sind 07 Hundertstel ha: 23,07 ha.",
-   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma."
-  },
-  {
-   "l": "kommaschreibweise",
-   "t": "kommaschreibweise",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe in m²: 28 m² 55 dm²"
-   },
-   "o": {
-    "wert": 28.55,
-    "einheit": "m²"
-   },
-   "c": "28 + 55 / 100",
-   "w": "55 dm² sind 55 Hundertstel m²: 28,55 m².",
-   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma."
-  },
-  {
-   "l": "kommaschreibweise",
-   "t": "kommaschreibweise",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe in dm²: 17 dm² 58 cm²"
-   },
-   "o": {
-    "wert": 17.58,
-    "einheit": "dm²"
-   },
-   "c": "17 + 58 / 100",
-   "w": "58 cm² sind 58 Hundertstel dm²: 17,58 dm².",
-   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma."
+   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma.",
+   "g": "direkt"
   },
   {
    "l": "kommaschreibweise",
@@ -3632,7 +4636,62 @@
    },
    "c": "19.88 * 100",
    "w": "Mal 100: Komma zwei Stellen nach rechts. 19,88 cm² = 1 988 mm².",
-   "h": "Mal 100 verschiebt das Komma um zwei Stellen."
+   "h": "Mal 100 verschiebt das Komma um zwei Stellen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe in a: 18 a 67 m²"
+   },
+   "o": {
+    "wert": 18.67,
+    "einheit": "a"
+   },
+   "c": "18 + 67 / 100",
+   "w": "67 m² sind 67 Hundertstel a: 18,67 a.",
+   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma.",
+   "g": "direkt"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 6,87 m² + 64 dm² und gib das Ergebnis in m² an."
+   },
+   "o": {
+    "wert": 7.51,
+    "einheit": "m²"
+   },
+   "c": "6.87 + 64 / 100",
+   "w": "64 dm² = 0,64 m². 6,87 + 0,64 = 7,51 m².",
+   "h": "Erst in dieselbe Einheit umrechnen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe in a: 8 a 37 m²"
+   },
+   "o": {
+    "wert": 8.37,
+    "einheit": "a"
+   },
+   "c": "8 + 37 / 100",
+   "w": "37 m² sind 37 Hundertstel a: 8,37 a.",
+   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma.",
+   "g": "direkt"
   },
   {
    "l": "kommaschreibweise",
@@ -3649,7 +4708,26 @@
    },
    "c": "1937 / 100",
    "w": "Durch 100: Komma zwei Stellen nach links. 1 937 m² = 19,37 a.",
-   "h": "Durch 100 verschiebt das Komma um zwei Stellen nach links."
+   "h": "Durch 100 verschiebt das Komma um zwei Stellen nach links.",
+   "g": "darstellung"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe in ha: 23 ha 7 a"
+   },
+   "o": {
+    "wert": 23.07,
+    "einheit": "ha"
+   },
+   "c": "23 + 7 / 100",
+   "w": "7 a sind 07 Hundertstel ha: 23,07 ha.",
+   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma.",
+   "g": "direkt"
   },
   {
    "l": "kommaschreibweise",
@@ -3666,7 +4744,44 @@
    },
    "c": "30.13 * 100",
    "w": "Mal 100: Komma zwei Stellen nach rechts. 30,13 m² = 3 013 dm².",
-   "h": "Mal 100 verschiebt das Komma um zwei Stellen."
+   "h": "Mal 100 verschiebt das Komma um zwei Stellen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3,54 m² + 56 dm² und gib das Ergebnis in m² an."
+   },
+   "o": {
+    "wert": 4.1,
+    "einheit": "m²"
+   },
+   "c": "3.54 + 56 / 100",
+   "w": "56 dm² = 0,56 m². 3,54 + 0,56 = 4,1 m².",
+   "h": "Erst in dieselbe Einheit umrechnen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe in m²: 28 m² 55 dm²"
+   },
+   "o": {
+    "wert": 28.55,
+    "einheit": "m²"
+   },
+   "c": "28 + 55 / 100",
+   "w": "55 dm² sind 55 Hundertstel m²: 28,55 m².",
+   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma.",
+   "g": "direkt"
   },
   {
    "l": "kommaschreibweise",
@@ -3683,7 +4798,8 @@
    },
    "c": "49.27 * 100",
    "w": "Mal 100: Komma zwei Stellen nach rechts. 49,27 a = 4 927 m².",
-   "h": "Mal 100 verschiebt das Komma um zwei Stellen."
+   "h": "Mal 100 verschiebt das Komma um zwei Stellen.",
+   "g": "umkehr"
   },
   {
    "l": "kommaschreibweise",
@@ -3700,7 +4816,8 @@
    },
    "c": "4195 / 100",
    "w": "Durch 100: Komma zwei Stellen nach links. 4 195 mm² = 41,95 cm².",
-   "h": "Durch 100 verschiebt das Komma um zwei Stellen nach links."
+   "h": "Durch 100 verschiebt das Komma um zwei Stellen nach links.",
+   "g": "darstellung"
   },
   {
    "l": "kommaschreibweise",
@@ -3709,32 +4826,33 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne um: 3 890 m² = ? a"
+    "text": "Berechne 9,07 m² + 35 dm² und gib das Ergebnis in m² an."
    },
    "o": {
-    "wert": 38.9,
-    "einheit": "a"
+    "wert": 9.42,
+    "einheit": "m²"
    },
-   "c": "3890 / 100",
-   "w": "Durch 100: Komma zwei Stellen nach links. 3 890 m² = 38,9 a.",
-   "h": "Durch 100 verschiebt das Komma um zwei Stellen nach links."
+   "c": "9.07 + 35 / 100",
+   "w": "35 dm² = 0,35 m². 9,07 + 0,35 = 9,42 m².",
+   "h": "Erst in dieselbe Einheit umrechnen."
   },
   {
    "l": "kommaschreibweise",
    "t": "kommaschreibweise",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 6,87 m² + 64 dm² und gib das Ergebnis in m² an."
+    "text": "Schreibe in m²: 5 m² 3 dm²"
    },
    "o": {
-    "wert": 7.51,
+    "wert": 5.03,
     "einheit": "m²"
    },
-   "c": "6.87 + 64 / 100",
-   "w": "64 dm² = 0,64 m². 6,87 + 0,64 = 7,51 m².",
-   "h": "Erst in dieselbe Einheit umrechnen."
+   "c": "5 + 3 / 100",
+   "w": "dm² bekommen zwei Stellen: 3 dm² = 0,03 m². Also 5,03 m².",
+   "h": "Zwei Stellen nach dem Komma für dm².",
+   "g": "mehrschritt"
   },
   {
    "l": "kommaschreibweise",
@@ -3755,7 +4873,119 @@
     "text": "Welche Schreibweise ist richtig für 9 a 8 m²?"
    },
    "w": "8 m² = 0,08 a. Also 9,08 a. 9,8 a wäre 9 a 80 m².",
-   "h": "Zwei Stellen pro Einheit – fehlende Stelle mit 0 füllen."
+   "h": "Zwei Stellen pro Einheit – fehlende Stelle mit 0 füllen.",
+   "g": "begruenden"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe in dm²: 17 dm² 58 cm²"
+   },
+   "o": {
+    "wert": 17.58,
+    "einheit": "dm²"
+   },
+   "c": "17 + 58 / 100",
+   "w": "58 cm² sind 58 Hundertstel dm²: 17,58 dm².",
+   "h": "Zu jeder kleineren Einheit gehören zwei Stellen nach dem Komma.",
+   "g": "direkt"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Stellen nach dem Komma braucht man, wenn man m² und dm² zusammen in m² schreibt?"
+   },
+   "a": [
+    "1",
+    "3",
+    "4",
+    "2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "1 m² = 100 dm²: dm² brauchen zwei Stellen.",
+   "h": "Wie viele dm² hat 1 m²?"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 3 890 m² = ? a"
+   },
+   "o": {
+    "wert": 38.9,
+    "einheit": "a"
+   },
+   "c": "3890 / 100",
+   "w": "Durch 100: Komma zwei Stellen nach links. 3 890 m² = 38,9 a.",
+   "h": "Durch 100 verschiebt das Komma um zwei Stellen nach links.",
+   "g": "darstellung"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,67 m² + 40 dm² und gib das Ergebnis in m² an."
+   },
+   "o": {
+    "wert": 3.07,
+    "einheit": "m²"
+   },
+   "c": "2.67 + 40 / 100",
+   "w": "40 dm² = 0,4 m². 2,67 + 0,4 = 3,07 m².",
+   "h": "Erst in dieselbe Einheit umrechnen."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne um: 2,5 ha = ? a"
+   },
+   "o": {
+    "wert": 250,
+    "einheit": "a"
+   },
+   "c": "2.5 * 100",
+   "w": "1 ha = 100 a. 2,5 ha = 250 a.",
+   "h": "Von ha zu a: mal 100.",
+   "g": "umkehr"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,4 a − 75 m². Gib das Ergebnis in m² an."
+   },
+   "o": {
+    "wert": 165,
+    "einheit": "m²"
+   },
+   "c": "240 - 75",
+   "w": "2,4 a = 240 m². 240 m² − 75 m² = 165 m².",
+   "h": "Rechne zuerst in dieselbe Einheit um.",
+   "g": "mehrschritt"
   },
   {
    "l": "kommaschreibweise",
@@ -3776,7 +5006,52 @@
     "text": "Welche Schreibweise ist richtig für 9 ha 6 a?"
    },
    "w": "6 a = 0,06 ha. Also 9,06 ha. 9,6 ha wäre 9 ha 60 a.",
-   "h": "Zwei Stellen pro Einheit – fehlende Stelle mit 0 füllen."
+   "h": "Zwei Stellen pro Einheit – fehlende Stelle mit 0 füllen.",
+   "g": "begruenden"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Fläche ist am kleinsten: 4,5 a; 445 m²; 4 a 60 m²; 4,6 a?"
+   },
+   "a": [
+    "4,6 a",
+    "4 a 60 m²",
+    "4,5 a",
+    "445 m²"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "In m²: 4,5 a = 450 m², 445 m², 4 a 60 m² = 460 m², 4,6 a = 460 m². Am kleinsten: 445 m².",
+   "h": "Rechne alle Angaben in m² um.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt: 7 m² 5 dm² = 7,5 m². Was ist falsch?"
+   },
+   "a": [
+    "dm² brauchen zwei Stellen: richtig ist 7,05 m².",
+    "Nichts, das stimmt.",
+    "Richtig ist 75 m².",
+    "Richtig ist 7,005 m²."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "7,5 m² wären 7 m² 50 dm². 5 dm² sind 0,05 m², also 7,05 m².",
+   "h": "Wie viele Stellen bekommen dm² nach dem Komma?",
+   "g": "fehler"
   },
   {
    "l": "kommaschreibweise",
@@ -3785,49 +5060,105 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 3,54 m² + 56 dm² und gib das Ergebnis in m² an."
+    "text": "Wie viele dm² fehlen 0,75 m² bis zu 1 m²?"
    },
    "o": {
-    "wert": 4.1,
-    "einheit": "m²"
+    "wert": 25,
+    "einheit": "dm²"
    },
-   "c": "3.54 + 56 / 100",
-   "w": "56 dm² = 0,56 m². 3,54 + 0,56 = 4,1 m².",
-   "h": "Erst in dieselbe Einheit umrechnen."
+   "c": "100 - 75",
+   "w": "0,75 m² = 75 dm², 1 m² = 100 dm². Es fehlen 25 dm².",
+   "h": "Rechne beide Flächen in dm² um.",
+   "g": "transfer"
   },
   {
    "l": "kommaschreibweise",
    "t": "kommaschreibweise",
    "p": "uebung",
    "s": 3,
+   "g": "rueckwaerts",
    "y": "zahl",
    "f": {
-    "text": "Berechne 9,07 m² + 35 dm² und gib das Ergebnis in m² an."
+    "text": "Zu einer Fläche werden 35 dm² addiert. Es ergibt sich 2,10 m². Wie viele dm² waren es?"
    },
    "o": {
-    "wert": 9.42,
-    "einheit": "m²"
+    "wert": 175,
+    "einheit": "dm²"
    },
-   "c": "9.07 + 35 / 100",
-   "w": "35 dm² = 0,35 m². 9,07 + 0,35 = 9,42 m².",
-   "h": "Erst in dieselbe Einheit umrechnen."
+   "c": "210 - 35",
+   "w": "2,10 m² = 210 dm². 210 − 35 = 175 dm².",
+   "h": "Rechne in dm²."
   },
   {
    "l": "kommaschreibweise",
    "t": "kommaschreibweise",
    "p": "uebung",
    "s": 3,
+   "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Berechne 2,67 m² + 40 dm² und gib das Ergebnis in m² an."
+    "text": "Für welche Ziffer □ gilt 3,□6 a = 346 m²?"
    },
    "o": {
-    "wert": 3.07,
+    "wert": 4
+   },
+   "c": "4",
+   "w": "346 m² = 3 a 46 m² = 3,46 a.",
+   "h": "Schreib 346 m² mit a und m²."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ordne 1,2 a; 125 m²; 1 a 5 m²; 0,13 a der Größe nach. Wie viele m² hat die größte Fläche?"
+   },
+   "o": {
+    "wert": 125,
     "einheit": "m²"
    },
-   "c": "2.67 + 40 / 100",
-   "w": "40 dm² = 0,4 m². 2,67 + 0,4 = 3,07 m².",
-   "h": "Erst in dieselbe Einheit umrechnen."
+   "c": "125",
+   "w": "In m²: 120, 125, 105 und 13. Die größte ist 125 m².",
+   "h": "Rechne alles in m² um."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viele m² ist 1,2 ha größer als 1 ha 2 a?"
+   },
+   "o": {
+    "wert": 1800,
+    "einheit": "m²"
+   },
+   "c": "12000 - 10200",
+   "w": "1,2 ha = 12 000 m². 1 ha 2 a = 10 000 m² + 200 m² = 10 200 m². Unterschied 1 800 m².",
+   "h": "Vorsicht: 1,2 ha ist nicht 1 ha 2 a."
+  },
+  {
+   "l": "kommaschreibweise",
+   "t": "kommaschreibweise",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat den Flächeninhalt 0,25 m². Wie lang ist eine Seite in cm?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "cm"
+   },
+   "c": "50",
+   "w": "0,25 m² = 2 500 cm² = 50 cm · 50 cm.",
+   "h": "Rechne in cm² um."
   },
   {
    "l": "kommaschreibweise",
@@ -3993,10 +5324,10 @@
    "l": "zerlegen",
    "t": "zerlegen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Flächeninhalt der Figur. Von einem Rechteck 12 m × 7 m fehlt oben rechts ein Rechteck 8 m × 2 m.",
+    "text": "Wie lang ist der Umfang der L-Form?",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -4005,19 +5336,19 @@
        0
       ],
       "_P1": [
-       12,
+       14,
        0
       ],
       "_P2": [
-       12,
-       5
+       14,
+       2
       ],
       "_P3": [
-       4,
-       5
+       12,
+       2
       ],
       "_P4": [
-       4,
+       12,
        7
       ],
       "_P5": [
@@ -4037,27 +5368,27 @@
       [
        "_P0",
        "_P1",
-       "12 m"
+       "14 m"
       ],
       [
        "_P1",
        "_P2",
-       "5 m"
-      ],
-      [
-       "_P2",
-       "_P3",
-       "8 m"
-      ],
-      [
-       "_P3",
-       "_P4",
        "2 m"
       ],
       [
+       "_P2",
+       "_P3",
+       "2 m"
+      ],
+      [
+       "_P3",
+       "_P4",
+       "5 m"
+      ],
+      [
        "_P4",
        "_P5",
-       "4 m"
+       "12 m"
       ],
       [
        "_P5",
@@ -4068,98 +5399,13 @@
     }
    },
    "o": {
-    "wert": 68,
-    "einheit": "m²"
+    "wert": 42,
+    "einheit": "m"
    },
-   "c": "12 * 7 - 8 * 2",
-   "w": "Ergänzen: 12 · 7 − 8 · 2 = 84 − 16 = 68 m².",
-   "h": "Großes Rechteck minus das fehlende Stück."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Flächeninhalt der Figur. Von einem Rechteck 13 m × 10 m fehlt oben rechts ein Rechteck 3 m × 7 m.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_P0": [
-       0,
-       0
-      ],
-      "_P1": [
-       13,
-       0
-      ],
-      "_P2": [
-       13,
-       3
-      ],
-      "_P3": [
-       10,
-       3
-      ],
-      "_P4": [
-       10,
-       10
-      ],
-      "_P5": [
-       0,
-       10
-      ]
-     },
-     "flaeche": [
-      "_P0",
-      "_P1",
-      "_P2",
-      "_P3",
-      "_P4",
-      "_P5"
-     ],
-     "linien": [
-      [
-       "_P0",
-       "_P1",
-       "13 m"
-      ],
-      [
-       "_P1",
-       "_P2",
-       "3 m"
-      ],
-      [
-       "_P2",
-       "_P3",
-       "3 m"
-      ],
-      [
-       "_P3",
-       "_P4",
-       "7 m"
-      ],
-      [
-       "_P4",
-       "_P5",
-       "10 m"
-      ],
-      [
-       "_P5",
-       "_P0",
-       "10 m"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 109,
-    "einheit": "m²"
-   },
-   "c": "13 * 10 - 3 * 7",
-   "w": "Ergänzen: 13 · 10 − 3 · 7 = 130 − 21 = 109 m².",
-   "h": "Großes Rechteck minus das fehlende Stück."
+   "c": "14 + (7 - 5) + 2 + 5 + (14 - 2) + 7",
+   "w": "Alle sechs Seiten: 14 + 2 + 2 + 5 + 12 + 7 = 42 m – genauso viel wie beim ganzen Rechteck.",
+   "h": "Gehe einmal ganz um die Figur herum und addiere alle Seiten.",
+   "g": "mehrschritt"
   },
   {
    "l": "zerlegen",
@@ -4251,6 +5497,198 @@
    "l": "zerlegen",
    "t": "zerlegen",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist der Umfang der L-Form?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_P0": [
+       0,
+       0
+      ],
+      "_P1": [
+       13,
+       0
+      ],
+      "_P2": [
+       13,
+       4
+      ],
+      "_P3": [
+       3,
+       4
+      ],
+      "_P4": [
+       3,
+       12
+      ],
+      "_P5": [
+       0,
+       12
+      ]
+     },
+     "flaeche": [
+      "_P0",
+      "_P1",
+      "_P2",
+      "_P3",
+      "_P4",
+      "_P5"
+     ],
+     "linien": [
+      [
+       "_P0",
+       "_P1",
+       "13 m"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "4 m"
+      ],
+      [
+       "_P2",
+       "_P3",
+       "10 m"
+      ],
+      [
+       "_P3",
+       "_P4",
+       "8 m"
+      ],
+      [
+       "_P4",
+       "_P5",
+       "3 m"
+      ],
+      [
+       "_P5",
+       "_P0",
+       "12 m"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "m"
+   },
+   "c": "13 + (12 - 8) + 10 + 8 + (13 - 10) + 12",
+   "w": "Alle sechs Seiten: 13 + 4 + 10 + 8 + 3 + 12 = 50 m – genauso viel wie beim ganzen Rechteck.",
+   "h": "Gehe einmal ganz um die Figur herum und addiere alle Seiten.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wohnung besteht aus einem Raum mit 5 m × 2 m und einem Raum mit 8 m × 5 m. Wie groß ist die Wohnfläche?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "m²"
+   },
+   "c": "5 * 2 + 8 * 5",
+   "w": "5 · 2 + 8 · 5 = 50 m².",
+   "h": "Berechne jeden Raum einzeln und addiere.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zerlege die L-Form in zwei Rechtecke und berechne den Flächeninhalt.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_P0": [
+       0,
+       0
+      ],
+      "_P1": [
+       9,
+       0
+      ],
+      "_P2": [
+       9,
+       3
+      ],
+      "_P3": [
+       3,
+       3
+      ],
+      "_P4": [
+       3,
+       12
+      ],
+      "_P5": [
+       0,
+       12
+      ]
+     },
+     "flaeche": [
+      "_P0",
+      "_P1",
+      "_P2",
+      "_P3",
+      "_P4",
+      "_P5"
+     ],
+     "linien": [
+      [
+       "_P0",
+       "_P1",
+       "9 m"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "3 m"
+      ],
+      [
+       "_P2",
+       "_P3",
+       "6 m"
+      ],
+      [
+       "_P3",
+       "_P4",
+       "9 m"
+      ],
+      [
+       "_P4",
+       "_P5",
+       "3 m"
+      ],
+      [
+       "_P5",
+       "_P0",
+       "12 m"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 54,
+    "einheit": "m²"
+   },
+   "c": "9 * (12 - 9) + (9 - 6) * 9",
+   "w": "Unten: 9 · 3 = 27 m². Oben links: 3 · 9 = 27 m². Zusammen 54 m².",
+   "h": "Ziehe eine Linie, sodass zwei Rechtecke entstehen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -4337,453 +5775,6 @@
    "l": "zerlegen",
    "t": "zerlegen",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Flächeninhalt der Figur. Von einem Rechteck 13 m × 8 m fehlt oben rechts ein Rechteck 11 m × 5 m.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_P0": [
-       0,
-       0
-      ],
-      "_P1": [
-       13,
-       0
-      ],
-      "_P2": [
-       13,
-       3
-      ],
-      "_P3": [
-       2,
-       3
-      ],
-      "_P4": [
-       2,
-       8
-      ],
-      "_P5": [
-       0,
-       8
-      ]
-     },
-     "flaeche": [
-      "_P0",
-      "_P1",
-      "_P2",
-      "_P3",
-      "_P4",
-      "_P5"
-     ],
-     "linien": [
-      [
-       "_P0",
-       "_P1",
-       "13 m"
-      ],
-      [
-       "_P1",
-       "_P2",
-       "3 m"
-      ],
-      [
-       "_P2",
-       "_P3",
-       "11 m"
-      ],
-      [
-       "_P3",
-       "_P4",
-       "5 m"
-      ],
-      [
-       "_P4",
-       "_P5",
-       "2 m"
-      ],
-      [
-       "_P5",
-       "_P0",
-       "8 m"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 49,
-    "einheit": "m²"
-   },
-   "c": "13 * 8 - 11 * 5",
-   "w": "Ergänzen: 13 · 8 − 11 · 5 = 104 − 55 = 49 m².",
-   "h": "Großes Rechteck minus das fehlende Stück."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Flächeninhalt der Figur. Von einem Rechteck 6 m × 10 m fehlt oben rechts ein Rechteck 2 m × 7 m.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_P0": [
-       0,
-       0
-      ],
-      "_P1": [
-       6,
-       0
-      ],
-      "_P2": [
-       6,
-       3
-      ],
-      "_P3": [
-       4,
-       3
-      ],
-      "_P4": [
-       4,
-       10
-      ],
-      "_P5": [
-       0,
-       10
-      ]
-     },
-     "flaeche": [
-      "_P0",
-      "_P1",
-      "_P2",
-      "_P3",
-      "_P4",
-      "_P5"
-     ],
-     "linien": [
-      [
-       "_P0",
-       "_P1",
-       "6 m"
-      ],
-      [
-       "_P1",
-       "_P2",
-       "3 m"
-      ],
-      [
-       "_P2",
-       "_P3",
-       "2 m"
-      ],
-      [
-       "_P3",
-       "_P4",
-       "7 m"
-      ],
-      [
-       "_P4",
-       "_P5",
-       "4 m"
-      ],
-      [
-       "_P5",
-       "_P0",
-       "10 m"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 46,
-    "einheit": "m²"
-   },
-   "c": "6 * 10 - 2 * 7",
-   "w": "Ergänzen: 6 · 10 − 2 · 7 = 60 − 14 = 46 m².",
-   "h": "Großes Rechteck minus das fehlende Stück."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie lang ist der Umfang der L-Form?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_P0": [
-       0,
-       0
-      ],
-      "_P1": [
-       14,
-       0
-      ],
-      "_P2": [
-       14,
-       2
-      ],
-      "_P3": [
-       12,
-       2
-      ],
-      "_P4": [
-       12,
-       7
-      ],
-      "_P5": [
-       0,
-       7
-      ]
-     },
-     "flaeche": [
-      "_P0",
-      "_P1",
-      "_P2",
-      "_P3",
-      "_P4",
-      "_P5"
-     ],
-     "linien": [
-      [
-       "_P0",
-       "_P1",
-       "14 m"
-      ],
-      [
-       "_P1",
-       "_P2",
-       "2 m"
-      ],
-      [
-       "_P2",
-       "_P3",
-       "2 m"
-      ],
-      [
-       "_P3",
-       "_P4",
-       "5 m"
-      ],
-      [
-       "_P4",
-       "_P5",
-       "12 m"
-      ],
-      [
-       "_P5",
-       "_P0",
-       "7 m"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 42,
-    "einheit": "m"
-   },
-   "c": "14 + (7 - 5) + 2 + 5 + (14 - 2) + 7",
-   "w": "Alle sechs Seiten: 14 + 2 + 2 + 5 + 12 + 7 = 42 m – genauso viel wie beim ganzen Rechteck.",
-   "h": "Gehe einmal ganz um die Figur herum und addiere alle Seiten."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie lang ist der Umfang der L-Form?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_P0": [
-       0,
-       0
-      ],
-      "_P1": [
-       13,
-       0
-      ],
-      "_P2": [
-       13,
-       4
-      ],
-      "_P3": [
-       3,
-       4
-      ],
-      "_P4": [
-       3,
-       12
-      ],
-      "_P5": [
-       0,
-       12
-      ]
-     },
-     "flaeche": [
-      "_P0",
-      "_P1",
-      "_P2",
-      "_P3",
-      "_P4",
-      "_P5"
-     ],
-     "linien": [
-      [
-       "_P0",
-       "_P1",
-       "13 m"
-      ],
-      [
-       "_P1",
-       "_P2",
-       "4 m"
-      ],
-      [
-       "_P2",
-       "_P3",
-       "10 m"
-      ],
-      [
-       "_P3",
-       "_P4",
-       "8 m"
-      ],
-      [
-       "_P4",
-       "_P5",
-       "3 m"
-      ],
-      [
-       "_P5",
-       "_P0",
-       "12 m"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "m"
-   },
-   "c": "13 + (12 - 8) + 10 + 8 + (13 - 10) + 12",
-   "w": "Alle sechs Seiten: 13 + 4 + 10 + 8 + 3 + 12 = 50 m – genauso viel wie beim ganzen Rechteck.",
-   "h": "Gehe einmal ganz um die Figur herum und addiere alle Seiten."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Wohnung besteht aus einem Raum mit 5 m × 2 m und einem Raum mit 8 m × 5 m. Wie groß ist die Wohnfläche?"
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "m²"
-   },
-   "c": "5 * 2 + 8 * 5",
-   "w": "5 · 2 + 8 · 5 = 50 m².",
-   "h": "Berechne jeden Raum einzeln und addiere."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Zerlege die L-Form in zwei Rechtecke und berechne den Flächeninhalt.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_P0": [
-       0,
-       0
-      ],
-      "_P1": [
-       9,
-       0
-      ],
-      "_P2": [
-       9,
-       3
-      ],
-      "_P3": [
-       3,
-       3
-      ],
-      "_P4": [
-       3,
-       12
-      ],
-      "_P5": [
-       0,
-       12
-      ]
-     },
-     "flaeche": [
-      "_P0",
-      "_P1",
-      "_P2",
-      "_P3",
-      "_P4",
-      "_P5"
-     ],
-     "linien": [
-      [
-       "_P0",
-       "_P1",
-       "9 m"
-      ],
-      [
-       "_P1",
-       "_P2",
-       "3 m"
-      ],
-      [
-       "_P2",
-       "_P3",
-       "6 m"
-      ],
-      [
-       "_P3",
-       "_P4",
-       "9 m"
-      ],
-      [
-       "_P4",
-       "_P5",
-       "3 m"
-      ],
-      [
-       "_P5",
-       "_P0",
-       "12 m"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 54,
-    "einheit": "m²"
-   },
-   "c": "9 * (12 - 9) + (9 - 6) * 9",
-   "w": "Unten: 9 · 3 = 27 m². Oben links: 3 · 9 = 27 m². Zusammen 54 m².",
-   "h": "Ziehe eine Linie, sodass zwei Rechtecke entstehen."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -4864,7 +5855,8 @@
    },
    "c": "12 * (11 - 3) + (12 - 3) * 3",
    "w": "Unten: 12 · 8 = 96 m². Oben links: 9 · 3 = 27 m². Zusammen 123 m².",
-   "h": "Ziehe eine Linie, sodass zwei Rechtecke entstehen."
+   "h": "Ziehe eine Linie, sodass zwei Rechtecke entstehen.",
+   "g": "mehrschritt"
   },
   {
    "l": "zerlegen",
@@ -4873,7 +5865,25 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Zerlege die L-Form in zwei Rechtecke und berechne den Flächeninhalt.",
+    "text": "Eine Wohnung besteht aus einem Raum mit 3 m × 5 m, einem Raum mit 6 m × 6 m, einem Raum mit 5 m × 2 m und einem Raum mit 7 m × 5 m. Wie groß ist die Wohnfläche?"
+   },
+   "o": {
+    "wert": 96,
+    "einheit": "m²"
+   },
+   "c": "3 * 5 + 6 * 6 + 5 * 2 + 7 * 5",
+   "w": "3 · 5 + 6 · 6 + 5 · 2 + 7 · 5 = 96 m².",
+   "h": "Berechne jeden Raum einzeln und addiere.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt der U-Form.",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -4882,24 +5892,32 @@
        0
       ],
       "_P1": [
-       8,
+       10,
        0
       ],
       "_P2": [
-       8,
-       2
+       10,
+       6
       ],
       "_P3": [
-       5,
-       2
+       6,
+       6
       ],
       "_P4": [
-       5,
-       5
+       6,
+       3
       ],
       "_P5": [
+       4,
+       3
+      ],
+      "_P6": [
+       4,
+       6
+      ],
+      "_P7": [
        0,
-       5
+       6
       ]
      },
      "flaeche": [
@@ -4908,23 +5926,25 @@
       "_P2",
       "_P3",
       "_P4",
-      "_P5"
+      "_P5",
+      "_P6",
+      "_P7"
      ],
      "linien": [
       [
        "_P0",
        "_P1",
-       "8 m"
+       "10 m"
       ],
       [
        "_P1",
        "_P2",
-       "2 m"
+       "6 m"
       ],
       [
        "_P2",
        "_P3",
-       "3 m"
+       "4 m"
       ],
       [
        "_P3",
@@ -4934,23 +5954,32 @@
       [
        "_P4",
        "_P5",
-       "5 m"
+       "2 m"
       ],
       [
        "_P5",
-       "_P0",
-       "5 m"
+       "_P6"
+      ],
+      [
+       "_P6",
+       "_P7",
+       "4 m"
+      ],
+      [
+       "_P7",
+       "_P0"
       ]
      ]
     }
    },
    "o": {
-    "wert": 31,
+    "wert": 54,
     "einheit": "m²"
    },
-   "c": "8 * (5 - 3) + (8 - 3) * 3",
-   "w": "Unten: 8 · 2 = 16 m². Oben links: 5 · 3 = 15 m². Zusammen 31 m².",
-   "h": "Ziehe eine Linie, sodass zwei Rechtecke entstehen."
+   "c": "10 * 6 - 2 * 3",
+   "w": "Ergänzen zum Rechteck: 10 · 6 = 60 m². Die Lücke: 2 · 3 = 6 m². 60 − 6 = 54 m².",
+   "h": "Großes Rechteck minus die Lücke in der Mitte.",
+   "g": "mehrschritt"
   },
   {
    "l": "zerlegen",
@@ -5048,7 +6077,239 @@
    },
    "c": "12 * 10 - (12 - 2 * 2) * (10 - 2 * 2)",
    "w": "Außen: 12 · 10 = 120 m². Beet: 8 · 6 = 48 m². Weg: 72 m².",
-   "h": "Gesamtfläche minus Beet."
+   "h": "Gesamtfläche minus Beet.",
+   "g": "transfer"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt der Figur. Von einem Rechteck 12 m × 7 m fehlt oben rechts ein Rechteck 8 m × 2 m.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_P0": [
+       0,
+       0
+      ],
+      "_P1": [
+       12,
+       0
+      ],
+      "_P2": [
+       12,
+       5
+      ],
+      "_P3": [
+       4,
+       5
+      ],
+      "_P4": [
+       4,
+       7
+      ],
+      "_P5": [
+       0,
+       7
+      ]
+     },
+     "flaeche": [
+      "_P0",
+      "_P1",
+      "_P2",
+      "_P3",
+      "_P4",
+      "_P5"
+     ],
+     "linien": [
+      [
+       "_P0",
+       "_P1",
+       "12 m"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "5 m"
+      ],
+      [
+       "_P2",
+       "_P3",
+       "8 m"
+      ],
+      [
+       "_P3",
+       "_P4",
+       "2 m"
+      ],
+      [
+       "_P4",
+       "_P5",
+       "4 m"
+      ],
+      [
+       "_P5",
+       "_P0",
+       "7 m"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "m²"
+   },
+   "c": "12 * 7 - 8 * 2",
+   "w": "Ergänzen: 12 · 7 − 8 · 2 = 84 − 16 = 68 m².",
+   "h": "Großes Rechteck minus das fehlende Stück.",
+   "g": "direkt"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie kann man den Flächeninhalt einer L-Form berechnen?"
+   },
+   "a": [
+    "den Umfang halbieren",
+    "in zwei Rechtecke zerlegen und die Flächen addieren",
+    "Länge mal Breite der längsten Seiten",
+    "alle Seiten addieren"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die L-Form besteht aus zwei Rechtecken.",
+   "h": "Woraus besteht eine L-Form?"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt der Figur. Von einem Rechteck 13 m × 8 m fehlt oben rechts ein Rechteck 11 m × 5 m.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_P0": [
+       0,
+       0
+      ],
+      "_P1": [
+       13,
+       0
+      ],
+      "_P2": [
+       13,
+       3
+      ],
+      "_P3": [
+       2,
+       3
+      ],
+      "_P4": [
+       2,
+       8
+      ],
+      "_P5": [
+       0,
+       8
+      ]
+     },
+     "flaeche": [
+      "_P0",
+      "_P1",
+      "_P2",
+      "_P3",
+      "_P4",
+      "_P5"
+     ],
+     "linien": [
+      [
+       "_P0",
+       "_P1",
+       "13 m"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "3 m"
+      ],
+      [
+       "_P2",
+       "_P3",
+       "11 m"
+      ],
+      [
+       "_P3",
+       "_P4",
+       "5 m"
+      ],
+      [
+       "_P4",
+       "_P5",
+       "2 m"
+      ],
+      [
+       "_P5",
+       "_P0",
+       "8 m"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 49,
+    "einheit": "m²"
+   },
+   "c": "13 * 8 - 11 * 5",
+   "w": "Ergänzen: 13 · 8 − 11 · 5 = 104 − 55 = 49 m².",
+   "h": "Großes Rechteck minus das fehlende Stück."
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wohnung besteht aus einem Raum mit 3 m × 6 m, einem Raum mit 5 m × 2 m, einem Raum mit 5 m × 6 m und einem Raum mit 8 m × 3 m. Wie groß ist die Wohnfläche?"
+   },
+   "o": {
+    "wert": 82,
+    "einheit": "m²"
+   },
+   "c": "3 * 6 + 5 * 2 + 5 * 6 + 8 * 3",
+   "w": "3 · 6 + 5 · 2 + 5 · 6 + 8 · 3 = 82 m².",
+   "h": "Berechne jeden Raum einzeln und addiere.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Quadrat mit 10 m Seitenlänge wird in einer Ecke ein Quadrat mit 4 m Seitenlänge herausgeschnitten. Wie groß ist die Restfläche?"
+   },
+   "o": {
+    "wert": 84,
+    "einheit": "m²"
+   },
+   "c": "10 * 10 - 4 * 4",
+   "w": "Großes Quadrat: 100 m². Ausschnitt: 16 m². Rest: 84 m².",
+   "h": "Ergänzen und abziehen.",
+   "g": "mehrschritt"
   },
   {
    "l": "zerlegen",
@@ -5152,145 +6413,8 @@
    },
    "c": "2 * 11 + 2 * 9 + 2 * 2",
    "w": "Außen wie beim Rechteck: 2 · 11 + 2 · 9 = 40 m. Die Lücke bringt zwei Kanten von je 2 m dazu: 40 + 2 · 2 = 44 m.",
-   "h": "Gehe einmal ganz um die Figur herum. Die Lücke hat zwei zusätzliche Kanten."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Flächeninhalt der U-Form.",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_P0": [
-       0,
-       0
-      ],
-      "_P1": [
-       10,
-       0
-      ],
-      "_P2": [
-       10,
-       6
-      ],
-      "_P3": [
-       6,
-       6
-      ],
-      "_P4": [
-       6,
-       3
-      ],
-      "_P5": [
-       4,
-       3
-      ],
-      "_P6": [
-       4,
-       6
-      ],
-      "_P7": [
-       0,
-       6
-      ]
-     },
-     "flaeche": [
-      "_P0",
-      "_P1",
-      "_P2",
-      "_P3",
-      "_P4",
-      "_P5",
-      "_P6",
-      "_P7"
-     ],
-     "linien": [
-      [
-       "_P0",
-       "_P1",
-       "10 m"
-      ],
-      [
-       "_P1",
-       "_P2",
-       "6 m"
-      ],
-      [
-       "_P2",
-       "_P3",
-       "4 m"
-      ],
-      [
-       "_P3",
-       "_P4",
-       "3 m"
-      ],
-      [
-       "_P4",
-       "_P5",
-       "2 m"
-      ],
-      [
-       "_P5",
-       "_P6"
-      ],
-      [
-       "_P6",
-       "_P7",
-       "4 m"
-      ],
-      [
-       "_P7",
-       "_P0"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 54,
-    "einheit": "m²"
-   },
-   "c": "10 * 6 - 2 * 3",
-   "w": "Ergänzen zum Rechteck: 10 · 6 = 60 m². Die Lücke: 2 · 3 = 6 m². 60 − 6 = 54 m².",
-   "h": "Großes Rechteck minus die Lücke in der Mitte."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Wohnung besteht aus einem Raum mit 3 m × 5 m, einem Raum mit 6 m × 6 m, einem Raum mit 5 m × 2 m und einem Raum mit 7 m × 5 m. Wie groß ist die Wohnfläche?"
-   },
-   "o": {
-    "wert": 96,
-    "einheit": "m²"
-   },
-   "c": "3 * 5 + 6 * 6 + 5 * 2 + 7 * 5",
-   "w": "3 · 5 + 6 · 6 + 5 · 2 + 7 · 5 = 96 m².",
-   "h": "Berechne jeden Raum einzeln und addiere."
-  },
-  {
-   "l": "zerlegen",
-   "t": "zerlegen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Wohnung besteht aus einem Raum mit 3 m × 6 m, einem Raum mit 5 m × 2 m, einem Raum mit 5 m × 6 m und einem Raum mit 8 m × 3 m. Wie groß ist die Wohnfläche?"
-   },
-   "o": {
-    "wert": 82,
-    "einheit": "m²"
-   },
-   "c": "3 * 6 + 5 * 2 + 5 * 6 + 8 * 3",
-   "w": "3 · 6 + 5 · 2 + 5 · 6 + 8 · 3 = 82 m².",
-   "h": "Berechne jeden Raum einzeln und addiere."
+   "h": "Gehe einmal ganz um die Figur herum. Die Lücke hat zwei zusätzliche Kanten.",
+   "g": "verknuepfen"
   },
   {
    "l": "zerlegen",
@@ -5388,7 +6512,490 @@
    },
    "c": "12 * 12 - (12 - 2 * 2) * (12 - 2 * 2)",
    "w": "Außen: 12 · 12 = 144 m². Beet: 8 · 8 = 64 m². Weg: 80 m².",
-   "h": "Gesamtfläche minus Beet."
+   "h": "Gesamtfläche minus Beet.",
+   "g": "transfer"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt der Figur. Von einem Rechteck 13 m × 10 m fehlt oben rechts ein Rechteck 3 m × 7 m.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_P0": [
+       0,
+       0
+      ],
+      "_P1": [
+       13,
+       0
+      ],
+      "_P2": [
+       13,
+       3
+      ],
+      "_P3": [
+       10,
+       3
+      ],
+      "_P4": [
+       10,
+       10
+      ],
+      "_P5": [
+       0,
+       10
+      ]
+     },
+     "flaeche": [
+      "_P0",
+      "_P1",
+      "_P2",
+      "_P3",
+      "_P4",
+      "_P5"
+     ],
+     "linien": [
+      [
+       "_P0",
+       "_P1",
+       "13 m"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "3 m"
+      ],
+      [
+       "_P2",
+       "_P3",
+       "3 m"
+      ],
+      [
+       "_P3",
+       "_P4",
+       "7 m"
+      ],
+      [
+       "_P4",
+       "_P5",
+       "10 m"
+      ],
+      [
+       "_P5",
+       "_P0",
+       "10 m"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 109,
+    "einheit": "m²"
+   },
+   "c": "13 * 10 - 3 * 7",
+   "w": "Ergänzen: 13 · 10 − 3 · 7 = 130 − 21 = 109 m².",
+   "h": "Großes Rechteck minus das fehlende Stück.",
+   "g": "direkt"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Aus einem großen Rechteck wird ein kleines Rechteck herausgeschnitten. Wie berechnet man den Flächeninhalt der Restfigur?"
+   },
+   "a": [
+    "großes Rechteck minus kleines Rechteck",
+    "großes plus kleines Rechteck",
+    "kleines Rechteck mal 2",
+    "Umfang des großen Rechtecks"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ergänzen: Was fehlt, zieht man ab.",
+   "h": "Was ist weg?"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt der Figur. Von einem Rechteck 6 m × 10 m fehlt oben rechts ein Rechteck 2 m × 7 m.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_P0": [
+       0,
+       0
+      ],
+      "_P1": [
+       6,
+       0
+      ],
+      "_P2": [
+       6,
+       3
+      ],
+      "_P3": [
+       4,
+       3
+      ],
+      "_P4": [
+       4,
+       10
+      ],
+      "_P5": [
+       0,
+       10
+      ]
+     },
+     "flaeche": [
+      "_P0",
+      "_P1",
+      "_P2",
+      "_P3",
+      "_P4",
+      "_P5"
+     ],
+     "linien": [
+      [
+       "_P0",
+       "_P1",
+       "6 m"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "3 m"
+      ],
+      [
+       "_P2",
+       "_P3",
+       "2 m"
+      ],
+      [
+       "_P3",
+       "_P4",
+       "7 m"
+      ],
+      [
+       "_P4",
+       "_P5",
+       "4 m"
+      ],
+      [
+       "_P5",
+       "_P0",
+       "10 m"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 46,
+    "einheit": "m²"
+   },
+   "c": "6 * 10 - 2 * 7",
+   "w": "Ergänzen: 6 · 10 − 2 · 7 = 60 − 14 = 46 m².",
+   "h": "Großes Rechteck minus das fehlende Stück."
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zerlege die L-Form in zwei Rechtecke und berechne den Flächeninhalt.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_P0": [
+       0,
+       0
+      ],
+      "_P1": [
+       8,
+       0
+      ],
+      "_P2": [
+       8,
+       2
+      ],
+      "_P3": [
+       5,
+       2
+      ],
+      "_P4": [
+       5,
+       5
+      ],
+      "_P5": [
+       0,
+       5
+      ]
+     },
+     "flaeche": [
+      "_P0",
+      "_P1",
+      "_P2",
+      "_P3",
+      "_P4",
+      "_P5"
+     ],
+     "linien": [
+      [
+       "_P0",
+       "_P1",
+       "8 m"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "2 m"
+      ],
+      [
+       "_P2",
+       "_P3",
+       "3 m"
+      ],
+      [
+       "_P3",
+       "_P4",
+       "3 m"
+      ],
+      [
+       "_P4",
+       "_P5",
+       "5 m"
+      ],
+      [
+       "_P5",
+       "_P0",
+       "5 m"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 31,
+    "einheit": "m²"
+   },
+   "c": "8 * (5 - 3) + (8 - 3) * 3",
+   "w": "Unten: 8 · 2 = 16 m². Oben links: 5 · 3 = 15 m². Zusammen 31 m².",
+   "h": "Ziehe eine Linie, sodass zwei Rechtecke entstehen."
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bilderrahmen ist außen 30 cm × 20 cm groß, das Bild darin 26 cm × 16 cm. Wie groß ist die Fläche des Rahmens?"
+   },
+   "o": {
+    "wert": 184,
+    "einheit": "cm²"
+   },
+   "c": "30 * 20 - 26 * 16",
+   "w": "Außen: 600 cm². Bild: 416 cm². Rahmen: 600 − 416 = 184 cm².",
+   "h": "Große Fläche minus Bildfläche.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großes Quadrat hat 8 cm Seitenlänge. Darin liegt ein kleines Quadrat mit 3 cm Seitenlänge. Wie groß ist die Fläche zwischen den beiden Quadraten?"
+   },
+   "o": {
+    "wert": 55,
+    "einheit": "cm²"
+   },
+   "c": "8 * 8 - 3 * 3",
+   "w": "Großes Quadrat: 64 cm². Kleines: 9 cm². Dazwischen: 55 cm².",
+   "h": "Die Lage des kleinen Quadrats spielt keine Rolle.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Eine L-Form hat 40 m². Sie besteht aus einem Rechteck mit 6 m × 4 m und einem zweiten Rechteck, das 2 m breit ist. Wie lang ist das zweite Rechteck?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m"
+   },
+   "c": "(40 - 24) // 2",
+   "w": "Für das zweite Rechteck bleiben 40 − 24 = 16 m². 16 : 2 = 8 m.",
+   "h": "Wie viel m² bleiben für das zweite Rechteck?"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Quadrat mit 10 m Seitenlänge wird in einer Ecke ein Quadrat mit 4 m Seitenlänge herausgeschnitten. Wie lang ist der Umfang der Restfigur?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "m"
+   },
+   "c": "4 * 10",
+   "w": "Die zwei weggeschnittenen Randstücke (je 4 m) werden durch zwei neue Kanten (je 4 m) ersetzt. Der Umfang bleibt 4 · 10 m = 40 m.",
+   "h": "Zeichne die Figur und gehe den Rand ab. Vergleiche mit dem ganzen Quadrat.",
+   "g": "begruenden"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Treppenfigur besteht aus Quadraten mit 1 cm Seitenlänge: unten 4, darüber 3, dann 2, ganz oben 1, alle links bündig. Wie lang ist ihr Umfang?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "cm"
+   },
+   "c": "2 * (4 + 4)",
+   "w": "Schiebt man die Stufenkanten nach außen, entsteht ein Quadrat mit 4 cm Seitenlänge – gleicher Umfang: 16 cm.",
+   "h": "Die waagrechten Stufen zusammen sind so lang wie die Grundseite.",
+   "g": "transfer"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleiche Quadrate mit 5 cm Seitenlänge werden so aneinandergelegt, dass sie eine ganze Seite gemeinsam haben. Wie lang ist der Umfang der neuen Figur?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm"
+   },
+   "c": "2 * 4 * 5 - 2 * 5",
+   "w": "Es entsteht ein Rechteck 10 cm × 5 cm: Umfang 30 cm. Die gemeinsame Seite liegt innen und zählt nicht mehr.",
+   "h": "Welche Figur entsteht?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand zerlegt eine L-Form in zwei Rechtecke, zählt aber ein Stück von 2 m × 2 m doppelt und erhält 52 m². Wie groß ist die Fläche wirklich?"
+   },
+   "a": [
+    "48 m²",
+    "50 m²",
+    "52 m²",
+    "56 m²"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das doppelt gezählte Stück hat 4 m²: 52 − 4 = 48 m².",
+   "h": "Wie groß ist das doppelt gezählte Stück?"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Quadrat mit 9 cm Seitenlänge wird in einer Ecke ein Quadrat mit a cm Seitenlänge herausgeschnitten. Es bleiben 72 cm². Wie groß ist a?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "3",
+   "w": "81 − a · a = 72, also a · a = 9 und a = 3.",
+   "h": "Wie groß ist das herausgeschnittene Quadrat?"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "An die kurze Seite eines Rechtecks 10 cm × 6 cm wird ein Quadrat mit 6 cm Seitenlänge angesetzt. Wie groß ist der Umfang der neuen Figur?"
+   },
+   "o": {
+    "wert": 44,
+    "einheit": "cm"
+   },
+   "c": "2 * (16 + 6)",
+   "w": "Die Figur ist ein Rechteck 16 cm × 6 cm. Umfang 2 · (16 + 6) = 44 cm.",
+   "h": "Welche Form entsteht?"
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Quadrat aus 5 · 5 Kästchen wird das mittlere Kästchen herausgenommen. Wie lang ist der gesamte Rand der Figur (außen und innen) in Kästchenlängen?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "20 + 4",
+   "w": "Außen: 4 · 5 = 20. Innen um das Loch: 4. Zusammen 24.",
+   "h": "Das Loch hat auch einen Rand."
+  },
+  {
+   "l": "zerlegen",
+   "t": "zerlegen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Rechteck 10 cm × 8 cm werden an allen vier Ecken gleiche Quadrate mit 2 cm Seitenlänge ausgeschnitten. Wie groß ist der Umfang der Restfigur?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm"
+   },
+   "c": "2 * (10 + 8)",
+   "w": "An jeder Ecke fallen 2 + 2 cm weg, aber 2 + 2 cm kommen nach innen dazu. Der Umfang bleibt 36 cm.",
+   "h": "Was passiert an einer Ecke mit dem Rand?"
   },
   {
    "l": "zerlegen",
@@ -6106,6 +7713,24 @@
    "l": "sachaufgaben",
    "t": "sachaufgaben",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rasen ist 19 m lang und 9 m breit. Für 1 m² braucht man 30 g Samen. Wie viele g Samen braucht man?"
+   },
+   "o": {
+    "wert": 5130,
+    "einheit": "g"
+   },
+   "c": "19 * 9 * 30",
+   "w": "Fläche: 19 · 9 = 171 m². Samen: 171 · 30 g = 5 130 g.",
+   "h": "Zuerst die Fläche, dann mal die Menge pro m².",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -6164,7 +7789,44 @@
    },
    "c": "2 * 22 + 2 * 14",
    "w": "Zaun = Umfang: 2 · 22 + 2 · 14 = 72 m.",
-   "h": "Ein Zaun läuft am Rand entlang."
+   "h": "Ein Zaun läuft am Rand entlang.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer ist 5 m lang und 4 m breit. Es bekommt eine Fußleiste ringsherum, die Tür (1 m breit) bleibt frei. Wie viele Meter Leiste braucht man?"
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "m"
+   },
+   "c": "2 * 5 + 2 * 4 - 1",
+   "w": "Umfang 18 m, minus Tür: 17 m.",
+   "h": "Die Leiste läuft am Rand – ohne die Tür.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rasen ist 21 m lang und 5 m breit. Für 1 m² braucht man 25 g Samen. Wie viele g Samen braucht man?"
+   },
+   "o": {
+    "wert": 2625,
+    "einheit": "g"
+   },
+   "c": "21 * 5 * 25",
+   "w": "Fläche: 21 · 5 = 105 m². Samen: 105 · 25 g = 2 625 g.",
+   "h": "Zuerst die Fläche, dann mal die Menge pro m².",
+   "g": "einkleidung"
   },
   {
    "l": "sachaufgaben",
@@ -6228,7 +7890,79 @@
    },
    "c": "13 * 12",
    "w": "Fläche: 13 · 12 = 156 m².",
-   "h": "Rasen bedeckt eine Fläche."
+   "h": "Rasen bedeckt eine Fläche.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer ist 4 m lang und 3 m breit. Der Boden wird mit Teppich ausgelegt, 1 m² kostet 25 €. Was kostet der Teppich?"
+   },
+   "o": {
+    "wert": 300,
+    "einheit": "€"
+   },
+   "c": "4 * 3 * 25",
+   "w": "Fläche 4 · 3 = 12 m². Preis: 12 · 25 € = 300 €.",
+   "h": "Zuerst die Fläche, dann den Preis.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Garten ist 15 m lang und 8 m breit. 1 m² Rollrasen kostet 3 €. Was kostet der Rasen für den ganzen Garten?"
+   },
+   "o": {
+    "wert": 360,
+    "einheit": "€"
+   },
+   "c": "15 * 8 * 3",
+   "w": "Fläche: 120 m². Kosten: 120 · 3 € = 360 €.",
+   "h": "Rasen braucht man für die Fläche, nicht für den Rand.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Wand ist 4 m lang und 2,5 m hoch. Darin ist eine Tür (1 m × 2 m), die nicht gestrichen wird. Wie viele m² werden gestrichen?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m²"
+   },
+   "c": "4.0 * 2.5 - 1.0 * 2.0",
+   "w": "Wand: 4 · 2,5 = 10 m². Tür: 1 · 2 = 2 m². Gestrichen: 10 − 2 = 8 m².",
+   "h": "Ganze Wand minus die Fläche, die frei bleibt.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bad ist 3,5 m lang und 2,25 m breit. Wie viele quadratische Fliesen mit 25 cm Seitenlänge braucht man für den Boden?"
+   },
+   "o": {
+    "wert": 126
+   },
+   "c": "(350 / 25) * (225 / 25)",
+   "w": "In cm: 350 : 25 = 14 Fliesen in der Länge, 225 : 25 = 9 in der Breite. 14 · 9 = 126 Fliesen.",
+   "h": "Rechne in cm und bestimme, wie viele Fliesen in jede Richtung passen.",
+   "g": "transfer"
   },
   {
    "l": "sachaufgaben",
@@ -6292,71 +8026,8 @@
    },
    "c": "2 * 11 + 2 * 8",
    "w": "Zaun = Umfang: 2 · 11 + 2 · 8 = 38 m.",
-   "h": "Ein Zaun läuft am Rand entlang."
-  },
-  {
-   "l": "sachaufgaben",
-   "t": "sachaufgaben",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rasen ist 10 m lang und 7 m breit. Wie viele m² Rasen sind das?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_A": [
-       0,
-       0
-      ],
-      "_B": [
-       10,
-       0
-      ],
-      "_C": [
-       10,
-       7
-      ],
-      "_D": [
-       0,
-       7
-      ]
-     },
-     "flaeche": [
-      "_A",
-      "_B",
-      "_C",
-      "_D"
-     ],
-     "linien": [
-      [
-       "_A",
-       "_B",
-       "10 m"
-      ],
-      [
-       "_B",
-       "_C",
-       "7 m"
-      ],
-      [
-       "_C",
-       "_D"
-      ],
-      [
-       "_D",
-       "_A"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 70,
-    "einheit": "m²"
-   },
-   "c": "10 * 7",
-   "w": "Fläche: 10 · 7 = 70 m².",
-   "h": "Rasen bedeckt eine Fläche."
+   "h": "Ein Zaun läuft am Rand entlang.",
+   "g": "direkt"
   },
   {
    "l": "sachaufgaben",
@@ -6421,6 +8092,439 @@
    "c": "16 * 4",
    "w": "Fläche: 16 · 4 = 64 m².",
    "h": "Rasen bedeckt eine Fläche."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer ist 6 m lang und 5 m breit. Es bekommt eine Fußleiste ringsherum, die Tür (1 m breit) bleibt frei. Wie viele Meter Leiste braucht man?"
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "m"
+   },
+   "c": "2 * 6 + 2 * 5 - 1",
+   "w": "Umfang 22 m, minus Tür: 21 m.",
+   "h": "Die Leiste läuft am Rand – ohne die Tür.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bild ist 40 cm breit und 30 cm hoch. Ringsherum wird eine Leiste geklebt. Wie viele cm Leiste braucht man?"
+   },
+   "o": {
+    "wert": 140,
+    "einheit": "cm"
+   },
+   "c": "2 * 40 + 2 * 30",
+   "w": "Rand = Umfang: 2 · 40 cm + 2 · 30 cm = 140 cm.",
+   "h": "Leiste am Rand: Umfang oder Fläche?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für 1 a Rasen braucht man 2 kg Samen. Wie viele kg braucht man für 6 ha?"
+   },
+   "o": {
+    "wert": 1200,
+    "einheit": "kg"
+   },
+   "c": "6 * 100 * 2.0",
+   "w": "6 ha = 600 a. 600 · 2 kg = 1 200 kg.",
+   "h": "1 ha = 100 a.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bad ist 3 m lang und 2,5 m breit. Wie viele quadratische Fliesen mit 50 cm Seitenlänge braucht man für den Boden?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "(300 / 50) * (250 / 50)",
+   "w": "In cm: 300 : 50 = 6 Fliesen in der Länge, 250 : 50 = 5 in der Breite. 6 · 5 = 30 Fliesen.",
+   "h": "Rechne in cm und bestimme, wie viele Fliesen in jede Richtung passen.",
+   "g": "transfer"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Kästchen sind 1 km². Was kannst du über die Fläche des Sees sicher sagen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       8,
+       0
+      ],
+      "_C": [
+       8,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_s0": [
+       0.5,
+       3
+      ],
+      "_s1": [
+       1.5,
+       1
+      ],
+      "_s2": [
+       4,
+       0.5
+      ],
+      "_s3": [
+       6.5,
+       1
+      ],
+      "_s4": [
+       7.5,
+       3
+      ],
+      "_s5": [
+       6.5,
+       5
+      ],
+      "_s6": [
+       4,
+       5.5
+      ],
+      "_s7": [
+       1.5,
+       5
+      ],
+      "_xu1": [
+       1,
+       0
+      ],
+      "_xo1": [
+       1,
+       6
+      ],
+      "_xu2": [
+       2,
+       0
+      ],
+      "_xo2": [
+       2,
+       6
+      ],
+      "_xu3": [
+       3,
+       0
+      ],
+      "_xo3": [
+       3,
+       6
+      ],
+      "_xu4": [
+       4,
+       0
+      ],
+      "_xo4": [
+       4,
+       6
+      ],
+      "_xu5": [
+       5,
+       0
+      ],
+      "_xo5": [
+       5,
+       6
+      ],
+      "_xu6": [
+       6,
+       0
+      ],
+      "_xo6": [
+       6,
+       6
+      ],
+      "_xu7": [
+       7,
+       0
+      ],
+      "_xo7": [
+       7,
+       6
+      ],
+      "_yl1": [
+       0,
+       1
+      ],
+      "_yr1": [
+       8,
+       1
+      ],
+      "_yl2": [
+       0,
+       2
+      ],
+      "_yr2": [
+       8,
+       2
+      ],
+      "_yl3": [
+       0,
+       3
+      ],
+      "_yr3": [
+       8,
+       3
+      ],
+      "_yl4": [
+       0,
+       4
+      ],
+      "_yr4": [
+       8,
+       4
+      ],
+      "_yl5": [
+       0,
+       5
+      ],
+      "_yr5": [
+       8,
+       5
+      ]
+     },
+     "flaeche": [
+      "_s0",
+      "_s1",
+      "_s2",
+      "_s3",
+      "_s4",
+      "_s5",
+      "_s6",
+      "_s7"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       ""
+      ],
+      [
+       "_B",
+       "_C",
+       ""
+      ],
+      [
+       "_C",
+       "_D",
+       ""
+      ],
+      [
+       "_D",
+       "_A",
+       ""
+      ],
+      [
+       "_xu1",
+       "_xo1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu2",
+       "_xo2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu3",
+       "_xo3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu4",
+       "_xo4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu5",
+       "_xo5",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu6",
+       "_xo6",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu7",
+       "_xo7",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl1",
+       "_yr1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl2",
+       "_yr2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl3",
+       "_yr3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl4",
+       "_yr4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl5",
+       "_yr5",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Sie ist größer als 20 km² und kleiner als 40 km².",
+    "Sie ist kleiner als 20 km².",
+    "Sie ist größer als 40 km².",
+    "Sie ist genau 48 km²."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Innen liegen 20 ganze Kästchen, also mehr als 20 km². Alle Kästchen, die der See berührt, sind 20 + 20 = 40. Sie decken den See ganz ab, also weniger als 40 km². 48 km² ist die ganze Karte (8 · 6).",
+   "h": "Zähle die ganzen Kästchen im See. Zähle dann alle Kästchen, die der See berührt.",
+   "g": "begruenden"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rasen ist 10 m lang und 7 m breit. Wie viele m² Rasen sind das?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       10,
+       0
+      ],
+      "_C": [
+       10,
+       7
+      ],
+      "_D": [
+       0,
+       7
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "10 m"
+      ],
+      [
+       "_B",
+       "_C",
+       "7 m"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "m²"
+   },
+   "c": "10 * 7",
+   "w": "Fläche: 10 · 7 = 70 m².",
+   "h": "Rasen bedeckt eine Fläche.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Für einen Zaun um einen Garten braucht man …"
+   },
+   "a": [
+    "die halbe Fläche",
+    "die Diagonale",
+    "den Umfang",
+    "den Flächeninhalt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Zaun geht einmal ganz herum: Umfang.",
+   "h": "Geht der Zaun um den Garten herum oder liegt er darauf?"
   },
   {
    "l": "sachaufgaben",
@@ -6493,74 +8597,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Zimmer ist 5 m lang und 4 m breit. Es bekommt eine Fußleiste ringsherum, die Tür (1 m breit) bleibt frei. Wie viele Meter Leiste braucht man?"
-   },
-   "o": {
-    "wert": 17,
-    "einheit": "m"
-   },
-   "c": "2 * 5 + 2 * 4 - 1",
-   "w": "Umfang 18 m, minus Tür: 17 m.",
-   "h": "Die Leiste läuft am Rand – ohne die Tür."
-  },
-  {
-   "l": "sachaufgaben",
-   "t": "sachaufgaben",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zimmer ist 4 m lang und 3 m breit. Der Boden wird mit Teppich ausgelegt, 1 m² kostet 25 €. Was kostet der Teppich?"
-   },
-   "o": {
-    "wert": 300,
-    "einheit": "€"
-   },
-   "c": "4 * 3 * 25",
-   "w": "Fläche 4 · 3 = 12 m². Preis: 12 · 25 € = 300 €.",
-   "h": "Zuerst die Fläche, dann den Preis."
-  },
-  {
-   "l": "sachaufgaben",
-   "t": "sachaufgaben",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rasen ist 19 m lang und 9 m breit. Für 1 m² braucht man 30 g Samen. Wie viele g Samen braucht man?"
-   },
-   "o": {
-    "wert": 5130,
-    "einheit": "g"
-   },
-   "c": "19 * 9 * 30",
-   "w": "Fläche: 19 · 9 = 171 m². Samen: 171 · 30 g = 5 130 g.",
-   "h": "Zuerst die Fläche, dann mal die Menge pro m²."
-  },
-  {
-   "l": "sachaufgaben",
-   "t": "sachaufgaben",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zimmer ist 6 m lang und 5 m breit. Es bekommt eine Fußleiste ringsherum, die Tür (1 m breit) bleibt frei. Wie viele Meter Leiste braucht man?"
-   },
-   "o": {
-    "wert": 21,
-    "einheit": "m"
-   },
-   "c": "2 * 6 + 2 * 5 - 1",
-   "w": "Umfang 22 m, minus Tür: 21 m.",
-   "h": "Die Leiste läuft am Rand – ohne die Tür."
-  },
-  {
-   "l": "sachaufgaben",
-   "t": "sachaufgaben",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Ein Zimmer ist 4 m lang und 4 m breit. Der Boden wird mit Teppich ausgelegt, 1 m² kostet 20 €. Was kostet der Teppich?"
    },
    "o": {
@@ -6569,7 +8605,8 @@
    },
    "c": "4 * 4 * 20",
    "w": "Fläche 4 · 4 = 16 m². Preis: 16 · 20 € = 320 €.",
-   "h": "Zuerst die Fläche, dann den Preis."
+   "h": "Zuerst die Fläche, dann den Preis.",
+   "g": "mehrschritt"
   },
   {
    "l": "sachaufgaben",
@@ -6578,81 +8615,304 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Rasen ist 21 m lang und 5 m breit. Für 1 m² braucht man 25 g Samen. Wie viele g Samen braucht man?"
+    "text": "Ein Zimmer ist 4 m lang, 3 m breit und 2,5 m hoch. Alle vier Wände werden gestrichen. Eine Tür (1 m × 2 m) und ein Fenster (1,5 m × 1 m) bleiben frei. Wie viele m² werden gestrichen?"
    },
    "o": {
-    "wert": 2625,
-    "einheit": "g"
-   },
-   "c": "21 * 5 * 25",
-   "w": "Fläche: 21 · 5 = 105 m². Samen: 105 · 25 g = 2 625 g.",
-   "h": "Zuerst die Fläche, dann mal die Menge pro m²."
-  },
-  {
-   "l": "sachaufgaben",
-   "t": "sachaufgaben",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Wand ist 4 m lang und 2,5 m hoch. Darin ist eine Tür (1 m × 2 m), die nicht gestrichen wird. Wie viele m² werden gestrichen?"
-   },
-   "o": {
-    "wert": 8,
+    "wert": 31.5,
     "einheit": "m²"
    },
-   "c": "4.0 * 2.5 - 1.0 * 2.0",
-   "w": "Wand: 4 · 2,5 = 10 m². Tür: 1 · 2 = 2 m². Gestrichen: 10 − 2 = 8 m².",
-   "h": "Ganze Wand minus die Fläche, die frei bleibt."
+   "c": "2 * (4 + 3) * 2.5 - 1 * 2 - 1.5 * 1",
+   "w": "Wände: (4 + 3 + 4 + 3) m · 2,5 m = 35 m². Abzüglich 2 m² und 1,5 m²: 31,5 m².",
+   "h": "Lege die vier Wände nebeneinander: ein langes Rechteck.",
+   "g": "einkleidung"
   },
   {
    "l": "sachaufgaben",
    "t": "sachaufgaben",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für 1 a Rasen braucht man 2 kg Samen. Wie viele kg braucht man für 6 ha?"
+    "text": "Ein See auf einer Karte. Jedes Kästchen steht für 1 km Länge und 1 km Breite, also 1 km². Wie viele Kästchen liegen ganz im See?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       8,
+       0
+      ],
+      "_C": [
+       8,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_s0": [
+       0.5,
+       3
+      ],
+      "_s1": [
+       1.5,
+       1
+      ],
+      "_s2": [
+       4,
+       0.5
+      ],
+      "_s3": [
+       6.5,
+       1
+      ],
+      "_s4": [
+       7.5,
+       3
+      ],
+      "_s5": [
+       6.5,
+       5
+      ],
+      "_s6": [
+       4,
+       5.5
+      ],
+      "_s7": [
+       1.5,
+       5
+      ],
+      "_xu1": [
+       1,
+       0
+      ],
+      "_xo1": [
+       1,
+       6
+      ],
+      "_xu2": [
+       2,
+       0
+      ],
+      "_xo2": [
+       2,
+       6
+      ],
+      "_xu3": [
+       3,
+       0
+      ],
+      "_xo3": [
+       3,
+       6
+      ],
+      "_xu4": [
+       4,
+       0
+      ],
+      "_xo4": [
+       4,
+       6
+      ],
+      "_xu5": [
+       5,
+       0
+      ],
+      "_xo5": [
+       5,
+       6
+      ],
+      "_xu6": [
+       6,
+       0
+      ],
+      "_xo6": [
+       6,
+       6
+      ],
+      "_xu7": [
+       7,
+       0
+      ],
+      "_xo7": [
+       7,
+       6
+      ],
+      "_yl1": [
+       0,
+       1
+      ],
+      "_yr1": [
+       8,
+       1
+      ],
+      "_yl2": [
+       0,
+       2
+      ],
+      "_yr2": [
+       8,
+       2
+      ],
+      "_yl3": [
+       0,
+       3
+      ],
+      "_yr3": [
+       8,
+       3
+      ],
+      "_yl4": [
+       0,
+       4
+      ],
+      "_yr4": [
+       8,
+       4
+      ],
+      "_yl5": [
+       0,
+       5
+      ],
+      "_yr5": [
+       8,
+       5
+      ]
+     },
+     "flaeche": [
+      "_s0",
+      "_s1",
+      "_s2",
+      "_s3",
+      "_s4",
+      "_s5",
+      "_s6",
+      "_s7"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       ""
+      ],
+      [
+       "_B",
+       "_C",
+       ""
+      ],
+      [
+       "_C",
+       "_D",
+       ""
+      ],
+      [
+       "_D",
+       "_A",
+       ""
+      ],
+      [
+       "_xu1",
+       "_xo1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu2",
+       "_xo2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu3",
+       "_xo3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu4",
+       "_xo4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu5",
+       "_xo5",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu6",
+       "_xo6",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu7",
+       "_xo7",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl1",
+       "_yr1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl2",
+       "_yr2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl3",
+       "_yr3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl4",
+       "_yr4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl5",
+       "_yr5",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "o": {
-    "wert": 1200,
-    "einheit": "kg"
+    "wert": 20
    },
-   "c": "6 * 100 * 2.0",
-   "w": "6 ha = 600 a. 600 · 2 kg = 1 200 kg.",
-   "h": "1 ha = 100 a."
+   "c": "20",
+   "w": "Zeile für Zeile zählen: 0 + 4 + 6 + 6 + 4 + 0 = 20 Kästchen liegen ganz im See. Der See ist also größer als 20 km².",
+   "h": "Zähle Zeile für Zeile nur die Kästchen, die ganz gefärbt sind.",
+   "g": "darstellung"
   },
   {
    "l": "sachaufgaben",
    "t": "sachaufgaben",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "umkehr",
    "y": "zahl",
    "f": {
-    "text": "Ein Bad ist 3,5 m lang und 2,25 m breit. Wie viele quadratische Fliesen mit 25 cm Seitenlänge braucht man für den Boden?"
+    "text": "Ein rechteckiges Beet hat 24 m² und ist 6 m lang. Wie viele Meter Zaun braucht man ringsherum?"
    },
    "o": {
-    "wert": 126
+    "wert": 20,
+    "einheit": "m"
    },
-   "c": "(350 / 25) * (225 / 25)",
-   "w": "In cm: 350 : 25 = 14 Fliesen in der Länge, 225 : 25 = 9 in der Breite. 14 · 9 = 126 Fliesen.",
-   "h": "Rechne in cm und bestimme, wie viele Fliesen in jede Richtung passen."
-  },
-  {
-   "l": "sachaufgaben",
-   "t": "sachaufgaben",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bad ist 3 m lang und 2,5 m breit. Wie viele quadratische Fliesen mit 50 cm Seitenlänge braucht man für den Boden?"
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "(300 / 50) * (250 / 50)",
-   "w": "In cm: 300 : 50 = 6 Fliesen in der Länge, 250 : 50 = 5 in der Breite. 6 · 5 = 30 Fliesen.",
-   "h": "Rechne in cm und bestimme, wie viele Fliesen in jede Richtung passen."
+   "c": "2 * (6 + 24 // 6)",
+   "w": "Breite: 24 : 6 = 4 m. Umfang: 2 · (6 + 4) = 20 m.",
+   "h": "Bestimme zuerst die Breite."
   },
   {
    "l": "sachaufgaben",
@@ -6669,7 +8929,8 @@
    },
    "c": "4.5 * 2.5 - 1.5 * 1.0",
    "w": "Wand: 4,5 · 2,5 = 11,25 m². Fenster: 1,5 · 1 = 1,5 m². Gestrichen: 11,25 − 1,5 = 9,75 m².",
-   "h": "Ganze Wand minus die Fläche, die frei bleibt."
+   "h": "Ganze Wand minus die Fläche, die frei bleibt.",
+   "g": "verknuepfen"
   },
   {
    "l": "sachaufgaben",
@@ -6686,6 +8947,531 @@
    "c": "(280 / 20) * (220 / 20)",
    "w": "In cm: 280 : 20 = 14 Fliesen in der Länge, 220 : 20 = 11 in der Breite. 14 · 11 = 154 Fliesen.",
    "h": "Rechne in cm und bestimme, wie viele Fliesen in jede Richtung passen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Sandkasten ist 3 m × 2 m groß. Im Abstand von 1 m wird ringsum ein Zaun gebaut. Alle 1 m steht ein Pfosten, auch an jeder Ecke. Wie viele Pfosten braucht man?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "2 * (3 + 2) + 2 * (2 + 2)",
+   "w": "Der Zaun bildet ein Rechteck 5 m × 4 m mit Umfang 18 m. Bei einem geschlossenen Zaun gibt es so viele Pfosten wie Meter: 18.",
+   "h": "Wie groß ist das Zaun-Rechteck? Bei einem geschlossenen Zaun: Pfosten = Abstände.",
+   "g": "transfer"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Eimer Farbe reicht für 10 m² Wand. Eine Wand hat 45 m². Wie viele Eimer muss man kaufen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "-(-45 // 10)",
+   "w": "45 : 10 = 4 Rest 5. 4 Eimer reichen nur für 40 m², also braucht man 5 Eimer.",
+   "h": "Reichen 4 Eimer?",
+   "g": "pruefung"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet den Zaun für einen Garten (12 m × 8 m): 12 · 8 = 96 m. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, 96 m stimmt.",
+    "Richtig ist 96 m².",
+    "Richtig ist 12 + 8 = 20 m.",
+    "Für den Zaun braucht man den Umfang: 2 · 12 m + 2 · 8 m = 40 m."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "12 · 8 = 96 ist die Fläche in m². Der Zaun läuft am Rand: Umfang 40 m.",
+   "h": "Läuft ein Zaun am Rand oder über die Fläche?",
+   "g": "fehler"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jedes Kästchen ist 1 km². Welcher dieser Werte kommt als Fläche des Sees in Frage?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       8,
+       0
+      ],
+      "_C": [
+       8,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_s0": [
+       0.5,
+       3
+      ],
+      "_s1": [
+       1.5,
+       1
+      ],
+      "_s2": [
+       4,
+       0.5
+      ],
+      "_s3": [
+       6.5,
+       1
+      ],
+      "_s4": [
+       7.5,
+       3
+      ],
+      "_s5": [
+       6.5,
+       5
+      ],
+      "_s6": [
+       4,
+       5.5
+      ],
+      "_s7": [
+       1.5,
+       5
+      ],
+      "_xu1": [
+       1,
+       0
+      ],
+      "_xo1": [
+       1,
+       6
+      ],
+      "_xu2": [
+       2,
+       0
+      ],
+      "_xo2": [
+       2,
+       6
+      ],
+      "_xu3": [
+       3,
+       0
+      ],
+      "_xo3": [
+       3,
+       6
+      ],
+      "_xu4": [
+       4,
+       0
+      ],
+      "_xo4": [
+       4,
+       6
+      ],
+      "_xu5": [
+       5,
+       0
+      ],
+      "_xo5": [
+       5,
+       6
+      ],
+      "_xu6": [
+       6,
+       0
+      ],
+      "_xo6": [
+       6,
+       6
+      ],
+      "_xu7": [
+       7,
+       0
+      ],
+      "_xo7": [
+       7,
+       6
+      ],
+      "_yl1": [
+       0,
+       1
+      ],
+      "_yr1": [
+       8,
+       1
+      ],
+      "_yl2": [
+       0,
+       2
+      ],
+      "_yr2": [
+       8,
+       2
+      ],
+      "_yl3": [
+       0,
+       3
+      ],
+      "_yr3": [
+       8,
+       3
+      ],
+      "_yl4": [
+       0,
+       4
+      ],
+      "_yr4": [
+       8,
+       4
+      ],
+      "_yl5": [
+       0,
+       5
+      ],
+      "_yr5": [
+       8,
+       5
+      ]
+     },
+     "flaeche": [
+      "_s0",
+      "_s1",
+      "_s2",
+      "_s3",
+      "_s4",
+      "_s5",
+      "_s6",
+      "_s7"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       ""
+      ],
+      [
+       "_B",
+       "_C",
+       ""
+      ],
+      [
+       "_C",
+       "_D",
+       ""
+      ],
+      [
+       "_D",
+       "_A",
+       ""
+      ],
+      [
+       "_xu1",
+       "_xo1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu2",
+       "_xo2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu3",
+       "_xo3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu4",
+       "_xo4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu5",
+       "_xo5",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu6",
+       "_xo6",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_xu7",
+       "_xo7",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl1",
+       "_yr1",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl2",
+       "_yr2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl3",
+       "_yr3",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl4",
+       "_yr4",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_yl5",
+       "_yr5",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "etwa 10 km²",
+    "etwa 30 km²",
+    "etwa 45 km²",
+    "etwa 48 km²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Fläche liegt zwischen 20 km² (ganze Kästchen) und 40 km² (alle berührten Kästchen). Nur 30 km² liegt dazwischen. Angeschnittene Kästchen zählen etwa halb: 20 + 20 : 2 = 30.",
+   "h": "Suche erst eine untere und eine obere Grenze mit den Kästchen.",
+   "g": "begruenden"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Teich liegt ganz im großen Rechteck (9 m mal 6 m). Das kleine Rechteck (5 m mal 3 m) liegt ganz im Teich. Zwischen welchen Werten liegt die Fläche des Teichs?",
+    "schablone": "mehr als □ m², weniger als □ m²",
+    "hinweis": "Trage die beiden Grenzen ein.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_t0": [
+       0,
+       3
+      ],
+      "_t1": [
+       1,
+       1
+      ],
+      "_t2": [
+       3,
+       0
+      ],
+      "_t3": [
+       6,
+       0
+      ],
+      "_t4": [
+       8.5,
+       1.5
+      ],
+      "_t5": [
+       9,
+       3.5
+      ],
+      "_t6": [
+       7.5,
+       5.5
+      ],
+      "_t7": [
+       4,
+       6
+      ],
+      "_t8": [
+       1,
+       5
+      ],
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       9,
+       0
+      ],
+      "_C": [
+       9,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ],
+      "_E": [
+       2,
+       1.5
+      ],
+      "_F": [
+       7,
+       1.5
+      ],
+      "_G": [
+       7,
+       4.5
+      ],
+      "_H": [
+       2,
+       4.5
+      ]
+     },
+     "flaeche": [
+      "_t0",
+      "_t1",
+      "_t2",
+      "_t3",
+      "_t4",
+      "_t5",
+      "_t6",
+      "_t7",
+      "_t8"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "9 m",
+       "gestrichelt"
+      ],
+      [
+       "_B",
+       "_C",
+       "6 m",
+       "gestrichelt"
+      ],
+      [
+       "_C",
+       "_D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_D",
+       "_A",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_E",
+       "_F",
+       "5 m",
+       "gestrichelt"
+      ],
+      [
+       "_F",
+       "_G",
+       "3 m",
+       "gestrichelt"
+      ],
+      [
+       "_G",
+       "_H",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_H",
+       "_E",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     15,
+     54
+    ]
+   },
+   "c": [
+    "5 * 3",
+    "9 * 6"
+   ],
+   "w": "Das kleine Rechteck liegt im Teich: Der Teich ist größer als 5 · 3 = 15 m². Das große Rechteck umschließt ihn: Er ist kleiner als 9 · 6 = 54 m².",
+   "h": "Rechne die Fläche beider Rechtecke aus. Welches liegt innen, welches außen?",
+   "g": "parameter"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Garten hat den Umfang 48 m. Ein 1 m breiter Weg führt mitten hindurch, parallel zu einer Seite, und teilt ihn in zwei Beete. Wie groß sind die beiden Beete zusammen?"
+   },
+   "o": {
+    "wert": 132,
+    "einheit": "m²"
+   },
+   "c": "144 - 12",
+   "w": "Seite: 48 : 4 = 12 m. Garten: 144 m². Weg: 12 m · 1 m = 12 m². Beete: 132 m².",
+   "h": "Wie lang ist eine Seite des Gartens?"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer 5 m × 4 m soll mit quadratischen Platten von 50 cm Seitenlänge ausgelegt werden. Die Platten gibt es nur in Paketen zu 6 Stück. Wie viele Pakete muss man kaufen?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "80 // 6 + 1",
+   "w": "10 · 8 = 80 Platten. 80 : 6 = 13 Rest 2 – also 14 Pakete.",
+   "h": "Wie viele Platten passen in jede Richtung?"
   },
   {
    "l": "sachaufgaben",
@@ -6865,7 +9651,29 @@
     "text": "Stimmt die Aussage? „1 m² = 10 dm²“"
    },
    "w": "Nein, 10 dm · 10 dm = 100 dm².",
-   "h": "Rechne ein Beispiel durch."
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, der Umfang wird um den ganzen Rand des Stücks größer.",
+    "Ja, die beiden fehlenden Randstücke werden durch zwei gleich lange neue Kanten ersetzt.",
+    "Nein, der Umfang wird kleiner, weil ein Stück fehlt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Schneidet man aus einem Rechteck an einer Ecke ein kleines Rechteck aus, bleibt der Umfang gleich.“"
+   },
+   "w": "Ja, die beiden fehlenden Randstücke werden durch zwei gleich lange neue Kanten ersetzt.",
+   "h": "Rechne ein Beispiel durch.",
+   "g": "begruenden"
   },
   {
    "l": "verstehen",
@@ -6885,7 +9693,29 @@
     "text": "Stimmt die Aussage? „1 m² = 100 dm²“"
    },
    "w": "Ja, 10 dm · 10 dm = 100 dm².",
-   "h": "Rechne ein Beispiel durch."
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, 1 a = 10 m², also 20 m².",
+    "Ja, 1 a = 100 m².",
+    "Nein, 1 a = 1 000 m², also 2 000 m²."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „2 a = 200 m²“"
+   },
+   "w": "Ja, 1 a = 100 m².",
+   "h": "Rechne ein Beispiel durch.",
+   "g": "darstellung"
   },
   {
    "l": "verstehen",
@@ -6905,7 +9735,29 @@
     "text": "Stimmt die Aussage? „Ein Rechteck mit 6 cm und 3 cm hat den Flächeninhalt 9 cm².“"
    },
    "w": "Nein, A = 6 cm · 3 cm = 18 cm².",
-   "h": "Rechne ein Beispiel durch."
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quadrat mit 3 cm Seitenlänge hat den Flächeninhalt 9 cm² und den Umfang 12 cm.“"
+   },
+   "a": [
+    "Ja, beides stimmt.",
+    "Nein, die Fläche ist 12 cm².",
+    "Nein, der Umfang ist 9 cm."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A = 3 cm · 3 cm = 9 cm², u = 4 · 3 cm = 12 cm.",
+   "h": "Rechne Fläche und Umfang einzeln nach.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
@@ -6925,7 +9777,93 @@
     "text": "Stimmt die Aussage? „Ein Rechteck mit 7 cm und 9 cm hat den Flächeninhalt 16 cm².“"
    },
    "w": "Nein, A = 7 cm · 9 cm = 63 cm².",
-   "h": "Rechne ein Beispiel durch."
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, beim Ergänzen kommt mehr heraus.",
+    "Ja, es ist dieselbe Figur – nur anders gerechnet.",
+    "Nein, beim Zerlegen kommt mehr heraus."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Beim Zerlegen und beim Ergänzen kommt derselbe Flächeninhalt heraus.“"
+   },
+   "w": "Ja, es ist dieselbe Figur – nur anders gerechnet.",
+   "h": "Rechne ein Beispiel durch.",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, u = 4 · 9 cm = 36 cm.",
+    "Nein, u = 9 · 9 = 81 cm.",
+    "Nein, u = 2 · 9 cm = 18 cm."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quadrat mit 9 cm Seitenlänge hat den Umfang 36 cm.“"
+   },
+   "w": "Ja, u = 4 · 9 cm = 36 cm.",
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Rechteck wird in beiden Richtungen halbiert (halbe Länge, halbe Breite). Was passiert mit dem Flächeninhalt?"
+   },
+   "a": [
+    "Er wird ein Viertel so groß.",
+    "Er bleibt gleich.",
+    "Er wird halb so groß.",
+    "Er wird doppelt so groß."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Beispiel: 8 cm × 4 cm = 32 cm². Halbiert: 4 cm × 2 cm = 8 cm², ein Viertel von 32 cm².",
+   "h": "Probiere es mit einem Beispiel aus.",
+   "g": "transfer"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, 1 a = 1 000 m², also 3 000 m².",
+    "Ja, 1 a = 10 m².",
+    "Nein, 1 a = 100 m², also 3 a = 300 m²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „3 a = 30 m²“"
+   },
+   "w": "Nein, 1 a = 100 m², also 3 a = 300 m².",
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
@@ -6954,86 +9892,6 @@
    "s": 1,
    "y": "auswahl",
    "a": [
-    "Ja, u = 4 · 9 cm = 36 cm.",
-    "Nein, u = 9 · 9 = 81 cm.",
-    "Nein, u = 2 · 9 cm = 18 cm."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Ein Quadrat mit 9 cm Seitenlänge hat den Umfang 36 cm.“"
-   },
-   "w": "Ja, u = 4 · 9 cm = 36 cm.",
-   "h": "Rechne ein Beispiel durch."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, 1 a = 10 m², also 20 m².",
-    "Ja, 1 a = 100 m².",
-    "Nein, 1 a = 1 000 m², also 2 000 m²."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „2 a = 200 m²“"
-   },
-   "w": "Ja, 1 a = 100 m².",
-   "h": "Rechne ein Beispiel durch."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, 1 a = 1 000 m², also 3 000 m².",
-    "Ja, 1 a = 10 m².",
-    "Nein, 1 a = 100 m², also 3 a = 300 m²."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „3 a = 30 m²“"
-   },
-   "w": "Nein, 1 a = 100 m², also 3 a = 300 m².",
-   "h": "Rechne ein Beispiel durch."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, 4 dm² = 0,04 m², also 6,04 m².",
-    "Nein, richtig ist 6,004 m².",
-    "Ja, die dm² stehen direkt hinter dem Komma."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „6 m² 4 dm² = 6,4 m²“"
-   },
-   "w": "Nein, 4 dm² = 0,04 m², also 6,04 m².",
-   "h": "Rechne ein Beispiel durch."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
     "Nein, 1 ha = 1 000 a.",
     "Ja, die Umrechnungszahl bei Flächen ist 100.",
     "Nein, 1 ha = 10 a."
@@ -7045,33 +9903,14 @@
     "text": "Stimmt die Aussage? „1 ha = 100 a“"
    },
    "w": "Ja, die Umrechnungszahl bei Flächen ist 100.",
-   "h": "Rechne ein Beispiel durch."
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, 1 a = 1 000 m², also 7 000 m².",
-    "Ja, 1 a = 10 m².",
-    "Nein, 1 a = 100 m², also 7 a = 700 m²."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „7 a = 70 m²“"
-   },
-   "w": "Nein, 1 a = 100 m², also 7 a = 700 m².",
-   "h": "Rechne ein Beispiel durch."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "a": [
     "Ja, 1 a = 100 m².",
@@ -7091,21 +9930,190 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "a": [
-    "Nein, der Umfang wird um den ganzen Rand des Stücks größer.",
-    "Ja, die beiden fehlenden Randstücke werden durch zwei gleich lange neue Kanten ersetzt.",
-    "Nein, der Umfang wird kleiner, weil ein Stück fehlt."
+    "Ja, 16 cm² > 15 cm² (gleicher Umfang).",
+    "Nein, das Rechteck ist größer, weil 5 > 4 ist.",
+    "Nein, beide haben 16 cm², weil der Umfang gleich ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quadrat mit Umfang 16 cm hat einen größeren Flächeninhalt als ein Rechteck 5 cm × 3 cm.“"
+   },
+   "w": "Ja, 16 cm² > 15 cm² (gleicher Umfang).",
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Flächeninhalt eines Quadrats mit 5 cm Seitenlänge?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm²"
+   },
+   "c": "5 * 5",
+   "w": "5 cm · 5 cm = 25 cm².",
+   "h": "Seite mal Seite."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, 1 a = 1 000 m², also 7 000 m².",
+    "Ja, 1 a = 10 m².",
+    "Nein, 1 a = 100 m², also 7 a = 700 m²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „7 a = 70 m²“"
+   },
+   "w": "Nein, 1 a = 100 m², also 7 a = 700 m².",
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, 4 dm² = 0,04 m², also 6,04 m².",
+    "Nein, richtig ist 6,004 m².",
+    "Ja, die dm² stehen direkt hinter dem Komma."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „6 m² 4 dm² = 6,4 m²“"
+   },
+   "w": "Nein, 4 dm² = 0,04 m², also 6,04 m².",
+   "h": "Rechne ein Beispiel durch.",
+   "g": "darstellung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, 4 cm² > 3 cm² (gleicher Umfang).",
+    "Nein, beide haben 4 cm², weil der Umfang gleich ist.",
+    "Nein, das Rechteck ist größer, weil 3 > 2 ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quadrat mit Umfang 8 cm hat einen größeren Flächeninhalt als ein Rechteck 3 cm × 1 cm.“"
+   },
+   "w": "Ja, 4 cm² > 3 cm² (gleicher Umfang).",
+   "h": "Rechne ein Beispiel durch.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Rechteck mit 24 cm² Flächeninhalt und 6 cm Länge ist 4 cm breit.“"
+   },
+   "a": [
+    "Ja: 24 cm² : 6 cm = 4 cm.",
+    "Nein: Es ist 6 cm breit.",
+    "Nein: Es ist 18 cm breit.",
+    "Nein: Man kann die Breite nicht bestimmen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Breite = Flächeninhalt : Länge = 24 : 6 = 4 cm.",
+   "h": "Rechne die Breite aus."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „1 km² = 100 ha“"
+   },
+   "a": [
+    "Ja, die Umrechnungszahl ist 100.",
+    "Nein, 1 km² = 10 ha.",
+    "Nein, 1 km² = 1 000 ha."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "km² → ha ist ein Schritt mit mal 100: 1 km² = 100 ha.",
+   "h": "Zwischen km² und ha liegt keine andere Einheit.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Rechteck mit 5 m Länge und 30 cm Breite hat 150 dm².“"
+   },
+   "a": [
+    "Nein: Es hat 150 m².",
+    "Ja: 50 dm · 3 dm = 150 dm².",
+    "Nein: Es hat 1 500 dm².",
+    "Nein: Es hat 15 dm²."
    ],
    "o": {
     "index": 1
    },
+   "w": "Beide Seiten in dm: 5 m = 50 dm, 30 cm = 3 dm. 50 · 3 = 150.",
+   "h": "Rechne beide Seiten in dm um."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
    "f": {
-    "text": "Stimmt die Aussage? „Schneidet man aus einem Rechteck an einer Ecke ein kleines Rechteck aus, bleibt der Umfang gleich.“"
+    "text": "Ein Zimmer ist 5 m lang und 4 m breit. Stimmt: „Für den Teppichboden braucht man 18 m.“?"
    },
-   "w": "Ja, die beiden fehlenden Randstücke werden durch zwei gleich lange neue Kanten ersetzt.",
-   "h": "Rechne ein Beispiel durch."
+   "a": [
+    "Nein: Der Teppich braucht die Fläche 20 m²; 18 m ist der Umfang.",
+    "Nein: Man braucht 9 m².",
+    "Ja, das stimmt.",
+    "Nein: Man braucht 40 m²."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Teppich deckt die Fläche: 5 m · 4 m = 20 m². 18 m wäre die Länge einer Leiste ringsherum.",
+   "h": "Braucht man für Teppich die Fläche oder den Umfang?"
   },
   {
    "l": "verstehen",
@@ -7125,67 +10133,8 @@
     "text": "Stimmt die Aussage? „Ein Quadrat mit Umfang 32 cm hat einen größeren Flächeninhalt als ein Rechteck 9 cm × 7 cm.“"
    },
    "w": "Ja, 64 cm² > 63 cm² (gleicher Umfang).",
-   "h": "Rechne ein Beispiel durch."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Nein, beim Ergänzen kommt mehr heraus.",
-    "Ja, es ist dieselbe Figur – nur anders gerechnet.",
-    "Nein, beim Zerlegen kommt mehr heraus."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Beim Zerlegen und beim Ergänzen kommt derselbe Flächeninhalt heraus.“"
-   },
-   "w": "Ja, es ist dieselbe Figur – nur anders gerechnet.",
-   "h": "Rechne ein Beispiel durch."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, 16 cm² > 15 cm² (gleicher Umfang).",
-    "Nein, das Rechteck ist größer, weil 5 > 4 ist.",
-    "Nein, beide haben 16 cm², weil der Umfang gleich ist."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Ein Quadrat mit Umfang 16 cm hat einen größeren Flächeninhalt als ein Rechteck 5 cm × 3 cm.“"
-   },
-   "w": "Ja, 16 cm² > 15 cm² (gleicher Umfang).",
-   "h": "Rechne ein Beispiel durch."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, 4 cm² > 3 cm² (gleicher Umfang).",
-    "Nein, beide haben 4 cm², weil der Umfang gleich ist.",
-    "Nein, das Rechteck ist größer, weil 3 > 2 ist."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Ein Quadrat mit Umfang 8 cm hat einen größeren Flächeninhalt als ein Rechteck 3 cm × 1 cm.“"
-   },
-   "w": "Ja, 4 cm² > 3 cm² (gleicher Umfang).",
-   "h": "Rechne ein Beispiel durch."
+   "h": "Rechne ein Beispiel durch.",
+   "g": "verknuepfen"
   },
   {
    "l": "verstehen",
@@ -7205,7 +10154,110 @@
     "text": "Stimmt die Aussage? „Zwei Rechtecke mit gleichem Umfang haben immer den gleichen Flächeninhalt.“"
    },
    "w": "Nein, z. B. 6 × 2 (A = 12) und 4 × 4 (A = 16) haben beide u = 16.",
-   "h": "Rechne ein Beispiel durch."
+   "h": "Rechne ein Beispiel durch.",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Rechtecke haben beide den Flächeninhalt 36 cm². Haben sie auch denselben Umfang?"
+   },
+   "a": [
+    "Nein, nie.",
+    "Ja, immer.",
+    "Nicht unbedingt: 6 × 6 hat 24 cm Umfang, 9 × 4 hat 26 cm.",
+    "Ja, weil die Fläche gleich ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleiche Fläche heißt nicht gleicher Umfang. Ein Gegenbeispiel genügt: 6 cm × 6 cm (24 cm) und 9 cm × 4 cm (26 cm).",
+   "h": "Suche zwei verschiedene Rechtecke mit 36 cm².",
+   "g": "transfer"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Rechteck mit dem Umfang 20 cm hat den größten Flächeninhalt?"
+   },
+   "a": [
+    "5 cm × 5 cm",
+    "8 cm × 2 cm",
+    "6 cm × 4 cm",
+    "9 cm × 1 cm"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle haben den Umfang 20 cm. Flächen: 25, 24, 16 und 9 cm². Das Quadrat 5 cm × 5 cm ist am größten.",
+   "h": "Rechne für jedes Rechteck die Fläche aus.",
+   "g": "pruefung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Verdreifache ich die Seiten eines Quadrats, verdreifacht sich der Flächeninhalt.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, er wird sechsmal so groß.",
+    "Ja, das stimmt.",
+    "Nein, er wird neunmal so groß.",
+    "Nein, er bleibt gleich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beispiel: 2 cm → 4 cm². 6 cm → 36 cm². 36 : 4 = 9. Länge und Breite werden je verdreifacht: 3 · 3 = 9.",
+   "h": "Rechne mit einem Beispiel: Seite 2 cm und Seite 6 cm.",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Flächeninhalt 36 cm² und ganzzahlige Seitenlängen (in cm). Wie groß ist sein größtmöglicher Umfang?"
+   },
+   "o": {
+    "wert": 74,
+    "einheit": "cm"
+   },
+   "c": "2 * (1 + 36)",
+   "w": "Möglich: 1 · 36, 2 · 18, 3 · 12, 4 · 9, 6 · 6. Am längsten wird der Umfang beim schmalsten Rechteck: 2 · (1 + 36) = 74 cm.",
+   "h": "Welches Rechteck ist am „schmalsten“?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat und ein Rechteck haben beide den Umfang 24 cm. Das Rechteck ist 2 cm breit. Um wie viele cm² ist das Quadrat größer?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "cm²"
+   },
+   "c": "36 - 20",
+   "w": "Quadrat: Seite 6 cm, 36 cm². Rechteck: 2 cm breit, 10 cm lang, 20 cm². Unterschied 16 cm².",
+   "h": "Bestimme zuerst die Seiten beider Figuren."
   },
   {
    "l": "verstehen",

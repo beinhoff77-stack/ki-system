@@ -39,72 +39,193 @@
    {
     "lernziel": "absolute_haeufigkeit",
     "titel": "Absolute Häufigkeit zählen",
-    "regel": "So bestimmst du die absolute Häufigkeit: Geh die ⟦Urliste⟧ der Reihe nach durch und führe eine ⟦Strichliste⟧. Die Zahl der Striche bei einem Wert ist seine ⟦absolute Häufigkeit⟧ – wie oft er vorkommt.",
+    "regel": "Zähle mit einer ⟦Strichliste⟧, wie oft ein Wert vorkommt. Alle Striche zusammen ergeben die Zahl der Würfe.",
     "schritte": [
-     "Die Urliste lautet: 2, 4, 2, 6, 2, 4.",
-     "Geh die Liste von vorn nach hinten durch und mach für jeden Wert einen Strich: bei der 2 drei Striche, bei der 4 zwei, bei der 6 einen.",
-     "Kontrolle: 3 + 2 + 1 = 6 Striche – genauso viele, wie es Würfe gab.",
-     "Die absolute Häufigkeit der 2 ist ⟦3⟧."
+     {
+      "text": "Geh die Urliste der Reihe nach durch."
+     },
+     {
+      "text": "Mach für jeden Wert einen Strich in der Strichliste.",
+      "bild": {
+       "zeilen": [
+        [
+         "Striche",
+         "|||",
+         "||",
+         "|"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei der 2 stehen 3 Striche. Die absolute Häufigkeit ist ⟦3⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Striche",
+         "|||",
+         "||",
+         "|"
+        ],
+        [
+         "Anzahl",
+         "3",
+         "2",
+         "1"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Die Anzahl ⟦verschiedener⟧ Werte (hier 3: die 2, die 4 und die 6) ist keine Häufigkeit. Gefragt ist, ⟦wie oft⟧ ein bestimmter Wert gewürfelt wurde – bei der 2 dreimal.",
-    "einstieg": "In der Pause würfelt ihr und schreibt jedes Ergebnis auf: 2, 4, 2, 6, 2, 4. Wie oft kam die 2? Du zählst nach und kommst auf 3. Diese Anzahl heißt ⟦absolute Häufigkeit⟧.",
+    "fehler": "3 verschiedene Augenzahlen sind keine Häufigkeit. Gefragt ist, wie oft die 2 gewürfelt wurde.",
+    "einstieg": "In der Pause würfelt ihr: 2, 4, 2, 6, 2, 4. Wie oft kam die 2? Diese Anzahl heißt ⟦absolute Häufigkeit⟧.",
     "woerter": [
      [
-      "Daten",
-      "gesammelte Werte, z. B. Würfelergebnisse oder Antworten einer Umfrage"
-     ],
-     [
       "Urliste",
-      "die Daten in der Reihenfolge, in der sie gesammelt wurden"
+      "die Werte in der Reihenfolge, in der sie gesammelt wurden"
      ],
      [
       "Strichliste",
-      "für jeden Wert ein Strich; jeder fünfte Strich wird quer über die vier anderen gezogen (Fünferbündel)"
+      "für jeden Wert ein Strich"
      ],
      [
       "absolute Häufigkeit",
-      "wie oft ein Wert vorkommt – eine Anzahl"
+      "wie oft ein Wert vorkommt"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Augenzahl",
+      "2",
+      "4",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Striche",
+       "",
+       "",
+       ""
+      ]
+     ]
+    }
    },
    {
     "lernziel": "relative_haeufigkeit",
     "titel": "Relative Häufigkeit bestimmen",
-    "regel": "So bestimmst du die relative Häufigkeit: Rechne ⟦absolute Häufigkeit : Gesamtzahl⟧ und gib das Ergebnis als Bruch, Dezimalzahl oder in Prozent an. Alle relativen Häufigkeiten zusammen ergeben ⟦1 = 100 %⟧.",
+    "regel": "Relative Häufigkeit ist ⟦Anzahl durch Gesamtzahl⟧. Alle relativen Häufigkeiten zusammen ergeben 100 %.",
     "schritte": [
-     "Lena hat 7 Sechsen bei 25 Würfen. Teile die absolute Häufigkeit durch die Gesamtzahl: 7/25.",
-     "Als Dezimalzahl: 7 : 25 = 0,28.",
-     "In Prozent: 0,28 = ⟦28 %⟧.",
-     "Tom: 11 : 50 = 0,22 = 22 %. Lena hatte also anteilig öfter eine Sechs."
+     {
+      "text": "Lena: 7 Sechsen geteilt durch die Gesamtzahl 25. 7 : 25 = ⟦28 %⟧."
+     },
+     {
+      "text": "Tom: 11 : 50 = 0,22 = 22 %."
+     },
+     {
+      "text": "28 % ist mehr als 22 %. Lena hatte öfter eine Sechs.",
+      "bild": {
+       "typ": "saeulen",
+       "einheit": "%",
+       "werte": [
+        {
+         "name": "Lena",
+         "wert": 28
+        },
+        {
+         "name": "Tom",
+         "wert": 22
+        }
+       ],
+       "zahlen": true
+      }
+     }
     ],
-    "fehler": "7 Sechsen bei 25 Würfen sind ⟦nicht⟧ 7 %: 7 % wären 7 Sechsen bei 100 Würfen. Man muss durch die ⟦Gesamtzahl⟧ teilen: 7 : 25 = 0,28 = 28 %.",
-    "einstieg": "Lena hat 25-mal gewürfelt und 7 Sechsen bekommen, Tom hat 50-mal gewürfelt und 11 Sechsen. Wer hatte öfter Glück? Die Anzahlen allein helfen nicht, denn die beiden haben verschieden oft gewürfelt. Vergleichen kannst du den Anteil der Sechsen an allen Würfen. Er heißt ⟦relative Häufigkeit⟧.",
+    "fehler": "7 Sechsen sind nicht 7 %. 7 % wären 7 Sechsen bei 100 Würfen. Teile durch die Gesamtzahl 25.",
+    "einstieg": "Lena würfelt 25-mal und hat 7 Sechsen, Tom 50-mal und 11 Sechsen. Wer hatte öfter Glück? Vergleiche den Anteil: die ⟦relative Häufigkeit⟧.",
     "woerter": [
-     [
-      "Gesamtzahl",
-      "die Anzahl aller Werte – hier aller Würfe"
-     ],
-     [
-      "Anteil",
-      "Teil durch Ganzes, als Bruch, Dezimalzahl oder in Prozent"
-     ],
      [
       "relative Häufigkeit",
       "absolute Häufigkeit geteilt durch die Gesamtzahl"
+     ],
+     [
+      "Gesamtzahl",
+      "die Anzahl aller Werte, hier aller Würfe"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 25,
+     "gefaerbt": 7,
+     "teil_text": "Lena: 7 von 25",
+     "zeilen": [
+      {
+       "teile": 50,
+       "gefaerbt": 11,
+       "teil_text": "Tom: 11 von 50"
+      }
+     ]
+    }
    },
    {
     "lernziel": "tabelle_auswerten",
     "titel": "Häufigkeitstabellen auswerten",
-    "regel": "So wertest du eine Häufigkeitstabelle aus: Bilde zuerst die ⟦Summe⟧ aller Anzahlen – das ist die ⟦Gesamtzahl⟧. Sie ist der Grundwert für alle Anteile: Anteil = Anzahl : Gesamtzahl.",
+    "regel": "Bilde zuerst die ⟦Summe⟧ aller Anzahlen. Der Anteil ist Anzahl geteilt durch Summe.",
     "schritte": [
-     "In der Tabelle stehen: Bus 12, Rad 9, zu Fuß 6, Auto 3.",
-     "Zähle alle Anzahlen zusammen: 12 + 9 + 6 + 3 = 30. So viele Kinder wurden befragt.",
-     "Für den Anteil der Radfahrer teilst du durch diese Gesamtzahl: 9 : 30 = 0,3.",
-     "Mit dem Rad kommen ⟦30 %⟧ der Klasse."
+     {
+      "text": "Die Summe aller Anzahlen: 12 + 9 + 6 + 3 = 30.",
+      "bild": {
+       "zeilen": [
+        [
+         "Anzahl",
+         "12",
+         "9",
+         "6",
+         "3",
+         "30"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Anteil Rad: 9 : 30 = 0,3."
+     },
+     {
+      "text": "Mit dem Rad kommen ⟦30 %⟧ der Klasse.",
+      "bild": {
+       "zeilen": [
+        [
+         "Anzahl",
+         "12",
+         "9",
+         "6",
+         "3",
+         "30"
+        ],
+        [
+         "Anteil",
+         "40 %",
+         "30 %",
+         "20 %",
+         "10 %",
+         "100 %"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Die größte Zahl in der Tabelle ist ⟦nicht⟧ die Gesamtzahl: 12 Kinder fahren Bus, befragt wurden aber alle 30. Die Gesamtzahl ist die ⟦Summe⟧ aller Anzahlen.",
+    "fehler": "Die größte Zahl ist nicht die Gesamtzahl. Befragt wurden nicht 12, sondern alle 30 Kinder.",
+    "einstieg": "Eure Klasse hat gefragt: Wie kommst du zur Schule? Jede Antwort steht mit ihrer Anzahl in einer Tabelle. Das ist eine ⟦Häufigkeitstabelle⟧.",
+    "woerter": [
+     [
+      "Häufigkeitstabelle",
+      "eine Tabelle mit jeder Antwort und ihrer Anzahl"
+     ],
+     [
+      "Summe",
+      "alles zusammengezählt"
+     ]
+    ],
     "bild": {
      "typ": "tabelle",
      "kopf": [
@@ -122,41 +243,38 @@
        "9",
        "6",
        "3",
-       "30"
+       "?"
       ]
      ]
-    },
-    "einstieg": "Eure Klasse hat eine Umfrage gemacht: Wie kommst du zur Schule? Statt 30 einzelne Antworten aufzuschreiben, fasst ihr sie zusammen: zu jeder Antwort die Anzahl. So eine Übersicht heißt ⟦Häufigkeitstabelle⟧.",
-    "woerter": [
-     [
-      "Umfrage",
-      "viele Personen bekommen dieselbe Frage gestellt"
-     ],
-     [
-      "Häufigkeitstabelle",
-      "eine Tabelle mit jeder Antwort und ihrer Anzahl"
-     ],
-     [
-      "Summe",
-      "das Ergebnis, wenn man alles zusammenzählt"
-     ],
-     [
-      "Grundwert",
-      "das Ganze (100 %) – hier alle 30 befragten Kinder"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "saeulendiagramm",
     "titel": "Säulendiagramme und Maßstab",
-    "regel": "So zeichnest du ein Säulendiagramm: Wähle einen ⟦Maßstab⟧ (z. B. 1 cm für 4 Kinder) und rechne jede Säulenhöhe als ⟦Anzahl : Maßstab⟧. Die Hochachse beginnt bei ⟦0⟧, alle Säulen sind gleich breit.",
+    "regel": "Säulenhöhe ist ⟦Anzahl durch Maßstab⟧. Die Achse beginnt bei 0.",
     "schritte": [
-     "Der Maßstab ist 1 cm für 4 Kinder. Die Säule für Fußball soll 18 Kinder zeigen.",
-     "Frage: Wie oft passen 4 Kinder in 18 Kinder? Das rechnest du mit 18 : 4 = 4,5.",
-     "Jeder Zentimeter steht für 4 Kinder, also brauchst du 4,5 Zentimeter.",
-     "Die Fußball-Säule wird ⟦4,5 cm⟧ hoch. Die Hochachse beginnt dabei bei 0."
+     {
+      "text": "Der Maßstab ist 1 cm für 4 Kinder."
+     },
+     {
+      "text": "Für Fußball rechnest du 18 : 4 = 4,5."
+     },
+     {
+      "text": "Die Fußball-Säule im Säulendiagramm wird ⟦4,5 cm⟧ hoch."
+     }
     ],
-    "fehler": "Die Säule für 18 Kinder 18 cm hoch zu zeichnen, sprengt fast die Heftseite – bei mehr Kindern passt es gar nicht mehr. Erst einen ⟦Maßstab⟧ wählen, dann ⟦Anzahl : Maßstab⟧ rechnen.",
+    "fehler": "Die Säule 18 cm hoch zu zeichnen sprengt die Heftseite. Erst den Maßstab wählen, dann teilen.",
+    "einstieg": "Die Klasse zeichnet ihre Lieblingssportarten als Säulen. 18 Kinder mögen Fußball, aber 18 cm passen nicht ins Heft. Darum legt ihr einen ⟦Maßstab⟧ fest.",
+    "woerter": [
+     [
+      "Säulendiagramm",
+      "ein Bild, in dem die Höhe jeder Säule eine Anzahl zeigt"
+     ],
+     [
+      "Maßstab",
+      "wie viel 1 cm bedeutet, hier 4 Kinder"
+     ]
+    ],
     "bild": {
      "typ": "saeulen",
      "einheit": "Kinder",
@@ -180,38 +298,35 @@
      ],
      "y_start": 0,
      "zahlen": true
-    },
-    "einstieg": "Die Klasse will das Ergebnis der Umfrage „Lieblingssport“ ins Heft zeichnen: für jeden Sport eine Säule, je höher, desto mehr Kinder. 18 Kinder mögen Fußball – eine 18 cm hohe Säule passt kaum auf die Seite. Darum legt ihr fest, wie viele Kinder 1 cm bedeutet. Diese Festlegung heißt ⟦Maßstab⟧.",
-    "woerter": [
-     [
-      "Säulendiagramm",
-      "ein Bild, in dem die Höhe jeder Säule eine Anzahl zeigt"
-     ],
-     [
-      "Hochachse",
-      "die senkrechte Linie links, an der man die Höhe abliest"
-     ],
-     [
-      "Skala",
-      "die gleichmäßige Einteilung der Hochachse mit Zahlen"
-     ],
-     [
-      "Maßstab",
-      "wie viel 1 cm im Diagramm bedeutet, z. B. 1 cm für 4 Kinder"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "kreisdiagramm",
     "titel": "Kreisdiagramme berechnen",
-    "regel": "So berechnest du ein Kreisdiagramm: Bestimme für jede Antwort den ⟦Anteil⟧ (Anzahl : Gesamtzahl). Der Winkel ist ⟦Anteil · 360°⟧ – 1 % entspricht 3,6°. Alle Winkel zusammen ergeben ⟦360°⟧.",
+    "regel": "Der Winkel ist ⟦Anteil · 360°⟧. Alle Winkel zusammen ergeben 360°.",
     "schritte": [
-     "Rechne zuerst den Anteil der Radfahrer aus: 12 : 40 = 0,3 = 30 %.",
-     "Der ganze Kreis hat 360°. Der Ausschnitt bekommt 30 % davon: 0,3 · 360° = 108°.",
-     "Genauso rechnest du die anderen: Bus 40 % → 144°, zu Fuß 20 % → 72°, Auto 10 % → 36°.",
-     "Der Ausschnitt für Rad hat ⟦108°⟧. Zur Kontrolle ergeben alle Winkel zusammen 360°."
+     {
+      "text": "Anteil Rad: 12 : 40 = 0,3 = 30 %."
+     },
+     {
+      "text": "Der ganze Kreis hat 360°. Der Winkel für Rad ist 0,3 · 360° = ⟦108°⟧."
+     },
+     {
+      "text": "Bus 144°, zu Fuß 72°, Auto 36°. Zusammen sind es 360°."
+     }
     ],
-    "probe": "108° + 144° + 72° + 36° = 360° ✓",
+    "fehler": "30 % sind nicht 30°. Dann wäre die ganze Torte nur 100° groß. Rechne mit 360°.",
+    "einstieg": "In einer Klasse mit 40 Kindern fahren 12 Rad. Das soll ein Tortenstück zeigen, so groß wie sein Anteil. So ein Bild heißt ⟦Kreisdiagramm⟧.",
+    "woerter": [
+     [
+      "Kreisdiagramm",
+      "ein Kreis aus Stücken; jedes Stück zeigt einen Anteil"
+     ],
+     [
+      "Winkel",
+      "wie weit ein Stück geöffnet ist, in Grad (°)"
+     ]
+    ],
     "bild": {
      "typ": "kreisdiagramm",
      "einheit": " %",
@@ -234,39 +349,38 @@
       }
      ],
      "zahlen": true
-    },
-    "fehler": "30 % als Winkel von 30° einzuzeichnen ist falsch: Dann wäre die ganze Torte nur 100° groß – nicht einmal ein halber Kreis. Der Vollkreis hat ⟦360°⟧: 30 % sind 0,3 · 360° = 108°.",
-    "einstieg": "In einer anderen Klasse mit 40 Kindern kommt bei derselben Umfrage heraus: 12 fahren Rad, 16 Bus, 8 gehen zu Fuß und 4 werden mit dem Auto gebracht. Das soll eine Torte zeigen, bei der jedes Stück so groß ist wie sein Anteil. So eine Darstellung heißt ⟦Kreisdiagramm⟧.",
-    "woerter": [
-     [
-      "Kreisdiagramm",
-      "ein Kreis, aufgeteilt in Stücke; jedes Stück zeigt einen Anteil"
-     ],
-     [
-      "Kreisausschnitt",
-      "ein „Tortenstück“ des Kreises"
-     ],
-     [
-      "Winkel",
-      "wie weit ein Tortenstück geöffnet ist, gemessen in Grad (°)"
-     ],
-     [
-      "360°",
-      "der ganze Kreis; er steht für 100 %"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "irrefuehrend",
     "titel": "Irreführende Diagramme erkennen",
-    "regel": "So erkennst du ein irreführendes Diagramm: Lies immer ⟦Achse und Zahlen⟧. Prüfe, ob die Hochachse ⟦bei 0 beginnt⟧, ob die Abstände auf der Achse gleich sind und ob alles beschriftet ist. Bei Bildern statt Säulen gilt: doppelt so hoch und doppelt so breit ergibt die ⟦vierfache Fläche⟧.",
+    "regel": "Lies immer ⟦Achse und Zahlen⟧. Beginnt die Achse nicht bei 0, wirken Unterschiede größer.",
     "schritte": [
-     "Die Säulen zeigen 980 und 1 000 Besucher. Die Hochachse beginnt bei 960.",
-     "Sichtbar ist nur der Teil über 960: 980 − 960 = 20 und 1 000 − 960 = 40.",
-     "Darum wirkt die Sonntagssäule doppelt so hoch wie die Samstagssäule.",
-     "In Wirklichkeit kamen am Sonntag nur ⟦20 Besucher⟧ mehr – etwa 2 %."
+     {
+      "text": "Die Achse beginnt erst bei 960. Das ist eine abgeschnittene Achse."
+     },
+     {
+      "text": "Sichtbar sind nur 20 und 40 Besucher. Darum wirkt Sonntag doppelt."
+     },
+     {
+      "text": "Mit Achse ab 0 sieht man: nur ⟦20 Besucher⟧ mehr.",
+      "bild": {
+       "y_start": 0
+      }
+     }
     ],
-    "fehler": "Nur auf die Säulenhöhen zu schauen, ohne die Achse zu lesen, ist ein Fehler: Bei abgeschnittener Achse wirken kleine Unterschiede ⟦riesig⟧ – genau darauf setzt die Werbung des Freibads.",
+    "fehler": "Nur auf die Höhe der Säulen zu schauen ist ein Fehler. Lies immer zuerst die Zahlen an der Achse.",
+    "einstieg": "Ein Freibad wirbt: „Sonntag doppelt so viele Besucher!“ Die Säule ist doppelt so hoch. Doch es waren 980 und 1 000 Besucher: ein ⟦irreführendes Diagramm⟧.",
+    "woerter": [
+     [
+      "irreführend",
+      "erzeugt einen falschen Eindruck, obwohl die Zahlen stimmen"
+     ],
+     [
+      "abgeschnittene Achse",
+      "die Achse beginnt nicht bei 0"
+     ]
+    ],
     "bild": {
      "typ": "saeulen",
      "einheit": "Besucher",
@@ -282,22 +396,7 @@
      ],
      "y_start": 960,
      "zahlen": true
-    },
-    "einstieg": "Ein Freibad wirbt: „Am Sonntag doppelt so viele Besucher wie am Samstag!“ Im Diagramm ist die Sonntagssäule tatsächlich doppelt so hoch. Liest du die Zahlen, waren es aber 980 und 1 000 Besucher. Das Bild täuscht, weil die Hochachse erst bei 960 beginnt. So ein Bild heißt ⟦irreführendes Diagramm⟧.",
-    "woerter": [
-     [
-      "irreführend",
-      "erzeugt einen falschen Eindruck, obwohl die Zahlen stimmen"
-     ],
-     [
-      "abgeschnittene Achse",
-      "die Hochachse beginnt nicht bei 0, sondern weiter oben"
-     ],
-     [
-      "Fläche",
-      "wie viel Platz eine Figur einnimmt; doppelt so hoch und doppelt so breit heißt viermal so viel Fläche"
-     ]
-    ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -369,6 +468,23 @@
    "s": 1,
    "y": "zahl",
    "f": {
+    "text": "Würfelergebnisse: 6, 4, 1, 6, 2, 5, 5, 3, 4, 4, 1. Wie oft wurde die 1 gewürfelt?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1 + 1",
+   "w": "Die 1 kommt 2-mal vor. Absolute Häufigkeit: 2.",
+   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst.",
+   "g": "direkt"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
     "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingsfach. Wie oft wurde „Sport“ genannt?",
     "grafik": {
      "typ": "tabelle",
@@ -405,39 +521,8 @@
    },
    "c": "2 * 5 + 1",
    "w": "Bei „Sport“: 2 Fünferbündel und 1 einzelner Strich: 2 · 5 + 1 = 11.",
-   "h": "Ein Bündel ||||| steht für 5. Zähle die Bündel in Fünferschritten."
-  },
-  {
-   "l": "absolute_haeufigkeit",
-   "t": "absolute_haeufigkeit",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Würfelergebnisse: 6, 4, 1, 6, 2, 5, 5, 3, 4, 4, 1. Wie oft wurde die 1 gewürfelt?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "1 + 1",
-   "w": "Die 1 kommt 2-mal vor. Absolute Häufigkeit: 2.",
-   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst."
-  },
-  {
-   "l": "absolute_haeufigkeit",
-   "t": "absolute_haeufigkeit",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Würfelergebnisse: 6, 4, 5, 3, 6, 5, 2, 5, 2, 2, 4, 5. Wie oft wurde die 5 gewürfelt?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "1 + 1 + 1 + 1",
-   "w": "Die 5 kommt 4-mal vor. Absolute Häufigkeit: 4.",
-   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst."
+   "h": "Ein Bündel ||||| steht für 5. Zähle die Bündel in Fünferschritten.",
+   "g": "erkennen"
   },
   {
    "l": "absolute_haeufigkeit",
@@ -453,39 +538,8 @@
    },
    "c": "1 + 1 + 1 + 1 + 1",
    "w": "Die 5 kommt 5-mal vor. Absolute Häufigkeit: 5.",
-   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst."
-  },
-  {
-   "l": "absolute_haeufigkeit",
-   "t": "absolute_haeufigkeit",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Würfelergebnisse: 4, 1, 6, 4, 4, 1, 4, 1, 5, 3, 4. Wie oft wurde die 5 gewürfelt?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1",
-   "w": "Die 5 kommt 1-mal vor. Absolute Häufigkeit: 1.",
-   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst."
-  },
-  {
-   "l": "absolute_haeufigkeit",
-   "t": "absolute_haeufigkeit",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Würfelergebnisse: 5, 5, 1, 3, 1, 3, 3, 3, 3, 6, 5. Wie oft wurde die 1 gewürfelt?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "1 + 1",
-   "w": "Die 1 kommt 2-mal vor. Absolute Häufigkeit: 2.",
-   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst."
+   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst.",
+   "g": "direkt"
   },
   {
    "l": "absolute_haeufigkeit",
@@ -522,7 +576,91 @@
    },
    "c": "3 + 13 + 14",
    "w": "Striche je Zeile: Bus 3, Rad 13, zu Fuß 14. Zusammen 30.",
-   "h": "Zähle jede Zeile (Bündel = 5) und addiere."
+   "h": "Zähle jede Zeile (Bündel = 5) und addiere.",
+   "g": "darstellung"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Strichliste stehen bei „Hund“: 2 Fünferbündel und 2 einzelne Striche. Wie oft wurde „Hund“ genannt?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 5 + 2",
+   "w": "2 Bündel zu je 5 und 2 einzelne: 2 · 5 + 2 = 12.",
+   "h": "Ein Bündel steht für 5 Striche.",
+   "g": "direkt"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Würfelergebnisse: 4, 1, 6, 4, 4, 1, 4, 1, 5, 3, 4. Wie oft wurde die 5 gewürfelt?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Die 5 kommt 1-mal vor. Absolute Häufigkeit: 1.",
+   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst."
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Würfelergebnisse: 6, 4, 5, 3, 6, 5, 2, 5, 2, 2, 4, 5. Wie oft wurde die 5 gewürfelt?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "1 + 1 + 1 + 1",
+   "w": "Die 5 kommt 4-mal vor. Absolute Häufigkeit: 4.",
+   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst.",
+   "g": "direkt"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Würfelergebnisse: 5, 5, 1, 3, 1, 3, 3, 3, 3, 6, 5. Wie oft wurde die 1 gewürfelt?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1 + 1",
+   "w": "Die 1 kommt 2-mal vor. Absolute Häufigkeit: 2.",
+   "h": "Streiche jede gefundene Zahl ab, damit du nichts doppelt zählst."
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Strichliste stehen bei „Hund“: 3 Fünferbündel. Wie oft wurde „Hund“ genannt?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "3 * 5 + 0",
+   "w": "3 Bündel zu je 5 und 0 einzelne: 3 · 5 + 0 = 15.",
+   "h": "Ein Bündel steht für 5 Striche.",
+   "g": "direkt"
   },
   {
    "l": "absolute_haeufigkeit",
@@ -538,7 +676,25 @@
    },
    "c": "1 + 5",
    "w": "„Mango“: 1-mal, „Kiwi“: 5-mal. Zusammen 6.",
-   "h": "Mach eine Strichliste und addiere die beiden Häufigkeiten."
+   "h": "Mach eine Strichliste und addiere die beiden Häufigkeiten.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Strichliste stehen bei „Hund“: 4 Fünferbündel und 2 einzelne Striche. Wie oft wurde „Hund“ genannt?"
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "4 * 5 + 2",
+   "w": "4 Bündel zu je 5 und 2 einzelne: 4 · 5 + 2 = 22.",
+   "h": "Ein Bündel steht für 5 Striche.",
+   "g": "direkt"
   },
   {
    "l": "absolute_haeufigkeit",
@@ -547,7 +703,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingsfach. Wie oft wurde „Kunst“ häufiger genannt als „Deutsch“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingsfach. Wie viele Nennungen hat „Kunst“ mehr als „Deutsch“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -583,7 +739,8 @@
    },
    "c": "15 - 5",
    "w": "„Kunst“: 15, „Deutsch“: 5. Unterschied: 15 − 5 = 10.",
-   "h": "Zähle beide Zeilen und bilde den Unterschied."
+   "h": "Zähle beide Zeilen und bilde den Unterschied.",
+   "g": "darstellung"
   },
   {
    "l": "absolute_haeufigkeit",
@@ -599,7 +756,8 @@
    },
    "c": "4 + 3",
    "w": "„Rad“: 4-mal, „Auto“: 3-mal. Zusammen 7.",
-   "h": "Mach eine Strichliste und addiere die beiden Häufigkeiten."
+   "h": "Mach eine Strichliste und addiere die beiden Häufigkeiten.",
+   "g": "einkleidung"
   },
   {
    "l": "absolute_haeufigkeit",
@@ -608,7 +766,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie oft wurde „Fußball“ häufiger genannt als „Tanzen“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie viele Nennungen hat „Fußball“ mehr als „Tanzen“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -640,7 +798,8 @@
    },
    "c": "14 - 6",
    "w": "„Fußball“: 14, „Tanzen“: 6. Unterschied: 14 − 6 = 8.",
-   "h": "Zähle beide Zeilen und bilde den Unterschied."
+   "h": "Zähle beide Zeilen und bilde den Unterschied.",
+   "g": "darstellung"
   },
   {
    "l": "absolute_haeufigkeit",
@@ -656,50 +815,31 @@
    },
    "c": "3 + 6",
    "w": "„Kunst“: 3-mal, „Deutsch“: 6-mal. Zusammen 9.",
-   "h": "Mach eine Strichliste und addiere die beiden Häufigkeiten."
+   "h": "Mach eine Strichliste und addiere die beiden Häufigkeiten.",
+   "g": "einkleidung"
   },
   {
    "l": "absolute_haeufigkeit",
    "t": "absolute_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es wurden 38 Kinder befragt. Welche Zahl fehlt in der Tabelle bei „Birne“?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Lieblingsobst",
-      "Apfel",
-      "Banane",
-      "Birne",
-      "Kiwi",
-      "Mango"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "15",
-       "1",
-       "?",
-       "11",
-       "4"
-      ]
-     ]
-    }
+    "text": "Würfelergebnisse: 3, 5, 2, 5, 6, 1, 5, 3, 2, 5, 4, 3. Welche Augenzahl kam am häufigsten?"
    },
    "o": {
-    "wert": 7
+    "wert": 5
    },
-   "c": "38 - (15 + 1 + 11 + 4)",
-   "w": "38 − (15 + 1 + 11 + 4) = 38 − 31 = 7.",
-   "h": "Alle Häufigkeiten zusammen ergeben die Gesamtzahl."
+   "c": "5",
+   "h": "Zähle für jede Augenzahl, wie oft sie vorkommt.",
+   "w": "1: 1-mal, 2: 2-mal, 3: 3-mal, 4: 1-mal, 5: 4-mal, 6: 1-mal. Am häufigsten: 5.",
+   "g": "mehrschritt"
   },
   {
    "l": "absolute_haeufigkeit",
    "t": "absolute_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Umfrage Lieblingsfach: Mathe, Kunst, Mathe, Sport, Deutsch, Kunst, Mathe, Kunst, Kunst, Kunst, Kunst, Sport, Kunst, Sport, Musik. Wie viele Kinder nannten weder „Kunst“ noch „Mathe“?"
@@ -709,71 +849,50 @@
    },
    "c": "15 - 7 - 3",
    "w": "Insgesamt 15 Antworten, davon „Kunst“ 7 und „Mathe“ 3. Übrig: 15 − 7 − 3 = 5.",
-   "h": "Zähle alle Antworten und ziehe die beiden Häufigkeiten ab."
+   "h": "Zähle alle Antworten und ziehe die beiden Häufigkeiten ab.",
+   "g": "einkleidung"
   },
   {
    "l": "absolute_haeufigkeit",
    "t": "absolute_haeufigkeit",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Umfrage Lieblingsfach: Mathe, Deutsch, Deutsch, Deutsch, Sport, Sport, Deutsch, Musik, Mathe, Deutsch, Kunst, Kunst, Sport. Wie viele Kinder nannten weder „Deutsch“ noch „Kunst“?"
+    "text": "Die Strichliste zeigt eine Umfrage zum Schulweg. Wie viele Kinder kommen nicht mit dem Bus?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Schulweg",
+      "Strichliste"
+     ],
+     "zeilen": [
+      [
+       "Bus",
+       "||||| ||"
+      ],
+      [
+       "Rad",
+       "||||| ||||"
+      ],
+      [
+       "zu Fuß",
+       "||||| ||||| |"
+      ],
+      [
+       "Auto",
+       "|||"
+      ]
+     ]
+    }
    },
    "o": {
-    "wert": 6
+    "wert": 23
    },
-   "c": "13 - 5 - 2",
-   "w": "Insgesamt 13 Antworten, davon „Deutsch“ 5 und „Kunst“ 2. Übrig: 13 − 5 − 2 = 6.",
-   "h": "Zähle alle Antworten und ziehe die beiden Häufigkeiten ab."
-  },
-  {
-   "l": "absolute_haeufigkeit",
-   "t": "absolute_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Strichliste stehen bei „Hund“: 3 Fünferbündel. Wie oft wurde „Hund“ genannt?"
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "3 * 5 + 0",
-   "w": "3 Bündel zu je 5 und 0 einzelne: 3 · 5 + 0 = 15.",
-   "h": "Ein Bündel steht für 5 Striche."
-  },
-  {
-   "l": "absolute_haeufigkeit",
-   "t": "absolute_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Strichliste stehen bei „Hund“: 2 Fünferbündel und 2 einzelne Striche. Wie oft wurde „Hund“ genannt?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "2 * 5 + 2",
-   "w": "2 Bündel zu je 5 und 2 einzelne: 2 · 5 + 2 = 12.",
-   "h": "Ein Bündel steht für 5 Striche."
-  },
-  {
-   "l": "absolute_haeufigkeit",
-   "t": "absolute_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Strichliste stehen bei „Hund“: 4 Fünferbündel und 2 einzelne Striche. Wie oft wurde „Hund“ genannt?"
-   },
-   "o": {
-    "wert": 22
-   },
-   "c": "4 * 5 + 2",
-   "w": "4 Bündel zu je 5 und 2 einzelne: 4 · 5 + 2 = 22.",
-   "h": "Ein Bündel steht für 5 Striche."
+   "c": "9 + 11 + 3",
+   "h": "Zähle alle Striche außer bei „Bus“. Ein Bündel sind 5 Striche.",
+   "w": "Rad 9, zu Fuß 11, Auto 3. Zusammen 23 Kinder.",
+   "g": "darstellung"
   },
   {
    "l": "absolute_haeufigkeit",
@@ -782,7 +901,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie oft wurde „Katze“ häufiger genannt als „Fisch“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie viele Nennungen hat „Katze“ mehr als „Fisch“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -892,7 +1011,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie oft wurde „Katze“ häufiger genannt als „Hund“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Haustier. Wie viele Nennungen hat „Katze“ mehr als „Hund“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -973,7 +1092,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie oft wurde „Tanzen“ häufiger genannt als „Basketball“?",
+    "text": "Die Strichliste zeigt eine Umfrage zum Thema Lieblingssport. Wie viele Nennungen hat „Tanzen“ mehr als „Basketball“?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -1072,7 +1191,29 @@
     "24"
    ],
    "w": "Relative Häufigkeit = 13/24.",
-   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen."
+   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen.",
+   "g": "direkt"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Was gibt die relative Häufigkeit an?"
+   },
+   "a": [
+    "den größten Wert",
+    "den Anteil an allen Ergebnissen",
+    "die Anzahl, wie oft etwas vorkam"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Relativ heißt: bezogen auf alle Ergebnisse. Beispiel: Kommt etwas 6-mal bei 24 Ergebnissen vor, ist die relative Häufigkeit 6/24 = 1/4. Die Anzahl 6 allein ist die absolute Häufigkeit.",
+   "h": "Wovon hängt „relativ“ ab?"
   },
   {
    "l": "relative_haeufigkeit",
@@ -1096,7 +1237,26 @@
     "3"
    ],
    "w": "Relative Häufigkeit = 16/24 = 2/3.",
-   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen."
+   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen.",
+   "g": "direkt"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 von 50 Pflanzen blühen. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "%"
+   },
+   "c": "2 / 50 * 100",
+   "w": "2 : 50 = 0,04 = 4 %.",
+   "h": "Teile durch die Gesamtzahl und nimm mal 100.",
+   "g": "mehrschritt"
   },
   {
    "l": "relative_haeufigkeit",
@@ -1120,7 +1280,26 @@
     "5"
    ],
    "w": "Relative Häufigkeit = 2/10 = 1/5.",
-   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen."
+   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen.",
+   "g": "direkt"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "6 von 25 Besuchern kommen aus der Stadt. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "%"
+   },
+   "c": "6 / 25 * 100",
+   "w": "6 : 25 = 0,24 = 24 %.",
+   "h": "Teile durch die Gesamtzahl und nimm mal 100.",
+   "g": "einkleidung"
   },
   {
    "l": "relative_haeufigkeit",
@@ -1144,7 +1323,25 @@
     "10"
    ],
    "w": "Relative Häufigkeit = 7/10.",
-   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen."
+   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen.",
+   "g": "direkt"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 40 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 20 %. Wie oft fiel „Zahl“?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "40 * 20 / 100",
+   "w": "20 % von 40 = 40 · 0,2 = 8.",
+   "h": "Absolute Häufigkeit = relative Häufigkeit · Gesamtzahl.",
+   "g": "mehrschritt"
   },
   {
    "l": "relative_haeufigkeit",
@@ -1168,7 +1365,26 @@
     "16"
    ],
    "w": "Relative Häufigkeit = 9/16.",
-   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen."
+   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen.",
+   "g": "direkt"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "17 von 20 Pflanzen blühen. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 85,
+    "einheit": "%"
+   },
+   "c": "17 / 20 * 100",
+   "w": "17 : 20 = 0,85 = 85 %.",
+   "h": "Teile durch die Gesamtzahl und nimm mal 100.",
+   "g": "mehrschritt"
   },
   {
    "l": "relative_haeufigkeit",
@@ -1192,58 +1408,8 @@
     "24"
    ],
    "w": "Relative Häufigkeit = 17/24.",
-   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "2 von 50 Pflanzen blühen. Gib die relative Häufigkeit in Prozent an."
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "%"
-   },
-   "c": "2 / 50 * 100",
-   "w": "2 : 50 = 0,04 = 4 %.",
-   "h": "Teile durch die Gesamtzahl und nimm mal 100."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "17 von 20 Pflanzen blühen. Gib die relative Häufigkeit in Prozent an."
-   },
-   "o": {
-    "wert": 85,
-    "einheit": "%"
-   },
-   "c": "17 / 20 * 100",
-   "w": "17 : 20 = 0,85 = 85 %.",
-   "h": "Teile durch die Gesamtzahl und nimm mal 100."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "6 von 25 Besuchern kommen aus der Stadt. Gib die relative Häufigkeit in Prozent an."
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "%"
-   },
-   "c": "6 / 25 * 100",
-   "w": "6 : 25 = 0,24 = 24 %.",
-   "h": "Teile durch die Gesamtzahl und nimm mal 100."
+   "h": "Absolute Häufigkeit durch Gesamtzahl. Dann kürzen.",
+   "g": "direkt"
   },
   {
    "l": "relative_haeufigkeit",
@@ -1260,7 +1426,104 @@
    },
    "c": "242 / 250 * 100",
    "w": "242 : 250 = 0,968 = 96,8 %.",
-   "h": "Teile durch die Gesamtzahl und nimm mal 100."
+   "h": "Teile durch die Gesamtzahl und nimm mal 100.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 60 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 10 %. Wie oft fiel „Zahl“?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "60 * 10 / 100",
+   "w": "10 % von 60 = 60 · 0,1 = 6.",
+   "h": "Absolute Häufigkeit = relative Häufigkeit · Gesamtzahl.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lieblingsobst: Apfel 25 %, Banane 5 %, der Rest wählt Birne. Wie viel Prozent wählen Birne?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "%"
+   },
+   "c": "100 - (25 + 5)",
+   "w": "Alle zusammen sind 100 %. 100 − 30 = 70 %.",
+   "h": "Alle relativen Häufigkeiten ergeben zusammen 100 %.",
+   "g": "umkehr"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 80 Losen sind 12 Gewinne. Gib die relative Häufigkeit der Gewinne in Prozent an."
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "%"
+   },
+   "c": "12 / 80 * 100",
+   "h": "Anzahl durch Gesamtzahl.",
+   "w": "12/80 = 3/20 = 15/100 = 15 %.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Haustier: Hund 15 %, Katze 20 %, der Rest wählt Hamster. Wie viel Prozent wählen Hamster?"
+   },
+   "o": {
+    "wert": 65,
+    "einheit": "%"
+   },
+   "c": "100 - (15 + 20)",
+   "w": "Alle zusammen sind 100 %. 100 − 35 = 65 %.",
+   "h": "Alle relativen Häufigkeiten ergeben zusammen 100 %.",
+   "g": "umkehr"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "18 von 45 Kindern spielen Fußball. Gib die relative Häufigkeit als vollständig gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "c": [
+    "18 // 9",
+    "45 // 9"
+   ],
+   "h": "Anzahl durch Gesamtzahl, dann kürzen.",
+   "w": "18/45, durch 9 gekürzt: 2/5.",
+   "g": "darstellung"
   },
   {
    "l": "relative_haeufigkeit",
@@ -1278,126 +1541,6 @@
    "c": "117 / 200 * 100",
    "w": "117 : 200 = 0,585 = 58,5 %.",
    "h": "Teile durch die Gesamtzahl und nimm mal 100."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "78 von 125 Besuchern kommen aus der Stadt. Gib die relative Häufigkeit in Prozent an."
-   },
-   "o": {
-    "wert": 62.4,
-    "einheit": "%"
-   },
-   "c": "78 / 125 * 100",
-   "w": "78 : 125 = 0,624 = 62,4 %.",
-   "h": "Teile durch die Gesamtzahl und nimm mal 100."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Lieblingsobst: Apfel 25 %, Banane 5 %, der Rest wählt Birne. Wie viel Prozent wählen Birne?"
-   },
-   "o": {
-    "wert": 70,
-    "einheit": "%"
-   },
-   "c": "100 - (25 + 5)",
-   "w": "Alle zusammen sind 100 %. 100 − 30 = 70 %.",
-   "h": "Alle relativen Häufigkeiten ergeben zusammen 100 %."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bei 40 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 20 %. Wie oft fiel „Zahl“?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "40 * 20 / 100",
-   "w": "20 % von 40 = 40 · 0,2 = 8.",
-   "h": "Absolute Häufigkeit = relative Häufigkeit · Gesamtzahl."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Gruppe B",
-    "Beide gleich",
-    "Gruppe A",
-    "Die Gruppe mit mehr Kindern"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "In Gruppe A (50 Kinder) lesen 16 gern, in Gruppe B (200 Kinder) lesen 71 gern. Wo ist der Anteil der Leser größer?"
-   },
-   "w": "A: 16 : 50 = 32 %, B: 71 : 200 = 35,5 %. Größerer Anteil: Gruppe B.",
-   "h": "Vergleiche Anteile, nicht Anzahlen: relative Häufigkeiten berechnen."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bei 60 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 10 %. Wie oft fiel „Zahl“?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "60 * 10 / 100",
-   "w": "10 % von 60 = 60 · 0,1 = 6.",
-   "h": "Absolute Häufigkeit = relative Häufigkeit · Gesamtzahl."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Haustier: Hund 15 %, Katze 20 %, der Rest wählt Hamster. Wie viel Prozent wählen Hamster?"
-   },
-   "o": {
-    "wert": 65,
-    "einheit": "%"
-   },
-   "c": "100 - (15 + 20)",
-   "w": "Alle zusammen sind 100 %. 100 − 35 = 65 %.",
-   "h": "Alle relativen Häufigkeiten ergeben zusammen 100 %."
-  },
-  {
-   "l": "relative_haeufigkeit",
-   "t": "relative_haeufigkeit",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bei 20 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 5 %. Wie oft fiel „Zahl“?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "20 * 5 / 100",
-   "w": "5 % von 20 = 20 · 0,05 = 1.",
-   "h": "Absolute Häufigkeit = relative Häufigkeit · Gesamtzahl."
   },
   {
    "l": "relative_haeufigkeit",
@@ -1592,7 +1735,25 @@
    },
    "c": "2 + 13 + 14 + 11",
    "w": "Alle Häufigkeiten addieren: 2 + 13 + 14 + 11 = 40.",
-   "h": "Addiere alle Häufigkeiten."
+   "h": "Addiere alle Häufigkeiten.",
+   "g": "erkennen"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tabelle zeigt: Bus 12, Rad 8, zu Fuß 5. Wie viele Kinder kommen mit dem Bus oder mit dem Rad?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "12 + 8",
+   "w": "Bus oder Rad heißt: beide Werte zusammenzählen. 12 + 8 = 20 Kinder.",
+   "h": "Zähle die beiden Werte zusammen."
   },
   {
    "l": "tabelle_auswerten",
@@ -1625,7 +1786,51 @@
    },
    "c": "5 + 11 + 7",
    "w": "Alle Häufigkeiten addieren: 5 + 11 + 7 = 23.",
-   "h": "Addiere alle Häufigkeiten."
+   "h": "Addiere alle Häufigkeiten.",
+   "g": "erkennen"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Fußball",
+    "Tanzen",
+    "Schwimmen",
+    "Basketball"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingssport. Was wurde am zweithäufigsten genannt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Lieblingssport",
+      "Fußball",
+      "Schwimmen",
+      "Tanzen",
+      "Basketball",
+      "Turnen"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "1",
+       "11",
+       "13",
+       "8"
+      ]
+     ]
+    }
+   },
+   "w": "Der Größe nach: Basketball 13, Tanzen 11, Turnen 8, Fußball 7, Schwimmen 1. Platz 2: Tanzen.",
+   "h": "Ordne die Häufigkeiten der Größe nach.",
+   "g": "darstellung"
   },
   {
    "l": "tabelle_auswerten",
@@ -1667,117 +1872,8 @@
     }
    },
    "w": "Die größte Häufigkeit ist 13 bei „Birne“.",
-   "h": "Suche die größte Zahl in der Tabelle."
-  },
-  {
-   "l": "tabelle_auswerten",
-   "t": "tabelle_auswerten",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsfach. Wie viele Kinder wurden insgesamt befragt?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Lieblingsfach",
-      "Mathe",
-      "Deutsch",
-      "Sport"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "15",
-       "3",
-       "5"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 23
-   },
-   "c": "15 + 3 + 5",
-   "w": "Alle Häufigkeiten addieren: 15 + 3 + 5 = 23.",
-   "h": "Addiere alle Häufigkeiten."
-  },
-  {
-   "l": "tabelle_auswerten",
-   "t": "tabelle_auswerten",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingssport. Wie viele Kinder wurden insgesamt befragt?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Lieblingssport",
-      "Fußball",
-      "Schwimmen",
-      "Tanzen",
-      "Basketball",
-      "Turnen"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "14",
-       "11",
-       "1",
-       "2",
-       "6"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 34
-   },
-   "c": "14 + 11 + 1 + 2 + 6",
-   "w": "Alle Häufigkeiten addieren: 14 + 11 + 1 + 2 + 6 = 34.",
-   "h": "Addiere alle Häufigkeiten."
-  },
-  {
-   "l": "tabelle_auswerten",
-   "t": "tabelle_auswerten",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Sport",
-    "Mathe",
-    "Deutsch",
-    "Kunst"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsfach. Was wurde am häufigsten genannt?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Lieblingsfach",
-      "Mathe",
-      "Deutsch",
-      "Sport",
-      "Kunst"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "14",
-       "3",
-       "5",
-       "9"
-      ]
-     ]
-    }
-   },
-   "w": "Die größte Häufigkeit ist 14 bei „Mathe“.",
-   "h": "Suche die größte Zahl in der Tabelle."
+   "h": "Suche die größte Zahl in der Tabelle.",
+   "g": "erkennen"
   },
   {
    "l": "tabelle_auswerten",
@@ -1814,7 +1910,42 @@
    },
    "c": "14 + 8",
    "w": "„Banane“ 14 und „Kiwi“ 8: 14 + 8 = 22.",
-   "h": "Addiere die beiden Häufigkeiten."
+   "h": "Addiere die beiden Häufigkeiten.",
+   "g": "darstellung"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsfach. Wie viele Kinder wurden insgesamt befragt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Lieblingsfach",
+      "Mathe",
+      "Deutsch",
+      "Sport"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "15",
+       "3",
+       "5"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 23
+   },
+   "c": "15 + 3 + 5",
+   "w": "Alle Häufigkeiten addieren: 15 + 3 + 5 = 23.",
+   "h": "Addiere alle Häufigkeiten.",
+   "g": "erkennen"
   },
   {
    "l": "tabelle_auswerten",
@@ -1849,7 +1980,46 @@
    },
    "c": "8 + 4 + 13 + 12 - 8",
    "w": "Gesamt 37, davon 8 „Hund“. Nicht: 37 − 8 = 29.",
-   "h": "Gesamtzahl minus die Häufigkeit dieser Antwort."
+   "h": "Gesamtzahl minus die Häufigkeit dieser Antwort.",
+   "g": "darstellung"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingssport. Wie viele Kinder wurden insgesamt befragt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Lieblingssport",
+      "Fußball",
+      "Schwimmen",
+      "Tanzen",
+      "Basketball",
+      "Turnen"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "14",
+       "11",
+       "1",
+       "2",
+       "6"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 34
+   },
+   "c": "14 + 11 + 1 + 2 + 6",
+   "w": "Alle Häufigkeiten addieren: 14 + 11 + 1 + 2 + 6 = 34.",
+   "h": "Addiere alle Häufigkeiten.",
+   "g": "erkennen"
   },
   {
    "l": "tabelle_auswerten",
@@ -1890,7 +2060,49 @@
    },
    "c": "6 + 3 + 7",
    "w": "Spalte Mädchen addieren: 6 + 3 + 7 = 16.",
-   "h": "Addiere alle Zahlen einer Spalte."
+   "h": "Addiere alle Zahlen einer Spalte.",
+   "g": "darstellung"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Sport",
+    "Mathe",
+    "Deutsch",
+    "Kunst"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsfach. Was wurde am häufigsten genannt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Lieblingsfach",
+      "Mathe",
+      "Deutsch",
+      "Sport",
+      "Kunst"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "14",
+       "3",
+       "5",
+       "9"
+      ]
+     ]
+    }
+   },
+   "w": "Die größte Häufigkeit ist 14 bei „Mathe“.",
+   "h": "Suche die größte Zahl in der Tabelle.",
+   "g": "erkennen"
   },
   {
    "l": "tabelle_auswerten",
@@ -1923,7 +2135,8 @@
    },
    "c": "5 + 12",
    "w": "„Apfel“ 5 und „Birne“ 12: 5 + 12 = 17.",
-   "h": "Addiere die beiden Häufigkeiten."
+   "h": "Addiere die beiden Häufigkeiten.",
+   "g": "darstellung"
   },
   {
    "l": "tabelle_auswerten",
@@ -1958,7 +2171,49 @@
    },
    "c": "11 + 12",
    "w": "„Auto“ 11 und „Rad“ 12: 11 + 12 = 23.",
-   "h": "Addiere die beiden Häufigkeiten."
+   "h": "Addiere die beiden Häufigkeiten.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Birne",
+    "Kiwi",
+    "Banane",
+    "Apfel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsobst. Was wurde am zweithäufigsten genannt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Lieblingsobst",
+      "Apfel",
+      "Banane",
+      "Birne",
+      "Kiwi"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "1",
+       "4",
+       "5",
+       "10"
+      ]
+     ]
+    }
+   },
+   "w": "Der Größe nach: Kiwi 10, Birne 5, Banane 4, Apfel 1. Platz 2: Birne.",
+   "h": "Ordne die Häufigkeiten der Größe nach.",
+   "g": "darstellung"
   },
   {
    "l": "tabelle_auswerten",
@@ -1995,131 +2250,14 @@
    },
    "c": "12 + 1 + 7 + 10 + 6 - 6",
    "w": "Gesamt 36, davon 6 „Musik“. Nicht: 36 − 6 = 30.",
-   "h": "Gesamtzahl minus die Häufigkeit dieser Antwort."
+   "h": "Gesamtzahl minus die Häufigkeit dieser Antwort.",
+   "g": "mehrschritt"
   },
   {
    "l": "tabelle_auswerten",
    "t": "tabelle_auswerten",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent haben „zu Fuß“ gewählt?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Schulweg",
-      "Bus",
-      "Rad",
-      "zu Fuß",
-      "Auto"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "11",
-       "1",
-       "6",
-       "2"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "%"
-   },
-   "c": "6 / (11 + 1 + 6 + 2) * 100",
-   "w": "Gesamt: 20. 6 : 20 = 0,3 = 30 %.",
-   "h": "Zuerst die Gesamtzahl bilden. Sie ist der Grundwert."
-  },
-  {
-   "l": "tabelle_auswerten",
-   "t": "tabelle_auswerten",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Fußball",
-    "Tanzen",
-    "Schwimmen",
-    "Basketball"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingssport. Was wurde am zweithäufigsten genannt?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Lieblingssport",
-      "Fußball",
-      "Schwimmen",
-      "Tanzen",
-      "Basketball",
-      "Turnen"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "7",
-       "1",
-       "11",
-       "13",
-       "8"
-      ]
-     ]
-    }
-   },
-   "w": "Der Größe nach: Basketball 13, Tanzen 11, Turnen 8, Fußball 7, Schwimmen 1. Platz 2: Tanzen.",
-   "h": "Ordne die Häufigkeiten der Größe nach."
-  },
-  {
-   "l": "tabelle_auswerten",
-   "t": "tabelle_auswerten",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Birne",
-    "Kiwi",
-    "Banane",
-    "Apfel"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsobst. Was wurde am zweithäufigsten genannt?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Lieblingsobst",
-      "Apfel",
-      "Banane",
-      "Birne",
-      "Kiwi"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "1",
-       "4",
-       "5",
-       "10"
-      ]
-     ]
-    }
-   },
-   "w": "Der Größe nach: Kiwi 10, Birne 5, Banane 4, Apfel 1. Platz 2: Birne.",
-   "h": "Ordne die Häufigkeiten der Größe nach."
-  },
-  {
-   "l": "tabelle_auswerten",
-   "t": "tabelle_auswerten",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "a": [
     "Tanzen",
@@ -2155,77 +2293,62 @@
     }
    },
    "w": "Der Größe nach: Schwimmen 6, Basketball 5, Tanzen 4, Fußball 3, Turnen 2. Platz 2: Basketball.",
-   "h": "Ordne die Häufigkeiten der Größe nach."
+   "h": "Ordne die Häufigkeiten der Größe nach.",
+   "g": "darstellung"
   },
   {
    "l": "tabelle_auswerten",
    "t": "tabelle_auswerten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsfach. Wie viel Prozent haben „Kunst“ gewählt?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Lieblingsfach",
-      "Mathe",
-      "Deutsch",
-      "Sport",
-      "Kunst"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "7",
-       "9",
-       "1",
-       "3"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "%"
-   },
-   "c": "3 / (7 + 9 + 1 + 3) * 100",
-   "w": "Gesamt: 20. 3 : 20 = 0,15 = 15 %.",
-   "h": "Zuerst die Gesamtzahl bilden. Sie ist der Grundwert."
-  },
-  {
-   "l": "tabelle_auswerten",
-   "t": "tabelle_auswerten",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent haben „Rad“ gewählt?",
+    "text": "Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent haben „zu Fuß“ gewählt?",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
       "Schulweg",
       "Bus",
       "Rad",
-      "zu Fuß"
+      "zu Fuß",
+      "Auto"
      ],
      "zeilen": [
       [
        "Anzahl",
-       "7",
-       "12",
-       "6"
+       "11",
+       "1",
+       "6",
+       "2"
       ]
      ]
     }
    },
    "o": {
-    "wert": 48,
+    "wert": 30,
     "einheit": "%"
    },
-   "c": "12 / (7 + 12 + 6) * 100",
-   "w": "Gesamt: 25. 12 : 25 = 0,48 = 48 %.",
-   "h": "Zuerst die Gesamtzahl bilden. Sie ist der Grundwert."
+   "c": "6 / (11 + 1 + 6 + 2) * 100",
+   "w": "Gesamt: 20. 6 : 20 = 0,3 = 30 %.",
+   "h": "Zuerst die Gesamtzahl bilden. Sie ist der Grundwert.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Die 6a hat 26 Kinder. 9 kommen mit dem Bus und 7 mit dem Rad. Wie viele Kinder kommen auf andere Weise?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "26 - 9 - 7",
+   "w": "26 − 9 − 7 = 10.",
+   "h": "Ziehe ab, was du kennst."
   },
   {
    "l": "tabelle_auswerten",
@@ -2596,7 +2719,8 @@
    },
    "c": "90 / 10",
    "w": "90 : 10 = 9, die Säule ist 9 cm hoch.",
-   "h": "Teile die Anzahl durch den Maßstab."
+   "h": "Teile die Anzahl durch den Maßstab.",
+   "g": "direkt"
   },
   {
    "l": "saeulendiagramm",
@@ -2635,7 +2759,8 @@
    },
    "c": "6",
    "w": "Die Linien der Hochachse liegen 2 Kinder auseinander. Die Säule „Auto“ endet bei 6.",
-   "h": "Fahre von der Oberkante der Säule waagrecht zur Hochachse."
+   "h": "Fahre von der Oberkante der Säule waagrecht zur Hochachse.",
+   "g": "erkennen"
   },
   {
    "l": "saeulendiagramm",
@@ -2652,7 +2777,8 @@
    },
    "c": "40 / 10",
    "w": "40 : 10 = 4, die Säule ist 4 cm hoch.",
-   "h": "Teile die Anzahl durch den Maßstab."
+   "h": "Teile die Anzahl durch den Maßstab.",
+   "g": "direkt"
   },
   {
    "l": "saeulendiagramm",
@@ -2695,7 +2821,8 @@
    },
    "c": "30",
    "w": "Die Linien der Hochachse liegen 10 Kinder auseinander. Die Säule „Birne“ endet bei 30.",
-   "h": "Fahre von der Oberkante der Säule waagrecht zur Hochachse."
+   "h": "Fahre von der Oberkante der Säule waagrecht zur Hochachse.",
+   "g": "erkennen"
   },
   {
    "l": "saeulendiagramm",
@@ -2712,23 +2839,6 @@
    },
    "c": "35 / 10",
    "w": "35 : 10 = 3,5, die Säule ist 3,5 cm hoch.",
-   "h": "Teile die Anzahl durch den Maßstab."
-  },
-  {
-   "l": "saeulendiagramm",
-   "t": "saeulendiagramm",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Säulendiagramm steht 1 cm für 4 Kinder. Wie hoch wird die Säule für 18 Kinder?"
-   },
-   "o": {
-    "wert": 4.5,
-    "einheit": "cm"
-   },
-   "c": "18 / 4",
-   "w": "18 : 4 = 4,5, die Säule ist 4,5 cm hoch.",
    "h": "Teile die Anzahl durch den Maßstab."
   },
   {
@@ -2764,7 +2874,61 @@
    },
    "c": "20 + 15 + 5",
    "w": "Die Linien der Hochachse liegen 5 Kinder auseinander. Abgelesen: Hund 20, Katze 15, Hamster 5. Zusammen 40.",
-   "h": "Lies jede Säule ab und addiere."
+   "h": "Lies jede Säule ab und addiere.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Säulendiagramm steht 1 cm für 4 Kinder. Wie hoch wird die Säule für 18 Kinder?"
+   },
+   "o": {
+    "wert": 4.5,
+    "einheit": "cm"
+   },
+   "c": "18 / 4",
+   "w": "18 : 4 = 4,5, die Säule ist 4,5 cm hoch.",
+   "h": "Teile die Anzahl durch den Maßstab."
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Haustier. Wie viele Kinder wurden befragt?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Hund",
+       "wert": 2
+      },
+      {
+       "name": "Katze",
+       "wert": 4
+      },
+      {
+       "name": "Hamster",
+       "wert": 10
+      }
+     ],
+     "zahlen": false,
+     "einheit": "Kinder"
+    }
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "2 + 4 + 10",
+   "w": "Die Linien der Hochachse liegen 2 Kinder auseinander. Abgelesen: Hund 2, Katze 4, Hamster 10. Zusammen 16.",
+   "h": "Lies jede Säule ab und addiere.",
+   "g": "mehrschritt"
   },
   {
    "l": "saeulendiagramm",
@@ -2803,7 +2967,8 @@
    },
    "c": "25 + 15 + 10 + 5",
    "w": "Die Linien der Hochachse liegen 5 Kinder auseinander. Abgelesen: Apfel 25, Banane 15, Birne 10, Kiwi 5. Zusammen 55.",
-   "h": "Lies jede Säule ab und addiere."
+   "h": "Lies jede Säule ab und addiere.",
+   "g": "darstellung"
   },
   {
    "l": "saeulendiagramm",
@@ -2812,20 +2977,146 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Haustier. Wie viele Kinder wurden befragt?",
+    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent der Befragten nennen „zu Fuß“?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Bus",
+       "wert": 40
+      },
+      {
+       "name": "Rad",
+       "wert": 50
+      },
+      {
+       "name": "zu Fuß",
+       "wert": 10
+      }
+     ],
+     "zahlen": false,
+     "einheit": "Kinder"
+    }
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "%"
+   },
+   "c": "10 / (40 + 50 + 10) * 100",
+   "w": "Die Linien der Hochachse liegen 10 Kinder auseinander. Alle zusammen: 40 + 50 + 10 = 100. „zu Fuß“: 10 : 100 = 0,1 = 10 %.",
+   "h": "Erst alle Säulen ablesen und addieren (Grundwert), dann Anteil berechnen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Lieblingsfach. Wie viele Kinder nennen „Sport“ oder „Kunst“?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Mathe",
+       "wert": 2
+      },
+      {
+       "name": "Deutsch",
+       "wert": 10
+      },
+      {
+       "name": "Sport",
+       "wert": 6
+      },
+      {
+       "name": "Kunst",
+       "wert": 8
+      },
+      {
+       "name": "Musik",
+       "wert": 4
+      }
+     ],
+     "zahlen": false,
+     "einheit": "Kinder"
+    }
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "6 + 8",
+   "w": "Die Linien der Hochachse liegen 2 Kinder auseinander. „Sport“: 6, „Kunst“: 8. Zusammen 14.",
+   "h": "Lies beide Säulen ab und addiere.",
+   "g": "darstellung"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Haustier. Wie viel Prozent der Befragten nennen „Hamster“?",
     "grafik": {
      "typ": "saeulen",
      "werte": [
       {
        "name": "Hund",
-       "wert": 2
+       "wert": 20
       },
       {
        "name": "Katze",
-       "wert": 4
+       "wert": 10
       },
       {
        "name": "Hamster",
+       "wert": 50
+      }
+     ],
+     "zahlen": false,
+     "einheit": "Kinder"
+    }
+   },
+   "o": {
+    "wert": 62.5,
+    "einheit": "%"
+   },
+   "c": "50 / (20 + 10 + 50) * 100",
+   "w": "Die Linien der Hochachse liegen 10 Kinder auseinander. Alle zusammen: 20 + 10 + 50 = 80. „Hamster“: 50 : 80 = 0,625 = 62,5 %.",
+   "h": "Erst alle Säulen ablesen und addieren (Grundwert), dann Anteil berechnen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Lieblingsobst. Wie viele Kinder nennen „Birne“ oder „Mango“?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Apfel",
+       "wert": 8
+      },
+      {
+       "name": "Banane",
+       "wert": 2
+      },
+      {
+       "name": "Birne",
+       "wert": 6
+      },
+      {
+       "name": "Kiwi",
+       "wert": 4
+      },
+      {
+       "name": "Mango",
        "wert": 10
       }
      ],
@@ -2836,9 +3127,66 @@
    "o": {
     "wert": 16
    },
-   "c": "2 + 4 + 10",
-   "w": "Die Linien der Hochachse liegen 2 Kinder auseinander. Abgelesen: Hund 2, Katze 4, Hamster 10. Zusammen 16.",
-   "h": "Lies jede Säule ab und addiere."
+   "c": "6 + 10",
+   "w": "Die Linien der Hochachse liegen 2 Kinder auseinander. „Birne“: 6, „Mango“: 10. Zusammen 16.",
+   "h": "Lies beide Säulen ab und addiere.",
+   "g": "darstellung"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Maßstab im Säulendiagramm: 1 cm steht für 25 Kinder. Eine Säule ist 6,4 cm hoch. Für wie viele Kinder steht sie?"
+   },
+   "o": {
+    "wert": 160
+   },
+   "c": "6.4 * 25",
+   "h": "Rechne Höhe mal Maßstab.",
+   "w": "6,4 · 25 = 160 Kinder.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsobst. Maßstab: 1 cm für 4 Kinder. Wie hoch wird die höchste Säule?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Lieblingsobst",
+      "Apfel",
+      "Banane",
+      "Birne",
+      "Kiwi",
+      "Mango"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "8",
+       "9",
+       "2",
+       "13",
+       "11"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3.25,
+    "einheit": "cm"
+   },
+   "c": "max(8, 9, 2, 13, 11) / 4",
+   "w": "Größter Wert: 13 (Kiwi). 13 : 4 = 3,25 cm.",
+   "h": "Suche den größten Wert und teile durch den Maßstab.",
+   "g": "darstellung"
   },
   {
    "l": "saeulendiagramm",
@@ -2882,234 +3230,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Lieblingsfach. Wie viele Kinder nennen „Sport“ oder „Kunst“?",
-    "grafik": {
-     "typ": "saeulen",
-     "werte": [
-      {
-       "name": "Mathe",
-       "wert": 2
-      },
-      {
-       "name": "Deutsch",
-       "wert": 10
-      },
-      {
-       "name": "Sport",
-       "wert": 6
-      },
-      {
-       "name": "Kunst",
-       "wert": 8
-      },
-      {
-       "name": "Musik",
-       "wert": 4
-      }
-     ],
-     "zahlen": false,
-     "einheit": "Kinder"
-    }
-   },
-   "o": {
-    "wert": 14
-   },
-   "c": "6 + 8",
-   "w": "Die Linien der Hochachse liegen 2 Kinder auseinander. „Sport“: 6, „Kunst“: 8. Zusammen 14.",
-   "h": "Lies beide Säulen ab und addiere."
-  },
-  {
-   "l": "saeulendiagramm",
-   "t": "saeulendiagramm",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Lieblingsobst. Wie viele Kinder nennen „Birne“ oder „Mango“?",
-    "grafik": {
-     "typ": "saeulen",
-     "werte": [
-      {
-       "name": "Apfel",
-       "wert": 8
-      },
-      {
-       "name": "Banane",
-       "wert": 2
-      },
-      {
-       "name": "Birne",
-       "wert": 6
-      },
-      {
-       "name": "Kiwi",
-       "wert": 4
-      },
-      {
-       "name": "Mango",
-       "wert": 10
-      }
-     ],
-     "zahlen": false,
-     "einheit": "Kinder"
-    }
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "6 + 10",
-   "w": "Die Linien der Hochachse liegen 2 Kinder auseinander. „Birne“: 6, „Mango“: 10. Zusammen 16.",
-   "h": "Lies beide Säulen ab und addiere."
-  },
-  {
-   "l": "saeulendiagramm",
-   "t": "saeulendiagramm",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent der Befragten nennen „zu Fuß“?",
-    "grafik": {
-     "typ": "saeulen",
-     "werte": [
-      {
-       "name": "Bus",
-       "wert": 40
-      },
-      {
-       "name": "Rad",
-       "wert": 50
-      },
-      {
-       "name": "zu Fuß",
-       "wert": 10
-      }
-     ],
-     "zahlen": false,
-     "einheit": "Kinder"
-    }
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "%"
-   },
-   "c": "10 / (40 + 50 + 10) * 100",
-   "w": "Die Linien der Hochachse liegen 10 Kinder auseinander. Alle zusammen: 40 + 50 + 10 = 100. „zu Fuß“: 10 : 100 = 0,1 = 10 %.",
-   "h": "Erst alle Säulen ablesen und addieren (Grundwert), dann Anteil berechnen."
-  },
-  {
-   "l": "saeulendiagramm",
-   "t": "saeulendiagramm",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der größte Wert ist 81. Die höchste Säule darf höchstens 10 cm hoch sein. Wie viele Stimmen muss 1 cm mindestens darstellen? (ganze Zahl)"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "-(-81 // 10)",
-   "w": "81 : 10 ≈ 8,1. Mit 8 pro cm wäre die Säule etwa 10,1 cm hoch – zu hoch. Also mindestens 9 Stimmen pro cm.",
-   "h": "Teile den größten Wert durch die Höchsthöhe und runde auf."
-  },
-  {
-   "l": "saeulendiagramm",
-   "t": "saeulendiagramm",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsobst. Maßstab: 1 cm für 4 Kinder. Wie hoch wird die höchste Säule?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Lieblingsobst",
-      "Apfel",
-      "Banane",
-      "Birne",
-      "Kiwi",
-      "Mango"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "8",
-       "9",
-       "2",
-       "13",
-       "11"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 3.25,
-    "einheit": "cm"
-   },
-   "c": "max(8, 9, 2, 13, 11) / 4",
-   "w": "Größter Wert: 13 (Kiwi). 13 : 4 = 3,25 cm.",
-   "h": "Suche den größten Wert und teile durch den Maßstab."
-  },
-  {
-   "l": "saeulendiagramm",
-   "t": "saeulendiagramm",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Das Säulendiagramm zeigt eine Umfrage zum Thema Haustier. Wie viel Prozent der Befragten nennen „Hamster“?",
-    "grafik": {
-     "typ": "saeulen",
-     "werte": [
-      {
-       "name": "Hund",
-       "wert": 20
-      },
-      {
-       "name": "Katze",
-       "wert": 10
-      },
-      {
-       "name": "Hamster",
-       "wert": 50
-      }
-     ],
-     "zahlen": false,
-     "einheit": "Kinder"
-    }
-   },
-   "o": {
-    "wert": 62.5,
-    "einheit": "%"
-   },
-   "c": "50 / (20 + 10 + 50) * 100",
-   "w": "Die Linien der Hochachse liegen 10 Kinder auseinander. Alle zusammen: 20 + 10 + 50 = 80. „Hamster“: 50 : 80 = 0,625 = 62,5 %.",
-   "h": "Erst alle Säulen ablesen und addieren (Grundwert), dann Anteil berechnen."
-  },
-  {
-   "l": "saeulendiagramm",
-   "t": "saeulendiagramm",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der größte Wert ist 75. Die höchste Säule darf höchstens 12 cm hoch sein. Wie viele Stimmen muss 1 cm mindestens darstellen? (ganze Zahl)"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "-(-75 // 12)",
-   "w": "75 : 12 ≈ 6,2. Mit 6 pro cm wäre die Säule 12,5 cm hoch – zu hoch. Also mindestens 7 Stimmen pro cm.",
-   "h": "Teile den größten Wert durch die Höchsthöhe und runde auf."
-  },
-  {
-   "l": "saeulendiagramm",
-   "t": "saeulendiagramm",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
     "text": "Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Maßstab: 1 cm für 4 Kinder. Wie hoch wird die höchste Säule?",
     "grafik": {
      "typ": "tabelle",
@@ -3135,7 +3255,25 @@
    },
    "c": "max(9, 10, 8) / 4",
    "w": "Größter Wert: 10 (Rad). 10 : 4 = 2,5 cm.",
-   "h": "Suche den größten Wert und teile durch den Maßstab."
+   "h": "Suche den größten Wert und teile durch den Maßstab.",
+   "g": "darstellung"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der größte Wert ist 81. Die höchste Säule darf höchstens 10 cm hoch sein. Wie viele Stimmen muss 1 cm mindestens darstellen? (ganze Zahl)"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "-(-81 // 10)",
+   "w": "81 : 10 ≈ 8,1. Mit 8 pro cm wäre die Säule etwa 10,1 cm hoch – zu hoch. Also mindestens 9 Stimmen pro cm.",
+   "h": "Teile den größten Wert durch die Höchsthöhe und runde auf.",
+   "g": "parameter"
   },
   {
    "l": "saeulendiagramm",
@@ -3512,23 +3650,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Anteil von 1/5 soll im Kreisdiagramm dargestellt werden. Wie groß ist der Winkel?"
-   },
-   "o": {
-    "wert": 72,
-    "einheit": "°"
-   },
-   "c": "1 / 5 * 360",
-   "w": "1/5 von 360° = 360° : 5 · 1 = 72°.",
-   "h": "Der ganze Kreis hat 360°."
-  },
-  {
-   "l": "kreisdiagramm",
-   "t": "kreisdiagramm",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "Wie groß ist der Winkel für 65 % im Kreisdiagramm?"
    },
    "o": {
@@ -3537,7 +3658,8 @@
    },
    "c": "65 / 100 * 360",
    "w": "65 % · 360° = 0,65 · 360° = 234°.",
-   "h": "1 % entspricht 3,6°."
+   "h": "1 % entspricht 3,6°.",
+   "g": "direkt"
   },
   {
    "l": "kreisdiagramm",
@@ -3558,7 +3680,8 @@
     "text": "In einem Kreisdiagramm ergeben alle Winkel zusammen …"
    },
    "w": "Der ganze Kreis hat 360°. Er steht für 100 % aller Befragten.",
-   "h": "Wie viel Grad hat ein ganzer Kreis?"
+   "h": "Wie viel Grad hat ein ganzer Kreis?",
+   "g": "erkennen"
   },
   {
    "l": "kreisdiagramm",
@@ -3575,7 +3698,26 @@
    },
    "c": "15 / 100 * 360",
    "w": "15 % · 360° = 0,15 · 360° = 54°.",
-   "h": "1 % entspricht 3,6°."
+   "h": "1 % entspricht 3,6°.",
+   "g": "direkt"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "39 von 60 Befragten wählen „ja“. Wie groß ist der Winkel im Kreisdiagramm?"
+   },
+   "o": {
+    "wert": 234,
+    "einheit": "°"
+   },
+   "c": "39 / 60 * 360",
+   "w": "Relative Häufigkeit 39/60. Winkel: 39/60 · 360° = 234°.",
+   "h": "Relative Häufigkeit mal 360°.",
+   "g": "mehrschritt"
   },
   {
    "l": "kreisdiagramm",
@@ -3601,6 +3743,24 @@
    "s": 1,
    "y": "zahl",
    "f": {
+    "text": "Ein Anteil von 1/5 soll im Kreisdiagramm dargestellt werden. Wie groß ist der Winkel?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "1 / 5 * 360",
+   "w": "1/5 von 360° = 360° : 5 · 1 = 72°.",
+   "h": "Der ganze Kreis hat 360°.",
+   "g": "direkt"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
     "text": "Wie groß ist der Winkel für 10 % im Kreisdiagramm?"
    },
    "o": {
@@ -3610,6 +3770,59 @@
    "c": "10 / 100 * 360",
    "w": "10 % · 360° = 0,1 · 360° = 36°.",
    "h": "1 % entspricht 3,6°."
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisdiagramm hat die Winkel 108° und 54° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?"
+   },
+   "o": {
+    "wert": 55,
+    "einheit": "%"
+   },
+   "c": "(360 - 108 - 54) / 360 * 100",
+   "w": "Dritter Winkel: 360° − 108° − 54° = 198°. 198° : 360° = 0,55 = 55 %.",
+   "h": "Alle Winkel zusammen sind 360°. Berechne zuerst den dritten Winkel.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 von 36 Befragten wählen „ja“. Wie groß ist der Winkel im Kreisdiagramm?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "°"
+   },
+   "c": "2 / 36 * 360",
+   "w": "Relative Häufigkeit 2/36. Winkel: 2/36 · 360° = 20°.",
+   "h": "Relative Häufigkeit mal 360°."
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisausschnitt hat einen Winkel von 36°. Wie viel Prozent stellt er dar?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "%"
+   },
+   "c": "36 / 360 * 100",
+   "w": "36° : 360° = 0,1 = 10 %.",
+   "h": "Winkel durch 360°, dann mal 100.",
+   "g": "mehrschritt"
   },
   {
    "l": "kreisdiagramm",
@@ -3647,7 +3860,26 @@
    },
    "c": "1 / 4 * 24",
    "w": "Der Ausschnitt „Banane“ ist 1/4 des Kreises. 1/4 von 24 = 6 Kinder.",
-   "h": "Schätze den Anteil des Ausschnitts: Halbkreis = 1/2, Viertelkreis = 1/4. Dann Anteil mal Gesamtzahl."
+   "h": "Schätze den Anteil des Ausschnitts: Halbkreis = 1/2, Viertelkreis = 1/4. Dann Anteil mal Gesamtzahl.",
+   "g": "darstellung"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisdiagramm hat die Winkel 162° und 108° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "(360 - 162 - 108) / 360 * 100",
+   "w": "Dritter Winkel: 360° − 162° − 108° = 90°. 90° : 360° = 0,25 = 25 %.",
+   "h": "Alle Winkel zusammen sind 360°. Berechne zuerst den dritten Winkel.",
+   "g": "mehrschritt"
   },
   {
    "l": "kreisdiagramm",
@@ -3681,7 +3913,26 @@
    },
    "c": "1 / 4 * 48",
    "w": "Der Ausschnitt „Rad“ ist 1/4 des Kreises. 1/4 von 48 = 12 Kinder.",
-   "h": "Schätze den Anteil des Ausschnitts: Halbkreis = 1/2, Viertelkreis = 1/4. Dann Anteil mal Gesamtzahl."
+   "h": "Schätze den Anteil des Ausschnitts: Halbkreis = 1/2, Viertelkreis = 1/4. Dann Anteil mal Gesamtzahl.",
+   "g": "darstellung"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "81 von 90 Befragten wählen „ja“. Wie groß ist der Winkel im Kreisdiagramm?"
+   },
+   "o": {
+    "wert": 324,
+    "einheit": "°"
+   },
+   "c": "81 / 90 * 360",
+   "w": "Relative Häufigkeit 81/90. Winkel: 81/90 · 360° = 324°.",
+   "h": "Relative Häufigkeit mal 360°.",
+   "g": "mehrschritt"
   },
   {
    "l": "kreisdiagramm",
@@ -3715,114 +3966,14 @@
    },
    "c": "1 / 3 * 48",
    "w": "Der Ausschnitt „Deutsch“ ist 1/3 des Kreises. 1/3 von 48 = 16 Kinder.",
-   "h": "Schätze den Anteil des Ausschnitts: Halbkreis = 1/2, Viertelkreis = 1/4. Dann Anteil mal Gesamtzahl."
+   "h": "Schätze den Anteil des Ausschnitts: Halbkreis = 1/2, Viertelkreis = 1/4. Dann Anteil mal Gesamtzahl.",
+   "g": "darstellung"
   },
   {
    "l": "kreisdiagramm",
    "t": "kreisdiagramm",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "39 von 60 Befragten wählen „ja“. Wie groß ist der Winkel im Kreisdiagramm?"
-   },
-   "o": {
-    "wert": 234,
-    "einheit": "°"
-   },
-   "c": "39 / 60 * 360",
-   "w": "Relative Häufigkeit 39/60. Winkel: 39/60 · 360° = 234°.",
-   "h": "Relative Häufigkeit mal 360°."
-  },
-  {
-   "l": "kreisdiagramm",
-   "t": "kreisdiagramm",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "81 von 90 Befragten wählen „ja“. Wie groß ist der Winkel im Kreisdiagramm?"
-   },
-   "o": {
-    "wert": 324,
-    "einheit": "°"
-   },
-   "c": "81 / 90 * 360",
-   "w": "Relative Häufigkeit 81/90. Winkel: 81/90 · 360° = 324°.",
-   "h": "Relative Häufigkeit mal 360°."
-  },
-  {
-   "l": "kreisdiagramm",
-   "t": "kreisdiagramm",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "2 von 36 Befragten wählen „ja“. Wie groß ist der Winkel im Kreisdiagramm?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "°"
-   },
-   "c": "2 / 36 * 360",
-   "w": "Relative Häufigkeit 2/36. Winkel: 2/36 · 360° = 20°.",
-   "h": "Relative Häufigkeit mal 360°."
-  },
-  {
-   "l": "kreisdiagramm",
-   "t": "kreisdiagramm",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einem Kreisdiagramm über 60 Kinder hat der Ausschnitt „Rad“ einen Winkel von 210°. Wie viele Kinder fahren Rad?"
-   },
-   "o": {
-    "wert": 35
-   },
-   "c": "210 / 360 * 60",
-   "w": "Anteil 210/360 = 7/12. 7/12 von 60 = 35 Kinder.",
-   "h": "Winkel : 360° ergibt den Anteil. Den Anteil mal Gesamtzahl."
-  },
-  {
-   "l": "kreisdiagramm",
-   "t": "kreisdiagramm",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreisausschnitt hat einen Winkel von 36°. Wie viel Prozent stellt er dar?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "%"
-   },
-   "c": "36 / 360 * 100",
-   "w": "36° : 360° = 0,1 = 10 %.",
-   "h": "Winkel durch 360°, dann mal 100."
-  },
-  {
-   "l": "kreisdiagramm",
-   "t": "kreisdiagramm",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kreisdiagramm hat die Winkel 180° und 54° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?"
-   },
-   "o": {
-    "wert": 35,
-    "einheit": "%"
-   },
-   "c": "(360 - 180 - 54) / 360 * 100",
-   "w": "Dritter Winkel: 360° − 180° − 54° = 126°. 126° : 360° = 0,35 = 35 %.",
-   "h": "Alle Winkel zusammen sind 360°. Berechne zuerst den dritten Winkel."
-  },
-  {
-   "l": "kreisdiagramm",
-   "t": "kreisdiagramm",
-   "p": "uebung",
-   "s": 3,
    "y": "zahl",
    "f": {
     "text": "Ein Kreisausschnitt hat einen Winkel von 234°. Wie viel Prozent stellt er dar?"
@@ -3833,41 +3984,44 @@
    },
    "c": "234 / 360 * 100",
    "w": "234° : 360° = 0,65 = 65 %.",
-   "h": "Winkel durch 360°, dann mal 100."
+   "h": "Winkel durch 360°, dann mal 100.",
+   "g": "mehrschritt"
   },
   {
    "l": "kreisdiagramm",
    "t": "kreisdiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Kreisdiagramm hat die Winkel 108° und 54° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?"
+    "text": "Es wurden 40 Personen befragt. Wie groß ist im Kreisdiagramm der Winkel für eine einzige Person?"
    },
    "o": {
-    "wert": 55,
-    "einheit": "%"
+    "wert": 9,
+    "einheit": "°"
    },
-   "c": "(360 - 108 - 54) / 360 * 100",
-   "w": "Dritter Winkel: 360° − 108° − 54° = 198°. 198° : 360° = 0,55 = 55 %.",
-   "h": "Alle Winkel zusammen sind 360°. Berechne zuerst den dritten Winkel."
+   "c": "360 / 40",
+   "h": "Die 360° werden auf 40 Personen verteilt.",
+   "w": "360° : 40 = 9°.",
+   "g": "einkleidung"
   },
   {
    "l": "kreisdiagramm",
    "t": "kreisdiagramm",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Kreisdiagramm hat die Winkel 162° und 108° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?"
+    "text": "Wie groß ist der Winkel für den Anteil 3/8 im Kreisdiagramm?"
    },
    "o": {
-    "wert": 25,
-    "einheit": "%"
+    "wert": 135,
+    "einheit": "°"
    },
-   "c": "(360 - 162 - 108) / 360 * 100",
-   "w": "Dritter Winkel: 360° − 162° − 108° = 90°. 90° : 360° = 0,25 = 25 %.",
-   "h": "Alle Winkel zusammen sind 360°. Berechne zuerst den dritten Winkel."
+   "c": "360 * 3 / 8",
+   "h": "Anteil mal 360°.",
+   "w": "360° : 8 = 45°. 45° · 3 = 135°.",
+   "g": "mehrschritt"
   },
   {
    "l": "kreisdiagramm",
@@ -4125,7 +4279,25 @@
     "text": "Ein Kreisdiagramm hat nur die Anteile 35 %, 45 % und 35 %. Was stimmt nicht?"
    },
    "w": "Zusammen sind es mehr als 100 %. Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
-   "h": "Was würde ein ehrliches Diagramm anders machen?"
+   "h": "Was würde ein ehrliches Diagramm anders machen?",
+   "g": "erkennen"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Säulendiagramm zeigt 30 und 60 Besucher, die Hochachse beginnt bei 0. Wie viel Mal so hoch ist die zweite Säule?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "60 / 30",
+   "w": "60 : 30 = 2. Bei Achsenanfang 0 stimmt das Bild.",
+   "h": "Teile die Werte."
   },
   {
    "l": "irrefuehrend",
@@ -4146,128 +4318,8 @@
     "text": "Die Hochachse eines Säulendiagramms beginnt bei 50 statt bei 0. Was bewirkt das?"
    },
    "w": "Kleine Unterschiede wirken sehr groß. Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
-   "h": "Was würde ein ehrliches Diagramm anders machen?"
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Die Säulen sind zu breit.",
-    "Es gibt kein Problem.",
-    "Man kann die Werte nicht ablesen.",
-    "Man kann die Farben nicht erkennen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Bei einem Säulendiagramm fehlt die Beschriftung der Hochachse. Was ist das Problem?"
-   },
-   "w": "Man kann die Werte nicht ablesen. Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
-   "h": "Was würde ein ehrliches Diagramm anders machen?"
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Halb so groß.",
-    "Genau richtig.",
-    "Kleiner, als es ist.",
-    "Viel größer, als es ist (vierfache Fläche)."
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Statt Säulen werden Münzen gezeichnet. Der doppelte Wert wird als doppelt so hohe UND doppelt so breite Münze gezeigt. Wie wirkt das?"
-   },
-   "w": "Viel größer, als es ist (vierfache Fläche). Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
-   "h": "Was würde ein ehrliches Diagramm anders machen?"
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Die Abstände passen nicht zu den Zahlen.",
-    "Die Achse beginnt bei 0.",
-    "Nichts, das ist richtig.",
-    "Es gibt zu wenige Zahlen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Auf der Hochachse stehen die Zahlen 0, 10, 20, 50, 100 in gleichen Abständen. Was ist falsch?"
-   },
-   "w": "Die Abstände passen nicht zu den Zahlen. Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
-   "h": "Was würde ein ehrliches Diagramm anders machen?"
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Zusammen sind es mehr als 100 %.",
-    "Kreisdiagramme dürfen keine Prozente zeigen.",
-    "Es sind zu wenige Anteile.",
-    "Nichts, alles stimmt."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Ein Kreisdiagramm hat nur die Anteile 45 %, 45 % und 35 %. Was stimmt nicht?"
-   },
-   "w": "Zusammen sind es mehr als 100 %. Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
-   "h": "Was würde ein ehrliches Diagramm anders machen?"
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "etwas mehr als 1-mal (15 mehr)",
-    "5-mal",
-    "4-mal",
-    "8-mal"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Das Diagramm zeigt Punkte zweier Teams. Die Achse beginnt bei 180. Wie viel Mal so viel hat das zweite Team wirklich?",
-    "grafik": {
-     "typ": "saeulen",
-     "werte": [
-      {
-       "name": "Team 1",
-       "wert": 185
-      },
-      {
-       "name": "Team 2",
-       "wert": 200
-      }
-     ],
-     "zahlen": true,
-     "einheit": "Punkte",
-     "y_start": 180
-    }
-   },
-   "w": "Abgelesen: 185 und 200. Sichtbar sind nur 5 und 20 – darum wirkt die zweite Säule 4-mal so hoch. Wirklich hat Team 2 nur 15 Punkte mehr als 185, also etwas mehr als 1-mal so viel.",
-   "h": "Lies die echten Werte an der Achse ab, nicht die sichtbaren Säulenhöhen."
+   "h": "Was würde ein ehrliches Diagramm anders machen?",
+   "g": "erkennen"
   },
   {
    "l": "irrefuehrend",
@@ -4299,7 +4351,30 @@
    },
    "c": "(1100 - 1000) / (1025 - 1000)",
    "w": "Sichtbare Höhen: 1 025 − 1 000 = 25 und 1 100 − 1 000 = 100. Sie wirkt 4-mal so hoch.",
-   "h": "Gezeichnet wird nur der Teil oberhalb des Achsenanfangs."
+   "h": "Gezeichnet wird nur der Teil oberhalb des Achsenanfangs.",
+   "g": "darstellung"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Die Säulen sind zu breit.",
+    "Es gibt kein Problem.",
+    "Man kann die Werte nicht ablesen.",
+    "Man kann die Farben nicht erkennen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Bei einem Säulendiagramm fehlt die Beschriftung der Hochachse. Was ist das Problem?"
+   },
+   "w": "Man kann die Werte nicht ablesen. Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
+   "h": "Was würde ein ehrliches Diagramm anders machen?",
+   "g": "erkennen"
   },
   {
    "l": "irrefuehrend",
@@ -4331,7 +4406,73 @@
    },
    "c": "(1020 - 1000) / (1005 - 1000)",
    "w": "Sichtbare Höhen: 1 005 − 1 000 = 5 und 1 020 − 1 000 = 20. Sie wirkt 4-mal so hoch.",
-   "h": "Gezeichnet wird nur der Teil oberhalb des Achsenanfangs."
+   "h": "Gezeichnet wird nur der Teil oberhalb des Achsenanfangs.",
+   "g": "darstellung"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Halb so groß.",
+    "Genau richtig.",
+    "Kleiner, als es ist.",
+    "Viel größer, als es ist (vierfache Fläche)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Statt Säulen werden Münzen gezeichnet. Der doppelte Wert wird als doppelt so hohe UND doppelt so breite Münze gezeigt. Wie wirkt das?"
+   },
+   "w": "Viel größer, als es ist (vierfache Fläche). Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
+   "h": "Was würde ein ehrliches Diagramm anders machen?",
+   "g": "erkennen"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, ein Kreisdiagramm darf höchstens zwei Teile haben.",
+    "Ja, alles passt.",
+    "Nein, die Anteile ergeben zusammen nicht 100 %."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kreisdiagramm zeigt die Anteile 20 %, 40 % und 15 % – mehr Teile gibt es nicht. Kann das stimmen?"
+   },
+   "w": "20 + 40 + 15 = 75 %. Bei einem Kreisdiagramm müssen es genau 100 % sein.",
+   "h": "Addiere alle Anteile.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Die Abstände passen nicht zu den Zahlen.",
+    "Die Achse beginnt bei 0.",
+    "Nichts, das ist richtig.",
+    "Es gibt zu wenige Zahlen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Auf der Hochachse stehen die Zahlen 0, 10, 20, 50, 100 in gleichen Abständen. Was ist falsch?"
+   },
+   "w": "Die Abstände passen nicht zu den Zahlen. Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
+   "h": "Was würde ein ehrliches Diagramm anders machen?",
+   "g": "erkennen"
   },
   {
    "l": "irrefuehrend",
@@ -4364,6 +4505,45 @@
    "c": "(1025 - 1000) / (1005 - 1000)",
    "w": "Sichtbare Höhen: 1 005 − 1 000 = 5 und 1 025 − 1 000 = 25. Sie wirkt 5-mal so hoch.",
    "h": "Gezeichnet wird nur der Teil oberhalb des Achsenanfangs."
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Zusammen sind es mehr als 100 %.",
+    "Kreisdiagramme dürfen keine Prozente zeigen.",
+    "Es sind zu wenige Anteile.",
+    "Nichts, alles stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kreisdiagramm hat nur die Anteile 45 %, 45 % und 35 %. Was stimmt nicht?"
+   },
+   "w": "Zusammen sind es mehr als 100 %. Lies bei Diagrammen immer zuerst Achsen, Beschriftung und Summen.",
+   "h": "Was würde ein ehrliches Diagramm anders machen?",
+   "g": "erkennen"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bild-Diagramm zeigt den 2-fachen Wert durch ein Bild, das 2-mal so hoch und 2-mal so breit ist. Wie viel Mal so groß ist die Bildfläche?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 2",
+   "w": "Fläche = Höhe · Breite: 2 · 2 = 4. Das Bild wirkt also 4-mal so groß statt 2-mal.",
+   "h": "Fläche eines Rechtecks: Länge mal Breite.",
+   "g": "mehrschritt"
   },
   {
    "l": "irrefuehrend",
@@ -4402,147 +4582,6 @@
    "t": "irrefuehrend",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Säulendiagramm zeigt 525 und 575 Besucher. Die Hochachse beginnt bei 500. Wie viel Mal so hoch wirkt die zweite Säule?",
-    "grafik": {
-     "typ": "saeulen",
-     "werte": [
-      {
-       "name": "Samstag",
-       "wert": 525
-      },
-      {
-       "name": "Sonntag",
-       "wert": 575
-      }
-     ],
-     "zahlen": true,
-     "einheit": "Besucher",
-     "y_start": 500
-    }
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "(575 - 500) / (525 - 500)",
-   "w": "Sichtbare Höhen: 525 − 500 = 25 und 575 − 500 = 75. Sie wirkt 3-mal so hoch.",
-   "h": "Gezeichnet wird nur der Teil oberhalb des Achsenanfangs."
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Nein, die Anteile ergeben zusammen nicht 100 %.",
-    "Ja, alles passt.",
-    "Nein, ein Kreisdiagramm darf höchstens zwei Teile haben."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Ein Kreisdiagramm zeigt die Anteile 30 %, 40 % und 35 % – mehr Teile gibt es nicht. Kann das stimmen?"
-   },
-   "w": "30 + 40 + 35 = 105 %. Bei einem Kreisdiagramm müssen es genau 100 % sein.",
-   "h": "Addiere alle Anteile."
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Die Säulen sind zu breit gezeichnet.",
-    "Alles ist korrekt dargestellt.",
-    "Die Achse beginnt bei 40 %. So wirkt der Vorsprung von 5 Prozentpunkten riesig.",
-    "Die zweite Kandidatin hat doppelt so viele Stimmen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Ein Diagramm zur Wahl der Klassensprecherin zeigt 42 % und 47 %. Die Achse beginnt bei 40 %, deshalb wirkt die zweite Säule viel höher. Was ist irreführend?",
-    "grafik": {
-     "typ": "saeulen",
-     "werte": [
-      {
-       "name": "Kandidatin A",
-       "wert": 42
-      },
-      {
-       "name": "Kandidatin B",
-       "wert": 47
-      }
-     ],
-     "zahlen": true,
-     "einheit": "%",
-     "y_start": 40
-    }
-   },
-   "w": "47 % − 42 % = 5 Prozentpunkte. Mit einer Achse ab 0 sähen die Säulen fast gleich hoch aus.",
-   "h": "Wo beginnt die Hochachse?"
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bild-Diagramm zeigt den 3-fachen Wert durch ein Bild, das 3-mal so hoch und 3-mal so breit ist. Wie viel Mal so groß ist die Bildfläche?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "3 * 3",
-   "w": "Fläche = Höhe · Breite: 3 · 3 = 9. Das Bild wirkt also 9-mal so groß statt 3-mal.",
-   "h": "Fläche eines Rechtecks: Länge mal Breite."
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Nein, ein Kreisdiagramm darf höchstens zwei Teile haben.",
-    "Ja, alles passt.",
-    "Nein, die Anteile ergeben zusammen nicht 100 %."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Ein Kreisdiagramm zeigt die Anteile 20 %, 40 % und 15 % – mehr Teile gibt es nicht. Kann das stimmen?"
-   },
-   "w": "20 + 40 + 15 = 75 %. Bei einem Kreisdiagramm müssen es genau 100 % sein.",
-   "h": "Addiere alle Anteile."
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bild-Diagramm zeigt den 2-fachen Wert durch ein Bild, das 2-mal so hoch und 2-mal so breit ist. Wie viel Mal so groß ist die Bildfläche?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2 * 2",
-   "w": "Fläche = Höhe · Breite: 2 · 2 = 4. Das Bild wirkt also 4-mal so groß statt 2-mal.",
-   "h": "Fläche eines Rechtecks: Länge mal Breite."
-  },
-  {
-   "l": "irrefuehrend",
-   "t": "irrefuehrend",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "a": [
     "Nein, die Anteile ergeben zusammen nicht 100 %.",
@@ -4556,7 +4595,119 @@
     "text": "Ein Kreisdiagramm zeigt die Anteile 30 %, 20 % und 25 % – mehr Teile gibt es nicht. Kann das stimmen?"
    },
    "w": "30 + 20 + 25 = 75 %. Bei einem Kreisdiagramm müssen es genau 100 % sein.",
-   "h": "Addiere alle Anteile."
+   "h": "Addiere alle Anteile.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "etwas mehr als 1-mal (15 mehr)",
+    "5-mal",
+    "4-mal",
+    "8-mal"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Das Diagramm zeigt Punkte zweier Teams. Die Achse beginnt bei 180. Wie viel Mal so viel hat das zweite Team wirklich?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Team 1",
+       "wert": 185
+      },
+      {
+       "name": "Team 2",
+       "wert": 200
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Punkte",
+     "y_start": 180
+    }
+   },
+   "w": "Abgelesen: 185 und 200. Sichtbar sind nur 5 und 20 – darum wirkt die zweite Säule 4-mal so hoch. Wirklich hat Team 2 nur 15 Punkte mehr als 185, also etwas mehr als 1-mal so viel.",
+   "h": "Lies die echten Werte an der Achse ab, nicht die sichtbaren Säulenhöhen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "An der Hochachse eines Säulendiagramms stehen keine Zahlen. Was kann man dann nicht ablesen?"
+   },
+   "a": [
+    "welche Säule am niedrigsten ist",
+    "die genauen Anzahlen",
+    "wie viele Säulen es gibt",
+    "welche Säule am höchsten ist"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Was zeigt eine Achse mit Zahlen?",
+   "w": "Ohne Zahlen sieht man nur die Reihenfolge der Säulen, aber nicht die Werte.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Firma zeigt ihren Umsatz: 96 und 104 Millionen €. Die Hochachse beginnt bei 92. Wie viel Mal so hoch wirkt die zweite Säule?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(104 - 92) / (96 - 92)",
+   "w": "Sichtbar sind 96 − 92 = 4 und 104 − 92 = 12. Die zweite Säule wirkt dreimal so hoch, obwohl der Umsatz nur um etwa 8 % größer ist.",
+   "h": "Rechne nur mit dem sichtbaren Teil der Säulen."
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Diagramm zeigt 200 und 210 Besucher. Die Hochachse beginnt bei 190, deshalb wirkt die zweite Säule doppelt so hoch. Um wie viel Prozent sind es wirklich mehr Besucher?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Tag 1",
+       "wert": 200
+      },
+      {
+       "name": "Tag 2",
+       "wert": 210
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Besucher",
+     "y_start": 190
+    }
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "%"
+   },
+   "c": "(210 - 200) / 200 * 100",
+   "h": "Rechne mit den echten Zahlen, nicht mit den Säulenhöhen.",
+   "w": "10 mehr von 200 = 5 %. Nur wegen der abgeschnittenen Achse wirkt es wie das Doppelte.",
+   "g": "mehrschritt"
   },
   {
    "l": "irrefuehrend",
@@ -4890,6 +5041,1635 @@
    },
    "c": "(120 - 100) / (110 - 100)",
    "w": "Sichtbare Höhen: 110 − 100 = 10 und 120 − 100 = 20. Sie wirkt 2-mal so hoch."
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Umfrage Lieblingsfach: Mathe, Deutsch, Deutsch, Deutsch, Sport, Sport, Deutsch, Musik, Mathe, Deutsch, Kunst, Kunst, Sport. Wie viele Kinder nannten weder „Deutsch“ noch „Kunst“?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "13 - 5 - 2",
+   "w": "Insgesamt 13 Antworten, davon „Deutsch“ 5 und „Kunst“ 2. Übrig: 13 − 5 − 2 = 6.",
+   "h": "Zähle alle Antworten und ziehe die beiden Häufigkeiten ab.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es wurden 38 Kinder befragt. Welche Zahl fehlt in der Tabelle bei „Birne“?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Lieblingsobst",
+      "Apfel",
+      "Banane",
+      "Birne",
+      "Kiwi",
+      "Mango"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "15",
+       "1",
+       "?",
+       "11",
+       "4"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "38 - (15 + 1 + 11 + 4)",
+   "w": "38 − (15 + 1 + 11 + 4) = 38 − 31 = 7.",
+   "h": "Alle Häufigkeiten zusammen ergeben die Gesamtzahl.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Wahl bekommt Pia mehr Stimmen als Ben. Lea bekommt weniger Stimmen als Tom, aber mehr als Pia. Wer hat die zweitmeisten Stimmen?"
+   },
+   "a": [
+    "Lea",
+    "Ben",
+    "Pia",
+    "Tom"
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Ordne Schritt für Schritt: Wer steht über wem?",
+   "w": "Pia > Ben. Lea > Pia und Tom > Lea. Reihenfolge: Tom, Lea, Pia, Ben. Zweiter Platz: Lea.",
+   "g": "transfer"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird 20-mal geworfen. Die Summe aller Augenzahlen ist 20. Wie oft fiel die 1?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "20",
+   "h": "Was ist die kleinste mögliche Augenzahl bei einem Wurf?",
+   "w": "Jeder Wurf zählt mindestens 1. Bei 20 Würfen ist die Summe nur 20, wenn jeder Wurf eine 1 war.",
+   "g": "begruenden"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Strichliste mit vier Farben stehen zusammen 30 Striche. „Rot“ hat doppelt so viele wie „Blau“, „Grün“ hat 3 mehr als „Blau“ und „Gelb“ hat 3. Wie viele Striche hat „Rot“?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * ((30 - 3 - 3) // 4)",
+   "h": "Rot und Grün hängen von Blau ab. Probiere Zahlen für Blau aus.",
+   "w": "Ohne Gelb und ohne die 3 Extra-Striche von Grün bleiben 30 − 3 − 3 = 24 für 4 gleiche Teile (Blau, Rot = 2 Teile, Grün). Blau 6, Rot 12, Grün 9, Gelb 3. Probe: 6 + 12 + 9 + 3 = 30.",
+   "g": "transfer"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 50 Würfen fiel die 6 genau 7-mal und die 1 doppelt so oft wie die 6. Wie oft fielen die Augenzahlen 2, 3, 4 und 5 zusammen?"
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "50 - 7 - 2 * 7",
+   "h": "Rechne zuerst aus, wie oft die 1 fiel.",
+   "w": "Die 1 fiel 14-mal. 50 − 7 − 14 = 29.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "zahl",
+   "f": {
+    "text": "In der Liste „rot, blau, rot, rot, gelb, blau, rot“ zählt ein Kind „rot“ und schreibt 3. Wie oft kommt „rot“ wirklich vor?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Rot steht an 1., 3., 4. und 7. Stelle: 4-mal. Beim Zählen hilft es, jeden gezählten Wert abzuhaken.",
+   "h": "Zähle langsam und hake ab."
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse mit 28 Kindern nennen 9 Fußball, 7 Schwimmen, 5 Tanzen und der Rest Reiten. Wie viele Kinder mehr nennen Fußball als Reiten?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "9 - (28 - 9 - 7 - 5)",
+   "w": "Reiten: 28 − 9 − 7 − 5 = 7. Fußball hat 9 − 7 = 2 mehr.",
+   "h": "Berechne zuerst „Reiten“."
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Strichliste stehen bei „ja“ 3 volle Fünferbündel und 4 einzelne Striche. Wie viele Striche fehlen noch bis 25?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "25 - (3 * 5 + 4)",
+   "w": "3 · 5 + 4 = 19. Bis 25 fehlen 6.",
+   "h": "Wie viel ist ein Fünferbündel?"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird 30-mal geworfen. Jede Augenzahl ist mindestens dreimal gefallen. Wie oft kann die 6 höchstens gefallen sein?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "30 - 5 * 3",
+   "w": "Die Augenzahlen 1 bis 5 brauchen zusammen mindestens 5 · 3 = 15 Würfe. Für die 6 bleiben höchstens 30 − 15 = 15.",
+   "h": "Wie viele Würfe brauchen die anderen fünf Augenzahlen mindestens?"
+  },
+  {
+   "l": "absolute_haeufigkeit",
+   "t": "absolute_haeufigkeit",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Bei einer Umfrage nannte jedes Kind genau zwei Lieblingsfarben. Rot wurde 18-mal, Blau 14-mal und Grün 10-mal genannt. Wie viele Kinder wurden befragt?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "(18 + 14 + 10) // 2",
+   "w": "Zusammen gab es 18 + 14 + 10 = 42 Nennungen. Jedes Kind hat zwei Nennungen abgegeben, also 42 : 2 = 21 Kinder.",
+   "h": "Wie viele Nennungen gibt jedes Kind ab?"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "78 von 125 Besuchern kommen aus der Stadt. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 62.4,
+    "einheit": "%"
+   },
+   "c": "78 / 125 * 100",
+   "w": "78 : 125 = 0,624 = 62,4 %.",
+   "h": "Teile durch die Gesamtzahl und nimm mal 100."
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 20 Münzwürfen lag die relative Häufigkeit für „Zahl“ bei 5 %. Wie oft fiel „Zahl“?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "20 * 5 / 100",
+   "w": "5 % von 20 = 20 · 0,05 = 1.",
+   "h": "Absolute Häufigkeit = relative Häufigkeit · Gesamtzahl."
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Gruppe B",
+    "Beide gleich",
+    "Gruppe A",
+    "Die Gruppe mit mehr Kindern"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "In Gruppe A (50 Kinder) lesen 16 gern, in Gruppe B (200 Kinder) lesen 71 gern. Wo ist der Anteil der Leser größer?"
+   },
+   "w": "A: 16 : 50 = 32 %, B: 71 : 200 = 35,5 %. Größerer Anteil: Gruppe B.",
+   "h": "Vergleiche Anteile, nicht Anzahlen: relative Häufigkeiten berechnen.",
+   "g": "begruenden"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Diagramm zeigt, wie viele Runden die Kinder beim Spendenlauf geschafft haben. Haben mehr als ein Drittel aller Kinder genau 10 Runden geschafft?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "5",
+       "wert": 24
+      },
+      {
+       "name": "10",
+       "wert": 50
+      },
+      {
+       "name": "15",
+       "wert": 40
+      },
+      {
+       "name": "20",
+       "wert": 36
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Kinder"
+    }
+   },
+   "a": [
+    "Nein, es ist weniger als ein Viertel.",
+    "Ja, 50 ist die höchste Säule.",
+    "Nein, es ist genau ein Drittel.",
+    "Ja, es sind 50 %."
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Bilde zuerst die Summe aller Kinder.",
+   "w": "24 + 50 + 40 + 36 = 150 Kinder. 50 von 150 = 1/3 – genau ein Drittel, nicht mehr.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Wie groß ist die relative Häufigkeit des Buchstabens N im Satz „ANNA NENNT NEUN NAMEN“? Zähle nur Buchstaben, keine Leerzeichen. Gib einen gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "9 // 9",
+    "18 // 9"
+   ],
+   "h": "Zähle zuerst alle Buchstaben, dann alle N.",
+   "w": "Der Satz hat 18 Buchstaben, davon 9-mal N. 9/18 = 1/2.",
+   "g": "transfer"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse trägt 1/4 der Kinder eine Brille. Zwei neue Kinder mit Brille kommen dazu. Jetzt trägt 1/3 der Kinder eine Brille. Wie viele Kinder sind jetzt in der Klasse?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "16 + 2",
+   "h": "Probiere: Die alte Klassengröße muss durch 4 teilbar sein, die neue durch 3.",
+   "w": "Alt 16 Kinder, 4 mit Brille. Neu 18 Kinder, 6 mit Brille: 6/18 = 1/3. Es passt.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 24 Würfen gab es 6 Treffer. Ein Kind rechnet die relative Häufigkeit als 6/18 aus (Treffer durch Nicht-Treffer). Wie groß ist sie richtig in Prozent?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "6 / 24 * 100",
+   "h": "Durch die Gesamtzahl aller Würfe teilen.",
+   "w": "6/24 = 1/4 = 25 %.",
+   "g": "fehler"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft muss bei 40 Münzwürfen „Kopf“ fallen, damit die relative Häufigkeit genau 0,35 ist?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "40 * 0.35",
+   "w": "0,35 · 40 = 14.",
+   "h": "Relative Häufigkeit mal Gesamtzahl."
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Von 250 befragten Kindern lesen 40 % jeden Tag. Von den übrigen liest die Hälfte nur am Wochenende. Wie viele Kinder lesen nur am Wochenende?"
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "250 * 0.6 / 2",
+   "w": "Täglich: 100 Kinder. Übrig 150, davon die Hälfte: 75.",
+   "h": "Berechne zuerst die Kinder, die nicht täglich lesen."
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird 60-mal geworfen. Die relative Häufigkeit der 6 ist 0,15, die der 1 doppelt so groß. Wie oft fiel die 1?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "60 * 0.15 * 2",
+   "w": "Die 1 hat 0,3. 0,3 · 60 = 18.",
+   "h": "Wie groß ist die relative Häufigkeit der 1?"
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Nach 20 Würfen auf ein Tor ist die relative Häufigkeit der Treffer 0,4. Wie viele Treffer hintereinander braucht man mindestens, damit sie auf 0,5 steigt?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Bisher 8 Treffer bei 20 Würfen. Mit k weiteren Treffern: (8 + k)/(20 + k). Für k = 4: 12/24 = 0,5. Mit k = 3 wären es 11/23 – weniger als die Hälfte.",
+   "h": "Probiere k = 1, 2, 3, … aus."
+  },
+  {
+   "l": "relative_haeufigkeit",
+   "t": "relative_haeufigkeit",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "In einer Klasse haben 3/8 der Kinder einen Hund und 1/4 eine Katze. 1/8 hat beides. Welcher Anteil hat weder Hund noch Katze?",
+    "schablone": "□/□",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "1",
+    "2"
+   ],
+   "w": "Hund oder Katze: 3/8 + 2/8 − 1/8 = 4/8 (wer beides hat, wurde doppelt gezählt). Weder noch: 1 − 4/8 = 1/2.",
+   "h": "Wer beides hat, steckt in beiden Anteilen."
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt eine Umfrage zum Thema Lieblingsfach. Wie viel Prozent haben „Kunst“ gewählt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Lieblingsfach",
+      "Mathe",
+      "Deutsch",
+      "Sport",
+      "Kunst"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "9",
+       "1",
+       "3"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "%"
+   },
+   "c": "3 / (7 + 9 + 1 + 3) * 100",
+   "w": "Gesamt: 20. 3 : 20 = 0,15 = 15 %.",
+   "h": "Zuerst die Gesamtzahl bilden. Sie ist der Grundwert.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Schule hat 400 Kinder. Jedes Kind zahlt Kopiergeld: Die Tabelle zeigt, welcher Anteil der Kinder wie viel zahlt. Wie viel Euro kommen insgesamt zusammen?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Jahrgang",
+      "5 bis 7",
+      "8 bis 10",
+      "11 bis 13"
+     ],
+     "zeilen": [
+      [
+       "Anteil",
+       "60 %",
+       "1/4",
+       "Rest"
+      ],
+      [
+       "Betrag",
+       "8 €",
+       "10 €",
+       "12 €"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3640,
+    "einheit": "€"
+   },
+   "c": "400 * 60 / 100 * 8 + 400 / 4 * 10 + (400 - 240 - 100) * 12",
+   "h": "Rechne für jede Gruppe die Zahl der Kinder aus. Der Rest ist das, was zu 100 % fehlt.",
+   "w": "60 % von 400 = 240 Kinder · 8 € = 1 920 €. 1/4 = 100 Kinder · 10 € = 1 000 €. Rest 60 Kinder · 12 € = 720 €. Zusammen 3 640 €.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt eine Umfrage zum Thema Schulweg. Wie viel Prozent haben „Rad“ gewählt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Schulweg",
+      "Bus",
+      "Rad",
+      "zu Fuß"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "12",
+       "6"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "%"
+   },
+   "c": "12 / (7 + 12 + 6) * 100",
+   "w": "Gesamt: 25. 12 : 25 = 0,48 = 48 %.",
+   "h": "Zuerst die Gesamtzahl bilden. Sie ist der Grundwert.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In der Tabelle fehlen Werte. Wie viele Kinder tragen insgesamt eine Brille?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Brille",
+      "keine Brille",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Mädchen",
+       "5",
+       "?",
+       "14"
+      ],
+      [
+       "Jungen",
+       "?",
+       "9",
+       "16"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "5 + (16 - 9)",
+   "h": "Rechne zuerst die fehlende Zahl bei den Jungen aus.",
+   "w": "Jungen mit Brille: 16 − 9 = 7. Zusammen mit den 5 Mädchen: 12 Kinder.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Kinder einer Klasse ein Haustier haben. Wie viele Kinder haben ein Haustier?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Haustier",
+      "kein Haustier"
+     ],
+     "zeilen": [
+      [
+       "Mädchen",
+       "9",
+       "5"
+      ],
+      [
+       "Jungen",
+       "6",
+       "9"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "9 + 6",
+   "h": "Addiere die Spalte „Haustier“.",
+   "w": "Mädchen 9, Jungen 6. Zusammen 15.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt den Schulweg in zwei Klassen. Welche Aussage stimmt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Schulweg",
+      "6a",
+      "6b"
+     ],
+     "zeilen": [
+      [
+       "Bus",
+       "12",
+       "9"
+      ],
+      [
+       "Rad",
+       "7",
+       "15"
+      ],
+      [
+       "zu Fuß",
+       "6",
+       "6"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Die Hälfte der 6a fährt Bus.",
+    "In der 6a fahren mehr Kinder Rad als Bus.",
+    "In der 6b fährt ein größerer Anteil Rad als in der 6a.",
+    "In der 6a fährt ein größerer Anteil Rad als in der 6b."
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Bilde für jede Klasse die Summe. Vergleiche Anteile, nicht nur Anzahlen.",
+   "w": "6a: 25 Kinder, Rad 7/25 = 28 %, Bus 12/25 = 48 %. 6b: 30 Kinder, Rad 15/30 = 50 %. Nur die erste Aussage stimmt.",
+   "g": "begruenden"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Kinder einer Klasse ein Haustier haben. Wie viel Prozent der Jungen haben ein Haustier?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Haustier",
+      "kein Haustier"
+     ],
+     "zeilen": [
+      [
+       "Mädchen",
+       "9",
+       "5"
+      ],
+      [
+       "Jungen",
+       "6",
+       "9"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "%"
+   },
+   "c": "6 / (6 + 9) * 100",
+   "h": "Ganzes sind nur die Jungen.",
+   "w": "Jungen: 6 + 9 = 15. 6 von 15 = 2/5 = 40 %.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt den Schulweg in zwei Klassen. Wie viel Prozent aller Kinder beider Klassen fahren Rad?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Schulweg",
+      "6a",
+      "6b"
+     ],
+     "zeilen": [
+      [
+       "Bus",
+       "12",
+       "9"
+      ],
+      [
+       "Rad",
+       "7",
+       "15"
+      ],
+      [
+       "zu Fuß",
+       "6",
+       "6"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "%"
+   },
+   "c": "(7 + 15) / (25 + 30) * 100",
+   "h": "Addiere alle Radfahrer und alle Kinder.",
+   "w": "Rad: 7 + 15 = 22. Alle: 25 + 30 = 55. 22/55 = 2/5 = 40 %.",
+   "g": "transfer"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Tabelle stehen 10 Mädchen und 15 Jungen; mit dem Rad kommen 4 Mädchen und 6 Jungen. Ein Kind sagt: „10 % fahren Rad.“ Wie viel Prozent sind es wirklich?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "%"
+   },
+   "c": "(4 + 6) / (10 + 15) * 100",
+   "w": "Es hat die Anzahl 10 als Prozent gelesen. Richtig: 10 von 25 Kindern = 40 %.",
+   "h": "Wie viele Kinder sind es insgesamt?"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tabelle zeigt für drei Sorten 12, x und 18 Stimmen. Die mittlere Sorte hat genau ein Drittel aller Stimmen. Wie groß ist x?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(12 + 18) / 2",
+   "w": "x ist ein Drittel aller Stimmen, also sind die anderen beiden zusammen zwei Drittel: 12 + 18 = 30. Zwei Drittel sind 30, ein Drittel also 15. Also x = 15. Probe: 12 + 15 + 18 = 45, ein Drittel davon ist 15.",
+   "h": "Wenn x ein Drittel ist, was sind dann 12 + 18?"
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "In der 6a sind 14 Mädchen und 12 Jungen, in der 6b 11 Mädchen und 15 Jungen. Wie viel Prozent aller Kinder beider Klassen sind Mädchen? Runde auf ganze Prozent."
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "%"
+   },
+   "c": "round(25 / 52 * 100)",
+   "w": "Mädchen: 14 + 11 = 25, alle Kinder: 52. 25 : 52 ≈ 0,48 = 48 %.",
+   "h": "Zähle zuerst alle Mädchen und alle Kinder."
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "In einer Klasse mit 30 Kindern haben 18 ein Haustier. Es sind 12 Mädchen, davon haben 8 ein Haustier. Wie viele Jungen haben kein Haustier?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(30 - 12) - (18 - 8)",
+   "w": "Jungen: 18. Jungen mit Haustier: 18 − 8 = 10. Jungen ohne Haustier: 18 − 10 = 8.",
+   "h": "Lege eine Tabelle mit vier Feldern an."
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tabelle zeigt die Stimmen für A, B und C. A hat 3 mehr als B, C hat doppelt so viele wie B. Zusammen sind es 43 Stimmen. Wie viele hat C?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "2 * (43 - 3) // 4",
+   "w": "Schreibe B als Kästchen: A = □ + 3, C = □ + □. Zusammen 4 Kästchen + 3 = 43, also ein Kästchen 10. C = 20.",
+   "h": "Drücke alles durch die Stimmen von B aus."
+  },
+  {
+   "l": "tabelle_auswerten",
+   "t": "tabelle_auswerten",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Klasse hat 25 Kinder. 1/3 der Mädchen und 1/2 der Jungen fahren Rad – das sind gleich viele Mädchen wie Jungen. Wie viele Mädchen hat die Klasse?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "15",
+   "w": "Die Zahl der Mädchen ist durch 3 teilbar, die der Jungen durch 2. Möglich sind 3, 9, 15 oder 21 Mädchen (dann 22, 16, 10 oder 4 Jungen). Radfahrer: 1 und 11, 3 und 8, 5 und 5, 7 und 2. Gleich viele nur bei 15 Mädchen und 10 Jungen.",
+   "h": "Die Zahl der Mädchen muss durch 3, die der Jungen durch 2 teilbar sein."
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Säulendiagramm zeigt verkaufte Kugeln Eis. Um wie viele Kugeln ist die höchste Säule größer als die niedrigste?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Mo",
+       "wert": 40
+      },
+      {
+       "name": "Di",
+       "wert": 25
+      },
+      {
+       "name": "Mi",
+       "wert": 55
+      },
+      {
+       "name": "Do",
+       "wert": 30
+      },
+      {
+       "name": "Fr",
+       "wert": 50
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Kugeln"
+    }
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "55 - 25",
+   "h": "Suche die höchste und die niedrigste Säule.",
+   "w": "Höchste Säule 55 (Mi), niedrigste 25 (Di). 55 − 25 = 30.",
+   "g": "darstellung"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der größte Wert ist 75. Die höchste Säule darf höchstens 12 cm hoch sein. Wie viele Stimmen muss 1 cm mindestens darstellen? (ganze Zahl)"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "-(-75 // 12)",
+   "w": "75 : 12 ≈ 6,2. Mit 6 pro cm wäre die Säule 12,5 cm hoch – zu hoch. Also mindestens 7 Stimmen pro cm.",
+   "h": "Teile den größten Wert durch die Höchsthöhe und runde auf.",
+   "g": "parameter"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Diagramm zeigt die Noten 1 bis 5 einer Klasse mit 28 Kindern. Die Säule für Note 6 fehlt. Wie viele Kinder haben Note 6?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "1",
+       "wert": 3
+      },
+      {
+       "name": "2",
+       "wert": 7
+      },
+      {
+       "name": "3",
+       "wert": 10
+      },
+      {
+       "name": "4",
+       "wert": 5
+      },
+      {
+       "name": "5",
+       "wert": 2
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Kinder"
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "28 - (3 + 7 + 10 + 5 + 2)",
+   "h": "Addiere alle gezeichneten Säulen und vergleiche mit 28.",
+   "w": "3 + 7 + 10 + 5 + 2 = 27. 28 − 27 = 1 Kind hat Note 6.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind zeichnet Säulen für 12, 30 und 45 Kinder. Die kleinste Säule ist 2 cm hoch. Wie hoch wird die größte Säule?"
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "cm"
+   },
+   "c": "45 / 12 * 2",
+   "h": "Wie viele Kinder stehen für 1 cm?",
+   "w": "2 cm für 12 Kinder: 1 cm für 6 Kinder. 45 : 6 = 7,5 cm.",
+   "g": "transfer"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Diagramm zeigt in Prozent, wie Kinder zur Schule kommen. Die Säule „Rad“ steht für 63 Kinder. Wie viele Kinder wurden befragt?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Bus",
+       "wert": 45
+      },
+      {
+       "name": "Rad",
+       "wert": 35
+      },
+      {
+       "name": "zu Fuß",
+       "wert": 20
+      }
+     ],
+     "zahlen": true,
+     "einheit": "%"
+    }
+   },
+   "o": {
+    "wert": 180
+   },
+   "c": "63 / 35 * 100",
+   "h": "63 Kinder sind 35 %. Rechne über 5 % auf 100 %.",
+   "w": "35 % = 63 Kinder, 5 % = 9 Kinder, 100 % = 180 Kinder.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Säulendiagramm zeigt verkaufte Kugeln Eis. Wie viel Prozent aller Kugeln der Woche wurden am Mittwoch verkauft?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Mo",
+       "wert": 40
+      },
+      {
+       "name": "Di",
+       "wert": 25
+      },
+      {
+       "name": "Mi",
+       "wert": 55
+      },
+      {
+       "name": "Do",
+       "wert": 30
+      },
+      {
+       "name": "Fr",
+       "wert": 50
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Kugeln"
+    }
+   },
+   "o": {
+    "wert": 27.5,
+    "einheit": "%"
+   },
+   "c": "55 / (40 + 25 + 55 + 30 + 50) * 100",
+   "h": "Bilde zuerst die Summe der Woche.",
+   "w": "Woche: 40 + 25 + 55 + 30 + 50 = 200. 55 von 200 = 27,5 %.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Steht 1 cm für doppelt so viele Kinder wie vorher, werden alle Säulen halb so hoch.“"
+   },
+   "a": [
+    "Ja: Jede Säule braucht nur noch halb so viele Zentimeter.",
+    "Nein, sie werden doppelt so hoch.",
+    "Nein, die Höhen bleiben gleich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Höhe = Anzahl : Kinder je cm. Wird der Teiler doppelt so groß, wird die Höhe halb so groß.",
+   "h": "Rechne ein Beispiel mit 20 Kindern."
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "zahl",
+   "f": {
+    "text": "Maßstab: 1 cm steht für 5 Kinder. Ein Kind zeichnet für 15 Kinder eine 5 cm hohe Säule. Wie hoch müsste sie sein?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "15 / 5",
+   "w": "Es hat die Zahl 5 aus dem Maßstab genommen. Richtig: 15 : 5 = 3 cm.",
+   "h": "Wie viele Zentimeter für 15 Kinder?"
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Säulendiagramm ist Säule A 4,5 cm und Säule B 3 cm hoch. A steht für 27 Kinder. Für wie viele Kinder steht B?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "27 / 4.5 * 3",
+   "w": "Aus Säule A folgt der Maßstab: 27 Kinder auf 4,5 cm, also 1 cm für 27 : 4,5 = 6 Kinder. Säule B ist 3 cm hoch: 3 · 6 = 18 Kinder.",
+   "h": "Bestimme zuerst den Maßstab."
+  },
+  {
+   "l": "saeulendiagramm",
+   "t": "saeulendiagramm",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Fünf Säulen stehen zusammen für 100 Stimmen. Die kleinste ist 2 cm hoch, jede weitere ist 1 cm höher als die vorige. Für wie viele Stimmen steht 1 cm?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "100 / (2 + 3 + 4 + 5 + 6)",
+   "w": "Die Höhen sind 2, 3, 4, 5 und 6 cm, zusammen 20 cm. 100 Stimmen : 20 cm = 5 Stimmen je cm.",
+   "h": "Wie hoch sind alle Säulen zusammen?"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Kreisdiagramm über 60 Kinder hat der Ausschnitt „Rad“ einen Winkel von 210°. Wie viele Kinder fahren Rad?"
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "210 / 360 * 60",
+   "w": "Anteil 210/360 = 7/12. 7/12 von 60 = 35 Kinder.",
+   "h": "Winkel : 360° ergibt den Anteil. Den Anteil mal Gesamtzahl.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisdiagramm hat die Winkel 180° und 54° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?"
+   },
+   "o": {
+    "wert": 35,
+    "einheit": "%"
+   },
+   "c": "(360 - 180 - 54) / 360 * 100",
+   "w": "Dritter Winkel: 360° − 180° − 54° = 126°. 126° : 360° = 0,35 = 35 %.",
+   "h": "Alle Winkel zusammen sind 360°. Berechne zuerst den dritten Winkel.",
+   "g": "transfer"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Kreisdiagramm hat „Schwimmen“ einen Winkel von 72°. Das sind 56 Kinder. Wie viele Kinder wurden befragt?"
+   },
+   "o": {
+    "wert": 280
+   },
+   "c": "56 * 360 / 72",
+   "h": "Welcher Anteil des Kreises sind 72°?",
+   "w": "72° von 360° = 1/5. 56 Kinder sind 1/5, also 5 · 56 = 280 Kinder.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Kreisdiagramm zeigt, welche Schulnote sich 1 200 Erwachsene in Mathematik selbst geben. Wie viele gaben sich Note 2 oder besser?",
+    "grafik": {
+     "typ": "kreisdiagramm",
+     "werte": [
+      {
+       "name": "Note 1",
+       "wert": 12
+      },
+      {
+       "name": "Note 2",
+       "wert": 35
+      },
+      {
+       "name": "Note 3",
+       "wert": 28
+      },
+      {
+       "name": "Note 4",
+       "wert": 15
+      },
+      {
+       "name": "Note 5",
+       "wert": 7
+      },
+      {
+       "name": "Note 6",
+       "wert": 3
+      }
+     ],
+     "zahlen": true,
+     "einheit": " %"
+    }
+   },
+   "o": {
+    "wert": 564
+   },
+   "c": "1200 * (12 + 35) / 100",
+   "h": "Addiere die Prozente für Note 1 und Note 2.",
+   "w": "12 % + 35 % = 47 %. 47 % von 1 200 = 564.",
+   "g": "pruefung"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisdiagramm hat drei Teile. Teil A ist doppelt so groß wie Teil B. Teil C ist so groß wie A und B zusammen. Wie groß ist der Winkel von A?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "2 * 360 / 6",
+   "h": "Wenn B ein Stück ist, wie viele Stücke sind A und C?",
+   "w": "B = 1 Stück, A = 2 Stücke, C = 3 Stücke: 6 Stücke = 360°, 1 Stück = 60°. A = 120°.",
+   "g": "transfer"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind zeichnet 25 % als Kreisausschnitt mit 25°. Wie groß muss der Winkel richtig sein?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 * 25 / 100",
+   "h": "Der ganze Kreis hat 360°, nicht 100°.",
+   "w": "25 % = 1/4. 360° : 4 = 90°.",
+   "g": "fehler"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Kreisdiagramm mit genau drei Teilen von 90°, 120° und 140° kann stimmen.“"
+   },
+   "a": [
+    "Ja, das stimmt.",
+    "Nein, zusammen sind es nur 350°, nicht 360°.",
+    "Nein, ein Kreis hat 180°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "90 + 120 + 140 = 350. Alle Teile eines Kreisdiagramms ergeben 360°.",
+   "h": "Addiere die Winkel."
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Bei wie vielen Befragten steht im Kreisdiagramm jede einzelne Person für genau 7,5°?"
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "360 / 7.5",
+   "w": "360° : 7,5° = 48 Personen.",
+   "h": "Teile den ganzen Kreis durch 7,5°."
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisdiagramm hat drei Teile A, B und C. Der Winkel für B ist doppelt so groß wie der für A, der für C dreimal so groß wie der für A. Wie groß ist der Winkel für C?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "360 * 3 / 6",
+   "w": "A ist 1 Teil, B 2 Teile, C 3 Teile: Der Kreis zerfällt in 1 + 2 + 3 = 6 gleiche Teile. Ein Teil hat 360° : 6 = 60°, C hat 3 Teile = 180°.",
+   "h": "In wie viele gleiche Teile zerfällt der Kreis?"
+  },
+  {
+   "l": "kreisdiagramm",
+   "t": "kreisdiagramm",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisdiagramm zeigt 90 Kinder. Teil A hat einen Winkel von 100°. Wie viele Kinder sind das?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "90 * 100 / 360",
+   "w": "Der ganze Kreis hat 360° für 90 Kinder, also steht jedes Kind für 360° : 90 = 4°. 100° : 4° = 25 Kinder – es geht genau auf.",
+   "h": "Wie viel Grad steht ein Kind?"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Säulendiagramm zeigt 525 und 575 Besucher. Die Hochachse beginnt bei 500. Wie viel Mal so hoch wirkt die zweite Säule?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Samstag",
+       "wert": 525
+      },
+      {
+       "name": "Sonntag",
+       "wert": 575
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Besucher",
+     "y_start": 500
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(575 - 500) / (525 - 500)",
+   "w": "Sichtbare Höhen: 525 − 500 = 25 und 575 − 500 = 75. Sie wirkt 3-mal so hoch.",
+   "h": "Gezeichnet wird nur der Teil oberhalb des Achsenanfangs."
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, die Anteile ergeben zusammen nicht 100 %.",
+    "Ja, alles passt.",
+    "Nein, ein Kreisdiagramm darf höchstens zwei Teile haben."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kreisdiagramm zeigt die Anteile 30 %, 40 % und 35 % – mehr Teile gibt es nicht. Kann das stimmen?"
+   },
+   "w": "30 + 40 + 35 = 105 %. Bei einem Kreisdiagramm müssen es genau 100 % sein.",
+   "h": "Addiere alle Anteile.",
+   "g": "begruenden"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bild-Diagramm zeigt den 3-fachen Wert durch ein Bild, das 3-mal so hoch und 3-mal so breit ist. Wie viel Mal so groß ist die Bildfläche?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3 * 3",
+   "w": "Fläche = Höhe · Breite: 3 · 3 = 9. Das Bild wirkt also 9-mal so groß statt 3-mal.",
+   "h": "Fläche eines Rechtecks: Länge mal Breite.",
+   "g": "transfer"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Die Säulen sind zu breit gezeichnet.",
+    "Alles ist korrekt dargestellt.",
+    "Die Achse beginnt bei 40 %. So wirkt der Vorsprung von 5 Prozentpunkten riesig.",
+    "Die zweite Kandidatin hat doppelt so viele Stimmen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Diagramm zur Wahl der Klassensprecherin zeigt 42 % und 47 %. Die Achse beginnt bei 40 %, deshalb wirkt die zweite Säule viel höher. Was ist irreführend?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Kandidatin A",
+       "wert": 42
+      },
+      {
+       "name": "Kandidatin B",
+       "wert": 47
+      }
+     ],
+     "zahlen": true,
+     "einheit": "%",
+     "y_start": 40
+    }
+   },
+   "w": "47 % − 42 % = 5 Prozentpunkte. Mit einer Achse ab 0 sähen die Säulen fast gleich hoch aus.",
+   "h": "Wo beginnt die Hochachse?",
+   "g": "begruenden"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Diagramm zeigt die Zahl der Vereinsmitglieder: 1 000 im ersten Jahr, 950 im zweiten. Die Achse beginnt bei 900, die zweite Säule wirkt halb so hoch. Um wie viel Prozent ist die Zahl wirklich gesunken?",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Jahr 1",
+       "wert": 1000
+      },
+      {
+       "name": "Jahr 2",
+       "wert": 950
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Mitglieder",
+     "y_start": 900
+    }
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "%"
+   },
+   "c": "(1000 - 950) / 1000 * 100",
+   "h": "Grundwert ist das erste Jahr.",
+   "w": "50 weniger von 1 000 = 5 %. Die Säule wirkt halbiert, weil die Achse erst bei 900 beginnt.",
+   "g": "transfer"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Säulendiagramm über Haarfarben in einer Klasse beginnt bei 6 Kindern. Bei „rot“ ist keine Säule zu sehen. Was kann man sagen?"
+   },
+   "a": [
+    "Es gibt keine rothaarigen Kinder.",
+    "Das Diagramm ist falsch gezeichnet.",
+    "Es gibt genau 6 rothaarige Kinder.",
+    "Es könnten 0 bis 6 rothaarige Kinder sein – genau ablesen kann man es nicht."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Was passiert mit Werten, die kleiner sind als der Anfang der Achse?",
+   "w": "Werte bis 6 sind unsichtbar. Es fehlt die Information, wie viele es genau sind.",
+   "g": "begruenden"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Anteil der Kinder ohne Fahrradhelm stieg von 12 % auf 20 %. In einer Zeitung steht: „Der Anteil hat sich verdoppelt.“ Stimmt das?"
+   },
+   "a": [
+    "Ja, er ist um 8 Prozentpunkte gestiegen.",
+    "Ja, 20 ist fast 24.",
+    "Nein, er hat sich verdreifacht.",
+    "Nein: Verdoppelt wären 24 %. 20 % ist weniger als das Doppelte."
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Was wäre das Doppelte von 12 %?",
+   "w": "2 · 12 % = 24 %. 20 % ist etwa das 1,7-Fache. „Verdoppelt“ übertreibt.",
+   "g": "fehler"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bild-Diagramm zeigt den doppelten Wert durch einen Würfel mit doppelter Kantenlänge. Wie viel Mal so groß ist das Volumen des großen Würfels?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 ** 3",
+   "h": "Länge, Breite und Höhe werden jeweils verdoppelt.",
+   "w": "2 · 2 · 2 = 8. Der Würfel wirkt 8-mal so groß, obwohl der Wert nur doppelt so groß ist.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Die Hochachse eines Diagramms beginnt bei 100. Die Säule für 160 wirkt dreimal so hoch wie die andere. Für welchen Wert steht die andere Säule?"
+   },
+   "o": {
+    "wert": 120
+   },
+   "c": "100 + (160 - 100) / 3",
+   "w": "Sichtbar sind 60 bei der großen Säule. Die kleine zeigt ein Drittel davon: 20 über 100, also 120.",
+   "h": "Wie viel ist von der großen Säule sichtbar?"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Säulen stehen für 50 und 60. Bei welchem Achsenanfang wirkt die zweite Säule genau doppelt so hoch wie die erste?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "2 * 50 - 60",
+   "w": "Sichtbar sind 50 − s und 60 − s. Doppelt heißt 60 − s = 2 · (50 − s). Probieren: s = 40 ergibt 10 und 20.",
+   "h": "Probiere verschiedene Achsenanfänge aus."
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In einem Bild-Diagramm soll ein Wert doppelt so groß dargestellt werden. Statt eines doppelt so hohen Bildes wird ein Quadrat in Länge und Breite verdoppelt. Um wie viel Prozent ist die Fläche größer, als sie sein sollte?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "%"
+   },
+   "c": "(4 - 2) / 2 * 100",
+   "w": "Richtig wäre die doppelte Fläche. Das Quadrat hat aber 2 · 2 = 4-fache Fläche – doppelt so viel wie richtig, also 100 % zu viel.",
+   "h": "Wie verändert sich die Fläche eines Quadrats, wenn beide Seiten doppelt so lang werden?"
   }
  ],
  "offen": [

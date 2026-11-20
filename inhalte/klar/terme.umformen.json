@@ -2,44 +2,93 @@
  "thema_schluessel": "terme.umformen",
  "karten": {
   "zusammenfassen": {
-   "einstieg": "In deinem Einkaufskorb liegen 3 Hefte und 5 Stifte. Du legst 1 Heft zurück und nimmst noch 2 Stifte dazu. Jetzt hast du 2 Hefte und 7 Stifte – Hefte zählst du mit Heften, Stifte mit Stiften. Schreibst du für den Preis eines Hefts x und für den Preis eines Stifts y, rechnest du genauso. Man fasst ⟦gleichartige Glieder⟧ zusammen.",
+   "einstieg": "Im Korb liegen 3 Hefte und 5 Stifte. Du legst 1 Heft zurück und nimmst 2 Stifte dazu. Jetzt sind es 2 Hefte und 7 Stifte. Man zählt ⟦gleichartige Glieder⟧ zusammen.",
    "woerter": [
     [
-     "Variable",
-     "ein Buchstabe für eine Zahl, die man (noch) nicht kennt, z. B. x für den Preis eines Hefts"
-    ],
-    [
      "Term",
-     "ein Rechenausdruck mit Zahlen und Variablen, z. B. 3x + 5y"
-    ],
-    [
-     "3x",
-     "kurz für 3 · x; den Malpunkt vor einer Variablen lässt man weg"
+     "Rechenausdruck mit Zahlen und Variablen, z. B. 3x + 5y"
     ],
     [
      "Glied",
-     "ein Teil des Terms zwischen den Plus- und Minuszeichen, mit seinem Vorzeichen davor"
-    ],
-    [
-     "Variablenteil",
-     "der Buchstabenteil eines Glieds, z. B. x, y, x² oder xy"
+     "ein Teil des Terms mit seinem Vorzeichen, z. B. −x"
     ],
     [
      "gleichartige Glieder",
-     "Glieder mit demselben Variablenteil, z. B. 3x und −x"
+     "Glieder mit demselben Buchstabenteil, z. B. 3x und −x"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "",
+     "Hefte (x)",
+     "Stifte (y)"
+    ],
+    "zeilen": [
+     [
+      "Glieder",
+      "?",
+      "?"
+     ]
+    ]
+   },
    "schritte": [
-    "Der Term 3x + 5y − x + 2y hat vier Glieder: 3x, +5y, −x und +2y.",
-    "Stell die gleichartigen Glieder nebeneinander: ⟦3x − x⟧ + ⟦5y + 2y⟧. Jedes Vorzeichen wandert mit seinem Glied.",
-    "−x bedeutet −1x. Also ist 3x − 1x = 2x – wie 3 Hefte minus 1 Heft.",
-    "5y + 2y = 7y. Zusammen ergibt sich ⟦2x + 7y⟧."
+    {
+     "text": "Der Term 3x + 5y − x + 2y hat vier Glieder."
+    },
+    {
+     "text": "Sortieren: ⟦3x − x⟧ + 5y + 2y. Jedes Vorzeichen wandert mit.",
+     "bild": {
+      "zeilen": [
+       [
+        "Glieder",
+        "3x und −x",
+        "+5y und +2y"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "−x heißt −1x. Also 3x − 1x = 2x und 5y + 2y = 7y.",
+     "bild": {
+      "zeilen": [
+       [
+        "Glieder",
+        "3x und −x",
+        "+5y und +2y"
+       ],
+       [
+        "zusammen",
+        "2x",
+        "7y"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Ergebnis: ⟦2x + 7y⟧."
+    }
    ],
-   "regel": "So fasst du zusammen: Nur ⟦gleichartige Glieder⟧ – sie haben denselben Variablenteil (z. B. x, x² oder xy). Die ⟦Zahlen davor⟧ werden addiert, der Variablenteil bleibt.",
-   "fehler": "3x + 5y = 8xy ist falsch: 3 Hefte und 5 Stifte sind nicht 8 „Heftstifte“. x und y sind ⟦verschieden⟧, 3x + 5y bleibt so stehen."
+   "fehler": "3x + 5y ist nicht 8xy. 3 Hefte und 5 Stifte sind keine 8 „Heftstifte“. x und y sind ⟦verschieden⟧, der Term bleibt so.",
+   "fehler_bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "x = 2, y = 1",
+     "3x + 5y",
+     "8xy"
+    ],
+    "zeilen": [
+     [
+      "Wert",
+      "11",
+      "16"
+     ]
+    ]
+   },
+   "regel": "Nur ⟦gleichartige Glieder⟧ zusammenfassen. Die Zahlen davor werden addiert, der Buchstabenteil bleibt."
   },
   "produkte": {
-   "einstieg": "Ein Beet wird mit Pflastersteinen ausgemessen: Es ist 3 Steine lang und 2 Steine breit. Ist ein Stein a Meter lang, ist das Beet 3a lang und 2a breit. Seine Fläche ist 3a · 2a: 3 · 2 = 6, dazu a · a. So eine Malrechnung heißt ⟦Produkt⟧.",
+   "einstieg": "Ein Beet ist 3 Steine lang und 2 Steine breit. Ein Stein ist a Meter lang. Die Fläche ist 3a · 2a. So eine Malrechnung heißt ⟦Produkt⟧.",
    "woerter": [
     [
      "Produkt",
@@ -47,191 +96,727 @@
     ],
     [
      "a²",
-     "kurz für a · a, gelesen „a Quadrat“; eine Potenz von a"
-    ],
-    [
-     "Vorzeichen",
-     "das + oder − vor einer Zahl oder einem Glied"
-    ],
-    [
-     "(−2a)",
-     "die Klammer zeigt, dass das Minus zu −2a gehört"
+     "kurz für a · a, gelesen „a Quadrat“"
     ]
    ],
+   "bild": {
+    "typ": "figur",
+    "label": "Beet 3a lang und 2a breit",
+    "punkte": {
+     "_A": [
+      0,
+      0
+     ],
+     "_B": [
+      6,
+      0
+     ],
+     "_C": [
+      6,
+      4
+     ],
+     "_D": [
+      0,
+      4
+     ],
+     "_E": [
+      2,
+      0
+     ],
+     "_F": [
+      4,
+      0
+     ],
+     "_G": [
+      2,
+      4
+     ],
+     "_H": [
+      4,
+      4
+     ],
+     "_I": [
+      0,
+      2
+     ],
+     "_J": [
+      6,
+      2
+     ]
+    },
+    "flaeche": [
+     "_A",
+     "_B",
+     "_C",
+     "_D"
+    ],
+    "linien": [
+     [
+      "_A",
+      "_B",
+      "3a"
+     ],
+     [
+      "_B",
+      "_C"
+     ],
+     [
+      "_C",
+      "_D"
+     ],
+     [
+      "_D",
+      "_A",
+      "2a"
+     ]
+    ]
+   },
    "schritte": [
-    "Beim Malnehmen darf man die Reihenfolge tauschen. Ordne um: ⟦3 · (−2)⟧ · ⟦a · a⟧.",
-    "Zuerst die Zahlen: 3 · (−2) = −6, denn plus mal minus ergibt minus.",
-    "Dann die Variablen: a · a = a².",
-    "Zusammen ergibt sich 3a · (−2a) = ⟦−6a²⟧."
+    {
+     "text": "Ordnen: ⟦3 · 2⟧ · a · a. Beim Malnehmen darf man tauschen."
+    },
+    {
+     "text": "3 · 2 = 6 und a · a = a²: zusammen 6a².",
+     "bild": {
+      "label": "Beet 3a lang und 2a breit, geteilt in 6 Quadrate mit je a²",
+      "linien": [
+       [
+        "_A",
+        "_B",
+        "3a"
+       ],
+       [
+        "_B",
+        "_C"
+       ],
+       [
+        "_C",
+        "_D"
+       ],
+       [
+        "_D",
+        "_A",
+        "2a"
+       ],
+       [
+        "_E",
+        "_G",
+        "",
+        "gestrichelt"
+       ],
+       [
+        "_F",
+        "_H",
+        "",
+        "gestrichelt"
+       ],
+       [
+        "_I",
+        "_J",
+        "",
+        "gestrichelt"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Mit Minus: 3a · (−2a). Plus mal minus ergibt minus."
+    },
+    {
+     "text": "Also 3a · (−2a) = ⟦−6a²⟧."
+    }
    ],
-   "regel": "So vereinfachst du ein Produkt: Nimm die ⟦Zahlen miteinander⟧ mal und schreib die Variablen dahinter. Gleiche Variablen werden zur ⟦Potenz⟧: a · a = a². Beim Vorzeichen gilt: plus mal minus ist ⟦minus⟧, minus mal minus ist ⟦plus⟧.",
-   "fehler": "3a · 2a = 6a ist falsch: Das a kommt zweimal als Faktor vor, also a · a = ⟦a²⟧. Das Beet ist 6a² groß – eine Fläche, keine Länge. Und Vorzeichen nicht vergessen: 3a · (−2a) = −6a²."
+   "fehler": "3a · 2a ist nicht 6a. Das a kommt zweimal als Faktor vor: a · a = ⟦a²⟧. Eine Fläche ist keine Länge.",
+   "regel": "Zahlen malnehmen, gleiche Variablen werden zur ⟦Potenz⟧. Plus mal minus ist minus, minus mal minus ist plus."
   },
   "minusklammer": {
-   "einstieg": "Du hast 5 Hefte gekauft, Ausgaben 5x. Einen Teil davon gibst du zurück: 2 Hefte, die du mit 3 € Rabatt bekommen hattest – das waren 2x − 3. Du bekommst die 2 Hefte erstattet, aber der Rabatt fällt weg: Deine Ausgaben sind 5x − 2x + 3. Wird ein ganzer Klammerterm abgezogen, wechselt jedes Vorzeichen darin. Das ist die Regel für die ⟦Minusklammer⟧.",
+   "einstieg": "Auf deinem Konto sind 5x €. Eine Rechnung kostet 2x €, abzüglich 3 € Rabatt. Abgebucht werden also (2x − 3) €. Es bleiben 5x − (2x − 3) €: eine ⟦Minusklammer⟧.",
    "woerter": [
-    [
-     "Klammerterm",
-     "alles, was in einer Klammer steht, z. B. (2x − 3)"
-    ],
     [
      "Minusklammer",
      "eine Klammer mit einem Minus direkt davor"
     ],
     [
-     "subtrahieren",
-     "abziehen"
-    ],
-    [
-     "Vorzeichen wechseln",
-     "aus + wird −, aus − wird +"
+     "Vorzeichen",
+     "das + oder − vor einem Glied"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "Glied in der Klammer",
+     "nach dem Auflösen"
+    ],
+    "zeilen": [
+     [
+      "+2x",
+      "?"
+     ],
+     [
+      "−3",
+      "?"
+     ]
+    ]
+   },
    "schritte": [
-    "Vor der Klammer (2x − 3) steht ein Minus. Der ganze Klammerterm wird abgezogen.",
-    "Lass die Klammer weg und wechsle jedes Vorzeichen darin: Aus +2x wird −2x, aus −3 wird +3. Du erhältst 5x ⟦− 2x + 3⟧.",
-    "Fasse die gleichartigen Glieder zusammen: 5x − 2x = 3x.",
-    "Ergebnis: 5x − (2x − 3) = ⟦3x + 3⟧."
+    {
+     "text": "Vor der Klammer steht ein Minus. Die ganze Klammer wird abgezogen."
+    },
+    {
+     "text": "Jedes Vorzeichen in der Klammer wechselt: 5x ⟦− 2x + 3⟧.",
+     "bild": {
+      "zeilen": [
+       [
+        "+2x",
+        "−2x"
+       ],
+       [
+        "−3",
+        "+3"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Zusammenfassen: 5x − 2x = 3x. Ergebnis: ⟦3x + 3⟧."
+    }
    ],
-   "probe": "Mit x = 1: 5 − (2 − 3) = 5 − (−1) = 6 und 3 + 3 = 6 ✓",
-   "regel": "So löst du eine Minusklammer auf: Lass die Klammer und das Minus davor weg und ⟦wechsle jedes Vorzeichen⟧ in der Klammer. Danach fasst du zusammen.",
-   "fehler": "Nur das erste Vorzeichen wechseln: 5x − 2x − 3 = 3x − 3 ist falsch. Der Rabatt fällt weg, die 3 € kommen ⟦dazu⟧: +3. Steht noch eine Zahl vor der Klammer, z. B. −2(x + 3), musst du zusätzlich ausmultiplizieren: −2x − 6."
+   "fehler": "Nur das erste Vorzeichen wechseln ist falsch: 5x − 2x − 3. Der Rabatt bleibt dir, also kommen 3 € ⟦dazu⟧.",
+   "fehler_bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "x = 1",
+     "5x − (2x − 3)",
+     "3x − 3",
+     "3x + 3"
+    ],
+    "zeilen": [
+     [
+      "Wert",
+      "6",
+      "0",
+      "6"
+     ]
+    ]
+   },
+   "regel": "Minus vor der Klammer: ⟦jedes Vorzeichen wechselt⟧. Dann Klammer weglassen und zusammenfassen."
   },
   "ausmultiplizieren": {
-   "einstieg": "Für einen Ausflug packst du 3 gleiche Tüten. In jede kommen ein Brötchen für x € und ein Getränk für 2 €. Alle Tüten zusammen kosten 3 · (x + 2): Das sind 3 Brötchen und 3 Getränke, also 3x + 6. Jedes Teil in der Klammer kommt so oft vor, wie es Tüten gibt. Das nennt man ⟦ausmultiplizieren⟧.",
+   "einstieg": "Du packst 3 gleiche Tüten. In jede kommen ein Brötchen für x € und ein Getränk für 2 €. Zusammen kostet das 3(x + 2) = 3x + 6. Das heißt ⟦ausmultiplizieren⟧.",
    "woerter": [
     [
      "Faktor",
-     "eine Zahl oder ein Term, mit dem malgenommen wird"
-    ],
-    [
-     "3(x + 2)",
-     "kurz für 3 · (x + 2); den Malpunkt vor einer Klammer lässt man weg"
+     "Zahl oder Term, mit dem malgenommen wird"
     ],
     [
      "ausmultiplizieren",
-     "den Faktor vor der Klammer mit jedem Glied in der Klammer malnehmen"
+     "den Faktor vor der Klammer mit jedem Glied darin malnehmen"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "·",
+     "x",
+     "+2"
+    ],
+    "zeilen": [
+     [
+      "3",
+      "3x",
+      "+6"
+     ]
+    ]
+   },
    "schritte": [
-    "Bei −2(3x − 4) ist der Faktor vor der Klammer −2. Er wird mit jedem Glied in der Klammer malgenommen, samt Vorzeichen.",
-    "Erstes Glied: (−2) · 3x = −6x.",
-    "Zweites Glied: (−2) · (−4) = +8, denn minus mal minus ergibt plus.",
-    "Ergebnis: −2(3x − 4) = ⟦−6x + 8⟧."
+    {
+     "text": "Bei −2(3x − 4) ist −2 der Faktor vor der Klammer.",
+     "bild": {
+      "typ": "tabelle",
+      "kopf": [
+       "·",
+       "3x",
+       "−4"
+      ],
+      "zeilen": [
+       [
+        "−2",
+        "?",
+        "?"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Erstes Glied: (−2) · 3x = −6x.",
+     "bild": {
+      "zeilen": [
+       [
+        "−2",
+        "−6x",
+        "?"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Zweites Glied: (−2) · (−4) = ⟦+8⟧. Minus mal minus ergibt plus.",
+     "bild": {
+      "zeilen": [
+       [
+        "−2",
+        "−6x",
+        "+8"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Ergebnis: −2(3x − 4) = ⟦−6x + 8⟧."
+    }
    ],
-   "probe": "Mit x = 1: −2 · (3 − 4) = −2 · (−1) = 2 und −6 + 8 = 2 ✓",
-   "regel": "So multiplizierst du aus: Nimm den ⟦Faktor vor der Klammer⟧ mit ⟦jedem Glied⟧ in der Klammer mal – mit Vorzeichen. Danach fasst du zusammen, wenn möglich.",
-   "fehler": "Nur das erste Glied malnehmen: 3(x + 2) = 3x + 2 ist falsch – dann hätten 3 Tüten zusammen nur ein Getränk. Richtig ist 3x + 6. Und bei −2(3x − 4) ist (−2) · (−4) = ⟦+8⟧, nicht −8."
+   "fehler": "3(x + 2) ist nicht 3x + 2. Sonst hätten 3 Tüten zusammen nur ein Getränk. Richtig ist ⟦3x + 6⟧.",
+   "fehler_bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "x = 1",
+     "3(x + 2)",
+     "3x + 2",
+     "3x + 6"
+    ],
+    "zeilen": [
+     [
+      "Wert",
+      "9",
+      "5",
+      "9"
+     ]
+    ]
+   },
+   "regel": "Faktor ⟦mit jedem Glied⟧ malnehmen, samt Vorzeichen. Danach zusammenfassen, wenn möglich."
   },
   "summe_mal_summe": {
-   "einstieg": "Ein quadratischer Garten hat die Seitenlänge x Meter. Er wird umgebaut: 3 m länger und 2 m schmaler. Die neue Fläche ist (x + 3) · (x − 2). Um das auszurechnen, multiplizierst du zwei Klammern miteinander. Das heißt ⟦Summe mal Summe⟧.",
+   "einstieg": "Ein quadratischer Garten hat x Meter Seitenlänge. Er wird 3 m länger und 2 m schmaler. Die neue Fläche ist (x + 3)(x − 2). Das ist ⟦Summe mal Summe⟧.",
    "woerter": [
     [
      "Summe",
-     "eine Plus-Aufgabe; auch x − 2 zählt dazu, denn es ist x + (−2)"
-    ],
-    [
-     "(x + 3)(x − 2)",
-     "kurz für (x + 3) · (x − 2)"
+     "Plusaufgabe; auch x − 2 ist eine, denn x − 2 = x + (−2)"
     ],
     [
      "x²",
-     "x · x, gelesen „x Quadrat“"
+     "kurz für x · x"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "·",
+     "x",
+     "−2"
+    ],
+    "zeilen": [
+     [
+      "x",
+      "?",
+      "?"
+     ],
+     [
+      "+3",
+      "?",
+      "?"
+     ]
+    ]
+   },
    "schritte": [
-    "Nimm jedes Glied der ersten Klammer mal jedes Glied der zweiten: x · x, x · (−2), 3 · x und 3 · (−2).",
-    "Rechne die vier Produkte aus: x² − 2x + 3x − 6.",
-    "Fasse die gleichartigen Glieder zusammen: ⟦− 2x + 3x⟧ = +x.",
-    "Ergebnis: (x + 3)(x − 2) = ⟦x² + x − 6⟧."
+    {
+     "text": "Jedes Glied der ersten Klammer mal jedes Glied der zweiten."
+    },
+    {
+     "text": "Erste Zeile: x · x = x² und x · (−2) = −2x.",
+     "bild": {
+      "zeilen": [
+       [
+        "x",
+        "x²",
+        "−2x"
+       ],
+       [
+        "+3",
+        "?",
+        "?"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Zweite Zeile: 3 · x = 3x und 3 · (−2) = −6.",
+     "bild": {
+      "zeilen": [
+       [
+        "x",
+        "x²",
+        "−2x"
+       ],
+       [
+        "+3",
+        "+3x",
+        "−6"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Zusammen: x² ⟦− 2x + 3x⟧ − 6 = ⟦x² + x − 6⟧."
+    }
    ],
-   "probe": "Mit x = 4: (4 + 3) · (4 − 2) = 7 · 2 = 14 und 16 + 4 − 6 = 14 ✓",
-   "regel": "So multiplizierst du zwei Klammern: ⟦Jedes Glied der ersten⟧ mal ⟦jedes Glied der zweiten⟧ Klammer – bei 2 und 2 Gliedern sind das 4 Produkte. Danach fasst du zusammen.",
-   "fehler": "Nur die ersten und die letzten Glieder malnehmen: (x + 3)(x − 2) = x² − 6 ist falsch. Für x = 4 ist der Garten 7 m mal 2 m, also 14 m² groß – die falsche Rechnung ergibt 10 m². ⟦Alle vier⟧ Produkte gehören dazu."
+   "fehler": "(x + 3)(x − 2) ist nicht x² − 6. Für x = 4 ist der Garten 7 m mal 2 m: 14 m². x² − 6 ergibt nur ⟦10⟧.",
+   "fehler_bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "x = 4",
+     "(x + 3)(x − 2)",
+     "x² − 6",
+     "x² + x − 6"
+    ],
+    "zeilen": [
+     [
+      "Wert",
+      "14",
+      "10",
+      "14"
+     ]
+    ]
+   },
+   "regel": "⟦Jedes Glied mal jedes Glied⟧, dann zusammenfassen. Bei 2 und 2 Gliedern sind das 4 Produkte."
   },
   "ausklammern": {
-   "einstieg": "Auf einem Kassenzettel steht 6x + 12: 6 Brötchen und 12 € für Getränke. Das könnten 6 gleiche Tüten gewesen sein, jede mit einem Brötchen und einem Getränk für 2 €: 6(x + 2). Du holst also den Teil, der in jedem Glied steckt, vor die Klammer. Das heißt ⟦ausklammern⟧ – das Ausmultiplizieren rückwärts.",
+   "einstieg": "Auf einem Kassenzettel steht 6x + 12. Das können 6 Tüten sein. Jede hat ein Brötchen (x €) und ein Getränk (2 €): 6(x + 2). Das ist ⟦ausklammern⟧: Ausmultiplizieren rückwärts.",
    "woerter": [
     [
      "gemeinsamer Faktor",
-     "ein Faktor, der in jedem Glied steckt, z. B. die 6 in 6x + 12"
+     "ein Faktor, der in jedem Glied steckt"
     ],
     [
      "ausklammern",
-     "den gemeinsamen Faktor vor eine Klammer schreiben, die Reste kommen in die Klammer"
-    ],
-    [
-     "vollständig ausgeklammert",
-     "in der Klammer steckt kein gemeinsamer Faktor mehr"
+     "den gemeinsamen Faktor vor die Klammer holen"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "·",
+     "?",
+     "?"
+    ],
+    "zeilen": [
+     [
+      "?",
+      "12x²",
+      "+4x"
+     ]
+    ]
+   },
    "schritte": [
-    "Zerlege beide Glieder von 12x² + 4x: 12x² = 4x · 3x und 4x = 4x · 1.",
-    "In beiden steckt ⟦4x⟧. Das ist der größte gemeinsame Faktor.",
-    "Schreib 4x vor die Klammer. In die Klammer kommen die Reste 3x und 1.",
-    "Ergebnis: 12x² + 4x = ⟦4x(3x + 1)⟧."
+    {
+     "text": "Zerlegen: 12x² = 4x · 3x und 4x = 4x · 1."
+    },
+    {
+     "text": "Gemeinsamer Faktor in beiden Gliedern: ⟦4x⟧.",
+     "bild": {
+      "typ": "tabelle",
+      "kopf": [
+       "·",
+       "3x",
+       "+1"
+      ],
+      "zeilen": [
+       [
+        "4x",
+        "12x²",
+        "+4x"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Ergebnis: 12x² + 4x = ⟦4x(3x + 1)⟧."
+    }
    ],
-   "probe": "Ausmultiplizieren: 4x · 3x + 4x · 1 = 12x² + 4x ✓",
-   "regel": "So klammerst du aus: Suche den ⟦größten Faktor, der in jedem Glied steckt⟧. Er kommt vor die Klammer, ⟦der Rest jedes Glieds⟧ hinein. Prüfe durch Ausmultiplizieren.",
-   "fehler": "Bleibt von einem Glied nichts übrig, steht in der Klammer ⟦1⟧, nicht 0: 4x · 1 = 4x, aber 4x · 0 = 0. Und 2x(6x + 2) ist zwar richtig, aber ⟦nicht vollständig⟧ ausgeklammert: In 6x + 2 steckt noch eine 2."
+   "fehler": "Bleibt von einem Glied nichts übrig, steht in der Klammer ⟦1⟧. Denn 4x · 1 = 4x, aber 4x · 0 = 0. 2x(6x + 2) ist nicht vollständig ausgeklammert.",
+   "fehler_bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "x = 1",
+     "12x² + 4x",
+     "4x(3x + 0)",
+     "4x(3x + 1)"
+    ],
+    "zeilen": [
+     [
+      "Wert",
+      "16",
+      "12",
+      "16"
+     ]
+    ]
+   },
+   "regel": "Den ⟦größten gemeinsamen Faktor⟧ vor die Klammer holen. Prüfe durch Ausmultiplizieren."
   },
   "aequivalenz": {
-   "einstieg": "Zwei Kassen berechnen den Preis für 2 Tüten mit je einem Brötchen (x €) und einem Getränk (3 €). Kasse A tippt 2x + 6, Kasse B tippt 2x + 3. Richtig wäre 2(x + 3). Welche Kasse rechnet immer richtig – egal, was ein Brötchen kostet? Terme, die bei jeder Zahl gleich viel ergeben, heißen ⟦äquivalent⟧.",
+   "einstieg": "Zwei Tüten mit Brötchen (x €) und Getränk (3 €) kosten 2(x + 3). Kasse A tippt 2x + 6, Kasse B 2x + 3. Welche Kasse ist bei jedem Preis richtig, also ⟦äquivalent⟧?",
    "woerter": [
     [
      "äquivalent",
-     "gleichwertig: Für jede eingesetzte Zahl haben beide Terme denselben Wert"
-    ],
-    [
-     "einsetzen",
-     "für die Variable eine Zahl hinschreiben und ausrechnen"
+     "für jede eingesetzte Zahl gleich viel"
     ],
     [
      "Gegenbeispiel",
-     "eine Zahl, bei der die beiden Terme verschiedene Werte haben"
-    ],
-    [
-     "≠",
-     "„ist nicht gleich“"
+     "eine Zahl, bei der es nicht passt"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "x",
+     "2(x + 3)",
+     "2x + 6",
+     "2x + 3"
+    ],
+    "zeilen": [
+     [
+      "0",
+      "?",
+      "?",
+      "?"
+     ]
+    ]
+   },
    "schritte": [
-    "2(x + 3) ausmultipliziert ergibt 2x + 6. Diese beiden Terme sind also für jede Zahl gleich ✓ – Kasse A rechnet immer richtig.",
-    "Prüfe 2(x + 3) und 2x + 3. Setze x = 0 ein.",
-    "2 · (0 + 3) = ⟦6⟧, aber 2 · 0 + 3 = ⟦3⟧.",
-    "6 ≠ 3: Die Zahl 0 ist ein Gegenbeispiel. Die Terme sind ⟦nicht äquivalent⟧."
+    {
+     "text": "Ausmultipliziert ist 2(x + 3) = 2x + 6. Kasse A stimmt immer."
+    },
+    {
+     "text": "Für Kasse B setze x = 0 ein."
+    },
+    {
+     "text": "2 · (0 + 3) = ⟦6⟧, aber 2 · 0 + 3 = ⟦3⟧.",
+     "bild": {
+      "zeilen": [
+       [
+        "0",
+        "6",
+        "6",
+        "3"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "x = 0 ist ein Gegenbeispiel: 2x + 3 ist ⟦nicht äquivalent⟧."
+    }
    ],
-   "regel": "So prüfst du: ⟦Äquivalent⟧ heißt, für ⟦jede⟧ eingesetzte Zahl haben beide Terme denselben Wert – zeigen kannst du das durch Umformen. Für „nicht äquivalent“ reicht ⟦ein Gegenbeispiel⟧.",
-   "fehler": "Nur eine Zahl einsetzen und daraus „äquivalent“ schließen: 2x und x + 2 haben bei x = 2 beide den Wert 4, bei x = 3 aber 6 und 5. Eine passende Zahl ⟦beweist nichts⟧, ein Gegenbeispiel widerlegt."
+   "fehler": "Eine passende Zahl beweist nichts. Bei x = 2 ergeben 2x und x + 2 beide 4. Bei x = 3 aber 6 und 5. Ein ⟦Gegenbeispiel⟧ widerlegt.",
+   "fehler_bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "x",
+     "2x",
+     "x + 2"
+    ],
+    "zeilen": [
+     [
+      "2",
+      "4",
+      "4"
+     ],
+     [
+      "3",
+      "6",
+      "5"
+     ]
+    ]
+   },
+   "regel": "⟦Äquivalent⟧ heißt: bei jeder Zahl gleich. Für „nicht äquivalent“ reicht ein Gegenbeispiel."
   },
   "binomisch": {
-   "einstieg": "Ein quadratisches Beet mit Seitenlänge x wird auf zwei Seiten um 4 m verlängert, sodass es wieder ein Quadrat ist. Die neue Fläche ist (x + 4)². Sie besteht aus dem alten Quadrat x², zwei Streifen mit je 4x und einem kleinen Quadrat mit 16 m². Weil solche Rechnungen oft vorkommen, gibt es dafür Abkürzungen: die ⟦binomischen Formeln⟧.",
+   "einstieg": "Ein quadratisches Beet mit Seite x wird auf zwei Seiten um 4 m verlängert. Die neue Fläche ist (x + 4)². Dafür gibt es Abkürzungen: die ⟦binomischen Formeln⟧.",
    "woerter": [
     [
-     "Binom",
-     "eine Summe oder Differenz aus zwei Gliedern, z. B. x + 4"
-    ],
-    [
      "(x + 4)²",
-     "die Klammer mal sich selbst: (x + 4) · (x + 4)"
-    ],
-    [
-     "Differenz",
-     "eine Minus-Aufgabe, z. B. x − 3"
+     "kurz für (x + 4) · (x + 4)"
     ],
     [
      "Mittelglied",
-     "das Glied in der Mitte des Ergebnisses, z. B. 8x in x² + 8x + 16"
+     "das Glied in der Mitte, z. B. 8x"
     ]
    ],
+   "bild": {
+    "typ": "figur",
+    "label": "Quadrat mit Seite x + 4, geteilt in x², zwei Streifen mit je 4x und ein kleines Quadrat 16",
+    "punkte": {
+     "_A": [
+      0,
+      0
+     ],
+     "_E": [
+      4,
+      0
+     ],
+     "_B": [
+      6,
+      0
+     ],
+     "_H": [
+      6,
+      4
+     ],
+     "_C": [
+      6,
+      6
+     ],
+     "_F": [
+      4,
+      6
+     ],
+     "_D": [
+      0,
+      6
+     ],
+     "_G": [
+      0,
+      4
+     ]
+    },
+    "flaeche": [
+     "_A",
+     "_B",
+     "_C",
+     "_D"
+    ],
+    "linien": [
+     [
+      "_A",
+      "_E",
+      "x"
+     ],
+     [
+      "_E",
+      "_B",
+      "4"
+     ],
+     [
+      "_B",
+      "_H"
+     ],
+     [
+      "_H",
+      "_C"
+     ],
+     [
+      "_C",
+      "_F"
+     ],
+     [
+      "_F",
+      "_D"
+     ],
+     [
+      "_D",
+      "_G",
+      "4"
+     ],
+     [
+      "_G",
+      "_A",
+      "x"
+     ],
+     [
+      "_E",
+      "_F",
+      "",
+      "gestrichelt"
+     ],
+     [
+      "_G",
+      "_H",
+      "",
+      "gestrichelt"
+     ]
+    ]
+   },
    "schritte": [
-    "(x + 4)² = (x + 4)(x + 4) = x² + 4x + 4x + 16 = x² + ⟦8x⟧ + 16.",
-    "(x − 3)² = x² − 3x − 3x + 9 = x² ⟦− 6x⟧ + 9.",
-    "(x + 6)(x − 6) = x² − 6x + 6x − 36: Das Mittelglied ⟦fällt weg⟧, es bleibt x² − 36.",
-    "Kurz geschrieben: (a + b)² = a² + 2ab + b², (a − b)² = a² − 2ab + b² und (a + b)(a − b) = a² − b²."
+    {
+     "text": "Die Fläche besteht aus x², zwei Streifen mit je 4x und 16."
+    },
+    {
+     "text": "Also (x + 4)² = x² + ⟦8x⟧ + 16. 8x ist das Mittelglied."
+    },
+    {
+     "text": "Genauso: (x − 3)² = x² ⟦− 6x⟧ + 9.",
+     "bild": {
+      "typ": "tabelle",
+      "kopf": [
+       "·",
+       "x",
+       "−3"
+      ],
+      "zeilen": [
+       [
+        "x",
+        "x²",
+        "−3x"
+       ],
+       [
+        "−3",
+        "−3x",
+        "+9"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "(x + 6)(x − 6) = x² − 36: Das Mittelglied ⟦fällt weg⟧.",
+     "bild": {
+      "typ": "tabelle",
+      "kopf": [
+       "·",
+       "x",
+       "−6"
+      ],
+      "zeilen": [
+       [
+        "x",
+        "x²",
+        "−6x"
+       ],
+       [
+        "+6",
+        "+6x",
+        "−36"
+       ]
+      ]
+     }
+    }
    ],
-   "regel": "So nutzt du die ⟦binomischen Formeln⟧: (a + b)² = a² + ⟦2ab⟧ + b²; (a − b)² = a² − ⟦2ab⟧ + b²; (a + b)(a − b) = a² − b². Im Zweifel rechnest du mit „Summe mal Summe“ nach.",
-   "fehler": "(x + 4)² = x² + 16 ist falsch: Beim Beet fehlen dann die zwei Streifen. Für x = 1 ist (1 + 4)² = 25, aber 1 + 16 = 17. Das ⟦Mittelglied 8x⟧ gehört dazu."
+   "fehler": "(x + 4)² ist nicht x² + 16: Die ⟦zwei Streifen⟧ fehlen. Mit x = 1: (1 + 4)² = 25, aber 1 + 16 = 17.",
+   "fehler_bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "x = 1",
+     "(x + 4)²",
+     "x² + 16",
+     "x² + 8x + 16"
+    ],
+    "zeilen": [
+     [
+      "Wert",
+      "25",
+      "17",
+      "25"
+     ]
+    ]
+   },
+   "regel": "Das ⟦Mittelglied 2ab⟧ nie vergessen. (a + b)² = a² + 2ab + b². (a + b)(a − b) = a² − b²."
   }
  }
 }

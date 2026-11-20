@@ -41,7 +41,7 @@
    {
     "lernziel": "schaetzen",
     "titel": "Wurzeln einschätzen",
-    "regel": "√a ist die ⟦nichtnegative⟧ Zahl, die quadriert a ergibt. Liegt a zwischen zwei Quadratzahlen, liegt √a zwischen deren Wurzeln: Aus ⟦49 < 55 < 64⟧ folgt ⟦7 < √55 < 8⟧. Wie bei einem quadratischen Teppich mit 55 m²: Die Seite ist etwas länger als 7 m.",
+    "regel": "Wurzel einschätzen: Quadratzahlen links und rechts suchen. Aus ⟦49 < 55 < 64⟧ folgt 7 < √55 < 8.",
     "bild": {
      "typ": "zahlenstrahl",
      "start": 6,
@@ -50,66 +50,461 @@
      "beschriftet": "alle"
     },
     "schritte": [
-     "√55: Quadratzahlen in der Nähe sind 49 = 7² und 64 = 8².",
-     "49 < 55 < 64, also ⟦7 < √55 < 8⟧. Weil 55 näher an 49 liegt, ist √55 ⟦näher an 7⟧ (√55 ≈ 7,42)."
+     {
+      "text": "Quadratzahlen in der Nähe: 49 = 7 · 7 und 64 = 8 · 8."
+     },
+     {
+      "text": "49 < 55 < 64, also ⟦7 < √55 < 8⟧.",
+      "bild": {
+       "bereich": {
+        "von": 7,
+        "bis": 8
+       }
+      }
+     },
+     {
+      "text": "55 liegt näher an 49, also ist √55 näher an 7: etwa 7,4.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 7.42,
+         "name": "√55"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "7,42² = 55,0564 ≈ 55 ✓",
-    "fehler": "√55 ≈ 27,5 ist falsch: Die Wurzel ist ⟦nicht die Hälfte⟧. Gesucht ist die Zahl, die ⟦mit sich selbst⟧ malgenommen 55 ergibt."
+    "fehler": "√55 ≈ 27,5 ist falsch, die Wurzel ist ⟦nicht die Hälfte⟧. 27,5 · 27,5 wäre viel mehr als 55.",
+    "einstieg": "Ein quadratischer Teppich hat 55 m² Fläche. Wie lang ist eine Seite? Gesucht ist die Zahl, die mit sich selbst malgenommen 55 ergibt. Sie heißt ⟦Wurzel⟧ aus 55.",
+    "woerter": [
+     [
+      "Wurzel",
+      "√55: die positive Zahl, die mal sich selbst 55 ergibt"
+     ],
+     [
+      "Quadratzahl",
+      "eine Zahl wie 49 = 7 · 7 oder 64 = 8 · 8"
+     ]
+    ]
    },
    {
     "lernziel": "grundform",
     "titel": "x² = a lösen",
-    "regel": "Die Gleichung ⟦x² = a⟧ hat für a > 0 ⟦zwei Lösungen⟧: x₁ = −√a und x₂ = √a. Für a = 0 gibt es ⟦eine⟧ Lösung (x = 0), für a < 0 ⟦keine⟧ – kein Quadrat ist negativ.",
+    "regel": "Für a > 0 hat x² = a ⟦zwei Lösungen⟧. Sie heißen −√a und √a, für a < 0 gibt es keine.",
     "schritte": [
-     "x² = 81: Sowohl 9² = 81 als auch (−9)² = 81.",
-     "Also ⟦x₁ = −9; x₂ = 9⟧, L = {−9; 9}."
+     {
+      "text": "9² = 81 und auch (−9)² = 81."
+     },
+     {
+      "text": "Die Lösungen heißen x₁ und x₂: ⟦x₁ = −9; x₂ = 9⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": -9,
+         "name": "x₁"
+        },
+        {
+         "wert": 9,
+         "name": "x₂"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 0,
+         "bis": -9,
+         "name": "9"
+        },
+        {
+         "von": 0,
+         "bis": 9,
+         "name": "9"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Lösungsmenge L = {−9; 9}."
+     },
+     {
+      "text": "x² = 0: nur x = 0. x² = −4: ⟦keine Lösung⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 0,
+         "name": "x² = 0"
+        }
+       ],
+       "boegen": null
+      }
+     }
     ],
-    "probe": "(−9)² = 81 ✓ und 9² = 81 ✓",
-    "fehler": "x² = 81 ⇒ x = 9 ist ⟦unvollständig⟧: Auch (−9)² = 81. Die negative Lösung darf nicht fehlen."
+    "fehler": "x² = 81, also x = 9, ist ⟦unvollständig⟧. Auch (−9)² = 81, die negative Lösung darf nicht fehlen.",
+    "einstieg": "Eine quadratische Fliese hat 81 cm². Rechnerisch passen zwei Zahlen: 9 · 9 = 81 und (−9) · (−9) = 81. Die Gleichung x² = 81 hat deshalb ⟦zwei Lösungen⟧.",
+    "woerter": [
+     [
+      "x₁ und x₂",
+      "erste und zweite Lösung; die kleine Zahl ist nur eine Nummer"
+     ],
+     [
+      "Lösungsmenge L",
+      "alle Lösungen in einer Mengenklammer, z. B. L = {−9; 9}"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -10,
+     "ende": 10,
+     "abschnitte": 20,
+     "beschriftet": "anfang_ende"
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": -9,
+       "name": "fehlt"
+      },
+      {
+       "wert": 9,
+       "name": "x = 9"
+      }
+     ],
+     "boegen": null
+    }
    },
    {
     "lernziel": "umformen",
     "titel": "Erst nach x² auflösen",
-    "regel": "Steht nicht x² allein, formst du zuerst um wie bei linearen Gleichungen, bis ⟦x² = Zahl⟧ dasteht. ⟦Erst dann⟧ ziehst du die Wurzel.",
+    "regel": "Erst umformen, bis ⟦x² = Zahl⟧ dasteht. Dann die Wurzel ziehen, mit beiden Vorzeichen.",
     "schritte": [
-     "3x² − 20 = 55 | + 20 ⇒ 3x² = 75 | : 3 ⇒ x² = 25.",
-     "Also ⟦x₁ = −5; x₂ = 5⟧."
+     {
+      "text": "Minus 20 auf beiden Seiten: 3x² = 75.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Gleichung"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "3x² + 20 = 95"
+        ],
+        [
+         "− 20",
+         "3x² = 75"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Durch 3 teilen: x² = 25. Jetzt steht x² allein.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Gleichung"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "3x² + 20 = 95"
+        ],
+        [
+         "− 20",
+         "3x² = 75"
+        ],
+        [
+         ": 3",
+         "x² = 25"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Wurzel ziehen: ⟦x₁ = −5; x₂ = 5⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "",
+        "Gleichung"
+       ],
+       "zeilen": [
+        [
+         "Start",
+         "3x² + 20 = 95"
+        ],
+        [
+         "− 20",
+         "3x² = 75"
+        ],
+        [
+         ": 3",
+         "x² = 25"
+        ],
+        [
+         "Wurzel",
+         "x = −5 oder x = 5"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Eine Fliese ist also 5 cm lang."
+     }
     ],
-    "probe": "3 · 25 − 20 = 55 ✓",
-    "fehler": "3x² = 75 ⇒ x = ±√75 ist falsch: Vor dem Wurzelziehen muss x² ⟦allein⟧ stehen. Erst durch 3 teilen: x² = 25, x = ±5."
+    "fehler": "Aus 3x² = 75 nicht sofort die Wurzel ziehen. Erst muss x² ⟦allein⟧ stehen: durch 3 teilen, x² = 25.",
+    "einstieg": "Drei gleiche quadratische Fliesen und ein Reststück von 20 cm² bedecken zusammen 95 cm². Wie lang ist eine Fliese? Erst x² allein stellen, dann die ⟦Wurzel ziehen⟧.",
+    "woerter": [
+     [
+      "x² allein",
+      "auf einer Seite steht nur noch x², sonst nichts"
+     ],
+     [
+      "Wurzel ziehen",
+      "aus x² = 25 wird x = −5 oder x = 5"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Gleichung"
+     ],
+     "zeilen": [
+      [
+       "Start",
+       "3x² + 20 = 95"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Gleichung"
+     ],
+     "zeilen": [
+      [
+       "− 20",
+       "3x² = 75"
+      ],
+      [
+       "falsch",
+       "x = ±√75"
+      ],
+      [
+       "richtig",
+       "x² = 25"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "gerundet",
     "titel": "Lösungen runden",
-    "regel": "Ist a keine Quadratzahl, sind die Lösungen von x² = a ⟦irrationale Zahlen⟧. Du gibst sie exakt als ⟦±√a⟧ an oder ⟦gerundet⟧ mit dem Taschenrechner.",
+    "regel": "Ist a keine Quadratzahl, gibt es nur gerundete Werte. Exakt schreibst du ⟦±√a⟧.",
     "schritte": [
-     "x² = 30 ⇒ x = ±√30.",
-     "Taschenrechner: √30 = 5,4772… Auf zwei Dezimalen: ⟦x₁ ≈ −5,48; x₂ ≈ 5,48⟧."
+     {
+      "text": "x² = 30, also x = ±√30, eine irrationale Zahl."
+     },
+     {
+      "text": "Taschenrechner: √30 = 5,4772…",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 5.4772,
+         "name": "√30"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Zwei Dezimalen: Die dritte ist 7, also aufrunden auf 5,48."
+     },
+     {
+      "text": "Lösungen: ⟦x₁ ≈ −5,48; x₂ ≈ 5,48⟧."
+     }
     ],
-    "probe": "5,48² = 30,0304 ≈ 30 ✓",
-    "fehler": "√30 ≈ 5,47 ist falsch gerundet: Die dritte Dezimale ist 7, also wird ⟦aufgerundet⟧ auf 5,48."
+    "fehler": "√30 ≈ 5,47 ist falsch gerundet. Die dritte Dezimale ist 7, also wird ⟦aufgerundet⟧: 5,48.",
+    "einstieg": "Ein quadratisches Beet soll 30 m² groß werden. 30 ist keine Quadratzahl, √30 hat unendlich viele Nachkommastellen. Für den Zollstock reicht ein ⟦gerundeter⟧ Wert.",
+    "woerter": [
+     [
+      "irrationale Zahl",
+      "eine Zahl mit unendlich vielen Nachkommastellen ohne Muster, z. B. √30"
+     ],
+     [
+      "±",
+      "plus oder minus: ±√30 steht für −√30 und √30"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 5,
+     "ende": 6,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    },
+    "fehler_bild": {
+     "start": 5.4,
+     "ende": 5.5,
+     "abschnitte": 10,
+     "punkte": [
+      {
+       "wert": 5.4772,
+       "name": "√30"
+      }
+     ]
+    }
    },
    {
     "lernziel": "klammer",
     "titel": "Quadrat einer Klammer: (x − p)² = q",
-    "regel": "Bei ⟦(x − p)² = q⟧ ziehst du die Wurzel aus beiden Seiten: ⟦x − p = −√q oder x − p = √q⟧. Dann p auf die andere Seite bringen.",
+    "regel": "Bei (x − p)² = q direkt die Wurzel ziehen. Dann ist ⟦x = p − √q oder x = p + √q⟧.",
     "schritte": [
-     "(x − 3)² = 16 ⇒ x − 3 = −4 oder x − 3 = 4.",
-     "x₁ = 3 − 4 = ⟦−1⟧, x₂ = 3 + 4 = ⟦7⟧."
+     {
+      "text": "Wurzel ziehen: x − 3 = −4 oder x − 3 = 4."
+     },
+     {
+      "text": "Erste Lösung: x₁ = 3 − 4 = ⟦−1⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": "Start"
+        },
+        {
+         "wert": -1,
+         "name": "x₁"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 3,
+         "bis": -1,
+         "name": "4"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Zweite Lösung: x₂ = 3 + 4 = ⟦7⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": "Start"
+        },
+        {
+         "wert": -1,
+         "name": "x₁"
+        },
+        {
+         "wert": 7,
+         "name": "x₂"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 3,
+         "bis": -1,
+         "name": "4"
+        },
+        {
+         "von": 3,
+         "bis": 7,
+         "name": "4"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "(−1 − 3)² = (−4)² = 16 ✓ und (7 − 3)² = 16 ✓",
-    "fehler": "(x − 3)² = 16 ⇒ x² − 9 = 16 ist falsch: Eine Klammer quadriert man mit der ⟦binomischen Formel⟧ – oder man zieht direkt die Wurzel."
+    "fehler": "(x − 3)² ist nicht x² − 9. Ohne binomische Formel lieber direkt die ⟦Wurzel ziehen⟧.",
+    "einstieg": "Eine Spielfigur steht auf Feld 3. Sie zieht so weit, dass das Quadrat der Strecke 16 ist. Die Strecke ist also 4, nach links oder rechts. Das beschreibt ⟦(x − 3)² = 16⟧.",
+    "woerter": [
+     [
+      "x − 3",
+      "wie weit x von Feld 3 entfernt ist (mit Richtung)"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -2,
+     "ende": 8,
+     "abschnitte": 10,
+     "beschriftet": "alle",
+     "punkte": [
+      {
+       "wert": 3,
+       "name": "Start"
+      }
+     ]
+    }
    },
    {
     "lernziel": "sachaufgabe",
     "titel": "Sachaufgaben mit x² = a",
-    "regel": "Viele Formeln enthalten ein Quadrat: Quadratfläche ⟦A = a²⟧, Kreisfläche ⟦A = π · r²⟧, Fallweg ⟦s = 5 · t²⟧ (s in m, t in s). Stell nach dem Quadrat um, zieh die Wurzel – und nimm im Sachzusammenhang nur die ⟦positive⟧ Lösung.",
+    "regel": "Nach dem Quadrat umstellen und die Wurzel ziehen. Im Sachzusammenhang zählt meist nur die ⟦positive Lösung⟧.",
     "schritte": [
-     "Ein Stein fällt 45 m tief: 5 · t² = 45 ⇒ t² = 9.",
-     "t = 3 (die Lösung −3 passt nicht zu einer Zeit). Er fällt ⟦3 Sekunden⟧."
+     {
+      "text": "5 · t² = 45, durch 5 teilen: t² = 9."
+     },
+     {
+      "text": "Wurzel ziehen: t = −3 oder t = 3."
+     },
+     {
+      "text": "Eine Zeit ist nie negativ, also ⟦t = 3⟧: drei Sekunden.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "t in s",
+        "0",
+        "1",
+        "2",
+        "3"
+       ],
+       "zeilen": [
+        [
+         "s in m",
+         "0",
+         "5",
+         "20",
+         "45"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "5 · 3² = 45 ✓",
-    "fehler": "Als Fallzeit „t = −3 s oder t = 3 s“ anzugeben ist falsch: Eine Zeitdauer ist ⟦positiv⟧. Die negative Lösung fällt im Sachzusammenhang weg."
+    "fehler": "„t = −3 s oder t = 3 s“ ist falsch. Eine Zeitdauer ist ⟦positiv⟧, die negative Lösung fällt weg.",
+    "einstieg": "Ein Stein fällt in einen 45 m tiefen Brunnen. Für den Fallweg gilt ungefähr s = 5 · t². Wie lange fällt er? Eine negative Zeit ergibt hier ⟦keinen Sinn⟧.",
+    "woerter": [
+     [
+      "Fallweg",
+      "s: wie viele Meter der Stein gefallen ist"
+     ],
+     [
+      "t",
+      "die Zeit in Sekunden seit dem Loslassen"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "t in s",
+      "0",
+      "1",
+      "2",
+      "?"
+     ],
+     "zeilen": [
+      [
+       "s in m",
+       "0",
+       "5",
+       "20",
+       "45"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -196,7 +591,31 @@
    "c": [
     "5",
     "6"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche ganzen Zahlen liegen zwischen √45 und √52? Gib die einzige ganze Zahl an.",
+    "schablone": "□",
+    "hinweis": "eine ganze Zahl"
+   },
+   "o": {
+    "werte": [
+     7
+    ]
+   },
+   "w": "Die Zahlen unter den Wurzeln liegen dicht um 49 = 7². Also liegt nur 7 dazwischen.",
+   "h": "Welche Quadratzahl liegt zwischen den beiden Zahlen unter der Wurzel?",
+   "c": [
+    "7"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "schaetzen",
@@ -220,55 +639,151 @@
    "c": [
     "4",
     "5"
-   ]
+   ],
+   "g": "direkt"
   },
   {
    "l": "schaetzen",
    "t": "schaetzen",
    "p": "uebung",
    "s": 1,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Zwischen welchen aufeinanderfolgenden ganzen Zahlen liegt √51?",
-    "schablone": "□ < √51 < □",
-    "hinweis": "kleinere Zahl zuerst"
+    "text": "Liegt √20 näher an 4 oder an 5?"
    },
+   "a": [
+    "näher an 4",
+    "näher an 5",
+    "genau in der Mitte"
+   ],
    "o": {
-    "werte": [
-     7,
-     8
-    ]
+    "index": 0
    },
-   "w": "7² = 49 < 51 < 64 = 8², also 7 < √51 < 8.",
-   "h": "Suche die Quadratzahlen direkt unter und über der Zahl.",
-   "c": [
-    "7",
-    "8"
-   ]
+   "w": "4² = 16, 5² = 25. 20 liegt näher an 16, also √20 näher an 4. (√20 ≈ 4,47)",
+   "h": "Vergleiche die Abstände zu den Quadratzahlen.",
+   "g": "erkennen"
   },
   {
    "l": "schaetzen",
    "t": "schaetzen",
    "p": "uebung",
    "s": 1,
-   "y": "luecken",
+   "y": "zahl",
    "f": {
-    "text": "Zwischen welchen aufeinanderfolgenden ganzen Zahlen liegt √59?",
-    "schablone": "□ < √59 < □",
-    "hinweis": "kleinere Zahl zuerst"
+    "text": "Berechne √132 mit dem Taschenrechner und runde auf eine Dezimale."
    },
    "o": {
-    "werte": [
-     7,
-     8
-    ]
+    "wert": 11.5,
+    "toleranz": 0.1
    },
-   "w": "7² = 49 < 59 < 64 = 8², also 7 < √59 < 8.",
-   "h": "Suche die Quadratzahlen direkt unter und über der Zahl.",
-   "c": [
-    "7",
-    "8"
-   ]
+   "c": "round(11.489125293076, 1)",
+   "w": "√132 = 11,4891… ≈ 11,5. Probe: 11,5² = 132,25.",
+   "h": "Es muss zwischen 11 und 12 liegen.",
+   "g": "direkt"
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ordne der Größe nach: √50, 7,2 und 7."
+   },
+   "a": [
+    "√50 < 7 < 7,2",
+    "7 < 7,2 < √50",
+    "7,2 < 7 < √50",
+    "7 < √50 < 7,2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "7² = 49 < 50, also √50 > 7. 7,2² = 51,84 > 50, also √50 < 7,2.",
+   "h": "Quadriere die Zahlen und vergleiche mit 50.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "√a liegt zwischen 6 und 7. Wie viele ganze Zahlen a sind möglich?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "48 - 37 + 1",
+   "w": "36 < a < 49, also a = 37, 38, …, 48: zwölf Zahlen.",
+   "h": "Quadriere die Grenzen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schätzt √108 ≈ 54. Was stimmt?"
+   },
+   "a": [
+    "Falsch: √108 ≈ 27.",
+    "Falsch: √108 liegt zwischen 9 und 10.",
+    "Falsch: √108 liegt zwischen 10 und 11.",
+    "Richtig, die Wurzel ist die Hälfte."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "54² ist viel größer als 108. Wegen 100 < 108 < 121 gilt 10 < √108 < 11.",
+   "h": "Mach die Probe: Quadriere den Schätzwert.",
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: √(16 + 9) = √16 + √9?"
+   },
+   "a": [
+    "Nein: Die linke Seite ist größer.",
+    "Ja, aber nur bei Quadratzahlen.",
+    "Ja, immer.",
+    "Nein: √25 = 5, aber √16 + √9 = 4 + 3 = 7."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Wurzel einer Summe ist nicht die Summe der Wurzeln. Rechne immer erst die Summe aus.",
+   "h": "Rechne beide Seiten aus.",
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt √146 näher an 12 oder an 13?"
+   },
+   "a": [
+    "näher an 13",
+    "genau in der Mitte",
+    "näher an 12"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "12² = 144, 13² = 169. 146 liegt näher an 144, also √146 näher an 12. (√146 ≈ 12,08)",
+   "h": "Vergleiche die Abstände zu den Quadratzahlen.",
+   "g": "erkennen"
   },
   {
    "l": "schaetzen",
@@ -322,38 +837,67 @@
    "l": "schaetzen",
    "t": "schaetzen",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Liegt √20 näher an 4 oder an 5?"
-   },
-   "a": [
-    "näher an 4",
-    "näher an 5",
-    "genau in der Mitte"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "4² = 16, 5² = 25. 20 liegt näher an 16, also √20 näher an 4. (√20 ≈ 4,47)",
-   "h": "Vergleiche die Abstände zu den Quadratzahlen."
-  },
-  {
-   "l": "schaetzen",
-   "t": "schaetzen",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne √132 mit dem Taschenrechner und runde auf eine Dezimale."
+    "text": "Berechne √171 mit dem Taschenrechner und runde auf eine Dezimale."
    },
    "o": {
-    "wert": 11.5,
+    "wert": 13.1,
     "toleranz": 0.1
    },
-   "c": "round(11.489125293076, 1)",
-   "w": "√132 = 11,4891… ≈ 11,5. Probe: 11,5² = 132,25.",
-   "h": "Es muss zwischen 11 und 12 liegen."
+   "c": "round(13.076696830622, 1)",
+   "w": "√171 = 13,0767… ≈ 13,1. Probe: 13,1² = 171,61.",
+   "h": "Es muss zwischen 13 und 14 liegen.",
+   "g": "direkt"
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Zwischen welchen aufeinanderfolgenden ganzen Zahlen liegt √51?",
+    "schablone": "□ < √51 < □",
+    "hinweis": "kleinere Zahl zuerst"
+   },
+   "o": {
+    "werte": [
+     7,
+     8
+    ]
+   },
+   "w": "7² = 49 < 51 < 64 = 8², also 7 < √51 < 8.",
+   "h": "Suche die Quadratzahlen direkt unter und über der Zahl.",
+   "c": [
+    "7",
+    "8"
+   ]
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Zwischen welchen aufeinanderfolgenden ganzen Zahlen liegt √59?",
+    "schablone": "□ < √59 < □",
+    "hinweis": "kleinere Zahl zuerst"
+   },
+   "o": {
+    "werte": [
+     7,
+     8
+    ]
+   },
+   "w": "7² = 49 < 59 < 64 = 8², also 7 < √59 < 8.",
+   "h": "Suche die Quadratzahlen direkt unter und über der Zahl.",
+   "c": [
+    "7",
+    "8"
+   ]
   },
   {
    "l": "schaetzen",
@@ -362,18 +906,59 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Liegt √146 näher an 12 oder an 13?"
+    "text": "Ein quadratisches Feld ist 300 m² groß. Ist eine Seite länger als 17 m?"
    },
    "a": [
-    "näher an 13",
-    "genau in der Mitte",
-    "näher an 12"
+    "Nein, denn 17² = 289 < 300.",
+    "Ja, denn 17² = 289 < 300.",
+    "Nein, die Seite ist 150 m.",
+    "Ja, denn 300 : 17 > 17."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Seite ist √300. Weil 17² = 289 kleiner als 300 ist, ist √300 größer als 17.",
+   "h": "Vergleiche 17² mit 300.",
+   "g": "einkleidung"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit einer Dezimale liegt √12?"
+   },
+   "a": [
+    "zwischen 6,0 und 6,1",
+    "zwischen 3,5 und 3,6",
+    "zwischen 3,4 und 3,5",
+    "zwischen 3,3 und 3,4"
    ],
    "o": {
     "index": 2
    },
-   "w": "12² = 144, 13² = 169. 146 liegt näher an 144, also √146 näher an 12. (√146 ≈ 12,08)",
-   "h": "Vergleiche die Abstände zu den Quadratzahlen."
+   "w": "3,4² = 11,56 < 12 und 3,5² = 12,25 > 12. Also liegt √12 zwischen 3,4 und 3,5 (√12 ≈ 3,46).",
+   "h": "Quadriere die Zahlen 3,4 und 3,5.",
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Welche ganze Zahl ist die größte, deren Quadratwurzel kleiner als 9 ist?"
+   },
+   "o": {
+    "wert": 80
+   },
+   "c": "9 * 9 - 1",
+   "w": "√81 = 9 ist nicht mehr kleiner als 9. Die größte ganze Zahl darunter ist 80, √80 ≈ 8,94.",
+   "h": "Welche Zahl hat genau die Wurzel 9?",
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
   },
   {
    "l": "schaetzen",
@@ -402,23 +987,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne √171 mit dem Taschenrechner und runde auf eine Dezimale."
-   },
-   "o": {
-    "wert": 13.1,
-    "toleranz": 0.1
-   },
-   "c": "round(13.076696830622, 1)",
-   "w": "√171 = 13,0767… ≈ 13,1. Probe: 13,1² = 171,61.",
-   "h": "Es muss zwischen 13 und 14 liegen."
-  },
-  {
-   "l": "schaetzen",
-   "t": "schaetzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Berechne √19 mit dem Taschenrechner und runde auf eine Dezimale."
    },
    "o": {
@@ -428,133 +996,6 @@
    "c": "round(4.358898943541, 1)",
    "w": "√19 = 4,3589… ≈ 4,4. Probe: 4,4² = 19,36.",
    "h": "Es muss zwischen 4 und 5 liegen."
-  },
-  {
-   "l": "schaetzen",
-   "t": "schaetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand schätzt √108 ≈ 54. Was stimmt?"
-   },
-   "a": [
-    "Falsch: √108 ≈ 27.",
-    "Falsch: √108 liegt zwischen 9 und 10.",
-    "Falsch: √108 liegt zwischen 10 und 11.",
-    "Richtig, die Wurzel ist die Hälfte."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "54² ist viel größer als 108. Wegen 100 < 108 < 121 gilt 10 < √108 < 11.",
-   "h": "Mach die Probe: Quadriere den Schätzwert."
-  },
-  {
-   "l": "schaetzen",
-   "t": "schaetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Welche ganzen Zahlen liegen zwischen √45 und √52? Gib die einzige ganze Zahl an.",
-    "schablone": "□",
-    "hinweis": "eine ganze Zahl"
-   },
-   "o": {
-    "werte": [
-     7
-    ]
-   },
-   "w": "Die Zahlen unter den Wurzeln liegen dicht um 49 = 7². Also liegt nur 7 dazwischen.",
-   "h": "Welche Quadratzahl liegt zwischen den beiden Zahlen unter der Wurzel?",
-   "c": [
-    "7"
-   ]
-  },
-  {
-   "l": "schaetzen",
-   "t": "schaetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand schätzt √238 ≈ 119. Was stimmt?"
-   },
-   "a": [
-    "Falsch: √238 liegt zwischen 15 und 16.",
-    "Falsch: √238 ≈ 59,5.",
-    "Richtig, die Wurzel ist die Hälfte.",
-    "Falsch: √238 liegt zwischen 14 und 15."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "119² ist viel größer als 238. Wegen 225 < 238 < 256 gilt 15 < √238 < 16.",
-   "h": "Mach die Probe: Quadriere den Schätzwert."
-  },
-  {
-   "l": "schaetzen",
-   "t": "schaetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand schätzt √237 ≈ 118,5. Was stimmt?"
-   },
-   "a": [
-    "Falsch: √237 ≈ 59,25.",
-    "Richtig, die Wurzel ist die Hälfte.",
-    "Falsch: √237 liegt zwischen 14 und 15.",
-    "Falsch: √237 liegt zwischen 15 und 16."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "118,5² ist viel größer als 237. Wegen 225 < 237 < 256 gilt 15 < √237 < 16.",
-   "h": "Mach die Probe: Quadriere den Schätzwert."
-  },
-  {
-   "l": "schaetzen",
-   "t": "schaetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand schätzt √233 ≈ 116,5. Was stimmt?"
-   },
-   "a": [
-    "Richtig, die Wurzel ist die Hälfte.",
-    "Falsch: √233 liegt zwischen 15 und 16.",
-    "Falsch: √233 liegt zwischen 14 und 15.",
-    "Falsch: √233 ≈ 58,25."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "116,5² ist viel größer als 233. Wegen 225 < 233 < 256 gilt 15 < √233 < 16.",
-   "h": "Mach die Probe: Quadriere den Schätzwert."
-  },
-  {
-   "l": "schaetzen",
-   "t": "schaetzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand schätzt √93 ≈ 46,5. Was stimmt?"
-   },
-   "a": [
-    "Richtig, die Wurzel ist die Hälfte.",
-    "Falsch: √93 liegt zwischen 9 und 10.",
-    "Falsch: √93 ≈ 23,25.",
-    "Falsch: √93 liegt zwischen 8 und 9."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "46,5² ist viel größer als 93. Wegen 81 < 93 < 100 gilt 9 < √93 < 10.",
-   "h": "Mach die Probe: Quadriere den Schätzwert."
   },
   {
    "l": "schaetzen",
@@ -735,6 +1176,196 @@
    "w": "15² = 225, 16² = 256. 248 liegt näher an 256, also √248 näher an 16. (√248 ≈ 15,75)"
   },
   {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen liegen zwischen √10 und √90?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "9 - 4 + 1",
+   "w": "√10 liegt zwischen 3 und 4, √90 zwischen 9 und 10. Dazwischen: 4, 5, 6, 7, 8, 9 – sechs Zahlen.",
+   "h": "Schätze beide Wurzeln ein.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schätzt √233 ≈ 116,5. Was stimmt?"
+   },
+   "a": [
+    "Richtig, die Wurzel ist die Hälfte.",
+    "Falsch: √233 liegt zwischen 15 und 16.",
+    "Falsch: √233 liegt zwischen 14 und 15.",
+    "Falsch: √233 ≈ 58,25."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "116,5² ist viel größer als 233. Wegen 225 < 233 < 256 gilt 15 < √233 < 16.",
+   "h": "Mach die Probe: Quadriere den Schätzwert.",
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: √0,25 ist größer als 0,25?"
+   },
+   "a": [
+    "Ja: √0,25 = 0,5, und 0,5 > 0,25.",
+    "Nein, eine Wurzel ist immer kleiner.",
+    "Nein, beide sind gleich.",
+    "Das kann man nicht sagen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "0,5 · 0,5 = 0,25. Bei Zahlen zwischen 0 und 1 ist die Wurzel größer als die Zahl selbst.",
+   "h": "Welche Zahl ergibt mit sich selbst multipliziert 0,25?",
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen a > 0 ist √a kleiner als a?"
+   },
+   "a": [
+    "für alle a > 0",
+    "für a > 1",
+    "für 0 < a < 1",
+    "für keine"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Beispiele: √4 = 2 < 4, aber √0,25 = 0,5 > 0,25 und √1 = 1. Also nur für a > 1.",
+   "h": "Probiere eine Zahl größer und eine kleiner als 1.",
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Bilderrahmen soll mindestens 1 000 cm² Fläche haben und wird in ganzen Zentimetern gebaut. Wie lang muss eine Seite mindestens sein?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "cm"
+   },
+   "c": "32",
+   "w": "31² = 961 ist zu wenig, 32² = 1 024 reicht. Also mindestens 32 cm.",
+   "h": "Suche die passenden Quadratzahlen.",
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "a) Zwischen welchen aufeinanderfolgenden ganzen Zahlen liegt √70? b) Liegt √70 näher an der kleineren (1) oder an der größeren Zahl (2)? c) Runde √70 auf eine Dezimale und gib das Ergebnis in Zehnteln an (8,4 als 84).",
+    "schablone": "a) □ und □; b) □; c) □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     8,
+     9,
+     1,
+     84
+    ]
+   },
+   "c": [
+    "8",
+    "9",
+    "1",
+    "84"
+   ],
+   "w": "a) 64 < 70 < 81. b) 70 liegt näher an 64, also näher an 8. c) √70 ≈ 8,37 ≈ 8,4.",
+   "h": "Suche die Quadratzahlen um 70.",
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schätzt √93 ≈ 46,5. Was stimmt?"
+   },
+   "a": [
+    "Richtig, die Wurzel ist die Hälfte.",
+    "Falsch: √93 liegt zwischen 9 und 10.",
+    "Falsch: √93 ≈ 23,25.",
+    "Falsch: √93 liegt zwischen 8 und 9."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "46,5² ist viel größer als 93. Wegen 81 < 93 < 100 gilt 9 < √93 < 10.",
+   "h": "Mach die Probe: Quadriere den Schätzwert."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele natürliche Zahlen n zwischen 1 und 999 haben eine Quadratwurzel, die selbst eine natürliche Zahl ist?"
+   },
+   "o": {
+    "wert": 31
+   },
+   "c": "31",
+   "w": "Das sind die Quadratzahlen 1, 4, 9, …, 961 = 31². 32² = 1 024 ist schon zu groß. Also 31 Zahlen.",
+   "h": "Welche ist die größte Quadratzahl unter 1 000?",
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: √5 + √7 oder √3 + 3?"
+   },
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Beide sind gleich.",
+    "√5 + √7",
+    "√3 + 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Quadrieren: (√5 + √7)² = 12 + 2√35 und (√3 + √9)² = 12 + 2√27. Wegen 35 > 27 ist die erste Summe größer (≈ 4,88 gegen ≈ 4,73).",
+   "h": "Quadriere beide Summen.",
+   "l": "schaetzen",
+   "t": "schaetzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "grundform",
    "t": "grundform",
    "p": "uebung",
@@ -756,7 +1387,30 @@
    "c": [
     "-144 / 12",
     "144 / 12"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x² = −9?"
+   },
+   "a": [
+    "unendlich viele",
+    "eine",
+    "keine",
+    "zwei"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Quadrat ist nie negativ, also gibt es keine Zahl mit x² = −9. L = { }.",
+   "h": "Kann ein Quadrat negativ sein?",
+   "g": "erkennen"
   },
   {
    "l": "grundform",
@@ -780,7 +1434,30 @@
    "c": [
     "-121 / 11",
     "121 / 11"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x² = −64?"
+   },
+   "a": [
+    "unendlich viele",
+    "keine",
+    "zwei",
+    "eine"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein Quadrat ist nie negativ, also gibt es keine Zahl mit x² = −64. L = { }.",
+   "h": "Kann ein Quadrat negativ sein?",
+   "g": "erkennen"
   },
   {
    "l": "grundform",
@@ -789,22 +1466,150 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Löse x² = 4.",
+    "text": "Löse x² = 121/9. Gib die positive Lösung als Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     11,
+     3
+    ]
+   },
+   "w": "√(121/9) = √121 : √9 = 11/3. Lösungen x = ±11/3.",
+   "h": "Wurzel aus Zähler und Nenner getrennt ziehen.",
+   "c": [
+    "11",
+    "3"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl a muss in x² = a stehen, damit die Lösungen −1,5 und 1,5 sind?"
+   },
+   "o": {
+    "wert": 2.25
+   },
+   "c": "1.5**2",
+   "w": "1,5² = 2,25. Die Gleichung x² = 2,25 hat die Lösungen −1,5 und 1,5.",
+   "h": "Quadriere eine der Lösungen.",
+   "g": "umkehr"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² = 100/49. Gib die positive Lösung als Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     10,
+     7
+    ]
+   },
+   "w": "√(100/49) = √100 : √49 = 10/7. Lösungen x = ±10/7.",
+   "h": "Wurzel aus Zähler und Nenner getrennt ziehen.",
+   "c": [
+    "10",
+    "7"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x² = 25 so: x = 5. Was stimmt?"
+   },
+   "a": [
+    "Unvollständig: Auch x = −5 ist eine Lösung.",
+    "Falsch: x = 6.",
+    "Falsch: x = −5 ist die einzige Lösung.",
+    "Richtig, das ist die einzige Lösung."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(−5)² = 25. L = {−5; 5}.",
+   "h": "Probe mit der Gegenzahl.",
+   "g": "fehler"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Wert von a hat die Gleichung x² = a − 4 genau eine Lösung?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Genau eine Lösung gibt es bei x² = 0. Also a − 4 = 0, a = 4. Die Lösung ist x = 0.",
+   "h": "Wann hat x² = Zahl nur eine Lösung?",
+   "g": "parameter"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² = 9.",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
-     -2,
-     2
+     -3,
+     3
     ]
    },
-   "w": "Sowohl 2² als auch (−2)² ergeben 4: x₁ = −2; x₂ = 2.",
+   "w": "Sowohl 3² als auch (−3)² ergeben 9: x₁ = −3; x₂ = 3.",
    "h": "Welche Zahl ergibt quadriert diese Zahl? Denk an beide Vorzeichen.",
    "c": [
-    "-4 / 2",
-    "4 / 2"
+    "-9 / 3",
+    "9 / 3"
    ]
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x² − 25 = 0?"
+   },
+   "a": [
+    "eine",
+    "keine",
+    "zwei",
+    "drei"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Umgeformt: x² = 25. Positiv: zwei Lösungen.",
+   "h": "Stelle nach x² um und schau auf das Vorzeichen.",
+   "g": "erkennen"
   },
   {
    "l": "grundform",
@@ -861,64 +1666,104 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Löse x² = 9.",
+    "text": "Löse x² = 9/49. Gib die positive Lösung als Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "w": "√(9/49) = √9 : √49 = 3/7. Lösungen x = ±3/7.",
+   "h": "Wurzel aus Zähler und Nenner getrennt ziehen.",
+   "c": [
+    "3",
+    "7"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² = 4.",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
-     -3,
-     3
+     -2,
+     2
     ]
    },
-   "w": "Sowohl 3² als auch (−3)² ergeben 9: x₁ = −3; x₂ = 3.",
+   "w": "Sowohl 2² als auch (−2)² ergeben 4: x₁ = −2; x₂ = 2.",
    "h": "Welche Zahl ergibt quadriert diese Zahl? Denk an beide Vorzeichen.",
    "c": [
-    "-9 / 3",
-    "9 / 3"
+    "-4 / 2",
+    "4 / 2"
    ]
   },
   {
-   "l": "grundform",
-   "t": "grundform",
-   "p": "uebung",
-   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Löse x² = 56,25."
+    "text": "Löse x² = 0,09."
    },
    "a": [
-    "x = 7,5",
-    "keine Lösung",
-    "x₁ = −7,5; x₂ = 7,5",
-    "x₁ = −28,125; x₂ = 28,125"
+    "x₁ = −0,03; x₂ = 0,03",
+    "x = 0,3",
+    "x₁ = −0,3; x₂ = 0,3",
+    "keine Lösung"
    ],
    "o": {
     "index": 2
    },
-   "w": "7,5² = 56,25 und (−7,5)² = 56,25.",
-   "h": "Auch bei Dezimalzahlen: zwei Lösungen mit verschiedenen Vorzeichen."
-  },
-  {
+   "w": "0,3 · 0,3 = 0,09 und (−0,3) · (−0,3) = 0,09. 0,03² wäre 0,0009.",
+   "h": "Wie viele Nachkommastellen hat das Quadrat von 0,3?",
    "l": "grundform",
    "t": "grundform",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
    "f": {
-    "text": "Löse x² = 0,16."
+    "text": "Die Gleichung x² = a hat die Lösung x = −0,7. Wie groß ist a?"
    },
-   "a": [
-    "x₁ = −0,08; x₂ = 0,08",
-    "x = 0,4",
-    "keine Lösung",
-    "x₁ = −0,4; x₂ = 0,4"
-   ],
    "o": {
-    "index": 3
+    "wert": 0.49
    },
-   "w": "0,4² = 0,16 und (−0,4)² = 0,16.",
-   "h": "Auch bei Dezimalzahlen: zwei Lösungen mit verschiedenen Vorzeichen."
+   "c": "0.7 * 0.7",
+   "w": "a = (−0,7)² = 0,49. Die zweite Lösung ist 0,7.",
+   "h": "Setze die Lösung ein.",
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Fenster hat 1,44 m² Glasfläche. Wie lang ist eine Seite?"
+   },
+   "o": {
+    "wert": 1.2,
+    "einheit": "m"
+   },
+   "c": "1.2",
+   "w": "s² = 1,44 ⇒ s = 1,2 m (die negative Lösung passt nicht zu einer Länge).",
+   "h": "Welche Zahl ergibt quadriert 1,44?",
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
   },
   {
    "l": "grundform",
@@ -963,181 +1808,29 @@
    "h": "Auch bei Dezimalzahlen: zwei Lösungen mit verschiedenen Vorzeichen."
   },
   {
+   "y": "luecken",
+   "f": {
+    "text": "Die Normalparabel y = x² und die Gerade y = 49 schneiden sich. Gib die x-Werte der Schnittpunkte an.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -7,
+     7
+    ]
+   },
+   "c": [
+    "-7",
+    "7"
+   ],
+   "w": "Schnittpunkte: x² = 49 ⇒ x = −7 oder x = 7.",
+   "h": "Setze die beiden y gleich.",
    "l": "grundform",
    "t": "grundform",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x² = −9?"
-   },
-   "a": [
-    "unendlich viele",
-    "eine",
-    "keine",
-    "zwei"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ein Quadrat ist nie negativ, also gibt es keine Zahl mit x² = −9. L = { }.",
-   "h": "Kann ein Quadrat negativ sein?"
-  },
-  {
-   "l": "grundform",
-   "t": "grundform",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x² = −64?"
-   },
-   "a": [
-    "unendlich viele",
-    "keine",
-    "zwei",
-    "eine"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ein Quadrat ist nie negativ, also gibt es keine Zahl mit x² = −64. L = { }.",
-   "h": "Kann ein Quadrat negativ sein?"
-  },
-  {
-   "l": "grundform",
-   "t": "grundform",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x² = 100/49. Gib die positive Lösung als Bruch an.",
-    "schablone": "□/□",
-    "hinweis": "Zähler und Nenner (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     10,
-     7
-    ]
-   },
-   "w": "√(100/49) = √100 : √49 = 10/7. Lösungen x = ±10/7.",
-   "h": "Wurzel aus Zähler und Nenner getrennt ziehen.",
-   "c": [
-    "10",
-    "7"
-   ]
-  },
-  {
-   "l": "grundform",
-   "t": "grundform",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x² − 25 = 0?"
-   },
-   "a": [
-    "eine",
-    "keine",
-    "zwei",
-    "drei"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Umgeformt: x² = 25. Positiv: zwei Lösungen.",
-   "h": "Stelle nach x² um und schau auf das Vorzeichen."
-  },
-  {
-   "l": "grundform",
-   "t": "grundform",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst x² = 25 so: x = 5. Was stimmt?"
-   },
-   "a": [
-    "Unvollständig: Auch x = −5 ist eine Lösung.",
-    "Falsch: x = 6.",
-    "Falsch: x = −5 ist die einzige Lösung.",
-    "Richtig, das ist die einzige Lösung."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "(−5)² = 25. L = {−5; 5}.",
-   "h": "Probe mit der Gegenzahl."
-  },
-  {
-   "l": "grundform",
-   "t": "grundform",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x² = 121/9. Gib die positive Lösung als Bruch an.",
-    "schablone": "□/□",
-    "hinweis": "Zähler und Nenner (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     11,
-     3
-    ]
-   },
-   "w": "√(121/9) = √121 : √9 = 11/3. Lösungen x = ±11/3.",
-   "h": "Wurzel aus Zähler und Nenner getrennt ziehen.",
-   "c": [
-    "11",
-    "3"
-   ]
-  },
-  {
-   "l": "grundform",
-   "t": "grundform",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x² = 9/49. Gib die positive Lösung als Bruch an.",
-    "schablone": "□/□",
-    "hinweis": "Zähler und Nenner (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     3,
-     7
-    ]
-   },
-   "w": "√(9/49) = √9 : √49 = 3/7. Lösungen x = ±3/7.",
-   "h": "Wurzel aus Zähler und Nenner getrennt ziehen.",
-   "c": [
-    "3",
-    "7"
-   ]
-  },
-  {
-   "l": "grundform",
-   "t": "grundform",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst x² = 16 so: x = 4. Was stimmt?"
-   },
-   "a": [
-    "Richtig, das ist die einzige Lösung.",
-    "Unvollständig: Auch x = −4 ist eine Lösung.",
-    "Falsch: x = 8.",
-    "Falsch: x = −4 ist die einzige Lösung."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "(−4)² = 16. L = {−4; 4}.",
-   "h": "Probe mit der Gegenzahl."
+   "g": "darstellung"
   },
   {
    "l": "grundform",
@@ -1340,6 +2033,243 @@
    "w": "Ein Quadrat ist nie negativ, also gibt es keine Zahl mit x² = −25. L = { }."
   },
   {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse x² = 56,25."
+   },
+   "a": [
+    "x = 7,5",
+    "keine Lösung",
+    "x₁ = −7,5; x₂ = 7,5",
+    "x₁ = −28,125; x₂ = 28,125"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "7,5² = 56,25 und (−7,5)² = 56,25.",
+   "h": "Auch bei Dezimalzahlen: zwei Lösungen mit verschiedenen Vorzeichen."
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse x² = 0,16."
+   },
+   "a": [
+    "x₁ = −0,08; x₂ = 0,08",
+    "x = 0,4",
+    "keine Lösung",
+    "x₁ = −0,4; x₂ = 0,4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "0,4² = 0,16 und (−0,4)² = 0,16.",
+   "h": "Auch bei Dezimalzahlen: zwei Lösungen mit verschiedenen Vorzeichen."
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x² = 16 so: x = 4. Was stimmt?"
+   },
+   "a": [
+    "Richtig, das ist die einzige Lösung.",
+    "Unvollständig: Auch x = −4 ist eine Lösung.",
+    "Falsch: x = 8.",
+    "Falsch: x = −4 ist die einzige Lösung."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(−4)² = 16. L = {−4; 4}.",
+   "h": "Probe mit der Gegenzahl.",
+   "g": "fehler"
+  },
+  {
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche a hat die Gleichung x² = a − 4 keine Lösung?"
+   },
+   "a": [
+    "für a > 4",
+    "für a < 0",
+    "für a = 4",
+    "für a < 4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Keine Lösung, wenn rechts eine negative Zahl steht: a − 4 < 0 ⇒ a < 4.",
+   "h": "Wann ist die rechte Seite negativ?",
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: Die beiden Lösungen von x² = a (a > 0) ergeben addiert immer 0?"
+   },
+   "a": [
+    "Ja, denn sie heißen √a und −√a.",
+    "Nein, sie ergeben a.",
+    "Nein, sie ergeben 2√a.",
+    "Nur bei a = 1."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "√a + (−√a) = 0. Die Lösungen liegen symmetrisch zur 0.",
+   "h": "Wie heißen die beiden Lösungen?",
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Zahlen unterscheiden sich nur im Vorzeichen. Ihr Produkt ist −36. Wie heißt die positive der beiden Zahlen?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Die Zahlen sind x und −x. x · (−x) = −x² = −36 ⇒ x² = 36 ⇒ x = 6.",
+   "h": "Nenne die positive Zahl x.",
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat den Flächeninhalt 2,25 cm². Wie groß ist sein Umfang?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "4 * 1.5",
+   "w": "s² = 2,25 ⇒ s = 1,5 cm. Umfang 4 · 1,5 = 6 cm.",
+   "h": "Erst die Seite, dann den Umfang.",
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Wie viele Lösungen haben die Gleichungen a) x² = 81, b) x² = 0, c) x² + 16 = 0?",
+    "schablone": "a) □; b) □; c) □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     0
+    ]
+   },
+   "c": [
+    "2",
+    "1",
+    "0"
+   ],
+   "w": "a) ±9: zwei. b) nur 0: eine. c) x² = −16: keine, denn ein Quadrat ist nie negativ.",
+   "h": "Bringe jede Gleichung auf die Form x² = a.",
+   "l": "grundform",
+   "t": "grundform",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen x gilt x² ≤ 50?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "2 * 7 + 1",
+   "w": "7² = 49 ≤ 50, 8² = 64 > 50. Also −7 ≤ x ≤ 7: das sind 15 ganze Zahlen (mit der 0).",
+   "h": "Vergiss die negativen Zahlen und die 0 nicht.",
+   "l": "grundform",
+   "t": "grundform",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² = 2 025 ohne Taschenrechner.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -45,
+     45
+    ]
+   },
+   "c": [
+    "-45",
+    "45"
+   ],
+   "w": "2 025 = 81 · 25 = 9² · 5² = (9 · 5)² = 45². Also x = 45 oder x = −45. Probe: 45 · 45 = 2 025.",
+   "h": "Zerlege 2 025 in Faktoren, die Quadratzahlen sind.",
+   "l": "grundform",
+   "t": "grundform",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5x² − 293 = x² − 37.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     8
+    ]
+   },
+   "w": "5x² − x² = 293 − 37 ⇔ 4x² = 256 ⇔ x² = 64 ⇔ x = ±8.",
+   "h": "Alle x² auf eine Seite, alle Zahlen auf die andere.",
+   "c": [
+    "-8",
+    "8"
+   ],
+   "g": "mehrschritt"
+  },
+  {
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
@@ -1361,7 +2291,80 @@
    "c": [
     "-4",
     "4"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 8x² − 38 = x² − 31.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "w": "8x² − x² = 38 − 31 ⇔ 7x² = 7 ⇔ x² = 1 ⇔ x = ±1.",
+   "h": "Alle x² auf eine Seite, alle Zahlen auf die andere.",
+   "c": [
+    "-1",
+    "1"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 4x² + 12 = 0?"
+   },
+   "a": [
+    "L = {−12; 12}",
+    "L = {−3; 3}",
+    "L = { }",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4x² = −12 ⇔ x² = −3. Ein Quadrat ist nie negativ, also keine Lösung.",
+   "h": "Stelle nach x² um. Ist die rechte Seite negativ?",
+   "g": "erkennen"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² − 2 = 1.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "w": "3x² − 2 = 1 ⇔ 3x² = 3 ⇔ x² = 1 ⇔ x = ±1.",
+   "h": "Erst die Zahl wegbringen, dann durch den Faktor teilen.",
+   "c": [
+    "-1",
+    "1"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
@@ -1385,7 +2388,247 @@
    "c": [
     "-7",
     "7"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5x² − 3 = 242.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     7
+    ]
+   },
+   "w": "5x² − 3 = 242 ⇔ 5x² = 245 ⇔ x² = 49 ⇔ x = ±7.",
+   "h": "Erst die Zahl wegbringen, dann durch den Faktor teilen.",
+   "c": [
+    "-7",
+    "7"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat 3x² + 6 = 0?"
+   },
+   "a": [
+    "L = {−2; 2}",
+    "L = { }",
+    "L = {−6; 6}",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "3x² = −6 ⇔ x² = −2. Ein Quadrat ist nie negativ, also keine Lösung.",
+   "h": "Stelle nach x² um. Ist die rechte Seite negativ?",
+   "g": "erkennen"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 0,2x² = 7,2.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -6,
+     6
+    ]
+   },
+   "w": "0,2x² = 7,2 | · 5 ⇒ x² = 36 ⇒ x = ±6.",
+   "h": "Multipliziere beide Seiten mit 5.",
+   "c": [
+    "-6",
+    "6"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 3x² = 48 so: x = ±√48. Was stimmt?"
+   },
+   "a": [
+    "Falsch: x = ±24.",
+    "Richtig.",
+    "Falsch: x = 4, nur positiv.",
+    "Falsch: Erst durch 3 teilen: x² = 16, also x = ±4."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3x² = 48 ⇔ x² = 16. Erst dann die Wurzel: x = ±4.",
+   "h": "Steht x² schon allein?",
+   "g": "fehler"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 0,5x² = 32.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     8
+    ]
+   },
+   "w": "0,5x² = 32 | · 2 ⇒ x² = 64 ⇒ x = ±8.",
+   "h": "Multipliziere beide Seiten mit 2.",
+   "c": [
+    "-8",
+    "8"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist bei 3x² − 5 = 22 der erste Schritt?"
+   },
+   "a": [
+    "5 auf beiden Seiten addieren",
+    "durch 3 teilen",
+    "die Wurzel ziehen",
+    "22 durch 5 teilen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Zuerst muss 3x² allein stehen: 3x² = 27. Dann durch 3: x² = 9. Dann Wurzel: x = ±3.",
+   "h": "Was wurde mit x² zuletzt gemacht?",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² : 4 − 1 = 8.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -6,
+     6
+    ]
+   },
+   "c": [
+    "-6",
+    "6"
+   ],
+   "w": "+1: x² : 4 = 9. Mal 4: x² = 36. x = ±6.",
+   "h": "Erst +1, dann mal 4.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 9 = 90.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -9,
+     9
+    ]
+   },
+   "w": "x² = 90 − 9 = 81, also x = ±9.",
+   "h": "Bringe die Zahl auf die andere Seite.",
+   "c": [
+    "-9",
+    "9"
    ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse x² + 1 = 10.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "x² = 10 − 1 = 9, also x = ±3.",
+   "h": "Bringe die Zahl auf die andere Seite.",
+   "c": [
+    "-3",
+    "3"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2x² = 50.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -5,
+     5
+    ]
+   },
+   "c": [
+    "-5",
+    "5"
+   ],
+   "w": "Durch 2: x² = 25 ⇒ x = ±5.",
+   "h": "Teile durch 2.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "umformen",
@@ -1439,325 +2682,43 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x² + 9 = 90.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -9,
-     9
-    ]
-   },
-   "w": "x² = 90 − 9 = 81, also x = ±9.",
-   "h": "Bringe die Zahl auf die andere Seite.",
-   "c": [
-    "-9",
-    "9"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Löse x² + 1 = 10.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -3,
-     3
-    ]
-   },
-   "w": "x² = 10 − 1 = 9, also x = ±3.",
-   "h": "Bringe die Zahl auf die andere Seite.",
-   "c": [
-    "-3",
-    "3"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 5x² − 293 = x² − 37.",
+    "text": "Löse 2(x² − 3) = x² + 10.",
     "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
+    "hinweis": "Trage die Zahlen ein."
    },
    "o": {
     "werte": [
-     -8,
-     8
+     -4,
+     4
     ]
    },
-   "w": "5x² − x² = 293 − 37 ⇔ 4x² = 256 ⇔ x² = 64 ⇔ x = ±8.",
-   "h": "Alle x² auf eine Seite, alle Zahlen auf die andere.",
    "c": [
-    "-8",
-    "8"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 8x² − 38 = x² − 31.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -1,
-     1
-    ]
-   },
-   "w": "8x² − x² = 38 − 31 ⇔ 7x² = 7 ⇔ x² = 1 ⇔ x = ±1.",
-   "h": "Alle x² auf eine Seite, alle Zahlen auf die andere.",
-   "c": [
-    "-1",
-    "1"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3x² − 2 = 1.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -1,
-     1
-    ]
-   },
-   "w": "3x² − 2 = 1 ⇔ 3x² = 3 ⇔ x² = 1 ⇔ x = ±1.",
-   "h": "Erst die Zahl wegbringen, dann durch den Faktor teilen.",
-   "c": [
-    "-1",
-    "1"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 5x² − 3 = 242.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -7,
-     7
-    ]
-   },
-   "w": "5x² − 3 = 242 ⇔ 5x² = 245 ⇔ x² = 49 ⇔ x = ±7.",
-   "h": "Erst die Zahl wegbringen, dann durch den Faktor teilen.",
-   "c": [
-    "-7",
-    "7"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 5x² − 34 = −29.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -1,
-     1
-    ]
-   },
-   "w": "5x² − 34 = −29 ⇔ 5x² = 5 ⇔ x² = 1 ⇔ x = ±1.",
-   "h": "Erst die Zahl wegbringen, dann durch den Faktor teilen.",
-   "c": [
-    "-1",
-    "1"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3x² − 132 = x² − 34.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -7,
-     7
-    ]
-   },
-   "w": "3x² − x² = 132 − 34 ⇔ 2x² = 98 ⇔ x² = 49 ⇔ x = ±7.",
-   "h": "Alle x² auf eine Seite, alle Zahlen auf die andere.",
-   "c": [
-    "-7",
-    "7"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst 3x² = 48 so: x = ±√48. Was stimmt?"
-   },
-   "a": [
-    "Falsch: x = ±24.",
-    "Richtig.",
-    "Falsch: x = 4, nur positiv.",
-    "Falsch: Erst durch 3 teilen: x² = 16, also x = ±4."
+    "-4",
+    "4"
    ],
-   "o": {
-    "index": 3
-   },
-   "w": "3x² = 48 ⇔ x² = 16. Erst dann die Wurzel: x = ±4.",
-   "h": "Steht x² schon allein?"
+   "w": "Ausmultiplizieren: 2x² − 6 = x² + 10. −x², +6: x² = 16. x = ±4.",
+   "h": "Erst die Klammer auflösen, dann alle x² auf eine Seite.",
+   "g": "mehrschritt"
   },
   {
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
-   "s": 3,
-   "y": "luecken",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Löse 0,2x² = 7,2.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
+    "text": "Für welche Zahl c hat die Gleichung 3x² + c = 0 die Lösungen −2 und 2?"
    },
    "o": {
-    "werte": [
-     -6,
-     6
-    ]
+    "wert": -12
    },
-   "w": "0,2x² = 7,2 | · 5 ⇒ x² = 36 ⇒ x = ±6.",
-   "h": "Multipliziere beide Seiten mit 5.",
-   "c": [
-    "-6",
-    "6"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösungsmenge hat 4x² + 12 = 0?"
-   },
-   "a": [
-    "L = {−12; 12}",
-    "L = {−3; 3}",
-    "L = { }",
-    "L = {0}"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "4x² = −12 ⇔ x² = −3. Ein Quadrat ist nie negativ, also keine Lösung.",
-   "h": "Stelle nach x² um. Ist die rechte Seite negativ?"
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 0,5x² = 32.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -8,
-     8
-    ]
-   },
-   "w": "0,5x² = 32 | · 2 ⇒ x² = 64 ⇒ x = ±8.",
-   "h": "Multipliziere beide Seiten mit 2.",
-   "c": [
-    "-8",
-    "8"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösungsmenge hat 3x² + 6 = 0?"
-   },
-   "a": [
-    "L = {−2; 2}",
-    "L = { }",
-    "L = {−6; 6}",
-    "L = {0}"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "3x² = −6 ⇔ x² = −2. Ein Quadrat ist nie negativ, also keine Lösung.",
-   "h": "Stelle nach x² um. Ist die rechte Seite negativ?"
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösungsmenge hat 5x² + 6 = 0?"
-   },
-   "a": [
-    "L = { }",
-    "L = {−1,2; 1,2}",
-    "L = {−6; 6}",
-    "L = {0}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "5x² = −6 ⇔ x² = −6/5. Ein Quadrat ist nie negativ, also keine Lösung.",
-   "h": "Stelle nach x² um. Ist die rechte Seite negativ?"
+   "c": "-3*2**2",
+   "w": "x = 2 einsetzen: 3 · 4 + c = 0 ⇒ c = −12.",
+   "h": "Setze eine Lösung ein.",
+   "g": "umkehr"
   },
   {
    "l": "umformen",
@@ -1990,6 +2951,315 @@
    ]
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Vier gleich große quadratische Fliesen bedecken zusammen 0,36 m². Wie lang ist eine Fliesenseite in cm?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm"
+   },
+   "c": "0.3 * 100",
+   "w": "4s² = 0,36 ⇒ s² = 0,09 ⇒ s = 0,3 m = 30 cm.",
+   "h": "Stelle eine Gleichung für eine Fliese auf.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5x² − 34 = −29.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "w": "5x² − 34 = −29 ⇔ 5x² = 5 ⇔ x² = 1 ⇔ x = ±1.",
+   "h": "Erst die Zahl wegbringen, dann durch den Faktor teilen.",
+   "c": [
+    "-1",
+    "1"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² − 132 = x² − 34.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     7
+    ]
+   },
+   "w": "3x² − x² = 132 − 34 ⇔ 2x² = 98 ⇔ x² = 49 ⇔ x = ±7.",
+   "h": "Alle x² auf eine Seite, alle Zahlen auf die andere.",
+   "c": [
+    "-7",
+    "7"
+   ]
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: Die Gleichung 5x² + 3 = 3 hat genau eine Lösung?"
+   },
+   "a": [
+    "Ja: 5x² = 0, also nur x = 0.",
+    "Nein, keine Lösung.",
+    "Nein, zwei Lösungen.",
+    "Nein, unendlich viele."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "5x² + 3 = 3 ⇒ 5x² = 0 ⇒ x² = 0 ⇒ x = 0. Nur bei x² = 0 gibt es genau eine Lösung.",
+   "h": "Forme um und schau, was rechts übrig bleibt.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen c hat x² + c = 10 zwei Lösungen?"
+   },
+   "a": [
+    "für c > 10",
+    "für c = 10",
+    "für c < 10",
+    "für jedes c"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x² = 10 − c. Zwei Lösungen gibt es, wenn 10 − c > 0, also c < 10.",
+   "h": "Forme nach x² um.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Denk dir eine Zahl, quadriere sie, multipliziere mit 3 und ziehe 7 ab. Du erhältst 68. Welche positive Zahl war es?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Rückwärts: 68 + 7 = 75, 75 : 3 = 25, √25 = 5. Gleichung: 3x² − 7 = 68.",
+   "h": "Mache die Schritte rückwärts.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Grundstück und ein Rechteck von 4 m × 9 m haben zusammen 100 m² Fläche. Wie lang ist eine Seite des Quadrats?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m"
+   },
+   "c": "8",
+   "w": "x² + 36 = 100 ⇒ x² = 64 ⇒ x = 8 m.",
+   "h": "Stelle eine Gleichung für die Gesamtfläche auf.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x² − 9 = 16 so: „x − 3 = ±4.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig, also x = 7 oder x = −1.",
+    "Falsch: x = ±4.",
+    "Falsch: x = ±3.",
+    "Falsch: Man darf nicht gliedweise die Wurzel ziehen. x² = 25, also x = ±5."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Erst 9 addieren: x² = 25, dann die Wurzel: x = ±5. Probe: 7² − 9 = 40 ≠ 16.",
+   "h": "Mach die Probe mit x = 7.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse (2x)² = 100.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -5,
+     5
+    ]
+   },
+   "c": [
+    "-5",
+    "5"
+   ],
+   "w": "(2x)² = 4x² = 100 ⇒ x² = 25 ⇒ x = ±5.",
+   "h": "Was ergibt (2x)² ausmultipliziert?",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse a) 2x² − 7 = 43; b) x² + 3 = 2x² − 61.",
+    "schablone": "a) x₁ = □; x₂ = □; b) x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -5,
+     5,
+     -8,
+     8
+    ]
+   },
+   "c": [
+    "-5",
+    "5",
+    "-8",
+    "8"
+   ],
+   "w": "a) 2x² = 50 ⇒ x² = 25 ⇒ ±5. b) 3 + 61 = 2x² − x² ⇒ x² = 64 ⇒ ±8.",
+   "h": "Bringe x² auf eine Seite.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele natürliche Zahlen n hat n · x² = 72 ganzzahlige Lösungen?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "x² = 72 : n muss eine Quadratzahl sein: 1, 4, 9 oder 36 (Teiler von 72, die Quadratzahlen sind). Dann ist n = 72, 18, 8 oder 2. Also 4 Zahlen.",
+   "h": "Welche Quadratzahlen sind Teiler von 72?",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat die Gleichung x² = 4x²?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "x² = 4x² ⇒ 0 = 3x² ⇒ x = 0. Nur eine Lösung. Wer durch x² teilt, bekommt 1 = 4 und meint „keine Lösung“ – dabei verliert man x = 0.",
+   "h": "Nicht durch x² teilen.",
+   "l": "umformen",
+   "t": "umformen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x² = 129. Gib die negative Lösung auf zwei Dezimalen gerundet an."
+   },
+   "o": {
+    "wert": -11.36,
+    "toleranz": 0.01
+   },
+   "c": "-round(11.357816691601, 2)",
+   "w": "x = ±√129 ≈ ±11,36. Negative Lösung: −11,36.",
+   "h": "Die negative Lösung ist die Gegenzahl der positiven.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 1)² = 102. Gib die größere Lösung auf zwei Dezimalen gerundet an."
+   },
+   "o": {
+    "wert": 9.1,
+    "toleranz": 0.01
+   },
+   "c": "round(-1 + 10.099504938362, 2)",
+   "w": "x + 1 = ±√102 ⇒ x = −1 ± √102. Größere Lösung: −1 + 10,0995… ≈ 9,1.",
+   "h": "Wurzel ziehen, dann die Zahl aus der Klammer auf die andere Seite bringen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x² = 233. Gib die negative Lösung auf zwei Dezimalen gerundet an."
+   },
+   "o": {
+    "wert": -15.26,
+    "toleranz": 0.01
+   },
+   "c": "-round(15.264337522474, 2)",
+   "w": "x = ±√233 ≈ ±15,26. Negative Lösung: −15,26.",
+   "h": "Die negative Lösung ist die Gegenzahl der positiven.",
+   "g": "mehrschritt"
+  },
+  {
    "l": "gerundet",
    "t": "gerundet",
    "p": "uebung",
@@ -2004,7 +3274,123 @@
    },
    "c": "round(9.695359714833, 1)",
    "w": "x = ±√94; √94 = 9,6954… ≈ 9,7.",
+   "h": "Taschenrechner: Wurzeltaste. Dann runden.",
+   "g": "direkt"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4x² − 15 = 1 097. Gib die positive Lösung auf zwei Dezimalen gerundet an."
+   },
+   "o": {
+    "wert": 16.67,
+    "toleranz": 0.01
+   },
+   "c": "round(16.673332000533, 2)",
+   "w": "4x² = 1 112 ⇔ x² = 278 ⇔ x = ±√278 ≈ ±16,67.",
+   "h": "Erst nach x² auflösen, dann Wurzel ziehen und runden.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet die exakte positive Lösung von x² = 236?"
+   },
+   "a": [
+    "236²",
+    "√236",
+    "118",
+    "15,36"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Exakt ist nur √236; 15,36 ist ein gerundeter Wert, denn √236 ist eine irrationale Zahl.",
+   "h": "Exakt heißt: ohne zu runden.",
+   "g": "erkennen"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5x² + 10 = 1 325. Gib die positive Lösung auf zwei Dezimalen gerundet an."
+   },
+   "o": {
+    "wert": 16.22,
+    "toleranz": 0.01
+   },
+   "c": "round(16.217274740227, 2)",
+   "w": "5x² = 1 315 ⇔ x² = 263 ⇔ x = ±√263 ≈ ±16,22.",
+   "h": "Erst nach x² auflösen, dann Wurzel ziehen und runden.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 4)² = 328. Gib die größere Lösung auf zwei Dezimalen gerundet an."
+   },
+   "o": {
+    "wert": 14.11,
+    "toleranz": 0.01
+   },
+   "c": "round(-4 + 18.110770276275, 2)",
+   "w": "x + 4 = ±√328 ⇒ x = −4 ± √328. Größere Lösung: −4 + 18,1108… ≈ 14,11.",
+   "h": "Wurzel ziehen, dann die Zahl aus der Klammer auf die andere Seite bringen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x² = 26. Gib die positive Lösung auf eine Dezimale gerundet an."
+   },
+   "o": {
+    "wert": 5.1,
+    "toleranz": 0.1
+   },
+   "c": "round(5.099019513593, 1)",
+   "w": "x = ±√26; √26 = 5,099… ≈ 5,1.",
    "h": "Taschenrechner: Wurzeltaste. Dann runden."
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x² = 50 mit x ≈ 7,07 und macht die Probe: 7,07² = 49,9849. Warum kommt nicht genau 50 heraus?"
+   },
+   "a": [
+    "Weil 7,07 ein gerundeter Wert ist.",
+    "Weil er sich verrechnet hat.",
+    "Weil x² = 50 keine Lösung hat.",
+    "Weil die richtige Lösung 25 ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "√50 = 7,0710… hat unendlich viele Nachkommastellen. Jede gerundete Zahl gibt im Quadrat nur ungefähr 50.",
+   "h": "Wie viele Nachkommastellen hat √50?",
+   "g": "begruenden"
   },
   {
    "l": "gerundet",
@@ -2021,7 +3407,47 @@
    },
    "c": "round(5.830951894845, 1)",
    "w": "x = ±√34; √34 = 5,831… ≈ 5,8.",
+   "h": "Taschenrechner: Wurzeltaste. Dann runden.",
+   "g": "direkt"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x² = 86. Gib die positive Lösung auf eine Dezimale gerundet an."
+   },
+   "o": {
+    "wert": 9.3,
+    "toleranz": 0.1
+   },
+   "c": "round(9.273618495496, 1)",
+   "w": "x = ±√86; √86 = 9,2736… ≈ 9,3.",
    "h": "Taschenrechner: Wurzeltaste. Dann runden."
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie lautet die exakte positive Lösung von x² = 172?"
+   },
+   "a": [
+    "√172",
+    "13,11",
+    "86",
+    "172²"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Exakt ist nur √172; 13,11 ist ein gerundeter Wert, denn √172 ist eine irrationale Zahl.",
+   "h": "Exakt heißt: ohne zu runden.",
+   "g": "erkennen"
   },
   {
    "l": "gerundet",
@@ -2061,103 +3487,59 @@
    "l": "gerundet",
    "t": "gerundet",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x² = 86. Gib die positive Lösung auf eine Dezimale gerundet an."
+    "text": "Ein Rechteck ist 6 cm breit und 15 cm lang. Ein Quadrat soll denselben Flächeninhalt haben. Wie lang ist seine Seite? Runde auf zwei Dezimalen."
    },
    "o": {
-    "wert": 9.3,
-    "toleranz": 0.1
+    "wert": 9.49,
+    "einheit": "cm",
+    "toleranz": 0.01
    },
-   "c": "round(9.273618495496, 1)",
-   "w": "x = ±√86; √86 = 9,2736… ≈ 9,3.",
-   "h": "Taschenrechner: Wurzeltaste. Dann runden."
-  },
-  {
-   "l": "gerundet",
-   "t": "gerundet",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x² = 26. Gib die positive Lösung auf eine Dezimale gerundet an."
-   },
-   "o": {
-    "wert": 5.1,
-    "toleranz": 0.1
-   },
-   "c": "round(5.099019513593, 1)",
-   "w": "x = ±√26; √26 = 5,099… ≈ 5,1.",
-   "h": "Taschenrechner: Wurzeltaste. Dann runden."
+   "c": "round(9.486832980505, 2)",
+   "w": "Fläche 6 · 15 = 90 cm². a² = 90 ⇒ a = √90 ≈ 9,49 cm.",
+   "h": "Berechne zuerst die Fläche.",
+   "g": "einkleidung"
   },
   {
    "l": "gerundet",
    "t": "gerundet",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Löse x² = 129. Gib die negative Lösung auf zwei Dezimalen gerundet an."
+    "text": "Zwischen welchen zwei Zahlen mit einer Dezimale liegt √30?"
    },
+   "a": [
+    "zwischen 5,0 und 5,1",
+    "zwischen 5,5 und 5,6",
+    "zwischen 15,0 und 15,1",
+    "zwischen 5,4 und 5,5"
+   ],
    "o": {
-    "wert": -11.36,
-    "toleranz": 0.01
+    "index": 3
    },
-   "c": "-round(11.357816691601, 2)",
-   "w": "x = ±√129 ≈ ±11,36. Negative Lösung: −11,36.",
-   "h": "Die negative Lösung ist die Gegenzahl der positiven."
+   "w": "5,4² = 29,16 < 30 und 5,5² = 30,25 > 30.",
+   "h": "Quadriere die Kandidaten.",
+   "g": "mehrschritt"
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Die positive Lösung von x² = c ist auf zwei Dezimalen gerundet 3,16. c ist eine ganze Zahl. Wie groß ist c?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10",
+   "w": "3,155² ≈ 9,95 und 3,165² ≈ 10,02. Die einzige ganze Zahl dazwischen ist 10 (√10 ≈ 3,162).",
+   "h": "Quadriere 3,16 und überlege, welche ganze Zahl in Frage kommt.",
    "l": "gerundet",
    "t": "gerundet",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x² = 233. Gib die negative Lösung auf zwei Dezimalen gerundet an."
-   },
-   "o": {
-    "wert": -15.26,
-    "toleranz": 0.01
-   },
-   "c": "-round(15.264337522474, 2)",
-   "w": "x = ±√233 ≈ ±15,26. Negative Lösung: −15,26.",
-   "h": "Die negative Lösung ist die Gegenzahl der positiven."
-  },
-  {
-   "l": "gerundet",
-   "t": "gerundet",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 4x² − 15 = 1 097. Gib die positive Lösung auf zwei Dezimalen gerundet an."
-   },
-   "o": {
-    "wert": 16.67,
-    "toleranz": 0.01
-   },
-   "c": "round(16.673332000533, 2)",
-   "w": "4x² = 1 112 ⇔ x² = 278 ⇔ x = ±√278 ≈ ±16,67.",
-   "h": "Erst nach x² auflösen, dann Wurzel ziehen und runden."
-  },
-  {
-   "l": "gerundet",
-   "t": "gerundet",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5x² + 10 = 1 325. Gib die positive Lösung auf zwei Dezimalen gerundet an."
-   },
-   "o": {
-    "wert": 16.22,
-    "toleranz": 0.01
-   },
-   "c": "round(16.217274740227, 2)",
-   "w": "5x² = 1 315 ⇔ x² = 263 ⇔ x = ±√263 ≈ ±16,22.",
-   "h": "Erst nach x² auflösen, dann Wurzel ziehen und runden."
+   "g": "umkehr"
   },
   {
    "l": "gerundet",
@@ -2200,108 +3582,39 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse (x + 1)² = 102. Gib die größere Lösung auf zwei Dezimalen gerundet an."
+    "text": "Ein Kreis soll denselben Flächeninhalt haben wie ein Quadrat mit 10 cm Seitenlänge. Berechne den Radius auf zwei Dezimalen."
    },
    "o": {
-    "wert": 9.1,
+    "wert": 5.64,
+    "einheit": "cm",
     "toleranz": 0.01
    },
-   "c": "round(-1 + 10.099504938362, 2)",
-   "w": "x + 1 = ±√102 ⇒ x = −1 ± √102. Größere Lösung: −1 + 10,0995… ≈ 9,1.",
-   "h": "Wurzel ziehen, dann die Zahl aus der Klammer auf die andere Seite bringen."
+   "c": "round(5.641895835478, 2)",
+   "w": "π · r² = 100 ⇒ r² = 100 : π ≈ 31,83 ⇒ r ≈ 5,64 cm.",
+   "h": "Setze die Kreisfläche gleich 100 cm².",
+   "g": "verknuepfen"
   },
   {
-   "l": "gerundet",
-   "t": "gerundet",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x + 4)² = 328. Gib die größere Lösung auf zwei Dezimalen gerundet an."
-   },
-   "o": {
-    "wert": 14.11,
-    "toleranz": 0.01
-   },
-   "c": "round(-4 + 18.110770276275, 2)",
-   "w": "x + 4 = ±√328 ⇒ x = −4 ± √328. Größere Lösung: −4 + 18,1108… ≈ 14,11.",
-   "h": "Wurzel ziehen, dann die Zahl aus der Klammer auf die andere Seite bringen."
-  },
-  {
-   "l": "gerundet",
-   "t": "gerundet",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Wie lautet die exakte positive Lösung von x² = 236?"
+    "text": "Jemand rundet √19 ≈ 4,358 auf eine Dezimale zu 4,3. Was stimmt?"
    },
    "a": [
-    "236²",
-    "√236",
-    "118",
-    "15,36"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Exakt ist nur √236; 15,36 ist ein gerundeter Wert, denn √236 ist eine irrationale Zahl.",
-   "h": "Exakt heißt: ohne zu runden."
-  },
-  {
-   "l": "gerundet",
-   "t": "gerundet",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x + 2)² = 154. Gib die größere Lösung auf zwei Dezimalen gerundet an."
-   },
-   "o": {
-    "wert": 10.41,
-    "toleranz": 0.01
-   },
-   "c": "round(-2 + 12.409673645991, 2)",
-   "w": "x + 2 = ±√154 ⇒ x = −2 ± √154. Größere Lösung: −2 + 12,4097… ≈ 10,41.",
-   "h": "Wurzel ziehen, dann die Zahl aus der Klammer auf die andere Seite bringen."
-  },
-  {
-   "l": "gerundet",
-   "t": "gerundet",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie lautet die exakte positive Lösung von x² = 172?"
-   },
-   "a": [
-    "√172",
-    "13,11",
-    "86",
-    "172²"
+    "Falsch: Die zweite Dezimale ist 5, also aufrunden: 4,4.",
+    "Falsch: 4,0.",
+    "Richtig.",
+    "Falsch: 4,35."
    ],
    "o": {
     "index": 0
    },
-   "w": "Exakt ist nur √172; 13,11 ist ein gerundeter Wert, denn √172 ist eine irrationale Zahl.",
-   "h": "Exakt heißt: ohne zu runden."
-  },
-  {
+   "w": "Bei 4,358 entscheidet die zweite Dezimale 5: aufrunden auf 4,4.",
+   "h": "Welche Ziffer entscheidet beim Runden?",
    "l": "gerundet",
    "t": "gerundet",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x + 1)² = 117. Gib die größere Lösung auf zwei Dezimalen gerundet an."
-   },
-   "o": {
-    "wert": 9.82,
-    "toleranz": 0.01
-   },
-   "c": "round(-1 + 10.816653826392, 2)",
-   "w": "x + 1 = ±√117 ⇒ x = −1 ± √117. Größere Lösung: −1 + 10,8167… ≈ 9,82.",
-   "h": "Wurzel ziehen, dann die Zahl aus der Klammer auf die andere Seite bringen."
+   "g": "fehler"
   },
   {
    "l": "gerundet",
@@ -2464,6 +3777,148 @@
    "w": "6x² = 1 038 ⇔ x² = 173 ⇔ x = ±√173 ≈ ±13,15."
   },
   {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche ganzen Zahlen c ergibt die positive Lösung von x² = c auf eine Dezimale gerundet 7,1?"
+   },
+   "a": [
+    "nur c = 50",
+    "nur c = 51",
+    "c = 49 bis c = 51",
+    "c = 50 und c = 51"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Lösung muss zwischen 7,05 und 7,15 liegen: 7,05² ≈ 49,70 und 7,15² ≈ 51,12. Ganze Zahlen dazwischen: 50 und 51.",
+   "h": "Welche Zahlen werden auf 7,1 gerundet? Quadriere die Grenzen.",
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: √2 · √2 ergibt genau 2, aber 1,41 · 1,41 nicht?"
+   },
+   "a": [
+    "Ja: 1,41 ist gerundet, 1,41² = 1,9881.",
+    "Nein, 1,41 · 1,41 = 2,01.",
+    "Nein, beides ist genau 2.",
+    "Nein, √2 · √2 = 4."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "√2 ist eine unendliche Dezimalzahl. Mit der gerundeten 1,41 wird das Quadrat etwas zu klein.",
+   "h": "Rechne 1,41 · 1,41 aus.",
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3x² − 5 = 100. a) Gib x² an. b) Gib die positive Lösung auf zwei Dezimalen gerundet in Hundertsteln an (5,92 als 592).",
+    "schablone": "a) x² = □; b) □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     35,
+     592
+    ]
+   },
+   "c": [
+    "105 // 3",
+    "592"
+   ],
+   "w": "a) 3x² = 105 ⇒ x² = 35. b) √35 ≈ 5,916 ≈ 5,92.",
+   "h": "Erst x² allein, dann der Taschenrechner.",
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 2)² = 154. Gib die größere Lösung auf zwei Dezimalen gerundet an."
+   },
+   "o": {
+    "wert": 10.41,
+    "toleranz": 0.01
+   },
+   "c": "round(-2 + 12.409673645991, 2)",
+   "w": "x + 2 = ±√154 ⇒ x = −2 ± √154. Größere Lösung: −2 + 12,4097… ≈ 10,41.",
+   "h": "Wurzel ziehen, dann die Zahl aus der Klammer auf die andere Seite bringen."
+  },
+  {
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 1)² = 117. Gib die größere Lösung auf zwei Dezimalen gerundet an."
+   },
+   "o": {
+    "wert": 9.82,
+    "toleranz": 0.01
+   },
+   "c": "round(-1 + 10.816653826392, 2)",
+   "w": "x + 1 = ±√117 ⇒ x = −1 ± √117. Größere Lösung: −1 + 10,8167… ≈ 9,82.",
+   "h": "Wurzel ziehen, dann die Zahl aus der Klammer auf die andere Seite bringen."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen c ergibt die positive Lösung von x² = c auf eine Dezimale gerundet genau 10,0?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Die Lösung muss zwischen 9,95 und 10,05 liegen: 9,95² ≈ 99,0 und 10,05² ≈ 101,0. Ganze Zahlen: 100 und 101 (99 liegt mit 9,9499 knapp darunter). Also 2.",
+   "h": "Quadriere die Rundungsgrenzen.",
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Die positive Lösung von x² = 2 liegt zwischen 1,41 und 1,42. Zwischen welchen Zahlen liegt die positive Lösung von x² = 200?"
+   },
+   "a": [
+    "zwischen 14,1 und 14,2",
+    "zwischen 1,41 und 1,42",
+    "zwischen 28,2 und 28,4",
+    "zwischen 141 und 142"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "200 = 2 · 100, also √200 = √2 · 10. Die Grenzen werden mit 10 multipliziert.",
+   "h": "Schreibe 200 als 2 mal eine Quadratzahl.",
+   "l": "gerundet",
+   "t": "gerundet",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "klammer",
    "t": "klammer",
    "p": "uebung",
@@ -2485,7 +3940,33 @@
    "c": [
     "9 - 8",
     "9 + 8"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4(x − 7)² − 17 = 19.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     4,
+     10
+    ]
+   },
+   "w": "4(x − 7)² = 36 ⇔ (x − 7)² = 9 ⇔ x = 7 ± 3: x₁ = 4, x₂ = 10.",
+   "h": "Erst die Klammer² allein stellen.",
+   "c": [
+    "(7) - 3",
+    "(7) + 3"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "klammer",
@@ -2509,7 +3990,225 @@
    "c": [
     "6 - 7",
     "6 + 7"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3(x + 2)² − 10 = 17.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     1
+    ]
+   },
+   "w": "3(x + 2)² = 27 ⇔ (x + 2)² = 9 ⇔ x = −2 ± 3: x₁ = −5, x₂ = 1.",
+   "h": "Erst die Klammer² allein stellen.",
+   "c": [
+    "(-2) - 3",
+    "(-2) + 3"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 6)² = 4.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -8,
+     -4
+    ]
+   },
+   "w": "x + 6 = ±2: x₁ = −6 − 2 = −8, x₂ = −6 + 2 = −4.",
+   "h": "Achte auf das Vorzeichen in der Klammer.",
+   "c": [
+    "(-6) - 2",
+    "(-6) + 2"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat (x + 1)² = −25?"
+   },
+   "a": [
+    "L = {−1}",
+    "L = {−5; 5}",
+    "L = {−6; 4}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Quadrat kann nicht −25 ergeben. Keine Lösung.",
+   "h": "Kann ein Quadrat negativ sein?",
+   "g": "erkennen"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2(x − 2)² + 5 = 167.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     11
+    ]
+   },
+   "w": "2(x − 2)² = 162 ⇔ (x − 2)² = 81 ⇔ x = 2 ± 9: x₁ = −7, x₂ = 11.",
+   "h": "Erst die Klammer² allein stellen.",
+   "c": [
+    "(2) - 9",
+    "(2) + 9"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für welchen Wert q hat (x − 4)² = q genau eine Lösung? Gib q und die Lösung an.",
+    "schablone": "q = □; x = □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "c": [
+    "0",
+    "4"
+   ],
+   "w": "Nur (x − 4)² = 0 hat genau eine Lösung: x − 4 = 0 ⇒ x = 4.",
+   "h": "Wann gibt es bei „Quadrat = Zahl“ nur eine Lösung?",
+   "g": "parameter"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 8)² = 25.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -13,
+     -3
+    ]
+   },
+   "w": "x + 8 = ±5: x₁ = −8 − 5 = −13, x₂ = −8 + 5 = −3.",
+   "h": "Achte auf das Vorzeichen in der Klammer.",
+   "c": [
+    "(-8) - 5",
+    "(-8) + 5"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 1)² = 64.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -7,
+     9
+    ]
+   },
+   "w": "x − 1 = ±8: x₁ = 1 − 8 = −7, x₂ = 1 + 8 = 9.",
+   "h": "Ziehe zuerst die Wurzel: Die Klammer ist ± die Wurzel.",
+   "c": [
+    "1 - 8",
+    "1 + 8"
    ]
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 9)² = 81.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     18
+    ]
+   },
+   "w": "x − 9 = ±9: x₁ = 9 − 9 = 0, x₂ = 9 + 9 = 18.",
+   "h": "Ziehe zuerst die Wurzel: Die Klammer ist ± die Wurzel.",
+   "c": [
+    "9 - 9",
+    "9 + 9"
+   ]
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche zwei Gleichungen entstehen beim Wurzelziehen aus (x − 2)² = 9?"
+   },
+   "a": [
+    "x − 2 = 9 oder x − 2 = −9",
+    "x − 2 = 3 oder x − 2 = −3",
+    "x = 3 oder x = −3",
+    "x − 2 = 3 oder x + 2 = 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Wurzel aus 9 ist 3 oder −3: x − 2 = ±3, also x = 5 oder x = −1.",
+   "h": "Welche Zahlen ergeben quadriert 9?",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "klammer",
@@ -2563,49 +4262,93 @@
    "l": "klammer",
    "t": "klammer",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse (x − 1)² = 64.",
+    "text": "Löse 2(x + 3)² − 2 = 0.",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
-     -7,
-     9
+     -4,
+     -2
     ]
    },
-   "w": "x − 1 = ±8: x₁ = 1 − 8 = −7, x₂ = 1 + 8 = 9.",
-   "h": "Ziehe zuerst die Wurzel: Die Klammer ist ± die Wurzel.",
+   "w": "2(x + 3)² = 2 ⇔ (x + 3)² = 1 ⇔ x = −3 ± 1: x₁ = −4, x₂ = −2.",
+   "h": "Erst die Klammer² allein stellen.",
    "c": [
-    "1 - 8",
-    "1 + 8"
-   ]
+    "(-3) - 1",
+    "(-3) + 1"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "klammer",
    "t": "klammer",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse (x − 9)² = 81.",
+    "text": "Löse x² − 6x + 9 = 25.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Trage die Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     -2,
+     8
+    ]
+   },
+   "c": [
+    "3 - 5",
+    "3 + 5"
+   ],
+   "w": "Links steht (x − 3)². (x − 3)² = 25 ⇒ x − 3 = ±5 ⇒ x = −2 oder x = 8.",
+   "h": "Erkennst du links eine binomische Formel?",
+   "g": "darstellung"
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x − 2)² = 25.",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
-     0,
-     18
+     -3,
+     7
     ]
    },
-   "w": "x − 9 = ±9: x₁ = 9 − 9 = 0, x₂ = 9 + 9 = 18.",
-   "h": "Ziehe zuerst die Wurzel: Die Klammer ist ± die Wurzel.",
+   "w": "x − 2 = ±5: x₁ = 2 − 5 = −3, x₂ = 2 + 5 = 7.",
+   "h": "Achte auf das Vorzeichen in der Klammer.",
    "c": [
-    "9 - 9",
-    "9 + 9"
+    "(2) - 5",
+    "(2) + 5"
    ]
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Teppich wird an jeder Seite um 1 m breiter gemacht (die Seitenlänge wächst also um 2 m) und ist dann 25 m² groß. Wie lang war eine Seite vorher?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "5 - 2",
+   "w": "(x + 2)² = 25 ⇒ x + 2 = 5 (Länge positiv) ⇒ x = 3 m.",
+   "h": "Stelle die Gleichung mit der neuen Seitenlänge auf.",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
   },
   {
    "l": "klammer",
@@ -2653,240 +4396,6 @@
    "c": [
     "(8) - 6",
     "(8) + 6"
-   ]
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 6)² = 4.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -8,
-     -4
-    ]
-   },
-   "w": "x + 6 = ±2: x₁ = −6 − 2 = −8, x₂ = −6 + 2 = −4.",
-   "h": "Achte auf das Vorzeichen in der Klammer.",
-   "c": [
-    "(-6) - 2",
-    "(-6) + 2"
-   ]
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 8)² = 25.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -13,
-     -3
-    ]
-   },
-   "w": "x + 8 = ±5: x₁ = −8 − 5 = −13, x₂ = −8 + 5 = −3.",
-   "h": "Achte auf das Vorzeichen in der Klammer.",
-   "c": [
-    "(-8) - 5",
-    "(-8) + 5"
-   ]
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x − 2)² = 25.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -3,
-     7
-    ]
-   },
-   "w": "x − 2 = ±5: x₁ = 2 − 5 = −3, x₂ = 2 + 5 = 7.",
-   "h": "Achte auf das Vorzeichen in der Klammer.",
-   "c": [
-    "(2) - 5",
-    "(2) + 5"
-   ]
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (x + 3)² = 4.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -5,
-     -1
-    ]
-   },
-   "w": "x + 3 = ±2: x₁ = −3 − 2 = −5, x₂ = −3 + 2 = −1.",
-   "h": "Achte auf das Vorzeichen in der Klammer.",
-   "c": [
-    "(-3) - 2",
-    "(-3) + 2"
-   ]
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst (x − 6)² = 4 so: x − 6 = 2, also x = 8. Was stimmt?"
-   },
-   "a": [
-    "Falsch: x = −4.",
-    "Falsch: Richtig ist nur x = 4.",
-    "Unvollständig: Auch x − 6 = −2, also x = 4.",
-    "Richtig, das ist die einzige Lösung."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Klammer kann 2 oder −2 sein: x = 8 oder x = 4.",
-   "h": "Welche Zahlen ergeben quadriert 4?"
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 4(x − 7)² − 17 = 19.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     4,
-     10
-    ]
-   },
-   "w": "4(x − 7)² = 36 ⇔ (x − 7)² = 9 ⇔ x = 7 ± 3: x₁ = 4, x₂ = 10.",
-   "h": "Erst die Klammer² allein stellen.",
-   "c": [
-    "(7) - 3",
-    "(7) + 3"
-   ]
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3(x + 2)² − 10 = 17.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -5,
-     1
-    ]
-   },
-   "w": "3(x + 2)² = 27 ⇔ (x + 2)² = 9 ⇔ x = −2 ± 3: x₁ = −5, x₂ = 1.",
-   "h": "Erst die Klammer² allein stellen.",
-   "c": [
-    "(-2) - 3",
-    "(-2) + 3"
-   ]
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2(x − 2)² + 5 = 167.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -7,
-     11
-    ]
-   },
-   "w": "2(x − 2)² = 162 ⇔ (x − 2)² = 81 ⇔ x = 2 ± 9: x₁ = −7, x₂ = 11.",
-   "h": "Erst die Klammer² allein stellen.",
-   "c": [
-    "(2) - 9",
-    "(2) + 9"
-   ]
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösungsmenge hat (x + 1)² = −25?"
-   },
-   "a": [
-    "L = {−1}",
-    "L = {−5; 5}",
-    "L = {−6; 4}",
-    "L = { }"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein Quadrat kann nicht −25 ergeben. Keine Lösung.",
-   "h": "Kann ein Quadrat negativ sein?"
-  },
-  {
-   "l": "klammer",
-   "t": "klammer",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2(x + 3)² − 2 = 0.",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     -4,
-     -2
-    ]
-   },
-   "w": "2(x + 3)² = 2 ⇔ (x + 3)² = 1 ⇔ x = −3 ± 1: x₁ = −4, x₂ = −2.",
-   "h": "Erst die Klammer² allein stellen.",
-   "c": [
-    "(-3) - 1",
-    "(-3) + 1"
    ]
   },
   {
@@ -3120,6 +4629,211 @@
    ]
   },
   {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse (x + 3)² = 4.",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -1
+    ]
+   },
+   "w": "x + 3 = ±2: x₁ = −3 − 2 = −5, x₂ = −3 + 2 = −1.",
+   "h": "Achte auf das Vorzeichen in der Klammer.",
+   "c": [
+    "(-3) - 2",
+    "(-3) + 2"
+   ]
+  },
+  {
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst (x − 6)² = 4 so: x − 6 = 2, also x = 8. Was stimmt?"
+   },
+   "a": [
+    "Falsch: x = −4.",
+    "Falsch: Richtig ist nur x = 4.",
+    "Unvollständig: Auch x − 6 = −2, also x = 4.",
+    "Richtig, das ist die einzige Lösung."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Klammer kann 2 oder −2 sein: x = 8 oder x = 4.",
+   "h": "Welche Zahlen ergeben quadriert 4?",
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: (x − 3)² = 16 und x − 3 = 4 haben dieselben Lösungen?"
+   },
+   "a": [
+    "Nein, die zweite hat keine Lösung.",
+    "Ja, beide haben x = 7.",
+    "Ja, beide haben x = 7 und x = −1.",
+    "Nein: Die erste hat zwei Lösungen (7 und −1), die zweite nur x = 7."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Aus (x − 3)² = 16 folgt x − 3 = 4 oder x − 3 = −4. Wer nur die positive Wurzel nimmt, verliert x = −1.",
+   "h": "Prüfe x = −1 in beiden Gleichungen.",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ball wird geworfen, seine Höhe ist h = 20 − 5(t − 1)² (h in m, t in s). Nach wie vielen Sekunden landet er (h = 0)?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "s"
+   },
+   "c": "1 + 2",
+   "w": "20 − 5(t − 1)² = 0 ⇒ (t − 1)² = 4 ⇒ t − 1 = 2 (die Zeit nach dem Wurf) ⇒ t = 3 s. Die Lösung t = −1 passt nicht.",
+   "h": "Setze h = 0.",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Parabel y = (x − 3)² − 16 schneidet die x-Achse zweimal. Wie weit liegen die Schnittpunkte auseinander?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "7 - (-1)",
+   "w": "(x − 3)² = 16 ⇒ x = 7 oder x = −1. Abstand 7 − (−1) = 8.",
+   "h": "Löse (x − 3)² − 16 = 0.",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung (x − d)² = 9 hat die Lösungen 1 und 7. Wie groß ist d?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(1 + 7) // 2",
+   "w": "Die Lösungen liegen symmetrisch um d: d − 3 = 1 und d + 3 = 7 ⇒ d = 4.",
+   "h": "Die Lösungen liegen gleich weit links und rechts von d.",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen q hat (x + 2)² = q keine Lösung?"
+   },
+   "a": [
+    "für q < 0",
+    "für q > 0",
+    "für q = 0",
+    "für q < −2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Quadrat ist nie negativ. Für q < 0 gibt es keine Lösung, für q = 0 genau eine (x = −2), für q > 0 zwei.",
+   "h": "Kann ein Quadrat negativ sein?",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Löse a) (x + 4)² = 49; b) 2(x − 1)² = 50.",
+    "schablone": "a) x₁ = □; x₂ = □; b) x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     -11,
+     3,
+     -4,
+     6
+    ]
+   },
+   "c": [
+    "-4 - 7",
+    "-4 + 7",
+    "1 - 5",
+    "1 + 5"
+   ],
+   "w": "a) x + 4 = ±7 ⇒ x = −11 oder 3. b) (x − 1)² = 25 ⇒ x − 1 = ±5 ⇒ x = −4 oder 6.",
+   "h": "Bei b) zuerst durch 2 teilen.",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x − 5)² = (x − 1)²."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Zwei Quadrate sind gleich, wenn die Zahlen gleich oder Gegenzahlen sind. x − 5 = x − 1 ist unmöglich. x − 5 = −(x − 1) ⇒ 2x = 6 ⇒ x = 3. Das ist die Mitte zwischen 1 und 5.",
+   "h": "Gleiche Quadrate – welche Möglichkeiten gibt es?",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen x gilt (x − 3)² < 10?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "(x − 3)² < 10 heißt: x − 3 liegt zwischen −√10 und √10 ≈ ±3,16. Ganze Werte für x − 3: −3 bis 3, also x = 0, 1, …, 6: sieben Zahlen.",
+   "h": "Welche ganzen Zahlen haben ein Quadrat unter 10?",
+   "l": "klammer",
+   "t": "klammer",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
@@ -3134,7 +4848,27 @@
    },
    "c": "576 / 24",
    "w": "a² = 576 ⇒ a = √576 = 24 m (nur positiv).",
-   "h": "A = a². Welche Zahl ergibt quadriert die Fläche?"
+   "h": "A = a². Welche Zahl ergibt quadriert die Fläche?",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Terrasse soll 15 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
+   },
+   "o": {
+    "wert": 3.9,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(3.872983346207, 1)",
+   "w": "a² = 15 ⇒ a = √15 ≈ 3,9 m.",
+   "h": "Wurzel aus der Fläche, dann runden.",
+   "g": "einkleidung"
   },
   {
    "l": "sachaufgabe",
@@ -3151,7 +4885,45 @@
    },
    "c": "(180 / 5) / 6",
    "w": "5t² = 180 ⇒ t² = 36 ⇒ t = 6 s (nur positiv).",
-   "h": "Teile durch 5, dann Wurzel."
+   "h": "Teile durch 5, dann Wurzel.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Apfel fällt aus 33 m Höhe. Wie lange dauert der Fall (s = 5 · t²)? Runde auf eine Dezimale."
+   },
+   "o": {
+    "wert": 2.6,
+    "einheit": "s",
+    "toleranz": 0.1
+   },
+   "c": "round(2.569046515733, 1)",
+   "w": "5t² = 33 ⇒ t² = 6,6 ⇒ t = √6,6 ≈ 2,6 s.",
+   "h": "Nach t² umstellen, dann Wurzel ziehen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat eine Oberfläche von 150 cm². Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "150/6/5",
+   "w": "Ein Würfel hat 6 gleiche Quadrate: 6a² = 150 ⇒ a² = 25 ⇒ a = 5 cm.",
+   "h": "Aus wie vielen Quadraten besteht die Oberfläche?",
+   "g": "transfer"
   },
   {
    "l": "sachaufgabe",
@@ -3168,7 +4940,144 @@
    },
    "c": "(20 / 5) / 2",
    "w": "5t² = 20 ⇒ t² = 4 ⇒ t = 2 s (nur positiv).",
-   "h": "Teile durch 5, dann Wurzel."
+   "h": "Teile durch 5, dann Wurzel.",
+   "g": "direkt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kreisrundes Beet soll 80 m² groß werden. Welchen Radius braucht es? Runde auf eine Dezimale."
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(5.046265044040, 1)",
+   "w": "π · r² = 80 ⇒ r² = 80 : π ≈ 25,46 ⇒ r ≈ 5 m.",
+   "h": "A = π · r². Erst durch π teilen, dann Wurzel.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Apfel fällt aus 12 m Höhe. Wie lange dauert der Fall (s = 5 · t²)? Runde auf eine Dezimale."
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "s",
+    "toleranz": 0.1
+   },
+   "c": "round(1.549193338483, 1)",
+   "w": "5t² = 12 ⇒ t² = 2,4 ⇒ t = √2,4 ≈ 1,5 s.",
+   "h": "Nach t² umstellen, dann Wurzel ziehen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für ein kreisrundes Beet mit 80 m² rechnet jemand: r = √80 ≈ 8,9 m. Was stimmt?"
+   },
+   "a": [
+    "Falsch: r ≈ 4,5 m.",
+    "Falsch: Erst durch π teilen; r ≈ 5 m.",
+    "Falsch: r ≈ 25,5 m.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "π · r² = 80 ⇒ r² = 80 : π ⇒ r = √(80 : π) ≈ 5 m.",
+   "h": "Wo steckt das π in der Formel?",
+   "g": "fehler"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für den Bremsweg gilt näherungsweise s = v² : 100 (v in km/h, s in m). Ein Auto hat 49 m Bremsweg. Wie schnell war es?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "km/h"
+   },
+   "c": "7*10",
+   "w": "v² : 100 = 49 ⇒ v² = 4 900 ⇒ v = 70 km/h (nur positiv).",
+   "h": "Multipliziere zuerst mit 100.",
+   "g": "transfer"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Sekunden länger fällt ein Stein aus 80 m Höhe als aus 20 m Höhe (s = 5 · t²)?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "s"
+   },
+   "c": "4 - 2",
+   "w": "80 m: t² = 16, t = 4 s. 20 m: t² = 4, t = 2 s. Unterschied 2 s – vierfache Höhe heißt nur doppelte Zeit.",
+   "h": "Rechne beide Fallzeiten aus.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Grundstück hat 9 m² Fläche. Wie lang ist eine Seite?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "9 / 3",
+   "w": "a² = 9 ⇒ a = √9 = 3 m (nur positiv).",
+   "h": "A = a². Welche Zahl ergibt quadriert die Fläche?",
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ein quadratischer Platz hat 400 m² Fläche. Welche Gleichung beschreibt seine Seitenlänge s?"
+   },
+   "a": [
+    "4s = 400",
+    "s = 400²",
+    "2s = 400",
+    "s² = 400"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Fläche eines Quadrats = s · s = s². Also s² = 400, s = 20 m. 4s = 400 wäre der Umfang.",
+   "h": "Wie berechnet man die Fläche eines Quadrats?",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "sachaufgabe",
@@ -3194,23 +5103,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratisches Grundstück hat 9 m² Fläche. Wie lang ist eine Seite?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "m"
-   },
-   "c": "9 / 3",
-   "w": "a² = 9 ⇒ a = √9 = 3 m (nur positiv).",
-   "h": "A = a². Welche Zahl ergibt quadriert die Fläche?"
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "Ein quadratisches Grundstück hat 289 m² Fläche. Wie lang ist eine Seite?"
    },
    "o": {
@@ -3225,94 +5117,18 @@
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine quadratische Terrasse soll 15 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
+    "text": "Für den Fallweg gilt näherungsweise s = 5 · t² (s in m, t in s). Wie lange fällt ein Stein 80 m tief?"
    },
    "o": {
-    "wert": 3.9,
-    "einheit": "m",
-    "toleranz": 0.1
+    "wert": 4,
+    "einheit": "s"
    },
-   "c": "round(3.872983346207, 1)",
-   "w": "a² = 15 ⇒ a = √15 ≈ 3,9 m.",
-   "h": "Wurzel aus der Fläche, dann runden."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Für ein kreisrundes Beet mit 80 m² rechnet jemand: r = √80 ≈ 8,9 m. Was stimmt?"
-   },
-   "a": [
-    "Falsch: r ≈ 4,5 m.",
-    "Falsch: Erst durch π teilen; r ≈ 5 m.",
-    "Falsch: r ≈ 25,5 m.",
-    "Richtig."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "π · r² = 80 ⇒ r² = 80 : π ⇒ r = √(80 : π) ≈ 5 m.",
-   "h": "Wo steckt das π in der Formel?"
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Apfel fällt aus 33 m Höhe. Wie lange dauert der Fall (s = 5 · t²)? Runde auf eine Dezimale."
-   },
-   "o": {
-    "wert": 2.6,
-    "einheit": "s",
-    "toleranz": 0.1
-   },
-   "c": "round(2.569046515733, 1)",
-   "w": "5t² = 33 ⇒ t² = 6,6 ⇒ t = √6,6 ≈ 2,6 s.",
-   "h": "Nach t² umstellen, dann Wurzel ziehen."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein kreisrundes Beet soll 80 m² groß werden. Welchen Radius braucht es? Runde auf eine Dezimale."
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "m",
-    "toleranz": 0.1
-   },
-   "c": "round(5.046265044040, 1)",
-   "w": "π · r² = 80 ⇒ r² = 80 : π ≈ 25,46 ⇒ r ≈ 5 m.",
-   "h": "A = π · r². Erst durch π teilen, dann Wurzel."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Apfel fällt aus 12 m Höhe. Wie lange dauert der Fall (s = 5 · t²)? Runde auf eine Dezimale."
-   },
-   "o": {
-    "wert": 1.5,
-    "einheit": "s",
-    "toleranz": 0.1
-   },
-   "c": "round(1.549193338483, 1)",
-   "w": "5t² = 12 ⇒ t² = 2,4 ⇒ t = √2,4 ≈ 1,5 s.",
-   "h": "Nach t² umstellen, dann Wurzel ziehen."
+   "c": "(80 / 5) / 4",
+   "w": "5t² = 80 ⇒ t² = 16 ⇒ t = 4 s (nur positiv).",
+   "h": "Teile durch 5, dann Wurzel."
   },
   {
    "l": "sachaufgabe",
@@ -3330,70 +5146,14 @@
    },
    "c": "round(7.978845608029, 1)",
    "w": "π · r² = 200 ⇒ r² = 200 : π ≈ 63,66 ⇒ r ≈ 8 m.",
-   "h": "A = π · r². Erst durch π teilen, dann Wurzel."
+   "h": "A = π · r². Erst durch π teilen, dann Wurzel.",
+   "g": "mehrschritt"
   },
   {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Terrasse soll 58 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
-   },
-   "o": {
-    "wert": 7.6,
-    "einheit": "m",
-    "toleranz": 0.1
-   },
-   "c": "round(7.615773105864, 1)",
-   "w": "a² = 58 ⇒ a = √58 ≈ 7,6 m.",
-   "h": "Wurzel aus der Fläche, dann runden."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Für ein kreisrundes Beet mit 250 m² rechnet jemand: r = √250 ≈ 15,8 m. Was stimmt?"
-   },
-   "a": [
-    "Falsch: Erst durch π teilen; r ≈ 8,9 m.",
-    "Richtig.",
-    "Falsch: r ≈ 79,6 m.",
-    "Falsch: r ≈ 7,9 m."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "π · r² = 250 ⇒ r² = 250 : π ⇒ r = √(250 : π) ≈ 8,9 m.",
-   "h": "Wo steckt das π in der Formel?"
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Terrasse soll 133 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
-   },
-   "o": {
-    "wert": 11.5,
-    "einheit": "m",
-    "toleranz": 0.1
-   },
-   "c": "round(11.532562594671, 1)",
-   "w": "a² = 133 ⇒ a = √133 ≈ 11,5 m.",
-   "h": "Wurzel aus der Fläche, dann runden."
-  },
-  {
-   "l": "sachaufgabe",
-   "t": "sachaufgabe",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Terrasse soll 136 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
@@ -3405,13 +5165,32 @@
    },
    "c": "round(11.661903789691, 1)",
    "w": "a² = 136 ⇒ a = √136 ≈ 11,7 m.",
-   "h": "Wurzel aus der Fläche, dann runden."
+   "h": "Wurzel aus der Fläche, dann runden.",
+   "g": "einkleidung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stein fällt 4 Sekunden lang (s = 5 · t²). Wie tief fällt er?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "m"
+   },
+   "c": "5 * 4 * 4",
+   "w": "s = 5 · 4² = 5 · 16 = 80 m.",
+   "h": "Setze t ein.",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
   },
   {
    "l": "sachaufgabe",
    "t": "sachaufgabe",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine quadratische Terrasse soll 147 m² groß werden. Wie lang wird eine Seite? Runde auf eine Dezimale."
@@ -3432,15 +5211,60 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Für den Fallweg gilt näherungsweise s = 5 · t² (s in m, t in s). Wie lange fällt ein Stein 80 m tief?"
+    "text": "Ein quadratisches Grundstück wird an zwei anliegenden Seiten um je 2 m verbreitert. Danach ist es wieder quadratisch und 144 m² groß. Wie lang war eine Seite vorher?"
    },
    "o": {
-    "wert": 4,
-    "einheit": "s"
+    "wert": 10,
+    "einheit": "m"
    },
-   "c": "(80 / 5) / 4",
-   "w": "5t² = 80 ⇒ t² = 16 ⇒ t = 4 s (nur positiv).",
-   "h": "Teile durch 5, dann Wurzel."
+   "c": "12 - 2",
+   "w": "Neue Seite: (x + 2)² = 144 ⇒ x + 2 = 12 (nur positiv) ⇒ x = 10 m.",
+   "h": "Die neue Seite ist x + 2.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für ein kreisrundes Beet mit 250 m² rechnet jemand: r = √250 ≈ 15,8 m. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Erst durch π teilen; r ≈ 8,9 m.",
+    "Richtig.",
+    "Falsch: r ≈ 79,6 m.",
+    "Falsch: r ≈ 7,9 m."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "π · r² = 250 ⇒ r² = 250 : π ⇒ r = √(250 : π) ≈ 8,9 m.",
+   "h": "Wo steckt das π in der Formel?",
+   "g": "fehler"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Flächeninhalt eines Quadrats wird vervierfacht. Wie ändert sich die Seitenlänge?"
+   },
+   "a": [
+    "Sie verdoppelt sich.",
+    "Sie vervierfacht sich.",
+    "Sie wird 16-mal so groß.",
+    "Sie bleibt gleich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Neue Fläche 4a² = (2a)². Die Seite ist also 2a.",
+   "h": "Probiere es mit a = 3 aus.",
+   "g": "begruenden"
   },
   {
    "l": "sachaufgabe",
@@ -3610,6 +5434,104 @@
    },
    "c": "round(3.316624790355, 1)",
    "w": "a² = 11 ⇒ a = √11 ≈ 3,3 m."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat einen dreimal so großen Flächeninhalt wie ein Kreis mit r = 2 cm. Berechne seinen Radius auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 3.46,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(3.464101615138, 2)",
+   "w": "π r² = 3 · π · 2² ⇒ r² = 12 ⇒ r = √12 ≈ 3,46 cm. π kürzt sich weg.",
+   "h": "Setze die Flächen gleich; was passiert mit π?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist doppelt so lang wie breit und hat 98 cm² Flächeninhalt. Wie breit ist es?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "7",
+   "w": "Breite x, Länge 2x: 2x² = 98 ⇒ x² = 49 ⇒ x = 7 cm.",
+   "h": "Nenne die Breite x. Wie lang ist das Rechteck dann?",
+   "g": "transfer"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Für den freien Fall gilt s = 5 · t². a) Wie tief fällt ein Stein in 3 s? b) Wie lange braucht er für 125 m?",
+    "schablone": "a) □ m; b) □ s",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     45,
+     5
+    ]
+   },
+   "c": [
+    "5 * 9",
+    "5"
+   ],
+   "w": "a) 5 · 9 = 45 m. b) 5t² = 125 ⇒ t² = 25 ⇒ t = 5 s.",
+   "h": "Bei b) eine reinquadratische Gleichung lösen.",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Rasen ist ringsum von einem 1 m breiten Weg umgeben. Rasen und Weg zusammen bedecken 144 m². Wie lang ist eine Seite des Rasens?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "m"
+   },
+   "c": "12 - 2",
+   "w": "Rasen und Weg bilden ein Quadrat mit 144 m², also Seite 12 m. Der Weg nimmt auf jeder Seite 1 m weg: 12 − 2 = 10 m. Der Weg allein hat 144 − 100 = 44 m².",
+   "h": "Wie lang ist die Seite des großen Quadrats?",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Aus welcher Höhe fällt ein Stein doppelt so lange wie aus 20 m Höhe (s = 5 · t²)?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "m"
+   },
+   "c": "4 * 20",
+   "w": "Aus 20 m: 5t² = 20 ⇒ t = 2 s. Doppelt so lange: 4 s ⇒ s = 5 · 16 = 80 m. Doppelte Zeit heißt vierfache Höhe, weil t im Quadrat steht.",
+   "h": "Was bewirkt das Quadrat bei der doppelten Zeit?",
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   }
  ]
 }

@@ -336,86 +336,408 @@ GEN = {'mittelwert': g_mittel, 'mittel_tabelle': g_tab, 'mittel_rueckwaerts': g_
 DATEI = datei(E, 'Das arithmetische Mittel bestimmen und deuten, Modalwert, Spannweite und Median ermitteln und Kennwerte kritisch beurteilen.', MERKE,
               [('Mittelwert', ['mittelwert', 'mittel_tabelle', 'mittel_rueckwaerts']),
                ('Weitere Kennwerte', ['modal_spannweite', 'median', 'verstehen'])],
-              ETAPPEN, GEN, vertiefung=['median'],
+              ETAPPEN, GEN, vertiefung=['modal_spannweite', 'median'],
               offen=['„umfang“ nennt Median, Quartile und Boxplot; der Kl.-6-Lehrplan (lehrplan_gym) verlangt nur das arithmetische Mittel. Quartile und Boxplot weggelassen (höhere Klasse, Boxplot braucht außerdem eine Zeichnung). Median als Vertiefung (nicht Pflicht) aufgenommen, Modalwert und Spannweite als einfache Ergänzung zum Mittelwert.',
                      'Falls der Median doch Pflicht werden soll: in bewertung.lernziele_pflicht verschieben.'])
 
-# ---------- KLAR: verständliche Erklärungen (Siebte Runde, Pflicht seit 15.11.) ----------
-# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl6.py) – die Aufgaben bleiben wörtlich gleich.
-from _klar_kl6 import klar  # noqa: E402
+# ---------- KARTEN: Lernkarten nach dem neuen Muster (Achte Runde, Vorgabe 16.11., Paket U6) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl6.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl6 import umbau  # noqa: E402
 
-KLAR = {
+KARTEN = {
  'mittelwert': {
-  'einstieg': 'Vier Kinder sammeln bei einem Spiel Punkte: 7, 9, 4 und 8. Wie viele Punkte hat jedes im Schnitt? Stell dir die Punkte als Stapel aus Bausteinen vor. Die hohen Stapel geben Steine an die niedrigen ab, bis alle gleich hoch sind. Diese gemeinsame Höhe heißt ⟦Mittelwert⟧.',
-  'woerter': [['Mittelwert (arithmetisches Mittel)', 'Summe aller Werte geteilt durch die Anzahl der Werte'],
-              ['Durchschnitt, im Schnitt', 'Alltagswörter für den Mittelwert'],
-              ['Summe', 'alle Werte zusammengezählt'],
-              ['Anzahl der Werte', 'wie viele Werte es gibt – hier 4 Kinder']],
-  'schritte': ['Zähle alle Punkte zusammen: 7 + 9 + 4 + 8 = 28.',
-               'Es sind 4 Kinder, also 4 Werte. Verteile die 28 Punkte gleichmäßig: 28 : 4 = 7.',
-               'Kontrolle mit den Stapeln: Der 9er-Stapel gibt 2 ab, der 8er-Stapel 1. Damit wächst der 4er-Stapel auf 7.',
-               'Jetzt sind alle Stapel 7 hoch. Der Mittelwert ist ⟦7⟧ Punkte.'],
-  'regel': 'So berechnest du den Mittelwert: ⟦Summe aller Werte : Anzahl der Werte⟧. Er ist der Wert, den alle hätten, wenn man ⟦gleichmäßig verteilt⟧.',
-  'fehler': 'Bei 7, 9, 4 und 8 die Summe 28 durch 2 zu teilen ist falsch: Heraus kämen 14 Punkte – mehr, als irgendein Kind hat. Geteilt wird durch die ⟦Anzahl der Werte⟧, hier 4.',
-  'bild': {'typ': 'saeulen', 'einheit': 'Punkte', 'werte': [{'name': 'Kind A', 'wert': 7}, {'name': 'Kind B', 'wert': 9}, {'name': 'Kind C', 'wert': 4}, {'name': 'Kind D', 'wert': 8}],
-           'zahlen': True}},
+  'einstieg': 'Vier Kinder haben 7, 9, 4 und 8 Punkte. Die hohen Stapel geben ab, bis alle gleich hoch sind. Diese Höhe heißt ⟦Mittelwert⟧.',
+  'woerter': [['Mittelwert', 'Summe aller Werte geteilt durch ihre Anzahl'],
+              ['Summe', 'alle Werte zusammengezählt']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Punkte', 'werte': [{'name': 'Kind A', 'wert': 7}, {'name': 'Kind B', 'wert': 9},
+           {'name': 'Kind C', 'wert': 4}, {'name': 'Kind D', 'wert': 8}], 'zahlen': True},
+  'schritte': [{'text': 'Die Summe ist 7 + 9 + 4 + 8 = 28 Punkte.'},
+               {'text': 'Verteile auf 4 Kinder: 28 : 4 = ⟦7⟧.',
+                'bild': {'werte': [{'name': 'Kind A', 'wert': 7}, {'name': 'Kind B', 'wert': 7}, {'name': 'Kind C', 'wert': 7}, {'name': 'Kind D', 'wert': 7}]}},
+               {'text': 'B gibt 2 ab, D gibt 1 ab. So hat C auch 7.'}],
+  'fehler': 'Durch 2 statt durch 4 zu teilen ergibt 14 Punkte. Das ist mehr, als irgendein Kind hat.',
+  'regel': 'Mittelwert ist ⟦Summe durch Anzahl⟧. So viel hätte jeder bei gerechter Verteilung.'},
  'mittel_tabelle': {
-  'einstieg': 'Nach einer Probe hängt der Notenspiegel an der Tafel: zweimal die 1, fünfmal die 2, dreimal die 3. Wie lautet die Durchschnittsnote? Du könntest alle zehn Noten einzeln hinschreiben – schneller geht es mit der Tabelle. Dafür rechnest du mit den ⟦Häufigkeiten⟧.',
-  'woerter': [['Notenspiegel', 'eine Tabelle, die zeigt, wie oft jede Note vorkam'],
-              ['Häufigkeit', 'wie oft ein Wert vorkommt'],
-              ['Note · Anzahl', 'die Note mal ihre Häufigkeit – so oft zählt diese Note']],
-  'schritte': ['Jede Note zählt so oft, wie sie vorkommt: 1 · 2 = 2, 2 · 5 = 10 und 3 · 3 = 9.',
-               'Zähle diese Ergebnisse zusammen: 2 + 10 + 9 = 21. Das ist die Summe aller zehn Noten.',
-               'Zähle die Anzahl der Noten: 2 + 5 + 3 = 10.',
-               'Teile die Summe durch die Anzahl: 21 : 10 = ⟦2,1⟧.'],
-  'regel': 'So berechnest du den Mittelwert aus einer Tabelle: Nimm ⟦jeden Wert mal seine Häufigkeit⟧, addiere alles und teile durch die ⟦Gesamtzahl⟧ der Werte.',
-  'fehler': 'Nur 1, 2 und 3 zu mitteln, also (1 + 2 + 3) : 3 = 2, ist falsch: Dann zählt die 1 genauso viel wie die 2, obwohl die 2 fünfmal vorkam. Jeder Wert zählt so oft, wie er ⟦vorkommt⟧.'},
+  'einstieg': 'Der Notenspiegel zeigt: zweimal die 1, fünfmal die 2, dreimal die 3. Wie lautet die ⟦Durchschnittsnote⟧?',
+  'woerter': [['Notenspiegel', 'eine Tabelle: wie oft kam jede Note vor'],
+              ['Durchschnittsnote', 'der Mittelwert aller Noten']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Note', '1', '2', '3', 'Summe'], 'zeilen': [['Anzahl', '2', '5', '3', '10']]},
+  'schritte': [{'text': 'Jede Note zählt so oft, wie sie vorkommt: Note mal Anzahl.',
+                'bild': {'zeilen': [['Anzahl', '2', '5', '3', '10'], ['Note · Anzahl', '2', '10', '9', '21']]}},
+               {'text': 'Summe aller Noten: 2 + 10 + 9 = 21. Es sind 10 Noten.'},
+               {'text': 'Die Durchschnittsnote ist 21 : 10 = ⟦2,1⟧.'}],
+  'fehler': '(1 + 2 + 3) : 3 = 2 ist falsch. Dann zählt die 1 so viel wie die 2, obwohl die 2 fünfmal kam.',
+  'regel': 'Nimm ⟦jeden Wert mal seine Anzahl⟧ und addiere. Teile durch die Gesamtzahl der Werte.'},
  'mittel_rueckwaerts': {
-  'einstieg': 'Du hast drei Tests geschrieben und im Mittel 8 Punkte. Zwei Ergebnisse weißt du noch: 7 und 10 Punkte. Das dritte hast du vergessen. Aus dem Mittelwert kannst du es zurückrechnen – du gehst den Weg ⟦rückwärts⟧.',
-  'woerter': [['rückwärts rechnen', 'die Rechnung umdrehen: Aus „geteilt“ wird „mal“, aus „plus“ wird „minus“'],
-              ['Summe = Mittelwert · Anzahl', 'aus dem Mittelwert bekommst du die Summe aller Werte zurück']],
-  'schritte': ['Der Mittelwert ist Summe : Anzahl. Rückwärts heißt das: Summe = Mittelwert · Anzahl.',
-               'Die Summe aller drei Tests ist also 8 · 3 = 24 Punkte.',
-               'Zwei Tests kennst du: 7 + 10 = 17 Punkte.',
-               'Der fehlende Test hatte 24 − 17 = ⟦7⟧ Punkte.'],
-  'regel': 'So rechnest du rückwärts mit dem Mittelwert: Bilde zuerst die ⟦Summe = Mittelwert · Anzahl⟧. Ziehe dann die bekannten Werte ab – der Rest ist der ⟦fehlende Wert⟧.',
-  'fehler': 'Den fehlenden Wert als 8 anzunehmen, weil der Mittelwert 8 ist, ist falsch: Dann wäre der Mittelwert (7 + 10 + 8) : 3 ≈ 8,3. Erst die ⟦Summe⟧ bilden, dann die bekannten Werte abziehen.'},
+  'einstieg': 'Du hast in drei Tests im Mittel 8 Punkte. Zwei Ergebnisse kennst du: 7 und 10. Das dritte rechnest du ⟦rückwärts⟧ aus.',
+  'woerter': [['rückwärts', 'aus dem Mittelwert die Summe zurückrechnen: Summe = Mittelwert · Anzahl']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Punkte', 'werte': [{'name': 'Test 1', 'wert': 7}, {'name': 'Test 2', 'wert': 10},
+           {'name': 'Test 3', 'wert': 0}], 'zahlen': True},
+  'schritte': [{'text': 'Summe aller drei Tests: 8 · 3 = 24 Punkte.'},
+               {'text': 'Bekannt sind 7 + 10 = 17 Punkte.'},
+               {'text': 'Test 3 hatte 24 − 17 = ⟦7⟧ Punkte.',
+                'bild': {'werte': [{'name': 'Test 1', 'wert': 7}, {'name': 'Test 2', 'wert': 10}, {'name': 'Test 3', 'wert': 7}]}}],
+  'fehler': 'Den fehlenden Test mit 8 anzunehmen ist falsch. Dann wäre der Mittelwert (7 + 10 + 8) : 3, also etwa 8,3.',
+  'regel': 'Rückwärts gilt: ⟦Summe = Mittelwert · Anzahl⟧. Zieh davon die bekannten Werte ab.'},
  'modal_spannweite': {
-  'einstieg': 'Ein Sportverein bestellt Turnschuhe für die Mannschaft. Die Schuhgrößen sind 36, 38, 37, 38, 40, 38 und 35. Am häufigsten braucht der Verein Größe 38, und die Größen reichen von 35 bis 40. Für beides gibt es einen eigenen Kennwert: ⟦Modalwert⟧ und ⟦Spannweite⟧.',
-  'woerter': [['Kennwert', 'eine Zahl, die eine ganze Liste kurz beschreibt, z. B. Mittelwert, Modalwert oder Spannweite'],
-              ['Modalwert', 'der Wert, der am häufigsten vorkommt'],
-              ['Spannweite', 'größter Wert minus kleinster Wert; zeigt, wie weit die Daten auseinanderliegen']],
-  'schritte': ['Zähle, wie oft jede Größe vorkommt: Die 38 kommt dreimal vor, jede andere Größe nur einmal.',
-               'Der häufigste Wert ist der Modalwert: ⟦38⟧.',
-               'Suche den größten und den kleinsten Wert: 40 und 35.',
-               'Die Spannweite ist 40 − 35 = ⟦5⟧ – so weit liegen die Schuhgrößen auseinander.'],
-  'regel': 'So bestimmst du die zwei Kennwerte: Der ⟦Modalwert⟧ ist der Wert, der ⟦am häufigsten⟧ vorkommt. Die ⟦Spannweite⟧ ist ⟦größter Wert − kleinster Wert⟧.',
-  'fehler': 'Die Spannweite als „letzter Wert − erster Wert“ der Liste zu rechnen ist falsch: 35 − 36 = −1 sagt nichts darüber, wie weit die Schuhgrößen auseinanderliegen. Man nimmt ⟦größten minus kleinsten⟧ Wert.'},
+  'einstieg': 'Ein Verein bestellt Turnschuhe: Größen 36, 38, 37, 38, 40, 38 und 35. Am häufigsten braucht er 38, die Größen reichen von 35 bis 40. Dafür gibt es ⟦Modalwert⟧ und ⟦Spannweite⟧.',
+  'woerter': [['Modalwert', 'der Wert, der am häufigsten vorkommt'],
+              ['Spannweite', 'größter Wert minus kleinster Wert']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Paare', 'werte': [{'name': '35', 'wert': 1}, {'name': '36', 'wert': 1}, {'name': '37', 'wert': 1},
+           {'name': '38', 'wert': 3}, {'name': '39', 'wert': 0}, {'name': '40', 'wert': 1}], 'zahlen': True},
+  'schritte': [{'text': 'Die 38 kommt dreimal vor, jede andere Größe nur einmal.'},
+               {'text': 'Der Modalwert ist also ⟦38⟧.'},
+               {'text': 'Größter Wert 40, kleinster 35. Die Spannweite ist 40 − 35 = ⟦5⟧.'}],
+  'fehler': 'Letzter minus erster Wert der Liste ist falsch: 35 − 36 = −1. Nimm den größten minus den kleinsten Wert.',
+  'regel': 'Der Modalwert kommt ⟦am häufigsten⟧ vor. Die Spannweite ist größter minus kleinster Wert.'},
  'median': {
-  'einstieg': 'Fünf Kinder messen, wie viele Minuten ihr Schulweg dauert: 12, 3, 8, 5 und 20 Minuten. Stellen sie sich der Größe nach in eine Reihe, steht genau in der Mitte das Kind mit 8 Minuten. Links stehen die kürzeren, rechts die längeren Wege. Dieser Wert in der Mitte heißt ⟦Median⟧.',
-  'woerter': [['Median (Zentralwert)', 'der Wert in der Mitte der geordneten Liste'],
-              ['der Größe nach ordnen', 'vom kleinsten zum größten Wert sortieren'],
-              ['Ausreißer', 'ein einzelner Wert, der viel größer oder kleiner ist als die anderen']],
-  'schritte': ['Ordne die Werte der Größe nach: 3, 5, 8, 12, 20.',
-               'Es sind 5 Werte. In der Mitte steht der 3. Wert, links und rechts davon stehen je 2 Werte.',
-               'Der 3. Wert ist die 8. Der Median ist ⟦8⟧ Minuten.',
-               'Bei einer geraden Anzahl von Werten gibt es zwei mittlere Werte. Dann ist der Median ihr Mittelwert.'],
-  'regel': 'So bestimmst du den Median: ⟦Ordne die Werte der Größe nach⟧. Bei ungerader Anzahl ist der Median der ⟦Wert in der Mitte⟧, bei gerader Anzahl der ⟦Mittelwert der beiden mittleren Werte⟧. Ausreißer verändern ihn kaum.',
-  'fehler': 'Den mittleren Wert der ⟦ungeordneten⟧ Liste zu nehmen ist falsch: Bei 12, 3, 20, 5, 8 steht in der Mitte die 20 – der längste Schulweg von allen! Geordnet: 3, 5, 8, 12, 20, der Median ist ⟦8⟧. Zuerst ⟦ordnen⟧!'},
+  'einstieg': 'Fünf Kinder messen ihren Schulweg: 12, 3, 8, 5 und 20 Minuten. Der Größe nach aufgestellt, steht das Kind mit 8 Minuten in der Mitte. Dieser Wert heißt ⟦Median⟧.',
+  'woerter': [['Median', 'der Wert in der Mitte der geordneten Liste'],
+              ['ordnen', 'vom kleinsten zum größten Wert sortieren']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 20, 'abschnitte': 20, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Zuerst der Größe nach ordnen: 3, 5, 8, 12, 20.',
+                'bild': {'punkte': [{'wert': 3}, {'wert': 5}, {'wert': 8}, {'wert': 12}, {'wert': 20}]}},
+               {'text': 'Bei 5 Werten steht der 3. Wert in der Mitte.'},
+               {'text': 'Der Median ist ⟦8⟧ Minuten.',
+                'bild': {'punkte': [{'wert': 3}, {'wert': 5}, {'wert': 8, 'name': 'Median'}, {'wert': 12}, {'wert': 20}]}}],
+  'fehler': 'Ohne Ordnen ist die Mitte Zufall. Bei 12, 3, 20, 5, 8 stünde dort 20. Erst ordnen!',
+  'regel': 'Ordne die Werte, dann ist der ⟦Median⟧ der Wert in der Mitte. Bei gerader Anzahl nimmst du den Mittelwert der beiden mittleren.'},
  'verstehen': {
-  'einstieg': 'Fünf Kinder vergleichen ihr Taschengeld: 5 €, 6 €, 5 €, 4 € und 30 €. Im Durchschnitt sind das 10 € – aber vier der fünf Kinder bekommen weniger. Schuld ist das eine Kind mit 30 €, das weit über den anderen liegt. So ein Wert heißt ⟦Ausreißer⟧.',
-  'woerter': [['verzerren', 'ein falsches Bild erzeugen'],
-              ['Zahlenbeispiel', 'eine Behauptung mit konkreten Zahlen ausprobieren']],
-  'schritte': ['Berechne den Mittelwert: 5 + 6 + 5 + 4 + 30 = 50 und 50 € : 5 = 10 €.',
-               'Vergleiche mit den einzelnen Werten: Vier von fünf Kindern bekommen weniger als 10 €.',
-               'Der Median (geordnet: 4, 5, 5, 6, 30) ist 5 € – er beschreibt ein typisches Kind besser.',
-               'Der Ausreißer 30 € ⟦verzerrt⟧ den Mittelwert nach oben.'],
-  'regel': 'So beurteilst du Kennwerte: Achte auf ⟦Ausreißer⟧ – sie ziehen den Mittelwert stark mit, den Median kaum. Der Mittelwert muss ⟦nicht⟧ in der Liste vorkommen und muss keine ganze Zahl sein. Prüfe Aussagen mit ⟦Zahlenbeispielen⟧.',
-  'fehler': '„Der Mittelwert ist 10 €, also bekommen die meisten Kinder etwa 10 €“ ist falsch: Ein ⟦Ausreißer⟧ kann den Mittelwert stark nach oben ziehen – hier bekommt kein einziges Kind etwa 10 €.'},
+  'einstieg': 'Fünf Kinder bekommen 5 €, 6 €, 5 €, 4 € und 30 € Taschengeld. Im Mittel sind das 10 €, aber vier bekommen weniger. Schuld ist ein ⟦Ausreißer⟧.',
+  'woerter': [['Ausreißer', 'ein Wert, der weit weg von den anderen liegt']],
+  'bild': {'typ': 'saeulen', 'einheit': '€', 'werte': [{'name': 'Kind A', 'wert': 5}, {'name': 'Kind B', 'wert': 6}, {'name': 'Kind C', 'wert': 5},
+           {'name': 'Kind D', 'wert': 4}, {'name': 'Kind E', 'wert': 30}], 'zahlen': True},
+  'schritte': [{'text': 'Der Mittelwert ist 50 € : 5 = ⟦10 €⟧.'},
+               {'text': 'Vier von fünf Kindern bekommen weniger als 10 €.'},
+               {'text': 'Der Median 5 € beschreibt die Gruppe besser. Der Ausreißer ⟦verzerrt⟧ den Mittelwert.'}],
+  'fehler': '„Im Mittel 10 €, also bekommen die meisten etwa 10 €“ ist falsch. Kein Kind bekommt etwa 10 €.',
+  'regel': 'Achte auf ⟦Ausreißer⟧: Sie ziehen den Mittelwert stark mit, den Median kaum.'},
 }
 
-klar(DATEI, KLAR)
+umbau(DATEI, KARTEN)
 
+
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl6): je Lernkarte 2 Übungen Stufe 2 + 4 Übungen Stufe 3 ----------
+# Läuft nach allen bisherigen Aufgaben mit eigenem Zufallsstart; die bisherigen Aufgaben bleiben unverändert.
+# Prüfungsvorbilder: Bayerischer Mathematik-Test Jgst. 8 (ISB) 2025 Aufg. 5 (Mittelwert-Formel ohne Klammern), 2025 Aufg. 6c (Median aus
+# Häufigkeiten, Grenze knapp), 2023 Aufg. 5b/5c (Median einer langen Reihe; gewichteter Mittelwert, gleiche Änderungen heben sich nicht auf),
+# 2021 Aufg. 7 (Median von 13 Werten mit Wiederholungen); Jahrgangsstufentest Realschule Jgst. 6 (ISB) 2025 (Notenverteilung passend ergänzen);
+# SMART-Aufgabensammlung Univ. Bayreuth Jgst. 5 (Notenverteilung zu vorgegebenem Durchschnitt).
+from _schwer_kl6 import ergaenzen, zahl, wahl  # noqa: E402
+
+_RUNDEN = tabelle(['Runden', '5', '10', '15', '20'], [['Kinder', '24', '50', '40', '36']])
+
+
+def _kw():
+    return {
+        'mittelwert': [
+            (2, lambda R: zahl('Berechne den Mittelwert von 2,5; 3,1; 4,2 und 1,8.', Fr('2.9'), '(2.5 + 3.1 + 4.2 + 1.8) / 4', 'Summe durch Anzahl.',
+                               'Summe 11,6. 11,6 : 4 = 2,9.')),
+            (2, lambda R: zahl('Berechne den Mittelwert von −4, 6, −2 und 8.', 2, '(-4 + 6 - 2 + 8) / 4', 'Achte bei der Summe auf die Vorzeichen.',
+                               'Summe: −4 + 6 − 2 + 8 = 8. 8 : 4 = 2.')),
+            (3, lambda R: wahl(R, 'Mit welcher Rechnung bekommst du den Mittelwert von 52 und 60?', '(52 + 60) : 2', ['52 + 60 : 2', '52 : 2 + 60', '(52 + 60) · 2'],
+                               'Erst die Summe, dann teilen. Denk an Punkt vor Strich.', '(52 + 60) : 2 = 56. Ohne Klammer würde nur 60 halbiert: 52 + 30 = 82.')),
+            (3, lambda R: zahl('Der Mittelwert von fünf aufeinanderfolgenden natürlichen Zahlen ist 23. Wie heißt die größte der fünf Zahlen?', 25, '23 + 2',
+                               'Bei aufeinanderfolgenden Zahlen steht der Mittelwert genau in der Mitte.', 'Die Zahlen sind 21, 22, 23, 24, 25. Summe 115, 115 : 5 = 23. Größte: 25.')),
+            (3, lambda R: wahl(R, 'Bei welchem Notenspiegel ist der Durchschnitt genau 3,0?', '1: 2, 2: 4, 3: 6, 4: 4, 5: 2, 6: 0',
+                               ['1: 4, 2: 4, 3: 6, 4: 4, 5: 2, 6: 0', '1: 2, 2: 4, 3: 6, 4: 4, 5: 0, 6: 2', '1: 0, 2: 4, 3: 6, 4: 4, 5: 2, 6: 2'],
+                               'Rechne Note mal Anzahl, addiere und teile durch die Zahl der Kinder.',
+                               '2 · 1 + 4 · 2 + 6 · 3 + 4 · 4 + 2 · 5 = 54 Punkte für 18 Kinder. 54 : 18 = 3,0. Die anderen ergeben 56 : 20 = 2,8; 56 : 18 ≈ 3,1; 64 : 18 ≈ 3,6.')),
+            (3, lambda R: wahl(R, 'Ein Kind hat in vier Tests 14, 17, 12 und 13 Punkte. Es sagt: „Ohne den schlechtesten Test wäre mein Mittelwert um mehr als 1 Punkt höher.“ Stimmt das?',
+                               'Nein, er wäre nur um etwa 0,7 Punkte höher.', ['Ja, um genau 2 Punkte.', 'Ja, um 1,5 Punkte.', 'Nein, er bliebe gleich.'],
+                               'Rechne beide Mittelwerte aus.', 'Mit allen: 56 : 4 = 14. Ohne die 12: 44 : 3 ≈ 14,7. Unterschied etwa 0,7 Punkte.')),
+        ],
+        'mittel_tabelle': [
+            (2, lambda R: zahl('Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“ in einer Klasse. Berechne den Mittelwert.', Fr('1.25'), '(0 * 4 + 1 * 9 + 2 * 5 + 3 * 2) / 20',
+                               'Wert mal Anzahl, addieren, durch die Zahl der Kinder teilen.', '0 · 4 + 1 · 9 + 2 · 5 + 3 · 2 = 25. 20 Kinder. 25 : 20 = 1,25.',
+                               grafik=tabelle(['Geschwister', '0', '1', '2', '3'], [['Kinder', '4', '9', '5', '2']]))),
+            (2, lambda R: zahl('Die Tabelle zeigt einen Notenspiegel. Berechne die Durchschnittsnote.', 3, '(1 * 3 + 2 * 6 + 3 * 8 + 4 * 5 + 5 * 2 + 6 * 1) / 25',
+                               'Note mal Anzahl, addieren, durch die Zahl der Kinder teilen.', '3 + 12 + 24 + 20 + 10 + 6 = 75. 25 Kinder. 75 : 25 = 3.',
+                               grafik=tabelle(['Note', '1', '2', '3', '4', '5', '6'], [['Anzahl', '3', '6', '8', '5', '2', '1']]))),
+            (3, lambda R: zahl('An einer Schule zahlen 55 % der Kinder 8 € Kopiergeld, 20 % zahlen 10 € und 25 % zahlen 12 €. Wie viel Euro zahlt ein Kind im Durchschnitt?',
+                               Fr('9.4'), '(55 * 8 + 20 * 10 + 25 * 12) / 100', 'Rechne mit 100 Kindern.',
+                               '100 Kinder: 55 · 8 € + 20 · 10 € + 25 · 12 € = 440 € + 200 € + 300 € = 940 €. 940 € : 100 = 9,40 €.', einheit='€')),
+            (3, lambda R: zahl('An einer Schule zahlen 55 % der Kinder 8 € Kopiergeld, 20 % zahlen 10 € und 25 % zahlen 12 €. Im nächsten Jahr zahlt die erste Gruppe 1 € mehr, '
+                               'die zweite Gruppe 1 € weniger. Um wie viel Euro steigt der Durchschnitt?', Fr('0.35'), '(55 * 1 - 20 * 1) / 100',
+                               'Die Gruppen sind verschieden groß. Rechne wieder mit 100 Kindern.',
+                               '55 Kinder zahlen zusammen 55 € mehr, 20 Kinder 20 € weniger. Plus 35 € für 100 Kinder: 0,35 € mehr. (Es hebt sich nicht auf!)', einheit='€')),
+            (3, lambda R: zahl('Im Notenspiegel ist eine Anzahl verwischt: Note 1: 2 Kinder, Note 2: 3 Kinder, Note 3: ? Kinder, Note 4: 2 Kinder. '
+                               'Der Durchschnitt ist genau 2,5. Wie viele Kinder haben Note 3?', 3, '(2.5 * 7 - (2 + 6 + 8)) / (3 - 2.5)',
+                               'Probiere aus: 1, 2, 3 … Kinder mit Note 3. Rechne jeweils den Durchschnitt.',
+                               'Mit 3 Kindern: 2 + 6 + 9 + 8 = 25 Notenpunkte für 10 Kinder. 25 : 10 = 2,5. Es passt.')),
+            (3, lambda R: zahl('Eine Mannschaft hat in 4 Spielen 0 Tore, in 3 Spielen 1 Tor und in 3 Spielen 2 Tore geschossen. Ein Kind rechnet den Mittelwert als (0 + 1 + 2) : 3 = 1. '
+                               'Wie groß ist er richtig?', Fr('0.9'), '(0 * 4 + 1 * 3 + 2 * 3) / 10', 'Jeder Wert zählt so oft, wie er vorkommt.',
+                               'Tore: 0 · 4 + 1 · 3 + 2 · 3 = 9 in 10 Spielen. 9 : 10 = 0,9.')),
+        ],
+        'mittel_rueckwaerts': [
+            (2, lambda R: zahl('Der Mittelwert von vier Zahlen ist 7,5. Drei der Zahlen sind 6, 9 und 8. Wie heißt die vierte Zahl?', 7, '7.5 * 4 - 6 - 9 - 8',
+                               'Summe = Mittelwert · Anzahl.', 'Summe 7,5 · 4 = 30. 30 − 6 − 9 − 8 = 7.')),
+            (2, lambda R: zahl('Eine Familie mit 4 Personen schaut im Mittel 1,5 Stunden am Tag auf Bildschirme. Wie viele Stunden sind das zusammen an einem Tag?', 6, '1.5 * 4',
+                               'Summe = Mittelwert · Anzahl.', '1,5 h · 4 = 6 h.', einheit='h')),
+            (3, lambda R: zahl('Nach drei Schulaufgaben hat ein Kind den Durchschnitt 3,0. Welche Note braucht es in der vierten Schulaufgabe, damit der Durchschnitt 2,5 wird?', 1,
+                               '2.5 * 4 - 3 * 3', 'Wie viele Notenpunkte braucht es nach vier Arbeiten insgesamt?', 'Bisher 3 · 3,0 = 9. Nötig 4 · 2,5 = 10. 10 − 9 = 1, also eine 1.')),
+            (3, lambda R: zahl('Fünf Kinder sind im Mittel 1,50 m groß. Ein Kind mit 1,62 m verlässt die Gruppe. Wie groß sind die übrigen vier im Mittel?', Fr('1.47'),
+                               '(1.5 * 5 - 1.62) / 4', 'Rechne die Summe aller Größen aus und ziehe 1,62 m ab.', 'Summe 5 · 1,50 m = 7,50 m. 7,50 − 1,62 = 5,88 m. 5,88 : 4 = 1,47 m.', einheit='m')),
+            (3, lambda R: zahl('Der Mittelwert von 3, 8, 10 und x ist genauso groß wie x. Wie groß ist x?', 7, '(3 + 8 + 10) / 3',
+                               'Probiere Werte für x aus, oder: Wenn x der Mittelwert ist, gleichen sich die Abstände der anderen Zahlen zu x aus.',
+                               'x = 7: (3 + 8 + 10 + 7) : 4 = 28 : 4 = 7. Es passt.')),
+            (3, lambda R: zahl('In der 6a (20 Kinder) sind es im Mittel 12 Punkte, in der 6b (30 Kinder) 17 Punkte. Wie groß ist der Mittelwert aller 50 Kinder?', 15,
+                               '(20 * 12 + 30 * 17) / 50', 'Rechne die Punktsumme jeder Klasse aus. Die Klassen sind verschieden groß.',
+                               '6a: 240 Punkte, 6b: 510 Punkte. 750 : 50 = 15. (Nicht (12 + 17) : 2 = 14,5.)')),
+        ],
+        'modal_spannweite': [
+            (2, lambda R: zahl('Bestimme die Spannweite von 2,4; 3,9; 1,7 und 2,8.', Fr('2.2'), '3.9 - 1.7', 'Größter minus kleinster Wert.', '3,9 − 1,7 = 2,2.')),
+            (2, lambda R: wahl(R, 'Lieblingsfarben: rot, blau, rot, grün, blau, rot, gelb. Welcher Wert ist der Modalwert?', 'rot', ['blau', 'grün', 'Es gibt keinen.'],
+                               'Welche Farbe kommt am häufigsten vor?', 'rot 3-mal, blau 2-mal, grün und gelb je 1-mal. Modalwert: rot.')),
+            (3, lambda R: zahl('Eine Datenreihe hat die Spannweite 12. Der kleinste Wert ist −5. Wie groß ist der größte Wert?', 7, '-5 + 12', 'Rückwärts: größter = kleinster + Spannweite.',
+                               'Größter Wert = kleinster Wert + Spannweite = −5 + 12 = 7.')),
+            (3, lambda R: zahl('Zur Reihe 4, 7, 7, 9 kommt eine Zahl größer als 9 dazu. Danach ist die Spannweite 10 und der Modalwert immer noch 7. Welche Zahl kommt dazu?', 14, '4 + 10',
+                               'Der kleinste Wert bleibt 4. Was muss der größte sein?', 'Spannweite 10 mit kleinstem Wert 4: größter Wert 14. Die 7 bleibt am häufigsten.')),
+            (3, lambda R: zahl('Das Diagramm zeigt die Noten 1 bis 5 einer Klasse. Note 6 fehlt noch. Wie viele Kinder dürfen höchstens Note 6 haben, '
+                               'damit Note 3 der einzige Modalwert bleibt?', 7, '8 - 1', 'Wie oft kommt Note 3 vor? Note 6 muss seltener sein.',
+                               'Note 3 haben 8 Kinder. Note 6 darf höchstens 7-mal vorkommen, sonst gäbe es einen zweiten Modalwert.',
+                               grafik=saeulen([('1', 2), ('2', 6), ('3', 8), ('4', 5), ('5', 3)], einheit='Kinder'))),
+            (3, lambda R: zahl('Ein Kind sagt: „Die Spannweite von 12, 5, 9, 20 ist 8, weil 20 − 12 = 8.“ Wie groß ist die Spannweite richtig?', 15, '20 - 5',
+                               'Nicht erster und letzter Wert, sondern größter und kleinster.', 'Größter Wert 20, kleinster 5. 20 − 5 = 15.')),
+        ],
+        'median': [
+            (2, lambda R: zahl('Bestimme den Median von 3, 9, 4, 9, 1, 7.', Fr('5.5'), '(4 + 7) / 2', 'Ordne zuerst. Bei 6 Werten gibt es zwei mittlere.',
+                               'Geordnet: 1, 3, 4, 7, 9, 9. Mitte: (4 + 7) : 2 = 5,5.')),
+            (2, lambda R: zahl('Bestimme den Median von −2, 5, 0, −7, 3.', 0, '0', 'Ordne zuerst, auch die negativen Zahlen.', 'Geordnet: −7, −2, 0, 3, 5. In der Mitte steht 0.')),
+            (3, lambda R: zahl('Punkte von 13 Kindern: 4, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 9, 10. Bestimme den Median.', 8, '8',
+                               'Bei 13 Werten ist der 7. Wert die Mitte. Zähle genau, auch die doppelten Werte.',
+                               'Die Werte sind schon geordnet. Der 7. Wert ist 8 (6 Werte davor, 6 danach).')),
+            (3, lambda R: zahl('Die Tabelle zeigt, wie viele Runden 150 Kinder beim Spendenlauf geschafft haben. Bestimme den Median der Runden.', 15, '15',
+                               'Bei 150 Werten liegen der 75. und 76. Wert in der Mitte. Zähle von vorne zusammen.',
+                               '5 Runden: Platz 1–24. 10 Runden: Platz 25–74. 15 Runden: Platz 75–114. Der 75. und 76. Wert sind 15, also Median 15 (knapp nicht 10).',
+                               grafik=_RUNDEN)),
+            (3, lambda R: zahl('Zur Reihe 2, 5, 9, 12 kommt eine Zahl dazu. Danach ist der Median genau 6. Welche Zahl kommt dazu?', 6, '6',
+                               'Bei 5 Werten ist der Median der 3. Wert der geordneten Reihe.', 'Damit der 3. Wert 6 ist, muss die neue Zahl 6 sein: 2, 5, 6, 9, 12.')),
+            (3, lambda R: zahl('Median und Mittelwert von 3, 4, 5, 6 und x sollen gleich groß sein. x ist größer als 6. Wie groß ist x?', 7, '5 * 5 - (3 + 4 + 5 + 6)',
+                               'Der Median ist 5 (x steht ganz rechts). Welche Summe braucht der Mittelwert 5?', 'Median 5. Mittelwert 5 heißt Summe 25. 25 − 18 = 7.')),
+        ],
+        'verstehen': [
+            (2, lambda R: wahl(R, 'Stimmt die Aussage? „Der Mittelwert liegt immer zwischen dem kleinsten und dem größten Wert (oder ist gleich einem von ihnen).“',
+                               'Ja: Beim gerechten Verteilen bekommt niemand mehr als der Größte oder weniger als der Kleinste hatte.',
+                               ['Nein, Gegenbeispiel 2, 4, 6.', 'Nein, bei Ausreißern kann er größer sein als der größte Wert.'],
+                               'Denke an gerechtes Verteilen.', 'Teilt man gerecht, gibt der Größte ab und der Kleinste bekommt dazu. Der Mittelwert liegt dazwischen.', n=3)),
+            (2, lambda R: wahl(R, 'Stimmt die Aussage? „Verdoppelt man alle Werte, verdoppelt sich auch der Mittelwert.“', 'Ja: Die Summe verdoppelt sich, die Anzahl bleibt gleich.',
+                               ['Nein, der Mittelwert bleibt gleich.', 'Nein, er wird um 2 größer.'], 'Probiere mit 1, 2, 3.', '1, 2, 3 → Mittel 2. 2, 4, 6 → Mittel 4.', n=3)),
+            (3, lambda R: wahl(R, 'Klasse A hat im Mittel 12 Punkte, Klasse B 18 Punkte. Jemand sagt: „Der Mittelwert aller Kinder ist (12 + 18) : 2 = 15.“ Stimmt das?',
+                               'Nur wenn beide Klassen gleich viele Kinder haben.', ['Ja, immer.', 'Nein, nie.', 'Nur wenn Klasse A mehr Kinder hat.'],
+                               'Probiere: A hat 10 Kinder, B hat 30 Kinder.', 'Bei 10 und 30 Kindern: (120 + 540) : 40 = 16,5, nicht 15. Bei gleich großen Klassen passt 15.')),
+            (3, lambda R: wahl(R, 'Stimmt die Aussage? „Der Median ist immer einer der Datenwerte.“', 'Nein: Bei 1, 2, 3, 4 ist der Median 2,5.',
+                               ['Ja, er ist immer der mittlere Wert der Liste.', 'Nein: Der Median ist nie ein Datenwert.', 'Ja, außer bei negativen Zahlen.'],
+                               'Denke an eine gerade Anzahl von Werten.', 'Bei gerader Anzahl ist der Median der Mittelwert der beiden mittleren Werte, z. B. (2 + 3) : 2 = 2,5.')),
+            (3, lambda R: zahl('Drei natürliche Zahlen haben den Mittelwert 10 und den Median 4. Wie groß ist die größte Zahl mindestens?', 22, '3 * 10 - 4 - 4',
+                               'Die Summe ist 30. Die kleinste Zahl ist höchstens 4. Wie groß darf sie sein, damit die größte möglichst klein wird?',
+                               'Summe 30, Median 4. Die kleinste Zahl ist höchstens 4. Mit 4, 4, x: x = 30 − 8 = 22. Kleiner geht es nicht.')),
+            (3, lambda R: wahl(R, 'Bei einem Test war der Mittelwert 15 Punkte, der Median 17 Punkte. Lisa hat 16 Punkte. Sie sagt: „Ich bin besser als die Hälfte der Klasse.“ Stimmt das?',
+                               'Nein: Mindestens die Hälfte hat 17 Punkte oder mehr.', ['Ja, denn 16 ist mehr als der Mittelwert 15.', 'Ja, genau die Hälfte ist schlechter.', 'Das kann man nicht entscheiden.'],
+                               'Was sagt der Median über die Hälfte der Klasse?',
+                               'Median 17: Die bessere Hälfte hat mindestens 17 Punkte. Mit 16 liegt Lisa unter dem Median. Der Mittelwert sagt darüber nichts.')),
+        ],
+    }
+
+
+ergaenzen(DATEI, _kw(), seed=6058)
+
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('daten.kennwerte', 13_6_8)
+# a) Grundform mit negativen Zahlen → Stufe 2
+BF.stufe('modal_spannweite', 'Bestimme die Spannweite von 7, 8, 7, 4, 7, 7, 10, 1, 2, −5, 8, −4.', 2)
+BF.stufe('modal_spannweite', 'Bestimme die Spannweite von −2, 0, 2, 6, 12, 7, 9, 7, −4, 0, 7, −5.', 2)
+BF.stufe('modal_spannweite', 'Temperaturen am Morgen in einer Woche (°C): −6, −2, −5, 1, −5, 5, 12. Wie groß ist die Spannweite?', 2)
+# a)/c) sechs Aufgaben mit wörtlich gleichem Text auf Stufe 2 und 3: eine Stufe-3-Aufgabe (Mittel 1) → Stufe 2,
+#        zwei Stufe-3-Aufgaben → andere Frage zur selben Tabelle
+_q = 'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?'
+BF.stufe('mittel_tabelle', _q, 2, enthaelt='"4", "6", "2", "1"')
+_t1 = {"typ": "tabelle", "kopf": ["Geschwister", "0", "1", "2", "3"], "zeilen": [["Anzahl Kinder", "4", "2", "2", "4"]]}
+_t2 = {"typ": "tabelle", "kopf": ["Geschwister", "0", "1", "2", "3"], "zeilen": [["Anzahl Kinder", "7", "6", "3", "4"]]}
+BF.ersetze('mittel_tabelle', _q, BF.Z(
+    'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Kinder mit 3 Geschwistern müssten noch dazukommen, damit der Mittelwert genau 2 ist?',
+    6, '(2 * 12 - 18) / (3 - 2)',
+    'Bisher: Summe 0 · 4 + 1 · 2 + 2 · 2 + 3 · 4 = 18, Anzahl 12. Für Mittel 2 bräuchte man Summe 2 · Anzahl. Jedes neue Kind bringt 3, also 1 mehr als 2: Es fehlen 2 · 12 − 18 = 6, also 6 Kinder. Probe: 36 : 18 = 2.',
+    'Wie groß müsste die Summe sein? Um wie viel erhöht jedes neue Kind die Summe mehr als nötig?', grafik=_t1), enthaelt='"4", "2", "2", "4"')
+BF.ersetze('mittel_tabelle', _q, BF.Z(
+    'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Jemand rechnet (0 + 1 + 2 + 3) : 4 = 1,5. Wie groß ist der Mittelwert richtig?',
+    1.2, '(0 * 7 + 1 * 6 + 2 * 3 + 3 * 4) / (7 + 6 + 3 + 4)',
+    'Falsch ist, nur die vier Spaltenwerte zu mitteln. Jede Anzahl zählt so oft, wie Kinder sie haben: Summe 0 · 7 + 1 · 6 + 2 · 3 + 3 · 4 = 24, Anzahl 20. Mittelwert: 24 : 20 = 1,2.',
+    'Wie viele Kinder wurden befragt? Jedes Kind zählt einmal.', grafik=_t2), enthaelt='"7", "6", "3", "4"')
+# c) vierfach dieselbe Taschengeld-Aufgabe → zwei mit anderem Gedanken
+BF.ersetze('verstehen', 'Stimmt die Aussage? „Taschengeld (€): 9, 8, 8, 9, 77. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“', BF.Z(
+    'Taschengeld (€): 9, 8, 8, 9, 77. Um wie viel € ist der Mittelwert größer als der Median?', 13.2, '(9 + 8 + 8 + 9 + 77) / 5 - 9',
+    'Mittelwert: 111 : 5 = 22,2 €. Geordnet 8, 8, 9, 9, 77: Median 9 €. Unterschied: 22,2 − 9 = 13,2 €. Der Ausreißer 77 € zieht nur den Mittelwert nach oben.',
+    'Berechne beide Werte. Für den Median zuerst ordnen.', einheit='€'))
+BF.ersetze('verstehen', 'Stimmt die Aussage? „Taschengeld (€): 7, 4, 11, 12, 82. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“', BF.A(
+    'Stimmt die Aussage? „Lässt man bei 7, 4, 11, 12, 82 den Wert 82 weg, ändert sich der Median nicht.“',
+    'Nein: Vorher ist der Median 11, danach (4, 7, 11, 12) ist er (7 + 11) : 2 = 9.',
+    ['Ja, ein Ausreißer verändert den Median nie.', 'Ja, der Median bleibt immer 11.'],
+    'Geordnet 4, 7, 11, 12, 82: Median 11. Ohne 82 bleiben 4 Werte, der Median ist der Mittelwert der beiden mittleren: (7 + 11) : 2 = 9. Er ändert sich – aber viel weniger als der Mittelwert (23,2 → 8,5).',
+    'Ordne die Werte und bestimme den Median vorher und nachher.'))
+BF.fuer_sebastian('daten.kennwerte: laut themenliste lehrplan_gym ist für Kl. 6 nur „Arithmetisches Mittel bestimmen“ vorgesehen; die Karten modal_spannweite und median gehen darüber hinaus (BMT8-Stoff bis Kl. 7). Als Vertiefung führen? Karten nicht geändert.')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+from _durchsicht_kl6 import Befunde, befunde_anwenden  # noqa: E402
+
+DS = Befunde('daten.kennwerte', 19_6_9)
+_S = DS.stufe
+_R = {
+    # mittelwert: Mittelwert eingekleidet ausrechnen bzw. zwei Mittelwerte vergleichen (viermal) = Stufe 2
+    'mittelwert': ('Ein Kind läuft an 7 Tagen 42 min, 20 min, 57 min, 24 min, 17 min, 36 min, 42 min. Wie viele Minuten läuft es im Durchschnitt pro Tag?',
+                   'Ein Kind läuft an 5 Tagen 36 min, 28 min, 14 min, 35 min, 27 min. Wie viele Minuten läuft es im Durchschnitt pro Tag?',
+                   'Gruppe A sammelt 7 kg, 4 kg, 7 kg, 4 kg Altpapier, Gruppe B 8 kg, 12 kg, 7 kg, 11 kg. Welche Gruppe hat im Mittel mehr gesammelt?',
+                   'Gruppe A sammelt 4 kg, 6 kg, 2 kg, 2 kg Altpapier, Gruppe B 8 kg, 11 kg, 9 kg, 2 kg. Welche Gruppe hat im Mittel mehr gesammelt?',
+                   'Gruppe A sammelt 5 kg, 12 kg, 10 kg, 9 kg Altpapier, Gruppe B 2 kg, 9 kg, 11 kg, 2 kg. Welche Gruppe hat im Mittel mehr gesammelt?'),
+    # mittel_rueckwaerts: „Kind kommt dazu“ und „nächster Test“ je dreimal → je zwei nach S2
+    'mittel_rueckwaerts': ('4 Kinder haben im Mittel 15 Punkte. Ein weiteres Kind kommt mit 3 Punkten dazu. Wie groß ist der neue Mittelwert?',
+                           '9 Kinder haben im Mittel 12 Punkte. Ein weiteres Kind kommt mit 2 Punkten dazu. Wie groß ist der neue Mittelwert?',
+                           'Nach 4 Tests hat ein Kind im Mittel 6 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 7 steigt?',
+                           'Nach 5 Tests hat ein Kind im Mittel 11 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 13 steigt?'),
+    # modal_spannweite: Modalwert/Spannweite einer langen Reihe = Stufe 2 (nur mehr Werte)
+    'modal_spannweite': ('Welcher Wert ist der Modalwert von 42, 35, 35, 37, 38, 41, 33, 34, 37, 33, 35, 32?',
+                         'Bestimme die Spannweite von 124, 139, 151, 148, 157, 160, 122, 157, 155, 141, 144, 121.'),
+    # median: Median einer ungeordneten Reihe = Stufe 2; zweiter gleicher Fehler und zweiter Ausreißer-Vergleich → S2
+    'median': ('Bestimme den Median von 26, 13, 20, 34, 40, 24, 34, 4.', 'Bestimme den Median von 4, 28, 21, 6, 40, 9, 13, 4, 3, 35, 20.',
+               'Punkte von 13 Kindern: 4, 6, 6, 7, 7, 7, 8, 8, 9, 9, 9, 9, 10. Bestimme den Median.',
+               'Jemand sagt: „Der Median von 7, 9, 13, 17 ist 13.“ Was ist falsch?', 'Daten: 27, 26, 25, 24, 5, 18, 14, 208. Welchen Kennwert verändert der Ausreißer 208 stärker?'),
+    # verstehen: „Median typisch?“ dreimal → zwei nach S2; Ausreißer weglassen → Mittelwert kleiner ist direkt
+    'verstehen': ('Stimmt die Aussage? „Taschengeld (€): 2, 6, 2, 6, 6, 52. Der Mittelwert zeigt gut, was ein typisches Kind bekommt.“',
+                  'Stimmt die Aussage? „Taschengeld (€): 11, 4, 7, 9, 10, 41. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“',
+                  'Stimmt die Aussage? „Lässt man bei 11, 6, 10, 6, 2, 88 den Ausreißer 88 weg, wird der Mittelwert kleiner.“'),
+}
+for _lz, _ts in _R.items():
+    for _t in _ts:
+        _S(_lz, _t, 2)
+# mittel_tabelle: Mittelwert aus Tabelle ablesen = genau das Stufe-2-Muster
+_S('mittel_tabelle', 'Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?', 2, enthaelt='"s": 3', anzahl=2)
+_S('mittel_tabelle', 'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?', 2, enthaelt='"s": 3')
+DS.fuer_sebastian('daten.kennwerte: Modalwert, Spannweite und Median stehen nicht im LehrplanPLUS M6 (dort: arithmetisches Mittel); die Karten modal_spannweite und median sind als Vertiefung markiert – so lassen?')
+befunde_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('daten.kennwerte', 20_6_9)
+SZ, SA, SL, SN, SK, STB = ST.Z, ST.A, ST.L, ST.neu, ST.knobel, ST.typ_bau
+
+lz = 'mittelwert'
+ST.leiter(lz, 'Mittelwert weniger Zahlen berechnen; wissen, was er bedeutet.', 'Mittelwert aus Diagrammen, mit Dezimalzahlen und negativen Zahlen, in Sachsituationen, Gruppen vergleichen.',
+          'Richtige Rechnung wählen, aufeinanderfolgende Zahlen, Notenspiegel finden, Aussage prüfen, Fehler deuten, rückwärts, fehlende Zahl, Wettkampf als Prüfungsaufgabe.')
+STB(lz, 3, 'Gruppe A', 'einkleidung', neu_s=2)
+STB(lz, 3, 'Mit welcher Rechnung', 'verknuepfen'); STB(lz, 3, 'Ein Kind hat in vier', 'begruenden')
+SN(lz, SZ('fehler', 'Ein Kind rechnet den Mittelwert von 4, 6, 8 und 10 so: (4 + 6 + 8 + 10) : 2 = 14. Wie heißt er richtig?', 7, '(4 + 6 + 8 + 10) / 4', 'Es hat durch 2 statt durch die Anzahl 4 geteilt. 28 : 4 = 7.', 'Durch welche Zahl muss man teilen?'))
+SN(lz, SZ('rueckwaerts', 'Drei Kinder haben im Mittel 12 € gespart. Das erste hat 10 €, das zweite 4 € mehr als das erste. Wie viel hat das dritte gespart?', 12, '3 * 12 - 10 - 14', 'Zusammen 36 €. Das zweite hat 14 €. Das dritte: 36 − 10 − 14 = 12 €.', 'Wie viel haben alle zusammen?', einheit='€'))
+SN(lz, SZ('parameter', 'Für welche Zahl x ist der Mittelwert von 4, 9 und x genau 8?', 11, '3 * 8 - 4 - 9', 'Die Summe muss 3 · 8 = 24 sein. x = 24 − 4 − 9 = 11.', 'Wie groß muss die Summe sein?'))
+SN(lz, SZ('pruefung', 'Ein Kind springt 3,20 m; 3,40 m; 2,90 m und 3,30 m. Der schlechteste Sprung wird gestrichen. Wie groß ist der Mittelwert der übrigen Sprünge?', 3.3, '(3.2 + 3.4 + 3.3) / 3', 'Gestrichen wird 2,90 m. (3,20 + 3,40 + 3,30) : 3 = 9,90 : 3 = 3,30 m.', 'Welcher Sprung fällt weg?', einheit='m'))
+SK(lz, SZ('knobel', 'Der Mittelwert von 10 Zahlen ist 20. Eine der Zahlen wird von 35 auf 15 geändert. Wie groß ist der neue Mittelwert?', 18, '(10 * 20 - 35 + 15) / 10',
+          'Die Summe war 200. Sie wird um 20 kleiner: 180. Der neue Mittelwert ist 180 : 10 = 18.', 'Was passiert mit der Summe?'))
+SK(lz, SZ('knobel', 'Fünf verschiedene natürliche Zahlen (ab 1) haben den Mittelwert 10. Wie groß kann die größte höchstens sein?', 40, '5 * 10 - (1 + 2 + 3 + 4)',
+          'Die Summe ist 50. Die größte Zahl wird am größten, wenn die anderen vier so klein wie möglich sind: 1, 2, 3, 4 (zusammen 10). Bleibt 40.', 'Wie klein können die anderen vier Zahlen sein?'))
+
+lz = 'mittel_tabelle'
+ST.leiter(lz, 'Mittelwert aus einer Häufigkeitstabelle berechnen; das Vorgehen erkennen.', 'Tabellen mit Noten, Toren und Geschwistern, die gleiche Rechnung aus einem Text.',
+          'Wie viele müssen dazukommen, Fehler beim ungewichteten Rechnen deuten, Anteile in Prozent als Gewichte, verwischte Anzahl rückwärts, Aussage prüfen, Notenspiegel.')
+STB(lz, 1, 'Die Tabelle', 'direkt')
+STB(lz, 3, 'Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Kinder', 'parameter')
+STB(lz, 3, 'An einer Schule zahlen 55 % der Kinder 8 € Kopiergeld, 20 % zahlen 10 € und 25 % zahlen 12 €. Wie', 'verknuepfen'); STB(lz, 3, 'Im Notenspiegel', 'rueckwaerts')
+SN(lz, SA('erkennen', 'Wie berechnest du den Mittelwert aus einer Häufigkeitstabelle?', 'Jeden Wert mit seiner Häufigkeit malnehmen, alles addieren und durch die Zahl aller Werte teilen.',
+          ['Alle Werte der ersten Spalte addieren und durch die Zahl der Zeilen teilen.', 'Den Wert mit der größten Häufigkeit nehmen.'], 'Jeder Wert zählt so oft, wie er vorkommt.', 'Wie oft zählt jeder Wert?'))
+SN(lz, SZ('einkleidung', 'In einer Klasse haben 5 Kinder die Note 1, 10 Kinder die Note 2 und 5 Kinder die Note 3. Wie groß ist die Durchschnittsnote?', 2, '(5 * 1 + 10 * 2 + 5 * 3) / 20', '(5 + 20 + 15) : 20 = 40 : 20 = 2.', 'Wie viele Kinder sind es insgesamt?'))
+SN(lz, SZ('mehrschritt', 'Eine Datenreihe enthält 4-mal die 2, 3-mal die 5 und 3-mal die 0. Wie groß ist der Mittelwert?', 2.3, '(4 * 2 + 3 * 5 + 3 * 0) / 10', '(8 + 15 + 0) : 10 = 2,3.', 'Die Nullen zählen bei der Anzahl mit.'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Den Mittelwert aus einer Tabelle erhält man als Summe der Werte durch die Zahl der Zeilen.“', 'Nein, man muss jeden Wert mit seiner Häufigkeit gewichten und durch die Zahl aller Werte teilen.',
+          ['Ja, das stimmt.', 'Ja, wenn die Tabelle mehr als drei Zeilen hat.'], 'Kommt ein Wert 10-mal vor, zählt er auch 10-mal.', 'Was ist mit Werten, die oft vorkommen?'))
+SN(lz, SZ('pruefung', 'Notenspiegel: Note 1: 3, Note 2: 7, Note 3: 8, Note 4: 4, Note 5: 2, Note 6: 1. Wie groß ist die Durchschnittsnote? Runde auf eine Nachkommastelle.', 2.9, 'round((3 + 14 + 24 + 16 + 10 + 6) / 25, 1)',
+          'Summe: 3 + 14 + 24 + 16 + 10 + 6 = 73 bei 25 Kindern. 73 : 25 = 2,92 ≈ 2,9.', 'Wie viele Kinder sind es?'))
+SK(lz, SZ('knobel', 'Eine Klasse hat den Notenschnitt 2,5. Kommt ein Kind mit der Note 1 dazu, ist der Schnitt 2,4. Wie viele Kinder hat die Klasse jetzt?', 15, '15',
+          'Mit n Kindern ist die Notensumme 2,5 · n. Danach 2,5 · n + 1 = 2,4 · (n + 1). Probieren: n = 14 ergibt 35 + 1 = 36 und 2,4 · 15 = 36. Also sind es jetzt 15 Kinder.', 'Schreibe die Notensumme vorher und nachher auf.'))
+SK(lz, SL('knobel', 'In einer Tabelle kommt der Wert 1 a-mal vor, der Wert 2 doppelt so oft und der Wert 3 dreimal so oft wie der Wert 1. Wie groß ist der Mittelwert? (Als Bruch)', '□/□', [7, 3], ['14 // 2', '6 // 2'],
+          'Für a = 1: Die 1 kommt 1-mal, die 2 kommt 2-mal, die 3 kommt 3-mal vor. Summe 1 + 4 + 9 = 14, Anzahl 6, Mittelwert 14/6 = 7/3. Für a = 2 verdoppeln sich Summe und Anzahl (28 und 12), für a = 3 verdreifachen sie sich – der Mittelwert bleibt 7/3, egal wie groß a ist.', 'Probiere a = 1 aus.'))
+
+lz = 'mittel_rueckwaerts'
+ST.leiter(lz, 'Aus Mittelwert und Anzahl die Summe berechnen; die passende Rechnung erkennen.', 'Fehlenden Wert bestimmen, ein Wert kommt dazu, Ziel-Mittelwert erreichen, Gesamtzeit aus Mittelwert.',
+          'Note für einen Zielschnitt, ein Kind verlässt die Gruppe, x gleich Mittelwert, gewichtete Klassen, Fehler deuten, Aussage begründen, Teilgruppen rückwärts, Zeugnis als Prüfungsaufgabe.')
+STB(lz, 2, '4 Kinder haben', 'mehrschritt'); STB(lz, 2, 'Nach 4 Tests', 'umkehr')
+STB(lz, 3, '9 Kinder haben', 'mehrschritt', neu_s=2); STB(lz, 3, 'Nach 3 Tests', 'umkehr', neu_s=2)
+STB(lz, 3, 'Der Mittelwert von 3', 'parameter'); STB(lz, 3, 'In der 6a', 'verknuepfen')
+SN(lz, SA('erkennen', 'Mit welcher Rechnung erhältst du aus Mittelwert und Anzahl die Summe aller Werte?', 'Mittelwert · Anzahl', ['Mittelwert : Anzahl', 'Mittelwert + Anzahl'], 'Mittelwert = Summe : Anzahl, also Summe = Mittelwert · Anzahl.', 'Mache die Division rückgängig.'))
+SN(lz, SZ('direkt', 'Der Mittelwert von 3 Zahlen ist 7. Wie groß ist ihre Summe?', 21, '3 * 7', 'Summe = 3 · 7 = 21.', 'Mittelwert mal Anzahl.'))
+SN(lz, SZ('fehler', 'Ein Kind sagt: „Mein Mittelwert aus 5 Tests ist 6, also habe ich zusammen 11 Punkte.“ Wie viele Punkte sind es richtig?', 30, '5 * 6', 'Es hat 5 + 6 gerechnet. Richtig: 5 · 6 = 30 Punkte.', 'Mittelwert mal Anzahl.'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Kommt ein Wert dazu, der genau so groß ist wie der Mittelwert, ändert sich der Mittelwert nicht.“', 'Ja: Summe und Anzahl wachsen im gleichen Verhältnis.',
+          ['Nein, er wird immer größer.', 'Nein, er wird immer kleiner.'], 'Beispiel: 4, 6, 8 haben den Mittelwert 6. Mit 6 dazu: 24 : 4 = 6.', 'Rechne ein Beispiel.'))
+SN(lz, SZ('rueckwaerts', 'Fünf Kinder haben im Mittel 10 Punkte. Die 3 Mädchen haben im Mittel 12 Punkte. Wie viele Punkte haben die 2 Jungen im Mittel?', 7, '(5 * 10 - 3 * 12) / 2', 'Alle: 50 Punkte. Mädchen: 36. Jungen: 14, im Mittel 7.', 'Rechne erst die Summen aus.'))
+SN(lz, SZ('pruefung', 'Ein Kind braucht mindestens den Schnitt 2,0. Es hat die Noten 2, 3, 1 und 2. Welche Note darf es in der fünften Arbeit höchstens haben?', 2, '5 * 2 - (2 + 3 + 1 + 2)', 'Für den Schnitt 2,0 darf die Notensumme bei 5 Arbeiten höchstens 10 sein. Bisher 8, also höchstens Note 2.', 'Wie groß darf die Notensumme sein?'))
+SK(lz, SZ('knobel', 'Der Mittelwert von 4 Zahlen ist 10. Nimmt man eine Zahl weg, ist der Mittelwert der übrigen 9. Welche Zahl wurde weggenommen?', 13, '4 * 10 - 3 * 9', 'Vorher ist die Summe 4 · 10 = 40, nachher 3 · 9 = 27. Weggenommen wurde der Unterschied: 40 − 27 = 13.', 'Rechne die Summen vorher und nachher.'))
+SK(lz, SZ('knobel', 'In einer Klasse mit 25 Kindern ist die mittlere Körpergröße 150 cm. 10 Kinder sind im Mittel 156 cm groß. Wie groß sind die übrigen 15 Kinder im Mittel?', 146, '(25 * 150 - 10 * 156) / 15',
+          'Alle zusammen: 3 750 cm. Die 10 großen: 1 560 cm. Die übrigen 15: 2 190 cm, im Mittel 146 cm.', 'Rechne mit den Summen der Körpergrößen.', einheit='cm'))
+
+lz = 'modal_spannweite'
+ST.leiter(lz, 'Modalwert und Spannweite einer kurzen Reihe bestimmen; die Begriffe erkennen.', 'Lange Reihen, negative Zahlen und Dezimalzahlen, zwei Modalwerte, Temperaturen, kleinster Wert aus der Spannweite.',
+          'Kein Modalwert begründen, Zahl ergänzen, Grenze im Diagramm, Fehler deuten, Brüche verknüpfen, Würfel-Rätsel, Summe aus Kennwerten.')
+STB(lz, 2, 'Temperaturen', 'einkleidung'); STB(lz, 2, 'Lieblingsfarben', 'einkleidung')
+STB(lz, 3, 'Eine Datenreihe hat', 'umkehr', neu_s=2)
+STB(lz, 3, 'Welchen Modalwert', 'begruenden'); STB(lz, 3, 'Zur Reihe', 'rueckwaerts'); STB(lz, 3, 'Das Diagramm', 'parameter'); STB(lz, 3, 'Ein Kind sagt', 'fehler')
+SN(lz, SA('erkennen', 'Was ist die Spannweite einer Datenreihe?', 'größter Wert minus kleinster Wert', ['der häufigste Wert', 'der Wert in der Mitte'], 'Die Spannweite zeigt, wie weit die Werte auseinanderliegen.', 'Wie weit liegen die Werte auseinander?'))
+SN(lz, SZ('transfer', 'Ein Würfel wird 10-mal geworfen. Jede Augenzahl kommt vor, die 4 ist der einzige Modalwert. Wie oft fiel die 4 mindestens?', 3, '3',
+          'Fiele die 4 nur 2-mal, dürften die anderen fünf Zahlen je höchstens 1-mal fallen: 2 + 5 = 7 Würfe, zu wenig. Bei 3-mal: 3 + 7 = 10 geht (z. B. die 4 dreimal, die 1 und die 2 je zweimal, die 3, 5 und 6 je einmal: 3 + 2 + 2 + 1 + 1 + 1 = 10).', 'Probiere, wie oft die 4 mindestens fallen muss.'))
+SN(lz, SL('verknuepfen', 'Wie groß ist die Spannweite von 1/2, 3/4, 1/3 und 5/6?', '□/□', [1, 2], ['1', '2'], 'Größter Wert 5/6, kleinster 1/3 = 2/6. 5/6 − 2/6 = 3/6 = 1/2.', 'Finde zuerst den größten und kleinsten Bruch.'))
+SN(lz, SZ('pruefung', 'Punkte einer Gruppe: 12, 15, 9, 15, 18, 7, 15, 11. Wie groß ist die Summe aus Modalwert und Spannweite?', 26, '15 + (18 - 7)', 'Modalwert 15 (dreimal), Spannweite 18 − 7 = 11. Summe 26.', 'Bestimme beide Kennwerte einzeln.'))
+SN(lz, SA('begruenden', 'Stimmt die Aussage? „Eine Datenreihe kann zwei Modalwerte haben.“', 'Ja, z. B. 2, 2, 5, 5, 7: 2 und 5 kommen gleich oft am häufigsten vor.', ['Nein, es gibt immer genau einen.', 'Nein, dann gibt es keinen Modalwert.'],
+          'Kommen zwei Werte gleich oft und am häufigsten vor, sind beide Modalwerte.', 'Suche ein Beispiel.'))
+SK(lz, SZ('knobel', 'Vier natürliche Zahlen haben den Modalwert 5, die Spannweite 6 und die Summe 20. Wie heißt die größte Zahl?', 8, '8',
+          'Die 5 kommt mindestens zweimal vor. Dreimal geht nicht: Dann wäre die vierte Zahl 20 − 15 = 5 und die Spannweite 0. Also genau zweimal; die beiden anderen Zahlen ergeben zusammen 10. '
+          'Wäre 5 die kleinste Zahl, müsste die größte 11 sein und die vierte −1; wäre 5 die größte, müsste die kleinste −1 sein – beides geht nicht. '
+          'Also ist eine der beiden anderen Zahlen die kleinste und die andere die größte: Unterschied 6, Summe 10. Das passt nur für 2 und 8 (2 + 8 = 10, 8 − 2 = 6).',
+          'Wie oft kommt die 5 vor, und was bleibt dann für die anderen Zahlen übrig?'))
+SK(lz, SZ('knobel', 'Fünf Zahlen haben die Spannweite 0 und die Summe 35. Wie heißt der Modalwert?', 7, '35 / 5', 'Spannweite 0 heißt: Alle Zahlen sind gleich. Jede ist 35 : 5 = 7, also ist der Modalwert 7.', 'Was bedeutet die Spannweite 0?'))
+
+lz = 'median'
+ST.leiter(lz, 'Median einer geordneten kurzen Reihe bestimmen; wissen, dass man vorher ordnet.', 'Ungeordnete Reihen mit gerader und ungerader Anzahl, negative Zahlen, Strichlisten, Sachdaten.',
+          'Fehler deuten, Ausreißer begründen, Tabelle mit 150 Werten, Zahl ergänzen, Median gleich Mittelwert, Brüche, Laufzeiten, ein Wert kommt dazu.')
+STB(lz, 3, 'Daten: 32', 'begruenden'); STB(lz, 3, 'Zur Reihe', 'rueckwaerts'); STB(lz, 3, 'Median und Mittelwert', 'parameter')
+SN(lz, SA('erkennen', 'Was musst du tun, bevor du den Median bestimmst?', 'die Werte der Größe nach ordnen', ['alle Werte addieren', 'den größten Wert streichen'], 'Der Median ist der Wert in der Mitte der geordneten Reihe.', 'Was heißt „Mitte“?'))
+SN(lz, SZ('darstellung', 'Eine Strichliste zeigt: 1 Punkt: 2-mal, 2 Punkte: 3-mal, 3 Punkte: 4-mal. Wie groß ist der Median?', 2, '2', 'Geordnet: 1, 1, 2, 2, 2, 3, 3, 3, 3. Der 5. von 9 Werten ist 2.', 'Schreibe alle Werte geordnet auf.'))
+SN(lz, SL('verknuepfen', 'Bestimme den Median von 1/2, 2/3, 1/4 und 3/4.', '□/□', [7, 12], ['7', '12'], 'Geordnet: 1/4, 1/2, 2/3, 3/4. Mitte zwischen 1/2 = 6/12 und 2/3 = 8/12: 7/12.', 'Ordne die Brüche, dann die Mitte der beiden mittleren.'))
+SN(lz, SZ('pruefung', 'Zeiten beim 50-m-Lauf in Sekunden: 8,4; 7,9; 9,1; 8,0; 8,6; 7,7. Wie groß ist der Median?', 8.2, '(8.0 + 8.4) / 2', 'Geordnet: 7,7; 7,9; 8,0; 8,4; 8,6; 9,1. Mitte zwischen 8,0 und 8,4: 8,2 s.', 'Gerade Anzahl: Nimm die Mitte der beiden mittleren Werte.', einheit='s'))
+SN(lz, SZ('transfer', 'Sieben Kinder stehen der Größe nach. Das mittlere ist 1,48 m groß, das Kind direkt größer ist 1,52 m. Ein Kind mit 1,60 m kommt dazu. Wie groß ist der neue Median?', 1.5, '(1.48 + 1.52) / 2',
+          'Jetzt sind es 8 Kinder. Die beiden mittleren sind 1,48 m und 1,52 m, der Median ist 1,50 m.', 'Welche Kinder stehen nach dem Dazukommen in der Mitte?', einheit='m'))
+SK(lz, SZ('knobel', 'Fünf Zahlen haben den Median 10 und den Mittelwert 8. Die kleinste ist 2, die größte 12, die zweitkleinste 4. Wie heißt die zweitgrößte?', 12, '5 * 8 - 2 - 4 - 10 - 12',
+          'Die Summe ist 5 · 8 = 40. Die mittlere Zahl ist der Median 10. 2 + 4 + 10 + x + 12 = 40 ergibt x = 12. Das passt, denn 12 ist nicht kleiner als 10.', 'Welche Zahl steht in der Mitte, und wie groß ist die Summe?'))
+SK(lz, SZ('knobel', 'Eine Reihe aus 6 ganzen Zahlen hat den Median 5. Die beiden mittleren Werte sind verschieden und liegen zwischen 1 und 9. Wie viele verschiedene Paare sind für die beiden mittleren Werte möglich?', 4, '4',
+          'Die beiden mittleren Werte haben die Summe 10 (Mitte 5). Mögliche Paare mit verschiedenen Zahlen: 1 und 9, 2 und 8, 3 und 7, 4 und 6 – das sind 4.', 'Was muss die Summe der beiden mittleren Werte sein?'))
+
+lz = 'verstehen'
+ST.leiter(lz, 'Einfache Aussagen über Mittelwert prüfen; Kennwerte benennen und berechnen.', 'Aussagen über Spannweite, Ausreißer und Verdoppeln prüfen, Summe aus dem Mittelwert, typischer Wert.',
+          'Median gegen Mittelwert bei Ausreißern, Unterschied ausrechnen, Fehler beim Zusammenfassen von Klassen, Median ist kein Datenwert, Mindestwert, passender Kennwert für eine Meldung.')
+STB(lz, 3, 'Stimmt die Aussage? „Taschengeld', 'begruenden'); STB(lz, 3, 'Taschengeld', 'transfer'); STB(lz, 3, 'Klasse A', 'fehler'); STB(lz, 3, 'Drei natürliche', 'parameter'); STB(lz, 3, 'Bei einem Test', 'fehler')
+SN(lz, SZ('direkt', 'Berechne den Mittelwert von 2, 4 und 9.', 5, '(2 + 4 + 9) / 3', '(2 + 4 + 9) : 3 = 15 : 3 = 5.', 'Summe durch Anzahl.'))
+SN(lz, SA('erkennen', 'Welcher Kennwert ist der häufigste Wert einer Reihe?', 'der Modalwert', ['der Median', 'die Spannweite'], 'Modalwert = häufigster Wert, Median = Wert in der Mitte, Spannweite = größter minus kleinster.', 'Welcher Name passt zu „am häufigsten“?'))
+SN(lz, SZ('umkehr', 'Ein Kind sagt: „Mein Mittelwert aus 3 Tests ist 9.“ Wie viele Punkte hat es zusammen?', 27, '3 * 9', 'Summe = 3 · 9 = 27.', 'Mittelwert mal Anzahl.'))
+SN(lz, SA('pruefung', 'Taschengeld von sechs Kindern: 2, 3, 3, 4, 5 und 50 €. Welcher Kennwert passt am besten für eine Meldung „So viel bekommt ein typisches Kind“?', 'der Median: 3,50 €',
+          ['der Mittelwert: etwa 11,17 €', 'die Spannweite: 48 €'], 'Der Ausreißer 50 € zieht den Mittelwert hoch. Der Median (3 + 4) : 2 = 3,50 € beschreibt die meisten Kinder.', 'Welcher Kennwert lässt sich von einem einzelnen großen Wert nicht stören?'))
+SK(lz, SZ('knobel', 'Fünf ganze Zahlen haben den einzigen Modalwert 3, den Median 4 und den Mittelwert 5. Wie groß kann die größte Zahl höchstens sein?', 10, '25 - 3 - 3 - 4 - 5',
+          'Die 3 muss mindestens zweimal vorkommen. Sie ist kleiner als der Median 4, steht also auf Platz 1 und 2. Geordnet: 3, 3, 4, a, b mit der Summe 5 · 5 = 25, also a + b = 25 − 10 = 15. '
+          'a darf nicht 4 sein, sonst gäbe es zwei Modalwerte – also ist a mindestens 5 und b höchstens 15 − 5 = 10. Probe: 3, 3, 4, 5, 10 hat Summe 25, Median 4 und nur den Modalwert 3.', 'Schreibe die geordnete Reihe auf und beachte, dass 3 der einzige Modalwert bleiben muss.'))
+SK(lz, SZ('knobel', 'Der Mittelwert von 6 Zahlen ist 10. Man addiert zu jeder Zahl 3 und verdoppelt dann jede Zahl. Wie groß ist der neue Mittelwert?', 26, '(10 + 3) * 2',
+          'Addiert man zu jeder Zahl 3, wächst der Mittelwert um 3 auf 13. Verdoppelt man jede Zahl, verdoppelt sich der Mittelwert: 26.', 'Was passiert mit dem Mittelwert, wenn sich jede Zahl gleich ändert?'))
 
 if __name__ == '__main__':
     schreibe(DATEI)
+    stufen_datei('daten.kennwerte', ST)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('daten.kennwerte')
+# ---- BEREINIGEN ENDE ----

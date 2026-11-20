@@ -6,6 +6,7 @@ from math import isqrt, pi, sqrt
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _kl10 import *  # noqa: E402,F403
+from _schwer_kl10 import ergaenzen  # noqa: E402
 
 start(1006)
 PI = K(pi)
@@ -459,136 +460,426 @@ def g_verstehen(s):
 
 
 
-# ---------- KLAR: verständliche Fassung der Lernkarten (Runde 7) ----------
+# ---------- KLAR: Lernkarten im neuen Muster (Achte Runde, Vorgabe 16.11.) ----------
 # Wird erst nach dem Bauen der Aufgaben eingesetzt (bauen(..., klar=KLAR)), die Aufgaben bleiben wörtlich gleich.
+# Muster: einstieg (≤ 35 Wörter) → Kartenbild → Schritte als {text, bild} (Bildergeschichte) → „Pass auf!“ (fehler + fehler_bild) → MERKE (regel).
+import math as _m
+_BODEN = {'A': [0, 0], 'B': [6, 0], 'C': [8.12, 2.12], 'D': [2.12, 2.12]}
+_PYR_L = [['A', 'B', 'a = 6 cm'], ['B', 'C', ''], ['A', 'D', '', 'gestrichelt'], ['D', 'C', '', 'gestrichelt'],
+          ['S', 'A'], ['S', 'B'], ['S', 'C'], ['S', 'D', '', 'gestrichelt'], ['F', 'S', 'h = 10 cm', 'gestrichelt']]
+_KISTE_P = {'A2': [0, 10], 'B2': [6, 10], 'C2': [8.12, 12.12], 'D2': [2.12, 12.12]}
+_KISTE_L = [['A', 'A2', ''], ['B', 'B2', ''], ['C', 'C2', ''], ['D', 'D2', '', 'gestrichelt'],
+            ['A2', 'B2', ''], ['B2', 'C2', ''], ['C2', 'D2', ''], ['D2', 'A2', '']]
+_PYR = {'typ': 'figur', 'punkte': _BODEN | {'F': [4.06, 1.06], 'S': [4.06, 11.06]}, 'linien': _PYR_L,
+        'label': 'Zelt als Pyramide: a = 6 cm, h = 10 cm'}
+_KISTE = {'punkte': _BODEN | _KISTE_P | {'F': [4.06, 1.06], 'S': [4.06, 11.06]},
+          'linien': [['A', 'B', 'a = 6 cm'], ['B', 'C', ''], ['A', 'D', '', 'gestrichelt'], ['D', 'C', '', 'gestrichelt']] + _KISTE_L,
+          'flaeche': [], 'label': 'Kiste mit gleichem Boden und gleicher Höhe: 360 cm³'}
+
+def _schnitt(hs, h='h = 4'):
+    return {'typ': 'figur', 'punkte': {'S': [0, 4], 'M': [0, 0], 'F': [3.0, 0], '_G': [-3.0, 0]}, 'flaeche': ['_G', 'F', 'S'],
+            'linien': [['_G', 'F', ''], ['_G', 'S', ''], ['S', 'F', hs], ['M', 'F', 'a/2 = 3'], ['M', 'S', h, 'gestrichelt']],
+            'rechter_winkel': [['M', 'F', 'S']], 'label': 'Schnitt durch die Mitte des Zelts'}
+
+def _achse(r, h, s='s', mit_zyl=False, label='Achsenschnitt des Kegels'):
+    p = {'S': [0, h], 'A': [-r, 0], 'B': [r, 0], 'M': [0, 0]}
+    l = [['A', 'B', ''], ['A', 'S', ''], ['B', 'S', s], ['M', 'B', f'r = {r}'], ['M', 'S', f'h = {h}', 'gestrichelt']]
+    if mit_zyl:
+        p |= {'A2': [-r, h], 'B2': [r, h]}
+        l += [['A', 'A2', ''], ['B', 'B2', ''], ['A2', 'B2', '']]
+    return {'typ': 'figur', 'punkte': p, 'flaeche': ['A', 'B', 'S'], 'linien': l, 'winkel': [],
+            'rechter_winkel': [['M', 'B', 'S']], 'label': label}
+
+_SEK_P = {'Z': [0, 0]} | {f'_{i}': [round(5 * _m.cos(_m.radians(-18 + 216 * i / 21)), 4), round(5 * _m.sin(_m.radians(-18 + 216 * i / 21)), 4)] for i in range(22)}
+_SEKTOR = {'typ': 'figur', 'punkte': _SEK_P, 'flaeche': list(_SEK_P),
+           'linien': [['Z', '_0', 's = 5'], ['Z', '_21', '']] + [[f'_{i}', f'_{i + 1}', ''] for i in range(21)],
+           'rechter_winkel': [], 'winkel': [['Z', '_0', '_21', 'φ = 216°']], 'label': 'Ausgerollter Mantel: Kreissektor mit Radius s'}
+
+_HALB = {f'_{i}': [round(2.5 * _m.cos(_m.radians(15 * i)), 4), round(2.5 * _m.sin(_m.radians(15 * i)), 4)] for i in range(13)}
+_TUETE_P = {'_S': [0, -10], '_A': [-2.5, 0], '_B': [2.5, 0], '_M': [0, 0]} | _HALB
+_TUETE_L = [['_A', '_S', ''], ['_B', '_S', ''], ['_M', '_B', 'r = 2,5'], ['_M', '_S', 'h = 10', 'gestrichelt']] + [[f'_{i}', f'_{i + 1}', ''] for i in range(12)]
+
+_ZWEI = {'typ': 'figur', 'punkte': {'A': [-1, 0], 'B': [1, 0], 'S': [0, 3], 'M1': [0, 0], 'C': [3, 0], 'D': [7, 0], 'T': [5, 3], 'M2': [5, 0]},
+         'linien': [['A', 'B', ''], ['S', 'A', ''], ['S', 'B', ''], ['M1', 'B', 'r'], ['C', 'D', ''], ['T', 'C', ''], ['T', 'D', ''], ['M2', 'D', '2r']],
+         'label': 'Gleiche Höhe, doppelter Radius'}
+
 KLAR = {
  'pyr_volumen': {
-  'einstieg': 'Ein Zelt hat einen quadratischen Boden und läuft oben in einer Spitze zusammen. Wie viel Luft passt hinein? '
-              'Stellt man daneben eine Kiste mit demselben Boden und derselben Höhe, passt in die Kiste genau dreimal so viel. '
-              'Ein Körper mit einem Vieleck als Boden und einer Spitze heißt ⟦Pyramide⟧.',
-  'woerter': [['Pyramide', 'ein Körper mit einem Vieleck als Boden; die Seitenflächen sind Dreiecke, die sich in einer Spitze treffen'],
-              ['Grundfläche G', 'der Boden; bei einem Quadrat mit der Seite a ist G = a · a'],
-              ['Höhe h', 'der senkrechte Abstand von der Spitze zum Boden'],
-              ['Prisma', 'ein Körper mit gleichem Boden und Deckel und geraden Seitenwänden, z. B. eine Kiste (Quader)'],
-              ['V', 'das Volumen: wie viel hineinpasst, z. B. in cm³'],
-              ['⅓', 'ein Drittel'],
-              ['Schrägbild', 'eine Zeichnung, die den Körper räumlich zeigt; verdeckte Kanten sind gestrichelt']],
-  'schritte': ['Die Pyramide hat einen quadratischen Boden mit a = 6 cm und ist h = 10 cm hoch.',
-               'Zuerst die Grundfläche: G = 6 cm · 6 cm = 36 cm².',
-               'Eine Kiste mit demselben Boden und derselben Höhe hätte 36 cm² · 10 cm = 360 cm³.',
-               'Die Pyramide hat ein Drittel davon: V = ⅓ · 36 · 10 = ⟦120 cm³⟧.'],
-  'regel': 'So berechnest du das Volumen: Jede Pyramide hat ⟦ein Drittel⟧ des Volumens eines Prismas mit gleicher Grundfläche und Höhe: ⟦V = ⅓ · G · h⟧. '
-           'Anschaulich: Ein Würfel lässt sich in ⟦drei gleiche Pyramiden⟧ zerlegen, deren gemeinsame Spitze eine Würfelecke ist.',
-  'fehler': 'V = G · h = 360 cm³ ist falsch: Das wäre die ganze Kiste. In die Pyramide passt nur ⟦ein Drittel⟧ davon, weil sie nach oben spitz zuläuft.'},
+  'einstieg': 'Ein Zelt hat einen quadratischen Boden und läuft oben spitz zu. Eine Kiste mit gleichem Boden und gleicher Höhe fasst dreimal so viel. '
+              'So ein Körper heißt ⟦Pyramide⟧.',
+  'woerter': [['Pyramide', 'ein Vieleck als Boden, Dreiecke als Seiten, oben eine Spitze'],
+              ['Grundfläche G', 'der Boden; beim Quadrat G = a · a'],
+              ['Höhe h', 'der senkrechte Abstand von der Spitze zum Boden']],
+  'bild': _PYR,
+  'schritte': [{'text': 'Das Zelt hat a = 6 cm. Die Höhe h ist 10 cm.'},
+               {'text': 'Grundfläche G = 6 · 6 = 36 cm².', 'bild': {'flaeche': ['A', 'B', 'C', 'D'], 'label': 'Grundfläche G = 36 cm²'}},
+               {'text': 'Eine Kiste mit gleichem Boden und gleicher Höhe fasst 36 · 10 = 360 cm³.', 'bild': _KISTE},
+               {'text': 'Die Pyramide fasst ein Drittel davon: V = 1/3 · 360 = ⟦120 cm³⟧.',
+                'bild': {'punkte': _PYR['punkte'], 'linien': _PYR_L, 'flaeche': [], 'label': 'Pyramide: ein Drittel der Kiste'}}],
+  'fehler': 'V = G · h = 360 cm³ ist falsch. Das wäre die ganze Kiste. Die Pyramide läuft spitz zu und fasst nur ⟦ein Drittel⟧.',
+  'fehler_bild': {'typ': 'figur', 'punkte': _KISTE['punkte'], 'linien': _KISTE['linien'] + _PYR_L[4:],
+                  'label': 'Kiste 360 cm³, Pyramide darin nur 120 cm³'},
+  'regel': 'Eine Pyramide fasst ein Drittel des passenden Prismas. Formel: ⟦V = 1/3 · G · h⟧.'},
  'pyr_oberflaeche': {
-  'einstieg': 'Das Zelt soll neuen Stoff bekommen. Wie viel Stoff braucht man? Dafür zählt man alle Flächen zusammen: den quadratischen Boden '
-              'und die vier dreieckigen Seitenwände. Die Seitenwände sind schräg, deshalb ist ihre Höhe länger als die Höhe des Zelts. '
+  'einstieg': 'Das Zelt bekommt neuen Stoff. Man braucht den Boden und vier schräge Dreieckswände. '
               'Alle Flächen zusammen heißen ⟦Oberfläche⟧.',
-  'woerter': [['Oberfläche O', 'alle Außenflächen zusammen, z. B. in cm²'],
-              ['Mantel M', 'alle Seitenflächen ohne den Boden; hier vier Dreiecke'],
-              ['Seitenhöhe hₛ', 'die Höhe eines Seitendreiecks, schräg an der Wand entlang gemessen'],
-              ['a/2', 'die halbe Grundkante'],
-              ['Satz des Pythagoras', 'im rechtwinkligen Dreieck: die beiden kurzen Seiten im Quadrat zusammen ergeben die lange Seite im Quadrat'],
-              ['√', 'Wurzel: die Zahl, die mit sich selbst malgenommen den Wert unter der Wurzel ergibt, z. B. √25 = 5']],
-  'schritte': ['Gegeben sind a = 6 cm und h = 4 cm. Im Schnitt durch die Mitte entsteht ein rechtwinkliges Dreieck aus h, a/2 = 3 cm und hₛ.',
-               'Mit Pythagoras: hₛ² = 4² + 3² = 16 + 9 = 25, also hₛ = 5 cm.',
-               'Ein Seitendreieck hat die Fläche ½ · 6 · 5 = 15 cm². Alle vier zusammen ergeben den Mantel M = 60 cm².',
-               'Dazu kommt der Boden mit 6 · 6 = 36 cm²: O = 36 + 60 = ⟦96 cm²⟧.'],
-  'regel': 'So berechnest du die Oberfläche: ⟦O = G + M⟧. Bei der quadratischen Pyramide besteht der ⟦Mantel aus 4 Dreiecken⟧: M = 4 · ½ · a · hₛ. '
-           'Die ⟦Seitenhöhe hₛ⟧ findest du mit hₛ² = h² + (a/2)².',
-  'fehler': 'Mit der Körperhöhe h statt der ⟦Seitenhöhe hₛ⟧ zu rechnen ist falsch: Die Zeltwände sind schräg und deshalb höher, als das Zelt hoch ist. '
-            'Mit 4 cm statt 5 cm würde der Stoff nicht reichen.'},
+  'woerter': [['Oberfläche O', 'alle Außenflächen zusammen'],
+              ['Mantel M', 'alle Seitenflächen ohne den Boden'],
+              ['Seitenhöhe hₛ', 'die Höhe eines Seitendreiecks, schräg gemessen']],
+  'bild': _schnitt('hₛ = ?'),
+  'schritte': [{'text': 'Mit a = 6 cm und h = 4 cm suchen wir die Seitenhöhe hₛ.'},
+               {'text': 'Pythagoras im Schnitt: hₛ² = 4² + 3² = 25, also hₛ = 5.', 'bild': _schnitt('hₛ = 5')},
+               {'text': 'Ein Seitendreieck hat 6 · 5 : 2 = 15 cm². Mantel M: 60 cm².',
+                'bild': {'punkte': {'P': [0, 0], 'Q': [6, 0], 'T': [3, 5], 'H': [3, 0]}, 'flaeche': ['P', 'Q', 'T'],
+                         'linien': [['P', 'Q', 'a = 6'], ['P', 'T', ''], ['Q', 'T', ''], ['H', 'T', 'hₛ = 5', 'gestrichelt']],
+                         'rechter_winkel': [['H', 'Q', 'T']], 'label': 'Ein Seitendreieck: 15 cm²'}},
+               {'text': 'Mit Boden: Oberfläche O = 36 + 60 = ⟦96 cm²⟧.'}],
+  'fehler': 'Mit h = 4 cm statt ⟦hₛ = 5 cm⟧ zu rechnen ist falsch. Die Wände sind schräg und deshalb länger. Der Stoff würde nicht reichen.',
+  'fehler_bild': _schnitt('hₛ = 5: schräg', 'h = 4: senkrecht'),
+  'regel': 'Oberfläche ist Boden plus Mantel: O = G + M. Der Mantel sind vier Dreiecke. ⟦hₛ² = h² + (a/2)²⟧.'},
  'kegel_volumen': {
-  'einstieg': 'Eine Waffeltüte für Eis ist unten spitz und oben rund. Sie ist wie eine Pyramide gebaut, nur mit einem Kreis als Boden. '
-              'Deshalb gilt auch für sie: Sie fasst ein Drittel von dem, was in einen Becher mit gleichem Kreis und gleicher Höhe passt. '
+  'einstieg': 'Eine Waffeltüte ist unten spitz und oben rund. Sie fasst ein Drittel eines Bechers mit gleichem Kreis und gleicher Höhe. '
               'So ein Körper heißt ⟦Kegel⟧.',
-  'woerter': [['Kegel', 'ein Körper mit einem Kreis als Grundfläche und einer Spitze'],
+  'woerter': [['Kegel', 'ein Kreis als Boden und oben eine Spitze'],
               ['Radius r', 'der Abstand von der Kreismitte zum Rand'],
-              ['r²', 'r · r, der Radius mit sich selbst malgenommen'],
-              ['π · r²', 'der Flächeninhalt des Grundkreises (π ≈ 3,14)'],
-              ['Zylinder', 'ein Körper wie eine Dose: Kreis unten und oben, gerade Wand'],
-              ['Achsenschnitt', 'ein Schnitt senkrecht durch Spitze und Kreismitte; er ist ein Dreieck'],
-              ['Mantellinie s', 'die schräge Strecke von der Spitze zum Rand']],
-  'schritte': ['Der Kegel hat den Radius r = 3 cm und die Höhe h = 8 cm.',
-               'Grundfläche: π · 3² = π · 9 = 9π cm².',
-               'Volumen: ⅓ · 9π · 8 = 24π cm³.',
-               'Mit π ≈ 3,14159 ergibt das V ≈ ⟦75,4 cm³⟧.'],
-  'regel': 'So berechnest du das Volumen: Ein Kegel ist eine „Pyramide mit Kreis als Grundfläche“: ⟦V = ⅓ · π · r² · h⟧. '
-           'Erst den Radius quadrieren, dann mit π, h und ⅓ malnehmen.',
-  'fehler': 'V = ⅓ · π · 3 · 8 ist falsch: Der Radius wird ⟦quadriert⟧, denn die Grundfläche ist ein Kreis mit π · r². '
-            'Ohne Quadrat kämen nur 8π ≈ 25 cm³ heraus – ein Drittel des richtigen Werts.'},
+              ['Zylinder', 'ein Körper wie eine Dose oder ein Becher']],
+  'bild': _achse(3, 8),
+  'schritte': [{'text': 'Der Kegel hat den Radius r = 3 cm. Er ist 8 cm hoch.'},
+               {'text': 'Grundfläche: π · 3² = 9π cm².'},
+               {'text': 'Ein Zylinder mit gleichem Kreis und gleicher Höhe fasst 9π · 8 = 72π cm³.',
+                'bild': _achse(3, 8, mit_zyl=True, label='Zylinder um den Kegel: 72π cm³')},
+               {'text': 'Der Kegel fasst ein Drittel: 24π cm³ ≈ ⟦75,4 cm³⟧.', 'bild': _achse(3, 8, label='Kegel: ein Drittel davon')}],
+  'fehler': 'V = π · r² · h ist falsch. Das ist der ganze Zylinder. Der Kegel fasst nur ⟦ein Drittel⟧ davon.',
+  'fehler_bild': _achse(3, 8, mit_zyl=True, label='π · r² · h ist der Zylinder, nicht der Kegel'),
+  'regel': 'Ein Kegel fasst ein Drittel des passenden Zylinders. ⟦V = 1/3 · π · r² · h⟧.'},
  'kegel_mantel': {
-  'einstieg': 'Schneidet man eine Waffeltüte an der Seite gerade auf und rollt sie flach aus, entsteht ein Stück aus einem Kreis – wie ein Stück Torte. '
-              'Sein Radius ist die schräge Seitenlinie der Tüte, und sein Bogen ist so lang wie der runde Rand oben. '
-              'Dieses Tortenstück heißt ⟦Kreissektor⟧.',
-  'woerter': [['Mantel', 'die gebogene Seitenfläche des Kegels'],
-              ['Mantellinie s', 'die schräge Strecke von der Spitze zum Rand'],
+  'einstieg': 'Man schneidet eine Waffeltüte an der Seite auf und rollt sie flach aus. Es entsteht ein Kreisstück wie ein Tortenstück. '
+              'Es heißt ⟦Kreissektor⟧.',
+  'woerter': [['Mantellinie s', 'die schräge Strecke von der Spitze zum Rand'],
               ['Kreissektor', 'ein Kreisstück wie ein Tortenstück'],
-              ['Mittelpunktswinkel φ', 'der Winkel an der Spitze des Tortenstücks (φ: griechisch „phi“)'],
-              ['Grundkreisumfang 2πr', 'die Länge des Randes des Grundkreises'],
-              ['O = πr² + πrs', 'Oberfläche des Kegels: Grundkreis plus Mantel']],
-  'schritte': ['Gegeben sind r = 3 cm und h = 4 cm. Im Achsenschnitt bilden r, h und s ein rechtwinkliges Dreieck.',
-               'Mit Pythagoras: s² = 3² + 4² = 25, also s = 5 cm.',
-               'Mantel: M = π · r · s = π · 3 · 5 = 15π ≈ ⟦47,1 cm²⟧.',
-               'Der Sektor ist der Anteil r : s = 3 : 5 eines ganzen Kreises, also φ = 360° · 3/5 = ⟦216°⟧.'],
-  'regel': 'So rechnest du mit dem Mantel: Ausgerollt ist er ein ⟦Kreissektor⟧ mit dem Radius s. Sein Bogen ist so lang wie der Grundkreisumfang 2πr. '
-           'Daraus folgen ⟦M = π · r · s⟧ und ⟦φ = 360° · r : s⟧. Oberfläche: O = πr² + πrs.',
-  'fehler': 'M = π · r · h ist falsch: Ausgerollt wird die schräge Seite, also die ⟦Mantellinie s⟧. Die Höhe h ist kürzer – mit ihr würde das Papier für die Tüte nicht reichen.'},
+              ['Mittelpunktswinkel φ', 'der Winkel an der Spitze des Tortenstücks']],
+  'bild': _SEKTOR,
+  'schritte': [{'text': 'Bei r = 3 und h = 4 suchen wir die Mantellinie s.', 'bild': _achse(3, 4, 's = ?')},
+               {'text': 'Pythagoras: s² = 3² + 4² = 25. Also s = 5 cm.', 'bild': _achse(3, 4, 's = 5')},
+               {'text': 'Ausgerollt ist der Mantel ein Kreissektor mit dem Radius s = 5 cm.', 'bild': _SEKTOR},
+               {'text': 'Mantel: M = π · r · s = 15π ≈ ⟦47,1 cm²⟧.'},
+               {'text': 'Mittelpunktswinkel φ = 360° · 3 : 5 = 216°.'}],
+  'fehler': 'M = π · r · h ist falsch. Ausgerollt wird die schräge Seite, die ⟦Mantellinie s⟧. Die Höhe h ist kürzer.',
+  'fehler_bild': _achse(3, 4, 's = 5: wird ausgerollt', label='h = 4 ist kürzer als s = 5'),
+  'regel': 'Der Mantel ist ein Kreissektor mit Radius s. ⟦M = π · r · s⟧. Winkel: φ = 360° · r : s.'},
  'kugel': {
-  'einstieg': 'Ein Fußball ist rund. Wie viel Luft passt hinein, und wie viel Material braucht man für die Hülle? Für beides genügt eine einzige Länge, '
-              'denn jeder Punkt der Hülle ist gleich weit vom Mittelpunkt entfernt. So ein Körper heißt ⟦Kugel⟧, der Abstand ist ihr Radius.',
-  'woerter': [['Kugel', 'ein Körper, dessen Oberflächenpunkte alle gleich weit vom Mittelpunkt M entfernt sind'],
+  'einstieg': 'Ein Fußball ist rund. Jeder Punkt der Hülle ist gleich weit vom Mittelpunkt entfernt. '
+              'So ein Körper heißt ⟦Kugel⟧. Für alles genügt der Radius.',
+  'woerter': [['Kugel', 'alle Punkte der Hülle sind gleich weit vom Mittelpunkt M entfernt'],
               ['r³', 'r · r · r'],
-              ['⁴⁄₃', 'vier Drittel'],
-              ['V = ⁴⁄₃ · π · r³', 'das Volumen: wie viel hineinpasst'],
-              ['O = 4 · π · r²', 'die Oberfläche: wie viel Hülle man braucht'],
-              ['dritte Wurzel ∛', 'die Zahl, die dreimal mit sich malgenommen den Wert ergibt: ∛216 = 6']],
-  'schritte': ['Die Kugel hat den Radius r = 6 cm. Zuerst r³ = 6 · 6 · 6 = 216.',
-               'Volumen: V = ⁴⁄₃ · π · 216 = 288π ≈ ⟦904,8 cm³⟧.',
-               'Für die Oberfläche braucht man r² = 36: O = 4 · π · 36 = 144π ≈ ⟦452,4 cm²⟧.',
-               'Passt das? Die Kugel passt in einen Würfel mit 12 cm Kante, der 1 728 cm³ fasst – 904,8 cm³ ist gut die Hälfte davon.'],
-  'regel': 'Merke ⟦V = ⁴⁄₃ · π · r³⟧ und ⟦O = 4 · π · r²⟧. Ist V oder O gegeben, löst du nach r auf: bei V mit der dritten Wurzel, bei O mit der Quadratwurzel.',
-  'fehler': 'V = ⁴⁄₃ · π · r² ist falsch: Ein Volumen hat die Einheit cm³ (Länge mal Länge mal Länge), also braucht es ⟦r³⟧.'},
+              ['Volumen V', 'wie viel hineinpasst, in cm³']],
+  'bild': {'typ': 'figur', 'punkte': {'M': [0, 0], '_P': [6, 0], '_O': [0, 6], '_U': [0, -6]}, 'kreise': [{'m': 'M', 'r': 6}],
+           'linien': [['M', '_P', 'r = 6'], ['_O', '_U', '', 'gestrichelt']], 'label': 'Kugel mit Mittelpunkt M und Radius r'},
+  'schritte': [{'text': 'Radius r = 6 cm. Zuerst r³ = 216.'},
+               {'text': 'Volumen V = ⁴⁄₃ · π · 216 = 288π ≈ ⟦904,8 cm³⟧.'},
+               {'text': 'Oberfläche mit r² = 36: O = 4 · π · 36 ≈ 452,4 cm².'},
+               {'text': 'Probe: Der Würfel um die Kugel fasst 1 728 cm³. Gut die Hälfte passt.',
+                'bild': {'punkte': {'M': [0, 0], '_P': [6, 0], 'W1': [-6, -6], 'W2': [6, -6], 'W3': [6, 6], 'W4': [-6, 6]},
+                         'linien': [['M', '_P', 'r = 6'], ['W1', 'W2', '12 cm'], ['W2', 'W3', ''], ['W3', 'W4', ''], ['W4', 'W1', '']],
+                         'label': 'Kugel im Würfel mit 12 cm Kante'}}],
+  'fehler': 'V = ⁴⁄₃ · π · r² ist falsch. Ein Volumen hat die Einheit cm³. Also braucht es ⟦r³⟧.',
+  'regel': 'Bei der Kugel genügt der Radius. ⟦V = ⁴⁄₃ · π · r³⟧ und O = 4 · π · r².'},
  'sachkontext': {
-  'einstieg': 'In der Eisdiele besteht eine Portion aus einer Waffeltüte und einer halben Kugel Eis obendrauf. Wie viel passt insgesamt hinein? '
-              'Man zerlegt die Portion in Körper, die man schon kennt, und zählt ihre Volumen zusammen. '
-              'Solche Körper heißen ⟦zusammengesetzte Körper⟧.',
-  'woerter': [['zusammengesetzter Körper', 'ein Körper aus mehreren bekannten Teilen, z. B. Kegel plus Halbkugel'],
-              ['Halbkugel', 'eine halbe Kugel; ihr Volumen ist ⅔ · π · r³'],
-              ['Teilvolumen', 'das Volumen eines Teils'],
-              ['tan, sin, cos', 'Winkelfunktionen im rechtwinkligen Dreieck, z. B. tan = Gegenkathete : Ankathete']],
-  'schritte': ['Die Eistüte ist ein Kegel mit r = 2,5 cm und h = 10 cm. Darauf sitzt eine Halbkugel mit demselben Radius.',
-               'Kegel: ⅓ · π · 2,5² · 10 = ⅓ · π · 6,25 · 10 ≈ 65,45 cm³.',
-               'Halbkugel: die Hälfte von ⁴⁄₃ · π · 2,5³, also ⅔ · π · 15,625 ≈ 32,72 cm³.',
-               'Zusammen: 65,45 + 32,72 ≈ ⟦98,2 cm³⟧.'],
-  'regel': 'So gehst du vor: Zusammengesetzte Körper ⟦zerlegen⟧ und die Teilvolumen ⟦addieren oder abziehen⟧. '
-           'Fehlende Längen mit ⟦Pythagoras⟧, Winkel mit ⟦tan, sin, cos⟧ im Achsenschnitt bestimmen.',
-  'fehler': 'Die Halbkugel mit dem vollen Kugelvolumen zu rechnen ist falsch: Auf der Tüte sitzt nur ⟦die Hälfte⟧ einer Kugel, also ⅔ · π · r³.'},
+  'einstieg': 'In der Eisdiele gibt es eine Waffeltüte mit einer halben Kugel Eis darauf. Man zerlegt sie in bekannte Teile. '
+              'So etwas ist ein ⟦zusammengesetzter Körper⟧.',
+  'woerter': [['zusammengesetzter Körper', 'ein Körper aus bekannten Teilen, z. B. Kegel plus Halbkugel'],
+              ['Halbkugel', 'eine halbe Kugel: 2/3 · π · r³'],
+              ['Teilvolumen', 'das Volumen eines Teils']],
+  'bild': {'typ': 'figur', 'punkte': _TUETE_P, 'flaeche': ['_A', '_S', '_B'] + [f'_{i}' for i in range(13)], 'linien': _TUETE_L,
+           'label': 'Eistüte im Schnitt: Kegel mit Halbkugel'},
+  'schritte': [{'text': 'Die Tüte ist ein Kegel: r = 2,5 cm und h = 10 cm.', 'bild': {'flaeche': ['_A', '_S', '_B'], 'label': 'Teil 1: Kegel'}},
+               {'text': 'Kegel: 1/3 · π · 2,5² · 10 ≈ 65,45 cm³.'},
+               {'text': 'Darauf sitzt eine Halbkugel mit demselben Radius.',
+                'bild': {'flaeche': [f'_{i}' for i in range(13)], 'label': 'Teil 2: Halbkugel'}},
+               {'text': 'Halbkugel: die Hälfte von ⁴⁄₃ · π · 2,5³ ≈ 32,72 cm³.'},
+               {'text': 'Teilvolumen addieren: 65,45 + 32,72 ≈ ⟦98,2 cm³⟧.',
+                'bild': {'flaeche': ['_A', '_S', '_B'] + [f'_{i}' for i in range(13)], 'label': 'Ganze Portion ≈ 98,2 cm³'}}],
+  'fehler': 'Die Halbkugel mit dem ganzen Kugelvolumen zu rechnen ist falsch. Auf der Tüte sitzt nur ⟦die Hälfte⟧: 2/3 · π · r³.',
+  'fehler_bild': {'typ': 'figur', 'punkte': _TUETE_P, 'flaeche': ['_A', '_S', '_B'], 'linien': _TUETE_L, 'kreise': [{'m': '_M', 'r': 2.5}],
+                  'label': 'Die ganze Kugel wäre zu viel'},
+  'regel': 'Zerlege den Körper in bekannte Teile. Teilvolumen ⟦addieren oder abziehen⟧. Fehlende Längen mit Pythagoras oder tan, sin, cos.'},
  'verstehen': {
-  'einstieg': 'Zwei Spitzbecher aus Papier sind gleich hoch, aber der große hat oben den doppelten Radius. Passt doppelt so viel hinein? '
-              'Nein, viermal so viel: Der Boden ist in zwei Richtungen doppelt so breit. '
-              'Wie sich Flächen und Volumen ändern, wenn man Längen mit einem Faktor malnimmt, beschreibt das ⟦Vergrößern mit dem Faktor k⟧.',
-  'woerter': [['Faktor k', 'die Zahl, mit der Längen malgenommen werden; k = 2 heißt doppelt so lang'],
-              ['k², k³', 'k · k und k · k · k'],
-              ['Querschnitt', 'die Schnittfläche, wenn man waagrecht durch den Körper schneidet'],
-              ['Prinzip von Cavalieri', 'Körper, die in jeder Höhe gleich große Querschnitte haben, haben gleiches Volumen'],
-              ['⇒', '„daraus folgt“']],
-  'schritte': ['Ein Kegel hat den doppelten Radius eines anderen, die Höhe ist gleich.',
-               'Die Grundfläche ist π · r². Mit doppeltem Radius wird sie π · (2r)² = π · 4r², also viermal so groß.',
-               'Die Höhe bleibt gleich. Deshalb wird auch das Volumen ⅓ · Grundfläche · Höhe viermal so groß.',
-               'Ergebnis: ⟦Volumen · 4⟧, nicht · 8 – verdoppelt werden nur zwei der drei Richtungen.'],
-  'regel': 'So denkst du über Vergrößerungen nach: Werden alle Längen mit k malgenommen, werden ⟦Flächen mit k², Volumen mit k³⟧ malgenommen. '
-           'Pyramide und Kegel haben ⅓ des Volumens von Prisma und Zylinder mit gleicher Grundfläche und Höhe. '
-           'Haben zwei Körper in jeder Höhe gleich große Querschnitte, haben sie ⟦gleiches Volumen⟧ (Prinzip von Cavalieri).',
-  'fehler': 'Bei doppeltem Radius das doppelte Kegelvolumen anzunehmen ist falsch: r steht ⟦im Quadrat⟧. '
-            'Der Boden ist in zwei Richtungen doppelt so breit und hat deshalb die vierfache Fläche.'},
+  'einstieg': 'Zwei Spitzbecher sind gleich hoch. Der große hat den doppelten Radius. Er fasst nicht doppelt, sondern viermal so viel. '
+              'Das erklärt das ⟦Vergrößern mit dem Faktor k⟧.',
+  'woerter': [['Faktor k', 'die Zahl, mit der Längen malgenommen werden'],
+              ['k²', 'k · k'],
+              ['k³', 'k · k · k']],
+  'bild': _ZWEI,
+  'schritte': [{'text': 'Zwei Kegel sind gleich hoch. Der zweite hat den doppelten Radius.'},
+               {'text': 'Grundfläche: π · (2r)² = 4 · π · r². Sie ist viermal so groß.', 'bild': {'label': 'Grundfläche: viermal so groß'}},
+               {'text': 'Die Höhe bleibt gleich. Also wird auch das Volumen ⟦viermal so groß⟧.'},
+               {'text': 'Alle Längen mal Faktor k = 2: Flächen mal k², Volumen mal k³.'}],
+  'fehler': 'Doppelter Radius heißt nicht doppeltes Volumen. r steht ⟦im Quadrat⟧. Der Boden wird in zwei Richtungen doppelt so breit.',
+  'fehler_bild': {'typ': 'tabelle', 'kopf': ['Radius', 'Grundfläche', 'Volumen'],
+                  'zeilen': [['r', 'π · r²', 'V'], ['2r', '4 · π · r²', '4 · V']]},
+  'regel': 'Längen mal k: Flächen mal k², Volumen mal k³. Gleiche Querschnitte in jeder Höhe bedeuten ⟦gleiches Volumen⟧ (Cavalieri).'},
 }
+
 
 GEN = schoen({'pyr_volumen': g_pyr_volumen, 'pyr_oberflaeche': g_pyr_oberflaeche, 'kegel_volumen': g_kegel_volumen, 'kegel_mantel': g_kegel_mantel,
               'kugel': g_kugel, 'sachkontext': g_sachkontext, 'verstehen': g_verstehen})
 
+# ---------- Zehnte Runde (Zweig schwer-kl10): schwerere Übungen nach Prüfungsvorbild ----------
+# Eigener Zufallsstart (nur zum Mischen der Antworten); wird erst NACH bauen(...) aufgerufen, alte Aufgaben bleiben gleich.
+# Vorbilder (Typ und Niveau, eigene Zahlen und Einkleidung): Realschul-Abschlussprüfung Bayern Mathematik I (2021 A 3.3: Lage eines Punkts so,
+# dass zwei Volumina gleich sind; 2021 B 2.6: Anteil in Prozent; 2024 B 4.5: Volumenverhältnis bei gleicher Spitze; Beispielaufgabe A 4 ohne
+# Taschenrechner: Pyramide mit Spitze über einer Ecke), Abitur Bayern 2025 Prüfungsteil A Geometrie (Würfel durch Ebene geteilt; Punkt auf
+# einer Kante so, dass die Pyramide ein vorgegebenes Volumen hat), ZP10 NRW ohne Hilfsmittel (Höhe aus G und V; Aussage „doppelte Höhe“ prüfen),
+# Bayerischer Mathematik-Test 10 2010 (Kopfüberlegung mit π ≈ 3), Schulaufgabe Gymnasium Bayern Kl. 10 (Kugeln im Wasser: läuft es über?).
+def schwer():
+    start(10015)
+    N = []
+    P = math.pi
+
+    def neu(l, s, a):
+        a['l'], a['s'] = l, s
+        N.append(a)
+
+    def rz(wahr, nd):
+        return gerundet(wahr, nd), f'round({K(wahr)}, {nd})'
+
+    # --- pyr_volumen ---
+    neu('pyr_volumen', 2, zahl('Eine Pyramide hat die Grundfläche 32 cm² und das Volumen 96 cm³. Wie hoch ist sie?', 'h = 3V : G = 3 · 96 : 32 = 9 cm.',
+                               'Stelle V = 1/3 · G · h nach h um.', 9, '3 * 96 / 32', einheit='cm'))
+    neu('pyr_volumen', 2, zahl('In einem Würfel mit der Kante 6 cm steht eine Pyramide: Grundfläche ist der Würfelboden, die Spitze liegt in der Mitte der Deckfläche. Berechne ihr Volumen.',
+                               'G = 6² = 36 cm², h = 6 cm (Würfelhöhe). V = 1/3 · 36 · 6 = 72 cm³.', 'Wie hoch ist die Pyramide, wenn die Spitze in der Deckfläche liegt?', 72, '36 * 6 / 3', einheit='cm³'))
+    neu('pyr_volumen', 3, zahl('Von einem Würfel mit der Kante 6 cm wird eine Ecke abgeschnitten: Der Schnitt geht durch die drei Nachbarecken dieser Ecke. Welches Volumen hat das abgeschnittene Stück?',
+                               'Das Stück ist eine Pyramide. Grundfläche: rechtwinkliges Dreieck mit den Katheten 6 cm, also G = 1/2 · 6 · 6 = 18 cm². Höhe: die dritte Kante, 6 cm. V = 1/3 · 18 · 6 = 36 cm³ (ein Sechstel des Würfels).',
+                               'Das abgeschnittene Stück ist eine Pyramide mit dreieckiger Grundfläche. Welche Kante steht senkrecht darauf?', 36, '(6 * 6 / 2) * 6 / 3', einheit='cm³'))
+    neu('pyr_volumen', 3, zahl('Ein Würfel hat die Kante 4 cm, unten das Quadrat ABCD, darüber E über A. Der Punkt S liegt auf der Kante [AE] im Abstand x von A. Für welches x hat die Pyramide ABCDS das Volumen 8 cm³?',
+                               'Grundfläche ABCD = 16 cm², Höhe = AS = x (die Kante [AE] steht senkrecht auf dem Boden). 1/3 · 16 · x = 8 ⇒ x = 1,5 cm.',
+                               'Die Spitze liegt über A. Wie hoch ist die Pyramide dann?', 1.5, '3 * 8 / 16', einheit='cm'))
+    neu('pyr_volumen', 3, luecken('Zwei Pyramiden haben dieselbe Spitze, ihre Grundflächen liegen in derselben Ebene. Die Grundflächen sind 12 cm² und 30 cm² groß. In welchem Verhältnis stehen die Volumina (kleinere zuerst, gekürzt)?',
+                                  '□ : □', 'Zwei ganze Zahlen', [2, 5], 'Gleiche Spitze und gleiche Grundebene: gleiche Höhe h. V₁ : V₂ = (1/3 · 12 · h) : (1/3 · 30 · h) = 12 : 30 = 2 : 5.',
+                                  'Was haben beide Pyramiden gemeinsam?', c=['12 // 6', '30 // 6']))
+    neu('pyr_volumen', 3, zahl('Wie viele gleich große quadratische Pyramiden, deren Spitzen im Mittelpunkt eines Würfels liegen, füllen den Würfel genau aus?',
+                               'Jede Würfelfläche ist Grundfläche einer Pyramide mit der Höhe a/2: V = 1/3 · a² · a/2 = a³/6. Sechs Flächen, sechs Pyramiden: 6 · a³/6 = a³.',
+                               'Verbinde den Mittelpunkt mit allen Ecken. Über jeder Würfelfläche entsteht eine Pyramide.', 6, '6'))
+
+    # --- pyr_oberflaeche ---
+    neu('pyr_oberflaeche', 2, zahl('Eine quadratische Pyramide hat die Grundkante 10 cm und die Seitenhöhe 13 cm. Berechne ihre Oberfläche.',
+                                   'G = 100 cm², M = 4 · 1/2 · 10 · 13 = 260 cm². O = 360 cm².', 'Oberfläche = Grundfläche + vier Dreiecke.', 360, '10 ** 2 + 2 * 10 * 13', einheit='cm²'))
+    neu('pyr_oberflaeche', 2, zahl('Eine quadratische Pyramide mit der Grundkante 10 cm hat die Mantelfläche 240 cm². Wie groß ist die Seitenhöhe?',
+                                   'M = 4 · 1/2 · 10 · hₛ = 20 · hₛ = 240 ⇒ hₛ = 12 cm.', 'Stelle M = 4 · 1/2 · a · hₛ nach hₛ um.', 12, '240 / 20', einheit='cm'))
+    w, c = rz(math.degrees(math.atan(3 / 4)), 1)
+    neu('pyr_oberflaeche', 3, zahl('Eine quadratische Pyramide hat die Grundkante 8 cm und die Höhe 3 cm. Unter welchem Winkel ist eine Seitenfläche gegen die Grundfläche geneigt? Runde auf eine Nachkommastelle.',
+                                   f'Schnitt durch die Spitze und die Mitten zweier Gegenseiten: rechtwinkliges Dreieck mit Höhe 3 cm und halber Grundkante 4 cm. tan ε = 3 : 4 ⇒ ε ≈ {dz(w)}°.',
+                                   'Zeichne das Dreieck aus Höhe, halber Grundkante und Seitenhöhe.', w, c, einheit='°', tol=0.1))
+    w, c = rz(36 * math.sqrt(3), 1)
+    neu('pyr_oberflaeche', 3, zahl('Ein regelmäßiges Tetraeder (vier gleichseitige Dreiecke) hat die Kantenlänge 6 cm. Berechne seine Oberfläche. Runde auf eine Nachkommastelle.',
+                                   f'Höhe eines Dreiecks: h = √(6² − 3²) = √27 cm. Ein Dreieck: 1/2 · 6 · √27 ≈ 15,59 cm². Vier Dreiecke: ≈ {dz(w)} cm².',
+                                   'Berechne die Höhe eines gleichseitigen Dreiecks mit Pythagoras.', w, c, einheit='cm²', tol=0.1))
+    neu('pyr_oberflaeche', 3, zahl('Die Oberfläche einer quadratischen Pyramide mit der Grundkante 6 cm ist dreimal so groß wie ihre Grundfläche. Wie lang ist die Seitenhöhe?',
+                                   'G = 36 cm², O = 108 cm², also M = 72 cm². M = 4 · 1/2 · 6 · hₛ = 12 · hₛ = 72 ⇒ hₛ = 6 cm.', 'Wie groß ist der Mantel, wenn O = 3 · G?', 6, '(3 * 36 - 36) / 12', einheit='cm'))
+    neu('pyr_oberflaeche', 3, auswahl('Eine quadratische Pyramide hat a = 6 cm und h = 4 cm. Jemand rechnet die Mantelfläche als 4 · 1/2 · 6 · 4 = 48 cm². Was stimmt?',
+                                      'Falsch: In die Dreiecksfläche gehört die Seitenhöhe hₛ = 5 cm, also M = 60 cm².',
+                                      ['Richtig.', 'Falsch: M = 6² + 48 = 84 cm².', 'Falsch: M = 1/3 · 6² · 4 = 48 cm³.'],
+                                      'Die Seitenflächen sind Dreiecke mit der Höhe hₛ, nicht h. hₛ² = 4² + 3² = 25 ⇒ hₛ = 5 cm. M = 4 · 1/2 · 6 · 5 = 60 cm².',
+                                      'Welche Höhe hat ein Seitendreieck?'))
+
+    # --- kegel_volumen ---
+    neu('kegel_volumen', 2, zahl('Ein Kegel hat die Grundfläche 24 cm² und das Volumen 64 cm³. Wie hoch ist er?', 'h = 3V : G = 3 · 64 : 24 = 8 cm.',
+                                 'Hier brauchst du π nicht: Die Grundfläche ist schon gegeben.', 8, '3 * 64 / 24', einheit='cm'))
+    neu('kegel_volumen', 2, zahl('Ein Zylinder und ein Kegel haben denselben Radius und dieselbe Höhe. Der Zylinder fasst 1,2 l. Wie viel Liter fasst der Kegel?',
+                                 'V_Kegel = 1/3 · V_Zylinder = 1,2 : 3 = 0,4 l.', 'Vergleiche die Formeln von Zylinder und Kegel.', 0.4, '1.2 / 3', einheit='l'))
+    neu('kegel_volumen', 3, bruch_luecke('Ein kegelförmiges Glas (Spitze unten) ist bis zur halben Höhe mit Saft gefüllt. Welcher Anteil des Glasvolumens ist gefüllt?', Fr(1, 8),
+                                         'Der Saft bildet einen kleineren Kegel mit halber Höhe und – nach dem Strahlensatz – halbem Radius. V = 1/3 · π · (r/2)² · h/2 = 1/8 · (1/3 · π · r² · h).',
+                                         'Wie groß ist der Radius der Saftoberfläche? Denk an den Strahlensatz.', c=['1', '2 ** 3']))
+    neu('kegel_volumen', 3, zahl('Schätze ohne Taschenrechner mit π ≈ 3: Wie viele Liter fasst ein Kegel mit dem Radius 10 cm und der Höhe 30 cm?',
+                                 'V ≈ 1/3 · 3 · 10² · 30 = 3 000 cm³ = 3 l.', '1 l = 1 000 cm³.', 3, '3 * 100 * 30 / 3 / 1000', einheit='l'))
+    neu('kegel_volumen', 3, zahl('Ein Kegel ist genauso hoch, wie sein Radius lang ist, und hat das Volumen 72π cm³. Wie groß ist der Radius?',
+                                 '1/3 · π · r² · r = 72π ⇒ r³ = 216 ⇒ r = 6 cm.', 'Setze h = r ein; dann steht r³ in der Formel.', 6, '6 + (6 ** 3 - 3 * 72)', einheit='cm'))
+    neu('kegel_volumen', 3, zahl('Ein Kegel und eine Kugel haben denselben Radius r und dasselbe Volumen. Die Höhe des Kegels ist wie viel-mal so groß wie r?',
+                                 '1/3 · π · r² · h = 4/3 · π · r³ ⇒ h = 4r.', 'Setze die beiden Volumenformeln gleich und kürze.', 4, '4'))
+
+    # --- kegel_mantel ---
+    neu('kegel_mantel', 2, luecken('Ein Kegel hat r = 6 cm und s = 10 cm. Gib seine Oberfläche als Vielfaches von π an (in cm²).', '□ · π', 'Zahl vor π', [96],
+                                   'O = π · r² + π · r · s = 36π + 60π = 96π cm².', 'Oberfläche = Grundkreis + Mantel.', c=['6 ** 2 + 6 * 10']))
+    neu('kegel_mantel', 2, zahl('Ein Kegel hat den Radius 5 cm und die Mantelfläche 60π cm². Wie lang ist die Mantellinie s?', 'π · 5 · s = 60π ⇒ s = 12 cm.',
+                                'Setze in M = π · r · s ein und kürze π.', 12, '60 / 5', einheit='cm'))
+    w, c = rz(math.sqrt(75), 1)
+    neu('kegel_mantel', 3, zahl('Der Mantel eines Kegels ist abgewickelt ein Halbkreis mit dem Radius 10 cm. Wie hoch ist der Kegel? Runde auf eine Nachkommastelle.',
+                                f'Mantellinie s = 10 cm. Bogen des Halbkreises = Umfang des Grundkreises: π · 10 = 2π · r ⇒ r = 5 cm. h = √(10² − 5²) = √75 ≈ {dz(w)} cm.',
+                                'Der Bogen des Halbkreises wird zum Grundkreis.', w, c, einheit='cm', tol=0.1))
+    neu('kegel_mantel', 3, zahl('Wie groß ist der Öffnungswinkel eines Kegels (Winkel an der Spitze im Achsenschnitt), dessen abgewickelter Mantel genau ein Halbkreis ist?',
+                                'Halbkreis: Bogen π · s = 2π · r ⇒ s = 2r. Im Achsenschnitt: sin(α/2) = r : s = 1/2 ⇒ α/2 = 30° ⇒ α = 60°.',
+                                'Zeige zuerst s = 2r. Dann hilft der Sinus im halben Achsenschnitt.', 60, '2 * 30', einheit='°'))
+    neu('kegel_mantel', 3, zahl('Ein Kegel mit dem Radius 5 cm hat die Oberfläche 90π cm². Wie lang ist seine Mantellinie?', '25π + 5π · s = 90π ⇒ 5s = 65 ⇒ s = 13 cm.',
+                                'Oberfläche = π r² + π r s. Kürze π.', 13, '(90 - 25) / 5', einheit='cm'))
+    r = 56 / (2 * P)
+    w, c = rz(28 * math.sqrt(400 + r * r), 0)
+    neu('kegel_mantel', 3, zahl('Ein Partyhut (Kegelmantel ohne Boden) soll 20 cm hoch sein und unten 56 cm Umfang haben. Wie viel cm² Papier braucht man mindestens? Runde auf ganze cm².',
+                                f'r = 56 : (2π) ≈ 8,91 cm. s = √(20² + r²) ≈ 21,90 cm. M = π · r · s = 28 · s ≈ {dz(w)} cm² (denn π · r = 56 : 2 = 28).',
+                                'Bestimme r aus dem Umfang, dann s mit Pythagoras.', w, c, einheit='cm²', tol=1))
+
+    # --- kugel ---
+    neu('kugel', 2, luecken('Gib das Volumen einer Halbkugel mit dem Radius 6 cm als Vielfaches von π an (in cm³).', '□ · π', 'Zahl vor π', [144],
+                            'V = 1/2 · 4/3 · π · 6³ = 2/3 · 216 · π = 144π cm³.', 'Halbe Kugel: 1/2 · 4/3 = 2/3.', c=['2 * 216 // 3']))
+    neu('kugel', 2, zahl('Eine Kugel hat die Oberfläche 100π cm². Wie groß ist ihr Radius?', '4π r² = 100π ⇒ r² = 25 ⇒ r = 5 cm.', 'Kürze π und teile durch 4.', 5, '5 + (4 * 5 ** 2 - 100)', einheit='cm'))
+    neu('kugel', 3, zahl('Ein zylindrisches Glas (Innenradius 5 cm) enthält Wasser. Drei Kugeln mit dem Radius 2 cm werden hineingelegt und sind ganz unter Wasser. Um wie viel cm steigt der Wasserspiegel?',
+                         'Kugelvolumen: 3 · 4/3 · π · 2³ = 32π cm³. Das Wasser steigt um h mit π · 5² · h = 32π ⇒ h = 32 : 25 = 1,28 cm.',
+                         'Das verdrängte Wasser bildet einen flachen Zylinder mit dem Radius des Glases.', 1.28, '3 * 4 * 8 / 3 / 25', einheit='cm'))
+    neu('kugel', 3, zahl('Bei einer Kugel ist die Maßzahl des Volumens (in cm³) gleich der Maßzahl der Oberfläche (in cm²). Wie groß ist der Radius?',
+                         '4/3 · π · r³ = 4 · π · r² ⇒ r/3 = 1 ⇒ r = 3 cm.', 'Setze die Formeln gleich und teile durch 4 · π · r².', 3, '3', einheit='cm'))
+    w, c = rz(2 ** (1 / 3), 2)
+    neu('kugel', 3, zahl('Eine Kugel soll das doppelte Volumen haben. Mit welchem Faktor muss man den Radius multiplizieren? Runde auf zwei Nachkommastellen.',
+                         f'Volumen ~ r³: k³ = 2 ⇒ k = ∛2 ≈ {dz(w)}. (Nicht 2: das gäbe das 8-fache Volumen.)', 'Wie wirkt sich der Faktor k beim Radius auf r³ aus?', w, c, tol=0.01))
+    r = 70 / (2 * P)
+    w, c = rz(4 / 3 * P * r ** 3 / 1000, 2)
+    neu('kugel', 3, zahl('Ein Ball hat (am dicksten Kreis gemessen) den Umfang 70 cm. Wie viele Liter Luft passen hinein? Runde auf zwei Nachkommastellen.',
+                         f'r = 70 : (2π) ≈ 11,14 cm. V = 4/3 · π · r³ ≈ {dz(round(4 / 3 * P * r ** 3, 0))} cm³ ≈ {dz(w)} l.',
+                         'Bestimme zuerst den Radius aus dem Umfang. 1 l = 1 000 cm³.', w, c, einheit='l', tol=0.01))
+
+    # --- sachkontext ---
+    w, c = rz(2 * math.sqrt(3 * 12 / (2 * P)), 2)
+    neu('sachkontext', 2, zahl('Ein kegelförmiger Sandhaufen ist 2 m hoch und enthält 12 m³ Sand. Welchen Durchmesser hat er unten? Runde auf zwei Nachkommastellen.',
+                               f'r² = 3V : (π h) = 36 : (2π) ≈ 5,73 ⇒ r ≈ 2,39 m ⇒ d ≈ {dz(w)} m.', 'Stelle die Kegelformel nach r² um. Gefragt ist der Durchmesser.', w, c, einheit='m', tol=0.01))
+    w, c = rz(78 * P, 1)
+    neu('sachkontext', 2, zahl('Ein Werkstück ist ein Zylinder (r = 3 cm, h = 10 cm) mit einer kegelförmigen Bohrung von oben (gleicher Radius, 4 cm tief). Berechne das Volumen des Werkstücks. Runde auf eine Nachkommastelle.',
+                               f'Zylinder 90π cm³ minus Kegel 1/3 · π · 9 · 4 = 12π cm³: 78π ≈ {dz(w)} cm³.', 'Vom Zylinder wird der Kegel abgezogen.', w, c, einheit='cm³', tol=0.1))
+    w, c = rz(math.sqrt(250), 2)
+    neu('sachkontext', 3, zahl('Eine Pyramide hat das Rechteck ABCD (AB = 12 cm, BC = 5 cm) als Grundfläche. Die Spitze S liegt senkrecht über D, DS = 9 cm. Wie lang ist die längste Kante [BS]? Runde auf zwei Nachkommastellen.',
+                               f'BD ist die Diagonale des Rechtecks: BD = √(12² + 5²) = 13 cm. Dreieck BDS ist rechtwinklig bei D: BS = √(13² + 9²) = √250 ≈ {dz(w)} cm.',
+                               'Erst die Diagonale BD, dann das rechtwinklige Dreieck BDS.', w, c, einheit='cm', tol=0.01))
+    w, c = rz(math.degrees(math.atan(9 / 13)), 1)
+    neu('sachkontext', 3, zahl('Pyramide wie eben: Rechteck ABCD mit AB = 12 cm, BC = 5 cm, Spitze S senkrecht über D, DS = 9 cm. Wie groß ist der Winkel ∢DBS? Runde auf eine Nachkommastelle.',
+                               f'Im rechtwinkligen Dreieck BDS: tan(∢DBS) = DS : BD = 9 : 13 ⇒ ∢DBS ≈ {dz(w)}°.', 'BD = 13 cm (Diagonale). Welche Seiten liegen am Winkel bei B?', w, c, einheit='°', tol=0.1))
+    w, c = rz(1 / 3 * P * 64 * math.sqrt(80), 1)
+    neu('sachkontext', 3, zahl('Aus einem Kreis mit Radius 12 cm wird ein Sektor mit 240° ausgeschnitten und zu einem Kegelmantel gerollt. Welches Volumen hat der Kegel? Runde auf eine Nachkommastelle.',
+                               f's = 12 cm. Bogen = 240/360 · 2π · 12 = 16π = 2π · r ⇒ r = 8 cm. h = √(12² − 8²) = √80 ≈ 8,94 cm. V = 1/3 · π · 64 · √80 ≈ {dz(w)} cm³.',
+                               'Der Sektorradius wird zur Mantellinie, der Bogen zum Grundkreisumfang.', w, c, einheit='cm³', tol=0.1))
+    w, c = rz((1 - 4 / 3 * P * 125 / 1000) * 100, 1)
+    neu('sachkontext', 3, zahl('Aus einem Holzwürfel mit 10 cm Kantenlänge wird die größtmögliche Kugel gedrechselt. Wie viel Prozent des Holzes werden zu Spänen? Runde auf eine Nachkommastelle.',
+                               f'Die Kugel hat r = 5 cm: V ≈ 523,6 cm³ von 1 000 cm³, also 52,4 %. Abfall: ≈ {dz(w)} %.', 'Der größte Kugeldurchmesser ist die Kantenlänge.', w, c, einheit='%', tol=0.1))
+
+    # --- verstehen ---
+    neu('verstehen', 2, auswahl('Bei einem Kegel wird nur die Höhe verdoppelt. Wie ändert sich das Volumen?', 'Es verdoppelt sich.', ['Es vervierfacht sich.', 'Es wird 8-mal so groß.', 'Es bleibt gleich.'],
+                                'V = 1/3 · π · r² · h: h steht ohne Quadrat in der Formel, also Faktor 2.', 'Mit welcher Potenz steht h in der Formel?'))
+    neu('verstehen', 2, auswahl('Ein Prisma und eine Pyramide haben dieselbe Grundfläche und dieselbe Höhe. Wie groß ist das Volumen der Pyramide?', 'ein Drittel des Prismavolumens',
+                                ['die Hälfte des Prismavolumens', 'genauso groß', 'zwei Drittel des Prismavolumens'], 'V_Pyramide = 1/3 · G · h, V_Prisma = G · h.', 'Vergleiche die Formeln.'))
+    neu('verstehen', 3, auswahl('Zwei Pyramiden haben dieselbe Grundfläche und dieselbe Höhe. Die eine ist gerade, die andere schief (Spitze nicht über der Mitte). Was gilt für die Volumina?',
+                                'Sie sind gleich groß.', ['Die gerade Pyramide hat das größere Volumen.', 'Die schiefe Pyramide hat das größere Volumen.', 'Das hängt von der Neigung ab.'],
+                                'Prinzip von Cavalieri: In jeder Höhe sind die Querschnitte gleich groß, also auch die Volumina. V = 1/3 · G · h gilt für beide.',
+                                'Vergleiche die Querschnittsflächen in gleicher Höhe.'))
+    w, c = rz((1.1 ** 3 - 1) * 100, 1)
+    neu('verstehen', 3, zahl('Alle Längen eines Kegels werden um 10 % vergrößert. Um wie viel Prozent wächst sein Volumen? Runde auf eine Nachkommastelle.',
+                             f'Längenfaktor 1,1 ⇒ Volumenfaktor 1,1³ = 1,331. Das Volumen wächst um {dz(w)} %.', 'Volumen ~ Länge³.', w, c, einheit='%', tol=0.1))
+    neu('verstehen', 3, zahl('Ein Kegel und ein Zylinder haben dieselbe Grundfläche und dasselbe Volumen. Wie viel-mal so hoch wie der Zylinder ist der Kegel?',
+                             '1/3 · G · h_K = G · h_Z ⇒ h_K = 3 · h_Z.', 'Setze die Volumenformeln gleich.', 3, '3'))
+    neu('verstehen', 3, auswahl('Jemand sagt: „Eine Halbkugel hat die halbe Oberfläche der Kugel, also 2πr².“ Was stimmt?', 'Falsch: Dazu kommt die Schnittfläche πr², zusammen 3πr².',
+                                ['Richtig.', 'Falsch: Die Oberfläche ist 4πr².', 'Falsch: Die Oberfläche ist 2/3 · πr³.'],
+                                'Die gewölbte Fläche ist 2πr². Die Halbkugel hat aber auch eine ebene Kreisfläche πr² als Boden: O = 3πr².',
+                                'Welche Flächen begrenzen eine Halbkugel?'))
+    return N
+
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_datei  # noqa: E402
+
+BF = Befunde('raum.pyramide_kegel_kugel', 13_10_6)
+# a) nur große Zahlen, derselbe Gedanke wie Stufe 1 (V = 1/3 · G · h)
+BF.stufe('sachkontext', 'Eine quadratische Pyramide (als Modell eines Bauwerks) hat die Grundkante 230 m und die Höhe 146 m. Berechne das Volumen auf ganze m³.', 2)
+# c) dreimal dieselbe Aufgabe (12-/24-/100-Eck), Antwort immer gleich → zwei andere Stufe-1-Fragen
+BF.ersetze('verstehen', 'Eine Pyramide hat als Grundfläche ein regelmäßiges 100-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?', BF.Z(
+    'Wie viele Ecken hat eine Pyramide, deren Grundfläche ein regelmäßiges 12-Eck ist?', 13, '12 + 1',
+    'Die Grundfläche hat 12 Ecken, dazu kommt die Spitze: 12 + 1 = 13 Ecken.', 'Zähle die Ecken der Grundfläche und die Spitze.'))
+BF.ersetze('verstehen', 'Eine Pyramide hat als Grundfläche ein regelmäßiges 12-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?', BF.A(
+    'Welcher Körper hat genau eine Spitze und eine kreisförmige Grundfläche?', 'Kegel', ['Zylinder', 'Kugel', 'Pyramide'],
+    'Der Kegel hat eine Kreisfläche als Grundfläche und eine Spitze. Der Zylinder hat zwei Kreisflächen, die Pyramide ein Vieleck als Grundfläche, die Kugel weder Grundfläche noch Spitze.',
+    'Stell dir eine Eiswaffel vor.'))
+# a) gleicher Typ wie Stufe 2 („Radius ver-n-facht – wie ändert sich …?“)
+BF.stufe('verstehen', 'Der Radius einer Kugel wird verdreifacht. Wie ändert sich das Volumen?', 2)
+BF.stufe('verstehen', 'Der Radius einer Kugel wird vervierfacht. Wie ändert sich das Volumen?', 2)
+# b) Schreibweise „64/3π“ mehrdeutig → „64π/3“
+BF.loesung('kegel_volumen', 'Ein Kegel hat den Radius r = 2 cm und die Höhe h = 16 cm. Berechne sein Volumen auf eine Nachkommastelle.',
+           w='V = ⅓ · π · 2² · 16 = 64π/3 ≈ 67,0 cm³.')
+BF.loesung('kegel_volumen', 'Ein Kegel hat den Radius r = 11 cm und die Höhe h = 19 cm. Berechne sein Volumen auf eine Nachkommastelle.',
+           w='V = ⅓ · π · 11² · 19 = 2 299π/3 ≈ 2 407,5 cm³.')
+# b) zwei Nachkommastellen verlangt, Weg zeigt nur eine
+BF.loesung('kugel', 'Eine Kugel hat das Volumen 4 312 cm³. Berechne ihren Radius auf zwei Nachkommastellen.',
+           w='r³ = 3V : (4π) = 12 936 : (4π) ⇒ r = ∛(…) ≈ 10,10 cm.')
+
+# ---- BEFUNDE ENDE ----
+
+# ---------- Achtzehnte Runde (Zweig luecken-kl10): Volumen schiefer Prismen ----------
+# Lücke laut Aufbau-Prüfung (inhalte/pruefung/aufbau/klasse10.json): LehrplanPLUS M10 5 verlangt, ausgehend von geraden Prismen plausibel zu
+# machen, dass auch für schiefe Prismen V = G · h gilt (z. B. mit dem Prinzip von Cavalieri). Die Karte „verstehen“ bekommt dazu einen
+# fünften Schritt mit Zeichnung (gerades und schiefes Prisma von der Seite, gleich breit und gleich hoch) und 6 Übungen.
+# Läuft ganz am Ende mit eigenem Zufallsstart; alle alten Aufgaben bleiben gleich.
+# Prüfungsvorbild (Typ und Niveau, eigene Zahlen): Körperberechnungen in Sachkontexten mit Längen und Winkeln (LehrplanPLUS M10 5,
+# Schulaufgaben Jgst. 10): Höhe eines schiefen Körpers aus Seitenkante und Neigungswinkel.
+SCHRITT_SCHIEF = {
+    'text': 'Schiefes Prisma: wie ein schräg geschobener Stapel gleicher Platten, also ⟦V = G · h⟧.',
+    'bild': {'typ': 'figur',
+             'punkte': {'_A': [0, 0], '_B': [2, 0], '_C': [2, 3], '_D': [0, 3], '_E': [4, 0], '_F': [6, 0], '_G': [7.5, 3], '_H': [5.5, 3], '_L': [5.5, 0],
+                        '_a1': [0, 1], '_b1': [2, 1], '_a2': [0, 2], '_b2': [2, 2], '_e1': [4.5, 1], '_f1': [6.5, 1], '_e2': [5, 2], '_f2': [7, 2]},
+             'linien': [['_A', '_B', 'G'], ['_B', '_C', 'h'], ['_C', '_D', ''], ['_D', '_A', ''], ['_E', '_F', 'G'], ['_F', '_G', ''], ['_G', '_H', ''], ['_H', '_E', ''],
+                        ['_H', '_L', 'h', 'gestrichelt'], ['_a1', '_b1', '', 'gestrichelt'], ['_a2', '_b2', '', 'gestrichelt'],
+                        ['_e1', '_f1', '', 'gestrichelt'], ['_e2', '_f2', '', 'gestrichelt']],
+             'rechter_winkel': [['_L', '_F', '_H']],
+             'label': 'gerade und schief: gleiche Platten'}}
+
+
+def luecken_kl10():
+    start(18040)
+    U = []
+
+    def neu(s, a):
+        assert a is not None
+        a['p'], a['s'] = 'uebung', s
+        U.append(a)
+
+    G, h = 12, 5
+    neu(1, zahl(f'Ein schiefes Prisma hat die Grundfläche {G} cm² und die Höhe {h} cm. Wie groß ist sein Volumen?',
+                f'Auch beim schiefen Prisma gilt V = G · h = {G} cm² · {h} cm = {G * h} cm³.', 'Schief oder gerade: Was zählt, ist die Höhe senkrecht zur Grundfläche.',
+                G * h, f'{G} * {h}', einheit='cm³'))
+    g_, hd, H = 6, 4, 10
+    neu(2, zahl(f'Ein schiefes Prisma hat ein Dreieck als Grundfläche (Grundseite {g_} cm, zugehörige Höhe {hd} cm). Der Abstand von Grund- und Deckfläche beträgt {H} cm. Wie groß ist das Volumen?',
+                f'G = {g_} · {hd} : 2 = {g_ * hd // 2} cm². V = G · h = {g_ * hd // 2} · {H} = {g_ * hd // 2 * H} cm³.',
+                'Berechne zuerst die Dreiecksfläche. Die Höhe des Prismas ist der Abstand der beiden Dreiecke.', g_ * hd // 2 * H, f'{g_} * {hd} / 2 * {H}', einheit='cm³'))
+    neu(2, auswahl('Ein gerades und ein schiefes Prisma haben dieselbe Grundfläche und beide den Abstand 8 cm zwischen Grund- und Deckfläche. Die Seitenkanten des schiefen Prismas sind 10 cm lang. Was gilt für die Volumina?',
+                   'Beide haben dasselbe Volumen.', ['Das schiefe Prisma hat das größere Volumen, weil seine Kanten länger sind.', 'Das schiefe Prisma hat das kleinere Volumen, weil es schräg steht.',
+                                                     'Das schiefe Prisma hat ein Drittel des Volumens.'],
+                   'In jeder Höhe sind die Querschnitte gleich groß (Cavalieri). Beide haben V = G · 8 cm. Die schräge Kante von 10 cm ist nicht die Höhe.',
+                   'Vergleiche die Querschnitte in jeder Höhe.'))
+    G, s, w = 20, 10, 30
+    wahr = G * s * math.cos(math.radians(w))
+    v = gerundet(wahr, 0)
+    neu(3, zahl(f'Ein schiefes Prisma hat die Grundfläche {G} cm². Seine Seitenkanten sind {s} cm lang und um {w}° gegen die Senkrechte geneigt. Wie groß ist sein Volumen? Runde auf ganze cm³.',
+                f'Höhe h = {s} · cos {w}° ≈ {dz(round(s * math.cos(math.radians(w)), 3))} cm (rechtwinkliges Dreieck aus Kante, Höhe und Verschiebung). V = G · h ≈ {G} · {dz(round(s * math.cos(math.radians(w)), 3))} ≈ {dz(v)} cm³.',
+                'Die Höhe ist nicht die Kante. Zeichne das rechtwinklige Dreieck aus Kante und Höhe; der Winkel liegt an der Senkrechten.',
+                v, f'round({G} * {s} * {K(math.cos(math.radians(w)))})', einheit='cm³', tol=1))
+    G, s, h = 10, 13, 12
+    neu(3, auswahl(f'Bei einem schiefen Prisma ist G = {G} cm², die schräge Seitenkante {s} cm und die Höhe {h} cm. Jemand rechnet V = G · {s} cm = {G * s} cm³. Was stimmt?',
+                   f'Falsch: V = G · h = {G} · {h} = {G * h} cm³; die Kante ist nicht die Höhe.',
+                   ['Richtig.', f'Falsch: V = 1/3 · G · h = {G * h // 3} cm³.', f'Falsch: V = G · ({s} − {h}) = {G * (s - h)} cm³.'],
+                   f'Das Volumen hängt von der Höhe senkrecht zur Grundfläche ab, nicht von der schrägen Kante: V = {G} · {h} = {G * h} cm³. 1/3 gehört zu Pyramide und Kegel.',
+                   'Welche Länge steht in V = G · h?'))
+    n, d, dicke = 20, Fr(26, 10), Fr(22, 10)
+    hc = n * dicke / 10
+    wahr = math.pi * float(d / 2) ** 2 * float(hc)
+    v = gerundet(wahr, 1)
+    neu(3, zahl(f'Ein Stapel aus {n} gleichen Münzen (Durchmesser {dz(d)} cm, Dicke {dz(dicke)} mm) wird schräg verschoben. Wie groß ist das Volumen des schiefen Stapels? Runde auf eine Nachkommastelle.',
+                f'Schräg verschieben ändert keine Schicht (Cavalieri): wie ein Zylinder mit r = {dz(d / 2)} cm und h = {n} · {dz(dicke)} mm = {dz(hc)} cm. V = π · {dz(d / 2)}² · {dz(hc)} ≈ {dz(v)} cm³.',
+                'Wie hoch ist der Stapel? Ändert das Verschieben die Fläche einer Münze?', v, f'round({PI} * {float(d / 2)} ** 2 * {float(hc)}, 1)', einheit='cm³', tol=0.1))
+    return U
+
+
+def luecken_einbauen():
+    from _luecken_kl10 import karte_erweitern, offen_ergaenzen
+    karte_erweitern('raum.pyramide_kegel_kugel', 'verstehen', [SCHRITT_SCHIEF], luecken_kl10())
+    offen_ergaenzen('raum.pyramide_kegel_kugel', 'Achtzehnte Runde (luecken-kl10): Karte „verstehen“ um einen Schritt zu schiefen Prismen (V = G · h, Cavalieri; '
+                    'Zeichnung: gerades und schiefes Prisma von der Seite, gleich breit und gleich hoch) und 6 Übungen ergänzt (LehrplanPLUS M10 5). '
+                    'Rotationskörper stehen in raum.schraegbilder (seit D2 Klasse 10). Schrägbild und Netz des Kegels bleiben offen (App).')
+
+
 if __name__ == '__main__':
-    bauen('raum.pyramide_kegel_kugel',
+    datei = bauen('raum.pyramide_kegel_kugel',
           'Volumen und Oberfläche von Pyramide, Kegel und Kugel berechnen, die Kegelformeln begründen und Körper in Sachzusammenhängen untersuchen.',
           ['Pyramide und Kegel: V = ⅓ · G · h.', 'Quadratische Pyramide: hₛ² = h² + (a/2)², O = a² + 2 · a · hₛ.',
            'Kegel: s² = r² + h², M = π r s, O = π r² + π r s, Sektorwinkel φ = 360° · r/s.', 'Kugel: V = ⁴⁄₃ π r³, O = 4 π r².'],
@@ -603,3 +894,234 @@ if __name__ == '__main__':
                  'Schrägbild und Netz der quadratischen Pyramide jetzt mit „figur“. Weiter nicht möglich: Schrägbild des Kegels (Ellipse für den Grundkreis) und Zeichnen durch das Kind.',
                  'Prinzip von Cavalieri und „Kegel als Grenzfall der Pyramide“ nur als Verstehensfragen (ohne Zeichnung). Extremwerte an Körpern (umfang) weggelassen – nicht im lehrplan_gym.',
                  'Gerundete Ergebnisse mit Toleranz (0,1 bzw. 0,01; bei ganzen Zahlen 1); π als 12-stellige Konstante in c.'])
+    ergaenzen(datei, schwer())
+    befunde_datei(BF.thema, BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
+    luecken_einbauen()  # Achtzehnte Runde (luecken-kl10): verstehen um schiefe Prismen erweitert – ganz am Ende
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl10) ----------
+# Gesamtdurchsicht Klasse 10: jede Lernkarte und jede Aufgabe gelesen und nachgerechnet. Läuft ganz am Ende auf der fertigen Datei.
+# Stufe 1 = vorgerechnetes Beispiel mit anderen Zahlen, Stufe 2 = Abwandlung/Umkehrung, Stufe 3 = anderer Gedanke.
+def durchsicht():
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _durchsicht_kl10 import Durchsicht
+    D = Durchsicht('raum.pyramide_kegel_kugel', 19090)
+    # pyr_volumen: Dreieck als Grundfläche ist nur eine andere Grundfläche, kein neuer Gedanke → Stufe 2
+    D.stufe([13, 15], 2, 'Eine Pyramide hat als Grundfläche ein Dreieck')
+    # pyr_oberflaeche: Oberfläche aus a und h ist genau das vorgerechnete Beispiel der Karte → Stufe 1;
+    # Aufgabe 41 hatte sogar die Zahlen der Karte (a = 6, h = 4) → ersetzt durch andere Zahlen
+    D.stufe([40, 42, 43, 44, 45], 1, 'Eine quadratische Pyramide hat die Grundkante')
+    D.ersetze(41, 'Eine quadratische Pyramide hat die Grundkante 6 cm und die Höhe 4 cm',
+              D.Z('Eine quadratische Pyramide hat die Grundkante 12 cm und die Höhe 8 cm. Berechne ihre Oberfläche.', 384, '12 ** 2 + 2 * 12 * 10',
+                  'hₛ = √(8² + 6²) = 10 cm; O = 12² + 4 · ½ · 12 · 10 = 144 + 240 = 384 cm².', 'Erst hₛ mit Pythagoras, dann O = G + M.', einheit='cm²',
+                  grafik={'typ': 'figur', 'punkte': {'S': [0, 8], 'M': [0, 0], 'F': [6.0, 0], '_G': [-6.0, 0]}, 'flaeche': ['_G', 'F', 'S'],
+                          'linien': [['_G', 'F', ''], ['_G', 'S', ''], ['S', 'F', 'hₛ'], ['M', 'F', 'a/2 = 6'], ['M', 'S', 'h = 8', 'gestrichelt']],
+                          'rechter_winkel': [['M', 'F', 'S']], 'label': 'Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe'}), s=1)
+    # kegel_volumen: Höhe aus dem Volumen ist eine Umkehrung → Stufe 2
+    D.stufe(range(68, 74), 2, 'Ein Kegel mit dem Radius')
+    # kegel_mantel: Oberfläche aus r und h = Kette der Karte (s, dann M) plus Boden → Stufe 2; Sektor → Grundkreis = Umkehrung der Winkelformel → Stufe 2
+    D.stufe([96, 97, 99, 100], 2, 'Ein Kegel hat den Radius')
+    D.stufe([98, 101], 2, 'Aus einem Kreissektor')
+    # kugel: Radius aus Volumen/Oberfläche ist eine Umkehrung → Stufe 2
+    D.stufe([124, 125, 128, 129], 2, 'Eine Kugel hat')
+    D.stufe([126, 127], 2, 'Ein Globus')
+    # sachkontext: Pyramidenvolumen mit großen Zahlen ist kein anderer Gedanke → Stufe 2
+    D.stufe([153, 157], 2, 'Eine quadratische Pyramide (als Modell')
+    # verstehen: Fehler „π · r · h“ ist auf Stufe 2 schon dreimal da → Stufe 2
+    D.stufe([180, 184, 185], 2, 'Jemand rechnet die Mantelfläche eines Kegels')
+    D.fuer_sebastian('raum.pyramide_kegel_kugel/verstehen: Zwei Übungen haben denselben Fragetext („Bei einem Kegel wird nur die Höhe verdoppelt. …“, Stufe 1 und Stufe 2). '
+                     'Nicht ersetzt, weil die Sperre nach Fragetext beide träfe – eine davon bitte löschen oder umformulieren lassen.')
+    D.fuer_sebastian('raum.pyramide_kegel_kugel: Schrägbild und Netz von Pyramide und Kegel (M10 5) fehlen als eigene Aufgaben; '
+                     'die App kann Kegel-Schrägbilder und Kegelnetze nicht zeichnen (App-Wunsch).')
+    D.anwenden()
+
+
+if __name__ == '__main__':
+    durchsicht()  # Neunzehnte Runde (durchsicht-kl10) – ganz am Ende
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl10) ----------
+def stufen():
+    import math as _m
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from _stufen_kl10 import Stufen
+    S = Stufen('raum.pyramide_kegel_kugel', 2090)
+    Z, A, L, ZR = S.Z, S.A, S.L, S.ZR
+    pi = _m.pi
+
+    # --- pyr_volumen ---
+    S.stufenleiter('pyr_volumen', 'V = 1/3 · G · h für quadratische Pyramiden anwenden; Formel und Höhe erkennen.',
+                   'Höhe aus dem Volumen, rechteckige und dreieckige Grundflächen, Pyramide im Würfel.',
+                   'Höhe und Seitenkanten mit Pythagoras, Würfelecke abschneiden, x als Parameter, Volumenverhältnisse begründen, Fehler „ohne 1/3“, Prüfungsaufgabe.')
+    S.g('pyr_volumen', direkt=[0, 1, 2, 3, 4, 5], umkehr=[6, 7, 10, 196], mehrschritt=[8, 9, 11, 13, 15], einkleidung=[197],
+        verknuepfen=[12, 16], pruefung=[14, 17], transfer=[198, 201], parameter=[199], begruenden=[200])
+    S.ueberzaehlig(15, 17)
+    S.neu('pyr_volumen', 'erkennen', A('Welche Formel gilt für das Volumen jeder Pyramide?', 'V = 1/3 · G · h', ['V = G · h', 'V = 1/2 · G · h', 'V = 1/3 · a · h'],
+                                       'Eine Pyramide fasst ein Drittel des Prismas mit gleicher Grundfläche und Höhe.', 'Denke an das Zelt und die Kiste.'))
+    S.neu('pyr_volumen', 'erkennen', A('Was ist bei einer Pyramide die Höhe h?', 'der senkrechte Abstand der Spitze von der Grundfläche', ['die Länge einer Seitenkante', 'die Höhe eines Seitendreiecks', 'die Länge einer Grundkante'],
+                                       'h wird senkrecht gemessen, von der Spitze bis zur Grundfläche.', 'Wie misst man die Höhe eines Zelts?'))
+    S.neu('pyr_volumen', 'fehler', A('Jemand berechnet das Volumen einer quadratischen Pyramide (a = 6 cm, h = 5 cm) als 6 · 6 · 5 = 180 cm³. Was stimmt?', 'Falsch: Es fehlt der Faktor 1/3; V = 60 cm³.',
+                                     ['Richtig.', 'Falsch: V = 1/2 · 180 = 90 cm³.', 'Falsch: V = 6 · 5 = 30 cm³.'], '180 cm³ ist das Volumen des Quaders mit gleicher Grundfläche und Höhe. Die Pyramide fasst ein Drittel.',
+                                     'Was passt in die Kiste, was ins Zelt?'))
+    S.bonus('pyr_volumen', L('Eine Pyramide wird auf halber Höhe parallel zur Grundfläche durchgeschnitten. Welcher Anteil ihres Volumens liegt im oberen Teil?', '□/□', [1, 8], ['1', '8'],
+                             'Der obere Teil ist eine kleine Pyramide mit halber Höhe und halben Grundkanten. Grundfläche ein Viertel, Höhe die Hälfte: 1/4 · 1/2 = 1/8.',
+                             'Wie ändern sich Grundfläche und Höhe der kleinen Pyramide?', hinweis='gekürzter Bruch'))
+    S.bonus('pyr_volumen', Z('In einem Würfel mit der Kante 6 cm verbindet man vier Ecken, von denen keine zwei an derselben Kante liegen, zu einem Tetraeder. Welches Volumen hat es?', 72, '216 - 4 * 36',
+                             'Vom Würfel (216 cm³) werden vier Eckpyramiden abgeschnitten, jede mit V = 1/3 · (1/2 · 6 · 6) · 6 = 36 cm³. Übrig: 216 − 144 = 72 cm³ – genau ein Drittel des Würfels.',
+                             'Was wird vom Würfel weggeschnitten?', einheit='cm³'))
+
+    # --- pyr_oberflaeche ---
+    S.stufenleiter('pyr_oberflaeche', 'Seitenhöhe mit Pythagoras und Oberfläche O = G + M wie im Beispiel; Bestandteile erkennen.',
+                   'Mantel aus der Seitenhöhe, Seitenhöhe rückwärts, Dächer und Zelte.',
+                   'Neigungswinkel, Tetraeder, Oberfläche als Vielfaches der Grundfläche, Höhe als Parameter, Begründen hₛ > h, Farbbedarf, Oberfläche aus Seitenkanten wie in der Prüfung.')
+    S.g('pyr_oberflaeche', direkt=[28, 29, 30, 31, 32, 33, 40, 41, 42, 43, 44, 45], darstellung=[34, 35, 36, 37, 38, 39], mehrschritt=[202], umkehr=[203],
+        verknuepfen=[204], transfer=[205], rueckwaerts=[206], fehler=[207])
+    S.ueberzaehlig(29)
+    S.neu('pyr_oberflaeche', 'erkennen', A('Woraus besteht die Oberfläche einer quadratischen Pyramide?', 'aus dem Quadrat und vier Dreiecken', ['aus vier Dreiecken', 'aus zwei Quadraten und vier Rechtecken', 'aus fünf Quadraten'],
+                                           'Oberfläche = Grundfläche (Quadrat) + Mantel (vier gleiche Dreiecke).', 'Denke an das Zelt mit Boden.'))
+    S.neu('pyr_oberflaeche', 'erkennen', A('Welche Strecke braucht man für den Flächeninhalt eines Seitendreiecks?', 'die Seitenhöhe hₛ', ['die Höhe h der Pyramide', 'die Seitenkante', 'die Diagonale der Grundfläche'],
+                                           'Dreiecksfläche = Grundseite · Höhe : 2; die Höhe des Seitendreiecks ist hₛ.', 'Welche Höhe gehört zum Dreieck selbst?'))
+    S.neu('pyr_oberflaeche', 'einkleidung', Z('Ein Zeltdach (quadratische Pyramide, Grundkante 4 m, Seitenhöhe 3 m) wird ohne Boden mit Stoff bespannt. Wie viel m² Stoff braucht man?', 24, '4 * 4 * 3 / 2',
+                                              'Vier Dreiecke: 4 · (4 · 3 : 2) = 24 m².', 'Nur der Mantel, kein Boden.', einheit='m²'))
+    S.neu('pyr_oberflaeche', 'einkleidung', Z('Ein Turmdach ist eine quadratische Pyramide mit Grundkante 6 m und Höhe 4 m. Wie viel m² Dachfläche hat es?', 60, '4 * 6 * 5 / 2',
+                                              'hₛ = √(4² + 3²) = 5 m. Mantel 4 · (6 · 5 : 2) = 60 m².', 'Erst die Seitenhöhe, dann vier Dreiecke.', einheit='m²'))
+    S.neu('pyr_oberflaeche', 'parameter', Z('Für welche Höhe h hat eine quadratische Pyramide mit Grundkante 10 cm die Seitenhöhe 13 cm?', 12, '12',
+                                            'hₛ² = h² + 5² ⇒ 169 = h² + 25 ⇒ h² = 144 ⇒ h = 12 cm.', 'Stelle den Pythagoras mit h auf.', einheit='cm'))
+    S.neu('pyr_oberflaeche', 'begruenden', A('Kann die Seitenhöhe hₛ einer Pyramide kleiner sein als ihre Höhe h?', 'Nein: hₛ ist die Hypotenuse im Dreieck aus h und a/2, also länger als h.',
+                                             ['Ja, bei sehr flachen Pyramiden.', 'Ja, bei sehr spitzen Pyramiden.', 'Nein, beide sind immer gleich lang.'],
+                                             'hₛ² = h² + (a/2)² > h², weil a/2 > 0.', 'Welche Seite im rechtwinkligen Dreieck ist die längste?'))
+    S.neu('pyr_oberflaeche', 'pruefung', ZR('Eine quadratische Pyramide hat die Grundkante 8 cm, ihre Seitenkanten sind 9 cm lang. Berechne die Oberfläche. Runde auf eine Nachkommastelle.', 64 + 4 * 8 * _m.sqrt(65) / 2, 1,
+                                            'Seitenhöhe im Seitendreieck: hₛ = √(9² − 4²) = √65 ≈ 8,06 cm. M = 4 · (8 · 8,06 : 2) ≈ 129,0 cm²; O = 64 + 129,0 = 193,0 cm².',
+                                            'Die Seitenhöhe liegt im Seitendreieck: Seitenkante und halbe Grundkante.', einheit='cm²'))
+    S.neu('pyr_oberflaeche', 'transfer', Z('Ein Dach in Form einer quadratischen Pyramide hat die Grundkante 10 m und die Seitenhöhe 13 m. Ein Liter Farbe reicht für 8 m². Wie viele ganze Liter braucht man mindestens für die vier Dachflächen?',
+                                           33, '33', 'Mantel 4 · (10 · 13 : 2) = 260 m². 260 : 8 = 32,5, also 33 Liter.', 'Erst die Fläche, dann aufrunden.', einheit='l'))
+    S.bonus('pyr_oberflaeche', ZR('Eine quadratische Pyramide hat lauter gleich lange Kanten (4 cm). Wie groß ist ihre Oberfläche? Runde auf eine Nachkommastelle.', 16 + 16 * _m.sqrt(3), 1,
+                                  'Die Seitenflächen sind gleichseitige Dreiecke mit der Fläche √3/4 · 16 ≈ 6,93 cm². O = 16 + 4 · 6,93 ≈ 43,7 cm².', 'Welche Form haben die Seitenflächen?', einheit='cm²'))
+    S.bonus('pyr_oberflaeche', ZR('Auf jede Fläche eines Würfels (Kante 2 cm) wird eine quadratische Pyramide mit der Höhe 1 cm gesetzt. Wie groß ist die Oberfläche des neuen Körpers? Runde auf eine Nachkommastelle.',
+                                  24 * _m.sqrt(2), 1, 'Die Würfelflächen liegen innen. Jede Pyramide: hₛ = √(1² + 1²) = √2, Mantel 4 · (2 · √2 : 2) = 4√2. Sechs Pyramiden: 24√2 ≈ 33,9 cm².',
+                                  'Welche Flächen sind außen sichtbar?', einheit='cm²'))
+
+    # --- kegel_volumen ---
+    S.stufenleiter('kegel_volumen', 'V = 1/3 · π · r² · h anwenden; Formel und nötige Größen erkennen.',
+                   'Durchmesser statt Radius, Höhe rückwärts, Kegel als Drittel eines Zylinders.',
+                   'Halbe Füllhöhe, Schätzen, h = r als Parameter, Kegel und Kugel vergleichen, Fehler mit dem Durchmesser, Begründen, Radius rückwärts, Waffel wie in der Prüfung.')
+    S.g('kegel_volumen', direkt=[56, 57, 58, 59, 60, 61], einkleidung=[62, 63, 64, 65, 66, 67], umkehr=[68, 69, 70, 71, 72, 73, 208], darstellung=[209],
+        verknuepfen=[210, 213], transfer=[211], parameter=[212])
+    S.neu('kegel_volumen', 'erkennen', A('Welche Formel gilt für das Volumen eines Kegels?', 'V = 1/3 · π · r² · h', ['V = π · r² · h', 'V = 1/3 · π · r · h', 'V = 1/2 · π · r² · h'],
+                                         'Ein Kegel fasst ein Drittel des Zylinders mit gleichem Radius und gleicher Höhe.', 'Denke an die Waffeltüte und den Becher.'))
+    S.neu('kegel_volumen', 'erkennen', A('Welche Größe braucht man außer dem Radius, um das Volumen eines Kegels zu berechnen?', 'die Höhe h', ['den Umfang', 'den Mittelpunktswinkel', 'nichts weiter'],
+                                         'V = 1/3 · π · r² · h: r und h.', 'Welche Buchstaben stehen in der Formel?'))
+    S.neu('kegel_volumen', 'fehler', A('Jemand berechnet einen Kegel mit d = 10 cm und h = 6 cm: V = 1/3 · π · 10² · 6 ≈ 628 cm³. Was stimmt?', 'Falsch: Der Radius ist 5 cm; V = 1/3 · π · 25 · 6 ≈ 157 cm³.',
+                                       ['Richtig.', 'Falsch: V = π · 10² · 6 ≈ 1 885 cm³.', 'Falsch: V = 1/3 · π · 10 · 6 ≈ 63 cm³.'], 'In die Formel gehört der Radius, nicht der Durchmesser – sonst wird V viermal zu groß.',
+                                       'Ist 10 cm der Radius?'))
+    S.neu('kegel_volumen', 'begruenden', A('Ein Kegel und ein Zylinder haben denselben Radius; der Kegel ist dreimal so hoch. Was gilt für die Volumina?', 'Beide sind gleich groß.',
+                                           ['Der Kegel ist dreimal so groß.', 'Der Zylinder ist dreimal so groß.', 'Der Kegel ist neunmal so groß.'],
+                                           'V_Kegel = 1/3 · π · r² · 3h = π · r² · h = V_Zylinder.', 'Setze 3h in die Kegelformel ein.'))
+    S.neu('kegel_volumen', 'pruefung', ZR('Eine Eiswaffel (Kegel) ist 12 cm hoch, ihre Mantellinie ist 13 cm lang. Wie viel cm³ Eis passen hinein (bis zum Rand)? Runde auf ganze cm³.', pi * 25 * 12 / 3, 0,
+                                          'r = √(13² − 12²) = 5 cm. V = 1/3 · π · 25 · 12 = 100π ≈ 314 cm³.', 'Bestimme zuerst den Radius mit Pythagoras.', einheit='cm³'))
+    S.neu('kegel_volumen', 'rueckwaerts', Z('Ein kegelförmiger Sandhaufen enthält 100π m³ Sand und ist 12 m hoch. Wie groß ist sein Radius?', 5, '5',
+                                            '1/3 · π · r² · 12 = 100π ⇒ 4r² = 100 ⇒ r² = 25 ⇒ r = 5 m.', 'Setze ein und teile durch π.', einheit='m'))
+    S.bonus('kegel_volumen', ZR('Ein kegelförmiges Glas (Spitze unten) ist genau halb voll. Welcher Anteil der Glashöhe ist mit Saft gefüllt? Runde auf zwei Nachkommastellen.', 0.5 ** (1 / 3), 2,
+                                'Der Saft bildet einen kleineren, ähnlichen Kegel mit Radius k · r und Höhe k · h. Sein Volumen ist 1/3 · π · (k · r)² · (k · h) = k³ · (1/3 · π · r² · h), '
+                                'also k³-mal das Glasvolumen. k³ = 1/2 ⇒ k = ∛0,5 ≈ 0,79. Bei 79 % der Höhe ist das Glas schon halb voll.',
+                                'Wie hängt das Volumen ähnlicher Kegel vom Streckfaktor ab?'))
+    S.bonus('kegel_volumen', Z('Ein Kegel wird auf halber Höhe parallel zur Grundfläche zerschnitten. Wievielmal so groß ist das Volumen des unteren Stücks wie das der oberen Spitze?', 7, '8 - 1',
+                               'Die Spitze ist ein Kegel mit halbem Radius und halber Höhe: 1/8 des Volumens. Unten bleiben 7/8. Verhältnis 7.', 'Welchen Anteil hat die kleine Spitze?'))
+
+    # --- kegel_mantel ---
+    S.stufenleiter('kegel_mantel', 'Mantellinie mit Pythagoras und Mittelpunktswinkel φ = 360° · r : s bestimmen; Kreissektor erkennen.',
+                   'Mantelfläche M = π · r · s, Oberfläche, Radius aus einem Sektor, Mantellinie rückwärts.',
+                   'Halbkreis-Mantel, Öffnungswinkel, s aus der Oberfläche, Partyhut, Fehler φ = 360° · s : r, Verhältnis als Parameter, Viertelkreis-Mantel wie in der Prüfung.')
+    S.g('kegel_mantel', direkt=[84, 89, 85, 86, 87, 88], mehrschritt=[90, 91, 92, 93, 94, 95, 96, 97, 99, 100], umkehr=[98, 101, 215], darstellung=[214],
+        verknuepfen=[216], transfer=[217, 219], rueckwaerts=[218])
+    S.ueberzaehlig(89, 92, 93, 94, 95)
+    S.neu('kegel_mantel', 'erkennen', A('Welche Form hat der abgewickelte Mantel eines Kegels?', 'ein Kreissektor', ['ein Rechteck', 'ein Kreis', 'ein Dreieck'],
+                                        'Aufgeschnitten und flach ausgerollt wird die Waffeltüte zu einem „Tortenstück“.', 'Denke an die aufgeschnittene Waffeltüte.'))
+    S.neu('kegel_mantel', 'erkennen', A('Welche Strecke ist der Radius des abgewickelten Mantels?', 'die Mantellinie s', ['der Radius r der Grundfläche', 'die Höhe h', 'der Durchmesser'],
+                                        'Jeder Punkt des Rands ist im ausgerollten Mantel s von der Spitze entfernt.', 'Wie weit ist der Rand von der Spitze entfernt?'))
+    S.neu('kegel_mantel', 'fehler', A('Jemand berechnet für r = 4 cm und s = 8 cm den Mittelpunktswinkel des Mantels als φ = 360° · 8 : 4 = 720°. Was stimmt?', 'Falsch: φ = 360° · r : s = 180°.',
+                                      ['Richtig.', 'Falsch: φ = 360° · 4 · 8 = 11 520°.', 'Falsch: φ = 8 : 4 = 2°.'], 'Der Sektor ist kleiner als der volle Kreis (r < s). 720° ist unmöglich.', 'Kann ein Sektor mehr als 360° haben?'))
+    S.neu('kegel_mantel', 'parameter', Z('Für welches Verhältnis s : r ist der abgewickelte Mantel eines Kegels genau ein Viertelkreis?', 4, '360 // 90',
+                                         'φ = 360° · r : s = 90° ⇒ r : s = 1 : 4 ⇒ s : r = 4.', 'Setze φ = 90° in die Formel ein.'))
+    S.neu('kegel_mantel', 'begruenden', A('Kann der abgewickelte Mantel eines Kegels ein voller Kreis sein?', 'Nein: Dann wäre r = s und die Höhe 0.', ['Ja, bei sehr flachen Kegeln.', 'Ja, wenn r = h ist.', 'Nein, er ist immer ein Halbkreis.'],
+                                          'φ = 360° hieße r = s. Dann h = √(s² − r²) = 0 – das wäre kein Kegel mehr.', 'Was folgt aus φ = 360° für r und s?'))
+    S.neu('kegel_mantel', 'pruefung', ZR('Aus einem Viertelkreis mit dem Radius 20 cm wird ein Kegelmantel gerollt. Berechne die Höhe des Kegels. Runde auf eine Nachkommastelle.', _m.sqrt(400 - 25), 1,
+                                         's = 20 cm. Bogenlänge 2π · 20 : 4 = 10π = Umfang 2πr ⇒ r = 5 cm. h = √(20² − 5²) ≈ 19,4 cm.', 'Der Bogen des Sektors wird zum Umfang des Grundkreises.', einheit='cm'))
+    S.bonus('kegel_mantel', Z('Ein Kegel hat den Öffnungswinkel 60° (Winkel an der Spitze im Axialschnitt). Welchen Mittelpunktswinkel hat sein abgewickelter Mantel?', 180, '360 // 2',
+                              'Halber Öffnungswinkel 30°: r : s = sin 30° = 1/2. φ = 360° · r : s = 180° – ein Halbkreis.', 'Betrachte das rechtwinklige Dreieck aus h, r und s.', einheit='°'))
+    S.bonus('kegel_mantel', ZR('Eine Ameise läuft auf dem Mantel eines Kegels (s = 6 cm, r = 2 cm) von einem Punkt des Randes einmal um den Kegel herum zurück zum selben Punkt. Wie lang ist der kürzeste Weg? Runde auf eine Nachkommastelle.',
+                               2 * 6 * _m.sin(_m.radians(60)), 1, 'Abwickeln: Sektor mit s = 6 cm und φ = 360° · 2 : 6 = 120°. Der kürzeste Weg ist die gerade Strecke zwischen den beiden Randpunkten. Sie ist die Grundseite eines gleichschenkligen Dreiecks mit Schenkeln 6 cm und 120° an der Spitze. '
+                               'Die Höhe teilt es in zwei rechtwinklige Dreiecke mit 60° an der Spitze: halbe Strecke = 6 · sin 60° ≈ 5,20 cm, ganze Strecke = 2 · 6 · sin 60° ≈ 10,4 cm.',
+                               'Wickle den Mantel ab – auf dem flachen Papier ist der kürzeste Weg gerade.', einheit='cm'))
+
+    # --- kugel ---
+    S.stufenleiter('kugel', 'Volumen und Oberfläche einer Kugel aus dem Radius berechnen; erkennen, dass der Radius genügt.',
+                   'Durchmesser statt Radius, Bälle und Globen, Radius rückwärts, Ergebnisse als Vielfaches von π.',
+                   'Wasserspiegel, V = O als Parameter, doppeltes Volumen, Umfang → Liter, Fehler r², Verhältnis V : O begründen, Dichte wie in der Prüfung, Kugeln in einer Schachtel.')
+    S.g('kugel', direkt=[112, 113, 114, 115, 116, 117], mehrschritt=[118, 121, 119, 120, 122], einkleidung=[123, 126, 127], umkehr=[124, 125, 128, 129, 221], darstellung=[220],
+        transfer=[222], parameter=[223], verknuepfen=[224], rueckwaerts=[225])
+    S.ueberzaehlig(117, 120, 121, 122, 125, 127, 129)
+    S.neu('kugel', 'erkennen', A('Welche Größe genügt, um Volumen und Oberfläche einer Kugel zu berechnen?', 'der Radius', ['die Höhe', 'der Umfang und die Höhe', 'nur das Gewicht'],
+                                 'V = 4/3 · π · r³ und O = 4 · π · r² – nur r kommt vor.', 'Welche Buchstaben stehen in den Formeln?'))
+    S.neu('kugel', 'erkennen', A('Welche Einheit hat das Volumen einer Kugel, deren Radius in cm angegeben ist?', 'cm³', ['cm²', 'cm', 'cm⁴'], 'r³ hat die Einheit cm · cm · cm = cm³.', 'Volumen ist dreidimensional.'))
+    S.neu('kugel', 'fehler', A('Jemand berechnet das Volumen einer Kugel mit r = 3 cm als 4/3 · π · 3² ≈ 37,7 cm³. Was stimmt?', 'Falsch: Es muss r³ heißen: 4/3 · π · 27 ≈ 113,1 cm³.',
+                               ['Richtig.', 'Falsch: 4 · π · 3² ≈ 113,1 cm³ ist das Volumen.', 'Falsch: 4/3 · π · 3 ≈ 12,6 cm³.'],
+                               'Ein Volumen braucht drei Längen: r³. (4πr² wäre zufällig dieselbe Zahl – aber das ist die Oberfläche in cm², weil r = 3.)', 'Welche Einheit muss herauskommen?'))
+    S.neu('kugel', 'begruenden', A('Man verdoppelt den Radius einer Kugel. Was passiert mit dem Verhältnis Volumen : Oberfläche?', 'Es verdoppelt sich, denn V : O = r : 3.',
+                                   ['Es bleibt gleich.', 'Es vervierfacht sich.', 'Es halbiert sich.'], '(4/3 · π · r³) : (4 · π · r²) = r : 3. Doppeltes r, doppeltes Verhältnis.', 'Teile die beiden Formeln durcheinander.'))
+    S.neu('kugel', 'pruefung', ZR('Eine Holzkugel (Dichte 0,7 g/cm³) hat den Durchmesser 10 cm. Wie schwer ist sie? Runde auf ganze Gramm.', 4 / 3 * pi * 125 * 0.7, 0,
+                                  'r = 5 cm, V = 4/3 · π · 125 ≈ 523,6 cm³. Masse 523,6 · 0,7 ≈ 367 g.', 'Masse = Volumen · Dichte.', einheit='g'))
+    S.neu('kugel', 'transfer', ZR('Acht gleiche Kugeln mit r = 1 cm liegen in einer würfelförmigen Schachtel mit der Kante 4 cm. Wie viel Prozent des Schachtelvolumens nehmen sie ein? Runde auf eine Nachkommastelle.',
+                                  8 * 4 / 3 * pi / 64 * 100, 1, '8 · 4/3 · π ≈ 33,5 cm³; Schachtel 64 cm³. Anteil ≈ 52,4 % – genau so viel wie eine einzige große Kugel im Würfel.', 'Vergleiche die Volumina.', einheit='%'))
+    S.bonus('kugel', A('Eine Kugel und ein Würfel haben dieselbe Oberfläche. Welcher Körper hat das größere Volumen?', 'die Kugel', ['der Würfel', 'Beide haben dasselbe Volumen.'],
+                       'Beispiel: O = 4π ≈ 12,57 cm². Kugel: r = 1, V ≈ 4,19 cm³. Würfel: 6a² = 12,57 ⇒ a ≈ 1,45, V ≈ 3,04 cm³. Die Kugel umschließt bei gleicher Hülle am meisten Volumen.',
+                       'Rechne ein Beispiel mit r = 1.'))
+    S.bonus('kugel', Z('Wie viele Kugeln mit r = 1 cm haben zusammen dasselbe Volumen wie eine Kugel mit r = 3 cm?', 27, '3 ** 3',
+                       'Volumen wächst mit r³: 3³ = 27. Aber Achtung: In die große Kugel passen gar nicht 27 kleine hinein – zwischen Kugeln bleiben Lücken.', 'Wie hängt das Volumen vom Radius ab?'))
+
+    # --- sachkontext ---
+    S.stufenleiter('sachkontext', 'Einen Körper in der Sachsituation erkennen und sein Volumen berechnen; Teilkörper benennen.',
+                   'Zusammengesetzte Körper addieren oder abziehen, Hohlkugeln, Dachflächen, Größen rückwärts.',
+                   'Öffnungswinkel mit tan, Dichte, schiefe Pyramide wie in der Prüfung, Sektor → Kegel, Späne beim Drechseln, Fehler „ganze Kugel statt Halbkugel“.')
+    S.g('sachkontext', direkt=[140, 141, 142, 143, 144, 145], mehrschritt=[146, 149, 151, 227], einkleidung=[147, 150, 148, 152, 153, 157], umkehr=[226],
+        verknuepfen=[154, 155, 231], transfer=[156, 230], pruefung=[228, 229])
+    S.ueberzaehlig(150, 151, 153, 157)
+    S.neu('sachkontext', 'erkennen', A('Ein Turm besteht aus einem Zylinder mit einem kegelförmigen Dach. Wie berechnet man sein Volumen?', 'Zylindervolumen + Kegelvolumen', ['nur das Zylindervolumen', 'Zylindervolumen − Kegelvolumen', 'Zylindervolumen · Kegelvolumen'],
+                                       'Zusammengesetzte Körper: Teilvolumen addieren.', 'Aus welchen Teilen besteht der Turm?'))
+    S.neu('sachkontext', 'erkennen', A('Welche Formel gehört zum Volumen einer Halbkugel?', '2/3 · π · r³', ['4/3 · π · r³', '2 · π · r²', '1/3 · π · r³'], 'Die Hälfte von 4/3 · π · r³.', 'Halbiere die Kugelformel.'))
+    S.neu('sachkontext', 'fehler', A('Eine Eistüte: Kegel (r = 3 cm, h = 10 cm) mit einer Halbkugel Eis. Jemand rechnet V = 1/3 · π · 9 · 10 + 4/3 · π · 27 ≈ 207 cm³. Was stimmt?',
+                                     'Falsch: Oben sitzt nur eine Halbkugel (2/3 · π · 27); V ≈ 94,2 + 56,5 ≈ 150,8 cm³.', ['Richtig.', 'Falsch: Der Kegel hat π · 9 · 10.', 'Falsch: Man muss die Volumina abziehen.'],
+                                     'Mit der ganzen Kugel wäre das Eis doppelt so viel.', 'Wie viel von der Kugel sitzt auf der Tüte?'))
+    S.bonus('sachkontext', L('In einem Zylinder (r = 3 cm, h = 6 cm) liegt eine Kugel mit r = 3 cm. Der Rest wird mit Wasser bis zum Rand gefüllt. Welcher Anteil des Zylinders ist Wasser?', '□/□', [1, 3], ['1', '3'],
+                             'Zylinder: π · 9 · 6 = 54π; Kugel: 4/3 · π · 27 = 36π. Wasser 18π, also 18/54 = 1/3 (Archimedes: Kugel = 2/3 des Zylinders).', 'Berechne beide Volumina als Vielfache von π.', hinweis='gekürzter Bruch'))
+    S.bonus('sachkontext', Z('Eine Kugel mit r = 6 cm wird ganz in ein zylindrisches Glas (Innenradius 8 cm) mit Wasser getaucht. Um wie viel cm steigt der Wasserspiegel?', 4.5, '4 * 216 / (3 * 64)',
+                             'Verdrängtes Volumen 4/3 · π · 216 = 288π. Steighöhe 288π : (π · 64) = 4,5 cm.', 'Das Kugelvolumen verteilt sich als Zylinderschicht.', einheit='cm'))
+
+    # --- verstehen ---
+    S.stufenleiter('verstehen', 'Körper und Volumenformeln erkennen; einfache Folgen einer Längenänderung angeben.',
+                   'Flächen und Volumina beim Strecken mit k, k² und k³, Sachsituationen mit Maßstab, Streckfaktor rückwärts.',
+                   'Fehler „π · r · h“ und bei Halbkugel und schiefem Prisma, Archimedes, Cavalieri begründen, Prozentänderung, Term deuten, schiefe Prismen mit Trigonometrie.')
+    S.g('verstehen', erkennen=[168, 170, 172, 233], direkt=[169, 171, 173, 238, 232], mehrschritt=[174, 179, 181, 183, 175, 176, 239], fehler=[177, 178, 180, 184, 185, 237, 242],
+        verknuepfen=[182, 241], begruenden=[234, 240], transfer=[235, 243], rueckwaerts=[236])
+    S.ueberzaehlig(232, 179, 183, 175, 178)
+    S.neu('verstehen', 'einkleidung', Z('Ein Modellauto ist im Maßstab 1 : 10 gebaut. Wievielmal so viel Lack (Fläche) braucht das echte Auto?', 100, '10 ** 2', 'Flächen wachsen mit k² = 10² = 100.', 'Wie ändern sich Flächen beim Vergrößern mit k?'))
+    S.neu('verstehen', 'einkleidung', Z('Eine Orange hat den doppelten Durchmesser einer Mandarine (beide kugelförmig). Wievielmal so viel Volumen hat sie?', 8, '2 ** 3', 'Volumen wächst mit k³ = 2³ = 8.', 'Wie ändert sich das Volumen bei doppeltem Radius?'))
+    S.neu('verstehen', 'umkehr', Z('Das Volumen einer Kugel wird 27-mal so groß. Mit welchem Faktor wurde der Radius multipliziert?', 3, '3', 'k³ = 27 ⇒ k = 3.', 'Welche Zahl hoch drei ergibt 27?'))
+    S.bonus('verstehen', L('Ein Kegel, eine Halbkugel und ein Zylinder haben alle den Radius r und die Höhe r. In welchem Verhältnis stehen ihre Volumina (Kegel : Halbkugel : Zylinder)?', '□ : □ : □', [1, 2, 3], ['1', '2', '3'],
+                           'Kegel 1/3 · π · r³, Halbkugel 2/3 · π · r³, Zylinder π · r³. Verhältnis 1/3 : 2/3 : 1 = 1 : 2 : 3.', 'Schreibe alle drei als Vielfaches von π · r³.', hinweis='kleinste ganze Zahlen'))
+    S.bonus('verstehen', ZR('Bei einem Kegel wird der Radius um 20 % größer und die Höhe um 20 % kleiner. Um wie viel Prozent ändert sich das Volumen? (Zunahme positiv) Runde auf eine Nachkommastelle.', (1.2 ** 2 * 0.8 - 1) * 100, 1,
+                            'V ∼ r² · h: 1,2² · 0,8 = 1,44 · 0,8 = 1,152. Das Volumen wächst um 15,2 % – der Radius zählt doppelt.', 'Wie gehen r und h in die Formel ein?', einheit='%'))
+    S.anwenden()
+
+
+if __name__ == '__main__':
+    stufen()  # Zwanzigste Runde (stufen-kl10) – ganz am Ende
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('raum.pyramide_kegel_kugel')
+# ---- BEREINIGEN ENDE ----

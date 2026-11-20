@@ -176,6 +176,27 @@ def klar(etappen, felder):
             e.update(k)
 
 
+UMBAU_OFFEN = []
+UMBAU_PFLICHT = {'einstieg', 'woerter', 'bild', 'schritte', 'fehler', 'regel'}
+
+
+def umbau(etappen, felder, offen=()):
+    """Runde 8 (Vorgabe 16.11.): Lernkarten auf das neue Muster umbauen – einstieg, woerter (≤ 3), Kartenbild,
+    schritte als {text, bild}, fehler + fehler_bild, regel (erster Satz = Kurz gesagt). Die Beispielschritte aus
+    Runde 6 (ALT_SCHRITTE, gesetzt von klar()) bleiben für den Dopplungsabgleich in bauen() maßgeblich, darum
+    ändert sich keine Aufgabe. Die alte probe fällt weg; wo nötig, steht die Kontrolle als Schritt im Beispiel."""
+    namen = [e['lernziel'] for e in etappen]
+    assert sorted(felder) == sorted(namen), ('UMBAU passt nicht zu den Lernkarten', sorted(set(namen) ^ set(felder)))
+    for e in etappen:
+        k = felder[e['lernziel']]
+        assert e['lernziel'] in ALT_SCHRITTE, ('erst klar(), dann umbau()', e['lernziel'])
+        assert UMBAU_PFLICHT <= set(k) <= UMBAU_PFLICHT | {'fehler_bild'}, (e['lernziel'], set(k) ^ UMBAU_PFLICHT)
+        assert all(isinstance(x, dict) and x.get('text') for x in k['schritte']), e['lernziel']
+        e.pop('probe', None)
+        e.update(k)
+    UMBAU_OFFEN.extend(o for o in offen if o not in UMBAU_OFFEN)
+
+
 def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(), plan=PLAN, meiden=None):
     """meiden: {lernziel: [Textstücke]} – Aufgaben mit den Zahlen des vorgerechneten Beispiels auslassen."""
     meiden = meiden or {}
@@ -219,7 +240,8 @@ def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(),
         },
         'aufgaben': alle,
     }
-    if offen: datei['offen'] = list(offen)
+    offen = list(offen) + [o for o in UMBAU_OFFEN if o not in offen]
+    if offen: datei['offen'] = offen
     ziel_pfad = THEMEN / f'{thema}.json'
     ziel_pfad.parent.mkdir(parents=True, exist_ok=True)
     ziel_pfad.write_text(json.dumps(datei, ensure_ascii=False, indent=1), encoding='utf-8')

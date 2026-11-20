@@ -560,77 +560,274 @@ DATEI = {
     'aufgaben': baue(R, ETAPPEN, GEN, TEIL, je_stufe=5),
 }
 
-# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
-# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Durchgehende Situation: Einkaufen beim Bäcker, auf dem Markt, im Laden.
-# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
-from _klar_kl5 import klar  # noqa: E402
+# Umbau U5 (Achte Runde, Vorgabe 16.11.): Lernkarten nach dem neuen Muster – einstieg, woerter (≤ 3), Kartenbild,
+# Bildergeschichte (schritte mit bild), „Pass auf!“ (fehler + fehler_bild), MERKE (regel).
+# Situation: Einkaufen (Bäcker, Markt, Laden, Eintrittskarten, Rezept). Die Tabellen füllen sich Schritt für Schritt.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl5 import umbau  # noqa: E402
 
-KLAR = {
+BROETCHEN = lambda *p: {'zeilen': [['Preis', *p]]}
+OBST = lambda *p: {'zeilen': [['Preis', '6 €', '15 €', '24 €'], ['Preis : Menge', *p]]}
+
+KARTEN = {
  'erkennen': {
-  'einstieg': 'Beim Bäcker kostet ein Brötchen 40 ct. Kaufst du doppelt so viele, zahlst du doppelt so viel; kaufst du keins, zahlst du nichts. Beim Taxi ist das anders: Schon das Einsteigen kostet Geld. Wenn zur doppelten Menge immer der doppelte Preis gehört, nennt man das ⟦proportional⟧.',
-  'woerter': [['Zuordnung', 'zu jeder Menge gehört ein Wert, zum Beispiel zu jeder Anzahl Brötchen ein Preis'], ['Anzahl → Preis', 'der Pfeil heißt: Der Anzahl wird ein Preis zugeordnet'],
-              ['proportional', 'doppelte Menge → doppelter Wert, dreifache Menge → dreifacher Wert, halbe Menge → halber Wert'],
-              ['Grundgebühr', 'ein fester Betrag, den man immer zahlt, egal wie viel man fährt oder kauft']],
-  'schritte': ['1 Brötchen kostet 40 ct. Dann kosten 2 Brötchen 80 ct und 3 Brötchen 120 ct.',
-               'Von 1 auf 2 Brötchen verdoppelt sich die Anzahl – und der Preis auch, von 40 ct auf 80 ct.',
-               'Von 1 auf 3 Brötchen verdreifacht sich die Anzahl – und der Preis auch, von 40 ct auf 120 ct. Für 0 Brötchen zahlst du 0 ct.',
-               'Die Zuordnung Anzahl → Preis ist darum ⟦proportional⟧.'],
-  'regel': 'So prüfst du, ob eine Zuordnung ⟦proportional⟧ ist: Gehört zur ⟦doppelten⟧ Menge der doppelte Wert, zur dreifachen der dreifache, zur halben der halbe? Und gehört zu ⟦0⟧ der Wert 0? Nur dann ist sie proportional.'},
+  'einstieg': 'Beim Bäcker kostet ein Brötchen 40 ct. Doppelt so viele kosten doppelt so viel, keins kostet nichts. So eine Zuordnung heißt ⟦proportional⟧.',
+  'woerter': [['Zuordnung', 'zu jeder Menge gehört ein Wert, zum Beispiel zu jeder Anzahl ein Preis'],
+              ['proportional', 'doppelte Menge → doppelter Wert, halbe Menge → halber Wert']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Anzahl Brötchen', '0', '1', '2', '3'], 'zeilen': [['Preis', '?', '40 ct', '?', '?']]},
+  'schritte': [{'text': '2 Brötchen kosten doppelt so viel: 80 ct.', 'bild': BROETCHEN('?', '40 ct', '80 ct', '?')},
+               {'text': '3 Brötchen kosten dreimal so viel: 120 ct.', 'bild': BROETCHEN('?', '40 ct', '80 ct', '120 ct')},
+               {'text': '0 Brötchen kosten 0 ct.', 'bild': BROETCHEN('0 ct', '40 ct', '80 ct', '120 ct')},
+               {'text': 'Doppelt, dreifach und null passen: Die Zuordnung ist ⟦proportional⟧.'}],
+  'fehler': 'Das Taxi ist nicht proportional: Schon das Einsteigen kostet 4 €. 2 km kosten 8 €, nicht das Doppelte von 6 €.',
+  'fehler_bild': {'kopf': ['Strecke', '0 km', '1 km', '2 km'], 'zeilen': [['Taxi', '4 €', '6 €', '8 €']]},
+  'regel': 'Proportional heißt: doppelte Menge, ⟦doppelter Wert⟧. Und zu 0 gehört 0.'},
  'vervielfachen': {
-  'einstieg': 'Auf dem Markt kosten 3 kg Äpfel 6 €. Du brauchst aber 9 kg für Apfelmus. Du musst nicht neu fragen: 9 kg sind dreimal so viel wie 3 kg, also kosten sie auch dreimal so viel. Bei proportionalen Zuordnungen darfst du Menge und Preis ⟦mit derselben Zahl malnehmen oder teilen⟧.',
-  'woerter': [['vervielfachen', 'mit einer Zahl malnehmen'], ['halbieren', 'durch 2 teilen'], ['ergänzen', 'fehlende Werte in eine Tabelle eintragen']],
-  'schritte': ['3 kg Äpfel kosten 6 €. Gesucht ist der Preis für 9 kg.',
-               'Wie oft passt 3 kg in 9 kg? 9 : 3 = 3. Also sind 9 kg dreimal so viel.',
-               'Darum ist auch der Preis dreimal so groß: 6 € · 3 = ⟦18 €⟧.'],
-  'regel': 'So rechnest du bei proportionalen Zuordnungen: ⟦auf beiden Seiten dasselbe⟧ tun. Menge mal 3 → Preis mal 3. Menge geteilt durch 2 → Preis geteilt durch 2. Gerechnet wird mit ⟦mal und geteilt⟧, nicht mit plus und minus.',
-  'fehler': 'Auf beiden Seiten dieselbe Zahl ⟦addieren⟧: Von 3 kg auf 9 kg sind es 6 kg mehr, aber der Preis steigt nicht um 6 € auf 12 €. 9 kg kosten dreimal so viel, also 18 €. Gerechnet wird mit ⟦mal und geteilt⟧.'},
+  'einstieg': 'Auf dem Markt kosten 3 kg Äpfel 6 €. Du brauchst 9 kg für Apfelmus. 9 kg sind dreimal so viel, also kosten sie ⟦dreimal so viel⟧.',
+  'woerter': [['vervielfachen', 'mit einer Zahl malnehmen'], ['verdreifacht', 'mal 3 genommen']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Menge', '3 kg', '9 kg'], 'zeilen': [['Preis', '6 €', '?']]},
+  'schritte': [{'text': 'Von 3 kg auf 9 kg: 9 : 3 = 3. Die Menge wird verdreifacht.', 'bild': {'kopf': ['Menge', '3 kg', '9 kg (· 3)']}},
+               {'text': 'Den Preis vervielfachen wir genauso: 6 € · 3 = ⟦18 €⟧.', 'bild': {'zeilen': [['Preis', '6 €', '18 € (· 3)']]}}],
+  'fehler': 'Plus statt mal: 9 kg sind 6 kg mehr als 3 kg. Der Preis wird aber nicht 6 € + 6 € = 12 €.',
+  'fehler_bild': {'zeilen': [['Preis', '6 €', 'nicht 12 €']]},
+  'regel': 'Auf beiden Seiten ⟦dasselbe⟧ tun: Menge mal 3, Preis mal 3. Gerechnet wird mit mal und geteilt.'},
  'pruefen': {
-  'einstieg': 'Ein Obsthändler hat eine Preisliste: 2 kg kosten 6 €, 5 kg kosten 15 €, 8 kg kosten 24 €. Ist der Preis gleichbleibend – oder gibt es irgendwo Rabatt? Du prüfst es, indem du für jede Spalte den Preis für 1 kg ausrechnest. Ist er überall gleich, ist die Tabelle ⟦proportional⟧.',
-  'woerter': [['Paar', 'eine Spalte der Tabelle: eine Menge und der Preis dazu'], ['Preis : Menge', 'der Preis geteilt durch die Menge, also der Preis für 1 kg (1 Stück, 1 Liter …)'],
-              ['Rabatt', 'ein Preisnachlass: Man zahlt weniger als den normalen Preis']],
-  'bild': {'typ': 'tabelle', 'kopf': ['Menge Äpfel', '2 kg', '5 kg', '8 kg'], 'zeilen': [['Preis', '6 €', '15 €', '24 €'], ['Preis für 1 kg (Preis : Menge)', '3 €', '3 €', '3 €']]},
-  'schritte': ['Rechne für jedes Paar Preis : Menge. Erstes Paar: 6 € : 2 = 3 € für 1 kg.',
-               'Zweites Paar: 15 € : 5 = 3 €. Drittes Paar: 24 € : 8 = 3 €.',
-               'Überall kommt 3 € für 1 kg heraus. Die Tabelle ist ⟦proportional⟧.'],
-  'regel': 'So prüfst du eine Tabelle: Rechne für ⟦jedes Paar Preis : Menge⟧. Kommt ⟦überall dieselbe Zahl⟧ heraus, ist die Zuordnung proportional. Diese Zahl ist der Preis für 1 Stück (1 kg, 1 Liter …).'},
+  'einstieg': 'Der Obsthändler hat eine Preisliste für 2 kg, 5 kg und 8 kg. Gibt es irgendwo Rabatt? Du rechnest für jede Spalte den ⟦Preis für 1 kg⟧ aus.',
+  'woerter': [['Rabatt', 'ein Preisnachlass: Man zahlt weniger'], ['Preis : Menge', 'der Preis geteilt durch die Menge, also der Preis für 1 kg']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Menge', '2 kg', '5 kg', '8 kg'], 'zeilen': [['Preis', '6 €', '15 €', '24 €'], ['Preis : Menge', '?', '?', '?']]},
+  'schritte': [{'text': 'Erste Spalte, Preis : Menge: 6 € : 2 = 3 €.', 'bild': OBST('3 €', '?', '?')},
+               {'text': '15 € : 5 = 3 € und 24 € : 8 = 3 €.', 'bild': OBST('3 €', '3 €', '3 €')},
+               {'text': 'Überall 3 € für 1 kg: Die Tabelle ist ⟦proportional⟧.'}],
+  'fehler': 'Nur zwei Spalten prüfen reicht nicht. Ein Rabatt kann in der letzten Spalte stecken: 20 € : 8 = 2,50 €.',
+  'fehler_bild': {'zeilen': [['Preis', '6 €', '15 €', '20 €'], ['Preis : Menge', '3 €', '3 €', '2,50 €']]},
+  'regel': 'Rechne für jede Spalte ⟦Preis : Menge⟧. Kommt überall dieselbe Zahl heraus, ist die Tabelle proportional.'},
  'einheit': {
-  'einstieg': 'Im Schreibwarenladen kosten 5 Hefte zusammen 10 €. Du willst aber wissen: Was kostet ein einziges Heft? Dafür teilst du den Preis auf die 5 Hefte auf. Den Preis für ein Stück ausrechnen heißt ⟦auf die Einheit schließen⟧.',
-  'woerter': [['Einheit', 'hier: 1 Stück, 1 kg, 1 Liter oder 1 Minute'], ['auf die Einheit schließen', 'ausrechnen, was 1 Stück kostet (oder wie viel in 1 Minute fließt …)']],
-  'schritte': ['5 Hefte kosten 10 €. Gesucht ist der Preis für 1 Heft.',
-               'Von 5 Heften auf 1 Heft teilst du durch 5. Das musst du auch beim Preis tun.',
-               '10 € : 5 = 2 €. Also kostet ⟦1 Heft 2 €⟧.'],
-  'regel': 'So schließt du auf die Einheit: ⟦Wert durch Anzahl⟧ teilen. Dann weißt du, was ⟦1 Stück⟧ kostet (wie viel 1 kg kostet, wie viel in 1 Minute fließt …).',
-  'fehler': 'Falsch herum teilen: 5 : 10 = 0,5 statt 10 : 5 = 2. Ein Heft für 50 ct wäre viel zu billig, wenn fünf Hefte 10 € kosten. Geteilt wird der ⟦Wert⟧ durch die ⟦Anzahl⟧.'},
+  'einstieg': 'Im Laden kosten 5 Hefte zusammen 10 €. Du willst wissen, was ein einziges Heft kostet. Das heißt ⟦auf die Einheit schließen⟧.',
+  'woerter': [['auf die Einheit schließen', 'ausrechnen, was 1 Stück kostet']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Hefte', '5', '1'], 'zeilen': [['Preis', '10 €', '?']]},
+  'schritte': [{'text': 'Von 5 Heften auf 1 Heft teilst du durch 5.', 'bild': {'kopf': ['Hefte', '5', '1 (: 5)']}},
+               {'text': 'Beim Preis genauso: 10 € : 5 = ⟦2 €⟧.', 'bild': {'zeilen': [['Preis', '10 €', '2 € (: 5)']]}}],
+  'fehler': 'Falsch herum teilen: 5 : 10 = 0,50. Wenn fünf Hefte 10 € kosten, kostet eins nicht nur 50 ct.',
+  'fehler_bild': {'zeilen': [['Preis', '10 €', 'nicht 0,50 €']]},
+  'regel': '⟦Wert durch Anzahl⟧ teilen ergibt den Preis für 1 Stück.'},
  'dreisatz': {
-  'einstieg': '4 kg Äpfel kosten 12 €. Was kosten 7 kg? 7 ist kein Vielfaches von 4 – verdoppeln oder verdreifachen hilft hier nicht. Darum gehst du einen Umweg: Erst rechnest du aus, was 1 kg kostet, dann, was 7 kg kosten. Dieser Rechenweg in drei Zeilen heißt ⟦Dreisatz⟧.',
-  'woerter': [['Vielfaches', 'eine Zahl, die man durch Malnehmen erhält: 8 und 12 sind Vielfache von 4'], ['Dreisatz', 'Rechenweg in drei Zeilen: bekannt → 1 Stück → gesucht']],
-  'bild': {'typ': 'tabelle', 'kopf': ['', 'Menge Äpfel', 'Preis'], 'zeilen': [['Zeile 1: bekannt', '4 kg', '12 €'], ['Zeile 2: beide Seiten : 4', '1 kg', '3 €'], ['Zeile 3: beide Seiten · 7', '7 kg', '21 €']]},
-  'schritte': ['Zeile 1 schreibt auf, was du weißt: 4 kg kosten 12 €.',
-               'Zeile 2 schließt auf 1 kg: Links teilst du durch 4, also teilst du auch rechts durch 4. 1 kg kostet 12 € : 4 = 3 €.',
-               'Zeile 3 schließt auf das Gesuchte: Links nimmst du mal 7, also auch rechts mal 7.',
-               '7 kg kosten 3 € · 7 = ⟦21 €⟧.'],
-  'regel': 'So rechnest du mit dem ⟦Dreisatz⟧: 1. Was du weißt. 2. Auf 1 Stück schließen – ⟦beide Seiten teilen⟧. 3. Auf das Gesuchte schließen – ⟦beide Seiten malnehmen⟧. Was du links tust, tust du auch rechts.'},
+  'einstieg': '4 kg Äpfel kosten 12 €, gesucht ist der Preis für 7 kg. Du gehst den Umweg über 1 kg, in drei Zeilen: den ⟦Dreisatz⟧.',
+  'woerter': [['Dreisatz', 'Rechenweg in drei Zeilen: bekannt → 1 Stück → gesucht']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Zeile', 'Menge', 'Preis'], 'zeilen': [['1: bekannt', '4 kg', '12 €']]},
+  'schritte': [{'text': 'Zeile 1: 4 kg kosten 12 €.'},
+               {'text': 'Zeile 2: beide Seiten durch 4. 1 kg kostet 3 €.', 'bild': {'zeilen': [['1: bekannt', '4 kg', '12 €'], ['2: durch 4', '1 kg', '3 €']]}},
+               {'text': 'Zeile 3: beide Seiten mal 7. 7 kg kosten ⟦21 €⟧.',
+                'bild': {'zeilen': [['1: bekannt', '4 kg', '12 €'], ['2: durch 4', '1 kg', '3 €'], ['3: mal 7', '7 kg', '21 €']]}}],
+  'fehler': 'In Zeile 3 mit der alten Menge malnehmen: 3 € · 4 = 12 €. Das ist wieder der Preis für 4 kg, nicht für 7 kg.',
+  'fehler_bild': {'zeilen': [['1: bekannt', '4 kg', '12 €'], ['2: durch 4', '1 kg', '3 €'], ['3: mal 4?', '4 kg', '12 €']]},
+  'regel': 'Erst auf ⟦1 Stück⟧ schließen, dann auf das Gesuchte. Was du links tust, tust du auch rechts.'},
  'geschickt': {
-  'einstieg': 'Für einen Klassenausflug kosten 6 Eintrittskarten 42 €. Jetzt kommen 3 Kinder dazu, ihr braucht 9 Karten. Statt auf 1 Karte zu gehen, kannst du klüger rechnen: 3 Karten sind die Hälfte von 6. So eine passende Zwischenmenge spart Arbeit – sie ist ein ⟦geschickter Zwischenschritt⟧.',
-  'woerter': [['Zwischenmenge', 'eine Menge auf dem Weg zum Ziel, mit der man bequem rechnen kann'], ['ohne Rest passen', 'das Teilen geht glatt auf: 3 passt in 6 und in 9'],
-              ['Zeilen addieren', 'zwei bekannte Zeilen zusammenzählen: 6 Karten + 3 Karten = 9 Karten, die Preise ebenso']],
-  'schritte': ['6 Karten kosten 42 €. Gesucht ist der Preis für 9 Karten. Die Zahl 3 passt ohne Rest in 6 und in 9.',
-               '3 Karten sind die Hälfte von 6 Karten. Also kosten sie die Hälfte: 42 € : 2 = 21 €.',
-               '9 Karten sind dreimal 3 Karten. Also kosten sie 21 € · 3 = ⟦63 €⟧.',
-               'Oder du addierst Zeilen: 9 Karten = 6 Karten + 3 Karten. Sie kosten 42 € + 21 € = ⟦63 €⟧.'],
-  'regel': 'So rechnest du geschickt: Suche eine ⟦Zwischenmenge, die in beide Zahlen passt⟧ (von 6 nach 9 über 3). Bei proportionalen Zuordnungen darfst du auch ⟦Zeilen addieren⟧.'},
+  'einstieg': '6 Eintrittskarten kosten 42 €, ihr braucht aber 9. Über 3 Karten geht es schneller als über 1 Karte. So eine passende ⟦Zwischenmenge⟧ spart Rechenarbeit.',
+  'woerter': [['Zwischenmenge', 'eine Menge auf dem Weg zum Ziel, mit der man bequem rechnet']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Schritt', 'Karten', 'Preis'], 'zeilen': [['bekannt', '6', '42 €']]},
+  'schritte': [{'text': '3 passt in 6 und in 9 ohne Rest. Darum geht es über 3 Karten.'},
+               {'text': '3 Karten sind die Hälfte: 42 € : 2 = 21 €.', 'bild': {'zeilen': [['bekannt', '6', '42 €'], ['durch 2', '3', '21 €']]}},
+               {'text': '9 Karten sind dreimal 3 Karten: 21 € · 3 = ⟦63 €⟧.',
+                'bild': {'zeilen': [['bekannt', '6', '42 €'], ['durch 2', '3', '21 €'], ['mal 3', '9', '63 €']]}}],
+  'fehler': 'Eine Zwischenmenge wählen, die nicht in beide passt, zum Beispiel 4. Von 6 auf 4 müsstest du durch 1,5 teilen.',
+  'regel': 'Suche eine ⟦Zwischenmenge⟧, die in beide Zahlen passt. Von 6 nach 9 geht es über 3.'},
  'sach': {
-  'einstieg': 'Im Rezept stehen 600 g Nudeln für 4 Personen, heute kommen aber 6. Mehr Personen essen mehr – im gleichen Verhältnis. Doch nicht alles im Alltag ist so: Ein Ei kocht 8 Minuten, drei Eier im selben Topf auch. Darum prüfst du bei jeder ⟦Sachaufgabe⟧ zuerst, ob sie proportional ist.',
-  'woerter': [['Sachaufgabe', 'eine Rechenaufgabe, die als kleine Geschichte erzählt wird'], ['Falle', 'eine Aufgabe, die proportional aussieht, es aber nicht ist'],
-              ['im gleichen Verhältnis', 'doppelt so viele Personen brauchen doppelt so viel Essen']],
-  'schritte': ['Für 4 Personen braucht man 600 g Nudeln. Gesucht ist die Menge für 6 Personen.',
-               'Prüfe zuerst: Essen doppelt so viele Personen doppelt so viel? Ja, die Zuordnung ist proportional.',
-               'Zwischenschritt über 2 Personen: Die Hälfte von 4 Personen braucht die Hälfte, 600 g : 2 = 300 g.',
-               '6 Personen sind dreimal 2 Personen: 300 g · 3 = ⟦900 g⟧.'],
-  'regel': 'So löst du eine Sachaufgabe: Prüfe zuerst, ob die Zuordnung überhaupt ⟦proportional⟧ ist. Nur dann rechnest du mit dem ⟦Dreisatz⟧. Ist sie es nicht (Kochzeit, Grundgebühr), rechnest du anders.'},
+  'einstieg': 'Im Rezept stehen 600 g Nudeln für 4 Personen, heute kommen 6. Mehr Personen essen mehr, im gleichen Verhältnis. Aber nicht alles ist ⟦proportional⟧.',
+  'woerter': [['im gleichen Verhältnis', 'doppelt so viele Personen brauchen doppelt so viel']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Schritt', 'Personen', 'Nudeln'], 'zeilen': [['bekannt', '4', '600 g']]},
+  'schritte': [{'text': 'Prüfe zuerst: Doppelt so viele Personen essen doppelt so viel. Proportional!'},
+               {'text': 'Über 2 Personen: 600 g : 2 = 300 g.', 'bild': {'zeilen': [['bekannt', '4', '600 g'], ['durch 2', '2', '300 g']]}},
+               {'text': '6 Personen sind dreimal 2: 300 g · 3 = ⟦900 g⟧.',
+                'bild': {'zeilen': [['bekannt', '4', '600 g'], ['durch 2', '2', '300 g'], ['mal 3', '6', '900 g']]}}],
+  'fehler': '„1 Ei kocht 8 Minuten, also kochen 3 Eier 24 Minuten“ ist falsch. Die Kochzeit hängt nicht von der Zahl der Eier ab.',
+  'fehler_bild': {'kopf': ['Eier', '1', '3'], 'zeilen': [['Kochzeit', '8 min', '8 min']]},
+  'regel': 'Prüfe zuerst, ob die Zuordnung ⟦proportional⟧ ist. Nur dann rechnest du mit dem Dreisatz.'},
 }
-klar(DATEI, KLAR)
+umbau(DATEI, KARTEN)
 
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: Güterwagen, Gondeln, Gewitter-Faustregel, Einlass-Zeit,
+# Bücher/Gewicht; Klassenarbeiten: Aussagen beurteilen; Knobelaufgabe Katzen und Mäuse); eigene Zahlen und Einkleidung.
+from fractions import Fraction  # noqa: E402
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, wahl  # noqa: E402
+
+
+def _schwer():
+    N = {}
+    N['erkennen'] = [
+        wahl(2, 'Welche Zuordnung ist proportional?', ['Anzahl gleicher Busfahrkarten → Preis', 'Alter eines Kindes → Schuhgröße',
+                                                       'Fahrstrecke mit dem Taxi (mit Grundgebühr) → Preis', 'Zahl der Spieler → Dauer eines Fußballspiels'],
+             lambda o: o.startswith('Anzahl gleicher'), 'Doppelt so viele gleiche Karten kosten doppelt so viel, und 0 Karten kosten 0 €.',
+             'Prüfe: Doppelte Menge – doppelter Wert? Und gehört zu 0 die 0?'),
+        wahl(2, 'Für 2 Stunden Parken zahlt man 3 €, für 4 Stunden 6 €, für 6 Stunden 8 €. Ist Parkdauer → Preis proportional?',
+             ['Nein, für 6 Stunden müssten es 9 € sein.', 'Ja, je länger, desto teurer.', 'Ja, 2 → 3 und 4 → 6 passen.'], lambda o: o.startswith('Nein'),
+             '3 € : 2 = 1,50 € je Stunde. Für 6 Stunden wären es 6 · 1,50 € = 9 €, nicht 8 €.', 'Prüfe jede Spalte, nicht nur die ersten beiden.'),
+        wahl(3, 'Faustregel beim Gewitter: In 3 Sekunden legt der Donner etwa 1 km zurück. Wie weit ist das Gewitter entfernt, wenn der Donner 12 Sekunden nach dem Blitz kommt?',
+             ['etwa 4 km', 'etwa 36 km', 'etwa 9 km', 'Das kann man nicht sagen.'], lambda o: o == f'etwa {12 // 3} km',
+             'Die Zuordnung ist proportional: 12 s sind 4-mal 3 s, also 4 · 1 km = 4 km.', 'Wie oft passen 3 Sekunden in 12 Sekunden?'),
+        A(3, 'Jemand sagt: „Je älter ein Baum, desto höher ist er. Also ist Alter → Höhe proportional.“ Stimmt das?',
+          'Nein: „Je mehr, desto mehr“ reicht nicht. Ein doppelt so alter Baum ist nicht doppelt so hoch.',
+          ['Ja, weil beide Größen zusammen wachsen.', 'Ja, aber nur bei jungen Bäumen.', 'Nein, weil ein Baum gar nicht wächst.'],
+          'Proportional heißt: doppeltes Alter, doppelte Höhe. Bäume wachsen aber irgendwann kaum noch.', 'Was müsste bei doppeltem Alter passieren?'),
+        Z(3, 'Eine Tabelle: 0 → 0, 2 → 5, 4 → 10, 6 → 16. Ein Wert ist falsch. Welcher Wert müsste bei 6 stehen, damit die Zuordnung proportional ist?', '6 * 5 / 2',
+          'Zu 2 gehört 5, also zu 1 der Wert 2,5. Zu 6 gehört 6 · 2,5 = 15, nicht 16.', 'Schließe zuerst auf den Wert für 1.'),
+        wahl(3, 'Eine Kerze ist 20 cm lang und brennt jede Stunde 2 cm ab. Ist „Brenndauer → Restlänge der Kerze“ proportional?',
+             ['Nein, die Restlänge wird kleiner, wenn die Zeit größer wird.', 'Ja, jede Stunde fehlen 2 cm.', 'Ja, nach 5 Stunden sind es 10 cm.'],
+             lambda o: o.startswith('Nein'), 'Nach 1 h sind es 18 cm, nach 2 h 16 cm. Doppelte Zeit gibt nicht doppelte Restlänge. Proportional wäre „Brenndauer → abgebrannte Länge“.',
+             'Rechne die Restlänge nach 1 und nach 2 Stunden aus.'),
+    ]
+    N['vervielfachen'] = [
+        Z(2, '6 Kugeln Eis kosten 7,20 €. Was kosten 2 Kugeln?', '7.2 / 3', '2 Kugeln sind ein Drittel von 6 Kugeln: 7,20 € : 3 = 2,40 €.', 'Von 6 auf 2: durch 3.', einheit='€'),
+        Z(2, 'Für 5 Kuchen braucht man 15 Eier. Für wie viele Kuchen reichen 45 Eier?', '5 * 45 // 15', '45 Eier sind 3-mal 15 Eier. Also 3 · 5 = 15 Kuchen.', 'Wie oft passen 15 Eier in 45 Eier?'),
+        Z(3, '20 gleiche Waggons sind zusammen 260 m lang. Wie lang sind 35 solche Waggons?', '260 * 35 / 20',
+          'Über 5 Waggons: 260 m : 4 = 65 m. 35 Waggons sind 7-mal 5 Waggons: 7 · 65 m = 455 m.', 'Suche eine Zwischenzahl, die in 20 und in 35 passt.', einheit='m'),
+        Z(3, 'Ein Riesenrad hat 30 gleiche Gondeln. 5 Gondeln bieten zusammen 40 Plätze. Wie viele Personen passen in alle Gondeln?', '40 * 30 // 5',
+          '30 Gondeln sind 6-mal 5 Gondeln: 6 · 40 = 240 Plätze.', 'Wie oft passen 5 Gondeln in 30 Gondeln?'),
+        Z(3, '3 Katzen fangen in 3 Minuten 3 Mäuse. Wie viele Mäuse fangen 6 Katzen in 6 Minuten, wenn alle gleich schnell sind?', '3 * 2 * 2',
+          'Doppelt so viele Katzen: 6 Mäuse in 3 Minuten. Doppelt so lange Zeit: 12 Mäuse in 6 Minuten.', 'Verdopple zuerst die Katzen, dann die Zeit.'),
+        A(3, 'Jemand rechnet: 4 Hefte kosten 6 €, also kosten 8 Hefte 6 € + 4 € = 10 €. Was ist falsch?', 'Doppelt so viele Hefte kosten doppelt so viel: 12 €.',
+          ['Nichts, 10 € stimmt.', 'Richtig ist 6 € + 8 € = 14 €.', 'Richtig ist 6 € · 8 = 48 €.'],
+          'Von 4 auf 8 Hefte wird verdoppelt. Also wird auch der Preis verdoppelt: 6 € · 2 = 12 €.', 'Was passiert mit der Menge? Mach dasselbe mit dem Preis.'),
+    ]
+    tab = {'4,50 €': (3, Fraction(9, 2)), '7,50 €': (5, Fraction(15, 2)), '12,50 €': (8, Fraction(25, 2))}
+    def passt_nicht(o):
+        n, p = tab[o]
+        andere = [q / m for k, (m, q) in tab.items() if k != o]
+        return andere[0] == andere[1] and p / n != andere[0]
+    prop = ['2 → 3, 4 → 6, 7 → 10,5', '2 → 3, 4 → 5, 7 → 8', '2 → 3, 4 → 6, 7 → 12', '2 → 4, 4 → 6, 7 → 9']
+    def ist_prop(o):
+        paare = [(Fraction(a.replace(',', '.')), Fraction(b.replace(',', '.'))) for a, b in (x.split(' → ') for x in o.split(', '))]
+        return len({b / a for a, b in paare}) == 1
+    N['pruefen'] = [
+        wahl(2, 'Ist die Tabelle proportional? 2 → 7, 4 → 14, 10 → 35', ['Ja, Wert : Menge ist immer 3,5.', 'Nein, 35 ist kein Vielfaches von 14.', 'Nein, die Abstände sind verschieden.'],
+             lambda o: o.startswith('Ja'), '7 : 2 = 3,5; 14 : 4 = 3,5; 35 : 10 = 3,5. Immer gleich, also proportional.', 'Rechne in jeder Spalte Wert : Menge.'),
+        Z(2, 'Eine proportionale Tabelle: 4 → 10. Welcher Wert gehört zu 6?', '10 / 4 * 6', 'Zu 2 gehört 5. Zu 6 gehört 3 · 5 = 15.', 'Gehe über 2.'),
+        Z(3, 'An einer Kasse werden in 30 Minuten 240 Besucher eingelassen. Wie viele Minuten dauert es bei gleichem Tempo für 680 Besucher?', '680 / (240 / 30)',
+          'In 1 Minute: 240 : 30 = 8 Besucher. Für 680 Besucher: 680 : 8 = 85 Minuten.', 'Wie viele Besucher kommen in einer Minute hinein?', einheit='min'),
+        wahl(3, 'Die Tabelle soll proportional sein. Welcher Preis passt nicht?', list(tab), passt_nicht,
+             '3 Stück: 4,50 €, also 1,50 € je Stück. 5 Stück: 7,50 € passt. 8 Stück müssten 12,00 € kosten, nicht 12,50 €.',
+             'Rechne für jede Spalte den Preis für 1 Stück aus.',
+             grafik={'typ': 'tabelle', 'kopf': ['Anzahl', '3', '5', '8'], 'zeilen': [['Preis', '4,50 €', '7,50 €', '12,50 €']]}),
+        Z(3, 'In einer proportionalen Tabelle gehört zu 4 der Wert 18. Zu welcher Menge gehört der Wert 45?', '45 / (18 / 4)',
+          'Zu 4 gehört 18, also zu 2 der Wert 9. 45 ist 5-mal 9, also gehört 45 zu 5 · 2 = 10.', 'Gehe über einen Zwischenschritt: Zu 2 gehört …'),
+        wahl(3, 'Welche Tabelle ist proportional?', prop, ist_prop,
+             'Bei 2 → 3, 4 → 6, 7 → 10,5 ist Wert : Menge immer 1,5. Bei den anderen ändert sich der Quotient.', 'Teile in jeder Spalte Wert durch Menge.'),
+    ]
+    obst = einzig([b for b in range(1, 200) for a in range(1, 200) if 3 * a + 2 * b == 190 and 3 * a + 4 * b == 290])
+    N['einheit'] = [
+        Z(2, '12 Brezen kosten 8,40 €. Was kostet 1 Breze?', '8.4 / 12', '8,40 € : 12 = 0,70 €.', 'Teile den Preis durch die Anzahl. Rechne in Cent: 840 ct : 12.', einheit='€'),
+        Z(2, '5 gleich lange Bretter sind zusammen 4 m lang. Wie viele cm ist 1 Brett lang?', '400 / 5', '4 m = 400 cm. 400 cm : 5 = 80 cm.', 'Rechne zuerst in cm um.', einheit='cm'),
+        Z(3, '10 gleich große Käfer liegen hintereinander und sind zusammen 6 cm lang. Ein Hirschkäfer ist 4,8 cm lang. Wie oft so lang wie ein kleiner Käfer ist er?',
+          '4.8 / (6 / 10)', 'Ein kleiner Käfer: 6 cm : 10 = 0,6 cm. 4,8 cm : 0,6 cm = 8. Der Hirschkäfer ist 8-mal so lang.', 'Wie lang ist ein kleiner Käfer?'),
+        Z(3, 'Packung A: 250 g für 2,00 €. Packung B: 400 g für 3,00 €. Wie viel Cent kosten 100 g bei der günstigeren Packung?', 'min(200 * 100 / 250, 300 * 100 / 400)',
+          'A: 100 g kosten 200 ct : 2,5 = 80 ct. B: 100 g kosten 300 ct : 4 = 75 ct. B ist günstiger: 75 ct.', 'Rechne für beide Packungen den Preis für 100 g aus.', einheit='ct'),
+        Z(3, '3 Äpfel und 2 Birnen kosten 1,90 €. 3 Äpfel und 4 Birnen kosten 2,90 €. Wie viel Cent kostet 1 Birne?', str(obst),
+          'Der Unterschied sind 2 Birnen. Sie kosten 2,90 € − 1,90 € = 1,00 €. 1 Birne kostet 50 ct.', 'Vergleiche die beiden Einkäufe: Was ist beim zweiten mehr?', einheit='ct'),
+        Z(3, 'Ein Stück kostet 35 ct. Wie viele Stück bekommst du höchstens für 5 €?', '500 // 35',
+          '5 € = 500 ct. 14 Stück kosten 490 ct, 15 Stück 525 ct – zu viel. Also 14 Stück.', 'Rechne in Cent und teile. Was bedeutet der Rest?'),
+    ]
+    N['dreisatz'] = [
+        Z(2, '7 Kinokarten kosten 63 €. Was kosten 5 Karten?', '63 / 7 * 5', '1 Karte: 63 € : 7 = 9 €. 5 Karten: 5 · 9 € = 45 €.', 'Erst auf 1 Karte schließen.', einheit='€'),
+        Z(2, 'In 6 Minuten tropfen 90 ml aus einem Hahn. Wie viele ml sind es in 15 Minuten?', '90 / 6 * 15', '1 Minute: 90 ml : 6 = 15 ml. 15 Minuten: 15 · 15 ml = 225 ml.', 'Erst auf 1 Minute schließen.', einheit='ml'),
+        Z(3, 'Der Schall legt in 5 Sekunden etwa 1 700 m zurück. Der Donner kommt 13 Sekunden nach dem Blitz. Wie viele Meter ist das Gewitter entfernt?', '1700 / 5 * 13',
+          '1 Sekunde: 1 700 m : 5 = 340 m. 13 Sekunden: 13 · 340 m = 4 420 m.', 'Wie weit kommt der Schall in 1 Sekunde?', einheit='m'),
+        Z(3, '6 gleiche Ordner wiegen zusammen 4,2 kg. Wie viel kg wiegen 25 Ordner?', '4.2 / 6 * 25', '1 Ordner: 4,2 kg : 6 = 0,7 kg. 25 Ordner: 25 · 0,7 kg = 17,5 kg.',
+          'Rechne in g, wenn dir das leichter fällt: 4 200 g : 6.', einheit='kg'),
+        Z(3, 'Mit 8 Litern Farbe streicht man 56 m². Ein Zaun hat 91 m². Die Farbe gibt es nur in 2-Liter-Dosen. Wie viele Dosen muss man kaufen?', '-(-(91 / (56 / 8)) // 2)',
+          '1 Liter reicht für 56 : 8 = 7 m². Für 91 m² braucht man 91 : 7 = 13 Liter. 6 Dosen sind nur 12 Liter, also 7 Dosen.', 'Rechne zuerst die Liter aus. Reichen 6 Dosen?'),
+        A(3, 'Jemand rechnet: 5 kg kosten 15 €. Also kostet 1 kg 5 € und 8 kg kosten 40 €. Was ist falsch?', 'Beim Schluss auf 1 kg wurde falsch geteilt: 15 € : 5 = 3 €. 8 kg kosten 24 €.',
+          ['Nichts, 40 € stimmt.', 'Man muss 15 € · 8 = 120 € rechnen.', 'Richtig ist 15 € + 3 € = 18 €.'],
+          '1 kg kostet 15 € : 5 = 3 €, nicht 5 €. 8 kg: 8 · 3 € = 24 €.', 'Prüfe den zweiten Schritt: Was ist 15 : 5?'),
+    ]
+    zw = {'15': 15, '5': 5, '1': 1, '30': 30}
+    N['geschickt'] = [
+        Z(2, 'Rechne geschickt: 12 Eier kosten 3,60 €. Was kosten 18 Eier?', '3.6 / 2 * 3', 'Über 6 Eier: 3,60 € : 2 = 1,80 €. 18 Eier: 3 · 1,80 € = 5,40 €.', 'Welche Zahl passt in 12 und in 18?', einheit='€'),
+        Z(2, 'Rechne geschickt: 25 m Stoff kosten 75 €. Was kosten 15 m?', '75 / 5 * 3', 'Über 5 m: 75 € : 5 = 15 €. 15 m: 3 · 15 € = 45 €.', 'Gehe über 5 m.', einheit='€'),
+        Z(3, '16 gleiche Platten wiegen zusammen 40 kg. Wie schwer sind 24 Platten?', '40 / 2 * 3', 'Über 8 Platten: 40 kg : 2 = 20 kg. 24 Platten: 3 · 20 kg = 60 kg.', 'Welche Zahl passt in 16 und in 24?', einheit='kg'),
+        wahl(3, 'Du kennst den Preis für 45 Stück und suchst den Preis für 75 Stück. Welcher Zwischenschritt passt ohne Rest in beide Zahlen und ist am größten?', list(zw),
+             lambda o: zw[o] == max(v for v in zw.values() if 45 % v == 0 and 75 % v == 0),
+             '15 passt in 45 (3-mal) und in 75 (5-mal). 30 passt nicht ohne Rest; 5 und 1 gehen auch, sind aber kleiner.', 'Prüfe für jede Zahl, ob sie ohne Rest in 45 und in 75 passt.'),
+        Z(3, 'Ein Drucker druckt 18 Seiten in 45 Sekunden. Wie viele Seiten schafft er in 2 Minuten?', '18 / 45 * 120',
+          '2 min = 120 s. Über 15 s: 18 : 3 = 6 Seiten. 120 s sind 8-mal 15 s: 8 · 6 = 48 Seiten.', 'Rechne 2 Minuten in Sekunden um. Welche Zeit passt in 45 s und in 120 s?'),
+        Z(3, 'Rechne geschickt: 0,5 kg Kirschen kosten 3,40 €. Was kosten 1,5 kg?', '3.4 * 3', '1,5 kg sind 3-mal 0,5 kg: 3 · 3,40 € = 10,20 €.', 'Wie oft passen 0,5 kg in 1,5 kg?', einheit='€'),
+    ]
+    N['sach'] = [
+        Z(2, 'Ein Rezept für 6 Personen braucht 300 ml Sahne. Wie viel ml braucht man für 4 Personen?', '300 / 6 * 4', '1 Person: 50 ml. 4 Personen: 200 ml.', 'Gehe über 2 Personen oder über 1 Person.', einheit='ml'),
+        Z(2, 'Ein Auto braucht für 100 km 6 Liter Benzin. Wie viele Liter braucht es für 250 km?', '6 * 250 / 100', '250 km sind 2,5-mal 100 km: 2,5 · 6 l = 15 l. Oder über 50 km: 3 l · 5 = 15 l.',
+          'Wie viel braucht es für 50 km?', einheit='l'),
+        L(3, 'Ein Liter Apfelsaft kostet 1,20 €. Für das Klassenfest gibt es 15 €. Wie viele ganze Liter kann man kaufen, und wie viel Geld bleibt übrig?',
+          '□ Liter, Rest □ ct', 'Trage die Liter und den Rest in Cent ein.', ['1500 // 120', '1500 % 120'],
+          '15 € = 1 500 ct. 1 500 : 120 = 12 Rest 60. Also 12 Liter, es bleiben 60 ct.', 'Rechne in Cent: 1 500 ct : 120 ct.'),
+        wahl(3, 'Ein Kind läuft 100 m in 16 Sekunden. Wie lange braucht es für 1 000 m?', ['Das kann man so nicht ausrechnen: Auf langen Strecken wird man langsamer.', '160 Sekunden', '16 Sekunden', '1 600 Sekunden'],
+             lambda o: o.startswith('Das kann man'), 'Laufzeit und Strecke sind nicht proportional: Niemand hält das Sprinttempo 1 000 m lang durch.',
+             'Prüfe zuerst, ob die Zuordnung proportional ist.'),
+        Z(3, 'Eine Kerze brennt in 3 Stunden 4 cm ab. Sie ist 18 cm lang. Wie viele Stunden brennt sie insgesamt?', '18 / 4 * 3',
+          '1 cm brennt in 3 h : 4 = 0,75 h ab. 18 cm: 18 · 0,75 h = 13,5 h. Oder: 18 cm sind 4,5-mal 4 cm, also 4,5 · 3 h.', 'Wie oft passen 4 cm in 18 cm?', einheit='h'),
+        Z(3, 'Ein Wasserhahn tropft. In 10 Minuten sammeln sich 60 ml. Wie viele Liter tropfen an einem ganzen Tag?', '60 / 10 * 60 * 24 / 1000',
+          '1 Minute: 6 ml. 1 Stunde: 360 ml. 1 Tag: 24 · 360 ml = 8 640 ml = 8,64 l.', 'Rechne zuerst pro Stunde, dann pro Tag. Zum Schluss in Liter umrechnen.', einheit='l'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1026)
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('groessen.proportional', 13_5_5)
+# a) Lied-Falle stand auf Stufe 1, Eier-Falle zweimal auf Stufe 3 (gleicher Gedanke wie Stufe 2) → einheitlich Stufe 2
+BF.stufe('sach', 'Ein Lied dauert 4 Minuten, wenn 4 Kinder es singen. Wie viele Minuten dauert es, wenn 9 Kinder singen?', 2)
+BF.stufe('sach', '2 Eier kochen 10 Minuten. Wie viele Minuten kochen 8 Eier im selben Topf?', 2)
+BF.stufe('sach', '3 Eier kochen 9 Minuten. Wie viele Minuten kochen 5 Eier im selben Topf?', 2)
+# c) „etwa 200 Liter“ wirkt falsch, weil 240 l leicht genau zu rechnen ist → genaue Antwort
+BF.ersetze('sach', 'Ein Hahn füllt in 4 Minuten einen Eimer mit 48 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?', BF.A(
+    'Aus einem Hahn laufen in 4 Minuten 48 Liter Wasser, jede Minute gleich viel. Wie viele Liter laufen in 20 Minuten?', '240 Liter',
+    ['68 Liter', '960 Liter', '2 400 Liter'],
+    'In 1 Minute sind es 48 : 4 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter. Nur dazuzählen (48 + 20 = 68) ist falsch.',
+    'Wie viel ist es in 1 Minute? Wie oft so viel brauchst du?'))
+BF.ersetze('sach', 'Ein Hahn füllt in 2 Minuten einen Eimer mit 24 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?', BF.A(
+    'Aus einem Hahn laufen in 2 Minuten 24 Liter Wasser, jede Minute gleich viel. Wie viele Liter laufen in 20 Minuten?', '240 Liter',
+    ['44 Liter', '480 Liter', '2 400 Liter'],
+    'In 1 Minute sind es 24 : 2 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter. Nur dazuzählen (24 + 20 = 44) ist falsch.',
+    'Wie viel ist es in 1 Minute? Wie oft so viel brauchst du?'))
+# a) Standard-Dreisatz → Stufe 2
+BF.stufe('dreisatz', '20 Hefte kosten 80 €. 11 Hefte kosten wie viel €?', 2)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('groessen.proportional', 19_5_12)
+# a) Stufe 3 mit dem Gedanken von Stufe 2 (Grundgebühr wie beim Parken, Dreisatz vorwärts, Zwischenschritt über 5) → Stufe 2
+for _lz, _t in [('erkennen', 'Eine Taxifahrt kostet 2 € Grundgebühr und 1 € je km. 3 km: 5 €, 6 km: 8 €. Ist Kilometer → Preis proportional?'),
+        ('erkennen', 'Eine Taxifahrt kostet 4 € Grundgebühr und 1 € je km. 3 km: 7 €, 6 km: 10 €. Ist Kilometer → Preis proportional?'),
+        ('dreisatz', '20 Liter Farbe reichen für 120 m². 30 Liter Farbe reichen für wie viele m²?'),
+        ('geschickt', 'Rechne geschickt: 175 kg Äpfel kosten 700 €. 50 kg Äpfel kosten wie viel €?'),
+        ('geschickt', 'Rechne geschickt: 35 Packungen enthalten 560 Kekse. 10 Packungen enthalten wie viele Kekse?')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl5, siehe _stufen_kl5.py und _st5_groessen_proportional.py) ----
+from _stufen_kl5 import stufen_anwenden  # noqa: E402
+stufen_anwenden(DATEI, 'groessen.proportional')
+# ---- STUFEN ENDE ----
 
 if __name__ == '__main__':
     schreibe(DATEI, 'groessen.proportional.json')
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('groessen.proportional')
+# ---- BEREINIGEN ENDE ----
+
+
+# ---- AUFLOESEN (Vierundzwanzigste Runde, Zweig aufloesen, siehe _aufloesen.py und _af_plan.py) ----
+if __name__ == '__main__':
+    from _aufloesen import aufloesen_datei
+    aufloesen_datei('groessen.proportional')
+# ---- AUFLOESEN ENDE ----

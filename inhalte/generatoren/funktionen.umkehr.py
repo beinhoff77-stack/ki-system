@@ -308,8 +308,391 @@ def g_spiegeln(s):
 
 GEN = {'umkehrbar': g_umkehrbar, 'werte': g_werte, 'linear': g_linear, 'quadratisch': g_quadratisch, 'exp_log': g_exp_log, 'spiegeln': g_spiegeln}
 
+# ---------- UMBAU: neues Muster (Achte Runde, Paket UR, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_rest.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_rest import umbau_schreiben  # noqa: E402
+
+from _umbau_rest import ko, pkte, tab  # noqa: E402
+
+
+def _l(m, t, name):
+    return {'art': 'linear', 'm': m, 't': t, 'name': name}
+
+
+_YX = _l(1, 0, 'y = x')
+_PAR = {'art': 'poly', 'k': [0, 0, 1], 'name': 'y = x²'}
+_F2 = {'art': 'poly', 'k': [5, -4, 1], 'name': 'f', 'bereich': [2, 4.4]}
+_EXP = {'art': 'exp', 'a': 1, 'b': 2, 'name': 'y = 2ˣ'}
+UMBAU = {
+    'umkehrbar': {
+        'einstieg': 'Eine Codiermaschine macht aus jeder Zahl eine Geheimzahl. Zum Entschlüsseln darf jede Geheimzahl nur einmal vorkommen. '
+                    'Dann heißt die Maschine ⟦umkehrbar⟧.',
+        'woerter': [['umkehrbar', 'jeder y-Wert kommt nur einmal vor; man kann eindeutig zurückrechnen'],
+                    ['waagrechte Gerade', 'eine Linie quer durchs Bild, z. B. y = 4']],
+        'bild': ko([-3, 3], [-1, 6], schritt=0, graphen=[_PAR]),
+        'schritte': [
+            {'text': 'Die Maschine y = x² macht aus 2 und aus −2 die 4.', 'bild': {'punkte': pkte({'(−2|4)': (-2, 4), '(2|4)': (2, 4)})}},
+            {'text': 'Die waagrechte Gerade y = 4 trifft die Parabel zweimal.', 'bild': {'waagrecht': [4]}},
+            {'text': 'Also ⟦nicht umkehrbar⟧: Aus 4 weiß man nicht, ob 2 oder −2.'},
+            {'text': 'Nur mit x ≥ 0 bleibt ein Ast übrig, dann ist sie ⟦umkehrbar⟧.',
+             'bild': {'graphen': [dict(_PAR, bereich=[0, 3])], 'punkte': pkte({'(2|4)': (2, 4)})}},
+        ],
+        'fehler': '„Zu jedem x gehört genau ein y“ reicht nicht, das gilt für jede Funktion. Für die Umkehrung braucht jedes y ⟦genau ein x⟧.',
+        'regel': 'Umkehrbar heißt: Jeder y-Wert kommt nur einmal vor. Test: Jede ⟦waagrechte Gerade⟧ trifft den Graphen höchstens einmal.',
+    },
+    'werte': {
+        'einstieg': 'Die Codiermaschine f macht aus 2 die Geheimzahl 5. Die Entschlüsselung macht aus 5 wieder 2. '
+                    'Diese Rückwärts-Maschine heißt ⟦Umkehrfunktion⟧.',
+        'woerter': [['Umkehrfunktion', 'rechnet rückwärts: aus f(a) = b wird f⁻¹(b) = a'],
+                    ['f⁻¹', 'gelesen „f hoch minus eins“: die Umkehrfunktion, kein Kehrwert']],
+        'bild': tab(['x', '0', '1', '2', '3'], ['f(x)', '1', '3', '5', '7']),
+        'schritte': [
+            {'text': 'Aus der Tabelle: f(2) = 5.'},
+            {'text': 'Die Umkehrfunktion liest rückwärts: ⟦f⁻¹(5) = 2⟧.', 'bild': tab(['x', '1', '3', '5', '7'], ['f⁻¹(x)', '0', '1', '2', '3'])},
+            {'text': 'Die beiden Zeilen tauschen also ihre Rollen.'},
+        ],
+        'fehler': 'f⁻¹(5) = 1/5 ist falsch. Das hochgestellte −1 heißt ⟦Umkehrfunktion⟧, nicht Kehrwert.',
+        'regel': 'Ist f(a) = b, dann ist ⟦f⁻¹(b) = a⟧. Für f⁻¹ liest du die Tabelle von unten nach oben.',
+    },
+    'linear': {
+        'einstieg': 'Die Maschine rechnet „mal 2, dann minus 6“. Rückwärts musst du alles umdrehen: erst plus 6, dann durch 2. '
+                    'Rechnerisch klappt das mit einem Trick: ⟦x und y vertauschen⟧.',
+        'woerter': [['nach y auflösen', 'umformen, bis y allein auf einer Seite steht']],
+        'bild': ko([-7, 7], [-7, 7], schritt=0, graphen=[_l(2, -6, 'f')]),
+        'schritte': [
+            {'text': 'Aus y = 2x − 6 wird durch Tauschen x = 2y − 6.'},
+            {'text': 'Nach y auflösen: 2y = x + 6, also ⟦y = 0,5x + 3⟧.', 'bild': {'graphen': [_l(2, -6, 'f'), _l(0.5, 3, 'f⁻¹')]}},
+            {'text': 'Probe: f(4) = 2 und f⁻¹(2) = 4. Beide liegen spiegelbildlich zu y = x.',
+             'bild': {'graphen': [_l(2, -6, 'f'), _l(0.5, 3, 'f⁻¹'), _YX], 'punkte': pkte({'(4|2)': (4, 2), '(2|4)': (2, 4)})}},
+        ],
+        'fehler': '0,5x − 6 ist falsch, nur die Steigung umzudrehen reicht nicht. Nach dem Tauschen ⟦vollständig nach y auflösen⟧.',
+        'fehler_bild': {'graphen': [_l(2, -6, 'f'), _l(0.5, 3, 'f⁻¹'), _l(0.5, -6, 'falsch')], 'punkte': None},
+        'regel': 'Umkehrfunktion: ⟦x und y vertauschen⟧, dann nach y auflösen. Bei f(x) = mx + t ist f⁻¹(x) = (x − t) : m.',
+    },
+    'quadratisch': {
+        'einstieg': 'Quadrieren macht aus 3 die 9. Rückwärts zieht man die Wurzel: Aus 9 wird 3. '
+                    'Damit das eindeutig klappt, nimmt man nur ⟦einen Ast⟧ der Parabel.',
+        'woerter': [['Ast', 'eine Hälfte der Parabel, z. B. nur der Teil mit x ≥ 2']],
+        'bild': ko([-1, 7], [-1, 7], schritt=0, graphen=[_F2]),
+        'schritte': [
+            {'text': 'f(x) = (x − 2)² + 1 mit x ≥ 2 ist ein Ast.'},
+            {'text': 'Tauschen: x = (y − 2)² + 1.'},
+            {'text': 'Minus 1: (y − 2)² = x − 1.'},
+            {'text': 'Wurzel ziehen, plus 2: ⟦f⁻¹(x) = √(x − 1) + 2⟧.'},
+            {'text': 'Probe: f(3) = 2 und f⁻¹(2) = √1 + 2 = 3.',
+             'bild': {'graphen': [_F2, _YX], 'punkte': pkte({'(3|2)': (3, 2), '(2|3)': (2, 3)})}},
+        ],
+        'fehler': '√(x + 1) − 2 ist falsch. Beim Umkehren drehen sich die Rechenzeichen um: ⟦−1 unter der Wurzel⟧, +2 dahinter.',
+        'regel': 'Eine Parabel nur auf ⟦einem Ast⟧ umkehren. Die Umkehrung von Quadrieren ist Wurzelziehen.',
+    },
+    'exp_log': {
+        'einstieg': 'Ein Gerücht verdoppelt sich jede Stunde: Nach 5 Stunden kennen es 2⁵ = 32 Leute. '
+                    'Rückwärts fragt man: Nach wie vielen Stunden sind es 32? Das sagt der ⟦Logarithmus⟧.',
+        'woerter': [['Logarithmus', 'log₂ 32 ist die Hochzahl, mit der man 2 potenzieren muss, um 32 zu erhalten'],
+                    ['lg', 'Logarithmus zur Basis 10']],
+        'bild': ko([-1, 6], [-1, 35], schritt=0, schritt_y=5, graphen=[_EXP]),
+        'schritte': [
+            {'text': 'f(x) = 2ˣ: Nach 5 Stunden sind es 2⁵ = 32.', 'bild': {'punkte': pkte({'(5|32)': (5, 32)})}},
+            {'text': 'Rückwärts: log₂ 32 = ⟦5⟧, denn 2⁵ = 32.', 'bild': {'strecken': [[0, 32, 5, 32, 'gestrichelt'], [5, 32, 5, 0, 'gestrichelt']]}},
+            {'text': 'Für die Basis 10 schreibt man lg: lg 100 = 2.'},
+        ],
+        'fehler': 'log₂ 32 = 16 ist falsch. Der Logarithmus ist ⟦nicht 32 : 2⟧, sondern die Hochzahl: 2 hoch 5 ist 32.',
+        'regel': 'Der ⟦Logarithmus⟧ ist die Umkehrung von bˣ. log_b x fragt: b hoch wie viel ergibt x?',
+    },
+    'spiegeln': {
+        'einstieg': 'Legst du einen Spiegel auf die Linie y = x, siehst du darin die Umkehrfunktion. '
+                    'x und y tauschen dabei ihre Plätze. Die Linie heißt ⟦Winkelhalbierende⟧.',
+        'woerter': [['Winkelhalbierende', 'die Gerade y = x; sie halbiert den Winkel zwischen den Achsen']],
+        'bild': ko([-3, 9], [-3, 9], schritt=0, graphen=[_EXP, _YX]),
+        'schritte': [
+            {'text': 'P(3 | 8) liegt auf y = 2ˣ.', 'bild': {'punkte': pkte({'P': (3, 8)})}},
+            {'text': 'Spiegeln an der Winkelhalbierenden heißt: x und y tauschen.'},
+            {'text': 'So entsteht ⟦P′(8 | 3)⟧ auf y = log₂ x.',
+             'bild': {'graphen': [_EXP, _YX, {'art': 'log', 'b': 2, 'name': 'log₂ x'}], 'punkte': pkte({'P': (3, 8), 'P′': (8, 3)}),
+                      'strecken': [[3, 8, 8, 3, 'gestrichelt']]}},
+        ],
+        'fehler': 'P′(−3 | −8) ist falsch, das wäre am ⟦Ursprung⟧ gespiegelt. An y = x werden die Koordinaten getauscht.',
+        'regel': 'Graph von f⁻¹: an der ⟦Winkelhalbierenden y = x⟧ spiegeln. Aus P(a | b) wird P′(b | a).',
+    },
+}
+UMBAU_OFFEN = ['Umbau (Paket UR): Den Graphen von √(x − 1) + 2 (Karte quadratisch) kann die App nicht zeichnen (Graph-Art wurzel nur als √x); '
+               'die Karte zeigt stattdessen den Ast von f, die Gerade y = x und ein Punktepaar.']
+UMBAU_WEG = []
+# ---------- Ende UMBAU ----------
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil B, Zweig durchsicht-rsib-1) ----------
+# Prüfungsvorbilder: Realschul-Abschlussprüfung Mathematik I (Bayern), A 1.2 (2021): „Berechnen Sie die nach y aufgelöste Gleichung
+# der Umkehrfunktion“, Definitions- und Wertemenge der Umkehrfunktion, Schnittpunkte mit den Achsen; IB-MYP-Formate zu inversen
+# Funktionen (f(x) = f⁻¹(x), Werte rückwärts). Typ übernommen, Wortlaut und Zahlen eigen.
+def durchsicht(d):
+    from _rsib1 import Z, A, L, nachtrag, finde
+    T = lambda teil: finde(d, teil)
+    LT, HT = '□x + □', 'Tippe den Term ein, z. B. 2x − 4.'
+    nachtrag(d,
+        umstufen={
+            T('f(x) = 4x + 6. Was ist f⁻¹(30)?'): 2,
+            T('f(x) = 2x − 2. Was ist f⁻¹(4)?'): 2,
+            T('Welche Funktion ist die Umkehrfunktion von f(x) = −0,25x − 1,5?'): 2,
+            T('Welche Funktion ist die Umkehrfunktion von f(x) = 0,1x − 0,5?'): 2,
+            T('P(2 | 100) liegt auf dem Graphen von y = 10ˣ.'): 2,
+            T('P(2 | 9) liegt auf dem Graphen von y = 3ˣ.'): 2,
+        },
+        ersetzen={
+            T('Auf welcher Menge ist f(x) = (x − 5)² umkehrbar?'):
+                Z(3, 'f(x) = x² − 6x soll auf der Menge x ≥ a umkehrbar sein. Wie klein darf a höchstens sein?', 3, '6/2',
+                  'Quadratische Ergänzung: x² − 6x = (x − 3)² − 9. Der Scheitel liegt bei x = 3. Rechts davon ist ein Ast: a = 3.',
+                  'Wo liegt der Scheitel der Parabel?'),
+            T('Auf welcher Menge ist f(x) = (x + 5)² umkehrbar?'):
+                A(3, 'Welche Funktion ist auf ganz ℝ umkehrbar?', 'f(x) = x³', ['f(x) = x²', 'f(x) = x⁴', 'f(x) = 5'],
+                  'x³ steigt überall, jeder y-Wert kommt einmal vor. Bei x² und x⁴ gehören 2 und −2 zum selben y; bei f(x) = 5 gehört jedes x zu 5.',
+                  'Mache bei jeder Funktion den Test mit der waagrechten Geraden.'),
+            T('Jemand gibt für f(x) = −0,25x + 1,25 die Umkehrfunktion'):
+                Z(3, 'f(x) = m · x + 3 hat die Umkehrfunktion f⁻¹(x) = 0,5x − 1,5. Wie groß ist m?', 2, '1/0.5',
+                  'Die Steigung der Umkehrfunktion ist 1 : m. 1 : m = 0,5 ⇒ m = 2. Probe: f(x) = 2x + 3, umgekehrt (x − 3) : 2 = 0,5x − 1,5.',
+                  'Wie hängen die Steigungen von f und f⁻¹ zusammen?'),
+            T('Jemand gibt für f(x) = 0,5x + 3,5 die Umkehrfunktion'):
+                A(3, 'Welche Gerade ist ihre eigene Umkehrfunktion?', 'y = −x + 4', ['y = 2x', 'y = x + 1', 'y = 0,5x'],
+                  'Tauschen bei y = −x + 4: x = −y + 4 ⇒ y = −x + 4. Gleich! Die Gerade steht senkrecht auf y = x.',
+                  'Bilde zu jeder die Umkehrfunktion.'),
+            T('Warum muss man bei f(x) = (x − 4)² + 2 die Definitionsmenge'):
+                Z(3, 'f(x) = x² + 2 mit x ≥ 0. Für welches x ist f⁻¹(x) = 3?', 11, '3**2 + 2',
+                  'f⁻¹(x) = 3 heißt f(3) = x. f(3) = 9 + 2 = 11.', 'Lies f⁻¹(x) = 3 rückwärts.'),
+            T('Jemand spiegelt P(3 | −3) für die Umkehrfunktion zu P\'(−3 | 3).'):
+                A(3, 'Der Graph von f geht durch (2 | 2) und (1 | 3). Welcher dieser Punkte liegt sicher auch auf dem Graphen von f⁻¹?', '(2 | 2)',
+                  ['(1 | 3)', '(3 | 3)', 'keiner'],
+                  'Punkte auf der Geraden y = x bleiben beim Spiegeln liegen: (2 | 2) wird zu (2 | 2). Aus (1 | 3) wird (3 | 1).',
+                  'Was passiert beim Tauschen mit (2 | 2)?'),
+        },
+        neu={
+            'umkehrbar': [
+                A(3, 'Warum ist f(x) = 2 · 0,5ˣ + 1 (x ∈ ℝ) umkehrbar?', 'Weil der Graph überall fällt: Jeder y-Wert kommt nur einmal vor.',
+                  ['Weil zu jedem x genau ein y gehört.', 'Weil der Graph die y-Achse bei 3 schneidet.', 'Weil 0,5 kleiner als 1 ist.'],
+                  '0,5ˣ wird ständig kleiner, also auch 2 · 0,5ˣ + 1. Eine waagrechte Gerade trifft den Graphen höchstens einmal.',
+                  'Steigt oder fällt der Graph überall?'),
+                A(3, 'Eine Funktion hat nur die Werte f(1) = 3, f(2) = 5, f(3) = 3, f(4) = 7. Welchen x-Wert kann man streichen, damit sie umkehrbar wird?',
+                  '1 oder 3', ['nur 2', 'nur 4', 'Man muss zwei Werte streichen.'],
+                  'Der y-Wert 3 kommt zweimal vor (bei 1 und bei 3). Streicht man einen der beiden, kommt jeder y-Wert nur einmal vor.',
+                  'Welcher y-Wert kommt doppelt vor?'),
+            ],
+            'werte': [
+                Z(3, 'f(x) = 3x − 5. Für welches x gilt f(x) = f⁻¹(x)?', 2.5, '5/2',
+                  'f und f⁻¹ treffen sich hier auf y = x: 3x − 5 = x ⇒ 2x = 5 ⇒ x = 2,5. Probe: f(2,5) = 2,5 und f⁻¹(2,5) = 2,5.',
+                  'Wo schneidet f die Gerade y = x?'),
+                Z(3, 'Für eine Funktion f gilt f(2) = 7 und f(7) = 2. Berechne f⁻¹(f⁻¹(2)).', 2, '2',
+                  'f⁻¹(2) = 7, weil f(7) = 2. Dann f⁻¹(7) = 2, weil f(2) = 7.', 'Rechne von innen nach außen.'),
+                L(3, 'Für eine Funktion f gilt f(3) = 5. Welcher Punkt liegt sicher auf dem Graphen von g(x) = f⁻¹(x) + 1?', 'P(□ | □)', [5, 4], ['5', '3 + 1'],
+                  'f(3) = 5 ⇒ f⁻¹(5) = 3 ⇒ g(5) = 3 + 1 = 4. Also P(5 | 4).', 'Bestimme zuerst f⁻¹(5).'),
+                A(3, 'f(x) = 0,5x + 2. Für welches x ist f⁻¹(x) doppelt so groß wie x?', 'für kein x', ['für x = 4', 'für x = 2', 'für jedes x'],
+                  'f⁻¹(x) = 2x − 4. Gleichung 2x − 4 = 2x ⇒ −4 = 0: unmöglich. Es gibt kein solches x.',
+                  'Bestimme zuerst f⁻¹ und stelle die Gleichung auf.'),
+            ],
+            'linear': [
+                L(3, 'f(x) = 2x − 3. In welchem Punkt schneiden sich die Graphen von f und f⁻¹?', 'S(□ | □)', [3, 3], ['3', '3'],
+                  'Gerade und Umkehrgerade schneiden sich auf y = x: 2x − 3 = x ⇒ x = 3. S(3 | 3).', 'Der Schnittpunkt liegt auf der Spiegelachse.'),
+                L(3, 'Die Gerade f geht durch die Punkte (2 | 2) und (4 | 3). Gib die Umkehrfunktion an.', LT, [2, -2], ['2', '-2'],
+                  'f⁻¹ geht durch (2 | 2) und (3 | 4): Steigung (4 − 2) : (3 − 2) = 2, f⁻¹(x) = 2x − 2.', 'Tausche die Koordinaten beider Punkte.', hinweis=HT),
+                Z(3, 'Eine Gerade f hat die Steigung 4. Welche Steigung hat ihre Umkehrfunktion?', 0.25, '1/4',
+                  'Beim Tauschen von x und y wird aus „4 nach oben pro 1 nach rechts“ „1 nach oben pro 4 nach rechts“: 1 : 4 = 0,25.',
+                  'Was passiert mit dem Steigungsdreieck beim Spiegeln?'),
+                Z(3, 'Für welches t geht der Graph der Umkehrfunktion von f(x) = 2x + t durch den Punkt (5 | 1)?', 3, '5 - 2*1',
+                  '(5 | 1) auf f⁻¹ heißt (1 | 5) auf f: 2 · 1 + t = 5 ⇒ t = 3.', 'Welcher Punkt liegt dann auf f?'),
+            ],
+            'quadratisch': [
+                L(3, 'f(x) = (x − 3)² + 1 mit x ≥ 3. Gib die Wertemenge der Umkehrfunktion f⁻¹ an.', 'W = {y | y ≥ □}', [3], ['3'],
+                  'Die Wertemenge von f⁻¹ ist die Definitionsmenge von f: x ≥ 3.', 'Was tauschen f und f⁻¹ außer x und y noch?'),
+                A(3, 'f(x) = x² mit x ≤ 0 (linker Ast). Welche Funktion ist die Umkehrfunktion?', 'f⁻¹(x) = −√x', ['f⁻¹(x) = √x', 'f⁻¹(x) = √(−x)', 'f⁻¹(x) = −x²'],
+                  'Der linke Ast hat negative x-Werte. Die Umkehrung muss also negative Werte liefern: −√x. Probe: f(−3) = 9, −√9 = −3.',
+                  'Welches Vorzeichen haben die x-Werte des linken Asts?'),
+            ],
+            'exp_log': [
+                Z(3, 'f(x) = 2ˣ⁻¹. Berechne f⁻¹(16).', 5, '4 + 1', '2ˣ⁻¹ = 16 = 2⁴ ⇒ x − 1 = 4 ⇒ x = 5.', 'Schreibe 16 als Zweierpotenz.'),
+                Z(3, 'f(x) = 3 · 2ˣ. Berechne f⁻¹(24).', 3, '3', '3 · 2ˣ = 24 ⇒ 2ˣ = 8 ⇒ x = 3.', 'Teile zuerst durch 3.'),
+                A(3, 'f(x) = 2ˣ. Warum hat f⁻¹(−4) keinen Wert?', 'Weil 2ˣ nie negativ wird.', ['Weil man durch 0 teilen müsste.', 'Weil −4 keine Zweierpotenz ist, aber 4 schon.', 'Doch: f⁻¹(−4) = −2.'],
+                  '2ˣ ist für jedes x positiv. Es gibt kein x mit 2ˣ = −4. Die Definitionsmenge von log₂ sind nur positive Zahlen.',
+                  'Welche Werte kann 2ˣ annehmen?'),
+                Z(3, 'Berechne lg 0,001.', -3, '-3', '10⁻³ = 1/1 000 = 0,001. Also lg 0,001 = −3.', '10 hoch wie viel ergibt 0,001?'),
+            ],
+            'spiegeln': [
+                L(3, 'Der Graph von f ist eine Gerade durch (0 | 1) mit der Steigung 2. Wo schneidet der Graph von f⁻¹ die x-Achse?', 'N(□ | □)', [1, 0], ['1', '0'],
+                  'f schneidet die y-Achse in (0 | 1). Gespiegelt: f⁻¹ schneidet die x-Achse in (1 | 0).', 'Spiegle den Schnittpunkt von f mit der y-Achse.'),
+                L(3, 'f(x) = 3ˣ + 1. Wo schneidet der Graph von f⁻¹ die x-Achse?', 'N(□ | □)', [2, 0], ['3**0 + 1', '0'],
+                  'f(0) = 1 + 1 = 2, also liegt (0 | 2) auf f. Gespiegelt: (2 | 0) auf f⁻¹.', 'Berechne zuerst f(0).'),
+                L(3, 'Der Graph von f schneidet die x-Achse bei x = −4. Wo schneidet der Graph von f⁻¹ die y-Achse?', 'S(□ | □)', [0, -4], ['0', '-4'],
+                  '(−4 | 0) liegt auf f. Gespiegelt: (0 | −4) auf f⁻¹.', 'Tausche die Koordinaten des Nullstellenpunkts.'),
+            ],
+        })
+
+
+# ---- STUFEN (Zwanzigste Runde, Zusatz RS/IB, Zweig stufen-rsib-1) ----
+from _stufen_rsib1 import Stufen, stufen  # noqa: E402
+
+ST = Stufen('funktionen.umkehr', 20_101_10)
+Z, A, L = ST.Z, ST.A, ST.L
+
+# umkehrbar
+ST.stufenleiter('umkehrbar', 'Entscheiden, ob eine Funktion umkehrbar ist (jeder y-Wert nur einmal); Test mit der waagrechten Geraden.',
+                'Umkehrbarkeit an Tabelle und Graph, Einschränkung der Definitionsmenge finden, Automat als Sachsituation.',
+                'Fehler „zu jedem x genau ein y“, kleinstes a für einen Parabelast, monotone Funktionen begründen, x³ einordnen, Wert streichen, Prüfungsaufgabe.')
+ST.typ('umkehrbar', 'Ist f(x)', 'erkennen')
+ST.typ('umkehrbar', '/^(Die Tabelle zeigt|Ist die gezeichnete)/', 'darstellung')
+ST.typ('umkehrbar', 'Auf welcher Menge', 'umkehr')
+ST.typ('umkehrbar', 'Jemand behauptet', 'fehler')
+ST.typ('umkehrbar', 'f(x) = x² − 6x', 'parameter')
+ST.typ('umkehrbar', 'Welche Funktion ist auf ganz', 'verknuepfen')
+ST.typ('umkehrbar', 'Warum ist', 'begruenden')
+ST.typ('umkehrbar', 'Eine Funktion hat nur die Werte', 'transfer')
+ST.neu('umkehrbar', 'direkt', A('Die waagrechte Gerade y = 9 schneidet den Graphen von f(x) = x² (x ∈ ℝ) zweimal. Ist f umkehrbar?', 'Nein', ['Ja', 'Das hängt vom x-Wert ab.'],
+       'Der y-Wert 9 gehört zu x = 3 und x = −3. Aus 9 weiß man nicht, welches x es war.', 'Wie oft darf eine waagrechte Gerade den Graphen höchstens treffen?'))
+ST.neu('umkehrbar', 'einkleidung', A('Ein Automat rechnet aus jeder Eingabe x die Ausgabe x². Kann man aus der Ausgabe 16 immer eindeutig die Eingabe bestimmen?', 'Nein, es kann 4 oder −4 gewesen sein.',
+       ['Ja, es war 4.', 'Ja, es war 8.', 'Nein, die Ausgabe 16 ist unmöglich.'], '4² = 16 und (−4)² = 16. Der Automat ist nicht umkehrbar.', 'Welche Zahlen ergeben quadriert 16?'))
+ST.neu('umkehrbar', 'begruenden', A('Stimmt: Eine Funktion, die überall steigt, ist umkehrbar?', 'Ja: Jeder y-Wert kommt höchstens einmal vor.', ['Nein, nur Geraden sind umkehrbar.', 'Nur wenn sie durch den Ursprung geht.', 'Nein, sie braucht auch eine Nullstelle.'],
+       'Steigt die Funktion überall, so ist für x₁ < x₂ immer f(x₁) < f(x₂). Zwei verschiedene x haben nie denselben y-Wert.', 'Kann ein y-Wert zweimal vorkommen?'))
+ST.neu('umkehrbar', 'pruefung', L('f(x) = (x − 2)² + 1. a) Für welches kleinste a ist f auf x ≥ a umkehrbar? b) Welchen kleinsten Funktionswert hat f dort?', 'a) □; b) □', [2, 1], ['2', '1'],
+       'a) Der Scheitel liegt bei x = 2. Rechts davon steigt f nur: a = 2. b) f(2) = 1.', 'Wo liegt der Scheitel?'))
+ST.knobel('umkehrbar', Z('Wie viele der Funktionen x, x², x³, x⁴, x⁵, 2ˣ und 1/x (x ≠ 0) sind auf ihrer ganzen Definitionsmenge umkehrbar?', 5, '5',
+          'Umkehrbar: x, x³, x⁵ (steigen überall), 2ˣ (steigt überall) und 1/x (jeder y-Wert ≠ 0 kommt genau einmal vor). Nicht umkehrbar: x² und x⁴ (y-Werte doppelt). Also 5.',
+          'Prüfe bei jeder Funktion, ob ein y-Wert doppelt vorkommt.'))
+ST.knobel('umkehrbar', Z('Eine Funktion ist nur für x = 1, 2, 3, 4, 5 definiert und hat dort die Werte 2, 4, 2, 6, 4. Wie viele x-Werte muss man mindestens streichen, damit sie umkehrbar wird?', 2, '2',
+          'Der Wert 2 kommt bei x = 1 und 3 vor, der Wert 4 bei x = 2 und 5. Von jedem Paar muss ein x weg, also mindestens 2. Danach z. B. f(1) = 2, f(2) = 4, f(4) = 6: umkehrbar.', 'Welche y-Werte kommen doppelt vor?'))
+
+# werte
+ST.stufenleiter('werte', 'f⁻¹ an einer Stelle aus einer Tabelle ablesen; f(a) = b ⇔ f⁻¹(b) = a erkennen.',
+                'f⁻¹(c) bei Geraden berechnen, Definitions- und Wertemenge tauschen, Taxitarif rückwärts.',
+                'f⁻¹(f(a)) begründen, f = f⁻¹ als Gleichung, doppelte Anwendung rückwärts, verschobene Umkehrfunktion, Fehler „f statt f⁻¹“, Temperatur umrechnen, Prüfungsaufgabe.')
+ST.typ('werte', 'Lies aus der Tabelle', 'direkt')
+ST.typ('werte', '/^f\\(x\\) = .*(Berechne f⁻¹\\([−\\d]+\\)\\.|Was ist f⁻¹)/', 'mehrschritt')
+ST.typ('werte', '/(Gib die Definitionsmenge von f⁻¹|Gib die Wertemenge von f⁻¹)/', 'umkehr')
+ST.typ('werte', 'f(x) = −x − 4. Berechne f⁻¹(f', 'begruenden')
+ST.typ('werte', '/^(f\\(x\\) = 3x − 5\\. Für welches|Für eine Funktion f gilt f\\(3\\))/', 'verknuepfen')
+ST.typ('werte', 'Für eine Funktion f gilt f(2)', 'rueckwaerts')
+ST.typ('werte', 'f(x) = 0,5x + 2. Für welches', 'parameter')
+ST.neu('werte', 'erkennen', A('Es gilt f(3) = 7. Was gilt dann sicher für die Umkehrfunktion?', 'f⁻¹(7) = 3', ['f⁻¹(3) = 7', 'f(7) = 3', 'f⁻¹(7) = −3'],
+       'Die Umkehrfunktion macht f rückgängig: aus 7 wird wieder 3.', 'Was macht f⁻¹ mit dem Ergebnis von f?'))
+ST.neu('werte', 'erkennen', A('Was bedeutet f⁻¹(10) = 4?', 'f(4) = 10', ['f(10) = 4', 'f⁻¹(4) = 10', 'f(4) = −10'],
+       'f⁻¹(10) = 4 heißt: f bildet 4 auf 10 ab, also f(4) = 10.', 'Lies die Gleichung rückwärts.'))
+ST.neu('werte', 'einkleidung', Z('Eine Taxifahrt kostet f(x) = 2x + 3 Euro für x km. Eine Fahrt kostet 19 €. Wie lang war sie? Berechne f⁻¹(19).', 8, '(19 - 3) // 2',
+       '2x + 3 = 19 ⇒ 2x = 16 ⇒ x = 8 km.', 'Gesucht ist die Strecke zu einem Preis.', einheit='km'))
+ST.neu('werte', 'fehler', A('Jemand rechnet für f(x) = 2x + 4: „f⁻¹(2) = 2 · 2 + 4 = 8.“ Was stimmt?', 'Falsch: Das ist f(2). Richtig: 2x + 4 = 2 ⇒ f⁻¹(2) = −1.',
+       ['Richtig.', 'Falsch: f⁻¹(2) = 1/8.', 'Falsch: f⁻¹(2) = 3.'], 'Bei f⁻¹(2) ist 2 der y-Wert. Gesucht ist das x mit f(x) = 2: 2x + 4 = 2 ⇒ x = −1.', 'Ist 2 hier ein x- oder ein y-Wert?'))
+ST.neu('werte', 'transfer', Z('Fahrenheit aus Celsius: F = 1,8 · C + 32. Welche Celsius-Temperatur gehört zu 77 °F?', 25, '(77 - 32) / 1.8',
+       'Umkehren: C = (F − 32) : 1,8 = 45 : 1,8 = 25 °C.', 'Stelle die Formel nach C um.', einheit='°C'))
+ST.neu('werte', 'pruefung', L('f(x) = 3x − 6 mit D = [0; 4]. a) Gib die Wertemenge an: □ ≤ y ≤ □. b) Berechne f⁻¹(3). c) Gib die Definitionsmenge von f⁻¹ an: □ ≤ x ≤ □.',
+       'a) □ ≤ y ≤ □; b) □; c) □ ≤ x ≤ □', [-6, 6, 3, -6, 6], ['3 * 0 - 6', '3 * 4 - 6', '(3 + 6) // 3', '-6', '6'],
+       'a) f(0) = −6, f(4) = 6. b) 3x − 6 = 3 ⇒ x = 3. c) D von f⁻¹ = W von f = [−6; 6].', 'Definitions- und Wertemenge tauschen die Rollen.'))
+ST.knobel('werte', Z('f(x) = 2x + 1. Berechne f⁻¹(f⁻¹(f⁻¹(15))).', 1, '1',
+          'f⁻¹(y) = (y − 1) : 2. f⁻¹(15) = 7, f⁻¹(7) = 3, f⁻¹(3) = 1. Probe: f(f(f(1))) = f(f(3)) = f(7) = 15.', 'Bestimme zuerst die Umkehrfunktion.'))
+ST.knobel('werte', Z('Für eine Gerade f gilt f(0) = 2 und f(x + 1) = f(x) + 3 für jedes x. Berechne f⁻¹(14).', 4, '(14 - 2) // 3',
+          'Jeder Schritt um 1 nach rechts erhöht um 3: f(x) = 3x + 2. 3x + 2 = 14 ⇒ x = 4.', 'Wie sieht die Gerade aus?'))
+
+# linear
+ST.stufenleiter('linear', 'Die Umkehrfunktion einer Geraden durch Tauschen und Auflösen bestimmen; die richtige erkennen.',
+                'Umkehrfunktion aus zwei Punkten oder einer Tabelle, m aus der Umkehrfunktion, Steigung der Umkehrfunktion, Tarif umkehren.',
+                'Fehler mit einer Probe aufdecken, selbstumkehrende Geraden, Schnittpunkt mit f⁻¹, Parameter t, Kerze als Modell, f aus f⁻¹ zurückrechnen, Prüfungsaufgabe.')
+ST.typ('linear', 'Bestimme die Umkehrfunktion von', 'direkt')
+ST.typ('linear', 'Welche Funktion ist die Umkehrfunktion', 'erkennen')
+ST.typ('linear', '/^(f\\(x\\) = m · x|Eine Gerade f hat die Steigung)/', 'umkehr')
+ST.typ('linear', 'Die Gerade f geht durch', 'mehrschritt')
+ST.typ('linear', 'Jemand gibt', 'fehler')
+ST.typ('linear', 'Welche Gerade ist ihre eigene', 'begruenden')
+ST.typ('linear', 'f(x) = 2x − 3. In welchem', 'verknuepfen')
+ST.typ('linear', 'Für welches t', 'parameter')
+ST.neu('linear', 'einkleidung', L('Ein Handytarif kostet y = 0,1x + 5 Euro für x Minuten. Gib die Umkehrfunktion an, die aus dem Preis die Minuten berechnet.', 'x = □y − □', [10, 50], ['10', '50'],
+       'y − 5 = 0,1x ⇒ x = 10 · (y − 5) = 10y − 50.', 'Löse nach x auf.'))
+ST.neu('linear', 'darstellung', L('Eine Gerade f ist durch die Tabelle x: 0, 2 und y: 1, 2 gegeben. Gib die Umkehrfunktion an.', 'f⁻¹(x) = □x + □', [2, -2], ['2', '-2'],
+       'f steigt um 1, wenn x um 2 wächst: f(x) = 0,5x + 1. Tauschen: x = 0,5y + 1 ⇒ y = 2x − 2.', 'Bestimme zuerst f.'))
+ST.neu('linear', 'mehrschritt', Z('Bestimme f⁻¹ für f(x) = 4x + 8 und berechne f⁻¹(0).', -2, '(0 - 8) / 4',
+       'x = 4y + 8 ⇒ y = 0,25x − 2. f⁻¹(0) = −2.', 'Erst f⁻¹ bestimmen, dann einsetzen.'))
+ST.neu('linear', 'transfer', Z('Eine Kerze ist 20 cm lang und brennt pro Stunde 2,5 cm ab: h(t) = 20 − 2,5t. Nach wie vielen Stunden ist sie noch 5 cm lang?', 6, '(20 - 5) / 2.5',
+       'Umkehren: t = (20 − h) : 2,5. Für h = 5: 15 : 2,5 = 6 Stunden.', 'Gesucht ist die Zeit zu einer Höhe.', einheit='h'))
+ST.neu('linear', 'rueckwaerts', Z('f⁻¹(x) = 3x − 6 ist die Umkehrfunktion einer Geraden f. Berechne f(3).', 3, '(3 + 6) // 3',
+       'f(3) = y heißt f⁻¹(y) = 3: 3y − 6 = 3 ⇒ y = 3. Also f(3) = 3 (der Punkt liegt auf y = x).', 'Übersetze f(3) = y in eine Aussage über f⁻¹.'))
+ST.neu('linear', 'pruefung', L('f(x) = 0,5x + 3. a) Gib f⁻¹(x) = □x + □ an. b) Berechne f⁻¹(10). c) Gib den Schnittpunkt von f und f⁻¹ an.', 'a) □x + □; b) □; c) (□ | □)', [2, -6, 14, 6, 6],
+       ['2', '-6', '2 * 10 - 6', '6', '6'], 'a) x = 0,5y + 3 ⇒ y = 2x − 6. b) 20 − 6 = 14. c) Auf y = x: x = 0,5x + 3 ⇒ x = 6, also (6 | 6).', 'f und f⁻¹ schneiden sich hier auf y = x.'))
+ST.knobel('linear', Z('Für welche Zahl m ist die Gerade f(x) = m · x + 2 ihre eigene Umkehrfunktion?', -1, '-1',
+          'Tauschen: x = m · y + 2 ⇒ y = (x − 2) : m. Gleich f(x) = mx + 2 für alle x heißt 1/m = m und −2/m = 2. Aus der zweiten: m = −1, und dann stimmt auch die erste. Also f(x) = −x + 2.',
+          'Bilde die Umkehrfunktion und vergleiche Steigung und Achsenabschnitt.'))
+ST.knobel('linear', Z('Die Gerade f(x) = 2x + b und ihre Umkehrfunktion schneiden sich im Punkt (4 | 4). Wie groß ist b?', -4, '4 - 8',
+          '(4 | 4) liegt auf f: 4 = 2 · 4 + b ⇒ b = −4. Weil der Punkt auf y = x liegt, liegt er dann auch auf f⁻¹.', 'Der Schnittpunkt liegt auf beiden Graphen.'))
+
+# quadratisch
+ST.stufenleiter('quadratisch', 'Bei f(x) = x² (x ≥ 0) Werte von f⁻¹ = √x berechnen und die Umkehrfunktion erkennen.',
+                'Verschobene Parabeläste, Umkehrfunktion auswählen, Punkte spiegeln.',
+                'Definitions- und Wertemenge von f⁻¹, Einschränkung begründen, rückwärts aus f⁻¹(x), linker Ast, Fehler beim Vertauschen von d und e, Prüfungsaufgabe.')
+ST.typ('quadratisch', 'f(x) = x² mit x ≥ 0. Berechne', 'direkt')
+ST.typ('quadratisch', 'Welche Funktion ist die Umkehrfunktion von f(x) = x² mit', 'erkennen')
+ST.typ('quadratisch', '/^f\\(x\\) = \\(x [−+] \\d\\)² − \\d mit/', 'mehrschritt')
+ST.typ('quadratisch', 'Welche Funktion ist die Umkehrfunktion', 'darstellung')
+ST.typ('quadratisch', 'Der Punkt P(', 'umkehr')
+ST.typ('quadratisch', '/^(Gib die Definitionsmenge|f\\(x\\) = \\(x − 3\\)² \\+ 1)/', 'verknuepfen')
+ST.typ('quadratisch', 'Warum muss man', 'begruenden')
+ST.typ('quadratisch', 'f(x) = x² + 2', 'rueckwaerts')
+ST.typ('quadratisch', 'f(x) = x² mit x ≤ 0', 'transfer')
+ST.neu('quadratisch', 'direkt', Z('f(x) = x² + 1 mit x ≥ 0. Berechne f⁻¹(10).', 3, '3', 'x² + 1 = 10 ⇒ x² = 9 ⇒ x = 3 (x ≥ 0).', 'Für welches x ≥ 0 ist f(x) = 10?'))
+ST.neu('quadratisch', 'fehler', A('Jemand gibt für f(x) = (x − 1)² + 2 mit x ≥ 1 die Umkehrfunktion f⁻¹(x) = √(x − 1) + 2 an. Was stimmt?', 'Falsch: Richtig ist f⁻¹(x) = √(x − 2) + 1.',
+       ['Richtig.', 'Falsch: f⁻¹(x) = √(x + 2) − 1.', 'Falsch: f⁻¹(x) = (x − 2)² + 1.'], 'Tauschen: x = (y − 1)² + 2 ⇒ (y − 1)² = x − 2 ⇒ y = √(x − 2) + 1. Probe: f(2) = 3 und √(3 − 2) + 1 = 2.', 'Mach die Probe mit f(2).'))
+ST.neu('quadratisch', 'pruefung', L('f(x) = (x − 2)² + 3 mit x ≥ 2. a) Berechne f(5). b) Berechne f⁻¹(19). c) Ab welchem x ist f⁻¹ definiert (x ≥ □)?', 'a) □; b) □; c) □', [12, 6, 3],
+       ['9 + 3', '2 + 4', '3'], 'a) 3² + 3 = 12. b) (x − 2)² + 3 = 19 ⇒ x − 2 = 4 ⇒ x = 6. c) Die Wertemenge von f beginnt bei 3, also x ≥ 3.', 'Die Definitionsmenge von f⁻¹ ist die Wertemenge von f.'))
+ST.knobel('quadratisch', Z('f(x) = x² mit x ≥ 0. Für welches x > 0 gilt f(x) = f⁻¹(x)?', 1, '1',
+          'x² = √x. Quadrieren: x⁴ = x ⇒ x³ = 1 ⇒ x = 1. Probe: 1² = 1 = √1. Der Schnittpunkt (1 | 1) liegt auf y = x.', 'Schreibe f⁻¹ als Wurzel.'))
+ST.knobel('quadratisch', Z('f(x) = (x − 3)² mit x ≥ 3. Berechne f⁻¹(f⁻¹(1)).', 5, '3 + 2',
+          'f⁻¹(x) = √x + 3. f⁻¹(1) = 1 + 3 = 4. f⁻¹(4) = 2 + 3 = 5. Probe: f(5) = 4, f(4) = 1.', 'Bestimme zuerst f⁻¹.'))
+
+# exp_log
+ST.stufenleiter('exp_log', 'Logarithmen als Werte der Umkehrfunktion von bˣ berechnen; log_b x als Umkehrfunktion erkennen.',
+                'Verschobene Exponentialfunktionen umkehren, Punkte auf den Logarithmusgraphen übertragen, Verdopplung rückwärts.',
+                'Fehler log₅ 25 = 5, Umkehrfunktion mit Verschiebung, Definitionsmenge begründen, negative Logarithmen, Basis als Parameter, rückwärts aus f⁻¹, Prüfungsaufgabe.')
+ST.typ('exp_log', '/^f\\(x\\) = \\d+ˣ\\. Berechne f⁻¹\\(\\d+\\) =/', 'direkt')
+ST.typ('exp_log', 'Welche Funktion ist die Umkehrfunktion von f(x) = 3ˣ?', 'erkennen')
+ST.typ('exp_log', '/^f\\(x\\) = (\\dˣ [+−] \\d|2ˣ⁻¹|3 · 2ˣ)\\. Berechne/', 'mehrschritt')
+ST.typ('exp_log', 'P(2 |', 'darstellung')
+ST.typ('exp_log', 'Jemand rechnet', 'fehler')
+ST.typ('exp_log', '/^Welche Funktion ist die Umkehrfunktion von f\\(x\\) = \\d+ˣ [+−]/', 'verknuepfen')
+ST.typ('exp_log', 'Berechne lg', 'verknuepfen')
+ST.typ('exp_log', 'f(x) = 2ˣ. Warum', 'begruenden')
+ST.neu('exp_log', 'einkleidung', Z('Eine Bakterienkultur verdoppelt sich jede Stunde: N(t) = 2ᵗ Tausend. Nach wie vielen Stunden sind es 64 Tausend?', 6, '6',
+       't = log₂ 64 = 6, denn 2⁶ = 64.', 'Welche Zweierpotenz ist 64?', einheit='h'))
+ST.neu('exp_log', 'parameter', Z('Für welche Basis b geht der Graph von y = log_b x durch den Punkt (49 | 2)?', 7, '7',
+       'log_b 49 = 2 heißt b² = 49, also b = 7 (Basis positiv).', 'Übersetze den Logarithmus in eine Potenz.'))
+ST.neu('exp_log', 'rueckwaerts', Z('f(x) = 2ˣ. Für welches x gilt f⁻¹(x) = 10?', 1024, '2 ** 10',
+       'f⁻¹(x) = log₂ x = 10 ⇒ x = 2¹⁰ = 1 024.', 'Was bedeutet log₂ x = 10?'))
+ST.neu('exp_log', 'pruefung', L('f(x) = 3ˣ − 1. a) Berechne f(2). b) Berechne f⁻¹(26). c) Welcher Punkt liegt auf dem Graphen von f⁻¹, wenn (2 | f(2)) auf f liegt?', 'a) □; b) □; c) (□ | □)', [8, 3, 8, 2],
+       ['9 - 1', '3', '8', '2'], 'a) 9 − 1 = 8. b) 3ˣ − 1 = 26 ⇒ 3ˣ = 27 ⇒ x = 3. c) Koordinaten tauschen: (8 | 2).', 'Bei b) erst +1, dann Logarithmus.'))
+ST.knobel('exp_log', Z('log₂ 8 + log₂ 4 = log₂ z. Wie groß ist z?', 32, '8 * 4',
+          'log₂ 8 = 3 und log₂ 4 = 2, zusammen 5 = log₂ 32. Allgemein: Logarithmen addieren heißt die Zahlen multiplizieren: 8 · 4 = 32.', 'Berechne beide Logarithmen.'))
+ST.knobel('exp_log', Z('Für welches x gilt 2ˣ = 4ˣ⁻¹?', 2, '2',
+          '4 = 2², also 4ˣ⁻¹ = 2²ˣ⁻². Gleiche Basis: x = 2x − 2 ⇒ x = 2. Probe: 2² = 4 = 4¹.', 'Schreibe 4 als Zweierpotenz.'))
+
+# spiegeln
+ST.stufenleiter('spiegeln', 'Einen Punkt von f auf f⁻¹ übertragen (Koordinaten tauschen) und an y = x spiegeln.',
+                'Punkte am Bild übertragen, Achsenschnittpunkte von f⁻¹ bestimmen, sichere Punkte von f⁻¹ finden.',
+                'Selbstumkehrende Funktion und Punkte auf y = x begründen, Fehler „Vorzeichen statt Tauschen“, Fläche bleibt, Parameter für einen Punkt auf y = x, Abstand gespiegelter Punkte, Spiegeln und Verschieben rückwärts, Prüfungsaufgabe.')
+ST.typ('spiegeln', '/^P\\([−\\d]+ \\| [−\\d]+\\) liegt auf dem Graphen von f\\. Welcher/', 'direkt')
+ST.typ('spiegeln', '/wird an der Geraden y = x gespiegelt/', 'erkennen')
+ST.typ('spiegeln', '/liegt auf der gezeichneten Geraden/', 'darstellung')
+ST.typ('spiegeln', '/^(Der Graph von f ist eine Gerade|f\\(x\\) = 3ˣ \\+ 1)/', 'mehrschritt')
+ST.typ('spiegeln', '/^(Der Graph von f schneidet|Der Graph von f geht durch P)/', 'umkehr')
+ST.typ('spiegeln', '/^(Welche besondere|Der Graph von f geht durch \\(2)/', 'begruenden')
+ST.typ('spiegeln', 'Jemand spiegelt', 'fehler')
+ST.neu('spiegeln', 'verknuepfen', Z('Das Dreieck A(1 | 0), B(4 | 0), C(1 | 2) wird an der Geraden y = x gespiegelt. Wie groß ist das Bilddreieck?', 3, '3 * 2 / 2',
+       'Spiegeln ändert keine Flächen. Original: Grundseite 3, Höhe 2, also 3 FE. Bild: A′(0 | 1), B′(0 | 4), C′(2 | 1), ebenfalls 3 FE.', 'Was ändert eine Spiegelung an der Fläche?', einheit='FE'))
+ST.neu('spiegeln', 'parameter', Z('Für welches a liegt der Punkt (a | 2a − 3) auf der Spiegelachse y = x?', 3, '3',
+       'Auf y = x sind beide Koordinaten gleich: a = 2a − 3 ⇒ a = 3. Der Punkt (3 | 3) bleibt beim Spiegeln liegen.', 'Was gilt für Punkte auf y = x?'))
+ST.neu('spiegeln', 'transfer', Z('f(x) = 2x. P(3 | 6) liegt auf f, sein Spiegelbild P′ auf f⁻¹. Wie lang ist die Strecke PP′? Runde auf eine Dezimale.', 4.2, '4.2426406871193',
+       'P′(6 | 3). Abstand: √((6 − 3)² + (3 − 6)²) = √18 ≈ 4,2.', 'Bestimme P′ und nutze den Satz des Pythagoras.', toleranz=0.1))
+ST.neu('spiegeln', 'rueckwaerts', L('Ein Punkt von f wird an y = x gespiegelt und danach um 1 nach oben verschoben. Er landet bei (4 | 3). Welcher Punkt von f war es?', 'P(□ | □)', [2, 4], ['3 - 1', '4'],
+       'Rückwärts: erst 1 nach unten: (4 | 2). Dann zurückspiegeln (tauschen): (2 | 4).', 'Mache die Schritte in umgekehrter Reihenfolge rückgängig.'))
+ST.neu('spiegeln', 'pruefung', L('Der Graph von f geht durch A(−1 | 3) und B(2 | 0). a) Gib die Bildpunkte A′ und B′ auf dem Graphen von f⁻¹ an. b) Wo schneidet f⁻¹ die y-Achse (y-Wert)?',
+       "A′(□ | □); B′(□ | □); y = □", [3, -1, 0, 2, 2], ['3', '-1', '0', '2', '2'],
+       'a) Tauschen: A′(3 | −1), B′(0 | 2). b) B′ liegt auf der y-Achse: y = 2. Das ist die Nullstelle 2 von f, gespiegelt.', 'Koordinaten tauschen.'))
+ST.knobel('spiegeln', Z('Wie viele Punkte mit ganzzahligen Koordinaten zwischen 0 und 5 (jeweils einschließlich) bleiben beim Spiegeln an y = x an ihrem Platz?', 6, '6',
+          'Liegen bleiben genau die Punkte auf y = x, also (0 | 0), (1 | 1), …, (5 | 5). Das sind 6.', 'Welche Punkte ändern sich beim Tauschen nicht?'))
+ST.knobel('spiegeln', A('Eine Gerade f geht durch (1 | 2), ihre Umkehrfunktion f⁻¹ durch (3 | 4). Welche Steigung hat f?', '1/3', ['3', '2', '1/2'],
+          'Liegt (3 | 4) auf f⁻¹, liegt (4 | 3) auf f. f geht also durch (1 | 2) und (4 | 3): Steigung (3 − 2) : (4 − 1) = 1/3.', 'Übertrage den Punkt von f⁻¹ auf f.'))
+
+
 if __name__ == '__main__':
-    bauen('funktionen.umkehr',
+    d = bauen('funktionen.umkehr',
           'Entscheiden, ob eine Funktion umkehrbar ist, Umkehrfunktionen bestimmen (Gerade, Parabelast, Exponentialfunktion) und den Graphen an y = x spiegeln.',
           ['Umkehrbar: Jeder y-Wert kommt nur einmal vor (waagrechte Gerade schneidet höchstens einmal).',
            'f(a) = b ⇔ f⁻¹(b) = a. D und W tauschen.', 'f⁻¹ bestimmen: x und y tauschen, nach y auflösen.',
@@ -317,3 +700,6 @@ if __name__ == '__main__':
           [('Umkehrbarkeit', ['umkehrbar', 'werte']), ('Umkehrfunktionen bestimmen', ['linear', 'quadratisch', 'exp_log']), ('Graphen', ['spiegeln'])],
           ETAPPEN, GEN,
           offen=['Lehrplan-Feld leer: Annahme RS 10 (WPF I) – Umkehrbarkeit, Umkehrfunktion linearer Funktionen, eines Parabelastes und der Exponentialfunktion (Logarithmus), Spiegelung an y = x. Umkehrung gebrochen-rationaler Funktionen weggelassen.'])
+    umbau_schreiben(d, UMBAU, UMBAU_OFFEN, weg=UMBAU_WEG)
+    durchsicht(d)
+    stufen('funktionen.umkehr', ST)

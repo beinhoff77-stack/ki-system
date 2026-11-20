@@ -45,13 +45,50 @@
    {
     "lernziel": "ergaenzen",
     "titel": "Winkel ergänzen",
-    "regel": "So ergänzt du einen Winkel: Prüfe, ⟦welches Ganze⟧ die Winkel zusammen bilden – ⟦90°⟧, ⟦180°⟧ oder ⟦360°⟧. Der fehlende Winkel ist das Ganze ⟦minus⟧ den bekannten Winkel.",
+    "regel": "Fehlender Winkel = ⟦Ganzes minus bekannter Winkel⟧. Das Ganze ist 90°, 180° oder 360°.",
     "schritte": [
-     "α = 50° und β liegen nebeneinander. Ihre äußeren Schenkel bilden eine gerade Linie, also einen gestreckten Winkel.",
-     "Ein gestreckter Winkel hat 180°. Also gilt: 50° + β = 180°.",
-     "Den Rest rechnest du mit Minus aus: β = 180° − 50° = ⟦130°⟧."
+     {
+      "text": "α = 50° und β liegen nebeneinander an einer geraden Linie."
+     },
+     {
+      "text": "Zusammen bilden sie einen gestreckten Winkel: 180°."
+     },
+     {
+      "text": "Also ist β = 180° − 50° = ⟦130°⟧.",
+      "bild": {
+       "winkel": [
+        [
+         "S",
+         "_P0",
+         "_P1",
+         "α = 50°"
+        ],
+        [
+         "S",
+         "_P1",
+         "_P2",
+         "β = 130°"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "50° + 130° = 180° ✓",
+    "fehler": "β = 90° − 50° = 40° ist falsch. Die Linie ist gerade, das Ganze sind also 180°, nicht 90°.",
+    "einstieg": "Zwei Pizzastücke nebeneinander ergeben zusammen eine breitere Spitze. Bei Winkeln ist es genauso: Nebeneinander werden sie addiert. Fehlt ein Stück bis zu einem bekannten Ganzen, ⟦ergänzt⟧ du es.",
+    "woerter": [
+     [
+      "ergänzt",
+      "den fehlenden Teil bis zum Ganzen ausgerechnet"
+     ],
+     [
+      "gestreckten Winkel",
+      "180°: Die Schenkel bilden eine gerade Linie"
+     ],
+     [
+      "β",
+      "der griechische Buchstabe „beta“, ein Name für einen Winkel"
+     ]
+    ],
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -100,49 +137,118 @@
        "β = ?"
       ]
      ]
-    },
-    "fehler": "β = 90° − 50° = 40° ist falsch, wenn die beiden Winkel einen ⟦gestreckten⟧ Winkel bilden: Der hat 180°, nicht 90°. Schau genau, ob 90°, 180° oder 360° gemeint ist.",
-    "einstieg": "Eine Pizza ist in Stücke geschnitten. Legst du zwei Stücke nebeneinander, ist ihre Spitze zusammen so breit wie beide Spitzen zusammengezählt. Bei Winkeln ist es genauso: Zwei Winkel nebeneinander zählt man zusammen. Fehlt ein Stück bis zu einem bekannten Ganzen, rechnest du den Rest aus – du ⟦ergänzt⟧ den Winkel.",
-    "woerter": [
-     [
-      "Scheitel, Schenkel",
-      "der Eckpunkt eines Winkels und die beiden Linien, die von ihm ausgehen"
-     ],
-     [
-      "ergänzen",
-      "den fehlenden Teil bis zu einem Ganzen ausrechnen"
-     ],
-     [
-      "nebeneinander",
-      "zwei Winkel mit gemeinsamem Scheitel und gemeinsamem Schenkel"
-     ],
-     [
-      "rechter Winkel",
-      "90°, wie die Ecke eines Blattes"
-     ],
-     [
-      "gestreckter Winkel",
-      "180°: die beiden Schenkel bilden eine gerade Linie"
-     ],
-     [
-      "Vollwinkel",
-      "360°: eine ganze Drehung"
-     ],
-     [
-      "α, β",
-      "griechische Buchstaben „alpha“ und „beta“ als Namen für Winkel"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "kreuzung",
     "titel": "Winkel an einer Geradenkreuzung",
-    "regel": "So rechnest du an einer Kreuzung: ⟦Benachbarte Winkel⟧ ergeben zusammen ⟦180°⟧. ⟦Gegenüberliegende Winkel⟧ sind ⟦gleich groß⟧. Alle vier zusammen ergeben 360°.",
+    "regel": "⟦Gegenüberliegende Winkel⟧ sind gleich groß. Nachbarwinkel ergeben zusammen 180°.",
     "schritte": [
-     "Zwei Geraden schneiden sich, α = 70°. Gesucht sind die anderen Winkel.",
-     "β liegt neben α. Zusammen bilden sie einen gestreckten Winkel: β = 180° − 70° = 110°.",
-     "γ liegt α gegenüber und neben β. Also ist γ = 180° − 110° = 70°.",
-     "Damit ist γ genauso groß wie α: ⟦γ = 70°⟧. Ebenso ist δ so groß wie β: ⟦δ = 110°⟧."
+     {
+      "text": "α = 70°. Sein Nachbarwinkel β ergänzt ihn zu 180°: β = 110°.",
+      "bild": {
+       "winkel": [
+        [
+         "S",
+         "_P0",
+         "_P1",
+         "α = 70°"
+        ],
+        [
+         "S",
+         "_P1",
+         "_P2",
+         "β = 110°"
+        ],
+        [
+         "S",
+         "_P2",
+         "_P3",
+         "γ"
+        ],
+        [
+         "S",
+         "_P3",
+         "_P4",
+         "δ"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "γ ist Nachbarwinkel von β: 180° − 110° = 70°.",
+      "bild": {
+       "winkel": [
+        [
+         "S",
+         "_P0",
+         "_P1",
+         "α = 70°"
+        ],
+        [
+         "S",
+         "_P1",
+         "_P2",
+         "β = 110°"
+        ],
+        [
+         "S",
+         "_P2",
+         "_P3",
+         "γ = 70°"
+        ],
+        [
+         "S",
+         "_P3",
+         "_P4",
+         "δ"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Also sind gegenüberliegende Winkel gleich: ⟦γ = α = 70°⟧, δ = β = 110°.",
+      "bild": {
+       "winkel": [
+        [
+         "S",
+         "_P0",
+         "_P1",
+         "α = 70°"
+        ],
+        [
+         "S",
+         "_P1",
+         "_P2",
+         "β = 110°"
+        ],
+        [
+         "S",
+         "_P2",
+         "_P3",
+         "γ = 70°"
+        ],
+        [
+         "S",
+         "_P3",
+         "_P4",
+         "δ = 110°"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "β = 70° annehmen, nur weil β neben α liegt, ist falsch. Gleich groß sind nur die gegenüberliegenden Winkel.",
+    "einstieg": "Wo sich zwei gerade Straßen kreuzen, entstehen vier Ecken. Gegenüberliegende Ecken sind gleich groß. Ecken nebeneinander ergeben zusammen eine gerade Straßenseite: So ist es an jeder ⟦Geradenkreuzung⟧.",
+    "woerter": [
+     [
+      "Nachbarwinkel",
+      "zwei Winkel nebeneinander an der Kreuzung; zusammen 180°"
+     ],
+     [
+      "gegenüberliegende Winkel",
+      "liegen sich gegenüber; sie sind gleich groß"
+     ]
     ],
     "bild": {
      "typ": "figur",
@@ -220,38 +326,63 @@
        "δ"
       ]
      ]
-    },
-    "fehler": "β = 70° anzunehmen, nur weil β neben α liegt, ist falsch: ⟦Benachbarte⟧ Winkel ergänzen sich zu 180°. Gleich groß sind nur die ⟦gegenüberliegenden⟧ Winkel.",
-    "einstieg": "Wo sich zwei gerade Straßen kreuzen, entstehen vier Ecken. Je zwei gegenüberliegende Ecken sehen gleich aus. Und zwei Ecken nebeneinander ergeben zusammen eine gerade Straßenseite. So ist es an jeder ⟦Geradenkreuzung⟧.",
-    "woerter": [
-     [
-      "Geradenkreuzung",
-      "die Stelle, an der sich zwei Geraden schneiden; dort entstehen vier Winkel"
-     ],
-     [
-      "benachbarte Winkel",
-      "zwei Winkel nebeneinander an der Kreuzung; zusammen 180°"
-     ],
-     [
-      "gegenüberliegende Winkel",
-      "zwei Winkel, die sich an der Kreuzung gegenüberliegen"
-     ],
-     [
-      "γ, δ",
-      "griechische Buchstaben „gamma“ und „delta“"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "um_punkt",
     "titel": "Mehrere Winkel um einen Punkt",
-    "regel": "So findest du den fehlenden Winkel: Liegen die Winkel ⟦lückenlos um einen Punkt⟧, ergeben sie ⟦360°⟧; liegen sie auf einer Seite einer Geraden, ergeben sie ⟦180°⟧. Fehlender Winkel = Ganzes ⟦minus alle bekannten Winkel⟧.",
+    "regel": "Winkel um einen Punkt ergeben ⟦360°⟧. Auf einer Seite einer Geraden ergeben sie 180°.",
     "schritte": [
-     "Um einen Punkt liegen lückenlos α = 100°, β = 80°, γ = 120° und δ. Gesucht ist δ.",
-     "Alle vier zusammen ergeben einen Vollwinkel, also 360°.",
-     "Ziehe alle bekannten Winkel ab: 360° − 100° − 80° − 120° = ⟦60°⟧. Also ist δ = 60°."
+     {
+      "text": "Um einen Punkt liegen lückenlos 100°, 80°, 120° und δ."
+     },
+     {
+      "text": "Zusammen bilden sie einen Vollwinkel: 360°."
+     },
+     {
+      "text": "δ = 360° − 100° − 80° − 120° = ⟦60°⟧.",
+      "bild": {
+       "winkel": [
+        [
+         "S",
+         "_P0",
+         "_P1",
+         "α = 100°"
+        ],
+        [
+         "S",
+         "_P1",
+         "_P2",
+         "β = 80°"
+        ],
+        [
+         "S",
+         "_P2",
+         "_P3",
+         "γ = 120°"
+        ],
+        [
+         "S",
+         "_P3",
+         "_P4",
+         "δ = 60°"
+        ]
+       ]
+      }
+     }
     ],
-    "probe": "100° + 80° + 120° + 60° = 360° ✓",
+    "fehler": "Nur einen Winkel abziehen: 360° − 120° = 240°. Das wäre für ein einziges Stück fast die ganze Torte.",
+    "einstieg": "Eine runde Torte wird in Stücke geschnitten, die in der Mitte zusammenstoßen. Alle Spitzen zusammen ergeben eine ganze Drehung. So ergeben ⟦Winkel um einen Punkt⟧ zusammen 360°.",
+    "woerter": [
+     [
+      "lückenlos",
+      "ohne Lücke und ohne Überlappung"
+     ],
+     [
+      "Vollwinkel",
+      "360°, eine ganze Drehung"
+     ]
+    ],
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -328,31 +459,48 @@
        "δ = ?"
       ]
      ]
-    },
-    "fehler": "Nur einen der bekannten Winkel abziehen: 360° − 120° = 240° wäre für ein einziges Tortenstück fast die ganze Torte. ⟦Alle⟧ bekannten Winkel müssen vom Vollwinkel abgezogen werden.",
-    "einstieg": "Eine runde Torte wird in Stücke geschnitten, die alle in der Mitte zusammenstoßen. Egal wie groß die einzelnen Stücke sind: Zusammen ergeben sie die ganze Torte. Ihre Spitzen ergeben zusammen eine ganze Drehung, also 360°. So rechnest du mit ⟦Winkeln um einen Punkt⟧.",
-    "woerter": [
-     [
-      "lückenlos",
-      "ohne Lücke und ohne Überlappung nebeneinander"
-     ],
-     [
-      "um einen Punkt",
-      "alle Winkel haben denselben Scheitel – wie die Spitzen der Tortenstücke"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "uhr",
     "titel": "Winkel an der Uhr",
-    "regel": "So rechnest du an der Uhr: Zwischen zwei Zahlen liegen ⟦30°⟧. Der ⟦Minutenzeiger⟧ dreht sich ⟦6° pro Minute⟧ (360° in 60 min). Der ⟦Stundenzeiger⟧ dreht sich 30° pro Stunde, also ⟦0,5° pro Minute⟧ – darum steht er um 7:30 Uhr genau zwischen 7 und 8.",
+    "regel": "Zwischen zwei Zahlen liegen ⟦30°⟧. Der Minutenzeiger dreht 6° pro Minute, der Stundenzeiger 1° in 2 Minuten.",
     "schritte": [
-     "Ein Stundenabstand ist 360° : 12 = 30°, denn 12 gleiche Abstände ergeben die ganze Runde.",
-     "Um 4:00 Uhr zeigt der Minutenzeiger auf die 12, der Stundenzeiger auf die 4.",
-     "Von 12 bis 4 liegen 4 Stundenabstände: 4 · 30° = ⟦120°⟧."
+     {
+      "text": "Ein Stundenabstand ist 360° : 12 = 30°.",
+      "bild": {
+       "winkel": []
+      }
+     },
+     {
+      "text": "Um 4:00 Uhr zeigen die Zeiger auf 12 und auf 4."
+     },
+     {
+      "text": "Dazwischen liegen 4 Stundenabstände: 4 · 30° = ⟦120°⟧.",
+      "bild": {
+       "winkel": [
+        [
+         "M",
+         "_z12",
+         "_z4",
+         "120°"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Die Minuten wie Grad zu zählen ist falsch: In 15 min dreht sich der Minutenzeiger nicht um 15°, sondern um 15 · 6° = ⟦90°⟧.",
-    "probe": "Um 7:30 Uhr steht der Stundenzeiger genau zwischen 7 und 8, der Minutenzeiger auf 6. Von 6 bis 7 sind 30°, dazu die halbe Strecke bis 8: 15°. Zusammen 45° ✓",
+    "fehler": "In 15 Minuten dreht sich der Minutenzeiger nicht um 15°. Er schafft 6° pro Minute, also 90°.",
+    "einstieg": "Der große Uhrzeiger dreht sich in einer Stunde einmal ganz herum, also 360°. Das Zifferblatt hat 12 Zahlen in gleichen Abständen. So rechnest du ⟦Winkel an der Uhr⟧ aus.",
+    "woerter": [
+     [
+      "Zifferblatt",
+      "die Scheibe der Uhr mit den Zahlen 1 bis 12"
+     ],
+     [
+      "Stundenabstand",
+      "Abstand zweier Nachbarzahlen: 360° : 12 = 30°"
+     ]
+    ],
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -537,37 +685,55 @@
        "120°"
       ]
      ]
-    },
-    "einstieg": "Die Zeiger einer Uhr drehen sich immer im Kreis. Der große Zeiger schafft eine ganze Runde, also 360°, in einer Stunde. Das Zifferblatt hat 12 Zahlen in gleichen Abständen. Damit kannst du für jede Uhrzeit ausrechnen, welchen Winkel die Zeiger bilden – die ⟦Winkel an der Uhr⟧.",
-    "woerter": [
-     [
-      "Zifferblatt",
-      "die Scheibe der Uhr mit den Zahlen 1 bis 12"
-     ],
-     [
-      "Minutenzeiger",
-      "der große Zeiger; eine Runde in 60 Minuten"
-     ],
-     [
-      "Stundenzeiger",
-      "der kleine Zeiger; eine Runde in 12 Stunden"
-     ],
-     [
-      "Stundenabstand",
-      "der Abstand zwischen zwei benachbarten Zahlen: 360° : 12 = 30°"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "drehungen",
     "titel": "Drehungen und Himmelsrichtungen",
-    "regel": "So rechnest du mit Drehungen: ⟦ganze Drehung⟧ 360°, ⟦halbe Drehung⟧ 180°, ⟦Vierteldrehung⟧ 90°. Zwischen zwei benachbarten Richtungen der Windrose liegen ⟦45°⟧: Zähle die Schritte und nimm mal 45°.",
+    "regel": "Zwischen zwei Nachbarrichtungen liegen ⟦45°⟧. Ganze Drehung 360°, halbe 180°, Vierteldrehung 90°.",
     "schritte": [
-     "Die 8 Richtungen teilen eine ganze Drehung in 8 gleiche Teile: 360° : 8 = 45°.",
-     "Du schaust nach Norden und drehst dich im Uhrzeigersinn bis Südosten: N → NO → O → SO.",
-     "Das sind 3 Schritte zu je 45°: 3 · 45° = ⟦135°⟧."
+     {
+      "text": "Die Windrose teilt 360° in 8 gleiche Teile: je 45°.",
+      "bild": {
+       "winkel": [
+        [
+         "_M",
+         "N",
+         "NO",
+         "45°"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Von N im Uhrzeigersinn bis SO: N → NO → O → SO."
+     },
+     {
+      "text": "Das sind 3 Schritte: 3 · 45° = ⟦135°⟧.",
+      "bild": {
+       "winkel": [
+        [
+         "_M",
+         "N",
+         "SO",
+         "135°"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Von Norden nach Osten 180° anzunehmen ist falsch: Norden und Osten liegen nur eine ⟦Vierteldrehung⟧ auseinander, also 90°. 180° wäre von Norden nach Süden.",
+    "fehler": "Von Norden nach Osten 180° annehmen ist falsch. Das ist eine Vierteldrehung, also 90°. 180° wäre bis Süden.",
+    "einstieg": "Ein Kompass zeigt Norden, Osten, Süden, Westen und die Richtungen dazwischen. Von einer Richtung zur anderen drehst du dich um einen Winkel. So rechnest du mit ⟦Drehungen⟧.",
+    "woerter": [
+     [
+      "Windrose",
+      "Bild mit 8 Himmelsrichtungen: N, NO, O, SO, S, SW, W, NW"
+     ],
+     [
+      "im Uhrzeigersinn",
+      "rechts herum, wie die Uhrzeiger"
+     ]
+    ],
     "bild": {
      "typ": "figur",
      "punkte": {
@@ -659,38 +825,59 @@
       ]
      ]
     },
-    "einstieg": "Auf einem Kompass siehst du eine Windrose: Norden oben, Osten rechts, Süden unten, Westen links – und dazwischen Nordosten, Südosten, Südwesten und Nordwesten. Wer sich von einer Richtung zur anderen dreht, dreht sich um einen Winkel. So rechnest du mit ⟦Drehungen⟧.",
-    "woerter": [
-     [
-      "Windrose",
-      "Bild mit den 8 Himmelsrichtungen N, NO, O, SO, S, SW, W, NW"
-     ],
-     [
-      "N, O, S, W",
-      "Norden, Osten, Süden, Westen"
-     ],
-     [
-      "NO, SO, SW, NW",
-      "die Richtungen dazwischen, zum Beispiel Nordosten"
-     ],
-     [
-      "im Uhrzeigersinn",
-      "in die Richtung, in die sich Uhrzeiger drehen: rechts herum"
-     ],
-     [
-      "Vierteldrehung",
-      "ein Viertel einer ganzen Drehung: 90°"
+    "fehler_bild": {
+     "winkel": [
+      [
+       "_M",
+       "N",
+       "O",
+       "90°"
+      ]
      ]
-    ]
+    }
    },
    {
     "lernziel": "figuren",
     "titel": "Winkel in Rechteck und Quadrat",
-    "regel": "So rechnest du in ⟦Rechteck und Quadrat⟧: Jeder Eckwinkel ist ⟦90°⟧. Wird er geteilt, ergeben die Teile zusammen 90°. Im ⟦Quadrat⟧ teilt die Diagonale die Ecke in zwei gleiche Teile: je ⟦45°⟧.",
+    "regel": "In Rechteck und Quadrat ist jede Ecke ⟦90°⟧. Die Teile einer geteilten Ecke ergeben zusammen 90°.",
     "schritte": [
-     "Im Rechteck ABCD ist der Eckwinkel bei A ein rechter Winkel: 90°.",
-     "Die Diagonale [AC] teilt ihn in zwei Teile. Ein Teil ist 35°.",
-     "Beide Teile zusammen ergeben 90°. Der andere Teil ist also 90° − 35° = ⟦55°⟧."
+     {
+      "text": "Im Rechteck ABCD ist der Winkel bei A ein rechter Winkel: 90°."
+     },
+     {
+      "text": "Die Diagonale [AC] teilt ihn. Ein Teil ist 35°."
+     },
+     {
+      "text": "Der andere Teil ist 90° − 35° = ⟦55°⟧.",
+      "bild": {
+       "winkel": [
+        [
+         "A",
+         "B",
+         "C",
+         "35°"
+        ],
+        [
+         "A",
+         "C",
+         "D",
+         "55°"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "Den zweiten Teil auch 35° nennen ist falsch. Gleich groß sind die beiden Teile nur im Quadrat: je 45°.",
+    "einstieg": "Ein Blatt Papier hat vier rechte Ecken. Faltest du es schräg von Ecke zu Ecke, teilt der Knick eine Ecke. Diese schräge Linie heißt ⟦Diagonale⟧.",
+    "woerter": [
+     [
+      "Diagonale",
+      "die Strecke zwischen zwei gegenüberliegenden Ecken"
+     ],
+     [
+      "[AC]",
+      "die Diagonale von A nach C"
+     ]
     ],
     "bild": {
      "typ": "figur",
@@ -756,48 +943,32 @@
        "?"
       ]
      ]
-    },
-    "fehler": "Den zweiten Teil auch 35° zu nennen ist nur im ⟦Quadrat⟧ richtig (dort 45°). Im Rechteck sind die beiden Teile ⟦verschieden⟧ – sie ergeben zusammen 90°.",
-    "einstieg": "Ein Blatt Papier hat vier Ecken, und jede ist ein rechter Winkel. Faltest du es schräg von Ecke zu Ecke, teilt der Knick eine Ecke in zwei Teile. Die beiden Teile ergeben zusammen wieder die ganze Ecke, also 90°. Die schräge Verbindung zweier Ecken heißt ⟦Diagonale⟧.",
-    "woerter": [
-     [
-      "Diagonale",
-      "die Strecke zwischen zwei gegenüberliegenden Ecken"
-     ],
-     [
-      "Eckwinkel",
-      "der Winkel in einer Ecke der Figur"
-     ],
-     [
-      "ABCD",
-      "die Ecken des Vierecks, der Reihe nach benannt"
-     ],
-     [
-      "[AC]",
-      "die Diagonale von Ecke A nach Ecke C"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "verstehen",
     "titel": "Winkelaussagen prüfen",
-    "regel": "So prüfst du eine Winkelaussage: Vergleiche mit den ⟦Bezugswinkeln⟧ 90°, 180° und 360° und mach eine ⟦Skizze⟧. Für „immer“ brauchst du eine Begründung, die für ⟦alle⟧ Fälle gilt. Zum Widerlegen genügt ⟦ein Gegenbeispiel⟧.",
+    "regel": "Für „immer“ brauchst du eine ⟦Begründung⟧ für alle Fälle. Zum Widerlegen genügt ein Gegenbeispiel.",
     "schritte": [
-     "Die Aussage lautet: „Zwei stumpfe Winkel nebeneinander ergeben immer einen überstumpfen Winkel.“",
-     "Ein Beispiel zeigt die Idee: 100° + 100° = 200°, das ist überstumpf. Ein Beispiel allein reicht aber nicht für „immer“.",
-     "Darum allgemein: Jeder stumpfe Winkel ist größer als 90°, zwei zusammen also größer als 180°. Jeder ist kleiner als 180°, zwei zusammen also kleiner als 360°.",
-     "Die Summe liegt also immer zwischen 180° und 360°. Die Aussage ist ⟦richtig⟧."
+     {
+      "text": "Beispiel: 100° + 100° = 200°. Ein Beispiel reicht aber nicht für „immer“."
+     },
+     {
+      "text": "Jeder stumpfe Winkel ist größer als 90°. Zwei sind größer als 180°."
+     },
+     {
+      "text": "Jeder ist kleiner als 180°. Zwei sind kleiner als 360°."
+     },
+     {
+      "text": "Die Summe ist immer überstumpf. Die Aussage ist ⟦richtig⟧."
+     }
     ],
-    "fehler": "Eine Aussage nur an einem Beispiel zu prüfen, das zufällig passt, ist unsicher. Überlege, ob es ⟦immer⟧ gilt – oder suche gezielt ein ⟦Gegenbeispiel⟧.",
-    "einstieg": "Jemand behauptet: „Zwei Tortenstücke, die jedes breiter als ein Viertel der Torte sind, ergeben zusammen mehr als die halbe Torte.“ Stimmt das? Mit dem, was du über 90°, 180° und 360° weißt, kannst du das ohne Torte entscheiden. So eine Behauptung ist eine ⟦Aussage⟧, die richtig oder falsch ist.",
+    "fehler": "Nur ein Beispiel prüfen, das zufällig passt, ist unsicher. Für „immer“ brauchst du eine Begründung oder ein Gegenbeispiel.",
+    "einstieg": "Jemand behauptet: „Zwei stumpfe Winkel nebeneinander ergeben immer mehr als 180°.“ Stimmt das immer? So eine Behauptung ist eine ⟦Aussage⟧, die du prüfst.",
     "woerter": [
      [
       "Aussage",
       "ein Satz, der richtig oder falsch ist"
-     ],
-     [
-      "Bezugswinkel",
-      "die bekannten Winkel 90°, 180° und 360°, mit denen man vergleicht"
      ],
      [
       "stumpf",
@@ -806,16 +977,57 @@
      [
       "überstumpf",
       "zwischen 180° und 360°"
-     ],
-     [
-      "Gegenbeispiel",
-      "ein Fall, bei dem die Aussage nicht stimmt"
-     ],
-     [
-      "Skizze",
-      "eine schnelle Zeichnung ohne genaue Maße"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5,
+       0
+      ],
+      "_P1": [
+       -0.868,
+       4.924
+      ],
+      "_P2": [
+       -4.698,
+       -1.71
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "100°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "100°"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -872,14 +1084,15 @@
   "bewertung": {
    "lernziele_pflicht": [
     "ergaenzen",
-    "kreuzung",
     "um_punkt",
     "uhr",
     "drehungen",
     "figuren",
     "verstehen"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "kreuzung"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -952,7 +1165,25 @@
    },
    "c": "90 - 46",
    "w": "β = 90° − 46° = 44°.",
-   "h": "Ein rechter Winkel hat 90°."
+   "h": "Ein rechter Winkel hat 90°.",
+   "g": "direkt"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel α = 300° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "360 - 300",
+   "w": "β = 360° − 300° = 60°.",
+   "h": "Ein Vollwinkel hat 360°."
   },
   {
    "l": "ergaenzen",
@@ -1018,7 +1249,89 @@
    },
    "c": "90 - 69",
    "w": "β = 90° − 69° = 21°.",
-   "h": "Ein rechter Winkel hat 90°."
+   "h": "Ein rechter Winkel hat 90°.",
+   "g": "direkt"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Winkel α = 83° und β = 22° liegen nebeneinander. Wie groß ist der Winkel, der zusammen mit beiden einen gestreckten Winkel ergibt?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5.0,
+       0.0
+      ],
+      "_P1": [
+       0.609,
+       4.963
+      ],
+      "_P2": [
+       -1.294,
+       4.83
+      ],
+      "_P3": [
+       -5.0,
+       0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ],
+      [
+       "S",
+       "_P3"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "83°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "22°"
+      ],
+      [
+       "S",
+       "_P2",
+       "_P3",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "°"
+   },
+   "c": "180 - 83 - 22",
+   "w": "180° − 83° − 22° = 75°.",
+   "h": "Ziehe beide bekannten Winkel von 180° ab.",
+   "g": "mehrschritt"
   },
   {
    "l": "ergaenzen",
@@ -1084,7 +1397,25 @@
    },
    "c": "180 - 34",
    "w": "β = 180° − 34° = 146°.",
-   "h": "Ein gestreckter Winkel hat 180°."
+   "h": "Ein gestreckter Winkel hat 180°.",
+   "g": "direkt"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel α = 242° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
+   },
+   "o": {
+    "wert": 118,
+    "einheit": "°"
+   },
+   "c": "360 - 242",
+   "w": "β = 360° − 242° = 118°.",
+   "h": "Ein Vollwinkel hat 360°."
   },
   {
    "l": "ergaenzen",
@@ -1150,7 +1481,119 @@
    },
    "c": "180 - 163",
    "w": "β = 180° − 163° = 17°.",
-   "h": "Ein gestreckter Winkel hat 180°."
+   "h": "Ein gestreckter Winkel hat 180°.",
+   "g": "direkt"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel ist um 70° größer als ein rechter Winkel. Um wie viel Grad muss man ihn noch vergrößern, damit er gestreckt ist?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "°"
+   },
+   "c": "180 - (90 + 70)",
+   "w": "Der Winkel ist 90° + 70° = 160°. Bis 180° fehlen 20°.",
+   "h": "Rechne zuerst die Größe des Winkels aus.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel α = 241° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
+   },
+   "o": {
+    "wert": 119,
+    "einheit": "°"
+   },
+   "c": "360 - 241",
+   "w": "β = 360° − 241° = 119°.",
+   "h": "Ein Vollwinkel hat 360°.",
+   "g": "direkt"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gestreckter Winkel wird in 3 gleich große Winkel geteilt. Wie groß ist jeder?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 / 3",
+   "w": "Ein gestreckter Winkel hat 180°: 180° : 3 = 60°.",
+   "h": "Teile die Gesamtgröße durch die Anzahl.",
+   "g": "umkehr"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel α = 339° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "°"
+   },
+   "c": "360 - 339",
+   "w": "β = 360° − 339° = 21°.",
+   "h": "Ein Vollwinkel hat 360°.",
+   "g": "direkt"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ein rechter Winkel hat 90°: β = 90° − 74° = 16°.",
+    "Nichts, das stimmt.",
+    "Man muss 360° − 74° = 286° rechnen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Jemand rechnet: α = 74° und β bilden einen rechten Winkel, also β = 180° − 74° = 106°. Was ist falsch?"
+   },
+   "w": "Ein rechter Winkel hat 90°: β = 90° − 74° = 16°.",
+   "h": "Wie groß ist der Winkel, der ergänzt werden soll: 90°, 180° oder 360°?",
+   "g": "fehler"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Winkel, der 125° zum Vollwinkel ergänzt?"
+   },
+   "o": {
+    "wert": 235,
+    "einheit": "°"
+   },
+   "c": "360 - 125",
+   "w": "360° − 125° = 235°.",
+   "h": "Ein Vollwinkel hat 360°.",
+   "g": "direkt"
   },
   {
    "l": "ergaenzen",
@@ -1288,75 +1731,7 @@
    "l": "ergaenzen",
    "t": "ergaenzen",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Winkel α = 241° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
-   },
-   "o": {
-    "wert": 119,
-    "einheit": "°"
-   },
-   "c": "360 - 241",
-   "w": "β = 360° − 241° = 119°.",
-   "h": "Ein Vollwinkel hat 360°."
-  },
-  {
-   "l": "ergaenzen",
-   "t": "ergaenzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Winkel α = 339° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
-   },
-   "o": {
-    "wert": 21,
-    "einheit": "°"
-   },
-   "c": "360 - 339",
-   "w": "β = 360° − 339° = 21°.",
-   "h": "Ein Vollwinkel hat 360°."
-  },
-  {
-   "l": "ergaenzen",
-   "t": "ergaenzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Winkel α = 300° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "360 - 300",
-   "w": "β = 360° − 300° = 60°.",
-   "h": "Ein Vollwinkel hat 360°."
-  },
-  {
-   "l": "ergaenzen",
-   "t": "ergaenzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Winkel α = 242° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
-   },
-   "o": {
-    "wert": 118,
-    "einheit": "°"
-   },
-   "c": "360 - 242",
-   "w": "β = 360° − 242° = 118°.",
-   "h": "Ein Vollwinkel hat 360°."
-  },
-  {
-   "l": "ergaenzen",
-   "t": "ergaenzen",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Winkel α = 49° wird durch einen zweiten Winkel β zum Vollwinkel ergänzt. Wie groß ist β?"
@@ -1373,141 +1748,47 @@
    "l": "ergaenzen",
    "t": "ergaenzen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Zwei Winkel α = 83° und β = 22° liegen nebeneinander. Wie groß ist der Winkel, der zusammen mit beiden einen gestreckten Winkel ergibt?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       0,
-       0
-      ],
-      "_P0": [
-       5.0,
-       0.0
-      ],
-      "_P1": [
-       0.609,
-       4.963
-      ],
-      "_P2": [
-       -1.294,
-       4.83
-      ],
-      "_P3": [
-       -5.0,
-       0.0
-      ]
-     },
-     "linien": [
-      [
-       "S",
-       "_P0"
-      ],
-      [
-       "S",
-       "_P1"
-      ],
-      [
-       "S",
-       "_P2"
-      ],
-      [
-       "S",
-       "_P3"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_P0",
-       "_P1",
-       "83°"
-      ],
-      [
-       "S",
-       "_P1",
-       "_P2",
-       "22°"
-      ],
-      [
-       "S",
-       "_P2",
-       "_P3",
-       "?"
-      ]
-     ]
-    }
+    "text": "Wie groß ist der Winkel, der 18° zu einem rechten Winkel ergänzt?"
    },
    "o": {
-    "wert": 75,
+    "wert": 72,
     "einheit": "°"
    },
-   "c": "180 - 83 - 22",
-   "w": "180° − 83° − 22° = 75°.",
-   "h": "Ziehe beide bekannten Winkel von 180° ab."
+   "c": "90 - 18",
+   "w": "90° − 18° = 72°.",
+   "h": "Ein rechter Winkel hat 90°.",
+   "g": "direkt"
   },
   {
    "l": "ergaenzen",
    "t": "ergaenzen",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Winkel ist um 70° größer als ein rechter Winkel. Um wie viel Grad muss man ihn noch vergrößern, damit er gestreckt ist?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "°"
-   },
-   "c": "180 - (90 + 70)",
-   "w": "Der Winkel ist 90° + 70° = 160°. Bis 180° fehlen 20°.",
-   "h": "Rechne zuerst die Größe des Winkels aus."
-  },
-  {
-   "l": "ergaenzen",
-   "t": "ergaenzen",
-   "p": "uebung",
-   "s": 3,
+   "s": 1,
+   "g": "erkennen",
    "y": "auswahl",
+   "f": {
+    "text": "Welche zwei Winkel ergänzen sich zu einem rechten Winkel?"
+   },
    "a": [
-    "Ein rechter Winkel hat 90°: β = 90° − 74° = 16°.",
-    "Nichts, das stimmt.",
-    "Man muss 360° − 74° = 286° rechnen."
+    "45° und 55°",
+    "30° und 50°",
+    "30° und 60°",
+    "90° und 90°"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "f": {
-    "text": "Jemand rechnet: α = 74° und β bilden einen rechten Winkel, also β = 180° − 74° = 106°. Was ist falsch?"
-   },
-   "w": "Ein rechter Winkel hat 90°: β = 90° − 74° = 16°.",
-   "h": "Wie groß ist der Winkel, der ergänzt werden soll: 90°, 180° oder 360°?"
+   "w": "30° + 60° = 90°.",
+   "h": "Addiere jeweils beide Winkel."
   },
   {
    "l": "ergaenzen",
    "t": "ergaenzen",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gestreckter Winkel wird in 3 gleich große Winkel geteilt. Wie groß ist jeder?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "180 / 3",
-   "w": "Ein gestreckter Winkel hat 180°: 180° : 3 = 60°.",
-   "h": "Teile die Gesamtgröße durch die Anzahl."
-  },
-  {
-   "l": "ergaenzen",
-   "t": "ergaenzen",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Winkel ist um 11° größer als ein rechter Winkel. Um wie viel Grad muss man ihn noch vergrößern, damit er gestreckt ist?"
@@ -1518,13 +1799,14 @@
    },
    "c": "180 - (90 + 11)",
    "w": "Der Winkel ist 90° + 11° = 101°. Bis 180° fehlen 79°.",
-   "h": "Rechne zuerst die Größe des Winkels aus."
+   "h": "Rechne zuerst die Größe des Winkels aus.",
+   "g": "mehrschritt"
   },
   {
    "l": "ergaenzen",
    "t": "ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein rechter Winkel wird in 2 gleich große Winkel geteilt. Wie groß ist jeder?"
@@ -1535,13 +1817,14 @@
    },
    "c": "90 / 2",
    "w": "Ein rechter Winkel hat 90°: 90° : 2 = 45°.",
-   "h": "Teile die Gesamtgröße durch die Anzahl."
+   "h": "Teile die Gesamtgröße durch die Anzahl.",
+   "g": "umkehr"
   },
   {
    "l": "ergaenzen",
    "t": "ergaenzen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Winkel ist um 26° größer als ein rechter Winkel. Um wie viel Grad muss man ihn noch vergrößern, damit er gestreckt ist?"
@@ -1553,6 +1836,190 @@
    "c": "180 - (90 + 26)",
    "w": "Der Winkel ist 90° + 26° = 116°. Bis 180° fehlen 64°.",
    "h": "Rechne zuerst die Größe des Winkels aus."
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Rampe bildet mit dem Boden einen Winkel von 12°. Wie groß ist der Winkel auf der anderen Seite der Rampe, ebenfalls am Boden gemessen?"
+   },
+   "o": {
+    "wert": 168,
+    "einheit": "°"
+   },
+   "c": "180 - 12",
+   "w": "Beide Winkel liegen nebeneinander auf dem geraden Boden: zusammen 180°. 180° − 12° = 168°.",
+   "h": "Der Boden ist eine gerade Linie. Welches Ganze ergeben die beiden Winkel?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gestreckter Winkel ist in drei Winkel geteilt: 48°, α und 2 · α. Wie groß ist α?"
+   },
+   "o": {
+    "wert": 44,
+    "einheit": "°"
+   },
+   "c": "(180 - 48) / 3",
+   "w": "α und 2 · α sind zusammen 180° − 48° = 132°. Das sind 3 gleiche Teile: α = 132° : 3 = 44°.",
+   "h": "α und 2 · α zusammen sind wie 3 · α.",
+   "g": "parameter"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "α und β ergänzen sich zu 90°. β und γ ergänzen sich zu 180°. Es ist α = 37°. Wie groß ist γ?"
+   },
+   "o": {
+    "wert": 127,
+    "einheit": "°"
+   },
+   "c": "180 - (90 - 37)",
+   "w": "β = 90° − 37° = 53°. γ = 180° − 53° = 127°.",
+   "h": "Rechne zuerst β aus.",
+   "g": "transfer"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel ist halb so groß wie der Winkel, der ihn zu 180° ergänzt. Wie groß ist er?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 // 3",
+   "w": "Der Winkel ist 1 Teil, die Ergänzung 2 Teile: zusammen 3 Teile = 180°. Ein Teil: 60°.",
+   "h": "Zeichne einen Streifen aus 3 gleichen Teilen für 180°.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Der Winkel, der einen spitzen Winkel zu 180° ergänzt, ist immer stumpf.“"
+   },
+   "a": [
+    "Ja, aber nur bei 45°.",
+    "Ja: 180° minus weniger als 90° ist mehr als 90°.",
+    "Nein, er kann auch spitz sein.",
+    "Nein, er ist immer 90°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ist α < 90°, dann ist 180° − α > 90° (und < 180°): stumpf.",
+   "h": "Probiere einen sehr kleinen und einen fast rechten spitzen Winkel."
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vollwinkel ist in vier Winkel geteilt: 90°, 2 · α, α und 45°. Wie groß ist α?"
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "(360 - 90 - 45) // 3",
+   "w": "90° + 45° = 135°. Für 3 · α bleiben 360° − 135° = 225°, also α = 75°.",
+   "h": "Wie viel Grad bleiben für α und 2 · α zusammen?"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Winkel ergänzen sich zu 180°. Der eine ist um 40° größer als der andere. Wie groß ist der größere?"
+   },
+   "o": {
+    "wert": 110
+   },
+   "c": "(180 + 40) // 2",
+   "w": "Nimmt man vom größeren 40° weg, sind beide gleich: (180° − 40°) : 2 = 70°. Der größere: 110°.",
+   "h": "Was wäre, wenn beide gleich groß wären?"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Der Winkel, der 130° zum Vollwinkel ergänzt, ist 50°.“ Was ist falsch?"
+   },
+   "a": [
+    "Richtig sind 310°.",
+    "Richtig sind 130°.",
+    "50° ergänzt zu 180°; zum Vollwinkel fehlen 230°.",
+    "Nichts, das stimmt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "360° − 130° = 230°.",
+   "h": "Wie groß ist ein Vollwinkel?"
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Drei Winkel ergeben zusammen einen gestreckten Winkel. Der zweite ist 20° größer als der erste, der dritte 20° größer als der zweite. Wie groß ist der größte?"
+   },
+   "o": {
+    "wert": 80
+   },
+   "c": "(180 - 60) // 3 + 40",
+   "w": "Erster x, zweiter x + 20°, dritter x + 40°. Zusammen 3 · x + 60° = 180°, also x = 40°. Der größte: 80°.",
+   "h": "Drücke alle Winkel durch den ersten aus."
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel und der Winkel, der ihn zu 90° ergänzt, unterscheiden sich um 50°. Wie groß ist der kleinere?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "(90 - 50) // 2",
+   "w": "Zusammen 90°, Unterschied 50°: der kleinere ist (90° − 50°) : 2 = 20°, der größere 70°.",
+   "h": "Was ergeben beide zusammen?"
   },
   {
    "l": "ergaenzen",
@@ -1932,7 +2399,26 @@
    },
    "c": "180 - (180 - 88)",
    "w": "β ist Nachbarwinkel von α: 180° − 88° = 92°. γ liegt α gegenüber: γ = 180° − 92° = 88°.",
-   "h": "Nachbarwinkel ergänzen sich zu 180°."
+   "h": "Nachbarwinkel ergänzen sich zu 180°.",
+   "g": "direkt"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. Zwei gegenüberliegende Winkel sind zusammen 84°. Wie groß ist einer der beiden anderen Winkel?"
+   },
+   "o": {
+    "wert": 138,
+    "einheit": "°"
+   },
+   "c": "180 - 84 / 2",
+   "w": "Gegenüberliegende Winkel sind gleich: je 42°. Der Nachbarwinkel: 180° − 42° = 138°.",
+   "h": "Gegenüberliegende Winkel sind gleich groß.",
+   "g": "mehrschritt"
   },
   {
    "l": "kreuzung",
@@ -2026,7 +2512,26 @@
    },
    "c": "180 - 67",
    "w": "β ist Nachbarwinkel von α: 180° − 67° = 113°.",
-   "h": "Nachbarwinkel ergänzen sich zu 180°."
+   "h": "Nachbarwinkel ergänzen sich zu 180°.",
+   "g": "direkt"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. Ein Winkel ist 4-mal so groß wie sein Nachbarwinkel. Wie groß ist der größere Winkel?"
+   },
+   "o": {
+    "wert": 144,
+    "einheit": "°"
+   },
+   "c": "4 * 180 / (4 + 1)",
+   "w": "Zusammen 180°, das sind 5 gleiche Teile: 180° : 5 = 36°. Der größere Winkel: 4 · 36° = 144°.",
+   "h": "Die beiden Nachbarwinkel bestehen zusammen aus 5 gleichen Teilen.",
+   "g": "parameter"
   },
   {
    "l": "kreuzung",
@@ -2120,7 +2625,121 @@
    },
    "c": "180 - (180 - 49)",
    "w": "β ist Nachbarwinkel von α: 180° − 49° = 131°. γ liegt α gegenüber: γ = 180° − 131° = 49°.",
-   "h": "Nachbarwinkel ergänzen sich zu 180°."
+   "h": "Nachbarwinkel ergänzen sich zu 180°.",
+   "g": "direkt"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. Zwei gegenüberliegende Winkel sind zusammen 196°. Wie groß ist einer der beiden anderen Winkel?"
+   },
+   "o": {
+    "wert": 82,
+    "einheit": "°"
+   },
+   "c": "180 - 196 / 2",
+   "w": "Gegenüberliegende Winkel sind gleich: je 98°. Der Nachbarwinkel: 180° − 98° = 82°.",
+   "h": "Gegenüberliegende Winkel sind gleich groß.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. α = 131°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5.0,
+       0.0
+      ],
+      "_P1": [
+       -3.28,
+       3.774
+      ],
+      "_P2": [
+       -5.0,
+       0.0
+      ],
+      "_P3": [
+       3.28,
+       -3.774
+      ],
+      "_P4": [
+       5.0,
+       -0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ],
+      [
+       "S",
+       "_P3"
+      ],
+      [
+       "S",
+       "_P4"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "α = 131°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "β"
+      ],
+      [
+       "S",
+       "_P2",
+       "_P3",
+       "γ"
+      ],
+      [
+       "S",
+       "_P3",
+       "_P4",
+       "δ"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 49,
+    "einheit": "°"
+   },
+   "c": "180 - 131",
+   "w": "β ist Nachbarwinkel von α: 180° − 131° = 49°.",
+   "h": "Nachbarwinkel ergänzen sich zu 180°.",
+   "g": "direkt"
   },
   {
    "l": "kreuzung",
@@ -2223,7 +2842,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Zwei Geraden schneiden sich. α = 131°. Wie groß ist β?",
+    "text": "Zwei Geraden schneiden sich. β = 139°. Wie groß ist δ?",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -2236,16 +2855,16 @@
        0.0
       ],
       "_P1": [
-       -3.28,
-       3.774
+       3.774,
+       3.28
       ],
       "_P2": [
        -5.0,
        0.0
       ],
       "_P3": [
-       3.28,
-       -3.774
+       -3.774,
+       -3.28
       ],
       "_P4": [
        5.0,
@@ -2279,13 +2898,13 @@
        "S",
        "_P0",
        "_P1",
-       "α = 131°"
+       "α"
       ],
       [
        "S",
        "_P1",
        "_P2",
-       "β"
+       "β = 139°"
       ],
       [
        "S",
@@ -2303,12 +2922,102 @@
     }
    },
    "o": {
-    "wert": 49,
+    "wert": 139,
     "einheit": "°"
    },
-   "c": "180 - 131",
-   "w": "β ist Nachbarwinkel von α: 180° − 131° = 49°.",
-   "h": "Nachbarwinkel ergänzen sich zu 180°."
+   "c": "139",
+   "w": "α = 180° − 139° = 41°. δ liegt β gegenüber, also δ = 139°.",
+   "h": "Benachbart: zusammen 180°. Gegenüber: gleich groß.",
+   "g": "direkt"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. Zwei gegenüberliegende Winkel sind zusammen 256°. Wie groß ist einer der beiden anderen Winkel?"
+   },
+   "o": {
+    "wert": 52,
+    "einheit": "°"
+   },
+   "c": "180 - 256 / 2",
+   "w": "Gegenüberliegende Winkel sind gleich: je 128°. Der Nachbarwinkel: 180° − 128° = 52°.",
+   "h": "Gegenüberliegende Winkel sind gleich groß."
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. Drei der vier Winkel sind zusammen 290°. Wie groß ist der vierte?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "°"
+   },
+   "c": "360 - 290",
+   "w": "360° − 290° = 70°.",
+   "h": "Rundherum sind es 360°.",
+   "g": "umkehr"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Geradenkreuzung ist ein Winkel um 56° größer als sein Nachbarwinkel. Wie groß ist der größere Winkel?"
+   },
+   "o": {
+    "wert": 118,
+    "einheit": "°"
+   },
+   "c": "(180 + 56) / 2",
+   "w": "Zusammen 180°, Unterschied 56°: kleiner Winkel (180° − 56°) : 2 = 62°, großer 118°.",
+   "h": "Nachbarwinkel ergeben 180°. Nimm den Unterschied weg und halbiere.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. Ein Winkel ist 5-mal so groß wie sein Nachbarwinkel. Wie groß ist der größere Winkel?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "°"
+   },
+   "c": "5 * 180 / (5 + 1)",
+   "w": "Zusammen 180°, das sind 6 gleiche Teile: 180° : 6 = 30°. Der größere Winkel: 5 · 30° = 150°.",
+   "h": "Die beiden Nachbarwinkel bestehen zusammen aus 6 gleichen Teilen.",
+   "g": "parameter"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Drei Geraden schneiden sich in einem Punkt. Zwei nebeneinanderliegende Winkel sind 50° und 70°. Wie groß ist der dritte Winkel daneben, der mit ihnen zusammen einen gestreckten Winkel bildet?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 - 50 - 70",
+   "w": "Drei nebeneinanderliegende Winkel an einer Geraden ergeben 180°: 180° − 50° − 70° = 60°.",
+   "h": "Auf einer Seite einer Geraden ergeben die Winkel zusammen 180°.",
+   "g": "transfer"
   },
   {
    "l": "kreuzung",
@@ -2408,152 +3117,7 @@
    "l": "kreuzung",
    "t": "kreuzung",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Geraden schneiden sich. β = 139°. Wie groß ist δ?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       0,
-       0
-      ],
-      "_P0": [
-       5.0,
-       0.0
-      ],
-      "_P1": [
-       3.774,
-       3.28
-      ],
-      "_P2": [
-       -5.0,
-       0.0
-      ],
-      "_P3": [
-       -3.774,
-       -3.28
-      ],
-      "_P4": [
-       5.0,
-       -0.0
-      ]
-     },
-     "linien": [
-      [
-       "S",
-       "_P0"
-      ],
-      [
-       "S",
-       "_P1"
-      ],
-      [
-       "S",
-       "_P2"
-      ],
-      [
-       "S",
-       "_P3"
-      ],
-      [
-       "S",
-       "_P4"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_P0",
-       "_P1",
-       "α"
-      ],
-      [
-       "S",
-       "_P1",
-       "_P2",
-       "β = 139°"
-      ],
-      [
-       "S",
-       "_P2",
-       "_P3",
-       "γ"
-      ],
-      [
-       "S",
-       "_P3",
-       "_P4",
-       "δ"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 139,
-    "einheit": "°"
-   },
-   "c": "139",
-   "w": "α = 180° − 139° = 41°. δ liegt β gegenüber, also δ = 139°.",
-   "h": "Benachbart: zusammen 180°. Gegenüber: gleich groß."
-  },
-  {
-   "l": "kreuzung",
-   "t": "kreuzung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Geraden schneiden sich. Zwei gegenüberliegende Winkel sind zusammen 84°. Wie groß ist einer der beiden anderen Winkel?"
-   },
-   "o": {
-    "wert": 138,
-    "einheit": "°"
-   },
-   "c": "180 - 84 / 2",
-   "w": "Gegenüberliegende Winkel sind gleich: je 42°. Der Nachbarwinkel: 180° − 42° = 138°.",
-   "h": "Gegenüberliegende Winkel sind gleich groß."
-  },
-  {
-   "l": "kreuzung",
-   "t": "kreuzung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Geraden schneiden sich. Zwei gegenüberliegende Winkel sind zusammen 196°. Wie groß ist einer der beiden anderen Winkel?"
-   },
-   "o": {
-    "wert": 82,
-    "einheit": "°"
-   },
-   "c": "180 - 196 / 2",
-   "w": "Gegenüberliegende Winkel sind gleich: je 98°. Der Nachbarwinkel: 180° − 98° = 82°.",
-   "h": "Gegenüberliegende Winkel sind gleich groß."
-  },
-  {
-   "l": "kreuzung",
-   "t": "kreuzung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Geraden schneiden sich. Zwei gegenüberliegende Winkel sind zusammen 256°. Wie groß ist einer der beiden anderen Winkel?"
-   },
-   "o": {
-    "wert": 52,
-    "einheit": "°"
-   },
-   "c": "180 - 256 / 2",
-   "w": "Gegenüberliegende Winkel sind gleich: je 128°. Der Nachbarwinkel: 180° − 128° = 52°.",
-   "h": "Gegenüberliegende Winkel sind gleich groß."
-  },
-  {
-   "l": "kreuzung",
-   "t": "kreuzung",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Zwei Geraden schneiden sich. β = 123°. Wie groß ist α?",
@@ -2641,7 +3205,30 @@
    },
    "c": "180 - 123",
    "w": "α = 180° − 123° = 57°. δ liegt β gegenüber, also δ = 123°.",
-   "h": "Benachbart: zusammen 180°. Gegenüber: gleich groß."
+   "h": "Benachbart: zusammen 180°. Gegenüber: gleich groß.",
+   "g": "direkt"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. Welche Winkel sind sicher gleich groß?"
+   },
+   "a": [
+    "alle vier",
+    "keine",
+    "die beiden, die sich gegenüberliegen",
+    "die beiden, die nebeneinander liegen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegenüberliegende Winkel (Scheitelwinkel) sind gleich groß.",
+   "h": "Denk an ein großes X."
   },
   {
    "l": "kreuzung",
@@ -2664,52 +3251,53 @@
    "l": "kreuzung",
    "t": "kreuzung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "An einer Geradenkreuzung ist ein Winkel um 56° größer als sein Nachbarwinkel. Wie groß ist der größere Winkel?"
+    "text": "Zwei Geraden schneiden sich. α = 35°. Wie groß ist die Summe der anderen drei Winkel β + γ + δ?"
    },
    "o": {
-    "wert": 118,
+    "wert": 325,
     "einheit": "°"
    },
-   "c": "(180 + 56) / 2",
-   "w": "Zusammen 180°, Unterschied 56°: kleiner Winkel (180° − 56°) : 2 = 62°, großer 118°.",
-   "h": "Nachbarwinkel ergeben 180°. Nimm den Unterschied weg und halbiere."
+   "c": "360 - 35",
+   "w": "Alle vier Winkel ergeben 360°. 360° − 35° = 325°.",
+   "h": "Die vier Winkel liegen rund um den Schnittpunkt.",
+   "g": "mehrschritt"
   },
   {
    "l": "kreuzung",
    "t": "kreuzung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Zwei Geraden schneiden sich. Ein Winkel ist 4-mal so groß wie sein Nachbarwinkel. Wie groß ist der größere Winkel?"
+    "text": "Zwei gerade Wege kreuzen sich. Ein Winkel zwischen den Wegen ist 62°. Wie groß ist der Winkel daneben?"
    },
    "o": {
-    "wert": 144,
-    "einheit": "°"
+    "wert": 118
    },
-   "c": "4 * 180 / (4 + 1)",
-   "w": "Zusammen 180°, das sind 5 gleiche Teile: 180° : 5 = 36°. Der größere Winkel: 4 · 36° = 144°.",
-   "h": "Die beiden Nachbarwinkel bestehen zusammen aus 5 gleichen Teilen."
+   "c": "180 - 62",
+   "w": "Nebenwinkel ergänzen sich zu 180°: 180° − 62° = 118°.",
+   "h": "Was ergeben zwei Nachbarwinkel zusammen?"
   },
   {
    "l": "kreuzung",
    "t": "kreuzung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "umkehr",
    "y": "zahl",
    "f": {
-    "text": "Zwei Geraden schneiden sich. Ein Winkel ist 5-mal so groß wie sein Nachbarwinkel. Wie groß ist der größere Winkel?"
+    "text": "Zwei gegenüberliegende Winkel an einer Kreuzung sind zusammen 250°. Wie groß ist einer davon?"
    },
    "o": {
-    "wert": 150,
-    "einheit": "°"
+    "wert": 125
    },
-   "c": "5 * 180 / (5 + 1)",
-   "w": "Zusammen 180°, das sind 6 gleiche Teile: 180° : 6 = 30°. Der größere Winkel: 5 · 30° = 150°.",
-   "h": "Die beiden Nachbarwinkel bestehen zusammen aus 6 gleichen Teilen."
+   "c": "250 // 2",
+   "w": "Gegenüberliegende Winkel sind gleich: 250° : 2 = 125°.",
+   "h": "Die beiden Winkel sind gleich groß."
   },
   {
    "l": "kreuzung",
@@ -2726,7 +3314,8 @@
    },
    "c": "180 / (2 + 1)",
    "w": "Kleiner + 2-mal kleiner = 180°, also 3 gleiche Teile: 180° : 3 = 60°.",
-   "h": "Die beiden Winkel bestehen zusammen aus 3 gleichen Teilen."
+   "h": "Die beiden Winkel bestehen zusammen aus 3 gleichen Teilen.",
+   "g": "parameter"
   },
   {
    "l": "kreuzung",
@@ -2743,7 +3332,26 @@
    },
    "c": "(180 + 54) / 2",
    "w": "Zusammen 180°, Unterschied 54°: kleiner Winkel (180° − 54°) : 2 = 63°, großer 117°.",
-   "h": "Nachbarwinkel ergeben 180°. Nimm den Unterschied weg und halbiere."
+   "h": "Nachbarwinkel ergeben 180°. Nimm den Unterschied weg und halbiere.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Drei Geraden schneiden sich in einem Punkt. Alle sechs Winkel, die dabei entstehen, sind gleich groß. Wie groß ist jeder?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "360 / 6",
+   "w": "Die sechs Winkel liegen rund um den Schnittpunkt: 360° : 6 = 60°. (Probe: drei nebeneinander ergeben 180°.)",
+   "h": "Wie viel Grad liegen rund um einen Punkt?",
+   "g": "transfer"
   },
   {
    "l": "kreuzung",
@@ -2761,6 +3369,80 @@
    "c": "(180 + 44) / 2",
    "w": "Zusammen 180°, Unterschied 44°: kleiner Winkel (180° − 44°) : 2 = 68°, großer 112°.",
    "h": "Nachbarwinkel ergeben 180°. Nimm den Unterschied weg und halbiere."
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "An einer Geradenkreuzung sind zwei Winkel zusammen 100°. Was folgt daraus?"
+   },
+   "a": [
+    "Sie liegen sich gegenüber, jeder ist 50°.",
+    "So etwas gibt es nicht.",
+    "Sie sind Nachbarwinkel, 40° und 60°.",
+    "Sie sind Nachbarwinkel, jeder ist 50°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nachbarwinkel ergäben 180°. Also liegen sie sich gegenüber und sind gleich groß: 100° : 2 = 50°.",
+   "h": "Was ergeben zwei Nachbarwinkel zusammen?",
+   "g": "begruenden"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. Drei der vier Winkel sind zusammen 3-mal so groß wie der vierte. Wie groß ist der vierte Winkel?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 // 4",
+   "w": "Vierter Winkel: 1 Teil, die anderen drei: 3 Teile. Zusammen 4 Teile = 360°, also 90°.",
+   "h": "Alle vier Winkel sind zusammen 360°. Wie viele Teile sind das?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Geraden schneiden sich. Drei der vier Winkel sind zusammen 4-mal so groß wie der vierte. Wie groß ist der vierte?"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "360 // 5",
+   "w": "Der vierte sei x. Die anderen drei sind 360° − x = 4 · x. Also 5 · x = 360°, x = 72°.",
+   "h": "Was ergeben alle vier Winkel zusammen?"
+  },
+  {
+   "l": "kreuzung",
+   "t": "kreuzung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Vier Geraden gehen durch einen Punkt und erzeugen 8 Winkel. Wie groß sind vier direkt nebeneinanderliegende dieser Winkel zusammen?"
+   },
+   "o": {
+    "wert": 180
+   },
+   "c": "360 // 2",
+   "w": "Vier nebeneinanderliegende Winkel reichen von einem Strahl einer Geraden bis zum gegenüberliegenden Strahl derselben Geraden. Das ist ein gestreckter Winkel: 180°. Die anderen vier Winkel bilden ebenso 180°.",
+   "h": "Wo endet der vierte Winkel, wenn du bei einer Geraden anfängst?"
   },
   {
    "l": "kreuzung",
@@ -3462,595 +4144,8 @@
    },
    "c": "360 - 104 - 100",
    "w": "360° − 104° − 100° = 156°.",
-   "h": "Alle Winkel zusammen ergeben 360°."
-  },
-  {
-   "l": "um_punkt",
-   "t": "um_punkt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Auf einer Seite einer Geraden liegen nebeneinander die Winkel 58°, 82° und ein weiterer Winkel. Wie groß ist er?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       0,
-       0
-      ],
-      "_P0": [
-       5.0,
-       0.0
-      ],
-      "_P1": [
-       2.65,
-       4.24
-      ],
-      "_P2": [
-       -3.83,
-       3.214
-      ],
-      "_P3": [
-       -5.0,
-       0.0
-      ]
-     },
-     "linien": [
-      [
-       "S",
-       "_P0"
-      ],
-      [
-       "S",
-       "_P1"
-      ],
-      [
-       "S",
-       "_P2"
-      ],
-      [
-       "S",
-       "_P3"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_P0",
-       "_P1",
-       "58°"
-      ],
-      [
-       "S",
-       "_P1",
-       "_P2",
-       "82°"
-      ],
-      [
-       "S",
-       "_P2",
-       "_P3",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "°"
-   },
-   "c": "180 - 58 - 82",
-   "w": "180° − 58° − 82° = 40°.",
-   "h": "Alle Winkel zusammen ergeben 180°."
-  },
-  {
-   "l": "um_punkt",
-   "t": "um_punkt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Um einen Punkt liegen lückenlos die Winkel 142°, 89° und ein weiterer Winkel. Wie groß ist er?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       0,
-       0
-      ],
-      "_P0": [
-       5.0,
-       0.0
-      ],
-      "_P1": [
-       -3.94,
-       3.078
-      ],
-      "_P2": [
-       -3.147,
-       -3.886
-      ],
-      "_P3": [
-       5.0,
-       -0.0
-      ]
-     },
-     "linien": [
-      [
-       "S",
-       "_P0"
-      ],
-      [
-       "S",
-       "_P1"
-      ],
-      [
-       "S",
-       "_P2"
-      ],
-      [
-       "S",
-       "_P3"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_P0",
-       "_P1",
-       "142°"
-      ],
-      [
-       "S",
-       "_P1",
-       "_P2",
-       "89°"
-      ],
-      [
-       "S",
-       "_P2",
-       "_P3",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 129,
-    "einheit": "°"
-   },
-   "c": "360 - 142 - 89",
-   "w": "360° − 142° − 89° = 129°.",
-   "h": "Alle Winkel zusammen ergeben 360°."
-  },
-  {
-   "l": "um_punkt",
-   "t": "um_punkt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Um einen Punkt liegen lückenlos die Winkel 141°, 58° und ein weiterer Winkel. Wie groß ist er?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       0,
-       0
-      ],
-      "_P0": [
-       5.0,
-       0.0
-      ],
-      "_P1": [
-       -3.886,
-       3.147
-      ],
-      "_P2": [
-       -4.728,
-       -1.628
-      ],
-      "_P3": [
-       5.0,
-       -0.0
-      ]
-     },
-     "linien": [
-      [
-       "S",
-       "_P0"
-      ],
-      [
-       "S",
-       "_P1"
-      ],
-      [
-       "S",
-       "_P2"
-      ],
-      [
-       "S",
-       "_P3"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_P0",
-       "_P1",
-       "141°"
-      ],
-      [
-       "S",
-       "_P1",
-       "_P2",
-       "58°"
-      ],
-      [
-       "S",
-       "_P2",
-       "_P3",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 161,
-    "einheit": "°"
-   },
-   "c": "360 - 141 - 58",
-   "w": "360° − 141° − 58° = 161°.",
-   "h": "Alle Winkel zusammen ergeben 360°."
-  },
-  {
-   "l": "um_punkt",
-   "t": "um_punkt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Auf einer Seite einer Geraden liegen nebeneinander die Winkel 38°, 74° und ein weiterer Winkel. Wie groß ist er?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       0,
-       0
-      ],
-      "_P0": [
-       5.0,
-       0.0
-      ],
-      "_P1": [
-       3.94,
-       3.078
-      ],
-      "_P2": [
-       -1.873,
-       4.636
-      ],
-      "_P3": [
-       -5.0,
-       0.0
-      ]
-     },
-     "linien": [
-      [
-       "S",
-       "_P0"
-      ],
-      [
-       "S",
-       "_P1"
-      ],
-      [
-       "S",
-       "_P2"
-      ],
-      [
-       "S",
-       "_P3"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_P0",
-       "_P1",
-       "38°"
-      ],
-      [
-       "S",
-       "_P1",
-       "_P2",
-       "74°"
-      ],
-      [
-       "S",
-       "_P2",
-       "_P3",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 68,
-    "einheit": "°"
-   },
-   "c": "180 - 38 - 74",
-   "w": "180° − 38° − 74° = 68°.",
-   "h": "Alle Winkel zusammen ergeben 180°."
-  },
-  {
-   "l": "um_punkt",
-   "t": "um_punkt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Auf einer Seite einer Geraden liegen nebeneinander die Winkel 26°, 47° und ein weiterer Winkel. Wie groß ist er?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       0,
-       0
-      ],
-      "_P0": [
-       5.0,
-       0.0
-      ],
-      "_P1": [
-       4.494,
-       2.192
-      ],
-      "_P2": [
-       1.462,
-       4.782
-      ],
-      "_P3": [
-       -5.0,
-       0.0
-      ]
-     },
-     "linien": [
-      [
-       "S",
-       "_P0"
-      ],
-      [
-       "S",
-       "_P1"
-      ],
-      [
-       "S",
-       "_P2"
-      ],
-      [
-       "S",
-       "_P3"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_P0",
-       "_P1",
-       "26°"
-      ],
-      [
-       "S",
-       "_P1",
-       "_P2",
-       "47°"
-      ],
-      [
-       "S",
-       "_P2",
-       "_P3",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 107,
-    "einheit": "°"
-   },
-   "c": "180 - 26 - 47",
-   "w": "180° − 26° − 47° = 107°.",
-   "h": "Alle Winkel zusammen ergeben 180°."
-  },
-  {
-   "l": "um_punkt",
-   "t": "um_punkt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um einen Punkt liegen lückenlos die Winkel 79°, 68°, 70° und ein weiterer Winkel. Wie groß ist er?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       0,
-       0
-      ],
-      "_P0": [
-       5.0,
-       0.0
-      ],
-      "_P1": [
-       0.954,
-       4.908
-      ],
-      "_P2": [
-       -4.193,
-       2.723
-      ],
-      "_P3": [
-       -3.993,
-       -3.009
-      ],
-      "_P4": [
-       5.0,
-       -0.0
-      ]
-     },
-     "linien": [
-      [
-       "S",
-       "_P0"
-      ],
-      [
-       "S",
-       "_P1"
-      ],
-      [
-       "S",
-       "_P2"
-      ],
-      [
-       "S",
-       "_P3"
-      ],
-      [
-       "S",
-       "_P4"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_P0",
-       "_P1",
-       "79°"
-      ],
-      [
-       "S",
-       "_P1",
-       "_P2",
-       "68°"
-      ],
-      [
-       "S",
-       "_P2",
-       "_P3",
-       "70°"
-      ],
-      [
-       "S",
-       "_P3",
-       "_P4",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 143,
-    "einheit": "°"
-   },
-   "c": "360 - 79 - 68 - 70",
-   "w": "360° − 79° − 68° − 70° = 143°.",
-   "h": "Alle Winkel zusammen ergeben 360°."
-  },
-  {
-   "l": "um_punkt",
-   "t": "um_punkt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um einen Punkt liegen lückenlos die Winkel 85°, 63°, 144° und ein weiterer Winkel. Wie groß ist er?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "S": [
-       0,
-       0
-      ],
-      "_P0": [
-       5.0,
-       0.0
-      ],
-      "_P1": [
-       0.436,
-       4.981
-      ],
-      "_P2": [
-       -4.24,
-       2.65
-      ],
-      "_P3": [
-       1.873,
-       -4.636
-      ],
-      "_P4": [
-       5.0,
-       -0.0
-      ]
-     },
-     "linien": [
-      [
-       "S",
-       "_P0"
-      ],
-      [
-       "S",
-       "_P1"
-      ],
-      [
-       "S",
-       "_P2"
-      ],
-      [
-       "S",
-       "_P3"
-      ],
-      [
-       "S",
-       "_P4"
-      ]
-     ],
-     "winkel": [
-      [
-       "S",
-       "_P0",
-       "_P1",
-       "85°"
-      ],
-      [
-       "S",
-       "_P1",
-       "_P2",
-       "63°"
-      ],
-      [
-       "S",
-       "_P2",
-       "_P3",
-       "144°"
-      ],
-      [
-       "S",
-       "_P3",
-       "_P4",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 68,
-    "einheit": "°"
-   },
-   "c": "360 - 85 - 63 - 144",
-   "w": "360° − 85° − 63° − 144° = 68°.",
-   "h": "Alle Winkel zusammen ergeben 360°."
+   "h": "Alle Winkel zusammen ergeben 360°.",
+   "g": "direkt"
   },
   {
    "l": "um_punkt",
@@ -4145,6 +4240,263 @@
    "c": "360 - 127 - 96 - 36",
    "w": "360° − 127° − 96° − 36° = 101°.",
    "h": "Alle Winkel zusammen ergeben 360°."
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Seite einer Geraden liegen nebeneinander die Winkel 58°, 82° und ein weiterer Winkel. Wie groß ist er?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5.0,
+       0.0
+      ],
+      "_P1": [
+       2.65,
+       4.24
+      ],
+      "_P2": [
+       -3.83,
+       3.214
+      ],
+      "_P3": [
+       -5.0,
+       0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ],
+      [
+       "S",
+       "_P3"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "58°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "82°"
+      ],
+      [
+       "S",
+       "_P2",
+       "_P3",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "°"
+   },
+   "c": "180 - 58 - 82",
+   "w": "180° − 58° − 82° = 40°.",
+   "h": "Alle Winkel zusammen ergeben 180°.",
+   "g": "direkt"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um einen Punkt liegen lückenlos die Winkel 79°, 68°, 70° und ein weiterer Winkel. Wie groß ist er?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5.0,
+       0.0
+      ],
+      "_P1": [
+       0.954,
+       4.908
+      ],
+      "_P2": [
+       -4.193,
+       2.723
+      ],
+      "_P3": [
+       -3.993,
+       -3.009
+      ],
+      "_P4": [
+       5.0,
+       -0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ],
+      [
+       "S",
+       "_P3"
+      ],
+      [
+       "S",
+       "_P4"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "79°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "68°"
+      ],
+      [
+       "S",
+       "_P2",
+       "_P3",
+       "70°"
+      ],
+      [
+       "S",
+       "_P3",
+       "_P4",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 143,
+    "einheit": "°"
+   },
+   "c": "360 - 79 - 68 - 70",
+   "w": "360° − 79° − 68° − 70° = 143°.",
+   "h": "Alle Winkel zusammen ergeben 360°.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um einen Punkt liegen lückenlos die Winkel 142°, 89° und ein weiterer Winkel. Wie groß ist er?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5.0,
+       0.0
+      ],
+      "_P1": [
+       -3.94,
+       3.078
+      ],
+      "_P2": [
+       -3.147,
+       -3.886
+      ],
+      "_P3": [
+       5.0,
+       -0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ],
+      [
+       "S",
+       "_P3"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "142°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "89°"
+      ],
+      [
+       "S",
+       "_P2",
+       "_P3",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 129,
+    "einheit": "°"
+   },
+   "c": "360 - 142 - 89",
+   "w": "360° − 142° − 89° = 129°.",
+   "h": "Alle Winkel zusammen ergeben 360°.",
+   "g": "direkt"
   },
   {
    "l": "um_punkt",
@@ -4247,6 +4599,218 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "Eine Torte wird in 8 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "360 / 8",
+   "w": "Alle Stücke liegen um den Mittelpunkt: 360° : 8 = 45°.",
+   "h": "Alle Stücke zusammen ergeben einen Vollwinkel.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Seite einer Geraden liegen nebeneinander die Winkel 38°, 74° und ein weiterer Winkel. Wie groß ist er?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5.0,
+       0.0
+      ],
+      "_P1": [
+       3.94,
+       3.078
+      ],
+      "_P2": [
+       -1.873,
+       4.636
+      ],
+      "_P3": [
+       -5.0,
+       0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ],
+      [
+       "S",
+       "_P3"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "38°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "74°"
+      ],
+      [
+       "S",
+       "_P2",
+       "_P3",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "°"
+   },
+   "c": "180 - 38 - 74",
+   "w": "180° − 38° − 74° = 68°.",
+   "h": "Alle Winkel zusammen ergeben 180°.",
+   "g": "direkt"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um einen Punkt liegen lückenlos die Winkel 85°, 63°, 144° und ein weiterer Winkel. Wie groß ist er?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5.0,
+       0.0
+      ],
+      "_P1": [
+       0.436,
+       4.981
+      ],
+      "_P2": [
+       -4.24,
+       2.65
+      ],
+      "_P3": [
+       1.873,
+       -4.636
+      ],
+      "_P4": [
+       5.0,
+       -0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ],
+      [
+       "S",
+       "_P3"
+      ],
+      [
+       "S",
+       "_P4"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "85°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "63°"
+      ],
+      [
+       "S",
+       "_P2",
+       "_P3",
+       "144°"
+      ],
+      [
+       "S",
+       "_P3",
+       "_P4",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "°"
+   },
+   "c": "360 - 85 - 63 - 144",
+   "w": "360° − 85° − 63° − 144° = 68°.",
+   "h": "Alle Winkel zusammen ergeben 360°.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Torte wird in 10 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "°"
+   },
+   "c": "360 / 10",
+   "w": "Alle Stücke liegen um den Mittelpunkt: 360° : 10 = 36°.",
+   "h": "Alle Stücke zusammen ergeben einen Vollwinkel.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Um einen Punkt liegen lückenlos die Winkel 111°, 105°, 113° und ein weiterer Winkel. Wie groß ist er?",
     "grafik": {
      "typ": "figur",
@@ -4333,6 +4897,224 @@
    "c": "360 - 111 - 105 - 113",
    "w": "360° − 111° − 105° − 113° = 31°.",
    "h": "Alle Winkel zusammen ergeben 360°."
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pizza wird in 6 gleiche Stücke geschnitten, 1 Stück ist gegessen. Wie groß ist der Winkel des Rests (an der Mitte gemessen)?"
+   },
+   "o": {
+    "wert": 300,
+    "einheit": "°"
+   },
+   "c": "(6 - 1) * 360 / 6",
+   "w": "Ein Stück: 360° : 6 = 60°. Übrig sind 5 Stücke: 5 · 60° = 300°.",
+   "h": "Rechne zuerst den Winkel eines Stücks aus.",
+   "g": "transfer"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um einen Punkt liegen lückenlos die Winkel 141°, 58° und ein weiterer Winkel. Wie groß ist er?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5.0,
+       0.0
+      ],
+      "_P1": [
+       -3.886,
+       3.147
+      ],
+      "_P2": [
+       -4.728,
+       -1.628
+      ],
+      "_P3": [
+       5.0,
+       -0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ],
+      [
+       "S",
+       "_P3"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "141°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "58°"
+      ],
+      [
+       "S",
+       "_P2",
+       "_P3",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 161,
+    "einheit": "°"
+   },
+   "c": "360 - 141 - 58",
+   "w": "360° − 141° − 58° = 161°.",
+   "h": "Alle Winkel zusammen ergeben 360°."
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Seite einer Geraden liegen nebeneinander die Winkel 26°, 47° und ein weiterer Winkel. Wie groß ist er?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_P0": [
+       5.0,
+       0.0
+      ],
+      "_P1": [
+       4.494,
+       2.192
+      ],
+      "_P2": [
+       1.462,
+       4.782
+      ],
+      "_P3": [
+       -5.0,
+       0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_P0"
+      ],
+      [
+       "S",
+       "_P1"
+      ],
+      [
+       "S",
+       "_P2"
+      ],
+      [
+       "S",
+       "_P3"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_P0",
+       "_P1",
+       "26°"
+      ],
+      [
+       "S",
+       "_P1",
+       "_P2",
+       "47°"
+      ],
+      [
+       "S",
+       "_P2",
+       "_P3",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 107,
+    "einheit": "°"
+   },
+   "c": "180 - 26 - 47",
+   "w": "180° − 26° − 47° = 107°.",
+   "h": "Alle Winkel zusammen ergeben 180°."
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um einen Punkt liegen drei Winkel: α, β = α und γ = 3 · α. Zusammen ergeben sie einen Vollwinkel. Wie groß ist α?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "360 / (1 + 1 + 3)",
+   "w": "α + α + 3α = 5α = 360°, also α = 360° : 5 = 72°.",
+   "h": "Zähle, wie viele α-Teile es insgesamt sind.",
+   "g": "direkt"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viel Grad ergeben alle Winkel um einen Punkt zusammen?"
+   },
+   "a": [
+    "180°",
+    "90°",
+    "360°",
+    "270°"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Lückenlos um einen Punkt: ein Vollwinkel, 360°.",
+   "h": "Einmal ganz herum."
   },
   {
    "l": "um_punkt",
@@ -4432,10 +5214,10 @@
    "l": "um_punkt",
    "t": "um_punkt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Torte wird in 8 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?"
+    "text": "Eine Pizza wird in 8 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?"
    },
    "o": {
     "wert": 45,
@@ -4443,7 +5225,44 @@
    },
    "c": "360 / 8",
    "w": "Alle Stücke liegen um den Mittelpunkt: 360° : 8 = 45°.",
-   "h": "Alle Stücke zusammen ergeben einen Vollwinkel."
+   "h": "Alle Stücke zusammen ergeben einen Vollwinkel.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um einen Punkt liegen lückenlos 6 gleich große Winkel. Wie groß ist jeder?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "360 / 6",
+   "w": "Vollwinkel geteilt durch 6: 360° : 6 = 60°.",
+   "h": "Zusammen bilden sie einen Vollwinkel.",
+   "g": "umkehr"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Seite einer Geraden liegen nebeneinander die Winkel 35°, 50°, 45° und ein weiterer Winkel. Wie groß ist er?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "°"
+   },
+   "c": "180 - 35 - 50 - 45",
+   "w": "180° − 35° − 50° − 45° = 50°.",
+   "h": "Auf einer Seite einer Geraden sind es zusammen 180°.",
+   "g": "mehrschritt"
   },
   {
    "l": "um_punkt",
@@ -4460,7 +5279,8 @@
    },
    "c": "360 / (1 + 1 + 2)",
    "w": "α + α + 2α = 4α = 360°, also α = 360° : 4 = 90°.",
-   "h": "Zähle, wie viele α-Teile es insgesamt sind."
+   "h": "Zähle, wie viele α-Teile es insgesamt sind.",
+   "g": "parameter"
   },
   {
    "l": "um_punkt",
@@ -4469,15 +5289,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Um einen Punkt liegen drei Winkel: α, β = α und γ = 3 · α. Zusammen ergeben sie einen Vollwinkel. Wie groß ist α?"
+    "text": "Ein Kreis wird in drei Teile (Kreisausschnitte) geteilt. Der erste hat am Mittelpunkt 120°. Der zweite ist doppelt so groß wie der dritte. Wie groß ist der dritte?"
    },
    "o": {
-    "wert": 72,
+    "wert": 80,
     "einheit": "°"
    },
-   "c": "360 / (1 + 1 + 3)",
-   "w": "α + α + 3α = 5α = 360°, also α = 360° : 5 = 72°.",
-   "h": "Zähle, wie viele α-Teile es insgesamt sind."
+   "c": "(360 - 120) / 3",
+   "w": "Für den zweiten und dritten bleiben 240°. Das sind 3 Teile (2 + 1): 240° : 3 = 80°.",
+   "h": "Wie viel Grad bleiben für die beiden anderen Teile?",
+   "g": "verknuepfen"
   },
   {
    "l": "um_punkt",
@@ -4486,15 +5307,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Torte wird in 10 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?"
+    "text": "Ein Rad hat 12 Speichen in gleichen Abständen. Wie groß ist der Winkel zwischen zwei Speichen, zwischen denen genau zwei weitere Speichen liegen?"
    },
    "o": {
-    "wert": 36,
+    "wert": 90,
     "einheit": "°"
    },
-   "c": "360 / 10",
-   "w": "Alle Stücke liegen um den Mittelpunkt: 360° : 10 = 36°.",
-   "h": "Alle Stücke zusammen ergeben einen Vollwinkel."
+   "c": "3 * 360 / 12",
+   "w": "Zwischen benachbarten Speichen: 360° : 12 = 30°. Mit zwei Speichen dazwischen sind es 3 Abstände: 90°.",
+   "h": "Zähle die Abstände, nicht die Speichen.",
+   "g": "transfer"
   },
   {
    "l": "um_punkt",
@@ -4503,32 +5325,111 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Pizza wird in 6 gleiche Stücke geschnitten, 1 Stück ist gegessen. Wie groß ist der Winkel des Rests (an der Mitte gemessen)?"
+    "text": "Um einen Punkt liegen vier Winkel. Jeder ist 10° größer als der vorige. Wie groß ist der kleinste?"
    },
    "o": {
-    "wert": 300,
+    "wert": 75,
     "einheit": "°"
    },
-   "c": "(6 - 1) * 360 / 6",
-   "w": "Ein Stück: 360° : 6 = 60°. Übrig sind 5 Stücke: 5 · 60° = 300°.",
-   "h": "Rechne zuerst den Winkel eines Stücks aus."
+   "c": "75",
+   "w": "x + (x + 10°) + (x + 20°) + (x + 30°) = 4 · x + 60° = 360°. Also 4 · x = 300°, x = 75°.",
+   "h": "Wie viel kommt zu den vier gleichen Teilen dazu?",
+   "g": "rueckwaerts"
   },
   {
    "l": "um_punkt",
    "t": "um_punkt",
    "p": "uebung",
    "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: Um einen Punkt liegen 120°, 95° und δ. Also δ = 180° − 120° − 95°. Was ist falsch?"
+   },
+   "a": [
+    "Es müsste 90° − 120° − 95° heißen.",
+    "Um einen Punkt sind es 360°: δ = 360° − 120° − 95° = 145°.",
+    "Man muss 120° + 95° rechnen.",
+    "Nichts, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Winkel um einen Punkt ergeben einen Vollwinkel (360°), nicht 180°. Das Ergebnis −35° hätte stutzig machen müssen.",
+   "h": "Rechne mit 180° aus. Kann das Ergebnis stimmen?",
+   "g": "fehler"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Eine Pizza wird in 8 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?"
+    "text": "Um einen Punkt liegen fünf Winkel. Vier davon sind gleich groß, der fünfte ist 120°. Wie groß ist jeder der vier gleichen Winkel?"
    },
    "o": {
-    "wert": 45,
-    "einheit": "°"
+    "wert": 60
    },
-   "c": "360 / 8",
-   "w": "Alle Stücke liegen um den Mittelpunkt: 360° : 8 = 45°.",
-   "h": "Alle Stücke zusammen ergeben einen Vollwinkel."
+   "c": "(360 - 120) // 4",
+   "w": "Für die vier gleichen Winkel bleiben 360° − 120° = 240°. 240° : 4 = 60°.",
+   "h": "Wie viel Grad bleiben für die vier gleichen Winkel?"
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Um einen Punkt können drei stumpfe Winkel lückenlos liegen.“"
+   },
+   "a": [
+    "Nein, stumpfe Winkel passen nicht um einen Punkt.",
+    "Ja, z. B. 120°, 120°, 120°.",
+    "Nein, das ergibt immer mehr als 360°.",
+    "Ja, aber nur 90°, 90°, 180°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Drei Winkel von 120° sind stumpf und ergeben 360°.",
+   "h": "Probiere drei gleich große Winkel."
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Um einen Punkt liegen vier Winkel. Jeder ist doppelt so groß wie der vorige. Wie groß ist der kleinste?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "360 // 15",
+   "w": "Kleinster x, dann 2x, 4x, 8x. Zusammen 15 · x = 360°, also x = 24°.",
+   "h": "Drücke alle durch den kleinsten aus."
+  },
+  {
+   "l": "um_punkt",
+   "t": "um_punkt",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rad hat Speichen in gleichen Abständen. Zwischen der 1. und der 4. Speiche liegt ein Winkel von 90°. Wie viele Speichen hat das Rad?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "360 // 30",
+   "w": "Von Speiche 1 bis 4 sind es 3 Abstände: 90° : 3 = 30°. 360° : 30° = 12 Speichen.",
+   "h": "Wie viele Abstände liegen zwischen der 1. und 4. Speiche?"
   },
   {
    "l": "um_punkt",
@@ -5464,125 +6365,6 @@
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 5 Minuten?"
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "°"
-   },
-   "c": "5 * 6",
-   "w": "6° pro Minute: 5 · 6° = 30°.",
-   "h": "In 60 Minuten dreht er sich um 360°."
-  },
-  {
-   "l": "uhr",
-   "t": "uhr",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 35 Minuten?"
-   },
-   "o": {
-    "wert": 210,
-    "einheit": "°"
-   },
-   "c": "35 * 6",
-   "w": "6° pro Minute: 35 · 6° = 210°.",
-   "h": "In 60 Minuten dreht er sich um 360°."
-  },
-  {
-   "l": "uhr",
-   "t": "uhr",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 45 Minuten?"
-   },
-   "o": {
-    "wert": 270,
-    "einheit": "°"
-   },
-   "c": "45 * 6",
-   "w": "6° pro Minute: 45 · 6° = 270°.",
-   "h": "In 60 Minuten dreht er sich um 360°."
-  },
-  {
-   "l": "uhr",
-   "t": "uhr",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 30 Minuten?"
-   },
-   "o": {
-    "wert": 180,
-    "einheit": "°"
-   },
-   "c": "30 * 6",
-   "w": "6° pro Minute: 30 · 6° = 180°.",
-   "h": "In 60 Minuten dreht er sich um 360°."
-  },
-  {
-   "l": "uhr",
-   "t": "uhr",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 55 Minuten?"
-   },
-   "o": {
-    "wert": 330,
-    "einheit": "°"
-   },
-   "c": "55 * 6",
-   "w": "6° pro Minute: 55 · 6° = 330°.",
-   "h": "In 60 Minuten dreht er sich um 360°."
-  },
-  {
-   "l": "uhr",
-   "t": "uhr",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 25 Minuten?"
-   },
-   "o": {
-    "wert": 150,
-    "einheit": "°"
-   },
-   "c": "25 * 6",
-   "w": "6° pro Minute: 25 · 6° = 150°.",
-   "h": "In 60 Minuten dreht er sich um 360°."
-  },
-  {
-   "l": "uhr",
-   "t": "uhr",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie groß ist der kleinere Winkel zwischen den Zahlen 2 und 6 auf dem Zifferblatt (vom Mittelpunkt aus gesehen)?"
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "°"
-   },
-   "c": "min(abs(2 - 6), 12 - abs(2 - 6)) * 30",
-   "w": "Kürzester Weg: 4 Abstände · 30° = 120°.",
-   "h": "Zähle die Stundenabstände auf dem kürzeren Weg."
-  },
-  {
-   "l": "uhr",
-   "t": "uhr",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -5795,7 +6577,25 @@
    },
    "c": "(12 - 8) * 30",
    "w": "Von 8 bis 12 sind es 4 Abstände: 4 · 30° = 120°. (Der andere Winkel wäre 240°.)",
-   "h": "Zähle den kürzeren Weg zwischen den Zeigern."
+   "h": "Zähle den kürzeren Weg zwischen den Zeigern.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 45 Minuten?"
+   },
+   "o": {
+    "wert": 270,
+    "einheit": "°"
+   },
+   "c": "45 * 6",
+   "w": "6° pro Minute: 45 · 6° = 270°.",
+   "h": "In 60 Minuten dreht er sich um 360°."
   },
   {
    "l": "uhr",
@@ -6013,24 +6813,25 @@
    },
    "c": "(12 - 10) * 30",
    "w": "Von 10 bis 12 sind es 2 Abstände: 2 · 30° = 60°. (Der andere Winkel wäre 300°.)",
-   "h": "Zähle den kürzeren Weg zwischen den Zeigern."
+   "h": "Zähle den kürzeren Weg zwischen den Zeigern.",
+   "g": "mehrschritt"
   },
   {
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie groß ist der kleinere Winkel zwischen den Zahlen 6 und 10 auf dem Zifferblatt (vom Mittelpunkt aus gesehen)?"
+    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 30 Minuten?"
    },
    "o": {
-    "wert": 120,
+    "wert": 180,
     "einheit": "°"
    },
-   "c": "min(abs(6 - 10), 12 - abs(6 - 10)) * 30",
-   "w": "Kürzester Weg: 4 Abstände · 30° = 120°.",
-   "h": "Zähle die Stundenabstände auf dem kürzeren Weg."
+   "c": "30 * 6",
+   "w": "6° pro Minute: 30 · 6° = 180°.",
+   "h": "In 60 Minuten dreht er sich um 360°."
   },
   {
    "l": "uhr",
@@ -6039,7 +6840,78 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Uhr zeigt eine volle Stunde. Wie groß ist der kleinere Winkel zwischen den Zeigern?",
+    "text": "Um wie viel Grad dreht sich der Stundenzeiger in 120 Minuten?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "120 / 60 * 30",
+   "w": "In 60 min dreht er sich um 30°, also 1° in 2 Minuten: (120 : 2)° = 60°.",
+   "h": "Der Stundenzeiger braucht 60 Minuten für 30°.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 55 Minuten?"
+   },
+   "o": {
+    "wert": 330,
+    "einheit": "°"
+   },
+   "c": "55 * 6",
+   "w": "6° pro Minute: 55 · 6° = 330°.",
+   "h": "In 60 Minuten dreht er sich um 360°."
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel Grad dreht sich der Stundenzeiger in 40 Minuten?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "°"
+   },
+   "c": "40 / 60 * 30",
+   "w": "In 60 min dreht er sich um 30°, also 1° in 2 Minuten: (40 : 2)° = 20°.",
+   "h": "Der Stundenzeiger braucht 60 Minuten für 30°.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 5 Minuten?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "°"
+   },
+   "c": "5 * 6",
+   "w": "6° pro Minute: 5 · 6° = 30°.",
+   "h": "In 60 Minuten dreht er sich um 360°.",
+   "g": "direkt"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um 11:30 Uhr steht der Stundenzeiger genau zwischen 11 und 12. Wie groß ist der kleinere Winkel zwischen den Zeigern?",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -6160,12 +7032,12 @@
        -0.0
       ],
       "_h": [
-       1.3,
-       -2.252
+       -0.673,
+       2.511
       ],
       "_m": [
        0.0,
-       4.0
+       -4.0
       ]
      },
      "kreise": [
@@ -6231,16 +7103,64 @@
        "M",
        "_m"
       ]
+     ],
+     "winkel": [
+      [
+       "M",
+       "_m",
+       "_h",
+       "?"
+      ]
      ]
     }
+   },
+   "o": {
+    "wert": 165,
+    "einheit": "°"
+   },
+   "c": "min(abs(11 * 30 + 15 - 180), 360 - abs(11 * 30 + 15 - 180))",
+   "w": "Minutenzeiger auf 6 (180°), Stundenzeiger bei 11½ (345°). Unterschied: 165°.",
+   "h": "Der Stundenzeiger bewegt sich in 30 Minuten um 15° weiter.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 25 Minuten?"
    },
    "o": {
     "wert": 150,
     "einheit": "°"
    },
-   "c": "5 * 30",
-   "w": "Die Uhr zeigt 5:00 Uhr. Kürzester Weg zwischen 12 und 5: 5 Abstände · 30° = 150°.",
-   "h": "Lies zuerst die Uhrzeit ab. Zwischen zwei Stundenzahlen liegen 30°."
+   "c": "25 * 6",
+   "w": "6° pro Minute: 25 · 6° = 150°.",
+   "h": "In 60 Minuten dreht er sich um 360°."
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viel Grad liegen zwischen zwei benachbarten Zahlen auf dem Zifferblatt?"
+   },
+   "a": [
+    "6°",
+    "60°",
+    "12°",
+    "30°"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "360° : 12 = 30°.",
+   "h": "Das Zifferblatt hat 12 Zahlen."
   },
   {
    "l": "uhr",
@@ -6249,15 +7169,51 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie groß ist der kleinere Winkel zwischen den Zahlen 9 und 3 auf dem Zifferblatt (vom Mittelpunkt aus gesehen)?"
+    "text": "Wie groß ist der kleinere Winkel zwischen den Zahlen 2 und 6 auf dem Zifferblatt (vom Mittelpunkt aus gesehen)?"
    },
    "o": {
-    "wert": 180,
+    "wert": 120,
     "einheit": "°"
    },
-   "c": "min(abs(9 - 3), 12 - abs(9 - 3)) * 30",
-   "w": "Kürzester Weg: 6 Abstände · 30° = 180°.",
-   "h": "Zähle die Stundenabstände auf dem kürzeren Weg."
+   "c": "min(abs(2 - 6), 12 - abs(2 - 6)) * 30",
+   "w": "Kürzester Weg: 4 Abstände · 30° = 120°.",
+   "h": "Zähle die Stundenabstände auf dem kürzeren Weg.",
+   "g": "darstellung"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der kleinere Winkel zwischen den Zeigern um 5:00 Uhr?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "°"
+   },
+   "c": "5 * 30",
+   "w": "5 Stundenabstände: 5 · 30° = 150°.",
+   "h": "Zwischen zwei Zahlen liegen 30°."
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel Grad dreht sich der Minutenzeiger von 7:10 Uhr bis 7:50 Uhr?"
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "°"
+   },
+   "c": "(50 - 10) * 6",
+   "w": "40 Minuten: 40 · 6° = 240°.",
+   "h": "Wie viele Minuten vergehen?",
+   "g": "mehrschritt"
   },
   {
    "l": "uhr",
@@ -6475,7 +7431,8 @@
    },
    "c": "min(abs(8 * 30 + 15 - 180), 360 - abs(8 * 30 + 15 - 180))",
    "w": "Minutenzeiger auf 6 (180°), Stundenzeiger bei 8½ (255°). Unterschied: 75°.",
-   "h": "Der Stundenzeiger bewegt sich in 30 Minuten um 15° weiter."
+   "h": "Der Stundenzeiger bewegt sich in 30 Minuten um 15° weiter.",
+   "g": "verknuepfen"
   },
   {
    "l": "uhr",
@@ -6484,41 +7441,99 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Um wie viel Grad dreht sich der Stundenzeiger in 120 Minuten?"
+    "text": "Wie oft stehen die beiden Zeiger zwischen 12:00 Uhr und 18:00 Uhr genau übereinander? 12:00 Uhr zählt mit, 18:00 Uhr nicht."
    },
    "o": {
-    "wert": 60,
-    "einheit": "°"
+    "wert": 6
    },
-   "c": "120 / 60 * 30",
-   "w": "In 60 min dreht er sich um 30°, also 0,5° pro Minute: 120 · 0,5° = 60°.",
-   "h": "Der Stundenzeiger braucht 60 Minuten für 30°."
+   "c": "6",
+   "w": "Um 12:00 Uhr, kurz nach 1, nach 2, nach 3, nach 4 und nach 5 Uhr – zwischen 5 und 6 Uhr nicht mehr. Das sind 6-mal.",
+   "h": "Wann holt der Minutenzeiger den Stundenzeiger ungefähr ein? Geh Stunde für Stunde durch.",
+   "g": "transfer"
   },
   {
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Um wie viel Grad dreht sich der Stundenzeiger in 40 Minuten?"
+    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 35 Minuten?"
    },
    "o": {
-    "wert": 20,
+    "wert": 210,
     "einheit": "°"
    },
-   "c": "40 / 60 * 30",
-   "w": "In 60 min dreht er sich um 30°, also 0,5° pro Minute: 40 · 0,5° = 20°.",
-   "h": "Der Stundenzeiger braucht 60 Minuten für 30°."
+   "c": "35 * 6",
+   "w": "6° pro Minute: 35 · 6° = 210°.",
+   "h": "In 60 Minuten dreht er sich um 360°.",
+   "g": "direkt"
   },
   {
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Um wie viel Grad dreht sich der Minutenzeiger in einer Minute?"
+   },
+   "a": [
+    "1°",
+    "60°",
+    "6°",
+    "30°"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "60 Minuten für 360°: 360° : 60 = 6°.",
+   "h": "Eine Stunde ist eine ganze Drehung."
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Um 11:30 Uhr steht der Stundenzeiger genau zwischen 11 und 12. Wie groß ist der kleinere Winkel zwischen den Zeigern?",
+    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 150 Minuten?"
+   },
+   "o": {
+    "wert": 900,
+    "einheit": "°"
+   },
+   "c": "150 * 6",
+   "w": "150 · 6° = 900° (das ist mehr als eine ganze Drehung).",
+   "h": "Pro Minute 6° – auch über 360° hinaus."
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der kleinere Winkel zwischen den Zahlen 6 und 10 auf dem Zifferblatt (vom Mittelpunkt aus gesehen)?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "min(abs(6 - 10), 12 - abs(6 - 10)) * 30",
+   "w": "Kürzester Weg: 4 Abstände · 30° = 120°.",
+   "h": "Zähle die Stundenabstände auf dem kürzeren Weg.",
+   "g": "darstellung"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Uhr zeigt eine volle Stunde. Wie groß ist der kleinere Winkel zwischen den Zeigern?",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -6639,12 +7654,12 @@
        -0.0
       ],
       "_h": [
-       -0.673,
-       2.511
+       1.3,
+       -2.252
       ],
       "_m": [
        0.0,
-       -4.0
+       4.0
       ]
      },
      "kreise": [
@@ -6710,47 +7725,40 @@
        "M",
        "_m"
       ]
-     ],
-     "winkel": [
-      [
-       "M",
-       "_m",
-       "_h",
-       "?"
-      ]
      ]
     }
    },
    "o": {
-    "wert": 165,
+    "wert": 150,
     "einheit": "°"
    },
-   "c": "min(abs(11 * 30 + 15 - 180), 360 - abs(11 * 30 + 15 - 180))",
-   "w": "Minutenzeiger auf 6 (180°), Stundenzeiger bei 11½ (345°). Unterschied: 165°.",
-   "h": "Der Stundenzeiger bewegt sich in 30 Minuten um 15° weiter."
+   "c": "5 * 30",
+   "w": "Die Uhr zeigt 5:00 Uhr. Kürzester Weg zwischen 12 und 5: 5 Abstände · 30° = 150°.",
+   "h": "Lies zuerst die Uhrzeit ab. Zwischen zwei Stundenzahlen liegen 30°.",
+   "g": "umkehr"
   },
   {
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Um wie viel Grad dreht sich der Minutenzeiger in 150 Minuten?"
+    "text": "Wie groß ist der kleinere Winkel zwischen den Zahlen 9 und 3 auf dem Zifferblatt (vom Mittelpunkt aus gesehen)?"
    },
    "o": {
-    "wert": 900,
+    "wert": 180,
     "einheit": "°"
    },
-   "c": "150 * 6",
-   "w": "150 · 6° = 900° (das ist mehr als eine ganze Drehung).",
-   "h": "Pro Minute 6° – auch über 360° hinaus."
+   "c": "min(abs(9 - 3), 12 - abs(9 - 3)) * 30",
+   "w": "Kürzester Weg: 6 Abstände · 30° = 180°.",
+   "h": "Zähle die Stundenabstände auf dem kürzeren Weg."
   },
   {
    "l": "uhr",
    "t": "uhr",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Um wie viel Grad dreht sich der Stundenzeiger in 90 Minuten?"
@@ -6760,8 +7768,192 @@
     "einheit": "°"
    },
    "c": "90 / 60 * 30",
-   "w": "In 60 min dreht er sich um 30°, also 0,5° pro Minute: 90 · 0,5° = 45°.",
+   "w": "In 60 min dreht er sich um 30°, also 1° in 2 Minuten: (90 : 2)° = 45°.",
    "h": "Der Stundenzeiger braucht 60 Minuten für 30°."
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der kleinere Winkel zwischen den Zeigern um 9:20 Uhr?"
+   },
+   "o": {
+    "wert": 160,
+    "einheit": "°"
+   },
+   "c": "160",
+   "w": "Minutenzeiger auf 4: 120°. Stundenzeiger: 9 · 30° + (20 : 2)° = 280°. Unterschied 160°.",
+   "h": "Der Stundenzeiger wandert in 20 Minuten 10° weiter."
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel Grad dreht sich der Stundenzeiger an einem ganzen Tag (24 Stunden)?"
+   },
+   "o": {
+    "wert": 720,
+    "einheit": "°"
+   },
+   "c": "24 * 30",
+   "w": "In 12 Stunden eine ganze Drehung (360°), in 24 Stunden zwei: 720°.",
+   "h": "Wie lange braucht der Stundenzeiger für eine ganze Runde?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der kleinere Winkel zwischen den Zeigern um 2:30 Uhr?"
+   },
+   "o": {
+    "wert": 105,
+    "einheit": "°"
+   },
+   "c": "105",
+   "w": "Minutenzeiger auf 6: 180°. Stundenzeiger zwischen 2 und 3: 60° + 15° = 75°. Unterschied: 180° − 75° = 105°.",
+   "h": "Der Stundenzeiger steht nicht genau auf der 2, sondern in der Mitte zwischen 2 und 3.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Um 9:30 Uhr bilden die Zeiger 90°, weil der Stundenzeiger auf der 9 steht.“ Was ist falsch?"
+   },
+   "a": [
+    "Um 9:30 Uhr steht der Stundenzeiger zwischen 9 und 10; der Winkel ist 105°.",
+    "Der Winkel ist 75°.",
+    "Nichts, das stimmt.",
+    "Der Winkel ist 180°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Minutenzeiger auf der 6. Stundenzeiger halb zwischen 9 und 10. Von 6 bis 9 sind es 90°, dazu 15°: 105°.",
+   "h": "Wo steht der Stundenzeiger um halb?"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Der Stundenzeiger hat sich seit 12:00 Uhr um 135° gedreht. Wie viele Minuten sind seit 12:00 Uhr vergangen?"
+   },
+   "o": {
+    "wert": 270,
+    "einheit": "min"
+   },
+   "c": "135 // 30 * 60 + 60 * (135 % 30) // 30",
+   "w": "Der Stundenzeiger dreht sich 30° pro Stunde. 135° = 4 · 30° + 15°: 4 Stunden und eine halbe Stunde = 270 Minuten.",
+   "h": "Wie viel Grad dreht sich der Stundenzeiger in einer Stunde?"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Um 6:00 Uhr und um 12:30 Uhr bilden die Zeiger denselben Winkel.“"
+   },
+   "a": [
+    "Ja, beide Male 180°.",
+    "Nein: um 12:30 Uhr sind es 0°.",
+    "Ja, beide Male 90°.",
+    "Nein: um 6:00 Uhr 180°, um 12:30 Uhr nur 165°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Um 12:30 Uhr steht der Stundenzeiger schon halb zwischen 12 und 1 (15° weiter). 180° − 15° = 165°.",
+   "h": "Wo steht der Stundenzeiger um 12:30 Uhr?"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Der Minutenzeiger einer Uhr hat sich seit 10:15 Uhr um 270° gedreht. Wie viele Minuten nach 10:00 Uhr ist es jetzt?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "min"
+   },
+   "c": "15 + 270 // 6",
+   "w": "270° sind 270 : 6 = 45 Minuten. 10:15 Uhr + 45 Minuten = 11:00 Uhr, also 60 Minuten nach 10:00 Uhr.",
+   "h": "Wie viele Minuten entsprechen 270°?"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Zu welcher vollen Stunde zwischen 1 Uhr und 6 Uhr bilden die Zeiger einen Winkel von 120°? Gib die Stunde an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "120 // 30",
+   "w": "120° sind 4 Abstände zu je 30°: um 4 Uhr.",
+   "h": "Wie viele Zahlenabstände sind 120°?"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft bilden die Zeiger einer Uhr zwischen 12:00 Uhr und 24:00 Uhr (24:00 Uhr nicht mitgezählt) einen gestreckten Winkel?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "11",
+   "w": "Ungefähr einmal pro Stunde stehen sich die Zeiger gegenüber – aber zwischen 5 und 7 Uhr nur einmal (genau um 6 Uhr). In 12 Stunden passiert es daher 11-mal.",
+   "h": "Zähle Stunde für Stunde. Wo passiert es nur einmal in zwei Stunden?"
+  },
+  {
+   "l": "uhr",
+   "t": "uhr",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der kleinere Winkel zwischen den Zeigern um 3:40 Uhr?"
+   },
+   "o": {
+    "wert": 130
+   },
+   "c": "240 - (90 + 20)",
+   "w": "Minutenzeiger auf der 8: 240°. Stundenzeiger: 3 Uhr = 90°, dazu (40 : 2)° = 20°, also 110°. Unterschied 130°.",
+   "h": "Der Stundenzeiger bewegt sich auch zwischen den vollen Stunden weiter."
   },
   {
    "l": "uhr",
@@ -8302,108 +9494,6 @@
    "l": "drehungen",
    "t": "drehungen",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Du schaust nach Südosten und drehst dich im Uhrzeigersinn nach Westen. Um wie viel Grad drehst du dich (kürzester Weg im Uhrzeigersinn)?"
-   },
-   "o": {
-    "wert": 135,
-    "einheit": "°"
-   },
-   "c": "3 * 45",
-   "w": "3 Schritte auf der Windrose zu je 45°: 135°.",
-   "h": "Zwischen benachbarten Richtungen der Windrose liegen 45°."
-  },
-  {
-   "l": "drehungen",
-   "t": "drehungen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viel Grad sind eine Achteldrehung?"
-   },
-   "o": {
-    "wert": 45,
-    "einheit": "°"
-   },
-   "c": "45 / 360 * 360",
-   "w": "Eine ganze Drehung hat 360°. Eine Achteldrehung: 45°.",
-   "h": "Eine ganze Drehung sind 360°."
-  },
-  {
-   "l": "drehungen",
-   "t": "drehungen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Du schaust nach Osten und drehst dich im Uhrzeigersinn nach Südosten. Um wie viel Grad drehst du dich (kürzester Weg im Uhrzeigersinn)?"
-   },
-   "o": {
-    "wert": 45,
-    "einheit": "°"
-   },
-   "c": "1 * 45",
-   "w": "1 Schritt auf der Windrose zu je 45°: 45°.",
-   "h": "Zwischen benachbarten Richtungen der Windrose liegen 45°."
-  },
-  {
-   "l": "drehungen",
-   "t": "drehungen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viel Grad sind eine halbe Drehung?"
-   },
-   "o": {
-    "wert": 180,
-    "einheit": "°"
-   },
-   "c": "180 / 360 * 360",
-   "w": "Eine ganze Drehung hat 360°. Eine halbe Drehung: 180°.",
-   "h": "Eine ganze Drehung sind 360°."
-  },
-  {
-   "l": "drehungen",
-   "t": "drehungen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Du schaust nach Nordosten und drehst dich im Uhrzeigersinn nach Südwesten. Um wie viel Grad drehst du dich (kürzester Weg im Uhrzeigersinn)?"
-   },
-   "o": {
-    "wert": 180,
-    "einheit": "°"
-   },
-   "c": "4 * 45",
-   "w": "4 Schritte auf der Windrose zu je 45°: 180°.",
-   "h": "Zwischen benachbarten Richtungen der Windrose liegen 45°."
-  },
-  {
-   "l": "drehungen",
-   "t": "drehungen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Du schaust nach Südwesten und drehst dich im Uhrzeigersinn nach Norden. Um wie viel Grad drehst du dich (kürzester Weg im Uhrzeigersinn)?"
-   },
-   "o": {
-    "wert": 135,
-    "einheit": "°"
-   },
-   "c": "3 * 45",
-   "w": "3 Schritte auf der Windrose zu je 45°: 135°.",
-   "h": "Zwischen benachbarten Richtungen der Windrose liegen 45°."
-  },
-  {
-   "l": "drehungen",
-   "t": "drehungen",
-   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "a": [
@@ -8510,7 +9600,26 @@
     }
    },
    "w": "270° : 45° = 6 Schritte im Uhrzeigersinn von Osten: Norden.",
-   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …"
+   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …",
+   "g": "umkehr"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Du schaust nach Südosten und drehst dich im Uhrzeigersinn nach Westen. Um wie viel Grad drehst du dich (kürzester Weg im Uhrzeigersinn)?"
+   },
+   "o": {
+    "wert": 135,
+    "einheit": "°"
+   },
+   "c": "3 * 45",
+   "w": "3 Schritte auf der Windrose zu je 45°: 135°.",
+   "h": "Zwischen benachbarten Richtungen der Windrose liegen 45°.",
+   "g": "direkt"
   },
   {
    "l": "drehungen",
@@ -8622,7 +9731,26 @@
     }
    },
    "w": "135° : 45° = 3 Schritte im Uhrzeigersinn von Süden: Nordwesten.",
-   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …"
+   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …",
+   "g": "umkehr"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind eine Achteldrehung?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "45 / 360 * 360",
+   "w": "Eine ganze Drehung hat 360°. Eine Achteldrehung: 45°.",
+   "h": "Eine ganze Drehung sind 360°.",
+   "g": "erkennen"
   },
   {
    "l": "drehungen",
@@ -8734,7 +9862,26 @@
     }
    },
    "w": "90° : 45° = 2 Schritte im Uhrzeigersinn von Norden: Osten.",
-   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …"
+   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …",
+   "g": "umkehr"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Du schaust nach Osten und drehst dich im Uhrzeigersinn nach Südosten. Um wie viel Grad drehst du dich (kürzester Weg im Uhrzeigersinn)?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "1 * 45",
+   "w": "1 Schritt auf der Windrose zu je 45°: 45°.",
+   "h": "Zwischen benachbarten Richtungen der Windrose liegen 45°.",
+   "g": "direkt"
   },
   {
    "l": "drehungen",
@@ -8846,7 +9993,121 @@
     }
    },
    "w": "225° : 45° = 5 Schritte im Uhrzeigersinn von Osten: Nordwesten.",
-   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …"
+   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …",
+   "g": "umkehr"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Südwesten",
+    "Nordosten",
+    "Norden",
+    "Osten"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Du schaust nach Nordwesten und drehst dich um 270° gegen den Uhrzeigersinn. Wohin schaust du jetzt?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_M": [
+       0,
+       0
+      ],
+      "N": [
+       0.0,
+       4.0
+      ],
+      "NO": [
+       2.828,
+       2.828
+      ],
+      "O": [
+       4.0,
+       0.0
+      ],
+      "SO": [
+       2.828,
+       -2.828
+      ],
+      "S": [
+       0.0,
+       -4.0
+      ],
+      "SW": [
+       -2.828,
+       -2.828
+      ],
+      "W": [
+       -4.0,
+       -0.0
+      ],
+      "NW": [
+       -2.828,
+       2.828
+      ]
+     },
+     "linien": [
+      [
+       "_M",
+       "N",
+       "",
+       ""
+      ],
+      [
+       "_M",
+       "NO",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_M",
+       "O",
+       "",
+       ""
+      ],
+      [
+       "_M",
+       "SO",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_M",
+       "S",
+       "",
+       ""
+      ],
+      [
+       "_M",
+       "SW",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_M",
+       "W",
+       "",
+       ""
+      ],
+      [
+       "_M",
+       "NW",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "w": "270° : 45° = 6 Schritte gegen den Uhrzeigersinn (N → NW → W …) von Nordwesten aus: Nordosten.",
+   "h": "Gegen den Uhrzeigersinn geht es auf der Windrose N → NW → W → SW …",
+   "g": "mehrschritt"
   },
   {
    "l": "drehungen",
@@ -8958,7 +10219,62 @@
     }
    },
    "w": "270° : 45° = 6 Schritte im Uhrzeigersinn von Nordwesten: Südwesten.",
-   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …"
+   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …",
+   "g": "umkehr"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Karussell hat 9 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "°"
+   },
+   "c": "360 / 9",
+   "w": "360° : 9 = 40°.",
+   "h": "Eine ganze Drehung wird in gleiche Teile geteilt.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind eine halbe Drehung?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "180 / 360 * 360",
+   "w": "Eine ganze Drehung hat 360°. Eine halbe Drehung: 180°.",
+   "h": "Eine ganze Drehung sind 360°.",
+   "g": "erkennen"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Du schaust nach Nordosten und drehst dich im Uhrzeigersinn nach Südwesten. Um wie viel Grad drehst du dich (kürzester Weg im Uhrzeigersinn)?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "4 * 45",
+   "w": "4 Schritte auf der Windrose zu je 45°: 180°.",
+   "h": "Zwischen benachbarten Richtungen der Windrose liegen 45°.",
+   "g": "direkt"
   },
   {
    "l": "drehungen",
@@ -9070,7 +10386,26 @@
     }
    },
    "w": "315° : 45° = 7 Schritte im Uhrzeigersinn von Nordosten: Norden.",
-   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …"
+   "h": "Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …",
+   "g": "umkehr"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Roboter dreht sich zuerst um 135° und dann noch einmal um 45° in dieselbe Richtung. Um wie viel Grad müsste er sich noch weiter drehen, bis er wieder in die Startrichtung schaut?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "360 - (135 + 45) % 360",
+   "w": "Bisher 135° + 45° = 180°. Bis 360° fehlen 180°.",
+   "h": "Eine volle Drehung sind 360°.",
+   "g": "mehrschritt"
   },
   {
    "l": "drehungen",
@@ -9087,7 +10422,8 @@
    },
    "c": "360 / 10",
    "w": "360° : 10 = 36°.",
-   "h": "Eine ganze Drehung wird in gleiche Teile geteilt."
+   "h": "Eine ganze Drehung wird in gleiche Teile geteilt.",
+   "g": "transfer"
   },
   {
    "l": "drehungen",
@@ -9096,15 +10432,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Karussell hat 9 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?"
+    "text": "Ein Karussell hat 8 Gondeln in gleichen Abständen. Es dreht sich um 135°. Um wie viele Gondelplätze ist es weitergerückt?"
    },
    "o": {
-    "wert": 40,
-    "einheit": "°"
+    "wert": 3
    },
-   "c": "360 / 9",
-   "w": "360° : 9 = 40°.",
-   "h": "Eine ganze Drehung wird in gleiche Teile geteilt."
+   "c": "135 / (360 / 8)",
+   "w": "Von Gondel zu Gondel sind es 360° : 8 = 45°. 135° : 45° = 3 Plätze.",
+   "h": "Wie viel Grad liegen zwischen zwei Gondeln?",
+   "g": "verknuepfen"
   },
   {
    "l": "drehungen",
@@ -9113,32 +10449,107 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Karussell hat 3 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?"
+    "text": "Bei einem Karussell mit Gondeln in gleichen Abständen kommt nach einer Drehung um 24° die nächste Gondel an die Stelle der vorigen. Wie viele Gondeln hat es?"
    },
    "o": {
-    "wert": 120,
-    "einheit": "°"
+    "wert": 15
    },
-   "c": "360 / 3",
-   "w": "360° : 3 = 120°.",
-   "h": "Eine ganze Drehung wird in gleiche Teile geteilt."
+   "c": "360 / 24",
+   "w": "Eine ganze Drehung (360°) besteht aus gleichen Schritten von 24°: 360° : 24° = 15 Gondeln.",
+   "h": "Wie oft passen 24° in eine ganze Drehung?",
+   "g": "rueckwaerts"
   },
   {
    "l": "drehungen",
    "t": "drehungen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Karussell hat 5 Gondeln in gleichen Abständen. Um wie viel Grad muss es sich drehen, damit die nächste Gondel an die Stelle der vorigen kommt?"
+    "text": "Du schaust nach Südwesten und drehst dich im Uhrzeigersinn nach Norden. Um wie viel Grad drehst du dich (kürzester Weg im Uhrzeigersinn)?"
    },
    "o": {
-    "wert": 72,
+    "wert": 135,
     "einheit": "°"
    },
-   "c": "360 / 5",
-   "w": "360° : 5 = 72°.",
-   "h": "Eine ganze Drehung wird in gleiche Teile geteilt."
+   "c": "3 * 45",
+   "w": "3 Schritte auf der Windrose zu je 45°: 135°.",
+   "h": "Zwischen benachbarten Richtungen der Windrose liegen 45°.",
+   "g": "direkt"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind eine Dreivierteldrehung?"
+   },
+   "o": {
+    "wert": 270,
+    "einheit": "°"
+   },
+   "c": "360 * 3 / 4",
+   "w": "360° : 4 = 90°, dreimal: 270°.",
+   "h": "Eine Vierteldrehung sind 90°.",
+   "g": "erkennen"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Du schaust nach Westen und drehst dich um 90° gegen den Uhrzeigersinn. Wohin schaust du jetzt?"
+   },
+   "a": [
+    "Südwesten",
+    "Osten",
+    "Norden",
+    "Süden"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegen den Uhrzeigersinn von Westen aus: über Südwesten nach Süden (2 · 45° = 90°).",
+   "h": "Gegen den Uhrzeigersinn heißt: links herum.",
+   "g": "umkehr"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Riesenrad dreht sich in 8 Minuten einmal ganz herum. Um wie viel Grad dreht es sich in 2 Minuten?"
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "360 * 2 // 8",
+   "w": "2 Minuten sind ein Viertel von 8 Minuten: 360° : 4 = 90°.",
+   "h": "Welcher Teil einer ganzen Drehung ist das?"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Du drehst dich erst um 90° und dann um 45° im Uhrzeigersinn. Um wie viel Grad hast du dich insgesamt gedreht?"
+   },
+   "o": {
+    "wert": 135
+   },
+   "c": "90 + 45",
+   "w": "Drehungen in dieselbe Richtung addiert man: 135°.",
+   "h": "Addiere die Drehungen."
   },
   {
    "l": "drehungen",
@@ -9146,128 +10557,123 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Ein Zeiger zeigt nach Norden. Er dreht sich 10-mal hintereinander um 45° im Uhrzeigersinn. Wohin zeigt er jetzt?"
+   },
    "a": [
-    "Südwesten",
     "Nordosten",
-    "Norden",
-    "Osten"
+    "Osten",
+    "Süden",
+    "Norden"
    ],
    "o": {
     "index": 1
    },
-   "f": {
-    "text": "Du schaust nach Nordwesten und drehst dich um 270° gegen den Uhrzeigersinn. Wohin schaust du jetzt?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_M": [
-       0,
-       0
-      ],
-      "N": [
-       0.0,
-       4.0
-      ],
-      "NO": [
-       2.828,
-       2.828
-      ],
-      "O": [
-       4.0,
-       0.0
-      ],
-      "SO": [
-       2.828,
-       -2.828
-      ],
-      "S": [
-       0.0,
-       -4.0
-      ],
-      "SW": [
-       -2.828,
-       -2.828
-      ],
-      "W": [
-       -4.0,
-       -0.0
-      ],
-      "NW": [
-       -2.828,
-       2.828
-      ]
-     },
-     "linien": [
-      [
-       "_M",
-       "N",
-       "",
-       ""
-      ],
-      [
-       "_M",
-       "NO",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_M",
-       "O",
-       "",
-       ""
-      ],
-      [
-       "_M",
-       "SO",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_M",
-       "S",
-       "",
-       ""
-      ],
-      [
-       "_M",
-       "SW",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "_M",
-       "W",
-       "",
-       ""
-      ],
-      [
-       "_M",
-       "NW",
-       "",
-       "gestrichelt"
-      ]
-     ]
-    }
-   },
-   "w": "270° : 45° = 6 Schritte gegen den Uhrzeigersinn (N → NW → W …) von Nordwesten aus: Nordosten.",
-   "h": "Gegen den Uhrzeigersinn geht es auf der Windrose N → NW → W → SW …"
+   "w": "10 · 45° = 450° = 360° + 90°. Nach einer ganzen Runde noch 90° weiter: Osten.",
+   "h": "Zieh ganze Runden (360°) ab.",
+   "g": "transfer"
   },
   {
    "l": "drehungen",
    "t": "drehungen",
    "p": "uebung",
    "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Du schaust nach Osten. Du drehst dich erst 135° im Uhrzeigersinn, dann 270° gegen den Uhrzeigersinn. Wohin schaust du jetzt?"
+   },
+   "a": [
+    "Nordwesten",
+    "Südwesten",
+    "Norden",
+    "Nordosten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Osten + 135° im Uhrzeigersinn = Südwesten. Dann 270° zurück: Südwesten → Süden → … → Nordwesten (6 Schritte zu 45°).",
+   "h": "Rechne die Richtungen als Grad: Norden 0°, Osten 90°, Süden 180°, Westen 270°.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Nach einer Drehung um 225° im Uhrzeigersinn schaust du nach Norden. Wohin hast du vorher geschaut?"
+   },
+   "a": [
+    "Osten",
+    "Südwesten",
+    "Südosten",
+    "Nordwesten"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Rückwärts: 225° gegen den Uhrzeigersinn von Norden aus: Nordwesten, Westen, Südwesten, Süden, Südosten.",
+   "h": "Drehe rückwärts: gleich viel Grad, aber gegen den Uhrzeigersinn.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Von Norden nach Westen im Uhrzeigersinn sind es 90°.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, es sind 180°.",
+    "Nein: im Uhrzeigersinn über Osten und Süden sind es 270°.",
+    "Ja, das stimmt.",
+    "Nein, es sind 45°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Im Uhrzeigersinn: N → O (90°) → S (180°) → W (270°). 90° wären es gegen den Uhrzeigersinn.",
+   "h": "Welche Richtungen liegen im Uhrzeigersinn zwischen Norden und Westen?",
+   "g": "fehler"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Ein Roboter dreht sich zuerst um 135° und dann noch einmal um 45° in dieselbe Richtung. Um wie viel Grad müsste er sich noch weiter drehen, bis er wieder in die Startrichtung schaut?"
+    "text": "Ein Roboter läuft 1 m, dreht sich um 90° nach rechts, läuft 2 m, dreht sich um 90° nach rechts, läuft 3 m und so weiter. Wie viele Meter ist er gelaufen, bevor er zum ersten Mal wieder in seine Anfangsrichtung losläuft?"
    },
    "o": {
-    "wert": 180,
-    "einheit": "°"
+    "wert": 10,
+    "einheit": "m"
    },
-   "c": "360 - (135 + 45) % 360",
-   "w": "Bisher 135° + 45° = 180°. Bis 360° fehlen 180°.",
-   "h": "Eine volle Drehung sind 360°."
+   "c": "1 + 2 + 3 + 4",
+   "w": "Nach vier Rechtsdrehungen (4 · 90° = 360°) zeigt er wieder in die Anfangsrichtung. Bis dahin ist er 1 + 2 + 3 + 4 = 10 m gelaufen.",
+   "h": "Nach wie vielen Drehungen um 90° zeigt er wieder in die Anfangsrichtung?"
+  },
+  {
+   "l": "drehungen",
+   "t": "drehungen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreisel dreht sich jede Sekunde um 100°. Nach wie vielen Sekunden zeigt seine Markierung zum ersten Mal wieder genau in die Anfangsrichtung?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "s"
+   },
+   "c": "18",
+   "w": "Gesucht ist das erste Vielfache von 100°, das ein Vielfaches von 360° ist: 1 800° = 5 · 360°. 1 800° : 100° = 18 Sekunden.",
+   "h": "Wann ist die gesamte Drehung ein Vielfaches von 360°?"
   },
   {
    "l": "drehungen",
@@ -10386,170 +11792,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Rechteck ABCD teilt die Diagonale [AC] den Winkel bei A. Ein Teil ist 48°. Wie groß ist der andere Teil?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       7,
-       0
-      ],
-      "C": [
-       7,
-       7.774
-      ],
-      "D": [
-       0,
-       7.774
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C",
-      "D"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "D"
-      ],
-      [
-       "D",
-       "A"
-      ],
-      [
-       "A",
-       "C",
-       "",
-       "gestrichelt"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "48°"
-      ],
-      [
-       "A",
-       "C",
-       "D",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 42,
-    "einheit": "°"
-   },
-   "c": "90 - 48",
-   "w": "Der Eckwinkel ist 90°: 90° − 48° = 42°.",
-   "h": "Jeder Eckwinkel im Rechteck ist 90°."
-  },
-  {
-   "l": "figuren",
-   "t": "figuren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Im Rechteck ABCD teilt die Diagonale [AC] den Winkel bei A. Ein Teil ist 30°. Wie groß ist der andere Teil?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       7,
-       0
-      ],
-      "C": [
-       7,
-       4.041
-      ],
-      "D": [
-       0,
-       4.041
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C",
-      "D"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "D"
-      ],
-      [
-       "D",
-       "A"
-      ],
-      [
-       "A",
-       "C",
-       "",
-       "gestrichelt"
-      ]
-     ],
-     "winkel": [
-      [
-       "A",
-       "B",
-       "C",
-       "30°"
-      ],
-      [
-       "A",
-       "C",
-       "D",
-       "?"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "90 - 30",
-   "w": "Der Eckwinkel ist 90°: 90° − 30° = 60°.",
-   "h": "Jeder Eckwinkel im Rechteck ist 90°."
-  },
-  {
-   "l": "figuren",
-   "t": "figuren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "Im Rechteck ABCD teilt die Diagonale [AC] den Winkel bei A. Ein Teil ist 22°. Wie groß ist der andere Teil?",
     "grafik": {
      "typ": "figur",
@@ -10624,6 +11866,125 @@
    "c": "90 - 22",
    "w": "Der Eckwinkel ist 90°: 90° − 22° = 68°.",
    "h": "Jeder Eckwinkel im Rechteck ist 90°."
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist um 58° größer als der andere. Wie groß ist der größere Teil?"
+   },
+   "o": {
+    "wert": 74,
+    "einheit": "°"
+   },
+   "c": "(90 + 58) / 2",
+   "w": "Zusammen 90°. Ohne den Unterschied: 90° − 58° = 32°, halbiert 16°. Der größere Teil: 16° + 58° = 74°.",
+   "h": "Nimm den Unterschied weg, dann bleiben zwei gleich große Teile.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Rechteck ABCD teilt die Diagonale [AC] den Winkel bei A. Ein Teil ist 48°. Wie groß ist der andere Teil?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       7,
+       0
+      ],
+      "C": [
+       7,
+       7.774
+      ],
+      "D": [
+       0,
+       7.774
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ],
+      [
+       "A",
+       "C",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "48°"
+      ],
+      [
+       "A",
+       "C",
+       "D",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 42,
+    "einheit": "°"
+   },
+   "c": "90 - 48",
+   "w": "Der Eckwinkel ist 90°: 90° − 48° = 42°.",
+   "h": "Jeder Eckwinkel im Rechteck ist 90°.",
+   "g": "direkt"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist um 52° größer als der andere. Wie groß ist der größere Teil?"
+   },
+   "o": {
+    "wert": 71,
+    "einheit": "°"
+   },
+   "c": "(90 + 52) / 2",
+   "w": "Zusammen 90°. Ohne den Unterschied: 90° − 52° = 38°, halbiert 19°. Der größere Teil: 19° + 52° = 71°.",
+   "h": "Nimm den Unterschied weg, dann bleiben zwei gleich große Teile.",
+   "g": "mehrschritt"
   },
   {
    "l": "figuren",
@@ -10711,6 +12072,125 @@
    "l": "figuren",
    "t": "figuren",
    "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist 2-mal so groß wie der andere. Wie groß ist der größere Teil?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "2 * 90 / (2 + 1)",
+   "w": "Zusammen 90°, das sind 3 gleiche Teile: 90° : 3 = 30°. Der größere Teil: 2 · 30° = 60°.",
+   "h": "Die beiden Teile bestehen zusammen aus 3 gleichen Stücken.",
+   "g": "parameter"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Rechteck ABCD teilt die Diagonale [AC] den Winkel bei A. Ein Teil ist 30°. Wie groß ist der andere Teil?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       7,
+       0
+      ],
+      "C": [
+       7,
+       4.041
+      ],
+      "D": [
+       0,
+       4.041
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ],
+      [
+       "A",
+       "C",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "30°"
+      ],
+      [
+       "A",
+       "C",
+       "D",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "90 - 30",
+   "w": "Der Eckwinkel ist 90°: 90° − 30° = 60°.",
+   "h": "Jeder Eckwinkel im Rechteck ist 90°.",
+   "g": "direkt"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller vier Eckwinkel eines Rechtecks?"
+   },
+   "o": {
+    "wert": 360,
+    "einheit": "°"
+   },
+   "c": "4 * 90",
+   "w": "Vier rechte Winkel: 4 · 90° = 360°.",
+   "h": "Jede Ecke eines Rechtecks ist ein rechter Winkel.",
+   "g": "erkennen"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
@@ -10788,6 +12268,78 @@
    "c": "90 - 32",
    "w": "Der Eckwinkel ist 90°: 90° − 32° = 58°.",
    "h": "Jeder Eckwinkel im Rechteck ist 90°."
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechter Winkel wird durch 4 Strahlen in 5 gleich große Winkel geteilt. Wie groß ist jeder?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "°"
+   },
+   "c": "90 / 5",
+   "w": "Ein rechter Winkel hat 90°: 90° : 5 = 18°.",
+   "h": "Ein rechter Winkel hat 90°.",
+   "g": "umkehr"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von einer Ecke eines Rechtecks gehen zwei Strecken aus, die den Eckwinkel in drei Teile teilen. Zwei Teile sind 16° und 23°. Wie groß ist der dritte Teil?"
+   },
+   "o": {
+    "wert": 51,
+    "einheit": "°"
+   },
+   "c": "90 - 16 - 23",
+   "w": "Der Eckwinkel im Rechteck ist 90°: 90° − 16° − 23° = 51°.",
+   "h": "Alle drei Teile ergeben zusammen den Eckwinkel.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Schranke liegt waagrecht. Sie wird um 30° nach oben gedreht. Um wie viel Grad muss sie noch weiter gedreht werden, bis sie senkrecht steht?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "90 - 30",
+   "w": "Von waagrecht bis senkrecht sind es 90°. Es fehlen 90° − 30° = 60°.",
+   "h": "Waagrecht und senkrecht bilden einen rechten Winkel.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist 5-mal so groß wie der andere. Wie groß ist der größere Teil?"
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "°"
+   },
+   "c": "5 * 90 / (5 + 1)",
+   "w": "Zusammen 90°, das sind 6 gleiche Teile: 90° : 6 = 15°. Der größere Teil: 5 · 15° = 75°.",
+   "h": "Die beiden Teile bestehen zusammen aus 6 gleichen Stücken.",
+   "g": "parameter"
   },
   {
    "l": "figuren",
@@ -10875,52 +12427,41 @@
    "l": "figuren",
    "t": "figuren",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechter Winkel wird durch 4 Strahlen in 5 gleich große Winkel geteilt. Wie groß ist jeder?"
+    "text": "Im Quadrat ABCD teilt die Diagonale [AC] den Winkel bei A in zwei gleich große Teile. Wie groß ist jeder Teil?"
    },
    "o": {
-    "wert": 18,
+    "wert": 45,
     "einheit": "°"
    },
-   "c": "90 / 5",
-   "w": "Ein rechter Winkel hat 90°: 90° : 5 = 18°.",
-   "h": "Ein rechter Winkel hat 90°."
+   "c": "90 / 2",
+   "w": "Die Ecke hat 90°. Halbiert: 90° : 2 = 45°.",
+   "h": "Im Quadrat teilt die Diagonale die Ecke genau in der Mitte.",
+   "g": "direkt"
   },
   {
    "l": "figuren",
    "t": "figuren",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
    "f": {
-    "text": "Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist um 58° größer als der andere. Wie groß ist der größere Teil?"
+    "text": "Wie groß ist jeder Eckwinkel eines Rechtecks?"
    },
+   "a": [
+    "60°",
+    "180°",
+    "90°",
+    "45°"
+   ],
    "o": {
-    "wert": 74,
-    "einheit": "°"
+    "index": 2
    },
-   "c": "(90 + 58) / 2",
-   "w": "Zusammen 90°. Ohne den Unterschied: 90° − 58° = 32°, halbiert 16°. Der größere Teil: 16° + 58° = 74°.",
-   "h": "Nimm den Unterschied weg, dann bleiben zwei gleich große Teile."
-  },
-  {
-   "l": "figuren",
-   "t": "figuren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist um 52° größer als der andere. Wie groß ist der größere Teil?"
-   },
-   "o": {
-    "wert": 71,
-    "einheit": "°"
-   },
-   "c": "(90 + 52) / 2",
-   "w": "Zusammen 90°. Ohne den Unterschied: 90° − 52° = 38°, halbiert 19°. Der größere Teil: 19° + 52° = 71°.",
-   "h": "Nimm den Unterschied weg, dann bleiben zwei gleich große Teile."
+   "w": "Alle vier Ecken eines Rechtecks sind rechte Winkel.",
+   "h": "Denk an die Ecke eines Blattes."
   },
   {
    "l": "figuren",
@@ -10937,7 +12478,8 @@
    },
    "c": "90 / 6",
    "w": "Ein rechter Winkel hat 90°: 90° : 6 = 15°.",
-   "h": "Ein rechter Winkel hat 90°."
+   "h": "Ein rechter Winkel hat 90°.",
+   "g": "umkehr"
   },
   {
    "l": "figuren",
@@ -10977,58 +12519,7 @@
    "l": "figuren",
    "t": "figuren",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Von einer Ecke eines Rechtecks gehen zwei Strecken aus, die den Eckwinkel in drei Teile teilen. Zwei Teile sind 16° und 23°. Wie groß ist der dritte Teil?"
-   },
-   "o": {
-    "wert": 51,
-    "einheit": "°"
-   },
-   "c": "90 - 16 - 23",
-   "w": "Der Eckwinkel im Rechteck ist 90°: 90° − 16° − 23° = 51°.",
-   "h": "Alle drei Teile ergeben zusammen den Eckwinkel."
-  },
-  {
-   "l": "figuren",
-   "t": "figuren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schranke liegt waagrecht. Sie wird um 30° nach oben gedreht. Um wie viel Grad muss sie noch weiter gedreht werden, bis sie senkrecht steht?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "90 - 30",
-   "w": "Von waagrecht bis senkrecht sind es 90°. Es fehlen 90° − 30° = 60°.",
-   "h": "Waagrecht und senkrecht bilden einen rechten Winkel."
-  },
-  {
-   "l": "figuren",
-   "t": "figuren",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist 2-mal so groß wie der andere. Wie groß ist der größere Teil?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "2 * 90 / (2 + 1)",
-   "w": "Zusammen 90°, das sind 3 gleiche Teile: 90° : 3 = 30°. Der größere Teil: 2 · 30° = 60°.",
-   "h": "Die beiden Teile bestehen zusammen aus 3 gleichen Stücken."
-  },
-  {
-   "l": "figuren",
-   "t": "figuren",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Eine Schranke liegt waagrecht. Sie wird um 31° nach oben gedreht. Um wie viel Grad muss sie noch weiter gedreht werden, bis sie senkrecht steht?"
@@ -11039,13 +12530,14 @@
    },
    "c": "90 - 31",
    "w": "Von waagrecht bis senkrecht sind es 90°. Es fehlen 90° − 31° = 59°.",
-   "h": "Waagrecht und senkrecht bilden einen rechten Winkel."
+   "h": "Waagrecht und senkrecht bilden einen rechten Winkel.",
+   "g": "einkleidung"
   },
   {
    "l": "figuren",
    "t": "figuren",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Von einer Ecke eines Rechtecks gehen zwei Strecken aus, die den Eckwinkel in drei Teile teilen. Zwei Teile sind 30° und 10°. Wie groß ist der dritte Teil?"
@@ -11056,7 +12548,8 @@
    },
    "c": "90 - 30 - 10",
    "w": "Der Eckwinkel im Rechteck ist 90°: 90° − 30° − 10° = 50°.",
-   "h": "Alle drei Teile ergeben zusammen den Eckwinkel."
+   "h": "Alle drei Teile ergeben zusammen den Eckwinkel.",
+   "g": "mehrschritt"
   },
   {
    "l": "figuren",
@@ -11065,15 +12558,164 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist 5-mal so groß wie der andere. Wie groß ist der größere Teil?"
+    "text": "Im Quadrat ABCD geht von A eine Strecke zu einem Punkt auf der Seite [BC]. Sie bildet mit [AB] einen Winkel von 28°. Wie groß ist der Winkel zwischen der Strecke und [AD]?"
    },
    "o": {
-    "wert": 75,
+    "wert": 62,
     "einheit": "°"
    },
-   "c": "5 * 90 / (5 + 1)",
-   "w": "Zusammen 90°, das sind 6 gleiche Teile: 90° : 6 = 15°. Der größere Teil: 5 · 15° = 75°.",
-   "h": "Die beiden Teile bestehen zusammen aus 6 gleichen Stücken."
+   "c": "90 - 28",
+   "w": "Der Winkel bei A ist 90° und wird in 28° und den Rest geteilt: 90° − 28° = 62°.",
+   "h": "Wie groß ist der ganze Winkel bei A?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Im Rechteck teilt die Diagonale jede Ecke in zwei Winkel von 45°.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, das gilt nur im Quadrat. In einem langen Rechteck sind die Teile verschieden.",
+    "Ja, in jedem Rechteck.",
+    "Ja, weil jede Ecke 90° hat.",
+    "Nein, die Teile sind immer 30° und 60°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei einem Rechteck mit 6 cm und 2 cm ist die Diagonale flach: Die Teile sind ungleich. Nur beim Quadrat sind es 2 · 45°.",
+   "h": "Denk an ein sehr langes, schmales Rechteck.",
+   "g": "begruenden"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Eckwinkel eines Rechtecks wird in 3 Teile geteilt. Die beiden äußeren Teile sind gleich groß, der mittlere ist doppelt so groß wie jeder äußere. Wie groß ist der mittlere Teil?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "2 * 90 / 4",
+   "w": "Außen je 1 Teil, Mitte 2 Teile: zusammen 4 Teile = 90°. Ein Teil 22,5°, der mittlere 45°.",
+   "h": "Zähle die Teile: 1 + 2 + 1.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist 4-mal so groß wie der andere. Wie groß ist der kleinere Teil?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "°"
+   },
+   "c": "90 / 5",
+   "w": "Zusammen 1 + 4 = 5 Teile = 90°. Ein Teil: 90° : 5 = 18°.",
+   "h": "Wie viele gleiche Teile sind es insgesamt?",
+   "g": "parameter"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Eine Strecke teilt den Eckwinkel eines Rechtecks in 30° und 70°.“ Was ist falsch?"
+   },
+   "a": [
+    "Ein Eckwinkel hat 180°.",
+    "Nichts, das passt.",
+    "Die Teile müssen gleich groß sein.",
+    "30° + 70° = 100°, ein Eckwinkel hat aber nur 90°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die beiden Teile müssen zusammen 90° ergeben.",
+   "h": "Was ergeben die Teile zusammen?"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fächer lässt sich bis zu einem rechten Winkel öffnen und hat 6 gleich breite Fächerblätter nebeneinander. Wie groß ist der Winkel eines Blatts?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "90 // 6",
+   "w": "Der rechte Winkel wird geteilt: 90° : 6 = 15°.",
+   "h": "Welcher Winkel wird geteilt?"
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Im Rechteck teilt die Diagonale den Winkel bei A in 36° und 54°. Eine Strecke von A halbiert den 36°-Teil. Wie groß ist der Winkel zwischen dieser Strecke und der Rechteckseite, die am 54°-Teil anliegt?"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "36 // 2 + 54",
+   "w": "Die Hälfte von 36° ist 18°. Zwischen der Strecke und der anderen Seite liegen 18° + 54° = 72°.",
+   "h": "Zeichne eine Skizze und markiere alle Teilwinkel."
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechter Winkel wird durch Strahlen in Teile geteilt. Der kleinste Teil ist 12°, jeder weitere ist 3° größer als der vorige. Wie viele Teile sind es?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "12° + 15° + 18° + 21° + 24° = 90°. Es sind 5 Teile.",
+   "h": "Addiere die Teile, bis 90° erreicht sind."
+  },
+  {
+   "l": "figuren",
+   "t": "figuren",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechter Winkel wird durch 2 Strahlen in 3 gleiche Teile geteilt. Zwischen je zwei der nun 4 Schenkel liegt ein Winkel. Wie viele davon sind spitz?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Teilwinkel: 30°, 30°, 30°. Zwischen je zwei der 4 Schenkel: drei Winkel von 30°, zwei von 60° und einer von 90°. Spitz sind 3 + 2 = 5.",
+   "h": "Zähle alle Paare von Schenkeln."
   },
   {
    "l": "figuren",
@@ -11278,7 +12920,29 @@
     "text": "Stimmt die Aussage? „Ein Winkel von 57° und einer von 43° nebeneinander ergeben einen rechten Winkel.“"
    },
    "w": "Nein, denn 57° + 43° = 100°, nicht 90°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, denn 3 Abstände · 30° = 90°.",
+    "Nein, denn 3 · 6° = 18°.",
+    "Nein, denn 3 · 10° = 30°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Um 3:00 Uhr bilden die Zeiger einen Winkel von 90°.“"
+   },
+   "w": "Ja, denn 3 Abstände · 30° = 90°.",
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "mehrschritt"
   },
   {
    "l": "verstehen",
@@ -11298,7 +12962,29 @@
     "text": "Stimmt die Aussage? „In 10 Minuten dreht sich der Minutenzeiger um 10°.“"
    },
    "w": "Nein, denn 10 · 6° = 60°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, im Uhrzeigersinn kommt man nach Südosten.",
+    "Ja, die Drehrichtung ist egal.",
+    "Ja, denn 1 Schritt zu 45° sind 45°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Wer von Osten aus um 45° im Uhrzeigersinn dreht, schaut nach Nordosten.“"
+   },
+   "w": "Nein, im Uhrzeigersinn kommt man nach Südosten.",
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "verknuepfen"
   },
   {
    "l": "verstehen",
@@ -11318,7 +13004,29 @@
     "text": "Stimmt die Aussage? „In 30 Minuten dreht sich der Minutenzeiger um 180°.“"
    },
    "w": "Ja, denn 30 · 6° = 180°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Drei spitze Winkel nebeneinander ergeben immer weniger als 270°.“"
+   },
+   "a": [
+    "Nein, zusammen sind es immer genau 180°.",
+    "Ja, jeder ist kleiner als 90°, zusammen also weniger als 3 · 90° = 270°.",
+    "Nein, z. B. 80° + 80° + 80° = 240°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jeder spitze Winkel ist kleiner als 90°. Drei davon sind zusammen kleiner als 90° + 90° + 90° = 270°. (240° ist kein Gegenbeispiel, sondern passt zur Aussage.)",
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "begruenden"
   },
   {
    "l": "verstehen",
@@ -11338,7 +13046,8 @@
     "text": "Stimmt die Aussage? „Eine halbe Drehung sind 90°.“"
    },
    "w": "Nein, eine halbe Drehung sind 360° : 2 = 180°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
@@ -11367,46 +13076,6 @@
    "s": 1,
    "y": "auswahl",
    "a": [
-    "Nein, denn 10 · 3° = 30°.",
-    "Nein, denn 10 · 30° = 300°.",
-    "Ja, denn 10 · 6° = 60°."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „In 10 Minuten dreht sich der Minutenzeiger um 60°.“"
-   },
-   "w": "Ja, denn 10 · 6° = 60°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, denn 3 Abstände · 30° = 90°.",
-    "Nein, denn 3 · 6° = 18°.",
-    "Nein, denn 3 · 10° = 30°."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Um 3:00 Uhr bilden die Zeiger einen Winkel von 90°.“"
-   },
-   "w": "Ja, denn 3 Abstände · 30° = 90°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
     "Nein, denn 2 · 6° = 12°.",
     "Ja, denn 2 Abstände · 30° = 60°.",
     "Nein, denn 2 · 10° = 20°."
@@ -11418,113 +13087,14 @@
     "text": "Stimmt die Aussage? „Um 2:00 Uhr bilden die Zeiger einen Winkel von 60°.“"
    },
    "w": "Ja, denn 2 Abstände · 30° = 60°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, denn 9 · 6° = 54°.",
-    "Ja, denn 9 · 10° + 30° = 120°.",
-    "Nein, zwischen zwei Stundenzahlen liegen 30°: 3 · 30° = 90°."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Um 9:00 Uhr bilden die Zeiger einen Winkel von 120°.“"
-   },
-   "w": "Nein, zwischen zwei Stundenzahlen liegen 30°: 3 · 30° = 90°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, denn 1 Abstand · 30° = 30°.",
-    "Nein, denn 1 · 10° = 10°.",
-    "Nein, denn 1 · 6° = 6°."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Um 1:00 Uhr bilden die Zeiger einen Winkel von 30°.“"
-   },
-   "w": "Ja, denn 1 Abstand · 30° = 30°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, er ist 180° − 56° = 124°.",
-    "Ja, denn beide ergänzen denselben Nachbarwinkel zu 180°.",
-    "Nein, er ist 360° − 56° = 304°."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „An einer Geradenkreuzung mit α = 56° ist der gegenüberliegende Winkel ebenfalls 56°.“"
-   },
-   "w": "Ja, denn beide ergänzen denselben Nachbarwinkel zu 180°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, denn 5 · 10° = 50°.",
-    "Nein, denn 5 · 6° = 30°.",
-    "Ja, denn 5 Abstände · 30° = 150°."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Um 5:00 Uhr bilden die Zeiger einen Winkel von 150°.“"
-   },
-   "w": "Ja, denn 5 Abstände · 30° = 150°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Nein, im Uhrzeigersinn kommt man nach Südosten.",
-    "Ja, die Drehrichtung ist egal.",
-    "Ja, denn 1 Schritt zu 45° sind 45°."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Wer von Osten aus um 45° im Uhrzeigersinn dreht, schaut nach Nordosten.“"
-   },
-   "w": "Nein, im Uhrzeigersinn kommt man nach Südosten.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "a": [
     "Nein, denn 360° : 4 = 80°.",
@@ -11538,7 +13108,29 @@
     "text": "Stimmt die Aussage? „Vier gleich große Winkel um einen Punkt sind rechte Winkel.“"
    },
    "w": "Ja, denn 360° : 4 = 90°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, denn 9 · 6° = 54°.",
+    "Ja, denn 9 · 10° + 30° = 120°.",
+    "Nein, zwischen zwei Stundenzahlen liegen 30°: 3 · 30° = 90°."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Um 9:00 Uhr bilden die Zeiger einen Winkel von 120°.“"
+   },
+   "w": "Nein, zwischen zwei Stundenzahlen liegen 30°: 3 · 30° = 90°.",
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
@@ -11558,6 +13150,27 @@
     "text": "Stimmt die Aussage? „Wer von Nordosten aus um 225° im Uhrzeigersinn dreht, schaut nach Süden.“"
    },
    "w": "Nein, im Uhrzeigersinn kommt man nach Westen.",
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, denn 1 Abstand · 30° = 30°.",
+    "Nein, denn 1 · 10° = 10°.",
+    "Nein, denn 1 · 6° = 6°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Um 1:00 Uhr bilden die Zeiger einen Winkel von 30°.“"
+   },
+   "w": "Ja, denn 1 Abstand · 30° = 30°.",
    "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
   },
   {
@@ -11566,19 +13179,207 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Ein Dach darf man nur betreten, wenn es höchstens 30° steil ist (Winkel zur Waagrechten). Zwischen Dachfläche und Senkrechter misst man 55°. Darf man es betreten?"
+   },
    "a": [
-    "Ja, jeder ist größer als 90°, zusammen also mehr als 180°.",
-    "Nein, zusammen sind es immer genau 180°.",
-    "Nein, z. B. 100° + 70° = 170°."
+    "Ja, die Steigung ist 25°.",
+    "Nein, die Steigung ist 55°.",
+    "Ja, 55° ist kleiner als 90°.",
+    "Nein, die Steigung ist 35°."
    ],
    "o": {
-    "index": 0
+    "index": 3
+   },
+   "w": "Waagrechte und Senkrechte bilden 90°. Steigung: 90° − 55° = 35°. Das ist mehr als 30°.",
+   "h": "Wie groß ist der Winkel zwischen Waagrechter und Senkrechter?",
+   "g": "transfer"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Ein spitzer und ein stumpfer Winkel nebeneinander ergeben immer einen gestreckten Winkel.“"
+   },
+   "a": [
+    "Ja, immer genau 180°.",
+    "Ja, weil spitz + stumpf = gestreckt ist.",
+    "Nein, z. B. 30° + 100° = 130°.",
+    "Nein, sie ergeben immer mehr als 180°."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Gegenbeispiel genügt: 30° (spitz) + 100° (stumpf) = 130°, nicht 180°.",
+   "h": "Suche ein Gegenbeispiel.",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, denn 10 · 3° = 30°.",
+    "Nein, denn 10 · 30° = 300°.",
+    "Ja, denn 10 · 6° = 60°."
+   ],
+   "o": {
+    "index": 2
    },
    "f": {
-    "text": "Stimmt die Aussage? „Zwei stumpfe Winkel nebeneinander ergeben immer mehr als 180°.“"
+    "text": "Stimmt die Aussage? „In 10 Minuten dreht sich der Minutenzeiger um 60°.“"
    },
-   "w": "Ja, jeder ist größer als 90°, zusammen also mehr als 180°.",
+   "w": "Ja, denn 10 · 6° = 60°.",
    "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, denn 5 · 10° = 50°.",
+    "Nein, denn 5 · 6° = 30°.",
+    "Ja, denn 5 Abstände · 30° = 150°."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Um 5:00 Uhr bilden die Zeiger einen Winkel von 150°.“"
+   },
+   "w": "Ja, denn 5 Abstände · 30° = 150°.",
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Winkel, die zusammen 90° ergeben, sind beide spitz.“"
+   },
+   "a": [
+    "Nein: Einer kann stumpf sein.",
+    "Ja: Jeder ist kleiner als 90°.",
+    "Nein: Beide sind rechte Winkel."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ist die Summe 90°, muss jeder Teil kleiner als 90° sein – also spitz.",
+   "h": "Kann einer der beiden 90° oder mehr haben?",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind zwei rechte Winkel zusammen?"
+   },
+   "o": {
+    "wert": 180
+   },
+   "c": "90 + 90",
+   "w": "90° + 90° = 180°: ein gestreckter Winkel.",
+   "h": "Addiere."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, er ist 180° − 56° = 124°.",
+    "Ja, denn beide ergänzen denselben Nachbarwinkel zu 180°.",
+    "Nein, er ist 360° − 56° = 304°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „An einer Geradenkreuzung mit α = 56° ist der gegenüberliegende Winkel ebenfalls 56°.“"
+   },
+   "w": "Ja, denn beide ergänzen denselben Nachbarwinkel zu 180°.",
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "darstellung"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, denn 90° : 8 = 11,25°.",
+    "Nein, denn 180° : 8 = 22,5°.",
+    "Ja, denn 360° : 8 = 45°."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „8 gleich große Winkel um einen Punkt sind je 45° groß.“"
+   },
+   "w": "Ja, denn 360° : 8 = 45°.",
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Wenn zwei gleich große Winkel nebeneinander einen gestreckten Winkel bilden, ist jeder ein rechter Winkel.“"
+   },
+   "a": [
+    "Nein: Jeder ist 180°.",
+    "Ja: 180° : 2 = 90°.",
+    "Nein: Jeder ist 45°.",
+    "Nur, wenn beide spitz sind."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "180° : 2 = 90°: Jeder der beiden ist ein rechter Winkel.",
+   "h": "Teile den gestreckten Winkel in zwei gleiche Teile."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Zirkel wird von 40° auf 100° aufgeklappt. Stimmt: „Der Winkel hat sich mehr als verdoppelt“?"
+   },
+   "a": [
+    "Nein, er hat sich genau verdoppelt.",
+    "Nein, er ist kleiner geworden.",
+    "Ja, er hat sich verdreifacht.",
+    "Ja: Das Doppelte von 40° wären 80°, 100° ist mehr."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2 · 40° = 80° < 100°.",
+   "h": "Rechne das Doppelte von 40° aus."
   },
   {
    "l": "verstehen",
@@ -11598,7 +13399,8 @@
     "text": "Stimmt die Aussage? „Wer sich von Norden aus um 270° im Uhrzeigersinn dreht, schaut nach Westen.“"
    },
    "w": "Ja, 270° sind drei Vierteldrehungen: N → O → S → W.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.",
+   "g": "verknuepfen"
   },
   {
    "l": "verstehen",
@@ -11606,19 +13408,103 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Gegenüberliegende Winkel an einer Geradenkreuzung ergeben zusammen 180°.“"
+   },
    "a": [
-    "Nein, denn 90° : 8 = 11,25°.",
-    "Nein, denn 180° : 8 = 22,5°.",
-    "Ja, denn 360° : 8 = 45°."
+    "Nein: Sie ergeben 360°.",
+    "Ja, immer.",
+    "Nein: Gegenüberliegende Winkel sind gleich groß. Nachbarwinkel ergeben 180°."
    ],
    "o": {
     "index": 2
    },
+   "w": "Beispiel: α = 70°, dann ist der gegenüberliegende Winkel auch 70°. Zusammen 140°, nicht 180°.",
+   "h": "Prüfe mit einem Beispiel, z. B. 70°.",
+   "g": "fehler"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Stimmt die Aussage? „8 gleich große Winkel um einen Punkt sind je 45° groß.“"
+    "text": "Stimmt die Aussage? „Drei spitze Winkel können um einen Punkt lückenlos einen Vollwinkel bilden.“"
    },
-   "w": "Ja, denn 360° : 8 = 45°.",
-   "h": "Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze."
+   "a": [
+    "Nein: Sie ergeben immer genau 180°.",
+    "Nein: Drei spitze Winkel sind zusammen weniger als 270°.",
+    "Ja, wenn sie gleich groß sind.",
+    "Ja, z. B. 3 · 120°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jeder spitze Winkel ist kleiner als 90°, drei also kleiner als 270°. 360° werden nie erreicht. (120° ist stumpf.)",
+   "h": "Wie groß können drei spitze Winkel zusammen höchstens werden?",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Halbiert man einen stumpfen Winkel, entsteht immer ein spitzer Winkel.“"
+   },
+   "a": [
+    "Nur bei 100°.",
+    "Nein: Die Hälfte von 170° ist stumpf.",
+    "Nein, es entsteht ein rechter Winkel.",
+    "Ja: Die Hälfte von weniger als 180° ist weniger als 90°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein stumpfer Winkel ist kleiner als 180°. Seine Hälfte ist kleiner als 90°, also spitz (z. B. 170° : 2 = 85°).",
+   "h": "Rechne die Hälfte des größten stumpfen Winkels aus, z. B. 179°.",
+   "g": "transfer"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele dieser Aussagen stimmen immer? (1) Zwei stumpfe Winkel ergeben zusammen mehr als 180°. (2) Zwei spitze Winkel ergeben zusammen weniger als 180°. (3) Ein überstumpfer und ein spitzer Winkel ergeben zusammen mehr als 180°. (4) Zwei rechte Winkel ergeben zusammen einen gestreckten Winkel."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "(1) Jeder ist größer als 90°, zusammen mehr als 180°. (2) Jeder ist kleiner als 90°, zusammen weniger als 180°. (3) Der überstumpfe ist schon größer als 180°. (4) 90° + 90° = 180°. Alle 4 stimmen.",
+   "h": "Prüfe jede Aussage mit den Grenzen der Winkelarten."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Winkel wird halbiert, die Hälfte noch einmal halbiert und diese noch einmal halbiert. Am Ende ist der Winkel 20° groß. Welche Art hatte der Anfangswinkel?"
+   },
+   "a": [
+    "überstumpf",
+    "spitz",
+    "stumpf",
+    "gestreckt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Rückwärts verdoppeln: 20° → 40° → 80° → 160°. 160° ist stumpf.",
+   "h": "Rechne rückwärts."
   },
   {
    "l": "verstehen",
@@ -11812,7 +13698,7 @@
   }
  ],
  "offen": [
-  "WICHTIG: themenliste.json ordnet „Winkelsätze“ Kl. 5 zu, nennt aber keinen lehrplan_gym-Wortlaut. Laut LehrplanPLUS Gymnasium Kl. 5 gibt es nur „Winkel bis 360° messen, zeichnen, beschreiben“. Stufen-/Wechselwinkel und Innenwinkelsummen (Dreieck, Viereck) sind Stoff der Jahrgangsstufe 7 und wurden weggelassen. Vorschlag: dieses Thema für Kl. 5 so lassen und die eigentlichen Winkelsätze als Kl.-7-Thema führen.",
+  "Das Thema heißt „Mit Winkeln rechnen“ (Kl. 5, LehrplanPLUS: Winkel bis 360° messen, zeichnen, beschreiben). Stufen- und Wechselwinkel, Neben- und Scheitelwinkel sowie Innenwinkelsummen (Dreieck, Viereck) sind Stoff der Jahrgangsstufe 7 und stehen im eigenen Flug „Winkelsätze“ (geometrie.winkelsaetze, Kl. 7, M7 2.2). Die Lernkarte kreuzung ist hier Vertiefung (Vorgriff auf Kl. 7).",
   "Nachbarwinkel an der Geradenkreuzung werden nur über „ergänzen zu 180°“ begründet, ohne die Fachbegriffe Neben-/Scheitelwinkel einzuführen (Kl. 7).",
   "Zeichnungen: Strahlenfächer und Geradenkreuzung als Figur mit Winkelbögen, Rechteck/Quadrat mit Diagonale; Uhr (Zifferblatt mit Zeigern) und Windrose als Figur in den Lernkarten uhr und drehungen und in Aufgaben."
  ]

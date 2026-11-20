@@ -1,0 +1,137 @@
+{
+ "schluessel": "8-schuelerzeitung",
+ "klasse": {
+  "gym_by": 8
+ },
+ "titel": "Schülerzeitung",
+ "autor": "Claude (Auftrag Expeditionen Klasse 8)",
+ "einleitung": "Eure Schülerzeitung wird in einer Druckerei gedruckt. Für jede Ausgabe zahlt ihr einmalig 180 € für das Einrichten der Maschine und zusätzlich 0,60 € pro gedrucktem Heft. Je mehr Hefte gedruckt werden, desto weniger kostet deshalb ein einzelnes Heft: Bei x Heften sind es k(x) = 180/x + 0,6 Euro pro Heft.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "terme.bruchterme",
+   "lernziel": "termwert"
+  },
+  {
+   "thema_schluessel": "gleichungen.bruch",
+   "lernziel": "ein_bruch"
+  },
+  {
+   "thema_schluessel": "funktionen.gebrochen",
+   "lernziel": "asymptoten"
+  },
+  {
+   "thema_schluessel": "funktionen.linear",
+   "lernziel": "schnittpunkte"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Euro kostet ein einzelnes Heft, wenn 150 Hefte gedruckt werden?"
+   },
+   "o": {
+    "wert": 1.8,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "180 / 150 + 0.6",
+   "w": "Gegeben: k(x) = 180/x + 0,6, x = 150. Gesucht: k(150). Ansatz: einsetzen. Rechnung: 180 : 150 = 1,20; 1,20 + 0,60 = 1,80. Antwort: Ein Heft kostet dann 1,80 €.",
+   "h": "Setze 150 für x ein und rechne den Bruch zuerst aus.",
+   "bezug": {
+    "thema_schluessel": "terme.bruchterme",
+    "lernziel": "termwert"
+   }
+  },
+  {
+   "k": "b",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Heft soll in der Herstellung genau 1 € kosten. Wie viele Hefte müssen dafür gedruckt werden?"
+   },
+   "o": {
+    "wert": 450
+   },
+   "c": "180 / (1 - 0.6)",
+   "w": "Gegeben: 180/x + 0,6 = 1, x > 0. Gesucht: x. Ansatz: 0,6 abziehen, dann mit x multiplizieren. Rechnung: 180/x = 0,4 ⇒ 180 = 0,4x ⇒ x = 450. Probe: 180 : 450 + 0,6 = 0,4 + 0,6 = 1 ✓. Antwort: Es müssen 450 Hefte gedruckt werden.",
+   "h": "Bringe zuerst den Bruch allein auf eine Seite.",
+   "bezug": {
+    "thema_schluessel": "gleichungen.bruch",
+    "lernziel": "ein_bruch"
+   }
+  },
+  {
+   "k": "c",
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph zeigt die Kosten pro Heft. Jemand meint: „Wenn wir nur genug Hefte drucken, kostet ein Heft irgendwann weniger als 50 Cent.“ Stimmt das?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      600
+     ],
+     "y": [
+      0,
+      3
+     ],
+     "schritt_x": 100,
+     "schritt_y": 0.5,
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 180,
+       "b": 0,
+       "c": 0.6,
+       "bereich": [
+        60,
+        600
+       ],
+       "name": "k"
+      }
+     ],
+     "name_x": "Hefte",
+     "name_y": "€ pro Heft"
+    }
+   },
+   "a": [
+    "Nein: Die Kosten pro Heft kommen 0,60 € beliebig nahe, sinken aber nie darunter.",
+    "Ja: Bei mehr als 1 000 Heften kostet ein Heft weniger als 50 Cent.",
+    "Ja: Die Kosten pro Heft sinken immer weiter, bis fast auf 0 €.",
+    "Nein: Ab 450 Heften bleiben die Kosten pro Heft genau bei 1 €."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: k(x) = 180/x + 0,6. Gesucht: Kann k(x) < 0,50 werden? Ansatz: Wie verhält sich 180/x für sehr große x? Rechnung: 180/x wird beliebig klein, bleibt aber positiv; also ist k(x) immer größer als 0,6. Die Gerade y = 0,6 ist die waagrechte Asymptote. Antwort: Nein, unter 0,60 € pro Heft kommt man nie.",
+   "h": "Was passiert mit 180/x, wenn x sehr groß wird? Was bleibt übrig?",
+   "bezug": {
+    "thema_schluessel": "funktionen.gebrochen",
+    "lernziel": "asymptoten"
+   }
+  },
+  {
+   "k": "d",
+   "y": "auswahl",
+   "f": {
+    "text": "Ihr verkauft jedes Heft für 1,50 € und lasst genau so viele Hefte drucken, wie vorbestellt sind. Für x Hefte nehmt ihr dann E(x) = 1,5x Euro ein, die Kosten sind K(x) = 180 + 0,6x Euro. Für die nächste Ausgabe gibt es 160 Vorbestellungen. Was sollte die Redaktion tun?"
+   },
+   "a": [
+    "Mehr Vorbestellungen sammeln: Bei 160 Heften gibt es 36 € Verlust, erst ab 200 Heften keinen Verlust mehr.",
+    "Drucken: Bei 160 Heften bleibt ein kleiner Gewinn übrig.",
+    "Drucken: 1,50 € ist mehr als 0,60 €, also lohnt sich jedes verkaufte Heft sofort.",
+    "Mehr Vorbestellungen sammeln: Erst ab 450 Heften gibt es keinen Verlust."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: E(x) = 1,5x, K(x) = 180 + 0,6x, 160 Vorbestellungen. Gesucht: Lohnt sich der Druck? Ansatz: Schnittpunkt E(x) = K(x) und Wert bei 160. Rechnung: 1,5x = 180 + 0,6x ⇒ 0,9x = 180 ⇒ x = 200. Bei 160: E = 240 €, K = 276 €, also 36 € Verlust. Antwort: Mit 160 Heften macht die Zeitung Verlust; es braucht mindestens 200 verkaufte Hefte (bei genau 200 weder Gewinn noch Verlust).",
+   "h": "Wo schneiden sich die Geraden von E und K? Liegt 160 davor oder dahinter?",
+   "bezug": {
+    "thema_schluessel": "funktionen.linear",
+    "lernziel": "schnittpunkte"
+   }
+  }
+ ]
+}

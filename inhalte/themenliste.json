@@ -1,5 +1,26 @@
 [
  {
+  "thema_id": 15,
+  "thema_schluessel": "zahlen.natuerlich",
+  "block_id": 49,
+  "ort": "Rom",
+  "gebiet": "Zahlen",
+  "titel": "Natürliche Zahlen",
+  "klasse": {
+   "gym_by": 5,
+   "rs_by": 5,
+   "ib_myp": 1
+  },
+  "reihenfolge": {
+   "gym_by": 1
+  },
+  "umfang": "Große natürliche Zahlen lesen, schreiben und am Zahlenstrahl darstellen, vergleichen und runden; das Zehnersystem mit römischen Zahlen vergleichen.",
+  "lehrplan_gym": [
+   "M5 1.1 Natürliche Zahlen und ihre Erweiterung zu den ganzen Zahlen"
+  ],
+  "datei": "inhalte/themen/zahlen.natuerlich.json"
+ },
+ {
   "thema_id": 16,
   "thema_schluessel": "zahlen.ganz",
   "block_id": 49,
@@ -10,6 +31,9 @@
    "gym_by": 5,
    "rs_by": 5,
    "ib_myp": 2
+  },
+  "reihenfolge": {
+   "gym_by": 2
   },
   "umfang": "Negative Zahlen deuten, ordnen, Betrag; mit ganzen Zahlen rechnen (Vorzeichenregeln).",
   "lehrplan_gym": [
@@ -30,6 +54,9 @@
    "gym_by": 5,
    "rs_by": 5,
    "ib_myp": 1
+  },
+  "reihenfolge": {
+   "gym_by": 6
   },
   "umfang": "Schriftliche Rechenverfahren, Vorrangregeln, Rechengesetze vorteilhaft nutzen, Überschlag.",
   "lehrplan_gym": [
@@ -52,12 +79,34 @@
    "rs_by": 5,
    "ib_myp": 1
   },
+  "reihenfolge": {
+   "gym_by": 7
+  },
   "umfang": "Natürliche Exponenten und Zehnerpotenzen als Schreibweise; getrennt von Potenzgesetzen und wissenschaftlicher Schreibweise.",
   "lehrplan_gym": [
    "Potenzen mit natürlichen Exponenten, auch ganzzahlige Basen; Quadratzahlen bis 400; große Zahlen mit Zehnerpotenzen",
    "Sachanwendungen"
   ],
   "datei": "inhalte/themen/zahlen.potenzen_basis.json"
+ },
+ {
+  "thema_id": 17,
+  "thema_schluessel": "zahlen.teilbarkeit",
+  "block_id": 48,
+  "ort": "Athen",
+  "gebiet": "Zahlen",
+  "titel": "Teilbarkeit",
+  "klasse": {
+   "gym_by": 5,
+   "rs_by": 5,
+   "ib_myp": 1
+  },
+  "reihenfolge": {
+   "gym_by": 8
+  },
+  "umfang": "Teiler und Vielfache finden, Teilbarkeit durch 2, 3, 5, 9 und 10 erkennen, Primzahlen bestimmen, Zahlen in Primfaktoren zerlegen und ggT und kgV berechnen.",
+  "lehrplan_gym": [],
+  "datei": "inhalte/themen/zahlen.teilbarkeit.json"
  },
  {
   "thema_id": 25,
@@ -70,6 +119,9 @@
    "gym_by": 5,
    "rs_by": 5,
    "ib_myp": 2
+  },
+  "reihenfolge": {
+   "gym_by": 11
   },
   "umfang": "Größen schätzen, Einheiten umrechnen (Geld, Länge, Masse, Zeit, Fläche, Volumen), Maßstab.",
   "lehrplan_gym": [
@@ -86,8 +138,11 @@
   "titel": "Direkte Proportionalität und Dreisatz",
   "klasse": {
    "gym_by": 5,
-   "rs_by": 5,
+   "rs_by": 6,
    "ib_myp": 2
+  },
+  "reihenfolge": {
+   "gym_by": 12
   },
   "umfang": "Zuordnungen erkennen und darstellen, Dreisatz, Produktgleichheit.",
   "lehrplan_gym": [
@@ -107,6 +162,9 @@
    "rs_by": 5,
    "ib_myp": 1
   },
+  "reihenfolge": {
+   "gym_by": 3
+  },
   "umfang": "Punkt, Gerade, Strecke, Winkel, Koordinatensystem; Dreiecks- und Vierecksarten.",
   "lehrplan_gym": [
    "Geometrische Figuren und Lagebeziehungen",
@@ -120,29 +178,39 @@
   "block_id": 81,
   "ort": "Timbuktu",
   "gebiet": "Geometrie",
-  "titel": "Winkelsätze",
+  "titel": "Mit Winkeln rechnen",
   "klasse": {
    "gym_by": 5,
    "rs_by": 5,
    "ib_myp": 1
   },
-  "umfang": "Winkel an Geraden und Parallelen, Innen- und Außenwinkelsummen, Winkelberechnungen.",
-  "lehrplan_gym": [],
+  "reihenfolge": {
+   "gym_by": 5
+  },
+  "umfang": "Winkel bis 360°: Winkel ergänzen (90°, 180°, 360°), Winkel an einer Geradenkreuzung und um einen Punkt, Winkel an der Uhr und bei Drehungen, Winkel in Rechteck und Quadrat. (Winkelsätze an Parallelen und Winkelsummen: geometrie.winkelsaetze, Klasse 7.)",
+  "lehrplan_gym": [
+   "M5 2 Geometrische Figuren und Lagebeziehungen"
+  ],
   "datei": "inhalte/themen/geometrie.winkel.json"
  },
  {
   "thema_id": 73,
   "thema_schluessel": "geometrie.ortslinien",
-  "block_id": 79,
-  "ort": "Alexandria",
+  "block_id": 83,
+  "ort": "Kairo",
   "gebiet": "Geometrie",
   "titel": "Ortslinien und Ortsbereiche",
   "klasse": {
    "gym_by": 5,
    "rs_by": 7
   },
+  "reihenfolge": {
+   "gym_by": 4
+  },
   "umfang": "Punktmengen durch Abstands-/Winkelbedingungen bestimmen und Bedingungen verknüpfen.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M5 2 Geometrische Figuren und Lagebeziehungen"
+  ],
   "datei": "inhalte/themen/geometrie.ortslinien.json"
  },
  {
@@ -156,6 +224,9 @@
    "gym_by": 5,
    "rs_by": 5,
    "ib_myp": 1
+  },
+  "reihenfolge": {
+   "gym_by": 13
   },
   "umfang": "Umfang und Fläche von Rechteck, Dreieck, Parallelogramm, Trapez, Vielecken.",
   "lehrplan_gym": [
@@ -177,6 +248,9 @@
    "rs_by": 6,
    "ib_myp": 1
   },
+  "reihenfolge": {
+   "gym_by": 14
+  },
   "umfang": "Volumen und Oberfläche von Quader, Prisma, Zylinder, Pyramide, Kegel, Kugel.",
   "lehrplan_gym": [
    "Oberflächen von Quadern und zusammengesetzten Körpern bestimmen",
@@ -196,6 +270,9 @@
    "rs_by": 5,
    "ib_myp": 2
   },
+  "reihenfolge": {
+   "gym_by": 9
+  },
   "umfang": "Anzahlen systematisch bestimmen, Zählprinzip, Baumdiagramm.",
   "lehrplan_gym": [
    "Anzahlen mit Zählprinzip und Baumdiagramm bestimmen; prüfen, ob das Zählprinzip anwendbar ist"
@@ -205,17 +282,23 @@
  {
   "thema_id": 19,
   "thema_schluessel": "zahlen.potenzen_zehner",
-  "block_id": 49,
-  "ort": "Rom",
+  "block_id": 44,
+  "ort": "Paris",
   "gebiet": "Zahlen",
   "titel": "Zehnerpotenzen und wissenschaftliche Schreibweise",
   "klasse": {
    "gym_by": 6,
-   "rs_by": 5,
-   "ib_myp": 3
+   "rs_by": 7,
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 6
   },
   "umfang": "Sehr große und kleine Zahlen mit Zehnerpotenzen und Vorsilben darstellen.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M6 1.4 Multiplikation und Division rationaler Zahlen",
+   "M5 3.1 Multiplikation und Division ganzer Zahlen (große Zahlen mit Zehnerpotenzen)"
+  ],
   "datei": "inhalte/themen/zahlen.potenzen_zehner.json"
  },
  {
@@ -229,6 +312,9 @@
    "gym_by": 6,
    "rs_by": 6,
    "ib_myp": 1
+  },
+  "reihenfolge": {
+   "gym_by": 1
   },
   "umfang": "Anteile als Brüche deuten, erweitern, kürzen, vergleichen, am Zahlenstrahl darstellen.",
   "lehrplan_gym": [
@@ -250,8 +336,13 @@
    "rs_by": 6,
    "ib_myp": 1
   },
+  "reihenfolge": {
+   "gym_by": 2
+  },
   "umfang": "Dezimalzahlen, Stellenwerte, Runden, endliche und periodische Dezimalbrüche, Umwandlung.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M6 1.2 Dezimalbrüche"
+  ],
   "datei": "inhalte/themen/bruch.dezimal.json"
  },
  {
@@ -264,7 +355,10 @@
   "klasse": {
    "gym_by": 6,
    "rs_by": 6,
-   "ib_myp": 1
+   "ib_myp": 2
+  },
+  "reihenfolge": {
+   "gym_by": 3
   },
   "umfang": "Brüche und Dezimalzahlen addieren, subtrahieren, multiplizieren, dividieren; gemischte Rechnungen.",
   "lehrplan_gym": [
@@ -286,6 +380,9 @@
    "rs_by": 7,
    "ib_myp": 3
   },
+  "reihenfolge": {
+   "gym_by": 7
+  },
   "umfang": "Potenzen mit natürlichen, ganzen und rationalen Exponenten, Potenzgesetze.",
   "lehrplan_gym": [
    "Negative ganzzahlige Exponenten als Kehrbruch deuten und anwenden",
@@ -306,11 +403,35 @@
    "rs_by": 6,
    "ib_myp": 1
   },
+  "reihenfolge": {
+   "gym_by": 8
+  },
   "umfang": "Prozentwert, Grundwert, Prozentsatz; vermehrter/verminderter Grundwert; Zinsen.",
   "lehrplan_gym": [
    "Einfache Prozentaufgaben (Rabatt, Zins) lösen"
   ],
   "datei": "inhalte/themen/bruch.prozent.json"
+ },
+ {
+  "thema_id": 71,
+  "thema_schluessel": "finanzen.zinsen",
+  "block_id": 52,
+  "ort": "New York",
+  "gebiet": "Geld und Verhältnisse",
+  "titel": "Zinsen",
+  "klasse": {
+   "gym_by": 6,
+   "rs_by": 7,
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 9
+  },
+  "umfang": "Kapital, Jahreszinssatz und Zinsen unterscheiden, Jahreszinsen berechnen (auch mit Komma-Zinssatz), Zinssatz und Kapital rückwärts bestimmen und Zinsen für Teile eines Jahres berechnen.",
+  "lehrplan_gym": [
+   "M6 3 Prozentrechnung, Daten und Diagramme"
+  ],
+  "datei": "inhalte/themen/finanzen.zinsen.json"
  },
  {
   "thema_id": 57,
@@ -323,6 +444,9 @@
    "gym_by": 6,
    "rs_by": 5,
    "ib_myp": 1
+  },
+  "reihenfolge": {
+   "gym_by": 10
   },
   "umfang": "Häufigkeiten, Tabellen, Diagramme, irreführende Darstellungen erkennen.",
   "lehrplan_gym": [
@@ -344,6 +468,9 @@
    "rs_by": 7,
    "ib_myp": 2
   },
+  "reihenfolge": {
+   "gym_by": 11
+  },
   "umfang": "Mittelwert, Median, Modalwert, Spannweite, Quartile, Boxplot.",
   "lehrplan_gym": [
    "Arithmetisches Mittel bestimmen"
@@ -360,7 +487,10 @@
   "klasse": {
    "gym_by": 8,
    "rs_by": 7,
-   "ib_myp": 2
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 4
   },
   "umfang": "Lineare Ungleichungen lösen (Umdrehen des Zeichens bei Multiplikation mit negativer Zahl), Lösungsmenge als Intervall oder Menge angeben.",
   "lehrplan_gym": [
@@ -377,7 +507,11 @@
   "titel": "Intervalle",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 3
   },
   "umfang": "Zahlenbereiche mit offenen/geschlossenen Grenzen darstellen.",
   "lehrplan_gym": [],
@@ -392,7 +526,11 @@
   "titel": "Bruchterme",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 8
+   "rs_by": 8,
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 7
   },
   "umfang": "Terme mit Variablen im Nenner, Definitionsmenge, Rechnen mit Bruchtermen.",
   "lehrplan_gym": [
@@ -409,7 +547,11 @@
   "gebiet": "Algebra",
   "titel": "Formeln umstellen",
   "klasse": {
-   "gym_by": 8
+   "gym_by": 8,
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 9
   },
   "umfang": "Formeln nach einer gesuchten Größe auflösen.",
   "lehrplan_gym": [
@@ -426,7 +568,11 @@
   "titel": "Bruch- und Verhältnisgleichungen",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 8
+   "rs_by": 8,
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 8
   },
   "umfang": "Gleichungen mit der Variablen im Nenner lösen, Definitionsmenge beachten; Verhältnisgleichungen lösen.",
   "lehrplan_gym": [
@@ -444,7 +590,10 @@
   "klasse": {
    "gym_by": 8,
    "rs_by": 9,
-   "ib_myp": 3
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 11
   },
   "umfang": "Lineare Gleichungssysteme mit zwei Unbekannten grafisch und rechnerisch (Einsetzen, Gleichsetzen, Addition) lösen, Lösbarkeit begründen, Sachaufgaben.",
   "lehrplan_gym": [
@@ -464,10 +613,15 @@
   "klasse": {
    "gym_by": 8,
    "rs_by": 8,
-   "ib_myp": 1
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 1
   },
   "umfang": "Funktion als eindeutige Zuordnung; Tabelle, Graph, Term; Definitions- und Wertemenge, Nullstellen.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M8 1 Funktion und Term"
+  ],
   "datei": "inhalte/themen/funktionen.grundbegriffe.json"
  },
  {
@@ -481,6 +635,9 @@
    "gym_by": 8,
    "rs_by": 8,
    "ib_myp": 3
+  },
+  "reihenfolge": {
+   "gym_by": 2
   },
   "umfang": "y = mx + t deuten und zeichnen, Geradengleichungen aufstellen, Schnittpunkte, Parallelität/Orthogonalität.",
   "lehrplan_gym": [
@@ -500,6 +657,9 @@
   "klasse": {
    "gym_by": 8,
    "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 6
   },
   "umfang": "Hyperbeln y = a/(x+b)+c, Asymptoten, indirekte Proportionalität.",
   "lehrplan_gym": [
@@ -521,6 +681,9 @@
    "rs_by": 5,
    "ib_myp": 3
   },
+  "reihenfolge": {
+   "gym_by": 13
+  },
   "umfang": "Körper erkennen, Netze, Schrägbilder, Lage im Raum, wahre Größen.",
   "lehrplan_gym": [
    "Schrägbilder und Netze von Prismen und Zylindern"
@@ -535,12 +698,18 @@
   "gebiet": "Fläche und Raum",
   "titel": "Schrägbilder und Raumdarstellung",
   "klasse": {
-   "gym_by": 8,
-   "rs_by": 5,
+   "gym_by": 10,
+   "rs_by": 8,
    "ib_myp": 4
   },
+  "reihenfolge": {
+   "gym_by": 8
+  },
   "umfang": "Schrägbilder von Prismen und Pyramiden, wahre Größen, Lagebeziehungen im Raum, Rotationskörper und Axialschnitte, Raumkoordinaten",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M10 5 Fortführung der Raumgeometrie",
+   "M8 7 Kreis und Zylinder (Schrägbilder von Prismen)"
+  ],
   "datei": "inhalte/themen/raum.schraegbilder.json"
  },
  {
@@ -553,13 +722,82 @@
   "klasse": {
    "gym_by": 8,
    "rs_by": 9,
-   "ib_myp": 2
+   "ib_myp": 3
+  },
+  "reihenfolge": {
+   "gym_by": 12
   },
   "umfang": "Kreisumfang und -fläche, π, Sektor und Segment.",
   "lehrplan_gym": [
    "Kreis und Zylinder"
   ],
   "datei": "inhalte/themen/messen.kreisberechnung.json"
+ },
+ {
+  "thema_id": 99,
+  "thema_schluessel": "messen.flaechen_vielecke",
+  "block_id": 114,
+  "ort": "Quito",
+  "gebiet": "Fläche und Raum",
+  "titel": "Flächen von Parallelogramm, Dreieck und Trapez",
+  "klasse": {
+   "gym_by": 6,
+   "rs_by": 6
+  },
+  "reihenfolge": {
+   "gym_by": 4
+  },
+  "umfang": "Flächeninhalt von Parallelogramm, Dreieck und Trapez durch Zerlegen und Ergänzen herleiten und berechnen, fehlende Längen rückwärts bestimmen, zusammengesetzte Figuren, Oberfläche einfacher Körper, Flächen vergleichen und abschätzen.",
+  "lehrplan_gym": [
+   "M6 2.1 Flächeninhalt: Parallelogramm, Dreieck, Trapez herleiten und berechnen",
+   "Flächeninhalte in Sachsituationen näherungsweise bestimmen",
+   "Oberflächeninhalte einfacher Körper berechnen"
+  ],
+  "datei": "inhalte/themen/messen.flaechen_vielecke.json"
+ },
+ {
+  "thema_id": 100,
+  "thema_schluessel": "messen.volumen",
+  "block_id": 114,
+  "ort": "Quito",
+  "gebiet": "Fläche und Raum",
+  "titel": "Volumen",
+  "klasse": {
+   "gym_by": 6,
+   "rs_by": 6
+  },
+  "reihenfolge": {
+   "gym_by": 5
+  },
+  "umfang": "Volumen mit Einheitswürfeln, Quaderformel, Volumeneinheiten (mm³ bis m³) mit Liter und Milliliter umrechnen, fehlende Kanten und Füllhöhen, zusammengesetzte Körper, Volumen im Alltag abschätzen.",
+  "lehrplan_gym": [
+   "M6 2.2 Volumen: Einheitswürfel und Quaderformel",
+   "Volumeneinheiten einschließlich Liter und Milliliter umrechnen",
+   "Volumen durch Zerlegen und Ergänzen bestimmen, Näherungswerte"
+  ],
+  "datei": "inhalte/themen/messen.volumen.json"
+ },
+ {
+  "thema_id": 101,
+  "thema_schluessel": "messen.prisma_zylinder",
+  "block_id": 86,
+  "ort": "Cusco",
+  "gebiet": "Fläche und Raum",
+  "titel": "Prismen und Zylinder",
+  "klasse": {
+   "gym_by": 8,
+   "rs_by": 9
+  },
+  "reihenfolge": {
+   "gym_by": 14
+  },
+  "umfang": "Volumen gerader Prismen V = G · h (für jede Grundfläche begründet), Oberfläche über Netz und Mantel, Formeln umstellen, Zylinder als Grenzfall des Prismas, Zylinder-Oberfläche über das Netz, Hohlzylinder, Sachaufgaben mit Annahmen, Änderungen von Radius und Höhe beurteilen.",
+  "lehrplan_gym": [
+   "M8 7 Volumen gerader Prismen als G · h begründen und berechnen",
+   "Oberflächen von Prismen und Zylindern über Netze bestimmen; Zylinderformeln begründen (Grenzfall des Prismas)",
+   "Volumen- und Oberflächenformeln in Sachzusammenhängen flexibel nutzen, Annahmen treffen"
+  ],
+  "datei": "inhalte/themen/messen.prisma_zylinder.json"
  },
  {
   "thema_id": 61,
@@ -570,8 +808,11 @@
   "titel": "Zufall und Laplace",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 8,
+   "rs_by": 9,
    "ib_myp": 2
+  },
+  "reihenfolge": {
+   "gym_by": 10
   },
   "umfang": "Zufallsexperiment, Ergebnis, Ereignis, relative Häufigkeit, Gesetz der großen Zahlen, Laplace.",
   "lehrplan_gym": [
@@ -588,12 +829,17 @@
   "gebiet": "Daten und Zufall",
   "titel": "Simulation",
   "klasse": {
-   "gym_by": 8,
+   "gym_by": 10,
    "rs_by": 9,
    "ib_myp": 2
   },
+  "reihenfolge": {
+   "gym_by": 4
+  },
   "umfang": "Zufallsexperimente simulieren, Monte-Carlo.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen"
+  ],
   "datei": "inhalte/themen/stochastik.simulation.json"
  },
  {
@@ -608,8 +854,14 @@
    "rs_by": 9,
    "ib_myp": 1
   },
+  "reihenfolge": {
+   "gym_by": 1
+  },
   "umfang": "Wurzel als Umkehrung des Quadrierens/Potenzierens; ohne Irrationalität und Wurzelalgebra.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M9 1 Quadratwurzeln",
+   "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs"
+  ],
   "datei": "inhalte/themen/zahlen.wurzeln_basis.json"
  },
  {
@@ -622,10 +874,15 @@
   "klasse": {
    "gym_by": 9,
    "rs_by": 9,
-   "ib_myp": 3
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 2
   },
   "umfang": "Quadratwurzeln, irrationale Zahlen, reelle Zahlen; Wurzelterme vereinfachen, Nenner rational machen.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M9 1 Quadratwurzeln"
+  ],
   "datei": "inhalte/themen/zahlen.reell.json"
  },
  {
@@ -637,7 +894,11 @@
   "titel": "Rationale Exponenten und n-te Wurzel",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 5
+  },
+  "reihenfolge": {
+   "gym_by": 8
   },
   "umfang": "n-te Wurzel, Gleichungen x^n = c, rationale Exponenten und Wurzeln umwandeln",
   "lehrplan_gym": [
@@ -658,6 +919,9 @@
    "rs_by": 9,
    "ib_myp": 4
   },
+  "reihenfolge": {
+   "gym_by": 4
+  },
   "umfang": "Quadratische Gleichungen der Form ax² + bx + c = 0 mit passender Methode (Faktorisieren, quadratische Ergänzung, Lösungsformel) lösen; Lösungsanzahl über die Diskriminante begründen.",
   "lehrplan_gym": [
    "Lösbarkeit begründen",
@@ -674,7 +938,11 @@
   "titel": "Potenzgleichungen",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 10
   },
   "umfang": "Gleichungen der Form xⁿ = c lösen und die Anzahl der Lösungen begründen.",
   "lehrplan_gym": [
@@ -693,6 +961,9 @@
   "klasse": {
    "gym_by": 9
   },
+  "reihenfolge": {
+   "gym_by": 5
+  },
   "umfang": "Lineare Gleichungssysteme mit drei Unbekannten systematisch lösen (z. B. Parabel durch drei Punkte).",
   "lehrplan_gym": [
    "Lineare Gleichungssysteme mit drei Unbekannten aufstellen und lösen, z. B. Parabel durch drei Punkte"
@@ -708,8 +979,11 @@
   "titel": "Quadratische Funktionen",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 8,
+   "rs_by": 9,
    "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 3
   },
   "umfang": "Parabeln in verschiedenen Formen, Scheitel, Parameter, Extremwertprobleme.",
   "lehrplan_gym": [
@@ -731,6 +1005,9 @@
    "rs_by": 10,
    "ib_myp": 4
   },
+  "reihenfolge": {
+   "gym_by": 9
+  },
   "umfang": "Graphen von y = a·xⁿ (auch rationale Exponenten), Symmetrie, Umkehrung.",
   "lehrplan_gym": [
    "Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs"
@@ -748,6 +1025,9 @@
    "gym_by": 9,
    "rs_by": 9,
    "ib_myp": 3
+  },
+  "reihenfolge": {
+   "gym_by": 7
   },
   "umfang": "Zentrische Streckung, Ähnlichkeit, Strahlensätze, Maßstabswirkung auf Fläche/Volumen.",
   "lehrplan_gym": [
@@ -768,8 +1048,13 @@
    "rs_by": 9,
    "ib_myp": 3
   },
+  "reihenfolge": {
+   "gym_by": 11
+  },
   "umfang": "Satz und Umkehrung, Längen in Ebene und Raum, Abstände im Koordinatensystem.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M9 6 Satz des Pythagoras"
+  ],
   "datei": "inhalte/themen/trigo.pythagoras.json"
  },
  {
@@ -782,10 +1067,15 @@
   "klasse": {
    "gym_by": 9,
    "rs_by": 9,
-   "ib_myp": 3
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 12
   },
   "umfang": "Sinus, Kosinus, Tangens als Seitenverhältnisse, Anwendungen.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M9 7.1 Trigonometrie am rechtwinkligen Dreieck"
+  ],
   "datei": "inhalte/themen/trigo.rechtwinklig.json"
  },
  {
@@ -799,6 +1089,9 @@
    "gym_by": 9,
    "rs_by": 10,
    "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 13
   },
   "umfang": "Einheitskreis, Sinus- und Kosinussatz, Flächenformel, Additionstheoreme.",
   "lehrplan_gym": [
@@ -815,7 +1108,11 @@
   "titel": "Trigonometrische Gleichungen",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 10
+   "rs_by": 10,
+   "ib_myp": 5
+  },
+  "reihenfolge": {
+   "gym_by": 14
   },
   "umfang": "Gleichungen mit Sinus/Kosinus/Tangens in Anwendungen lösen (Winkel zu gegebenem Wert, Mehrdeutigkeit).",
   "lehrplan_gym": [
@@ -832,8 +1129,11 @@
   "titel": "Verknüpfte Ereignisse",
   "klasse": {
    "gym_by": 9,
-   "rs_by": 8,
+   "rs_by": 9,
    "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 6
   },
   "umfang": "Mengen, Venn-Diagramme, Vierfeldertafel, Additionssatz, bedingte Wahrscheinlichkeit.",
   "lehrplan_gym": [
@@ -849,8 +1149,12 @@
   "gebiet": "Geld und Verhältnisse",
   "titel": "Vermehrter und verminderter Grundwert",
   "klasse": {
+   "gym_by": 7,
    "rs_by": 7,
-   "gym_by": 7
+   "ib_myp": 3
+  },
+  "reihenfolge": {
+   "gym_by": 6
   },
   "umfang": "Prozentrechnung mit erhöhtem oder verringertem Grundwert, komplexere Prozentaufgaben",
   "lehrplan_gym": [
@@ -871,11 +1175,35 @@
    "gym_by": 7,
    "ib_myp": 1
   },
+  "reihenfolge": {
+   "gym_by": 1
+  },
   "umfang": "Zusammenhänge und Muster mit Variablen beschreiben, Termwerte berechnen, Termstruktur benennen.",
   "lehrplan_gym": [
    "Aufstellen und Interpretieren von Termen"
   ],
   "datei": "inhalte/themen/terme.aufstellen.json"
+ },
+ {
+  "thema_id": 29,
+  "thema_schluessel": "terme.umformen",
+  "block_id": 62,
+  "ort": "Samarkand",
+  "gebiet": "Algebra",
+  "titel": "Terme umformen",
+  "klasse": {
+   "gym_by": 7,
+   "rs_by": 7,
+   "ib_myp": 3
+  },
+  "reihenfolge": {
+   "gym_by": 2
+  },
+  "umfang": "Terme vereinfachen: gleichartige Glieder zusammenfassen, Produkte vereinfachen, Klammern auflösen und ausmultiplizieren, ausklammern, Äquivalenz prüfen und die binomischen Formeln anwenden.",
+  "lehrplan_gym": [
+   "M7 1.2 Umformen von Termen"
+  ],
+  "datei": "inhalte/themen/terme.umformen.json"
  },
  {
   "thema_id": 46,
@@ -889,9 +1217,35 @@
    "gym_by": 7,
    "ib_myp": 3
   },
+  "reihenfolge": {
+   "gym_by": 3
+  },
   "umfang": "Achsenspiegelung, Verschiebung, Drehung, Punktspiegelung; Symmetrie; Parkettierungen.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M7 2.1 Achsen- und punktsymmetrische Figuren"
+  ],
   "datei": "inhalte/themen/abbildungen.kongruenz.json"
+ },
+ {
+  "thema_id": 98,
+  "thema_schluessel": "geometrie.winkelsaetze",
+  "block_id": 80,
+  "ort": "Addis Abeba",
+  "gebiet": "Geometrie",
+  "titel": "Winkelsätze",
+  "klasse": {
+   "gym_by": 7,
+   "rs_by": 7,
+   "ib_myp": 2
+  },
+  "reihenfolge": {
+   "gym_by": 4
+  },
+  "umfang": "Scheitel- und Nebenwinkel, Stufen- und Wechselwinkel an Parallelen, Parallelität prüfen, Innenwinkelsumme im Dreieck (Beweis), Außenwinkel, Winkelsumme im Vieleck, Winkel in Figuren berechnen und begründen.",
+  "lehrplan_gym": [
+   "M7 2.2 Winkelbetrachtungen an Figuren"
+  ],
+  "datei": "inhalte/themen/geometrie.winkelsaetze.json"
  },
  {
   "thema_id": 44,
@@ -901,9 +1255,12 @@
   "gebiet": "Geometrie",
   "titel": "Konstruktionen, Kongruenz und Beweise",
   "klasse": {
-   "rs_by": 6,
    "gym_by": 7,
+   "rs_by": 7,
    "ib_myp": 3
+  },
+  "reihenfolge": {
+   "gym_by": 8
   },
   "umfang": "Konstruktionen mit Zirkel und Lineal/Software, Ortslinien, Kongruenzsätze, Satz und Kehrsatz.",
   "lehrplan_gym": [
@@ -924,6 +1281,9 @@
    "gym_by": 7,
    "ib_myp": 4
   },
+  "reihenfolge": {
+   "gym_by": 9
+  },
   "umfang": "Satz des Thales, Tangenten, Kreiswinkel, Umkreis/Inkreis.",
   "lehrplan_gym": [
    "Mit dynamischer Geometriesoftware experimentieren (Umkreis, Inkreis, Thales); Vermutung und Beweis unterscheiden",
@@ -940,9 +1300,12 @@
   "gebiet": "Daten und Zufall",
   "titel": "Median, Quartile, Boxplot",
   "klasse": {
-   "rs_by": 7,
    "gym_by": 7,
-   "ib_myp": 2
+   "rs_by": 7,
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 7
   },
   "umfang": "Median, Modalwert, Spannweite, Quartile, Boxplots lesen und vergleichen",
   "lehrplan_gym": [
@@ -961,8 +1324,12 @@
   "gebiet": "Algebra",
   "titel": "Exponentialgleichungen",
   "klasse": {
+   "gym_by": 10,
    "rs_by": 10,
-   "gym_by": 10
+   "ib_myp": 5
+  },
+  "reihenfolge": {
+   "gym_by": 2
   },
   "umfang": "Exponentialgleichungen mit dem Logarithmus lösen, auch in Wachstumsaufgaben.",
   "lehrplan_gym": [
@@ -980,6 +1347,9 @@
   "klasse": {
    "gym_by": 10
   },
+  "reihenfolge": {
+   "gym_by": 7
+  },
   "umfang": "Gleichungen höheren Grades durch Ausklammern oder Substitution lösen, Vielfachheit von Lösungen.",
   "lehrplan_gym": [
    "Nullstellen mit Vielfachheit bestimmen, biquadratische Gleichungen durch Substitution; Graph skizzieren, mit Software prüfen"
@@ -994,9 +1364,12 @@
   "gebiet": "Funktionen",
   "titel": "Exponential- und Logarithmusfunktionen",
   "klasse": {
-   "rs_by": 10,
    "gym_by": 10,
-   "ib_myp": 4
+   "rs_by": 10,
+   "ib_myp": 5
+  },
+  "reihenfolge": {
+   "gym_by": 1
   },
   "umfang": "Exponentielles Wachstum/Zerfall, Logarithmus, Graphen und Modelle.",
   "lehrplan_gym": [
@@ -1012,9 +1385,12 @@
   "gebiet": "Funktionen",
   "titel": "Sinus- und Kosinusfunktion",
   "klasse": {
-   "rs_by": 10,
    "gym_by": 10,
-   "ib_myp": 4
+   "rs_by": 10,
+   "ib_myp": 5
+  },
+  "reihenfolge": {
+   "gym_by": 5
   },
   "umfang": "Sinus-/Kosinusfunktion, Bogenmaß, Periodizität, Parameter.",
   "lehrplan_gym": [
@@ -1031,7 +1407,10 @@
   "titel": "Ganzrationale Funktionen",
   "klasse": {
    "gym_by": 10,
-   "ib_myp": 4
+   "ib_myp": 5
+  },
+  "reihenfolge": {
+   "gym_by": 6
   },
   "umfang": "Polynome, Randverhalten, Nullstellen mit Vielfachheit, Symmetrie.",
   "lehrplan_gym": [
@@ -1051,6 +1430,9 @@
    "gym_by": 10,
    "ib_myp": 3
   },
+  "reihenfolge": {
+   "gym_by": 9
+  },
   "umfang": "Volumen und Oberfläche von Pyramide, Kegel, Kugel und zusammengesetzten Körpern; Cavalieri; Extremwerte an Körpern",
   "lehrplan_gym": [
    "Formel für die Oberfläche des Kegels begründen und anwenden",
@@ -1068,8 +1450,12 @@
   "gebiet": "Daten und Zufall",
   "titel": "Mehrstufige Zufallsexperimente",
   "klasse": {
+   "gym_by": 10,
    "rs_by": 10,
-   "gym_by": 10
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 3
   },
   "umfang": "Baumdiagramme, Pfadregeln.",
   "lehrplan_gym": [
@@ -1122,7 +1508,8 @@
   "gebiet": "Daten und Zufall",
   "titel": "Stichproben und Aussagekraft",
   "klasse": {
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 2
   },
   "umfang": "Repräsentativität und Grenzen von Aussagen.",
   "lehrplan_gym": [],
@@ -1171,7 +1558,8 @@
   "gebiet": "Funktionen",
   "titel": "Graphentransformation",
   "klasse": {
-   "rs_by": 9
+   "rs_by": 9,
+   "ib_myp": 5
   },
   "umfang": "Graphen verschieben, strecken, spiegeln.",
   "lehrplan_gym": [],
@@ -1188,7 +1576,8 @@
   "gebiet": "Algebra",
   "titel": "Reinquadratische Gleichungen",
   "klasse": {
-   "rs_by": 9
+   "rs_by": 9,
+   "ib_myp": 4
   },
   "umfang": "Gleichungen der Form x² = a lösen (zwei, eine oder keine Lösung).",
   "lehrplan_gym": [],
@@ -1223,7 +1612,7 @@
   "titel": "Matrizen und Abbildungen mit Matrizen",
   "klasse": {
    "rs_by": 10,
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Abbildungen (Spiegelung, Drehung) mit Matrizen, Matrizenrechnung.",
   "lehrplan_gym": [],
@@ -1244,7 +1633,7 @@
   "titel": "Umkehrfunktionen",
   "klasse": {
    "rs_by": 10,
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Umkehrbarkeit und Umkehrfunktion.",
   "lehrplan_gym": [],
@@ -1259,7 +1648,7 @@
   "gebiet": "Entdecker-Inseln",
   "titel": "Mengen und Venn-Diagramme",
   "klasse": {
-   "ib_myp": 1
+   "ib_myp": 3
   },
   "umfang": "Elemente, Schnitt, Vereinigung; Wahrscheinlichkeit separat.",
   "lehrplan_gym": [],
@@ -1297,7 +1686,7 @@
   "gebiet": "Daten und Zufall",
   "titel": "Zweidimensionale Daten",
   "klasse": {
-   "ib_myp": 3
+   "ib_myp": 5
   },
   "umfang": "Streudiagramme, Zusammenhang, Korrelation und Kausalität.",
   "lehrplan_gym": [],
@@ -1315,7 +1704,7 @@
   "gebiet": "Daten und Zufall",
   "titel": "Standardabweichung",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Streuung berechnen und interpretieren.",
   "lehrplan_gym": [],
@@ -1332,7 +1721,7 @@
   "gebiet": "Daten und Zufall",
   "titel": "Bedingte Wahrscheinlichkeit",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Bedingung, Bezugsmenge, Abhängigkeit/Unabhängigkeit.",
   "lehrplan_gym": [],
@@ -1349,7 +1738,7 @@
   "gebiet": "Funktionen",
   "titel": "Betragsfunktion",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Graph und stückweise Beschreibung.",
   "lehrplan_gym": [],
@@ -1364,7 +1753,7 @@
   "gebiet": "Funktionen",
   "titel": "Folgen",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Arithmetische und geometrische Folgen und Reihen, Summenschreibweise.",
   "lehrplan_gym": [],
@@ -1381,7 +1770,7 @@
   "gebiet": "Funktionen",
   "titel": "Reihen",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Summen von Folgengliedern.",
   "lehrplan_gym": [],
@@ -1413,7 +1802,7 @@
   "gebiet": "Entdecker-Inseln",
   "titel": "Lineare Optimierung",
   "klasse": {
-   "ib_myp": 4
+   "ib_myp": 5
   },
   "umfang": "Optimierung mit linearen Ungleichungssystemen (IB-Verlagsinhalt).",
   "lehrplan_gym": [],
@@ -1427,7 +1816,7 @@
   "ort": "Suva",
   "gebiet": "Daten und Zufall",
   "titel": "Normalverteilung",
-  "klasse": {},
+  "klasse": {"ib_myp": 5},
   "umfang": "Verteilungsmodell und Anwendungen (Verlagsinhalt IB Extended).",
   "lehrplan_gym": [],
   "lehrplan_andere": [],
@@ -1440,7 +1829,7 @@
   "ort": "Boston",
   "gebiet": "Geld und Verhältnisse",
   "titel": "Zinseszins",
-  "klasse": {},
+  "klasse": {"ib_myp": 4},
   "umfang": "Wiederholte Verzinsung, Wachstumsfaktor.",
   "lehrplan_gym": [],
   "lehrplan_andere": [],
@@ -1453,7 +1842,7 @@
   "ort": "Honolulu",
   "gebiet": "Entdecker-Inseln",
   "titel": "Aussagenlogik",
-  "klasse": {},
+  "klasse": {"ib_myp": 4},
   "umfang": "Verknüpfungen, Wahrheitstafeln (Verlagsinhalt).",
   "lehrplan_gym": [],
   "lehrplan_andere": [],
@@ -1466,7 +1855,7 @@
   "ort": "Honolulu",
   "gebiet": "Entdecker-Inseln",
   "titel": "Schranken und Genauigkeit",
-  "klasse": {},
+  "klasse": {"ib_myp": 5},
   "umfang": "Obere/untere Schranken bei gerundeten Größen.",
   "lehrplan_gym": [],
   "lehrplan_andere": [],
@@ -1484,16 +1873,22 @@
    "rs_by": 6,
    "ib_myp": 1
   },
+  "reihenfolge": {
+   "gym_by": 10
+  },
   "umfang": "Gleichungen wie a + x = b oder a · x = b durch Umkehrrechnung oder erste Äquivalenzumformung lösen und im Sachzusammenhang aufstellen.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M5 1.2 Addition und Subtraktion ganzer Zahlen",
+   "M5 3.1 Multiplikation und Division ganzer Zahlen"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/gleichungen.einfach.json"
  },
  {
   "thema_id": 2,
   "thema_schluessel": "gleichungen.linear",
-  "block_id": 61,
-  "ort": "Delhi",
+  "block_id": 62,
+  "ort": "Samarkand",
   "gebiet": "Algebra",
   "titel": "Lineare Gleichungen",
   "klasse": {
@@ -1501,8 +1896,13 @@
    "rs_by": 7,
    "ib_myp": 2
   },
+  "reihenfolge": {
+   "gym_by": 5
+  },
   "umfang": "Lineare Gleichungen (auch mit Klammern und Variable auf beiden Seiten) durch Äquivalenzumformungen lösen, Probe machen, aus Sachsituationen aufstellen und Lösungen deuten.",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/gleichungen.linear.json"
  },
@@ -1515,10 +1915,16 @@
   "titel": "Indirekte Proportionalität",
   "klasse": {
    "gym_by": 8,
-   "rs_by": 7
+   "rs_by": 7,
+   "ib_myp": 4
+  },
+  "reihenfolge": {
+   "gym_by": 5
   },
   "umfang": "Indirekte Proportionalität erkennen, Produktgleichheit, Zuordnungsarten unterscheiden",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "M8 3 Elementare gebrochen-rationale Funktionen"
+  ],
   "lehrplan_andere": [],
   "datei": "inhalte/themen/groessen.indirekt.json"
  }

@@ -9,13 +9,11 @@
  },
  "autor": "Claude (Opus), Paket Klasse 6",
  "inhalt": {
-  "ziel": "Das arithmetische Mittel bestimmen und deuten, Modalwert, Spannweite und Median ermitteln und Kennwerte kritisch beurteilen.",
+  "ziel": "Das arithmetische Mittel bestimmen und deuten – auch aus Häufigkeitstabellen und rückwärts. Median, Modalwert und Spannweite folgen in Klasse 7.",
   "merke": [
    "Mittelwert = Summe : Anzahl.",
    "Häufigkeitstabelle: Wert · Häufigkeit addieren, durch Gesamtzahl teilen.",
-   "Summe = Mittelwert · Anzahl.",
-   "Modalwert: häufigster Wert. Spannweite: größter − kleinster Wert.",
-   "Median: Mitte der geordneten Liste."
+   "Summe = Mittelwert · Anzahl."
   ],
   "abschnitte": [
    {
@@ -25,26 +23,55 @@
      "mittel_tabelle",
      "mittel_rueckwaerts"
     ]
-   },
-   {
-    "titel": "Weitere Kennwerte",
-    "lernziele": [
-     "modal_spannweite",
-     "median",
-     "verstehen"
-    ]
    }
   ],
   "etappen": [
    {
     "lernziel": "mittelwert",
     "titel": "Arithmetisches Mittel berechnen",
-    "regel": "So berechnest du den Mittelwert: ⟦Summe aller Werte : Anzahl der Werte⟧. Er ist der Wert, den alle hätten, wenn man ⟦gleichmäßig verteilt⟧.",
+    "regel": "Mittelwert ist ⟦Summe durch Anzahl⟧. So viel hätte jeder bei gerechter Verteilung.",
     "schritte": [
-     "Zähle alle Punkte zusammen: 7 + 9 + 4 + 8 = 28.",
-     "Es sind 4 Kinder, also 4 Werte. Verteile die 28 Punkte gleichmäßig: 28 : 4 = 7.",
-     "Kontrolle mit den Stapeln: Der 9er-Stapel gibt 2 ab, der 8er-Stapel 1. Damit wächst der 4er-Stapel auf 7.",
-     "Jetzt sind alle Stapel 7 hoch. Der Mittelwert ist ⟦7⟧ Punkte."
+     {
+      "text": "Die Summe ist 7 + 9 + 4 + 8 = 28 Punkte."
+     },
+     {
+      "text": "Verteile auf 4 Kinder: 28 : 4 = ⟦7⟧.",
+      "bild": {
+       "werte": [
+        {
+         "name": "Kind A",
+         "wert": 7
+        },
+        {
+         "name": "Kind B",
+         "wert": 7
+        },
+        {
+         "name": "Kind C",
+         "wert": 7
+        },
+        {
+         "name": "Kind D",
+         "wert": 7
+        }
+       ]
+      }
+     },
+     {
+      "text": "B gibt 2 ab, D gibt 1 ab. So hat C auch 7."
+     }
+    ],
+    "fehler": "Durch 2 statt durch 4 zu teilen ergibt 14 Punkte. Das ist mehr, als irgendein Kind hat.",
+    "einstieg": "Vier Kinder haben 7, 9, 4 und 8 Punkte. Die hohen Stapel geben ab, bis alle gleich hoch sind. Diese Höhe heißt ⟦Mittelwert⟧.",
+    "woerter": [
+     [
+      "Mittelwert",
+      "Summe aller Werte geteilt durch ihre Anzahl"
+     ],
+     [
+      "Summe",
+      "alle Werte zusammengezählt"
+     ]
     ],
     "bild": {
      "typ": "saeulen",
@@ -68,40 +95,53 @@
       }
      ],
      "zahlen": true
-    },
-    "probe": "4 · 7 = 28 ✓",
-    "fehler": "Bei 7, 9, 4 und 8 die Summe 28 durch 2 zu teilen ist falsch: Heraus kämen 14 Punkte – mehr, als irgendein Kind hat. Geteilt wird durch die ⟦Anzahl der Werte⟧, hier 4.",
-    "einstieg": "Vier Kinder sammeln bei einem Spiel Punkte: 7, 9, 4 und 8. Wie viele Punkte hat jedes im Schnitt? Stell dir die Punkte als Stapel aus Bausteinen vor. Die hohen Stapel geben Steine an die niedrigen ab, bis alle gleich hoch sind. Diese gemeinsame Höhe heißt ⟦Mittelwert⟧.",
-    "woerter": [
-     [
-      "Mittelwert (arithmetisches Mittel)",
-      "Summe aller Werte geteilt durch die Anzahl der Werte"
-     ],
-     [
-      "Durchschnitt, im Schnitt",
-      "Alltagswörter für den Mittelwert"
-     ],
-     [
-      "Summe",
-      "alle Werte zusammengezählt"
-     ],
-     [
-      "Anzahl der Werte",
-      "wie viele Werte es gibt – hier 4 Kinder"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "mittel_tabelle",
     "titel": "Mittelwert aus einer Häufigkeitstabelle",
-    "regel": "So berechnest du den Mittelwert aus einer Tabelle: Nimm ⟦jeden Wert mal seine Häufigkeit⟧, addiere alles und teile durch die ⟦Gesamtzahl⟧ der Werte.",
+    "regel": "Nimm ⟦jeden Wert mal seine Anzahl⟧ und addiere. Teile durch die Gesamtzahl der Werte.",
     "schritte": [
-     "Jede Note zählt so oft, wie sie vorkommt: 1 · 2 = 2, 2 · 5 = 10 und 3 · 3 = 9.",
-     "Zähle diese Ergebnisse zusammen: 2 + 10 + 9 = 21. Das ist die Summe aller zehn Noten.",
-     "Zähle die Anzahl der Noten: 2 + 5 + 3 = 10.",
-     "Teile die Summe durch die Anzahl: 21 : 10 = ⟦2,1⟧."
+     {
+      "text": "Jede Note zählt so oft, wie sie vorkommt: Note mal Anzahl.",
+      "bild": {
+       "zeilen": [
+        [
+         "Anzahl",
+         "2",
+         "5",
+         "3",
+         "10"
+        ],
+        [
+         "Note · Anzahl",
+         "2",
+         "10",
+         "9",
+         "21"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Summe aller Noten: 2 + 10 + 9 = 21. Es sind 10 Noten."
+     },
+     {
+      "text": "Die Durchschnittsnote ist 21 : 10 = ⟦2,1⟧."
+     }
     ],
-    "fehler": "Nur 1, 2 und 3 zu mitteln, also (1 + 2 + 3) : 3 = 2, ist falsch: Dann zählt die 1 genauso viel wie die 2, obwohl die 2 fünfmal vorkam. Jeder Wert zählt so oft, wie er ⟦vorkommt⟧.",
+    "fehler": "(1 + 2 + 3) : 3 = 2 ist falsch. Dann zählt die 1 so viel wie die 2, obwohl die 2 fünfmal kam.",
+    "einstieg": "Der Notenspiegel zeigt: zweimal die 1, fünfmal die 2, dreimal die 3. Wie lautet die ⟦Durchschnittsnote⟧?",
+    "woerter": [
+     [
+      "Notenspiegel",
+      "eine Tabelle: wie oft kam jede Note vor"
+     ],
+     [
+      "Durchschnittsnote",
+      "der Mittelwert aller Noten"
+     ]
+    ],
     "bild": {
      "typ": "tabelle",
      "kopf": [
@@ -118,132 +158,68 @@
        "5",
        "3",
        "10"
-      ],
-      [
-       "Note · Anzahl",
-       "2",
-       "10",
-       "9",
-       "21"
       ]
      ]
-    },
-    "einstieg": "Nach einer Probe hängt der Notenspiegel an der Tafel: zweimal die 1, fünfmal die 2, dreimal die 3. Wie lautet die Durchschnittsnote? Du könntest alle zehn Noten einzeln hinschreiben – schneller geht es mit der Tabelle. Dafür rechnest du mit den ⟦Häufigkeiten⟧.",
-    "woerter": [
-     [
-      "Notenspiegel",
-      "eine Tabelle, die zeigt, wie oft jede Note vorkam"
-     ],
-     [
-      "Häufigkeit",
-      "wie oft ein Wert vorkommt"
-     ],
-     [
-      "Note · Anzahl",
-      "die Note mal ihre Häufigkeit – so oft zählt diese Note"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "mittel_rueckwaerts",
     "titel": "Rückwärts rechnen mit dem Mittelwert",
-    "regel": "So rechnest du rückwärts mit dem Mittelwert: Bilde zuerst die ⟦Summe = Mittelwert · Anzahl⟧. Ziehe dann die bekannten Werte ab – der Rest ist der ⟦fehlende Wert⟧.",
+    "regel": "Rückwärts gilt: ⟦Summe = Mittelwert · Anzahl⟧. Zieh davon die bekannten Werte ab.",
     "schritte": [
-     "Der Mittelwert ist Summe : Anzahl. Rückwärts heißt das: Summe = Mittelwert · Anzahl.",
-     "Die Summe aller drei Tests ist also 8 · 3 = 24 Punkte.",
-     "Zwei Tests kennst du: 7 + 10 = 17 Punkte.",
-     "Der fehlende Test hatte 24 − 17 = ⟦7⟧ Punkte."
+     {
+      "text": "Summe aller drei Tests: 8 · 3 = 24 Punkte."
+     },
+     {
+      "text": "Bekannt sind 7 + 10 = 17 Punkte."
+     },
+     {
+      "text": "Test 3 hatte 24 − 17 = ⟦7⟧ Punkte.",
+      "bild": {
+       "werte": [
+        {
+         "name": "Test 1",
+         "wert": 7
+        },
+        {
+         "name": "Test 2",
+         "wert": 10
+        },
+        {
+         "name": "Test 3",
+         "wert": 7
+        }
+       ]
+      }
+     }
     ],
-    "probe": "(7 + 10 + 7) : 3 = 8 ✓",
-    "fehler": "Den fehlenden Wert als 8 anzunehmen, weil der Mittelwert 8 ist, ist falsch: Dann wäre der Mittelwert (7 + 10 + 8) : 3 ≈ 8,3. Erst die ⟦Summe⟧ bilden, dann die bekannten Werte abziehen.",
-    "einstieg": "Du hast drei Tests geschrieben und im Mittel 8 Punkte. Zwei Ergebnisse weißt du noch: 7 und 10 Punkte. Das dritte hast du vergessen. Aus dem Mittelwert kannst du es zurückrechnen – du gehst den Weg ⟦rückwärts⟧.",
+    "fehler": "Den fehlenden Test mit 8 anzunehmen ist falsch. Dann wäre der Mittelwert (7 + 10 + 8) : 3, also etwa 8,3.",
+    "einstieg": "Du hast in drei Tests im Mittel 8 Punkte. Zwei Ergebnisse kennst du: 7 und 10. Das dritte rechnest du ⟦rückwärts⟧ aus.",
     "woerter": [
      [
-      "rückwärts rechnen",
-      "die Rechnung umdrehen: Aus „geteilt“ wird „mal“, aus „plus“ wird „minus“"
-     ],
-     [
-      "Summe = Mittelwert · Anzahl",
-      "aus dem Mittelwert bekommst du die Summe aller Werte zurück"
+      "rückwärts",
+      "aus dem Mittelwert die Summe zurückrechnen: Summe = Mittelwert · Anzahl"
      ]
-    ]
-   },
-   {
-    "lernziel": "modal_spannweite",
-    "titel": "Modalwert und Spannweite",
-    "regel": "So bestimmst du die zwei Kennwerte: Der ⟦Modalwert⟧ ist der Wert, der ⟦am häufigsten⟧ vorkommt. Die ⟦Spannweite⟧ ist ⟦größter Wert − kleinster Wert⟧.",
-    "schritte": [
-     "Zähle, wie oft jede Größe vorkommt: Die 38 kommt dreimal vor, jede andere Größe nur einmal.",
-     "Der häufigste Wert ist der Modalwert: ⟦38⟧.",
-     "Suche den größten und den kleinsten Wert: 40 und 35.",
-     "Die Spannweite ist 40 − 35 = ⟦5⟧ – so weit liegen die Schuhgrößen auseinander."
     ],
-    "fehler": "Die Spannweite als „letzter Wert − erster Wert“ der Liste zu rechnen ist falsch: 35 − 36 = −1 sagt nichts darüber, wie weit die Schuhgrößen auseinanderliegen. Man nimmt ⟦größten minus kleinsten⟧ Wert.",
-    "einstieg": "Ein Sportverein bestellt Turnschuhe für die Mannschaft. Die Schuhgrößen sind 36, 38, 37, 38, 40, 38 und 35. Am häufigsten braucht der Verein Größe 38, und die Größen reichen von 35 bis 40. Für beides gibt es einen eigenen Kennwert: ⟦Modalwert⟧ und ⟦Spannweite⟧.",
-    "woerter": [
-     [
-      "Kennwert",
-      "eine Zahl, die eine ganze Liste kurz beschreibt, z. B. Mittelwert, Modalwert oder Spannweite"
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Punkte",
+     "werte": [
+      {
+       "name": "Test 1",
+       "wert": 7
+      },
+      {
+       "name": "Test 2",
+       "wert": 10
+      },
+      {
+       "name": "Test 3",
+       "wert": 0
+      }
      ],
-     [
-      "Modalwert",
-      "der Wert, der am häufigsten vorkommt"
-     ],
-     [
-      "Spannweite",
-      "größter Wert minus kleinster Wert; zeigt, wie weit die Daten auseinanderliegen"
-     ]
-    ]
-   },
-   {
-    "lernziel": "median",
-    "titel": "Der Median (Zentralwert)",
-    "regel": "So bestimmst du den Median: ⟦Ordne die Werte der Größe nach⟧. Bei ungerader Anzahl ist der Median der ⟦Wert in der Mitte⟧, bei gerader Anzahl der ⟦Mittelwert der beiden mittleren Werte⟧. Ausreißer verändern ihn kaum.",
-    "schritte": [
-     "Ordne die Werte der Größe nach: 3, 5, 8, 12, 20.",
-     "Es sind 5 Werte. In der Mitte steht der 3. Wert, links und rechts davon stehen je 2 Werte.",
-     "Der 3. Wert ist die 8. Der Median ist ⟦8⟧ Minuten.",
-     "Bei einer geraden Anzahl von Werten gibt es zwei mittlere Werte. Dann ist der Median ihr Mittelwert."
-    ],
-    "fehler": "Den mittleren Wert der ⟦ungeordneten⟧ Liste zu nehmen ist falsch: Bei 12, 3, 20, 5, 8 steht in der Mitte die 20 – der längste Schulweg von allen! Geordnet: 3, 5, 8, 12, 20, der Median ist ⟦8⟧. Zuerst ⟦ordnen⟧!",
-    "einstieg": "Fünf Kinder messen, wie viele Minuten ihr Schulweg dauert: 12, 3, 8, 5 und 20 Minuten. Stellen sie sich der Größe nach in eine Reihe, steht genau in der Mitte das Kind mit 8 Minuten. Links stehen die kürzeren, rechts die längeren Wege. Dieser Wert in der Mitte heißt ⟦Median⟧.",
-    "woerter": [
-     [
-      "Median (Zentralwert)",
-      "der Wert in der Mitte der geordneten Liste"
-     ],
-     [
-      "der Größe nach ordnen",
-      "vom kleinsten zum größten Wert sortieren"
-     ],
-     [
-      "Ausreißer",
-      "ein einzelner Wert, der viel größer oder kleiner ist als die anderen"
-     ]
-    ]
-   },
-   {
-    "lernziel": "verstehen",
-    "titel": "Kennwerte beurteilen",
-    "regel": "So beurteilst du Kennwerte: Achte auf ⟦Ausreißer⟧ – sie ziehen den Mittelwert stark mit, den Median kaum. Der Mittelwert muss ⟦nicht⟧ in der Liste vorkommen und muss keine ganze Zahl sein. Prüfe Aussagen mit ⟦Zahlenbeispielen⟧.",
-    "schritte": [
-     "Berechne den Mittelwert: 5 + 6 + 5 + 4 + 30 = 50 und 50 € : 5 = 10 €.",
-     "Vergleiche mit den einzelnen Werten: Vier von fünf Kindern bekommen weniger als 10 €.",
-     "Der Median (geordnet: 4, 5, 5, 6, 30) ist 5 € – er beschreibt ein typisches Kind besser.",
-     "Der Ausreißer 30 € ⟦verzerrt⟧ den Mittelwert nach oben."
-    ],
-    "fehler": "„Der Mittelwert ist 10 €, also bekommen die meisten Kinder etwa 10 €“ ist falsch: Ein ⟦Ausreißer⟧ kann den Mittelwert stark nach oben ziehen – hier bekommt kein einziges Kind etwa 10 €.",
-    "einstieg": "Fünf Kinder vergleichen ihr Taschengeld: 5 €, 6 €, 5 €, 4 € und 30 €. Im Durchschnitt sind das 10 € – aber vier der fünf Kinder bekommen weniger. Schuld ist das eine Kind mit 30 €, das weit über den anderen liegt. So ein Wert heißt ⟦Ausreißer⟧.",
-    "woerter": [
-     [
-      "verzerren",
-      "ein falsches Bild erzeugen"
-     ],
-     [
-      "Zahlenbeispiel",
-      "eine Behauptung mit konkreten Zahlen ausprobieren"
-     ]
-    ]
+     "zahlen": true
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -267,40 +243,15 @@
     "lernziele": [
      "mittel_rueckwaerts"
     ]
-   },
-   {
-    "k": "modal_spannweite",
-    "text": "Modalwert und Spannweite",
-    "lernziele": [
-     "modal_spannweite"
-    ]
-   },
-   {
-    "k": "median",
-    "text": "Der Median (Zentralwert)",
-    "lernziele": [
-     "median"
-    ]
-   },
-   {
-    "k": "verstehen",
-    "text": "Kennwerte beurteilen",
-    "lernziele": [
-     "verstehen"
-    ]
    }
   ],
   "bewertung": {
    "lernziele_pflicht": [
     "mittelwert",
     "mittel_tabelle",
-    "mittel_rueckwaerts",
-    "modal_spannweite",
-    "verstehen"
+    "mittel_rueckwaerts"
    ],
-   "lernziele_vertiefung": [
-    "median"
-   ],
+   "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -309,38 +260,6 @@
   }
  },
  "aufgaben": [
-  {
-   "l": "mittelwert",
-   "t": "mittelwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Mittelwert von 19, 4, 1."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "(19 + 4 + 1) / 3",
-   "w": "Summe 19 + 4 + 1 = 24. 24 : 3 = 8.",
-   "h": "Addiere alle Werte und teile durch die Anzahl."
-  },
-  {
-   "l": "mittelwert",
-   "t": "mittelwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Mittelwert von 10, 2, 6, 10."
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "(10 + 2 + 6 + 10) / 4",
-   "w": "Summe 10 + 2 + 6 + 10 = 28. 28 : 4 = 7.",
-   "h": "Addiere alle Werte und teile durch die Anzahl."
-  },
   {
    "l": "mittelwert",
    "t": "mittelwert",
@@ -378,7 +297,8 @@
    },
    "c": "(5 + 1 + 0 + 2) / 4",
    "w": "Abgelesen: 5, 1, 0, 2. Summe 8, Anzahl 4: 8 : 4 = 2.",
-   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen."
+   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen.",
+   "g": "erkennen"
   },
   {
    "l": "mittelwert",
@@ -394,23 +314,8 @@
    },
    "c": "(4 + 16 + 17 + 19 + 9) / 5",
    "w": "Summe 4 + 16 + 17 + 19 + 9 = 65. 65 : 5 = 13.",
-   "h": "Addiere alle Werte und teile durch die Anzahl."
-  },
-  {
-   "l": "mittelwert",
-   "t": "mittelwert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Mittelwert von 3, 5, 2, 17, 8."
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "(3 + 5 + 2 + 17 + 8) / 5",
-   "w": "Summe 3 + 5 + 2 + 17 + 8 = 35. 35 : 5 = 7.",
-   "h": "Addiere alle Werte und teile durch die Anzahl."
+   "h": "Addiere alle Werte und teile durch die Anzahl.",
+   "g": "direkt"
   },
   {
    "l": "mittelwert",
@@ -449,102 +354,103 @@
    },
    "c": "(2 + 3 + 3 + 4) / 4",
    "w": "Abgelesen: 2, 3, 3, 4. Summe 12, Anzahl 4: 12 : 4 = 3.",
-   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen."
+   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Mittelwert von 19, 4, 1."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(19 + 4 + 1) / 3",
+   "w": "Summe 19 + 4 + 1 = 24. 24 : 3 = 8.",
+   "h": "Addiere alle Werte und teile durch die Anzahl.",
+   "g": "direkt"
   },
   {
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
    "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Beide gleich",
+    "Die Gruppe mit dem größten Einzelwert",
+    "Gruppe A",
+    "Gruppe B"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Gruppe A sammelt 3 kg, 8 kg, 12 kg, 11 kg Altpapier, Gruppe B 7 kg, 2 kg, 4 kg, 7 kg. Welche Gruppe hat im Mittel mehr gesammelt?"
+   },
+   "w": "A: 34 : 4 = 8,5 kg, B: 20 : 4 = 5 kg. Mehr im Mittel: Gruppe A.",
+   "h": "Berechne für beide Gruppen den Mittelwert.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Taschengeld: 9 €, 3 €, 4 €, 7 €, 21 €, 4 €. Berechne den Mittelwert."
+    "text": "Berechne den Mittelwert von 10, 2, 6, 10."
    },
    "o": {
-    "wert": 8,
-    "einheit": "€"
+    "wert": 7
    },
-   "c": "(9 + 3 + 4 + 7 + 21 + 4) / 6",
-   "w": "Summe: 48 €. Anzahl: 6. Mittelwert: 48 : 6 = 8 €.",
-   "h": "Summe durch Anzahl."
+   "c": "(10 + 2 + 6 + 10) / 4",
+   "w": "Summe 10 + 2 + 6 + 10 = 28. 28 : 4 = 7.",
+   "h": "Addiere alle Werte und teile durch die Anzahl.",
+   "g": "direkt"
   },
   {
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Das Säulendiagramm zeigt: Gelesene Bücher im Monat. Berechne den Mittelwert.",
-    "grafik": {
-     "typ": "saeulen",
-     "werte": [
-      {
-       "name": "Kind A",
-       "wert": 7
-      },
-      {
-       "name": "Kind B",
-       "wert": 2
-      },
-      {
-       "name": "Kind C",
-       "wert": 1
-      },
-      {
-       "name": "Kind D",
-       "wert": 4
-      }
-     ],
-     "zahlen": true,
-     "einheit": "Bücher"
-    }
-   },
+   "y": "auswahl",
+   "a": [
+    "Gruppe A",
+    "Beide gleich",
+    "Gruppe B",
+    "Die Gruppe mit dem größten Einzelwert"
+   ],
    "o": {
-    "wert": 3.5
+    "index": 2
    },
-   "c": "(7 + 2 + 1 + 4) / 4",
-   "w": "Abgelesen: 7, 2, 1, 4. Summe 14, Anzahl 4: 14 : 4 = 3,5.",
-   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen."
+   "f": {
+    "text": "Gruppe A sammelt 7 kg, 4 kg, 7 kg, 4 kg Altpapier, Gruppe B 8 kg, 12 kg, 7 kg, 11 kg. Welche Gruppe hat im Mittel mehr gesammelt?"
+   },
+   "w": "A: 22 : 4 = 5,5 kg, B: 38 : 4 = 9,5 kg. Mehr im Mittel: Gruppe B.",
+   "h": "Berechne für beide Gruppen den Mittelwert.",
+   "g": "einkleidung"
   },
   {
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Das Säulendiagramm zeigt: Regentage im Monat. Berechne den Mittelwert.",
-    "grafik": {
-     "typ": "saeulen",
-     "werte": [
-      {
-       "name": "Jan",
-       "wert": 12
-      },
-      {
-       "name": "Feb",
-       "wert": 14
-      },
-      {
-       "name": "Mär",
-       "wert": 6
-      },
-      {
-       "name": "Apr",
-       "wert": 8
-      }
-     ],
-     "zahlen": true,
-     "einheit": "Tage"
-    }
+    "text": "Berechne den Mittelwert von 3, 5, 2, 17, 8."
    },
    "o": {
-    "wert": 10
+    "wert": 7
    },
-   "c": "(12 + 14 + 6 + 8) / 4",
-   "w": "Abgelesen: 12, 14, 6, 8. Summe 40, Anzahl 4: 40 : 4 = 10.",
-   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen."
+   "c": "(3 + 5 + 2 + 17 + 8) / 5",
+   "w": "Summe 3 + 5 + 2 + 17 + 8 = 35. 35 : 5 = 7.",
+   "h": "Addiere alle Werte und teile durch die Anzahl.",
+   "g": "direkt"
   },
   {
    "l": "mittelwert",
@@ -587,7 +493,162 @@
    },
    "c": "(0 + 3 + 0 + 3 + 4) / 5",
    "w": "Abgelesen: 0, 3, 0, 3, 4. Summe 10, Anzahl 5: 10 : 5 = 2.",
-   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen."
+   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Die Gruppe mit dem größten Einzelwert",
+    "Beide gleich",
+    "Gruppe B",
+    "Gruppe A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Gruppe A sammelt 4 kg, 6 kg, 2 kg, 2 kg Altpapier, Gruppe B 8 kg, 11 kg, 9 kg, 2 kg. Welche Gruppe hat im Mittel mehr gesammelt?"
+   },
+   "w": "A: 14 : 4 = 3,5 kg, B: 30 : 4 = 7,5 kg. Mehr im Mittel: Gruppe B.",
+   "h": "Berechne für beide Gruppen den Mittelwert."
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Taschengeld: 9 €, 3 €, 4 €, 7 €, 21 €, 4 €. Berechne den Mittelwert."
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "€"
+   },
+   "c": "(9 + 3 + 4 + 7 + 21 + 4) / 6",
+   "w": "Summe: 48 €. Anzahl: 6. Mittelwert: 48 : 6 = 8 €.",
+   "h": "Summe durch Anzahl.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Säulendiagramm zeigt: Gelesene Bücher im Monat. Berechne den Mittelwert.",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Kind A",
+       "wert": 7
+      },
+      {
+       "name": "Kind B",
+       "wert": 2
+      },
+      {
+       "name": "Kind C",
+       "wert": 1
+      },
+      {
+       "name": "Kind D",
+       "wert": 4
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Bücher"
+    }
+   },
+   "o": {
+    "wert": 3.5
+   },
+   "c": "(7 + 2 + 1 + 4) / 4",
+   "w": "Abgelesen: 7, 2, 1, 4. Summe 14, Anzahl 4: 14 : 4 = 3,5.",
+   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Tore pro Spiel: 1, 3, 6, 2, 4, 2. Berechne den Mittelwert."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(1 + 3 + 6 + 2 + 4 + 2) / 6",
+   "w": "Summe: 18. Anzahl: 6. Mittelwert: 18 : 6 = 3.",
+   "h": "Summe durch Anzahl.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Säulendiagramm zeigt: Regentage im Monat. Berechne den Mittelwert.",
+    "grafik": {
+     "typ": "saeulen",
+     "werte": [
+      {
+       "name": "Jan",
+       "wert": 12
+      },
+      {
+       "name": "Feb",
+       "wert": 14
+      },
+      {
+       "name": "Mär",
+       "wert": 6
+      },
+      {
+       "name": "Apr",
+       "wert": 8
+      }
+     ],
+     "zahlen": true,
+     "einheit": "Tage"
+    }
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(12 + 14 + 6 + 8) / 4",
+   "w": "Abgelesen: 12, 14, 6, 8. Summe 40, Anzahl 4: 40 : 4 = 10.",
+   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind läuft an 7 Tagen 42 min, 20 min, 57 min, 24 min, 17 min, 36 min, 42 min. Wie viele Minuten läuft es im Durchschnitt pro Tag?"
+   },
+   "o": {
+    "wert": 34,
+    "einheit": "min"
+   },
+   "c": "(42 + 20 + 57 + 24 + 17 + 36 + 42) / 7",
+   "w": "238 min : 7 = 34 min.",
+   "h": "„Im Durchschnitt“ heißt: Mittelwert.",
+   "g": "einkleidung"
   },
   {
    "l": "mittelwert",
@@ -626,67 +687,14 @@
    },
    "c": "(2 + 1 + 1 + 0) / 4",
    "w": "Abgelesen: 2, 1, 1, 0. Summe 4, Anzahl 4: 4 : 4 = 1.",
-   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen."
+   "h": "Lies alle Säulen ab, addiere und teile durch die Anzahl der Säulen.",
+   "g": "darstellung"
   },
   {
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Tore pro Spiel: 1, 3, 6, 2, 4, 2. Berechne den Mittelwert."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "(1 + 3 + 6 + 2 + 4 + 2) / 6",
-   "w": "Summe: 18. Anzahl: 6. Mittelwert: 18 : 6 = 3.",
-   "h": "Summe durch Anzahl."
-  },
-  {
-   "l": "mittelwert",
-   "t": "mittelwert",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Beide gleich",
-    "Die Gruppe mit dem größten Einzelwert",
-    "Gruppe A",
-    "Gruppe B"
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Gruppe A sammelt 3 kg, 8 kg, 12 kg, 11 kg Altpapier, Gruppe B 7 kg, 2 kg, 4 kg, 7 kg. Welche Gruppe hat im Mittel mehr gesammelt?"
-   },
-   "w": "A: 34 : 4 = 8,5 kg, B: 20 : 4 = 5 kg. Mehr im Mittel: Gruppe A.",
-   "h": "Berechne für beide Gruppen den Mittelwert."
-  },
-  {
-   "l": "mittelwert",
-   "t": "mittelwert",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kind läuft an 7 Tagen 42 min, 20 min, 57 min, 24 min, 17 min, 36 min, 42 min. Wie viele Minuten läuft es im Durchschnitt pro Tag?"
-   },
-   "o": {
-    "wert": 34,
-    "einheit": "min"
-   },
-   "c": "(42 + 20 + 57 + 24 + 17 + 36 + 42) / 7",
-   "w": "238 min : 7 = 34 min.",
-   "h": "„Im Durchschnitt“ heißt: Mittelwert."
-  },
-  {
-   "l": "mittelwert",
-   "t": "mittelwert",
-   "p": "uebung",
-   "s": 3,
    "y": "zahl",
    "f": {
     "text": "Ein Kind läuft an 5 Tagen 36 min, 28 min, 14 min, 35 min, 27 min. Wie viele Minuten läuft es im Durchschnitt pro Tag?"
@@ -697,70 +705,25 @@
    },
    "c": "(36 + 28 + 14 + 35 + 27) / 5",
    "w": "140 min : 5 = 28 min.",
-   "h": "„Im Durchschnitt“ heißt: Mittelwert."
+   "h": "„Im Durchschnitt“ heißt: Mittelwert.",
+   "g": "einkleidung"
   },
   {
    "l": "mittelwert",
    "t": "mittelwert",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Gruppe A",
-    "Beide gleich",
-    "Gruppe B",
-    "Die Gruppe mit dem größten Einzelwert"
-   ],
-   "o": {
-    "index": 2
-   },
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Gruppe A sammelt 7 kg, 4 kg, 7 kg, 4 kg Altpapier, Gruppe B 8 kg, 12 kg, 7 kg, 11 kg. Welche Gruppe hat im Mittel mehr gesammelt?"
+    "text": "Berechne den Mittelwert von 2,5; 3,1; 4,2 und 1,8."
    },
-   "w": "A: 22 : 4 = 5,5 kg, B: 38 : 4 = 9,5 kg. Mehr im Mittel: Gruppe B.",
-   "h": "Berechne für beide Gruppen den Mittelwert."
-  },
-  {
-   "l": "mittelwert",
-   "t": "mittelwert",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Die Gruppe mit dem größten Einzelwert",
-    "Beide gleich",
-    "Gruppe B",
-    "Gruppe A"
-   ],
    "o": {
-    "index": 2
+    "wert": 2.9
    },
-   "f": {
-    "text": "Gruppe A sammelt 4 kg, 6 kg, 2 kg, 2 kg Altpapier, Gruppe B 8 kg, 11 kg, 9 kg, 2 kg. Welche Gruppe hat im Mittel mehr gesammelt?"
-   },
-   "w": "A: 14 : 4 = 3,5 kg, B: 30 : 4 = 7,5 kg. Mehr im Mittel: Gruppe B.",
-   "h": "Berechne für beide Gruppen den Mittelwert."
-  },
-  {
-   "l": "mittelwert",
-   "t": "mittelwert",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Gruppe B",
-    "Die Gruppe mit dem größten Einzelwert",
-    "Gruppe A",
-    "Beide gleich"
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Gruppe A sammelt 5 kg, 12 kg, 10 kg, 9 kg Altpapier, Gruppe B 2 kg, 9 kg, 11 kg, 2 kg. Welche Gruppe hat im Mittel mehr gesammelt?"
-   },
-   "w": "A: 36 : 4 = 9 kg, B: 24 : 4 = 6 kg. Mehr im Mittel: Gruppe A.",
-   "h": "Berechne für beide Gruppen den Mittelwert."
+   "c": "(2.5 + 3.1 + 4.2 + 1.8) / 4",
+   "h": "Summe durch Anzahl.",
+   "w": "Summe 11,6. 11,6 : 4 = 2,9.",
+   "g": "mehrschritt"
   },
   {
    "l": "mittelwert",
@@ -974,106 +937,29 @@
    },
    "c": "(2 * 5 + 3 * 7 + 4 * 5) / (5 + 7 + 5)",
    "w": "Note · Anzahl: 2 · 5 + 3 · 7 + 4 · 5 = 51. Anzahl: 5 + 7 + 5 = 17. Mittelwert: 51 : 17 = 3.",
-   "h": "Note mal Anzahl, alles addieren, durch die Gesamtzahl teilen."
+   "h": "Note mal Anzahl, alles addieren, durch die Gesamtzahl teilen.",
+   "g": "direkt"
   },
   {
    "l": "mittel_tabelle",
    "t": "mittel_tabelle",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
+   "g": "erkennen",
+   "y": "auswahl",
    "f": {
-    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Tore im Spiel",
-      "0",
-      "1",
-      "2"
-     ],
-     "zeilen": [
-      [
-       "Anzahl Spiele",
-       "4",
-       "8",
-       "4"
-      ]
-     ]
-    }
+    "text": "Wie berechnest du den Mittelwert aus einer Häufigkeitstabelle?"
    },
+   "a": [
+    "Alle Werte der ersten Spalte addieren und durch die Zahl der Zeilen teilen.",
+    "Den Wert mit der größten Häufigkeit nehmen.",
+    "Jeden Wert mit seiner Häufigkeit malnehmen, alles addieren und durch die Zahl aller Werte teilen."
+   ],
    "o": {
-    "wert": 1
+    "index": 2
    },
-   "c": "(0 * 4 + 1 * 8 + 2 * 4) / (4 + 8 + 4)",
-   "w": "Tore insgesamt: 0 · 4 + 1 · 8 + 2 · 4 = 16. Spiele: 16. Mittel: 16 : 16 = 1.",
-   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen."
-  },
-  {
-   "l": "mittel_tabelle",
-   "t": "mittel_tabelle",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Tore im Spiel",
-      "0",
-      "1",
-      "2"
-     ],
-     "zeilen": [
-      [
-       "Anzahl Spiele",
-       "2",
-       "1",
-       "2"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(0 * 2 + 1 * 1 + 2 * 2) / (2 + 1 + 2)",
-   "w": "Tore insgesamt: 0 · 2 + 1 · 1 + 2 · 2 = 5. Spiele: 5. Mittel: 5 : 5 = 1.",
-   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen."
-  },
-  {
-   "l": "mittel_tabelle",
-   "t": "mittel_tabelle",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt einen Notenspiegel. Berechne die Durchschnittsnote.",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Note",
-      "2",
-      "3",
-      "4"
-     ],
-     "zeilen": [
-      [
-       "Anzahl",
-       "7",
-       "7",
-       "1"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 2.6
-   },
-   "c": "(2 * 7 + 3 * 7 + 4 * 1) / (7 + 7 + 1)",
-   "w": "Note · Anzahl: 2 · 7 + 3 · 7 + 4 · 1 = 39. Anzahl: 7 + 7 + 1 = 15. Mittelwert: 39 : 15 = 2,6.",
-   "h": "Note mal Anzahl, alles addieren, durch die Gesamtzahl teilen."
+   "w": "Jeder Wert zählt so oft, wie er vorkommt.",
+   "h": "Wie oft zählt jeder Wert?"
   },
   {
    "l": "mittel_tabelle",
@@ -1106,40 +992,8 @@
    },
    "c": "(0 * 2 + 1 * 2 + 2 * 2) / (2 + 2 + 2)",
    "w": "Summe: 0 · 2 + 1 · 2 + 2 · 2 = 6. Anzahl: 2 + 2 + 2 = 6. Mittelwert: 6 : 6 = 1.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
-  },
-  {
-   "l": "mittel_tabelle",
-   "t": "mittel_tabelle",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Geschwister",
-      "0",
-      "1",
-      "2"
-     ],
-     "zeilen": [
-      [
-       "Anzahl Kinder",
-       "4",
-       "2",
-       "2"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 0.75
-   },
-   "c": "(0 * 4 + 1 * 2 + 2 * 2) / (4 + 2 + 2)",
-   "w": "Summe: 0 · 4 + 1 · 2 + 2 · 2 = 6. Anzahl: 4 + 2 + 2 = 8. Mittelwert: 6 : 8 = 0,75.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
+   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen.",
+   "g": "direkt"
   },
   {
    "l": "mittel_tabelle",
@@ -1176,7 +1030,182 @@
    },
    "c": "(1 * 3 + 2 * 9 + 3 * 7 + 4 * 5 + 5 * 1) / (3 + 9 + 7 + 5 + 1)",
    "w": "Note · Anzahl: 1 · 3 + 2 · 9 + 3 · 7 + 4 · 5 + 5 · 1 = 67. Anzahl: 3 + 9 + 7 + 5 + 1 = 25. Mittelwert: 67 : 25 = 2,68.",
-   "h": "Note mal Anzahl, alles addieren, durch die Gesamtzahl teilen."
+   "h": "Note mal Anzahl, alles addieren, durch die Gesamtzahl teilen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Tore im Spiel",
+      "0",
+      "1",
+      "2"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Spiele",
+       "4",
+       "8",
+       "4"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(0 * 4 + 1 * 8 + 2 * 4) / (4 + 8 + 4)",
+   "w": "Tore insgesamt: 0 · 4 + 1 · 8 + 2 · 4 = 16. Spiele: 16. Mittel: 16 : 16 = 1.",
+   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen.",
+   "g": "direkt"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Geschwister",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Kinder",
+       "8",
+       "7",
+       "4",
+       "2"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(0 * 8 + 1 * 7 + 2 * 4 + 3 * 2) / (8 + 7 + 4 + 2)",
+   "w": "Summe: 0 · 8 + 1 · 7 + 2 · 4 + 3 · 2 = 21. Anzahl: 8 + 7 + 4 + 2 = 21. Mittelwert: 21 : 21 = 1.",
+   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Tore im Spiel",
+      "0",
+      "1",
+      "2"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Spiele",
+       "2",
+       "1",
+       "2"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(0 * 2 + 1 * 1 + 2 * 2) / (2 + 1 + 2)",
+   "w": "Tore insgesamt: 0 · 2 + 1 · 1 + 2 · 2 = 5. Spiele: 5. Mittel: 5 : 5 = 1.",
+   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen.",
+   "g": "direkt"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Geschwister",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Kinder",
+       "5",
+       "4",
+       "3",
+       "1"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(0 * 5 + 1 * 4 + 2 * 3 + 3 * 1) / (5 + 4 + 3 + 1)",
+   "w": "Summe: 0 · 5 + 1 · 4 + 2 · 3 + 3 · 1 = 13. Anzahl: 5 + 4 + 3 + 1 = 13. Mittelwert: 13 : 13 = 1.",
+   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt einen Notenspiegel. Berechne die Durchschnittsnote.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Note",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "7",
+       "1"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2.6
+   },
+   "c": "(2 * 7 + 3 * 7 + 4 * 1) / (7 + 7 + 1)",
+   "w": "Note · Anzahl: 2 · 7 + 3 · 7 + 4 · 1 = 39. Anzahl: 7 + 7 + 1 = 15. Mittelwert: 39 : 15 = 2,6.",
+   "h": "Note mal Anzahl, alles addieren, durch die Gesamtzahl teilen.",
+   "g": "direkt"
   },
   {
    "l": "mittel_tabelle",
@@ -1213,13 +1242,14 @@
    },
    "c": "(0 * 8 + 1 * 6 + 2 * 7 + 3 * 1 + 4 * 4) / (8 + 6 + 7 + 1 + 4)",
    "w": "Tore insgesamt: 0 · 8 + 1 · 6 + 2 · 7 + 3 · 1 + 4 · 4 = 39. Spiele: 26. Mittel: 39 : 26 = 1,5.",
-   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen."
+   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen.",
+   "g": "darstellung"
   },
   {
    "l": "mittel_tabelle",
    "t": "mittel_tabelle",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
@@ -1229,61 +1259,25 @@
       "Geschwister",
       "0",
       "1",
-      "2",
-      "3"
+      "2"
      ],
      "zeilen": [
       [
        "Anzahl Kinder",
-       "8",
-       "7",
        "4",
+       "2",
        "2"
       ]
      ]
     }
    },
    "o": {
-    "wert": 1
+    "wert": 0.75
    },
-   "c": "(0 * 8 + 1 * 7 + 2 * 4 + 3 * 2) / (8 + 7 + 4 + 2)",
-   "w": "Summe: 0 · 8 + 1 · 7 + 2 · 4 + 3 · 2 = 21. Anzahl: 8 + 7 + 4 + 2 = 21. Mittelwert: 21 : 21 = 1.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
-  },
-  {
-   "l": "mittel_tabelle",
-   "t": "mittel_tabelle",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Geschwister",
-      "0",
-      "1",
-      "2",
-      "3"
-     ],
-     "zeilen": [
-      [
-       "Anzahl Kinder",
-       "5",
-       "4",
-       "3",
-       "1"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(0 * 5 + 1 * 4 + 2 * 3 + 3 * 1) / (5 + 4 + 3 + 1)",
-   "w": "Summe: 0 · 5 + 1 · 4 + 2 · 3 + 3 · 1 = 13. Anzahl: 5 + 4 + 3 + 1 = 13. Mittelwert: 13 : 13 = 1.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
+   "c": "(0 * 4 + 1 * 2 + 2 * 2) / (4 + 2 + 2)",
+   "w": "Summe: 0 · 4 + 1 · 2 + 2 · 2 = 6. Anzahl: 4 + 2 + 2 = 8. Mittelwert: 6 : 8 = 0,75.",
+   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen.",
+   "g": "direkt"
   },
   {
    "l": "mittel_tabelle",
@@ -1320,7 +1314,83 @@
    },
    "c": "(1 * 1 + 2 * 8 + 3 * 8 + 4 * 4 + 5 * 3) / (1 + 8 + 8 + 4 + 3)",
    "w": "Note · Anzahl: 1 · 1 + 2 · 8 + 3 · 8 + 4 · 4 + 5 · 3 = 72. Anzahl: 1 + 8 + 8 + 4 + 3 = 24. Mittelwert: 72 : 24 = 3.",
-   "h": "Note mal Anzahl, alles addieren, durch die Gesamtzahl teilen."
+   "h": "Note mal Anzahl, alles addieren, durch die Gesamtzahl teilen.",
+   "g": "darstellung"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Geschwister",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Kinder",
+       "4",
+       "6",
+       "2",
+       "1"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(0 * 4 + 1 * 6 + 2 * 2 + 3 * 1) / (4 + 6 + 2 + 1)",
+   "w": "Summe: 0 · 4 + 1 · 6 + 2 · 2 + 3 · 1 = 13. Anzahl: 4 + 6 + 2 + 1 = 13. Mittelwert: 13 : 13 = 1.",
+   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Tore im Spiel",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Spiele",
+       "6",
+       "8",
+       "0",
+       "4",
+       "2",
+       "0"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1.4
+   },
+   "c": "(0 * 6 + 1 * 8 + 2 * 0 + 3 * 4 + 4 * 2 + 5 * 0) / (6 + 8 + 0 + 4 + 2 + 0)",
+   "w": "Tore insgesamt: 0 · 6 + 1 · 8 + 2 · 0 + 3 · 4 + 4 · 2 + 5 · 0 = 28. Spiele: 20. Mittel: 28 : 20 = 1,4.",
+   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen.",
+   "g": "darstellung"
   },
   {
    "l": "mittel_tabelle",
@@ -1363,49 +1433,10 @@
    "l": "mittel_tabelle",
    "t": "mittel_tabelle",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Tore im Spiel",
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
-     ],
-     "zeilen": [
-      [
-       "Anzahl Spiele",
-       "6",
-       "8",
-       "0",
-       "4",
-       "2",
-       "0"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 1.4
-   },
-   "c": "(0 * 6 + 1 * 8 + 2 * 0 + 3 * 4 + 4 * 2 + 5 * 0) / (6 + 8 + 0 + 4 + 2 + 0)",
-   "w": "Tore insgesamt: 0 · 6 + 1 · 8 + 2 · 0 + 3 · 4 + 4 · 2 + 5 · 0 = 28. Spiele: 20. Mittel: 28 : 20 = 1,4.",
-   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen."
-  },
-  {
-   "l": "mittel_tabelle",
-   "t": "mittel_tabelle",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“ in einer Klasse. Berechne den Mittelwert.",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
@@ -1417,165 +1448,56 @@
      ],
      "zeilen": [
       [
-       "Anzahl Kinder",
+       "Kinder",
        "4",
-       "6",
-       "2",
-       "1"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(0 * 4 + 1 * 6 + 2 * 2 + 3 * 1) / (4 + 6 + 2 + 1)",
-   "w": "Summe: 0 · 4 + 1 · 6 + 2 · 2 + 3 · 1 = 13. Anzahl: 4 + 6 + 2 + 1 = 13. Mittelwert: 13 : 13 = 1.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
-  },
-  {
-   "l": "mittel_tabelle",
-   "t": "mittel_tabelle",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Geschwister",
-      "0",
-      "1",
-      "2",
-      "3"
-     ],
-     "zeilen": [
-      [
-       "Anzahl Kinder",
-       "0",
-       "1",
-       "2",
+       "9",
+       "5",
        "2"
       ]
      ]
     }
    },
    "o": {
-    "wert": 2.2
+    "wert": 1.25
    },
-   "c": "(0 * 0 + 1 * 1 + 2 * 2 + 3 * 2) / (0 + 1 + 2 + 2)",
-   "w": "Summe: 0 · 0 + 1 · 1 + 2 · 2 + 3 · 2 = 11. Anzahl: 0 + 1 + 2 + 2 = 5. Mittelwert: 11 : 5 = 2,2.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
+   "c": "(0 * 4 + 1 * 9 + 2 * 5 + 3 * 2) / 20",
+   "h": "Wert mal Anzahl, addieren, durch die Zahl der Kinder teilen.",
+   "w": "0 · 4 + 1 · 9 + 2 · 5 + 3 · 2 = 25. 20 Kinder. 25 : 20 = 1,25.",
+   "g": "darstellung"
   },
   {
    "l": "mittel_tabelle",
    "t": "mittel_tabelle",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Geschwister",
-      "0",
-      "1",
-      "2",
-      "3"
-     ],
-     "zeilen": [
-      [
-       "Anzahl Kinder",
-       "4",
-       "2",
-       "2",
-       "4"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 1.5
-   },
-   "c": "(0 * 4 + 1 * 2 + 2 * 2 + 3 * 4) / (4 + 2 + 2 + 4)",
-   "w": "Summe: 0 · 4 + 1 · 2 + 2 · 2 + 3 · 4 = 18. Anzahl: 4 + 2 + 2 + 4 = 12. Mittelwert: 18 : 12 = 1,5.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
-  },
-  {
-   "l": "mittel_tabelle",
-   "t": "mittel_tabelle",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Geschwister",
-      "0",
-      "1",
-      "2",
-      "3"
-     ],
-     "zeilen": [
-      [
-       "Anzahl Kinder",
-       "7",
-       "6",
-       "3",
-       "4"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 1.2
-   },
-   "c": "(0 * 7 + 1 * 6 + 2 * 3 + 3 * 4) / (7 + 6 + 3 + 4)",
-   "w": "Summe: 0 · 7 + 1 · 6 + 2 · 3 + 3 · 4 = 24. Anzahl: 7 + 6 + 3 + 4 = 20. Mittelwert: 24 : 20 = 1,2.",
-   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
-  },
-  {
-   "l": "mittel_tabelle",
-   "t": "mittel_tabelle",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Tore im Spiel",
-      "0",
-      "1",
-      "2",
-      "3",
-      "4",
-      "5"
-     ],
-     "zeilen": [
-      [
-       "Anzahl Spiele",
-       "6",
-       "0",
-       "6",
-       "1",
-       "1",
-       "3"
-      ]
-     ]
-    }
+    "text": "In einer Klasse haben 5 Kinder die Note 1, 10 Kinder die Note 2 und 5 Kinder die Note 3. Wie groß ist die Durchschnittsnote?"
    },
    "o": {
     "wert": 2
    },
-   "c": "(0 * 6 + 1 * 0 + 2 * 6 + 3 * 1 + 4 * 1 + 5 * 3) / (6 + 0 + 6 + 1 + 1 + 3)",
-   "w": "Tore insgesamt: 0 · 6 + 1 · 0 + 2 · 6 + 3 · 1 + 4 · 1 + 5 · 3 = 34. Spiele: 17. Mittel: 34 : 17 = 2.",
-   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen."
+   "c": "(5 * 1 + 10 * 2 + 5 * 3) / 20",
+   "w": "(5 + 20 + 15) : 20 = 40 : 20 = 2.",
+   "h": "Wie viele Kinder sind es insgesamt?"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Eine Datenreihe enthält 4-mal die 2, 3-mal die 5 und 3-mal die 0. Wie groß ist der Mittelwert?"
+   },
+   "o": {
+    "wert": 2.3
+   },
+   "c": "(4 * 2 + 3 * 5 + 3 * 0) / 10",
+   "w": "(8 + 15 + 0) : 10 = 2,3.",
+   "h": "Die Nullen zählen bei der Anzahl mit."
   },
   {
    "l": "mittel_tabelle",
@@ -1943,7 +1865,29 @@
    },
    "c": "13 * 5",
    "w": "Summe = Mittelwert · Anzahl = 13 · 5 = 65.",
-   "h": "Summe = Mittelwert · Anzahl."
+   "h": "Summe = Mittelwert · Anzahl.",
+   "g": "direkt"
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Rechnung erhältst du aus Mittelwert und Anzahl die Summe aller Werte?"
+   },
+   "a": [
+    "Mittelwert : Anzahl",
+    "Mittelwert · Anzahl",
+    "Mittelwert + Anzahl"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mittelwert = Summe : Anzahl, also Summe = Mittelwert · Anzahl.",
+   "h": "Mache die Division rückgängig."
   },
   {
    "l": "mittel_rueckwaerts",
@@ -1959,7 +1903,25 @@
    },
    "c": "16 * 5",
    "w": "Summe = Mittelwert · Anzahl = 16 · 5 = 80.",
-   "h": "Summe = Mittelwert · Anzahl."
+   "h": "Summe = Mittelwert · Anzahl.",
+   "g": "direkt"
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In 4 Tests (je höchstens 30 Punkte) hat ein Kind im Mittel 11 Punkte. Bekannt sind 5, 10, 4 Punkte. Wie viele Punkte hatte es im fehlenden Test?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "11 * 4 - (5 + 10 + 4)",
+   "w": "Summe aller Punkte: 11 · 4 = 44. Fehlend: 44 − 19 = 25.",
+   "h": "Berechne zuerst die Summe aller Werte aus dem Mittelwert.",
+   "g": "einkleidung"
   },
   {
    "l": "mittel_rueckwaerts",
@@ -1982,6 +1944,23 @@
    "t": "mittel_rueckwaerts",
    "p": "uebung",
    "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Der Mittelwert von 3 Zahlen ist 7. Wie groß ist ihre Summe?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "3 * 7",
+   "w": "Summe = 3 · 7 = 21.",
+   "h": "Mittelwert mal Anzahl."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "3 Kinder haben im Mittel 13 Bücher gelesen. Wie viele Bücher sind das zusammen?"
@@ -1992,6 +1971,23 @@
    "c": "13 * 3",
    "w": "Summe = Mittelwert · Anzahl = 13 · 3 = 39.",
    "h": "Summe = Mittelwert · Anzahl."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In 4 Tests (je höchstens 30 Punkte) hat ein Kind im Mittel 17 Punkte. Bekannt sind 25, 22, 15 Punkte. Wie viele Punkte hatte es im fehlenden Test?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "17 * 4 - (25 + 22 + 15)",
+   "w": "Summe aller Punkte: 17 · 4 = 68. Fehlend: 68 − 62 = 6.",
+   "h": "Berechne zuerst die Summe aller Werte aus dem Mittelwert.",
+   "g": "einkleidung"
   },
   {
    "l": "mittel_rueckwaerts",
@@ -2008,6 +2004,23 @@
    "c": "11 * 6",
    "w": "Summe = Mittelwert · Anzahl = 11 · 6 = 66.",
    "h": "Summe = Mittelwert · Anzahl."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "9 Kinder haben im Mittel 13 Punkte. Ein weiteres Kind kommt mit 3 Punkten dazu. Wie groß ist der neue Mittelwert?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(13 * 9 + 3) / 10",
+   "w": "Alte Summe: 13 · 9 = 117. Neue Summe: 120. Neuer Mittelwert: 120 : 10 = 12.",
+   "h": "Berechne die alte Summe, addiere den neuen Wert und teile durch die neue Anzahl.",
+   "g": "mehrschritt"
   },
   {
    "l": "mittel_rueckwaerts",
@@ -2032,46 +2045,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 4 Tests (je höchstens 30 Punkte) hat ein Kind im Mittel 11 Punkte. Bekannt sind 5, 10, 4 Punkte. Wie viele Punkte hatte es im fehlenden Test?"
+    "text": "Nach 3 Tests hat ein Kind im Mittel 10 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 11 steigt?"
    },
    "o": {
-    "wert": 25
+    "wert": 14
    },
-   "c": "11 * 4 - (5 + 10 + 4)",
-   "w": "Summe aller Punkte: 11 · 4 = 44. Fehlend: 44 − 19 = 25.",
-   "h": "Berechne zuerst die Summe aller Werte aus dem Mittelwert."
-  },
-  {
-   "l": "mittel_rueckwaerts",
-   "t": "mittel_rueckwaerts",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In 3 Tests (je höchstens 30 Punkte) hat ein Kind im Mittel 8 Punkte. Bekannt sind 1, 3 Punkte. Wie viele Punkte hatte es im fehlenden Test?"
-   },
-   "o": {
-    "wert": 20
-   },
-   "c": "8 * 3 - (1 + 3)",
-   "w": "Summe aller Punkte: 8 · 3 = 24. Fehlend: 24 − 4 = 20.",
-   "h": "Berechne zuerst die Summe aller Werte aus dem Mittelwert."
-  },
-  {
-   "l": "mittel_rueckwaerts",
-   "t": "mittel_rueckwaerts",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In 4 Tests (je höchstens 30 Punkte) hat ein Kind im Mittel 17 Punkte. Bekannt sind 25, 22, 15 Punkte. Wie viele Punkte hatte es im fehlenden Test?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "17 * 4 - (25 + 22 + 15)",
-   "w": "Summe aller Punkte: 17 · 4 = 68. Fehlend: 68 − 62 = 6.",
-   "h": "Berechne zuerst die Summe aller Werte aus dem Mittelwert."
+   "c": "11 * 4 - 10 * 3",
+   "w": "Neue Summe nötig: 11 · 4 = 44. Bisher: 10 · 3 = 30. Benötigt: 14 Punkte.",
+   "h": "Welche Summe braucht man für den neuen Mittelwert? Ziehe die bisherige Summe ab.",
+   "g": "umkehr"
   },
   {
    "l": "mittel_rueckwaerts",
@@ -2096,6 +2078,40 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "4 Kinder haben im Mittel 15 Punkte. Ein weiteres Kind kommt mit 3 Punkten dazu. Wie groß ist der neue Mittelwert?"
+   },
+   "o": {
+    "wert": 12.6
+   },
+   "c": "(15 * 4 + 3) / 5",
+   "w": "Alte Summe: 15 · 4 = 60. Neue Summe: 63. Neuer Mittelwert: 63 : 5 = 12,6.",
+   "h": "Berechne die alte Summe, addiere den neuen Wert und teile durch die neue Anzahl.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 4 Tests hat ein Kind im Mittel 6 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 7 steigt?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "7 * 5 - 6 * 4",
+   "w": "Neue Summe nötig: 7 · 5 = 35. Bisher: 6 · 4 = 24. Benötigt: 11 Punkte.",
+   "h": "Welche Summe braucht man für den neuen Mittelwert? Ziehe die bisherige Summe ab.",
+   "g": "umkehr"
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "In 4 Tests (je höchstens 30 Punkte) hat ein Kind im Mittel 11 Punkte. Bekannt sind 3, 16, 6 Punkte. Wie viele Punkte hatte es im fehlenden Test?"
    },
    "o": {
@@ -2112,110 +2128,32 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 4 Tests (je höchstens 30 Punkte) hat ein Kind im Mittel 19 Punkte. Bekannt sind 16, 16, 15 Punkte. Wie viele Punkte hatte es im fehlenden Test?"
+    "text": "In 3 Tests (je höchstens 30 Punkte) hat ein Kind im Mittel 8 Punkte. Bekannt sind 1, 3 Punkte. Wie viele Punkte hatte es im fehlenden Test?"
    },
    "o": {
-    "wert": 29
+    "wert": 20
    },
-   "c": "19 * 4 - (16 + 16 + 15)",
-   "w": "Summe aller Punkte: 19 · 4 = 76. Fehlend: 76 − 47 = 29.",
-   "h": "Berechne zuerst die Summe aller Werte aus dem Mittelwert."
+   "c": "8 * 3 - (1 + 3)",
+   "w": "Summe aller Punkte: 8 · 3 = 24. Fehlend: 24 − 4 = 20.",
+   "h": "Berechne zuerst die Summe aller Werte aus dem Mittelwert.",
+   "g": "einkleidung"
   },
   {
    "l": "mittel_rueckwaerts",
    "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "9 Kinder haben im Mittel 13 Punkte. Ein weiteres Kind kommt mit 3 Punkten dazu. Wie groß ist der neue Mittelwert?"
+    "text": "Der Mittelwert von vier Zahlen ist 7,5. Drei der Zahlen sind 6, 9 und 8. Wie heißt die vierte Zahl?"
    },
    "o": {
-    "wert": 12
+    "wert": 7
    },
-   "c": "(13 * 9 + 3) / 10",
-   "w": "Alte Summe: 13 · 9 = 117. Neue Summe: 120. Neuer Mittelwert: 120 : 10 = 12.",
-   "h": "Berechne die alte Summe, addiere den neuen Wert und teile durch die neue Anzahl."
-  },
-  {
-   "l": "mittel_rueckwaerts",
-   "t": "mittel_rueckwaerts",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Nach 3 Tests hat ein Kind im Mittel 10 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 11 steigt?"
-   },
-   "o": {
-    "wert": 14
-   },
-   "c": "11 * 4 - 10 * 3",
-   "w": "Neue Summe nötig: 11 · 4 = 44. Bisher: 10 · 3 = 30. Benötigt: 14 Punkte.",
-   "h": "Welche Summe braucht man für den neuen Mittelwert? Ziehe die bisherige Summe ab."
-  },
-  {
-   "l": "mittel_rueckwaerts",
-   "t": "mittel_rueckwaerts",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "4 Kinder haben im Mittel 15 Punkte. Ein weiteres Kind kommt mit 3 Punkten dazu. Wie groß ist der neue Mittelwert?"
-   },
-   "o": {
-    "wert": 12.6
-   },
-   "c": "(15 * 4 + 3) / 5",
-   "w": "Alte Summe: 15 · 4 = 60. Neue Summe: 63. Neuer Mittelwert: 63 : 5 = 12,6.",
-   "h": "Berechne die alte Summe, addiere den neuen Wert und teile durch die neue Anzahl."
-  },
-  {
-   "l": "mittel_rueckwaerts",
-   "t": "mittel_rueckwaerts",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Nach 4 Tests hat ein Kind im Mittel 6 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 7 steigt?"
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "7 * 5 - 6 * 4",
-   "w": "Neue Summe nötig: 7 · 5 = 35. Bisher: 6 · 4 = 24. Benötigt: 11 Punkte.",
-   "h": "Welche Summe braucht man für den neuen Mittelwert? Ziehe die bisherige Summe ab."
-  },
-  {
-   "l": "mittel_rueckwaerts",
-   "t": "mittel_rueckwaerts",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "9 Kinder haben im Mittel 12 Punkte. Ein weiteres Kind kommt mit 2 Punkten dazu. Wie groß ist der neue Mittelwert?"
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "(12 * 9 + 2) / 10",
-   "w": "Alte Summe: 12 · 9 = 108. Neue Summe: 110. Neuer Mittelwert: 110 : 10 = 11.",
-   "h": "Berechne die alte Summe, addiere den neuen Wert und teile durch die neue Anzahl."
-  },
-  {
-   "l": "mittel_rueckwaerts",
-   "t": "mittel_rueckwaerts",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Nach 5 Tests hat ein Kind im Mittel 11 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 13 steigt?"
-   },
-   "o": {
-    "wert": 23
-   },
-   "c": "13 * 6 - 11 * 5",
-   "w": "Neue Summe nötig: 13 · 6 = 78. Bisher: 11 · 5 = 55. Benötigt: 23 Punkte.",
-   "h": "Welche Summe braucht man für den neuen Mittelwert? Ziehe die bisherige Summe ab."
+   "c": "7.5 * 4 - 6 - 9 - 8",
+   "h": "Summe = Mittelwert · Anzahl.",
+   "w": "Summe 7,5 · 4 = 30. 30 − 6 − 9 − 8 = 7.",
+   "g": "mehrschritt"
   },
   {
    "l": "mittel_rueckwaerts",
@@ -2368,1475 +2306,808 @@
    "w": "Summe aller Punkte: 8 · 4 = 32. Fehlend: 32 − 28 = 4."
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Modalwert von 35, 34, 41, 42, 31, 38, 38."
-   },
-   "o": {
-    "wert": 38
-   },
-   "c": "38",
-   "w": "38 kommt 2-mal vor – häufiger als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme die Spannweite von 38, 32, 40, 39, 39, 39, 37."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "max(38, 32, 40, 39, 39, 39, 37) - min(38, 32, 40, 39, 39, 39, 37)",
-   "w": "Größter Wert 40, kleinster Wert 32. Spannweite: 40 − 32 = 8.",
-   "h": "Suche den größten und den kleinsten Wert."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme die Spannweite von 145, 125, 160, 123, 149, 134, 160."
-   },
-   "o": {
-    "wert": 37
-   },
-   "c": "max(145, 125, 160, 123, 149, 134, 160) - min(145, 125, 160, 123, 149, 134, 160)",
-   "w": "Größter Wert 160, kleinster Wert 123. Spannweite: 160 − 123 = 37.",
-   "h": "Suche den größten und den kleinsten Wert."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Modalwert von 152, 122, 151, 154, 120, 145, 154."
-   },
-   "o": {
-    "wert": 154
-   },
-   "c": "154",
-   "w": "154 kommt 2-mal vor – häufiger als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme die Spannweite von 144, 129, 125, 120, 132, 160, 125."
-   },
-   "o": {
-    "wert": 40
-   },
-   "c": "max(144, 129, 125, 120, 132, 160, 125) - min(144, 129, 125, 120, 132, 160, 125)",
-   "w": "Größter Wert 160, kleinster Wert 120. Spannweite: 160 − 120 = 40.",
-   "h": "Suche den größten und den kleinsten Wert."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Modalwert von 42, 41, 37, 37, 37, 33, 35."
-   },
-   "o": {
-    "wert": 37
-   },
-   "c": "37",
-   "w": "37 kommt 3-mal vor – häufiger als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Modalwert von 131, 145, 146, 144, 147, 125, 120, 151, 146, 148."
-   },
-   "o": {
-    "wert": 146
-   },
-   "c": "146",
-   "w": "146 kommt 2-mal vor – häufiger als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme die Spannweite von 8, 8, 3, 0, 9, 11, 12, 0, 12, 8."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "max(8, 8, 3, 0, 9, 11, 12, 0, 12, 8) - min(8, 8, 3, 0, 9, 11, 12, 0, 12, 8)",
-   "w": "Größter Wert 12, kleinster Wert 0. Spannweite: 12 − 0 = 12.",
-   "h": "Suche den größten und den kleinsten Wert."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Modalwert von −1, −3, 1, 6, 11, 11, −5, −2, 4, 12."
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "11",
-   "w": "11 kommt 2-mal vor – häufiger als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
+   "l": "mittelwert",
+   "t": "mittelwert",
    "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "a": [
-    "3",
-    "3 und 6",
-    "Es gibt keinen Modalwert.",
-    "6"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Welchen Modalwert hat 3, 3, 5, 6, 6, 8?"
-   },
-   "w": "3 und 6 kommen beide zweimal vor, alle anderen nur einmal. Es gibt zwei Modalwerte: 3 und 6.",
-   "h": "Zähle, wie oft jeder Wert vorkommt. Es kann mehrere häufigste Werte geben – oder keinen."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme die Spannweite von 3, 7, 6, 5, 9, 1, 7, 6, 9, 7."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "max(3, 7, 6, 5, 9, 1, 7, 6, 9, 7) - min(3, 7, 6, 5, 9, 1, 7, 6, 9, 7)",
-   "w": "Größter Wert 9, kleinster Wert 1. Spannweite: 9 − 1 = 8.",
-   "h": "Suche den größten und den kleinsten Wert."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme die Spannweite von 2, 6, 6, 8, 7, 7, 5, 4, 2, 6."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "max(2, 6, 6, 8, 7, 7, 5, 4, 2, 6) - min(2, 6, 6, 8, 7, 7, 5, 4, 2, 6)",
-   "w": "Größter Wert 8, kleinster Wert 2. Spannweite: 8 − 2 = 6.",
-   "h": "Suche den größten und den kleinsten Wert."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme die Spannweite von 7, 8, 7, 4, 7, 7, 10, 1, 2, −5, 8, −4."
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "max(7, 8, 7, 4, 7, 7, 10, 1, 2, -5, 8, -4) - min(7, 8, 7, 4, 7, 7, 10, 1, 2, -5, 8, -4)",
-   "w": "Größter Wert 10, kleinster Wert −5. Spannweite: 10 − (−5) = 15.",
-   "h": "Suche den größten und den kleinsten Wert."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "5",
-    "Es gibt keinen Modalwert (jeder Wert kommt nur einmal vor).",
-    "1",
-    "13"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Welchen Modalwert hat 13, 12, 5, 1?"
-   },
-   "w": "Jeder Wert kommt genau einmal vor. Kein Wert ist häufiger als die anderen – es gibt keinen Modalwert.",
-   "h": "Zähle, wie oft jeder Wert vorkommt. Es kann mehrere häufigste Werte geben – oder keinen."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "33",
-    "36",
-    "35",
-    "42"
+    "Gruppe B",
+    "Die Gruppe mit dem größten Einzelwert",
+    "Gruppe A",
+    "Beide gleich"
    ],
    "o": {
     "index": 2
    },
    "f": {
-    "text": "Welcher Wert ist der Modalwert von 42, 35, 35, 37, 38, 41, 33, 34, 37, 33, 35, 32?"
+    "text": "Gruppe A sammelt 5 kg, 12 kg, 10 kg, 9 kg Altpapier, Gruppe B 2 kg, 9 kg, 11 kg, 2 kg. Welche Gruppe hat im Mittel mehr gesammelt?"
    },
-   "w": "35 kommt 3-mal vor, öfter als jeder andere Wert.",
-   "h": "Modalwert = häufigster Wert, nicht größter oder mittlerer."
+   "w": "A: 36 : 4 = 9 kg, B: 24 : 4 = 6 kg. Mehr im Mittel: Gruppe A.",
+   "h": "Berechne für beide Gruppen den Mittelwert."
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Mittelwert von −4, 6, −2 und 8."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-4 + 6 - 2 + 8) / 4",
+   "h": "Achte bei der Summe auf die Vorzeichen.",
+   "w": "Summe: −4 + 6 − 2 + 8 = 8. 8 : 4 = 2.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Rechnung bekommst du den Mittelwert von 52 und 60?"
+   },
+   "a": [
+    "52 + 60 : 2",
+    "(52 + 60) : 2",
+    "52 : 2 + 60",
+    "(52 + 60) · 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Erst die Summe, dann teilen. Denk an Punkt vor Strich.",
+   "w": "(52 + 60) : 2 = 56. Ohne Klammer würde nur 60 halbiert: 52 + 30 = 82.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
    "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bestimme die Spannweite von −2, 0, 2, 6, 12, 7, 9, 7, −4, 0, 7, −5."
+    "text": "Der Mittelwert von fünf aufeinanderfolgenden natürlichen Zahlen ist 23. Wie heißt die größte der fünf Zahlen?"
    },
    "o": {
-    "wert": 17
+    "wert": 25
    },
-   "c": "max(-2, 0, 2, 6, 12, 7, 9, 7, -4, 0, 7, -5) - min(-2, 0, 2, 6, 12, 7, 9, 7, -4, 0, 7, -5)",
-   "w": "Größter Wert 12, kleinster Wert −5. Spannweite: 12 − (−5) = 17.",
-   "h": "Suche den größten und den kleinsten Wert."
+   "c": "23 + 2",
+   "h": "Bei aufeinanderfolgenden Zahlen steht der Mittelwert genau in der Mitte.",
+   "w": "Die Zahlen sind 21, 22, 23, 24, 25. Summe 115, 115 : 5 = 23. Größte: 25.",
+   "g": "transfer"
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
+   "l": "mittelwert",
+   "t": "mittelwert",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Temperaturen am Morgen in einer Woche (°C): −6, −2, −5, 1, −5, 5, 12. Wie groß ist die Spannweite?"
+    "text": "Ein Kind hat in vier Tests 14, 17, 12 und 13 Punkte. Es sagt: „Ohne den schlechtesten Test wäre mein Mittelwert um mehr als 1 Punkt höher.“ Stimmt das?"
    },
+   "a": [
+    "Ja, um genau 2 Punkte.",
+    "Ja, um 1,5 Punkte.",
+    "Nein, er bliebe gleich.",
+    "Nein, er wäre nur um etwa 0,7 Punkte höher."
+   ],
    "o": {
-    "wert": 18,
-    "einheit": "°C"
+    "index": 3
    },
-   "c": "max(-6, -2, -5, 1, -5, 5, 12) - min(-6, -2, -5, 1, -5, 5, 12)",
-   "w": "Größter Wert 12, kleinster −6: 12 − (−6) = 18 °C.",
-   "h": "Größter minus kleinster Wert. Bei negativen Werten: minus minus wird plus."
+   "h": "Rechne beide Mittelwerte aus.",
+   "w": "Mit allen: 56 : 4 = 14. Ohne die 12: 44 : 3 ≈ 14,7. Unterschied etwa 0,7 Punkte.",
+   "g": "begruenden"
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
+   "l": "mittelwert",
+   "t": "mittelwert",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Bestimme die Spannweite von 124, 139, 151, 148, 157, 160, 122, 157, 155, 141, 144, 121."
+    "text": "Bei welchem Notenspiegel ist der Durchschnitt genau 3,0?"
    },
+   "a": [
+    "1: 2, 2: 4, 3: 6, 4: 4, 5: 0, 6: 2",
+    "1: 4, 2: 4, 3: 6, 4: 4, 5: 2, 6: 0",
+    "1: 0, 2: 4, 3: 6, 4: 4, 5: 2, 6: 2",
+    "1: 2, 2: 4, 3: 6, 4: 4, 5: 2, 6: 0"
+   ],
    "o": {
-    "wert": 39
+    "index": 3
    },
-   "c": "max(124, 139, 151, 148, 157, 160, 122, 157, 155, 141, 144, 121) - min(124, 139, 151, 148, 157, 160, 122, 157, 155, 141, 144, 121)",
-   "w": "Größter Wert 160, kleinster Wert 121. Spannweite: 160 − 121 = 39.",
-   "h": "Suche den größten und den kleinsten Wert."
+   "h": "Rechne Note mal Anzahl, addiere und teile durch die Zahl der Kinder.",
+   "w": "2 · 1 + 4 · 2 + 6 · 3 + 4 · 4 + 2 · 5 = 54 Punkte für 18 Kinder. 54 : 18 = 3,0. Die anderen ergeben 56 : 20 = 2,8; 56 : 18 ≈ 3,1; 64 : 18 ≈ 3,6.",
+   "g": "transfer"
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "test",
-   "s": 2,
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
    "y": "zahl",
    "f": {
-    "text": "Bestimme die Spannweite von 0, 11, 1, 6, 7, 11, 3, −3, −1, 4."
+    "text": "Ein Kind rechnet den Mittelwert von 4, 6, 8 und 10 so: (4 + 6 + 8 + 10) : 2 = 14. Wie heißt er richtig?"
    },
    "o": {
-    "wert": 14
+    "wert": 7
    },
-   "c": "max(0, 11, 1, 6, 7, 11, 3, -3, -1, 4) - min(0, 11, 1, 6, 7, 11, 3, -3, -1, 4)",
-   "w": "Größter Wert 11, kleinster Wert −3. Spannweite: 11 − (−3) = 14."
+   "c": "(4 + 6 + 8 + 10) / 4",
+   "w": "Es hat durch 2 statt durch die Anzahl 4 geteilt. 28 : 4 = 7.",
+   "h": "Durch welche Zahl muss man teilen?"
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "korrektur",
-   "s": 2,
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Modalwert von 42, 40, 34, 33, 40, 33, 32, 33, 30, 41."
+    "text": "Drei Kinder haben im Mittel 12 € gespart. Das erste hat 10 €, das zweite 4 € mehr als das erste. Wie viel hat das dritte gespart?"
    },
    "o": {
-    "wert": 33
+    "wert": 12,
+    "einheit": "€"
    },
-   "c": "33",
-   "w": "33 kommt 3-mal vor – häufiger als jeder andere Wert."
+   "c": "3 * 12 - 10 - 14",
+   "w": "Zusammen 36 €. Das zweite hat 14 €. Das dritte: 36 − 10 − 14 = 12 €.",
+   "h": "Wie viel haben alle zusammen?"
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "korrektur",
-   "s": 2,
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Modalwert von 32, 35, 40, 31, 42, 34, 33, 38, 40, 36."
+    "text": "Für welche Zahl x ist der Mittelwert von 4, 9 und x genau 8?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "3 * 8 - 4 - 9",
+   "w": "Die Summe muss 3 · 8 = 24 sein. x = 24 − 4 − 9 = 11.",
+   "h": "Wie groß muss die Summe sein?"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind springt 3,20 m; 3,40 m; 2,90 m und 3,30 m. Der schlechteste Sprung wird gestrichen. Wie groß ist der Mittelwert der übrigen Sprünge?"
+   },
+   "o": {
+    "wert": 3.3,
+    "einheit": "m"
+   },
+   "c": "(3.2 + 3.4 + 3.3) / 3",
+   "w": "Gestrichen wird 2,90 m. (3,20 + 3,40 + 3,30) : 3 = 9,90 : 3 = 3,30 m.",
+   "h": "Welcher Sprung fällt weg?"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Der Mittelwert von 10 Zahlen ist 20. Eine der Zahlen wird von 35 auf 15 geändert. Wie groß ist der neue Mittelwert?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "(10 * 20 - 35 + 15) / 10",
+   "w": "Die Summe war 200. Sie wird um 20 kleiner: 180. Der neue Mittelwert ist 180 : 10 = 18.",
+   "h": "Was passiert mit der Summe?"
+  },
+  {
+   "l": "mittelwert",
+   "t": "mittelwert",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Fünf verschiedene natürliche Zahlen (ab 1) haben den Mittelwert 10. Wie groß kann die größte höchstens sein?"
    },
    "o": {
     "wert": 40
    },
-   "c": "40",
-   "w": "40 kommt 2-mal vor – häufiger als jeder andere Wert."
+   "c": "5 * 10 - (1 + 2 + 3 + 4)",
+   "w": "Die Summe ist 50. Die größte Zahl wird am größten, wenn die anderen vier so klein wie möglich sind: 1, 2, 3, 4 (zusammen 10). Bleibt 40.",
+   "h": "Wie klein können die anderen vier Zahlen sein?"
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "korrektur",
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Modalwert von 4, 6, 4, 3, 6, 8, 4, 4, 6, 1."
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Geschwister",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Kinder",
+       "0",
+       "1",
+       "2",
+       "2"
+      ]
+     ]
+    }
    },
    "o": {
-    "wert": 4
+    "wert": 2.2
    },
-   "c": "4",
-   "w": "4 kommt 4-mal vor – häufiger als jeder andere Wert."
+   "c": "(0 * 0 + 1 * 1 + 2 * 2 + 3 * 2) / (0 + 1 + 2 + 2)",
+   "w": "Summe: 0 · 0 + 1 · 1 + 2 · 2 + 3 · 2 = 11. Anzahl: 0 + 1 + 2 + 2 = 5. Mittelwert: 11 : 5 = 2,2.",
+   "h": "Wert mal Häufigkeit, alles addieren, durch die Gesamtzahl teilen."
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "sicherung",
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie viele Tore eine Mannschaft in ihren Spielen geschossen hat. Wie viele Tore schießt sie im Mittel pro Spiel?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Tore im Spiel",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Spiele",
+       "6",
+       "0",
+       "6",
+       "1",
+       "1",
+       "3"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(0 * 6 + 1 * 0 + 2 * 6 + 3 * 1 + 4 * 1 + 5 * 3) / (6 + 0 + 6 + 1 + 1 + 3)",
+   "w": "Tore insgesamt: 0 · 6 + 1 · 0 + 2 · 6 + 3 · 1 + 4 · 1 + 5 · 3 = 34. Spiele: 17. Mittel: 34 : 17 = 2.",
+   "h": "Jede Torzahl mal die Anzahl der Spiele, dann durch alle Spiele teilen."
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt einen Notenspiegel. Berechne die Durchschnittsnote.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Note",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "3",
+       "6",
+       "8",
+       "5",
+       "2",
+       "1"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(1 * 3 + 2 * 6 + 3 * 8 + 4 * 5 + 5 * 2 + 6 * 1) / 25",
+   "h": "Note mal Anzahl, addieren, durch die Zahl der Kinder teilen.",
+   "w": "3 + 12 + 24 + 20 + 10 + 6 = 75. 25 Kinder. 75 : 25 = 3."
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Kinder mit 3 Geschwistern müssten noch dazukommen, damit der Mittelwert genau 2 ist?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Geschwister",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Kinder",
+       "4",
+       "2",
+       "2",
+       "4"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(2 * 12 - 18) / (3 - 2)",
+   "w": "Bisher: Summe 0 · 4 + 1 · 2 + 2 · 2 + 3 · 4 = 18, Anzahl 12. Für Mittel 2 bräuchte man Summe 2 · Anzahl. Jedes neue Kind bringt 3, also 1 mehr als 2: Es fehlen 2 · 12 − 18 = 6, also 6 Kinder. Probe: 36 : 18 = 2.",
+   "h": "Wie groß müsste die Summe sein? Um wie viel erhöht jedes neue Kind die Summe mehr als nötig?",
+   "g": "parameter"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Jemand rechnet (0 + 1 + 2 + 3) : 4 = 1,5. Wie groß ist der Mittelwert richtig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Geschwister",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Kinder",
+       "7",
+       "6",
+       "3",
+       "4"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1.2
+   },
+   "c": "(0 * 7 + 1 * 6 + 2 * 3 + 3 * 4) / (7 + 6 + 3 + 4)",
+   "w": "Falsch ist, nur die vier Spaltenwerte zu mitteln. Jede Anzahl zählt so oft, wie Kinder sie haben: Summe 0 · 7 + 1 · 6 + 2 · 3 + 3 · 4 = 24, Anzahl 20. Mittelwert: 24 : 20 = 1,2.",
+   "h": "Wie viele Kinder wurden befragt? Jedes Kind zählt einmal.",
+   "g": "fehler"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Schule zahlen 55 % der Kinder 8 € Kopiergeld, 20 % zahlen 10 € und 25 % zahlen 12 €. Wie viel Euro zahlt ein Kind im Durchschnitt?"
+   },
+   "o": {
+    "wert": 9.4,
+    "einheit": "€"
+   },
+   "c": "(55 * 8 + 20 * 10 + 25 * 12) / 100",
+   "h": "Rechne mit 100 Kindern.",
+   "w": "100 Kinder: 55 · 8 € + 20 · 10 € + 25 · 12 € = 440 € + 200 € + 300 € = 940 €. 940 € : 100 = 9,40 €.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Schule zahlen 55 % der Kinder 8 € Kopiergeld, 20 % zahlen 10 € und 25 % zahlen 12 €. Im nächsten Jahr zahlt die erste Gruppe 1 € mehr, die zweite Gruppe 1 € weniger. Um wie viel Euro steigt der Durchschnitt?"
+   },
+   "o": {
+    "wert": 0.35,
+    "einheit": "€"
+   },
+   "c": "(55 * 1 - 20 * 1) / 100",
+   "h": "Die Gruppen sind verschieden groß. Rechne wieder mit 100 Kindern.",
+   "w": "55 Kinder zahlen zusammen 55 € mehr, 20 Kinder 20 € weniger. Plus 35 € für 100 Kinder: 0,35 € mehr. (Es hebt sich nicht auf!)",
+   "g": "transfer"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Notenspiegel ist eine Anzahl verwischt: Note 1: 2 Kinder, Note 2: 3 Kinder, Note 3: ? Kinder, Note 4: 2 Kinder. Der Durchschnitt ist genau 2,5. Wie viele Kinder haben Note 3?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(2.5 * 7 - (2 + 6 + 8)) / (3 - 2.5)",
+   "h": "Probiere aus: 1, 2, 3 … Kinder mit Note 3. Rechne jeweils den Durchschnitt.",
+   "w": "Mit 3 Kindern: 2 + 6 + 9 + 8 = 25 Notenpunkte für 10 Kinder. 25 : 10 = 2,5. Es passt.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Mannschaft hat in 4 Spielen 0 Tore, in 3 Spielen 1 Tor und in 3 Spielen 2 Tore geschossen. Ein Kind rechnet den Mittelwert als (0 + 1 + 2) : 3 = 1. Wie groß ist er richtig?"
+   },
+   "o": {
+    "wert": 0.9
+   },
+   "c": "(0 * 4 + 1 * 3 + 2 * 3) / 10",
+   "h": "Jeder Wert zählt so oft, wie er vorkommt.",
+   "w": "Tore: 0 · 4 + 1 · 3 + 2 · 3 = 9 in 10 Spielen. 9 : 10 = 0,9.",
+   "g": "fehler"
+  },
+  {
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
    "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Den Mittelwert aus einer Tabelle erhält man als Summe der Werte durch die Zahl der Zeilen.“"
+   },
    "a": [
-    "5 und 8",
-    "5",
-    "8",
-    "Es gibt keinen Modalwert."
+    "Ja, das stimmt.",
+    "Ja, wenn die Tabelle mehr als drei Zeilen hat.",
+    "Nein, man muss jeden Wert mit seiner Häufigkeit gewichten und durch die Zahl aller Werte teilen."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "f": {
-    "text": "Welchen Modalwert hat 7, 5, 5, 8, 8?"
-   },
-   "w": "5 und 8 kommen beide zweimal vor, alle anderen nur einmal. Es gibt zwei Modalwerte: 5 und 8."
+   "w": "Kommt ein Wert 10-mal vor, zählt er auch 10-mal.",
+   "h": "Was ist mit Werten, die oft vorkommen?"
   },
   {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme die Spannweite von 7, 2, 4, 4, 5, 1, 5, 4, 9, 4."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "max(7, 2, 4, 4, 5, 1, 5, 4, 9, 4) - min(7, 2, 4, 4, 5, 1, 5, 4, 9, 4)",
-   "w": "Größter Wert 9, kleinster Wert 1. Spannweite: 9 − 1 = 8."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme die Spannweite von 2, 1, 4, 7, 8, 3, 1, 1, 5, 9."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "max(2, 1, 4, 7, 8, 3, 1, 1, 5, 9) - min(2, 1, 4, 7, 8, 3, 1, 1, 5, 9)",
-   "w": "Größter Wert 9, kleinster Wert 1. Spannweite: 9 − 1 = 8."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Modalwert von 121, 134, 138, 148, 156, 131, 148, 152, 158, 146."
-   },
-   "o": {
-    "wert": 148
-   },
-   "c": "148",
-   "w": "148 kommt 2-mal vor – häufiger als jeder andere Wert."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Es gibt keinen Modalwert (jeder Wert kommt nur einmal vor).",
-    "1",
-    "10"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Welchen Modalwert hat 1, 8, 10, 6?"
-   },
-   "w": "Jeder Wert kommt genau einmal vor. Kein Wert ist häufiger als die anderen – es gibt keinen Modalwert."
-  },
-  {
-   "l": "modal_spannweite",
-   "t": "modal_spannweite",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Modalwert von 12, −2, 11, 1, −2, 7, −4, −2, −3, 3."
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "-2",
-   "w": "−2 kommt 3-mal vor – häufiger als jeder andere Wert."
-  },
-  {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
    "p": "uebung",
-   "s": 1,
+   "s": 3,
+   "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 1, 26, 17, 40, 5, 2, 33."
+    "text": "Notenspiegel: Note 1: 3, Note 2: 7, Note 3: 8, Note 4: 4, Note 5: 2, Note 6: 1. Wie groß ist die Durchschnittsnote? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 17
+    "wert": 2.9
    },
-   "c": "17",
-   "w": "Geordnet: 1, 2, 5, 17, 26, 33, 40. Mitte (Platz 4): 17.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": "round((3 + 14 + 24 + 16 + 10 + 6) / 25, 1)",
+   "w": "Summe: 3 + 14 + 24 + 16 + 10 + 6 = 73 bei 25 Kindern. 73 : 25 = 2,92 ≈ 2,9.",
+   "h": "Wie viele Kinder sind es?"
   },
   {
-   "l": "median",
-   "t": "median",
-   "p": "uebung",
-   "s": 1,
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 27, 6, 11, 21, 15."
+    "text": "Eine Klasse hat den Notenschnitt 2,5. Kommt ein Kind mit der Note 1 dazu, ist der Schnitt 2,4. Wie viele Kinder hat die Klasse jetzt?"
    },
    "o": {
     "wert": 15
    },
    "c": "15",
-   "w": "Geordnet: 6, 11, 15, 21, 27. Mitte (Platz 3): 15.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "w": "Mit n Kindern ist die Notensumme 2,5 · n. Danach 2,5 · n + 1 = 2,4 · (n + 1). Probieren: n = 14 ergibt 35 + 1 = 36 und 2,4 · 15 = 36. Also sind es jetzt 15 Kinder.",
+   "h": "Schreibe die Notensumme vorher und nachher auf."
   },
   {
-   "l": "median",
-   "t": "median",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "l": "mittel_tabelle",
+   "t": "mittel_tabelle",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
    "f": {
-    "text": "Bestimme den Median von 1, 30, 18, 31, 17."
+    "text": "In einer Tabelle kommt der Wert 1 a-mal vor, der Wert 2 doppelt so oft und der Wert 3 dreimal so oft wie der Wert 1. Wie groß ist der Mittelwert? (Als Bruch)",
+    "schablone": "□/□",
+    "hinweis": "Je Lücke eine ganze Zahl."
    },
    "o": {
-    "wert": 18
+    "werte": [
+     7,
+     3
+    ]
    },
-   "c": "18",
-   "w": "Geordnet: 1, 17, 18, 30, 31. Mitte (Platz 3): 18.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": [
+    "14 // 2",
+    "6 // 2"
+   ],
+   "w": "Für a = 1: Die 1 kommt 1-mal, die 2 kommt 2-mal, die 3 kommt 3-mal vor. Summe 1 + 4 + 9 = 14, Anzahl 6, Mittelwert 14/6 = 7/3. Für a = 2 verdoppeln sich Summe und Anzahl (28 und 12), für a = 3 verdreifachen sie sich – der Mittelwert bleibt 7/3, egal wie groß a ist.",
+   "h": "Probiere a = 1 aus."
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 21, 37, 7, 22, 14."
+    "text": "9 Kinder haben im Mittel 12 Punkte. Ein weiteres Kind kommt mit 2 Punkten dazu. Wie groß ist der neue Mittelwert?"
    },
    "o": {
-    "wert": 21
+    "wert": 11
    },
-   "c": "21",
-   "w": "Geordnet: 7, 14, 21, 22, 37. Mitte (Platz 3): 21.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": "(12 * 9 + 2) / 10",
+   "w": "Alte Summe: 12 · 9 = 108. Neue Summe: 110. Neuer Mittelwert: 110 : 10 = 11.",
+   "h": "Berechne die alte Summe, addiere den neuen Wert und teile durch die neue Anzahl.",
+   "g": "einkleidung"
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 28, 14, 39, 1, 23, 14, 27."
+    "text": "In 4 Tests (je höchstens 30 Punkte) hat ein Kind im Mittel 19 Punkte. Bekannt sind 16, 16, 15 Punkte. Wie viele Punkte hatte es im fehlenden Test?"
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "19 * 4 - (16 + 16 + 15)",
+   "w": "Summe aller Punkte: 19 · 4 = 76. Fehlend: 76 − 47 = 29.",
+   "h": "Berechne zuerst die Summe aller Werte aus dem Mittelwert."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 5 Tests hat ein Kind im Mittel 11 Punkte. Wie viele Punkte braucht es im nächsten Test, damit der Mittelwert auf 13 steigt?"
    },
    "o": {
     "wert": 23
    },
-   "c": "23",
-   "w": "Geordnet: 1, 14, 14, 23, 27, 28, 39. Mitte (Platz 4): 23.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": "13 * 6 - 11 * 5",
+   "w": "Neue Summe nötig: 13 · 6 = 78. Bisher: 11 · 5 = 55. Benötigt: 23 Punkte.",
+   "h": "Welche Summe braucht man für den neuen Mittelwert? Ziehe die bisherige Summe ab.",
+   "g": "einkleidung"
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 1,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 20, 27, 2, 23, 1, 32, 31."
+    "text": "Nach drei Schulaufgaben hat ein Kind den Durchschnitt 3,0. Welche Note braucht es in der vierten Schulaufgabe, damit der Durchschnitt 2,5 wird?"
    },
    "o": {
-    "wert": 23
+    "wert": 1
    },
-   "c": "23",
-   "w": "Geordnet: 1, 2, 20, 23, 27, 31, 32. Mitte (Platz 4): 23.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": "2.5 * 4 - 3 * 3",
+   "h": "Wie viele Notenpunkte braucht es nach vier Arbeiten insgesamt?",
+   "w": "Bisher 3 · 3,0 = 9. Nötig 4 · 2,5 = 10. 10 − 9 = 1, also eine 1.",
+   "g": "transfer"
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 22, 26, 27, 7, 13, 12, 25, 4."
+    "text": "Eine Familie mit 4 Personen schaut im Mittel 1,5 Stunden am Tag auf Bildschirme. Wie viele Stunden sind das zusammen an einem Tag?"
    },
    "o": {
-    "wert": 17.5
+    "wert": 6,
+    "einheit": "h"
    },
-   "c": "(13 + 22) / 2",
-   "w": "Geordnet: 4, 7, 12, 13, 22, 25, 26, 27. Mittlere Werte 13 und 22: (13 + 22) : 2 = 17,5.",
-   "h": "Ordne die Werte zuerst der Größe nach. Die Anzahl ist gerade: Nimm den Mittelwert der beiden mittleren Werte."
+   "c": "1.5 * 4",
+   "h": "Summe = Mittelwert · Anzahl.",
+   "w": "1,5 h · 4 = 6 h.",
+   "g": "einkleidung"
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 28, 27, 18, 37, 28, 20."
+    "text": "Fünf Kinder sind im Mittel 1,50 m groß. Ein Kind mit 1,62 m verlässt die Gruppe. Wie groß sind die übrigen vier im Mittel?"
    },
    "o": {
-    "wert": 27.5
+    "wert": 1.47,
+    "einheit": "m"
    },
-   "c": "(27 + 28) / 2",
-   "w": "Geordnet: 18, 20, 27, 28, 28, 37. Mittlere Werte 27 und 28: (27 + 28) : 2 = 27,5.",
-   "h": "Ordne die Werte zuerst der Größe nach. Die Anzahl ist gerade: Nimm den Mittelwert der beiden mittleren Werte."
+   "c": "(1.5 * 5 - 1.62) / 4",
+   "h": "Rechne die Summe aller Größen aus und ziehe 1,62 m ab.",
+   "w": "Summe 5 · 1,50 m = 7,50 m. 7,50 − 1,62 = 5,88 m. 5,88 : 4 = 1,47 m.",
+   "g": "transfer"
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 36, 14, 16, 33, 16, 14, 22, 35, 32."
+    "text": "Der Mittelwert von 3, 8, 10 und x ist genauso groß wie x. Wie groß ist x?"
    },
    "o": {
-    "wert": 22
+    "wert": 7
    },
-   "c": "22",
-   "w": "Geordnet: 14, 14, 16, 16, 22, 32, 33, 35, 36. Mitte (Platz 5): 22.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": "(3 + 8 + 10) / 3",
+   "h": "Probiere Werte für x aus, oder: Wenn x der Mittelwert ist, gleichen sich die Abstände der anderen Zahlen zu x aus.",
+   "w": "x = 7: (3 + 8 + 10 + 7) : 4 = 28 : 4 = 7. Es passt.",
+   "g": "parameter"
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 25, 39, 35, 10, 15, 6, 19, 39, 10."
+    "text": "In der 6a (20 Kinder) sind es im Mittel 12 Punkte, in der 6b (30 Kinder) 17 Punkte. Wie groß ist der Mittelwert aller 50 Kinder?"
    },
    "o": {
-    "wert": 19
+    "wert": 15
    },
-   "c": "19",
-   "w": "Geordnet: 6, 10, 10, 15, 19, 25, 35, 39, 39. Mitte (Platz 5): 19.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": "(20 * 12 + 30 * 17) / 50",
+   "h": "Rechne die Punktsumme jeder Klasse aus. Die Klassen sind verschieden groß.",
+   "w": "6a: 240 Punkte, 6b: 510 Punkte. 750 : 50 = 15. (Nicht (12 + 17) : 2 = 14,5.)",
+   "g": "verknuepfen"
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "g": "fehler",
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 21, 11, 20, 40, 33, 7, 32, 30, 39."
+    "text": "Ein Kind sagt: „Mein Mittelwert aus 5 Tests ist 6, also habe ich zusammen 11 Punkte.“ Wie viele Punkte sind es richtig?"
    },
    "o": {
     "wert": 30
    },
-   "c": "30",
-   "w": "Geordnet: 7, 11, 20, 21, 30, 32, 33, 39, 40. Mitte (Platz 5): 30.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": "5 * 6",
+   "w": "Es hat 5 + 6 gerechnet. Richtig: 5 · 6 = 30 Punkte.",
+   "h": "Mittelwert mal Anzahl."
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Kommt ein Wert dazu, der genau so groß ist wie der Mittelwert, ändert sich der Mittelwert nicht.“"
+   },
+   "a": [
+    "Nein, er wird immer kleiner.",
+    "Nein, er wird immer größer.",
+    "Ja: Summe und Anzahl wachsen im gleichen Verhältnis."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Beispiel: 4, 6, 8 haben den Mittelwert 6. Mit 6 dazu: 24 : 4 = 6.",
+   "h": "Rechne ein Beispiel."
+  },
+  {
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 19, 33, 4, 20, 40, 30."
+    "text": "Fünf Kinder haben im Mittel 10 Punkte. Die 3 Mädchen haben im Mittel 12 Punkte. Wie viele Punkte haben die 2 Jungen im Mittel?"
    },
    "o": {
-    "wert": 25
+    "wert": 7
    },
-   "c": "(20 + 30) / 2",
-   "w": "Geordnet: 4, 19, 20, 30, 33, 40. Mittlere Werte 20 und 30: (20 + 30) : 2 = 25.",
-   "h": "Ordne die Werte zuerst der Größe nach. Die Anzahl ist gerade: Nimm den Mittelwert der beiden mittleren Werte."
+   "c": "(5 * 10 - 3 * 12) / 2",
+   "w": "Alle: 50 Punkte. Mädchen: 36. Jungen: 14, im Mittel 7.",
+   "h": "Rechne erst die Summen aus."
   },
   {
-   "l": "median",
-   "t": "median",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
    "p": "uebung",
    "s": 3,
+   "g": "pruefung",
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 26, 13, 20, 34, 40, 24, 34, 4."
+    "text": "Ein Kind braucht mindestens den Schnitt 2,0. Es hat die Noten 2, 3, 1 und 2. Welche Note darf es in der fünften Arbeit höchstens haben?"
    },
    "o": {
-    "wert": 25
+    "wert": 2
    },
-   "c": "(24 + 26) / 2",
-   "w": "Geordnet: 4, 13, 20, 24, 26, 34, 34, 40. Mittlere Werte 24 und 26: (24 + 26) : 2 = 25.",
-   "h": "Ordne die Werte zuerst der Größe nach. Die Anzahl ist gerade: Nimm den Mittelwert der beiden mittleren Werte."
+   "c": "5 * 2 - (2 + 3 + 1 + 2)",
+   "w": "Für den Schnitt 2,0 darf die Notensumme bei 5 Arbeiten höchstens 10 sein. Bisher 8, also höchstens Note 2.",
+   "h": "Wie groß darf die Notensumme sein?"
   },
   {
-   "l": "median",
-   "t": "median",
-   "p": "uebung",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "bonus",
    "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Der Median ist 8, der kleinere der beiden mittleren Werte.",
-    "Bei gerader Anzahl gibt es keinen Median.",
-    "Es ist alles richtig.",
-    "Bei gerader Anzahl: (8 + 10) : 2 = 9."
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Jemand sagt: „Der Median von 5, 8, 10, 16 ist 10.“ Was ist falsch?"
-   },
-   "w": "Vier Werte – zwei stehen in der Mitte: 8 und 10. Median = (8 + 10) : 2 = 9.",
-   "h": "Wie viele Werte hat die Liste? Gerade oder ungerade?"
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "beide gleich stark",
-    "keinen von beiden",
-    "den Median",
-    "den Mittelwert"
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Daten: 32, 8, 28, 39, 10, 20, 17, 27, 23, 318. Welchen Kennwert verändert der Ausreißer 318 stärker?"
-   },
-   "w": "Median: 25. Mittelwert: 52,2 (gerundet). Der Ausreißer zieht den Mittelwert stark nach oben, der Median bleibt in der Mitte.",
-   "h": "Der Median schaut nur auf die Mitte der geordneten Liste."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Der Median ist 9, der kleinere der beiden mittleren Werte.",
-    "Es ist alles richtig.",
-    "Bei gerader Anzahl gibt es keinen Median.",
-    "Bei gerader Anzahl: (9 + 13) : 2 = 11."
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Jemand sagt: „Der Median von 7, 9, 13, 17 ist 13.“ Was ist falsch?"
-   },
-   "w": "Vier Werte – zwei stehen in der Mitte: 9 und 13. Median = (9 + 13) : 2 = 11.",
-   "h": "Wie viele Werte hat die Liste? Gerade oder ungerade?"
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "keinen von beiden",
-    "den Mittelwert",
-    "den Median",
-    "beide gleich stark"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Daten: 27, 26, 25, 24, 5, 18, 14, 208. Welchen Kennwert verändert der Ausreißer 208 stärker?"
-   },
-   "w": "Median: 24,5. Mittelwert: 43,4 (gerundet). Der Ausreißer zieht den Mittelwert stark nach oben, der Median bleibt in der Mitte.",
-   "h": "Der Median schaut nur auf die Mitte der geordneten Liste."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "uebung",
-   "s": 3,
+   "g": "knobel",
    "y": "zahl",
    "f": {
-    "text": "Bestimme den Median von 4, 28, 21, 6, 40, 9, 13, 4, 3, 35, 20."
+    "text": "Der Mittelwert von 4 Zahlen ist 10. Nimmt man eine Zahl weg, ist der Mittelwert der übrigen 9. Welche Zahl wurde weggenommen?"
    },
    "o": {
     "wert": 13
    },
-   "c": "13",
-   "w": "Geordnet: 3, 4, 4, 6, 9, 13, 20, 21, 28, 35, 40. Mitte (Platz 6): 13.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": "4 * 10 - 3 * 9",
+   "w": "Vorher ist die Summe 4 · 10 = 40, nachher 3 · 9 = 27. Weggenommen wurde der Unterschied: 40 − 27 = 13.",
+   "h": "Rechne die Summen vorher und nachher."
   },
   {
-   "l": "median",
-   "t": "median",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 4, 23, 28, 32, 19, 17, 29, 14, 6."
-   },
-   "o": {
-    "wert": 19
-   },
-   "c": "19",
-   "w": "Geordnet: 4, 6, 14, 17, 19, 23, 28, 29, 32. Mitte (Platz 5): 19."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 15, 18, 4, 29, 27, 31, 40, 24."
-   },
-   "o": {
-    "wert": 25.5
-   },
-   "c": "(24 + 27) / 2",
-   "w": "Geordnet: 4, 15, 18, 24, 27, 29, 31, 40. Mittlere Werte 24 und 27: (24 + 27) : 2 = 25,5."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 23, 31, 18, 30, 13, 25, 40, 17."
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "(23 + 25) / 2",
-   "w": "Geordnet: 13, 17, 18, 23, 25, 30, 31, 40. Mittlere Werte 23 und 25: (23 + 25) : 2 = 24."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 20, 38, 23, 33, 30, 2, 17, 30."
-   },
-   "o": {
-    "wert": 26.5
-   },
-   "c": "(23 + 30) / 2",
-   "w": "Geordnet: 2, 17, 20, 23, 30, 30, 33, 38. Mittlere Werte 23 und 30: (23 + 30) : 2 = 26,5."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 25, 6, 14, 28, 29, 31, 1, 39."
-   },
-   "o": {
-    "wert": 26.5
-   },
-   "c": "(25 + 28) / 2",
-   "w": "Geordnet: 1, 6, 14, 25, 28, 29, 31, 39. Mittlere Werte 25 und 28: (25 + 28) : 2 = 26,5."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 1, 18, 25, 12, 5, 14."
-   },
-   "o": {
-    "wert": 13
-   },
-   "c": "(12 + 14) / 2",
-   "w": "Geordnet: 1, 5, 12, 14, 18, 25. Mittlere Werte 12 und 14: (12 + 14) : 2 = 13."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 9, 24, 2, 22, 38, 28."
-   },
-   "o": {
-    "wert": 23
-   },
-   "c": "(22 + 24) / 2",
-   "w": "Geordnet: 2, 9, 22, 24, 28, 38. Mittlere Werte 22 und 24: (22 + 24) : 2 = 23."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 39, 19, 26, 21, 40, 15, 34, 18, 26."
-   },
-   "o": {
-    "wert": 26
-   },
-   "c": "26",
-   "w": "Geordnet: 15, 18, 19, 21, 26, 26, 34, 39, 40. Mitte (Platz 5): 26."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 31, 30, 36, 17, 25, 7."
-   },
-   "o": {
-    "wert": 27.5
-   },
-   "c": "(25 + 30) / 2",
-   "w": "Geordnet: 7, 17, 25, 30, 31, 36. Mittlere Werte 25 und 30: (25 + 30) : 2 = 27,5."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bestimme den Median von 7, 35, 16, 7, 32, 37, 18, 19."
-   },
-   "o": {
-    "wert": 18.5
-   },
-   "c": "(18 + 19) / 2",
-   "w": "Geordnet: 7, 7, 16, 18, 19, 32, 35, 37. Mittlere Werte 18 und 19: (18 + 19) : 2 = 18,5."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Nein, z. B. Mittelwert von 7, 8, 9, 6 ist 7,5.",
-    "Ja, die Aussage stimmt.",
-    "Ja, weil man nur ganze Zahlen addiert."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Der Mittelwert ganzer Zahlen ist immer eine ganze Zahl.“"
-   },
-   "w": "Nein, z. B. Mittelwert von 7, 8, 9, 6 ist 7,5.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Ja, man teilt die Summe 44 durch 2.",
-    "Ja, die Aussage stimmt.",
-    "Nein, man teilt durch die Anzahl 5: 44 : 5 = 8,8."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Der Mittelwert von 6, 10, 11, 10, 7 ist 22.“"
-   },
-   "w": "Nein, man teilt durch die Anzahl 5: 44 : 5 = 8,8.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Nein, man teilt durch die Anzahl 5: 47 : 5 = 9,4.",
-    "Ja, man teilt die Summe 47 durch 2."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Der Mittelwert von 11, 9, 12, 8, 7 ist 23,5.“"
-   },
-   "w": "Nein, man teilt durch die Anzahl 5: 47 : 5 = 9,4.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Ja, man teilt die Summe 41 durch 2.",
-    "Nein, man teilt durch die Anzahl 5: 41 : 5 = 8,2."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Der Mittelwert von 4, 7, 12, 7, 11 ist 20,5.“"
-   },
-   "w": "Nein, man teilt durch die Anzahl 5: 41 : 5 = 8,2.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Nein, die Aussage ist falsch.",
-    "Ja: Summe 49, geteilt durch die Anzahl 5: 49 : 5 = 9,8.",
-    "Nein, der Mittelwert muss einer der Werte sein."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Der Mittelwert von 11, 11, 6, 11, 10 ist 9,8.“"
-   },
-   "w": "Ja: Summe 49, geteilt durch die Anzahl 5: 49 : 5 = 9,8.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Ja, man teilt die Summe 34 durch 2.",
-    "Nein, man teilt durch die Anzahl 5: 34 : 5 = 6,8.",
-    "Ja, die Aussage stimmt."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Der Mittelwert von 2, 5, 7, 9, 11 ist 17.“"
-   },
-   "w": "Nein, man teilt durch die Anzahl 5: 34 : 5 = 6,8.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, größter minus kleinster Wert: 11 − 3 = 8.",
-    "Nein, die Aussage ist falsch.",
-    "Nein, Spannweite = letzter Wert − erster Wert."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 3, 8, 6, 11 ist 8.“"
-   },
-   "w": "Ja, größter minus kleinster Wert: 11 − 3 = 8.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Ja, Spannweite = letzter Wert − erster Wert.",
-    "Nein, größter minus kleinster Wert: 11 − 2 = 9."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 4, 11, 2, 3 ist 12.“"
-   },
-   "w": "Nein, größter minus kleinster Wert: 11 − 2 = 9.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, größter minus kleinster Wert: 12 − 7 = 5.",
-    "Ja, Spannweite = letzter Wert − erster Wert.",
-    "Ja, die Aussage stimmt."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 10, 11, 12, 7 ist 7.“"
-   },
-   "w": "Nein, größter minus kleinster Wert: 12 − 7 = 5.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, größter minus kleinster Wert: 11 − 2 = 9.",
-    "Ja, Spannweite = letzter Wert − erster Wert.",
-    "Ja, die Aussage stimmt."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 11, 7, 11, 2, 7 ist 12.“"
-   },
-   "w": "Nein, größter minus kleinster Wert: 11 − 2 = 9.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, weil dann durch eine größere Anzahl geteilt wird.",
-    "Ja, die Aussage stimmt.",
-    "Nein, ein Wert über dem Mittelwert zieht ihn nach oben."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Wenn ein sehr großer Wert dazukommt, kann der Mittelwert kleiner werden.“"
-   },
-   "w": "Nein, ein Wert über dem Mittelwert zieht ihn nach oben.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, größter minus kleinster Wert: 11 − 3 = 8.",
-    "Nein, die Aussage ist falsch.",
-    "Nein, Spannweite = letzter Wert − erster Wert."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 3, 10, 9, 5, 11 ist 8.“"
-   },
-   "w": "Ja, größter minus kleinster Wert: 11 − 3 = 8.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
+   "l": "mittel_rueckwaerts",
+   "t": "mittel_rueckwaerts",
+   "p": "bonus",
    "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 70 € verändert ihn kaum.",
-    "Nein, der Mittelwert ist immer genauer.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 0
-   },
+   "g": "knobel",
+   "y": "zahl",
    "f": {
-    "text": "Stimmt die Aussage? „Taschengeld (€): 2, 4, 5, 9, 3, 70. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“"
+    "text": "In einer Klasse mit 25 Kindern ist die mittlere Körpergröße 150 cm. 10 Kinder sind im Mittel 156 cm groß. Wie groß sind die übrigen 15 Kinder im Mittel?"
    },
-   "w": "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 70 € verändert ihn kaum.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Nein, der Ausreißer 52 € zieht den Mittelwert auf etwa 12,3 €, obwohl fast alle viel weniger bekommen.",
-    "Ja, der Mittelwert ist immer der typische Wert.",
-    "Ja, die Aussage stimmt."
-   ],
    "o": {
-    "index": 0
+    "wert": 146,
+    "einheit": "cm"
    },
-   "f": {
-    "text": "Stimmt die Aussage? „Taschengeld (€): 2, 6, 2, 6, 6, 52. Der Mittelwert zeigt gut, was ein typisches Kind bekommt.“"
-   },
-   "w": "Nein, der Ausreißer 52 € zieht den Mittelwert auf etwa 12,3 €, obwohl fast alle viel weniger bekommen.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 77 € verändert ihn kaum.",
-    "Nein, der Mittelwert ist immer genauer.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Taschengeld (€): 9, 8, 8, 9, 77. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“"
-   },
-   "w": "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 77 € verändert ihn kaum.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 82 € verändert ihn kaum.",
-    "Nein, die Aussage ist falsch.",
-    "Nein, der Mittelwert ist immer genauer."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Taschengeld (€): 7, 4, 11, 12, 82. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“"
-   },
-   "w": "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 82 € verändert ihn kaum.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Nein, die Aussage ist falsch.",
-    "Nein, ein einzelner Wert ändert den Mittelwert nicht.",
-    "Ja, ohne 88 ist er 7, mit 88 etwa 20,5."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Lässt man bei 11, 6, 10, 6, 2, 88 den Ausreißer 88 weg, wird der Mittelwert kleiner.“"
-   },
-   "w": "Ja, ohne 88 ist er 7, mit 88 etwa 20,5.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Nein, der Mittelwert ist immer genauer.",
-    "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 41 € verändert ihn kaum.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Taschengeld (€): 11, 4, 7, 9, 10, 41. Der Median beschreibt ein typisches Kind besser als der Mittelwert.“"
-   },
-   "w": "Ja, der Median bleibt in der Mitte der geordneten Liste, der Ausreißer 41 € verändert ihn kaum.",
-   "h": "Rechne nach oder suche ein Gegenbeispiel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, die Aussage ist falsch.",
-    "Nein, er wird um 16 größer, weil 4 Werte je 4 dazubekommen.",
-    "Ja, die Summe wächst um 4 · 4, geteilt durch 4 also um 4: neuer Mittelwert 6 + 4 = 10."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Wenn man zu jedem Wert von 3, 7, 6, 8 die Zahl 4 addiert, wird auch der Mittelwert um 4 größer.“"
-   },
-   "w": "Ja, die Summe wächst um 4 · 4, geteilt durch 4 also um 4: neuer Mittelwert 6 + 4 = 10."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, größter minus kleinster Wert: 11 − 5 = 6.",
-    "Nein, Spannweite = letzter Wert − erster Wert.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 11, 7, 7, 11, 5 ist 6.“"
-   },
-   "w": "Ja, größter minus kleinster Wert: 11 − 5 = 6."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Nein, größter minus kleinster Wert: 9 − 2 = 7.",
-    "Ja, Spannweite = letzter Wert − erster Wert."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 8, 7, 9, 2 ist 10.“"
-   },
-   "w": "Nein, größter minus kleinster Wert: 9 − 2 = 7."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, Spannweite = letzter Wert − erster Wert.",
-    "Ja, größter minus kleinster Wert: 12 − 4 = 8.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 9, 12, 6, 4, 10 ist 8.“"
-   },
-   "w": "Ja, größter minus kleinster Wert: 12 − 4 = 8."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Summe wächst um 4 · 3, geteilt durch 4 also um 3: neuer Mittelwert 9,5 + 3 = 12,5.",
-    "Nein, die Aussage ist falsch.",
-    "Nein, er wird um 12 größer, weil 4 Werte je 3 dazubekommen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Wenn man zu jedem Wert von 10, 10, 11, 7 die Zahl 3 addiert, wird auch der Mittelwert um 3 größer.“"
-   },
-   "w": "Ja, die Summe wächst um 4 · 3, geteilt durch 4 also um 3: neuer Mittelwert 9,5 + 3 = 12,5."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, Spannweite = letzter Wert − erster Wert.",
-    "Ja, größter minus kleinster Wert: 11 − 5 = 6.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 8, 5, 10, 11 ist 6.“"
-   },
-   "w": "Ja, größter minus kleinster Wert: 11 − 5 = 6."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, Spannweite = letzter Wert − erster Wert.",
-    "Ja, größter minus kleinster Wert: 12 − 5 = 7.",
-    "Nein, die Aussage ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 11, 12, 12, 5, 12 ist 7.“"
-   },
-   "w": "Ja, größter minus kleinster Wert: 12 − 5 = 7."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, die Aussage stimmt.",
-    "Ja, Spannweite = letzter Wert − erster Wert.",
-    "Nein, größter minus kleinster Wert: 12 − 3 = 9."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 8, 12, 11, 3 ist 12.“"
-   },
-   "w": "Nein, größter minus kleinster Wert: 12 − 3 = 9."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, größter minus kleinster Wert: 11 − 5 = 6.",
-    "Nein, die Aussage ist falsch.",
-    "Nein, Spannweite = letzter Wert − erster Wert."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 5, 11, 11, 8, 5 ist 6.“"
-   },
-   "w": "Ja, größter minus kleinster Wert: 11 − 5 = 6."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, größter minus kleinster Wert: 12 − 3 = 9.",
-    "Nein, die Aussage ist falsch.",
-    "Nein, Spannweite = letzter Wert − erster Wert."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Die Spannweite von 3, 10, 12, 5, 7 ist 9.“"
-   },
-   "w": "Ja, größter minus kleinster Wert: 12 − 3 = 9."
+   "c": "(25 * 150 - 10 * 156) / 15",
+   "w": "Alle zusammen: 3 750 cm. Die 10 großen: 1 560 cm. Die übrigen 15: 2 190 cm, im Mittel 146 cm.",
+   "h": "Rechne mit den Summen der Körpergrößen."
   }
  ],
  "offen": [

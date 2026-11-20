@@ -1,0 +1,144 @@
+{
+ "schluessel": "5-pyramide",
+ "klasse": {
+  "gym_by": 5
+ },
+ "titel": "Die Stufenpyramide",
+ "autor": "Claude (Expeditionen Klasse 5)",
+ "einleitung": "In einem Museum in Kairo baust du mit Holzwürfeln eine Stufenpyramide nach. Jede Schicht ist ein Quadrat aus Würfeln: oben 1 Würfel, darunter 2 · 2, dann 3 · 3 und so weiter. Die Tabelle zeigt die kleine Pyramide.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "zahlen.potenzen_basis",
+   "lernziel": "quadrat"
+  },
+  {
+   "thema_schluessel": "zahlen.rechengesetze",
+   "lernziel": "vorteil"
+  },
+  {
+   "thema_schluessel": "zahlen.natuerlich",
+   "lernziel": "runden_regel"
+  },
+  {
+   "thema_schluessel": "zahlen.potenzen_basis",
+   "lernziel": "zehner"
+  },
+  {
+   "thema_schluessel": "zahlen.rechengesetze",
+   "lernziel": "schriftlich"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "zahl",
+   "f": {
+    "text": "Neben deinem kleinen Modell steht im Museum ein großes Modell aus denselben Holzwürfeln. Es hat unten eine Schicht aus 17 · 17 Würfeln. Wie viele Würfel sind das (17²)?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Schicht von oben",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "zeilen": [
+      [
+       "Würfel",
+       "1",
+       "4",
+       "9",
+       "16",
+       "25"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 289
+   },
+   "c": "17 * 17",
+   "w": "17² = 17 · 17 = 289 Würfel.",
+   "h": "Rechne 17 · 10 + 17 · 7.",
+   "bezug": {
+    "thema_schluessel": "zahlen.potenzen_basis",
+    "lernziel": "quadrat"
+   }
+  },
+  {
+   "k": "b",
+   "y": "zahl",
+   "f": {
+    "text": "Die kleine Pyramide hat 5 Schichten mit 1, 4, 9, 16 und 25 Würfeln. Wie viele Würfel sind es zusammen? Rechne geschickt."
+   },
+   "o": {
+    "wert": 55
+   },
+   "c": "1 + 4 + 9 + 16 + 25",
+   "w": "Geschickt zusammenfassen: (1 + 9) + (4 + 16) + 25 = 10 + 20 + 25 = 55.",
+   "h": "Suche zwei Zahlen, die zusammen eine glatte Zehnerzahl ergeben.",
+   "bezug": {
+    "thema_schluessel": "zahlen.rechengesetze",
+    "lernziel": "vorteil"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Die echten großen Pyramiden bestehen aus Steinblöcken und sind viel größer als die beiden Holzmodelle. Eine erfundene Riesenpyramide hätte 2 347 819 Steine. Runde diese Zahl auf Hunderttausender."
+   },
+   "o": {
+    "wert": 2300000
+   },
+   "c": "2300000",
+   "w": "An der Hunderttausenderstelle steht 3, rechts daneben die Zehntausenderziffer 4: abrunden. 2 347 819 ≈ 2 300 000.",
+   "h": "Welche Ziffer steht rechts neben der Hunderttausenderstelle?",
+   "bezug": {
+    "thema_schluessel": "zahlen.natuerlich",
+    "lernziel": "runden_regel"
+   }
+  },
+  {
+   "k": "d",
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt 2 300 000 = 23 · 10 hoch ?. Welcher Exponent gehört an die Stelle des Fragezeichens?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Hinter der 23 stehen 5 Nullen: 2 300 000 = 23 · 100 000 = 23 · 10⁵.",
+   "h": "Zähle die Nullen hinter der 23.",
+   "bezug": {
+    "thema_schluessel": "zahlen.potenzen_basis",
+    "lernziel": "zehner"
+   }
+  },
+  {
+   "k": "e",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bautrupp setzt jeden Tag 300 Steine, ein Jahr hat 365 Tage. Reichen 20 Jahre für 2 300 000 Steine?"
+   },
+   "a": [
+    "Ja, es bleiben 110 000 Steine übrig.",
+    "Nein, es fehlen 110 000 Steine.",
+    "Ja, es passt genau.",
+    "Nein, es fehlen 1 100 000 Steine."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "300 · 365 = 109 500 Steine im Jahr. · 20 = 2 190 000 Steine. Das ist weniger als 2 300 000: Es fehlen 2 300 000 − 2 190 000 = 110 000 Steine. Die Zeit reicht nicht.",
+   "h": "Rechne zuerst aus, wie viele Steine in einem Jahr gesetzt werden.",
+   "bezug": {
+    "thema_schluessel": "zahlen.rechengesetze",
+    "lernziel": "schriftlich"
+   }
+  }
+ ]
+}

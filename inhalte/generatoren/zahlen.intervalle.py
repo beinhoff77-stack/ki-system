@@ -343,6 +343,379 @@ def g_beurteilen(R, st):
 
 GEN = {'lesen': g_lesen, 'schreiben': g_schreiben, 'enthalten': g_enthalten, 'beurteilen': g_beurteilen}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+UMBAU = {
+ 'lesen': {
+  'einstieg': 'Auf einem Spielzeug steht: „für Kinder von 3 bis unter 6 Jahren“. Jedes Alter dazwischen passt, wer 6 ist, nicht mehr. Kurz schreibt man das als ⟦Intervall⟧ [3; 6[.',
+  'woerter': [['Intervall', 'ein lückenloser Zahlenbereich zwischen zwei Grenzen'], ['[3; 6[', 'alle Zahlen von 3 bis knapp unter 6'], ['Grenze', 'die Zahl am Rand des Bereichs']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 8, 'abschnitte': 8, 'beschriftet': 'alle'},
+  'schritte': [{'text': 'Die linke Klammer zeigt zur 3 hin: Die Grenze 3 gehört dazu.', 'bild': {'punkte': [{'wert': 3, 'name': '3 dabei'}]}},
+               {'text': 'Die rechte Klammer zeigt von der 6 weg: 6 gehört nicht dazu.', 'bild': {'punkte': [{'wert': 3, 'name': '3 dabei'}, {'wert': 6, 'name': '6 nicht'}]}},
+               {'text': 'Dazwischen ist alles dabei: ⟦3 ≤ x < 6⟧.', 'bild': {'bereich': {'von': 3, 'bis': 6}}}],
+  'fehler': ']3; 6[ ist etwas anderes: Ein Kind, das genau 3 ist, wäre dann nicht dabei. Die Klammer bei der 3 zeigt dort ⟦nach außen⟧.',
+  'fehler_bild': {'punkte': [{'wert': 3, 'name': '3 nicht'}, {'wert': 6, 'name': '6 nicht'}]},
+  'regel': 'Zeigt die Klammer ⟦zur Zahl hin⟧, gehört die Grenze dazu. Zeigt sie weg, gehört sie nicht dazu.'},
+ 'schreiben': {
+  'einstieg': 'An der Achterbahn steht: „Mitfahren ab 140 cm.“ Nach oben gibt es keine Grenze. Für „ohne Ende“ schreibt man ∞, gesprochen ⟦unendlich⟧.',
+  'woerter': [['∞', '„unendlich“: Der Bereich hört nie auf'], ['x ≥ 140', 'x ist 140 oder mehr']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 100, 'ende': 200, 'abschnitte': 10, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Mindestens 140 cm heißt: x ≥ 140.', 'bild': {'punkte': [{'wert': 140, 'name': '140'}], 'bereich': {'von': 140, 'bis': 200}}},
+               {'text': 'Die 140 gehört dazu, die Klammer zeigt zu ihr hin: [140.'},
+               {'text': 'Nach oben steht ∞, mit Klammer nach außen: ⟦[140; ∞[⟧.'}],
+  'fehler': ']140; ∞[ wäre falsch: Wer genau 140 cm misst, dürfte dann nicht mitfahren. Bei ∞ zeigt die Klammer ⟦immer⟧ nach außen.',
+  'fehler_bild': {'punkte': [{'wert': 140, 'name': '140 nicht?'}]},
+  'regel': 'Bei ≤ und ≥ zeigt die Klammer ⟦nach innen⟧, sonst nach außen. Bei ∞ und −∞ zeigt sie immer nach außen.'},
+ 'enthalten': {
+  'einstieg': 'Ein Spiel ist „für Kinder über 1 bis einschließlich 3 Jahre“. Wer genau 1 ist, gehört nicht dazu, wer genau 3 ist, schon. Das Intervall dazu ist ⟦]1; 3]⟧.',
+  'woerter': [[']1; 3]', 'alle Zahlen über 1 bis einschließlich 3'], ['einschließlich', 'mit dabei']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 5, 'abschnitte': 10, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Die 1 gehört nicht dazu, die Klammer zeigt weg.', 'bild': {'punkte': [{'wert': 1, 'name': '1 nicht'}]}},
+               {'text': 'Die 3 gehört dazu, die Klammer zeigt zu ihr hin.', 'bild': {'punkte': [{'wert': 1, 'name': '1 nicht'}, {'wert': 3, 'name': '3 dabei'}], 'bereich': {'von': 1, 'bis': 3}}},
+               {'text': 'Ganze Zahlen darin sind 2 und 3. Das sind ⟦2 ganze Zahlen⟧.', 'bild': {'punkte': [{'wert': 1, 'name': '1 nicht'}, {'wert': 2, 'name': '2'}, {'wert': 3, 'name': '3 dabei'}]}},
+               {'text': 'Dazu kommen alle Zahlen dazwischen, etwa 2,5. Das sind ⟦unendlich viele⟧.'}],
+  'fehler': 'Ein Intervall enthält nicht nur ganze Zahlen. Ein Kind mit 2 Jahren und 6 Monaten passt auch – das ist 2,5.',
+  'fehler_bild': {'punkte': [{'wert': 1, 'name': '1 nicht'}, {'wert': 2.5, 'name': '2,5 auch'}, {'wert': 3, 'name': '3 dabei'}]},
+  'regel': 'Eine Zahl gehört dazu, wenn sie ⟦zwischen den Grenzen⟧ liegt. Liegt sie genau auf einer Grenze, entscheidet die Klammer.'},
+ 'beurteilen': {
+  'einstieg': 'Im Schwimmbad steht: „Eintritt frei unter 4 Jahren.“ Dein Bruder wird heute 4 – muss er zahlen? Solche Aussagen prüfst du an Grenzen und Klammern, oft mit einem ⟦Gegenbeispiel⟧.',
+  'woerter': [['Gegenbeispiel', 'ein Fall, bei dem die Aussage nicht stimmt'], ['[0; 4[', 'alle Zahlen von 0 bis knapp unter 4']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 6, 'abschnitte': 6, 'beschriftet': 'alle', 'bereich': {'von': 0, 'bis': 4}},
+  'schritte': [{'text': 'Aussage: „4 liegt in [0; 4[.“ Dann hätte der Bruder freien Eintritt.'},
+               {'text': 'Die Klammer bei der 4 zeigt weg. Die 4 gehört nicht dazu.', 'bild': {'punkte': [{'wert': 4, 'name': '4 nicht'}]}},
+               {'text': 'Die 4 ist ein Gegenbeispiel. Die Aussage ist ⟦falsch⟧ – er zahlt.'}],
+  'fehler': '[2; 5] und ]2; 5[ sind nicht gleich. Sie unterscheiden sich an den ⟦Grenzen⟧: Die 2 und die 5 gehören nur zum ersten.',
+  'regel': 'Lies ⟦Grenzen und Klammern⟧ genau. Ein einziges Gegenbeispiel genügt, um eine Aussage zu widerlegen.'},
+}
+UMBAU_OFFEN = ['Umbau 16.11.: Die Lernkarten zeigen Intervalle jetzt auf dem Zahlenstrahl mit „bereich“ und benannten Punkten („3 dabei“, „6 nicht“). '
+               'App-Wunsch: Endpunkte des Bereichs als gefüllter bzw. leerer Kreis (z. B. "bereich": {"von": 3, "bis": 6, "links": "zu", "rechts": "offen"}) und ein Pfeil für „bis ∞“.']
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Eigene Prüfungsaufgaben nur zu Intervallen wurden nicht gefunden. Vorbild sind
+# BMT10 2022 (Schnitt- und Vereinigungsmenge von Lösungsmengen), Schulaufgaben-Typ Kl. 8 (Lösungsmenge einer Ungleichung als Intervall),
+# BMT8 2025 (Aussage begründet widerlegen) und Sachbedingungen mit „ab / bis einschließlich / unter“ wie in VERA-Sachaufgaben.
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_8)
+
+# lesen
+SW.a('lesen', 2, 'Was bedeutet das Intervall ]−∞; 2,5]?', 'x ≤ 2,5', ['x < 2,5', 'x ≥ 2,5', '−∞ ≤ x ≤ 2,5'],
+     'Links unbegrenzt, rechts gehört 2,5 dazu (Klammer zeigt zur Zahl): x ≤ 2,5.', 'Lies jede Klammer einzeln.')
+SW.a('lesen', 2, 'Was bedeutet das Intervall [−1,5; 0[?', '−1,5 ≤ x < 0', ['−1,5 < x ≤ 0', '−1,5 ≤ x ≤ 0', '−1,5 < x < 0'],
+     'Links zeigt die Klammer zur −1,5: dabei. Rechts zeigt sie von der 0 weg: nicht dabei.', 'Zur Zahl hin: dabei. Von der Zahl weg: nicht dabei.')
+SW.a('lesen', 3, 'Im Zoo gilt: Kinder ab 6 Jahren bis einschließlich 14 Jahren zahlen den Kinderpreis. Jugendliche über 14 bis unter 18 Jahren zahlen den Jugendpreis. Welches Intervall beschreibt das Alter (in Jahren) für den Jugendpreis?',
+     ']14; 18[', ['[14; 18[', ']14; 18]', '[6; 18['],
+     '„über 14“: 14 gehört nicht dazu (14-Jährige zahlen den Kinderpreis). „unter 18“: 18 gehört nicht dazu. Also ]14; 18[.', 'Wer genau 14 ist, zahlt welchen Preis?', art='P')
+SW.a('lesen', 3, 'Welche Zahlen liegen in [−2; 5[, aber nicht in [−2; 1]?', ']1; 5[', ['[1; 5[', ']1; 5]', '[−2; 1['],
+     'Aus [−2; 5[ fallen alle Zahlen von −2 bis 1 (mit 1) weg. Übrig bleibt alles über 1 bis unter 5: ]1; 5[.', 'Zeichne beide Bereiche auf einen Zahlenstrahl. Gehört die 1 zum Rest?', art='P')
+SW.z('lesen', 3, 'Das Intervall [a; a + 3[ enthält genau die ganzen Zahlen 4, 5 und 6. a ist eine ganze Zahl. Welche?', 4, '4',
+     'Die kleinste ganze Zahl im Intervall ist a selbst (Klammer zur Zahl). Also a = 4. Dann [4; 7[: 4, 5, 6 – die 7 gehört nicht dazu.', 'Welche Grenze gehört dazu, welche nicht?', art='K')
+SW.z('lesen', 3, 'Wie viele Zahlen mit genau einer Nachkommastelle (z. B. 1,3) liegen im Intervall ]1; 2[?', 9, '9',
+     '1,1; 1,2; …; 1,9 – das sind 9 Zahlen. 1,0 und 2,0 haben keine echte Nachkommastelle und sind außerdem Grenzen, die nicht dazugehören.',
+     'Zähle 1,1; 1,2; … auf.', art='K')
+
+# schreiben
+SW.a('schreiben', 2, 'Schreibe als Intervall: alle Zahlen, die kleiner als 0,5 sind.', ']−∞; 0,5[', [']−∞; 0,5]', ']0,5; ∞[', '[−∞; 0,5['],
+     'x < 0,5: nach links unbegrenzt, 0,5 gehört nicht dazu. Bei −∞ zeigt die Klammer immer nach außen.', '„kleiner als“: Grenze nicht dabei.')
+SW.a('schreiben', 2, 'Schreibe −4 ≤ x < −1,5 als Intervall.', '[−4; −1,5[', [']−4; −1,5]', '[−4; −1,5]', '[−1,5; −4['],
+     '≤ bei −4: Klammer zur Zahl. < bei −1,5: Klammer von der Zahl weg. Die kleinere Zahl steht links.', 'Die kleinere Grenze steht immer links.')
+SW.a('schreiben', 3, 'Ein Gerät darf bei −10 °C bis 40 °C betrieben werden, 40 °C selbst ist aber schon zu warm. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?',
+     '[−10; 40[', [']−10; 40]', '[−10; 40]', '[40; −10['], '−10 °C ist erlaubt (Klammer zur Zahl), 40 °C nicht (Klammer weg).', 'Übersetze erst in eine Ungleichung.', art='P')
+SW.a('schreiben', 3, 'Löse 2x − 3 > 4 und schreibe die Lösungsmenge als Intervall.', ']3,5; ∞[', ['[3,5; ∞[', ']−∞; 3,5[', ']0,5; ∞['],
+     '2x > 7 ⇔ x > 3,5. Die 3,5 gehört nicht dazu: ]3,5; ∞[.', 'Erst lösen, dann schreiben.', art='P')
+SW.a('schreiben', 3, 'Schreibe als Intervall: alle Zahlen, deren Abstand zur Zahl 2 höchstens 3 beträgt.', '[−1; 5]', [']−1; 5[', '[2; 5]', '[−3; 3]'],
+     'Von 2 aus 3 nach links: −1, 3 nach rechts: 5. „Höchstens“: Grenzen gehören dazu. [−1; 5].', 'Gehe vom Mittelpunkt 2 aus in beide Richtungen.', art='K')
+SW.a('schreiben', 3, 'Schreibe als Intervall: alle Zahlen, die nicht negativ sind.', '[0; ∞[', [']0; ∞[', ']−∞; 0]', ']−∞; 0['],
+     '„Nicht negativ“ heißt: positiv oder 0. Die 0 gehört dazu: [0; ∞[.', 'Ist 0 negativ?', art='K')
+
+# enthalten
+SW.z('enthalten', 2, 'Wie viele ganze Zahlen liegen im Intervall ]−2,5; 3,5]?', 6, '3 - (-2) + 1', 'Ganze Zahlen von −2 bis 3: −2, −1, 0, 1, 2, 3 – das sind 6.',
+     'Die Grenzen sind keine ganzen Zahlen. Suche die kleinste und größte ganze Zahl dazwischen.')
+SW.a('enthalten', 2, 'Welche Zahl liegt NICHT im Intervall ]−3; 1]?', '−3', ['−2,9', '0', '1'], 'Die Klammer bei −3 zeigt weg: −3 gehört nicht dazu. −2,9, 0 und 1 liegen darin.',
+     'Prüfe besonders die Grenzen.')
+SW.a('enthalten', 3, 'Welche Zahlen liegen in ]−1; 4] und gleichzeitig in [2; 6[?', '[2; 4]', [']−1; 6[', ']2; 4[', '[2; 4['],
+     'Gemeinsamer Teil: ab 2 (aus dem zweiten Intervall, 2 dabei) bis 4 (aus dem ersten, 4 dabei). Also [2; 4].', 'Größere linke Grenze, kleinere rechte Grenze. Klammern mitnehmen.', art='P')
+SW.a('enthalten', 3, 'Welche Zahlen liegen in [−3; 0[ oder in [0; 2]?', '[−3; 2]', ['[−3; 0[', ']−3; 2[', '[−3; 2] ohne die 0'],
+     'Das erste Intervall endet knapp vor 0, das zweite beginnt mit 0. Zusammen ist es lückenlos von −3 bis 2: [−3; 2].', '„oder“: Es genügt, in einem der Intervalle zu liegen. Wo liegt die 0?', art='P')
+SW.z('enthalten', 3, 'Das Intervall ]a; 7] enthält genau 4 ganze Zahlen. a ist eine ganze Zahl. Bestimme a.', 3, '7 - 4',
+     'Die 7 gehört dazu. Vier ganze Zahlen: 7, 6, 5, 4. Also gehört 3 nicht mehr dazu – das ist die offene Grenze a = 3.', 'Zähle von 7 abwärts. Die Grenze a gehört nicht dazu.', art='K')
+SW.z('enthalten', 3, 'Wie viele Brüche mit dem Nenner 4 (1/4, 2/4, 3/4, …) liegen im Intervall ]0; 2[?', 7, '8 - 1',
+     '2 = 8/4. Dazwischen liegen 1/4, 2/4, …, 7/4 – also 7 Brüche. 0/4 und 8/4 sind die Grenzen und gehören nicht dazu.', 'Schreibe die Grenzen als Viertel.', art='K')
+
+# beurteilen
+SW.a('beurteilen', 2, 'Welche Aussage über ]2; 3[ ist richtig?', 'Es enthält keine ganze Zahl.', ['Es enthält genau eine Zahl.', '2,999 liegt nicht darin.', 'Es ist leer.'],
+     'Zwischen 2 und 3 liegen unendlich viele Zahlen (2,5; 2,999 …), aber keine ganze: 2 und 3 gehören nicht dazu.', 'Denke an Kommazahlen zwischen 2 und 3.')
+SW.a('beurteilen', 2, 'Stimmt die Aussage: „]−∞; 0[ enthält genau alle negativen Zahlen“?', 'Ja.', ['Nein, die 0 fehlt noch.', 'Nein, −∞ gehört auch dazu.', 'Nein, nur die ganzen negativen Zahlen.'],
+     ']−∞; 0[ heißt x < 0. Das sind genau die negativen Zahlen. 0 ist nicht negativ, −∞ ist keine Zahl.', 'Übersetze in eine Ungleichung.')
+SW.a('beurteilen', 3, 'Tim sagt: „Im Intervall [0; 1] liegen nur die Zahlen 0 und 1.“ Was stimmt?', 'Falsch: Auch 0,5 oder 0,01 liegen darin – unendlich viele Zahlen.',
+     ['Richtig: Die Klammern zeigen nur auf 0 und 1.', 'Falsch: 0 und 1 gehören nicht dazu.', 'Richtig: Ein Intervall enthält nur ganze Zahlen.'],
+     '[0; 1] bedeutet 0 ≤ x ≤ 1. Jede Zahl dazwischen gehört dazu, z. B. 0,5. Ein Gegenbeispiel widerlegt Tims Aussage.', 'Suche eine Zahl zwischen 0 und 1.', art='P')
+SW.a('beurteilen', 3, 'Lisa sagt: „]1; 5[ ist länger als [1; 5], weil die Klammern nach außen zeigen.“ Was stimmt?', 'Falsch: Beide sind 4 lang. Die Klammern ändern nur, ob 1 und 5 dazugehören.',
+     ['Richtig: ]1; 5[ ist länger.', 'Falsch: [1; 5] ist länger, weil die Grenzen dazugehören.', 'Falsch: ]1; 5[ ist 3 lang.'],
+     'Länge = rechte Grenze − linke Grenze = 5 − 1 = 4, bei beiden. Einzelne Punkte haben keine Länge.', 'Wie berechnet man die Länge eines Intervalls?', art='P')
+SW.a('beurteilen', 3, 'Welche Zahlen enthält das Intervall [5; 5]?', 'genau die Zahl 5', ['keine Zahl', 'alle Zahlen ab 5', 'unendlich viele Zahlen'],
+     '[5; 5] bedeutet 5 ≤ x ≤ 5. Das erfüllt nur x = 5. (]5; 5[ wäre dagegen leer.)', 'Schreibe als Ungleichung.', art='K')
+SW.a('beurteilen', 3, 'Welche Aussage über JEDES Intervall [a; b] mit a < b ist FALSCH?', 'Es enthält mindestens eine ganze Zahl.',
+     ['Es enthält unendlich viele Zahlen.', 'Es enthält a und b.', 'Es ist genauso lang wie ]a; b[.'],
+     'Gegenbeispiel: [0,2; 0,8] enthält keine ganze Zahl. Die anderen Aussagen stimmen immer.', 'Suche ein kurzes Intervall zwischen zwei ganzen Zahlen.', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('zahlen.intervalle', 13_8_8)
+# c) Beinahe-Dublette (Aquarium zweimal) → andere Grenzenart
+BF.ersetze('lesen', 'Ein Aquarium braucht Wasser von mindestens 24 °C bis höchstens 28 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?', BF.A(
+    'Ein Impfstoff muss im Kühlschrank bei mehr als 2 °C, aber höchstens 8 °C gelagert werden. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?', ']2; 8]',
+    ['[2; 8]', ']2; 8[', '[2; 8['],
+    'In Zeichen: 2 < x ≤ 8. „mehr als“: Grenze gehört nicht dazu, Klammer nach außen. „höchstens“: Grenze gehört dazu, Klammer nach innen. Intervall: ]2; 8].',
+    'Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?'))
+# a) reine Übersetzung ohne Zusatzschritt → Stufe 2
+BF.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen zwischen −5 und −3, beide Grenzen eingeschlossen.', 2)
+BF.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen zwischen −9 und −1, beide Grenzen eingeschlossen.', 2)
+BF.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen zwischen −12 und 8, beide Grenzen ausgeschlossen.', 2)
+BF.nicht_umgesetzt('enthalten S1 „Welche Zahl liegt im Intervall [1; 7]?“ hat nur 3 Antworten', 'Zulässig und richtig; kein Fehler.')
+BF.fuer_sebastian('zahlen.intervalle: lehrplan_gym der Karten ist leer – das Thema hat keine eigene LehrplanPLUS-Zeile (Inhalt gehört zu Ungleichungen, Kl. 8). Karten-Text nicht geändert.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DS = Durchsicht('zahlen.intervalle', 19_8_3)
+# schreiben: eine Ungleichung mit einer Grenze in ein Intervall übersetzen ist Stufe 1; in Worten gegebene Grenze ist Stufe 2
+for _t in ['Schreibe x ≤ 5 als Intervall.', 'Schreibe x ≥ −3 als Intervall.', 'Schreibe x > 6 als Intervall.', 'Schreibe x ≥ −8 als Intervall.', 'Schreibe x ≥ 7 als Intervall.']:
+    DS.stufe('schreiben', _t, 1)
+DS.stufe('schreiben', 'Schreibe als Intervall: alle Zahlen, die mindestens −12 sind.', 2)
+DS.stufen('schreiben', 'S1/S2 weitgehend dieselbe Übersetzung x ≥ a; S3 teils Worte wie S2',
+          'S1 Ungleichung → Intervall; S2 in Worten, Fehler finden, Dezimalgrenzen; S3 Sachkontext, Ungleichung erst lösen, Abstand, „nicht negativ“')
+# beurteilen: „Welche Aussage ist FALSCH?“ mit Zufallsintervall ist auf Stufe 2 und 3 derselbe Gedanke
+for _t in ['Welche Aussage über ]−7; 6[ ist FALSCH?', 'Welche Aussage über ]−5; 0] ist FALSCH?', 'Welche Aussage über [−3; 9] ist FALSCH?', 'Welche Aussage über [−8; 3[ ist FALSCH?']:
+    DS.stufe('beurteilen', _t, 2)
+DS.stufen('beurteilen', 'S1 richtige Aussage wählen; S2 und S3 dieselbe „FALSCH“-Aufgabe mit anderem Intervall',
+          'S1 richtige Aussage wählen; S2 falsche Aussage finden, Sonderfälle ]2; 3[ und ]−∞; 0[; S3 Fehlvorstellungen (nur Grenzen, Länge), [5; 5], Aussage über jedes Intervall')
+DS.stufen('lesen', 'S1 Intervall in Ungleichung; S2 Bild lesen, ∞, Dezimalgrenzen; S3 Sachkontext, Differenz zweier Intervalle, Parameter a, Anzahl Dezimalzahlen')
+DS.stufen('enthalten', 'S1 Zahl im Intervall wählen; S2 ganze Zahlen zählen; S3 Schnitt und Vereinigung, Länge, Parameter, Brüche zählen')
+baue = mit_durchsicht(baue, DS)
+# ---- DURCHSICHT ENDE ----
+
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('zahlen.intervalle', 20_8_2)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- lesen ---
+ST.leiter('lesen', 'Intervallschreibweise in Worte/Ungleichung übersetzen, Intervall am Bild erkennen',
+          'Sachgrenzen („ab“, „bis einschließlich“) als Intervall, Intervall aus Anfang und Länge, Ungleichungspaar ↔ Intervall',
+          'Mengen verknüpfen (ohne, zugleich), Parameter, Fehler beim Lesen deuten, Unendlichkeit begründen, rückwärts aus Mitte und Länge')
+T('lesen', (r'^Was bedeutet', 'direkt'), (r'^Welches Intervall zeigt', 'erkennen'), (r'Zoo|Nachkommastelle', 'transfer'),
+  (r'aber nicht in', 'verknuepfen'), (r'\[a; a \+ 3\[', 'parameter'), (r'Aquarium|Karussell|Impfstoff|Paket', 'einkleidung'))
+ST.neu('lesen', 'umkehr', SA('Ein Intervall beginnt bei −2 (gehört dazu) und ist 5 lang; das rechte Ende gehört nicht dazu. Welches Intervall ist es?', '[−2; 3[', ['[−2; 3]', ']−2; 3[', '[−2; 7['],
+    'Rechtes Ende: −2 + 5 = 3. Links gehört −2 dazu: [ ; rechts nicht: 3[.', 'Rechne zuerst das rechte Ende aus.'))
+ST.neu('lesen', 'darstellung', SA('Welches Intervall beschreibt „x ≥ −1 und zugleich x < 4“?', '[−1; 4[', [']−1; 4]', '[−1; 4]', ']−∞; 4['],
+    'x ≥ −1: −1 gehört dazu. x < 4: 4 gehört nicht dazu. Zusammen [−1; 4[.', 'Übersetze jede Ungleichung in eine Grenze mit Klammer.'))
+ST.neu('lesen', 'fehler', SA('Jemand liest ]−3; 2] als „alle Zahlen von −3 bis 2, beide gehören dazu“. Was ist falsch?', 'Die −3 gehört nicht dazu, nur die 2.',
+    ['Nichts, das stimmt.', 'Die 2 gehört nicht dazu, nur die −3.', 'Keine der beiden Grenzen gehört dazu.'],
+    'Bei −3 zeigt die Klammer nach außen ( ] ): −3 gehört nicht dazu. Bei 2 zeigt sie nach innen ( ] am Ende ): 2 gehört dazu.', 'Schau jede Klammer einzeln an: zeigt sie zur Zahl hin oder weg?'))
+ST.neu('lesen', 'begruenden', SA('Stimmt die Aussage: „Jedes Intervall ]a; b[ mit a < b enthält unendlich viele Zahlen“?', 'Ja: Zwischen zwei verschiedenen Zahlen liegen immer unendlich viele weitere.',
+    ['Nein, nur wenn b − a größer als 1 ist.', 'Nein, ohne die Grenzen bleibt nichts übrig.', 'Ja, aber es sind nur ganze Zahlen.'],
+    'Zwischen a und b liegt die Mitte, zwischen a und der Mitte wieder eine Mitte usw. – das hört nie auf. Ganz kleine Intervalle wie ]0; 0,001[ enthalten also unendlich viele Zahlen.', 'Denk an die Mitte zwischen zwei Zahlen – und dann wieder an eine Mitte.'))
+ST.neu('lesen', 'rueckwaerts', SZ('Ein Intervall [a; b] hat die Mitte 3 und die Länge 10. Bestimme a.', -2, '3 - 10 / 2',
+    'Von der Mitte aus geht es je die halbe Länge, also 5, nach links und rechts: a = 3 − 5 = −2, b = 8.', 'Wie weit ist die Mitte von jeder Grenze entfernt?'))
+ST.neu('lesen', 'pruefung', SA('A = [−4; 1[ und B = ]−1; 3]. Welche Menge enthält genau die Zahlen, die in A oder in B (oder in beiden) liegen?', '[−4; 3]', [']−1; 1[', '[−4; 3[', ']−4; 3]'],
+    'A reicht von −4 (dabei) bis 1, B von −1 bis 3 (dabei). Die Teile überlappen, zusammen also von −4 bis 3, beide Enden dabei: [−4; 3]. ]−1; 1[ wären nur die gemeinsamen Zahlen.', 'Zeichne beide Intervalle untereinander an einen Zahlenstrahl.'))
+ST.knobel('lesen', SZ('Wie viele Intervalle [a; b] mit ganzen Zahlen a und b und 0 ≤ a < b ≤ 5 gibt es?', 15, '6 * 5 / 2',
+    'Man wählt zwei verschiedene Zahlen aus 0, 1, 2, 3, 4, 5; die kleinere ist a, die größere b. Für a = 0 gibt es 5 Möglichkeiten für b, für a = 1 vier, für a = 2 drei, für a = 3 zwei, für a = 4 eine: 5 + 4 + 3 + 2 + 1 = 15.',
+    'Ordne nach der linken Grenze a und zähle für jedes a die möglichen b.'))
+ST.knobel('lesen', SZ('Das Intervall [a; b] enthält genau 5 ganze Zahlen, das Intervall ]a; b[ genau 3. Wie lang ist das Intervall?', 4, '5 - 1',
+    'Lässt man die Grenzen weg, fallen genau 2 ganze Zahlen weg – also sind a und b selbst ganze Zahlen. Die 5 ganzen Zahlen in [a; b] sind dann a, a + 1, a + 2, a + 3 und a + 4 = b. Also b − a = 4.',
+    'Warum fallen beim Weglassen der Grenzen genau zwei ganze Zahlen weg?'))
+
+# --- schreiben ---
+ST.leiter('schreiben', 'eine Doppelungleichung als Intervall schreiben, die passende Schreibweise erkennen',
+          'Zahlenbereiche aus Worten, Sachbereiche und gelöste Ungleichungen als Intervall',
+          'Abstand und „nicht negativ“ deuten, Brüche/Dezimalzahlen verknüpfen, Parameter, rückwärts umrechnen, begründen, wann es kein einziges Intervall gibt')
+T('schreiben', (r'^Schreibe (?!als)', 'direkt'), (r'^Jemand schreibt', 'fehler'), (r'^Schreibe als Intervall: alle Zahlen, deren Abstand|nicht negativ', 'transfer'),
+  (r'^Schreibe als Intervall', 'darstellung'), (r'^Ein Gerät', 'einkleidung'), (r'^Löse', 'mehrschritt'))
+ST.neu('schreiben', 'erkennen', SA('Welche Schreibweise passt zu „x liegt zwischen 1 und 2, 1 gehört dazu, 2 nicht“?', '[1; 2[', [']1; 2]', '[1; 2]', ']1; 2['],
+    'Gehört eine Grenze dazu, zeigt die Klammer zur Zahl hin. Also links [1, rechts 2[.', 'Welche Grenze gehört dazu?'))
+ST.neu('schreiben', 'verknuepfen', SA('Schreibe als Intervall: alle Zahlen, die größer als 1/4 und höchstens 3/4 sind (mit Dezimalzahlen).', ']0,25; 0,75]', ['[0,25; 0,75[', ']0,25; 0,75[', '[0,25; 0,75]'],
+    '1/4 = 0,25 (gehört nicht dazu), 3/4 = 0,75 (gehört dazu): ]0,25; 0,75].', 'Wandle die Brüche um und entscheide für jede Grenze.'))
+ST.neu('schreiben', 'parameter', SZ('Für welche Zahl k ist [k; 2k] ein Intervall der Länge 6?', 6, '12 - 6',
+    'Länge = rechte Grenze − linke Grenze = 2k − k = k. Also k = 6, das Intervall ist [6; 12].', 'Schreibe die Länge mit k.'))
+ST.neu('schreiben', 'rueckwaerts', SA('Jede Zahl eines Intervalls wird verdoppelt, dann wird 1 addiert. Heraus kommt [−1; 7]. Wie hieß das Intervall vorher?', '[−1; 3]', ['[−2; 6]', '[0; 4]', '[−1; 7]'],
+    'Rückwärts: erst 1 abziehen, dann halbieren. −1 → −2 → −1; 7 → 6 → 3. Also [−1; 3].', 'Mach die Schritte in umgekehrter Reihenfolge rückgängig.'))
+ST.neu('schreiben', 'pruefung', SZ('Die Zahlen, die mindestens 2,5 und kleiner als 7 sind, bilden ein Intervall. Wie lang ist es?', 4.5, '7 - 25 / 10',
+    'Das Intervall ist [2,5; 7[. Seine Länge ist 7 − 2,5 = 4,5 (ob die Grenzen dazugehören, ändert die Länge nicht).', 'Länge = rechte Grenze − linke Grenze.'))
+ST.neu('schreiben', 'begruenden', SA('Kann man „alle Zahlen außer 0“ als ein einziges Intervall schreiben?', 'Nein: Es sind zwei getrennte Teile, ]−∞; 0[ und ]0; ∞[.',
+    ['Ja: ]−∞; ∞[.', 'Ja: ]0; ∞[.', 'Ja: [−∞; ∞].'], 'Ein Intervall hat keine Lücke. „Alle außer 0“ hat bei 0 ein Loch, deshalb braucht man zwei Intervalle.', 'Hat ein Intervall Lücken?'))
+ST.knobel('schreiben', SZ('Für welche Zahlen x liegt x² im Intervall [4; 9]? Die Lösung besteht aus zwei Intervallen. Wie lang sind beide zusammen?', 2, '(3 - 2) + (-2 - (-3))',
+    'x² zwischen 4 und 9 gilt für 2 ≤ x ≤ 3, aber auch für negative x: (−3)² = 9, (−2)² = 4. Also [−3; −2] und [2; 3]. Jedes ist 1 lang, zusammen 2.',
+    'Vergiss die negativen Zahlen nicht.'))
+ST.knobel('schreiben', SZ('Wie viele Intervalle [a; b] mit ganzen Grenzen haben die Länge 5 und enthalten die Zahl 0?', 6, '0 - (-5) + 1',
+    'b = a + 5. 0 liegt darin, wenn a ≤ 0 ≤ a + 5, also −5 ≤ a ≤ 0. Für a gibt es −5, −4, −3, −2, −1, 0: sechs Intervalle.', 'Lass das Intervall wie ein Fenster über den Zahlenstrahl gleiten.'))
+
+# --- enthalten ---
+ST.leiter('enthalten', 'prüfen, ob eine Zahl im Intervall liegt, Länge eines Intervalls',
+          'ganze Zahlen im Intervall zählen, Sachlänge, aus der Anzahl eine Grenze bestimmen',
+          'Schnitt und Vereinigung, Parameter, Zählfehler deuten, Teilmenge begründen, Brüche zählen, Prüfungsaufgabe mit zwei Mengen')
+T('enthalten', (r'^Welche Zahl liegt|^Markiere', 'erkennen'), (r'^Wie viele ganze Zahlen', 'mehrschritt'), (r'Wie lang ist es', 'mehrschritt'),
+  (r'gleichzeitig|oder in', 'verknuepfen'), (r'\]a; 7\]', 'parameter'), (r'Brüche', 'transfer'))
+ST.neu('enthalten', 'direkt', SZ('Wie lang ist das Intervall [−2; 5]?', 7, '5 - (-2)', 'Länge = rechte Grenze − linke Grenze = 5 − (−2) = 7.', 'Rechne rechte minus linke Grenze.'))
+ST.neu('enthalten', 'einkleidung', SZ('Ein Parkhaus lässt Autos von 1,50 m bis 2,10 m Höhe hinein. Wie viele Zentimeter umfasst dieser Bereich?', 60, '210 - 150',
+    'Das Intervall ist [1,5; 2,1] (in m), seine Länge 0,6 m = 60 cm.', 'Rechne in Zentimetern: 210 − 150.', einheit='cm'))
+ST.neu('enthalten', 'umkehr', SZ('Das Intervall [−3; b] enthält genau 8 ganze Zahlen; b ist ganz. Bestimme b.', 4, '-3 + 8 - 1',
+    'Von −3 bis b sind es b − (−3) + 1 = b + 4 ganze Zahlen (beide Grenzen mitgezählt). b + 4 = 8 ⇒ b = 4.', 'Zähle von −3 an acht ganze Zahlen ab.'))
+ST.neu('enthalten', 'fehler', SA('Jemand zählt die ganzen Zahlen in ]−2; 3[ so: −2, −1, 0, 1, 2, 3 – also 6. Was stimmt?', 'Falsch: −2 und 3 gehören nicht dazu, es sind 4.',
+    ['Richtig, es sind 6.', 'Falsch: Es sind 5, nur die 3 fehlt.', 'Falsch: Es sind 3.'],
+    'Beide Klammern zeigen nach außen: −2 und 3 gehören nicht dazu. Übrig bleiben −1, 0, 1, 2.', 'Schau dir beide Klammern an.'))
+ST.neu('enthalten', 'begruenden', SA('Stimmt die Aussage: „Liegt eine Zahl in [1; 4], dann liegt sie auch in ]0; 5[“?', 'Ja: [1; 4] liegt ganz innerhalb von ]0; 5[.',
+    ['Nein: 1 und 4 gehören nicht zu ]0; 5[.', 'Nein: ]0; 5[ ist kürzer.', 'Nur für ganze Zahlen.'],
+    'Jede Zahl x mit 1 ≤ x ≤ 4 erfüllt auch 0 < x < 5, denn 0 < 1 und 4 < 5. Auch 1 und 4 selbst liegen also in ]0; 5[.', 'Vergleiche die Grenzen beider Intervalle.'))
+ST.neu('enthalten', 'pruefung', SZ('Gegeben sind A = [−6; 2[ und B = ]−1; 5]. Wie viele ganze Zahlen liegen in A und zugleich in B?', 2, '1 - 0 + 1',
+    'Gemeinsam ist ]−1; 2[. Ganze Zahlen darin: 0 und 1. Das sind zwei.', 'Bestimme zuerst den gemeinsamen Teil der beiden Intervalle.'))
+ST.knobel('enthalten', SZ('Wie viele Zahlen mit höchstens zwei Nachkommastellen liegen im Intervall ]0; 1[?', 99, '99 - 1 + 1',
+    'Jede solche Zahl lässt sich als Hundertstel schreiben (0,1 ist 0,10): von 0,01 bis 0,99 in Schritten von 0,01, also 1 bis 99 Hundertstel. Das sind 99 Zahlen; 0 und 1 gehören nicht dazu.',
+    'Schreibe jede Zahl mit genau zwei Nachkommastellen.'))
+ST.knobel('enthalten', SZ('Ein Intervall hat die Länge 2,5 und enthält seine Grenzen. Wie viele ganze Zahlen enthält es mindestens?', 2, '2',
+    'Egal wo das Intervall liegt: Von der linken Grenze aus kommt nach höchstens 1 die erste ganze Zahl, nach einer weiteren Einheit die zweite – zusammen höchstens 2 ≤ 2,5. Also immer mindestens 2. Beispiel mit genau 2: [0,1; 2,6] enthält 1 und 2.',
+    'Wie weit muss man von einer beliebigen Stelle höchstens gehen, bis zwei ganze Zahlen kommen?'))
+
+# --- beurteilen ---
+ST.leiter('beurteilen', 'eine richtige Aussage über ein Intervall erkennen',
+          'die falsche Aussage finden, Sachgrenzen und Zahlenstrahl-Bilder beurteilen, Mitte bestimmen und prüfen',
+          'allgemeine Aussagen begründen, Sonderfall [a; a], Fehler deuten, Parameter, Brüche, Schnittmenge wie in einer Prüfung')
+T('beurteilen', (r'^Tim|^Lisa|JEDES', 'begruenden'), (r'ist richtig\?$', 'erkennen'), (r'FALSCH\?$', 'umkehr'), (r'^Stimmt die Aussage', 'direkt'), (r'\[5; 5\]', 'transfer'))
+ST.neu('beurteilen', 'einkleidung', SA('Ein Schwimmkurs ist für Kinder von 6 bis unter 10 Jahren. Welche Aussage stimmt?', 'Ein Kind mit 6 Jahren darf mit, eines mit 10 nicht.',
+    ['Beide dürfen mit.', 'Keines der beiden darf mit.', 'Ein Kind mit 10 darf mit, eines mit 6 nicht.'], 'Das Alter liegt in [6; 10[: 6 gehört dazu, 10 nicht.', 'Schreibe die Altersgrenze als Intervall.'))
+ST.neu('beurteilen', 'darstellung', SA('Am Zahlenstrahl ist bei 1 ein leerer Kreis, bei 4 ein ausgefüllter Punkt, dazwischen ist die Strecke dick. Welche Aussage stimmt?', 'Das ist ]1; 4]: 4 gehört dazu, 1 nicht.',
+    ['Das ist [1; 4[.', 'Das ist [1; 4].', 'Das ist ]1; 4[.'], 'Leerer Kreis: Grenze gehört nicht dazu. Ausgefüllter Punkt: Grenze gehört dazu.', 'Was bedeuten leerer Kreis und ausgefüllter Punkt?'))
+ST.neu('beurteilen', 'mehrschritt', SA('Liegt die Mitte des Intervalls [−3; 7] im Intervall ]0; 2]?', 'Ja, die Mitte ist 2 und 2 gehört dazu.', ['Nein, die Mitte ist 5.', 'Nein, die Mitte ist 2, aber 2 gehört nicht dazu.', 'Ja, die Mitte ist 1.'],
+    'Mitte: (−3 + 7) : 2 = 2. In ]0; 2] gehört die 2 dazu.', 'Erst die Mitte berechnen, dann die Klammer bei 2 ansehen.'))
+ST.neu('beurteilen', 'fehler', SA('Jemand sagt: „−2,5 liegt in [−2; 3], weil −2,5 größer als −2 ist.“ Was ist falsch?', '−2,5 ist kleiner als −2, liegt also links davon und nicht im Intervall.',
+    ['Nichts, die Aussage stimmt.', '−2,5 liegt nicht darin, weil es keine ganze Zahl ist.', 'Die Grenze −2 gehört nicht dazu.'],
+    'Bei negativen Zahlen ist die mit dem größeren Betrag die kleinere: −2,5 < −2. Damit liegt −2,5 außerhalb.', 'Wo liegt −2,5 am Zahlenstrahl – links oder rechts von −2?'))
+ST.neu('beurteilen', 'parameter', SA('Für welche Zahlen a ist die Aussage „3 liegt in ]a; 5]“ wahr?', 'für alle a < 3', ['für alle a ≤ 3', 'für alle a > 3', 'nur für a = 3'],
+    '3 liegt in ]a; 5], wenn a < 3 ≤ 5. Für a = 3 gehört die 3 wegen der offenen Klammer nicht dazu.', 'Probiere a = 3 und a = 2,9.'))
+ST.neu('beurteilen', 'verknuepfen', SA('Welche Aussage über das Intervall ]−1/2; 1/3[ ist richtig?', '0,3 liegt darin.', ['−0,6 liegt darin.', '0,4 liegt darin.', '−1/2 liegt darin.'],
+    '−1/2 = −0,5 und 1/3 ≈ 0,333. 0,3 liegt dazwischen. −0,6 ist zu klein, 0,4 zu groß, −1/2 ist die ausgeschlossene Grenze.', 'Wandle die Grenzen in Dezimalzahlen um.'))
+ST.neu('beurteilen', 'pruefung', SA('Gegeben sind A = [0; 4] und B = ]2; 6[. Welche Aussage ist richtig?', 'Die gemeinsamen Zahlen bilden ]2; 4].', ['Die gemeinsamen Zahlen bilden [2; 4].', 'Die 2 liegt in beiden.', 'Die 6 liegt in B.'],
+    'Gemeinsam: größer als 2 (wegen B) und höchstens 4 (wegen A): ]2; 4]. Die 2 gehört nicht zu B, die 6 auch nicht.', 'Zeichne beide Intervalle untereinander.'))
+ST.knobel('beurteilen', SA('A = [0; 3], B = [2; 5] und C = [4; 7]. Welche Aussage stimmt?', 'Keine Zahl liegt in allen drei, aber jede Zahl aus [0; 7] liegt in mindestens einem.',
+    ['Die 3 liegt in allen drei.', 'Es gibt eine Zahl in [0; 7], die in keinem liegt.', 'Die Zahlen, die in genau zwei Intervallen liegen, bilden [2; 5].'],
+    'A und C haben keine gemeinsame Zahl (3 < 4), also liegt keine Zahl in allen drei. A und B überlappen von 2 bis 3, B und C von 4 bis 5 – dadurch gibt es keine Lücke von 0 bis 7. In genau zwei Intervallen liegen nur [2; 3] und [4; 5], nicht ganz [2; 5].',
+    'Zeichne die drei Intervalle übereinander und such Lücken und Überlappungen.'))
+ST.knobel('beurteilen', SZ('In wie vielen der Intervalle [1; 2], [1; 3], [1; 4], …, [1; 100] liegt die Zahl 37,5?', 63, '100 - 38 + 1',
+    '37,5 liegt in [1; n], wenn n ≥ 37,5 ist, also für jede ganze Zahl n von 38 bis 100. Das sind 100 − 38 + 1 = 63 Intervalle.', 'Für welche rechten Grenzen n ist 37,5 dabei?'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('zahlen.intervalle', 22_8_2)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+_JN = ['Ja', 'Nein']
+
+# --- lesen ---
+TX.u('lesen', 'direkt', TX.A('Am Freibad steht: „Wassertemperatur [22; 26] °C“. Was bedeutet das?', 'von 22 °C bis 26 °C, beide Grenzen gehören dazu',
+    ['über 22 °C und unter 26 °C', 'nur 22 °C oder 26 °C', 'von 22 °C bis unter 26 °C'],
+    TW('[22; 26].', 'Bedeutung.', 'Eckige Klammer nach innen: Grenze gehört dazu.', 'Beide Klammern zeigen nach innen.', 'Gemeint sind 22 °C bis 26 °C, beide eingeschlossen.'), 'Zeigen die Klammern zur Zahl hin oder von ihr weg?'))
+TX.u('lesen', 'pruefung', TX.A('Im Kletterpark gilt: Parcours A für Kinder ab 1,10 m und kleiner als 1,40 m, Parcours B ab 1,30 m. Ein Kind ist 1,35 m groß. Welche Parcours darf es benutzen?',
+    'A und B', ['nur A', 'nur B', 'keinen'],
+    TW('A: [1,10; 1,40[ m, B: [1,30; ∞[ m, Kind 1,35 m.', 'erlaubte Parcours.', 'Für jeden Parcours prüfen, ob 1,35 im Intervall liegt.', '1,10 ≤ 1,35 < 1,40 ✓; 1,35 ≥ 1,30 ✓.', 'Das Kind darf A und B benutzen.'),
+    'Prüfe jede Bedingung einzeln.'), huerde='zwei')
+TX.u('lesen', 'begruenden', TX.A('Ein Paketdienst: Päckchen bis einschließlich 2 kg kosten 4 €, Pakete im Bereich ]2; 5] kg kosten 6 €. Ein Paket wiegt genau 2 kg. Jemand sagt: „Das kostet 6 €.“ Was stimmt?',
+    'Falsch: 2 kg gehört nicht zu ]2; 5], es kostet 4 €.', ['Richtig: 2 liegt in ]2; 5].', 'Richtig: Ab 2 kg kostet es 6 €.', 'Falsch: Es kostet 10 €.'],
+    TW('Päckchen bis einschließlich 2 kg; Pakete ]2; 5] kg.', 'Preis für genau 2 kg.', 'Die Klammer bei 2 zeigt nach außen: 2 gehört nicht dazu.', '2 kg fällt unter „bis einschließlich 2 kg“.', 'Die Aussage ist falsch; das Paket kostet 4 €.'),
+    'Gehört die 2 zum Intervall ]2; 5]?'), huerde='entscheidung')
+TX.s('lesen', TX.A('Ein Thermostat hält die Raumtemperatur im Intervall [19; 21] °C. Welche Temperatur liegt NICHT darin?', '21,5 °C', ['19 °C', '20,5 °C', '21 °C'],
+    TW('[19; 21].', 'Temperatur außerhalb.', 'Beide Grenzen gehören dazu.', '21,5 > 21.', '21,5 °C liegt nicht darin.')))
+TX.s('lesen', TX.A('Der Jugendtarif gilt für das Alter [14; 18[. Darf eine 18-Jährige den Jugendtarif nutzen?', 'Nein', ['Ja', 'Nur am Geburtstag'],
+    TW('[14; 18[.', 'Gehört 18 dazu?', 'Die Klammer bei 18 zeigt nach außen.', '18 gehört nicht dazu.', 'Nein, mit 18 gilt der Jugendtarif nicht mehr.')))
+TX.k('lesen', TX.A('Nach dem Umschalten ist eine Ampel im Zeitraum [0; 25[ Sekunden grün. Ist sie nach genau 25 Sekunden noch grün?', 'Nein', ['Ja', 'Das kann man nicht sagen'],
+    TW('[0; 25[.', 'Ist 25 dabei?', 'Klammer bei 25 nach außen.', '25 gehört nicht dazu.', 'Nein, nach genau 25 Sekunden ist sie nicht mehr grün.')))
+
+# --- schreiben ---
+TX.u('schreiben', 'direkt', TX.A('In einem Kühlschrank soll es über 0 °C und höchstens 7 °C kalt sein. Schreibe diese Temperaturen als Intervall.', ']0; 7]', ['[0; 7]', ']0; 7[', '[0; 7['],
+    TW('über 0, höchstens 7.', 'Intervall.', '„über“: Klammer nach außen; „höchstens“: Klammer nach innen.', ']0; 7].', 'Das Intervall ist ]0; 7].'), 'Gehört 0 °C dazu, gehört 7 °C dazu?'))
+TX.u('schreiben', 'einkleidung', TX.A('Ein Handgepäckstück darf höchstens 8 kg wiegen. Schreibe alle erlaubten Gewichte (mehr als 0 kg) als Intervall.', ']0; 8]', ['[0; 8[', ']0; 8[', '[8; ∞['],
+    TW('mehr als 0 kg, höchstens 8 kg.', 'Intervall.', '„mehr als“ nach außen, „höchstens“ nach innen.', ']0; 8].', 'Erlaubt ist ]0; 8] kg.'), 'Darf das Gepäck genau 8 kg wiegen?'))
+TX.u('schreiben', 'darstellung', TX.A('Im Fahrplan steht: Der Bus fährt ab 6 Uhr bis vor 9 Uhr alle 10 Minuten. Schreibe diese Zeitspanne (in Stunden) als Intervall.', '[6; 9[', ['[6; 9]', ']6; 9[', ']6; 9]'],
+    TW('ab 6 Uhr, bis vor 9 Uhr.', 'Intervall.', '„ab“ nach innen, „bis vor“ nach außen.', '[6; 9[.', 'Die Zeitspanne ist [6; 9[.'), 'Fährt um genau 9 Uhr noch ein Bus im 10-Minuten-Takt?'))
+TX.u('schreiben', 'pruefung', TX.A('Medikament A darf bei 15 °C bis einschließlich 25 °C gelagert werden, Medikament B bei mehr als 20 °C bis einschließlich 30 °C. In welchem Temperaturbereich kann man beide zusammen lagern?',
+    ']20; 25]', ['[15; 30]', '[20; 25]', ']20; 25['],
+    TW('A: [15; 25], B: ]20; 30].', 'Bereich für beide.', 'Nur Zahlen, die in beiden Intervallen liegen.', 'Unten: über 20 (wegen B). Oben: höchstens 25 (wegen A).', 'Beide zusammen gehen bei ]20; 25] °C.'),
+    'Welche Temperaturen erfüllen beide Bedingungen?'), huerde='zwei')
+TX.u('schreiben', 'begruenden', TX.A('Auf einer Straße gilt: mindestens 60 km/h, höchstens 120 km/h. Jemand schreibt die erlaubten Geschwindigkeiten als ]60; 120[. Was stimmt?',
+    'Falsch: Richtig ist [60; 120], die Grenzen gehören dazu.', ['Richtig.', 'Falsch: Richtig ist [60; 120[.', 'Falsch: Richtig ist ]60; 120].'],
+    TW('„mindestens 60“, „höchstens 120“.', 'Ist ]60; 120[ richtig?', '„mindestens“ und „höchstens“ schließen die Grenze ein.', 'Beide Klammern müssen nach innen zeigen.', 'Falsch; richtig ist [60; 120].'),
+    'Darf man genau 60 km/h fahren?'), huerde='entscheidung')
+TX.s('schreiben', TX.A('Schreibe „für Kinder ab 3 Jahren bis einschließlich 12 Jahren“ als Intervall.', '[3; 12]', [']3; 12]', '[3; 12[', ']3; 12['],
+    TW('ab 3, bis einschließlich 12.', 'Intervall.', 'Beide Grenzen gehören dazu.', '[3; 12].', 'Das Intervall ist [3; 12].')))
+TX.s('schreiben', TX.A('Ein Ofen backt Pizza bei mehr als 250 °C. Schreibe diese Temperaturen als Intervall.', ']250; ∞[', ['[250; ∞[', ']−∞; 250[', ']250; ∞]'],
+    TW('mehr als 250.', 'Intervall.', '„mehr als“: nach außen; nach oben offen.', ']250; ∞[.', 'Das Intervall ist ]250; ∞[.')))
+TX.k('schreiben', TX.A('Schreibe „Fahrräder mit einer Rahmenhöhe ab 50 cm bis unter 56 cm“ als Intervall.', '[50; 56[', ['[50; 56]', ']50; 56[', ']50; 56]'],
+    TW('ab 50, unter 56.', 'Intervall.', '„ab“ nach innen, „unter“ nach außen.', '[50; 56[.', 'Das Intervall ist [50; 56[.')))
+
+# --- enthalten ---
+TX.u('enthalten', 'erkennen', TX.A('Ein Aufzug trägt Lasten im Bereich ]0; 630] kg. Welche Last ist zu schwer?', '631 kg', ['630 kg', '600 kg', '450 kg'],
+    TW(']0; 630] kg.', 'Last außerhalb.', '630 gehört dazu, alles darüber nicht.', '631 > 630.', '631 kg ist zu schwer.'), 'Gehört 630 dazu?'))
+TX.u('enthalten', 'einkleidung', TZ('Eine Parkuhr nimmt Parkzeiten von 15 bis 120 Minuten an, beide Grenzen erlaubt, nur volle Minuten. Wie viele verschiedene Parkzeiten gibt es?', '120 - 15 + 1',
+    TW('[15; 120], nur ganze Minuten.', 'Anzahl der Parkzeiten.', 'Ganze Zahlen von 15 bis 120 zählen: Ende − Anfang + 1.', '120 − 15 + 1 = 106.', 'Es gibt 106 Parkzeiten.'), 'Wie zählst du alle ganzen Zahlen von a bis b?'))
+TX.u('enthalten', 'mehrschritt', TZ('Ein Thermometer im Gewächshaus zeigt nur ganze Grad. Für Tomaten ist ]12; 30[ °C gut. Wie viele angezeigte Temperaturen sind gut?', '29 - 13 + 1',
+    TW(']12; 30[, ganze Grad.', 'Anzahl der guten Werte.', 'Grenzen gehören nicht dazu: von 13 bis 29 zählen.', '29 − 13 + 1 = 17.', 'Es sind 17 Temperaturen.'), 'Welche ist die kleinste und die größte ganze Zahl im Intervall?'))
+TX.u('enthalten', 'pruefung', TZ('Im Kino gibt es Ermäßigung für Jugendliche unter 16 Jahren und für Rentner ab 65 Jahren; der Film ist ab 12 Jahren. Wie viele ganze Alter von 12 bis 70 bekommen eine Ermäßigung?', '(15 - 12 + 1) + (70 - 65 + 1)',
+    TW('Film ab 12; ermäßigt [12; 16[ und [65; 70].', 'Anzahl der ermäßigten Alter.', 'Beide Bereiche einzeln zählen, dann addieren.', '12, 13, 14, 15 (4) und 65 bis 70 (6).', 'Es sind 10 Alter.'),
+    'Zwei Bereiche – zähle sie getrennt.'), huerde='zwei')
+TX.u('enthalten', 'begruenden', TX.A('Brötchen sollen 55 g bis 65 g wiegen, beide Grenzen erlaubt. Ein Brötchen wiegt 54,9 g. Darf es verkauft werden?', 'Nein, 54,9 liegt nicht in [55; 65].', ['Ja, gerundet sind es 55 g.', 'Ja, 54,9 liegt in [55; 65].', 'Nein, weil es mehr als 65 g wiegt.'],
+    TW('[55; 65], 54,9 g.', 'Liegt 54,9 im Intervall?', 'Mit der linken Grenze vergleichen.', '54,9 < 55.', 'Nein, das Brötchen ist zu leicht.'), 'Ist 54,9 mindestens 55?'), huerde='entscheidung')
+TX.u('enthalten', 'rueckwaerts', TZ('Ein Aufzug darf höchstens 630 kg tragen; man rechnet mit 75 kg pro Person. Die erlaubte Personenzahl sind die ganzen Zahlen im Intervall [1; b]. Wie groß ist b?', '630 // 75',
+    TW('höchstens 630 kg, 75 kg pro Person.', 'größte erlaubte Personenzahl b.', '630 : 75 und abrunden.', '630 : 75 = 8,4.', 'b = 8: Es dürfen höchstens 8 Personen mitfahren.'), 'Darf die 9. Person noch mit?'), huerde='deuten')
+TX.s('enthalten', TZ('Eine Karussellfahrt ist für Kinder von 4 bis einschließlich 10 Jahren. Wie viele ganze Altersjahre sind das?', '10 - 4 + 1',
+    TW('[4; 10].', 'Anzahl der Alter.', 'Ende − Anfang + 1.', '10 − 4 + 1 = 7.', 'Es sind 7 Altersjahre.')))
+TX.s('enthalten', TZ('Ein Bus braucht laut Plan zwischen 18 und 25 Minuten. Wie viele Minuten Spielraum sind das?', '25 - 18',
+    TW('[18; 25].', 'Länge des Intervalls.', 'rechte − linke Grenze.', '25 − 18 = 7.', 'Der Spielraum ist 7 Minuten.'), einheit='min'))
+TX.k('enthalten', TZ('Eine Kühlbox hält Temperaturen im Bereich ]−2; 6] °C. Wie viele ganze Temperaturen liegen darin?', '6 - (-1) + 1',
+    TW(']−2; 6].', 'Anzahl ganzer Temperaturen.', '−2 gehört nicht dazu: von −1 bis 6 zählen.', '6 − (−1) + 1 = 8.', 'Es sind 8 ganze Temperaturen.')))
+
+# --- beurteilen ---
+TX.u('beurteilen', 'direkt', TX.A('Vor einer Unterführung steht: „Fahrzeughöhe ]0; 2,5] m“. Darf ein genau 2,5 m hoher Lieferwagen durchfahren?', 'Ja', ['Nein', 'Nur langsam'],
+    TW(']0; 2,5].', 'Gehört 2,5 dazu?', 'Klammer bei 2,5 zeigt nach innen.', '2,5 gehört dazu.', 'Ja, er darf durchfahren.'), 'Wohin zeigt die Klammer bei 2,5?'))
+TX.u('beurteilen', 'einkleidung', TX.A('Ein Spielzeug ist für Kinder von 3 bis unter 6 Jahren, also [3; 6[. Welche Aussage stimmt?', 'Ein Kind mit 3 Jahren gehört zur Zielgruppe.',
+    ['Ein Kind mit 6 Jahren gehört zur Zielgruppe.', 'Nur Kinder mit genau 3, 4 oder 5 Jahren und 0 Monaten.', 'Ein Kind mit 2 Jahren und 11 Monaten gehört dazu.'],
+    TW('[3; 6[.', 'richtige Aussage.', 'Grenze 3 gehört dazu, 6 nicht; dazwischen alle Werte.', '3 ✓, 6 ✗, 2,9 ✗.', 'Ein Kind mit 3 Jahren gehört dazu.'), 'Welche Grenze gehört dazu?'))
+TX.u('beurteilen', 'mehrschritt', TX.A('Der Wetterbericht sagt Tagestemperaturen im Bereich ]18; 25] °C voraus. Liegt die Mitte dieses Bereichs über 21 °C?', 'Ja, die Mitte ist 21,5 °C.', ['Nein, die Mitte ist 21 °C.', 'Nein, die Mitte ist 7 °C.', 'Ja, die Mitte ist 25 °C.'],
+    TW(']18; 25].', 'Mitte und Vergleich.', 'Mitte = (linke + rechte Grenze) : 2.', '(18 + 25) : 2 = 21,5.', 'Ja, die Mitte ist 21,5 °C.'), 'Wie berechnest du die Mitte zweier Zahlen?'))
+TX.u('beurteilen', 'pruefung', TX.A('Ein Wanderweg ist mit einer Gehzeit von 3 bis 5 Stunden ausgeschildert. Er ist 14 km lang und hat 4 Rastplätze. Eine Gruppe braucht 5 Stunden und 15 Minuten. Liegt sie im angegebenen Bereich?',
+    'Nein, 5,25 h liegt nicht in [3; 5].', ['Ja, 5 Stunden und 15 Minuten sind 5,15 h.', 'Ja, die Rastplätze zählen nicht mit.', 'Nein, weil 14 km zu lang sind.'],
+    TW('[3; 5] h, Gruppe 5 h 15 min. Länge und Rastplätze spielen keine Rolle.', 'Liegt die Zeit im Bereich?', 'Minuten in Stunden umrechnen und vergleichen.', '15 min = 0,25 h; 5,25 > 5.', 'Nein, die Gruppe war langsamer.'),
+    'Wie viele Stunden sind 15 Minuten?'), huerde='ueberfluessig')
+TX.u('beurteilen', 'transfer', TX.A('Ein Onlineshop liefert versandkostenfrei bei einem Bestellwert im Intervall [50; ∞[ €. Jemand bestellt für 49,90 € und sagt: „Gerundet sind das 50 €, also ist der Versand gratis.“ Was stimmt?',
+    'Falsch: 49,90 liegt nicht im Intervall, der Versand kostet.', ['Richtig: Man darf runden.', 'Richtig: 49,90 liegt in [50; ∞[.', 'Falsch: Erst ab 51 € ist er gratis.'],
+    TW('[50; ∞[, Bestellung 49,90 €.', 'Ist der Versand gratis?', 'Exakt vergleichen, nicht runden.', '49,90 < 50.', 'Nein, die Bestellung liegt knapp darunter.'), 'Ist 49,90 mindestens 50?'), huerde='entscheidung')
+TX.u('beurteilen', 'verknuepfen', TZ('Im Freizeitpark liegt die Wartezeit an einer Bahn im Intervall ]10; 20] Minuten. Sie ist eine ganze Zahl und ein Vielfaches von 7. Wie viele Minuten wartet man?', '14',
+    TW(']10; 20], Vielfaches von 7.', 'Wartezeit.', 'Vielfache von 7 aufzählen und mit dem Intervall vergleichen.', '7 (zu klein), 14 ✓, 21 (zu groß).', 'Man wartet 14 Minuten.'), 'Welche Vielfachen von 7 kennst du?', einheit='min'), huerde='zwei')
+TX.s('beurteilen', TX.A('Ein Hotel bietet den Check-in im Intervall [15; 22[ Uhr an. Ist ein Check-in um genau 22 Uhr möglich?', 'Nein', ['Ja', 'Nur mit Anmeldung'],
+    TW('[15; 22[.', 'Gehört 22 dazu?', 'Klammer bei 22 nach außen.', '22 gehört nicht dazu.', 'Nein.')))
+TX.s('beurteilen', TX.A('Eine Gartenlampe darf bei Temperaturen im Intervall [−20; 40] °C betrieben werden. Welche Aussage stimmt?', 'Bei −20 °C darf sie leuchten.', ['Bei −21 °C darf sie leuchten.', 'Bei 41 °C darf sie leuchten.', 'Bei 40 °C darf sie nicht leuchten.'],
+    TW('[−20; 40].', 'richtige Aussage.', 'Beide Grenzen gehören dazu.', '−20 ✓, −21 ✗, 41 ✗, 40 ✓.', '−20 °C ist erlaubt.')))
+TX.k('beurteilen', TX.A('Eine Bergbahn fährt bei Wind bis einschließlich 60 km/h. Fährt sie bei genau 60 km/h Wind?', 'Ja', ['Nein', 'Nur talwärts'],
+    TW('Wind ≤ 60 km/h, also [0; 60].', 'Fährt sie bei 60?', '„bis einschließlich“ schließt 60 ein.', '60 gehört dazu.', 'Ja, sie fährt.')))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Schreibweise', ['lesen', 'schreiben']), ('Zahlen im Intervall', ['enthalten', 'beurteilen'])],

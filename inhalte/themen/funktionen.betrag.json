@@ -3,7 +3,7 @@
  "thema_id": 75,
  "block_id": 65,
  "klasse": {
-  "ib_myp": 4
+  "ib_myp": 5
  },
  "autor": "Claude (Paket IB)",
  "inhalt": {
@@ -40,32 +40,100 @@
    {
     "lernziel": "betrag",
     "titel": "Betrag berechnen",
-    "regel": "Der ⟦Betrag⟧ (absolute value) |a| ist der ⟦Abstand der Zahl a von 0⟧ auf dem Zahlenstrahl. Er ist nie negativ: |5| = 5 und |−5| = 5. |a − b| ist der ⟦Abstand⟧ der Zahlen a und b.",
+    "regel": "Betrag = ⟦Abstand von 0⟧, nie negativ. |a − b| ist der Abstand von a und b.",
     "schritte": [
-     "f(x) = |x − 3| + 1 an der Stelle x = −2.",
-     "Innen zuerst: −2 − 3 = −5. Betrag: |−5| = 5.",
-     "f(−2) = 5 + 1 = ⟦6⟧."
+     {
+      "text": "Abstand von −2 bis 3: |−2 − 3|."
+     },
+     {
+      "text": "Innen zuerst: −2 − 3 = −5. Betrag: |−5| = 5.",
+      "bild": {
+       "boegen": [
+        {
+         "von": -2,
+         "bis": 3,
+         "name": "5"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Für x = −2: |x − 3| + 1 = 5 + 1 = ⟦6⟧."
+     }
     ],
-    "probe": "Abstand von −2 zu 3 sind 5 Schritte ✓",
     "bild": {
      "typ": "zahlenstrahl",
      "start": -5,
      "ende": 5,
      "abschnitte": 10,
-     "beschriftet": "anfang_ende"
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": -2,
+       "name": "du"
+      },
+      {
+       "wert": 3,
+       "name": "Bus"
+      }
+     ]
     },
-    "fehler": "|−2 − 3| = |−2| − |3| = −1 ist falsch: Erst ⟦innen ausrechnen⟧ (−5), dann den Betrag nehmen: 5. Beträge darf man nicht einzeln abziehen."
+    "fehler": "|−2 − 3| = |−2| − |3| = −1 ist falsch. Erst ⟦innen ausrechnen⟧, dann den Betrag nehmen: 5.",
+    "einstieg": "Ein Bus hält bei Kilometer 3, du stehst bei Kilometer −2. Wie weit ist es bis zum Bus? Ein Abstand ist nie negativ. Man misst ihn mit dem ⟦Betrag⟧.",
+    "woerter": [
+     [
+      "Betrag",
+      "|a|: Abstand der Zahl a von 0; nie negativ"
+     ],
+     [
+      "Abstand",
+      "wie weit zwei Zahlen auseinanderliegen; geschrieben |a − b|"
+     ]
+    ]
    },
    {
     "lernziel": "graph",
     "titel": "Graph und Knickpunkt",
-    "regel": "Der Graph von f(x) = |x| ist ein ⟦V⟧ mit Spitze im Ursprung. f(x) = a · |x − d| + e ist dieses V, ⟦um d nach rechts und um e nach oben verschoben⟧, mit ⟦Knickpunkt⟧ (vertex) S(d | e). Der Faktor a macht das V steiler (|a| > 1) oder flacher; bei a < 0 ⟦öffnet es nach unten⟧.",
+    "regel": "Der Knickpunkt ist ⟦S(d | e)⟧. Das gilt für a · |x − d| + e. Bei a < 0 öffnet das V nach unten.",
     "schritte": [
-     "f(x) = 2 · |x − 1| − 3.",
-     "Innen steht x − 1: Verschiebung um 1 nach rechts; −3: um 3 nach unten.",
-     "Knickpunkt ⟦S(1 | −3)⟧; Steigung rechts 2, links −2."
+     {
+      "text": "f(x) = |x| ist ein V mit Spitze in (0 | 0)."
+     },
+     {
+      "text": "In 2 · |x − 1| − 3: 1 nach rechts, 3 nach unten.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "betrag",
+         "a": 1,
+         "b": 0,
+         "c": 0,
+         "name": "|x|",
+         "name_x": -3
+        },
+        {
+         "art": "betrag",
+         "a": 2,
+         "b": 1,
+         "c": -3,
+         "name": "f"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Knickpunkt ⟦S(1 | −3)⟧. Der Faktor 2 macht das V steiler.",
+      "bild": {
+       "punkte": [
+        {
+         "x": 1,
+         "y": -3,
+         "name": "S"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "f(1) = 2 · 0 − 3 = −3 ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -78,67 +146,341 @@
      ],
      "graphen": [
       {
-       "art": "linear",
-       "m": -2,
-       "t": -1,
-       "bereich": [
-        -4,
-        1
-       ]
-      },
+       "art": "betrag",
+       "a": 1,
+       "b": 0,
+       "c": 0,
+       "name": "|x|"
+      }
+     ]
+    },
+    "fehler": "Bei |x − 1| liegt der Knick nicht bei x = −1. Er liegt, wo ⟦innen 0⟧ herauskommt: x = 1.",
+    "einstieg": "Läufst du am Bus vorbei, wird der Abstand erst kleiner, dann wieder größer. Im Graphen entsteht ein V. Seine Spitze heißt ⟦Knickpunkt⟧.",
+    "woerter": [
+     [
+      "Knickpunkt",
+      "die Spitze des V; dort ist der Inhalt des Betrags 0"
+     ]
+    ],
+    "fehler_bild": {
+     "graphen": [
       {
-       "art": "linear",
-       "m": 2,
-       "t": -5,
-       "bereich": [
-        1,
-        6
-       ]
+       "art": "betrag",
+       "a": 1,
+       "b": 1,
+       "c": 0,
+       "name": "|x − 1|"
       }
      ],
      "punkte": [
       {
+       "x": -1,
+       "y": 0,
+       "name": "falsch"
+      },
+      {
        "x": 1,
-       "y": -3,
-       "name": "S"
+       "y": 0,
+       "name": "Knick"
       }
      ]
-    },
-    "fehler": "Bei f(x) = |x − 1| den Knick bei x = −1 zu suchen ist falsch: Der Knick liegt dort, wo ⟦innen 0⟧ herauskommt: x − 1 = 0, also ⟦x = 1⟧."
+    }
    },
    {
     "lernziel": "stueckweise",
     "titel": "Stückweise ohne Betrag schreiben",
-    "regel": "Ohne Betragsstriche schreibt man f ⟦stückweise⟧ (piecewise): Ist der Inhalt ⟦≥ 0⟧, bleibt er wie er ist; ist er ⟦< 0⟧, nimmt man sein ⟦Gegenteil⟧. Die Grenze ist der Knick.",
+    "regel": "Die Grenze liegt, wo innen 0 ist. Rechts bleibt der Inhalt, links nimmt man ⟦sein Gegenteil⟧.",
     "schritte": [
-     "f(x) = |x − 2|. Grenze: x − 2 = 0, also x = 2.",
-     "Für x ≥ 2: f(x) = x − 2.",
-     "Für x < 2: f(x) = −(x − 2) = ⟦−x + 2⟧."
+     {
+      "text": "Grenze: x − 2 = 0, also x = 2.",
+      "bild": {
+       "senkrecht": [
+        2
+       ]
+      }
+     },
+     {
+      "text": "Für x ≥ 2: f(x) = x − 2.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 1,
+         "t": -2,
+         "bereich": [
+          2,
+          6
+         ],
+         "name": "x − 2"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Für x < 2: f(x) = −(x − 2) = ⟦−x + 2⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 1,
+         "t": -2,
+         "bereich": [
+          2,
+          6
+         ],
+         "name": "x − 2"
+        },
+        {
+         "art": "linear",
+         "m": -1,
+         "t": 2,
+         "bereich": [
+          -2,
+          2
+         ],
+         "name": "−x + 2"
+        }
+       ]
+      }
+     }
     ],
-    "probe": "x = 0: |0 − 2| = 2 und −0 + 2 = 2 ✓",
-    "fehler": "Für x < 2 einfach f(x) = x + 2 zu schreiben ist falsch: Man muss die ⟦ganze Klammer negieren⟧: −(x − 2) = −x + 2. Probe mit x = 0: |0 − 2| = 2, aber 0 + 2 = 2 nur zufällig – bei x = 1 ergibt x + 2 = 3, richtig ist 1."
+    "fehler": "Für x < 2 ist x + 2 falsch. Die ⟦ganze Klammer negieren⟧: −(x − 2) = −x + 2. Probe mit x = 1.",
+    "einstieg": "Der Abstand zum Bus bei 2 geht auch ohne Betragsstriche. Rechts vom Bus rechnet man x − 2, links davon 2 − x. Das heißt ⟦stückweise⟧ schreiben.",
+    "woerter": [
+     [
+      "stückweise",
+      "für verschiedene Bereiche von x verschiedene Terme"
+     ]
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "betrag",
+       "a": 1,
+       "b": 2,
+       "c": 0,
+       "name": "|x − 2|"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -2,
+       "bereich": [
+        2,
+        6
+       ],
+       "name": "x − 2"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 2,
+       "bereich": [
+        -2,
+        2
+       ],
+       "name": "falsch"
+      }
+     ]
+    }
    },
    {
     "lernziel": "gleichung",
     "titel": "Betragsgleichungen lösen",
-    "regel": "|x − d| = c bedeutet: x hat von d den ⟦Abstand c⟧. Für c > 0 gibt es ⟦zwei Lösungen⟧: x = d − c und x = d + c. Für c = 0 eine Lösung, für ⟦c < 0 keine⟧ (ein Betrag ist nie negativ).",
+    "regel": "|x − d| = c heißt Abstand c von d. Für c > 0 gibt es ⟦zwei Lösungen⟧: d − c und d + c.",
     "schritte": [
-     "|x − 4| = 3: Abstand 3 von der Zahl 4.",
-     "x = 4 − 3 = ⟦1⟧ oder x = 4 + 3 = ⟦7⟧."
+     {
+      "text": "|x − 4| = 3 heißt: Abstand 3 von der Zahl 4."
+     },
+     {
+      "text": "Nach links: x = 4 − 3 = ⟦1⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "4"
+        },
+        {
+         "wert": 1,
+         "name": "x₁"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 4,
+         "bis": 1,
+         "name": "3"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Nach rechts: x = 4 + 3 = ⟦7⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "4"
+        },
+        {
+         "wert": 1,
+         "name": "x₁"
+        },
+        {
+         "wert": 7,
+         "name": "x₂"
+        }
+       ],
+       "boegen": [
+        {
+         "von": 4,
+         "bis": 1,
+         "name": "3"
+        },
+        {
+         "von": 4,
+         "bis": 7,
+         "name": "3"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Ist rechts 0, gibt es nur x = 4. Ist rechts etwas Negatives, keine.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "4"
+        }
+       ],
+       "boegen": null
+      }
+     }
     ],
-    "probe": "|1 − 4| = 3 und |7 − 4| = 3 ✓",
-    "fehler": "Bei |x − 4| = 3 nur x = 7 anzugeben ist falsch: Es gibt ⟦zwei Zahlen⟧ mit Abstand 3 von 4 – auch x = 1 links davon."
+    "fehler": "Nur x = 7 ist unvollständig. Es gibt ⟦zwei Zahlen⟧ mit Abstand 3 von 4, auch x = 1.",
+    "einstieg": "Welche Haltestellen liegen genau 3 km von Kilometer 4 entfernt? Eine links, eine rechts. Die ⟦Betragsgleichung⟧ |x − 4| = 3 hat deshalb zwei Lösungen.",
+    "woerter": [
+     [
+      "Betragsgleichung",
+      "eine Gleichung, in der x im Betrag steht"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 8,
+     "abschnitte": 8,
+     "beschriftet": "alle",
+     "punkte": [
+      {
+       "wert": 4,
+       "name": "4"
+      }
+     ]
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 4,
+       "name": "4"
+      },
+      {
+       "wert": 1,
+       "name": "fehlt"
+      },
+      {
+       "wert": 7,
+       "name": "x = 7"
+      }
+     ],
+     "boegen": [
+      {
+       "von": 4,
+       "bis": 7,
+       "name": "3"
+      }
+     ]
+    }
    },
    {
     "lernziel": "verstehen",
     "titel": "Aussagen über Beträge prüfen",
-    "regel": "Prüfe Aussagen mit ⟦Zahlenbeispielen⟧, auch mit ⟦negativen Zahlen⟧. Wichtig: |a| ≥ 0, |−a| = |a|, aber im Allgemeinen ⟦|a + b| ≠ |a| + |b|⟧.",
+    "regel": "Aussagen auch mit ⟦negativen Zahlen⟧ testen. Im Allgemeinen gilt |a + b| ≠ |a| + |b|.",
     "schritte": [
-     "Behauptung: |a + b| = |a| + |b|. Teste a = 3, b = −5.",
-     "|3 + (−5)| = |−2| = 2, aber |3| + |−5| = 8. ⟦Die Aussage ist falsch⟧."
+     {
+      "text": "Behauptung: |a + b| = |a| + |b|. Teste a = 3, b = −5.",
+      "bild": {
+       "boegen": [
+        {
+         "von": 0,
+         "bis": 3,
+         "name": "3"
+        },
+        {
+         "von": 3,
+         "bis": -2,
+         "name": "−5"
+        }
+       ]
+      }
+     },
+     {
+      "text": "|3 + (−5)| = |−2| = 2.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 0,
+         "name": "Start"
+        },
+        {
+         "wert": -2,
+         "name": "Ziel"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Aber |3| + |−5| = 8. ⟦Die Aussage ist falsch⟧."
+     },
+     {
+      "text": "a = 3, b = −5 ist also ein Gegenbeispiel."
+     }
     ],
-    "probe": "Ein Gegenbeispiel genügt, um eine Allaussage zu widerlegen ✓",
-    "fehler": "„|−x| = x für alle x“ ist falsch: Für x = −4 ist |−(−4)| = 4, aber x = −4. Richtig ist ⟦|−x| = |x|⟧."
+    "fehler": "„|−x| = x für alle x“ ist falsch. Für x = −4 ist |−x| = 4, nicht −4. Richtig ist ⟦|−x| = |x|⟧.",
+    "einstieg": "Du läufst 3 km vor und 5 km zurück. Vom Start bist du nur 2 km entfernt, gelaufen bist du 8 km. Beträge darf man also nicht stur ⟦addieren⟧.",
+    "woerter": [
+     [
+      "Gegenbeispiel",
+      "ein Beispiel, bei dem eine Behauptung nicht stimmt"
+     ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -5,
+     "ende": 5,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende",
+     "punkte": [
+      {
+       "wert": 0,
+       "name": "Start"
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -199,33 +541,18 @@
    "l": "betrag",
    "t": "betrag",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne |−11 − (−4)|. Das ist der Abstand der Zahlen −11 und −4."
+    "text": "f(x) = |x + 2| + 1. Berechne f(8)."
    },
    "o": {
-    "wert": 7
+    "wert": 11
    },
-   "c": "abs(-11 - (-4))",
-   "w": "−11 − (−4) = −7. Betrag: 7.",
-   "h": "Erst innen ausrechnen, dann den Betrag nehmen."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne |7| + |1|."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "abs(7) + abs(1)",
-   "w": "|7| = 7, |1| = 1. Summe: 8.",
-   "h": "Der Betrag ist der Abstand von 0 – immer positiv oder 0."
+   "c": "1.0 * abs(8 - (-2)) + (1)",
+   "w": "Innen: 8 + 2 = 10. Betrag: 10. f(8) = 10 + 1 = 11.",
+   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e.",
+   "g": "mehrschritt"
   },
   {
    "l": "betrag",
@@ -241,23 +568,25 @@
    },
    "c": "abs(13) + abs(20)",
    "w": "|13| = 13, |20| = 20. Summe: 33.",
-   "h": "Der Betrag ist der Abstand von 0 – immer positiv oder 0."
+   "h": "Der Betrag ist der Abstand von 0 – immer positiv oder 0.",
+   "g": "direkt"
   },
   {
    "l": "betrag",
    "t": "betrag",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne |5 − 4|. Das ist der Abstand der Zahlen 5 und 4."
+    "text": "Berechne |4 + (−9)| − |4| − |−9|."
    },
    "o": {
-    "wert": 1
+    "wert": -8
    },
-   "c": "abs(5 - (4))",
-   "w": "5 − 4 = 1. Betrag: 1.",
-   "h": "Erst innen ausrechnen, dann den Betrag nehmen."
+   "c": "abs(4 + (-9)) - abs(4) - abs(-9)",
+   "w": "|−5| − 4 − 9 = 5 − 13 = −8.",
+   "h": "Jeden Betrag einzeln auswerten; innen zuerst rechnen.",
+   "g": "mehrschritt"
   },
   {
    "l": "betrag",
@@ -273,23 +602,46 @@
    },
    "c": "abs(9 - (7))",
    "w": "9 − 7 = 2. Betrag: 2.",
-   "h": "Erst innen ausrechnen, dann den Betrag nehmen."
+   "h": "Erst innen ausrechnen, dann den Betrag nehmen.",
+   "g": "direkt"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = |x + 2| − 5. Berechne f(1)."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "1.0 * abs(1 - (-2)) + (-5)",
+   "w": "Innen: 1 + 2 = 3. Betrag: 3. f(1) = 3 − 5 = −2.",
+   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e.",
+   "g": "mehrschritt"
   },
   {
    "l": "betrag",
    "t": "betrag",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne |−15| + |15|."
+    "text": "Was ist größer: |−1| oder |5|?"
    },
+   "a": [
+    "|5|",
+    "Beide sind gleich",
+    "|−1|"
+   ],
    "o": {
-    "wert": 30
+    "index": 0
    },
-   "c": "abs(-15) + abs(15)",
-   "w": "|−15| = 15, |15| = 15. Summe: 30.",
-   "h": "Der Betrag ist der Abstand von 0 – immer positiv oder 0."
+   "w": "|−1| = 1, |5| = 5.",
+   "h": "Vergleiche die Abstände von 0, nicht die Zahlen selbst.",
+   "g": "erkennen"
   },
   {
    "l": "betrag",
@@ -298,68 +650,21 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne |15 − 11|. Das ist der Abstand der Zahlen 15 und 11."
+    "text": "f(x) = |x + 2| − 3. Berechne f(0)."
    },
    "o": {
-    "wert": 4
+    "wert": -1
    },
-   "c": "abs(15 - (11))",
-   "w": "15 − 11 = 4. Betrag: 4.",
-   "h": "Erst innen ausrechnen, dann den Betrag nehmen."
+   "c": "1.0 * abs(0 - (-2)) + (-3)",
+   "w": "Innen: 0 + 2 = 2. Betrag: 2. f(0) = 2 − 3 = −1.",
+   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e.",
+   "g": "mehrschritt"
   },
   {
    "l": "betrag",
    "t": "betrag",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = |x + 2| + 3. Berechne f(4)."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "1.0 * abs(4 - (-2)) + (3)",
-   "w": "Innen: 4 + 2 = 6. Betrag: 6. f(4) = 6 + 3 = 9.",
-   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = |x| + 1. Berechne f(6)."
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "1.0 * abs(6 - (0)) + (1)",
-   "w": "Innen: 6. Betrag: 6. f(6) = 6 + 1 = 7.",
-   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne |14 − 10|. Das ist der Abstand der Zahlen 14 und 10."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "abs(14 - (10))",
-   "w": "14 − 10 = 4. Betrag: 4.",
-   "h": "Erst innen ausrechnen, dann den Betrag nehmen."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne |7 − (−5)|. Das ist der Abstand der Zahlen 7 und −5."
@@ -369,7 +674,8 @@
    },
    "c": "abs(7 - (-5))",
    "w": "7 − (−5) = 12. Betrag: 12.",
-   "h": "Erst innen ausrechnen, dann den Betrag nehmen."
+   "h": "Erst innen ausrechnen, dann den Betrag nehmen.",
+   "g": "direkt"
   },
   {
    "l": "betrag",
@@ -378,102 +684,54 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = |x − 5| − 4. Berechne f(6)."
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "1.0 * abs(6 - (5)) + (-4)",
-   "w": "Innen: 6 − 5 = 1. Betrag: 1. f(6) = 1 − 4 = −3.",
-   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Was ist größer: |−6| oder |4|?"
-   },
-   "a": [
-    "Beide sind gleich",
-    "|−6|",
-    "|4|"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "|−6| = 6, |4| = 4.",
-   "h": "Vergleiche die Abstände von 0, nicht die Zahlen selbst."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = 2 · |x + 3| − 6. Berechne f(−1)."
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "2.0 * abs(-1 - (-3)) + (-6)",
-   "w": "Innen: −1 + 3 = 2. Betrag: 2. f(−1) = 2 · 2 − 6 = −2.",
-   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Was ist größer: |−2| oder |1|?"
-   },
-   "a": [
-    "|−2|",
-    "Beide sind gleich",
-    "|1|"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "|−2| = 2, |1| = 1.",
-   "h": "Vergleiche die Abstände von 0, nicht die Zahlen selbst."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = −2 · |x + 5| − 5. Berechne f(−2)."
-   },
-   "o": {
-    "wert": -11
-   },
-   "c": "-2.0 * abs(-2 - (-5)) + (-5)",
-   "w": "Innen: −2 + 5 = 3. Betrag: 3. f(−2) = −2 · 3 − 5 = −11.",
-   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = 3 · |x + 2| + 5. Berechne f(−1)."
+    "text": "f(x) = |x − 2| + 5. Berechne f(5)."
    },
    "o": {
     "wert": 8
    },
-   "c": "3.0 * abs(-1 - (-2)) + (5)",
-   "w": "Innen: −1 + 2 = 1. Betrag: 1. f(−1) = 3 · 1 + 5 = 8.",
-   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e."
+   "c": "1.0 * abs(5 - (2)) + (5)",
+   "w": "Innen: 5 − 2 = 3. Betrag: 3. f(5) = 3 + 5 = 8.",
+   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck hat den kleinsten Wert: |−4|, −|−4|, |5 − 10| oder −|5|?"
+   },
+   "a": [
+    "|−4|",
+    "−|−4|",
+    "−|5|",
+    "|5 − 10|"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Werte: |−4| = 4, −|−4| = −4, |5 − 10| = 5, −|5| = −5. Am kleinsten: −|5|.",
+   "h": "Ein Minus vor den Betragsstrichen wirkt erst nach dem Betrag.",
+   "g": "begruenden"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = |x| − 6. Berechne f(−1)."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "1.0 * abs(-1 - (0)) + (-6)",
+   "w": "Innen: −1. Betrag: 1. f(−1) = 1 − 6 = −5.",
+   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e.",
+   "g": "mehrschritt"
   },
   {
    "l": "betrag",
@@ -482,14 +740,161 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "f(x) = 0,5 · |x + 1| + 4. Berechne f(8)."
+    "text": "Wie viele ganze Zahlen x erfüllen |x + 2| ≤ 6?"
    },
    "o": {
-    "wert": 8.5
+    "wert": 13
    },
-   "c": "0.5 * abs(8 - (-1)) + (4)",
-   "w": "Innen: 8 + 1 = 9. Betrag: 9. f(8) = 0,5 · 9 + 4 = 8,5.",
-   "h": "Reihenfolge: innen rechnen, Betrag, dann mal a und plus e."
+   "c": "13",
+   "w": "Gesucht sind ganze Zahlen mit Abstand höchstens 6 von −2: von −8 bis 4, das sind 13 Zahlen.",
+   "h": "Zeichne einen Zahlenstrahl um −2 und zähle die ganzen Zahlen in passendem Abstand.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne |6 − |−7||."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "abs(6 - abs(-7))",
+   "w": "Innen zuerst: |−7| = 7. Dann 6 − 7 = −1. Betrag: 1.",
+   "h": "Von innen nach außen: erst der innere Betrag, dann rechnen, dann der äußere Betrag.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist größer: |5| oder |3|?"
+   },
+   "a": [
+    "Beide sind gleich",
+    "|5|",
+    "|3|"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "|5| = 5, |3| = 3.",
+   "h": "Vergleiche die Abstände von 0, nicht die Zahlen selbst.",
+   "g": "erkennen"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne |16| + |9|."
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "abs(16) + abs(9)",
+   "w": "|16| = 16, |9| = 9. Summe: 25.",
+   "h": "Der Betrag ist der Abstand von 0 – immer positiv oder 0.",
+   "g": "direkt"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne |1 − |−13||."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "abs(1 - abs(-13))",
+   "w": "Innen zuerst: |−13| = 13. Dann 1 − 13 = −12. Betrag: 12.",
+   "h": "Von innen nach außen: erst der innere Betrag, dann rechnen, dann der äußere Betrag.",
+   "g": "mehrschritt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Thermometer zeigt morgens −7 °C und mittags 5 °C. Um wie viel Grad ist es wärmer geworden?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "°C"
+   },
+   "c": "abs(5 - (-7))",
+   "w": "Abstand der Temperaturen: |5 − (−7)| = |12| = 12 °C.",
+   "h": "Abstand zweier Zahlen: Betrag der Differenz.",
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Zahl a gilt |a| = 6 und a < 0. Welche Zahl ist a?"
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "-6",
+   "w": "|a| = 6 haben die Zahlen 6 und −6. Weil a negativ ist: a = −6.",
+   "h": "Welche zwei Zahlen haben den Betrag 6?",
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck hat den kleinsten Wert: |−6|, −|−5|, |3 − 14| oder −|3|?"
+   },
+   "a": [
+    "|3 − 14|",
+    "−|−5|",
+    "−|3|",
+    "|−6|"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Werte: |−6| = 6, −|−5| = −5, |3 − 14| = 11, −|3| = −3. Am kleinsten: −|−5|.",
+   "h": "Ein Minus vor den Betragsstrichen wirkt erst nach dem Betrag.",
+   "g": "begruenden"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen x erfüllen |x + 4| < 5?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "Gesucht sind ganze Zahlen mit Abstand kleiner als 5 von −4: von −8 bis 0, das sind 9 Zahlen.",
+   "h": "Zeichne einen Zahlenstrahl um −4 und zähle die ganzen Zahlen in passendem Abstand.",
+   "g": "verknuepfen"
   },
   {
    "l": "betrag",
@@ -498,13 +903,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = |x − 5| + 6. Berechne f(7)."
+    "text": "Berechne |9 − 3|. Das ist der Abstand der Zahlen 9 und 3."
    },
    "o": {
-    "wert": 8
+    "wert": 6
    },
-   "c": "1.0 * abs(7 - (5)) + (6)",
-   "w": "Innen: 7 − 5 = 2. Betrag: 2. f(7) = 2 + 6 = 8."
+   "c": "abs(9 - (3))",
+   "w": "9 − 3 = 6. Betrag: 6."
   },
   {
    "l": "betrag",
@@ -513,13 +918,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = |x − 1| + 3. Berechne f(0)."
+    "text": "f(x) = |x + 5| − 6. Berechne f(5)."
    },
    "o": {
     "wert": 4
    },
-   "c": "1.0 * abs(0 - (1)) + (3)",
-   "w": "Innen: 0 − 1 = −1. Betrag: 1. f(0) = 1 + 3 = 4."
+   "c": "1.0 * abs(5 - (-5)) + (-6)",
+   "w": "Innen: 5 + 5 = 10. Betrag: 10. f(5) = 10 − 6 = 4."
   },
   {
    "l": "betrag",
@@ -528,13 +933,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = |x + 3| + 2. Berechne f(3)."
+    "text": "f(x) = |x − 4| − 1. Berechne f(1)."
    },
    "o": {
-    "wert": 8
+    "wert": 2
    },
-   "c": "1.0 * abs(3 - (-3)) + (2)",
-   "w": "Innen: 3 + 3 = 6. Betrag: 6. f(3) = 6 + 2 = 8."
+   "c": "1.0 * abs(1 - (4)) + (-1)",
+   "w": "Innen: 1 − 4 = −3. Betrag: 3. f(1) = 3 − 1 = 2."
   },
   {
    "l": "betrag",
@@ -543,73 +948,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = |x − 4| − 3. Berechne f(−4)."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "1.0 * abs(-4 - (4)) + (-3)",
-   "w": "Innen: −4 − 4 = −8. Betrag: 8. f(−4) = 8 − 3 = 5."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = |x − 3| + 5. Berechne f(−1)."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "1.0 * abs(-1 - (3)) + (5)",
-   "w": "Innen: −1 − 3 = −4. Betrag: 4. f(−1) = 4 + 5 = 9."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne |9 − 5|. Das ist der Abstand der Zahlen 9 und 5."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "abs(9 - (5))",
-   "w": "9 − 5 = 4. Betrag: 4."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = |x| − 1. Berechne f(8)."
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "1.0 * abs(8 - (0)) + (-1)",
-   "w": "Innen: 8. Betrag: 8. f(8) = 8 − 1 = 7."
-  },
-  {
-   "l": "betrag",
-   "t": "betrag",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = |x − 4| + 4. Berechne f(−6)."
+    "text": "f(x) = |x + 5| + 1. Berechne f(8)."
    },
    "o": {
     "wert": 14
    },
-   "c": "1.0 * abs(-6 - (4)) + (4)",
-   "w": "Innen: −6 − 4 = −10. Betrag: 10. f(−6) = 10 + 4 = 14."
+   "c": "1.0 * abs(8 - (-5)) + (1)",
+   "w": "Innen: 8 + 5 = 13. Betrag: 13. f(8) = 13 + 1 = 14."
   },
   {
    "l": "betrag",
@@ -618,13 +963,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = |x + 2| + 5. Berechne f(6)."
+    "text": "f(x) = −2 · |x − 1| − 2. Berechne f(−8)."
+   },
+   "o": {
+    "wert": -20
+   },
+   "c": "-2.0 * abs(-8 - (1)) + (-2)",
+   "w": "Innen: −8 − 1 = −9. Betrag: 9. f(−8) = −2 · 9 − 2 = −20."
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = |x − 3| − 4. Berechne f(−3)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1.0 * abs(-3 - (3)) + (-4)",
+   "w": "Innen: −3 − 3 = −6. Betrag: 6. f(−3) = 6 − 4 = 2."
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = |x + 5| + 4. Berechne f(4)."
    },
    "o": {
     "wert": 13
    },
-   "c": "1.0 * abs(6 - (-2)) + (5)",
-   "w": "Innen: 6 + 2 = 8. Betrag: 8. f(6) = 8 + 5 = 13."
+   "c": "1.0 * abs(4 - (-5)) + (4)",
+   "w": "Innen: 4 + 5 = 9. Betrag: 9. f(4) = 9 + 4 = 13."
   },
   {
    "l": "betrag",
@@ -633,13 +1008,171 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne |10 − (−13)|. Das ist der Abstand der Zahlen 10 und −13."
+    "text": "f(x) = |x| + 1. Berechne f(−6)."
    },
    "o": {
-    "wert": 23
+    "wert": 7
    },
-   "c": "abs(10 - (-13))",
-   "w": "10 − (−13) = 23. Betrag: 23."
+   "c": "1.0 * abs(-6 - (0)) + (1)",
+   "w": "Innen: −6. Betrag: 6. f(−6) = 6 + 1 = 7."
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = −|x + 1| − 5. Berechne f(−7)."
+   },
+   "o": {
+    "wert": -11
+   },
+   "c": "-1.0 * abs(-7 - (-1)) + (-5)",
+   "w": "Innen: −7 + 1 = −6. Betrag: 6. f(−7) = −1 · 6 − 5 = −11."
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = −2 · |x − 3| + 1. Berechne f(−8)."
+   },
+   "o": {
+    "wert": -21
+   },
+   "c": "-2.0 * abs(-8 - (3)) + (1)",
+   "w": "Innen: −8 − 3 = −11. Betrag: 11. f(−8) = −2 · 11 + 1 = −21."
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x liegt rechts von 1 auf dem Zahlenstrahl. Es gilt |x − 1| = 4. Welche Zahl ist x?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "1 + 4",
+   "w": "Abstand 4 von 1 nach rechts: x = 1 + 4 = 5.",
+   "h": "|x − a| ist der Abstand von x und a. Gehe auf dem Zahlenstrahl in die richtige Richtung.",
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: |−3| + |5| = |−3 + 5| = 2. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es ergibt −2.",
+    "Richtig.",
+    "Falsch: |−3| + |5| = 3 + 5 = 8.",
+    "Falsch: Es ergibt −8."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Man darf die Beträge nicht zusammenfassen: Erst jeden Betrag berechnen (3 und 5), dann addieren.",
+   "h": "Rechne jeden Betrag einzeln aus.",
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a gilt |a − 3| = |a + 3|?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "|a − 3| ist der Abstand zu 3, |a + 3| der Abstand zu −3. Gleich weit von 3 und −3 liegt nur die Mitte: a = 0.",
+   "h": "Deute beide Beträge als Abstände.",
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug fährt vom 2. Untergeschoss (−2) in den 5. Stock und dann ins 1. Untergeschoss (−1). Wie viele Stockwerke legt er insgesamt zurück?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "abs(5 - (-2)) + abs(-1 - 5)",
+   "w": "Erste Fahrt |5 − (−2)| = 7, zweite |−1 − 5| = 6. Zusammen 13 Stockwerke.",
+   "h": "Rechne jede Fahrt als Abstand.",
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "l": "betrag",
+   "t": "betrag",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck hat den kleinsten Wert: |−3|, −|−7|, |4 − 9| oder −|4|?"
+   },
+   "a": [
+    "|4 − 9|",
+    "−|−7|",
+    "|−3|",
+    "−|4|"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Werte: |−3| = 3, −|−7| = −7, |4 − 9| = 5, −|4| = −4. Am kleinsten: −|−7|.",
+   "h": "Ein Minus vor den Betragsstrichen wirkt erst nach dem Betrag."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen x erfüllen |x| + |x − 3| = 3?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "|x| + |x − 3| ist die Summe der Abstände zu 0 und zu 3. Liegt x zwischen 0 und 3, ist sie genau 3; außerhalb ist sie größer. Ganze Zahlen: 0, 1, 2, 3 – vier.",
+   "h": "Deute die Summe als zwei Abstände auf dem Zahlenstrahl.",
+   "l": "betrag",
+   "t": "betrag",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl x ist |x − 1| + |x − 5| + |x − 6| am kleinsten?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Summe der Abstände zu 1, 5 und 6. Bei x = 5: 4 + 0 + 1 = 5. Rückt x nach links, wachsen zwei Abstände und nur einer schrumpft; nach rechts ebenso. Am kleinsten ist die Summe bei der mittleren Zahl 5.",
+   "h": "Probiere x = 4, 5 und 6.",
+   "l": "betrag",
+   "t": "betrag",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
    "l": "graph",
@@ -648,166 +1181,23 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = |x| − 1 an.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes"
-   },
-   "o": {
-    "werte": [
-     0,
-     -1
-    ]
-   },
-   "w": "Innen = 0 bei x = 0. f(0) = −1. Knickpunkt S(0 | −1).",
-   "h": "Wo wird der Inhalt der Betragsstriche 0?",
-   "c": [
-    "0",
-    "-1"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = |x − 3| − 4 an.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes"
-   },
-   "o": {
-    "werte": [
-     3,
-     -4
-    ]
-   },
-   "w": "Innen = 0 bei x = 3. f(3) = −4. Knickpunkt S(3 | −4).",
-   "h": "Wo wird der Inhalt der Betragsstriche 0?",
-   "c": [
-    "3",
-    "-4"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = |x + 4| − 2 an.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes"
-   },
-   "o": {
-    "werte": [
-     -4,
-     -2
-    ]
-   },
-   "w": "Innen = 0 bei x = −4. f(−4) = −2. Knickpunkt S(−4 | −2).",
-   "h": "Wo wird der Inhalt der Betragsstriche 0?",
-   "c": [
-    "-4",
-    "-2"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = |x − 2| − 3 an.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes"
-   },
-   "o": {
-    "werte": [
-     2,
-     -3
-    ]
-   },
-   "w": "Innen = 0 bei x = 2. f(2) = −3. Knickpunkt S(2 | −3).",
-   "h": "Wo wird der Inhalt der Betragsstriche 0?",
-   "c": [
-    "2",
-    "-3"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = |x + 2| + 1 an.",
+    "text": "Gib den Knickpunkt des Graphen von f(x) = |x + 2| an.",
     "schablone": "S(□ | □)",
     "hinweis": "Koordinaten des Punktes"
    },
    "o": {
     "werte": [
      -2,
-     1
+     0
     ]
    },
-   "w": "Innen = 0 bei x = −2. f(−2) = 1. Knickpunkt S(−2 | 1).",
+   "w": "Innen = 0 bei x = −2. f(−2) = 0. Knickpunkt S(−2 | 0).",
    "h": "Wo wird der Inhalt der Betragsstriche 0?",
    "c": [
     "-2",
-    "1"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = |x − 1| + 3 an.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes"
-   },
-   "o": {
-    "werte": [
-     1,
-     3
-    ]
-   },
-   "w": "Innen = 0 bei x = 1. f(1) = 3. Knickpunkt S(1 | 3).",
-   "h": "Wo wird der Inhalt der Betragsstriche 0?",
-   "c": [
-    "1",
-    "3"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = 3 · |x + 1| − 4 an.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes"
-   },
-   "o": {
-    "werte": [
-     -1,
-     -4
-    ]
-   },
-   "w": "Innen = 0 bei x = −1. f(−1) = −4. Knickpunkt S(−1 | −4).",
-   "h": "Wo wird der Inhalt der Betragsstriche 0?",
-   "c": [
-    "-1",
-    "-4"
-   ]
+    "0"
+   ],
+   "g": "direkt"
   },
   {
    "l": "graph",
@@ -816,27 +1206,28 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie ist der Graph von f(x) = 3 · |x| + 4 geöffnet?"
+    "text": "Wie ist der Graph von f(x) = 3 · |x − 2| + 4 geöffnet?"
    },
    "a": [
     "nach unten",
-    "nach rechts",
-    "nach oben"
+    "nach oben",
+    "nach rechts"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
    "w": "Der Faktor vor dem Betrag ist 3 – positiv: ein normales V.",
-   "h": "Achte auf das Vorzeichen vor den Betragsstrichen."
+   "h": "Achte auf das Vorzeichen vor den Betragsstrichen.",
+   "g": "darstellung"
   },
   {
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = 2 · |x + 2| − 4 an.",
+    "text": "Gib den Knickpunkt des Graphen von f(x) = |x + 2| − 4 an.",
     "schablone": "S(□ | □)",
     "hinweis": "Koordinaten des Punktes"
    },
@@ -851,7 +1242,105 @@
    "c": [
     "-2",
     "-4"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = 2 · |x + 3| + 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     -3,
+     1
+    ]
+   },
+   "w": "Innen = 0 bei x = −3. f(−3) = 1. Knickpunkt S(−3 | 1).",
+   "h": "Wo wird der Inhalt der Betragsstriche 0?",
+   "c": [
+    "-3",
+    "1"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = |x + 2| − 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2
+    ]
+   },
+   "w": "Innen = 0 bei x = −2. f(−2) = −2. Knickpunkt S(−2 | −2).",
+   "h": "Wo wird der Inhalt der Betragsstriche 0?",
+   "c": [
+    "-2",
+    "-2"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Schnittpunkte hat der Graph von f(x) = |x| mit der waagrechten Geraden y = 0?"
+   },
+   "a": [
+    "unendlich viele",
+    "genau zwei",
+    "genau einen",
+    "keinen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das V hat die Spitze S(0 | 0) und ist nach oben geöffnet. Die Gerade geht genau durch die Spitze: ein Schnittpunkt.",
+   "h": "Skizziere das V und die waagrechte Gerade.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = |x − 4| + 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     4,
+     1
+    ]
+   },
+   "w": "Innen = 0 bei x = 4. f(4) = 1. Knickpunkt S(4 | 1).",
+   "h": "Wo wird der Inhalt der Betragsstriche 0?",
+   "c": [
+    "4",
+    "1"
+   ],
+   "g": "direkt"
   },
   {
    "l": "graph",
@@ -870,27 +1359,15 @@
       7
      ],
      "y": [
-      -12,
-      0
+      -7,
+      3
      ],
      "graphen": [
       {
-       "art": "linear",
-       "m": 1,
-       "t": 1,
-       "bereich": [
-        -7,
-        -2
-       ]
-      },
-      {
-       "art": "linear",
-       "m": -1,
-       "t": -3,
-       "bereich": [
-        -2,
-        7
-       ],
+       "art": "betrag",
+       "a": -1,
+       "b": 1,
+       "c": 2,
        "name": "f"
       }
      ]
@@ -898,16 +1375,42 @@
    },
    "o": {
     "werte": [
-     -2,
-     -1
+     1,
+     2
     ]
    },
-   "w": "Die Spitze des V liegt bei (−2 | −1). Also f(x) = −|x + 2| − 1.",
+   "w": "Die Spitze des V liegt bei (1 | 2). Also f(x) = −|x − 1| + 2.",
    "h": "Der Knickpunkt ist die Spitze des V.",
    "c": [
-    "-2",
-    "-1"
-   ]
+    "1",
+    "2"
+   ],
+   "g": "darstellung"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = |x − 4| − 3 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     4,
+     -3
+    ]
+   },
+   "w": "Innen = 0 bei x = 4. f(4) = −3. Knickpunkt S(4 | −3).",
+   "h": "Wo wird der Inhalt der Betragsstriche 0?",
+   "c": [
+    "4",
+    "-3"
+   ],
+   "g": "direkt"
   },
   {
    "l": "graph",
@@ -916,74 +1419,23 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = 3 · |x| − 1 an.",
+    "text": "Gib den Knickpunkt des Graphen von f(x) = 0,5 · |x − 4| − 1 an.",
     "schablone": "S(□ | □)",
     "hinweis": "Koordinaten des Punktes"
    },
    "o": {
     "werte": [
-     0,
+     4,
      -1
     ]
    },
-   "w": "Innen = 0 bei x = 0. f(0) = −1. Knickpunkt S(0 | −1).",
+   "w": "Innen = 0 bei x = 4. f(4) = −1. Knickpunkt S(4 | −1).",
    "h": "Wo wird der Inhalt der Betragsstriche 0?",
    "c": [
-    "0",
+    "4",
     "-1"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie ist der Graph von f(x) = |x − 3| + 4 geöffnet?"
-   },
-   "a": [
-    "nach oben",
-    "nach rechts",
-    "nach unten"
    ],
-   "o": {
-    "index": 0
-   },
-   "w": "Der Faktor vor dem Betrag ist 1 – positiv: ein normales V.",
-   "h": "Achte auf das Vorzeichen vor den Betragsstrichen."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = 3 · |x + 4| − 1. Welche Steigung hat der Graph rechts vom Knick (für x > −4)?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3.0",
-   "w": "Für x > −4 ist |x + 4| = x + 4, also f(x) = 3 · (x + 4) − 1 mit Steigung 3.",
-   "h": "Rechts vom Knick fallen die Betragsstriche einfach weg."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = |x + 4| + 2. Welche Steigung hat der Graph rechts vom Knick (für x > −4)?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "1.0",
-   "w": "Für x > −4 ist |x + 4| = x + 4, also f(x) = 1 · (x + 4) + 2 mit Steigung 1.",
-   "h": "Rechts vom Knick fallen die Betragsstriche einfach weg."
+   "g": "mehrschritt"
   },
   {
    "l": "graph",
@@ -1000,91 +1452,32 @@
       7
      ],
      "y": [
-      -4,
-      8
+      -1,
+      12
      ],
      "graphen": [
       {
-       "art": "linear",
-       "m": -1,
-       "t": 0,
-       "bereich": [
-        -7,
-        3
-       ]
-      },
-      {
-       "art": "linear",
-       "m": 1,
-       "t": -6,
-       "bereich": [
-        3,
-        7
-       ],
+       "art": "betrag",
+       "a": 1,
+       "b": -4,
+       "c": 0,
        "name": "f"
       }
      ]
     }
    },
    "a": [
-    "f(x) = |x − 3| − 3",
-    "f(x) = |x + 3| + 3",
-    "f(x) = −|x − 3| − 3",
-    "f(x) = |x + 3| − 3"
+    "f(x) = |x + 4|",
+    "f(x) = −|x + 4|",
+    "f(x) = |x − 4|",
+    "f(x) = |x| − 4"
    ],
    "o": {
     "index": 0
    },
-   "w": "Knickpunkt S(3 | −3), nach oben geöffnet: f(x) = |x − 3| − 3.",
-   "h": "Lies den Knickpunkt ab. Achtung: Bei x − d wird nach rechts verschoben."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Bestimme die Nullstellen von f(x) = −|x + 4| + 1 (kleinere zuerst).",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     -5,
-     -3
-    ]
-   },
-   "w": "f(x) = 0 ⇒ |x + 4| = 1 ⇒ x = −4 − 1 = −5 oder x = −4 + 1 = −3.",
-   "h": "Setze f(x) = 0 und forme nach dem Betrag um.",
-   "c": [
-    "-5",
-    "-3"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Bestimme die Nullstellen von f(x) = |x + 3| − 5 (kleinere zuerst).",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     -8,
-     2
-    ]
-   },
-   "w": "f(x) = 0 ⇒ |x + 3| = 5 ⇒ x = −3 − 5 = −8 oder x = −3 + 5 = 2.",
-   "h": "Setze f(x) = 0 und forme nach dem Betrag um.",
-   "c": [
-    "-8",
-    "2"
-   ]
+   "w": "Knickpunkt S(−4 | 0), nach oben geöffnet: f(x) = |x + 4|.",
+   "h": "Lies den Knickpunkt ab. Achtung: Bei x − d wird nach rechts verschoben.",
+   "g": "rueckwaerts"
   },
   {
    "l": "graph",
@@ -1093,268 +1486,89 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "f(x) = −2 · |x − 3| − 4. Welche Steigung hat der Graph rechts vom Knick (für x > 3)?"
+    "text": "Der Graph von f(x) = a · |x + 3| − 2 geht durch den Punkt P(−5 | −1). Bestimme a."
    },
    "o": {
-    "wert": -2
+    "wert": 0.5
    },
-   "c": "-2.0",
-   "w": "Für x > 3 ist |x − 3| = x − 3, also f(x) = −2 · (x − 3) − 4 mit Steigung −2.",
-   "h": "Rechts vom Knick fallen die Betragsstriche einfach weg."
+   "c": "(-1 - (-2)) / abs(-5 - (-3))",
+   "w": "Einsetzen: −1 = a · |−5 + 3| − 2 = a · 2 − 2. Also a · 2 = 1 und a = 0,5.",
+   "h": "Setze die Koordinaten von P ein und löse nach a auf.",
+   "g": "parameter"
   },
   {
    "l": "graph",
    "t": "graph",
-   "p": "test",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Der Graph zeigt f(x) = a · |x − d| + e mit a = 1 oder a = −1. Lies den Knickpunkt ab.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -7,
-      7
-     ],
-     "y": [
-      -10,
-      0
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 2,
-       "bereich": [
-        -7,
-        -2
-       ]
-      },
-      {
-       "art": "linear",
-       "m": -1,
-       "t": -2,
-       "bereich": [
-        -2,
-        7
-       ],
-       "name": "f"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -2,
-     0
-    ]
-   },
-   "w": "Die Spitze des V liegt bei (−2 | 0). Also f(x) = −|x + 2|.",
-   "c": [
-    "-2",
-    "0"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Der Graph zeigt f(x) = a · |x − d| + e mit a = 1 oder a = −1. Lies den Knickpunkt ab.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -7,
-      7
-     ],
-     "y": [
-      0,
-      14
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": -1,
-       "t": 6,
-       "bereich": [
-        -7,
-        2
-       ]
-      },
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 2,
-       "bereich": [
-        2,
-        7
-       ],
-       "name": "f"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     2,
-     4
-    ]
-   },
-   "w": "Die Spitze des V liegt bei (2 | 4). Also f(x) = |x − 2| + 4.",
-   "c": [
-    "2",
-    "4"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "korrektur",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Wie ist der Graph von f(x) = 2 · |x + 1| + 1 geöffnet?"
+    "text": "Wie viele Schnittpunkte hat der Graph von f(x) = −|x − 3| + 3 mit der waagrechten Geraden y = 4?"
    },
    "a": [
-    "nach unten",
-    "nach oben",
-    "nach rechts"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Der Faktor vor dem Betrag ist 2 – positiv: ein normales V."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie ist der Graph von f(x) = −2 · |x − 2| + 1 geöffnet?"
-   },
-   "a": [
-    "nach oben",
-    "nach rechts",
-    "nach unten"
+    "genau einen",
+    "genau zwei",
+    "keinen",
+    "unendlich viele"
    ],
    "o": {
     "index": 2
    },
-   "w": "Der Faktor vor dem Betrag ist −2 – negativ: Das V steht auf dem Kopf."
+   "w": "Das V hat die Spitze S(3 | 3) und ist nach unten geöffnet. Die Gerade verfehlt das V: kein Schnittpunkt.",
+   "h": "Skizziere das V und die waagrechte Gerade.",
+   "g": "verknuepfen"
   },
   {
    "l": "graph",
    "t": "graph",
-   "p": "sicherung",
-   "s": 2,
+   "p": "uebung",
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Der Graph zeigt f(x) = a · |x − d| + e mit a = 1 oder a = −1. Lies den Knickpunkt ab.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -7,
-      7
-     ],
-     "y": [
-      -10,
-      0
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 1,
-       "t": -2,
-       "bereich": [
-        -7,
-        1
-       ]
-      },
-      {
-       "art": "linear",
-       "m": -1,
-       "t": 0,
-       "bereich": [
-        1,
-        7
-       ],
-       "name": "f"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     1,
-     -1
-    ]
-   },
-   "w": "Die Spitze des V liegt bei (1 | −1). Also f(x) = −|x − 1| − 1.",
-   "c": [
-    "1",
-    "-1"
-   ]
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = 0,5 · |x + 3| + 1 an.",
+    "text": "Gib den Knickpunkt des Graphen von f(x) = |x + 1| + 1 an.",
     "schablone": "S(□ | □)",
     "hinweis": "Koordinaten des Punktes"
    },
    "o": {
     "werte": [
-     -3,
+     -1,
      1
     ]
    },
-   "w": "Innen = 0 bei x = −3. f(−3) = 1. Knickpunkt S(−3 | 1).",
+   "w": "Innen = 0 bei x = −1. f(−1) = 1. Knickpunkt S(−1 | 1).",
+   "h": "Wo wird der Inhalt der Betragsstriche 0?",
    "c": [
-    "-3",
+    "-1",
     "1"
-   ]
+   ],
+   "g": "direkt"
   },
   {
-   "l": "graph",
-   "t": "graph",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = 0,5 · |x − 4| − 1 an.",
-    "schablone": "S(□ | □)",
-    "hinweis": "Koordinaten des Punktes"
+    "text": "Welche Form hat der Graph von f(x) = |x|?"
    },
+   "a": [
+    "ein umgedrehtes V mit Spitze bei (0 | 1)",
+    "eine Parabel",
+    "ein V mit der Spitze im Ursprung",
+    "eine Gerade durch den Ursprung"
+   ],
    "o": {
-    "werte": [
-     4,
-     -1
-    ]
+    "index": 2
    },
-   "w": "Innen = 0 bei x = 4. f(4) = −1. Knickpunkt S(4 | −1).",
-   "c": [
-    "4",
-    "-1"
-   ]
+   "w": "Für x ≥ 0 ist f(x) = x, für x < 0 ist f(x) = −x: zwei Halbgeraden, die sich in (0 | 0) treffen.",
+   "h": "Rechne f(−2), f(0) und f(2) aus.",
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "graph",
    "t": "graph",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
@@ -1369,15 +1583,17 @@
     ]
    },
    "w": "Innen = 0 bei x = −4. f(−4) = 2. Knickpunkt S(−4 | 2).",
+   "h": "Wo wird der Inhalt der Betragsstriche 0?",
    "c": [
     "-4",
     "2"
-   ]
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "graph",
    "t": "graph",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -1391,7 +1607,177 @@
    "o": {
     "index": 2
    },
-   "w": "Der Faktor vor dem Betrag ist 2 – positiv: ein normales V."
+   "w": "Der Faktor vor dem Betrag ist 2 – positiv: ein normales V.",
+   "h": "Achte auf das Vorzeichen vor den Betragsstrichen.",
+   "g": "darstellung"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein V-förmiger Graph mit Faktor 1 hat den Knickpunkt (3 | −2). Gib seine Gleichung an.",
+    "schablone": "f(x) = |x − □| − □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "c": [
+    "3",
+    "2"
+   ],
+   "w": "Knick bei x = 3: |x − 3|. Um 2 nach unten: − 2. f(x) = |x − 3| − 2.",
+   "h": "Wie verschiebt d, wie e?",
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      -7,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "betrag",
+       "a": -1,
+       "b": 1,
+       "c": 2,
+       "name": "f"
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −|x + 1| + 2",
+    "f(x) = |x − 1| + 2",
+    "f(x) = −|x − 1| + 2",
+    "f(x) = −|x − 2| + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Knickpunkt S(1 | 2), nach unten geöffnet: f(x) = −|x − 1| + 2.",
+   "h": "Lies den Knickpunkt ab. Achtung: Bei x − d wird nach rechts verschoben.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von f(x) = a · |x| − 3 geht durch den Punkt P(−4 | −7). Bestimme a."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(-7 - (-3)) / abs(-4 - (0))",
+   "w": "Einsetzen: −7 = a · |−4 | − 3 = a · 4 − 3. Also a · 4 = −4 und a = −1.",
+   "h": "Setze die Koordinaten von P ein und löse nach a auf.",
+   "g": "parameter"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist der Graph von f(x) = −|x − 3| + 3 geöffnet?"
+   },
+   "a": [
+    "nach rechts",
+    "nach oben",
+    "nach unten"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Faktor vor dem Betrag ist −1 – negativ: Das V steht auf dem Kopf."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist der Graph von f(x) = 0,5 · |x − 3| − 3 geöffnet?"
+   },
+   "a": [
+    "nach rechts",
+    "nach oben",
+    "nach unten"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Faktor vor dem Betrag ist 0,5 – positiv: ein normales V."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = 2 · |x + 3| − 1 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -1
+    ]
+   },
+   "w": "Innen = 0 bei x = −3. f(−3) = −1. Knickpunkt S(−3 | −1).",
+   "c": [
+    "-3",
+    "-1"
+   ]
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = −2 · |x + 4| + 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     -4,
+     4
+    ]
+   },
+   "w": "Innen = 0 bei x = −4. f(−4) = 4. Knickpunkt S(−4 | 4).",
+   "c": [
+    "-4",
+    "4"
+   ]
   },
   {
    "l": "graph",
@@ -1400,21 +1786,211 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Gib den Knickpunkt des Graphen von f(x) = |x + 3| + 4 an.",
+    "text": "Gib den Knickpunkt des Graphen von f(x) = |x − 2| − 3 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     2,
+     -3
+    ]
+   },
+   "w": "Innen = 0 bei x = 2. f(2) = −3. Knickpunkt S(2 | −3).",
+   "c": [
+    "2",
+    "-3"
+   ]
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = −|x − 3| + 4 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "Innen = 0 bei x = 3. f(3) = 4. Knickpunkt S(3 | 4).",
+   "c": [
+    "3",
+    "4"
+   ]
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = −|x + 3| − 3 an.",
     "schablone": "S(□ | □)",
     "hinweis": "Koordinaten des Punktes"
    },
    "o": {
     "werte": [
      -3,
-     4
+     -3
     ]
    },
-   "w": "Innen = 0 bei x = −3. f(−3) = 4. Knickpunkt S(−3 | 4).",
+   "w": "Innen = 0 bei x = −3. f(−3) = −3. Knickpunkt S(−3 | −3).",
    "c": [
     "-3",
-    "4"
+    "-3"
    ]
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = 2 · |x + 2| an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     -2,
+     0
+    ]
+   },
+   "w": "Innen = 0 bei x = −2. f(−2) = 0. Knickpunkt S(−2 | 0).",
+   "c": [
+    "-2",
+    "0"
+   ]
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Knickpunkt des Graphen von f(x) = −2 · |x + 3| + 2 an.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Koordinaten des Punktes"
+   },
+   "o": {
+    "werte": [
+     -3,
+     2
+    ]
+   },
+   "w": "Innen = 0 bei x = −3. f(−3) = 2. Knickpunkt S(−3 | 2).",
+   "c": [
+    "-3",
+    "2"
+   ]
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie ist der Graph von f(x) = 0,5 · |x − 4| + 2 geöffnet?"
+   },
+   "a": [
+    "nach unten",
+    "nach rechts",
+    "nach oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Faktor vor dem Betrag ist 0,5 – positiv: ein normales V."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = |x + 1|. Welche Steigung hat der Graph rechts vom Knick (für x > −1)?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1.0",
+   "w": "Für x > −1 ist |x + 1| = x + 1, also f(x) = 1 · (x + 1)  mit Steigung 1.",
+   "h": "Rechts vom Knick fallen die Betragsstriche einfach weg.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche y-Werte nimmt f(x) = −|x − 1| an?"
+   },
+   "a": [
+    "alle Zahlen",
+    "alle y ≤ 0",
+    "alle y ≥ 0",
+    "alle y ≤ 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Betrag ist nie negativ. Mit a < 0 ist der höchste Punkt die Spitze S(1 | 0).",
+   "h": "Wo liegt die Spitze des V, und wohin ist es geöffnet?",
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von f(x) = |x − 2| und die Gerade y = 4 schließen ein Dreieck ein. Wie groß ist sein Flächeninhalt?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "FE"
+   },
+   "c": "8*4/2",
+   "w": "Schnittpunkte: |x − 2| = 4 ⇒ x = −2 und x = 6. Die Grundseite auf y = 4 ist 8 lang, die Spitze (2 | 0) liegt 4 tiefer: A = 8 · 4 : 2 = 16.",
+   "h": "Bestimme die Ecken des Dreiecks.",
+   "l": "graph",
+   "t": "graph",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele gemeinsame Punkte haben die Graphen von f(x) = |x| und g(x) = −|x − 4| + 4?"
+   },
+   "a": [
+    "genau einen",
+    "keinen",
+    "genau zwei",
+    "unendlich viele"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für 0 ≤ x ≤ 4 ist f(x) = x und g(x) = −(4 − x) + 4 = x. Die Graphen haben die ganze Strecke von (0 | 0) bis (4 | 4) gemeinsam.",
+   "h": "Schreibe beide Funktionen für 0 ≤ x ≤ 4 ohne Betrag.",
+   "l": "graph",
+   "t": "graph",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
    "l": "stueckweise",
@@ -1423,22 +1999,40 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Schreibe f(x) = |x + 2| für x < −2 ohne Betragsstriche.",
+    "text": "Schreibe f(x) = |x − 3| für x < 3 ohne Betragsstriche.",
     "schablone": "□x + □",
     "hinweis": "Term eintippen, z. B. -2x + 5"
    },
    "o": {
     "werte": [
      -1,
-     -2
+     3
     ]
    },
-   "w": "Für x < −2 ist x + 2 < 0, also |x + 2| = −(x + 2). f(x) = −x − 2.",
+   "w": "Für x < 3 ist x − 3 < 0, also |x − 3| = −(x − 3). f(x) = −x + 3.",
    "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
    "c": [
     "-1",
-    "-2"
-   ]
+    "3"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für x < 0 gilt f(x) = x + 5, für x ≥ 0 gilt f(x) = −x + 5. Berechne f(−4)."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(1) * (-4) + (5)",
+   "w": "−4 < 0: erstes Stück. f(−4) = 1 · (−4) + 5 = 1.",
+   "h": "Prüfe zuerst, in welchem Bereich der x-Wert liegt.",
+   "g": "darstellung"
   },
   {
    "l": "stueckweise",
@@ -1462,7 +2056,25 @@
    "c": [
     "-1",
     "1"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 2 · |x + 6| + 1 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "-6",
+   "w": "Grenze: Inhalt = 0 ⇒ x + 6 = 0 ⇒ x = −6.",
+   "h": "Wo wechselt der Inhalt des Betrags das Vorzeichen?",
+   "g": "umkehr"
   },
   {
    "l": "stueckweise",
@@ -1471,22 +2083,111 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Schreibe f(x) = |x + 3| für x < −3 ohne Betragsstriche.",
+    "text": "Schreibe f(x) = |x + 4| für x < −4 ohne Betragsstriche.",
     "schablone": "□x + □",
     "hinweis": "Term eintippen, z. B. -2x + 5"
    },
    "o": {
     "werte": [
      -1,
-     -3
+     -4
     ]
    },
-   "w": "Für x < −3 ist x + 3 < 0, also |x + 3| = −(x + 3). f(x) = −x − 3.",
+   "w": "Für x < −4 ist x + 4 < 0, also |x + 4| = −(x + 4). f(x) = −x − 4.",
    "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
    "c": [
     "-1",
-    "-3"
-   ]
+    "-4"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für x < 6 gilt f(x) = 2x − 13, für x ≥ 6 gilt f(x) = −2x + 11. Berechne f(3)."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(2) * (3) + (-13)",
+   "w": "3 < 6: erstes Stück. f(3) = 2 · 3 − 13 = −7.",
+   "h": "Prüfe zuerst, in welchem Bereich der x-Wert liegt.",
+   "g": "darstellung"
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe f(x) = |2x − 4| stückweise. Gib die Grenze und den Term links davon an.",
+    "schablone": "Grenze x = □; links: f(x) = □x + □",
+    "hinweis": "drei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     2,
+     -2,
+     4
+    ]
+   },
+   "w": "Grenze: 2x − 4 = 0 ⇒ x = 2. Links ist der Inhalt negativ: f(x) = −(2x − 4) = −2x + 4.",
+   "h": "Grenze: Inhalt = 0. Links vom Knick wird die ganze Klammer negiert.",
+   "c": [
+    "2",
+    "-2",
+    "4"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für x < −1 gilt f(x) = −2x, für x ≥ −1 gilt f(x) = 2x + 4. Schreibe f mit einem Betrag.",
+    "schablone": "f(x) = □ · |x − □| + □",
+    "hinweis": "drei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     2,
+     -1,
+     2
+    ]
+   },
+   "w": "Die Stücke treffen sich bei x = −1 mit f(−1) = 2: Knickpunkt (−1 | 2). Steigung rechts 2: f(x) = 2 · |x + 1| + 2.",
+   "h": "Wo treffen sich die beiden Stücke? Welche Steigung hat das rechte Stück?",
+   "c": [
+    "2",
+    "-1",
+    "2"
+   ],
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = |x| + |x − 9|. Für alle x zwischen 0 und 9 hat f denselben Wert. Welchen?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "abs(1) + abs(1 - 9)",
+   "w": "Für 0 ≤ x ≤ 9 ist |x| = x und |x − 9| = 9 − x. Zusammen: x + 9 − x = 9. Probe x = 1: 1 + 8 = 9.",
+   "h": "Schreibe beide Beträge für x zwischen 0 und 9 ohne Striche.",
+   "g": "transfer"
   },
   {
    "l": "stueckweise",
@@ -1495,22 +2196,45 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Schreibe f(x) = |x + 6| für x < −6 ohne Betragsstriche.",
+    "text": "Schreibe f(x) = |x + 2| für x < −2 ohne Betragsstriche.",
     "schablone": "□x + □",
     "hinweis": "Term eintippen, z. B. -2x + 5"
    },
    "o": {
     "werte": [
      -1,
-     -6
+     -2
     ]
    },
-   "w": "Für x < −6 ist x + 6 < 0, also |x + 6| = −(x + 6). f(x) = −x − 6.",
+   "w": "Für x < −2 ist x + 2 < 0, also |x + 2| = −(x + 2). f(x) = −x − 2.",
    "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
    "c": [
     "-1",
-    "-6"
-   ]
+    "-2"
+   ],
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = |x − 5|. Welcher Term gilt für x ≥ 5?"
+   },
+   "a": [
+    "−x + 5",
+    "x − 5",
+    "x + 5",
+    "−x − 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für x ≥ 5 ist x − 5 nicht negativ; der Betrag ändert nichts.",
+   "h": "Ist x − 5 für x ≥ 5 positiv oder negativ?",
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "stueckweise",
@@ -1543,164 +2267,20 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Schreibe f(x) = |x + 1| für x < −1 ohne Betragsstriche.",
+    "text": "Schreibe f(x) = |x − 6| für x < 6 ohne Betragsstriche.",
     "schablone": "□x + □",
     "hinweis": "Term eintippen, z. B. -2x + 5"
    },
    "o": {
     "werte": [
      -1,
-     -1
-    ]
-   },
-   "w": "Für x < −1 ist x + 1 < 0, also |x + 1| = −(x + 1). f(x) = −x − 1.",
-   "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
-   "c": [
-    "-1",
-    "-1"
-   ]
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = −2 · |x + 5| + 2 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "-5",
-   "w": "Grenze: Inhalt = 0 ⇒ x + 5 = 0 ⇒ x = −5.",
-   "h": "Wo wechselt der Inhalt des Betrags das Vorzeichen?"
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe f(x) = 2 · |x + 6| für x ≥ −6 ohne Betragsstriche.",
-    "schablone": "□x + □",
-    "hinweis": "Term eintippen, z. B. -2x + 5"
-   },
-   "o": {
-    "werte": [
-     2,
-     12
-    ]
-   },
-   "w": "Für x ≥ −6 ist x + 6 ≥ 0, der Betrag fällt weg. f(x) = 2x + 12.",
-   "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
-   "c": [
-    "2",
-    "12"
-   ]
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe f(x) = −|x + 4| − 3 für x ≥ −4 ohne Betragsstriche.",
-    "schablone": "□x + □",
-    "hinweis": "Term eintippen, z. B. -2x + 5"
-   },
-   "o": {
-    "werte": [
-     -1,
-     -7
-    ]
-   },
-   "w": "Für x ≥ −4 ist x + 4 ≥ 0, der Betrag fällt weg. f(x) = −x − 7.",
-   "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
-   "c": [
-    "-1",
-    "-7"
-   ]
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe f(x) = 2 · |x − 5| + 3 für x < 5 ohne Betragsstriche.",
-    "schablone": "□x + □",
-    "hinweis": "Term eintippen, z. B. -2x + 5"
-   },
-   "o": {
-    "werte": [
-     -2,
-     13
-    ]
-   },
-   "w": "Für x < 5 ist x − 5 < 0, also |x − 5| = −(x − 5). f(x) = −2x + 13.",
-   "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
-   "c": [
-    "-2",
-    "13"
-   ]
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = 2 · |x + 2| − 2 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "-2",
-   "w": "Grenze: Inhalt = 0 ⇒ x + 2 = 0 ⇒ x = −2.",
-   "h": "Wo wechselt der Inhalt des Betrags das Vorzeichen?"
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = −|x − 3| + 2 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "Grenze: Inhalt = 0 ⇒ x − 3 = 0 ⇒ x = 3.",
-   "h": "Wo wechselt der Inhalt des Betrags das Vorzeichen?"
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe f(x) = −|x + 1| + 5 für x < −1 ohne Betragsstriche.",
-    "schablone": "□x + □",
-    "hinweis": "Term eintippen, z. B. -2x + 5"
-   },
-   "o": {
-    "werte": [
-     1,
      6
     ]
    },
-   "w": "Für x < −1 ist x + 1 < 0, also |x + 1| = −(x + 1). f(x) = x + 6.",
+   "w": "Für x < 6 ist x − 6 < 0, also |x − 6| = −(x − 6). f(x) = −x + 6.",
    "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
    "c": [
-    "1",
+    "-1",
     "6"
    ]
   },
@@ -1708,38 +2288,60 @@
    "l": "stueckweise",
    "t": "stueckweise",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
+   "s": 2,
+   "y": "luecken",
    "f": {
-    "text": "Für x < 0 gilt f(x) = x − 1, für x ≥ 0 gilt f(x) = −x − 1. Berechne f(−4)."
+    "text": "Schreibe f(x) = |x + 2| − 2 für x ≥ −2 ohne Betragsstriche.",
+    "schablone": "□x + □",
+    "hinweis": "Term eintippen, z. B. -2x + 5"
    },
    "o": {
-    "wert": -5
+    "werte": [
+     1,
+     0
+    ]
    },
-   "c": "(1) * (-4) + (-1)",
-   "w": "−4 < 0: erstes Stück. f(−4) = 1 · (−4) − 1 = −5.",
-   "h": "Prüfe zuerst, in welchem Bereich der x-Wert liegt."
+   "w": "Für x ≥ −2 ist x + 2 ≥ 0, der Betrag fällt weg. f(x) = x.",
+   "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
+   "c": [
+    "1",
+    "0"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "stueckweise",
    "t": "stueckweise",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Tim schreibt f(x) = |x + 2| für x < −2 als f(x) = −x + 2. Stimmt das?"
+    "text": "f(x) = 2 · |x + 6| + 5 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
    },
-   "a": [
-    "Falsch: Für x < −2 gilt f(x) = −x − 2.",
-    "Falsch: Für x < −2 gilt f(x) = x + 2.",
-    "Richtig, das Minus kommt nur vor das x.",
-    "Falsch: Für x < −2 gilt f(x) = x − 2."
-   ],
    "o": {
-    "index": 0
+    "wert": -6
    },
-   "w": "Für x < −2 ist der Inhalt negativ; die ganze Klammer wird negiert: −(x + 2) = −x − 2. Probe x = −3: |−3 + 2| = 1.",
-   "h": "Setze eine Zahl links vom Knick ein und vergleiche."
+   "c": "-6",
+   "w": "Grenze: Inhalt = 0 ⇒ x + 6 = 0 ⇒ x = −6.",
+   "h": "Wo wechselt der Inhalt des Betrags das Vorzeichen?",
+   "g": "umkehr"
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für x < 6 gilt f(x) = −x + 9, für x ≥ 6 gilt f(x) = x − 3. Berechne f(1)."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(-1) * (1) + (9)",
+   "w": "1 < 6: erstes Stück. f(1) = (−1) · 1 + 9 = 8.",
+   "h": "Prüfe zuerst, in welchem Bereich der x-Wert liegt.",
+   "g": "darstellung"
   },
   {
    "l": "stueckweise",
@@ -1748,43 +2350,52 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Schreibe f(x) = −|x + 1| − 5 für x < −1 ohne Betragsstriche.",
-    "schablone": "□x + □",
-    "hinweis": "Term eintippen, z. B. -2x + 5"
+    "text": "Schreibe f(x) = |3x − 6| stückweise. Gib die Grenze und den Term links davon an.",
+    "schablone": "Grenze x = □; links: f(x) = □x + □",
+    "hinweis": "drei ganze Zahlen"
    },
    "o": {
     "werte": [
-     1,
-     -4
+     2,
+     -3,
+     6
     ]
    },
-   "w": "Für x < −1 ist x + 1 < 0, also |x + 1| = −(x + 1). f(x) = x − 4.",
-   "h": "Ist der Inhalt in diesem Bereich positiv oder negativ? Negativ: ganze Klammer mit −1 malnehmen.",
+   "w": "Grenze: 3x − 6 = 0 ⇒ x = 2. Links ist der Inhalt negativ: f(x) = −(3x − 6) = −3x + 6.",
+   "h": "Grenze: Inhalt = 0. Links vom Knick wird die ganze Klammer negiert.",
    "c": [
-    "1",
-    "-4"
-   ]
+    "2",
+    "-3",
+    "6"
+   ],
+   "g": "verknuepfen"
   },
   {
    "l": "stueckweise",
    "t": "stueckweise",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Tim schreibt f(x) = |x + 6| für x < −6 als f(x) = −x + 6. Stimmt das?"
+    "text": "Für x < 3 gilt f(x) = −2x + 4, für x ≥ 3 gilt f(x) = 2x − 8. Schreibe f mit einem Betrag.",
+    "schablone": "f(x) = □ · |x − □| + □",
+    "hinweis": "drei ganze Zahlen"
    },
-   "a": [
-    "Falsch: Für x < −6 gilt f(x) = x − 6.",
-    "Richtig, das Minus kommt nur vor das x.",
-    "Falsch: Für x < −6 gilt f(x) = x + 6.",
-    "Falsch: Für x < −6 gilt f(x) = −x − 6."
-   ],
    "o": {
-    "index": 3
+    "werte": [
+     2,
+     3,
+     -2
+    ]
    },
-   "w": "Für x < −6 ist der Inhalt negativ; die ganze Klammer wird negiert: −(x + 6) = −x − 6. Probe x = −7: |−7 + 6| = 1.",
-   "h": "Setze eine Zahl links vom Knick ein und vergleiche."
+   "w": "Die Stücke treffen sich bei x = 3 mit f(3) = −2: Knickpunkt (3 | −2). Steigung rechts 2: f(x) = 2 · |x − 3| − 2.",
+   "h": "Wo treffen sich die beiden Stücke? Welche Steigung hat das rechte Stück?",
+   "c": [
+    "2",
+    "3",
+    "-2"
+   ],
+   "g": "rueckwaerts"
   },
   {
    "l": "stueckweise",
@@ -1793,14 +2404,37 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Für x < −5 gilt f(x) = −3x − 17, für x ≥ −5 gilt f(x) = 3x + 13. Berechne f(−6)."
+    "text": "f(x) = |x| + |x − 8|. Für alle x zwischen 0 und 8 hat f denselben Wert. Welchen?"
    },
    "o": {
-    "wert": 1
+    "wert": 8
    },
-   "c": "(-3) * (-6) + (-17)",
-   "w": "−6 < −5: erstes Stück. f(−6) = (−3) · (−6) − 17 = 1.",
-   "h": "Prüfe zuerst, in welchem Bereich der x-Wert liegt."
+   "c": "abs(1) + abs(1 - 8)",
+   "w": "Für 0 ≤ x ≤ 8 ist |x| = x und |x − 8| = 8 − x. Zusammen: x + 8 − x = 8. Probe x = 1: 1 + 7 = 8.",
+   "h": "Schreibe beide Beträge für x zwischen 0 und 8 ohne Striche.",
+   "g": "transfer"
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tim schreibt f(x) = |x + 5| für x < −5 als f(x) = −x + 5. Stimmt das?"
+   },
+   "a": [
+    "Falsch: Für x < −5 gilt f(x) = −x − 5.",
+    "Falsch: Für x < −5 gilt f(x) = x + 5.",
+    "Richtig, das Minus kommt nur vor das x.",
+    "Falsch: Für x < −5 gilt f(x) = x − 5."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für x < −5 ist der Inhalt negativ; die ganze Klammer wird negiert: −(x + 5) = −x − 5. Probe x = −6: |−6 + 5| = 1.",
+   "h": "Setze eine Zahl links vom Knick ein und vergleiche.",
+   "g": "fehler"
   },
   {
    "l": "stueckweise",
@@ -1809,13 +2443,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = −|x + 3| − 5 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
+    "text": "f(x) = −|x + 2| + 3 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
    },
    "o": {
-    "wert": -3
+    "wert": -2
    },
-   "c": "-3",
-   "w": "Grenze: Inhalt = 0 ⇒ x + 3 = 0 ⇒ x = −3."
+   "c": "-2",
+   "w": "Grenze: Inhalt = 0 ⇒ x + 2 = 0 ⇒ x = −2."
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 2 · |x + 2| + 4 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Grenze: Inhalt = 0 ⇒ x + 2 = 0 ⇒ x = −2."
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für x < 1 gilt f(x) = x − 5, für x ≥ 1 gilt f(x) = −x − 3. Berechne f(−4)."
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "(1) * (-4) + (-5)",
+   "w": "−4 < 1: erstes Stück. f(−4) = 1 · (−4) − 5 = −9."
   },
   {
    "l": "stueckweise",
@@ -1824,66 +2488,20 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Schreibe f(x) = 3 · |x − 5| + 2 für x ≥ 5 ohne Betragsstriche.",
-    "schablone": "□x + □",
-    "hinweis": "Term eintippen, z. B. -2x + 5"
-   },
-   "o": {
-    "werte": [
-     3,
-     -13
-    ]
-   },
-   "w": "Für x ≥ 5 ist x − 5 ≥ 0, der Betrag fällt weg. f(x) = 3x − 13.",
-   "c": [
-    "3",
-    "-13"
-   ]
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe f(x) = |x + 1| − 4 für x < −1 ohne Betragsstriche.",
+    "text": "Schreibe f(x) = −|x − 2| − 5 für x ≥ 2 ohne Betragsstriche.",
     "schablone": "□x + □",
     "hinweis": "Term eintippen, z. B. -2x + 5"
    },
    "o": {
     "werte": [
      -1,
-     -5
+     -3
     ]
    },
-   "w": "Für x < −1 ist x + 1 < 0, also |x + 1| = −(x + 1). f(x) = −x − 5.",
+   "w": "Für x ≥ 2 ist x − 2 ≥ 0, der Betrag fällt weg. f(x) = −x − 3.",
    "c": [
     "-1",
-    "-5"
-   ]
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe f(x) = 3 · |x + 3| + 3 für x < −3 ohne Betragsstriche.",
-    "schablone": "□x + □",
-    "hinweis": "Term eintippen, z. B. -2x + 5"
-   },
-   "o": {
-    "werte": [
-     -3,
-     -6
-    ]
-   },
-   "w": "Für x < −3 ist x + 3 < 0, also |x + 3| = −(x + 3). f(x) = −3x − 6.",
-   "c": [
-    "-3",
-    "-6"
+    "-3"
    ]
   },
   {
@@ -1893,20 +2511,20 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Schreibe f(x) = 3 · |x + 2| für x < −2 ohne Betragsstriche.",
+    "text": "Schreibe f(x) = |x| für x ≥ 0 ohne Betragsstriche.",
     "schablone": "□x + □",
     "hinweis": "Term eintippen, z. B. -2x + 5"
    },
    "o": {
     "werte": [
-     -3,
-     -6
+     1,
+     0
     ]
    },
-   "w": "Für x < −2 ist x + 2 < 0, also |x + 2| = −(x + 2). f(x) = −3x − 6.",
+   "w": "Für x ≥ 0 ist x ≥ 0, der Betrag fällt weg. f(x) = x.",
    "c": [
-    "-3",
-    "-6"
+    "1",
+    "0"
    ]
   },
   {
@@ -1916,7 +2534,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = −|x + 2| + 2 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
+    "text": "f(x) = 2 · |x + 2| + 3 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
    },
    "o": {
     "wert": -2
@@ -1929,76 +2547,161 @@
    "t": "stueckweise",
    "p": "sicherung",
    "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe f(x) = |x + 3| + 5 für x < −3 ohne Betragsstriche.",
+    "schablone": "□x + □",
+    "hinweis": "Term eintippen, z. B. -2x + 5"
+   },
+   "o": {
+    "werte": [
+     -1,
+     2
+    ]
+   },
+   "w": "Für x < −3 ist x + 3 < 0, also |x + 3| = −(x + 3). f(x) = −x + 2.",
+   "c": [
+    "-1",
+    "2"
+   ]
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe f(x) = 3 · |x| − 4 für x ≥ 0 ohne Betragsstriche.",
+    "schablone": "□x + □",
+    "hinweis": "Term eintippen, z. B. -2x + 5"
+   },
+   "o": {
+    "werte": [
+     3,
+     -4
+    ]
+   },
+   "w": "Für x ≥ 0 ist x ≥ 0, der Betrag fällt weg. f(x) = 3x − 4.",
+   "c": [
+    "3",
+    "-4"
+   ]
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = 2 · |x − 5| + 2 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
+    "text": "f(x) = 2 · |x + 5| + 1 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-5",
+   "w": "Grenze: Inhalt = 0 ⇒ x + 5 = 0 ⇒ x = −5."
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = |x + 5| − 3 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-5",
+   "w": "Grenze: Inhalt = 0 ⇒ x + 5 = 0 ⇒ x = −5."
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = |x − a| + 1 hat für x ≥ a den Term x − 3. Wie groß ist a?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "1 + 3",
+   "w": "Für x ≥ a gilt f(x) = x − a + 1. Gleich x − 3 ⇒ −a + 1 = −3 ⇒ a = 4.",
+   "h": "Schreibe f für x ≥ a ohne Betrag.",
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe f(x) = |3x − 9| stückweise. Gib die Grenze und den Term links davon an.",
+    "schablone": "Grenze x = □; links: f(x) = □x + □",
+    "hinweis": "drei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     3,
+     -3,
+     9
+    ]
+   },
+   "w": "Grenze: 3x − 9 = 0 ⇒ x = 3. Links ist der Inhalt negativ: f(x) = −(3x − 9) = −3x + 9.",
+   "h": "Grenze: Inhalt = 0. Links vom Knick wird die ganze Klammer negiert.",
+   "c": [
+    "3",
+    "-3",
+    "9"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "f(x) = |x − 1| + |x − 3| hat für x > 3 den Term 2x − 4. Welchen Term hat f für x < 1?",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. −2x + 4."
+   },
+   "o": {
+    "werte": [
+     -2,
+     4
+    ]
+   },
+   "c": [
+    "-2",
+    "4"
+   ],
+   "w": "Für x < 1 sind beide Klammern negativ: −(x − 1) − (x − 3) = −x + 1 − x + 3 = −2x + 4. (Zwischen 1 und 3 ist f konstant 2.)",
+   "h": "Welche Vorzeichen haben x − 1 und x − 3 für x < 1?",
+   "l": "stueckweise",
+   "t": "stueckweise",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen x mit −10 ≤ x ≤ 10 erfüllen |x − 2| + |x + 2| = 4?"
    },
    "o": {
     "wert": 5
    },
    "c": "5",
-   "w": "Grenze: Inhalt = 0 ⇒ x − 5 = 0 ⇒ x = 5."
-  },
-  {
+   "w": "Zwischen −2 und 2 ist die Summe der Abstände zu 2 und −2 immer 4; außerhalb größer. Ganze Zahlen −2, −1, 0, 1, 2: fünf.",
+   "h": "Deute die beiden Beträge als Abstände.",
    "l": "stueckweise",
    "t": "stueckweise",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe f(x) = 2 · |x + 3| − 3 für x < −3 ohne Betragsstriche.",
-    "schablone": "□x + □",
-    "hinweis": "Term eintippen, z. B. -2x + 5"
-   },
-   "o": {
-    "werte": [
-     -2,
-     -9
-    ]
-   },
-   "w": "Für x < −3 ist x + 3 < 0, also |x + 3| = −(x + 3). f(x) = −2x − 9.",
-   "c": [
-    "-2",
-    "-9"
-   ]
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe f(x) = −2 · |x + 4| − 5 für x < −4 ohne Betragsstriche.",
-    "schablone": "□x + □",
-    "hinweis": "Term eintippen, z. B. -2x + 5"
-   },
-   "o": {
-    "werte": [
-     2,
-     3
-    ]
-   },
-   "w": "Für x < −4 ist x + 4 < 0, also |x + 4| = −(x + 4). f(x) = 2x + 3.",
-   "c": [
-    "2",
-    "3"
-   ]
-  },
-  {
-   "l": "stueckweise",
-   "t": "stueckweise",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = |x| − 4 soll stückweise ohne Betrag geschrieben werden. Bei welchem x liegt die Grenze zwischen den beiden Stücken?"
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "Grenze: Inhalt = 0 ⇒ x = 0 ⇒ x = 0."
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   },
   {
    "l": "gleichung",
@@ -2007,22 +2710,48 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Löse |x − 8| = 3 (kleinere Lösung zuerst).",
+    "text": "Löse |x| = 9 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     5,
-     11
+     -9,
+     9
     ]
    },
-   "w": "Abstand 3 von 8: x = 8 − 3 = 5 oder x = 8 + 3 = 11.",
-   "h": "Welche Zahlen haben von 8 den Abstand 3?",
+   "w": "Abstand 9 von 0: x = 0 − 9 = −9 oder x = 0 + 9 = 9.",
+   "h": "Welche Zahlen haben von 0 den Abstand 9?",
    "c": [
-    "5",
-    "11"
-   ]
+    "-9",
+    "9"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3 · |x − 2| − 1 = 14 (kleinere Lösung zuerst).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -3,
+     7
+    ]
+   },
+   "w": "3 · |x − 2| = 14 + 1 = 15 ⇒ |x − 2| = 5 ⇒ x = −3 oder x = 7.",
+   "h": "Stelle zuerst nach dem Betrag um, dann zwei Fälle.",
+   "c": [
+    "-3",
+    "7"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "gleichung",
@@ -2031,8 +2760,80 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Löse |x + 6| = 2 (kleinere Lösung zuerst).",
+    "text": "Löse |x + 2| = 3 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -5,
+     1
+    ]
+   },
+   "w": "Abstand 3 von −2: x = −2 − 3 = −5 oder x = −2 + 3 = 1.",
+   "h": "Welche Zahlen haben von −2 den Abstand 3?",
+   "c": [
+    "-5",
+    "1"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat |x + 8| = −7?"
+   },
+   "a": [
+    "unendlich viele",
+    "zwei Lösungen: x = −15 und x = −1",
+    "keine Lösung",
+    "genau eine Lösung: x = −8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Betrag ist nie negativ: |…| = negative Zahl hat keine Lösung.",
+   "h": "Kann ein Betrag negativ sein?",
+   "g": "erkennen"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3 · |x + 2| − 1 = 14 (kleinere Lösung zuerst).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -7,
+     3
+    ]
+   },
+   "w": "3 · |x + 2| = 14 + 1 = 15 ⇒ |x + 2| = 5 ⇒ x = −7 oder x = 3.",
+   "h": "Stelle zuerst nach dem Betrag um, dann zwei Fälle.",
+   "c": [
+    "-7",
+    "3"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für welche x gilt |x + 6| ≤ 2? Gib die Grenzen an.",
+    "schablone": "□ ≤ x ≤ □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
@@ -2041,12 +2842,13 @@
      -4
     ]
    },
-   "w": "Abstand 2 von −6: x = −6 − 2 = −8 oder x = −6 + 2 = −4.",
-   "h": "Welche Zahlen haben von −6 den Abstand 2?",
+   "w": "Abstand höchstens 2 von −6: von −8 bis −4.",
+   "h": "Alle Zahlen mit Abstand höchstens 2 von −6.",
    "c": [
     "-8",
     "-4"
-   ]
+   ],
+   "g": "verknuepfen"
   },
   {
    "l": "gleichung",
@@ -2055,46 +2857,137 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Löse |x + 1| = 3 (kleinere Lösung zuerst).",
+    "text": "Löse |x − 7| = 2 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     -4,
-     2
+     5,
+     9
     ]
    },
-   "w": "Abstand 3 von −1: x = −1 − 3 = −4 oder x = −1 + 3 = 2.",
-   "h": "Welche Zahlen haben von −1 den Abstand 3?",
+   "w": "Abstand 2 von 7: x = 7 − 2 = 5 oder x = 7 + 2 = 9.",
+   "h": "Welche Zahlen haben von 7 den Abstand 2?",
    "c": [
-    "-4",
-    "2"
-   ]
+    "5",
+    "9"
+   ],
+   "g": "direkt"
   },
   {
    "l": "gleichung",
    "t": "gleichung",
    "p": "uebung",
    "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat |x − 2| = −9?"
+   },
+   "a": [
+    "unendlich viele",
+    "zwei Lösungen: x = −7 und x = 11",
+    "keine Lösung",
+    "genau eine Lösung: x = 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Betrag ist nie negativ: |…| = negative Zahl hat keine Lösung.",
+   "h": "Kann ein Betrag negativ sein?",
+   "g": "erkennen"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse |x + 6| = 3 (kleinere Lösung zuerst).",
+    "text": "Löse 4 · |x + 2| − 5 = 23 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
      -9,
-     -3
+     5
     ]
    },
-   "w": "Abstand 3 von −6: x = −6 − 3 = −9 oder x = −6 + 3 = −3.",
-   "h": "Welche Zahlen haben von −6 den Abstand 3?",
+   "w": "4 · |x + 2| = 23 + 5 = 28 ⇒ |x + 2| = 7 ⇒ x = −9 oder x = 5.",
+   "h": "Stelle zuerst nach dem Betrag um, dann zwei Fälle.",
    "c": [
     "-9",
-    "-3"
-   ]
+    "5"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schrauben sollen 40 mm haben. Erlaubt ist |x − 40| ≤ 1. Ein Stück hat 42 mm. Welche Grenze wird verletzt, und um wie viel?",
+    "schablone": "Grenze □ mm; daneben um □ mm",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     41,
+     1
+    ]
+   },
+   "w": "Erlaubt von 39 bis 41 mm. 42 liegt über der Grenze 41, um 1 mm.",
+   "h": "Bestimme zuerst die beiden Grenzen: Sollwert minus und plus Toleranz.",
+   "c": [
+    "41",
+    "1"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse |x − (−7)| = |x − 7|."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(-7 + 7) / 2",
+   "w": "Gesucht ist die Zahl, die von −7 und 7 gleich weit entfernt ist: die Mitte (−7 + 7) : 2 = 0.",
+   "h": "Beide Seiten sind Abstände. Welche Zahl ist von beiden Zahlen gleich weit weg?",
+   "g": "begruenden"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für welche x gilt |x − 6| ≤ 7? Gib die Grenzen an.",
+    "schablone": "□ ≤ x ≤ □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -1,
+     13
+    ]
+   },
+   "w": "Abstand höchstens 7 von 6: von −1 bis 13.",
+   "h": "Alle Zahlen mit Abstand höchstens 7 von 6.",
+   "c": [
+    "-1",
+    "13"
+   ],
+   "g": "verknuepfen"
   },
   {
    "l": "gleichung",
@@ -2103,22 +2996,40 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Löse |x − 4| = 7 (kleinere Lösung zuerst).",
+    "text": "Löse |x − 2| = 6 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     -3,
-     11
+     -4,
+     8
     ]
    },
-   "w": "Abstand 7 von 4: x = 4 − 7 = −3 oder x = 4 + 7 = 11.",
-   "h": "Welche Zahlen haben von 4 den Abstand 7?",
+   "w": "Abstand 6 von 2: x = 2 − 6 = −4 oder x = 2 + 6 = 8.",
+   "h": "Welche Zahlen haben von 2 den Abstand 6?",
    "c": [
-    "-3",
-    "11"
-   ]
+    "-4",
+    "8"
+   ],
+   "g": "direkt"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat |x − 5| = 0?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Abstand 0 von 5 hat nur x = 5: eine Lösung.",
+   "h": "Welcher Punkt hat von 5 den Abstand 0?",
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "gleichung",
@@ -2127,66 +3038,45 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Löse |x − 5| = 1 (kleinere Lösung zuerst).",
+    "text": "Löse |x − 8| = 4 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
      4,
-     6
+     12
     ]
    },
-   "w": "Abstand 1 von 5: x = 5 − 1 = 4 oder x = 5 + 1 = 6.",
-   "h": "Welche Zahlen haben von 5 den Abstand 1?",
+   "w": "Abstand 4 von 8: x = 8 − 4 = 4 oder x = 8 + 4 = 12.",
+   "h": "Welche Zahlen haben von 8 den Abstand 4?",
    "c": [
     "4",
-    "6"
+    "12"
    ]
   },
   {
    "l": "gleichung",
    "t": "gleichung",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat |x| = 0?"
-   },
-   "a": [
-    "unendlich viele",
-    "keine Lösung",
-    "zwei Lösungen: x = −1 und x = 1",
-    "genau eine Lösung: x = 0"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Nur x = 0 hat den Abstand 0 von 0.",
-   "h": "Kann ein Betrag negativ sein?"
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Löse 2 · |x + 3| − 3 = 1 (kleinere Lösung zuerst).",
+    "text": "Löse |x − 3| = 5 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     -5,
-     -1
+     -2,
+     8
     ]
    },
-   "w": "2 · |x + 3| = 1 + 3 = 4 ⇒ |x + 3| = 2 ⇒ x = −5 oder x = −1.",
-   "h": "Stelle zuerst nach dem Betrag um, dann zwei Fälle.",
+   "w": "Abstand 5 von 3: x = 3 − 5 = −2 oder x = 3 + 5 = 8.",
+   "h": "Welche Zahlen haben von 3 den Abstand 5?",
    "c": [
-    "-5",
-    "-1"
+    "-2",
+    "8"
    ]
   },
   {
@@ -2196,115 +3086,73 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 2 · |x + 4| + 2 = 18 (kleinere Lösung zuerst).",
+    "text": "Löse 4 · |x − 1| + 5 = 41 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     -12,
+     -8,
+     10
+    ]
+   },
+   "w": "4 · |x − 1| = 41 − 5 = 36 ⇒ |x − 1| = 9 ⇒ x = −8 oder x = 10.",
+   "h": "Stelle zuerst nach dem Betrag um, dann zwei Fälle.",
+   "c": [
+    "-8",
+    "10"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Haus steht an einer geraden Straße 3 km von einem Bahnhof bei Kilometer 12 entfernt. Bei welchen Kilometern kann es stehen? (kleinere zuerst)",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     9,
+     15
+    ]
+   },
+   "c": [
+    "12 - 3",
+    "12 + 3"
+   ],
+   "w": "|x − 12| = 3 ⇒ x = 9 oder x = 15.",
+   "h": "Abstand 3 nach links und nach rechts.",
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Die Gleichung |x − m| = r hat die Lösungen 2 und 10. Wie groß sind m und r?",
+    "schablone": "m = □; r = □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     6,
      4
     ]
    },
-   "w": "2 · |x + 4| = 18 − 2 = 16 ⇒ |x + 4| = 8 ⇒ x = −12 oder x = 4.",
-   "h": "Stelle zuerst nach dem Betrag um, dann zwei Fälle.",
    "c": [
-    "-12",
-    "4"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse |x − 1| = 5 (kleinere Lösung zuerst).",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     -4,
-     6
-    ]
-   },
-   "w": "Abstand 5 von 1: x = 1 − 5 = −4 oder x = 1 + 5 = 6.",
-   "h": "Welche Zahlen haben von 1 den Abstand 5?",
-   "c": [
-    "-4",
-    "6"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse |x − 1| = 1 (kleinere Lösung zuerst).",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     0,
-     2
-    ]
-   },
-   "w": "Abstand 1 von 1: x = 1 − 1 = 0 oder x = 1 + 1 = 2.",
-   "h": "Welche Zahlen haben von 1 den Abstand 1?",
-   "c": [
-    "0",
-    "2"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse |x − 5| = 4 (kleinere Lösung zuerst).",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     1,
-     9
-    ]
-   },
-   "w": "Abstand 4 von 5: x = 5 − 4 = 1 oder x = 5 + 4 = 9.",
-   "h": "Welche Zahlen haben von 5 den Abstand 4?",
-   "c": [
-    "1",
-    "9"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat |x + 8| = 0?"
-   },
-   "a": [
-    "keine Lösung",
-    "zwei Lösungen: x = −9 und x = −7",
-    "genau eine Lösung: x = −8",
-    "unendlich viele"
+    "(2 + 10)/2",
+    "(10 - 2)/2"
    ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nur x = −8 hat den Abstand 0 von −8.",
-   "h": "Kann ein Betrag negativ sein?"
+   "w": "m liegt genau in der Mitte: (2 + 10) : 2 = 6. Der Abstand zu jeder Lösung ist r = 4.",
+   "h": "Wo liegt m zwischen den Lösungen?",
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr"
   },
   {
    "l": "gleichung",
@@ -2313,180 +3161,45 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Für welche x gilt |x − 8| ≤ 8? Gib die Grenzen an.",
-    "schablone": "□ ≤ x ≤ □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     0,
-     16
-    ]
-   },
-   "w": "Abstand höchstens 8 von 8: von 0 bis 16.",
-   "h": "Alle Zahlen mit Abstand höchstens 8 von 8.",
-   "c": [
-    "0",
-    "16"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Für welche x gilt |x + 8| ≤ 5? Gib die Grenzen an.",
-    "schablone": "□ ≤ x ≤ □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     -13,
-     -3
-    ]
-   },
-   "w": "Abstand höchstens 5 von −8: von −13 bis −3.",
-   "h": "Alle Zahlen mit Abstand höchstens 5 von −8.",
-   "c": [
-    "-13",
-    "-3"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3 · |x + 7| + 0 = 9 (kleinere Lösung zuerst).",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     -10,
-     -4
-    ]
-   },
-   "w": "3 · |x + 7| = 9 + 0 = 9 ⇒ |x + 7| = 3 ⇒ x = −10 oder x = −4.",
-   "h": "Stelle zuerst nach dem Betrag um, dann zwei Fälle.",
-   "c": [
-    "-10",
-    "-4"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Maschine füllt Flaschen mit 500 ml. Erlaubt ist eine Abweichung von höchstens 5 ml, also |x − 500| ≤ 5. Zwischen welchen Füllmengen x liegt eine erlaubte Flasche?",
-    "schablone": "□ ml ≤ x ≤ □ ml",
+    "text": "Flaschen sollen 500 ml haben. Erlaubt ist |x − 500| ≤ 5. Ein Stück hat 493 ml. Welche Grenze wird verletzt, und um wie viel?",
+    "schablone": "Grenze □ ml; daneben um □ ml",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
      495,
-     505
+     2
     ]
    },
-   "w": "500 − 5 = 495 und 500 + 5 = 505.",
-   "h": "Abstand höchstens … vom Sollwert – nach unten und nach oben.",
+   "w": "Erlaubt von 495 bis 505 ml. 493 liegt unter der Grenze 495, um 2 ml.",
+   "h": "Bestimme zuerst die beiden Grenzen: Sollwert minus und plus Toleranz.",
    "c": [
-    "500 - 5",
-    "500 + 5"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat |x − 5| = −6?"
-   },
-   "a": [
-    "genau eine Lösung: x = 5",
-    "unendlich viele",
-    "zwei Lösungen: x = −1 und x = 11",
-    "keine Lösung"
+    "495",
+    "2"
    ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein Betrag ist nie negativ: |…| = negative Zahl hat keine Lösung.",
-   "h": "Kann ein Betrag negativ sein?"
+   "g": "transfer"
   },
   {
    "l": "gleichung",
    "t": "gleichung",
    "p": "test",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat |x − 3| = 0?"
-   },
-   "a": [
-    "genau eine Lösung: x = 3",
-    "unendlich viele",
-    "zwei Lösungen: x = 2 und x = 4",
-    "keine Lösung"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Nur x = 3 hat den Abstand 0 von 3."
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "korrektur",
-   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 4 · |x − 4| + 5 = 13 (kleinere Lösung zuerst).",
+    "text": "Löse 2 · |x + 7| − 5 = 9 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     2,
-     6
+     -14,
+     0
     ]
    },
-   "w": "4 · |x − 4| = 13 − 5 = 8 ⇒ |x − 4| = 2 ⇒ x = 2 oder x = 6.",
+   "w": "2 · |x + 7| = 9 + 5 = 14 ⇒ |x + 7| = 7 ⇒ x = −14 oder x = 0.",
    "c": [
-    "2",
-    "6"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 4 · |x − 1| − 3 = 17 (kleinere Lösung zuerst).",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     -4,
-     6
-    ]
-   },
-   "w": "4 · |x − 1| = 17 + 3 = 20 ⇒ |x − 1| = 5 ⇒ x = −4 oder x = 6.",
-   "c": [
-    "-4",
-    "6"
+    "-14",
+    "0"
    ]
   },
   {
@@ -2496,116 +3209,13 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Lösungen hat |x − 5| = −5?"
-   },
-   "a": [
-    "zwei Lösungen: x = 0 und x = 10",
-    "genau eine Lösung: x = 5",
-    "unendlich viele",
-    "keine Lösung"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein Betrag ist nie negativ: |…| = negative Zahl hat keine Lösung."
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat |x − 2| = 0?"
-   },
-   "a": [
-    "unendlich viele",
-    "keine Lösung",
-    "genau eine Lösung: x = 2",
-    "zwei Lösungen: x = 1 und x = 3"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nur x = 2 hat den Abstand 0 von 2."
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse |x + 6| = 4 (kleinere Lösung zuerst).",
-    "schablone": "x₁ = □; x₂ = □",
-    "hinweis": "zwei ganze Zahlen"
-   },
-   "o": {
-    "werte": [
-     -10,
-     -2
-    ]
-   },
-   "w": "Abstand 4 von −6: x = −6 − 4 = −10 oder x = −6 + 4 = −2.",
-   "c": [
-    "-10",
-    "-2"
-   ]
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat |x − 7| = −7?"
-   },
-   "a": [
-    "genau eine Lösung: x = 7",
-    "unendlich viele",
-    "zwei Lösungen: x = 0 und x = 14",
-    "keine Lösung"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein Betrag ist nie negativ: |…| = negative Zahl hat keine Lösung."
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat |x| = −2?"
-   },
-   "a": [
-    "zwei Lösungen: x = −2 und x = 2",
-    "unendlich viele",
-    "genau eine Lösung: x = 0",
-    "keine Lösung"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein Betrag ist nie negativ: |…| = negative Zahl hat keine Lösung."
-  },
-  {
-   "l": "gleichung",
-   "t": "gleichung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat |x + 6| = −5?"
+    "text": "Wie viele Lösungen hat |x − 5| = −7?"
    },
    "a": [
     "keine Lösung",
+    "zwei Lösungen: x = −2 und x = 12",
     "unendlich viele",
-    "zwei Lösungen: x = −11 und x = −1",
-    "genau eine Lösung: x = −6"
+    "genau eine Lösung: x = 5"
    ],
    "o": {
     "index": 0
@@ -2615,25 +3225,343 @@
   {
    "l": "gleichung",
    "t": "gleichung",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse |x − 7| = 7 (kleinere Lösung zuerst).",
+    "text": "Löse 4 · |x + 2| + 5 = 21 (kleinere Lösung zuerst).",
     "schablone": "x₁ = □; x₂ = □",
     "hinweis": "zwei ganze Zahlen"
    },
    "o": {
     "werte": [
-     0,
-     14
+     -6,
+     2
     ]
    },
-   "w": "Abstand 7 von 7: x = 7 − 7 = 0 oder x = 7 + 7 = 14.",
+   "w": "4 · |x + 2| = 21 − 5 = 16 ⇒ |x + 2| = 4 ⇒ x = −6 oder x = 2.",
    "c": [
-    "0",
-    "14"
+    "-6",
+    "2"
    ]
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4 · |x + 5| − 2 = 26 (kleinere Lösung zuerst).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -12,
+     2
+    ]
+   },
+   "w": "4 · |x + 5| = 26 + 2 = 28 ⇒ |x + 5| = 7 ⇒ x = −12 oder x = 2.",
+   "c": [
+    "-12",
+    "2"
+   ]
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4 · |x + 2| + 2 = 14 (kleinere Lösung zuerst).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -5,
+     1
+    ]
+   },
+   "w": "4 · |x + 2| = 14 − 2 = 12 ⇒ |x + 2| = 3 ⇒ x = −5 oder x = 1.",
+   "c": [
+    "-5",
+    "1"
+   ]
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 · |x + 1| − 4 = 6 (kleinere Lösung zuerst).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -6,
+     4
+    ]
+   },
+   "w": "2 · |x + 1| = 6 + 4 = 10 ⇒ |x + 1| = 5 ⇒ x = −6 oder x = 4.",
+   "c": [
+    "-6",
+    "4"
+   ]
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4 · |x + 3| + 5 = 41 (kleinere Lösung zuerst).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -12,
+     6
+    ]
+   },
+   "w": "4 · |x + 3| = 41 − 5 = 36 ⇒ |x + 3| = 9 ⇒ x = −12 oder x = 6.",
+   "c": [
+    "-12",
+    "6"
+   ]
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat |x + 4| = 0?"
+   },
+   "a": [
+    "zwei Lösungen: x = −5 und x = −3",
+    "genau eine Lösung: x = −4",
+    "unendlich viele",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nur x = −4 hat den Abstand 0 von −4."
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 · |x − 3| − 1 = 17 (kleinere Lösung zuerst).",
+    "schablone": "x₁ = □; x₂ = □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -6,
+     12
+    ]
+   },
+   "w": "2 · |x − 3| = 17 + 1 = 18 ⇒ |x − 3| = 9 ⇒ x = −6 oder x = 12.",
+   "c": [
+    "-6",
+    "12"
+   ]
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat |x + 7| = −1?"
+   },
+   "a": [
+    "unendlich viele",
+    "zwei Lösungen: x = −8 und x = −6",
+    "genau eine Lösung: x = −7",
+    "keine Lösung"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Betrag ist nie negativ: |…| = negative Zahl hat keine Lösung."
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse |x − (−2)| = |x − 6|."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-2 + 6) / 2",
+   "w": "Gesucht ist die Zahl, die von −2 und 6 gleich weit entfernt ist: die Mitte (−2 + 6) : 2 = 2.",
+   "h": "Beide Seiten sind Abstände. Welche Zahl ist von beiden Zahlen gleich weit weg?",
+   "g": "begruenden"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für welche x gilt |x + 4| > 3?",
+    "schablone": "x < □ oder x > □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     -7,
+     -1
+    ]
+   },
+   "w": "Abstand größer als 3 von −4: links von −7 oder rechts von −1.",
+   "h": "Zeichne −4 und die Zahlen im Abstand 3. Wo ist der Abstand größer?",
+   "c": [
+    "-7",
+    "-1"
+   ],
+   "g": "verknuepfen"
+  },
+  {
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welchen Wert von c hat |x − 4| = c genau eine Lösung?"
+   },
+   "a": [
+    "für jedes c < 0",
+    "c = 4",
+    "für jedes c > 0",
+    "c = 0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "c > 0: zwei Lösungen, c < 0: keine. Nur bei c = 0 gibt es genau eine: x = 4.",
+   "h": "Wie viele Zahlen haben einen bestimmten Abstand zu einer Zahl – und wann nur eine?",
+   "g": "parameter"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Löse |x − 1| = 2x − 4."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Fall x ≥ 1: x − 1 = 2x − 4 ⇒ x = 3 (passt). Fall x < 1: −x + 1 = 2x − 4 ⇒ x = 5/3, das ist nicht kleiner als 1 – fällt weg. Probe: |3 − 1| = 2 = 2 · 3 − 4.",
+   "h": "Unterscheide zwei Fälle und prüfe jede Lösung.",
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Lösungen hat die Gleichung ||x| − 3| = 1?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Innen: |x| − 3 = 1 oder |x| − 3 = −1, also |x| = 4 oder |x| = 2. Jede hat zwei Lösungen: x = ±4, ±2. Vier Lösungen.",
+   "h": "Löse zuerst nach |x| auf.",
+   "l": "gleichung",
+   "t": "gleichung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ali löst |x| = 8 und schreibt: „x = 8“. Ist das vollständig?"
+   },
+   "a": [
+    "Falsch: Richtig ist nur x = −8.",
+    "Falsch: Es fehlt x = −8.",
+    "Ja, das ist die einzige Lösung."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Auch −8 hat von 0 den Abstand 8: |−8| = 8.",
+   "h": "Gibt es links von der Mitte auch eine Zahl mit diesem Abstand?",
+   "g": "umkehr"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gilt |a + b| = |a| + |b| für a = 7 und b = −2?"
+   },
+   "a": [
+    "Ja: beide Seiten ergeben 9.",
+    "Ja: beide Seiten ergeben 5.",
+    "Nein, weil |a + b| immer größer ist.",
+    "Nein: |7 + (−2)| = 5, aber |7| + |−2| = 9."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|.",
+   "h": "Rechne beide Seiten getrennt aus.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage gilt für alle Zahlen a?"
+   },
+   "a": [
+    "|a| ≥ a",
+    "|a| = a",
+    "|a| > 0",
+    "−|a| ≥ 0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "|a| = a für a ≥ 0 und |a| > a für a < 0, also immer |a| ≥ a. |a| > 0 scheitert an a = 0; |a| = a an a = −1; −|a| ≥ 0 an a = 1.",
+   "h": "Prüfe jede Aussage mit einer positiven Zahl, einer negativen Zahl und 0.",
+   "g": "begruenden"
   },
   {
    "l": "verstehen",
@@ -2645,16 +3573,148 @@
     "text": "Kann |x| = −10 für eine Zahl x gelten?"
    },
    "a": [
-    "Ja, für x = 10.",
     "Ja, für x = −10.",
     "Ja, für x = 0.",
-    "Nein, ein Betrag ist nie negativ."
+    "Nein, ein Betrag ist nie negativ.",
+    "Ja, für x = 10."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "|−10| = 10 und |10| = 10. Ein Abstand kann nicht negativ sein.",
+   "h": "Was bedeutet der Betrag anschaulich?",
+   "g": "erkennen"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −6."
+   },
+   "a": [
+    "Nein: Für a = −6 ist |−a| = 6, aber a = −6.",
+    "Ja, das Minus verschwindet immer.",
+    "Ja: |−(−6)| = −6.",
+    "Nein, |−a| ist immer negativ."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "|−(−6)| = |6| = 6 ≠ −6. Richtig ist |−a| = |a|.",
+   "h": "Setze die negative Zahl wirklich ein.",
+   "g": "direkt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ali löst |x − 2| = 3 und schreibt: „x = 5“. Ist das vollständig?"
+   },
+   "a": [
+    "Ja, das ist die einzige Lösung.",
+    "Falsch: Es fehlt x = −5.",
+    "Falsch: Richtig ist nur x = −1.",
+    "Falsch: Es fehlt x = −1."
    ],
    "o": {
     "index": 3
    },
-   "w": "|−10| = 10 und |10| = 10. Ein Abstand kann nicht negativ sein.",
-   "h": "Was bedeutet der Betrag anschaulich?"
+   "w": "Auch −1 hat von 2 den Abstand 3: |−1 − 2| = 3.",
+   "h": "Gibt es links von der Mitte auch eine Zahl mit diesem Abstand?",
+   "g": "umkehr"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gilt |a + b| = |a| + |b| für a = 7 und b = −3?"
+   },
+   "a": [
+    "Ja: beide Seiten ergeben 10.",
+    "Nein: |7 + (−3)| = 4, aber |7| + |−3| = 10.",
+    "Ja: beide Seiten ergeben 4.",
+    "Nein, weil |a + b| immer größer ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|.",
+   "h": "Rechne beide Seiten getrennt aus.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl a ist ein Gegenbeispiel zur Behauptung „|a − 9| = a − 9 für alle a“?"
+   },
+   "a": [
+    "a = 9",
+    "a = 5",
+    "a = 16",
+    "a = 11"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für a ≥ 9 stimmt die Gleichung. Für a = 5: |5 − 9| = 4, aber 5 − 9 = −4.",
+   "h": "Für welche a ist der Inhalt negativ?",
+   "g": "begruenden"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen a gilt |a| = −a?"
+   },
+   "a": [
+    "für alle a ≥ 0",
+    "für alle a ≤ 0",
+    "für keine Zahl",
+    "nur für a = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für a < 0 ist −a positiv und gleich |a|, z. B. |−3| = 3 = −(−3). Für a = 0 stimmt es auch. Für a > 0 wäre −a negativ.",
+   "h": "Setze a = −3, a = 0 und a = 3 ein.",
+   "g": "parameter"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gilt |a · b| = |a| · |b| für a = −4 und b = 9?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "|(−4) · 9| = 36 und 4 · 9 = 36. Beim Multiplizieren gilt das sogar immer.",
+   "h": "Rechne beide Seiten aus.",
+   "g": "verknuepfen"
   },
   {
    "l": "verstehen",
@@ -2663,19 +3723,20 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Kann |x| = −11 für eine Zahl x gelten?"
+    "text": "Kann |x| = −12 für eine Zahl x gelten?"
    },
    "a": [
-    "Ja, für x = −11.",
     "Ja, für x = 0.",
     "Nein, ein Betrag ist nie negativ.",
-    "Ja, für x = 11."
+    "Ja, für x = 12.",
+    "Ja, für x = −12."
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "|−11| = 11 und |11| = 11. Ein Abstand kann nicht negativ sein.",
-   "h": "Was bedeutet der Betrag anschaulich?"
+   "w": "|−12| = 12 und |12| = 12. Ein Abstand kann nicht negativ sein.",
+   "h": "Was bedeutet der Betrag anschaulich?",
+   "g": "erkennen"
   },
   {
    "l": "verstehen",
@@ -2684,19 +3745,41 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −8."
+    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −9."
    },
    "a": [
+    "Ja: |−(−9)| = −9.",
     "Nein, |−a| ist immer negativ.",
     "Ja, das Minus verschwindet immer.",
-    "Nein: Für a = −8 ist |−a| = 8, aber a = −8.",
-    "Ja: |−(−8)| = −8."
+    "Nein: Für a = −9 ist |−a| = 9, aber a = −9."
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "|−(−8)| = |8| = 8 ≠ −8. Richtig ist |−a| = |a|.",
-   "h": "Setze die negative Zahl wirklich ein."
+   "w": "|−(−9)| = |9| = 9 ≠ −9. Richtig ist |−a| = |a|.",
+   "h": "Setze die negative Zahl wirklich ein.",
+   "g": "direkt"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann |x| = −8 für eine Zahl x gelten?"
+   },
+   "a": [
+    "Ja, für x = 0.",
+    "Nein, ein Betrag ist nie negativ.",
+    "Ja, für x = 8.",
+    "Ja, für x = −8."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "|−8| = 8 und |8| = 8. Ein Abstand kann nicht negativ sein.",
+   "h": "Was bedeutet der Betrag anschaulich?"
   },
   {
    "l": "verstehen",
@@ -2709,12 +3792,12 @@
    },
    "a": [
     "Ja, für x = −5.",
+    "Nein, ein Betrag ist nie negativ.",
     "Ja, für x = 5.",
-    "Ja, für x = 0.",
-    "Nein, ein Betrag ist nie negativ."
+    "Ja, für x = 0."
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
    "w": "|−5| = 5 und |5| = 5. Ein Abstand kann nicht negativ sein.",
    "h": "Was bedeutet der Betrag anschaulich?"
@@ -2723,43 +3806,23 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −2."
+    "text": "Ali löst |x + 4| = 7 und schreibt: „x = 3“. Ist das vollständig?"
    },
    "a": [
-    "Nein: Für a = −2 ist |−a| = 2, aber a = −2.",
-    "Ja: |−(−2)| = −2.",
-    "Ja, das Minus verschwindet immer.",
-    "Nein, |−a| ist immer negativ."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "|−(−2)| = |2| = 2 ≠ −2. Richtig ist |−a| = |a|.",
-   "h": "Setze die negative Zahl wirklich ein."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −3."
-   },
-   "a": [
-    "Ja, das Minus verschwindet immer.",
-    "Ja: |−(−3)| = −3.",
-    "Nein: Für a = −3 ist |−a| = 3, aber a = −3.",
-    "Nein, |−a| ist immer negativ."
+    "Falsch: Richtig ist nur x = −11.",
+    "Falsch: Es fehlt x = −3.",
+    "Falsch: Es fehlt x = −11.",
+    "Ja, das ist die einzige Lösung."
    ],
    "o": {
     "index": 2
    },
-   "w": "|−(−3)| = |3| = 3 ≠ −3. Richtig ist |−a| = |a|.",
-   "h": "Setze die negative Zahl wirklich ein."
+   "w": "Auch −11 hat von −4 den Abstand 7: |−11 + 4| = 7.",
+   "h": "Gibt es links von der Mitte auch eine Zahl mit diesem Abstand?",
+   "g": "umkehr"
   },
   {
    "l": "verstehen",
@@ -2768,124 +3831,42 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gilt |a + b| = |a| + |b| für a = 5 und b = −6?"
+    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −12."
    },
    "a": [
-    "Ja: beide Seiten ergeben 11.",
-    "Nein: |5 + (−6)| = 1, aber |5| + |−6| = 11.",
-    "Nein, weil |a + b| immer größer ist.",
-    "Ja: beide Seiten ergeben 1."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|.",
-   "h": "Rechne beide Seiten getrennt aus."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −6."
-   },
-   "a": [
-    "Nein: Für a = −6 ist |−a| = 6, aber a = −6.",
+    "Nein: Für a = −12 ist |−a| = 12, aber a = −12.",
     "Nein, |−a| ist immer negativ.",
     "Ja, das Minus verschwindet immer.",
-    "Ja: |−(−6)| = −6."
+    "Ja: |−(−12)| = −12."
    ],
    "o": {
     "index": 0
    },
-   "w": "|−(−6)| = |6| = 6 ≠ −6. Richtig ist |−a| = |a|.",
-   "h": "Setze die negative Zahl wirklich ein."
+   "w": "|−(−12)| = |12| = 12 ≠ −12. Richtig ist |−a| = |a|.",
+   "h": "Setze die negative Zahl wirklich ein.",
+   "g": "mehrschritt"
   },
   {
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Kinder starten am selben Punkt einer geraden Straße: eines geht 3 km nach Westen (−3), das andere 5 km nach Osten (5). Wie weit sind sie dann voneinander entfernt?"
+   },
+   "a": [
+    "8 km = |5 − (−3)|",
+    "2 km = |5 + (−3)|",
+    "15 km",
+    "−8 km"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Abstand ist der Betrag der Differenz der Positionen: |5 − (−3)| = 8 km.",
+   "h": "Zeichne die Straße als Zahlenstrahl.",
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gilt |a + b| = |a| + |b| für a = 6 und b = −2?"
-   },
-   "a": [
-    "Ja: beide Seiten ergeben 4.",
-    "Ja: beide Seiten ergeben 8.",
-    "Nein: |6 + (−2)| = 4, aber |6| + |−2| = 8.",
-    "Nein, weil |a + b| immer größer ist."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|.",
-   "h": "Rechne beide Seiten getrennt aus."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ali löst |x + 4| = 4 und schreibt: „x = 0“. Ist das vollständig?"
-   },
-   "a": [
-    "Ja, das ist die einzige Lösung.",
-    "Falsch: Es fehlt x = −8.",
-    "Falsch: Es fehlt x = 0.",
-    "Falsch: Richtig ist nur x = −8."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Auch −8 hat von −4 den Abstand 4: |−8 + 4| = 4.",
-   "h": "Gibt es links von der Mitte auch eine Zahl mit diesem Abstand?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gilt |a + b| = |a| + |b| für a = 3 und b = −4?"
-   },
-   "a": [
-    "Nein, weil |a + b| immer größer ist.",
-    "Ja: beide Seiten ergeben 1.",
-    "Ja: beide Seiten ergeben 7.",
-    "Nein: |3 + (−4)| = 1, aber |3| + |−4| = 7."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|.",
-   "h": "Rechne beide Seiten getrennt aus."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gilt |a + b| = |a| + |b| für a = 3 und b = −3?"
-   },
-   "a": [
-    "Ja: beide Seiten ergeben 6.",
-    "Nein, weil |a + b| immer größer ist.",
-    "Nein: |3 + (−3)| = 0, aber |3| + |−3| = 6.",
-    "Ja: beide Seiten ergeben 0."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|.",
-   "h": "Rechne beide Seiten getrennt aus."
+   "g": "einkleidung"
   },
   {
    "l": "verstehen",
@@ -2894,19 +3875,20 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ali löst |x − 2| = 6 und schreibt: „x = 8“. Ist das vollständig?"
+    "text": "Welche Zahl a ist ein Gegenbeispiel zur Behauptung „|a − 2| = a − 2 für alle a“?"
    },
    "a": [
-    "Falsch: Richtig ist nur x = −4.",
-    "Ja, das ist die einzige Lösung.",
-    "Falsch: Es fehlt x = −4.",
-    "Falsch: Es fehlt x = −8."
+    "a = 0",
+    "a = 9",
+    "a = 2",
+    "a = 4"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "Auch −4 hat von 2 den Abstand 6: |−4 − 2| = 6.",
-   "h": "Gibt es links von der Mitte auch eine Zahl mit diesem Abstand?"
+   "w": "Für a ≥ 2 stimmt die Gleichung. Für a = 0: |0 − 2| = 2, aber 0 − 2 = −2.",
+   "h": "Für welche a ist der Inhalt negativ?",
+   "g": "begruenden"
   },
   {
    "l": "verstehen",
@@ -2915,7 +3897,29 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gilt |a · b| = |a| · |b| für a = −4 und b = 6?"
+    "text": "Für welche Zahlen x gilt |x| = x?"
+   },
+   "a": [
+    "Für alle x ≥ 0.",
+    "Für alle x.",
+    "Für alle x ≤ 0.",
+    "Nur für x = 0."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für x ≥ 0 bleibt x beim Betrag unverändert. Für negative x ist |x| = −x > x.",
+   "h": "Teste eine positive, eine negative Zahl und 0.",
+   "g": "parameter"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gilt |a · b| = |a| · |b| für a = 2 und b = −4?"
    },
    "a": [
     "Ja",
@@ -2925,91 +3929,9 @@
    "o": {
     "index": 0
    },
-   "w": "|(−4) · 6| = 24 und 4 · 6 = 24. Beim Multiplizieren gilt das sogar immer.",
-   "h": "Rechne beide Seiten aus."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gilt |a + b| = |a| + |b| für a = 4 und b = −7?"
-   },
-   "a": [
-    "Ja: beide Seiten ergeben 3.",
-    "Ja: beide Seiten ergeben 11.",
-    "Nein: |4 + (−7)| = 3, aber |4| + |−7| = 11.",
-    "Nein, weil |a + b| immer größer ist."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|.",
-   "h": "Rechne beide Seiten getrennt aus."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gilt |a · b| = |a| · |b| für a = −1 und b = 2?"
-   },
-   "a": [
-    "Ja",
-    "Nein",
-    "Das lässt sich nicht entscheiden."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "|(−1) · 2| = 2 und 1 · 2 = 2. Beim Multiplizieren gilt das sogar immer.",
-   "h": "Rechne beide Seiten aus."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ali löst |x − 1| = 2 und schreibt: „x = 3“. Ist das vollständig?"
-   },
-   "a": [
-    "Falsch: Richtig ist nur x = −1.",
-    "Falsch: Es fehlt x = −3.",
-    "Ja, das ist die einzige Lösung.",
-    "Falsch: Es fehlt x = −1."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Auch −1 hat von 1 den Abstand 2: |−1 − 1| = 2.",
-   "h": "Gibt es links von der Mitte auch eine Zahl mit diesem Abstand?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gilt |a + b| = |a| + |b| für a = 9 und b = −7?"
-   },
-   "a": [
-    "Ja: beide Seiten ergeben 16.",
-    "Ja: beide Seiten ergeben 2.",
-    "Nein: |9 + (−7)| = 2, aber |9| + |−7| = 16.",
-    "Nein, weil |a + b| immer größer ist."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|.",
-   "h": "Rechne beide Seiten getrennt aus."
+   "w": "|2 · (−4)| = 8 und 2 · 4 = 8. Beim Multiplizieren gilt das sogar immer.",
+   "h": "Rechne beide Seiten aus.",
+   "g": "verknuepfen"
   },
   {
    "l": "verstehen",
@@ -3018,18 +3940,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −5."
+    "text": "Ali löst |x − 1| = 6 und schreibt: „x = 7“. Ist das vollständig?"
    },
    "a": [
-    "Ja, das Minus verschwindet immer.",
-    "Ja: |−(−5)| = −5.",
-    "Nein: Für a = −5 ist |−a| = 5, aber a = −5.",
-    "Nein, |−a| ist immer negativ."
+    "Ja, das ist die einzige Lösung.",
+    "Falsch: Richtig ist nur x = −5.",
+    "Falsch: Es fehlt x = −5.",
+    "Falsch: Es fehlt x = −7."
    ],
    "o": {
     "index": 2
    },
-   "w": "|−(−5)| = |5| = 5 ≠ −5. Richtig ist |−a| = |a|."
+   "w": "Auch −5 hat von 1 den Abstand 6: |−5 − 1| = 6."
   },
   {
    "l": "verstehen",
@@ -3038,36 +3960,16 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −7."
-   },
-   "a": [
-    "Ja, das Minus verschwindet immer.",
-    "Nein: Für a = −7 ist |−a| = 7, aber a = −7.",
-    "Nein, |−a| ist immer negativ.",
-    "Ja: |−(−7)| = −7."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "|−(−7)| = |7| = 7 ≠ −7. Richtig ist |−a| = |a|."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gilt |a + b| = |a| + |b| für a = 4 und b = −8?"
+    "text": "Gilt |a + b| = |a| + |b| für a = 5 und b = −3?"
    },
    "a": [
     "Nein, weil |a + b| immer größer ist.",
-    "Ja: beide Seiten ergeben 12.",
-    "Nein: |4 + (−8)| = 4, aber |4| + |−8| = 12.",
-    "Ja: beide Seiten ergeben 4."
+    "Nein: |5 + (−3)| = 2, aber |5| + |−3| = 8.",
+    "Ja: beide Seiten ergeben 8.",
+    "Ja: beide Seiten ergeben 2."
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
    "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|."
   },
@@ -3078,18 +3980,58 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ali löst |x + 2| = 8 und schreibt: „x = 6“. Ist das vollständig?"
+    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −15."
    },
    "a": [
-    "Falsch: Es fehlt x = −6.",
-    "Falsch: Es fehlt x = −10.",
-    "Falsch: Richtig ist nur x = −10.",
-    "Ja, das ist die einzige Lösung."
+    "Nein: Für a = −15 ist |−a| = 15, aber a = −15.",
+    "Ja, das Minus verschwindet immer.",
+    "Nein, |−a| ist immer negativ.",
+    "Ja: |−(−15)| = −15."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "|−(−15)| = |15| = 15 ≠ −15. Richtig ist |−a| = |a|."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gilt |a + b| = |a| + |b| für a = 6 und b = −5?"
+   },
+   "a": [
+    "Nein: |6 + (−5)| = 1, aber |6| + |−5| = 11.",
+    "Nein, weil |a + b| immer größer ist.",
+    "Ja: beide Seiten ergeben 11.",
+    "Ja: beide Seiten ergeben 1."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ali löst |x − 5| = 8 und schreibt: „x = 13“. Ist das vollständig?"
+   },
+   "a": [
+    "Ja, das ist die einzige Lösung.",
+    "Falsch: Es fehlt x = −3.",
+    "Falsch: Es fehlt x = −13.",
+    "Falsch: Richtig ist nur x = −3."
    ],
    "o": {
     "index": 1
    },
-   "w": "Auch −10 hat von −2 den Abstand 8: |−10 + 2| = 8."
+   "w": "Auch −3 hat von 5 den Abstand 8: |−3 − 5| = 8."
   },
   {
    "l": "verstehen",
@@ -3098,18 +4040,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −9."
+    "text": "Gilt |a + b| = |a| + |b| für a = 7 und b = −8?"
    },
    "a": [
-    "Nein, |−a| ist immer negativ.",
-    "Ja: |−(−9)| = −9.",
-    "Ja, das Minus verschwindet immer.",
-    "Nein: Für a = −9 ist |−a| = 9, aber a = −9."
+    "Nein: |7 + (−8)| = 1, aber |7| + |−8| = 15.",
+    "Ja: beide Seiten ergeben 1.",
+    "Ja: beide Seiten ergeben 15.",
+    "Nein, weil |a + b| immer größer ist."
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "|−(−9)| = |9| = 9 ≠ −9. Richtig ist |−a| = |a|."
+   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|."
   },
   {
    "l": "verstehen",
@@ -3118,18 +4060,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Stimmt |−a| = a für jede Zahl a? Teste mit a = −13."
+    "text": "Gilt |a + b| = |a| + |b| für a = 4 und b = −3?"
    },
    "a": [
-    "Ja, das Minus verschwindet immer.",
-    "Nein, |−a| ist immer negativ.",
-    "Ja: |−(−13)| = −13.",
-    "Nein: Für a = −13 ist |−a| = 13, aber a = −13."
+    "Nein: |4 + (−3)| = 1, aber |4| + |−3| = 7.",
+    "Ja: beide Seiten ergeben 1.",
+    "Ja: beide Seiten ergeben 7.",
+    "Nein, weil |a + b| immer größer ist."
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "|−(−13)| = |13| = 13 ≠ −13. Richtig ist |−a| = |a|."
+   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|."
   },
   {
    "l": "verstehen",
@@ -3138,18 +4080,38 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ali löst |x + 3| = 2 und schreibt: „x = −1“. Ist das vollständig?"
+    "text": "Ali löst |x + 4| = 4 und schreibt: „x = 0“. Ist das vollständig?"
    },
    "a": [
-    "Falsch: Es fehlt x = 1.",
-    "Falsch: Richtig ist nur x = −5.",
-    "Falsch: Es fehlt x = −5.",
-    "Ja, das ist die einzige Lösung."
+    "Falsch: Es fehlt x = −8.",
+    "Ja, das ist die einzige Lösung.",
+    "Falsch: Es fehlt x = 0.",
+    "Falsch: Richtig ist nur x = −8."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Auch −8 hat von −4 den Abstand 4: |−8 + 4| = 4."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gilt |a + b| = |a| + |b| für a = 5 und b = −7?"
+   },
+   "a": [
+    "Ja: beide Seiten ergeben 2.",
+    "Nein, weil |a + b| immer größer ist.",
+    "Nein: |5 + (−7)| = 2, aber |5| + |−7| = 12.",
+    "Ja: beide Seiten ergeben 12."
    ],
    "o": {
     "index": 2
    },
-   "w": "Auch −5 hat von −3 den Abstand 2: |−5 + 3| = 2."
+   "w": "Bei verschiedenen Vorzeichen heben sich a und b teilweise auf. Allgemein gilt nur |a + b| ≤ |a| + |b|."
   },
   {
    "l": "verstehen",
@@ -3158,62 +4120,103 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ali löst |x + 1| = 6 und schreibt: „x = 5“. Ist das vollständig?"
+    "text": "Ali löst |x − 1| = 8 und schreibt: „x = 9“. Ist das vollständig?"
    },
    "a": [
     "Ja, das ist die einzige Lösung.",
-    "Falsch: Es fehlt x = −7.",
-    "Falsch: Es fehlt x = −5.",
-    "Falsch: Richtig ist nur x = −7."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Auch −7 hat von −1 den Abstand 6: |−7 + 1| = 6."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ali löst |x + 3| = 4 und schreibt: „x = 1“. Ist das vollständig?"
-   },
-   "a": [
-    "Ja, das ist die einzige Lösung.",
-    "Falsch: Es fehlt x = −7.",
     "Falsch: Richtig ist nur x = −7.",
-    "Falsch: Es fehlt x = −1."
+    "Falsch: Es fehlt x = −9.",
+    "Falsch: Es fehlt x = −7."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Auch −7 hat von −3 den Abstand 4: |−7 + 3| = 4."
+   "w": "Auch −7 hat von 1 den Abstand 8: |−7 − 1| = 8."
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand prüft |a − b| = |a| − |b| mit a = 5, b = 2: 3 = 3. Er schreibt: „Also stimmt es immer.“ Was ist falsch?"
+   },
+   "a": [
+    "Er hätte a = b nehmen müssen.",
+    "Nichts, die Rechnung stimmt.",
+    "|a − b| ist nie gleich |a| − |b|.",
+    "Ein Beispiel beweist nichts: a = 2, b = 5 gibt 3 = −3, falsch."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Um „immer“ zu zeigen, reicht kein Beispiel; ein einziges Gegenbeispiel widerlegt die Aussage. Mit a = 2, b = 5: |−3| = 3, aber 2 − 5 = −3.",
+   "h": "Vertausche die Zahlen.",
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ali löst |x + 3| = 8 und schreibt: „x = 5“. Ist das vollständig?"
+    "text": "Welche Zahl a ist ein Gegenbeispiel zur Behauptung „|a − 2| = a − 2 für alle a“?"
    },
    "a": [
-    "Ja, das ist die einzige Lösung.",
-    "Falsch: Richtig ist nur x = −11.",
-    "Falsch: Es fehlt x = −11.",
-    "Falsch: Es fehlt x = −5."
+    "a = 4",
+    "a = 2",
+    "a = 9",
+    "a = 1"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "Auch −11 hat von −3 den Abstand 8: |−11 + 3| = 8."
+   "w": "Für a ≥ 2 stimmt die Gleichung. Für a = 1: |1 − 2| = 1, aber 1 − 2 = −1.",
+   "h": "Für welche a ist der Inhalt negativ?"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für wie viele ganze Zahlen a mit −10 ≤ a ≤ 10 gilt |a + 3| = |a| + 3?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "11",
+   "w": "Für a ≥ 0 sind a + 3 und a positiv: beide Seiten sind a + 3. Für a < 0 ist |a| + 3 > |a + 3| (z. B. a = −1: 2 ≠ 4). Also a = 0, 1, …, 10: elf Zahlen.",
+   "h": "Teste ein negatives und ein positives a.",
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Wann gilt |a + b| = |a| + |b| genau?"
+   },
+   "a": [
+    "nur wenn a = b",
+    "wenn a und b nicht verschiedene Vorzeichen haben (eine darf 0 sein)",
+    "immer",
+    "nur wenn beide negativ sind"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Haben a und b gleiche Vorzeichen, zeigen beide in dieselbe Richtung: Die Längen addieren sich. Bei verschiedenen Vorzeichen heben sie sich teilweise auf, dann ist |a + b| kleiner.",
+   "h": "Denk an Pfeile auf dem Zahlenstrahl.",
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   }
  ],
  "offen": [
-  "Der Betragsgraph wird aus zwei Geradenstücken gezeichnet (Graphart „linear“ mit Bereich). Eine eigene Graphart „betrag“ wäre bequemer, ist aber nicht nötig.",
   "Lehrplan-Feld leer: Umfang nach Themenliste (Graph, stückweise Beschreibung) plus einfache Betragsgleichungen und eine Betragsungleichung als Anwendung (Toleranzbereich). Annahme MYP 4."
  ]
 }

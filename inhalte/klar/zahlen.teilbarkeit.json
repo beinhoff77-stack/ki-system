@@ -2,192 +2,677 @@
  "thema_schluessel": "zahlen.teilbarkeit",
  "karten": {
   "teiler": {
-   "einstieg": "Für das Klassenfest gibt es 12 Muffins. Sie sollen so auf Teller verteilt werden, dass auf jedem Teller gleich viele liegen und keiner übrig bleibt. Mit 2 Tellern geht es (je 6), mit 5 Tellern nicht – dann bleiben 2 übrig. Die Zahlen, mit denen es aufgeht, heißen ⟦Teiler⟧ von 12.",
+   "einstieg": "Für das Klassenfest gibt es 12 Muffins. Sie sollen gleichmäßig auf Teller, und keiner bleibt übrig. Die Tellerzahlen, mit denen das klappt, heißen ⟦Teiler⟧ von 12.",
    "woerter": [
     [
      "Teiler",
-     "eine Zahl, durch die man ohne Rest teilen kann: 3 ist ein Teiler von 12"
-    ],
-    [
-     "ohne Rest",
-     "es bleibt nichts übrig"
-    ],
-    [
-     "positiv",
-     "größer als 0"
+     "eine Zahl, die ohne Rest in eine andere passt"
     ],
     [
      "Teilerpaar",
-     "zwei Zahlen, die malgenommen die Zahl ergeben: 3 · 4 = 12"
-    ],
-    [
-     "Quadratzahl",
-     "eine Zahl mal sich selbst, z. B. 16 = 4 · 4"
+     "zwei Zahlen, die malgenommen die Zahl ergeben, zum Beispiel 3 · 4 = 12"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "Teller",
+     "Muffins je Teller"
+    ],
+    "zeilen": [
+     [
+      "?",
+      "?"
+     ]
+    ]
+   },
    "schritte": [
-    "Suche Paare, die malgenommen 12 ergeben. Fang bei 1 an: 1 · 12.",
-    "Weiter geht es mit 2 · 6 und 3 · 4. Danach käme die 4 – die steht schon in einem Paar, also bist du fertig.",
-    "Schreib alle Zahlen der Reihe nach auf: ⟦1, 2, 3, 4, 6, 12⟧.",
-    "12 hat also ⟦6 Teiler⟧: Die Muffins passen gleichmäßig auf 1, 2, 3, 4, 6 oder 12 Teller."
+    {
+     "text": "Suche Teilerpaare für 12. Fang bei 1 an: 1 · 12.",
+     "bild": {
+      "zeilen": [
+       [
+        "1",
+        "12"
+       ],
+       [
+        "12",
+        "1"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Weiter: 2 · 6 und 3 · 4. Die 4 kam schon vor: fertig.",
+     "bild": {
+      "zeilen": [
+       [
+        "1",
+        "12"
+       ],
+       [
+        "2",
+        "6"
+       ],
+       [
+        "3",
+        "4"
+       ],
+       [
+        "4",
+        "3"
+       ],
+       [
+        "6",
+        "2"
+       ],
+       [
+        "12",
+        "1"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Teiler von 12: ⟦1, 2, 3, 4, 6, 12⟧. Das sind 6 Teiler."
+    }
    ],
-   "regel": "So findest du alle Teiler: Suche ⟦Teilerpaare⟧, die malgenommen die Zahl ergeben, und fang bei 1 an. Kommst du zu einer Zahl, die schon in einem Paar steht, bist du fertig. ⟦1 und die Zahl selbst⟧ sind immer Teiler.",
-   "fehler": "1 und 12 vergessen: Auf 1 Teller passen alle 12 Muffins, auf 12 Teller je einer – beides geht ohne Rest. Bei einer Quadratzahl wie 16 = 4 · 4 zählt die 4 ⟦nur einmal⟧: Die Teiler von 16 sind 1, 2, 4, 8, 16. Die 1 hat nur einen Teiler: die 1."
+   "fehler": "1 und 12 vergessen: Auf 1 Teller passen alle 12 Muffins. Bei 16 = 4 · 4 zählt die 4 nur einmal.",
+   "regel": "Teiler findest du ⟦in Paaren⟧. 1 und die Zahl selbst sind immer Teiler."
   },
   "vielfache": {
-   "einstieg": "Muffins gibt es beim Bäcker nur in Packungen zu 7 Stück. Du kannst also 7, 14 oder 21 Muffins kaufen, aber nicht genau 30. Die Anzahlen, die du kaufen kannst, kennst du aus der Siebenerreihe des Einmaleins. Sie heißen ⟦Vielfache⟧ von 7.",
+   "einstieg": "Muffins gibt es nur in Packungen zu 7 Stück. Du kannst 7, 14 oder 21 kaufen, aber nicht genau 30. Diese Anzahlen heißen ⟦Vielfache⟧ von 7.",
    "woerter": [
     [
-     "Vielfaches",
-     "das Ergebnis von Zahl · 1, Zahl · 2, Zahl · 3, …; Vielfache von 7 sind 7, 14, 21, …"
-    ],
-    [
-     "Siebenerreihe",
-     "die Ergebnisse der Einmaleins-Reihe mit 7"
+     "Vielfache",
+     "Zahlen aus der Einmaleins-Reihe: 7, 14, 21 …"
     ]
    ],
+   "bild": {
+    "typ": "zahlenstrahl",
+    "start": 0,
+    "ende": 42,
+    "abschnitte": 6,
+    "beschriftet": "alle",
+    "punkte": [
+     {
+      "wert": 30,
+      "name": "gewünscht"
+     }
+    ]
+   },
    "schritte": [
-    "Zähle in Siebenerschritten: 7, 14, 21, 28.",
-    "28 ist noch kleiner als 30. Der nächste Schritt ist 28 + 7 = 35.",
-    "35 ist größer als 30.",
-    "Das kleinste Vielfache von 7 über 30 ist also ⟦35⟧ – du musst 5 Packungen kaufen."
+    {
+     "text": "Zähle in Siebenerschritten: 7, 14, 21, 28.",
+     "bild": {
+      "boegen": [
+       {
+        "von": 0,
+        "bis": 7
+       },
+       {
+        "von": 7,
+        "bis": 14
+       },
+       {
+        "von": 14,
+        "bis": 21
+       },
+       {
+        "von": 21,
+        "bis": 28
+       }
+      ]
+     }
+    },
+    {
+     "text": "28 ist noch kleiner als 30. Nächster Schritt: 28 + 7 = 35.",
+     "bild": {
+      "boegen": [
+       {
+        "von": 0,
+        "bis": 7
+       },
+       {
+        "von": 7,
+        "bis": 14
+       },
+       {
+        "von": 14,
+        "bis": 21
+       },
+       {
+        "von": 21,
+        "bis": 28
+       },
+       {
+        "von": 28,
+        "bis": 35,
+        "name": "+7"
+       }
+      ]
+     }
+    },
+    {
+     "text": "Das kleinste Vielfache über 30 ist ⟦35⟧: 5 Packungen.",
+     "bild": {
+      "punkte": [
+       {
+        "wert": 30,
+        "name": "gewünscht"
+       },
+       {
+        "wert": 35,
+        "name": "5 Packungen"
+       }
+      ]
+     }
+    }
    ],
-   "regel": "So findest du Vielfache: Zähle in Schritten der Zahl, wie beim Einmaleins: ⟦Zahl · 1, Zahl · 2, Zahl · 3⟧ und so weiter. Auch 0 ist ein Vielfaches, wird hier aber nicht gesucht.",
-   "fehler": "Teiler und Vielfache verwechseln: Ein positiver Teiler ist ⟦nie größer⟧ als die Zahl, ein positives Vielfaches ⟦nie kleiner⟧. Die Packungsgröße 7 ist ein Teiler von 14, und 14 Muffins sind ein Vielfaches von 7."
+   "fehler": "Teiler und Vielfache verwechseln ist ein häufiger Fehler. Ein Teiler ist nie größer als die Zahl, ein Vielfaches nie kleiner.",
+   "regel": "Die Vielfachen von 7 sind die ⟦Siebenerreihe⟧: 7, 14, 21, 28 …"
   },
   "endziffer": {
-   "einstieg": "Beim Klassenfest kamen 3 470 Cent in die Kasse. Die Bank fragt: Lässt sich der Betrag genau in 2-Cent-, 5-Cent- oder 10-Cent-Münzen auszahlen? Dafür musst du nicht teilen – ein Blick auf die letzte Ziffer genügt. So ein Prüf-Trick heißt ⟦Teilbarkeitsregel⟧.",
+   "einstieg": "In der Kasse sind 3 470 Cent. Lassen sie sich genau in 2-, 5- oder 10-Cent-Münzen auszahlen? Ein Blick auf die letzte Ziffer genügt: die ⟦Teilbarkeitsregel⟧.",
    "woerter": [
-    [
-     "teilbar",
-     "lässt sich ohne Rest teilen"
-    ],
     [
      "Endziffer",
      "die letzte Ziffer einer Zahl"
     ],
     [
-     "gerade Zahl",
-     "eine Zahl mit der Endziffer 0, 2, 4, 6 oder 8"
-    ],
-    [
-     "Teilbarkeitsregel",
-     "ein Trick, mit dem man ohne Teilen erkennt, ob eine Zahl teilbar ist"
+     "teilbar",
+     "geht ohne Rest"
     ]
    ],
+   "bild": {
+    "typ": "stellentafel",
+    "stellen": [
+     "T",
+     "H",
+     "Z",
+     "E"
+    ],
+    "ziffern": [
+     3,
+     4,
+     7,
+     0
+    ]
+   },
    "schritte": [
-    "3 470 hat die Endziffer ⟦0⟧.",
-    "0 ist gerade, also ist 3 470 durch 2 teilbar. Endziffer 0 bedeutet außerdem: durch 5 und durch 10 teilbar.",
-    "Der Betrag lässt sich in 2-Cent-, 5-Cent- und 10-Cent-Münzen auszahlen.",
-    "2 465 hat die Endziffer ⟦5⟧: nicht gerade und nicht 0. Von 2, 5 und 10 ist es nur ⟦durch 5⟧ teilbar."
+    {
+     "text": "Die Endziffer von 3 470 ist ⟦0⟧.",
+     "bild": {
+      "markiert": 3
+     }
+    },
+    {
+     "text": "0 ist gerade: durch 2 teilbar. Endziffer 0 heißt auch: durch 5 und 10."
+    },
+    {
+     "text": "2 465 hat die Endziffer 5. Von 2, 5 und 10 nur ⟦durch 5⟧.",
+     "bild": {
+      "ziffern": [
+       2,
+       4,
+       6,
+       5
+      ],
+      "markiert": 3
+     }
+    }
    ],
-   "regel": "So prüfst du mit der Endziffer: Durch ⟦2⟧ teilbar bei gerader Endziffer (0, 2, 4, 6, 8), durch ⟦5⟧ bei Endziffer 0 oder 5, durch ⟦10⟧ bei Endziffer 0.",
-   "fehler": "Auf die erste Ziffer schauen: 2 465 beginnt mit der geraden 2 und ist trotzdem ⟦nicht⟧ durch 2 teilbar – 1 Cent bliebe übrig. Es zählt nur die ⟦letzte⟧ Ziffer."
+   "fehler": "2 465 beginnt mit einer geraden 2, ist aber nicht durch 2 teilbar. Es zählt nur die letzte Ziffer.",
+   "fehler_bild": {
+    "markiert": 0
+   },
+   "regel": "Schau nur auf die ⟦Endziffer⟧. Durch 2: gerade. Durch 5: 0 oder 5. Durch 10: 0."
   },
   "quersumme": {
-   "einstieg": "Eine Firma schenkt der Schule 4 251 Bonbons. Sie sollen gerecht auf 3 Klassen verteilt werden. Ob das ohne Rest geht, kannst du mit einem Trick prüfen: Du zählst die Ziffern der Zahl zusammen. Diese Summe heißt ⟦Quersumme⟧.",
+   "einstieg": "Eine Firma schenkt der Schule 4 251 Bonbons für 3 Klassen. Geht das ohne Rest? Du zählst die Ziffern zusammen: die ⟦Quersumme⟧.",
    "woerter": [
     [
      "Quersumme",
-     "die Summe aller Ziffern einer Zahl: Die Quersumme von 4 251 ist 4 + 2 + 5 + 1 = 12"
+     "alle Ziffern einer Zahl zusammengezählt"
     ]
    ],
+   "bild": {
+    "typ": "stellentafel",
+    "stellen": [
+     "T",
+     "H",
+     "Z",
+     "E"
+    ],
+    "ziffern": [
+     4,
+     2,
+     5,
+     1
+    ]
+   },
    "schritte": [
-    "Zähle die Ziffern zusammen: 4 + 2 + 5 + 1 = ⟦12⟧.",
-    "12 ist durch 3 teilbar. Also ist auch 4 251 durch 3 teilbar ✓ – jede Klasse bekommt 1 417 Bonbons.",
-    "12 ist nicht durch 9 teilbar. Also ist 4 251 ⟦nicht durch 9⟧ teilbar."
+    {
+     "text": "Quersumme: 4 + 2 + 5 + 1 = ⟦12⟧.",
+     "bild": {
+      "typ": "tabelle",
+      "kopf": [
+       "Ziffern",
+       "Quersumme",
+       "durch 3?",
+       "durch 9?"
+      ],
+      "zeilen": [
+       [
+        "4 + 2 + 5 + 1",
+        "12",
+        "?",
+        "?"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "12 ist durch 3 teilbar. Also auch 4 251: Jede Klasse bekommt 1 417.",
+     "bild": {
+      "typ": "tabelle",
+      "kopf": [
+       "Ziffern",
+       "Quersumme",
+       "durch 3?",
+       "durch 9?"
+      ],
+      "zeilen": [
+       [
+        "4 + 2 + 5 + 1",
+        "12",
+        "✓",
+        "?"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "12 ist nicht durch 9 teilbar. Also ist 4 251 ⟦nicht durch 9⟧ teilbar.",
+     "bild": {
+      "typ": "tabelle",
+      "kopf": [
+       "Ziffern",
+       "Quersumme",
+       "durch 3?",
+       "durch 9?"
+      ],
+      "zeilen": [
+       [
+        "4 + 2 + 5 + 1",
+        "12",
+        "✓",
+        "✗"
+       ]
+      ]
+     }
+    }
    ],
-   "regel": "So prüfst du auf 3 und 9: Bilde die ⟦Quersumme⟧. Ist sie durch 3 teilbar, ist es auch die Zahl. Ist sie durch 9 teilbar, ist es auch die Zahl. Sonst nicht.",
-   "fehler": "Die Quersummenregel für andere Zahlen benutzen: 13 hat die Quersumme 4, ist aber nicht durch 4 teilbar. Die Regel gilt ⟦nur für 3 und 9⟧, nicht für 4 oder 7."
+   "fehler": "13 hat die Quersumme 4, ist aber nicht durch 4 teilbar. Die Regel gilt nur für 3 und 9.",
+   "regel": "Ist die ⟦Quersumme⟧ durch 3 teilbar, dann auch die Zahl. Für 9 gilt das genauso."
   },
   "primzahl": {
-   "einstieg": "13 Muffins lassen sich nur auf 1 Teller oder auf 13 Teller gleichmäßig verteilen. Mit 2, 3, 4 oder 6 Tellern bleibt immer etwas übrig. Die 13 hat also nur zwei Teiler: 1 und sich selbst. Solche Zahlen heißen ⟦Primzahlen⟧.",
+   "einstieg": "13 Muffins passen nur auf 1 Teller oder auf 13 Teller gleichmäßig. Mit 2, 3, 4 oder 6 Tellern bleibt etwas übrig. Zahlen mit genau zwei Teilern heißen ⟦Primzahlen⟧.",
    "woerter": [
     [
      "Primzahl",
-     "eine Zahl mit genau zwei verschiedenen Teilern: 1 und sich selbst"
+     "hat genau zwei Teiler: 1 und sich selbst"
     ],
     [
      "Prüfzahl",
-     "eine Zahl, mit der du testest, ob sie ein Teiler ist"
+     "eine Zahl, mit der du testest, ob sie aufgeht"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "Prüfzahl",
+     "53 : Prüfzahl"
+    ],
+    "zeilen": [
+     [
+      "2",
+      "?"
+     ],
+     [
+      "3",
+      "?"
+     ],
+     [
+      "5",
+      "?"
+     ],
+     [
+      "7",
+      "?"
+     ]
+    ]
+   },
    "schritte": [
-    "Die Primzahlen bis 20 sind ⟦2, 3, 5, 7, 11, 13, 17, 19⟧. Die 1 gehört nicht dazu, denn sie hat nur einen Teiler.",
-    "Ist 53 eine Primzahl? Prüfe 2, 3, 5 und 7: 53 ist ungerade, hat die Quersumme 8 und die Endziffer 3, und 7 · 7 = 49, 7 · 8 = 56. Keine Zahl geht auf.",
-    "Ab 8 musst du nicht weiterprüfen: 8 · 8 = 64 ist schon größer als 53. Ein größerer Teiler bräuchte einen Partner unter 8, und den hättest du schon gefunden.",
-    "Also ist 53 eine ⟦Primzahl⟧. 21 = 3 · 7 ist dagegen keine."
+    {
+     "text": "Ist 53 eine Primzahl? Teste die Prüfzahlen 2, 3, 5 und 7."
+    },
+    {
+     "text": "53 ist ungerade, Quersumme 8, Endziffer 3: 2, 3 und 5 gehen nicht.",
+     "bild": {
+      "zeilen": [
+       [
+        "2",
+        "26 Rest 1"
+       ],
+       [
+        "3",
+        "17 Rest 2"
+       ],
+       [
+        "5",
+        "10 Rest 3"
+       ],
+       [
+        "7",
+        "?"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "7 · 7 = 49 und 7 · 8 = 56: Auch 7 geht nicht.",
+     "bild": {
+      "zeilen": [
+       [
+        "2",
+        "26 Rest 1"
+       ],
+       [
+        "3",
+        "17 Rest 2"
+       ],
+       [
+        "5",
+        "10 Rest 3"
+       ],
+       [
+        "7",
+        "7 Rest 4"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "8 · 8 = 64 ist größer als 53: fertig. 53 ist eine ⟦Primzahl⟧."
+    }
    ],
-   "regel": "So prüfst du: Eine ⟦Primzahl⟧ hat genau ⟦zwei⟧ verschiedene Teiler, 1 und sich selbst. Teste 2, 3, 5, 7, … nur so lange, bis ⟦Prüfzahl · Prüfzahl⟧ größer als die Zahl ist. Die 1 ist keine Primzahl, die 2 ist die einzige gerade.",
-   "fehler": "Jede ungerade Zahl für eine Primzahl halten: 9 Muffins passen auf 3 Teller zu je 3. Auch 15, 21 und 27 sind ⟦keine⟧ Primzahlen."
+   "fehler": "Nicht jede ungerade Zahl ist eine Primzahl. 9 Muffins passen auf 3 Teller zu je 3.",
+   "regel": "Eine ⟦Primzahl⟧ hat genau zwei Teiler: 1 und sich selbst. Die 1 ist keine Primzahl."
   },
   "primfaktoren": {
-   "einstieg": "Ein Haus wird aus Bausteinen gebaut. Genauso lässt sich jede Zahl über 1 aus Primzahlen zusammensetzen, die malgenommen werden: 60 = 2 · 2 · 3 · 5. Weiter zerlegen kann man diese Bausteine nicht mehr. Sie heißen ⟦Primfaktoren⟧.",
+   "einstieg": "Ein Haus besteht aus Bausteinen. Genauso besteht jede Zahl über 1 aus Primzahlen, die malgenommen werden. Diese Bausteine heißen ⟦Primfaktoren⟧.",
    "woerter": [
     [
-     "Faktor",
-     "eine Zahl, die malgenommen wird"
-    ],
-    [
      "Primfaktor",
-     "eine Primzahl, die als Faktor vorkommt"
+     "eine Primzahl als Baustein einer Malrechnung"
     ],
     [
      "Primfaktorzerlegung",
-     "die Zahl als Produkt aus lauter Primzahlen, z. B. 60 = 2 · 2 · 3 · 5"
+     "die Zahl als Produkt ihrer Primfaktoren, zum Beispiel 60 = 2 · 2 · 3 · 5"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "Zahl",
+     "geteilt durch",
+     "Ergebnis"
+    ],
+    "zeilen": [
+     [
+      "60",
+      "?",
+      "?"
+     ]
+    ]
+   },
    "schritte": [
-    "60 ist gerade, also teilst du durch die kleinste Primzahl: 60 : ⟦2⟧ = 30.",
-    "30 ist auch gerade: 30 : ⟦2⟧ = 15.",
-    "15 ist nicht gerade, aber die Quersumme 6 ist durch 3 teilbar: 15 : ⟦3⟧ = 5.",
-    "5 ist selbst eine Primzahl: 5 : ⟦5⟧ = 1. Also ist ⟦60 = 2 · 2 · 3 · 5⟧."
+    {
+     "text": "60 ist gerade: 60 : ⟦2⟧ = 30.",
+     "bild": {
+      "zeilen": [
+       [
+        "60",
+        "2",
+        "30"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "30 ist gerade: 30 : 2 = 15.",
+     "bild": {
+      "zeilen": [
+       [
+        "60",
+        "2",
+        "30"
+       ],
+       [
+        "30",
+        "2",
+        "15"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "15 : 3 = 5, denn die Quersumme 6 passt zu 3.",
+     "bild": {
+      "zeilen": [
+       [
+        "60",
+        "2",
+        "30"
+       ],
+       [
+        "30",
+        "2",
+        "15"
+       ],
+       [
+        "15",
+        "3",
+        "5"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "5 : 5 = 1. Primfaktorzerlegung: ⟦60 = 2 · 2 · 3 · 5⟧.",
+     "bild": {
+      "zeilen": [
+       [
+        "60",
+        "2",
+        "30"
+       ],
+       [
+        "30",
+        "2",
+        "15"
+       ],
+       [
+        "15",
+        "3",
+        "5"
+       ],
+       [
+        "5",
+        "5",
+        "1"
+       ]
+      ]
+     }
+    }
    ],
-   "probe": "2 · 2 · 3 · 5 = 60 ✓",
-   "regel": "So zerlegst du in Primfaktoren: Teile immer wieder durch die ⟦kleinste passende Primzahl⟧, bis 1 übrig bleibt. Die Zahlen, durch die du geteilt hast, sind die ⟦Primfaktoren⟧.",
-   "fehler": "60 = 4 · 15 oder 60 = 6 · 10 ist keine Primfaktorzerlegung: 4, 6, 10 und 15 sind ⟦keine Primzahlen⟧ und lassen sich weiter zerlegen."
+   "fehler": "60 = 4 · 15 ist keine Primfaktorzerlegung. 4 und 15 sind keine Primzahlen und lassen sich weiter zerlegen.",
+   "regel": "Teile immer durch die ⟦kleinste passende Primzahl⟧, bis 1 übrig bleibt. Die Teiler sind die Primfaktoren."
   },
   "ggt": {
-   "einstieg": "Für das Fest gibt es 12 Muffins und 18 Kekse. Ihr wollt möglichst viele gleiche Teller füllen: Auf jedem sollen gleich viele Muffins und gleich viele Kekse liegen, und nichts bleibt übrig. Die Anzahl der Teller muss also 12 und 18 teilen und so groß wie möglich sein. Das ist der ⟦größte gemeinsame Teiler⟧.",
+   "einstieg": "Für das Fest gibt es 12 Muffins und 18 Kekse. Möglichst viele Teller sollen gleich aussehen, und nichts bleibt übrig. Gesucht ist der ⟦größte gemeinsame Teiler⟧.",
    "woerter": [
     [
-     "gemeinsamer Teiler",
-     "eine Zahl, die beide Zahlen ohne Rest teilt"
+     "gemeinsame Teiler",
+     "Zahlen, die beide Zahlen ohne Rest teilen"
     ],
     [
      "ggT(12, 18)",
-     "kurz für „größter gemeinsamer Teiler von 12 und 18“"
+     "der größte gemeinsame Teiler von 12 und 18"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "Zahl",
+     "Teiler"
+    ],
+    "zeilen": [
+     [
+      "12",
+      "?"
+     ],
+     [
+      "18",
+      "?"
+     ]
+    ]
+   },
    "schritte": [
-    "Schreib die Teiler von 12 auf: 1, 2, 3, 4, ⟦6⟧, 12.",
-    "Schreib die Teiler von 18 auf: 1, 2, 3, ⟦6⟧, 9, 18.",
-    "In beiden Listen stehen 1, 2, 3 und 6. Die größte dieser Zahlen ist 6.",
-    "ggT(12, 18) = ⟦6⟧: 6 Teller mit je 2 Muffins und 3 Keksen."
+    {
+     "text": "Teiler von 12: 1, 2, 3, 4, 6, 12.",
+     "bild": {
+      "zeilen": [
+       [
+        "12",
+        "1, 2, 3, 4, 6, 12"
+       ],
+       [
+        "18",
+        "?"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Teiler von 18: 1, 2, 3, 6, 9, 18.",
+     "bild": {
+      "zeilen": [
+       [
+        "12",
+        "1, 2, 3, 4, 6, 12"
+       ],
+       [
+        "18",
+        "1, 2, 3, 6, 9, 18"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "In beiden stehen 1, 2, 3 und 6. ggT(12, 18) = ⟦6⟧."
+    },
+    {
+     "text": "Also 6 Teller mit je 2 Muffins und 3 Keksen."
+    }
    ],
-   "regel": "So findest du den ggT: Schreib die ⟦Teiler beider Zahlen⟧ auf. Der ⟦größte⟧, der in beiden Listen steht, ist der ggT.",
-   "fehler": "Die größte Zahl aus nur einer Liste nehmen: 12 ist ein Teiler von 12, aber nicht von 18 – bei 12 Tellern blieben Kekse übrig. Der ggT muss in ⟦beiden⟧ Listen stehen."
+   "fehler": "Die größte Zahl aus nur einer Liste nehmen: 12 teilt 18 nicht. Bei 12 Tellern blieben Kekse übrig.",
+   "regel": "Schreib die Teiler beider Zahlen auf. Der ⟦größte in beiden Listen⟧ ist der ggT."
   },
   "kgv": {
-   "einstieg": "Lena und Tim laufen auf dem Sportplatz Runden. Lena braucht für eine Runde 4 Minuten, Tim 6 Minuten. Sie starten gleichzeitig. Nach wie vielen Minuten sind beide zum ersten Mal wieder zusammen am Start? Die Antwort ist das ⟦kleinste gemeinsame Vielfache⟧ von 4 und 6.",
+   "einstieg": "Lena läuft eine Runde in 4 Minuten, Tim in 6 Minuten. Sie starten gleichzeitig. Gemeinsam am Start sind sie wieder beim ⟦kleinsten gemeinsamen Vielfachen⟧.",
    "woerter": [
     [
-     "gemeinsames Vielfaches",
-     "eine Zahl, die ein Vielfaches beider Zahlen ist"
+     "gemeinsame Vielfache",
+     "Zahlen, die in beiden Einmaleins-Reihen vorkommen"
     ],
     [
      "kgV(4, 6)",
-     "kurz für „kleinstes gemeinsames Vielfaches von 4 und 6“"
+     "das kleinste gemeinsame Vielfache von 4 und 6"
     ]
    ],
+   "bild": {
+    "typ": "tabelle",
+    "kopf": [
+     "",
+     "1. Runde",
+     "2. Runde",
+     "3. Runde"
+    ],
+    "zeilen": [
+     [
+      "Tim (6 min)",
+      "?",
+      "?",
+      "?"
+     ],
+     [
+      "Lena (4 min)",
+      "?",
+      "?",
+      "?"
+     ]
+    ]
+   },
    "schritte": [
-    "Geh die Vielfachen der größeren Zahl durch: 6, ⟦12⟧, 18, …",
-    "6 ist kein Vielfaches von 4, denn die Viererreihe lautet 4, 8, 12, …",
-    "12 ist ein Vielfaches von 4: 4 · 3 = 12.",
-    "Also ist kgV(4, 6) = ⟦12⟧: Nach 12 Minuten sind beide wieder am Start – Lena nach 3 Runden, Tim nach 2."
+    {
+     "text": "Nimm die größere Zahl: Tim ist nach 6, 12, 18 Minuten am Start.",
+     "bild": {
+      "zeilen": [
+       [
+        "Tim (6 min)",
+        "6",
+        "12",
+        "18"
+       ],
+       [
+        "Lena (4 min)",
+        "?",
+        "?",
+        "?"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "Lena ist nach 4, 8, 12 Minuten am Start.",
+     "bild": {
+      "zeilen": [
+       [
+        "Tim (6 min)",
+        "6",
+        "12",
+        "18"
+       ],
+       [
+        "Lena (4 min)",
+        "4",
+        "8",
+        "12"
+       ]
+      ]
+     }
+    },
+    {
+     "text": "12 steht in beiden Reihen: das erste gemeinsame Vielfache."
+    },
+    {
+     "text": "kgV(4, 6) = ⟦12⟧: Lena läuft 3 Runden, Tim 2."
+    }
    ],
-   "regel": "So findest du das kgV: Geh die ⟦Vielfachen der größeren Zahl⟧ durch. Das ⟦erste⟧, das auch ein Vielfaches der kleineren Zahl ist, ist das kgV.",
-   "fehler": "Die beiden Zahlen malnehmen: 4 · 6 = 24 ist zwar ein gemeinsames Vielfaches, aber ⟦nicht das kleinste⟧ – Lena und Tim treffen sich schon nach 12 Minuten."
+   "fehler": "4 · 6 = 24 ist gemeinsam, aber nicht das kleinste Vielfache. Die beiden treffen sich schon nach 12 Minuten.",
+   "regel": "Geh die Vielfachen der ⟦größeren Zahl⟧ durch. Das erste, das auch zur kleineren passt, ist das kgV."
   }
  }
 }

@@ -41,88 +41,353 @@
    {
     "lernziel": "kuerzen",
     "titel": "Verhältnisse kürzen",
-    "regel": "Ein ⟦Verhältnis⟧ (ratio) a : b vergleicht zwei Größen. Man ⟦kürzt⟧ (simplify) es wie einen Bruch: beide Zahlen durch dieselbe Zahl teilen, bis kein gemeinsamer Teiler mehr übrig ist. Bei Größen zuerst ⟦dieselbe Einheit⟧ herstellen.",
+    "regel": "Verhältnis kürzen: ⟦beide Zahlen durch dieselbe Zahl⟧ teilen. Vorher gleiche Einheiten herstellen.",
     "schritte": [
-     "12 Mädchen und 18 Jungen: Verhältnis 12 : 18.",
-     "Der größte gemeinsame Teiler ist 6: 12 : 6 = 2 und 18 : 6 = 3.",
-     "Gekürzt: ⟦2 : 3⟧."
+     {
+      "text": "Mädchen : Jungen = 12 : 18."
+     },
+     {
+      "text": "Zum Kürzen: Beide Zahlen sind durch 6 teilbar."
+     },
+     {
+      "text": "12 : 6 = 2 und 18 : 6 = 3. Gekürzt: ⟦2 : 3⟧.",
+      "bild": {
+       "zeilen": [
+        {
+         "teile": 5,
+         "gefaerbt": 2
+        }
+       ]
+      }
+     }
     ],
-    "probe": "2 · 6 = 12 und 3 · 6 = 18 ✓",
-    "fehler": "1 m : 25 cm = 1 : 25 ist falsch: Die Einheiten sind verschieden. Erst umrechnen: 100 cm : 25 cm = ⟦4 : 1⟧."
+    "fehler": "1 m : 25 cm ist nicht 1 : 25. Erst ⟦gleiche Einheiten⟧: 100 cm : 25 cm = 4 : 1.",
+    "einstieg": "In der Klasse sind 12 Mädchen und 18 Jungen. Auf 2 Mädchen kommen also 3 Jungen. So einen Vergleich nennt man ⟦Verhältnis⟧, geschrieben 2 : 3.",
+    "woerter": [
+     [
+      "Verhältnis",
+      "Vergleich zweier Größen, geschrieben a : b"
+     ],
+     [
+      "kürzen",
+      "beide Zahlen durch dieselbe Zahl teilen"
+     ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 30,
+     "gefaerbt": 12,
+     "ganzes": "30 Kinder",
+     "teil_text": "12 Mädchen"
+    }
    },
    {
     "lernziel": "gleichwertig",
     "titel": "Gleichwertige Verhältnisse",
-    "regel": "Zwei Verhältnisse sind ⟦gleichwertig⟧ (equivalent), wenn man beide Zahlen mit ⟦derselben Zahl multipliziert⟧ (oder dividiert). 2 : 3 = 4 : 6 = 10 : 15. ⟦Addieren⟧ derselben Zahl ändert das Verhältnis.",
+    "regel": "Gleichwertig: beide Zahlen ⟦mit derselben Zahl malnehmen⟧ oder teilen. Addieren verändert das Verhältnis.",
     "schritte": [
-     "Gesucht: 3 : 5 = □ : 20.",
-     "Von 5 nach 20 multipliziert man mit 4.",
-     "Also auch 3 · 4 = 12: ⟦3 : 5 = 12 : 20⟧."
+     {
+      "text": "Gesucht: 3 : 5 = □ : 20."
+     },
+     {
+      "text": "Von 5 nach 20 nimmt man mal 4."
+     },
+     {
+      "text": "Also auch 3 · 4 = 12: ⟦3 : 5 = 12 : 20⟧.",
+      "bild": {
+       "zeilen": [
+        {
+         "teile": 32,
+         "gefaerbt": 12
+        }
+       ]
+      }
+     }
     ],
-    "probe": "12 : 20 gekürzt mit 4 ergibt 3 : 5 ✓",
-    "fehler": "3 : 5 = 18 : 20 („zu beiden 15 addiert“) ist falsch: Bei Verhältnissen wird ⟦multipliziert⟧, nicht addiert. Richtig ist 12 : 20."
+    "fehler": "18 : 20 ist falsch: Zu beiden 15 addieren verändert den Geschmack. Bei Verhältnissen wird ⟦multipliziert⟧.",
+    "einstieg": "Für Saft mischst du 3 Becher Sirup mit 5 Bechern Wasser. Für eine große Kanne nimmst du von beidem viermal so viel. Der Saft schmeckt gleich: Die Verhältnisse sind ⟦gleichwertig⟧.",
+    "woerter": [
+     [
+      "gleichwertig",
+      "beide Zahlen mit derselben Zahl malgenommen; das Verhältnis bleibt gleich"
+     ]
+    ],
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 8,
+     "gefaerbt": 3,
+     "ganzes": "8 Becher",
+     "teil_text": "3 Sirup"
+    },
+    "fehler_bild": {
+     "zeilen": [
+      {
+       "teile": 38,
+       "gefaerbt": 18
+      }
+     ]
+    }
    },
    {
     "lernziel": "aufteilen",
     "titel": "Im Verhältnis aufteilen",
-    "regel": "Um eine Menge im Verhältnis a : b aufzuteilen, zählst du die ⟦Teile⟧ zusammen (a + b), berechnest ⟦einen Teil⟧ und nimmst ihn a-mal bzw. b-mal.",
+    "regel": "Teile zusammenzählen, ⟦einen Teil berechnen⟧, dann mit a und mit b malnehmen.",
     "schritte": [
-     "120 € im Verhältnis 3 : 5 aufteilen: 3 + 5 = 8 Teile.",
-     "Ein Teil: 120 € : 8 = 15 €.",
-     "Anteile: 3 · 15 € = ⟦45 €⟧ und 5 · 15 € = ⟦75 €⟧."
+     {
+      "text": "3 + 5 = 8 Teile."
+     },
+     {
+      "text": "Ein Teil: 120 € : 8 = 15 €.",
+      "bild": {
+       "teil_text": "1 Teil = 15 €"
+      }
+     },
+     {
+      "text": "3 Teile: 3 · 15 € = ⟦45 €⟧.",
+      "bild": {
+       "teil_text": "45 €"
+      }
+     },
+     {
+      "text": "5 Teile: 5 · 15 € = ⟦75 €⟧.",
+      "bild": {
+       "teil_text": "45 €",
+       "zeilen": [
+        {
+         "teile": 8,
+         "gefaerbt": 5
+        }
+       ]
+      }
+     }
     ],
-    "probe": "45 € + 75 € = 120 € ✓",
+    "bild": {
+     "typ": "bruchstreifen",
+     "teile": 8,
+     "gefaerbt": 3,
+     "ganzes": "120 €"
+    },
+    "fehler": "120 € : 3 und 120 € : 5 ist falsch. Zusammen wären das nur 64 €. Teile durch die ⟦Summe der Teile⟧.",
+    "einstieg": "Zwei Geschwister gewinnen 120 €. Eines hat 3 € Einsatz gezahlt, das andere 5 €. Sie verteilen im Verhältnis 3 : 5. Dafür zählt man die ⟦Teile⟧.",
+    "woerter": [
+     [
+      "Teile",
+      "gleich große Stücke; bei 3 : 5 sind es zusammen 8"
+     ]
+    ]
+   },
+   {
+    "lernziel": "proportion",
+    "titel": "Proportionen lösen",
+    "regel": "Proportion: über ⟦eins⟧ rechnen oder den Faktor suchen. Beide Größen wachsen im gleichen Verhältnis.",
+    "schritte": [
+     {
+      "text": "Als Proportion: 4 : 300 = 6 : x."
+     },
+     {
+      "text": "Dreisatz: 1 Portion braucht 300 g : 4 = 75 g.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Portionen",
+        "4",
+        "1",
+        "6"
+       ],
+       "zeilen": [
+        [
+         "Mehl in g",
+         "300",
+         "75",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "6 Portionen: 6 · 75 g = ⟦450 g⟧.",
+      "bild": {
+       "typ": "tabelle",
+       "kopf": [
+        "Portionen",
+        "4",
+        "1",
+        "6"
+       ],
+       "zeilen": [
+        [
+         "Mehl in g",
+         "300",
+         "75",
+         "450"
+        ]
+       ]
+      }
+     }
+    ],
+    "fehler": "302 g ist falsch, nur 2 g mehr für 2 Portionen mehr. Die Menge wächst ⟦im gleichen Verhältnis⟧.",
+    "einstieg": "Ein Rezept für 4 Portionen braucht 300 g Mehl. Du willst 6 Portionen backen. Die Mengen wachsen im gleichen Verhältnis. So eine Gleichung heißt ⟦Proportion⟧.",
+    "woerter": [
+     [
+      "Proportion",
+      "zwei gleiche Verhältnisse: a : b = c : d"
+     ],
+     [
+      "Dreisatz",
+      "erst auf 1 rechnen, dann auf die gesuchte Zahl"
+     ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Portionen",
+      "4",
+      "1",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Mehl in g",
+       "300",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Portionen",
+      "4",
+      "1",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Mehl in g",
+       "300",
+       "?",
+       "302 ✗"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "einheitsrate",
+    "titel": "Einheitsraten und Stückpreise",
+    "regel": "Angebote vergleichen: ⟦Preis pro Einheit⟧ berechnen, z. B. pro 100 g. Der kleinere Wert ist günstiger.",
+    "schritte": [
+     {
+      "text": "A kostet mehr, enthält aber auch mehr."
+     },
+     {
+      "text": "Pro 100 g: A kostet 3,00 € : 7,5 = 0,40 €."
+     },
+     {
+      "text": "B kostet 2,20 € : 5 = 0,44 € pro 100 g.",
+      "bild": {
+       "einheit": "€ pro 100 g",
+       "werte": [
+        {
+         "name": "A",
+         "wert": 0.4
+        },
+        {
+         "name": "B",
+         "wert": 0.44
+        }
+       ]
+      }
+     },
+     {
+      "text": "Also ist ⟦Packung A günstiger⟧."
+     }
+    ],
+    "fehler": "„B ist billiger, weil 2,20 € < 3,00 €“ ist falsch. B enthält weniger. Vergleiche den ⟦Preis pro gleicher Menge⟧.",
+    "einstieg": "Packung A hat 750 g für 3,00 €, Packung B 500 g für 2,20 €. Was ist günstiger? Vergleiche den Preis für dieselbe Menge, die ⟦Einheitsrate⟧.",
+    "woerter": [
+     [
+      "Einheitsrate",
+      "der Wert für genau 1 Einheit, z. B. Preis pro 100 g"
+     ],
+     [
+      "pro",
+      "je, für jede: 0,40 € pro 100 g"
+     ]
+    ],
     "bild": {
      "typ": "saeulen",
      "einheit": "€",
      "werte": [
       {
-       "name": "3 Teile",
-       "wert": 45
+       "name": "A 750 g",
+       "wert": 3.0
       },
       {
-       "name": "5 Teile",
-       "wert": 75
+       "name": "B 500 g",
+       "wert": 2.2
       }
      ],
      "zahlen": true
-    },
-    "fehler": "120 € : 3 = 40 € und 120 € : 5 = 24 € ist falsch: Zusammen wären das nur 64 €. Man teilt durch die ⟦Summe der Teile⟧ (8), nicht durch jede Zahl einzeln."
-   },
-   {
-    "lernziel": "proportion",
-    "titel": "Proportionen lösen",
-    "regel": "Eine ⟦Proportion⟧ (proportion) ist eine Gleichung zweier Verhältnisse: a : b = c : d. Ist ein Wert unbekannt, findest du den ⟦Faktor⟧ zwischen den bekannten Zahlen oder rechnest über ⟦eins⟧ (Dreisatz).",
-    "schritte": [
-     "Für 4 Portionen braucht man 300 g Mehl. Wie viel für 6 Portionen?",
-     "4 : 300 = 6 : x. Eine Portion: 300 g : 4 = 75 g.",
-     "6 Portionen: 6 · 75 g = ⟦450 g⟧."
-    ],
-    "probe": "450 : 6 = 75 = 300 : 4 ✓",
-    "fehler": "6 Portionen = 300 g + 2 g = 302 g („2 Portionen mehr“) ist falsch: Die Menge wächst ⟦im gleichen Verhältnis⟧, nicht um die Differenz der Portionen."
-   },
-   {
-    "lernziel": "einheitsrate",
-    "titel": "Einheitsraten und Stückpreise",
-    "regel": "Eine ⟦Rate⟧ (rate) vergleicht zwei Größen mit verschiedenen Einheiten, z. B. km pro Stunde. Die ⟦Einheitsrate⟧ (unit rate) bezieht sich auf ⟦genau 1⟧ Einheit: Preis pro Stück, pro kg, pro 100 g. So lassen sich Angebote vergleichen.",
-    "schritte": [
-     "Packung A: 750 g für 3,00 €. Packung B: 500 g für 2,20 €.",
-     "Pro 100 g: A 3,00 € : 7,5 = 0,40 €; B 2,20 € : 5 = 0,44 €.",
-     "⟦Packung A ist günstiger⟧."
-    ],
-    "probe": "0,40 € · 7,5 = 3,00 € ✓",
-    "fehler": "B ist billiger, weil 2,20 € < 3,00 € – das ist falsch: B enthält auch weniger. Vergleichen kann man nur den ⟦Preis pro gleicher Menge⟧."
+    }
    },
    {
     "lernziel": "aenderung",
     "titel": "Änderungsraten berechnen",
-    "regel": "Die ⟦Änderungsrate⟧ (rate of change) sagt, wie stark sich eine Größe ⟦pro Einheit⟧ der anderen ändert: Änderungsrate = ⟦Zunahme der Größe : Zeitspanne⟧. Nimmt die Größe ab, ist die Rate ⟦negativ⟧.",
+    "regel": "Änderungsrate = ⟦Änderung : Zeitspanne⟧. Nimmt die Größe ab, ist die Rate negativ.",
     "schritte": [
-     "Um 9 Uhr zeigt das Thermometer 12 °C, um 13 Uhr 20 °C.",
-     "Änderung: 20 − 12 = 8 °C in 13 − 9 = 4 Stunden.",
-     "Rate: 8 : 4 = ⟦2 °C pro Stunde⟧."
+     {
+      "text": "Die Temperatur steigt um 20 − 12 = 8 °C.",
+      "bild": {
+       "strecken": [
+        [
+         13,
+         12,
+         13,
+         20,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Zeitspanne: 13 − 9 = 4 Stunden.",
+      "bild": {
+       "strecken": [
+        [
+         9,
+         12,
+         13,
+         12,
+         "gestrichelt"
+        ],
+        [
+         13,
+         12,
+         13,
+         20,
+         "gestrichelt"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Rate: 8 : 4 = ⟦2 °C pro Stunde⟧.",
+      "bild": {
+       "graphen": [
+        {
+         "art": "linear",
+         "m": 2,
+         "t": -6,
+         "bereich": [
+          9,
+          13
+         ]
+        }
+       ]
+      }
+     }
     ],
-    "probe": "12 °C + 4 · 2 °C = 20 °C ✓",
     "bild": {
      "typ": "koordinaten",
      "x": [
@@ -145,22 +410,23 @@
        "name": "13 Uhr"
       }
      ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 2,
-       "t": -6,
-       "bereich": [
-        9,
-        13
-       ]
-      }
-     ],
+     "schritt_x": 1,
+     "schritt_y": 4,
      "name_x": "Uhrzeit",
-     "name_y": "°C",
-     "schritt_y": 4
+     "name_y": "°C"
     },
-    "fehler": "20 : 13 ≈ 1,5 °C pro Stunde ist falsch: Man teilt nicht die Endwerte, sondern die ⟦Änderungen⟧: (20 − 12) : (13 − 9) = 2."
+    "fehler": "20 : 13 ≈ 1,5 ist falsch. Teile die ⟦Änderungen⟧, nicht die Endwerte: 8 : 4 = 2.",
+    "einstieg": "Um 9 Uhr zeigt das Thermometer 12 °C, um 13 Uhr schon 20 °C. Wie schnell wird es wärmer? Das sagt die ⟦Änderungsrate⟧.",
+    "woerter": [
+     [
+      "Änderungsrate",
+      "wie stark sich eine Größe pro Einheit ändert, z. B. °C pro Stunde"
+     ],
+     [
+      "Zeitspanne",
+      "wie viel Zeit vergangen ist"
+     ]
+    ]
    }
   ],
   "teilfaehigkeiten": [
@@ -229,6 +495,31 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 105 : 180 so weit wie möglich.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     7,
+     12
+    ]
+   },
+   "w": "105 und 180 haben den größten gemeinsamen Teiler 15. Gekürzt: 7 : 12.",
+   "h": "Kürze schrittweise, z. B. erst durch 2, dann weiter, bis es nicht mehr geht.",
+   "c": [
+    "105 // 15",
+    "180 // 15"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
    "s": 1,
    "y": "luecken",
    "f": {
@@ -247,7 +538,33 @@
    "c": [
     "27 // 9",
     "63 // 9"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 12 : 18 so weit wie möglich.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "12 und 18 haben den größten gemeinsamen Teiler 6. Gekürzt: 2 : 3.",
+   "h": "Kürze schrittweise, z. B. erst durch 2, dann weiter, bis es nicht mehr geht.",
+   "c": [
+    "12 // 6",
+    "18 // 6"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "kuerzen",
@@ -271,7 +588,33 @@
    "c": [
     "63 // 9",
     "45 // 9"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 5 m : 40 cm.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     25,
+     2
+    ]
+   },
+   "w": "5 m = 500 cm. 500 : 40 gekürzt durch 20: 25 : 2.",
+   "h": "Rechne zuerst m in cm um.",
+   "c": [
+    "500 // 20",
+    "40 // 20"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "kuerzen",
@@ -295,7 +638,33 @@
    "c": [
     "28 // 4",
     "12 // 4"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 2 h : 30 min.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     4,
+     1
+    ]
+   },
+   "w": "2 h = 120 min. 120 : 30 gekürzt durch 30: 4 : 1.",
+   "h": "Rechne zuerst h in min um.",
+   "c": [
+    "120 // 30",
+    "30 // 30"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "kuerzen",
@@ -319,7 +688,110 @@
    "c": [
     "20 // 4",
     "32 // 4"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 5 l : 250 ml.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     20,
+     1
+    ]
+   },
+   "w": "5 l = 5 000 ml. 5 000 : 250 gekürzt durch 250: 20 : 1.",
+   "h": "Rechne zuerst l in ml um.",
+   "c": [
+    "5000 // 250",
+    "250 // 250"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Saft wird aus 8 l Orangensaft, 12 l Apfelsaft und 16 l Wasser gemischt. Gib das Verhältnis gekürzt an.",
+    "schablone": "□ : □ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     2,
+     3,
+     4
+    ]
+   },
+   "w": "Alle drei Zahlen durch 4 teilen: 2 : 3 : 4.",
+   "h": "Auch bei drei Zahlen: durch den gemeinsamen Teiler aller drei teilen.",
+   "c": [
+    "8 // 4",
+    "12 // 4",
+    "16 // 4"
+   ],
+   "g": "transfer"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 4 € : 15 ct.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     80,
+     3
+    ]
+   },
+   "w": "4 € = 400 ct. 400 : 15 gekürzt durch 5: 80 : 3.",
+   "h": "Rechne zuerst € in ct um.",
+   "c": [
+    "400 // 5",
+    "15 // 5"
+   ],
+   "g": "mehrschritt"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze das Verhältnis 1,5 : 0,5 auf ganze Zahlen.",
+    "schablone": "□ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     3,
+     1
+    ]
+   },
+   "w": "Mit 2 multiplizieren: 1,5 · 2 = 3, 0,5 · 2 = 1. Also 3 : 1.",
+   "h": "Multipliziere zuerst beide Zahlen, bis keine Kommazahl mehr da ist.",
+   "c": [
+    "1.5 * 2",
+    "0.5 * 2"
+   ],
+   "g": "verknuepfen"
   },
   {
    "l": "kuerzen",
@@ -343,7 +815,30 @@
    "c": [
     "12 // 4",
     "16 // 4"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verhältnis ist 12 : 18 vollständig gekürzt?"
+   },
+   "a": [
+    "3 : 2",
+    "6 : 9",
+    "2 : 3",
+    "4 : 6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "12 und 18 sind beide durch 6 teilbar: 12 : 6 = 2, 18 : 6 = 3. 4 : 6 und 6 : 9 lassen sich noch weiter kürzen.",
+   "h": "Suche den größten gemeinsamen Teiler.",
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
   },
   {
    "l": "kuerzen",
@@ -376,22 +871,23 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Kürze das Verhältnis 105 : 180 so weit wie möglich.",
+    "text": "Kürze das Verhältnis 2 : 3,5 auf ganze Zahlen.",
     "schablone": "□ : □",
     "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
    },
    "o": {
     "werte": [
-     7,
-     12
+     4,
+     7
     ]
    },
-   "w": "105 und 180 haben den größten gemeinsamen Teiler 15. Gekürzt: 7 : 12.",
-   "h": "Kürze schrittweise, z. B. erst durch 2, dann weiter, bis es nicht mehr geht.",
+   "w": "Mit 2 multiplizieren: 2 · 2 = 4, 3,5 · 2 = 7. Also 4 : 7.",
+   "h": "Multipliziere zuerst beide Zahlen, bis keine Kommazahl mehr da ist.",
    "c": [
-    "105 // 15",
-    "180 // 15"
-   ]
+    "2.0 * 2",
+    "3.5 * 2"
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "kuerzen",
@@ -400,46 +896,40 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Kürze das Verhältnis 12 : 18 so weit wie möglich.",
-    "schablone": "□ : □",
-    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+    "text": "In einer Klasse ist das Verhältnis Mädchen : Jungen = 3 : 4. Welcher Anteil der Klasse sind Mädchen?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner eintragen."
    },
    "o": {
     "werte": [
-     2,
-     3
+     3,
+     7
     ]
    },
-   "w": "12 und 18 haben den größten gemeinsamen Teiler 6. Gekürzt: 2 : 3.",
-   "h": "Kürze schrittweise, z. B. erst durch 2, dann weiter, bis es nicht mehr geht.",
    "c": [
-    "12 // 6",
-    "18 // 6"
-   ]
+    "3",
+    "3 + 4"
+   ],
+   "w": "3 + 4 = 7 Teile, davon 3 Mädchen: 3/7.",
+   "h": "Wie viele Teile sind es insgesamt?",
+   "g": "darstellung"
   },
   {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Verhältnis wurde durch 5 gekürzt und lautet jetzt 3 : 8. Wie hieß die erste Zahl vorher?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "3 * 5",
+   "w": "Kürzen durch 5 heißt: beide Zahlen wurden durch 5 geteilt. Rückwärts: 3 · 5 = 15 (und 8 · 5 = 40).",
+   "h": "Mache das Kürzen rückgängig.",
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
    "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Kürze das Verhältnis 5 m : 40 cm.",
-    "schablone": "□ : □",
-    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
-   },
-   "o": {
-    "werte": [
-     25,
-     2
-    ]
-   },
-   "w": "5 m = 500 cm. 500 : 40 gekürzt durch 20: 25 : 2.",
-   "h": "Rechne zuerst m in cm um.",
-   "c": [
-    "500 // 20",
-    "40 // 20"
-   ]
+   "g": "umkehr"
   },
   {
    "l": "kuerzen",
@@ -469,80 +959,6 @@
    "l": "kuerzen",
    "t": "kuerzen",
    "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Kürze das Verhältnis 2 h : 30 min.",
-    "schablone": "□ : □",
-    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
-   },
-   "o": {
-    "werte": [
-     4,
-     1
-    ]
-   },
-   "w": "2 h = 120 min. 120 : 30 gekürzt durch 30: 4 : 1.",
-   "h": "Rechne zuerst h in min um.",
-   "c": [
-    "120 // 30",
-    "30 // 30"
-   ]
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Kürze das Verhältnis 5 l : 250 ml.",
-    "schablone": "□ : □",
-    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
-   },
-   "o": {
-    "werte": [
-     20,
-     1
-    ]
-   },
-   "w": "5 l = 5 000 ml. 5 000 : 250 gekürzt durch 250: 20 : 1.",
-   "h": "Rechne zuerst l in ml um.",
-   "c": [
-    "5000 // 250",
-    "250 // 250"
-   ]
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Saft wird aus 8 l Orangensaft, 12 l Apfelsaft und 16 l Wasser gemischt. Gib das Verhältnis gekürzt an.",
-    "schablone": "□ : □ : □",
-    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
-   },
-   "o": {
-    "werte": [
-     2,
-     3,
-     4
-    ]
-   },
-   "w": "Alle drei Zahlen durch 4 teilen: 2 : 3 : 4.",
-   "h": "Auch bei drei Zahlen: durch den gemeinsamen Teiler aller drei teilen.",
-   "c": [
-    "8 // 4",
-    "12 // 4",
-    "16 // 4"
-   ]
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
    "s": 3,
    "y": "luecken",
    "f": {
@@ -563,7 +979,8 @@
     "40 // 8",
     "48 // 8",
     "32 // 8"
-   ]
+   ],
+   "g": "transfer"
   },
   {
    "l": "kuerzen",
@@ -572,96 +989,23 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Ein Saft wird aus 6 l Orangensaft, 12 l Apfelsaft und 27 l Wasser gemischt. Gib das Verhältnis gekürzt an.",
-    "schablone": "□ : □ : □",
-    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
-   },
-   "o": {
-    "werte": [
-     2,
-     4,
-     9
-    ]
-   },
-   "w": "Alle drei Zahlen durch 3 teilen: 2 : 4 : 9.",
-   "h": "Auch bei drei Zahlen: durch den gemeinsamen Teiler aller drei teilen.",
-   "c": [
-    "6 // 3",
-    "12 // 3",
-    "27 // 3"
-   ]
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Kürze das Verhältnis 4 € : 15 ct.",
+    "text": "Schreibe das Verhältnis 3/4 : 1/2 mit möglichst kleinen ganzen Zahlen.",
     "schablone": "□ : □",
-    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
-   },
-   "o": {
-    "werte": [
-     80,
-     3
-    ]
-   },
-   "w": "4 € = 400 ct. 400 : 15 gekürzt durch 5: 80 : 3.",
-   "h": "Rechne zuerst € in ct um.",
-   "c": [
-    "400 // 5",
-    "15 // 5"
-   ]
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Kürze das Verhältnis 1,5 : 0,5 auf ganze Zahlen.",
-    "schablone": "□ : □",
-    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+    "hinweis": "Trage die Zahlen ein."
    },
    "o": {
     "werte": [
      3,
-     1
+     2
     ]
    },
-   "w": "Mit 2 multiplizieren: 1,5 · 2 = 3, 0,5 · 2 = 1. Also 3 : 1.",
-   "h": "Multipliziere zuerst beide Zahlen, bis keine Kommazahl mehr da ist.",
    "c": [
-    "1.5 * 2",
-    "0.5 * 2"
-   ]
-  },
-  {
-   "l": "kuerzen",
-   "t": "kuerzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Kürze das Verhältnis 2 : 3,5 auf ganze Zahlen.",
-    "schablone": "□ : □",
-    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
-   },
-   "o": {
-    "werte": [
-     4,
-     7
-    ]
-   },
-   "w": "Mit 2 multiplizieren: 2 · 2 = 4, 3,5 · 2 = 7. Also 4 : 7.",
-   "h": "Multipliziere zuerst beide Zahlen, bis keine Kommazahl mehr da ist.",
-   "c": [
-    "2.0 * 2",
-    "3.5 * 2"
-   ]
+    "3",
+    "2"
+   ],
+   "w": "Mal 4: 3/4 · 4 = 3 und 1/2 · 4 = 2. Also 3 : 2.",
+   "h": "Multipliziere beide Teile mit dem gemeinsamen Nenner.",
+   "g": "verknuepfen"
   },
   {
    "l": "kuerzen",
@@ -894,6 +1238,174 @@
    ]
   },
   {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Gruppe ist das Verhältnis Mädchen : Jungen = 2 : 3. Kommen 2 Mädchen dazu, ist es 1 : 1. Wie viele Kinder waren es vorher?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5*2",
+   "w": "Vorher 2k Mädchen, 3k Jungen. 2k + 2 = 3k ⇒ k = 2: 4 Mädchen, 6 Jungen, zusammen 10.",
+   "h": "Probiere k = 1, 2, 3 für 2k : 3k.",
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand kürzt 24 : 36 zu 4 : 6 und sagt: „Weiter geht es nicht.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Richtig ist 3 : 4.",
+    "Falsch: 4 : 6 lässt sich noch durch 2 kürzen: 2 : 3.",
+    "Falsch: Richtig ist 6 : 9."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4 und 6 sind beide gerade. Mit dem größten gemeinsamen Teiler 12 kürzt man direkt: 24 : 36 = 2 : 3.",
+   "h": "Haben 4 und 6 noch einen gemeinsamen Teiler?",
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: Das Verhältnis 7 : 9 lässt sich nicht weiter kürzen?"
+   },
+   "a": [
+    "Nur, wenn man Dezimalzahlen erlaubt.",
+    "Ja, 7 und 9 haben außer 1 keinen gemeinsamen Teiler.",
+    "Nein, durch 7.",
+    "Nein, durch 3."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Teiler von 7: 1, 7. Teiler von 9: 1, 3, 9. Gemeinsam ist nur die 1, also ist 7 : 9 schon vollständig gekürzt.",
+   "h": "Schreibe die Teiler beider Zahlen auf.",
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "In einer Schule sind 240 Mädchen und 288 Jungen. a) Gib das Verhältnis Mädchen : Jungen gekürzt an. b) Welcher Anteil aller Kinder sind Mädchen? Gib ihn als gekürzten Bruch an.",
+    "schablone": "a) □ : □; b) □/□",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     5,
+     6,
+     5,
+     11
+    ]
+   },
+   "c": [
+    "240 // 48",
+    "288 // 48",
+    "5",
+    "5 + 6"
+   ],
+   "w": "a) Größter gemeinsamer Teiler 48: 5 : 6. b) 5 von 5 + 6 = 11 Teilen: 5/11.",
+   "h": "Bei b) zählen alle Teile zusammen.",
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Saft wird aus 6 l Orangensaft, 12 l Apfelsaft und 27 l Wasser gemischt. Gib das Verhältnis gekürzt an.",
+    "schablone": "□ : □ : □",
+    "hinweis": "Zahlen ohne Einheit, ganz gekürzt"
+   },
+   "o": {
+    "werte": [
+     2,
+     4,
+     9
+    ]
+   },
+   "w": "Alle drei Zahlen durch 3 teilen: 2 : 4 : 9.",
+   "h": "Auch bei drei Zahlen: durch den gemeinsamen Teiler aller drei teilen.",
+   "c": [
+    "6 // 3",
+    "12 // 3",
+    "27 // 3"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Zahlen stehen im Verhältnis 3 : 5. Addiert man zu jeder 4, stehen sie im Verhältnis 2 : 3. Wie heißen die Zahlen?",
+    "schablone": "□ und □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     12,
+     20
+    ]
+   },
+   "c": [
+    "3 * 4",
+    "5 * 4"
+   ],
+   "w": "Die Zahlen sind 3k und 5k. (3k + 4) : (5k + 4) = 2 : 3 ⇒ 3 · (3k + 4) = 2 · (5k + 4) ⇒ 9k + 12 = 10k + 8 ⇒ k = 4. Also 12 und 20. Probe: 16 : 24 = 2 : 3.",
+   "h": "Schreibe die Zahlen als 3k und 5k.",
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Es gilt a : b = 2 : 3 und b : c = 4 : 5. Gib a : b : c mit möglichst kleinen ganzen Zahlen an.",
+    "schablone": "□ : □ : □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     8,
+     12,
+     15
+    ]
+   },
+   "c": [
+    "8",
+    "12",
+    "15"
+   ],
+   "w": "b muss in beiden Verhältnissen gleich sein. 3 und 4 haben das kleinste gemeinsame Vielfache 12: a : b = 8 : 12 und b : c = 12 : 15. Also 8 : 12 : 15.",
+   "h": "Bringe b in beiden Verhältnissen auf dieselbe Zahl.",
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "gleichwertig",
    "t": "gleichwertig",
    "p": "uebung",
@@ -907,7 +1419,29 @@
    },
    "c": "8 * 9",
    "w": "5 · 9 = 45, also auch 8 · 9 = 72.",
-   "h": "Mit welcher Zahl wird 5 multipliziert, um 45 zu erhalten?"
+   "h": "Mit welcher Zahl wird 5 multipliziert, um 45 zu erhalten?",
+   "g": "direkt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mischung A: Sirup und Wasser im Verhältnis 3 : 4. Mischung B: 1 : 8. Welche schmeckt stärker nach Sirup?"
+   },
+   "a": [
+    "Beide gleich stark",
+    "Mischung B",
+    "Mischung A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleichnamig machen: A = 24 : 32, B = 4 : 32. Bei gleicher Wassermenge hat A mehr Sirup.",
+   "h": "Bringe beide Verhältnisse auf dieselbe Wassermenge.",
+   "g": "einkleidung"
   },
   {
    "l": "gleichwertig",
@@ -923,7 +1457,30 @@
    },
    "c": "6 * 4",
    "w": "7 · 4 = 28, also auch 6 · 4 = 24.",
-   "h": "Mit welcher Zahl wird 7 multipliziert, um 28 zu erhalten?"
+   "h": "Mit welcher Zahl wird 7 multipliziert, um 28 zu erhalten?",
+   "g": "direkt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verhältnis ist gleichwertig zu 6 : 7?"
+   },
+   "a": [
+    "28 : 24",
+    "24 : 29",
+    "12 : 13",
+    "24 : 28"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "6 · 4 = 24 und 7 · 4 = 28: beide Zahlen mit 4 multipliziert.",
+   "h": "Prüfe, ob beide Zahlen mit derselben Zahl multipliziert wurden.",
+   "g": "erkennen"
   },
   {
    "l": "gleichwertig",
@@ -939,7 +1496,124 @@
    },
    "c": "6 * 2",
    "w": "11 · 2 = 22, also auch 6 · 2 = 12.",
-   "h": "Mit welcher Zahl wird 11 multipliziert, um 22 zu erhalten?"
+   "h": "Mit welcher Zahl wird 11 multipliziert, um 22 zu erhalten?",
+   "g": "direkt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mischung A: Sirup und Wasser im Verhältnis 5 : 3. Mischung B: 2 : 7. Welche schmeckt stärker nach Sirup?"
+   },
+   "a": [
+    "Mischung B",
+    "Beide gleich stark",
+    "Mischung A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleichnamig machen: A = 35 : 21, B = 6 : 21. Bei gleicher Wassermenge hat A mehr Sirup.",
+   "h": "Bringe beide Verhältnisse auf dieselbe Wassermenge.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mehl, Zucker und Butter stehen im Verhältnis 5 : 2 : 3. Man nimmt 600 g Butter. Wie viel Gramm Mehl braucht man?"
+   },
+   "o": {
+    "wert": 1000,
+    "einheit": "g"
+   },
+   "c": "600/3*5",
+   "w": "3 Teile = 600 g ⇒ 1 Teil = 200 g. Mehl: 5 · 200 g = 1 000 g.",
+   "h": "Wie viel ist ein Teil?",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ina sagt: „8 : 3 = 16 : 11, weil ich zu beiden Zahlen 8 addiert habe.“ Stimmt das?"
+   },
+   "a": [
+    "Falsch: Man muss multiplizieren, richtig ist 8 : 3 = 48 : 18.",
+    "Richtig, man darf zu beiden Zahlen dasselbe addieren.",
+    "Richtig, weil der Unterschied 5 gleich bleibt.",
+    "Falsch: Man muss 8 abziehen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "8 : 3 und 16 : 11 sind nicht gleichwertig (Probe: 8 · 11 = 88, aber 3 · 16 = 48). Gleichwertig wird es nur durch Multiplizieren.",
+   "h": "Prüfe mit Kürzen: Lässt sich das neue Verhältnis auf das alte kürzen?",
+   "g": "fehler"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 2 : 11 = □ : 55"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "2 * 5",
+   "w": "11 · 5 = 55, also auch 2 · 5 = 10.",
+   "h": "Mit welcher Zahl wird 11 multipliziert, um 55 zu erhalten?",
+   "g": "direkt"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 6 : 7 = 18 : □"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "7 * 3",
+   "w": "6 · 3 = 18, also auch 7 · 3 = 21.",
+   "h": "Mit welcher Zahl wird 6 multipliziert, um 18 zu erhalten?"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Verhältnis ist gleichwertig zu 8 : 9?"
+   },
+   "a": [
+    "10 : 11",
+    "24 : 27",
+    "27 : 24",
+    "24 : 28"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "8 · 3 = 24 und 9 · 3 = 27: beide Zahlen mit 3 multipliziert.",
+   "h": "Prüfe, ob beide Zahlen mit derselben Zahl multipliziert wurden.",
+   "g": "erkennen"
   },
   {
    "l": "gleichwertig",
@@ -977,54 +1651,58 @@
    "l": "gleichwertig",
    "t": "gleichwertig",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ergänze: 6 : 7 = 18 : □"
-   },
-   "o": {
-    "wert": 21
-   },
-   "c": "7 * 3",
-   "w": "6 · 3 = 18, also auch 7 · 3 = 21.",
-   "h": "Mit welcher Zahl wird 6 multipliziert, um 18 zu erhalten?"
-  },
-  {
-   "l": "gleichwertig",
-   "t": "gleichwertig",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ergänze: 2 : 11 = □ : 55"
+    "text": "Mädchen und Jungen stehen im Verhältnis 3 : 4. Es sind 12 Mädchen. Wie viele Kinder sind es insgesamt?"
    },
    "o": {
-    "wert": 10
+    "wert": 28
    },
-   "c": "2 * 5",
-   "w": "11 · 5 = 55, also auch 2 · 5 = 10.",
-   "h": "Mit welcher Zahl wird 11 multipliziert, um 55 zu erhalten?"
+   "c": "12/3*7",
+   "w": "3 Teile = 12 ⇒ 1 Teil = 4. Insgesamt 7 Teile = 28 Kinder.",
+   "h": "Bestimme zuerst einen Teil.",
+   "g": "mehrschritt"
   },
   {
-   "l": "gleichwertig",
-   "t": "gleichwertig",
-   "p": "uebung",
-   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welches Verhältnis ist gleichwertig zu 6 : 7?"
+    "text": "Ein Bild zeigt 2 Becher Mehl und 1 Becher Milch. Welches Verhältnis Mehl : Milch ist dazu gleichwertig?"
    },
    "a": [
-    "28 : 24",
-    "24 : 29",
-    "12 : 13",
-    "24 : 28"
+    "2 : 3",
+    "3 : 6",
+    "6 : 3",
+    "4 : 3"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "6 · 4 = 24 und 7 · 4 = 28: beide Zahlen mit 4 multipliziert.",
-   "h": "Prüfe, ob beide Zahlen mit derselben Zahl multipliziert wurden."
+   "w": "Mehl : Milch = 2 : 1. Mal 3 erweitert: 6 : 3.",
+   "h": "Lies erst das Verhältnis am Bild ab.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modellauto ist im Verhältnis 1 : 18 gebaut. Das echte Auto ist 4,5 m lang. Wie lang ist das Modell in cm?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "450 / 18",
+   "w": "4,5 m = 450 cm. 450 cm : 18 = 25 cm.",
+   "h": "Rechne zuerst in cm um.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung"
   },
   {
    "l": "gleichwertig",
@@ -1097,88 +1775,6 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welches Verhältnis ist gleichwertig zu 8 : 9?"
-   },
-   "a": [
-    "10 : 11",
-    "24 : 27",
-    "27 : 24",
-    "24 : 28"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "8 · 3 = 24 und 9 · 3 = 27: beide Zahlen mit 3 multipliziert.",
-   "h": "Prüfe, ob beide Zahlen mit derselben Zahl multipliziert wurden."
-  },
-  {
-   "l": "gleichwertig",
-   "t": "gleichwertig",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ina sagt: „8 : 3 = 16 : 11, weil ich zu beiden Zahlen 8 addiert habe.“ Stimmt das?"
-   },
-   "a": [
-    "Falsch: Man muss multiplizieren, richtig ist 8 : 3 = 48 : 18.",
-    "Richtig, man darf zu beiden Zahlen dasselbe addieren.",
-    "Richtig, weil der Unterschied 5 gleich bleibt.",
-    "Falsch: Man muss 8 abziehen."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "8 : 3 und 16 : 11 sind nicht gleichwertig (Probe: 8 · 11 = 88, aber 3 · 16 = 48). Gleichwertig wird es nur durch Multiplizieren.",
-   "h": "Prüfe mit Kürzen: Lässt sich das neue Verhältnis auf das alte kürzen?"
-  },
-  {
-   "l": "gleichwertig",
-   "t": "gleichwertig",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Mischung A: Sirup und Wasser im Verhältnis 3 : 4. Mischung B: 1 : 8. Welche schmeckt stärker nach Sirup?"
-   },
-   "a": [
-    "Beide gleich stark",
-    "Mischung B",
-    "Mischung A"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Gleichnamig machen: A = 24 : 32, B = 4 : 32. Bei gleicher Wassermenge hat A mehr Sirup.",
-   "h": "Bringe beide Verhältnisse auf dieselbe Wassermenge."
-  },
-  {
-   "l": "gleichwertig",
-   "t": "gleichwertig",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Mischung A: Sirup und Wasser im Verhältnis 5 : 3. Mischung B: 2 : 7. Welche schmeckt stärker nach Sirup?"
-   },
-   "a": [
-    "Mischung B",
-    "Beide gleich stark",
-    "Mischung A"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Gleichnamig machen: A = 35 : 21, B = 6 : 21. Bei gleicher Wassermenge hat A mehr Sirup.",
-   "h": "Bringe beide Verhältnisse auf dieselbe Wassermenge."
-  },
-  {
-   "l": "gleichwertig",
-   "t": "gleichwertig",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
     "text": "Ina sagt: „7 : 6 = 12 : 11, weil ich zu beiden Zahlen 5 addiert habe.“ Stimmt das?"
    },
    "a": [
@@ -1191,28 +1787,8 @@
     "index": 1
    },
    "w": "7 : 6 und 12 : 11 sind nicht gleichwertig (Probe: 7 · 11 = 77, aber 6 · 12 = 72). Gleichwertig wird es nur durch Multiplizieren.",
-   "h": "Prüfe mit Kürzen: Lässt sich das neue Verhältnis auf das alte kürzen?"
-  },
-  {
-   "l": "gleichwertig",
-   "t": "gleichwertig",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ina sagt: „7 : 9 = 14 : 16, weil ich zu beiden Zahlen 7 addiert habe.“ Stimmt das?"
-   },
-   "a": [
-    "Richtig, weil der Unterschied 2 gleich bleibt.",
-    "Falsch: Man muss multiplizieren, richtig ist 7 : 9 = 21 : 27.",
-    "Richtig, man darf zu beiden Zahlen dasselbe addieren.",
-    "Falsch: Man muss 7 abziehen."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "7 : 9 und 14 : 16 sind nicht gleichwertig (Probe: 7 · 16 = 112, aber 9 · 14 = 126). Gleichwertig wird es nur durch Multiplizieren.",
-   "h": "Prüfe mit Kürzen: Lässt sich das neue Verhältnis auf das alte kürzen?"
+   "h": "Prüfe mit Kürzen: Lässt sich das neue Verhältnis auf das alte kürzen?",
+   "g": "fehler"
   },
   {
    "l": "gleichwertig",
@@ -1375,6 +1951,182 @@
    "w": "7 · 6 = 42, also auch 2 · 6 = 12."
   },
   {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl x gilt 3 : x = x : 12?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Gleichwertig heißt: Von 3 zu x und von x zu 12 nimmt man mit demselben Faktor mal. 3 · 2 = 6 und 6 · 2 = 12. Also x = 6: 3 : 6 = 6 : 12 = 1 : 2.",
+   "h": "Probiere x = 4, 5, 6 … und vergleiche die gekürzten Verhältnisse.",
+   "g": "parameter"
+  },
+  {
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche beiden Verhältnisse sind gleichwertig?"
+   },
+   "a": [
+    "4 : 6 und 6 : 8",
+    "6 : 8 und 10 : 15",
+    "4 : 6 und 9 : 12",
+    "4 : 6 und 10 : 15"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gekürzt: 4 : 6 = 2 : 3, 10 : 15 = 2 : 3, 6 : 8 = 3 : 4, 9 : 12 = 3 : 4. Gleich sind 4 : 6 und 10 : 15 (und 6 : 8 und 9 : 12).",
+   "h": "Kürze jedes Verhältnis vollständig.",
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Fruchtschorle mischt man Saft und Wasser im Verhältnis 2 : 3. Man hat schon 1 l Saft und 1 l Wasser gemischt. Wie viel Liter Wasser muss man noch dazugeben?"
+   },
+   "o": {
+    "wert": 0.5,
+    "einheit": "l"
+   },
+   "c": "1 * 3 / 2 - 1",
+   "w": "Zu 1 l Saft gehören 1 · 3 : 2 = 1,5 l Wasser. Es fehlen noch 0,5 l.",
+   "h": "Wie viel Wasser gehört zu 1 l Saft?",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Teil ist 40 % des Ganzen. Welches Verhältnis Teil : Ganzes ist das?"
+   },
+   "a": [
+    "5 : 2",
+    "4 : 6",
+    "2 : 3",
+    "2 : 5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "40 % = 40/100 = 2/5, also Teil : Ganzes = 2 : 5. (Teil : Rest wäre 2 : 3.)",
+   "h": "Schreibe die Prozentzahl als gekürzten Bruch.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Sirup und Wasser wurden im Verhältnis 1 : 5 gemischt. Nach dem Dazugießen von 100 ml Wasser ist das Verhältnis 1 : 7. Wie viel ml Sirup ist im Getränk?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "ml"
+   },
+   "c": "100 // 2",
+   "w": "Sirup s, Wasser 5s. Nachher 5s + 100 = 7s ⇒ 2s = 100 ⇒ s = 50 ml. Probe: 50 : 350 = 1 : 7.",
+   "h": "Schreibe den Sirup als s.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "a) Sind 6 : 9 und 10 : 15 gleichwertig? (1 = ja, 0 = nein) b) Sind 4 : 5 und 12 : 16 gleichwertig? c) Ergänze: 9 : 12 = □ : 20.",
+    "schablone": "a) □; b) □; c) □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     1,
+     0,
+     15
+    ]
+   },
+   "c": [
+    "1",
+    "0",
+    "15"
+   ],
+   "w": "a) Beide gekürzt 2 : 3: ja. b) 4 : 5 und 3 : 4: nein. c) 9 : 12 = 3 : 4 = 15 : 20.",
+   "h": "Kürze die Verhältnisse zum Vergleichen.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Für welche positive Zahl x sind x : 6 und 6 : (x + 5) gleichwertig?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Gleichwertig heißt: x · (x + 5) = 6 · 6 = 36. Probieren: x = 4 ergibt 4 · 9 = 36. Probe: 4 : 6 = 2 : 3 und 6 : 9 = 2 : 3.",
+   "h": "Schreibe die Bedingung als Produkt und probiere.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Verhältnisse a : b mit natürlichen Zahlen a und b, beide höchstens 20, sind gleichwertig zu 3 : 4?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "20 // 4",
+   "w": "Gleichwertig sind 3k : 4k. Damit 4k ≤ 20 gilt, ist k = 1, …, 5: 3 : 4, 6 : 8, 9 : 12, 12 : 16, 15 : 20. Also 5.",
+   "h": "Erweitere 3 : 4 schrittweise.",
+   "l": "gleichwertig",
+   "t": "gleichwertig",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen Teig werden Mehl und Zucker im Verhältnis 5 : 1 gemischt, zusammen 450 g. Wie viel Gramm Zucker sind es?"
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "g"
+   },
+   "c": "450 // 6 * 1",
+   "w": "6 Teile; ein Teil = 450 g : 6 = 75 g. Zucker: 1 · 75 g = 75 g.",
+   "h": "Zucker ist der zweite Teil des Verhältnisses.",
+   "g": "einkleidung"
+  },
+  {
    "l": "aufteilen",
    "t": "aufteilen",
    "p": "uebung",
@@ -1396,7 +2148,68 @@
    "c": [
     "110 // 11 * 7",
     "110 // 11 * 4"
-   ]
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Geschwister teilen sich 500 € Gewinn im Verhältnis 7 : 3. Wie viel bekommt jedes?",
+    "schablone": "□ € und □ €",
+    "hinweis": "Beträge in €"
+   },
+   "o": {
+    "werte": [
+     350,
+     150
+    ]
+   },
+   "w": "10 Teile, ein Teil = 500 € : 10 = 50 €. 7 · 50 € = 350 €, 3 · 50 € = 150 €.",
+   "h": "Erst die Anzahl der Teile, dann den Wert eines Teils.",
+   "c": [
+    "500 // 10 * 7",
+    "500 // 10 * 3"
+   ],
+   "g": "einkleidung"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Freunde teilen Sammelkarten im Verhältnis 7 : 1. Der eine hat 810 Karten mehr als der andere. Wie viele Karten sind es insgesamt?"
+   },
+   "o": {
+    "wert": 1080
+   },
+   "c": "810 // 6 * 8",
+   "w": "Der Unterschied sind 7 − 1 = 6 Teile = 810 Karten. Ein Teil = 135 Karten. Insgesamt 8 · 135 = 1080.",
+   "h": "Der Unterschied entspricht der Differenz der Teile.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen Teig werden Mehl und Zucker im Verhältnis 5 : 4 gemischt, zusammen 945 g. Wie viel Gramm Zucker sind es?"
+   },
+   "o": {
+    "wert": 420,
+    "einheit": "g"
+   },
+   "c": "945 // 9 * 4",
+   "w": "9 Teile; ein Teil = 945 g : 9 = 105 g. Zucker: 4 · 105 g = 420 g.",
+   "h": "Zucker ist der zweite Teil des Verhältnisses.",
+   "g": "einkleidung"
   },
   {
    "l": "aufteilen",
@@ -1420,7 +2233,181 @@
    "c": [
     "228 // 6 * 5",
     "228 // 6 * 1"
+   ],
+   "g": "direkt"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zwei Geschwister teilen sich 300 € Gewinn im Verhältnis 1 : 3. Wie viel bekommt jedes?",
+    "schablone": "□ € und □ €",
+    "hinweis": "Beträge in €"
+   },
+   "o": {
+    "werte": [
+     75,
+     225
+    ]
+   },
+   "w": "4 Teile, ein Teil = 300 € : 4 = 75 €. 1 · 75 € = 75 €, 3 · 75 € = 225 €.",
+   "h": "Erst die Anzahl der Teile, dann den Wert eines Teils.",
+   "c": [
+    "300 // 4 * 1",
+    "300 // 4 * 3"
+   ],
+   "g": "einkleidung"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wasser und Saft werden im Verhältnis 2 : 1 gemischt. Es werden 200 ml Wasser verwendet. Wie viel ml Getränk entstehen insgesamt?"
+   },
+   "o": {
+    "wert": 300,
+    "einheit": "ml"
+   },
+   "c": "200 // 2 * 3",
+   "w": "2 Teile = 200 ml, also ein Teil = 100 ml. Insgesamt 3 · 100 ml = 300 ml.",
+   "h": "Wie viel ist ein Teil, wenn du das Wasser kennst?",
+   "g": "umkehr"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein 150 m langes Seil wird im Verhältnis 3 : 7 zerschnitten. Wie lang ist das kürzere Stück?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "m"
+   },
+   "c": "150.0 / 10 * 3",
+   "w": "10 Teile; ein Teil = 150 m : 10 = 15 m. Kürzeres Stück: 3 · 15 m = 45 m.",
+   "h": "Das kürzere Stück gehört zur kleineren Zahl im Verhältnis.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Freunde teilen Sammelkarten im Verhältnis 5 : 3. Der eine hat 300 Karten mehr als der andere. Wie viele Karten sind es insgesamt?"
+   },
+   "o": {
+    "wert": 1200
+   },
+   "c": "300 // 2 * 8",
+   "w": "Der Unterschied sind 5 − 3 = 2 Teile = 300 Karten. Ein Teil = 150 Karten. Insgesamt 8 · 150 = 1200.",
+   "h": "Der Unterschied entspricht der Differenz der Teile.",
+   "g": "rueckwaerts"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "110 € sollen im Verhältnis 7 : 4 aufgeteilt werden. In wie viele gleiche Teile teilt man zuerst?"
+   },
+   "a": [
+    "in 4 Teile",
+    "in 11 Teile",
+    "in 7 Teile",
+    "in 28 Teile"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "7 + 4 = 11 Teile. Ein Teil ist 110 € : 11 = 10 €.",
+   "h": "Zähle die Teile zusammen.",
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Teile 99 im Verhältnis 5 : 6 auf.",
+    "schablone": "□ und □",
+    "hinweis": "beide Anteile"
+   },
+   "o": {
+    "werte": [
+     45,
+     54
+    ]
+   },
+   "w": "5 + 6 = 11 Teile. Ein Teil: 99 : 11 = 9. Anteile: 5 · 9 = 45 und 6 · 9 = 54.",
+   "h": "Zähle die Teile zusammen und berechne zuerst, wie viel ein Teil ist.",
+   "c": [
+    "99 // 11 * 5",
+    "99 // 11 * 6"
    ]
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Teile 112 im Verhältnis 1 : 7 auf.",
+    "schablone": "□ und □",
+    "hinweis": "beide Anteile"
+   },
+   "o": {
+    "werte": [
+     14,
+     98
+    ]
+   },
+   "w": "1 + 7 = 8 Teile. Ein Teil: 112 : 8 = 14. Anteile: 1 · 14 = 14 und 7 · 14 = 98.",
+   "h": "Zähle die Teile zusammen und berechne zuerst, wie viel ein Teil ist.",
+   "c": [
+    "112 // 8 * 1",
+    "112 // 8 * 7"
+   ]
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Verteile 60 Murmeln im Verhältnis 1 : 2.",
+    "schablone": "□ und □",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     20,
+     40
+    ]
+   },
+   "c": [
+    "60 // 3",
+    "2 * 20"
+   ],
+   "w": "1 + 2 = 3 Teile, ein Teil 60 : 3 = 20. Also 20 und 40 Murmeln.",
+   "h": "Wie viele Teile gibt es?",
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt"
   },
   {
    "l": "aufteilen",
@@ -1474,153 +2461,6 @@
    "l": "aufteilen",
    "t": "aufteilen",
    "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Teile 99 im Verhältnis 5 : 6 auf.",
-    "schablone": "□ und □",
-    "hinweis": "beide Anteile"
-   },
-   "o": {
-    "werte": [
-     45,
-     54
-    ]
-   },
-   "w": "5 + 6 = 11 Teile. Ein Teil: 99 : 11 = 9. Anteile: 5 · 9 = 45 und 6 · 9 = 54.",
-   "h": "Zähle die Teile zusammen und berechne zuerst, wie viel ein Teil ist.",
-   "c": [
-    "99 // 11 * 5",
-    "99 // 11 * 6"
-   ]
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Teile 112 im Verhältnis 1 : 7 auf.",
-    "schablone": "□ und □",
-    "hinweis": "beide Anteile"
-   },
-   "o": {
-    "werte": [
-     14,
-     98
-    ]
-   },
-   "w": "1 + 7 = 8 Teile. Ein Teil: 112 : 8 = 14. Anteile: 1 · 14 = 14 und 7 · 14 = 98.",
-   "h": "Zähle die Teile zusammen und berechne zuerst, wie viel ein Teil ist.",
-   "c": [
-    "112 // 8 * 1",
-    "112 // 8 * 7"
-   ]
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für einen Teig werden Mehl und Zucker im Verhältnis 5 : 1 gemischt, zusammen 450 g. Wie viel Gramm Zucker sind es?"
-   },
-   "o": {
-    "wert": 75,
-    "einheit": "g"
-   },
-   "c": "450 // 6 * 1",
-   "w": "6 Teile; ein Teil = 450 g : 6 = 75 g. Zucker: 1 · 75 g = 75 g.",
-   "h": "Zucker ist der zweite Teil des Verhältnisses."
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Zwei Geschwister teilen sich 500 € Gewinn im Verhältnis 7 : 3. Wie viel bekommt jedes?",
-    "schablone": "□ € und □ €",
-    "hinweis": "Beträge in €"
-   },
-   "o": {
-    "werte": [
-     350,
-     150
-    ]
-   },
-   "w": "10 Teile, ein Teil = 500 € : 10 = 50 €. 7 · 50 € = 350 €, 3 · 50 € = 150 €.",
-   "h": "Erst die Anzahl der Teile, dann den Wert eines Teils.",
-   "c": [
-    "500 // 10 * 7",
-    "500 // 10 * 3"
-   ]
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für einen Teig werden Mehl und Zucker im Verhältnis 5 : 4 gemischt, zusammen 945 g. Wie viel Gramm Zucker sind es?"
-   },
-   "o": {
-    "wert": 420,
-    "einheit": "g"
-   },
-   "c": "945 // 9 * 4",
-   "w": "9 Teile; ein Teil = 945 g : 9 = 105 g. Zucker: 4 · 105 g = 420 g.",
-   "h": "Zucker ist der zweite Teil des Verhältnisses."
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Zwei Geschwister teilen sich 300 € Gewinn im Verhältnis 1 : 3. Wie viel bekommt jedes?",
-    "schablone": "□ € und □ €",
-    "hinweis": "Beträge in €"
-   },
-   "o": {
-    "werte": [
-     75,
-     225
-    ]
-   },
-   "w": "4 Teile, ein Teil = 300 € : 4 = 75 €. 1 · 75 € = 75 €, 3 · 75 € = 225 €.",
-   "h": "Erst die Anzahl der Teile, dann den Wert eines Teils.",
-   "c": [
-    "300 // 4 * 1",
-    "300 // 4 * 3"
-   ]
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein 150 m langes Seil wird im Verhältnis 3 : 7 zerschnitten. Wie lang ist das kürzere Stück?"
-   },
-   "o": {
-    "wert": 45,
-    "einheit": "m"
-   },
-   "c": "150.0 / 10 * 3",
-   "w": "10 Teile; ein Teil = 150 m : 10 = 15 m. Kürzeres Stück: 3 · 15 m = 45 m.",
-   "h": "Das kürzere Stück gehört zur kleineren Zahl im Verhältnis."
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1632,46 +2472,14 @@
    },
    "c": "104.5 / 11 * 5",
    "w": "11 Teile; ein Teil = 104,5 m : 11 = 9,5 m. Kürzeres Stück: 5 · 9,5 m = 47,5 m.",
-   "h": "Das kürzere Stück gehört zur kleineren Zahl im Verhältnis."
+   "h": "Das kürzere Stück gehört zur kleineren Zahl im Verhältnis.",
+   "g": "einkleidung"
   },
   {
    "l": "aufteilen",
    "t": "aufteilen",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Freunde teilen Sammelkarten im Verhältnis 7 : 1. Der eine hat 810 Karten mehr als der andere. Wie viele Karten sind es insgesamt?"
-   },
-   "o": {
-    "wert": 1080
-   },
-   "c": "810 // 6 * 8",
-   "w": "Der Unterschied sind 7 − 1 = 6 Teile = 810 Karten. Ein Teil = 135 Karten. Insgesamt 8 · 135 = 1080.",
-   "h": "Der Unterschied entspricht der Differenz der Teile."
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wasser und Saft werden im Verhältnis 2 : 1 gemischt. Es werden 200 ml Wasser verwendet. Wie viel ml Getränk entstehen insgesamt?"
-   },
-   "o": {
-    "wert": 300,
-    "einheit": "ml"
-   },
-   "c": "200 // 2 * 3",
-   "w": "2 Teile = 200 ml, also ein Teil = 100 ml. Insgesamt 3 · 100 ml = 300 ml.",
-   "h": "Wie viel ist ein Teil, wenn du das Wasser kennst?"
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Wasser und Saft werden im Verhältnis 7 : 6 gemischt. Es werden 1190 ml Wasser verwendet. Wie viel ml Getränk entstehen insgesamt?"
@@ -1682,29 +2490,14 @@
    },
    "c": "1190 // 7 * 13",
    "w": "7 Teile = 1190 ml, also ein Teil = 170 ml. Insgesamt 13 · 170 ml = 2 210 ml.",
-   "h": "Wie viel ist ein Teil, wenn du das Wasser kennst?"
+   "h": "Wie viel ist ein Teil, wenn du das Wasser kennst?",
+   "g": "umkehr"
   },
   {
    "l": "aufteilen",
    "t": "aufteilen",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Freunde teilen Sammelkarten im Verhältnis 5 : 3. Der eine hat 300 Karten mehr als der andere. Wie viele Karten sind es insgesamt?"
-   },
-   "o": {
-    "wert": 1200
-   },
-   "c": "300 // 2 * 8",
-   "w": "Der Unterschied sind 5 − 3 = 2 Teile = 300 Karten. Ein Teil = 150 Karten. Insgesamt 8 · 150 = 1200.",
-   "h": "Der Unterschied entspricht der Differenz der Teile."
-  },
-  {
-   "l": "aufteilen",
-   "t": "aufteilen",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "240 € werden im Verhältnis 6 : 1 : 5 auf drei Personen verteilt. Wie viel bekommt jede?",
@@ -1724,7 +2517,8 @@
     "240 // 12 * 6",
     "240 // 12 * 1",
     "240 // 12 * 5"
-   ]
+   ],
+   "g": "mehrschritt"
   },
   {
    "l": "aufteilen",
@@ -1733,15 +2527,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Wasser und Saft werden im Verhältnis 5 : 1 gemischt. Es werden 575 ml Wasser verwendet. Wie viel ml Getränk entstehen insgesamt?"
+    "text": "Ein Erbe wird im Verhältnis 2 : 3 : 5 verteilt. Der kleinste Anteil beträgt 4 000 €. Wie groß ist das Erbe insgesamt?"
    },
    "o": {
-    "wert": 690,
-    "einheit": "ml"
+    "wert": 20000,
+    "einheit": "€"
    },
-   "c": "575 // 5 * 6",
-   "w": "5 Teile = 575 ml, also ein Teil = 115 ml. Insgesamt 6 · 115 ml = 690 ml.",
-   "h": "Wie viel ist ein Teil, wenn du das Wasser kennst?"
+   "c": "4000/2*10",
+   "w": "2 Teile = 4 000 € ⇒ 1 Teil = 2 000 €. 2 + 3 + 5 = 10 Teile = 20 000 €.",
+   "h": "Welcher Anteil ist der kleinste?",
+   "g": "rueckwaerts"
   },
   {
    "l": "aufteilen",
@@ -1939,6 +2734,200 @@
    "w": "9 Teile; ein Teil = 112,5 m : 9 = 12,5 m. Kürzeres Stück: 4 · 12,5 m = 50 m."
   },
   {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat 64 cm Umfang. Länge und Breite stehen im Verhältnis 5 : 3. Wie lang ist das Rechteck?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "64/2/8*5",
+   "w": "Länge + Breite = 32 cm. 5 + 3 = 8 Teile ⇒ 1 Teil = 4 cm. Länge 5 · 4 = 20 cm.",
+   "h": "Der Umfang enthält Länge und Breite je zweimal.",
+   "g": "verknuepfen"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand teilt 90 € im Verhältnis 2 : 1 so auf: 90 : 2 = 45 € und 90 : 1 = 90 €. Was stimmt?"
+   },
+   "a": [
+    "Falsch: 45 € und 45 €.",
+    "Richtig.",
+    "Falsch: 80 € und 10 €.",
+    "Falsch: Es gibt 3 Teile zu je 30 €, also 60 € und 30 €."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Zusammen müssen es 90 € sein, nicht 135 €. Erst die Teile zählen: 2 + 1 = 3, ein Teil 30 €.",
+   "h": "Ergeben beide Beträge zusammen 90 €?",
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt: Teilt man im Verhältnis 1 : 1 : 2, bekommt der Größte genau die Hälfte?"
+   },
+   "a": [
+    "Das hängt vom Betrag ab.",
+    "Ja: 2 von 1 + 1 + 2 = 4 Teilen sind die Hälfte.",
+    "Nein, zwei Drittel.",
+    "Nein, ein Drittel."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es gibt 4 Teile. Der Größte bekommt 2 davon, also 2/4 = 1/2 – egal wie groß der Betrag ist.",
+   "h": "Wie viele Teile gibt es insgesamt?",
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "400 € werden im Verhältnis 3 : k aufgeteilt. Der erste Anteil ist 120 €. Wie groß ist k?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "400 // 40 - 3",
+   "w": "3 Teile sind 120 €, ein Teil 40 €. 400 € sind 10 Teile, also 3 + k = 10 ⇒ k = 7.",
+   "h": "Wie groß ist ein Teil?",
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Drei Freunde zahlen für ein Los 5 €, 10 € und 15 €. Sie gewinnen 240 € und teilen gerecht nach ihren Einsätzen. Wie viel bekommt der, der 10 € gezahlt hat?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "€"
+   },
+   "c": "240 * 10 // 30",
+   "w": "Verhältnis 5 : 10 : 15 = 1 : 2 : 3, also 6 Teile zu je 40 €. Der Zweite bekommt 2 Teile: 80 €.",
+   "h": "Stelle zuerst das Verhältnis der Einsätze auf.",
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Ein Gewinn von 1 800 € wird im Verhältnis 2 : 3 : 4 verteilt. a) Wie viel Euro ist ein Teil? b) Wie viel bekommt der Größte? c) Wie viel mehr bekommt der Größte als der Kleinste?",
+    "schablone": "a) □ €; b) □ €; c) □ €",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     200,
+     800,
+     400
+    ]
+   },
+   "c": [
+    "1800 // 9",
+    "4 * 200",
+    "(4 - 2) * 200"
+   ],
+   "w": "a) 2 + 3 + 4 = 9 Teile, 1 800 : 9 = 200 €. b) 4 · 200 = 800 €. c) 800 − 400 = 400 €.",
+   "h": "Erst die Teile zählen.",
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wasser und Saft werden im Verhältnis 5 : 1 gemischt. Es werden 575 ml Wasser verwendet. Wie viel ml Getränk entstehen insgesamt?"
+   },
+   "o": {
+    "wert": 690,
+    "einheit": "ml"
+   },
+   "c": "575 // 5 * 6",
+   "w": "5 Teile = 575 ml, also ein Teil = 115 ml. Insgesamt 6 · 115 ml = 690 ml.",
+   "h": "Wie viel ist ein Teil, wenn du das Wasser kennst?"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Drei Geschwister teilen Bonbons im Verhältnis 2 : 3 : 4. Das jüngste bekommt 12 Bonbons weniger als das älteste. Wie viele Bonbons sind es insgesamt?"
+   },
+   "o": {
+    "wert": 54
+   },
+   "c": "9 * 6",
+   "w": "Der Unterschied sind 4 − 2 = 2 Teile = 12 Bonbons, also ein Teil 6. Insgesamt 9 Teile: 54 Bonbons (12, 18, 24).",
+   "h": "Wie viele Teile sind der Unterschied?",
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Betrag wird im Verhältnis 3 : 5 geteilt. Bei einer Teilung im Verhältnis 1 : 1 bekäme der Erste 30 € mehr. Wie groß ist der Betrag?"
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "€"
+   },
+   "c": "8 * 30",
+   "w": "3 : 5 sind 8 Teile. Bei 1 : 1 bekommt jeder 4 Teile. Der Erste bekäme also 1 Teil mehr: 1 Teil = 30 €. Betrag 8 · 30 = 240 €.",
+   "h": "Wie viele Teile bekommt der Erste jeweils?",
+   "l": "aufteilen",
+   "t": "aufteilen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 6 Portionen braucht man 360 g Zucker. Wie viel Zucker braucht man für 3 Portionen?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "g"
+   },
+   "c": "360 / 6 * 3",
+   "w": "Eine Portion: 360 g : 6 = 60 g. 3 Portionen: 3 · 60 g = 180 g.",
+   "h": "Rechne zuerst für eine Portion.",
+   "g": "mehrschritt"
+  },
+  {
    "l": "proportion",
    "t": "proportion",
    "p": "uebung",
@@ -1952,7 +2941,26 @@
    },
    "c": "5 * 2",
    "w": "2 · 2 = 4, also x = 5 · 2 = 10.",
-   "h": "Suche den Faktor zwischen den bekannten Zahlen."
+   "h": "Suche den Faktor zwischen den bekannten Zahlen.",
+   "g": "direkt"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 2 Portionen braucht man 50 ml Milch. Wie viel Milch braucht man für 12 Portionen?"
+   },
+   "o": {
+    "wert": 300,
+    "einheit": "ml"
+   },
+   "c": "50 / 2 * 12",
+   "w": "Eine Portion: 50 ml : 2 = 25 ml. 12 Portionen: 12 · 25 ml = 300 ml.",
+   "h": "Rechne zuerst für eine Portion.",
+   "g": "mehrschritt"
   },
   {
    "l": "proportion",
@@ -1969,7 +2977,120 @@
    },
    "c": "250 / 5 * 10",
    "w": "Eine Portion: 250 g : 5 = 50 g. 10 Portionen: 10 · 50 g = 500 g.",
-   "h": "Rechne zuerst für eine Portion."
+   "h": "Rechne zuerst für eine Portion.",
+   "g": "direkt"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 6 Portionen braucht man 300 g Mehl. Wie viel Mehl braucht man für 9 Portionen?"
+   },
+   "o": {
+    "wert": 450,
+    "einheit": "g"
+   },
+   "c": "300 / 6 * 9",
+   "w": "Eine Portion: 300 g : 6 = 50 g. 9 Portionen: 9 · 50 g = 450 g.",
+   "h": "Rechne zuerst für eine Portion.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto braucht auf 250 km 17 Liter Benzin. Wie viele Liter braucht es auf 600 km?"
+   },
+   "o": {
+    "wert": 40.8,
+    "einheit": "l"
+   },
+   "c": "17 * 600 / 250",
+   "w": "Pro km: 17 l : 250. Für 600 km: 17 · 600 : 250 = 40,8 l.",
+   "h": "Rechne über 100 km oder über 1 km.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für 4 Portionen braucht man 160 ml Milch. Wie viel Milch braucht man für 12 Portionen?"
+   },
+   "o": {
+    "wert": 480,
+    "einheit": "ml"
+   },
+   "c": "160 / 4 * 12",
+   "w": "Eine Portion: 160 ml : 4 = 40 ml. 12 Portionen: 12 · 40 ml = 480 ml.",
+   "h": "Rechne zuerst für eine Portion.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Maßstab 1 : 25 000. Eine Strecke ist in Wirklichkeit 1 km lang. Wie lang ist sie auf der Karte (in cm)?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "1 * 100000 / 25000",
+   "w": "1 km = 100 000 cm. Auf der Karte: 100 000 : 25 000 = 4 cm.",
+   "h": "Rechne km in cm um und teile durch die Maßstabszahl.",
+   "g": "umkehr"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "4 Hemden hängen nebeneinander auf der Leine und sind nach 40 Minuten trocken. Wie lange brauchen 12 Hemden, die ebenfalls gleichzeitig hängen?"
+   },
+   "a": [
+    "120 Minuten",
+    "13 Minuten",
+    "48 Minuten",
+    "40 Minuten"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Hemden trocknen gleichzeitig. Die Zeit hängt nicht von der Anzahl ab – das ist keine Proportion. Es bleiben 40 Minuten.",
+   "h": "Prüfe zuerst: Wächst die Zeit wirklich mit der Anzahl?",
+   "g": "begruenden"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Wechselkurs ist 1 € = 1,10 $. Wie viele Euro bekommt man für 220 $?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "€"
+   },
+   "c": "220/1.1",
+   "w": "1,10 $ entsprechen 1 €. 220 : 1,10 = 200 €.",
+   "h": "Wie viele „1,10-$-Päckchen“ stecken in 220 $?",
+   "g": "transfer"
   },
   {
    "l": "proportion",
@@ -1985,24 +3106,30 @@
    },
    "c": "11 * 3",
    "w": "8 · 3 = 24, also x = 11 · 3 = 33.",
-   "h": "Suche den Faktor zwischen den bekannten Zahlen."
+   "h": "Suche den Faktor zwischen den bekannten Zahlen.",
+   "g": "direkt"
   },
   {
+   "y": "auswahl",
+   "f": {
+    "text": "3 Hefte kosten 6 €. Welche Proportion passt zur Frage „Was kosten 5 Hefte?“"
+   },
+   "a": [
+    "3 : 6 = x : 5",
+    "3 : 6 = 5 : x",
+    "6 : 3 = 5 : x",
+    "3 : 5 = x : 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Hefte : Preis bleibt gleich: 3 : 6 = 5 : x. Dann x = 10 €.",
+   "h": "Was steht links, was rechts im Verhältnis?",
    "l": "proportion",
    "t": "proportion",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Für 6 Portionen braucht man 360 g Zucker. Wie viel Zucker braucht man für 3 Portionen?"
-   },
-   "o": {
-    "wert": 180,
-    "einheit": "g"
-   },
-   "c": "360 / 6 * 3",
-   "w": "Eine Portion: 360 g : 6 = 60 g. 3 Portionen: 3 · 60 g = 180 g.",
-   "h": "Rechne zuerst für eine Portion."
+   "g": "erkennen"
   },
   {
    "l": "proportion",
@@ -2043,74 +3170,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für 2 Portionen braucht man 50 ml Milch. Wie viel Milch braucht man für 12 Portionen?"
-   },
-   "o": {
-    "wert": 300,
-    "einheit": "ml"
-   },
-   "c": "50 / 2 * 12",
-   "w": "Eine Portion: 50 ml : 2 = 25 ml. 12 Portionen: 12 · 25 ml = 300 ml.",
-   "h": "Rechne zuerst für eine Portion."
-  },
-  {
-   "l": "proportion",
-   "t": "proportion",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Auto braucht auf 250 km 17 Liter Benzin. Wie viele Liter braucht es auf 600 km?"
-   },
-   "o": {
-    "wert": 40.8,
-    "einheit": "l"
-   },
-   "c": "17 * 600 / 250",
-   "w": "Pro km: 17 l : 250. Für 600 km: 17 · 600 : 250 = 40,8 l.",
-   "h": "Rechne über 100 km oder über 1 km."
-  },
-  {
-   "l": "proportion",
-   "t": "proportion",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für 6 Portionen braucht man 300 g Mehl. Wie viel Mehl braucht man für 9 Portionen?"
-   },
-   "o": {
-    "wert": 450,
-    "einheit": "g"
-   },
-   "c": "300 / 6 * 9",
-   "w": "Eine Portion: 300 g : 6 = 50 g. 9 Portionen: 9 · 50 g = 450 g.",
-   "h": "Rechne zuerst für eine Portion."
-  },
-  {
-   "l": "proportion",
-   "t": "proportion",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für 4 Portionen braucht man 160 ml Milch. Wie viel Milch braucht man für 12 Portionen?"
-   },
-   "o": {
-    "wert": 480,
-    "einheit": "ml"
-   },
-   "c": "160 / 4 * 12",
-   "w": "Eine Portion: 160 ml : 4 = 40 ml. 12 Portionen: 12 · 40 ml = 480 ml.",
-   "h": "Rechne zuerst für eine Portion."
-  },
-  {
-   "l": "proportion",
-   "t": "proportion",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Eine Wanderkarte hat den Maßstab 1 : 50 000. Zwei Orte sind auf der Karte 9 cm voneinander entfernt. Wie weit ist das in Wirklichkeit (in km)?"
    },
    "o": {
@@ -2119,7 +3178,8 @@
    },
    "c": "9 * 50000 / 100000",
    "w": "1 cm auf der Karte = 50 000 cm in echt. 9 cm = 9 · 50 000 cm = 450 000 cm = 4,5 km.",
-   "h": "1 km = 100 000 cm."
+   "h": "1 km = 100 000 cm.",
+   "g": "darstellung"
   },
   {
    "l": "proportion",
@@ -2136,45 +3196,44 @@
    },
    "c": "17 * 450 / 250",
    "w": "Pro km: 17 l : 250. Für 450 km: 17 · 450 : 250 = 30,6 l.",
-   "h": "Rechne über 100 km oder über 1 km."
+   "h": "Rechne über 100 km oder über 1 km.",
+   "g": "einkleidung"
   },
   {
    "l": "proportion",
    "t": "proportion",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "4 Hemden hängen nebeneinander auf der Leine und sind nach 40 Minuten trocken. Wie lange brauchen 12 Hemden, die ebenfalls gleichzeitig hängen?"
-   },
-   "a": [
-    "120 Minuten",
-    "13 Minuten",
-    "48 Minuten",
-    "40 Minuten"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Hemden trocknen gleichzeitig. Die Zeit hängt nicht von der Anzahl ab – das ist keine Proportion. Es bleiben 40 Minuten.",
-   "h": "Prüfe zuerst: Wächst die Zeit wirklich mit der Anzahl?"
-  },
-  {
-   "l": "proportion",
-   "t": "proportion",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Maßstab 1 : 25 000. Eine Strecke ist in Wirklichkeit 1 km lang. Wie lang ist sie auf der Karte (in cm)?"
+    "text": "Für 4 Portionen braucht man 100 g Zucker. Wie viel Zucker braucht man für 6 Portionen?"
    },
    "o": {
-    "wert": 4,
+    "wert": 150,
+    "einheit": "g"
+   },
+   "c": "100 / 4 * 6",
+   "w": "Eine Portion: 100 g : 4 = 25 g. 6 Portionen: 6 · 25 g = 150 g.",
+   "h": "Rechne zuerst für eine Portion.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Maßstab 1 : 50 000. Eine Strecke ist in Wirklichkeit 3 km lang. Wie lang ist sie auf der Karte (in cm)?"
+   },
+   "o": {
+    "wert": 6,
     "einheit": "cm"
    },
-   "c": "1 * 100000 / 25000",
-   "w": "1 km = 100 000 cm. Auf der Karte: 100 000 : 25 000 = 4 cm.",
-   "h": "Rechne km in cm um und teile durch die Maßstabszahl."
+   "c": "3 * 100000 / 50000",
+   "w": "3 km = 300 000 cm. Auf der Karte: 300 000 : 50 000 = 6 cm.",
+   "h": "Rechne km in cm um und teile durch die Maßstabszahl.",
+   "g": "umkehr"
   },
   {
    "l": "proportion",
@@ -2195,7 +3254,8 @@
     "index": 1
    },
    "w": "Die Hemden trocknen gleichzeitig. Die Zeit hängt nicht von der Anzahl ab – das ist keine Proportion. Es bleiben 60 Minuten.",
-   "h": "Prüfe zuerst: Wächst die Zeit wirklich mit der Anzahl?"
+   "h": "Prüfe zuerst: Wächst die Zeit wirklich mit der Anzahl?",
+   "g": "begruenden"
   },
   {
    "l": "proportion",
@@ -2204,36 +3264,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Für 4 Portionen braucht man 100 g Zucker. Wie viel Zucker braucht man für 6 Portionen?"
+    "text": "3 Maler brauchen für ein Haus 12 Tage. Wie viele Tage brauchen 4 Maler, wenn alle gleich schnell arbeiten?"
    },
    "o": {
-    "wert": 150,
-    "einheit": "g"
+    "wert": 9,
+    "einheit": "Tage"
    },
-   "c": "100 / 4 * 6",
-   "w": "Eine Portion: 100 g : 4 = 25 g. 6 Portionen: 6 · 25 g = 150 g.",
-   "h": "Rechne zuerst für eine Portion."
-  },
-  {
-   "l": "proportion",
-   "t": "proportion",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "4 Hemden hängen nebeneinander auf der Leine und sind nach 50 Minuten trocken. Wie lange brauchen 12 Hemden, die ebenfalls gleichzeitig hängen?"
-   },
-   "a": [
-    "58 Minuten",
-    "16 Minuten",
-    "150 Minuten",
-    "50 Minuten"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Hemden trocknen gleichzeitig. Die Zeit hängt nicht von der Anzahl ab – das ist keine Proportion. Es bleiben 50 Minuten.",
-   "h": "Prüfe zuerst: Wächst die Zeit wirklich mit der Anzahl?"
+   "c": "3*12/4",
+   "w": "Mehr Maler, weniger Tage: Das ist nicht proportional. 3 · 12 = 36 Malertage. 36 : 4 = 9 Tage.",
+   "h": "Wächst die Zeit mit der Zahl der Maler – oder sinkt sie?",
+   "g": "verknuepfen"
   },
   {
    "l": "proportion",
@@ -2242,15 +3282,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Maßstab 1 : 50 000. Eine Strecke ist in Wirklichkeit 3 km lang. Wie lang ist sie auf der Karte (in cm)?"
+    "text": "Auf einer Karte entsprechen 6 cm in Wirklichkeit 3 km. Der Maßstab ist 1 : x. Wie groß ist x?"
    },
    "o": {
-    "wert": 6,
-    "einheit": "cm"
+    "wert": 50000
    },
-   "c": "3 * 100000 / 50000",
-   "w": "3 km = 300 000 cm. Auf der Karte: 300 000 : 50 000 = 6 cm.",
-   "h": "Rechne km in cm um und teile durch die Maßstabszahl."
+   "c": "300000/6",
+   "w": "3 km = 300 000 cm. 6 cm : 300 000 cm = 1 : 50 000.",
+   "h": "Rechne beide Längen in dieselbe Einheit um.",
+   "g": "rueckwaerts"
   },
   {
    "l": "proportion",
@@ -2413,6 +3453,105 @@
    "w": "Pro km: 20 l : 250. Für 350 km: 20 · 350 : 250 = 28 l."
   },
   {
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handyfoto ist 6 cm breit und 10 cm hoch. Als Poster soll es 45 cm breit werden. Wie hoch wird das Poster?"
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "cm"
+   },
+   "c": "45/6*10",
+   "w": "Faktor 45 : 6 = 7,5. Höhe 10 · 7,5 = 75 cm.",
+   "h": "Um welchen Faktor wird das Bild vergrößert?",
+   "g": "transfer"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 3 : 4 = x : 12 mit x = 11: „Von 4 nach 12 sind es 8 mehr, also 3 + 8.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: x = 1.",
+    "Falsch: Man multipliziert, 4 · 3 = 12, also x = 3 · 3 = 9.",
+    "Falsch: x = 16."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleichwertige Verhältnisse entstehen durch Malnehmen. 11 : 12 ist nicht gleichwertig zu 3 : 4, aber 9 : 12 schon.",
+   "h": "Mach die Probe mit gekürzten Verhältnissen.",
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Eine Karte hat den Maßstab 1 : 200 000. a) Wie viele km sind 3 cm auf der Karte? b) Wie viele cm sind 10 km in Wirklichkeit auf der Karte?",
+    "schablone": "a) □ km; b) □ cm",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     6,
+     5
+    ]
+   },
+   "c": [
+    "3 * 200000 // 100000",
+    "10 * 100000 // 200000"
+   ],
+   "w": "a) 3 cm · 200 000 = 600 000 cm = 6 km. b) 10 km = 1 000 000 cm, : 200 000 = 5 cm.",
+   "h": "1 km = 100 000 cm.",
+   "l": "proportion",
+   "t": "proportion",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "3 Katzen fangen in 3 Minuten 3 Mäuse. Wie viele Katzen fangen in 100 Minuten 100 Mäuse (alle gleich schnell)?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Die 3 Katzen fangen zusammen 1 Maus pro Minute. In 100 Minuten fangen sie also 100 Mäuse. Man braucht nur 3 Katzen.",
+   "h": "Wie viele Mäuse fangen die 3 Katzen pro Minute?",
+   "l": "proportion",
+   "t": "proportion",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rezept für 4 Personen braucht 3 Eier. Für wie viele Personen reicht eine Packung mit 10 Eiern höchstens (Eier dürfen übrig bleiben)?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "13",
+   "w": "Pro Person 3 : 4 = 0,75 Eier. 10 : 0,75 = 13,3… Für 13 Personen braucht man 9,75 Eier, für 14 schon 10,5. Also 13 Personen.",
+   "h": "Wie viele Eier braucht eine Person?",
+   "l": "proportion",
+   "t": "proportion",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "einheitsrate",
    "t": "einheitsrate",
    "p": "uebung",
@@ -2427,7 +3566,29 @@
    },
    "c": "100 / 5",
    "w": "100 km : 5 h = 20 km pro Stunde.",
-   "h": "Rate = Weg : Zeit."
+   "h": "Rate = Weg : Zeit.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kaffee wird angeboten – A: 750 g für 9,15 €, B: 200 g für 3,30 €. Welches Angebot ist am günstigsten?"
+   },
+   "a": [
+    "Beide gleich günstig",
+    "Angebot A",
+    "Angebot B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 9,15 € : 7,5 ≈ 1,22 € pro 100 g; B: 3,30 € : 2 ≈ 1,65 € pro 100 g. Am wenigsten pro 100 g kostet A.",
+   "h": "Berechne für jedes Angebot den Preis pro 100 g.",
+   "g": "mehrschritt"
   },
   {
    "l": "einheitsrate",
@@ -2444,7 +3605,26 @@
    },
    "c": "44/5 / 4",
    "w": "8,80 € : 4 = 2,20 €.",
-   "h": "Teile den Gesamtpreis durch die Anzahl."
+   "h": "Teile den Gesamtpreis durch die Anzahl.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Packung Käse mit 200 g kostet 7,90 €. Wie viel kostet das pro 100 g?"
+   },
+   "o": {
+    "wert": 3.95,
+    "einheit": "€"
+   },
+   "c": "7.9 / (200 / 100)",
+   "w": "200 g sind 2-mal 100 g. 7,90 € : 2 = 3,95 €.",
+   "h": "Wie oft passen 100 g in die Packung?",
+   "g": "mehrschritt"
   },
   {
    "l": "einheitsrate",
@@ -2461,7 +3641,29 @@
    },
    "c": "240 / 4",
    "w": "240 km : 4 h = 60 km pro Stunde.",
-   "h": "Rate = Weg : Zeit."
+   "h": "Rate = Weg : Zeit.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kaffee wird angeboten – A: 1 000 g für 8,70 €, B: 250 g für 4 €. Welches Angebot ist am günstigsten?"
+   },
+   "a": [
+    "Angebot B",
+    "Beide gleich günstig",
+    "Angebot A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A: 8,70 € : 10 ≈ 0,87 € pro 100 g; B: 4 € : 2,5 ≈ 1,6 € pro 100 g. Am wenigsten pro 100 g kostet A.",
+   "h": "Berechne für jedes Angebot den Preis pro 100 g.",
+   "g": "transfer"
   },
   {
    "l": "einheitsrate",
@@ -2478,7 +3680,26 @@
    },
    "c": "60 / 5",
    "w": "60 km : 5 h = 12 km pro Stunde.",
-   "h": "Rate = Weg : Zeit."
+   "h": "Rate = Weg : Zeit.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Angebot A: 3 Stück für 2,40 €. Angebot B: 5 Stück für 3,75 €. Um wie viel Cent ist ein Stück bei B günstiger?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "ct"
+   },
+   "c": "240/3 - 375/5",
+   "w": "A: 2,40 € : 3 = 0,80 €. B: 3,75 € : 5 = 0,75 €. Unterschied 5 ct.",
+   "h": "Berechne den Stückpreis bei beiden.",
+   "g": "verknuepfen"
   },
   {
    "l": "einheitsrate",
@@ -2495,7 +3716,26 @@
    },
    "c": "33/10 / 3",
    "w": "3,30 € : 3 = 1,10 €.",
-   "h": "Teile den Gesamtpreis durch die Anzahl."
+   "h": "Teile den Gesamtpreis durch die Anzahl.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Packung Kaffee mit 250 g kostet 8,25 €. Wie viel kostet das pro 100 g?"
+   },
+   "o": {
+    "wert": 3.3,
+    "einheit": "€"
+   },
+   "c": "8.25 / (250 / 100)",
+   "w": "250 g sind 2,5-mal 100 g. 8,25 € : 2,5 = 3,30 €.",
+   "h": "Wie oft passen 100 g in die Packung?",
+   "g": "mehrschritt"
   },
   {
    "l": "einheitsrate",
@@ -2512,7 +3752,162 @@
    },
    "c": "150 / 1.5",
    "w": "150 km : 1,5 h = 100 km pro Stunde.",
-   "h": "Rate = Weg : Zeit."
+   "h": "Rate = Weg : Zeit.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kaffee wird angeboten – A: 1 000 g für 17,20 €, B: 500 g für 9,15 €. Welches Angebot ist am günstigsten?"
+   },
+   "a": [
+    "Angebot B",
+    "Angebot A",
+    "Beide gleich günstig"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 17,20 € : 10 ≈ 1,72 € pro 100 g; B: 9,15 € : 5 ≈ 1,83 € pro 100 g. Am wenigsten pro 100 g kostet A.",
+   "h": "Berechne für jedes Angebot den Preis pro 100 g.",
+   "g": "transfer"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Äpfel kosten 1,50 € pro kg. Wie viel kosten 6 kg?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "€"
+   },
+   "c": "1.5 * 6",
+   "w": "6 · 1,50 € = 9 €.",
+   "h": "Einheitsrate mal Menge.",
+   "g": "direkt"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Saft: 1,5 l kosten 1,95 €, 0,75 l kosten 1,05 €. Wie viele Euro spart man pro Liter mit der großen Flasche?"
+   },
+   "o": {
+    "wert": 0.1,
+    "einheit": "€"
+   },
+   "c": "1.05/0.75 - 1.95/1.5",
+   "w": "Groß: 1,95 € : 1,5 = 1,30 € pro l. Klein: 1,05 € : 0,75 = 1,40 € pro l. Ersparnis 0,10 €.",
+   "h": "Berechne den Literpreis beider Flaschen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Äpfel kosten 2,40 € pro kg. Wie viel kosten 12 kg?"
+   },
+   "o": {
+    "wert": 28.8,
+    "einheit": "€"
+   },
+   "c": "2.4 * 12",
+   "w": "12 · 2,40 € = 28,80 €.",
+   "h": "Einheitsrate mal Menge.",
+   "g": "direkt"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angabe ist eine Einheitsrate?"
+   },
+   "a": [
+    "12 Äpfel in der Tüte",
+    "3 € pro kg",
+    "3 € für 2 kg",
+    "2 kg Äpfel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Einheitsrate gibt an, wie viel auf genau eine Einheit kommt: 3 € für 1 kg.",
+   "h": "Auf wie viel bezieht sich die Angabe?",
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kaffee wird angeboten – A: 250 g für 3,30 €, B: 750 g für 7,20 €. Welches Angebot ist am günstigsten?"
+   },
+   "a": [
+    "Angebot A",
+    "Beide gleich günstig",
+    "Angebot B"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A: 3,30 € : 2,5 ≈ 1,32 € pro 100 g; B: 7,20 € : 7,5 ≈ 0,96 € pro 100 g. Am wenigsten pro 100 g kostet B.",
+   "h": "Berechne für jedes Angebot den Preis pro 100 g.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aktion „4 nehmen, 3 bezahlen“: Ein Stück kostet sonst 1,20 €. Wie viel kostet ein Stück bei der Aktion?"
+   },
+   "o": {
+    "wert": 0.9,
+    "einheit": "€"
+   },
+   "c": "3*1.2/4",
+   "w": "Man zahlt 3 · 1,20 € = 3,60 € für 4 Stück. 3,60 € : 4 = 0,90 €.",
+   "h": "Wie viel zahlt man für 4 Stück?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto verbraucht 6 Liter auf 100 km. Wie weit kommt es mit 45 Litern?"
+   },
+   "o": {
+    "wert": 750,
+    "einheit": "km"
+   },
+   "c": "45/6*100",
+   "w": "1 Liter reicht für 100 : 6 km. 45 Liter: 45 : 6 · 100 = 750 km.",
+   "h": "Wie viele „6-Liter-Portionen“ stecken in 45 Litern?",
+   "g": "umkehr"
   },
   {
    "l": "einheitsrate",
@@ -2535,171 +3930,6 @@
    "l": "einheitsrate",
    "t": "einheitsrate",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Kaffee wird angeboten – A: 750 g für 9,15 €, B: 200 g für 3,30 €. Welches Angebot ist am günstigsten?"
-   },
-   "a": [
-    "Beide gleich günstig",
-    "Angebot A",
-    "Angebot B"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "A: 9,15 € : 7,5 ≈ 1,22 € pro 100 g; B: 3,30 € : 2 ≈ 1,65 € pro 100 g. Am wenigsten pro 100 g kostet A.",
-   "h": "Berechne für jedes Angebot den Preis pro 100 g."
-  },
-  {
-   "l": "einheitsrate",
-   "t": "einheitsrate",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Packung Käse mit 200 g kostet 7,90 €. Wie viel kostet das pro 100 g?"
-   },
-   "o": {
-    "wert": 3.95,
-    "einheit": "€"
-   },
-   "c": "7.9 / (200 / 100)",
-   "w": "200 g sind 2-mal 100 g. 7,90 € : 2 = 3,95 €.",
-   "h": "Wie oft passen 100 g in die Packung?"
-  },
-  {
-   "l": "einheitsrate",
-   "t": "einheitsrate",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Kaffee wird angeboten – A: 1 000 g für 8,70 €, B: 250 g für 4 €. Welches Angebot ist am günstigsten?"
-   },
-   "a": [
-    "Angebot B",
-    "Beide gleich günstig",
-    "Angebot A"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "A: 8,70 € : 10 ≈ 0,87 € pro 100 g; B: 4 € : 2,5 ≈ 1,6 € pro 100 g. Am wenigsten pro 100 g kostet A.",
-   "h": "Berechne für jedes Angebot den Preis pro 100 g."
-  },
-  {
-   "l": "einheitsrate",
-   "t": "einheitsrate",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Kaffee wird angeboten – A: 1 000 g für 17,20 €, B: 500 g für 9,15 €. Welches Angebot ist am günstigsten?"
-   },
-   "a": [
-    "Angebot B",
-    "Angebot A",
-    "Beide gleich günstig"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "A: 17,20 € : 10 ≈ 1,72 € pro 100 g; B: 9,15 € : 5 ≈ 1,83 € pro 100 g. Am wenigsten pro 100 g kostet A.",
-   "h": "Berechne für jedes Angebot den Preis pro 100 g."
-  },
-  {
-   "l": "einheitsrate",
-   "t": "einheitsrate",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Packung Kaffee mit 250 g kostet 8,25 €. Wie viel kostet das pro 100 g?"
-   },
-   "o": {
-    "wert": 3.3,
-    "einheit": "€"
-   },
-   "c": "8.25 / (250 / 100)",
-   "w": "250 g sind 2,5-mal 100 g. 8,25 € : 2,5 = 3,30 €.",
-   "h": "Wie oft passen 100 g in die Packung?"
-  },
-  {
-   "l": "einheitsrate",
-   "t": "einheitsrate",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Äpfel kosten 1,50 € pro kg. Wie viel kosten 6 kg?"
-   },
-   "o": {
-    "wert": 9,
-    "einheit": "€"
-   },
-   "c": "1.5 * 6",
-   "w": "6 · 1,50 € = 9 €.",
-   "h": "Einheitsrate mal Menge."
-  },
-  {
-   "l": "einheitsrate",
-   "t": "einheitsrate",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Äpfel kosten 2,40 € pro kg. Wie viel kosten 12 kg?"
-   },
-   "o": {
-    "wert": 28.8,
-    "einheit": "€"
-   },
-   "c": "2.4 * 12",
-   "w": "12 · 2,40 € = 28,80 €.",
-   "h": "Einheitsrate mal Menge."
-  },
-  {
-   "l": "einheitsrate",
-   "t": "einheitsrate",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Kaffee wird angeboten – A: 250 g für 3,30 €, B: 750 g für 7,20 €. Welches Angebot ist am günstigsten?"
-   },
-   "a": [
-    "Angebot A",
-    "Beide gleich günstig",
-    "Angebot B"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "A: 3,30 € : 2,5 ≈ 1,32 € pro 100 g; B: 7,20 € : 7,5 ≈ 0,96 € pro 100 g. Am wenigsten pro 100 g kostet B.",
-   "h": "Berechne für jedes Angebot den Preis pro 100 g."
-  },
-  {
-   "l": "einheitsrate",
-   "t": "einheitsrate",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Äpfel kosten 2,40 € pro kg. Wie viel kosten 20 kg?"
-   },
-   "o": {
-    "wert": 48,
-    "einheit": "€"
-   },
-   "c": "2.4 * 20",
-   "w": "20 · 2,40 € = 48 €.",
-   "h": "Einheitsrate mal Menge."
-  },
-  {
-   "l": "einheitsrate",
-   "t": "einheitsrate",
-   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
@@ -2714,7 +3944,8 @@
     "index": 2
    },
    "w": "A: 12,30 € : 10 ≈ 1,23 € pro 100 g; B: 6,90 € : 4 ≈ 1,725 € pro 100 g; C: 7,65 € : 5 ≈ 1,53 € pro 100 g. Am wenigsten pro 100 g kostet A.",
-   "h": "Berechne für jedes Angebot den Preis pro 100 g."
+   "h": "Berechne für jedes Angebot den Preis pro 100 g.",
+   "g": "transfer"
   },
   {
    "l": "einheitsrate",
@@ -2723,15 +3954,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Äpfel kosten 2,40 € pro kg. Wie viel kosten 10 kg?"
+    "text": "Ein Drucker druckt 18 Seiten in 45 Sekunden. Wie viele Seiten schafft er pro Minute?"
    },
    "o": {
-    "wert": 24,
-    "einheit": "€"
+    "wert": 24
    },
-   "c": "2.4 * 10",
-   "w": "10 · 2,40 € = 24 €.",
-   "h": "Einheitsrate mal Menge."
+   "c": "18/45*60",
+   "w": "Pro Sekunde 18 : 45 = 0,4 Seiten. Pro Minute 0,4 · 60 = 24 Seiten.",
+   "h": "Achte auf die Einheit: Minute statt Sekunde.",
+   "g": "verknuepfen"
   },
   {
    "l": "einheitsrate",
@@ -2906,6 +4137,128 @@
    "w": "48 km : 4 h = 12 km pro Stunde."
   },
   {
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Läuferin A schafft 400 m in 80 s, Läuferin B 1 km in 210 s. Wer ist schneller?"
+   },
+   "a": [
+    "B",
+    "A",
+    "beide gleich schnell"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 400 : 80 = 5 m/s. B: 1 000 : 210 ≈ 4,76 m/s. A ist schneller.",
+   "h": "Berechne für beide die Meter pro Sekunde.",
+   "g": "begruenden"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand vergleicht 500 g für 4 € mit 1 kg für 7 € und sagt: „Das erste ist billiger, weil 4 € weniger ist als 7 €.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Das zweite kostet 14 € pro kg.",
+    "Richtig.",
+    "Falsch: Beide sind gleich teuer.",
+    "Falsch: Pro kg kostet das erste 8 €, das zweite nur 7 €."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Man muss gleiche Mengen vergleichen: 500 g für 4 € sind 8 € pro kg.",
+   "h": "Rechne beide auf 1 kg um.",
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Packung A: 400 g für 5,20 €. Packung B: 600 g für p €. Bei welchem Preis p sind beide gleich günstig?"
+   },
+   "o": {
+    "wert": 7.8,
+    "einheit": "€"
+   },
+   "c": "5.2 / 4 * 6",
+   "w": "A kostet 5,20 € : 4 = 1,30 € pro 100 g. Gleich günstig: 6 · 1,30 € = 7,80 €.",
+   "h": "Berechne den Preis pro 100 g.",
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Saft: einzeln 1 l für 1,20 € oder im 6er-Pack (je 1 l) für 6,30 €. a) Wie viel Cent kostet 1 l im 6er-Pack? b) Wie viel Cent spart man pro Liter?",
+    "schablone": "a) □ ct; b) □ ct",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     105,
+     15
+    ]
+   },
+   "c": [
+    "630 // 6",
+    "120 - 105"
+   ],
+   "w": "a) 6,30 € : 6 = 1,05 € = 105 ct. b) 120 ct − 105 ct = 15 ct.",
+   "h": "Rechne in Cent.",
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wasserhahn füllt eine Wanne in 12 Minuten, ein zweiter in 6 Minuten. Wie lange dauert es mit beiden zusammen?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "min"
+   },
+   "c": "4",
+   "w": "Pro Minute füllt der erste 1/12, der zweite 1/6 = 2/12 der Wanne. Zusammen 3/12 = 1/4 pro Minute, also 4 Minuten.",
+   "h": "Welchen Teil der Wanne füllt jeder Hahn pro Minute?",
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto fährt 60 km mit 60 km/h und danach 60 km mit 120 km/h. Wie groß ist die Durchschnittsgeschwindigkeit?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "km/h"
+   },
+   "c": "120 / 1.5",
+   "w": "Zeit: 1 h + 0,5 h = 1,5 h für 120 km. 120 : 1,5 = 80 km/h – nicht 90 km/h, denn das Auto ist länger langsam unterwegs.",
+   "h": "Rechne die Gesamtzeit aus.",
+   "l": "einheitsrate",
+   "t": "einheitsrate",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
    "l": "aenderung",
    "t": "aenderung",
    "p": "uebung",
@@ -2920,7 +4273,26 @@
    },
    "c": "(145 - 100) / 9",
    "w": "(145 − 100) l : 9 min = 5 l pro Minute.",
-   "h": "Zunahme durch Zeit."
+   "h": "Zunahme durch Zeit.",
+   "g": "direkt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 24 cm hoch. Nach 3 Stunden ist sie noch 18 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+   },
+   "o": {
+    "wert": -2,
+    "einheit": "cm/h"
+   },
+   "c": "(18.0 - 24) / 3",
+   "w": "Änderung: 18 − 24 = −6 cm in 3 h. Rate: −6 : 3 = −2 cm pro Stunde (negativ, weil die Kerze kürzer wird).",
+   "h": "Rechne „Endwert minus Anfangswert“. Wird die Größe kleiner, ist die Rate negativ.",
+   "g": "mehrschritt"
   },
   {
    "l": "aenderung",
@@ -2937,7 +4309,26 @@
    },
    "c": "(18 - 6) / 3",
    "w": "Änderung: 18 − 6 = 12 °C in 3 Stunden. Rate: 12 : 3 = 4 °C pro Stunde.",
-   "h": "Teile die Temperaturänderung durch die Zeitspanne. Fällt die Temperatur, ist die Rate negativ."
+   "h": "Teile die Temperaturänderung durch die Zeitspanne. Fällt die Temperatur, ist die Rate negativ.",
+   "g": "direkt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank wird mit 4 Litern pro Minute gefüllt. Am Anfang sind 35 Liter darin. Wie viele Liter sind es nach 4 Minuten?"
+   },
+   "o": {
+    "wert": 51,
+    "einheit": "l"
+   },
+   "c": "35 + 4 * 4",
+   "w": "Zunahme: 4 · 4 = 16 l. Inhalt: 35 + 16 = 51 l.",
+   "h": "Rate mal Zeit ergibt die Zunahme.",
+   "g": "umkehr"
   },
   {
    "l": "aenderung",
@@ -2954,7 +4345,101 @@
    },
    "c": "(190 - 100) / 6",
    "w": "(190 − 100) l : 6 min = 15 l pro Minute.",
-   "h": "Zunahme durch Zeit."
+   "h": "Zunahme durch Zeit.",
+   "g": "direkt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze ist 36 cm hoch. Nach 7 Stunden ist sie noch 15 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+   },
+   "o": {
+    "wert": -3,
+    "einheit": "cm/h"
+   },
+   "c": "(15.0 - 36) / 7",
+   "w": "Änderung: 15 − 36 = −21 cm in 7 h. Rate: −21 : 7 = −3 cm pro Stunde (negativ, weil die Kerze kürzer wird).",
+   "h": "Rechne „Endwert minus Anfangswert“. Wird die Größe kleiner, ist die Rate negativ.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank wird mit 8 Litern pro Minute gefüllt. Am Anfang sind 19 Liter darin. Wie viele Liter sind es nach 5 Minuten?"
+   },
+   "o": {
+    "wert": 59,
+    "einheit": "l"
+   },
+   "c": "19 + 8 * 5",
+   "w": "Zunahme: 8 · 5 = 40 l. Inhalt: 19 + 40 = 59 l.",
+   "h": "Rate mal Zeit ergibt die Zunahme.",
+   "g": "umkehr"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank wird mit 4 Litern pro Minute gefüllt. Nach 6 Minuten sind 83 Liter darin. Wie viel war am Anfang drin?"
+   },
+   "o": {
+    "wert": 59,
+    "einheit": "l"
+   },
+   "c": "83 - 6*4",
+   "w": "In 6 Minuten kommen 24 Liter dazu. 83 − 24 = 59 Liter.",
+   "h": "Rechne rückwärts.",
+   "g": "rueckwaerts"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Um 6 Uhr misst man 4 °C, um 10 Uhr 12 °C. Berechne die Änderungsrate in °C pro Stunde."
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "°C/h"
+   },
+   "c": "(12 - 4) / 4",
+   "w": "Änderung: 12 − 4 = 8 °C in 4 Stunden. Rate: 8 : 4 = 2 °C pro Stunde.",
+   "h": "Teile die Temperaturänderung durch die Zeitspanne. Fällt die Temperatur, ist die Rate negativ.",
+   "g": "direkt"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Robotermäher A mäht 20 m² in 4 Minuten, Mäher B 8 m² in 4 Minuten. Welcher mäht schneller?"
+   },
+   "a": [
+    "Mäher B",
+    "Mäher A",
+    "Beide gleich schnell"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 20 : 4 = 5 m² pro Minute. B: 8 : 4 = 2 m² pro Minute.",
+   "h": "Vergleiche die Raten pro Minute, nicht die Gesamtflächen.",
+   "g": "erkennen"
   },
   {
    "l": "aenderung",
@@ -2980,23 +4465,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Um 6 Uhr misst man 4 °C, um 10 Uhr 12 °C. Berechne die Änderungsrate in °C pro Stunde."
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "°C/h"
-   },
-   "c": "(12 - 4) / 4",
-   "w": "Änderung: 12 − 4 = 8 °C in 4 Stunden. Rate: 8 : 4 = 2 °C pro Stunde.",
-   "h": "Teile die Temperaturänderung durch die Zeitspanne. Fällt die Temperatur, ist die Rate negativ."
-  },
-  {
-   "l": "aenderung",
-   "t": "aenderung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "Ein Becken enthält 20 Liter Wasser. Nach 9 Minuten sind es 65 Liter. Wie viele Liter fließen pro Minute zu?"
    },
    "o": {
@@ -3006,6 +4474,78 @@
    "c": "(65 - 20) / 9",
    "w": "(65 − 20) l : 9 min = 5 l pro Minute.",
    "h": "Zunahme durch Zeit."
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank enthält 35 Liter und wird mit 4 Litern pro Minute gefüllt. Nach wie vielen Minuten sind 75 Liter darin?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "min"
+   },
+   "c": "(75 - 35)/4",
+   "w": "Es fehlen 75 − 35 = 40 Liter. 40 : 4 = 10 Minuten.",
+   "h": "Wie viel muss noch dazukommen?",
+   "g": "umkehr"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Pool enthält 450 Liter und verliert 3 Liter pro Minute. Nach wie vielen Minuten ist er leer?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "min"
+   },
+   "c": "450/3",
+   "w": "450 : 3 = 150 Minuten (2,5 Stunden).",
+   "h": "Wie oft passen 3 Liter in 450 Liter?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Becken: nach 0 Minuten 20 l, nach 5 Minuten 45 l, nach 10 Minuten 70 l. Wie groß ist die Änderungsrate in Litern pro Minute?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "l/min"
+   },
+   "c": "(70 - 20)/10",
+   "w": "In 10 Minuten kommen 50 l dazu: 50 : 10 = 5 l pro Minute (jeder 5-Minuten-Schritt bringt 25 l).",
+   "h": "Nimm Anfangs- und Endwert.",
+   "g": "darstellung"
+  },
+  {
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Flugzeug sinkt in 20 Minuten von 9 000 m auf 3 000 m Höhe. Berechne die Änderungsrate in m pro Minute."
+   },
+   "o": {
+    "wert": -300,
+    "einheit": "m/min"
+   },
+   "c": "(3000 - 9000)/20",
+   "w": "Änderung 3 000 − 9 000 = −6 000 m. −6 000 : 20 = −300 m pro Minute.",
+   "h": "Die Höhe nimmt ab – welches Vorzeichen hat die Rate?",
+   "g": "mehrschritt"
   },
   {
    "l": "aenderung",
@@ -3082,23 +4622,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Kerze ist 24 cm hoch. Nach 3 Stunden ist sie noch 18 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
-   },
-   "o": {
-    "wert": -2,
-    "einheit": "cm/h"
-   },
-   "c": "(18.0 - 24) / 3",
-   "w": "Änderung: 18 − 24 = −6 cm in 3 h. Rate: −6 : 3 = −2 cm pro Stunde (negativ, weil die Kerze kürzer wird).",
-   "h": "Rechne „Endwert minus Anfangswert“. Wird die Größe kleiner, ist die Rate negativ."
-  },
-  {
-   "l": "aenderung",
-   "t": "aenderung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Um 6 Uhr misst man 18 °C, um 8 Uhr 12 °C. Berechne die Änderungsrate in °C pro Stunde."
    },
    "o": {
@@ -3116,15 +4639,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Tank wird mit 4 Litern pro Minute gefüllt. Am Anfang sind 35 Liter darin. Wie viele Liter sind es nach 4 Minuten?"
+    "text": "Von 8 Uhr bis 12 Uhr steigt die Temperatur um 2,5 °C pro Stunde. Um 12 Uhr sind es 17 °C. Wie warm war es um 8 Uhr?"
    },
    "o": {
-    "wert": 51,
-    "einheit": "l"
+    "wert": 7,
+    "einheit": "°C"
    },
-   "c": "35 + 4 * 4",
-   "w": "Zunahme: 4 · 4 = 16 l. Inhalt: 35 + 16 = 51 l.",
-   "h": "Rate mal Zeit ergibt die Zunahme."
+   "c": "17 - 4*2.5",
+   "w": "4 Stunden · 2,5 °C = 10 °C Anstieg. 17 − 10 = 7 °C.",
+   "h": "Rechne rückwärts.",
+   "g": "rueckwaerts"
   },
   {
    "l": "aenderung",
@@ -3133,49 +4657,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Kerze ist 36 cm hoch. Nach 7 Stunden ist sie noch 15 cm hoch. Berechne die Änderungsrate der Höhe in cm pro Stunde."
+    "text": "Kerze A ist 30 cm hoch und brennt 2 cm pro Stunde ab. Kerze B ist 24 cm hoch und brennt 1 cm pro Stunde ab. Nach wie vielen Stunden sind beide gleich hoch?"
    },
    "o": {
-    "wert": -3,
-    "einheit": "cm/h"
+    "wert": 6,
+    "einheit": "h"
    },
-   "c": "(15.0 - 36) / 7",
-   "w": "Änderung: 15 − 36 = −21 cm in 7 h. Rate: −21 : 7 = −3 cm pro Stunde (negativ, weil die Kerze kürzer wird).",
-   "h": "Rechne „Endwert minus Anfangswert“. Wird die Größe kleiner, ist die Rate negativ."
-  },
-  {
-   "l": "aenderung",
-   "t": "aenderung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Tank wird mit 8 Litern pro Minute gefüllt. Am Anfang sind 19 Liter darin. Wie viele Liter sind es nach 5 Minuten?"
-   },
-   "o": {
-    "wert": 59,
-    "einheit": "l"
-   },
-   "c": "19 + 8 * 5",
-   "w": "Zunahme: 8 · 5 = 40 l. Inhalt: 19 + 40 = 59 l.",
-   "h": "Rate mal Zeit ergibt die Zunahme."
-  },
-  {
-   "l": "aenderung",
-   "t": "aenderung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Tank wird mit 4 Litern pro Minute gefüllt. Am Anfang sind 59 Liter darin. Wie viele Liter sind es nach 6 Minuten?"
-   },
-   "o": {
-    "wert": 83,
-    "einheit": "l"
-   },
-   "c": "59 + 4 * 6",
-   "w": "Zunahme: 4 · 6 = 24 l. Inhalt: 59 + 24 = 83 l.",
-   "h": "Rate mal Zeit ergibt die Zunahme."
+   "c": "(30 - 24)/(2 - 1)",
+   "w": "A holt pro Stunde 1 cm auf B auf. Der Unterschied ist 6 cm: nach 6 Stunden, beide 18 cm hoch.",
+   "h": "Um wie viel ändert sich der Unterschied pro Stunde?",
+   "g": "verknuepfen"
   },
   {
    "l": "aenderung",
@@ -3184,35 +4675,20 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Robotermäher A mäht 20 m² in 4 Minuten, Mäher B 8 m² in 4 Minuten. Welcher mäht schneller?"
+    "text": "Die Änderungsrate der Höhe einer Kerze ist −1,5 cm pro Stunde. Was bedeutet das?"
    },
    "a": [
-    "Mäher B",
-    "Mäher A",
-    "Beide gleich schnell"
+    "Sie ist 1,5 cm hoch.",
+    "Sie wächst jede Stunde 1,5 cm.",
+    "Sie brennt 1,5 Stunden lang.",
+    "Sie wird jede Stunde 1,5 cm kürzer."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "A: 20 : 4 = 5 m² pro Minute. B: 8 : 4 = 2 m² pro Minute.",
-   "h": "Vergleiche die Raten pro Minute, nicht die Gesamtflächen."
-  },
-  {
-   "l": "aenderung",
-   "t": "aenderung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Tank wird mit 6 Litern pro Minute gefüllt. Am Anfang sind 49 Liter darin. Wie viele Liter sind es nach 4 Minuten?"
-   },
-   "o": {
-    "wert": 73,
-    "einheit": "l"
-   },
-   "c": "49 + 6 * 4",
-   "w": "Zunahme: 6 · 4 = 24 l. Inhalt: 49 + 24 = 73 l.",
-   "h": "Rate mal Zeit ergibt die Zunahme."
+   "w": "Das Minus zeigt eine Abnahme: pro Stunde 1,5 cm weniger.",
+   "h": "Was sagt das Vorzeichen?",
+   "g": "begruenden"
   },
   {
    "l": "aenderung",
@@ -3410,6 +4886,129 @@
    },
    "c": "(27.0 - 39) / 4",
    "w": "Änderung: 27 − 39 = −12 cm in 4 h. Rate: −12 : 4 = −3 cm pro Stunde (negativ, weil die Kerze kürzer wird)."
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet die Änderungsrate von 20 °C um 14 Uhr auf 14 °C um 17 Uhr als (20 − 14) : 3 = +2 °C pro Stunde. Was stimmt?"
+   },
+   "a": [
+    "Falsch: −6 °C pro Stunde.",
+    "Falsch: +6 °C pro Stunde.",
+    "Falsch: Die Temperatur sinkt, die Rate ist −2 °C pro Stunde.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Änderung = Endwert − Anfangswert = 14 − 20 = −6 °C in 3 h, also −2 °C pro Stunde.",
+   "h": "Rechne Endwert minus Anfangswert.",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler"
+  },
+  {
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Becken enthält 100 l. Für welche Zuflussraten r (in Litern pro Minute) sind nach 10 Minuten mehr als 150 l darin?"
+   },
+   "a": [
+    "für r > 5",
+    "für r > 15",
+    "für r < 5",
+    "für r > 50"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "100 + 10r > 150 ⇒ 10r > 50 ⇒ r > 5.",
+   "h": "Stelle eine Ungleichung auf.",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handyakku zeigt 80 % und verliert 6 Prozentpunkte pro Stunde. Bei 20 % kommt eine Warnung. Nach wie vielen Stunden?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "h"
+   },
+   "c": "(80 - 20) // 6",
+   "w": "Es müssen 80 − 20 = 60 Prozentpunkte verbraucht werden: 60 : 6 = 10 Stunden.",
+   "h": "Wie viel muss sich ändern?",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer"
+  },
+  {
+   "y": "luecken",
+   "f": {
+    "text": "Eine Badewanne enthält 30 l. Es fließen 12 l pro Minute zu. a) Wie viel Liter sind es nach 5 Minuten? b) Nach wie vielen Minuten sind es 150 l?",
+    "schablone": "a) □ l; b) □ min",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     90,
+     10
+    ]
+   },
+   "c": [
+    "30 + 12 * 5",
+    "(150 - 30) // 12"
+   ],
+   "w": "a) 30 + 12 · 5 = 90 l. b) 150 − 30 = 120 l, 120 : 12 = 10 min.",
+   "h": "Anfangswert plus Rate mal Zeit.",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Kerze A ist 20 cm hoch und brennt in 4 Stunden ganz ab, Kerze B ist 15 cm hoch und brennt in 5 Stunden ab. Beide werden gleichzeitig angezündet. Nach wie vielen Stunden sind sie gleich hoch?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "h"
+   },
+   "c": "5 / 2",
+   "w": "Raten: A −5 cm/h, B −3 cm/h. 20 − 5t = 15 − 3t ⇒ 5 = 2t ⇒ t = 2,5 h. Dann sind beide 7,5 cm hoch.",
+   "h": "Bestimme zuerst die Abbrennraten.",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
+  },
+  {
+   "y": "zahl",
+   "f": {
+    "text": "Ein leeres Becken mit 200 l wird mit 8 l pro Minute gefüllt, gleichzeitig laufen 3 l pro Minute aus. Nach wie vielen Minuten ist es voll?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "min"
+   },
+   "c": "200 // (8 - 3)",
+   "w": "Insgesamt kommen pro Minute 8 − 3 = 5 l dazu. 200 : 5 = 40 Minuten.",
+   "h": "Wie groß ist die Änderungsrate insgesamt?",
+   "l": "aenderung",
+   "t": "aenderung",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel"
   }
  ],
  "offen": [

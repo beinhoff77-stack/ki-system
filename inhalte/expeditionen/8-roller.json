@@ -1,0 +1,140 @@
+{
+ "schluessel": "8-roller",
+ "klasse": {
+  "gym_by": 8
+ },
+ "titel": "Sparen für den Roller",
+ "autor": "Claude (Auftrag Expeditionen Klasse 8)",
+ "einleitung": "Du und dein Bruder wollt euch jeweils einen Tretroller kaufen. Du hast schon 60 € gespart und legst jede Woche 15 € von deinem Ferienjob dazu. Dein Bruder hat 150 € gespart und legt jede Woche 6 € Taschengeld dazu. Der Roller kostet im Laden 299 €.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "funktionen.grundbegriffe",
+   "lernziel": "wertetabelle"
+  },
+  {
+   "thema_schluessel": "funktionen.linear",
+   "lernziel": "schnittpunkte"
+  },
+  {
+   "thema_schluessel": "bruch.prozent",
+   "lernziel": "rabatt_aufschlag"
+  },
+  {
+   "thema_schluessel": "gleichungen.ungleichungen",
+   "lernziel": "sachaufgabe"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "luecken",
+   "f": {
+    "text": "Du hast 60 € gespart und legst jede Woche 15 € dazu. Ergänze die Wertetabelle: Wie viel Geld hast du nach 2, nach 4 und nach 6 Wochen?",
+    "schablone": "nach 2 Wochen □ € · nach 4 Wochen □ € · nach 6 Wochen □ €",
+    "hinweis": "Je Lücke eine ganze Zahl.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Wochen x",
+      "0",
+      "2",
+      "4",
+      "6"
+     ],
+     "zeilen": [
+      [
+       "Guthaben in €",
+       "60",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     90,
+     120,
+     150
+    ]
+   },
+   "c": [
+    "60 + 15 * 2",
+    "60 + 15 * 4",
+    "60 + 15 * 6"
+   ],
+   "w": "Gegeben: Start 60 €, jede Woche 15 € mehr. Gesucht: Werte nach 2, 4, 6 Wochen. Ansatz: f(x) = 60 + 15x. Rechnung: 60 + 30 = 90; 60 + 60 = 120; 60 + 90 = 150. Antwort: 90 €, 120 €, 150 €.",
+   "h": "In 2 Wochen kommen 2 · 15 € dazu.",
+   "bezug": {
+    "thema_schluessel": "funktionen.grundbegriffe",
+    "lernziel": "wertetabelle"
+   }
+  },
+  {
+   "k": "b",
+   "y": "luecken",
+   "f": {
+    "text": "Dein Guthaben nach x Wochen ist 60 + 15x Euro, das deines Bruders 150 + 6x Euro. Nach wie vielen Wochen habt ihr gleich viel Geld, und wie viel ist das?",
+    "schablone": "nach □ Wochen, je □ €",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     10,
+     210
+    ]
+   },
+   "c": [
+    "(150 - 60) / (15 - 6)",
+    "60 + 15 * 10"
+   ],
+   "w": "Gegeben: 60 + 15x und 150 + 6x. Gesucht: Schnittpunkt. Ansatz: Gleichsetzen. Rechnung: 60 + 15x = 150 + 6x ⇒ 9x = 90 ⇒ x = 10; 60 + 150 = 210. Antwort: Nach 10 Wochen habt ihr beide 210 €.",
+   "h": "Setze die beiden Terme gleich.",
+   "bezug": {
+    "thema_schluessel": "funktionen.linear",
+    "lernziel": "schnittpunkte"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Der Roller kostet 299 €. Im Sommerschlussverkauf gibt es 20 % Rabatt. Wie viel kostet der Roller dann?"
+   },
+   "o": {
+    "wert": 239.2,
+    "einheit": "€"
+   },
+   "c": "299 * 0.8",
+   "w": "Gegeben: 299 €, 20 % Rabatt. Gesucht: neuer Preis. Ansatz: Es bleiben 80 % des Preises. Rechnung: 299 · 0,8 = 239,20. Antwort: Der Roller kostet 239,20 €.",
+   "h": "Wie viel Prozent des Preises musst du noch zahlen?",
+   "bezug": {
+    "thema_schluessel": "bruch.prozent",
+    "lernziel": "rabatt_aufschlag"
+   }
+  },
+  {
+   "k": "d",
+   "y": "auswahl",
+   "f": {
+    "text": "Der Roller kostet im Schlussverkauf 239,20 €. Du hast nach x Wochen 60 + 15x Euro, dein Bruder 150 + 6x Euro. Wer kann sich den Roller zuerst leisten, und wann?"
+   },
+   "a": [
+    "Du nach 12 Wochen, dein Bruder erst nach 15 Wochen.",
+    "Dein Bruder zuerst, weil er am Anfang mehr Geld hat.",
+    "Beide nach 10 Wochen, weil ihr dann gleich viel habt.",
+    "Du nach 15 Wochen, dein Bruder nach 12 Wochen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: Preis 239,20 €; 60 + 15x und 150 + 6x. Gesucht: kleinste ganze Wochenzahl für jeden. Ansatz: 60 + 15x ≥ 239,2 und 150 + 6x ≥ 239,2. Rechnung: 15x ≥ 179,2 ⇒ x ≥ 179,2 : 15 ≈ 11,95, also 12 Wochen (dann 240 €). 6x ≥ 89,2 ⇒ x ≥ 89,2 : 6 ≈ 14,87, also 15 Wochen (dann 240 €). Nach 10 Wochen habt ihr zwar gleich viel, aber erst 210 €. Antwort: Du kannst den Roller nach 12 Wochen kaufen, dein Bruder nach 15 Wochen.",
+   "h": "Stelle für jeden eine Ungleichung mit „mindestens 239,20 €“ auf. Es zählen nur volle Wochen.",
+   "bezug": {
+    "thema_schluessel": "gleichungen.ungleichungen",
+    "lernziel": "sachaufgabe"
+   }
+  }
+ ]
+}

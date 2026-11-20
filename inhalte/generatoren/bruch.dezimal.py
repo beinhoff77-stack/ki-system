@@ -520,104 +520,607 @@ DATEI = datei(E, 'Dezimalzahlen lesen, vergleichen, runden und zwischen Bruch un
                      'Umwandlung periodische Dezimalzahl → Bruch (z. B. 0,3̅ = 1/3) bewusst nur in einfachen Fällen (Nenner 3 und 9, Auswahl, Stufe 3); das allgemeine Verfahren ist nicht Stoff der 6. Klasse.',
                      'Prüfung schlug für Dezimalzahlen > 1 eine gemischte Zahl (□ □/□) vor. Umgesetzt als unechter Bruch (□/□, z. B. 2,75 = 11/4), weil die App gemischte Zahlen nicht als eigenes Eingabeformat kennt (siehe auch bruch.rechnen).'])
 
-# ---------- KLAR: verständliche Erklärungen (Siebte Runde, Pflicht seit 15.11.) ----------
-# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl6.py) – die Aufgaben bleiben wörtlich gleich.
-from _klar_kl6 import klar  # noqa: E402
+# ---------- KARTEN: Lernkarten nach dem neuen Muster (Achte Runde, Vorgabe 16.11., Paket U6) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl6.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl6 import umbau  # noqa: E402
 
-KLAR = {
+KARTEN = {
  'stellenwerte': {
-  'einstieg': 'Auf dem Markt legst du Äpfel auf eine Waage. Die Anzeige zeigt 3,472 kg. Vor dem Komma stehen die ganzen Kilogramm, hinter dem Komma die Teile eines Kilogramms – hier 472 Gramm. Jede Ziffer hinter dem Komma hat ihren eigenen Platz und Wert. Diese Plätze heißen ⟦Stellenwerte⟧.',
-  'woerter': [['Dezimalzahl', 'eine Zahl mit Komma wie 3,472'],
-              ['Nachkommastelle', 'ein Platz hinter dem Komma'],
-              ['Stellenwert', 'was eine Ziffer an ihrem Platz wert ist'],
-              ['E (Einer)', 'die Stelle direkt vor dem Komma: ganze Kilogramm'],
-              ['z (Zehntel)', '1. Stelle nach dem Komma: 1/10, also 0,1 – bei der Waage 100 g'],
-              ['h (Hundertstel)', '2. Stelle nach dem Komma: 1/100, also 0,01 – bei der Waage 10 g'],
-              ['t (Tausendstel)', '3. Stelle nach dem Komma: 1/1 000, also 0,001 – bei der Waage 1 g'],
-              ['Stellenwerttafel', 'eine Tabelle, in der jede Ziffer in die Spalte ihres Stellenwerts kommt']],
-  'schritte': ['Trage 3,472 in die Stellenwerttafel ein: E = 3, z = 4, h = 7, t = 2.',
-               'Gesucht ist der Wert der Ziffer 7. Sie steht in der zweiten Spalte nach dem Komma, also bei den Hundertsteln.',
-               '7 Hundertstel Kilogramm sind 7 · 10 g = 70 g.',
-               'Die 7 hat also den Wert ⟦7/100 = 0,07⟧ – und nicht 7.'],
-  'regel': 'So liest du eine Dezimalzahl: Nach dem Komma kommen der Reihe nach ⟦Zehntel (z)⟧, ⟦Hundertstel (h)⟧ und ⟦Tausendstel (t)⟧. Der Platz einer Ziffer bestimmt ihren Wert: In 3,472 ist die 4 vier Zehntel, die 7 sieben Hundertstel und die 2 zwei Tausendstel.',
-  'fehler': 'Zu sagen, die 7 in 3,472 hat den Wert 7, ist falsch: Dann lägen 7 kg zusätzliche Äpfel auf der Waage statt 70 g. Sie steht an der ⟦Hundertstelstelle⟧ und bedeutet 7 Hundertstel = 0,07.'},
+  'einstieg': 'Die Waage auf dem Markt zeigt 3,472 kg Äpfel. Vor dem Komma stehen ganze Kilogramm, dahinter Teile davon. Jede Ziffer hat einen ⟦Stellenwert⟧.',
+  'woerter': [['Stellenwert', 'wie viel eine Ziffer an ihrem Platz wert ist'],
+              ['Stellenwerttafel', 'eine Tabelle mit einer Spalte für jede Stelle: E, z, h, t'],
+              ['Hundertstel', 'die 2. Stelle nach dem Komma: 1/100']],
+  'bild': {'typ': 'stellentafel', 'stellen': ['E', 'z', 'h', 't'], 'ziffern': [3, 4, 7, 2]},
+  'schritte': [{'text': 'Trage 3,472 in die Stellenwerttafel ein.'},
+               {'text': 'Die 7 steht in der Spalte h, bei den Hundertsteln.', 'bild': {'markiert': 2}},
+               {'text': 'Die 7 ist also ⟦7/100 = 0,07⟧ kg wert. Das sind 70 g.'}],
+  'fehler': 'Die 7 ist nicht 7 wert. Sonst lägen 7 kg mehr auf der Waage. Sie bedeutet 7 Hundertstel, also 70 g.',
+  'regel': 'Der ⟦Platz⟧ bestimmt den Wert einer Ziffer. Nach dem Komma kommen Zehntel, Hundertstel und Tausendstel.'},
  'vergleichen_ordnen': {
-  'einstieg': 'Am Marktstand kostet ein Apfel 0,45 €, eine Birne 0,5 €. Was ist billiger? Mit Cent ist es leicht: 45 Cent gegen 50 Cent. Genauso ordnest du Zahlen mit Komma: Du vergleichst Stelle für Stelle. Das heißt ⟦Dezimalzahlen vergleichen⟧.',
-  'woerter': [['Cent', 'ein Hundertstel Euro: 0,01 €'],
-              ['Endnull', 'eine Null ganz hinten nach dem Komma; sie ändert den Wert nicht: 0,5 = 0,50'],
-              ['< und >', '„ist kleiner als“ und „ist größer als“; die Spitze zeigt auf die kleinere Zahl'],
-              ['Zahlenstrahl', 'eine Linie, auf der die Zahlen der Größe nach von links nach rechts liegen']],
-  'schritte': ['Vergleiche 0,45 und 0,5. Die beiden Zahlen haben verschieden viele Nachkommastellen.',
-               'Hänge an 0,5 eine Endnull an: 0,5 = 0,50. Das sind 50 Cent, und 0,45 sind 45 Cent.',
-               'Jetzt vergleichst du Stelle für Stelle: Bei den Zehnteln steht 4 gegen 5.',
-               'Weil 4 kleiner als 5 ist, gilt ⟦0,45 < 0,5⟧ – der Apfel ist billiger. Am Zahlenstrahl liegt 0,45 links von 0,5.'],
-  'regel': 'So vergleichst du Dezimalzahlen: ⟦Hänge Endnullen an⟧, bis beide gleich viele Nachkommastellen haben. Vergleiche dann ⟦Stelle für Stelle von links⟧: erst die Ganzen, dann die Zehntel, dann die Hundertstel.',
-  'fehler': '„0,45 ist größer als 0,5, weil 45 > 5“ ist falsch: Die 5 in 0,5 sind 5 ⟦Zehntel⟧, also 50 Cent – mehr als 45 Cent. Mehr Ziffern heißt ⟦nicht⟧ größer.'},
+  'einstieg': 'Ein Apfel kostet 0,45 €, eine Birne 0,5 €. In Cent ist es leicht: 45 gegen 50 Cent. So kannst du ⟦Dezimalzahlen vergleichen⟧.',
+  'woerter': [['Dezimalzahl', 'eine Zahl mit Komma, z. B. 0,45'],
+              ['Endnull', 'eine 0 ganz hinten nach dem Komma; sie ändert den Wert nicht']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0.4, 'ende': 0.5, 'abschnitte': 10, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Hänge an 0,5 eine Endnull an: 0,5 = 0,50. Das sind 50 Cent.'},
+               {'text': 'Vergleiche bei den Zehnteln: 4 gegen 5.'},
+               {'text': '4 ist kleiner als 5, also ⟦0,45 < 0,5⟧. Der Apfel ist billiger.',
+                'bild': {'punkte': [{'wert': 0.45, 'name': 'Apfel'}, {'wert': 0.5, 'name': 'Birne'}]}}],
+  'fehler': '„0,45 ist größer, weil 45 > 5“ ist falsch. 0,5 sind 5 Zehntel, also 50 Cent.',
+  'regel': 'Fülle mit ⟦Endnullen⟧ auf und vergleiche von links. Erst die Ganzen, dann Zehntel, dann Hundertstel.'},
  'runden': {
-  'einstieg': 'Die Waage zeigt 4,368 kg Kartoffeln. So genau will das niemand aufschreiben, „etwa 4,4 kg“ genügt. Du kürzt die Zahl auf weniger Stellen ab und bleibst dabei so nah wie möglich am echten Wert. Das heißt ⟦Runden⟧.',
-  'woerter': [['runden', 'eine Zahl auf weniger Stellen kürzen, sodass sie fast gleich bleibt'],
-              ['Rundungsstelle', 'die letzte Stelle, die stehen bleiben soll – „auf Zehntel“ heißt: die Zehntelstelle'],
-              ['≈', 'bedeutet „ungefähr gleich“'],
-              ['abrunden', 'die Rundungsstelle bleibt, alles dahinter fällt weg'],
-              ['aufrunden', 'die Rundungsstelle wird um 1 größer, alles dahinter fällt weg']],
-  'schritte': ['Runde 4,368 auf Zehntel. Die Zehntelstelle ist die 3 – sie ist die Rundungsstelle.',
-               'Schau nur auf die Ziffer direkt rechts daneben: Das ist die 6.',
-               '6 ist 5 oder mehr, also rundest du auf: Aus der 3 wird eine 4. Alles dahinter fällt weg.',
-               'Ergebnis: 4,368 kg ≈ ⟦4,4 kg⟧.'],
-  'regel': 'So rundest du: Markiere die ⟦Rundungsstelle⟧. Schau nur auf die Ziffer ⟦direkt rechts daneben⟧. Bei 0, 1, 2, 3 oder 4 wird ⟦abgerundet⟧, bei 5, 6, 7, 8 oder 9 wird ⟦aufgerundet⟧.',
-  'fehler': '2,349 auf Zehntel erst zu 2,35 und dann zu 2,4 zu runden ist falsch: Das Ergebnis rückt dabei Schritt für Schritt vom echten Wert weg. Es zählt nur die Ziffer ⟦direkt rechts⟧ neben der Zehntelstelle, also die 4: ⟦2,3⟧.'},
+  'einstieg': 'Die Waage zeigt 4,368 kg Kartoffeln. So genau will das niemand aufschreiben, „etwa 4,4 kg“ genügt. Das heißt ⟦Runden⟧.',
+  'woerter': [['Runden', 'eine Zahl auf weniger Stellen abkürzen, möglichst nah am echten Wert'],
+              ['Rundungsstelle', 'die letzte Stelle, die stehen bleibt']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 4.3, 'ende': 4.4, 'abschnitte': 10, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Runde auf Zehntel: Die Rundungsstelle ist die 3.'},
+               {'text': 'Rechts daneben steht eine 6. Das ist 5 oder mehr, also aufrunden.'},
+               {'text': '4,368 liegt näher an 4,4 als an 4,3: ⟦4,4 kg⟧.',
+                'bild': {'punkte': [{'wert': 4.368, 'name': '4,368', 'zahl': False}], 'bereich': {'von': 4.35, 'bis': 4.4}}}],
+  'fehler': '2,349 erst zu 2,35 und dann zu 2,4 runden ist falsch. Es zählt nur die Ziffer direkt rechts: 2,3.',
+  'fehler_bild': {'typ': 'zahlenstrahl', 'start': 2.3, 'ende': 2.4, 'abschnitte': 10, 'beschriftet': 'anfang_ende',
+                  'punkte': [{'wert': 2.349, 'name': '2,349', 'zahl': False}], 'bereich': {'von': 2.3, 'bis': 2.35}},
+  'regel': 'Schau nur auf die Ziffer ⟦direkt rechts⟧ der Rundungsstelle. Bei 0 bis 4 abrunden, bei 5 bis 9 aufrunden.'},
  'bruch_zu_dezimal': {
-  'einstieg': 'In Omas Kuchenrezept steht „3/8 Liter Milch“. Dein Messbecher zeigt aber nur Kommazahlen wie 0,25 l oder 0,5 l an. Du musst also den Bruch in eine Zahl mit Komma übersetzen. Das heißt ⟦einen Bruch in eine Dezimalzahl umwandeln⟧.',
-  'woerter': [['umwandeln', 'dieselbe Zahl anders schreiben – ihr Wert bleibt gleich'],
-              ['Zehnerbruch', 'ein Bruch mit dem Nenner 10, 100 oder 1 000; er lässt sich sofort mit Komma schreiben'],
-              ['erweitern', 'Zähler und Nenner mit derselben Zahl malnehmen'],
-              ['l', 'Liter']],
-  'schritte': ['Du willst 3/8 als Zehnerbruch schreiben. Suche dafür eine Zahl, mit der 8 malgenommen 1 000 ergibt: 8 · 125 = 1 000.',
-               'Erweitere Zähler und Nenner mit 125: 3 · 125 = 375, also 3/8 = 375/1 000.',
-               '375 Tausendstel schreibt man mit drei Nachkommastellen: 0,375.',
-               'Im Rezept bedeutet das ⟦0,375 l⟧ Milch – also etwas mehr als 0,25 l und weniger als 0,5 l.'],
-  'regel': 'So wandelst du einen Bruch um: ⟦Erweitere auf den Nenner 10, 100 oder 1 000⟧ und schreibe die Zahl mit Komma. Geht das nicht, ⟦teile den Zähler durch den Nenner⟧.',
-  'fehler': '3/8 = 3,8 ist falsch: Dann bräuchtest du fast 4 Liter Milch für einen Kuchen. Der Bruchstrich ist kein Komma, 3/8 heißt ⟦3 : 8⟧ = 0,375.'},
+  'einstieg': 'Im Rezept steht 3/8 Liter Milch. Dein Messbecher zeigt aber nur Kommazahlen. Du musst den Bruch ⟦in eine Dezimalzahl umwandeln⟧.',
+  'woerter': [['Dezimalzahl', 'eine Zahl mit Komma, z. B. 0,375'],
+              ['Zehnerbruch', 'ein Bruch mit dem Nenner 10, 100 oder 1 000']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 1, 'abschnitte': 8, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': '3/8 liegt beim 3. von 8 Strichen.', 'bild': {'punkte': [{'wert': 0.375, 'name': '3/8', 'zahl': False}]}},
+               {'text': 'Mach daraus einen Zehnerbruch: 8 · 125 = 1 000.'},
+               {'text': 'Erweitere mit 125: 3/8 = 375/1 000.'},
+               {'text': '375 Tausendstel sind ⟦0,375⟧ Liter.', 'bild': {'punkte': [{'wert': 0.375, 'name': '3/8 = 0,375', 'zahl': False}]}}],
+  'fehler': '3/8 = 3,8 ist falsch: Dann bräuchtest du fast 4 Liter Milch. Der Bruchstrich bedeutet 3 : 8.',
+  'fehler_bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 4, 'abschnitte': 4, 'beschriftet': 'anfang_ende',
+                  'punkte': [{'wert': 0.375, 'name': '3/8', 'zahl': False}, {'wert': 3.8, 'name': '3,8?', 'zahl': False}]},
+  'regel': 'Erweitere auf ⟦10, 100 oder 1 000⟧ und schreibe mit Komma. Geht das nicht, teile den Zähler durch den Nenner.'},
  'dezimal_zu_bruch': {
-  'einstieg': 'An der Kasse bekommst du 0,35 € Wechselgeld, also 35 Cent. Ein Euro hat 100 Cent. Das Wechselgeld ist demnach 35 von 100 Teilen eines Euros. So schreibst du eine Zahl mit Komma ⟦als Bruch⟧.',
-  'woerter': [['endliche Dezimalzahl', 'eine Zahl mit Komma, deren Ziffern irgendwann aufhören, z. B. 0,35'],
-              ['kürzen', 'Zähler und Nenner durch dieselbe Zahl teilen; der Wert bleibt gleich'],
-              ['vollständig gekürzt', 'Zähler und Nenner haben keinen gemeinsamen Teiler außer 1 mehr']],
-  'schritte': ['0,35 hat 2 Nachkommastellen. Die letzte Ziffer steht bei den Hundertsteln.',
-               'Darum kommt 100 in den Nenner: 0,35 = 35/100 – 35 Cent von 100 Cent.',
-               '35 und 100 lassen sich beide durch 5 teilen: 35 : 5 = 7 und 100 : 5 = 20.',
-               'Vollständig gekürzt ist 0,35 = ⟦7/20⟧.'],
-  'regel': 'So schreibst du eine endliche Dezimalzahl als Bruch: Der Nenner bekommt ⟦so viele Nullen, wie die Zahl Nachkommastellen hat⟧ (10, 100, 1 000 …). Danach ⟦kürzen⟧.',
-  'fehler': '0,35 = 35/10 ist falsch: Das wären 35 Zehntel Euro, also 3,50 € – zehnmal so viel Wechselgeld. Zwei Nachkommastellen bedeuten ⟦Hundertstel⟧, also Nenner 100.'},
+  'einstieg': 'An der Kasse bekommst du 0,35 € zurück, also 35 Cent. Ein Euro hat 100 Cent. So schreibst du die Zahl ⟦als Bruch⟧: 35/100.',
+  'woerter': [['Nachkommastelle', 'eine Ziffer hinter dem Komma']],
+  'bild': {'typ': 'stellentafel', 'stellen': ['E', 'z', 'h'], 'ziffern': [0, 3, 5]},
+  'schritte': [{'text': '0,35 hat 2 Nachkommastellen. Die 5 steht bei den Hundertsteln.', 'bild': {'markiert': 2}},
+               {'text': 'Also kommt 100 in den Nenner: 0,35 = 35/100.'},
+               {'text': 'Kürze durch 5: 35/100 = ⟦7/20⟧.',
+                'bild': {'typ': 'bruchstreifen', 'teile': 20, 'gefaerbt': 7, 'teil_text': '7/20', 'ganzes': '1 € = 100 Cent'}}],
+  'fehler': '0,35 = 35/10 ist falsch: Das wären 3,50 €, zehnmal zu viel. Zwei Nachkommastellen heißen Nenner 100.',
+  'regel': 'Der Nenner bekommt ⟦so viele Nullen⟧ wie Nachkommastellen. Danach kürzt du.'},
  'periodisch': {
-  'einstieg': 'Sechs Kinder wollen 5 € gerecht teilen. Rechnest du 5 : 6, hört die Rechnung nie auf: 0,8333… Die 3 kommt immer wieder, so lange du auch weiterrechnest. Eine Zahl mit Komma, deren Ziffern sich so ohne Ende wiederholen, heißt ⟦periodische Dezimalzahl⟧.',
-  'woerter': [['…', 'die Ziffern gehen immer weiter'],
-              ['Periode', 'die Ziffer oder Ziffernfolge, die sich ohne Ende wiederholt'],
-              ['Periodenstrich', 'der Strich über der Periode: 0,83̅ heißt 0,8333…'],
-              ['Primfaktor', 'eine Primzahl, die in einer Zahl als Faktor steckt: 6 = 2 · 3, also sind 2 und 3 die Primfaktoren von 6'],
-              ['endlich', 'die Ziffern nach dem Komma hören irgendwann auf']],
-  'schritte': ['Rechne 5 : 6 schriftlich. Es ergibt 0,8 und es bleibt ein Rest.',
-               'Ab jetzt bleibt bei jedem Schritt derselbe Rest, darum kommt immer wieder eine 3: 0,8333…',
-               'Die 8 kommt nur einmal, ab der zweiten Nachkommastelle wiederholt sich die 3. Die Periode ist also 3.',
-               'Mit Periodenstrich: 5/6 = ⟦0,83̅⟧. Jedes Kind bekommt etwa 0,83 €, ein paar Cent bleiben übrig.'],
-  'regel': 'So erkennst du periodische Dezimalzahlen: Kürze den Bruch vollständig und zerlege den Nenner in ⟦Primfaktoren⟧. Kommen ⟦nur 2 und 5⟧ vor, ist die Dezimalzahl endlich – denn 10 = 2 · 5, man kann auf 10, 100, 1 000 erweitern. Kommt ein ⟦anderer Primfaktor⟧ vor (z. B. 3), ist sie ⟦periodisch⟧. Die Periode bekommt einen ⟦Strich⟧: 0,3̅.',
-  'fehler': '1/3 = 0,3 ist falsch: Drei Kinder mit je 0,30 € hätten zusammen nur 0,90 € statt 1 €. Richtig ist 1/3 = ⟦0,3̅⟧ – die 3 wiederholt sich ohne Ende.'},
+  'einstieg': 'Sechs Kinder teilen 5 € gerecht. Rechnest du 5 : 6, kommt 0,8333… heraus, ohne Ende. Solche Dezimalzahlen heißen ⟦periodisch⟧.',
+  'woerter': [['periodisch', 'eine Ziffer oder Ziffernfolge wiederholt sich ohne Ende'],
+              ['Periode', 'die Ziffern, die sich immer wiederholen'],
+              ['Periodenstrich', 'ein Strich über der Periode: 0,83̅']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Rechnung', 'Ziffer', 'Rest'], 'zeilen': [['5 : 6', '0', '5']]},
+  'schritte': [{'text': '5 : 6 = 0, Rest 5. Dann 50 : 6 = 8, Rest 2.',
+                'bild': {'zeilen': [['5 : 6', '0', '5'], ['50 : 6', '8', '2']]}},
+               {'text': 'Dann 20 : 6 = 3, Rest 2. Derselbe Rest kommt immer wieder.',
+                'bild': {'zeilen': [['5 : 6', '0', '5'], ['50 : 6', '8', '2'], ['20 : 6', '3', '2'], ['20 : 6', '3', '2']]}},
+               {'text': 'Die 3 ist die Periode. Mit Periodenstrich: 5/6 = ⟦0,83̅⟧.'}],
+  'fehler': '1/3 = 0,3 ist falsch: Drei Kinder mit je 0,30 € hätten nur 0,90 €. Richtig ist 0,3̅.',
+  'regel': 'Wiederholen sich Ziffern ohne Ende, ist die Zahl ⟦periodisch⟧. Das passiert, wenn der gekürzte Nenner andere Primfaktoren als 2 und 5 hat.'},
  'verstehen': {
-  'einstieg': 'Beim Sportfest misst eine Stoppuhr Zehntel- und Hundertstelsekunden. Jemand behauptet: „Zwischen 0,1 s und 0,2 s kann es keine Zeit geben.“ Doch die Uhr zeigt auch 0,15 s an. Ein einziges solches Beispiel genügt, um die Behauptung zu widerlegen. Es heißt ⟦Gegenbeispiel⟧.',
-  'woerter': [['s', 'Sekunde'],
-              ['Aussage', 'ein Satz, der wahr oder falsch sein kann'],
-              ['Gegenbeispiel', 'ein Beispiel, bei dem eine Aussage nicht stimmt; eines genügt'],
-              ['widerlegen', 'zeigen, dass etwas falsch ist']],
-  'schritte': ['Die Aussage lautet: „Zwischen 0,1 und 0,2 gibt es keine Zahl.“',
-               'Hänge an beide Zahlen eine Endnull an: 0,10 und 0,20. Der Wert bleibt gleich.',
-               'Jetzt siehst du Hundertstel dazwischen: 0,11, 0,12, … 0,15 … 0,19.',
-               '0,15 ist ein Gegenbeispiel, die Aussage ist ⟦falsch⟧.'],
-  'regel': 'So prüfst du Aussagen über Dezimalzahlen: Schreibe die Zahlen in die ⟦Stellenwerttafel⟧ oder hänge Endnullen an und vergleiche Stelle für Stelle. Suche ein ⟦Gegenbeispiel⟧ – eines genügt, um eine Aussage zu widerlegen.',
-  'fehler': '„3,14 ist größer als 3,2, weil 14 > 2“ ist falsch: Ein Weitsprung von 3,14 m ist kürzer als einer von 3,2 m = 3,20 m. Man vergleicht ⟦Stelle für Stelle⟧: Zehntel 1 < 2, also 3,14 < 3,2.'},
+  'einstieg': 'Jemand behauptet: „Zwischen 0,1 s und 0,2 s gibt es keine Zeit“. Doch die Stoppuhr zeigt 0,15 s. Ein Beispiel gegen eine Aussage heißt ⟦Gegenbeispiel⟧.',
+  'woerter': [['Gegenbeispiel', 'ein Beispiel, das zeigt: Die Aussage stimmt nicht']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0.1, 'ende': 0.2, 'abschnitte': 10, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': 'Hänge Endnullen an: 0,1 = 0,10 und 0,2 = 0,20.'},
+               {'text': 'Dazwischen liegen 0,11, 0,12 und so weiter bis 0,19.', 'bild': {'beschriftet': 'alle'}},
+               {'text': '0,15 ist ein Gegenbeispiel. Die Aussage ist ⟦falsch⟧.',
+                'bild': {'beschriftet': 'anfang_ende', 'punkte': [{'wert': 0.15, 'name': '0,15 s', 'zahl': False}]}}],
+  'fehler': '„3,14 ist größer als 3,2, weil 14 > 2“ ist falsch. Bei den Zehnteln gilt 1 < 2, also ist 3,14 kleiner.',
+  'fehler_bild': {'typ': 'zahlenstrahl', 'start': 3.1, 'ende': 3.2, 'abschnitte': 10, 'beschriftet': 'anfang_ende',
+                  'punkte': [{'wert': 3.14, 'name': '3,14', 'zahl': False}]},
+  'regel': 'Prüfe Aussagen ⟦Stelle für Stelle⟧. Ein Gegenbeispiel genügt, um eine Aussage zu widerlegen.'},
 }
 
-klar(DATEI, KLAR)
+umbau(DATEI, KARTEN)
 
+
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl6): je Lernkarte 2 Übungen Stufe 2 + 4 Übungen Stufe 3 ----------
+# Läuft nach allen bisherigen Aufgaben mit eigenem Zufallsstart; die bisherigen Aufgaben bleiben unverändert.
+# Prüfungsvorbilder: Jahrgangsstufentest Realschule Jgst. 6 (ISB) 2023 Nr. 6 (größtmögliche Zahl für einen Platzhalter),
+# 2019 Nr. 6 (markierte Zahl am Zahlenstrahl), 2019 Nr. 19 und 2024 Nr. 5 (Runden begründen / richtig gerundet auswählen);
+# Bayerischer Mathematik-Test Jgst. 8 (ISB) 2023 Aufg. 5a (Restanteil aus gemischten Angaben), 2024 Aufg. 3b („ein Drittel“ genau prüfen),
+# 2021 Aufg. 6c (passenden Bruch auswählen).
+from _schwer_kl6 import ergaenzen, zahl, wahl, luecken, anteil, mark  # noqa: E402
+
+
+def _ue(z):
+    """Ziffernfolge mit Periodenstrich (wie in den bisherigen Aufgaben: kombinierender Überstrich)."""
+    return ''.join(c + '\u0305' for c in z)
+
+
+def _dz():
+    return {
+        'stellenwerte': [
+            (2, lambda R: wahl(R, 'Welchen Wert hat die Ziffer 7 in 3,072?', '7 Hundertstel', ['7 Zehntel', '7 Tausendstel', '70'],
+                               'Zähle die Stellen nach dem Komma: Zehntel, Hundertstel, Tausendstel.',
+                               '3,072: 0 Zehntel, 7 Hundertstel, 2 Tausendstel.')),
+            (2, lambda R: zahl('Schreibe als Dezimalzahl: 4 Zehntel und 23 Tausendstel.', Fr('0.423'), '4/10 + 23/1000',
+                               '23 Tausendstel sind 2 Hundertstel und 3 Tausendstel.', '0,4 + 0,023 = 0,423.')),
+            (3, lambda R: zahl('Bilde mit den Ziffern 3, 8, 1 und 6 (jede genau einmal) die größte Dezimalzahl, die kleiner als 10 ist.', Fr('8.631'),
+                               '8 + 6/10 + 3/100 + 1/1000', 'Kleiner als 10 heißt: genau eine Ziffer vor dem Komma. Welche Ziffer gehört nach vorn?',
+                               'Vor das Komma kommt die größte Ziffer 8, danach absteigend 6, 3, 1: 8,631.')),
+            (3, lambda R: zahl('Wie viele Hundertstel sind 2,4?', 240, '2.4 * 100', 'Ein Ganzes hat 100 Hundertstel, ein Zehntel hat 10 Hundertstel.',
+                               '2 Ganze = 200 Hundertstel, 4 Zehntel = 40 Hundertstel. Zusammen 240 Hundertstel.')),
+            (3, lambda R: zahl('Ich bin eine Dezimalzahl zwischen 5 und 6 mit genau zwei Nachkommastellen. Meine Zehntelziffer ist doppelt so groß '
+                               'wie meine Hundertstelziffer. Zusammen ergeben die beiden Ziffern 9. Wer bin ich?', Fr('5.63'), '5 + 6/10 + 3/100',
+                               'Die Zehntelziffer zählt wie zwei Hundertstelziffern. Zusammen sind es also drei gleiche Teile von 9.',
+                               'Hundertstel h, Zehntel 2 · h. h + 2 · h = 9, also h = 3 und Zehntel 6. Die Zahl ist 5,63.')),
+            (3, lambda R: zahl('Ein Kind schreibt 3 + 4/100 als 3,4. Wie heißt die Zahl richtig?', Fr('3.04'), '3 + 4/100',
+                               '4/100 sind 4 Hundertstel. An welcher Stelle nach dem Komma stehen Hundertstel?',
+                               '4 Hundertstel stehen an der 2. Stelle nach dem Komma, die Zehntelstelle ist 0: 3,04. (3,4 wären 4 Zehntel.)')),
+        ],
+        'vergleichen_ordnen': [
+            (2, lambda R: wahl(R, 'Ordne 0,5; 0,45; 0,405 und 0,54, mit der kleinsten Zahl zuerst. Welche Zahl steht an zweiter Stelle?', '0,45',
+                               ['0,405', '0,5', '0,54'], 'Fülle mit Endnullen auf: 0,500; 0,450; 0,405; 0,540.',
+                               '0,405 < 0,450 < 0,500 < 0,540. An zweiter Stelle steht 0,45.')),
+            (2, lambda R: mark('Markiere 0,35 am Zahlenstrahl (von 0 bis 0,5, 10 gleiche Teile).', 0, Fr('0.5'), 10, 7,
+                               'Wie lang ist ein Teil? 0,5 : 10 = ?', 'Ein Teil ist 0,05 lang. 0,35 : 0,05 = 7, also der 7. Strich.', Fr('0.35'))),
+            (3, lambda R: zahl('Welche Ziffer darf höchstens für □ stehen, damit 4,□7 < 4,58 gilt?', 5, '5',
+                               'Probiere die Ziffern 5 und 6 aus und vergleiche Stelle für Stelle.',
+                               '4,57 < 4,58 stimmt. 4,67 ist schon größer als 4,58. Also höchstens 5.')),
+            (3, lambda R: zahl('Wie viele Dezimalzahlen mit genau zwei Nachkommastellen liegen zwischen 3,4 und 3,5? (Die Grenzen zählen nicht.)', 9, '49 - 41 + 1',
+                               'Schreibe sie auf: 3,41; 3,42; …', 'Es sind 3,41 bis 3,49, also 9 Zahlen. (3,40 und 3,50 sind die Grenzen.)')),
+            (3, lambda R: mark('Markiere 2,35 am Zahlenstrahl (von 2,2 bis 2,6, 8 gleiche Teile).', Fr('2.2'), Fr('2.6'), 8, 3,
+                               'Die Strecke ist 0,4 lang. Wie lang ist ein Teil?', 'Ein Teil ist 0,4 : 8 = 0,05 lang. Von 2,2 bis 2,35 sind es 0,15, also 3 Teile.', Fr('2.35'))),
+            (3, lambda R: wahl(R, 'Ein Kind ordnet so: 0,8 < 0,75 < 0,125, „weil mehr Stellen eine kleinere Zahl bedeuten“. Wie ist es richtig?',
+                               '0,125 < 0,75 < 0,8', ['Die Reihenfolge stimmt.', '0,75 < 0,8 < 0,125', '0,8 < 0,125 < 0,75'],
+                               'Fülle auf drei Nachkommastellen auf und vergleiche.', '0,800; 0,750; 0,125. Richtig ist 0,125 < 0,75 < 0,8.')),
+        ],
+        'runden': [
+            (2, lambda R: zahl('Runde 0,0738 auf Tausendstel.', Fr('0.074'), 'round(0.0738, 3)', 'Die Tausendstelstelle ist die 3. Stelle nach dem Komma.',
+                               'Rechts von der Tausendstelziffer 3 steht 8, also aufrunden: 0,074.')),
+            (2, lambda R: zahl('Runde 12,345 auf Zehntel.', Fr('12.3'), '123 / 10', 'Schau nur auf die Ziffer direkt rechts von der Zehntelstelle.',
+                               'Rechts von der 3 steht 4: abrunden. 12,3. Die 5 weiter hinten spielt keine Rolle.')),
+            (3, lambda R: zahl('Runde 7,996 auf Hundertstel.', 8, '800 / 100', 'Die Hundertstelziffer 9 wird um 1 größer. Was passiert dann mit den Ziffern davor?',
+                               'Rechts von der Hundertstelziffer steht 6: aufrunden. 7,99 + 0,01 = 8,00.')),
+            (3, lambda R: zahl('Ein Kind rundet 2,449 erst auf Hundertstel (2,45) und dann auf Zehntel (2,5). Was ergibt richtiges Runden von 2,449 auf Zehntel?',
+                               Fr('2.4'), '24 / 10', 'Runde in einem Schritt: Welche Ziffer steht direkt rechts von der Zehntelstelle?',
+                               'Rechts von der Zehntelziffer 4 steht 4: abrunden, also 2,4. Zweimal runden hintereinander verfälscht das Ergebnis.')),
+            (3, lambda R: zahl('Eine Zahl mit genau zwei Nachkommastellen ergibt auf Zehntel gerundet 6,3. Welche ist die größte solche Zahl?', Fr('6.34'), '634 / 100',
+                               'Bis zu welcher Hundertstelziffer wird noch abgerundet?', 'Bei 0 bis 4 wird abgerundet. 6,34 → 6,3, aber 6,35 → 6,4. Die größte ist 6,34.')),
+            (3, lambda R: zahl('3 Hefte kosten zusammen 4,00 €. Wie viel kostet ein Heft, auf ganze Cent gerundet?', Fr('1.33'), 'round(4 / 3, 2)',
+                               'Teile 4 € durch 3 und runde auf zwei Nachkommastellen.', '4 : 3 = 1,333… €. Rechts von der Hundertstelstelle steht 3: abrunden, 1,33 €.',
+                               einheit='€')),
+        ],
+        'bruch_zu_dezimal': [
+            (2, lambda R: zahl('Schreibe 13/50 als Dezimalzahl.', Fr('0.26'), '13 / 50', 'Erweitere auf den Nenner 100.', '13/50 = 26/100 = 0,26.')),
+            (2, lambda R: zahl('Schreibe die gemischte Zahl 2 3/4 als Dezimalzahl.', Fr('2.75'), '2 + 3/4', '2 3/4 heißt 2 + 3/4.', '3/4 = 75/100 = 0,75. 2 + 0,75 = 2,75.')),
+            (3, lambda R: zahl('Ein Teig besteht zu 1/4 aus Mehl, zu 0,3 aus Zucker, zu 1/5 aus Butter, der Rest sind Eier. '
+                               'Welcher Anteil sind Eier? Gib ihn als Dezimalzahl an.', Fr('0.25'), '1 - 1/4 - 0.3 - 1/5',
+                               'Schreibe alle Anteile als Dezimalzahl. Alles zusammen ist 1.', '1/4 = 0,25 und 1/5 = 0,2. 1 − 0,25 − 0,3 − 0,2 = 0,25.')),
+            (3, lambda R: zahl('Welche Zahl ist größer, 5/8 oder 0,6? Gib den Unterschied als Dezimalzahl an.', Fr('0.025'), '5/8 - 0.6',
+                               'Schreibe 5/8 als Dezimalzahl (Achtel: 1/8 = 0,125).', '5/8 = 0,625. 0,625 − 0,6 = 0,025. 5/8 ist größer.')),
+            (3, lambda R: zahl('Für welche Zahl n von 1 bis 10 ist 3/n eine Dezimalzahl mit genau drei Nachkommastellen?', 8, '8',
+                               'Probiere alle n durch. Welche Nenner geben endliche Dezimalzahlen?',
+                               '3/2 = 1,5; 3/4 = 0,75; 3/5 = 0,6; 3/6 = 0,5; 3/10 = 0,3; 3/7 und 3/9 sind periodisch. Nur 3/8 = 0,375 hat drei Nachkommastellen.')),
+            (3, lambda R: zahl('Ein Kind schreibt 3/4 = 3,4. Wie heißt die Dezimalzahl richtig?', Fr('0.75'), '3 / 4',
+                               'Ist 3/4 größer oder kleiner als 1? Und 3,4?', '3/4 ist kleiner als 1. Erweitern: 3/4 = 75/100 = 0,75. Der Bruchstrich ist kein Komma.')),
+        ],
+        'dezimal_zu_bruch': [
+            (2, lambda R: anteil('Schreibe 0,85 als vollständig gekürzten Bruch.', 85, 100, 'Zwei Nachkommastellen: Nenner 100.', '0,85 = 85/100. Durch 5 kürzen: 17/20.')),
+            (2, lambda R: anteil('Schreibe 2,4 als vollständig gekürzten Bruch. Ein Bruch größer als 1 ist erlaubt.', 24, 10, 'Eine Nachkommastelle: Nenner 10.',
+                                 '2,4 = 24/10. Durch 2 kürzen: 12/5.')),
+            (3, lambda R: anteil('Schreibe 0,125 + 0,5 als vollständig gekürzten Bruch.', 625, 1000, 'Rechne zuerst die Summe aus.',
+                                 '0,125 + 0,5 = 0,625 = 625/1 000. Durch 125 kürzen: 5/8.')),
+            (3, lambda R: wahl(R, 'Welcher Bruchteil eines Kilogramms sind 0,04 kg?', '1/25', ['4/10', '1/4', '4/1 000'],
+                               'Zwei Nachkommastellen: Nenner 100. Dann kürzen.', '0,04 = 4/100 = 1/25. 4/10 wäre 0,4 und 1/4 wäre 0,25.')),
+            (3, lambda R: zahl('Für □ soll eine Ziffer eingesetzt werden, sodass 0,□5 vollständig gekürzt den Nenner 4 hat. Wie viele Ziffern sind möglich?', 2, '2',
+                               'Welche Brüche mit Nenner 4 haben zwei Nachkommastellen und enden auf 5?',
+                               '1/4 = 0,25 und 3/4 = 0,75 passen. 0,05, 0,15, 0,35 … haben gekürzt den Nenner 20. Also 2 Ziffern (2 und 7).')),
+            (3, lambda R: anteil('Ein Kind schreibt 0,07 = 7/10. Wie heißt der Bruch richtig?', 7, 100, 'Wie viele Nachkommastellen hat 0,07?',
+                                 '0,07 hat zwei Nachkommastellen, also 7 Hundertstel: 7/100. 7/10 wäre 0,7.')),
+        ],
+        'periodisch': [
+            (2, lambda R: wahl(R, 'Welche Dezimalzahl ist gleich 5/6?', '0,8' + _ue('3'), ['0,' + _ue('83'), '0,83', '0,' + _ue('56')],
+                               'Teile 5 durch 6 schriftlich. Welche Ziffer wiederholt sich?', '5 : 6 = 0,8333… Nur die 3 wiederholt sich: 0,83 mit Strich über der 3.')),
+            (2, lambda R: wahl(R, 'Ist 7/40 als Dezimalzahl endlich oder periodisch?', 'endlich, denn 40 = 2 · 2 · 2 · 5',
+                               ['periodisch, denn 7 ist eine Primzahl', 'periodisch, denn 40 ist nicht durch 3 teilbar'],
+                               'Zerlege den Nenner in Primfaktoren.', '40 = 2 · 2 · 2 · 5, nur 2 und 5. Also endlich: 7/40 = 175/1 000 = 0,175.', n=3)),
+            (3, lambda R: zahl('2/7 = 0,' + _ue('285714') + '. Welche Ziffer steht an der 100. Nachkommastelle?', 7, '(2 * 10 ** 100 // 7) % 10',
+                               'Die Periode hat 6 Ziffern. Wie oft passt 6 in 100, und was bleibt übrig?',
+                               '100 = 16 · 6 + 4. Nach 16 vollen Perioden kommt die 4. Ziffer der Periode 285714, das ist 7.')),
+            (3, lambda R: wahl(R, 'Welche Zahl ist größer: 0,' + _ue('3') + ' oder 0,33?', '0,' + _ue('3'), ['0,33', 'Beide sind gleich groß'],
+                               'Schreibe beide Zahlen mit vier Nachkommastellen.', '0,' + _ue('3') + ' = 0,3333… und 0,33 = 0,3300. Also ist 0,' + _ue('3') + ' größer.', n=3)),
+            (3, lambda R: zahl('Wie viele der Brüche 1/2, 1/3, 1/4, …, 1/10 sind periodische Dezimalzahlen?', 4, '9 - 5',
+                               'Periodisch wird es, wenn der Nenner einen anderen Primfaktor als 2 und 5 hat.',
+                               'Die Nenner 3, 6, 7 und 9 haben den Primfaktor 3 oder 7: 4 Brüche. 1/2, 1/4, 1/5, 1/8, 1/10 sind endlich.')),
+            (3, lambda R: wahl(R, 'Ein Kind sagt: 1/6 = 0,' + _ue('16') + '. Was stimmt?', 'Falsch: 1/6 = 0,1' + _ue('6') + ' – nur die 6 wiederholt sich.',
+                               ['Richtig.', 'Falsch: 1/6 = 0,16.', 'Falsch: 1/6 = 0,' + _ue('6') + '.'],
+                               'Teile 1 durch 6 schriftlich und schau, welche Ziffern sich wiederholen.',
+                               '1 : 6 = 0,1666… Die 1 kommt nur einmal, danach wiederholt sich die 6.')),
+        ],
+        'verstehen': [
+            (2, lambda R: wahl(R, 'Stimmt die Aussage? „0,5 ist dasselbe wie 1/5.“', 'Nein: 0,5 = 5/10 = 1/2, aber 1/5 = 0,2.',
+                               ['Ja, beide haben eine 5.', 'Das kann man nicht entscheiden.'], 'Schreibe 0,5 als Bruch.',
+                               '0,5 sind 5 Zehntel = 1/2. 1/5 = 2/10 = 0,2.', n=3)),
+            (2, lambda R: wahl(R, 'Stimmt die Aussage? „3,05 und 3,5 sind gleich groß, denn die Null zählt nicht.“',
+                               'Nein: 3,05 hat 0 Zehntel, 3,5 hat 5 Zehntel.', ['Ja, Nullen ändern nie etwas.', 'Das kann man nicht entscheiden.'],
+                               'Eine Null in der Mitte ist keine Endnull.', 'Endnullen nach dem Komma ändern nichts (3,5 = 3,50). Die Null in 3,05 ist keine Endnull: 3,05 < 3,50.', n=3)),
+            (3, lambda R: wahl(R, 'Stimmt die Aussage? „0,3 ist genau ein Drittel.“', 'Nein: 1/3 = 0,' + _ue('3') + ' ist etwas größer als 0,3.',
+                               ['Ja, 0,3 = 1/3.', 'Nein: 1/3 = 0,03.', 'Nein: 1/3 ist kleiner als 0,3.'],
+                               'Teile 1 durch 3.', '1 : 3 = 0,333… Das ist mehr als 0,3 = 3/10. 0,3 ist nur ein gerundeter Wert.')),
+            (3, lambda R: wahl(R, 'Stimmt die Aussage? „Jeder Bruch mit dem Nenner 15 ist periodisch.“', 'Nein: 3/15 = 1/5 = 0,2 ist endlich.',
+                               ['Ja, denn 15 = 3 · 5.', 'Ja, denn 15 ist ungerade.', 'Nein: Jeder Bruch mit dem Nenner 15 ist endlich.'],
+                               'Kürze zuerst. Probiere z. B. 3/15 oder 6/15.', '3/15 = 1/5 = 0,2 ist endlich. Erst nach dem Kürzen entscheidet der Nenner. 1/15 dagegen ist periodisch.')),
+            (3, lambda R: wahl(R, 'Ein Kind rundet 5,96 auf Zehntel und schreibt 5,10. Was ist richtig?', '6,0', ['5,10', '5,9', '5,1'],
+                               'Rechts von der Zehntelziffer 9 steht 6: aufrunden. Was ist 5,9 + 0,1?',
+                               'Aufrunden: Aus 9 Zehnteln werden 10 Zehntel = 1 Ganzes. 5,9 + 0,1 = 6,0.')),
+            (3, lambda R: wahl(R, 'Ein Kind sagt: „Hänge ich an eine Zahl hinten eine 0 an, wird sie 10-mal so groß.“ Stimmt das?',
+                               'Nur bei ganzen Zahlen: 25 → 250. Bei 2,5 → 2,50 bleibt der Wert gleich.',
+                               ['Ja, immer.', 'Nein, nie.', 'Nur bei Dezimalzahlen: 2,5 → 2,50 ist 10-mal so groß.'],
+                               'Probiere mit 25 und mit 2,5.', '25 wird zu 250 (10-mal so groß). 2,5 wird zu 2,50 – eine Endnull nach dem Komma ändert nichts.')),
+        ],
+    }
+
+
+ergaenzen(DATEI, _dz(), seed=6022)
+
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('bruch.dezimal', 13_6_3)
+# c) Textfehler: 0,37 hat nur zwei Nachkommastellen (Beispiel passt nicht zur Aussage)
+BF.ersetze('verstehen', 'Stimmt die Aussage? „Eine Zahl mit drei Nachkommastellen ist immer größer als eine mit einer, z. B. 0,37 > 0,8.“', BF.A(
+    'Stimmt die Aussage? „Eine Zahl mit drei Nachkommastellen ist immer größer als eine mit einer, z. B. 0,375 > 0,8.“',
+    'Nein, man vergleicht Stelle für Stelle. Schon bei den Zehnteln ist die zweite Zahl größer.',
+    ['Das kann man nicht entscheiden.', 'Ja, die Aussage stimmt.'],
+    'Nein. 0,375 hat 3 Zehntel, 0,8 hat 8 Zehntel: 0,375 < 0,8. Die Zahl der Nachkommastellen sagt nichts über die Größe.',
+    'Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel.'))
+# d) enthält keinen Bruch, passt nicht zur Lernkarte „Bruch → Dezimalzahl“
+BF.ersetze('bruch_zu_dezimal', 'Berechne 1 + 0,5 und gib das Ergebnis als Dezimalzahl an.', BF.Z(
+    'Berechne 3/4 + 0,5 und gib das Ergebnis als Dezimalzahl an.', 1.25, '3/4 + 0.5', '3/4 = 0,75. 0,75 + 0,5 = 1,25.',
+    'Wandle den Bruch zuerst in eine Dezimalzahl um.'))
+BF.ersetze('bruch_zu_dezimal', 'Berechne 1 + 0,4 und gib das Ergebnis als Dezimalzahl an.', BF.Z(
+    'Berechne 2/5 + 1,4 und gib das Ergebnis als Dezimalzahl an.', 1.8, '2/5 + 1.4', '2/5 = 4/10 = 0,4. 0,4 + 1,4 = 1,8.',
+    'Wandle den Bruch zuerst in eine Dezimalzahl um.'))
+# a) schriftliche Division mit Periode → Stufe 2
+BF.stufe('periodisch', 'Welche Dezimalzahl ist gleich 4/11?', 2)
+# a) Standardform → Stufe 2
+for _t in ['5 + 9/100 + 7/1 000', '6 + 7/100 + 1/1 000', '9 + 9/100 + 7/1 000', '9 + 7/100 + 2/1 000']:
+    BF.stufe('stellenwerte', f'Schreibe als Dezimalzahl: {_t}', 2)
+BF.nicht_umgesetzt('runden „Runde 2,596 auf Hundertstel“ (Test 30,096): Lösung als 2,6 bzw. 30,1 gespeichert',
+                   'Die App wertet 2,60 = 2,6; der Lösungsweg nennt die Endnull bereits („2,596 ≈ 2,60. Die Null am Ende bleibt stehen …“).')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
+
+# ---------- LUECKEN (Achtzehnte Runde, Teil B, Zweig luecken-kl6) ----------
+# Läuft nach allen bisherigen Abschnitten mit eigenem Zufallsstart; vorhandene Karten und Aufgaben bleiben unverändert.
+# Lehrplan: LehrplanPLUS Gymnasium Bayern M6 1.2 (Umwandlung Bruch ↔ Dezimalbruch bei passenden Zahlen auch im Kopf; Anzeigen digitaler
+# Hilfsmittel wie „0,166666667“ bei 1 : 6 reflektiert lesen), M6 1.1 (Prozent als andere Schreibweise für Brüche).
+# Prüfungsvorbilder: Grundwissentest Jgst. 7 der Realschule (ISB) 2009 Nr. 2 und 2023 Nr. 10 (Bruch mit einstelligem Zähler und zweistelligem
+# Nenner zu 0,75 bzw. 0,25), 2024 Nr. 14 (Taschenrechner-Anzeige eines Bruchs runden), 2008 Nr. 3 (Zahl in der Mitte zwischen zwei Zahlen).
+from _luecken_kl6 import karte_neu, zahl, wahl, luecken, bruch as lbruch  # noqa: E402
+
+_KOPF = ['Bruch', '1/2', '1/4', '3/4', '1/5', '1/8']
+_MERK = {
+    'lernziel': 'merkwerte', 'titel': 'Merkwerte: Bruch, Dezimalzahl, Prozent',
+    'einstieg': 'Im Laden steht „Die Hälfte gratis!“. Die Waage zeigt 0,5 kg, der Prospekt 50 %. Das ist immer derselbe Anteil. Solche ⟦Merkwerte⟧ kennst du am besten auswendig.',
+    'woerter': [['Merkwert', 'ein Bruch mit seiner Dezimalzahl, den man auswendig weiß, z. B. 1/2 = 0,5'],
+                ['Prozent', 'Hundertstel: 25 % = 25/100 = 0,25']],
+    'bild': tabelle(_KOPF, [['Dezimal', '?', '?', '?', '?', '?']]),
+    'schritte': [
+        {'text': 'Die Hälfte: 1/2 = 0,5. Die Hälfte davon: 1/4 = ⟦0,25⟧.',
+         'bild': {'zeilen': [['Dezimal', '0,5', '0,25', '?', '?', '?']]}},
+        {'text': 'Drei Viertel sind dreimal so viel: 3/4 = 0,75.', 'bild': {'zeilen': [['Dezimal', '0,5', '0,25', '0,75', '?', '?']]}},
+        {'text': '1/5 = 2/10 = 0,2. Und 1/8 ist die Hälfte von 1/4: 0,125.',
+         'bild': {'zeilen': [['Dezimal', '0,5', '0,25', '0,75', '0,2', '0,125']]}},
+        {'text': 'Prozent heißt Hundertstel: 0,25 = 25/100 = ⟦25 %⟧.',
+         'bild': {'zeilen': [['Dezimal', '0,5', '0,25', '0,75', '0,2', '0,125'], ['Prozent', '50 %', '25 %', '75 %', '20 %', '12,5 %']]}},
+    ],
+    'fehler': '1/5 ist nicht 0,5. Ein Fünftel ist viel weniger als die Hälfte: 1/5 = 2/10 = 0,2.',
+    'fehler_bild': {'typ': 'tabelle', 'kopf': ['Bruch', '1/2', '1/5'], 'zeilen': [['Dezimal', '0,5', '0,2 (nicht 0,5)']]},
+    'regel': 'Merke ⟦1/2, 1/4, 3/4, 1/5, 1/8⟧ als Dezimalzahl und Prozent. Andere Werte leitest du davon ab.',
+    'probe': '1/8 = 0,125: Zweimal 0,125 sind 0,25 = 1/4.',
+}
+
+
+def _merk_aufgaben():
+    U = 'uebung'
+    def b(t, E, h, w): return lambda R: lbruch(t, E, h, w)
+    def z(t, v, c, h, w, e=None): return lambda R: zahl(t, v, c, h, w, einheit=e)
+    AB = 'Leite den Wert aus einem Merkwert ab (halbieren, verdoppeln, mal 3 …).'
+    return [
+        (U, 1, z('Kopfrechnen: Schreibe 3/10 als Dezimalzahl.', Fr('0.3'), '3/10', 'Zehntel stehen an der ersten Stelle nach dem Komma.', '3/10 sind 3 Zehntel: 0,3.')),
+        (U, 1, b('Kopfrechnen: Schreibe 0,2 als vollständig gekürzten Bruch.', '0.2', 'Denk an die Merkwerte in der Tabelle.', '0,2 = 2/10 = 1/5.')),
+        (U, 1, z('Kopfrechnen: Wie viel Prozent sind 0,75?', 75, '0.75 * 100', 'Prozent heißt Hundertstel.', '0,75 = 75/100 = 75 %.', '%')),
+        (U, 1, b('Kopfrechnen: Schreibe 50 % als vollständig gekürzten Bruch.', '50/100', '50 % sind 50 Hundertstel.', '50 % = 50/100 = 1/2.')),
+        (U, 2, z('Kopfrechnen: Schreibe 3/8 als Dezimalzahl.', Fr('0.375'), '3/8', AB, '1/8 = 0,125. 3/8 = 3 · 0,125 = 0,375.')),
+        (U, 2, b('Kopfrechnen: Schreibe 0,4 als vollständig gekürzten Bruch.', '0.4', AB, '0,4 = 2 · 0,2 = 2 · 1/5 = 2/5.')),
+        (U, 2, z('Kopfrechnen: Wie viel Prozent sind 3/5?', 60, '3/5 * 100', AB, '1/5 = 20 %. 3/5 = 3 · 20 % = 60 %.', '%')),
+        (U, 2, b('Kopfrechnen: Schreibe 1,25 als Bruch. Ein Bruch größer als 1 ist erlaubt.', '1.25', '1,25 = 1 + 0,25.', '1 + 1/4 = 4/4 + 1/4 = 5/4.')),
+        (U, 2, z('Kopfrechnen: Schreibe 7/8 als Dezimalzahl.', Fr('0.875'), '7/8', 'Wie viel fehlt 7/8 bis zu einem Ganzen?', '7/8 = 1 − 1/8 = 1 − 0,125 = 0,875.')),
+        (U, 2, lambda R: wahl(R, 'Welche Angabe ist genau 1/3?', '0,' + _ue('3'), ['0,3', '0,33', '30 %'],
+                              '1/3 ist ein periodischer Dezimalbruch.', '1 : 3 = 0,333… = 0,3 mit Periodenstrich. 0,3 und 0,33 sind nur gerundet; 30 % = 0,3.')),
+        (U, 3, (lambda R: luecken('Gib 0,75 als Bruch mit einstelligem Zähler und zweistelligem Nenner an.', '□/□', 'Zähler ins erste Kästchen, Nenner ins zweite.', [9, 12],
+                            ['3 * 3', '4 * 3'], '0,75 = 3/4. Erweitere so, dass der Nenner zweistellig, der Zähler aber noch einstellig ist.',
+                            '0,75 = 3/4. Mit 2 erweitert: 6/8 (Nenner einstellig). Mit 3 erweitert: 9/12 – das passt. Mit 4: 12/16 (Zähler zweistellig).'))),
+        (U, 3, lambda R: wahl(R, 'Ein Taschenrechner zeigt für 1 : 6 die Anzeige 0,166666667. Was stimmt?', '1/6 = 0,1' + _ue('6') + '; der Rechner hat die letzte Stelle gerundet.',
+                              ['1/6 hat genau 9 Nachkommastellen.', 'Die 7 am Ende gehört zur Periode.', '1/6 = 0,17 genau.'],
+                              'Teile 1 durch 6 schriftlich: Hört die Rechnung auf?',
+                              '1 : 6 = 0,1666… – die 6 wiederholt sich ohne Ende. Der Rechner hat nur Platz für wenige Stellen und rundet die letzte auf 7.')),
+        (U, 3, z('Welche Zahl liegt genau in der Mitte zwischen 1/4 und 0,5? Gib sie als Dezimalzahl an.', Fr('0.375'), '(1/4 + 0.5) / 2',
+                 'Schreibe 1/4 als Dezimalzahl.', '1/4 = 0,25. Mitte zwischen 0,25 und 0,5: (0,25 + 0,5) : 2 = 0,375.')),
+        (U, 3, lambda R: wahl(R, 'Ordne 0,3; 1/3; 3/8 und 0,35 der Größe nach. Welche Zahl ist die zweitgrößte?', '0,35', ['3/8', '1/3', '0,3'],
+                              'Schreibe alle als Dezimalzahl mit drei Nachkommastellen.', '0,300 < 0,333… (1/3) < 0,350 < 0,375 (3/8). Die zweitgrößte ist 0,35.')),
+        (U, 3, b('Welcher Merkwert ist um genau 0,05 größer als 1/5? Gib ihn als Bruch an.', '1/5 + 0.05', '1/5 als Dezimalzahl, dann 0,05 dazu.',
+                 '1/5 = 0,2. 0,2 + 0,05 = 0,25 = 1/4.')),
+        (U, 3, z('Ein Kind schreibt 1/8 = 0,8. Wie heißt die Dezimalzahl richtig?', Fr('0.125'), '1/8', '1/8 ist die Hälfte von 1/4.',
+                 '1/4 = 0,25, die Hälfte davon ist 0,125. 0,8 wären 8/10 – viel zu groß.')),
+        (U, 3, z('3/4 l Saft und 0,5 l Wasser werden gemischt. Wie viele Liter sind das?', Fr('1.25'), '3/4 + 0.5', 'Schreibe 3/4 l als Dezimalzahl.',
+                 '3/4 l = 0,75 l. 0,75 l + 0,5 l = 1,25 l.', 'l')),
+        (U, 3, z('Ein Kind hat 7 von 8 Aufgaben richtig. Wie viel Prozent sind das?', Fr('87.5'), '7/8 * 100', '1/8 = 12,5 %.',
+                 '7/8 = 1 − 1/8 = 100 % − 12,5 % = 87,5 %.', '%')),
+        ('test', 2, z('Kopfrechnen: Wie viel Prozent sind 0,6?', 60, '0.6 * 100', '', '0,6 = 60/100 = 60 %.', '%')),
+        ('korrektur', 2, b('Kopfrechnen: Schreibe 0,125 als vollständig gekürzten Bruch.', '0.125', '', '0,125 ist der Merkwert von 1/8.')),
+        ('korrektur', 2, z('Kopfrechnen: Schreibe 2/5 als Dezimalzahl.', Fr('0.4'), '2/5', '', '1/5 = 0,2. 2/5 = 0,4.')),
+        ('korrektur', 2, z('Kopfrechnen: Schreibe 20 % als Dezimalzahl.', Fr('0.2'), '20/100', '', '20 % = 20/100 = 0,2.')),
+        ('sicherung', 2, z('Kopfrechnen: Schreibe 5/8 als Dezimalzahl.', Fr('0.625'), '5/8', '', '1/8 = 0,125. 5/8 = 5 · 0,125 = 0,625.')),
+        ('sicherung', 2, b('Kopfrechnen: Schreibe 0,6 als vollständig gekürzten Bruch.', '0.6', '', '0,6 = 6/10 = 3/5.')),
+        ('sicherung', 2, z('Kopfrechnen: Wie viel Prozent sind 1/4?', 25, '1/4 * 100', '', '1/4 = 0,25 = 25 %.', '%')),
+        ('sicherung', 2, b('Kopfrechnen: Schreibe 0,875 als vollständig gekürzten Bruch.', '0.875', '', '0,875 = 1 − 0,125 = 1 − 1/8 = 7/8.')),
+        ('sicherung', 2, z('Kopfrechnen: Schreibe 4/5 als Dezimalzahl.', Fr('0.8'), '4/5', '', '1/5 = 0,2. 4/5 = 4 · 0,2 = 0,8.')),
+        ('sicherung', 2, b('Kopfrechnen: Schreibe 12,5 % als vollständig gekürzten Bruch.', '12.5/100', '', '12,5 % = 0,125 = 1/8.')),
+    ]
+
+
+karte_neu(DATEI, _MERK, _merk_aufgaben(), seed=6211, nach='dezimal_zu_bruch', teil_text='Merkwerte Bruch – Dezimalzahl – Prozent im Kopf umwandeln')
+
+
+
+# ---------- DURCHSICHT (Neunzehnte Runde, Teil A, Zweig durchsicht-kl6) ----------
+# Stufen nach dem Gedanken: S1 = Beispiel mit anderen Zahlen, S2 = Abwandlung/Einkleidung/Umkehrung, S3 = anderer Gedanke.
+from _durchsicht_kl6 import Befunde, befunde_anwenden  # noqa: E402
+
+DS = Befunde('bruch.dezimal', 19_6_2)
+# stellenwerte: Ziffer in der Tafel ablesen = Grundform → S1; eine Ziffer um 1 erhöhen = kleine Abwandlung → S2
+DS.stufe('stellenwerte', 'Trage 3,116 in eine Stellenwerttafel mit E, z, h, t ein. Welche Ziffer steht bei z?', 1)
+DS.stufe('stellenwerte', 'Trage 6,442 in eine Stellenwerttafel mit E, z, h, t ein. Welche Ziffer steht bei h?', 1)
+DS.stufe('stellenwerte', 'Die Ziffer an der Hundertstelstelle von 6,057 wird um 1 größer. Wie heißt die neue Zahl?', 2)
+# vergleichen_ordnen: Markieren auf einem Hundertstel-Ausschnitt viermal hintereinander = eine Abwandlung → S2; zweite „Mitte“-Aufgabe → S2
+for _t in ('Markiere 4,44 am Zahlenstrahl (von 4,4 bis 4,5, 10 gleiche Teile).', 'Markiere 2,83 am Zahlenstrahl (von 2,8 bis 2,9, 10 gleiche Teile).',
+           'Markiere 4,78 am Zahlenstrahl (von 4,7 bis 4,8, 10 gleiche Teile).', 'Markiere 2,17 am Zahlenstrahl (von 2,1 bis 2,2, 10 gleiche Teile).',
+           'Welche Zahl liegt genau in der Mitte zwischen 12,7 und 12,8?'):
+    DS.stufe('vergleichen_ordnen', _t, 2)
+# runden: Preise auf Cent = Hundertstel runden wie Stufe 2; 6,348 ohne neue Falle → S2
+for _t in ('Ein Liter Diesel kostet 1,555 €. Runde auf ganze Cent.', 'Ein Liter Benzin kostet 1,679 €. Runde auf ganze Cent.',
+           'Ein Liter Benzin kostet 1,871 €. Runde auf ganze Cent.', 'Runde 6,348 auf Zehntel.'):
+    DS.stufe('runden', _t, 2)
+# bruch_zu_dezimal: erst kürzen, dann umwandeln bzw. Bruch + Dezimalzahl (viermal gleich gebaut) = Abwandlung → S2
+for _t in ('Schreibe 9/12 als Dezimalzahl.', 'Schreibe 99/220 als Dezimalzahl.', 'Berechne 3/4 + 0,5 und gib das Ergebnis als Dezimalzahl an.',
+           'Berechne 5/2 + 0,9 und gib das Ergebnis als Dezimalzahl an.', 'Berechne 2/5 + 1,4 und gib das Ergebnis als Dezimalzahl an.',
+           'Berechne 7/4 + 0,2 und gib das Ergebnis als Dezimalzahl an.'):
+    DS.stufe('bruch_zu_dezimal', _t, 2)
+# dezimal_zu_bruch: nur mehr Nachkommastellen → S2
+for _t in ('Schreibe 0,325 als vollständig gekürzten Bruch.', 'Schreibe 4,97 als vollständig gekürzten Bruch. Ein Bruch größer als 1 ist erlaubt.',
+           'Schreibe 1,96 als vollständig gekürzten Bruch. Ein Bruch größer als 1 ist erlaubt.'):
+    DS.stufe('dezimal_zu_bruch', _t, 2)
+# periodisch: Periodenlänge aus der angegebenen Schreibweise ablesen = S1; dritte „n-te Stelle“-Aufgabe in Folge → S2
+DS.stufe('periodisch', '1/9 = 0,1̅. Wie viele Ziffern hat die Periode?', 1)
+DS.stufe('periodisch', '1/13 = 0,0̅7̅6̅9̅2̅3̅. Wie viele Ziffern hat die Periode?', 1)
+DS.stufe('periodisch', '2/3 = 0,6̅. Welche Ziffer steht an der 11. Nachkommastelle?', 2)
+DS.stufe('periodisch', '10/27 = 0,3̅7̅0̅. Welche Ziffer steht an der 15. Nachkommastelle?', 2)
+# verstehen: Regel der Karte „periodisch“ direkt anwenden → S2; zweite gleich gebaute Fehleraussage → S2
+DS.stufe('verstehen', 'Stimmt die Aussage? „Ein vollständig gekürzter Bruch mit dem Nenner 20 ist als Dezimalzahl endlich.“', 2)
+DS.stufe('verstehen', 'Stimmt die Aussage? „Ein vollständig gekürzter Bruch mit dem Nenner 12 ist als Dezimalzahl endlich.“', 2)
+DS.stufe('verstehen', 'Stimmt die Aussage? „Eine Zahl mit drei Nachkommastellen ist immer größer als eine mit einer, z. B. 0,362 > 0,7.“', 2)
+befunde_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+
+
+# ---------- STUFEN (Zwanzigste Runde, Zweig stufen-kl6) ----------
+from _stufen_kl6 import Stufen, stufen_datei  # noqa: E402
+
+ST = Stufen('bruch.dezimal', 20_6_2)
+Z, A, L, M, T, N, K, TB = ST.Z, ST.A, ST.L, ST.M, ST.typ, ST.neu, ST.knobel, ST.typ_bau
+B = '□/□'
+
+# --- stellenwerte ---
+lz = 'stellenwerte'
+ST.leiter(lz, 'Ziffern einer Dezimalzahl ihrer Stelle zuordnen, Zahlen aus der Stellenwerttafel lesen.',
+          'Zahlen aus Stellenwerten und Brüchen mit Nenner 10, 100, 1 000 zusammensetzen, Wert einer Ziffer, Zahlen aus dem Alltag.',
+          'Bündeln über eine Stelle hinweg, größte Zahl aus Ziffern, Zahlenrätsel, Fehler deuten, Aussagen prüfen, Größen umrechnen, Prüfungsaufgabe.')
+TB(lz, 2, 'Schreibe als Dezimalzahl: 5 + ', 'darstellung'); TB(lz, 2, 'Schreibe als Dezimalzahl: 29 Einer', 'darstellung')
+T(lz, 'Wie viele Hundertstel sind 2,4?', 'umkehr', s=2)
+N(lz, Z('einkleidung', 'Ein Sprinter läuft 100 m in 11 Sekunden und 7 Hundertstelsekunden. Schreibe seine Zeit als Dezimalzahl in Sekunden.', 11.07, '11 + 7 / 100',
+        '7 Hundertstel stehen an der 2. Stelle nach dem Komma: 11,07 s.', 'An welcher Stelle nach dem Komma stehen die Hundertstel?', einheit='s'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „0,70 ist größer als 0,7, weil 70 Hundertstel mehr sind als 7 Zehntel.“', 'Nein, beide sind gleich: 7 Zehntel = 70 Hundertstel.',
+        ['Ja, das stimmt.', 'Nein, 0,7 ist größer.'], '1 Zehntel = 10 Hundertstel, also 7 Zehntel = 70 Hundertstel. Eine Null am Ende ändert den Wert nicht.', 'Wie viele Hundertstel sind ein Zehntel?'))
+N(lz, Z('verknuepfen', 'Schreibe 3 m 7 cm als Dezimalzahl in Metern.', 3.07, '3 + 7 / 100', '1 cm = 1/100 m. 7 cm = 0,07 m, also 3,07 m.', 'Wie viele Zentimeter hat ein Meter?', einheit='m'))
+N(lz, Z('rueckwaerts', 'Eine Dezimalzahl hat drei Nachkommastellen. Liest man ihre Ziffern ohne Komma, erhält man 2045. Ihre Zehntelziffer ist 0. Wie heißt die Zahl?', 2.045, '2045 / 1000',
+        'Drei Nachkommastellen: Das Komma steht vor den letzten drei Ziffern: 2,045. Die Zehntelziffer ist wirklich 0.', 'Wo muss das Komma stehen, wenn hinter ihm drei Ziffern kommen?'))
+N(lz, A('pruefung', 'Bei einem Weitsprung werden 3,45 m, 3,5 m und 3,405 m gemessen. Welche Weite ist die größte?', '3,5 m', ['3,45 m', '3,405 m'],
+        'Vergleiche Stelle für Stelle: Alle haben 3 Einer. Zehntel: 4, 5, 4. Am größten ist 3,5 m.', 'Vergleiche zuerst die Einer, dann die Zehntel.'))
+K(lz, Z('knobel', 'Wie viele Dezimalzahlen zwischen 1 und 2 haben genau zwei Nachkommastellen und lauter verschiedene Ziffern? (Die letzte Ziffer ist nicht 0.)', 64, '8 + 8 * 7',
+        'Die Zahl heißt 1,ab. a darf nicht 1 sein, b nicht 0, nicht 1 und nicht a. Ist a = 0, gibt es für b 8 Möglichkeiten (2 bis 9). Ist a eine der 8 Ziffern 2 bis 9, bleiben für b 7. Zusammen 8 + 8 · 7 = 64.',
+        'Unterscheide: Ist die Zehntelziffer 0 oder nicht?'))
+K(lz, Z('knobel', 'Verschiebt man bei einer Dezimalzahl das Komma um eine Stelle nach rechts, wird sie um 4,5 größer. Wie heißt die Zahl?', 0.5, '4.5 / 9',
+        'Komma nach rechts heißt: Die Zahl wird 10-mal so groß. Sie wächst also um 9-mal sich selbst. 9-mal die Zahl sind 4,5 = 45 Zehntel. 45 Zehntel : 9 = 5 Zehntel, also ist die Zahl 0,5. Probe: 0,5 wird zu 5, und 5 ist um 4,5 größer als 0,5.',
+        'Um wie viel Mal sich selbst wächst die Zahl, wenn sie 10-mal so groß wird?'))
+
+# --- vergleichen_ordnen ---
+lz = 'vergleichen_ordnen'
+ST.leiter(lz, 'Zwei Dezimalzahlen Stelle für Stelle vergleichen.',
+          'Mehrere Zahlen ordnen, am Zahlenstrahl markieren, die Mitte finden, Preise vergleichen.',
+          'Fehlende Ziffer bestimmen, Anzahl der Zahlen dazwischen, Strahl mit anderem Anfang, Fehler deuten, Aussagen prüfen, mit negativen Zahlen, Zahlenrätsel, Prüfungsaufgabe.')
+T(lz, 'Welche Zahl liegt genau in der Mitte zwischen 13,7 und 13,8?', 'mehrschritt', s=2)
+T(lz, 'Welche Ziffer darf höchstens für □ stehen, damit 4,□7 < 4,58 gilt?', 'parameter')
+T(lz, 'Ein Kind ordnet so: 0,8 < 0,75 < 0,125, „weil mehr Stellen eine kleinere Zahl bedeuten“. Wie ist es richtig?', 'fehler')
+N(lz, A('direkt', 'Setze das richtige Zeichen ein: 3,7 □ 3,07', '>', ['<', '='], 'Einer gleich, Zehntel: 7 gegen 0. Also 3,7 > 3,07.', 'Vergleiche Stelle für Stelle von links.'))
+N(lz, A('direkt', 'Welche dieser Zahlen ist am kleinsten: 0,9; 0,09; 0,19?', '0,09', ['0,9', '0,19'], 'Zehntel: 9, 0, 1. Die kleinste Zehntelziffer hat 0,09.', 'Vergleiche zuerst die Zehntel.'))
+N(lz, A('einkleidung', 'Äpfel kosten 2,49 € je kg, Birnen 2,5 € je kg. Welche Sorte ist teurer?', 'Birnen', ['Äpfel', 'Beide kosten gleich viel.'],
+        '2,5 € = 2,50 €. 2,50 € ist mehr als 2,49 €, also sind Birnen teurer.', 'Schreibe beide Preise mit zwei Nachkommastellen.'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Zwischen 0,1 und 0,2 liegen genau 9 Dezimalzahlen.“', 'Nein, es liegen unendlich viele dazwischen, z. B. 0,15; 0,151; 0,1511.',
+        ['Ja: 0,11 bis 0,19.', 'Nein, es sind genau 10.', 'Nein, dazwischen liegt keine Zahl.'], 'Man kann immer weitere Stellen anhängen: 0,15 liegt dazwischen, 0,151 auch, 0,1511 auch – und so weiter ohne Ende. Es gibt also unendlich viele Dezimalzahlen zwischen 0,1 und 0,2.', 'Darf eine Zahl mehr als zwei Nachkommastellen haben?'))
+N(lz, A('verknuepfen', 'Welche Zahl ist größer: −2,5 oder −2,45?', '−2,45', ['−2,5', 'Beide sind gleich groß.'],
+        'Bei negativen Zahlen ist die Zahl größer, die näher an 0 liegt. 2,45 ist kleiner als 2,5, also liegt −2,45 näher an 0.', 'Denke an den Zahlenstrahl mit 0 in der Mitte.'))
+N(lz, Z('transfer', 'Eine Zahl mit zwei Nachkommastellen liegt zwischen 4,5 und 4,6. Ihre Hundertstelziffer ist um 3 größer als ihre Zehntelziffer. Wie heißt die Zahl?', 4.58, '4 + 5 / 10 + 8 / 100',
+        'Zwischen 4,5 und 4,6 ist die Zehntelziffer 5. Die Hundertstelziffer ist 5 + 3 = 8: 4,58.', 'Welche Zehntelziffer haben alle Zahlen zwischen 4,5 und 4,6?'))
+N(lz, A('pruefung', 'Bei einem Lauf messen die Uhren: A 12,09 s, B 12,1 s, C 11,99 s, D 12,01 s. Wer wird Zweiter?', 'D', ['A', 'B', 'C'],
+        'Geordnet: 11,99 (C) < 12,01 (D) < 12,09 (A) < 12,1 (B). Die kleinste Zeit gewinnt, Zweiter ist D.', 'Wer am wenigsten Zeit braucht, gewinnt.'))
+K(lz, Z('knobel', 'Wie viele Dezimalzahlen mit genau einer Nachkommastelle liegen zwischen 2,45 und 7,5? (Die Grenzen zählen nicht; Zahlen wie 3,0 haben keine Nachkommastelle.)', 45, '(74 - 25 + 1) - 5',
+        'Die Zahlen mit einer Stelle nach dem Komma von 2,5 bis 7,4 sind 50 Stück (25 bis 74 Zehntel). 3,0; 4,0; 5,0; 6,0; 7,0 sind ganze Zahlen, sie fallen weg: 45.',
+        'Zähle in Zehnteln. Welche „Zehntel-Zahlen“ sind in Wahrheit ganze Zahlen?'))
+K(lz, Z('knobel', 'Mit den Ziffern 0, 2, 5 und 7 (jede genau einmal) wird eine Zahl der Form □,□□□ gebildet. Welche dieser Zahlen liegt am nächsten an 5?', 5.027, '5 + 27 / 1000',
+        'Unter 5 kann man mit 2 vorne höchstens 2,75 bilden – weit weg. Mit 5 vorne ist die kleinste 5,027, sie ist nur 0,027 von 5 entfernt. Mit 7 vorne liegt man über 7.',
+        'Welche Ziffer muss vor dem Komma stehen? Wie machst du den Rest so klein wie möglich?'))
+
+# --- runden ---
+lz = 'runden'
+ST.leiter(lz, 'Auf Ganze und Zehntel runden; erkennen, auf welche Stelle gerundet wurde.',
+          'Auf Hundertstel und Tausendstel runden, Preise auf Cent runden, Zahlen finden, die einen gerundeten Wert ergeben, am Zahlenstrahl.',
+          'Fehler beim Runden in Schritten, größte oder kleinste mögliche Zahl, Aussagen prüfen, wie viele Ziffern passen, mit Größen verknüpfen, Messwerte deuten.')
+TB(lz, 2, 'Runde 6,348 auf Zehntel', 'direkt', neu_s=1)
+T(lz, 'Runde 3,249 auf Zehntel.', 'direkt', s=1)
+T(lz, 'Runde 7,996 auf Hundertstel.', 'mehrschritt', s=2)
+T(lz, 'Welche Zahl ergibt auf Zehntel gerundet 3,1?', 'umkehr', s=2)
+T(lz, 'Ein Kind rundet 2,449 erst auf Hundertstel (2,45) und dann auf Zehntel (2,5). Was ergibt richtiges Runden von 2,449 auf Zehntel?', 'fehler')
+T(lz, 'Eine Zahl mit genau zwei Nachkommastellen ergibt auf Zehntel gerundet 6,3. Welche ist die größte solche Zahl?', 'rueckwaerts')
+N(lz, A('erkennen', 'Auf welche Stelle wurde gerundet? 4,738 ≈ 4,74', 'auf Hundertstel', ['auf Zehntel', 'auf Tausendstel', 'auf Ganze'],
+        'Das Ergebnis hat zwei Nachkommastellen, also wurde auf Hundertstel gerundet.', 'Zähle die Stellen nach dem Komma im Ergebnis.'))
+N(lz, M('darstellung', 'Runde 2,67 auf Zehntel und markiere das Ergebnis am Zahlenstrahl (von 2 bis 3, 10 gleiche Teile).', 2, 3, 10, 2.7,
+        '2,67 liegt zwischen 2,6 und 2,7, näher an 2,7 (die Hundertstelziffer 7 ist 5 oder mehr). 2,7 liegt 7 Abschnitte nach der 2.', 'Zwischen welchen Zehnteln liegt 2,67?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Eine auf Zehntel gerundete Zahl ist immer größer als die Zahl vorher.“', 'Nein, z. B. 3,24 ≈ 3,2 – gerundet ist kleiner.',
+        ['Ja, beim Runden wird immer aufgerundet.', 'Ja, außer bei negativen Zahlen.'], 'Ist die nächste Ziffer 0 bis 4, wird abgerundet und die Zahl kleiner.', 'Suche ein Gegenbeispiel.'))
+N(lz, Z('parameter', 'Für wie viele Ziffern □ ergibt 2,□7 auf Ganze gerundet 3?', 5, '9 - 5 + 1',
+        'Auf Ganze gerundet 3 heißt: Die Zahl ist mindestens 2,5. Das gilt für □ = 5, 6, 7, 8, 9 – also 5 Ziffern.', 'Ab welcher Zehntelziffer wird aufgerundet?'))
+N(lz, Z('verknuepfen', 'Ein Weg ist 2 km 456 m lang. Gib die Länge in Kilometern an, auf Zehntel gerundet.', 2.5, '2.5',
+        '2 km 456 m = 2,456 km. Auf Zehntel: Die Hundertstelziffer ist 5, also aufrunden: 2,5 km.', 'Wie viele Meter sind ein Kilometer?', einheit='km'))
+N(lz, A('pruefung', 'Ein Bleistift ist laut Angabe 14,6 cm lang (auf Zehntel gerundet). Welche Länge kann er wirklich haben?', '14,55 cm', ['14,65 cm', '14,5 cm', '14,7 cm'],
+        'Auf 14,6 runden alle Längen von 14,55 cm bis unter 14,65 cm. 14,65 cm ergibt schon 14,7 cm.', 'Welche Zahlen ergeben gerundet 14,6?'))
+N(lz, Z('transfer', 'Eine Zahl hat zwei Nachkommastellen. Auf Zehntel gerundet ist sie 0,8, auf Ganze gerundet 1. Welche ist die kleinste mögliche Zahl?', 0.75, '0.75',
+        'Auf Zehntel 0,8 heißt: von 0,75 bis 0,84. Auf Ganze 1 heißt: mindestens 0,5. Beides gilt ab 0,75.', 'Schreibe für beide Angaben auf, welche Zahlen passen.'))
+K(lz, Z('knobel', 'Wie viele Zahlen mit genau drei Nachkommastellen ergeben auf Hundertstel gerundet 7,30?', 10, '7304 - 7295 + 1',
+        'Auf 7,30 runden die Zahlen von 7,295 bis 7,304. In Tausendsteln sind das 7295 bis 7304 Tausendstel: 5 Zahlen von 7,295 bis 7,299 und 5 Zahlen von 7,300 bis 7,304 – zehn Zahlen.', 'Welche Zahlen runden gerade noch auf, welche gerade noch ab?'))
+K(lz, Z('knobel', 'Wie viele Zahlen mit drei Nachkommastellen ergeben auf Hundertstel gerundet 4,50, auf Ganze gerundet aber 4?', 5, '4499 - 4495 + 1',
+        'Auf 4,50 runden 4,495 bis 4,504. Auf Ganze 4 heißt: kleiner als 4,5. Also 4,495; 4,496; 4,497; 4,498; 4,499 – fünf Zahlen.', 'Schreibe beide Bereiche auf und suche die Überschneidung.'))
+
+# --- bruch_zu_dezimal ---
+lz = 'bruch_zu_dezimal'
+ST.leiter(lz, 'Brüche mit Nenner 10, 100, 1 000 oder einem passenden Nenner als Dezimalzahl schreiben.',
+          'Unechte Brüche und gemischte Zahlen umwandeln, in Sachsituationen, am Zahlenstrahl, fehlenden Zähler finden.',
+          'Rest-Anteile, Unterschied zwischen Bruch und Dezimalzahl, Nenner für endliche Dezimalzahlen, Fehler deuten, Aussagen prüfen, rückwärts zum Nenner, mit Umfang verknüpfen.')
+TB(lz, 2, 'Schreibe 5/4 als Dezimalzahl.', 'direkt', neu_s=1)
+TB(lz, 2, 'Berechne 3/4 + 0,5', 'mehrschritt')
+T(lz, 'Welche Zahl ist größer, 5/8 oder 0,6? Gib den Unterschied als Dezimalzahl an.', 'transfer')
+N(lz, A('erkennen', 'Welche Dezimalzahl gehört zu 7/100?', '0,07', ['0,7', '0,007', '7,100'], '7 Hundertstel: Die 7 steht an der 2. Stelle nach dem Komma.', 'Hundertstel stehen an der 2. Nachkommastelle.'))
+N(lz, Z('direkt', 'Erweitere 3/20 auf den Nenner 100 und schreibe den Bruch als Dezimalzahl.', 0.15, '3 * 5 / 100', '3/20 = 15/100 = 0,15.', 'Mit welcher Zahl wird 20 zu 100?'))
+N(lz, Z('einkleidung', 'Ein Kuchen wiegt 1 kg. 3/8 davon sind Zucker. Wie viele Kilogramm Zucker sind das? Gib eine Dezimalzahl an.', 0.375, '3 / 8',
+        '3/8 = 375/1 000 = 0,375 kg.', 'Erweitere 3/8 auf den Nenner 1 000.', einheit='kg'))
+N(lz, M('darstellung', 'Schreibe 3/5 als Dezimalzahl und markiere sie am Zahlenstrahl (von 0 bis 1, 10 gleiche Teile).', 0, 1, 10, 0.6, '3/5 = 6/10 = 0,6. Der Punkt liegt 6 Abschnitte nach der 0.', 'Erweitere auf Zehntel.'))
+N(lz, L('umkehr', 'Welcher Bruch mit dem Nenner 8 ist gleich 0,625?', '□/8', [5], ['0.625 * 8'], '0,625 = 625/1 000. Kürze mit 125: 625 : 125 = 5 und 1 000 : 125 = 8. Also 5/8.', 'Wie viel ist 1/8 als Dezimalzahl?'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Jeder Bruch mit dem Nenner 4 ist als Dezimalzahl endlich.“', 'Ja: Man kann jeden Viertel-Bruch auf den Nenner 100 erweitern.',
+        ['Nein, 3/4 ist periodisch.', 'Nein, nur 2/4 ist endlich.'], '4 · 25 = 100. Also lässt sich jedes n/4 als n · 25/100 schreiben – eine Dezimalzahl mit höchstens zwei Stellen.', 'Kann man 4 zu 10, 100 oder 1 000 erweitern?'))
+N(lz, Z('rueckwaerts', 'Ein Bruch mit dem Zähler 3 ergibt als Dezimalzahl 0,12. Wie heißt sein Nenner?', 25, '3 / 0.12',
+        '0,12 = 12/100 = 3/25 (gekürzt mit 4). Der Nenner ist 25.', 'Schreibe 0,12 als Bruch und kürze so, dass der Zähler 3 wird.'))
+N(lz, Z('verknuepfen', 'Ein Rechteck ist 3/4 m lang und 2/5 m breit. Gib seinen Umfang als Dezimalzahl in Metern an.', 2.3, '2 * (3 / 4 + 2 / 5)',
+        '3/4 m = 0,75 m, 2/5 m = 0,4 m. Umfang: 2 · (0,75 m + 0,4 m) = 2 · 1,15 m = 2,3 m.', 'Wandle beide Seiten zuerst in Dezimalzahlen um.', einheit='m'))
+N(lz, A('pruefung', 'Ordne 0,7; 3/4 und 2/3 der Größe nach. Welche Zahl ist die kleinste?', '2/3', ['0,7', '3/4'],
+        '3/4 = 0,75 und 2/3 = 0,6̅ (0,666 mit unendlich vielen Sechsen). Also 2/3 < 0,7 < 3/4.', 'Schreibe alle Zahlen als Dezimalzahlen.'))
+K(lz, Z('knobel', 'Wie viele der Brüche 1/40, 2/40, 3/40, …, 39/40 ergeben eine Dezimalzahl mit genau einer Nachkommastelle?', 9, '36 // 4',
+        'Genau eine Nachkommastelle heißt: Der Bruch ist eine Anzahl Zehntel. n/40 = k/10 gilt, wenn n durch 4 teilbar ist. Die Vielfachen von 4 unter 40 sind 4 · 1 bis 4 · 9 – das sind 9 Brüche (z. B. 20/40 = 5/10 = 0,5).',
+        'Wann lässt sich n/40 als Bruch mit dem Nenner 10 schreiben?'))
+K(lz, Z('knobel', 'Ein Bruch a/b hat einen einstelligen Zähler und einen einstelligen Nenner und ist gleich 0,875. Wie heißt b?', 8, '7 / 0.875',
+        '0,875 = 875/1 000. Gekürzt mit 125: 7/8. Ein anderer Bruch mit einstelligen Zahlen ist nicht möglich (14/16 hat zweistellige Zahlen). Also b = 8.',
+        'Kürze 875/1 000 so weit wie möglich.'))
+
+# --- dezimal_zu_bruch ---
+lz = 'dezimal_zu_bruch'
+ST.leiter(lz, 'Eine Dezimalzahl als Bruch mit Nenner 10, 100 oder 1 000 schreiben und kürzen.',
+          'Zahlen über 1 als Bruch oder gemischte Zahl, Anteile von Größen, fehlende Ziffer, am Zahlenstrahl ablesen.',
+          'Periodische Zahlen als Bruch, Summen, wie viele Ziffern passen, Fehler deuten, Aussagen prüfen, rückwärts vom gekürzten Bruch, Prüfungsaufgabe.')
+TB(lz, 2, 'Schreibe 0,399', 'direkt', neu_s=1)
+T(lz, 'Welcher Bruch ist gleich 0,025?', 'mehrschritt', s=2)
+T(lz, 'Welcher Bruchteil eines Kilogramms sind 0,04 kg?', 'einkleidung', s=2)
+T(lz, 'Schreibe 0,125 + 0,5 als vollständig gekürzten Bruch.', 'verknuepfen')
+N(lz, A('erkennen', 'Welcher Bruch gehört zu 0,3?', '3/10', ['3/100', '1/3', '30/10'], '0,3 sind 3 Zehntel: 3/10.', 'Welche Stelle hat die 3?'))
+N(lz, L('direkt', 'Schreibe 0,9 als Bruch.', B, [9, 10], ['9', '10'], '0,9 sind 9 Zehntel: 9/10.', 'Eine Nachkommastelle heißt Zehntel.'))
+N(lz, L('einkleidung', 'Ein Glas fasst 0,25 l. Welcher Bruchteil eines Liters ist das? Gib ihn vollständig gekürzt an.', B, [1, 4], ['25 // 25', '100 // 25'],
+        '0,25 l = 25/100 l = 1/4 l.', 'Schreibe 0,25 als Hundertstel und kürze.'))
+N(lz, L('umkehr', 'Welche Ziffer gehört ins Kästchen? 0,□ = 2/5', '0,□', [4], ['2 * 10 // 5'], '2/5 = 4/10 = 0,4.', 'Erweitere 2/5 auf Zehntel.'))
+N(lz, L('darstellung', 'Am Zahlenstrahl liegt ein Punkt bei 0,35. Welcher vollständig gekürzte Bruch ist das?', B, [7, 20], ['35 // 5', '100 // 5'], '0,35 = 35/100 = 7/20.', 'Schreibe als Hundertstel und kürze.'))
+N(lz, L('mehrschritt', 'Schreibe 2,05 als gemischte Zahl. Kürze den Bruchteil vollständig.', '□ □/□', [2, 1, 20], ['2', '5 // 5', '100 // 5'], '2,05 = 2 5/100 = 2 1/20.', 'Die Ganzen bleiben vorne, den Rest schreibst du als Bruch.'))
+N(lz, A('begruenden', 'Stimmt die Aussage? „Eine Dezimalzahl mit zwei Nachkommastellen hat vollständig gekürzt immer den Nenner 100 oder 50.“', 'Nein, z. B. 0,25 = 1/4.',
+        ['Ja, das stimmt.', 'Nein, der Nenner ist immer 10.'], 'Beim Kürzen können andere Nenner entstehen: 0,25 = 1/4, 0,04 = 1/25.', 'Probiere 0,25 aus.'))
+N(lz, Z('rueckwaerts', 'Ein Kind schreibt eine Dezimalzahl als Bruch mit dem Nenner 20 und kürzt mit 5. Es erhält 3/4. Welche Dezimalzahl war es?', 0.75, '15 / 20',
+        'Vor dem Kürzen: 15/20. 15/20 = 75/100 = 0,75.', 'Mache das Kürzen rückgängig.'))
+N(lz, L('pruefung', 'Ein Rezept nennt 0,375 kg Mehl. Welcher Bruchteil eines Kilogramms ist das? Vollständig gekürzt.', B, [3, 8], ['375 // 125', '1000 // 125'],
+        '0,375 kg = 375/1 000 kg = 3/8 kg (gekürzt mit 125).', 'Kürze in Schritten, z. B. mit 5, 5 und 5.'))
+K(lz, Z('knobel', 'Welche Dezimalzahl liegt zwischen 0,6 und 0,7 und ergibt vollständig gekürzt einen Bruch mit dem Nenner 8?', 0.625, '5 / 8',
+        'Brüche mit Nenner 8: 1/8 = 0,125, also 4/8 = 0,5, 5/8 = 0,625, 6/8 = 0,75. Nur 5/8 liegt zwischen 0,6 und 0,7.', 'Wie groß ist 1/8 als Dezimalzahl?'))
+K(lz, Z('knobel', 'Wie viele Dezimalzahlen zwischen 0 und 1 mit genau zwei Nachkommastellen haben vollständig gekürzt den Nenner 20?', 8, '8',
+        'k/100 hat gekürzt den Nenner 20, wenn k = 5 · m ist und m mit 20 keinen gemeinsamen Teiler hat: m = 1, 3, 7, 9, 11, 13, 17, 19. Das ergibt 0,05; 0,15; 0,35; 0,45; 0,55; 0,65; 0,85; 0,95 – acht Zahlen.',
+        'Schreibe k/20 mit k von 1 bis 19 und prüfe, ob der Bruch gekürzt bleibt.'))
+
+# --- merkwerte ---
+lz = 'merkwerte'
+ST.leiter(lz, 'Wichtige Brüche, Dezimalzahlen und Prozente im Kopf ineinander umwandeln.',
+          'Weniger bekannte Merkwerte (Achtel, Fünftel) umwandeln, Prozent und Bruch, in Sachsituationen.',
+          'Bedingungen an Zähler und Nenner, Taschenrechner-Anzeige deuten, Mitte, Unterschied, Fehler, rückwärts, passende Ziffer, Prüfungsaufgabe.')
+TB(lz, 2, 'Kopfrechnen: Schreibe 3/8', 'mehrschritt')
+T(lz, 'Ordne 0,3; 1/3; 3/8 und 0,35 der Größe nach. Welche Zahl ist die zweitgrößte?', 'mehrschritt', s=2)
+T(lz, '3/4 l Saft und 0,5 l Wasser werden gemischt. Wie viele Liter sind das?', 'einkleidung', s=2)
+T(lz, 'Ein Kind hat 7 von 8 Aufgaben richtig. Wie viel Prozent sind das?', 'einkleidung', s=2)
+T(lz, 'Welcher Merkwert ist um genau 0,05 größer als 1/5? Gib ihn als Bruch an.', 'verknuepfen')
+N(lz, A('erkennen', 'Welche Dezimalzahl ist gleich 1/4?', '0,25', ['0,4', '0,14', '0,75'], '1/4 = 25/100 = 0,25.', 'Ein Viertel von 100 ist 25.'))
+N(lz, L('umkehr', 'Welcher Bruch gehört zu 20 %? Vollständig gekürzt.', B, [1, 5], ['20 // 20', '100 // 20'], '20 % = 20/100 = 1/5.', 'Prozent heißt Hundertstel.'))
+N(lz, Z('rueckwaerts', 'Von einem Band werden 0,25 m abgeschnitten. Es bleibt 1/8 m übrig. Wie lang war das Band? Gib die Länge als Dezimalzahl in Metern an.', 0.375, '0.25 + 1 / 8',
+        '1/8 m = 0,125 m = 125 mm. 0,25 m = 250 mm. Zurück: 125 mm + 250 mm = 375 mm = 0,375 m (das ist 3/8 m).', 'Schreibe 1/8 m als Dezimalzahl und rechne zurück.', einheit='m'))
+N(lz, L('parameter', 'Für welche Ziffer a gilt a/8 = 0,625?', '□', [5], ['0.625 * 8'], '0,625 = 625/1 000. Gekürzt mit 125: 5/8. Also a = 5.', 'Wie viel ist 1/8?'))
+N(lz, A('pruefung', 'Welche Angabe passt nicht zu den anderen: 0,2 · 1/5 · 20 % · 2/5?', '2/5', ['0,2', '1/5', '20 %'], '0,2 = 1/5 = 20 %. 2/5 = 0,4 = 40 % ist doppelt so viel.', 'Schreibe alle als Dezimalzahl.'))
+K(lz, L('knobel', 'Welcher Bruch mit dem Nenner 8 liegt am nächsten an 2/3?', '□/8', [5], ['5'],
+        '2/3 liegt zwischen 5/8 und 6/8. Gemeinsamer Nenner 24: 2/3 = 16/24, 5/8 = 15/24, 6/8 = 18/24. Von 15/24 bis 16/24 ist es 1/24, von 16/24 bis 18/24 sind es 2/24. 5/8 liegt näher.',
+        'Bringe 2/3 und die Achtel auf einen gemeinsamen Nenner.'))
+K(lz, Z('knobel', 'Ein Kind kennt die Dezimalzahlen von 1/2, 1/4 und 1/8. Es addiert einige davon (jede höchstens einmal, mindestens eine). Wie viele verschiedene Ergebnisse sind möglich?', 7, '2 * 2 * 2 - 1',
+        'Jeder der drei Brüche ist dabei oder nicht: 2 · 2 · 2 = 8 Möglichkeiten, ohne „gar keiner“ 7. Alle Summen sind verschieden: 0,125; 0,25; 0,375; 0,5; 0,625; 0,75; 0,875.',
+        'Für jeden Bruch: dabei oder nicht dabei?'))
+
+# --- periodisch ---
+lz = 'periodisch'
+ST.leiter(lz, 'Erkennen, ob ein Bruch endlich oder periodisch ist; bekannte periodische Zahlen zuordnen.',
+          'Periodische Dezimalzahl ausrechnen und schreiben, Ziffer an einer bestimmten Stelle, Sachsituation.',
+          'Erst kürzen, dann entscheiden; Stellen weit hinten; vergleichen; Fehler deuten; rückwärts zum Zähler; wie viele Zähler passen.')
+TB(lz, 2, 'Welche Dezimalzahl ist gleich', 'darstellung')
+TB(lz, 2, 'Ist 7/40', 'erkennen', neu_s=1)
+T(lz, 'Ist 63/18 als Dezimalzahl endlich oder periodisch?', 'verknuepfen')
+T(lz, 'Ein Kind sagt: 1/6 = 0,1̅6̅. Was stimmt?', 'fehler')
+T(lz, 'Welche Zahl ist größer: 0,3̅ oder 0,33?', 'begruenden')
+N(lz, L('umkehr', 'Welcher Bruch mit dem Nenner 3 ist gleich 0,6̅?', '□/3', [2], ['2'], '1/3 = 0,3̅, also 2/3 = 0,6̅.', 'Wie sieht 1/3 als Dezimalzahl aus?'))
+N(lz, Z('einkleidung', 'Drei Kinder teilen sich 1 Liter Saft gerecht. Jedes bekommt 1/3 Liter. Welche Ziffer steht in der Dezimalzahl an der 4. Nachkommastelle?', 3, '1000 * 10 // 3 % 10',
+        '1 : 3 = 0,3̅: Bei der schriftlichen Division bleibt jedes Mal der Rest 1, darum kommt an jeder Nachkommastelle wieder eine 3. Auch die 4. Nachkommastelle ist 3.', 'Teile 1 durch 3 schriftlich.'))
+N(lz, L('rueckwaerts', 'Ein Bruch mit dem Nenner 9 ergibt 0,7̅. Wie heißt sein Zähler?', '□/9', [7], ['7'], '1/9 = 0,1̅, also 7/9 = 0,7̅.', 'Wie sieht 1/9 als Dezimalzahl aus?'))
+N(lz, Z('parameter', 'Für wie viele Zähler a von 1 bis 11 ist a/12 eine endliche Dezimalzahl?', 3, '11 // 3',
+        '12 = 2 · 2 · 3. Ein vollständig gekürzter Bruch ist nur endlich, wenn sein Nenner keine anderen Primfaktoren als 2 und 5 hat. Die 3 muss sich also wegkürzen: a muss durch 3 teilbar sein: 3, 6, 9 (3/12 = 1/4, 6/12 = 1/2, 9/12 = 3/4) – drei Zähler.', 'Zerlege 12 in Primfaktoren.'))
+K(lz, Z('knobel', 'Was ergibt 0,3̅ + 0,6̅?', 1, '1 / 3 + 2 / 3',
+        '0,3̅ = 1/3 und 0,6̅ = 2/3. Zusammen 3/3 = 1. Schreibt man es untereinander, kommt 0,9̅ heraus – und 0,9̅ ist genau 1.', 'Welche Brüche stecken hinter den beiden Zahlen?'))
+K(lz, Z('knobel', '1/7 = 0,1̅4̅2̅8̅5̅7̅. Ein Kind addiert die ersten 12 Nachkommastellen. Welche Summe erhält es?', 54, '2 * (1 + 4 + 2 + 8 + 5 + 7)',
+        'Die Periode hat 6 Ziffern mit der Summe 1 + 4 + 2 + 8 + 5 + 7 = 27. 12 Stellen sind zwei ganze Perioden: 2 · 27 = 54.', 'Wie oft passt die Periode in 12 Stellen?'))
+
+# --- verstehen ---
+lz = 'verstehen'
+ST.leiter(lz, 'Einfache Aussagen über Dezimalzahlen prüfen; Zahlen aus Stellenwerten schreiben.',
+          'Aussagen prüfen, für die man runden, vergleichen oder umwandeln muss, auch in Sachsituationen und am Zahlenstrahl.',
+          'Falsche Regeln widerlegen, mit Brüchen und Perioden verknüpfen, Rundungsfehler deuten, für welche Ziffern eine Aussage stimmt.')
+T(lz, 'Stimmt die Aussage? „Jeder Bruch mit dem Nenner 9 ist periodisch.“', 'verknuepfen')
+T(lz, 'Stimmt die Aussage? „Jeder Bruch mit dem Nenner 15 ist periodisch.“', 'verknuepfen')
+T(lz, 'Stimmt die Aussage? „0,3 ist genau ein Drittel.“', 'verknuepfen')
+T(lz, 'Ein Kind rundet 5,96 auf Zehntel und schreibt 5,10. Was ist richtig?', 'fehler')
+N(lz, Z('direkt', 'Schreibe 4 Zehntel und 7 Hundertstel als Dezimalzahl.', 0.47, '4 / 10 + 7 / 100', '4 Zehntel und 7 Hundertstel: 0,47.', 'Zehntel an die 1., Hundertstel an die 2. Stelle nach dem Komma.'))
+N(lz, A('einkleidung', 'Stimmt die Aussage? „Ein Brot für 2,5 € ist teurer als eines für 2,45 €.“', 'Ja: 2,50 € ist mehr als 2,45 €.', ['Nein, 2,45 € ist mehr.', 'Nein, beide kosten gleich viel.'],
+        '2,5 € = 2,50 €. Zehntel: 5 gegen 4, also ist 2,50 € mehr.', 'Schreibe beide Preise mit Cent.'))
+N(lz, A('darstellung', 'Stimmt die Aussage? „Auf dem Zahlenstrahl liegt 0,6 näher an 1 als an 0.“', 'Ja: Der Abstand zu 1 ist 0,4, der zu 0 ist 0,6.', ['Nein, näher an 0.', 'Nein, genau in der Mitte.'],
+        'Die Mitte zwischen 0 und 1 ist 0,5. 0,6 liegt rechts davon, also näher an 1.', 'Wo liegt die Mitte zwischen 0 und 1?'))
+N(lz, Z('parameter', 'Für wie viele Ziffern □ stimmt die Aussage „3,□ ist größer als 3,45“?', 5, '9 - 5 + 1',
+        '3,□ > 3,45 gilt für □ = 5, 6, 7, 8, 9 (3,4 ist kleiner als 3,45). Das sind 5 Ziffern.', 'Was ist mit □ = 4?'))
+K(lz, Z('knobel', 'Wie viele Dezimalzahlen mit genau drei Nachkommastellen liegen zwischen 0,9 und 1?', 90, '(999 - 901 + 1) - 9',
+        'Von 0,901 bis 0,999 sind es 99 Zahlen. Die mit einer 0 am Ende (0,910, 0,920 und so weiter bis 0,990, also 9 Stück) haben eigentlich nur zwei Nachkommastellen. 99 − 9 = 90.',
+        'Zähle in Tausendsteln. Welche davon haben in Wahrheit weniger Stellen?'))
+K(lz, Z('knobel', 'Verschiebt man bei einer Zahl das Komma um zwei Stellen nach links, wird sie um 49,5 kleiner. Wie heißt die Zahl?', 50, '49.5 / 0.99',
+        'Komma zwei Stellen nach links heißt: Es bleibt ein Hundertstel der Zahl übrig. Die Zahl verliert also 99 Hundertstel von sich. 99 Hundertstel sind 49,5, ein Hundertstel 0,5, die Zahl 50. Probe: 50 − 0,5 = 49,5.',
+        'Welcher Teil der Zahl bleibt übrig, welcher geht verloren?'))
 
 if __name__ == '__main__':
     schreibe(DATEI)
+    stufen_datei('bruch.dezimal', ST)

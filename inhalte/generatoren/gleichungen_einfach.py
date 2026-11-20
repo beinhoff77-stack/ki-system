@@ -528,101 +528,272 @@ TEIL = {'waage': 'verstehen', 'umkehr_plus': 'umkehren', 'umkehr_mal': 'umkehren
                    ('anwenden', 'Textaufgaben als Gleichung aufstellen und lösen'),
                    ('loesbarkeit', 'Erkennen, ob eine Gleichung in ℕ lösbar ist')]}
 
-# ---------- KLAR: verständliche Erklärungen (Runde 7b, Pflicht seit 15.11.) ----------
-# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_rest.py) – die Aufgaben bleiben wörtlich gleich.
-from _klar_rest import mit_klar  # noqa: E402
+# Umbau U5 (Achte Runde, Vorgabe 16.11.): Lernkarten nach dem neuen Muster – einstieg, woerter (≤ 3), Kartenbild,
+# Bildergeschichte (schritte mit bild), „Pass auf!“ (fehler + fehler_bild), MERKE (regel).
+# Situationen: Balkenwaage mit Murmeln, Geldbeutel, Hefte, Kino, Sammelkarten, Aufzug.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl5.py, mit_umbau) – die Aufgaben bleiben wörtlich gleich.
+from _nachbau import waage as waage_bild  # noqa: E402
+from _umbau_kl5 import mit_umbau  # noqa: E402
 
-KLAR = {
+# Gekippte Waage (links schwerer): für den Fehler „nur auf einer Seite wegnehmen“
+KIPPT = {'punkte': {'_A': [1.5, 1.5], '_B': [8.5, 2.5], '_S': [5, 2], '_F1': [4, 0], '_F2': [6, 0], '_L1': [-0.5, 2.1], '_L2': [3.5, 2.1],
+                    '_R1': [6.5, 3.1], '_R2': [10.5, 3.1], '_LA': [1.5, 2.1], '_RA': [8.5, 3.1]},
+         'linien': [['_A', '_B'], ['_A', '_LA'], ['_B', '_RA'], ['_L1', '_L2', '10 + 3'], ['_R1', '_R2', '10']], 'label': 'Waage kippt nach links: links 13, rechts 10'}
+KETTE = lambda zv, sr, zr: {'zeilen': [['vorwärts', 'x', '· 3', zv, '+ 4', '19'], ['rückwärts', sr, ': 3', zr, '− 4', '19']]}
+
+KARTEN = {
  'waage': {
-  'einstieg': 'Auf einer Balkenwaage liegen links eine geschlossene Dose mit Murmeln und 3 einzelne Murmeln, rechts liegen 10 Murmeln. Die Waage hängt gerade – beide Seiten sind gleich schwer. Wie viele Murmeln sind in der Dose? Kurz aufgeschrieben: x + 3 = 10. So eine Aussage mit Gleichheitszeichen heißt ⟦Gleichung⟧.',
-  'woerter': [['Balkenwaage', 'eine Waage mit zwei Schalen; die schwerere Seite sinkt nach unten'],
-              ['Gleichgewicht', 'beide Seiten sind gleich schwer, die Waage hängt gerade'],
-              ['x', 'ein Buchstabe für die unbekannte Zahl – hier die Murmeln in der Dose'],
-              ['Gleichung', 'zwei Seiten mit einem = dazwischen, z. B. x + 3 = 10'],
+  'einstieg': 'Auf einer Waage liegen links eine Dose und 3 Murmeln, rechts 10 Murmeln. Die Waage hängt gerade. Kurz geschrieben: x + 3 = 10, eine ⟦Gleichung⟧.',
+  'woerter': [['x', 'die unbekannte Zahl, hier die Murmeln in der Dose'], ['Gleichgewicht', 'beide Seiten sind gleich schwer, die Waage hängt gerade'],
               ['Lösung', 'die Zahl für x, bei der beide Seiten gleich sind']],
-  'schritte': ['Links liegen die Dose x und 3 Murmeln, rechts 10 Murmeln: x + 3 = 10.',
-               'Nimm auf beiden Seiten 3 Murmeln weg. So bleibt die Waage im Gleichgewicht.',
-               'Links bleibt nur die Dose, rechts bleiben 10 − 3 = 7 Murmeln.',
-               'Also ist ⟦x = 7⟧: In der Dose sind 7 Murmeln.'],
-  'probe': '7 + 3 = 10 ✓',
-  'regel': 'So löst du eine Gleichung an der Waage: Tu auf ⟦beiden Seiten⟧ dasselbe, dann bleibt die Waage im ⟦Gleichgewicht⟧. Die Zahl für x, bei der beide Seiten gleich sind, ist die ⟦Lösung⟧.',
-  'fehler': 'Nur auf einer Seite etwas wegnehmen: Wer links die 3 Murmeln wegnimmt und rechts nicht, bekommt x = 10. Aber 10 + 3 = 13, nicht 10 – die Waage kippt. Was du links tust, tust du auch ⟦rechts⟧.'},
+  'bild': waage_bild('x + 3', '10'),
+  'schritte': [{'text': 'Nimm auf beiden Seiten 3 Murmeln weg. Das Gleichgewicht bleibt.', 'bild': waage_bild('x', '10 − 3')},
+               {'text': 'Links bleibt die Dose, rechts bleiben 10 − 3 = 7 Murmeln.', 'bild': waage_bild('x', '7')},
+               {'text': 'Also ist die Lösung ⟦x = 7⟧: In der Dose sind 7 Murmeln.'}],
+  'fehler': 'Nur links 3 wegnehmen ergibt x = 10. Aber 10 + 3 = 13, nicht 10: Die Waage kippt.',
+  'fehler_bild': KIPPT,
+  'regel': 'Tu auf ⟦beiden Seiten⟧ dasselbe. Dann bleibt die Waage im Gleichgewicht.'},
  'umkehr_plus': {
-  'einstieg': 'In deinem Geldbeutel war Geld. Du kaufst etwas für 15 € und hast danach noch 27 €. Wie viel war vorher drin? Du spielst die Geschichte rückwärts: Die 15 € kommen wieder in den Geldbeutel. So eine Rechnung, die eine andere rückgängig macht, heißt ⟦Umkehrung⟧.',
-  'woerter': [['rückwärts rechnen', 'vom Ergebnis aus zurück zum Anfang rechnen'],
-              ['Umkehrung', 'die Rechnung, die eine andere rückgängig macht: Minus macht Plus rückgängig und Plus macht Minus rückgängig']],
-  'schritte': ['Schreib die Geschichte als Gleichung: x − 15 = 27. Dabei ist x das Geld vorher.',
-               'Vom Geld wurden 15 € abgezogen. Die Umkehrung von Minus ist Plus.',
-               'Rechne rückwärts: 27 + 15 = ⟦42⟧.',
-               'Vorher waren ⟦42 €⟧ im Geldbeutel.'],
-  'probe': '42 − 15 = 27 ✓',
-  'regel': 'So rechnest du rückwärts: Die ⟦Umkehrung von Plus ist Minus⟧, die ⟦Umkehrung von Minus ist Plus⟧. Bei x + 8 = 20 ist x = 20 − 8, bei x − 15 = 27 ist x = 27 + 15.',
-  'fehler': 'Bei x − 15 = 27 rechnen viele 27 − 15 = 12. Probe: 12 − 15 ergibt nicht 27. Wer etwas ausgegeben hat, hatte vorher ⟦mehr⟧ Geld. Die Umkehrung von Minus ist Plus: 27 + 15 = 42.'},
+  'einstieg': 'In deinem Geldbeutel war Geld. Du kaufst etwas für 15 € und hast noch 27 €. Rückwärts kommen die 15 € wieder hinein: Das ist die ⟦Umkehrung⟧.',
+  'woerter': [['Umkehrung', 'eine Rechnung, die eine andere rückgängig macht'], ['x', 'die gesuchte Zahl, hier das Geld vorher']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 50, 'abschnitte': 10, 'beschriftet': 'alle'},
+  'schritte': [{'text': 'Als Gleichung: x − 15 = 27. Nachher sind 27 € übrig.', 'bild': {'punkte': [{'wert': 27, 'name': 'nachher'}]}},
+               {'text': 'Die Umkehrung von minus ist plus: von 27 aus 15 nach rechts.', 'bild': {'boegen': [{'von': 27, 'bis': 42, 'name': '+15'}]}},
+               {'text': '27 + 15 = ⟦42⟧. Vorher waren 42 € im Geldbeutel.', 'bild': {'punkte': [{'wert': 27, 'name': 'nachher'}, {'wert': 42, 'name': 'vorher'}]}}],
+  'fehler': 'x − 15 = 27 mit 27 − 15 = 12 lösen ist falsch. Wer etwas ausgegeben hat, hatte vorher mehr Geld.',
+  'fehler_bild': {'punkte': [{'wert': 27, 'name': 'nachher'}], 'boegen': [{'von': 27, 'bis': 12, 'name': 'falsche Richtung'}]},
+  'regel': 'Die ⟦Umkehrung⟧ von plus ist minus, von minus ist plus. Bei x − 15 = 27 ist x = 27 + 15.'},
  'umkehr_mal': {
-  'einstieg': '4 gleich teure Hefte kosten zusammen 12 €. Wie viel kostet ein Heft? Du verteilst die 12 € gerecht auf die 4 Hefte. Teilen macht das Malnehmen rückgängig – auch das ist eine ⟦Umkehrung⟧.',
-  'woerter': [['4 · x', '4 mal die unbekannte Zahl, hier 4 Hefte zu je x €'],
-              ['x : 4', 'die unbekannte Zahl geteilt durch 4']],
-  'schritte': ['4 Hefte zu je x € kosten 12 €: 4 · x = 12.',
-               'x wurde mit 4 malgenommen. Die Umkehrung von Mal ist Geteilt.',
-               'Rechne rückwärts: 12 : 4 = ⟦3⟧.',
-               'Ein Heft kostet ⟦3 €⟧.'],
-  'probe': '4 · 3 = 12 ✓',
-  'regel': 'So rechnest du rückwärts: Die ⟦Umkehrung von Mal ist Geteilt⟧: Bei 4 · x = 12 ist x = 12 : 4. Die ⟦Umkehrung von Geteilt ist Mal⟧: Bei x : 4 = 12 ist x = 12 · 4.',
-  'fehler': 'Bei x : 4 = 12 rechnen viele 12 : 4 = 3. Probe: 3 : 4 ergibt nicht 12. Ein Geldbetrag wurde gerecht auf 4 Kinder verteilt, jedes bekam 12 € – vorher war es also ⟦mehr⟧, nämlich 12 · 4 = 48 €.'},
+  'einstieg': '4 gleich teure Hefte kosten zusammen 12 €. Was kostet ein Heft? Du verteilst die 12 € auf 4 Hefte: Teilen ist die ⟦Umkehrung⟧ von Malnehmen.',
+  'woerter': [['4 · x', '4-mal der Preis eines Hefts'], ['Umkehrung', 'eine Rechnung, die eine andere rückgängig macht']],
+  'bild': {'typ': 'bruchstreifen', 'teile': 4, 'gefaerbt': 0, 'ganzes': '12 € für 4 Hefte'},
+  'schritte': [{'text': 'Als Gleichung: 4 · x = 12.'},
+               {'text': 'Die Umkehrung von mal ist geteilt: 12 € in 4 gleiche Teile.', 'bild': {'gefaerbt': 1}},
+               {'text': '12 : 4 = ⟦3⟧. Ein Heft kostet 3 €.', 'bild': {'teil_text': '3 €'}}],
+  'fehler': 'Bei x : 4 = 12 rechnen viele 12 : 4 = 3. Doch jedes von 4 Kindern bekam 12 €: Vorher waren es 48 €.',
+  'fehler_bild': {'gefaerbt': 1, 'teil_text': '12 €', 'ganzes': 'vorher: 4 · 12 € = 48 €'},
+  'regel': 'Die ⟦Umkehrung⟧ von mal ist geteilt, von geteilt ist mal. Bei x : 4 = 12 ist x = 12 · 4.'},
  'zwei_schritte': {
-  'einstieg': 'Im Kino kosten 3 Karten und eine Tüte Popcorn für 4 € zusammen 19 €. Hier wurde zweimal nacheinander gerechnet: erst der Kartenpreis mal 3, dann plus 4 € für das Popcorn. Mehrere Rechenschritte hintereinander nennt man eine ⟦Rechenkette⟧. Rückwärts baust du sie in umgekehrter Reihenfolge ab.',
-  'woerter': [['Rechenkette', 'mehrere Rechenschritte nacheinander'],
-              ['3 · x + 4', 'erst die unbekannte Zahl mal 3, dann plus 4'],
-              ['Zwischenwert', 'das Ergebnis nach dem ersten Rechenschritt']],
-  'schritte': ['Die Gleichung lautet 3 · x + 4 = 19. Vorwärts heißt das: erst mal 3, dann plus 4.',
-               'Kehre den letzten Schritt zuerst um und zieh das Popcorn ab: 19 − 4 = 15. So viel kosten die 3 Karten zusammen.',
-               'Kehre dann den ersten Schritt um und verteile auf 3 Karten: 15 : 3 = ⟦5⟧.',
-               'Eine Karte kostet ⟦5 €⟧.'],
-  'probe': '3 · 5 + 4 = 15 + 4 = 19 ✓',
-  'regel': 'So löst du eine Gleichung mit zwei Rechenschritten: Geh die ⟦Rechenkette rückwärts⟧. Den ⟦letzten⟧ Schritt kehrst du zuerst um – bei 3 · x + 4 = 19 also erst − 4, dann : 3.',
-  'fehler': 'Die Schritte in der falschen Reihenfolge umkehren – wie Socken ausziehen, bevor die Schuhe aus sind. Bei 2 · x + 6 = 20 rechnet man falsch 20 : 2 = 10 und 10 − 6 = 4. Probe: 2 · 4 + 6 = 14, nicht 20. Richtig ist ⟦erst − 6, dann : 2⟧: 20 − 6 = 14, 14 : 2 = 7.'},
+  'einstieg': '3 Kinokarten und ein Popcorn für 4 € kosten 19 €. Gerechnet wurde erst mal 3, dann plus 4. Rückwärts baust du die ⟦Rechenkette⟧ von hinten ab.',
+  'woerter': [['Rechenkette', 'mehrere Rechenschritte hintereinander']],
+  'bild': {'typ': 'tabelle', 'kopf': ['', 'Start', '1. Schritt', 'Zwischenwert', '2. Schritt', 'Ende'], **KETTE('?', '?', '?')},
+  'schritte': [{'text': '3 · x + 4 = 19: vorwärts erst mal 3, dann plus 4.'},
+               {'text': 'Den letzten Schritt zuerst umkehren: 19 − 4 = 15.', 'bild': KETTE('?', '?', '15')},
+               {'text': 'Dann den ersten: 15 : 3 = ⟦5⟧. Eine Karte kostet 5 €.', 'bild': KETTE('15', '5', '15')}],
+  'fehler': 'Bei 2 · x + 6 = 20 erst teilen: 10 − 6 = 4. Probe: 2 · 4 + 6 = 14, nicht 20.',
+  'regel': 'Kehre den ⟦letzten Schritt zuerst⟧ um. Bei 3 · x + 4 = 19: erst − 4, dann : 3.'},
  'probe': {
-  'einstieg': 'Deine Freundin hat eine Gleichung gelöst und ruft: „x = 7!“ Stimmt das? Du musst nicht alles noch einmal rechnen. Du legst die 7 sozusagen in die Waage und schaust, ob sie im Gleichgewicht bleibt. Diese Kontrolle heißt ⟦Probe⟧.',
-  'woerter': [['Probe', 'die gefundene Zahl in die Gleichung einsetzen und nachrechnen'],
-              ['einsetzen', 'für x die Zahl hinschreiben'],
-              ['ursprüngliche Gleichung', 'die Gleichung so, wie sie in der Aufgabe steht']],
-  'schritte': ['Die Gleichung lautet 5 · x − 8 = 27, die angebliche Lösung ist x = 7.',
-               'Setze 7 für x ein: 5 · 7 − 8.',
-               'Rechne die linke Seite aus: 35 − 8 = 27.',
-               'Rechts steht auch 27. Beide Seiten sind gleich – die Lösung ⟦stimmt⟧.'],
-  'regel': 'So machst du die Probe: Setze die Zahl für x in die ⟦ursprüngliche Gleichung⟧ ein und rechne die linke Seite aus. Kommt dasselbe heraus wie rechts, ⟦stimmt⟧ die Lösung.',
-  'fehler': 'Die Probe mit der eigenen Rechnung statt mit der Gleichung machen. Wer bei x − 15 = 27 falsch 27 − 15 = 12 rechnet und dann prüft „27 − 15 = 12 ✓“, findet seinen Fehler nie. Setze immer in die ⟦Gleichung⟧ ein: 12 − 15 ergibt nicht 27.'},
+  'einstieg': 'Deine Freundin ruft: „x = 7!“ Stimmt das? Du setzt die 7 in die Gleichung ein und schaust, ob die Waage gerade hängt. Das heißt ⟦Probe⟧.',
+  'woerter': [['einsetzen', 'statt x die Zahl hinschreiben'], ['Probe', 'Kontrolle: Lösung einsetzen und beide Seiten vergleichen']],
+  'bild': waage_bild('5 · x − 8', '27'),
+  'schritte': [{'text': 'Die Gleichung: 5 · x − 8 = 27. Behauptet wird x = 7.'},
+               {'text': 'Einsetzen: 7 für x, also 5 · 7 − 8.', 'bild': waage_bild('5 · 7 − 8', '27')},
+               {'text': 'Links: 35 − 8 = 27. Rechts steht auch 27.', 'bild': waage_bild('27', '27')},
+               {'text': 'Beide Seiten sind gleich: Die Lösung ⟦stimmt⟧.'}],
+  'fehler': 'Die Probe mit der eigenen Rechnung statt mit der Gleichung machen. So findest du deinen Fehler nie.',
+  'regel': 'Setze die Lösung in die ⟦Gleichung⟧ ein. Sind beide Seiten gleich, stimmt sie.'},
  'aufstellen': {
-  'einstieg': 'Eine Packung Sammelkarten und ein Album für 2 € kosten zusammen 9 €. Was kostet die Packung? Bevor du rechnest, übersetzt du den Text in die Sprache der Mathematik – wie beim Übersetzen in eine andere Sprache, Wort für Wort. Das heißt, eine Gleichung ⟦aufstellen⟧.',
-  'woerter': [['aufstellen', 'aus einem Text eine Gleichung machen'],
-              ['das Dreifache', '3 · x'],
-              ['vermehrt um 5, vermindert um 4', '+ 5 und − 4'],
-              ['ergibt, kostet zusammen', 'das Gleichheitszeichen =']],
-  'schritte': ['Nenne die gesuchte Zahl x: Hier ist x der Preis der Packung.',
-               'Übersetze Stück für Stück: Packung und Album sind x + 2, „kosten zusammen“ ist =, dann folgt 9. Die Gleichung lautet x + 2 = 9.',
-               'Rechne rückwärts: 9 − 2 = ⟦7⟧.',
-               'Die Packung kostet ⟦7 €⟧.'],
-  'probe': '7 + 2 = 9 ✓',
-  'regel': 'So stellst du eine Gleichung auf: Nenne die gesuchte Zahl ⟦x⟧ und übersetze den Text Stück für Stück: „das Dreifache“ heißt 3 · x, „vermehrt um 5“ heißt + 5, „ergibt“ oder „kostet zusammen“ heißt ⟦=⟧. Stell dir die Waage vor: Was liegt links, was rechts?',
-  'fehler': '„Das Doppelte einer Zahl, vermindert um 4, ergibt 10“ ist nicht 2 · (x − 4) = 10. Erst wird verdoppelt, dann 4 abgezogen: ⟦2 · x − 4 = 10⟧, also x = 7. Mit der falschen Gleichung käme 9 heraus – aber 2 · 9 − 4 = 14, nicht 10.'},
+  'einstieg': 'Sammelkarten und ein Album für 2 € kosten zusammen 9 €. Was kosten die Karten? Erst übersetzt du den Text in eine ⟦Gleichung⟧.',
+  'woerter': [['aufstellen', 'einen Text in eine Gleichung übersetzen']],
+  'bild': waage_bild('?', '?'),
+  'schritte': [{'text': 'Nenne die gesuchte Zahl x: den Preis der Karten.', 'bild': waage_bild('x', '?')},
+               {'text': '„Zusammen kosten“ heißt =. Gleichung aufstellen: x + 2 = 9.', 'bild': waage_bild('x + 2', '9')},
+               {'text': 'Rückwärts: 9 − 2 = ⟦7⟧. Die Karten kosten 7 €.', 'bild': waage_bild('x', '7')}],
+  'fehler': '„Das Doppelte, vermindert um 4“ heißt 2 · x − 4. Falsch ist 2 · (x − 4): Erst wird verdoppelt, dann abgezogen.',
+  'regel': 'Gesuchte Zahl ⟦x⟧ nennen und Stück für Stück übersetzen. „Das Dreifache“ ist 3 · x, „ergibt“ ist =.'},
  'ohne_loesung': {
-  'einstieg': 'Ein Aufzug fährt 9 Stockwerke nach oben und hält im 4. Stock. Wo ist er losgefahren? Mit den Zahlen 0, 1, 2, 3, … klappt das nicht – er muss unter dem Erdgeschoss gestartet sein. Mit diesen Zahlen allein hat die Gleichung ⟦keine Lösung⟧.',
-  'woerter': [['natürliche Zahlen ℕ', 'die Zahlen zum Zählen: ℕ = {0; 1; 2; 3; …}'],
-              ['{ … }', 'Mengenklammern: In ihnen stehen die Zahlen, die dazugehören'],
-              ['ganze Zahlen', 'die natürlichen Zahlen und ihre Minus-Zahlen: …, −2, −1, 0, 1, 2, …'],
-              ['Untergeschoss', 'ein Stockwerk unter dem Erdgeschoss; im Aufzug oft −1, −2, …'],
-              ['teilbar', 'lässt sich ohne Rest teilen']],
-  'schritte': ['Die Gleichung lautet x + 9 = 4.',
-               'Rückwärts gerechnet ist x = 4 − 9. Von 4 kannst du nicht 9 abziehen, ohne unter 0 zu kommen. In ℕ gibt es also keine Lösung.',
-               'Mit ganzen Zahlen geht es: 4 − 9 = ⟦−5⟧. Der Aufzug ist im 5. Untergeschoss losgefahren.',
-               'Genauso hat 3 · x = 10 in ℕ keine Lösung, denn 10 ist ⟦nicht durch 3 teilbar⟧.'],
-  'probe': '(−5) + 9 = 4 ✓',
-  'regel': 'So erkennst du, ob es in ℕ eine Lösung gibt: Rechne rückwärts. Kommt eine Zahl ⟦unter 0⟧ heraus oder geht das Teilen ⟦nicht ohne Rest⟧, gibt es in den ⟦natürlichen Zahlen⟧ keine Lösung. Mit den ⟦ganzen Zahlen⟧ hat x + 9 = 4 die Lösung −5.',
-  'fehler': 'Bei x + 9 = 4 die Zahlen tauschen und 9 − 4 = 5 rechnen. Probe: 5 + 9 = 14, nicht 4 – der Aufzug wäre im 14. Stock gelandet. Die Umkehrung ist 4 − 9, und das ist ⟦keine natürliche Zahl⟧.'},
+  'einstieg': 'Ein Aufzug fährt 9 Stockwerke nach oben und hält im vierten Stock. Wo ist er losgefahren? Mit 0, 1, 2, 3 … allein gibt es ⟦keine Lösung⟧.',
+  'woerter': [['ℕ', 'die natürlichen Zahlen 0, 1, 2, 3 …'], ['ganze Zahlen', 'auch die negativen: … −2, −1, 0, 1, 2 …']],
+  'bild': {'typ': 'zahlenstrahl', 'start': -6, 'ende': 6, 'abschnitte': 12, 'beschriftet': 'anfang_ende', 'punkte': [{'wert': 4, 'name': 'Ziel'}]},
+  'schritte': [{'text': 'Die Gleichung: x + 9 = 4. Rückwärts: x = 4 − 9.'},
+               {'text': 'Von 4 aus 9 nach unten: Unter 0 gibt es in ℕ keine Zahl.',
+                'bild': {'boegen': [{'von': 4, 'bis': -5, 'name': '−9'}], 'bereich': {'von': -6, 'bis': 0}}},
+               {'text': 'Ganze Zahlen helfen: ⟦x = −5⟧, das 5. Untergeschoss.', 'bild': {'punkte': [{'wert': 4, 'name': 'Ziel'}, {'wert': -5, 'name': 'Start'}]}}],
+  'fehler': 'Bei x + 9 = 4 die Zahlen tauschen: 9 − 4 = 5. Probe: 5 + 9 = 14, nicht 4.',
+  'regel': 'In ℕ gibt es keine Lösung, wenn rückwärts etwas ⟦unter 0⟧ herauskommt. Ebenso, wenn Teilen nicht ohne Rest aufgeht.'},
 }
+baue = mit_umbau(baue, KARTEN)
 
-baue = mit_klar(baue, KLAR)
 
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: 3 · (□ − 15) = 18, −23 + x = −12, □ : □ = −70; Mathematik-Test 2005:
+# 5 · 3 + 4 · x = 35; Bayerischer Mathematik-Test 2004: Zahl von 1 000 subtrahieren; Känguru 5/6: 23 Kinder in 7 Zimmern). Eigene Zahlen.
+# Hier läuft baue() erst unter __main__; darum wird baue umhüllt: erst alles wie bisher erzeugen, dann die neuen Übungen anhängen.
+# Die Helfer werden als Modul _S eingebunden, damit die Namen A und Z aus _nachbau (von den alten Generatoren benutzt) unverändert bleiben.
+import _schwer_kl5 as _S  # noqa: E402
+from _nachbau import THEMEN as _THEMEN  # noqa: E402
+
+
+def _schwer():
+    Z, A, L, wahl, einzig = _S.Z, _S.A, _S.L, _S.wahl, _S.einzig
+    N = {}
+    N['waage'] = [
+        Z(2, 'Die Waage ist im Gleichgewicht: links x + x + 6, rechts 20. Welche Zahl ist x?', '(20 - 6) / 2', 'Auf beiden Seiten 6 wegnehmen: x + x = 14. Also x = 7.',
+          'Nimm zuerst auf beiden Seiten 6 weg.'),
+        Z(2, 'Links liegen 3 gleiche Dosen, rechts 1 solche Dose und 12 Murmeln. Die Waage ist im Gleichgewicht. Wie viele Murmeln sind in einer Dose?', '12 / 2',
+          'Auf beiden Seiten 1 Dose wegnehmen: 2 Dosen = 12 Murmeln. Eine Dose: 6 Murmeln.', 'Nimm auf beiden Seiten dieselbe Dose weg.'),
+        Z(3, 'Löse 4 · 3 + 5 · x = 47.', '(47 - 4 * 3) / 5', '4 · 3 = 12. 12 + 5 · x = 47, also 5 · x = 35 und x = 7. Probe: 12 + 35 = 47.',
+          'Rechne zuerst 4 · 3 aus. Was bleibt für 5 · x?'),
+        Z(3, 'Auf einer Waage gilt: 2 Äpfel wiegen so viel wie 3 Birnen. Eine Birne wiegt 120 g. Wie viel wiegt ein Apfel?', '3 * 120 / 2',
+          '3 Birnen: 360 g. Das wiegen auch 2 Äpfel. Ein Apfel: 360 g : 2 = 180 g.', 'Was wiegen 3 Birnen zusammen?', einheit='g'),
+        Z(3, 'Eine Waage ist im Gleichgewicht: links 5 gleiche Würfel, rechts 2 solche Würfel und ein 60-g-Gewicht. Wie schwer ist ein Würfel?', '60 / 3',
+          'Auf beiden Seiten 2 Würfel wegnehmen: 3 Würfel = 60 g. Ein Würfel: 20 g.', 'Nimm auf beiden Seiten gleich viele Würfel weg.', einheit='g'),
+        A(3, 'Bei x + 7 = 15 nimmt jemand nur links 7 weg und schreibt x = 15. Was ist falsch?', 'Die 7 muss auch rechts weg: x = 15 − 7 = 8.',
+          ['Nichts, x = 15 stimmt.', 'Man muss rechts 7 dazulegen: x = 22.', 'Man muss durch 7 teilen.'],
+          'Nur links wegnehmen bringt die Waage aus dem Gleichgewicht. Beide Seiten minus 7: x = 8. Probe: 8 + 7 = 15.', 'Was passiert mit der Waage, wenn nur eine Seite leichter wird?'),
+    ]
+    N['umkehr_plus'] = [
+        Z(2, 'Löse 63 = x − 28.', '63 + 28', 'Umkehrung von minus ist plus: x = 63 + 28 = 91. Probe: 91 − 28 = 63.', 'Es ist egal, auf welcher Seite x steht.'),
+        Z(2, 'Löse 250 − x = 175.', '250 - 175', 'Von 250 muss man so viel abziehen, dass 175 bleibt: x = 250 − 175 = 75.', 'Achtung: x wird abgezogen. Wie groß ist der Unterschied zwischen 250 und 175?'),
+        Z(3, 'Löse −23 + x = −12.', '-12 - (-23)', 'Umkehrung: x = −12 − (−23) = −12 + 23 = 11. Probe: −23 + 11 = −12.', 'Von −23 bis −12: wie viele Schritte nach rechts?'),
+        Z(3, 'Welche Zahl muss man von 1 000 subtrahieren, um 2 026 zu erhalten?', '1000 - 2026',
+          '1 000 − x = 2 026. Das Ergebnis ist größer, also ist x negativ: x = 1 000 − 2 026 = −1 026. Probe: 1 000 − (−1 026) = 2 026.',
+          'Schreibe die Gleichung 1 000 − x = 2 026 auf. Was muss x sein, damit das Ergebnis größer wird?'),
+        Z(3, 'Ich denke mir eine Zahl, ziehe 45 ab und addiere dann 17. Ich erhalte 30. Welche Zahl habe ich mir gedacht?', '30 - 17 + 45',
+          'Rückwärts: 30 − 17 = 13, dann 13 + 45 = 58. Probe: 58 − 45 + 17 = 30.', 'Kehre den letzten Schritt zuerst um.'),
+        A(3, 'Jemand löst x − 15 = 40 so: x = 40 − 15 = 25. Was ist falsch?', 'Die Umkehrung von minus ist plus: x = 40 + 15 = 55.',
+          ['Nichts, x = 25 stimmt.', 'Richtig ist x = 15 − 40.', 'Richtig ist x = 40 : 15.'], 'Probe mit 25: 25 − 15 = 10, nicht 40. Mit 55: 55 − 15 = 40.', 'Mach die Probe mit x = 25.'),
+    ]
+    N['umkehr_mal'] = [
+        Z(2, 'Löse 7 · x = 0.', '0 / 7', 'Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0 : 7 = 0. Probe: 7 · 0 = 0.', 'Welche Zahl mal 7 ergibt 0?'),
+        Z(2, 'Löse x : 12 = 15.', '15 * 12', 'Umkehrung von geteilt ist mal: x = 15 · 12 = 180.', 'Rückwärts mit Malnehmen.'),
+        Z(3, 'Löse x : (−4) = 15.', '15 * (-4)', 'Umkehrung: x = 15 · (−4) = −60. Probe: (−60) : (−4) = 15.', 'Rechne rückwärts mit Malnehmen. Achte auf das Vorzeichen.'),
+        A(3, 'Jemand löst 96 : x = 8 mit x = 96 · 8 = 768. Was ist falsch?', 'x ist der Teiler: x = 96 : 8 = 12.',
+          ['Nichts, x = 768 stimmt.', 'Richtig ist x = 8 : 96.', 'Richtig ist x = 96 − 8 = 88.'], 'Probe: 96 : 768 ist nicht 8. Richtig: 96 : 12 = 8.',
+          'Mach die Probe. Durch welche Zahl muss man 96 teilen, damit 8 herauskommt?'),
+        Z(3, 'Das Fünffache einer Zahl ist um 48 größer als die Zahl selbst. Wie heißt die Zahl?', str(einzig([x for x in range(1, 100) if 5 * x - x == 48])),
+          '5 · x − x = 4 · x. Also 4 · x = 48 und x = 12. Probe: 60 ist um 48 größer als 12.', 'Wie viel mal die Zahl ist der Unterschied?'),
+        Z(3, 'Ein Seil wird ohne Rest in 12 gleich lange Stücke von 35 cm geschnitten. Wie lang war das Seil in m?', '12 * 35 / 100',
+          'Gleichung: x : 35 = 12, also x = 12 · 35 = 420 cm = 4,2 m.', 'Rechne zuerst in cm, dann in m.', einheit='m'),
+    ]
+    N['zwei_schritte'] = [
+        Z(2, 'Löse 7 · x − 12 = 51.', '(51 + 12) / 7', 'Erst + 12: 7 · x = 63. Dann : 7: x = 9.', 'Den letzten Schritt (− 12) zuerst umkehren.'),
+        Z(2, 'Löse x : 5 − 3 = 9.', '(9 + 3) * 5', 'Erst + 3: x : 5 = 12. Dann · 5: x = 60.', 'Den letzten Schritt zuerst umkehren.'),
+        L(3, 'Ergänze die Lücke: 6 · (□ − 12) = 42', '6 · (□ − 12) = 42', 'Trage die fehlende Zahl ein.', ['42 // 6 + 12'],
+          'Die Klammer muss 42 : 6 = 7 ergeben. □ − 12 = 7, also □ = 19. Probe: 6 · 7 = 42.', 'Was muss in der Klammer herauskommen?'),
+        Z(3, 'Löse (x + 7) : 3 = 11.', '11 * 3 - 7', 'Erst · 3: x + 7 = 33. Dann − 7: x = 26. Probe: 33 : 3 = 11.', 'Die Klammer wird zuletzt geteilt – kehre das zuerst um.'),
+        Z(3, 'Ich denke mir eine Zahl, verdopple sie, addiere 9 und teile das Ergebnis durch 5. Ich erhalte 7. Welche Zahl habe ich mir gedacht?', '(7 * 5 - 9) / 2',
+          'Rückwärts: 7 · 5 = 35, 35 − 9 = 26, 26 : 2 = 13. Probe: 13 · 2 + 9 = 35, 35 : 5 = 7.', 'Drei Schritte rückwärts: den letzten zuerst.'),
+        A(3, 'Jemand löst 4 · x + 8 = 40 so: zuerst 40 : 4 = 10, dann 10 − 8 = 2. Was ist falsch?', 'Die Reihenfolge: zuerst − 8 (letzter Schritt), dann : 4. Richtig ist x = 8.',
+          ['Nichts, x = 2 stimmt.', 'Man muss 40 · 4 rechnen.', 'Richtig ist x = 40 − 8 − 4 = 28.'], 'Probe mit 2: 4 · 2 + 8 = 16. Richtig: 40 − 8 = 32, 32 : 4 = 8.',
+          'Mach die Probe mit x = 2.'),
+    ]
+    welche = [x for x in (3, 4, 5, 6) if 2 * x + 7 == 4 * x - 3]
+    N['probe'] = [
+        wahl(2, 'Ist x = 7 eine Lösung von 3 · (x − 2) = 15?', ['Ja: 3 · (7 − 2) = 3 · 5 = 15.', 'Nein: 3 · 7 − 2 = 19.', 'Nein: 3 · (7 − 2) = 21.'],
+             lambda o: o.startswith('Ja') and 3 * (7 - 2) == 15, 'Einsetzen: 3 · (7 − 2) = 3 · 5 = 15. Beide Seiten sind gleich.', 'Rechne zuerst die Klammer aus.'),
+        Z(2, 'Mache die Probe für x = 4 bei 50 − 6 · x = 26. Welche Zahl kommt links heraus?', '50 - 6 * 4', '50 − 6 · 4 = 50 − 24 = 26. Links steht auch 26: Die Lösung stimmt.',
+          'Punkt vor Strich.'),
+        Z(3, 'Für welche der Zahlen 3, 4, 5 und 6 gilt 2 · x + 7 = 4 · x − 3?', str(_S.einzig(welche)),
+          'Probe mit 5: links 2 · 5 + 7 = 17, rechts 4 · 5 − 3 = 17. Gleich! (Bei 3, 4, 6 sind die Seiten verschieden.)', 'Setze jede Zahl links und rechts ein.'),
+        wahl(3, 'Zwei Kinder lösen 5 · x − 20 = 30. Eins erhält x = 2, das andere x = 10. Wer hat recht?', ['Das Kind mit x = 10.', 'Das Kind mit x = 2.', 'Beide.', 'Keins von beiden.'],
+             lambda o: o == 'Das Kind mit x = 10.' and 5 * 10 - 20 == 30, 'Probe: 5 · 10 − 20 = 30 stimmt. 5 · 2 − 20 = −10 stimmt nicht.', 'Mach mit beiden Zahlen die Probe.'),
+        Z(3, 'Bei 7 · x − 4 = 59 wird x = 10 getestet. Links kommt 66 heraus – zu viel. Wie heißt die richtige Lösung?', '(59 + 4) / 7',
+          '66 ist 7 zu viel, also ist x um 1 zu groß: x = 9. Probe: 63 − 4 = 59.', 'Um wie viel ändert sich die linke Seite, wenn x um 1 kleiner wird?'),
+        Z(3, 'Bei 4 · x + 1 = 33 wird x = 7 getestet. Links kommt 29 heraus. Um wie viel muss x noch größer werden?', '(33 - 1) / 4 - 7',
+          'Es fehlen 33 − 29 = 4. Jede 1 bei x bringt links 4 mehr. Also x um 1 größer: x = 8.', 'Um wie viel wächst die linke Seite, wenn x um 1 größer wird?'),
+    ]
+    zimmer = _S.einzig([v for v in range(0, 9) if 4 * v + 3 * (8 - v) == 26])
+    N['aufstellen'] = [
+        Z(2, 'Ein Kind ist 4 Jahre älter als sein Bruder. Zusammen sind sie 22 Jahre alt. Wie alt ist der Bruder?', '(22 - 4) / 2',
+          'x + (x + 4) = 22, also 2 · x = 18 und x = 9. Der Bruder ist 9, das Kind 13.', 'Nimm zuerst die 4 Jahre Unterschied weg.', einheit='Jahre'),
+        wahl(2, '„Die Hälfte einer Zahl, vermehrt um 8, ergibt 20.“ Welche Gleichung passt?', ['x : 2 + 8 = 20', '(x + 8) : 2 = 20', 'x · 2 + 8 = 20', 'x : 2 − 8 = 20'],
+             lambda o: o == 'x : 2 + 8 = 20', 'Erst die Hälfte (x : 2), dann vermehrt um 8 (+ 8): x : 2 + 8 = 20.', 'Was passiert zuerst mit der Zahl?'),
+        Z(3, '26 Kinder schlafen in 8 Zimmern. In jedem Zimmer schlafen 3 oder 4 Kinder. Wie viele Viererzimmer gibt es?', str(zimmer),
+          'Wären alle 8 Zimmer Dreierzimmer, schliefen dort 24 Kinder. 2 Kinder fehlen – jedes Viererzimmer bringt 1 mehr: 2 Viererzimmer. Probe: 2 · 4 + 6 · 3 = 26.',
+          'Stell dir zuerst vor, alle Zimmer wären Dreierzimmer.'),
+        Z(3, 'Subtrahiert man von 100 das Dreifache einer Zahl, erhält man 37. Wie heißt die Zahl?', '(100 - 37) / 3',
+          '100 − 3 · x = 37. Also 3 · x = 63 und x = 21. Probe: 100 − 63 = 37.', 'Schreibe die Gleichung auf: 100 − 3 · x = 37.'),
+        Z(3, 'Drei aufeinanderfolgende natürliche Zahlen haben die Summe 72. Wie heißt die kleinste?', str(_S.einzig([n for n in range(1, 100) if n + (n + 1) + (n + 2) == 72])),
+          'x + (x + 1) + (x + 2) = 72, also 3 · x + 3 = 72, 3 · x = 69, x = 23. Probe: 23 + 24 + 25 = 72.', 'Die mittlere Zahl ist ein Drittel der Summe.'),
+        Z(3, 'Ein Vater ist heute 40 Jahre alt, sein Sohn 10. In wie vielen Jahren ist der Vater doppelt so alt wie der Sohn?', str(_S.einzig([t for t in range(0, 60) if 40 + t == 2 * (10 + t)])),
+          '40 + t = 2 · (10 + t). Probieren: In 20 Jahren ist der Vater 60, der Sohn 30 – doppelt so alt.', 'Der Altersunterschied bleibt immer 30 Jahre.', einheit='Jahre'),
+    ]
+    vier = {'30': 30, '31': 31, '32': 32, '33': 33}
+    N['ohne_loesung'] = [
+        wahl(2, 'Welche Gleichung hat eine Lösung in ℕ?', ['7 · x = 50', 'x + 12 = 5', '7 · x = 56', '20 − x = 25'], lambda o: o == '7 · x = 56',
+             '7 · 8 = 56. Bei 50 bleibt beim Teilen ein Rest, bei den anderen müsste x negativ sein.', 'Prüfe jede Gleichung mit Rückwärtsrechnen.'),
+        Z(2, 'Löse mit ganzen Zahlen: x + 12 = 5.', '5 - 12', 'x = 5 − 12 = −7. Probe: −7 + 12 = 5. In ℕ gäbe es keine Lösung.', 'Rechne rückwärts – das Ergebnis darf negativ sein.'),
+        Z(3, 'Ein 368 cm langes Band soll in Stücke von 15 cm geschnitten werden. Ohne Rest geht das nicht (15 · x = 368 hat keine Lösung in ℕ). Wie viele cm bleiben übrig, wenn man möglichst viele Stücke schneidet?',
+          '368 % 15', '368 : 15 = 24 Rest 8. Es bleiben 8 cm übrig.', 'Teile mit Rest.', einheit='cm'),
+        wahl(3, 'Für welche Zahl rechts hat 4 · x = □ eine Lösung in ℕ?', list(vier), lambda o: vier[o] % 4 == 0,
+             'Nur 32 ist durch 4 teilbar: x = 8. 30, 31 und 33 lassen beim Teilen durch 4 einen Rest.', 'Welche Zahl ist durch 4 teilbar?'),
+        Z(3, 'Wie viele der Gleichungen 6 · x = 1, 6 · x = 2, 6 · x = 3, … , 6 · x = 50 haben eine Lösung in ℕ?', str(sum(1 for n in range(1, 51) if n % 6 == 0)),
+          'Eine Lösung gibt es, wenn rechts ein Vielfaches von 6 steht: 6, 12, 18, 24, 30, 36, 42, 48. Das sind 8.', 'Welche Zahlen bis 50 sind durch 6 teilbar?'),
+        wahl(3, 'Welche Gleichung hat jede Zahl als Lösung?', ['0 · x = 0', '0 · x = 5', 'x + 0 = 5', '1 · x = 0'], lambda o: o == '0 · x = 0',
+             '0 mal jede Zahl ist 0. Also stimmt 0 · x = 0 für jedes x. 0 · x = 5 hat keine Lösung, die anderen genau eine.', 'Setze verschiedene Zahlen ein.'),
+    ]
+    return N
+
+
+def _mit_schwer(baue_alt):
+    def baue_neu(meta, *args, **kwargs):
+        d = baue_alt(meta, *args, **kwargs)
+        _S.ergaenze(d, _schwer(), 1001)
+        (_THEMEN / f"{meta['thema_schluessel']}.json").write_text(_S.json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+        print(f"  + Zehnte Runde: jetzt {len(d['aufgaben'])} Aufgaben")
+        return d
+    return baue_neu
+
+
+baue = _mit_schwer(baue)
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('gleichungen.einfach', 13_5_12)
+# a) „Zahl : x“ mit Ergebnis im Kopf sofort sichtbar → Stufe 2
+BF.stufe('umkehr_mal', 'Löse 9 : x = 3.', 2)
+BF.stufe('umkehr_mal', 'Löse 20 : x = 2.', 2)
+# c) fünfmal „größer oder kleiner?“ (Antwort erratbar) → zwei davon mit anderem Gedanken
+BF.ersetze('probe', 'Bei 3 · x + 5 = 38 wird x = 12 getestet. Links kommt 41 heraus. Ist die Lösung größer oder kleiner als 12?', BF.Z(
+    'Bei 3 · x + 5 = 38 ergibt die Probe mit x = 12 links 41 und mit x = 10 links 35. Die Lösung ist eine ganze Zahl. Welche?', 11, '(38 - 5) / 3',
+    '41 ist zu viel, 35 zu wenig – die Lösung liegt zwischen 10 und 12. Probe mit 11: 3 · 11 + 5 = 38. Also x = 11.',
+    'Mit 12 ist links zu viel, mit 10 zu wenig. Welche Zahl liegt dazwischen? Mach die Probe.'))
+BF.ersetze('probe', 'Bei 5 · x + 9 = 29 wird x = 3 getestet. Links kommt 24 heraus. Ist die Lösung größer oder kleiner als 3?', BF.A(
+    'Welche der Zahlen 2, 4, 6 und 8 löst die Gleichung 5 · x + 9 = 29? Entscheide mit der Probe.', '4', ['2', '6', '8'],
+    'Probe: 5 · 2 + 9 = 19, 5 · 4 + 9 = 29 ✓, 5 · 6 + 9 = 39, 5 · 8 + 9 = 49. Nur x = 4 passt.',
+    'Setze jede Zahl für x ein und rechne die linke Seite aus.'))
+# c) zweimal dieselbe Alters-Aufgabe → anderer Aufbau
+BF.ersetze('aufstellen', 'Eine Mutter ist 3-mal so alt wie ihre Tochter. Zusammen sind sie 36 Jahre alt. Wie alt ist die Tochter?', BF.Z(
+    'Ein Vater ist 28 Jahre älter als sein Sohn. Zusammen sind sie 46 Jahre alt. Wie alt ist der Sohn?', 9, '(46 - 28) / 2',
+    'Sohn x, Vater x + 28. Zusammen: x + x + 28 = 46, also 2 · x = 18 und x = 9 Jahre. Probe: 9 + 37 = 46.',
+    'Nimm die 28 Jahre Unterschied weg. Der Rest verteilt sich auf zwei gleich große Alter.', einheit='Jahre'))
+# c) zweimal derselbe Gedanke (0 · x = Zahl ≠ 0) → umgekehrt gefragt
+BF.ersetze('ohne_loesung', '0 · x = 14. Wie viele Lösungen hat diese Gleichung?', BF.Z(
+    'Für welche Zahl a hat die Gleichung a · x = 7 keine Lösung?', 0, '0',
+    'Für a = 0 steht da 0 · x = 7. 0 mal jede Zahl ist 0, nie 7: keine Lösung. Für jedes andere a gibt es x = 7 : a.',
+    'Für welches a kommt links immer dasselbe heraus, egal was x ist?'))
+BF.nicht_umgesetzt('probe S3 „Für welche der Zahlen 3, 4, 5, 6 gilt 2 · x + 7 = 4 · x − 3?“', 'Hinweis aus der Liste, kein Mangel: Die Aufgabe passt zur Lernkarte „Probe machen“.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DS = Durchsicht('gleichungen.einfach', 19_5_10)
+# a) Stufe 3 mit derselben Gleichungsform wie Stufe 2 (a : x = b, a − x = b) → Stufe 2
+for _lz, _t in [('umkehr_mal', 'Löse 72 : x = 9.'), ('umkehr_mal', 'Löse 110 : x = 11.'), ('umkehr_mal', 'Löse 40 : x = 10.'),
+                ('umkehr_plus', 'Löse 131 − x = 57.'), ('umkehr_plus', 'Löse 127 − x = 10.')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+baue = mit_durchsicht(baue, DS)
+# ---- DURCHSICHT ENDE ----
+# ---- STUFEN (Zwanzigste Runde) ----
+from _stufen_kl5 import stufen_anwenden  # noqa: E402
+_baue_ds = baue
+
+
+def baue(meta, *args, **kwargs):
+    d = _baue_ds(meta, *args, **kwargs)
+    stufen_anwenden(d, meta['thema_schluessel'])
+    (_THEMEN_ST / f"{meta['thema_schluessel']}.json").write_text(_json_st.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+    return d
+
+
+import json as _json_st  # noqa: E402
+from _befunde import THEMEN as _THEMEN_ST  # noqa: E402
+# ---- STUFEN ENDE ----
 
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
@@ -637,3 +808,10 @@ if __name__ == '__main__':
                 'Vertiefung ohne_loesung nutzt negative Zahlen (Thema zahlen.ganz, Kl. 5) für „Lösung in ℤ statt in ℕ“; sollte zeitlich nach zahlen.ganz kommen.',
                 'Waage als Figur gezeichnet (Balken, Drehpunkt, zwei Schalen mit Beschriftung). Einzelne Gewichte/Dosen als Symbole kann die App nicht zeichnen; die Schalen tragen deshalb Terme wie „x + x + 3“.'],
          vertiefung=['ohne_loesung'], teil=TEIL)
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('gleichungen.einfach')
+# ---- BEREINIGEN ENDE ----

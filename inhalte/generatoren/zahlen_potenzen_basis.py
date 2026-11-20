@@ -428,77 +428,259 @@ DATEI = {
     'aufgaben': baue(R, ETAPPEN, GEN, TEIL, je_stufe=5),
 }
 
-# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
-# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Durchgehende Situationen: Weitererzählen in Runden, Verdoppeln, Fliesen.
-# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
-from _klar_kl5 import klar  # noqa: E402
+# Umbau U5 (Achte Runde, Vorgabe 16.11.): Lernkarten nach dem neuen Muster – einstieg, woerter (≤ 3), Kartenbild,
+# Bildergeschichte (schritte mit bild), „Pass auf!“ (fehler + fehler_bild), MERKE (regel).
+# Situationen: Geheimnis weitererzählen (Baumdiagramm), Bakterien, Fliesen, Stadion, Papier falten.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl5 import umbau  # noqa: E402
 
-KLAR = {
+
+def runden(n):
+    """Baumdiagramm: jedes Kind erzählt es 2 Freunden weiter, n Runden."""
+    return [{'text': 'Kind', 'aeste': runden(n - 1)} if n > 1 else {'text': 'Kind'} for _ in range(2)]
+
+
+BAKTERIEN = lambda *w: {'typ': 'tabelle', 'kopf': ['Stunde', '0', '1', '2', '3', '4', '5'], 'zeilen': [['Bakterien', *w]]}
+FLIESEN = lambda a, b, c: {'typ': 'tabelle', 'kopf': ['Reihen', 'Rechnung', 'Fliesen'], 'zeilen': [['10', '10 · 14', a], ['4', '4 · 14', b], ['14', 'zusammen', c]]}
+FALTEN = lambda n: {'werte': [{'name': x, 'wert': w} for x, w in list(zip(['Start', '1.', '2.', '3.', '4.'], [1, 2, 4, 8, 16]))[:n]]}
+
+KARTEN = {
  'schreibweise': {
-  'einstieg': 'Ein Kind erzählt eine Neuigkeit 3 Freunden. Jeder davon erzählt sie wieder 3 Freunden, und die erzählen sie noch einmal je 3 Freunden. In der dritten Runde hören sie 3 · 3 · 3 = 27 Kinder. Lange Malketten mit immer derselben Zahl schreibt man kürzer. Diese Kurzschreibweise heißt ⟦Potenz⟧.',
-  'woerter': [['Faktor', 'eine Zahl in einer Malrechnung'], ['Potenz', 'Kurzschreibweise für dieselbe Zahl mehrmals malgenommen, zum Beispiel 3³'],
-              ['Basis', 'die Zahl, die malgenommen wird (normal groß geschrieben)'], ['Exponent', 'die kleine Zahl oben rechts: Sie sagt, wie oft die Basis als Faktor dasteht'],
-              ['5³', 'gelesen „5 hoch 3“']],
-  'schritte': ['Schreibe 5 · 5 · 5 kürzer. Zähle zuerst: Die 5 steht 3-mal als Faktor da.',
-               'Die Zahl, die malgenommen wird, ist die Basis: hier die 5.',
-               'Wie oft sie dasteht, schreibst du klein oben rechts daneben. Das ist der Exponent: hier die 3.',
-               'Ergebnis: ⟦5 · 5 · 5 = 5³⟧. Man liest „5 hoch 3“.'],
-  'regel': 'So schreibst du eine Potenz: Die Zahl, die malgenommen wird, ist die ⟦Basis⟧. Wie oft sie dasteht, schreibst du als ⟦Exponent⟧ klein darüber: 3 · 3 · 3 · 3 = 3⁴.',
-  'fehler': '3⁴ ist nicht 3 · 4. Der Exponent zählt, ⟦wie oft⟧ die 3 dasteht: 3 · 3 · 3 · 3. Bei der Neuigkeit wären 3 · 4 = 12 Kinder viel zu wenig – in der vierten Runde hören sie 81 Kinder.'},
+  'einstieg': 'Ein Kind erzählt ein Geheimnis 2 Freunden. Jeder erzählt es wieder 2 Freunden, und die auch. In Runde 3 hören es 2 · 2 · 2 Kinder, kurz als ⟦Potenz⟧ 2³.',
+  'woerter': [['Potenz', 'Kurzschrift für dieselbe Zahl mehrmals malgenommen, zum Beispiel 2³'], ['Basis', 'die Zahl, die malgenommen wird'],
+              ['Exponent', 'die kleine Zahl oben: wie oft die Basis dasteht']],
+  'bild': {'typ': 'baum', 'aeste': runden(1)},
+  'schritte': [{'text': 'Runde 1: 2 Kinder hören es.'},
+               {'text': 'Runde 2: Jedes erzählt es 2 weiter, also 2 · 2 = 4 Kinder.', 'bild': {'aeste': runden(2)}},
+               {'text': 'Runde 3: 2 · 2 · 2 = 8 Kinder.', 'bild': {'aeste': runden(3)}},
+               {'text': 'Die Basis 2 steht 3-mal da, also Exponent 3: ⟦2³⟧.'}],
+  'fehler': '2³ ist nicht 2 · 3 = 6. Der Exponent zählt, wie oft die 2 dasteht: 2 · 2 · 2 = 8.',
+  'regel': 'Die ⟦Basis⟧ wird so oft malgenommen, wie der Exponent sagt. 3 · 3 · 3 · 3 = 3⁴.'},
  'berechnen': {
-  'einstieg': 'Ein Bakterium teilt sich jede Stunde in zwei. Nach 5 Stunden sind es 2 · 2 · 2 · 2 · 2 Bakterien, kurz 2⁵. Aber wie viele sind das? Dazu schreibst du die Potenz wieder lang aus und rechnest Schritt für Schritt. Das Ergebnis heißt ⟦Wert der Potenz⟧.',
-  'woerter': [['Wert der Potenz', 'das Ergebnis, wenn man die Potenz ausrechnet: 2⁵ hat den Wert 32'], ['ausschreiben', 'die Potenz wieder als lange Malkette hinschreiben']],
-  'schritte': ['Rechne 2⁵ aus. Schreibe die Potenz lang aus: 2 · 2 · 2 · 2 · 2.',
-               'Rechne von links: 2 · 2 = 4. Dann 4 · 2 = 8.',
-               'Weiter: 8 · 2 = 16 und 16 · 2 = 32.',
-               'Also ist ⟦2⁵ = 32⟧. Nach 5 Stunden sind es 32 Bakterien.'],
-  'regel': 'So berechnest du eine Potenz: ⟦als Malkette ausschreiben⟧, dann ⟦Schritt für Schritt⟧ von links nach rechts malnehmen.',
-  'fehler': '2⁵ = 10 ist falsch: Das wäre 2 · 5. Nach 5 Stunden gäbe es dann nur 10 Bakterien. Richtig ist 2 · 2 · 2 · 2 · 2 = ⟦32⟧.'},
+  'einstieg': 'Ein Bakterium teilt sich jede Stunde in zwei. Nach 5 Stunden sind es 2⁵ Bakterien. Wie viele das sind, heißt ⟦Wert der Potenz⟧.',
+  'woerter': [['2⁵', 'gelesen „2 hoch 5“: 2 · 2 · 2 · 2 · 2'], ['Wert der Potenz', 'das Ergebnis, wenn man die Potenz ausrechnet']],
+  'bild': BAKTERIEN('1', '?', '?', '?', '?', '?'),
+  'schritte': [{'text': 'Schreibe 2⁵ lang aus: 2 · 2 · 2 · 2 · 2.'},
+               {'text': 'Von links: 2 · 2 = 4, dann 4 · 2 = 8.', 'bild': BAKTERIEN('1', '2', '4', '8', '?', '?')},
+               {'text': 'Weiter: 8 · 2 = 16 und 16 · 2 = 32.', 'bild': BAKTERIEN('1', '2', '4', '8', '16', '32')},
+               {'text': 'Also ist ⟦2⁵ = 32⟧. Nach 5 Stunden sind es 32 Bakterien.'}],
+  'fehler': '2⁵ = 10 ist falsch: Das wäre 2 · 5. Nach 5 Stunden gäbe es dann nur 10 Bakterien statt 32.',
+  'regel': 'Eine Potenz rechnest du aus: ⟦lang ausschreiben⟧, dann Schritt für Schritt malnehmen.'},
  'quadrat': {
-  'einstieg': 'Ein quadratischer Badboden soll gefliest werden: 14 Fliesen in jeder Reihe und 14 Reihen. Das sind 14 · 14 Fliesen, kurz 14². Weil die Fliesen ein Quadrat bilden, nennt man das Ergebnis von „Zahl hoch 2“ eine ⟦Quadratzahl⟧.',
-  'woerter': [['14²', 'gelesen „14 hoch 2“ oder „14 zum Quadrat“: 14 · 14'], ['quadratisch', 'geformt wie ein Quadrat: so viele Reihen, wie in einer Reihe Fliesen liegen'],
-              ['Quadratzahl', 'eine Zahl, die herauskommt, wenn man eine Zahl mal sich selbst nimmt: 1, 4, 9, 16 …'], ['natürliche Zahl', 'eine der Zahlen 0, 1, 2, 3 …']],
-  'schritte': ['Der Boden hat 14 Fliesen pro Reihe und 14 Reihen. Gesucht ist 14² = 14 · 14.',
-               'Teile die 14 Reihen in 10 und 4 Reihen. Die 10 Reihen haben 14 · 10 = 140 Fliesen.',
-               'Die übrigen 4 Reihen haben 14 · 4 = 56 Fliesen.',
-               'Zusammen: 140 + 56 = ⟦196⟧. Also ist 14² = 196.'],
-  'regel': '„Hoch 2“ heißt: ⟦die Zahl mal sich selbst⟧. Die Quadratzahlen von 1² bis 20² solltest du ⟦auswendig⟧ können: … 11² = 121, 12² = 144, 13² = 169, 14² = 196, 15² = 225, 16² = 256, 17² = 289, 18² = 324, 19² = 361, 20² = 400.'},
+  'einstieg': 'Ein quadratischer Badboden hat 14 Reihen mit je 14 Fliesen. Das sind 14 · 14 Fliesen, kurz 14². So ein Ergebnis heißt ⟦Quadratzahl⟧.',
+  'woerter': [['14²', 'gelesen „14 hoch 2“ oder „14 zum Quadrat“: 14 · 14'], ['Quadratzahl', 'eine Zahl mal sich selbst: 1, 4, 9, 16 …']],
+  'bild': 'BEHALTEN',
+  'schritte': [{'text': 'Gesucht ist 14² = 14 · 14.'},
+               {'text': 'Teile die 14 Reihen in 10 und 4 Reihen.', 'bild': FLIESEN('?', '?', '?')},
+               {'text': '10 Reihen haben 140 Fliesen, 4 Reihen haben 56.', 'bild': FLIESEN('140', '56', '?')},
+               {'text': 'Zusammen: 140 + 56 = ⟦196⟧. Also ist 14² = 196.', 'bild': FLIESEN('140', '56', '196')}],
+  'fehler': '14² = 28 ist falsch: Das wäre 14 · 2. Der Boden hat aber 14 Reihen, nicht 2.',
+  'regel': 'Hoch 2 heißt: ⟦Zahl mal sich selbst⟧. Lerne die Quadratzahlen bis 20² = 400 auswendig.'},
  'vertauschen': {
-  'einstieg': 'Wird eine Neuigkeit in 3 Runden an je 2 Freunde weitererzählt, hören sie in der letzten Runde 2 · 2 · 2 = 8 Kinder. Wird sie in 2 Runden an je 3 Freunde weitererzählt, sind es 3 · 3 = 9 Kinder. 2³ und 3² sind also verschieden. Bei Potenzen darf man ⟦Basis und Exponent nicht vertauschen⟧.',
-  'woerter': [['vertauschen', 'zwei Zahlen ihre Plätze wechseln lassen'], ['vergleichen', 'herausfinden, welche Zahl größer ist'], ['>', '„ist größer als“']],
-  'schritte': ['Vergleiche 2³ und 3². Rechne zuerst 2³ = 2 · 2 · 2 = 8.',
-               'Dann 3² = 3 · 3 = 9.',
-               '9 ist größer als 8. Also ist ⟦3² > 2³⟧, obwohl dieselben Zahlen vorkommen.'],
-  'regel': 'So vergleichst du Potenzen: ⟦beide ausrechnen⟧, dann vergleichen. Basis und Exponent darfst du ⟦nicht vertauschen⟧ – anders als beim Malnehmen, wo 3 · 4 = 4 · 3 ist.'},
+  'einstieg': 'Geht ein Geheimnis 3 Runden an je 2 Freunde, hören es zuletzt 8 Kinder. Bei 2 Runden an je 3 Freunde sind es 9. Basis und Exponent darf man ⟦nicht vertauschen⟧.',
+  'woerter': [['vertauschen', 'zwei Zahlen ihre Plätze wechseln lassen'], ['3²', 'gelesen „3 hoch 2“: 3 · 3'], ['>', '„ist größer als“']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Kinder', 'werte': [{'name': '2³', 'wert': 8}, {'name': '3²', 'wert': 9}], 'zahlen': False},
+  'schritte': [{'text': '2³ = 2 · 2 · 2 = 8.', 'bild': {'werte': [{'name': '2³', 'wert': 8}], 'zahlen': True, 'y_max': 10}},
+               {'text': '3² = 3 · 3 = 9.', 'bild': {'werte': [{'name': '2³', 'wert': 8}, {'name': '3²', 'wert': 9}]}},
+               {'text': '9 ist mehr als 8: ⟦3² > 2³⟧.'}],
+  'fehler': '„2³ und 3² sind gleich, es sind ja dieselben Zahlen“ ist falsch. 8 Kinder sind nicht 9 Kinder.',
+  'regel': 'Basis und Exponent darfst du ⟦nicht vertauschen⟧. Vergleiche Potenzen, indem du beide ausrechnest.'},
  'zehner': {
-  'einstieg': 'Ein großes Fußballstadion hat ungefähr 70 000 Plätze. Bei so großen Zahlen verzählt man sich schnell mit den Nullen. Darum schreibt man sie mit „10 hoch …“, zum Beispiel 7 · 10⁴. Potenzen mit der Basis 10 heißen ⟦Zehnerpotenzen⟧.',
-  'woerter': [['Zehnerpotenz', 'eine Potenz mit der Basis 10: 10¹ = 10, 10² = 100, 10³ = 1 000 …'], ['7 · 10⁴', '7 mal 10 000, also 70 000'],
-              ['Million', '1 000 000 = 10⁶'], ['rund', 'ungefähr, gerundet']],
-  'schritte': ['Das Stadion hat rund 7 · 10⁴ Plätze. Was bedeutet 10⁴?',
-               '10⁴ = 10 · 10 · 10 · 10 = 10 000. Das ist eine 1 mit 4 Nullen.',
-               'Jetzt noch mal 7: 7 · 10 000 = ⟦70 000⟧ Plätze.'],
-  'regel': 'So liest du Zehnerpotenzen: Der Exponent sagt, ⟦wie viele Nullen⟧ hinter der 1 stehen: 10³ = 1 000, 10⁶ = 1 000 000. Bei 3 · 10⁵ hängst du an die 3 fünf Nullen an: ⟦300 000⟧.'},
+  'einstieg': 'Ein großes Fußballstadion hat rund 70 000 Plätze. Bei so vielen Nullen verzählt man sich leicht. Darum schreibt man 7 · 10⁴ – mit einer ⟦Zehnerpotenz⟧.',
+  'woerter': [['Zehnerpotenz', 'eine Potenz mit der Basis 10: 10² = 100, 10³ = 1 000'], ['10⁴', '10 · 10 · 10 · 10 = 10 000: eine 1 mit 4 Nullen'],
+              ['Zehntausender', 'die Stelle links von den Tausendern (ZT)']],
+  'bild': {'typ': 'stellentafel', 'stellen': ['ZT', 'T', 'H', 'Z', 'E'], 'ziffern': ['', '', '', '', '']},
+  'schritte': [{'text': '10⁴ ist eine 1 mit 4 Nullen: 10 000.', 'bild': {'ziffern': ['1', '0', '0', '0', '0']}},
+               {'text': '7 · 10 000: Die 7 steht bei den Zehntausendern.', 'bild': {'ziffern': ['7', '0', '0', '0', '0'], 'markiert': 0}},
+               {'text': 'Das Stadion hat rund ⟦70 000⟧ Plätze.'}],
+  'fehler': 'Eine Null zu viel: 7 · 10⁴ ist nicht 700 000. Der Exponent 4 heißt genau 4 Nullen, also 70 000.',
+  'regel': 'Der Exponent sagt, wie viele ⟦Nullen⟧ hinter der 1 stehen. 3 · 10⁵ = 300 000.'},
  'negativ': {
-  'einstieg': 'Du weißt schon: Minus mal Minus ergibt Plus. Was passiert, wenn man eine negative Zahl mehrmals mit sich selbst malnimmt? Jedes weitere Minus dreht das Vorzeichen um – wie ein Lichtschalter, der bei jedem Drücken umschaltet: an, aus, an, aus. Darum geht es bei ⟦Potenzen mit negativer Basis⟧.',
-  'woerter': [['(−2)³', 'die −2 mit ihrem Minus ist die Basis: (−2) · (−2) · (−2)'], ['−2³', 'ohne Klammer gehört nur die 2 zur Basis: −(2 · 2 · 2)'],
-              ['Vorzeichen', 'das Plus oder Minus vor einer Zahl'], ['gerade Zahl', '2, 4, 6, 8 …'], ['ungerade Zahl', '1, 3, 5, 7 …']],
-  'schritte': ['Rechne (−2)³. Die Klammer zeigt: Die −2 mit Minus ist die Basis. Lang ausgeschrieben: (−2) · (−2) · (−2).',
-               'Die ersten beiden: (−2) · (−2) = 4. Zwei Minus ergeben Plus.',
-               'Dann 4 · (−2) = −8. Das dritte Minus hat keinen Partner.',
-               'Ergebnis: ⟦(−2)³ = −8⟧.'],
-  'regel': 'So bestimmst du das Vorzeichen: Je ⟦zwei Minus⟧ ergeben Plus. Ist der Exponent ⟦gerade⟧, ist das Ergebnis ⟦positiv⟧; ist er ⟦ungerade⟧, ist es ⟦negativ⟧. Ohne Klammer, wie bei −3², gehört das Minus ⟦nicht⟧ zur Basis.'},
+  'einstieg': 'Mal eine negative Zahl springt das Ergebnis auf die andere Seite der 0. Wie ein Lichtschalter: an, aus, an. So geht es bei einer ⟦negativen Basis⟧.',
+  'woerter': [['negative Basis', 'die Basis hat ein Minus, zum Beispiel (−2)³'], ['(−2)³', '(−2) · (−2) · (−2); die Klammer zeigt: Das Minus gehört zur Basis']],
+  'bild': {'typ': 'zahlenstrahl', 'start': -8, 'ende': 8, 'abschnitte': 16, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': '(−2)³ hat eine negative Basis: (−2) · (−2) · (−2). Start bei −2.', 'bild': {'punkte': [{'wert': -2, 'name': '1.'}]}},
+               {'text': '(−2) · (−2) = 4: Das Ergebnis springt nach rechts.', 'bild': {'punkte': [{'wert': -2, 'name': '1.'}, {'wert': 4, 'name': '2.'}]}},
+               {'text': '4 · (−2) = ⟦−8⟧: wieder auf die linke Seite.',
+                'bild': {'punkte': [{'wert': -2, 'name': '1.'}, {'wert': 4, 'name': '2.'}, {'wert': -8, 'name': '3.'}]}}],
+  'fehler': '−3² und (−3)² verwechseln. Ohne Klammer gehört das Minus nicht zur Basis: −3² = −9, aber (−3)² = 9.',
+  'regel': 'Bei negativer Basis entscheidet der Exponent über das ⟦Vorzeichen⟧. Gerade: plus, ungerade: minus.'},
  'sach': {
-  'einstieg': 'Faltest du ein Blatt Papier einmal, hat es 2 Lagen. Faltest du es noch einmal, sind es 4 Lagen, dann 8. Jedes Falten ⟦verdoppelt⟧ die Lagen. Wenn sich etwas immer wieder verdoppelt, verdreifacht oder verzehnfacht, rechnest du mit Potenzen.',
-  'woerter': [['verdoppeln', 'mal 2 nehmen'], ['verdreifachen', 'mal 3 nehmen'], ['verzehnfachen', 'mal 10 nehmen'], ['Lage', 'eine Schicht Papier']],
-  'schritte': ['Ein Blatt wird 4-mal gefaltet. Am Anfang hat es 1 Lage.',
-               'Jedes Falten verdoppelt die Lagen. Also wird 4-mal mit 2 malgenommen: 2 · 2 · 2 · 2.',
-               'Als Potenz geschrieben ist das 2⁴.',
-               'Ausgerechnet: 2⁴ = ⟦16⟧ Lagen.'],
-  'regel': 'So erkennst du eine Potenz in einer Geschichte: Wird ⟦immer wieder mit derselben Zahl⟧ malgenommen, ist das eine Potenz. Die Zahl ist die ⟦Basis⟧, wie oft es passiert, ist der ⟦Exponent⟧: 5-mal verdoppeln heißt 2⁵-mal so viel.',
-  'fehler': '4-mal verdoppeln ist nicht „mal 8“ (4 · 2). Falte es nach: 2, 4, 8, 16 Lagen. Es ist 2 · 2 · 2 · 2 = ⟦16⟧-mal so viel.'},
+  'einstieg': 'Faltest du ein Blatt einmal, hat es 2 Lagen. Noch einmal gefaltet sind es 4, dann 8. Jedes Falten ⟦verdoppelt⟧ die Lagen.',
+  'woerter': [['Lage', 'eine Schicht Papier'], ['verdoppelt', 'mal 2 genommen']],
+  'bild': {'typ': 'saeulen', 'einheit': 'Lagen', 'werte': [{'name': 'Start', 'wert': 1}], 'y_max': 16},
+  'schritte': [{'text': 'Am Anfang hat das Blatt 1 Lage.'},
+               {'text': 'Jedes Falten verdoppelt: 2, dann 4, dann 8 Lagen.', 'bild': FALTEN(4)},
+               {'text': 'Nach 4-mal Falten: 2 · 2 · 2 · 2 = 2⁴.', 'bild': FALTEN(5)},
+               {'text': 'Ausgerechnet: 2⁴ = ⟦16⟧ Lagen.'}],
+  'fehler': '4-mal verdoppeln ist nicht „mal 8“. Falte nach: 2, 4, 8, 16 Lagen. Es ist 2⁴ = 16.',
+  'regel': 'Immer wieder mit derselben Zahl malnehmen ist eine ⟦Potenz⟧. 5-mal verdoppeln heißt 2⁵-mal so viel.'},
 }
-klar(DATEI, KLAR)
+umbau(DATEI, KARTEN)
 
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern: Quadratzahlen, Zahlenfolgen, Verdopplung; Bayerischer Mathematik-Test); eigene Zahlen.
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, rw, wahl  # noqa: E402
+
+_HOCH = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
+
+
+def _p(term):
+    """Wert eines Terms mit hochgestellten Exponenten, z. B. '2⁶' oder '(−2)³' oder '−2⁴' (Potenz vor Minus)."""
+    import re
+    rueck = str.maketrans('⁰¹²³⁴⁵⁶⁷⁸⁹', '0123456789')
+    t = re.sub(r'([⁰¹²³⁴⁵⁶⁷⁸⁹]+)', lambda m: '**' + m.group(1).translate(rueck), term)
+    return rw(t)
+
+
+def _schwer():
+    N = {}
+    sechzig = [(b, e) for b in range(2, 65) for e in range(2, 7) if b ** e == 64]
+    N['schreibweise'] = [
+        wahl(2, 'Schreibe mit zwei Potenzen: 7 · 7 · 7 · 2 · 2', ['7³ · 2²', '7² · 2³', '14⁵', '7³ + 2²'], lambda o: o == '7³ · 2²',
+             'Die 7 steht 3-mal da, die 2 steht 2-mal da: 7³ · 2².', 'Zähle für jede Basis, wie oft sie vorkommt.'),
+        Z(2, 'Eine Potenz hat den Exponenten 3 und den Wert 1 000. Wie heißt die Basis?', str(einzig([b for b in range(1, 100) if b ** 3 == 1000])),
+          '10 · 10 · 10 = 1 000. Die Basis ist 10.', 'Welche Zahl dreimal mit sich selbst malgenommen ergibt 1 000?'),
+        Z(3, 'Die Zahlenfolge 3, 9, 27, 81, … geht immer nach derselben Regel weiter. Welche Zahl steht an der 6. Stelle?', '3 ** 6',
+          'Jede Zahl ist das Dreifache der vorigen: 3¹, 3², 3³, 3⁴ … An 6. Stelle steht 3⁶ = 729.', 'Wie kommt man von einer Zahl zur nächsten? Schreibe die Zahlen als Potenzen von 3.'),
+        wahl(3, 'Was ist größer: 2¹⁰ oder 1 000?', ['2¹⁰', '1 000', 'beide gleich groß'], lambda o: o == '2¹⁰',
+             '2¹⁰ = 1 024. Das ist etwas mehr als 1 000.', 'Verdopple 10-mal: 2, 4, 8, 16, …'),
+        Z(3, 'Wie viele Möglichkeiten gibt es, 64 als Potenz zu schreiben? Basis und Exponent sollen natürliche Zahlen größer als 1 sein.', str(len(sechzig)),
+          '64 = 2⁶ = 4³ = 8². Das sind 3 Möglichkeiten.', 'Probiere die Basen 2, 4 und 8.'),
+        A(3, 'Jemand schreibt 5 + 5 + 5 = 5³. Was ist falsch?', 'Dreimal 5 addieren ist 3 · 5 = 15. 5³ heißt 5 · 5 · 5 = 125.',
+          ['Nichts, das stimmt.', 'Richtig wäre 3⁵.', 'Richtig wäre 5² + 5.'],
+          'Eine Potenz steht für wiederholtes Malnehmen, nicht für wiederholtes Addieren.', 'Was bedeutet der Exponent: wie oft addieren oder wie oft malnehmen?'),
+    ]
+    welche = ['2⁶', '4³', '8²', '3⁴']
+    N['berechnen'] = [
+        Z(2, 'Berechne 2⁴ + 3².', '2**4 + 3**2', '2⁴ = 16 und 3² = 9. 16 + 9 = 25.', 'Rechne zuerst beide Potenzen aus.'),
+        Z(2, 'Berechne 3 · 2³.', '3 * 2**3', 'Potenz zuerst: 2³ = 8. Dann 3 · 8 = 24.', 'Potenzen rechnest du vor dem Malnehmen.'),
+        Z(3, 'Berechne 5 + 2 · 3³.', '5 + 2 * 3**3', 'Potenz vor Punkt vor Strich: 3³ = 27, 2 · 27 = 54, 5 + 54 = 59.', 'Reihenfolge: erst Potenz, dann mal, dann plus.'),
+        A(3, 'Jemand rechnet 2 · 5² = 10² = 100. Was ist falsch?', 'Die Potenz kommt zuerst: 5² = 25, dann 2 · 25 = 50.',
+          ['Nichts, 100 stimmt.', 'Richtig ist 2 · 5 · 2 = 20.', 'Richtig ist 2² · 5² = 100, also stimmt es.'],
+          'Der Exponent 2 gehört nur zur 5. Erst 5² = 25, dann mal 2: 50.', 'Zu welcher Zahl gehört der Exponent?'),
+        wahl(3, 'Welche Zahl ist am größten?', welche, lambda o: _p(o) == max(_p(x) for x in welche),
+             '2⁶ = 64, 4³ = 64, 8² = 64, aber 3⁴ = 81. Am größten ist 3⁴.', 'Rechne alle vier aus.'),
+        Z(3, 'Berechne (2 + 3)² − (2² + 3²).', '(2 + 3)**2 - (2**2 + 3**2)', '(2 + 3)² = 5² = 25. 2² + 3² = 4 + 9 = 13. 25 − 13 = 12.',
+          'Bei (2 + 3)² zuerst die Klammer. Achtung: (2 + 3)² ist nicht 2² + 3².'),
+    ]
+    paar = einzig([n for n in range(1, 25) if (n + 1) ** 2 - n ** 2 == 31])
+    N['quadrat'] = [
+        Z(2, 'Berechne 15² − 14².', '15**2 - 14**2', '15² = 225 und 14² = 196. 225 − 196 = 29.', 'Rechne beide Quadratzahlen aus.'),
+        Z(2, 'Welche Quadratzahl liegt zwischen 280 und 300?', str(einzig([n * n for n in range(1, 25) if 280 < n * n < 300])),
+          '16² = 256 ist zu klein, 17² = 289 passt, 18² = 324 ist zu groß.', 'Probiere 16², 17², 18².'),
+        Z(3, 'Die Folge 100, 121, 144, 169, … besteht aus Quadratzahlen. Welche Zahl kommt als nächste?', '14**2',
+          '100 = 10², 121 = 11², 144 = 12², 169 = 13². Als nächste kommt 14² = 196.', 'Welche Zahlen werden hier quadriert?'),
+        Z(3, 'Berechne 13² + 31.', '13**2 + 31', 'Potenz zuerst: 13² = 169. Dann 169 + 31 = 200.', 'Zuerst 13 · 13 ausrechnen.'),
+        Z(3, 'Ein Quadrat ist aus Fliesen gelegt, 15 Fliesen je Seite. Wie viele Fliesen liegen am Rand?', '15**2 - 13**2',
+          'Alle Fliesen: 15² = 225. Innen bleibt ein Quadrat mit 13 · 13 = 169. Am Rand: 225 − 169 = 56.',
+          'Zieh von allen Fliesen die inneren ab. Wie viele Fliesen hat das innere Quadrat je Seite?'),
+        L(3, 'Zwei Quadratzahlen, die direkt aufeinander folgen, unterscheiden sich um 31. Welche sind es?', 'kleinere: □; größere: □', 'Trage beide Quadratzahlen ein.',
+          [f'{paar}**2', f'{paar + 1}**2'], f'{paar}² = {paar ** 2} und {paar + 1}² = {(paar + 1) ** 2}. Der Unterschied ist 31.',
+          'Schau dir die Unterschiede an: 4 − 1 = 3, 9 − 4 = 5, 16 − 9 = 7 … Wie geht es weiter?'),
+    ]
+    kl3 = ['2⁵', '5²', '3³']
+    gleich = ['a = 2, b = 4', 'a = 2, b = 3', 'a = 3, b = 4', 'a = 1, b = 2']
+    def gl(o):
+        a, b = (int(x.split('= ')[1]) for x in o.split(', '))
+        return a ** b == b ** a
+    N['vertauschen'] = [
+        wahl(2, 'Welche der Potenzen 2⁵, 5² und 3³ ist am kleinsten?', kl3, lambda o: _p(o) == min(_p(x) for x in kl3),
+             '2⁵ = 32, 5² = 25, 3³ = 27. Am kleinsten ist 5².', 'Rechne alle drei aus.'),
+        Z(2, 'Berechne 2⁵ − 5².', '2**5 - 5**2', '2⁵ = 32 und 5² = 25. 32 − 25 = 7.', 'Erst beide Potenzen ausrechnen.'),
+        wahl(3, 'Für welches Zahlenpaar gilt aᵇ = bᵃ, obwohl a und b verschieden sind?', gleich, gl,
+             '2⁴ = 16 und 4² = 16. Bei den anderen Paaren: 2³ = 8 ≠ 9 = 3², 3⁴ = 81 ≠ 64 = 4³, 1² = 1 ≠ 2 = 2¹.', 'Rechne für jedes Paar beide Potenzen aus.'),
+        Z(3, 'Wie viel größer ist 3⁴ als 4³?', '3**4 - 4**3', '3⁴ = 81 und 4³ = 64. Unterschied: 17.', 'Rechne beide Potenzen aus.'),
+        A(3, 'Jemand behauptet: 10² = 2¹⁰, weil in beiden eine 10 und eine 2 vorkommen. Stimmt das?', 'Nein: 10² = 100, aber 2¹⁰ = 1 024.',
+          ['Ja, Basis und Exponent darf man tauschen.', 'Nein: 10² = 20 und 2¹⁰ = 20, also doch gleich.', 'Ja, beide ergeben 100.'],
+          '10² = 10 · 10 = 100. 2¹⁰ ist zehnmal die 2 malgenommen: 1 024.', 'Rechne beide Potenzen aus.'),
+        Z(3, 'Wie heißt der kleinste Exponent n, für den 2ⁿ größer ist als 5²?', str(min(n for n in range(1, 20) if 2 ** n > 25)),
+          '5² = 25. 2⁴ = 16 ist zu klein, 2⁵ = 32 ist größer. Also n = 5.', 'Verdopple so lange, bis du über 25 kommst.'),
+    ]
+    N['zehner'] = [
+        Z(2, 'Schreibe 3 · 10⁵ + 4 · 10³ als Zahl.', '3 * 10**5 + 4 * 10**3', '3 · 10⁵ = 300 000 und 4 · 10³ = 4 000. Zusammen 304 000.', 'Schreibe beide Teile als Zahl und addiere.'),
+        Z(2, 'Ein Jahr hat rund 3 · 10⁷ Sekunden. Schreibe die Zahl aus.', '3 * 10**7', '10⁷ ist eine 1 mit 7 Nullen. 3 · 10⁷ = 30 000 000.', 'Hänge an die 3 so viele Nullen an, wie der Exponent sagt.'),
+        Z(3, 'Schreibe als Zahl: 2 · 10⁶ + 7 · 10⁴ + 5 · 10', '2 * 10**6 + 7 * 10**4 + 5 * 10',
+          'Millionen: 2, Zehntausender: 7, Zehner: 5. Alle anderen Stellen sind 0: 2 070 050.', 'Trage die Ziffern in eine Stellenwerttafel ein. Leere Stellen bekommen eine 0.'),
+        Z(3, 'Wie viele Nullen hat die Zahl 50 · 10⁴, wenn man sie ausschreibt?', str(str(50 * 10 ** 4).count('0')),
+          '50 · 10⁴ = 500 000. Die 50 bringt schon eine Null mit, dazu kommen 4 Nullen: 5 Nullen.', 'Schreibe die Zahl aus. Achte auf die Null in der 50.'),
+        Z(3, 'Wie oft passt 10³ in 10⁷?', '10**7 // 10**3', '10⁷ = 10 000 000, 10³ = 1 000. 10 000 000 : 1 000 = 10 000 = 10⁴.', 'Teile: Wie viele Nullen fallen weg?'),
+        Z(3, 'In einem Tresor liegen 4 · 10³ Geldscheine zu je 50 €. Wie viel Euro sind das?', '4 * 10**3 * 50', '4 · 10³ = 4 000 Scheine. 4 000 · 50 € = 200 000 €.',
+          'Schreibe zuerst die Anzahl der Scheine aus.', einheit='€'),
+    ]
+    klein = ['(−2)⁴', '−2⁴', '(−2)³', '−(−2)³']
+    N['negativ'] = [
+        Z(2, 'Berechne (−2)⁵.', '(-2)**5', '2⁵ = 32. Ungerader Exponent bei negativer Basis: −32.', 'Zähle die Minuszeichen: gerade oder ungerade?'),
+        Z(2, 'Berechne (−10)⁴.', '(-10)**4', '10⁴ = 10 000. Gerader Exponent: positiv, also 10 000.', 'Gerader Exponent bei negativer Basis ergibt plus.'),
+        Z(3, 'Berechne (−2)³ − (−3)².', '(-2)**3 - (-3)**2', '(−2)³ = −8 und (−3)² = 9. −8 − 9 = −17.', 'Rechne beide Potenzen mit Vorzeichen aus.'),
+        wahl(3, 'Welche Zahl ist am kleinsten?', klein, lambda o: _p(o) == min(_p(x) for x in klein),
+             '(−2)⁴ = 16, −2⁴ = −16 (nur die 2 wird potenziert), (−2)³ = −8, −(−2)³ = 8. Am kleinsten ist −2⁴.', 'Achte genau auf die Klammern.'),
+        Z(3, 'Für wie viele Exponenten n von 1 bis 10 gilt (−1)ⁿ = 1?', str(sum(1 for n in range(1, 11) if (-1) ** n == 1)),
+          'Bei geraden Exponenten ist (−1)ⁿ = 1: n = 2, 4, 6, 8, 10. Das sind 5.', 'Wann ist eine Potenz mit negativer Basis positiv?'),
+        Z(3, '(−3)ⁿ ist negativ und größer als −100. Der Exponent n ist größer als 1. Wie heißt n?', str(einzig([n for n in range(2, 12) if -100 < (-3) ** n < 0])),
+          'Negativ nur bei ungeradem n: (−3)³ = −27 liegt über −100, (−3)⁵ = −243 liegt darunter. Also n = 3.', 'Probiere die ungeraden Exponenten 3, 5, …'),
+    ]
+    N['sach'] = [
+        Z(2, 'Ein Karton enthält 10 Packungen. In jeder Packung sind 10 Beutel mit je 10 Bonbons. Wie viele Bonbons sind im Karton?', '10**3',
+          '10 · 10 · 10 = 10³ = 1 000 Bonbons.', 'Dreimal „je 10“: Welche Potenz ist das?'),
+        Z(2, 'Ein quadratisches Beet hat eine Fläche von 64 m². Wie lang ist eine Seite?', str(einzig([n for n in range(1, 30) if n * n == 64])),
+          '8 · 8 = 64. Eine Seite ist 8 m lang.', 'Welche Zahl mal sich selbst ergibt 64?', einheit='m'),
+        Z(3, 'In einem Teich leben 300 Algenzellen. Alle 3 Stunden verdoppelt sich ihre Anzahl. Wie viele sind es nach 12 Stunden?', '300 * 2**(12 // 3)',
+          '12 Stunden sind 4-mal 3 Stunden, also 4 Verdopplungen: 300 · 2⁴ = 300 · 16 = 4 800.', 'Wie oft wird in 12 Stunden verdoppelt?'),
+        Z(3, 'Eine Seerose verdoppelt jede Woche ihre Fläche. Nach 10 Wochen ist der Teich ganz bedeckt. Nach wie vielen Wochen war er zur Hälfte bedeckt?', '10 - 1',
+          'Von halb voll zu ganz voll ist genau eine Verdopplung, also eine Woche. Nach 9 Wochen war er halb bedeckt.', 'Denk rückwärts: Was war eine Woche vor dem vollen Teich?'),
+        Z(3, 'Ein großer Würfel ist aus 4 · 4 · 4 kleinen Würfeln gebaut. Wie viele kleine Würfel liegen ganz innen und berühren keine Außenfläche?', '(4 - 2)**3',
+          'Innen bleibt ein Würfel mit 2 · 2 · 2 = 2³ = 8 kleinen Würfeln.', 'Nimm von jeder Seite eine Schicht weg. Wie groß ist der Würfel innen?'),
+        Z(3, 'Eine Zahl wird dreimal hintereinander verdoppelt. Das Ergebnis ist 200. Wie hieß die Zahl am Anfang?', '200 // 2**3',
+          'Dreimal verdoppeln heißt mal 2³ = 8. Rückwärts: 200 : 8 = 25.', 'Dreimal verdoppeln heißt mal wie viel?'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1067)
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('zahlen.potenzen_basis', 13_5_3)
+# a) Grundform direkt nach der Erklärung
+for _t in ['Was bedeutet 2⁷?', 'Was bedeutet 5⁴?', 'Was bedeutet 10⁴?', 'Was bedeutet 3²?']:
+    BF.stufe('schreibweise', _t, 1)
+# a) leicht → Stufe 2; c) Beinahe-Dublette (gleiche Antwort 121) → neue Aufgabe
+BF.stufe('quadrat', 'Welche Zahl ist eine Quadratzahl?', 2, enthaelt='"122"')
+BF.ersetze('quadrat', 'Welche Zahl ist eine Quadratzahl?', BF.A(
+    'Welche Zahl liegt zwischen den Quadratzahlen 13² und 14²?', '180', ['160', '200', '150'],
+    '13² = 169 und 14² = 196. Nur 180 liegt dazwischen.', 'Berechne zuerst 13 · 13 und 14 · 14.'), enthaelt='"124"')
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('zahlen.potenzen_basis', 19_5_7)
+# a) Stufe 3 nur mit größeren Zahlen oder derselben Vorlage wie Stufe 2 → Stufe 2
+for _lz, _t in [('schreibweise', '5 hoch wie viel ergibt 625?'),
+        ('berechnen', 'Berechne 2¹².'),
+        ('berechnen', 'Berechne 9⁴.'),
+        ('quadrat', 'Berechne 20² − 2².'),
+        ('quadrat', 'Welche Zahl ist eine Quadratzahl?'),
+        ('quadrat', 'Berechne 13² + 31.'),
+        ('vertauschen', 'Vergleiche 9³ und 3⁹. Was stimmt?'),
+        ('vertauschen', 'Vergleiche 3⁸ und 8³. Was stimmt?'),
+        ('zehner', 'Wie schreibt man 8 Milliarden mit einer Zehnerpotenz?'),
+        ('zehner', 'Schreibe 44 · 10⁶ als Zahl.'),
+        ('zehner', 'Wie schreibt man 2 Millionen mit einer Zehnerpotenz?'),
+        ('zehner', 'Wie schreibt man 3 Milliarden mit einer Zehnerpotenz?'),
+        ('negativ', 'Berechne (−5)⁵.')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl5, siehe _stufen_kl5.py und _st5_zahlen_potenzen_basis.py) ----
+from _stufen_kl5 import stufen_anwenden  # noqa: E402
+stufen_anwenden(DATEI, 'zahlen.potenzen_basis')
+# ---- STUFEN ENDE ----
 
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.potenzen_basis.json')

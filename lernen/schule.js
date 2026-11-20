@@ -4,7 +4,7 @@
    Stellt die Hilfen bereit, die lernen.js erwartet (el, store, route, render, setChrome …). */
 'use strict';
 
-const APP_VERSION = '0.72.6';
+const APP_VERSION = '0.81.1';
 // lernen.js leitet daraus die lernen-api ab; app-api selbst wird von dieser Seite nie aufgerufen.
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const mitRegion = (u) => u + (u.includes('?') ? '&' : '?') + 'forceFunctionRegion=eu-west-1';
@@ -47,7 +47,7 @@ function parseHash() {
 }
 window.addEventListener('hashchange', render);
 
-const KIND_ANSICHTEN = ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen'];
+const KIND_ANSICHTEN = ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen', 'expedition'];
 function setChrome(title, { back = false } = {}) {
   document.body.dataset.area = 'lernen';
   document.body.toggleAttribute('data-kindmodus', KIND_ANSICHTEN.includes(current.view));
@@ -114,7 +114,7 @@ async function render() {
   // Kinder kommen nur in ihre eigene Lernreise.
   if (lernIch?.rolle === 'kind' && !KIND_ANSICHTEN.includes(current.view)) { route('reise', lernIch.lernender_id); return; }
   const views = { login: viewLogin, lernen: viewLernen, lerneinheit: viewLernEinheit, reise: viewReise, weltkarte: viewWeltkarte, reisepass: viewReisepass,
-    weg: viewWeg, merkheft: viewMerkheft, wiederholen: viewWiederholen, plan: viewPlan, rueckmeldungen: viewRueckmeldungen, zugaenge: viewZugaenge, lehrplan: viewLehrplan, inhalte: viewInhalte, lernstand: viewLernstand };
+    weg: viewWeg, merkheft: viewMerkheft, wiederholen: viewWiederholen, plan: lernUmleiten('plan'), kind: viewKind, rueckmeldungen: viewRueckmeldungen, lernauftraege: viewRueckmeldungen, zugaenge: viewZugaenge, lehrplan: viewLehrplan, inhalte: viewInhalte, lernstand: viewLernstand, wackelt: lernUmleiten('wackelt'), schulstand: viewSchulstand, expedition: viewExpedition, expeditionen: viewExpeditionen, info: viewInfo };
   const fn = views[current.view] || (() => route('lernen'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }

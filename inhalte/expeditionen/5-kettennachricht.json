@@ -1,0 +1,160 @@
+{
+ "schluessel": "5-kettennachricht",
+ "klasse": {
+  "gym_by": 5
+ },
+ "titel": "Die Kettennachricht",
+ "autor": "Claude (Expeditionen Klasse 5)",
+ "einleitung": "In einem Reise-Chat wird ein Foto weitergeleitet. In Runde 1 schickt eine Person es an 3 andere. In jeder weiteren Runde schickt jede neue Person es an 3 Personen, die es noch nicht haben. Die Tabelle zeigt die ersten Runden.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "zahlen.potenzen_basis",
+   "lernziel": "schreibweise"
+  },
+  {
+   "thema_schluessel": "zahlen.potenzen_basis",
+   "lernziel": "berechnen"
+  },
+  {
+   "thema_schluessel": "zahlen.natuerlich",
+   "lernziel": "ziffern_zu_zahlwort"
+  },
+  {
+   "thema_schluessel": "groessen.einheiten",
+   "lernziel": "zeit"
+  },
+  {
+   "thema_schluessel": "zahlen.natuerlich",
+   "lernziel": "vergleichen"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "auswahl",
+   "f": {
+    "text": "In Runde 4 bekommen 3 · 3 · 3 · 3 = 81 Personen das Foto. Welche Schreibweise passt dazu?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Runde",
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "neue Personen",
+       "3",
+       "9",
+       "27",
+       "81"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "3⁴",
+    "4³",
+    "3 · 4",
+    "4 + 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3 · 3 · 3 · 3: Die 3 kommt viermal als Faktor vor. Basis 3, Exponent 4: 3⁴ = 81. 4³ wäre 4 · 4 · 4 = 64.",
+   "h": "Welche Zahl wird malgenommen, und wie oft?",
+   "bezug": {
+    "thema_schluessel": "zahlen.potenzen_basis",
+    "lernziel": "schreibweise"
+   }
+  },
+  {
+   "k": "b",
+   "y": "zahl",
+   "f": {
+    "text": "In Runde 4 sind es 3⁴ = 81 neue Personen, in Runde 5 schon 3⁵, in Runde 6 dann 3⁶. In welcher Runde bekommen zum ersten Mal mehr als 1 000 Personen das Foto?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "3⁵ = 243, 3⁶ = 729, 3⁷ = 2 187. Erst in Runde 7 sind es mehr als 1 000.",
+   "h": "Nimm immer wieder mal 3: 81, 243, …",
+   "bezug": {
+    "thema_schluessel": "zahlen.potenzen_basis",
+    "lernziel": "berechnen"
+   }
+  },
+  {
+   "k": "c",
+   "y": "auswahl",
+   "f": {
+    "text": "In Runde 12 wären es 3¹² = 531 441 Personen. Wie liest man diese Zahl?"
+   },
+   "a": [
+    "fünfhundertdreizehntausendvierhunderteinundvierzig",
+    "fünfhunderteinunddreißigtausendvierhunderteinundvierzig",
+    "fünf Millionen dreihunderteinundvierzigtausendvierhunderteinundvierzig",
+    "fünfhunderteinunddreißigtausendvierhundertvierzehn"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Dreiergruppen von rechts: 531 441 = 531 Tausender und 441 Einer: fünfhunderteinunddreißigtausend vierhunderteinundvierzig.",
+   "h": "Teile die Zahl in Dreiergruppen und lies zuerst die Tausendergruppe.",
+   "bezug": {
+    "thema_schluessel": "zahlen.natuerlich",
+    "lernziel": "ziffern_zu_zahlwort"
+   }
+  },
+  {
+   "k": "d",
+   "y": "luecken",
+   "f": {
+    "text": "Jede Runde dauert 17 Minuten. Wie lange dauern 12 Runden? Gib das Ergebnis in Stunden und Minuten an.",
+    "schablone": "□ h □ min",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     3,
+     24
+    ]
+   },
+   "c": [
+    "17 * 12 // 60",
+    "17 * 12 - 60 * (17 * 12 // 60)"
+   ],
+   "w": "12 · 17 min = 204 min. 3 · 60 min = 180 min, es bleiben 204 − 180 = 24 min: 3 h 24 min.",
+   "h": "Rechne erst alle Minuten aus, dann in Stunden um.",
+   "bezug": {
+    "thema_schluessel": "groessen.einheiten",
+    "lernziel": "zeit"
+   }
+  },
+  {
+   "k": "e",
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Stadt hat 600 000 Einwohner. In Runde 12 bekommen 531 441 Personen das Foto, in Runde 13 wären es 1 594 323. Kann die Kettennachricht bis Runde 13 weiterlaufen, wenn nur Menschen aus dieser Stadt mitmachen?"
+   },
+   "a": [
+    "Nein: In Runde 13 bräuchte man 1 594 323 neue Personen – mehr, als die Stadt Einwohner hat.",
+    "Ja: In Runde 13 sind es nur 531 441 Personen.",
+    "Ja: Die Zahl der Personen bleibt ab Runde 12 gleich.",
+    "Nein: Schon in Runde 5 sind es mehr als 600 000."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1 594 323 hat sieben Stellen, 600 000 nur sechs: 1 594 323 > 600 000. Allein in Runde 13 bräuchte man mehr neue Personen, als die Stadt Einwohner hat – die Kette muss vorher abbrechen.",
+   "h": "Vergleiche zuerst die Zahl der Stellen.",
+   "bezug": {
+    "thema_schluessel": "zahlen.natuerlich",
+    "lernziel": "vergleichen"
+   }
+  }
+ ]
+}

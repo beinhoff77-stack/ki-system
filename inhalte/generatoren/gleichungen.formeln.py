@@ -450,9 +450,450 @@ def g_pruefen(R, st):
 
 GEN = {'ein_schritt': g_ein_schritt, 'zwei_schritte': g_zwei_schritte, 'einsetzen': g_einsetzen, 'geometrie': g_geometrie, 'pruefen': g_pruefen}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+def _tab(*zeilen):
+    return {'typ': 'tabelle', 'kopf': ['Größe', 'Zeichen', 'Wert'], 'zeilen': [list(z) for z in zeilen]}
+
+
+_OBST = [('Preis', 'P', '5 €'), ('Kilopreis', 'k', '2 €/kg')]
+_TAXI = [('Kosten', 'K', '20 €'), ('Grundgebühr', 'G', '4 €'), ('Preis je km', 'p', '2 €')]
+_RAD = [('Strecke', 's', '45 km'), ('Geschwindigkeit', 'v', '18 km/h')]
+_DREI = {'A': [0, 0], 'B': [8, 0], 'C': [3, 6], '_H': [3, 0]}
+UMBAU = {
+ 'ein_schritt': {
+  'einstieg': 'An der Obsttheke gilt Preis = Kilopreis · Menge. Bei 2 € pro kg willst du wissen, wie viel du für 5 € bekommst. Dafür musst du die Formel ⟦umstellen⟧.',
+  'woerter': [['Formel', 'eine Rechenvorschrift mit Buchstaben, z. B. P = k · m'], ['umstellen', 'so umschreiben, dass das Gesuchte allein steht'], ['Umkehrrechnung', 'die Rechnung, die etwas rückgängig macht: mal ↔ geteilt']],
+  'bild': _tab(*_OBST, ('Menge', 'm', '?')),
+  'schritte': [{'text': 'Die Formel ist P = k · m. Gesucht ist die Menge m.'},
+               {'text': 'm wird mit k malgenommen. Die Umkehrrechnung ist: durch k teilen.'},
+               {'text': 'Beide Seiten durch k teilen: ⟦m = P : k⟧.'},
+               {'text': 'Mit Zahlen: m = 5 : 2 = 2,5. Du bekommst 2,5 kg.', 'bild': _tab(*_OBST, ('Menge', 'm', '2,5 kg'))}],
+  'fehler': 'm = P · k wäre 5 · 2 = 10 kg für 5 € – viel zu viel. Was ⟦malgenommen⟧ wird, wird beim Umstellen geteilt.',
+  'fehler_bild': _tab(*_OBST, ('Menge', 'm', '10 kg?')),
+  'regel': 'Mach die Rechnung mit der ⟦Umkehrrechnung⟧ rückgängig. Mal wird zu geteilt, plus wird zu minus – auf beiden Seiten.'},
+ 'zwei_schritte': {
+  'einstieg': 'Ein Taxi kostet 4 € Grundgebühr und 2 € pro Kilometer. Du hast 20 € bezahlt – wie weit bist du gefahren? Dafür machst du zwei Rechenschritte ⟦rückwärts⟧.',
+  'woerter': [['Grundgebühr', 'Betrag, den man immer zahlt, auch für 0 km'], ['rückwärts', 'was zuletzt gerechnet wurde, machst du zuerst rückgängig']],
+  'bild': _tab(*_TAXI, ('Strecke', 's', '?')),
+  'schritte': [{'text': 'Die Formel ist K = G + p · s. Gesucht ist die Strecke s.'},
+               {'text': '+ G kam zuletzt dazu, also zuerst abziehen: K − G = p · s.'},
+               {'text': 'Dann beide Seiten durch p teilen: ⟦s = (K − G) : p⟧.'},
+               {'text': 'Mit Zahlen: (20 − 4) : 2 = 8. Du bist 8 km gefahren.', 'bild': _tab(*_TAXI, ('Strecke', 's', '8 km'))}],
+  'fehler': 's = K : p − G ist falsch: 20 : 2 − 4 = 6 km statt 8 km. Die Grundgebühr muss ⟦zuerst⟧ weg.',
+  'fehler_bild': _tab(*_TAXI, ('Strecke', 's', '6 km?')),
+  'regel': 'Gehe ⟦rückwärts⟧ vor: Was zuletzt gerechnet wurde, kommt zuerst weg. Meist erst plus oder minus, dann mal oder geteilt.'},
+ 'pruefen': {
+  'einstieg': 'Ein quadratisches Beet bekommt einen Zaun: Umfang = 4 · Seitenlänge. Jemand stellt die Formel um und ist unsicher. Er probiert es aus – das ist die ⟦Probe mit Zahlen⟧.',
+  'woerter': [['Umfang', 'die Länge einmal um die Figur herum'], ['Probe mit Zahlen', 'erfundene Werte einsetzen und vergleichen']],
+  'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [3, 0], 'C': [3, 3], 'D': [0, 3]}, 'flaeche': ['A', 'B', 'C', 'D'],
+           'linien': [['A', 'B', 'a'], ['B', 'C', 'a'], ['C', 'D', 'a'], ['D', 'A', 'a']]},
+  'schritte': [{'text': 'Behauptung: Aus u = 4 · a folgt a = u − 4.'},
+               {'text': 'Erfinde a = 3 m. Dann ist u = 4 · 3 = 12 m.',
+                'bild': {'linien': [['A', 'B', '3 m'], ['B', 'C', '3 m'], ['C', 'D', '3 m'], ['D', 'A', '3 m']]}},
+               {'text': 'In die Umstellung: 12 − 4 = 8. Herauskommen müsste aber 3.'},
+               {'text': 'Also ist die Umstellung ⟦falsch⟧. Richtig ist a = u : 4.'}],
+  'fehler': 'Ein Beispiel kann zufällig passen: a = u − 12 klappt bei a = 4. Mit a = 5 aber nicht mehr. Teste ⟦zwei verschiedene⟧ Zahlen.',
+  'regel': 'Prüfe mit ⟦zwei erfundenen Zahlen⟧. Original und Umstellung müssen dasselbe ergeben. Nimm keine 0 und keine 1.'},
+ 'einsetzen': {
+  'einstieg': 'Deine Radtour ist 45 km lang, du fährst im Schnitt 18 km pro Stunde. Wie lange bist du unterwegs? Erst umstellen, dann die Zahlen mit ⟦Einheiten⟧ einsetzen.',
+  'woerter': [['Einheit', 'was hinter der Zahl steht: km, h, km/h'], ['v = s : t', 'Geschwindigkeit = Strecke : Zeit'], ['h', 'Abkürzung für Stunde']],
+  'bild': _tab(*_RAD, ('Zeit', 't', '?')),
+  'schritte': [{'text': 'Die Formel ist v = s : t. Gesucht ist die Zeit t.'},
+               {'text': 'Mal t, dann durch v teilen: t = s : v.'},
+               {'text': 'Einsetzen: t = 45 km : 18 km/h = ⟦2,5 h⟧.', 'bild': _tab(*_RAD, ('Zeit', 't', '2,5 h'))},
+               {'text': 'km geteilt durch km/h ergibt h, also eine Zeit. Das passt.'}],
+  'fehler': 't = v : s ergibt 0,4 h. Das ist falsch: 45 km in 24 Minuten schafft niemand. Die ⟦Einheit⟧ wäre auch keine Zeit.',
+  'fehler_bild': _tab(*_RAD, ('Zeit', 't', '0,4 h?')),
+  'regel': 'Erst ⟦nach der gesuchten Größe umstellen⟧, dann einsetzen. Die Einheit des Ergebnisses zeigt, ob es stimmt.'},
+ 'geometrie': {
+  'einstieg': 'Ein dreieckiges Beet soll 24 m² groß werden, die Seite am Zaun ist 8 m lang. Wie weit reicht es in den Garten? Dafür stellst du die ⟦Flächenformel⟧ um.',
+  'woerter': [['Flächenformel', 'A = g · h : 2 für das Dreieck'], ['Höhe', 'Abstand der Spitze von der Grundseite, senkrecht gemessen'], ['Grundseite g', 'die Seite, auf der die Höhe steht – hier am Zaun']],
+  'bild': {'typ': 'figur', 'punkte': _DREI, 'flaeche': ['A', 'B', 'C'], 'linien': [['A', 'B', 'g = 8 m'], ['C', '_H', 'h = ?', 'gestrichelt']], 'rechter_winkel': [['_H', 'B', 'C']]},
+  'schritte': [{'text': 'Die Flächenformel ist A = g · h : 2. Grundseite g, Höhe h.'},
+               {'text': 'Erst „: 2“ rückgängig machen: 2 · A = g · h.'},
+               {'text': 'Dann durch g teilen: h = 2 · A : g.'},
+               {'text': 'Einsetzen: h = 48 : 8 = ⟦6 m⟧.', 'bild': {'linien': [['A', 'B', 'g = 8 m'], ['C', '_H', 'h = 6 m', 'gestrichelt']]}}],
+  'fehler': 'h = A : g = 3 m ist falsch: Das „: 2“ der Formel wurde vergessen. Ein so flaches Beet hätte nur ⟦12 m²⟧.',
+  'fehler_bild': {'punkte': {**_DREI, 'C': [3, 3]}, 'linien': [['A', 'B', 'g = 8 m'], ['C', '_H', 'h = 3 m?', 'gestrichelt']]},
+  'regel': 'Formel aufschreiben, ⟦nach der fehlenden Länge umstellen⟧, einsetzen. Bei Dreiecken das „: 2“ nicht vergessen.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): Grundwissen 8 bayerischer Gymnasien (Linsenformel nach einer Variablen auflösen und Werte
+# einsetzen; Trapezformel umstellen), BMT10 2024 (Parameter einer Formel aus einem Messwert bestimmen), BMT8 2023 (Quaderhöhe aus Volumen in Litern),
+# RS-Jahrgangsstufentest 8 2023 (Fehler in einer Rechnung finden), Physik-Formeln (U = R · I, ρ = m : V) wie in Schulaufgaben.
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_9)
+
+# ein_schritt
+SW.a('ein_schritt', 2, 'Stelle P = U · I nach I um.', 'I = P : U', ['I = U : P', 'I = P · U', 'I = P − U'], 'I wird mit U multipliziert. Umkehrung: durch U teilen: I = P : U.',
+     'Welche Rechnung macht „· U“ rückgängig?')
+SW.a('ein_schritt', 2, 'Stelle m = ρ · V nach ρ um.', 'ρ = m : V', ['ρ = V : m', 'ρ = m · V', 'ρ = m − V'], 'Durch V teilen: ρ = m : V.', 'Teile beide Seiten durch V.')
+SW.z('ein_schritt', 3, 'Für einen elektrischen Widerstand gilt U = R · I. Ein Gerät nimmt bei 230 V eine Stromstärke von 0,5 A auf. Wie groß ist sein Widerstand R?', 460, '230 / 0.5',
+     'R = U : I = 230 : 0,5 = 460 Ω.', 'Stelle nach R um. Durch 0,5 teilen heißt verdoppeln.', einheit='Ω', art='P')
+SW.a('ein_schritt', 3, 'Für Linsen gilt 1/f = 1/g + 1/b. Stelle nach 1/b um.', '1/b = 1/f − 1/g', ['1/b = 1/g − 1/f', '1/b = 1/f + 1/g', 'b = f − g'],
+     '1/g steht als Summand bei 1/b. Rückgängig: auf beiden Seiten 1/g abziehen: 1/b = 1/f − 1/g.', 'Behandle 1/g wie eine Zahl, die addiert wurde.', art='P')
+SW.a('ein_schritt', 3, 'Es gilt v = s : t. Die Strecke s wird verdoppelt, die Zeit t halbiert. Was passiert mit v?', 'v wird viermal so groß.', ['v bleibt gleich.', 'v wird doppelt so groß.', 'v wird halbiert.'],
+     'Doppeltes s verdoppelt v. Halbes t verdoppelt v noch einmal. Zusammen: 4-mal so groß. Beispiel: 100 : 20 = 5, 200 : 10 = 20.', 'Probiere mit Zahlen, z. B. s = 100, t = 20.', art='K')
+SW.a('ein_schritt', 3, 'Für ein Dreieck gilt A = g · h : 2. Die Grundseite g wird verdreifacht. Wie muss sich h ändern, damit A gleich bleibt?', 'h muss gedrittelt werden.',
+     ['h muss verdreifacht werden.', 'h muss um 3 kleiner werden.', 'h bleibt gleich.'],
+     'A bleibt gleich, wenn g · h gleich bleibt. Bei 3-fachem g muss h ein Drittel so groß sein.', 'Wie hängen g und h zusammen, wenn A fest ist?', art='K')
+
+# zwei_schritte
+SW.a('zwei_schritte', 2, 'Stelle u = 2 · (l + b) nach b um.', 'b = u : 2 − l', ['b = u − 2 · l', 'b = (u − l) : 2', 'b = u : 2 + l'],
+     'Erst durch 2 teilen: u : 2 = l + b. Dann l abziehen: b = u : 2 − l.', 'Was wurde zuletzt gerechnet? Das kommt zuerst weg.')
+SW.a('zwei_schritte', 2, 'Stelle K = 5 + 0,2 · x nach x um.', 'x = (K − 5) : 0,2', ['x = K : 0,2 − 5', 'x = (K + 5) : 0,2', 'x = (K − 5) · 0,2'],
+     'Erst 5 abziehen: K − 5 = 0,2 · x. Dann durch 0,2 teilen.', 'Zuerst plus/minus, dann mal/geteilt rückgängig machen.')
+SW.a('zwei_schritte', 3, 'Stelle die Trapezformel A = (a + c) · h : 2 nach c um.', 'c = 2 · A : h − a', ['c = 2 · A : (h − a)', 'c = A : (2 · h) − a', 'c = 2 · A − a : h'],
+     'Mal 2: 2A = (a + c) · h. Durch h: 2A : h = a + c. Minus a: c = 2 · A : h − a.', 'Mache die Schritte „: 2“, „· h“ und „+ a“ in umgekehrter Reihenfolge rückgängig.', art='P')
+SW.z('zwei_schritte', 3, 'Für den Bremsweg auf nasser Straße gilt näherungsweise s = v² : k (v in km/h, s in m). Bei 50 km/h ist der Bremsweg 50 m lang. Bestimme k.', 50, '50**2 / 50',
+     'Einsetzen: 50 = 2 500 : k ⇔ 50 · k = 2 500 ⇔ k = 50.', 'Setze die beiden Messwerte ein. Dann ist nur k unbekannt.', art='P')
+SW.a('zwei_schritte', 3, 'Welche Formel ergibt nach x umgestellt x = y : 5 − 2?', 'y = 5 · (x + 2)', ['y = 5x + 2', 'y = 5x − 10', 'y = (x + 2) : 5'],
+     'Rückwärts: x = y : 5 − 2 ⇔ x + 2 = y : 5 ⇔ y = 5 · (x + 2). Probe: y = 5x − 10 ergäbe x = y : 5 + 2.', 'Stelle x = y : 5 − 2 nach y um.', art='K')
+SW.a('zwei_schritte', 3, 'Stelle a · x + b = c · x nach x um (a ≠ c).', 'x = b : (c − a)', ['x = b : (a − c)', 'x = (c − b) : a', 'x = c : (a + b)'],
+     'Alle x nach rechts: b = c · x − a · x = (c − a) · x. Durch (c − a): x = b : (c − a).', 'Sammle beide x-Glieder auf einer Seite und klammere x aus.', art='K')
+
+# pruefen
+SW.a('pruefen', 2, 'Jemand stellt U = R · I nach R um und erhält R = U : I. Stimmt das?', 'Ja, die Umstellung ist richtig.', ['Nein, richtig wäre R = I : U.', 'Nein, richtig wäre R = U · I.'],
+     'Probe mit R = 4, I = 3: U = 12. Umstellung: 12 : 3 = 4 ✓.', 'Prüfe mit zwei erfundenen Zahlen.')
+SW.a('pruefen', 2, 'Jemand stellt s = v · t + 5 nach t um und erhält t = s : v − 5. Stimmt das?', 'Nein, richtig wäre t = (s − 5) : v.', ['Ja, die Umstellung ist richtig.', 'Nein, richtig wäre t = s : (v − 5).'],
+     'Probe mit v = 2, t = 3: s = 11. Umstellung: 11 : 2 − 5 = 0,5 ≠ 3. Richtig: (11 − 5) : 2 = 3 ✓.', 'Was wurde zuletzt gerechnet: das Mal oder das Plus 5?')
+SW.a('pruefen', 3, 'Jemand stellt 1/f = 1/g + 1/b nach f um und erhält f = g + b. Stimmt das?', 'Nein: Probe g = 2, b = 2 gibt 1/f = 1, also f = 1, nicht 4.',
+     ['Ja: Kehrwerte darf man einzeln bilden.', 'Nein: richtig ist f = g − b.', 'Ja: Probe g = 2, b = 2 gibt f = 4.'],
+     'Kehrwert einer Summe ist nicht die Summe der Kehrwerte. 1/2 + 1/2 = 1, also f = 1. Richtig: f = g · b : (g + b) = 4 : 4 = 1 ✓.', 'Setze für g und b dieselbe Zahl 2 ein.', art='P')
+SW.a('pruefen', 3, 'Ist h = 2 · A : (a + c) die richtige Umstellung von A = (a + c) · h : 2?', 'Ja, die Umstellung ist richtig.', ['Nein, richtig wäre h = A : (2 · (a + c)).',
+     'Nein, richtig wäre h = 2 · A : a + c.'],
+     'Probe a = 2, c = 4, h = 3: A = 6 · 3 : 2 = 9. Umstellung: 2 · 9 : (2 + 4) = 18 : 6 = 3 ✓.', 'Erfinde a, c und h, berechne A und setze ein.', art='P')
+SW.a('pruefen', 3, 'Jemand stellt A = a · b nach b um und erhält (falsch) b = A · a. Mit welcher Probezahl für a fällt der Fehler NICHT auf?', 'a = 1', ['a = 2', 'a = 5', 'a = 10'],
+     'Für a = 1 ist A · 1 = A : 1. Beide Formeln geben dasselbe – der Fehler bleibt unentdeckt. Darum nimmt man keine 1 (und keine 0) zum Prüfen.',
+     'Für welche Zahl ist „mal“ dasselbe wie „geteilt“?', art='K')
+SW.a('pruefen', 3, 'Lea stellt M = (a + b + c) : 3 nach c um: c = 3 · M − a − b. Tom schreibt: c = 3 · (M − a − b). Wer hat recht?', 'Lea',
+     ['Tom', 'beide', 'keiner'],
+     'Probe a = b = c = 3: M = 3. Lea: 9 − 3 − 3 = 3 ✓. Tom: 3 · (3 − 6) = −9 ✗. Erst mal 3, dann a und b abziehen.', 'Prüfe beide mit denselben Zahlen.', art='K')
+
+# einsetzen
+SW.z('einsetzen', 2, 'Gold hat die Dichte ρ = 19,3 g/cm³. Ein Goldbarren wiegt 965 g. Welches Volumen hat er? (ρ = m : V)', 50, '965 / 19.3', 'V = m : ρ = 965 : 19,3 = 50 cm³.',
+     'Stelle nach V um.', einheit='cm³')
+SW.z('einsetzen', 2, 'Eine Lampe hat den Widerstand 920 Ω und liegt an 230 V. Wie groß ist die Stromstärke? (U = R · I)', 0.25, '230 / 920', 'I = U : R = 230 : 920 = 0,25 A.',
+     'Stelle nach I um.', einheit='A')
+SW.z('einsetzen', 3, 'Eine Regentonne fasst 210 Liter. Ihre Grundfläche beträgt 0,35 m². Wie hoch steht das Wasser, wenn sie voll ist? (V = G · h)', 60, '210 / 35 * 10',
+     '210 l = 210 dm³, 0,35 m² = 35 dm². h = V : G = 210 : 35 = 6 dm = 60 cm.', 'Rechne alles in dm um: 1 l = 1 dm³, 1 m² = 100 dm².', einheit='cm', art='P')
+SW.z('einsetzen', 3, 'Für Linsen gilt 1/f = 1/g + 1/b. Berechne f für g = 30 cm und b = 15 cm.', 10, '1 / (1/30 + 1/15)',
+     '1/f = 1/30 + 2/30 = 3/30 = 1/10. Also f = 10 cm.', 'Rechne erst die rechte Seite mit Hauptnenner 30 aus. Dann den Kehrwert bilden.', einheit='cm', art='P')
+SW.z('einsetzen', 3, 'Eine Läuferin schafft 400 m in 50 s. Wie schnell ist sie in km/h? (v = s : t)', 28.8, '400 / 50 * 3.6',
+     'v = 400 m : 50 s = 8 m/s. In einer Stunde (3 600 s): 8 · 3 600 = 28 800 m = 28,8 km. Also 28,8 km/h.', 'Rechne erst m/s aus und dann auf eine Stunde hoch.', einheit='km/h', art='K')
+SW.z('einsetzen', 3, 'Es gilt F = 1,8 · C + 32 (F in °F, C in °C). Bei welcher Celsius-Temperatur zeigen beide Skalen dieselbe Zahl?', -40, '32 / (1 - 1.8)',
+     'Gleiche Zahl: C = 1,8 · C + 32 ⇔ −0,8 · C = 32 ⇔ C = −40. Probe: 1,8 · (−40) + 32 = −40.', 'Setze F = C und löse nach C.', einheit='°C', art='K')
+
+# geometrie
+SW.z('geometrie', 2, 'Ein Dreieck hat den Flächeninhalt 18 cm² und die Höhe 4 cm. Wie lang ist die zugehörige Grundseite?', 9, '2 * 18 / 4', 'g = 2 · A : h = 36 : 4 = 9 cm.',
+     'A = g · h : 2. Das „: 2“ nicht vergessen.', einheit='cm')
+SW.z('geometrie', 2, 'Ein Rechteck hat den Umfang 50 cm und die Breite 7,5 cm. Wie lang ist es?', 17.5, '50 / 2 - 7.5', 'u : 2 = l + b ⇔ 25 = l + 7,5 ⇔ l = 17,5 cm.',
+     'Der halbe Umfang ist Länge plus Breite.', einheit='cm')
+SW.z('geometrie', 3, 'Ein quaderförmiges Aquarium fasst 96 Liter. Es ist 6 dm lang und 4 dm breit. Wie hoch ist es?', 4, '96 / (6 * 4)',
+     '96 l = 96 dm³. h = V : (l · b) = 96 : 24 = 4 dm.', '1 Liter = 1 dm³.', einheit='dm', art='P')
+SW.z('geometrie', 3, 'Ein Quader mit der Grundfläche 5 cm × 8 cm hat dasselbe Volumen wie ein Würfel mit der Kantenlänge 10 cm. Wie hoch ist der Quader?', 25, '10**3 / (5 * 8)',
+     'Würfel: V = 10 · 10 · 10 = 1 000 cm³. Quader: 40 cm² · h = 1 000 cm³ ⇔ h = 25 cm.', 'Berechne zuerst das Würfelvolumen.', einheit='cm', art='P')
+SW.z('geometrie', 3, 'Ein Trapez hat den Flächeninhalt 54 cm² und die Höhe 6 cm. Eine der parallelen Seiten ist doppelt so lang wie die andere. Wie lang ist die kürzere?', 6, '54 * 2 / 6 / 3',
+     'a + c = 2A : h = 108 : 6 = 18. Mit c = 2a: 3a = 18 ⇔ a = 6 cm (und c = 12 cm).', 'Stelle zuerst nach a + c um. Dann nutze c = 2a.', einheit='cm', art='K')
+SW.z('geometrie', 3, 'Ein Rechteck hat den Umfang 30 cm. Seine Länge ist doppelt so groß wie seine Breite. Berechne den Flächeninhalt.', 50, '10 * 5',
+     '2 · (2b + b) = 30 ⇔ 6b = 30 ⇔ b = 5 cm, l = 10 cm. A = 10 · 5 = 50 cm².', 'Drücke die Länge durch die Breite aus.', einheit='cm²', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('gleichungen.formeln', 13_8_9)
+# c) Text (0,04) und Antwort (≈ 0,43) passten nicht zusammen → Zahlen so gewählt, dass die Probe glatt aufgeht
+BF.ersetze('ein_schritt', 'An einem Widerstand R = 10 Ω liegt U = 230 V. Jemand rechnet I = R : U = 0,04 A. Welche Probe zeigt den Fehler?', BF.A(
+    'An einem Widerstand R = 10 Ω liegt die Spannung U = 200 V. Jemand rechnet I = R : U = 0,05 A. Welche Probe zeigt den Fehler?',
+    'R · I = 10 · 0,05 = 0,5, nicht 200',
+    ['0,05 A ist zu klein für eine Stromstärke', 'Die Einheit A stimmt nicht', '200 : 10 = 20 ist größer, also passt es'],
+    'Aus U = R · I: Probe 10 · 0,05 = 0,5 ≠ 200. Die Formel wurde falsch umgestellt. Richtig: I = U : R = 200 : 10 = 20 A.',
+    'Setze das Ergebnis in die ursprüngliche Formel ein.'))
+# a) gleicher Typ wie Stufe 2
+BF.stufe('geometrie', 'Ein Quader hat das Volumen 112 cm³, die Länge 2 cm und die Breite 4 cm. Wie hoch ist er?', 2)
+BF.stufe('geometrie', 'Ein Quader hat das Volumen 1144 cm³, die Länge 11 cm und die Breite 8 cm. Wie hoch ist er?', 2)
+BF.nicht_umgesetzt('geometrie S3 Pyramide (V = G · h : 3)', 'Formel steht in der Aufgabe; als reine Formelanwendung (Umstellen) passend zum Thema, Lösung richtig.')
+BF.nicht_umgesetzt('einsetzen S3 Dichte mit dm³ (Aluminium, Glas, Eis)', 'Drei verschiedene Stoffe und Zahlen, alle richtig; Übungsreihe zum gleichen Schritt (dm³ → cm³) ist gewollt.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DSX = Durchsicht('gleichungen.formeln', 19_8_9)
+for _t in ['Stelle u = 4 · a nach a um.', 'Stelle d = 2 · r nach r um.', 'Stelle P = U · I nach I um.', 'Stelle m = ρ · V nach ρ um.']:
+    DSX.stufe('ein_schritt', _t, 1)
+for _t in ['An einem Widerstand R = 3 Ω liegt U = 9 V. Jemand rechnet I = R : U = 0,33 A. Welche Probe zeigt den Fehler?',
+           'An einem Widerstand R = 10 Ω liegt die Spannung U = 200 V. Jemand rechnet I = R : U = 0,05 A. Welche Probe zeigt den Fehler?',
+           'Es gilt v = s : t. Berechne t für s = 91 und v = 7.', 'Es gilt v = s : t. Berechne t für s = 30,1 und v = 7.',
+           'Für einen elektrischen Widerstand gilt U = R · I. Ein Gerät nimmt bei 230 V eine Stromstärke von 0,5 A auf. Wie groß ist sein Widerstand R?']:
+    DSX.stufe('ein_schritt', _t, 2)
+DSX.neu('ein_schritt', 3, DSX.A('Für die Leistung gilt P = U · I. Ein Wasserkocher hat 2 000 W und hängt an 230 V. Ist die Stromstärke größer oder kleiner als 10 A?',
+                                'kleiner: I = P : U ≈ 8,7 A', ['größer: I = P · U = 460 000 A', 'genau 10 A', 'größer: I = U : P ≈ 11,5 A'],
+                                'Umstellen: I = P : U = 2 000 : 230. Überschlag: 2 300 : 230 = 10, und 2 000 ist kleiner als 2 300. Also I ≈ 8,7 A, kleiner als 10 A.',
+                                'Stelle nach I um und überschlage mit 2 300 : 230.'))
+DSX.neu('ein_schritt', 3, DSX.Z('Zwei Würfel sind gleich schwer: einer aus Holz (ρ = 0,6 g/cm³), einer aus Eisen (ρ = 7,8 g/cm³). Wie viel Mal so groß ist das Volumen des Holzwürfels?',
+                                13, '7.8 / 0.6', 'Aus ρ = m : V folgt V = m : ρ. Gleiches m: V(Holz) : V(Eisen) = (m : 0,6) : (m : 7,8) = 7,8 : 0,6 = 13.',
+                                'Stelle nach V um. Was passiert mit V, wenn ρ kleiner wird und m gleich bleibt?'))
+DSX.stufen('ein_schritt', 'S1/S2 dieselbe Ein-Schritt-Umstellung; S3 teils Probe und Einsetzen wie S2',
+           'S1 eine Umstellung; S2 Analogie zu einer Zahlenrechnung, Probe, einsetzen; S3 Linsenformel, Änderungen von Größen, Überschlag, Verhältnis zweier Volumina')
+for _t in ['Es gilt y = m · x + t mit m = 3 und t = 4. Für welches x ist y = 28?', 'Stelle u = 2 · (a + b) nach a um.',
+           'Für Temperaturen gilt F = 1,8 · C + 32 (F in Grad Fahrenheit, C in Grad Celsius). Wie viel Grad Celsius sind 86 °F?']:
+    DSX.stufe('zwei_schritte', _t, 2)
+DSX.stufen('zwei_schritte', 'S1 zwei Schritte umstellen; S2 Mittelwert, Formeln mit Klammer; S3 teils Einsetzen wie S2',
+           'S1 zwei Schritte; S2 Klammern, Mittelwert, Fahrenheit, Werte einsetzen; S3 Trapez nach c, Bremsweg, Umstellung rückwärts erkennen, x auf beiden Seiten')
+for _t, _e in [('Jemand stellt V = G · h : 3 nach h um und erhält h = V : G. Stimmt das?', None),
+               ('Jemand stellt A = (a + c) · h : 2 nach a um und erhält a = 2 · A : (h − c). Stimmt das?', None),
+               ('Jemand stellt Z = K · p : 100 nach K um und erhält K = 100 · Z : p. Stimmt das?', None),
+               ('Jemand stellt V = G · h : 3 nach h um und erhält h = V : (3 · G). Stimmt das?', None)]:
+    DSX.stufe('pruefen', _t, 2)
+DSX.stufen('pruefen', 'S1 Ein-Schritt-Umstellung prüfen; S2 und S3 dieselbe Prüfaufgabe mit längerer Formel',
+           'S1 Ein-Schritt-Umstellung prüfen; S2 Zwei-Schritt-Umstellung prüfen; S3 Probe mit Zahlen erfinden, ungeeignete Probezahl, zwei Lösungswege vergleichen')
+DSX.stufe('einsetzen', 'Ein Stück Glas (ρ = 2,5 g/cm³) hat das Volumen 10 dm³. Wie schwer ist es in kg? (ρ = m : V)', 2)
+DSX.stufe('einsetzen', 'Ein Stück Eis (ρ = 0,9 g/cm³) hat das Volumen 10 dm³. Wie schwer ist es in kg? (ρ = m : V)', 2)
+DSX.stufen('einsetzen', 'S1 einsetzen; S2 einsetzen nach Umstellen; S3 dreimal dieselbe Einheitenumrechnung',
+           'S1 einsetzen; S2 umstellen und einsetzen, auch dm³ → kg; S3 Einheiten (min → h, Liter → m³), Linsenformel, gleiche Zahl auf beiden Skalen')
+DSX.stufe('geometrie', 'Eine Pyramide hat das Volumen 45 cm³ und die Grundfläche 27 cm². Wie hoch ist sie? (V = G · h : 3)', 2)
+DSX.stufen('geometrie', 'S1 Höhe aus A = g · h; S2 Dreieck, Prisma, Quader, Umfang; S3 Pyramide wie S2, Trapez, Sachaufgaben',
+           'S1 Höhe aus A = g · h; S2 Dreieck, Prisma, Pyramide, Quader, Umfang; S3 Trapez, Liter → dm³, gleiches Volumen, Verhältnis der Seiten')
+baue = mit_durchsicht(baue, DSX)
+# ---- DURCHSICHT ENDE ----
+
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('gleichungen.formeln', 20_8_4)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- ein_schritt ---
+ST.leiter('ein_schritt', 'eine Formel mit einer Rechenart nach einer Größe umstellen, nach einer Größe aufgelöste Formel erkennen',
+          'Umstellen am Zahlenbeispiel nachmachen, umstellen und einsetzen, Sachformel aus der Physik verwenden',
+          'Proben deuten, Veränderungen (verdoppeln, dritteln) begründen, Kehrwertformeln, abschätzen wie in einer Prüfung')
+T('ein_schritt', (r'^Stelle', 'direkt'), (r'^Aus \d', 'darstellung'), (r'Welche Probe', 'fehler'), (r'^Es gilt v = s : t\. Berechne', 'mehrschritt'),
+  (r'^Für einen elektrischen', 'einkleidung'), (r'^Für Linsen|Würfel sind gleich schwer', 'transfer'), (r'verdoppelt|verdreifacht', 'begruenden'),
+  (r'Wasserkocher', 'pruefung'))
+ST.neu('ein_schritt', 'erkennen', SA('Welche Formel ist nach t aufgelöst?', 't = s : v', ['v = s : t', 's = v · t', 't · v = s'],
+    'Aufgelöst heißt: t steht allein auf einer Seite, nur in t = s : v.', 'Steht die gesuchte Größe allein?'))
+ST.knobel('ein_schritt', SZ('In v = s : t wird die Strecke s um 20 % größer und die Zeit t um 20 % kleiner. Um wie viel Prozent ändert sich v?', 50, '(12/10) / (8/10) * 100 - 100',
+    'Neues v = (1,2 · s) : (0,8 · t) = (1,2 : 0,8) · s : t = 1,5 · v. Die Geschwindigkeit wird also um 50 % größer – nicht um 40 %.',
+    'Schreibe das neue s und das neue t mit Faktoren und setze ein.'))
+ST.knobel('ein_schritt', SZ('Für drei positive Größen gilt x = y : z und zugleich y = z : x. Welchen Wert hat x?', 1, '1',
+    'Setzt man y = z : x in die erste Formel ein: x = (z : x) : z = 1 : x. Also x · x = 1 und, weil x positiv ist, x = 1.',
+    'Setze die zweite Formel in die erste ein.'))
+
+# --- zwei_schritte ---
+ST.leiter('zwei_schritte', 'Formeln mit zwei Rechenschritten (Strich und Punkt) umstellen',
+          'Klammern, Brüche in Formeln, Sachformeln (Mittelwert, Fahrenheit) rückwärts nutzen',
+          'Trapezformel verknüpfen, Formel zur Umstellung finden, Parameter auf beiden Seiten, Klammerfehler deuten, Prüfungsaufgabe mit Kosten')
+T('zwei_schritte', (r'^Stelle K = G \+ n · p|^Stelle y = m · x \+ t nach t|^Stelle A = g · h : 2', 'direkt'), (r'Mittelwert|Fahrenheit', 'einkleidung'),
+  (r'^Es gilt y = m · x \+ t mit', 'umkehr'), (r'Trapez', 'verknuepfen'), (r'Bremsweg', 'transfer'), (r'^Welche Formel ergibt', 'rueckwaerts'),
+  (r'a · x \+ b = c · x', 'parameter'), (r'^Stelle', 'mehrschritt'))
+ST.neu('zwei_schritte', 'erkennen', SA('Welcher erste Schritt ist geschickt, um y = m · x + t nach x umzustellen?', 't auf beiden Seiten abziehen', ['mit x multiplizieren', 'm auf beiden Seiten abziehen', 'durch t teilen'],
+    'Zuerst den Summanden t wegschaffen: y − t = m · x. Danach durch m teilen.', 'Was steht „am weitesten außen“ bei x?'))
+ST.neu('zwei_schritte', 'fehler', SA('Jemand stellt K = G + n · p nach n um und schreibt n = K − G : p. Was stimmt?', 'Falsch: Es fehlt eine Klammer, richtig ist n = (K − G) : p.',
+    ['Richtig.', 'Falsch: richtig ist n = (K + G) : p.', 'Falsch: richtig ist n = p : (K − G).'],
+    'Ohne Klammer wird nur G durch p geteilt (Punkt vor Strich). Geteilt werden muss aber die ganze Differenz K − G.', 'Was wird bei K − G : p zuerst gerechnet?'))
+ST.neu('zwei_schritte', 'begruenden', SA('Kann man u = 2 · (a + b) nach a umstellen, ohne die Klammer aufzulösen?', 'Ja: erst durch 2 teilen (u : 2 = a + b), dann b abziehen.',
+    ['Nein, die Klammer muss immer zuerst aufgelöst werden.', 'Ja: erst b abziehen, dann durch 2 teilen.', 'Nein, a steht in einer Klammer und ist nicht erreichbar.'],
+    'Die ganze Klammer ist ein Faktor. Teilt man durch 2, steht a + b allein; dann a = u : 2 − b. Erst b abzuziehen wäre falsch, weil b noch mit 2 multipliziert wird.', 'Was ist die letzte Rechnung auf der rechten Seite?'))
+ST.neu('zwei_schritte', 'pruefung', SZ('Ein Handwerker berechnet die Kosten mit K = 40 + 35 · n (n Arbeitsstunden, K in €). Die Rechnung beträgt 197,50 €. Stelle nach n um und berechne n.', 4.5, '(1975/10 - 40) / 35',
+    'n = (K − 40) : 35 = (197,50 − 40) : 35 = 157,50 : 35 = 4,5 Stunden.', 'Zuerst die Anfahrt 40 € abziehen, dann durch den Stundenpreis teilen.', einheit='h'))
+ST.knobel('zwei_schritte', SZ('Es gilt F = 1,8 · C + 32. Um wie viel Grad Fahrenheit steigt die Anzeige, wenn es 5 °C wärmer wird – egal bei welcher Ausgangstemperatur?', 9, '18 * 5 / 10',
+    'Aus C wird C + 5: F_neu = 1,8 · (C + 5) + 32 = 1,8 · C + 32 + 9 = F + 9. Die 32 spielt für den Unterschied keine Rolle.', 'Vergleiche die Formel für C und für C + 5.'))
+ST.knobel('zwei_schritte', SA('Taxi A kostet K = 3,5 + 2 · s, Taxi B kostet K = 2 · (s + 2) (s in km, K in €). Ab wie vielen Kilometern ist B billiger?', 'Nie: B kostet immer 0,50 € mehr.',
+    ['Ab 2 km.', 'Ab 4 km.', 'Ab 0 km, B ist immer billiger.'],
+    'B: 2 · (s + 2) = 2s + 4. A: 2s + 3,5. Der Preis je km ist gleich, B hat 0,50 € mehr Grundpreis – B ist nie billiger.', 'Löse die Klammer bei B auf und vergleiche.'))
+
+# --- pruefen ---
+ST.leiter('pruefen', 'eine einfache Umstellung prüfen bzw. selbst ausführen',
+          'zweischrittige Umstellungen prüfen, Sachformel prüfen, Ausgangsformel zu einer Umstellung finden',
+          'Fehler mit Probezahlen aufdecken, wann eine Probe versagt, Prozentformel verknüpfen, Parameter (m ≠ 0), rückwärts, Prüfungsaufgabe')
+T('pruefen', (r'^Jemand stellt 1/f', 'fehler'), (r'^Lea', 'fehler'), (r'^Ist h = |Probezahl', 'begruenden'), (r'^Jemand stellt \S+ = \S+ [·:] \S+ nach', 'erkennen'),
+  (r'^Jemand stellt', 'mehrschritt'))
+ST.neu('pruefen', 'direkt', SA('Stelle F = m · a nach a um.', 'a = F : m', ['a = F · m', 'a = m : F', 'a = F − m'], 'Durch m teilen: F : m = a.', 'Welche Rechnung macht „· m“ rückgängig?'))
+ST.neu('pruefen', 'einkleidung', SA('Für eine Taxifahrt gilt K = 4 + 2 · s (K in €, s in km). Jemand will s aus K berechnen und schreibt s = K : 2 − 4. Stimmt das?', 'Nein: richtig ist s = (K − 4) : 2.',
+    ['Ja.', 'Nein: richtig ist s = 2 · K − 4.', 'Nein: richtig ist s = K − 4 · 2.'], 'Probe mit s = 3: K = 10. Die Formel s = K : 2 − 4 liefert 1 statt 3. Richtig: erst 4 abziehen, dann durch 2 teilen.', 'Mach eine Probe mit einer einfachen Strecke.'))
+ST.neu('pruefen', 'umkehr', SA('Welche Ausgangsformel passt zur Umstellung b = 2 · A : h − a?', 'A = (a + b) · h : 2', ['A = a · b : 2', 'A = (a − b) · h : 2', 'A = 2 · (a + b) · h'],
+    'Aus A = (a + b) · h : 2 folgt 2A = (a + b) · h, dann 2A : h = a + b und b = 2A : h − a.', 'Stelle jede Formel nach b um.'))
+ST.neu('pruefen', 'darstellung', SA('Eine Wertetabelle zu s = v · t enthält die Zeile v = 4, t = 3, s = 12. Jemand stellt nach t um und schreibt t = v : s. Was zeigt die Zeile?', 'Die Umstellung ist falsch: v : s = 4 : 12 ≈ 0,33, nicht 3.',
+    ['Die Umstellung ist richtig, weil die Zeile zur Formel passt.', 'Die Zeile passt nicht zur Formel.', 'Man kann mit einer Zeile nichts prüfen.'],
+    'Setzt man die Tabellenwerte in t = v : s ein, kommt 1/3 statt 3 heraus. Richtig ist t = s : v = 12 : 4 = 3.', 'Setze die Werte der Zeile in die umgestellte Formel ein.'))
+ST.neu('pruefen', 'verknuepfen', SA('Die Formel W = G · p : 100 wird nach p umgestellt: p = 100 · W : G. Stimmt das, und welches p ergibt sich für W = 18 und G = 240?', 'Ja; p = 7,5',
+    ['Ja; p = 0,075', 'Nein, p = W : (100 · G); p = 0,00075', 'Nein, p = G : W · 100; p ≈ 1 333'],
+    'Mal 100, dann durch G: p = 100 · W : G. Mit den Zahlen: 1 800 : 240 = 7,5 (Prozent).', 'Prüfe mit der Probe: 240 · 7,5 : 100 = ?'))
+ST.neu('pruefen', 'parameter', SA('Für welche Werte von m ist die Umstellung x = (y − t) : m von y = m · x + t erlaubt?', 'für alle m ≠ 0', ['für alle m', 'nur für m > 0', 'nur für m = 1'],
+    'Durch 0 darf man nicht teilen. Für m = 0 ist y = t, und x lässt sich gar nicht bestimmen.', 'Durch welche Zahl darf man nie teilen?'))
+ST.neu('pruefen', 'rueckwaerts', SA('Eine Formel wurde nach a umgestellt und lautet jetzt a = (s − b) : 3. Wie hieß sie vorher, nach s aufgelöst?', 's = 3 · a + b', ['s = 3 · (a + b)', 's = a : 3 + b', 's = 3 · a − b'],
+    'Rückwärts: mal 3 ergibt 3a = s − b, dann b addieren: s = 3a + b.', 'Mache die Schritte rückgängig: erst · 3, dann + b.'))
+ST.neu('pruefen', 'pruefung', SZ('Die Druckkosten eines Plakats sind K = 15 + 0,8 · A (A Fläche in m², K in €). Für 63 € wurde gedruckt. Stelle nach A um und berechne die Fläche.', 60, '(63 - 15) / (8/10)',
+    'A = (K − 15) : 0,8 = 48 : 0,8 = 60 m².', 'Erst den Festbetrag abziehen, dann durch den Preis je m² teilen.', einheit='m²'))
+ST.knobel('pruefen', SZ('Bei welcher Temperatur in °C ist die Fahrenheit-Zahl doppelt so groß wie die Celsius-Zahl? (F = 1,8 · C + 32)', 160, '32 / (2 - 18/10)',
+    'Gesucht ist C mit F = 2 · C: 2C = 1,8C + 32 ⇒ 0,2C = 32 ⇒ C = 160. Probe: 1,8 · 160 + 32 = 320 = 2 · 160.',
+    'Setze F = 2 · C in die Formel ein.'))
+ST.knobel('pruefen', SA('Zwei Schüler stellen A = (a + c) · h : 2 nach c um. Der eine schreibt c = 2A : h − a, der andere c = (2A − a · h) : h. Was stimmt?', 'Beide sind richtig – es ist derselbe Term.',
+    ['Nur der erste ist richtig.', 'Nur der zweite ist richtig.', 'Beide sind falsch.'],
+    '(2A − a · h) : h = 2A : h − a · h : h = 2A : h − a. Beide Ausdrücke sind gleich. Probe mit A = 10, a = 2, h = 2: 10 − 2 = 8 und (20 − 4) : 2 = 8.',
+    'Teile im zweiten Term jeden Summanden durch h.'))
+
+# --- einsetzen ---
+ST.leiter('einsetzen', 'die passende Formel wählen und Werte einsetzen',
+          'erst umstellen, dann einsetzen; Einheiten umrechnen (dm³, Minuten); Tarifformeln',
+          'Einheiten verknüpfen, Fehler bei vertauschten Größen, Dichte begründen, rückwärts zur Dichte, Durchschnittsgeschwindigkeit wie in einer Prüfung')
+T('einsetzen', (r'^Ein Fahrzeug|^Glas hat|^Eisen hat', 'direkt'), (r'Tarif', 'einkleidung'), (r'Widerstand|Gold|Lampe', 'umkehr'),
+  (r'dm³|Zug fährt', 'mehrschritt'), (r'Regentonne|Läuferin', 'verknuepfen'), (r'Linsen|dieselbe Zahl', 'transfer'))
+ST.neu('einsetzen', 'erkennen', SA('Welche Formel braucht man für die Frage „Wie lange dauert die Fahrt?“', 't = s : v', ['v = s : t', 's = v · t', 't = v : s'],
+    'Gesucht ist die Zeit t, also die nach t aufgelöste Formel t = s : v.', 'Welche Größe ist gesucht?'))
+ST.neu('einsetzen', 'fehler', SA('Für 120 km bei 80 km/h rechnet jemand t = v : s = 80 : 120 ≈ 0,67 h. Was stimmt?', 'Falsch: t = s : v = 120 : 80 = 1,5 h.',
+    ['Richtig.', 'Falsch: t = s · v = 9 600 h.', 'Falsch: t = 120 − 80 = 40 h.'], 'Bei 80 km pro Stunde braucht man für 120 km mehr als eine Stunde – 0,67 h kann nicht stimmen. Richtig: 120 : 80 = 1,5 h.', 'Überschlage: Wie weit kommt man in einer Stunde?'))
+ST.neu('einsetzen', 'begruenden', SA('Ein Holzwürfel und ein Eisenwürfel haben dasselbe Volumen. Was folgt aus m = ρ · V?', 'Der Eisenwürfel ist schwerer, weil Eisen die größere Dichte hat.',
+    ['Beide sind gleich schwer, weil das Volumen gleich ist.', 'Der Holzwürfel ist schwerer.', 'Man kann es ohne Volumenangabe nicht sagen.'],
+    'Bei gleichem V hängt m nur von ρ ab: größere Dichte, größere Masse.', 'Was ist in m = ρ · V gleich, was verschieden?'))
+ST.neu('einsetzen', 'rueckwaerts', SZ('Ein Metallwürfel mit 2 cm Kantenlänge wiegt 62,4 g. Welche Dichte hat das Metall?', 7.8, '624/10 / 2**3',
+    'V = 2 · 2 · 2 = 8 cm³. ρ = m : V = 62,4 : 8 = 7,8 g/cm³ (z. B. Eisen).', 'Berechne zuerst das Volumen des Würfels.', einheit='g/cm³'))
+ST.neu('einsetzen', 'pruefung', SZ('Ein Auto fährt 1 Stunde mit 60 km/h und danach 2 Stunden mit 90 km/h. Wie groß ist die Durchschnittsgeschwindigkeit für die ganze Fahrt?', 80, '(60 + 2 * 90) / 3',
+    'Strecke: 60 + 180 = 240 km. Zeit: 3 h. v = 240 : 3 = 80 km/h – nicht 75, weil länger mit 90 km/h gefahren wurde.', 'Berechne die Gesamtstrecke und die Gesamtzeit.', einheit='km/h'))
+ST.knobel('einsetzen', SZ('Ein Radfahrer fährt 6 km bergauf mit 12 km/h und dieselben 6 km bergab mit 36 km/h. Wie groß ist seine Durchschnittsgeschwindigkeit insgesamt?', 18, '12 / (6/12 + 6/36)',
+    'Bergauf: 6 : 12 = 0,5 h = 30 min. Bergab: 6 : 36 = 1/6 h = 10 min. Zusammen 12 km in 40 min = 2/3 h. v = 12 : 2/3 = 18 km/h – nicht der Mittelwert 24 km/h.',
+    'Der Mittelwert der Geschwindigkeiten ist eine Falle – rechne mit Strecke und Zeit.', einheit='km/h'))
+ST.knobel('einsetzen', SZ('100 cm³ Wasser (ρ = 1 g/cm³) und 100 cm³ Alkohol (ρ = 0,8 g/cm³) werden gemischt; es entstehen nur 192 cm³. Welche Dichte hat das Gemisch? Runde auf zwei Nachkommastellen.', 0.94, '(100 + 80) / 192',
+    'Massen: 100 g + 80 g = 180 g (Masse geht nicht verloren). Volumen 192 cm³. ρ = 180 : 192 = 0,9375 ≈ 0,94 g/cm³ – mehr als der Mittelwert 0,9, weil das Volumen schrumpft.',
+    'Was bleibt beim Mischen erhalten: das Volumen oder die Masse?', einheit='g/cm³', toleranz=0.01))
+
+# --- geometrie ---
+ST.leiter('geometrie', 'aus Fläche und Grundseite die Höhe (bzw. aus dem Umfang die Seite) berechnen',
+          'Volumenformeln von Quader, Prisma, Pyramide nach der Höhe auflösen, Sachmaße (Liter)',
+          'zwei Bedingungen verknüpfen (doppelt so lang, gleiches Volumen), Halbierungsfehler beim Dreieck, begründen, Term mit Parameter, Zelt wie in einer Prüfung')
+T('geometrie', (r'^Ein Parallelogramm|^Ein Quadrat', 'direkt'), (r'Prisma|Pyramide', 'umkehr'), (r'Aquarium', 'einkleidung'),
+  (r'^Ein Trapez hat A|Würfel', 'verknuepfen'), (r'doppelt so', 'transfer'), (r'Dreieck|Quader|Rechteck', 'mehrschritt'))
+ST.neu('geometrie', 'erkennen', SA('Welche Formel gehört zum Flächeninhalt eines Parallelogramms?', 'A = g · h', ['A = g · h : 2', 'A = (a + c) · h : 2', 'A = 4 · a'],
+    'Ein Parallelogramm lässt sich in ein Rechteck mit derselben Grundseite und Höhe umlegen: A = g · h.', 'Denk an das Umlegen zu einem Rechteck.'))
+ST.neu('geometrie', 'fehler', SA('Ein Dreieck hat A = 24 cm² und g = 8 cm. Jemand rechnet h = A : g = 3 cm. Was stimmt?', 'Falsch: h = 2 · A : g = 6 cm, weil A = g · h : 2.',
+    ['Richtig.', 'Falsch: h = g : A = 1/3 cm.', 'Falsch: h = A − g = 16 cm.'], 'Probe: 8 · 3 : 2 = 12, nicht 24. Mit h = 6: 8 · 6 : 2 = 24.', 'Mach die Probe mit der Dreiecksformel.'))
+ST.neu('geometrie', 'begruenden', SA('Ein Rechteck und ein Parallelogramm haben dieselbe Grundseite und denselben Flächeninhalt. Was gilt für ihre Höhen?', 'Sie sind gleich, denn bei beiden ist h = A : g.',
+    ['Das Parallelogramm ist höher, weil es schief ist.', 'Das Rechteck ist höher.', 'Man kann es nicht sagen.'], 'Beide Flächen berechnet man mit A = g · h. Gleiche A und gleiche g ergeben dieselbe Höhe.', 'Welche Formel gilt für beide Figuren?'))
+ST.neu('geometrie', 'parameter', SA('Ein Quader hat das Volumen V und die Grundfläche 4 cm mal a cm. Welcher Term gibt seine Höhe an?', 'h = V : (4a)', ['h = V − 4a', 'h = 4a : V', 'h = V : 4 + a'],
+    'V = 4 · a · h ⇒ h = V : (4 · a).', 'Stelle V = Länge · Breite · Höhe nach h um.'))
+ST.neu('geometrie', 'pruefung', SZ('Ein Zelt ist ein dreiseitiges Prisma: Die dreieckige Vorderseite ist 2 m breit und 1,5 m hoch, das Zelt ist 3 m lang. Ein zweites Zelt soll dasselbe Volumen haben, ist aber 2,5 m breit und genauso lang. Wie hoch muss es sein?', 1.2, '2 * 15/10 / (25/10)',
+    'Erstes Zelt: V = (2 · 1,5 : 2) · 3 = 4,5 m³. Zweites: (2,5 · h : 2) · 3 = 4,5 ⇒ 2,5 · h = 3 ⇒ h = 1,2 m.', 'Berechne erst das Volumen des ersten Zelts.', einheit='m'))
+ST.knobel('geometrie', SZ('Ein Quader hat drei verschiedene Seitenflächen mit 12 cm², 15 cm² und 20 cm². Wie groß ist sein Volumen?', 60, '3 * 4 * 5',
+    'Mit den Kanten a, b, c: ab = 12, bc = 15, ac = 20. Aus ab = 12 und ac = 20 folgt c : b = 20 : 12 = 5 : 3, also c = 5b : 3. Eingesetzt in bc = 15: b · 5b : 3 = 15 ⇒ b · b = 9 ⇒ b = 3 (positiv). Dann a = 12 : 3 = 4 und c = 15 : 3 = 5. V = 3 · 4 · 5 = 60 cm³.',
+    'Vergleiche zwei Flächen, die eine Kante gemeinsam haben.', einheit='cm³'))
+ST.knobel('geometrie', SZ('Ein Rechteck mit ganzzahligen Seitenlängen hat den Umfang 20 cm. Welchen größten Flächeninhalt kann es haben?', 25, '5 * 5',
+    'a + b = 10. Mögliche Flächen: 1 · 9 = 9, 2 · 8 = 16, 3 · 7 = 21, 4 · 6 = 24, 5 · 5 = 25. Am größten ist das Quadrat.', 'Liste alle Paare von Seitenlängen auf.', einheit='cm²'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('gleichungen.formeln', 22_8_4)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+TX.huerde_alt('ein_schritt', r'Ist die Stromstärke größer oder kleiner als 10 A', 'entscheidung')
+TX.huerde_alt('einsetzen', r'1 Stunde mit 60 km/h und danach 2 Stunden', 'zwei')
+TX.huerde_alt('einsetzen', r'Für 120 km bei 80 km/h rechnet jemand', 'entscheidung')
+
+# --- ein_schritt ---
+TX.u('ein_schritt', 'direkt', TZ('Ein Auto fährt gleichmäßig mit 80 km/h. Wie lange braucht es für 200 km? Nutze s = v · t.', '200 / 80',
+    TW('v = 80 km/h, s = 200 km.', 'Zeit t.', 's = v · t nach t umstellen: t = s : v.', 't = 200 : 80 = 2,5.', 'Es braucht 2,5 Stunden.'), 'Welche Größe ist gesucht, welche Rechnung macht „mal v“ rückgängig?', einheit='h'))
+TX.u('ein_schritt', 'einkleidung', TZ('Für eine Party werden 12 gleiche Flaschen Saft für zusammen 18 € gekauft. Es gilt Preis P = Anzahl n · Stückpreis p. Wie viel kostet eine Flasche?', '18 / 12',
+    TW('P = 18 €, n = 12.', 'Stückpreis p.', 'P = n · p nach p umstellen: p = P : n.', 'p = 18 : 12 = 1,5.', 'Eine Flasche kostet 1,50 €.'), 'Was ist hier gegeben, was gesucht?', einheit='€'))
+TX.u('ein_schritt', 'umkehr', TZ('Ein Messingstück hat die Dichte 8,5 g/cm³ und wiegt 170 g. Welches Volumen hat es? Stelle ρ = m : V passend um.', '170 / 8.5',
+    TW('ρ = 8,5 g/cm³, m = 170 g.', 'Volumen V.', 'ρ = m : V ⇒ V = m : ρ.', 'V = 170 : 8,5 = 20.', 'Das Stück hat 20 cm³.'), 'V steht im Nenner – erst mal V, dann durch ρ.', einheit='cm³'))
+TX.u('ein_schritt', 'rueckwaerts', TZ('Ein Lkw darf mit Ladung höchstens 7,5 t wiegen, leer wiegt er 3,9 t. Er soll Kies laden; 1 m³ Kies wiegt 1,8 t. Wie viele m³ Kies darf er höchstens laden?', '(7.5 - 3.9) / 1.8',
+    TW('Gesamt höchstens 7,5 t, leer 3,9 t, 1 m³ = 1,8 t.', 'erlaubtes Kiesvolumen.', 'Erst erlaubte Ladung, dann m = ρ · V nach V umstellen.', 'Ladung 7,5 − 3,9 = 3,6 t. V = 3,6 : 1,8 = 2.', 'Er darf höchstens 2 m³ Kies laden.'),
+    'Wie viel Tonnen darf die Ladung allein wiegen?', einheit='m³'), huerde='zwei')
+TX.s('ein_schritt', TZ('Ein Radfahrer fährt gleichmäßig mit 18 km/h. Wie lange braucht er für 27 km? Stelle s = v · t nach t um.', '27 / 18',
+    TW('v = 18 km/h, s = 27 km.', 'Zeit t.', 't = s : v.', 't = 27 : 18 = 1,5.', 'Er braucht 1,5 Stunden.'), einheit='h'))
+TX.k('ein_schritt', TZ('Ein rechteckiges Beet soll 24 m² groß und 3 m breit sein. Wie lang muss es sein? Stelle A = a · b nach a um.', '24 / 3',
+    TW('A = 24 m², b = 3 m.', 'Länge a.', 'a = A : b.', 'a = 24 : 3 = 8.', 'Das Beet muss 8 m lang sein.'), einheit='m'))
+
+# --- zwei_schritte ---
+TX.u('zwei_schritte', 'direkt', TZ('Ein Taxi berechnet K = 4 + 2 · s (K in €, s in km). Die Fahrt kostete 18 €. Wie viele km war sie lang?', '(18 - 4) / 2',
+    TW('K = 18 €, 4 € Grundpreis, 2 € pro km.', 'Strecke s.', 'Erst 4 abziehen, dann durch 2.', 's = (18 − 4) : 2 = 7.', 'Die Fahrt war 7 km lang.'), 'Was wurde zuletzt gerechnet – und was machst du darum zuerst rückgängig?', einheit='km'))
+TX.u('zwei_schritte', 'einkleidung', TZ('Ein Fitnessstudio kostet im Monat K = 25 + 3 · b (b Besuche, K in €). Im Mai waren es 61 €. Wie oft war die Kundin im Mai dort?', '(61 - 25) / 3',
+    TW('K = 61 €, 25 € fest, 3 € pro Besuch.', 'Anzahl der Besuche b.', 'b = (K − 25) : 3.', 'b = 36 : 3 = 12.', 'Sie war 12-mal dort.'), 'Wie viel Geld fällt allein auf die Besuche?'))
+TX.u('zwei_schritte', 'pruefung', TZ('Eine Autovermietung rechnet K = 39 + 0,25 · s (s gefahrene km, K in €). Das Auto hat 5 Sitze und braucht 6 l auf 100 km. Die Rechnung lautet 89 €. Wie viele km wurde gefahren?', '(89 - 39) / 0.25',
+    TW('K = 89 €, 39 € fest, 0,25 € pro km. Sitze und Verbrauch spielen keine Rolle.', 'Strecke s.', 's = (K − 39) : 0,25.', 's = 50 : 0,25 = 200.', 'Es wurden 200 km gefahren.'),
+    'Welche Angaben kommen in der Formel überhaupt vor?', einheit='km'), huerde='ueberfluessig')
+TX.u('zwei_schritte', 'transfer', TX.A('Tarif A kostet K = 10 + 0,2 · m, Tarif B kostet K = 0,3 · m (m Minuten im Monat, K in €). Jemand telefoniert etwa 120 Minuten im Monat. Welcher Tarif ist günstiger?',
+    'Tarif A (34 € statt 36 €).', ['Tarif B, weil er keine Grundgebühr hat.', 'Beide kosten gleich viel.', 'Tarif B (24 € statt 34 €).'],
+    TW('A: 10 + 0,2m, B: 0,3m, m = 120.', 'günstigerer Tarif.', 'Beide Kosten für m = 120 berechnen.', 'A: 10 + 24 = 34 €. B: 36 €.', 'Bei 120 Minuten ist Tarif A günstiger.'), 'Setze 120 in beide Formeln ein.'), huerde='entscheidung')
+TX.s('zwei_schritte', TZ('Für eine Schulfeier gilt: Kosten K = 120 + 4,5 · n (n Gäste, K in €). Es stehen 300 € bereit. Wie viele Gäste können kommen?', '(300 - 120) / 4.5',
+    TW('K = 300 €, 120 € fest, 4,50 € pro Gast.', 'Gästezahl n.', 'n = (K − 120) : 4,5.', 'n = 180 : 4,5 = 40.', 'Es können 40 Gäste kommen.')))
+
+# --- pruefen ---
+TX.u('pruefen', 'erkennen', TX.A('Hefte kosten 2,50 € pro Stück: P = 2,5 · n. Ein Kind will aus dem Preis die Anzahl berechnen und schreibt n = P · 2,5. Stimmt das?', 'Nein, richtig ist n = P : 2,5.',
+    ['Ja, das stimmt.', 'Nein, richtig ist n = 2,5 : P.', 'Nein, richtig ist n = P − 2,5.'],
+    TW('P = 2,5 · n.', 'richtige Umstellung nach n.', '„mal 2,5“ wird durch „geteilt durch 2,5“ rückgängig gemacht.', 'Probe: 4 Hefte kosten 10 €; 10 · 2,5 = 25 ≠ 4, aber 10 : 2,5 = 4.', 'Richtig ist n = P : 2,5.'), 'Probiere mit 4 Heften aus.'))
+TX.u('pruefen', 'einkleidung', TZ('Ein Kino rechnet für Gruppen K = 20 + 6 · n (n Personen, K in €). Jemand stellt um zu n = K : 6 − 20 und setzt K = 80 ein. Wie viele Personen waren es wirklich?', '(80 - 20) / 6',
+    TW('K = 80 €, 20 € fest, 6 € pro Person; Umstellung n = K : 6 − 20.', 'richtige Personenzahl.', 'Richtig umgestellt: n = (K − 20) : 6.', 'n = 60 : 6 = 10. (Die falsche Umstellung gibt eine negative Zahl.)', 'Es waren 10 Personen.'),
+    'Welche Rechnung muss zuerst rückgängig gemacht werden?'))
+TX.u('pruefen', 'mehrschritt', TZ('Eine Kerze ist nach t Stunden h = 24 − 1,5 · t (in cm) hoch. Jemand stellt nach t um: t = (24 − h) : 1,5. Prüfe mit h = 15: Nach wie vielen Stunden ist die Kerze 15 cm hoch?', '(24 - 15) / 1.5',
+    TW('h = 24 − 1,5t, h = 15 cm.', 'Zeit t (und ob die Umstellung stimmt).', 'Einsetzen in die Umstellung, mit der Ausgangsformel prüfen.', 't = 9 : 1,5 = 6. Probe: 24 − 1,5 · 6 = 15 ✓.', 'Nach 6 Stunden – die Umstellung stimmt.'), 'Setze ein und mache die Probe.', einheit='h'))
+TX.u('pruefen', 'pruefung', TZ('Ein Paketdienst berechnet K = 4,90 + 0,8 · m (m in kg, K in €). Ein 60 cm langes Paket kostet 9,70 €. Jemand stellt um zu m = (K − 4,90) : 0,8. Wie schwer ist das Paket?', '(9.7 - 4.9) / 0.8',
+    TW('K = 9,70 €; Länge spielt keine Rolle; Umstellung prüfen.', 'Masse m.', 'Die Umstellung ist richtig: erst 4,90 abziehen, dann durch 0,8.', 'm = 4,8 : 0,8 = 6.', 'Das Paket wiegt 6 kg.'),
+    'Welche Angabe hat mit der Formel nichts zu tun?', einheit='kg'), huerde='ueberfluessig')
+TX.u('pruefen', 'transfer', TX.A('Für die Höhe eines Weges gilt h = s · p : 100 (s Weglänge in m, p Steigung in %). Jemand stellt nach s um: s = h · 100 : p. Ein Weg steigt mit 8 % auf 24 m Höhe. Was stimmt?',
+    'Die Umstellung stimmt, der Weg ist 300 m lang.', ['Falsch, richtig wäre s = h · p : 100 = 1,92 m.', 'Die Umstellung stimmt, der Weg ist 3 m lang.', 'Falsch, richtig wäre s = p : h · 100.'],
+    TW('h = 24 m, p = 8 %; Umstellung s = h · 100 : p.', 'Ist die Umstellung richtig, wie lang ist der Weg?', 'Erst prüfen, dann einsetzen.', 'h = s · p : 100 ⇒ s = h · 100 : p. s = 2 400 : 8 = 300. Probe: 300 · 8 : 100 = 24 ✓.', 'Die Umstellung stimmt; der Weg ist 300 m lang.'),
+    'Mache die Probe mit der Ausgangsformel.'), huerde='entscheidung')
+TX.u('pruefen', 'verknuepfen', TZ('Ein rechteckiger Pool ist 8 m lang und 4 m breit, pro Stunde fließen 1 600 l hinein. Jemand rechnet für 2 Stunden mit h = V : G: h = 3 200 : 32 = 100 cm. Wie hoch steht das Wasser wirklich in cm?', '3.2 / 32 * 100',
+    TW('G = 32 m², V = 3 200 l nach 2 h.', 'Wasserhöhe in cm.', 'Einheiten passend machen: 3 200 l = 3,2 m³, dann h = V : G.', 'h = 3,2 : 32 = 0,1 m = 10 cm.', 'Das Wasser steht 10 cm hoch – Liter und m² passen nicht zusammen.'),
+    'In welcher Einheit muss V stehen, wenn G in m² gegeben ist?', einheit='cm'), huerde='fehlend')
+TX.s('pruefen', TZ('Beim Wandern gilt t = s : 4 (s in km, t in h). Jemand stellt nach s um und schreibt s = t : 4. Wie weit kommt man in 3 Stunden wirklich?', '3 * 4',
+    TW('t = s : 4, t = 3 h.', 'Strecke s.', 'Richtig umgestellt: s = 4 · t.', 's = 4 · 3 = 12.', 'Man kommt 12 km weit.'), einheit='km'))
+TX.s('pruefen', TZ('Für den Strom gilt K = 12 + 0,3 · E (E in kWh, K in €). Jemand stellt um zu E = (K − 12) : 0,3. Wie viele kWh wurden bei 87 € verbraucht?', '(87 - 12) / 0.3',
+    TW('K = 87 €.', 'Verbrauch E.', 'Die Umstellung ist richtig.', 'E = 75 : 0,3 = 250.', 'Es wurden 250 kWh verbraucht.'), einheit='kWh'))
+TX.k('pruefen', TZ('Ein Handwerker berechnet K = 50 + 40 · t (t Stunden, K in €). Jemand stellt um zu t = K : 40 − 50. Wie viele Stunden wurden bei 210 € wirklich gearbeitet?', '(210 - 50) / 40',
+    TW('K = 210 €.', 'Arbeitszeit t.', 'Richtig umgestellt: t = (K − 50) : 40.', 't = 160 : 40 = 4.', 'Es wurden 4 Stunden gearbeitet.'), einheit='h'))
+
+# --- geometrie ---
+TX.u('geometrie', 'direkt', TZ('Ein rechteckiger Teppich soll 12 m² groß und 3 m breit sein. Wie lang ist er?', '12 / 3',
+    TW('A = 12 m², b = 3 m.', 'Länge a.', 'A = a · b ⇒ a = A : b.', 'a = 12 : 3 = 4.', 'Der Teppich ist 4 m lang.'), 'Welche Formel gehört zum Rechteck?', einheit='m'))
+TX.u('geometrie', 'einkleidung', TZ('Ein dreieckiges Segel hat 7,5 m² Fläche, seine untere Kante ist 3 m lang. Wie hoch ist das Segel?', '2 * 7.5 / 3',
+    TW('A = 7,5 m², g = 3 m.', 'Höhe h.', 'A = g · h : 2 ⇒ h = 2 · A : g.', 'h = 15 : 3 = 5.', 'Das Segel ist 5 m hoch.'), 'Vergiss das „: 2“ der Dreiecksformel nicht.', einheit='m'))
+TX.u('geometrie', 'umkehr', TZ('Der Zaun um ein rechteckiges Grundstück ist 86 m lang. Das Grundstück ist 25 m lang. Wie breit ist es?', '86 / 2 - 25',
+    TW('u = 86 m, a = 25 m.', 'Breite b.', 'u = 2 · (a + b) ⇒ b = u : 2 − a.', 'b = 43 − 25 = 18.', 'Es ist 18 m breit.'), 'Wie lang sind eine Länge und eine Breite zusammen?', einheit='m'))
+TX.u('geometrie', 'pruefung', TZ('Eine Garage ist ein Quader mit 18 m² Grundfläche und 45 m³ Volumen. Ihr Tor ist 2,4 m breit. Wie hoch ist die Garage?', '45 / 18',
+    TW('G = 18 m², V = 45 m³; die Torbreite spielt keine Rolle.', 'Höhe h.', 'V = G · h ⇒ h = V : G.', 'h = 45 : 18 = 2,5.', 'Die Garage ist 2,5 m hoch.'), 'Welche Formel verbindet Volumen und Grundfläche?', einheit='m'), huerde='ueberfluessig')
+TX.u('geometrie', 'begruenden', TX.A('Ein trapezförmiges Beet soll 30 m² groß werden, seine parallelen Seiten sind 7 m und 5 m lang. Der Garten ist 6 m tief. Passt das Beet in den Garten?',
+    'Ja, das Beet ist 5 m tief.', ['Nein, es braucht 10 m Tiefe.', 'Ja, es braucht genau 6 m.', 'Nein, es braucht 7 m.'],
+    TW('A = 30 m², a = 7 m, c = 5 m, Garten 6 m tief.', 'Höhe h und Entscheidung.', 'A = (a + c) : 2 · h ⇒ h = 2 · A : (a + c).', 'h = 60 : 12 = 5.', 'Es passt: Das Beet ist 5 m tief, der Garten 6 m.'),
+    'Berechne die Höhe des Trapezes und vergleiche.'), huerde='entscheidung')
+TX.s('geometrie', TZ('Ein Grundstück hat die Form eines Parallelogramms: 600 m² groß, die Straßenseite (Grundseite) ist 30 m lang. Wie tief ist es (Höhe)?', '600 / 30',
+    TW('A = 600 m², g = 30 m.', 'Höhe h.', 'h = A : g.', 'h = 600 : 30 = 20.', 'Es ist 20 m tief.'), einheit='m'))
+TX.s('geometrie', TZ('Ein rechteckiges Fenster hat 1,8 m² Glas und ist 1,2 m breit. Wie hoch ist es?', '1.8 / 1.2',
+    TW('A = 1,8 m², b = 1,2 m.', 'Höhe.', 'A = b · h ⇒ h = A : b.', 'h = 1,8 : 1,2 = 1,5.', 'Das Fenster ist 1,5 m hoch.'), einheit='m'))
+TX.k('geometrie', TZ('Ein quaderförmiges Becken fasst 24 m³, es ist 4 m lang und 3 m breit. Wie tief ist es?', '24 / (4 * 3)',
+    TW('V = 24 m³, Grundfläche 4 m · 3 m.', 'Tiefe h.', 'h = V : G.', 'G = 12 m². h = 24 : 12 = 2.', 'Das Becken ist 2 m tief.'), einheit='m'))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Umstellen', ['ein_schritt', 'zwei_schritte', 'pruefen']), ('Anwenden', ['einsetzen', 'geometrie'])],
          'Formeln aus Geometrie, Physik und Alltag nach einer gesuchten Größe auflösen und damit rechnen.',
          ['Umkehrrechnung: Mal ↔ Geteilt, Plus ↔ Minus.', 'Rückwärts vorgehen: Was zuletzt gerechnet wurde, wird zuerst rückgängig gemacht.',
           'Probe mit Zahlen zeigt, ob eine Umstellung stimmt.'])
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('gleichungen.formeln')
+# ---- BEREINIGEN ENDE ----

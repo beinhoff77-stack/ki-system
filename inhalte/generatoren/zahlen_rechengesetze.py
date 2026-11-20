@@ -662,125 +662,822 @@ DATEI = {
     'aufgaben': baue(R, ETAPPEN, GEN, TEIL, je_stufe=5),
 }
 
-# Verständliche Fassung (Siebte Runde, 15.11.): Alltagssituation zuerst (einstieg), jedes neue Wort erklärt (woerter),
-# Beispiel in kleinen Schritten, Merksatz am Ende (regel). Durchgehende Situationen: Kinobesuch, Einkaufen, Konto.
-# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _klar_kl5.py) – die Aufgaben bleiben wörtlich gleich.
-from _klar_kl5 import klar  # noqa: E402
+# Umbau U5 (Achte Runde, Vorgabe 16.11.): Lernkarten nach dem neuen Muster – einstieg, woerter (≤ 3), Kartenbild,
+# Bildergeschichte (schritte mit bild), „Pass auf!“ (fehler + fehler_bild), MERKE (regel). Situationen: Kino, Einkauf, Konto, Verein.
+# Rechentabellen (Typ tabelle) füllen sich Schritt für Schritt; Rechenbaum (Typ baum) für den Aufbau eines Terms.
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl5.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl5 import umbau  # noqa: E402
 
-KLAR = {
+KOPF = ['Was', 'Rechnung', 'Euro']
+BAUM = lambda plus, mal: {'typ': 'baum', 'aeste': [{'text': plus, 'aeste': [{'text': '3'}, {'text': mal, 'aeste': [{'text': '4'}, {'text': '5'}]}]}]}
+
+KARTEN = {
  'punkt_strich': {
-  'einstieg': 'Du gehst mit drei Freunden ins Kino. Für alle vier kaufst du Karten zu je 5 €, dazu eine Tüte Popcorn für 3 €. Was kostet das zusammen? Zuerst rechnest du die Karten aus, dann kommt das Popcorn dazu. Diese feste Reihenfolge heißt ⟦Punkt vor Strich⟧.',
-  'woerter': [['Term', 'eine Rechnung aus Zahlen und Rechenzeichen, zum Beispiel 3 + 4 · 5'], ['·', 'das Malzeichen: 4 · 5 heißt „4 mal 5“'], [':', 'das Geteiltzeichen: 20 : 4 heißt „20 geteilt durch 4“'],
-              ['Punktrechnung', 'mal (·) und geteilt (:) – ihre Zeichen sind Punkte'], ['Strichrechnung', 'plus (+) und minus (−) – ihre Zeichen sind Striche'],
-              ['gleichrangig', 'gleich wichtig: zwei Punktrechnungen oder zwei Strichrechnungen']],
-  'schritte': ['Die Rechnung für den Kinobesuch heißt 3 + 4 · 5. Darin stehen ein Strich (+) und ein Punkt (·).',
-               'Zuerst kommt die Punktrechnung: 4 Karten zu je 5 € kosten 4 · 5 = 20 €.',
-               'Dann die Strichrechnung: 3 + 20 = ⟦23⟧. Der Kinobesuch kostet 23 €.',
-               'Stehen nur Striche oder nur Punkte da, rechnest du von links nach rechts: 20 − 5 + 2 = 15 + 2 = ⟦17⟧.'],
-  'regel': 'So gehst du vor: ⟦Punktrechnung⟧ (mal, geteilt) zuerst, dann ⟦Strichrechnung⟧ (plus, minus). Was gleichrangig ist, rechnest du ⟦von links nach rechts⟧.',
-  'fehler': 'Stur von links nach rechts: 3 + 4 = 7 und 7 · 5 = 35 ist falsch. Das wären 7 Kinokarten – gekauft hast du aber nur 4. Erst ⟦4 · 5⟧, dann plus 3.'},
+  'einstieg': 'Du kaufst 4 Kinokarten zu je 5 € und ein Popcorn für 3 €. Erst rechnest du die Karten aus, dann kommt das Popcorn dazu. Diese Reihenfolge heißt ⟦Punkt vor Strich⟧.',
+  'woerter': [['·', 'das Malzeichen: 4 · 5 heißt „4 mal 5“'], ['Punktrechnung', 'mal (·) und geteilt (:)'], ['Strichrechnung', 'plus (+) und minus (−)']],
+  'bild': {'typ': 'tabelle', 'kopf': KOPF, 'zeilen': [['Karten', '4 · 5', '?'], ['Popcorn', '3', '3'], ['zusammen', '3 + 4 · 5', '?']]},
+  'schritte': [{'text': 'Die Rechnung für den Kinobesuch heißt 3 + 4 · 5.'},
+               {'text': 'Punktrechnung zuerst: 4 · 5 = 20. Die Karten kosten 20 €.',
+                'bild': {'zeilen': [['Karten', '4 · 5', '20'], ['Popcorn', '3', '3'], ['zusammen', '3 + 4 · 5', '?']]}},
+               {'text': 'Dann die Strichrechnung: 3 + 20 = ⟦23⟧.',
+                'bild': {'zeilen': [['Karten', '4 · 5', '20'], ['Popcorn', '3', '3'], ['zusammen', '3 + 20', '23']]}}],
+  'fehler': 'Stur von links rechnen: 3 + 4 = 7, dann 7 · 5 = 35. Das wären 7 Kinokarten – gekauft hast du nur 4.',
+  'fehler_bild': {'zeilen': [['falsch', '7 · 5', '35'], ['richtig', '3 + 20', '23']]},
+  'regel': '⟦Punktrechnung⟧ kommt vor Strichrechnung. Sonst rechnest du von links nach rechts.'},
  'klammern': {
-  'einstieg': 'Diesmal kostet für jede Person die Karte 3 € und ein Popcorn-Menü 4 €, und ihr seid 5 Personen. Jetzt musst du zuerst ausrechnen, was eine Person zahlt (3 + 4), und erst dann mal 5 nehmen. Damit jeder sieht, was zuerst kommt, setzt man ⟦Klammern⟧: (3 + 4) · 5.',
-  'woerter': [['( )', 'runde Klammern: Was darin steht, wird zuerst gerechnet'], ['[ ]', 'eckige Klammern: eine äußere Klammer, in der noch eine runde Klammer steht'],
-              ['Klammer in Klammer', 'eine Klammer steht in einer anderen; die innere kommt zuerst dran']],
-  'schritte': ['Rechne (3 + 4) · 5. Zuerst die Klammer: 3 + 4 = 7. Eine Person zahlt 7 €.',
-               'Dann mal 5 für fünf Personen: 7 · 5 = ⟦35⟧.',
-               'Klammer in Klammer: 2 · (10 − (3 + 4)). Beginne ganz innen: 3 + 4 = 7.',
-               'Dann die äußere Klammer: 10 − 7 = 3. Zum Schluss 2 · 3 = ⟦6⟧.'],
-  'regel': 'So gehst du vor: ⟦Klammern zuerst⟧. Stehen Klammern ineinander, rechnest du ⟦von innen nach außen⟧. Danach gilt Punkt vor Strich.',
-  'fehler': 'Die Klammer übersehen und Punkt vor Strich rechnen: (3 + 4) · 5 = 3 + 20 = 23 ist falsch. Das wäre eine einzige Karte und 5 Menüs – gemeint war aber Karte und Menü für jede Person. Erst ⟦3 + 4⟧, dann mal 5. Richtig ist 35.'},
+  'einstieg': 'Für jede Person kostet die Karte 3 € und das Menü 4 €. Ihr seid 5 Personen. Erst den Preis pro Person, dann mal 5: Das zeigen ⟦Klammern⟧.',
+  'woerter': [['Klammern ( )', 'Was in der Klammer steht, rechnest du zuerst'], ['(3 + 4) · 5', 'gelesen „3 plus 4, das Ganze mal 5“']],
+  'bild': {'typ': 'tabelle', 'kopf': KOPF, 'zeilen': [['1 Person', '3 + 4', '?'], ['5 Personen', '(3 + 4) · 5', '?']]},
+  'schritte': [{'text': 'Rechne (3 + 4) · 5. Klammer zuerst: 3 + 4 = 7.', 'bild': {'zeilen': [['1 Person', '3 + 4', '7'], ['5 Personen', '(3 + 4) · 5', '?']]}},
+               {'text': 'Eine Person zahlt 7 €. Für 5 Personen: 7 · 5 = ⟦35⟧.', 'bild': {'zeilen': [['1 Person', '3 + 4', '7'], ['5 Personen', '7 · 5', '35']]}}],
+  'fehler': 'Die Klammer übersehen: 3 + 4 · 5 = 23. Das wären eine Karte und 5 Menüs statt 5-mal Karte und Menü.',
+  'fehler_bild': {'zeilen': [['ohne Klammer', '3 + 4 · 5', '23'], ['mit Klammer', '(3 + 4) · 5', '35']]},
+  'regel': 'Klammern rechnest du ⟦zuerst⟧. Stecken Klammern ineinander, fängst du innen an. Danach gilt Punkt vor Strich.'},
  'termaufbau': {
-  'einstieg': 'Wenn du jemandem die Kino-Rechnung beschreibst, sagst du, was am Ende passiert: „Zu den Karten kommt noch das Popcorn dazu.“ Die letzte Rechnung ist hier ein Plus. Für jede Rechenart, die zuletzt kommt, hat Mathe einen eigenen Namen. Damit beschreibst du den ⟦Aufbau eines Terms⟧.',
-  'woerter': [['Summe', 'ein Term, bei dem zuletzt addiert (plus) wird'], ['Differenz', 'ein Term, bei dem zuletzt subtrahiert (minus) wird'],
-              ['Produkt', 'ein Term, bei dem zuletzt multipliziert (mal) wird'], ['Quotient', 'ein Term, bei dem zuletzt dividiert (geteilt) wird'],
-              ['Faktor', 'eine Zahl in einer Malrechnung: Bei 4 · 5 sind 4 und 5 die Faktoren'],
-              ['addieren, subtrahieren, multiplizieren, dividieren', 'plus, minus, mal und geteilt rechnen']],
-  'schritte': ['Sieh dir 3 + 4 · 5 an. Frage dich: Was rechnest du zuerst, was zuletzt?',
-               'Wegen Punkt vor Strich rechnest du zuerst 4 · 5 = 20 und zuletzt 3 + 20.',
-               'Die letzte Rechnung ist ein Plus. Darum ist der Term eine ⟦Summe⟧.',
-               'Genauer gesagt: Es ist die Summe aus 3 und dem ⟦Produkt⟧ von 4 und 5.'],
-  'regel': 'So bestimmst du die Art eines Terms: Suche die Rechnung, die du ⟦zuletzt⟧ ausführst. Plus → ⟦Summe⟧, Minus → ⟦Differenz⟧, Mal → ⟦Produkt⟧, Geteilt → ⟦Quotient⟧.',
-  'fehler': '3 + 4 · 5 ein Produkt nennen, weil ein Malpunkt vorkommt, ist falsch. Beim Kino kommt am Ende das Popcorn ⟦dazu⟧: Die letzte Rechnung ist das Plus, also ist es eine Summe.'},
+  'einstieg': 'Beschreibst du die Kino-Rechnung, sagst du: Zu den Karten kommt das Popcorn dazu. Am Ende wird also addiert. Nach seiner letzten Rechnung bekommt jeder ⟦Term⟧ einen Namen.',
+  'woerter': [['Term', 'eine Rechnung aus Zahlen und Rechenzeichen, zum Beispiel 3 + 4 · 5'], ['Summe', 'ein Term, bei dem zuletzt plus gerechnet wird'],
+              ['Produkt', 'ein Term, bei dem zuletzt mal gerechnet wird']],
+  'bild': BAUM('+', '·'),
+  'schritte': [{'text': 'Bei 3 + 4 · 5 rechnest du zuerst 4 · 5 = 20.', 'bild': BAUM('+', '· zuerst')},
+               {'text': 'Zuletzt kommt 3 + 20. Die letzte Rechnung ist ein Plus.', 'bild': BAUM('+ zuletzt', '· zuerst')},
+               {'text': 'Darum ist der Term eine ⟦Summe⟧: aus 3 und dem Produkt 4 · 5.'}],
+  'fehler': 'Den Term „Produkt“ nennen, weil ein Malpunkt vorkommt, ist falsch. Am Ende kommt das Popcorn dazu: Die letzte Rechnung ist plus.',
+  'regel': 'Der Name richtet sich nach der ⟦letzten Rechnung⟧. Plus: Summe, minus: Differenz, mal: Produkt, geteilt: Quotient.'},
  'vorteil': {
-  'einstieg': 'An der Kasse legst du deine Einkäufe in irgendeiner Reihenfolge auf das Band – der Preis am Ende ist trotzdem derselbe. Das kannst du beim Rechnen nutzen: Fasse Zahlen so zusammen, dass glatte Ergebnisse entstehen. Bei Plus und bei Mal ist das immer erlaubt. Diese Regeln heißen ⟦Rechengesetze⟧.',
-  'woerter': [['Rechengesetz', 'eine Regel, die immer gilt und dir das Rechnen leichter macht'], ['a, b, c', 'Platzhalter für beliebige Zahlen'],
-              ['Vertauschungsgesetz', 'a + b = b + a und a · b = b · a: Die Reihenfolge ist egal (Fachwort: Kommutativgesetz)'],
-              ['Verbindungsgesetz', '(a + b) + c = a + (b + c), ebenso bei Mal: Man darf anders zusammenfassen (Fachwort: Assoziativgesetz)'],
-              ['glatte Zahl', 'eine Zahl wie 10, 100 oder 1 000, mit der man leicht weiterrechnet']],
-  'schritte': ['Rechne 25 · 7 · 4. Von links nach rechts wäre 25 · 7 mühsam.',
-               'Beim Malnehmen darfst du tauschen. Hol die 4 nach vorn zur 25: 25 · 4 · 7.',
-               '25 · 4 = 100 ist eine glatte Zahl.',
-               'Dann ist 100 · 7 = ⟦700⟧.'],
-  'regel': 'So rechnest du geschickt: Bei ⟦Plus⟧ und bei ⟦Mal⟧ darfst du die Zahlen ⟦tauschen⟧ und ⟦beliebig zusammenfassen⟧. Suche Paare, die glatte Zahlen ergeben: 25 · 4 = 100, 37 + 63 = 100.',
-  'fehler': 'Auch bei Minus oder Geteilt tauschen: 10 − 3 = 7, aber 3 − 10 = −7. Wer 10 € hat und 3 € ausgibt, steht anders da als jemand mit 3 €, der 10 € ausgibt. Tauschen geht nur bei ⟦Plus und Mal⟧.'},
+  'einstieg': 'An der Kasse ist egal, in welcher Reihenfolge deine Sachen aufs Band kommen. Der Preis bleibt gleich. Bei plus und mal darfst du deshalb ⟦tauschen⟧.',
+  'woerter': [['tauschen', 'die Reihenfolge ändern; erlaubt bei plus und mal (Fachwort: Kommutativgesetz)'],
+              ['zusammenfassen', 'zwei Zahlen zuerst miteinander rechnen (Fachwort: Assoziativgesetz)'], ['glatte Zahl', 'eine Zahl wie 10, 100 oder 1 000']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Weg', 'Rechnung', 'Ergebnis'], 'zeilen': [['von links', '25 · 7 · 4', 'mühsam'], ['getauscht', '25 · 4 · 7', '?']]},
+  'schritte': [{'text': 'Rechne 25 · 7 · 4. Von links wäre 25 · 7 mühsam.'},
+               {'text': 'Tausche die 4 nach vorn. Dann 25 · 4 zusammenfassen.'},
+               {'text': '25 · 4 = 100 ist eine glatte Zahl.', 'bild': {'zeilen': [['von links', '25 · 7 · 4', 'mühsam'], ['getauscht', '100 · 7', '?']]}},
+               {'text': '100 · 7 = ⟦700⟧.', 'bild': {'zeilen': [['von links', '25 · 7 · 4', 'mühsam'], ['getauscht', '100 · 7', '700']]}}],
+  'fehler': 'Bei minus tauschen ist falsch. 10 − 3 = 7, aber 3 − 10 = −7. Tauschen geht nur bei plus und mal.',
+  'fehler_bild': {'kopf': ['Rechnung', 'Ergebnis'], 'zeilen': [['10 − 3', '7'], ['3 − 10', '−7']]},
+  'regel': 'Bei plus und mal darfst du ⟦tauschen⟧ und zusammenfassen. Suche Paare mit glatten Ergebnissen: 25 · 4 = 100.'},
  'differenz_summe': {
-  'einstieg': 'Du hast 47 € und kaufst ein Buch für 18 €. Danach schenkt dir deine Oma 13 €. Im Kopf rechnest du lieber zuerst 47 + 13 = 60 und ziehst dann die 18 ab. Das darfst du, wenn du beachtest: Das Minus gehört zur 18. Denn jede ⟦Differenz⟧ lässt sich als ⟦Summe⟧ schreiben.',
-  'woerter': [['Rechenzeichen', 'das Zeichen +, −, · oder : zwischen zwei Zahlen'], ['47 + (−18)', 'dasselbe wie 47 − 18: Die Zahl −18 wird dazugezählt'],
-              ['Zeichen mitnehmen', 'Wenn du eine Zahl verschiebst, wandert das Zeichen davor mit ihr']],
-  'schritte': ['Die Rechnung heißt 47 − 18 + 13. Das Minus gehört zur 18, das Plus zur 13.',
-               'Schreibe sie als Summe: 47 + (−18) + 13. Bei einer Summe darfst du tauschen.',
-               'Hol die 13 mit ihrem Plus nach vorn. Das Minus bleibt bei der 18: 47 + 13 − 18.',
-               'Jetzt geht es leicht: 47 + 13 = 60, und 60 − 18 = ⟦42⟧. Du hast 42 €.'],
-  'regel': 'So tauschst du bei Plus und Minus: Jedes ⟦Rechenzeichen gehört zur Zahl dahinter⟧. Wenn du eine Zahl verschiebst, nimmst du ihr Zeichen ⟦mit⟧: 47 − 18 + 13 = 47 + 13 − 18.',
-  'fehler': '47 − 18 + 13 = 47 − 31 = 16 ist falsch. Dabei ist die 13 mit unter das Minus geraten. Die 13 € bekommst du aber ⟦dazu⟧, du gibst sie nicht aus.'},
+  'einstieg': 'Du hast 47 €, kaufst ein Buch für 18 € und bekommst 13 € geschenkt. Lieber rechnest du zuerst 47 + 13 = 60. Das geht, wenn jedes ⟦Rechenzeichen⟧ mitwandert.',
+  'woerter': [['Rechenzeichen', '+, −, · oder : zwischen zwei Zahlen'], ['mitwandert', 'Beim Tauschen nimmt jede Zahl das Zeichen vor ihr mit']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Reihenfolge', 'Rechnung', 'Euro'], 'zeilen': [['wie es kam', '47 − 18 + 13', '?']]},
+  'schritte': [{'text': 'Das Minus gehört zur 18, das Plus zur 13.'},
+               {'text': 'Hol + 13 mit seinem Zeichen nach vorn: 47 + 13 − 18.',
+                'bild': {'zeilen': [['wie es kam', '47 − 18 + 13', '?'], ['getauscht', '47 + 13 − 18', '?']]}},
+               {'text': '47 + 13 = 60, dann 60 − 18 = ⟦42⟧.', 'bild': {'zeilen': [['wie es kam', '47 − 18 + 13', '42'], ['getauscht', '60 − 18', '42']]}}],
+  'fehler': '47 − 18 + 13 = 47 − 31 = 16 ist falsch. Die 13 € bekommst du dazu, du gibst sie nicht aus.',
+  'fehler_bild': {'zeilen': [['falsch', '47 − 31', '16'], ['richtig', '60 − 18', '42']]},
+  'regel': 'Jedes Rechenzeichen gehört zur ⟦Zahl dahinter⟧. Beim Tauschen nimmt die Zahl ihr Zeichen mit.'},
  'verteilen': {
-  'einstieg': 'Ein Sportverein kauft 7 Taschen zu je 98 €. 7 · 98 im Kopf ist schwer. Aber 98 € sind 2 € weniger als 100 €. Also rechnest du so, als würde jede Tasche 100 € kosten, und ziehst danach für jede Tasche 2 € ab. Dieses Rechengesetz heißt ⟦Verteilungsgesetz⟧.',
-  'woerter': [['Verteilungsgesetz', 'Eine Zahl mal eine Klammer heißt: mit jedem Teil der Klammer malnehmen (Fachwort: Distributivgesetz)'],
-              ['ausklammern', 'rückwärts: eine Zahl, die in beiden Malrechnungen vorkommt, vor eine Klammer ziehen'],
-              ['gemeinsamer Faktor', 'die Zahl, die in beiden Malrechnungen vorkommt, zum Beispiel die 6 in 6 · 13 + 6 · 7']],
-  'schritte': ['Schreibe 98 als 100 − 2. Dann heißt die Rechnung 7 · (100 − 2).',
-               'Stell dir vor, jede Tasche kostet 100 €: 7 · 100 = 700 €.',
-               'Das sind für jede der 7 Taschen 2 € zu viel, zusammen 7 · 2 = 14 €.',
-               'Ziehe sie ab: 700 − 14 = ⟦686⟧. Die Taschen kosten 686 €.'],
-  'regel': 'So verteilst du: Eine Zahl mal eine Klammer – mit ⟦jedem Teil der Klammer⟧ malnehmen: 7 · (100 − 2) = 7 · 100 − 7 · 2. Rückwärts kannst du ⟦ausklammern⟧: 6 · 13 + 6 · 7 = 6 · (13 + 7) = 6 · 20 = 120.',
-  'fehler': 'Nur den ersten Teil malnehmen: 7 · (100 − 2) = 700 − 2 ist falsch. Jede der ⟦7⟧ Taschen ist 2 € billiger, also ziehst du 7 · 2 = 14 ab, nicht nur 2.'},
+  'einstieg': 'Ein Verein kauft 7 Taschen zu je 98 €. Rechne so, als kostete jede 100 €. Danach ziehst du für jede Tasche 2 € ab: Das ist das ⟦Verteilungsgesetz⟧.',
+  'woerter': [['Verteilungsgesetz', 'Zahl mal Klammer: mit jedem Teil der Klammer malnehmen (Fachwort: Distributivgesetz)']],
+  'bild': {'typ': 'tabelle', 'kopf': ['Teil', 'Rechnung', 'Euro'], 'zeilen': [['wie 100 €', '7 · 100', '?'], ['zu viel', '7 · 2', '?'], ['Preis', '7 · 98', '?']]},
+  'schritte': [{'text': 'Schreibe 98 als 100 − 2. Die Rechnung heißt 7 · (100 − 2).'},
+               {'text': 'So, als kostete jede Tasche 100 €: 7 · 100 = 700.',
+                'bild': {'zeilen': [['wie 100 €', '7 · 100', '700'], ['zu viel', '7 · 2', '?'], ['Preis', '7 · 98', '?']]}},
+               {'text': 'Das ist für jede Tasche 2 € zu viel: 7 · 2 = 14.',
+                'bild': {'zeilen': [['wie 100 €', '7 · 100', '700'], ['zu viel', '7 · 2', '14'], ['Preis', '7 · 98', '?']]}},
+               {'text': '700 − 14 = ⟦686⟧. Die Taschen kosten 686 €.',
+                'bild': {'zeilen': [['wie 100 €', '7 · 100', '700'], ['zu viel', '7 · 2', '14'], ['Preis', '700 − 14', '686']]}}],
+  'fehler': '7 · (100 − 2) = 700 − 2 ist falsch. Jede der 7 Taschen ist 2 € billiger, also ziehst du 14 € ab.',
+  'fehler_bild': {'zeilen': [['wie 100 €', '7 · 100', '700'], ['falsch', 'nur 2', '698'], ['richtig', '7 · 2', '14']]},
+  'regel': 'Zahl mal Klammer: mit ⟦jedem Teil⟧ malnehmen. 7 · (100 − 2) = 7 · 100 − 7 · 2. Rückwärts heißt das ausklammern.'},
  'mal_ganz': {
-  'einstieg': 'Für ein Handy-Abo werden jeden Monat 6 € von deinem Konto abgebucht. Nach 4 Monaten fehlen 24 €. Mit negativen Zahlen: Viermal −6 € ergibt −24 €. Malnehmen ist hier schnelles Addieren: (−6) + (−6) + (−6) + (−6). So kannst du auch mit negativen Zahlen ⟦multiplizieren⟧.',
-  'woerter': [['multiplizieren', 'malnehmen'], ['abbuchen', 'Geld wird vom Konto weggenommen'], ['Vorzeichen', 'das Plus oder Minus vor einer Zahl'],
-              ['Betrag', 'die Zahl ohne Vorzeichen: Der Betrag von −6 ist 6'],
-              ['Vorzeichenregel', 'gleiche Vorzeichen ergeben Plus, verschiedene Vorzeichen ergeben Minus']],
-  'schritte': ['4 · (−6) bedeutet: viermal −6 € abbuchen. Das ist (−6) + (−6) + (−6) + (−6) = ⟦−24⟧.',
-               'Warum ergibt Minus mal Minus Plus? Sieh dir diese Reihe an: (−6) · 2 = −12, (−6) · 1 = −6, (−6) · 0 = 0.',
-               'Mit jedem Schritt wird der zweite Faktor um 1 kleiner und das Ergebnis um 6 größer.',
-               'Die Reihe geht genauso weiter: (−6) · (−1) = ⟦6⟧ und (−6) · (−2) = ⟦12⟧.'],
-  'regel': 'So multiplizierst du ganze Zahlen: Erst die ⟦Beträge⟧ malnehmen. Dann das Vorzeichen: ⟦gleiche Vorzeichen ergeben Plus⟧, ⟦verschiedene Vorzeichen ergeben Minus⟧.',
-  'fehler': '(−6) · (−4) = −24 ist falsch: Zwei gleiche Vorzeichen ergeben ⟦Plus⟧, also 24. Aber Achtung: Diese Regel gilt nur für mal und geteilt. Beim Addieren ist (−6) + (−4) = −10 – zweimal Schulden sind mehr Schulden.'},
+  'einstieg': 'Für ein Handy-Abo werden jeden Monat 6 € abgebucht. Nach 4 Monaten fehlen 24 €. Malnehmen mit negativen Zahlen heißt auch ⟦multiplizieren⟧.',
+  'woerter': [['multiplizieren', 'malnehmen'], ['abgebucht', 'vom Konto weggenommen'], ['Vorzeichenregel', 'gleiche Vorzeichen ergeben plus, verschiedene ergeben minus']],
+  'bild': {'typ': 'zahlenstrahl', 'start': -30, 'ende': 0, 'abschnitte': 15, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': '4 · (−6) heißt: viermal 6 € abgebucht.',
+                'bild': {'boegen': [{'von': 0, 'bis': -6}, {'von': -6, 'bis': -12}, {'von': -12, 'bis': -18}, {'von': -18, 'bis': -24}]}},
+               {'text': 'Du landest bei ⟦−24⟧.', 'bild': {'punkte': [{'wert': -24}]}},
+               {'text': 'Und Minus mal Minus? (−6) · 1 = −6 und (−6) · 0 = 0.',
+                'bild': {'start': -12, 'ende': 12, 'abschnitte': 12, 'boegen': [{'von': -6, 'bis': 0, 'name': '+6'}], 'punkte': [{'wert': -6}, {'wert': 0}]}},
+               {'text': 'Jeder Schritt bringt 6 mehr. Also ist (−6) · (−1) = ⟦6⟧.',
+                'bild': {'boegen': [{'von': -6, 'bis': 0, 'name': '+6'}, {'von': 0, 'bis': 6, 'name': '+6'}], 'punkte': [{'wert': -6}, {'wert': 0}, {'wert': 6}]}},
+               {'text': 'Das ist die Vorzeichenregel: gleiche Vorzeichen ergeben plus.'}],
+  'fehler': '(−6) · (−4) = −24 ist falsch: Gleiche Vorzeichen ergeben plus, also 24. Beim Addieren gilt das nicht: (−6) + (−4) = −10.',
+  'regel': 'Erst die Zahlen ohne Vorzeichen malnehmen. ⟦Gleiche Vorzeichen⟧ ergeben plus, verschiedene ergeben minus.'},
  'geteilt_ganz': {
-  'einstieg': 'Du hast 48 € Schulden und zahlst sie in 6 gleichen Raten ab. Jede Rate ist 8 €, und 6 Raten machen zusammen die 48 € Schulden aus: (−48) : 6 = −8. Teilen ist die Umkehrung des Malnehmens. Darum gelten beim ⟦Dividieren⟧ dieselben Vorzeichenregeln.',
-  'woerter': [['dividieren', 'teilen'], ['Rate', 'ein gleich großer Teil, in dem man Schulden abzahlt'],
-              ['Umkehrung', 'die Rechnung rückwärts: (−8) · 6 = −48 passt zu (−48) : 6 = −8']],
-  'schritte': ['Rechne (−48) : 6. Zuerst teilst du die Beträge: 48 : 6 = 8.',
-               'Jetzt das Vorzeichen: −48 hat ein Minus, 6 hat ein Plus. Die Vorzeichen sind verschieden.',
-               'Verschiedene Vorzeichen ergeben Minus: ⟦(−48) : 6 = −8⟧.'],
-  'regel': 'So dividierst du ganze Zahlen: Erst die ⟦Beträge⟧ teilen, dann das Vorzeichen wie beim Malnehmen: ⟦gleiche → Plus⟧, ⟦verschiedene → Minus⟧. Prüfen kannst du mit der Umkehrung.',
-  'fehler': '(−48) : (−6) = −8 ist falsch: Minus geteilt durch Minus ergibt ⟦Plus⟧, also 8. Probe mit der Umkehrung: 8 · (−6) = −48 ✓'},
+  'einstieg': 'Du hast 48 € Schulden und zahlst sie in 6 gleichen Raten ab. Jede Rate ist 8 €. Teilen heißt ⟦dividieren⟧, und es gelten dieselben Vorzeichenregeln.',
+  'woerter': [['dividieren', 'teilen'], ['Rate', 'ein gleich großer Teil, in dem man Schulden abzahlt']],
+  'bild': {'typ': 'zahlenstrahl', 'start': -48, 'ende': 0, 'abschnitte': 6, 'beschriftet': 'anfang_ende'},
+  'schritte': [{'text': '(−48) : 6 heißt: −48 in 6 gleiche Teile teilen.',
+                'bild': {'boegen': [{'von': 0, 'bis': -8}, {'von': -8, 'bis': -16}, {'von': -16, 'bis': -24}, {'von': -24, 'bis': -32}, {'von': -32, 'bis': -40}, {'von': -40, 'bis': -48}]}},
+               {'text': 'Ohne Vorzeichen: 48 : 6 = 8. Jeder Teil ist 8 lang.', 'bild': {'punkte': [{'wert': -8, 'name': '1 Rate'}]}},
+               {'text': 'Verschiedene Vorzeichen ergeben minus: ⟦(−48) : 6 = −8⟧.'}],
+  'fehler': '(−48) : (−6) = −8 ist falsch: Minus durch Minus ergibt plus, also 8. Probe: 8 · (−6) = −48.',
+  'regel': 'Teilen geht wie Malnehmen: ⟦gleiche Vorzeichen⟧ ergeben plus, verschiedene minus. Prüfe mit der Malrechnung rückwärts.'},
  'ueberschlag': {
-  'einstieg': 'Das Stadtkino hat 487 Plätze und war an 21 Abenden ausverkauft. Wie viele Besucher waren das ungefähr? Oft kommt es auf die genaue Zahl gar nicht an. Du rundest auf bequeme Zahlen und rechnest im Kopf: etwa 500 · 20 = 10 000. Das nennt man ⟦Überschlag⟧.',
-  'woerter': [['Überschlag', 'eine schnelle, ungefähre Rechnung mit gerundeten Zahlen'], ['runden', 'eine Zahl durch eine nahe glatte Zahl ersetzen: 487 wird zu 500'],
-              ['auf Hunderter runden', 'auf die nächste Zahl mit 00 am Ende: 487 → 500, aber 432 → 400'], ['auf Zehner runden', 'auf die nächste Zahl mit 0 am Ende: 21 → 20'],
-              ['≈', '„ungefähr gleich“: 487 · 21 ≈ 10 000']],
-  'schritte': ['Rechne ungefähr 487 · 21. Runde den ersten Faktor 487 auf Hunderter: 500.',
-               'Runde den zweiten Faktor 21 auf Zehner: 20.',
-               'Rechne im Kopf: 500 · 20 = ⟦10 000⟧. Es waren also ungefähr 10 000 Besucher.',
-               'Genau sind es 487 · 21 = 10 227. Das liegt nah am Überschlag – so kannst du ein Ergebnis prüfen.'],
-  'regel': 'So überschlägst du: ⟦Jede Zahl runden⟧, sodass du ⟦im Kopf⟧ rechnen kannst, dann ausrechnen. Liegt ein genaues Ergebnis weit weg vom Überschlag, hast du dich wahrscheinlich verrechnet.',
-  'fehler': 'Ein Ergebnis wie 1 022 hinschreiben, ohne zu prüfen. Der Überschlag sagt: etwa 10 000 Besucher. Bei 1 022 ⟦fehlt eine Stelle⟧ – das Kino wäre an 21 ausverkauften Abenden fast leer gewesen.'},
+  'einstieg': 'Das Kino hat 487 Plätze und war an 21 Abenden voll. Wie viele Besucher waren das ungefähr? Mit gerundeten Zahlen im Kopf rechnen heißt ⟦überschlagen⟧.',
+  'woerter': [['runden', 'eine Zahl durch eine nahe glatte Zahl ersetzen: 487 wird zu 500'], ['≈', '„ungefähr gleich“'],
+              ['überschlagen', 'schnell und ungefähr mit gerundeten Zahlen rechnen']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 400, 'ende': 600, 'abschnitte': 4, 'beschriftet': 'alle'},
+  'schritte': [{'text': '487 liegt näher an 500 als an 400. Also ist 487 ≈ 500.',
+                'bild': {'punkte': [{'wert': 487, 'name': 'Plätze'}], 'boegen': [{'von': 487, 'bis': 500, 'name': 'runden'}]}},
+               {'text': '21 Abende runden wir auf 20.',
+                'bild': {'start': 0, 'ende': 40, 'abschnitte': 4, 'punkte': [{'wert': 21, 'name': 'Abende'}], 'boegen': [{'von': 21, 'bis': 20, 'name': 'runden'}]}},
+               {'text': 'Im Kopf: 500 · 20 = ⟦10 000⟧ Besucher.'},
+               {'text': 'Genau sind es 487 · 21 = 10 227. Das passt.'}],
+  'fehler': '1 022 hinschreiben, ohne zu prüfen. Der Überschlag sagt etwa 10 000. Bei 1 022 fehlt eine Stelle.',
+  'regel': 'Erst ⟦runden⟧, dann im Kopf rechnen. Liegt das genaue Ergebnis weit weg, hast du dich verrechnet.'},
  'schriftlich': {
-  'einstieg': 'Ein Verein kauft 26 Fahrräder zu je 347 €. Das ist zu viel für den Kopf. Mit Stift und Papier zerlegst du die Rechnung in kleine Teile, die du im Kopf schaffst, und schreibst sie ordentlich untereinander. Das nennt man ⟦schriftlich rechnen⟧.',
-  'woerter': [['schriftlich rechnen', 'eine große Rechnung in kleine Schritte zerlegen und untereinander aufschreiben'],
-              ['stellengerecht', 'Einer unter Einer, Zehner unter Zehner, Hunderter unter Hunderter'],
-              ['Teilprodukt', 'das Ergebnis eines kleinen Malschritts, zum Beispiel 347 · 6'], ['Rest', 'was beim Teilen übrig bleibt'],
-              ['herunterholen', 'die nächste Ziffer der Zahl neben den Rest schreiben']],
-  'schritte': ['Mal: 347 · 26. Zerlege 26 in 20 und 6. Rechne 347 · 20 = 6 940 und 347 · 6 = 2 082.',
-               'Schreibe die Teilprodukte stellengerecht untereinander und addiere: 6 940 + 2 082 = ⟦9 022⟧. Überschlag: 350 · 25 = 8 750, das passt.',
-               'Geteilt: 1 476 : 6. Die 1 allein ist zu klein, also nimmst du 14 : 6 = 2, denn 2 · 6 = 12. Es bleibt der Rest 14 − 12 = 2.',
-               'Hole die 7 herunter und schreibe sie neben den Rest: 27 : 6 = 4, denn 4 · 6 = 24. Rest 3.',
-               'Hole die 6 herunter: 36 : 6 = 6, Rest 0. Ergebnis: ⟦1 476 : 6 = 246⟧.'],
-  'regel': 'So rechnest du schriftlich mal: mit ⟦jeder Ziffer einzeln⟧ malnehmen, die Teilprodukte ⟦stellengerecht⟧ untereinanderschreiben und addieren. So rechnest du schriftlich geteilt: ⟦teilen, malnehmen, abziehen, nächste Ziffer herunterholen⟧ – bis keine Ziffer mehr übrig ist.',
-  'fehler': 'Beim Malnehmen das Teilprodukt mit der Zehnerziffer nicht um eine Stelle versetzen: 347 · 2 Zehner sind ⟦6 940⟧, nicht 694. Beim Teilen eine Null im Ergebnis vergessen: 1 236 : 6 ist 206, nicht 26 – wenn die heruntergeholte Zahl nicht reicht, schreibst du ⟦0⟧ ins Ergebnis.'},
+  'einstieg': 'Ein Verein kauft 26 Fahrräder zu je 347 €. Das ist zu viel für den Kopf. Mit dem Stift zerlegst du die Rechnung in kleine Teile: ⟦schriftlich rechnen⟧.',
+  'woerter': [['Teilprodukt', 'das Ergebnis eines kleinen Malschritts, zum Beispiel 347 · 6'], ['stellengerecht', 'Einer unter Einer, Zehner unter Zehner']],
+  'bild': {'typ': 'tabelle', 'kopf': ['', 'T', 'H', 'Z', 'E'], 'zeilen': [['347 · 20', '', '', '', ''], ['347 · 6', '', '', '', ''], ['zusammen', '', '', '', '']]},
+  'schritte': [{'text': 'Rechne 347 · 26. Zerlege 26 in 20 und 6.'},
+               {'text': 'Die Teilprodukte: 347 · 20 = 6 940 und 347 · 6 = 2 082.',
+                'bild': {'zeilen': [['347 · 20', '6', '9', '4', '0'], ['347 · 6', '2', '0', '8', '2'], ['zusammen', '', '', '', '']]}},
+               {'text': 'Stellengerecht untereinander und addieren: ⟦9 022⟧.',
+                'bild': {'zeilen': [['347 · 20', '6', '9', '4', '0'], ['347 · 6', '2', '0', '8', '2'], ['zusammen', '9', '0', '2', '2']]}},
+               {'text': 'Überschlag: 350 · 25 = 8 750. Das passt.'}],
+  'fehler': 'Beim Teilen eine Null vergessen: 1 236 : 6 ist 206, nicht 26. Reicht die heruntergeholte Zahl nicht, schreibst du 0.',
+  'regel': 'Schriftlich mal: mit ⟦jeder Ziffer⟧ malnehmen, stellengerecht addieren. Schriftlich geteilt: teilen, malnehmen, abziehen, nächste Ziffer herunterholen.'},
 }
-klar(DATEI, KLAR)
+umbau(DATEI, KARTEN)
 
+
+# ---------- SCHWER (Zehnte Runde, Zweig schwer-kl5) ----------
+# Neue Übungen nach Prüfungsvorbild (Jahrgangsstufentest 6 Bayern, Bayerischer Mathematik-Test, Känguru 5/6); eigene Zahlen und Einkleidung.
+from itertools import permutations  # noqa: E402
+from _schwer_kl5 import A, L, Z, de, einzig, ergaenze, rw, wahl  # noqa: E402
+
+
+def _schwer():
+    N = {}
+    groesst = ['2 · 3 + 4 · 5', '2 + 3 · 4 + 5', '2 · 3 · 4 + 5', '2 + 3 + 4 · 5']
+    zeichen = {'+': 12 + 4 + 8, '−': 12 - 4 + 8, '·': 12 * 4 + 8, ':': 12 // 4 + 8}
+    N['punkt_strich'] = [
+        Z(2, 'Berechne 7 · 8 − 36 : 4 + 2.', '7 * 8 - 36 / 4 + 2', 'Punkt zuerst: 7 · 8 = 56 und 36 : 4 = 9. Dann 56 − 9 + 2 = 49.', 'Erst alle Mal- und Geteilt-Rechnungen, dann von links nach rechts.'),
+        Z(2, 'Berechne 150 − 6 · 15 : 3.', '150 - 6 * 15 / 3', 'Punktrechnung von links: 6 · 15 = 90, 90 : 3 = 30. Dann 150 − 30 = 120.', 'Mal und geteilt hintereinander: von links nach rechts.'),
+        L(3, 'Ergänze die Lücke: 60 − □ · 7 = 4', '60 − □ · 7 = 4', 'Trage die fehlende Zahl ein.', ['(60 - 4) // 7'],
+          '□ · 7 muss 60 − 4 = 56 sein. 56 : 7 = 8. Probe: 60 − 8 · 7 = 60 − 56 = 4.', 'Was muss von 60 abgezogen werden, damit 4 übrig bleibt?'),
+        wahl(3, 'Welche Rechnung hat das größte Ergebnis?', groesst, lambda o: rw(o) == max(rw(x) for x in groesst),
+             'Ergebnisse: 6 + 20 = 26, 2 + 12 + 5 = 19, 24 + 5 = 29, 5 + 20 = 25. Am größten ist 2 · 3 · 4 + 5.', 'Rechne jede Zeile mit Punkt vor Strich aus.'),
+        wahl(3, 'Welches Rechenzeichen gehört in die Lücke? 12 □ 4 + 8 = 11', list(zeichen), lambda o: zeichen[o] == 11,
+             'Mit „:“: 12 : 4 = 3, 3 + 8 = 11. Die anderen ergeben 24, 16 und 56.', 'Probiere alle vier Zeichen aus. Denk an Punkt vor Strich.'),
+        A(3, 'Jemand rechnet 5 + 3 · 4 = 32. Was ist falsch?', 'Punkt vor Strich: 3 · 4 = 12, dann 5 + 12 = 17.',
+          ['Nichts, 32 stimmt.', '3 · 4 ist falsch ausgerechnet. Richtig ist 27.', 'Man muss von rechts rechnen: 4 · 3 + 5 = 17, also stimmt 32.'],
+          'Gerechnet wurde (5 + 3) · 4 = 32. Ohne Klammer gilt aber Punkt vor Strich: 5 + 12 = 17.', 'Was wurde hier zuerst gerechnet? Was hätte zuerst gerechnet werden müssen?'),
+    ]
+    setzen = ['48 : (4 + 4) · 2', '48 : (4 + 4 · 2)', '(48 : 4 + 4) · 2', '48 : 4 + (4 · 2)']
+    werte = set()
+    for a, b, c in permutations([2, 3, 4]):
+        werte |= {(a + b) * c, a + b * c, a * b + c, a * (b + c)}
+    N['klammern'] = [
+        Z(2, 'Berechne (45 − 17) : (2 + 5).', '(45 - 17) / (2 + 5)', 'Beide Klammern zuerst: 28 und 7. Dann 28 : 7 = 4.', 'Rechne zuerst jede Klammer für sich aus.'),
+        Z(2, 'Berechne 3 · (40 − 8 · 4).', '3 * (40 - 8 * 4)', 'In der Klammer Punkt vor Strich: 8 · 4 = 32, 40 − 32 = 8. Dann 3 · 8 = 24.', 'Auch in der Klammer gilt Punkt vor Strich.'),
+        wahl(3, 'Wo müssen die Klammern stehen, damit das Ergebnis 12 ist?', setzen, lambda o: rw(o) == 12,
+             '48 : (4 + 4) · 2 = 48 : 8 · 2 = 6 · 2 = 12. Die anderen ergeben 4, 32 und 20.', 'Rechne jede Möglichkeit aus. Die Klammer immer zuerst.'),
+        Z(3, 'Berechne: Dividiere die Summe aus 96 und 48 durch die Differenz von 20 und 8.', '(96 + 48) / (20 - 8)',
+          'Summe: 96 + 48 = 144. Differenz: 20 − 8 = 12. 144 : 12 = 12.', 'Schreibe zuerst den Term mit Klammern auf: (… + …) : (… − …).'),
+        L(3, 'Ergänze die Lücke: 4 · (□ − 9) = 28', '4 · (□ − 9) = 28', 'Trage die fehlende Zahl ein.', ['28 // 4 + 9'],
+          'Die Klammer muss 28 : 4 = 7 ergeben. □ − 9 = 7, also □ = 16. Probe: 4 · (16 − 9) = 28.', 'Was muss in der Klammer herauskommen, damit 4 · Klammer = 28 ist?'),
+        Z(3, 'Verwende die Zahlen 2, 3 und 4 je genau einmal, dazu einmal „+“ und einmal „·“. Klammern sind erlaubt. Wie groß ist das größte mögliche Ergebnis?',
+          str(max(werte)), f'Am meisten bringt es, die Summe der beiden kleineren Zahlen mit der größten malzunehmen: (2 + 3) · 4 = {max(werte)}.',
+          'Probiere systematisch: Was passiert, wenn die Summe in eine Klammer kommt?'),
+    ]
+    ausflug = ['(24 · 7 − 120) : 4', '24 · 7 − 120 : 4', '24 · (7 − 120) : 4', '(24 · 7 − 120) · 4']
+    produkt = ['(4 + 5) · 7', '4 + 5 · 7', '4 · (5 + 7)', '4 · 5 + 7']
+    N['termaufbau'] = [
+        Z(2, 'Berechne das Produkt aus 12 und der Summe von 5 und 3.', '12 * (5 + 3)', 'Term: 12 · (5 + 3) = 12 · 8 = 96.', 'Die Summe kommt in Klammern, weil sie ein Faktor ist.'),
+        wahl(2, 'Welche Art von Term ist (60 − 12) : (3 + 5)?', ['Quotient', 'Differenz', 'Summe', 'Produkt'], lambda o: o == 'Quotient',
+             'Zuletzt wird 48 durch 8 geteilt. Die letzte Rechnung ist geteilt, also ein Quotient.', 'Welche Rechnung kommt ganz zum Schluss?'),
+        wahl(3, '24 Kinder zahlen je 7 € für einen Ausflug. Der Bus kostet 120 €. Der Rest wird gleich auf 4 Gruppen verteilt. Welcher Term gibt den Betrag für eine Gruppe an?',
+             ausflug, lambda o: o == '(24 · 7 − 120) : 4',
+             'Eingenommen: 24 · 7. Rest nach dem Bus: 24 · 7 − 120. Dieser ganze Rest wird durch 4 geteilt, also braucht er eine Klammer: (24 · 7 − 120) : 4 = 12 €.',
+             'Was wird zuerst ausgerechnet? Was wird am Schluss durch 4 geteilt?'),
+        Z(3, 'Berechne: Subtrahiere vom Produkt aus 15 und 8 den Quotienten aus 72 und 9.', '15 * 8 - 72 / 9',
+          'Term: 15 · 8 − 72 : 9 = 120 − 8 = 112.', 'Achtung bei „subtrahiere A von B“: Es heißt B − A.'),
+        Z(3, 'Ein Term ist eine Differenz. Der erste Teil ist das Produkt aus 9 und einer unbekannten Zahl, der zweite Teil ist 13. Der Term hat den Wert 50. Wie heißt die unbekannte Zahl?',
+          '(50 + 13) // 9', 'Term: 9 · □ − 13 = 50. Rückwärts: 9 · □ = 63, □ = 7.', 'Schreibe den Term mit □ auf und rechne rückwärts.'),
+        wahl(3, 'Welcher Term ist ein Produkt, dessen erster Faktor eine Summe ist?', produkt, lambda o: o == '(4 + 5) · 7',
+             'Bei (4 + 5) · 7 wird zuletzt malgenommen (Produkt), und der erste Faktor ist die Summe 4 + 5.', 'Bestimme bei jedem Term die letzte Rechnung.'),
+    ]
+    N['vorteil'] = [
+        Z(2, 'Rechne geschickt: 4 · 13 · 25', '4 * 13 * 25', '4 · 25 = 100, dann 100 · 13 = 1 300.', 'Welche zwei Zahlen ergeben zusammen eine glatte Zahl?'),
+        Z(2, 'Rechne geschickt: 198 + 467 + 2', '198 + 467 + 2', '198 + 2 = 200, dann 200 + 467 = 667.', 'Tausche so, dass zuerst eine glatte Zahl entsteht.'),
+        Z(3, 'Rechne geschickt: 8 · 23 · 125', '8 * 23 * 125', '8 · 125 = 1 000, dann 1 000 · 23 = 23 000.', 'Kennst du ein Paar, das 1 000 ergibt?'),
+        A(3, 'Jemand rechnet 80 : 8 : 2 = 80 : 4 = 20. Was ist falsch?', 'Beim Teilen darf man nicht so zusammenfassen. Richtig: 80 : 8 : 2 = 10 : 2 = 5.',
+          ['Nichts, 20 stimmt.', '8 : 2 ist nicht 4. Richtig ist 80 : 6.', 'Man muss von rechts rechnen: 8 : 2 = 4, also stimmt 20.'],
+          'Tauschen und Verbinden gelten nur bei plus und mal. Von links: 80 : 8 = 10, dann 10 : 2 = 5.', 'Rechne einfach von links nach rechts und vergleiche.'),
+        Z(3, 'Rechne geschickt: 1 + 2 + 3 + … + 19 + 20', ' + '.join(str(i) for i in range(1, 21)),
+          'Paare bilden: 1 + 20, 2 + 19, … , 10 + 11. Das sind 10 Paare mit je 21: 10 · 21 = 210.', 'Addiere die erste und die letzte Zahl, dann die zweite und die vorletzte …'),
+        Z(3, 'Rechne geschickt: 25 · 25 · 4 · 4', '25 * 25 * 4 * 4', '(25 · 4) · (25 · 4) = 100 · 100 = 10 000.', 'Bilde zwei Paare.'),
+    ]
+    nicht = ['80 + 15 − 25 − 10', '80 − 10 + 15 − 25', '80 − (25 + 10) + 15', '80 − (25 + 15) − 10']
+    N['differenz_summe'] = [
+        Z(2, 'Rechne geschickt: 93 − 47 + 7', '93 - 47 + 7', 'Tauschen: 93 + 7 − 47 = 100 − 47 = 53.', 'Hol die + 7 mit ihrem Zeichen nach vorn.'),
+        Z(2, 'Rechne geschickt: 250 − 38 − 62', '250 - 38 - 62', 'Beide Zahlen werden abgezogen: 38 + 62 = 100. 250 − 100 = 150.', 'Was wird insgesamt abgezogen?'),
+        A(3, 'Jemand rechnet 64 − 19 + 36 − 11 = 64 + 36 − 19 + 11 = 92. Was ist falsch?', 'Die 11 hat ihr Minus verloren. Richtig ist 70.',
+          ['Nichts, 92 stimmt.', 'Die 36 hätte ein Minus bekommen müssen. Richtig ist −2.', 'Die 19 hat ihr Minus verloren. Richtig ist 130.'],
+          'Jede Zahl nimmt ihr Zeichen mit: 64 + 36 − 19 − 11 = 100 − 30 = 70.', 'Prüfe bei jeder Zahl, ob das Zeichen davor mitgewandert ist.'),
+        Z(3, 'Welche Zahl musst du zu 128 − 45 addieren, damit 100 herauskommt?', '100 - (128 - 45)', '128 − 45 = 83. Bis 100 fehlen 17.', 'Rechne zuerst 128 − 45 aus.'),
+        Z(3, 'Rechne geschickt: 100 − 99 + 98 − 97 + … + 4 − 3 + 2 − 1', ' + '.join(f'({i} - {i - 1})' for i in range(100, 0, -2)),
+          'Paare bilden: (100 − 99) + (98 − 97) + … + (2 − 1). Das sind 50 Paare mit je 1: Ergebnis 50.', 'Fasse immer eine Plus- und die folgende Minus-Zahl zusammen.'),
+        wahl(3, 'Welcher Term hat NICHT denselben Wert wie 80 − 25 + 15 − 10?', nicht, lambda o: rw(o) != rw('80 − 25 + 15 − 10'),
+             '80 − 25 + 15 − 10 = 60. In 80 − (25 + 15) − 10 wird die 15 abgezogen statt addiert: 30.', 'Achte darauf, welches Zeichen jede Zahl am Ende hat.'),
+    ]
+    N['verteilen'] = [
+        Z(2, 'Rechne geschickt: 9 · 102', '9 * 102', '9 · (100 + 2) = 900 + 18 = 918.', 'Zerlege 102 in 100 + 2.'),
+        Z(2, 'Rechne geschickt: 14 · 7 + 14 · 3', '14 * 7 + 14 * 3', 'Ausklammern: 14 · (7 + 3) = 14 · 10 = 140.', 'Welcher Faktor kommt in beiden Produkten vor?'),
+        Z(3, 'Ein Kino verkauft am Samstag 37 und am Sonntag 63 Karten zu je 9 €. Wie viel Geld nimmt es an beiden Tagen zusammen ein?', '37 * 9 + 63 * 9',
+          '37 · 9 + 63 · 9 = (37 + 63) · 9 = 100 · 9 = 900 €.', 'Zähle zuerst alle Karten zusammen.', einheit='€'),
+        Z(3, 'Rechne geschickt: 17 · 99 + 17', '17 * 99 + 17', '17 ist 17 · 1. Also 17 · (99 + 1) = 17 · 100 = 1 700.', 'Schreibe die einzelne 17 als 17 · 1.'),
+        Z(3, 'Rechne geschickt: 36 · 25', '36 * 25', '36 · 25 = (40 − 4) · 25 = 1 000 − 100 = 900.', 'Schreibe 36 als 40 − 4.'),
+        A(3, 'Jemand rechnet 6 · (20 + 4) = 6 · 20 + 4 = 124. Was ist falsch?', 'Auch die 4 muss mit 6 malgenommen werden. Richtig ist 144.',
+          ['Nichts, 124 stimmt.', 'Man darf nicht verteilen. Richtig ist 6 · 20 = 120.', 'Richtig ist 6 + 20 + 4 = 30.'],
+          '6 · (20 + 4) = 6 · 20 + 6 · 4 = 120 + 24 = 144.', 'Jeder Teil in der Klammer wird malgenommen.'),
+    ]
+    trip = [s for a in range(-3, 4) for b in range(a + 1, 4) for c in range(b + 1, 4) if a * b * c == -6 for s in [a + b + c]]
+    N['mal_ganz'] = [
+        Z(2, 'Berechne (−12) · (−5).', '(-12) * (-5)', '12 · 5 = 60. Gleiche Vorzeichen: plus. Ergebnis 60.', 'Erst ohne Vorzeichen rechnen, dann das Vorzeichen bestimmen.'),
+        Z(2, 'Berechne (−4) · 25 · (−3).', '(-4) * 25 * (-3)', '(−4) · 25 = −100, dann (−100) · (−3) = 300.', 'Zwei Minuszeichen: Das Ergebnis ist positiv.'),
+        Z(3, 'Berechne geschickt: (−25) · 7 · (−4) · (−1)', '(-25) * 7 * (-4) * (-1)',
+          '(−25) · (−4) = 100. 100 · 7 = 700. 700 · (−1) = −700. Drei Minuszeichen: negativ.', 'Zähle die Minuszeichen. Suche ein Paar mit glattem Ergebnis.'),
+        L(3, 'Ergänze die Lücke: (−6) · □ = 54', '(−6) · □ = 54', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).', ['54 // (-6)'],
+          '6 · 9 = 54. Damit das Ergebnis positiv wird, braucht −6 einen negativen Partner: □ = −9.', 'Das Ergebnis ist positiv, −6 ist negativ. Welches Vorzeichen braucht □?'),
+        Z(3, 'Drei verschiedene ganze Zahlen von −3 bis 3 haben das Produkt −6. Wie groß kann ihre Summe höchstens sein?', str(max(trip)),
+          'Möglich sind −1, 2, 3 (Summe 4), 1, −2, 3 (Summe 2), 1, 2, −3 (Summe 0) und −1, −2, −3 (Summe −6). Höchstens 4.',
+          'Zerlege 6 in drei Faktoren und verteile die Minuszeichen.'),
+        Z(3, 'Berechne (−1) · (−1) · (−1) · … mit genau 15 Faktoren (−1).', '(-1) ** 15',
+          'Je zwei Faktoren (−1) ergeben 1. 14 Faktoren ergeben 1, der 15. macht daraus −1.', 'Ist die Zahl der Minuszeichen gerade oder ungerade?'),
+    ]
+    N['geteilt_ganz'] = [
+        Z(2, 'Berechne (−144) : 12.', '(-144) / 12', '144 : 12 = 12. Verschiedene Vorzeichen: −12.', 'Erst ohne Vorzeichen teilen.'),
+        Z(2, 'Berechne 0 : (−7).', '0 / (-7)', '0 geteilt durch eine Zahl (nicht 0) ist 0: 0 · (−7) = 0.', 'Prüfe rückwärts mit der Malrechnung.'),
+        L(3, 'Ergänze die Lücke: □ : (−8) = 9', '□ : (−8) = 9', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).', ['9 * (-8)'],
+          'Rückwärts: □ = 9 · (−8) = −72. Probe: (−72) : (−8) = 9.', 'Rechne rückwärts mit Malnehmen.'),
+        Z(3, 'Berechne (−56) : 7 − 18 : (−3).', '(-56) / 7 - 18 / (-3)', 'Punkt zuerst: (−56) : 7 = −8 und 18 : (−3) = −6. Dann −8 − (−6) = −2.',
+          'Erst beide Divisionen, dann das Minus dazwischen.'),
+        Z(3, 'Eine Zahl wird durch −4 geteilt. Dann wird 5 addiert. Das Ergebnis ist −3. Wie heißt die Zahl?', '(-3 - 5) * (-4)',
+          'Rückwärts: −3 − 5 = −8. Dann −8 · (−4) = 32. Probe: 32 : (−4) + 5 = −8 + 5 = −3.', 'Gehe die Schritte rückwärts und kehre jede Rechnung um.'),
+        Z(3, 'Die Temperatur fiel in 6 Stunden gleichmäßig von 4 °C auf −14 °C. Um wie viel Grad fiel sie pro Stunde?', '(4 - (-14)) / 6',
+          'Insgesamt: 4 − (−14) = 18 Grad. 18 : 6 = 3 Grad pro Stunde.', 'Wie viele Grad sind es von 4 bis −14?'),
+    ]
+    rund = ['344 999', '345 000', '355 000', '335 500']
+    stadion = {'3-mal': 3, '30-mal': 30, '300-mal': 300, '3 000-mal': 3000}
+    kleinste = min(n for n in range(0, 1000) if (n + 50) // 100 * 100 == 800)
+    N['ueberschlag'] = [
+        Z(2, 'Überschlage 4 812 : 6. Runde dazu 4 812 auf eine Zahl, die sich gut durch 6 teilen lässt.', '4800 / 6', '4 812 ≈ 4 800, und 4 800 : 6 = 800.', 'Welche glatte Zahl in der Nähe ist durch 6 teilbar?'),
+        Z(2, 'Überschlage 61 · 39. Runde dazu beide Zahlen auf Zehner.', '60 * 40', '61 ≈ 60, 39 ≈ 40. 60 · 40 = 2 400.', 'Erst runden, dann im Kopf malnehmen.'),
+        wahl(3, 'Welche Zahl ergibt auf Zehntausender gerundet 350 000?', rund, lambda o: (int(rw(o)) + 5000) // 10000 * 10000 == 350000,
+             '345 000: Die Tausenderstelle ist 5, also aufrunden auf 350 000. 344 999 wird zu 340 000, 355 000 zu 360 000, 335 500 zu 340 000.',
+             'Schau auf die Tausenderstelle: ab 5 aufrunden.'),
+        wahl(3, 'Ein Stadion hat 18 900 Plätze. Wie oft passt eine Schule mit 612 Kindern ungefähr hinein?', list(stadion),
+             lambda o: stadion[o] == min(stadion.values(), key=lambda v: abs(v - 18900 / 612)),
+             '18 900 ≈ 18 000 und 612 ≈ 600. 18 000 : 600 = 30. Also etwa 30-mal.', 'Runde beide Zahlen und teile dann.'),
+        Z(3, 'Eine natürliche Zahl ergibt auf Hunderter gerundet 800. Wie heißt die kleinste Zahl, für die das gilt?', str(kleinste),
+          '749 wird zu 700 abgerundet, 750 wird zu 800 aufgerundet. Die kleinste Zahl ist 750.', 'Ab welcher Zehnerstelle rundet man auf?'),
+        wahl(3, 'Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 3 912 : 8 = ?', ['489', '48', '4 890', '4 809'], lambda o: rw(o) == rw('3 912 : 8'),
+             'Überschlag: 4 000 : 8 = 500. Nur 489 liegt in der Nähe.', 'Runde 3 912 auf Tausender und teile durch 8.'),
+    ]
+    zif = einzig([d for d in range(10) if (300 + 10 * d + 7) * 4 == 1468])
+    N['schriftlich'] = [
+        Z(2, 'Rechne schriftlich: 6 048 : 12', '6048 / 12', '60 : 12 = 5, Rest 0. 4 : 12 = 0 (die 0 aufschreiben!). 48 : 12 = 4. Ergebnis 504.', 'Wenn eine Stelle nicht reicht, schreibst du eine 0 ins Ergebnis.'),
+        Z(2, 'Rechne schriftlich: 305 · 48', '305 * 48', '305 · 40 = 12 200, 305 · 8 = 2 440. Zusammen 14 640.', 'Zerlege 48 in 40 und 8.'),
+        L(3, 'Ergänze die fehlende Ziffer: 3□7 · 4 = 1 468', '3□7 · 4 = 1 468', 'Trage die fehlende Ziffer ein.', [str(zif)],
+          f'1 468 : 4 = 367. Die fehlende Ziffer ist {zif}.', 'Rechne rückwärts: 1 468 : 4.'),
+        Z(3, 'Eine Klasse hat 250 € für Bastelmaterial. Ein Paket kostet 18 €. Wie viele Pakete kann sie höchstens kaufen?', '250 // 18',
+          '250 : 18 = 13 Rest 16. Für ein 14. Paket reichen die 16 € nicht. Also 13 Pakete.', 'Teile schriftlich. Was bedeutet der Rest?'),
+        Z(3, 'Bei einer Division ist der Teiler 24, das Ergebnis 37 und der Rest 5. Welche Zahl wurde geteilt?', '24 * 37 + 5',
+          'Probe der Division rückwärts: 24 · 37 = 888, dazu der Rest 5: 893.', 'Rückwärts: Ergebnis mal Teiler, dann den Rest dazu.'),
+        A(3, 'Jemand rechnet schriftlich 4 236 : 6 = 76. Was ist falsch?', 'Die 0 im Ergebnis fehlt. Richtig ist 706.',
+          ['Nichts, 76 stimmt.', 'Richtig ist 7 060.', 'Der Rest wurde vergessen. Richtig ist 76 Rest 0.'],
+          '42 : 6 = 7, dann 3 : 6 = 0 (0 aufschreiben), dann 36 : 6 = 6. Ergebnis 706. Überschlag: 4 200 : 6 = 700.', 'Mach einen Überschlag: 4 200 : 6.'),
+    ]
+    return N
+
+
+ergaenze(DATEI, _schwer(), 1018)
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, befunde_anwenden  # noqa: E402
+
+BF = Befunde('zahlen.rechengesetze', 13_5_2)
+# a) gleich leicht wie Stufe 1
+for _t in ['Berechne (−3) · 2.', 'Berechne 4 · (−2).', 'Berechne (−3) · 9.']:
+    BF.stufe('mal_ganz', _t, 1)
+# a) nur größere Zahlen bzw. längere Rechnung ohne neuen Gedanken
+BF.stufe('schriftlich', 'Rechne schriftlich: 865 · 47', 2)
+BF.stufe('punkt_strich', 'Berechne 81 : 3 : 3 + 5 · 12.', 2)
+
+befunde_anwenden(DATEI, BF)
+# ---- BEFUNDE ENDE ----
+
+# ---- LÜCKEN (Achtzehnte Runde, Teil B, Zweig luecken-kl5): vier neue Lernkarten, siehe _luecken_kl5.py ----
+# Lehrplan M5 3.1 (schriftlich dividieren auch mit mehrstelligen Teilern über zehn; Produkte/Quotienten ganzer Zahlen auch im Kopf;
+# Gleichungen a · x = b, x : a = b, a : x = b durch Probieren oder Umkehraufgabe) und M5 3.2 (Vorwärts- und Rückwärtsarbeiten,
+# Sachaufgaben mit allen Grundrechenarten). Die Karte „schriftlich“ bleibt unverändert; schriftlich_geteilt steht direkt dahinter.
+# Alle bisherigen Karten und Aufgaben bleiben unverändert; neue Aufgaben hängen hinten an (Zufallsstarts 18_5_4 … 18_5_7).
+from _luecken_kl5 import mische as m18, neue_karte  # noqa: E402
+
+
+# --- Lernkarte kopfrechnen ---
+def g_kopf(R, s):
+    if s == 1:
+        art = R.choice(['zerlegen', 'zerlegen', 'vorteil'])
+        if art == 'zerlegen':
+            a, b = R.randint(3, 9), R.choice([x for x in range(12, 50) if x % 10])
+            z, e = b // 10 * 10, b % 10
+            return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {a} · {b}'}, 'o': {'wert': a * b}, 'c': f'{a} * {b}',
+                    'w': f'Zerlegen: {b} = {z} + {e}. {a} · {z} = {a * z} und {a} · {e} = {a * e}. Zusammen {a * z} + {a * e} = {zt(a * b)}.',
+                    'h': f'Zerlege {b} in Zehner und Einer.'}
+        k, (p, q) = R.choice([x for x in range(3, 20) if x % 10]), R.choice([(25, 4), (4, 25), (2, 50), (50, 2), (5, 20)])
+        return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {p} · {k} · {q}'}, 'o': {'wert': p * k * q}, 'c': f'{p} * {k} * {q}',
+                'w': f'Vertauschen: {p} · {q} = {p * q}. Dann {p * q} · {k} = {zt(p * q * k)}.', 'h': f'Welche zwei Zahlen ergeben zusammen eine glatte Zahl?'}
+    if s == 2:
+        art = R.choice(['fast', 'fast', 'negativ', 'geteilt', 'weg'])
+        if art == 'fast':
+            a = R.randint(3, 9); b = R.choice([99, 98, 49, 199, 101, 102, 51])
+            r = b - (b % 50 if b % 50 < 25 else b % 50 - 50)
+            d = b - r
+            return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {a} · {b}'}, 'o': {'wert': a * b}, 'c': f'{a} * {b}',
+                    'w': f'{b} = {r} {"+" if d > 0 else "−"} {abs(d)}. {a} · {r} = {zt(a * r)}, {a} · {abs(d)} = {a * abs(d)}. {zt(a * r)} {"+" if d > 0 else "−"} {a * abs(d)} = {zt(a * b)}.',
+                    'h': f'{b} liegt nahe bei {r}. Rechne erst mit {r}, dann korrigiere.'}
+        if art == 'negativ':
+            a, b = R.choice([-1, 1]) * R.randint(3, 9), R.choice([-1, 1]) * R.choice([x for x in range(12, 40) if x % 10])
+            if a > 0 and b > 0: a = -a
+            return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {kl(a)} · {kl(b)}'}, 'o': {'wert': a * b}, 'c': f'({a}) * ({b})',
+                    'w': f'Erst ohne Vorzeichen zerlegen: {abs(a)} · {abs(b)} = {abs(a) * (abs(b) // 10 * 10)} + {abs(a) * (abs(b) % 10)} = {abs(a * b)}. '
+                         f'{"Verschiedene" if (a < 0) != (b < 0) else "Gleiche"} Vorzeichen: {zt(a * b)}.',
+                    'h': 'Rechne zuerst ohne Vorzeichen. Überlege dann das Vorzeichen.'}
+        if art == 'geteilt':
+            a, q = R.randint(3, 9), R.randint(11, 99)
+            n = a * q * 10
+            neg = R.random() < .5
+            return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {kl(-n if neg else n)} : {a}'}, 'o': {'wert': -q * 10 if neg else q * 10}, 'c': f'({-n if neg else n}) / {a}',
+                    'w': f'Ohne die Null: {a * q} : {a} = {q}. Die Null kommt wieder dazu: {q * 10}.' + (' Minus durch plus ergibt minus.' if neg else ''),
+                    'h': 'Lass die Null am Ende weg, teile, und hänge sie wieder an.'}
+        a, b = R.randint(3, 9), R.choice([x for x in range(21, 99) if x % 10 not in (0, 1, 9)])
+        z, e = b // 10 * 10, b % 10
+        r = f'{a} · {z} + {a} · {e}'
+        opts, i = m18(R, r, [f'{a} · {z} + {e}', f'{a} · {z} · {e}', f'{a} + {z} · {e}'])
+        return {'y': 'auswahl', 'f': {'text': f'Welcher Rechenweg passt zu {a} · {b}?'}, 'a': opts, 'o': {'index': i},
+                'w': f'{b} = {z} + {e}. Jeder Teil wird mal {a} genommen: {r} = {a * z} + {a * e} = {a * b}. Bei „{a} · {z} + {e}“ fehlt das „mal {a}“ bei den Einern.',
+                'h': 'Beide Teile der zerlegten Zahl müssen mal genommen werden.'}
+    art = R.choice(['ausklammern', 'vier', 'neun', 'fehler'])
+    if art == 'ausklammern':
+        a = R.randint(3, 19); b = R.randint(11, 89); c = 100 - b
+        return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {a} · {b} + {a} · {c}'}, 'o': {'wert': a * 100}, 'c': f'{a} * {b} + {a} * {c}',
+                'w': f'Ausklammern: {a} · ({b} + {c}) = {a} · 100 = {zt(a * 100)}.', 'h': f'Beide Produkte haben den Faktor {a}. Was ergibt {b} + {c}?'}
+    if art == 'vier':
+        k = R.randint(3, 19) * 4; neg = R.random() < .6
+        return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {"(−25)" if neg else "25"} · {k}'}, 'o': {'wert': -25 * k if neg else 25 * k}, 'c': f'{-25 if neg else 25} * {k}',
+                'w': f'{k} = 4 · {k // 4}. 25 · 4 = 100, also 100 · {k // 4} = {zt(25 * k)}.' + (' Mit dem Minus: ' + zt(-25 * k) + '.' if neg else ''),
+                'h': 'Zerlege die zweite Zahl so, dass ein Faktor 4 entsteht.'}
+    if art == 'neun':
+        a = R.randint(3, 9); b = R.choice([999, 990, 1001, 1010])
+        return {'y': 'zahl', 'f': {'text': f'Rechne im Kopf: {a} · {zt(b)}'}, 'o': {'wert': a * b}, 'c': f'{a} * {b}',
+                'w': f'{zt(b)} = 1 000 {"−" if b < 1000 else "+"} {abs(b - 1000)}. {a} · 1 000 = {zt(a * 1000)}, {a} · {abs(b - 1000)} = {a * abs(b - 1000)}. Ergebnis {zt(a * b)}.',
+                'h': f'{zt(b)} liegt nahe bei 1 000.'}
+    a, b = R.randint(3, 9), R.choice([x for x in range(21, 99) if x % 10 not in (0, 1)])
+    z, e = b // 10 * 10, b % 10
+    f = a * z + e
+    opts, i = m18(R, f'Die {e} Einer wurden nicht mal {a} genommen. Richtig ist {a * b}.',
+                  ['Nichts, das stimmt.', f'Es hätte {a} · {z} − {e} heißen müssen: {a * z - e}.', f'Die Zehner sind falsch. Richtig ist {zt(a * z * 10 + a * e)}.'])
+    return {'y': 'auswahl', 'f': {'text': f'Jemand rechnet im Kopf {a} · {b} = {a} · {z} + {e} = {f}. Was ist falsch?'}, 'a': opts, 'o': {'index': i},
+            'w': f'Richtig: {a} · {b} = {a} · {z} + {a} · {e} = {a * z} + {a * e} = {a * b}. Jeder Teil der Zerlegung muss mal {a} genommen werden.',
+            'h': 'Rechne selbst mit Zerlegen nach. Wurden beide Teile mal genommen?'}
+
+
+KARTE_KOPF = {
+    'lernziel': 'kopfrechnen', 'titel': 'Geschickt im Kopf rechnen',
+    'einstieg': 'Sechs Kinder fahren in den Freizeitpark, jede Karte kostet 47 €. An der Kasse hast du keinen Stift. Mit einem Trick rechnest du ⟦im Kopf⟧.',
+    'woerter': [['im Kopf', 'ohne Stift und Taschenrechner, nur mit Denken'], ['zerlegen', 'eine Zahl in leichte Teile aufteilen: 47 = 40 + 7']],
+    'bild': {'typ': 'tabelle', 'kopf': ['Teil', 'Rechnung', 'Euro'], 'zeilen': [['40 €', '6 · 40', '?'], ['7 €', '6 · 7', '?'], ['zusammen', '6 · 47', '?']]},
+    'schritte': [
+        {'text': '47 zerlegen: 47 = 40 + 7.'},
+        {'text': 'Sechs Karten zu 40 €: 6 · 40 = 240.', 'bild': {'zeilen': [['40 €', '6 · 40', '240'], ['7 €', '6 · 7', '?'], ['zusammen', '6 · 47', '?']]}},
+        {'text': 'Dazu sechsmal 7 €: 6 · 7 = 42.', 'bild': {'zeilen': [['40 €', '6 · 40', '240'], ['7 €', '6 · 7', '42'], ['zusammen', '6 · 47', '?']]}},
+        {'text': 'Zusammen: 240 + 42 = ⟦282 €⟧.', 'bild': {'zeilen': [['40 €', '6 · 40', '240'], ['7 €', '6 · 7', '42'], ['zusammen', '240 + 42', '282']]}}],
+    'fehler': '6 · 47 = 240 + 7 ist falsch. Jede der sechs Karten kostet 7 € mehr, nicht nur eine.',
+    'fehler_bild': {'zeilen': [['falsch', '240 + 7', '247'], ['richtig', '240 + 42', '282'], ['Abstand', '5 · 7', '35']]},
+    'regel': 'Zerlege eine Zahl in ⟦leichte Teile⟧ und rechne jeden Teil. Auch praktisch: 25 · 4 = 100 und 98 = 100 − 2.',
+}
+FEST_KOPF = [
+    # Prüfungsvorbild: Klammer-Term im Kopf (Jahrgangsstufentest 6 Realschule Bayern 2025, Nr. 1a „4 · (75 − 15)“)
+    Z(3, 'Rechne im Kopf auf zwei Wegen und vergleiche: 8 · (125 − 25)', '8 * (125 - 25)',
+      'Weg 1: Klammer zuerst, 125 − 25 = 100, 8 · 100 = 800. Weg 2: verteilen, 8 · 125 − 8 · 25 = 1 000 − 200 = 800. Beide Wege ergeben 800.',
+      'Rechne zuerst die Klammer aus – oder verteile die 8 auf beide Zahlen.'),
+    # Prüfungsvorbild: Rechenvorteil durch Vertauschen (ISB, Illustrierende Aufgaben LehrplanPLUS M6 1.3, Aufgabe 1 „im Kopf rechnen“)
+    Z(3, 'Rechne im Kopf geschickt: (−37) · 4 · (−25)', '(-37) * 4 * (-25)',
+      'Vertauschen: 4 · (−25) = −100. Dann (−37) · (−100) = 3 700. Minus mal minus ergibt plus.',
+      'Welche zwei Faktoren ergeben zusammen 100 oder −100?'),
+    # Knobelaufgabe: einen Kopfrechentrick prüfen und übertragen
+    wahl(3, 'Ein Trick: 15 · 15 = 10 · 20 + 25 = 225. Welche Rechnung liefert nach demselben Trick 35 · 35?',
+         ['30 · 40 + 25', '30 · 30 + 25', '35 · 30 + 25', '40 · 40 − 25'], lambda o: rw(o) == 35 * 35 and o.startswith('30 · 40'),
+         'Beim Trick nimmt man die Zehnerzahl einmal kleiner (10) und einmal größer (20) und hängt 25 an. Bei 35: 30 · 40 + 25 = 1 200 + 25 = 1 225 = 35 · 35.',
+         'Schau, wie aus 15 die Zahlen 10 und 20 werden.'),
+]
+
+
+# --- Lernkarte umkehraufgabe_mal ---
+def _glm(form, a, x):
+    """Gleichung zu Form und Lösung x; gibt (text, b, c-Ausdruck für x)."""
+    if form == 'ax': b = a * x; return f'{kl(a)} · x = {zt(b)}', b, f'({b}) / ({a})'
+    if form == 'xa': b = x * a; return f'x · {kl(a)} = {zt(b)}', b, f'({b}) / ({a})'
+    if form == 'x:a': b = x // a; return f'x : {kl(a)} = {zt(b)}', b, f'({b}) * ({a})'
+    b = a // x; return f'{kl(a)} : x = {zt(b)}', b, f'({a}) / ({b})'
+
+
+def _umkm_weg(form, a, b, x):
+    if form in ('ax', 'xa'):
+        return f'Umkehraufgabe von „mal {kl(a)}“ ist „geteilt durch {kl(a)}“: x = {kl(b)} : {kl(a)} = {zt(x)}. Probe: {kl(a)} · {kl(x)} = {zt(b)} ✓'
+    if form == 'x:a':
+        return f'Umkehraufgabe von „geteilt durch {kl(a)}“ ist „mal {kl(a)}“: x = {kl(b)} · {kl(a)} = {zt(x)}. Probe: {kl(x)} : {kl(a)} = {zt(b)} ✓'
+    return f'{zt(a)} wird durch x geteilt und es kommt {zt(b)} heraus. Also ist x = {kl(a)} : {kl(b)} = {zt(x)}. Probe: {kl(a)} : {kl(x)} = {zt(b)} ✓'
+
+
+H_UMKM = {'ax': 'Kehre mal mit geteilt um. Denk an die Vorzeichenregel.', 'xa': 'Kehre mal mit geteilt um. Denk an die Vorzeichenregel.',
+          'x:a': 'Kehre geteilt mit mal um. Denk an die Vorzeichenregel.', 'a:x': 'Frage: Durch welche Zahl muss ich teilen? Rechne die erste Zahl geteilt durch das Ergebnis.'}
+
+
+def g_umkm(R, s):
+    if s == 2 and R.random() < .2:
+        form = R.choice(['ax', 'x:a'])
+        a, x = R.choice([-1, 1]) * R.randint(3, 12), R.choice([-1, 1]) * R.randint(2, 12)
+        if a > 0 and x > 0: x = -x
+        if form == 'x:a': a = abs(a) if R.random() < .5 else a
+        text, b, c = _glm(form, a, x * a if form == 'x:a' else x)
+        if form == 'x:a': x = x * a
+        r = f'x = {kl(b)} : {kl(a)}' if form == 'ax' else f'x = {kl(b)} · {kl(a)}'
+        f = [f'x = {kl(b)} · {kl(a)}' if form == 'ax' else f'x = {kl(b)} : {kl(a)}', f'x = {kl(b)} − {kl(a)}', f'x = {kl(a)} : {kl(b)}' if form == 'ax' else f'x = {kl(b)} + {kl(a)}']
+        if len(set([r] + f)) < 4: return g_umkm(R, s)
+        opts, i = m18(R, r, f)
+        return {'y': 'auswahl', 'f': {'text': f'Welche Umkehraufgabe löst die Gleichung {text}?'}, 'a': opts, 'o': {'index': i},
+                'w': _umkm_weg(form, a, b, x), 'h': 'Mal kehrt man mit geteilt um, geteilt mit mal.'}
+    if s == 3 and R.random() < .5:
+        art = R.choice(['sach_rate', 'sach_temp', 'probieren', 'zwei'])
+        if art == 'sach_rate':
+            n, r = R.randint(3, 12), R.randint(2, 15) * 5
+            return {'y': 'zahl', 'f': {'text': f'Ein Konto steht nach {n} gleichen Abbuchungen bei {zt(-n * r)} €. Vorher war es bei 0 €. Löse {n} · x = {zt(-n * r)}: Wie groß war jede Abbuchung als Zahl?'},
+                    'o': {'wert': -r, 'einheit': '€'}, 'c': f'({-n * r}) / {n}', 'w': _umkm_weg('ax', n, -n * r, -r) + f' Jede Abbuchung war {r} €.',
+                    'h': 'Kehre mal mit geteilt um. Eine Abbuchung ist eine negative Zahl.'}
+        if art == 'sach_temp':
+            n, d = R.randint(3, 8), R.randint(2, 6)
+            return {'y': 'zahl', 'f': {'text': f'In einer Kältekammer ändert sich die Temperatur jede Stunde gleich stark. Nach {n} Stunden hat sie sich um {zt(-n * d)} Grad geändert. Löse {n} · x = {zt(-n * d)}: Um wie viel Grad ändert sie sich pro Stunde?'},
+                    'o': {'wert': -d, 'einheit': '°C'}, 'c': f'({-n * d}) / {n}', 'w': _umkm_weg('ax', n, -n * d, -d) + f' Es wird jede Stunde {d} Grad kälter.',
+                    'h': 'Kehre mal mit geteilt um. Kälter heißt: negative Änderung.'}
+        if art == 'probieren':
+            a, x = R.choice([-1, 1]) * R.randint(24, 96), R.choice([-1, 1]) * R.randint(2, 12)
+            if a % x or a > 0 and x > 0: return g_umkm(R, s)
+            b = a // x
+            kand = sorted({x, -x, b, a * b if abs(a * b) < 1000 else x + 1} - {0})
+            if x not in kand or len(kand) < 3: return g_umkm(R, s)
+            opts, i = m18(R, zt(x), [zt(k) for k in kand if k != x][:3])
+            return {'y': 'auswahl', 'f': {'text': f'Welche Zahl ist eine Lösung von {zt(a)} : x = {zt(b)}? Probiere die Zahlen aus.'}, 'a': opts, 'o': {'index': i},
+                    'w': f'Einsetzen: {kl(a)} : {kl(x)} = {zt(a // x)} ✓. ' + _umkm_weg('a:x', a, b, x), 'h': 'Setze jede Zahl für x ein und rechne nach.'}
+        a, x, d = R.randint(2, 6), R.choice([-1, 1]) * R.randint(2, 12), R.randint(3, 20)
+        b = a * x + d
+        return {'y': 'zahl', 'f': {'text': f'Löse die Gleichung {a} · x + {d} = {zt(b)}. Wie groß ist x?'}, 'o': {'wert': x}, 'c': f'(({b}) - {d}) / {a}',
+                'w': f'Rückwärts, den letzten Schritt zuerst: {zt(b)} − {d} = {zt(b - d)}. Dann {kl(b - d)} : {a} = {zt(x)}. Probe: {a} · {kl(x)} + {d} = {zt(b)} ✓',
+                'h': f'Kehre zuerst das „+ {d}“ um, danach das „mal {a}“.'}
+    g = {1: 9, 2: 14, 3: 20}[s]
+    form = R.choice(['ax', 'x:a'] if s == 1 else ['ax', 'xa', 'x:a', 'a:x'] + (['a:x'] if s == 3 else []))
+    for _ in range(300):
+        a, x = R.choice([-1, 1]) * R.randint(2, g), R.choice([-1, 1]) * R.randint(2, g)
+        if a > 0 and x > 0: continue
+        if form == 'x:a':
+            x = x * a; text, b, c = _glm(form, a, x)
+        elif form == 'a:x':
+            a = a * x; text, b, c = _glm(form, a, x)
+        else:
+            text, b, c = _glm(form, a, x)
+        break
+    return {'y': 'zahl', 'f': {'text': f'Löse die Gleichung {text}. Wie groß ist x?'}, 'o': {'wert': x}, 'c': c,
+            'w': _umkm_weg(form, a, b, x), 'h': H_UMKM[form]}
+
+
+KARTE_UMKM = {
+    'lernziel': 'umkehraufgabe_mal', 'titel': 'Mal- und Geteilt-Gleichungen lösen',
+    'einstieg': 'Ein Taucher sinkt jede Minute gleich viel und ist nach 6 Minuten bei −48 m. Wie viele Meter sind es pro Minute? Mit x für diese Zahl heißt die ⟦Gleichung⟧ 6 · x = −48.',
+    'woerter': [['Gleichung', 'zwei Seiten mit Gleichheitszeichen, eine Zahl ist noch unbekannt'], ['x', 'steht für die gesuchte Zahl, wie ein leeres Kästchen'],
+                ['Umkehraufgabe', 'die Rechnung rückwärts: aus mal wird geteilt, aus geteilt wird mal']],
+    'bild': {'typ': 'zahlenstrahl', 'start': -48, 'ende': 0, 'abschnitte': 6, 'beschriftet': 'alle'},
+    'schritte': [
+        {'text': 'Die Gleichung heißt 6 · x = −48. Gesucht ist x.', 'bild': {'punkte': [{'wert': -48, 'name': 'nach 6 min'}]}},
+        {'text': 'Umkehraufgabe: Aus „mal 6“ wird „geteilt durch 6“.',
+         'bild': {'boegen': [{'von': 0, 'bis': -8}, {'von': -8, 'bis': -16}, {'von': -16, 'bis': -24}, {'von': -24, 'bis': -32}, {'von': -32, 'bis': -40}, {'von': -40, 'bis': -48}]}},
+        {'text': 'x = (−48) : 6 = ⟦−8⟧. Er sinkt 8 m pro Minute.', 'bild': {'punkte': [{'wert': -8, 'name': '1 min'}, {'wert': -48, 'name': 'nach 6 min'}]}},
+        {'text': 'Probe: 6 · (−8) = −48. Die Gleichung stimmt.'}],
+    'fehler': 'x = (−48) · 6 ist falsch. Dann wäre der Taucher bei −288 m. Mal kehrst du mit geteilt um.',
+    'regel': 'Mal kehrst du mit ⟦geteilt⟧ um, geteilt mit mal. Bei 12 : x = −3 fragst du: 12 geteilt durch was?',
+}
+FEST_UMKM = [
+    # Prüfungsvorbild: Lücke in einer Division ergänzen (Jahrgangsstufentest 6 Realschule Bayern 2024, Nr. 7 „__ : __ = −70“)
+    L(3, 'Ergänze die Lücke so, dass die Rechnung stimmt: □ : (−6) = −70', '□ : (−6) = −70', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).',
+      ['(-70) * (-6)'], 'Umkehraufgabe: □ = (−70) · (−6) = 420. Probe: 420 : (−6) = −70 ✓', 'Kehre „geteilt durch (−6)“ mit „mal (−6)“ um.'),
+    # Prüfungsvorbild: Lücke in einem Klammer-Term (Jahrgangsstufentest 6 Realschule Bayern 2019, Nr. 7 „3 · (__ − 15) = 18“)
+    L(3, 'Ergänze die Lücke so, dass die Rechnung stimmt: 4 · (□ − 12) = −20', '4 · (□ − 12) = −20', 'Trage die fehlende Zahl ein (mit Minus, falls negativ).',
+      ['(-20) / 4 + 12'], 'Rückwärts: Zuerst „mal 4“ umkehren: (−20) : 4 = −5. Dann „− 12“ umkehren: −5 + 12 = 7. Probe: 4 · (7 − 12) = 4 · (−5) = −20 ✓',
+      'Was muss in der Klammer herauskommen? Kehre zuerst das „mal 4“ um.'),
+    # Knobelaufgabe: systematisches Probieren mit negativen Zahlen
+    Z(3, 'Ich denke mir eine ganze Zahl. Multipliziere ich sie mit −3, erhalte ich dasselbe wie beim Addieren von 8. Welche Zahl ist es?', str(einzig([x for x in range(-50, 51) if x * (-3) == x + 8])),
+      'Probieren: x = −2 ergibt (−2) · (−3) = 6 und (−2) + 8 = 6 ✓. Für positive Zahlen ist „mal −3“ negativ, „plus 8“ aber positiv – die Zahl muss negativ sein.',
+      'Probiere kleine negative Zahlen aus: −1, −2, −3 …'),
+]
+
+
+# --- Lernkarte schriftlich_geteilt ---
+def _dividend(R, d, ziffern, mit_null):
+    for _ in range(500):
+        q = R.randint(10 ** (ziffern - 1), 10 ** ziffern - 1)
+        z = str(q)
+        if mit_null != ('0' in z[1:]): continue
+        if not mit_null and '0' in z: continue
+        return q, q * d
+    raise SystemExit('kein Quotient')
+
+
+def _div_weg(n, d):
+    """Kurzer Lösungsweg der schriftlichen Division (Teilschritte)."""
+    s, rest, teile, start = str(n), 0, [], True
+    for ch in s:
+        rest = rest * 10 + int(ch)
+        if start and rest < d: continue
+        start = False
+        q = rest // d
+        teile.append(f'{zt(rest)} : {d} = {q}' + (f', Rest {zt(rest - q * d)}' if rest - q * d else ''))
+        rest -= q * d
+    return '; '.join(teile)
+
+
+BUSSE = {'n': 0}  # Bus-Aufgabe höchstens zweimal
+
+
+def g_sdiv(R, s):
+    if s == 1:
+        d = R.choice([x for x in range(12, 40) if x % 10])
+        q, n = _dividend(R, d, 2 if d > 19 else R.choice([2, 3]), False)
+        return {'y': 'zahl', 'f': {'text': f'Teile schriftlich: {zt(n)} : {d}'}, 'o': {'wert': q}, 'c': f'{n} / {d}',
+                'w': f'{_div_weg(n, d)}. Ergebnis {zt(q)}. Probe: {zt(q)} · {d} = {zt(n)}.', 'h': f'Schreibe dir zuerst die Vielfachen von {d} auf: {d}, {2 * d}, {3 * d} …'}
+    if s == 2:
+        art = R.choice(['null', 'null', 'rest', 'ueberschlag'])
+        if art == 'null':
+            d = R.choice([x for x in range(11, 49) if x % 10])
+            q, n = _dividend(R, d, 3, True)
+            return {'y': 'zahl', 'f': {'text': f'Teile schriftlich: {zt(n)} : {d}'}, 'o': {'wert': q}, 'c': f'{n} / {d}',
+                    'w': f'{_div_weg(n, d)}. Ergebnis {zt(q)}. Die 0 im Ergebnis nicht vergessen. Probe: {zt(q)} · {d} = {zt(n)}.',
+                    'h': 'Reicht eine heruntergeholte Zahl nicht für den Teiler, schreibst du eine 0 ins Ergebnis.'}
+        if art == 'rest':
+            d = R.choice([x for x in range(12, 40) if x % 10]); n = R.randint(300, 2000)
+            if n % d == 0: return g_sdiv(R, s)
+            return {'y': 'zahl', 'f': {'text': f'Teile schriftlich {zt(n)} : {d}. Wie groß ist der Rest?'}, 'o': {'wert': n % d}, 'c': f'{n} % {d}',
+                    'w': f'{zt(n)} : {d} = {n // d} Rest {n % d}. Probe: {n // d} · {d} + {n % d} = {zt(n)}.', 'h': 'Teile wie immer. Was am Ende übrig bleibt, ist der Rest.'}
+        d = R.choice([x for x in range(12, 49) if x % 10])
+        q, n = _dividend(R, d, 3, R.random() < .5)
+        opts, i = m18(R, zt(q), [zt(q * 10), zt(q // 10) if q // 10 else zt(q * 100), zt(q * 100)] if q // 10 else [zt(q * 10), zt(q * 100)])
+        e = 10 ** (len(str(n)) - 2)
+        nr, dr = (n + e // 2) // e * e, (d + 5) // 10 * 10
+        return {'y': 'auswahl', 'f': {'text': f'Welches Ergebnis passt zu {zt(n)} : {d}? Entscheide mit einem Überschlag.'}, 'a': opts, 'o': {'index': i},
+                'w': f'Überschlag: {zt(nr)} : {dr} ≈ {zt(nr // dr)}. Das Ergebnis ist also dreistellig. Genau: {zt(n)} : {d} = {zt(q)}.',
+                'h': 'Runde beide Zahlen und rechne im Kopf. Wie viele Stellen hat das Ergebnis?'}
+    art = R.choice(['drei', 'busse', 'fehler', 'gross'])
+    if art == 'busse':
+        BUSSE['n'] += 1
+        if BUSSE['n'] > 2: art = R.choice(['drei', 'fehler', 'gross'])
+    if art == 'drei':
+        d = R.choice([125, 250, 112, 115, 135, 225, 150])
+        q, n = _dividend(R, d, 3, R.random() < .3)
+        return {'y': 'zahl', 'f': {'text': f'Teile schriftlich: {zt(n)} : {d}'}, 'o': {'wert': q}, 'c': f'{n} / {d}',
+                'w': f'{_div_weg(n, d)}. Ergebnis {zt(q)}. Probe: {zt(q)} · {d} = {zt(n)}.',
+                'h': f'Der Teiler hat drei Stellen. Nimm so viele Ziffern, dass die Zahl größer als {d} ist.'}
+    if art == 'busse':
+        p = R.choice([48, 52, 56, 45, 60]); n = R.randint(380, 1400)
+        if n % p == 0: return g_sdiv(R, s)
+        k = n // p + 1
+        return {'y': 'zahl', 'f': {'text': f'{zt(n)} Kinder fahren zu einem Sportfest. Ein Bus hat {p} Plätze. Wie viele Busse braucht man mindestens?'},
+                'o': {'wert': k}, 'c': f'{n} // {p} + 1',
+                'w': f'{zt(n)} : {p} = {n // p} Rest {n % p}. {n // p} Busse sind voll, für die übrigen {n % p} Kinder braucht man noch einen Bus: {k}.',
+                'h': 'Teile schriftlich. Was machst du mit den Kindern, die übrig bleiben?'}
+    if art == 'fehler':
+        d = R.choice([x for x in range(12, 40) if x % 10])
+        q, n = _dividend(R, d, 3, True)
+        if q % 10 == 0: return g_sdiv(R, s)
+        f = int(str(q).replace('0', ''))
+        opts, i = m18(R, f'Die 0 im Ergebnis fehlt. Richtig ist {zt(q)}.',
+                      ['Nichts, das stimmt.', f'Am Ende fehlt eine 0. Richtig ist {zt(f * 10)}.', f'Es bleibt ein Rest. Richtig ist {zt(f)} Rest 1.'])
+        return {'y': 'auswahl', 'f': {'text': f'Jemand rechnet schriftlich {zt(n)} : {d} = {zt(f)}. Was ist falsch?'}, 'a': opts, 'o': {'index': i},
+                'w': f'{_div_weg(n, d)}. Richtig ist {zt(q)}. Probe: {zt(q)} · {d} = {zt(n)}. Der Überschlag zeigt: Das Ergebnis muss dreistellig sein.',
+                'h': 'Mach die Probe: Ergebnis mal Teiler. Kommt die große Zahl heraus?'}
+    d = R.choice([x for x in range(13, 49) if x % 10])
+    q, n = _dividend(R, d, 4, R.random() < .5)
+    return {'y': 'zahl', 'f': {'text': f'Teile schriftlich: {zt(n)} : {d}'}, 'o': {'wert': q}, 'c': f'{n} / {d}',
+            'w': f'{_div_weg(n, d)}. Ergebnis {zt(q)}. Probe: {zt(q)} · {d} = {zt(n)}.', 'h': f'Schreibe dir die Vielfachen von {d} auf. Achte auf Nullen im Ergebnis.'}
+
+
+SDIV_LEER = [['74 : 24', '', '', ''], ['28 : 24', '', '', ''], ['48 : 24', '', '', '']]
+KARTE_SDIV = {
+    'lernziel': 'schriftlich_geteilt', 'titel': 'Schriftlich teilen: Teiler über 10',
+    'einstieg': 'Ein Konzert bringt 7 488 € ein. Das Geld wird gerecht an 24 Musikerinnen und Musiker verteilt. Bei einem zweistelligen ⟦Teiler⟧ hilft das Einmaleins allein nicht.',
+    'woerter': [['Teiler', 'die Zahl, durch die du teilst: bei 7 488 : 24 ist es 24'], ['herunterholen', 'die nächste Ziffer der großen Zahl neben den Rest schreiben']],
+    'bild': {'typ': 'tabelle', 'kopf': ['Teil', 'Ziffer', 'mal 24', 'Rest'], 'zeilen': SDIV_LEER},
+    'schritte': [
+        {'text': '7 : 24 geht nicht. Nimm die ersten zwei Ziffern: 74.'},
+        {'text': '74 : 24 = 3, denn 3 · 24 = 72. Es bleibt Rest 2.',
+         'bild': {'zeilen': [['74 : 24', '3', '72', '2'], SDIV_LEER[1], SDIV_LEER[2]]}},
+        {'text': 'Die 8 herunterholen: 28 : 24 = 1, Rest 4.', 'bild': {'zeilen': [['74 : 24', '3', '72', '2'], ['28 : 24', '1', '24', '4'], SDIV_LEER[2]]}},
+        {'text': 'Die letzte 8 herunterholen: 48 : 24 = 2. Das ergibt ⟦312⟧ €.',
+         'bild': {'zeilen': [['74 : 24', '3', '72', '2'], ['28 : 24', '1', '24', '4'], ['48 : 24', '2', '48', '0']]}},
+        {'text': 'Überschlag: 7 500 : 25 = 300. Das passt.'}],
+    'fehler': 'Die 1 vergessen ergibt 32 € pro Person. Der Überschlag sagt etwa 300 €. Jede heruntergeholte Ziffer bringt eine Ziffer im Ergebnis.',
+    'fehler_bild': {'zeilen': [['74 : 24', '3', '72', '2'], ['28 : 24', 'fehlt', '', ''], ['48 : 24', '2', '48', '0']]},
+    'regel': 'Teilen, malnehmen, abziehen, ⟦herunterholen⟧ – bis keine Ziffer übrig ist. Tipp: Schreib dir die Vielfachen des Teilers auf.',
+}
+assert 7488 // 24 == 312 and 7488 % 24 == 0
+FEST_SDIV = [
+    # Prüfungsvorbild: schriftliche Division mit zweistelligem Teiler (Jahrgangsstufentest 6 Realschule Bayern 2016 Nr. 2, 2021 Nr. 1a, 2025 Nr. 1b)
+    Z(3, 'Teile schriftlich: 23 715 : 15', '23715 / 15', '23 : 15 = 1, Rest 8; 87 : 15 = 5, Rest 12; 121 : 15 = 8, Rest 1; 15 : 15 = 1. Ergebnis 1 581. Probe: 1 581 · 15 = 23 715.',
+      'Schreibe dir die Vielfachen von 15 auf: 15, 30, 45, 60 …'),
+    # Prüfungsvorbild: erst teilen, dann vervielfachen (Jahrgangsstufentest 6 Realschule Bayern 2020, Nr. 13 „25 Güterwagen – 30 Güterwagen“)
+    Z(3, '18 gleich schwere Kisten wiegen zusammen 846 kg. Wie viel wiegen 25 solche Kisten?', '846 / 18 * 25',
+      'Eine Kiste: 846 : 18 = 47 kg. 25 Kisten: 47 · 25 = 1 175 kg.', 'Rechne zuerst aus, wie schwer eine Kiste ist.', einheit='kg'),
+    # Knobelaufgabe: mit Division und Rest rückwärts denken
+    Z(3, 'Welche ist die größte vierstellige Zahl, die sich ohne Rest durch 37 teilen lässt?', '37 * (9999 // 37)',
+      '9 999 : 37 = 270 Rest 9. Zieht man den Rest ab, geht es auf: 9 999 − 9 = 9 990 = 37 · 270.', 'Teile die größte vierstellige Zahl durch 37. Was machst du mit dem Rest?'),
+]
+
+
+# --- Lernkarte sach ---
+def g_sach(R, s):
+    if s == 1:
+        art = R.choice(['kasse', 'temp', 'eintritt'])
+        if art == 'kasse':
+            k, n, p, a = R.randint(2, 9) * 10, R.randint(18, 30), R.choice([4, 5, 6, 8]), R.randint(8, 25) * 10
+            e = k + n * p - a
+            if e < 0: return g_sach(R, s)
+            return {'y': 'zahl', 'f': {'text': f'In der Klassenkasse sind {k} €. {n} Kinder zahlen je {p} € ein. Dann kostet der Ausflug {a} €. Wie viel Euro bleiben in der Kasse?'},
+                    'o': {'wert': e, 'einheit': '€'}, 'c': f'{k} + {n} * {p} - {a}',
+                    'w': f'Vorwärts: Einzahlung {n} · {p} = {n * p} €. {k} + {n * p} = {k + n * p} €. Nach dem Ausflug: {k + n * p} − {a} = {e} €.',
+                    'h': 'Rechne der Reihe nach: erst einzahlen, dann bezahlen.'}
+        if art == 'temp':
+            t, h, d = -R.randint(5, 20), R.randint(3, 6), R.randint(2, 5)
+            return {'y': 'zahl', 'f': {'text': f'Morgens zeigt das Thermometer {zt(t)} °C. Dann wird es {h} Stunden lang jede Stunde {d} Grad wärmer. Wie warm ist es danach?'},
+                    'o': {'wert': t + h * d, 'einheit': '°C'}, 'c': f'({t}) + {h} * {d}',
+                    'w': f'Wärmer um {h} · {d} = {h * d} Grad. {kl(t)} + {h * d} = {zt(t + h * d)} °C.', 'h': 'Rechne zuerst aus, um wie viel Grad es insgesamt wärmer wird.'}
+        n, p, m = R.randint(80, 250), R.choice([6, 7, 8, 9]), R.randint(2, 6) * 100
+        return {'y': 'zahl', 'f': {'text': f'Ein Schulkino verkauft {n} Karten zu je {p} €. Die Filmmiete kostet {m} €. Wie viel Euro Gewinn bleiben?'},
+                'o': {'wert': n * p - m, 'einheit': '€'}, 'c': f'{n} * {p} - {m}',
+                'w': f'Einnahmen: {n} · {p} = {zt(n * p)} €. Gewinn: {zt(n * p)} − {m} = {zt(n * p - m)} €.', 'h': 'Erst die Einnahmen ausrechnen, dann die Miete abziehen.'}
+    if s == 2:
+        art = R.choice(['kasse_r', 'raetsel', 'term', 'aufzug'])
+        if art == 'kasse_r':
+            a, g, q = R.randint(8, 30) * 10, R.choice([3, 4, 5, 6]), R.randint(15, 60)
+            return {'y': 'zahl', 'f': {'text': f'Aus der Klassenkasse gehen {a} € an den Bus. Den Rest teilen {g} Gruppen gleich auf, jede bekommt {q} €. Wie viel Euro waren in der Kasse?'},
+                    'o': {'wert': q * g + a, 'einheit': '€'}, 'c': f'{q} * {g} + {a}',
+                    'w': f'Rückwärts, den letzten Schritt zuerst: {q} · {g} = {q * g} €. Dazu der Bus: {q * g} + {a} = {q * g + a} €. Probe: {q * g + a} − {a} = {q * g}, {q * g} : {g} = {q}.',
+                    'h': 'Arbeite rückwärts: Kehre zuerst das Teilen um, dann das Bezahlen.'}
+        if art == 'raetsel':
+            a, b, x = R.randint(2, 9), R.randint(3, 30), R.randint(2, 20)
+            c = a * x + b
+            return {'y': 'zahl', 'f': {'text': f'Ich denke mir eine Zahl. Ich multipliziere sie mit {a} und addiere {b}. Ich erhalte {c}. Welche Zahl habe ich mir gedacht?'},
+                    'o': {'wert': x}, 'c': f'({c} - {b}) / {a}',
+                    'w': f'Rückwärts: {c} − {b} = {c - b}, dann {c - b} : {a} = {x}. Probe: {x} · {a} + {b} = {c} ✓', 'h': 'Kehre die Schritte in umgekehrter Reihenfolge um.'}
+        if art == 'term':
+            n, p, a = R.randint(20, 40), R.randint(3, 9), R.randint(20, 90)
+            r = f'{n} · {p} − {a}'
+            f = [f'{n} · ({p} − {a})', f'({n} + {p}) − {a}', f'{n} · {p} + {a}']
+            opts, i = m18(R, r, f)
+            return {'y': 'auswahl', 'f': {'text': f'Ein Fest: {n} Gäste zahlen je {p} € Eintritt. Davon gehen {a} € für Getränke ab. Welcher Term berechnet, was übrig bleibt?'},
+                    'a': opts, 'o': {'index': i}, 'w': f'Einnahmen: {n} · {p}. Davon gehen {a} € ab: {r} = {n * p - a} €.',
+                    'h': 'Was wird zuerst ausgerechnet, was danach abgezogen?'}
+        e, k, u, o = R.randint(-3, 8), R.randint(2, 4), R.randint(2, 5), R.randint(3, 9)
+        st = e - o + k * u
+        return {'y': 'zahl', 'f': {'text': f'Ein Aufzug fährt {k}-mal je {u} Stockwerke nach unten und danach {o} Stockwerke nach oben. Er hält in Stockwerk {zt(e)}. In welchem Stockwerk ist er losgefahren?'},
+                'o': {'wert': st}, 'c': f'({e}) - {o} + {k} * {u}',
+                'w': f'Rückwärts: Die {o} nach oben werden zu „{o} nach unten“: {zt(e)} − {o} = {zt(e - o)}. Die {k} · {u} = {k * u} nach unten werden zu „nach oben“: {zt(e - o)} + {k * u} = {zt(st)}.',
+                'h': 'Arbeite rückwärts: nach oben wird nach unten und umgekehrt.'}
+    art = R.choice(['raetsel_neg', 'kuehl', 'konto'])
+    if art == 'raetsel_neg':
+        a, b, x = -R.randint(2, 6), R.randint(5, 30), R.choice([-1, 1]) * R.randint(2, 15)
+        c = a * x + b
+        return {'y': 'zahl', 'f': {'text': f'Ich denke mir eine Zahl. Ich multipliziere sie mit {kl(a)} und addiere {b}. Ich erhalte {zt(c)}. Welche Zahl habe ich mir gedacht?'},
+                'o': {'wert': x}, 'c': f'(({c}) - {b}) / ({a})',
+                'w': f'Rückwärts: {zt(c)} − {b} = {zt(c - b)}, dann {kl(c - b)} : {kl(a)} = {zt(x)}. Probe: {kl(x)} · {kl(a)} + {b} = {zt(c)} ✓',
+                'h': 'Kehre die Schritte in umgekehrter Reihenfolge um. Achte auf die Vorzeichen.'}
+    if art == 'kuehl':
+        h, d, w, e = R.randint(3, 6), R.randint(3, 6), R.randint(2, 8), -R.randint(12, 24)
+        st = e - w + h * d
+        return {'y': 'zahl', 'f': {'text': f'Ein Kühlraum wird {h} Stunden lang jede Stunde {d} Grad kälter. Danach wird er {w} Grad wärmer und hat jetzt {zt(e)} °C. Wie kalt war er am Anfang?'},
+                'o': {'wert': st, 'einheit': '°C'}, 'c': f'({e}) - {w} + {h} * {d}',
+                'w': f'Rückwärts: {zt(e)} − {w} = {zt(e - w)} °C. Dann die {h} · {d} = {h * d} Grad Abkühlung umkehren: {zt(e - w)} + {h * d} = {zt(st)} °C. Probe: {zt(st)} − {h * d} + {w} = {zt(e)} ✓',
+                'h': 'Arbeite rückwärts: aus wärmer wird kälter, aus kälter wird wärmer.'}
+    r, n, ein, e = R.randint(2, 6) * 5, R.randint(3, 8), R.randint(4, 12) * 10, -R.randint(2, 12) * 5
+    st = e - ein + n * r
+    return {'y': 'zahl', 'f': {'text': f'Von einem Konto werden {n}-mal je {r} € abgebucht. Dann werden {ein} € eingezahlt. Jetzt steht es bei {zt(e)} €. Wie war der Kontostand am Anfang?'},
+            'o': {'wert': st, 'einheit': '€'}, 'c': f'({e}) - {ein} + {n} * {r}',
+            'w': f'Rückwärts: {zt(e)} − {ein} = {zt(e - ein)} €. Die Abbuchungen {n} · {r} = {n * r} € kommen wieder dazu: {zt(e - ein)} + {n * r} = {zt(st)} €.',
+            'h': 'Kehre zuerst das Einzahlen um, dann die Abbuchungen.'}
+
+
+SACH_KOPF = ['', 'vorwärts', 'rückwärts']
+KARTE_SACH = {
+    'lernziel': 'sach', 'titel': 'Sachaufgaben: vorwärts und rückwärts',
+    'einstieg': 'Aus der Klassenkasse gehen 180 € an den Bus. Den Rest teilen 4 Gruppen, jede bekommt 35 €. Den Anfangsbetrag findest du durch ⟦Rückwärtsarbeiten⟧.',
+    'woerter': [['Rückwärtsarbeiten', 'vom Ende aus jeden Schritt umkehren, bis du beim Anfang bist'], ['Probe', 'nachrechnen, ob das Ergebnis zur Geschichte passt']],
+    'bild': {'typ': 'tabelle', 'kopf': SACH_KOPF, 'zeilen': [['Kasse', '?', '?'], ['Bus', '− 180 €', ''], ['Gruppen', ': 4', ''], ['je Gruppe', '35 €', '35 €']]},
+    'schritte': [
+        {'text': 'Vorwärts: Kasse minus 180 €, dann geteilt durch 4. Das ergibt 35 €.'},
+        {'text': 'Rückwärts beginnst du am Ende: 35 € · 4 = 140 €.',
+         'bild': {'zeilen': [['Kasse', '?', '?'], ['Bus', '− 180 €', ''], ['Gruppen', ': 4', '· 4 = 140 €'], ['je Gruppe', '35 €', '35 €']]}},
+        {'text': 'Dann kommen die 180 € für den Bus wieder dazu.',
+         'bild': {'zeilen': [['Kasse', '?', '?'], ['Bus', '− 180 €', '+ 180 €'], ['Gruppen', ': 4', '· 4 = 140 €'], ['je Gruppe', '35 €', '35 €']]}},
+        {'text': '140 + 180 = 320. In der Kasse waren ⟦320 €⟧.',
+         'bild': {'zeilen': [['Kasse', '?', '320 €'], ['Bus', '− 180 €', '+ 180 €'], ['Gruppen', ': 4', '· 4 = 140 €'], ['je Gruppe', '35 €', '35 €']]}},
+        {'text': 'Probe: 320 − 180 = 140 und 140 : 4 = 35. Passt.'}],
+    'fehler': 'Falsche Reihenfolge: 35 + 180 = 215, dann 215 · 4 = 860 €. Kehre zuerst den letzten Schritt um, hier das Teilen.',
+    'fehler_bild': {'zeilen': [['Kasse', '?', '860 €'], ['Bus', '− 180 €', 'zuerst + 180'], ['Gruppen', ': 4', 'dann · 4'], ['je Gruppe', '35 €', 'falsch']]},
+    'regel': 'Beim ⟦Rückwärtsarbeiten⟧ beginnst du am Ende. Kehre jeden Schritt um, den letzten zuerst. Mach zum Schluss die Probe.',
+}
+assert (320 - 180) // 4 == 35
+FEST_SACH = [
+    # Prüfungsvorbild: Rückwärtsarbeiten mit „die Hälfte und dann noch …“ (Jahrgangsstufentest 8 Realschule Bayern 2005, in SMART Gymnasium Jgst. 6)
+    Z(3, 'Ein Kind verschenkt die Hälfte seiner Sticker und danach noch 6 Sticker. Jetzt hat es noch 15 Sticker. Wie viele hatte es am Anfang?', '(15 + 6) * 2',
+      'Rückwärts: Vor dem Verschenken der 6 waren es 15 + 6 = 21. Das war die Hälfte, also am Anfang 21 · 2 = 42. Probe: 42 : 2 = 21, 21 − 6 = 15 ✓',
+      'Fang am Ende an. Kehre zuerst „noch 6 verschenkt“ um, dann „die Hälfte“.'),
+    # Prüfungsvorbild: Term zu einem Text (Jahrgangsstufentest 6 Realschule Bayern 2016: „Multipliziere die Differenz … mit der Summe …“)
+    wahl(3, 'Multipliziere die Differenz von 90 und 15 mit der Summe aus 4 und 8. Welcher Term passt?',
+         ['(90 − 15) · (4 + 8)', '90 − 15 · 4 + 8', '(90 − 15) · 4 + 8', '90 − 15 · (4 + 8)'], lambda o: o == '(90 − 15) · (4 + 8)',
+         'Differenz von 90 und 15: (90 − 15). Summe aus 4 und 8: (4 + 8). Beide werden multipliziert, also braucht jede ihre Klammer: (90 − 15) · (4 + 8) = 75 · 12 = 900.',
+         'Differenz und Summe müssen zuerst ausgerechnet werden. Was braucht man dafür?'),
+    # Prüfungsvorbild: fehlende Information erkennen (Jahrgangsstufentest 6 Realschule Bayern 2019, Nr. 14)
+    wahl(3, 'Eine Klasse fährt mit dem Bus ins Museum. Der Bus kostet 420 €, jedes Kind zahlt 15 €. Welche Angabe fehlt, um zu berechnen, wie viel Geld übrig bleibt?',
+         ['wie viele Kinder mitfahren', 'wie lange die Fahrt dauert', 'wie viele Sitzplätze der Bus hat', 'wann das Museum öffnet'], lambda o: o == 'wie viele Kinder mitfahren',
+         'Übrig bleibt: Anzahl der Kinder · 15 € − 420 €. Ohne die Anzahl der Kinder kann man nicht rechnen. Die anderen Angaben braucht man für die Rechnung nicht.',
+         'Schreibe die Rechnung auf. Welche Zahl fehlt darin?'),
+    # Knobelaufgabe: Rückwärtsarbeiten mit negativen Zahlen
+    Z(3, 'Ich denke mir eine Zahl, multipliziere sie mit (−2), addiere 15 und teile durch 3. Ich erhalte −1. Welche Zahl habe ich mir gedacht?', '((-1) * 3 - 15) / (-2)',
+      'Rückwärts: (−1) · 3 = −3. Dann −3 − 15 = −18. Dann (−18) : (−2) = 9. Probe: 9 · (−2) = −18, −18 + 15 = −3, (−3) : 3 = −1 ✓',
+      'Fang hinten an: Kehre zuerst „durch 3“ um, dann „plus 15“, dann „mal (−2)“.'),
+]
+
+neue_karte(DATEI, KARTE_KOPF, 'verteilen', 'Geschickt rechnen', 'gesetze', g_kopf, 18_5_4, FEST_KOPF)
+neue_karte(DATEI, KARTE_UMKM, 'geteilt_ganz', 'Mal und geteilt mit ganzen Zahlen', ('gleichungen', 'Gleichungen mit mal und geteilt durch Umkehraufgaben lösen'), g_umkm, 18_5_5, FEST_UMKM)
+neue_karte(DATEI, KARTE_SDIV, 'schriftlich', 'Große Rechnungen', 'verfahren', g_sdiv, 18_5_6, FEST_SDIV)
+neue_karte(DATEI, KARTE_SACH, 'schriftlich_geteilt', ('Anwenden', 'Große Rechnungen'), ('anwenden', 'Sachaufgaben mit allen Grundrechenarten, Vorwärts- und Rückwärtsarbeiten'), g_sach, 18_5_7, FEST_SACH)
+# ---- LÜCKEN ENDE ----
+
+# ---- DURCHSICHT (Neunzehnte Runde, Zweig durchsicht-kl5, siehe _durchsicht_kl5.py) ----
+from _durchsicht_kl5 import Durchsicht, durchsicht_anwenden  # noqa: E402
+
+DS = Durchsicht('zahlen.rechengesetze', 19_5_6)
+# a) Stufe 3 ohne neuen Gedanken (längere Rechnung, mehr Faktoren, gleiche Vorlage wie Stufe 2) → Stufe 2
+for _lz, _t in [('punkt_strich', 'Berechne 8 + 4 · 8 · 8 − 4.'),
+        ('punkt_strich', 'Berechne 588 : 7 : 7 + 4 · 7.'),
+        ('klammern', 'Bei welchem Term kommt 88 heraus?'),
+        ('vorteil', 'Rechne geschickt: 125 · 6 · 9 · 8'),
+        ('vorteil', 'Rechne geschickt: 20 · 3 · 9 · 5'),
+        ('vorteil', 'Rechne geschickt: 4 · 50 · 3 · 2'),
+        ('vorteil', 'Rechne geschickt: 25 · 25 · 4 · 4'),
+        ('vorteil', 'Rechne geschickt: 8 · 23 · 125'),
+        ('differenz_summe', 'Rechne geschickt: 43 − 26 + 37 − 34'),
+        ('differenz_summe', 'Rechne geschickt: 51 − 34 + 9 − 16'),
+        ('differenz_summe', 'Rechne geschickt: 42 − 33 + 18 − 17'),
+        ('verteilen', 'Rechne geschickt: 15 · 29 + 85 · 29'),
+        ('verteilen', 'Rechne geschickt: 53 · 38 + 47 · 38'),
+        ('verteilen', 'Welcher Term ist gleich 3 · (10 + 3)?'),
+        ('verteilen', 'Rechne geschickt: 18 · 11 + 18 · 89'),
+        ('verteilen', 'Rechne geschickt: 26 · 67 − 26 · 57'),
+        ('mal_ganz', 'Ist (−1) · (−6) · (−1) · (−8) positiv oder negativ? Entscheide, ohne auszurechnen.'),
+        ('mal_ganz', 'Berechne 2 · 6 · (−5).'),
+        ('mal_ganz', 'Ist (−2) · (−8) · (−1) · 2 positiv oder negativ? Entscheide, ohne auszurechnen.'),
+        ('mal_ganz', 'Berechne 9 · 6 · (−3).'),
+        ('mal_ganz', 'Ist 6 · (−9) · 6 · (−9) positiv oder negativ? Entscheide, ohne auszurechnen.'),
+        ('geteilt_ganz', 'Berechne 3 · (−3) : 9.'),
+        ('geteilt_ganz', 'Berechne (−72) : (−3) : (−2).'),
+        ('geteilt_ganz', 'Berechne 12 : 2 : (−2).'),
+        ('geteilt_ganz', 'Berechne 24 : 3 : (−2).'),
+        ('geteilt_ganz', 'Berechne (−240) : (−8) : (−6).'),
+        ('ueberschlag', 'Im Lager stehen 42 Kisten mit je 34 Flaschen. Überschlage die Zahl der Flaschen: Runde beide Zahlen auf Zehner.'),
+        ('ueberschlag', 'Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 818 · 73 = ?'),
+        ('ueberschlag', 'Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 940 · 59 = ?')]:
+    DS.stufe(_lz, _t, 2, enthaelt=lambda x: x['s'] == 3)
+# e) Prüfung der Achtzehnten Runde: Das Bild zu Schritt 2 zeigte schon die 6 Sprünge bis −8 und verriet die Lösung → Sprünge erst in Schritt 3
+_B6 = [{'von': 0, 'bis': -8}, {'von': -8, 'bis': -16}, {'von': -16, 'bis': -24}, {'von': -24, 'bis': -32}, {'von': -32, 'bis': -40}, {'von': -40, 'bis': -48}]
+DS.karte('umkehraufgabe_mal', 'Schritt 2 zeigte schon die sechs Sprünge bis −8 (Lösung verraten); jetzt erscheinen die Sprünge erst in Schritt 3 zusammen mit dem Ergebnis.',
+         schritte=[{'text': 'Die Gleichung heißt 6 · x = −48. Gesucht ist x.', 'bild': {'punkte': [{'wert': -48, 'name': 'nach 6 min'}]}},
+                   {'text': 'Umkehraufgabe: Aus „mal 6“ wird „geteilt durch 6“.'},
+                   {'text': 'x = (−48) : 6 = ⟦−8⟧. Er sinkt 8 m pro Minute.',
+                    'bild': {'boegen': _B6, 'punkte': [{'wert': -8, 'name': '1 min'}, {'wert': -48, 'name': 'nach 6 min'}]}},
+                   {'text': 'Probe: 6 · (−8) = −48. Die Gleichung stimmt.'}])
+# c) Prüfung der Achtzehnten Runde: drei Aufgaben „Fest, Eintritt, Getränke“ direkt hintereinander auf Stufe 2 → zwei davon durch andere Sachaufgaben ersetzt
+DS.ersetze('sach', 'Ein Fest: 39 Gäste zahlen je 9 € Eintritt. Davon gehen 44 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?', DS.Z(
+    'Ein Verein kauft 12 Bälle zu je 18 €. Weil er so viele nimmt, bekommt er 25 € Rabatt auf den ganzen Einkauf. Wie viel Euro zahlt er?', 191, '12 * 18 - 25',
+    'Vorwärts: 12 · 18 = 216 €. Davon gehen 25 € Rabatt ab: 216 − 25 = 191 €.', 'Rechne zuerst den Preis ohne Rabatt aus.', einheit='€'))
+DS.ersetze('sach', 'Ein Fest: 30 Gäste zahlen je 9 € Eintritt. Davon gehen 83 € für Getränke ab. Welcher Term berechnet, was übrig bleibt?', DS.Z(
+    'Beim Kuchenverkauf werden zuerst 45 € für die Zutaten abgezogen. Den Rest teilen 3 Klassen gleich auf, jede bekommt 52 €. Wie viel Euro wurden eingenommen?', 201, '52 * 3 + 45',
+    'Rückwärts, den letzten Schritt zuerst: 52 · 3 = 156 €. Dazu die Zutaten: 156 + 45 = 201 €. Probe: 201 − 45 = 156, 156 : 3 = 52.',
+    'Arbeite rückwärts: Kehre zuerst das Teilen um, dann das Abziehen.', einheit='€'))
+durchsicht_anwenden(DATEI, DS)
+# ---- DURCHSICHT ENDE ----
+# ---- STUFEN (Zwanzigste Runde, Zweig stufen-kl5, siehe _stufen_kl5.py und _st5_zahlen_rechengesetze.py) ----
+from _stufen_kl5 import stufen_anwenden  # noqa: E402
+stufen_anwenden(DATEI, 'zahlen.rechengesetze')
+# ---- STUFEN ENDE ----
 
 if __name__ == '__main__':
     schreibe(DATEI, 'zahlen.rechengesetze.json')
+
+
+# ---- BEREINIGEN (Einundzwanzigste Runde) ----
+if __name__ == '__main__':
+    from _bereinigen import bereinigen_datei
+    bereinigen_datei('zahlen.rechengesetze')
+# ---- BEREINIGEN ENDE ----

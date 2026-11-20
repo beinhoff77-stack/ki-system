@@ -34,169 +34,275 @@
    {
     "lernziel": "lesen",
     "titel": "Intervalle lesen",
-    "regel": "So liest du ein ⟦Intervall⟧: Schau jede ⟦Klammer⟧ einzeln an. Zeigt sie zur Zahl hin, gehört die Grenze dazu (≤). Zeigt sie von ihr weg, gehört sie nicht dazu (<).",
+    "regel": "Zeigt die Klammer ⟦zur Zahl hin⟧, gehört die Grenze dazu. Zeigt sie weg, gehört sie nicht dazu.",
     "schritte": [
-     "Gegeben ist das Intervall [−2; 5[.",
-     "Links zeigt die Klammer zur −2 hin. Also gehört −2 dazu (gefüllter Punkt).",
-     "Rechts zeigt die Klammer von der 5 weg. Also gehört 5 nicht dazu (leerer Kreis).",
-     "In Zeichen heißt das ⟦−2 ≤ x < 5⟧: alle Zahlen von −2 bis knapp unter 5."
-    ],
-    "fehler": "]1; 4] heißt nicht 1 ≤ x ≤ 4. Die linke Klammer zeigt ⟦nach außen⟧, also gehört 1 nicht dazu: 1 < x ≤ 4. Wie bei „über 1 Jahr bis 4 Jahre“: Wer genau 1 Jahr alt ist, ist noch nicht dabei.",
-    "bild": {
-     "typ": "figur",
-     "punkte": {
-      "_l": [
-       -3.5,
-       0
-      ],
-      "_r": [
-       6.5,
-       0
-      ],
-      "−2": [
-       -2,
-       0
-      ],
-      "_e": [
-       5,
-       0
-      ]
-     },
-     "linien": [
-      [
-       "_l",
-       "_r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "−2",
-       "_e"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        5,
-        0
-       ],
-       "r": 0.2,
-       "name": "5"
+     {
+      "text": "Die linke Klammer zeigt zur 3 hin: Die Grenze 3 gehört dazu.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": "3 dabei"
+        }
+       ]
       }
-     ]
+     },
+     {
+      "text": "Die rechte Klammer zeigt von der 6 weg: 6 gehört nicht dazu.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 3,
+         "name": "3 dabei"
+        },
+        {
+         "wert": 6,
+         "name": "6 nicht"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Dazwischen ist alles dabei: ⟦3 ≤ x < 6⟧.",
+      "bild": {
+       "bereich": {
+        "von": 3,
+        "bis": 6
+       }
+      }
+     }
+    ],
+    "fehler": "]3; 6[ ist etwas anderes: Ein Kind, das genau 3 ist, wäre dann nicht dabei. Die Klammer bei der 3 zeigt dort ⟦nach außen⟧.",
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 8,
+     "abschnitte": 8,
+     "beschriftet": "alle"
     },
-    "einstieg": "Auf einem Spielzeug steht: „für Kinder von 3 bis unter 6 Jahren“. Erlaubt sind also 3-Jährige, 4-Jährige, 5-Jährige – und jedes Alter dazwischen, etwa 5 Jahre und 11 Monate. Wer schon 6 ist, gehört nicht mehr dazu. Für so einen lückenlosen Bereich gibt es in Mathe eine Kurzschrift: das ⟦Intervall⟧ [3; 6[.",
+    "einstieg": "Auf einem Spielzeug steht: „für Kinder von 3 bis unter 6 Jahren“. Jedes Alter dazwischen passt, wer 6 ist, nicht mehr. Kurz schreibt man das als ⟦Intervall⟧ [3; 6[.",
     "woerter": [
      [
       "Intervall",
       "ein lückenloser Zahlenbereich zwischen zwei Grenzen"
      ],
      [
+      "[3; 6[",
+      "alle Zahlen von 3 bis knapp unter 6"
+     ],
+     [
       "Grenze",
-      "die Zahl am Anfang oder am Ende des Bereichs"
-     ],
-     [
-      "[ … ] nach innen",
-      "die eckige Klammer zeigt zur Zahl hin: die Grenze gehört dazu"
-     ],
-     [
-      "] … [ nach außen",
-      "die Klammer zeigt von der Zahl weg: die Grenze gehört nicht dazu"
-     ],
-     [
-      "−2 ≤ x < 5",
-      "alle Zahlen x von −2 (mit −2) bis 5 (ohne 5)"
-     ],
-     [
-      "Punkt / Kreis im Bild",
-      "gefüllter Punkt: Grenze gehört dazu; leerer Kreis: gehört nicht dazu"
+      "die Zahl am Rand des Bereichs"
      ]
-    ]
+    ],
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 3,
+       "name": "3 nicht"
+      },
+      {
+       "wert": 6,
+       "name": "6 nicht"
+      }
+     ]
+    }
    },
    {
     "lernziel": "schreiben",
     "titel": "Zahlenbereiche als Intervall schreiben",
-    "regel": "So schreibst du ein Intervall: Bei ≤ und ≥ zeigt die Klammer ⟦nach innen⟧, bei < und > ⟦nach außen⟧. Ist der Bereich auf einer Seite ⟦unbegrenzt⟧, schreibst du −∞ oder ∞ – immer mit Klammer nach außen.",
+    "regel": "Bei ≤ und ≥ zeigt die Klammer ⟦nach innen⟧, sonst nach außen. Bei ∞ und −∞ zeigt sie immer nach außen.",
     "schritte": [
-     "Mitfahren darf, wer mindestens 140 cm groß ist. In Zeichen: x ≥ 140.",
-     "Die 140 gehört dazu, also zeigt die Klammer zur 140 hin: [140; …",
-     "Nach oben gibt es keine Grenze. Dort steht ∞, und bei ∞ zeigt die Klammer immer nach außen.",
-     "Das Intervall heißt ⟦[140; ∞[⟧."
+     {
+      "text": "Mindestens 140 cm heißt: x ≥ 140.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 140,
+         "name": "140"
+        }
+       ],
+       "bereich": {
+        "von": 140,
+        "bis": 200
+       }
+      }
+     },
+     {
+      "text": "Die 140 gehört dazu, die Klammer zeigt zu ihr hin: [140."
+     },
+     {
+      "text": "Nach oben steht ∞, mit Klammer nach außen: ⟦[140; ∞[⟧."
+     }
     ],
-    "fehler": "x > 3 ist nicht [3; ∞]. Die 3 gehört nicht dazu, also ]3; … . Und ∞ ist keine Zahl, die man je erreicht – deshalb zeigt die Klammer dort ⟦immer⟧ nach außen: ]3; ∞[.",
-    "einstieg": "An der Achterbahn steht: „Mitfahren ab 140 cm.“ Eine obere Grenze gibt es nicht – auch sehr große Menschen dürfen mitfahren. Für „ohne Ende nach oben“ benutzt man das Zeichen ∞, gesprochen ⟦unendlich⟧.",
+    "fehler": "]140; ∞[ wäre falsch: Wer genau 140 cm misst, dürfte dann nicht mitfahren. Bei ∞ zeigt die Klammer ⟦immer⟧ nach außen.",
+    "einstieg": "An der Achterbahn steht: „Mitfahren ab 140 cm.“ Nach oben gibt es keine Grenze. Für „ohne Ende“ schreibt man ∞, gesprochen ⟦unendlich⟧.",
     "woerter": [
      [
-      "≥ und ≤",
-      "„größer oder gleich“ bzw. „kleiner oder gleich“: die Grenze gehört dazu"
-     ],
-     [
-      "> und <",
-      "„größer als“ bzw. „kleiner als“: die Grenze gehört nicht dazu"
-     ],
-     [
       "∞",
-      "unendlich: der Bereich hört nach oben nie auf"
+      "„unendlich“: Der Bereich hört nie auf"
      ],
      [
-      "−∞",
-      "minus unendlich: der Bereich hört nach unten nie auf"
-     ],
-     [
-      "unbegrenzt",
-      "auf dieser Seite gibt es keine Grenze"
+      "x ≥ 140",
+      "x ist 140 oder mehr"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 100,
+     "ende": 200,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 140,
+       "name": "140 nicht?"
+      }
+     ]
+    }
    },
    {
     "lernziel": "enthalten",
     "titel": "Welche Zahlen liegen im Intervall?",
-    "regel": "So prüfst du eine Zahl: Liegt sie ⟦zwischen den Grenzen⟧, gehört sie dazu. Ist sie genau eine Grenze, entscheidet die ⟦Klammer⟧.",
+    "regel": "Eine Zahl gehört dazu, wenn sie ⟦zwischen den Grenzen⟧ liegt. Liegt sie genau auf einer Grenze, entscheidet die Klammer.",
     "schritte": [
-     "Frage: Welche ganzen Zahlen liegen in ]−1; 3]?",
-     "Links zeigt die Klammer von der −1 weg. Also gehört −1 nicht dazu.",
-     "Dann kommen 0, 1 und 2. Rechts zeigt die Klammer zur 3 hin, also gehört auch 3 dazu.",
-     "Gezählt: 0, 1, 2, 3 – das sind ⟦4⟧ ganze Zahlen."
+     {
+      "text": "Die 1 gehört nicht dazu, die Klammer zeigt weg.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1,
+         "name": "1 nicht"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die 3 gehört dazu, die Klammer zeigt zu ihr hin.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1,
+         "name": "1 nicht"
+        },
+        {
+         "wert": 3,
+         "name": "3 dabei"
+        }
+       ],
+       "bereich": {
+        "von": 1,
+        "bis": 3
+       }
+      }
+     },
+     {
+      "text": "Ganze Zahlen darin sind 2 und 3. Das sind ⟦2 ganze Zahlen⟧.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 1,
+         "name": "1 nicht"
+        },
+        {
+         "wert": 2,
+         "name": "2"
+        },
+        {
+         "wert": 3,
+         "name": "3 dabei"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Dazu kommen alle Zahlen dazwischen, etwa 2,5. Das sind ⟦unendlich viele⟧."
+     }
     ],
-    "fehler": "In ]−1; 3] liegen nicht nur 0, 1, 2 und 3. Auch 0,5 oder 2,99 gehören dazu – wie ein Kind mit 2 Jahren und 4 Monaten. Ein Intervall enthält ⟦unendlich viele⟧ Zahlen.",
-    "einstieg": "Ein Spiel ist „für Kinder über 1 bis einschließlich 3 Jahre“. Wer genau 1 Jahr alt ist, gehört nicht dazu, wer genau 3 ist, schon. Dazwischen passt jedes Alter, auch 2 Jahre und 4 Monate. Ein Intervall enthält also nicht nur ganze Zahlen, sondern ⟦unendlich viele⟧ Zahlen.",
+    "fehler": "Ein Intervall enthält nicht nur ganze Zahlen. Ein Kind mit 2 Jahren und 6 Monaten passt auch – das ist 2,5.",
+    "einstieg": "Ein Spiel ist „für Kinder über 1 bis einschließlich 3 Jahre“. Wer genau 1 ist, gehört nicht dazu, wer genau 3 ist, schon. Das Intervall dazu ist ⟦]1; 3]⟧.",
     "woerter": [
      [
-      "ganze Zahlen",
-      "…, −2, −1, 0, 1, 2, … – Zahlen ohne Komma"
+      "]1; 3]",
+      "alle Zahlen über 1 bis einschließlich 3"
      ],
      [
-      "enthalten",
-      "die Zahl liegt im Bereich"
-     ],
-     [
-      "unendlich viele",
-      "man kann sie nie fertig aufzählen, z. B. 0,5; 0,51; 0,501; …"
+      "einschließlich",
+      "mit dabei"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 5,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    },
+    "fehler_bild": {
+     "punkte": [
+      {
+       "wert": 1,
+       "name": "1 nicht"
+      },
+      {
+       "wert": 2.5,
+       "name": "2,5 auch"
+      },
+      {
+       "wert": 3,
+       "name": "3 dabei"
+      }
+     ]
+    }
    },
    {
     "lernziel": "beurteilen",
     "titel": "Aussagen über Intervalle prüfen",
-    "regel": "So prüfst du eine Aussage über ein Intervall: ⟦Grenzen⟧ und ⟦Klammern⟧ genau lesen. Ein einziges ⟦Gegenbeispiel⟧ genügt, um eine Aussage zu widerlegen.",
+    "regel": "Lies ⟦Grenzen und Klammern⟧ genau. Ein einziges Gegenbeispiel genügt, um eine Aussage zu widerlegen.",
     "schritte": [
-     "Aussage: „4 liegt in [0; 4[.“",
-     "Schau auf die rechte Grenze 4: Dort zeigt die Klammer von der 4 weg.",
-     "Also gehört 4 nicht zum Intervall – wie beim Bruder an seinem 4. Geburtstag.",
-     "Die Aussage ist ⟦falsch⟧."
+     {
+      "text": "Aussage: „4 liegt in [0; 4[.“ Dann hätte der Bruder freien Eintritt."
+     },
+     {
+      "text": "Die Klammer bei der 4 zeigt weg. Die 4 gehört nicht dazu.",
+      "bild": {
+       "punkte": [
+        {
+         "wert": 4,
+         "name": "4 nicht"
+        }
+       ]
+      }
+     },
+     {
+      "text": "Die 4 ist ein Gegenbeispiel. Die Aussage ist ⟦falsch⟧ – er zahlt."
+     }
     ],
-    "fehler": "„[2; 5] und ]2; 5[ sind gleich“ ist falsch: Sie unterscheiden sich in den ⟦Grenzen⟧ 2 und 5.",
-    "einstieg": "Im Schwimmbad steht: „Eintritt frei für Kinder unter 4 Jahren.“ Dein Bruder hat heute seinen 4. Geburtstag. Muss er zahlen? Ja – „unter 4“ heißt: Die 4 gehört nicht dazu. Um so etwas sicher zu entscheiden, liest du Grenzen und Klammern genau und suchst notfalls ein ⟦Gegenbeispiel⟧.",
+    "fehler": "[2; 5] und ]2; 5[ sind nicht gleich. Sie unterscheiden sich an den ⟦Grenzen⟧: Die 2 und die 5 gehören nur zum ersten.",
+    "einstieg": "Im Schwimmbad steht: „Eintritt frei unter 4 Jahren.“ Dein Bruder wird heute 4 – muss er zahlen? Solche Aussagen prüfst du an Grenzen und Klammern, oft mit einem ⟦Gegenbeispiel⟧.",
     "woerter": [
      [
-      "Aussage",
-      "ein Satz, der entweder wahr oder falsch ist"
+      "Gegenbeispiel",
+      "ein Fall, bei dem die Aussage nicht stimmt"
      ],
      [
-      "Gegenbeispiel",
-      "ein einziger Fall, in dem die Aussage nicht stimmt – dann ist sie falsch"
+      "[0; 4[",
+      "alle Zahlen von 0 bis knapp unter 4"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 6,
+     "abschnitte": 6,
+     "beschriftet": "alle",
+     "bereich": {
+      "von": 0,
+      "bis": 4
+     }
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -264,7 +370,138 @@
     "index": 3
    },
    "w": "Linke Grenze −9: gehört nicht dazu; rechte Grenze −3: gehört dazu. Also −9 < x ≤ −3.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
+   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<).",
+   "g": "direkt"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aquarium braucht Wasser von mindestens 23 °C bis höchstens 27 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?"
+   },
+   "a": [
+    "]23; 27[",
+    "[23; 27[",
+    "[23; 27]",
+    "]23; 27]"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "In Zeichen: 23 ≤ x ≤ 27. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. Intervall: [23; 27].",
+   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet das Intervall [−2; 1]?"
+   },
+   "a": [
+    "−2 < x < 1",
+    "−2 ≤ x < 1",
+    "−2 ≤ x ≤ 1",
+    "−2 < x ≤ 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Linke Grenze −2: gehört dazu; rechte Grenze 1: gehört dazu. Also −2 ≤ x ≤ 1.",
+   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<).",
+   "g": "direkt"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -2.5,
+       0
+      ],
+      "_r": [
+       6.5,
+       0
+      ],
+      "0": [
+       0.0,
+       0
+      ],
+      "_b": [
+       4.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "0",
+       "_b"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        4.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "4"
+      }
+     ]
+    }
+   },
+   "a": [
+    "[0; 4[",
+    "]0; 4]",
+    "]0; 4[",
+    "[0; 4]"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Linke Grenze gehört dazu, rechte Grenze gehört nicht dazu: [0; 4[.",
+   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Auf dem Karussell dürfen Kinder mitfahren, die mindestens 1,2 m und kleiner als 1,5 m sind. Welches Intervall beschreibt die erlaubten Größen (in m)?"
+   },
+   "a": [
+    "[1,2; 1,5[",
+    "[1,2; 1,5]",
+    "]1,2; 1,5[",
+    "]1,2; 1,5]"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In Zeichen: 1,2 ≤ x < 1,5. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. „über“/„mehr als“/„unter“/„kleiner als“: Grenze gehört nicht dazu, Klammer nach außen. Intervall: [1,2; 1,5[.",
+   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?",
+   "g": "einkleidung"
   },
   {
    "l": "lesen",
@@ -336,28 +573,8 @@
     "index": 1
    },
    "w": "linke Grenze gehört nicht dazu, rechte Grenze gehört nicht dazu: ]−7; 9[.",
-   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall [−2; 1]?"
-   },
-   "a": [
-    "−2 < x < 1",
-    "−2 ≤ x < 1",
-    "−2 ≤ x ≤ 1",
-    "−2 < x ≤ 1"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Linke Grenze −2: gehört dazu; rechte Grenze 1: gehört dazu. Also −2 ≤ x ≤ 1.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
+   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen.",
+   "g": "erkennen"
   },
   {
    "l": "lesen",
@@ -378,172 +595,14 @@
     "index": 0
    },
    "w": "Linke Grenze 2: gehört nicht dazu; rechte Grenze 6: gehört nicht dazu. Also 2 < x < 6.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
+   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<).",
+   "g": "direkt"
   },
   {
    "l": "lesen",
    "t": "lesen",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_l": [
-       -2.5,
-       0
-      ],
-      "_r": [
-       4.5,
-       0
-      ],
-      "0": [
-       0.0,
-       0
-      ],
-      "2": [
-       2.0,
-       0
-      ]
-     },
-     "linien": [
-      [
-       "_l",
-       "_r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "0",
-       "2"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "]0; 2]",
-    "[0; 2[",
-    "[0; 2]",
-    "]0; 2["
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Linke Grenze gehört dazu, rechte Grenze gehört dazu: [0; 2].",
-   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−3; ∞[?"
-   },
-   "a": [
-    "x ≥ −3",
-    "x > −3",
-    "x < −3"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Linke Grenze −3: gehört nicht dazu; rechte Grenze ∞: nach oben unbegrenzt. Also x > −3.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−6; −3]?"
-   },
-   "a": [
-    "−6 ≤ x < −3",
-    "−6 < x ≤ −3",
-    "−6 ≤ x ≤ −3",
-    "−6 < x < −3"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Linke Grenze −6: gehört nicht dazu; rechte Grenze −3: gehört dazu. Also −6 < x ≤ −3.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "_l": [
-       -2.5,
-       0
-      ],
-      "_r": [
-       6.5,
-       0
-      ],
-      "0": [
-       0.0,
-       0
-      ],
-      "_b": [
-       4.0,
-       0
-      ]
-     },
-     "linien": [
-      [
-       "_l",
-       "_r",
-       "",
-       "gestrichelt"
-      ],
-      [
-       "0",
-       "_b"
-      ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        4.0,
-        0
-       ],
-       "r": 0.25,
-       "name": "4"
-      }
-     ]
-    }
-   },
-   "a": [
-    "[0; 4[",
-    "]0; 4]",
-    "]0; 4[",
-    "[0; 4]"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze gehört dazu, rechte Grenze gehört nicht dazu: [0; 4[.",
-   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
@@ -610,24 +669,112 @@
    "s": 2,
    "y": "auswahl",
    "f": {
+    "text": "Ein Impfstoff muss im Kühlschrank bei mehr als 2 °C, aber höchstens 8 °C gelagert werden. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?"
+   },
+   "a": [
+    "]2; 8[",
+    "]2; 8]",
+    "[2; 8]",
+    "[2; 8["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In Zeichen: 2 < x ≤ 8. „mehr als“: Grenze gehört nicht dazu, Klammer nach außen. „höchstens“: Grenze gehört dazu, Klammer nach innen. Intervall: ]2; 8].",
+   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Zoo gilt: Kinder ab 6 Jahren bis einschließlich 14 Jahren zahlen den Kinderpreis. Jugendliche über 14 bis unter 18 Jahren zahlen den Jugendpreis. Welches Intervall beschreibt das Alter (in Jahren) für den Jugendpreis?"
+   },
+   "a": [
+    "[14; 18[",
+    "[6; 18[",
+    "]14; 18]",
+    "]14; 18["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "„über 14“: 14 gehört nicht dazu (14-Jährige zahlen den Kinderpreis). „unter 18“: 18 gehört nicht dazu. Also ]14; 18[.",
+   "h": "Wer genau 14 ist, zahlt welchen Preis?",
+   "g": "transfer"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage: „Jedes Intervall ]a; b[ mit a < b enthält unendlich viele Zahlen“?"
+   },
+   "a": [
+    "Nein, ohne die Grenzen bleibt nichts übrig.",
+    "Ja, aber es sind nur ganze Zahlen.",
+    "Ja: Zwischen zwei verschiedenen Zahlen liegen immer unendlich viele weitere.",
+    "Nein, nur wenn b − a größer als 1 ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zwischen a und b liegt die Mitte, zwischen a und der Mitte wieder eine Mitte usw. – das hört nie auf. Ganz kleine Intervalle wie ]0; 0,001[ enthalten also unendlich viele Zahlen.",
+   "h": "Denk an die Mitte zwischen zwei Zahlen – und dann wieder an eine Mitte."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "A = [−4; 1[ und B = ]−1; 3]. Welche Menge enthält genau die Zahlen, die in A oder in B (oder in beiden) liegen?"
+   },
+   "a": [
+    "]−4; 3]",
+    "[−4; 3]",
+    "]−1; 1[",
+    "[−4; 3["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A reicht von −4 (dabei) bis 1, B von −1 bis 3 (dabei). Die Teile überlappen, zusammen also von −4 bis 3, beide Enden dabei: [−4; 3]. ]−1; 1[ wären nur die gemeinsamen Zahlen.",
+   "h": "Zeichne beide Intervalle untereinander an einen Zahlenstrahl."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
     "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
     "grafik": {
      "typ": "figur",
      "punkte": {
       "_l": [
-       -11.5,
+       -2.5,
        0
       ],
       "_r": [
-       7.5,
+       4.5,
        0
       ],
-      "_a": [
-       -9.0,
+      "0": [
+       0.0,
        0
       ],
-      "5": [
-       5.0,
+      "2": [
+       2.0,
        0
       ]
      },
@@ -639,117 +786,44 @@
        "gestrichelt"
       ],
       [
-       "_a",
-       "5"
+       "0",
+       "2"
       ]
-     ],
-     "kreise": [
-      {
-       "m": [
-        -9.0,
-        0
-       ],
-       "r": 0.25,
-       "name": "−9"
-      }
      ]
     }
    },
    "a": [
-    "]−9; 5[",
-    "]−9; 5]",
-    "[−9; 5[",
-    "[−9; 5]"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "linke Grenze gehört nicht dazu, rechte Grenze gehört dazu: ]−9; 5].",
-   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Aquarium braucht Wasser von mindestens 23 °C bis höchstens 27 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?"
-   },
-   "a": [
-    "]23; 27[",
-    "[23; 27[",
-    "[23; 27]",
-    "]23; 27]"
+    "]0; 2]",
+    "[0; 2[",
+    "[0; 2]",
+    "]0; 2["
    ],
    "o": {
     "index": 2
    },
-   "w": "In Zeichen: 23 ≤ x ≤ 27. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. Intervall: [23; 27].",
-   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?"
+   "w": "Linke Grenze gehört dazu, rechte Grenze gehört dazu: [0; 2].",
+   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen.",
+   "g": "erkennen"
   },
   {
    "l": "lesen",
    "t": "lesen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Auf dem Karussell dürfen Kinder mitfahren, die mindestens 1,2 m und kleiner als 1,5 m sind. Welches Intervall beschreibt die erlaubten Größen (in m)?"
+    "text": "Was bedeutet das Intervall ]−3; ∞[?"
    },
    "a": [
-    "[1,2; 1,5[",
-    "[1,2; 1,5]",
-    "]1,2; 1,5[",
-    "]1,2; 1,5]"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "In Zeichen: 1,2 ≤ x < 1,5. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. „über“/„mehr als“/„unter“/„kleiner als“: Grenze gehört nicht dazu, Klammer nach außen. Intervall: [1,2; 1,5[.",
-   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?"
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Aquarium braucht Wasser von mindestens 24 °C bis höchstens 28 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?"
-   },
-   "a": [
-    "[24; 28[",
-    "]24; 28[",
-    "]24; 28]",
-    "[24; 28]"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "In Zeichen: 24 ≤ x ≤ 28. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. Intervall: [24; 28].",
-   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?"
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Paket kostet den Normalpreis, wenn es mehr als 2 kg und bis einschließlich 5 kg wiegt. Welches Intervall beschreibt diese Gewichte (in kg)?"
-   },
-   "a": [
-    "[2; 5[",
-    "]2; 5]",
-    "[2; 5]",
-    "]2; 5["
+    "x ≥ −3",
+    "x > −3",
+    "x < −3"
    ],
    "o": {
     "index": 1
    },
-   "w": "In Zeichen: 2 < x ≤ 5. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. „über“/„mehr als“/„unter“/„kleiner als“: Grenze gehört nicht dazu, Klammer nach außen. Intervall: ]2; 5].",
-   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?"
+   "w": "Linke Grenze −3: gehört nicht dazu; rechte Grenze ∞: nach oben unbegrenzt. Also x > −3.",
+   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
   },
   {
    "l": "lesen",
@@ -897,6 +971,25 @@
     "index": 0
    },
    "w": "links unbegrenzt, rechte Grenze gehört dazu: ]−∞; 1]."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Nach dem Umschalten ist eine Ampel im Zeitraum [0; 25[ Sekunden grün. Ist sie nach genau 25 Sekunden noch grün?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das kann man nicht sagen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: [0; 25[. Gesucht: Ist 25 dabei? Ansatz: Klammer bei 25 nach außen. Rechnung: 25 gehört nicht dazu. Antwort: Nein, nach genau 25 Sekunden ist sie nicht mehr grün."
   },
   {
    "l": "lesen",
@@ -1223,6 +1316,455 @@
    "w": "Linke Grenze gehört dazu, rechte Grenze gehört nicht dazu: [−7; 9[."
   },
   {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Thermostat hält die Raumtemperatur im Intervall [19; 21] °C. Welche Temperatur liegt NICHT darin?"
+   },
+   "a": [
+    "21,5 °C",
+    "21 °C",
+    "19 °C",
+    "20,5 °C"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: [19; 21]. Gesucht: Temperatur außerhalb. Ansatz: Beide Grenzen gehören dazu. Rechnung: 21,5 > 21. Antwort: 21,5 °C liegt nicht darin."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Jugendtarif gilt für das Alter [14; 18[. Darf eine 18-Jährige den Jugendtarif nutzen?"
+   },
+   "a": [
+    "Nein",
+    "Nur am Geburtstag",
+    "Ja"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: [14; 18[. Gesucht: Gehört 18 dazu? Ansatz: Die Klammer bei 18 zeigt nach außen. Rechnung: 18 gehört nicht dazu. Antwort: Nein, mit 18 gilt der Jugendtarif nicht mehr."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet das Intervall ]−6; −3]?"
+   },
+   "a": [
+    "−6 ≤ x < −3",
+    "−6 < x ≤ −3",
+    "−6 ≤ x ≤ −3",
+    "−6 < x < −3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Linke Grenze −6: gehört nicht dazu; rechte Grenze −3: gehört dazu. Also −6 < x ≤ −3.",
+   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -11.5,
+       0
+      ],
+      "_r": [
+       7.5,
+       0
+      ],
+      "_a": [
+       -9.0,
+       0
+      ],
+      "5": [
+       5.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_a",
+       "5"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        -9.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "−9"
+      }
+     ]
+    }
+   },
+   "a": [
+    "]−9; 5[",
+    "]−9; 5]",
+    "[−9; 5[",
+    "[−9; 5]"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "linke Grenze gehört nicht dazu, rechte Grenze gehört dazu: ]−9; 5].",
+   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Paket kostet den Normalpreis, wenn es mehr als 2 kg und bis einschließlich 5 kg wiegt. Welches Intervall beschreibt diese Gewichte (in kg)?"
+   },
+   "a": [
+    "[2; 5[",
+    "]2; 5]",
+    "[2; 5]",
+    "]2; 5["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In Zeichen: 2 < x ≤ 5. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. „über“/„mehr als“/„unter“/„kleiner als“: Grenze gehört nicht dazu, Klammer nach außen. Intervall: ]2; 5].",
+   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?",
+   "g": "einkleidung"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet das Intervall ]−∞; 2,5]?"
+   },
+   "a": [
+    "x < 2,5",
+    "x ≥ 2,5",
+    "x ≤ 2,5",
+    "−∞ ≤ x ≤ 2,5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Links unbegrenzt, rechts gehört 2,5 dazu (Klammer zeigt zur Zahl): x ≤ 2,5.",
+   "h": "Lies jede Klammer einzeln."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet das Intervall [−1,5; 0[?"
+   },
+   "a": [
+    "−1,5 < x < 0",
+    "−1,5 ≤ x < 0",
+    "−1,5 < x ≤ 0",
+    "−1,5 ≤ x ≤ 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Links zeigt die Klammer zur −1,5: dabei. Rechts zeigt sie von der 0 weg: nicht dabei.",
+   "h": "Zur Zahl hin: dabei. Von der Zahl weg: nicht dabei."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahlen liegen in [−2; 5[, aber nicht in [−2; 1]?"
+   },
+   "a": [
+    "]1; 5[",
+    "[1; 5[",
+    "]1; 5]",
+    "[−2; 1["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Aus [−2; 5[ fallen alle Zahlen von −2 bis 1 (mit 1) weg. Übrig bleibt alles über 1 bis unter 5: ]1; 5[.",
+   "h": "Zeichne beide Bereiche auf einen Zahlenstrahl. Gehört die 1 zum Rest?",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Intervall [a; a + 3[ enthält genau die ganzen Zahlen 4, 5 und 6. a ist eine ganze Zahl. Welche?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Die kleinste ganze Zahl im Intervall ist a selbst (Klammer zur Zahl). Also a = 4. Dann [4; 7[: 4, 5, 6 – die 7 gehört nicht dazu.",
+   "h": "Welche Grenze gehört dazu, welche nicht?",
+   "g": "parameter"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Zahlen mit genau einer Nachkommastelle (z. B. 1,3) liegen im Intervall ]1; 2[?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "1,1; 1,2; …; 1,9 – das sind 9 Zahlen. 1,0 und 2,0 haben keine echte Nachkommastelle und sind außerdem Grenzen, die nicht dazugehören.",
+   "h": "Zähle 1,1; 1,2; … auf.",
+   "g": "transfer"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Intervall beginnt bei −2 (gehört dazu) und ist 5 lang; das rechte Ende gehört nicht dazu. Welches Intervall ist es?"
+   },
+   "a": [
+    "[−2; 3[",
+    "[−2; 7[",
+    "]−2; 3[",
+    "[−2; 3]"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rechtes Ende: −2 + 5 = 3. Links gehört −2 dazu: [ ; rechts nicht: 3[.",
+   "h": "Rechne zuerst das rechte Ende aus."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall beschreibt „x ≥ −1 und zugleich x < 4“?"
+   },
+   "a": [
+    "]−∞; 4[",
+    "[−1; 4[",
+    "[−1; 4]",
+    "]−1; 4]"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x ≥ −1: −1 gehört dazu. x < 4: 4 gehört nicht dazu. Zusammen [−1; 4[.",
+   "h": "Übersetze jede Ungleichung in eine Grenze mit Klammer."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand liest ]−3; 2] als „alle Zahlen von −3 bis 2, beide gehören dazu“. Was ist falsch?"
+   },
+   "a": [
+    "Die 2 gehört nicht dazu, nur die −3.",
+    "Keine der beiden Grenzen gehört dazu.",
+    "Nichts, das stimmt.",
+    "Die −3 gehört nicht dazu, nur die 2."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei −3 zeigt die Klammer nach außen ( ] ): −3 gehört nicht dazu. Bei 2 zeigt sie nach innen ( ] am Ende ): 2 gehört dazu.",
+   "h": "Schau jede Klammer einzeln an: zeigt sie zur Zahl hin oder weg?"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Intervall [a; b] hat die Mitte 3 und die Länge 10. Bestimme a."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "3 - 10 / 2",
+   "w": "Von der Mitte aus geht es je die halbe Länge, also 5, nach links und rechts: a = 3 − 5 = −2, b = 8.",
+   "h": "Wie weit ist die Mitte von jeder Grenze entfernt?"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "auswahl",
+   "f": {
+    "text": "Am Freibad steht: „Wassertemperatur [22; 26] °C“. Was bedeutet das?"
+   },
+   "a": [
+    "nur 22 °C oder 26 °C",
+    "von 22 °C bis unter 26 °C",
+    "über 22 °C und unter 26 °C",
+    "von 22 °C bis 26 °C, beide Grenzen gehören dazu"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: [22; 26]. Gesucht: Bedeutung. Ansatz: Eckige Klammer nach innen: Grenze gehört dazu. Rechnung: Beide Klammern zeigen nach innen. Antwort: Gemeint sind 22 °C bis 26 °C, beide eingeschlossen.",
+   "h": "Zeigen die Klammern zur Zahl hin oder von ihr weg?"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Im Kletterpark gilt: Parcours A für Kinder ab 1,10 m und kleiner als 1,40 m, Parcours B ab 1,30 m. Ein Kind ist 1,35 m groß. Welche Parcours darf es benutzen?"
+   },
+   "a": [
+    "nur B",
+    "A und B",
+    "nur A",
+    "keinen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: A: [1,10; 1,40[ m, B: [1,30; ∞[ m, Kind 1,35 m. Gesucht: erlaubte Parcours. Ansatz: Für jeden Parcours prüfen, ob 1,35 im Intervall liegt. Rechnung: 1,10 ≤ 1,35 < 1,40 ✓; 1,35 ≥ 1,30 ✓. Antwort: Das Kind darf A und B benutzen.",
+   "h": "Prüfe jede Bedingung einzeln."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Paketdienst: Päckchen bis einschließlich 2 kg kosten 4 €, Pakete im Bereich ]2; 5] kg kosten 6 €. Ein Paket wiegt genau 2 kg. Jemand sagt: „Das kostet 6 €.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: Ab 2 kg kostet es 6 €.",
+    "Falsch: Es kostet 10 €.",
+    "Falsch: 2 kg gehört nicht zu ]2; 5], es kostet 4 €.",
+    "Richtig: 2 liegt in ]2; 5]."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: Päckchen bis einschließlich 2 kg; Pakete ]2; 5] kg. Gesucht: Preis für genau 2 kg. Ansatz: Die Klammer bei 2 zeigt nach außen: 2 gehört nicht dazu. Rechnung: 2 kg fällt unter „bis einschließlich 2 kg“. Antwort: Die Aussage ist falsch; das Paket kostet 4 €.",
+   "h": "Gehört die 2 zum Intervall ]2; 5]?"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Intervalle [a; b] mit ganzen Zahlen a und b und 0 ≤ a < b ≤ 5 gibt es?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "6 * 5 / 2",
+   "w": "Man wählt zwei verschiedene Zahlen aus 0, 1, 2, 3, 4, 5; die kleinere ist a, die größere b. Für a = 0 gibt es 5 Möglichkeiten für b, für a = 1 vier, für a = 2 drei, für a = 3 zwei, für a = 4 eine: 5 + 4 + 3 + 2 + 1 = 15.",
+   "h": "Ordne nach der linken Grenze a und zähle für jedes a die möglichen b."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Das Intervall [a; b] enthält genau 5 ganze Zahlen, das Intervall ]a; b[ genau 3. Wie lang ist das Intervall?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "5 - 1",
+   "w": "Lässt man die Grenzen weg, fallen genau 2 ganze Zahlen weg – also sind a und b selbst ganze Zahlen. Die 5 ganzen Zahlen in [a; b] sind dann a, a + 1, a + 2, a + 3 und a + 4 = b. Also b − a = 4.",
+   "h": "Warum fallen beim Weglassen der Grenzen genau zwei ganze Zahlen weg?"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe als Intervall: alle Zahlen, die mindestens −12 sind."
+   },
+   "a": [
+    "[−12; ∞]",
+    "[−12; ∞[",
+    "]−∞; −12]",
+    "]−12; ∞["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In Zeichen: x ≥ −12. Als Intervall: [−12; ∞[.",
+   "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht.",
+   "g": "darstellung"
+  },
+  {
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
@@ -1241,7 +1783,73 @@
     "index": 3
    },
    "w": "−3 ≤ x ≤ 8 → [−3; 8].",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen.",
+   "g": "direkt"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe als Intervall: alle Zahlen zwischen −5 und −3, beide Grenzen eingeschlossen."
+   },
+   "a": [
+    "[−5; −3[",
+    "]−5; −3[",
+    "[−5; −3]",
+    "]−5; −3]"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "In Zeichen: −5 ≤ x ≤ −3. Als Intervall: [−5; −3].",
+   "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht.",
+   "g": "darstellung"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe x ≥ −3 als Intervall."
+   },
+   "a": [
+    "]−∞; −3]",
+    "[−3; ∞[",
+    "]−3; ∞[",
+    "[−3; ∞]"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x ≥ −3 → [−3; ∞[.",
    "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe als Intervall: alle Zahlen zwischen −9 und −1, beide Grenzen eingeschlossen."
+   },
+   "a": [
+    "[−9; −1[",
+    "[−9; −1]",
+    "]−9; −1[",
+    "]−9; −1]"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In Zeichen: −9 ≤ x ≤ −1. Als Intervall: [−9; −1].",
+   "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht.",
+   "g": "darstellung"
   },
   {
    "l": "schreiben",
@@ -1262,7 +1870,8 @@
     "index": 1
    },
    "w": "x > −5 → ]−5; ∞[.",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen.",
+   "g": "direkt"
   },
   {
    "l": "schreiben",
@@ -1271,18 +1880,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe −6 < x ≤ 6 als Intervall."
+    "text": "Schreibe x ≥ −8 als Intervall."
    },
    "a": [
-    "]−6; 6]",
-    "]−6; 6[",
-    "[−6; 6]",
-    "[−6; 6["
+    "]−8; ∞[",
+    "]−∞; −8]",
+    "[−8; ∞[",
+    "[−8; ∞]"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "−6 < x ≤ 6 → ]−6; 6].",
+   "w": "x ≥ −8 → [−8; ∞[.",
    "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
   },
   {
@@ -1310,43 +1919,23 @@
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand schreibt −9 ≤ x ≤ 6 als ]−9; 6[. Was stimmt?"
+    "text": "Schreibe als Intervall: alle Zahlen, deren Abstand zur Zahl 2 höchstens 3 beträgt."
    },
    "a": [
-    "Falsch: richtig ist [−9; 6[.",
-    "Falsch: richtig ist ]−9; 6].",
-    "Falsch: die Klammer an einer Grenze zeigt in die falsche Richtung, richtig ist [−9; 6].",
-    "Richtig."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "−9 ≤ x ≤ 6 → [−9; 6]. Gezeigt war ]−9; 6[.",
-   "h": "Übersetze selbst und vergleiche Klammer für Klammer."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe x ≤ 5 als Intervall."
-   },
-   "a": [
-    "[−∞; 5]",
-    "]−∞; 5[",
-    "[5; ∞[",
-    "]−∞; 5]"
+    "]−1; 5[",
+    "[−3; 3]",
+    "[2; 5]",
+    "[−1; 5]"
    ],
    "o": {
     "index": 3
    },
-   "w": "x ≤ 5 → ]−∞; 5].",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+   "w": "Von 2 aus 3 nach links: −1, 3 nach rechts: 5. „Höchstens“: Grenzen gehören dazu. [−1; 5].",
+   "h": "Gehe vom Mittelpunkt 2 aus in beide Richtungen.",
+   "g": "transfer"
   },
   {
    "l": "schreiben",
@@ -1355,151 +1944,43 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe x ≥ −3 als Intervall."
+    "text": "Ein Gerät darf bei −10 °C bis 40 °C betrieben werden, 40 °C selbst ist aber schon zu warm. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?"
    },
    "a": [
-    "]−∞; −3]",
-    "[−3; ∞[",
-    "]−3; ∞[",
-    "[−3; ∞]"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "x ≥ −3 → [−3; ∞[.",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe x > 6 als Intervall."
-   },
-   "a": [
-    "]−∞; 6[",
-    "]6; ∞]",
-    "[6; ∞[",
-    "]6; ∞["
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "x > 6 → ]6; ∞[.",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe x ≥ −8 als Intervall."
-   },
-   "a": [
-    "]−8; ∞[",
-    "]−∞; −8]",
-    "[−8; ∞[",
-    "[−8; ∞]"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "x ≥ −8 → [−8; ∞[.",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe x ≥ 7 als Intervall."
-   },
-   "a": [
-    "[7; ∞[",
-    "]−∞; 7]",
-    "]7; ∞[",
-    "[7; ∞]"
+    "[−10; 40[",
+    "]−10; 40]",
+    "[40; −10[",
+    "[−10; 40]"
    ],
    "o": {
     "index": 0
    },
-   "w": "x ≥ 7 → [7; ∞[.",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+   "w": "−10 °C ist erlaubt (Klammer zur Zahl), 40 °C nicht (Klammer weg).",
+   "h": "Übersetze erst in eine Ungleichung.",
+   "g": "einkleidung"
   },
   {
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "g": "pruefung",
+   "y": "zahl",
    "f": {
-    "text": "Schreibe als Intervall: alle Zahlen, die mindestens −12 sind."
+    "text": "Die Zahlen, die mindestens 2,5 und kleiner als 7 sind, bilden ein Intervall. Wie lang ist es?"
    },
-   "a": [
-    "[−12; ∞]",
-    "[−12; ∞[",
-    "]−∞; −12]",
-    "]−12; ∞["
-   ],
    "o": {
-    "index": 1
+    "wert": 4.5
    },
-   "w": "In Zeichen: x ≥ −12. Als Intervall: [−12; ∞[.",
-   "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht."
+   "c": "7 - 25 / 10",
+   "w": "Das Intervall ist [2,5; 7[. Seine Länge ist 7 − 2,5 = 4,5 (ob die Grenzen dazugehören, ändert die Länge nicht).",
+   "h": "Länge = rechte Grenze − linke Grenze."
   },
   {
    "l": "schreiben",
    "t": "schreiben",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe als Intervall: alle Zahlen zwischen −5 und −3, beide Grenzen eingeschlossen."
-   },
-   "a": [
-    "[−5; −3[",
-    "]−5; −3[",
-    "[−5; −3]",
-    "]−5; −3]"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "In Zeichen: −5 ≤ x ≤ −3. Als Intervall: [−5; −3].",
-   "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe als Intervall: alle Zahlen zwischen −9 und −1, beide Grenzen eingeschlossen."
-   },
-   "a": [
-    "[−9; −1[",
-    "[−9; −1]",
-    "]−9; −1[",
-    "]−9; −1]"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "In Zeichen: −9 ≤ x ≤ −1. Als Intervall: [−9; −1].",
-   "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Schreibe als Intervall: alle Zahlen zwischen −12 und 8, beide Grenzen ausgeschlossen."
@@ -1515,6 +1996,49 @@
    },
    "w": "In Zeichen: −12 < x < 8. Als Intervall: ]−12; 8[.",
    "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe −6 < x ≤ 6 als Intervall."
+   },
+   "a": [
+    "]−6; 6]",
+    "]−6; 6[",
+    "[−6; 6]",
+    "[−6; 6["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−6 < x ≤ 6 → ]−6; 6].",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt −9 ≤ x ≤ 6 als ]−9; 6[. Was stimmt?"
+   },
+   "a": [
+    "Falsch: richtig ist [−9; 6[.",
+    "Falsch: richtig ist ]−9; 6].",
+    "Falsch: die Klammer an einer Grenze zeigt in die falsche Richtung, richtig ist [−9; 6].",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "−9 ≤ x ≤ 6 → [−9; 6]. Gezeigt war ]−9; 6[.",
+   "h": "Übersetze selbst und vergleiche Klammer für Klammer.",
+   "g": "fehler"
   },
   {
    "l": "schreiben",
@@ -1594,6 +2118,26 @@
     "index": 3
    },
    "w": "−1 ≤ x < 0 → [−1; 0[."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe „Fahrräder mit einer Rahmenhöhe ab 50 cm bis unter 56 cm“ als Intervall."
+   },
+   "a": [
+    "[50; 56]",
+    "]50; 56]",
+    "]50; 56[",
+    "[50; 56["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: ab 50, unter 56. Gesucht: Intervall. Ansatz: „ab“ nach innen, „unter“ nach außen. Rechnung: [50; 56[. Antwort: Das Intervall ist [50; 56[."
   },
   {
    "l": "schreiben",
@@ -1716,6 +2260,443 @@
    "w": "−8 < x ≤ −6 → ]−8; −6]."
   },
   {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe „für Kinder ab 3 Jahren bis einschließlich 12 Jahren“ als Intervall."
+   },
+   "a": [
+    "[3; 12]",
+    "]3; 12]",
+    "]3; 12[",
+    "[3; 12["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: ab 3, bis einschließlich 12. Gesucht: Intervall. Ansatz: Beide Grenzen gehören dazu. Rechnung: [3; 12]. Antwort: Das Intervall ist [3; 12]."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Ofen backt Pizza bei mehr als 250 °C. Schreibe diese Temperaturen als Intervall."
+   },
+   "a": [
+    "[250; ∞[",
+    "]−∞; 250[",
+    "]250; ∞[",
+    "]250; ∞]"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: mehr als 250. Gesucht: Intervall. Ansatz: „mehr als“: nach außen; nach oben offen. Rechnung: ]250; ∞[. Antwort: Das Intervall ist ]250; ∞[."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe x ≤ 5 als Intervall."
+   },
+   "a": [
+    "[−∞; 5]",
+    "]−∞; 5[",
+    "[5; ∞[",
+    "]−∞; 5]"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x ≤ 5 → ]−∞; 5].",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe x > 6 als Intervall."
+   },
+   "a": [
+    "]−∞; 6[",
+    "]6; ∞]",
+    "[6; ∞[",
+    "]6; ∞["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x > 6 → ]6; ∞[.",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe x ≥ 7 als Intervall."
+   },
+   "a": [
+    "[7; ∞[",
+    "]−∞; 7]",
+    "]7; ∞[",
+    "[7; ∞]"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x ≥ 7 → [7; ∞[.",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe als Intervall: alle Zahlen, die kleiner als 0,5 sind."
+   },
+   "a": [
+    "[−∞; 0,5[",
+    "]−∞; 0,5[",
+    "]−∞; 0,5]",
+    "]0,5; ∞["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x < 0,5: nach links unbegrenzt, 0,5 gehört nicht dazu. Bei −∞ zeigt die Klammer immer nach außen.",
+   "h": "„kleiner als“: Grenze nicht dabei."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe −4 ≤ x < −1,5 als Intervall."
+   },
+   "a": [
+    "[−4; −1,5]",
+    "[−1,5; −4[",
+    "[−4; −1,5[",
+    "]−4; −1,5]"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "≤ bei −4: Klammer zur Zahl. < bei −1,5: Klammer von der Zahl weg. Die kleinere Zahl steht links.",
+   "h": "Die kleinere Grenze steht immer links."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 2x − 3 > 4 und schreibe die Lösungsmenge als Intervall."
+   },
+   "a": [
+    "[3,5; ∞[",
+    "]0,5; ∞[",
+    "]−∞; 3,5[",
+    "]3,5; ∞["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2x > 7 ⇔ x > 3,5. Die 3,5 gehört nicht dazu: ]3,5; ∞[.",
+   "h": "Erst lösen, dann schreiben.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe als Intervall: alle Zahlen, die nicht negativ sind."
+   },
+   "a": [
+    "]−∞; 0]",
+    "]0; ∞[",
+    "[0; ∞[",
+    "]−∞; 0["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "„Nicht negativ“ heißt: positiv oder 0. Die 0 gehört dazu: [0; ∞[.",
+   "h": "Ist 0 negativ?",
+   "g": "transfer"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Schreibweise passt zu „x liegt zwischen 1 und 2, 1 gehört dazu, 2 nicht“?"
+   },
+   "a": [
+    "]1; 2[",
+    "[1; 2]",
+    "]1; 2]",
+    "[1; 2["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gehört eine Grenze dazu, zeigt die Klammer zur Zahl hin. Also links [1, rechts 2[.",
+   "h": "Welche Grenze gehört dazu?"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe als Intervall: alle Zahlen, die größer als 1/4 und höchstens 3/4 sind (mit Dezimalzahlen)."
+   },
+   "a": [
+    "]0,25; 0,75[",
+    "[0,25; 0,75]",
+    "]0,25; 0,75]",
+    "[0,25; 0,75["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "1/4 = 0,25 (gehört nicht dazu), 3/4 = 0,75 (gehört dazu): ]0,25; 0,75].",
+   "h": "Wandle die Brüche um und entscheide für jede Grenze."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl k ist [k; 2k] ein Intervall der Länge 6?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "12 - 6",
+   "w": "Länge = rechte Grenze − linke Grenze = 2k − k = k. Also k = 6, das Intervall ist [6; 12].",
+   "h": "Schreibe die Länge mit k."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "auswahl",
+   "f": {
+    "text": "Jede Zahl eines Intervalls wird verdoppelt, dann wird 1 addiert. Heraus kommt [−1; 7]. Wie hieß das Intervall vorher?"
+   },
+   "a": [
+    "[−1; 3]",
+    "[−1; 7]",
+    "[0; 4]",
+    "[−2; 6]"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rückwärts: erst 1 abziehen, dann halbieren. −1 → −2 → −1; 7 → 6 → 3. Also [−1; 3].",
+   "h": "Mach die Schritte in umgekehrter Reihenfolge rückgängig."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann man „alle Zahlen außer 0“ als ein einziges Intervall schreiben?"
+   },
+   "a": [
+    "Ja: ]0; ∞[.",
+    "Ja: ]−∞; ∞[.",
+    "Ja: [−∞; ∞].",
+    "Nein: Es sind zwei getrennte Teile, ]−∞; 0[ und ]0; ∞[."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Intervall hat keine Lücke. „Alle außer 0“ hat bei 0 ein Loch, deshalb braucht man zwei Intervalle.",
+   "h": "Hat ein Intervall Lücken?"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Kühlschrank soll es über 0 °C und höchstens 7 °C kalt sein. Schreibe diese Temperaturen als Intervall."
+   },
+   "a": [
+    "[0; 7]",
+    "]0; 7]",
+    "[0; 7[",
+    "]0; 7["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: über 0, höchstens 7. Gesucht: Intervall. Ansatz: „über“: Klammer nach außen; „höchstens“: Klammer nach innen. Rechnung: ]0; 7]. Antwort: Das Intervall ist ]0; 7].",
+   "h": "Gehört 0 °C dazu, gehört 7 °C dazu?"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Handgepäckstück darf höchstens 8 kg wiegen. Schreibe alle erlaubten Gewichte (mehr als 0 kg) als Intervall."
+   },
+   "a": [
+    "[0; 8[",
+    "[8; ∞[",
+    "]0; 8[",
+    "]0; 8]"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: mehr als 0 kg, höchstens 8 kg. Gesucht: Intervall. Ansatz: „mehr als“ nach außen, „höchstens“ nach innen. Rechnung: ]0; 8]. Antwort: Erlaubt ist ]0; 8] kg.",
+   "h": "Darf das Gepäck genau 8 kg wiegen?"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Im Fahrplan steht: Der Bus fährt ab 6 Uhr bis vor 9 Uhr alle 10 Minuten. Schreibe diese Zeitspanne (in Stunden) als Intervall."
+   },
+   "a": [
+    "[6; 9]",
+    "]6; 9]",
+    "[6; 9[",
+    "]6; 9["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: ab 6 Uhr, bis vor 9 Uhr. Gesucht: Intervall. Ansatz: „ab“ nach innen, „bis vor“ nach außen. Rechnung: [6; 9[. Antwort: Die Zeitspanne ist [6; 9[.",
+   "h": "Fährt um genau 9 Uhr noch ein Bus im 10-Minuten-Takt?"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Medikament A darf bei 15 °C bis einschließlich 25 °C gelagert werden, Medikament B bei mehr als 20 °C bis einschließlich 30 °C. In welchem Temperaturbereich kann man beide zusammen lagern?"
+   },
+   "a": [
+    "]20; 25]",
+    "[15; 30]",
+    "[20; 25]",
+    "]20; 25["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: A: [15; 25], B: ]20; 30]. Gesucht: Bereich für beide. Ansatz: Nur Zahlen, die in beiden Intervallen liegen. Rechnung: Unten: über 20 (wegen B). Oben: höchstens 25 (wegen A). Antwort: Beide zusammen gehen bei ]20; 25] °C.",
+   "h": "Welche Temperaturen erfüllen beide Bedingungen?"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
+   "y": "auswahl",
+   "f": {
+    "text": "Auf einer Straße gilt: mindestens 60 km/h, höchstens 120 km/h. Jemand schreibt die erlaubten Geschwindigkeiten als ]60; 120[. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Richtig ist [60; 120[.",
+    "Falsch: Richtig ist [60; 120], die Grenzen gehören dazu.",
+    "Falsch: Richtig ist ]60; 120].",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: „mindestens 60“, „höchstens 120“. Gesucht: Ist ]60; 120[ richtig? Ansatz: „mindestens“ und „höchstens“ schließen die Grenze ein. Rechnung: Beide Klammern müssen nach innen zeigen. Antwort: Falsch; richtig ist [60; 120].",
+   "h": "Darf man genau 60 km/h fahren?"
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahlen x liegt x² im Intervall [4; 9]? Die Lösung besteht aus zwei Intervallen. Wie lang sind beide zusammen?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(3 - 2) + (-2 - (-3))",
+   "w": "x² zwischen 4 und 9 gilt für 2 ≤ x ≤ 3, aber auch für negative x: (−3)² = 9, (−2)² = 4. Also [−3; −2] und [2; 3]. Jedes ist 1 lang, zusammen 2.",
+   "h": "Vergiss die negativen Zahlen nicht."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Intervalle [a; b] mit ganzen Grenzen haben die Länge 5 und enthalten die Zahl 0?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "0 - (-5) + 1",
+   "w": "b = a + 5. 0 liegt darin, wenn a ≤ 0 ≤ a + 5, also −5 ≤ a ≤ 0. Für a gibt es −5, −4, −3, −2, −1, 0: sechs Intervalle.",
+   "h": "Lass das Intervall wie ein Fenster über den Zahlenstrahl gleiten."
+  },
+  {
    "l": "enthalten",
    "t": "enthalten",
    "p": "uebung",
@@ -1734,7 +2715,25 @@
     "index": 3
    },
    "w": "]−7; −4] bedeutet −7 < x ≤ −4. −4 erfüllt das.",
-   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
+   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?",
+   "g": "erkennen"
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen liegen im Intervall [−7; −6]?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "-6 - (-7) + 1",
+   "w": "Die kleinste ganze Zahl darin ist −7, die größte −6. Anzahl: −6 − (−7) + 1 = 2.",
+   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern.",
+   "g": "mehrschritt"
   },
   {
    "l": "enthalten",
@@ -1754,7 +2753,25 @@
     "index": 0
    },
    "w": "[1; 7] bedeutet 1 ≤ x ≤ 7. 1,5 erfüllt das.",
-   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
+   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?",
+   "g": "erkennen"
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen liegen im Intervall ]−8; −3]?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "-3 - (-7) + 1",
+   "w": "Die kleinste ganze Zahl darin ist −7, die größte −3. Anzahl: −3 − (−7) + 1 = 5.",
+   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern.",
+   "g": "mehrschritt"
   },
   {
    "l": "enthalten",
@@ -1775,60 +2792,8 @@
     "index": 0
    },
    "w": "]7; 10] bedeutet 7 < x ≤ 10. 10 erfüllt das.",
-   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
-  },
-  {
-   "l": "enthalten",
-   "t": "enthalten",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl liegt im Intervall [−9; −1[?"
-   },
-   "a": [
-    "−10",
-    "−8,5",
-    "0",
-    "−1"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "[−9; −1[ bedeutet −9 ≤ x < −1. −8,5 erfüllt das.",
-   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
-  },
-  {
-   "l": "enthalten",
-   "t": "enthalten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall [−7; −6]?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "-6 - (-7) + 1",
-   "w": "Die kleinste ganze Zahl darin ist −7, die größte −6. Anzahl: −6 − (−7) + 1 = 2.",
-   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
-  },
-  {
-   "l": "enthalten",
-   "t": "enthalten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall ]−8; −3]?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "-3 - (-7) + 1",
-   "w": "Die kleinste ganze Zahl darin ist −7, die größte −3. Anzahl: −3 − (−7) + 1 = 5.",
-   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
+   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?",
+   "g": "erkennen"
   },
   {
    "l": "enthalten",
@@ -1850,17 +2815,23 @@
    "l": "enthalten",
    "t": "enthalten",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall [−9; 8]?"
+    "text": "Welche Zahlen liegen in ]−∞; −4] und gleichzeitig in [−4; ∞[?"
    },
+   "a": [
+    "alle Zahlen",
+    "]−∞; −4[",
+    "nur die −4",
+    "keine Zahl"
+   ],
    "o": {
-    "wert": 18
+    "index": 2
    },
-   "c": "8 - (-9) + 1",
-   "w": "Die kleinste ganze Zahl darin ist −9, die größte 8. Anzahl: 8 − (−9) + 1 = 18.",
-   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
+   "w": "Im ersten Intervall: x ≤ −4. Im zweiten: x ≥ −4. Beides gilt nur für x = −4.",
+   "h": "Schreibe beide Intervalle als Ungleichung. Welche Zahl erfüllt beide?",
+   "g": "verknuepfen"
   },
   {
    "l": "enthalten",
@@ -1883,43 +2854,46 @@
    "t": "enthalten",
    "p": "uebung",
    "s": 2,
+   "g": "einkleidung",
    "y": "zahl",
    "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall ]−5; −3[?"
+    "text": "Ein Parkhaus lässt Autos von 1,50 m bis 2,10 m Höhe hinein. Wie viele Zentimeter umfasst dieser Bereich?"
    },
    "o": {
-    "wert": 1
+    "wert": 60,
+    "einheit": "cm"
    },
-   "c": "-4 - (-4) + 1",
-   "w": "Die kleinste ganze Zahl darin ist −4, die größte −4. Anzahl: −4 − (−4) + 1 = 1.",
-   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
+   "c": "210 - 150",
+   "w": "Das Intervall ist [1,5; 2,1] (in m), seine Länge 0,6 m = 60 cm.",
+   "h": "Rechne in Zentimetern: 210 − 150."
   },
   {
    "l": "enthalten",
    "t": "enthalten",
    "p": "uebung",
    "s": 3,
+   "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Welche Zahlen liegen in ]−∞; −4] und gleichzeitig in [−4; ∞[?"
+    "text": "Stimmt die Aussage: „Liegt eine Zahl in [1; 4], dann liegt sie auch in ]0; 5[“?"
    },
    "a": [
-    "alle Zahlen",
-    "]−∞; −4[",
-    "nur die −4",
-    "keine Zahl"
+    "Ja: [1; 4] liegt ganz innerhalb von ]0; 5[.",
+    "Nein: 1 und 4 gehören nicht zu ]0; 5[.",
+    "Nein: ]0; 5[ ist kürzer.",
+    "Nur für ganze Zahlen."
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "Im ersten Intervall: x ≤ −4. Im zweiten: x ≥ −4. Beides gilt nur für x = −4.",
-   "h": "Schreibe beide Intervalle als Ungleichung. Welche Zahl erfüllt beide?"
+   "w": "Jede Zahl x mit 1 ≤ x ≤ 4 erfüllt auch 0 < x < 5, denn 0 < 1 und 4 < 5. Auch 1 und 4 selbst liegen also in ]0; 5[.",
+   "h": "Vergleiche die Grenzen beider Intervalle."
   },
   {
    "l": "enthalten",
    "t": "enthalten",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "markierung",
    "f": {
     "text": "Markiere am Zahlenstrahl die größte ganze Zahl, die im Intervall [−5; 6] liegt.",
@@ -1942,7 +2916,7 @@
    "l": "enthalten",
    "t": "enthalten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Das Intervall ]−5,5; 8,5[ ist ein Stück des Zahlenstrahls. Wie lang ist es?"
@@ -1959,16 +2933,43 @@
    "t": "enthalten",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Das Intervall [−4,5; −1] ist ein Stück des Zahlenstrahls. Wie lang ist es?"
+    "text": "Welche Zahlen liegen in ]−1; 4] und gleichzeitig in [2; 6[?"
    },
+   "a": [
+    "[2; 4]",
+    "[2; 4[",
+    "]2; 4[",
+    "]−1; 6["
+   ],
    "o": {
-    "wert": 3.5
+    "index": 0
    },
-   "c": "-1 - ((-9/2))",
-   "w": "Länge = rechte Grenze − linke Grenze = −1 − (−4,5) = 3,5. Die Klammern ändern die Länge nicht.",
-   "h": "Rechne rechte Grenze minus linke Grenze."
+   "w": "Gemeinsamer Teil: ab 2 (aus dem zweiten Intervall, 2 dabei) bis 4 (aus dem ersten, 4 dabei). Also [2; 4].",
+   "h": "Größere linke Grenze, kleinere rechte Grenze. Klammern mitnehmen.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl liegt im Intervall [−9; −1[?"
+   },
+   "a": [
+    "−10",
+    "−8,5",
+    "0",
+    "−1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "[−9; −1[ bedeutet −9 ≤ x < −1. −8,5 erfüllt das.",
+   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
   },
   {
    "l": "enthalten",
@@ -2029,6 +3030,21 @@
    },
    "c": "2 - (-5) + 1",
    "w": "Die kleinste ganze Zahl darin ist −5, die größte 2. Anzahl: 2 − (−5) + 1 = 8."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kühlbox hält Temperaturen im Bereich ]−2; 6] °C. Wie viele ganze Temperaturen liegen darin?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "6 - (-1) + 1",
+   "w": "Gegeben: ]−2; 6]. Gesucht: Anzahl ganzer Temperaturen. Ansatz: −2 gehört nicht dazu: von −1 bis 6 zählen. Rechnung: 6 − (−1) + 1 = 8. Antwort: Es sind 8 ganze Temperaturen."
   },
   {
    "l": "enthalten",
@@ -2121,193 +3137,393 @@
    "w": "Die kleinste ganze Zahl darin ist 3, die größte 4. Anzahl: 4 − 3 + 1 = 2."
   },
   {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Welche Aussage über [−2; 6[ ist richtig?"
+    "text": "Eine Karussellfahrt ist für Kinder von 4 bis einschließlich 10 Jahren. Wie viele ganze Altersjahre sind das?"
    },
-   "a": [
-    "7 liegt in [−2; 6[.",
-    "[−2; 6[ bedeutet −2 ≤ x ≤ 6.",
-    "−1 liegt in [−2; 6[.",
-    "[−2; 6[ und ]−2; 6[ enthalten dieselben Zahlen."
-   ],
    "o": {
-    "index": 2
+    "wert": 7
    },
-   "w": "Richtig ist: −1 liegt in [−2; 6[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
-   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
+   "c": "10 - 4 + 1",
+   "w": "Gegeben: [4; 10]. Gesucht: Anzahl der Alter. Ansatz: Ende − Anfang + 1. Rechnung: 10 − 4 + 1 = 7. Antwort: Es sind 7 Altersjahre."
   },
   {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Welche Aussage über [−8; −6[ ist richtig?"
+    "text": "Ein Bus braucht laut Plan zwischen 18 und 25 Minuten. Wie viele Minuten Spielraum sind das?"
    },
-   "a": [
-    "−5 liegt in [−8; −6[.",
-    "−8,5 liegt in [−8; −6[.",
-    "−6 liegt in [−8; −6[.",
-    "[−8; −6[ enthält unendlich viele Zahlen."
-   ],
    "o": {
-    "index": 3
+    "wert": 7,
+    "einheit": "min"
    },
-   "w": "Richtig ist: [−8; −6[ enthält unendlich viele Zahlen. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
-   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
+   "c": "25 - 18",
+   "w": "Gegeben: [18; 25]. Gesucht: Länge des Intervalls. Ansatz: rechte − linke Grenze. Rechnung: 25 − 18 = 7. Antwort: Der Spielraum ist 7 Minuten."
   },
   {
-   "l": "beurteilen",
-   "t": "beurteilen",
+   "l": "enthalten",
+   "t": "enthalten",
    "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Welche Aussage über ]−7; 8[ ist richtig?"
+    "text": "Wie viele ganze Zahlen liegen im Intervall [−9; 8]?"
    },
-   "a": [
-    "−6 liegt in ]−7; 8[.",
-    "8 liegt in ]−7; 8[.",
-    "]−7; 8[ enthält genau 15 ganze Zahlen.",
-    "Die kleinste Zahl in ]−7; 8[ ist −7."
-   ],
    "o": {
-    "index": 0
+    "wert": 18
    },
-   "w": "Richtig ist: −6 liegt in ]−7; 8[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
-   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
+   "c": "8 - (-9) + 1",
+   "w": "Die kleinste ganze Zahl darin ist −9, die größte 8. Anzahl: 8 − (−9) + 1 = 18.",
+   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
   },
   {
-   "l": "beurteilen",
-   "t": "beurteilen",
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen liegen im Intervall ]−5; −3[?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "-4 - (-4) + 1",
+   "w": "Die kleinste ganze Zahl darin ist −4, die größte −4. Anzahl: −4 − (−4) + 1 = 1.",
+   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Intervall [−4,5; −1] ist ein Stück des Zahlenstrahls. Wie lang ist es?"
+   },
+   "o": {
+    "wert": 3.5
+   },
+   "c": "-1 - ((-9/2))",
+   "w": "Länge = rechte Grenze − linke Grenze = −1 − (−4,5) = 3,5. Die Klammern ändern die Länge nicht.",
+   "h": "Rechne rechte Grenze minus linke Grenze."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen liegen im Intervall ]−2,5; 3,5]?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 - (-2) + 1",
+   "w": "Ganze Zahlen von −2 bis 3: −2, −1, 0, 1, 2, 3 – das sind 6.",
+   "h": "Die Grenzen sind keine ganzen Zahlen. Suche die kleinste und größte ganze Zahl dazwischen."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
    "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über [4; 7[ ist richtig?"
+    "text": "Welche Zahl liegt NICHT im Intervall ]−3; 1]?"
    },
    "a": [
-    "7 liegt in [4; 7[.",
-    "5 liegt in [4; 7[.",
-    "[4; 7[ bedeutet 4 < x < 7.",
-    "3,5 liegt in [4; 7[."
+    "1",
+    "−3",
+    "0",
+    "−2,9"
    ],
    "o": {
     "index": 1
    },
-   "w": "Richtig ist: 5 liegt in [4; 7[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
-   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
+   "w": "Die Klammer bei −3 zeigt weg: −3 gehört nicht dazu. −2,9, 0 und 1 liegen darin.",
+   "h": "Prüfe besonders die Grenzen."
   },
   {
-   "l": "beurteilen",
-   "t": "beurteilen",
+   "l": "enthalten",
+   "t": "enthalten",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über [4; 7] ist richtig?"
+    "text": "Welche Zahlen liegen in [−3; 0[ oder in [0; 2]?"
    },
    "a": [
-    "[4; 7] und ]4; 7] enthalten dieselben Zahlen.",
-    "[4; 7] enthält genau 5 ganze Zahlen.",
-    "[4; 7] bedeutet 4 ≤ x ≤ 7.",
-    "[4; 7] bedeutet 4 < x ≤ 7."
+    "]−3; 2[",
+    "[−3; 2] ohne die 0",
+    "[−3; 2]",
+    "[−3; 0["
    ],
    "o": {
     "index": 2
    },
-   "w": "Richtig ist: [4; 7] bedeutet 4 ≤ x ≤ 7. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
-   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
+   "w": "Das erste Intervall endet knapp vor 0, das zweite beginnt mit 0. Zusammen ist es lückenlos von −3 bis 2: [−3; 2].",
+   "h": "„oder“: Es genügt, in einem der Intervalle zu liegen. Wo liegt die 0?"
   },
   {
-   "l": "beurteilen",
-   "t": "beurteilen",
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Intervall ]a; 7] enthält genau 4 ganze Zahlen. a ist eine ganze Zahl. Bestimme a."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "7 - 4",
+   "w": "Die 7 gehört dazu. Vier ganze Zahlen: 7, 6, 5, 4. Also gehört 3 nicht mehr dazu – das ist die offene Grenze a = 3.",
+   "h": "Zähle von 7 abwärts. Die Grenze a gehört nicht dazu.",
+   "g": "parameter"
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Brüche mit dem Nenner 4 (1/4, 2/4, 3/4, …) liegen im Intervall ]0; 2[?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "8 - 1",
+   "w": "2 = 8/4. Dazwischen liegen 1/4, 2/4, …, 7/4 – also 7 Brüche. 0/4 und 8/4 sind die Grenzen und gehören nicht dazu.",
+   "h": "Schreibe die Grenzen als Viertel.",
+   "g": "transfer"
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist das Intervall [−2; 5]?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "5 - (-2)",
+   "w": "Länge = rechte Grenze − linke Grenze = 5 − (−2) = 7.",
+   "h": "Rechne rechte minus linke Grenze."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
    "p": "uebung",
    "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Das Intervall [−3; b] enthält genau 8 ganze Zahlen; b ist ganz. Bestimme b."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "-3 + 8 - 1",
+   "w": "Von −3 bis b sind es b − (−3) + 1 = b + 4 ganze Zahlen (beide Grenzen mitgezählt). b + 4 = 8 ⇒ b = 4.",
+   "h": "Zähle von −3 an acht ganze Zahlen ab."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über [−7; 3[ ist FALSCH?"
+    "text": "Jemand zählt die ganzen Zahlen in ]−2; 3[ so: −2, −1, 0, 1, 2, 3 – also 6. Was stimmt?"
    },
    "a": [
-    "Die kleinste Zahl in [−7; 3[ ist −7.",
-    "4 liegt in [−7; 3[.",
-    "−7 liegt in [−7; 3[.",
-    "[−7; 3[ enthält unendlich viele Zahlen."
+    "Falsch: Es sind 5, nur die 3 fehlt.",
+    "Richtig, es sind 6.",
+    "Falsch: −2 und 3 gehören nicht dazu, es sind 4.",
+    "Falsch: Es sind 3."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Falsch ist: 4 liegt in [−7; 3[.",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+   "w": "Beide Klammern zeigen nach außen: −2 und 3 gehören nicht dazu. Übrig bleiben −1, 0, 1, 2.",
+   "h": "Schau dir beide Klammern an."
   },
   {
-   "l": "beurteilen",
-   "t": "beurteilen",
+   "l": "enthalten",
+   "t": "enthalten",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben sind A = [−6; 2[ und B = ]−1; 5]. Wie viele ganze Zahlen liegen in A und zugleich in B?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1 - 0 + 1",
+   "w": "Gemeinsam ist ]−1; 2[. Ganze Zahlen darin: 0 und 1. Das sind zwei.",
+   "h": "Bestimme zuerst den gemeinsamen Teil der beiden Intervalle."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 1,
+   "g": "erkennen",
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]−4; −1[ ist FALSCH?"
+    "text": "Ein Aufzug trägt Lasten im Bereich ]0; 630] kg. Welche Last ist zu schwer?"
    },
    "a": [
-    "−4,5 liegt in ]−4; −1[.",
-    "]−4; −1[ enthält genau 2 ganze Zahlen.",
-    "]−4; −1[ enthält unendlich viele Zahlen.",
-    "]−4; −1[ bedeutet −4 < x < −1."
+    "631 kg",
+    "630 kg",
+    "600 kg",
+    "450 kg"
    ],
    "o": {
     "index": 0
    },
-   "w": "Falsch ist: −4,5 liegt in ]−4; −1[.",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+   "w": "Gegeben: ]0; 630] kg. Gesucht: Last außerhalb. Ansatz: 630 gehört dazu, alles darüber nicht. Rechnung: 631 > 630. Antwort: 631 kg ist zu schwer.",
+   "h": "Gehört 630 dazu?"
   },
   {
-   "l": "beurteilen",
-   "t": "beurteilen",
+   "l": "enthalten",
+   "t": "enthalten",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "g": "einkleidung",
+   "y": "zahl",
    "f": {
-    "text": "Welche Aussage über ]−6; 4] ist FALSCH?"
+    "text": "Eine Parkuhr nimmt Parkzeiten von 15 bis 120 Minuten an, beide Grenzen erlaubt, nur volle Minuten. Wie viele verschiedene Parkzeiten gibt es?"
    },
-   "a": [
-    "]−6; 4] bedeutet −6 < x ≤ 4.",
-    "]−6; 4] enthält unendlich viele Zahlen.",
-    "4 liegt in ]−6; 4].",
-    "5 liegt in ]−6; 4]."
-   ],
    "o": {
-    "index": 3
+    "wert": 106
    },
-   "w": "Falsch ist: 5 liegt in ]−6; 4].",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+   "c": "120 - 15 + 1",
+   "w": "Gegeben: [15; 120], nur ganze Minuten. Gesucht: Anzahl der Parkzeiten. Ansatz: Ganze Zahlen von 15 bis 120 zählen: Ende − Anfang + 1. Rechnung: 120 − 15 + 1 = 106. Antwort: Es gibt 106 Parkzeiten.",
+   "h": "Wie zählst du alle ganzen Zahlen von a bis b?"
   },
   {
-   "l": "beurteilen",
-   "t": "beurteilen",
+   "l": "enthalten",
+   "t": "enthalten",
    "p": "uebung",
    "s": 2,
+   "g": "mehrschritt",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Thermometer im Gewächshaus zeigt nur ganze Grad. Für Tomaten ist ]12; 30[ °C gut. Wie viele angezeigte Temperaturen sind gut?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "29 - 13 + 1",
+   "w": "Gegeben: ]12; 30[, ganze Grad. Gesucht: Anzahl der guten Werte. Ansatz: Grenzen gehören nicht dazu: von 13 bis 29 zählen. Rechnung: 29 − 13 + 1 = 17. Antwort: Es sind 17 Temperaturen.",
+   "h": "Welche ist die kleinste und die größte ganze Zahl im Intervall?"
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "zahl",
+   "f": {
+    "text": "Im Kino gibt es Ermäßigung für Jugendliche unter 16 Jahren und für Rentner ab 65 Jahren; der Film ist ab 12 Jahren. Wie viele ganze Alter von 12 bis 70 bekommen eine Ermäßigung?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(15 - 12 + 1) + (70 - 65 + 1)",
+   "w": "Gegeben: Film ab 12; ermäßigt [12; 16[ und [65; 70]. Gesucht: Anzahl der ermäßigten Alter. Ansatz: Beide Bereiche einzeln zählen, dann addieren. Rechnung: 12, 13, 14, 15 (4) und 65 bis 70 (6). Antwort: Es sind 10 Alter.",
+   "h": "Zwei Bereiche – zähle sie getrennt."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 3,
+   "g": "begruenden",
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über [−5; −2] ist FALSCH?"
+    "text": "Brötchen sollen 55 g bis 65 g wiegen, beide Grenzen erlaubt. Ein Brötchen wiegt 54,9 g. Darf es verkauft werden?"
    },
    "a": [
-    "[−5; −2] enthält genau 3 ganze Zahlen.",
-    "−2 liegt in [−5; −2].",
-    "−4 liegt in [−5; −2].",
-    "[−5; −2] bedeutet −5 ≤ x ≤ −2."
+    "Ja, 54,9 liegt in [55; 65].",
+    "Ja, gerundet sind es 55 g.",
+    "Nein, 54,9 liegt nicht in [55; 65].",
+    "Nein, weil es mehr als 65 g wiegt."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Falsch ist: [−5; −2] enthält genau 3 ganze Zahlen.",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+   "w": "Gegeben: [55; 65], 54,9 g. Gesucht: Liegt 54,9 im Intervall? Ansatz: Mit der linken Grenze vergleichen. Rechnung: 54,9 < 55. Antwort: Nein, das Brötchen ist zu leicht.",
+   "h": "Ist 54,9 mindestens 55?"
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 630 kg tragen; man rechnet mit 75 kg pro Person. Die erlaubte Personenzahl sind die ganzen Zahlen im Intervall [1; b]. Wie groß ist b?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "630 // 75",
+   "w": "Gegeben: höchstens 630 kg, 75 kg pro Person. Gesucht: größte erlaubte Personenzahl b. Ansatz: 630 : 75 und abrunden. Rechnung: 630 : 75 = 8,4. Antwort: b = 8: Es dürfen höchstens 8 Personen mitfahren.",
+   "h": "Darf die 9. Person noch mit?"
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Zahlen mit höchstens zwei Nachkommastellen liegen im Intervall ]0; 1[?"
+   },
+   "o": {
+    "wert": 99
+   },
+   "c": "99 - 1 + 1",
+   "w": "Jede solche Zahl lässt sich als Hundertstel schreiben (0,1 ist 0,10): von 0,01 bis 0,99 in Schritten von 0,01, also 1 bis 99 Hundertstel. Das sind 99 Zahlen; 0 und 1 gehören nicht dazu.",
+   "h": "Schreibe jede Zahl mit genau zwei Nachkommastellen."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Intervall hat die Länge 2,5 und enthält seine Grenzen. Wie viele ganze Zahlen enthält es mindestens?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Egal wo das Intervall liegt: Von der linken Grenze aus kommt nach höchstens 1 die erste ganze Zahl, nach einer weiteren Einheit die zweite – zusammen höchstens 2 ≤ 2,5. Also immer mindestens 2. Beispiel mit genau 2: [0,1; 2,6] enthält 1 und 2.",
+   "h": "Wie weit muss man von einer beliebigen Stelle höchstens gehen, bis zwei ganze Zahlen kommen?"
   },
   {
    "l": "beurteilen",
@@ -2334,64 +3550,45 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]−7; 6[ ist FALSCH?"
+    "text": "Welche Aussage über [−2; 6[ ist richtig?"
    },
    "a": [
-    "]−7; 6[ bedeutet −7 < x < 6.",
-    "−6 liegt in ]−7; 6[.",
-    "]−7; 6[ bedeutet −7 ≤ x ≤ 6.",
-    "]−7; 6[ enthält unendlich viele Zahlen."
+    "7 liegt in [−2; 6[.",
+    "[−2; 6[ bedeutet −2 ≤ x ≤ 6.",
+    "−1 liegt in [−2; 6[.",
+    "[−2; 6[ und ]−2; 6[ enthalten dieselben Zahlen."
    ],
    "o": {
     "index": 2
    },
-   "w": "Falsch ist: ]−7; 6[ bedeutet −7 ≤ x ≤ 6.",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+   "w": "Richtig ist: −1 liegt in [−2; 6[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
+   "h": "Prüfe jede Aussage an den Grenzen des Intervalls.",
+   "g": "erkennen"
   },
   {
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]−5; 0] ist FALSCH?"
+    "text": "Welche Aussage über [−7; 3[ ist FALSCH?"
    },
    "a": [
-    "−4 liegt in ]−5; 0].",
-    "0 liegt in ]−5; 0].",
-    "]−5; 0] enthält unendlich viele Zahlen.",
-    "]−5; 0] bedeutet −5 ≤ x ≤ 0."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Falsch ist: ]−5; 0] bedeutet −5 ≤ x ≤ 0.",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
-  },
-  {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über [−3; 9] ist FALSCH?"
-   },
-   "a": [
-    "[−3; 9] enthält unendlich viele Zahlen.",
-    "10 liegt in [−3; 9].",
-    "9 liegt in [−3; 9].",
-    "[−3; 9] enthält genau 13 ganze Zahlen."
+    "Die kleinste Zahl in [−7; 3[ ist −7.",
+    "4 liegt in [−7; 3[.",
+    "−7 liegt in [−7; 3[.",
+    "[−7; 3[ enthält unendlich viele Zahlen."
    ],
    "o": {
     "index": 1
    },
-   "w": "Falsch ist: 10 liegt in [−3; 9].",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+   "w": "Falsch ist: 4 liegt in [−7; 3[.",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze.",
+   "g": "umkehr"
   },
   {
    "l": "beurteilen",
@@ -2400,19 +3597,237 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über [−8; 3[ ist FALSCH?"
+    "text": "Tim sagt: „Im Intervall [0; 1] liegen nur die Zahlen 0 und 1.“ Was stimmt?"
    },
    "a": [
-    "[−8; 3[ enthält genau 11 ganze Zahlen.",
-    "−7 liegt in [−8; 3[.",
-    "−8 liegt in [−8; 3[.",
-    "−8,5 liegt in [−8; 3[."
+    "Richtig: Die Klammern zeigen nur auf 0 und 1.",
+    "Richtig: Ein Intervall enthält nur ganze Zahlen.",
+    "Falsch: 0 und 1 gehören nicht dazu.",
+    "Falsch: Auch 0,5 oder 0,01 liegen darin – unendlich viele Zahlen."
    ],
    "o": {
     "index": 3
    },
-   "w": "Falsch ist: −8,5 liegt in [−8; 3[.",
+   "w": "[0; 1] bedeutet 0 ≤ x ≤ 1. Jede Zahl dazwischen gehört dazu, z. B. 0,5. Ein Gegenbeispiel widerlegt Tims Aussage.",
+   "h": "Suche eine Zahl zwischen 0 und 1.",
+   "g": "begruenden"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [−5; −2] ist FALSCH?"
+   },
+   "a": [
+    "[−5; −2] enthält genau 3 ganze Zahlen.",
+    "−2 liegt in [−5; −2].",
+    "−4 liegt in [−5; −2].",
+    "[−5; −2] bedeutet −5 ≤ x ≤ −2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch ist: [−5; −2] enthält genau 3 ganze Zahlen.",
    "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ]−7; 8[ ist richtig?"
+   },
+   "a": [
+    "−6 liegt in ]−7; 8[.",
+    "8 liegt in ]−7; 8[.",
+    "]−7; 8[ enthält genau 15 ganze Zahlen.",
+    "Die kleinste Zahl in ]−7; 8[ ist −7."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig ist: −6 liegt in ]−7; 8[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
+   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ]−6; 4] ist FALSCH?"
+   },
+   "a": [
+    "]−6; 4] bedeutet −6 < x ≤ 4.",
+    "]−6; 4] enthält unendlich viele Zahlen.",
+    "4 liegt in ]−6; 4].",
+    "5 liegt in ]−6; 4]."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch ist: 5 liegt in ]−6; 4].",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage: „]−∞; 0[ enthält genau alle negativen Zahlen“?"
+   },
+   "a": [
+    "Ja.",
+    "Nein, die 0 fehlt noch.",
+    "Nein, nur die ganzen negativen Zahlen.",
+    "Nein, −∞ gehört auch dazu."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "]−∞; 0[ heißt x < 0. Das sind genau die negativen Zahlen. 0 ist nicht negativ, −∞ ist keine Zahl.",
+   "h": "Übersetze in eine Ungleichung.",
+   "g": "direkt"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahlen enthält das Intervall [5; 5]?"
+   },
+   "a": [
+    "unendlich viele Zahlen",
+    "alle Zahlen ab 5",
+    "keine Zahl",
+    "genau die Zahl 5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "[5; 5] bedeutet 5 ≤ x ≤ 5. Das erfüllt nur x = 5. (]5; 5[ wäre dagegen leer.)",
+   "h": "Schreibe als Ungleichung.",
+   "g": "transfer"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schwimmkurs ist für Kinder von 6 bis unter 10 Jahren. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Keines der beiden darf mit.",
+    "Ein Kind mit 6 Jahren darf mit, eines mit 10 nicht.",
+    "Beide dürfen mit.",
+    "Ein Kind mit 10 darf mit, eines mit 6 nicht."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Alter liegt in [6; 10[: 6 gehört dazu, 10 nicht.",
+   "h": "Schreibe die Altersgrenze als Intervall."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "auswahl",
+   "f": {
+    "text": "Liegt die Mitte des Intervalls [−3; 7] im Intervall ]0; 2]?"
+   },
+   "a": [
+    "Ja, die Mitte ist 2 und 2 gehört dazu.",
+    "Nein, die Mitte ist 2, aber 2 gehört nicht dazu.",
+    "Ja, die Mitte ist 1.",
+    "Nein, die Mitte ist 5."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mitte: (−3 + 7) : 2 = 2. In ]0; 2] gehört die 2 dazu.",
+   "h": "Erst die Mitte berechnen, dann die Klammer bei 2 ansehen."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über das Intervall ]−1/2; 1/3[ ist richtig?"
+   },
+   "a": [
+    "0,4 liegt darin.",
+    "−0,6 liegt darin.",
+    "−1/2 liegt darin.",
+    "0,3 liegt darin."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "−1/2 = −0,5 und 1/3 ≈ 0,333. 0,3 liegt dazwischen. −0,6 ist zu klein, 0,4 zu groß, −1/2 ist die ausgeschlossene Grenze.",
+   "h": "Wandle die Grenzen in Dezimalzahlen um."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [−8; −6[ ist richtig?"
+   },
+   "a": [
+    "−5 liegt in [−8; −6[.",
+    "−8,5 liegt in [−8; −6[.",
+    "−6 liegt in [−8; −6[.",
+    "[−8; −6[ enthält unendlich viele Zahlen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig ist: [−8; −6[ enthält unendlich viele Zahlen. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
+   "h": "Prüfe jede Aussage an den Grenzen des Intervalls.",
+   "g": "erkennen"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ]−4; −1[ ist FALSCH?"
+   },
+   "a": [
+    "−4,5 liegt in ]−4; −1[.",
+    "]−4; −1[ enthält genau 2 ganze Zahlen.",
+    "]−4; −1[ enthält unendlich viele Zahlen.",
+    "]−4; −1[ bedeutet −4 < x < −1."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch ist: −4,5 liegt in ]−4; −1[.",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze.",
+   "g": "umkehr"
   },
   {
    "l": "beurteilen",
@@ -2493,6 +3908,25 @@
     "index": 2
    },
    "w": "Richtig ist: ]−6; 0[ enthält unendlich viele Zahlen. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Bergbahn fährt bei Wind bis einschließlich 60 km/h. Fährt sie bei genau 60 km/h Wind?"
+   },
+   "a": [
+    "Nur talwärts",
+    "Nein",
+    "Ja"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: Wind ≤ 60 km/h, also [0; 60]. Gesucht: Fährt sie bei 60? Ansatz: „bis einschließlich“ schließt 60 ein. Rechnung: 60 gehört dazu. Antwort: Ja, sie fährt."
   },
   {
    "l": "beurteilen",
@@ -2613,11 +4047,494 @@
     "index": 0
    },
    "w": "Richtig ist: −3 liegt in ]−4; 0[. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Hotel bietet den Check-in im Intervall [15; 22[ Uhr an. Ist ein Check-in um genau 22 Uhr möglich?"
+   },
+   "a": [
+    "Nein",
+    "Nur mit Anmeldung",
+    "Ja"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegeben: [15; 22[. Gesucht: Gehört 22 dazu? Ansatz: Klammer bei 22 nach außen. Rechnung: 22 gehört nicht dazu. Antwort: Nein."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Gartenlampe darf bei Temperaturen im Intervall [−20; 40] °C betrieben werden. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Bei 41 °C darf sie leuchten.",
+    "Bei −20 °C darf sie leuchten.",
+    "Bei −21 °C darf sie leuchten.",
+    "Bei 40 °C darf sie nicht leuchten."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: [−20; 40]. Gesucht: richtige Aussage. Ansatz: Beide Grenzen gehören dazu. Rechnung: −20 ✓, −21 ✗, 41 ✗, 40 ✓. Antwort: −20 °C ist erlaubt."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lisa sagt: „]1; 5[ ist länger als [1; 5], weil die Klammern nach außen zeigen.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: [1; 5] ist länger, weil die Grenzen dazugehören.",
+    "Falsch: Beide sind 4 lang. Die Klammern ändern nur, ob 1 und 5 dazugehören.",
+    "Richtig: ]1; 5[ ist länger.",
+    "Falsch: ]1; 5[ ist 3 lang."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Länge = rechte Grenze − linke Grenze = 5 − 1 = 4, bei beiden. Einzelne Punkte haben keine Länge.",
+   "h": "Wie berechnet man die Länge eines Intervalls?",
+   "g": "begruenden"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [4; 7[ ist richtig?"
+   },
+   "a": [
+    "7 liegt in [4; 7[.",
+    "5 liegt in [4; 7[.",
+    "[4; 7[ bedeutet 4 < x < 7.",
+    "3,5 liegt in [4; 7[."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig ist: 5 liegt in [4; 7[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
+   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [4; 7] ist richtig?"
+   },
+   "a": [
+    "[4; 7] und ]4; 7] enthalten dieselben Zahlen.",
+    "[4; 7] enthält genau 5 ganze Zahlen.",
+    "[4; 7] bedeutet 4 ≤ x ≤ 7.",
+    "[4; 7] bedeutet 4 < x ≤ 7."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig ist: [4; 7] bedeutet 4 ≤ x ≤ 7. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
+   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ]−7; 6[ ist FALSCH?"
+   },
+   "a": [
+    "]−7; 6[ bedeutet −7 < x < 6.",
+    "−6 liegt in ]−7; 6[.",
+    "]−7; 6[ bedeutet −7 ≤ x ≤ 6.",
+    "]−7; 6[ enthält unendlich viele Zahlen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Falsch ist: ]−7; 6[ bedeutet −7 ≤ x ≤ 6.",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ]−5; 0] ist FALSCH?"
+   },
+   "a": [
+    "−4 liegt in ]−5; 0].",
+    "0 liegt in ]−5; 0].",
+    "]−5; 0] enthält unendlich viele Zahlen.",
+    "]−5; 0] bedeutet −5 ≤ x ≤ 0."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch ist: ]−5; 0] bedeutet −5 ≤ x ≤ 0.",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [−3; 9] ist FALSCH?"
+   },
+   "a": [
+    "[−3; 9] enthält unendlich viele Zahlen.",
+    "10 liegt in [−3; 9].",
+    "9 liegt in [−3; 9].",
+    "[−3; 9] enthält genau 13 ganze Zahlen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch ist: 10 liegt in [−3; 9].",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [−8; 3[ ist FALSCH?"
+   },
+   "a": [
+    "[−8; 3[ enthält genau 11 ganze Zahlen.",
+    "−7 liegt in [−8; 3[.",
+    "−8 liegt in [−8; 3[.",
+    "−8,5 liegt in [−8; 3[."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch ist: −8,5 liegt in [−8; 3[.",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ]2; 3[ ist richtig?"
+   },
+   "a": [
+    "Es enthält genau eine Zahl.",
+    "Es enthält keine ganze Zahl.",
+    "Es ist leer.",
+    "2,999 liegt nicht darin."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Zwischen 2 und 3 liegen unendlich viele Zahlen (2,5; 2,999 …), aber keine ganze: 2 und 3 gehören nicht dazu.",
+   "h": "Denke an Kommazahlen zwischen 2 und 3."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über JEDES Intervall [a; b] mit a < b ist FALSCH?"
+   },
+   "a": [
+    "Es enthält mindestens eine ganze Zahl.",
+    "Es enthält unendlich viele Zahlen.",
+    "Es enthält a und b.",
+    "Es ist genauso lang wie ]a; b[."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gegenbeispiel: [0,2; 0,8] enthält keine ganze Zahl. Die anderen Aussagen stimmen immer.",
+   "h": "Suche ein kurzes Intervall zwischen zwei ganzen Zahlen."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "g": "darstellung",
+   "y": "auswahl",
+   "f": {
+    "text": "Am Zahlenstrahl ist bei 1 ein leerer Kreis, bei 4 ein ausgefüllter Punkt, dazwischen ist die Strecke dick. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Das ist ]1; 4[.",
+    "Das ist [1; 4[.",
+    "Das ist ]1; 4]: 4 gehört dazu, 1 nicht.",
+    "Das ist [1; 4]."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Leerer Kreis: Grenze gehört nicht dazu. Ausgefüllter Punkt: Grenze gehört dazu.",
+   "h": "Was bedeuten leerer Kreis und ausgefüllter Punkt?"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „−2,5 liegt in [−2; 3], weil −2,5 größer als −2 ist.“ Was ist falsch?"
+   },
+   "a": [
+    "Die Grenze −2 gehört nicht dazu.",
+    "−2,5 ist kleiner als −2, liegt also links davon und nicht im Intervall.",
+    "−2,5 liegt nicht darin, weil es keine ganze Zahl ist.",
+    "Nichts, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei negativen Zahlen ist die mit dem größeren Betrag die kleinere: −2,5 < −2. Damit liegt −2,5 außerhalb.",
+   "h": "Wo liegt −2,5 am Zahlenstrahl – links oder rechts von −2?"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche Zahlen a ist die Aussage „3 liegt in ]a; 5]“ wahr?"
+   },
+   "a": [
+    "nur für a = 3",
+    "für alle a > 3",
+    "für alle a ≤ 3",
+    "für alle a < 3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3 liegt in ]a; 5], wenn a < 3 ≤ 5. Für a = 3 gehört die 3 wegen der offenen Klammer nicht dazu.",
+   "h": "Probiere a = 3 und a = 2,9."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind A = [0; 4] und B = ]2; 6[. Welche Aussage ist richtig?"
+   },
+   "a": [
+    "Die gemeinsamen Zahlen bilden ]2; 4].",
+    "Die 2 liegt in beiden.",
+    "Die gemeinsamen Zahlen bilden [2; 4].",
+    "Die 6 liegt in B."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gemeinsam: größer als 2 (wegen B) und höchstens 4 (wegen A): ]2; 4]. Die 2 gehört nicht zu B, die 6 auch nicht.",
+   "h": "Zeichne beide Intervalle untereinander."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "auswahl",
+   "f": {
+    "text": "Vor einer Unterführung steht: „Fahrzeughöhe ]0; 2,5] m“. Darf ein genau 2,5 m hoher Lieferwagen durchfahren?"
+   },
+   "a": [
+    "Nur langsam",
+    "Nein",
+    "Ja"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: ]0; 2,5]. Gesucht: Gehört 2,5 dazu? Ansatz: Klammer bei 2,5 zeigt nach innen. Rechnung: 2,5 gehört dazu. Antwort: Ja, er darf durchfahren.",
+   "h": "Wohin zeigt die Klammer bei 2,5?"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Spielzeug ist für Kinder von 3 bis unter 6 Jahren, also [3; 6[. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Ein Kind mit 6 Jahren gehört zur Zielgruppe.",
+    "Ein Kind mit 3 Jahren gehört zur Zielgruppe.",
+    "Ein Kind mit 2 Jahren und 11 Monaten gehört dazu.",
+    "Nur Kinder mit genau 3, 4 oder 5 Jahren und 0 Monaten."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gegeben: [3; 6[. Gesucht: richtige Aussage. Ansatz: Grenze 3 gehört dazu, 6 nicht; dazwischen alle Werte. Rechnung: 3 ✓, 6 ✗, 2,9 ✗. Antwort: Ein Kind mit 3 Jahren gehört dazu.",
+   "h": "Welche Grenze gehört dazu?"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "g": "mehrschritt",
+   "y": "auswahl",
+   "f": {
+    "text": "Der Wetterbericht sagt Tagestemperaturen im Bereich ]18; 25] °C voraus. Liegt die Mitte dieses Bereichs über 21 °C?"
+   },
+   "a": [
+    "Ja, die Mitte ist 25 °C.",
+    "Nein, die Mitte ist 21 °C.",
+    "Nein, die Mitte ist 7 °C.",
+    "Ja, die Mitte ist 21,5 °C."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: ]18; 25]. Gesucht: Mitte und Vergleich. Ansatz: Mitte = (linke + rechte Grenze) : 2. Rechnung: (18 + 25) : 2 = 21,5. Antwort: Ja, die Mitte ist 21,5 °C.",
+   "h": "Wie berechnest du die Mitte zweier Zahlen?"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Wanderweg ist mit einer Gehzeit von 3 bis 5 Stunden ausgeschildert. Er ist 14 km lang und hat 4 Rastplätze. Eine Gruppe braucht 5 Stunden und 15 Minuten. Liegt sie im angegebenen Bereich?"
+   },
+   "a": [
+    "Ja, die Rastplätze zählen nicht mit.",
+    "Nein, weil 14 km zu lang sind.",
+    "Nein, 5,25 h liegt nicht in [3; 5].",
+    "Ja, 5 Stunden und 15 Minuten sind 5,15 h."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gegeben: [3; 5] h, Gruppe 5 h 15 min. Länge und Rastplätze spielen keine Rolle. Gesucht: Liegt die Zeit im Bereich? Ansatz: Minuten in Stunden umrechnen und vergleichen. Rechnung: 15 min = 0,25 h; 5,25 > 5. Antwort: Nein, die Gruppe war langsamer.",
+   "h": "Wie viele Stunden sind 15 Minuten?"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "transfer",
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Onlineshop liefert versandkostenfrei bei einem Bestellwert im Intervall [50; ∞[ €. Jemand bestellt für 49,90 € und sagt: „Gerundet sind das 50 €, also ist der Versand gratis.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: 49,90 liegt in [50; ∞[.",
+    "Richtig: Man darf runden.",
+    "Falsch: Erst ab 51 € ist er gratis.",
+    "Falsch: 49,90 liegt nicht im Intervall, der Versand kostet."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gegeben: [50; ∞[, Bestellung 49,90 €. Gesucht: Ist der Versand gratis? Ansatz: Exakt vergleichen, nicht runden. Rechnung: 49,90 < 50. Antwort: Nein, die Bestellung liegt knapp darunter.",
+   "h": "Ist 49,90 mindestens 50?"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "g": "verknuepfen",
+   "y": "zahl",
+   "f": {
+    "text": "Im Freizeitpark liegt die Wartezeit an einer Bahn im Intervall ]10; 20] Minuten. Sie ist eine ganze Zahl und ein Vielfaches von 7. Wie viele Minuten wartet man?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "min"
+   },
+   "c": "14",
+   "w": "Gegeben: ]10; 20], Vielfaches von 7. Gesucht: Wartezeit. Ansatz: Vielfache von 7 aufzählen und mit dem Intervall vergleichen. Rechnung: 7 (zu klein), 14 ✓, 21 (zu groß). Antwort: Man wartet 14 Minuten.",
+   "h": "Welche Vielfachen von 7 kennst du?"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "auswahl",
+   "f": {
+    "text": "A = [0; 3], B = [2; 5] und C = [4; 7]. Welche Aussage stimmt?"
+   },
+   "a": [
+    "Die 3 liegt in allen drei.",
+    "Es gibt eine Zahl in [0; 7], die in keinem liegt.",
+    "Keine Zahl liegt in allen drei, aber jede Zahl aus [0; 7] liegt in mindestens einem.",
+    "Die Zahlen, die in genau zwei Intervallen liegen, bilden [2; 5]."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A und C haben keine gemeinsame Zahl (3 < 4), also liegt keine Zahl in allen drei. A und B überlappen von 2 bis 3, B und C von 4 bis 5 – dadurch gibt es keine Lücke von 0 bis 7. In genau zwei Intervallen liegen nur [2; 3] und [4; 5], nicht ganz [2; 5].",
+   "h": "Zeichne die drei Intervalle übereinander und such Lücken und Überlappungen."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "In wie vielen der Intervalle [1; 2], [1; 3], [1; 4], …, [1; 100] liegt die Zahl 37,5?"
+   },
+   "o": {
+    "wert": 63
+   },
+   "c": "100 - 38 + 1",
+   "w": "37,5 liegt in [1; n], wenn n ≥ 37,5 ist, also für jede ganze Zahl n von 38 bis 100. Das sind 100 − 38 + 1 = 63 Intervalle.",
+   "h": "Für welche rechten Grenzen n ist 37,5 dabei?"
   }
  ],
  "offen": [
   "Intervall am Zahlenstrahl ist mit dem Bildtyp „figur“ nachgebaut (Behelf): gefüllter Punkt = Grenze gehört dazu, leerer Kreis = gehört nicht dazu, Strecke bis zum Rand = unbegrenzt. Ein eigener Bildtyp „intervall“ (Zahlenstrahl mit Endpunkten und Pfeil) wäre klarer – Vorschlag für den Haupt-Chat.",
   "Prüf-Vorschlag „FALSCH fett anzeigen“ nicht umgesetzt: Aufgabentexte werden ohne Hervorhebung angezeigt; das wäre App-Code. FALSCH steht weiter in Großbuchstaben.",
-  "Lehrplanbezug: Intervalle werden in gleichungen.ungleichungen gebraucht; dieses Thema sollte im Plan davor stehen (Reihenfolge legt der Haupt-Chat fest)."
+  "Lehrplanbezug: Intervalle werden in gleichungen.ungleichungen gebraucht; dieses Thema sollte im Plan davor stehen (Reihenfolge legt der Haupt-Chat fest).",
+  "Umbau 16.11.: Die Lernkarten zeigen Intervalle jetzt auf dem Zahlenstrahl mit „bereich“ und benannten Punkten („3 dabei“, „6 nicht“). App-Wunsch: Endpunkte des Bereichs als gefüllter bzw. leerer Kreis (z. B. \"bereich\": {\"von\": 3, \"bis\": 6, \"links\": \"zu\", \"rechts\": \"offen\"}) und ein Pfeil für „bis ∞“."
  ]
 }

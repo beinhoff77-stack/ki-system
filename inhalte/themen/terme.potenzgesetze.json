@@ -9,11 +9,9 @@
  },
  "autor": "Claude (Opus), Paket Klasse 6",
  "inhalt": {
-  "ziel": "Potenzen mit natürlichen und ganzzahligen Exponenten verstehen und Potenzen mit gleicher Basis oder gleichem Exponenten zusammenfassen.",
+  "ziel": "Potenzen mit natürlichen und ganzzahligen Exponenten verstehen und berechnen. Die Potenzgesetze folgen in Klasse 7 (Terme umformen).",
   "merke": [
    "aⁿ = a · a · … · a (n Faktoren). a⁰ = 1, a⁻ⁿ = 1/aⁿ.",
-   "Gleiche Basis: aᵐ · aⁿ = aᵐ⁺ⁿ und aᵐ : aⁿ = aᵐ⁻ⁿ.",
-   "Gleicher Exponent: aⁿ · bⁿ = (a · b)ⁿ und aⁿ : bⁿ = (a : b)ⁿ.",
    "Negative Basis in Klammern: (−2)² = 4, aber −2² = −4."
   ],
   "abschnitte": [
@@ -25,17 +23,8 @@
     ]
    },
    {
-    "titel": "Potenzgesetze",
+    "titel": "Vertiefung: Fehler finden",
     "lernziele": [
-     "mal_gleiche_basis",
-     "geteilt_gleiche_basis",
-     "gleicher_exponent"
-    ]
-   },
-   {
-    "titel": "Anwenden und prüfen",
-    "lernziele": [
-     "anwenden",
      "fehler_finden"
     ]
    }
@@ -44,208 +33,265 @@
    {
     "lernziel": "potenz_begriff",
     "titel": "Was ist eine Potenz?",
-    "regel": "So rechnest du eine Potenz aus: Schreibe die ⟦Basis⟧ so oft als Faktor hin, wie der ⟦Exponent⟧ sagt, und nimm alles mal: 2⁴ = 2 · 2 · 2 · 2. Eine negative Basis steht in ⟦Klammern⟧: (−2)³.",
+    "regel": "Der ⟦Exponent⟧ sagt, wie oft die Basis malgenommen wird. Eine negative Basis steht in Klammern.",
     "schritte": [
-     "Nach 4-mal Falten hast du 2 · 2 · 2 · 2 = 16 Lagen. Kurz: 2⁴ = 16.",
-     "Bei einer negativen Basis brauchst du Klammern: (−2)³ heißt (−2) · (−2) · (−2).",
-     "Rechne von links: (−2) · (−2) = 4, denn minus mal minus ergibt plus.",
-     "Dann 4 · (−2) = −8. Also ist (−2)³ = ⟦−8⟧."
+     {
+      "text": "Jedes Falten verdoppelt die Lagen: 2, 4, 8, 16.",
+      "bild": {
+       "zeilen": [
+        [
+         "Lagen",
+         "2",
+         "4",
+         "8",
+         "16"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Nach 4-mal Falten: 2 · 2 · 2 · 2 = ⟦2⁴ = 16⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Lagen",
+         "2",
+         "4",
+         "8",
+         "16"
+        ],
+        [
+         "Potenz",
+         "2¹",
+         "2²",
+         "2³",
+         "2⁴"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Bei 2⁴ ist die Basis 2 und der Exponent 4."
+     },
+     {
+      "text": "Negative Basis in Klammern: (−2)³ = (−2) · (−2) · (−2) = ⟦−8⟧."
+     }
     ],
-    "fehler": "2⁴ = 8 ist falsch: Das wäre 2 · 4. Nach 4-mal Falten liegen aber ⟦2 · 2 · 2 · 2 = 16⟧ Lagen übereinander. Achtung auch: −2² = −(2 · 2) = −4, aber (−2)² = 4.",
-    "einstieg": "Du faltest ein Blatt Papier immer wieder in der Mitte. Nach dem ersten Falten liegen 2 Lagen übereinander, dann 4, dann 8, dann 16. Jedes Mal werden die Lagen mal 2 genommen. Statt 2 · 2 · 2 · 2 schreibt man kurz 2⁴. Diese Kurzschrift heißt ⟦Potenz⟧.",
+    "fehler": "2⁴ = 8 ist falsch: Das wäre 2 · 4. Nach 4-mal Falten hast du aber 16 Lagen.",
+    "einstieg": "Du faltest ein Blatt immer wieder in der Mitte: 2, 4, 8, 16 Lagen. Statt 2 · 2 · 2 · 2 schreibt man kurz 2⁴. Das ist eine ⟦Potenz⟧.",
     "woerter": [
      [
-      "Faktor",
-      "eine Zahl, die malgenommen wird"
-     ],
-     [
-      "Produkt",
-      "eine Malaufgabe oder ihr Ergebnis"
-     ],
-     [
       "Potenz",
-      "ein Produkt aus lauter gleichen Faktoren, kurz geschrieben: 2⁴ = 2 · 2 · 2 · 2"
+      "ein Produkt aus lauter gleichen Faktoren, kurz geschrieben: 2⁴"
      ],
      [
-      "Basis (Grundzahl)",
-      "die große Zahl unten, die malgenommen wird (bei 2⁴ die 2)"
+      "Basis",
+      "die Zahl unten, die malgenommen wird"
      ],
      [
-      "Exponent (Hochzahl)",
-      "die kleine Zahl oben: wie oft die Basis als Faktor vorkommt (bei 2⁴ die 4)"
-     ],
-     [
-      "aⁿ",
-      "allgemein geschrieben: a ist die Basis, n der Exponent"
-     ],
-     [
-      "(−2)³",
-      "die Klammer zeigt: Die ganze Zahl −2 ist die Basis"
+      "Exponent",
+      "die kleine Zahl oben: wie oft die Basis vorkommt"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Faltungen",
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "Lagen",
+       "2",
+       "",
+       "",
+       ""
+      ]
+     ]
+    },
+    "fehler_bild": {
+     "zeilen": [
+      [
+       "Lagen",
+       "2",
+       "4",
+       "8",
+       "16"
+      ],
+      [
+       "2 · 4?",
+       "",
+       "",
+       "",
+       "8"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "negativer_exponent",
     "titel": "Negative Exponenten und Hoch 0",
-    "regel": "So rechnest du mit Exponent 0 und negativem Exponenten: ⟦a⁰ = 1⟧ (für a ≠ 0). Ein negativer Exponent bedeutet ⟦Kehrbruch⟧: a⁻ⁿ = 1/aⁿ. Grund: Geht der Exponent um 1 runter, wird ⟦durch a geteilt⟧.",
+    "regel": "Ein ⟦negativer Exponent⟧ bedeutet Kehrbruch: a⁻ⁿ = 1/aⁿ, wie bei 10⁻ⁿ. Außerdem gilt a⁰ = 1.",
     "schritte": [
-     "Schreibe die Reihe von oben: 2³ = 8, 2² = 4, 2¹ = 2. Bei jedem Schritt nach unten wird durch 2 geteilt.",
-     "Weiter geht es mit 2⁰ = 2 : 2 = 1.",
-     "Dann folgen 2⁻¹ = 1 : 2 = 1/2, 2⁻² = 1/4 und 2⁻³ = 1/8.",
-     "Also ist 2⁻³ = 1/2³ = ⟦1/8⟧ = 0,125 – eine positive Zahl, kleiner als 1."
+     {
+      "text": "Von 2¹ = 2 einmal durch 2 geteilt: 2⁰ = ⟦1⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "Wert",
+         "8",
+         "4",
+         "2",
+         "1",
+         "",
+         "",
+         ""
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Weiter durch 2: 2⁻¹ = 1/2, 2⁻² = 1/4, 2⁻³ = 1/8.",
+      "bild": {
+       "zeilen": [
+        [
+         "Wert",
+         "8",
+         "4",
+         "2",
+         "1",
+         "1/2",
+         "1/4",
+         "1/8"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "2⁻³ ist der Kehrbruch von 2³: ⟦1/8⟧."
+     }
     ],
-    "probe": "2⁻³ · 2³ = 1/8 · 8 = 1 ✓",
-    "fehler": "2⁰ = 0 ist falsch: Von 2¹ = 2 einmal durch 2 geteilt ergibt ⟦1⟧ – eine Lage Papier, nicht keine. Und 2⁻³ = −8 ist falsch: Das Minus im Exponenten macht ⟦keine negative Zahl⟧, sondern den Kehrbruch 1/8.",
-    "einstieg": "Spiel das Falten rückwärts: 8 Lagen, 4 Lagen, 2 Lagen, 1 Lage – jedes Mal wird durch 2 geteilt. Als Potenzen geschrieben: 2³, 2², 2¹, 2⁰. Der Exponent wird dabei jedes Mal um 1 kleiner. Rechnest du weiter, kommst du zu 1/2, 1/4 … und zu Exponenten unter null: ⟦negativen Exponenten⟧.",
+    "fehler": "2⁻³ = −8 ist falsch. Das Minus im Exponenten macht keine negative Zahl, sondern den Kehrbruch 1/8.",
+    "einstieg": "Spiel das Falten rückwärts: 8, 4, 2, 1 Lage. Jedes Mal wird durch 2 geteilt, der Exponent wird um 1 kleiner. Hochzahlen unter null heißen ⟦negative Exponenten⟧.",
     "woerter": [
      [
-      "2⁰",
-      "gelesen „2 hoch 0“; das ergibt 1"
-     ],
-     [
-      "negativer Exponent",
-      "eine Hochzahl mit Minus, z. B. 2⁻³"
+      "negative Exponenten",
+      "Hochzahlen mit Minus, z. B. 2⁻³"
      ],
      [
       "Kehrbruch",
-      "Zähler und Nenner vertauscht: Der Kehrbruch von 8 = 8/1 ist 1/8"
-     ],
-     [
-      "a ≠ 0",
-      "a ist nicht 0"
+      "Zähler und Nenner vertauscht: Der Kehrbruch von 8 ist 1/8"
      ]
-    ]
-   },
-   {
-    "lernziel": "mal_gleiche_basis",
-    "titel": "Gleiche Basis: malnehmen",
-    "regel": "So multiplizierst du Potenzen mit ⟦gleicher Basis⟧: Die Basis bleibt, die ⟦Exponenten werden addiert⟧: aᵐ · aⁿ = aᵐ⁺ⁿ.",
-    "schritte": [
-     "Gesucht ist 2³ · 2⁴. Beide Potenzen haben die Basis 2.",
-     "Schreibe sie aus: (2 · 2 · 2) · (2 · 2 · 2 · 2).",
-     "Zähle die Faktoren 2: Es sind 3 + 4 = 7 Stück.",
-     "Also ist 2³ · 2⁴ = ⟦2⁷⟧ = 128 – nach insgesamt 7-mal Falten liegen 128 Lagen übereinander."
     ],
-    "fehler": "2³ · 2⁴ = 2¹² ist falsch: Gefaltet wird nicht 12-mal, sondern 3-mal und dann 4-mal – die Exponenten werden ⟦addiert⟧. Auch 2³ · 2⁴ = 4⁷ ist falsch: Jedes Falten verdoppelt nur, die ⟦Basis bleibt⟧ 2.",
-    "einstieg": "Ein Blatt wird erst 3-mal gefaltet und danach noch 4-mal. Die Lagen verdoppeln sich also erst 3-mal und dann noch 4-mal – zusammen 7-mal. Statt 2³ · 2⁴ kannst du deshalb gleich 2⁷ schreiben. So fasst du Potenzen mit ⟦gleicher Basis⟧ zusammen.",
-    "woerter": [
-     [
-      "gleiche Basis",
-      "beide Potenzen haben unten dieselbe Zahl, z. B. 2³ und 2⁴"
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Potenz",
+      "2³",
+      "2²",
+      "2¹",
+      "2⁰",
+      "2⁻¹",
+      "2⁻²",
+      "2⁻³"
      ],
-     [
-      "addieren",
-      "zusammenzählen"
-     ],
-     [
-      "aᵐ · aⁿ = aᵐ⁺ⁿ",
-      "gleiche Basis malnehmen: die Exponenten werden addiert"
+     "zeilen": [
+      [
+       "Wert",
+       "8",
+       "4",
+       "2",
+       "",
+       "",
+       "",
+       ""
+      ]
      ]
-    ]
-   },
-   {
-    "lernziel": "geteilt_gleiche_basis",
-    "titel": "Gleiche Basis: teilen",
-    "regel": "So teilst du Potenzen mit ⟦gleicher Basis⟧: Die Basis bleibt, die ⟦Exponenten werden subtrahiert⟧: aᵐ : aⁿ = aᵐ⁻ⁿ. Ist der zweite Exponent größer, entsteht ein ⟦negativer⟧ Exponent.",
-    "schritte": [
-     "Gesucht ist 10⁶ : 10⁴. Beide Potenzen haben die Basis 10.",
-     "Schreibe es als Bruch: oben 6 Faktoren 10, unten 4 Faktoren 10.",
-     "Vier Faktoren 10 kürzen sich weg. Oben bleiben 6 − 4 = 2 Faktoren übrig.",
-     "Also ist 10⁶ : 10⁴ = ⟦10²⟧ = 100. Jeder bekommt 100 €."
-    ],
-    "fehler": "10⁶ : 10³ = 10² ist falsch: Die Exponenten werden ⟦subtrahiert⟧, nicht geteilt. 1 000 000 : 1 000 = 1 000, also 10⁶⁻³ = ⟦10³⟧.",
-    "einstieg": "Ein Gewinn von 1 000 000 € wird gerecht an 10 000 Menschen verteilt. Wie viel bekommt jeder? Beide Zahlen sind Zehnerpotenzen: 10⁶ und 10⁴. Beim Teilen streichst du vier Nullen weg, übrig bleiben 100 € = 10². Genauso teilst du Potenzen mit ⟦gleicher Basis⟧.",
-    "woerter": [
-     [
-      "dividieren",
-      "teilen (:)"
-     ],
-     [
-      "subtrahieren",
-      "abziehen"
-     ],
-     [
-      "wegkürzen",
-      "gleiche Faktoren oben und unten in einem Bruch heben sich beim Teilen auf"
-     ],
-     [
-      "aᵐ : aⁿ = aᵐ⁻ⁿ",
-      "gleiche Basis teilen: die Exponenten werden subtrahiert"
-     ]
-    ]
-   },
-   {
-    "lernziel": "gleicher_exponent",
-    "titel": "Gleicher Exponent: Basen zusammen",
-    "regel": "So fasst du Potenzen mit ⟦gleichem Exponenten⟧ zusammen: ⟦Basen malnehmen⟧, der Exponent bleibt: aⁿ · bⁿ = (a · b)ⁿ. Beim Teilen gilt: aⁿ : bⁿ = (a : b)ⁿ.",
-    "schritte": [
-     "Gesucht ist 2³ · 5³. Beide Potenzen haben den Exponenten 3.",
-     "Schreibe aus: 2 · 2 · 2 · 5 · 5 · 5.",
-     "Ordne zu Paaren: (2 · 5) · (2 · 5) · (2 · 5). Das ist (2 · 5)³.",
-     "Jedes Paar ist 10, also ist 2³ · 5³ = 10³ = ⟦1 000⟧."
-    ],
-    "fehler": "2³ · 5³ = 10⁶ ist falsch: Es gibt nur ⟦3 Paare⟧ zu je 10, nicht 6. Bei ⟦verschiedenen Basen⟧ werden die Exponenten nicht addiert: (2 · 5)³ = 10³.",
-    "einstieg": "Fünf 2-Cent-Münzen sind zusammen 10 Cent: 2 und 5 ergeben malgenommen 10. Hast du dreimal den Faktor 2 und dreimal den Faktor 5, bildest du daraus drei Paare – und jedes Paar ist 10. Das klappt immer, wenn beide Potenzen denselben Exponenten haben. Man fasst Potenzen mit ⟦gleichem Exponenten⟧ so zusammen.",
-    "woerter": [
-     [
-      "gleicher Exponent",
-      "beide Potenzen haben oben dieselbe Zahl, z. B. 2³ und 5³"
-     ],
-     [
-      "aⁿ · bⁿ = (a · b)ⁿ",
-      "gleicher Exponent: Basen malnehmen, der Exponent bleibt"
-     ],
-     [
-      "aⁿ : bⁿ = (a : b)ⁿ",
-      "beim Teilen genauso: Basen teilen, der Exponent bleibt"
-     ]
-    ]
-   },
-   {
-    "lernziel": "anwenden",
-    "titel": "Potenzgesetze geschickt nutzen",
-    "regel": "So nutzt du die Potenzgesetze: Prüfe zuerst, ob die ⟦Basen⟧ oder die ⟦Exponenten⟧ gleich sind – davon hängt ab, welches Gesetz passt. Passt keines, schreibe eine Zahl ⟦als Potenz⟧ (4 = 2², 8 = 2³, 9 = 3²) oder rechne die Potenzen aus.",
-    "schritte": [
-     "Gesucht ist 8 · 2⁴. Die 8 steht noch nicht als Potenz da.",
-     "Schreibe 8 als Potenz von 2: 8 = 2 · 2 · 2 = 2³.",
-     "Jetzt haben beide die Basis 2: 2³ · 2⁴. Exponenten addieren ergibt 2⁷.",
-     "2⁷ = ⟦128⟧ – so viele Lagen liegen übereinander."
-    ],
-    "fehler": "3² · 2³ = 6⁵ ist falsch: Weder die Basen noch die Exponenten sind gleich, also passt ⟦kein⟧ Potenzgesetz. Dann rechnest du jede Potenz aus: 9 · 8 = 72.",
-    "einstieg": "Ein Stapel aus 8 Blättern wird noch 4-mal gefaltet. Wie viele Lagen liegen danach übereinander? 8 Lagen bekommst du auch, wenn du ein einzelnes Blatt 3-mal faltest. Schreibst du die 8 deshalb als 2³, passt ein ⟦Potenzgesetz⟧.",
-    "woerter": [
-     [
-      "Potenzgesetz",
-      "eine Regel zum Zusammenfassen von Potenzen (gleiche Basis oder gleicher Exponent)"
-     ],
-     [
-      "als Potenz schreiben",
-      "eine Zahl als Basis hoch Exponent darstellen: 4 = 2², 8 = 2³, 9 = 3²"
-     ]
-    ]
+    }
    },
    {
     "lernziel": "fehler_finden",
     "titel": "Fehler bei Potenzen finden",
-    "regel": "So findest du Fehler bei Potenzen: Mach eine ⟦Zahlenprobe⟧ oder ⟦schreibe die Potenzen aus⟧. Typische Fehler: ⟦Basis mal Exponent⟧ statt Potenz, Exponenten ⟦malnehmen statt addieren⟧, ein negativer Exponent als ⟦negative Zahl⟧, Klammern bei negativer Basis vergessen.",
+    "regel": "Prüfe Potenzen mit einer ⟦Zahlenprobe⟧ oder schreib sie aus. Typisch: Exponenten malnehmen statt addieren.",
     "schritte": [
-     "Behauptet wird: 3² · 3³ = 3⁶.",
-     "Rechne die linke Seite aus: 3² = 9 und 3³ = 27, also 9 · 27 = 243.",
-     "Rechne die rechte Seite aus: 3⁶ = 729. Das passt nicht zu 243.",
-     "Dagegen ist 3⁵ = 243. Richtig ist also ⟦3⁵⟧ – die Exponenten werden addiert, nicht malgenommen."
+     {
+      "text": "Links: 3² · 3³ = 9 · 27 = 243.",
+      "bild": {
+       "zeilen": [
+        [
+         "3² · 3³",
+         "243"
+        ],
+        [
+         "3⁶",
+         "?"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Rechts: 3⁶ = 729. Das passt nicht.",
+      "bild": {
+       "zeilen": [
+        [
+         "3² · 3³",
+         "243"
+        ],
+        [
+         "3⁶",
+         "729"
+        ]
+       ]
+      }
+     },
+     {
+      "text": "Aber 3⁵ = 243. Richtig ist ⟦3⁵⟧.",
+      "bild": {
+       "zeilen": [
+        [
+         "3² · 3³",
+         "243"
+        ],
+        [
+         "3⁶",
+         "729"
+        ],
+        [
+         "3⁵",
+         "243"
+        ]
+       ]
+      }
+     }
     ],
-    "fehler": "Eine Regel nur auswendig anzuwenden, ohne sie an kleinen Zahlen zu prüfen, führt zu Verwechslungen. ⟦Ausschreiben⟧ hilft: 3² · 3³ = (3 · 3) · (3 · 3 · 3) – das sind 5 Faktoren, nicht 6.",
-    "einstieg": "Ein Freund behauptet: „Beim Malnehmen werden die Exponenten malgenommen.“ Er rechnet 3² · 3³ = 3⁶. Statt zu streiten, rechnest du beide Seiten mit Zahlen aus und vergleichst. So eine Kontrolle heißt ⟦Zahlenprobe⟧.",
+    "fehler": "Regeln nur auswendig anzuwenden führt zu Verwechslungen. Schreib aus: (3 · 3) · (3 · 3 · 3) sind 5 Faktoren.",
+    "einstieg": "Ein Freund sagt: „Beim Malnehmen werden Exponenten malgenommen“. Er rechnet 3² · 3³ = 3⁶. Du prüfst das mit einer ⟦Zahlenprobe⟧.",
     "woerter": [
      [
       "Zahlenprobe",
-      "eine Rechnung mit konkreten Zahlen ausrechnen und so prüfen"
-     ],
-     [
-      "ausschreiben",
-      "eine Potenz als Malaufgabe hinschreiben: 3² = 3 · 3"
+      "beide Seiten mit Zahlen ausrechnen und vergleichen"
      ]
-    ]
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Rechnung",
+      "Wert"
+     ],
+     "zeilen": [
+      [
+       "3² · 3³",
+       "?"
+      ],
+      [
+       "3⁶",
+       "?"
+      ]
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -264,34 +310,6 @@
     ]
    },
    {
-    "k": "mal_gleiche_basis",
-    "text": "Gleiche Basis: malnehmen",
-    "lernziele": [
-     "mal_gleiche_basis"
-    ]
-   },
-   {
-    "k": "geteilt_gleiche_basis",
-    "text": "Gleiche Basis: teilen",
-    "lernziele": [
-     "geteilt_gleiche_basis"
-    ]
-   },
-   {
-    "k": "gleicher_exponent",
-    "text": "Gleicher Exponent: Basen zusammen",
-    "lernziele": [
-     "gleicher_exponent"
-    ]
-   },
-   {
-    "k": "anwenden",
-    "text": "Potenzgesetze geschickt nutzen",
-    "lernziele": [
-     "anwenden"
-    ]
-   },
-   {
     "k": "fehler_finden",
     "text": "Fehler bei Potenzen finden",
     "lernziele": [
@@ -302,14 +320,11 @@
   "bewertung": {
    "lernziele_pflicht": [
     "potenz_begriff",
-    "negativer_exponent",
-    "mal_gleiche_basis",
-    "geteilt_gleiche_basis",
-    "gleicher_exponent",
-    "anwenden",
+    "negativer_exponent"
+   ],
+   "lernziele_vertiefung": [
     "fehler_finden"
    ],
-   "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -325,14 +340,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 6⁴."
+    "text": "Ein Würfel hat die Kantenlänge 4 cm. Sein Volumen ist 4³ cm³. Berechne das Volumen."
    },
    "o": {
-    "wert": 1296
+    "wert": 64,
+    "einheit": "cm³"
    },
-   "c": "6**4",
-   "w": "6⁴ = 6 · 6 · 6 · 6 = 1 296.",
-   "h": "Schreibe 4 Faktoren 6 hin und nimm sie mal."
+   "c": "4**3",
+   "w": "4³ = 4 · 4 · 4 = 64 cm³.",
+   "h": "Hoch 3 heißt: dreimal dieselbe Zahl malnehmen.",
+   "g": "direkt"
   },
   {
    "l": "potenz_begriff",
@@ -353,7 +370,8 @@
     "text": "Was ist bei 5⁴ die Basis?"
    },
    "w": "Bei 5⁴ ist 5 die Basis (Grundzahl) und 4 der Exponent (Hochzahl).",
-   "h": "Die Basis ist die große Zahl unten, der Exponent die kleine oben."
+   "h": "Die Basis ist die große Zahl unten, der Exponent die kleine oben.",
+   "g": "erkennen"
   },
   {
    "l": "potenz_begriff",
@@ -369,23 +387,8 @@
    },
    "c": "9**2",
    "w": "9² = 9 · 9 = 81.",
-   "h": "Schreibe 2 Faktoren 9 hin und nimm sie mal."
-  },
-  {
-   "l": "potenz_begriff",
-   "t": "potenz_begriff",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 5²."
-   },
-   "o": {
-    "wert": 25
-   },
-   "c": "5**2",
-   "w": "5² = 5 · 5 = 25.",
-   "h": "Schreibe 2 Faktoren 5 hin und nimm sie mal."
+   "h": "Schreibe 2 Faktoren 9 hin und nimm sie mal.",
+   "g": "direkt"
   },
   {
    "l": "potenz_begriff",
@@ -406,7 +409,8 @@
     "text": "Was ist bei 4⁶ der Exponent?"
    },
    "w": "Bei 4⁶ ist 4 die Basis (Grundzahl) und 6 der Exponent (Hochzahl).",
-   "h": "Die Basis ist die große Zahl unten, der Exponent die kleine oben."
+   "h": "Die Basis ist die große Zahl unten, der Exponent die kleine oben.",
+   "g": "erkennen"
   },
   {
    "l": "potenz_begriff",
@@ -415,14 +419,85 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 5⁴."
+    "text": "Ein Würfel hat die Kantenlänge 9 cm. Sein Volumen ist 9³ cm³. Berechne das Volumen."
    },
    "o": {
-    "wert": 625
+    "wert": 729,
+    "einheit": "cm³"
    },
-   "c": "5**4",
-   "w": "5⁴ = 5 · 5 · 5 · 5 = 625.",
-   "h": "Schreibe 4 Faktoren 5 hin und nimm sie mal."
+   "c": "9**3",
+   "w": "9³ = 9 · 9 · 9 = 729 cm³.",
+   "h": "Hoch 3 heißt: dreimal dieselbe Zahl malnehmen.",
+   "g": "direkt"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 0,2²."
+   },
+   "o": {
+    "wert": 0.04
+   },
+   "c": "0.2**2",
+   "w": "0,2² = 0,2 · 0,2 = 0,04.",
+   "h": "Rechne ohne Komma und zähle dann die Nachkommastellen zusammen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 6⁴."
+   },
+   "o": {
+    "wert": 1296
+   },
+   "c": "6**4",
+   "w": "6⁴ = 6 · 6 · 6 · 6 = 1 296.",
+   "h": "Schreibe 4 Faktoren 6 hin und nimm sie mal.",
+   "g": "direkt"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 7 cm. Sein Volumen ist 7³ cm³. Berechne das Volumen."
+   },
+   "o": {
+    "wert": 343,
+    "einheit": "cm³"
+   },
+   "c": "7**3",
+   "w": "7³ = 7 · 7 · 7 = 343 cm³.",
+   "h": "Hoch 3 heißt: dreimal dieselbe Zahl malnehmen.",
+   "g": "einkleidung"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5²."
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "5**2",
+   "w": "5² = 5 · 5 = 25.",
+   "h": "Schreibe 2 Faktoren 5 hin und nimm sie mal.",
+   "g": "direkt"
   },
   {
    "l": "potenz_begriff",
@@ -446,7 +521,25 @@
     "25"
    ],
    "w": "Zähler und Nenner hoch 2: 3²/5² = 9/25.",
-   "h": "Nimm Zähler und Nenner jeweils hoch den Exponenten."
+   "h": "Nimm Zähler und Nenner jeweils hoch den Exponenten.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5⁴."
+   },
+   "o": {
+    "wert": 625
+   },
+   "c": "5**4",
+   "w": "5⁴ = 5 · 5 · 5 · 5 = 625.",
+   "h": "Schreibe 4 Faktoren 5 hin und nimm sie mal.",
+   "g": "direkt"
   },
   {
    "l": "potenz_begriff",
@@ -470,7 +563,26 @@
     "8"
    ],
    "w": "Zähler und Nenner hoch 3: 3³/2³ = 27/8.",
-   "h": "Nimm Zähler und Nenner jeweils hoch den Exponenten."
+   "h": "Nimm Zähler und Nenner jeweils hoch den Exponenten.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 6 cm. Sein Volumen ist 6³ cm³. Berechne das Volumen."
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "cm³"
+   },
+   "c": "6**3",
+   "w": "6³ = 6 · 6 · 6 = 216 cm³.",
+   "h": "Hoch 3 heißt: dreimal dieselbe Zahl malnehmen.",
+   "g": "einkleidung"
   },
   {
    "l": "potenz_begriff",
@@ -486,23 +598,25 @@
    },
    "c": "0.1**3",
    "w": "0,1³ = 0,1 · 0,1 · 0,1 = 0,001.",
-   "h": "Rechne ohne Komma und zähle dann die Nachkommastellen zusammen."
+   "h": "Rechne ohne Komma und zähle dann die Nachkommastellen zusammen.",
+   "g": "mehrschritt"
   },
   {
    "l": "potenz_begriff",
    "t": "potenz_begriff",
    "p": "uebung",
    "s": 2,
+   "g": "umkehr",
    "y": "zahl",
    "f": {
-    "text": "Berechne 0,2²."
+    "text": "Welche natürliche Zahl ergibt hoch 3 genau 125?"
    },
    "o": {
-    "wert": 0.04
+    "wert": 5
    },
-   "c": "0.2**2",
-   "w": "0,2² = 0,2 · 0,2 = 0,04.",
-   "h": "Rechne ohne Komma und zähle dann die Nachkommastellen zusammen."
+   "c": "5",
+   "w": "5³ = 5 · 5 · 5 = 125.",
+   "h": "Probiere kleine Zahlen aus."
   },
   {
    "l": "potenz_begriff",
@@ -518,40 +632,8 @@
    },
    "c": "(-3)**4",
    "w": "(−3)⁴ = (−3) · (−3) · (−3) · (−3) = 81. 4 Minuszeichen: gerade Anzahl, also positiv.",
-   "h": "Gerade Anzahl negativer Faktoren: positiv. Ungerade: negativ."
-  },
-  {
-   "l": "potenz_begriff",
-   "t": "potenz_begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−2)⁵."
-   },
-   "o": {
-    "wert": -32
-   },
-   "c": "(-2)**5",
-   "w": "(−2)⁵ = (−2) · (−2) · (−2) · (−2) · (−2) = −32. 5 Minuszeichen: ungerade Anzahl, also negativ.",
-   "h": "Gerade Anzahl negativer Faktoren: positiv. Ungerade: negativ."
-  },
-  {
-   "l": "potenz_begriff",
-   "t": "potenz_begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel hat die Kantenlänge 4 cm. Sein Volumen ist 4³ cm³. Berechne das Volumen."
-   },
-   "o": {
-    "wert": 64,
-    "einheit": "cm³"
-   },
-   "c": "4**3",
-   "w": "4³ = 4 · 4 · 4 = 64 cm³.",
-   "h": "Hoch 3 heißt: dreimal dieselbe Zahl malnehmen."
+   "h": "Gerade Anzahl negativer Faktoren: positiv. Ungerade: negativ.",
+   "g": "mehrschritt"
   },
   {
    "l": "potenz_begriff",
@@ -571,74 +653,25 @@
     "text": "Welche Zahl ist größer: 2⁸ oder 4⁴?"
    },
    "w": "2⁸ = 256, 4⁴ = 256. Beide sind gleich groß. Vertauschen von Basis und Exponent ändert den Wert meistens.",
-   "h": "Rechne beide Potenzen aus. Raten nach der größeren Basis klappt hier nicht."
+   "h": "Rechne beide Potenzen aus. Raten nach der größeren Basis klappt hier nicht.",
+   "g": "begruenden"
   },
   {
    "l": "potenz_begriff",
    "t": "potenz_begriff",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel hat die Kantenlänge 7 cm. Sein Volumen ist 7³ cm³. Berechne das Volumen."
+    "text": "Berechne (−2)⁵."
    },
    "o": {
-    "wert": 343,
-    "einheit": "cm³"
+    "wert": -32
    },
-   "c": "7**3",
-   "w": "7³ = 7 · 7 · 7 = 343 cm³.",
-   "h": "Hoch 3 heißt: dreimal dieselbe Zahl malnehmen."
-  },
-  {
-   "l": "potenz_begriff",
-   "t": "potenz_begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Bakterienkultur verdoppelt sich jede Stunde. Am Anfang ist es 1 Bakterium. Wie viele sind es nach 7 Stunden? (2⁷)"
-   },
-   "o": {
-    "wert": 128
-   },
-   "c": "2**7",
-   "w": "Jede Stunde · 2, also nach 7 Stunden 2⁷ = 128.",
-   "h": "Verdoppeln heißt mal 2 – so oft, wie Stunden vergangen sind."
-  },
-  {
-   "l": "potenz_begriff",
-   "t": "potenz_begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel hat die Kantenlänge 9 cm. Sein Volumen ist 9³ cm³. Berechne das Volumen."
-   },
-   "o": {
-    "wert": 729,
-    "einheit": "cm³"
-   },
-   "c": "9**3",
-   "w": "9³ = 9 · 9 · 9 = 729 cm³.",
-   "h": "Hoch 3 heißt: dreimal dieselbe Zahl malnehmen."
-  },
-  {
-   "l": "potenz_begriff",
-   "t": "potenz_begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel hat die Kantenlänge 6 cm. Sein Volumen ist 6³ cm³. Berechne das Volumen."
-   },
-   "o": {
-    "wert": 216,
-    "einheit": "cm³"
-   },
-   "c": "6**3",
-   "w": "6³ = 6 · 6 · 6 = 216 cm³.",
-   "h": "Hoch 3 heißt: dreimal dieselbe Zahl malnehmen."
+   "c": "(-2)**5",
+   "w": "(−2)⁵ = (−2) · (−2) · (−2) · (−2) · (−2) = −32. 5 Minuszeichen: ungerade Anzahl, also negativ.",
+   "h": "Gerade Anzahl negativer Faktoren: positiv. Ungerade: negativ.",
+   "g": "mehrschritt"
   },
   {
    "l": "potenz_begriff",
@@ -826,6 +859,23 @@
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/5)⁻¹."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(1/5)**-1",
+   "w": "Kehrbruch: (1/5)⁻¹ = 5¹ = 5.",
+   "h": "Bei einem Bruch heißt negativer Exponent: Bruch umdrehen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
    "s": 1,
    "y": "luecken",
    "f": {
@@ -844,7 +894,25 @@
     "7"
    ],
    "w": "7⁻¹ = 1/7¹ = 1/7.",
-   "h": "Negativer Exponent: Kehrbruch der Potenz mit positivem Exponenten."
+   "h": "Negativer Exponent: Kehrbruch der Potenz mit positivem Exponenten.",
+   "g": "direkt"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1/125 als Potenz mit der Basis 5. Wie heißt der Exponent?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "w": "125 = 5³, also 1/125 = 5⁻³. Exponent: −3.",
+   "h": "Schreibe zuerst den Nenner als Potenz von 5.",
+   "g": "mehrschritt"
   },
   {
    "l": "negativer_exponent",
@@ -865,7 +933,25 @@
     "text": "Was ergibt a⁰?"
    },
    "w": "Jede Zahl (außer 0) hoch 0 ergibt 1: a⁰ = 1.",
-   "h": "Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰."
+   "h": "Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰.",
+   "g": "erkennen"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/5)⁻³."
+   },
+   "o": {
+    "wert": 125
+   },
+   "c": "(1/5)**-3",
+   "w": "Kehrbruch: (1/5)⁻³ = 5³ = 125.",
+   "h": "Bei einem Bruch heißt negativer Exponent: Bruch umdrehen.",
+   "g": "mehrschritt"
   },
   {
    "l": "negativer_exponent",
@@ -889,7 +975,59 @@
     "9"
    ],
    "w": "3⁻² = 1/3² = 1/9.",
-   "h": "Negativer Exponent: Kehrbruch der Potenz mit positivem Exponenten."
+   "h": "Negativer Exponent: Kehrbruch der Potenz mit positivem Exponenten.",
+   "g": "direkt"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/4)⁻¹."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(1/4)**-1",
+   "w": "Kehrbruch: (1/4)⁻¹ = 4¹ = 4.",
+   "h": "Bei einem Bruch heißt negativer Exponent: Bruch umdrehen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Mal so groß ist 2² wie 2⁻²?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "2**2 / 2**-2",
+   "w": "2² : 2⁻² = 2⁴ = 16.",
+   "h": "Teile die beiden Potenzen. Exponenten subtrahieren: n − (−n).",
+   "g": "transfer"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1/27 als Potenz mit der Basis 3. Wie heißt der Exponent?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "w": "27 = 3³, also 1/27 = 3⁻³. Exponent: −3.",
+   "h": "Schreibe zuerst den Nenner als Potenz von 3.",
+   "g": "mehrschritt"
   },
   {
    "l": "negativer_exponent",
@@ -898,19 +1036,45 @@
    "s": 1,
    "y": "auswahl",
    "a": [
-    "0",
+    "12",
     "1",
-    "−1",
-    "10"
+    "0",
+    "−1"
    ],
    "o": {
     "index": 1
    },
    "f": {
-    "text": "Was ergibt 10⁰?"
+    "text": "Was ergibt 12⁰?"
    },
-   "w": "Jede Zahl (außer 0) hoch 0 ergibt 1: 10⁰ = 1.",
-   "h": "Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰."
+   "w": "Jede Zahl (außer 0) hoch 0 ergibt 1: 12⁰ = 1.",
+   "h": "Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰.",
+   "g": "erkennen"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3⁻² + 3⁻¹.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     4,
+     9
+    ]
+   },
+   "c": [
+    "(3**-2 + 3**-1) * 9",
+    "9"
+   ],
+   "w": "3⁻² = 1/9, 3⁻¹ = 1/3. Summe: 4/9.",
+   "h": "Schreibe beide als Bruch und addiere mit Hauptnenner.",
+   "g": "mehrschritt"
   },
   {
    "l": "negativer_exponent",
@@ -934,154 +1098,14 @@
     "729"
    ],
    "w": "9⁻³ = 1/9³ = 1/729.",
-   "h": "Negativer Exponent: Kehrbruch der Potenz mit positivem Exponenten."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "12",
-    "1",
-    "0",
-    "−1"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Was ergibt 12⁰?"
-   },
-   "w": "Jede Zahl (außer 0) hoch 0 ergibt 1: 12⁰ = 1.",
-   "h": "Teile z. B. 2³ : 2³ – das ist 1 und auch 2³⁻³ = 2⁰."
+   "h": "Negativer Exponent: Kehrbruch der Potenz mit positivem Exponenten.",
+   "g": "direkt"
   },
   {
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (1/5)⁻³."
-   },
-   "o": {
-    "wert": 125
-   },
-   "c": "(1/5)**-3",
-   "w": "Kehrbruch: (1/5)⁻³ = 5³ = 125.",
-   "h": "Bei einem Bruch heißt negativer Exponent: Bruch umdrehen."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (1/5)⁻¹."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "(1/5)**-1",
-   "w": "Kehrbruch: (1/5)⁻¹ = 5¹ = 5.",
-   "h": "Bei einem Bruch heißt negativer Exponent: Bruch umdrehen."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (1/4)⁻¹."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(1/4)**-1",
-   "w": "Kehrbruch: (1/4)⁻¹ = 4¹ = 4.",
-   "h": "Bei einem Bruch heißt negativer Exponent: Bruch umdrehen."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 1/81 als Potenz mit der Basis 3. Wie heißt der Exponent?"
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "-4",
-   "w": "81 = 3⁴, also 1/81 = 3⁻⁴. Exponent: −4.",
-   "h": "Schreibe zuerst den Nenner als Potenz von 3."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 1/125 als Potenz mit der Basis 5. Wie heißt der Exponent?"
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "-3",
-   "w": "125 = 5³, also 1/125 = 5⁻³. Exponent: −3.",
-   "h": "Schreibe zuerst den Nenner als Potenz von 5."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 1/27 als Potenz mit der Basis 3. Wie heißt der Exponent?"
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "-3",
-   "w": "27 = 3³, also 1/27 = 3⁻³. Exponent: −3.",
-   "h": "Schreibe zuerst den Nenner als Potenz von 3."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne 3⁻² + 3⁻¹.",
-    "schablone": "□/□",
-    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
-   },
-   "o": {
-    "werte": [
-     4,
-     9
-    ]
-   },
-   "c": [
-    "(3**-2 + 3**-1) * 9",
-    "9"
-   ],
-   "w": "3⁻² = 1/9, 3⁻¹ = 1/3. Summe: 4/9.",
-   "h": "Schreibe beide als Bruch und addiere mit Hauptnenner."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "uebung",
-   "s": 3,
    "y": "luecken",
    "f": {
     "text": "Berechne 4⁻³ + 4⁻¹.",
@@ -1099,13 +1123,31 @@
     "64"
    ],
    "w": "4⁻³ = 1/64, 4⁻¹ = 1/4. Summe: 17/64.",
-   "h": "Schreibe beide als Bruch und addiere mit Hauptnenner."
+   "h": "Schreibe beide als Bruch und addiere mit Hauptnenner.",
+   "g": "mehrschritt"
   },
   {
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1/81 als Potenz mit der Basis 3. Wie heißt der Exponent?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-4",
+   "w": "81 = 3⁴, also 1/81 = 3⁻⁴. Exponent: −4.",
+   "h": "Schreibe zuerst den Nenner als Potenz von 3.",
+   "g": "umkehr"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 3⁻² + 3⁻³.",
@@ -1123,13 +1165,32 @@
     "27"
    ],
    "w": "3⁻² = 1/9, 3⁻³ = 1/27. Summe: 4/27.",
-   "h": "Schreibe beide als Bruch und addiere mit Hauptnenner."
+   "h": "Schreibe beide als Bruch und addiere mit Hauptnenner.",
+   "g": "mehrschritt"
   },
   {
    "l": "negativer_exponent",
    "t": "negativer_exponent",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein winziges Lebewesen ist 2⁻³ mm lang. Wie viele Millimeter sind das als Dezimalzahl?"
+   },
+   "o": {
+    "wert": 0.125,
+    "einheit": "mm"
+   },
+   "c": "2 ** -3",
+   "w": "2⁻³ = 1/2³ = 1/8 = 0,125 mm.",
+   "h": "Schreibe 2⁻³ zuerst als Bruch."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
    "y": "luecken",
    "f": {
     "text": "Berechne 4⁻¹ + 4⁻².",
@@ -1147,23 +1208,8 @@
     "16"
    ],
    "w": "4⁻¹ = 1/4, 4⁻² = 1/16. Summe: 5/16.",
-   "h": "Schreibe beide als Bruch und addiere mit Hauptnenner."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viel Mal so groß ist 2² wie 2⁻²?"
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "2**2 / 2**-2",
-   "w": "2² : 2⁻² = 2⁴ = 16.",
-   "h": "Teile die beiden Potenzen. Exponenten subtrahieren: n − (−n)."
+   "h": "Schreibe beide als Bruch und addiere mit Hauptnenner.",
+   "g": "mehrschritt"
   },
   {
    "l": "negativer_exponent",
@@ -1184,7 +1230,217 @@
     "text": "Berechne (−3)⁻³."
    },
    "w": "(−3)⁻³ = 1/(−3)³ = 1/(−27) = −1/27.",
-   "h": "Kehrbruch bilden – das Vorzeichen der Basis bleibt erhalten."
+   "h": "Kehrbruch bilden – das Vorzeichen der Basis bleibt erhalten.",
+   "g": "transfer"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne (2/3)⁻².",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     9,
+     4
+    ]
+   },
+   "c": [
+    "3 ** 2",
+    "2 ** 2"
+   ],
+   "h": "Negativer Exponent: Kehrbruch, dann quadrieren.",
+   "w": "(2/3)⁻² = (3/2)² = 9/4.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche dieser Zahlen ist negativ?"
+   },
+   "a": [
+    "(−2)⁻²",
+    "(−2)⁻³",
+    "2⁻³",
+    "(−2)⁰"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Ein negativer Exponent macht keine negative Zahl. Entscheidend ist die Basis und ob der Exponent gerade ist.",
+   "w": "(−2)⁻³ = 1/(−2)³ = −1/8 ist negativ. 2⁻³ = 1/8, (−2)⁻² = 1/4, (−2)⁰ = 1 sind positiv.",
+   "g": "begruenden"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5⁰ + 5⁻¹. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 1.2
+   },
+   "c": "5 ** 0 + 5 ** -1",
+   "h": "a⁰ = 1 und a⁻¹ = 1/a.",
+   "w": "5⁰ = 1, 5⁻¹ = 1/5 = 0,2. Zusammen 1,2.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist am kleinsten: 2⁻³, 3⁻², 4⁻¹ oder 0,1?"
+   },
+   "a": [
+    "4⁻¹",
+    "2⁻³",
+    "3⁻²",
+    "0,1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "h": "Schreibe alle als Bruch oder Dezimalzahl.",
+   "w": "2⁻³ = 1/8 = 0,125; 3⁻² = 1/9 ≈ 0,111; 4⁻¹ = 0,25; 0,1 = 1/10. Am kleinsten: 0,1.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welchen Exponenten n gilt 4ⁿ = 1/64?"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3",
+   "h": "Welche Potenz von 4 ergibt 64? Ein Kehrbruch heißt negativer Exponent.",
+   "w": "4³ = 64, also 1/64 = 4⁻³ und n = −3.",
+   "g": "parameter"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind rechnet 5⁻² = 1/10. Wie heißt der Bruch richtig?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     25
+    ]
+   },
+   "c": [
+    "1",
+    "5 ** 2"
+   ],
+   "h": "Kehrbruch von 5², nicht von 5 · 2.",
+   "w": "5⁻² = 1/5² = 1/25. Das Kind hat 5 · 2 statt 5 · 5 gerechnet.",
+   "g": "fehler"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Von einer Zahl x wird die Potenz x⁻¹ genommen und mit 4 malgenommen. Es kommt 1/2 heraus. Wie heißt x?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "4 / (1 / 2)",
+   "w": "x⁻¹ · 4 = 1/2, also x⁻¹ = 1/8 und x = 8.",
+   "h": "x⁻¹ ist der Kehrbruch von x."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "uebung",
+   "s": 3,
+   "g": "pruefung",
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen 2⁻¹, 2⁰, 2⁻² und (−2)⁻¹ ist am kleinsten?"
+   },
+   "a": [
+    "(−2)⁻¹",
+    "2⁻²",
+    "2⁻¹",
+    "2⁰"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(−2)⁻¹ = −1/2 ist negativ. Die anderen: 1/2, 1, 1/4.",
+   "h": "Schreibe alle als Bruch."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2⁻¹ + 2⁻² + 2⁻³ + 2⁻⁴ + 2⁻⁵.",
+    "schablone": "□/□",
+    "hinweis": "Je Lücke eine ganze Zahl."
+   },
+   "o": {
+    "werte": [
+     31,
+     32
+    ]
+   },
+   "c": [
+    "2 ** 5 - 1",
+    "2 ** 5"
+   ],
+   "w": "Das ist 1/2 + 1/4 + 1/8 + 1/16 + 1/32. Bis 1 fehlt immer genau der letzte Summand: Es fehlt 1/32. Also 31/32.",
+   "h": "Stell dir vor, du gehst bis zur Hälfte, dann die Hälfte vom Rest, … Wie viel fehlt bis 1?"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Für welche ganze Zahl n gilt 8ⁿ = 1/8?"
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "8⁻¹ = 1/8¹ = 1/8. Also n = −1. Zum Vergleich: n = 1 ergibt 8, n = 2 ergibt 64, n = −2 ergibt 1/64.",
+   "h": "Was bedeutet ein Minus im Exponenten?"
   },
   {
    "l": "negativer_exponent",
@@ -1215,21 +1471,6 @@
    },
    "c": "(1/2)**-3",
    "w": "Kehrbruch: (1/2)⁻³ = 2³ = 8."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 1/1 000 als Potenz mit der Basis 10. Wie heißt der Exponent?"
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "-3",
-   "w": "1 000 = 10³, also 1/1 000 = 10⁻³. Exponent: −3."
   },
   {
    "l": "negativer_exponent",
@@ -1306,21 +1547,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Schreibe 1/100 000 als Potenz mit der Basis 10. Wie heißt der Exponent?"
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "-5",
-   "w": "100 000 = 10⁵, also 1/100 000 = 10⁻⁵. Exponent: −5."
-  },
-  {
-   "l": "negativer_exponent",
-   "t": "negativer_exponent",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Schreibe 4⁻¹ als Dezimalzahl."
    },
    "o": {
@@ -1353,1818 +1579,6 @@
    "w": "Kehrbruch: (3/2)⁻¹ = (2/3)¹ = 2/3."
   },
   {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "2⁵ · 2⁶ = 2ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "5 + 6",
-   "w": "Gleiche Basis: Exponenten addieren, 5 + 6 = 11. Also 2¹¹.",
-   "h": "Gleiche Basis beim Malnehmen: Exponenten addieren."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "2¹ · 2² = 2ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "1 + 2",
-   "w": "Gleiche Basis: Exponenten addieren, 1 + 2 = 3. Also 2³.",
-   "h": "Gleiche Basis beim Malnehmen: Exponenten addieren."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "5⁶ · 5³ = 5ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "6 + 3",
-   "w": "Gleiche Basis: Exponenten addieren, 6 + 3 = 9. Also 5⁹.",
-   "h": "Gleiche Basis beim Malnehmen: Exponenten addieren."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "5¹ · 5⁶ = 5ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "1 + 6",
-   "w": "Gleiche Basis: Exponenten addieren, 1 + 6 = 7. Also 5⁷.",
-   "h": "Gleiche Basis beim Malnehmen: Exponenten addieren."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "10⁶ · 10⁴ = 10ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "6 + 4",
-   "w": "Gleiche Basis: Exponenten addieren, 6 + 4 = 10. Also 10¹⁰.",
-   "h": "Gleiche Basis beim Malnehmen: Exponenten addieren."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "7⁴ · 7³ = 7ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "4 + 3",
-   "w": "Gleiche Basis: Exponenten addieren, 4 + 3 = 7. Also 7⁷.",
-   "h": "Gleiche Basis beim Malnehmen: Exponenten addieren."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "z³ · z⁻⁵ = zᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "(3) + (-5)",
-   "w": "Exponenten addieren: 3 + (−5) = −2.",
-   "h": "Auch negative Exponenten werden addiert. Achte auf die Vorzeichen."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "5⁵",
-    "25⁵",
-    "5⁶",
-    "5⁷"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Fasse zusammen: 5² · 5³"
-   },
-   "w": "Gleiche Basis, Exponenten addieren: 5² · 5³ = 5⁵.",
-   "h": "Die Basis bleibt, die Exponenten werden addiert."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "y⁻³ · y⁻¹ = yᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "(-3) + (-1)",
-   "w": "Exponenten addieren: (−3) + (−1) = −4.",
-   "h": "Auch negative Exponenten werden addiert. Achte auf die Vorzeichen."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "a⁵ · a¹ = aᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "(5) + (1)",
-   "w": "Exponenten addieren: 5 + 1 = 6.",
-   "h": "Auch negative Exponenten werden addiert. Achte auf die Vorzeichen."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "10⁻¹ · 10⁵ · 10² = 10ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "(-1) + (5) + (2)",
-   "w": "Alle Exponenten addieren: (−1) + 5 + 2 = 6.",
-   "h": "Bei drei Faktoren addierst du alle drei Exponenten."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "3⁻² · 3⁻³ · 3⁻¹ = 3ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -6
-   },
-   "c": "(-2) + (-3) + (-1)",
-   "w": "Alle Exponenten addieren: (−2) + (−3) + (−1) = −6.",
-   "h": "Bei drei Faktoren addierst du alle drei Exponenten."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ergänze den Exponenten: 2⁴ · 2ᵏ = 2⁹. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "9 - 4",
-   "w": "4 + k = 9, also k = 9 − 4 = 5.",
-   "h": "Welche Zahl musst du zu 4 addieren, damit 9 herauskommt?"
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ergänze den Exponenten: 5⁵ · 5ᵏ = 5¹³. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "13 - 5",
-   "w": "5 + k = 13, also k = 13 − 5 = 8.",
-   "h": "Welche Zahl musst du zu 5 addieren, damit 13 herauskommt?"
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 10⁶ · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.01
-   },
-   "c": "10**6 * 10**(-8)",
-   "w": "10⁶ · 10⁻⁸ = 10⁻² = 0,01.",
-   "h": "Erst die Exponenten addieren, dann ausrechnen."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 2³ · 2² mit dem Potenzgesetz und gib den Wert an."
-   },
-   "o": {
-    "wert": 32
-   },
-   "c": "2**3 * 2**2",
-   "w": "2³ · 2² = 2⁵ = 32.",
-   "h": "Exponenten addieren, dann die Potenz ausrechnen."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 2² · 2² mit dem Potenzgesetz und gib den Wert an."
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "2**2 * 2**2",
-   "w": "2² · 2² = 2⁴ = 16.",
-   "h": "Exponenten addieren, dann die Potenz ausrechnen."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 10² · 10⁻⁸ und gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 1e-06
-   },
-   "c": "10**2 * 10**(-8)",
-   "w": "10² · 10⁻⁸ = 10⁻⁶ = 0,000001.",
-   "h": "Erst die Exponenten addieren, dann ausrechnen."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "2³",
-    "2²",
-    "2⁴",
-    "4³"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Fasse zusammen: 2² · 2¹"
-   },
-   "w": "Gleiche Basis, Exponenten addieren: 2² · 2¹ = 2³."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "2⁶",
-    "2⁵",
-    "4⁵",
-    "2⁴"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Fasse zusammen: 2⁴ · 2¹"
-   },
-   "w": "Gleiche Basis, Exponenten addieren: 2⁴ · 2¹ = 2⁵."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "a⁵ · a⁶ = aᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "(5) + (6)",
-   "w": "Exponenten addieren: 5 + 6 = 11."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "b³ · b⁻⁵ = bᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "(3) + (-5)",
-   "w": "Exponenten addieren: 3 + (−5) = −2."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "a³ · a⁻⁵ = aᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "(3) + (-5)",
-   "w": "Exponenten addieren: 3 + (−5) = −2."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "10³ · 10⁻² · 10⁵ = 10ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "(3) + (-2) + (5)",
-   "w": "Alle Exponenten addieren: 3 + (−2) + 5 = 6."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "b⁻³ · b⁻¹ = bᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "(-3) + (-1)",
-   "w": "Exponenten addieren: (−3) + (−1) = −4."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "b⁻³ · b⁻⁵ = bᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -8
-   },
-   "c": "(-3) + (-5)",
-   "w": "Exponenten addieren: (−3) + (−5) = −8."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "b² · b⁶ = bᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "(2) + (6)",
-   "w": "Exponenten addieren: 2 + 6 = 8."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "a⁻² · a⁻² = aᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "(-2) + (-2)",
-   "w": "Exponenten addieren: (−2) + (−2) = −4."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "7⁷ : 7⁵ = 7ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "7 - 5",
-   "w": "Gleiche Basis: Exponenten subtrahieren, 7 − 5 = 2. Also 7².",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "3⁸ : 3³ = 3ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "8 - 3",
-   "w": "Gleiche Basis: Exponenten subtrahieren, 8 − 3 = 5. Also 3⁵.",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "7⁵ : 7² = 7ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "5 - 2",
-   "w": "Gleiche Basis: Exponenten subtrahieren, 5 − 2 = 3. Also 7³.",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "7¹⁰ : 7⁵ = 7ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "10 - 5",
-   "w": "Gleiche Basis: Exponenten subtrahieren, 10 − 5 = 5. Also 7⁵.",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "7³ : 7¹ = 7ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "3 - 1",
-   "w": "Gleiche Basis: Exponenten subtrahieren, 3 − 1 = 2. Also 7².",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "10⁷ : 10² = 10ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "7 - 2",
-   "w": "Gleiche Basis: Exponenten subtrahieren, 7 − 2 = 5. Also 10⁵.",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "y⁵ : y³ = yᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "(5) - (3)",
-   "w": "Exponenten subtrahieren: 5 − 3 = 2.",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "a⁻³ : a³ = aᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -6
-   },
-   "c": "(-3) - (3)",
-   "w": "Exponenten subtrahieren: (−3) − 3 = −6.",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "3⁴ : 3⁸ = 3ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "4 - 8",
-   "w": "4 − 8 = −4. Also 3⁻⁴ = 1/3⁴.",
-   "h": "Der zweite Exponent ist größer – das Ergebnis hat einen negativen Exponenten."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "z⁻² : z⁵ = zᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -7
-   },
-   "c": "(-2) - (5)",
-   "w": "Exponenten subtrahieren: (−2) − 5 = −7.",
-   "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "3³",
-    "3¹²",
-    "3⁴",
-    "3⁸"
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Fasse zusammen: 3⁶ : 3²"
-   },
-   "w": "Exponenten subtrahieren: 6 − 2 = 4, also 3⁴.",
-   "h": "Teilen bei gleicher Basis: Exponenten subtrahieren, nicht teilen."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "2¹ : 2⁷ = 2ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -6
-   },
-   "c": "1 - 7",
-   "w": "1 − 7 = −6. Also 2⁻⁶ = 1/2⁶.",
-   "h": "Der zweite Exponent ist größer – das Ergebnis hat einen negativen Exponenten."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 10¹ : 10⁶ und gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 1e-05
-   },
-   "c": "10**1 / 10**6",
-   "w": "10¹ : 10⁶ = 10⁻⁵ = 1/100000 = 0,00001.",
-   "h": "Exponenten subtrahieren, dann den Kehrbruch als Dezimalzahl schreiben."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "2³ · 2³ : 2¹ = 2ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "3 + 3 - 1",
-   "w": "Von links: 2³ · 2³ = 2⁶; : 2¹ ergibt 2⁵.",
-   "h": "Malnehmen: addieren. Teilen: subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 10⁵ : 10³."
-   },
-   "o": {
-    "wert": 100
-   },
-   "c": "10**5 / 10**3",
-   "w": "10⁵ : 10³ = 10² = 100.",
-   "h": "Nicht beide Potenzen ausrechnen – erst das Gesetz anwenden."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 2⁸ : 2⁶."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2**8 / 2**6",
-   "w": "2⁸ : 2⁶ = 2² = 4.",
-   "h": "Nicht beide Potenzen ausrechnen – erst das Gesetz anwenden."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "3⁵ · 3³ : 3⁴ = 3ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "5 + 3 - 4",
-   "w": "Von links: 3⁵ · 3³ = 3⁸; : 3⁴ ergibt 3⁴.",
-   "h": "Malnehmen: addieren. Teilen: subtrahieren."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 3⁷ : 3⁵."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "3**7 / 3**5",
-   "w": "3⁷ : 3⁵ = 3² = 9.",
-   "h": "Nicht beide Potenzen ausrechnen – erst das Gesetz anwenden."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "b⁻² : b⁶ = bᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -8
-   },
-   "c": "(-2) - (6)",
-   "w": "Exponenten subtrahieren: (−2) − 6 = −8."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "5⁴ : 5⁶ = 5ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "4 - 6",
-   "w": "4 − 6 = −2. Also 5⁻² = 1/5²."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "2¹ : 2⁸ = 2ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -7
-   },
-   "c": "1 - 8",
-   "w": "1 − 8 = −7. Also 2⁻⁷ = 1/2⁷."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "y¹ : y⁻² = yᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "(1) - (-2)",
-   "w": "Exponenten subtrahieren: 1 − (−2) = 3."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "y⁴ : y⁶ = yᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "(4) - (6)",
-   "w": "Exponenten subtrahieren: 4 − 6 = −2."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "2²⁷",
-    "2³",
-    "2⁶",
-    "2¹²"
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Fasse zusammen: 2⁹ : 2³"
-   },
-   "w": "Exponenten subtrahieren: 9 − 3 = 6, also 2⁶."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "a⁻³ : a⁴ = aᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -7
-   },
-   "c": "(-3) - (4)",
-   "w": "Exponenten subtrahieren: (−3) − 4 = −7."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "y⁷ : y⁻⁴ = yᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "(7) - (-4)",
-   "w": "Exponenten subtrahieren: 7 − (−4) = 11."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "10¹ : 10⁹ = 10ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -8
-   },
-   "c": "1 - 9",
-   "w": "1 − 9 = −8. Also 10⁻⁸ = 1/10⁸."
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "x⁻⁴ : x⁷ = xᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": -11
-   },
-   "c": "(-4) - (7)",
-   "w": "Exponenten subtrahieren: (−4) − 7 = −11."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 25² · 4²"
-   },
-   "o": {
-    "wert": 10000
-   },
-   "c": "25**2 * 4**2",
-   "w": "Gleicher Exponent: (25 · 4)² = 100² = 10 000.",
-   "h": "Gleicher Exponent: Erst die Basen malnehmen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 4² · 25²"
-   },
-   "o": {
-    "wert": 10000
-   },
-   "c": "4**2 * 25**2",
-   "w": "Gleicher Exponent: (4 · 25)² = 100² = 10 000.",
-   "h": "Gleicher Exponent: Erst die Basen malnehmen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 2² · 50²"
-   },
-   "o": {
-    "wert": 10000
-   },
-   "c": "2**2 * 50**2",
-   "w": "Gleicher Exponent: (2 · 50)² = 100² = 10 000.",
-   "h": "Gleicher Exponent: Erst die Basen malnehmen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 50³ · 2³"
-   },
-   "o": {
-    "wert": 1000000
-   },
-   "c": "50**3 * 2**3",
-   "w": "Gleicher Exponent: (50 · 2)³ = 100³ = 1 000 000.",
-   "h": "Gleicher Exponent: Erst die Basen malnehmen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 2³ · 50³"
-   },
-   "o": {
-    "wert": 1000000
-   },
-   "c": "2**3 * 50**3",
-   "w": "Gleicher Exponent: (2 · 50)³ = 100³ = 1 000 000.",
-   "h": "Gleicher Exponent: Erst die Basen malnehmen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 2³ · 5³"
-   },
-   "o": {
-    "wert": 1000
-   },
-   "c": "2**3 * 5**3",
-   "w": "Gleicher Exponent: (2 · 5)³ = 10³ = 1 000.",
-   "h": "Gleicher Exponent: Erst die Basen malnehmen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "100⁶",
-    "25³",
-    "100⁹",
-    "100³"
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Fasse zusammen: 5³ · 20³"
-   },
-   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 100³.",
-   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "10⁸",
-    "7⁴",
-    "10¹⁶",
-    "10⁴"
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Fasse zusammen: 2⁴ · 5⁴"
-   },
-   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 10⁴.",
-   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "10²",
-    "7²",
-    "10⁴",
-    "7⁴"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Fasse zusammen: 2² · 5²"
-   },
-   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 10².",
-   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "100⁴",
-    "100²",
-    "29⁴",
-    "29²"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Fasse zusammen: 4² · 25²"
-   },
-   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 100².",
-   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 0,25⁶ · 4⁶"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "0.25**6 * 4**6",
-   "w": "(0,25 · 4)⁶ = 1⁶ = 1.",
-   "h": "Was ergibt das Produkt der beiden Basen?"
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 15³ : 5³"
-   },
-   "o": {
-    "wert": 27
-   },
-   "c": "15**3 / 5**3",
-   "w": "(15 : 5)³ = 3³ = 27.",
-   "h": "Gleicher Exponent: Erst die Basen teilen."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 2⁻¹ · 5⁻¹ und gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.1
-   },
-   "c": "2**-1 * 5**-1",
-   "w": "(2 · 5)⁻¹ = 10⁻¹ = 0,1.",
-   "h": "Das Gesetz gilt auch mit negativem Exponenten."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 5⁻¹ · 20⁻¹ und gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.01
-   },
-   "c": "5**-1 * 20**-1",
-   "w": "(5 · 20)⁻¹ = 100⁻¹ = 0,01.",
-   "h": "Das Gesetz gilt auch mit negativem Exponenten."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 2³ · 2³ · 5³"
-   },
-   "o": {
-    "wert": 8000
-   },
-   "c": "2**3 * 2**3 * 5**3",
-   "w": "(2 · 2 · 5)³ = 20³ = 8 000.",
-   "h": "Alle drei Basen malnehmen, der Exponent bleibt."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "36² = □² · 9². Welche Zahl gehört ins Kästchen?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "36 / 9",
-   "w": "Gleicher Exponent: 9² · 4² = (9 · 4)² = 36². Gesucht ist 36 : 9 = 4.",
-   "h": "Gleicher Exponent heißt: Die Basen werden malgenommen. Welche Zahl mal 9 ergibt 36?"
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: (4/5)³ · 5³"
-   },
-   "o": {
-    "wert": 64
-   },
-   "c": "(4/5)**3 * 5**3",
-   "w": "(4/5 · 5)³ = 4³ = 64.",
-   "h": "Bruch mal Nenner – was bleibt übrig?"
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "30² = 6² · □². Welche Zahl gehört ins Kästchen?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "30 / 6",
-   "w": "Gleicher Exponent: 6² · 5² = (6 · 5)² = 30². Gesucht ist 30 : 6 = 5.",
-   "h": "Gleicher Exponent heißt: Die Basen werden malgenommen. Welche Zahl mal 6 ergibt 30?"
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 24² : 6²"
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "24**2 / 6**2",
-   "w": "(24 : 6)² = 4² = 16."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "24² = □² · 6². Welche Zahl gehört ins Kästchen?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "24 / 6",
-   "w": "Gleicher Exponent: 6² · 4² = (6 · 4)² = 24². Gesucht ist 24 : 6 = 4."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 6² : 3²"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "6**2 / 3**2",
-   "w": "(6 : 3)² = 2² = 4."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "40² = □² · 5². Welche Zahl gehört ins Kästchen?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "40 / 5",
-   "w": "Gleicher Exponent: 5² · 8² = (5 · 8)² = 40². Gesucht ist 40 : 5 = 8."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 0,2⁶ · 5⁶"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "0.2**6 * 5**6",
-   "w": "(0,2 · 5)⁶ = 1⁶ = 1."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "25⁴",
-    "100⁴",
-    "100⁸",
-    "100¹⁶"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Fasse zusammen: 5⁴ · 20⁴"
-   },
-   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 100⁴."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 0,5³ · 2³"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "0.5**3 * 2**3",
-   "w": "(0,5 · 2)³ = 1³ = 1."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 0,2⁴ · 5⁴"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "0.2**4 * 5**4",
-   "w": "(0,2 · 5)⁴ = 1⁴ = 1."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 0,5⁴ · 2⁴"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "0.5**4 * 2**4",
-   "w": "(0,5 · 2)⁴ = 1⁴ = 1."
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "14² = □² · 7². Welche Zahl gehört ins Kästchen?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "14 / 7",
-   "w": "Gleicher Exponent: 7² · 2² = (7 · 2)² = 14². Gesucht ist 14 : 7 = 2."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "1 000 · 10¹ = 10ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "3 + 1",
-   "w": "1 000 = 10³. 10³ · 10¹ = 10⁴, also e = 4.",
-   "h": "Schreibe 1 000 als Potenz von 10."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "4 · 2⁴ = 2ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "2 + 4",
-   "w": "4 = 2². 2² · 2⁴ = 2⁶, also e = 6.",
-   "h": "Schreibe 4 als Potenz von 2."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "27 · 3² = 3ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "3 + 2",
-   "w": "27 = 3³. 3³ · 3² = 3⁵, also e = 5.",
-   "h": "Schreibe 27 als Potenz von 3."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "27 · 3⁴ = 3ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "3 + 4",
-   "w": "27 = 3³. 3³ · 3⁴ = 3⁷, also e = 7.",
-   "h": "Schreibe 27 als Potenz von 3."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "8 · 2³ = 2ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "3 + 3",
-   "w": "8 = 2³. 2³ · 2³ = 2⁶, also e = 6.",
-   "h": "Schreibe 8 als Potenz von 2."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "9 · 3⁵ = 3ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "2 + 5",
-   "w": "9 = 3². 3² · 3⁵ = 3⁷, also e = 7.",
-   "h": "Schreibe 9 als Potenz von 3."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 2³ · 5⁴"
-   },
-   "o": {
-    "wert": 5000
-   },
-   "c": "2**3 * 5**4",
-   "w": "5⁴ = 5³ · 5¹. Dann (2 · 5)³ · 5¹ = 1 000 · 5 = 5 000.",
-   "h": "Zerlege die zweite Potenz so, dass beide den gleichen Exponenten haben."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 2² · 5⁵"
-   },
-   "o": {
-    "wert": 12500
-   },
-   "c": "2**2 * 5**5",
-   "w": "5⁵ = 5² · 5³. Dann (2 · 5)² · 5³ = 100 · 125 = 12 500.",
-   "h": "Zerlege die zweite Potenz so, dass beide den gleichen Exponenten haben."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 20³ · 5⁶"
-   },
-   "o": {
-    "wert": 125000000
-   },
-   "c": "20**3 * 5**6",
-   "w": "5⁶ = 5³ · 5³. Dann (20 · 5)³ · 5³ = 1 000 000 · 125 = 125 000 000.",
-   "h": "Zerlege die zweite Potenz so, dass beide den gleichen Exponenten haben."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "10⁹ : 1 000 = 10ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "9 - 3",
-   "w": "1 000 = 10³. 10⁹ : 10³ = 10⁶.",
-   "h": "Schreibe 1 000 als Potenz von 10."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "3⁶ : 27 = 3ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "6 - 3",
-   "w": "27 = 3³. 3⁶ : 3³ = 3³.",
-   "h": "Schreibe 27 als Potenz von 3."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne: 10² · 10³ : 10⁵"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "10**2 * 10**3 / 10**5",
-   "w": "Exponenten: 2 + 3 − 5 = 0. 10⁰ = 1.",
-   "h": "Erst die Exponenten zusammenfassen, dann ausrechnen."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Blatt Papier wird 8-mal in der Mitte gefaltet. Jedes Falten verdoppelt die Anzahl der Lagen. Wie viele Lagen liegen danach übereinander?"
-   },
-   "o": {
-    "wert": 256
-   },
-   "c": "2**8",
-   "w": "Nach 8-mal Falten: 2⁸ = 256 Lagen.",
-   "h": "Jedes Falten heißt mal 2."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Blatt Papier wird 4-mal in der Mitte gefaltet. Jedes Falten verdoppelt die Anzahl der Lagen. Wie viele Lagen liegen danach übereinander?"
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "2**4",
-   "w": "Nach 4-mal Falten: 2⁴ = 16 Lagen.",
-   "h": "Jedes Falten heißt mal 2."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "90",
-    "15⁵",
-    "675",
-    "8⁶"
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Was ergibt 3³ · 5²?"
-   },
-   "w": "Weder Basis noch Exponent gleich – kein Gesetz anwendbar. Ausrechnen: 27 · 25 = 675.",
-   "h": "Passt ein Potenzgesetz? Wenn nicht: einzeln ausrechnen."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "16 · 4 = 2ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "4 + 2",
-   "w": "16 = 2⁴, 4 = 2². Produkt: 2⁶.",
-   "h": "Schreibe beide Zahlen als Potenz von 2."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "200",
-    "10⁵",
-    "60",
-    "7⁶"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Was ergibt 2³ · 5²?"
-   },
-   "w": "Weder Basis noch Exponent gleich – kein Gesetz anwendbar. Ausrechnen: 8 · 25 = 200.",
-   "h": "Passt ein Potenzgesetz? Wenn nicht: einzeln ausrechnen."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "16 · 32 = 2ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "4 + 5",
-   "w": "16 = 2⁴, 32 = 2⁵. Produkt: 2⁹.",
-   "h": "Schreibe beide Zahlen als Potenz von 2."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne: 2² · 2² : 2³"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2**2 * 2**2 / 2**3",
-   "w": "Exponenten: 2 + 2 − 3 = 1. 2¹ = 2."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 20² · 5³"
-   },
-   "o": {
-    "wert": 50000
-   },
-   "c": "20**2 * 5**3",
-   "w": "5³ = 5² · 5¹. Dann (20 · 5)² · 5¹ = 10 000 · 5 = 50 000."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "5⁹ : 125 = 5ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "9 - 3",
-   "w": "125 = 5³. 5⁹ : 5³ = 5⁶."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 4³ · 25⁵"
-   },
-   "o": {
-    "wert": 625000000
-   },
-   "c": "4**3 * 25**5",
-   "w": "25⁵ = 25³ · 25². Dann (4 · 25)³ · 25² = 1 000 000 · 625 = 625 000 000."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "2⁷ : 16 = 2ᵉ. Wie groß ist e?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "7 - 4",
-   "w": "16 = 2⁴. 2⁷ : 2⁴ = 2³."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 4³ · 25⁴"
-   },
-   "o": {
-    "wert": 25000000
-   },
-   "c": "4**3 * 25**4",
-   "w": "25⁴ = 25³ · 25¹. Dann (4 · 25)³ · 25¹ = 1 000 000 · 25 = 25 000 000."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne: 3³ · 3² : 3²"
-   },
-   "o": {
-    "wert": 27
-   },
-   "c": "3**3 * 3**2 / 3**2",
-   "w": "Exponenten: 3 + 2 − 2 = 3. 3³ = 27."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 20³ · 5⁴"
-   },
-   "o": {
-    "wert": 5000000
-   },
-   "c": "20**3 * 5**4",
-   "w": "5⁴ = 5³ · 5¹. Dann (20 · 5)³ · 5¹ = 1 000 000 · 5 = 5 000 000."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne: 3⁵ · 3⁵ : 3⁶"
-   },
-   "o": {
-    "wert": 81
-   },
-   "c": "3**5 * 3**5 / 3**6",
-   "w": "Exponenten: 5 + 5 − 6 = 4. 3⁴ = 81."
-  },
-  {
-   "l": "anwenden",
-   "t": "anwenden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne: 10⁵ · 10³ : 10⁵"
-   },
-   "o": {
-    "wert": 1000
-   },
-   "c": "10**5 * 10**3 / 10**5",
-   "w": "Exponenten: 5 + 3 − 5 = 3. 10³ = 1 000."
-  },
-  {
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
@@ -3182,7 +1596,25 @@
     "text": "Stimmt die Rechnung? 2³ = 6"
    },
    "w": "Nein, 2³ = 2 · 2 · 2 = 8.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen."
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "g": "direkt",
+   "y": "zahl",
+   "f": {
+    "text": "Rechne nach: Wie viel ist 2⁵?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "2 ** 5",
+   "w": "2 · 2 · 2 · 2 · 2 = 32.",
+   "h": "Nimm die 2 fünfmal mit sich selbst mal."
   },
   {
    "l": "fehler_finden",
@@ -3202,7 +1634,30 @@
     "text": "Stimmt die Rechnung? 2⁰ = 0"
    },
    "w": "Nein, jede Zahl außer 0 hoch 0 ergibt 1: 2⁰ = 1.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen."
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Exponenten subtrahieren, nicht teilen: 4⁸.",
+    "Nichts, die Rechnung ist richtig.",
+    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻³ = 1/64.",
+    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 4⁻³ = −64. Was ist falsch?"
+   },
+   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻³ = 1/64.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
   },
   {
    "l": "fehler_finden",
@@ -3222,7 +1677,30 @@
     "text": "Stimmt die Rechnung? 5² · 5² = 5⁴"
    },
    "w": "Ja, gleiche Basis: Exponenten addieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen."
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind rechnet: 3⁹ : 3³ = 3³. Welcher Satz beschreibt den Fehler richtig?"
+   },
+   "a": [
+    "Die Basen werden geteilt: 1³.",
+    "Die Exponenten werden addiert: 3¹².",
+    "Nichts, die Rechnung ist richtig.",
+    "Exponenten subtrahieren, nicht teilen: 3⁶."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gleiche Basis beim Teilen: Exponenten subtrahieren. 3⁹ : 3³ = 3⁹⁻³ = 3⁶, nicht 3⁹:³ = 3³.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
   },
   {
    "l": "fehler_finden",
@@ -3242,68 +1720,8 @@
     "text": "Stimmt die Aussage? „3⁻³ ist eine negative Zahl.“"
    },
    "w": "Nein, 3⁻³ = 1/27 ist positiv.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, gleiche Basis: Exponenten addieren.",
-    "Nein, das ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? 4⁴ · 4² = 4⁶"
-   },
-   "w": "Ja, gleiche Basis: Exponenten addieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, gleiche Basis: Exponenten addieren.",
-    "Nein, das ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? 2⁴ · 2³ = 2⁷"
-   },
-   "w": "Ja, gleiche Basis: Exponenten addieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Exponenten subtrahieren, nicht teilen: 3⁶.",
-    "Die Exponenten werden addiert, nicht malgenommen: 3⁶.",
-    "Nichts, die Rechnung ist richtig.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Ein Kind rechnet: 3⁹ : 3³ = 3³. Was ist falsch?"
-   },
-   "w": "Exponenten subtrahieren, nicht teilen: 3⁶.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "erkennen"
   },
   {
    "l": "fehler_finden",
@@ -3323,7 +1741,29 @@
     "text": "Stimmt die Rechnung? 4⁵ : 4² = 4³"
    },
    "w": "Ja, Exponenten subtrahieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen."
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, gleiche Basis: Exponenten addieren.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Rechnung? 4⁴ · 4² = 4⁶"
+   },
+   "w": "Ja, gleiche Basis: Exponenten addieren.",
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "erkennen"
   },
   {
    "l": "fehler_finden",
@@ -3344,7 +1784,29 @@
     "text": "Ein Kind rechnet: 4⁻⁴ = −256. Was ist falsch?"
    },
    "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻⁴ = 1/256.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, gleiche Basis: Exponenten addieren.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Rechnung? 2⁴ · 2³ = 2⁷"
+   },
+   "w": "Ja, gleiche Basis: Exponenten addieren.",
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "erkennen"
   },
   {
    "l": "fehler_finden",
@@ -3365,7 +1827,26 @@
     "text": "Ein Kind rechnet: 2² · 5² = 10⁴. Was ist falsch?"
    },
    "w": "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10².",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "g": "einkleidung",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind sagt: „Ein Würfel mit 3 cm Kantenlänge hat ein Volumen von 9 cm³.“ Wie groß ist das Volumen richtig?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm³"
+   },
+   "c": "3 ** 3",
+   "w": "Volumen = 3³ = 27 cm³. Das Kind hat 3² gerechnet.",
+   "h": "Volumen eines Würfels: Kante hoch 3."
   },
   {
    "l": "fehler_finden",
@@ -3385,7 +1866,25 @@
     "text": "Stimmt die Rechnung? (−5)² = −25"
    },
    "w": "Nein, (−5) · (−5) = 25.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen."
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind soll k in 2ᵏ = 32 finden und schreibt k = 16. Wie groß ist k richtig?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "2⁵ = 32. Das Kind hat 32 : 2 gerechnet.",
+   "h": "Wie oft musst du 2 mit sich malnehmen, um 32 zu erhalten?"
   },
   {
    "l": "fehler_finden",
@@ -3406,7 +1905,8 @@
     "text": "Ein Kind rechnet: 2³ · 5³ = 10⁶. Was ist falsch?"
    },
    "w": "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
   },
   {
    "l": "fehler_finden",
@@ -3414,125 +1914,43 @@
    "p": "uebung",
    "s": 3,
    "y": "auswahl",
-   "a": [
-    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁵.",
-    "Die Exponenten werden addiert, nicht malgenommen: 4⁵.",
-    "Nichts, die Rechnung ist richtig.",
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻³ = 1/64."
-   ],
-   "o": {
-    "index": 0
-   },
    "f": {
-    "text": "Ein Kind rechnet: 4³ · 4² = 16⁵. Was ist falsch?"
+    "text": "Ein Kind rechnet: 3³ · 3³ = 9⁶. Welcher Satz beschreibt den Fehler richtig?"
    },
-   "w": "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁵.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
    "a": [
     "Nichts, die Rechnung ist richtig.",
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 3⁻³ = 1/27.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³.",
-    "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁶."
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Ein Kind rechnet: 3³ · 3³ = 9⁶. Was ist falsch?"
-   },
-   "w": "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁶.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Exponenten subtrahieren, nicht teilen: 4⁸.",
-    "Nichts, die Rechnung ist richtig.",
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻³ = 1/64.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Ein Kind rechnet: 4⁻³ = −64. Was ist falsch?"
-   },
-   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 4⁻³ = 1/64.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Exponenten subtrahieren, nicht teilen: 4⁶.",
-    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁶.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.",
-    "Nichts, die Rechnung ist richtig."
+    "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁶.",
+    "Die Exponenten werden subtrahiert: 3⁰.",
+    "Die Exponenten werden malgenommen: 3⁹."
    ],
    "o": {
     "index": 1
    },
-   "f": {
-    "text": "Ein Kind rechnet: 4⁴ · 4² = 16⁶. Was ist falsch?"
-   },
-   "w": "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁶.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
+   "w": "Gleiche Basis: Die Basis bleibt 3, die Exponenten werden addiert. Also 3³ · 3³ = 3⁶, nicht 9⁶.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "fehler"
   },
   {
    "l": "fehler_finden",
    "t": "fehler_finden",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
+   "f": {
+    "text": "Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig?"
+   },
    "a": [
     "Nichts, die Rechnung ist richtig.",
-    "Die Exponenten werden addiert, nicht malgenommen: 2⁶.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³.",
-    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 2⁻³ = 1/8."
+    "Die Exponenten werden subtrahiert: 4¹.",
+    "Die Exponenten werden malgenommen: 4⁶.",
+    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁵."
    ],
    "o": {
     "index": 3
    },
-   "f": {
-    "text": "Ein Kind rechnet: 2⁻³ = −8. Was ist falsch?"
-   },
-   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 2⁻³ = 1/8.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
-  },
-  {
-   "l": "fehler_finden",
-   "t": "fehler_finden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Nichts, die Rechnung ist richtig.",
-    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³.",
-    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁶.",
-    "Die Exponenten werden addiert, nicht malgenommen: 4⁶."
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Ein Kind rechnet: 4³ · 4³ = 4⁹. Was ist falsch?"
-   },
-   "w": "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
+   "w": "Gleiche Basis: Die Basis bleibt 4, die Exponenten werden addiert. Also 4³ · 4² = 4⁵, nicht 16⁵.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
   },
   {
    "l": "fehler_finden",
@@ -3730,6 +2148,483 @@
     "text": "Ein Kind rechnet: 5⁶ : 5² = 5³. Was ist falsch?"
    },
    "w": "Exponenten subtrahieren, nicht teilen: 5⁴."
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bakterienkultur verdoppelt sich jede Stunde. Am Anfang ist es 1 Bakterium. Wie viele sind es nach 7 Stunden? (2⁷)"
+   },
+   "o": {
+    "wert": 128
+   },
+   "c": "2**7",
+   "w": "Jede Stunde · 2, also nach 7 Stunden 2⁷ = 128.",
+   "h": "Verdoppeln heißt mal 2 – so oft, wie Stunden vergangen sind.",
+   "g": "transfer"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2)³."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(-2) ** 3",
+   "h": "Die Klammer gehört zur Basis: dreimal (−2) als Faktor.",
+   "w": "(−2) · (−2) · (−2) = 4 · (−2) = −8.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne −3² + (−3)²."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "-(3 ** 2) + (-3) ** 2",
+   "h": "Achtung: Bei −3² gehört das Minus nicht zur Basis.",
+   "w": "−3² = −(3 · 3) = −9. (−3)² = (−3) · (−3) = 9. Zusammen −9 + 9 = 0.",
+   "g": "transfer"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/10)⁴. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.0001
+   },
+   "c": "(1/10) ** 4",
+   "h": "1/10 = 0,1. Wie oft wird 0,1 malgenommen?",
+   "w": "0,1 · 0,1 · 0,1 · 0,1 = 0,0001.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Modellwürfel ist in jeder Kante 10-mal kürzer als ein großer Würfel. Wie viele Modellwürfel passen in den großen Würfel?"
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "10 ** 3",
+   "h": "Denke an Länge, Breite und Höhe: In jeder Richtung passen 10 kleine Würfel.",
+   "w": "10 · 10 · 10 = 10³ = 1 000. Das Volumen ändert sich nicht mit 10, sondern mit 10³.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf welche Ziffer endet 3²⁰?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "3 ** 20 % 10",
+   "h": "Schreibe die Endziffern von 3¹, 3², 3³, 3⁴, 3⁵ auf. Was fällt dir auf?",
+   "w": "Die Endziffern wiederholen sich: 3, 9, 7, 1, 3, 9, 7, 1 … 20 ist durch 4 teilbar, also endet 3²⁰ wie 3⁴ auf 1.",
+   "g": "transfer"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist größer: 2¹⁰ oder 10³?"
+   },
+   "a": [
+    "Beide sind gleich groß",
+    "10³",
+    "2¹⁰"
+   ],
+   "o": {
+    "index": 2
+   },
+   "h": "Rechne beide aus: 2¹⁰ durch Verdoppeln.",
+   "w": "2¹⁰ = 1 024 und 10³ = 1 000. 2¹⁰ ist etwas größer.",
+   "g": "begruenden"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 3,
+   "g": "fehler",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet 5³ = 15. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 125
+   },
+   "c": "5 ** 3",
+   "w": "Es hat 5 · 3 gerechnet. Richtig: 5 · 5 · 5 = 125.",
+   "h": "Was bedeutet der Exponent 3?"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Eine positive Zahl wird quadriert und das Ergebnis noch einmal quadriert. Es kommt 81 heraus. Welche Zahl war es?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Zurück: 81 ist 9², und 9 ist 3². Also war die Zahl 3.",
+   "h": "Welche Zahl ergibt quadriert 81?"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Quadratzahlen liegen zwischen 50 und 500?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "22 - 8 + 1",
+   "w": "Die kleinste ist 8² = 64, die größte 22² = 484 (23² = 529 ist zu groß). Von 8 bis 22 sind es 15 Zahlen.",
+   "h": "Suche die kleinste und die größte passende Quadratzahl."
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Auf welche Ziffer endet 7¹⁰⁰?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "7 ** 100 % 10",
+   "w": "Die Endziffern von 7¹, 7², 7³, 7⁴ sind 7, 9, 3, 1 – dann wiederholt es sich alle 4 Schritte. 100 ist durch 4 teilbar, also endet 7¹⁰⁰ wie 7⁴ auf 1.",
+   "h": "Schreibe die Endziffern von 7¹, 7², 7³, … auf."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind rechnet: 4³ · 4³ = 4⁹. Welcher Satz beschreibt den Fehler richtig?"
+   },
+   "a": [
+    "Die Exponenten werden subtrahiert: 4⁰.",
+    "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
+    "Nichts, die Rechnung ist richtig.",
+    "Die Basen werden malgenommen: 16⁶."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gleiche Basis: Exponenten addieren. 4³ · 4³ = 4⁶, nicht 4⁹.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "fehler"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind rechnet: 4⁴ · 4² = 16⁶. Welcher Satz beschreibt den Fehler richtig?"
+   },
+   "a": [
+    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁶.",
+    "Die Exponenten werden malgenommen: 4⁸.",
+    "Die Exponenten werden subtrahiert: 4².",
+    "Nichts, die Rechnung ist richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gleiche Basis: Die Basis bleibt 4, die Exponenten werden addiert. Also 4⁴ · 4² = 4⁶, nicht 16⁶.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet −4² = 16. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": -16
+   },
+   "c": "-(4 ** 2)",
+   "h": "Ohne Klammer gehört das Minus nicht zur Basis.",
+   "w": "−4² = −(4 · 4) = −16. Nur (−4)² wäre 16.",
+   "g": "fehler"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nichts, die Rechnung ist richtig.",
+    "Die Exponenten werden addiert, nicht malgenommen: 2⁶.",
+    "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³.",
+    "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 2⁻³ = 1/8."
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 2⁻³ = −8. Was ist falsch?"
+   },
+   "w": "Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: 2⁻³ = 1/8.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet 2³ + 2³ = 2⁶. Welche Zahl ist richtig?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "2 ** 3 + 2 ** 3",
+   "h": "Für Plus gibt es kein Potenzgesetz. Rechne aus.",
+   "w": "2³ + 2³ = 8 + 8 = 16 = 2⁴. 2⁶ wäre 64.",
+   "g": "verknuepfen"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet (−1)⁴ = −1. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-1) ** 4",
+   "h": "Vier Minuszeichen als Faktoren: gerade Anzahl.",
+   "w": "(−1) · (−1) · (−1) · (−1) = 1. Bei geradem Exponenten wird es positiv.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Rechnung ist richtig?"
+   },
+   "a": [
+    "3² · 3⁴ = 3⁶",
+    "2³ · 5³ = 10⁶",
+    "3⁴ : 3² = 1²",
+    "3² + 3⁴ = 3⁶"
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Prüfe jede Rechnung mit dem passenden Potenzgesetz oder durch Ausrechnen.",
+   "w": "3² · 3⁴ = 3⁶ stimmt (Exponenten addieren). 3² + 3⁴ = 90, 3⁶ = 729. 3⁴ : 3² = 3². 2³ · 5³ = 10³.",
+   "g": "begruenden"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind rechnet 0,2² = 0,4. Was ist der Fehler?"
+   },
+   "a": [
+    "Es hat 0,2 · 2 gerechnet. Richtig: 0,2 · 0,2 = 0,04.",
+    "Richtig wäre 4.",
+    "Es gibt keinen Fehler.",
+    "Richtig wäre 0,02."
+   ],
+   "o": {
+    "index": 0
+   },
+   "h": "Der Exponent sagt, wie oft die Basis als Faktor vorkommt.",
+   "w": "0,2² = 0,2 · 0,2 = 0,04 (zwei Nachkommastellen).",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind behauptet: „aⁿ ist immer größer als a, wenn n größer als 1 ist.“ Welches Beispiel widerlegt das?"
+   },
+   "a": [
+    "a = 3, n = 2",
+    "a = 1/2, n = 2",
+    "a = 2, n = 3",
+    "a = 10, n = 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "h": "Probiere eine Zahl kleiner als 1.",
+   "w": "(1/2)² = 1/4 ist kleiner als 1/2. Die anderen Beispiele bestätigen die Behauptung nur.",
+   "g": "begruenden"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "g": "parameter",
+   "y": "auswahl",
+   "f": {
+    "text": "Die Regel „a² · a³ = a⁶“ ist falsch. Für welche Zahlen a stimmt sie trotzdem?"
+   },
+   "a": [
+    "für keine Zahl",
+    "für a = 0 und a = 1",
+    "nur für a = 2",
+    "für alle Zahlen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ausgeschrieben: a² · a³ = (a · a) · (a · a · a) = a⁵, also 5 Faktoren, nicht 6. a⁵ und a⁶ sind nur gleich, wenn ein zusätzlicher Faktor a nichts ändert: für a = 0 (0 = 0) und a = 1 (1 = 1).",
+   "h": "Für welche Zahlen ist jede Potenz gleich?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "g": "rueckwaerts",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind hat bei aᵏ · a² die Exponenten malgenommen und a¹² erhalten. Was wäre der richtige Exponent gewesen?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "12 // 2 + 2",
+   "w": "k · 2 = 12, also k = 6. Ausgeschrieben hat a⁶ · a² zuerst 6 und dann noch 2 Faktoren a: 6 + 2 = 8. Richtig: a⁸.",
+   "h": "Bestimme zuerst k."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind schreibt 2⁵ + 2⁵ = 2¹⁰. Richtig ist 2ᵏ. Wie groß ist k?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "2⁵ + 2⁵ = 2 · 2⁵ = 2⁶ = 64. Zwei gleiche Summanden sind das Doppelte: Zu den fünf Faktoren 2 kommt ein sechster Faktor 2 dazu. 2¹⁰ = 1 024 wäre viel zu groß.",
+   "h": "Was ist eine Zahl plus dieselbe Zahl?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "bonus",
+   "s": 3,
+   "g": "knobel",
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2)³ + (−2)² + (−2)¹ + (−2)⁰."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(-2) ** 3 + (-2) ** 2 + (-2) + 1",
+   "w": "(−2)³ = −8, (−2)² = 4, (−2)¹ = −2, (−2)⁰ = 1. Zusammen: −8 + 4 − 2 + 1 = −5.",
+   "h": "Achte bei jeder Potenz auf das Vorzeichen."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1/49 als Potenz mit der Basis 7. Wie heißt der Exponent?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2 + 0 * 7**2",
+   "w": "49 = 7², also 1/49 = 1/7² = 7⁻². Der Exponent ist −2."
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1/36 als Potenz mit der Basis 6. Wie heißt der Exponent?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2 + 0 * 6**2",
+   "w": "36 = 6², also 1/36 = 1/6² = 6⁻². Der Exponent ist −2."
   }
  ],
  "offen": [

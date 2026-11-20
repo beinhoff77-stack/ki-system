@@ -1,0 +1,558 @@
+# Postfach stufen-kl10 (Zwanzigste Runde, Klasse 10)
+
+Arbeitsweise (gilt für alle Themen): Hilfsdatei `inhalte/generatoren/_stufen_kl10.py`, je Generator ein Abschnitt „STUFEN“ ganz am Ende.
+**Annahme zu „überzählig“:** Überzählige Übungen (gleicher Typ und gleicher Satzbau ab der dritten, sowie dieselbe Vorlage zum vierten Mal) bekommen **kein** `g` und behalten ihre Stufe. Gäbe man ihnen ein `g`, meldete das Prüfskript für die ganze Lernkarte „mehr als 2 Aufgaben mit gleichem Satzbau“. So bleibt jede Datei OK. Zusätzlich prüft das Skript jede Datei **ohne** die überzähligen mit allen strengen Regeln (wie nach dem Sperren). Die überzähligen sind so eingestreut, dass es keine Gruppe „gleich gebaut hintereinander“ gibt. Bitte sperren; Liste im Abschlussbericht.
+
+## 2026-11-18 – STATUS: Inhaltliche Prüfung der neuen Aufgaben, Klasse 10
+
+Kurz: **436 neue Aufgaben geprüft, 31 geändert** (in 9 Themen, je Thema ein Commit auf `stufen-kl10`). Typ `g` und Stufe `s` sind bei allen gleich geblieben.
+Jedes Thema: Prüfskript OK, 0 Gruppen „gleich gebaut hintereinander“. Nachweis gegen `origin/lernen-app` OK mit `python3 inhalte/generatoren/_stufen_kl10.py <thema> korrektur`
+(neu in `_stufen_kl10.py`: Geändert sein dürfen nur Aufgaben aus `uebung`/`bonus`, deren Fragetext es in `4eda8cb` in keinem Thema gab; `l`, `t`, `p`, `g`, `s`, `y` und die Reihenfolge bleiben gleich).
+Alte Aufgaben: Zeichen für Zeichen unverändert.
+
+### Geprüft (neu = Fragetext nicht in 4eda8cb, Pool uebung oder bonus)
+| Thema | geprüft | geändert |
+|---|---|---|
+| funktionen.exponential_log | 49 | 2 |
+| gleichungen.exponential | 51 | 3 |
+| stochastik.mehrstufig | 64 | 5 |
+| stochastik.simulation | 49 | 3 |
+| funktionen.trig | 34 | 4 |
+| funktionen.ganzrational | 63 | 7 |
+| gleichungen.polynom | 36 | 2 |
+| raum.schraegbilder | 38 | 3 |
+| raum.pyramide_kegel_kugel | 52 | 2 |
+| **Summe** | **436** (316 Übungen, 120 Knobel) | **31** |
+
+Jede Lösung habe ich nachgerechnet. Knobel mit „höchstens/mindestens/wie viele/immer“ zusätzlich per Programm (u. a. Würfel- und Urnenzählungen, Parameter k bei Biquadrat, Perioden, Nullstellenzahlen, Gitterpunkte, π-Schätzung n = 200).
+
+### Nach Fehlerart (jede Aufgabe einmal gezählt, bei der wichtigsten Art)
+- **a) Lösung falsch oder nicht eindeutig: 2**
+  - trig/periode (Knobel): „Periode 6 und 10. Welche **kleinere** positive Zahl ist dann sicher ebenfalls eine Periode?“ – 4 = 10 − 6 ist auch richtig. → „Welche **kleinste** positive Zahl …?“ (Lösung 2), Lösungsweg nennt 4 und 2 und das Beispiel sin(π · x).
+  - mehrstufig/pi_schaetzen: Option (0,6 | 0,8) liegt genau auf dem Viertelkreisbogen – ob „im Viertelkreis“ den Rand einschließt, ist nicht klar. → (0,6 | 0,7).
+- **b) Mehrdeutige Zählweise („k. Strich“): 0** – kam in Kl. 10 nicht vor.
+- **c) Späterer Stoff: 3**
+  - schraegbilder/rotation (Stufe 3): „… Berechne das Volumen des entstehenden Kegels.“ (Kegelvolumen kommt erst in raum.pyramide_kegel_kugel) → „Wie weit ist die Spitze des entstehenden Kegels vom Rand seiner Grundfläche entfernt?“ (10 cm, Pythagoras).
+  - schraegbilder/rotation (Knobel): Volumenverhältnis zweier Kegel → Volumenverhältnis zweier Zylinder aus einem 3 × 4-Rechteck (weiter 4 : 3).
+  - polynom/substitution (Knobel): Lösungsweg mit Produkt und Summe der Lösungen (Vieta, steht in keinem Thema) → mit der Lösungsformel z = (k ± √(k² − 36)) : 2.
+- **d) Unklare Fragen: 3**
+  - mehrstufig/ohne_zuruecklegen: „Wie viele Früchte muss man **höchstens** herausnehmen, um sicher zwei Birnen zu haben?“ → „Wie viele Früchte muss man herausnehmen, damit auf jeden Fall zwei Birnen dabei sind?“
+  - mehrstufig/pi_schaetzen (Knobel): „Mit wie vielen Zufallspunkten kann der Schätzwert … **frühestens** genau 3,14 ergeben?“ → „Wie viele Zufallspunkte braucht man mindestens, damit …?“
+  - trig/bogenmass: „Ungefähr wie viel Grad sind 1 im Bogenmaß?“ → „Ungefähr wie viel Grad hat ein Winkel, der im Bogenmaß 1 beträgt?“
+- **e) Unpassende Antwortoptionen: 3**
+  - ganzrational/graph_term: Option „Nein, weil der Grad gerade ist.“ – Ergebnis richtig, Begründung falsch (neben der richtigen Option). → „Ja, für sehr große x.“
+  - simulation/beurteilen (Knobel): „Ja, weil 1/3 + 1/4 ungefähr 1/2 ist.“ → „Nein: 1/3 + 1/4 = 7/12 ist mehr als 1/2.“ (Rechnung jetzt richtig, Option bleibt falsch)
+  - simulation/zufallsgeraet (Knobel): Option „Fünfmal würfeln, eine Sechs = Treffer“ (unklar, was genau zählt; Lösungsweg sagte nur „etwas anderes“) → „Zweimal würfeln, Augensumme 5 = Treffer“ (1/9).
+- **f) Lösungswege mit „…“, Sprüngen oder nicht erklärten Tricks: 20**
+  - Beispiel ganzrational/ausmultiplizieren (Knobel): „Jede Hochzahl 0 bis 7 entsteht genau einmal (wie im Zweiersystem).“ → „Aus jeder Klammer nimmt man entweder die 1 oder x, x² bzw. x⁴. Die Hochzahl ist dann eine Summe aus 1, 2 und 4 …: 0, 1, 2, 3 (= 1 + 2), 4, 5, 6, 7 – jede genau einmal.“
+  - Weitere: exponential_log (Faustregel 72 : 8; „1 024² ≈ 1 048 576“), gleichungen.exponential (2 × „…“, Eindeutigkeit bei c = 2 begründet), mehrstufig (unendliche Reihe beim Münzspiel, „1 + 2 + … + 6“), simulation (Werte der falschen Regeln genannt), trig (2 × „…“), ganzrational (x⁹-Koeffizient, (f(1) + f(−1)) : 2, Vorzeichenwechsel, 3 × „…“), polynom (Gauß-Summe), schraegbilder (Maximum der Fläche über 100 − d²), pyramide_kegel_kugel (k³ beim Kegel hergeleitet, Sehne über rechtwinklige Dreiecke).
+
+### Annahmen
+- „Neu“ = Fragetext kommt in **keiner** Themendatei von `4eda8cb` vor (Aufgaben, die die Runde „Bereinigen“ nur zwischen Themen verschoben hat, zählen damit als alt und blieben unverändert).
+- Maßstab für c): `themenliste.json` (Klasse, dann `reihenfolge.gym_by`). Pythagoras, Trigonometrie im Dreieck, Kreis, Prisma/Zylinder und Wurzeln/∛ gelten als bekannt (Kl. 8/9). Kegel- und Pyramidenvolumen erst ab raum.pyramide_kegel_kugel. Vieta habe ich als nicht eingeführt gewertet.
+- Kopf der Themendateien: Bei 6 Themen schreibt der Generator `klasse` neu aus `themenliste.json` (z. B. `ib_myp` 4 → 5). Das kam nicht von mir von Hand; der Nachweis lässt nur diesen Wert zu.
+
+### Nicht geprüft
+- Darstellung in der App (Grafiken, Tabellen, Lückenschablonen) – nur die Daten.
+- Ob die Reihenfolge innerhalb einer Klasse zum tatsächlichen Unterricht der Kinder passt.
+- Alte Aufgaben (nicht Auftrag).
+
+### Für die Datenbank: geänderte Fragetexte (alt → neu)
+- stochastik.mehrstufig: „… Wie viele Früchte muss man höchstens herausnehmen, um sicher zwei Birnen zu haben?“ → „… Wie viele Früchte muss man herausnehmen, damit auf jeden Fall zwei Birnen dabei sind?“
+- stochastik.mehrstufig: „Mit wie vielen Zufallspunkten kann der Schätzwert 4 · Treffer : Anzahl frühestens genau 3,14 ergeben?“ → „Wie viele Zufallspunkte braucht man mindestens, damit der Schätzwert 4 · Treffer : Anzahl genau 3,14 sein kann?“
+- funktionen.trig: „Ungefähr wie viel Grad sind 1 im Bogenmaß?“ → „Ungefähr wie viel Grad hat ein Winkel, der im Bogenmaß 1 beträgt?“
+- funktionen.trig: „… Welche kleinere positive Zahl ist dann sicher ebenfalls eine Periode?“ → „… Welche kleinste positive Zahl ist dann sicher ebenfalls eine Periode?“
+- raum.schraegbilder: „… Berechne das Volumen des entstehenden Kegels. Runde auf ganze cm³.“ → „… Wie weit ist die Spitze des entstehenden Kegels vom Rand seiner Grundfläche entfernt?“ (Antwort jetzt 10 cm)
+- raum.schraegbilder: „Ein rechtwinkliges Dreieck (Katheten 3 cm und 4 cm) dreht sich …“ → „Ein Rechteck (3 cm × 4 cm) dreht sich einmal um die 3-cm-Seite und einmal um die 4-cm-Seite. In welchem Verhältnis stehen die Volumina der beiden Zylinder (erster : zweiter)?“
+- Bei den übrigen 25 Aufgaben blieb der Fragetext gleich (geändert: Optionen, Lösungsweg oder Hinweis).
+
+## 2026-11-17 – FERTIG: Abschlussbericht Zwanzigste Runde, Klasse 10
+
+Kurz: Alle 9 Themen (60 Lernkarten) sind fertig. Jede Übung hat jetzt einen Aufgabentyp `g`, außer den überzähligen.
+Jede Lernkarte hat danach (ohne die überzähligen) mindestens 4 Übungen auf Stufe 1 (2 Typen), 6 auf Stufe 2 (3 Typen) und 8 auf Stufe 3 (mindestens 4 Typen, je Typ höchstens 3).
+Dazu kommen je Lernkarte 2 Knobel-Bordkarten.
+In keiner Lernkarte stehen zwei Übungen desselben Typs hintereinander. Es gibt 0 Gruppen „gleich gebaut hintereinander“.
+Prüfskript: alle 95 Themendateien OK. Nachweis gegen `origin/lernen-app` für alle 9 Themen OK: Bei alten Aufgaben haben sich nur `g`, `s` und die Reihenfolge geändert.
+
+### Tatsachen, Annahmen, Meinung
+- **Tatsachen:** alle Zahlen unten; Prüfskript- und Nachweis-Ergebnisse; jede neue Lösung wurde vom Programm über `c` nachgerechnet und von mir von Hand geprüft.
+- **Annahme 1 (überzählig):** Überzählige Übungen tragen absichtlich kein `g` und behalten ihre Stufe. Mit `g` würde das Prüfskript die ganze Lernkarte wegen „mehr als 2 mit gleichem Satzbau“ ablehnen.
+  Überzählig ist: gleicher Typ und gleicher Satzbau ab der dritten, dazu dieselbe Vorlage ab der vierten (auch wenn nur Wörter wie Farben wechseln), und Übungen, die nötig waren, damit zwei gleiche Typen nicht hintereinander stehen müssen.
+  `_stufen_kl10.py` prüft jede Datei zusätzlich **ohne** die überzähligen mit allen strengen Regeln des Prüfskripts. So sieht die Lage nach dem Sperren aus.
+- **Annahme 2:** „Je Typ höchstens 3“ gilt für Stufe 3. Für Stufe 1 und 2 gilt nur: Kein Typ ist so häufig, dass zwei gleiche hintereinander stehen müssten.
+- **Annahme 3:** Einfache Aufgaben der Form „Jemand rechnet … Was stimmt?“ habe ich als `erkennen` (Stufe 1) eingeordnet, wenn nur die richtige Regel zu erkennen ist. Wer einen Fehler wirklich finden und deuten muss, bekommt `fehler` (Stufe 3).
+- **Meinung:** Die Einordnung in die Typen ist mein Urteil. Einzelne Grenzfälle wie „Wertemenge = umkehr“ oder „Nullstellen von sin(bx) = umkehr“ kann man anders sehen.
+
+### 3. Zahlen
+| | Anzahl |
+|---|---|
+| neue Übungen | 317 |
+| Knobel-Bordkarten (Pool bonus) | 120 (2 je Lernkarte) |
+| umgestuft (nur `s`) | 89 |
+| überzählig (bitte sperren) | 521 |
+
+Je Thema (neu / Knobel / umgestuft / überzählig): exponential_log 45/14/16/53 · gl.exponential 33/12/20/52 · mehrstufig 45/16/13/67 · simulation 33/12/8/40 · trig 17/16/6/78 · ganzrational 46/14/10/79 · polynom 28/10/5/49 · schraegbilder 35/12/8/36 · pyramide_kegel_kugel 35/14/3/67.
+
+### 5. Quellen der Prüfungsvorbilder (Typ und Niveau nachgebaut, nie Wortlaut oder Zahlen)
+- ISB, Bayerischer Mathematik-Test 10 (Gymnasium): 2025 Gruppe B https://www.isb.bayern.de/fileadmin/user_upload/Gymnasium/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2025/BMT10_2025_Aufgaben_Gruppe_B.pdf ·
+  2024 Gruppe A https://isb.bayern.de/fileadmin/user_upload/Gymnasium/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2024/BMT10_2024_Aufgaben_Gruppe_A.pdf ·
+  2023 Gruppe B https://www.isb.bayern.de/fileadmin/user_upload/Gymnasium/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2023/BMT10_2023_Aufgaben_Gruppe_B.pdf
+  → Vorbild für: „Term ankreuzen“ (Prozentabnahme über mehrere Jahre), „Wert berechnen und deuten“, Bedingung für gleich wahrscheinliche Felder, Anzahl mehrstelliger Zahlen als Term, Vierfeldertafel („mindestens ein Schaden“), verschobener Graph mit Symmetrie, Faktorisieren.
+- ISB, Abschlussprüfung Realschule Mathematik I 2024, Haupttermin, Lösungen: https://isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Abschlusspruefung/Mathematik/2024/2024_mi_ht_l.pdf
+  → Vorbild für: Pyramiden- und Kegelrechnungen mit Pythagoras und Winkeln, Logarithmusfunktion („Punkt auf dem Graphen“, Nullstelle), „sicher nach dem n-ten Zug“ (Ziehen ohne Zurücklegen).
+- ISB, Abiturprüfung Mathematik 2025, Prüfungsteil A (ohne Hilfsmittel): https://www.isb.bayern.de/fileadmin/user_upload/Gymnasium/Leistungserhebungen/Abiturpruefung/Mathematik/2025/abiturpruefung_mathematik_2025_pruefungsteil_a.pdf
+  sowie Teil-A-Aufgaben zu sin(ax) und 2 · sin(x/2) (Lösungsseiten https://www.mathelike.de/abiturloesungen-mathematik-bayern/mathematik-abitur-bayern-2015/pruefungsteil-a/analysis-1 und https://www.mathelike.de/abiturloesungen-mathematik-bayern/mathematik-abitur-bayern-2024/pruefungsteil-a/analysis-1)
+  → Vorbild für: exakte Werte ohne Rechner, Nullstellen verschobener Funktionen, Term einer ganzrationalen Funktion aus Eigenschaften, Gezeitenmodell.
+- Knobel-Bordkarten: Vorbild ist die **Art** von Känguru- und Olympiade-Aufgaben (eine eigene Idee nötig: Paare bilden, Gegenereignis, Symmetrie, Abwickeln). Ich habe keine einzelne Wettbewerbsaufgabe nachgebaut und keine Wettbewerbsquelle wörtlich verwendet.
+
+### 6. Beispiel: Lernkarte `funktionen.exponential_log / faktor` – drei Bordkarten je Stufe im Wortlaut
+
+**Stufe 1**
+- (direkt) Der Wert eines Autos nimmt jedes Jahr um 15 % ab. Wie groß ist der Wachstumsfaktor b? → *0,85*
+- (erkennen) Beschreibt f(t) = 300 · 1,04^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt? → *Wachstum um 4 %*
+- (direkt) Eine Einwohnerzahl wächst jedes Jahr um 2 %. Wie groß ist der Wachstumsfaktor b? → *1,02*
+
+**Stufe 2**
+- (umkehr) f(t) = 200 · 1,15^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr? → *15 %*
+- (mehrschritt) Die Menge eines Medikaments im Blut sinkt jede Stunde um 15 %. Um welchen Faktor ändert sie sich in 2 Stunden? → *0,7225*
+- (darstellung) Ein Bestand: Jahr 0: 5 000, Jahr 1: 4 600, Jahr 2: 4 232. Um wie viel Prozent nimmt er pro Jahr ab? → *8 %*
+
+**Stufe 3**
+- (rueckwaerts) Ein Gebrauchtwagen hat zwei Jahre lang jedes Jahr 12 % an Wert verloren und kostet jetzt 15 488 €. Wie viel kostete er vor zwei Jahren? → *20 000 €*
+- (pruefung) Ein Bestand wird durch f(t) = 6 000 · 0,95^t beschrieben (t in Jahren). Welcher Term gibt an, um wie viel Prozent er in den ersten 3 Jahren insgesamt abnimmt? → *(1 − 0,95³) · 100 %*
+- (begruenden) Angebot A: 4 % Zinsen pro Jahr. Angebot B: 2 % Zinsen pro Halbjahr (Zinseszins). Welches Angebot bringt nach einem Jahr mehr? → *B, denn 1,02² = 1,0404 > 1,04.*
+
+**Knobel-Bordkarte (freiwillig)**
+- Ein Bestand wächst drei Jahre lang jedes Jahr um 25 % und nimmt danach drei Jahre lang jedes Jahr um 20 % ab. Wie viel Prozent des Anfangswerts sind es am Ende? → *100 %* (Tipp: Ordne die sechs Faktoren geschickt zu Paaren.)
+
+### Für Sebastian (nur gemeldet)
+- Weiter offen aus der Neunzehnten Runde: In `funktionen.ganzrational/nullstellen` brauchen zwei Stufe-3-Übungen die Substitution, die erst in `gleichungen.polynom` kommt. Ich habe sie als `verknuepfen` eingeordnet.
+- Weiter offen, App-Wunsch: Schrägbild und Netz des Kegels zeichnen. Deshalb gibt es in `raum.schraegbilder` keine Zeichenaufgaben zum Kegel.
+- In `raum.pyramide_kegel_kugel/verstehen` ist die doppelte Frage „Bei einem Kegel wird nur die Höhe verdoppelt …“ (Stufe 2) jetzt unter „überzählig“ gelistet.
+
+### Nicht geprüft
+- Wie Typ-Zeichen, Abwechslung und Knobel-Angebot in der App wirken: Das ist App-Sache, kein App-Code wurde geändert.
+- Die Typ-Einordnung von Test-, Korrektur- und Sicherungsaufgaben: Diese Pools haben kein `g` bekommen, wie im Auftrag.
+
+### 1. Stufen-Leiter je Lernkarte
+
+**funktionen.exponential_log**
+
+- `werte` – S1: f(x) = a · bˣ für ganze x ausrechnen und a, b im Term erkennen. · S2: Negative Exponenten, Summen von Funktionswerten, Werte in Sachsituationen, x aus einem einfachen Wert. · S3: Rückwärts zu a, Fehler finden, Aussagen prüfen, Parameter, ein Modell selbst aufstellen.
+- `faktor` – S1: Aus „+ p %“ oder „− p %“ den Faktor b bilden und im Term Wachstum oder Zerfall erkennen. · S2: Aus b den Prozentsatz zurückgewinnen, Faktoren über mehrere Jahre, Prozentsatz aus einer Tabelle. · S3: Rückwärts zum Anfangswert, Aussagen und Fehler zu Prozenten prüfen, Parameter p, Wurzel als Faktor je Stunde, Prüfungsaufgabe.
+- `linear_oder_exponentiell` – S1: Differenzen und Quotienten bilden, lineares und exponentielles Wachstum erkennen. · S2: Folgen fortsetzen, Terme aus Tabellen, Sachsituationen einem Modell zuordnen und rechnen. · S3: Modelle vergleichen und Zeitpunkte bestimmen, Grenzen eines Modells begründen, Fehler finden, Parameter, Prüfungsaufgabe mit Tabelle.
+- `modell` – S1: Ein Verdopplungsmodell auswerten und erkennen, welche Formel zu einer Beschreibung passt. · S2: Den Faktor b aus zwei Werten bestimmen, Halbwertszeiten auswerten, a und b aus Tabellenwerten. · S3: Aus zwei Punkten rückwärts, Fehler im Modell, Parameter T, Modelle vergleichen, Prüfungsaufgabe mit Prognose.
+- `graph` – S1: Den y-Achsenabschnitt ablesen, steigend/fallend erkennen, Term und Graph zuordnen. · S2: Aussagen über Graphen prüfen, verschobene Graphen (Schnittpunkt, Asymptote, Wertemenge), Graph aus Spiegelung und Verschiebung. · S3: Spiegeln mit Potenzgesetzen erklären, Nullstellen verschobener Graphen, Schnittpunkte, Parameter aus Asymptote, Fehler, Prüfungsaufgabe.
+- `logfunktion` – S1: Einfache Logarithmen als Hochzahl ablesen und Eigenschaften des Graphen (x > 0, (1 | 0), Asymptote) erkennen. · S2: Negative Logarithmen, Punkte der Umkehrfunktion, Werte mit dem Rechner, verschobene Logarithmusfunktionen. · S3: Nullstellen und Punkte rückwärts, Umkehrfunktion bilden, Basis als Parameter, Fehler, Abschätzen, Dezibel als Sachmodell.
+- `zeitpunkt` – S1: a · b^t = c durch Teilen und Logarithmieren lösen; die passende Gleichung erkennen. · S2: Verdopplungs- und Halbwertszeiten, Sachsituationen mit Übertemperatur, ganzzahlige Zeitpunkte, Prozentsatz aus der Verdopplungszeit. · S3: Zwei Modelle gleichsetzen, aus Daten rückwärts, Faktor als Parameter, Aussagen prüfen, Ähnlichkeit verknüpfen, Tiefe statt Zeit.
+
+**gleichungen.exponential**
+
+- `logarithmus` – S1: log_b einer Potenz von b ablesen; log_b(1) = 0 kennen; Logarithmus-Aussage als Potenz lesen. · S2: Negative und gebrochene Logarithmen, x aus log_b(x) = n, Logarithmen zwischen ganzen Zahlen einordnen. · S3: Basis oder x rückwärts bestimmen, Wurzeln als Potenzen, verschachtelte Logarithmen, ohne Rechner ordnen, Fehler finden, pH-Wert.
+- `gleiche_basis` – S1: Eine Zahl als Potenz der Basis schreiben und Exponenten gleichsetzen. · S2: Brüche und negative Exponenten, erst teilen, Sachsituationen wie Kettenbriefe, Werte aus einer Tabelle. · S3: Basis wechseln (4 = 2²), Summen von Potenzen, Substitution, Parameter, Fehler bei verschiedenen Basen, Prüfungsaufgaben.
+- `mit_log_loesen` – S1: b^x = c mit x = lg c : lg b lösen und die Lösung abschätzen. · S2: Erst teilen oder subtrahieren, lineare Exponenten, Sachsituationen, c aus einer gegebenen Lösung. · S3: Ausklammern und Potenzgesetze, Ungleichungen, erst a dann x, Basis als Parameter, Fehler beim Teilen, Nullstelle wie in der Prüfung.
+- `potenzregel` – S1: log_b(b^n) = n und lg(aⁿ) = n · lg a anwenden; richtige Umformungen erkennen; a^x = b^(x + c) wie im Beispiel lösen. · S2: Mit einem gegebenen lg-Wert rechnen, Basen umschreiben, Sachsituation, Exponent gesucht. · S3: Ziffernzahl großer Potenzen, Wurzeln als Exponenten, lg-Werte rückwärts, Parameter k, Aussagen prüfen, Fehler mit Klammern, Prüfungsaufgabe.
+- `wachstum` – S1: Die Gleichung Anfangswert · q^t = Ziel aufstellen und lösen; q aus dem Prozentsatz. · S2: Halbwerts- und Verdopplungszeit, volle Jahre, Faktor pro Stunde, Werte aus einer Tabelle. · S3: Zinssatz oder Zeit rückwärts aus Daten, zwei Konten vergleichen, Zweierpotenzen abschätzen, Fehler „Prozente addieren“, Prüfungsaufgabe in zwei Teilen.
+- `verstehen` – S1: log_b(1) = 0 und log_b(b) = 1, negative Exponenten, erkennen, dass b^x nie negativ wird. · S2: Definitionsmengen von Logarithmen, Gleichungen ohne Lösung, Summen und Produkte von Logarithmen, Sachsituation „nie null“. · S3: Fehler bei Umformungen finden, Aussagen prüfen, Parameter c, Zahl der Lösungen, Lösung rückwärts einer Gleichung zuordnen.
+
+**stochastik.mehrstufig**
+
+- `pfad_mult` – S1: Pfade im Baumdiagramm erkennen und entlang eines Pfades malnehmen (zwei gleiche Züge). · S2: Verschiedene Äste in fester Reihenfolge, drei Stufen, Sachsituationen wie Freiwürfe, Ereignisse mit Gegenrechnung. · S3: Vom Term zum Ereignis, unbekannter Ast, Anzahl der Kugeln als Parameter, Fehler „addieren statt malnehmen“, Aussagen prüfen, Prüfungsaufgabe.
+- `pfad_add` – S1: Die Pfade eines Ereignisses finden und ihre Wahrscheinlichkeiten addieren. · S2: Ereignisse mit mehreren Pfaden („dieselbe Farbe“, „genau zweimal“), Augensummen, verschiedene Glücksräder. · S3: Produkte und Summen über drei Würfel, Wahrscheinlichkeit rückwärts, p als Parameter, Fehler „nur ein Pfad“, Vergleich zweier Räder, Prüfungsaufgabe.
+- `ohne_zuruecklegen` – S1: Die Äste der zweiten Stufe anpassen (Nenner und Zähler werden kleiner) und gleiche Farben berechnen. · S2: Verschiedene Farben, drei Züge, Lostrommeln, feste Reihenfolge. · S3: Zweite Kugel, „spätestens sicher“, Anzahl rückwärts aus einem Ast, n als Parameter, Fehler „mit Zurücklegen gerechnet“, Kartenspiel, Prüfungsaufgabe.
+- `gegenereignis` – S1: Das Gegenereignis von „mindestens einmal“ benennen und P = 1 − P(keinmal) rechnen. · S2: Sachsituationen (Lose, Bauteile), gerade Zahlen, verschiedene Augenzahlen, der passende Term im Baumdiagramm. · S3: Mindestanzahl Versuche, Treffer-Wahrscheinlichkeit als Parameter, „mindestens“ − „genau“, zwei Personen, Fehler, Term wie in der Prüfung.
+- `baum_ergaenzen` – S1: Den Gegenast ergänzen (Äste einer Verzweigung ergeben 1) und Pfadwahrscheinlichkeiten deuten. · S2: Einen Ast durch Teilen bestimmen, Gesamtwahrscheinlichkeit über zwei Pfade, Sachsituationen wie Tests und Anteile. · S3: Fehlende Äste aus P(B), Kugelzahl aus Ästen, Wurzel aus einem Pfad, p als Parameter, Fehler, Unmögliches begründen, Vierfeldertafel wie im BMT.
+- `simulation` – S1: Erwartete Anzahl n · p berechnen und relative Häufigkeiten ablesen. · S2: Mehrstufige Ereignisse hochrechnen, p aus einer erwarteten Anzahl, Zufallszahlen einem Ereignis zuordnen. · S3: Schwankungen begründen, Gedächtnis-Irrtum, π schätzen, rückwärts zur nötigen Trefferzahl, erwarteter Gewinn, Fehler „genau 100-mal“.
+- `pi_schaetzen` – S1: Aus dem Anteil der Punkte im Viertelkreis π schätzen; prüfen, ob ein Punkt im Viertelkreis liegt. · S2: Tabellenkalkulation, Streifen über und unter dem Bogen, Treffer rückwärts, Kreis im Quadrat mit Seite 2. · S3: Grenzen der Verfahren begründen, Streifenzahl als Parameter, Fehler „π/4 statt π“, Punkte mit Pythagoras prüfen, rückwärts zur Mindestzahl, Ring zwischen zwei Viertelkreisen.
+- `verstehen` – S1: Erkennen, dass Äste einer Verzweigung zusammen 1 ergeben und entlang eines Pfades malgenommen wird. · S2: Einfache Aufgaben selbst richtig rechnen: mehrere Pfade, ohne Zurücklegen, ein Ast aus einem Pfad, Sachsituationen. · S3: Fehler finden und deuten, Aussagen prüfen, Simulationsergebnisse beurteilen, Term rückwärts deuten, de Méré und Lotto.
+
+**stochastik.simulation**
+
+- `zufallsgeraet` – S1: Ein Zufallsgerät mit genau der gesuchten Wahrscheinlichkeit erkennen oder einrichten (Urne, Würfel, Ziffer). · S2: Kugelzahl und Winkel für ein gegebenes p berechnen, Regeln für Würfel und Glücksrad. · S3: Tabellenkalkulation, Münze für 1/4, Feldzahl als Parameter, Fehler „ohne Zurücklegen“, zwei Drehungen verknüpfen, Bedingung für gleiche Chancen wie im BMT.
+- `regel` – S1: Aus p die Zahl der Trefferziffern bestimmen und zu einer Regel die simulierte Wahrscheinlichkeit erkennen. · S2: Zweistellige und dreistellige Zufallszahlen, Regeln für Sachsituationen, mehrere Ziffern je Durchgang. · S3: Ziffern überspringen für 2/3 oder einen Würfel, zwei verschiedene p, Stellenzahl als Parameter, Fehler „00 bis 25“, Grenzen der Münze begründen.
+- `zufallsziffern` – S1: Mit einer Regel Treffer in einer Ziffernliste erkennen und zählen. · S2: Relative Häufigkeit und Nicht-Treffer, Sachsituationen auswerten, Durchgänge aus mehreren Ziffern. · S3: „Mindestens“-Ereignisse in Durchgängen, Warten auf die erste Sechs, Regel als Parameter, Zählfehler finden, Unabhängigkeit der Listen begründen.
+- `auswerten` – S1: Aus Treffern und Durchgängen den Schätzwert (relative Häufigkeit) bilden und deuten. · S2: Auf viele echte Durchgänge hochrechnen, Prozentangaben, Durchgänge rückwärts, Schätzwert in eine erwartete Anzahl umrechnen. · S3: Simulationen zusammenfassen, Abweichungen beurteilen, Gegenereignis, Briefe und Geburtstage, Durchgangszahl als Parameter, Fehler beim Mitteln.
+- `monte_carlo` – S1: Den Anteil der Zufallspunkte in einer Figur bilden und als Flächenanteil deuten. · S2: Flächen in Quadraten und Rechtecken schätzen, erwartete Punktzahl aus einer bekannten Fläche. · S3: π schätzen, Seen auf Karten, Abweichungen beurteilen, Fehler „mit der Seite statt der Fläche“, Seitenlänge als Parameter, Dartbrett, Punktzahl rückwärts.
+- `beurteilen` – S1: Die Wahrscheinlichkeit eines Zufallsgeräts bestimmen und mit dem gesuchten p vergleichen. · S2: Geräte mit Brüchen, Winkeln und mehreren Münzen prüfen, das passende Gerät für eine Sachsituation wählen. · S3: Zählfehler und „zu viel“ erkennen, Simulation ohne Zurücklegen, gleichwertige Urnen, Ziegenproblem, Feldzahl als Parameter, Term für Anzahlen wie im BMT.
+
+**funktionen.trig**
+
+- `bogenmass` – S1: Gradmaß und Bogenmaß für Standardwinkel umrechnen; wissen, dass der volle Kreis 2π hat. · S2: Beliebige Winkel mit dem Rechner umrechnen, negative Winkel, Winkel der Größe nach ordnen. · S3: Bogenlängen bei Radius r, Winkel aus Bogen und Radius rückwärts, Laufbahnen und Uhrzeiger, Radius als Parameter, Fehler „2 · 180°“.
+- `werte` – S1: Exakte Werte für Standardwinkel und Rechnerwerte im RAD-Modus angeben; Sinus als Höhe am Einheitskreis. · S2: Werte über Bezugswinkel in allen Quadranten, Wurzelwerte, negative Winkel, Winkel zu einem Sinuswert, Riesenrad. · S3: Vorzeichen ohne Rechner begründen, Symmetrien am Einheitskreis, Gleichungen rückwärts, exakte Summen wie im Abitur Teil A, Fehler im DEG-Modus.
+- `periode` – S1: Die Periode von sin(bx) und cos(bx) mit 360° : b bzw. 2π : b angeben; Periodizität erkennen. · S2: b aus einem Graphen oder einer gewünschten Periode, Perioden mit π im Term, gleiche Punkte am Einheitskreis. · S3: Perioden von Summen, Werte weit entfernter Stellen, b rückwärts im Bogenmaß, Pendel, Fehler „doppeltes b – doppelte Periode“, exakte Werte wie im Abitur.
+- `parameter` – S1: Amplitude a und Verschiebung d im Term erkennen. · S2: Größte und kleinste Werte, Wertemengen, Amplitude aus dem Graphen, d oder a aus einem Wert. · S3: a, b und d aus Eigenschaften rückwärts, alle Abbildungen verknüpft, Nullstellen-Bedingung als Parameter, Wert aus dem Minimum, Prüfungsaufgabe.
+- `verschiebung_x` – S1: Die Richtung der Verschiebung an sin(x − c) erkennen und Nullstellen ablesen. · S2: Ausklammern bei sin(bx − c), Term zu einer Verschiebung, Hochpunkt und Wertemenge verschobener Graphen. · S3: Hoch- und Tiefpunkt rückwärts, Gezeiten und Temperatur modellieren, c als Parameter, Fehler „um π statt π/3“, Reihenfolge der Abbildungen.
+- `zuordnen` – S1: Am Graphen Mittellinie, Amplitude und Periode ablesen und den passenden einfachen Term erkennen. · S2: Graphen mit mehreren Parametern zuordnen, Term aus Beschreibung und Eigenschaften, a, c und d aus dem Graphen. · S3: Verschiebungen als andere Funktion erkennen, Term aus Hoch- und Tiefpunkt rückwärts, Abbildungsketten beschreiben, Fehler beim Ausklammern, Prüfungsaufgabe.
+- `eigenschaften` – S1: Nullstellen, Hoch- und Tiefpunkte von sin x und cos x angeben und die Symmetrie erkennen. · S2: Extremstellen in anderen Perioden, Nullstellen von sin(bx), Zahl der Nullstellen, Symmetrie anwenden. · S3: Gleichungen im Intervall rückwärts lösen, Symmetrie von Produkten begründen, größter Wert verknüpfter Terme, Schnittpunkte zählen, Fehler bei Nullstellen.
+- `anwendung` – S1: Ein gegebenes Modell an einer Stelle auswerten und die Bedeutung der Zahlen erkennen. · S2: Größte Höhe, Umlaufdauer, Zeitpunkt eines Werts, Werte in Grad- und Bogenmaß-Modellen. · S3: Modell selbst aufstellen, Zeitspannen über Ungleichungen, Parameter aus Extremwerten, Fehler im RAD-Modus, Gezeiten wie in einer Prüfungsaufgabe.
+
+**funktionen.ganzrational**
+
+- `grad` – S1: Grad, Leitkoeffizient und Absolutglied an einem geordneten oder ungeordneten Term ablesen. · S2: Grad von Potenzen und Differenzen, Term zu vorgegebenen Kennzahlen, Sachterm, Absolutglied am Graphen. · S3: Kennzahlen aus der Produktform ohne Ausmultiplizieren, Summe der Koeffizienten, Mindestgrad aus Eigenschaften, Parameter, Fehler „vorderstes Glied“.
+- `ausmultiplizieren` – S1: Zwei Klammern „jedes Glied mit jedem“ ausmultiplizieren und zusammenfassen. · S2: Drei Klammern, Quadrate, x⁴-Terme, Rechteckflächen als Term, eine Zahl in der Klammer aus dem Ergebnis. · S3: Produktform aus einer Nullstelle, Koeffizienten gezielt bestimmen, Parameter, binomische Formeln zum Kopfrechnen, Fehler bei (x + 2)³, Faktorisieren wie im BMT.
+- `randverhalten` – S1: Aus Grad und Vorzeichen des Leitkoeffizienten den Verlauf für große |x| angeben; am Graphen erkennen. · S2: Ungeordnete Terme und Produktformen, Sachsituation „wohin geht die Bahn“. · S3: Vorzeichen eines Parameters, Mindestzahl an Nullstellen, Begründen mit dem Randverhalten, Term rückwärts aus Verlauf und Nullstelle, Fehler, Prüfungsaussagen.
+- `symmetrie` – S1: Symmetrie an den Hochzahlen erkennen und f(−a) aus f(a) bestimmen. · S2: Symmetrie nach dem Ausmultiplizieren, Hochzahl ergänzen, Symmetrie aus einer Wertetabelle, symmetrische Bauwerke. · S3: Parameter für Symmetrie, Hoch- und Tiefpunkt übertragen, a aus zwei Bedingungen, Fehler „Grad ungerade“, Sonderfall f = 0, verschobene Graphen wie im BMT.
+- `nullstellen` – S1: Nullstellen aus der Produktform ablesen und ihre Vielfachheit erkennen. · S2: Berührstellen bestimmen, x oder x² ausklammern, Vielfachheit aus Term und Graph. · S3: Biquadratische Gleichungen, Vorzeichenbereiche, Nullstellen in Intervallen, Parameter, Fehler „berühren = schneiden“, Begründen mit Vielfachheit.
+- `graph_term` – S1: Am Graphen Nullstellen ablesen und den passenden Term erkennen; y-Achsenabschnitt prüfen. · S2: Vielfachheit und Randverhalten zusammen nutzen, Werte aus Produktformen, Sachsituation Kanal. · S3: Streckfaktor aus einem Punkt, Beschreibung in Term übersetzen, Verschiebung, Parameter, Fehler „berühren“, Begründen mit Quadraten, Prüfungsaufgabe.
+- `term_bestimmen` – S1: Den Ansatz a · (x − x₁)(x − x₂)… aus Nullstellen aufstellen und a mit dem y-Achsenabschnitt bestimmen. · S2: a mit einem beliebigen Punkt, drei Nullstellen, Wert aus Nullstellen und Leitkoeffizient. · S3: Doppelte Nullstellen, Scheitelhöhe, Tunnel modellieren, Parameter für doppelte Nullstelle, Fehler mit Vorzeichen, Symmetrie wie in der Prüfung, Unmögliches begründen.
+
+**gleichungen.polynom**
+
+- `ausklammern` – S1: x ausklammern und mit dem Satz vom Nullprodukt lösen; erkennen, wann das geht. · S2: Quadratische Klammer lösen, x² ausklammern, erst umstellen, Graph und Sachsituation. · S3: Parameter aus einer Lösung, Gleichungen mit (x − 1) auf beiden Seiten, Fehler „durch x teilen“, Begründen, Koeffizienten rückwärts, binomische Formel.
+- `nullprodukt` – S1: In einer Produktform jeden Faktor null setzen. · S2: Faktoren wie x² − a² und x² + c, doppelte Faktoren, Nullstellen am Graphen. · S3: Gleichung zu vorgegebenen Lösungen, Zahl der Lösungen, Parameter, Fehler „= 6 statt = 0“, Faktoren ohne Lösung begründen, Lösungsmenge wie im BMT, rückwärts.
+- `substitution` – S1: Biquadratische Gleichungen erkennen und mit z = x² in eine quadratische Gleichung übersetzen. · S2: Vollständig lösen mit Rücksubstitution, negative z, Dezimalwerte, Sachsituation. · S3: Faktor vor x⁴, Parameter k, x⁶ und Klammer-Substitution, Fehler mit negativem z, genau drei Lösungen begründen, Koeffizienten rückwärts.
+- `vielfachheit` – S1: Die Vielfachheit einer Nullstelle an der Hochzahl der Klammer ablesen. · S2: Vorzeichenwechsel aus der Vielfachheit, Grad einer Produktform, Vielfachheit aus einer Zerlegung. · S3: Doppelte Lösungen durch binomische Formeln, Mindestgrad, Zahl der Vorzeichenwechsel, Parameter, Fehler, Begründen.
+- `verstehen` – S1: Einfache Potenzgleichungen lösen und die höchstmögliche Zahl von Lösungen kennen. · S2: Graph und Term zuordnen, Lösungen zählen, Gleichungen ohne Lösung erkennen, Würfelkante aus dem Volumen. · S3: Fehler beim Teilen und bei der Rücksubstitution, Aussagen begründen, Sachaufgaben (Quader, Schachtel, Würfel), Term rückwärts aus Nullstellen.
+
+**raum.schraegbilder**
+
+- `pyramide` – S1: Ecken, Kanten und Flächen einer n-seitigen Pyramide zählen; Pyramiden erkennen. · S2: Rückwärts zur Eckenzahl der Grundfläche, Körper aus Kennzahlen, Kantensummen, Prisma und Pyramide zusammen. · S3: Eulersche Zahl, Drahtmodell, zusammengesetzte Körper, n als Parameter, Fehler beim Zählen, gerade Kantenzahl begründen, Seitenkante wie in der Prüfung.
+- `laengen` – S1: Im Schrägbild nach hinten führende Kanten mit q verkürzen, alle anderen in wahrer Länge zeichnen. · S2: Wahre Tiefe aus der gezeichneten Länge, Summen gezeichneter Kanten, andere q, Maßstab. · S3: Volumen aus dem Schrägbild, Restkörper und Oberfläche begründen, q als Parameter, Fehler bei senkrechten Kanten, gezeichnete Diagonale und Fläche mit Trigonometrie.
+- `lage` – S1: Lage zweier Würfelkanten erkennen: schneidend, parallel oder windschief. · S2: Diagonalen einbeziehen, gesuchte Kanten mit vorgegebener Lage finden, Gegenkanten. · S3: Windschiefe Diagonalen, Anzahlen zählen, Fehler „nicht in einer Fläche“, Raumdiagonale berechnen, Winkel im Würfel wie in der Prüfung.
+- `koordinaten` – S1: Ecken eines achsenparallelen Quaders ablesen und einzelne Koordinaten erkennen. · S2: Mittelpunkte, Kantenlängen und Volumen aus Koordinaten, Punkte im Zimmer, Punkte auf Achsen. · S3: Fehler beim Mittelpunkt, Würfel aus dem Mittelpunkt, Lage von Punkten begründen, Parameter auf einer Kante, Abstände, Winkel wie in der Prüfung.
+- `rotation` – S1: Erkennen, welcher Körper bei einer Drehung entsteht, und Radius und Höhe ablesen. · S2: Unterschiede bei verschiedenen Drehachsen, Radius aus Durchmesser, Volumen und Grundfläche, Figur zu einem Körper. · S3: Drehung um Mittellinie, Diagonale oder eine Achse außerhalb, Fehler „Kegel statt Doppelkegel“, Rechteck rückwärts, Kegelvolumen wie in der Prüfung.
+- `axialschnitt` – S1: Die Form des Axialschnitts erkennen und Breite und Fläche beim Zylinder angeben. · S2: Kegelfläche, Umfang, Radius rückwärts aus der Fläche, Kugel. · S3: Zusammengesetzte Spielfigur, gleichseitiger und quadratischer Axialschnitt, Fehler „Radius statt Durchmesser“, rechtwinkliges Dreieck begründen, Mantellinie wie in der Prüfung.
+
+**raum.pyramide_kegel_kugel**
+
+- `pyr_volumen` – S1: V = 1/3 · G · h für quadratische Pyramiden anwenden; Formel und Höhe erkennen. · S2: Höhe aus dem Volumen, rechteckige und dreieckige Grundflächen, Pyramide im Würfel. · S3: Höhe und Seitenkanten mit Pythagoras, Würfelecke abschneiden, x als Parameter, Volumenverhältnisse begründen, Fehler „ohne 1/3“, Prüfungsaufgabe.
+- `pyr_oberflaeche` – S1: Seitenhöhe mit Pythagoras und Oberfläche O = G + M wie im Beispiel; Bestandteile erkennen. · S2: Mantel aus der Seitenhöhe, Seitenhöhe rückwärts, Dächer und Zelte. · S3: Neigungswinkel, Tetraeder, Oberfläche als Vielfaches der Grundfläche, Höhe als Parameter, Begründen hₛ > h, Farbbedarf, Oberfläche aus Seitenkanten wie in der Prüfung.
+- `kegel_volumen` – S1: V = 1/3 · π · r² · h anwenden; Formel und nötige Größen erkennen. · S2: Durchmesser statt Radius, Höhe rückwärts, Kegel als Drittel eines Zylinders. · S3: Halbe Füllhöhe, Schätzen, h = r als Parameter, Kegel und Kugel vergleichen, Fehler mit dem Durchmesser, Begründen, Radius rückwärts, Waffel wie in der Prüfung.
+- `kegel_mantel` – S1: Mantellinie mit Pythagoras und Mittelpunktswinkel φ = 360° · r : s bestimmen; Kreissektor erkennen. · S2: Mantelfläche M = π · r · s, Oberfläche, Radius aus einem Sektor, Mantellinie rückwärts. · S3: Halbkreis-Mantel, Öffnungswinkel, s aus der Oberfläche, Partyhut, Fehler φ = 360° · s : r, Verhältnis als Parameter, Viertelkreis-Mantel wie in der Prüfung.
+- `kugel` – S1: Volumen und Oberfläche einer Kugel aus dem Radius berechnen; erkennen, dass der Radius genügt. · S2: Durchmesser statt Radius, Bälle und Globen, Radius rückwärts, Ergebnisse als Vielfaches von π. · S3: Wasserspiegel, V = O als Parameter, doppeltes Volumen, Umfang → Liter, Fehler r², Verhältnis V : O begründen, Dichte wie in der Prüfung, Kugeln in einer Schachtel.
+- `sachkontext` – S1: Einen Körper in der Sachsituation erkennen und sein Volumen berechnen; Teilkörper benennen. · S2: Zusammengesetzte Körper addieren oder abziehen, Hohlkugeln, Dachflächen, Größen rückwärts. · S3: Öffnungswinkel mit tan, Dichte, schiefe Pyramide wie in der Prüfung, Sektor → Kegel, Späne beim Drechseln, Fehler „ganze Kugel statt Halbkugel“.
+- `verstehen` – S1: Körper und Volumenformeln erkennen; einfache Folgen einer Längenänderung angeben. · S2: Flächen und Volumina beim Strecken mit k, k² und k³, Sachsituationen mit Maßstab, Streckfaktor rückwärts. · S3: Fehler „π · r · h“ und bei Halbkugel und schiefem Prisma, Archimedes, Cavalieri begründen, Prozentänderung, Term deuten, schiefe Prismen mit Trigonometrie.
+
+### 2. Übungen je Stufe und Typ: vorher → nachher
+„vorher“ = alle alten Übungen mit ihrem neuen Typ, auf ihrer alten Stufe. Steht dort `direkt` auf Stufe 2 oder `umkehr` auf Stufe 3, war die alte Stufe zu hoch.
+„nachher“ = ohne die überzähligen.
+
+**funktionen.exponential_log** (neu 45, Knobel 14, umgestuft 16, überzählig 53)
+
+| Lernkarte | Stufe | vorher (alle alten Übungen, typisiert) | nachher (ohne Überzählige) |
+|---|---|---|---|
+| werte | S1 | direkt 12 | direkt 2, erkennen 2 |
+|  | S2 | direkt 7, umkehr 1 | einkleidung 2, mehrschritt 2, umkehr 2 |
+|  | S3 | pruefung 1, rueckwaerts 1, umkehr 1, verknuepfen 1 | verknuepfen 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, transfer 1 |
+| faktor | S1 | direkt 6 | direkt 3, erkennen 3 |
+|  | S2 | umkehr 7, mehrschritt 4, erkennen 3 | mehrschritt 5, umkehr 4, darstellung 1 |
+|  | S3 | begruenden 1, fehler 1, mehrschritt 1, verknuepfen 1 | begruenden 2, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, transfer 1, verknuepfen 1 |
+| linear_oder_exponentiell | S1 | erkennen 4 | erkennen 4, direkt 3 |
+|  | S2 | darstellung 2, erkennen 2, mehrschritt 2 | darstellung 3, einkleidung 2, mehrschritt 2 |
+|  | S3 | begruenden 2, transfer 2, darstellung 1, fehler 1, pruefung 1, rueckwaerts 1 | begruenden 2, transfer 2, fehler 1, parameter 1, pruefung 1, rueckwaerts 1 |
+| modell | S1 | direkt 6 | erkennen 4, direkt 3 |
+|  | S2 | umkehr 4, einkleidung 3, erkennen 2, mehrschritt 1 | einkleidung 3, mehrschritt 3, umkehr 2 |
+|  | S3 | rueckwaerts 4, mehrschritt 2, transfer 1, verknuepfen 1 | rueckwaerts 3, fehler 1, parameter 1, pruefung 1, transfer 1, verknuepfen 1 |
+| graph | S1 | erkennen 7, direkt 4 | direkt 4, erkennen 4 |
+|  | S2 | darstellung 3, mehrschritt 2, umkehr 1 | darstellung 4, mehrschritt 3, umkehr 1 |
+|  | S3 | verknuepfen 3, begruenden 1, darstellung 1, mehrschritt 1, transfer 1 | verknuepfen 3, begruenden 1, fehler 1, parameter 1, pruefung 1, transfer 1 |
+| logfunktion | S1 | direkt 7 | direkt 4, erkennen 3 |
+|  | S2 | mehrschritt 6, darstellung 3, erkennen 3, umkehr 1 | darstellung 4, mehrschritt 4, umkehr 1 |
+|  | S3 | rueckwaerts 2, begruenden 1, darstellung 1 | rueckwaerts 2, begruenden 1, fehler 1, parameter 1, pruefung 1, transfer 1, verknuepfen 1 |
+| zeitpunkt | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | einkleidung 12, mehrschritt 2 | einkleidung 3, mehrschritt 2, umkehr 1 |
+|  | S3 | fehler 1, pruefung 1, rueckwaerts 1, transfer 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+
+**gleichungen.exponential** (neu 33, Knobel 12, umgestuft 20, überzählig 52)
+
+| Lernkarte | Stufe | vorher (alle alten Übungen, typisiert) | nachher (ohne Überzählige) |
+|---|---|---|---|
+| logarithmus | S1 | direkt 6 | direkt 4, erkennen 3 |
+|  | S2 | mehrschritt 5, erkennen 2, umkehr 2, darstellung 1 | mehrschritt 5, umkehr 3, darstellung 1 |
+|  | S3 | rueckwaerts 3, verknuepfen 2, begruenden 1, mehrschritt 1, umkehr 1 | rueckwaerts 3, verknuepfen 2, begruenden 1, fehler 1, transfer 1 |
+| gleiche_basis | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 6, direkt 4, verknuepfen 1 | mehrschritt 4, einkleidung 2, darstellung 1 |
+|  | S3 | verknuepfen 3, pruefung 2, parameter 1, transfer 1 | verknuepfen 3, pruefung 2, fehler 1, parameter 1, transfer 1 |
+| mit_log_loesen | S1 | direkt 6 | direkt 2, erkennen 2 |
+|  | S2 | mehrschritt 14 | mehrschritt 4, einkleidung 2, umkehr 1 |
+|  | S3 | verknuepfen 2, transfer 1, umkehr 1 | verknuepfen 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, transfer 1 |
+| potenzregel | S1 | direkt 4, erkennen 2 | direkt 4, erkennen 4 |
+|  | S2 | mehrschritt 7, direkt 3, erkennen 3, darstellung 1 | mehrschritt 4, darstellung 1, einkleidung 1, umkehr 1 |
+|  | S3 | verknuepfen 2, fehler 1, pruefung 1, transfer 1 | verknuepfen 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, transfer 1 |
+| wachstum | S1 | direkt 6 | direkt 2, erkennen 2 |
+|  | S2 | einkleidung 7, mehrschritt 1, umkehr 1 | einkleidung 4, umkehr 2, darstellung 1, mehrschritt 1 |
+|  | S3 | rueckwaerts 4, pruefung 2, transfer 1, umkehr 1, verknuepfen 1 | rueckwaerts 3, pruefung 2, fehler 1, transfer 1, verknuepfen 1 |
+| verstehen | S1 | erkennen 8 | direkt 4, erkennen 4 |
+|  | S2 | begruenden 7, fehler 3, umkehr 2, darstellung 1, direkt 1, erkennen 1 | mehrschritt 2, umkehr 2, darstellung 1, einkleidung 1 |
+|  | S3 | fehler 1, parameter 1, rueckwaerts 1, transfer 1 | begruenden 3, fehler 3, parameter 1, rueckwaerts 1, transfer 1 |
+
+**stochastik.mehrstufig** (neu 45, Knobel 16, umgestuft 13, überzählig 67)
+
+| Lernkarte | Stufe | vorher (alle alten Übungen, typisiert) | nachher (ohne Überzählige) |
+|---|---|---|---|
+| pfad_mult | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 9, einkleidung 4, umkehr 1 | mehrschritt 5, einkleidung 3, umkehr 1 |
+|  | S3 | rueckwaerts 2, pruefung 1, transfer 1 | rueckwaerts 2, begruenden 1, fehler 1, parameter 1, pruefung 1, transfer 1, verknuepfen 1 |
+| pfad_add | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | einkleidung 7, mehrschritt 6, darstellung 1 | einkleidung 3, mehrschritt 3, darstellung 1 |
+|  | S3 | begruenden 1, mehrschritt 1, transfer 1, verknuepfen 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| ohne_zuruecklegen | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | einkleidung 6, mehrschritt 6, umkehr 1 | einkleidung 3, mehrschritt 3, umkehr 1 |
+|  | S3 | begruenden 1, mehrschritt 1, parameter 1, transfer 1, verknuepfen 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| gegenereignis | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | einkleidung 6, mehrschritt 2 | einkleidung 3, mehrschritt 2, darstellung 1 |
+|  | S3 | rueckwaerts 4, transfer 2, fehler 1, parameter 1, pruefung 1, verknuepfen 1 | rueckwaerts 2, transfer 2, fehler 1, parameter 1, pruefung 1, verknuepfen 1 |
+| baum_ergaenzen | S1 | direkt 6 | direkt 2, erkennen 2 |
+|  | S2 | einkleidung 7, umkehr 7 | einkleidung 3, umkehr 3, mehrschritt 2 |
+|  | S3 | mehrschritt 1, rueckwaerts 1, transfer 1, verknuepfen 1 | rueckwaerts 2, begruenden 1, fehler 1, parameter 1, pruefung 1, transfer 1, verknuepfen 1 |
+| simulation | S1 | direkt 6, erkennen 6 | direkt 3, erkennen 2 |
+|  | S2 | einkleidung 3, begruenden 2, darstellung 1, mehrschritt 1 | einkleidung 2, mehrschritt 2, darstellung 1, umkehr 1 |
+|  | S3 | begruenden 2, verknuepfen 2, rueckwaerts 1 | begruenden 3, verknuepfen 2, fehler 1, rueckwaerts 1, transfer 1 |
+| pi_schaetzen | S1 | direkt 3, erkennen 1 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 2, begruenden 1, darstellung 1, einkleidung 1, umkehr 1 | mehrschritt 4, einkleidung 2, darstellung 1, umkehr 1 |
+|  | S3 | begruenden 2, mehrschritt 2, fehler 1, parameter 1, rueckwaerts 1, verknuepfen 1 | begruenden 3, fehler 1, parameter 1, rueckwaerts 1, transfer 1, verknuepfen 1 |
+| verstehen | S1 | erkennen 7 | erkennen 3, direkt 2 |
+|  | S2 | fehler 8, begruenden 2, transfer 1 | einkleidung 2, mehrschritt 2, darstellung 1, umkehr 1 |
+|  | S3 | verknuepfen 2, begruenden 1, parameter 1, rueckwaerts 1, transfer 1 | begruenden 3, fehler 3, transfer 2, verknuepfen 2, parameter 1, rueckwaerts 1 |
+
+**stochastik.simulation** (neu 33, Knobel 12, umgestuft 8, überzählig 40)
+
+| Lernkarte | Stufe | vorher (alle alten Übungen, typisiert) | nachher (ohne Überzählige) |
+|---|---|---|---|
+| zufallsgeraet | S1 | erkennen 6 | erkennen 3, direkt 2 |
+|  | S2 | darstellung 5, mehrschritt 4, umkehr 1 | darstellung 3, mehrschritt 2, umkehr 1 |
+|  | S3 | begruenden 2, transfer 2 | begruenden 2, transfer 2, fehler 1, parameter 1, pruefung 1, verknuepfen 1 |
+| regel | S1 | direkt 4 | direkt 2, erkennen 2 |
+|  | S2 | darstellung 7, mehrschritt 1, umkehr 1 | darstellung 3, mehrschritt 2, einkleidung 1, umkehr 1 |
+|  | S3 | transfer 3, verknuepfen 2, begruenden 1, mehrschritt 1 | transfer 3, verknuepfen 2, begruenden 1, fehler 1, parameter 1 |
+| zufallsziffern | S1 | direkt 4 | direkt 2, erkennen 2 |
+|  | S2 | mehrschritt 5, umkehr 2, direkt 1 | mehrschritt 4, einkleidung 3, umkehr 2 |
+|  | S3 | transfer 4, verknuepfen 2, einkleidung 1, mehrschritt 1 | transfer 3, verknuepfen 2, begruenden 1, fehler 1, parameter 1 |
+| auswerten | S1 | direkt 4 | direkt 3, erkennen 3 |
+|  | S2 | mehrschritt 6, erkennen 3, darstellung 1, einkleidung 1 | mehrschritt 3, darstellung 1, einkleidung 1, umkehr 1 |
+|  | S3 | begruenden 3, verknuepfen 2, transfer 1, umkehr 1 | begruenden 3, verknuepfen 2, fehler 1, parameter 1, transfer 1 |
+| monte_carlo | S1 | direkt 4 | direkt 2, erkennen 2 |
+|  | S2 | mehrschritt 7, einkleidung 1 | mehrschritt 3, umkehr 2, einkleidung 1 |
+|  | S3 | verknuepfen 4, umkehr 2, begruenden 1, transfer 1 | transfer 2, verknuepfen 2, begruenden 1, fehler 1, parameter 1, rueckwaerts 1 |
+| beurteilen | S1 | erkennen 5 | erkennen 3, direkt 2 |
+|  | S2 | mehrschritt 9, umkehr 1 | mehrschritt 3, darstellung 1, einkleidung 1, umkehr 1 |
+|  | S3 | begruenden 2, transfer 2, fehler 1, verknuepfen 1 | begruenden 2, transfer 2, fehler 1, parameter 1, pruefung 1, verknuepfen 1 |
+
+**funktionen.trig** (neu 17, Knobel 16, umgestuft 6, überzählig 78)
+
+| Lernkarte | Stufe | vorher (alle alten Übungen, typisiert) | nachher (ohne Überzählige) |
+|---|---|---|---|
+| bogenmass | S1 | direkt 8 | direkt 3, erkennen 2 |
+|  | S2 | direkt 6, mehrschritt 5, umkehr 2, darstellung 1 | mehrschritt 4, umkehr 2, darstellung 1 |
+|  | S3 | transfer 3, verknuepfen 3, rueckwaerts 2, fehler 1, parameter 1 | transfer 3, verknuepfen 3, rueckwaerts 2, fehler 1, parameter 1 |
+| werte | S1 | direkt 10 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 10, darstellung 1 | mehrschritt 4, darstellung 1, einkleidung 1, umkehr 1 |
+|  | S3 | begruenden 4, pruefung 2, rueckwaerts 2, fehler 1, transfer 1, verknuepfen 1 | begruenden 2, pruefung 2, rueckwaerts 2, fehler 1, transfer 1, verknuepfen 1 |
+| periode | S1 | direkt 8, erkennen 1 | direkt 4, erkennen 3 |
+|  | S2 | darstellung 5, mehrschritt 5, umkehr 4, fehler 3, direkt 2 | mehrschritt 4, darstellung 3, umkehr 3 |
+|  | S3 | pruefung 2, rueckwaerts 2, transfer 2, verknuepfen 2, begruenden 1, fehler 1 | fehler 3, pruefung 2, rueckwaerts 2, transfer 2, verknuepfen 2, begruenden 1 |
+| parameter | S1 | direkt 7, mehrschritt 1 | direkt 3, erkennen 2 |
+|  | S2 | umkehr 6, darstellung 4, mehrschritt 4 | mehrschritt 5, umkehr 5, darstellung 3 |
+|  | S3 | rueckwaerts 4, parameter 2, verknuepfen 2, pruefung 1, umkehr 1 | rueckwaerts 3, parameter 2, verknuepfen 2, pruefung 1 |
+| verschiebung_x | S1 | direkt 2, erkennen 2 | direkt 2, erkennen 2 |
+|  | S2 | darstellung 2, mehrschritt 2, umkehr 2 | darstellung 2, mehrschritt 2, umkehr 2 |
+|  | S3 | rueckwaerts 2, transfer 2, verknuepfen 2, fehler 1, parameter 1 | rueckwaerts 2, transfer 2, verknuepfen 2, fehler 1, parameter 1 |
+| zuordnen | S1 | erkennen 9 | direkt 3, erkennen 3 |
+|  | S2 | darstellung 12, mehrschritt 3, umkehr 1 | darstellung 4, mehrschritt 3, umkehr 1 |
+|  | S3 | verknuepfen 4, transfer 3, rueckwaerts 2, begruenden 1, darstellung 1, fehler 1, pruefung 1 | transfer 3, verknuepfen 3, rueckwaerts 2, begruenden 1, fehler 1, pruefung 1 |
+| eigenschaften | S1 | direkt 7, erkennen 1 | direkt 3, erkennen 3 |
+|  | S2 | darstellung 6, umkehr 6, mehrschritt 4, erkennen 1 | darstellung 5, umkehr 4, mehrschritt 3 |
+|  | S3 | begruenden 2, rueckwaerts 2, transfer 2, verknuepfen 1 | begruenden 2, rueckwaerts 2, transfer 2, fehler 1, verknuepfen 1 |
+| anwendung | S1 | direkt 7, erkennen 1 | direkt 3, erkennen 2 |
+|  | S2 | umkehr 8, einkleidung 6, mehrschritt 3 | einkleidung 5, umkehr 5, mehrschritt 3 |
+|  | S3 | transfer 3, rueckwaerts 2, fehler 1, verknuepfen 1 | transfer 3, rueckwaerts 2, fehler 1, pruefung 1, verknuepfen 1 |
+
+**funktionen.ganzrational** (neu 46, Knobel 14, umgestuft 10, überzählig 79)
+
+| Lernkarte | Stufe | vorher (alle alten Übungen, typisiert) | nachher (ohne Überzählige) |
+|---|---|---|---|
+| grad | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | erkennen 4, direkt 2, mehrschritt 2 | mehrschritt 3, darstellung 1, einkleidung 1, umkehr 1 |
+|  | S3 | transfer 5, verknuepfen 3, begruenden 1, parameter 1 | verknuepfen 3, transfer 2, begruenden 1, fehler 1, parameter 1 |
+| ausmultiplizieren | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 12, darstellung 1 | mehrschritt 4, darstellung 1, einkleidung 1, umkehr 1 |
+|  | S3 | rueckwaerts 2, fehler 1, transfer 1, umkehr 1 | rueckwaerts 2, begruenden 1, fehler 1, parameter 1, pruefung 1, transfer 1, verknuepfen 1 |
+| randverhalten | S1 | direkt 7 | direkt 3, erkennen 2 |
+|  | S2 | erkennen 4, direkt 2, mehrschritt 2, darstellung 1 | darstellung 3, mehrschritt 2, einkleidung 1 |
+|  | S3 | darstellung 5, begruenden 1, parameter 1, transfer 1 | begruenden 2, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, transfer 1, verknuepfen 1 |
+| symmetrie | S1 | erkennen 12 | direkt 3, erkennen 3 |
+|  | S2 | direkt 6, mehrschritt 2 | mehrschritt 3, darstellung 1, einkleidung 1, umkehr 1 |
+|  | S3 | parameter 2, fehler 1, transfer 1 | parameter 2, begruenden 1, fehler 1, pruefung 1, rueckwaerts 1, transfer 1, verknuepfen 1 |
+| nullstellen | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | umkehr 7, mehrschritt 3, darstellung 2 | mehrschritt 3, umkehr 3, darstellung 2 |
+|  | S3 | parameter 2, transfer 2, verknuepfen 2 | parameter 2, transfer 2, verknuepfen 2, begruenden 1, fehler 1 |
+| graph_term | S1 | erkennen 8 | direkt 2, erkennen 2 |
+|  | S2 | darstellung 12 | darstellung 2, mehrschritt 2, einkleidung 1, umkehr 1 |
+|  | S3 | parameter 1, rueckwaerts 1, transfer 1, verknuepfen 1 | rueckwaerts 2, begruenden 1, fehler 1, parameter 1, pruefung 1, transfer 1, verknuepfen 1 |
+| term_bestimmen | S1 | direkt 6 | direkt 2, erkennen 2 |
+|  | S2 | mehrschritt 8, umkehr 5, darstellung 1 | mehrschritt 3, umkehr 2, darstellung 1 |
+|  | S3 | rueckwaerts 2, transfer 1, verknuepfen 1 | rueckwaerts 2, begruenden 1, fehler 1, parameter 1, pruefung 1, transfer 1, verknuepfen 1 |
+
+**gleichungen.polynom** (neu 28, Knobel 10, umgestuft 5, überzählig 49)
+
+| Lernkarte | Stufe | vorher (alle alten Übungen, typisiert) | nachher (ohne Überzählige) |
+|---|---|---|---|
+| ausklammern | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 13, umkehr 1 | mehrschritt 4, darstellung 1, einkleidung 1, umkehr 1 |
+|  | S3 | transfer 2, parameter 1, pruefung 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| nullprodukt | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 8, umkehr 6 | mehrschritt 4, umkehr 3, darstellung 1 |
+|  | S3 | parameter 1, rueckwaerts 1, transfer 1, verknuepfen 1 | rueckwaerts 2, begruenden 1, fehler 1, parameter 1, pruefung 1, transfer 1, verknuepfen 1 |
+| substitution | S1 | direkt 6 | direkt 2, erkennen 2 |
+|  | S2 | mehrschritt 10, umkehr 2 | mehrschritt 3, umkehr 2, einkleidung 1 |
+|  | S3 | transfer 2, fehler 1, parameter 1, pruefung 1, umkehr 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| vielfachheit | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | darstellung 6, umkehr 3, mehrschritt 2 | darstellung 2, mehrschritt 2, umkehr 2 |
+|  | S3 | verknuepfen 3, transfer 2, parameter 1, rueckwaerts 1 | transfer 2, verknuepfen 2, begruenden 1, fehler 1, parameter 1, rueckwaerts 1 |
+| verstehen | S1 | erkennen 6 | direkt 2, erkennen 2 |
+|  | S2 | fehler 5, darstellung 2, mehrschritt 2, begruenden 1, umkehr 1 | darstellung 2, mehrschritt 2, einkleidung 1, umkehr 1 |
+|  | S3 | begruenden 2, rueckwaerts 2, transfer 2, verknuepfen 1 | begruenden 3, fehler 3, rueckwaerts 2, transfer 2, verknuepfen 1 |
+
+**raum.schraegbilder** (neu 35, Knobel 12, umgestuft 8, überzählig 36)
+
+| Lernkarte | Stufe | vorher (alle alten Übungen, typisiert) | nachher (ohne Überzählige) |
+|---|---|---|---|
+| pyramide | S1 | direkt 4 | direkt 3, erkennen 2 |
+|  | S2 | umkehr 5, mehrschritt 4, darstellung 3 | mehrschritt 3, umkehr 3, darstellung 2 |
+|  | S3 | transfer 2, parameter 1, verknuepfen 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| laengen | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | umkehr 5, mehrschritt 3, direkt 2 | umkehr 3, mehrschritt 2, einkleidung 1 |
+|  | S3 | begruenden 1, rueckwaerts 1, transfer 1, verknuepfen 1 | verknuepfen 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, transfer 1 |
+| lage | S1 | erkennen 6 | erkennen 3, direkt 2 |
+|  | S2 | direkt 4, mehrschritt 2, darstellung 1, erkennen 1, umkehr 1 | umkehr 3, mehrschritt 2, darstellung 1 |
+|  | S3 | transfer 3, umkehr 2, begruenden 1 | transfer 3, begruenden 1, fehler 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| koordinaten | S1 | erkennen 6, direkt 4 | direkt 3, erkennen 3 |
+|  | S2 | mehrschritt 4, direkt 1, umkehr 1 | mehrschritt 3, darstellung 1, einkleidung 1, umkehr 1 |
+|  | S3 | fehler 1, mehrschritt 1, rueckwaerts 1, transfer 1 | rueckwaerts 2, begruenden 1, fehler 1, parameter 1, pruefung 1, transfer 1, verknuepfen 1 |
+| rotation | S1 | direkt 6, erkennen 4 | erkennen 4, direkt 3 |
+|  | S2 | umkehr 2, direkt 1, erkennen 1, mehrschritt 1 | einkleidung 2, mehrschritt 2, darstellung 1, umkehr 1 |
+|  | S3 | transfer 3, begruenden 1, verknuepfen 1 | transfer 3, begruenden 1, fehler 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| axialschnitt | S1 | direkt 5, erkennen 2 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 4, umkehr 4, darstellung 1 | mehrschritt 3, umkehr 3, darstellung 1 |
+|  | S3 | transfer 2, rueckwaerts 1, verknuepfen 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+
+**raum.pyramide_kegel_kugel** (neu 35, Knobel 14, umgestuft 3, überzählig 67)
+
+| Lernkarte | Stufe | vorher (alle alten Übungen, typisiert) | nachher (ohne Überzählige) |
+|---|---|---|---|
+| pyr_volumen | S1 | direkt 6 | direkt 2, erkennen 2 |
+|  | S2 | mehrschritt 5, umkehr 4, einkleidung 1 | mehrschritt 3, umkehr 3, einkleidung 1 |
+|  | S3 | pruefung 2, transfer 2, verknuepfen 2, begruenden 1, parameter 1 | transfer 2, verknuepfen 2, begruenden 1, fehler 1, parameter 1, pruefung 1 |
+| pyr_oberflaeche | S1 | direkt 12 | direkt 3, erkennen 2 |
+|  | S2 | darstellung 6, mehrschritt 1, umkehr 1 | darstellung 2, einkleidung 2, mehrschritt 1, umkehr 1 |
+|  | S3 | fehler 1, rueckwaerts 1, transfer 1, verknuepfen 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| kegel_volumen | S1 | direkt 6 | direkt 2, erkennen 2 |
+|  | S2 | umkehr 7, einkleidung 6, darstellung 1 | umkehr 3, einkleidung 2, darstellung 1 |
+|  | S3 | verknuepfen 2, parameter 1, transfer 1 | verknuepfen 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, transfer 1 |
+| kegel_mantel | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 10, umkehr 3, darstellung 1 | mehrschritt 4, umkehr 3, darstellung 1 |
+|  | S3 | transfer 2, rueckwaerts 1, verknuepfen 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| kugel | S1 | direkt 6 | direkt 3, erkennen 2 |
+|  | S2 | mehrschritt 5, umkehr 5, einkleidung 3, darstellung 1 | umkehr 3, einkleidung 2, mehrschritt 2, darstellung 1 |
+|  | S3 | parameter 1, rueckwaerts 1, transfer 1, verknuepfen 1 | transfer 2, begruenden 1, fehler 1, parameter 1, pruefung 1, rueckwaerts 1, verknuepfen 1 |
+| sachkontext | S1 | direkt 6 | direkt 2, erkennen 2 |
+|  | S2 | einkleidung 6, mehrschritt 4, umkehr 1 | einkleidung 3, mehrschritt 3, umkehr 1 |
+|  | S3 | verknuepfen 3, pruefung 2, transfer 2 | verknuepfen 3, pruefung 2, transfer 2, fehler 1 |
+| verstehen | S1 | direkt 4, erkennen 3 | direkt 4, erkennen 4 |
+|  | S2 | mehrschritt 7, fehler 5, begruenden 1, direkt 1, erkennen 1 | mehrschritt 4, einkleidung 2, umkehr 1 |
+|  | S3 | fehler 2, transfer 2, verknuepfen 2, begruenden 1, rueckwaerts 1 | fehler 3, begruenden 2, transfer 2, verknuepfen 2, rueckwaerts 1 |
+
+### 4. Liste „überzählig“ (bitte sperren; Fragetext wörtlich)
+
+**funktionen.exponential_log** (53)
+- `werte`: „Berechne f(4) für f(x) = 2 · 3^x.“ · „Berechne f(3) für f(x) = 9 · 2^x.“ · „Berechne f(1) für f(x) = 6 · 10^x.“ · „Berechne f(1) für f(x) = 4 · 10^x.“ · „Berechne f(−1) für f(x) = 20 · 4^x.“ · „Berechne f(−2) für f(x) = 2 · 4^x.“ · „Berechne f(−1) für f(x) = 20 · 2^x.“ · „Berechne f(−3) für f(x) = 8 · 10^x.“ · „Berechne f(−3) für f(x) = 10 · 10^x.“ · „Berechne f(−2) für f(x) = 10 · 10^x.“ · „Berechne f(3) für f(x) = 200 · 1,5^x.“ · „Berechne f(4) für f(x) = 1 000 · 1,5^x.“ · „Berechne f(4) für f(x) = 200 · 1,5^x.“ · „Berechne f(2) für f(x) = 400 · 1,5^x.“ · „Berechne f(4) für f(x) = 400 · 0,8^x.“ · „Berechne f(4) für f(x) = 400 · 1,5^x.“ · „Berechne f(−2) für f(x) = 64 · 0,5^x.“
+- `faktor`: „Die Zahl der Nutzer einer App nimmt jedes Jahr um 15 % ab. Wie groß ist der Wachstumsfaktor b?“ · „Ein Guthaben wächst jedes Jahr um 3 %. Wie groß ist der Wachstumsfaktor b?“ · „Der Wert eines Autos nimmt jedes Jahr um 8 % ab. Wie groß ist der Wachstumsfaktor b?“ · „f(t) = 50 · 1,08^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?“ · „f(t) = 200 · 0,88^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?“ · „f(t) = 8 000 · 1,12^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?“ · „Beschreibt f(t) = 5 000 · 1,01^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?“
+- `modell`: „Eine Kultur enthält zu Beginn 400 Zellen und verdoppelt sich alle 4 h. Wie viele Zellen sind es nach 16 h?“ · „Eine Kultur enthält zu Beginn 300 Zellen und verdoppelt sich alle 30 min. Wie viele Zellen sind es nach 150 min?“ · „Eine Kultur enthält zu Beginn 200 Zellen und verdoppelt sich alle 20 min. Wie viele Zellen sind es nach 40 min?“ · „Eine Exponentialfunktion hat f(0) = 50 und f(1) = 150. Bestimme den Wachstumsfaktor b in f(x) = a · b^x.“ · „Eine Exponentialfunktion hat f(0) = 250 und f(1) = 312,5. Bestimme den Wachstumsfaktor b in f(x) = a · b^x.“ · „Der Graph von f(x) = a · b^x geht durch P(2 | 450) und Q(4 | 4 050). Bestimme den Anfangswert a.“
+- `graph`: „Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?“ · „Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?“ · „Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?“
+- `logfunktion`: „Berechne f(125) für f(x) = log₅(x).“ · „Berechne f(16) für f(x) = log₄(x).“ · „Berechne f(27) für f(x) = log₃(x).“ · „Berechne f(0,25) für f(x) = log₄(x).“ · „Berechne f(8) für f(x) = log₅(x) auf zwei Nachkommastellen.“
+- `zeitpunkt`: „f(t) = 1 000 · 1,05^t. Für welches t ist f(t) = 2 000? Runde auf eine Nachkommastelle.“ · „f(t) = 100 · 1,1^t. Für welches t ist f(t) = 1 000? Runde auf eine Nachkommastelle.“ · „f(t) = 100 · 1,5^t. Für welches t ist f(t) = 500? Runde auf eine Nachkommastelle.“ · „f(t) = 200 · 1,1^t. Für welches t ist f(t) = 2 000? Runde auf eine Nachkommastelle.“ · „Ein Bestand wächst um 8 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle).“ · „Ein Bestand nimmt um 2 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle).“ · „Ein Bestand wächst um 7 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle).“ · „Ein Bestand wächst um 4 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle).“ · „Ein heißes Getränk hat eine Übertemperatur von 75 °C (über der Raumtemperatur), die pro Minute um 12 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 30 °C (eine Nachkommastelle)?“ · „Ein heißes Getränk hat eine Übertemperatur von 70 °C (über der Raumtemperatur), die pro Minute um 5 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 10 °C (eine Nachkommastelle)?“ · „Ein heißes Getränk hat eine Übertemperatur von 60 °C (über der Raumtemperatur), die pro Minute um 6 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 12 °C (eine Nachkommastelle)?“ · „Ein heißes Getränk hat eine Übertemperatur von 60 °C (über der Raumtemperatur), die pro Minute um 12 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 12 °C (eine Nachkommastelle)?“ · „Ein heißes Getränk hat eine Übertemperatur von 65 °C (über der Raumtemperatur), die pro Minute um 10 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 20 °C (eine Nachkommastelle)?“
+- `linear_oder_exponentiell`: „Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?“ · „Wächst oder fällt die Größe in der Tabelle linear oder exponentiell?“
+
+**gleichungen.exponential** (52)
+- `logarithmus`: „Berechne log₂(128).“ · „Berechne lg(10).“ · „Berechne lg(0,1).“
+- `gleiche_basis`: „Löse 5^x = 125.“ · „Löse 3^x = 729.“ · „Löse 5^x = 25.“ · „Löse 3^x = 9.“ · „Löse 2^x = 128.“ · „Löse 5^(x + 3) = 125.“ · „Löse 2^(x + 3) = 2.“ · „Löse 5 · 5^x = 125.“ · „Löse 9^x = 2 187.“ · „Löse 2 · 5^x = 10.“
+- `mit_log_loesen`: „Löse 2^x = 165. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 2^x und y = 165 zum Abschätzen.)“ · „Löse 5^x = 178. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 5^x und y = 178 zum Abschätzen.)“ · „Löse 2^x = 13. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 2^x und y = 13 zum Abschätzen.)“ · „Löse 3^x = 53. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 53 zum Abschätzen.)“ · „Löse 7 · 1,2^x = 91. Runde auf zwei Nachkommastellen.“ · „Löse 6 · 3^x = 20. Runde auf zwei Nachkommastellen.“ · „Löse 9 · 0,5^x = 6,8. Runde auf zwei Nachkommastellen.“ · „Löse 6 · 3^x = 58. Runde auf zwei Nachkommastellen.“ · „Löse 2 · 1,2^x = 33. Runde auf zwei Nachkommastellen.“ · „Löse 5^(3x + 1) = 254. Runde auf zwei Nachkommastellen.“ · „Löse 5^(2x − 2) = 41. Runde auf zwei Nachkommastellen.“ · „Löse 5^(2x − 1) = 45. Runde auf zwei Nachkommastellen.“ · „Löse 2^(3x + 1) = 299. Runde auf zwei Nachkommastellen.“ · „Löse 5^(2x) = 165. Runde auf zwei Nachkommastellen.“
+- `potenzregel`: „Berechne log₂(2³) mit der Potenzregel.“ · „Berechne log₃(3¹³) mit der Potenzregel.“ · „Berechne log₂(2¹³) mit der Potenzregel.“ · „Es gilt lg 3 ≈ 0,4771. Berechne damit lg(3⁵) (ohne Taschenrechner).“ · „Es gilt lg 2 ≈ 0,301. Berechne damit lg(2⁶) (ohne Taschenrechner).“ · „Es gilt lg 5 ≈ 0,699. Berechne damit lg(5⁶) (ohne Taschenrechner).“ · „Welche Umformung ist richtig (x > 0)?“
+- `wachstum`: „Ein Betrag wächst jedes Jahr um 10 %. Löse 1,1^t = 1,25, um zu sehen, wann er das 1,25-Fache erreicht hat. Runde auf eine Nachkommastelle.“ · „Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Löse 2 000 · 1,02^t = 2 500, um zu sehen, wann es auf 2 500 € angewachsen ist. Runde auf eine Nachkommastelle.“ · „Ein Betrag wächst jedes Jahr um 5 %. Löse 1,05^t = 3, um zu sehen, wann er das 3-Fache erreicht hat. Runde auf eine Nachkommastelle.“ · „Ein Kapital von 1 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Löse 1 000 · 1,06^t = 2 000, um zu sehen, wann es auf 2 000 € angewachsen ist. Runde auf eine Nachkommastelle.“ · „Ein radioaktiver Stoff hat eine Halbwertszeit von 12 Tagen. Anfangs sind 80 mg vorhanden. Wie viel ist nach 48 Tagen noch da?“ · „Ein Guthaben wird mit 3 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?“ · „Ein Guthaben wird mit 6 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?“ · „Ein Medikament wird mit einer Halbwertszeit von 25 Stunden abgebaut. Nach welcher Zeit sind noch 30 % vorhanden (eine Nachkommastelle)?“
+- `verstehen`: „Welche Lösung hat 5^x = −25? Die Zeichnung zeigt y = 5^x und y = −25.“ · „Welchen Wert hat log₇(7)?“ · „Jemand rechnet log₄(256) = 256 : 4 = 64. Was stimmt?“ · „Welche Lösung hat 3^x = −81? Die Zeichnung zeigt y = 3^x und y = −81.“ · „Welchen Wert hat lg(1)?“ · „Welche Aussage ist falsch?“ · „Welche Aussage ist falsch?“ · „Jemand formt 4 · 5^x = 24 um zu 20^x = 24. Was stimmt?“ · „Welche Aussage ist falsch?“ · „Welche Aussage ist falsch?“
+
+**stochastik.mehrstufig** (67)
+- `pfad_mult`: „In einer Urne liegen 4 gelbe und 7 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen (siehe Baumdiagramm). Berechne P(gelb, gelb) als gekürzten Bruch.“ · „In einer Urne liegen 2 weiße und 5 rote Kugeln. Es wird zweimal mit Zurücklegen gezogen (siehe Baumdiagramm). Berechne P(weiß, weiß) als gekürzten Bruch.“ · „In einer Urne liegen 7 blaue und 2 schwarze Kugeln. Es wird zweimal mit Zurücklegen gezogen (siehe Baumdiagramm). Berechne P(blau, blau) als gekürzten Bruch.“ · „Ein Basketballspieler trifft bei einem Freiwurf mit der Wahrscheinlichkeit 0,9. Mit welcher Wahrscheinlichkeit trifft er 2-mal hintereinander (Würfe unabhängig)?“ · „In einer Urne liegen 3 grüne und 6 rote Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(grün, grün, rot) in dieser Reihenfolge.“ · „In einer Urne liegen 7 blaue und 6 grüne Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(blau, blau, grün) in dieser Reihenfolge.“ · „In einer Urne liegen 8 gelbe und 6 blaue Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(gelb, gelb, blau) in dieser Reihenfolge.“ · „In einer Urne liegen 8 grüne und 8 rote Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(grün, grün, rot) in dieser Reihenfolge.“
+- `pfad_add`: „In einer Urne liegen 7 rote und 6 schwarze Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?“ · „In einer Urne liegen 6 weiße und 6 schwarze Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?“ · „In einer Urne liegen 3 gelbe und 6 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?“ · „In einer Urne liegen 3 grüne und 2 rote Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?“ · „In einer Urne liegen 8 grüne und 2 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?“ · „In einer Urne liegen 6 blaue und 3 rote Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?“ · „In einer Urne liegen 4 grüne und 7 blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?“ · „Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,2 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?“ · „Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,3 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?“ · „Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,4 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?“ · „Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,8 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?“
+- `ohne_zuruecklegen`: „In einer Urne liegen 5 grüne und 6 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(grün, grün).“ · „In einer Urne liegen 7 weiße und 7 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(weiß, weiß).“ · „In einer Urne liegen 8 rote und 7 grüne Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(rot, rot).“ · „In einer Urne liegen 3 rote und 6 grüne Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Ergänze im Kopf die Äste der zweiten Stufe und berechne P(zwei verschiedene Farben).“ · „In einer Urne liegen 4 grüne und 8 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Ergänze im Kopf die Äste der zweiten Stufe und berechne P(zwei verschiedene Farben).“ · „In einer Urne liegen 7 schwarze und 8 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Ergänze im Kopf die Äste der zweiten Stufe und berechne P(zwei verschiedene Farben).“ · „In einer Urne liegen 6 rote und 3 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Ergänze im Kopf die Äste der zweiten Stufe und berechne P(zwei verschiedene Farben).“ · „In einer Lostrommel sind 22 Lose, davon 6 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?“ · „In einer Lostrommel sind 21 Lose, davon 7 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?“ · „In einer Lostrommel sind 21 Lose, davon 5 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?“
+- `gegenereignis`: „Ein Glücksrad mit 4 gleich großen Feldern (1 rot, 3 weiß) wird 2-mal gedreht. Wie groß ist P(mindestens einmal rot)?“ · „Eine Münze wird 2-mal geworfen. Wie groß ist P(mindestens einmal Kopf)?“ · „Eine Münze wird 4-mal geworfen. Wie groß ist P(mindestens einmal Kopf)?“ · „Ein Los ist mit der Wahrscheinlichkeit 0,2 ein Gewinn. 2 Lose werden gekauft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen Gewinn?“ · „Ein Bauteil ist mit der Wahrscheinlichkeit 0,02 defekt. 2 Bauteile werden geprüft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens ein defektes Bauteil?“ · „Ein Bauteil ist mit der Wahrscheinlichkeit 0,05 defekt. 3 Bauteile werden geprüft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens ein defektes Bauteil?“ · „Ein Spiel wird mit der Wahrscheinlichkeit 0,3 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 99 % wenigstens einmal zu gewinnen?“ · „Ein Spiel wird mit der Wahrscheinlichkeit 0,3 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 % wenigstens einmal zu gewinnen?“
+- `baum_ergaenzen`: „Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,9. Welche Wahrscheinlichkeit hat der andere?“ · „Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,25. Welche Wahrscheinlichkeit hat der andere?“ · „Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,45. Welche Wahrscheinlichkeit hat der andere?“ · „Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,05. Welche Wahrscheinlichkeit hat der andere?“ · „In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,1. Welche Wahrscheinlichkeit steht am Ast von A nach B?“ · „In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,14. Welche Wahrscheinlichkeit steht am Ast von A nach B?“ · „In einem zweistufigen Baumdiagramm ist P(A) = 0,4 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,16. Welche Wahrscheinlichkeit steht am Ast von A nach B?“ · „In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,08. Welche Wahrscheinlichkeit steht am Ast von A nach B?“ · „Eine Krankheit ist bei 5 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 95 % „positiv“, bei gesunden mit 10 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?“ · „Eine Krankheit ist bei 10 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 98 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?“ · „Eine Krankheit ist bei 20 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 95 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?“ · „Eine Krankheit ist bei 5 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 95 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?“
+- `simulation`: „Ein Würfel wird 300-mal geworfen. Wie oft erwartet man eine Zahl unter 3?“ · „Ein Würfel wird 60-mal geworfen. Wie oft erwartet man eine Zahl unter 3?“ · „Eine Münze wird 600-mal geworfen. Wie oft erwartet man Kopf?“ · „Eine Simulation wurde 200-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.“ · „Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.“ · „Eine Simulation wurde 250-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.“ · „Eine Simulation wurde 1 000-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.“ · „Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 500-mal wiederholt. Wie oft erwartet man „zwei Treffer“?“ · „Bei einem Würfel kam 7-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?“
+- `verstehen`: „An einer Verzweigung stehen die Äste 0,8 und 0,7 (nur diese zwei). Was stimmt?“ · „In einer Urne liegen 8 grüne und 8 gelbe Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(grün, grün) = 8/16 + 8/16. Was stimmt?“ · „An einer Verzweigung stehen die Äste 0,4 und 0,8 (nur diese zwei). Was stimmt?“ · „Jemand behauptet: „Bei 2 Würfen ist P(mindestens eine Sechs) = 2 · 1/6 = 1/3.“ Was stimmt?“ · „In einer Urne liegen 2 weiße und 3 rote Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(weiß, weiß) = 2/5 + 2/5. Was stimmt?“ · „Jemand behauptet: „Bei 4 Würfen ist P(mindestens eine Sechs) = 4 · 1/6 = 2/3.“ Was stimmt?“ · „3 rote und 5 weiße Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(rot, rot) = 3/8 · 3/8. Was stimmt?“ · „3 weiße und 2 grüne Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(weiß, weiß) = 3/5 · 3/5. Was stimmt?“ · „3 gelbe und 2 schwarze Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(gelb, gelb) = 3/5 · 3/5. Was stimmt?“
+
+**stochastik.simulation** (40)
+- `zufallsgeraet`: „Ein Bauteil ist fehlerhaft mit der Wahrscheinlichkeit 0,25. Welches Zufallsgerät simuliert das richtig?“ · „Ein Bus hat Verspätung mit der Wahrscheinlichkeit 0,7. Welches Zufallsgerät simuliert das richtig?“ · „Mit einer Urne aus 60 Kugeln soll ein Treffer mit p = 0,25 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?“ · „Eine Schülerin löst eine Rätselaufgabe mit der Wahrscheinlichkeit 0,1. Welches Zufallsgerät simuliert das richtig?“ · „Mit einer Urne aus 20 Kugeln soll ein Treffer mit p = 0,25 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?“ · „Ein Glücksrad soll einen Treffer mit p = 0,6 simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?“ · „Ein Glücksrad soll einen Treffer mit p = 0,8 simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?“
+- `regel`: „Mit Zufallsziffern 0–9 soll p = 0,6 simuliert werden. Wie viele der zehn Ziffern müssen als Treffer zählen?“ · „Mit Zufallsziffern 0–9 soll p = 0,3 simuliert werden. Wie viele der zehn Ziffern müssen als Treffer zählen?“ · „Mit zweistelligen Zufallszahlen 00–99 soll p = 0,45 simuliert werden. Welche Regel ist richtig?“ · „Mit zweistelligen Zufallszahlen 00–99 soll p = 0,83 simuliert werden. Welche Regel ist richtig?“ · „Mit zweistelligen Zufallszahlen 00–99 soll p = 0,31 simuliert werden. Welche Regel ist richtig?“ · „Mit zweistelligen Zufallszahlen 00–99 soll p = 0,17 simuliert werden. Welche Regel ist richtig?“
+- `zufallsziffern`: „Regel: Die Ziffern 0 bis 3 sind Treffer (p = 0,4). Zähle die Treffer in den 20 Zufallsziffern 5793 6772 4768 6445 0421.“ · „Regel: Die Ziffern 0 bis 2 sind Treffer (p = 0,3). Zähle die Treffer in den 20 Zufallsziffern 8990 5882 7281 1138 5563.“ · „Regel: Die Ziffern 0 bis 6 sind Treffer. Zufallsziffern (32 Stück): 1593 8367 1558 3466 6336 1772 2406 6211. Gib die relative Häufigkeit der Treffer als Dezimalzahl an.“ · „Regel: Die Ziffern 0 bis 2 sind Treffer. Zufallsziffern (32 Stück): 2954 4257 8184 1504 0389 8844 7456 6775. Gib die relative Häufigkeit der Treffer als Dezimalzahl an.“ · „Jede 4er-Gruppe ist ein Durchgang mit 4 Versuchen; die Ziffern 0 und 1 sind Treffer. In wie vielen Durchgängen gab es mindestens einen Treffer? Gruppen: 0400 5447 0840 8546 8298 0190 0040 1826“ · „Regel: Die Ziffern 0 bis 5 sind Treffer (p = 0,6). Zähle die Treffer in den 20 Zufallsziffern 4719 0382 6650 1197 2843.“
+- `auswerten`: „Eine Simulation mit 1000 Durchgängen ergab 155-mal das Ereignis „Gewinn beim Losen“. Schätze die Wahrscheinlichkeit (als Dezimalzahl).“ · „Eine Simulation mit 50 Durchgängen ergab 39-mal „der Bus kommt pünktlich“. Wie oft ist das Ereignis bei 10 000 echten Durchgängen etwa zu erwarten?“ · „Eine Simulation mit 400 Durchgängen ergab 153-mal „genau zwei Wappen bei drei Münzwürfen“. Wie oft ist das Ereignis bei 10 000 echten Durchgängen etwa zu erwarten?“ · „Eine Simulation mit 250 Durchgängen ergab 94-mal „genau zwei Wappen bei drei Münzwürfen“. Wie oft ist das Ereignis bei 5000 echten Durchgängen etwa zu erwarten?“ · „Gruppe A simuliert 100 Durchgänge, Gruppe B 50. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?“
+- `monte_carlo`: „In ein Quadrat werden 100 Zufallspunkte gesetzt, 13 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)“ · „In ein Quadrat werden 250 Zufallspunkte gesetzt, 27 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)“ · „Ein Quadrat hat die Seitenlänge 10 cm. Von 200 Zufallspunkten liegen 41 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur.“ · „Ein Quadrat hat die Seitenlänge 2 cm. Von 250 Zufallspunkten liegen 42 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur.“ · „Ein Quadrat hat die Seitenlänge 2 cm. Von 500 Zufallspunkten liegen 238 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur.“ · „Ein Quadrat hat die Seitenlänge 4 cm. Von 250 Zufallspunkten liegen 57 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur.“ · „In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 250 Zufallspunkten liegen 199 im Viertelkreis. Welchen Schätzwert für π erhält man?“ · „In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 1000 Zufallspunkten liegen 758 im Viertelkreis. Welchen Schätzwert für π erhält man?“
+- `beurteilen`: „Eine Ampel zeigt bei Ankunft Grün mit p = 5/6. Simuliert wird mit einem Würfel (1 bis 5 = Treffer). Ist das geeignet?“ · „Ein Kind gewinnt beim Losstand mit p = 0,7. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?“ · „Ein Bus hat Verspätung mit p = 0,5. Simuliert wird mit einer Münze (Wappen = Treffer). Ist das geeignet?“ · „Eine Ampel zeigt bei Ankunft Grün mit p = 0,5. Simuliert wird mit einem Würfel (1 bis 5 = Treffer). Ist das geeignet?“ · „Ein Kind gewinnt beim Losstand mit p = 5/6. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?“ · „Ein Bauteil ist fehlerhaft mit p = 0,3. Simuliert wird mit einer Urne mit 3 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?“ · „Eine Ampel zeigt bei Ankunft Grün mit p = 2/3. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?“ · „Ein Ereignis hat p = 0,4. Simuliert wird mit einem Würfel, 1 und 2 sind Treffer. Ist das geeignet?“
+
+**funktionen.trig** (78)
+- `bogenmass`: „Gib 150° im Bogenmaß als Vielfaches von π an.“ · „Gib 240° im Bogenmaß als Vielfaches von π an.“ · „Gib 45° im Bogenmaß als Vielfaches von π an.“ · „Gib 120° im Bogenmaß als Vielfaches von π an.“ · „Wie viel Grad sind π/3?“ · „Wie viel Grad sind π?“ · „Wie viel Grad sind π/6?“ · „Wie viel Grad sind 2π/3?“ · „Wie viel Grad sind 4π/3?“ · „Gib 210° im Bogenmaß als Vielfaches von π an.“ · „Wie viel Grad sind 5π/9?“ · „Ein Winkel hat im Bogenmaß die Größe 2,5. Wie viel Grad sind das? Runde auf eine Nachkommastelle.“
+- `werte`: „Berechne cos(4,9) (x im Bogenmaß) auf drei Nachkommastellen.“ · „Gib den exakten Wert von sin(π) an.“ · „Berechne sin(3,9) (x im Bogenmaß) auf drei Nachkommastellen.“ · „Berechne sin(2,7) (x im Bogenmaß) auf drei Nachkommastellen.“ · „Berechne cos(4,4) (x im Bogenmaß) auf drei Nachkommastellen.“ · „Welchen exakten Wert hat sin(π/3)?“ · „Welchen exakten Wert hat sin(7π/4)?“ · „Welchen exakten Wert hat sin(2π/3)?“ · „Ist cos(1) (x im Bogenmaß) positiv oder negativ? Entscheide ohne Taschenrechner.“ · „Ist sin(2,5) (x im Bogenmaß) positiv oder negativ? Entscheide ohne Taschenrechner.“ · „Gib den exakten Wert von cos(7π/3) an.“ · „Gib den exakten Wert von cos(π) an.“ · „Gib den exakten Wert von sin(π/2) an.“ · „Gib den exakten Wert von cos(5π/3) an.“ · „Gib den exakten Wert von sin(11π/6) an.“
+- `periode`: „Welche Periode (in Grad) hat f(x) = sin(0,5x)?“ · „Welche Periode (in Grad) hat f(x) = sin(2x)?“ · „Welche Periode (in Grad) hat f(x) = cos(1,5x)?“ · „Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.“ · „Welche Periode hat f(x) = cos(5x) im Bogenmaß? Gib sie als Vielfaches von π an.“ · „Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.“ · „Welche Periode hat f(x) = sin(5x) im Bogenmaß? Gib sie als Vielfaches von π an.“ · „Jemand sagt: „f(x) = sin(3x) hat die Periode 1 080°.“ Was stimmt?“ · „Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 720° haben. Bestimme b.“ · „Welche Periode hat f(x) = sin(x) im Bogenmaß? Gib sie als Vielfaches von π an.“ · „Welche Periode hat f(x) = cos(2x/3) (x im Bogenmaß)? Gib sie als Vielfaches von π an.“
+- `parameter`: „Welche Amplitude hat f(x) = 0,5 · cos(x) − 2?“ · „Welche Amplitude hat f(x) = 2 · cos(x) − 3?“ · „Welche Amplitude hat f(x) = 1,5 · sin(x)?“ · „Der Graph zeigt f(x) = a · cos(x) + d mit a > 0. Lies die Amplitude a ab.“ · „Gib die Wertemenge von f(x) = 5 · cos(x) − 3 an.“ · „Gib die Wertemenge von f(x) = −5 · cos(x) an.“ · „Eine Funktion f(x) = a · sin(b · x) + d (a > 0, b > 0, x in Grad) hat den größten Wert 3, den kleinsten Wert 1 und die Periode 120°. Bestimme a, b und d.“ · „Welche Amplitude hat f(x) = 4 · sin(x) − 2 (x im Bogenmaß)?“
+- `zuordnen`: „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?“ · „Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?“ · „Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?“ · „Welcher Term gehört zum gezeichneten Graphen (x im Bogenmaß)?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen (x im Bogenmaß)?“
+- `eigenschaften`: „Gib alle Nullstellen von f(x) = sin x im Bereich 360° ≤ x ≤ 720° an (in Grad).“ · „Gib alle Nullstellen von f(x) = cos x im Bereich −720° ≤ x ≤ −360° an (in Grad).“ · „Gib alle Nullstellen von f(x) = sin x im Bereich 0° ≤ x ≤ 360° an (in Grad).“ · „Gib alle Nullstellen von f(x) = cos x im Bereich 360° ≤ x ≤ 720° an (in Grad).“ · „An welcher Stelle x zwischen 1 080° und 1 440° hat cos x ein Minimum?“ · „Wie viele Nullstellen hat f(x) = sin(5x) im Bereich 0° ≤ x < 360°?“ · „Bestimme die kleinste positive Nullstelle von f(x) = cos(2x) (in Grad).“ · „Bestimme die kleinste positive Nullstelle von f(x) = sin(2x) (in Grad).“
+- `anwendung`: „Die Höhe einer Riesenradgondel ist h(t) = 20 − 18 · cos(30° · t) (t in Minuten, h in m). Wie hoch ist sie nach 6 min?“ · „Die Höhe einer Riesenradgondel ist h(t) = 60 − 55 · cos(12° · t) (t in Minuten, h in m). Wie hoch ist sie nach 15 min?“ · „Die Höhe einer Riesenradgondel ist h(t) = 30 − 25 · cos(18° · t) (t in Minuten, h in m). Wie hoch ist sie nach 15 min?“ · „Die Höhe einer Riesenradgondel ist h(t) = 20 − 18 · cos(30° · t) (t in Minuten, h in m). Wie hoch ist sie nach 3 min?“ · „h(t) = 30 − 25 · cos(18° · t) (t in Minuten). Wie lange dauert eine Umdrehung?“ · „Der Wasserstand in einem Hafen wird beschrieben durch W(t) = 4 + 2,5 · sin(360°/12,4 · t) (t in Stunden nach Mitternacht, W in m). Nach wie vielen Stunden wiederholt sich der Wasserstand?“ · „Die Höhe einer Riesenradgondel ist h(t) = 15 − 12 · cos(30° · t) (t in min, h in m). Nach wie vielen Minuten ist die Gondel zum ersten Mal 15 m hoch?“ · „h(t) = 20 − 18 · cos(30° · t) beschreibt die Höhe einer Gondel (t in min, h in m). Wie hoch ist sie nach 10 min? Runde auf eine Nachkommastelle.“
+
+**funktionen.ganzrational** (79)
+- `grad`: „Bestimme den Grad von f(x) = 5x² + 4x + 3.“ · „Bestimme den Grad von f(x) = −6x⁴ − x³ + x² − 5x − 2.“ · „Bestimme den Leitkoeffizienten von f(x) = −2x² + 4x − 5.“ · „Bestimme den Leitkoeffizienten von f(x) = −2x² + 6x + 4.“ · „Bestimme den Grad von f(x) = −6x⁴ − 4x + 1 − 3x² − 6x³ + x⁵ − 6x⁶.“ · „Bestimme den Leitkoeffizienten von f(x) = −4x³ − 2x² + 4x.“ · „Bestimme den Leitkoeffizienten von f(x) = −6x³ + 2 + 6x⁵ + 2x⁴.“ · „Bestimme ohne vollständiges Ausmultiplizieren das Absolutglied von f(x) = 2 · (x + 4)² · (x + 3)² · (x − 2)³.“ · „Bestimme ohne vollständiges Ausmultiplizieren den Leitkoeffizienten von f(x) = 3 · (x + 1)³ · (x − 2)² · (x − 3)³.“ · „Bestimme ohne vollständiges Ausmultiplizieren den Grad von f(x) = 3 · (x + 4)³ · (x + 1)² · (x − 4).“
+- `ausmultiplizieren`: „Multipliziere aus: f(x) = (x − 1) · (x + 5).“ · „Multipliziere aus: f(x) = (x + 6) · (x − 3).“ · „Multipliziere aus: f(x) = (x + 6) · (x + 4).“ · „Multipliziere aus: f(x) = (x + 2) · (x − 3) · (x + 4).“ · „Multipliziere aus: f(x) = (x + 4) · (x − 1) · (x − 3).“ · „Multipliziere aus: f(x) = (x − 1) · (x + 1) · (x − 3).“ · „Multipliziere aus: f(x) = (x − 4) · (x + 1) · (x − 2).“ · „Multipliziere aus: f(x) = (x − 1) · (x + 1) · (x + 3).“ · „Multipliziere aus: f(x) = 2 · (x + 4)² · (x + 1).“ · „Multipliziere aus: f(x) = 3 · (x + 3)² · (x + 1).“ · „Multipliziere aus: f(x) = 2 · (x − 1)² · (x − 4).“
+- `randverhalten`: „Wie verläuft der Graph von f(x) = x⁵ + 8x³ − 7x² − 4x + 9 für sehr kleine und sehr große x?“ · „Wie verläuft der Graph von f(x) = 2x⁵ − 5x⁴ + 3x³ + 3x² + 2x − 4 für sehr kleine und sehr große x?“ · „Wie verläuft der Graph von f(x) = 4x³ + 9x² + 4 für sehr kleine und sehr große x?“ · „Wie verläuft der Graph von f(x) = −3x⁵ − 2x⁴ − 7x³ − 3x² + 4x + 8 für sehr kleine und sehr große x?“ · „Wie verläuft der Graph von f(x) = 2x² − 6x + 3 für sehr kleine und sehr große x?“ · „Die Zeichnung zeigt den Graphen einer ganzrationalen Funktion. Welche Aussage über Grad und Leitkoeffizienten passt?“ · „Die Zeichnung zeigt den Graphen einer ganzrationalen Funktion. Welche Aussage über Grad und Leitkoeffizienten passt?“ · „Wie verläuft der Graph von f(x) = 2 · (x − 2)³ · (x − 4)² für sehr kleine und sehr große x?“ · „Wie verläuft der Graph von f(x) = −2 · (x − 1) · (x − 3)³ für sehr kleine und sehr große x?“ · „Wie verläuft der Graph von f(x) = 2x⁶ − 8x⁵ − 7x⁴ + 5x³ − x² − x + 9 für sehr kleine und sehr große x?“ · „Wie verläuft der Graph von f(x) = (1 − x)³ · (x + 2)² für sehr kleine und sehr große x?“
+- `symmetrie`: „Welche Symmetrie hat der Graph von f(x) = x⁴ − 5x³ + 4x?“ · „Welche Symmetrie hat der Graph von f(x) = 3x⁶ + 5x⁵ − x⁴ + 4x³ − 6x² − 3x + 5?“ · „Welche Symmetrie hat der Graph von f(x) = −x⁵ + 5x⁴ − x² + 4x + 5?“ · „Welche Symmetrie hat der Graph von f(x) = 2x⁵ + x⁴ − 3x³ + 3x² − 2x + 5?“ · „Welche Symmetrie hat der Graph von f(x) = 4x⁵ − 2x³ − x?“ · „Welche Symmetrie hat der Graph von f(x) = −3x³ + 4x² + 5?“ · „Welche Symmetrie hat der Graph von f(x) = −4x³ − x² − 6?“ · „Welche Symmetrie hat der Graph von f(x) = −2x³ + 6x² − 4x + 5?“ · „Welche Symmetrie hat der Graph von f(x) = 5x⁴ + 4x³ + 2x² + 3x + 3?“ · „Für f(x) = −6x⁴ + 5x² − 3 gilt f(2) = −79. Bestimme f(−2) mithilfe der Symmetrie.“ · „Für f(x) = 4x⁶ + 2x⁴ + 3x² + 2 gilt f(3) = 3 107. Bestimme f(−3) mithilfe der Symmetrie.“ · „Für f(x) = −5x⁴ − 5x² − 4 gilt f(2) = −104. Bestimme f(−2) mithilfe der Symmetrie.“
+- `nullstellen`: „Bestimme die Nullstellen von f(x) = 2 · (x + 5) · (x − 4) · (x − 5).“ · „Bestimme die Nullstellen von f(x) = −(x + 1) · x · (x − 1).“ · „Bestimme die Nullstellen von f(x) = (x + 5) · (x + 4) · x.“ · „f(x) = x⁴ − 11x³ + 40x² − 48x = x · (x − 4)² · (x − 3). An welchen Nullstellen berührt der Graph die x-Achse, ohne sie zu schneiden?“ · „f(x) = x⁵ − 50x³ + 625x = x · (x − 5)² · (x + 5)². An welchen Nullstellen berührt der Graph die x-Achse, ohne sie zu schneiden?“ · „f(x) = x⁵ + 14x⁴ + 73x³ + 168x² + 144x = x · (x + 3)² · (x + 4)². An welchen Nullstellen berührt der Graph die x-Achse, ohne sie zu schneiden?“ · „f(x) = x⁴ + 7x³ + 8x² − 16x = x · (x + 4)² · (x − 1). An welchen Nullstellen berührt der Graph die x-Achse, ohne sie zu schneiden?“
+- `graph_term`: „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“ · „Welcher Funktionsterm gehört zum gezeichneten Graphen?“
+- `term_bestimmen`: „Der gezeichnete Graph hat die einfachen Nullstellen 1, 2 und schneidet die y-Achse bei −2. Bestimme a in f(x) = a · (x − x₁)(x − x₂).“ · „Der gezeichnete Graph hat die einfachen Nullstellen −3, 3 und schneidet die y-Achse bei 18. Bestimme a in f(x) = a · (x − x₁)(x − x₂).“ · „Der gezeichnete Graph hat die einfachen Nullstellen 2, 3 und schneidet die y-Achse bei 6. Bestimme a in f(x) = a · (x − x₁)(x − x₂).“ · „Der gezeichnete Graph hat die einfachen Nullstellen −3, 3 und schneidet die y-Achse bei 9. Bestimme a in f(x) = a · (x − x₁)(x − x₂).“ · „Der gezeichnete Graph hat die einfachen Nullstellen −3, −2, 3 und schneidet die y-Achse bei −18. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).“ · „Der gezeichnete Graph hat die einfachen Nullstellen −2, 1, 3 und schneidet die y-Achse bei 18. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).“ · „Der gezeichnete Graph hat die einfachen Nullstellen −3, 2, 3 und schneidet die y-Achse bei −54. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).“ · „Der gezeichnete Graph hat die einfachen Nullstellen 1, 2, 3 und schneidet die y-Achse bei 6. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).“ · „Der gezeichnete Graph hat die einfachen Nullstellen −1, 1, 2 und schneidet die y-Achse bei −4. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).“ · „Der Graph einer Funktion 3. Grades hat die einfachen Nullstellen −3, 1, 2 und geht durch P(−2 | −24). Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).“ · „Der Graph einer Funktion 3. Grades hat die einfachen Nullstellen −2, 1, 3 und geht durch P(−3 | −24). Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).“ · „Der Graph einer Funktion 3. Grades hat die einfachen Nullstellen −3, −1, 2 und geht durch P(1 | −24). Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).“
+
+**gleichungen.polynom** (49)
+- `ausklammern`: „Löse x³ − 64x = 0.“ · „Löse x³ − 81x = 0.“ · „Löse x² − 8x = 0.“ · „Löse x³ − 9x² + 18x = 0.“ · „Löse −x³ − 4x² + 12x = 0.“ · „Löse x³ + 7x² + 6x = 0.“ · „Löse −x³ − 2x² + 24x = 0.“ · „Löse x⁴ − x³ − 20x² = 0.“ · „Löse x⁴ − 9x² = 0.“ · „Löse 3x⁴ − 12x² = 0.“ · „Löse x⁴ − 4x² = 0.“ · „Löse x⁵ − 16x³ = 0.“
+- `nullprodukt`: „Löse (x − 1) · (x + 6) · (x + 8) = 0.“ · „Löse (x + 2) · (x − 4) · (x − 8) = 0.“ · „Löse (x − 1) · x · (x − 3) = 0.“ · „Löse (x − 7)(x² − 36) = 0.“ · „Löse (x + 1)(x² − 9) = 0.“ · „Löse (x + 4)(x² − 1) = 0.“ · „Löse (x − 5)(x² − 36) = 0.“ · „Löse (x − 8)²(x² + 6) = 0.“ · „Löse (x − 1)²(x² + 1) = 0.“ · „Löse (x − 6)²(x² + 5) = 0.“
+- `substitution`: „Löse x⁴ − 65x² + 784 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.“ · „Löse x⁴ − 53x² + 196 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.“ · „Löse x⁴ − 20x² + 64 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.“ · „Löse x⁴ − 37x² + 36 = 0 mit z = x². Gib zuerst nur die Lösungen für z an.“ · „Löse x⁴ − 40x² + 144 = 0.“ · „Löse x⁴ − 41x² + 400 = 0.“ · „Löse x⁴ − 5x² + 4 = 0.“ · „Löse x⁴ − 25x² + 144 = 0.“ · „Löse x⁴ − 17x² + 16 = 0.“ · „Welche Lösungsmenge hat x⁴ + 13x² + 36 = 0?“ · „Löse x⁴ − 11x² + 10 = 0. Gib die größte positive Lösung auf zwei Nachkommastellen an.“ · „Löse x⁴ − 13x² + 36 = 0.“
+- `vielfachheit`: „f(x) = (x − 2)³ · (x − 3)³. Welche Vielfachheit hat die Nullstelle x = 3?“ · „f(x) = (x − 2)⁴ · (x − 4)². Welche Vielfachheit hat die Nullstelle x = 2?“ · „f(x) = (x − 5) · (x + 3). Welche Vielfachheit hat die Nullstelle x = 5?“ · „f(x) = (x − 6)² · (x − 5)³. Wechselt f bei x = 5 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)“ · „f(x) = (x + 3)³ · (x + 6)². Wechselt f bei x = −6 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)“ · „f(x) = (x − 1)³ · (x − 6)⁴. Wechselt f bei x = 1 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)“ · „f(x) = (x + 1)³ · (x − 5)². Wechselt f bei x = 5 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)“ · „f(x) = (x + 4)³ · (x − 3)⁴. Wechselt f bei x = 3 das Vorzeichen?“ · „Die Gleichung x⁴ − 50x² + 625 = 0 hat zwei doppelte Lösungen. Gib sie an.“
+- `verstehen`: „Kann eine Polynomgleichung vom Grad 3 ganz ohne Lösung sein?“ · „Kann eine Polynomgleichung vom Grad 5 ganz ohne Lösung sein?“ · „Wie viele Lösungen kann eine Polynomgleichung vom Grad 5 höchstens haben?“ · „Wie viele Lösungen kann eine Polynomgleichung vom Grad 7 höchstens haben?“ · „Jemand löst x³ = 25x, indem er durch x teilt, und erhält x = ±5. Was stimmt?“ · „Bei x⁴ − 61x² + 900 = 0 gibt jemand als Lösung „z = 25 und z = 36“ an. Was fehlt?“
+
+**raum.schraegbilder** (36)
+- `pyramide`: „Wie viele Flächen hat eine zehnseitige Pyramide?“ · „Eine Pyramide hat 5 Ecken. Wie viele Ecken hat ihre Grundfläche?“ · „Eine Pyramide hat 11 Flächen. Wie viele Ecken hat ihre Grundfläche?“ · „Ein Körper hat 10 Flächen und 24 Kanten. Was ist er?“ · „Wie viele Kanten haben ein fünfseitiges Prisma und eine dreiseitige Pyramide zusammen?“
+- `laengen`: „Eine quadratische Pyramide (Grundkante 8 cm, Höhe 5 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die Höhe?“ · „Eine quadratische Pyramide (Grundkante 14 cm, Höhe 14 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du eine Grundkante, die nach hinten führt?“ · „Ein Quader ist 6 cm breit, 2 cm hoch und 5 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?“ · „Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 10 cm lang. Wie tief ist das Prisma wirklich?“ · „Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 5 cm lang. Wie tief ist das Prisma wirklich?“ · „Eine Kante führt 6 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/3 gezeichnet?“ · „Eine Kante führt 15 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 2/3 gezeichnet?“ · „Eine Kante führt 8 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/2 gezeichnet?“
+- `lage`: „Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und DA zueinander?“ · „Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BC und FG zueinander?“ · „Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden EF und CG zueinander?“ · „Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AB und HE zueinander?“ · „Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AE und HE zueinander?“ · „Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und CG zueinander?“
+- `koordinaten`: „Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 5) sind. Welche Koordinaten hat F?“ · „Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 8) sind. Welche Koordinaten hat H?“ · „Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(7 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 5) sind. Gib die x-Koordinate von F an.“ · „Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 5 | 0) und E(0 | 0 | 9) sind. Gib die z-Koordinate von F an.“ · „Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 2) sind. Gib die z-Koordinate von C an.“ · „Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 8) sind. M ist der Mittelpunkt der Strecke DF. Gib die z-Koordinate von M an.“ · „Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 6) sind. M ist der Mittelpunkt der Strecke CE. Gib die x-Koordinate von M an.“
+- `rotation`: „Welcher Körper entsteht, wenn sich ein Quadrat um eine seiner Seiten dreht?“ · „Ein rechtwinkliges Dreieck mit den Katheten 14 cm und 2 cm dreht sich um die 14-cm-Kathete. Wie hoch ist der entstehende Kegel?“ · „Ein Rechteck mit den Seiten 14 cm und 10 cm dreht sich um die 14-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?“ · „Ein Rechteck mit den Seiten 11 cm und 7 cm dreht sich um die 11-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?“ · „Ein rechtwinkliges Dreieck mit den Katheten 4 cm und 6 cm dreht sich um die 4-cm-Kathete. Wie hoch ist der entstehende Kegel?“ · „Ein Halbkreis mit dem Durchmesser 18 cm dreht sich um seinen Durchmesser. Welchen Radius hat die entstehende Kugel?“
+- `axialschnitt`: „Ein Zylinder hat r = 3 cm und h = 19 cm. Wie breit ist sein Axialschnitt?“ · „Ein Zylinder hat r = 2 cm und h = 8 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?“ · „Ein gerader Kegel hat r = 7 cm und h = 4 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?“ · „Ein Zylinder hat r = 8 cm und h = 2 cm. Welchen Umfang hat sein Axialschnitt?“
+
+**raum.pyramide_kegel_kugel** (67)
+- `pyr_volumen`: „Eine quadratische Pyramide hat die Grundkante a = 2 cm und die Höhe h = 6 cm. Berechne ihr Volumen.“ · „Eine quadratische Pyramide hat die Grundkante a = 11 cm und die Höhe h = 9 cm. Berechne ihr Volumen.“ · „Eine quadratische Pyramide hat die Grundkante a = 12 cm und die Höhe h = 3 cm. Berechne ihr Volumen.“ · „Eine quadratische Pyramide hat die Grundkante a = 5 cm und die Höhe h = 15 cm. Berechne ihr Volumen.“ · „Eine quadratische Pyramide mit Grundkante 6 cm hat das Volumen 228 cm³. Wie hoch ist sie?“ · „Eine Pyramide hat eine rechteckige Grundfläche (8 cm × 3 cm) und die Höhe 2 cm. Berechne ihr Volumen.“ · „Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 8 cm und Höhe 8 cm. Die Pyramide ist 3 cm hoch. Berechne ihr Volumen.“ · „Eine quadratische Pyramide hat die Grundkante a = 10 cm und die Höhe h = 12 cm. Wie lang ist eine Seitenkante? Runde auf eine Nachkommastelle.“
+- `pyr_oberflaeche`: „Eine quadratische Pyramide hat die Grundkante a = 18 cm und die Höhe h = 12 cm. Berechne die Seitenhöhe hₛ.“ · „Eine quadratische Pyramide hat die Grundkante a = 48 cm und die Höhe h = 7 cm. Berechne die Seitenhöhe hₛ.“ · „Eine quadratische Pyramide hat die Grundkante a = 16 cm und die Höhe h = 15 cm. Berechne die Seitenhöhe hₛ.“ · „Eine quadratische Pyramide hat die Grundkante a = 40 cm und die Höhe h = 15 cm. Berechne die Seitenhöhe hₛ.“ · „Eine quadratische Pyramide hat die Grundkante a = 30 cm und die Höhe h = 20 cm. Berechne die Seitenhöhe hₛ.“ · „Eine quadratische Pyramide hat die Grundkante 16 cm und die Seitenhöhe 17 cm. Berechne die Mantelfläche. (Die Zeichnung zeigt das Netz.)“ · „Eine quadratische Pyramide hat die Grundkante 40 cm und die Seitenhöhe 25 cm. Berechne die Mantelfläche. (Die Zeichnung zeigt das Netz.)“ · „Eine quadratische Pyramide hat die Grundkante 30 cm und die Seitenhöhe 25 cm. Berechne die Mantelfläche. (Die Zeichnung zeigt das Netz.)“ · „Eine quadratische Pyramide hat die Grundkante 8 cm und die Seitenhöhe 5 cm. Berechne die Mantelfläche. (Die Zeichnung zeigt das Netz.)“ · „Eine quadratische Pyramide hat die Grundkante 40 cm und die Höhe 15 cm. Berechne ihre Oberfläche.“ · „Eine quadratische Pyramide hat die Grundkante 18 cm und die Höhe 12 cm. Berechne ihre Oberfläche.“ · „Eine quadratische Pyramide hat die Grundkante 14 cm und die Höhe 24 cm. Berechne ihre Oberfläche.“ · „Eine quadratische Pyramide hat die Grundkante 32 cm und die Höhe 12 cm. Berechne ihre Oberfläche.“
+- `kegel_volumen`: „Ein Kegel hat den Radius r = 4 cm und die Höhe h = 3 cm. Berechne sein Volumen auf eine Nachkommastelle.“ · „Ein Kegel hat den Radius r = 9 cm und die Höhe h = 9 cm. Berechne sein Volumen auf eine Nachkommastelle.“ · „Ein Kegel hat den Radius r = 11 cm und die Höhe h = 19 cm. Berechne sein Volumen auf eine Nachkommastelle.“ · „Ein Kegel hat den Radius r = 2 cm und die Höhe h = 18 cm. Berechne sein Volumen auf eine Nachkommastelle.“ · „Ein kegelförmiger Trichter hat oben den Durchmesser 20 cm und ist 11 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?“ · „Ein kegelförmiger Trichter hat oben den Durchmesser 22 cm und ist 11 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?“ · „Ein kegelförmiger Trichter hat oben den Durchmesser 8 cm und ist 10 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?“ · „Ein kegelförmiger Trichter hat oben den Durchmesser 14 cm und ist 19 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?“ · „Ein Kegel mit dem Radius 5 cm hat das Volumen 202 cm³. Wie hoch ist er (eine Nachkommastelle)?“ · „Ein Kegel mit dem Radius 7 cm hat das Volumen 1 065 cm³. Wie hoch ist er (eine Nachkommastelle)?“ · „Ein Kegel mit dem Radius 7 cm hat das Volumen 418 cm³. Wie hoch ist er (eine Nachkommastelle)?“ · „Ein Kegel mit dem Radius 2 cm hat das Volumen 16 cm³. Wie hoch ist er (eine Nachkommastelle)?“
+- `kegel_mantel`: „Ein Kegel hat den Radius 6 cm und die Höhe 8 cm. Wie lang ist die Mantellinie s?“ · „Ein Kegel hat den Radius 7 cm und die Höhe 24 cm. Wie lang ist die Mantellinie s?“ · „Der Mantel eines Kegels (r = 20 cm, s = 25 cm) wird abgewickelt. Wie groß ist der Mittelpunktswinkel φ des Kreissektors?“ · „Ein Kegel hat den Radius 15 cm und die Mantellinie 17 cm. Berechne die Mantelfläche auf eine Nachkommastelle.“ · „Ein Kegel hat den Radius 4 cm und die Mantellinie 5 cm. Berechne die Mantelfläche auf eine Nachkommastelle.“ · „Ein Kegel hat den Radius 12 cm und die Mantellinie 20 cm. Berechne die Mantelfläche auf eine Nachkommastelle.“ · „Ein Kegel hat den Radius 7 cm und die Mantellinie 25 cm. Berechne die Mantelfläche auf eine Nachkommastelle.“ · „Ein Kegel hat den Radius 24 cm und die Höhe 10 cm. Berechne seine Oberfläche auf eine Nachkommastelle.“ · „Ein Kegel hat den Radius 8 cm und die Höhe 15 cm. Berechne seine Oberfläche auf eine Nachkommastelle.“
+- `kugel`: „Berechne das Volumen einer Kugel mit dem Radius 10 cm auf eine Nachkommastelle.“ · „Berechne das Volumen einer Kugel mit dem Radius 9 cm auf eine Nachkommastelle.“ · „Berechne die Oberfläche einer Kugel mit dem Radius 1 cm auf eine Nachkommastelle.“ · „Eine Kugel hat 40 cm Durchmesser. Berechne das Volumen auf eine Nachkommastelle.“ · „Eine Kugel hat 9 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle.“ · „Eine Kugel hat 37 cm Durchmesser. Berechne das Volumen auf eine Nachkommastelle.“ · „Eine Kugel hat das Volumen 4 693 cm³. Berechne ihren Radius auf zwei Nachkommastellen.“ · „Ein Globus hat eine Oberfläche von 3 217 cm². Welchen Durchmesser hat er? Runde auf eine Nachkommastelle.“ · „Eine Kugel hat das Volumen 4 900 cm³. Berechne ihren Radius auf zwei Nachkommastellen.“
+- `sachkontext`: „Ein kegelförmiger Sandhaufen hat unten 10 m Durchmesser und ist 3 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?“ · „Ein kegelförmiger Sandhaufen hat unten 5 m Durchmesser und ist 2 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?“ · „Ein kegelförmiger Sandhaufen hat unten 9 m Durchmesser und ist 2,5 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?“ · „Ein kegelförmiger Sandhaufen hat unten 10 m Durchmesser und ist 3,5 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?“ · „Ein Turm besteht aus einem Zylinder (r = 3 m, h = 10 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 3 m). Berechne das umbaute Volumen auf ganze m³.“ · „Eine Kugel aus Kunststoff hat außen 12 cm Durchmesser, die Wand ist 0,5 cm dick. Wie viel cm³ Kunststoff stecken in der Wand? Runde auf eine Nachkommastelle.“ · „Eine quadratische Pyramide (als Modell eines Bauwerks) hat die Grundkante 147 m und die Höhe 92 m. Berechne das Volumen auf ganze m³.“ · „Eine quadratische Pyramide (als Modell eines Bauwerks) hat die Grundkante 215 m und die Höhe 143 m. Berechne das Volumen auf ganze m³.“
+- `verstehen`: „Bei einem Kegel wird nur der Radius vervierfacht. Wie ändert sich das Volumen?“ · „Jemand rechnet die Mantelfläche eines Kegels mit r = 4 cm und h = 9 cm als M = π · r · h. Was stimmt?“ · „Der Radius einer Kugel wird vervierfacht. Wie ändert sich die Oberfläche?“ · „Jemand rechnet die Mantelfläche eines Kegels mit r = 2 cm und h = 6 cm als M = π · r · h. Was stimmt?“ · „Der Radius einer Kugel wird vervierfacht. Wie ändert sich das Volumen?“ · „Jemand rechnet die Mantelfläche eines Kegels mit r = 4 cm und h = 6 cm als M = π · r · h. Was stimmt?“ · „Jemand rechnet die Mantelfläche eines Kegels mit r = 5 cm und h = 8 cm als M = π · r · h. Was stimmt?“ · „Bei einem Kegel wird nur die Höhe verdoppelt. Wie ändert sich das Volumen?“
+
+## 2026-11-17 – STATUS: raum.pyramide_kegel_kugel fertig
+7 Lernkarten typisiert. 35 neue Übungen, 14 Knobel-Bordkarten, 3 umgestuft, 67 überzählig (darunter die doppelte Fragestellung „Bei einem Kegel wird nur die Höhe verdoppelt …“). Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: raum.schraegbilder fertig
+6 Lernkarten typisiert. 35 neue Übungen, 12 Knobel-Bordkarten, 8 umgestuft, 36 überzählig. Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: gleichungen.polynom fertig
+5 Lernkarten typisiert. 28 neue Übungen, 10 Knobel-Bordkarten, 5 umgestuft, 49 überzählig. Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: funktionen.ganzrational fertig
+7 Lernkarten typisiert. 46 neue Übungen, 14 Knobel-Bordkarten, 10 umgestuft, 79 überzählig. Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: funktionen.trig fertig
+8 Lernkarten typisiert (viele vorhandene Bogenmaß-Aufgaben passten schon als Stufe 3). 17 neue Übungen, 16 Knobel-Bordkarten, 6 umgestuft, 78 überzählig. Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: stochastik.simulation fertig
+6 Lernkarten typisiert. 33 neue Übungen, 12 Knobel-Bordkarten, 8 umgestuft, 40 überzählig. Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: stochastik.mehrstufig fertig
+8 Lernkarten typisiert. 45 neue Übungen, 16 Knobel-Bordkarten, 13 umgestuft, 67 überzählig (viele Urnen-Vorlagen unterscheiden sich nur in den Farbwörtern). Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: gleichungen.exponential fertig
+6 Lernkarten typisiert. 33 neue Übungen, 12 Knobel-Bordkarten, 20 umgestuft, 52 überzählig. Prüfskript OK (0 Gruppen), strenge Prüfung ohne Überzählige OK, Nachweis OK.
+
+## 2026-11-17 – STATUS: funktionen.exponential_log fertig
+7 Lernkarten typisiert. 45 neue Übungen, 14 Knobel-Bordkarten, 16 Übungen umgestuft, 53 überzählig. Prüfskript OK (0 Gruppen „gleich gebaut hintereinander“), strenge Prüfung ohne Überzählige OK, Nachweis gegen origin/lernen-app OK.

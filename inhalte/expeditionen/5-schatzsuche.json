@@ -1,0 +1,156 @@
+{
+ "schluessel": "5-schatzsuche",
+ "klasse": {
+  "gym_by": 5
+ },
+ "titel": "Die Schatzsuche",
+ "autor": "Claude (Expeditionen Klasse 5)",
+ "einleitung": "Auf einer Insel findest du eine Schatzkarte mit Koordinatensystem; ein Kästchen ist ein Schritt. Die Truhe ist mit einem Zahlenschloss gesichert, und ein Wächter macht gerade eine Runde.",
+ "voraussetzungen": [
+  {
+   "thema_schluessel": "geometrie.grundbegriffe",
+   "lernziel": "koordinaten"
+  },
+  {
+   "thema_schluessel": "geometrie.winkel",
+   "lernziel": "drehungen"
+  },
+  {
+   "thema_schluessel": "stochastik.kombinatorik",
+   "lernziel": "reihenfolgen"
+  },
+  {
+   "thema_schluessel": "zahlen.teilbarkeit",
+   "lernziel": "neunerregel"
+  },
+  {
+   "thema_schluessel": "groessen.einheiten",
+   "lernziel": "zeit"
+  }
+ ],
+ "teile": [
+  {
+   "k": "a",
+   "y": "luecken",
+   "f": {
+    "text": "Du startest bei S (−4 | −2), gehst 6 Kästchen nach rechts und dann 5 Kästchen nach oben. An welchem Punkt stehst du jetzt?",
+    "schablone": "(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate; negative Zahlen mit Minus.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -3,
+      4
+     ],
+     "schritt_x": 1,
+     "schritt_y": 1,
+     "punkte": [
+      {
+       "x": -4,
+       "y": -2,
+       "name": "S"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "-4 + 6",
+    "-2 + 5"
+   ],
+   "w": "Nach rechts ändert sich x: −4 + 6 = 2. Nach oben ändert sich y: −2 + 5 = 3. Du stehst bei (2 | 3).",
+   "h": "Rechts und links ändern nur x, oben und unten nur y.",
+   "bezug": {
+    "thema_schluessel": "geometrie.grundbegriffe",
+    "lernziel": "koordinaten"
+   }
+  },
+  {
+   "k": "b",
+   "y": "auswahl",
+   "f": {
+    "text": "Dort schaust du nach Norden und drehst dich um 270° im Uhrzeigersinn. In welche Himmelsrichtung schaust du jetzt?"
+   },
+   "a": [
+    "Norden",
+    "Osten",
+    "Süden",
+    "Westen"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "270° sind drei Vierteldrehungen (3 · 90°). Im Uhrzeigersinn: Norden → Osten → Süden → Westen.",
+   "h": "Wie viele Vierteldrehungen sind 270°?",
+   "bezug": {
+    "thema_schluessel": "geometrie.winkel",
+    "lernziel": "drehungen"
+   }
+  },
+  {
+   "k": "c",
+   "y": "zahl",
+   "f": {
+    "text": "Die Schatztruhe hat ein Zahlenschloss mit 3 Stellen. Jede Stelle ist eine der Ziffern 1, 2, 3, 4 oder 5, und keine Ziffer kommt doppelt vor. Wie viele verschiedene Codes gibt es?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "5 * 4 * 3",
+   "w": "Erste Stelle: 5 Ziffern, zweite: noch 4, dritte: noch 3. 5 · 4 · 3 = 60 Codes.",
+   "h": "Wie viele Ziffern bleiben für die zweite und die dritte Stelle?",
+   "bezug": {
+    "thema_schluessel": "stochastik.kombinatorik",
+    "lernziel": "reihenfolgen"
+   }
+  },
+  {
+   "k": "d",
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Zettel steht: „Der Code ist durch 9 teilbar.“ Dazu gibt es eine Regel: Eine Zahl ist durch 9 teilbar, wenn ihre Quersumme durch 9 teilbar ist. Wie viele dreistellige Codes aus drei verschiedenen Ziffern von 1 bis 5 sind durch 9 teilbar?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 6",
+   "w": "Durch 9 teilbar heißt: Die Quersumme ist durch 9 teilbar. Drei verschiedene Ziffern von 1 bis 5 ergeben höchstens 5 + 4 + 3 = 12, also muss die Quersumme 9 sein. Das geht nur mit 1, 3, 5 oder mit 2, 3, 4. Jede dieser Gruppen kann man auf 3 · 2 · 1 = 6 Arten anordnen: 2 · 6 = 12 Codes (z. B. 135, 153, …, 234, 243, …).",
+   "h": "Welche Quersumme kann ein solcher Code höchstens haben?",
+   "bezug": {
+    "thema_schluessel": "zahlen.teilbarkeit",
+    "lernziel": "neunerregel"
+   }
+  },
+  {
+   "k": "e",
+   "y": "auswahl",
+   "f": {
+    "text": "Es kommen 12 Codes in Frage. Jedes Ausprobieren dauert 20 Sekunden. Der Wächter kommt in 5 Minuten zurück. Schaffst du sicher alle Versuche, bevor er da ist?"
+   },
+   "a": [
+    "Ja, es dauert höchstens 4 Minuten.",
+    "Nein, es dauert 240 Minuten.",
+    "Nein, es dauert 6 Minuten.",
+    "Ja, es dauert genau 5 Minuten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "12 · 20 s = 240 s. 60 s sind 1 Minute: 240 s = 4 min. Das ist weniger als 5 Minuten – auch wenn der richtige Code der letzte ist.",
+   "h": "Rechne alle Sekunden zusammen und dann in Minuten um.",
+   "bezug": {
+    "thema_schluessel": "groessen.einheiten",
+    "lernziel": "zeit"
+   }
+  }
+ ]
+}

@@ -536,6 +536,607 @@ def g_sachaufgabe(R, st):
 GEN = {'umformen': g_umformen, 'umdrehen': g_umdrehen, 'klammern': g_klammern, 'intervall': g_intervall, 'pruefen': g_pruefen,
        'grafisch': g_grafisch, 'sachaufgabe': g_sachaufgabe}
 
+
+# ---------- UMBAU: neues Muster (Achte Runde, Vorgabe 16.11.) ----------
+# Wird erst NACH dem Erzeugen der Aufgaben eingesetzt (siehe _umbau_kl8.py) – die Aufgaben bleiben wörtlich gleich.
+from _umbau_kl8 import mit_umbau  # noqa: E402
+
+_ZS = {'typ': 'zahlenstrahl', 'start': 0, 'ende': 8, 'abschnitte': 8, 'beschriftet': 'alle'}
+UMBAU = {
+ 'umformen': {
+  'einstieg': 'Im Freizeitpark kostet der Eintritt 5 €, jede Fahrt 3 €. Du willst weniger als 17 € ausgeben. Eine Rechenfrage mit „weniger als“ statt „gleich“ heißt ⟦Ungleichung⟧.',
+  'woerter': [['Ungleichung', 'ein Vergleich mit <, >, ≤ oder ≥ statt mit ='], ['<', '„kleiner als“ – die Spitze zeigt zur kleineren Seite'], ['x', 'die gesuchte Zahl, hier die Anzahl der Fahrten']],
+  'bild': {**_ZS, 'bereich': {'von': 0, 'bis': 4}, 'punkte': [{'wert': 4, 'name': '4 nicht'}]},
+  'schritte': [{'text': 'Eintritt plus Fahrten soll weniger als 17 € sein: 3x + 5 < 17.'},
+               {'text': 'Den Eintritt auf beiden Seiten abziehen: 3x < 12.'},
+               {'text': 'Beide Seiten durch 3 teilen: ⟦x < 4⟧.'},
+               {'text': 'Fahrten gibt es nur ganz: Du kannst 0, 1, 2 oder 3 Fahrten machen.'}],
+  'fehler': 'Aus 3x + 5 < 17 wird nicht 3x < 22. Den Eintritt ziehst du ⟦ab⟧ – du legst ihn nicht noch einmal zu deinem Geld dazu.',
+  'regel': 'Eine ⟦Ungleichung⟧ löst du wie eine Gleichung. Dasselbe abziehen oder durch dieselbe positive Zahl teilen – das Zeichen bleibt.'},
+ 'umdrehen': {
+  'einstieg': 'Am Thermometer ist 2 °C kälter als 3 °C. Mit Minus ist es umgekehrt: −3 °C ist kälter als −2 °C. Darum musst du beim Teilen durch eine ⟦negative Zahl⟧ das Zeichen umdrehen.',
+  'woerter': [['≤', '„kleiner oder gleich“, also höchstens'], ['≥', '„größer oder gleich“, also mindestens'], ['Zeichen umdrehen', 'aus < wird >, aus ≤ wird ≥']],
+  'bild': {'typ': 'zahlenstrahl', 'start': -5, 'ende': 5, 'abschnitte': 10, 'beschriftet': 'alle', 'punkte': [{'wert': 2, 'name': '2'}, {'wert': 3, 'name': '3'}]},
+  'schritte': [{'text': 'Mal (−1) werden aus 2 und 3 die Zahlen −2 und −3. Die Reihenfolge kippt.',
+                'bild': {'punkte': [{'wert': 2, 'name': '2'}, {'wert': 3, 'name': '3'}, {'wert': -2, 'name': '−2'}, {'wert': -3, 'name': '−3'}]}},
+               {'text': 'Jetzt die Aufgabe −2x + 1 ≤ 9. Erst 1 abziehen: −2x ≤ 8.'},
+               {'text': 'Durch (−2) teilen und Zeichen umdrehen: ⟦x ≥ −4⟧.', 'bild': {'punkte': [{'wert': -4, 'name': '−4'}], 'bereich': {'von': -4, 'bis': 5}}}],
+  'fehler': 'Ohne Umdrehen kommt x ≤ −4 heraus. Test mit −5: −2 · (−5) + 1 = 11, und 11 ≤ 9 ist falsch.',
+  'fehler_bild': {'punkte': [{'wert': -5, 'name': '−5 passt nicht'}], 'bereich': {'von': -5, 'bis': -4}},
+  'regel': 'Teilen durch eine negative Zahl ⟦dreht das Zeichen um⟧. Beim Addieren und Abziehen bleibt es gleich.'},
+ 'klammern': {
+  'einstieg': 'In zwei Tüten liegen je gleich viele Äpfel und 3 Birnen. Zusammen sind es doppelt so viele Äpfel und 6 Birnen. Genau so ⟦löst du eine Klammer auf⟧: 2(x + 3) = 2x + 6.',
+  'woerter': [['Klammer auflösen', 'jeden Teil in der Klammer mit der Zahl davor malnehmen'], ['x-Glied', 'ein Teil mit x, zum Beispiel 5x']],
+  'bild': {**_ZS, 'bereich': {'von': 0, 'bis': 5}, 'punkte': [{'wert': 5, 'name': '5 nicht'}]},
+  'schritte': [{'text': 'Die Aufgabe ist 2(x + 3) > 5x − 9.'},
+               {'text': 'Klammer auflösen: 2x + 6 > 5x − 9.'},
+               {'text': 'Alle x-Glieder nach links: Auf beiden Seiten 5x abziehen. −3x + 6 > −9.'},
+               {'text': 'Auf beiden Seiten 6 abziehen: −3x > −15.'},
+               {'text': 'Durch (−3) teilen und Zeichen umdrehen: ⟦x < 5⟧.'}],
+  'fehler': '2(x + 3) ist nicht 2x + 3. Dann hätten zwei Tüten zusammen nur 3 Birnen. Die 2 gilt für ⟦jeden⟧ Teil der Klammer.',
+  'regel': 'Erst ⟦Klammern auflösen⟧, dann alle x auf eine Seite. Ist die Zahl vor x am Ende negativ, drehst du beim Teilen das Zeichen um.'},
+ 'intervall': {
+  'einstieg': 'An der Achterbahn steht: „Mitfahren ab 1,20 m.“ Erlaubt sind 1,20 m und alle Größen darüber, ohne Lücke. So einen Zahlenbereich nennt man ⟦Intervall⟧.',
+  'woerter': [['Intervall', 'ein lückenloser Zahlenbereich zwischen zwei Grenzen'], ['Grenze', 'die Zahl am Rand des Bereichs'], ['∞', '„unendlich“: Der Bereich hört nie auf']],
+  'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 2.5, 'abschnitte': 5, 'beschriftet': 'alle'},
+  'schritte': [{'text': 'Mitfahren ab 1,20 m heißt: x ≥ 1,2.', 'bild': {'bereich': {'von': 1.2, 'bis': 2.5}, 'punkte': [{'wert': 1.2, 'name': '1,2'}]}},
+               {'text': 'Die Grenze 1,2 gehört dazu. Die Klammer zeigt zu ihr hin: [1,2.'},
+               {'text': 'Nach oben gibt es kein Ende: ∞, Klammer nach außen. ⟦[1,2; ∞[⟧'},
+               {'text': 'Kleiner als 1,2 ergibt ⟦]−∞; 1,2[⟧. Die Klammer zeigt weg.', 'bild': {'bereich': {'von': 0, 'bis': 1.2}, 'punkte': [{'wert': 1.2, 'name': '1,2 nicht'}]}}],
+  'fehler': '„Kleiner als 1,20 m“ ist nicht ]−∞; 1,2]. Wer genau 1,20 m groß ist, ist nicht kleiner. Die Klammer zeigt ⟦nach außen⟧.',
+  'regel': 'Gehört die Grenze dazu, zeigt die Klammer ⟦zur Zahl hin⟧. Sonst zeigt sie weg, bei ∞ und −∞ immer.'},
+ 'pruefen': {
+  'einstieg': 'Du hast ausgerechnet: weniger als 4 Fahrten. An der Kasse willst du sicher sein und rechnest nach. Dieses Nachrechnen mit einer eingesetzten Zahl heißt ⟦Probe⟧.',
+  'woerter': [['Probe', 'eine Zahl einsetzen und nachrechnen, ob es stimmt'], ['Grenze', 'die Zahl, an der die Lösungen aufhören']],
+  'bild': _ZS,
+  'schritte': [{'text': 'Behauptung: 3 Fahrten passen. Setze 3 ein: 3 · 3 + 5 = 14.', 'bild': {'punkte': [{'wert': 3, 'name': '3 ✓'}]}},
+               {'text': '14 < 17 stimmt. Also ⟦ist 3 eine Lösung⟧.'},
+               {'text': 'Hinter der Grenze: 3 · 4 + 5 = 17, nicht < 17.', 'bild': {'punkte': [{'wert': 3, 'name': '3 ✓'}, {'wert': 4, 'name': '4 ✗'}]}},
+               {'text': 'Damit stimmt die Lösung: ⟦x < 4⟧.'}],
+  'fehler': 'Nur eine Zahl zu testen reicht nicht. Wer bloß 0 Fahrten prüft, merkt nicht, ob 4 noch gingen. Teste auch ⟦nahe der Grenze⟧.',
+  'fehler_bild': {'punkte': [{'wert': 0, 'name': 'nur 0?'}, {'wert': 4, 'name': '4 ✗'}]},
+  'regel': 'Zum Prüfen ⟦einsetzen und vergleichen⟧. In fremden Rechnungen prüfst du besonders das Umdrehen des Zeichens.'},
+ 'grafisch': {
+  'einstieg': 'Du zeichnest zwei Linien: deine Ausgaben im Freizeitpark und dein Geld, 17 €. Solange die Ausgaben unter dem Geld liegen, reicht es. Die Grenze ist der ⟦Schnittpunkt⟧.',
+  'woerter': [['Schnittpunkt', 'der Punkt, an dem sich zwei Linien treffen'], ['y = 3x + 5', 'die Ausgaben: 5 € Eintritt plus 3 € je Fahrt'], ['waagrecht', 'flach von links nach rechts, wie der Horizont']],
+  'bild': {'typ': 'koordinaten', 'x': [-1, 6], 'y': [0, 22], 'graphen': [{'art': 'linear', 'm': 3, 't': 5, 'name': 'Ausgaben', 'name_x': 2.5}, {'art': 'linear', 'm': 0, 't': 17, 'name': 'Geld', 'name_x': 1.5}], 'schritt_y': 2},
+  'schritte': [{'text': 'Die Ausgaben-Gerade y = 3x + 5 steigt mit jeder Fahrt.'},
+               {'text': 'Die Geld-Linie y = 17 ist waagrecht. Sie schneiden sich bei x = 4.', 'bild': {'punkte': [{'x': 4, 'y': 17, 'name': 'S(4 | 17)'}], 'senkrecht': [4]}},
+               {'text': 'Links davon liegen die Ausgaben unter 17 €: ⟦x < 4⟧.', 'bild': {'flaechen': [{'punkte': [[0, 0], [4, 0], [4, 17], [0, 17]]}]}}],
+  'fehler': 'Rechts vom Schnittpunkt liegen die Ausgaben ⟦über⟧ 17 € – dort reicht das Geld nicht. Bei „<“ gilt der Bereich darunter.',
+  'fehler_bild': {'flaechen': [{'punkte': [[4, 17], [6, 17], [6, 22], [4, 22]]}], 'punkte': [{'x': 4, 'y': 17, 'name': 'S'}, {'x': 5, 'y': 20, 'name': 'zu teuer'}]},
+  'regel': 'Bei „<“ liegt die linke Gerade ⟦unter⟧ der rechten. Die Grenze ist die x-Stelle des Schnittpunkts.'},
+ 'sachaufgabe': {
+  'einstieg': 'In einem anderen Park kostet der Eintritt 4 €, jede Fahrt 2,50 €. Du willst höchstens 20 € ausgeben. Das Wort „höchstens“ verrät: Hier hilft eine ⟦Ungleichung⟧.',
+  'woerter': [['höchstens', '≤: diese Zahl oder weniger'], ['abrunden', 'zur nächstkleineren ganzen Zahl gehen: 6,4 → 6']],
+  'bild': _ZS,
+  'schritte': [{'text': 'Höchstens 20 € heißt ≤ 20: 4 + 2,5x ≤ 20.'},
+               {'text': 'Erst 4 abziehen, dann durch 2,5 teilen: x ≤ 6,4.', 'bild': {'bereich': {'von': 0, 'bis': 6.4}, 'punkte': [{'wert': 6.4, 'name': '6,4'}]}},
+               {'text': 'Nur ganze Fahrten, also abrunden: ⟦höchstens 6 Fahrten⟧ für 19 €.', 'bild': {'punkte': [{'wert': 6, 'name': '6 Fahrten'}]}}],
+  'fehler': 'Nicht auf 7 aufrunden: 7 Fahrten kosten 4 + 17,50 = 21,50 € – zu viel. Bei „höchstens“ wird ⟦abgerundet⟧.',
+  'fehler_bild': {'punkte': [{'wert': 6, 'name': '6 ✓'}, {'wert': 7, 'name': '7 ✗'}]},
+  'regel': 'Übersetze: höchstens ≤, mindestens ≥, mehr als >, weniger als <. Bei Stückzahlen gibst du eine ⟦ganze Zahl⟧ an.'},
+}
+UMBAU_OFFEN = []
+baue = mit_umbau(baue, UMBAU, UMBAU_OFFEN)
+
+
+# ---- SCHWER (Zehnte Runde: schwerere Aufgaben nach Prüfungsvorbild, siehe _schwer_kl8.py) ----
+# Vorbilder (Typ und Niveau, nicht Wortlaut/Zahlen): VERA-8 2012 (Testheft III, „Ungleichung erfüllen“: Zahlen auf Erfüllung prüfen),
+# BMT10 2022 (Schnitt/Vereinigung von Lösungsmengen), Stegreifaufgaben-Typ Kl. 8 („einfache Ungleichung lösen“, Punkt oberhalb/unterhalb),
+# BMT8 2025 (Mittelwert, Aussage begründet widerlegen), Schulaufgaben-Typ (Fehler beim Umdrehen finden, Tarifvergleich „ab wann günstiger“).
+from _schwer_kl8 import Neu, mit_schwer  # noqa: E402
+
+SW = Neu(10_8_7)
+_k = lambda **k: {'typ': 'koordinaten', **k}
+_l = lambda m, t, name=None, **k: {'art': 'linear', 'm': m, 't': t, **({'name': name} if name else {}), **k}
+
+# umformen
+SW.z('umformen', 2, 'Löse 0,5x − 3 ≥ 1. Die Lösung hat die Form x ≥ □. Gib die Zahl an.', 8, '4 / 0.5', '0,5x ≥ 4 ⇔ x ≥ 8 (durch 0,5 teilen, positiv: Zeichen bleibt).',
+     'Erst + 3, dann durch 0,5 teilen.')
+SW.z('umformen', 2, 'Löse x/3 + 2 < 5. Die Lösung hat die Form x < □. Gib die Zahl an.', 9, '3 * 3', 'x/3 < 3 ⇔ x < 9.', 'Ziehe 2 ab und multipliziere mit 3.')
+SW.z('umformen', 3, 'Wie viele der Zahlen −2,5; −0,5; 0 und 1,5 erfüllen die Ungleichung 3x + 4 > 2,5?', 2, '1 + 1',
+     '3x > −1,5 ⇔ x > −0,5. Es passen 0 und 1,5. −0,5 ist die Grenze und gehört bei „>“ nicht dazu, −2,5 ist zu klein.', 'Löse die Ungleichung zuerst. Prüfe die Grenze besonders.', art='P')
+SW.a('umformen', 3, 'Löse die Ungleichung 2(x + 3) > 2x + 1.', 'L = ℚ (jede Zahl)', ['L = { } (keine Zahl)', 'x > 2,5', 'x > 0'],
+     '2x + 6 > 2x + 1 ⇔ 6 > 1. Das stimmt immer, egal welches x. Jede Zahl ist Lösung.', 'Löse die Klammer auf. Was passiert mit x?', art='P')
+SW.z('umformen', 3, 'Für welchen Wert von a hat die Ungleichung a · x + 3 < 3 + 2x keine Lösung?', 2, '2',
+     'Umformen: (a − 2) · x < 0. Für a = 2 steht 0 < 0 da – das ist nie wahr, keine Lösung. Für jedes andere a gibt es Lösungen.', 'Bringe alles mit x auf eine Seite.', art='K')
+SW.z('umformen', 3, 'Die Ungleichung 5x − 7 ≤ c hat die Lösungsmenge x ≤ 4. Bestimme c.', 13, '5 * 4 - 7', 'An der Grenze x = 4 gilt Gleichheit: 5 · 4 − 7 = c ⇔ c = 13.',
+     'Setze die Grenze in den linken Term ein.', art='K')
+
+# umdrehen
+SW.z('umdrehen', 2, 'Löse 6 − 2x > 0. Die Lösung hat die Form x < □. Gib die Zahl an.', 3, '6 / 2', '−2x > −6 ⇔ x < 3 (durch −2 teilen: Zeichen umdrehen).',
+     'Ziehe 6 ab. Beim Teilen durch −2 dreht sich das Zeichen.')
+SW.z('umdrehen', 2, 'Löse −x/4 ≥ 2. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', -8, '2 * (-4)', 'Mal (−4): x ≤ −8.', 'Multipliziere mit −4. Was passiert mit dem Zeichen?')
+SW.a('umdrehen', 3, 'Mia löst 3 − 5x < 18 so: −5x < 15, also x < −3. Was stimmt?', 'Falsch: Beim Teilen durch −5 muss sich das Zeichen umdrehen. Richtig ist x > −3.',
+     ['Richtig gerechnet.', 'Falsch: Richtig ist x < 3.', 'Falsch: Im ersten Schritt muss −5x < 21 stehen.'],
+     '3 − 5x < 18 ⇔ −5x < 15 stimmt. Durch −5 teilen dreht das Zeichen: x > −3. Probe: x = 0 erfüllt 3 < 18, liegt aber nicht in „x < −3“.', 'Mache eine Probe mit x = 0.', art='P')
+SW.a('umdrehen', 3, 'Löse −0,2x + 1 ≤ 3 und gib die Lösungsmenge als Intervall an.', 'L = [−10; ∞[', ['L = ]−∞; −10]', 'L = [10; ∞[', 'L = ]−10; ∞['],
+     '−0,2x ≤ 2. Durch −0,2 teilen, Zeichen umdrehen: x ≥ −10. Die Grenze gehört dazu: [−10; ∞[.', '2 : (−0,2) = −10. Und das Zeichen?', art='P')
+SW.a('umdrehen', 3, 'Für zwei Zahlen gilt a < b. Welche Aussage stimmt dann sicher?', '−a > −b', ['−a < −b', 'a² < b²', 'a < −b'],
+     'Mal (−1) dreht das Zeichen: −a > −b. a² < b² stimmt nicht immer: a = −3, b = 1 gibt 9 > 1. a < −b ist für a = 1, b = 2 falsch.',
+     'Teste mit negativen Zahlen, z. B. a = −3 und b = 1.', art='K')
+SW.a('umdrehen', 3, 'Für welche Zahlen x gilt −3x > x?', 'für alle x < 0', ['für alle x > 0', 'für keine Zahl', 'für alle Zahlen'],
+     '−3x > x ⇔ −4x > 0 ⇔ x < 0 (durch −4 teilen). Probe: x = −1 gibt 3 > −1 ✓, x = 1 gibt −3 > 1 ✗.', 'Bringe x auf eine Seite. Oder probiere x = 1 und x = −1.', art='K')
+
+# klammern
+SW.z('klammern', 2, 'Löse 3(2 − x) ≤ 12. Die Lösung hat die Form x ≥ □. Gib die Zahl an.', -2, '-6 / 3', '6 − 3x ≤ 12 ⇔ −3x ≤ 6 ⇔ x ≥ −2.', 'Klammer auflösen, dann durch −3 teilen.')
+SW.z('klammern', 2, 'Löse −(x − 5) > 2x − 4. Die Lösung hat die Form x < □. Gib die Zahl an.', 3, '9 / 3', '−x + 5 > 2x − 4 ⇔ 9 > 3x ⇔ x < 3.', 'Minus vor der Klammer ändert beide Vorzeichen.')
+SW.z('klammern', 3, 'Löse (x + 1)/2 − (x − 3)/4 > 1. Die Lösung hat die Form x > □. Gib die Zahl an.', -1, '4 - 5',
+     'Mal 4: 2(x + 1) − (x − 3) > 4 ⇔ 2x + 2 − x + 3 > 4 ⇔ x + 5 > 4 ⇔ x > −1.', 'Multipliziere mit 4. Der zweite Zähler kommt in Klammern.', art='P')
+SW.z('klammern', 3, 'Löse x(x + 2) ≤ x² − 6. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', -3, '-6 / 2', 'x² + 2x ≤ x² − 6 ⇔ 2x ≤ −6 ⇔ x ≤ −3. Das x² fällt weg.',
+     'Multipliziere aus. Was passiert mit x²?', art='P')
+SW.a('klammern', 3, 'Löse 4(x − 1) − 2(2x − 3) < 1.', 'L = { } (keine Zahl)', ['L = ℚ (jede Zahl)', 'x < 0,5', 'x > −0,5'],
+     '4x − 4 − 4x + 6 < 1 ⇔ 2 < 1. Das ist nie wahr. Keine Zahl erfüllt die Ungleichung.', 'Löse beide Klammern auf. Achte auf −2 · (−3).', art='K')
+SW.z('klammern', 3, 'Welches ist die größte ganze Zahl, die 2(3 − x) > 3(x − 8) erfüllt?', 5, '30 // 5 - 1',
+     '6 − 2x > 3x − 24 ⇔ 30 > 5x ⇔ x < 6. Die 6 gehört nicht dazu, die größte ganze Zahl ist 5.', 'Löse zuerst. Ist die Grenze selbst erlaubt?', art='K')
+
+# intervall
+SW.a('intervall', 2, 'Löse 5 − x > 7 und gib die Lösungsmenge als Intervall an.', 'L = ]−∞; −2[', ['L = ]−2; ∞[', 'L = ]−∞; 2[', 'L = ]−∞; −2]'],
+     '−x > 2 ⇔ x < −2. Die Grenze gehört nicht dazu: ]−∞; −2[.', 'Durch −1 teilen dreht das Zeichen.')
+SW.a('intervall', 2, 'Welche Ungleichung hat die Lösungsmenge L = [2,5; ∞[?', '2x ≥ 5', ['2x > 5', '−2x ≥ −5', '2x ≤ 5'],
+     '2x ≥ 5 ⇔ x ≥ 2,5. Bei −2x ≥ −5 dreht sich das Zeichen: x ≤ 2,5.', 'Löse jede Ungleichung und vergleiche.')
+SW.a('intervall', 3, 'x soll 2x − 1 > 3 und zugleich x − 4 ≤ 2 erfüllen. Gib die Lösungsmenge als Intervall an.', 'L = ]2; 6]', ['L = [2; 6[', 'L = ]2; ∞[', 'L = ]−∞; 6]'],
+     'Erste Ungleichung: x > 2. Zweite: x ≤ 6. Beides gleichzeitig: 2 < x ≤ 6, also ]2; 6].', 'Löse beide Ungleichungen. „Zugleich“ heißt: Beides muss gelten.', art='P')
+SW.a('intervall', 3, 'Löse −3 ≤ 1 − 2x < 5 und gib die Lösungsmenge als Intervall an.', 'L = ]−2; 2]', ['L = [−2; 2[', 'L = [2; −2[', 'L = ]−4; 4]'],
+     '−1: −4 ≤ −2x < 4. Durch −2, beide Zeichen umdrehen: 2 ≥ x > −2. Also −2 < x ≤ 2: ]−2; 2].', 'Teile alle drei Teile durch −2 und drehe beide Zeichen um.', art='P')
+SW.z('intervall', 3, 'Wie viele ganze Zahlen liegen in der Lösungsmenge von −7 < 3x + 2 ≤ 11?', 6, '3 - (-2) + 1',
+     '−9 < 3x ≤ 9 ⇔ −3 < x ≤ 3. Ganze Zahlen: −2, −1, 0, 1, 2, 3. Das sind 6.', 'Löse zuerst. −3 gehört nicht dazu, 3 schon.', art='K')
+SW.a('intervall', 3, 'Eine Zahl soll 3x ≤ 6 und 2x > 8 gleichzeitig erfüllen. Welche Lösungsmenge ergibt sich?', 'L = { }', ['L = ]4; 2]', 'L = [2; 4[', 'L = ℚ'],
+     'Erste: x ≤ 2. Zweite: x > 4. Keine Zahl ist zugleich höchstens 2 und größer als 4.', 'Zeichne beide Bereiche auf einem Zahlenstrahl.', art='K')
+
+# pruefen
+SW.a('pruefen', 2, 'Welche Zahl ist eine Lösung von −2x + 3 > 10?', '−4', ['−3', '0', '4'], '−2x > 7 ⇔ x < −3,5. Nur −4 ist kleiner als −3,5. Probe: 8 + 3 = 11 > 10.',
+     'Löse zuerst oder setze jede Zahl ein.')
+SW.z('pruefen', 2, 'Gib die kleinste ganze Zahl an, die 2,5x − 1 ≥ 6 erfüllt.', 3, '3', '2,5x ≥ 7 ⇔ x ≥ 2,8. Die kleinste ganze Zahl ab 2,8 ist 3.', 'Löse zuerst, dann runde passend.')
+SW.a('pruefen', 3, 'Tom sagt: „x = 2 erfüllt 3x − 4 > x. Also gilt die Ungleichung für alle Zahlen.“ Was stimmt?', 'Falsch: x = 2 erfüllt sie gar nicht (2 > 2 ist falsch). L = ]2; ∞[.',
+     ['Richtig: Ein Beispiel genügt.', 'Falsch: L = ]−∞; 2[.', 'Falsch: Es gibt keine Lösung.'],
+     'Einsetzen: 3 · 2 − 4 = 2, und 2 > 2 ist falsch. Lösen: 2x > 4 ⇔ x > 2. Ein Beispiel beweist ohnehin keine Aussage über alle Zahlen.', 'Prüfe Toms Beispiel selbst nach.', art='P')
+SW.a('pruefen', 3, 'Lea löst 4 − 3x ≥ 10 und erhält x ≥ −2. Ihre Probe mit x = 0 ergibt 4 ≥ 10 – falsch. Was folgt daraus?', 'Lea hat das Zeichen nicht umgedreht. Richtig ist x ≤ −2.',
+     ['Die Probe ist wertlos, weil 0 keine Lösung sein kann.', 'Die Ungleichung hat keine Lösung.', 'Richtig ist x ≥ 2.'],
+     '0 liegt in Leas Lösung x ≥ −2, erfüllt die Ungleichung aber nicht. Also ist Leas Lösung falsch. −3x ≥ 6 ⇔ x ≤ −2.', 'Liegt 0 in Leas Lösungsmenge?', art='P')
+SW.z('pruefen', 3, 'Wie viele positive ganze Zahlen erfüllen 2x − 5 < x + 3?', 7, '8 - 1', 'x < 8. Positive ganze Zahlen: 1, 2, …, 7. Das sind 7. Die 8 gehört nicht dazu.',
+     'Löse zuerst. Zähle dann ab 1.', art='K')
+SW.z('pruefen', 3, 'Die Ungleichung a · x ≥ 6 hat die Lösungsmenge x ≤ −2. Bestimme a.', -3, '6 / (-2)',
+     'Aus „≥“ wurde „≤“: Es wurde durch eine negative Zahl geteilt, a < 0. Grenze 6/a = −2 ⇔ a = −3. Probe: −3x ≥ 6 ⇔ x ≤ −2.',
+     'Das Zeichen hat sich umgedreht. Was weißt du dann über a?', art='K')
+
+# grafisch
+SW.z('grafisch', 2, 'Löse x − 1 < −x + 3 mit den Graphen. Die Lösung hat die Form x < □. Gib die Zahl an.', 2, '4 / 2',
+     'Schnittpunkt bei x = 2. Links davon liegt y = x − 1 unter y = −x + 3. Also x < 2.', 'Lies den Schnittpunkt ab. Wo liegt die erste Gerade unten?',
+     grafik=_k(x=[-2, 5], y=[-3, 5], graphen=[_l(1, -1, 'f'), _l(-1, 3, 'g')]))
+SW.a('grafisch', 2, 'Für welche x gilt 0,5x + 1 > 0? Lies am Graphen ab.', 'x > −2', ['x < −2', 'x > 1', 'x > 2'],
+     'Die Gerade schneidet die x-Achse bei −2. Rechts davon liegt sie oberhalb der Achse.', 'Wo schneidet die Gerade die x-Achse?',
+     grafik=_k(x=[-5, 4], y=[-2, 4], graphen=[_l(0.5, 1, 'f')]))
+SW.a('grafisch', 3, 'Tarif A (Gerade f) und Tarif B (Gerade g): x ist die Gesprächszeit in Minuten, y der Preis in €. Für welche Gesprächszeiten ist A billiger?', 'x > 50',
+     ['x < 50', 'x > 10', 'x < 10'],
+     'Die Geraden schneiden sich bei x = 50. Rechts davon liegt f unter g, also ist A billiger. f: y = 0,1x + 5, g: y = 0,2x.', 'Billiger heißt: Die Gerade liegt weiter unten.',
+     grafik=_k(x=[0, 100], y=[0, 20], schritt_x=10, schritt_y=5, name_x='min', name_y='€', graphen=[_l(0.1, 5, 'f'), _l(0.2, 0, 'g')]), art='P')
+SW.a('grafisch', 3, 'Für welche x liegt der Graph von f: y = 2x − 1 zwischen den Geraden y = 1 und y = 5 (Grenzen ausgeschlossen)?', 'L = ]1; 3[', ['L = [1; 3]', 'L = ]1; 5[', 'L = ]0; 3['],
+     '1 < 2x − 1 < 5 ⇔ 2 < 2x < 6 ⇔ 1 < x < 3. Am Bild: f trifft y = 1 bei x = 1 und y = 5 bei x = 3.', 'Lies die beiden Schnittstellen ab.',
+     grafik=_k(x=[-1, 5], y=[-2, 7], graphen=[_l(2, -1, 'f')], waagrecht=[1, 5]), art='P')
+SW.a('grafisch', 3, 'Für welche x sind beide Funktionswerte f(x) = −2x + 4 und g(x) = x − 2 positiv?', 'für kein x', ['für x < 2', 'für x > 2', 'für alle x'],
+     'f(x) > 0 für x < 2, g(x) > 0 für x > 2. Beides zugleich geht nicht. Bei x = 2 sind beide 0.', 'Wo liegt jede Gerade über der x-Achse?',
+     grafik=_k(x=[-2, 5], y=[-4, 6], graphen=[_l(-2, 4, 'f'), _l(1, -2, 'g')]), art='K')
+SW.z('grafisch', 3, 'Für welchen Wert von m liegt die Gerade y = m · x + 2 für jedes x unterhalb der Geraden y = 3?', 0, '0',
+     'Steigt oder fällt die Gerade (m ≠ 0), kommt sie irgendwann über y = 3. Nur die waagrechte Gerade y = 2 (m = 0) bleibt immer darunter.',
+     'Was passiert mit einer steigenden Geraden weit rechts?', art='K')
+
+# sachaufgabe
+SW.z('sachaufgabe', 2, 'Ein Kind hat 20 €. Es kauft einen Füller für 6 € und Hefte zu je 1,40 €. Wie viele Hefte kann es höchstens kaufen?', 10, '(20 - 6) / 1.4',
+     '6 + 1,40 · h ≤ 20 ⇔ 1,40 · h ≤ 14 ⇔ h ≤ 10.', 'Stelle eine Ungleichung mit „höchstens“ auf.', einheit='Hefte')
+SW.z('sachaufgabe', 2, 'Ein Einzeleintritt kostet 4,50 €, eine Zehnerkarte 36 €. Ab wie vielen Besuchen ist die Zehnerkarte billiger als Einzelkarten?', 9, '36 // 4.5 + 1',
+     '4,50 · n > 36 ⇔ n > 8. Bei 8 Besuchen kostet beides 36 €. Ab 9 Besuchen ist die Zehnerkarte billiger.', 'Wann kosten Einzelkarten mehr als 36 €?', einheit='Besuche')
+SW.z('sachaufgabe', 3, 'Für eine Fahrt kostet der Bus 450 €, dazu kommen 18 € Eintritt pro Person. Pro Person sollen höchstens 30 € anfallen. Wie viele Personen müssen mindestens mitfahren?',
+     38, '450 // 12 + 1', 'Kosten pro Person: (450 + 18n)/n ≤ 30 ⇔ 450 + 18n ≤ 30n ⇔ 450 ≤ 12n ⇔ n ≥ 37,5. Also mindestens 38 Personen.',
+     'Der Bus wird geteilt. Stelle die Kosten pro Person als Bruch auf.', einheit='Personen', art='P')
+SW.z('sachaufgabe', 3, 'Lena hat in drei Tests 12, 9 und 13 Punkte. Wie viele Punkte braucht sie im vierten Test mindestens, damit ihr Durchschnitt mindestens 12 Punkte beträgt?', 14,
+     '4 * 12 - (12 + 9 + 13)', '(12 + 9 + 13 + x)/4 ≥ 12 ⇔ 34 + x ≥ 48 ⇔ x ≥ 14.', 'Der Durchschnitt ist die Summe geteilt durch 4.', einheit='Punkte', art='P')
+SW.z('sachaufgabe', 3, 'Ein Rechteck ist 3 cm länger als breit. Sein Umfang soll höchstens 30 cm betragen. Wie breit darf es höchstens sein?', 6, '24 / 4',
+     'Breite b, Länge b + 3. 2b + 2(b + 3) ≤ 30 ⇔ 4b + 6 ≤ 30 ⇔ b ≤ 6.', 'Umfang = 2 · Länge + 2 · Breite.', einheit='cm', art='K')
+SW.z('sachaufgabe', 3, 'Kerze A ist 30 cm lang und brennt pro Stunde 2 cm ab, Kerze B ist 20 cm lang und brennt 1 cm pro Stunde ab. Ab welcher Brenndauer t (in h) ist A kürzer als B? Gib die Grenze an.',
+     10, '(30 - 20) / (2 - 1)', '30 − 2t < 20 − t ⇔ 10 < t. Ab mehr als 10 Stunden ist A kürzer (bei 10 h sind beide 10 cm).', 'Stelle für jede Kerze einen Term auf.', einheit='h', art='K')
+
+baue = mit_schwer(baue, SW)
+# ---- SCHWER ENDE ----
+
+# ---- BEFUNDE (Dreizehnte Runde: Befundliste aus Runde 10 abarbeiten, siehe _befunde.py) ----
+from _befunde import Befunde, mit_befunden  # noqa: E402
+
+BF = Befunde('gleichungen.ungleichungen', 13_8_7)
+_g1 = {"typ": "koordinaten", "x": [-9, 1], "y": [-6, 6], "graphen": [{"art": "linear", "m": 1, "t": 4, "name": "y = x + 4"}, {"art": "linear", "m": 0, "t": 0, "name": "y = 0"}], "senkrecht": [-4]}
+_g2 = {"typ": "koordinaten", "x": [-3, 7], "y": [-11, 11], "graphen": [{"art": "linear", "m": 2, "t": -4, "name": "y = 2x − 4"}, {"art": "linear", "m": 0, "t": 0, "name": "y = 0"}], "senkrecht": [2]}
+# c) „oberhalb/unterhalb“ schließt den Schnittpunkt aus; richtige Antwort (> bzw. <) fehlte unter den Antworten
+BF.ersetze('grafisch', 'Für welche x liegt der Graph von y = x + 4 oberhalb der x-Achse?', BF.A(
+    'Für welche x liegt der Graph von y = x + 4 echt oberhalb der x-Achse (also nicht auf ihr)?', 'x > −4',
+    ['x ≥ −4', 'x > 4', 'x < −4'],
+    'Die Gerade schneidet die x-Achse bei x = −4. Rechts davon liegt sie oberhalb. Am Schnittpunkt liegt sie genau auf der Achse, er gehört also nicht dazu. Lösung: x > −4.',
+    'Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt oberhalb“ liegen soll?', grafik=_g1))
+BF.ersetze('grafisch', 'Für welche x liegt der Graph von y = 2x − 4 unterhalb der x-Achse?', BF.A(
+    'Für welche x liegt der Graph von y = 2x − 4 echt unterhalb der x-Achse (also nicht auf ihr)?', 'x < 2',
+    ['x ≤ 2', 'x > 2', 'x < −4'],
+    'Die Gerade schneidet die x-Achse bei x = 2. Links davon liegt sie unterhalb. Am Schnittpunkt liegt sie genau auf der Achse, er gehört also nicht dazu. Lösung: x < 2.',
+    'Suche den Schnittpunkt mit der x-Achse. Gehört er dazu, wenn die Gerade „echt unterhalb“ liegen soll?', grafik=_g2))
+# c) Zahlbereich Kl. 8 ist ℚ (ℝ erst Kl. 9)
+BF.ersetze('umformen', 'Löse 4x + 10 ≤ 4x + 3.', BF.A(
+    'Löse die Ungleichung 4x + 10 ≤ 4x + 3.', 'L = { } (keine Zahl)',
+    ['x ≤ −7', 'L = ℚ (jede Zahl)', 'x ≤ 0'],
+    '| − 4x: 10 ≤ 3. Das x ist weggefallen; die Aussage ist immer falsch, also gibt es keine Lösung.',
+    'Bringe die x-Glieder auf eine Seite. Was bleibt übrig?'))
+# a) gleicher Typ wie Stufe 2
+BF.stufe('umformen', 'Löse 8x + 1 > 4x + 13. Die Lösung hat die Form x > □. Gib die Zahl an.', 2)
+BF.stufe('umformen', 'Löse 7x − 3 ≤ 4x + 9. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', 2)
+BF.nicht_umgesetzt('sachaufgabe: Stufen 1 und 2 (Aufzug/Handytarif) inhaltlich gleich',
+                   'Die Aufgaben sind richtig; Stufe 1 und 2 unterscheiden sich in den Zahlen (Kommazahlen, „angefangene“ km auf Stufe 2). Kein einzelner Fehler; neue Stufe-3-Typen kamen in Runde 10 dazu.')
+
+baue = mit_befunden(baue, BF)
+# ---- BEFUNDE ENDE ----
+
+# ---- DURCHSICHT (Neunzehnte Runde, Teil A: Gesamtdurchsicht Kl. 8, siehe _durchsicht_kl8.py) ----
+from _durchsicht_kl8 import Durchsicht, mit_durchsicht  # noqa: E402
+
+DS = Durchsicht('gleichungen.ungleichungen', 19_8_4)
+DS.stufe('umformen', 'Löse die Ungleichung 7x − 11 ≤ 4x + 16.', 2)
+DS.stufen('umformen', 'S1 ein Schritt; S2 zwei Schritte, x auf beiden Seiten; S3 teils wie S2',
+          'S1 ein Schritt; S2 zwei Schritte, x auf beiden Seiten, Brüche; S3 leere Menge/alle Zahlen, Zahlen prüfen, Parameter a und c')
+for _t in ['Löse x + 15 ≥ 3x + 33. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', 'Löse die Ungleichung 3x − 4 < 5x + 8.',
+           'Löse 4x + 15 > 6x − 9. Die Lösung hat die Form x < □. Gib die Zahl an.', 'Löse 6x + 12 > 11x − 33. Die Lösung hat die Form x < □. Gib die Zahl an.']:
+    DS.stufe('umdrehen', _t, 2)
+DS.stufen('umdrehen', 'S1 ein Schritt mit Umdrehen; S2 zwei Schritte; S3 viermal „x auf beiden Seiten“ (nur längere Rechnung)',
+          'S1 ein Schritt mit Umdrehen; S2 zwei Schritte, x auf beiden Seiten; S3 Fehler finden, Intervall, a < b allgemein, −3x > x')
+DS.stufe('klammern', 'Löse −2(x + 1) − 3(x + 4) ≤ −x + 2. Die Lösung hat die Form x ≥ □. Gib die Zahl an.', 2)
+DS.stufe('klammern', 'Löse 3(x − 4) − 4(x − 5) ≤ −3x + 14. Die Lösung hat die Form x ≤ □. Gib die Zahl an.', 2)
+DS.stufen('klammern', 'S1 eine Klammer; S2 Klammer und x rechts; S3 viermal zwei Klammern (längere Rechnung)',
+          'S1 eine Klammer; S2 Klammer(n) und x auf beiden Seiten; S3 Brüche, x² hebt sich auf, leere Menge, größte ganze Zahl')
+DS.stufe('grafisch', 'Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) ≤ g(x) an.', 2, enthaelt='L = [−1; ∞[')
+DS.stufe('grafisch', 'Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) ≤ g(x) an.', 2, enthaelt='L = [−4; ∞[')
+DS.stufe('grafisch', 'Die Abbildung zeigt die Geraden f und g. Für welche x liegt f unterhalb von g, Schnittpunkt eingeschlossen?', 2)
+DS.stufe('grafisch', 'Die Abbildung zeigt die Geraden f und g. Gib die Lösungsmenge von f(x) > g(x) an.', 2)
+DS.stufen('grafisch', 'S1 oberhalb/unterhalb einer waagrechten Linie; S2 zwei Geraden; S3 viermal dasselbe Ablesen wie S2',
+          'S1 oberhalb/unterhalb einer waagrechten Linie; S2 zwei Geraden, auch mit Intervall; S3 Tarifgraph, „zwischen“, beide positiv, Parameter m')
+DS.stufe('sachaufgabe', 'Ein Aufzug darf höchstens 400 kg tragen. Eine Person (69 kg) will Kisten zu je 50 kg mitnehmen. Wie viele Kisten darf sie höchstens einladen?', 1)
+DS.stufe('sachaufgabe', 'Ein Handytarif kostet im Monat 12 € Grundgebühr und 3 € je zusätzliches Datenpaket. Man will höchstens 35 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?', 1)
+DS.stufe('sachaufgabe', 'Für ein Fahrrad (Preis 420 €) hat jemand 60 € gespart und legt jede Woche 25 € dazu. Welche Ungleichung beschreibt: „Das Geld reicht mindestens für das Fahrrad“ (x = Anzahl Wochen)?', 1)
+DS.stufen('sachaufgabe', 'S1 und S2 teils dieselben Aufzug-/Handy-/Fahrrad-Aufgaben', 'S1 Grundpreis + Stückpreis ≤ Grenze; S2 „je angefangen“, Einkleidungen, Zehnerkarte; S3 Vergleich zweier Tarife, Mindestanzahl, Durchschnitt, Geometrie, Kerzen')
+DS.stufen('intervall', 'S1 Ungleichung ↔ Intervall; S2 erst lösen (mit Umdrehen), dann Intervall; S3 Doppelungleichung, zwei Bedingungen, leere Menge')
+DS.stufen('pruefen', 'S1 Zahl einsetzen; S2 kleinste/größte ganze Zahl; S3 Fehler in einer Rechnung finden, Probe deuten, Parameter')
+baue = mit_durchsicht(baue, DS)
+# ---- DURCHSICHT ENDE ----
+
+# ---- STUFEN (Zwanzigste Runde: echte Stufe 3 und Knobel-Bordkarten, siehe _stufen_kl8.py) ----
+from _stufen_kl8 import Stufen, mit_stufen  # noqa: E402
+
+ST = Stufen('gleichungen.ungleichungen', 20_8_1)
+SA, SZ, SL = ST.A, ST.Z, ST.L
+def T(lz, *regeln):
+    for m, g in regeln: ST.typ(lz, m, g)
+
+# --- umformen ---
+ST.leiter('umformen', 'eine Ungleichung mit einem Umformungsschritt lösen, Grenze am Zahlenstrahl zeigen',
+          'zwei Schritte, x auf beiden Seiten, Sachsatz in Ungleichung übersetzen, Ungleichung zur Lösungsmenge finden',
+          'Sonderfälle (keine/jede Zahl) begründen, Parameter, Fehler finden, Modell selbst aufstellen, mit Dreiecksungleichung verknüpfen')
+T('umformen', (r'^Löse die Ungleichung x − \d+ ≤|^Löse die Ungleichung \d+x <', 'direkt'), (r'Markiere die Grenze|^Wie viele der Zahlen', 'erkennen'),
+  (r'4x \+ 10 ≤ 4x|2\(x \+ 3\) > 2x', 'begruenden'), (r'a · x \+ 3', 'parameter'), (r'Lösungsmenge x ≤ 4', 'rueckwaerts'), (r'^Löse', 'mehrschritt'))
+ST.neu('umformen', 'einkleidung', SZ('Das Dreifache einer Zahl, vermindert um 7, ist kleiner als 20. Welches ist die größte ganze Zahl, für die das gilt?', 8, '(20 + 7) // 3 - 1',
+    '3x − 7 < 20 ⇒ 3x < 27 ⇒ x < 9. Die 9 selbst gehört nicht dazu, die größte ganze Zahl ist 8.', 'Schreibe den Satz als Ungleichung mit x.'))
+ST.neu('umformen', 'umkehr', SA('Welche Ungleichung hat die Lösungsmenge x > 4?', '3x − 2 > 10', ['3x − 2 > 14', '3x − 2 < 10', '3x + 2 > 10'],
+    '3x − 2 > 10 ⇒ 3x > 12 ⇒ x > 4. Die anderen ergeben x > 16/3, x < 4 und x > 8/3.', 'Löse jede Ungleichung und vergleiche mit x > 4.'))
+ST.neu('umformen', 'fehler', SA('Ben löst 2x + 6 > 10 so: 2x > 16, also x > 8. Wo steckt der Fehler?', 'Er hat 6 addiert statt abgezogen; richtig ist 2x > 4, also x > 2.',
+    ['Beim Teilen durch 2 hätte er das Zeichen umdrehen müssen.', 'Es gibt keinen Fehler.', 'Er hätte durch 6 teilen müssen.'],
+    'Um +6 wegzubekommen, zieht man auf beiden Seiten 6 ab: 2x > 4. Durch 2 (positiv) ändert sich das Zeichen nicht: x > 2.', 'Mach die Probe mit x = 3.'))
+ST.neu('umformen', 'transfer', SZ('Ein Zug soll eine 120 km lange Strecke in höchstens 1,5 Stunden schaffen. Mit welcher Durchschnittsgeschwindigkeit muss er mindestens fahren?', 80, '120 / (15/10)',
+    'Strecke = Geschwindigkeit · Zeit: 1,5 · v ≥ 120 ⇒ v ≥ 80. Er muss mindestens 80 km/h fahren.', 'Stelle mit v eine Ungleichung für die Strecke in 1,5 Stunden auf.', einheit='km/h'))
+ST.neu('umformen', 'pruefung', SZ('Für wie viele natürliche Zahlen n ist 3n − 4 kleiner als 2n + 1 und zugleich größer als 0?', 3, '4 - 2 + 1',
+    '3n − 4 < 2n + 1 ⇒ n < 5. 3n − 4 > 0 ⇒ n > 4/3. Also n = 2, 3, 4: drei Zahlen.', 'Löse beide Bedingungen einzeln und suche die natürlichen Zahlen dazwischen.'))
+ST.neu('umformen', 'verknuepfen', SZ('Ein Dreieck hat die Seiten 5 cm, 8 cm und x cm (x ganzzahlig). Wie viele Werte für x sind möglich? (Zwei Seiten zusammen müssen länger sein als die dritte.)', 9, '12 - 4 + 1',
+    '5 + x > 8 ⇒ x > 3, und 5 + 8 > x ⇒ x < 13 (5 + x > 8 gilt dann ohnehin). Möglich sind alle ganzen Zahlen von 4 bis 12: neun Werte.', 'Schreibe für jede Seite die Dreiecksungleichung auf.'))
+ST.knobel('umformen', SZ('Die Summe dreier aufeinanderfolgender ganzer Zahlen liegt zwischen 100 und 110 (Grenzen ausgeschlossen). Wie viele Möglichkeiten gibt es für die mittlere Zahl?', 3, '36 - 34 + 1',
+    'Nennt man die mittlere Zahl m, sind die drei Zahlen m − 1, m und m + 1. Ihre Summe ist 3m. Aus 100 < 3m < 110 folgt 100 : 3 < m < 110 : 3, also etwa 33,3 < m < 36,7, also m = 34, 35 oder 36. Probe: 102, 105, 108 liegen zwischen 100 und 110. Es gibt drei Möglichkeiten.',
+    'Wie lässt sich die Summe dreier aufeinanderfolgender Zahlen mit nur einer Variablen schreiben?'))
+ST.knobel('umformen', SZ('Eine ganze Zahl x ist größer als die Hälfte von x + 7, aber kleiner als ein Drittel von x + 20. Wie viele solche Zahlen gibt es?', 2, '9 - 8 + 1',
+    'x > (x + 7) : 2 ⇒ 2x > x + 7 ⇒ x > 7. x < (x + 20) : 3 ⇒ 3x < x + 20 ⇒ 2x < 20 ⇒ x < 10. Also x = 8 oder x = 9: zwei Zahlen. Probe mit 8: 8 > 7,5 und 8 < 9,33.',
+    'Übersetze jeden Satzteil in eine eigene Ungleichung und befreie sie vom Bruch.'))
+
+# --- umdrehen ---
+ST.leiter('umdrehen', 'mit einer negativen Zahl malnehmen/teilen und dabei das Zeichen umdrehen',
+          'mehrere Schritte mit negativem Faktor, Sachsatz übersetzen, Ungleichung zu einer Lösungsmenge finden',
+          'allgemein begründen (a < b ⇒ −a > −b), Fehler deuten, rückwärts rechnen, Parameter, Sachmodell, mit Termen verknüpfen')
+T('umdrehen', (r'^Löse die Ungleichung −x > |^Löse die Ungleichung −9x', 'direkt'), (r'^Es gilt', 'erkennen'), (r'^Mia', 'fehler'),
+  (r'a < b|−3x > x', 'begruenden'), (r'^Löse', 'mehrschritt'))
+ST.neu('umdrehen', 'einkleidung', SZ('Ein Tauchboot ist in 20 m Tiefe und sinkt jede Minute 4 m weiter. Nach wie vielen ganzen Minuten ist es zum ersten Mal tiefer als 60 m? (Höhe in m: −20 − 4t)', 11, '(60 - 20) // 4 + 1',
+    '−20 − 4t < −60 ⇒ −4t < −40 ⇒ t > 10 (Zeichen umdrehen!). Genau nach 10 Minuten sind es 60 m, tiefer erst danach: nach 11 Minuten.', 'Schreibe die Höhe als Term und stelle „tiefer als −60 m“ als Ungleichung auf.'))
+ST.neu('umdrehen', 'umkehr', SA('Welche Ungleichung hat die Lösungsmenge x ≤ −3?', '−4x ≥ 12', ['−4x ≤ 12', '4x ≥ −12', '−4x ≥ −12'],
+    '−4x ≥ 12 ⇒ x ≤ −3 (durch −4, Zeichen dreht sich). −4x ≤ 12 ergibt x ≥ −3, 4x ≥ −12 ergibt x ≥ −3, −4x ≥ −12 ergibt x ≤ 3.', 'Löse jede Ungleichung; achte beim Teilen durch eine negative Zahl auf das Zeichen.'))
+ST.neu('umdrehen', 'rueckwaerts', SZ('Eine Zahl wird mit (−3) multipliziert, dann wird 5 addiert. Das Ergebnis ist höchstens −16. Welches ist die kleinste mögliche Zahl?', 7, '(-16 - 5) / (-3)',
+    '−3x + 5 ≤ −16 ⇒ −3x ≤ −21 ⇒ x ≥ 7. Die kleinste Zahl ist 7 (Probe: −21 + 5 = −16).', 'Stelle die Ungleichung auf und denke beim Teilen durch −3 an das Zeichen.'))
+ST.neu('umdrehen', 'parameter', SZ('Für welchen Wert von a hat a · x ≤ −10 die Lösungsmenge x ≥ 2?', -5, '-10 / 2',
+    'Das Zeichen hat sich umgedreht, also ist a negativ. Dann gilt x ≥ −10 : a = 2, also a = −5. Probe: −5x ≤ −10 ⇒ x ≥ 2.', 'Was sagt das umgedrehte Zeichen über das Vorzeichen von a?'))
+ST.neu('umdrehen', 'transfer', SZ('Ein Konto steht bei 50 €. Jeden Monat werden 12 € abgebucht, sonst passiert nichts. Nach wie vielen vollen Monaten ist es zum ersten Mal im Minus?', 5, '50 // 12 + 1',
+    '50 − 12m < 0 ⇒ −12m < −50 ⇒ m > 50 : 12 ≈ 4,17 Nach 4 Monaten sind noch 2 € da, nach 5 Monaten −10 €.', 'Stelle den Kontostand nach m Monaten als Term auf.'))
+ST.neu('umdrehen', 'pruefung', SA('Löse 5 − 2x ≥ x + 8 und prüfe: Welche der Zahlen −4, −1, 0 und 2 sind Lösungen?', '−4 und −1', ['nur −4', '0 und 2', '−1, 0 und 2'],
+    '5 − 2x ≥ x + 8 ⇒ −3x ≥ 3 ⇒ x ≤ −1. Von den Zahlen sind −4 und −1 Lösungen (−1 mit Gleichheit: 7 ≥ 7).', 'Erst lösen, dann jede Zahl mit der Lösungsmenge vergleichen.'))
+ST.neu('umdrehen', 'verknuepfen', SZ('Für wie viele ganze Zahlen x ist der Term 2 − 3x positiv und zugleich kleiner als 11?', 3, '0 - (-2) + 1',
+    '2 − 3x > 0 ⇒ x < 2/3. 2 − 3x < 11 ⇒ −3x < 9 ⇒ x > −3. Ganze Zahlen dazwischen: −2, −1, 0. Das sind drei.', 'Zwei Ungleichungen: einmal „> 0“, einmal „< 11“.'))
+ST.knobel('umdrehen', SZ('Für welche ganze Zahl a hat (a − 3) · x < 6 die Lösungsmenge x > −3?', 1, '3 - 2',
+    'Das Zeichen hat sich umgedreht, also ist a − 3 negativ. Dann gilt x > 6 : (a − 3). Das soll −3 sein: 6 : (a − 3) = −3 ⇒ a − 3 = −2 ⇒ a = 1. Probe: −2x < 6 ⇒ x > −3.',
+    'Was verrät die Richtung des Zeichens in der Lösung über den Faktor vor x?'))
+ST.knobel('umdrehen', SA('Es gilt a < b < 0. Welche Zahl ist sicher die größte?', 'a²', ['b²', 'a · b', 'Das hängt von a und b ab.'],
+    'Multipliziert man a < b mit der negativen Zahl a, dreht sich das Zeichen: a² > a · b. Multipliziert man a < b mit der negativen Zahl b: a · b > b². Also a² > a · b > b². Beispiel a = −3, b = −1: 9 > 3 > 1.',
+    'Multipliziere die Ungleichung a < b nacheinander mit a und mit b – beide sind negativ.'))
+
+# --- klammern ---
+ST.leiter('klammern', 'Klammer auflösen und eine einfache Ungleichung lösen',
+          'Klammern und x auf beiden Seiten, Sachaufgabe mit Klammer, fehlende Zahl so bestimmen, dass eine Lösungsmenge herauskommt',
+          'Sonderfälle begründen, mit Brüchen und x² verknüpfen, Fehler beim Minus vor der Klammer finden, Parameter, rückwärts von der größten Lösung')
+T('klammern', (r'^Löse die Ungleichung \d\(x [−+] \d\) [≥<>] [−\d]+\.$', 'direkt'), (r'4\(x − 1\) − 2\(2x − 3\)', 'begruenden'),
+  (r'\(x \+ 1\)/2|x\(x \+ 2\)', 'verknuepfen'), (r'größte ganze Zahl', 'pruefung'), (r'^Löse', 'mehrschritt'))
+ST.neu('klammern', 'erkennen', SA('Welche Ungleichung entsteht, wenn man bei 3(x − 2) > 9 die Klammer auflöst?', '3x − 6 > 9', ['3x − 2 > 9', '3x + 6 > 9', 'x − 6 > 9'],
+    'Die 3 wird mit jedem Glied der Klammer multipliziert: 3 · x − 3 · 2 = 3x − 6.', 'Jedes Glied in der Klammer wird mit 3 malgenommen.'))
+ST.neu('klammern', 'einkleidung', SZ('Ein Rechteck ist 4 cm breit und (x + 3) cm lang. Sein Flächeninhalt soll mindestens 28 cm² sein. Wie groß muss x mindestens sein?', 4, '28 / 4 - 3',
+    '4(x + 3) ≥ 28 ⇒ 4x + 12 ≥ 28 ⇒ 4x ≥ 16 ⇒ x ≥ 4.', 'Fläche = Breite · Länge, als Ungleichung mit „mindestens“.'))
+ST.neu('klammern', 'umkehr', SZ('Welche Zahl muss im Kästchen stehen, damit 2(x − □) < x + 1 die Lösungsmenge x < 7 hat?', 3, '(7 - 1) / 2',
+    'Mit der Zahl k: 2x − 2k < x + 1 ⇒ x < 1 + 2k. Aus 1 + 2k = 7 folgt k = 3.', 'Rechne mit einem Buchstaben für das Kästchen und vergleiche mit x < 7.'))
+ST.neu('klammern', 'fehler', SA('Tim rechnet: 3 − 2(x + 1) > 5 ⇒ 3 − 2x + 2 > 5 ⇒ −2x > 0 ⇒ x < 0. Was stimmt?', 'Falsch: −2 · (+1) = −2, also 1 − 2x > 5 und x < −2.',
+    ['Richtig.', 'Falsch: Das Zeichen darf sich nicht umdrehen, also x > 0.', 'Falsch: Richtig ist x < 2.'],
+    'Das Minus vor der Klammer wirkt auf beide Glieder: −2(x + 1) = −2x − 2. Dann 1 − 2x > 5 ⇒ −2x > 4 ⇒ x < −2.', 'Löse die Klammer langsam auf: Was ist −2 · (+1)?'))
+ST.neu('klammern', 'parameter', SZ('Ab welchem Wert von k ist jede Zahl x eine Lösung von 3(x + k) ≥ 3x + 12?', 4, '12 / 3',
+    '3x + 3k ≥ 3x + 12 ⇒ 3k ≥ 12 (x fällt weg). Für k ≥ 4 stimmt das für jedes x, für k < 4 für kein x. Gesucht ist k = 4.', 'Löse die Klammer auf – was passiert mit x?'))
+ST.neu('klammern', 'rueckwaerts', SZ('Die größte ganze Lösung von 2(x + 1) < c ist 6 (c ganz). Welches ist der kleinste mögliche Wert von c?', 15, '2 * (6 + 1) + 1',
+    '2(x + 1) < c ⇒ x < (c − 2) : 2. Damit 6 Lösung ist, muss 6 < (c − 2) : 2 sein, also c > 14. Damit 7 keine Lösung ist, muss (c − 2) : 2 ≤ 7 sein, also c ≤ 16. Kleinster Wert: c = 15.',
+    'Was muss für x = 6 gelten, was für x = 7?'))
+ST.neu('klammern', 'transfer', SZ('Ein Saal hat drei Reihen mit je (x + 4) Stühlen und eine letzte Reihe mit 2x Stühlen. Es sollen mindestens 37 Plätze sein. Wie viele Stühle hat die letzte Reihe mindestens?', 10, '2 * (37 - 12) / 5',
+    '3(x + 4) + 2x ≥ 37 ⇒ 5x + 12 ≥ 37 ⇒ x ≥ 5. Die letzte Reihe hat 2x ≥ 10 Stühle.', 'Stelle die Platzzahl als Term mit x auf – gefragt ist am Ende 2x.'))
+ST.knobel('klammern', SZ('Für welche ganzen Zahlen n gilt 2(n + 3) < 3(n − 1) < 2(n + 8)? Gib die Summe all dieser Zahlen an.', 126, '(10 + 18) * 9 / 2',
+    'Linker Teil: 2n + 6 < 3n − 3 ⇒ n > 9. Rechter Teil: 3n − 3 < 2n + 16 ⇒ n < 19. Also n = 10 bis 18 (neun Zahlen). Summe: 10 + 11 + 12 + 13 + 14 + 15 + 16 + 17 + 18 = 126.',
+    'Teile die Doppelungleichung in zwei Ungleichungen; dann addiere alle passenden Zahlen.'))
+ST.knobel('klammern', SA('Welche Zahlen x erfüllen 5(x − 2) − 3(x − 4) ≥ 2(x + 1)?', 'jede Zahl', ['keine Zahl', 'nur x ≥ 1', 'nur x ≤ 0'],
+    'Links: 5x − 10 − 3x + 12 = 2x + 2. Rechts: 2x + 2. Die Ungleichung heißt also 2x + 2 ≥ 2x + 2 – das stimmt immer (mit Gleichheit). Jede Zahl ist Lösung.',
+    'Vereinfache beide Seiten ganz, bevor du nach x auflöst.'))
+
+# --- intervall ---
+ST.leiter('intervall', 'eine einfache Lösungsmenge als Intervall schreiben bzw. zu einem Intervall die Ungleichung erkennen',
+          'erst lösen, dann als Intervall angeben; Sachgrenzen und Zahlenstrahl-Bilder in Intervalle übersetzen',
+          'Doppelungleichungen und zwei Bedingungen verknüpfen, leere Menge begründen, Klammerfehler finden, Parameter, ganze Zahlen zählen')
+T('intervall', (r'^Schreibe die Lösungsmenge', 'direkt'), (r'^Welche Ungleichung gehört', 'erkennen'), (r'^Welche Ungleichung hat', 'umkehr'),
+  (r'^Löse [−\d,]+ [<≤] .* [<≤] ', 'verknuepfen'), (r'zugleich', 'transfer'), (r'^Wie viele ganze Zahlen', 'pruefung'), (r'gleichzeitig', 'begruenden'),
+  (r'^Löse .* und gib die Lösungsmenge als Intervall an', 'mehrschritt'))
+ST.neu('intervall', 'einkleidung', SA('Ein Fahrgeschäft ist für Personen ab 1,20 m bis einschließlich 1,90 m Körpergröße erlaubt. Welches Intervall beschreibt die erlaubten Größen (in m)?',
+    '[1,2; 1,9]', [']1,2; 1,9[', '[1,2; 1,9[', ']1,2; 1,9]'], '„ab“ und „einschließlich“ heißen: beide Grenzen gehören dazu – eckige Klammern nach innen.', 'Gehören 1,20 m und 1,90 m selbst dazu?'))
+ST.neu('intervall', 'darstellung', SA('Am Zahlenstrahl ist bei −2 ein ausgefüllter Punkt gezeichnet, von dort geht ein Pfeil nach links. Welche Menge ist das?',
+    ']−∞; −2]', [']−∞; −2[', '[−2; ∞[', ']−2; ∞['], 'Pfeil nach links: alle kleineren Zahlen. Ausgefüllter Punkt: −2 gehört dazu. Also ]−∞; −2].', 'Welche Richtung zeigt der Pfeil, und gehört −2 dazu?'))
+ST.neu('intervall', 'fehler', SA('Jemand schreibt für −1 ≤ x < 4 das Intervall [−1; 4]. Was ist falsch?', 'Die 4 gehört nicht dazu: richtig ist [−1; 4[.',
+    ['Nichts, es stimmt.', 'Die −1 gehört nicht dazu: richtig ist ]−1; 4].', 'Beide Grenzen gehören nicht dazu: richtig ist ]−1; 4[.'],
+    '−1 ≤ x: −1 gehört dazu, Klammer [ . x < 4: 4 gehört nicht dazu, Klammer [ nach außen: 4[.', 'Prüfe jede Grenze einzeln: „≤“ oder „<“?'))
+ST.neu('intervall', 'parameter', SZ('Für welchen Wert von a ist die Lösungsmenge von a ≤ 2x < 10 das Intervall [3; 5[?', 6, '2 * 3',
+    'a ≤ 2x < 10 ⇒ a : 2 ≤ x < 5. Die linke Grenze soll 3 sein: a : 2 = 3 ⇒ a = 6.', 'Teile die ganze Doppelungleichung durch 2.'))
+ST.knobel('intervall', SZ('Ein Intervall hat die Länge 3,5. Wie viele ganze Zahlen kann es höchstens enthalten?', 4, '3 + 1',
+    'Beginnt das Intervall genau bei einer ganzen Zahl und enthält diese, etwa [0; 3,5], liegen 0, 1, 2 und 3 darin – vier Zahlen. Fünf ganze Zahlen bräuchten von der kleinsten bis zur größten mindestens die Länge 4. Also höchstens vier.',
+    'Wie weit liegen die kleinste und die größte von n ganzen Zahlen mindestens auseinander?'))
+ST.knobel('intervall', SZ('Wie viele ganze Zahlen x haben von der Zahl 3 einen Abstand kleiner als 5?', 9, '7 - (-1) + 1',
+    'Abstand kleiner als 5 heißt: 3 − 5 < x < 3 + 5, also −2 < x < 8 – das Intervall ]−2; 8[. Ganze Zahlen darin: alle ganzen Zahlen von −1 bis 7, also 7 − (−1) + 1 = 9 Zahlen.',
+    'Schreibe „Abstand kleiner als 5“ als Doppelungleichung.'))
+
+# --- pruefen ---
+ST.leiter('pruefen', 'eine Zahl einsetzen und prüfen, ob sie die Ungleichung erfüllt',
+          'kleinste/größte ganze Lösung bestimmen, Sachgrenze mit ganzen Zahlen, Zahl so wählen, dass eine Grenze entsteht',
+          'Rechenwege beurteilen und Fehler deuten, Aussagen widerlegen, Parameter, rückwärts, mit Brüchen verknüpfen, Lösungen zählen')
+T('pruefen', (r'^Welche Zahl ist', 'erkennen'), (r'^Gib die (kleinste|größte)', 'mehrschritt'), (r'^Jemand löst|^Lea', 'fehler'),
+  (r'^Tom', 'begruenden'), (r'positive ganze Zahlen', 'pruefung'), (r'a · x ≥ 6', 'parameter'))
+ST.neu('pruefen', 'direkt', SZ('Mach die Probe für x = −2 bei 3 − 4x > 10: Welchen Wert hat die linke Seite?', 11, '3 - 4 * (-2)',
+    '3 − 4 · (−2) = 3 + 8 = 11. Da 11 > 10 ist, ist x = −2 eine Lösung.', 'Setze −2 in Klammern für x ein.'))
+ST.neu('pruefen', 'einkleidung', SZ('Ein Becken fasst 500 l und enthält schon 140 l. Pro Minute fließen 25 l zu. Wie viele volle Minuten kann das Wasser höchstens laufen, ohne dass das Becken überläuft?', 14, '(500 - 140) // 25',
+    '140 + 25t ≤ 500 ⇒ 25t ≤ 360 ⇒ t ≤ 14,4. Die größte ganze Zahl ist 14.', 'Stelle den Inhalt nach t Minuten als Term auf.'))
+ST.neu('pruefen', 'umkehr', SZ('Welche Zahl a ergibt für 4x − a < 2 die Lösungsmenge x < 3?', 10, '4 * 3 - 2',
+    '4x − a < 2 ⇒ 4x < 2 + a ⇒ x < (2 + a) : 4. Das soll 3 sein: 2 + a = 12 ⇒ a = 10.', 'Löse mit dem Buchstaben a nach x auf.'))
+ST.neu('pruefen', 'rueckwaerts', SZ('Die Ungleichung 3x + b ≤ 20 hat die Lösungsmenge x ≤ 5. Bestimme b.', 5, '20 - 3 * 5',
+    'An der Grenze gilt Gleichheit: 3 · 5 + b = 20 ⇒ b = 5. Probe: 3x + 5 ≤ 20 ⇒ x ≤ 5.', 'Was gilt genau an der Grenze x = 5?'))
+ST.neu('pruefen', 'verknuepfen', SA('Welche der Zahlen 1/2, 2/3 und 3/4 erfüllen 12x − 7 < 2?', '1/2 und 2/3', ['nur 1/2', 'alle drei', 'nur 3/4'],
+    '12x − 7 < 2 ⇒ x < 9/12 = 3/4. 1/2 und 2/3 sind kleiner als 3/4, 3/4 selbst nicht (12 · 3/4 − 7 = 2, nicht < 2).', 'Löse nach x auf und vergleiche die Brüche, am besten mit Nenner 12.'))
+ST.knobel('pruefen', SZ('Für wie viele natürliche Zahlen n ist (n − 4) · (n − 10) kleiner als 0?', 5, '9 - 5 + 1',
+    'Ein Produkt ist negativ, wenn genau ein Faktor negativ ist. n − 10 < 0 und n − 4 > 0 heißt 4 < n < 10, also n = 5, 6, 7, 8, 9. Beide Faktoren negativ (n < 4) ergibt ein positives Produkt. Fünf Zahlen.',
+    'Wann ist ein Produkt zweier Zahlen negativ?'))
+ST.knobel('pruefen', SA('Zwei Zahlen x und y erfüllen x + y < 10 und x − y > 6. Was gilt sicher?', 'y < 2', ['x > 8', 'x < 8', 'y > 2'],
+    'Aus x − y > 6 folgt y − x < −6. Addiert man x + y < 10 und y − x < −6, ergibt sich 2y < 4, also y < 2. Über x lässt sich nichts Sicheres sagen: x = 7, y = 0 passt (x < 8), x = 100, y = −95 auch (x > 8).',
+    'Gleich gerichtete Ungleichungen darf man addieren – bring beide in dieselbe Richtung.'))
+
+# --- grafisch ---
+ST.leiter('grafisch', 'am Graphen ablesen, wo eine Gerade über/unter der x-Achse oder einer waagrechten Geraden liegt',
+          'zwei Geraden vergleichen (Schnittpunkt als Grenze), Lösungsmenge aus dem Bild, Tarife als Geraden',
+          'zwischen drei Geraden verknüpfen, Ablesefehler deuten, parallele Geraden begründen, Parameter, rückwärts zur Geraden, Prüfungsaufgabe mit zwei Punkten')
+T('grafisch', (r'x-Achse \(also nicht auf ihr\)', 'direkt'), (r'oberhalb der Geraden y = 3\?|unterhalb der Geraden y = 4\?', 'erkennen'),
+  (r'^Die Abbildung|Lies am Graphen', 'darstellung'), (r'^Tarif', 'einkleidung'), (r'zwischen den Geraden', 'verknuepfen'), (r'beide Funktionswerte', 'transfer'),
+  (r'Wert von m', 'parameter'), (r'^Löse', 'mehrschritt'))
+ST.neu('grafisch', 'fehler', SA('Für f(x) = 2x − 6 sagt jemand: „f(x) > 0 gilt für x < 3, denn links von 3 ist der Graph oben.“ Was stimmt?',
+    'Falsch: Die Gerade steigt, links von 3 liegt sie unter der x-Achse; richtig ist x > 3.', ['Richtig.', 'Falsch: richtig ist x > −6.', 'Falsch: richtig ist x < −3.'],
+    'f(0) = −6 < 0 – links von der Nullstelle 3 ist der Graph unten. Wegen der positiven Steigung ist f(x) > 0 rechts von 3: x > 3.', 'Setze eine Zahl links von 3 ein, z. B. 0.'))
+ST.neu('grafisch', 'begruenden', SA('Zwei Geraden f und g haben dieselbe Steigung, aber verschiedene y-Achsenabschnitte. Was gilt für die Ungleichung f(x) < g(x)?',
+    'Sie gilt entweder für alle x oder für kein x.', ['Sie gilt genau für x > 0.', 'Sie hat genau eine Lösung.', 'Sie gilt für alle x links vom Schnittpunkt.'],
+    'Parallele Geraden schneiden sich nie: Eine liegt überall oberhalb der anderen. Ist g die obere, gilt f(x) < g(x) für alle x, sonst für keins.', 'Haben parallele Geraden einen Schnittpunkt?'))
+ST.neu('grafisch', 'rueckwaerts', SZ('Die Ungleichung 3x + b > 0 hat die Lösungsmenge x > −2. Wo schneidet die Gerade y = 3x + b die y-Achse? Gib b an.', 6, '3 * 2',
+    'Die Grenze −2 ist die Nullstelle: 3 · (−2) + b = 0 ⇒ b = 6. Die Gerade schneidet die y-Achse bei 6.', 'Was bedeutet die Grenze der Lösungsmenge für den Graphen?'))
+ST.neu('grafisch', 'pruefung', SZ('Die Gerade g geht durch (0 | 1) und (2 | 5). Für welche x liegt g oberhalb der Geraden y = 7? Gib die Grenze an: x > □.', 3, '(7 - 1) / 2',
+    'Steigung (5 − 1) : 2 = 2, also g: y = 2x + 1. 2x + 1 > 7 ⇒ x > 3.', 'Bestimme zuerst die Geradengleichung von g.'))
+ST.neu('grafisch', 'verknuepfen', SL('Für welche x liegt die Gerade y = x + 1 oberhalb von y = 2x − 2 und zugleich oberhalb von y = −x + 3? Gib die Lösungsmenge an.', ']□; □[', [1, 3], ['1', '3'],
+    'x + 1 > 2x − 2 ⇒ x < 3. x + 1 > −x + 3 ⇒ 2x > 2 ⇒ x > 1. Beides zusammen: 1 < x < 3, also ]1; 3[.', 'Zwei Ungleichungen, dann die gemeinsamen x suchen.', hinweis='Linke und rechte Grenze.'))
+ST.knobel('grafisch', SZ('Gezeichnet sind die Geraden y = x, y = 6 − x und y = 2. Für wie viele ganze Zahlen x liegt die Gerade y = 2 unterhalb der beiden anderen Geraden?', 1, '3 - 3 + 1',
+    'y = 2 unter y = x heißt 2 < x. y = 2 unter y = 6 − x heißt 2 < 6 − x, also x < 4. Beides zusammen: 2 < x < 4, die einzige ganze Zahl ist 3.',
+    'Übersetze „liegt unterhalb“ für jede der beiden Geraden in eine Ungleichung.'))
+ST.knobel('grafisch', SA('Die Geraden y = 2x + a und y = −x + 9 schneiden sich an der Stelle x = 2. Für welche x gilt 2x + a > −x + 9? (a muss man dafür nicht ausrechnen.)', 'x > 2', ['x < 2', 'x > 3', 'für alle x'],
+    'Die Grenze der Lösungsmenge ist die Schnittstelle x = 2. Rechts davon liegt die steigende Gerade (Steigung 2) über der fallenden (Steigung −1). Also x > 2. (Zur Probe: a = 3, dann 3x > 6.)',
+    'Welche der beiden Geraden steigt, welche fällt – und wo liegt die Grenze?'))
+
+# --- sachaufgabe ---
+ST.leiter('sachaufgabe', 'eine einfache Höchstens-/Mindestens-Situation mit einer Ungleichung lösen oder die passende Ungleichung erkennen',
+          'Grundpreis plus Stückpreis, aus einer Tabelle die Ungleichung aufstellen, eine andere Größe als gewohnt berechnen',
+          'zwei Tarife vergleichen, Durchschnitt/Umfang/Kosten pro Person verknüpfen, falsches Runden finden, „nie billiger“ begründen')
+T('sachaufgabe', (r'^Ein Aufzug|Datenpaket', 'direkt'), (r'^Für ein Fahrrad', 'erkennen'), (r'^Eine Taxifahrt|^Ein Kind hat|Sparbuch', 'einkleidung'),
+  (r'Zehnerkarte', 'mehrschritt'), (r'^Fitness|Kerze', 'transfer'), (r'Kinobesuch', 'pruefung'), (r'Bus 450|drei Tests|Rechteck', 'verknuepfen'))
+ST.neu('sachaufgabe', 'umkehr', SZ('Ein Aufzug trägt höchstens 400 kg. Eine Person (73 kg) will 10 gleich schwere Kisten mitnehmen. Wie schwer darf eine Kiste höchstens sein? Runde auf eine Nachkommastelle (abrunden).', 32.7, 'round((400 - 73) / 10, 1)',
+    '73 + 10k ≤ 400 ⇒ 10k ≤ 327 ⇒ k ≤ 32,7 kg.', 'Gesucht ist diesmal das Gewicht einer Kiste, nicht die Anzahl.', einheit='kg', toleranz=0.1))
+ST.neu('sachaufgabe', 'darstellung', SA('Eine Tabelle zeigt einen Tarif: 1 Paket 8,50 €, 2 Pakete 12 €, 3 Pakete 15,50 €. Welche Ungleichung beschreibt „höchstens 30 €“ (x = Anzahl der Pakete)?',
+    '5 + 3,5x ≤ 30', ['8,5x ≤ 30', '5 + 3,5x ≥ 30', '3,5 + 5x ≤ 30'],
+    'Jedes Paket kostet 3,50 € mehr; zurückgerechnet bleiben 8,50 € − 3,50 € = 5 € Grundpreis. Also 5 + 3,5x ≤ 30.', 'Um wie viel steigt der Preis pro Paket, und was bleibt für 0 Pakete?'))
+ST.neu('sachaufgabe', 'fehler', SA('Eine Kugel Eis kostet 1,80 €. Jemand rechnet für 50 €: „50 : 1,80 ≈ 27,8, also 28 Kugeln.“ Was ist falsch?',
+    'Man muss abrunden: 28 Kugeln kosten 50,40 €, das ist zu viel; höchstens 27.', ['Nichts, 28 stimmt.', 'Man muss 50 · 1,80 rechnen.', 'Es sind höchstens 26 Kugeln.'],
+    '1,80x ≤ 50 ⇒ x ≤ 27,78 (gerundet) Bei „höchstens“ zählt nur die ganze Zahl unterhalb: 27 Kugeln (48,60 €).', 'Probiere: Was kosten 28 Kugeln?'))
+ST.neu('sachaufgabe', 'begruenden', SA('Studio A kostet 20 € im Monat plus 2 € je Besuch, Studio B 30 € im Monat plus 2 € je Besuch. Ab wie vielen Besuchen ist B billiger?',
+    'Nie: B ist immer genau 10 € teurer.', ['Ab 6 Besuchen.', 'Ab 11 Besuchen.', 'Ab 21 Besuchen.'],
+    '30 + 2x < 20 + 2x ⇒ 30 < 20 – das ist falsch, für jedes x. Gleicher Preis je Besuch heißt: Der Unterschied bleibt immer 10 €.', 'Stelle die Ungleichung auf und vereinfache.'))
+ST.knobel('sachaufgabe', SZ('Ein Bus kostet 300 € fest, dazu 12 € Eintritt pro Person. Alle zahlen gleich viel, jeder höchstens 22 €. In den Bus passen höchstens 50 Personen. Wie viele verschiedene Gruppengrößen sind möglich?', 21, '50 - 30 + 1',
+    'Kosten pro Person bei n Personen: (300 + 12n) : n = 300 : n + 12. Das soll höchstens 22 sein: 300 : n ≤ 10 ⇒ n ≥ 30. Zusammen mit n ≤ 50: alle ganzen n von 30 bis 50. Das sind 21 Gruppengrößen.',
+    'Teile die Gesamtkosten auf die Personen auf – welcher Teil hängt von n ab?'))
+ST.knobel('sachaufgabe', SZ('Sitzplätze kosten 15 €, Stehplätze 9 €. Eine Gruppe von genau 26 Personen hat 300 € und möchte möglichst viele Sitzplätze. Wie viele Sitzplätze sind höchstens möglich?', 11, '(300 - 9 * 26) // 6',
+    'Mit s Sitzplätzen: 15s + 9(26 − s) ≤ 300 ⇒ 6s + 234 ≤ 300 ⇒ 6s ≤ 66 ⇒ s ≤ 11. Probe: 11 · 15 + 15 · 9 = 165 + 135 = 300 €.',
+    'Stell dir vor, zuerst bekommen alle einen Stehplatz – was kostet dann jedes „Upgrade“?'))
+baue = mit_stufen(baue, ST)
+# ---- STUFEN ENDE ----
+
+# ---------- TEXT: Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers) – mehr Textaufgaben, siehe _text_kl8.py ----------
+from _text_kl8 import Text, mit_text, text_auf_datei  # noqa: E402
+TX = Text('gleichungen.ungleichungen', 22_8_1)
+TZ, TA, TL, TW = TX.Z, TX.A, TX.L, TX.W
+
+TX.huerde_alt('sachaufgabe', r'Pro Person sollen höchstens 30 € anfallen', 'deuten')
+TX.huerde_alt('sachaufgabe', r'Eine Kugel Eis kostet 1,80 €', 'deuten')
+_JN = ['Ja', 'Nein']
+
+# --- umformen ---
+TX.u('umformen', 'direkt', TZ('Ein Aufzug darf höchstens 600 kg tragen. Die Personen darin wiegen zusammen schon 420 kg. Wie viel kg darf noch dazukommen? (x + 420 ≤ 600)', '600 - 420',
+    TW('höchstens 600 kg, schon 420 kg.', 'größtes erlaubtes x.', 'x + 420 ≤ 600, auf beiden Seiten 420 abziehen.', 'x ≤ 180.', 'Es dürfen noch höchstens 180 kg dazukommen.'), 'Welche Zahl musst du auf beiden Seiten abziehen?', einheit='kg'))
+TX.u('umformen', 'einkleidung', TZ('Ein Kind hat 35 € gespart und legt jede Woche 6 € dazu. Eine Konzertkarte kostet 89 €. Nach wie vielen Wochen hat es mindestens genug Geld?', '(89 - 35) / 6',
+    TW('Start 35 €, +6 € pro Woche, Ziel 89 €.', 'kleinste Wochenzahl x.', '35 + 6x ≥ 89.', '6x ≥ 54 ⇒ x ≥ 9.', 'Nach 9 Wochen hat es genug.'), 'Stelle eine Ungleichung mit „mindestens“ auf.', einheit='Wochen'))
+TX.u('umformen', 'mehrschritt', TZ('Ein Kind hat im Monat 40 € Taschengeld. Sein Musik-Abo kostet 7 €, ein Kinobesuch 9 €. Wie viele Kinobesuche sind höchstens drin?', '(40 - 7) // 9',
+    TW('40 €, Abo 7 €, Kino 9 € pro Besuch.', 'höchste Anzahl x.', '7 + 9x ≤ 40.', '9x ≤ 33 ⇒ x ≤ 3,67, also höchstens 3 ganze Besuche.', 'Es sind höchstens 3 Kinobesuche drin.'), 'Ziehe das Abo zuerst ab.'))
+TX.u('umformen', 'transfer', TZ('Für einen Ausflug fahren 27 Kinder mit Kleinbussen, in jeden Bus passen 8 Kinder. Wie viele Busse braucht man mindestens?', '-(-27 // 8)',
+    TW('27 Kinder, 8 pro Bus.', 'kleinste Busanzahl x.', '8x ≥ 27.', 'x ≥ 3,375; nur ganze Busse.', 'Man braucht mindestens 4 Busse.'), 'Reichen 3 Busse? Welche ganze Zahl erfüllt die Ungleichung als erste?'), huerde='deuten')
+TX.u('umformen', 'pruefung', TZ('Eine Druckerei verlangt für Flyer 25 € Einrichtungskosten und 0,12 € pro Stück. Die Flyer sind farbig und im Format DIN A5. Die Schülerzeitung hat 70 €. Wie viele Flyer kann sie höchstens drucken lassen?', '(70 - 25) / 0.12',
+    TW('25 € fest, 0,12 € pro Stück, höchstens 70 €. Farbe und Format spielen keine Rolle.', 'größte Stückzahl x.', '25 + 0,12x ≤ 70.', '0,12x ≤ 45 ⇒ x ≤ 375.', 'Sie kann höchstens 375 Flyer drucken lassen.'),
+    'Welche Angaben gehören in die Ungleichung?'), huerde='ueberfluessig')
+TX.u('umformen', 'rueckwaerts', TZ('Eine Klasse plant eine Feier: Raummiete 60 €, pro Person 8 € für Essen. Es sollen mindestens 15 Personen kommen, und die Kosten dürfen höchstens 260 € betragen. Wie viele Personen dürfen höchstens kommen?', '(260 - 60) / 8',
+    TW('60 € fest, 8 € pro Person, höchstens 260 €, mindestens 15 Personen.', 'höchste Personenzahl.', '60 + 8x ≤ 260, dann mit „mindestens 15“ vergleichen.', '8x ≤ 200 ⇒ x ≤ 25; 25 ≥ 15 ✓.', 'Es dürfen höchstens 25 Personen kommen.'),
+    'Zwei Bedingungen: Welche begrenzt nach oben?'), huerde='zwei')
+TX.s('umformen', TZ('Ein Paket darf höchstens 31,5 kg wiegen, der Karton allein wiegt 1,5 kg. Wie viel kg darf der Inhalt höchstens wiegen?', '31.5 - 1.5',
+    TW('höchstens 31,5 kg, Karton 1,5 kg.', 'größtes Gewicht x.', 'x + 1,5 ≤ 31,5.', 'x ≤ 30.', 'Der Inhalt darf höchstens 30 kg wiegen.'), einheit='kg'))
+TX.s('umformen', TZ('Eine Prepaidkarte hat 15 € Guthaben, eine SMS kostet 0,09 €. Wie viele SMS kann man höchstens schicken?', '15 // 0.09',
+    TW('15 €, 0,09 € pro SMS.', 'größte Anzahl x.', '0,09x ≤ 15.', 'x ≤ 166,7, also 166 ganze SMS.', 'Man kann höchstens 166 SMS schicken.')))
+TX.k('umformen', TZ('Ein Kind hat 50 €. Es kauft einen Füller für 14 € und Hefte zu je 1,80 €. Wie viele Hefte kann es höchstens kaufen?', '(50 - 14) / 1.8',
+    TW('50 €, Füller 14 €, Heft 1,80 €.', 'größte Heftzahl x.', '14 + 1,8x ≤ 50.', '1,8x ≤ 36 ⇒ x ≤ 20.', 'Es kann höchstens 20 Hefte kaufen.')))
+
+# --- umdrehen ---
+TX.u('umdrehen', 'direkt', TZ('Ein Handyakku ist zu 80 % geladen und verliert pro Stunde 12 %. Es sollen mindestens 20 % übrig bleiben: 80 − 12x ≥ 20. Wie viele Stunden sind es höchstens?', '(80 - 20) / 12',
+    TW('80 − 12x ≥ 20.', 'größtes x.', '80 abziehen, dann durch (−12) teilen und Zeichen umdrehen.', '−12x ≥ −60 ⇒ x ≤ 5.', 'Höchstens 5 Stunden.'), 'Was passiert mit dem Zeichen beim Teilen durch eine negative Zahl?', einheit='h'))
+TX.u('umdrehen', 'einkleidung', TZ('Aus einem Tank mit 900 l fließen pro Minute 35 l ab. Es sollen mindestens 200 l im Tank bleiben. Wie viele volle Minuten darf das Wasser höchstens laufen?', '(900 - 200) / 35',
+    TW('900 l, −35 l pro Minute, mindestens 200 l.', 'größte Minutenzahl x.', '900 − 35x ≥ 200.', '−35x ≥ −700 ⇒ x ≤ 20 (Zeichen umgedreht).', 'Höchstens 20 Minuten.'), 'Stelle die Ungleichung mit „mindestens“ auf.', einheit='min'))
+TX.u('umdrehen', 'umkehr', TZ('Eine Kerze ist 24 cm hoch und brennt pro Stunde 1,5 cm ab. Ab wann ist sie kürzer als 9 cm? Die Lösung hat die Form x > □. Gib die Zahl an.', '(24 - 9) / 1.5',
+    TW('24 − 1,5x < 9.', 'Grenze für x.', '24 abziehen, durch (−1,5) teilen, Zeichen umdrehen.', '−1,5x < −15 ⇒ x > 10.', 'Nach mehr als 10 Stunden ist sie kürzer als 9 cm.'), 'Höhe am Anfang minus Abbrand – wann ist das kleiner als 9?', einheit='h'))
+TX.u('umdrehen', 'pruefung', TZ('Ein Heißluftballon schwebt in 1 200 m Höhe und sinkt pro Minute um 40 m. An Bord sind 4 Personen und ein 20-l-Gastank. Wie viele volle Minuten bleibt er noch über 500 m Höhe?', '(1200 - 500) // 40',
+    TW('1 200 m, −40 m pro Minute, über 500 m. Personen und Gas spielen keine Rolle.', 'größte volle Minutenzahl.', '1 200 − 40x > 500.', '−40x > −700 ⇒ x < 17,5.', 'Er bleibt noch 17 volle Minuten über 500 m.'),
+    'Welche Angaben brauchst du für die Höhe?', einheit='min'), huerde='ueberfluessig')
+TX.u('umdrehen', 'begruenden', TX.A('Ein ausgeschalteter Gefrierschrank hat −18 °C und wird pro Stunde 2,5 °C wärmer. Die Ware muss unter −8 °C bleiben. Jemand löst −18 + 2,5x < −8 und schreibt: x > 4. Was stimmt?',
+    'Falsch: Es gilt x < 4, beim Teilen durch 2,5 wird nicht umgedreht – also weniger als 4 Stunden.', ['Richtig: Mit negativen Zahlen dreht man immer um.', 'Falsch: Es gilt x < −4.', 'Richtig: Nach mehr als 4 Stunden ist es sicher.'],
+    TW('−18 + 2,5x < −8.', 'Ist x > 4 richtig?', '18 dazuzählen, durch die positive Zahl 2,5 teilen.', '2,5x < 10 ⇒ x < 4.', 'Falsch: Die Ware ist nur weniger als 4 Stunden sicher.'),
+    'Durch welche Zahl wird geteilt – ist sie negativ?'), huerde='entscheidung')
+TX.u('umdrehen', 'fehler', TX.A('Ein Fahrkartenguthaben von 30 € sinkt pro Fahrt um 2,40 €. Jemand will wissen, ab wann weniger als 5 € übrig sind, und rechnet: 30 − 2,4x < 5 ⇒ −2,4x < −25 ⇒ x < 10,4. Was stimmt?',
+    'Falsch: x > 10,4 – nach der 11. Fahrt sind weniger als 5 € übrig.', ['Richtig: nach höchstens 10 Fahrten.', 'Falsch: x > 25.', 'Richtig, aber man muss auf 10 abrunden.'],
+    TW('30 − 2,4x < 5.', 'Fehler und Deutung.', 'Beim Teilen durch (−2,4) das Zeichen umdrehen; dann auf ganze Fahrten deuten.', 'x > 10,4 ⇒ ab der 11. Fahrt.', 'Das Zeichen wurde nicht umgedreht; erst nach der 11. Fahrt sind es weniger als 5 €.'),
+    'Was muss beim Teilen durch eine negative Zahl passieren?'), huerde='deuten')
+TX.s('umdrehen', TZ('Ein voll geladener Akku (100 %) verliert beim Spielen 8 % pro Stunde. Wie viele volle Stunden kann man spielen, ohne dass er unter 20 % fällt?', '(100 - 20) / 8',
+    TW('100 − 8x ≥ 20.', 'größtes x.', 'Zeichen beim Teilen durch (−8) umdrehen.', '−8x ≥ −80 ⇒ x ≤ 10.', 'Man kann 10 Stunden spielen.'), einheit='h'))
+TX.s('umdrehen', TZ('Ein Pool enthält 12 m³ Wasser, pro Stunde verdunsten 0,15 m³. Nach wie vielen vollen Stunden sind erstmals weniger als 11 m³ darin?', '-(-(12 - 11) // 0.15)',
+    TW('12 − 0,15x < 11.', 'erste volle Stunde.', 'Zeichen umdrehen, dann aufrunden.', '−0,15x < −1 ⇒ x > 6,67.', 'Nach 7 Stunden.'), einheit='h'))
+TX.k('umdrehen', TZ('Auf einer Busfahrkarte sind 20 € Guthaben, jede Fahrt kostet 1,60 €. Wie viele Fahrten kann man höchstens machen?', '20 // 1.6',
+    TW('20 − 1,6x ≥ 0.', 'größtes x.', 'Zeichen umdrehen, abrunden.', '−1,6x ≥ −20 ⇒ x ≤ 12,5.', 'Höchstens 12 Fahrten.')))
+
+# --- klammern ---
+TX.u('klammern', 'direkt', TZ('Tarif A kostet 5 € plus 0,10 € pro Minute, Tarif B 0,20 € pro Minute. Ab wann ist A günstiger? Löse 5 + 0,1x < 0,2x. Die Lösung hat die Form x > □.', '5 / (0.2 - 0.1)',
+    TW('5 + 0,1x < 0,2x.', 'Grenze.', '0,1x auf beiden Seiten abziehen.', '5 < 0,1x ⇒ x > 50.', 'Ab mehr als 50 Minuten ist A günstiger.'), 'Bringe alle x auf eine Seite.', einheit='min'))
+TX.u('klammern', 'einkleidung', TZ('Ein Kind hat 120 € und spart jede Woche 5 € dazu. Seine Schwester hat 60 € und spart jede Woche 9 € dazu. Ab der wievielten Woche hat die Schwester mehr Geld?', '(120 - 60) // (9 - 5) + 1',
+    TW('Kind 120 + 5x, Schwester 60 + 9x.', 'erste Woche mit mehr Geld.', '60 + 9x > 120 + 5x.', '4x > 60 ⇒ x > 15.', 'Ab der 16. Woche hat die Schwester mehr.'), 'Stelle für beide einen Term auf und vergleiche.'))
+TX.u('klammern', 'mehrschritt', TZ('Tank A hat 500 l und verliert 30 l pro Minute, Tank B hat 300 l und verliert 10 l pro Minute. Ab wann ist in A weniger Wasser als in B? Die Lösung hat die Form x > □.', '(500 - 300) / (30 - 10)',
+    TW('A: 500 − 30x, B: 300 − 10x.', 'Grenze.', '500 − 30x < 300 − 10x.', '200 < 20x ⇒ x > 10.', 'Nach mehr als 10 Minuten ist in A weniger.'), 'x-Glieder auf eine Seite bringen.', einheit='min'))
+TX.u('klammern', 'pruefung', TZ('Fahrradverleih A rechnet 2 · (x + 3) € für x Stunden, Verleih B 4 € pro Stunde. Beide haben 30 Räder und öffnen um 9 Uhr. Ab wann ist A günstiger? Die Lösung hat die Form x > □.', '6 / (4 - 2)',
+    TW('2(x + 3) < 4x. Räder und Öffnungszeit spielen keine Rolle.', 'Grenze.', 'Klammer auflösen, x auf eine Seite.', '2x + 6 < 4x ⇒ 6 < 2x ⇒ x > 3.', 'Ab mehr als 3 Stunden ist A günstiger.'),
+    'Welche Angaben gehören in die Ungleichung?', einheit='h'), huerde='ueberfluessig')
+TX.u('klammern', 'transfer', TZ('Bus A kostet 4 · (x + 20) € bei x Kindern, Bus B kostet 6x + 50 €. Ab wie vielen Kindern ist Bus A günstiger?', '(80 - 50) // (6 - 4) + 1',
+    TW('4(x + 20) < 6x + 50.', 'kleinste Kinderzahl.', 'Klammer auflösen, x auf eine Seite, ganze Kinder.', '4x + 80 < 6x + 50 ⇒ 30 < 2x ⇒ x > 15.', 'Ab 16 Kindern ist Bus A günstiger.'), 'Gibt es 15,5 Kinder?'), huerde='deuten')
+TX.u('klammern', 'begruenden', TX.A('Angebot A kostet 2 · (x + 5) €, Angebot B 2x + 8 € für x Stück. Jemand sagt: „Ab einer bestimmten Stückzahl wird A billiger.“ Was stimmt?',
+    'Falsch: A = 2x + 10 ist immer 2 € teurer als B.', ['Richtig: ab 5 Stück.', 'Richtig: ab 9 Stück.', 'Falsch: A ist immer billiger.'],
+    TW('2(x + 5) < 2x + 8?', 'Gibt es eine Stückzahl?', 'Klammer auflösen und vergleichen.', '2x + 10 < 2x + 8 ⇒ 10 < 8 – nie wahr.', 'A wird nie billiger.'), 'Löse die Klammer auf und vergleiche die Terme.'), huerde='entscheidung')
+TX.s('klammern', TZ('Taxi A kostet 3 € plus 2 € pro km, Taxi B 5 € plus 1,50 € pro km. Ab wann ist B günstiger? Die Lösung hat die Form x > □.', '(5 - 3) / (2 - 1.5)',
+    TW('5 + 1,5x < 3 + 2x.', 'Grenze.', 'x auf eine Seite.', '2 < 0,5x ⇒ x > 4.', 'Ab mehr als 4 km.'), einheit='km'))
+TX.s('klammern', TZ('Eine Zeitschrift kostet im Einzelkauf 4 € pro Heft, im Abo 2 · (x + 6) € für x Hefte. Ab wie vielen Heften ist das Abo günstiger?', '12 // (4 - 2) + 1',
+    TW('2(x + 6) < 4x.', 'kleinste Heftzahl.', 'Klammer auflösen.', '2x + 12 < 4x ⇒ x > 6.', 'Ab 7 Heften.')))
+TX.k('klammern', TZ('Handyvertrag A: 10 € plus 0,05 € pro Minute. Vertrag B: 0,15 € pro Minute. Ab wie vielen vollen Minuten ist A günstiger?', '10 / (0.15 - 0.05) + 1',
+    TW('10 + 0,05x < 0,15x.', 'kleinste volle Minutenzahl.', 'x auf eine Seite.', '10 < 0,1x ⇒ x > 100.', 'Ab 101 Minuten.')))
+
+# --- intervall ---
+TX.u('intervall', 'direkt', TX.A('Ein Aquarium braucht 24 °C bis 28 °C, beide Grenzen erlaubt. Gib die passenden Temperaturen als Intervall an.', '[24; 28]', [']24; 28[', '[24; 28[', ']24; 28]'],
+    TW('24 ≤ x ≤ 28.', 'Intervall.', 'Beide Grenzen gehören dazu.', '[24; 28].', 'L = [24; 28].'), 'Welche Klammern gehören zu „≤“?'))
+TX.u('intervall', 'einkleidung', TX.A('Ein Ausflug soll pro Kind mindestens 10 € und höchstens 25 € kosten. Der Eintritt kostet 4 €, dazu kommen x € Fahrtkosten. Welche Fahrtkosten sind möglich?', '[6; 21]', ['[10; 25]', ']6; 21[', '[14; 29]'],
+    TW('10 ≤ 4 + x ≤ 25.', 'Intervall für x.', 'Auf allen Seiten 4 abziehen.', '6 ≤ x ≤ 21.', 'Die Fahrtkosten dürfen zwischen 6 € und 21 € liegen: [6; 21].'), 'Ziehe den Eintritt von beiden Grenzen ab.'))
+TX.u('intervall', 'mehrschritt', TX.A('Eine Brücke trägt höchstens 7,5 t. Ein Lkw wiegt leer 3 t und lädt Kisten zu je 0,25 t. Gib die mögliche Kistenzahl x als Intervall an (x ≥ 0).', '[0; 18]', ['[0; 30]', '[0; 18[', '[0; 12]'],
+    TW('3 + 0,25x ≤ 7,5, x ≥ 0.', 'Intervall.', 'Umformen, untere Grenze 0.', '0,25x ≤ 4,5 ⇒ x ≤ 18.', 'L = [0; 18].'), 'Welche Grenze nach unten ist sinnvoll?'))
+TX.u('intervall', 'pruefung', TZ('Ein Aufzug darf höchstens 630 kg tragen und fährt nur mit mindestens einer Person. Eine Person wiegt im Schnitt 75 kg, dazu kommt ein 30 kg schwerer Wagen. Wie viele Personen dürfen höchstens mitfahren?', '(630 - 30) / 75',
+    TW('30 + 75x ≤ 630, x ≥ 1.', 'größtes x.', 'Umformen, dann mit „mindestens 1“ vergleichen.', '75x ≤ 600 ⇒ x ≤ 8. L = [1; 8].', 'Höchstens 8 Personen.'), 'Zwei Bedingungen ergeben ein Intervall.'), huerde='zwei')
+TX.u('intervall', 'transfer', TZ('Eine Jugendgruppe übernachtet: 18 € pro Person und Nacht, dazu einmal 40 € Endreinigung. Es stehen 410 € zur Verfügung. Wie viele Personen können höchstens übernachten?', '(410 - 40) // 18',
+    TW('40 + 18x ≤ 410.', 'größte Personenzahl.', 'Umformen und auf ganze Personen abrunden.', '18x ≤ 370 ⇒ x ≤ 20,6.', 'Höchstens 20 Personen.'), 'Kann eine halbe Person mitfahren?'), huerde='deuten')
+TX.u('intervall', 'begruenden', TX.A('Für einen Kuchen muss der Ofen mehr als 160 °C und höchstens 180 °C haben. Jemand schreibt L = [160; 180[. Was stimmt?', 'Falsch: Richtig ist ]160; 180].', ['Richtig.', 'Falsch: Richtig ist [160; 180].', 'Falsch: Richtig ist ]160; 180[.'],
+    TW('160 < x ≤ 180.', 'richtiges Intervall.', '„mehr als“: nach außen; „höchstens“: nach innen.', ']160; 180].', 'Die Klammern sind vertauscht; richtig ist ]160; 180].'), 'Gehört 160 dazu? Gehört 180 dazu?'), huerde='entscheidung')
+TX.s('intervall', TX.A('Eine Schaukel ist für Kinder von 15 kg bis höchstens 40 kg. Gib die erlaubten Gewichte als Intervall an.', '[15; 40]', [']15; 40]', '[15; 40[', ']15; 40['],
+    TW('15 ≤ x ≤ 40.', 'Intervall.', 'Beide Grenzen gehören dazu.', '[15; 40].', 'L = [15; 40].')))
+TX.s('intervall', TX.A('Ein Handyvertrag kostet 9 € im Monat. Nach x Monaten sollen die Kosten mehr als 45 € und höchstens 108 € betragen. Gib die möglichen Monate als Intervall an.', ']5; 12]', ['[5; 12]', ']5; 12[', ']45; 108]'],
+    TW('45 < 9x ≤ 108.', 'Intervall.', 'Durch 9 teilen.', '5 < x ≤ 12.', 'L = ]5; 12].')))
+TX.k('intervall', TX.A('Eine Rutsche ist für Kinder ab 1,10 m und unter 1,60 m Körpergröße. Gib das Intervall an.', '[1,1; 1,6[', [']1,1; 1,6]', '[1,1; 1,6]', ']1,1; 1,6['],
+    TW('1,1 ≤ x < 1,6.', 'Intervall.', '„ab“ nach innen, „unter“ nach außen.', '[1,1; 1,6[.', 'L = [1,1; 1,6[.')))
+
+# --- pruefen ---
+TX.u('pruefen', 'erkennen', TX.A('Ein Taxi kostet 3 € Grundpreis und 2 € pro km. Du hast 15 €. Welche Strecke kannst du NICHT bezahlen?', '6,5 km', ['4 km', '5 km', '6 km'],
+    TW('3 + 2x ≤ 15.', 'Strecke, die nicht passt.', 'Jede Strecke einsetzen.', '4 km: 11 €; 5 km: 13 €; 6 km: 15 €; 6,5 km: 16 €.', '6,5 km kosten 16 € – zu viel.'), 'Setze jede Strecke ein und rechne den Preis aus.'))
+TX.u('pruefen', 'einkleidung', TX.A('Ein Becken fasst 800 l und enthält schon 200 l, pro Minute fließen 40 l dazu. Läuft es nach 16 Minuten schon über?', 'Ja, dann wären es 840 l.', ['Nein, dann sind es 800 l.', 'Nein, dann sind es 640 l.', 'Ja, schon nach 10 Minuten.'],
+    TW('200 + 40x > 800?', 'Prüfung für x = 16.', 'x = 16 einsetzen.', '200 + 640 = 840 > 800.', 'Ja, es läuft schon über.'), 'Setze 16 ein und vergleiche mit 800.'))
+TX.u('pruefen', 'mehrschritt', TZ('Für eine Party gilt: 12 € Raummiete plus 3 € pro Gast, höchstens 60 €. Jemand behauptet, mit 16 Gästen bleibe man im Rahmen. Wie viel Euro kostet die Party mit 16 Gästen?', '12 + 3 * 16',
+    TW('12 + 3x ≤ 60, x = 16.', 'Kosten bei 16 Gästen.', 'Einsetzen und vergleichen.', '12 + 48 = 60 ≤ 60 ✓.', 'Es kostet genau 60 € – die Behauptung stimmt.'), 'Setze die Gästezahl ein.', einheit='€'))
+TX.u('pruefen', 'pruefung', TX.A('Ein Lkw darf mit Ladung höchstens 12 t wiegen, leer wiegt er 7,2 t. Er ist 9 m lang. Der Fahrer lädt 25 Säcke zu je 0,2 t. Darf er so fahren?', 'Nein, er wöge 12,2 t.', ['Ja, er wiegt genau 12 t.', 'Ja, er wiegt 7,4 t.', 'Nein, er ist zu lang.'],
+    TW('7,2 + 0,2 · 25 ≤ 12? Die Länge spielt keine Rolle.', 'Ist die Ladung erlaubt?', 'Einsetzen und vergleichen.', '7,2 + 5 = 12,2 > 12.', 'Nein, der Lkw ist 0,2 t zu schwer.'), 'Was zählt für die Gewichtsgrenze?'), huerde='ueberfluessig')
+TX.u('pruefen', 'begruenden', TX.A('In die Klassenkasse kommen 4 € am Anfang und dann 2,50 € pro Woche; es sollen mindestens 50 € werden. Jemand sagt: „Nach 18 Wochen reicht es.“ Was stimmt?',
+    'Falsch: Nach 18 Wochen sind es erst 49 €; man braucht 19 Wochen.', ['Richtig: Dann sind genau 50 € in der Kasse.', 'Falsch: Man braucht 20 Wochen.', 'Richtig: schon nach 17 Wochen.'],
+    TW('4 + 2,5x ≥ 50, Behauptung x = 18.', 'Stimmt die Behauptung?', 'Einsetzen, dann die kleinste Lösung bestimmen.', '4 + 45 = 49 < 50. x ≥ 18,4 ⇒ 19 Wochen.', 'Die Aussage ist falsch: Es reicht erst nach 19 Wochen.'), 'Mache die Probe mit 18.'), huerde='entscheidung')
+TX.u('pruefen', 'transfer', TZ('Ein Rucksack für eine Bergtour soll mindestens 4 kg und höchstens 9 kg wiegen. Leer wiegt er 1,5 kg, jede Wasserflasche 0,75 kg. Wie viele Flaschen dürfen höchstens hinein?', '(9 - 1.5) / 0.75',
+    TW('4 ≤ 1,5 + 0,75x ≤ 9.', 'höchste Flaschenzahl.', 'Obere Bedingung umformen; untere prüfen.', '0,75x ≤ 7,5 ⇒ x ≤ 10. Untere: x ≥ 3,3.', 'Höchstens 10 Flaschen (und mindestens 4).'), 'Welche der beiden Bedingungen begrenzt nach oben?'), huerde='zwei')
+TX.u('pruefen', 'rueckwaerts', TZ('Ein Aufzug trägt höchstens 1 000 kg. Mit einem 75 kg schweren Mitarbeiter und 12 gleich schweren Kisten ist er gerade noch erlaubt, mit 13 Kisten wäre er zu schwer. Eine Kiste wiegt eine ganze Zahl von kg. Wie schwer kann eine Kiste höchstens sein?', '(1000 - 75) // 12',
+    TW('75 + 12k ≤ 1 000; 75 + 13k > 1 000.', 'größtes ganzes k.', 'Erste Bedingung umformen, abrunden, zweite prüfen.', '12k ≤ 925 ⇒ k ≤ 77,08 ⇒ k = 77. Probe: 75 + 13 · 77 = 1 076 > 1 000 ✓.', 'Eine Kiste wiegt höchstens 77 kg.'),
+    'Stelle die Ungleichung für 12 Kisten auf.', einheit='kg'), huerde='deuten')
+TX.s('pruefen', TZ('Ein Kind hat 25 € und kauft Hefte zu 1,50 €. Es rechnet: höchstens 16 Hefte. Mache die Probe: Wie viel kosten 16 Hefte?', '16 * 1.5',
+    TW('1,5x ≤ 25, x = 16.', 'Preis für 16 Hefte.', 'Einsetzen.', '16 · 1,5 = 24 ≤ 25 ✓.', '16 Hefte kosten 24 €.'), einheit='€'))
+TX.s('pruefen', TZ('Ein Paket darf höchstens 20 kg wiegen. Der Karton wiegt 0,8 kg, darin liegen 6 Bücher zu je 3,1 kg. Wie viel kg wiegt das Paket?', '0.8 + 6 * 3.1',
+    TW('0,8 + 6 · 3,1 ≤ 20?', 'Gewicht.', 'Einsetzen.', '0,8 + 18,6 = 19,4 ≤ 20 ✓.', 'Das Paket wiegt 19,4 kg und ist erlaubt.'), einheit='kg'))
+TX.k('pruefen', TZ('Ein Becken fasst 1 000 l und enthält 300 l, pro Minute kommen 25 l dazu. Wie viele Liter sind nach 28 Minuten darin?', '300 + 25 * 28',
+    TW('300 + 25x ≤ 1 000, x = 28.', 'Inhalt nach 28 min.', 'Einsetzen.', '300 + 700 = 1 000.', 'Es sind genau 1 000 l – das Becken ist gerade voll.'), einheit='l'))
+
+# --- grafisch ---
+TX.u('grafisch', 'erkennen', TX.A('Ein Graph zeigt die Kosten zweier Handytarife. Die Geraden schneiden sich bei 50 Minuten, links davon liegt die Gerade von Tarif A unter der von B. Wann ist A günstiger?',
+    'bei weniger als 50 Minuten', ['bei mehr als 50 Minuten', 'genau bei 50 Minuten', 'nie'],
+    TW('Schnittpunkt bei 50, links liegt A unten.', 'Bereich, in dem A günstiger ist.', 'Unten heißt billiger.', 'links vom Schnittpunkt: x < 50.', 'A ist bei weniger als 50 Minuten günstiger.'), 'Welche Gerade liegt links vom Schnittpunkt unten?'))
+TX.u('grafisch', 'einkleidung', TX.A('Fahrradverleih A kostet y = 3x + 5 €, Verleih B y = 5x € (x Stunden). Die Geraden schneiden sich bei x = 2,5. Wann ist B günstiger?', 'bei weniger als 2,5 Stunden', ['bei mehr als 2,5 Stunden', 'immer', 'nie'],
+    TW('A: 3x + 5, B: 5x, Schnitt bei 2,5.', 'Bereich, in dem B günstiger ist.', '5x < 3x + 5.', '2x < 5 ⇒ x < 2,5.', 'B ist bei weniger als 2,5 Stunden günstiger.'), 'Setze eine kleine Zahl ein, z. B. x = 1.'))
+TX.u('grafisch', 'darstellung', TZ('Eine Tabelle zeigt zwei Handytarife: bei 0, 50, 100 und 150 Minuten kostet A 10 €, 15 €, 20 €, 25 €; B kostet 0 €, 10 €, 20 €, 30 €. Ab wann ist A günstiger? Die Lösung hat die Form x > □.', '100',
+    TW('A: 10 + 0,1x, B: 0,2x (aus der Tabelle).', 'Grenze.', 'Gleich teuer bei 100 Minuten, danach ist A billiger.', '10 + 0,1x < 0,2x ⇒ x > 100.', 'Ab mehr als 100 Minuten ist A günstiger.'), 'Wo sind beide gleich teuer?', einheit='min'))
+TX.u('grafisch', 'pruefung', TZ('Zwei Kerzen stehen auf einem 40 cm hohen Tisch: A ist h = 25 − 2x cm hoch, B h = 18 − x cm (x in Stunden). Wie lange ist A höher als B? Die Lösung hat die Form x < □.', '25 - 18',
+    TW('25 − 2x > 18 − x. Die Tischhöhe spielt keine Rolle.', 'Grenze.', 'Am Graphen: Schnittpunkt; rechnerisch umformen.', '7 > x.', 'A ist weniger als 7 Stunden lang höher.'), 'Welche Angabe gehört nicht zu den Kerzenhöhen?', einheit='h'), huerde='ueberfluessig')
+TX.u('grafisch', 'begruenden', TX.A('Tarif A kostet y = 0,1x + 8 €, Tarif B y = 0,1x + 5 €. Jemand sagt: „Am Graphen sieht man, dass A irgendwann billiger wird.“ Was stimmt?',
+    'Falsch: Die Geraden sind parallel, A bleibt immer 3 € teurer.', ['Richtig: ab 30 Minuten.', 'Richtig: ab 80 Minuten.', 'Falsch: B wird irgendwann teurer.'],
+    TW('A: 0,1x + 8, B: 0,1x + 5.', 'Schneiden sich die Graphen?', 'Gleiche Steigung heißt parallel.', '0,1x + 8 < 0,1x + 5 ⇒ 8 < 5 – nie.', 'A wird nie billiger.'), 'Vergleiche die Steigungen.'), huerde='entscheidung')
+TX.u('grafisch', 'transfer', TZ('Ein Läufer startet mit 10 km/h. Ein Radfahrer startet eine halbe Stunde später am selben Ort mit 20 km/h in dieselbe Richtung. Wie lange nach dem Start des Läufers liegt dieser noch vorne? Die Lösung hat die Form x < □.', '20 * 0.5 / (20 - 10)',
+    TW('Läufer 10x, Radfahrer 20(x − 0,5), x ≥ 0,5.', 'Grenze.', '10x > 20(x − 0,5).', '10x > 20x − 10 ⇒ x < 1.', 'Der Läufer ist weniger als 1 Stunde nach seinem Start vorne.'), 'Wie weit ist der Radfahrer x Stunden nach dem Start des Läufers gefahren?', einheit='h'), huerde='zwei')
+TX.s('grafisch', TX.A('Tarif A kostet y = 0,2x + 4 €, Tarif B y = 0,3x €. Die Graphen schneiden sich bei x = 40. Wann ist A günstiger?', 'bei mehr als 40 Minuten', ['bei weniger als 40 Minuten', 'nie', 'immer'],
+    TW('Schnitt bei 40.', 'Bereich.', '0,2x + 4 < 0,3x.', 'x > 40.', 'A ist ab mehr als 40 Minuten günstiger.')))
+TX.s('grafisch', TZ('Ein Tank enthält nach x Minuten y = 500 − 20x Liter. Ab wann sind weniger als 100 l darin? Die Lösung hat die Form x > □.', '(500 - 100) / 20',
+    TW('500 − 20x < 100.', 'Grenze.', 'Umformen, Zeichen umdrehen.', '−20x < −400 ⇒ x > 20.', 'Nach mehr als 20 Minuten.'), einheit='min'))
+TX.k('grafisch', TZ('Sparplan A: y = 50 + 10x €, Sparplan B: y = 20 + 15x € (x Monate). Ab wann hat B mehr? Die Lösung hat die Form x > □.', '(50 - 20) / (15 - 10)',
+    TW('20 + 15x > 50 + 10x.', 'Grenze.', 'x auf eine Seite.', '5x > 30 ⇒ x > 6.', 'Nach mehr als 6 Monaten.'), einheit='Monate'))
+baue = mit_text(baue, TX)
+# ---- TEXT ENDE ----
+
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Ungleichungen lösen', ['umformen', 'umdrehen', 'klammern']), ('Lösungsmenge', ['intervall', 'pruefen', 'grafisch']), ('Anwenden', ['sachaufgabe'])],

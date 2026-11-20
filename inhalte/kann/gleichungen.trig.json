@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "gleichungen.trig",
+ "kurz": "Du lernst, zu einem Sinus-, Kosinus- oder Tangenswert alle passenden Winkel zu finden.",
+ "etappen": {
+  "sinus": "alle Winkel zwischen 0° und 360° finden, für die sin x einen bestimmten Wert hat",
+  "kosinus": "alle Winkel zwischen 0° und 360° finden, für die cos x einen bestimmten Wert hat",
+  "tangens": "beide Winkel zu tan x = v finden, indem du zur ersten Lösung 180° addierst",
+  "anzahl": "vorab sagen, wie viele Lösungen eine Gleichung mit sin, cos oder tan hat",
+  "umformen": "eine Gleichung wie 4 sin x + 1 = 3 erst umformen und dann lösen",
+  "anwendung": "trigonometrische Gleichungen in Sachaufgaben und Dreiecken lösen und prüfen"
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "thema_schluessel": "trigo.allgemein",
+ "kurz": "Du lernst, in jedem Dreieck fehlende Seiten und Winkel zu berechnen, nicht nur bei rechten Winkeln.",
+ "etappen": {
+  "einheitskreis": "am Einheitskreis sin und cos auch für Winkel über 90° bestimmen",
+  "additionstheoreme": "sin(α + β) und cos(α + β) aus den Werten von α und β berechnen",
+  "flaeche": "den Flächeninhalt eines Dreiecks mit A = ½ · a · b · sin γ berechnen",
+  "sinussatz_seite": "mit dem Sinussatz eine fehlende Seite eines Dreiecks berechnen",
+  "sinussatz_winkel": "mit dem Sinussatz einen Winkel berechnen und den passenden auswählen",
+  "kosinussatz_seite": "mit dem Kosinussatz die dritte Seite aus zwei Seiten und Winkel berechnen",
+  "kosinussatz_winkel": "aus drei Seiten mit dem Kosinussatz einen Winkel berechnen",
+  "satz_waehlen": "entscheiden, ob Sinussatz oder Kosinussatz zu den Angaben passt",
+  "anwendung": "mit einer Planfigur Entfernungen über Flüsse und Höhen von Türmen berechnen"
+ }
+}

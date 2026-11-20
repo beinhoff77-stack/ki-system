@@ -1,0 +1,17 @@
+{
+ "thema_schluessel": "stochastik.verknuepft",
+ "kurz": "Du lernst, Wahrscheinlichkeiten für „A und B“ oder „A oder B“ zu berechnen.",
+ "etappen": {
+  "elemente": "eine Menge in geschweiften Klammern aufschreiben und mit ∈ sagen, was dazugehört",
+  "schnitt": "die Schnittmenge zweier Mengen bestimmen und ihre Elemente zählen",
+  "verknuepfen": "mit „und“, „oder“ und „nicht“ Ereignisse verknüpfen und P berechnen",
+  "additionssatz": "die Wahrscheinlichkeit für „A oder B“ berechnen, ohne doppelt zu zählen",
+  "venn": "in ein Venn-Diagramm Anzahlen eintragen und fehlende Anzahlen ablesen",
+  "mengen_verstehen": "mit Beispielen prüfen, ob Aussagen über Schnitt- und Vereinigungsmengen stimmen",
+  "vierfeld": "in einer Vierfeldertafel fehlende Anzahlen über die Summen ergänzen",
+  "tafel_wkeit": "aus einer Vierfeldertafel Wahrscheinlichkeiten ablesen und berechnen",
+  "bedingt": "aus Tafel oder Baum ausrechnen, wie wahrscheinlich A ist, wenn B gilt",
+  "rueckschluss": "mit 1 000 gedachten Fällen ausrechnen, wie verlässlich ein Testergebnis ist",
+  "verstehen": "das Gegenereignis angeben und falsche Aussagen über Wahrscheinlichkeiten erkennen"
+ }
+}

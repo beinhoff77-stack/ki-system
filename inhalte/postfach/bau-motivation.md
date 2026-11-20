@@ -2,6 +2,31 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: LB-3 Nachbesserung (Server, Muss 1–3, Sollte 4–7)
+
+Gebaut im Zweig `bau-lehrer` (Stand `lernen-app` e71a72d übernommen). Nur Migration und Rauchtests – kein `lernen.js`. **Nichts in der Datenbank ausgeführt**, nur gelesen: alle Einfügestellen im Live-Text geprüft (je genau einmal vorhanden). Kein Merge nach `main`.
+**Bestand (lesend, 20.11.):** keine Route mit `kann_wdh_themen`, keine Karte mit `gesetzt_am`, 3 Plan-Schritte mit Karten-Lage → keine Bestandsänderung nötig.
+**Migration** `supabase/migrations/20261120_lb3_nachbesserung.sql` (nach `lb3`, `i5`, `ab_s`; pglast ok; kein DROP/DELETE; wiederholt ausführbar).
+**Rauchtest neu** `supabase/tests/lb3_nachbesserung_rauchtest.sql` (Rollback, nur Testkind, Flüge dynamisch aus dem Inhalt gewählt). **Angepasst:** `lb3_rauchtest.sql` (1c: selbst gelandete Etappe behält Landung/Herkunft, Wiederholung neu ab Stufe 1; 6c: Rückgängig stellt Stufe 2 wieder her), `i3_lernregeln_rauchtest.sql` (Sollte 7).
+**Nicht ausgeführt** – weder Migration noch Rauchtests (Datenbank nur lesen). Bitte im Probelauf: Migration, dann `lb3_nachbesserung`, `lb3`, `i3`, `i2`, `i4`, `i5`, `ab_s`.
+
+### Muss
+1. **Setzen = alle Etappen ab Wiederholungsstufe 1.** `flug_wdh_setzen`: auch schon gelandete Etappen gehen auf Stufe 1, fällig am nächsten Lerntag; `sitzt_am`, eigene Lösungen, Belege bleiben, kein `gesetzt_am` (Herkunft selbst). Lage davor steht im Schritt (Rückgängig stellt sie her). Neu `karte_stand.wdh_gesetzt_am` (Beginn der Wiederholung durch Setzen, für Muss 3). Test M1: vorher ◉ → ↻ Wdh 1 von 5, am nächsten Lerntag fällig; Rückgängig → wieder ◉.
+2. **Rücknahme/Rückgängig: nur belegte Landungen bleiben.** Gemeinsame Landeregel `schule.karte_landet(k)` (eigene Lösungen ≥ Ziel, Typen, schwere, Folge) – `karte_buchen` ruft sie jetzt auch auf. Damit sie für gesetzte Etappen etwas prüfen kann, zählt `karte_buchen` dort eigene Lösungen, Typen, schwere und Folge weiter (die Wiederholung läuft daneben unverändert). Rücknahme (`flug_wdh_zuruecknehmen`, auch beim Entfernen eines Ortes) und Rückgängig (`karten_wiederherstellen`): gesetzte Etappe bleibt nur bei `karte_landet`, sonst offen (`sitzt_am` null). Versuche, eigene Lösungen, Sterne bleiben. Tests: Fehler → offen; offener erster Anlauf → offen; eine richtige Wiederholung → offen mit 1 eigener Lösung; eigene Landung → bleibt (Herkunft selbst); dasselbe über Rückgängig (Setzen → Fehler → Rückgängig → offen).
+3. **sicher nach dem Flug.** `karte_sicher`: steht der Flug auf „Kann er – aber wiederholen“ (oder ist die Etappe gesetzt), gilt für alle Etappen: gelandet + Wiederholung nach 14 Lerntagen + Mischkarte richtig, falls seit dem Setzen (`wdh_gesetzt_am`) eine **eingelöst oder beantwortet** wurde; nur vorgeladen zählt nicht. Test M3: selbst gelandete Etappe ohne Nachtest + gesetzte, Wiederholungen bestanden → alle sicher, Flug ◉; vorgeladen → bleibt sicher; eingelöst ohne richtige → ↻, mit richtiger → ◉.
+
+### Sollte
+4. `plan_setzen_intern`: `rueckgaengig` nur für den jüngsten Plan-Schritt (`route_aenderung`, anlass `plan`) des Kindes, sonst „Inzwischen wurde etwas anderes geändert.“ Test: A → B → A rückgängig abgelehnt, B rückgängig angenommen. **Folge für die App:** ein zweites „↶ Rückgängig“ hintereinander wird abgelehnt – die App bietet nur noch einen Schritt an (in AB-A, 0.83.0).
+5. `thema_stufe`: „komplett“ gesetzt + wieder offene Etappe → Stufe ◉ bleibt, `hinweis: 'rueckfall'`, `wieder_offen` > 0.
+6. `schule.heute_bis(kind)` = nächster Tagesbeginn in der Zeitzone des Kindes; `einheit_lesen_intern` und `uebung_pruefen_intern` liefern `heute_bis` neben `heute_tag`.
+7. `i3_lernregeln_rauchtest.sql`: Ursache – der eindeutige Index `misch_ausgabe_offen_eindeutig` gilt für alle nicht eingelösten Ausgaben, **auch verfallene**; hat `mischkarten` im Test eine Ausgabe derselben Bordkarte angelegt und verfallen lassen, stieß das Einfügen von Hand darauf. Jetzt fügen beide Stellen mit `on conflict … do update` ein (wie `mischkarten` selbst); die Prüfung „zweite offene Ausgabe wird abgelehnt“ bleibt.
+
+### Annahmen / nicht geprüft
+- „Seit dem Setzen“ für Muss 3 = `wdh_gesetzt_am` (neu); für ältere gesetzte Karten ohne diesen Wert gilt `gesetzt_am`, sonst `sitzt_am`.
+- „gezeigt“ einer Mischkarte = beantwortet (Versuch mit `misch`); eine Anzeige ohne Antwort speichert der Server nicht.
+- Muss 2 „echte eigene Landung“ im Test über gesetzte Zähler (eigene Lösungen = Ziel, Typen, schwer, Folge 3) statt vieler Antworten.
+- Nichts davon ausgeführt.
+
 ## 2026-11-20 – FERTIG: AB-S (Server: Abschluss nach Etappe, Flug und Ort)
 
 Stand `lernen-app` 10a3155 in `bau-motivation` zusammengeführt. Nur Migration und Rauchtest – kein `lernen.js`, keine neue App-Version. Datenbank nur gelesen (alle Einfügestellen im Live-Text je einmal vorhanden;

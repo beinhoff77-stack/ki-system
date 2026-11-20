@@ -40,7 +40,7 @@ begin
   select array_agg(schule.thema_einheit(t)) into v_es from unnest(v_t7) t;
   update schule.karte_stand set sitzt = false, sitzt_am = null, gesetzt_am = null, gesetzt_von = null, wdh_stufe = 0, faellig_am = null, wdh_ab = null, wdh_lerntage = null
    where lernender_id = v_l and einheit_id = any(v_es || schule.thema_einheit(v_ta) || schule.thema_einheit(v_tb));
-  -- eine Etappe des ersten Flugs ist schon selbst gelandet – sie muss unberührt bleiben
+  -- eine Etappe des ersten Flugs ist schon selbst gelandet – Landung und Herkunft bleiben, die Wiederholung beginnt neu (LB-3 Nachbesserung, Muss 1)
   select e.id, x->>'lernziel' into v_pre_e, v_pre_lz from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') x where e.id = v_es[1] limit 1;
   insert into schule.karte_stand(lernender_id, einheit_id, lernziel) values (v_l, v_pre_e, v_pre_lz) on conflict do nothing;
   update schule.karte_stand set sitzt = true, sitzt_am = now() - interval '5 days', wdh_stufe = 2, wdh_ab = now() - interval '5 days', wdh_lerntage = 7
@@ -55,13 +55,14 @@ begin
   if v_m <> v_n then raise exception 'FEHLER 1a: % von % Etappen gelandet', v_m, v_n; end if;
   if (select count(*) from schule.karte_stand where lernender_id = v_l and einheit_id = any(v_es) and gesetzt_am is not null) <> v_n - 1 then raise exception 'FEHLER 1b: Herkunft „gesetzt“'; end if;
   select * into v_ks from schule.karte_stand where lernender_id = v_l and einheit_id = v_pre_e and lernziel = v_pre_lz;
-  if v_ks.gesetzt_am is not null or v_ks.wdh_stufe <> 2 or v_ks.sitzt_am > now() - interval '4 days' then raise exception 'FEHLER 1c: selbst gelandete Etappe verändert'; end if;
+  if v_ks.gesetzt_am is not null or not v_ks.sitzt or v_ks.wdh_stufe <> 0 or v_ks.wdh_lerntage <> 1 or v_ks.sitzt_am > now() - interval '4 days' then
+    raise exception 'FEHLER 1c: selbst gelandete Etappe – Landung/Herkunft verändert oder Wiederholung nicht neu (Stufe %)', v_ks.wdh_stufe; end if;
   if exists (select 1 from unnest(v_t7) t where schule.thema_stufe(v_l, t)->>'stufe' <> 'wiederholung' or schule.thema_stufe(v_l, t)->>'gesetzt' <> 'wiederholen' or schule.thema_stand(v_l, t) <> 'erledigt') then
     raise exception 'FEHLER 1d: Stufe %', schule.thema_stufe(v_l, v_t7[2]); end if;
   if exists (select 1 from schule.karte_stand ks where ks.lernender_id = v_l and ks.gesetzt_am is not null and schule.karte_faellig(ks)) then raise exception 'FEHLER 1e: schon heute fällig'; end if;
   update schule.karte_stand set wdh_ab = wdh_ab - interval '1 day', faellig_am = faellig_am - interval '1 day' where lernender_id = v_l and gesetzt_am is not null; -- ein Tag später
   if exists (select 1 from schule.karte_stand ks where ks.lernender_id = v_l and ks.gesetzt_am is not null and not schule.karte_faellig(ks)) then raise exception 'FEHLER 1f: am nächsten Lerntag nicht fällig'; end if;
-  raise notice 'ok 1: 6 Flüge in einem Schritt (Schritt %) → % Etappen gelandet (% gesetzt, 1 selbst gelandete unberührt), Stufe ↻, am nächsten Lerntag fällig', v_sa, v_n, v_n - 1;
+  raise notice 'ok 1: 6 Flüge in einem Schritt (Schritt %) → % Etappen gelandet (% gesetzt, 1 selbst gelandete behält Landung und Herkunft, Wiederholung ab Stufe 1), Stufe ↻, am nächsten Lerntag fällig', v_sa, v_n, v_n - 1;
 
   -- ---------- 2. kein Flug-Test, kein Nachtest ----------
   r := schule.test_starten_intern(v_l, jsonb_build_object('einheit_id', v_es[1], 'art', 'blocktest'));
@@ -101,7 +102,7 @@ begin
   r := schule.plan_setzen_intern(v_l, jsonb_build_object('rueckgaengig', v_sa, 'eintraege', pg_temp.lb3_eintraege(v_bloecke, '{}', '{}', '{}')), 'lehrer:Rauchtest');
   if exists (select 1 from schule.karte_stand where lernender_id = v_l and einheit_id = any(v_es) and gesetzt_am is not null) then raise exception 'FEHLER 6a: gesetzt bleibt'; end if;
   if exists (select 1 from schule.karte_stand where lernender_id = v_l and einheit_id = any(v_es) and sitzt and not (einheit_id = v_pre_e and lernziel = v_pre_lz)) then raise exception 'FEHLER 6b: Landung bleibt'; end if;
-  if not (select sitzt from schule.karte_stand where lernender_id = v_l and einheit_id = v_pre_e and lernziel = v_pre_lz) then raise exception 'FEHLER 6c: selbst gelandete Etappe verloren'; end if;
+  if not (select sitzt and wdh_stufe = 2 from schule.karte_stand where lernender_id = v_l and einheit_id = v_pre_e and lernziel = v_pre_lz) then raise exception 'FEHLER 6c: selbst gelandete Etappe verloren oder Wiederholungsstufe nicht zurück'; end if;
   if (select richtig + falsch from schule.karte_stand where lernender_id = v_l and einheit_id = v_ex and lernziel = v_lzx) < 2 then raise exception 'FEHLER 6d: eigene Versuche verloren'; end if;
   raise notice 'ok 6: Rückgängig (% Karten zurück) → keine gesetzte Landung mehr, selbst gelandete Etappe und eigene Versuche bleiben', r->>'karten_zurueck';
 

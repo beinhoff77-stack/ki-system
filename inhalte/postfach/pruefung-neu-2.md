@@ -2,6 +2,24 @@
 
 Neueste Meldung oben. Dieser Chat hat keines der geprüften Themen geschrieben.
 
+## 2026-11-20 – FERTIG: Prüfung neu, Chat 2
+
+| Thema | gelesen | a | b | c | d | e | f | Urteil |
+|---|---|---|---|---|---|---|---|---|
+| zahlen.schranken | 180 | 0 | 18 | 0 | 0 | 10 | 1 | mit Korrekturen in Ordnung |
+| daten.standardabweichung | 181 | 0 | 2 | 0 | 0 | 0 | 3 | mit Korrekturen in Ordnung |
+| daten.normalverteilung | 178 | 0 | 1 | 0 | 0 | 0 | 0 | mit Korrekturen in Ordnung |
+| daten.zweidimensional | 184 | 1 | 4 | 0 | 0 | 9 | 0 | mit Korrekturen in Ordnung |
+| sonder.logik | 174 | 0 | 0 | 3 | 0 | 13 | 0 | mit Korrekturen in Ordnung |
+| sonder.graphentheorie | 181 | 0 | 0 | 0 | 1 (Karte) | 0 | 0 | in Ordnung |
+| sonder.optimierung | 183 | 0 | 0 | 0 | 0 | 1 | 0 | in Ordnung |
+
+- Kein Thema „nicht freigabefähig“. Einzige fachlich falsche Lösung: daten.zweidimensional (Wirkweg als „dritte Größe“), ersetzt.
+- Je Thema ein Commit auf `pruefung-neu-2`, Prüfskript jeweils OK. Kein Merge, keine Datenbank, kein App-Code, keine Kinderdaten.
+- Nebenwirkung in 6 Themen: Feld `klasse` beim Neuerzeugen aus `themenliste.json` übernommen (die Dateien waren veraltet), siehe Einzelberichte.
+- Offene Punkte für den Haupt-Chat: daten.zweidimensional war für MYP 3 gebaut, steht jetzt bei MYP 5 (Korrelationskoeffizient r fehlt dann vermutlich); Lehrplanbelege für alle sieben IB-Themen nur über Sekundärquellen, das IB-Originaldokument war nicht frei abrufbar.
+- Nicht geprüft: Darstellung in der App (Bilder, Glocken, Graphen nur über ihre JSON-Daten geprüft).
+
 ## 2026-11-20 – sonder.optimierung (Lineare Optimierung)
 
 **Urteil: in Ordnung** (eine Antwortoption geändert).

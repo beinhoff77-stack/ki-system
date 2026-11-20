@@ -1,0 +1,18 @@
+{
+ "thema_schluessel": "bruch.rechnen",
+ "kurz": "Du lernst, mit Brüchen und Kommazahlen in allen vier Grundrechenarten zu rechnen.",
+ "etappen": {
+  "brueche_plus_minus": "zwei Brüche gleichnamig machen, addieren, subtrahieren und das Ergebnis kürzen",
+  "dezimal_plus_minus": "zwei Dezimalzahlen addieren und subtrahieren, Komma unter Komma",
+  "vorzeichen": "mit negativen Brüchen und Dezimalzahlen rechnen und das Vorzeichen bestimmen",
+  "brueche_mal": "zwei Brüche malnehmen, Zähler mal Zähler und Nenner mal Nenner, und vorher kürzen",
+  "brueche_geteilt": "mit dem Kehrbruch des Teilers malnehmen und so durch Brüche dividieren",
+  "dezimal_mal": "zwei Dezimalzahlen malnehmen und das Komma über die Nachkommastellen setzen",
+  "dezimal_geteilt": "das Komma bei beiden Zahlen verschieben, bis der Teiler ganz ist, und dann teilen",
+  "potenzen": "die Potenz eines Bruchs oder einer Dezimalzahl ausrechnen, auch mit Minuszeichen",
+  "rechenvorteile": "beim Malnehmen mit Brüchen und Dezimalzahlen geschickt tauschen und klammern",
+  "gemischt": "gemischte Aufgaben mit Brüchen, Dezimalzahlen und Klammern in richtiger Reihenfolge lösen",
+  "fehler_finden": "einen Fehler in Bruch- und Dezimalrechnungen finden und mit Überschlag prüfen",
+  "sach": "einen Anteil von einem Anteil in Sachaufgaben berechnen"
+ }
+}

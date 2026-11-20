@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "messen.flaechen_vielecke",
+ "kurz": "Du lernst, die Fläche von Dreiecken, schiefen Vierecken und zusammengesetzten Figuren zu berechnen.",
+ "etappen": {
+  "parallelogramm": "den Flächeninhalt eines Parallelogramms mit Grundseite und Höhe berechnen",
+  "dreieck": "den Flächeninhalt eines Dreiecks mit passender Grundseite und Höhe berechnen",
+  "trapez": "den Flächeninhalt eines Trapezes berechnen und die Formel erklären",
+  "rueckwaerts": "eine fehlende Höhe oder Grundseite aus dem Flächeninhalt berechnen",
+  "zusammengesetzt": "die Fläche zusammengesetzter Figuren durch Zerlegen oder Ergänzen berechnen",
+  "oberflaeche": "die Oberfläche von Keilen und Schachteln aus Rechtecken und Dreiecken berechnen",
+  "verstehen": "eine Fläche abschätzen und Aussagen über Fläche und Umfang prüfen"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "thema_schluessel": "bruch.brueche",
+ "kurz": "Du lernst, Anteile als Brüche zu schreiben, zu vergleichen und zu vereinfachen.",
+ "etappen": {
+  "bruchteil_von": "einen Bruchteil von Geld, Längen oder Zeiten ausrechnen",
+  "anteil_bestimmen": "einen Anteil als Bruch angeben, als Teil durch Ganzes, und kürzen",
+  "ganzes_bestimmen": "aus einem bekannten Teil und seinem Bruch das Ganze berechnen",
+  "erweitern": "einen Bruch mit einer Zahl erweitern und zwei Brüche auf einen gemeinsamen Nenner bringen",
+  "ggt": "den größten gemeinsamen Teiler zweier Zahlen bestimmen und in Sachaufgaben nutzen",
+  "kuerzen": "einen Bruch so lange kürzen, bis es nicht mehr geht",
+  "verhaeltnis_kuerzen": "ein Verhältnis wie 27 : 63 kürzen, auch mit drei Zahlen",
+  "gleichwertig": "fehlende Zahlen in Verhältnissen ergänzen und Mischungen vergleichen",
+  "gemischte_zahlen": "gemischte Zahlen in unechte Brüche umwandeln und umgekehrt",
+  "kgv": "das kleinste gemeinsame Vielfache bestimmen und in Sachaufgaben nutzen",
+  "vergleichen": "zwei Brüche mit gleichem oder verschiedenem Nenner vergleichen, auch über den Hauptnenner",
+  "zahlenstrahl": "einen Bruch am Zahlenstrahl markieren und ablesen, auch die Mitte zwischen zwei Brüchen",
+  "zahlbereiche": "negative Brüche am Zahlenstrahl einordnen und der Größe nach ordnen",
+  "verstehen": "eine Aussage über Brüche mit Zahlen prüfen und mit einem Gegenbeispiel widerlegen"
+ }
+}

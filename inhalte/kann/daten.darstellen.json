@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "daten.darstellen",
+ "kurz": "Du lernst, Umfrageergebnisse zu zählen, in Diagrammen zu zeigen und Tricks darin zu erkennen.",
+ "etappen": {
+  "absolute_haeufigkeit": "mit Strichliste und Tabelle zählen, wie oft ein Wert vorkommt",
+  "relative_haeufigkeit": "relative Häufigkeiten als Bruch und in Prozent angeben und vergleichen",
+  "tabelle_auswerten": "aus einer Häufigkeitstabelle die Gesamtzahl, die Rangfolge und Anteile bestimmen",
+  "saeulendiagramm": "ein Säulendiagramm ablesen und Säulenhöhen mit einem Maßstab berechnen",
+  "kreisdiagramm": "den Winkel im Kreisdiagramm aus einem Anteil berechnen und umgekehrt",
+  "irrefuehrend": "irreführende Diagramme an Achsen und Anteilen erkennen"
+ }
+}

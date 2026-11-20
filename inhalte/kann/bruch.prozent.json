@@ -1,0 +1,12 @@
+{
+ "thema_schluessel": "bruch.prozent",
+ "kurz": "Du lernst, mit Prozent zu rechnen – zum Beispiel bei Rabatten und Preiserhöhungen.",
+ "etappen": {
+  "prozent_bedeutung": "einen Bruch oder eine Dezimalzahl in Prozent umwandeln und umgekehrt",
+  "prozentwert": "über 1 % ausrechnen, wie viel zum Beispiel 25 % von 40 € sind, und im Kopf überschlagen",
+  "prozentsatz": "berechnen, wie viel Prozent ein Teil vom Ganzen ist, auch bei Preissenkungen",
+  "grundwert": "aus einem Prozentwert und dem Prozentsatz das Ganze berechnen",
+  "rabatt_aufschlag": "einen Preis nach Rabatt oder Aufschlag berechnen und Angebote vergleichen",
+  "verstehen": "bei Prozentangaben immer klären, wovon sie gemeint sind, und sie mit Zahlen nachrechnen"
+ }
+}

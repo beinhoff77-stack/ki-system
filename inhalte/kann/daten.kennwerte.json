@@ -1,0 +1,9 @@
+{
+ "thema_schluessel": "daten.kennwerte",
+ "kurz": "Du lernst, aus vielen Werten einen Durchschnitt zu berechnen.",
+ "etappen": {
+  "mittelwert": "den Mittelwert als Summe durch Anzahl berechnen und Gruppen vergleichen",
+  "mittel_tabelle": "aus einem Notenspiegel oder einer Strichliste die Durchschnittsnote berechnen",
+  "mittel_rueckwaerts": "aus dem Mittelwert die Summe oder einen fehlenden Wert berechnen"
+ }
+}

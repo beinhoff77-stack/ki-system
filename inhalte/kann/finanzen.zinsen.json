@@ -1,0 +1,14 @@
+{
+ "thema_schluessel": "finanzen.zinsen",
+ "kurz": "Du lernst, wie viel Geld die Bank fürs Sparen zahlt oder fürs Leihen verlangt.",
+ "etappen": {
+  "begriffe": "in einer Geldsituation Kapital, Zinssatz und Zinsen unterscheiden",
+  "rollen": "sagen, wer beim Sparen und beim Leihen Zinsen zahlt und wer sie bekommt",
+  "jahreszinsen": "die Zinsen für ein Jahr aus Kapital und Zinssatz berechnen",
+  "jahreszinsen_komma": "die Jahreszinsen auch bei einem Zinssatz wie 2,5 % berechnen",
+  "zinssatz": "den Jahreszinssatz aus Kapital und Zinsen berechnen",
+  "kapital": "das Kapital aus Zinsen und Zinssatz rückwärts berechnen",
+  "monatszinsen": "die Zinsen für einige Monate aus den Jahreszinsen berechnen",
+  "zeitanteil": "die Zinsen für ein halbes Jahr oder ein Vierteljahr berechnen"
+ }
+}

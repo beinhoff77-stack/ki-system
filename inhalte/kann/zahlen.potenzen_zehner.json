@@ -1,0 +1,13 @@
+{
+ "thema_schluessel": "zahlen.potenzen_zehner",
+ "kurz": "Du lernst, sehr große und sehr kleine Zahlen kurz mit Zehnerzahlen zu schreiben.",
+ "etappen": {
+  "zehnerpotenz": "eine Zehnerpotenz als Zahl ausschreiben und Zahlen wie 1 000 als 10ⁿ schreiben",
+  "gross_wissenschaftlich": "große Zahlen in der Form 9,2 · 10⁸ schreiben und den Exponenten bestimmen",
+  "vorsilben_gross": "mit Kilo, Mega, Giga und Tera umrechnen, etwa MW in W oder GB in MB",
+  "negativer_exponent": "eine Zehnerpotenz mit negativem Exponenten als Dezimalzahl schreiben und umgekehrt",
+  "klein_wissenschaftlich": "kleine Zahlen in der Form 6,6 · 10⁻⁴ schreiben und zurück in Dezimalzahlen",
+  "vorsilben_klein": "mit Milli, Mikro und Nano umrechnen und damit Sachaufgaben lösen",
+  "vergleichen_pruefen": "zwei Zahlen mit Zehnerpotenzen vergleichen und Fehler in der Schreibweise finden"
+ }
+}

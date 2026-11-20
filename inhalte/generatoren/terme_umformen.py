@@ -776,3 +776,10 @@ if __name__ == '__main__':
     from _bereinigen import bereinigen_datei
     bereinigen_datei('terme.umformen')
 # ---- BEREINIGEN ENDE ----
+
+
+# ---- POTENZ-TEILEN (Sechsundzwanzigste Runde): die vier Potenz-Lernkarten ziehen in den Flug terme.potenzgesetze_natuerlich ----
+if __name__ == '__main__':
+    from _potenz_teilen import umformen_datei
+    umformen_datei()
+# ---- POTENZ-TEILEN ENDE ----

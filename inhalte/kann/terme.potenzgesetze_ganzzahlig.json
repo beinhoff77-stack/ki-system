@@ -1,0 +1,11 @@
+{
+ "thema_schluessel": "terme.potenzgesetze_ganzzahlig",
+ "kurz": "Du lernst, warum die Regeln für Potenzen auch mit negativen Hochzahlen gelten, und rechnest damit.",
+ "etappen": {
+  "warum_gilt": "mit Zahlenproben zeigen, dass die Potenzgesetze auch für negative Exponenten gelten",
+  "gleiche_basis_ganz": "Potenzen mit gleicher Basis malnehmen und teilen, auch mit negativen Exponenten",
+  "exponent_und_potenz": "Potenzen mit gleichem Exponenten zusammenfassen und Potenzen von Potenzen vereinfachen",
+  "terme_vereinfachen": "Terme wie 6x³ · x⁻⁵ vereinfachen und ohne negativen Exponenten als Bruch schreiben",
+  "fehler_ganz": "Fehler mit negativen Exponenten finden und mit einer Zahlenprobe prüfen"
+ }
+}

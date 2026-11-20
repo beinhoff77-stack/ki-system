@@ -854,3 +854,10 @@ if __name__ == '__main__':
     from _bereinigen import bereinigen_datei
     bereinigen_datei('terme.potenzgesetze')
 # ---- BEREINIGEN ENDE ----
+
+
+# ---- POTENZ-TEILEN (Sechsundzwanzigste Runde): „Fehler finden“ ohne Potenzgesetze (die stehen jetzt in eigenen Flügen) ----
+if __name__ == '__main__':
+    from _potenz_teilen import gym6_datei
+    gym6_datei()
+# ---- POTENZ-TEILEN ENDE ----

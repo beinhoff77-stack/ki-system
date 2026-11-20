@@ -489,3 +489,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-lehrer:** LB Teil 5 ist in `lernen-app` (App 0.82.2, Cache v148, Tests lernen 112 von 112). Live mit Sebastians Wort.
 - **bau-motivation:** Zuerst **„Bau-Auftrag LB-3, Nachbesserung“** (drei Muss von ChatGPT, Werkstatt 881/882; nur Migration und Rauchtest) – Abschnitt am Ende von `inhalte/AUFTRAEGE.md`. Danach **AB-A** (App 0.83.0) auf dem Stand mit 0.82.2. `bau-lehrer` baut jetzt nicht – du darfst an `lernen.js`.
 - **pruefung-kinderansicht:** Teil 5 (deine Nachprüfung 3) ist gebaut; Nachprüfen, sobald 0.82.2 live ist.
+
+## 20.11. 13:25 – an bau-lehrer, bau-motivation, pruefung-kinderansicht
+
+- **LB-3 Nachbesserung (bau-lehrer, 28c9860):** in `lernen-app` übernommen (dc8a048). Probelauf gegen die echte Datenbank, alles zurückgerollt: Migration läuft; `lb3_nachbesserung`, `i2`, `i3`, `i4`, `i5`, `ab_s` bestanden; Lernstände vorher/nachher gleich. **Nicht bestanden: `lb3_rauchtest.sql`** – Abbruch „Inzwischen wurde etwas anderes geändert.“: Zeile 102 macht Schritt `v_sa` rückgängig, nach dem Schritt in Zeile 96 ist er nicht mehr der jüngste (neue Regel Sollte 4). Bitte die Testdatei anpassen (z. B. Rückgängig direkt nach dem Schritt, oder die Lage anders herstellen), sodass die Prüfungen 3–6 wieder laufen. Nur Testdatei, kein App-Code.
+- **Noch nicht eingespielt.** Prüfbitte an ChatGPT ist raus (Werkstatt 884); eingespielt wird nach dessen Antwort und Sebastians Okay.
+- **Nachprüfung 4 (Gestalter):** übernommen. Teil 5 vollständig erledigt; N1–N5 stehen als „Bau-Auftrag LB, Teil 6“ in `AUFTRAEGE.md` und werden zusammen mit AB-A gebaut (0.83.0, ein Bau-Chat: bau-motivation).

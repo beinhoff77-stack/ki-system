@@ -2116,3 +2116,29 @@ Grundlage: `inhalte/postfach/lehrplan-lb.md`, Einträge „AUFTRAGSENTWURF: Pote
 **Prüfen und melden:** Generatoren für beide neuen Flüge und die zwei geänderten; `python3 -I tools/inhalt_pruefen.py --alle` muss OK melden; jede Lösung selbst nachrechnen. Bericht: Zahl der Aufgaben je Flug, Karte, Pool und Stufe; welche Aufgaben wohin umgezogen sind (alte → neue Stelle); Lehrplan-Quellen; was nicht geprüft wurde. Ein Commit je Flug + einer für Themenliste und Texte. **Nichts in die Datenbank schreiben, kein App-Code, kein Merge nach `main`, keine Kinderdaten.** Am Ende „FERTIG: Potenzgesetze geteilt“.
 
 **Danach der Haupt-Chat:** Themen 102 und 103 in der Datenbank anlegen und den Orten zuordnen, Flüge einspielen (Entwurf), unabhängig prüfen lassen, den Lernstand des betroffenen Kindes von `terme.umformen` auf Flug A umhängen (Landungen, Wiederholungen, Nachweise – ohne Verlust; der abgeschlossene Ort bleibt abgeschlossen), Lehrplan-Felder nachziehen; Freigabe und Plan entscheidet Sebastian.
+
+---
+
+# Bau-Auftrag LB, Teil 6 (20.11.): Nachprüfung 4 des Gestalters – Lehrer-Ansicht
+
+Grundlage: `inhalte/pruefung/lehrer/nachpruefung-4.md` (Bilder und Messwerte in `inhalte/pruefung/lehrer/n4/`). Teil 5 ist vollständig erledigt; neu aufgefallen sind fünf Punkte. Nur App (`lernen.js`/Stile), kein Server. Wird **zusammen mit AB-A** vom selben Bau-Chat gebaut (eine Version, 0.83.0).
+
+1. **N1 – Muss:** Ansicht „Nach Themengebiet“ (Standard) bricht auf Tablet (820) 16 und auf dem Handy (400) 2 Wörter. Wie in „Nach Klasse“: unter 1100 px steht das Stufenwort unter dem Titel. Abnahme: maschinell gezählt 0 gebrochene Wörter bei 400, 820, 1280 in allen 8 Gebieten.
+2. **N2 – Sollte:** Plan-Zeilen links auf Handy und Tablet: Titel bis zu zwei Zeilen, erst danach „…“.
+3. **N3 – Sollte:** Abschnittszähler zählt nur die Flüge der eigenen Stufe („16 Orte · 20 Flüge in Wiederholung“), sodass Kopf und Abschnitt dieselbe Zahl zeigen.
+4. **N4 – Kann:** „Nach Themengebiet“: eingeplante Zeilen nicht abblassen (wie „Nach Klasse“).
+5. **N5 – Kann:** Etappen-Liste auf dem Handy: Stand rechtsbündig in derselben Zeile wie der Titel.
+6. **Aus LB-3 Nachbesserung (Sollte 4):** Die App bietet „↶ Rückgängig“ nur noch für den jüngsten Schritt an; die Ablehnung des Servers („Inzwischen wurde etwas anderes geändert.“) verständlich anzeigen. Rückfall-Hinweis (`hinweis: 'rueckfall'`, `wieder_offen`) in der Lehrer-Ansicht zeigen; `heute_bis` statt eigener Tagesrechnung verwenden, wo die App „heute“ bestimmt.
+
+Tests ergänzen (mindestens N1 als Messung, N3, Punkt 6), alle Tests laufen lassen. Meldung im Postfach, am Ende „FERTIG: LB Teil 6“.
+
+---
+
+# Bau-Auftrag LB, Teil 7 (20.11.): Info-Seite „So funktioniert’s“ auf den Stand 0.82.2 bringen
+
+Vorgabe des Gestalters mit allen neuen Texten **wörtlich**: `inhalte/pruefung/lehrer/info-seite-update.md` (Punkte 1–7). Nur Texte in `lernen.js` (`viewInfo` und `LERN_INFO_FRAGEN`), keine Datenbank. Wird vom selben Bau-Chat zusammen mit AB-A und Teil 6 gebaut (0.83.0).
+
+- Punkte 1–7 genau nach Vorgabe übernehmen; die doppelten alten Einträge „Lernstand:“ und „Was wackelt?:“ löschen.
+- Abschluss-Ansichten und Abzeichen (AB-A) kommen in derselben Version: dafür einen kurzen Eintrag ergänzen, der genau das beschreibt, was AB-A zeigt (Text im Bericht nennen, der Gestalter prüft ihn).
+- Punkt 3 („Kann er – aber wiederholen“) beschreibt den Stand **nach** der LB-3-Nachbesserung am Server; steht die beim Live noch aus, meldet der Haupt-Chat das.
+- Tests: vorhandene Info-Seiten-Tests anpassen. Im Bericht „FERTIG: LB Teil 7“; der Gestalter prüft den Text gegen die App.

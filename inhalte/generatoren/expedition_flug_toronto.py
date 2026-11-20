@@ -57,7 +57,7 @@ teile = [
          f'Zu jeder Hose passen {SHIRTS} T-Shirts: {HOSEN} · {SHIRTS} = {HOSEN * SHIRTS}. Zu jeder dieser Kombinationen passen {PULLIS} Pullover: '
          f'{HOSEN * SHIRTS} · {PULLIS} = {HOSEN * SHIRTS * PULLIS}.',
          'Zählprinzip: die Anzahlen malnehmen.', B('stochastik.kombinatorik', 'zaehlprinzip')),
-    auswahl('d', f'Ihr landet um {to_h}:{an_m:02d} Uhr Toronto-Zeit. Die Fahrt zum Hotel dauert {FAHRT_H} h {FAHRT_M} min. Die Hotelwäscherei nimmt nur bis {SCHLUSS}:00 Uhr Wäsche an; '
+    auswahl('d', f'Ihr landet um {to_h}:{an_m:02d} Uhr Toronto-Zeit. Von der Landung bis zur Ankunft im Hotel vergehen insgesamt {FAHRT_H} h {FAHRT_M} min – einschließlich Aussteigen, Gepäckabholen und Fahrt. Die Hotelwäscherei nimmt nur bis {SCHLUSS}:00 Uhr Wäsche an; '
                  f'{WAESCHE_KG} kg Wäsche kosten dort {WAESCHE_DOLLAR} Dollar. Ihr wollt noch heute {NEU_KG} kg Wäsche abgeben. Schafft ihr das, und was kostet es?',
             d_ant[0], d_ant[1:],
             f'Ankunft im Hotel: {to_h}:{an_m:02d} Uhr + {FAHRT_H} h {FAHRT_M} min = {hotel_h}:{hotel_m:02d} Uhr – vor {SCHLUSS}:00 Uhr. '

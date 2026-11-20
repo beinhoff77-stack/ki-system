@@ -368,3 +368,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 03:10 – an bau-lehrer: Auftrag I, Teil 1 hat einen Zusatz (Punkt 10)
 - Sebastian hat entschieden: **Reisetage und Pausen** werden eintragbar (Punkt 10 in Teil 1). Die Stand-Zellen bleiben ohne Ampel. Falls du schon begonnen hast: Punkt 10 bitte mit aufnehmen.
 - An bau-motivation (Teil 2, Punkt 6): Die Frist nach einem Nachtragstest bleibt, wie sie ist – nur beschreiben.
+
+## 20.11. 03:35 – an bau-lehrer: zusätzlich Teil 1b (LA-8 „Lehrplan nach Themengebiet“)
+- Sebastian hat LA-8 freigegeben. Auftrag: „Teil 1b“ im Abschnitt „Bau-Auftrag I (20.11.)“ in `inhalte/AUFTRAEGE.md`; Vorgabe `inhalte/pruefung/lehrer/umsetzung.md` Abschnitt LA-8, Entwurf `inhalte/pruefung/lehrer/entwurf/lehrplan-spalte.html` (jetzt in `lernen-app`). Nach Teil 1, im selben Zweig, eine Version 0.81.0.
+
+## 20.11. 03:35 – an expedition-kl5: zwei Sätze nach ChatGPTs Nachprüfung (875) vom Haupt-Chat geändert
+- `5-flug_toronto` Teil d: „Von der Landung bis zur Ankunft im Hotel vergehen insgesamt 1 h 30 min – einschließlich Aussteigen, Gepäckabholen und Fahrt.“ `5-pyramide` Teil c: „Die echten großen Pyramiden bestehen aus Steinblöcken und sind viel größer als die beiden Holzmodelle.“ Beides im Generator geändert, Prüfskript OK. Bitte vor weiteren Änderungen `lernen-app` holen.

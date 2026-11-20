@@ -74,7 +74,10 @@ begin
   -- ---------- H10: Mischkarte nur, wenn der Server sie bestätigt ----------
   update schule.karte_stand set sitzt = true, sitzt_am = now() - interval '2 days', misch_ok_am = null where lernender_id = v_l and einheit_id = v_e2 and lernziel = v_lz2;
   select * into ag from schule.aufgabe where id = ids2[2];
-  -- a) gültig: gelandete Etappe, anderer aktueller Flug/Lernkarte
+  -- a) gültig: gelandete Etappe, anderer aktueller Flug/Lernkarte – seit Auftrag I, Teil 2 (20261120_i2_lernregeln.sql) zusätzlich vom Server ausgegeben
+  if to_regclass('schule.misch_ausgabe') is not null then
+    execute 'insert into schule.misch_ausgabe(lernender_id, aufgabe_id) values ($1, $2)' using v_l, ag.id;
+  end if;
   r := schule.uebung_pruefen_intern(v_l, jsonb_build_object('aufgabe_id', ag.id, 'client_id', 'h-10a', 'antwort', ag.loesung, 'misch', true, 'aktuell_einheit', v_e, 'aktuell_lernziel', v_lz));
   if not (select misch from schule.versuch where lernender_id = v_l and client_id = 'h-10a') or (select misch_ok_am from schule.karte_stand where lernender_id = v_l and einheit_id = v_e2 and lernziel = v_lz2) is null then
     raise exception 'FEHLER H10a: gültige Mischkarte nicht gewertet'; end if;

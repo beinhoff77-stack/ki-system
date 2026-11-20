@@ -1921,9 +1921,12 @@ function lernCheckliste(e) {
 const lernGeraetTag = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
 const lernHeuteLesen = (kind) => { try { return JSON.parse(localStorage.getItem('lern.heute.' + kind) || 'null'); } catch { return null; } };
 const lernHeuteSchreiben = (kind, x) => { try { localStorage.setItem('lern.heute.' + kind, JSON.stringify(x)); } catch { /* egal */ } };
-const lernHeuteSetzen = (kind, n, tag) => { if (n === undefined || n === null) return; lernHeuteSchreiben(kind, { tag: tag ? String(tag).slice(0, 10) : lernGeraetTag(), n: Number(n) || 0, server: !!tag }); };
-const lernHeute = (kind) => { const x = lernHeuteLesen(kind); return !x ? 0 : x.server || x.tag === lernGeraetTag() ? Number(x.n) || 0 : 0; };
-const lernHeutePlus = (kind) => { const x = lernHeuteLesen(kind); lernHeuteSchreiben(kind, x && (x.server || x.tag === lernGeraetTag()) ? { ...x, n: (Number(x.n) || 0) + 1 } : { tag: lernGeraetTag(), n: 1, server: false }); };
+// I-3/H6: Tageswechsel – ein neuer Server-Tag ersetzt den Stand; ist seit dem letzten Server-Stand auch auf dem Gerät ein neuer Tag (Seite über Nacht offen),
+// gilt der alte Stand nicht mehr (0), bis der Server beim nächsten Laden oder Antworten den neuen Tag nennt.
+const lernHeuteSetzen = (kind, n, tag) => { if (n === undefined || n === null) return; lernHeuteSchreiben(kind, { tag: tag ? String(tag).slice(0, 10) : lernGeraetTag(), n: Number(n) || 0, server: !!tag, geraet: lernGeraetTag() }); };
+const lernHeuteGilt = (x) => !!x && (x.server ? (x.geraet || x.tag) === lernGeraetTag() : x.tag === lernGeraetTag());
+const lernHeute = (kind) => { const x = lernHeuteLesen(kind); return lernHeuteGilt(x) ? Number(x.n) || 0 : 0; };
+const lernHeutePlus = (kind) => { const x = lernHeuteLesen(kind); lernHeuteSchreiben(kind, lernHeuteGilt(x) ? { ...x, n: (Number(x.n) || 0) + 1 } : { tag: lernGeraetTag(), n: 1, server: false, geraet: lernGeraetTag() }); };
 // Punkte für die Serie: ●●○○ (gefüllt = richtig in Folge), bei „sitzt“ alle gefüllt.
 function lernPunkte(e, { gross = false } = {}) {
   const n = Math.max(1, e.ziel || 4), voll = e.sitzt || e.fertig ? n : Math.min(n, e.serie || 0);

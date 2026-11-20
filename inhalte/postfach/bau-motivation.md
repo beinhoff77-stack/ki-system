@@ -2,6 +2,42 @@
 
 Neueste oben.
 
+## 2026-11-20 – FERTIG: Auftrag I, Teil 3 (Nachprüfung ChatGPT 878) – App 0.81.2
+
+Zweig `bau-motivation`, Stand `lernen-app` 23a8b6a übernommen. Kein Merge. Datenbank nur gelesen: I-2 ist eingespielt; `misch_ausgabe` hat heute **0 Zeilen, keine Dopplungen**;
+keine Versuche mit `wertung_offen`. Ersetzungsstellen (`einheit_lesen_intern`, `test_starten_intern`) im Live-Text je einmal vorhanden.
+**Migration** `supabase/migrations/20261120_i3_lernregeln_nachpruefung.sql` (nicht ausgeführt; pglast ok; kein DROP, kein DELETE, keine Bestandsänderung; wiederholt ausführbar; nach I-2).
+**Rauchtest** neu `supabase/tests/i3_lernregeln_rauchtest.sql` (Rollback, nur Testkind, nicht ausgeführt).
+
+**Muss**
+1. **Endgültige Wertung festgehalten:** neue Spalte `versuch.wertung_fest` (`eigen | neutral | falsch | ersetzt`), geschrieben, sobald der Trigger entscheidet. `versuch_wertung` liest sie zuerst
+   (also auch `folge_nachrechnen`). Ein 2. Anlauf, dessen 1. Anlauf schon endgültig falsch gebucht ist, gilt als `neutral` und bucht nichts – auch wenn er falsch ist.
+   Rauchtest genau des Falls aus 878 (2 richtig, X falsch, Y richtig, X im 2. Anlauf richtig): Buchung 1 = Nachrechnung 1 (vorher 1 ≠ 3); Gegenstück mit falschem spätem 2. Anlauf: kein zweiter Fehler.
+2. **Nachbuchen genau einmal:** neue Funktion `schule.offene_entscheiden(kind, ausser)` beansprucht offene erste Anläufe in einem Schritt
+   (`update … set wertung_offen = false where id in (select … for update skip locked) returning`) und bucht nur die beanspruchten; der Trigger ruft sie auf.
+   Rauchtest: zweimal entschieden → 1, dann 0; der Fehler steht einmal in `falsch`. Echte Gleichzeitigkeit (zwei Tabs) lässt sich im Rauchtest nicht erzeugen.
+
+**Sollte**
+3. **Einlösen atomar:** `misch_buchen` löst mit `update … returning` (Zeile mit `for update skip locked`) ein; nur wenn das eine Ausgabe trifft, gibt es die Mischkarten-Buchung, sonst normale Buchung.
+   Eindeutiger Index `misch_ausgabe_offen_eindeutig` (offene Ausgabe je Kind und Bordkarte); die Migration bricht mit Meldung ab, falls beim Einspielen doch Dopplungen liegen (heute keine).
+   `schule.mischkarten` legt Ausgaben mit `insert … on conflict … do update` an.
+4. **Ausgabe an die Lage gebunden:** `misch_ausgabe.einheit_id` (gelesener Flug) und `lernziel` (erste noch nicht gelandete Etappe dieses Flugs beim Ausliefern). `misch_gueltig` vergleicht mit dieser Lage,
+   nicht mit `aktuell_*` des Geräts. Ausgaben ohne Lage (aus 0.81.1, falls bis zum Einspielen welche entstehen) prüfen wie bisher die Geräte-Angaben.
+   Hinweis: Weil Mischkarten nur aus gelandeten Etappen kommen und die gespeicherte Etappe die erste nicht gelandete ist, schließt der Vergleich vor allem gefälschte/veraltete Geräte-Angaben aus.
+5. **30-Minuten-Grenze:** `einheit_lesen_intern` und `test_starten_intern` rufen `offene_entscheiden` auf. Rauchtest: über 30 Minuten alte erste Anläufe werden beim Lesen und beim Teststart entschieden, frische nicht.
+6. **Tageswechsel (App):** Der Zwischenspeicher merkt sich zusätzlich den Gerätetag beim letzten Server-Stand. Ist auf dem Gerät seither ein neuer Tag (Seite über Nacht offen), gilt der alte Stand nicht mehr (0);
+   eine Antwort ohne Karte (z. B. Mischkarte) zählt dann neu ab 1; der nächste Server-Stand (Laden oder Antwort) ersetzt alles, ein neuer Server-Tag verwirft den alten Stand. Test in Playwright.
+
+**Bisherige Rauchtests – angepasst**
+- `w176_t3_rauchtest.sql` und `w176_h8_rauchtest.sql`: rufen `misch_buchen` direkt bzw. legen Mischkarten-Versuche direkt an. Seit Teil 3 zählt das nur mit Ausgabe → vor jedem Aufruf wird eine Ausgabe angelegt
+  (nur wenn die Tabelle existiert). In h8 sind die zwei Mischkarten-Versuche dafür zwei Anweisungen statt einer.
+- Unverändert und nach Durchsicht weiter passend: `i2_lernregeln`, `w177_nachtragstest` (beide Blöcke), `w176_h_muss`, `w176_h_sollte`, `w176_t1`, `w176_t4`, `abgleich_ohne_expeditionen`, `i_pause`, `la_3`, `la_4`.
+  Nicht ausgeführt – „läuft weiter“ ist hier gelesen, nicht gesehen.
+
+**Alte App 0.81.1:** keine neue oder geänderte Aktion; Mischkarten kommen weiter über `schule_einheit_lesen`, `heute_selbst`/`heute_tag` unverändert.
+**Gesehen/getestet:** lernen 95 von 95 (H6-Test um den Tageswechsel erweitert); Suche 138 bestanden, 10 Fehler – die bekannten alten (13, 15, 101, 103, 105, 111, 113, 126, 127) plus 108, der gelegentlich wackelt. pglast ok für Migration und alle geänderten Rauchtests; keine Variablen-/Alias-Doppelungen.
+**Nicht geprüft:** Migration und Rauchtests nicht ausgeführt; Gleichzeitigkeit nur über die Sperr-Klausel abgesichert, nicht unter Last getestet; äußerer Zugang (api.*) nicht getestet (Schlüssel).
+
 ## 2026-11-20 – Rauchtest W177, zweiter Block berichtigt (Antwort 20.11. 04:30)
 
 - `supabase/tests/w177_nachtragstest_rauchtest.sql`, Prüfung „FEHLER 7b“: `a.id = any((select aufgaben …))` las die Unterabfrage als Menge von Arrays → `bigint = bigint[]`.

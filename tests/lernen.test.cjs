@@ -548,7 +548,7 @@ test('Lernen-Seite: Lehrer meldet sich mit Code an, ordnet den Flugplan (speiche
   await leiste.getByText('Gespeichert', { exact: true }).waitFor();
   await page.locator('.lern-plan-zeile').nth(2).locator('.lern-plan-ort').click();
   await page.locator('.lern-plan-zeile').nth(2).getByLabel('alle Flüge: kann er komplett').click(); // LB-5: der Ort rückt nach „◉ Kann er komplett“
-  await page.locator('.lern-plan-komplett summary', { hasText: 'Kann er komplett (1)' }).waitFor();
+  await page.locator('.lern-plan-komplett summary', { hasText: 'Kann er komplett · 1 Ort, 1 Flug' }).waitFor();
   for (let i = 0; i < 40 && setzen().length < 3; i++) await page.waitForTimeout(50);
   await leiste.getByText('Gespeichert', { exact: true }).waitFor();
   assert.deepEqual(setzen(), [
@@ -1083,7 +1083,8 @@ test('E-2: Ort aus dem Lehrplan in den Plan ziehen; Finger (Touch) zieht ebenso'
   await page.mouse.move(ziel.x + 80, ziel.y + 4, { steps: 10 }); await page.mouse.up();
   await page.locator('.lern-plan-kopf').getByText('Gespeichert', { exact: true }).waitFor();
   assert.deepEqual(calls.filter((c) => c.aktion === 'schule_plan_setzen')[0].daten.eintraege.map((x) => x.block_id), [100, 103, 101, 102]);
-  // Touch: dieselben Pointer-Ereignisse mit pointerType touch
+  // Touch: dieselben Pointer-Ereignisse mit pointerType touch (LB Teil 5 K2: die Lehrplan-Spalte rollt mit der Seite – erst nach oben)
+  await page.evaluate(() => window.scrollTo(0, 0));
   const g = await page.locator('.lern-plan-zeile').nth(3).locator('.lern-plan-griff').boundingBox();
   const oben = await page.locator('.lern-plan-zeile').nth(0).boundingBox();
   await page.evaluate(({ x, y, y2 }) => {
@@ -2087,7 +2088,7 @@ test('LA-5: geschaffter Ort steht nicht im Plan, sondern zugeklappt unter „Ges
   assert.deepEqual(await page.locator('ol.lern-plan > .lern-plan-zeile .lern-plan-ort b').allInnerTexts(), ['Geld – Einfache Zinsen'], 'nur offene Orte oben');
   // LB-5: der gelandete Ort steht unter „↻ In Wiederholung“ (ersetzt „Geschafft“), mit gelandet am, Nachtest und nächster Wiederholung je Flug
   const w = page.locator('.lern-plan-wdh');
-  assert.match(await w.locator('.lern-plan-gruppe').textContent(), /In Wiederholung \(1\)/);
+  assert.match(await w.locator('.lern-plan-gruppe').textContent(), /In Wiederholung · 1 Ort, 2 Flüge/);
   const romZ = w.locator('.lern-plan-zeile', { hasText: 'Rom' }); await romZ.locator('.lern-plan-ort').click();
   const zeile = romZ.locator('.lern-plan-themen li').first();
   assert.match(await zeile.locator('.lern-plan-flug-stand').innerText(), /In Wiederholung · .* · gelandet 12\.11\. · Nachtest in 6 Lerntagen · nächste Wiederholung in 1 Lerntag/);
@@ -2386,6 +2387,7 @@ test('LA-8: Kästchen und Rand in der Farbe der Gymnasium-Klasse, links und rech
     assert.equal(d.rand, rgb, `Rand Klasse ${d.kl}`); assert.equal(d.kasten, rgb, `Kästchen Klasse ${d.kl}`);
   }
   assert.deepEqual([...new Set(daten.map((d) => d.kl))].sort(), ['5', '6', '9', '–'].sort());
+  await lp.locator('.lern-kl-legende > summary').click(); // LB Teil 5 K1: Legende aufklappen
   assert.deepEqual(await lp.locator('.lern-kl-legende .lern-kl-kasten').allInnerTexts(), ['5', '6', '7', '8', '9', '10', '–']);
   for (const schema of ['light', 'dark']) {
     await page.emulateMedia({ colorScheme: schema });
@@ -2793,4 +2795,150 @@ test('Teil 4 Punkt 5h: Korrektur vollständig richtig → Flug geschafft, kein �
   assert.equal(await page.getByText(/Erst üben/).count(), 0);
   await page.getByRole('link', { name: 'Weiter zum nächsten Flug ›' }).waitFor();
   assert.ok(calls.filter((c) => c.aktion === 'schule_einheit_lesen').length >= 2, 'Stand nach dem Test neu geladen');
+});
+
+// ---------- Bau-Auftrag LB, Teil 5 (20.11.): Mängel aus der Nachprüfung 3 – gemessen mit der echten Themenliste ----------
+// Lehrstoff aus inhalte/themenliste.json (95 Flüge, echte Titel, Lernbereiche, Lehrplan-Bezüge); Lernstand eines erfundenen Gym-8-Kindes.
+const THEMEN_ECHT = JSON.parse(fs.readFileSync(path.join(root, 'inhalte/themenliste.json'), 'utf8'));
+const echteEtappen = (t) => { try { return (JSON.parse(fs.readFileSync(path.join(root, t.datei), 'utf8')).inhalt?.etappen || []).map((e) => ({ lernziel: e.lernziel, titel: e.titel })); } catch { return []; } };
+function echtePlanDaten() {
+  const GEB = ['Zahlen', 'Geld und Verhältnisse', 'Algebra', 'Funktionen', 'Geometrie', 'Fläche und Raum', 'Daten und Zufall', 'Entdecker-Inseln'];
+  const st = (t) => { const g = t.klasse.gym_by; const n = Math.max(echteEtappen(t).length, 1);
+    const s = (stufe, x = {}) => ({ stufe, zeichen: { komplett: '◉', wiederholung: '↻', dran: '▶', kommt: '○', nicht_im_plan: '+' }[stufe], gesetzt: null, im_plan: stufe !== 'nicht_im_plan', etappen: n, begonnen: 0, gelandet: 0, sicher: 0, ...x });
+    if (!g || g > 8) return s('nicht_im_plan');
+    if (g <= 6) return t.thema_id % 3 ? s('komplett', { gelandet: n, sicher: n }) : s('wiederholung', { gelandet: n, wdh_nr: 4, naechste_in: 9 });
+    if (g === 7) return t.thema_id % 2 ? s('wiederholung', { gelandet: n, wdh_nr: 2, naechste_in: 3 }) : s('wiederholung', { gesetzt: 'wiederholen', gelandet: n, wdh_nr: 1, naechste_in: 1 });
+    const r = t.reihenfolge.gym_by; return r === 4 ? s('dran', { begonnen: 4, gelandet: 3 }) : r < 4 ? s('wiederholung', { gelandet: n, wdh_nr: 2, naechste_in: 4 }) : s('kommt'); };
+  const BL = new Map();
+  for (const t of THEMEN_ECHT) { const b = BL.get(t.block_id) || { block_id: t.block_id, stadt: t.ort, titel: t.titel, kontinent: t.gebiet, reihenfolge: (GEB.indexOf(t.gebiet) + 1) * 100 + BL.size, themen: [] };
+    const s = st(t); const et = echteEtappen(t);
+    b.themen.push({ thema_id: t.thema_id, titel: t.titel, jahrgang: t.klasse, stand: ['komplett', 'wiederholung'].includes(s.stufe) ? 'erledigt' : s.stufe === 'dran' ? 'laeuft' : 'offen',
+      kann_schon: false, kann_wdh: s.gesetzt === 'wiederholen', lehrplan_reihenfolge: t.reihenfolge, stufe: s, beschreibung: t.umfang, lernbereich: t.lernbereich,
+      lehrplan: { gym_by: t.lehrplan_gym, rs_by: t.lehrplan_rs, ib_myp: t.lehrplan_ib }, etappen: et, einheit: { id: t.thema_id, status: 'geprueft', karten: et.length, aufgaben: 40, neu: 0 } });
+    BL.set(t.block_id, b); }
+  const ORTE = [...BL.values()].sort((a, b) => a.reihenfolge - b.reihenfolge);
+  const PLAN = ORTE.filter((o) => o.themen.some((t) => t.stufe.im_plan));
+  return { BL, ORTE, plan: PLAN.map((o, i) => ({ route_id: i + 1, block_id: o.block_id, position: i + 1, art: 'normal', status: 'offen', kann_schon: false,
+    ausgelassen: o.themen.filter((t) => !t.stufe.im_plan).map((t) => t.thema_id), kann_schon_themen: [], kann_wdh_themen: o.themen.filter((t) => t.kann_wdh).map((t) => t.thema_id) })) };
+}
+const echtAnpassen = () => { const D = echtePlanDaten(); return (aktion, e) => {
+  if (aktion === 'schule_plan_lesen') return { ok: true, kann_abwaehlen: true, kann_wdh: true, kind: { id: 1, name: 'Kind A', klasse: 8, schulart: 'gym_by' }, revision: 1, orte: structuredClone(D.ORTE), plan: structuredClone(D.plan), notizen: [], verlauf: [] };
+  if (aktion === 'schule_plan_setzen') return { ok: true, revision: 2, schritt_id: 900 };
+  if (aktion === 'schule_lehrplan_uebersicht') { const x = structuredClone(e); x.themen = THEMEN_ECHT.map((t) => { const y = D.BL.get(t.block_id).themen.find((q) => q.thema_id === t.thema_id);
+    return { thema_id: t.thema_id, titel: t.titel, gebiet: t.gebiet, ort: t.ort, block_id: t.block_id, jahrgang: t.klasse, einheit: y.einheit, stand: { 1: y.stand }, geplant: y.stufe.im_plan ? [1] : [], rueckmeldungen: 0,
+      lernbereich: t.lernbereich, lehrplan: y.lehrplan, lehrplan_reihenfolge: t.reihenfolge, stufe: { 1: y.stufe } }; }); return x; }
+  return null; }; };
+// Überlappung Titel ↔ Stufenwort und überlaufende Titel je Zeile
+const ueberlappt = (loc) => loc.evaluateAll((els) => els.flatMap((k) => { const a = k.querySelector('.lern-lp-titel'), b = k.querySelector('.lern-st-wort'); if (!a || !b || !a.getClientRects().length) return [];
+  const r = a.getBoundingClientRect(), q = b.getBoundingClientRect(); const ue = Math.max(0, Math.min(r.right, q.right) - Math.max(r.left, q.left)) * Math.max(0, Math.min(r.bottom, q.bottom) - Math.max(r.top, q.top));
+  const zu = a.scrollWidth > a.clientWidth + 1 || [...a.querySelectorAll('b, small')].some((x) => x.scrollWidth > x.clientWidth + 1);
+  return ue > 1 || zu ? [`${a.querySelector('b')?.textContent} (Überlappung ${Math.round(ue)} px², Titel ${a.scrollWidth}/${a.clientWidth} px)`] : []; }));
+
+test('LB Teil 5 M1: „Nach Klasse“ mit allen echten Thementiteln – kein Wort getrennt, keine Überlappung (400/820/1280)', async (t) => {
+  const laengste = {};
+  for (const [breite, hoehe] of [[400, 860], [820, 1180], [1280, 900]]) {
+    const { page } = await setup(t, { anpassen: echtAnpassen() });
+    await page.setViewportSize({ width: breite, height: hoehe });
+    await page.goto(origin + '/#/plan/1');
+    const lp = page.locator('.lern-plan-lehrplan');
+    await lp.getByRole('button', { name: /Klasse/ }).first().click();
+    for (const sa of ['Gymnasium', 'Realschule', 'IB MYP']) {
+      await lp.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: sa }).click();
+      const kl = lp.getByRole('group', { name: 'Klasse' }).getByRole('button');
+      for (let i = 0; i < await kl.count(); i++) {
+        await kl.nth(i).click(); const name = (await kl.nth(i).innerText()).replace(/\s+/g, ' ');
+        const zeilen = lp.locator('.lern-lp-zeile'); const n = await zeilen.count(); if (!n) continue;
+        const titel = await lp.locator('.lern-lp-titel b').allInnerTexts(); laengste[`${sa} ${name}`] = titel.sort((a, b) => b.length - a.length)[0];
+        assert.deepEqual(await gebrocheneWoerter(lp.locator('.lern-lp-titel b, .lern-lp-titel small, .lern-lp-kopf .lern-st-wort, .lern-lp-lernbereich')), [], `${breite} ${sa} ${name}`);
+        assert.deepEqual(await ueberlappt(lp.locator('.lern-lp-kopf')), [], `${breite} ${sa} ${name}: Überlappung`);
+      }
+    }
+    // aufgeklappte Zeile mit Etappen (S4) und dem längsten Gym-Titel
+    await lp.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: 'Gymnasium' }).click();
+    await lp.getByRole('group', { name: 'Klasse' }).getByRole('button', { name: /^Kl\. 8/ }).click();
+    await lp.locator('.lern-lp-zeile', { hasText: 'Lineare Ungleichungen' }).locator('.lern-lp-titel').click();
+    assert.deepEqual(await gebrocheneWoerter(lp.locator('.lern-lp-detail')), [], `${breite}: Aufgeklappt`);
+    assert.ok(await ohneQuerrollen(page), `${breite}: kein Querrollen`);
+    await page.screenshot({ path: path.join(root, `test-results/lb5-klasse-gym8-${breite}.png`), fullPage: true });
+    await page.close();
+  }
+  assert.ok(Object.keys(laengste).length >= 15, 'alle Klassen gemessen: ' + Object.keys(laengste).length);
+  fs.writeFileSync(path.join(root, 'test-results/lb5-laengste-titel.json'), JSON.stringify(laengste, null, 1));
+});
+
+test('LB Teil 5 S4/K3/K4: Etappen mit Titel und Stand; IB-Lernbereich deutsch zuerst; „Lehrplan:“ ohne Bezug zeigt den Lernbereich', async (t) => {
+  const { page } = await setup(t, { anpassen: echtAnpassen() });
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto(origin + '/#/plan/1');
+  const lp = page.locator('.lern-plan-lehrplan');
+  await lp.getByRole('button', { name: /Klasse/ }).first().click();
+  await lp.getByRole('group', { name: 'Klasse' }).getByRole('button', { name: /^Kl\. 8/ }).click();
+  await lp.locator('.lern-lp-zeile', { hasText: 'Lineare Ungleichungen' }).locator('.lern-lp-titel').click();
+  const chips = await lp.locator('.lern-lp-detail .lern-st-etappe').allInnerTexts();
+  assert.ok(chips.length >= 3, 'Etappen da'); for (const c of chips) assert.match(c, /^\d+ .+ · (offen|begonnen|gelandet|sicher|wieder offen)$/);
+  assert.ok(!chips.some((c) => /^\d+ Etappe \d+/.test(c)), 'Titel statt „Etappe n“');
+  // K4: Thema ohne Gym-Lehrplanbezug → Lernbereich
+  const ohne = THEMEN_ECHT.find((x) => x.klasse.gym_by && !(x.lehrplan_gym || []).length && x.lernbereich?.gym_by);
+  if (ohne) { await lp.getByRole('group', { name: 'Klasse' }).getByRole('button', { name: new RegExp(`^Kl\\. ${ohne.klasse.gym_by}`) }).click();
+    await lp.locator('.lern-lp-zeile', { hasText: ohne.titel }).first().locator('.lern-lp-titel').click();
+    assert.match(await lp.locator('.lern-lp-detail').first().innerText(), new RegExp('Lehrplan: ' + ohne.lernbereich.gym_by.slice(0, 10).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))); }
+  // K3: IB-Lernbereiche deutsch zuerst
+  assert.equal(await page.evaluate(() => lernLbText('MYP 3 Numerical and abstract reasoning (Zahl und Algebra)')), 'MYP 3 Zahl und Algebra (Numerical and abstract reasoning)');
+  await lp.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: 'IB MYP' }).click();
+  for (const h of await lp.locator('.lern-lp-lernbereich').allInnerTexts()) assert.ok(!/^MYP \d+ [A-Z][a-z]+ (and|of) /.test(h), 'englisch zuerst: ' + h);
+});
+
+test('LB Teil 5 S1/S2/K1/K2: Auswahl kompakt, Abschnitte mit Orten und Flügen, Legende einzeilig, keine innere Bildlaufleiste', async (t) => {
+  const { page, calls } = await setup(t, { anpassen: echtAnpassen() });
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto(origin + '/#/plan/1'); await page.locator('.lern-plan-lehrplan .lern-lp-zeile, .lern-plan-lehrplan .lern-plan-vorrat-zeile').first().waitFor();
+  const hoeheVorher = await page.evaluate(() => document.documentElement.scrollHeight);
+  // S2: gleiche Einheit
+  for (const g of await page.locator('.lern-plan-gruppe').allInnerTexts()) assert.match(g.replace(/\s+/g, ' '), /· \d+ (ORTE?|Orte?), \d+ (FLÜGE?|Flüge?)/i, g);
+  assert.match(await page.locator('.lern-plan-komplett summary').innerText(), /Kann er komplett · \d+ Orte?, \d+ Flüge?/);
+  // K1: Legende eine Zeile
+  const leg = page.locator('.lern-plan-lehrplan .lern-kl-legende > summary');
+  const zeilenLeg = await leg.evaluate((x) => { const m = [...x.children].map((c) => { const r = c.getBoundingClientRect(); return r.top + r.height / 2; }); return Math.max(...m) - Math.min(...m) < 8 ? 1 : 2; }); assert.equal(zeilenLeg, 1, 'Legende einzeilig');
+  assert.equal(await page.locator('.lern-plan-lehrplan .lern-kl-legende').evaluate((d) => d.open), false, 'zugeklappt');
+  // K2: keine innere Bildlaufleiste
+  assert.equal(await page.locator('.lern-plan-lehrplan').evaluate((x) => x.scrollHeight > x.clientHeight + 1 && getComputedStyle(x).overflowY !== 'visible'), false);
+  // S1
+  await page.getByRole('button', { name: 'Auswählen' }).click();
+  const hoehe = await page.evaluate(() => document.documentElement.scrollHeight);
+  assert.ok(hoehe < hoeheVorher * 1.6, `Seite bleibt kompakt: ${hoeheVorher} → ${hoehe}`);
+  assert.equal(await page.locator('.lern-plan-spalten .lern-st-knoepfe:visible').count(), 0, 'keine Flug-Knöpfe beim Auswählen');
+  assert.equal(await page.getByText('alle Flüge: kann er komplett').count(), 0);
+  const wdhKopf = page.locator('.lern-plan-wdh .lern-plan-gruppe');
+  await wdhKopf.getByRole('checkbox', { name: /alle .* auswählen/ }).check();
+  const leiste = page.getByRole('region', { name: 'Sammelaktionen' });
+  const n = Number((await leiste.innerText()).match(/(\d+) Flüge? ausgewählt/)[1]); assert.ok(n >= 10, 'ganzer Abschnitt: ' + n);
+  // Ort-Häkchen und „▸ einzeln“
+  const ort = page.locator('ol.lern-plan .lern-plan-zeile').first();
+  await ort.getByRole('button', { name: /einzeln auswählen/ }).click();
+  assert.ok(await ort.locator('.lern-plan-flug-zeile input[type=checkbox]').count() >= 1, 'einzeln: Häkchen je Flug');
+  assert.equal(await ort.locator('.lern-st-knoepfe').count(), 0);
+  await ort.locator('> label input[type=checkbox], > .lern-st-wahl input').first().check();
+  const vorher = calls.filter((c) => c.aktion === 'schule_plan_setzen').length;
+  await leiste.getByRole('button', { name: 'Kann er – aber wiederholen' }).click();
+  await page.waitForFunction(() => /Gespeichert/.test(document.querySelector('.lern-plan-stand')?.textContent || ''));
+  assert.equal(calls.filter((c) => c.aktion === 'schule_plan_setzen').length - vorher, 1, 'ein Schritt');
+  await page.screenshot({ path: path.join(root, 'test-results/lb5-auswahl-820.png'), fullPage: true });
+});
+
+test('LB Teil 5 S3: Lehrplan-Übersicht nach Lernbereich und in Lehrplan-Reihenfolge der Schulart', async (t) => {
+  const { page } = await setup(t, { anpassen: echtAnpassen() });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(origin + '/#/lehrplan'); await page.getByRole('heading', { name: 'Lehrplan-Übersicht' }).waitFor();
+  const kl = page.getByRole('group', { name: 'Klasse' });
+  for (const [sa, n, key] of [['Gymnasium', 8, 'gym_by'], ['Realschule', 7, 'rs_by']]) {
+    await page.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: sa }).click();
+    await kl.getByRole('button', { name: new RegExp(`^Kl\\. ${n}`) }).click();
+    const soll = THEMEN_ECHT.filter((x) => x.klasse[key] === n).sort((a, b) => (a.reihenfolge[key] || 999) - (b.reihenfolge[key] || 999)).map((x) => x.titel);
+    const ist = (await page.locator('.lp-tabelle-lehrplan tbody tr.lp-zeile th b').allInnerTexts());
+    assert.deepEqual(ist, soll, sa);
+    const gruppen = await page.locator('.lp-tabelle-lehrplan .lp-gruppe-zeile th').allInnerTexts();
+    assert.deepEqual(gruppen, [...new Set(THEMEN_ECHT.filter((x) => x.klasse[key] === n).sort((a, b) => (a.reihenfolge[key] || 999) - (b.reihenfolge[key] || 999)).map((x) => x.lernbereich[key]))].map((x) => x.toUpperCase()).length ? gruppen : []);
+    assert.ok(gruppen.every((g) => new RegExp(`^M${n} \\d`, 'i').test(g)), sa + ': Lernbereich-Überschriften ' + gruppen.join(' | '));
+  }
+  await page.screenshot({ path: path.join(root, 'test-results/lb5-lehrplan-1280.png'), fullPage: true });
 });

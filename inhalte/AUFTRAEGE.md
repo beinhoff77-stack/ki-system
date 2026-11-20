@@ -2059,3 +2059,60 @@ Grundlage: `inhalte/pruefung/lehrer/nachpruefung-3.md` (mit Bildern unter `inhal
 - K1 Legende oben in der Lehrplan-Spalte zuklappbar oder einzeilig. K2 „Nach Themengebiet“: keine innere Bildlaufleiste, die Seite rollt. K3 IB-Lernbereiche: deutsche Bezeichnung zuerst, die englische in Klammern (nur Anzeige; die Daten bleiben). K4 Fehlt bei einem Thema der Lehrplan-Bezug für die gewählte Schulart (heute Gymnasium bei „Teilbarkeit und Primzahlen“ und „Intervalle“), zeigt die Zeile „Lehrplan:“ den Lernbereich statt leer zu bleiben.
 
 Meldung „FERTIG: LB, Teil 5“ in `inhalte/postfach/bau-lehrer.md` – der Gestalter prüft nach. **Danach** beginnt `bau-motivation` mit AB-A.
+
+---
+
+# Bau-Auftrag LB-3, Nachbesserung (20.11.): drei Muss aus der Prüfung von ChatGPT (Werkstatt 881, 882) – Chat `bau-motivation`, nur Migration und Rauchtest, **vor** AB-A
+
+LB-3 ist live (seit App 0.81.3; die Knöpfe seit 0.82.0). ChatGPT hat den Code gelesen (nicht ausgeführt) und drei Muss gefunden. Keine Bestandsänderung nötig – vorher lesend prüfen, ob es schon gesetzte Flüge gibt (`route.kann_wdh_themen`, `karte_stand.gesetzt_am`), und im Bericht nennen.
+
+**Muss**
+1. **Setzen startet die Wiederholung für ALLE Etappen des Flugs neu** (bestätigte Regel: „alle Etappen gelten als gelandet, Wiederholung ab Stufe 1“). Heute werden schon gelandete Etappen übersprungen und behalten ihre alte Wiederholungsstufe – ist alles schon sicher, steht der Flug sofort auf ◉ statt ↻. Neu: Beim Setzen gehen auch schon gelandete Etappen auf Wiederholungsstufe 1 (fällig am nächsten Lerntag) – **ohne** eigene Lösungen, ursprüngliche Landung (`sitzt_am`) oder Belege zu verlieren; ihre Herkunft bleibt „selbst gelandet“ (kein `gesetzt_am`). Der Stand vor dem Setzen wird im Schritt gemerkt, damit „Rückgängig“ ihn wiederherstellt. Test: ganzer Flug vorher sicher → nach dem Setzen ↻, Wiederholung am nächsten Lerntag.
+2. **Rücknahme lässt keine unbelegte Landung stehen.** Heute genügt ein einziger Versuch nach dem Setzen (auch ein falscher oder offener), damit die gesetzte Landung bei der Rücknahme bleibt – nur die Herkunft fällt weg. Neu: Bei Rücknahme (und bei „Rückgängig“) bleibt eine gesetzte Etappe nur dann gelandet, wenn das Kind sie seit dem Setzen **nach der normalen Regel selbst gelandet** hätte (eigene Lösungen ≥ Ziel, Typen, schwere, Folge – dieselbe Prüfung wie in `karte_buchen`, als gemeinsame Funktion); sonst wird sie wieder offen. Alle Versuche, eigenen Lösungen und Sterne bleiben; die eigenen Lösungen seit dem Setzen zählen für die offene Etappe weiter. Tests: Setzen → ein Fehler → Rücknahme → offen; Setzen → offener erster Anlauf → Rücknahme → offen; Setzen → eine richtige Wiederholung → Rücknahme → offen (mit 1 eigener Lösung); echte eigene Landung seit dem Setzen → bleibt gelandet. Eine begonnene Expedition bleibt fortsetzbar (wie heute bei Rückfall).
+3. **„sicher“ richtet sich nach dem Flug, nicht nach der Herkunft der Etappe.** Heute braucht eine selbst gelandete Etappe in einem gesetzten Flug weiter den Flug-Nachtest, den es für gesetzte Flüge nicht mehr gibt – sie kann nie „sicher“ werden, der Flug nie ◉. Neu: Solange der Flug auf „Kann er – aber wiederholen“ steht, gilt für **alle** seine Etappen: sicher = gelandet + Wiederholung nach 14 Lerntagen bestanden (+ Mischkarte richtig, falls seit dem Setzen eine **eingelöst oder gezeigt** wurde – nicht schon, wenn nur eine vorgeladen wurde). Test: eine selbst gelandete Etappe ohne Nachtest + eine gesetzte, Wiederholungen bestanden → beide sicher, Flug ◉.
+
+**Sollte**
+4. **Rückgängig nur für den jüngsten Schritt:** `rueckgaengig` nimmt nur die letzte `schritt_id` des Kindes an (sonst Meldung „Inzwischen wurde etwas anderes geändert.“). Test: A setzen → B ändern → A rückgängig wird abgelehnt.
+5. **Stufe bei „Kann er komplett“ mit Rückfall:** Ist ein Flug „komplett“ gesetzt, aber eine früher gelandete Etappe wieder offen, liefert `thema_stufe` zusätzlich `wieder_offen` > 0 und ein Feld `hinweis: 'rueckfall'` – die Stufe bleibt ◉ (Entscheidung des Lehrers), die App kann es anzeigen.
+6. **H6 Tageswechsel:** Server liefert zu `heute_tag` ein `heute_bis` (nächster Tagesbeginn in der Zeitzone des Kindes); die App-Seite dazu gehört zu AB-A.
+7. Den wackeligen `i3_lernregeln_rauchtest.sql` vom Zufall der Kartenauswahl lösen (Eintrag im Postfach 07:10) – danach laufen auch die Kontext-Tests S4 dieses Blocks.
+
+Migration `…_lb3_nachbesserung.sql` mit Rauchtest (Rollback, nur Testkind); alle bisherigen Rauchtests müssen weiter laufen (nenne, welche du anpasst – `lb3_rauchtest.sql` erwartet heute den alten Zustand von Punkt 1). Kein `lernen.js` in diesem Schritt. Meldung „FERTIG: LB-3 Nachbesserung“. **Danach** AB-A (App 0.83.0) auf dem Stand `lernen-app` mit App 0.82.2.
+
+---
+
+# Sechsundzwanzigste Runde (20.11.): Potenzgesetze in zwei eigene Flüge teilen – Entscheidung von Sebastian
+
+Grundlage: `inhalte/postfach/lehrplan-lb.md`, Einträge „AUFTRAGSENTWURF: Potenzgesetze in zwei eigene Flüge teilen“ und „ENTSCHEIDUNG SEBASTIAN“ (beide lesen – sie gelten, soweit hier nichts anderes steht). Neuer Inhalts-Chat **`potenz-teilen`**, Zweig `potenz-teilen` vom aktuellen `lernen-app`, Meldungen `inhalte/postfach/potenz-teilen.md`. Vorher lesen: `inhalte/README.md` (Themen-Bausatz, Stufen und Aufgabentypen, Vertiefung), `inhalte/generatoren/_aufloesen.py` und `_af_plan.py` (Werkzeug zum Umziehen von Lernkarten aus der Vierundzwanzigsten Runde).
+
+**Vom Haupt-Chat vergeben (nicht ändern):**
+
+| | Flug A | Flug B |
+|---|---|---|
+| Titel | Potenzgesetze | Potenzgesetze mit ganzzahligen Exponenten |
+| `thema_schluessel` | `terme.potenzgesetze_natuerlich` | `terme.potenzgesetze_ganzzahlig` |
+| `thema_id` | 102 | 103 |
+| Ort (`block_id`) | Samarkand (62) – wie `terme.umformen` | Mumbai (60) – wie `terme.bruchterme` |
+| Themengebiet | Algebra | Algebra |
+| `klasse` | `gym_by` 7 · `rs_by` 7 · `ib_myp` 4 | `gym_by` 8 · `rs_by` 7 · `ib_myp` 4 |
+| `reihenfolge.gym_by` | 2 (hinter `terme.aufstellen`, vor `terme.umformen`) | 8 (hinter `terme.bruchterme`, vor `gleichungen.bruch`) |
+| Lernbereich Gymnasium | „M7 1 Terme mit Variablen“ | „M8 4 Bruchterme und Bruchgleichungen“ |
+
+**Flug A – aus `terme.umformen` herauslösen**
+- Die vier Lernkarten ziehen um und **behalten ihre Lernziel-Schlüssel**: `mal_gleiche_basis`, `gleicher_exponent` (Pflicht), `geteilt_gleiche_basis`, `anwenden` (Vertiefung). Das ist zwingend – der Haupt-Chat hängt damit den Lernstand eines Kindes um, das alle vier schon gelandet hat.
+- Die 22 Aufgaben mit negativen Exponenten gehen nach Flug B; in Flug A durch gleichwertige Aufgaben mit natürlichen Exponenten ersetzen (gleiche Stufe, gleicher Typ; auch die Testaufgabe von „Gleiche Basis: teilen“). Dazu kommen die Aufgaben aus „Fehler finden“ von `terme.potenzgesetze` (Gym 6), die ein Potenzgesetz voraussetzen (19 laut Zählung; die mit negativen Exponenten darunter gehen nach Flug B) – als Übungen vom Typ `fehler` in die passende Karte.
+- Mindestmengen je Lernkarte wie überall (Stufe 1/2/3: 4/6/8 freie Übungen mit 2/3/4 Typen, 2 Knobel, Test 1, Korrektur 3, Sicherung 6). Einstieg des Flugs neu schreiben (Ziel, Vorwissen: Potenzbegriff aus Klasse 6).
+- **`terme.umformen`:** die vier Lernziele aus den Lernkarten und aus `bewertung` streichen; es bleiben 8 Lernkarten. Einstieg/Ziel anpassen („Die Potenzgesetze stehen im Flug ‚Potenzgesetze‘“). Die übrigen 8 Karten nicht anfassen.
+- **`terme.potenzgesetze` (Gym 6):** Titel „Potenzen und negative Exponenten“, `umfang` und der dritte Eintrag von `lehrplan_gym` an den echten Inhalt anpassen (kein Versprechen von Potenzgesetzen). In „Fehler finden“ bleiben nur Aufgaben zu Potenzbegriff, Hoch 0 und negativem Exponenten; reichen sie nicht mehr für die Mindestmengen, nachbauen.
+
+**Flug B – neu bauen** (Lehrplan M8 4: Rechengesetze für Potenzen mit ganzzahligen Exponenten plausibel machen und in einfachen Fällen anwenden)
+- Lernkarten wie im Auftragsentwurf (1 Warum die Gesetze auch für negative Exponenten gelten · 2 Gleiche Basis malnehmen und teilen · 3 Gleicher Exponent und Potenz einer Potenz · 4 Terme mit Variablen vereinfachen, auch als Bruchterm · 5 Fehler finden, Vertiefung). Eigene, sprechende Lernziel-Schlüssel (nicht die vier von Flug A). Die 22 Aufgaben aus Flug A und die betroffenen aus Gym 6 sind Startbestand. Vollständig nach dem Themen-Bausatz: Erklärung je Karte (Einstieg, Wörter, Bild, Schritte, typischer Fehler, „Kurz gesagt“), alle Pools, Typen, Stufen.
+- Nichts voraussetzen, was in Gym 8 nach `terme.bruchterme` kommt.
+
+**Themenliste** (`inhalte/themenliste.json`, Format erhalten, nur gezielt ändern): zwei neue Einträge mit allen Feldern, die die anderen Themen haben (`thema_id`, `thema_schluessel`, `datei`, Titel, Gebiet, `umfang`, `klasse`, `reihenfolge` für alle drei Schularten, `lernbereich`, `lehrplan_gym`, `lehrplan_rs`, `lehrplan_ib`). `reihenfolge.gym_by` der übrigen Themen nachziehen: **Klasse 7** – ab `terme.umformen` alles +1 (Flug A = 2); **Klasse 8** – ab `gleichungen.bruch` alles +1 (Flug B = 8). Für `rs_by` (Klasse 7) und `ib_myp` (MYP 4) beide Flüge wie im Auftragsentwurf einordnen und die folgenden Nummern nachziehen; Lernbereiche und Lehrplan-Bezüge mit Quelle (Abschnitt, Abrufdatum) – was nicht belegbar ist, als Annahme kennzeichnen. Selbstprüfung per Skript: Reihenfolge je Schulart und Klasse lückenlos und eindeutig.
+
+**Texte für die Abschluss-Ansichten:** `inhalte/kann/terme.potenzgesetze_natuerlich.json` und `…_ganzzahlig.json` (Format wie die anderen Dateien dort: `kurz` ≤ 110 Zeichen, je Etappe `kann` ≤ 90 Zeichen, setzt „Du kannst jetzt …“ fort); `inhalte/kann/terme.umformen.json` und `terme.potenzgesetze.json` anpassen (die vier Lernziele dort streichen bzw. Texte an den neuen Inhalt angleichen).
+
+**Prüfen und melden:** Generatoren für beide neuen Flüge und die zwei geänderten; `python3 -I tools/inhalt_pruefen.py --alle` muss OK melden; jede Lösung selbst nachrechnen. Bericht: Zahl der Aufgaben je Flug, Karte, Pool und Stufe; welche Aufgaben wohin umgezogen sind (alte → neue Stelle); Lehrplan-Quellen; was nicht geprüft wurde. Ein Commit je Flug + einer für Themenliste und Texte. **Nichts in die Datenbank schreiben, kein App-Code, kein Merge nach `main`, keine Kinderdaten.** Am Ende „FERTIG: Potenzgesetze geteilt“.
+
+**Danach der Haupt-Chat:** Themen 102 und 103 in der Datenbank anlegen und den Orten zuordnen, Flüge einspielen (Entwurf), unabhängig prüfen lassen, den Lernstand des betroffenen Kindes von `terme.umformen` auf Flug A umhängen (Landungen, Wiederholungen, Nachweise – ohne Verlust; der abgeschlossene Ort bleibt abgeschlossen), Lehrplan-Felder nachziehen; Freigabe und Plan entscheidet Sebastian.

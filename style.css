@@ -4556,3 +4556,30 @@ tr.lp-zeile { display: table-row; background: none; border: 0; border-radius: 0;
 .lr-test-auf { display: grid; gap: 8px; justify-items: center; text-align: center; }
 .lr-test-auf .lr-jetzt-test { width: 100%; text-align: center; }
 .lr-test-hinweis { margin-bottom: 12px; }
+/* LB Teil 5 M1: unter 1100 px steht das Stufenwort unter dem Titel; Unterzeilen ohne Silbentrennung */
+.lern-lp-titel small, .lern-plan-ort small, .lern-plan-vorrat-zeile small { overflow-wrap: normal; word-break: normal; hyphens: manual; }
+@media (max-width: 1099px) {
+  .lern-lp-kopf { flex-wrap: wrap; row-gap: 2px; }
+  .lern-lp-kopf > .lern-lp-titel { flex: 1 1 calc(100% - 80px); }
+  .lern-lp-kopf > .lern-st-wort { flex: 1 0 100%; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0 6px; text-align: left; padding-left: 36px; }
+  .lern-lp-kopf > .lern-st-wort small { white-space: normal; }
+}
+/* LB Teil 5 K2: keine innere Bildlaufleiste in der Lehrplan-Spalte – die Seite rollt */
+@media (min-width: 700px) { .lern-plan-lehrplan { position: static; max-height: none; overflow: visible; } }
+/* LB Teil 5 K1: Legende einzeilig */
+.lern-plan-lehrplan details.lern-kl-legende > summary { cursor: pointer; display: flex; gap: 8px; align-items: center; min-height: 36px; list-style: none; }
+.lern-plan-lehrplan details.lern-kl-legende > summary::-webkit-details-marker { display: none; }
+.lern-plan-lehrplan details.lern-kl-legende > summary .lern-st-leg { font-size: 16px; }
+/* LB Teil 5 S4: Etappen mit Titel und Stand */
+.lern-st-etappen { display: grid; gap: 4px; }
+.lern-st-etappe { border-radius: 8px; padding: 3px 8px; font-size: 13px; }
+.lern-st-etappe small { color: var(--text-muted); }
+/* LB Teil 5 S1/S2: Auswahl kompakt, Abschnitts-Zahlen */
+.lern-plan-gruppe { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.lern-st-wahl-alle { font-size: 13px; font-weight: 600; text-transform: none; letter-spacing: 0; display: inline-flex; align-items: center; gap: 4px; min-height: 32px; margin-left: auto; }
+.lern-plan-einzeln { all: unset; cursor: pointer; font-size: 13px; font-weight: 600; padding: 6px 8px; border-radius: 8px; white-space: nowrap; }
+.lern-plan-einzeln:focus-visible { outline: 2px solid var(--accent); }
+.lern-kein-umbruch { white-space: nowrap; }
+/* LB Teil 5 M1: Tablet – Lehrplan-Spalte breiter (55 % / 45 %) */
+@media (min-width: 700px) and (max-width: 1099px) { .lern-plan-spalten { grid-template-columns: minmax(0, 55fr) minmax(0, 45fr); } }
+@media (min-width: 1100px) { .lern-lp-kopf > .lern-st-wort { flex: 0 1 auto; max-width: 42%; } .lern-lp-kopf > .lern-st-wort small { white-space: normal; } .lern-lp-kopf > .lern-lp-titel { flex: 1 1 50%; } }

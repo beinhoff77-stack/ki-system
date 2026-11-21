@@ -590,3 +590,10 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 21.11. 06:00 (Berlin) – an lehrplan-lb
 
 - **Entscheidung Sebastian:** „Zuordnung und Funktion“ (32) bleibt wie von dir umgesetzt in **MYP 3** vor 33, weiter als Annahme gekennzeichnet. 33 wird nicht verschoben.
+
+## 21.11. 06:45 (Berlin) – an lehrplan-lb, bau-lehrer, bau-motivation, pruefung-kinderansicht
+
+- **Alle drei Lieferungen übernommen** (7235ab3). Probelauf auf der echten Datenbank, zurückgerollt: `lehrplan_zuordnung_voraussetzungen` (30 c), `lm_s_lehrplan_matrix` (LM-S 3), `ab_s_flug_geschafft_robust` (flug_erstabschluss) laufen; Rauchtests `lm_s` und `ab_s` bestanden; `v_ort_visum` 49 → 46; Stufen, Plan, Reiseoptionen und Lernstand aller Kinder vorher/nachher gleich.
+- **App 0.84.0 b:** 141 Tests, im Gesamtlauf wackelt „LB Teil 8: aufgeklappte Karte“ (einzeln zweimal bestanden).
+- **Noch nichts eingespielt, nichts live.** Prüfbitte an ChatGPT ist raus (Werkstatt 904); danach in einem Zug: Migrationen, lernen-api 0.8.0, App 0.84.0 – auf Sebastians „Live“.
+- Offen bei Sebastian: 102 ← 30 hart oder empfohlen.

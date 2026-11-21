@@ -47,6 +47,23 @@ Nach der Änderung bekommt ein Gymnasiast Reinquadratische Gleichungen im Plan: 
   - Kein Kind ist betroffen.
 - **Befund, nicht geändert (alt, nur IB):** Bei 10 ← 37, 26 ← 25 und 92 ← 54 steht die harte Voraussetzung in derselben Klasse weiter hinten. Die Regeln des Gestalters erlauben das, die Reihenfolge ist aber unlogisch. → Vorschlag V5.
 
+## 3a. Ablage „eigenständig“ – genau (Nachtrag des Gestalters)
+
+- **Ort:** Spalte `eigenstaendig` in der Tabelle `schule.thema`. Es gibt keinen Eintrag in `schule.voraussetzung`, denn deren Spalte `braucht_id` muss auf ein anderes Thema zeigen und darf nicht leer sein.
+- **Form:** `text`, ohne Vorgabewert. Angelegt in Schritt 1 der Migration mit `alter table schule.thema add column if not exists eigenstaendig text` und einem Spaltenkommentar.
+- **Bedeutung:**
+  - Nicht leer: Das Thema hat bewusst keine Voraussetzung. Der Text ist die Begründung.
+  - `null`: nicht gekennzeichnet.
+  - Die Kennzeichnung gilt für alle Schularten.
+- **Gefüllt** in Schritt 5 der Migration für 15, 42, 57, 60, 65, 83, 84.
+- **Abfrage:** `select id, eigenstaendig from schule.thema where eigenstaendig is not null`.
+- **Themenliste:** Feld `"eigenstaendig": "<Begründung>"` am Eintrag. Fehlt das Feld, ist das Thema nicht gekennzeichnet.
+- **Anzeige:** Das Übersichtsblatt braucht die Spalte in der Lese-Schnittstelle (LM-S). Heute liefert `api.schule_lehrplan_lesen` sie nicht; das ist hier nicht gebaut.
+- **Stand Datenbank (gelesen 21.11.):**
+  - 102 und 103 sind angelegt (Gym 7/8, RS 7, IB 3/4) und haben noch keine Voraussetzung.
+  - Die Migration legt 102 ← 30, 102 ← 28, 103 ← 102 und 103 ← 30 an, dazu 29 ← 102 und 96 ← 103.
+  - Ihr Schutz für fehlende Themen greift damit nicht mehr, schadet aber nicht.
+
 ## 4. Was den Plan eines Kindes verschieben würde (ohne Namen)
 
 Betroffen sind nur Gymnasium-Kinder: zwei echte (Klasse 5 und Klasse 8) und das Testkind (Klasse 7). Kinder an RS oder IB gibt es nicht; die IB-Änderung (32 nach MYP 3, Reihenfolge MYP 3/4) trifft also niemanden.

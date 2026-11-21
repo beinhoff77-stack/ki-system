@@ -15,7 +15,7 @@ Grundlage ist `lernen-app` e0739529, mit dem Nachtrag des Gestalters. Die Datenb
 - **Voraussetzungen:** 73 neue Verbindungen, insgesamt 143.
   - 7 Themen sind eigenständig.
   - Die Kette 30 → 102 → 29 und 102 → 103 ist enthalten.
-- **„eigenständig“** steht in der neuen Spalte `schule.thema.eigenstaendig` (Text = Begründung) und in der Themenliste im Feld `eigenstaendig`.
+- **„eigenständig“** steht in der neuen Spalte `schule.thema.eigenstaendig` (`text`, Begründung; `null` = nicht gekennzeichnet; gilt für alle Schularten) und in der Themenliste im Feld `eigenstaendig`. Einzelheiten stehen im Bericht in Abschnitt 3a. 102/103 sind laut Datenbank angelegt; die Migration verknüpft sie.
 - **Migration:** `supabase/migrations/20261121_lehrplan_zuordnung_voraussetzungen.sql`.
   - Wiederholt ausführbar, ohne DROP/DELETE.
   - Rauchtest a–h, mit den drei Regeln des Gestalters.

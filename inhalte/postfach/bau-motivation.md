@@ -2,6 +2,19 @@
 
 Neueste oben.
 
+## 2026-11-21 – FERTIG: flug_geschafft robust (Nachträge aus ChatGPT 888)
+
+Stand `lernen-app` 05037ef übernommen. Nur Dateien – nichts ausgeführt, kein App-Code, kein Merge. pglast ok.
+**Migration** `supabase/migrations/20261120_ab_s_flug_abschluss_einmal.sql` (weiter nicht eingespielt):
+- neu `schule.flug_fertig_nach(kind, einheit, sitzung)`: War der Flug nach dieser Sitzung fertig? Je Pflicht-Etappe zählt das letzte Ergebnis in einem abgeschlossenen Flug-Test, Verbessern oder Nachtest bis einschließlich dieser Sitzung (alle Antworten der Etappe richtig); eine Pflicht-Etappe ohne Ergebnis bis dahin → nicht fertig.
+- Bedingung „früherer Abschluss“: frühere abgeschlossene Flug-Test-/Verbessern-Sitzung mit `flug_geschafft` true **oder** mit NULL **und** `flug_fertig_nach(...)` true. Eine alte nicht bestandene Sitzung (NULL, Flug danach offen) sperrt also keinen späteren ersten Abschluss mehr. Alles andere unverändert (vorher nicht fertig; nur `blocktest`/`korrektur`; einmal festgehalten).
+**Rauchtest** `ab_s_abschluss_rauchtest.sql`, Prüfung 9 neu aufgebaut – **ohne Überspringen**: Die Sitzungen legt der Test selbst an (Hilfsfunktion `pg_temp.ab9_sitzung`: eine Bordkarte je Pflicht-Etappe, Antworten richtig/falsch), abgeschlossen wird über `test_abschliessen_intern`; Flug mit mindestens 2 Pflicht-Etappen in einem Ort mit weiteren offenen Flügen.
+- 9a/9b nicht bestanden + erneuter Aufruf → false, keine Felder.
+- **9r/9c Regression:** die nicht bestandene Sitzung auf NULL gesetzt (wie alt), Flug offen → Verbessern macht ihn erstmals fertig → **true** mit Feldern; erneuter Aufruf gleich.
+- 9c-2: die erste Verbessern-Sitzung auf NULL gesetzt (alte Sitzung, die den Flug fertig gemacht hatte) → zweites Verbessern → false.
+- 9d Nachtragstest → false. **9e Nachtest (neu, eigener Negativfall)** → false, keine Felder.
+**Hinweis:** Vor dem Probelauf die Bestandsprüfung aus 888 gilt weiter (7 alte Sitzungen, alle zu fertigen Flügen) – mit der neuen Bedingung zählen sie als frühere Abschlüsse, wenn `flug_fertig_nach` sie als fertig erkennt.
+
 ## 2026-11-21 – FERTIG: 0.83.2 (LB Teil 9, Punkte 1, 2, 4, 5, 6) – App 0.83.2, Cache v152
 
 Stand `lernen-app` b2a71ba übernommen. Nur App (`lernen.js`, `style.css`), Versionsnummer in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`. **Punkt 3 (N8, Wort „Themen“) bleibt offen** – nichts geändert.

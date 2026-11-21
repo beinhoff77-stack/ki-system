@@ -787,7 +787,7 @@ test('Info-Seite „So funktioniert’s“: ein Tipp von der Startseite und vom 
   await page.getByText('Zuerst kommt die Erklärung', { exact: false }).waitFor();
   await page.getByText('zuerst einen zweiten Versuch', { exact: false }).waitFor();
   const text = await page.locator('#main').innerText();
-  assert.doesNotMatch(text, /Lernkarte|Aufgabe|Thema\b|Themen(?!gebiet)|Themenplan/, 'nur Reisewörter'); // LA-8: „Nach Themengebiet“ ist der Name der Ansicht
+  assert.doesNotMatch(text, /Lernkarte|Aufgabe|Themenplan/, 'nur Reisewörter'); // Entscheidung 21.11.: „Thema/Themen“ auf Eltern-/Lehrerseiten erlaubt
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/info-820.png'), fullPage: true });
   // aus dem Flugplan mit einem Tipp
@@ -800,7 +800,9 @@ test('Info-Seite „So funktioniert’s“: ein Tipp von der Startseite und vom 
 
 test('Reisewörter auf allen Eltern-/Lehrerseiten', async (t) => {
   const { page } = await setup(t);
-  const verboten = /Lernkarte|Aufgabe|\bThema\b|\bThemen\b|Themenplan|Lernziel|Gebiet/; // Befund 5 der Nachprüfung E-1: \bThemen?\b traf „Thema“ nicht
+  // Entscheidung Sebastian 21.11. (Teil 9 Punkt 3 / N8): auf Eltern-/Lehrerseiten sind „Thema“, „Themen“ und „Themengebiet“ erlaubt – Lehrer denken in Themen.
+  // Die übrigen Reisewörter gelten weiter; für die Kinderseiten prüfen die Tests der Kinderansicht („nur Reisewörter“).
+  const verboten = /Lernkarte|Aufgabe|Themenplan|Lernziel|\bGebiet/;
   await page.route('**/functions/v1/lernen-api/**', async (route) => {
     const b = JSON.parse(route.request().postData() || '{}');
     if (b.aktion === 'schule_zugaenge') return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, zugaenge: [{ id: 1, name: 'Herr Lehrer', rolle: 'lehrer', aktiv: true, zuletzt: null }] } }) });
@@ -3392,7 +3394,7 @@ test('Nachtrag B (0.83.1): Flug-Abschluss hängt an flug_geschafft bzw. ort_gesc
   };
   assert.equal(await abgeben({ flugGeschafft: true }), 1, 'flug_geschafft → Flug-Abschluss');
   assert.equal(await abgeben({ flugGeschafft: false }), 0, 'flug_geschafft false (z. B. zweites Verbessern) → keine Ansicht, auch wenn einheit_abgeschlossen');
-  assert.equal(await abgeben({ flugGeschafft: false, ortGeschafft: true }), 1, 'ort_geschafft → Ansicht');
+  assert.equal(await abgeben({ flugGeschafft: true, ortGeschafft: true }), 1, 'flug_geschafft und ort_geschafft → zuerst „Flug geschafft“');
   assert.equal(await abgeben({}), 1, 'alter Server ohne flug_geschafft → wie 0.83.0 (einheit_abgeschlossen)');
 });
 
@@ -3481,4 +3483,67 @@ test('LB Teil 9 N2/N3: „2/2“ berührt „AUF ANHIEB“ nicht; Sturmflug 360 
     await p.screenshot({ path: path.join(root, `test-results/lb9-sturm-${g}-360.png`) });
     await p.close();
   }
+});
+
+test('0.83.3 (Entscheidung 21.11.): „Etappen ▸“ in der Themen-Karte – zugeklappt, aufgeklappt mit Nummer, Titel und Stand rechts', async (t) => {
+  const { page } = await setup(t, { anpassen: echtAnpassen() });
+  await page.setViewportSize({ width: 400, height: 860 });
+  await page.goto(origin + '/#/plan/1');
+  const lp = page.locator('.lern-plan-lehrplan'); await lp.getByRole('button', { name: /Klasse/ }).first().click();
+  await lp.getByText('Lineare Ungleichungen', { exact: false }).first().click();
+  const karte = lp.locator('.lern-lp-detail').first(); await karte.waitFor();
+  const link = karte.getByRole('button', { name: 'Etappen ▸' });
+  assert.equal(await link.getAttribute('aria-expanded'), 'false');
+  assert.equal(await karte.locator('.lern-st-etappe').count(), 0, 'zugeklappt');
+  await link.click();
+  const auf = karte.getByRole('button', { name: 'Etappen ▾' }); await auf.waitFor();
+  assert.equal(await auf.getAttribute('aria-expanded'), 'true');
+  assert.ok(await auf.evaluate((x) => x === document.activeElement), 'Fokus bleibt auf dem Link');
+  const et = karte.locator('.lern-st-etappe'); await et.first().waitFor();
+  const lage = await et.evaluateAll((es) => es.map((e) => { const t = e.querySelector('.lern-st-et-titel').getClientRects()[0], s = e.querySelector('.lern-st-et-stand').getBoundingClientRect(), b = e.getBoundingClientRect();
+    return { erste: [t.top, t.bottom], stand: [s.top, s.bottom], rechts: b.right - s.right, text: e.innerText.replace(/\s+/g, ' ').trim() }; }));
+  assert.ok(lage.length >= 3, 'Etappen da');
+  for (const l of lage) { const m = (l.stand[0] + l.stand[1]) / 2; assert.ok(m >= l.erste[0] && m <= l.erste[1], 'Stand in der ersten Titelzeile: ' + l.text); assert.ok(l.rechts <= 12, 'rechtsbündig');
+    assert.match(l.text, /^\d+ .+ (offen|begonnen|gelandet|sicher|wieder offen)$/); }
+  assert.deepEqual(await gebrocheneWoerter(karte), []);
+  await karte.screenshot({ path: path.join(root, 'test-results/lb9-etappen-400.png') });
+  await auf.click(); await karte.getByRole('button', { name: 'Etappen ▸' }).waitFor();
+  assert.equal(await karte.locator('.lern-st-etappe').count(), 0, 'wieder zugeklappt');
+});
+
+// 0.83.3 (Entscheidung 21.11., Punkt 4): Die strengen Reisewörter gelten für die Kinderseiten. Auf Eltern-/Lehrerseiten sind „Thema/Themen“ und „Themengebiet“ erlaubt.
+// Auf Kinderseiten steht „Thema“ nur dort, wo die Vorgabe der Abschluss-Ansichten es selbst so vorsieht („Weiter zum nächsten Thema“, „NEUES THEMA“) – das prüfen die AB-A-Tests.
+test('0.83.3: Reisewörter auf den Kinderseiten (Abflugtafel, Reisepass, Erklärung, Bordkarten, Flug-Test)', async (t) => {
+  for (const gestaltung of [undefined, 'tag']) {
+  const { page } = await setup(t, gestaltung ? { gestaltung } : {});
+  const verboten = /Lernkarte|Aufgabe|\bThemen\b|Themenplan|Lernziel|\bGebiet\b/;
+  for (const [pfad, warte] of [['reise/1', { role: 'heading', name: 'Natürliche Zahlen' }], ['reisepass/1', null], ['lerneinheit/1-1-erklaeren-1', null], ['lerneinheit/1-1-ueben-1', 'Etappe 1 von 3'], ['lerneinheit/1-1-test', 'Test starten']]) {
+    await page.goto(origin + '/#/' + pfad); await page.reload();
+    await page.waitForFunction(() => (document.querySelector('#main')?.innerText || '').trim().length > 40 && !/Lädt|lädt …/.test(document.querySelector('#main').innerText)); await page.waitForTimeout(300);
+    const text = await page.evaluate(() => { const c = document.querySelector('#main').cloneNode(true);
+      c.querySelectorAll('.lern-aufgabe-text, .lern-frage, .lr-frage, .lern-erkl, .lr-erkl, .lern-merke').forEach((x) => x.remove()); return c.innerText; });
+    assert.ok(text.trim().length > 20, `${pfad}: Inhalt geladen`);
+    const m = text.match(verboten); assert.equal(m, null, `${gestaltung || 'klassisch'} ${pfad}: „${m?.[0]}“ in „${m ? text.slice(Math.max(0, m.index - 40), m.index + 40).replace(/\s+/g, ' ') : ''}“`);
+  }
+  await page.close();
+  }
+});
+
+// 0.83.3 (Nachträge aus Prüfergebnis 888): nur ort_geschafft, ohne flug_geschafft → direkt Ort-Stempel und Bordkarte, nicht noch einmal „Flug geschafft“
+test('0.83.3: Server meldet nur ort_geschafft → direkt Ort-Stempel, dann Bordkarte; kein zweites „Flug geschafft“', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: abFlug({ flugGeschafft: false, ortGeschafft: true, naechster: 'anders' }) });
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.setViewportSize({ width: 400, height: 780 });
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
+  await page.getByRole('button', { name: 'Test starten' }).click();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+  await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.getByRole('button', { name: 'Markierung 2' }).click();
+  await page.getByRole('button', { name: 'Abgeben' }).click();
+  const o = page.locator('.lr-abschluss-ort'); await o.waitFor();
+  assert.equal(await page.locator('.lr-abschluss-flug').count(), 0, 'kein „Flug geschafft“');
+  assert.equal(await o.locator('.lr-ab-titel').innerText(), 'ROM IST GESCHAFFT');
+  await o.locator('.lr-ab-gross').click();
+  const k = page.locator('.lr-abschluss-bordkarte'); await k.waitFor();
+  assert.match((await k.locator('.lr-ab-route').innerText()).replace(/\s+/g, ' '), /VON ROM ✈ NACH ATHEN/);
+  assert.equal(await page.locator('.lr-abschluss-flug').count(), 0);
 });

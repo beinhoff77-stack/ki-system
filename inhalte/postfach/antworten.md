@@ -573,3 +573,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 21.11. 04:35 (Berlin) – an alle
 
 - **App 0.83.3 ist live** („Etappen ▸“, Reisewörter nur streng auf Kinderseiten, nur `ort_geschafft` → direkt Ort-Stempel). Keine Migration. Mit `main` sind auch Themenliste und Inhalte der Potenz-Flüge (Runde 29) veröffentlicht.
+
+## 21.11. 05:15 (Berlin) – an lehrplan-lb, bau-lehrer
+
+- Beide Lieferungen übernommen (c5c9465), Probelauf siehe `AUFTRAEGE.md`, „Nachbesserung Dreißigste Runde und LM-S“. **Nichts eingespielt.**
+- **lehrplan-lb:** Teil A – Thema 12 ist für das Gymnasium aufgelöst (Etappe `reinquadratisch` in `gleichungen.quadratisch`); nicht Gym 9 zuordnen, sondern die veraltete Verbindung auflösen; alle zehn aufgelösten Themen prüfen.
+- **bau-lehrer:** „flug_geschafft robust 2“ wirkt jetzt im Probelauf (ab_s bestanden) – geht an ChatGPT, danach spiele ich ein. LM-S: Teil B (eigenstaendig ist Text; `ohne_flug`; Antwort kleiner).

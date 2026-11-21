@@ -6,8 +6,8 @@ declare v_a bigint; v_b bigint;
 begin
   select id into v_a from schule.thema where schluessel = 'terme.potenzgesetze_natuerlich';
   if v_a is null then
-    insert into schule.thema (fach, schluessel, block, unterthema, beschreibung, reihenfolge, pruefstatus, klasse_fest, lehrplan_reihenfolge, lernbereich, lehrplan, kurz)
-    values ('Mathematik', 'terme.potenzgesetze_natuerlich', 'Terme & Potenzen', 'Potenzgesetze',
+    insert into schule.thema (id, fach, schluessel, block, unterthema, beschreibung, reihenfolge, pruefstatus, klasse_fest, lehrplan_reihenfolge, lernbereich, lehrplan, kurz)
+    overriding system value values (102, 'Mathematik', 'terme.potenzgesetze_natuerlich', 'Terme & Potenzen', 'Potenzgesetze',
             'Potenzen mit natürlichen Exponenten zusammenfassen: bei gleicher Basis malnehmen und teilen, bei gleichem Exponenten die Basen zusammenfassen, Potenzen von Potenzen vereinfachen, die Gesetze geschickt nutzen.', 2, 'ungeprueft', '{"gym_by": 7, "rs_by": 7, "ib_myp": 3}'::jsonb, '{"gym_by": 2, "rs_by": 2, "ib_myp": 2}'::jsonb,
             '{"gym_by": "M7 1 Terme mit Variablen", "rs_by": "M7 1 Potenzen", "ib_myp": "MYP 3 Numerical and abstract reasoning (Zahl und Algebra)"}'::jsonb,
             '{"gym_by": "M7 1.2 Produkte von Potenzen mit natürlichen Exponenten bei gleicher Basis oder gleichem Exponenten zusammenfassen · M7 1.2 Potenzen von Potenzen mit natürlichen Exponenten zusammenfassen", "rs_by": "Potenzgesetze anwenden, zuerst mit natürlichen Exponenten (Aufteilung auf zwei Flüge: Annahme)", "ib_myp": "Annahme: MYP 3 wie im Gymnasium vor terme.umformen, das die Gesetze benutzt; im Framework stehen Potenzgesetze unter MYP 4–5 Standard"}'::jsonb,
@@ -21,8 +21,8 @@ begin
   insert into schule.etappe_text (thema_id, lernziel, kann) values (102, 'anwenden', 'erkennen, welches Potenzgesetz passt, und Zahlen dafür als Potenz schreiben') on conflict (thema_id, lernziel) do update set kann = excluded.kann, geaendert_am = now();
   select id into v_b from schule.thema where schluessel = 'terme.potenzgesetze_ganzzahlig';
   if v_b is null then
-    insert into schule.thema (fach, schluessel, block, unterthema, beschreibung, reihenfolge, pruefstatus, klasse_fest, lehrplan_reihenfolge, lernbereich, lehrplan, kurz)
-    values ('Mathematik', 'terme.potenzgesetze_ganzzahlig', 'Terme & Potenzen', 'Potenzgesetze mit ganzzahligen Exponenten',
+    insert into schule.thema (id, fach, schluessel, block, unterthema, beschreibung, reihenfolge, pruefstatus, klasse_fest, lehrplan_reihenfolge, lernbereich, lehrplan, kurz)
+    overriding system value values (103, 'Mathematik', 'terme.potenzgesetze_ganzzahlig', 'Terme & Potenzen', 'Potenzgesetze mit ganzzahligen Exponenten',
             'Potenzgesetze für ganzzahlige Exponenten plausibel machen und anwenden: gleiche Basis malnehmen und teilen, gleicher Exponent, Potenz einer Potenz, Terme mit Variablen vereinfachen und als Bruch schreiben.', 4, 'ungeprueft', '{"gym_by": 8, "rs_by": 7, "ib_myp": 4}'::jsonb, '{"gym_by": 8, "rs_by": 3, "ib_myp": 1}'::jsonb,
             '{"gym_by": "M8 4 Bruchterme und Bruchgleichungen", "rs_by": "M7 1 Potenzen", "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"}'::jsonb,
             '{"gym_by": "M8 4 Rechengesetze für Potenzen mit ganzzahligen Exponenten plausibel machen und in einfachen Fällen anwenden", "rs_by": "Potenzen mit negativen ganzzahligen Exponenten; Potenzgesetze auch mit negativen Exponenten anwenden", "ib_myp": "MYP 4–5 Standard: Potenzgesetze mit ganzzahligen und negativen Exponenten"}'::jsonb,
@@ -34,6 +34,7 @@ begin
   insert into schule.etappe_text (thema_id, lernziel, kann) values (103, 'exponent_und_potenz', 'Potenzen mit gleichem Exponenten zusammenfassen und Potenzen von Potenzen vereinfachen') on conflict (thema_id, lernziel) do update set kann = excluded.kann, geaendert_am = now();
   insert into schule.etappe_text (thema_id, lernziel, kann) values (103, 'terme_vereinfachen', 'Terme wie 6x³ · x⁻⁵ vereinfachen und ohne negativen Exponenten als Bruch schreiben') on conflict (thema_id, lernziel) do update set kann = excluded.kann, geaendert_am = now();
   insert into schule.etappe_text (thema_id, lernziel, kann) values (103, 'fehler_ganz', 'Fehler mit negativen Exponenten finden und mit einer Zahlenprobe prüfen') on conflict (thema_id, lernziel) do update set kann = excluded.kann, geaendert_am = now();
+  perform setval(pg_get_serial_sequence('schule.thema', 'id'), (select max(id) from schule.thema)); -- feste IDs 102/103, Zähler nachziehen
   -- Samarkand (62): Flug A vor terme.umformen (Reihenfolge 1)
   insert into schule.block_thema (block_id, thema_id, reihenfolge) values (62, 102, 0) on conflict (block_id, thema_id) do nothing;
   -- Mumbai (60): Flug B hinter terme.bruchterme (1), vor gleichungen.bruch

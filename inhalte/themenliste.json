@@ -32,7 +32,8 @@
   "lehrplan_ib": [
    "MYP 1–3: Zahlformen und Stellenwert; Zahlengerade; runden"
   ],
-  "datei": "inhalte/themen/zahlen.natuerlich.json"
+  "datei": "inhalte/themen/zahlen.natuerlich.json",
+  "eigenstaendig": "Einstieg Klasse 5; setzt nur Grundschulwissen voraus"
  },
  {
   "thema_id": 16,
@@ -276,7 +277,8 @@
   "lehrplan_ib": [
    "MYP 1–3: Formen und Winkel einteilen; Koordinaten; Symmetrie"
   ],
-  "datei": "inhalte/themen/geometrie.grundbegriffe.json"
+  "datei": "inhalte/themen/geometrie.grundbegriffe.json",
+  "eigenstaendig": "Einstieg Geometrie Klasse 5; setzt nur Grundschulwissen voraus"
  },
  {
   "thema_id": 43,
@@ -443,7 +445,8 @@
   "lehrplan_ib": [
    "Enrichment: Zählprinzipien, Permutationen und Fakultät stehen nur im Enrichment"
   ],
-  "datei": "inhalte/themen/stochastik.kombinatorik.json"
+  "datei": "inhalte/themen/stochastik.kombinatorik.json",
+  "eigenstaendig": "systematisches Zählen; setzt nur Grundschulwissen voraus"
  },
  {
   "thema_id": 19,
@@ -724,7 +727,8 @@
   "lehrplan_ib": [
    "MYP 1–3: Einfache diskrete Daten erheben und darstellen (Säulen-, Kreis-, Stängel-Blatt-Diagramm, Piktogramm)"
   ],
-  "datei": "inhalte/themen/daten.darstellen.json"
+  "datei": "inhalte/themen/daten.darstellen.json",
+  "eigenstaendig": "Zählen und Ablesen aus der Grundschule genügen"
  },
  {
   "thema_id": 58,
@@ -911,7 +915,7 @@
    "ib_myp": 6
   },
   "lernbereich": {
-   "gym_by": "M8 4 Bruchterme und Bruchgleichungen",
+   "gym_by": "M8 1 Funktion und Term",
    "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Formeln nach einer gesuchten Größe auflösen.",
@@ -972,7 +976,7 @@
   "reihenfolge": {
    "gym_by": 12,
    "rs_by": 10,
-   "ib_myp": 17
+   "ib_myp": 16
   },
   "lernbereich": {
    "gym_by": "M8 6 Lineare Gleichungssysteme",
@@ -1003,17 +1007,17 @@
   "klasse": {
    "gym_by": 8,
    "rs_by": 8,
-   "ib_myp": 4
+   "ib_myp": 3
   },
   "reihenfolge": {
    "gym_by": 1,
    "rs_by": 5,
-   "ib_myp": 16
+   "ib_myp": 5
   },
   "lernbereich": {
    "gym_by": "M8 1 Funktion und Term",
    "rs_by": "M8 6 Funktionen",
-   "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
+   "ib_myp": "MYP 3 Thinking with models (Funktionen und Modelle)"
   },
   "umfang": "Funktion als eindeutige Zuordnung; Tabelle, Graph, Term; Definitions- und Wertemenge, Nullstellen.",
   "lehrplan_gym": [
@@ -1023,7 +1027,7 @@
    "Funktionsbegriff; Funktionen in Tabelle, Graph und Gleichung darstellen"
   ],
   "lehrplan_ib": [
-   "MYP 4–5 Standard / Extended: Zuordnungen und Funktionsschreibweise (Definitions- und Wertebereich: Extended)"
+   "Annahme: Zuordnungen schon in MYP 3 vor linearen Funktionen (harte Voraussetzung); Funktionsschreibweise, Definitions- und Wertebereich laut Framework MYP 4–5"
   ],
   "datei": "inhalte/themen/funktionen.grundbegriffe.json"
  },
@@ -1042,7 +1046,7 @@
   "reihenfolge": {
    "gym_by": 2,
    "rs_by": 6,
-   "ib_myp": 5
+   "ib_myp": 6
   },
   "lernbereich": {
    "gym_by": "M8 2 Lineare Funktionen",
@@ -1076,7 +1080,7 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "ib_myp": 20
+   "ib_myp": 19
   },
   "lernbereich": {
    "gym_by": "M8 3 Elementare gebrochen-rationale Funktionen",
@@ -1108,7 +1112,7 @@
   "reihenfolge": {
    "gym_by": 14,
    "rs_by": 9,
-   "ib_myp": 9
+   "ib_myp": 10
   },
   "lernbereich": {
    "gym_by": "M8 7 Kreis und Zylinder",
@@ -1142,7 +1146,7 @@
   "reihenfolge": {
    "gym_by": 8,
    "rs_by": 1,
-   "ib_myp": 25
+   "ib_myp": 24
   },
   "lernbereich": {
    "gym_by": "M10 5 Fortführung der Raumgeometrie",
@@ -1177,7 +1181,7 @@
   "reihenfolge": {
    "gym_by": 13,
    "rs_by": 7,
-   "ib_myp": 8
+   "ib_myp": 9
   },
   "lernbereich": {
    "gym_by": "M8 7 Kreis und Zylinder",
@@ -1437,7 +1441,7 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "gym_by": 8,
+   "gym_by": 9,
    "rs_by": 5,
    "ib_myp": 2
   },
@@ -1472,7 +1476,7 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "gym_by": 4,
+   "gym_by": 5,
    "rs_by": 13,
    "ib_myp": 11
   },
@@ -1507,7 +1511,7 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "gym_by": 10,
+   "gym_by": 11,
    "rs_by": 6,
    "ib_myp": 12
   },
@@ -1540,7 +1544,7 @@
    "gym_by": 9
   },
   "reihenfolge": {
-   "gym_by": 5
+   "gym_by": 6
   },
   "lernbereich": {
    "gym_by": "M9 2 Quadratische Funktionen"
@@ -1566,7 +1570,7 @@
   "reihenfolge": {
    "gym_by": 3,
    "rs_by": 11,
-   "ib_myp": 18
+   "ib_myp": 17
   },
   "lernbereich": {
    "gym_by": "M9 2 Quadratische Funktionen",
@@ -1600,9 +1604,9 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "gym_by": 9,
+   "gym_by": 10,
    "rs_by": 7,
-   "ib_myp": 19
+   "ib_myp": 18
   },
   "lernbereich": {
    "gym_by": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs",
@@ -1634,9 +1638,9 @@
    "ib_myp": 3
   },
   "reihenfolge": {
-   "gym_by": 7,
+   "gym_by": 8,
    "rs_by": 4,
-   "ib_myp": 11
+   "ib_myp": 12
   },
   "lernbereich": {
    "gym_by": "M9 4 Ähnlichkeit und Strahlensatz",
@@ -1669,9 +1673,9 @@
    "ib_myp": 3
   },
   "reihenfolge": {
-   "gym_by": 11,
+   "gym_by": 12,
    "rs_by": 5,
-   "ib_myp": 12
+   "ib_myp": 13
   },
   "lernbereich": {
    "gym_by": "M9 6 Satz des Pythagoras",
@@ -1703,9 +1707,9 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "gym_by": 12,
+   "gym_by": 13,
    "rs_by": 6,
-   "ib_myp": 22
+   "ib_myp": 21
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
@@ -1737,9 +1741,9 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "gym_by": 13,
+   "gym_by": 14,
    "rs_by": 1,
-   "ib_myp": 23
+   "ib_myp": 22
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
@@ -1771,7 +1775,7 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "gym_by": 14,
+   "gym_by": 15,
    "rs_by": 3,
    "ib_myp": 13
   },
@@ -1805,9 +1809,9 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "gym_by": 6,
+   "gym_by": 7,
    "rs_by": 16,
-   "ib_myp": 27
+   "ib_myp": 26
   },
   "lernbereich": {
    "gym_by": "M9 3 Wahrscheinlichkeit verknüpfter Ereignisse",
@@ -1979,7 +1983,7 @@
   "reihenfolge": {
    "gym_by": 4,
    "rs_by": 4,
-   "ib_myp": 6
+   "ib_myp": 7
   },
   "lernbereich": {
    "gym_by": "M7 2 Geometrische Figuren: Symmetrie und Winkel",
@@ -2048,7 +2052,7 @@
   "reihenfolge": {
    "gym_by": 9,
    "rs_by": 8,
-   "ib_myp": 7
+   "ib_myp": 8
   },
   "lernbereich": {
    "gym_by": "M7 5 Kongruenz, besondere Dreiecke und Dreieckskonstruktionen",
@@ -2083,7 +2087,7 @@
   "reihenfolge": {
    "gym_by": 10,
    "rs_by": 10,
-   "ib_myp": 24
+   "ib_myp": 23
   },
   "lernbereich": {
    "gym_by": "M7 5 Kongruenz, besondere Dreiecke und Dreieckskonstruktionen",
@@ -2119,7 +2123,7 @@
   "reihenfolge": {
    "gym_by": 8,
    "rs_by": 19,
-   "ib_myp": 26
+   "ib_myp": 25
   },
   "lernbereich": {
    "gym_by": "M7 4 Kenngrößen von Daten",
@@ -2308,7 +2312,7 @@
   "reihenfolge": {
    "gym_by": 9,
    "rs_by": 9,
-   "ib_myp": 10
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M10 5 Fortführung der Raumgeometrie",
@@ -2345,7 +2349,7 @@
   "reihenfolge": {
    "gym_by": 3,
    "rs_by": 11,
-   "ib_myp": 28
+   "ib_myp": 27
   },
   "lernbereich": {
    "gym_by": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen",
@@ -2541,19 +2545,24 @@
   "gebiet": "Algebra",
   "titel": "Reinquadratische Gleichungen",
   "klasse": {
+   "gym_by": 9,
    "rs_by": 9,
    "ib_myp": 4
   },
   "reihenfolge": {
+   "gym_by": 4,
    "rs_by": 3,
    "ib_myp": 10
   },
   "lernbereich": {
+   "gym_by": "M9 2 Quadratische Funktionen",
    "rs_by": "M9 1 Reelle Zahlen",
    "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
   "umfang": "Gleichungen der Form x² = a lösen (zwei, eine oder keine Lösung).",
-  "lehrplan_gym": [],
+  "lehrplan_gym": [
+   "Gleichungen x² = a ohne Lösungsformel lösen (Teil von M9 2.1: quadratische Gleichungen lösen)"
+  ],
   "lehrplan_rs": [
    "Gleichungen der Form x² = a lösen"
   ],
@@ -2667,7 +2676,7 @@
    "ib_myp": 3
   },
   "reihenfolge": {
-   "ib_myp": 13
+   "ib_myp": 14
   },
   "lernbereich": {
    "ib_myp": "MYP 3 Reasoning with data (Daten und Wahrscheinlichkeit)"
@@ -2681,7 +2690,8 @@
    "IB MYP 1: Venn-Diagramme",
    "IB MYP 4–5 Standard: Mengenoperationen und Venn-Diagramme"
   ],
-  "datei": "inhalte/themen/mengen.grundbegriffe.json"
+  "datei": "inhalte/themen/mengen.grundbegriffe.json",
+  "eigenstaendig": "Entdecker-Insel; Mengenbegriff wird hier eingeführt"
  },
  {
   "thema_id": 27,
@@ -2876,7 +2886,7 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "ib_myp": 21
+   "ib_myp": 20
   },
   "lernbereich": {
    "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
@@ -2889,7 +2899,8 @@
   "lehrplan_andere": [
    "IB MYP 4: Graphentheorie, Graphenalgorithmen, Zahlentheorie"
   ],
-  "datei": "inhalte/themen/sonder.graphentheorie.json"
+  "datei": "inhalte/themen/sonder.graphentheorie.json",
+  "eigenstaendig": "Entdecker-Insel mit eigenen Begriffen (Knoten, Kanten)"
  },
  {
   "thema_id": 66,
@@ -2922,7 +2933,9 @@
   "ort": "Suva",
   "gebiet": "Daten und Zufall",
   "titel": "Normalverteilung",
-  "klasse": {"ib_myp": 5},
+  "klasse": {
+   "ib_myp": 5
+  },
   "reihenfolge": {
    "ib_myp": 18
   },
@@ -2944,7 +2957,9 @@
   "ort": "Boston",
   "gebiet": "Geld und Verhältnisse",
   "titel": "Zinseszins",
-  "klasse": {"ib_myp": 4},
+  "klasse": {
+   "ib_myp": 4
+  },
   "reihenfolge": {
    "ib_myp": 14
   },
@@ -2966,7 +2981,9 @@
   "ort": "Honolulu",
   "gebiet": "Entdecker-Inseln",
   "titel": "Aussagenlogik",
-  "klasse": {"ib_myp": 4},
+  "klasse": {
+   "ib_myp": 4
+  },
   "reihenfolge": {
    "ib_myp": 15
   },
@@ -2979,7 +2996,8 @@
    "kein Beleg: Aussagenlogik – im Framework nicht gefunden"
   ],
   "lehrplan_andere": [],
-  "datei": "inhalte/themen/sonder.logik.json"
+  "datei": "inhalte/themen/sonder.logik.json",
+  "eigenstaendig": "Entdecker-Insel; Aussagen und Wahrheitswerte werden hier eingeführt"
  },
  {
   "thema_id": 70,
@@ -2988,7 +3006,9 @@
   "ort": "Honolulu",
   "gebiet": "Entdecker-Inseln",
   "titel": "Schranken und Genauigkeit",
-  "klasse": {"ib_myp": 5},
+  "klasse": {
+   "ib_myp": 5
+  },
   "reihenfolge": {
    "ib_myp": 1
   },

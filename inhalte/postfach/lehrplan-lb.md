@@ -2,6 +2,37 @@
 
 Neueste Meldung oben.
 
+## 2026-11-21 – MELDUNG Dreißigste Runde: Lehrplan-Prüfung Zuordnungen und Voraussetzungen
+
+Grundlage ist `lernen-app` e0739529, mit dem Nachtrag des Gestalters. Die Datenbank habe ich nur gelesen, die Migration **nicht ausgeführt**. Aufgaben, Karten und App-Code sind unverändert. Bericht mit Quellen (LehrplanPLUS, abgerufen 21.11.2026) und Annahmen: `inhalte/pruefung/lehrplan/runde30.md`.
+
+**Änderungen**
+- **12 Reinquadratische Gleichungen → Gym 9**, M9 2, Stelle 4 vor 8. Beleg: Gym 9 M9 2.1. Ein Gymnasiast bekommt das Thema damit im Plan.
+- **4 Formeln umstellen:** Lernbereich Gym berichtigt auf „M8 1 Funktion und Term“ (Beleg: Gym 8 M8 1). Die Reihenfolge bleibt.
+- **32 Zuordnung und Funktion → IB MYP 3** vor 33. Grund: Regel „keine Voraussetzung in späterer Klasse“. Das ist eine Annahme. Kein Kind ist betroffen.
+- **Ohne Gym-Klasse bleiben** 40, 77 und 13. 4 bleibt bei RS ohne Klasse; das ist eine Annahme, weil ich keine Fundstelle gefunden habe.
+- **Klassen RS 7/8:** RS 7 mit 20 Themen ist stimmig. RS 8 mit 7 Themen ist dünn, weil Themen fehlen (Vierecke, Drehung, Baumdiagramm/Vierfeldertafel). Die Zuordnungen sind nicht falsch. Das sind nur Vorschläge.
+- **Voraussetzungen:** 73 neue Verbindungen, insgesamt 143.
+  - 7 Themen sind eigenständig.
+  - Die Kette 30 → 102 → 29 und 102 → 103 ist enthalten.
+- **„eigenständig“** steht in der neuen Spalte `schule.thema.eigenstaendig` (`text`, Begründung; `null` = nicht gekennzeichnet; gilt für alle Schularten) und in der Themenliste im Feld `eigenstaendig`. Einzelheiten stehen im Bericht in Abschnitt 3a. 102/103 sind laut Datenbank angelegt; die Migration verknüpft sie.
+- **Migration:** `supabase/migrations/20261121_lehrplan_zuordnung_voraussetzungen.sql`.
+  - Wiederholt ausführbar, ohne DROP/DELETE.
+  - Rauchtest a–h, mit den drei Regeln des Gestalters.
+
+**Folgen für Pläne (ohne Namen)**
+
+Betroffen sind nur die Gym-Kinder: zwei echte und das Testkind.
+1. 12 erscheint neu in Klasse 9.
+2. In Gym 9 rücken 11 Themen je eine Stelle nach hinten. Ihre Reihenfolge untereinander bleibt gleich.
+3. 4 hat einen anderen Lernbereich. Das betrifft möglicherweise eine Gruppierung nach Lernbereich (Annahme).
+
+Die Voraussetzungen ändern keine Reihenfolge.
+
+**Offen für Sebastian:** Soll 32 nach MYP 3 (umgesetzt) oder lieber 33 nach MYP 4? Vorschläge V1–V5 stehen im Bericht.
+
+FERTIG: Lehrplan Runde 30
+
 ## 2026-11-20 06:10 – ENTSCHEIDUNG SEBASTIAN zum Auftragsentwurf Potenzgesetze
 
 Sebastian hat am 20.11. im Chat `lehrplan-lb` entschieden:

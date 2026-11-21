@@ -2,6 +2,51 @@
 
 Neueste Meldung oben. Zeiten: Sechsundzwanzigste Runde Ortszeit Adelaide (UTC+10:30), ab der Achtundzwanzigsten Runde Europe/Berlin.
 
+## 2026-11-21 01:09 – FERTIG: Potenz Runde 29
+
+Neunundzwanzigste Runde, Zweig `potenz-teilen` (auf den Stand von `lernen-app` 4970b4b gebracht). Grundlage sind Sebastians Entscheidungen vom 21.11., Punkt 2, und die Nachprüfung (`inhalte/pruefung/potenz/nachpruefung.md`), Kann 2, 4, 6 und 7.
+
+Nichts in die Datenbank, kein App-Code, kein Merge nach `main`. `terme.potenzgesetze` (Gym 6), `terme.umformen`, Themenliste und kann-Texte sind unverändert.
+
+### Alt → neu
+
+| Flug, Karte | Aufgabe / Feld | alt | neu |
+|---|---|---|---|
+| A, mal_gleiche_basis | Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch? | Übung, Stufe 1, erkennen | Übung, Stufe 1, ohne Typ (überzählig) |
+| A, mal_gleiche_basis | Ein Kind rechnet: 4⁴ · 4² = 4⁸. Was ist falsch? | Übung, Stufe 1, erkennen | ohne Typ |
+| A, mal_gleiche_basis | Ein Kind rechnet: 5⁴ · 5⁴ = 5¹⁶. Was ist falsch? | Übung, Stufe 1, erkennen | ohne Typ |
+| A, mal_gleiche_basis | Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig? | Übung, Stufe 1, erkennen | ohne Typ |
+| A, mal_gleiche_basis | Ein Kind rechnet: 4³ · 4³ = 4⁹. Welcher Satz beschreibt den Fehler richtig? | Übung, Stufe 1, erkennen | ohne Typ |
+| A, mal_gleiche_basis | Ein Kind rechnet: 4⁴ · 4² = 16⁶. Welcher Satz beschreibt den Fehler richtig? | Übung, Stufe 1, erkennen | ohne Typ |
+| A, gleicher_exponent | Ein Kind rechnet: 2² · 5² = 10⁴. Was ist falsch? | Übung, Stufe 1, erkennen | ohne Typ |
+| A, gleicher_exponent | Ein Kind rechnet: 2³ · 5³ = 10⁶. Was ist falsch? – falsche Antwort (Kann 2) | Die Exponenten werden addiert, nicht malgenommen: 2⁵. | Die Basen werden addiert: 7³. |
+| A, gleicher_exponent | Ein Kind rechnet: 2⁴ · 5⁴ = 10⁸. Was ist falsch? – falsche Antwort (Kann 2) | Die Exponenten werden addiert, nicht malgenommen: 5⁶. | Die Basen werden addiert: 7⁴. |
+| A, geteilt_gleiche_basis | 2¹⁰ : 2ⁿ = 16. Wie groß ist n? (Kann 4) | Übung, Stufe 3, rueckwaerts | Übung, Stufe 2, umkehr |
+| A, potenz_von_potenz | Lernkarte, Wort „potenziert“ (Kann 6) | mit einem Exponenten versehen, also mehrmals mit sich selbst malgenommen | hoch eine Zahl genommen |
+| B, exponent_und_potenz | Lernkarte, `einstieg` (Kann 7) | … Seine Fläche ist (2⁻¹)². Hier wird eine Potenz noch einmal potenziert: eine ⟦Potenz einer Potenz⟧. | … Seine Fläche ist (2⁻¹)². Die ⟦Potenz einer Potenz⟧ kennst du aus Klasse 7. Jetzt rechnest du sie auch mit negativen Exponenten. |
+| B, exponent_und_potenz | Lernkarte, Wort „Potenz einer Potenz“ (Kann 7) | eine Potenz in Klammern mit noch einem Exponenten, z. B. (2³)² | kennst du aus Klasse 7: eine Potenz in Klammern mit noch einem Exponenten, z. B. (2³)² |
+
+Bei allen geänderten Aufgaben bleiben der Fragetext und die richtige Antwort gleich. Die neuen falschen Antworten sind wirklich falsch (2³ · 5³ = 1 000 ≠ 7³ = 343; 2⁴ · 5⁴ = 10 000 ≠ 7⁴ = 2 401).
+
+### Mindestmengen und Typ-Mischung danach (Flug A, Übungen)
+
+| Karte | Stufe 1 | Stufe 2 | Stufe 3 |
+|---|---|---|---|
+| mal_gleiche_basis | direkt 8, erkennen 5 (+ 6 ohne Typ) | mehrschritt 10, umkehr 2, darstellung 1, einkleidung 1 | fehler 3, parameter 2, rueckwaerts 2, verknuepfen 1, begruenden 1, pruefung 1, transfer 1 |
+| gleicher_exponent | direkt 4, erkennen 4 (+ 3 ohne Typ) | mehrschritt 8, umkehr 3, einkleidung 1 | fehler 3, transfer 2, begruenden 1, rueckwaerts 1, parameter 1, verknuepfen 1, pruefung 1 |
+| potenz_von_potenz | direkt 4, erkennen 2 | mehrschritt 3, umkehr 2, einkleidung 2, darstellung 1 | begruenden 2, fehler 2, parameter 1, rueckwaerts 1, verknuepfen 1, transfer 1, pruefung 1 |
+| geteilt_gleiche_basis | direkt 6, erkennen 4 | mehrschritt 14, umkehr 2, einkleidung 1 | fehler 3, transfer 2, verknuepfen 1, begruenden 1, parameter 1, pruefung 1 |
+| anwenden | direkt 6, erkennen 1 | mehrschritt 9, darstellung 3, einkleidung 2 | transfer 2, begruenden 2, verknuepfen 1, fehler 1, rueckwaerts 1, parameter 1, pruefung 1 |
+
+- Die Mindestmengen sind überall erfüllt, mit Typen nur gezählt: Stufe 1, 2 und 3 mindestens 4, 6 und 8 Aufgaben mit 2, 3 und 4 Typen. Auf Stufe 3 steht höchstens 3 je Typ.
+- In `gleicher_exponent` sind „ohne Typ“ die zwei Spiegelbilder aus Runde 28 und die eine Aufgabe von heute.
+- Flug A hat jetzt 167 Aufgaben mit Typ (vorher 174). Flug B ist unverändert bis auf die Karte.
+
+### Prüfung
+- **Prüfskript:** `python3 -I tools/inhalt_pruefen.py --alle` meldet **118 × OK**, Rückgabewert 0. Flug A und Flug B haben keine Hinweise zu den Karten, „gleich gebaut hintereinander“ ist 0.
+- **Generatoren:** Ein zweiter Lauf ergibt Byte für Byte dieselben Dateien. Der Dateivergleich gegen `lernen-app` zeigt genau die Änderungen der Tabelle oben.
+- **Hinweis zu Kann 7:** „kennst du aus Klasse 7“ stimmt für Gymnasium und Realschule. In IB steht Flug A in MYP 3, Flug B in MYP 4. Dort wäre „aus dem Flug ‚Potenzgesetze‘“ genauer. Ich habe trotzdem wie beauftragt „Klasse 7“ geschrieben.
+
 ## 2026-11-20 13:58 – FERTIG: Potenz nachgebessert
 
 Achtundzwanzigste Runde (Zweig `potenz-teilen`, vorher auf den Stand von `lernen-app` 72abf97 gebracht). Grundlage: `inhalte/pruefung/potenz/bericht.md`, Auftrag in `AUFTRAEGE.md`, Sebastians Ja zu Kann 6 (`antworten.md`, 20.11. 14:50). Nichts in die Datenbank, kein App-Code, kein Merge nach `main`.

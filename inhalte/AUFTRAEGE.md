@@ -2291,3 +2291,27 @@ Chat **`lehrplan-lb`** (Inhalte, kein App-Code), Zweig `lehrplan-lb` auf den Sta
 - **Stand beachten:** Die Themenliste enthält schon die zwei neuen Flüge `terme.potenzgesetze_natuerlich` (102) und `terme.potenzgesetze_ganzzahlig` (103) und den geänderten Titel von `terme.potenzgesetze`; in der Datenbank sind sie noch nicht angelegt (kommt vom Haupt-Chat). Voraussetzungen für 102/103 mitliefern (u. a. 30 → 102 → 29 `terme.umformen`; 102 → 103); die Migration darf nicht scheitern, wenn 102/103 noch fehlen.
 - **Folgen nennen:** Jede neue Klassen-Zuordnung oder harte Voraussetzung, die den Plan eines Kindes ändern würde (neuer Flug im Plan, andere Reihenfolge), ausdrücklich auflisten – ohne Namen. Reihenfolgen je Schulart und Klasse bleiben lückenlos und eindeutig (Selbstprüfung per Skript).
 - Keine Inhalte (Aufgaben, Karten) ändern, keine Kinderdaten, kein Merge nach `main`. Am Ende „FERTIG: Lehrplan Runde 30“. Danach meldet der Haupt-Chat dem Gestalter, der das Übersichtsblatt aktualisiert und gegenprüft.
+
+---
+
+# Bau-Auftrag LM (21.11.): Lehrplan-Matrix „Mathe 5–10“ – bei Lehrer/Eltern und auf der Kinderseite
+
+Von Sebastian gewünscht. Vorgabe des Gestalters (maßgeblich, vollständig lesen): `inhalte/pruefung/lehrer/matrix/umsetzung.md` (LM-1 bis LM-6), Vorlage `inhalte/pruefung/lehrer/matrix/entwurf/lehrplan-matrix.html` (läuft ohne Server, erfundener Lernstand „Kind A“/„Kind B“).
+
+**Schritt 1 – LM-S, Server (`bau-lehrer`, nur Dateien, parallel möglich):** Prüfen, was die Matrix an Daten braucht und was `api.schule_lehrplan_uebersicht` heute liefert. Fehlendes als Migrationsdatei mit Rauchtest (nicht ausführen): je Thema Titel, Themengebiet, Klasse/Reihenfolge/Lernbereich je Schulart, „Was gefordert ist“ (`thema.beschreibung`), Lehrplan-Wortlaut, „Das muss sitzen“ (`merke` der freigegebenen Einheit), Etappen (Titel, Pflicht); die Verbindungen aus `schule.voraussetzung` (Art, Begründung); je sichtbarem Kind Stufe, Etappen gesamt/gelandet („Etappe x von y“), im Plan ja/nein – für alle Kinder in einem Aufruf. Zugriff: Eltern/Lehrer sehen ihre Kinder; ein Kind sieht nur sich selbst und bekommt weder Lehrplan-Wortlaut noch Daten anderer Kinder. Die Ansicht muss mit dem heutigen Stand von `schule.voraussetzung` funktionieren (die Vervollständigung läuft getrennt, Dreißigste Runde). Bericht: Feldliste für den App-Bau. „FERTIG: LM-S“.
+
+**Schritt 2 – LM-1 bis LM-5, App Lehrer/Eltern (`bau-motivation`, nach LM-S, Version 0.84.0):**
+- Nachschlagen → „Lehrplan“ = Matrix (LM-1 bis LM-4) mit allen Kindern und „Beide vergleichen“.
+- Seite des Kindes, Reiter „Plan“: Link „Als Matrix ansehen ›“ → Matrix mit diesem Kind vorgewählt und dessen Schulart. Kein fünfter Reiter.
+- Detail eines Themas (genau ein Kind gewählt): Stufen-Knöpfe wie LB Teil 8 Variante A („Lernen · Kann er – wiederholen · Kann er komplett“, rechts „Aus dem Plan nehmen“/„In den Plan nehmen“), gleiche Server-Aufrufe und Rückgängig wie im Plan. „Im Plan öffnen ›“ springt in den Plan mit dem Thema aufgeklappt.
+- Die bisherige Lehrplan-Übersicht (LB-1) geht in der Matrix auf; nichts davon darf verloren gehen, was die Matrix nicht ersetzt – im Bericht nennen.
+
+**Schritt 3 – LM-6, Kinderseite „Meine Route 5–10“ (`bau-motivation`, eigener Schritt nach Schritt 2, Version 0.85.0):**
+- Textlink „Meine Route 5–10 ›“ auf der Abflugtafel.
+- Nur das eigene Kind, Lernstand immer an; kein Geschwister-Vergleich, keine Schulart-Kennzeichen, kein Lehrplan-Wortlaut.
+- Reisewörter (Flug, Kontinent, Etappe; der Test der Reisewörter gilt). Stufen: „kannst du“, „kommt zur Wiederholung“, „hier bist du – Etappe x von y“, „kommt noch“; nicht im Plan blass.
+- Kopf je Klasse: „Du kannst schon n von m Flügen“ mit Balken.
+- Detail: Was du hier lernst, Das muss sitzen, Das brauchst du vorher (mit eigener Stufe), Danach geht’s weiter mit, Etappen mit ✓. Plan nicht änderbar; nur beim ▶-Flug großer Knopf „Weiter lernen ›“.
+- Handy/Tablet zuerst.
+
+**Für alle Schritte:** Tests nur mit Testkind und erfundenen Daten, keine Kinderdaten in Dateien. Abnahme bei 400, 820, 1280 px (kein Wort mitten im Wort umbrochen, Trennstrich erlaubt; Linien hinter den Karten). Nach jedem Schritt im Postfach melden – der Gestalter prüft nach. Merge nach `main` erst nach Sebastians „Live“.

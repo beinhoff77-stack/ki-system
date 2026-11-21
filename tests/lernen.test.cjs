@@ -3261,10 +3261,10 @@ test('LB Teil 7: Info-Seite – neue Texte, alte doppelte Einträge entfernt, Ei
     'Für so gesetzte Flüge gibt es keinen Flug-Test und keine Nachtests.', 'die Wiederholungen beginnen dann wieder nach 1 Lerntag.',
     'Im Ergebnis ist jede Antwort deutlich als RICHTIG oder FALSCH markiert.', '„Erst üben: ‹Etappe›“ oder „Gleich verbessern“',
     'Nach jeder Landung kommt von selbst eine Knobel-Bordkarte der Etappe (überspringbar mit „Heute keine Knobel-Bordkarte“)',
-    'gegliedert nach Lernbereich (z. B. „M8 2 Lineare Funktionen“)', 'Gymnasium und Realschule nach LehrplanPLUS Bayern, IB nach dem MYP-Rahmenplan',
+    'Der Filter „Inhalt“ zeigt, was fertig ist (●), was in Prüfung ist (◐) und was noch fehlt (○).', 'Gymnasium und Realschule nach LehrplanPLUS Bayern, IB nach dem MYP-Rahmenplan',
     'Abschluss einer Etappe:', '⚡ Direkt, ✓ Sauber oder ⚡ Ausdauer', 'Landungen vor dieser Version haben kein Abzeichen.'])
     assert.ok(text.includes(s), 'fehlt: ' + s);
-  for (const s of ['Lernstand: die Lehrplan-Landkarte', 'Was wackelt?: was sitzt', 'setzt Häkchen je Flug', 'Sie erscheinen, wenn eine Etappe sitzt', 'eine Tabelle aller Flüge', 'hake ab, was es schon kann'])
+  for (const s of ['Lernstand: die Lehrplan-Landkarte', 'Was wackelt?: was sitzt', 'setzt Häkchen je Flug', 'Sie erscheinen, wenn eine Etappe sitzt', 'eine Tabelle aller Flüge', 'hake ab, was es schon kann', 'Lehrplan-Übersicht', 'Eine Zeile antippen öffnet „Inhalte ansehen“'])
     assert.ok(!text.includes(s), 'noch da: ' + s);
 });
 
@@ -3729,46 +3729,66 @@ test('LM-5: „Als Matrix ansehen ›“ oben rechts in der Reiterzeile des Plan
   }
 });
 
-// LM-S-Format (schule_lehrplan_matrix): erfundener Lernstand, Lehrstoff aus der echten Themenliste, Verbindungen aus der Vorlage
-const lmsAnpassen = ({ ohneWortlaut = false } = {}) => { const ueb = mxAnpassen(); const f = (aktion, e, daten = {}) => {
-  if (aktion !== 'schule_lehrplan_matrix') return e ? ueb(aktion, e) : null;
-  const u = ueb('schule_lehrplan_uebersicht', { ok: true, kinder: [{ id: 1, name: 'Kind A', klasse: 8, schulart: 'gym_by' }, { id: 2, name: 'Kind B', klasse: 5, schulart: 'gym_by' }], themen: [] });
-  const wortlaut = (t) => (ohneWortlaut ? {} : { lehrplan: { gym_by: (t.lehrplan.gym_by || []).join(' · '), rs_by: (t.lehrplan.rs_by || []).join(' · ') }, merke: t.thema_id === 15 ? ['Der Wert einer Ziffer hängt von ihrer Stelle ab.'] : [], beispiel: t.thema_id === 15 ? 'Runde 4 567 891 auf Tausender.' : undefined });
-  const themen = THEMEN_ECHT.map((q) => { const t = u.themen.find((y) => y.thema_id === q.thema_id);
-    return { thema_id: q.thema_id, titel: q.titel, gebiet: q.gebiet, ort: q.ort, block_id: q.block_id, was_gefordert: q.umfang, einheit_id: q.thema_id, jahrgang: q.klasse, lehrplan_reihenfolge: q.reihenfolge, lernbereich: q.lernbereich,
-      pflicht: Object.keys(q.klasse).filter((s) => s !== 'ib_myp'), etappen: echteEtappen(q).map((x, i, a) => ({ lernziel: x.lernziel, titel: x.titel, pflicht: i < a.length - 1 })), ...wortlaut({ ...q, lehrplan: { gym_by: q.lehrplan_gym, rs_by: q.lehrplan_rs } }),
-      ...(q.thema_id === 22 ? { eigenstaendig: 'Einstieg in die Geometrie, baut auf Grundschulwissen auf' } : {}), ...(q.thema_id === 12 ? { ohne_flug: true } : {}), _st: t.stufe }; });
+// LM-S-2-Format: Raster schule_lehrplan_matrix (knapp, Verbindungen als Tripel), Detail schule_lehrplan_thema. Lehrstoff aus der echten Themenliste,
+// Verbindungen aus der Vorlage, Lernstand erfunden (Kind A, Kind B, Testkind).
+const LMS_GEB = ['Zahlen', 'Algebra', 'Funktionen', 'Geometrie', 'Fläche und Raum', 'Geld und Verhältnisse', 'Daten und Zufall', 'Entdecker-Inseln'];
+const lmsAnpassen = () => { const ueb = mxAnpassen(); const f = (aktion, e, daten = {}) => {
+  if (!['schule_lehrplan_matrix', 'schule_lehrplan_thema'].includes(aktion)) return e ? ueb(aktion, e) : null;
+  if (aktion === 'schule_lehrplan_thema') { const q = THEMEN_ECHT.find((x) => x.thema_id === daten.thema_id); if (!q) return null;
+    const name = (id) => THEMEN_ECHT.find((x) => x.thema_id === id)?.titel;
+    return { ok: true, thema_id: q.thema_id, titel: q.titel, kurz: 'kurz', ort: q.ort, was_gefordert: q.umfang, einheit_id: q.thema_id,
+      merke: q.thema_id === 15 ? ['Der Wert einer Ziffer hängt von ihrer Stelle ab.'] : [], beispiel: q.thema_id === 15 ? 'Runde 4 567 891 auf Tausender.' : undefined,
+      etappen: echteEtappen(q).map((x, i, a) => ({ lernziel: x.lernziel, titel: x.titel, pflicht: i < a.length - 1 })),
+      braucht: MX_K.filter((k) => k[0] === q.thema_id).map((k) => ({ thema_id: k[1], titel: name(k[1]), art: k[2], begruendung: k[3] })),
+      baut_darauf: MX_K.filter((k) => k[1] === q.thema_id).map((k) => ({ thema_id: k[0], titel: name(k[0]), art: k[2], begruendung: k[3] })),
+      lehrplan: { gym_by: (q.lehrplan_gym || []).join(' · '), rs_by: (q.lehrplan_rs || []).join(' · ') }, ...(q.thema_id === 22 ? { eigenstaendig: 'Einstieg in die Geometrie, baut auf Grundschulwissen auf' } : {}) }; }
+  const u = ueb('schule_lehrplan_uebersicht', { ok: true, kinder: [], themen: [] });
+  const themen = THEMEN_ECHT.map((q) => { const t = u.themen.find((y) => y.thema_id === q.thema_id); const n = echteEtappen(q).length;
+    return { thema_id: q.thema_id, schluessel: q.thema_schluessel, titel: q.titel, gebiet_id: LMS_GEB.indexOf(q.gebiet) + 1, block_id: q.block_id,
+      ...(q.thema_id === 12 ? { ohne_flug: true } : { einheit_id: q.thema_id, etappen_anzahl: n }), jahrgang: q.klasse, lehrplan_reihenfolge: q.reihenfolge, lernbereich: q.lernbereich,
+      pflicht: Object.keys(q.klasse).filter((s2) => s2 !== 'ib_myp'), ...(q.thema_id === 22 ? { eigenstaendig: true } : {}), _st: t.stufe }; });
   const lernstand = { 1: {}, 2: {} };
-  for (const t of themen) { for (const k of [1, 2]) { const s = t._st[k]; if (s) lernstand[k][t.thema_id] = { ...s, fehler_offen: k === 1 && s.stufe === 'dran', ...(s.stufe === 'dran' ? { etappe_jetzt: 3 } : {}) }; } delete t._st; }
+  for (const t of themen) { for (const k of [1, 2]) { const s2 = t._st[k]; if (!s2) continue; const { etappen, gesetzt, ...rest } = s2; // LM-S 2 lässt etappen und gesetzt weg
+    lernstand[k][t.thema_id] = { ...rest, ...(k === 1 ? { fehler_offen: s2.stufe === 'dran' } : {}), ...(s2.stufe === 'dran' ? { etappe_jetzt: 3 } : {}) }; } delete t._st; }
   const kinder = [{ id: 1, name: 'Kind A', klasse: 8, schulart: 'gym_by' }, { id: 2, name: 'Kind B', klasse: 5, schulart: 'gym_by' }];
-  if (daten.thema_id) { const q = THEMEN_ECHT.find((x) => x.thema_id === daten.thema_id); return { ok: true, themen: [{ thema_id: q.thema_id, ...wortlaut.call(null, { ...q, lehrplan: { gym_by: q.lehrplan_gym, rs_by: q.lehrplan_rs } }), ...(ohneWortlaut ? { lehrplan: { gym_by: (q.lehrplan_gym || []).join(' · ') }, merke: ['Nachgeladen: Stellenwert'], beispiel: 'Nachgeladen: Runde 951 auf Hunderter.' } : {}) }] }; }
-  return { ok: true, kindsicht: false, themen, verbindungen: MX_K.map(([a, b, art, begruendung]) => ({ thema_id: a, braucht_id: b, art, begruendung })),
-    gebiete: ['Zahlen', 'Algebra', 'Funktionen', 'Geometrie', 'Fläche und Raum', 'Geld und Verhältnisse', 'Daten und Zufall', 'Entdecker-Inseln'].map((titel, i) => ({ gebiet_id: i + 1, titel, reihenfolge: i + 1, zusatz: titel === 'Entdecker-Inseln' })),
+  return { ok: true, kindsicht: false, themen, verbindungen: MX_K.map(([a, b, art]) => [a, b, art === 'empfohlen' ? 'e' : 'h']),
+    gebiete: LMS_GEB.map((titel, i) => ({ gebiet_id: i + 1, titel, reihenfolge: i + 1, zusatz: titel === 'Entdecker-Inseln' })),
     kinder: daten.mit_testkind ? [...kinder, { id: 9, name: 'Testkind', klasse: 7, schulart: 'rs_by' }] : kinder, lernstand: daten.mit_testkind ? { ...lernstand, 9: {} } : lernstand };
 }; f.neueAktionen = true; return f; };
 
-test('LM-S-Daten: Matrix aus schule_lehrplan_matrix – Etappe x von y, „Fehler besprechen“ nur bei fehler_offen, freiwillige Etappen, eigenständig mit Begründung, ohne Flug blass, Inhaltsstand aus der Übersicht, Testkind auf Wunsch', async (t) => {
+test('LM-S 2: Raster aus schule_lehrplan_matrix (Tripel, gebiet_id, etappen_anzahl), Detail über schule_lehrplan_thema – Begründungen, eigenständig, freiwillige Etappen, Fehler offen, ohne Flug, Testkind', async (t) => {
   const { page, calls } = await setup(t, { anpassen: lmsAnpassen() }); await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto(origin + '/#/lehrplan'); await page.locator('.mx-matrix').waitFor();
   assert.ok(calls.some((c) => c.aktion === 'schule_lehrplan_matrix') && calls.some((c) => c.aktion === 'schule_lehrplan_uebersicht'));
   assert.equal(await page.locator('.mx-chip').count(), THEMEN_ECHT.length);
+  assert.deepEqual(await page.locator('.mx-geb').allInnerTexts(), LMS_GEB, 'Gebiet-Titel aus gebiete[]');
   assert.match(await page.locator('.mx-chip[data-id="12"]').getAttribute('class'), /mx-ohne/);
+  const det = page.locator('.mx-detail');
+  // Detail: nachgeladen, Begründungen aus braucht/baut_darauf, Linien aus den Tripeln
+  await page.locator('.mx-chip[data-id="2"]').click();
+  await det.getByText('Äquivalenzumformung baut auf einfachen Gleichungen auf').waitFor();
+  assert.match(await page.locator('.mx-chip[data-id="1"]').getAttribute('class'), /mx-vor/);
+  assert.ok(await page.locator('svg.mx-linien path').count() >= 3);
+  assert.match(await det.innerText(), /DARAUF BAUT AUF[\s\S]*Einsetzen und Umformen linearer Gleichungen/i);
+  assert.equal(calls.filter((c) => c.aktion === 'schule_lehrplan_thema' && c.daten.thema_id === 2).length, 1);
+  await page.locator('.mx-chip[data-id="15"]').click();
+  await det.getByText('Runde 4 567 891 auf Tausender.').waitFor();
+  assert.match(await det.innerText(), /WAS GEFORDERT IST[\s\S]*DAS MUSS SITZEN[\s\S]*Stelle ab[\s\S]*SCHRITTE IN DER APP[\s\S]*freiwillig[\s\S]*IM LEHRPLAN[\s\S]*M5 1\.1/i);
+  await page.locator('.mx-chip[data-id="22"]').click();
+  await det.getByText(/Eigenständig: braucht keine Voraussetzung – Einstieg in die Geometrie/).waitFor();
+  await page.locator('.mx-chip[data-id="2"]').click(); await det.getByText('Äquivalenzumformung baut auf einfachen Gleichungen auf').waitFor();
+  assert.equal(calls.filter((c) => c.aktion === 'schule_lehrplan_thema' && c.daten.thema_id === 2).length, 1, 'Detail nur einmal geladen');
+  // Lernstand: Etappe x von y mit y = etappen_anzahl; Fehler besprechen nur bei fehler_offen
   const ls = page.getByRole('group', { name: 'Lernstand' });
   await ls.getByRole('button', { name: 'Kind A' }).click();
   const dran = page.locator('.mx-chip.mx-dran').first(); await dran.waitFor();
-  assert.match(await dran.locator('.mx-stand').innerText(), /▶ Etappe 3 von \d+ · hier ist Kind A/);
-  await dran.click(); const det = page.locator('.mx-detail');
-  await det.getByRole('link', { name: 'Fehler besprechen ›' }).waitFor();
-  assert.match(await det.innerText(), /freiwillig/);
-  assert.match(await det.innerText(), /Inhalt: fertig/);
-  // Kind B: wieder_offen, aber fehler_offen false → kein Link
+  const dranId = Number(await dran.getAttribute('data-id'));
+  const n = echteEtappen(THEMEN_ECHT.find((x) => x.thema_id === dranId)).length;
+  assert.match(await dran.locator('.mx-stand').innerText(), new RegExp(`▶ Etappe 3 von ${n} · hier ist Kind A`));
+  await dran.click(); await det.getByRole('link', { name: 'Fehler besprechen ›' }).waitFor();
   await ls.getByRole('button', { name: 'Kind B' }).click(); await page.locator('.mx-chip.mx-dran').first().click();
   await det.getByRole('link', { name: 'Im Plan öffnen ›' }).waitFor();
   assert.equal(await det.getByRole('link', { name: 'Fehler besprechen ›' }).count(), 0);
-  await page.locator('.mx-chip[data-id="22"]').click();
-  assert.match(await det.innerText(), /Eigenständig: braucht keine Voraussetzung – Einstieg in die Geometrie/);
-  await page.locator('.mx-chip[data-id="15"]').click();
-  assert.match(await det.innerText(), /DAS MUSS SITZEN[\s\S]*Stelle ab[\s\S]*Runde 4 567 891/i);
   // Testkind: aus seinem Plan geöffnet → mit_testkind
   await page.goto(origin + '/#/lehrplan/9'); await page.locator('.mx-matrix').waitFor();
   assert.ok(calls.some((c) => c.aktion === 'schule_lehrplan_matrix' && c.daten?.mit_testkind === true));
@@ -3776,14 +3796,20 @@ test('LM-S-Daten: Matrix aus schule_lehrplan_matrix – Etappe x von y, „Fehle
   assert.equal(await page.getByRole('group', { name: 'Einordnen nach Schulart' }).getByRole('button', { name: 'Realschule' }).getAttribute('aria-pressed'), 'true');
 });
 
-test('LM-S 2 (angekündigt): ohne Wortlaut in der Liste lädt das Detail Lehrplan, „Das muss sitzen“ und Beispiel mit thema_id nach', async (t) => {
-  const { page, calls } = await setup(t, { anpassen: lmsAnpassen({ ohneWortlaut: true }) }); await page.setViewportSize({ width: 1280, height: 900 });
+test('LM: Filter „Inhalt“ (was fehlt noch?) – Zähler fertig / in Prüfung / fehlt, nicht passende Themen blass, mit Suche kombiniert', async (t) => {
+  const { page } = await setup(t); await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto(origin + '/#/lehrplan'); await page.locator('.mx-matrix').waitFor();
-  await page.locator('.mx-chip[data-id="15"]').click();
-  const det = page.locator('.mx-detail');
-  await det.getByText('Nachgeladen: Runde 951 auf Hunderter.').waitFor();
-  assert.match(await det.innerText(), /DAS MUSS SITZEN[\s\S]*Nachgeladen: Stellenwert[\s\S]*IM LEHRPLAN[\s\S]*M5 1\.1/i);
-  assert.equal(calls.filter((c) => c.aktion === 'schule_lehrplan_matrix' && c.daten?.thema_id === 15).length, 1);
-  await page.locator('.mx-chip[data-id="16"]').click(); await page.locator('.mx-chip[data-id="15"]').click();
-  assert.equal(calls.filter((c) => c.aktion === 'schule_lehrplan_matrix' && c.daten?.thema_id === 15).length, 1, 'nur einmal');
+  const g = page.getByRole('group', { name: 'Inhalt' });
+  assert.deepEqual(await g.getByRole('button').allInnerTexts(), ['Alle', 'fertig 1', 'in Prüfung 1', 'fehlt 3']);
+  await g.getByRole('button', { name: 'fehlt: 3' }).click();
+  assert.deepEqual(await page.locator('.mx-chip:not(.mx-weg) .mx-titel').allInnerTexts(), ['Brüche addieren', 'Nur Realschule', 'Lineare Funktionen']);
+  await page.getByLabel('Thema suchen').fill('Lineare');
+  assert.deepEqual(await page.locator('.mx-chip:not(.mx-weg) .mx-titel').allInnerTexts(), ['Lineare Funktionen']);
+  await page.getByLabel('Thema suchen').fill('');
+  await g.getByRole('button', { name: 'in Prüfung: 1' }).click();
+  assert.deepEqual(await page.locator('.mx-chip:not(.mx-weg) .mx-titel').allInnerTexts(), ['Teilbarkeit']);
+  await g.getByRole('button', { name: 'Alle Themen' }).click();
+  assert.equal(await page.locator('.mx-chip.mx-weg').count(), 0);
+  for (const breite of [400, 820]) { await page.setViewportSize({ width: breite, height: 900 }); await page.locator('.mx-chip').first().waitFor();
+    assert.deepEqual(await gebrocheneWoerter(g.getByRole('button')), [], `${breite}: Filter`); assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`); }
 });

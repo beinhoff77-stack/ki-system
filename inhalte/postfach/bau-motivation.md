@@ -2,6 +2,34 @@
 
 Neueste oben.
 
+## 2026-11-21 – FERTIG: 0.84.0 b – Matrix an LM-S 2 angepasst, Filter „Inhalt“, Info-Texte (Version bleibt 0.84.0, Cache v154)
+
+Auf AUFTRAEGE.md „Rückläufer 21.11. morgens“, Teil D. Stand `lernen-app` d463182 übernommen. Nur App (`lernen.js`, `style.css`) und Tests. Nichts in der Datenbank, keine Kinderdaten, kein Merge nach `main`.
+Bilder neu: `docs/previews/la/lm-oben-400/820/1280.png` (mit Filterzeile), `lm-matrix-*.png`.
+
+**Datenformat LM-S 2** (Feldliste „FERTIG: LM-S 2“)
+- Raster aus `schule_lehrplan_matrix`: Gebiet-Titel über `gebiet_id` aus `gebiete[]` (Spaltenreihenfolge = `reihenfolge`); `verbindungen[]` als Tripel `[thema_id, braucht_id, "h"|"e"]` (Objekte gehen weiter); `etappen_anzahl` → „Etappe x von y“ (y = `etappen_anzahl`, x = `etappe_jetzt`) und „Inhalte ansehen (n Etappen)“; `ohne_flug` blass; `eigenstaendig: true`. Fehlendes `fehler_offen` = nein (kein „Fehler besprechen ›“).
+- Detail über die eigene Aktion **`schule_lehrplan_thema { thema_id }`** beim Antippen, einmal je Thema: `kurz, ort, was_gefordert, merke, etappen (pflicht → „· freiwillig“), beispiel, braucht/baut_darauf (Begründungen an den Verbindungen), lehrplan, eigenstaendig` (Text: „Eigenständig: braucht keine Voraussetzung – ‹Begründung›“). Bis die Antwort da ist: „Einzelheiten werden geladen …“; bei Fehler bleibt das Raster-Detail.
+- Weiter parallel `schule_lehrplan_uebersicht` für Ort, Kurzbeschreibung im Raster, Inhaltsstand (◐ in Prüfung) und Aufträge. Ohne LM-S trägt die Übersicht allein (wie bisher).
+
+**Filter „Inhalt“ (was fehlt noch?)** – eigene Zeile über dem Lernstand: „Alle · ● fertig n · ◐ in Prüfung n · ○ fehlt n“ (Zähler über alle Themen). Nicht passende Themen werden blass (wie bei der Suche, beides kombinierbar); Themen ohne Flug zählen nirgends mit. Im Detail weiter Inhaltsstand, „Inhalte ansehen“, Aufträge und „✎ Ändern lassen“.
+
+**Info-Seite – Vorschlag zum Prüfen (umgesetzt):**
+- „Wie entstehen die Inhalte …“, letzter Satz statt „Die Lehrplan-Übersicht … Eine Zeile antippen öffnet ‚Inhalte ansehen‘.“: „Der Lehrplan (Nachschlagen auf der Startseite) zeigt alle Flüge als Übersicht: Zeilen Klasse 5–10, Spalten die Themengebiete, eingeordnet nach Gymnasium, Realschule oder IB, in der Reihenfolge des Lehrplans. Der Filter „Inhalt“ zeigt, was fertig ist (●), was in Prüfung ist (◐) und was noch fehlt (○). Ein Thema antippen: was gefordert ist, was es vorher braucht, worauf es aufbaut, Lernbereich und „Inhalte ansehen“. Mit „Lernstand“ steht bei jedem Thema die Stufe eines Kindes (◉ ↻ ▶ ○ +) – ist ein Kind gewählt, lässt sich der Plan dort direkt ändern.“
+- Lehrplan-Grundlage: „… Die Lehrplan-Übersicht zeigt alle Flüge.“ → „… Der Lehrplan (Nachschlagen auf der Startseite) zeigt alle Flüge auf einer Seite: Klasse 5 bis 10 und alle Themengebiete.“
+- „Ändern lassen“: „Für Flüge ohne Inhalt steht er im Lehrplan, wenn man das Thema antippt, mit „Neuer Flug“ vorbelegt.“
+- Expeditionen: „Alle Expeditionen mit Lösungen: Lehrplan → „Expeditionen ansehen“.“
+- Erste Schritte, Schritt 3: „Im Lehrplan ein Thema antippen, dann „Inhalte ansehen“: …“, Link „Lehrplan ›“.
+- Die Gliederung nach Lernbereich fällt im Text weg (Lernbereich steht im Detail). Test „LB Teil 7“ prüft den neuen Satz und dass „Lehrplan-Übersicht“ nicht mehr vorkommt.
+
+**Gesehen/getestet**
+- lernen: 141 Tests; im Gesamtlauf 140 bestanden, „LB Teil 8: aufgeklappte Karte“ wackelt unter Last (einzeln zweimal bestanden, wie schon in 0.84.0). Neu/ersetzt: „LM-S 2“ (Raster mit Tripeln, gebiet_id, etappen_anzahl, Detail über schule_lehrplan_thema mit Begründungen, eigenständig, freiwillig, fehler_offen, ohne Flug, Testkind) und „LM: Filter Inhalt“ (Zähler, blass, mit Suche, 400/820 ohne gebrochene Wörter und Querrollen). Testdaten: echte Themenliste, Verbindungen aus der Vorlage, Lernstand erfunden.
+- Suche: die bekannten alten Fehler (PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders gebucht, W88).
+
+**Nicht geprüft / Hinweise**
+- Gegen den echten LM-S-Server nicht getestet (LM-S 3 behebt erst den Abbruch der Migration). Die App fällt ohne LM-S auf die Übersicht zurück.
+- `schule_lehrplan_thema` rufe ich ohne `lernender_id` auf (Eltern/Lehrer-Sicht).
+
 ## 2026-11-21 – bau-lehrer – FERTIG: flug_erstabschluss
 
 Auf AUFTRAEGE.md „Rückläufer 21.11. morgens“, Teil C. Nur Dateien, in der echten Datenbank nichts ausgeführt, kein App-Code.

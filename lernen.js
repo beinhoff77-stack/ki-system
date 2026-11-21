@@ -3819,7 +3819,7 @@ function lernEtappeStandText(x) {
 const LERN_INFO_FRAGEN = [
   ['Worauf baut die App auf?', [
     'Die App deckt Mathematik für drei Schularten ab: Gymnasium Bayern (LehrplanPLUS, Klassen 5–10), Realschule Bayern (LehrplanPLUS, Klassen 5–10) und das IB Middle Years Programme (MYP-Jahr 1–5; entspricht etwa Klasse 6–10, also MYP-Jahr = Klasse − 5; unter Klasse 6: noch kein MYP-Jahr).',
-    'Grundlage ist eine Liste aller Mathe-Flüge (über 90). Für jeden Flug ist hinterlegt, in welcher Klasse er in welcher Schulart dran ist, z. B. „Ganze Zahlen: Gym 5 · RS 5 · IB 2“. Die Lehrplan-Übersicht zeigt alle Flüge.',
+    'Grundlage ist eine Liste aller Mathe-Flüge (über 90). Für jeden Flug ist hinterlegt, in welcher Klasse er in welcher Schulart dran ist, z. B. „Ganze Zahlen: Gym 5 · RS 5 · IB 2“. Der Lehrplan (Nachschlagen auf der Startseite) zeigt alle Flüge auf einer Seite: Klasse 5 bis 10 und alle Themengebiete.',
     'Für jede Schulart ist die Reihenfolge des Lehrplans und der Lernbereich hinterlegt (Gymnasium und Realschule nach LehrplanPLUS Bayern, IB nach dem MYP-Rahmenplan). Beim IB sind manche Zuordnungen als „Annahme“ gekennzeichnet, weil der Rahmenplan dort nicht genau festlegt, in welchem Jahr ein Flug dran ist. Den Lehrplan-Bezug eines Flugs sieht man, wenn man ihn im Lehrplan aufklappt.',
     'Ein Kind lernt jeden Flug nur einmal; er zählt für alle Schularten.']],
   ['Wie ist die Lernreise aufgebaut?', [
@@ -3838,7 +3838,7 @@ const LERN_INFO_FRAGEN = [
     ['Abschluss einer Etappe:', ' Nach der Landung (und der Knobel-Bordkarte) zeigt die App eine von drei Fassungen – jede mit eigenem Bild und eigener Farbe: Direktflug (alle Bordkarten im ersten Versuch richtig, ohne Tipp, genau so viele wie nötig), Saubere Landung (höchstens 2 endgültige Fehler, Stufe nie leichter geworden, höchstens 4 Bordkarten mehr als nötig; nach „wieder offen“ heißt sie „Wieder gelandet“) oder Sturmflug gemeistert (alles darüber; ohne Fehlerzahl, die Knobel-Bordkarte kommt dann nicht von selbst, nur als Textlink). Dazu ein Abzeichen – ⚡ Direkt, ✓ Sauber oder ⚡ Ausdauer –, das im Reisepass gezählt wird, der Satz „Du kannst jetzt …“ und genau ein Knopf zum nächsten Schritt (nächste Etappe, Flug-Test oder Abflugtafel); zurück in die Übungen derselben Etappe führt von dort kein Weg. Nach dem bestandenen Flug-Test: „Flug geschafft“ mit den Sternen des Flugs und der Liste „Das kannst du jetzt“, danach eine Bordkarte zum nächsten Flug im Plan („Boarding“ öffnet seine erste Erklärung). Mit dem letzten Flug eines Orts kommt dazwischen der Reisepass-Stempel. Landungen vor dieser Version haben kein Abzeichen.'],
     ['Wieder offen:', ' Zwei Fehler in einer fälligen Wiederholung öffnen eine gelandete Etappe wieder – überall: auf der Abflugtafel, in der Etappe, bei den Eltern und für den Flug-Test. Eigene Lösungen und Arten bleiben; es fehlen nur 3 eigene Lösungen in Folge. Ein früher bestandener Test bleibt getrennt als Beleg stehen. Fehler in Mischkarten oder Expeditionen öffnen nie, sie machen die Etappe nur am nächsten Lerntag fällig.'],
     ['Etappe sicher:', ' gelandet, die Wiederholung nach 14 Lerntagen bestanden und – beides nach der letzten Landung – einmal in einer Mischkarte richtig erkannt und im Nachtest des Flugs die Bordkarte dieser Etappe richtig. Ist nur der Nachtest des Flugs bestanden, steht bei den Eltern „Flug-Nachtest bestanden“.'],
-    ['Expeditionen:', ' größere Bordkarten aus 3–5 Teilen (a, b, c …), die Stoff aus mehreren Etappen verbinden – wie in einer Schulaufgabe mit Teil a, b, c. Das Kind bekommt eine Expedition auf der Abflugtafel angeboten, sobald alle ihre Etappen bei ihm gelandet sind; freiwillig, sie zählt nicht für „gelandet“. Jeder Teil hat zwei Versuche, danach steht die Lösung da und es geht mit dem nächsten Teil weiter (jeder Teil nennt seine Zahlen selbst). Richtig im ersten Versuch ist ein Beleg für die Etappe; falsch macht sie am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Eine begonnene Expedition kann das Kind auch dann zu Ende führen, wenn eine ihrer Etappen inzwischen wieder offen ist. Gebucht wird auf die Version der Etappe, die beim Kind gelandet ist. Geschafft: Expeditions-Stempel und 50 Sterne. Alle Expeditionen mit Lösungen: Lehrplan-Übersicht → „Expeditionen ansehen“.'],
+    ['Expeditionen:', ' größere Bordkarten aus 3–5 Teilen (a, b, c …), die Stoff aus mehreren Etappen verbinden – wie in einer Schulaufgabe mit Teil a, b, c. Das Kind bekommt eine Expedition auf der Abflugtafel angeboten, sobald alle ihre Etappen bei ihm gelandet sind; freiwillig, sie zählt nicht für „gelandet“. Jeder Teil hat zwei Versuche, danach steht die Lösung da und es geht mit dem nächsten Teil weiter (jeder Teil nennt seine Zahlen selbst). Richtig im ersten Versuch ist ein Beleg für die Etappe; falsch macht sie am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Eine begonnene Expedition kann das Kind auch dann zu Ende führen, wenn eine ihrer Etappen inzwischen wieder offen ist. Gebucht wird auf die Version der Etappe, die beim Kind gelandet ist. Geschafft: Expeditions-Stempel und 50 Sterne. Alle Expeditionen mit Lösungen: Lehrplan → „Expeditionen ansehen“.'],
     ['Mischkarten:', ' Sind im Flug mindestens 3 Etappen gelandet, ist beim Üben jede 4. Bordkarte (bis Klasse 6 jede 6.) eine aus einer anderen Etappe, die schon gelandet ist – meist aus demselben Flug oder Kontinent, manchmal aus einem älteren Flug. Sie ist gekennzeichnet („Aus deiner Reise – erkennst du, was gefragt ist?“), nach der Lösung steht, aus welcher Etappe sie kam. Das Kind soll selbst erkennen, welches Verfahren passt. Sie zählt nicht für die gerade geübte Etappe; richtig ist ein Beleg für „sicher“, falsch macht die Herkunfts-Etappe am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Der Server prüft jede Mischkarte (Etappe gelandet, Stufe 2–3, nicht die gerade geübte); sonst zählt sie wie eine normale Bordkarte.'],
     ['Wiederholung:', ' Ist eine Etappe gelandet, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Vor einem Flug kommen höchstens 6 Wiederholungen, weitere werden nur angeboten. Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal – eigene Lösungen bleiben, es braucht wieder 3 richtige in Folge.'],
     ['Flug-Test:', ' Ist die letzte Pflicht-Etappe gelandet, führt der Landebildschirm nur noch zum Test („Weiter: Flug-Test“): eine Bordkarte je Etappe, ohne Tipps. Im Ergebnis ist jede Antwort deutlich als RICHTIG oder FALSCH markiert. Bei Fehlern zwei Wege: „Erst üben: ‹Etappe›“ oder „Gleich verbessern“. Alles richtig verbessert → Flug geschafft.'],
@@ -3847,7 +3847,7 @@ const LERN_INFO_FRAGEN = [
     'Keine Zeitvorgaben, keine Uhr, keine Ranglisten.']],
   ['Wie entstehen die Inhalte, und wer prüft sie?', [
     'Erklärungen und Bordkarten erstellt eine KI (Claude) nach festen Regeln: Bezug zum Lehrplan, Alltagseinstieg, einfache Sprache, jede Lösung vom Programm berechnet und geprüft.',
-    'Ein neuer Flug ist zuerst „in Prüfung“: Nur das Testkind sieht ihn. Nach der Freigabe ist er „fertig“ und für alle Kinder da. Die Lehrplan-Übersicht (Nachschlagen auf der Startseite) zeigt je Schulart und Klasse alle Flüge in der Reihenfolge des Lehrplans, gegliedert nach Lernbereich (z. B. „M8 2 Lineare Funktionen“): andere Schularten, Inhalt (● fertig, ◐ in Prüfung, ○ fehlt) und die Stufe je Kind (◉ ↻ ▶ ○ +). Eine Zeile antippen öffnet „Inhalte ansehen“.',
+    'Ein neuer Flug ist zuerst „in Prüfung“: Nur das Testkind sieht ihn. Nach der Freigabe ist er „fertig“ und für alle Kinder da. Der Lehrplan (Nachschlagen auf der Startseite) zeigt alle Flüge als Übersicht: Zeilen Klasse 5–10, Spalten die Themengebiete, eingeordnet nach Gymnasium, Realschule oder IB, in der Reihenfolge des Lehrplans. Der Filter „Inhalt“ zeigt, was fertig ist (●), was in Prüfung ist (◐) und was noch fehlt (○). Ein Thema antippen: was gefordert ist, was es vorher braucht, worauf es aufbaut, Lernbereich und „Inhalte ansehen“. Mit „Lernstand“ steht bei jedem Thema die Stufe eines Kindes (◉ ↻ ▶ ○ +) – ist ein Kind gewählt, lässt sich der Plan dort direkt ändern.',
     'Jeder Inhalt ist mit allen Lösungen einsehbar („Inhalte ansehen“). In einem fertigen Flug sind Bordkarten, die ersetzt wurden oder überzählig sind, „aussortiert“: Sie werden nie ausgegeben, zählen nicht mit und stehen zugeklappt am Ende der Etappe.']],
   ['Was kann ich selbst ändern?', [
     ['Plan je Kind', ' (Reiter „Plan“): oben „Gymnasium Kl. 8 · 3 ▶ · 9 ○ · 6 ↻ · 14 ◉“. Jeder Flug hat eine von vier Stufen, überall mit denselben Zeichen: ◉ Kann er komplett (keine Übung, keine Wiederholung), ↻ In Wiederholung („Wdh 2 von 5 · nächste in 3 Lerntagen“), ▶ Gerade dran, ○ Kommt noch; dazu + Nicht im Plan. Links „Unser Lehrplan“ nach Stufen: ▶ und ○ in der Reihenfolge der Lernreise (am Griff ⠿ ziehen oder ↑ ↓), darunter ↻ und zugeklappt ◉ mit Datum. Einen Ort antippen zeigt seine Flüge mit vier Knöpfen: „Lernen“, „Kann er – aber wiederholen“ (keine Übung, nur die Wiederholungen; zwei Fehler hintereinander → wieder offen), „Kann er komplett“ und „Aus dem Plan nehmen“; bei ◉ zusätzlich „Wieder in die Wiederholung“. Für so gesetzte Flüge gibt es keinen Flug-Test und keine Nachtests. Ist die Wiederholung nach 14 Lerntagen bestanden (und eine Mischkarte richtig, falls eine kam), steht der Flug auf ◉. „Wieder in die Wiederholung“ holt einen ◉-Flug zurück; die Wiederholungen beginnen dann wieder nach 1 Lerntag. „Auswählen“: je Ort ein Häkchen (alle seine Flüge), „▸ einzeln“ für einzelne Flüge, je Abschnitt „alle auswählen“; oben dann die Knöpfe für alle ausgewählten auf einmal (z. B. 6 Flüge aus Klasse 7 auf „wiederholen“). Rechts der Lehrplan „Nach Themengebiet“ oder „Nach Klasse“: eine Zeile je Flug in der Reihenfolge des Lehrplans, mit Stufe und denselben Knöpfen; „+ In den Plan“ nimmt den Ort nur mit diesem Flug auf. Ein Flug einer höheren Klasse trägt den Hinweis „Gym 6 – höhere Klasse“. Jede Änderung wird sofort gespeichert; „↶ Rückgängig“ oben holt den Stand davor zurück. Hat jemand anderes den Plan inzwischen geändert, meldet die App das und überschreibt nichts – dann neu laden.'],
@@ -3855,7 +3855,7 @@ const LERN_INFO_FRAGEN = [
     ['⚙ Einstellen', ' (in der Zeile des Kindes auf der Startseite und oben auf seiner Seite): Hauptschulart und Klasse („bestimmt seine Klasse in Lernreise und Plan“), Stand messen gegen … (Stufe je Schulart, nur für „Wo steht es?“), Notizen und Verlauf, Neuer Plan aus Lehrplan-Vorlage (mit Rückfrage und „↶ Rückgängig“). Alles speichert sofort.'],
     'Inhalte werden nicht direkt geändert, sondern beauftragt (nächste Frage). Belohnungen und Zugänge verwalten nur Eltern.']],
   ['Wie beauftrage ich eine Änderung?', [
-    'An der betroffenen Stelle „✎ Ändern lassen“ tippen – derselbe Knopf an Erklärung, Etappe, Bordkarte, Flug und Flugplan; der Auftrag weiß dann, worum es geht. An einzelnen Bordkarten steht er in der Lernreise eines Kindes (am einfachsten beim Testkind). Für Flüge ohne Inhalt steht er in der Lehrplan-Übersicht, mit „Neuer Flug“ vorbelegt. Allgemeine Wünsche: „Meine Aufträge“ → „Neuer Auftrag“.',
+    'An der betroffenen Stelle „✎ Ändern lassen“ tippen – derselbe Knopf an Erklärung, Etappe, Bordkarte, Flug und Flugplan; der Auftrag weiß dann, worum es geht. An einzelnen Bordkarten steht er in der Lernreise eines Kindes (am einfachsten beim Testkind). Für Flüge ohne Inhalt steht er im Lehrplan, wenn man das Thema antippt, mit „Neuer Flug“ vorbelegt. Allgemeine Wünsche: „Meine Aufträge“ → „Neuer Auftrag“.',
     'Art wählen (Erklärung, Bordkarten, Fehler, Neuer Flug, Sonstiges), bei Bedarf eine Vorlage antippen (z. B. „Schwieriger“, „Lösung falsch“) und in einem Satz sagen, was anders sein soll.',
     'Die Entwicklung (Eltern mit KI) bearbeitet den Auftrag. Status: offen → in Arbeit → erledigt oder nicht umgesetzt, jeweils mit Antwort – alles unter „Meine Aufträge“.',
     'Neue Antworten stehen auf der Startseite unter „Neue Antworten auf eure Aufträge“.',
@@ -3888,7 +3888,7 @@ async function viewInfo(arg) {
     el('div', { class: 'lern-info-schritte' },
       schritt(1, 'Flugplan prüfen', 'Reiter „Plan“ auf der Seite des Kindes – das ist dein Arbeitsplatz. Links „Unser Lehrplan“ nach Stufen (▶ Gerade dran · ○ Kommt noch · ↻ In Wiederholung · ◉ Kann er komplett); Reihenfolge mit ⠿ ziehen oder ↑ ↓. Einen Ort antippen: je Flug die Knöpfe „Lernen“, „Kann er – aber wiederholen“, „Kann er komplett“, „Aus dem Plan nehmen“. Rechts (auf dem Handy darunter) der Lehrplan: „Nach Themengebiet“ (alle Flüge eines Themengebiets von leicht nach schwer, auch über der Klasse des Kindes) oder „Nach Klasse“ (die Flüge einer Klasse in der Reihenfolge des Lehrplans, gegliedert nach Lernbereich). „+“ oder Ziehen plant ein. Viele auf einmal: „Auswählen“. Jede Änderung wird sofort gespeichert.', jeKind('plan', 'Plan')),
       schritt(2, 'Lernstand lesen', 'Reiter „Stand“ auf der Seite des Kindes: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner Schulart, mit „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule). Reiter „Was wackelt“: je Etappe, was sitzt und was wackelt, mit den echten falschen Antworten. Alle Kinder nebeneinander: die Tabelle auf der Startseite.', jeKind('stand', 'Stand'), jeKind('wackelt', 'Was wackelt')),
-      schritt(3, 'Inhalte ansehen', 'In der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.', el('a', { href: '#/lehrplan' }, 'Lehrplan-Übersicht ›')),
+      schritt(3, 'Inhalte ansehen', 'Im Lehrplan ein Thema antippen, dann „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.', el('a', { href: '#/lehrplan' }, 'Lehrplan ›')),
       schritt(4, 'Ändern lassen', 'Fehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.', el('a', { href: '#/lernauftraege' }, 'Meine Aufträge ›'))),
     el('h3', {}, 'Fragen'),
     ...LERN_INFO_FRAGEN.map(([frage, teile], i) => el('details', { class: 'card lern-info-frage' },
@@ -3964,18 +3964,24 @@ const LERN_MX_SA = { gym_by: ['Gymnasium', 'Gym'], rs_by: ['Realschule', 'RS'], 
 let lernMx = null; // Zustand über Seitenwechsel: { sa, kind, sel, q }
 let lernPlanZiel = null; // „Im Plan öffnen ›“: { kind, thema } – viewPlan klappt das Thema auf
 const lernMxSpeicher = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch { /* ohne Speicher */ } return null; };
-// Laden: LM-S (schule_lehrplan_matrix: themen je Thema einmal, verbindungen, gebiete, kinder, lernstand[kind][thema]) und dazu die Lehrplan-Übersicht
-// (Inhaltsstand ● ◐ ○ und Aufträge je Flug, die die Matrix-Daten nicht haben). Kennt der Server LM-S noch nicht, trägt die Übersicht allein (ohne Verbindungen).
+// Laden: LM-S 2 – Raster über schule_lehrplan_matrix (themen knapp: thema_id, titel, gebiet_id, block_id, einheit_id | ohne_flug, etappen_anzahl, jahrgang …;
+// verbindungen als Tripel [thema_id, braucht_id, "h"|"e"]; gebiete[] mit Titel; lernstand[kind][thema]) und dazu die Lehrplan-Übersicht (Ort, Kurzbeschreibung,
+// Inhaltsstand ● ◐ ○ und Aufträge je Flug, die das Raster nicht hat). Das Detail (lernMxThema) kommt beim Antippen über schule_lehrplan_thema.
+// Kennt der Server LM-S noch nicht, trägt die Übersicht allein (ohne Verbindungen).
 async function lernMxLaden(mitTest = false) {
   const [m, u] = await Promise.all([lernCall('schule_lehrplan_matrix', mitTest ? { mit_testkind: true } : {}).catch(() => null), lernCall('schule_lehrplan_uebersicht').catch((err) => ({ fehler: err }))]);
   if (!Array.isArray(m?.themen)) { if (u?.fehler) throw u.fehler; return u; }
   const ueb = new Map(); for (const t of (u?.themen || [])) if (!ueb.has(t.thema_id)) ueb.set(t.thema_id, t);
+  const geb = new Map((m.gebiete || []).map((g) => [g.gebiet_id, g.titel]));
   const kinder = m.kinder || [];
-  return { kinder, gebiete: m.gebiete, verbindungen: m.verbindungen || [], matrix: true,
-    themen: m.themen.map((t) => { const x = ueb.get(t.thema_id) || {};
-      return { ...t, beschreibung: t.was_gefordert ?? x.beschreibung, rueckmeldungen: x.rueckmeldungen || 0, stand: x.stand, geplant: x.geplant,
-        einheit: x.einheit !== undefined ? x.einheit : t.einheit_id ? { id: t.einheit_id, status: 'geprueft', karten: (t.etappen || []).length, aufgaben: 0, neu: 0 } : null,
-        stufe: Object.fromEntries(kinder.map((c) => [c.id, m.lernstand?.[c.id]?.[t.thema_id]]).filter(([, v]) => v)) }; }) };
+  const verbindungen = (m.verbindungen || []).map((v) => (Array.isArray(v) ? { thema_id: v[0], braucht_id: v[1], art: v[2] === 'e' || v[2] === 'empfohlen' ? 'empfohlen' : 'hart' } : v));
+  return { kinder, gebiete: m.gebiete, verbindungen, matrix: true,
+    themen: m.themen.map((t) => { const x = ueb.get(t.thema_id) || {}; const n = t.etappen_anzahl ?? (Array.isArray(t.etappen) ? t.etappen.length : 0);
+      return { ...t, gebiet: t.gebiet || geb.get(t.gebiet_id) || x.gebiet, ort: t.ort ?? x.ort, beschreibung: t.was_gefordert ?? x.beschreibung,
+        gliederung: t.etappen ? undefined : x.gliederung, rueckmeldungen: x.rueckmeldungen || 0, stand: x.stand, geplant: x.geplant,
+        einheit: x.einheit !== undefined ? x.einheit : t.einheit_id ? { id: t.einheit_id, status: 'geprueft', karten: n, aufgaben: 0, neu: 0 } : null,
+        // „Etappe x von y“: y = etappen_anzahl (LM-S 2 lässt etappen im Lernstand weg)
+        stufe: Object.fromEntries(kinder.map((c) => { const s = m.lernstand?.[c.id]?.[t.thema_id]; return [c.id, s ? { ...s, etappen: s.etappen ?? (n || undefined) } : s]; }).filter(([, v]) => v)) }; }) };
 }
 // Adapter: Felder von schule_lehrplan_matrix (LM-S) und – ohne LM-S – von schule_lehrplan_uebersicht (beschreibung, gliederung [Titel]) an einer Stelle.
 function lernMxDaten(d) {
@@ -4039,7 +4045,7 @@ async function viewLehrplan(arg) {
   if (!live()) return;
   let M = lernMxDaten(d);
   const kinder = d.kinder || [];
-  const zst = lernMx || (lernMx = { sa: kinder[0]?.schulart || 'gym_by', kind: null, sel: null, q: '' });
+  const zst = lernMx || (lernMx = { sa: kinder[0]?.schulart || 'gym_by', kind: null, sel: null, q: '', inhalt: '' });
   let kurz = lernMxSpeicher('mx-kurz') === '1', zeilen = lernMxSpeicher('mx-zeilen') !== '0';
   if (vorKind) { zst.kind = vorKind; zst.sel = null; const c = kinder.find((k) => k.id === vorKind); if (c?.schulart && LERN_MX_SA[c.schulart]) zst.sa = c.schulart; }
   if (zst.kind && zst.kind !== 'alle' && !kinder.some((k) => k.id === zst.kind) && !vorKind) zst.kind = null;
@@ -4111,6 +4117,7 @@ async function viewLehrplan(arg) {
   const kurzBox = el('input', { type: 'checkbox', checked: kurz ? true : null, onchange: (ev) => { kurz = ev.target.checked; lernMxSpeicher('mx-kurz', kurz ? '1' : '0'); zeichne(); } });
   const leiste = el('div', { class: 'mx-leiste' });
   const lernstandLeiste = el('div', { class: 'mx-leiste mx-lernstand-leiste' });
+  const inhaltLeiste = el('div', { class: 'mx-leiste mx-inhalt-leiste' });
   const ansicht = el('div', { class: 'mx-ansicht' });
   const detail = el('aside', { class: 'mx-detail', 'aria-live': 'polite', 'aria-label': 'Thema im Detail' });
   const waehleKind = (w) => {
@@ -4125,6 +4132,12 @@ async function viewLehrplan(arg) {
       schalter('Einordnen nach Schulart', Object.entries(LERN_MX_SA).map(([s, [n]]) => [s, n]), () => zst.sa, (w) => { zst.sa = w; }),
       suche, handy() ? null : schalter('Aufbau', [['z', 'Klassen als Zeilen'], ['s', 'Klassen als Spalten']], () => (zeilen ? 'z' : 's'), (w) => { zeilen = w === 'z'; lernMxSpeicher('mx-zeilen', zeilen ? '1' : '0'); }),
       el('label', { class: 'mx-kurz' }, kurzBox, ' Kurzbeschreibung'));
+    // „Was fehlt noch?“ (aus LB-1): Filter nach Inhaltsstand mit Zählern; nicht passende Themen werden blass
+    const zahl = (k) => M.themen.filter((x) => inhaltK(x) === k).length;
+    lernErsetze(inhaltLeiste, el('span', { class: 'mx-leiste-wort' }, 'Inhalt'),
+      el('div', { class: 'mx-schalter', role: 'group', 'aria-label': 'Inhalt' }, ...[['', 'Alle', null], ['fertig', 'fertig', '●'], ['pruefung', 'in Prüfung', '◐'], ['leer', 'fehlt', '○']].map(([w, text, z]) =>
+        el('button', { type: 'button', 'aria-pressed': String(zst.inhalt === w), 'aria-label': w ? `${text}: ${zahl(w)}` : 'Alle Themen', onclick: () => { zst.inhalt = w; zeichne(); } },
+          z ? el('i', { class: 'lp-dot lp-dot-' + w, 'aria-hidden': 'true' }) : null, z ? `${text} ${zahl(w)}` : text))));
     lernErsetze(lernstandLeiste, el('span', { class: 'mx-leiste-wort' }, 'Lernstand'),
       kinder.length ? el('div', { class: 'mx-schalter', role: 'group', 'aria-label': 'Lernstand' },
         el('button', { type: 'button', 'aria-pressed': String(!zst.kind), onclick: () => waehleKind(null) }, 'Aus'),
@@ -4135,7 +4148,8 @@ async function viewLehrplan(arg) {
   };
 
   // ---------- Matrix ----------
-  const treffer = (x) => { const q = zst.q.trim().toLowerCase(); return !q || `${x.titel} ${x.umfang} ${x.gebiet} ${x.merke.join(' ')} ${x.etappen.map((e) => e.titel).join(' ')}`.toLowerCase().includes(q); };
+  const inhaltK = (x) => (x.ohneFlug && !x.roh.einheit ? 'ohne' : lernInhaltZustand(x.roh).k);
+  const treffer = (x) => { if (zst.inhalt && inhaltK(x) !== zst.inhalt) return false; const q = zst.q.trim().toLowerCase(); return !q || `${x.titel} ${x.umfang} ${x.gebiet} ${x.merke.join(' ')} ${x.etappen.map((e) => e.titel).join(' ')}`.toLowerCase().includes(q); };
   const weg = (id) => { const s = new Set(); const st = [id]; while (st.length) { const v = st.pop(); (M.vor.get(v) || []).forEach((e) => { if (!s.has(e.id)) { s.add(e.id); st.push(e.id); } }); } return s; };
   let WEG = new Set();
   const rolle = (x) => { const sel = zst.sel; if (!sel || !M.by.has(sel)) return ''; if (x.id === sel) return ' mx-sel'; if ((M.vor.get(sel) || []).some((e) => e.id === x.id)) return ' mx-vor';
@@ -4217,23 +4231,27 @@ async function viewLehrplan(arg) {
   const kurzK = (id) => { const y = M.by.get(id); const k = lernMxKl(y, zst.sa); return k ? `Kl. ${k}` : `zusätzlich, ≈ Kl. ${lernMxZeile(y, zst.sa)}`; };
   const springe = (id) => { zst.sel = id; zeichne(); if (!handy() && innerWidth < 1100) detail.scrollIntoView({ block: 'start' }); };
   const link = (id) => el('button', { type: 'button', class: 'mx-link', onclick: () => springe(id) }, M.by.get(id).titel);
-  const verbListe = (l) => el('ul', { class: 'mx-dep' }, ...l.map((e) => el('li', {}, link(e.id), el('span', { class: 'mx-kk' }, ` · ${kurzK(e.id)}${e.art === 'empfohlen' ? ' · empfohlen' : ''}`),
-    e.bg ? el('br') : null, e.bg ? el('span', { class: 'mx-kk' }, e.bg) : null)));
+  const verbListe = (l, sel, rueck) => el('ul', { class: 'mx-dep' }, ...l.map((e) => { const bg = e.bg || begr.get(rueck ? `${e.id}-${sel}` : `${sel}-${e.id}`) || '';
+    return el('li', {}, link(e.id), el('span', { class: 'mx-kk' }, ` · ${kurzK(e.id)}${e.art === 'empfohlen' ? ' · empfohlen' : ''}`), bg ? el('br') : null, bg ? el('span', { class: 'mx-kk' }, bg) : null); }));
   const nachKl = (a, b) => (lernMxZeile(M.by.get(a.id ?? a), zst.sa) - lernMxZeile(M.by.get(b.id ?? b), zst.sa));
   const inhaltZeichen = { fertig: ['●', 'fertig'], pruefung: ['◐', 'in Prüfung'], leer: ['○', 'fehlt'] };
-  // LM-S 2 (angekündigt): Lehrplan-Wortlaut, merke und beispiel kommen dann erst im Detail – nachladen mit thema_id (Antwort: themen[0] oder thema)
-  const geholt = new Set();
+  // LM-S 2: das Detail (kurz, ort, was_gefordert, merke, etappen, beispiel, braucht/baut_darauf mit Begründung, lehrplan, eigenstaendig als Text)
+  // kommt beim Antippen über schule_lehrplan_thema { thema_id } – einmal je Thema; bis dahin zeigt das Detail, was das Raster hat.
+  const geholt = new Map(); // thema_id → 'laedt' | 'ok' | 'fehler'
+  const begr = new Map(); // „a-b“ → Begründung der Verbindung (aus dem Detail)
   const nachladen = (x) => {
-    if (!d.matrix || x.roh.lehrplan !== undefined || x.roh.merke !== undefined || geholt.has(x.id)) return null;
-    geholt.add(x.id);
-    lernCall('schule_lehrplan_matrix', { thema_id: x.id, ...(mitTest ? { mit_testkind: true } : {}) }).then((r) => {
-      const t = r?.thema || (r?.themen || []).find((y) => y.thema_id === x.id); if (!t || !live()) return;
+    if (!d.matrix || geholt.has(x.id)) return geholt.get(x.id) === 'laedt' ? el('p', { class: 'small muted mx-laedt' }, 'Einzelheiten werden geladen …') : null;
+    geholt.set(x.id, 'laedt');
+    lernCall('schule_lehrplan_thema', { thema_id: x.id }).then((t) => {
+      if (!t || !live()) return;
       const i = d.themen.findIndex((y) => y.thema_id === x.id); if (i < 0) return;
-      d.themen[i] = { ...d.themen[i], ...Object.fromEntries(['lehrplan', 'merke', 'beispiel', 'lernbereich', 'etappen', 'was_gefordert'].filter((k) => t[k] !== undefined).map((k) => [k, t[k]])) };
-      if (t.was_gefordert) d.themen[i].beschreibung = t.was_gefordert;
-      M = lernMxDaten(d); if (zst.sel === x.id) zeichneDetail();
-    }).catch(() => { /* Detail ohne Wortlaut */ });
-    return el('p', { class: 'small muted mx-laedt' }, 'Lehrplan-Wortlaut wird geladen …');
+      const neu = Object.fromEntries(['kurz', 'ort', 'merke', 'etappen', 'beispiel', 'lehrplan', 'eigenstaendig', 'lernbereich'].filter((k) => t[k] !== undefined).map((k) => [k, t[k]]));
+      if (t.was_gefordert) neu.beschreibung = t.was_gefordert;
+      for (const v of t.braucht || []) if (v.begruendung) begr.set(`${x.id}-${v.thema_id}`, v.begruendung);
+      for (const v of t.baut_darauf || []) if (v.begruendung) begr.set(`${v.thema_id}-${x.id}`, v.begruendung);
+      d.themen[i] = { ...d.themen[i], ...neu }; geholt.set(x.id, 'ok');
+    }).catch(() => { geholt.set(x.id, 'fehler'); }).finally(() => { if (!live()) return; M = lernMxDaten(d); if (zst.sel === x.id) zeichneDetail(); });
+    return el('p', { class: 'small muted mx-laedt' }, 'Einzelheiten werden geladen …');
   };
   function zeichneDetail() {
     const x = zst.sel && M.by.get(zst.sel);
@@ -4260,8 +4278,8 @@ async function viewLehrplan(arg) {
       t.einheit ? null : lernAendern({ block_id: t.block_id }, { bezug: 'flug', wo: `Flug „${x.titel}“`, art: 'neu', text: `Bitte Inhalte bauen: „${x.titel}“ (${t.ort || x.gebiet}, ${lernJahrgangText(x.jg)}).` }),
       // LM-4: Lernstand je Kind
       ks.length ? el('section', { class: 'mx-ls' }, el('h3', {}, 'Lernstand'), el('ul', { class: 'mx-ls-liste' }, ...ks.map((c) => { const s = lernMxStufe(x, c);
-        // LM-S: fehler_offen (eine Pflicht-Etappe steht nach einem Test auf „fehler“); ohne LM-S: eine Etappe ist wieder offen
-        const fehler = s.fehler_offen !== undefined ? s.fehler_offen === true || Number(s.fehler_offen) > 0 : Number(s.wieder_offen) > 0;
+        // LM-S: fehler_offen (eine Pflicht-Etappe steht nach einem Test auf „fehler“; fehlt = nein); ohne LM-S: eine Etappe ist wieder offen
+        const fehler = d.matrix ? s.fehler_offen === true || Number(s.fehler_offen) > 0 : Number(s.wieder_offen) > 0;
         return el('li', {}, el('div', { class: 'mx-ls-kopf' }, lernStufeZeichenEl(s), el('b', {}, c.name), lernStufeWortEl(s)),
           el('div', { class: 'mx-ls-links' }, el('a', { href: '#/kind/' + c.id + '-plan', onclick: () => { lernPlanZiel = { kind: c.id, thema: x.id }; } }, 'Im Plan öffnen ›'),
             fehler ? el('a', { href: `#/kind/${c.id}-wackelt` }, 'Fehler besprechen ›') : null)); })),
@@ -4272,9 +4290,9 @@ async function viewLehrplan(arg) {
       el('h3', {}, 'Was gefordert ist'), x.umfang ? el('p', {}, x.umfang) : el('p', { class: 'muted' }, 'Keine Beschreibung hinterlegt.'),
       el('h3', {}, 'Braucht vorher'),
       !M.hatVerb ? el('p', { class: 'mx-offen' }, 'Die Verbindungen zwischen den Themen liefert der Server noch nicht. Sobald sie da sind, stehen hier die Voraussetzungen.')
-        : vor.length ? verbListe(vor) : el('p', { class: 'mx-offen' }, x.eigen ? `Eigenständig: braucht keine Voraussetzung${typeof x.eigen === 'string' ? ' – ' + x.eigen : ' (so hinterlegt)'}.` : 'Keine Voraussetzung hinterlegt. Das heißt nicht sicher, dass das Thema eigenständig ist – die Verbindungen werden noch vervollständigt.'),
+        : vor.length ? verbListe(vor, x.id, false) : el('p', { class: 'mx-offen' }, x.eigen ? `Eigenständig: braucht keine Voraussetzung${typeof x.eigen === 'string' ? ' – ' + x.eigen : ' (so hinterlegt)'}.` : 'Keine Voraussetzung hinterlegt. Das heißt nicht sicher, dass das Thema eigenständig ist – die Verbindungen werden noch vervollständigt.'),
       wg.length ? [el('h3', {}, `Weiter zurück auf dem Weg (${wg.length})`), el('p', { class: 'mx-dep mx-weg-liste' }, ...wg.flatMap((id, j) => [j ? ' · ' : '', link(id), el('span', { class: 'mx-kk' }, ` (${kurzK(id)})`)]))] : null,
-      M.hatVerb ? [el('h3', {}, 'Darauf baut auf'), nach.length ? verbListe(nach) : el('p', { class: 'mx-offen' }, 'Kein späteres Thema hinterlegt, das darauf aufbaut.')] : null,
+      M.hatVerb ? [el('h3', {}, 'Darauf baut auf'), nach.length ? verbListe(nach, x.id, true) : el('p', { class: 'mx-offen' }, 'Kein späteres Thema hinterlegt, das darauf aufbaut.')] : null,
       x.merke.length ? [el('h3', {}, 'Das muss sitzen'), el('ul', {}, ...x.merke.map((m) => el('li', {}, m)))] : null,
       x.beispiel ? [el('h3', {}, 'Beispielaufgabe'), el('p', { class: 'mx-beisp' }, x.beispiel)] : null,
       x.etappen.length ? [el('h3', {}, `Schritte in der App (${x.etappen.length} Etappen)`), el('ol', {}, ...x.etappen.map((e) => el('li', {}, e.titel, e.pflicht === false ? el('span', { class: 'mx-kk' }, ' · freiwillig') : null)))] : null,
@@ -4294,7 +4312,7 @@ async function viewLehrplan(arg) {
     el('section', { class: 'mx-kopf' }, el('h2', {}, 'Mathe Klasse 5–10: was gelernt wird'),
       el('p', { class: 'small muted' }, 'Ein Thema antippen zeigt, was gefordert ist, was es vorher braucht und worauf es vorbereitet. Grundlage sind die Themen der Lern-App mit ihrem Bezug zum LehrplanPLUS Bayern. ',
         el('a', { href: '#/expeditionen' }, '⛰ Expeditionen ansehen ›'))),
-    leiste, lernstandLeiste,
+    leiste, inhaltLeiste, lernstandLeiste,
     el('div', { class: 'mx-legende small muted' }, el('span', {}, el('i', { class: 'mx-leg-vor' }), 'braucht vorher'), el('span', {}, el('i', { class: 'mx-leg-weg' }), 'weiter zurück'),
       el('span', {}, el('i', { class: 'mx-leg-nach' }), 'baut darauf auf'), el('span', {}, el('i', { class: 'mx-leg-zu' }), 'nicht im Lehrplan dieser Schulart (gestrichelt)'), el('span', {}, '→ n: Grundlage für n Themen')),
     haupt,

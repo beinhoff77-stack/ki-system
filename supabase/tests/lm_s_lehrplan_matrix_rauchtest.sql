@@ -94,7 +94,8 @@ begin
 
   -- 8: Detail eines Themas mit Einheit – Lehrer mit Wortlaut, merke, Etappen mit Pflicht, Beispiel, Verbindungen mit Begründung; Kind ohne Lehrer-Felder
   select t.id into v_t from schule.thema t where t.fach = 'Mathematik' and schule.thema_einheit(t.id) is not null
-   order by (select count(*) from schule.voraussetzung v where v.thema_id = t.id) desc, t.id limit 1;
+   order by jsonb_array_length(coalesce((select e.inhalt->'bewertung'->'lernziele_pflicht' from schule.einheit e where e.id = schule.thema_einheit(t.id)), '[]'::jsonb)) > 0 desc,
+            (select count(*) from schule.voraussetzung v where v.thema_id = t.id or v.braucht_id = t.id) desc, t.id limit 1;
   v_d := schule.lehrplan_thema(v_t, false);
   v_dk := schule.lehrplan_thema(v_t, true);
   select to_jsonb(en) into v_th from schule.einheit en where en.id = schule.thema_einheit(v_t);

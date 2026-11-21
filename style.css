@@ -4783,6 +4783,7 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .mx-schalter button[aria-pressed="true"], .mx-schalter button[aria-pressed="true"]:hover { background: var(--accent); color: #fff; }
 .mx-suche { min-width: 200px; flex: 0 1 260px; }
 .mx-kurz { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 14px; cursor: pointer; white-space: nowrap; }
+.mx-inhalt-leiste .lp-dot { margin-right: 5px; }
 .mx-legende { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 4px 0 12px; }
 .mx-legende i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; }
 .mx-leg-vor { background: #FFF4DC; box-shadow: 0 0 0 2px #B7791F; } .mx-leg-weg { background: #FFF9EC; box-shadow: 0 0 0 1px #D9B26A; }

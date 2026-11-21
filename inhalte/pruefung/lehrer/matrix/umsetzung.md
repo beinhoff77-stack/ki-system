@@ -35,3 +35,23 @@ Thema antippen: direkte Voraussetzungen gelb mit Linie, weiter zurück hellgelb,
 
 ## Prüfen
 400, 820, 1280 px; keine Wörter mitten im Wort umbrochen (Trennstrich erlaubt); Schalter-Zustände; Lernstand-Modi; Linien liegen hinter den Karten.
+
+## LM-5 Einbau Lehrer/Eltern (Sebastian: „bei den Kindern und beim Lehrer einbauen“)
+- **Nachschlagen → „Lehrplan“** öffnet die Matrix (LM-1 bis LM-4), Lernstand-Leiste mit allen Kindern und „Beide vergleichen“.
+- **Seite des Kindes, Reiter „Plan“**: oben rechts Link „Als Matrix ansehen ›“. Er öffnet die Matrix mit diesem Kind vorgewählt und dessen Schulart. Kein fünfter Reiter (LA-1: vier Reiter + ⚙).
+- **Im Detail eines Themas** für Lehrer/Eltern zusätzlich die Stufen-Knöpfe aus LB Teil 8 (Variante A): „Lernen · Kann er – wiederholen · Kann er komplett“ und rechts „Aus dem Plan nehmen“ bzw. „In den Plan nehmen“. Gleiche Server-Aufrufe und Rückgängig wie im Plan, nur wenn genau ein Kind gewählt ist. Damit kann der Lehrer direkt aus der Übersicht planen.
+- „Im Plan öffnen ›“ springt in den Reiter „Plan“ mit diesem Thema aufgeklappt.
+
+## LM-6 Einbau Kinderseite („Meine Route 5–10“)
+Gleiche Matrix, für das Kind vereinfacht:
+- **Zugang:** auf der Abflugtafel ein Textlink „Meine Route 5–10 ›“ (kein großer Knopf, der große Knopf bleibt „Weiter“).
+- **Nur das eigene Kind:** Lernstand immer an, Schulart fest. Keine Leiste für Kinder, kein Vergleich mit Geschwistern, keine Schulart-Kennzeichen („Gym 8 · RS 7“), keine Pflicht-Zählung, kein Lehrplan-Wortlaut, keine Lernbereiche.
+- **Reisewörter** (Test der Reisewörter gilt): Flug statt Thema, Kontinent statt Themengebiet, Etappe. Überschrift „Deine Route durch die Mathe-Welt“, Spalten = Kontinente, Zeilen = Klasse 5–10.
+- **Je Flug die Stufe** in Kinder-Sprache: ◉ „kannst du“, ↻ „kommt zur Wiederholung“, ▶ „hier bist du – Etappe x von y“, ○ „kommt noch“; nicht im Plan: blass, ohne Text. Beim Öffnen zum ▶-Flug scrollen.
+- **Kopf je Klasse:** ein Balken und „Du kannst schon n von m Flügen“.
+- **Detail eines Flugs:** „Was du hier lernst“ (umfang), „Das muss sitzen“ (merke), „Das brauchst du vorher“ (mit eigener Stufe ◉/↻/○), „Danach geht’s weiter mit“, Etappen-Liste mit ✓ für gelandete Etappen. Kein Ändern des Plans. Ist es der ▶-Flug: großer Knopf „Weiter lernen ›“ (öffnet die nächste Etappe). Sonst kein Lern-Knopf (Reihenfolge bestimmt der Plan).
+- **Verbindungen:** wie LM-3, aber Wörter „brauchst du vorher“ / „baut darauf auf“.
+- **Handy/Tablet zuerst:** Liste je Klasse wie LM-1 Handy. Keine Kinderdaten in Tests.
+
+## Reihenfolge
+LM-1 bis LM-4 und LM-5 zusammen (Lehrer/Eltern), danach LM-6 (Kinderseite) als eigener Schritt, weil dort Reisewörter und Stufen-Texte für Kinder dazukommen.

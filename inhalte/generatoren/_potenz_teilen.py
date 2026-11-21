@@ -426,6 +426,29 @@ AUFGABEN_PVP = [
 ]
 
 
+# Neunundzwanzigste Runde (21.11., Entscheidung Sebastian Punkt 2; Nachprüfung Kann 2, 4, 6)
+NB29_A = [
+    # die sieben „Fehler benennen“-Auswahlaufgaben: kein Typ (überzählig, beim Einspielen gesperrt, nicht gelöscht)
+    ('ohne_typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch?'),
+    ('ohne_typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 4⁴ · 4² = 4⁸. Was ist falsch?'),
+    ('ohne_typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 5⁴ · 5⁴ = 5¹⁶. Was ist falsch?'),
+    ('ohne_typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig?'),
+    ('ohne_typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 4³ · 4³ = 4⁹. Welcher Satz beschreibt den Fehler richtig?'),
+    ('ohne_typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 4⁴ · 4² = 16⁶. Welcher Satz beschreibt den Fehler richtig?'),
+    ('ohne_typ', 'gleicher_exponent', 'Ein Kind rechnet: 2² · 5² = 10⁴. Was ist falsch?'),
+    # Kann 2: Ablenker, die eine Basis verlieren
+    ('antwort', 'gleicher_exponent', 'Ein Kind rechnet: 2³ · 5³ = 10⁶. Was ist falsch?',
+     {'Die Exponenten werden addiert, nicht malgenommen: 2⁵.': 'Die Basen werden addiert: 7³.'}),
+    ('antwort', 'gleicher_exponent', 'Ein Kind rechnet: 2⁴ · 5⁴ = 10⁸. Was ist falsch?',
+     {'Die Exponenten werden addiert, nicht malgenommen: 5⁶.': 'Die Basen werden addiert: 7⁴.'}),
+    # Kann 4: ein Schritt (10 − n = 4) → Stufe 2 umkehr
+    ('typ', 'geteilt_gleiche_basis', '2¹⁰ : 2ⁿ = 16. Wie groß ist n?', 'umkehr'),
+    # Kann 6: Wort „potenziert“ einfacher
+    ('karte', 'potenz_von_potenz', {'woerter': [['Potenz einer Potenz', 'eine Potenz in Klammern mit noch einem Exponenten, z. B. (2²)³'],
+                                                ['potenziert', 'hoch eine Zahl genommen']]}),
+]
+
+
 def _kurz(a):
     x = {k: a.get(k) for k in ('p', 's', 'g')}
     return f"{x['p']}, Stufe {x['s']}, {x['g'] or 'ohne Typ'}"
@@ -502,6 +525,7 @@ def flug_a():
         BERICHT[thema]['aus_gym6'].append({'lz': a['l'], 'vorher': alt, 'text': a['f']['text']})
     nachbessern(d, thema, NB_A)          # Achtundzwanzigste Runde
     karte_pvp(d, thema)                  # Achtundzwanzigste Runde, Kann 6
+    nachbessern(d, thema, NB29_A)        # Neunundzwanzigste Runde
     for lz in LZ_A + ('potenz_von_potenz',):
         _ordnen_karte(d, lz)
         _regeln(d, lz)

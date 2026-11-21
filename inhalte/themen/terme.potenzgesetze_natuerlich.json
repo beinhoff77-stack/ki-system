@@ -150,7 +150,7 @@
      ],
      [
       "potenziert",
-      "mit einem Exponenten versehen, also mehrmals mit sich selbst malgenommen"
+      "hoch eine Zahl genommen"
      ]
     ],
     "bild": {
@@ -378,27 +378,6 @@
    "l": "mal_gleiche_basis",
    "t": "mal_gleiche_basis",
    "p": "uebung",
-   "s": 1,
-   "g": "erkennen",
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Regel gilt bei a³ · a⁴?"
-   },
-   "a": [
-    "Basen malnehmen: a²",
-    "Exponenten malnehmen: a¹²",
-    "Exponenten addieren: a⁷"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Gleiche Basis beim Malnehmen: Exponenten addieren, 3 + 4 = 7.",
-   "h": "Schreibe a³ · a⁴ einmal ganz aus."
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
    "s": 2,
    "g": "mehrschritt",
    "y": "zahl",
@@ -417,21 +396,17 @@
    "t": "mal_gleiche_basis",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Nein, das ist falsch.",
-    "Ja, gleiche Basis: Exponenten addieren.",
-    "Das kann man nicht entscheiden."
-   ],
-   "o": {
-    "index": 1
-   },
+   "y": "zahl",
    "f": {
-    "text": "Stimmt die Rechnung? 5² · 5² = 5⁴"
+    "text": "2⁵ · 2⁶ = 2ᵏ. Wie groß ist k?"
    },
-   "w": "Ja, gleiche Basis: Exponenten addieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
-   "g": "erkennen"
+   "o": {
+    "wert": 11
+   },
+   "c": "5 + 6",
+   "w": "Gleiche Basis: Exponenten addieren, 5 + 6 = 11. Also 2¹¹.",
+   "h": "Gleiche Basis beim Malnehmen: Exponenten addieren.",
+   "g": "direkt"
   },
   {
    "l": "mal_gleiche_basis",
@@ -460,59 +435,17 @@
    "t": "mal_gleiche_basis",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, gleiche Basis: Exponenten addieren.",
-    "Nein, das ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? 4⁴ · 4² = 4⁶"
-   },
-   "w": "Ja, gleiche Basis: Exponenten addieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
-   "g": "erkennen"
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "2⁵ · 2⁶ = 2ᵏ. Wie groß ist k?"
+    "text": "2¹ · 2² = 2ᵏ. Wie groß ist k?"
    },
    "o": {
-    "wert": 11
+    "wert": 3
    },
-   "c": "5 + 6",
-   "w": "Gleiche Basis: Exponenten addieren, 5 + 6 = 11. Also 2¹¹.",
+   "c": "1 + 2",
+   "w": "Gleiche Basis: Exponenten addieren, 1 + 2 = 3. Also 2³.",
    "h": "Gleiche Basis beim Malnehmen: Exponenten addieren.",
    "g": "direkt"
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, gleiche Basis: Exponenten addieren.",
-    "Nein, das ist falsch."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? 2⁴ · 2³ = 2⁷"
-   },
-   "w": "Ja, gleiche Basis: Exponenten addieren.",
-   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
-   "g": "erkennen"
   },
   {
    "l": "mal_gleiche_basis",
@@ -538,37 +471,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "2¹ · 2² = 2ᵏ. Wie groß ist k?"
+    "text": "5⁶ · 5³ = 5ᵏ. Wie groß ist k?"
    },
    "o": {
-    "wert": 3
+    "wert": 9
    },
-   "c": "1 + 2",
-   "w": "Gleiche Basis: Exponenten addieren, 1 + 2 = 3. Also 2³.",
+   "c": "6 + 3",
+   "w": "Gleiche Basis: Exponenten addieren, 6 + 3 = 9. Also 5⁹.",
    "h": "Gleiche Basis beim Malnehmen: Exponenten addieren.",
    "g": "direkt"
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig?"
-   },
-   "a": [
-    "Nichts, die Rechnung ist richtig.",
-    "Die Exponenten werden subtrahiert: 4¹.",
-    "Die Exponenten werden malgenommen: 4⁶.",
-    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁵."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Gleiche Basis: Die Basis bleibt 4, die Exponenten werden addiert. Also 4³ · 4² = 4⁵, nicht 16⁵.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "erkennen"
   },
   {
    "l": "mal_gleiche_basis",
@@ -594,36 +505,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "5⁶ · 5³ = 5ᵏ. Wie groß ist k?"
+    "text": "5¹ · 5⁶ = 5ᵏ. Wie groß ist k?"
    },
    "o": {
-    "wert": 9
+    "wert": 7
    },
-   "c": "6 + 3",
-   "w": "Gleiche Basis: Exponenten addieren, 6 + 3 = 9. Also 5⁹.",
+   "c": "1 + 6",
+   "w": "Gleiche Basis: Exponenten addieren, 1 + 6 = 7. Also 5⁷.",
    "h": "Gleiche Basis beim Malnehmen: Exponenten addieren.",
    "g": "direkt"
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, das stimmt.",
-    "Nein, die Exponenten werden addiert: 5⁵."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Rechnung? 5² · 5³ = 5⁶"
-   },
-   "w": "Nein, die Exponenten werden addiert: 5⁵.",
-   "g": "erkennen",
-   "h": "Schreib beide Potenzen aus und zähle die Faktoren."
   },
   {
    "l": "mal_gleiche_basis",
@@ -647,39 +537,21 @@
    "t": "mal_gleiche_basis",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "5¹ · 5⁶ = 5ᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "1 + 6",
-   "w": "Gleiche Basis: Exponenten addieren, 1 + 6 = 7. Also 5⁷.",
-   "h": "Gleiche Basis beim Malnehmen: Exponenten addieren.",
-   "g": "direkt"
-  },
-  {
-   "l": "mal_gleiche_basis",
-   "t": "mal_gleiche_basis",
-   "p": "uebung",
-   "s": 1,
+   "g": "erkennen",
    "y": "auswahl",
+   "f": {
+    "text": "Welche Regel gilt bei a³ · a⁴?"
+   },
    "a": [
-    "Nichts, die Rechnung ist richtig.",
-    "Die Exponenten werden malgenommen: 3¹⁶.",
-    "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁸.",
-    "Die Exponenten werden subtrahiert: 3⁰."
+    "Basen malnehmen: a²",
+    "Exponenten malnehmen: a¹²",
+    "Exponenten addieren: a⁷"
    ],
    "o": {
     "index": 2
    },
-   "f": {
-    "text": "Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch?"
-   },
-   "w": "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁸.",
-   "g": "erkennen",
-   "h": "Schreib beide Potenzen aus und zähle die Faktoren."
+   "w": "Gleiche Basis beim Malnehmen: Exponenten addieren, 3 + 4 = 7.",
+   "h": "Schreibe a³ · a⁴ einmal ganz aus."
   },
   {
    "l": "mal_gleiche_basis",
@@ -722,20 +594,19 @@
    "s": 1,
    "y": "auswahl",
    "a": [
-    "Die Basen werden malgenommen: 16⁶.",
-    "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
-    "Die Exponenten werden subtrahiert: 4².",
-    "Nichts, die Rechnung ist richtig."
+    "Nein, das ist falsch.",
+    "Ja, gleiche Basis: Exponenten addieren.",
+    "Das kann man nicht entscheiden."
    ],
    "o": {
     "index": 1
    },
    "f": {
-    "text": "Ein Kind rechnet: 4⁴ · 4² = 4⁸. Was ist falsch?"
+    "text": "Stimmt die Rechnung? 5² · 5² = 5⁴"
    },
-   "w": "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
-   "g": "erkennen",
-   "h": "Schreib beide Potenzen aus und zähle die Faktoren."
+   "w": "Ja, gleiche Basis: Exponenten addieren.",
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "erkennen"
   },
   {
    "l": "mal_gleiche_basis",
@@ -778,20 +649,19 @@
    "s": 1,
    "y": "auswahl",
    "a": [
-    "Nichts, die Rechnung ist richtig.",
-    "Die Basen werden addiert: 10⁸.",
-    "Die Basen werden malgenommen: 25⁸.",
-    "Die Exponenten werden addiert, nicht malgenommen: 5⁸."
+    "Das kann man nicht entscheiden.",
+    "Ja, gleiche Basis: Exponenten addieren.",
+    "Nein, das ist falsch."
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
    "f": {
-    "text": "Ein Kind rechnet: 5⁴ · 5⁴ = 5¹⁶. Was ist falsch?"
+    "text": "Stimmt die Rechnung? 4⁴ · 4² = 4⁶"
    },
-   "w": "Die Exponenten werden addiert, nicht malgenommen: 5⁸.",
-   "g": "erkennen",
-   "h": "Schreib beide Potenzen aus und zähle die Faktoren."
+   "w": "Ja, gleiche Basis: Exponenten addieren.",
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
+   "g": "erkennen"
   },
   {
    "l": "mal_gleiche_basis",
@@ -850,20 +720,19 @@
    "p": "uebung",
    "s": 1,
    "y": "auswahl",
-   "f": {
-    "text": "Ein Kind rechnet: 4³ · 4³ = 4⁹. Welcher Satz beschreibt den Fehler richtig?"
-   },
    "a": [
-    "Die Exponenten werden subtrahiert: 4⁰.",
-    "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
-    "Nichts, die Rechnung ist richtig.",
-    "Die Basen werden malgenommen: 16⁶."
+    "Das kann man nicht entscheiden.",
+    "Ja, gleiche Basis: Exponenten addieren.",
+    "Nein, das ist falsch."
    ],
    "o": {
     "index": 1
    },
-   "w": "Gleiche Basis: Exponenten addieren. 4³ · 4³ = 4⁶, nicht 4⁹.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
+   "f": {
+    "text": "Stimmt die Rechnung? 2⁴ · 2³ = 2⁷"
+   },
+   "w": "Ja, gleiche Basis: Exponenten addieren.",
+   "h": "Prüfe mit Ausschreiben oder Ausrechnen.",
    "g": "erkennen"
   },
   {
@@ -980,6 +849,132 @@
    "s": 1,
    "y": "auswahl",
    "f": {
+    "text": "Ein Kind rechnet: 4³ · 4² = 16⁵. Welcher Satz beschreibt den Fehler richtig?"
+   },
+   "a": [
+    "Nichts, die Rechnung ist richtig.",
+    "Die Exponenten werden subtrahiert: 4¹.",
+    "Die Exponenten werden malgenommen: 4⁶.",
+    "Die Basis bleibt 4, nur die Exponenten werden addiert: 4⁵."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gleiche Basis: Die Basis bleibt 4, die Exponenten werden addiert. Also 4³ · 4² = 4⁵, nicht 16⁵.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
+  },
+  {
+   "l": "mal_gleiche_basis",
+   "t": "mal_gleiche_basis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, die Exponenten werden addiert: 5⁵."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Rechnung? 5² · 5³ = 5⁶"
+   },
+   "w": "Nein, die Exponenten werden addiert: 5⁵.",
+   "g": "erkennen",
+   "h": "Schreib beide Potenzen aus und zähle die Faktoren."
+  },
+  {
+   "l": "mal_gleiche_basis",
+   "t": "mal_gleiche_basis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nichts, die Rechnung ist richtig.",
+    "Die Exponenten werden malgenommen: 3¹⁶.",
+    "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁸.",
+    "Die Exponenten werden subtrahiert: 3⁰."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch?"
+   },
+   "w": "Die Basis bleibt 3, nur die Exponenten werden addiert: 3⁸.",
+   "h": "Schreib beide Potenzen aus und zähle die Faktoren."
+  },
+  {
+   "l": "mal_gleiche_basis",
+   "t": "mal_gleiche_basis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Die Basen werden malgenommen: 16⁶.",
+    "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
+    "Die Exponenten werden subtrahiert: 4².",
+    "Nichts, die Rechnung ist richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 4⁴ · 4² = 4⁸. Was ist falsch?"
+   },
+   "w": "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
+   "h": "Schreib beide Potenzen aus und zähle die Faktoren."
+  },
+  {
+   "l": "mal_gleiche_basis",
+   "t": "mal_gleiche_basis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nichts, die Rechnung ist richtig.",
+    "Die Basen werden addiert: 10⁸.",
+    "Die Basen werden malgenommen: 25⁸.",
+    "Die Exponenten werden addiert, nicht malgenommen: 5⁸."
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 5⁴ · 5⁴ = 5¹⁶. Was ist falsch?"
+   },
+   "w": "Die Exponenten werden addiert, nicht malgenommen: 5⁸.",
+   "h": "Schreib beide Potenzen aus und zähle die Faktoren."
+  },
+  {
+   "l": "mal_gleiche_basis",
+   "t": "mal_gleiche_basis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind rechnet: 4³ · 4³ = 4⁹. Welcher Satz beschreibt den Fehler richtig?"
+   },
+   "a": [
+    "Die Exponenten werden subtrahiert: 4⁰.",
+    "Die Exponenten werden addiert, nicht malgenommen: 4⁶.",
+    "Nichts, die Rechnung ist richtig.",
+    "Die Basen werden malgenommen: 16⁶."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gleiche Basis: Exponenten addieren. 4³ · 4³ = 4⁶, nicht 4⁹.",
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
+  },
+  {
+   "l": "mal_gleiche_basis",
+   "t": "mal_gleiche_basis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
     "text": "Ein Kind rechnet: 4⁴ · 4² = 16⁶. Welcher Satz beschreibt den Fehler richtig?"
    },
    "a": [
@@ -992,8 +987,7 @@
     "index": 0
    },
    "w": "Gleiche Basis: Die Basis bleibt 4, die Exponenten werden addiert. Also 4⁴ · 4² = 4⁶, nicht 16⁶.",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "erkennen"
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
   },
   {
    "l": "mal_gleiche_basis",
@@ -1407,22 +1401,17 @@
    "t": "gleicher_exponent",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
-   "a": [
-    "10²",
-    "7²",
-    "10⁴",
-    "7⁴"
-   ],
-   "o": {
-    "index": 0
-   },
+   "y": "zahl",
    "f": {
-    "text": "Fasse zusammen: 2² · 5²"
+    "text": "Berechne geschickt: 50³ · 2³"
    },
-   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 10².",
-   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen.",
-   "g": "erkennen"
+   "o": {
+    "wert": 1000000
+   },
+   "c": "50**3 * 2**3",
+   "w": "Gleicher Exponent: (50 · 2)³ = 100³ = 1 000 000.",
+   "h": "Gleicher Exponent: Erst die Basen malnehmen.",
+   "g": "direkt"
   },
   {
    "l": "gleicher_exponent",
@@ -1446,17 +1435,22 @@
    "t": "gleicher_exponent",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne geschickt: 50³ · 2³"
-   },
+   "y": "auswahl",
+   "a": [
+    "10²",
+    "7²",
+    "10⁴",
+    "7⁴"
+   ],
    "o": {
-    "wert": 1000000
+    "index": 0
    },
-   "c": "50**3 * 2**3",
-   "w": "Gleicher Exponent: (50 · 2)³ = 100³ = 1 000 000.",
-   "h": "Gleicher Exponent: Erst die Basen malnehmen.",
-   "g": "direkt"
+   "f": {
+    "text": "Fasse zusammen: 2² · 5²"
+   },
+   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 10².",
+   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen.",
+   "g": "erkennen"
   },
   {
    "l": "gleicher_exponent",
@@ -1552,28 +1546,6 @@
    "l": "gleicher_exponent",
    "t": "gleicher_exponent",
    "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "10⁸",
-    "7⁴",
-    "10¹⁶",
-    "10⁴"
-   ],
-   "o": {
-    "index": 3
-   },
-   "f": {
-    "text": "Fasse zusammen: 2⁴ · 5⁴"
-   },
-   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 10⁴.",
-   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen.",
-   "g": "erkennen"
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1626,6 +1598,28 @@
    "t": "gleicher_exponent",
    "p": "uebung",
    "s": 1,
+   "y": "auswahl",
+   "a": [
+    "10⁸",
+    "7⁴",
+    "10¹⁶",
+    "10⁴"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Fasse zusammen: 2⁴ · 5⁴"
+   },
+   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 10⁴.",
+   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "gleicher_exponent",
+   "t": "gleicher_exponent",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Berechne geschickt: 2² · 50²"
@@ -1637,28 +1631,6 @@
    "w": "Gleicher Exponent: (2 · 50)² = 100² = 10 000.",
    "h": "Gleicher Exponent: Erst die Basen malnehmen.",
    "g": "direkt"
-  },
-  {
-   "l": "gleicher_exponent",
-   "t": "gleicher_exponent",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "100⁴",
-    "100²",
-    "29⁴",
-    "29²"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Fasse zusammen: 4² · 25²"
-   },
-   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 100².",
-   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen.",
-   "g": "erkennen"
   },
   {
    "l": "gleicher_exponent",
@@ -1720,7 +1692,7 @@
    "a": [
     "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10³.",
     "Nichts, die Rechnung ist richtig.",
-    "Die Exponenten werden addiert, nicht malgenommen: 2⁵.",
+    "Die Basen werden addiert: 7³.",
     "Die Basis bleibt 2, nur die Exponenten werden addiert: 2⁵."
    ],
    "o": {
@@ -1789,6 +1761,28 @@
    "s": 1,
    "y": "auswahl",
    "a": [
+    "100⁴",
+    "100²",
+    "29⁴",
+    "29²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Fasse zusammen: 4² · 25²"
+   },
+   "w": "Gleicher Exponent: Basen malnehmen, Exponent bleibt: 100².",
+   "h": "Die Exponenten werden hier nicht addiert – nur die Basen malgenommen.",
+   "g": "erkennen"
+  },
+  {
+   "l": "gleicher_exponent",
+   "t": "gleicher_exponent",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
     "Die Basen werden addiert: 7².",
     "Nichts, die Rechnung ist richtig.",
     "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10².",
@@ -1801,8 +1795,7 @@
     "text": "Ein Kind rechnet: 2² · 5² = 10⁴. Was ist falsch?"
    },
    "w": "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10².",
-   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.",
-   "g": "erkennen"
+   "h": "Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach."
   },
   {
    "l": "gleicher_exponent",
@@ -1979,7 +1972,7 @@
    "a": [
     "Verschiedene Basen darf man nie zusammenfassen.",
     "Gleicher Exponent: Basen malnehmen, der Exponent bleibt: 10⁴.",
-    "Die Exponenten werden addiert, nicht malgenommen: 5⁶.",
+    "Die Basen werden addiert: 7⁴.",
     "Nichts, die Rechnung ist richtig."
    ],
    "o": {
@@ -2525,6 +2518,40 @@
    "l": "geteilt_gleiche_basis",
    "t": "geteilt_gleiche_basis",
    "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "Ergänze: 7ᵏ : 7² = 7⁵. Wie groß ist k?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "5 + 2",
+   "w": "k − 2 = 5, also k = 7.",
+   "h": "Welcher Exponent minus 2 ergibt 5?"
+  },
+  {
+   "l": "geteilt_gleiche_basis",
+   "t": "geteilt_gleiche_basis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3⁵ · 3³ : 3⁴ = 3ᵉ. Wie groß ist e?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "5 + 3 - 4",
+   "w": "Von links: 3⁵ · 3³ = 3⁸; : 3⁴ ergibt 3⁴.",
+   "h": "Malnehmen: addieren. Teilen: subtrahieren.",
+   "g": "mehrschritt"
+  },
+  {
+   "l": "geteilt_gleiche_basis",
+   "t": "geteilt_gleiche_basis",
+   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
@@ -2545,14 +2572,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "3⁵ · 3³ : 3⁴ = 3ᵉ. Wie groß ist e?"
+    "text": "Berechne 3⁷ : 3⁵."
    },
    "o": {
-    "wert": 4
+    "wert": 9
    },
-   "c": "5 + 3 - 4",
-   "w": "Von links: 3⁵ · 3³ = 3⁸; : 3⁴ ergibt 3⁴.",
-   "h": "Malnehmen: addieren. Teilen: subtrahieren.",
+   "c": "3**7 / 3**5",
+   "w": "3⁷ : 3⁵ = 3² = 9.",
+   "h": "Nicht beide Potenzen ausrechnen – erst das Gesetz anwenden.",
    "g": "mehrschritt"
   },
   {
@@ -2584,14 +2611,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 3⁷ : 3⁵."
+    "text": "x⁸ : x = xᵏ. Wie groß ist k?"
    },
    "o": {
-    "wert": 9
+    "wert": 7
    },
-   "c": "3**7 / 3**5",
-   "w": "3⁷ : 3⁵ = 3² = 9.",
-   "h": "Nicht beide Potenzen ausrechnen – erst das Gesetz anwenden.",
+   "c": "8 - 1",
+   "h": "x hat den Exponenten 1.",
+   "w": "x⁸ : x¹ = x⁸⁻¹ = x⁷.",
    "g": "mehrschritt"
   },
   {
@@ -2610,23 +2637,6 @@
    "w": "Gleiche Basis: Exponenten subtrahieren, 7 − 2 = 5. Also 10⁵.",
    "h": "Gleiche Basis beim Teilen: Exponenten subtrahieren.",
    "g": "direkt"
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "x⁸ : x = xᵏ. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "8 - 1",
-   "h": "x hat den Exponenten 1.",
-   "w": "x⁸ : x¹ = x⁸⁻¹ = x⁷.",
-   "g": "mehrschritt"
   },
   {
    "l": "geteilt_gleiche_basis",
@@ -2654,23 +2664,6 @@
    "t": "geteilt_gleiche_basis",
    "p": "uebung",
    "s": 2,
-   "g": "umkehr",
-   "y": "zahl",
-   "f": {
-    "text": "Ergänze: 7ᵏ : 7² = 7⁵. Wie groß ist k?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "5 + 2",
-   "w": "k − 2 = 5, also k = 7.",
-   "h": "Welcher Exponent minus 2 ergibt 5?"
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 2,
    "g": "einkleidung",
    "y": "zahl",
    "f": {
@@ -2682,6 +2675,23 @@
    "c": "6 - 2",
    "w": "10⁶ : 10² = 10⁴ = 10 000 Kisten.",
    "h": "Teilen bei gleicher Basis: Exponenten abziehen."
+  },
+  {
+   "l": "geteilt_gleiche_basis",
+   "t": "geteilt_gleiche_basis",
+   "p": "uebung",
+   "s": 2,
+   "g": "umkehr",
+   "y": "zahl",
+   "f": {
+    "text": "2¹⁰ : 2ⁿ = 16. Wie groß ist n?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "10 - 4",
+   "w": "16 = 2⁴. Also 10 − n = 4 und n = 6. Probe: 2¹⁰ : 2⁶ = 2⁴ = 16.",
+   "h": "Schreibe 16 als Potenz von 2."
   },
   {
    "l": "geteilt_gleiche_basis",
@@ -2716,23 +2726,6 @@
    "h": "Teile die Zahlen vorne und die Zehnerpotenzen getrennt.",
    "w": "8 : 4 = 2 und 10¹² : 10⁹ = 10³. Also 2 · 10³ = 2 000 Filme.",
    "g": "verknuepfen"
-  },
-  {
-   "l": "geteilt_gleiche_basis",
-   "t": "geteilt_gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "g": "rueckwaerts",
-   "y": "zahl",
-   "f": {
-    "text": "2¹⁰ : 2ⁿ = 16. Wie groß ist n?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "10 - 4",
-   "w": "16 = 2⁴. Also 10 − n = 4 und n = 6. Probe: 2¹⁰ : 2⁶ = 2⁴ = 16.",
-   "h": "Schreibe 16 als Potenz von 2."
   },
   {
    "l": "geteilt_gleiche_basis",

@@ -2,6 +2,21 @@
 
 Neueste Meldung oben.
 
+## 2026-11-21 – MELDUNG Runde 30 b: Thema 12 zurückgenommen, aufgelöste Themen entkoppelt
+
+Grundlage ist `lernen-app` 168a744b. Die Datenbank habe ich nur gelesen, die Migration **nicht ausgeführt**. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0.
+
+- **12 ohne Gymnasium-Klasse.** Die Reihenfolge Gym 9 ist wie vorher. Der Stoff steht im Flug 8, Etappe `reinquadratisch`.
+- **Zehn aufgelöste Themen** (12, 27, 40, 41, 48, 72, 77, 78, 82, 83) mit `schule.einheit` abgeglichen: Nur diese zehn haben keine freigegebene Einheit. Für jedes nennt der Bericht, in welchem Flug und welcher Etappe der Stoff heute steht.
+- **Gezielt gelöscht** in Abschnitt 3c der Migration, einzeln mit Kommentar: 12 Zeilen in `schule.voraussetzung`, nämlich 8←12, 12←68, 49←48, 74←48, 76←41, 72←67, 72←71, 77←32, 78←33, 82←21, 82←23 und 82←61.
+- **Ersatz:** 8←68 (hart), 49←46 (empfohlen), 74←46 (empfohlen), 74←50 (hart), 76←28 (hart). Aus den neuen Verbindungen der Runde 30 sind 8 Zeilen gestrichen. Insgesamt bleiben 128 Verbindungen.
+- **Neue Rauchtest-Regel i:** keine Verbindung von oder zu einem Thema ohne freigegebene Einheit. Erlaubt ist nur eine Begründung, die mit „Ausnahme:“ beginnt; das kommt derzeit nicht vor. Regel b gilt nur noch für freigegebene Themen. Alle Regeln sind per Skript nachgerechnet.
+- **Plan-Folgen:** keine.
+- **Befund:** Die aufgelösten Themen tragen weiter Klassen und Reihenfolgen für RS und IB. Das habe ich nicht geändert; die Matrix markiert sie mit `ohne_flug` (Teil B).
+- **Lücke:** Vektoren (48) haben für RS 7 keinen freigegebenen Flug. Determinanten (74) nutzen Vektorkoordinaten.
+
+FERTIG: Lehrplan Runde 30 b
+
 ## 2026-11-21 – MELDUNG Dreißigste Runde: Lehrplan-Prüfung Zuordnungen und Voraussetzungen
 
 Grundlage ist `lernen-app` e0739529, mit dem Nachtrag des Gestalters. Die Datenbank habe ich nur gelesen, die Migration **nicht ausgeführt**. Aufgaben, Karten und App-Code sind unverändert. Bericht mit Quellen (LehrplanPLUS, abgerufen 21.11.2026) und Annahmen: `inhalte/pruefung/lehrplan/runde30.md`.

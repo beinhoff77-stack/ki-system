@@ -1,21 +1,14 @@
 -- Dreißigste Runde (21.11.): Lehrplan-Prüfung – Zuordnungen und Voraussetzungen der Themenliste.
 -- Quelle: LehrplanPLUS Bayern, abgerufen 21.11.2026; Belege und Annahmen in inhalte/pruefung/lehrplan/runde30.md.
--- Wiederholt ausführbar. Kein DROP, kein DELETE. Fehlen die Themen 102/103, werden ihre Verbindungen übersprungen.
+-- Wiederholt ausführbar. Kein DROP. DELETE nur in Abschnitt 3c: zwölf einzeln aufgezählte veraltete Verbindungen zu aufgelösten Themen (Runde 30 b, ausdrücklich erlaubt).
+-- Fehlen die Themen 102/103, werden ihre Verbindungen übersprungen (seit 21.11. sind sie in der Datenbank).
 -- Am Ende ein Rauchtest (nur lesen); schlägt er fehl, bricht die Migration mit Fehlermeldung ab.
 
 -- 1) Kleinste Erweiterung: Kennzeichen „eigenständig“ (Begründung; nicht leer = bewusst ohne Voraussetzung)
 alter table schule.thema add column if not exists eigenstaendig text;
 comment on column schule.thema.eigenstaendig is 'Begründung, warum das Thema bewusst keine Voraussetzung hat (Dreißigste Runde)';
 
--- 2) Reinquadratische Gleichungen (12) ins Gymnasium Klasse 9, M9 2 (vor gleichungen.quadratisch)
-update schule.thema set klasse_fest = coalesce(klasse_fest,'{}'::jsonb) || '{"gym_by": 9}'::jsonb,
-  lernbereich = coalesce(lernbereich,'{}'::jsonb) || '{"gym_by": "M9 2 Quadratische Funktionen"}'::jsonb,
-  lehrplan = coalesce(lehrplan,'{}'::jsonb) || jsonb_build_object('gym_by', 'Gleichungen x² = a ohne Lösungsformel lösen (Teil von M9 2.1: quadratische Gleichungen lösen)')
-where id = 12;
--- Reihenfolge Gymnasium 9 lückenlos neu (12 an Stelle 4, dahinter je +1)
-update schule.thema t set lehrplan_reihenfolge = coalesce(t.lehrplan_reihenfolge,'{}'::jsonb) || jsonb_build_object('gym_by', v.rf)
-from (values (68, 1), (20, 2), (35, 3), (12, 4), (8, 5), (7, 6), (63, 7), (47, 8), (96, 9), (36, 10), (9, 11), (54, 12), (55, 13), (56, 14), (14, 15)) v(id, rf)
-where t.id = v.id;
+-- 2) entfällt (Runde 30 b): Thema 12 bekommt keine Gymnasium-Klasse; es ist für das Gymnasium aufgelöst (Etappe reinquadratisch in 8). Reihenfolge Gym 9 bleibt unverändert.
 
 -- 3) Formeln umstellen (4): Lernbereich Gymnasium berichtigt (M8 1 statt M8 4); Reihenfolge bleibt
 update schule.thema set lernbereich = coalesce(lernbereich,'{}'::jsonb) || '{"gym_by": "M8 1 Funktion und Term"}'::jsonb where id = 4;
@@ -30,15 +23,46 @@ update schule.thema t set lehrplan_reihenfolge = coalesce(t.lehrplan_reihenfolge
 from (values (30, 1), (102, 2), (29, 3), (94, 4), (32, 5), (33, 6), (46, 7), (44, 8), (51, 9), (52, 10), (92, 11), (47, 12), (54, 13), (83, 14), (103, 1), (19, 2), (20, 3), (69, 4), (3, 5), (4, 6), (31, 7), (5, 8), (93, 9), (12, 10), (8, 11), (9, 12), (71, 13), (72, 14), (84, 15), (6, 16), (35, 17), (36, 18), (34, 19), (65, 20), (55, 21), (56, 22), (45, 23), (91, 24), (95, 25), (63, 26), (62, 27)) v(id, rf)
 where t.id = v.id;
 
+-- 3c) Veraltete Verbindungen von und zu aufgelösten Themen (Entwurf ohne freigegebene Einheit) gezielt löschen.
+-- Einzige Ausnahme vom Lösch-Verbot (Auftrag „Nachbesserung Dreißigste Runde“, Teil A). Jede Zeile einzeln, nur genau dieses Paar.
+-- 8 Quadratische Gleichungen (allgemein) ← 12 Reinquadratische Gleichungen: Quadratische Gleichungen braucht 12: Stoff steht jetzt als Etappe reinquadratisch in 8 selbst; ersetzt durch 8 ← 68
+delete from schule.voraussetzung where thema_id = 8 and braucht_id = 12;
+-- 12 Reinquadratische Gleichungen ← 68 Elementare Wurzeln: 12 ist aufgelöst (Entwurf ohne freigegebene Einheit)
+delete from schule.voraussetzung where thema_id = 12 and braucht_id = 68;
+-- 49 Matrizen und Abbildungen mit Matrizen ← 48 Vektoren und Determinanten: Matrizen braucht 48: Vektor-Flug aufgelöst; ersetzt durch 49 ← 46
+delete from schule.voraussetzung where thema_id = 49 and braucht_id = 48;
+-- 74 Zweireihige Determinanten ← 48 Vektoren und Determinanten: Determinanten brauchen 48: Vektor-Flug aufgelöst; ersetzt durch 74 ← 46 und 74 ← 50
+delete from schule.voraussetzung where thema_id = 74 and braucht_id = 48;
+-- 76 Reihen ← 41 Folgen: Reihen braucht 41: Folgen stehen jetzt als Etappen in 76; ersetzt durch 76 ← 28
+delete from schule.voraussetzung where thema_id = 76 and braucht_id = 41;
+-- 72 Zinseszins ← 67 Potenzen als Schreibweise: 72 ist aufgelöst (Stoff in 94 und 37)
+delete from schule.voraussetzung where thema_id = 72 and braucht_id = 67;
+-- 72 Zinseszins ← 71 Zinsen: 72 ist aufgelöst (Stoff in 94 und 37)
+delete from schule.voraussetzung where thema_id = 72 and braucht_id = 71;
+-- 77 Umkehrfunktionen ← 32 Zuordnung und Funktion: 77 ist aufgelöst (Stoff in 36)
+delete from schule.voraussetzung where thema_id = 77 and braucht_id = 32;
+-- 78 Parameter und Funktionenscharen ← 33 Lineare Funktionen: 78 ist aufgelöst (Stoff in 33 und 6)
+delete from schule.voraussetzung where thema_id = 78 and braucht_id = 33;
+-- 82 Bedingte Wahrscheinlichkeit ← 21 Brüche und Anteile: 82 ist aufgelöst (Stoff in 63 und 62)
+delete from schule.voraussetzung where thema_id = 82 and braucht_id = 21;
+-- 82 Bedingte Wahrscheinlichkeit ← 23 Rechnen mit rationalen Zahlen: 82 ist aufgelöst (Stoff in 63 und 62)
+delete from schule.voraussetzung where thema_id = 82 and braucht_id = 23;
+-- 82 Bedingte Wahrscheinlichkeit ← 61 Zufall und Laplace: 82 ist aufgelöst (Stoff in 63 und 62)
+delete from schule.voraussetzung where thema_id = 82 and braucht_id = 61;
+
 -- 4) Voraussetzungen (nur einfügen oder Art/Begründung angleichen; vorhandene bleiben)
 insert into schule.voraussetzung (thema_id, braucht_id, art, begruendung)
 select v.t, v.b, v.art, v.beg from (values
+  (8, 68, 'hart', 'Etappe reinquadratisch: x² = a mit der Quadratwurzel lösen (Stoff von 12 steht jetzt hier)'),
+  (49, 46, 'empfohlen', 'Verschiebung und Gegenvektor aus den Kongruenzabbildungen (ersetzt 48)'),
+  (74, 46, 'empfohlen', 'Verschiebung und Gegenvektor aus den Kongruenzabbildungen (ersetzt 48)'),
+  (74, 50, 'hart', 'Determinanten berechnen Flächeninhalte von Parallelogramm und Dreieck'),
+  (76, 28, 'hart', 'Term für das n-te Glied (Folgen stehen jetzt in diesem Flug, ersetzt 41)'),
   (2, 28, 'hart', 'Gleichungen bestehen aus Termen mit Variablen'),
   (2, 16, 'hart', 'Lösungen und Umformungen mit negativen Zahlen'),
   (4, 29, 'empfohlen', 'beim Umstellen werden Terme umgeformt'),
   (6, 33, 'empfohlen', 'graphisches Lösen über den Schnittpunkt zweier Geraden'),
   (11, 39, 'empfohlen', 'Nullstellen ganzrationaler Funktionen = Lösungen der Polynomgleichung'),
-  (13, 12, 'empfohlen', 'Quadrieren und Wurzelziehen wie bei x² = a'),
   (13, 8, 'empfohlen', 'Wurzelgleichungen führen oft auf quadratische Gleichungen'),
   (17, 18, 'hart', 'Teiler und Vielfache beruhen auf Multiplizieren und Dividieren'),
   (18, 15, 'hart', 'Rechnen im Stellenwertsystem mit natürlichen Zahlen'),
@@ -52,7 +76,6 @@ select v.t, v.b, v.art, v.beg from (values
   (23, 16, 'hart', 'Vorzeichenregeln der ganzen Zahlen'),
   (24, 22, 'empfohlen', 'Prozentsätze als Dezimalzahl'),
   (25, 18, 'hart', 'Umrechnen durch Multiplizieren und Dividieren mit 10, 100, 1000'),
-  (27, 21, 'hart', 'Verhältnis als Bruch'),
   (28, 18, 'hart', 'Rechenarten und Rechengesetze in Termen'),
   (29, 102, 'hart', 'Produkte wie a · a² · a³ brauchen das Potenzgesetz'),
   (30, 21, 'hart', 'negativer Exponent bedeutet Kehrbruch'),
@@ -61,9 +84,6 @@ select v.t, v.b, v.art, v.beg from (values
   (34, 93, 'empfohlen', 'indirekte Proportionalität führt auf die Hyperbel'),
   (36, 35, 'empfohlen', 'Parabel als erste Potenzfunktion'),
   (37, 103, 'empfohlen', 'Potenzgesetze mit ganzzahligen Exponenten'),
-  (40, 35, 'hart', 'Parameter der Scheitelform verschieben und strecken die Parabel'),
-  (40, 33, 'empfohlen', 'Verschieben von Geraden als einfachster Fall'),
-  (41, 28, 'hart', 'Term für das n-te Glied'),
   (43, 42, 'hart', 'Strahl, Scheitel und Gerade'),
   (44, 43, 'hart', 'Winkel messen und zeichnen'),
   (44, 98, 'empfohlen', 'Winkelsumme bei Existenz und Konstruktion von Dreiecken'),
@@ -72,8 +92,6 @@ select v.t, v.b, v.art, v.beg from (values
   (45, 98, 'hart', 'Satz des Thales wird über die Winkelsumme im Dreieck begründet'),
   (45, 73, 'empfohlen', 'Umkreis und Inkreis über Mittelsenkrechte und Winkelhalbierende'),
   (46, 42, 'hart', 'Gerade, Senkrechte, Koordinatensystem'),
-  (48, 42, 'hart', 'Koordinatensystem'),
-  (48, 46, 'empfohlen', 'Begriff Kongruenzabbildung'),
   (50, 42, 'hart', 'Rechteck, Quadrat und Vielecke'),
   (52, 42, 'hart', 'ebene Figuren für Netze und Seitenflächen'),
   (55, 54, 'empfohlen', 'fehlende Seiten mit Pythagoras'),
@@ -90,7 +108,6 @@ select v.t, v.b, v.art, v.beg from (values
   (73, 42, 'hart', 'Kreis, Gerade, Abstand'),
   (75, 32, 'hart', 'Funktionsbegriff'),
   (75, 16, 'hart', 'Betrag einer ganzen Zahl'),
-  (77, 36, 'hart', 'Umkehrfunktion wird an Potenzfunktionen eingeführt'),
   (81, 57, 'hart', 'Daten erheben und darstellen'),
   (81, 58, 'empfohlen', 'Kenngrößen zum Vergleich von Stichproben'),
   (92, 101, 'empfohlen', 'Pyramide und Kegel im Vergleich zu Prisma und Zylinder'),
@@ -126,11 +143,18 @@ update schule.thema t set eigenstaendig = v.g from (values
 do $$
 declare v_n int; v_txt text;
 begin
-  -- a) Gymnasiast bekommt Reinquadratische Gleichungen in Klasse 9
-  if coalesce(schule.thema_jahrgang(12)->>'gym_by','') <> '9' then raise exception 'Rauchtest: Thema 12 hat keine Gymnasium-Klasse 9'; end if;
-  -- b) jedes Thema mit Klasse hat Voraussetzungen oder ist ausdrücklich eigenständig
+  -- a) Thema 12 (aufgelöst) hat keine Gymnasium-Klasse; der Stoff steht in 8 (Etappe reinquadratisch)
+  if schule.thema_jahrgang(12) ? 'gym_by' then raise exception 'Rauchtest: Thema 12 darf keine Gymnasium-Klasse haben'; end if;
+  -- i) Neue Regel: keine Verbindung von oder zu einem Thema ohne freigegebene Einheit, außer ausdrücklich begründet (Begründung beginnt mit „Ausnahme:“)
+  select string_agg(v.thema_id || '←' || v.braucht_id, ', ') into v_txt from schule.voraussetzung v
+   where (not exists (select 1 from schule.einheit e where e.thema_id = v.thema_id and e.status = 'freigegeben')
+       or not exists (select 1 from schule.einheit e where e.thema_id = v.braucht_id and e.status = 'freigegeben'))
+     and coalesce(v.begruendung, '') not like 'Ausnahme:%';
+  if v_txt is not null then raise exception 'Rauchtest: Verbindung von/zu Thema ohne freigegebene Einheit: %', v_txt; end if;
+  -- b) jedes Thema mit Klasse und freigegebener Einheit hat Voraussetzungen oder ist ausdrücklich eigenständig
   select count(*), string_agg(t.id::text, ', ') into v_n, v_txt from schule.thema t
    where schule.thema_jahrgang(t.id) <> '{}'::jsonb and t.eigenstaendig is null
+     and exists (select 1 from schule.einheit e where e.thema_id = t.id and e.status = 'freigegeben')
      and not exists (select 1 from schule.voraussetzung v where v.thema_id = t.id);
   if v_n > 0 then raise exception 'Rauchtest: Themen ohne Voraussetzung und ohne eigenständig: %', v_txt; end if;
   -- c) keine Kreise

@@ -2,6 +2,47 @@
 
 Neueste oben.
 
+## 2026-11-21 – FERTIG: 0.84.0 – Lehrplan-Matrix LM-1 bis LM-5 (Eltern/Lehrer), Cache v154
+
+Stand `lernen-app` 168a744 übernommen (mit LM-S und Runde 30). Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.
+Bilder: `docs/previews/la/lm-oben-400.png`, `lm-oben-820.png`, `lm-oben-1280.png` (Kopf, Kind A gewählt), `lm-matrix-400/820/1280.png` (Thema mit Verbindungen und Detail), `lm-plan-link-400.png`.
+
+**Gebaut**
+- **LM-1:** Nachschlagen → „Lehrplan“ (`#/lehrplan`) ist jetzt die Matrix „Mathe Klasse 5–10: was gelernt wird“. Zeilen Kl. 5–10 in den Klassenfarben (LA-8), Spalten die Themengebiete inkl. Entdecker-Inseln (Reihenfolge aus `gebiete[]`, sonst wie die Vorlage); Schalter „Klassen als Zeilen / als Spalten“ (gemerkt). Alle Themen. „Einordnen nach“ Gymnasium · Realschule · IB MYP bestimmt die Zeile; fehlt die Schulart: andere bayerische Schulart, sonst MYP-Jahr + 5 → gestrichelt, mit Marke (RS/Gym/IB/Insel) und Erklärung im Detail. Kennzeichen „Gym 8 · RS 7 · IB 4“ (gewählte dunkel, fehlende durchgestrichen, orange wenn es die gewählte ist). Zelle in Lehrplan-Reihenfolge der Schulart. Kopf je Zeile „n Themen“ / „m Gym‑Pflicht“ (mit LM-S: `pflicht[]`). Suche, „Kurzbeschreibung“ (gemerkt). Unter 760 px Liste je Klasse nach Gebiet, Detail direkt unter dem Thema.
+- **LM-2 Detail:** Titel, Gebiet, Klassen je Schulart, Lernbereich; Inhalt (● fertig, ◐ in Prüfung, ○ fehlt) mit „Inhalte ansehen (n Etappen) ›“, Aufträge-Link, Ort, „✎ Ändern lassen“ bei fehlendem Inhalt (aus LB-1); Was gefordert ist; Braucht vorher (Begründung, Klasse, „empfohlen“); Weiter zurück auf dem Weg; Darauf baut auf; Das muss sitzen; Beispielaufgabe; Schritte in der App (nicht-Pflicht-Etappen „· freiwillig“); Im Lehrplan (Wortlaut); ‹ › blättern. Ohne Voraussetzung: „Keine Voraussetzung hinterlegt …“; mit `eigenstaendig` „Eigenständig: braucht keine Voraussetzung – ‹Begründung›“. Liefert der Server keine Verbindungen (heute live), steht dort ehrlich „Die Verbindungen … liefert der Server noch nicht“.
+- **LM-3:** gewählt → direkte Voraussetzungen gelb mit Linie, weiter zurück hellgelb, darauf aufbauend blau mit Linie, Rest blass, „empfohlen“ gestrichelt, „→ n“ ab 2 Nachfolgern. Linien als SVG **hinter** den Karten (z-index 1 < 2, im Test per `elementFromPoint` geprüft); Handy ohne Linien.
+- **LM-4:** Leiste „Lernstand: Aus · Kind A · Kind B · Beide vergleichen“ (bei mehr Kindern „Alle vergleichen“); ein Kind: Hintergrund je Stufe **in den Farben des Plans** (LB), „▶ Etappe x von y · hier ist ‹Name›“ (`etappe_jetzt`), „↻ Wdh n von 5“, „+ nicht im Plan“ gestrichelt/blass; beim Einschalten zum ▶-Thema gescrollt; Schulart springt auf die des Kindes. Vergleich: „A/B“ mit zwei Punkten in Stufenfarbe. Kopf je Klasse: Balken je Kind (◉ ↻ ▶) über die Pflichtthemen. Detail: Lernstand je Kind (Stufe, Zusatz wie im Plan, nächste Wiederholung) mit „Im Plan öffnen ›“ und „Fehler besprechen ›“ (nur bei `fehler_offen`; ohne LM-S bei `wieder_offen`) → Reiter „Was wackelt“ des Kindes.
+- **LM-5:** Im Detail bei genau einem Kind die Stufen-Knöpfe aus LB Teil 8 (Lernen · Kann er – wiederholen · Kann er komplett, rechts „Aus dem Plan nehmen“/„In den Plan nehmen“, bei ◉ „Wieder in die Wiederholung“). Dafür ist der Plan-Kern aus `viewPlan` herausgelöst (`lernPlanSetzeIn`, `lernPlanEintraege`, …) – **dieselben Aufrufe** (`schule_plan_lesen`, `schule_plan_setzen` mit revision, Rückgängig mit `schritt_id`, Konflikt sperrt mit „Neu laden“). Nach dem Speichern werden die Stufen neu geholt. „Im Plan öffnen ›“ springt in den Reiter „Plan“: Flug im Plan → Ort links aufgeklappt und markiert; sonst rechts „Nach Klasse“ mit dem Flug aufgeklappt. Reiter „Plan“: Link „Als Matrix ansehen ›“ rechts in der Reiterzeile (Handy: darunter), öffnet `#/lehrplan/<kind>` mit Kind und Schulart; kein fünfter Reiter.
+
+**Daten (LM-S)**
+- Die App ruft `schule_lehrplan_matrix` **und** `schule_lehrplan_uebersicht` parallel: die Matrix-Daten tragen, die Übersicht liefert Inhaltsstand (◐ in Prüfung) und Aufträge je Flug, die LM-S nicht hat. Kennt der Server `schule_lehrplan_matrix` noch nicht (heute live), trägt die Übersicht allein – alles läuft, nur ohne Verbindungen, Das muss sitzen, Beispiel, Pflicht-Etappen.
+- Aus dem Plan eines Kindes, das nicht in `kinder[]` ist (Testkind), lädt die App erneut mit `mit_testkind: true`.
+- Vorbereitet für **LM-S 2** (Nachbesserung 21.11., noch nicht gebaut): `eigenstaendig` als Text (auch `true`), `ohne_flug: true` → Karte blass gepunktet + Hinweis im Detail. Fehlen in der Liste `lehrplan` **und** `merke`, lädt das Detail einmal nach mit **`schule_lehrplan_matrix { thema_id }`** und erwartet `themen[0]` (oder `thema`) mit `lehrplan, merke, beispiel` (Annahme zu Name/Form – bitte so bauen oder mir den Namen melden; Anpassung ist eine Zeile).
+
+**Was von der bisherigen Lehrplan-Übersicht (LB-1) wegfällt** (Auftrag: nennen)
+- Die Kacheln „Flüge · fertig · in Prüfung · fehlt“ mit Zählern und der **Filter nach Inhaltsstand** – der Inhaltsstand steht nur noch je Thema im Detail. Wer „was fehlt noch?“ sucht, hat keinen Sammelblick mehr.
+- **Gruppen nach Lernbereich** (Überschriften „M8 2 Lineare Funktionen“) – die Matrix gliedert nach Themengebiet; der Lernbereich steht im Detail.
+- Klassen-Knöpfe mit Kind-Marken (A/B) – ersetzt durch die Lernstand-Leiste.
+- „Zeile antippen → Inhalte ansehen“ ist jetzt zwei Schritte (Thema antippen, dann „Inhalte ansehen ›“).
+- Die Tabelle „Stufe je Kind in einer Zeile mit Wort“ – ersetzt durch „Beide vergleichen“ (Punkte, Wort im Detail).
+- **Info-Seite:** Die wörtlichen Texte aus Teil 7 beschreiben noch die alte Übersicht („Eine Zeile antippen öffnet ‚Inhalte ansehen‘“, „Lehrplan-Übersicht ›“). Nicht geändert – bitte neuen Wortlaut liefern.
+
+**Abweichungen von der Vorlage**
+- Stufenfarben wie im Plan (◉ grün, ↻ hellgrün, ▶ gelb mit Rahmen) statt der Vorlagenfarben (Wdh gelb, dran blau) – die Vorgabe sagt „wie im Plan (LB)“. Dadurch ähnelt ▶ dem Gelb der Voraussetzungen; die Rolle zeigt zusätzlich der Rahmen.
+- „IB MYP“ als dritte Schulart in „Einordnen nach“ (für ein IB-Kind nötig); Zeilen bleiben Kl. 5–10 mit „MYP-Jahr n“ darunter.
+- Die Liste vermuteter Zuordnungslücken der Vorlage (`LUECKE`) ist nicht übernommen – das klärt Runde 30 in den Daten.
+- Silbentrennung (`hyphens: auto`) in Karten und Gebietsköpfen: Wörter werden nur mit Trennstrich umbrochen, nie ohne; „Gym‑Pflicht“ mit festem Bindestrich.
+
+**Gesehen/getestet**
+- lernen: 141 von 141 (neu 9 Tests: LM-1; LM-2/LM-3; LM-4; LM-5 Knöpfe/Rückgängig/Im Plan öffnen/Als Matrix; Abnahme 400/820/1280 je Lernstand-Modus und Aufbau – nichts läuft über, kein Umbruch ohne Trennstrich, kein Querrollen, Handy Liste ohne Linien, Detail unter dem Thema; Link in der Reiterzeile; LM-S-Format; LM-S-2-Nachladen). Ersetzt: vier Tests der alten Übersicht (LA-7 Tabelle, LA-7 Tablet, I-3 Liste, LB Teil 5 S3 → jetzt Reihenfolge je Zelle und Lernbereich im Detail). Testdaten: echte Themenliste, Verbindungen aus der Vorlage, Lernstand erfunden (Kind A/Kind B, Testkind).
+- Suche: die bekannten alten Fehler (PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders gebucht, W88) und das datumsabhängige „W80: Jede neue Suche“; „LB Teil 8: aufgeklappte Karte“ wackelte einmal im Gesamtlauf und besteht einzeln.
+
+**Nicht geprüft / Hinweise**
+- Mit echten Daten und echten Geräten nicht angesehen; nur Chromium. Mit dem LM-S-Server nur gegen nachgebildete Antworten getestet (Feldliste oben).
+- Größe: LM-S im Probelauf 249 KB plus Übersicht – auf langsamer Verbindung spürbar, bis LM-S 2 den Wortlaut auslagert.
+- Auf dem Tablet (820 px) sind acht Spalten eng: viele Titel werden getrennt (mit Trennstrich). „Klassen als Spalten“ ist dort etwas luftiger.
+- Nächster Schritt: LM-6 Kinderseite als 0.85.0.
+
 ## 2026-11-21 – bau-lehrer – FERTIG: LM-S 2
 
 Auf AUFTRAEGE.md „Nachbesserung Dreißigste Runde und LM-S (21.11.)“, Teil B. Nur Dateien, nichts ausgeführt, kein App-Code. Die LM-S-Dateien von heute früh sind ersetzt (nicht eingespielt, daher in derselben Datei).

@@ -13,7 +13,7 @@ import { Hono } from 'npm:hono@^4.9.7'
 import postgres from 'npm:postgres@3.4.5'
 
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
-const VERSION = '0.7.0'
+const VERSION = '0.8.0'
 
 const AKTIONEN: Record<string, string[]> = {
   schule_uebersicht: [],
@@ -40,6 +40,7 @@ const AKTIONEN: Record<string, string[]> = {
   schule_rueckmeldungen: [],
   schule_wiederholung: ['lernender_id', 'anzahl?'],
   schule_lehrplan_uebersicht: [],
+  schule_lehrplan_matrix: ['lernender_id?', 'mit_testkind?'],
   schule_inhalt_lesen: ['einheit_id'],
   schule_kind_setzen: ['lernender_id', 'schulart?', 'klasse?'],
   schule_lernstand: ['lernender_id'],

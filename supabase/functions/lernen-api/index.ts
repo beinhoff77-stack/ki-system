@@ -41,6 +41,7 @@ const AKTIONEN: Record<string, string[]> = {
   schule_wiederholung: ['lernender_id', 'anzahl?'],
   schule_lehrplan_uebersicht: [],
   schule_lehrplan_matrix: ['lernender_id?', 'mit_testkind?'],
+  schule_lehrplan_thema: ['thema_id', 'lernender_id?'],
   schule_inhalt_lesen: ['einheit_id'],
   schule_kind_setzen: ['lernender_id', 'schulart?', 'klasse?'],
   schule_lernstand: ['lernender_id'],

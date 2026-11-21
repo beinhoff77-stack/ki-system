@@ -1,5 +1,5 @@
 -- Rauchtest AB-S (Abschluss nach Etappe, Flug und Ort – Serverteil). Nach 20261120_ab_s_abschluss.sql ausführen. Rollback, nur Testkind, keine Namen.
--- Prüfung 9 (Nachtrag aus ChatGPT 885) setzt zusätzlich 20261120_ab_s_flug_abschluss_einmal.sql voraus (Feld flug_geschafft).
+-- Prüfung 9 (Nachträge aus ChatGPT 885/888) setzt zusätzlich 20261120_ab_s_flug_abschluss_einmal.sql voraus (Feld flug_geschafft, schule.flug_fertig_nach).
 -- Läuft über die inneren Funktionen schule.uebung_pruefen_intern / test_starten_intern / test_abschliessen_intern / einheit_lesen_intern / konto
 -- (die api-Funktionen rufen genau diese nach der Zugriffsprüfung auf – ein Schlüssel gehört nicht in eine Datei).
 -- Aus der Datenbank kommen nur Inhalte; Karten-Stände, Versuche, Plan und Texte legt der Test selbst an.
@@ -36,10 +36,28 @@ begin
   return r;
 end $f$;
 
+-- Prüfung 9: eine laufende Testsitzung mit einer Bordkarte je Pflicht-Etappe (p_status: nur Etappen mit diesem Stand, null = alle), Antworten richtig/falsch.
+-- Bordkarte: bevorzugt aus dem passenden Pool, sonst irgendeine der Etappe (test_abschliessen_intern wertet je Etappe über variante_gruppe).
+create or replace function pg_temp.ab9_sitzung(p_l bigint, p_e bigint, p_art text, p_richtig boolean, p_status text, p_cid text) returns bigint language plpgsql as $f$
+declare v_ids bigint[]; v_sid bigint; e schule.einheit;
+begin
+  select * into e from schule.einheit where id = p_e;
+  select array_agg(q.id order by q.lz) into v_ids from (
+    select s.lernziel lz, (select a.id from schule.aufgabe a where a.einheit_id = p_e and a.variante_gruppe = s.lernziel
+                            order by (a.pool = case p_art when 'korrektur' then 'korrektur' when 'nachtest' then 'sicherung' else 'test' end) desc, a.pool = 'test' desc, a.id limit 1) id
+      from schule.lernziel_stand s where s.lernender_id = p_l and s.einheit_id = p_e and s.pflicht and (p_status is null or s.status = p_status)) q;
+  if coalesce(cardinality(v_ids), 0) = 0 or array_position(v_ids, null) is not null then raise exception 'FEHLER 9 Vorbereitung (%): keine Bordkarten', p_cid; end if;
+  insert into schule.testsitzung(lernender_id, art, block_id, thema_id, einheit_id, nachtest_runde, aufgaben, status, punkte_max, gestartet_am)
+  values (p_l, p_art, e.block_id, e.thema_id, p_e, case when p_art = 'nachtest' then 1 end, v_ids, 'laeuft', cardinality(v_ids), now()) returning id into v_sid;
+  insert into schule.versuch(lernender_id, aufgabe_id, testsitzung_id, client_id, antwort, richtig, punkte, punkte_max, hilfe, versuch_nr)
+  select p_l, x, v_sid, 'ab-s-' || p_cid || '-' || x, null, p_richtig, case when p_richtig then 1 else 0 end, 1, 0, 1 from unnest(v_ids) x;
+  return v_sid;
+end $f$;
+
 do $$
 declare v_l bigint; v_et record; v_e bigint[] := '{}'; v_lz text[] := '{}'; v_o bigint[]; r jsonb; j jsonb; k0 jsonb; k1 jsonb; v_ziel int; v_n int;
   v_f bigint; v_ft bigint; v_b bigint; v_b2 bigint; v_t2 bigint; v_sid bigint; t jsonb; v_kurz text := 'Rauchtest: worum es in diesem Flug geht.';
-  v_f9 bigint; v_t9 bigint; v_b9 bigint; v_s9 bigint; v_lz9 text; v_feld text;
+  v_f9 bigint; v_t9 bigint; v_b9 bigint; v_s9 bigint; v_lz9 text; v_feld text; v_s9a bigint; v_s9c bigint;
 begin
   select id into v_l from schule.lernender where ist_test and aktiv order by id limit 1;
   if v_l is null then raise exception 'FEHLER kein Testkind'; end if;
@@ -177,15 +195,15 @@ begin
   if schule.naechster_flug(v_l, v_ft) is not null then raise exception 'FEHLER 8: nächster Flug ohne Plan: %', schule.naechster_flug(v_l, v_ft); end if;
   raise notice 'ok 8: ohne weiteren Flug im Plan → naechster_flug null';
 
-  -- 9. Nachtrag 885 / Nachträge 20.11. nachmittags (A): Abschluss-Felder nur, wenn der Flug durch diese Sitzung zum ersten Mal fertig wird (Flug-Test ODER Verbessern) –
-  --    nicht bei nicht bestandenem Flug-Test, zweitem Verbessern, Nachtragstest; erneuter Aufruf derselben Sitzung liefert dasselbe wie beim ersten Mal
-  --    (Flug in einem Ort mit weiteren offenen Flügen im Plan, damit der Ort nicht durch diesen Test geschafft wird)
+  -- 9. Abschluss-Felder nur, wenn der Flug durch diese Sitzung zum ersten Mal fertig wird (Flug-Test ODER Verbessern) – Nachträge 885, 20.11. nachmittags (A), 888.
+  --    Feste Testvorbereitung, kein Überspringen: die Sitzungen legt der Test selbst an (eine Test-Bordkarte je Pflicht-Etappe, Antworten richtig/falsch),
+  --    abgeschlossen wird über schule.test_abschliessen_intern. Flug in einem Ort mit weiteren offenen Flügen im Plan (Ort wird nicht geschafft).
   select e.id, e.thema_id, e.block_id into v_f9, v_t9, v_b9 from schule.einheit e
    where e.status = 'freigegeben' and e.id = schule.thema_einheit(e.thema_id) and e.block_id is not null and e.id <> v_f and e.block_id not in (v_b, v_b2)
      and exists (select 1 from schule.block_thema bt where bt.block_id = e.block_id and bt.thema_id = e.thema_id)
-     and exists (select 1 from schule.aufgabe a where a.einheit_id = e.id and a.pool = 'test')
+     and jsonb_array_length(coalesce(e.inhalt->'bewertung'->'lernziele_pflicht', '[]'::jsonb)) >= 2
      and not exists (select 1 from jsonb_array_elements_text(e.inhalt->'bewertung'->'lernziele_pflicht') p
-                      where not exists (select 1 from schule.aufgabe a where a.einheit_id = e.id and a.pool = 'test' and a.variante_gruppe = p))
+                      where (select count(*) from schule.aufgabe a where a.einheit_id = e.id and a.variante_gruppe = p) < 1)
      and not exists (select 1 from schule.testsitzung x where x.lernender_id = v_l and x.einheit_id = e.id)
      and not exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = e.id)
      and exists (select 1 from schule.block_thema bt where bt.block_id = e.block_id and bt.thema_id <> e.thema_id
@@ -195,65 +213,56 @@ begin
   insert into schule.route(lernender_id, block_id, position, art, status, ausgelassen, revision, geaendert_von)
   values (v_l, v_b9, 3, 'normal', 'offen', '{}', 1, 'rauchtest');
   perform schule.lernziele_anlegen(v_l, v_f9);
+  if (select count(*) from schule.lernziel_stand where lernender_id = v_l and einheit_id = v_f9 and pflicht) < 2 then raise exception 'FEHLER 9: weniger als 2 Pflicht-Etappen'; end if;
+
   -- 9a nicht bestandener Flug-Test (alles falsch)
-  r := schule.test_starten_intern(v_l, jsonb_build_object('einheit_id', v_f9, 'art', 'blocktest'));
-  if not coalesce((r->>'ok')::boolean, false) then raise exception 'FEHLER 9a: Flug-Test startet nicht: %', r; end if;
-  v_s9 := (r->>'sitzung_id')::bigint;
-  insert into schule.versuch(lernender_id, aufgabe_id, testsitzung_id, client_id, antwort, richtig, punkte, punkte_max, hilfe, versuch_nr)
-  select v_l, x, v_s9, 'ab-s-9a-' || x, null, false, 0, 1, 0, 1 from unnest((select aufgaben from schule.testsitzung where id = v_s9)) x;
-  t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9));
+  v_s9a := pg_temp.ab9_sitzung(v_l, v_f9, 'blocktest', false, null, '9a');
+  t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9a));
   foreach v_feld in array array['flug', 'naechster_flug', 'sterne_flug', 'etappen', 'ort_wechsel'] loop
     if t ? v_feld then raise exception 'FEHLER 9a: nicht bestanden, trotzdem %: %', v_feld, t->v_feld; end if; end loop;
   if (t->>'einheit_abgeschlossen')::boolean or coalesce((t->>'flug_geschafft')::boolean, true) then raise exception 'FEHLER 9a: %', t - 'ergebnisse'; end if;
   -- 9b erneuter Aufruf derselben Sitzung
+  t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9a));
+  if t ? 'naechster_flug' or t ? 'sterne_flug' or t ? 'flug' or coalesce((t->>'flug_geschafft')::boolean, true) then raise exception 'FEHLER 9b: erneuter Aufruf liefert Abschluss-Felder'; end if;
+  raise notice 'ok 9a/b: nicht bestandener Flug-Test und erneuter Aufruf – flug_geschafft false, keine Abschluss-Felder';
+
+  -- 9r Regression (888, Muss 1): die nicht bestandene Sitzung wird zur „alten“ Sitzung ohne Wert (wie vor dem Einspielen); der Flug ist noch offen
+  update schule.testsitzung set flug_geschafft = null where id = v_s9a;
+  if schule.flug_fertig_nach(v_l, v_f9, v_s9a) then raise exception 'FEHLER 9r: Flug nach nicht bestandenem Test als fertig erkannt'; end if;
+
+  -- 9c Verbessern (korrektur), alles richtig → der Flug wird zum ersten Mal fertig → flug_geschafft true mit Abschluss-Feldern (trotz alter Sitzung mit NULL)
+  v_s9c := pg_temp.ab9_sitzung(v_l, v_f9, 'korrektur', true, 'fehler', '9c');
+  t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9c));
+  if not (t->>'einheit_abgeschlossen')::boolean then raise exception 'FEHLER 9c: Flug nach Verbessern nicht fertig: %', t->'lernziele'; end if;
+  if not coalesce((t->>'flug_geschafft')::boolean, false) or not (t ? 'flug' and t ? 'naechster_flug' and t ? 'sterne_flug' and t ? 'etappen') then
+    raise exception 'FEHLER 9c: alte Sitzung NULL + Flug offen → Verbessern macht ihn erstmals fertig, aber flug_geschafft %', t->'flug_geschafft'; end if;
+  t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9c));
+  if not coalesce((t->>'flug_geschafft')::boolean, false) or not (t ? 'naechster_flug') then raise exception 'FEHLER 9c: erneuter Aufruf anders als beim ersten Mal'; end if;
+  raise notice 'ok 9r/9c: alte Sitzung (NULL, nicht bestanden) + Flug offen → Verbessern → flug_geschafft true mit Feldern; erneuter Aufruf gleich';
+
+  -- 9c-2 zweites Verbessern; die erste Verbessern-Sitzung wird zur alten Sitzung ohne Wert, die den Flug fertig gemacht hatte → sperrt (false, keine Felder)
+  update schule.testsitzung set flug_geschafft = null where id = v_s9c;
+  if not schule.flug_fertig_nach(v_l, v_f9, v_s9c) then raise exception 'FEHLER 9c-2: Flug nach dem Verbessern nicht als fertig erkannt'; end if;
+  select s.lernziel into v_lz9 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = v_f9 and s.pflicht order by s.lernziel limit 1;
+  update schule.lernziel_stand set status = 'fehler' where lernender_id = v_l and einheit_id = v_f9 and lernziel = v_lz9;
+  v_s9 := pg_temp.ab9_sitzung(v_l, v_f9, 'korrektur', true, 'fehler', '9c2');
   t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9));
-  if t ? 'naechster_flug' or t ? 'sterne_flug' or t ? 'flug' or (t->>'flug_geschafft')::boolean then raise exception 'FEHLER 9b: erneuter Aufruf liefert Abschluss-Felder'; end if;
-  raise notice 'ok 9a/b: nicht bestandener Flug-Test und erneuter Aufruf – flug_geschafft false, keine Felder flug, naechster_flug, sterne_flug, etappen, ort_wechsel';
-  -- 9c Verbessern (korrektur), alles richtig → der Flug wird ZUM ERSTEN MAL fertig → flug_geschafft true mit Abschluss-Feldern (Nachträge 20.11. nachmittags, A)
-  r := schule.test_starten_intern(v_l, jsonb_build_object('einheit_id', v_f9, 'art', 'korrektur'));
-  if not coalesce((r->>'ok')::boolean, false) then
-    raise notice 'Info 9c: Verbessern startet nicht (%), Teil übersprungen', r->>'grund';
-  else
-    v_s9 := (r->>'sitzung_id')::bigint;
-    insert into schule.versuch(lernender_id, aufgabe_id, testsitzung_id, client_id, antwort, richtig, punkte, punkte_max, hilfe, versuch_nr)
-    select v_l, x, v_s9, 'ab-s-9c-' || x, null, true, 1, 1, 0, 1 from unnest((select aufgaben from schule.testsitzung where id = v_s9)) x;
-    t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9));
-    if not (t->>'einheit_abgeschlossen')::boolean then raise exception 'FEHLER 9c: Flug nach Verbessern nicht fertig: %', t->'lernziele'; end if;
-    if not coalesce((t->>'flug_geschafft')::boolean, false) or not (t ? 'flug' and t ? 'naechster_flug' and t ? 'sterne_flug' and t ? 'etappen') then
-      raise exception 'FEHLER 9c: Verbessern macht den Flug erstmals fertig, aber flug_geschafft %, Felder fehlen', t->'flug_geschafft'; end if;
-    -- erneuter Aufruf derselben Sitzung: dasselbe
-    t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9));
-    if not coalesce((t->>'flug_geschafft')::boolean, false) or not (t ? 'naechster_flug') then raise exception 'FEHLER 9c: erneuter Aufruf anders als beim ersten Mal'; end if;
-    raise notice 'ok 9c: Verbessern macht den Flug erstmals fertig → flug_geschafft true mit flug, etappen, sterne_flug, naechster_flug; erneuter Aufruf gleich';
-    -- 9c-2 zweites Verbessern (eine Etappe wieder „fehler“, dann alles richtig): Flug wieder fertig, aber nicht zum ersten Mal → false, keine Felder
-    select s.lernziel into v_lz9 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = v_f9 and s.pflicht order by s.lernziel limit 1;
-    update schule.lernziel_stand set status = 'fehler' where lernender_id = v_l and einheit_id = v_f9 and lernziel = v_lz9;
-    r := schule.test_starten_intern(v_l, jsonb_build_object('einheit_id', v_f9, 'art', 'korrektur'));
-    if not coalesce((r->>'ok')::boolean, false) then
-      raise notice 'Info 9c-2: zweites Verbessern startet nicht (%), Teil übersprungen', r->>'grund';
-    else
-      v_s9 := (r->>'sitzung_id')::bigint;
-      insert into schule.versuch(lernender_id, aufgabe_id, testsitzung_id, client_id, antwort, richtig, punkte, punkte_max, hilfe, versuch_nr)
-      select v_l, x, v_s9, 'ab-s-9c2-' || x, null, true, 1, 1, 0, 1 from unnest((select aufgaben from schule.testsitzung where id = v_s9)) x;
-      t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9));
-      if t ? 'naechster_flug' or t ? 'sterne_flug' or t ? 'flug' or coalesce((t->>'flug_geschafft')::boolean, true) then
-        raise exception 'FEHLER 9c-2: zweites Verbessern liefert Abschluss-Felder (einheit_abgeschlossen %)', t->'einheit_abgeschlossen'; end if;
-      raise notice 'ok 9c-2: zweites Verbessern (einheit_abgeschlossen %) – flug_geschafft false, keine Abschluss-Felder', t->'einheit_abgeschlossen';
-    end if;
-    -- 9d Nachtragstest: eine Pflicht-Etappe wieder „offen“ (wie nach einer neuen Etappe), späterer Flug-Test alles richtig
-    select s.lernziel into v_lz9 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = v_f9 and s.pflicht order by s.lernziel limit 1;
-    update schule.lernziel_stand set status = 'offen' where lernender_id = v_l and einheit_id = v_f9 and lernziel = v_lz9;
-    r := schule.test_starten_intern(v_l, jsonb_build_object('einheit_id', v_f9, 'art', 'blocktest'));
-    if not coalesce((r->>'ok')::boolean, false) then
-      raise notice 'Info 9d: Nachtragstest startet nicht (%), Teil übersprungen', r->>'grund';
-    else
-      v_s9 := (r->>'sitzung_id')::bigint;
-      insert into schule.versuch(lernender_id, aufgabe_id, testsitzung_id, client_id, antwort, richtig, punkte, punkte_max, hilfe, versuch_nr)
-      select v_l, x, v_s9, 'ab-s-9d-' || x, null, true, 1, 1, 0, 1 from unnest((select aufgaben from schule.testsitzung where id = v_s9)) x;
-      t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9));
-      if t ? 'naechster_flug' or t ? 'sterne_flug' or t ? 'flug' or coalesce((t->>'flug_geschafft')::boolean, true) then raise exception 'FEHLER 9d: Nachtragstest liefert Abschluss-Felder'; end if;
-      raise notice 'ok 9d: Nachtragstest (späterer Flug-Test, einheit_abgeschlossen %) – keine Abschluss-Felder', t->'einheit_abgeschlossen';
-    end if;
-  end if;
+  if not (t->>'einheit_abgeschlossen')::boolean then raise exception 'FEHLER 9c-2 Vorbereitung: Flug nicht wieder fertig'; end if;
+  if t ? 'naechster_flug' or t ? 'sterne_flug' or t ? 'flug' or coalesce((t->>'flug_geschafft')::boolean, true) then raise exception 'FEHLER 9c-2: zweites Verbessern liefert Abschluss-Felder'; end if;
+  raise notice 'ok 9c-2: zweites Verbessern (früherer Abschluss als alte NULL-Sitzung) – flug_geschafft false, keine Abschluss-Felder';
+
+  -- 9d Nachtragstest: eine Pflicht-Etappe wieder „offen“ (wie nach einer neuen Etappe), späterer Flug-Test für diese Etappe alles richtig
+  update schule.lernziel_stand set status = 'offen' where lernender_id = v_l and einheit_id = v_f9 and lernziel = v_lz9;
+  v_s9 := pg_temp.ab9_sitzung(v_l, v_f9, 'blocktest', true, 'offen', '9d');
+  t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9));
+  if not (t->>'einheit_abgeschlossen')::boolean then raise exception 'FEHLER 9d Vorbereitung: Flug nach Nachtragstest nicht fertig'; end if;
+  if t ? 'naechster_flug' or t ? 'sterne_flug' or t ? 'flug' or coalesce((t->>'flug_geschafft')::boolean, true) then raise exception 'FEHLER 9d: Nachtragstest liefert Abschluss-Felder'; end if;
+  raise notice 'ok 9d: Nachtragstest – flug_geschafft false, keine Abschluss-Felder';
+
+  -- 9e Nachtest (eigener Negativfall): alles richtig → false, keine Abschluss-Felder
+  v_s9 := pg_temp.ab9_sitzung(v_l, v_f9, 'nachtest', true, null, '9e');
+  t := schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_s9));
+  if t ? 'naechster_flug' or t ? 'sterne_flug' or t ? 'flug' or coalesce((t->>'flug_geschafft')::boolean, true) then raise exception 'FEHLER 9e: Nachtest liefert Abschluss-Felder'; end if;
+  raise notice 'ok 9e: Nachtest (Ergebnis %) – flug_geschafft false, keine Abschluss-Felder', t->>'nachtest_ergebnis';
 end $$;
 rollback;

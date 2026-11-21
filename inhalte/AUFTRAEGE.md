@@ -2260,3 +2260,60 @@ Tests ergänzen (N6, N7 als Messung, N1), alle laufen lassen. „FERTIG: 0.83.2�
 2. **Flug A, sieben Aufgaben „Ein Kind rechnet … Was ist falsch?“ / „Welcher Satz beschreibt den Fehler richtig?“** (6 in `mal_gleiche_basis`, 1 in `gleicher_exponent`, derzeit Stufe 1 `erkennen`): bekommen **keinen Typ** (überzählig, werden beim Einspielen gesperrt, nicht gelöscht). → **`potenz-teilen`, Neunundzwanzigste Runde:** genau das umsetzen, dazu aus der Nachprüfung Kann 2 (zwei Ablenker, die eine Basis verlieren), Kann 4 („2¹⁰ : 2ⁿ = 16“ → Stufe 2 `umkehr`), Kann 6 (Wort „potenziert“ einfacher), Kann 7 (Flug B `exponent_und_potenz` verweist auf Klasse 7). Mindestmengen und Typ-Mischung danach prüfen, Prüfskript `--alle` OK. „FERTIG: Potenz Runde 29“.
 3. **Etappen-Liste mit Stand im Plan kommt zurück** → Ergänzung zu **Bau-Auftrag LB, Teil 9 (0.83.2):** in der kompakten Themen-Karte ein zugeklappter Textlink „Etappen ▸“ in der Inhalte-Zeile; aufgeklappt die Liste wie in 0.83.0 (Nummer, Titel, Stand rechtsbündig).
 4. **Wort „Themen“ in der Lehrer-Ansicht ist erlaubt** → Ergänzung zu Teil 9, Punkt 3: Der Test „Reisewörter“ gilt nur noch für Kinderseiten; auf Eltern-/Lehrerseiten sind „Thema/Themen“ und „Themengebiet“ zulässig. Bestehende Texte der Info-Seite bleiben, wie sie sind.
+
+---
+
+# Nachträge aus ChatGPTs Prüfergebnis 888 (21.11.) – `flug_geschafft`
+
+- **MUSS 1 (alte Sitzungen mit `flug_geschafft` NULL sperren einen späteren ersten Abschluss):** im Code zutreffend. Bestand geprüft (21.11.): Es gibt 7 alte abgeschlossene Flug-Test-/Verbessern-Sitzungen, alle gehören zu Flügen, die schon fertig sind – der Fall „alter nicht bestandener Test, Flug noch offen“ existiert nicht und kann nicht mehr entstehen (neue Sitzungen bekommen den Wert beim Abschließen). Keine Änderung nötig; `bau-lehrer` ergänzt trotzdem den Regressionstest (alte Sitzung NULL + Flug offen → späteres Verbessern liefert true) und macht die Bedingung robust (alte NULL-Sitzung zählt nur als früherer Abschluss, wenn der Flug vor diesem Aufruf schon einmal fertig war). Datei, nicht ausführen.
+- **`bau-lehrer`, Tests:** Fälle 9c/9d dürfen nicht mehr mit „Info“ übersprungen werden (feste Testvorbereitung, harte Prüfung); eigener Negativfall „Nachtest“.
+- **`bau-motivation`, in 0.83.3:** Meldet der Server nur `ort_geschafft` (ohne `flug_geschafft`), zeigt die App direkt Ort-Stempel und Bordkarte, nicht noch einmal „Flug geschafft“. Test dazu.
+- Nicht übernommen (bekannte Grenze): Abschluss-Daten beim Wiederöffnen werden neu berechnet (kein Schnappschuss); Sperre gegen zwei gleichzeitig laufende Tests desselben Flugs.
+
+---
+
+# Dreißigste Runde (21.11.): Lehrplan-Prüfung – Zuordnungen und Voraussetzungen der Themenliste
+
+Chat **`lehrplan-lb`** (Inhalte, kein App-Code), Zweig `lehrplan-lb` auf den Stand von `lernen-app` bringen, Meldung `inhalte/postfach/lehrplan-lb.md`. Anlass: Sebastians Übersichtsblatt „Mathe 5–10 – was gelernt wird“ (Matrix Klasse × Themengebiet aus `inhalte/themenliste.json` und `schule.voraussetzung`) zeigt Lücken. Auftrag des Gestalters, vom Haupt-Chat übernommen.
+
+**1. Themen ohne Klasse prüfen (Gymnasium Bayern)**
+- **Reinquadratische Gleichungen:** `gym_by` fehlt, ist aber harte Voraussetzung für „Quadratische Gleichungen (allgemein)“ (Gym Kl. 9). Entweder Gym Kl. 9 zuordnen oder die Voraussetzung für Gym anders lösen. Danach prüfen, ob ein Gymnasiast das Thema im Plan bekommt.
+- **Graphentransformation, Umkehrfunktionen, Wurzelgleichungen:** im LehrplanPLUS Gymnasium enthalten? Wenn ja, Klasse und Lernbereich eintragen, sonst kurz begründen, in welchem Thema es steckt.
+- **Realschule:** Formeln umstellen (steckt laut Umfang in „Prismen und Zylinder“, Kl. 9) – bestätigen oder zuordnen.
+- Die übrigen Themen ohne Klasse (IB-Themen, Entdecker-Inseln, reiner Realschul- bzw. Gymnasialstoff) sind plausibel; nur stichprobenartig bestätigen.
+
+**2. Realschule:** Klasse 7 hat 20 Themen, Klasse 8 nur 7 – Zuordnung gegen LehrplanPLUS RS prüfen.
+
+**3. Voraussetzungen (`schule.voraussetzung`) vervollständigen:** 70 Verbindungen, aber 18 Gym- und 19 RS-Themen haben keine einzige, darunter Dezimalzahlen, Volumen, Potenzgesetze, Winkelsätze, Prismen und Zylinder, Kreis und Tangenten. Für jedes Thema mit Klasse: mindestens die direkten Voraussetzungen („hart“ oder „empfohlen“, mit Begründung) eintragen oder ausdrücklich als „eigenständig“ kennzeichnen. Ziel: Man kann eigenständige Themen von Datenlücken unterscheiden.
+
+**Rahmen (Haupt-Chat):**
+- **Die Datenbank bleibt beim Haupt-Chat.** Du liest nur (Tabellen `schule.thema`, `schule.voraussetzung`, `schule.thema_jahrgang`, `schule.block_thema`) und lieferst: (a) Änderungen an `inhalte/themenliste.json` im Zweig, (b) eine Migrationsdatei `supabase/migrations/20261121_lehrplan_zuordnung_voraussetzungen.sql` (wiederholt ausführbar, kein DROP/DELETE, nicht ausführen) samt kurzem Rauchtest, (c) die Liste der Änderungen mit Quelle (LehrplanPLUS-Abschnitt, Abrufdatum) je Änderung; Unbelegtes als Annahme kennzeichnen. Fehlt in `schule.voraussetzung` eine Möglichkeit, „eigenständig“ festzuhalten, schlage die kleinste Ergänzung vor (z. B. Kennzeichen am Thema) – als Teil der Migrationsdatei.
+- **Stand beachten:** Die Themenliste enthält schon die zwei neuen Flüge `terme.potenzgesetze_natuerlich` (102) und `terme.potenzgesetze_ganzzahlig` (103) und den geänderten Titel von `terme.potenzgesetze`; in der Datenbank sind sie noch nicht angelegt (kommt vom Haupt-Chat). Voraussetzungen für 102/103 mitliefern (u. a. 30 → 102 → 29 `terme.umformen`; 102 → 103); die Migration darf nicht scheitern, wenn 102/103 noch fehlen.
+- **Folgen nennen:** Jede neue Klassen-Zuordnung oder harte Voraussetzung, die den Plan eines Kindes ändern würde (neuer Flug im Plan, andere Reihenfolge), ausdrücklich auflisten – ohne Namen. Reihenfolgen je Schulart und Klasse bleiben lückenlos und eindeutig (Selbstprüfung per Skript).
+- Keine Inhalte (Aufgaben, Karten) ändern, keine Kinderdaten, kein Merge nach `main`. Am Ende „FERTIG: Lehrplan Runde 30“. Danach meldet der Haupt-Chat dem Gestalter, der das Übersichtsblatt aktualisiert und gegenprüft.
+
+---
+
+# Bau-Auftrag LM (21.11.): Lehrplan-Matrix „Mathe 5–10“ – bei Lehrer/Eltern und auf der Kinderseite
+
+Von Sebastian gewünscht. Vorgabe des Gestalters (maßgeblich, vollständig lesen): `inhalte/pruefung/lehrer/matrix/umsetzung.md` (LM-1 bis LM-6), Vorlage `inhalte/pruefung/lehrer/matrix/entwurf/lehrplan-matrix.html` (läuft ohne Server, erfundener Lernstand „Kind A“/„Kind B“).
+
+**Schritt 1 – LM-S, Server (`bau-lehrer`, nur Dateien, parallel möglich):** Prüfen, was die Matrix an Daten braucht und was `api.schule_lehrplan_uebersicht` heute liefert. Fehlendes als Migrationsdatei mit Rauchtest (nicht ausführen): je Thema Titel, Themengebiet, Klasse/Reihenfolge/Lernbereich je Schulart, „Was gefordert ist“ (`thema.beschreibung`), Lehrplan-Wortlaut, „Das muss sitzen“ (`merke` der freigegebenen Einheit), Etappen (Titel, Pflicht); die Verbindungen aus `schule.voraussetzung` (Art, Begründung); je sichtbarem Kind Stufe, Etappen gesamt/gelandet („Etappe x von y“), im Plan ja/nein – für alle Kinder in einem Aufruf. Zugriff: Eltern/Lehrer sehen ihre Kinder; ein Kind sieht nur sich selbst und bekommt weder Lehrplan-Wortlaut noch Daten anderer Kinder. Die Ansicht muss mit dem heutigen Stand von `schule.voraussetzung` funktionieren (die Vervollständigung läuft getrennt, Dreißigste Runde). Bericht: Feldliste für den App-Bau. „FERTIG: LM-S“.
+
+**Schritt 2 – LM-1 bis LM-5, App Lehrer/Eltern (`bau-motivation`, nach LM-S, Version 0.84.0):**
+- Nachschlagen → „Lehrplan“ = Matrix (LM-1 bis LM-4) mit allen Kindern und „Beide vergleichen“.
+- Seite des Kindes, Reiter „Plan“: Link „Als Matrix ansehen ›“ → Matrix mit diesem Kind vorgewählt und dessen Schulart. Kein fünfter Reiter.
+- Detail eines Themas (genau ein Kind gewählt): Stufen-Knöpfe wie LB Teil 8 Variante A („Lernen · Kann er – wiederholen · Kann er komplett“, rechts „Aus dem Plan nehmen“/„In den Plan nehmen“), gleiche Server-Aufrufe und Rückgängig wie im Plan. „Im Plan öffnen ›“ springt in den Plan mit dem Thema aufgeklappt.
+- Die bisherige Lehrplan-Übersicht (LB-1) geht in der Matrix auf; nichts davon darf verloren gehen, was die Matrix nicht ersetzt – im Bericht nennen.
+
+**Schritt 3 – LM-6, Kinderseite „Meine Route 5–10“ (`bau-motivation`, eigener Schritt nach Schritt 2, Version 0.85.0):**
+- Textlink „Meine Route 5–10 ›“ auf der Abflugtafel.
+- Nur das eigene Kind, Lernstand immer an; kein Geschwister-Vergleich, keine Schulart-Kennzeichen, kein Lehrplan-Wortlaut.
+- Reisewörter (Flug, Kontinent, Etappe; der Test der Reisewörter gilt). Stufen: „kannst du“, „kommt zur Wiederholung“, „hier bist du – Etappe x von y“, „kommt noch“; nicht im Plan blass.
+- Kopf je Klasse: „Du kannst schon n von m Flügen“ mit Balken.
+- Detail: Was du hier lernst, Das muss sitzen, Das brauchst du vorher (mit eigener Stufe), Danach geht’s weiter mit, Etappen mit ✓. Plan nicht änderbar; nur beim ▶-Flug großer Knopf „Weiter lernen ›“.
+- Handy/Tablet zuerst.
+
+**Für alle Schritte:** Tests nur mit Testkind und erfundenen Daten, keine Kinderdaten in Dateien. Abnahme bei 400, 820, 1280 px (kein Wort mitten im Wort umbrochen, Trennstrich erlaubt; Linien hinter den Karten). Nach jedem Schritt im Postfach melden – der Gestalter prüft nach. Merge nach `main` erst nach Sebastians „Live“.
+
+**Nachtrag zur Dreißigsten Runde (21.11., vom Gestalter):** Im Bericht ausdrücklich angeben, **wo und wie „eigenständig“ abgelegt wird** (Spalte oder Eintrag, mit Namen) – nur dann kann das Übersichtsblatt es anzeigen. Der Gestalter prüft danach: kein Thema mit Klasse ohne Verbindung, außer ausdrücklich eigenständig; keine Voraussetzung liegt in einer späteren Klasse als das Thema (je Schulart); die Themen 100–103 sind verknüpft. Diese drei Regeln als Selbstprüfung in den Rauchtest aufnehmen. Stand: 102/103 sind seit 21.11. in der Datenbank und freigegeben.

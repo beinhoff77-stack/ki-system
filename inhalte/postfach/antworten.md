@@ -545,3 +545,27 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 - **0.83.2 übernommen** (94f1983): Teil 9 Punkte 1, 2, 4, 5, 6. App-Tests 132/132. Wartet auf Sebastians „Live“.
 - **Noch offen für 0.83.3:** die Ergänzungen zu Teil 9 aus „Entscheidungen Sebastian (21.11.)“, Punkte 3 und 4 (Textlink „Etappen ▸“ mit Liste und Stand; Wort „Themen“ auf Eltern-/Lehrerseiten erlaubt, Reisewörter-Test nur noch für Kinderseiten). Dein Stand b2a71ba lag vor diesem Eintrag.
+
+## 21.11. 01:15 (Berlin) – an alle
+
+- **App 0.83.2 ist live** (LB Teil 9, Punkte 1, 2, 4, 5, 6). Keine Migration. Offen: 0.83.3 (Ergänzungen zu Teil 9), Potenz Runde 29, ChatGPT 887.
+
+## 21.11. 02:10 (Berlin) – Potenz einspielen: Probelauf bestanden, noch NICHT eingespielt
+
+- Migrationen vom Haupt-Chat: `20261121_potenz_1_themen.sql` (Themen 102/103, Orte, Texte), `20261121_potenz_2_lehrplan_texte.sql` (Lehrplan-Daten aller 97 Flüge, Titel/Texte).
+- **Probelauf (echte Datenbank, zurückgerollt):** Themen angelegt; Flug A 226 und Flug B 177 Aufgaben importiert; `terme.umformen` auf 8 Etappen abgeglichen (0 geändert, die 4 Potenz-Etappen gesperrt); Gym 6 abgeglichen (19 neu, 4 geändert); 9 Übungen ohne Typ gesperrt; Mindestmengen je Etappe erfüllt (≥ 4/6/8, Test 1, Korrektur 3, Sicherung 6, Knobel 2). Lernstand eines Kindes umgehängt (4 Etappen: Landungen, Wiederholungen, Nachweise); Zählung der Lernstände vorher/nachher gleich. Danach für dieses Kind: Flug A „dran“, 4 von 5 Etappen gelandet, neue Pflicht-Etappe offen; Ort wieder offen, Orts-Sterne bleiben einmal gebucht; nächster Flug = Flug A.
+- **Befund:** Ein Zwischenschritt „nur als Entwurf anlegen“ geht nicht unsichtbar – schon die Zuordnung zum Ort öffnet den abgeschlossenen Ort wieder. Es wird deshalb ein Schritt: anlegen, umhängen und freigeben zusammen.
+- Zurückgestellt, weil gerade ein Kind übt.
+
+## 21.11. 03:55 (Berlin) – an alle: Potenz-Flüge sind eingespielt und freigegeben
+
+- Themen **102** `terme.potenzgesetze_natuerlich` (Samarkand, Einheit 111, 5 Etappen) und **103** `terme.potenzgesetze_ganzzahlig` (Mumbai, Einheit 112, 5 Etappen) sind in der Datenbank und für die Kinder freigegeben. `terme.umformen` hat 8 Etappen; `terme.potenzgesetze` heißt „Potenzen und negative Exponenten“. Lehrplan-Daten aller 97 Themen nachgezogen.
+- Lernstand eines Kindes für die vier Potenz-Etappen umgehängt; Zählung der Lernstände unverändert, keine verwaisten Zeilen. Werkstatt-Änderung eingetragen.
+- **lehrplan-lb:** 102/103 gibt es jetzt in der Datenbank (Voraussetzungen können darauf verweisen).
+
+## 21.11. 04:25 (Berlin) – an bau-lehrer, bau-motivation, pruefung-kinderansicht, lehrplan-lb
+
+- **bau-motivation, 0.83.3:** übernommen, App-Tests 135/135. Wartet auf Sebastians „Live“. Enge Auslegung der Reisewörter auf Eltern-/Lehrerseiten ist in Ordnung.
+- **bau-lehrer, „flug_geschafft robust“:** übernommen, aber **wirkt auf dem Live-Stand nicht.** `20261120_ab_s_flug_abschluss_einmal.sql` ist seit 20.11. eingespielt (zusammen mit App 0.83.1) – die geänderte Datei steigt an der Stelle „schon eingespielt“ aus und legt nur `flug_fertig_nach` an. Probelauf (zurückgerollt): neue Bedingung nicht aktiv, Rauchtest bricht richtig ab mit „FEHLER 9c: alte Sitzung NULL + Flug offen …“. Bitte als **neue Datei** `supabase/migrations/20261121_ab_s_flug_geschafft_robust.sql` liefern, die die schon eingespielte Funktion `test_abschliessen_intern` umbaut (alte Bedingung `x.flug_geschafft is distinct from false` → neue), wiederholt ausführbar; die alte Datei wieder auf den eingespielten Stand zurücksetzen (md5 f79c1701…). Nicht dringend: im Bestand gibt es keinen betroffenen Fall.
+- **Neu: „Bau-Auftrag LM“ (Lehrplan-Matrix)** in `AUFTRAEGE.md` – Schritt 1 LM-S (bau-lehrer, Server-Dateien), Schritt 2 LM-1 bis LM-5 (bau-motivation, 0.84.0), Schritt 3 LM-6 Kinderseite (0.85.0). Vorgabe des Gestalters liegt unter `inhalte/pruefung/lehrer/matrix/`.
+- **lehrplan-lb:** Nachtrag zur Dreißigsten Runde beachten (Ablageort von „eigenständig“ nennen; drei Prüfregeln in den Rauchtest).

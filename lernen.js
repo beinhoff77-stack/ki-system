@@ -2150,7 +2150,8 @@ function lernAbschlussBordkarte({ ctx, r }) {
 }
 // Ablauf nach bestandenem Flug-Test: Flug → (Ort) → Bordkarte
 async function lernAbschlussFlugStart(ctx, r) {
-  let schritt = 'flug'; let huelle = null; let stempelNr = null;
+  // 0.83.3 (Nachtrag 888): meldet der Server nur ort_geschafft (flug_geschafft false), war „Flug geschafft“ schon – direkt Ort-Stempel und Bordkarte
+  let schritt = ('flug_geschafft' in r && !r.flug_geschafft && r.ort_geschafft) ? 'ort' : 'flug'; let huelle = null; let stempelNr = null;
   if (r.ort_geschafft) { try { const k = await lernCall('schule_konto', { lernender_id: ctx.kind }); stempelNr = (k?.konto || k)?.stempel ?? null; } catch { /* ohne Nummer */ } }
   const zeige = () => {
     const weiter = () => { schritt = schritt === 'flug' && r.ort_geschafft ? 'ort' : 'karte'; zeige(); };
@@ -3278,9 +3279,21 @@ async function viewPlan(arg) {
   };
   // LB Teil 8 (Variante A): aufgeklappte Karte im Lehrplan – „Inhalte ansehen (n Etappen)“ · Ort, darunter eine Zeile „Stufe ⓘ“ mit drei schmalen Knöpfen
   // und rechts als roter Textlink „Aus dem Plan nehmen“ bzw. „In den Plan nehmen“. Wirkung und Speichern wie knoepfe() (LB-3, LB-5).
-  const inhaltZeile = (t, o) => { const n = (t.etappen || []).length || t.einheit?.karten || 0;
-    return el('div', { class: 'lern-lp-inhalt' }, t.einheit ? el('a', { class: 'lern-lp-inhalte', href: `#/inhalte/${t.einheit.id}` }, `Inhalte ansehen (${n} ${n === 1 ? 'Etappe' : 'Etappen'})`)
-      : el('span', { class: 'muted small' }, 'noch kein Inhalt'), el('small', { class: 'lern-lp-ort muted' }, `Ort: ${o.stadt || o.titel || '?'}`)); };
+  // Entscheidung Sebastian 21.11. (Ergänzung Teil 9): Etappen mit Stand kommen zurück – zugeklappt hinter „Etappen ▸“, aufgeklappt wie in 0.83.0 (Nummer, Titel, Stand rechtsbündig)
+  const etappenAuf = new Set();
+  const etappenListe = (t) => {
+    const k = new Map(((t.einheit && proEinheit.get(t.einheit.id))?.karten || []).map((x) => [x.lernziel, x]));
+    return el('div', { class: 'lern-st-etappen', id: `lern-etappen-${t.thema_id}` }, ...(t.etappen || []).map((e, i) => { const x = k.get(e.lernziel);
+      const z = !x ? '' : x.sicher ? ' sicher' : x.wieder_offen ? ' wieder-offen' : x.sitzt ? ' gelandet' : (x.richtig || x.falsch) ? ' begonnen' : '';
+      const wort = !x ? 'offen' : x.sicher ? 'sicher' : x.wieder_offen ? 'wieder offen' : x.sitzt ? 'gelandet' : (x.richtig || x.falsch) ? 'begonnen' : 'offen';
+      return el('span', { class: 'lern-st-etappe' + z }, el('b', {}, `${i + 1} `), el('span', { class: 'lern-st-et-titel' }, e.titel || `Etappe ${i + 1}`), el('small', { class: 'lern-st-et-stand' }, wort)); }));
+  };
+  const inhaltZeile = (t, o) => { const n = (t.etappen || []).length || t.einheit?.karten || 0; const auf = etappenAuf.has(t.thema_id);
+    const zeile = el('div', { class: 'lern-lp-inhalt' }, t.einheit ? el('a', { class: 'lern-lp-inhalte', href: `#/inhalte/${t.einheit.id}` }, `Inhalte ansehen (${n} ${n === 1 ? 'Etappe' : 'Etappen'})`)
+      : el('span', { class: 'muted small' }, 'noch kein Inhalt'), el('small', { class: 'lern-lp-ort muted' }, `Ort: ${o.stadt || o.titel || '?'}`),
+      (t.etappen || []).length ? el('button', { type: 'button', class: 'lern-lp-textlink lern-lp-etappen-link', 'aria-expanded': String(auf), 'aria-controls': `lern-etappen-${t.thema_id}`,
+        onclick: (ev) => { if (etappenAuf.has(t.thema_id)) etappenAuf.delete(t.thema_id); else etappenAuf.add(t.thema_id); const alt = ev.currentTarget.closest('.lern-lp-inhalt'); const neu = inhaltZeile(t, o); (alt.closest('.lern-lp-inhalt-block') || alt).replaceWith(neu); neu.querySelector('.lern-lp-etappen-link')?.focus(); } }, auf ? 'Etappen ▾' : 'Etappen ▸') : null);
+    return auf ? el('div', { class: 'lern-lp-inhalt-block' }, zeile, etappenListe(t)) : zeile; };
   const stufenZeile = (t, blockId) => {
     const x = plan.find((y) => y.block_id === blockId); const s = stufeVon(t, blockId); const drin = imPlan(t, x);
     const aktiv = !drin ? null : x.kann_schon || x.kann.includes(t.thema_id) ? 'komplett' : x.kw.includes(t.thema_id) ? 'wiederholen' : 'lernen';

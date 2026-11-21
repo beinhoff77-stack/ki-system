@@ -2269,3 +2269,25 @@ Tests ergänzen (N6, N7 als Messung, N1), alle laufen lassen. „FERTIG: 0.83.2�
 - **`bau-lehrer`, Tests:** Fälle 9c/9d dürfen nicht mehr mit „Info“ übersprungen werden (feste Testvorbereitung, harte Prüfung); eigener Negativfall „Nachtest“.
 - **`bau-motivation`, in 0.83.3:** Meldet der Server nur `ort_geschafft` (ohne `flug_geschafft`), zeigt die App direkt Ort-Stempel und Bordkarte, nicht noch einmal „Flug geschafft“. Test dazu.
 - Nicht übernommen (bekannte Grenze): Abschluss-Daten beim Wiederöffnen werden neu berechnet (kein Schnappschuss); Sperre gegen zwei gleichzeitig laufende Tests desselben Flugs.
+
+---
+
+# Dreißigste Runde (21.11.): Lehrplan-Prüfung – Zuordnungen und Voraussetzungen der Themenliste
+
+Chat **`lehrplan-lb`** (Inhalte, kein App-Code), Zweig `lehrplan-lb` auf den Stand von `lernen-app` bringen, Meldung `inhalte/postfach/lehrplan-lb.md`. Anlass: Sebastians Übersichtsblatt „Mathe 5–10 – was gelernt wird“ (Matrix Klasse × Themengebiet aus `inhalte/themenliste.json` und `schule.voraussetzung`) zeigt Lücken. Auftrag des Gestalters, vom Haupt-Chat übernommen.
+
+**1. Themen ohne Klasse prüfen (Gymnasium Bayern)**
+- **Reinquadratische Gleichungen:** `gym_by` fehlt, ist aber harte Voraussetzung für „Quadratische Gleichungen (allgemein)“ (Gym Kl. 9). Entweder Gym Kl. 9 zuordnen oder die Voraussetzung für Gym anders lösen. Danach prüfen, ob ein Gymnasiast das Thema im Plan bekommt.
+- **Graphentransformation, Umkehrfunktionen, Wurzelgleichungen:** im LehrplanPLUS Gymnasium enthalten? Wenn ja, Klasse und Lernbereich eintragen, sonst kurz begründen, in welchem Thema es steckt.
+- **Realschule:** Formeln umstellen (steckt laut Umfang in „Prismen und Zylinder“, Kl. 9) – bestätigen oder zuordnen.
+- Die übrigen Themen ohne Klasse (IB-Themen, Entdecker-Inseln, reiner Realschul- bzw. Gymnasialstoff) sind plausibel; nur stichprobenartig bestätigen.
+
+**2. Realschule:** Klasse 7 hat 20 Themen, Klasse 8 nur 7 – Zuordnung gegen LehrplanPLUS RS prüfen.
+
+**3. Voraussetzungen (`schule.voraussetzung`) vervollständigen:** 70 Verbindungen, aber 18 Gym- und 19 RS-Themen haben keine einzige, darunter Dezimalzahlen, Volumen, Potenzgesetze, Winkelsätze, Prismen und Zylinder, Kreis und Tangenten. Für jedes Thema mit Klasse: mindestens die direkten Voraussetzungen („hart“ oder „empfohlen“, mit Begründung) eintragen oder ausdrücklich als „eigenständig“ kennzeichnen. Ziel: Man kann eigenständige Themen von Datenlücken unterscheiden.
+
+**Rahmen (Haupt-Chat):**
+- **Die Datenbank bleibt beim Haupt-Chat.** Du liest nur (Tabellen `schule.thema`, `schule.voraussetzung`, `schule.thema_jahrgang`, `schule.block_thema`) und lieferst: (a) Änderungen an `inhalte/themenliste.json` im Zweig, (b) eine Migrationsdatei `supabase/migrations/20261121_lehrplan_zuordnung_voraussetzungen.sql` (wiederholt ausführbar, kein DROP/DELETE, nicht ausführen) samt kurzem Rauchtest, (c) die Liste der Änderungen mit Quelle (LehrplanPLUS-Abschnitt, Abrufdatum) je Änderung; Unbelegtes als Annahme kennzeichnen. Fehlt in `schule.voraussetzung` eine Möglichkeit, „eigenständig“ festzuhalten, schlage die kleinste Ergänzung vor (z. B. Kennzeichen am Thema) – als Teil der Migrationsdatei.
+- **Stand beachten:** Die Themenliste enthält schon die zwei neuen Flüge `terme.potenzgesetze_natuerlich` (102) und `terme.potenzgesetze_ganzzahlig` (103) und den geänderten Titel von `terme.potenzgesetze`; in der Datenbank sind sie noch nicht angelegt (kommt vom Haupt-Chat). Voraussetzungen für 102/103 mitliefern (u. a. 30 → 102 → 29 `terme.umformen`; 102 → 103); die Migration darf nicht scheitern, wenn 102/103 noch fehlen.
+- **Folgen nennen:** Jede neue Klassen-Zuordnung oder harte Voraussetzung, die den Plan eines Kindes ändern würde (neuer Flug im Plan, andere Reihenfolge), ausdrücklich auflisten – ohne Namen. Reihenfolgen je Schulart und Klasse bleiben lückenlos und eindeutig (Selbstprüfung per Skript).
+- Keine Inhalte (Aufgaben, Karten) ändern, keine Kinderdaten, kein Merge nach `main`. Am Ende „FERTIG: Lehrplan Runde 30“. Danach meldet der Haupt-Chat dem Gestalter, der das Übersichtsblatt aktualisiert und gegenprüft.

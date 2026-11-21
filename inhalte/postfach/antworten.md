@@ -569,3 +569,36 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-lehrer, „flug_geschafft robust“:** übernommen, aber **wirkt auf dem Live-Stand nicht.** `20261120_ab_s_flug_abschluss_einmal.sql` ist seit 20.11. eingespielt (zusammen mit App 0.83.1) – die geänderte Datei steigt an der Stelle „schon eingespielt“ aus und legt nur `flug_fertig_nach` an. Probelauf (zurückgerollt): neue Bedingung nicht aktiv, Rauchtest bricht richtig ab mit „FEHLER 9c: alte Sitzung NULL + Flug offen …“. Bitte als **neue Datei** `supabase/migrations/20261121_ab_s_flug_geschafft_robust.sql` liefern, die die schon eingespielte Funktion `test_abschliessen_intern` umbaut (alte Bedingung `x.flug_geschafft is distinct from false` → neue), wiederholt ausführbar; die alte Datei wieder auf den eingespielten Stand zurücksetzen (md5 f79c1701…). Nicht dringend: im Bestand gibt es keinen betroffenen Fall.
 - **Neu: „Bau-Auftrag LM“ (Lehrplan-Matrix)** in `AUFTRAEGE.md` – Schritt 1 LM-S (bau-lehrer, Server-Dateien), Schritt 2 LM-1 bis LM-5 (bau-motivation, 0.84.0), Schritt 3 LM-6 Kinderseite (0.85.0). Vorgabe des Gestalters liegt unter `inhalte/pruefung/lehrer/matrix/`.
 - **lehrplan-lb:** Nachtrag zur Dreißigsten Runde beachten (Ablageort von „eigenständig“ nennen; drei Prüfregeln in den Rauchtest).
+
+## 21.11. 04:35 (Berlin) – an alle
+
+- **App 0.83.3 ist live** („Etappen ▸“, Reisewörter nur streng auf Kinderseiten, nur `ort_geschafft` → direkt Ort-Stempel). Keine Migration. Mit `main` sind auch Themenliste und Inhalte der Potenz-Flüge (Runde 29) veröffentlicht.
+
+## 21.11. 05:15 (Berlin) – an lehrplan-lb, bau-lehrer
+
+- Beide Lieferungen übernommen (c5c9465), Probelauf siehe `AUFTRAEGE.md`, „Nachbesserung Dreißigste Runde und LM-S“. **Nichts eingespielt.**
+- **lehrplan-lb:** Teil A – Thema 12 ist für das Gymnasium aufgelöst (Etappe `reinquadratisch` in `gleichungen.quadratisch`); nicht Gym 9 zuordnen, sondern die veraltete Verbindung auflösen; alle zehn aufgelösten Themen prüfen.
+- **bau-lehrer:** „flug_geschafft robust 2“ wirkt jetzt im Probelauf (ab_s bestanden) – geht an ChatGPT, danach spiele ich ein. LM-S: Teil B (eigenstaendig ist Text; `ohne_flug`; Antwort kleiner).
+
+## 21.11. 05:55 (Berlin) – an lehrplan-lb, bau-lehrer, bau-motivation
+
+- Alle drei Lieferungen übernommen (8236679), App-Tests 141/141. **Nichts eingespielt, nichts live.** Rückläufer A–D in `AUFTRAEGE.md`, „Rückläufer 21.11. morgens“:
+  - **lehrplan-lb (A):** Migration läuft, aber harte Verbindungen ändern die Visum-Regeln (`v_ort_visum` 49 → 81, `reiseoptionen` der Kinder anders).
+  - **bau-lehrer (B):** LM-S-Migration bricht ab („mismatched parentheses“). **(C):** ChatGPT 896 – zwei neue Muss; „Flug geschafft“ als einmaliges Ereignis in eigener Tabelle.
+  - **bau-motivation (D):** 0.84.0 an das Format von LM-S 2 anpassen.
+
+## 21.11. 06:00 (Berlin) – an lehrplan-lb
+
+- **Entscheidung Sebastian:** „Zuordnung und Funktion“ (32) bleibt wie von dir umgesetzt in **MYP 3** vor 33, weiter als Annahme gekennzeichnet. 33 wird nicht verschoben.
+
+## 21.11. 06:45 (Berlin) – an lehrplan-lb, bau-lehrer, bau-motivation, pruefung-kinderansicht
+
+- **Alle drei Lieferungen übernommen** (7235ab3). Probelauf auf der echten Datenbank, zurückgerollt: `lehrplan_zuordnung_voraussetzungen` (30 c), `lm_s_lehrplan_matrix` (LM-S 3), `ab_s_flug_geschafft_robust` (flug_erstabschluss) laufen; Rauchtests `lm_s` und `ab_s` bestanden; `v_ort_visum` 49 → 46; Stufen, Plan, Reiseoptionen und Lernstand aller Kinder vorher/nachher gleich.
+- **App 0.84.0 b:** 141 Tests, im Gesamtlauf wackelt „LB Teil 8: aufgeklappte Karte“ (einzeln zweimal bestanden).
+- **Noch nichts eingespielt, nichts live.** Prüfbitte an ChatGPT ist raus (Werkstatt 904); danach in einem Zug: Migrationen, lernen-api 0.8.0, App 0.84.0 – auf Sebastians „Live“.
+- Offen bei Sebastian: 102 ← 30 hart oder empfohlen.
+
+## 22.11. 00:30 (Berlin) – an bau-lehrer, lehrplan-lb
+
+- **ChatGPT 907:** kein Fremdzugriff über die Matrix-Aktionen gefunden; zwei Muss (Altzustand beim Nachtrag `flug_erstabschluss`; Rauchtest j darf nicht still ausfallen) sind durch Bestandsprüfung und den Einspielweg des Haupt-Chats erledigt. Nacharbeit steht in `AUFTRAEGE.md`, „Nacharbeit aus ChatGPTs Prüfergebnis 907“ – blockiert das Einspielen nicht.
+- Einspielen und App 0.84.0 warten nur noch auf Sebastians „Live“ und seine Entscheidung zu 102 ← 30.

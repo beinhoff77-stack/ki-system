@@ -2,6 +2,67 @@
 
 Neueste Meldung oben.
 
+## 2026-11-21 – MELDUNG Runde 30 c: harte Verbindungen ohne neue Reise-Sperren
+
+Grundlage ist `lernen-app` d463182a. Die Datenbank habe ich nur gelesen, die Migration auf der echten Datenbank **nicht ausgeführt**. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0c.
+
+- **Ursache:** Jede harte Verbindung zwischen zwei Orten ist über `schule.v_ort_visum` eine Reise-Sperre in `schule.reiseoptionen`. Meine Aussage „Plan-Folgen: keine“ war falsch.
+- **38 von 39 neuen harten Verbindungen mit neuer Sperre sind jetzt `empfohlen`.** Hart bleibt nur 102 ← 30 (Potenzgesetze braucht Potenzen; Kette laut Auftrag). Das bringt eine neue Visum-Zeile: Ort „Terme umformen“ braucht „Potenzen“. Heute wirkt sie nicht, weil das Kind Klasse 8 beide Orte fertig hat und beim Kind Klasse 5 der Ort entfernt ist. **Entscheidung Sebastian:** hart lassen oder empfohlen.
+- **`v_ort_visum`:** vorher 49, nachher 46 Zeilen. Vier Zeilen fallen durch die Löschungen aus 30 b weg; sie betreffen nur die Zusatz-Orte „Zinseszins“ und „Statistik vertieft“.
+- **Reiseoptionen je Kind:** Für das Kind Klasse 5, das Kind Klasse 8 und das Testkind Klasse 7 sind vorher und nachher dieselben Orte wählbar und dieselben gesperrt. Die Tabellen dazu stehen im Bericht.
+- **Rauchtest j:** vergleicht die Reiseoptionen aller Lernenden vor und nach der Migration und bricht bei jedem Unterschied ab.
+- **Lokal auf Postgres 16 ausgeführt** (nachgebaute Tabellen, gelesene Daten):
+  - Zwei Läufe hintereinander bestanden.
+  - Gegenprobe mit 25 ← 18 hart: Rauchtest j greift, alles wird zurückgerollt.
+
+FERTIG: Lehrplan Runde 30 c
+
+## 2026-11-21 – MELDUNG Runde 30 b: Thema 12 zurückgenommen, aufgelöste Themen entkoppelt
+
+Grundlage ist `lernen-app` 168a744b. Die Datenbank habe ich nur gelesen, die Migration **nicht ausgeführt**. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0.
+
+- **12 ohne Gymnasium-Klasse.** Die Reihenfolge Gym 9 ist wie vorher. Der Stoff steht im Flug 8, Etappe `reinquadratisch`.
+- **Zehn aufgelöste Themen** (12, 27, 40, 41, 48, 72, 77, 78, 82, 83) mit `schule.einheit` abgeglichen: Nur diese zehn haben keine freigegebene Einheit. Für jedes nennt der Bericht, in welchem Flug und welcher Etappe der Stoff heute steht.
+- **Gezielt gelöscht** in Abschnitt 3c der Migration, einzeln mit Kommentar: 12 Zeilen in `schule.voraussetzung`, nämlich 8←12, 12←68, 49←48, 74←48, 76←41, 72←67, 72←71, 77←32, 78←33, 82←21, 82←23 und 82←61.
+- **Ersatz:** 8←68 (hart), 49←46 (empfohlen), 74←46 (empfohlen), 74←50 (hart), 76←28 (hart). Aus den neuen Verbindungen der Runde 30 sind 8 Zeilen gestrichen. Insgesamt bleiben 128 Verbindungen.
+- **Neue Rauchtest-Regel i:** keine Verbindung von oder zu einem Thema ohne freigegebene Einheit. Erlaubt ist nur eine Begründung, die mit „Ausnahme:“ beginnt; das kommt derzeit nicht vor. Regel b gilt nur noch für freigegebene Themen. Alle Regeln sind per Skript nachgerechnet.
+- **Plan-Folgen:** keine.
+- **Befund:** Die aufgelösten Themen tragen weiter Klassen und Reihenfolgen für RS und IB. Das habe ich nicht geändert; die Matrix markiert sie mit `ohne_flug` (Teil B).
+- **Lücke:** Vektoren (48) haben für RS 7 keinen freigegebenen Flug. Determinanten (74) nutzen Vektorkoordinaten.
+
+FERTIG: Lehrplan Runde 30 b
+
+## 2026-11-21 – MELDUNG Dreißigste Runde: Lehrplan-Prüfung Zuordnungen und Voraussetzungen
+
+Grundlage ist `lernen-app` e0739529, mit dem Nachtrag des Gestalters. Die Datenbank habe ich nur gelesen, die Migration **nicht ausgeführt**. Aufgaben, Karten und App-Code sind unverändert. Bericht mit Quellen (LehrplanPLUS, abgerufen 21.11.2026) und Annahmen: `inhalte/pruefung/lehrplan/runde30.md`.
+
+**Änderungen**
+- **12 Reinquadratische Gleichungen → Gym 9**, M9 2, Stelle 4 vor 8. Beleg: Gym 9 M9 2.1. Ein Gymnasiast bekommt das Thema damit im Plan.
+- **4 Formeln umstellen:** Lernbereich Gym berichtigt auf „M8 1 Funktion und Term“ (Beleg: Gym 8 M8 1). Die Reihenfolge bleibt.
+- **32 Zuordnung und Funktion → IB MYP 3** vor 33. Grund: Regel „keine Voraussetzung in späterer Klasse“. Das ist eine Annahme. Kein Kind ist betroffen.
+- **Ohne Gym-Klasse bleiben** 40, 77 und 13. 4 bleibt bei RS ohne Klasse; das ist eine Annahme, weil ich keine Fundstelle gefunden habe.
+- **Klassen RS 7/8:** RS 7 mit 20 Themen ist stimmig. RS 8 mit 7 Themen ist dünn, weil Themen fehlen (Vierecke, Drehung, Baumdiagramm/Vierfeldertafel). Die Zuordnungen sind nicht falsch. Das sind nur Vorschläge.
+- **Voraussetzungen:** 73 neue Verbindungen, insgesamt 143.
+  - 7 Themen sind eigenständig.
+  - Die Kette 30 → 102 → 29 und 102 → 103 ist enthalten.
+- **„eigenständig“** steht in der neuen Spalte `schule.thema.eigenstaendig` (`text`, Begründung; `null` = nicht gekennzeichnet; gilt für alle Schularten) und in der Themenliste im Feld `eigenstaendig`. Einzelheiten stehen im Bericht in Abschnitt 3a. 102/103 sind laut Datenbank angelegt; die Migration verknüpft sie.
+- **Migration:** `supabase/migrations/20261121_lehrplan_zuordnung_voraussetzungen.sql`.
+  - Wiederholt ausführbar, ohne DROP/DELETE.
+  - Rauchtest a–h, mit den drei Regeln des Gestalters.
+
+**Folgen für Pläne (ohne Namen)**
+
+Betroffen sind nur die Gym-Kinder: zwei echte und das Testkind.
+1. 12 erscheint neu in Klasse 9.
+2. In Gym 9 rücken 11 Themen je eine Stelle nach hinten. Ihre Reihenfolge untereinander bleibt gleich.
+3. 4 hat einen anderen Lernbereich. Das betrifft möglicherweise eine Gruppierung nach Lernbereich (Annahme).
+
+Die Voraussetzungen ändern keine Reihenfolge.
+
+**Offen für Sebastian:** Soll 32 nach MYP 3 (umgesetzt) oder lieber 33 nach MYP 4? Vorschläge V1–V5 stehen im Bericht.
+
+FERTIG: Lehrplan Runde 30
+
 ## 2026-11-20 06:10 – ENTSCHEIDUNG SEBASTIAN zum Auftragsentwurf Potenzgesetze
 
 Sebastian hat am 20.11. im Chat `lehrplan-lb` entschieden:

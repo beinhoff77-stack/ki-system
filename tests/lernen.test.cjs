@@ -179,7 +179,8 @@ async function setup(t, opt = {}) {
       const erg = [AUFG[14], AUFG[12]].map((a) => ({ aufgabe_id: a.id, lernziel: a.lernziel, frage: a.frage, antworten: a.antworten, antwort: stand.antworten[a.id]?.w ?? null, richtig: !!stand.antworten[a.id]?.ok, loesung: a.loesung, loesungsweg: 'Weg.' }));
       e = { ok: true, sitzung_id: 77, richtig: erg.filter((x) => x.richtig).length, gesamt: 2, ergebnisse: erg, lernziele: [{ lernziel: 'lesen', pflicht: true, status: 'nachgewiesen' }, { lernziel: 'strahl', pflicht: true, status: 'fehler' }], einheit_abgeschlossen: false, ort: { abgeschlossen: false } };
     }
-    if (opt.anpassen && e) e = opt.anpassen(b.aktion, e) || e; // Schritt D: Antwort nach einer Migration nachbilden
+    if (opt.anpassen && e) e = opt.anpassen(b.aktion, e, d) || e; // Schritt D: Antwort nach einer Migration nachbilden
+    else if (opt.anpassen?.neueAktionen) e = opt.anpassen(b.aktion, null, d) || e; // Aktionen, die der Standard-Mock nicht kennt (LM-S)
     await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
   });
   return { page, calls, appCalls };
@@ -406,42 +407,35 @@ test('Lernen: Test ohne Lösungen bis zur Abgabe, danach Auswertung', async (t) 
   assert.equal(calls.filter((c) => c.aktion === 'schule_test_abschliessen').length, 1);
 });
 
-test('Lehrplan-Übersicht (LA-7): Tabelle je Schulart und Klasse, Klassen der Kinder markiert, Inhaltsstand, Inhalte ansehen, Bauen lassen', async (t) => {
+test('Lehrplan (LM, früher LA-7): Inhaltsstand, Aufträge, Lernstand je Kind, Inhalte ansehen und Bauen lassen im Detail der Matrix', async (t) => {
   const { page, calls } = await setup(t);
-  await page.setViewportSize({ width: 820, height: 1180 }); // Tabelle ab 560 px (I-3: darunter Liste)
+  await page.setViewportSize({ width: 820, height: 1180 });
   await page.goto(origin + '/#/lehrplan');
-  await page.getByRole('heading', { name: 'Lehrplan-Übersicht' }).waitFor();
-  // vorbelegt mit der Klasse des ersten Kindes (Kind A, Gym 5); Klasse 8 trägt die Marke von Kind B
-  const kl = page.getByRole('group', { name: 'Klasse' });
-  assert.equal(await kl.locator('[aria-pressed=true]').innerText(), 'Kl. 5A');
-  assert.equal(await kl.getByRole('button', { name: /Kl\. 8/ }).innerText(), 'Kl. 8B');
-  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['2', '1', '1', '0']);
-  assert.deepEqual(await page.locator('.lp-tabelle-lehrplan thead th').allInnerTexts(), ['FLUG', 'INHALT', 'KIND A', 'KIND B']); // LB-2: keine Ort-Spalte, Stufe je Kind
-  const gross = page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' });
-  assert.deepEqual((await gross.locator('td').allInnerTexts()).map((x) => x.replace(/\s+/g, ' ').trim()), ['fertig · 1 Auftrag', '↻ In Wiederholung', '+ Nicht im Plan']);
-  assert.match(await gross.locator('th small.lp-gebiet').innerText(), /RS 5 · IB MYP-Jahr 1/);
-  await page.locator('.lp-zeile', { hasText: 'Teilbarkeit' }).locator('.lp-dot-pruefung').waitFor();
-  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
-  await page.screenshot({ path: path.join(root, 'test-results/lehrplan-390.png'), fullPage: true });
-  // alle Klassen, nur „fehlt“
-  await kl.getByRole('button', { name: 'alle Klassen' }).click();
-  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['4', '1', '1', '2']);
-  await page.locator('.lp-kachel.lp-leer').click();
-  const lf = page.locator('.lp-zeile', { hasText: 'Lineare Funktionen' });
-  assert.equal(await lf.getByRole('button', { name: 'Bauen lassen' }).count(), 0, 'E-3: ein Knopf überall');
-  await lf.getByText('✎ Ändern lassen').click();
-  await lf.getByRole('button', { name: 'Auftrag senden' }).click();
-  await lf.getByText('Danke – der Auftrag ist angekommen', { exact: false }).waitFor();
+  await page.getByRole('heading', { name: 'Mathe Klasse 5–10: was gelernt wird' }).waitFor();
+  assert.equal(await page.locator('.mx-chip').count(), 5, 'alle Themen');
+  // reines Realschul-Thema: gestrichelt in der Klasse der Realschule
+  assert.match(await page.locator('.mx-chip', { hasText: 'Nur Realschule' }).getAttribute('class'), /mx-zu/);
+  assert.match(await page.locator('.mx-chip', { hasText: 'Große natürliche Zahlen' }).locator('.mx-sch').innerText(), /Gym 5\s*RS 5\s*IB 1/);
+  const det = page.locator('.mx-detail');
+  await page.locator('.mx-chip', { hasText: 'Teilbarkeit' }).click();
+  assert.match(await det.innerText(), /Inhalt: in Prüfung/);
+  // kein Inhalt → „Ändern lassen“ (E-3: ein Knopf überall)
+  await page.locator('.mx-chip', { hasText: 'Lineare Funktionen' }).click();
+  assert.match(await det.innerText(), /Inhalt: fehlt/);
+  assert.equal(await det.getByRole('button', { name: 'Bauen lassen' }).count(), 0);
+  await det.getByText('✎ Ändern lassen').click();
+  await det.getByRole('button', { name: 'Auftrag senden' }).click();
+  await det.getByText('Danke – der Auftrag ist angekommen', { exact: false }).waitFor();
   const rm = calls.find((c) => c.aktion === 'schule_rueckmeldung_geben').daten;
   assert.equal(rm.art, 'thema_fehlt'); assert.equal(rm.bezug, 'flug'); assert.equal(rm.block_id, 70); assert.match(rm.text, /Lineare Funktionen/);
-  // Realschule: das reine Realschul-Thema
-  await page.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: 'Realschule' }).click();
-  await kl.getByRole('button', { name: 'alle Klassen' }).click();
-  await page.locator('.lp-kachel').first().click();
-  await page.locator('.lp-zeile', { hasText: 'Nur Realschule' }).waitFor();
-  await page.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: 'Gymnasium' }).click();
-  // Zeile antippen → Inhalte ansehen
-  await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).locator('td').last().click();
+  // fertig, Aufträge, Lernstand beider Kinder
+  await page.locator('.mx-chip', { hasText: 'Große natürliche Zahlen' }).click();
+  assert.match((await det.innerText()).replace(/\s+/g, ' '), /Inhalt: fertig · Inhalte ansehen \(3 Etappen\) › · 1 Auftrag/);
+  await page.getByRole('group', { name: 'Lernstand' }).getByRole('button', { name: 'Beide vergleichen' }).click();
+  assert.match(await det.locator('.mx-ls').innerText(), /Kind A[\s\S]*In Wiederholung[\s\S]*Kind B[\s\S]*Nicht im Plan/);
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lehrplan-820.png'), fullPage: true });
+  await det.getByRole('link', { name: /Inhalte ansehen/ }).click();
   await page.waitForURL(/#\/inhalte\/1$/);
   // Teil 4 Punkt 4: geprüfter Flug – die gesperrte Bordkarte ist „aussortiert“, nicht „in Prüfung“, und zählt nicht mit
   await page.getByText('3 Etappen · 1 Bordkarte zum Üben · 1 für Test und Nachtest · 1 aussortiert', { exact: false }).waitFor();
@@ -808,7 +802,7 @@ test('Reisewörter auf allen Eltern-/Lehrerseiten', async (t) => {
     if (b.aktion === 'schule_zugaenge') return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, zugaenge: [{ id: 1, name: 'Herr Lehrer', rolle: 'lehrer', aktiv: true, zuletzt: null }] } }) });
     return route.fallback();
   });
-  for (const [pfad, warte] of [['lernen', 'Zu tun'], ['kind/1-ueberblick', 'Wo hakt es?'], ['plan/1', 'Lehrplan'], ['lehrplan', 'Lehrplan-Übersicht'], ['inhalte/1', 'zum Üben'], ['wackelt/1', 'Was wackelt?'], ['lernstand/1', 'Einstieg prüfen'], ['schulstand', 'Alle Kinder im Vergleich'], ['lernauftraege', 'Neuer Auftrag (allgemein)'], ['zugaenge', 'Neuen Zugang anlegen'], ['info', 'Erste Schritte']]) {
+  for (const [pfad, warte] of [['lernen', 'Zu tun'], ['kind/1-ueberblick', 'Wo hakt es?'], ['plan/1', 'Lehrplan'], ['lehrplan', 'Mathe Klasse 5–10'], ['inhalte/1', 'zum Üben'], ['wackelt/1', 'Was wackelt?'], ['lernstand/1', 'Einstieg prüfen'], ['schulstand', 'Alle Kinder im Vergleich'], ['lernauftraege', 'Neuer Auftrag (allgemein)'], ['zugaenge', 'Neuen Zugang anlegen'], ['info', 'Erste Schritte']]) {
     await page.goto(origin + '/#/' + pfad);
     await page.getByText(warte, { exact: false }).first().waitFor();
     await page.evaluate(() => document.querySelectorAll('#main details').forEach((d) => { d.open = true; }));
@@ -2105,22 +2099,6 @@ test('LA-5: geschaffter Ort steht nicht im Plan, sondern zugeklappt unter „Ges
   await page.locator('.lern-geschafft-kurz li').first().waitFor();
 });
 
-test('LA-7: Lehrplan Gym 5 (14 Flüge) passt auf einen Tablet-Bildschirm', async (t) => {
-  const { page } = await setup(t, { anpassen: (aktion, e) => { if (aktion !== 'schule_lehrplan_uebersicht') return null; const x = structuredClone(e);
-    const gebiete = ['Zahlen', 'Geometrie', 'Daten'];
-    x.themen = Array.from({ length: 14 }, (_, i) => ({ thema_id: 100 + i, titel: `Flug ${i + 1} der Klasse 5`, gebiet: gebiete[i % 3], ort: ['Rom', 'Athen', 'Kairo', 'Lima'][i % 4], block_id: 40 + i,
-      jahrgang: { gym_by: 5, rs_by: 5 + (i % 2), ib_myp: 1 }, einheit: i % 3 ? { id: 200 + i, status: 'geprueft', karten: 4, aufgaben: 30, neu: 0 } : null, stand: { 1: i < 4 ? 'erledigt' : 'offen', 2: 'keine_einheit' }, geplant: [1], rueckmeldungen: 0 }));
-    return x; } });
-  await page.setViewportSize({ width: 820, height: 1180 });
-  await page.goto(origin + '/#/lehrplan');
-  const rows = page.locator('.lp-tabelle-lehrplan tbody tr.lp-zeile'); await rows.nth(13).waitFor();
-  const b = await rows.nth(13).boundingBox();
-  await page.screenshot({ path: path.join(root, 'test-results/la7-lehrplan-820.png') });
-  assert.ok(b.y + b.height <= 1180, 'Gym 5 passt auf das Tablet: ' + Math.round(b.y + b.height));
-  await page.setViewportSize({ width: 400, height: 860 }); await page.screenshot({ path: path.join(root, 'test-results/la7-lehrplan-400.png'), fullPage: true });
-  await page.setViewportSize({ width: 1280, height: 800 }); await page.screenshot({ path: path.join(root, 'test-results/la7-lehrplan-1280.png'), fullPage: true });
-});
-
 // ---------- Bau-Auftrag I, Teil 1 (20.11.): Mängel aus der Nachprüfung Lehrer-Aufbau ----------
 const ohneQuerrollen = (page) => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1);
 const abgeschnitten = (loc) => loc.evaluateAll((xs) => xs.filter((x) => x.scrollWidth > x.clientWidth + 1).map((x) => x.textContent.trim()));
@@ -2166,18 +2144,6 @@ test('I-2: Eltern-Startseite – Wunsch als blauer Eintrag in „Zu tun“; Kind
   await w.getByRole('button', { name: 'Bestätigen' }).click();
   for (let i = 0; i < 40 && !calls.some((c) => c.aktion === 'schule_einloesung_entscheiden'); i++) await page.waitForTimeout(50);
   assert.deepEqual(calls.find((c) => c.aktion === 'schule_einloesung_entscheiden').daten, { id: 9, status: 'bestaetigt' });
-});
-
-test('I-3: Lehrplan-Übersicht auf dem Handy als Liste, ohne abgeschnittene Inhalte', async (t) => {
-  const { page } = await setup(t);
-  await page.setViewportSize({ width: 400, height: 860 });
-  await page.goto(origin + '/#/lehrplan');
-  const e = page.locator('.lp-liste-eintrag', { hasText: 'Große natürliche Zahlen' }); await e.waitFor();
-  assert.equal(await page.locator('.lp-tabelle-lehrplan').isVisible(), false);
-  assert.match(await e.innerText(), /fertig[\s\S]*RS 5 · IB MYP-Jahr 1[\s\S]*Kind A: [\s\S]*In Wiederholung/);
-  assert.ok(await ohneQuerrollen(page), 'kein Querrollen');
-  assert.deepEqual(await abgeschnitten(page.locator('.lp-liste-eintrag b, .lp-liste-kinder span')), []);
-  await page.screenshot({ path: path.join(root, 'test-results/i3-lehrplan-400.png'), fullPage: true });
 });
 
 test('I-4/I-6: Reisewörter beim ersten Vorkommen erklärt; Überblick „Keine Etappe wackelt · Rückreise … offen“', async (t) => {
@@ -2545,7 +2511,7 @@ test('Teil 4 Punkt 1+2: Umschalter auf dem Tablet und Plan-Überschriften auf de
 
 test('Teil 4 Punkt 4: Inhaltsstand zählt in fertigen Flügen nur aktive Bordkarten', async (t) => {
   const { page } = await setup(t);
-  await page.goto(origin + '/#/lehrplan'); await page.getByRole('heading', { name: 'Lehrplan-Übersicht' }).waitFor();
+  await page.goto(origin + '/#/lehrplan'); await page.getByRole('heading', { name: 'Mathe Klasse 5–10: was gelernt wird' }).waitFor();
   const r = await page.evaluate(() => [lernInhaltZustand({ einheit: { status: 'geprueft', karten: 3, aufgaben: 24, neu: 4 } }).text, lernInhaltZustand({ einheit: { status: 'entwurf', karten: 3, aufgaben: 24, neu: 24 } }).k]);
   assert.deepEqual(r, ['Fertig · 3 Etappen · 20 Bordkarten', 'pruefung']);
 });
@@ -2935,22 +2901,21 @@ test('LB Teil 5 S1/S2/K1/K2: Auswahl kompakt, Abschnitte mit Orten und Flügen, 
   await page.screenshot({ path: path.join(root, 'test-results/lb5-auswahl-820.png'), fullPage: true });
 });
 
-test('LB Teil 5 S3: Lehrplan-Übersicht nach Lernbereich und in Lehrplan-Reihenfolge der Schulart', async (t) => {
+test('LB Teil 5 S3 / LM-1: in der Matrix je Zelle die Lehrplan-Reihenfolge der gewählten Schulart; Lernbereich im Detail', async (t) => {
   const { page } = await setup(t, { anpassen: echtAnpassen() });
   await page.setViewportSize({ width: 1280, height: 900 });
-  await page.goto(origin + '/#/lehrplan'); await page.getByRole('heading', { name: 'Lehrplan-Übersicht' }).waitFor();
-  const kl = page.getByRole('group', { name: 'Klasse' });
+  await page.goto(origin + '/#/lehrplan'); await page.getByRole('heading', { name: 'Mathe Klasse 5–10: was gelernt wird' }).waitFor();
   for (const [sa, n, key] of [['Gymnasium', 8, 'gym_by'], ['Realschule', 7, 'rs_by']]) {
-    await page.getByRole('group', { name: 'Schulart' }).getByRole('button', { name: sa }).click();
-    await kl.getByRole('button', { name: new RegExp(`^Kl\\. ${n}`) }).click();
-    const soll = THEMEN_ECHT.filter((x) => x.klasse[key] === n).sort((a, b) => (a.reihenfolge[key] || 999) - (b.reihenfolge[key] || 999)).map((x) => x.titel);
-    const ist = (await page.locator('.lp-tabelle-lehrplan tbody tr.lp-zeile th b').allInnerTexts());
-    assert.deepEqual(ist, soll, sa);
-    const gruppen = await page.locator('.lp-tabelle-lehrplan .lp-gruppe-zeile th').allInnerTexts();
-    assert.deepEqual(gruppen, [...new Set(THEMEN_ECHT.filter((x) => x.klasse[key] === n).sort((a, b) => (a.reihenfolge[key] || 999) - (b.reihenfolge[key] || 999)).map((x) => x.lernbereich[key]))].map((x) => x.toUpperCase()).length ? gruppen : []);
-    assert.ok(gruppen.every((g) => new RegExp(`^M${n} \\d`, 'i').test(g)), sa + ': Lernbereich-Überschriften ' + gruppen.join(' | '));
+    await page.getByRole('group', { name: 'Einordnen nach Schulart' }).getByRole('button', { name: sa }).click();
+    const ids = (await page.locator('.mx-chip').evaluateAll((els) => els.map((x) => Number(x.dataset.id))));
+    for (const g of new Set(THEMEN_ECHT.map((x) => x.gebiet))) {
+      const soll = THEMEN_ECHT.filter((x) => x.klasse[key] === n && x.gebiet === g).sort((a, b) => (a.reihenfolge[key] || 999) - (b.reihenfolge[key] || 999)).map((x) => x.thema_id);
+      assert.deepEqual(ids.filter((i) => soll.includes(i)), soll, `${sa} ${n} ${g}`);
+    }
+    const x = THEMEN_ECHT.find((y) => y.klasse[key] === n);
+    await page.locator(`.mx-chip[data-id="${x.thema_id}"]`).click();
+    assert.match(await page.locator('.mx-detail .mx-lb').innerText(), new RegExp(`Lernbereich: M${n} \\d`));
   }
-  await page.screenshot({ path: path.join(root, 'test-results/lb5-lehrplan-1280.png'), fullPage: true });
 });
 
 // ---------- Bau-Auftrag AB-A (20.11.): Abschluss nach Etappe, Flug und Ort (Entwurf 2 des Gestalters) ----------
@@ -3296,10 +3261,10 @@ test('LB Teil 7: Info-Seite – neue Texte, alte doppelte Einträge entfernt, Ei
     'Für so gesetzte Flüge gibt es keinen Flug-Test und keine Nachtests.', 'die Wiederholungen beginnen dann wieder nach 1 Lerntag.',
     'Im Ergebnis ist jede Antwort deutlich als RICHTIG oder FALSCH markiert.', '„Erst üben: ‹Etappe›“ oder „Gleich verbessern“',
     'Nach jeder Landung kommt von selbst eine Knobel-Bordkarte der Etappe (überspringbar mit „Heute keine Knobel-Bordkarte“)',
-    'gegliedert nach Lernbereich (z. B. „M8 2 Lineare Funktionen“)', 'Gymnasium und Realschule nach LehrplanPLUS Bayern, IB nach dem MYP-Rahmenplan',
+    'Der Filter „Inhalt“ zeigt, was fertig ist (●), was in Prüfung ist (◐) und was noch fehlt (○).', 'Gymnasium und Realschule nach LehrplanPLUS Bayern, IB nach dem MYP-Rahmenplan',
     'Abschluss einer Etappe:', '⚡ Direkt, ✓ Sauber oder ⚡ Ausdauer', 'Landungen vor dieser Version haben kein Abzeichen.'])
     assert.ok(text.includes(s), 'fehlt: ' + s);
-  for (const s of ['Lernstand: die Lehrplan-Landkarte', 'Was wackelt?: was sitzt', 'setzt Häkchen je Flug', 'Sie erscheinen, wenn eine Etappe sitzt', 'eine Tabelle aller Flüge', 'hake ab, was es schon kann'])
+  for (const s of ['Lernstand: die Lehrplan-Landkarte', 'Was wackelt?: was sitzt', 'setzt Häkchen je Flug', 'Sie erscheinen, wenn eine Etappe sitzt', 'eine Tabelle aller Flüge', 'hake ab, was es schon kann', 'Lehrplan-Übersicht', 'Eine Zeile antippen öffnet „Inhalte ansehen“'])
     assert.ok(!text.includes(s), 'noch da: ' + s);
 });
 
@@ -3546,4 +3511,305 @@ test('0.83.3: Server meldet nur ort_geschafft → direkt Ort-Stempel, dann Bordk
   const k = page.locator('.lr-abschluss-bordkarte'); await k.waitFor();
   assert.match((await k.locator('.lr-ab-route').innerText()).replace(/\s+/g, ' '), /VON ROM ✈ NACH ATHEN/);
   assert.equal(await page.locator('.lr-abschluss-flug').count(), 0);
+});
+
+// ---------- Bau-Auftrag LM (21.11.), Schritt 2: Lehrplan-Matrix für Eltern/Lehrer (0.84.0) ----------
+// Lehrstoff aus der echten Themenliste; Verbindungen aus der Vorlage (Daten wie schule.voraussetzung); Lernstand erfunden (Kind A Gym 8, Kind B Gym 5).
+const MX_K = JSON.parse(fs.readFileSync(path.join(root, 'inhalte/pruefung/lehrer/matrix/entwurf/lehrplan-matrix.html'), 'utf8').match(/const K=(\[.*?\]\]);/)[1]);
+const mxAnpassen = ({ verbindungen = true, extra = null } = {}) => { const basis = echtAnpassen(); return (aktion, e) => {
+  const r = basis(aktion, e);
+  if (aktion === 'schule_lehrplan_uebersicht' && r) {
+    if (verbindungen) r.verbindungen = MX_K.map(([a, b, art, begruendung]) => ({ thema_id: a, braucht_id: b, art, begruendung }));
+    for (const t of r.themen) { const q = THEMEN_ECHT.find((x) => x.thema_id === t.thema_id); t.beschreibung = q?.umfang; t.gliederung = echteEtappen(q).map((x) => x.titel); // wie der Server heute
+      const g = t.jahrgang.gym_by; // Kind B (Gym 5): Klasse 5 zum Teil gekonnt, ein Flug dran
+      t.stufe[2] = !g || g > 5 ? { stufe: 'nicht_im_plan', im_plan: false } : t.lehrplan_reihenfolge.gym_by < 3 ? { stufe: 'komplett', gesetzt: null } : t.lehrplan_reihenfolge.gym_by === 3 ? { stufe: 'dran', etappen: 6, gelandet: 2, wieder_offen: 1 } : { stufe: 'kommt', im_plan: true }; }
+    const nz = r.themen.find((t) => t.thema_id === 15); nz.merke = ['Stellenwert: jede Stelle ist zehnmal so viel wert wie die rechts daneben.']; nz.beispiel = 'Runde 4 567 891 auf Tausender.';
+    if (extra) extra(r);
+  }
+  return r; }; };
+const mxOeffnen = async (t, breite, opt = {}) => { const { page, calls } = await setup(t, { anpassen: mxAnpassen(opt) }); await page.setViewportSize({ width: breite, height: breite < 760 ? 860 : 900 });
+  await page.goto(origin + '/#/lehrplan' + (opt.kind ? '/' + opt.kind : '')); await page.getByRole('heading', { name: 'Mathe Klasse 5–10: was gelernt wird' }).waitFor(); return { page, calls }; };
+// kein Wort ohne Trennstrich umbrochen: Silbentrennung (hyphens: auto) ist erlaubt, Überlaufen nicht
+const ueberlaeuft = (loc) => loc.evaluateAll((els) => els.filter((x) => x.getClientRects().length && x.scrollWidth > x.clientWidth + 1).map((x) => x.textContent.slice(0, 40)));
+const mitteImWort = (loc) => loc.evaluateAll((els) => els.filter((x) => { const s = getComputedStyle(x); return s.getClientRects !== undefined && x.getClientRects().length && (s.overflowWrap === 'anywhere' || s.wordBreak === 'break-all' || s.overflowWrap === 'break-word'); }).map((x) => x.className));
+
+test('LM-1: Matrix unter Nachschlagen → Lehrplan – alle Themen, Zeilen/Spalten, Einordnen nach, Kopf je Klasse, Kurzbeschreibung, Suche', async (t) => {
+  const { page } = await mxOeffnen(t, 1280);
+  const chips = page.locator('.mx-chip');
+  assert.equal(await chips.count(), THEMEN_ECHT.length, 'alle Themen der Themenliste');
+  assert.deepEqual(await page.locator('.mx-geb').allInnerTexts(), ['Zahlen', 'Algebra', 'Funktionen', 'Geometrie', 'Fläche und Raum', 'Geld und Verhältnisse', 'Daten und Zufall', 'Entdecker-Inseln']);
+  const gym8 = THEMEN_ECHT.filter((x) => x.klasse.gym_by === 8).length;
+  assert.match(await page.locator('.mx-kl').nth(3).innerText(), new RegExp(`Kl\\. 8[\\s\\S]*\\d+ Themen[\\s\\S]*${gym8} Gym\u2011Pflicht`));
+  // Thema ohne Gymnasium-Klasse: gestrichelt in der RS-Klasse, Kennzeichen „Gym – · RS n“
+  const nurRs = THEMEN_ECHT.find((x) => !x.klasse.gym_by && x.klasse.rs_by && x.gebiet !== 'Entdecker-Inseln');
+  const c = page.locator(`.mx-chip[data-id="${nurRs.thema_id}"]`);
+  assert.match(await c.getAttribute('class'), /mx-zu/);
+  assert.equal(await c.locator('.mx-sch b').first().innerText(), 'Gym –');
+  // Reihenfolge in der Zelle: Lehrplan Gymnasium
+  const zahlen5 = THEMEN_ECHT.filter((x) => x.klasse.gym_by === 5 && x.gebiet === 'Zahlen').sort((a, b) => a.reihenfolge.gym_by - b.reihenfolge.gym_by).map((x) => x.titel);
+  const zelle = page.locator('.mx-zelle').nth(0);
+  assert.deepEqual((await zelle.locator('.mx-titel').allInnerTexts()).slice(0, zahlen5.length), zahlen5);
+  // Einordnen nach Realschule: Zeile wechselt
+  await page.getByRole('group', { name: 'Einordnen nach Schulart' }).getByRole('button', { name: 'Realschule' }).click();
+  assert.match(await page.locator('.mx-kl').nth(3).innerText(), /RS\u2011Pflicht/);
+  assert.equal(await c.getAttribute('class').then((k) => /mx-zu/.test(k)), false, 'bei RS nicht mehr gestrichelt');
+  // Klassen als Spalten
+  await page.getByRole('button', { name: 'Klassen als Spalten' }).click();
+  assert.equal(await page.locator('.mx-matrix.mx-s').count(), 1);
+  assert.equal(await page.locator('.mx-kl').first().innerText().then((x) => x.startsWith('Klasse 5')), true);
+  // Kurzbeschreibung und Suche
+  await page.getByLabel('Kurzbeschreibung').check();
+  assert.ok(await page.locator('.mx-chip .mx-u').count() > 50);
+  await page.getByLabel('Thema suchen').fill('Bruch');
+  const sichtbar = await page.locator('.mx-chip:not(.mx-weg)').count();
+  assert.ok(sichtbar > 0 && sichtbar < 20, `Suche: ${sichtbar}`);
+  // Schalter bleiben beim nächsten Öffnen (Speicher)
+  await page.reload(); await page.locator('.mx-matrix').waitFor();
+  assert.equal(await page.locator('.mx-matrix.mx-s').count(), 1); assert.equal(await page.getByLabel('Kurzbeschreibung').isChecked(), true);
+});
+
+test('LM-2/LM-3: Detail mit Verbindungen, Linien hinter den Karten, Blättern, ohne Verbindungsdaten ehrlicher Hinweis', async (t) => {
+  const { page } = await mxOeffnen(t, 1280);
+  const titel = (id) => THEMEN_ECHT.find((x) => x.thema_id === id).titel;
+  await page.locator('.mx-chip[data-id="2"]').click(); // Lineare Gleichungen o. ä.: braucht 1, darauf bauen 3–8 auf
+  const det = page.locator('.mx-detail');
+  await det.getByRole('heading', { name: titel(2) }).waitFor();
+  assert.match(await det.innerText(), /BRAUCHT VORHER[\s\S]*DARAUF BAUT AUF/i);
+  assert.ok(await det.getByRole('button', { name: titel(1) }).count() >= 1, 'Voraussetzung verlinkt');
+  assert.match(await page.locator('.mx-chip[data-id="1"]').getAttribute('class'), /mx-vor/);
+  assert.match(await page.locator('.mx-chip[data-id="6"]').getAttribute('class'), /mx-nach/);
+  assert.match(await page.locator(`.mx-chip[data-id="${MX_K.find((k) => k[0] === 1)[1]}"]`).getAttribute('class'), /mx-weg2|mx-vor/);
+  // → n an Themen mit ≥ 2 Nachfolgern
+  assert.match(await page.locator('.mx-chip[data-id="2"] .mx-n').first().innerText(), /→ \d/);
+  // Linien: SVG unter den Karten, Pfade vorhanden, Karte oben auf
+  const paths = page.locator('svg.mx-linien path'); await paths.first().waitFor({ state: 'attached' });
+  assert.ok(await paths.count() >= 3);
+  const z = await page.evaluate(() => [getComputedStyle(document.querySelector('svg.mx-linien')).zIndex, getComputedStyle(document.querySelector('.mx-chip')).zIndex]);
+  assert.ok(Number(z[0]) < Number(z[1]), 'Linien hinter den Karten');
+  const oben = await page.evaluate(() => { const c = document.querySelector('.mx-chip[data-id="2"]').getBoundingClientRect(); return document.elementFromPoint(c.left + c.width / 2, c.top + c.height / 2)?.closest('.mx-chip')?.dataset.id; });
+  assert.equal(oben, '2', 'Karte liegt über der Linie');
+  // empfohlen gestrichelt
+  await page.locator('.mx-chip[data-id="35"]').click();
+  assert.ok(await page.locator('svg.mx-linien path.mx-empfohlen').count() >= 1);
+  assert.match(await det.innerText(), /empfohlen/);
+  // Das muss sitzen, Beispielaufgabe, Etappen, Lehrplan, Blättern
+  await page.locator('.mx-chip[data-id="15"]').click();
+  const text = await det.innerText();
+  assert.match(text, /WAS GEFORDERT IST[\s\S]*DAS MUSS SITZEN[\s\S]*Stellenwert[\s\S]*BEISPIELAUFGABE[\s\S]*Runde 4 567 891[\s\S]*SCHRITTE IN DER APP[\s\S]*IM LEHRPLAN[\s\S]*M5 1\.1/i);
+  assert.match(text, /Inhalt: fertig/); assert.ok(await det.getByRole('link', { name: /Inhalte ansehen/ }).count());
+  const naechst = det.getByRole('button', { name: /^Nächstes Thema/ }); const name = (await naechst.getAttribute('aria-label')).replace('Nächstes Thema: ', '');
+  await naechst.click(); await det.getByRole('heading', { name }).waitFor();
+  // Klick auf das gewählte Thema schließt es wieder
+  await page.locator('.mx-chip[aria-expanded="true"]').click(); assert.equal(await page.locator('svg.mx-linien path').count(), 0);
+  // ohne Verbindungsdaten (Server vor LM-S): Hinweis statt „Keine Voraussetzung hinterlegt“
+  const { page: p2 } = await mxOeffnen(t, 1280, { verbindungen: false });
+  await p2.locator('.mx-chip[data-id="2"]').click();
+  assert.match(await p2.locator('.mx-detail').innerText(), /liefert der Server noch nicht/);
+  assert.doesNotMatch(await p2.locator('.mx-detail').innerText(), /Keine Voraussetzung hinterlegt|DARAUF BAUT AUF/i);
+});
+
+test('LM-4: Lernstand – Aus, ein Kind (Stufen, ▶ „hier ist …“, Balken), Beide vergleichen (Punkte), Detail mit „Im Plan öffnen“ und „Fehler besprechen“', async (t) => {
+  const { page } = await mxOeffnen(t, 1280);
+  const ls = page.getByRole('group', { name: 'Lernstand' });
+  assert.deepEqual(await ls.getByRole('button').allInnerTexts(), ['Aus', 'Kind A', 'Kind B', 'Beide vergleichen']);
+  assert.equal(await page.locator('.mx-chip.mx-st').count(), 0);
+  await ls.getByRole('button', { name: 'Kind A' }).click();
+  const dran = page.locator('.mx-chip.mx-dran'); await dran.first().waitFor();
+  assert.match(await dran.first().locator('.mx-stand').innerText(), /▶ Etappe 4 von \d+ · hier ist Kind A/);
+  assert.ok(await page.locator('.mx-chip.mx-st.st-1').count() > 5 && await page.locator('.mx-chip.mx-st.st-2').count() > 5 && await page.locator('.mx-chip.mx-st.st-5').count() > 5);
+  assert.match(await page.locator('.mx-chip.mx-st.st-2 .mx-stand').first().innerText(), /↻ Wdh \d von 5/);
+  // zum ▶-Thema gescrollt
+  assert.ok(await dran.first().evaluate((x) => { const r = x.getBoundingClientRect(); return r.top >= 0 && r.bottom <= innerHeight; }), '▶ sichtbar');
+  assert.equal(await page.locator('.mx-kl').nth(3).locator('.mx-balken').count(), 1);
+  // Detail: Lernstand und Links
+  await dran.first().click();
+  const det = page.locator('.mx-detail');
+  await det.getByRole('link', { name: 'Im Plan öffnen ›' }).waitFor();
+  assert.match(await det.locator('.mx-ls').innerText(), /Kind A[\s\S]*Gerade dran/);
+  assert.equal(await det.getByRole('link', { name: 'Fehler besprechen ›' }).count(), 0);
+  // Beide vergleichen: Punkte je Kind, Balken je Kind, keine Stufen-Knöpfe
+  await ls.getByRole('button', { name: 'Beide vergleichen' }).click();
+  assert.equal(await page.locator('.mx-chip').first().locator('.mx-dot').count(), 2);
+  assert.equal(await page.locator('.mx-chip').first().locator('.mx-dl').innerText(), 'A/B');
+  assert.equal(await page.locator('.mx-kl').first().locator('.mx-balken').count(), 2);
+  assert.equal(await det.locator('.lern-lp-stufe-knopf').count(), 0);
+  assert.match(await det.innerText(), /Planen geht, wenn genau ein Kind gewählt ist/);
+  // Kind B: offener Fehler beim ▶-Flug → „Fehler besprechen ›“ zu „Was wackelt“
+  await ls.getByRole('button', { name: 'Kind B' }).click();
+  await page.locator('.mx-chip.mx-dran').first().click();
+  assert.equal(await det.getByRole('link', { name: 'Fehler besprechen ›' }).getAttribute('href'), '#/kind/2-wackelt');
+  await ls.getByRole('button', { name: 'Aus' }).click();
+  assert.equal(await page.locator('.mx-chip.mx-st, .mx-balken').count(), 0);
+});
+
+test('LM-5: Stufen-Knöpfe im Detail (ein Kind) – gleiche Aufrufe und Rückgängig wie im Plan; „Im Plan öffnen“ klappt das Thema auf; „Als Matrix ansehen“ aus dem Plan', async (t) => {
+  const { page, calls } = await mxOeffnen(t, 1280);
+  await page.getByRole('group', { name: 'Lernstand' }).getByRole('button', { name: 'Kind A' }).click();
+  const det = page.locator('.mx-detail');
+  // ein Flug, der nicht im Plan ist (Gym 9)
+  const neu = THEMEN_ECHT.find((x) => x.klasse.gym_by === 9);
+  await page.locator(`.mx-chip[data-id="${neu.thema_id}"]`).click();
+  await det.getByRole('button', { name: `${neu.titel}: In den Plan nehmen` }).click();
+  await det.getByText('Gespeichert').waitFor();
+  const setzen = calls.filter((c) => c.aktion === 'schule_plan_setzen');
+  assert.equal(setzen.length, 1);
+  const e = setzen[0].daten.eintraege.find((x) => x.block_id === neu.block_id);
+  assert.ok(e && !e.ausgelassen.includes(neu.thema_id), 'Flug im Plan');
+  assert.equal(setzen[0].daten.lernender_id, 1);
+  assert.equal(await det.getByRole('button', { name: `${neu.titel}: Lernen` }).getAttribute('aria-pressed'), 'true');
+  // Kann er komplett, dann Rückgängig (mit Schritt des Servers)
+  await det.getByRole('button', { name: `${neu.titel}: Kann er komplett` }).click(); await det.getByText('Gespeichert').waitFor();
+  await det.getByRole('button', { name: '↶ Rückgängig' }).click(); await det.getByText('Rückgängig gemacht · Gespeichert').waitFor();
+  const letzter = calls.filter((c) => c.aktion === 'schule_plan_setzen').pop();
+  assert.equal(letzter.daten.rueckgaengig, 900);
+  assert.equal(await det.getByRole('button', { name: `${neu.titel}: Lernen` }).getAttribute('aria-pressed'), 'true');
+  assert.ok(calls.filter((c) => c.aktion === 'schule_lehrplan_uebersicht').length >= 2, 'Stufen nach dem Speichern neu geholt');
+  // „Im Plan öffnen ›“: im Plan aufgeklappt (Flug im Plan → Ort links offen)
+  const imPlan = THEMEN_ECHT.find((x) => x.klasse.gym_by === 8 && x.reihenfolge.gym_by === 4);
+  await page.locator(`.mx-chip[data-id="${imPlan.thema_id}"]`).click();
+  await det.getByRole('link', { name: 'Im Plan öffnen ›' }).click();
+  await page.waitForURL(/#\/kind\/1-plan/);
+  const ziel = page.locator(`.lern-plan-links [data-thema="${imPlan.thema_id}"]`); await ziel.waitFor();
+  assert.match(await ziel.getAttribute('class'), /lern-plan-ziel/);
+  // nicht im Plan → rechts „Nach Klasse“ mit dem Flug aufgeklappt
+  await page.goto(origin + '/#/lehrplan/1'); await page.locator('.mx-matrix').waitFor();
+  const raus = THEMEN_ECHT.find((x) => x.klasse.gym_by === 10);
+  await page.locator(`.mx-chip[data-id="${raus.thema_id}"]`).click();
+  await page.locator('.mx-detail').getByRole('link', { name: 'Im Plan öffnen ›' }).click();
+  const rechts = page.locator(`.lern-plan-lehrplan .lern-lp-zeile[data-thema="${raus.thema_id}"]`); await rechts.waitFor();
+  assert.equal(await rechts.locator('.lern-lp-titel').getAttribute('aria-expanded'), 'true');
+  // „Als Matrix ansehen ›“ oben im Reiter Plan → Matrix mit diesem Kind und seiner Schulart
+  await page.getByRole('link', { name: 'Als Matrix ansehen ›' }).click();
+  await page.waitForURL(/#\/lehrplan\/1$/); await page.locator('.mx-chip.mx-dran').first().waitFor();
+  assert.equal(await page.getByRole('group', { name: 'Lernstand' }).getByRole('button', { name: 'Kind A' }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await page.getByRole('group', { name: 'Einordnen nach Schulart' }).getByRole('button', { name: 'Gymnasium' }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await page.locator('.lern-reiter a').count(), 0, 'Matrix ist eine eigene Seite, kein fünfter Reiter');
+});
+
+test('LM Abnahme: 400, 820, 1280 px – kein Wort ohne Trennstrich umbrochen, nichts läuft über, kein Querrollen, Handy als Liste ohne Linien', async (t) => {
+  for (const breite of [400, 820, 1280]) {
+    const { page } = await mxOeffnen(t, breite);
+    for (const modus of ['Aus', 'Kind A', 'Beide vergleichen']) {
+      await page.getByRole('group', { name: 'Lernstand' }).getByRole('button', { name: modus }).click();
+      for (const aufbau of breite < 760 ? ['z'] : ['Klassen als Zeilen', 'Klassen als Spalten']) {
+        if (breite >= 760) await page.getByRole('button', { name: aufbau }).click();
+        await page.locator('.mx-chip').first().waitFor();
+        assert.deepEqual(await ueberlaeuft(page.locator('.mx-chip, .mx-chip > span, .mx-geb, .mx-kl, .mx-kl small, .mx-schalter button, .mx-liste-kopf')), [], `${breite} ${modus} ${aufbau}: überläuft`);
+        assert.deepEqual(await mitteImWort(page.locator('.mx-chip, .mx-chip span, .mx-geb, .mx-kl')), [], `${breite}: Umbruch mitten im Wort erlaubt`);
+        assert.deepEqual(await gebrocheneWoerter(page.locator('.mx-schalter button, .mx-kl small, .mx-sch b, .mx-stand, .mx-leiste-wort, .mx-kurz')), [], `${breite} ${modus} ${aufbau}: Kennzeichen`);
+        assert.ok(await ohneQuerrollen(page), `${breite} ${modus} ${aufbau}: Querrollen`);
+      }
+    }
+    await page.getByRole('group', { name: 'Lernstand' }).getByRole('button', { name: 'Kind A' }).click();
+    if (breite >= 760) await page.getByRole('button', { name: 'Klassen als Zeilen' }).click();
+    await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: path.join(root, `test-results/lm-oben-${breite}.png`) });
+    await page.locator('.mx-chip[data-id="2"]').click();
+    const det = page.locator('.mx-detail'); await det.locator('h2').waitFor();
+    assert.deepEqual(await ueberlaeuft(det.locator('h2, h3, p, li, button, a')), [], `${breite}: Detail`);
+    assert.deepEqual(await gebrocheneWoerter(det.locator('.lern-lp-stufe-knopf, .mx-tag, .mx-ls-links a')), [], `${breite}: Detail-Knöpfe`);
+    assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen mit Detail`);
+    if (breite < 760) {
+      assert.equal(await page.locator('.mx-matrix, svg.mx-linien').count(), 0, 'Handy: Liste, keine Linien');
+      assert.equal(await page.locator('.mx-chip[data-id="2"] + .mx-detail').count(), 1, 'Detail direkt unter dem Thema');
+    } else assert.ok(await page.locator('svg.mx-linien path').count() >= 1);
+    await page.screenshot({ path: path.join(root, `test-results/lm-matrix-${breite}.png`), fullPage: breite < 1000 ? false : false });
+  }
+});
+
+test('LM-5: „Als Matrix ansehen ›“ oben rechts in der Reiterzeile des Plans – 400/820/1280 sichtbar, ohne Querrollen', async (t) => {
+  for (const breite of [400, 820, 1280]) {
+    const { page } = await setup(t, { anpassen: echtAnpassen() }); await page.setViewportSize({ width: breite, height: 900 });
+    await page.goto(origin + '/#/kind/1-plan');
+    const l = page.getByRole('link', { name: 'Als Matrix ansehen ›' }); await l.waitFor();
+    assert.equal(await page.locator('.lern-reiter a:not(.lern-plan-matrix-link)').count(), 4, 'vier Reiter');
+    const r = await l.boundingBox(); const n = await page.locator('.lern-reiter').boundingBox();
+    assert.ok(r.x + r.width <= n.x + n.width + 1 && r.x >= 0, `${breite}: im Bild`);
+    assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`);
+    await page.screenshot({ path: path.join(root, `test-results/lm-plan-link-${breite}.png`) });
+  }
+});
+
+// LM-S-2-Format: Raster schule_lehrplan_matrix (knapp, Verbindungen als Tripel), Detail schule_lehrplan_thema. Lehrstoff aus der echten Themenliste,
+// Verbindungen aus der Vorlage, Lernstand erfunden (Kind A, Kind B, Testkind).
+const LMS_GEB = ['Zahlen', 'Algebra', 'Funktionen', 'Geometrie', 'Fläche und Raum', 'Geld und Verhältnisse', 'Daten und Zufall', 'Entdecker-Inseln'];
+const lmsAnpassen = () => { const ueb = mxAnpassen(); const f = (aktion, e, daten = {}) => {
+  if (!['schule_lehrplan_matrix', 'schule_lehrplan_thema'].includes(aktion)) return e ? ueb(aktion, e) : null;
+  if (aktion === 'schule_lehrplan_thema') { const q = THEMEN_ECHT.find((x) => x.thema_id === daten.thema_id); if (!q) return null;
+    const name = (id) => THEMEN_ECHT.find((x) => x.thema_id === id)?.titel;
+    return { ok: true, thema_id: q.thema_id, titel: q.titel, kurz: 'kurz', ort: q.ort, was_gefordert: q.umfang, einheit_id: q.thema_id,
+      merke: q.thema_id === 15 ? ['Der Wert einer Ziffer hängt von ihrer Stelle ab.'] : [], beispiel: q.thema_id === 15 ? 'Runde 4 567 891 auf Tausender.' : undefined,
+      etappen: echteEtappen(q).map((x, i, a) => ({ lernziel: x.lernziel, titel: x.titel, pflicht: i < a.length - 1 })),
+      braucht: MX_K.filter((k) => k[0] === q.thema_id).map((k) => ({ thema_id: k[1], titel: name(k[1]), art: k[2], begruendung: k[3] })),
+      baut_darauf: MX_K.filter((k) => k[1] === q.thema_id).map((k) => ({ thema_id: k[0], titel: name(k[0]), art: k[2], begruendung: k[3] })),
+      lehrplan: { gym_by: (q.lehrplan_gym || []).join(' · '), rs_by: (q.lehrplan_rs || []).join(' · ') }, ...(q.thema_id === 22 ? { eigenstaendig: 'Einstieg in die Geometrie, baut auf Grundschulwissen auf' } : {}) }; }
+  const u = ueb('schule_lehrplan_uebersicht', { ok: true, kinder: [], themen: [] });
+  const themen = THEMEN_ECHT.map((q) => { const t = u.themen.find((y) => y.thema_id === q.thema_id); const n = echteEtappen(q).length;
+    return { thema_id: q.thema_id, schluessel: q.thema_schluessel, titel: q.titel, gebiet_id: LMS_GEB.indexOf(q.gebiet) + 1, block_id: q.block_id,
+      ...(q.thema_id === 12 ? { ohne_flug: true } : { einheit_id: q.thema_id, etappen_anzahl: n }), jahrgang: q.klasse, lehrplan_reihenfolge: q.reihenfolge, lernbereich: q.lernbereich,
+      pflicht: Object.keys(q.klasse).filter((s2) => s2 !== 'ib_myp'), ...(q.thema_id === 22 ? { eigenstaendig: true } : {}), _st: t.stufe }; });
+  const lernstand = { 1: {}, 2: {} };
+  for (const t of themen) { for (const k of [1, 2]) { const s2 = t._st[k]; if (!s2) continue; const { etappen, gesetzt, ...rest } = s2; // LM-S 2 lässt etappen und gesetzt weg
+    lernstand[k][t.thema_id] = { ...rest, ...(k === 1 ? { fehler_offen: s2.stufe === 'dran' } : {}), ...(s2.stufe === 'dran' ? { etappe_jetzt: 3 } : {}) }; } delete t._st; }
+  const kinder = [{ id: 1, name: 'Kind A', klasse: 8, schulart: 'gym_by' }, { id: 2, name: 'Kind B', klasse: 5, schulart: 'gym_by' }];
+  return { ok: true, kindsicht: false, themen, verbindungen: MX_K.map(([a, b, art]) => [a, b, art === 'empfohlen' ? 'e' : 'h']),
+    gebiete: LMS_GEB.map((titel, i) => ({ gebiet_id: i + 1, titel, reihenfolge: i + 1, zusatz: titel === 'Entdecker-Inseln' })),
+    kinder: daten.mit_testkind ? [...kinder, { id: 9, name: 'Testkind', klasse: 7, schulart: 'rs_by' }] : kinder, lernstand: daten.mit_testkind ? { ...lernstand, 9: {} } : lernstand };
+}; f.neueAktionen = true; return f; };
+
+test('LM-S 2: Raster aus schule_lehrplan_matrix (Tripel, gebiet_id, etappen_anzahl), Detail über schule_lehrplan_thema – Begründungen, eigenständig, freiwillige Etappen, Fehler offen, ohne Flug, Testkind', async (t) => {
+  const { page, calls } = await setup(t, { anpassen: lmsAnpassen() }); await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(origin + '/#/lehrplan'); await page.locator('.mx-matrix').waitFor();
+  assert.ok(calls.some((c) => c.aktion === 'schule_lehrplan_matrix') && calls.some((c) => c.aktion === 'schule_lehrplan_uebersicht'));
+  assert.equal(await page.locator('.mx-chip').count(), THEMEN_ECHT.length);
+  assert.deepEqual(await page.locator('.mx-geb').allInnerTexts(), LMS_GEB, 'Gebiet-Titel aus gebiete[]');
+  assert.match(await page.locator('.mx-chip[data-id="12"]').getAttribute('class'), /mx-ohne/);
+  const det = page.locator('.mx-detail');
+  // Detail: nachgeladen, Begründungen aus braucht/baut_darauf, Linien aus den Tripeln
+  await page.locator('.mx-chip[data-id="2"]').click();
+  await det.getByText('Äquivalenzumformung baut auf einfachen Gleichungen auf').waitFor();
+  assert.match(await page.locator('.mx-chip[data-id="1"]').getAttribute('class'), /mx-vor/);
+  assert.ok(await page.locator('svg.mx-linien path').count() >= 3);
+  assert.match(await det.innerText(), /DARAUF BAUT AUF[\s\S]*Einsetzen und Umformen linearer Gleichungen/i);
+  assert.equal(calls.filter((c) => c.aktion === 'schule_lehrplan_thema' && c.daten.thema_id === 2).length, 1);
+  await page.locator('.mx-chip[data-id="15"]').click();
+  await det.getByText('Runde 4 567 891 auf Tausender.').waitFor();
+  assert.match(await det.innerText(), /WAS GEFORDERT IST[\s\S]*DAS MUSS SITZEN[\s\S]*Stelle ab[\s\S]*SCHRITTE IN DER APP[\s\S]*freiwillig[\s\S]*IM LEHRPLAN[\s\S]*M5 1\.1/i);
+  await page.locator('.mx-chip[data-id="22"]').click();
+  await det.getByText(/Eigenständig: braucht keine Voraussetzung – Einstieg in die Geometrie/).waitFor();
+  await page.locator('.mx-chip[data-id="2"]').click(); await det.getByText('Äquivalenzumformung baut auf einfachen Gleichungen auf').waitFor();
+  assert.equal(calls.filter((c) => c.aktion === 'schule_lehrplan_thema' && c.daten.thema_id === 2).length, 1, 'Detail nur einmal geladen');
+  // Lernstand: Etappe x von y mit y = etappen_anzahl; Fehler besprechen nur bei fehler_offen
+  const ls = page.getByRole('group', { name: 'Lernstand' });
+  await ls.getByRole('button', { name: 'Kind A' }).click();
+  const dran = page.locator('.mx-chip.mx-dran').first(); await dran.waitFor();
+  const dranId = Number(await dran.getAttribute('data-id'));
+  const n = echteEtappen(THEMEN_ECHT.find((x) => x.thema_id === dranId)).length;
+  assert.match(await dran.locator('.mx-stand').innerText(), new RegExp(`▶ Etappe 3 von ${n} · hier ist Kind A`));
+  await dran.click(); await det.getByRole('link', { name: 'Fehler besprechen ›' }).waitFor();
+  await ls.getByRole('button', { name: 'Kind B' }).click(); await page.locator('.mx-chip.mx-dran').first().click();
+  await det.getByRole('link', { name: 'Im Plan öffnen ›' }).waitFor();
+  assert.equal(await det.getByRole('link', { name: 'Fehler besprechen ›' }).count(), 0);
+  // Testkind: aus seinem Plan geöffnet → mit_testkind
+  await page.goto(origin + '/#/lehrplan/9'); await page.locator('.mx-matrix').waitFor();
+  assert.ok(calls.some((c) => c.aktion === 'schule_lehrplan_matrix' && c.daten?.mit_testkind === true));
+  assert.equal(await ls.getByRole('button', { name: 'Testkind' }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await page.getByRole('group', { name: 'Einordnen nach Schulart' }).getByRole('button', { name: 'Realschule' }).getAttribute('aria-pressed'), 'true');
+});
+
+test('LM: Filter „Inhalt“ (was fehlt noch?) – Zähler fertig / in Prüfung / fehlt, nicht passende Themen blass, mit Suche kombiniert', async (t) => {
+  const { page } = await setup(t); await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(origin + '/#/lehrplan'); await page.locator('.mx-matrix').waitFor();
+  const g = page.getByRole('group', { name: 'Inhalt' });
+  assert.deepEqual(await g.getByRole('button').allInnerTexts(), ['Alle', 'fertig 1', 'in Prüfung 1', 'fehlt 3']);
+  await g.getByRole('button', { name: 'fehlt: 3' }).click();
+  assert.deepEqual(await page.locator('.mx-chip:not(.mx-weg) .mx-titel').allInnerTexts(), ['Brüche addieren', 'Nur Realschule', 'Lineare Funktionen']);
+  await page.getByLabel('Thema suchen').fill('Lineare');
+  assert.deepEqual(await page.locator('.mx-chip:not(.mx-weg) .mx-titel').allInnerTexts(), ['Lineare Funktionen']);
+  await page.getByLabel('Thema suchen').fill('');
+  await g.getByRole('button', { name: 'in Prüfung: 1' }).click();
+  assert.deepEqual(await page.locator('.mx-chip:not(.mx-weg) .mx-titel').allInnerTexts(), ['Teilbarkeit']);
+  await g.getByRole('button', { name: 'Alle Themen' }).click();
+  assert.equal(await page.locator('.mx-chip.mx-weg').count(), 0);
+  for (const breite of [400, 820]) { await page.setViewportSize({ width: breite, height: 900 }); await page.locator('.mx-chip').first().waitFor();
+    assert.deepEqual(await gebrocheneWoerter(g.getByRole('button')), [], `${breite}: Filter`); assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`); }
 });

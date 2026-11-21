@@ -2,6 +2,168 @@
 
 Neueste oben.
 
+## 2026-11-21 – FERTIG: 0.84.0 b – Matrix an LM-S 2 angepasst, Filter „Inhalt“, Info-Texte (Version bleibt 0.84.0, Cache v154)
+
+Auf AUFTRAEGE.md „Rückläufer 21.11. morgens“, Teil D. Stand `lernen-app` d463182 übernommen. Nur App (`lernen.js`, `style.css`) und Tests. Nichts in der Datenbank, keine Kinderdaten, kein Merge nach `main`.
+Bilder neu: `docs/previews/la/lm-oben-400/820/1280.png` (mit Filterzeile), `lm-matrix-*.png`.
+
+**Datenformat LM-S 2** (Feldliste „FERTIG: LM-S 2“)
+- Raster aus `schule_lehrplan_matrix`: Gebiet-Titel über `gebiet_id` aus `gebiete[]` (Spaltenreihenfolge = `reihenfolge`); `verbindungen[]` als Tripel `[thema_id, braucht_id, "h"|"e"]` (Objekte gehen weiter); `etappen_anzahl` → „Etappe x von y“ (y = `etappen_anzahl`, x = `etappe_jetzt`) und „Inhalte ansehen (n Etappen)“; `ohne_flug` blass; `eigenstaendig: true`. Fehlendes `fehler_offen` = nein (kein „Fehler besprechen ›“).
+- Detail über die eigene Aktion **`schule_lehrplan_thema { thema_id }`** beim Antippen, einmal je Thema: `kurz, ort, was_gefordert, merke, etappen (pflicht → „· freiwillig“), beispiel, braucht/baut_darauf (Begründungen an den Verbindungen), lehrplan, eigenstaendig` (Text: „Eigenständig: braucht keine Voraussetzung – ‹Begründung›“). Bis die Antwort da ist: „Einzelheiten werden geladen …“; bei Fehler bleibt das Raster-Detail.
+- Weiter parallel `schule_lehrplan_uebersicht` für Ort, Kurzbeschreibung im Raster, Inhaltsstand (◐ in Prüfung) und Aufträge. Ohne LM-S trägt die Übersicht allein (wie bisher).
+
+**Filter „Inhalt“ (was fehlt noch?)** – eigene Zeile über dem Lernstand: „Alle · ● fertig n · ◐ in Prüfung n · ○ fehlt n“ (Zähler über alle Themen). Nicht passende Themen werden blass (wie bei der Suche, beides kombinierbar); Themen ohne Flug zählen nirgends mit. Im Detail weiter Inhaltsstand, „Inhalte ansehen“, Aufträge und „✎ Ändern lassen“.
+
+**Info-Seite – Vorschlag zum Prüfen (umgesetzt):**
+- „Wie entstehen die Inhalte …“, letzter Satz statt „Die Lehrplan-Übersicht … Eine Zeile antippen öffnet ‚Inhalte ansehen‘.“: „Der Lehrplan (Nachschlagen auf der Startseite) zeigt alle Flüge als Übersicht: Zeilen Klasse 5–10, Spalten die Themengebiete, eingeordnet nach Gymnasium, Realschule oder IB, in der Reihenfolge des Lehrplans. Der Filter „Inhalt“ zeigt, was fertig ist (●), was in Prüfung ist (◐) und was noch fehlt (○). Ein Thema antippen: was gefordert ist, was es vorher braucht, worauf es aufbaut, Lernbereich und „Inhalte ansehen“. Mit „Lernstand“ steht bei jedem Thema die Stufe eines Kindes (◉ ↻ ▶ ○ +) – ist ein Kind gewählt, lässt sich der Plan dort direkt ändern.“
+- Lehrplan-Grundlage: „… Die Lehrplan-Übersicht zeigt alle Flüge.“ → „… Der Lehrplan (Nachschlagen auf der Startseite) zeigt alle Flüge auf einer Seite: Klasse 5 bis 10 und alle Themengebiete.“
+- „Ändern lassen“: „Für Flüge ohne Inhalt steht er im Lehrplan, wenn man das Thema antippt, mit „Neuer Flug“ vorbelegt.“
+- Expeditionen: „Alle Expeditionen mit Lösungen: Lehrplan → „Expeditionen ansehen“.“
+- Erste Schritte, Schritt 3: „Im Lehrplan ein Thema antippen, dann „Inhalte ansehen“: …“, Link „Lehrplan ›“.
+- Die Gliederung nach Lernbereich fällt im Text weg (Lernbereich steht im Detail). Test „LB Teil 7“ prüft den neuen Satz und dass „Lehrplan-Übersicht“ nicht mehr vorkommt.
+
+**Gesehen/getestet**
+- lernen: 141 Tests; im Gesamtlauf 140 bestanden, „LB Teil 8: aufgeklappte Karte“ wackelt unter Last (einzeln zweimal bestanden, wie schon in 0.84.0). Neu/ersetzt: „LM-S 2“ (Raster mit Tripeln, gebiet_id, etappen_anzahl, Detail über schule_lehrplan_thema mit Begründungen, eigenständig, freiwillig, fehler_offen, ohne Flug, Testkind) und „LM: Filter Inhalt“ (Zähler, blass, mit Suche, 400/820 ohne gebrochene Wörter und Querrollen). Testdaten: echte Themenliste, Verbindungen aus der Vorlage, Lernstand erfunden.
+- Suche: die bekannten alten Fehler (PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders gebucht, W88).
+
+**Nicht geprüft / Hinweise**
+- Gegen den echten LM-S-Server nicht getestet (LM-S 3 behebt erst den Abbruch der Migration). Die App fällt ohne LM-S auf die Übersicht zurück.
+- `schule_lehrplan_thema` rufe ich ohne `lernender_id` auf (Eltern/Lehrer-Sicht).
+
+## 2026-11-21 – bau-lehrer – FERTIG: flug_erstabschluss
+
+Auf AUFTRAEGE.md „Rückläufer 21.11. morgens“, Teil C. Nur Dateien, in der echten Datenbank nichts ausgeführt, kein App-Code.
+- `supabase/migrations/20261121_ab_s_flug_geschafft_robust.sql` **ersetzt** (der Entwurf mit `flug_fertig_nach` war nie eingespielt; die Funktion kommt nicht mehr vor):
+  - Tabelle `schule.flug_erstabschluss (lernender_id, einheit_id, sitzung_id, am, primary key (lernender_id, einheit_id))`, RLS an, keine Rechte für public/anon/authenticated.
+  - `schule.flug_erstabschluss_nachtragen(p_l default null)`: trägt alle Flüge ein, die jetzt fertig sind (alle Pflicht-Etappen nachgewiesen/korrigiert/gesichert), und alle mit abgeschlossener Flug-Test-/Verbessern-Sitzung mit `flug_geschafft = true` (`sitzung_id` = früheste solche, sonst null). Die Migration ruft sie einmal auf (NOTICE mit Anzahl); wiederholt: 0.
+  - `test_abschliessen_intern`: die Stelle aus 20261120 wird ersetzt. Neu: `flug_geschafft` = dieser Aufruf schließt ab (blocktest/korrektur), Flug danach fertig, vorher nicht, **und** `insert … on conflict do nothing` hat eine Zeile angelegt (`found`). War der Flug vorher schon fertig, wird er nur festgehalten (`sitzung_id` null), `flug_geschafft` false. Die Stelle steht live genau einmal (gelesen).
+- `supabase/tests/ab_s_abschluss_rauchtest.sql`: Prüfung 9 als eigener Block, die alten Sitzungen legt der Test selbst an:
+  9a alter bestandener Flug + neue Pflicht-Etappe + Nachtragstest → false · 9b alte Sitzung vorher erneut gelesen → false (sperrt nichts) · 9c alter nicht bestandener Test + Verbessern → true mit Abschluss-Feldern, Eintrag mit dieser Sitzung · 9d zweimal abschließen (dieselbe Sitzung erneut + zweites Verbessern) → genau eine Sitzung mit true, ein Eintrag · 9e Nachtest → false.
+- **Wirklich ausgeführt – lokal** (Postgres 16, eigene Wegwerf-Datenbank, erfundene Inhalte): `test_abschliessen_intern` lokal **byte-gleich zum Live-Stand** (md5 432e041a… gleich), Migration zweimal, Prüfung 9 grün; Gegenprobe mit der alten Funktion: 9c schlägt fehl (der Test unterscheidet). Nachtrag geprüft (fertig → null, true-Sitzung → deren id, nur Vertiefung → kein Eintrag, zweiter Lauf 0). Platzhalter lokal: `ort_stand`, `flug_abschluss`, `nachtest_*`, `thema_stand`.
+- Gleichzeitige Sitzungen: entscheidet der Primärschlüssel (die zweite wartet auf die erste und legt nichts an) – lokal nicht nebenläufig getestet.
+
+## 2026-11-21 – bau-lehrer – FERTIG: LM-S 3
+
+Auf „Rückläufer 21.11. morgens“, Teil B. Ursache: in `schule.lehrplan_thema` (Feld `etappen`) eine Klammer zu viel vor `order by`. pglast prüft den Funktionsrumpf nicht – darum nicht aufgefallen.
+- `supabase/migrations/20261121_lm_s_lehrplan_matrix.sql` behoben (md5 vorher 544f48ff…, jetzt 976e974e…).
+- **Wirklich ausgeführt – lokal** (Postgres 16, Wegwerf-Datenbank): Tabellen mit den Live-Spalten (gelesen), `thema_einheit`/`thema_jahrgang` wie live, Platzhalter für `thema_stufe` und die Zugangsfunktionen, erfundene Inhalte und Kinder. Den Fehler „mismatched parentheses“ lokal nachgestellt, nach der Korrektur: Migration läuft (auch zweimal), Rauchtest ohne Spalte `eigenstaendig` grün (9 übersprungen), mit Spalte (Text) grün inkl. 9. Zusätzlich beide api-Aktionen mit Lehrer-, Kind- und fremdem Schlüssel: Kind bekommt nur sich selbst (fremde `lernender_id` wird ignoriert), fremder Zugang → „Kein Zugriff“, ohne `thema_id` → „thema_id fehlt“, Physik-Thema → „Thema nicht gefunden“.
+- Rauchtest 8 nimmt jetzt ein Thema mit Pflicht-Etappen (vorher konnte es eines ohne merke/Etappen treffen).
+- Feldliste unverändert (Eintrag „LM-S 2“).
+
+## 2026-11-21 – FERTIG: 0.84.0 – Lehrplan-Matrix LM-1 bis LM-5 (Eltern/Lehrer), Cache v154
+
+Stand `lernen-app` 168a744 übernommen (mit LM-S und Runde 30). Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.
+Bilder: `docs/previews/la/lm-oben-400.png`, `lm-oben-820.png`, `lm-oben-1280.png` (Kopf, Kind A gewählt), `lm-matrix-400/820/1280.png` (Thema mit Verbindungen und Detail), `lm-plan-link-400.png`.
+
+**Gebaut**
+- **LM-1:** Nachschlagen → „Lehrplan“ (`#/lehrplan`) ist jetzt die Matrix „Mathe Klasse 5–10: was gelernt wird“. Zeilen Kl. 5–10 in den Klassenfarben (LA-8), Spalten die Themengebiete inkl. Entdecker-Inseln (Reihenfolge aus `gebiete[]`, sonst wie die Vorlage); Schalter „Klassen als Zeilen / als Spalten“ (gemerkt). Alle Themen. „Einordnen nach“ Gymnasium · Realschule · IB MYP bestimmt die Zeile; fehlt die Schulart: andere bayerische Schulart, sonst MYP-Jahr + 5 → gestrichelt, mit Marke (RS/Gym/IB/Insel) und Erklärung im Detail. Kennzeichen „Gym 8 · RS 7 · IB 4“ (gewählte dunkel, fehlende durchgestrichen, orange wenn es die gewählte ist). Zelle in Lehrplan-Reihenfolge der Schulart. Kopf je Zeile „n Themen“ / „m Gym‑Pflicht“ (mit LM-S: `pflicht[]`). Suche, „Kurzbeschreibung“ (gemerkt). Unter 760 px Liste je Klasse nach Gebiet, Detail direkt unter dem Thema.
+- **LM-2 Detail:** Titel, Gebiet, Klassen je Schulart, Lernbereich; Inhalt (● fertig, ◐ in Prüfung, ○ fehlt) mit „Inhalte ansehen (n Etappen) ›“, Aufträge-Link, Ort, „✎ Ändern lassen“ bei fehlendem Inhalt (aus LB-1); Was gefordert ist; Braucht vorher (Begründung, Klasse, „empfohlen“); Weiter zurück auf dem Weg; Darauf baut auf; Das muss sitzen; Beispielaufgabe; Schritte in der App (nicht-Pflicht-Etappen „· freiwillig“); Im Lehrplan (Wortlaut); ‹ › blättern. Ohne Voraussetzung: „Keine Voraussetzung hinterlegt …“; mit `eigenstaendig` „Eigenständig: braucht keine Voraussetzung – ‹Begründung›“. Liefert der Server keine Verbindungen (heute live), steht dort ehrlich „Die Verbindungen … liefert der Server noch nicht“.
+- **LM-3:** gewählt → direkte Voraussetzungen gelb mit Linie, weiter zurück hellgelb, darauf aufbauend blau mit Linie, Rest blass, „empfohlen“ gestrichelt, „→ n“ ab 2 Nachfolgern. Linien als SVG **hinter** den Karten (z-index 1 < 2, im Test per `elementFromPoint` geprüft); Handy ohne Linien.
+- **LM-4:** Leiste „Lernstand: Aus · Kind A · Kind B · Beide vergleichen“ (bei mehr Kindern „Alle vergleichen“); ein Kind: Hintergrund je Stufe **in den Farben des Plans** (LB), „▶ Etappe x von y · hier ist ‹Name›“ (`etappe_jetzt`), „↻ Wdh n von 5“, „+ nicht im Plan“ gestrichelt/blass; beim Einschalten zum ▶-Thema gescrollt; Schulart springt auf die des Kindes. Vergleich: „A/B“ mit zwei Punkten in Stufenfarbe. Kopf je Klasse: Balken je Kind (◉ ↻ ▶) über die Pflichtthemen. Detail: Lernstand je Kind (Stufe, Zusatz wie im Plan, nächste Wiederholung) mit „Im Plan öffnen ›“ und „Fehler besprechen ›“ (nur bei `fehler_offen`; ohne LM-S bei `wieder_offen`) → Reiter „Was wackelt“ des Kindes.
+- **LM-5:** Im Detail bei genau einem Kind die Stufen-Knöpfe aus LB Teil 8 (Lernen · Kann er – wiederholen · Kann er komplett, rechts „Aus dem Plan nehmen“/„In den Plan nehmen“, bei ◉ „Wieder in die Wiederholung“). Dafür ist der Plan-Kern aus `viewPlan` herausgelöst (`lernPlanSetzeIn`, `lernPlanEintraege`, …) – **dieselben Aufrufe** (`schule_plan_lesen`, `schule_plan_setzen` mit revision, Rückgängig mit `schritt_id`, Konflikt sperrt mit „Neu laden“). Nach dem Speichern werden die Stufen neu geholt. „Im Plan öffnen ›“ springt in den Reiter „Plan“: Flug im Plan → Ort links aufgeklappt und markiert; sonst rechts „Nach Klasse“ mit dem Flug aufgeklappt. Reiter „Plan“: Link „Als Matrix ansehen ›“ rechts in der Reiterzeile (Handy: darunter), öffnet `#/lehrplan/<kind>` mit Kind und Schulart; kein fünfter Reiter.
+
+**Daten (LM-S)**
+- Die App ruft `schule_lehrplan_matrix` **und** `schule_lehrplan_uebersicht` parallel: die Matrix-Daten tragen, die Übersicht liefert Inhaltsstand (◐ in Prüfung) und Aufträge je Flug, die LM-S nicht hat. Kennt der Server `schule_lehrplan_matrix` noch nicht (heute live), trägt die Übersicht allein – alles läuft, nur ohne Verbindungen, Das muss sitzen, Beispiel, Pflicht-Etappen.
+- Aus dem Plan eines Kindes, das nicht in `kinder[]` ist (Testkind), lädt die App erneut mit `mit_testkind: true`.
+- Vorbereitet für **LM-S 2** (Nachbesserung 21.11., noch nicht gebaut): `eigenstaendig` als Text (auch `true`), `ohne_flug: true` → Karte blass gepunktet + Hinweis im Detail. Fehlen in der Liste `lehrplan` **und** `merke`, lädt das Detail einmal nach mit **`schule_lehrplan_matrix { thema_id }`** und erwartet `themen[0]` (oder `thema`) mit `lehrplan, merke, beispiel` (Annahme zu Name/Form – bitte so bauen oder mir den Namen melden; Anpassung ist eine Zeile).
+
+**Was von der bisherigen Lehrplan-Übersicht (LB-1) wegfällt** (Auftrag: nennen)
+- Die Kacheln „Flüge · fertig · in Prüfung · fehlt“ mit Zählern und der **Filter nach Inhaltsstand** – der Inhaltsstand steht nur noch je Thema im Detail. Wer „was fehlt noch?“ sucht, hat keinen Sammelblick mehr.
+- **Gruppen nach Lernbereich** (Überschriften „M8 2 Lineare Funktionen“) – die Matrix gliedert nach Themengebiet; der Lernbereich steht im Detail.
+- Klassen-Knöpfe mit Kind-Marken (A/B) – ersetzt durch die Lernstand-Leiste.
+- „Zeile antippen → Inhalte ansehen“ ist jetzt zwei Schritte (Thema antippen, dann „Inhalte ansehen ›“).
+- Die Tabelle „Stufe je Kind in einer Zeile mit Wort“ – ersetzt durch „Beide vergleichen“ (Punkte, Wort im Detail).
+- **Info-Seite:** Die wörtlichen Texte aus Teil 7 beschreiben noch die alte Übersicht („Eine Zeile antippen öffnet ‚Inhalte ansehen‘“, „Lehrplan-Übersicht ›“). Nicht geändert – bitte neuen Wortlaut liefern.
+
+**Abweichungen von der Vorlage**
+- Stufenfarben wie im Plan (◉ grün, ↻ hellgrün, ▶ gelb mit Rahmen) statt der Vorlagenfarben (Wdh gelb, dran blau) – die Vorgabe sagt „wie im Plan (LB)“. Dadurch ähnelt ▶ dem Gelb der Voraussetzungen; die Rolle zeigt zusätzlich der Rahmen.
+- „IB MYP“ als dritte Schulart in „Einordnen nach“ (für ein IB-Kind nötig); Zeilen bleiben Kl. 5–10 mit „MYP-Jahr n“ darunter.
+- Die Liste vermuteter Zuordnungslücken der Vorlage (`LUECKE`) ist nicht übernommen – das klärt Runde 30 in den Daten.
+- Silbentrennung (`hyphens: auto`) in Karten und Gebietsköpfen: Wörter werden nur mit Trennstrich umbrochen, nie ohne; „Gym‑Pflicht“ mit festem Bindestrich.
+
+**Gesehen/getestet**
+- lernen: 141 von 141 (neu 9 Tests: LM-1; LM-2/LM-3; LM-4; LM-5 Knöpfe/Rückgängig/Im Plan öffnen/Als Matrix; Abnahme 400/820/1280 je Lernstand-Modus und Aufbau – nichts läuft über, kein Umbruch ohne Trennstrich, kein Querrollen, Handy Liste ohne Linien, Detail unter dem Thema; Link in der Reiterzeile; LM-S-Format; LM-S-2-Nachladen). Ersetzt: vier Tests der alten Übersicht (LA-7 Tabelle, LA-7 Tablet, I-3 Liste, LB Teil 5 S3 → jetzt Reihenfolge je Zelle und Lernbereich im Detail). Testdaten: echte Themenliste, Verbindungen aus der Vorlage, Lernstand erfunden (Kind A/Kind B, Testkind).
+- Suche: die bekannten alten Fehler (PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders gebucht, W88) und das datumsabhängige „W80: Jede neue Suche“; „LB Teil 8: aufgeklappte Karte“ wackelte einmal im Gesamtlauf und besteht einzeln.
+
+**Nicht geprüft / Hinweise**
+- Mit echten Daten und echten Geräten nicht angesehen; nur Chromium. Mit dem LM-S-Server nur gegen nachgebildete Antworten getestet (Feldliste oben).
+- Größe: LM-S im Probelauf 249 KB plus Übersicht – auf langsamer Verbindung spürbar, bis LM-S 2 den Wortlaut auslagert.
+- Auf dem Tablet (820 px) sind acht Spalten eng: viele Titel werden getrennt (mit Trennstrich). „Klassen als Spalten“ ist dort etwas luftiger.
+- Nächster Schritt: LM-6 Kinderseite als 0.85.0.
+
+## 2026-11-21 – bau-lehrer – FERTIG: LM-S 2
+
+Auf AUFTRAEGE.md „Nachbesserung Dreißigste Runde und LM-S (21.11.)“, Teil B. Nur Dateien, nichts ausgeführt, kein App-Code. Die LM-S-Dateien von heute früh sind ersetzt (nicht eingespielt, daher in derselben Datei).
+
+**Dateien:** `supabase/migrations/20261121_lm_s_lehrplan_matrix.sql`, `supabase/tests/lm_s_lehrplan_matrix_rauchtest.sql`, `supabase/functions/lernen-api/index.ts` (neue Aktion `schule_lehrplan_thema: ['thema_id', 'lernender_id?']`, VERSION 0.8.0).
+
+**Was sich ändert**
+- `eigenstaendig` ist Text (Begründung, null = nicht gekennzeichnet), gelesen über `to_jsonb(t)->>'eigenstaendig'` – läuft vor und nach `20261121_lehrplan_zuordnung_voraussetzungen.sql` (der boolean-Abbruch ist weg). Raster: `eigenstaendig: true`, wenn gesetzt; Detail: der Begründungstext; Kind: nie.
+- `ohne_flug: true` bei Themen ohne freigegebene Einheit (dann auch kein `einheit_id`, kein `etappen_anzahl`) – im Raster und im Detail.
+- Aufgeteilt in **Raster** (`schule_lehrplan_matrix`) und **Detail** (`schule_lehrplan_thema`, beim Antippen). Zugang für beide gleich (`schule.lehrplan_sicht`): Eltern/Lehrer → Lehrer-Sicht; Lern-Zugang → nur das Kind selbst; sonst `lernender_id` + `schule.zugriff`.
+
+**Größe** (Teile nur lesend nachgerechnet, 21.11.): Raster Lehrer ≈ 43 KB Themen + ≈ 1 KB Verbindungen + ≈ 11 KB Lernstand je Kind → mit zwei Kindern ≈ 65 KB (vorher 249 KB). Kindsicht deutlich kleiner (ohne jahrgang/lernbereich/pflicht). Detail ≈ 2–5 KB je Thema. Rauchtest Prüfung 7 bricht ab, wenn das Lehrer-Raster mit allen aktiven Kindern ≥ 90 000 Zeichen hat; Prüfung 8 beim Detail ≥ 30 000.
+
+**Feldliste Raster** `{ok, kindsicht, themen[], verbindungen[], gebiete[], kinder[], lernstand{}}` (fehlende Werte weggelassen; fehlt = nein)
+- `themen[]` je Mathe-Thema einmal, sortiert Gebiet → Thema: `thema_id, schluessel, titel, gebiet_id, block_id, einheit_id | ohne_flug, etappen_anzahl`; nur Lehrer: `jahrgang {gym_by, rs_by, ib_myp}`, `lehrplan_reihenfolge`, `lernbereich`, `pflicht [schularten]`, `eigenstaendig: true`; nur Kind: `zeile {klasse, eingeordnet?}`, `reihenfolge_kind`.
+- `verbindungen[]` = `[thema_id, braucht_id, "h"|"e"]` („thema_id braucht braucht_id“, h = hart, e = empfohlen). „Weiter zurück“ = Kette darüber.
+- `gebiete[] {gebiet_id, titel, reihenfolge, zusatz}` (Gebiet-Titel nur hier).
+- `kinder[] {id, name, klasse, schulart}` (Kind: nur es selbst, ohne schulart).
+- `lernstand[kind_id][thema_id]`: `stufe` (immer), sonst nur wenn gesetzt: `zeichen, im_plan, begonnen, gelandet, sicher, wieder_offen, wdh_nr, naechste_in, rueckreise, test_offen, hinweis, etappe_jetzt` (nur bei „dran“; „Etappe x von y“ mit y = `themen[].etappen_anzahl`), nur Lehrer `fehler_offen`. Weggelassen gegenüber thema_stufe: `etappen, gesetzt, ohne_test, wdh_stufe_min`.
+
+**Feldliste Detail** (`daten: {thema_id}`; Kind über Lern-Zugang ohne weitere Angabe)
+- `thema_id, titel, kurz, ort, was_gefordert, einheit_id | ohne_flug, merke [], etappen [{lernziel, titel, pflicht}], beispiel` (< 160 Zeichen), `braucht [{thema_id, titel, art, begruendung}]`, `baut_darauf [{thema_id, titel, art, begruendung}]`; nur Lehrer: `lehrplan {schulart: Wortlaut}`, `eigenstaendig` (Text). Kind: ohne `lehrplan`, `eigenstaendig`, `pflicht`, `begruendung`.
+
+**Rauchtest:** 1–8 wie gehabt angepasst (Raster knapp, ohne_flug, Detail, Größe); 9 eigenständig als Text (setzt in der Transaktion eine Begründung an einem Thema und nimmt sie zurück; übersprungen, solange die Spalte fehlt); 10 Selbstprüfung als NOTICE: 10a–c wie bisher (10a: eigenständig = Begründung gesetzt), neu 10d „keine Verbindung von oder zu einem Thema ohne Flug“ (Teil A).
+
+**Annahmen:** Kindsicht-Zeile MYP-Jahr + 5 = Klasse. Größe je Kind steigt mit Fortschritt (mehr gesetzte Felder); Obergrenze grob ≈ 15 KB je Kind.
+
+## 2026-11-21 – bau-lehrer – FERTIG: LM-S
+
+Bau-Auftrag LM (21.11.), Schritt 1. Nur Dateien, nichts ausgeführt, kein App-Code, kein Merge nach main, keine Kinderdaten.
+
+**Dateien**
+- `supabase/migrations/20261121_lm_s_lehrplan_matrix.sql`: `schule.thema_klasse_fuer(jahrgang, schulart)`, `schule.lehrplan_matrix(kinder[], kindsicht)` (innere Funktion), `api.schule_lehrplan_matrix(schlüssel, daten)` (security definer, Rechte wie üblich: nur council_mcp). Kein DROP/DELETE, Bestand unverändert, wiederholbar. `api.schule_lehrplan_uebersicht` bleibt unverändert (App 0.83 nutzt sie weiter).
+- `supabase/tests/lm_s_lehrplan_matrix_rauchtest.sql`: Rollback, nur Testkind, Prüfungen 1–7 vergleichen gegen die Tabellen (keine festen Bestandszahlen), Prüfung 6 legt sich „Fehler offen“ im Testkind selbst an; Prüfung 8 = Selbstprüfung (s. u.).
+- `supabase/functions/lernen-api/index.ts`: Aktion `schule_lehrplan_matrix: ['lernender_id?', 'mit_testkind?']`, VERSION 0.8.0 (Server-Datei, muss mit deployt werden).
+
+**Befund: was die Übersicht nicht liefert** (Live-Text gelesen): merke, Etappen mit Pflicht, Verbindungen (Art, Begründung), kurz, Pflicht je Schulart, Beispielaufgabe, Gebiet-Reihenfolge, „Etappe x von y“, „Fehler offen“, Kinderzugang. Außerdem eine Zeile je Thema × Ort (Matrix braucht je Thema einmal).
+
+**Zugriff**
+- Eltern/Lehrer (`schule.ist_leiter`): alle aktiven Kinder in einem Aufruf; Testkind nur mit `mit_testkind: true`.
+- Kind (Lern-Zugang): nur es selbst (aus `lern_ich`; `lernender_id` wird ignoriert). Sonstige Zugänge: `lernender_id` + `schule.zugriff`. Immer Kindsicht.
+
+**Feldliste für den App-Bau** (`ergebnis` = `{ok, kindsicht, themen[], verbindungen[], gebiete[], kinder[], lernstand{}}`; fehlende Werte sind weggelassen, nicht null)
+- `themen[]` (je Mathe-Thema genau einmal; sortiert Gebiet → Thema-Reihenfolge):
+  - beide Sichten: `thema_id, schluessel, titel, kurz, gebiet, gebiet_id, ort, block_id` (erster Ort nach Block-Reihenfolge), `was_gefordert` (= thema.beschreibung, „Was gefordert ist“), `einheit_id` (nur mit freigegebener Einheit), `merke` (Array, „Das muss sitzen“), `etappen[] {lernziel, titel, pflicht}`, `beispiel` (erste freigegebene Übungsaufgabe, Text < 160 Zeichen)
+  - nur Eltern/Lehrer: `jahrgang {gym_by, rs_by, ib_myp}` (Klasse je Schulart; IB = MYP-Jahr), `lehrplan_reihenfolge {schulart: n}`, `lernbereich {schulart: …}`, `lehrplan {schulart: Wortlaut}`, `pflicht [schularten]` (Thema einem Eintrag einer aktiven Basis-Quelle zugeordnet), `eigenstaendig` (s. u., heute nie gesetzt)
+  - nur Kindsicht: `zeile {klasse, eingeordnet}` (Klasse in der Schulart des Kindes; fehlt sie, die der anderen bayerischen Schulart bzw. MYP+5 → `eingeordnet: true`), `reihenfolge_kind`
+- `verbindungen[] {thema_id, braucht_id, art: hart|empfohlen, begruendung}` – „thema_id braucht braucht_id“. Kindsicht ohne `begruendung`. „Braucht vorher“, „weiter zurück“ (Kette) und „Darauf baut auf“ rechnet die App daraus; Klasse der Voraussetzung über `themen[].jahrgang`. Leere Liste → Hinweis „Keine Voraussetzung hinterlegt“.
+- `gebiete[] {gebiet_id, titel, reihenfolge, zusatz}`
+- `kinder[] {id, name, klasse, schulart}` – Kindsicht: nur das Kind, ohne `schulart`.
+- `lernstand[kind_id][thema_id]` = `schule.thema_stufe` (u. a. `stufe, zeichen, im_plan, etappen, begonnen, gelandet, sicher, wieder_offen, wdh_nr, naechste_in, rueckreise, test_offen`) + `etappe_jetzt` (nur bei stufe „dran“: gelandet+1, höchstens etappen → „Etappe x von y“ mit y = `etappen`) + nur Eltern/Lehrer `fehler_offen` (Pflicht-Etappe mit Status „fehler“ → Link „Fehler besprechen ›“).
+
+**„eigenständig“** – Fakt: wird heute nirgends gespeichert. Vorschlag (nicht gebaut): Spalte `schule.thema.eigenstaendig boolean default false` (+ ggf. `eigenstaendig_grund text`), gesetzt vom Lehrplan-Chat. Die Matrix-Funktion und Regel 8a lesen sie schon über `to_jsonb(t)->'eigenstaendig'` – sobald die Spalte da ist, wirkt sie ohne weitere Änderung. Entscheidung, wer sie anlegt: Haupt-Chat.
+
+**Selbstprüfung Dreißigste Runde** (Rauchtest Prüfung 8, NOTICE mit Anzahl und Nummern, kein Abbruch). Stand heute, nur gelesen:
+- 8a Thema mit Klasse ohne Verbindung, nicht eigenständig: 28 (17, 19, 22, 27, 34, 40, 42–45, 59, 60, 64–66, 69, 70, 73, 75, 81, 83, 84, 98–103).
+- 8b Voraussetzung in späterer Klasse als das Thema: 1 (33 braucht 32, nur IB-MYP).
+- 8c Themen 100–103 verknüpft: nein, alle 4 ohne Verbindung.
+→ Die Regeln sind heute nicht erfüllt; deshalb NOTICE statt Abbruch. Sollen sie nach dem Nachpflegen hart werden: in Prüfung 8 NOTICE → EXCEPTION.
+
+**Annahmen / offen**
+- Kindsicht-Zeile: MYP-Jahr + 5 = Klasse (wie in lernen.js).
+- Größe: Lehrer-Antwort ca. 140 KB (Themen ~113 KB ohne Lehrplan-Wortlaut + ~24 KB Wortlaut) plus Lernstand je Kind. Wenn das zu groß ist: Wortlaut erst im Detail nachladen.
+- Rauchtest-Prüfung 6 braucht eine Einheit mit Pflicht-Etappe (sonst „übersprungen“).
+
+## 2026-11-21 – bau-lehrer – FERTIG: flug_geschafft robust 2
+
+Auf antworten.md „21.11. 04:25“. Nur Dateien, nichts ausgeführt, kein App-Code, kein Merge nach main.
+- Neu: `supabase/migrations/20261121_ab_s_flug_geschafft_robust.sql` – legt `schule.flug_fertig_nach(lernender, einheit, sitzung)` an und baut die eingespielte `schule.test_abschliessen_intern` um: alte Bedingung `x.flug_geschafft is distinct from false` → `x.flug_geschafft or (x.flug_geschafft is null and schule.flug_fertig_nach(...))`. Umbau über `pg_get_functiondef` + `replace`; die Stelle steht live genau einmal (gelesen 21.11.). Wiederholbar: ist `flug_fertig_nach` schon im Funktionstext, passiert nichts. Fehlt die Stelle (alte Datei nicht eingespielt), bricht die Migration mit Hinweis ab.
+- Zurückgesetzt: `20261120_ab_s_flug_abschluss_einmal.sql` = eingespielter Stand (Commit 80e67e8, md5 f79c1701…).
+- `supabase/tests/ab_s_abschluss_rauchtest.sql`: nur Kopfzeile – Prüfung 9 setzt jetzt beide Dateien voraus. Prüfung 9 (9a–9e) unverändert.
+- Reihenfolge Haupt-Chat: neue Datei einspielen → Rauchtest ab_s (Prüfung 9c muss jetzt grün sein).
+
 ## 2026-11-21 – FERTIG: 0.83.3 – App 0.83.3, Cache v153
 
 Stand `lernen-app` 05037ef (0.83.2 live, Nachträge aus Prüfergebnis 888). Nur App (`lernen.js`, `style.css`), Versionsnummer in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.

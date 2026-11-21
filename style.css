@@ -4767,3 +4767,116 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .lern-st-etappe > b { flex: none; }
 .lern-st-etappe .lern-st-et-titel { flex: 1 1 auto; min-width: 0; }
 .lern-st-etappe .lern-st-et-stand { margin-left: auto; flex: none; white-space: nowrap; text-align: right; }
+
+/* ---------- LM-1 bis LM-5 (0.84.0): Lehrplan-Matrix „Mathe 5–10“ ---------- */
+.lern-plan-oben { display: flex; justify-content: flex-end; align-items: center; gap: 14px; flex-wrap: wrap; margin: 0 0 -6px; }
+.lern-plan-oben .lern-info-oben { margin: 0; }
+.lern-plan-matrix-link { font-weight: 600; white-space: nowrap; }
+.lern-plan-ziel { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 10px; }
+.mx-kopf h2 { margin: 0 0 4px; }
+.mx-kopf p { margin: 0 0 12px; max-width: 880px; }
+.mx-leiste { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin: 0 0 8px; }
+.mx-leiste-wort { color: var(--muted); font-size: 14px; }
+.mx-schalter { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--accent); border-radius: 10px; overflow: hidden; }
+.mx-schalter button { border: 0; background: transparent; padding: 7px 13px; font: inherit; font-size: 14px; font-weight: 600; color: var(--accent); cursor: pointer; white-space: nowrap; min-height: 36px; }
+.mx-schalter button + button { border-left: 1px solid var(--accent); }
+.mx-schalter button[aria-pressed="true"], .mx-schalter button[aria-pressed="true"]:hover { background: var(--accent); color: #fff; }
+.mx-suche { min-width: 200px; flex: 0 1 260px; }
+.mx-kurz { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); font-size: 14px; cursor: pointer; white-space: nowrap; }
+.mx-inhalt-leiste .lp-dot { margin-right: 5px; }
+.mx-legende { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 4px 0 12px; }
+.mx-legende i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; }
+.mx-leg-vor { background: #FFF4DC; box-shadow: 0 0 0 2px #B7791F; } .mx-leg-weg { background: #FFF9EC; box-shadow: 0 0 0 1px #D9B26A; }
+.mx-leg-nach { background: #E8F1FB; box-shadow: 0 0 0 2px #2B6CB0; } .mx-leg-zu { background: #FBF9F4; border: 1px dashed #8C96A0; }
+.mx-haupt { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (min-width: 1100px) { .mx-haupt { grid-template-columns: minmax(0, 1fr) 320px; } .mx-detail { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow: auto; } }
+.mx-wrap { position: relative; }
+.mx-matrix { display: grid; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface, #fff); }
+.mx-matrix.mx-z { grid-template-columns: 92px repeat(var(--n), minmax(0, 1fr)); }
+.mx-matrix.mx-s { grid-template-columns: 116px repeat(var(--n), minmax(0, 1fr)); }
+.mx-ecke { border-bottom: 1px solid var(--border); }
+.mx-geb { padding: 8px 6px; font-weight: 700; font-size: 13px; line-height: 1.2; background: #F1EDE3; border-left: 1px solid var(--border); hyphens: auto; -webkit-hyphens: auto; overflow-wrap: normal; word-break: normal; }
+.mx-s .mx-geb { border-left: 0; border-top: 1px solid var(--border); }
+.mx-kl { padding: 8px 6px; color: #fff; display: flex; flex-direction: column; gap: 2px; border-top: 1px solid rgb(255 255 255 / 25%); min-width: 0; }
+.mx-kl b { font-size: 15px; } .mx-kl small { font-size: 10.5px; line-height: 1.25; opacity: .95; }
+.mx-hell { color: #14202B !important; }
+.mx-zelle { padding: 5px; border-top: 1px solid var(--border); border-left: 1px solid var(--border); display: flex; flex-direction: column; gap: 5px; min-height: 44px; min-width: 0; }
+.mx-chip { position: relative; z-index: 2; display: block; width: 100%; text-align: left; border: 1px solid var(--border); border-left: 4px solid var(--f); background: #fff; border-radius: 8px; padding: 5px 6px;
+  font: inherit; font-size: 13px; line-height: 1.3; cursor: pointer; color: var(--text); hyphens: auto; -webkit-hyphens: auto; overflow-wrap: normal; word-break: normal; min-height: 0; }
+.mx-chip:hover { border-color: var(--f); }
+.mx-titel { font-weight: 600; }
+.mx-chip[aria-expanded="true"] { box-shadow: 0 0 0 3px var(--f); }
+.mx-chip.mx-zu { border-style: dashed; border-left-style: solid; background: #FBF9F4; }
+.mx-chip.mx-weg { opacity: .25; }
+.mx-u { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+.mx-n { float: right; font-size: 11px; color: var(--muted); margin-left: 4px; white-space: nowrap; }
+.mx-n.mx-m { background: #EEE9DD; border-radius: 4px; padding: 0 4px; } .mx-n.mx-q { background: #FDE2C4; color: #8A4B08; }
+.mx-sch { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 4px; }
+.mx-sch b { font-weight: 500; font-size: 10px; padding: 0 3px; border-radius: 4px; background: #EEE9DD; color: #4F5A55; white-space: nowrap; }
+.mx-sch b.mx-ref { background: var(--accent); color: #fff; }
+.mx-sch b.mx-fehlt { background: transparent; color: #8F897E; text-decoration: line-through; }
+.mx-sch b.mx-ref.mx-fehlt { background: #FDE2C4; color: #8A4B08; text-decoration: none; }
+/* LM-3 Verbindungen */
+.mx-zeigt .mx-chip { opacity: .3; }
+.mx-zeigt .mx-chip.mx-sel, .mx-zeigt .mx-chip.mx-vor, .mx-zeigt .mx-chip.mx-weg2, .mx-zeigt .mx-chip.mx-nach { opacity: 1; }
+.mx-chip.mx-vor { box-shadow: 0 0 0 2px #B7791F; background: #FFF4DC; }
+.mx-chip.mx-weg2 { box-shadow: 0 0 0 1px #D9B26A; background: #FFF9EC; }
+.mx-chip.mx-nach { box-shadow: 0 0 0 2px #2B6CB0; background: #E8F1FB; }
+.mx-linien { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible; }
+.mx-linie { fill: none; stroke-width: 2; opacity: .75; } .mx-l-vor { stroke: #B7791F; } .mx-l-nach { stroke: #2B6CB0; } .mx-empfohlen { stroke-dasharray: 5 4; }
+/* LM-4 Lernstand: Hintergrund je Stufe wie im Plan */
+.mx-chip.mx-st.st-1 { background: var(--st1h); } .mx-chip.mx-st.st-2 { background: var(--st2h); }
+.mx-chip.mx-st.st-3 { background: var(--st3h); box-shadow: 0 0 0 2px var(--st3r); }
+.mx-chip.mx-st.st-5 { border-style: dashed; border-left-style: solid; opacity: .6; }
+.mx-zeigt .mx-chip.mx-st.st-5:not(.mx-sel):not(.mx-vor):not(.mx-nach):not(.mx-weg2) { opacity: .3; }
+.mx-stand { display: block; font-size: 11px; font-weight: 700; margin-top: 3px; color: var(--st4); }
+.mx-st.st-1 .mx-stand { color: var(--st1); } .mx-st.st-2 .mx-stand { color: var(--st2); } .mx-st.st-3 .mx-stand { color: #7a5600; }
+.mx-dots { display: flex; gap: 3px; align-items: center; margin-top: 4px; }
+.mx-dl { font-size: 10px; color: #6B7580; margin-right: 2px; }
+.mx-dot { width: 11px; height: 11px; border-radius: 99px; border: 1.5px solid var(--st4r); background: #fff; }
+.mx-dot.st-1 { background: var(--st1); border-color: var(--st1); } .mx-dot.st-2 { background: var(--st2); border-color: var(--st2); } .mx-dot.st-3 { background: var(--st3r); border-color: var(--st3r); }
+.mx-dot.st-5 { border-style: dashed; }
+.mx-balken-gruppe { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; width: 100%; }
+.mx-balken { display: flex; align-items: center; gap: 4px; }
+.mx-balken em { font-style: normal; font-size: 10px; font-weight: 700; }
+.mx-balken > span { flex: 1; display: flex; height: 6px; border-radius: 99px; background: rgb(255 255 255 / 55%); overflow: hidden; min-width: 30px; }
+.mx-balken i.st-1 { background: #9BD06A; } .mx-balken i.st-2 { background: #F5C342; } .mx-balken i.st-3 { background: #6FB1F0; }
+/* LM-2 Detail */
+.mx-detail { background: var(--surface, #fff); border: 1px solid var(--border); border-radius: 14px; padding: 16px; min-width: 0; overflow-wrap: break-word; }
+.mx-detail h2 { margin: 0 0 6px; font-size: 20px; line-height: 1.25; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: normal; }
+.mx-detail h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 16px 0 6px; }
+.mx-detail p { margin: 0; } .mx-detail ul, .mx-detail ol { margin: 0; padding-left: 20px; } .mx-detail li { margin: 2px 0; }
+.mx-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 8px; }
+.mx-tag { font-size: 12px; padding: 3px 8px; border-radius: 999px; background: #EEE9DD; white-space: nowrap; } .mx-tag-k { color: #fff; }
+.mx-lb, .mx-inhalt { margin: 4px 0 !important; }
+.mx-offen { background: #F1EDE3; border-radius: 10px; padding: 8px 10px; color: var(--muted); font-size: 13px; margin-top: 8px !important; }
+.mx-dep li { margin: 4px 0; } .mx-kk { font-size: 12px; color: var(--muted); }
+.mx-link { background: none; border: 0; padding: 0; font: inherit; color: var(--text); text-decoration: underline; cursor: pointer; text-align: left; min-height: 0; }
+.mx-beisp { background: #F1EDE3; border-radius: 10px; padding: 10px 12px; }
+.mx-lp { color: var(--muted); font-size: 13px; }
+.mx-nav { display: flex; justify-content: space-between; gap: 8px; margin-top: 18px; }
+.mx-nav button { font: inherit; font-size: 13px; border: 1px solid var(--border); background: #fff; border-radius: 8px; padding: 6px 10px; cursor: pointer; max-width: 48%; text-align: left; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: normal; }
+.mx-nav button:last-child { text-align: right; }
+.mx-ls { margin-top: 10px; border-top: 1px solid var(--border); }
+.mx-ls-liste { list-style: none; padding: 0 !important; }
+.mx-ls-liste li { margin: 8px 0; }
+.mx-ls-kopf { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.mx-ls-links { display: flex; gap: 14px; flex-wrap: wrap; margin: 4px 0 0 34px; font-size: 14px; }
+.mx-plan { margin-top: 8px; } .mx-plan-gesperrt { opacity: .7; }
+.mx-plan .lern-lp-stufen { flex-wrap: wrap; }
+.mx-plan-stand { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 13px; }
+.mx-leer { margin: 0; }
+.mx-hinweis { margin-top: 16px; max-width: 900px; }
+/* Handy: Liste je Klasse, Detail unter dem Thema, keine Linien */
+.mx-liste-klasse { margin-bottom: 14px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface, #fff); }
+.mx-liste-kopf { margin: 0; padding: 10px 14px; color: #fff; font-size: 16px; }
+.mx-liste-kopf small { font-weight: 500; font-size: 13px; }
+.mx-gruppe { padding: 8px 12px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 5px; }
+.mx-gruppe-name { font-size: 13px; color: var(--muted); }
+.mx-liste .mx-detail { margin: 4px 0 8px; }
+@media (max-width: 759px) { .mx-suche { flex: 1 1 100%; } }
+.mx-ls-kopf .lern-st-wort { flex: 1 1 auto; text-align: left; align-items: flex-start; }
+.mx-kl-zahl { white-space: nowrap; }
+.lern-reiter a.lern-plan-matrix-link { margin-left: auto; color: var(--accent); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+.lern-reiter:has(.lern-plan-matrix-link) { flex-wrap: wrap; overflow-x: visible; } .lern-reiter a.lern-plan-matrix-link { min-height: 36px; padding: 6px 4px; }
+.mx-chip.mx-ohne { opacity: .5; border-style: dotted; border-left-style: solid; }

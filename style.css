@@ -3385,6 +3385,7 @@ body[data-kindmodus] header.top h1 { font-size: 1.15rem; white-space: nowrap; ov
 /* W150: Eltern/Lehrer – Rückmeldungen, Themenplan, Zugänge, eigene Lernen-Seite */
 .lern-chip { min-height: 40px; padding: 0 14px; border-radius: 99px; border: 1px solid var(--border); background: var(--surface); color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
 .lern-chip[aria-pressed="true"] { background: var(--accent, #1b2a41); color: #fff; border-color: transparent; }
+.lern-chip[aria-pressed="true"]:not(:disabled):hover { background: var(--accent, #1b2a41); color: #fff; } /* Teil 9 N6: gewählt bleibt beim Hover dunkel */
 .lern-rm-arten { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
 .lern-rm-form { display: grid; gap: 10px; }
 .lern-rm-form textarea, .lern-rm-form input, .lern-rm-form select { width: 100%; box-sizing: border-box; font: inherit; }
@@ -4728,7 +4729,7 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
   .lern-plan-vorrat-zeile > .lern-plan-ort { grid-column: 3; grid-row: 1; }
   .lern-plan-vorrat-zeile > .lern-chip { min-height: 36px; min-width: 44px; font-size: 18px; padding: 0 12px; margin: -2px 0 6px 62px; }
   /* N2: Plan-Zeilen links – Titel bis zu zwei Zeilen, erst danach „…“ */
-  .lern-plan-links .lern-plan-ort.lern-kl-zeile > b { white-space: normal; overflow: hidden; text-overflow: clip; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow-wrap: normal; word-break: normal; hyphens: auto; -webkit-hyphens: auto; font-size: 14px; line-height: 1.12; }
+  .lern-plan-links .lern-plan-ort.lern-kl-zeile > b { white-space: normal; overflow: hidden; text-overflow: clip; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow-wrap: normal; word-break: normal; hyphens: manual; -webkit-hyphens: manual; font-size: 14px; line-height: 1.12; }
   .lern-plan-links .lern-plan-ort.lern-kl-zeile > small { font-size: 12px; line-height: 1.25; }
 }
 /* Punkt 6: Rückfall bei „Kann er komplett“ */
@@ -4749,3 +4750,13 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .lern-lp-rein { color: var(--accent); font-weight: 700; margin-left: auto; }
 .lern-lp-detail-ort { padding: 0 0 4px 30px; }
 @media (max-width: 699px) { .lern-lp-raus, .lern-lp-rein { flex-basis: 100%; text-align: right; margin-left: 0; } .lern-lp-detail-ort { padding-left: 0; } }
+/* LB Teil 9 (Nachprüfung 5, Nachprüfung Abschluss) */
+.lern-plan-gebiet-klein { display: none; }
+@media (max-width: 559px) { /* N7: Plan links auf dem Handy – Titel nur das Thema, Gebiet klein und grau darunter; ↑ ↓ schmaler */
+  .lern-plan-gebiet-vor { display: none; }
+  .lern-plan-gebiet-klein { display: inline; color: var(--text-muted); }
+  .lern-plan-zeile .lern-plan-pfeile .iconbtn { flex: 0 0 32px; width: 32px; min-width: 32px; padding: 0; }
+  .lern-plan-pfeile { gap: 0; }
+}
+.lr-ab-riesig small { margin-top: 18px; } /* N2: Abstand unter „2/2“ */
+.lr-ab-app.lr-ab-ort .lr-ab-skip { background: #3B2A14; color: #fff; border: 1.5px solid #FFF3; font-weight: 700; } /* N5: auf Sand lesbar */

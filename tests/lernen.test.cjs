@@ -739,7 +739,7 @@ test('Flugplan: Änderung bleibt nach Verlassen der Seite, Versionskonflikt übe
     }
     return route.fallback();
   });
-  const reihenfolge = () => page.locator('.lern-plan-zeile .lern-plan-ort > b').allInnerTexts();
+  const reihenfolge = () => page.locator('.lern-plan-zeile .lern-plan-ort > b').evaluateAll((bs) => bs.map((b) => b.title)); // Teil 9 N7: auf dem Handy steht das Gebiet in der Zeile darunter
   await page.goto(origin + '/#/plan/1');
   await page.locator('.lern-plan-zeile').first().waitFor();
   await page.getByRole('button', { name: 'New York – Zinsen nach oben' }).click();
@@ -3099,6 +3099,7 @@ test('AB-A 2: Flug geschafft → Bordkarte zum nächsten Thema; Boarding öffnet
     const p2 = await abPasst(page); assert.ok(p2.unten <= p2.hoehe, 'Bordkarte passt');
     await page.screenshot({ path: path.join(root, `test-results/ab-bordkarte-${g}-400.png`) });
     await b.click(); await page.waitForURL(/1-2-erklaeren-1$/);
+    await page.locator('.lr-abschluss').waitFor({ state: 'detached', timeout: 3000 }); // Teil 9 (Nachprüfung Abschluss N4): die App schließt die Ansicht wenige ms nach dem Adresswechsel
     assert.equal(await page.locator('.lr-abschluss').count(), 0, 'Ansicht geschlossen');
     await page.close();
   }
@@ -3175,6 +3176,14 @@ test('LB Teil 6 N2: Plan links – Titel zweizeilig statt „…“ (400 und 820
     assert.ok(r.every((x) => x.zeilen <= 2), `höchstens zwei Zeilen bei ${breite}`);
     assert.ok(r.some((x) => x.zeilen === 2), `lange Titel nutzen die zweite Zeile bei ${breite}`);
     const gekappt = r.filter((x) => x.gekappt).length; console.log(`N2 ${breite}: ${gekappt} von ${r.length} Titeln nach zwei Zeilen gekürzt`);
+    // Teil 9 N7: nie Trennstrich und „…“ hintereinander – an der Kürzung (Ende der zweiten Zeile) darf kein Wort getrennt sein
+    const getrenntGekappt = await page.locator('.lern-plan-links .lern-plan-zeile .lern-plan-ort > b').evaluateAll((bs) => bs.filter((b) => b.getClientRects().length && b.scrollHeight > b.clientHeight + 1).filter((b) => {
+      const unten = b.getBoundingClientRect().bottom; const w = document.createTreeWalker(b, NodeFilter.SHOW_TEXT); const zeichen = [];
+      for (let n = w.nextNode(); n; n = w.nextNode()) for (let i = 0; i < n.data.length; i++) { const r = document.createRange(); r.setStart(n, i); r.setEnd(n, i + 1); const q = r.getClientRects()[0]; zeichen.push({ c: n.data[i], top: q ? q.top : Infinity }); }
+      const k = zeichen.findIndex((z) => z.top >= unten - 1); return k > 0 && /\p{L}/u.test(zeichen[k].c) && /\p{L}/u.test(zeichen[k - 1].c);
+    }).map((b) => b.title));
+    assert.deepEqual(getrenntGekappt, [], `${breite}: Trennstrich und „…“ hintereinander`);
+    if (breite === 400) assert.ok(gekappt <= 4, `Teil 9 N7: auf dem Handy höchstens wenige Titel mit „…“ (${gekappt}; vorher 12)`);
     assert.ok(gekappt <= r.length / 3, `erst nach zwei Zeilen „…“ – gekappt: ${gekappt} von ${r.length}`); // Nachprüfung 4: vorher einzeilig, 31 (400) bzw. 28 (820) gekürzt
     if (breite === 400) await page.screenshot({ path: path.join(root, 'test-results/lb6-plan-400.png') });
     await page.close();
@@ -3385,4 +3394,91 @@ test('Nachtrag B (0.83.1): Flug-Abschluss hängt an flug_geschafft bzw. ort_gesc
   assert.equal(await abgeben({ flugGeschafft: false }), 0, 'flug_geschafft false (z. B. zweites Verbessern) → keine Ansicht, auch wenn einheit_abgeschlossen');
   assert.equal(await abgeben({ flugGeschafft: false, ortGeschafft: true }), 1, 'ort_geschafft → Ansicht');
   assert.equal(await abgeben({}), 1, 'alter Server ohne flug_geschafft → wie 0.83.0 (einheit_abgeschlossen)');
+});
+
+// ---------- 0.83.2: LB Teil 9 (Nachprüfung 5 Lehrer, Nachprüfung Abschluss Kind) ----------
+const farbeVon = (page, v) => page.evaluate((v) => { const d = document.createElement('i'); d.style.color = v; document.body.append(d); const c = getComputedStyle(d).color; d.remove(); return c; }, v);
+const luminanz = (rgb) => { const [r, g, b] = rgb.match(/[\d.]+/g).slice(0, 3).map(Number).map((c) => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+const kontrastRgb = (a, b) => { const [x, y] = [luminanz(a), luminanz(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+
+test('LB Teil 9 N6: gewählter Themengebiet-Knopf bleibt unter dem Mauszeiger dunkel mit weißer Schrift', async (t) => {
+  const { page } = await setup(t, { anpassen: echtAnpassen() });
+  await page.setViewportSize({ width: 400, height: 860 });
+  await page.goto(origin + '/#/plan/1');
+  const g = page.locator('.lern-plan-lehrplan').getByRole('group', { name: 'Themengebiet' });
+  const k = g.getByRole('button', { name: 'Geometrie', exact: true }); await k.click(); await k.hover();
+  assert.equal(await k.getAttribute('aria-pressed'), 'true');
+  const [bg, fg] = await k.evaluate((x) => [getComputedStyle(x).backgroundColor, getComputedStyle(x).color]);
+  assert.equal(fg, 'rgb(255, 255, 255)');
+  assert.equal(bg, await page.evaluate(() => { const d = document.createElement('i'); d.style.background = 'var(--accent, #1b2a41)'; document.body.append(d); const c = getComputedStyle(d).backgroundColor; d.remove(); return c; }), 'dunkel wie ohne Zeiger');
+  assert.ok(kontrastRgb(bg, fg) >= 4.5, `Kontrast ${kontrastRgb(bg, fg).toFixed(1)}`);
+  // ein nicht gewählter Knopf bekommt beim Hover weiter die helle Fläche
+  const n = g.getByRole('button', { name: 'Algebra', exact: true }); await n.hover();
+  assert.notEqual(await n.evaluate((x) => getComputedStyle(x).backgroundColor), bg);
+});
+
+test('LB Teil 9 N7: Plan links auf dem Handy – Titel nur das Thema, Gebiet klein darunter, ↑ ↓ 32 px; Messung „…“', async (t) => {
+  const { page } = await setup(t, { anpassen: echtAnpassen() });
+  await page.setViewportSize({ width: 400, height: 860 });
+  await page.goto(origin + '/#/plan/1'); await page.locator('.lern-plan-links .lern-plan-zeile').first().waitFor();
+  const z = page.locator('.lern-plan-links .lern-plan-zeile').first();
+  const b = z.locator('.lern-plan-ort > b'); const titel = await b.getAttribute('title');
+  assert.match(titel, / – /, 'Titel-Attribut mit Gebiet (für den Zeiger)');
+  const [gebiet, thema] = titel.split(' – ');
+  assert.equal((await b.innerText()).trim(), thema, 'sichtbar nur das Thema');
+  assert.ok((await z.locator('.lern-plan-ort > small').innerText()).startsWith(`${gebiet} · `), 'Gebiet klein in der Zeile darunter');
+  assert.equal(await z.locator('.lern-plan-gebiet-klein').evaluate((x) => getComputedStyle(x).color), await farbeVon(page, 'var(--text-muted)'), 'grau');
+  for (const p of await z.locator('.lern-plan-pfeile .iconbtn').all()) assert.equal(Math.round((await p.boundingBox()).width), 32);
+  // Messung: wie viele Titel enden auf dem Handy noch mit „…“? (Nachprüfung 5: fast alle; Ziel: höchstens wenige)
+  const r = await page.locator('.lern-plan-links .lern-plan-zeile .lern-plan-ort > b').evaluateAll((bs) => bs.filter((x) => x.getClientRects().length).map((x) => x.scrollHeight > x.clientHeight + 1));
+  const gekappt = r.filter(Boolean).length; console.log(`N7 400: ${gekappt} von ${r.length} Titeln mit „…“`);
+  assert.ok(gekappt <= 4, `höchstens wenige mit „…“: ${gekappt}`);
+  assert.equal(await page.locator('.lern-plan-links .lern-plan-zeile .lern-plan-ort > b').evaluateAll((bs) => bs.filter((x) => getComputedStyle(x).hyphens === 'auto').length), 0, 'keine automatische Trennung (also nie Trennstrich und „…“)');
+  await page.screenshot({ path: path.join(root, 'test-results/lb9-plan-400.png') });
+  // Rechner: Gebiet weiter als Vorsatz im Titel
+  await page.setViewportSize({ width: 1280, height: 900 }); await page.waitForTimeout(100);
+  assert.equal((await b.innerText()).trim(), titel);
+  assert.equal(await z.locator('.lern-plan-gebiet-klein').isVisible(), false);
+});
+
+test('LB Teil 9 Info: Schritt 1 nennt „Rechts (auf dem Handy darunter) der Lehrplan“', async (t) => {
+  const { page } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
+  await page.addInitScript(() => localStorage.setItem('lern_token', 't'.repeat(64)));
+  await page.goto(origin + '/lernen/#/info'); await page.getByRole('heading', { name: 'Erste Schritte' }).waitFor();
+  assert.ok((await page.locator('#main').innerText()).replace(/\s+/g, ' ').includes('Rechts (auf dem Handy darunter) der Lehrplan: „Nach Themengebiet“'));
+});
+
+test('LB Teil 9 N1/N5: Ort-Stempel mit Datum „TT.MM.“ (ein Punkt am Ende); „Überspringen ›“ auf Sand lesbar', async (t) => {
+  const { page } = await abTest(t, { ortGeschafft: true, naechster: 'anders' }, { gestaltung: 'tag' });
+  await page.locator('.lr-abschluss-flug').getByRole('button', { name: 'Überspringen ›' }).click();
+  const o = page.locator('.lr-abschluss-ort'); await o.waitFor();
+  const st = (await o.locator('.lr-ab-passstempel').innerText()).replace(/\s+/g, ' ').trim();
+  const heute = await page.evaluate(() => { const d = new Date(); return `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.`; });
+  assert.ok(st.endsWith(`Zahlen · ${heute}`), st); assert.ok(!/\.\.$/.test(st), 'kein doppelter Punkt: ' + st);
+  const skip = o.getByRole('button', { name: 'Überspringen ›' });
+  const [bg, fg] = await skip.evaluate((x) => [getComputedStyle(x).backgroundColor, getComputedStyle(x).color]);
+  assert.ok(kontrastRgb(bg, fg) >= 4.5, `Überspringen: Kontrast ${kontrastRgb(bg, fg).toFixed(1)} (${bg} / ${fg})`);
+  const sand = await o.locator('.lr-ab-szene').evaluate(() => 'rgb(228, 207, 160)'); // mittlere Farbe des Sand-Verlaufs (#E4CFA0)
+  assert.ok(kontrastRgb(bg, sand) >= 3, `Knopf hebt sich vom Sand ab: ${kontrastRgb(bg, sand).toFixed(1)}`);
+  await o.screenshot({ path: path.join(root, 'test-results/lb9-ort-400.png') });
+});
+
+test('LB Teil 9 N2/N3: „2/2“ berührt „AUF ANHIEB“ nicht; Sturmflug 360 × 640 – Blitz läuft nicht durch den Text', async (t) => {
+  const { page } = await abLande(t, 'direkt', { x: { bordkarten: 2 } });
+  const [zahl, klein] = await page.locator('.lr-ab-riesig').evaluate((x) => { const r = document.createRange(); r.setStart(x.firstChild, 0); r.setEnd(x.firstChild, x.firstChild.length);
+    const z = [...r.getClientRects()].reduce((m, q) => Math.max(m, q.bottom), 0); return [z, x.querySelector('small').getBoundingClientRect().top]; });
+  assert.ok(klein - zahl >= 4, `Abstand unter „2/2“: ${Math.round(klein - zahl)} px`);
+  await page.close();
+  for (const g of ['tag', 'nacht']) {
+    const { page: p } = await abLande(t, 'sturm', { gestaltung: g, breite: 360, hoehe: 640, x: { bordkarten: 15, stufe_gesenkt: 2 } });
+    const v = p.locator('.lr-abschluss-etappe');
+    const treffer = await v.evaluate((h) => {
+      const pfad = h.querySelector('.lr-ab-wolken path'); const L = pfad.getTotalLength(); const m = pfad.getScreenCTM(); const svg = pfad.ownerSVGElement;
+      const punkte = []; for (let i = 0; i <= 40; i++) { const q = pfad.getPointAtLength((L * i) / 40); const sp = svg.createSVGPoint(); sp.x = q.x; sp.y = q.y; const w = sp.matrixTransform(m); punkte.push(w); }
+      const texte = [...h.querySelectorAll('.lr-ab-titel, .lr-ab-unter, .lr-ab-ausdauer, .lr-ab-kopf, .lr-ab-oben')].map((e) => e.getBoundingClientRect());
+      return punkte.filter((q) => texte.some((r) => q.x >= r.left && q.x <= r.right && q.y >= r.top && q.y <= r.bottom)).length; });
+    assert.equal(treffer, 0, `${g}: Blitz kreuzt Text`);
+    await p.screenshot({ path: path.join(root, `test-results/lb9-sturm-${g}-360.png`) });
+    await p.close();
+  }
 });

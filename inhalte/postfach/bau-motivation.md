@@ -2,6 +2,25 @@
 
 Neueste oben.
 
+## 2026-11-21 – FERTIG: 0.83.2 (LB Teil 9, Punkte 1, 2, 4, 5, 6) – App 0.83.2, Cache v152
+
+Stand `lernen-app` b2a71ba übernommen. Nur App (`lernen.js`, `style.css`), Versionsnummer in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`. **Punkt 3 (N8, Wort „Themen“) bleibt offen** – nichts geändert.
+
+**Lehrer-Ansicht**
+1. **N6:** Der gewählte Themengebiet-Knopf (`.lern-chip[aria-pressed="true"]`) behält beim Hover den dunklen Hintergrund und die weiße Schrift (gilt für alle Chips dieser Art; die eigenen Farben der Kinderseite bleiben). Gemessen: Kontrast unter dem Zeiger ≥ 4,5 : 1; nicht gewählte Knöpfe werden beim Hover weiter hell.
+2. **N7 (Handy < 560 px):** Titel der Plan-Zeile ist nur noch das Thema; das Themengebiet steht klein und grau am Anfang der Zeile darunter („Algebra · ▶ Gerade dran · …“). Der volle Titel bleibt im `title` und im Bildschirmleser-Namen. ↑ ↓ sind 32 px breit. Die automatische Silbentrennung aus Teil 6 ist wieder aus – damit gibt es **nie Trennstrich und „…“ hintereinander**. Messung mit der echten Themenliste (36 Plan-Zeilen): **400 px: 2 Titel mit „…“** (Nachprüfung 5: fast alle; nach Teil 6: 12); 820 px: 6 (die Trennung fehlt jetzt auch dort; vorher 3, ursprünglich 28). Ab 560 px steht das Gebiet wie bisher vor dem Titel.
+4. **Info-Seite, Schritt 1:** „Rechts (auf dem Handy darunter) der Lehrplan: …“.
+
+**Abschluss-Ansichten (Kind)**
+5. **N1:** Datum im Ort-Stempel wird selbst gebaut („21.11.“) statt `toLocaleDateString` + Punkt – nie „..“, unabhängig vom Browser.
+6. **N2:** 18 px Abstand unter „2/2“ (der Schrägstrich berührt „AUF ANHIEB“ nicht mehr; 400 × 780 weiter ohne Scrollen). **N3:** Der Blitz beim Sturmflug beginnt weiter rechts unten (neben dem Flugzeug) – maschinell geprüft: bei 360 × 640, hell und nacht, liegt kein Punkt des Blitzes in Titel, Unterzeile, Abzeichen oder Kopfzeile (mit dem alten Blitz schlägt die Prüfung fehl). **N4:** Test „AB-A 2“ wartet jetzt auf das Schließen der Ansicht (`.lr-abschluss` detached, höchstens 3 s) – 5 von 5 Läufen grün. **N5:** „Überspringen ›“ auf dem Ort-Bildschirm: dunkelbraun (#3B2A14) mit hellem Rand, fett; Kontrast Schrift/Knopf ≥ 4,5 : 1, Knopf/Sand ≥ 3 : 1 (gemessen).
+
+**Getestet** (Playwright mit Chrome): **lernen 132 von 132** – neu 5 (N6, N7 mit Messung, Info-Schritt 1, N1/N5, N2/N3), angepasst 3 (AB-A 2 wartet auf das Schließen; „Teil 6 N2“ prüft zusätzlich „nie Trennstrich und …“ und ≤ 4 gekürzte auf dem Handy; „Flugplan: Änderung bleibt …“ liest die Reihenfolge aus dem Titel-Attribut, weil auf dem Handy das Gebiet nicht mehr im Titel steht). Alle Tests: 273 bestanden, 1 übersprungen, 10 Fehler – alle im Reise-Bereich, dieselben wie bei 0.83.1 (die 9 bekannten und W175, datumsabhängig).
+
+**Nicht geprüft:** echte Geräte und Safari, Bildschirmleser; „Hover bleibt auf dem Tablet hängen“ (N6) nur am Rechner nachgestellt.
+
+FERTIG: 0.83.2
+
 ## 2026-11-21 – FERTIG: 0.83.1 (LB Teil 8 und Nachtrag B) – App 0.83.1, Cache v151
 
 Stand `lernen-app` 31b73f6 übernommen, dazu `bau-lehrer` 80e67e8 („FERTIG: flug_geschafft“ lag vor); vor dem Push `lernen-app` 44a30d2 eingemischt (nur Postfach/Inhalte). Nur App (`lernen.js`, `style.css`), Versionsnummer in sechs Dateien (`app.js`, `index.html`, `lernen/index.html`, `lernen/schule.js`, `sw.js`, `tests/search.test.cjs`), Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.

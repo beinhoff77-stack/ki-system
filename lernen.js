@@ -2058,7 +2058,7 @@ function lernAbschlussEtappe({ e, nr, von, landung, daten, sterne, knopf, knobel
       lernGrafik(LERN_FLIEGER, 'lr-ab-landeflz'));
   } else {
     szene = el('div', { class: 'lr-ab-szene' },
-      lernGrafik('<svg viewBox="0 0 400 400" preserveAspectRatio="none"><g fill="#1A1633" opacity=".9"><ellipse cx="60" cy="120" rx="120" ry="50"/><ellipse cx="220" cy="90" rx="140" ry="55"/><ellipse cx="380" cy="140" rx="110" ry="50"/></g><g fill="#2E2659" opacity=".85"><ellipse cx="120" cy="210" rx="150" ry="45"/><ellipse cx="330" cy="230" rx="120" ry="40"/></g><path d="M330 190 L305 250 L325 250 L295 320" fill="none" stroke="#FFE68A" stroke-width="5" stroke-linejoin="round" opacity=".9"/></svg>', 'lr-ab-wolken'),
+      lernGrafik('<svg viewBox="0 0 400 400" preserveAspectRatio="none"><g fill="#1A1633" opacity=".9"><ellipse cx="60" cy="120" rx="120" ry="50"/><ellipse cx="220" cy="90" rx="140" ry="55"/><ellipse cx="380" cy="140" rx="110" ry="50"/></g><g fill="#2E2659" opacity=".85"><ellipse cx="120" cy="210" rx="150" ry="45"/><ellipse cx="330" cy="230" rx="120" ry="40"/></g><path d="M372 250 L350 300 L366 300 L342 360" fill="none" stroke="#FFE68A" stroke-width="5" stroke-linejoin="round" opacity=".9"/></svg>', 'lr-ab-wolken'),
       el('div', { class: 'lr-ab-blitz', 'aria-hidden': 'true' }), el('div', { class: 'lr-ab-strahl', 'aria-hidden': 'true' }), kopf,
       el('h2', { class: 'lr-ab-titel' }, 'Sturmflug gemeistert'),
       // 1c: keine Fehlerzahl – nur Bordkarten, „neu angesetzt“ und die Folge am Ende
@@ -2102,10 +2102,11 @@ function lernAbschlussFlug({ ctx, r, weiter, testAnsehen }) {
       el('button', { type: 'button', class: 'lr-ab-pause', onclick: testAnsehen }, 'Test ansehen')));
 }
 // 3. Ort geschafft (Reisepass-Stempel)
+const lernStempelDatum = (d) => `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.`;
 function lernAbschlussOrt({ ctx, r, stempelNr, weiter }) {
   const fl = r.flug || {}; const ort = fl.ort || ctx.ort?.stadt || 'Ort';
   const fluege = r.ort_fluege || [];
-  const heute = new Date().toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' }) + '.';
+  const heute = lernStempelDatum(new Date()); // Teil 9 N1: „20.11.“, nie „20.11..“
   return el('div', { class: 'lr-ab-app lr-ab-ort lr-ab-anim lr-abschluss-ort' },
     el('button', { type: 'button', class: 'lr-ab-skip', onclick: weiter }, 'Überspringen ›'),
     el('div', { class: 'lr-ab-szene' },
@@ -3341,8 +3342,8 @@ async function viewPlan(arg) {
       ortWahl || griff,
       el('span', { class: 'lern-plan-nr' + (ziehbar ? '' : ' lern-plan-nr-sym') }, ziehbar ? String(j + 1) : lernStufeZeichenEl(os)),
       el('button', { type: 'button', class: 'lern-plan-ort lern-kl-zeile', 'aria-expanded': String(auf), 'aria-label': `${ueberschrift(o)} (Ort in der Reise: ${o?.stadt || o?.titel || '?'})`, onclick: () => { if (offen.has(x.block_id)) offen.delete(x.block_id); else offen.add(x.block_id); zeichneAlles(); } },
-        lernKlKasten(o), el('b', { title: ueberschrift(o) }, ueberschrift(o)),
-        el('small', {}, el('span', { class: 'lern-st-mini ' + (LERN_STUFE[os.stufe]?.kl || '') }, LERN_STUFE[os.stufe]?.z + ' ' + (os.stufe === 'wiederholung' ? lernStufeZusatz({ ...os, gesetzt: null }) : LERN_STUFE[os.stufe]?.wort)), ' · ',
+        lernKlKasten(o), el('b', { title: ueberschrift(o) }, o?.kontinent ? el('span', { class: 'lern-plan-gebiet-vor' }, `${o.kontinent} – `) : null, themaTitel(o)), // N7: auf dem Handy ohne Vorsatz
+        el('small', {}, o?.kontinent ? el('span', { class: 'lern-plan-gebiet-klein' }, `${o.kontinent} · `) : null, el('span', { class: 'lern-st-mini ' + (LERN_STUFE[os.stufe]?.kl || '') }, LERN_STUFE[os.stufe]?.z + ' ' + (os.stufe === 'wiederholung' ? lernStufeZusatz({ ...os, gesetzt: null }) : LERN_STUFE[os.stufe]?.wort)), ' · ',
           ...klassenTeile(o), ` · ${os.gelandet}/${nFluege(geplant.length)}`, x.ausgelassen.length ? ` · ${x.ausgelassen.length} abgewählt` : '',
           ' · ', el('i', { class: 'lern-plan-reiseort' }, `Ort in der Reise: ${o?.stadt || o?.titel || '?'}`)),
         ueber ? el('small', { class: 'lern-plan-ueber' }, `Klasse ${klG} – über der Klasse des Kindes · ${vorgezogen ? 'vorgezogen' : 'Kind sieht ihn unter „Später“'}`) : null),
@@ -3844,7 +3845,7 @@ async function viewInfo(arg) {
       el('p', {}, el('b', {}, 'Lernen starten: '), 'Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel des Kindes. Im Lehrer-Zugang steht dort klein „Lernreise ansehen“.')),
     el('h3', {}, 'Erste Schritte'),
     el('div', { class: 'lern-info-schritte' },
-      schritt(1, 'Flugplan prüfen', 'Reiter „Plan“ auf der Seite des Kindes – das ist dein Arbeitsplatz. Links „Unser Lehrplan“ nach Stufen (▶ Gerade dran · ○ Kommt noch · ↻ In Wiederholung · ◉ Kann er komplett); Reihenfolge mit ⠿ ziehen oder ↑ ↓. Einen Ort antippen: je Flug die Knöpfe „Lernen“, „Kann er – aber wiederholen“, „Kann er komplett“, „Aus dem Plan nehmen“. Rechts der Lehrplan: „Nach Themengebiet“ (alle Flüge eines Themengebiets von leicht nach schwer, auch über der Klasse des Kindes) oder „Nach Klasse“ (die Flüge einer Klasse in der Reihenfolge des Lehrplans, gegliedert nach Lernbereich). „+“ oder Ziehen plant ein. Viele auf einmal: „Auswählen“. Jede Änderung wird sofort gespeichert.', jeKind('plan', 'Plan')),
+      schritt(1, 'Flugplan prüfen', 'Reiter „Plan“ auf der Seite des Kindes – das ist dein Arbeitsplatz. Links „Unser Lehrplan“ nach Stufen (▶ Gerade dran · ○ Kommt noch · ↻ In Wiederholung · ◉ Kann er komplett); Reihenfolge mit ⠿ ziehen oder ↑ ↓. Einen Ort antippen: je Flug die Knöpfe „Lernen“, „Kann er – aber wiederholen“, „Kann er komplett“, „Aus dem Plan nehmen“. Rechts (auf dem Handy darunter) der Lehrplan: „Nach Themengebiet“ (alle Flüge eines Themengebiets von leicht nach schwer, auch über der Klasse des Kindes) oder „Nach Klasse“ (die Flüge einer Klasse in der Reihenfolge des Lehrplans, gegliedert nach Lernbereich). „+“ oder Ziehen plant ein. Viele auf einmal: „Auswählen“. Jede Änderung wird sofort gespeichert.', jeKind('plan', 'Plan')),
       schritt(2, 'Lernstand lesen', 'Reiter „Stand“ auf der Seite des Kindes: die Lehrplan-Landkarte des Kindes (Kontinente × Klassen) in seiner Schulart, mit „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule). Reiter „Was wackelt“: je Etappe, was sitzt und was wackelt, mit den echten falschen Antworten. Alle Kinder nebeneinander: die Tabelle auf der Startseite.', jeKind('stand', 'Stand'), jeKind('wackelt', 'Was wackelt')),
       schritt(3, 'Inhalte ansehen', 'In der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.', el('a', { href: '#/lehrplan' }, 'Lehrplan-Übersicht ›')),
       schritt(4, 'Ändern lassen', 'Fehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.', el('a', { href: '#/lernauftraege' }, 'Meine Aufträge ›'))),

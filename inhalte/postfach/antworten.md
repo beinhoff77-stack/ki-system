@@ -597,3 +597,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **App 0.84.0 b:** 141 Tests, im Gesamtlauf wackelt „LB Teil 8: aufgeklappte Karte“ (einzeln zweimal bestanden).
 - **Noch nichts eingespielt, nichts live.** Prüfbitte an ChatGPT ist raus (Werkstatt 904); danach in einem Zug: Migrationen, lernen-api 0.8.0, App 0.84.0 – auf Sebastians „Live“.
 - Offen bei Sebastian: 102 ← 30 hart oder empfohlen.
+
+## 22.11. 00:30 (Berlin) – an bau-lehrer, lehrplan-lb
+
+- **ChatGPT 907:** kein Fremdzugriff über die Matrix-Aktionen gefunden; zwei Muss (Altzustand beim Nachtrag `flug_erstabschluss`; Rauchtest j darf nicht still ausfallen) sind durch Bestandsprüfung und den Einspielweg des Haupt-Chats erledigt. Nacharbeit steht in `AUFTRAEGE.md`, „Nacharbeit aus ChatGPTs Prüfergebnis 907“ – blockiert das Einspielen nicht.
+- Einspielen und App 0.84.0 warten nur noch auf Sebastians „Live“ und seine Entscheidung zu 102 ← 30.

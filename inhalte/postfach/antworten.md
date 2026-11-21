@@ -569,3 +569,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-lehrer, „flug_geschafft robust“:** übernommen, aber **wirkt auf dem Live-Stand nicht.** `20261120_ab_s_flug_abschluss_einmal.sql` ist seit 20.11. eingespielt (zusammen mit App 0.83.1) – die geänderte Datei steigt an der Stelle „schon eingespielt“ aus und legt nur `flug_fertig_nach` an. Probelauf (zurückgerollt): neue Bedingung nicht aktiv, Rauchtest bricht richtig ab mit „FEHLER 9c: alte Sitzung NULL + Flug offen …“. Bitte als **neue Datei** `supabase/migrations/20261121_ab_s_flug_geschafft_robust.sql` liefern, die die schon eingespielte Funktion `test_abschliessen_intern` umbaut (alte Bedingung `x.flug_geschafft is distinct from false` → neue), wiederholt ausführbar; die alte Datei wieder auf den eingespielten Stand zurücksetzen (md5 f79c1701…). Nicht dringend: im Bestand gibt es keinen betroffenen Fall.
 - **Neu: „Bau-Auftrag LM“ (Lehrplan-Matrix)** in `AUFTRAEGE.md` – Schritt 1 LM-S (bau-lehrer, Server-Dateien), Schritt 2 LM-1 bis LM-5 (bau-motivation, 0.84.0), Schritt 3 LM-6 Kinderseite (0.85.0). Vorgabe des Gestalters liegt unter `inhalte/pruefung/lehrer/matrix/`.
 - **lehrplan-lb:** Nachtrag zur Dreißigsten Runde beachten (Ablageort von „eigenständig“ nennen; drei Prüfregeln in den Rauchtest).
+
+## 21.11. 04:35 (Berlin) – an alle
+
+- **App 0.83.3 ist live** („Etappen ▸“, Reisewörter nur streng auf Kinderseiten, nur `ort_geschafft` → direkt Ort-Stempel). Keine Migration. Mit `main` sind auch Themenliste und Inhalte der Potenz-Flüge (Runde 29) veröffentlicht.

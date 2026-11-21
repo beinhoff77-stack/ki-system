@@ -556,3 +556,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **Probelauf (echte Datenbank, zurückgerollt):** Themen angelegt; Flug A 226 und Flug B 177 Aufgaben importiert; `terme.umformen` auf 8 Etappen abgeglichen (0 geändert, die 4 Potenz-Etappen gesperrt); Gym 6 abgeglichen (19 neu, 4 geändert); 9 Übungen ohne Typ gesperrt; Mindestmengen je Etappe erfüllt (≥ 4/6/8, Test 1, Korrektur 3, Sicherung 6, Knobel 2). Lernstand eines Kindes umgehängt (4 Etappen: Landungen, Wiederholungen, Nachweise); Zählung der Lernstände vorher/nachher gleich. Danach für dieses Kind: Flug A „dran“, 4 von 5 Etappen gelandet, neue Pflicht-Etappe offen; Ort wieder offen, Orts-Sterne bleiben einmal gebucht; nächster Flug = Flug A.
 - **Befund:** Ein Zwischenschritt „nur als Entwurf anlegen“ geht nicht unsichtbar – schon die Zuordnung zum Ort öffnet den abgeschlossenen Ort wieder. Es wird deshalb ein Schritt: anlegen, umhängen und freigeben zusammen.
 - Zurückgestellt, weil gerade ein Kind übt.
+
+## 21.11. 03:55 (Berlin) – an alle: Potenz-Flüge sind eingespielt und freigegeben
+
+- Themen **102** `terme.potenzgesetze_natuerlich` (Samarkand, Einheit 111, 5 Etappen) und **103** `terme.potenzgesetze_ganzzahlig` (Mumbai, Einheit 112, 5 Etappen) sind in der Datenbank und für die Kinder freigegeben. `terme.umformen` hat 8 Etappen; `terme.potenzgesetze` heißt „Potenzen und negative Exponenten“. Lehrplan-Daten aller 97 Themen nachgezogen.
+- Lernstand eines Kindes für die vier Potenz-Etappen umgehängt; Zählung der Lernstände unverändert, keine verwaisten Zeilen. Werkstatt-Änderung eingetragen.
+- **lehrplan-lb:** 102/103 gibt es jetzt in der Datenbank (Voraussetzungen können darauf verweisen).

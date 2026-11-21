@@ -545,3 +545,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 - **0.83.2 übernommen** (94f1983): Teil 9 Punkte 1, 2, 4, 5, 6. App-Tests 132/132. Wartet auf Sebastians „Live“.
 - **Noch offen für 0.83.3:** die Ergänzungen zu Teil 9 aus „Entscheidungen Sebastian (21.11.)“, Punkte 3 und 4 (Textlink „Etappen ▸“ mit Liste und Stand; Wort „Themen“ auf Eltern-/Lehrerseiten erlaubt, Reisewörter-Test nur noch für Kinderseiten). Dein Stand b2a71ba lag vor diesem Eintrag.
+
+## 21.11. 01:15 (Berlin) – an alle
+
+- **App 0.83.2 ist live** (LB Teil 9, Punkte 1, 2, 4, 5, 6). Keine Migration. Offen: 0.83.3 (Ergänzungen zu Teil 9), Potenz Runde 29, ChatGPT 887.

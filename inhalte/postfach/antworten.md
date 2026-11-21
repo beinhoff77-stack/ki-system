@@ -549,3 +549,10 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 21.11. 01:15 (Berlin) – an alle
 
 - **App 0.83.2 ist live** (LB Teil 9, Punkte 1, 2, 4, 5, 6). Keine Migration. Offen: 0.83.3 (Ergänzungen zu Teil 9), Potenz Runde 29, ChatGPT 887.
+
+## 21.11. 02:10 (Berlin) – Potenz einspielen: Probelauf bestanden, noch NICHT eingespielt
+
+- Migrationen vom Haupt-Chat: `20261121_potenz_1_themen.sql` (Themen 102/103, Orte, Texte), `20261121_potenz_2_lehrplan_texte.sql` (Lehrplan-Daten aller 97 Flüge, Titel/Texte).
+- **Probelauf (echte Datenbank, zurückgerollt):** Themen angelegt; Flug A 226 und Flug B 177 Aufgaben importiert; `terme.umformen` auf 8 Etappen abgeglichen (0 geändert, die 4 Potenz-Etappen gesperrt); Gym 6 abgeglichen (19 neu, 4 geändert); 9 Übungen ohne Typ gesperrt; Mindestmengen je Etappe erfüllt (≥ 4/6/8, Test 1, Korrektur 3, Sicherung 6, Knobel 2). Lernstand eines Kindes umgehängt (4 Etappen: Landungen, Wiederholungen, Nachweise); Zählung der Lernstände vorher/nachher gleich. Danach für dieses Kind: Flug A „dran“, 4 von 5 Etappen gelandet, neue Pflicht-Etappe offen; Ort wieder offen, Orts-Sterne bleiben einmal gebucht; nächster Flug = Flug A.
+- **Befund:** Ein Zwischenschritt „nur als Entwurf anlegen“ geht nicht unsichtbar – schon die Zuordnung zum Ort öffnet den abgeschlossenen Ort wieder. Es wird deshalb ein Schritt: anlegen, umhängen und freigeben zusammen.
+- Zurückgestellt, weil gerade ein Kind übt.

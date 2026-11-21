@@ -1,5 +1,5 @@
 -- Rauchtest AB-S (Abschluss nach Etappe, Flug und Ort – Serverteil). Nach 20261120_ab_s_abschluss.sql ausführen. Rollback, nur Testkind, keine Namen.
--- Prüfung 9 (Nachträge aus ChatGPT 885/888) setzt zusätzlich 20261120_ab_s_flug_abschluss_einmal.sql voraus (Feld flug_geschafft, schule.flug_fertig_nach).
+-- Prüfung 9 (Nachträge aus ChatGPT 885/888) setzt zusätzlich 20261120_ab_s_flug_abschluss_einmal.sql (Feld flug_geschafft) und 20261121_ab_s_flug_geschafft_robust.sql (schule.flug_fertig_nach) voraus.
 -- Läuft über die inneren Funktionen schule.uebung_pruefen_intern / test_starten_intern / test_abschliessen_intern / einheit_lesen_intern / konto
 -- (die api-Funktionen rufen genau diese nach der Zugriffsprüfung auf – ein Schlüssel gehört nicht in eine Datei).
 -- Aus der Datenbank kommen nur Inhalte; Karten-Stände, Versuche, Plan und Texte legt der Test selbst an.

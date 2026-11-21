@@ -2,6 +2,52 @@
 
 Neueste oben.
 
+## 2026-11-21 – bau-lehrer – FERTIG: LM-S
+
+Bau-Auftrag LM (21.11.), Schritt 1. Nur Dateien, nichts ausgeführt, kein App-Code, kein Merge nach main, keine Kinderdaten.
+
+**Dateien**
+- `supabase/migrations/20261121_lm_s_lehrplan_matrix.sql`: `schule.thema_klasse_fuer(jahrgang, schulart)`, `schule.lehrplan_matrix(kinder[], kindsicht)` (innere Funktion), `api.schule_lehrplan_matrix(schlüssel, daten)` (security definer, Rechte wie üblich: nur council_mcp). Kein DROP/DELETE, Bestand unverändert, wiederholbar. `api.schule_lehrplan_uebersicht` bleibt unverändert (App 0.83 nutzt sie weiter).
+- `supabase/tests/lm_s_lehrplan_matrix_rauchtest.sql`: Rollback, nur Testkind, Prüfungen 1–7 vergleichen gegen die Tabellen (keine festen Bestandszahlen), Prüfung 6 legt sich „Fehler offen“ im Testkind selbst an; Prüfung 8 = Selbstprüfung (s. u.).
+- `supabase/functions/lernen-api/index.ts`: Aktion `schule_lehrplan_matrix: ['lernender_id?', 'mit_testkind?']`, VERSION 0.8.0 (Server-Datei, muss mit deployt werden).
+
+**Befund: was die Übersicht nicht liefert** (Live-Text gelesen): merke, Etappen mit Pflicht, Verbindungen (Art, Begründung), kurz, Pflicht je Schulart, Beispielaufgabe, Gebiet-Reihenfolge, „Etappe x von y“, „Fehler offen“, Kinderzugang. Außerdem eine Zeile je Thema × Ort (Matrix braucht je Thema einmal).
+
+**Zugriff**
+- Eltern/Lehrer (`schule.ist_leiter`): alle aktiven Kinder in einem Aufruf; Testkind nur mit `mit_testkind: true`.
+- Kind (Lern-Zugang): nur es selbst (aus `lern_ich`; `lernender_id` wird ignoriert). Sonstige Zugänge: `lernender_id` + `schule.zugriff`. Immer Kindsicht.
+
+**Feldliste für den App-Bau** (`ergebnis` = `{ok, kindsicht, themen[], verbindungen[], gebiete[], kinder[], lernstand{}}`; fehlende Werte sind weggelassen, nicht null)
+- `themen[]` (je Mathe-Thema genau einmal; sortiert Gebiet → Thema-Reihenfolge):
+  - beide Sichten: `thema_id, schluessel, titel, kurz, gebiet, gebiet_id, ort, block_id` (erster Ort nach Block-Reihenfolge), `was_gefordert` (= thema.beschreibung, „Was gefordert ist“), `einheit_id` (nur mit freigegebener Einheit), `merke` (Array, „Das muss sitzen“), `etappen[] {lernziel, titel, pflicht}`, `beispiel` (erste freigegebene Übungsaufgabe, Text < 160 Zeichen)
+  - nur Eltern/Lehrer: `jahrgang {gym_by, rs_by, ib_myp}` (Klasse je Schulart; IB = MYP-Jahr), `lehrplan_reihenfolge {schulart: n}`, `lernbereich {schulart: …}`, `lehrplan {schulart: Wortlaut}`, `pflicht [schularten]` (Thema einem Eintrag einer aktiven Basis-Quelle zugeordnet), `eigenstaendig` (s. u., heute nie gesetzt)
+  - nur Kindsicht: `zeile {klasse, eingeordnet}` (Klasse in der Schulart des Kindes; fehlt sie, die der anderen bayerischen Schulart bzw. MYP+5 → `eingeordnet: true`), `reihenfolge_kind`
+- `verbindungen[] {thema_id, braucht_id, art: hart|empfohlen, begruendung}` – „thema_id braucht braucht_id“. Kindsicht ohne `begruendung`. „Braucht vorher“, „weiter zurück“ (Kette) und „Darauf baut auf“ rechnet die App daraus; Klasse der Voraussetzung über `themen[].jahrgang`. Leere Liste → Hinweis „Keine Voraussetzung hinterlegt“.
+- `gebiete[] {gebiet_id, titel, reihenfolge, zusatz}`
+- `kinder[] {id, name, klasse, schulart}` – Kindsicht: nur das Kind, ohne `schulart`.
+- `lernstand[kind_id][thema_id]` = `schule.thema_stufe` (u. a. `stufe, zeichen, im_plan, etappen, begonnen, gelandet, sicher, wieder_offen, wdh_nr, naechste_in, rueckreise, test_offen`) + `etappe_jetzt` (nur bei stufe „dran“: gelandet+1, höchstens etappen → „Etappe x von y“ mit y = `etappen`) + nur Eltern/Lehrer `fehler_offen` (Pflicht-Etappe mit Status „fehler“ → Link „Fehler besprechen ›“).
+
+**„eigenständig“** – Fakt: wird heute nirgends gespeichert. Vorschlag (nicht gebaut): Spalte `schule.thema.eigenstaendig boolean default false` (+ ggf. `eigenstaendig_grund text`), gesetzt vom Lehrplan-Chat. Die Matrix-Funktion und Regel 8a lesen sie schon über `to_jsonb(t)->'eigenstaendig'` – sobald die Spalte da ist, wirkt sie ohne weitere Änderung. Entscheidung, wer sie anlegt: Haupt-Chat.
+
+**Selbstprüfung Dreißigste Runde** (Rauchtest Prüfung 8, NOTICE mit Anzahl und Nummern, kein Abbruch). Stand heute, nur gelesen:
+- 8a Thema mit Klasse ohne Verbindung, nicht eigenständig: 28 (17, 19, 22, 27, 34, 40, 42–45, 59, 60, 64–66, 69, 70, 73, 75, 81, 83, 84, 98–103).
+- 8b Voraussetzung in späterer Klasse als das Thema: 1 (33 braucht 32, nur IB-MYP).
+- 8c Themen 100–103 verknüpft: nein, alle 4 ohne Verbindung.
+→ Die Regeln sind heute nicht erfüllt; deshalb NOTICE statt Abbruch. Sollen sie nach dem Nachpflegen hart werden: in Prüfung 8 NOTICE → EXCEPTION.
+
+**Annahmen / offen**
+- Kindsicht-Zeile: MYP-Jahr + 5 = Klasse (wie in lernen.js).
+- Größe: Lehrer-Antwort ca. 140 KB (Themen ~113 KB ohne Lehrplan-Wortlaut + ~24 KB Wortlaut) plus Lernstand je Kind. Wenn das zu groß ist: Wortlaut erst im Detail nachladen.
+- Rauchtest-Prüfung 6 braucht eine Einheit mit Pflicht-Etappe (sonst „übersprungen“).
+
+## 2026-11-21 – bau-lehrer – FERTIG: flug_geschafft robust 2
+
+Auf antworten.md „21.11. 04:25“. Nur Dateien, nichts ausgeführt, kein App-Code, kein Merge nach main.
+- Neu: `supabase/migrations/20261121_ab_s_flug_geschafft_robust.sql` – legt `schule.flug_fertig_nach(lernender, einheit, sitzung)` an und baut die eingespielte `schule.test_abschliessen_intern` um: alte Bedingung `x.flug_geschafft is distinct from false` → `x.flug_geschafft or (x.flug_geschafft is null and schule.flug_fertig_nach(...))`. Umbau über `pg_get_functiondef` + `replace`; die Stelle steht live genau einmal (gelesen 21.11.). Wiederholbar: ist `flug_fertig_nach` schon im Funktionstext, passiert nichts. Fehlt die Stelle (alte Datei nicht eingespielt), bricht die Migration mit Hinweis ab.
+- Zurückgesetzt: `20261120_ab_s_flug_abschluss_einmal.sql` = eingespielter Stand (Commit 80e67e8, md5 f79c1701…).
+- `supabase/tests/ab_s_abschluss_rauchtest.sql`: nur Kopfzeile – Prüfung 9 setzt jetzt beide Dateien voraus. Prüfung 9 (9a–9e) unverändert.
+- Reihenfolge Haupt-Chat: neue Datei einspielen → Rauchtest ab_s (Prüfung 9c muss jetzt grün sein).
+
 ## 2026-11-21 – FERTIG: 0.83.3 – App 0.83.3, Cache v153
 
 Stand `lernen-app` 05037ef (0.83.2 live, Nachträge aus Prüfergebnis 888). Nur App (`lernen.js`, `style.css`), Versionsnummer in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.

@@ -602,3 +602,11 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 - **ChatGPT 907:** kein Fremdzugriff über die Matrix-Aktionen gefunden; zwei Muss (Altzustand beim Nachtrag `flug_erstabschluss`; Rauchtest j darf nicht still ausfallen) sind durch Bestandsprüfung und den Einspielweg des Haupt-Chats erledigt. Nacharbeit steht in `AUFTRAEGE.md`, „Nacharbeit aus ChatGPTs Prüfergebnis 907“ – blockiert das Einspielen nicht.
 - Einspielen und App 0.84.0 warten nur noch auf Sebastians „Live“ und seine Entscheidung zu 102 ← 30.
+
+## 22.11. 00:45 (Berlin) – an alle: Paket Lehrplan-Matrix ist eingespielt und live
+
+- **Datenbank** (eine Transaktion, auf Sebastians „Live“): Lehrplan Runde 30 c (128 Verbindungen, 66 hart; `thema.eigenstaendig` als Text; 102 ← 30 bleibt **hart** – Entscheidung Sebastian), LM-S 3 (`api.schule_lehrplan_matrix`, `api.schule_lehrplan_thema`), `schule.flug_erstabschluss` (Nachtrag 4 Flüge). Stufen, Plan, Reiseoptionen und Lernstand aller Kinder in der Transaktion verglichen: unverändert. Rauchtests `lm_s` und `ab_s` danach bestanden.
+- **Server-Funktion** `lernen-api` 0.8.0 ist ausgerollt (zwei neue Aktionen).
+- **App 0.84.0 ist live** (main 44c1e7a): Lehrplan-Matrix für Eltern/Lehrer (LM-1 bis LM-5).
+- **Gestalter:** `schule.voraussetzung` und Themenliste sind aktualisiert; „eigenständig“ steht in `schule.thema.eigenstaendig` (Text = Begründung, null = nicht gekennzeichnet).
+- Nächste Schritte: Nacharbeit aus ChatGPT 907 (bau-lehrer, lehrplan-lb), danach LM-6 Kinderseite (bau-motivation, 0.85.0).

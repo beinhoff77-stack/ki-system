@@ -2,6 +2,33 @@
 
 Neueste oben.
 
+## 2026-11-21 – bau-lehrer – FERTIG: LM-S 2
+
+Auf AUFTRAEGE.md „Nachbesserung Dreißigste Runde und LM-S (21.11.)“, Teil B. Nur Dateien, nichts ausgeführt, kein App-Code. Die LM-S-Dateien von heute früh sind ersetzt (nicht eingespielt, daher in derselben Datei).
+
+**Dateien:** `supabase/migrations/20261121_lm_s_lehrplan_matrix.sql`, `supabase/tests/lm_s_lehrplan_matrix_rauchtest.sql`, `supabase/functions/lernen-api/index.ts` (neue Aktion `schule_lehrplan_thema: ['thema_id', 'lernender_id?']`, VERSION 0.8.0).
+
+**Was sich ändert**
+- `eigenstaendig` ist Text (Begründung, null = nicht gekennzeichnet), gelesen über `to_jsonb(t)->>'eigenstaendig'` – läuft vor und nach `20261121_lehrplan_zuordnung_voraussetzungen.sql` (der boolean-Abbruch ist weg). Raster: `eigenstaendig: true`, wenn gesetzt; Detail: der Begründungstext; Kind: nie.
+- `ohne_flug: true` bei Themen ohne freigegebene Einheit (dann auch kein `einheit_id`, kein `etappen_anzahl`) – im Raster und im Detail.
+- Aufgeteilt in **Raster** (`schule_lehrplan_matrix`) und **Detail** (`schule_lehrplan_thema`, beim Antippen). Zugang für beide gleich (`schule.lehrplan_sicht`): Eltern/Lehrer → Lehrer-Sicht; Lern-Zugang → nur das Kind selbst; sonst `lernender_id` + `schule.zugriff`.
+
+**Größe** (Teile nur lesend nachgerechnet, 21.11.): Raster Lehrer ≈ 43 KB Themen + ≈ 1 KB Verbindungen + ≈ 11 KB Lernstand je Kind → mit zwei Kindern ≈ 65 KB (vorher 249 KB). Kindsicht deutlich kleiner (ohne jahrgang/lernbereich/pflicht). Detail ≈ 2–5 KB je Thema. Rauchtest Prüfung 7 bricht ab, wenn das Lehrer-Raster mit allen aktiven Kindern ≥ 90 000 Zeichen hat; Prüfung 8 beim Detail ≥ 30 000.
+
+**Feldliste Raster** `{ok, kindsicht, themen[], verbindungen[], gebiete[], kinder[], lernstand{}}` (fehlende Werte weggelassen; fehlt = nein)
+- `themen[]` je Mathe-Thema einmal, sortiert Gebiet → Thema: `thema_id, schluessel, titel, gebiet_id, block_id, einheit_id | ohne_flug, etappen_anzahl`; nur Lehrer: `jahrgang {gym_by, rs_by, ib_myp}`, `lehrplan_reihenfolge`, `lernbereich`, `pflicht [schularten]`, `eigenstaendig: true`; nur Kind: `zeile {klasse, eingeordnet?}`, `reihenfolge_kind`.
+- `verbindungen[]` = `[thema_id, braucht_id, "h"|"e"]` („thema_id braucht braucht_id“, h = hart, e = empfohlen). „Weiter zurück“ = Kette darüber.
+- `gebiete[] {gebiet_id, titel, reihenfolge, zusatz}` (Gebiet-Titel nur hier).
+- `kinder[] {id, name, klasse, schulart}` (Kind: nur es selbst, ohne schulart).
+- `lernstand[kind_id][thema_id]`: `stufe` (immer), sonst nur wenn gesetzt: `zeichen, im_plan, begonnen, gelandet, sicher, wieder_offen, wdh_nr, naechste_in, rueckreise, test_offen, hinweis, etappe_jetzt` (nur bei „dran“; „Etappe x von y“ mit y = `themen[].etappen_anzahl`), nur Lehrer `fehler_offen`. Weggelassen gegenüber thema_stufe: `etappen, gesetzt, ohne_test, wdh_stufe_min`.
+
+**Feldliste Detail** (`daten: {thema_id}`; Kind über Lern-Zugang ohne weitere Angabe)
+- `thema_id, titel, kurz, ort, was_gefordert, einheit_id | ohne_flug, merke [], etappen [{lernziel, titel, pflicht}], beispiel` (< 160 Zeichen), `braucht [{thema_id, titel, art, begruendung}]`, `baut_darauf [{thema_id, titel, art, begruendung}]`; nur Lehrer: `lehrplan {schulart: Wortlaut}`, `eigenstaendig` (Text). Kind: ohne `lehrplan`, `eigenstaendig`, `pflicht`, `begruendung`.
+
+**Rauchtest:** 1–8 wie gehabt angepasst (Raster knapp, ohne_flug, Detail, Größe); 9 eigenständig als Text (setzt in der Transaktion eine Begründung an einem Thema und nimmt sie zurück; übersprungen, solange die Spalte fehlt); 10 Selbstprüfung als NOTICE: 10a–c wie bisher (10a: eigenständig = Begründung gesetzt), neu 10d „keine Verbindung von oder zu einem Thema ohne Flug“ (Teil A).
+
+**Annahmen:** Kindsicht-Zeile MYP-Jahr + 5 = Klasse. Größe je Kind steigt mit Fortschritt (mehr gesetzte Felder); Obergrenze grob ≈ 15 KB je Kind.
+
 ## 2026-11-21 – bau-lehrer – FERTIG: LM-S
 
 Bau-Auftrag LM (21.11.), Schritt 1. Nur Dateien, nichts ausgeführt, kein App-Code, kein Merge nach main, keine Kinderdaten.

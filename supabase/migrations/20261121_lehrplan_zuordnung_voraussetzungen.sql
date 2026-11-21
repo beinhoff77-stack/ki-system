@@ -1,8 +1,13 @@
 -- Dreißigste Runde (21.11.): Lehrplan-Prüfung – Zuordnungen und Voraussetzungen der Themenliste.
 -- Quelle: LehrplanPLUS Bayern, abgerufen 21.11.2026; Belege und Annahmen in inhalte/pruefung/lehrplan/runde30.md.
--- Wiederholt ausführbar. Kein DROP. DELETE nur in Abschnitt 3c: zwölf einzeln aufgezählte veraltete Verbindungen zu aufgelösten Themen (Runde 30 b, ausdrücklich erlaubt).
--- Fehlen die Themen 102/103, werden ihre Verbindungen übersprungen (seit 21.11. sind sie in der Datenbank).
+-- Wiederholt ausführbar. Kein DROP, kein DELETE. Fehlen die Themen 102/103, werden ihre Verbindungen übersprungen.
 -- Am Ende ein Rauchtest (nur lesen); schlägt er fehl, bricht die Migration mit Fehlermeldung ab.
+
+-- 0) Vergleichsstand für den Rauchtest (Runde 30 c): Reiseoptionen aller Lernenden und Zahl der Visum-Zeilen VOR den Änderungen, nur gelesen und in einer Sitzungs-Einstellung gemerkt.
+do $$ begin
+  perform set_config('lb30.ro_vorher', coalesce((select jsonb_object_agg(id::text, schule.reiseoptionen(id)) from schule.lernender), '{}'::jsonb)::text, false);
+  perform set_config('lb30.visum_vorher', (select count(*) from schule.v_ort_visum)::text, false);
+end $$;
 
 -- 1) Kleinste Erweiterung: Kennzeichen „eigenständig“ (Begründung; nicht leer = bewusst ohne Voraussetzung)
 alter table schule.thema add column if not exists eigenstaendig text;
@@ -56,73 +61,73 @@ select v.t, v.b, v.art, v.beg from (values
   (8, 68, 'hart', 'Etappe reinquadratisch: x² = a mit der Quadratwurzel lösen (Stoff von 12 steht jetzt hier)'),
   (49, 46, 'empfohlen', 'Verschiebung und Gegenvektor aus den Kongruenzabbildungen (ersetzt 48)'),
   (74, 46, 'empfohlen', 'Verschiebung und Gegenvektor aus den Kongruenzabbildungen (ersetzt 48)'),
-  (74, 50, 'hart', 'Determinanten berechnen Flächeninhalte von Parallelogramm und Dreieck'),
-  (76, 28, 'hart', 'Term für das n-te Glied (Folgen stehen jetzt in diesem Flug, ersetzt 41)'),
+  (74, 50, 'empfohlen', 'Determinanten berechnen Flächeninhalte von Parallelogramm und Dreieck'),
+  (76, 28, 'empfohlen', 'Term für das n-te Glied (Folgen stehen jetzt in diesem Flug, ersetzt 41)'),
   (2, 28, 'hart', 'Gleichungen bestehen aus Termen mit Variablen'),
-  (2, 16, 'hart', 'Lösungen und Umformungen mit negativen Zahlen'),
+  (2, 16, 'empfohlen', 'Lösungen und Umformungen mit negativen Zahlen'),
   (4, 29, 'empfohlen', 'beim Umstellen werden Terme umgeformt'),
   (6, 33, 'empfohlen', 'graphisches Lösen über den Schnittpunkt zweier Geraden'),
   (11, 39, 'empfohlen', 'Nullstellen ganzrationaler Funktionen = Lösungen der Polynomgleichung'),
   (13, 8, 'empfohlen', 'Wurzelgleichungen führen oft auf quadratische Gleichungen'),
-  (17, 18, 'hart', 'Teiler und Vielfache beruhen auf Multiplizieren und Dividieren'),
+  (17, 18, 'empfohlen', 'Teiler und Vielfache beruhen auf Multiplizieren und Dividieren'),
   (18, 15, 'hart', 'Rechnen im Stellenwertsystem mit natürlichen Zahlen'),
   (19, 67, 'hart', 'Potenzbegriff: Basis und Exponent'),
   (19, 22, 'empfohlen', 'kleine Zahlen als Dezimalzahl und als Zehnerpotenz'),
   (20, 68, 'hart', 'Quadratwurzel als Grundbegriff'),
-  (21, 18, 'hart', 'Bruch als Teilen; Kürzen und Erweitern durch Multiplizieren und Dividieren'),
+  (21, 18, 'empfohlen', 'Bruch als Teilen; Kürzen und Erweitern durch Multiplizieren und Dividieren'),
   (21, 17, 'empfohlen', 'Kürzen mit gemeinsamen Teilern'),
-  (22, 21, 'hart', 'Dezimalzahlen als Zehnerbrüche'),
-  (23, 22, 'hart', 'rationale Zahlen auch als Dezimalzahlen'),
-  (23, 16, 'hart', 'Vorzeichenregeln der ganzen Zahlen'),
+  (22, 21, 'empfohlen', 'Dezimalzahlen als Zehnerbrüche'),
+  (23, 22, 'empfohlen', 'rationale Zahlen auch als Dezimalzahlen'),
+  (23, 16, 'empfohlen', 'Vorzeichenregeln der ganzen Zahlen'),
   (24, 22, 'empfohlen', 'Prozentsätze als Dezimalzahl'),
-  (25, 18, 'hart', 'Umrechnen durch Multiplizieren und Dividieren mit 10, 100, 1000'),
-  (28, 18, 'hart', 'Rechenarten und Rechengesetze in Termen'),
+  (25, 18, 'empfohlen', 'Umrechnen durch Multiplizieren und Dividieren mit 10, 100, 1000'),
+  (28, 18, 'empfohlen', 'Rechenarten und Rechengesetze in Termen'),
   (29, 102, 'hart', 'Produkte wie a · a² · a³ brauchen das Potenzgesetz'),
-  (30, 21, 'hart', 'negativer Exponent bedeutet Kehrbruch'),
+  (30, 21, 'empfohlen', 'negativer Exponent bedeutet Kehrbruch'),
   (31, 29, 'hart', 'Zähler und Nenner werden als Terme umgeformt'),
-  (34, 32, 'hart', 'Funktionsbegriff, Definitionsmenge'),
+  (34, 32, 'empfohlen', 'Funktionsbegriff, Definitionsmenge'),
   (34, 93, 'empfohlen', 'indirekte Proportionalität führt auf die Hyperbel'),
   (36, 35, 'empfohlen', 'Parabel als erste Potenzfunktion'),
   (37, 103, 'empfohlen', 'Potenzgesetze mit ganzzahligen Exponenten'),
-  (43, 42, 'hart', 'Strahl, Scheitel und Gerade'),
-  (44, 43, 'hart', 'Winkel messen und zeichnen'),
+  (43, 42, 'empfohlen', 'Strahl, Scheitel und Gerade'),
+  (44, 43, 'empfohlen', 'Winkel messen und zeichnen'),
   (44, 98, 'empfohlen', 'Winkelsumme bei Existenz und Konstruktion von Dreiecken'),
   (44, 46, 'empfohlen', 'Grundkonstruktionen (Mittelsenkrechte, Lot, Winkelhalbierende)'),
-  (45, 42, 'hart', 'Kreis, Radius, Gerade'),
-  (45, 98, 'hart', 'Satz des Thales wird über die Winkelsumme im Dreieck begründet'),
+  (45, 42, 'empfohlen', 'Kreis, Radius, Gerade'),
+  (45, 98, 'empfohlen', 'Satz des Thales wird über die Winkelsumme im Dreieck begründet'),
   (45, 73, 'empfohlen', 'Umkreis und Inkreis über Mittelsenkrechte und Winkelhalbierende'),
-  (46, 42, 'hart', 'Gerade, Senkrechte, Koordinatensystem'),
-  (50, 42, 'hart', 'Rechteck, Quadrat und Vielecke'),
-  (52, 42, 'hart', 'ebene Figuren für Netze und Seitenflächen'),
+  (46, 42, 'empfohlen', 'Gerade, Senkrechte, Koordinatensystem'),
+  (50, 42, 'empfohlen', 'Rechteck, Quadrat und Vielecke'),
+  (52, 42, 'empfohlen', 'ebene Figuren für Netze und Seitenflächen'),
   (55, 54, 'empfohlen', 'fehlende Seiten mit Pythagoras'),
   (58, 22, 'empfohlen', 'Mittelwerte sind oft Dezimalzahlen'),
-  (59, 57, 'hart', 'Daten erfassen und darstellen'),
-  (59, 33, 'hart', 'Trendgerade als lineare Funktion'),
+  (59, 57, 'empfohlen', 'Daten erfassen und darstellen'),
+  (59, 33, 'empfohlen', 'Trendgerade als lineare Funktion'),
   (64, 61, 'hart', 'Zufallsexperiment und relative Häufigkeit'),
-  (66, 3, 'hart', 'Bedingungen als lineare Ungleichungen'),
-  (66, 33, 'hart', 'Randgeraden zeichnen'),
+  (66, 3, 'empfohlen', 'Bedingungen als lineare Ungleichungen'),
+  (66, 33, 'empfohlen', 'Randgeraden zeichnen'),
   (67, 18, 'hart', 'Potenz als wiederholtes Multiplizieren'),
-  (68, 67, 'hart', 'Quadratzahlen'),
-  (69, 16, 'hart', 'Zahlengerade mit negativen Zahlen'),
-  (70, 22, 'hart', 'Runden von Dezimalzahlen'),
+  (68, 67, 'empfohlen', 'Quadratzahlen'),
+  (69, 16, 'empfohlen', 'Zahlengerade mit negativen Zahlen'),
+  (70, 22, 'empfohlen', 'Runden von Dezimalzahlen'),
   (73, 42, 'hart', 'Kreis, Gerade, Abstand'),
-  (75, 32, 'hart', 'Funktionsbegriff'),
-  (75, 16, 'hart', 'Betrag einer ganzen Zahl'),
-  (81, 57, 'hart', 'Daten erheben und darstellen'),
+  (75, 32, 'empfohlen', 'Funktionsbegriff'),
+  (75, 16, 'empfohlen', 'Betrag einer ganzen Zahl'),
+  (81, 57, 'empfohlen', 'Daten erheben und darstellen'),
   (81, 58, 'empfohlen', 'Kenngrößen zum Vergleich von Stichproben'),
   (92, 101, 'empfohlen', 'Pyramide und Kegel im Vergleich zu Prisma und Zylinder'),
-  (98, 43, 'hart', 'Winkel messen, Scheitel- und Nebenwinkel'),
-  (99, 50, 'hart', 'Flächeninhalt von Rechteck und Quadrat; Zerlegen'),
-  (100, 50, 'hart', 'Grundfläche des Quaders'),
-  (100, 25, 'hart', 'Einheiten umrechnen'),
-  (101, 99, 'hart', 'Grundflächen Dreieck, Trapez, Parallelogramm'),
-  (101, 100, 'hart', 'Volumenbegriff und Volumeneinheiten'),
-  (101, 51, 'hart', 'Kreisfläche und -umfang für den Zylinder'),
+  (98, 43, 'empfohlen', 'Winkel messen, Scheitel- und Nebenwinkel'),
+  (99, 50, 'empfohlen', 'Flächeninhalt von Rechteck und Quadrat; Zerlegen'),
+  (100, 50, 'empfohlen', 'Grundfläche des Quaders'),
+  (100, 25, 'empfohlen', 'Einheiten umrechnen'),
+  (101, 99, 'empfohlen', 'Grundflächen Dreieck, Trapez, Parallelogramm'),
+  (101, 100, 'empfohlen', 'Volumenbegriff und Volumeneinheiten'),
+  (101, 51, 'empfohlen', 'Kreisfläche und -umfang für den Zylinder'),
   (102, 30, 'hart', 'Potenzbegriff (Basis, Exponent, Hoch 0)'),
   (102, 28, 'hart', 'Terme mit Variablen'),
   (103, 102, 'hart', 'Potenzgesetze mit natürlichen Exponenten'),
-  (103, 30, 'hart', 'negative Exponenten als Kehrbruch'),
-  (96, 103, 'hart', 'Potenzgesetze werden auf rationale Exponenten erweitert')
+  (103, 30, 'empfohlen', 'negative Exponenten als Kehrbruch'),
+  (96, 103, 'empfohlen', 'Potenzgesetze werden auf rationale Exponenten erweitert')
 ) v(t, b, art, beg)
 where exists (select 1 from schule.thema where id = v.t) and exists (select 1 from schule.thema where id = v.b)
 on conflict (thema_id, braucht_id) do update set art = excluded.art, begruendung = excluded.begruendung;
@@ -190,6 +195,20 @@ begin
   select string_agg(t.id::text, ', ') into v_txt from schule.thema t
    where t.id between 100 and 103 and not exists (select 1 from schule.voraussetzung v where v.thema_id = t.id);
   if v_txt is not null then raise exception 'Rauchtest: Themen 100–103 ohne Verbindung: %', v_txt; end if;
+  -- j) Runde 30 c: Reiseoptionen jedes vorhandenen Lernenden vorher = nachher (Visum-Regeln dürfen sich für heutige Pläne nicht ändern)
+  if current_setting('lb30.ro_vorher', true) is null then
+    raise notice 'Rauchtest j übersprungen: kein Vergleichsstand (Abschnitt 0 nicht in derselben Sitzung gelaufen)';
+  else
+    select string_agg('Lernender ' || k || ': vorher ' || coalesce(vorher->k, 'null'::jsonb)::text || ' / nachher ' || coalesce(nachher->k, 'null'::jsonb)::text, E'
+') into v_txt
+      from (select current_setting('lb30.ro_vorher')::jsonb vorher,
+                   coalesce((select jsonb_object_agg(id::text, schule.reiseoptionen(id)) from schule.lernender), '{}'::jsonb) nachher) x,
+           lateral (select jsonb_object_keys(vorher) k union select jsonb_object_keys(nachher)) ks
+     where coalesce(vorher->k, 'null'::jsonb) is distinct from coalesce(nachher->k, 'null'::jsonb);
+    if v_txt is not null then raise exception E'Rauchtest j: Reiseoptionen geändert:
+%', v_txt; end if;
+    raise notice 'Rauchtest j: Reiseoptionen unverändert; v_ort_visum vorher % Zeilen, nachher %', current_setting('lb30.visum_vorher', true), (select count(*) from schule.v_ort_visum);
+  end if;
   -- f) Lernbereich 4 berichtigt
   if (select lernbereich->>'gym_by' from schule.thema where id = 4) <> 'M8 1 Funktion und Term' then raise exception 'Rauchtest: Lernbereich 4'; end if;
   raise notice 'Rauchtest Dreißigste Runde bestanden';

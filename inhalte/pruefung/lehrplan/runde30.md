@@ -2,6 +2,121 @@
 
 Grundlage: Zweig `lernen-app` e0739529 (einschließlich Nachtrag des Gestalters), Datenbank nur gelesen. Quelle LehrplanPLUS Bayern, **abgerufen 21.11.2026** über die Suche auf lehrplanplus.bayern.de (Seitenauszüge, keine Volltextabrufe). Unbelegtes ist als **Annahme** gekennzeichnet.
 
+## 0c. Runde 30 c (21.11., „Rückläufer 21.11. morgens“, Teil A): harte Verbindungen und Reise-Sperren
+
+Grundlage: `lernen-app` d463182a. Die Datenbank habe ich nur gelesen, die Migration auf der echten Datenbank **nicht ausgeführt**.
+
+**Wie die Sperre entsteht (gelesen)**
+- `schule.v_ort_visum` legt für jede **harte** Verbindung eine Zeile an: Ort des Themas braucht Ort der Voraussetzung, sofern es zwei verschiedene Orte sind (`block_thema`). Empfohlene Verbindungen zählen nicht.
+- `schule.reiseoptionen(lernender)` nimmt je Kontinent den nächsten Ort der Route, der nicht fertig, nicht „kann schon“ und kein Zusatz-Ort ist. Für jeden Ort meldet sie, welche Visum-Orte des Kindes noch nicht fertig oder „kann schon“ sind (`visum_fehlt`). Gibt es Rückstands-Orte ohne fehlendes Visum, gilt Modus `pflicht` und nur diese Orte werden angeboten.
+- Damit gilt: Jede harte Verbindung zwischen zwei Orten ist eine Reise-Sperre. Mein Satz „Plan-Folgen: keine“ aus 30 b war **falsch**.
+
+**Was die Fassung 30 b bewirkt hätte (nachgerechnet)**
+- `v_ort_visum` wäre von 49 auf 81 Zeilen gewachsen; das deckt sich mit dem Probelauf.
+- Beim Kind Klasse 5 wären zwei Orte der Klasse 5 neu gesperrt worden:
+  - „Größen und Einheiten“ (Grund: 25 ← 18 hart, braucht „Natürliche und ganze Zahlen“).
+  - „Umfang und Fläche“ (Grund: 50 ← 42 hart, braucht „Formen und Grundbegriffe“).
+
+**Entscheidung je neuer harter Verbindung**
+- 39 der neuen harten Verbindungen hätten eine neue Reise-Sperre erzeugt.
+- **38 davon sind jetzt `empfohlen`.** Begründung: Der Stoff hilft vorher, eine Sperre ist aber fachlich nicht zwingend. Meist ist es Grundschul- oder Klasse-5-Wissen, oder es sind parallele Orte derselben Klasse, deren Reihenfolge das Kind frei wählen soll. Die Liste steht unten.
+- **Hart geblieben: 102 ← 30** (Potenzgesetze braucht Potenzen). Begründung: Ohne Potenzbegriff (Basis, Exponent) sind Potenzgesetze nicht lernbar; die Kette 30 → 102 → 29 verlangt der Auftrag.
+  - Folge: Ort „Terme umformen“ braucht künftig das Visum „Potenzen“.
+  - Für die heutigen Pläne ändert das nichts. Beim Kind Klasse 8 sind beide Orte fertig. Beim Kind Klasse 5 ist „Terme umformen“ aus der Route entfernt und wird nicht angeboten.
+  - **Zur Entscheidung durch Sebastian:** hart lassen (empfohlen) oder auch `empfohlen`.
+- Hart geblieben sind außerdem 13 neue Verbindungen ohne neue Sperre. Bei ihnen liegt die Voraussetzung im selben Ort, das Thema hat keinen Ort, oder die Sperre bestand schon.
+- **Durch die Löschungen aus 30 b fallen 4 Visum-Zeilen weg.** Betroffen sind nur zwei Zusatz-Orte, „Zinseszins“ und „Statistik vertieft“. Zusatz-Orte bietet `reiseoptionen` nicht an, die heutigen Pläne bleiben gleich.
+- Ergebnis: `v_ort_visum` hat **46 statt 49 Zeilen**. Neu ist nur „Terme umformen“ → „Potenzen“.
+
+**Vorher/nachher je Kind (ohne Namen; vorher = heutige Datenbank, nachher = nach dieser Migration)**
+
+**Kind Klasse 5** – Modus vorher `frei`, nachher `frei`.
+
+| Ort (nächster je Kontinent) | vorher | nachher |
+|---|---|---|
+| Natürliche und ganze Zahlen (49), Klasse 5 | wählbar | wählbar |
+| Größen und Einheiten (55), Klasse 5 | wählbar | wählbar |
+| Einfache Gleichungen (64), Klasse 5 | gesperrt: Visum fehlt für Natürliche und ganze Zahlen (49) | gesperrt: Visum fehlt für Natürliche und ganze Zahlen (49) |
+| Funktionsbegriff (73), Klasse 8 | gesperrt: Visum fehlt für Terme aufstellen (63) | gesperrt: Visum fehlt für Terme aufstellen (63) |
+| Formen und Grundbegriffe (83), Klasse 5 | wählbar | wählbar |
+| Umfang und Fläche (87), Klasse 5 | wählbar | wählbar |
+| Daten darstellen (96), Klasse 6 | wählbar | wählbar |
+
+Alle übrigen Orte der Route (nicht fertig, nicht „kann schon“), Unterschiede im Visum: Terme umformen (62) [7; Status entfernt]: vorher 63, 64 → nachher 44, 63, 64; Zinseszins (50) [Zusatz; Status offen, Zusatz-Ort]: vorher 49 → nachher –; Statistik vertieft (88) [Zusatz; Status offen, Zusatz-Ort]: vorher 45, 47, 92, 94 → nachher 94
+
+**Kind Klasse 8** – Modus vorher `pflicht`, nachher `pflicht`.
+
+| Ort (nächster je Kontinent) | vorher | nachher |
+|---|---|---|
+| Winkel (81), Klasse 5 | wählbar | wählbar |
+| Median, Quartile, Boxplot (111), Klasse 7 | wählbar | wählbar |
+
+Alle übrigen Orte der Route (nicht fertig, nicht „kann schon“), Unterschiede im Visum: Statistik vertieft (88) [Zusatz; Status offen, Zusatz-Ort]: vorher 92 → nachher –
+
+**Testkind Klasse 7** – Modus vorher `frei`, nachher `frei`.
+
+| Ort (nächster je Kontinent) | vorher | nachher |
+|---|---|---|
+| – keine Optionen (keine offenen Orte auf der Route) | – | – |
+
+Alle übrigen Orte der Route (nicht fertig, nicht „kann schon“), Unterschiede im Visum: keine.
+
+**Rauchtest j (neu)**
+- Abschnitt 0 der Migration merkt sich vor allen Änderungen `reiseoptionen` aller Lernenden und die Zeilenzahl von `v_ort_visum` (Sitzungs-Einstellung `lb30.ro_vorher`, nur gelesen).
+- Am Ende vergleicht der Rauchtest je Lernendem vorher und nachher. Jeder Unterschied wird mit der Lernenden-ID ausgegeben, die Migration bricht dann ab. Bei Gleichheit meldet er die Visum-Zahlen.
+- Laufen Abschnitt 0 und Rauchtest nicht in derselben Sitzung, wird j mit Hinweis übersprungen.
+
+**Geprüft auf einer lokalen Postgres-16-Kopie** (Tabellen und Funktionen `reiseoptionen`/`v_ort_visum` nachgebaut, Daten aus dem gelesenen Stand, keine Namen):
+- Die Migration läuft durch, auch zweimal hintereinander. Rauchtest a–j bestanden, „Reiseoptionen unverändert; v_ort_visum vorher 49, nachher 46“.
+- Gegenprobe: Mit 25 ← 18 wieder hart bricht Rauchtest j mit „Reiseoptionen geändert“ ab, und alles wird zurückgerollt.
+- Das ist auch die Antwort auf den Hinweis zu LM-S: Der Funktionsrumpf ist damit wirklich ausgeführt, nicht nur von pglast gelesen.
+
+**Auf `empfohlen` gesetzt (38)**
+
+| Verbindung | wäre Visum | jetzt |
+|---|---|---|
+| 2 Lineare Gleichungen ← 16 Ganze Zahlen | Terme umformen → Natürliche und ganze Zahlen | empfohlen |
+| 17 Teilbarkeit ← 18 Grundrechenarten und Rechengesetze | Teilbarkeit → Natürliche und ganze Zahlen | empfohlen |
+| 21 Brüche und Anteile ← 18 Grundrechenarten und Rechengesetze | Brüche → Natürliche und ganze Zahlen | empfohlen |
+| 22 Dezimalzahlen ← 21 Brüche und Anteile | Dezimalzahlen → Brüche | empfohlen |
+| 23 Rechnen mit rationalen Zahlen ← 16 Ganze Zahlen | Rechnen mit Brüchen → Natürliche und ganze Zahlen | empfohlen |
+| 23 Rechnen mit rationalen Zahlen ← 22 Dezimalzahlen | Rechnen mit Brüchen → Dezimalzahlen | empfohlen |
+| 25 Größen und Einheiten ← 18 Grundrechenarten und Rechengesetze | Größen und Einheiten → Natürliche und ganze Zahlen | empfohlen |
+| 28 Terme aufstellen und deuten ← 18 Grundrechenarten und Rechengesetze | Terme aufstellen → Natürliche und ganze Zahlen | empfohlen |
+| 30 Potenzen und negative Exponenten ← 21 Brüche und Anteile | Potenzen → Brüche | empfohlen |
+| 34 Gebrochen-rationale Funktionen ← 32 Zuordnung und Funktion | Hyperbeln → Funktionsbegriff | empfohlen |
+| 43 Mit Winkeln rechnen ← 42 Grundbegriffe und Figuren | Winkel → Formen und Grundbegriffe | empfohlen |
+| 44 Konstruktionen, Kongruenz und Beweise ← 43 Mit Winkeln rechnen | Dreiecke, Vierecke und Konstruktion → Winkel | empfohlen |
+| 45 Kreis und Tangenten ← 42 Grundbegriffe und Figuren | Kreis → Formen und Grundbegriffe | empfohlen |
+| 45 Kreis und Tangenten ← 98 Winkelsätze | Kreis → Dreiecke, Vierecke und Konstruktion | empfohlen |
+| 46 Kongruenzabbildungen ← 42 Grundbegriffe und Figuren | Spiegeln und Symmetrie → Formen und Grundbegriffe | empfohlen |
+| 50 Umfang und Flächeninhalt ← 42 Grundbegriffe und Figuren | Umfang und Fläche → Formen und Grundbegriffe | empfohlen |
+| 52 Körper darstellen ← 42 Grundbegriffe und Figuren | Körper und Netze → Formen und Grundbegriffe | empfohlen |
+| 59 Zweidimensionale Daten ← 33 Lineare Funktionen | Korrelation → Lineare Funktionen | empfohlen |
+| 59 Zweidimensionale Daten ← 57 Daten erfassen und darstellen | Korrelation → Daten darstellen | empfohlen |
+| 66 Lineare Optimierung ← 3 Lineare Ungleichungen | Graphen und Optimierung → Lineare Ungleichungen | empfohlen |
+| 66 Lineare Optimierung ← 33 Lineare Funktionen | Graphen und Optimierung → Lineare Funktionen | empfohlen |
+| 68 Elementare Wurzeln ← 67 Potenzen als Schreibweise | Wurzeln und reelle Zahlen → Natürliche und ganze Zahlen | empfohlen |
+| 69 Intervalle ← 16 Ganze Zahlen | Lineare Ungleichungen → Natürliche und ganze Zahlen | empfohlen |
+| 70 Schranken und Genauigkeit ← 22 Dezimalzahlen | Logik und Schranken → Dezimalzahlen | empfohlen |
+| 74 Zweireihige Determinanten ← 50 Umfang und Flächeninhalt | Vektoren, Verschiebung und Drehung → Umfang und Fläche | empfohlen |
+| 75 Betragsfunktion ← 16 Ganze Zahlen | Folgen, Reihen und Betrag → Natürliche und ganze Zahlen | empfohlen |
+| 75 Betragsfunktion ← 32 Zuordnung und Funktion | Folgen, Reihen und Betrag → Funktionsbegriff | empfohlen |
+| 76 Reihen ← 28 Terme aufstellen und deuten | Folgen, Reihen und Betrag → Terme aufstellen | empfohlen |
+| 81 Stichproben und Aussagekraft ← 57 Daten erfassen und darstellen | Stichproben → Daten darstellen | empfohlen |
+| 96 Rationale Exponenten und n-te Wurzel ← 103 Potenzgesetze mit ganzzahligen Exponenten | Rationale Exponenten → Bruchterme und Formeln | empfohlen |
+| 98 Winkelsätze ← 43 Mit Winkeln rechnen | Dreiecke, Vierecke und Konstruktion → Winkel | empfohlen |
+| 99 Flächen von Parallelogramm, Dreieck und Trapez ← 50 Umfang und Flächeninhalt | Flächen und Volumen → Umfang und Fläche | empfohlen |
+| 100 Volumen ← 25 Größen und Einheiten | Flächen und Volumen → Größen und Einheiten | empfohlen |
+| 100 Volumen ← 50 Umfang und Flächeninhalt | Flächen und Volumen → Umfang und Fläche | empfohlen |
+| 101 Prismen und Zylinder ← 51 Kreisberechnungen | Körper und Netze → Kreis und Zylinder | empfohlen |
+| 101 Prismen und Zylinder ← 99 Flächen von Parallelogramm, Dreieck und Trapez | Körper und Netze → Flächen und Volumen | empfohlen |
+| 101 Prismen und Zylinder ← 100 Volumen | Körper und Netze → Flächen und Volumen | empfohlen |
+| 103 Potenzgesetze mit ganzzahligen Exponenten ← 30 Potenzen und negative Exponenten | Bruchterme und Formeln → Potenzen | empfohlen |
+
+Hart geblieben (keine neue Reise-Sperre: gleicher Ort, Thema ohne Ort oder Sperre bestand schon): 8 ← 68, 2 ← 28, 18 ← 15, 19 ← 67, 20 ← 68, 29 ← 102, 31 ← 29, 64 ← 61, 67 ← 18, 73 ← 42, 102 ← 28, 103 ← 102.
+
+
 ## 0. Nachbesserung Runde 30 b (21.11., Auftrag „Nachbesserung Dreißigste Runde und LM-S“, Teil A)
 
 Grundlage: `lernen-app` 168a744b. Datenbank nur gelesen, Migration nicht ausgeführt. Der Rest der Runde 30 ist angenommen.
@@ -51,7 +166,7 @@ Die Zuordnung habe ich per Skript über die Etappen der Themendateien gefunden, 
 
 **Befund, nicht geändert:** Die zehn aufgelösten Themen tragen in Themenliste und Datenbank weiter Klassen und Reihenfolgen für RS und IB (12: RS 9 / IB 4; 27: IB 2; 40: RS 9 / IB 5; 41: IB 5; 48: RS 7; 72: IB 4; 77: RS 10 / IB 5; 78: RS 8; 82: IB 5; 83: IB 3). Laut Auftrag kennzeichnet die Matrix sie mit `ohne_flug` (Teil B). Soll das Gymnasium-Prinzip auch für RS/IB gelten, ist das ein eigener Auftrag: Die Reihenfolgen müssten dann neu nummeriert werden.
 
-**Plan-Folgen von Runde 30 b:** keine. Gegenüber der Datenbank ändert sich bei 12 nichts mehr, weil die Gym-Zuordnung nie eingespielt war. Die gelöschten und neuen Verbindungen ändern keine Reihenfolge, denn `lernen.js` nutzt sie nicht.
+**Plan-Folgen von Runde 30 b:** ~~keine~~ – **falsch**: Harte Verbindungen erzeugen Reise-Sperren (`v_ort_visum`). Die Berichtigung steht in Abschnitt 0c.
 
 ## 1. Themen ohne Klasse (Runde 30)
 
@@ -82,7 +197,7 @@ Ein Gymnasiast lernt den Stoff von 12 im Flug 8, Etappe `reinquadratisch` (Runde
   - Datenbank: neue Spalte **`schule.thema.eigenstaendig`** (`text`, Begründung). Nicht leer heißt: bewusst ohne Voraussetzung. Leer heißt: nicht gekennzeichnet.
   - Themenliste: Feld **`eigenstaendig`** (Text) an 15, 42, 57, 60, 65, 83, 84.
   - Damit das Übersichtsblatt das anzeigen kann, muss die Lese-Schnittstelle die Spalte mitliefern (LM-S). Das ist hier nicht gebaut.
-- **Pflichtkette Potenz:** 30 → 102 → 29 (hart) und 102 → 103 (hart), dazu 30 → 103 (hart). Fehlen 102/103, überspringt die Migration diese Zeilen (Prüfung `where exists`).
+- **Pflichtkette Potenz:** 30 → 102 → 29 (hart) und 102 → 103 (hart), dazu 30 → 103 (seit 30 c `empfohlen`, sonst neue Reise-Sperre). Fehlen 102/103, überspringt die Migration diese Zeilen (Prüfung `where exists`).
 - **Quelle:** Die Abhängigkeiten sind fachliche **Annahmen**, gestützt auf die Reihenfolge der Lernbereiche im LehrplanPLUS. Ausdrücklich belegt sind nur einzelne: 7 ← 6 (Servicematerial https://www.lehrplanplus.bayern.de/serviceinformation/l298115: LGS 3 greift auf M8 6 zurück), 11 ← 8 (l301512: Jgst. 10 baut auf quadratischen Gleichungen aus Jgst. 9 auf).
 - **Selbstprüfung im Rauchtest** (Regeln des Gestalters):
   - b) Kein Thema mit Klasse und freigegebener Einheit bleibt ohne Verbindung, außer es ist eigenständig.
@@ -122,7 +237,7 @@ Betroffen sind nur Gymnasium-Kinder: zwei echte (Klasse 5 und Klasse 8) und das 
 
 1. ~~Thema 12 bekommt Gym-Klasse 9; Gym 9 neu nummeriert~~ – in Runde 30 b zurückgenommen, entfällt.
 2. **Lernbereich von 4** heißt jetzt M8 1 statt M8 4. Die Reihenfolge bleibt gleich. **Annahme:** Gruppiert eine Ansicht nach Lernbereich, wandert das Thema dort in eine andere Gruppe. Für das Kind in Klasse 8 betrifft das die laufende Klasse.
-3. **Kein Einfluss** haben die Voraussetzungen und `eigenstaendig`. `lernen.js` sortiert nur nach Klasse und `lehrplan_reihenfolge`. Die Voraussetzungen liest nur `api.schule_lehrplan_lesen` (Liste „braucht“).
+3. **Berichtigt (30 c):** Die Reihenfolge ändern die Voraussetzungen nicht, aber **harte Verbindungen sperren Reisen** über `schule.v_ort_visum` und `schule.reiseoptionen`. Siehe Abschnitt 0c. `eigenstaendig` hat keinen Einfluss.
 
 ## 5. Vorschläge (nicht umgesetzt)
 
@@ -135,15 +250,15 @@ Betroffen sind nur Gymnasium-Kinder: zwei echte (Klasse 5 und Klasse 8) und das 
 ## 6. Dateien
 
 - `inhalte/themenliste.json`: 4 (Lernbereich Gym), Feld `eigenstaendig` an 15, 42, 57, 60, 65, 83, 84; 32 nach IB MYP 3 (Klasse, Lernbereich, `lehrplan_ib`), Reihenfolge IB MYP 3 und 4.
-- `supabase/migrations/20261121_lehrplan_zuordnung_voraussetzungen.sql`: wiederholt ausführbar, ohne DROP/DELETE, **nicht ausgeführt**. Mit Rauchtest (a–i), der bei Fehlern abbricht. Löscht nur die 12 aufgezählten Zeilen (3c). Syntax mit pglast geprüft.
+- `supabase/migrations/20261121_lehrplan_zuordnung_voraussetzungen.sql`: wiederholt ausführbar, ohne DROP/DELETE, **nicht ausgeführt**. Mit Rauchtest (a–j), der bei Fehlern abbricht. Löscht nur die 12 aufgezählten Zeilen (3c). Syntax mit pglast geprüft.
 - Selbstprüfung: Reihenfolge je Schulart und Klasse lückenlos und eindeutig. Tests `tests/lernen.test.cjs` 135/135 grün. `tools/inhalt_pruefen.py --alle` zeigt nur dieselben Hinweise wie vorher.
 
-## Anhang: Voraussetzungen je Thema (Stand Runde 30 b)
+## Anhang: Voraussetzungen je Thema (Stand Runde 30 c)
 
 | Nr | Thema | Gym | RS | IB | direkte Voraussetzungen (Art, Begründung) |
 |---|---|---|---|---|---|
 | 1 | Einfache Gleichungen | 5 | 6 | 1 | 18 Grundrechenarten und Rechengesetze (hart, vorhanden) |
-| 2 | Lineare Gleichungen | 7 | 7 | 2 | 1 Einfache Gleichungen (hart, vorhanden); 28 Terme aufstellen und deuten (hart, Gleichungen bestehen aus Termen mit Variablen); 16 Ganze Zahlen (hart, Lösungen und Umformungen mit negativen Zahlen) |
+| 2 | Lineare Gleichungen | 7 | 7 | 2 | 1 Einfache Gleichungen (hart, vorhanden); 28 Terme aufstellen und deuten (hart, Gleichungen bestehen aus Termen mit Variablen); 16 Ganze Zahlen (empfohlen, Lösungen und Umformungen mit negativen Zahlen) |
 | 3 | Lineare Ungleichungen | 8 | 7 | 4 | 2 Lineare Gleichungen (hart, vorhanden) |
 | 4 | Formeln umstellen | 8 | – | 4 | 2 Lineare Gleichungen (hart, vorhanden); 29 Terme umformen (empfohlen, beim Umstellen werden Terme umgeformt) |
 | 5 | Bruch- und Verhältnisgleichungen | 8 | 8 | 4 | 2 Lineare Gleichungen (hart, vorhanden); 31 Bruchterme (hart, vorhanden) |
@@ -158,24 +273,24 @@ Betroffen sind nur Gymnasium-Kinder: zwei echte (Klasse 5 und Klasse 8) und das 
 | 14 | Trigonometrische Gleichungen | 9 | 10 | 5 | 56 Allgemeine Trigonometrie (hart, vorhanden) |
 | 15 | Natürliche Zahlen | 5 | 5 | 1 | **eigenständig** – Einstieg Klasse 5; setzt nur Grundschulwissen voraus |
 | 16 | Ganze Zahlen | 5 | 5 | 2 | 15 Natürliche Zahlen (hart, vorhanden) |
-| 17 | Teilbarkeit | 5 | 5 | 1 | 18 Grundrechenarten und Rechengesetze (hart, Teiler und Vielfache beruhen auf Multiplizieren und Dividieren) |
+| 17 | Teilbarkeit | 5 | 5 | 1 | 18 Grundrechenarten und Rechengesetze (empfohlen, Teiler und Vielfache beruhen auf Multiplizieren und Dividieren) |
 | 18 | Grundrechenarten und Rechengesetze | 5 | 5 | 1 | 15 Natürliche Zahlen (hart, Rechnen im Stellenwertsystem mit natürlichen Zahlen) |
 | 19 | Zehnerpotenzen und wissenschaftliche Schreibweise | 6 | 7 | 4 | 67 Potenzen als Schreibweise (hart, Potenzbegriff: Basis und Exponent); 22 Dezimalzahlen (empfohlen, kleine Zahlen als Dezimalzahl und als Zehnerpotenz) |
 | 20 | Wurzeln und reelle Zahlen | 9 | 9 | 4 | 68 Elementare Wurzeln (hart, Quadratwurzel als Grundbegriff) |
-| 21 | Brüche und Anteile | 6 | 6 | 1 | 18 Grundrechenarten und Rechengesetze (hart, Bruch als Teilen; Kürzen und Erweitern durch Multiplizieren und Dividieren); 17 Teilbarkeit (empfohlen, Kürzen mit gemeinsamen Teilern) |
-| 22 | Dezimalzahlen | 6 | 6 | 1 | 21 Brüche und Anteile (hart, Dezimalzahlen als Zehnerbrüche) |
-| 23 | Rechnen mit rationalen Zahlen | 6 | 6 | 2 | 21 Brüche und Anteile (hart, vorhanden); 22 Dezimalzahlen (hart, rationale Zahlen auch als Dezimalzahlen); 16 Ganze Zahlen (hart, Vorzeichenregeln der ganzen Zahlen) |
+| 21 | Brüche und Anteile | 6 | 6 | 1 | 18 Grundrechenarten und Rechengesetze (empfohlen, Bruch als Teilen; Kürzen und Erweitern durch Multiplizieren und Dividieren); 17 Teilbarkeit (empfohlen, Kürzen mit gemeinsamen Teilern) |
+| 22 | Dezimalzahlen | 6 | 6 | 1 | 21 Brüche und Anteile (empfohlen, Dezimalzahlen als Zehnerbrüche) |
+| 23 | Rechnen mit rationalen Zahlen | 6 | 6 | 2 | 21 Brüche und Anteile (hart, vorhanden); 22 Dezimalzahlen (empfohlen, rationale Zahlen auch als Dezimalzahlen); 16 Ganze Zahlen (empfohlen, Vorzeichenregeln der ganzen Zahlen) |
 | 24 | Prozent- und Zinsrechnung | 6 | 6 | 1 | 21 Brüche und Anteile (hart, vorhanden); 22 Dezimalzahlen (empfohlen, Prozentsätze als Dezimalzahl) |
-| 25 | Größen und Einheiten | 5 | 5 | 2 | 18 Grundrechenarten und Rechengesetze (hart, Umrechnen durch Multiplizieren und Dividieren mit 10, 100, 1000) |
+| 25 | Größen und Einheiten | 5 | 5 | 2 | 18 Grundrechenarten und Rechengesetze (empfohlen, Umrechnen durch Multiplizieren und Dividieren mit 10, 100, 1000) |
 | 26 | Direkte Proportionalität und Dreisatz | 5 | 6 | 2 | 25 Größen und Einheiten (hart, vorhanden) |
 | 27 | Verhältnisse und Raten | – | – | 2 | **aufgelöst** (Entwurf ohne freigegebene Einheit) – keine Verbindungen |
-| 28 | Terme aufstellen und deuten | 7 | 6 | 1 | 18 Grundrechenarten und Rechengesetze (hart, Rechenarten und Rechengesetze in Termen) |
+| 28 | Terme aufstellen und deuten | 7 | 6 | 1 | 18 Grundrechenarten und Rechengesetze (empfohlen, Rechenarten und Rechengesetze in Termen) |
 | 29 | Terme umformen | 7 | 7 | 3 | 28 Terme aufstellen und deuten (hart, vorhanden); 102 Potenzgesetze (hart, Produkte wie a · a² · a³ brauchen das Potenzgesetz) |
-| 30 | Potenzen und negative Exponenten | 6 | 7 | 3 | 18 Grundrechenarten und Rechengesetze (hart, vorhanden); 67 Potenzen als Schreibweise (hart, vorhanden); 21 Brüche und Anteile (hart, negativer Exponent bedeutet Kehrbruch) |
+| 30 | Potenzen und negative Exponenten | 6 | 7 | 3 | 18 Grundrechenarten und Rechengesetze (hart, vorhanden); 67 Potenzen als Schreibweise (hart, vorhanden); 21 Brüche und Anteile (empfohlen, negativer Exponent bedeutet Kehrbruch) |
 | 31 | Bruchterme | 8 | 8 | 4 | 23 Rechnen mit rationalen Zahlen (hart, vorhanden); 29 Terme umformen (hart, Zähler und Nenner werden als Terme umgeformt) |
 | 32 | Zuordnung und Funktion | 8 | 8 | 3 | 28 Terme aufstellen und deuten (hart, vorhanden) |
 | 33 | Lineare Funktionen | 8 | 8 | 3 | 2 Lineare Gleichungen (hart, vorhanden); 32 Zuordnung und Funktion (hart, vorhanden) |
-| 34 | Gebrochen-rationale Funktionen | 8 | – | 4 | 32 Zuordnung und Funktion (hart, Funktionsbegriff, Definitionsmenge); 93 Indirekte Proportionalität (empfohlen, indirekte Proportionalität führt auf die Hyperbel) |
+| 34 | Gebrochen-rationale Funktionen | 8 | – | 4 | 32 Zuordnung und Funktion (empfohlen, Funktionsbegriff, Definitionsmenge); 93 Indirekte Proportionalität (empfohlen, indirekte Proportionalität führt auf die Hyperbel) |
 | 35 | Quadratische Funktionen | 9 | 9 | 4 | 29 Terme umformen (empfohlen, vorhanden); 32 Zuordnung und Funktion (hart, vorhanden); 33 Lineare Funktionen (empfohlen, vorhanden) |
 | 36 | Potenzfunktionen | 9 | 10 | 4 | 32 Zuordnung und Funktion (hart, vorhanden); 35 Quadratische Funktionen (empfohlen, Parabel als erste Potenzfunktion) |
 | 37 | Exponential- und Logarithmusfunktionen | 10 | 10 | 5 | 30 Potenzen und negative Exponenten (hart, vorhanden); 32 Zuordnung und Funktion (hart, vorhanden); 103 Potenzgesetze mit ganzzahligen Exponenten (empfohlen, Potenzgesetze mit ganzzahligen Exponenten) |
@@ -184,45 +299,45 @@ Betroffen sind nur Gymnasium-Kinder: zwei echte (Klasse 5 und Klasse 8) und das 
 | 40 | Graphentransformation | – | 9 | 5 | **aufgelöst** (Entwurf ohne freigegebene Einheit) – keine Verbindungen |
 | 41 | Folgen | – | – | 5 | **aufgelöst** (Entwurf ohne freigegebene Einheit) – keine Verbindungen |
 | 42 | Grundbegriffe und Figuren | 5 | 5 | 1 | **eigenständig** – Einstieg Geometrie Klasse 5; setzt nur Grundschulwissen voraus |
-| 43 | Mit Winkeln rechnen | 5 | 5 | 1 | 42 Grundbegriffe und Figuren (hart, Strahl, Scheitel und Gerade) |
-| 44 | Konstruktionen, Kongruenz und Beweise | 7 | 7 | 3 | 43 Mit Winkeln rechnen (hart, Winkel messen und zeichnen); 98 Winkelsätze (empfohlen, Winkelsumme bei Existenz und Konstruktion von Dreiecken); 46 Kongruenzabbildungen (empfohlen, Grundkonstruktionen (Mittelsenkrechte, Lot, Winkelhalbierende)) |
-| 45 | Kreis und Tangenten | 7 | 7 | 4 | 42 Grundbegriffe und Figuren (hart, Kreis, Radius, Gerade); 98 Winkelsätze (hart, Satz des Thales wird über die Winkelsumme im Dreieck begründet); 73 Ortslinien und Ortsbereiche (empfohlen, Umkreis und Inkreis über Mittelsenkrechte und Winkelhalbierende) |
-| 46 | Kongruenzabbildungen | 7 | 6 | 3 | 42 Grundbegriffe und Figuren (hart, Gerade, Senkrechte, Koordinatensystem) |
+| 43 | Mit Winkeln rechnen | 5 | 5 | 1 | 42 Grundbegriffe und Figuren (empfohlen, Strahl, Scheitel und Gerade) |
+| 44 | Konstruktionen, Kongruenz und Beweise | 7 | 7 | 3 | 43 Mit Winkeln rechnen (empfohlen, Winkel messen und zeichnen); 98 Winkelsätze (empfohlen, Winkelsumme bei Existenz und Konstruktion von Dreiecken); 46 Kongruenzabbildungen (empfohlen, Grundkonstruktionen (Mittelsenkrechte, Lot, Winkelhalbierende)) |
+| 45 | Kreis und Tangenten | 7 | 7 | 4 | 42 Grundbegriffe und Figuren (empfohlen, Kreis, Radius, Gerade); 98 Winkelsätze (empfohlen, Satz des Thales wird über die Winkelsumme im Dreieck begründet); 73 Ortslinien und Ortsbereiche (empfohlen, Umkreis und Inkreis über Mittelsenkrechte und Winkelhalbierende) |
+| 46 | Kongruenzabbildungen | 7 | 6 | 3 | 42 Grundbegriffe und Figuren (empfohlen, Gerade, Senkrechte, Koordinatensystem) |
 | 47 | Ähnlichkeit und Strahlensätze | 9 | 9 | 3 | 46 Kongruenzabbildungen (empfohlen, vorhanden) |
 | 48 | Vektoren und Determinanten | – | 7 | – | **aufgelöst** (Entwurf ohne freigegebene Einheit) – keine Verbindungen |
 | 49 | Matrizen und Abbildungen mit Matrizen | – | 10 | 5 | 46 Kongruenzabbildungen (empfohlen, Verschiebung und Gegenvektor aus den Kongruenzabbildungen (ersetzt 48)) |
-| 50 | Umfang und Flächeninhalt | 5 | 5 | 1 | 42 Grundbegriffe und Figuren (hart, Rechteck, Quadrat und Vielecke) |
+| 50 | Umfang und Flächeninhalt | 5 | 5 | 1 | 42 Grundbegriffe und Figuren (empfohlen, Rechteck, Quadrat und Vielecke) |
 | 51 | Kreisberechnungen | 8 | 9 | 3 | 50 Umfang und Flächeninhalt (hart, vorhanden) |
-| 52 | Körper darstellen | 8 | 5 | 3 | 42 Grundbegriffe und Figuren (hart, ebene Figuren für Netze und Seitenflächen) |
+| 52 | Körper darstellen | 8 | 5 | 3 | 42 Grundbegriffe und Figuren (empfohlen, ebene Figuren für Netze und Seitenflächen) |
 | 53 | Volumen und Oberfläche | 5 | 6 | 1 | 50 Umfang und Flächeninhalt (hart, vorhanden) |
 | 54 | Satz des Pythagoras | 9 | 9 | 3 | 68 Elementare Wurzeln (hart, vorhanden) |
 | 55 | Trigonometrie im rechtwinkligen Dreieck | 9 | 9 | 4 | 47 Ähnlichkeit und Strahlensätze (hart, vorhanden); 54 Satz des Pythagoras (empfohlen, fehlende Seiten mit Pythagoras) |
 | 56 | Allgemeine Trigonometrie | 9 | 10 | 4 | 55 Trigonometrie im rechtwinkligen Dreieck (hart, vorhanden) |
 | 57 | Daten erfassen und darstellen | 6 | 5 | 1 | **eigenständig** – Zählen und Ablesen aus der Grundschule genügen |
 | 58 | Mittelwert und Häufigkeiten | 6 | 7 | 2 | 57 Daten erfassen und darstellen (empfohlen, vorhanden); 22 Dezimalzahlen (empfohlen, Mittelwerte sind oft Dezimalzahlen) |
-| 59 | Zweidimensionale Daten | – | – | 5 | 57 Daten erfassen und darstellen (hart, Daten erfassen und darstellen); 33 Lineare Funktionen (hart, Trendgerade als lineare Funktion) |
+| 59 | Zweidimensionale Daten | – | – | 5 | 57 Daten erfassen und darstellen (empfohlen, Daten erfassen und darstellen); 33 Lineare Funktionen (empfohlen, Trendgerade als lineare Funktion) |
 | 60 | Zählen und Kombinatorik | 5 | 5 | 2 | **eigenständig** – systematisches Zählen; setzt nur Grundschulwissen voraus |
 | 61 | Zufall und Laplace | 8 | 9 | 2 | 21 Brüche und Anteile (hart, vorhanden) |
 | 62 | Mehrstufige Zufallsexperimente | 10 | 10 | 4 | 23 Rechnen mit rationalen Zahlen (hart, vorhanden); 61 Zufall und Laplace (hart, vorhanden) |
 | 63 | Verknüpfte Ereignisse | 9 | 9 | 4 | 61 Zufall und Laplace (hart, vorhanden) |
 | 64 | Simulation | 10 | 9 | 2 | 61 Zufall und Laplace (hart, Zufallsexperiment und relative Häufigkeit) |
 | 65 | Graphentheorie | – | – | 4 | **eigenständig** – Entdecker-Insel mit eigenen Begriffen (Knoten, Kanten) |
-| 66 | Lineare Optimierung | – | – | 5 | 3 Lineare Ungleichungen (hart, Bedingungen als lineare Ungleichungen); 33 Lineare Funktionen (hart, Randgeraden zeichnen) |
+| 66 | Lineare Optimierung | – | – | 5 | 3 Lineare Ungleichungen (empfohlen, Bedingungen als lineare Ungleichungen); 33 Lineare Funktionen (empfohlen, Randgeraden zeichnen) |
 | 67 | Potenzen als Schreibweise | 5 | 5 | 1 | 18 Grundrechenarten und Rechengesetze (hart, Potenz als wiederholtes Multiplizieren) |
-| 68 | Elementare Wurzeln | 9 | 9 | 1 | 67 Potenzen als Schreibweise (hart, Quadratzahlen) |
-| 69 | Intervalle | 8 | 7 | 4 | 16 Ganze Zahlen (hart, Zahlengerade mit negativen Zahlen) |
-| 70 | Schranken und Genauigkeit | – | – | 5 | 22 Dezimalzahlen (hart, Runden von Dezimalzahlen) |
+| 68 | Elementare Wurzeln | 9 | 9 | 1 | 67 Potenzen als Schreibweise (empfohlen, Quadratzahlen) |
+| 69 | Intervalle | 8 | 7 | 4 | 16 Ganze Zahlen (empfohlen, Zahlengerade mit negativen Zahlen) |
+| 70 | Schranken und Genauigkeit | – | – | 5 | 22 Dezimalzahlen (empfohlen, Runden von Dezimalzahlen) |
 | 71 | Zinsen | 6 | 7 | 4 | 24 Prozent- und Zinsrechnung (hart, vorhanden) |
 | 72 | Zinseszins | – | – | 4 | **aufgelöst** (Entwurf ohne freigegebene Einheit) – keine Verbindungen |
 | 73 | Ortslinien und Ortsbereiche | 5 | 7 | – | 42 Grundbegriffe und Figuren (hart, Kreis, Gerade, Abstand) |
-| 74 | Zweireihige Determinanten | – | 7 | – | 46 Kongruenzabbildungen (empfohlen, Verschiebung und Gegenvektor aus den Kongruenzabbildungen (ersetzt 48)); 50 Umfang und Flächeninhalt (hart, Determinanten berechnen Flächeninhalte von Parallelogramm und Dreieck) |
-| 75 | Betragsfunktion | – | – | 5 | 32 Zuordnung und Funktion (hart, Funktionsbegriff); 16 Ganze Zahlen (hart, Betrag einer ganzen Zahl) |
-| 76 | Reihen | – | – | 5 | 28 Terme aufstellen und deuten (hart, Term für das n-te Glied (Folgen stehen jetzt in diesem Flug, ersetzt 41)) |
+| 74 | Zweireihige Determinanten | – | 7 | – | 46 Kongruenzabbildungen (empfohlen, Verschiebung und Gegenvektor aus den Kongruenzabbildungen (ersetzt 48)); 50 Umfang und Flächeninhalt (empfohlen, Determinanten berechnen Flächeninhalte von Parallelogramm und Dreieck) |
+| 75 | Betragsfunktion | – | – | 5 | 32 Zuordnung und Funktion (empfohlen, Funktionsbegriff); 16 Ganze Zahlen (empfohlen, Betrag einer ganzen Zahl) |
+| 76 | Reihen | – | – | 5 | 28 Terme aufstellen und deuten (empfohlen, Term für das n-te Glied (Folgen stehen jetzt in diesem Flug, ersetzt 41)) |
 | 77 | Umkehrfunktionen | – | 10 | 5 | **aufgelöst** (Entwurf ohne freigegebene Einheit) – keine Verbindungen |
 | 78 | Parameter und Funktionenscharen | – | 8 | – | **aufgelöst** (Entwurf ohne freigegebene Einheit) – keine Verbindungen |
 | 79 | Standardabweichung | – | – | 5 | 58 Mittelwert und Häufigkeiten (hart, vorhanden); 68 Elementare Wurzeln (empfohlen, vorhanden) |
 | 80 | Normalverteilung | – | – | 5 | 79 Standardabweichung (hart, vorhanden) |
-| 81 | Stichproben und Aussagekraft | – | 7 | 2 | 57 Daten erfassen und darstellen (hart, Daten erheben und darstellen); 58 Mittelwert und Häufigkeiten (empfohlen, Kenngrößen zum Vergleich von Stichproben) |
+| 81 | Stichproben und Aussagekraft | – | 7 | 2 | 57 Daten erfassen und darstellen (empfohlen, Daten erheben und darstellen); 58 Mittelwert und Häufigkeiten (empfohlen, Kenngrößen zum Vergleich von Stichproben) |
 | 82 | Bedingte Wahrscheinlichkeit | – | – | 5 | **aufgelöst** (Entwurf ohne freigegebene Einheit) – keine Verbindungen |
 | 83 | Mengen und Venn-Diagramme | – | – | 3 | **aufgelöst** (Entwurf ohne freigegebene Einheit) – keine Verbindungen; zusätzlich eigenständig gekennzeichnet |
 | 84 | Aussagenlogik | – | – | 4 | **eigenständig** – Entdecker-Insel; Aussagen und Wahrheitswerte werden hier eingeführt |
@@ -231,11 +346,11 @@ Betroffen sind nur Gymnasium-Kinder: zwei echte (Klasse 5 und Klasse 8) und das 
 | 93 | Indirekte Proportionalität | 8 | 7 | 4 | 26 Direkte Proportionalität und Dreisatz (hart, vorhanden) |
 | 94 | Vermehrter und verminderter Grundwert | 7 | 7 | 3 | 24 Prozent- und Zinsrechnung (hart, vorhanden) |
 | 95 | Median, Quartile, Boxplot | 7 | 7 | 4 | 58 Mittelwert und Häufigkeiten (hart, vorhanden) |
-| 96 | Rationale Exponenten und n-te Wurzel | 9 | 10 | 5 | 30 Potenzen und negative Exponenten (hart, vorhanden; Begründung neu: Potenzbegriff und negative Exponenten); 68 Elementare Wurzeln (hart, vorhanden); 103 Potenzgesetze mit ganzzahligen Exponenten (hart, Potenzgesetze werden auf rationale Exponenten erweitert) |
+| 96 | Rationale Exponenten und n-te Wurzel | 9 | 10 | 5 | 30 Potenzen und negative Exponenten (hart, vorhanden; Begründung neu: Potenzbegriff und negative Exponenten); 68 Elementare Wurzeln (hart, vorhanden); 103 Potenzgesetze mit ganzzahligen Exponenten (empfohlen, Potenzgesetze werden auf rationale Exponenten erweitert) |
 | 97 | Quadratische Terme und Extremwerte | – | 8 | – | 29 Terme umformen (hart, vorhanden) |
-| 98 | Winkelsätze | 7 | 7 | 2 | 43 Mit Winkeln rechnen (hart, Winkel messen, Scheitel- und Nebenwinkel) |
-| 99 | Flächen von Parallelogramm, Dreieck und Trapez | 6 | 6 | – | 50 Umfang und Flächeninhalt (hart, Flächeninhalt von Rechteck und Quadrat; Zerlegen) |
-| 100 | Volumen | 6 | 6 | – | 50 Umfang und Flächeninhalt (hart, Grundfläche des Quaders); 25 Größen und Einheiten (hart, Einheiten umrechnen) |
-| 101 | Prismen und Zylinder | 8 | 9 | – | 99 Flächen von Parallelogramm, Dreieck und Trapez (hart, Grundflächen Dreieck, Trapez, Parallelogramm); 100 Volumen (hart, Volumenbegriff und Volumeneinheiten); 51 Kreisberechnungen (hart, Kreisfläche und -umfang für den Zylinder) |
+| 98 | Winkelsätze | 7 | 7 | 2 | 43 Mit Winkeln rechnen (empfohlen, Winkel messen, Scheitel- und Nebenwinkel) |
+| 99 | Flächen von Parallelogramm, Dreieck und Trapez | 6 | 6 | – | 50 Umfang und Flächeninhalt (empfohlen, Flächeninhalt von Rechteck und Quadrat; Zerlegen) |
+| 100 | Volumen | 6 | 6 | – | 50 Umfang und Flächeninhalt (empfohlen, Grundfläche des Quaders); 25 Größen und Einheiten (empfohlen, Einheiten umrechnen) |
+| 101 | Prismen und Zylinder | 8 | 9 | – | 99 Flächen von Parallelogramm, Dreieck und Trapez (empfohlen, Grundflächen Dreieck, Trapez, Parallelogramm); 100 Volumen (empfohlen, Volumenbegriff und Volumeneinheiten); 51 Kreisberechnungen (empfohlen, Kreisfläche und -umfang für den Zylinder) |
 | 102 | Potenzgesetze | 7 | 7 | 3 | 30 Potenzen und negative Exponenten (hart, Potenzbegriff (Basis, Exponent, Hoch 0)); 28 Terme aufstellen und deuten (hart, Terme mit Variablen) |
-| 103 | Potenzgesetze mit ganzzahligen Exponenten | 8 | 7 | 4 | 102 Potenzgesetze (hart, Potenzgesetze mit natürlichen Exponenten); 30 Potenzen und negative Exponenten (hart, negative Exponenten als Kehrbruch) |
+| 103 | Potenzgesetze mit ganzzahligen Exponenten | 8 | 7 | 4 | 102 Potenzgesetze (hart, Potenzgesetze mit natürlichen Exponenten); 30 Potenzen und negative Exponenten (empfohlen, negative Exponenten als Kehrbruch) |

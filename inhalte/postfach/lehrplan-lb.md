@@ -2,6 +2,21 @@
 
 Neueste Meldung oben.
 
+## 2026-11-21 – MELDUNG Runde 30 c: harte Verbindungen ohne neue Reise-Sperren
+
+Grundlage ist `lernen-app` d463182a. Die Datenbank habe ich nur gelesen, die Migration auf der echten Datenbank **nicht ausgeführt**. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0c.
+
+- **Ursache:** Jede harte Verbindung zwischen zwei Orten ist über `schule.v_ort_visum` eine Reise-Sperre in `schule.reiseoptionen`. Meine Aussage „Plan-Folgen: keine“ war falsch.
+- **38 von 39 neuen harten Verbindungen mit neuer Sperre sind jetzt `empfohlen`.** Hart bleibt nur 102 ← 30 (Potenzgesetze braucht Potenzen; Kette laut Auftrag). Das bringt eine neue Visum-Zeile: Ort „Terme umformen“ braucht „Potenzen“. Heute wirkt sie nicht, weil das Kind Klasse 8 beide Orte fertig hat und beim Kind Klasse 5 der Ort entfernt ist. **Entscheidung Sebastian:** hart lassen oder empfohlen.
+- **`v_ort_visum`:** vorher 49, nachher 46 Zeilen. Vier Zeilen fallen durch die Löschungen aus 30 b weg; sie betreffen nur die Zusatz-Orte „Zinseszins“ und „Statistik vertieft“.
+- **Reiseoptionen je Kind:** Für das Kind Klasse 5, das Kind Klasse 8 und das Testkind Klasse 7 sind vorher und nachher dieselben Orte wählbar und dieselben gesperrt. Die Tabellen dazu stehen im Bericht.
+- **Rauchtest j:** vergleicht die Reiseoptionen aller Lernenden vor und nach der Migration und bricht bei jedem Unterschied ab.
+- **Lokal auf Postgres 16 ausgeführt** (nachgebaute Tabellen, gelesene Daten):
+  - Zwei Läufe hintereinander bestanden.
+  - Gegenprobe mit 25 ← 18 hart: Rauchtest j greift, alles wird zurückgerollt.
+
+FERTIG: Lehrplan Runde 30 c
+
 ## 2026-11-21 – MELDUNG Runde 30 b: Thema 12 zurückgenommen, aufgelöste Themen entkoppelt
 
 Grundlage ist `lernen-app` 168a744b. Die Datenbank habe ich nur gelesen, die Migration **nicht ausgeführt**. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0.

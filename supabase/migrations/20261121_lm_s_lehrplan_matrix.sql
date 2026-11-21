@@ -104,7 +104,7 @@ begin
     'einheit_id', v_ein.id,
     'merke', v_ein.inhalt->'merke',                                                -- „Das muss sitzen“
     'etappen', case when v_ein.id is not null then (select coalesce(jsonb_agg(jsonb_strip_nulls(jsonb_build_object('lernziel', et.x->>'lernziel', 'titel', et.x->>'titel',
-                  'pflicht', case when p_kindsicht then null else coalesce(v_ein.inhalt->'bewertung'->'lernziele_pflicht', '[]'::jsonb) ? (et.x->>'lernziel') end))) order by et.nr), '[]'::jsonb)
+                  'pflicht', case when p_kindsicht then null else coalesce(v_ein.inhalt->'bewertung'->'lernziele_pflicht', '[]'::jsonb) ? (et.x->>'lernziel') end)) order by et.nr), '[]'::jsonb)
                   from jsonb_array_elements(coalesce(v_ein.inhalt->'etappen', '[]'::jsonb)) with ordinality et(x, nr)) end,
     'beispiel', (select q.f from (select a.frage->>'text' f, a.reihenfolge, a.id from schule.aufgabe a
                   where a.einheit_id = v_ein.id and a.pool = 'uebung' and a.freigegeben) q where length(q.f) < 160 order by q.reihenfolge, q.id limit 1),

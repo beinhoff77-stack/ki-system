@@ -2,6 +2,26 @@
 
 Neueste oben.
 
+## 2026-11-21 – bau-lehrer – FERTIG: flug_erstabschluss
+
+Auf AUFTRAEGE.md „Rückläufer 21.11. morgens“, Teil C. Nur Dateien, in der echten Datenbank nichts ausgeführt, kein App-Code.
+- `supabase/migrations/20261121_ab_s_flug_geschafft_robust.sql` **ersetzt** (der Entwurf mit `flug_fertig_nach` war nie eingespielt; die Funktion kommt nicht mehr vor):
+  - Tabelle `schule.flug_erstabschluss (lernender_id, einheit_id, sitzung_id, am, primary key (lernender_id, einheit_id))`, RLS an, keine Rechte für public/anon/authenticated.
+  - `schule.flug_erstabschluss_nachtragen(p_l default null)`: trägt alle Flüge ein, die jetzt fertig sind (alle Pflicht-Etappen nachgewiesen/korrigiert/gesichert), und alle mit abgeschlossener Flug-Test-/Verbessern-Sitzung mit `flug_geschafft = true` (`sitzung_id` = früheste solche, sonst null). Die Migration ruft sie einmal auf (NOTICE mit Anzahl); wiederholt: 0.
+  - `test_abschliessen_intern`: die Stelle aus 20261120 wird ersetzt. Neu: `flug_geschafft` = dieser Aufruf schließt ab (blocktest/korrektur), Flug danach fertig, vorher nicht, **und** `insert … on conflict do nothing` hat eine Zeile angelegt (`found`). War der Flug vorher schon fertig, wird er nur festgehalten (`sitzung_id` null), `flug_geschafft` false. Die Stelle steht live genau einmal (gelesen).
+- `supabase/tests/ab_s_abschluss_rauchtest.sql`: Prüfung 9 als eigener Block, die alten Sitzungen legt der Test selbst an:
+  9a alter bestandener Flug + neue Pflicht-Etappe + Nachtragstest → false · 9b alte Sitzung vorher erneut gelesen → false (sperrt nichts) · 9c alter nicht bestandener Test + Verbessern → true mit Abschluss-Feldern, Eintrag mit dieser Sitzung · 9d zweimal abschließen (dieselbe Sitzung erneut + zweites Verbessern) → genau eine Sitzung mit true, ein Eintrag · 9e Nachtest → false.
+- **Wirklich ausgeführt – lokal** (Postgres 16, eigene Wegwerf-Datenbank, erfundene Inhalte): `test_abschliessen_intern` lokal **byte-gleich zum Live-Stand** (md5 432e041a… gleich), Migration zweimal, Prüfung 9 grün; Gegenprobe mit der alten Funktion: 9c schlägt fehl (der Test unterscheidet). Nachtrag geprüft (fertig → null, true-Sitzung → deren id, nur Vertiefung → kein Eintrag, zweiter Lauf 0). Platzhalter lokal: `ort_stand`, `flug_abschluss`, `nachtest_*`, `thema_stand`.
+- Gleichzeitige Sitzungen: entscheidet der Primärschlüssel (die zweite wartet auf die erste und legt nichts an) – lokal nicht nebenläufig getestet.
+
+## 2026-11-21 – bau-lehrer – FERTIG: LM-S 3
+
+Auf „Rückläufer 21.11. morgens“, Teil B. Ursache: in `schule.lehrplan_thema` (Feld `etappen`) eine Klammer zu viel vor `order by`. pglast prüft den Funktionsrumpf nicht – darum nicht aufgefallen.
+- `supabase/migrations/20261121_lm_s_lehrplan_matrix.sql` behoben (md5 vorher 544f48ff…, jetzt 976e974e…).
+- **Wirklich ausgeführt – lokal** (Postgres 16, Wegwerf-Datenbank): Tabellen mit den Live-Spalten (gelesen), `thema_einheit`/`thema_jahrgang` wie live, Platzhalter für `thema_stufe` und die Zugangsfunktionen, erfundene Inhalte und Kinder. Den Fehler „mismatched parentheses“ lokal nachgestellt, nach der Korrektur: Migration läuft (auch zweimal), Rauchtest ohne Spalte `eigenstaendig` grün (9 übersprungen), mit Spalte (Text) grün inkl. 9. Zusätzlich beide api-Aktionen mit Lehrer-, Kind- und fremdem Schlüssel: Kind bekommt nur sich selbst (fremde `lernender_id` wird ignoriert), fremder Zugang → „Kein Zugriff“, ohne `thema_id` → „thema_id fehlt“, Physik-Thema → „Thema nicht gefunden“.
+- Rauchtest 8 nimmt jetzt ein Thema mit Pflicht-Etappen (vorher konnte es eines ohne merke/Etappen treffen).
+- Feldliste unverändert (Eintrag „LM-S 2“).
+
 ## 2026-11-21 – FERTIG: 0.84.0 – Lehrplan-Matrix LM-1 bis LM-5 (Eltern/Lehrer), Cache v154
 
 Stand `lernen-app` 168a744 übernommen (mit LM-S und Runde 30). Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.

@@ -2,6 +2,14 @@
 
 Neueste oben.
 
+## 2026-11-21 – bau-lehrer – FERTIG: flug_geschafft robust 2
+
+Auf antworten.md „21.11. 04:25“. Nur Dateien, nichts ausgeführt, kein App-Code, kein Merge nach main.
+- Neu: `supabase/migrations/20261121_ab_s_flug_geschafft_robust.sql` – legt `schule.flug_fertig_nach(lernender, einheit, sitzung)` an und baut die eingespielte `schule.test_abschliessen_intern` um: alte Bedingung `x.flug_geschafft is distinct from false` → `x.flug_geschafft or (x.flug_geschafft is null and schule.flug_fertig_nach(...))`. Umbau über `pg_get_functiondef` + `replace`; die Stelle steht live genau einmal (gelesen 21.11.). Wiederholbar: ist `flug_fertig_nach` schon im Funktionstext, passiert nichts. Fehlt die Stelle (alte Datei nicht eingespielt), bricht die Migration mit Hinweis ab.
+- Zurückgesetzt: `20261120_ab_s_flug_abschluss_einmal.sql` = eingespielter Stand (Commit 80e67e8, md5 f79c1701…).
+- `supabase/tests/ab_s_abschluss_rauchtest.sql`: nur Kopfzeile – Prüfung 9 setzt jetzt beide Dateien voraus. Prüfung 9 (9a–9e) unverändert.
+- Reihenfolge Haupt-Chat: neue Datei einspielen → Rauchtest ab_s (Prüfung 9c muss jetzt grün sein).
+
 ## 2026-11-21 – FERTIG: 0.83.3 – App 0.83.3, Cache v153
 
 Stand `lernen-app` 05037ef (0.83.2 live, Nachträge aus Prüfergebnis 888). Nur App (`lernen.js`, `style.css`), Versionsnummer in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.

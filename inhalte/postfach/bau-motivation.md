@@ -2,6 +2,20 @@
 
 Neueste oben.
 
+## 2026-11-21 – FERTIG: 0.83.3 – App 0.83.3, Cache v153
+
+Stand `lernen-app` 05037ef (0.83.2 live, Nachträge aus Prüfergebnis 888). Nur App (`lernen.js`, `style.css`), Versionsnummer in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.
+
+1. **„Etappen ▸“ (Entscheidungen Sebastian 21.11., Punkt 3):** In der Inhalte-Zeile der kompakten Themen-Karte („Inhalte ansehen (n Etappen)“ · „Ort: …“) steht ein zugeklappter Textlink „Etappen ▸“ (`aria-expanded`, `aria-controls`). Aufgeklappt („Etappen ▾“) die Liste wie in 0.83.0: Nummer, Titel, Stand rechtsbündig in der ersten Titelzeile (offen / begonnen / gelandet / sicher / wieder offen, Farben wie vorher). Zuklappen mit demselben Link, der Fokus bleibt darauf. Gilt in „Nach Klasse“ und im aufgeklappten Ort unter „Nach Themengebiet“. Bei Flügen ohne Etappen gibt es den Link nicht.
+2. **Reisewörter (Punkt 4):** Der Test „Reisewörter auf allen Eltern-/Lehrerseiten“ verbietet „Thema“, „Themen“ (und damit „Themengebiet“) nicht mehr; „Lernkarte“, „Aufgabe“, „Themenplan“, „Lernziel“ und das alleinstehende „Gebiet“ bleiben auch dort verboten (enge Auslegung – sag Bescheid, wenn auf Eltern-/Lehrerseiten gar nichts mehr geprüft werden soll). Ebenso im Test der Info-Seite. Neu: **Test „Reisewörter auf den Kinderseiten“** (Abflugtafel, Reisepass, Erklärung, Bordkarten, Flug-Test; klassisch und neue Gestaltung) gegen Lernkarte, Aufgabe, Themen, Themenplan, Lernziel, Gebiet. Hinweis: „Thema“ (Einzahl) prüfe ich dort nicht, weil die Abschluss-Ansichten es laut Vorgabe selbst verwenden („Weiter zum nächsten Thema“, „NEUES THEMA“). Keine Texte geändert.
+3. **Nachtrag 888 (Teil bau-motivation):** Meldet der Server `ort_geschafft: true` mit `flug_geschafft: false`, startet die Abschluss-Ansicht direkt mit dem Ort-Stempel, danach die Bordkarte – kein zweites „Flug geschafft“. Bei `flug_geschafft: true` und `ort_geschafft: true` bleibt die Reihenfolge Flug → Ort → Bordkarte; ohne das Feld (alter Server) wie 0.83.0.
+
+**Getestet** (Playwright mit Chrome): **lernen 135 von 135** – neu 3 („Etappen ▸“ auf 400 px mit Lage des Stands und Fokus; Reisewörter Kinderseiten; nur `ort_geschafft`), angepasst 3 (Reisewörter Eltern/Lehrer, Info-Seite, Nachtrag B: Fall „flug und ort geschafft“). Alle Tests: 277 bestanden, 1 übersprungen, 9 Fehler – die 9 bekannten im Reise-Bereich. W175 ist heute wieder grün (datumsabhängig); „W80: Jede neue Suche hat eine Reise“ fiel in einem Gesamtlauf einmal aus und lief danach dreimal grün (Reise-Bereich, wackelt).
+
+**Nicht geprüft:** echte Geräte und Safari, Bildschirmleser, gegen den echten Server.
+
+FERTIG: 0.83.3
+
 ## 2026-11-21 – FERTIG: flug_geschafft robust (Nachträge aus ChatGPT 888)
 
 Stand `lernen-app` 05037ef übernommen. Nur Dateien – nichts ausgeführt, kein App-Code, kein Merge. pglast ok.

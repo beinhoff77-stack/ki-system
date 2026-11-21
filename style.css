@@ -4760,3 +4760,10 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 }
 .lr-ab-riesig small { margin-top: 18px; } /* N2: Abstand unter „2/2“ */
 .lr-ab-app.lr-ab-ort .lr-ab-skip { background: #3B2A14; color: #fff; border: 1.5px solid #FFF3; font-weight: 700; } /* N5: auf Sand lesbar */
+/* Ergänzung Teil 9 (Entscheidung 21.11.): Etappen mit Stand hinter „Etappen ▸“ – Stand rechtsbündig in der Titelzeile (wie 0.83.0) */
+.lern-lp-etappen-link { color: var(--accent); }
+.lern-lp-inhalt-block .lern-st-etappen { margin: 0 0 8px; }
+.lern-st-etappe { display: flex; align-items: baseline; gap: 4px 8px; }
+.lern-st-etappe > b { flex: none; }
+.lern-st-etappe .lern-st-et-titel { flex: 1 1 auto; min-width: 0; }
+.lern-st-etappe .lern-st-et-stand { margin-left: auto; flex: none; white-space: nowrap; text-align: right; }

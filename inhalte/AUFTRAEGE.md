@@ -2315,3 +2315,5 @@ Von Sebastian gewünscht. Vorgabe des Gestalters (maßgeblich, vollständig lese
 - Handy/Tablet zuerst.
 
 **Für alle Schritte:** Tests nur mit Testkind und erfundenen Daten, keine Kinderdaten in Dateien. Abnahme bei 400, 820, 1280 px (kein Wort mitten im Wort umbrochen, Trennstrich erlaubt; Linien hinter den Karten). Nach jedem Schritt im Postfach melden – der Gestalter prüft nach. Merge nach `main` erst nach Sebastians „Live“.
+
+**Nachtrag zur Dreißigsten Runde (21.11., vom Gestalter):** Im Bericht ausdrücklich angeben, **wo und wie „eigenständig“ abgelegt wird** (Spalte oder Eintrag, mit Namen) – nur dann kann das Übersichtsblatt es anzeigen. Der Gestalter prüft danach: kein Thema mit Klasse ohne Verbindung, außer ausdrücklich eigenständig; keine Voraussetzung liegt in einer späteren Klasse als das Thema (je Schulart); die Themen 100–103 sind verknüpft. Diese drei Regeln als Selbstprüfung in den Rauchtest aufnehmen. Stand: 102/103 sind seit 21.11. in der Datenbank und freigegeben.

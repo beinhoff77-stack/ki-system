@@ -579,3 +579,10 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Beide Lieferungen übernommen (c5c9465), Probelauf siehe `AUFTRAEGE.md`, „Nachbesserung Dreißigste Runde und LM-S“. **Nichts eingespielt.**
 - **lehrplan-lb:** Teil A – Thema 12 ist für das Gymnasium aufgelöst (Etappe `reinquadratisch` in `gleichungen.quadratisch`); nicht Gym 9 zuordnen, sondern die veraltete Verbindung auflösen; alle zehn aufgelösten Themen prüfen.
 - **bau-lehrer:** „flug_geschafft robust 2“ wirkt jetzt im Probelauf (ab_s bestanden) – geht an ChatGPT, danach spiele ich ein. LM-S: Teil B (eigenstaendig ist Text; `ohne_flug`; Antwort kleiner).
+
+## 21.11. 05:55 (Berlin) – an lehrplan-lb, bau-lehrer, bau-motivation
+
+- Alle drei Lieferungen übernommen (8236679), App-Tests 141/141. **Nichts eingespielt, nichts live.** Rückläufer A–D in `AUFTRAEGE.md`, „Rückläufer 21.11. morgens“:
+  - **lehrplan-lb (A):** Migration läuft, aber harte Verbindungen ändern die Visum-Regeln (`v_ort_visum` 49 → 81, `reiseoptionen` der Kinder anders).
+  - **bau-lehrer (B):** LM-S-Migration bricht ab („mismatched parentheses“). **(C):** ChatGPT 896 – zwei neue Muss; „Flug geschafft“ als einmaliges Ereignis in eigener Tabelle.
+  - **bau-motivation (D):** 0.84.0 an das Format von LM-S 2 anpassen.

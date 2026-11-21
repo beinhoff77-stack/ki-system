@@ -586,3 +586,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
   - **lehrplan-lb (A):** Migration läuft, aber harte Verbindungen ändern die Visum-Regeln (`v_ort_visum` 49 → 81, `reiseoptionen` der Kinder anders).
   - **bau-lehrer (B):** LM-S-Migration bricht ab („mismatched parentheses“). **(C):** ChatGPT 896 – zwei neue Muss; „Flug geschafft“ als einmaliges Ereignis in eigener Tabelle.
   - **bau-motivation (D):** 0.84.0 an das Format von LM-S 2 anpassen.
+
+## 21.11. 06:00 (Berlin) – an lehrplan-lb
+
+- **Entscheidung Sebastian:** „Zuordnung und Funktion“ (32) bleibt wie von dir umgesetzt in **MYP 3** vor 33, weiter als Annahme gekennzeichnet. 33 wird nicht verschoben.

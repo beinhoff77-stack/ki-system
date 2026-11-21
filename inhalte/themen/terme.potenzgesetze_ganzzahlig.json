@@ -229,11 +229,11 @@
    {
     "lernziel": "exponent_und_potenz",
     "titel": "Gleicher Exponent, Potenz einer Potenz",
-    "einstieg": "Ein quadratisches Algenstück hat die Seite 2⁻¹ m. Seine Fläche ist (2⁻¹)². Hier wird eine Potenz noch einmal potenziert: eine ⟦Potenz einer Potenz⟧.",
+    "einstieg": "Ein quadratisches Algenstück hat die Seite 2⁻¹ m. Seine Fläche ist (2⁻¹)². Die ⟦Potenz einer Potenz⟧ kennst du aus Klasse 7. Jetzt rechnest du sie auch mit negativen Exponenten.",
     "woerter": [
      [
       "Potenz einer Potenz",
-      "eine Potenz in Klammern mit noch einem Exponenten, z. B. (2³)²"
+      "kennst du aus Klasse 7: eine Potenz in Klammern mit noch einem Exponenten, z. B. (2³)²"
      ],
      [
       "gleichem Exponenten",

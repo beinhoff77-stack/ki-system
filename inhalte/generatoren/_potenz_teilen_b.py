@@ -57,8 +57,8 @@ ETAPPEN_B = [
      'regel': 'Bei ⟦gleicher Basis⟧ addierst du beim Malnehmen die Exponenten. Beim Teilen subtrahierst du sie, auch negative.'},
     {'lernziel': 'exponent_und_potenz', 'titel': TITEL_B['exponent_und_potenz'],
      'einstieg': 'Ein quadratisches Algenstück hat die Seite 2⁻¹ m. Seine Fläche ist (2⁻¹)². '
-                 'Hier wird eine Potenz noch einmal potenziert: eine ⟦Potenz einer Potenz⟧.',
-     'woerter': [['Potenz einer Potenz', 'eine Potenz in Klammern mit noch einem Exponenten, z. B. (2³)²'],
+                 'Die ⟦Potenz einer Potenz⟧ kennst du aus Klasse 7. Jetzt rechnest du sie auch mit negativen Exponenten.',
+     'woerter': [['Potenz einer Potenz', 'kennst du aus Klasse 7: eine Potenz in Klammern mit noch einem Exponenten, z. B. (2³)²'],
                  ['gleichem Exponenten', 'beide Potenzen haben oben dieselbe Zahl, z. B. 2⁻³ · 5⁻³']],
      'bild': _tab(['Term', 'ausgeschrieben', 'Ergebnis'], [['(2³)²', '2³ · 2³', '?']]),
      'schritte': [{'text': '(2³)² ist 2³ · 2³, also 3 + 3 = 6 Faktoren 2.', 'bild': {'zeilen': [['(2³)²', '2³ · 2³', '2⁶']]}},

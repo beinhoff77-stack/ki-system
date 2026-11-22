@@ -1,6 +1,6 @@
 # Auswertung Prüfmaterial Gymnasium Bayern – Kl. 5 und Kl. 8
 
-Stand 2026-11-22, 2. Runde (Ziel 50 Arbeiten je Klasse). Grundlage: `katalog.json`, Zahlen per `_bau.py` gezählt. Kennzeichnung: **[G]** gesichert (aus der Quelle), **[A]** Annahme/eigene Einschätzung, **[O]** offen.
+Stand 2026-11-22, 3. Runde (Kl. 8 um Kl.-8-Stoff erweitert). Grundlage: `katalog.json`, Zahlen per `_bau.py` gezählt. Kennzeichnung: **[G]** gesichert (aus der Quelle), **[A]** Annahme/eigene Einschätzung, **[O]** offen.
 
 Jede Arbeit hat jetzt das Feld `kategorie`:
 **A** Gymnasium Bayern · **B** Bayern amtlich, aber Realschule/Mittelschule · **C** Bundesland unbekannt/anders oder Verlag.
@@ -10,11 +10,16 @@ Jede Arbeit hat jetzt das Feld `kategorie`:
 | | Ziel | gefunden | A Gym Bayern | B Bayern RS/MS amtlich | C sonst |
 |---|---|---|---|---|---|
 | Kl. 5 | 50 | **53 Arbeiten, 829 Aufgaben** | 1 | 28 | 24 |
-| Kl. 8 | 50 | **51 Arbeiten, 541 Aufgaben** | 47 | 0 | 4 |
+| Kl. 8 | 50 | **73 Arbeiten, 854 Aufgaben** | 57 | 12 | 4 |
 
 - [G] **Ziel 50 formal erreicht, aber mit Einschränkung.** Kl. 5 kommt nur mit **schulartfremden** amtlichen Tests auf 50: 18 Realschul-Jahrgangsstufentests 6 (2005–2025) und 10 Mittel-/Hauptschul-Jahrgangsstufenarbeiten 6. Sie prüfen den Kl.-5-Stoff ihrer Schulart zu Beginn Kl. 6 (21 bzw. 24 P, 45 min, ohne Taschenrechner, fast nur 1-P-Aufgaben).
 - [G] Für das **Gymnasium Kl. 5** gibt es weiter **keinen amtlichen Test**, und frei zugänglich ist **keine sicher bayerische Schulaufgabe**. Kategorie A hat nur den Sigena-Grundwissentest (Muster).
-- [G] Bei Kl. 8 sind 20 der 51 Arbeiten **BMT8** (Grundwissen Kl. 5–7, Beginn Kl. 8) und 18 **BMT10-Auszüge** (nur die Teilaufgaben mit Kl.-8-Stoff, je 3–11). Echte Arbeiten zum laufenden Kl.-8-Stoff: 13 (Schultests, STARK, klassenarbeiten.de).
+- [G] Bei Kl. 8 sind 20 der 73 Arbeiten **BMT8** (Grundwissen Kl. 5–7, Beginn Kl. 8) und 18 **BMT10-Auszüge** (nur die Teilaufgaben mit Kl.-8-Stoff, je 3–11).
+- [G] Zum laufenden Kl.-8-Stoff gibt es jetzt 35 Arbeiten:
+  - 13 aus Runde 2 (Schultests, STARK, klassenarbeiten.de)
+  - neu: 10 bayerische Schulaufgaben, Exen und Stegreifaufgaben von klassenarbeiten.de. Bayern ist nur bei 3795 (G8) ausdrücklich belegt; bei den anderen ist es eine Annahme über die Begriffe „Schulaufgabe“, „Extemporale“ und „Stegreifaufgabe“. Sechs davon stammen aus 2001–2006, also vermutlich aus dem alten G9 (dazu gehören z. B. Betrag und Vektoren, markiert als „außerhalb“).
+  - neu: 12 ISB-Grundwissentests Realschule Jgst. 9, WPFG I (2012, 2015–2025), Kategorie B. Ihre Aufgaben zu quadratischen Termen, Determinanten und Rotationskörpern sind als „außerhalb“ markiert.
+- [G] Einen zentralen Mathe-Test zu Beginn von Kl. 9 gibt es am Gymnasium nicht (Jahrgangsstufentests Mathematik nur in 8 und 10).
 - [A] Die Zuordnung „Bayern“ für STARK 8 (Klassenarbeiten Mathe 8) ist eine Annahme, weil die Themen dem G8-Lehrplan folgen.
 - [G] Die alten RS/MS-Tests (bis 2016) enthalten Brüche, 15 Aufgaben. Diese sind auf `bruch.*` gemappt und als „Kl.-6-Stoff Gym“ markiert. Sie zählen in der Kl.-5-Statistik mit; das verfälscht Kl. 5 leicht.
 - [O] Fehlend: echte Gym-Schulaufgaben Kl. 5 (alle vier) und Kl. 8 SA 2–4 aus Bayern.
@@ -28,7 +33,7 @@ Jede Arbeit hat jetzt das Feld `kategorie`:
 | Zeit | [G] amtl. Tests 45 min. [A] Schulaufgabe 45 min (Klassenarbeiten meist ohne Angabe) | [G] BMT 40 min; Schultests 35–45 min; Stegreif 18 min |
 | Punkte | [G] Klassenarbeiten 23–47 P (Median ≈ 35); amtl. Tests 21/24 P | [G] Arbeiten 27–43 P; BMT 21 BE |
 | Aufgabenzahl | [G] Klassenarbeiten 6–13 Aufgaben mit 2–10 P; amtl. Tests 19–24 Einzelaufgaben à 1 P | [G] Arbeiten 4–11 Teilaufgaben à 2–6 P; BMT 14–17 Teilaufgaben à 1–2 P |
-| Niveau I/II/III (Punkte) | [A] alle 40/53/7 %; Kat B 41/51/8; Kat C 41/54/5 | [A] Kl.-8-Stoff (ohne BMT8) 21/62/17 %; BMT8 18/60/22 % |
+| Niveau I/II/III (Punkte) | [A] alle 40/53/7 %; Kat B 41/51/8; Kat C 41/54/5 | [A] Kl.-8-Stoff (ohne BMT8) 21/66/13 %; BMT8 18/60/22 % |
 | Kompetenz (Anteil Aufgaben) | [A] K5 Rechnen 34 %, K4 Darstellen 23 %, K3 Modellieren 17 %, K2 Problemlösen 11 %, K1 Argumentieren 10 %, K6 Kommunizieren 5 % | [A] K5 48 %, K1 16 %, K4 12 %, K3 10 %, K6 7 %, K2 6 % |
 | Hilfsmittel | [G] amtliche Tests ohne Taschenrechner; sonst meist nicht angegeben | [G] fast immer ohne Taschenrechner |
 

@@ -29,3 +29,12 @@ Teil B (Nachbau), Zweig `pruefmaterial-gym`. Liegt unter `inhalte/pruefmaterial/
 - Niveau, Kompetenz, Punkte und Zeit wie im Katalog. Texte, Zahlen und Kontexte sind eigene; keine Originaltexte.
 - Lösungskontrolle: 999 Aufgaben unabhängig gegengerechnet, 297 Musterlösungen (Zeichnen/Begründen), 74 nur vom Skript berechnet.
 - Offen: Mehrteilige Originalaufgaben sind teils knapper nachgebaut; Abbildungen sind als Text beschrieben.
+
+## FERTIG: PM Gym Runde 3 – Kl.-8-Stoff erweitert (22.11.)
+
+- Katalog Kl. 8: **73 Arbeiten / 854 Aufgaben** (vorher 51/541). Neu dazugekommen:
+  - 10 bayerische Schulaufgaben/Exen/Stegreifaufgaben von klassenarbeiten.de (Bayern nur bei 3795 belegt, sonst angenommen; sechs aus dem alten G9)
+  - 12 ISB-Grundwissentests Realschule Jgst. 9, WPFG I (Kategorie B; RS-eigene Themen als „außerhalb“ markiert)
+- Zum laufenden Kl.-8-Stoff gibt es jetzt 35 Arbeiten (vorher 13).
+- Nachbau neu gebaut: Kl. 8 hat 73 Schulaufgaben, davon 585 Aufgaben gegengerechnet; neuer Generator `_g8d.py`.
+- Weitere RS-Tests sind verfügbar (WPFG II/III, ältere Jahrgänge), aber nicht aufgenommen.

@@ -8,7 +8,7 @@ from fractions import Fraction as F
 HIER = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HIER)
 import _kern as K
-for mod in ("_g8a", "_g8b", "_g8c", "_g5a", "_g5b"):
+for mod in ("_g8a", "_g8b", "_g8c", "_g8d", "_g5a", "_g5b"):
     if os.path.exists(os.path.join(HIER, mod + ".py")):
         __import__(mod)
 

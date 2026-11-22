@@ -133,3 +133,6 @@ Vorgabe `inhalte/pruefung/lehrer/werkstatt/umsetzung.md` Abschnitt 12 (12.1 Kart
 
 ## 2026-11-22 – FERTIG: Nachprüfung 0.87.0
 Bericht `inhalte/pruefung/kind/nachpruefung_2211.md`, Bilder `kind/n087/`. main 4e042d1, Testsuite 163/163 grün. Alle sieben Punkte umgesetzt. Muss: keine. Sollte: S1 Check-in-Ansage auf dem Handy unter dem Bildschirm/hinter dem festen Knopf; S2 Hinweis bei 5 Sternen als schmale Mittelspalte statt darunter. Kann: K1–K3. Berichtigung: meine frühere Angabe „main = 0.84.0“ beruhte auf einem veralteten lokalen Stand.
+
+## 2026-11-22 – FERTIG: Vorgabe Karte
+Vorgabe `inhalte/pruefung/kind/karte/umsetzung.md`, Entwurf `karte/entwurf/reisekarte.html`, Bilder `karte/bilder/`. Entscheidungen Sebastian: Flaggen-Pin, Startknopf in der Karte, dezente gezeichnete Linie, keine eigene Karte für Eltern/Lehrer. Fehlende Daten: Koordinaten je Stadt der Reise und je Station, deutsche Hauptstadt-Namen aus GeoNames.

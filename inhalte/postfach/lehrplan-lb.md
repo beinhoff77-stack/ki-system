@@ -2,6 +2,25 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG NT-D 2 (lehrplan-lb)
+
+Grundlage: `lernen-app` af01ab5a, „Probelauf ganze Kette (20:10)“, Befund 4. Nichts eingespielt.
+
+- **Ursache von „45 von 44“:**
+  - Die neue Sicherung „Schreibe 10⁻³ als Dezimalzahl.“ (30 `negativer_exponent`) gibt es wortgleich schon als Übung in **Thema 19** (Einheit 42, Aufgabe 19820, gleiche Etappe `negativer_exponent`).
+  - `aufgaben_einfuegen` prüft Dubletten nur in der eigenen Einheit und hat richtig 44 eingefügt. Der Rauchtest zählte aber über alle Einheiten und fand deshalb 45.
+- **Berichtigung, beides:**
+  - Daten: Die Aufgabe heißt jetzt „Schreibe 2⁻³ als Dezimalzahl.“ (0,125) und hat keine Überschneidung mit Thema 19.
+  - Zählung: Der Rauchtest zählt nur Aufgaben der eigenen Themen bzw. ihrer Teile nach TL-S (`thema_id` = Thema oder `teil_stamm`). Gleiche Texte in anderen Themen stören nicht mehr. Prozentzeichen in Aufgabentexten sind für `format()` geschützt.
+- **Datei neu:** `inhalte/pruefung/lehrplan/nt_einspiel_2211.sql`, weiter 44 Aufgaben (35 Sicherung). Themendatei `terme.potenzgesetze.json` und Generator `_nt_2211.py` angepasst. Prüfskript ohne Fehler.
+- **Probelauf** auf einer Kopie mit wortgleicher Aufgabe in Thema 19:
+  - alte Fassung: „45 von 44“ (nachgestellt);
+  - neue Fassung nach lk_einspiel: Lauf 1 +44, Lauf 2 0, Rauchtest grün;
+  - nach nachgestellter Teilung (Einheit unter Teil-Thema): grün.
+- **Hinweis für den Haupt-Chat:** Ist die alte Fassung im echten Probelauf schon teilweise eingespielt gewesen, ist das zurückgerollt worden (Abbruch in der Transaktion). Die neue Fassung kann normal laufen.
+
+FERTIG: NT-D 2
+
 ## 2026-11-22 – MELDUNG NT-D und Thema 57 (lehrplan-lb)
 
 Grundlage: `lernen-app` 0149e285: „Bau-Auftrag NT“ (NT-D) mit der Fehlliste aus „FERTIG: NT-S“ und „Rückläufer ChatGPT 947–950“ (An lehrplan-lb). Nichts eingespielt.

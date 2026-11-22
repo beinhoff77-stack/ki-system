@@ -144,7 +144,7 @@ def potenz_begriff():
 def negativer_exponent():
     l = 'negativer_exponent'
     return [
-        S(l, 'zahl', 'Schreibe 10⁻³ als Dezimalzahl.', '10⁻³ = 1/10³ = 1/1 000 = 0,001.', o={'wert': 0.001}, c='10 ** -3'),
+        S(l, 'zahl', 'Schreibe 2⁻³ als Dezimalzahl.', '2⁻³ = 1/2³ = 1/8 = 0,125.', o={'wert': 0.125}, c='2 ** -3'),
         L_(l, 2, 'luecken', 'Berechne 4⁻².', '4⁻² = 1/4² = 1/16.', '□/□', 'Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt.', [1, 16]),
     ]
 
@@ -236,7 +236,8 @@ begin
 end $nt$;
 """)
     def q(x): return "'" + x.replace("'", "''") + "'"
-    bed = ' or '.join(f"(a.variante_gruppe = '{l}' and a.frage->>'text' in ({', '.join(q(x) for x in tx)}))" for t, l, n, tx in soll)
+    bed = ' or '.join(f"(a.variante_gruppe = '{l}' and a.thema_id in (select x.id from schule.thema x where x.id = {t} or x.%1$I = {t}) and a.frage->>'text' in ({', '.join(q(x) for x in tx)}))" for t, l, n, tx in soll)
+    bed = bed.replace('%', '%%').replace('%%1$I', '%1$I')   # format(): Prozentzeichen im Text schützen
     ges = sum(n for t, l, n, tx in soll)
     sich = sum(1 for thema, fns in NT.items() for fn in fns for a in fn() if a['p'] == 'sicherung')
     kopf = f"""-- NT-D (22.11.2026): fehlende Sicherungs-Aufgaben für Nachtests kleiner Flüge (Fehlliste NT-S) und Thema 57 „verzerrte Diagramme berichtigen/verbessern“.
@@ -251,9 +252,13 @@ end $nt$;
     pruef = f"""
 -- Rauchtest (liest nur)
 do $pruef$
-declare v int;
+declare v int; v_f text := 'id';
 begin
-  select count(*) into v from schule.aufgabe a where {bed};
+  -- nur Aufgaben der eigenen Themen (bzw. ihrer Teile nach TL-S) zählen – gleiche Texte in anderen Themen sind erlaubt
+  if exists (select 1 from information_schema.columns where table_schema = 'schule' and table_name = 'thema' and column_name = 'teil_stamm') then
+    v_f := 'teil_stamm';
+  end if;
+  execute format($q$select count(*) from schule.aufgabe a where {bed}$q$, v_f) into v;
   if v <> {ges} then raise exception 'Rauchtest NT-D: % von {ges} Aufgaben', v; end if;
   raise notice 'Rauchtest NT-D bestanden: {ges} Aufgaben ({sich} Sicherung)';
 end $pruef$;

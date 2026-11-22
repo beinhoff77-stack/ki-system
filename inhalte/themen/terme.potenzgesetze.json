@@ -2474,13 +2474,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Schreibe 10⁻³ als Dezimalzahl."
+    "text": "Schreibe 2⁻³ als Dezimalzahl."
    },
-   "w": "10⁻³ = 1/10³ = 1/1 000 = 0,001.",
+   "w": "2⁻³ = 1/2³ = 1/8 = 0,125.",
    "o": {
-    "wert": 0.001
+    "wert": 0.125
    },
-   "c": "10 ** -3"
+   "c": "2 ** -3"
   },
   {
    "l": "negativer_exponent",

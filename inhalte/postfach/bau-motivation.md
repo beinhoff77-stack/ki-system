@@ -2,6 +2,22 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: 0.86.2 – Fehler Mischkarten (App-Teil) und ChatGPT 919 (Cache v158)
+
+Auf `lernen-app` f278a3c. Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.
+
+**Fehler Mischkarten (22.11.), Teil bau-motivation**
+- **(a) Eine gezeigte Mischkarte ist für die ganze Sitzung des Flugs verbraucht** (`ctx.mischGezeigt`), nicht mehr je Etappe neu. Verbraucht ist sie, sobald sie gezeigt wurde, auch unbeantwortet. Ist die Liste leer, holt die App sie **einmal** je Sitzung im Hintergrund neu (`schule_einheit_lesen`, nur `mischkarten` werden übernommen); schon gezeigte bleiben verbraucht, sonst geht es ohne Mischkarte weiter. Neue Sitzung (Flug neu geöffnet) = neue Liste vom Server – die Frische über Sitzungen hinweg regelt WD-S 3.
+- **(b) Sterne nur aus der Antwort des Servers:** `sterne` (tatsächlich gebucht), sonst `wiederholung.sterne`. Eine Mischkarte ohne beides zeigt keine Sterne. **Einschränkung:** Bei einer normalen Bordkarte und einem Server ohne `sterne` (heute live: `sterne` nur bei Knobel-Bordkarten) bleibt die bisherige Anzeige „+10 beim ersten Richtig“, sonst stünden bei jeder Landung 0 Sterne. **Bitte an bau-lehrer (WD-S 3):** `sterne` in **jeder** Antwort von `schule_uebung_pruefen` mitschicken (auch 0) – dann rechnet die App nirgends mehr selbst. Im Check-in: `wiederholung.sterne`, sonst `sterne`.
+- **(c) `misch.gueltig === false`:** kein „Das war …“, kein „↻ Zählt als Wiederholung“, Sterne nur laut Server.
+
+**ChatGPT 919, Teil bau-motivation**
+- `wiederholung.bestanden === false` bei richtiger Antwort (mit Tipp oder im zweiten Versuch): „Richtig – morgen noch einmal ohne Hilfe.“ – bei der Mischkarte unter „✓ An Bord“, im Check-in statt „Richtig!“; Koffer hellgelb ohne Stern (neuer Zustand), keine Sterne, kein Fehlerton.
+- Nach dem Ablegen nicht mehr „kommt nicht mehr wieder“: Ticket „5-mal wiederholt, über 30 Lerntage. Raus aus der regelmäßigen Wiederholung – nur noch bei Bedarf zum Auffrischen.“; Kindertext „… ist sie abgelegt: Sie ist raus aus der regelmäßigen Wiederholung und kommt nur noch, wenn sie aufgefrischt werden muss“; Info-Seite „Sie fällt aus der regelmäßigen Wiederholung und wird nur noch bei Bedarf aufgefrischt“. Die Gestalter-Wörter „FÜR IMMER GELERNT“/Siegel „FÜR IMMER“ und „sitzen für immer“ (Flug abgelegt) habe ich gelassen – bitte prüfen, ob sie zum neuen Satz passen.
+
+**Getestet:** lernen 157 von 157. Neu: „drei Etappen nacheinander – keine Mischkarte doppelt; leere Liste einmal neu vom Server, danach ohne Mischkarte“ (schlägt mit 0.86.1 fehl, mit 0.86.2 grün); „Sterne nur vom Server; gueltig false; bestanden false“; „Check-in – richtig mit Hilfe“. Angepasst: WD-3 zeigt jetzt +5 (nur `wiederholung.sterne`) statt 10 + 5. Gesamtlauf sonst nur die bekannten Reise-Fehler.
+**Nicht geprüft:** echter Server (WD-S 3 noch nicht da), echte Geräte.
+
 ## 2026-11-22 – bau-lehrer – FERTIG: WD-S 3
 
 Auf AUFTRAEGE.md „Fehler Mischkarten (22.11.)“, Nachtrag „WD-S 3 – frische Aufgaben“ und „ChatGPT 919“, Teil bau-lehrer. Nur Dateien, nichts in der echten Datenbank ausgeführt (nur lesende Abfragen), kein App-Code. `sterne_wdh_richtig` bleibt 10.

@@ -335,6 +335,12 @@ function lernMischWahl(rest, { nr, jede, ab = 3, gelandet, aus = false, zaehler 
   for (const q of wunsch) { const i = rest.findIndex((x) => x.quelle === q); if (i >= 0) return { ...rest.splice(i, 1)[0], misch: true }; }
   return { ...rest.shift(), misch: true };
 }
+// 0.86.2: leere Mischkarten-Liste einmal je Sitzung neu holen (nur die Liste wird übernommen; schon gezeigte bleiben verbraucht)
+function lernMischNachladen(ctx) {
+  ctx.mischNachgeladen = true;
+  lernCall('schule_einheit_lesen', { lernender_id: ctx.kind, einheit_id: ctx.einheit })
+    .then((x) => { if (Array.isArray(x?.mischkarten)) ctx.daten.mischkarten = x.mischkarten; }).catch(() => { /* ohne Mischkarte weiter */ });
+}
 // ---------- W176 Teil 4: Expeditionen (Kind) ----------
 // Angebot auf der Abflugtafel: eine begonnene zuerst, sonst eine angebotene. Freiwillig, zählt nicht für „gelandet“.
 function lernExpeditionAngebot(d) {
@@ -1055,7 +1061,7 @@ function lernWdhErklaert(neu = false) {
     el('p', {}, 'Stimmt die Bordkarte nicht, kommt die Etappe am nächsten Lerntag wieder. Erst beim zweiten Fehler übst du sie noch einmal von vorn.'),
     neu ? el('p', {}, 'Am Anfang eines Lerntags checkst du kurz ein: ein paar Bordkarten von früher. Du kannst zwischendurch aufhören und später weitermachen. Extra-Bordkarten sind freiwillig.')
       : el('p', {}, 'Vor einem Flug kommen höchstens ' + LERN_WDH_RUNDE + ' Wiederholungen.'),
-    neu ? el('p', {}, 'Jede richtige Bordkarte bringt Sterne. Schaffst du eine Etappe auch beim fünften Mal (nach 30 Lerntagen), ist sie abgelegt und kommt nicht mehr wieder: 30 Sterne. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, und der Flug wird im Reisepass golden.') : null,
+    neu ? el('p', {}, 'Jede richtige Bordkarte bringt Sterne. Schaffst du eine Etappe auch beim fünften Mal (nach 30 Lerntagen), ist sie abgelegt: Sie ist raus aus der regelmäßigen Wiederholung und kommt nur noch, wenn sie aufgefrischt werden muss – 30 Sterne. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, und der Flug wird im Reisepass golden.') : null,
     el('p', {}, 'Nach dem Test zu einem Flug folgt später ein kurzer Nachtest.'));
 }
 function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort = null, ws = null }) {
@@ -2033,7 +2039,7 @@ async function viewLernEinheit(arg) {
   const ort = (uebers?.einheiten || []).find((e) => e.id === eId) || {};
   const titel = ort.stadt ? `${ort.stadt}: ${ort.ort_titel || ort.titel || ''}` : (daten.inhalt?.ziel || 'Lerneinheit').split(/[:;.]/)[0];
   $('#title').textContent = ort.stadt || titel; // kurz: der Ort; das Thema steht als Überschrift darunter
-  const ctx = { kind: k, einheit: eId, live, daten, ort, titel, kindObj: kind, basis: `#/lerneinheit/${k}-${eId}`, leitung: !!uebers?.leitung, konto };
+  const ctx = { kind: k, einheit: eId, live, daten, ort, titel, kindObj: kind, basis: `#/lerneinheit/${k}-${eId}`, leitung: !!uebers?.leitung, konto, mischGezeigt: new Set(), mischNachgeladen: false };
   lernHeuteSetzen(k, daten.heute_selbst, daten.heute_tag, daten.heute_bis); // H6: Tag (und Tagesende) vom Server
   const etappen = lernEtappen(daten);
   lernTitel = new Map(etappen.filter((e) => daten.inhalt?.etappen?.length).map((e) => [e.lernziel, e.titel]));
@@ -2196,7 +2202,7 @@ function lernAbschlussEtappeAbgelegt({ etappe, checkin, weiter }) {
     el('div', { class: 'lr-ab-funken-gold', 'aria-hidden': 'true' }, ...[[-60, -50], [70, -40], [10, -70]].map(([x, y]) => el('i', { style: `--x:${x}px;--y:${y}px` }, '✦'))),
     el('p', { class: 'lr-ab-oben' }, 'FÜR IMMER GELERNT'),
     el('h2', { class: 'lr-ab-titel' }, 'Etappe abgelegt!'),
-    el('div', { class: 'lr-ab-ticket' }, el('b', {}, etappe.titel || 'Etappe'), el('small', {}, '5-mal wiederholt, über 30 Lerntage. Kommt nicht mehr zum Wiederholen.'), lernGrafik(LERN_SIEGEL, 'lr-ab-siegel')),
+    el('div', { class: 'lr-ab-ticket' }, el('b', {}, etappe.titel || 'Etappe'), el('small', {}, '5-mal wiederholt, über 30 Lerntage. Raus aus der regelmäßigen Wiederholung – nur noch bei Bedarf zum Auffrischen.'), lernGrafik(LERN_SIEGEL, 'lr-ab-siegel')),
     el('div', { class: 'lr-ab-sternzeile' }, el('span', { class: 'lr-ab-zahl' }, `+${lernZahl(etappe.sterne ?? 30)} ★`), el('span', { class: 'lr-leise' }, 'Sonder-Sterne fürs Ablegen')),
     fort ? el('div', { class: 'lr-ab-flugfort' }, `${etappe.flug || 'Dein Flug'}: `, el('b', {}, `${a} von ${n}`), ` Etappen abgelegt – noch ${n - a}, dann wird der Flug golden.`,
       el('div', { class: 'lr-goldbalken', 'aria-hidden': 'true' }, ...Array.from({ length: n }, (_, i) => el('span', { class: i < a ? 'g' + (i === a - 1 ? ' neu' : '') : '' })))) : null,
@@ -2441,9 +2447,16 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
     const gesehenTyp = (lernTypGesehen[e.lernziel] ||= new Set()); // F: Typen, die in dieser Etappe schon dran waren
     const waehleStufe = () => { if (!stufe && !e.sitzt && !e.fertig) lernWaehleBordkarte(warte, e, letzte, gesehenTyp); };
     // W176 Teil 3: Mischkarten – jede n-te Bordkarte stammt aus einer anderen, schon gelandeten Etappe (Server: schule_einheit_lesen.mischkarten, misch_jede, misch_ab)
-    const mischRest = (ctx.daten.mischkarten || []).filter((x) => !(x.einheit_id === ctx.einheit && x.lernziel === e.lernziel) && !x.bonus);
-    const mischDran = () => lernMischWahl(mischRest, { nr: nr + 1, jede: Number(ctx.daten.misch_jede || 0), ab: Number(ctx.daten.misch_ab || 3),
-      gelandet: etappen.filter((x) => x.sitzt).length, aus: !!stufe, zaehler: mischZaehler });
+    // 0.86.2 (Fehler Mischkarten 22.11.): Eine gezeigte Mischkarte ist für die ganze Sitzung des Flugs verbraucht (ctx.mischGezeigt), nicht je Etappe neu.
+    // Ist die Liste leer, holt die App sie einmal neu vom Server (im Hintergrund); danach geht es ohne Mischkarte weiter.
+    const mischRest = () => (ctx.daten.mischkarten || []).filter((x) => !(x.einheit_id === ctx.einheit && x.lernziel === e.lernziel) && !x.bonus && !ctx.mischGezeigt.has(x.id));
+    const mischDran = () => {
+      const jede = Number(ctx.daten.misch_jede || 0); const rest = mischRest();
+      if (!rest.length && jede && !stufe && !ctx.mischNachgeladen) lernMischNachladen(ctx);
+      const k = lernMischWahl(rest, { nr: nr + 1, jede, ab: Number(ctx.daten.misch_ab || 3), gelandet: etappen.filter((x) => x.sitzt).length, aus: !!stufe, zaehler: mischZaehler });
+      if (k) ctx.mischGezeigt.add(k.id);
+      return k;
+    };
     const zeigeAufgabe = (fest) => {
       if (fest !== true) waehleStufe();
       const misch = fest !== true ? mischDran() : null;
@@ -2487,9 +2500,11 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           }
           auf.sperren(); a.loesung = r.loesung; if (!a.misch) warte.shift(); a.versuche = (a.versuche || 0) + 1;
           const sterneVor = sterne;
-          if (a.misch) { if (r.richtig && !a.geloest && !r.wiederholt) sterne += 10; a.geloest = !!r.richtig; // Mischkarte: nicht zurück in die Warteschlange
-            if (r.wiederholung?.bestanden) sterne += Number(r.wiederholung.sterne || 0); } // WD-3/WD-5: zählt als bestandene Wiederholung der Herkunfts-Etappe
-          else if (r.richtig) { if (!a.geloest && !r.wiederholt) sterne += 10; a.geloest = true; warte.push(a); }
+          // 0.86.2: Sterne nur aus der Antwort des Servers (`sterne` = tatsächlich gebucht; sonst `wiederholung.sterne`). Nur bei einer normalen Bordkarte
+          // und einem Server ohne `sterne` bleibt die bisherige Anzeige (+10 beim ersten Richtig) – bei Mischkarten zeigt die App dann nichts.
+          const gebucht = typeof r.sterne === 'number' ? r.sterne : typeof r.wiederholung?.sterne === 'number' ? r.wiederholung.sterne : null;
+          if (a.misch) { if (r.richtig && gebucht) sterne += gebucht; a.geloest = !!r.richtig; } // Mischkarte: nicht zurück in die Warteschlange
+          else if (r.richtig) { sterne += gebucht !== null ? gebucht : (!a.geloest && !r.wiederholt ? 10 : 0); a.geloest = true; warte.push(a); }
           else { // V5: gemerkte Lösung zählt nicht – nach einem Fehler kommt eine andere Bordkarte derselben Stufe; dieselbe erst ganz am Ende
             warte.push(a);
             const j = warte.findIndex((x) => x !== a && !x.geloest && (x.stufe || 2) === (a.stufe || 2) && !x.falschHeute);
@@ -2499,7 +2514,8 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           auf.zeigeLoesung(r.loesung); fehlFolge = r.richtig ? 0 : fehlFolge + 1;
           const warSitzt = e.sitzt;
           if (r.karte?.heute_selbst !== undefined) lernHeuteSetzen(ctx.kind, r.karte.heute_selbst, r.karte.heute_tag, r.karte.heute_bis ?? r.heute_bis); else if (r.richtig && !hilfe && anlauf !== 2) lernHeutePlus(ctx.kind); // H6
-          const dasWar = a.misch ? el('p', { class: 'lr-misch-das-war' }, `Das war: ${r.misch?.etappe || a.etappe || 'eine frühere Etappe'}` + ((r.misch?.stadt || a.stadt) ? ` – ${r.misch?.stadt || a.stadt}` : '')) : null;
+          const mischGueltig = !(a.misch && r.misch?.gueltig === false); // ohne gültige Ausgabe: keine Mischkarte, kein Lob als Wiederholung
+          const dasWar = a.misch && mischGueltig ? el('p', { class: 'lr-misch-das-war' }, `Das war: ${r.misch?.etappe || a.etappe || 'eine frühere Etappe'}` + ((r.misch?.stadt || a.stadt) ? ` – ${r.misch?.stadt || a.stadt}` : '')) : null;
           if (r.karte && !a.misch) { if (r.karte.eigene_loesungen !== undefined) Object.assign(e, lernRegelFelder(r.karte)); e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.schwerOk = !!r.karte.schwer_ok; e.schwerNoetig = !!r.karte.schwer_noetig; e.fertig = r.karte.fertig !== undefined ? !!r.karte.fertig : e.fertig || r.karte.sitzt; e.wiederOffen = !r.karte.sitzt && (e.wiederOffen || warSitzt); /* H1: der Server entscheidet */ if (warSitzt && r.karte.sitzt) e.faellig = false; }
           zeichnePunkte(); zeichneFortschritt();
           const jetztSitzt = !!r.karte?.neu_sitzt || (!warSitzt && e.sitzt);
@@ -2509,7 +2525,8 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           if (!neu && !r.richtig && erkl && erklBox.hidden && false) { erklBox.hidden = false; erkl.setAttribute('aria-expanded', 'true'); }
           lernErsetze(meldung, r.richtig
             ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, neu ? '✓ An Bord' + (sterne > sterneVor ? ` · +${sterne - sterneVor} Sterne` : '') : 'Richtig!'),
-                a.misch && r.wiederholung?.bestanden ? el('p', { class: 'lr-misch-wdh' }, '↻ Zählt als Wiederholung dieser Etappe' + (r.wiederholung.sterne && !neu ? ` · +${r.wiederholung.sterne} Sterne` : '')) : null,
+                a.misch && mischGueltig && r.wiederholung?.bestanden ? el('p', { class: 'lr-misch-wdh' }, '↻ Zählt als Wiederholung dieser Etappe' + (r.wiederholung.sterne && !neu ? ` · +${r.wiederholung.sterne} Sterne` : '')) : null,
+                a.misch && mischGueltig && r.wiederholung?.bestanden === false ? el('p', { class: 'lr-misch-wdh lr-wdh-hilfe' }, 'Richtig – morgen noch einmal ohne Hilfe.') : null,
                 !a.misch && !warSitzt && !hilfe && anlauf !== 2 && r.karte?.neu_gezaehlt === false ? el('p', { class: 'lr-kennst' }, 'Die kennst du schon – gut wiederholt.') : null, // H3
                 r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
             : neu ? el('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, el('p', { class: 'lr-ueber' }, a.antworttyp === 'zahl' && r.grund ? 'FAST – KURSKORREKTUR' : 'NOCH NICHT'), lernKurs(a, w),
@@ -3954,7 +3971,7 @@ const LERN_INFO_FRAGEN = [
     ['Expeditionen:', ' größere Bordkarten aus 3–5 Teilen (a, b, c …), die Stoff aus mehreren Etappen verbinden – wie in einer Schulaufgabe mit Teil a, b, c. Das Kind bekommt eine Expedition auf der Abflugtafel angeboten, sobald alle ihre Etappen bei ihm gelandet sind; freiwillig, sie zählt nicht für „gelandet“. Jeder Teil hat zwei Versuche, danach steht die Lösung da und es geht mit dem nächsten Teil weiter (jeder Teil nennt seine Zahlen selbst). Richtig im ersten Versuch ist ein Beleg für die Etappe; falsch macht sie am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Eine begonnene Expedition kann das Kind auch dann zu Ende führen, wenn eine ihrer Etappen inzwischen wieder offen ist. Gebucht wird auf die Version der Etappe, die beim Kind gelandet ist. Geschafft: Expeditions-Stempel und 50 Sterne. Alle Expeditionen mit Lösungen: Lehrplan → „Expeditionen ansehen“.'],
     ['Mischkarten:', ' Sind im Flug mindestens 3 Etappen gelandet, ist beim Üben jede 4. Bordkarte (bis Klasse 6 jede 6.) eine aus einer anderen Etappe, die schon gelandet ist – meist aus demselben Flug oder Kontinent, manchmal aus einem älteren Flug. Sie ist gekennzeichnet („Aus deiner Reise – erkennst du, was gefragt ist?“), nach der Lösung steht, aus welcher Etappe sie kam. Das Kind soll selbst erkennen, welches Verfahren passt. Sie zählt nicht für die gerade geübte Etappe; richtig ist ein Beleg für „sicher“, falsch macht die Herkunfts-Etappe am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Ist die Herkunfts-Etappe gerade fällig und die Mischkarte im ersten Versuch ohne Tipp richtig, zählt sie als bestandene Wiederholung dieser Etappe – Mischkarten bauen so fällige Wiederholungen mit ab. Der Server prüft jede Mischkarte (Etappe gelandet, Stufe 2–3, nicht die gerade geübte); sonst zählt sie wie eine normale Bordkarte.'],
     ['Wiederholung:', ' Ist eine Etappe gelandet, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Am Anfang eines Lerntags kommt eine Runde: sind höchstens 6 Etappen fällig, alle; sonst ein Fünftel der fälligen (aufgerundet), mindestens 6 und höchstens 12 (bis Klasse 6 höchstens 10) – zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen. Weitere werden nur angeboten. Auf der Kinderseite heißt die Runde „Check-in“: Das Kind sieht, wie weit es ist („3 von 9“), nie die Zahl aller fälligen Etappen. Es kann unterbrechen und am selben Lerntag fortsetzen, auch auf einem anderen Gerät; erledigt ist die Runde, wenn alle ihre Bordkarten beantwortet sind (falsch zählt als bearbeitet). Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal – eigene Lösungen bleiben, es braucht wieder 3 richtige in Folge.'],
-    ['Endgültig abgelegt:', ' Besteht eine Etappe auch die letzte Wiederholung (nach 30 Lerntagen), ist sie abgelegt: Sie kommt nicht mehr zur Wiederholung, das Kind bekommt 30 Sterne und eine kurze Einblendung. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, eine große Einblendung, und der Flug steht im Reisepass golden. Sind alle Flüge eines Orts abgelegt, wird auch der Stempel des Orts golden. Fällt eine abgelegte Etappe später im Nachtest oder beim Üben auf, kommt sie am nächsten Lerntag wieder zur Wiederholung; Gold und Sterne bleiben, ein zweites Ablegen bringt nichts.'],
+    ['Endgültig abgelegt:', ' Besteht eine Etappe auch die letzte Wiederholung (nach 30 Lerntagen), ist sie abgelegt: Sie fällt aus der regelmäßigen Wiederholung und wird nur noch bei Bedarf aufgefrischt, das Kind bekommt 30 Sterne und eine kurze Einblendung. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, eine große Einblendung, und der Flug steht im Reisepass golden. Sind alle Flüge eines Orts abgelegt, wird auch der Stempel des Orts golden. Fällt eine abgelegte Etappe später im Nachtest oder beim Üben auf, kommt sie am nächsten Lerntag wieder zur Wiederholung; Gold und Sterne bleiben, ein zweites Ablegen bringt nichts.'],
     ['Flug-Test:', ' Ist die letzte Pflicht-Etappe gelandet, führt der Landebildschirm nur noch zum Test („Weiter: Flug-Test“): eine Bordkarte je Etappe, ohne Tipps. Im Ergebnis ist jede Antwort deutlich als RICHTIG oder FALSCH markiert. Bei Fehlern zwei Wege: „Erst üben: ‹Etappe›“ oder „Gleich verbessern“. Alles richtig verbessert → Flug geschafft.'],
     ['Nachtests:', ' später, nach Lerntagen gezählt (nach 10, 25 und 60 Lerntagen); alle Etappen des Flugs, ohne Tipps. Ab 80 %: bestanden. 60–79 %: wiederholen. Unter 60 %: automatische Rückreise im Flugplan.'],
     ['Belohnungen:', ' 10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist, Sterne für jede richtige Wiederholung (auch über eine Mischkarte; je Fälligkeit einmal), 20 Sterne für jede richtige Bordkarte im Test, 30 Sterne für eine endgültig abgelegte Etappe, 100 Sterne für einen abgelegten Flug, 30 Sterne für eine Knobel-Bordkarte beim ersten Versuch, 100 Sterne und ein Stempel für jeden geschafften Ort. Welche Belohnungen es gibt, legen die Eltern fest, und sie bestätigen jede Einlösung.'],
@@ -4787,12 +4804,16 @@ async function viewWiederholen(arg) {
         const x = await lernCall('schule_uebung_pruefen', { lernender_id: kind.id, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe: 0 });
         if (!x.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, x.hinweis)); pruefen.disabled = false; return; }
         auf.sperren(); a.loesung = x.loesung; if (x.richtig) richtig++; auf.zeigeLoesung(x.loesung);
-        const plus = Number(x.wiederholung?.sterne || 0); // Sterne nur, wenn der Server sie meldet
+        const plus = typeof x.wiederholung?.sterne === 'number' ? x.wiederholung.sterne : typeof x.sterne === 'number' ? x.sterne : 0; // Sterne nur aus der Antwort des Servers
         const ab = Number(x.abgelegt?.etappe?.sterne || 0) + Number(x.abgelegt?.flug?.sterne || 0);
         sterne += plus + ab;
         zustand[versatz + i] = x.richtig ? 'ok' : 'nein';
         if (ws.neu) { lernErsetze(koffer, lernKoffer(zustand.length, zustand)); lernErsetze(kopf, kopfZeile(checkin ? `CHECK-IN · ${versatz + i + 1} VON ${ws.runde}` : `EXTRA · ${i + 1} VON ${liste.length}`, plus)); }
-        lernErsetze(meldung, x.richtig ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, 'Richtig!'), plus ? el('span', { class: 'lr-plus-stern' }, `+${plus} ★`) : null)
+        // ChatGPT 919: richtig mit Tipp oder im zweiten Versuch zählt nicht als bestandene Wiederholung – freundlich sagen, kein Fehler
+        const mitHilfe = x.richtig && x.wiederholung?.bestanden === false;
+        if (mitHilfe) zustand[versatz + i] = 'hilfe';
+        if (mitHilfe && ws.neu) lernErsetze(koffer, lernKoffer(zustand.length, zustand));
+        lernErsetze(meldung, x.richtig ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, mitHilfe ? 'Richtig – morgen noch einmal ohne Hilfe.' : 'Richtig!'), plus ? el('span', { class: 'lr-plus-stern' }, `+${plus} ★`) : null)
           : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)), x.loesungsweg ? el('p', {}, lernText(x.loesungsweg)) : null,
             ws.neu ? el('p', { class: 'lr-leise' }, 'Kein Problem – diese Bordkarte kommt beim nächsten Mal wieder.') : null,
             el('a', { class: 'lr-klein-link', href: `#/lerneinheit/${kind.id}-${a.einheit_id}` }, 'Zur Etappe')));

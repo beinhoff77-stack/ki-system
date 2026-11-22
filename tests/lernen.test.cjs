@@ -3912,7 +3912,7 @@ test('WD-6/Vorgabe 4–5: „Etappe abgelegt“ (Blatt unten auf dem Handy, Kart
         : { etappe: { titel: 'Zahlenstrahl', sterne: 30 }, flug: { titel: 'Natürliche Zahlen', sterne: 100, etappen: 7 }, ort_gold: true, ort: 'Rom' } }; };
     await page.goto(origin + '/#/wiederholen/1'); await wdhRichtig(page);
     const klein = page.getByRole('dialog', { name: 'Etappe abgelegt' }); await klein.waitFor();
-    assert.match(await klein.innerText(), /FÜR IMMER GELERNT[\s\S]*Etappe abgelegt![\s\S]*Welchen Wert hat eine Ziffer\?[\s\S]*5-mal wiederholt, über 30 Lerntage\. Kommt nicht mehr zum Wiederholen\.[\s\S]*\+30 ★[\s\S]*Sonder-Sterne fürs Ablegen[\s\S]*Natürliche Zahlen: 4 von 7 Etappen abgelegt – noch 3, dann wird der Flug golden\./);
+    assert.match(await klein.innerText(), /FÜR IMMER GELERNT[\s\S]*Etappe abgelegt![\s\S]*Welchen Wert hat eine Ziffer\?[\s\S]*5-mal wiederholt, über 30 Lerntage\. Raus aus der regelmäßigen Wiederholung – nur noch bei Bedarf zum Auffrischen\.[\s\S]*\+30 ★[\s\S]*Sonder-Sterne fürs Ablegen[\s\S]*Natürliche Zahlen: 4 von 7 Etappen abgelegt – noch 3, dann wird der Flug golden\./);
     await klein.click({ position: { x: 5, y: 5 } }); await page.waitForTimeout(100); // Antippen beendet die Bewegung
     const box = await klein.locator('.lr-ab-abgelegt-klein').boundingBox();
     if (breite < 760) assert.ok(Math.abs(box.y + box.height - hoehe) < 2 && box.height <= hoehe * 0.75 + 1, `${breite}: Blatt von unten`);
@@ -3952,7 +3952,7 @@ test('WD-3: Mischkarte aus einer fälligen Etappe zählt als bestandene Wiederho
   await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('↻ Zählt als Wiederholung dieser Etappe').waitFor();
-  assert.match(await page.locator('.lr-rueck-ok b').first().innerText(), /\+15 Sterne/i, '10 (Mischkarte, wie heute) + 5 (Wiederholung) – wie der Server bucht');
+  assert.match(await page.locator('.lr-rueck-ok b').first().innerText(), /\+5 Sterne/i, '0.86.2: nur was der Server meldet (hier wiederholung.sterne 5), keine eigenen +10');
 });
 
 
@@ -4119,4 +4119,71 @@ test('WD: „weniger Bewegung“ – Einblendungen zeigen sofort den Endzustand 
   const g = page.getByRole('dialog', { name: 'Flug abgelegt' }); await g.waitFor();
   assert.equal(await g.locator('[data-ziel]').innerText(), '100');
   assert.equal(await g.locator('.lr-ab-strahlen').evaluate((x) => getComputedStyle(x).animationName), 'none');
+});
+
+// ---------- 0.86.2: Fehler Mischkarten (22.11.) und ChatGPT 919 – erfundene Daten ----------
+const mischDrei = (aktion, e) => {
+  if (aktion !== 'schule_einheit_lesen') return null; const x = neueRegel({ strahl: { sitzt: true } })(aktion, e);
+  x.mischkarten = [{ ...zeig(AUFG[14]), stufe: 2, einheit_id: 2, quelle: 'flug', stadt: 'New York', etappe: 'Große Zahlen lesen' },
+    { ...zeig(AUFG[11]), stufe: 2, einheit_id: 2, quelle: 'flug', stadt: 'New York', etappe: 'Stellenwert' },
+    { ...zeig(AUFG[13]), stufe: 2, einheit_id: 2, quelle: 'kontinent', stadt: 'Paris', etappe: 'Ausmultiplizieren' }];
+  x.misch_jede = 1; x.misch_ab = 1; return x; };
+
+test('0.86.2: drei Etappen nacheinander – keine Mischkarte doppelt; leere Liste einmal neu vom Server, danach ohne Mischkarte', async (t) => {
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: mischDrei });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  const frage = async () => { await page.locator('.lr-bordkarte, .lr-trotzdem').first().waitFor();
+    if (await page.locator('.lr-trotzdem').count()) await page.locator('.lr-trotzdem').click(); // gelandete Etappe: „Trotzdem weiterüben“
+    await page.locator('.lr-bordkarte').first().waitFor(); return { misch: await page.getByText(/AUS DEINER REISE/).count() > 0, text: await page.locator('.lr-bordkarte').first().innerText() }; };
+  const gezeigt = [];
+  for (let i = 0; i < 3; i++) {
+    const f = await frage(); assert.ok(f.misch, `Etappe ${i + 1}: Mischkarte`); gezeigt.push(f.text.replace(/BORDKARTE \d+ · /, ''));
+    await page.getByRole('button', { name: 'Nächste Etappe' }).last().click().catch(() => page.getByRole('button', { name: 'Vorige Etappe' }).last().click());
+  }
+  assert.equal(new Set(gezeigt).size, 3, 'keine Mischkarte doppelt: ' + gezeigt.map((x) => x.slice(0, 40)).join(' | '));
+  const lesen = calls.filter((c) => c.aktion === 'schule_einheit_lesen').length;
+  // Liste leer: einmal neu holen (der Server liefert hier dieselben drei – sie bleiben verbraucht), dann ohne Mischkarte
+  await page.getByRole('button', { name: 'Vorige Etappe' }).last().click();
+  const f4 = await frage(); assert.equal(f4.misch, false, 'keine vierte Mischkarte');
+  await page.waitForTimeout(200);
+  assert.equal(calls.filter((c) => c.aktion === 'schule_einheit_lesen').length, lesen + 1, 'einmal nachgeladen');
+  await page.getByRole('button', { name: 'Nächste Etappe' }).last().click();
+  assert.equal((await frage()).misch, false);
+  assert.equal(calls.filter((c) => c.aktion === 'schule_einheit_lesen').length, lesen + 1, 'nicht ein zweites Mal');
+});
+
+test('0.86.2: Sterne nur vom Server; misch.gueltig false ohne Lob als Wiederholung; bestanden false nach Hilfe „Richtig – morgen noch einmal ohne Hilfe“', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: mischDrei });
+  let antwort = null;
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}'); if (b.aktion !== 'schule_uebung_pruefen' || !b.daten?.misch || !antwort) return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, format_ok: true, richtig: true, loesung: AUFG[14].loesung, ...antwort } }) });
+  });
+  // ungültige Ausgabe: kein „Das war …“, keine Wiederholung, Sterne laut Server 0
+  antwort = { misch: { gueltig: false }, sterne: 0 };
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click(); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.locator('.lr-rueck-ok').waitFor();
+  assert.doesNotMatch(await page.locator('main').innerText(), /Das war:|Zählt als Wiederholung|\+10|STERNE/i);
+  // richtig mit Hilfe: freundlich, keine Wiederholungs-Sterne
+  antwort = { misch: { etappe: 'Große Zahlen lesen', stadt: 'New York', ok: false }, wiederholung: { bestanden: false, sterne: 0 }, sterne: 0 };
+  await page.goto(origin + '/#/reise/1'); await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click(); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Richtig – morgen noch einmal ohne Hilfe.').waitFor();
+  assert.doesNotMatch(await page.locator('.lr-rueck-ok').innerText(), /Sterne/i);
+  // gültig und bestanden: Sterne genau wie gebucht
+  antwort = { misch: { etappe: 'Große Zahlen lesen', stadt: 'New York', ok: true }, wiederholung: { bestanden: true, sterne: 10 }, sterne: 10 };
+  await page.goto(origin + '/#/reise/1'); await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click(); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('↻ Zählt als Wiederholung dieser Etappe').waitFor();
+  assert.match(await page.locator('.lr-rueck-ok b').first().innerText(), /\+10 STERNE/i, 'nicht 20');
+});
+
+test('0.86.2: Check-in – richtig mit Hilfe (bestanden false) freundlich, Koffer hell ohne Stern, keine Sterne', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); const srv = wdhServer({ runde: 2, faellig: 2 }); await page.route('**/functions/v1/lernen-api/**', srv.route);
+  srv.antwort = () => ({ ok: true, format_ok: true, richtig: true, loesung: { wert: 2000 }, wiederholung: { bestanden: false, sterne: 0 } });
+  await page.goto(origin + '/#/wiederholen/1'); await wdhRichtig(page);
+  await page.getByText('Richtig – morgen noch einmal ohne Hilfe.').waitFor();
+  assert.equal(await page.locator('.lr-plus-stern').count(), 0);
+  assert.deepEqual(await kofferZustand(page.locator('.lr-koffer')), ['hilfe,-']);
 });

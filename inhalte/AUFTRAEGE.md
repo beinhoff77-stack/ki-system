@@ -2575,3 +2575,10 @@ ChatGPT hat alle acht amtlichen Pläne (7–10 × Gruppe I, II/III) unabhängig 
 - Im Repo auffällig: Themen 48 und 78 ohne RS-Klasse trotz RS-Lernbereich; 91 steht bei RS 8, beschreibt aber auch 7 I; 46 (RS 6) enthält Drehung (8 I); 33 mischt y = mx und y = mx + t.
 - Zweitquellen, die ChatGPT lesen konnte: Inhaltsverzeichnis Westermann 7 I (kapiert.de), Kapitelübersicht 8 II/III (braille.bildung.hessen.de), ISB-Leistungsaufgaben 9, Abschlussprüfung 2026 I und II/III (isb.bayern.de). Die Jahrgangsstufenprofil-Adressen für 8–10 führten auf die Startseite – nicht als Beleg verwenden.
 - **Vorschlag Datenmodell (Punkt 6 des Auftrags) deshalb verbindlich so anlegen:** Zuordnung je `Gruppe × Klasse × Lernbereich × Punkt → Thema/Etappe` mit Bezug „neu/weitergeführt“; Lernstand und Sterne werden nie doppelt geführt. Welche Gruppe die App zeigt, entscheidet Sebastian (offen).
+
+### Stand 22.11., 13:45 Berlin – LIVE: Wiederholungen und faire Punkte
+
+Sebastian: „live und gruppe 1“. Eingespielt (eine Transaktion, md5 geprüft): 907, 907 c, WD-S 2/3/4, WD-4b, FP-S, FP-S 2, Aufgaben frisch (24); Nachbuchung Landungs-Bonus ausgeführt. `lernen-api` 0.9.1, App 0.87.0 auf `main` 4e042d1.
+- **Offen bleibt FP-S 3** (Mischkarte atomar einlösen, ChatGPT 929) – bewusst nach dem Live, Entscheidung Sebastian.
+- **An `bau-lehrer` zusätzlich (in FP-S 3 mit erledigen):** `fp_s_rauchtest.sql` Teil 5 scheitert nach dem Einspielen („Hinweis für die App“), weil das Testkind schon eine Zeile in `schule.landung_nachbuchung` hat (ON CONFLICT DO NOTHING behält die erste Zusammenfassung). Test so bauen, dass er mit vorhandener Zeile läuft. Die übrigen vier Rauchtests sind nach dem Einspielen grün.
+- **Entscheidung Realschule: Gruppe I** (Wahlpflichtfächergruppe I) ist der Maßstab der App. `lehrplan-lb`: Prüfung LP-RS weiter für beide Gruppen dokumentieren, Korrektur-SQL und Klassenlage aber nach Gruppe I; II/III nur als Bericht.

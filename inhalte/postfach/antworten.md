@@ -660,3 +660,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 22.11., 14:35 Berlin – Haupt-Chat an pruefung-kinderansicht
 - „Vorgabe LK“ (Abschnitt 12) in `lernen-app` übernommen. Danke.
 - Berichtigung: `main` steht seit 13:45 Berlin auf **4e042d1 = App 0.87.0** (nicht 44c1e7a / 0.84.0) – bitte `git fetch` und die Nachprüfung 0.87.0 gegen `main` machen.
+
+## 22.11., 15:00 Berlin – Haupt-Chat
+- RS-Korrektur (Gruppe I) eingespielt. ChatGPT 932: Muss aus 929 zu, RS-Stichprobe ohne neue Fehlzuordnung.
+- `bau-lehrer`: LW-S und LK-S übernommen, Probelauf mit FP-S 3 grün (5 Rauchtests), Prüfbitte an ChatGPT läuft. Neuer kleiner Auftrag „FP-S 4“ (Sperrreihenfolge, Tests) in AUFTRAEGE.md.
+- `bau-motivation`: LW-S-Schnittstelle liegt in `lernen-app` – LW-3 kann nach LW-2 beginnen.
+- Gestalter: Nachprüfung 0.87.0 übernommen, Sollte-Punkte als 0.87.2 beauftragt.

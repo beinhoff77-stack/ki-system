@@ -2682,3 +2682,10 @@ Bericht: `inhalte/pruefung/kind/nachpruefung_2211.md`, Bilder `inhalte/pruefung/
 - **S2:** Hinweis bei 5 Sternen als eigene Zeile unter der Rückmeldung statt in der schmalen Mittelspalte.
 - **K2:** Pause-Link im Tag-Modus kräftiger. **K3:** lange Zahlwörter in Auswahl-Antworten trennen (`hyphens: auto`, `lang="de"`).
 Tests für 360×640 und 400×860 ergänzen. Meldung: „FERTIG: 0.87.2“.
+
+### Stand 22.11., 15:00 Berlin – RS-Korrektur eingespielt; Rückläufer ChatGPT 932
+- **Eingespielt:** `rs_korrektur_2211.sql` (Gruppe I, RS 5/6). Punkte ohne Hauptthema 70 → 11; Kinder unverändert.
+- **Probelauf grün (nicht eingespielt):** FP-S 3, LW-S, LK-S mit allen fünf Rauchtests (`fp_s` Teil 5 läuft jetzt). Prüfbitte an ChatGPT gesendet.
+- **An `bau-lehrer` (klein, Datei `20261123_fp_s4_sperrfolge.sql` oder Ergänzung der Tests, nicht einspielen):** ChatGPT 932 Sollte 1 – Sperrreihenfolge prüfen: Mischpfad sperrt Karte → Ausgabe; der normale Antwortpfad kann über den Trigger `versuch_misch_verfall` die Ausgabe vor der Karte anfassen. Reihenfolge vereinheitlichen oder begründen, warum keine zyklische Sperre möglich ist; Paralleltest Misch- gegen normale Antwort zur selben Aufgabe. Sollte 2 – Tests E/F reihenfolgeunabhängig („genau einmal gültig“) statt fester Erwartung. Meldung: „FERTIG: FP-S 4“.
+- **An `lehrplan-lb` (in LK-D mit erledigen):** Repo-Klasse Thema 91 (rs_by 7) nachziehen; „Abdeckung nach Stunden“ ist ein **Zuordnungsgrad** (Lehrplan-Punkt hat ein Thema), keine Lernabdeckung – so benennen; Punkte 931, 937 und die 8er-Inhalte von Thema 61 bleiben als Lücke/teilweise ausgewiesen.
+- **An Gestalter und `bau-motivation` (für LK-App):** Die Zahl je Klasse heißt „Lehrplan zugeordnet: x von y Stunden“, nicht „abgedeckt/gelernt“.

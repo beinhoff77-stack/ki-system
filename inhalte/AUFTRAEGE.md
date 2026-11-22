@@ -2453,3 +2453,19 @@ Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein
 - Ist keine frische Aufgabe mehr da: die am längsten zurückliegende, **nie** eine aus den letzten 3 Lerntagen; gibt es auch die nicht, an diesem Tag keine Aufgabe dieser Etappe (Wiederholung bleibt fällig).
 - **Keine Mischkarte aus einer Etappe, in der das Kind am selben Lerntag schon eine Aufgabe beantwortet hat** (auch nicht, wenn sie fällig ist – dann kommt sie in der Runde am nächsten Lerntag).
 - Lesende Funktion für den Haupt-Chat: je Kind die gelandeten Etappen mit weniger als 3 frischen Aufgaben der Stufen 2–3 (Stand 22.11.: Bestand je Etappe mindestens 14 solche Aufgaben, typisch 16; 3 von 51 selbst gelandeten Etappen liegen unter 3). Dort lässt der Haupt-Chat Aufgaben nachliefern.
+
+---
+
+# ChatGPT 919 zu WD-S 2 / WD-4b / Nacharbeit 907 (22.11.) – vier Muss, alles vor dem Einspielen
+
+(ChatGPT 918 betrifft die alte Fassung von `flug_geschafft` und ist durch `flug_erstabschluss` überholt.)
+
+**`bau-lehrer` – in WD-S 3 mit erledigen (zusätzlich zu „Fehler Mischkarten“ und „WD-S 3 – frische Aufgaben“):**
+1. **MUSS 1 – bestandene Wiederholung.** Heute rückt eine fällige Wiederholung auch mit Tipp oder im zweiten Versuch weiter; damit könnte eine Etappe mit Hilfe „abgelegt“ werden. Neu (vorbehaltlich Sebastians Entscheidung, Standard so bauen, per Regel `wdh_nur_selbst` = true umschaltbar): **Stufenfortschritt, Wiederholungs-Sterne und Ablegen nur bei richtig im ersten Versuch ohne Tipp** – für Runde, freiwillige Wiederholung und Mischkarte gleich. Richtig mit Tipp oder im zweiten Versuch: kein Fortschritt, kein Fehler; die Etappe kommt am nächsten Lerntag wieder. Endgültig falsch: wie bisher. Test über den echten Antwortweg (Stufe 4, Tipp bzw. zweiter Versuch → nicht abgelegt).
+2. **MUSS 2 – WD-4b und die festgehaltene Tagesrunde.** WD-4b nimmt Etappen aus, die in einer offenen Runde von heute stehen (oder aktualisiert die Runde mit). Test „Runde begonnen → WD-4b → offene Pflichtaufgabe zählt“.
+3. **MUSS 3 – WD-4b zählt belegte Folgetage mit:** höchstens `wdh_gesetzt_je_lerntag` erste Wiederholungen je Kind und Lerntag einschließlich der schon von WD-4 geplanten. Test mit vorbelegtem Folgetag.
+4. **Sollte:** Misch-Fehler für die Reihenfolge erst nach endgültiger Wertung (`schule.versuch_wertung`); echter Test mit zwei gleichzeitigen Transaktionen (ein Fortschritt, einmal Sterne) und über die API-Antwort; Rückweg von WD-4b nur ohne Zwischenübung (prüfen und sonst ablehnen), kein zweiter Lauf; Lerntage statt Kalendertage belegen (Test mit eingetragenen Reisetagen); vorhandene Einträge in `flug_erstabschluss` gegenprüfen.
+
+**`lehrplan-lb` – Nacharbeit 907 c:** MUSS 4 – der Löschschutz gilt auch für Einheiten im Status `geprueft` (für Kinder sichtbar), Test dazu; Rauchtest l nur für die zehn stillgelegten Themen, nicht für alle nicht freigegebenen.
+
+**`bau-motivation` – in 0.86.2 mit erledigen:** Text nach dem Ablegen nicht „kommt nicht mehr wieder“, sondern sinngemäß „aus der regelmäßigen Wiederholung – wird nur noch bei Bedarf aufgefrischt“; Antwort `wiederholung.bestanden === false` bei richtig mit Tipp/zweitem Versuch freundlich zeigen („Richtig – morgen noch einmal ohne Hilfe“).

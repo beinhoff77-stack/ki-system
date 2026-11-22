@@ -2382,3 +2382,18 @@ Anlass: Sebastian und die Kinder. Jede gelandete Etappe erzeugt 5 Wiederholungen
 - **Sterne heute:** `sterne_uebung_richtig` = 10. `bau-lehrer` stellt fest, ob eine richtige Wiederholung heute schon 10 Sterne gibt. Wenn ja: **nicht kürzen**, sondern melden – Sebastian entscheidet dann zwischen 5 und 10.
 - App ohne neue Server-Felder (alter Server): Verhalten wie 0.84.0.
 - Einblendungen: `bau-motivation` baut sie im Stil der vorhandenen Abschluss-Ansichten („Etappe abgelegt“ klein, „Flug abgelegt“ groß, Gold im Reisepass); der Gestalter liefert parallel die Vorgabe und prüft nach – Abweichungen werden danach angeglichen.
+
+---
+
+# Vorarbeit „Reise-Aufbau“ (22.11.): Kontinent → Land → Stadt – Festlegungen des Haupt-Chats
+
+Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein Thema = ein Land** auf diesem Kontinent; **Etappe = eine Stadt** in diesem Land; Aufgaben = Highlights der Stadt, ohne Namen; sinnvoll gegliedert. Die Ebene „Ort“ entfällt. **Reihenfolge: erst der Bau-Auftrag WD, dann dieser Umbau.** Bis dahin nur Vorarbeit (Vorschlagsliste, kein Bau). Sebastian hat die Sonderfälle dem Haupt-Chat überlassen; festgelegt (er kann widersprechen):
+
+1. **Antarktis ist kein Lern-Kontinent mehr.** Dort gibt es keine Länder und Städte. Die Antarktis wird Heimat der **Expeditionen** (Forschungsstationen statt Städte) – das passt zum Wort und braucht keine Länder.
+2. **„Funktionen“ zieht in den Orient** (Naher Osten und Kaukasus, als eigener Reise-Kontinent neben Asien): 10 Länder, z. B. Türkei, Georgien, Armenien, Aserbaidschan, Iran, Irak, Jordanien, Saudi-Arabien, Vereinigte Arabische Emirate, Oman. Bisher hat dort kein Kind etwas gelernt – es geht nichts verloren.
+3. **„Algebra“ bleibt Asien** ohne den Orient: Zentral-, Süd-, Ost- und Südostasien (19 Länder). Die heutigen Orte Bagdad und Teheran wechseln in asiatische Länder; **Usbekistan (Samarkand) und Indien (Mumbai) bleiben**, weil dort schon gelernt wurde.
+4. **„Daten und Zufall“ = Australien und Ozeanien:** Australien zählt nach **Bundesstaaten** (New South Wales, Victoria, Queensland, South Australia, Western Australia, Tasmanien, Northern Territory), dazu Neuseeland (Nord- und Südinsel getrennt), Papua-Neuguinea und Fidschi – zusammen 12. Einzige Ausnahme von „ein Land“, weil Ozeaniens Inselstaaten zu wenige Städte haben.
+5. **„Entdecker-Inseln“ = Pazifik:** Hawaii, Französisch-Polynesien, Samoa, Tonga – keine Überschneidung mit Punkt 4.
+6. **Wo schon gelernt wurde, bleibt die Stadt erhalten:** Die heutige Stadt eines Orts wird eine der Städte des neuen Landes; Stempel und Sterne der Kinder bleiben (aus Stadt-Stempeln werden Länder-Stempel). Hat ein Ort heute mehrere Flüge, behält der Flug, den das Kind zuerst abgeschlossen hat, das Land der Stadt; die anderen bekommen Nachbarländer.
+7. **Länder nach Größe:** ein Flug hat 3 bis 12 Etappen – nur Länder mit genug bekannten Städten; Reihenfolge der Länder je Kontinent = Reihenfolge der Klassen als Route, Städte je Land als fahrbare Rundreise.
+8. Eltern/Lehrer sehen weiter „Themengebiet · Thema · Etappe“; die Reise-Namen sind nur die Kinderseite.

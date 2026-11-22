@@ -3551,7 +3551,7 @@ const LERN_INFO_FRAGEN = [
     'Ein neuer Flug ist zuerst „in Prüfung“: Nur das Testkind sieht ihn. Nach der Freigabe ist er „fertig“ und für alle Kinder da. Der Lehrplan (Nachschlagen auf der Startseite) zeigt alle Flüge als Übersicht: Zeilen Klasse 5–10, Spalten die Themengebiete, eingeordnet nach Gymnasium, Realschule oder IB, in der Reihenfolge des Lehrplans. Der Filter „Inhalt“ zeigt, was fertig ist (●), was in Prüfung ist (◐) und was noch fehlt (○). Ein Thema antippen: was gefordert ist, was es vorher braucht, worauf es aufbaut, Lernbereich und „Inhalte ansehen“. Mit „Lernstand“ steht bei jedem Thema die Stufe eines Kindes (◉ ↻ ▶ ○ +) – ist ein Kind gewählt, lässt sich der Plan dort direkt ändern.',
     'Jeder Inhalt ist mit allen Lösungen einsehbar („Inhalte ansehen“). In einem fertigen Flug sind Bordkarten, die ersetzt wurden oder überzählig sind, „aussortiert“: Sie werden nie ausgegeben, zählen nicht mit und stehen zugeklappt am Ende der Etappe.']],
   ['Was kann ich selbst ändern?', [
-    ['Lehrplan je Kind', ' (Reiter „Lehrplan“ auf der Seite des Kindes – ersetzt „Stand“ und „Plan“): oben die Leiste „Einordnen“ (Gymnasium | Realschule | IB – bestimmt nur, in welcher Zeile ein Thema steht), „Zeigen“ (Alle Themen | Noch nicht im Plan · n | Im Plan · n – hebt hervor, nichts verschwindet), „Klassen“ 5–10 zum An- und Abschalten (Standard: Klasse des Kindes bis 10, je Kind auf dem Gerät gemerkt; ein blauer Punkt zeigt Themen aus dem Fahrplan), „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule), Suchen und „Auswählen“. Links der Fahrplan: ▶ Gerade dran mit Fortschritt, darunter ○ Kommt noch nummeriert (am Griff ⋮⋮ ziehen oder ↑ ↓), unten zugeklappt ↻ In Wiederholung und ✓ Fertig (kann er) mit „Wieder in die Wiederholung“. Rechts die Matrix: Spalten = Themengebiete, Zeilen = Klassen; links je Klasse drei Ringe (groß die gewählte Schule, klein die beiden anderen): gelandete Etappen von allen Etappen der Pflichtthemen dieser Schule in dieser Klasse (IB: MYP-Jahr = Klasse − 5). Ganz gekonnte Klassen stehen eingeklappt als eine Zeile. Farben der Karten: blau = gerade dran, hellgelb mit Platznummer = im Plan, hellgrün = Wiederholung, durchsichtig = fertig, weiß = Lehrplan der gewählten Schule, grau = nur andere Schule. Ein Thema antippen öffnet rechts die Schublade (auf dem Handy ein Blatt von unten): Stand mit jeder Etappe, Planen („In den Plan: als Nächstes ▾“ mit „… ans Ende“ und „… nach Lehrplan einsortieren“; im Plan „Als Nächstes“, „Ans Ende“, „Aus dem Plan“), Stufe (Lernen | Kann er – wiederholen | Kann er komplett; bei ◉ „Wieder in die Wiederholung“), Lehrstoff und Zusammenhang. „Kann er – aber wiederholen“: keine Übung, nur die Wiederholungen; zwei Fehler hintereinander → wieder offen; je Lerntag kommen höchstens 6 solche Etappen neu in den Takt. Für so gesetzte Flüge gibt es keinen Flug-Test und keine Nachtests. Ist die Wiederholung nach 14 Lerntagen bestanden (und eine Mischkarte richtig, falls eine kam), steht der Flug auf ◉. „Wieder in die Wiederholung“ holt einen ◉-Flug zurück; die Wiederholungen beginnen dann wieder nach 1 Lerntag. „Auswählen“: Karten antippen setzt Häkchen; oben dann die Knöpfe für alle ausgewählten auf einmal (ein Schritt, ein „Rückgängig“). Jede Änderung wird sofort gespeichert; unten erscheint 5 Sekunden „↶ Rückgängig“ (oben rechts dauerhaft, nur für den letzten Schritt). Hat jemand anderes den Plan inzwischen geändert, meldet die App das und überschreibt nichts – dann „Neu laden“. Tablet: Fahrplan über den Knopf „Fahrplan · n“; Handy: Umschalter „Fahrplan | Alle Themen“.'],
+    ['Lehrplan je Kind', ' (Reiter „Lehrplan“ auf der Seite des Kindes – ersetzt „Stand“ und „Plan“): oben die Leiste „Einordnen“ (Gymnasium | Realschule | IB – bestimmt nur, in welcher Zeile ein Thema steht), „Zeigen“ (Alle Themen | Noch nicht im Plan · n | Im Plan · n – hebt hervor, nichts verschwindet), „Klassen“ 5–10 zum An- und Abschalten (Standard: Klasse des Kindes bis 10, je Kind auf dem Gerät gemerkt; ein blauer Punkt zeigt Themen aus dem Fahrplan), „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule), Suchen und „Auswählen“. Links der Fahrplan: ▶ Gerade dran mit Fortschritt, darunter ○ Kommt noch nummeriert (am Griff ⋮⋮ ziehen oder ↑ ↓), unten zugeklappt ↻ In Wiederholung und ✓ Fertig (kann er) mit „Wieder in die Wiederholung“. Rechts die Matrix: Spalten = Themengebiete, Zeilen = Klassen; links je Klasse drei Ringe (groß die gewählte Schule, klein die beiden anderen): gelandete Etappen von allen Etappen der Pflichtthemen dieser Schule in dieser Klasse (IB: MYP-Jahr = Klasse − 5). Ganz gekonnte Klassen stehen eingeklappt als eine Zeile. Farben der Karten: blau = gerade dran, hellgelb mit Platznummer = im Plan, hellgrün = Wiederholung, durchsichtig = fertig, weiß = Lehrplan der gewählten Schule, grau = nur andere Schule. Ein Thema antippen öffnet rechts die Schublade (auf dem Handy ein Blatt von unten): Stand mit jeder Etappe, Planen („In den Plan: als Nächstes ▾“ mit „… ans Ende“ und „… nach Lehrplan einsortieren“; im Plan „Als Nächstes“, „Ans Ende“, „Aus dem Plan“), Stufe (Lernen | Kann er – wiederholen | Kann er komplett; bei ◉ „Wieder in die Wiederholung“), Lehrstoff und Zusammenhang. „Kann er – aber wiederholen“: keine Übung, nur die Wiederholungen; zwei Fehler hintereinander → wieder offen; je Lerntag kommen höchstens 6 solche Etappen neu in den Takt. Für so gesetzte Flüge gibt es keinen Flug-Test und keine Nachtests. Ist die Wiederholung nach 14 Lerntagen bestanden (und eine Mischkarte richtig, falls eine kam), steht der Flug auf ◉. „Wieder in die Wiederholung“ holt einen ◉-Flug zurück; die Wiederholungen beginnen dann wieder nach 1 Lerntag. „Auswählen“: Karten antippen setzt Häkchen; oben dann die Knöpfe für alle ausgewählten auf einmal (ein Schritt, ein „Rückgängig“). Jede Änderung wird sofort gespeichert; unten erscheint 5 Sekunden „↶ Rückgängig“ (oben rechts dauerhaft, nur für den letzten Schritt). Hat jemand anderes den Plan inzwischen geändert, meldet die App das und überschreibt nichts – dann „Neu laden“. Ziehen: eine Karte aus der Matrix in den Fahrplan ziehen plant sie an dieser Stelle ein (blaue Linie); einen Eintrag aus dem Fahrplan zurück in die Matrix ziehen nimmt ihn aus dem Plan (Matrix rot gestrichelt). Bei „Noch nicht im Plan“ steht oben im Fahrplan „Alle n einplanen (nach Klasse und Lehrplan)“ – nur für die gewählten Klassen, ohne Zusatz-Teile. Reihenfolge-Warnung (keine Sperre): Steht ein Thema vor seiner harten Voraussetzung, ist die Voraussetzung weder gekonnt noch im Plan oder wird sie hinter ein darauf aufbauendes Thema geschoben, erscheint unten eine dunkelrote Meldung mit Knopf zum Reparieren („… davor setzen“, „… davor einplanen“, „… dahinter setzen“); solange der Konflikt besteht, hat der Eintrag im Fahrplan einen roten Rand mit „braucht … – kommt erst auf Platz n“ bzw. „– nicht gelernt, nicht im Plan“. Empfohlene Voraussetzungen warnen nicht. Bis zum Reise-Aufbau ist ein Platz ein Ort; mehrere Themen eines Orts heißen „3a, 3b …“. Geteilte Themen: jeder Teil ist ein eigenes Thema („Terme umformen – Teil 2 von 3“, auf der Karte „2/3“); Teil 2 baut auf Teil 1 auf. „Zusatz“ = Teil ohne Lehrplan-Punkt in der gewählten Schulart: gestrichelt, zählt nicht im Ring und nicht bei „Noch nicht im Plan“. Tablet: Fahrplan über den Knopf „Fahrplan · n“; Tablet und Handy: Einordnen, Zeigen, Klassen, Einstieg, Suchen und Auswählen im Blatt „Filter ▾“, Farben hinter ⓘ; Handy: Umschalter „Fahrplan | Alle Themen“.'],
 
     ['Was wackelt', ' (Reiter auf der Seite des Kindes): eine Tabelle aller Etappen mit falschen Antworten – wackelnde zuerst – mit „richtig / falsch“, dem häufigsten Fehler (Vorzeichen, Komma, vertauscht, gerundet, Einheit; nur wenn er mindestens zweimal vorkam) und seit wann. Antippen zeigt die letzten 3 falschen Antworten, „Kurz gesagt“ der Etappe und „Erklärung ansehen“. „Besprochen ✓“ merkt Datum und Person und nimmt die Etappe aus „Zu tun“ – bis wieder eine Antwort endgültig falsch ist.'],
     ['⚙ Einstellen', ' (in der Zeile des Kindes auf der Startseite und oben auf seiner Seite): Hauptschulart und Klasse („bestimmt seine Klasse in Lernreise und Plan“), Stand messen gegen … (Stufe je Schulart, nur für „Wo steht es?“), Notizen und Verlauf, Neuer Plan aus Lehrplan-Vorlage (mit Rückfrage und „↶ Rückgängig“). Alles speichert sofort.'],
@@ -4014,8 +4014,10 @@ async function viewKindLehrplan(id, rest = []) {
   if (!live()) return;
   const kind = { ...((u?.lernende || []).find((c) => c.id === id) || {}), ...((d.kinder || []).find((c) => c.id === id) || {}), ...(p.kind || {}) };
   $('#title').textContent = 'Lehrplan ' + (kind.name || '');
-  const kindSa = LERN_MX_SA[kind.schulart] ? kind.schulart : 'gym_by';
-  const kindKl = Number(kind.klasse) || null;
+  // LW-2 K2: Klasse und Schulart aus derselben Quelle wie der Kopf der Kind-Seite (schule_uebersicht); nur wenn dort nichts steht, aus Plan/Raster
+  const kindU = (u?.lernende || []).find((c) => c.id === id) || {};
+  const kindSa = LERN_MX_SA[kindU.schulart] ? kindU.schulart : LERN_MX_SA[kind.schulart] ? kind.schulart : 'gym_by';
+  const kindKl = Number(kindU.klasse) || Number(kind.klasse) || null;
 
   // ---------- Daten zusammenführen ----------
   const details = new Map(); // thema_id → Felder aus schule_lehrplan_thema (bleiben beim Neuladen)
@@ -4057,7 +4059,12 @@ async function viewKindLehrplan(id, rest = []) {
     return !ts.length ? 'kommt' : st.includes('dran') ? 'dran' : st.includes('kommt') ? 'kommt' : st.includes('wiederholung') ? 'wiederholung' : 'komplett'; };
   let sichtbar = []; // Indizes der ▶/○-Orte im Plan, in Reihenfolge des Fahrplans
   const ordne = () => { const mit = plan.map((x, i) => [x, i, ortStufe(x)]); sichtbar = [...mit.filter((m) => m[2] === 'dran'), ...mit.filter((m) => m[2] === 'kommt')].map((m) => m[1]); return mit; };
-  const platz = (x) => { if (!imPlan(x) || !['dran', 'kommt'].includes(stufeVon(x).stufe)) return null; const b = blockVon(x); const j = sichtbar.findIndex((i) => plan[i].block_id === b); return j < 0 ? null : j + 1; };
+  // LW-2 S2: ein Platz je Ort (bis zum Reise-Aufbau); mehrere Themen eines Orts bekommen Unterbuchstaben „3a, 3b …“ in der Reihenfolge des Orts
+  const fpThemen = (px) => themenImOrt(px.block_id).filter((y) => !px.ausgelassen.includes(y.id) && ['dran', 'kommt'].includes(stufeVon(y).stufe));
+  const platzInfo = (x) => { if (!imPlan(x) || !['dran', 'kommt'].includes(stufeVon(x).stufe)) return null; const b = blockVon(x); const j = sichtbar.findIndex((i) => plan[i].block_id === b); if (j < 0) return null;
+    const ts = fpThemen(plan[sichtbar[j]]); const k = Math.max(0, ts.findIndex((y) => y.id === x.id));
+    return { nr: j + 1, pos: (j + 1) * 100 + k, text: ts.length > 1 ? `${j + 1}${'abcdefghijklmnopqrstuvwxyz'[k] || ''}` : String(j + 1) }; };
+  const platz = (x) => platzInfo(x)?.text ?? null;
 
   const stand = el('span', { class: 'lern-plan-stand lw-stand', role: 'status', 'aria-live': 'polite' }, plan.length ? 'Alles gespeichert' : '');
   const rueckKnopf = el('button', { type: 'button', class: 'lern-plan-rueck lw-rueck', disabled: true, onclick: () => zuruecknehmen() }, '↶ Rückgängig');
@@ -4093,18 +4100,42 @@ async function viewKindLehrplan(id, rest = []) {
     })();
     return laeuft;
   };
-  const aendere = (fn, text = null) => {
+  // LW-2 (4a): nach jeder Änderung prüfen, ob eine harte Voraussetzung neu verletzt ist → dunkelrote Einblendung mit Reparieren-Knopf (Warnung, keine Sperre)
+  const kSchl = (k) => `${k.fall}:${k.x.id}:${k.v.id}`;
+  const aendere = (fn, text = null, getan = null) => {
     if (gesperrt) return;
+    const vorK = new Set(konflikte().map(kSchl));
     vorher.push({ plan: lernPlanKopie(plan), schritt: undefined }); if (vorher.length > 30) vorher.shift();
-    fn(); zeichneAlles(); speichere(); if (text) toste(text);
+    fn(); ordne(); const neu = konflikte().filter((k) => !vorK.has(kSchl(k)));
+    zeichneAlles(); speichere();
+    const ids = new Set((Array.isArray(getan) ? getan : getan ? [getan] : []).map((y) => y.id));
+    const w = ids.size ? neu.find((k) => ids.has(k.x.id)) || neu.find((k) => ids.has(k.v.id)) : neu[0];
+    if (w) warne(w, text, ids); else if (text) toste(text);
   };
   function zuruecknehmen() { if (gesperrt || !vorher.length) return; const v = vorher.pop(); plan = v.plan; rueckgaengig = true; rueckSchritt = v.schritt || null; tosteWeg(); zeichneAlles(); speichere(); }
-  // Meldung unten: „‹Thema› als Nächstes eingeplant · ↶ Rückgängig“ (5 s)
+  // Meldung unten: „‹Thema› als Nächstes eingeplant · ↶ Rückgängig“ (5 s); Warnung bleibt stehen, bis sie geschlossen wird
   const toast = el('div', { class: 'lw-toast', role: 'status', hidden: true }); let toastUhr = null;
-  function toste(text) { clearTimeout(toastUhr); toast.hidden = false;
-    lernErsetze(toast, el('span', {}, text), el('button', { type: 'button', onclick: () => zuruecknehmen() }, '↶ Rückgängig'));
+  const rueckIn = () => el('button', { type: 'button', onclick: () => zuruecknehmen() }, '↶ Rückgängig');
+  function toste(text) { clearTimeout(toastUhr); toast.hidden = false; toast.classList.remove('lw-warn');
+    lernErsetze(toast, el('span', {}, text), rueckIn());
     toastUhr = setTimeout(tosteWeg, 5000); }
-  function tosteWeg() { clearTimeout(toastUhr); toast.hidden = true; }
+  function tosteWeg() { clearTimeout(toastUhr); toast.hidden = true; toast.classList.remove('lw-warn'); }
+  function warne(w, text, ids) {
+    clearTimeout(toastUhr); toast.hidden = false; toast.classList.add('lw-warn');
+    const X = `„${w.x.titel}“`, V = `„${w.v.titel}“`; let msg, knopf = null;
+    if (w.fall === 1 && ids.has(w.v.id) && !ids.has(w.x.id)) { msg = `⚠ ${X} baut hierauf auf und steht schon auf Platz ${platz(w.x)}`; if (blockVon(w.x) !== blockVon(w.v)) knopf = [`${X} dahinter setzen`, () => setzeHinter(w.x, w.v)]; }
+    else if (w.fall === 1) { msg = `⚠ ${X} baut auf ${V} auf – das kommt erst auf Platz ${platz(w.v)}`; if (blockVon(w.x) !== blockVon(w.v)) knopf = [`${V} davor setzen`, () => setzeVor(w.v, w.x)]; }
+    else if (ids.has(w.v.id)) msg = `⚠ ${X} im Plan baut darauf auf`;
+    else { msg = `⚠ ${X} baut auf ${V} auf – das kann er noch nicht und es ist nicht im Plan`; knopf = [`${V} davor einplanen`, () => setzeVor(w.v, w.x)]; }
+    lernErsetze(toast, el('span', {}, text ? el('span', { class: 'lw-toast-was' }, text + ' · ') : null, msg),
+      knopf ? el('button', { type: 'button', class: 'lw-reparier', onclick: knopf[1] }, knopf[0]) : null, rueckIn(),
+      el('button', { type: 'button', class: 'lw-toast-x', 'aria-label': 'Hinweis schließen', onclick: () => tosteWeg() }, '✕'));
+  }
+  // Ort von v vor den Ort von x setzen (v ggf. erst einplanen) bzw. Ort von x hinter den Ort von v
+  const verschiebe = (y, ziel, dahinter) => { const iy = plan.findIndex((q) => q.block_id === blockVon(y)); if (iy < 0) return; const [e] = plan.splice(iy, 1);
+    const iz = plan.findIndex((q) => q.block_id === blockVon(ziel)); plan.splice(iz < 0 ? plan.length : iz + (dahinter ? 1 : 0), 0, e); };
+  const setzeVor = (v, x) => aendere(() => { if (!imPlan(v)) setze(blockVon(v), v.id, 'lernen'); verschiebe(v, x, false); }, `„${v.titel}“ vor „${x.titel}“ gesetzt`, v);
+  const setzeHinter = (x, v) => aendere(() => verschiebe(x, v, true), `„${x.titel}“ hinter „${v.titel}“ gesetzt`, x);
 
   // Einplanen: als Nächstes | ans Ende | nach Lehrplan einsortieren; im Plan verschieben; aus dem Plan
   const schluessel = (x, s2 = sa) => (lernMxZeile(x, s2) || 99) * 1000 + (Number(x.r[s2]) || Number(x.r.gym_by) || 999);
@@ -4120,15 +4151,24 @@ async function viewKindLehrplan(id, rest = []) {
       else if (wo === 'naechstes') an = plan.findIndex((y) => ortStufe(y) === 'kommt');
       else { const r = schluessel(x); an = plan.findIndex((y) => ortStufe(y) === 'kommt' && ortSchluessel(y) > r); }
       plan.splice(an < 0 ? plan.length : an, 0, e);
-    }, `„${x.titel}“ ${vorName}`);
+    }, `„${x.titel}“ ${vorName}`, x);
   };
+  // LW-2: aus der Matrix in den Fahrplan gezogen – vor den j-ten Platz (j = Anzahl Plätze: ans Ende)
+  const einplanenAn = (x, j) => { const ziel = j < sichtbar.length ? plan[sichtbar[j]] : null; const b = blockVon(x);
+    aendere(() => { if (!imPlan(x)) setze(b, x.id, 'lernen'); const i = plan.findIndex((y) => y.block_id === b); if (i < 0) return;
+      if (plan[i] === ziel) return; const [e] = plan.splice(i, 1); const an = ziel ? plan.indexOf(ziel) : -1;
+      if (!ziel) { const nach = plan.map((y) => ortStufe(y)).lastIndexOf('kommt'); plan.splice(nach < 0 ? plan.length : nach + 1, 0, e); } else plan.splice(an < 0 ? plan.length : an, 0, e); },
+    `„${x.titel}“ auf Platz ${Math.min(j, sichtbar.length) + 1} eingeplant`, x); };
+  // LW-2 (Abschnitt 6): alle fehlenden Themen der gewählten Klassen in einem Schritt einplanen, sortiert nach Klasse und Lehrplan (ohne Zusatz-Teile)
+  const alleEinplanen = (ts) => aendere(() => { ts.slice().sort((a, b) => schluessel(a) - schluessel(b)).forEach((x) => { if (!imPlan(x)) setze(blockVon(x), x.id, 'lernen'); }); },
+    `${ts.length} ${ts.length === 1 ? 'Thema' : 'Themen'} eingeplant (nach Klasse und Lehrplan)`, ts);
   const ausDemPlan = (x) => aendere(() => { const b = blockVon(x);
-    if (kannAbwaehlen) setze(b, x.id, 'aus'); else { const i = plan.findIndex((y) => y.block_id === b); if (i >= 0) plan.splice(i, 1); } }, `„${x.titel}“ aus dem Plan genommen`);
+    if (kannAbwaehlen) setze(b, x.id, 'aus'); else { const i = plan.findIndex((y) => y.block_id === b); if (i >= 0) plan.splice(i, 1); } }, `„${x.titel}“ aus dem Plan genommen`, x);
   const stufeSetzen = (x, wahl) => aendere(() => setze(blockVon(x), x.id, wahl),
-    `„${x.titel}“: ${{ lernen: 'Lernen', wiederholen: 'Kann er – wiederholen', komplett: 'Kann er komplett', wieder: 'wieder in der Wiederholung' }[wahl]}`);
+    `„${x.titel}“: ${{ lernen: 'Lernen', wiederholen: 'Kann er – wiederholen', komplett: 'Kann er komplett', wieder: 'wieder in der Wiederholung' }[wahl]}`, x);
 
   // ---------- Zustand der Seite ----------
-  const zst = { sa: LERN_MX_SA[rest[0]] ? rest[0] : kindSa, zeigen: 'alle', q: '', sel: null, einstieg: null, handy: 'alle', fahrplanAuf: false, offenKl: new Set(), offenOrt: new Set(), auswahl: null, hl: null };
+  const zst = { sa: LERN_MX_SA[rest[0]] ? rest[0] : kindSa, zeigen: 'alle', q: '', sel: null, einstieg: null, handy: 'alle', fahrplanAuf: false, offenKl: new Set(), offenOrt: new Set(), auswahl: null, hl: null, filterAuf: false, legende: false };
   const klSchl = `lw.kl.${id}`;
   const klStandard = () => new Set(LERN_MX_KL.filter((k) => !kindKl || k >= Math.min(kindKl, 10)));
   let klassen = (() => { try { const v = JSON.parse(localStorage.getItem(klSchl) || 'null'); if (Array.isArray(v) && v.some((k) => LERN_MX_KL.includes(k))) return new Set(v.filter((k) => LERN_MX_KL.includes(k))); } catch { /* Standard */ } return klStandard(); })();
@@ -4139,12 +4179,30 @@ async function viewKindLehrplan(id, rest = []) {
   // ---------- Hervorheben: Zeigen · Einstieg prüfen · Suche ----------
   const gekonnt = (s) => s.stufe === 'komplett' || s.stufe === 'wiederholung';
   const ringStufe = (x) => stufeVon(x);
+  // ---------- 12.7 Teile und Zusatz: aus den Feldern teil/teile/untertitel, sonst aus dem Titel „Grund – Teil 2 von 2 · Untertitel“ (keine feste Zahl) ----------
+  const teilVon = (x) => { if (!x) return null; const r = x.roh || {};
+    if (Number(r.teil) && Number(r.teile) > 1) return { n: Number(r.teil), von: Number(r.teile), grund: r.titel_grund || String(x.titel).replace(/ – Teil \d+ von \d+.*$/, ''), unter: r.untertitel || '' };
+    const m = String(x.titel).match(/^(.*?) – Teil (\d+) von (\d+)(?: · (.*))?$/); return m ? { grund: m[1], n: Number(m[2]), von: Number(m[3]), unter: m[4] || r.untertitel || '' } : null; };
+  const familie = (x) => { const t = teilVon(x); if (!t) return []; return M.themen.filter((y) => { const ty = teilVon(y); return ty && ty.grund === t.grund && ty.von === t.von; }).sort((a, b) => teilVon(a).n - teilVon(b).n); };
+  // Zusatz: Teil ohne Lehrplan-Punkt in dieser Schulart (oder vom Server so markiert)
+  const zusatz = (x, s2 = sa) => { const z = x.roh?.zusatz; if (z === true || (z && typeof z === 'object' && z[s2])) return true; return !!teilVon(x) && !lernMxKl(x, s2); };
+  // harte Voraussetzungen (aus dem Raster; dazu Teil n−1 → Teil n, außer bei Zusatz in der Schulart des Kindes); aufgelöste Themen zählen nicht
+  const hartVor = (x) => { const l = (M.vor.get(x.id) || []).filter((e) => e.art === 'hart' && M.by.has(e.id) && !M.by.get(e.id).ohneFlug).map((e) => e.id);
+    const t = teilVon(x); if (t && t.n > 1) { const v = familie(x).find((y) => teilVon(y).n === t.n - 1); if (v && !zusatz(v, kindSa) && !zusatz(x, kindSa) && !l.includes(v.id)) l.push(v.id); }
+    return l; };
+  // Reihenfolge-Konflikte im Fahrplan: Fall 1 = Voraussetzung kommt später, Fall 3 = weder gekonnt noch im Plan
+  const konflikte = () => { const r = []; ordne();
+    for (const i of sichtbar) for (const x of fpThemen(plan[i])) { const px = platzInfo(x)?.pos; if (px == null) continue;
+      for (const vid of hartVor(x)) { const v = M.by.get(vid); if (gekonnt(stufeVon(v))) continue; const pv = platzInfo(v)?.pos;
+        if (pv != null) { if (pv > px) r.push({ fall: 1, x, v }); } else if (!imPlan(v) || stufeVon(v).stufe === 'nicht_im_plan') r.push({ fall: 3, x, v }); } }
+    return r; };
+  const fehlend = () => M.themen.filter((x) => inKlassen(x) && !x.ohneFlug && !zusatz(x) && stufeVon(x).stufe === 'nicht_im_plan');
   const einstiegListe = () => { const z = zst.einstieg; if (!z) return null;
     const ts = M.themen.filter((x) => !x.ohneFlug && lernMxKl(x, sa) && lernMxKl(x, sa) < z && (sa === 'ib_myp' || !x.pflicht || x.pflicht.includes(sa)));
     return { ts, fehlt: ts.filter((x) => !gekonnt(stufeVon(x))) }; };
   const passt = (x) => {
     const s = stufeVon(x);
-    if (zst.zeigen === 'raus' && s.stufe !== 'nicht_im_plan') return false;
+    if (zst.zeigen === 'raus' && (s.stufe !== 'nicht_im_plan' || zusatz(x))) return false;
     if (zst.zeigen === 'drin' && !['dran', 'kommt'].includes(s.stufe)) return false;
     if (zst.einstieg) { const e = einstiegListe(); if (!e.fehlt.includes(x)) return false; }
     const q = zst.q.trim().toLowerCase(); return !q || `${x.titel} ${x.umfang} ${x.gebiet} ${x.etappen.map((e) => e.titel).join(' ')}`.toLowerCase().includes(q);
@@ -4163,26 +4221,39 @@ async function viewKindLehrplan(id, rest = []) {
       case 'wiederholung': return s.wdh_nr ? `↻ Wdh ${s.wdh_nr}/5` : '↻ Wdh';
       case 'dran': return `▶ Etappe ${s.etappe_jetzt || Math.min((Number(s.gelandet) || 0) + 1, n)}/${n}`;
       case 'kommt': { const pl = platz(x); return pl ? `Platz ${pl}` : '○ im Plan'; }
-      default: { const g = Number(s.gelandet) || Number(s.begonnen) || 0; return g ? `${Math.min(g, n)}/${n} begonnen` : '+ einplanen'; }
+      default: { if (zusatz(x)) return null; const g = Number(s.gelandet) || Number(s.begonnen) || 0; return g ? `${Math.min(g, n)}/${n} begonnen` : '+ einplanen'; }
     }
   };
   const art = (x, s) => (s.stufe === 'dran' ? 'dran' : s.stufe === 'kommt' ? 'plan' : s.stufe === 'wiederholung' ? 'wdh' : s.stufe === 'komplett' ? 'fertig' : lernMxKl(x, sa) ? 'raus' : 'fremd');
-  const karte = (x) => {
-    const s = stufeVon(x); const a = art(x, s); const pl = platz(x); const b = blockVon(x);
-    const key = `${b}:${x.id}`; const gew = zst.auswahl?.has(key);
-    return el('button', { type: 'button', class: `lw-karte lw-${a}` + (x.ohneFlug ? ' lw-aufg' : '') + (passt(x) ? '' : ' lw-blass') + (zst.sel === x.id ? ' lw-sel' : '') + (zst.hl === b ? ' lw-hl' : '') + (gew ? ' lw-gew' : ''),
-      'data-id': String(x.id), 'data-block': String(b), 'aria-pressed': zst.auswahl ? String(!!gew) : null, 'aria-expanded': zst.auswahl ? null : String(zst.sel === x.id),
-      onclick: () => { if (zst.auswahl) { if (gew) zst.auswahl.delete(key); else zst.auswahl.add(key); zeichneAlles(); return; } oeffne(x.id); } },
+  let gezogen = false; // nach dem Ziehen kein Klick
+  const karte = (x, famKl = '') => {
+    const s = stufeVon(x); const a = art(x, s); const pl = platz(x); const b = blockVon(x); const tl = teilVon(x); const zs = zusatz(x);
+    const key = `${b}:${x.id}`; const gew = zst.auswahl?.has(key); const st = standText(x, s);
+    const k = el('button', { type: 'button', class: `lw-karte lw-${a}` + (zs ? ' lw-zusatz' : '') + famKl + (x.ohneFlug ? ' lw-aufg' : '') + (passt(x) ? '' : ' lw-blass') + (zst.sel === x.id ? ' lw-sel' : '') + (zst.hl === b ? ' lw-hl' : '') + (gew ? ' lw-gew' : ''),
+      'data-id': String(x.id), 'data-block': String(b), 'data-fam': tl ? tl.grund : null, 'aria-pressed': zst.auswahl ? String(!!gew) : null, 'aria-expanded': zst.auswahl ? null : String(zst.sel === x.id),
+      title: tl ? `${tl.grund} – Teil ${tl.n} von ${tl.von}${tl.unter ? ' · ' + tl.unter : ''}${zs ? ' (Zusatz)' : ''}` : null,
+      onmouseenter: tl ? () => matrixWrap.querySelectorAll('.lw-karte[data-fam]').forEach((c) => { if (c !== k && c.dataset.fam === tl.grund) c.classList.add('lw-fam-hl'); }) : null,
+      onmouseleave: tl ? () => matrixWrap.querySelectorAll('.lw-fam-hl').forEach((c) => c.classList.remove('lw-fam-hl')) : null,
+      onclick: () => { if (gezogen) { gezogen = false; return; } if (zst.auswahl) { if (gew) zst.auswahl.delete(key); else zst.auswahl.add(key); zeichneAlles(); return; } oeffne(x.id); } },
       zst.auswahl ? el('span', { class: 'lw-cb', 'aria-hidden': 'true' }, gew ? '✓' : '') : null,
-      pl ? el('span', { class: 'lw-pl', title: `Platz ${pl} im Fahrplan` }, String(pl)) : s.stufe === 'nicht_im_plan' ? el('span', { class: 'lw-pl lw-plus', 'aria-hidden': 'true' }, '+') : null,
-      el('span', { class: 'lw-t' }, x.titel),
-      el('span', { class: 'lw-m' }, el('span', { class: 'lw-st' }, standText(x, s)), kennzeichen(x)));
+      pl ? el('span', { class: 'lw-pl', title: `Platz ${pl} im Fahrplan` }, String(pl)) : s.stufe === 'nicht_im_plan' && !zs ? el('span', { class: 'lw-pl lw-plus', 'aria-hidden': 'true' }, '+') : null,
+      el('span', { class: 'lw-t' }, tl ? tl.grund : x.titel, tl ? el('span', { class: 'lw-teil', 'aria-label': `Teil ${tl.n} von ${tl.von}` }, `${tl.n}/${tl.von}`) : null),
+      tl?.unter ? el('span', { class: 'lw-u' }, tl.unter) : null,
+      el('span', { class: 'lw-m' }, zs && s.stufe === 'nicht_im_plan' ? el('span', { class: 'lw-zus-marke' }, 'Zusatz') : el('span', { class: 'lw-st' }, st), zs && s.stufe !== 'nicht_im_plan' ? el('span', { class: 'lw-zus-marke' }, 'Zusatz') : null, kennzeichen(x)));
+    k.addEventListener('pointerdown', (ev) => karteZiehen(ev, x, k));
+    return k;
   };
 
   // ---------- Matrix ----------
   const gebiete = () => { const reihe = M.gebiete || LERN_MX_GEB; return [...reihe, ...new Set(M.themen.map((x) => x.gebiet).filter((g) => !reihe.includes(g)))].filter((g) => M.themen.some((x) => x.gebiet === g)); };
   const reihe = (x) => Number(x.r[sa]) || Number(x.r.gym_by) || 999;
-  const imFeld = (k, g) => M.themen.filter((x) => lernMxZeile(x, sa) === k && x.gebiet === g).sort((a, b) => (lernMxKl(a, sa) ? 0 : 1) - (lernMxKl(b, sa) ? 0 : 1) || reihe(a) - reihe(b) || a.titel.localeCompare(b.titel));
+  const imFeld = (k, g) => { const l = M.themen.filter((x) => lernMxZeile(x, sa) === k && x.gebiet === g).sort((a, b) => (lernMxKl(a, sa) ? 0 : 1) - (lernMxKl(b, sa) ? 0 : 1) || reihe(a) - reihe(b) || a.titel.localeCompare(b.titel));
+    const aus = []; const da = new Set();
+    for (const x of l) { if (da.has(x.id)) continue; const t = teilVon(x);
+      const fam = t ? l.filter((y) => { const ty = teilVon(y); return ty && ty.grund === t.grund && ty.von === t.von; }).sort((a, b) => teilVon(a).n - teilVon(b).n) : [x];
+      fam.forEach((y, i) => { da.add(y.id); y._fam = fam.length > 1 ? ' lw-fam' + (i === 0 ? ' lw-fam-a' : '') + (i === fam.length - 1 ? ' lw-fam-z' : '') : ''; aus.push(y); }); }
+    return aus; };
+  const karteImFeld = (x) => karte(x, x._fam || '');
   const farbe = (k) => LERN_KL_FARBE[k] || '#888';
   const andere = () => Object.keys(LERN_MX_SA).filter((s2) => s2 !== sa);
   const kasten = (k) => el('div', { class: 'lw-kz' },
@@ -4201,13 +4272,13 @@ async function viewKindLehrplan(id, rest = []) {
       lernErsetze(matrixWrap, el('div', { class: 'lw-liste' }, ...kl.map((k) => { const f = fertigeKlasse(k);
         if (f && !zst.offenKl.has(k)) return el('section', { class: 'lw-liste-klasse', 'data-kl': String(k) }, zuReihe(k, f));
         return el('section', { class: 'lw-liste-klasse', 'data-kl': String(k) }, el('div', { class: 'lw-liste-kopf' }, kasten(k)),
-          ...gebs.map((g) => { const l = imFeld(k, g); return l.length ? el('div', { class: 'lw-gruppe' }, el('b', { class: 'lw-gruppe-name' }, g), ...l.map(karte)) : null; })); })));
+          ...gebs.map((g) => { const l = imFeld(k, g); return l.length ? el('div', { class: 'lw-gruppe' }, el('b', { class: 'lw-gruppe-name' }, g), ...l.map(karteImFeld)) : null; })); })));
       return;
     }
     const zellen = [el('div', { class: 'lw-ecke' }), ...gebs.map((g) => el('div', { class: 'lw-gh' }, g))];
     for (const k of kl) { const f = fertigeKlasse(k);
       if (f && !zst.offenKl.has(k)) { zellen.push(el('div', { class: 'lw-zu-zeile', 'data-kl': String(k), style: `grid-column:1 / span ${gebs.length + 1}` }, zuReihe(k, f))); continue; }
-      zellen.push(el('div', { class: 'lw-kz-zelle', 'data-kl': String(k) }, kasten(k)), ...gebs.map((g) => el('div', { class: 'lw-zel' }, ...imFeld(k, g).map(karte)))); }
+      zellen.push(el('div', { class: 'lw-kz-zelle', 'data-kl': String(k) }, kasten(k)), ...gebs.map((g) => el('div', { class: 'lw-zel' }, ...imFeld(k, g).map(karteImFeld)))); }
     lernErsetze(matrixWrap, el('div', { class: 'lw-mx', style: `--n:${gebs.length}` }, ...zellen),
       kl.length ? null : el('p', { class: 'muted' }, 'Keine Klasse gewählt.'));
   };
@@ -4222,11 +4293,14 @@ async function viewKindLehrplan(id, rest = []) {
     const jetzt = ts.find((y) => stufeVon(y).stufe === 'dran') || ts.find((y) => stufeVon(y).stufe === 'kommt') || ts[0];
     const s = jetzt ? stufeVon(jetzt) : null; const n = jetzt ? lernLwEtappen(jetzt, s) : 0; const g = Math.min(n, Number(s?.gelandet) || 0);
     const fertig = ts.filter((y) => gekonnt(stufeVon(y))).length;
-    const meta = [jetzt?.gebiet || o?.kontinent, jetzt ? `${LERN_LW_SA[sa]} ${lernMxKl(jetzt, sa) || '–'}` : null, ts.length > 1 ? `${fertig}/${ts.length} Flüge` : null, dran && jetzt ? `Etappe ${s.etappe_jetzt || Math.min(g + 1, n)}/${n}` : null].filter(Boolean).join(' · ');
+    const meta = [jetzt?.gebiet || o?.kontinent, jetzt ? `${LERN_LW_SA[sa]} ${lernMxKl(jetzt, sa) || '–'}` : null, ts.length > 1 ? `${fertig}/${ts.length} Themen` : null, dran && jetzt ? `Etappe ${s.etappe_jetzt || Math.min(g + 1, n)}/${n}` : null].filter(Boolean).join(' · ');
+    // LW-2 (4a): dauerhafter Hinweis, solange eine harte Voraussetzung fehlt oder später kommt
+    const kf = konfl.filter((k) => ts.includes(k.x));
+    const warn = kf.map((k) => el('span', { class: 'lw-fp-warn-zeile' }, `braucht „${k.v.titel}“ – ${k.fall === 1 ? `kommt erst auf Platz ${platz(k.v)}` : 'nicht gelernt, nicht im Plan'}`));
     const griff = el('span', { class: 'lw-gr', role: 'button', 'aria-label': `${titel} ziehen`, title: 'Ziehen zum Umsortieren' }, '⋮⋮');
     griff.addEventListener('pointerdown', (ev) => ziehen(ev, j));
     const tausche = (k) => aendere(() => { [plan[sichtbar[k]], plan[sichtbar[j]]] = [plan[sichtbar[j]], plan[sichtbar[k]]]; }, `„${titel}“ auf Platz ${k + 1}`);
-    return el('li', { class: 'lw-fp' + (dran ? ' lw-fp-dran' : ''), 'data-block': String(px.block_id),
+    return el('li', { class: 'lw-fp' + (dran ? ' lw-fp-dran' : '') + (kf.length ? ' lw-fp-warn' : ''), 'data-block': String(px.block_id),
       onmouseenter: () => { if (zieht) return; zst.hl = px.block_id; matrixWrap.querySelectorAll(`.lw-karte[data-block="${px.block_id}"]`).forEach((c) => c.classList.add('lw-hl')); },
       onmouseleave: () => { zst.hl = null; matrixWrap.querySelectorAll('.lw-karte.lw-hl').forEach((c) => c.classList.remove('lw-hl')); } },
       griff, el('span', { class: 'lw-nr' }, String(j + 1)),
@@ -4235,8 +4309,9 @@ async function viewKindLehrplan(id, rest = []) {
         el('button', { type: 'button', 'aria-label': `${titel} nach oben`, disabled: j === 0 ? true : null, onclick: () => tausche(j - 1) }, '↑'),
         el('button', { type: 'button', 'aria-label': `${titel} nach unten`, disabled: j === sichtbar.length - 1 ? true : null, onclick: () => tausche(j + 1) }, '↓')),
       dran && jetzt ? el('span', { class: 'lw-bar', role: 'img', 'aria-label': `${g} von ${n} Etappen gelandet` }, el('i', { style: `width:${lernPz(g, n)}%` })) : null,
-      ts.length > 1 ? el('button', { type: 'button', class: 'lw-fp-auf', 'aria-expanded': String(auf), onclick: () => { if (auf) zst.offenOrt.delete(px.block_id); else zst.offenOrt.add(px.block_id); zeichneRail(); } }, auf ? 'Flüge ▾' : 'Flüge ▸') : null,
-      auf ? el('ul', { class: 'lw-fp-fluege' }, ...ts.map((y) => { const sy = stufeVon(y); return el('li', {}, el('button', { type: 'button', onclick: () => oeffne(y.id) }, lernStufeZeichenEl(sy), ' ', y.titel)); })) : null);
+      warn.length ? el('span', { class: 'lw-fp-warn-box' }, ...warn) : null,
+      ts.length > 1 ? el('button', { type: 'button', class: 'lw-fp-auf', 'aria-expanded': String(auf), onclick: () => { if (auf) zst.offenOrt.delete(px.block_id); else zst.offenOrt.add(px.block_id); zeichneRail(); } }, auf ? 'Themen ▾' : 'Themen ▸') : null,
+      auf ? el('ul', { class: 'lw-fp-fluege' }, ...ts.map((y) => { const sy = stufeVon(y); const py = platz(y); return el('li', {}, el('button', { type: 'button', onclick: () => oeffne(y.id) }, py ? el('b', { class: 'lw-fp-buchst' }, py + ' ') : lernStufeZeichenEl(sy), ' ', y.titel)); })) : null);
   };
   const ausserhalb = (stufe, titel) => {
     const ts = M.themen.filter((x) => imPlan(x) && stufeVon(x).stufe === stufe);
@@ -4245,17 +4320,22 @@ async function viewKindLehrplan(id, rest = []) {
         return el('li', {}, el('button', { type: 'button', class: 'lw-zu-titel', onclick: () => oeffne(x.id) }, x.titel, el('small', {}, ` · ${lernStufeZusatz(s)}`)),
           kannWdh && stufe === 'komplett' ? el('button', { type: 'button', class: 'lern-lp-textlink lern-lp-wieder', 'aria-label': `${x.titel}: Wieder in die Wiederholung`, onclick: () => stufeSetzen(x, 'wieder') }, 'Wieder in die Wiederholung') : null); })));
   };
+  let konfl = [];
   const zeichneRail = () => {
-    const mit = ordne(); const nDran = mit.filter((m) => m[2] === 'dran').length;
+    const mit = ordne(); const nDran = mit.filter((m) => m[2] === 'dran').length; konfl = konflikte();
+    const nThemen = sichtbar.reduce((n, i) => n + fpThemen(plan[i]).length, 0);
+    const fehlt = zst.zeigen === 'raus' ? fehlend() : []; const bisKl = Math.max(...klassen);
     const zeilen = []; sichtbar.forEach((i, j) => { if (j === 0 && nDran) zeilen.push(el('li', { class: 'lw-rsek' }, 'GERADE DRAN')); if (j === nDran) zeilen.push(el('li', { class: 'lw-rsek' }, 'KOMMT NOCH'));
       zeilen.push(fpEintrag(plan[i], j, j < nDran ? 'dran' : 'kommt')); });
     lernErsetze(rail,
-      el('div', { class: 'lw-rk' }, el('b', {}, 'Fahrplan'), el('span', {}, `${sichtbar.length} ${sichtbar.length === 1 ? 'Ort' : 'Orte'} · ziehen oder ↑ ↓`),
+      el('div', { class: 'lw-rk' }, el('b', {}, 'Fahrplan'), el('span', { class: 'lw-rk-zahl' }, `${sichtbar.length} ${sichtbar.length === 1 ? 'Platz' : 'Plätze'} · ${nThemen} ${nThemen === 1 ? 'Thema' : 'Themen'}`),
         modus() === 'tablet' ? el('button', { type: 'button', class: 'lw-x', 'aria-label': 'Fahrplan schließen', onclick: () => { zst.fahrplanAuf = false; zeichneAlles(); } }, '✕') : null),
+      fehlt.length ? el('div', { class: 'lw-alle' }, el('span', {}, `${fehlt.length} ${fehlt.length === 1 ? 'Thema' : 'Themen'} (bis Kl. ${bisKl}) noch nicht im Plan`),
+        el('button', { type: 'button', class: 'primary', onclick: () => alleEinplanen(fehlt) }, `Alle ${fehlt.length} einplanen (nach Klasse und Lehrplan)`)) : null,
       el('ol', { class: 'lw-rliste' }, ...zeilen),
       !plan.length ? el('p', { class: 'muted small lw-leer' }, 'Der Plan ist leer. Ohne Plan sieht das Kind alle Flüge. Ein Thema antippen und „In den Plan“ wählen.')
         : !sichtbar.length ? el('p', { class: 'muted small lw-leer' }, 'Alle Orte im Plan sind gelandet. Ein Thema antippen und „In den Plan“ wählen.') : null,
-      el('p', { class: 'lw-dz' }, modus() === 'handy' ? 'Einplanen: unter „Alle Themen“ ein Thema antippen' : '+ Thema antippen und einplanen'),
+      el('p', { class: 'lw-dz' }, modus() === 'handy' ? 'Einplanen: unter „Alle Themen“ ein Thema antippen' : modus() === 'rechner' ? '+ Thema hierher ziehen' : '+ Thema antippen und einplanen'),
       el('p', { class: 'lw-rsek' }, 'AUSSERHALB DES FAHRPLANS'),
       ausserhalb('wiederholung', '↻ In Wiederholung'), ausserhalb('komplett', '✓ Fertig (kann er)'),
       lernAendern({ lernender_id: id }, { bezug: 'plan', wo: `Flugplan ${kind.name || ''}`, art: 'sonst' }));
@@ -4266,15 +4346,41 @@ async function viewKindLehrplan(id, rest = []) {
     ev.preventDefault();
     const liste = rail.querySelector('.lw-rliste'); const zeilen = [...liste.querySelectorAll(':scope > .lw-fp')]; const li = zeilen[j]; if (!li) return;
     const mitten = zeilen.map((z) => { const b = z.getBoundingClientRect(); return b.top + b.height / 2; });
-    const h = li.getBoundingClientRect().height + 5; const start = ev.clientY; let ziel = j; zieht = true;
+    const h = li.getBoundingClientRect().height + 5; const start = ev.clientY, startX = ev.clientX; let ziel = j; zieht = true; let raus = false;
     li.classList.add('zieht');
-    const lauf = (e) => { const dy = e.clientY - start; li.style.transform = `translateY(${dy}px)`; const mitte = mitten[j] + dy;
+    const lauf = (e) => { const dy = e.clientY - start, dx = e.clientX - startX;
+      // LW-2 (4a): über der Matrix losgelassen = aus dem Plan nehmen (Matrix rot gestrichelt)
+      const mw = matrixWrap.getBoundingClientRect(); raus = modus() !== 'handy' && e.clientX > mw.left + 8 && e.clientX < mw.right && e.clientY > mw.top && e.clientY < mw.bottom;
+      matrixWrap.classList.toggle('lw-raus-ziel', raus);
+      li.style.transform = `translate(${raus ? dx : 0}px, ${dy}px)`; const mitte = mitten[j] + dy;
       ziel = zeilen.reduce((n, z, k) => n + (k !== j && mitten[k] < mitte ? 1 : 0), 0);
       zeilen.forEach((z, k) => { if (k === j) return; z.style.transform = k > j && k <= ziel ? `translateY(${-h}px)` : k < j && k >= ziel ? `translateY(${h}px)` : ''; }); };
     const ende = () => { window.removeEventListener('pointermove', lauf); window.removeEventListener('pointerup', ende); window.removeEventListener('pointercancel', ende);
-      zeilen.forEach((z) => { z.style.transform = ''; }); li.classList.remove('zieht'); zieht = false;
+      zeilen.forEach((z) => { z.style.transform = ''; }); li.classList.remove('zieht'); zieht = false; matrixWrap.classList.remove('lw-raus-ziel');
+      if (raus) { const von = sichtbar[j]; const px = plan[von]; const { titel, ts } = fpTitel(px); aendere(() => { const i = plan.indexOf(px); if (i >= 0) plan.splice(i, 1); }, `„${titel}“ aus dem Plan genommen`, ts); return; }
       if (ziel !== j) { const von = sichtbar[j], nach = sichtbar[ziel]; const titel = fpTitel(plan[von]).titel; aendere(() => { const [x] = plan.splice(von, 1); plan.splice(nach, 0, x); }, `„${titel}“ auf Platz ${ziel + 1}`); } };
     window.addEventListener('pointermove', lauf); window.addEventListener('pointerup', ende); window.addEventListener('pointercancel', ende);
+  };
+
+  // LW-2 (4a): Karte aus der Matrix in den Fahrplan ziehen (Rechner; Tablet bei offenem Fahrplan). Blaue Linie zeigt den Platz.
+  const karteZiehen = (ev, x, k) => {
+    if (gesperrt || zst.auswahl || modus() === 'handy' || (modus() === 'tablet' && !zst.fahrplanAuf) || (ev.button !== undefined && ev.button !== 0)) return;
+    const sx = ev.clientX, sy = ev.clientY; let geist = null, linie = null, j = null;
+    const zeilen = () => [...rail.querySelectorAll('.lw-rliste > .lw-fp')];
+    const lauf = (e) => {
+      if (!geist) { if (Math.hypot(e.clientX - sx, e.clientY - sy) < 7) return;
+        geist = el('div', { class: 'lw-geist' }, teilVon(x) ? `${teilVon(x).grund} ${teilVon(x).n}/${teilVon(x).von}` : x.titel); document.body.append(geist); rail.classList.add('lw-ziel'); k.classList.add('lw-zieht-weg'); }
+      geist.style.left = `${e.clientX + 10}px`; geist.style.top = `${e.clientY + 8}px`;
+      const r = rail.getBoundingClientRect(); const drin = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      linie?.remove(); linie = null; j = null; if (!drin) return;
+      const zs = zeilen(); j = zs.findIndex((z) => { const b = z.getBoundingClientRect(); return e.clientY < b.top + b.height / 2; }); if (j < 0) j = zs.length;
+      linie = el('li', { class: 'lw-drop-linie', 'aria-hidden': 'true' }); if (zs[j]) zs[j].before(linie); else rail.querySelector('.lw-rliste')?.append(linie);
+    };
+    const ende = () => { removeEventListener('pointermove', lauf); removeEventListener('pointerup', ende); removeEventListener('pointercancel', ende);
+      linie?.remove(); geist?.remove(); rail.classList.remove('lw-ziel'); k.classList.remove('lw-zieht-weg');
+      if (!geist) return; gezogen = true; setTimeout(() => { gezogen = false; }, 0);
+      if (j !== null) einplanenAn(x, j); };
+    addEventListener('pointermove', lauf); addEventListener('pointerup', ende); addEventListener('pointercancel', ende);
   };
 
   // ---------- Detail-Schublade ----------
@@ -4295,20 +4401,24 @@ async function viewKindLehrplan(id, rest = []) {
     const eid = x.roh.einheit?.id ?? x.roh.einheit_id; const e = eid ? proEinheit().get(eid) : null; const ks = e?.karten || [];
     const byZiel = new Map(ks.map((k) => [k.lernziel, k]));
     const liste = x.etappen.length ? x.etappen : ks.map((k) => ({ titel: k.titel || k.lernziel, lernziel: k.lernziel }));
+    // LW-2 K1: Etappen vor „etappe_jetzt“ (bzw. die ersten „gelandet“) ohne Karte zählen als gelandet – sonst widerspricht die Liste dem Kopf „3 von 7“
+    const jetzt = Number(s.etappe_jetzt) || (s.stufe === 'dran' ? Math.min((Number(s.gelandet) || 0) + 1, liste.length) : 0); const gel = jetzt ? jetzt - 1 : Number(s.gelandet) || 0;
     let dranGesetzt = false;
     return liste.map((et, i) => { const k = (et.lernziel && byZiel.get(et.lernziel)) || (et.lernziel ? null : ks[i]) || null;
       let dot = '', wort = 'offen';
-      if (et.pflicht === false && !k?.sitzt) { dot = ''; wort = 'freiwillig'; }
+      if (!k?.sitzt && !k?.sicher && i < gel && !(k && (k.richtig || k.falsch))) { dot = s.stufe === 'wiederholung' ? 'w' : 'g'; wort = s.stufe === 'wiederholung' ? 'Wiederholung' : 'gelandet'; }
+      else if (s.stufe === 'dran' && jetzt && i === jetzt - 1 && !k?.sitzt && !dranGesetzt) { dranGesetzt = true; dot = 'd'; wort = k && k.ziel ? `gerade dran (${Math.min(k.serie || 0, k.ziel)} von ${k.ziel})` : 'gerade dran'; }
+      else if (et.pflicht === false && !k?.sitzt) { dot = ''; wort = 'freiwillig'; }
       else if (k?.sitzt || k?.sicher) { dot = s.stufe === 'wiederholung' ? 'w' : 'g'; wort = s.stufe === 'wiederholung' ? 'Wiederholung' : 'gelandet'; }
       else if (k && Number(k.falsch) > 0 && (k.fehler || []).length) { dot = 'f'; wort = `begonnen · ${k.falsch} ${Number(k.falsch) === 1 ? 'Fehler' : 'Fehler'}`; }
-      else if (s.stufe === 'dran' && !dranGesetzt) { dranGesetzt = true; dot = 'd'; wort = k && k.ziel ? `gerade dran (${Math.min(k.serie || 0, k.ziel)} von ${k.ziel})` : 'gerade dran'; }
+      else if (s.stufe === 'dran' && !jetzt && !dranGesetzt) { dranGesetzt = true; dot = 'd'; wort = k && k.ziel ? `gerade dran (${Math.min(k.serie || 0, k.ziel)} von ${k.ziel})` : 'gerade dran'; }
       else if (k && (k.richtig || k.falsch)) { dot = 'd'; wort = 'begonnen'; }
       return el('li', { class: 'lw-et' }, el('span', { class: 'lw-dot' + (dot ? ' lw-dot-' + dot : ''), 'aria-hidden': 'true' }), el('span', {}, `${i + 1} `, et.titel || `Etappe ${i + 1}`), el('small', {}, wort)); });
   };
   const fehlerOffen = (x, s) => { const eid = x.roh.einheit?.id ?? x.roh.einheit_id; const ks = (eid ? proEinheit().get(eid)?.karten : null) || [];
     const n = ks.filter((k) => !k.sitzt && (k.fehler || []).length).length; return n || (s.fehler_offen === true || Number(s.fehler_offen) > 0 || Number(s.wieder_offen) > 0 ? 1 : 0); };
-  const vorKarte = (vid) => { const y = M.by.get(vid); const s = stufeVon(y); const pl = platz(y);
-    const mark = gekonnt(s) ? '✓' : pl ? `Platz ${pl}` : 'fehlt';
+  const vorKarte = (vid, art = '') => { const y = M.by.get(vid); const s = stufeVon(y); const pl = platz(y);
+    const mark = (gekonnt(s) ? '✓' : pl ? `Platz ${pl}` : 'fehlt') + (art === 'empfohlen' ? ' · empfohlen' : '');
     return el('button', { type: 'button', class: 'lw-vk lw-vk-' + (gekonnt(s) ? 'ok' : pl ? 'plan' : 'fehlt'), onclick: () => oeffne(vid) }, el('b', {}, y.titel), el('small', {}, mark)); };
   let menueAuf = false;
   function zeichneDetail() {
@@ -4320,18 +4430,32 @@ async function viewKindLehrplan(id, rest = []) {
     const seg = (wahl, text) => el('button', { type: 'button', 'aria-pressed': String(aktiv === wahl), 'aria-label': `${x.titel}: ${text}`, onclick: () => stufeSetzen(x, wahl) }, text);
     const t = x.roh; const n = x.etappen.length || t.einheit?.karten || t.etappen_anzahl || 0; const nf = fehlerOffen(x, s);
     const vor = M.vor.get(x.id) || []; const nach = M.nach.get(x.id) || [];
-    const z = lernMxZusatz(x, sa);
+    const z = lernMxZusatz(x, sa); const tl = teilVon(x); const fam = tl ? familie(x) : []; const zs = zusatz(x);
+    const fehlenTeile = fam.filter((y) => !imPlan(y) && !gekonnt(stufeVon(y)) && stufeVon(y).stufe === 'nicht_im_plan');
+    let auchZusatz = false;
+    const teileZeile = (y) => { const ty = teilVon(y); const sy = stufeVon(y); const py = platz(y);
+      const st = gekonnt(sy) ? '✓ geschafft' : sy.stufe === 'dran' ? `▶ Platz ${py || '–'}` : py ? `Platz ${py}` : 'nicht im Plan';
+      return el('li', {}, el('button', { type: 'button', class: 'lw-teil-zeile' + (y.id === x.id ? ' lw-teil-hier' : ''), 'aria-current': y.id === x.id ? 'true' : null, onclick: () => oeffne(y.id) },
+        el('b', {}, `Teil ${ty.n}`), ty.unter ? ` · ${ty.unter}` : '', ` · ${lernMxKl(y, sa) ? (sa === 'ib_myp' ? 'MYP-Jahr ' + (lernMxKl(y, sa) - 5) : 'Kl. ' + lernMxKl(y, sa)) : 'Zusatz'} · `, el('span', {}, st),
+        zusatz(y) ? el('span', { class: 'lw-zus-marke' }, 'Zusatz') : null)); };
     lernErsetze(drawer,
       el('div', { class: 'lw-dkopf' },
         el('button', { type: 'button', class: 'lw-x', 'aria-label': 'Detail schließen', onclick: () => { zst.sel = null; menueAuf = false; zeichneAlles(); } }, '✕'),
-        el('h2', {}, x.titel), el('div', { class: 'lw-sub' }, x.gebiet, z ? ` · ${z.text}` : ''), kennzeichen(x)),
+        el('h2', {}, tl ? [tl.grund, ' – ', el('span', { class: 'lw-teil-lang' }, `Teil ${tl.n} von ${tl.von}`)] : x.titel),
+        tl?.unter ? el('div', { class: 'lw-unter' }, tl.unter) : null,
+        zs ? el('p', { class: 'lw-zus-marke lw-zus-lang' }, `Zusatz – kein Pflichtstoff ${{ gym_by: 'im Gymnasium', rs_by: 'in der Realschule', ib_myp: 'im IB' }[sa]}`) : null,
+        el('div', { class: 'lw-sub' }, x.gebiet, z ? ` · ${z.text}` : ''), kennzeichen(x)),
       el('div', { class: 'lw-dinh' },
         el('h3', { class: 'lw-dh' }, `STAND VON ${String(kind.name || 'Kind').toUpperCase()}`),
         el('p', { class: 'lw-stpill ' + (LERN_STUFE[s.stufe]?.kl || '') }, lernStufeZeichenEl(s), ' ', el('b', {}, LERN_STUFE[s.stufe]?.wort || ''), ' · ', lernStufeZusatz(s), pl ? ` · Platz ${pl}` : ''),
         el('ol', { class: 'lw-etappen' }, ...etappenStand(x, s)),
+        fam.length > 1 ? [el('h3', { class: 'lw-dh' }, 'TEILE DIESES THEMAS'), el('ul', { class: 'lw-teile' }, ...fam.map(teileZeile)),
+          fehlenTeile.some((y) => !zusatz(y)) || fehlenTeile.length ? el('div', { class: 'lw-alle-teile' },
+            fehlenTeile.some((y) => zusatz(y)) ? el('label', { class: 'small' }, el('input', { type: 'checkbox', onchange: (ev) => { auchZusatz = ev.target.checked; } }), ' auch Zusatz') : null,
+            el('button', { type: 'button', onclick: () => { const ts = fehlenTeile.filter((y) => auchZusatz || !zusatz(y)); if (ts.length) aendere(() => ts.forEach((y) => setze(blockVon(y), y.id, 'lernen')), `${ts.length === 1 ? 'Ein Teil' : ts.length + ' Teile'} von „${tl.grund}“ eingeplant`, ts); } }, 'Alle Teile einplanen')) : null] : null,
         el('h3', { class: 'lw-dh' }, 'PLANEN'),
         el('div', { class: 'lw-planen' }, ...(drin && ['dran', 'kommt'].includes(s.stufe) ? [
-          el('button', { type: 'button', onclick: () => einplanen(x, 'naechstes'), disabled: s.stufe === 'dran' || pl === 1 ? true : null }, 'Als Nächstes'),
+          el('button', { type: 'button', onclick: () => einplanen(x, 'naechstes'), disabled: s.stufe === 'dran' || platzInfo(x)?.nr === 1 ? true : null }, 'Als Nächstes'),
           el('button', { type: 'button', onclick: () => einplanen(x, 'ende') }, 'Ans Ende'),
           el('button', { type: 'button', class: 'lw-raus', onclick: () => ausDemPlan(x) }, 'Aus dem Plan')]
           : drin ? [el('button', { type: 'button', class: 'lw-raus', onclick: () => ausDemPlan(x) }, 'Aus dem Plan')]
@@ -4350,7 +4474,7 @@ async function viewKindLehrplan(id, rest = []) {
           nf ? el('a', { href: `#/kind/${id}-wackelt` }, `Fehler besprechen (${nf}) ›`) : null),
         t.einheit || t.einheit_id ? null : lernAendern({ block_id: b }, { bezug: 'flug', wo: `Flug „${x.titel}“`, art: 'neu', text: `Bitte Inhalte bauen: „${x.titel}“ (${t.ort || x.gebiet}, ${lernJahrgangText(x.jg)}).` }),
         nachladen(x),
-        M.hatVerb ? [el('h3', { class: 'lw-dh' }, 'BRAUCHT VORHER'), vor.length ? el('div', { class: 'lw-vks' }, ...vor.map((e) => vorKarte(e.id))) : el('p', { class: 'small muted' }, 'Keine Voraussetzung hinterlegt.'),
+        M.hatVerb ? [el('h3', { class: 'lw-dh' }, 'BRAUCHT VORHER'), vor.length ? el('div', { class: 'lw-vks' }, ...vor.map((e) => vorKarte(e.id, e.art))) : el('p', { class: 'small muted' }, 'Keine Voraussetzung hinterlegt.'),
           el('h3', { class: 'lw-dh' }, 'DARAUF BAUT AUF'), nach.length ? el('div', { class: 'lw-vks' }, ...nach.map((e) => vorKarte(e.id))) : el('p', { class: 'small muted' }, 'Kein späteres Thema hinterlegt.')] : null));
   }
   const oeffne = (tid) => { zst.sel = tid; menueAuf = false; const x = M.by.get(tid); if (x) { klassen.add(lernMxZeile(x, sa)); zst.offenKl.add(lernMxZeile(x, sa)); }
@@ -4364,13 +4488,14 @@ async function viewKindLehrplan(id, rest = []) {
   suche.addEventListener('input', () => { zst.q = suche.value; zeichneMatrix(); });
   const leiste = el('div', { class: 'lw-leiste' }); const sammel = el('div', { class: 'lw-sammel lern-plan-sammel', role: 'region', 'aria-label': 'Sammelaktionen', hidden: true });
   const hinweis = el('div', { class: 'lw-hinweis' });
-  const zahlen = () => { const ts = M.themen.filter(inKlassen); return { raus: ts.filter((x) => stufeVon(x).stufe === 'nicht_im_plan').length, drin: ts.filter((x) => ['dran', 'kommt'].includes(stufeVon(x).stufe)).length }; };
+  const zahlen = () => { const ts = M.themen.filter(inKlassen); return { raus: ts.filter((x) => stufeVon(x).stufe === 'nicht_im_plan' && !zusatz(x)).length, drin: ts.filter((x) => ['dran', 'kommt'].includes(stufeVon(x).stufe)).length }; };
   const zeichneLeiste = () => {
     const z = zahlen(); const imFp = new Set(sichtbar.flatMap((i) => themenImOrt(plan[i].block_id).filter((y) => !plan[i].ausgelassen.includes(y.id)).map((y) => lernMxZeile(y, sa))));
     const einstieg = el('select', { class: 'lw-einstieg', 'aria-label': 'Einstieg prüfen', onchange: (ev) => { zst.einstieg = Number(ev.target.value) || null; zeichneAlles(); } },
       el('option', { value: '' }, 'Einstieg prüfen …'), ...[6, 7, 8, 9, 10].map((k) => el('option', { value: String(k), selected: zst.einstieg === k ? true : null }, sa === 'ib_myp' ? `MYP-Jahr ${k - 5}` : `Kl. ${k}`)));
-    lernErsetze(leiste,
-      modus() === 'tablet' ? el('button', { type: 'button', class: 'lw-ik', 'aria-expanded': String(zst.fahrplanAuf), onclick: () => { zst.fahrplanAuf = !zst.fahrplanAuf; zeichneAlles(); } }, `Fahrplan · ${sichtbar.length}`) : null,
+    const m = modus();
+    const auswahlKnopf = el('button', { type: 'button', class: 'lw-ik', 'aria-pressed': String(!!zst.auswahl), onclick: () => { zst.auswahl = zst.auswahl ? null : new Set(); zst.filterAuf = false; zeichneAlles(); } }, zst.auswahl ? 'Auswahl beenden' : 'Auswählen');
+    const gruppen = [
       el('span', { class: 'lw-lbl' }, 'Einordnen'),
       seg('Einordnen nach Schulart', Object.entries(LERN_MX_SA).map(([s2, [nm, kurz]]) => [s2, modus() === 'rechner' ? nm : kurz]), () => sa, (w) => { sa = w; zst.einstieg = null; }),
       el('span', { class: 'lw-lbl' }, 'Zeigen'),
@@ -4379,9 +4504,21 @@ async function viewKindLehrplan(id, rest = []) {
       el('div', { class: 'lw-kseg', role: 'group', 'aria-label': 'Klassen' }, ...LERN_MX_KL.map((k) => el('button', { type: 'button', 'aria-pressed': String(klassen.has(k)), style: `--f:${farbe(k)}`,
         'aria-label': `Klasse ${k}${imFp.has(k) ? ' (enthält Themen aus dem Fahrplan)' : ''}`,
         onclick: () => { if (klassen.has(k)) { if (klassen.size > 1) klassen.delete(k); } else klassen.add(k); klMerken(); zeichneAlles(); } }, String(k), imFp.has(k) ? el('i', { 'aria-hidden': 'true' }) : null))),
-      el('span', { class: 'lw-rechts' }, einstieg, suche,
-        el('button', { type: 'button', class: 'lw-ik', 'aria-pressed': String(!!zst.auswahl), onclick: () => { zst.auswahl = zst.auswahl ? null : new Set(); zeichneAlles(); } }, zst.auswahl ? 'Auswahl beenden' : 'Auswählen'),
-        stand, rueckKnopf));
+    ];
+    if (m === 'rechner') lernErsetze(leiste, ...gruppen, el('span', { class: 'lw-rechts' }, einstieg, suche, auswahlKnopf, stand, rueckKnopf));
+    else {
+      // LW-2 S1: Tablet/Handy – eine Zeile; Einordnen, Zeigen, Klassen, Einstieg, Suchen, Auswählen im Blatt „Filter ▾“, Legende hinter ⓘ
+      const aktiv = (sa !== kindSa ? 1 : 0) + (zst.zeigen !== 'alle' ? 1 : 0) + (zst.einstieg ? 1 : 0) + (zst.q ? 1 : 0) + (zst.auswahl ? 1 : 0);
+      lernErsetze(leiste,
+        m === 'tablet' ? el('button', { type: 'button', class: 'lw-ik', 'aria-expanded': String(zst.fahrplanAuf), onclick: () => { zst.fahrplanAuf = !zst.fahrplanAuf; zeichneAlles(); } }, `Fahrplan · ${sichtbar.length}`) : umschalter,
+        el('button', { type: 'button', class: 'lw-ik lw-filter-knopf', 'aria-expanded': String(!!zst.filterAuf), 'aria-controls': 'lw-filterblatt', onclick: () => { zst.filterAuf = !zst.filterAuf; zeichneLeiste(); } }, aktiv ? `Filter · ${aktiv} ▾` : 'Filter ▾'),
+        el('button', { type: 'button', class: 'lw-ik lw-leg-knopf', 'aria-label': 'Farben erklären', 'aria-expanded': String(!!zst.legende), onclick: () => { zst.legende = !zst.legende; legende.hidden = !zst.legende; zeichneLeiste(); } }, 'ⓘ'),
+        el('span', { class: 'lw-rechts' }, stand, rueckKnopf),
+        zst.filterAuf ? el('div', { class: 'lw-filterblatt', id: 'lw-filterblatt', role: 'dialog', 'aria-label': 'Filter' },
+          el('div', { class: 'lw-fb-kopf' }, el('b', {}, 'Filter'), el('button', { type: 'button', class: 'lw-x', 'aria-label': 'Filter schließen', onclick: () => { zst.filterAuf = false; zeichneLeiste(); } }, '✕')),
+          ...gruppen, el('span', { class: 'lw-lbl' }, 'Einstieg und Suche'), el('div', { class: 'lw-fb-zeile' }, einstieg, suche), auswahlKnopf,
+          el('button', { type: 'button', class: 'primary lw-fb-fertig', onclick: () => { zst.filterAuf = false; zeichneLeiste(); } }, 'Fertig')) : null);
+    }
     // Einstieg prüfen: Orientierung, keine Einstufung
     const e = einstiegListe();
     if (e) { const p2 = lernPz(e.ts.length - e.fehlt.length, e.ts.length);
@@ -4413,7 +4550,7 @@ async function viewKindLehrplan(id, rest = []) {
     ordne(); zeichneLeiste(); zeichneRail(); zeichneMatrix(); zeichneDetail();
     lernErsetze(umschalter, ...[['fahrplan', `Fahrplan · ${sichtbar.length}`], ['alle', 'Alle Themen']].map(([w, t]) =>
       el('button', { type: 'button', 'aria-pressed': String(zst.handy === w), onclick: () => { zst.handy = w; zeichneAlles(); } }, t)));
-    umschalter.hidden = m !== 'handy'; koerper.dataset.handy = zst.handy;
+    umschalter.hidden = m !== 'handy'; koerper.dataset.handy = zst.handy; legende.hidden = m !== 'rechner' && !zst.legende;
     hoehe();
   }
   const hoehe = () => { if (modus() === 'handy') { koerper.style.height = ''; return; } const top = koerper.getBoundingClientRect().top + scrollY; koerper.style.height = `${Math.max(460, innerHeight - top - 8)}px`; };

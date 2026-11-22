@@ -5224,3 +5224,86 @@ main.view:has(.lw-koerper) { max-width: 1440px; }
 .lw-fp-text b, .lw-fp-text small { overflow-wrap: break-word; }
 .lw-ik[aria-pressed="true"], .lw-ik[aria-expanded="true"] { background: #254D3E; color: #fff; border-color: #254D3E; }
 .lw-zu summary { min-height: 0; align-items: center; }
+
+/* ---------- LW-2 (0.89.0): Ziehen, Reihenfolge-Warnungen, Alle einplanen, Teile/Zusatz, kompakte Leiste ---------- */
+.lw-toast.lw-warn:not([hidden]) { background: #6E1A12; flex-wrap: wrap; max-width: min(720px, calc(100vw - 24px)); }
+.lw-toast .lw-toast-was { opacity: .8; }
+.lw-toast .lw-reparier { background: #fff; color: #6E1A12; }
+.lw-toast .lw-toast-x { background: transparent; padding: 4px 6px; }
+.lw-fp.lw-fp-warn { border-color: #C0392B; box-shadow: 0 0 0 1.5px #C0392B inset; }
+.lw-fp-warn-box { grid-column: 2 / -1; display: flex; flex-direction: column; gap: 2px; }
+.lw-fp-warn-zeile { font-size: 10.5px; font-weight: 700; color: #A0281C; line-height: 1.25; }
+.lw-fp-warn-zeile::before { content: "⚠ "; }
+.lw-fp-buchst { color: #7A5600; }
+.lw-alle { display: flex; flex-direction: column; gap: 6px; background: #FFF4CF; border: 1px solid #EBD38A; border-radius: 10px; padding: 8px; margin: 4px 0 8px; font-size: 12px; }
+.lw-alle .primary { font-size: 12px; padding: 6px 8px; min-height: 0; }
+.lw-drop-linie { list-style: none; height: 3px; border-radius: 2px; background: #1F5FA8; margin: 2px 0 4px; box-shadow: 0 0 0 2px #1F5FA833; }
+.lw-rail.lw-ziel { background: #F0F6FF; }
+.lw-geist { position: fixed; z-index: 90; pointer-events: none; background: #fff; border: 1.5px solid #1F5FA8; border-radius: 9px; padding: 5px 9px; font-size: 12px; font-weight: 650; box-shadow: 0 8px 20px #0003; max-width: 220px; }
+.lw-karte.lw-zieht-weg { opacity: .4; }
+.lw-mw.lw-raus-ziel { outline: 3px dashed #C0392B; outline-offset: -6px; background: #FDECEA; }
+.lw-mw.lw-raus-ziel::after { content: "Hier loslassen = aus dem Plan nehmen"; position: sticky; bottom: 12px; display: block; width: max-content; margin: 0 auto; background: #A0281C; color: #fff; font-weight: 700; font-size: 13px; padding: 6px 12px; border-radius: 10px; z-index: 6; }
+/* Teile und Zusatz (12.7) */
+.lw-teil { display: inline-block; margin-left: 4px; padding: 0 4px; border-radius: 4px; background: #F1EEE6; color: #4F5B56; font-size: 9.5px; font-weight: 800; vertical-align: 1px; }
+.lw-u { display: block; font-size: 10.5px; color: #5F6B66; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+.lw-karte.lw-zusatz { border-style: dashed; border-color: #CDBF9C; }
+.lw-zus-marke { display: inline-block; font-size: 9.5px; font-weight: 800; padding: 0 5px; border-radius: 4px; background: #F3E7C9; color: #7A5A12; }
+.lw-zus-lang { margin: 0 0 6px; font-size: 11px; }
+.lw-karte.lw-fam { margin-left: 6px; width: calc(100% - 6px); }
+.lw-karte.lw-fam::after { content: ""; position: absolute; left: -7px; top: -4px; bottom: -4px; width: 2px; background: #B9B09B; }
+.lw-karte.lw-fam-a::after { top: 10px; } .lw-karte.lw-fam-z::after { bottom: calc(100% - 12px); }
+.lw-karte.lw-fam-hl { box-shadow: 0 0 0 3px #C99600AA; }
+.lw-unter { font-size: 12px; color: #5F6B66; margin: -2px 0 6px; }
+.lw-teil-lang { white-space: nowrap; }
+.lw-teile { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.lw-teil-zeile { width: 100%; text-align: left; border: 1px solid #E4DED1; background: #fff; border-radius: 9px; padding: 6px 8px; font: inherit; font-size: 12px; cursor: pointer; color: var(--text); min-height: 0; display: flex; flex-wrap: wrap; gap: 2px 4px; align-items: center; }
+.lw-teil-zeile.lw-teil-hier { border-color: var(--text); }
+.lw-alle-teile { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 6px; }
+.lw-alle-teile button { border: 1px solid #E4DED1; background: #fff; border-radius: 9px; padding: 6px 10px; font: inherit; font-size: 12.5px; font-weight: 650; cursor: pointer; }
+/* S1: kompakte Leiste (Tablet/Handy) mit Filter-Blatt */
+.lw-leiste { position: relative; }
+.lw-leiste .lw-handy-um { flex: 1 1 auto; }
+.lw-filterblatt { position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 40; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #FFFDF8; border: 1px solid #E4DED1; border-radius: 14px; padding: 12px; box-shadow: 0 12px 30px #0003; }
+.lw-filterblatt .lw-lbl { flex: 1 0 100%; margin-top: 4px; }
+.lw-fb-kopf { flex: 1 0 100%; display: flex; justify-content: space-between; align-items: center; }
+.lw-fb-zeile { display: flex; flex-wrap: wrap; gap: 6px; }
+.lw-fb-fertig { margin-left: auto; }
+@media (max-width: 759px) {
+  .lw-filterblatt { position: fixed; top: auto; bottom: 0; left: 0; right: 0; border-radius: 16px 16px 0 0; max-height: 82vh; overflow: auto; z-index: 75; padding-bottom: calc(14px + env(safe-area-inset-bottom)); }
+  .lw-leiste { flex-wrap: nowrap; gap: 6px; padding: 4px 0; }
+  .lw-leiste .lw-rechts { margin-left: auto; flex-wrap: nowrap; }
+  .lw-leiste .lw-stand { display: none; }
+  .lw-leiste .lw-rueck { padding: 4px 8px; font-size: 0; } .lw-leiste .lw-rueck::before { content: "↶"; font-size: 16px; }
+  .lw-leiste .lw-handy-um button { padding: 5px 8px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf { gap: 4px; margin-bottom: 4px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf-zeile { flex-wrap: nowrap; align-items: center; gap: 8px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf-zeile h2 { font-size: 17px; margin: 0; }
+  main.view:has(.lw-koerper) .lern-kind-kopf-zeile small { display: none; }
+  main.view:has(.lw-koerper) .lern-kind-kopf-knoepfe { flex-wrap: nowrap; gap: 4px; margin-left: auto; }
+  main.view:has(.lw-koerper) .lern-kind-kopf-knoepfe > * { font-size: 12px; padding: 4px 8px; min-height: 30px; white-space: nowrap; }
+  main.view:has(.lw-koerper) .lern-info-oben .lern-info-link { font-size: 0; } main.view:has(.lw-koerper) .lern-info-oben .lern-info-link::before { content: "ⓘ"; font-size: 18px; }
+  main.view:has(.lw-koerper) .lern-reiter { margin-top: 2px; }
+  .lw-kopf2 { display: block; }
+}
+@media (max-width: 759px) {
+  .lw-koerper[data-modus="handy"] .lw-liste-kopf { padding: 4px 8px; }
+  .lw-koerper[data-modus="handy"] .lw-ring-gross { width: 38px; height: 38px; } .lw-koerper[data-modus="handy"] .lw-ring-gross svg { width: 38px; height: 38px; }
+  .lw-koerper[data-modus="handy"] .lw-gruppe { padding-top: 0; }
+  main.view:has(.lw-koerper) .lern-kind-kopf { margin-bottom: 2px; }
+  main.view:has(.lw-koerper) .lern-reiter a { padding-top: 6px; padding-bottom: 6px; }
+}
+.lw-teil-zeile { display: block; }
+@media (max-width: 759px) {
+  main.view:has(.lw-koerper) .lern-reiter a { padding-top: 4px; padding-bottom: 4px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf-knoepfe > * { min-height: 28px; }
+  .lw-koerper[data-modus="handy"] .lw-gruppe-name { line-height: 1.2; }
+  .lw-koerper[data-modus="handy"] .lw-liste-kopf { padding: 3px 8px 2px; }
+  .lw-kopf2:empty, .lw-kopf2:has(> .lw-legende[hidden]:only-child) { display: none; }
+}
+@media (max-width: 759px) {
+  .lw-leiste { padding: 2px 0 4px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf-zeile h2 { font-size: 16px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf { gap: 2px; }
+
+}
+@media (max-width: 759px) { main.view:has(.lw-koerper) .lern-reiter { margin-bottom: 4px; } main.view:has(.lw-koerper) .lern-kind-kopf { margin-bottom: 0; } }

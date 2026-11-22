@@ -2,6 +2,36 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: LW-2 – App 0.89.0 (Ziehen, Reihenfolge-Warnungen, Alle einplanen; Nacharbeit LW-1 S1/S2/K1/K2; Teile 12.7), Cache v164
+
+Auf `lernen-app` e20266e (Prüfung LW-1 des Gestalters, Vorgabe 12.7). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, kein Merge nach `main`.
+Bilder: `docs/previews/la/lw2-400.png`, `lw2-820.png`.
+
+**LW-2 (Abschnitte 4, 4a, 6)**
+- **Matrix → Fahrplan ziehen** (Rechner; Tablet bei offener Fahrplan-Schublade): Karte greifen, ein kleines Schild folgt dem Zeiger, im Fahrplan zeigt eine **blaue Linie** den Platz; losgelassen = an dieser Stelle eingeplant („‹Thema› auf Platz 2 eingeplant · ↶ Rückgängig“). Ziehen öffnet kein Detail. Unten im Fahrplan „+ Thema hierher ziehen“.
+- **Fahrplan → Matrix ziehen** = aus dem Plan (ganzer Platz). Über der Matrix: rot gestrichelt mit „Hier loslassen = aus dem Plan nehmen“.
+- **Reihenfolge-Warnung (4a), keine Sperre:** nach jedem Einplanen, Ziehen, ↑/↓, „Als Nächstes“, „Ans Ende“, Stufe, Sammelaktion. Nur harte Voraussetzungen; gekonnt/Wiederholung/gesetzt gilt als erfüllt; aufgelöste Themen zählen nicht. Dunkelrote Einblendung mit Knopf und „↶ Rückgängig“, bleibt bis ✕:
+  1. „⚠ „B“ baut auf „A“ auf – das kommt erst auf Platz 4“ · **„„A“ davor setzen“**
+  2. „⚠ „B“ baut hierauf auf und steht schon auf Platz 2“ · **„„B“ dahinter setzen“** (Abweichung: Vorgabe „hinter „B“ setzen“ – die Voraussetzung steht ja schon hinter B; repariert wird, indem B hinter die Voraussetzung rückt. Bitte bestätigen oder Wortlaut nennen.)
+  3. „⚠ … das kann er noch nicht und es ist nicht im Plan“ · **„„A“ davor einplanen“**
+  Aus dem Plan genommen, obwohl etwas darauf aufbaut: „… aus dem Plan genommen · ⚠ „B“ im Plan baut darauf auf“. **Dauerhaft im Fahrplan:** roter Rand und „braucht A – kommt erst auf Platz 4“ bzw. „– nicht gelernt, nicht im Plan“. Liegen A und B im selben Ort (bis zum Reise-Aufbau), gibt es keinen Knopf (Reihenfolge im Ort nicht änderbar).
+- **„Alle n einplanen (nach Klasse und Lehrplan)“** oben im Fahrplan bei „Noch nicht im Plan“, nur gewählte Klassen, ohne Zusatz-Teile und aufgelöste Themen, ein Schritt.
+
+**Nacharbeit LW-1**
+- **S1/K3:** Tablet und Handy haben eine Zeile: [Fahrplan · 8] bzw. [Fahrplan · 8 | Alle Themen], **[Filter ▾]** (Blatt mit Einordnen, Zeigen, Klassen, Einstieg prüfen, Suchen, Auswählen; auf dem Handy von unten; „Filter · n“ zeigt aktive Filter), **[ⓘ]** für die Farben, ↶. Handy: Kopf kompakt (Name, „Lernen starten“, „Einstellen“, ⓘ in einer Zeile; Schulart-Zeile ausgeblendet), Ringe kleiner. Erste Karte bei 400 × 860 auf **392 px** (vorher 795). Tablet 820: Leiste einzeilig.
+- **S2:** Fahrplan-Kopf „8 Plätze · 14 Themen“; Themen eines Orts heißen „3a, 3b, 3c, 3d“ (Karte, Stand-Zeile, Liste im Eintrag „Themen ▸“); keine Platznummer doppelt (Test). Im Eintrag „1/4 Themen“ statt „Flüge“.
+- **K1:** Etappen vor `etappe_jetzt` (bzw. die ersten `gelandet`) ohne Karte gelten als gelandet; „gerade dran“ steht an `etappe_jetzt`. Test: „Etappe 3/7“ ↔ Liste 1, 2 gelandet, 3 gerade dran.
+- **K2 – Ursache:** Der Kopf der Kind-Seite nimmt Klasse/Schulart aus `schule_uebersicht`, der Reiter „Lehrplan“ nahm sie zuerst aus `schule_plan_lesen.kind` (bzw. `schule_lehrplan_matrix.kinder`). In den Testdaten stand in der Übersicht Klasse 5, im Plan Klasse 8 – daher der Widerspruch. **Behoben:** Der Reiter nimmt jetzt dieselbe Quelle wie der Kopf (Übersicht; nur wenn dort nichts steht, Plan/Raster). Testdaten angeglichen; neuer Test: widersprechen sich die Quellen, gilt die Klasse im Kopf auch für die Klassen-Auswahl. **Annahme:** Auf dem Server kommen beide aus derselben Spalte – dann trat der Fehler nur mit Testdaten auf; nicht gegen den Server geprüft.
+
+**Vorgabe 12.7 „Teile“ (soweit ohne neue Server-Felder möglich)**
+- Teil-Angaben aus `teil`/`teile`/`untertitel`, sonst aus dem Titel „Grund – Teil 2 von 3 · Untertitel“ (so schreibt LK-S die Titel). Keine feste Zahl.
+- Karte: „Terme umformen“ + Marke „2/3“ (Vorlesetext „Teil 2 von 3“), Untertitel als zweite Zeile mit „…“, voll im Tooltip. Teile in derselben Zelle direkt untereinander mit feiner Klammer links; Darüberfahren lässt die anderen Teile aufleuchten.
+- **Zusatz** (Teil ohne Klasse in der gewählten Schulart oder `zusatz` vom Server): gestrichelt, Marke „Zusatz“, zählt nicht im Ring, nicht bei „Noch nicht im Plan“ und nicht bei „Alle einplanen“.
+- Detail: Kopf „Terme umformen – Teil 2 von 3“, Untertitel, bei Zusatz „Zusatz – kein Pflichtstoff im Gymnasium“; Abschnitt **„TEILE DIESES THEMAS“** (Teil, Untertitel, Klasse, ✓ geschafft / ▶ Platz / Platz / nicht im Plan, antippbar); **„Alle Teile einplanen“** (Zusatz nur mit Haken „auch Zusatz“).
+- Teil n baut hart auf Teil n−1 (Warnung 4a Fall 3), außer bei Zusatz.
+- **Noch nicht gebaut:** „+ Zusatz“-Bogen außen am Ring, Nachbuchungs-Hinweis „Stempel nachgetragen (Teilung 22.11.)“ und die Kinderseite (12.5) – das gehört zu LK-App bzw. braucht die Felder aus LK-S.
+
+**Getestet:** neu 7 (S2/K1/K2, K2 mit widersprüchlichen Quellen, Ziehen in beide Richtungen, Warnungen Fall 1–3 + „aus dem Plan“, Alle einplanen, Teile/Zusatz, S1/K3 400/820/1280). Lernen 148 von 148; Gesamtlauf sonst nur die Reise-Tests (bekannte + W175 Tagesdatum). **Nicht geprüft:** echter Server, echte Geräte, Ziehen mit dem Finger (nur Maus).
 ## FERTIG: TL-S 6 (22.11., bau-lehrer)
 
 **Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/tests/wd_s_rauchtest.sql` (nur Test). Nicht eingespielt, kein DROP/DELETE.

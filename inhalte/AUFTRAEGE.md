@@ -2892,3 +2892,9 @@ Stand `lernen-app` 0967562, zurückgerollt. Vorgänger (lk_korrektur neu, FP-S 4
 **Zu lösen:** Ein **gesetztes** Thema („Kann er komplett“ / „Kann er – aber wiederholen“) vererbt Setzung, Plan-Platz und alle Folgen an **jeden** Teil (bei „komplett“: alle Teile komplett; Wiederholungs-Setzung: je Teil mit den Etappen des Teils, Fälligkeiten unverändert). Zusatz-Teile der Schulart: gesetzt bleibt gesetzt, Plan-Art „zusatz“. Prüfen, welche weiteren Themen/Kinder gesetzt sind (lesend auf dem echten Stand) – der lokale Nachbau braucht Fälle „gesetzt komplett“, „gesetzt mit Wiederholung“, „im Plan, nicht begonnen“, „Rückreise“.
 Der Abbruch war sauber (Lernstand, Sterne, Reiseoptionen, Erstabschlüsse, Zahl der Themen/Aufgaben/Versuche unverändert) – der Schutz B4 wirkt.
 Meldung: „FERTIG: TL-S 3“.
+
+### Probelauf TL-S 3 auf der echten Datenbank (22.11., 18:30 Berlin) – Abbruch am Visum-Vergleich IB · an `bau-lehrer`
+
+Stand `lernen-app` 8af4fee, zurückgerollt. Vorgänger laufen (lk_korrektur Stand LK-D 4, FP-S 4, LW-S 2, LK-S), fünf Rauchtests danach grün. Der Fall „gesetztes Thema 46“ ist behoben.
+**Neuer Abbruch** (Migration und Rauchtest): „TL-S: Visum außerhalb der erlaubten Deltas: ib_myp:109→86“. Für Gymnasium und Realschule meldet der Vergleich nichts. Bitte klären und beheben: Woher kommen 23 Visum-Zeilen weniger für IB – gewollte Folge der Kanten je Schulart (dann als ausdrücklich erlaubtes, begründetes Delta mit Liste der betroffenen Themen im Bericht) oder Fehler (z. B. IB-Kanten fehlen in `voraussetzung_schulart`, „empfohlen“ statt „hart“)? Sebastians harte Entscheidungen (z. B. 102 ← 30, 29 ← 102) dürfen in keiner Schulart verschwinden. Auf dem echten Stand lesend vorher/nachher je Schulart vergleichen.
+Abbruch sauber: Lernstand, Sterne, Reiseoptionen, Erstabschlüsse, Zahl der Themen/Aufgaben/Versuche unverändert. Meldung: „FERTIG: TL-S 4“.

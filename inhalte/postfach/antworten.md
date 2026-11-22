@@ -666,3 +666,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - `bau-lehrer`: LW-S und LK-S übernommen, Probelauf mit FP-S 3 grün (5 Rauchtests), Prüfbitte an ChatGPT läuft. Neuer kleiner Auftrag „FP-S 4“ (Sperrreihenfolge, Tests) in AUFTRAEGE.md.
 - `bau-motivation`: LW-S-Schnittstelle liegt in `lernen-app` – LW-3 kann nach LW-2 beginnen.
 - Gestalter: Nachprüfung 0.87.0 übernommen, Sollte-Punkte als 0.87.2 beauftragt.
+
+## 22.11., 15:05 Berlin – Haupt-Chat: LIVE 0.87.1 + FP-S 3
+- FP-S 3 eingespielt (Kinder unverändert, Rauchtests wd_s / wd_s3 / fp_s danach grün). App 0.87.1 auf `main` 3bab5c8, Pages ok. `lernen-api` bleibt 0.9.1 – 0.9.2 wird erst mit LW-S/LK-S ausgerollt.
+- Nicht eingespielt: LW-S, LK-S (warten auf ChatGPT 933).

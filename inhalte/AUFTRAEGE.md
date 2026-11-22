@@ -2711,3 +2711,14 @@ Meldung: „FERTIG: LW-S 2“ und „FERTIG: LK-S 2“.
 
 ### Stand 22.11., 15:15 Berlin – LK-D geliefert
 `lehrplan-lb`: Gymnasium 5–10 und IB geprüft (`lk_pruefung_2211.md`). Probelauf `lk_korrektur_2211.sql` und FP-S 4 grün (Kinder und Klassen unverändert, Gym-Punkte ohne Hauptthema 134 → 0). Gegenprobe Gymnasium bei ChatGPT angefragt. Entscheidungen bei Sebastian: Teilungsliste (Empfehlung: nichts teilen), 43/69/71 im Gymnasium als „Vertiefung“, drei harte IB-Voraussetzungen.
+
+### Nachtrag Reise-Aufbau – Vorschlag fortschreiben (22.11., 15:25 Berlin) · an Chat `reise-aufbau`
+
+Stand nach LK-D: **Kein Thema wird geteilt** (Maßstab Gymnasium; Empfehlung `lehrplan-lb`, Bestätigung Sebastian steht aus – bei anderer Entscheidung folgt ein weiterer Nachtrag). Es bleibt bei: **ein Flug = ein Land, jedes Land genau einmal, jede Stadt genau einmal – unabhängig von Schulart und Klasse.** Realschule und IB fliegen dieselben Länder, nur in einer anderen Klasse.
+Bitte `inhalte/reise/aufbau-vorschlag.md`/`.json` fortschreiben:
+1. **Neue Etappen = neue Städte:** Sechs neue Lernkarten (Vertiefung/Kür) aus LK-D brauchen je eine Stadt im Land ihres Flugs, passend in die Strecke eingefügt: Thema 46 Kongruenzabbildungen (+2: Vektoren in Koordinaten, Vektoren drehen), 47 Ähnlichkeit (+1), 44 Konstruktionen (+1), 99 Flächen von Vielecken (+1), 91 Schrägbilder (+1). Kür-Städte als solche kennzeichnen.
+2. **Abgleich mit dem aktuellen Stand:** Themen, Einheiten und Etappenzahlen neu aus der Datenbank lesen (`db_stand.json` erneuern); Abweichungen zum Vorschlag vom 22.11. morgens auflisten.
+3. **Koordinaten:** je Land (Mittelpunkt) und je Stadt Breite/Länge aus GeoNames in die JSON – Grundlage für die geplante Karte der Kinderseite (`inhalte/reise/briefing-gestalter.md`).
+4. **Reserve:** je Kontinent mindestens drei freie Länder mit je 6–8 Städten benennen (für neue Themen).
+5. Prüfskript wie bisher (jedes Land einmal, jede Stadt einmal, Stadt im richtigen Land, Städte = Etappen je Flug).
+Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Reise-Aufbau 2“.

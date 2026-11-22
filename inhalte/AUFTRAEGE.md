@@ -2783,3 +2783,17 @@ Sebastian: „Das soll die neue Darstellung werden – aber erst, wenn die neuen
 4. Reise-Aufbau in die Datenbank (`bau-lehrer`): Länder/Städte je Thema/Etappe, Lernstand und Stempel übernehmen.
 5. **RK-App** (`bau-motivation`): Karte nach Vorgabe; Kartenpfade im Build vorrechnen, je Kontinent eine Datei, Flaggen erst beim Anzeigen laden, kein Kartenserver.
 **Vor dem Bau zu klären (Haupt-Chat):** Lizenzen der Quellen – Natural Earth (gemeinfrei), flag-icons, i18n-iso-countries, countries-list (MIT), GeoNames (CC BY 4.0, Quellenangabe auf der Info-Seite); Größe der Kartendateien für die statische Seite.
+
+## Entscheidung Teilung (22.11., 16:20 Berlin) · Sebastian
+
+Grundlage `inhalte/pruefung/lehrplan/lk_teilung_2211.md`/`.json`. Sebastian fragte nach der Empfehlung des Haupt-Chats und hat zugestimmt („ja“):
+1. **Die Liste gilt:** 6 Themen → 15 Teile (26: 2 · 29: 2 · 44: 2 · 46: 3 · 61: 2 · 91: 2), 9 neue Flüge. Titel „‹Titel› – Teil x von y“, Untertitel wie im Bericht.
+2. **Zusatz statt Pflicht:** Ein Teil ohne Lehrplan-Punkt in der Schulart des Kindes ist dort **Zusatz** – keine Pflicht, sperrt nichts dahinter (Voraussetzung nur „empfohlen“). Betrifft im Gymnasium 46 Teil 2 (Verschieben und Vektoren) und 44 Teil 2 (Vierecke); 46 Teil 3 braucht im Gymnasium hart nur Teil 1.
+3. **Kurzflüge bleiben** (44 Teil 2, 61 Teil 1: je 2 Etappen).
+4. **Zwei Flüge = zwei Stempel und zweimal 100 Sterne.** Ist nach dem Umhängen ein neuer Teil vollständig (Kind 2: 29 Teil 2), bekommt er Stempel **und** die 100 Flug-Sterne nachträglich; Etappen-Sterne und Landungs-Bonus wandern mit der Etappe. Nichts wird gekürzt.
+5. **Nur einmal teilen:** Vorbereiten ab sofort; einspielen in **einem** Durchgang, sobald auch das Gym-Audit der Übergänge (ChatGPT 937 Muss A1, u. a. schiefe Körper Gym 10) vorliegt und die Liste dadurch feststeht.
+
+**An `bau-lehrer` – TL-S (Datei, nicht einspielen):** `supabase/migrations/20261123_tl_s_teilung.sql` – die sechs Teilungen mit dem Teil-Verfahren aus LK-S (Daten aus `lk_teilung_2211.json`): Themen/Einheiten je Teil, Etappen/Aufgaben/Lernstand/Sterne-Bezüge/Zuordnungen (Lehrplan-Punkt → Teil) umhängen, Voraussetzungen nach `kanten` (inkl. „Zusatz“-Regel je Schulart), Titel/Untertitel, Stempel und 100 Sterne für vollständig übernommene Teile, vorläufige Orte bis zum Reise-Aufbau. Vorher/Nachher je Kind (B4 aus ChatGPT 934). Rauchtest. Meldung: „FERTIG: TL-S“.
+**An `lehrplan-lb` – LK-D 3:** Audit der Gym-Übergänge 7→8, 8→9, 9→10 (ChatGPT 937 A1; konkret Gym 10 Lernbereich 5 schiefe Körper/Volumengleichheit, Punkt 285), IB-Zählung 3 vs. 2 berichtigen; falls neue Etappen/Teile nötig: liefern und Teilungsliste fortschreiben (`lk_teilung_2211`), „Zusatz“ je Teil und Schulart in die JSON. Meldung: „FERTIG: LK-D 3“.
+**An `reise-aufbau`:** Nachtrag „Vorschlag fortschreiben“ gilt, zusätzlich je neuem Teil ein Nachbarland (9 neue Flüge, Kurzflüge mit 2 Städten erlaubt), Koordinaten je Stadt und Antarktis-Station, deutsche Hauptstadt-Namen, ISO-Ländercode. Meldung: „FERTIG: Reise-Aufbau 2“.
+**An Gestalter / `bau-motivation`:** „Teil x von y · Untertitel“ und „Zusatz“ in Karte, Detail, Route, Stempel.

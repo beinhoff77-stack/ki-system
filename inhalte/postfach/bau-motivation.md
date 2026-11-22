@@ -2,6 +2,25 @@
 
 Neueste oben.
 
+## FERTIG: TL-S 3 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql` (nicht eingespielt, kein DROP/DELETE).
+
+**Ursache (lokal nachgestellt):** „Kann er komplett“ steht live als `route.kann_schon` am Ort; `thema_kann_schon`/`thema_kann_wdh` zählen nur Plan-Einträge mit Art „normal“. 46 Teil 2 ist im Gymnasium Zusatz → Plan-Art „zusatz“ → Setzung weg → B4 brach zu Recht ab. Mein Nachbau hatte vereinfachte `thema_kann_schon`/`thema_kann_wdh` – jetzt wie live.
+
+**Lösung:**
+- `thema_kann_schon` und `thema_kann_wdh` zählen auch Plan-Einträge „zusatz“ (Umbau per Anker, wiederholbar). Gesetzt bleibt gesetzt, Plan-Art bleibt „zusatz“, `im_plan` bleibt dort wie bisher nur für „normal“ (erlaubtes Delta).
+- Jeder neue Teil erbt vom Plan-Eintrag des Themas: Platz direkt dahinter, Status, `kann_schon`, `kann_schon_themen`/`kann_wdh_themen`/`ausgelassen` (auf den Teil umgeschrieben), auch Rückreise-Einträge. Wiederholungs-Setzung: je Teil mit dessen Etappen; Karten mit Fälligkeiten ziehen unverändert mit.
+- Live geprüft (lesend): Folgen hat heute nur das Setzen am Ort (`kann_schon`); Einträge „zusatz“ mit Setzung gibt es keine → die Änderung ändert am heutigen Stand nichts.
+
+**Fakten, echter Stand (lesend, nur Nummern):**
+- Bei den 7 geteilten Themen: Kind 2 hat 26 und 46 „Kann er komplett“ (Orte 54, 82), Kind 1 hat 26 im Plan, nicht begonnen; keine Wiederholungs-Setzung, keine Rückreise.
+- Sonst gesetzt (nicht geteilt): Kind 2 „komplett“ bei 23, 22, 21, 17, 15/16/18/67, 25, 28, 1, 42/73, 53, 50, 58, 60 und 19; „wiederholen“ bei 30, 71, 24, 57, 99/100. Zusatz-Einträge (ohne Setzung) bei beiden Kindern.
+
+**Nachbau ergänzt:** gesetzt komplett (Kind 2: 26, 46 inkl. Zusatz-Teil), gesetzt mit Wiederholung (RS-Kind: 46, mit Karten), im Plan nicht begonnen (Kind 1: 26), Rückreise (RS-Kind: 26). Neuer Rauchtest 12: jeder Teil erbt Setzung, Rückreise und Plan-Platz (Zusatz-Teil: als „zusatz“; leerer Teil: nicht im Plan). Migration lokal zweimal ohne Fehler, Rauchtest vorher und nachher grün.
+
+**KS** (Kür im Server: Tages-Wiederholung, Mischkarten, Blocktest-/Korrektur-Auswahl) wie vereinbart als eigener Auftrag nach dem Teilen.
+
 ## FERTIG: TL-S 2 (22.11., bau-lehrer)
 
 **Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql` (eine atomare Migration, nicht eingespielt, kein DROP/DELETE), `supabase/tests/tl_s_rauchtest.sql` (spielt die Migration ein, Rollback), neu `supabase/werkzeug/tl_s_daten.py` (Datenblock aus `lk_teilung_2211.json`), `supabase/tests/nachbau_live_constraints.sql` (echte Indizes/Constraints für lokale Nachbauten).

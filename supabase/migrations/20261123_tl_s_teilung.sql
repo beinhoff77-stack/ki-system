@@ -190,6 +190,19 @@ do $$ begin
   end if;
 end $$;
 
+-- TL-S 3 (Probelauf 18:05): Setzung „Kann er komplett“ / „Kann er – aber wiederholen“ gilt auch auf einem Zusatz-Eintrag im Plan. Sonst verliert ein
+-- Zusatz-Teil eines gesetzten Themas (z. B. 46 Teil 2 im Gymnasium) seine Setzung. Gesetzt bleibt gesetzt, Plan-Art bleibt „zusatz“.
+do $$
+declare d text; a text := $a$r.art = 'normal' and r.status <> 'entfernt'$a$; n text := $a$r.art in ('normal', 'zusatz') /* TL-S: auch Zusatz */ and r.status <> 'entfernt'$a$; f text;
+begin
+  foreach f in array array['schule.thema_kann_schon(bigint, bigint)', 'schule.thema_kann_wdh(bigint, bigint)'] loop
+    d := pg_get_functiondef(f::regprocedure);
+    if position('TL-S: auch Zusatz' in d) > 0 then raise notice '% schon umgestellt', f; continue; end if;
+    if (length(d) - length(replace(d, a, ''))) / length(a) <> 1 then raise exception 'TL-S: Anker in % nicht eindeutig', f; end if;
+    execute replace(d, a, n);
+  end loop;
+end $$;
+
 -- thema_stufe (B2): ein Teil ohne Pflicht-Etappe für das Kind hat keinen Zwangstest; Fehler in Kür-Etappen machen den Flug nicht „dran“
 do $$
 declare d text; a1 text := $a$or exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_l and s.einheit_id = v_e and s.status = 'fehler')$a$;

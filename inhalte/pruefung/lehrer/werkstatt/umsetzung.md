@@ -117,7 +117,7 @@ Grundlage: Bau-Auftrag LK mit den Nachträgen „vorhandener Lernstand“ und �
 - **Spätere Klasse („weitergeführt“):** schmalere Karte unter den neuen Themen der Zelle, Kopfzeile „↪ weitergeführt“, Titel, „neu in Kl. 8: Äquivalente Terme +1“ (erste neue Etappe, Rest als Zahl; alle im Tooltip/Detail). Stand nur für **diese** Etappen: „2/3 neue Etappen“, „✓ dieser Teil erledigt“. Antippen öffnet **dasselbe Detail**.
 - Farben wie Abschnitt 3, je Karte nach ihrem Teil: ist das Thema gerade dran und die aktuelle Etappe liegt in diesem Teil → blau; liegt sie in einem anderen Teil → hellgelb „danach“. Nicht im Plan, nichts gelandet → weiß, Rand gestrichelt.
 - **Fertig bleibt fertig:** Thema „kann er“/„Wiederholung“ oder abgeschlossener Flug → in **allen** Zeilen ✓ bzw. ↻ (Nachtrag Lernstand 1–3). Nichts wird doppelt gezählt, Sterne/Stempel je Thema bzw. je Flug unverändert.
-- **Geteiltes Thema (≥ 3 eigene Etappen in der späteren Klasse, Nachtrag Route):** Kopfzeile „✈ Teil 2 · eig. Flug“ statt „↪ weitergeführt“. Nach dem echten Teilen (eigene Themen-Nummer) wird daraus eine normale „neu“-Karte mit Titel von `lehrplan-lb`; bis dahin nur Kennzeichen. Bei 1–2 Etappen bleibt es „weitergeführt“, ein Flug.
+- **Geteilte Themen:** ersetzt durch **12.7** (Entscheidung Teilung 22.11., 16:20). Jeder Teil ist ein eigenes Thema mit eigener Karte; „↪ weitergeführt“ bleibt nur für Themen, die **nicht** geteilt werden.
 - Fahrplan: ein Platz je Thema (bzw. je Flug nach dem Teilen), Nummer erscheint auf allen Karten des Themas.
 
 **12.2 Kennzeichen**
@@ -143,6 +143,38 @@ Grundlage: Bau-Auftrag LK mit den Nachträgen „vorhandener Lernstand“ und �
 - Ring Kl. 8 ändert sich nur durch verlangte Etappen, nicht durch doppelte Zählung; Summe Etappen je Thema über alle Klassen = Etappen des Themas.
 - Kennzeichen-Spannen gegen `lk_daten_2211.json`; Abdeckung RS 8 I Lernbereich 4 = 40 Std.
 - Ohne neue Felder: Anzeige wie LW-2.
+
+**12.7 Teile und Zusatz (Entscheidung Teilung, 22.11., 16:20 – Liste `inhalte/pruefung/lehrplan/lk_teilung_2211.md`)**
+Heute: 6 Themen → 15 Teile (26, 29, 44, 61, 91 je 2 Teile; 46 drei Teile). Jeder Teil ist ein **eigenes Thema** (eigene Nummer, eigene Etappen, eigener Flug, eigener Stempel, eigene 100 ★). Die Ansicht darf von keiner festen Zahl ausgehen.
+
+*Benennung* – überall gleich, aus den Daten (`titel`, `teil`, `teile`, `untertitel`):
+- Lang (Detail, Blatt, Fahrplan auf Rechner): **„Terme umformen – Teil 2 von 2“**, darunter klein der Untertitel „Summe mal Summe, Ausklammern, binomische Formeln“.
+- Kurz (Matrix-Karte, Handy, Kennzeichen): Titel „Terme umformen“ + Marke **„2/2“** (kleines Kästchen hinter dem Titel, gleiche Farbe wie die Kennzeichen), Untertitel als zweite Zeile, abgeschnitten mit „…“ (voll im Tooltip).
+- Die Marke heißt im Kindertext „Teil 2 von 2“, nie nur „2/2“.
+
+*Matrix-Karte*
+- Jeder Teil steht in seiner Klassenzeile wie ein normales Thema (Farbe nach Abschnitt 3). Teile eines Themas, die in **derselben** Zelle liegen (Gymnasium: alle Teile in einer Klasse), stehen direkt untereinander in Teil-Reihenfolge, verbunden durch einen feinen senkrechten Strich links (Klammer), damit sie als Familie erkennbar sind.
+- Liegen Teile in verschiedenen Klassen (Realschule: 29 Teil 1 in Kl. 7, Teil 2 in Kl. 8), steht jeder in seiner Zeile; beim Darüberfahren/Antippen leuchten die anderen Teile kurz mit auf.
+- „↪ weitergeführt“-Karten (12.1) gibt es für geteilte Themen nicht mehr.
+
+*Zusatz* (Teil ohne Lehrplan-Punkt in der gewählten Schulart, z. B. Gymnasium: 46 Teil 2 „Verschieben und Vektoren“, 44 Teil 2 „Vierecke“):
+- Karte mit **gestricheltem Rand** und Marke **„Zusatz“** (sandfarben, klein) statt Stand-Text, solange nicht im Plan; im Plan bekommt sie die Plan-Farbe, die Marke bleibt.
+- **Zählt nicht** in Ring, „x/y Themen“ und Lehrplan-Abdeckung dieser Klasse (Etappen der Klasse = Pflicht). Wird er gelernt, steht er im Ring als kleiner zusätzlicher Bogen außen („+ Zusatz“) – Pflicht-Prozent bleiben unverändert.
+- **Sperrt nichts:** Teil 3 baut im Gymnasium hart nur auf Teil 1; die Kante zum Zusatz-Teil ist „empfohlen“ → keine Warnung aus 4a, im Detail unter „Baut auf“ mit „· empfohlen“.
+- Filter „Noch nicht im Plan“ und „Alle fehlenden einplanen“ übergehen Zusatz-Teile (nur mit eigenem Klick einplanen).
+- Gilt je Schulart: Derselbe Teil ist in der Realschule Pflicht (normale Karte), im Gymnasium Zusatz – die Leiste „Klassen nach“ schaltet das um; maßgeblich für Ring/Warnung ist die Schulart des Kindes.
+
+*Detail-Schublade*
+- Kopf: „Terme umformen – **Teil 2 von 2**“, Untertitel darunter; bei Zusatz die Marke „Zusatz – kein Pflichtstoff im Gymnasium“.
+- Neuer Abschnitt **„TEILE DIESES THEMAS“** ganz oben unter dem Stand: eine Zeile je Teil – „Teil 1 · zusammenfassen und ausmultiplizieren · Kl. 7 · ✓ geschafft“, „Teil 2 · … · Kl. 8 · ▶ Platz 2“ – antippbar (öffnet den Teil). Zusatz-Teile mit Marke.
+- „Baut auf“: Teil 2 nennt „Teil 1 · Kl. 7“ als harte Voraussetzung (bei Zusatz-Kante „empfohlen“). „Geht weiter in“: der nächste Teil zuerst.
+
+*Fahrplan und Warnungen*
+- Jeder Teil hat einen eigenen Platz. Einplanen von Teil 2 ohne Teil 1 → Warnung 4a Fall 3 („Teil 1 kann er noch nicht und ist nicht im Plan“, Knopf „Teil 1 davor einplanen“). Nicht bei Zusatz-Kanten.
+- „Alle Teile einplanen“ als Knopf im Detail, wenn mindestens ein Teil fehlt (Pflicht-Teile in Reihenfolge; Zusatz-Teile nur mit Haken „auch Zusatz“).
+
+*Stand, Stempel, Sterne*
+- Stand je Teil aus seinen Etappen. Teil nach dem Umhängen vollständig (Kind 2: 29 Teil 2) → Karte „✓ fertig“, im Detail Hinweis „Stempel nachgetragen (Teilung 22.11.)“; keine zweite Einblendung beim Kind außer der einmaligen Nachbuchungs-Karte (wie FP-3, Text „Neuer Stempel: Terme umformen – Teil 2 von 2“).
 
 ## Prüfen nach dem Bau
 400/820/1280; keine Funktion aus „Plan“ verloren (Auswählen, Sammelaktion, Rückgängig, Konflikt „Neu laden“, Wieder in die Wiederholung); Stand-Zahlen gleich wie in der Matrix unter Nachschlagen; Testkind und erfundene Daten.

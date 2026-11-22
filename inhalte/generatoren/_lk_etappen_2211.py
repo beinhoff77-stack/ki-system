@@ -345,8 +345,258 @@ def wahre_groesse():
     return karte, kann, A
 
 
+# ------------------------------------------------------------------ 101 · cavalieri (Gym 10 LB 5, Nachtrag LK-D 2 / ChatGPT 936 A1)
+def cavalieri():
+    L = 'cavalieri'
+    karte = {
+        'lernziel': L, 'titel': 'Schiefe Körper und Cavalieri',
+        'einstieg': 'Ein Stapel Bierdeckel steht gerade. Schiebt man ihn schräg, sieht er anders aus – aber es sind dieselben Deckel. Das Volumen bleibt gleich. Genau das sagt das Prinzip von Cavalieri.',
+        'woerter': [['Cavalieri-Prinzip', 'gleiche Querschnittsflächen in jeder Höhe und gleiche Höhe ergeben gleiches Volumen'], ['Höhe h', 'senkrechter Abstand von Grund- und Deckfläche, nicht die schräge Kante']],
+        'regel': 'Auch für schiefe Prismen und Zylinder gilt ⟦V = G · h⟧. h ist der senkrechte Abstand der beiden Grundflächen, nicht die Länge der schrägen Kante.',
+        'schritte': [{'text': 'Ein schiefes Prisma hat G = 12 cm², die schräge Kante ist 10 cm lang, der senkrechte Abstand der Grundflächen 8 cm.'},
+                     {'text': 'Es zählt die senkrechte Höhe: V = 12 cm² · 8 cm = ⟦96 cm³⟧. Die 10 cm braucht man nicht.'}],
+        'fehler': 'Mit der schrägen Kante rechnen: 12 · 10 = 120 cm³ ist zu viel. Beim schiefen Körper ⟦nur die senkrechte Höhe⟧ nehmen.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein schiefes Prisma hat die Grundfläche 15 cm² und die Höhe 6 cm. Berechne das Volumen.', 'V = 15 cm² · 6 cm = 90 cm³.', 'Grundfläche mal senkrechte Höhe.', o={'wert': 90, 'einheit': 'cm³'}, c='15 * 6'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein schiefer Zylinder hat eine Grundfläche von 20 cm² und eine Höhe von 9 cm. Wie groß ist sein Volumen?', 'V = 20 cm² · 9 cm = 180 cm³.', 'Wie beim geraden Zylinder.', o={'wert': 180, 'einheit': 'cm³'}, c='20 * 9'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Länge setzt man beim schiefen Prisma für h ein?', 'h ist der senkrechte Abstand der Grundflächen.', 'Miss senkrecht, nicht entlang der Kante.',
+                 **wahl('den senkrechten Abstand der Grundflächen', ['die Länge der schrägen Kante', 'die längste Seite der Grundfläche', 'die Diagonale des Körpers'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Ein gerades und ein schiefes Prisma haben dieselbe Grundfläche und dieselbe Höhe. Was gilt?', 'Nach Cavalieri sind die Volumen gleich.', 'Schräg schieben ändert das Volumen nicht.',
+                 **wahl('Sie haben dasselbe Volumen.', ['Das schiefe hat mehr Volumen.', 'Das gerade hat mehr Volumen.', 'Man kann es nicht sagen.'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein schiefes Prisma hat ein Dreieck als Grundfläche (g = 6 cm, h_D = 4 cm). Die Körperhöhe ist 10 cm. Berechne das Volumen.', 'G = 6 · 4 : 2 = 12 cm². V = 12 · 10 = 120 cm³.', 'Erst die Dreiecksfläche, dann mal Körperhöhe.', o={'wert': 120, 'einheit': 'cm³'}, c='6 * 4 / 2 * 10'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein schräger Turm ist ein schiefer Zylinder mit G = 3 m² und 12 m senkrechter Höhe; seine Wand ist 12,5 m lang. Wie viele m³ fasst er?', 'Es zählt die senkrechte Höhe: V = 3 · 12 = 36 m³.', 'Die Wandlänge ist die schräge Kante.', o={'wert': 36, 'einheit': 'm³'}, c='3 * 12'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Ein schiefes Prisma hat 84 cm³ Volumen und 14 cm² Grundfläche. Wie groß ist die Höhe?', 'h = V : G = 84 : 14 = 6 cm.', 'Teile das Volumen durch die Grundfläche.', o={'wert': 6, 'einheit': 'cm'}, c='84 / 14'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Zwei Münzstapel mit gleich vielen gleichen Münzen: einer gerade, einer schräg. Welche Aussage trifft zu?', 'In jeder Höhe liegt eine gleich große Münzfläche, also gleiches Volumen (Cavalieri).', 'Vergleiche Schicht für Schicht.',
+                 **wahl('gleiches Volumen, weil jede Schicht gleich groß ist', ['der schräge Stapel hat mehr Volumen', 'der gerade Stapel ist höher', 'die Oberflächen sind gleich'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein schiefes und ein gerades Prisma haben gleiches Volumen und gleiche Höhe 8 cm. Das gerade hat G = 9 cm². Wie groß ist G beim schiefen?', 'Gleiches V und gleiches h ⇒ gleiche Grundfläche: 9 cm².', 'V = G · h für beide.', o={'wert': 9, 'einheit': 'cm²'}, c='9 * 8 / 8'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum hat ein schiefes Prisma dieselbe Formel V = G · h wie ein gerades?', 'Schneidet man beide in gleicher Höhe, sind die Schnittflächen gleich groß (= G). Nach Cavalieri sind die Volumen gleich.', 'Denke an die Schnitte parallel zur Grundfläche.',
+                 **wahl('Weil die Querschnitte in jeder Höhe gleich groß sind.', ['Weil die Kanten gleich lang sind.', 'Weil die Oberflächen gleich sind.', 'Weil beide gleich viele Ecken haben.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Paul berechnet ein schiefes Prisma (G = 10 cm², Kante 13 cm, Höhe 12 cm) so: V = 10 · 13 = 130 cm³. Was stimmt?', 'Er hat die schräge Kante genommen. Richtig: 10 · 12 = 120 cm³.', 'Welche Länge ist die Höhe?',
+                 **wahl('Falsch: richtig sind 120 cm³.', ['Alles richtig.', 'Richtig sind 156 cm³.', 'Richtig sind 1 560 cm³.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Tunnelstück verläuft schräg durch einen Berg. Sein Querschnitt ist überall 40 m², der Höhenunterschied der Endflächen senkrecht gemessen 250 m. Wie viel m³ Gestein wurden ausgebrochen?', 'Wie ein schiefes Prisma: 40 · 250 = 10 000 m³.', 'Gleicher Querschnitt überall: G · h.', o={'wert': 10000, 'einheit': 'm³'}, c='40 * 250'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Ein schiefes Prisma hat G = 18 cm² und h = 5 cm, die schräge Kante ist 6 cm lang. Berechne V.', 'V = 18 · 5 = 90 cm³.', o={'wert': 90, 'einheit': 'cm³'}, c='18 * 5'))
+    for (g, h, kante) in ((7, 4, 5), (25, 3, 4), (11, 6, 7)):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Schiefes Prisma: G = {g} cm², senkrechte Höhe {h} cm, schräge Kante {kante} cm. Wie groß ist V?', f'V = {g} · {h} = {g * h} cm³; die Kante zählt nicht.', o={'wert': g * h, 'einheit': 'cm³'}, c=f'{g} * {h}'))
+    for (g, h) in ((12, 7), (30, 2), (16, 5), (9, 9), (40, 3), (22, 4)):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein schiefer Zylinder hat G = {g} cm² und die Höhe {h} cm. Berechne das Volumen.', f'V = {g} · {h} = {g * h} cm³.', o={'wert': g * h, 'einheit': 'cm³'}, c=f'{g} * {h}'))
+    return karte, 'das Volumen schiefer Prismen und Zylinder mit V = G · h berechnen und das Prinzip von Cavalieri begründen', A
+
+
+# ------------------------------------------------------------------ 91 · koerper_symmetrie (RS 8 I LB 3/K1)
+def koerper_symmetrie():
+    L = 'koerper_symmetrie'
+    karte = {
+        'lernziel': L, 'titel': 'Symmetrie von Körpern',
+        'einstieg': 'Eine Schachtel lässt sich so durchschneiden, dass beide Hälften Spiegelbilder sind. Die Schnittfläche heißt Symmetrieebene. Manche Körper haben viele davon, ein Würfel sogar neun.',
+        'woerter': [['Symmetrieebene', 'Ebene, die einen Körper in zwei spiegelbildliche Hälften teilt'], ['Symmetriezentrum', 'Punkt, an dem der Körper punktgespiegelt auf sich selbst fällt']],
+        'regel': 'Quader (alle Kanten verschieden): ⟦3⟧ Symmetrieebenen. Quadratische Säule: 5. Würfel: 9. Gerade Pyramide mit regelmäßigem n-Eck: n Ebenen. Gerades Prisma mit regelmäßigem n-Eck: n + 1.',
+        'schritte': [{'text': 'Quader 6 cm × 4 cm × 2 cm: je eine Ebene parallel zu jedem Flächenpaar, mittig. Das sind 3.'},
+                     {'text': 'Diagonale Schnitte geben beim Quader keine Spiegelhälften, weil die Seiten verschieden lang sind.'}],
+        'fehler': 'Beim Quader auch diagonale Ebenen zählen: Die gibt es nur, wenn zwei Kanten ⟦gleich lang⟧ sind (quadratische Säule, Würfel).',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Wie viele Symmetrieebenen hat ein Quader mit den Kanten 5 cm, 3 cm und 2 cm?', 'Drei Ebenen, je mittig parallel zu einem Flächenpaar.', 'Alle Kanten verschieden.', o={'wert': 3}, c='3'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Wie viele Symmetrieebenen hat ein Würfel?', '3 parallel zu den Flächen + 6 durch gegenüberliegende Kanten = 9.', 'Zähle auch die Ebenen durch die Kanten.', o={'wert': 9}, c='3 + 6'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welcher Körper hat ein Symmetriezentrum?', 'Der Quader fällt bei Punktspiegelung am Mittelpunkt auf sich selbst; Pyramide und Kegel nicht.', 'Punktspiegelung am Mittelpunkt.',
+                 **wahl('Quader', ['Pyramide', 'Kegel', 'Dreiecksprisma'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Eine gerade Pyramide hat ein Quadrat als Grundfläche. Wie viele Symmetrieebenen hat sie?', 'Wie das Quadrat: 4 Ebenen, alle durch die Spitze.', 'Jede Symmetrieachse des Quadrats gibt eine Ebene.',
+                 **wahl('4', ['2', '5', '9'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie viele Symmetrieebenen hat es?', '6 Ebenen durch die Symmetrieachsen des Sechsecks + 1 waagrechte Mittelebene = 7.', 'Achsen der Grundfläche plus die Mittelebene.', o={'wert': 7}, c='6 + 1'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Eine Geschenkschachtel ist 10 cm lang, 10 cm breit und 4 cm hoch. Wie viele Symmetrieebenen hat sie?', 'Quadratische Säule: 3 + 2 Diagonalebenen = 5.', 'Zwei Kanten sind gleich lang.', o={'wert': 5}, c='3 + 2'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Eine gerade Pyramide mit regelmäßiger Grundfläche hat 5 Symmetrieebenen. Wie viele Ecken hat die Grundfläche?', 'Bei der Pyramide ist die Zahl der Ebenen gleich n: 5 Ecken.', 'n-Eck ⇒ n Ebenen.', o={'wert': 5}, c='5'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Durch welche Linien eines Würfels gehen die 6 diagonalen Symmetrieebenen?', 'Jede geht durch zwei gegenüberliegende Kanten.', 'Schneide den Würfel schräg.',
+                 **wahl('durch zwei gegenüberliegende Kanten', ['durch zwei benachbarte Ecken', 'durch die Mitte einer Fläche', 'durch eine einzige Kante'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein gerades Prisma mit regelmäßiger Grundfläche hat 9 Symmetrieebenen und ist kein Würfel. Wie viele Ecken hat die Grundfläche?', 'n + 1 = 9 ⇒ n = 8: ein Achteck.', 'Prisma: n + 1 Ebenen.', o={'wert': 8}, c='9 - 1'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum hat eine Pyramide keine waagrechte Symmetrieebene?', 'Oben ist eine Spitze, unten eine Fläche – die Hälften sind nicht spiegelgleich.', 'Vergleiche oben und unten.',
+                 **wahl('Weil Spitze und Grundfläche verschieden sind.', ['Weil sie zu wenig Ecken hat.', 'Weil sie schief ist.', 'Weil sie kein Volumen hat.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Mia sagt: „Ein Quader mit 6 cm, 4 cm und 2 cm hat 9 Symmetrieebenen wie der Würfel.“ Was stimmt?', 'Nur 3: Diagonalebenen gibt es nur bei gleich langen Kanten.', 'Sind Kanten gleich lang?',
+                 **wahl('Falsch: er hat 3.', ['Richtig.', 'Falsch: er hat 6.', 'Falsch: er hat 5.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Bleistift ist ein gerades Prisma mit regelmäßigem Sechseck und ohne Spitze. Wie viele Symmetrieebenen hat er zusammen mit der Mittelebene quer?', '6 längs + 1 quer = 7.', 'Längsebenen wie die Sechseck-Achsen.', o={'wert': 7}, c='6 + 1'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Wie viele Symmetrieebenen hat eine quadratische Säule (Grundfläche Quadrat, Höhe anders)?', 'Quadratische Säule: 3 Ebenen parallel zu den Flächen und 2 diagonale, zusammen 5.', o={'wert': 5}, c='3 + 2'))
+    for n in (3, 4, 6):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Wie viele Symmetrieebenen hat eine gerade Pyramide mit regelmäßigem {n}-Eck als Grundfläche?', f'Jede der {n} Symmetrieachsen des {n}-Ecks gibt eine Ebene durch die Spitze: {n}.', o={'wert': n}, c=str(n)))
+    for n in (3, 5, 6, 8, 10, 12):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein gerades Prisma hat ein regelmäßiges {n}-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?', f'{n} Ebenen durch die Achsen des {n}-Ecks und 1 waagrechte Mittelebene: {n + 1}.', o={'wert': n + 1}, c=f'{n} + 1'))
+    return karte, 'Symmetrieebenen und Symmetriezentren von Quader, Würfel, Prisma und Pyramide bestimmen', A
+
+
+# ------------------------------------------------------------------ 29 · gleichungen_binomisch (RS 8 I 4/K3, 8 II/III 3/K3)
+def gleichungen_binomisch():
+    L = 'gleichungen_binomisch'
+    karte = {
+        'lernziel': L, 'titel': 'Gleichungen mit Klammerprodukten',
+        'einstieg': 'Ein quadratisches Beet wird an jeder Seite um 3 m länger und ist dann 51 m² größer. Wie lang war die Seite? In der Gleichung stehen Klammern mit Quadrat. Nach dem Ausmultiplizieren fällt x² weg.',
+        'regel': 'Erst beide Seiten ⟦ausmultiplizieren⟧ (binomische Formeln), dann zusammenfassen. Hebt sich x² auf, bleibt eine lineare Gleichung.',
+        'schritte': [{'text': '(x + 3)² = x² + 51. Links: x² + 6x + 9 = x² + 51.'},
+                     {'text': 'x² auf beiden Seiten abziehen: 6x + 9 = 51, also 6x = 42 und ⟦x = 7⟧.'}],
+        'fehler': '(x + 3)² ist nicht x² + 9. Es fehlt das ⟦Doppelte Produkt⟧ 2 · 3 · x = 6x.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Löse (x + 2)² = x² + 20.', 'x² + 4x + 4 = x² + 20 ⇒ 4x = 16 ⇒ x = 4.', 'Erst (x + 2)² ausmultiplizieren.', o={'wert': 4}, c='(20 - 4) / 4'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Löse (x − 1)² = x² − 9.', 'x² − 2x + 1 = x² − 9 ⇒ −2x = −10 ⇒ x = 5.', 'Zweite binomische Formel.', o={'wert': 5}, c='(-9 - 1) / (-2)'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Was ergibt (x + 5)² ausmultipliziert?', 'Mit a² + 2ab + b²: x² + 2 · 5 · x + 25 = x² + 10x + 25.', 'a² + 2ab + b².',
+                 **wahl('x² + 10x + 25', ['x² + 25', 'x² + 5x + 25', '2x + 10'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Warum wird (x + 4)² = x² + 40 eine lineare Gleichung?', 'x² steht auf beiden Seiten und hebt sich auf.', 'Was passiert mit x²?',
+                 **wahl('x² hebt sich auf beiden Seiten weg.', ['Weil 40 gerade ist.', 'Weil man die Wurzel zieht.', 'Weil x positiv ist.'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Löse (x + 3)(x − 3) = x² + 2x − 15.', 'x² − 9 = x² + 2x − 15 ⇒ 6 = 2x ⇒ x = 3.', 'Dritte binomische Formel links.', o={'wert': 3}, c='(-9 + 15) / 2'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein quadratisches Feld wird an jeder Seite 2 m länger und dadurch 36 m² größer. Wie lang war die Seite (in m)?', '(x + 2)² = x² + 36 ⇒ 4x + 4 = 36 ⇒ x = 8.', 'Stelle (x + 2)² = x² + 36 auf.', o={'wert': 8, 'einheit': 'm'}, c='(36 - 4) / 4'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Welche Zahl r muss rechts stehen, damit (x + 3)² = x² + r die Lösung x = 2 hat?', 'Einsetzen: (2 + 3)² = 25 und 2² + r = 4 + r. Also 4 + r = 25, r = 21.', 'Setze x = 2 auf beiden Seiten ein.', o={'wert': 21}, c='(2 + 3) * (2 + 3) - 2 * 2'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Welcher Schritt kommt bei 2(x + 1)² = 2x² + 14 zuerst?', 'Erst (x + 1)² = x² + 2x + 1 ausmultiplizieren, dann mit 2 malnehmen.', 'Potenz vor Punktrechnung.',
+                 **wahl('(x + 1)² ausmultiplizieren', ['durch x teilen', 'die Wurzel ziehen', '14 durch 2 teilen'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein Rechteck ist 3 cm länger als breit. Ein Quadrat hat die Breite als Seite. Das Rechteck ist 27 cm² größer als das Quadrat. Wie breit ist es?', 'x(x + 3) = x² + 27 ⇒ 3x = 27 ⇒ x = 9 cm.', 'Rechteck x(x + 3), Quadrat x².', o={'wert': 9, 'einheit': 'cm'}, c='27 / 3'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Die Gleichung (x + 1)² = x² + 2x + 1 gilt für …', 'Beide Seiten sind gleich: Sie gilt für alle x.', 'Multipliziere links aus.',
+                 **wahl('alle Zahlen x', ['nur x = 0', 'kein x', 'nur x = 1'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Lena löst (x + 3)² = x² + 15 so: x² + 9 = x² + 15 ⇒ 9 = 15, keine Lösung. Was stimmt?', 'Das Glied 6x fehlt. Richtig: 6x + 9 = 15 ⇒ x = 1.', 'Prüfe die binomische Formel.',
+                 **wahl('Falsch: richtig ist x = 1.', ['Alles richtig.', 'Falsch: richtig ist x = 6.', 'Falsch: richtig ist x = 3.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Löse (x + 2)² − (x − 2)² = 24.', '(x² + 4x + 4) − (x² − 4x + 4) = 8x = 24 ⇒ x = 3.', 'Beide Klammern ausmultiplizieren, dann abziehen.', o={'wert': 3}, c='24 / 8'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Löse (x + 5)² = x² + 45.', '10x + 25 = 45 ⇒ x = 2.', o={'wert': 2}, c='(45 - 25) / 10'))
+    for (b, r) in ((1, 13), (4, 40), (6, 84)):
+        x = Fr(r - b * b, 2 * b)
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Löse (x + {b})² = x² + {r}.', f'{2 * b}x + {b * b} = {r} ⇒ x = {z(x)}.', o={'wert': float(x) if x.denominator != 1 else int(x)}, c=f'({r} - {b * b}) / {2 * b}'))
+    for (b, r) in ((2, 28), (3, 45), (5, 65), (1, 7), (4, 56), (2, 16)):
+        x = Fr(r - b * b, 2 * b)
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Bestimme x aus (x + {b})² = x² + {r}.', f'{2 * b}x + {b * b} = {r} ⇒ x = {z(x)}.', o={'wert': float(x) if x.denominator != 1 else int(x)}, c=f'({r} - {b * b}) / {2 * b}'))
+    return karte, 'Gleichungen mit Klammerprodukten und binomischen Formeln lösen, bei denen sich x² aufhebt', A
+
+
+# ------------------------------------------------------------------ 61 · darstellen (RS 8 I 7/K1, 8 II/III 6/K1; Gym 8 5/k5) – LK-D 3, F3
+def darstellen():
+    L = 'darstellen'
+    karte = {
+        'lernziel': L, 'titel': 'Baumdiagramm und Vierfeldertafel',
+        'einstieg': 'Bei einem Schulfest wird zweimal eine Münze geworfen. Wie viele Ausgänge gibt es, und wie viele davon gehören zu „mindestens einmal Zahl“? Ein Baumdiagramm oder eine Tabelle zeigt es auf einen Blick.',
+        'woerter': [['Baumdiagramm', 'Jede Stufe des Versuchs ist eine Verzweigung; jeder Weg ist ein Ergebnis'], ['Vierfeldertafel', 'Tabelle mit zwei Merkmalen, je ja/nein, und den Summen am Rand']],
+        'regel': 'Im Baumdiagramm ist ⟦jeder Weg ein Ergebnis⟧; ein Ereignis ist eine Auswahl von Wegen. In der Vierfeldertafel ergeben die vier Felder zusammen die Gesamtzahl; jede Zeile und Spalte hat ihre Summe am Rand.',
+        'schritte': [{'text': 'Zweimal Münze: Wege WW, WZ, ZW, ZZ – also 4 Ergebnisse.'},
+                     {'text': '„Mindestens einmal Zahl“ sind WZ, ZW, ZZ: ⟦3 Wege⟧.'},
+                     {'text': 'Vierfeldertafel: 30 Kinder, 18 mit Fahrrad, davon 10 mit Helm. Ohne Helm mit Fahrrad: 18 − 10 = 8.'}],
+        'fehler': 'WZ und ZW als ein Ergebnis zählen: Im Baum sind das ⟦zwei verschiedene Wege⟧.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein Würfel wird einmal, eine Münze einmal geworfen. Wie viele Wege hat das Baumdiagramm?', '6 Augenzahlen · 2 Seiten = 12 Wege.', 'Jede Augenzahl verzweigt in Wappen und Zahl.', o={'wert': 12}, c='6 * 2'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'In einer Vierfeldertafel stehen in den vier Feldern 12, 8, 5 und 15. Wie groß ist die Gesamtzahl?', '12 + 8 + 5 + 15 = 40.', 'Alle vier Felder addieren.', o={'wert': 40}, c='12 + 8 + 5 + 15'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Dreimal eine Münze werfen: Wie viele Ergebnisse zeigt das Baumdiagramm?', '2 · 2 · 2 = 8 Wege.', 'Jede Stufe verdoppelt die Wege.',
+                 **wahl('8', ['6', '3', '9'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Was steht in einer Vierfeldertafel ganz rechts unten?', 'Dort steht die Gesamtzahl, die Summe aller vier Felder.', 'Summe der Summen.',
+                 **wahl('die Gesamtzahl', ['das größte Feld', 'die Differenz', 'eine Wahrscheinlichkeit von 1 %'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Zweimal würfeln. Wie viele Ergebnisse gehören zum Ereignis „Augensumme 7“?', '(1|6), (2|5), (3|4), (4|3), (5|2), (6|1): 6 Wege.', 'Gehe die erste Augenzahl von 1 bis 6 durch.', o={'wert': 6}, c='6'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Von 50 Kindern spielen 28 ein Instrument, 20 singen im Chor. 12 tun beides. Wie viele machen keins von beidem?', 'Nur Instrument 16, nur Chor 8, beides 12: zusammen 36. Keins: 50 − 36 = 14.', 'Fülle die Vierfeldertafel Feld für Feld.', o={'wert': 14}, c='50 - (28 + 20 - 12)'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Eine Vierfeldertafel hat die Randsummen 30 (Mädchen) und 25 (Jungen). 18 Mädchen tragen eine Brille, insgesamt sind es 26. Wie viele Jungen tragen eine Brille?', 'Brillen gesamt minus Mädchen mit Brille: 26 − 18 = 8.', 'Spaltensumme minus das bekannte Feld.', o={'wert': 8}, c='26 - 18'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Ein Glücksrad hat die Felder rot und blau und wird zweimal gedreht. Welche Darstellung zeigt alle Ergebnisse am klarsten?', 'Ein Baumdiagramm mit zwei Stufen zeigt alle 4 Wege.', 'Mehrstufiger Versuch.',
+                 **wahl('ein zweistufiges Baumdiagramm', ['ein Kreisdiagramm', 'ein Säulendiagramm', 'eine Zahlengerade'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein Baumdiagramm hat in der ersten Stufe 3 Äste und insgesamt 12 Wege. Jeder Ast hat gleich viele Zweige. Wie viele Zweige hat jeder Ast in der zweiten Stufe?', 'Wege = Äste · Zweige, also 12 : 3 = 4 Zweige je Ast.', 'Wege = Äste · Zweige.', o={'wert': 4}, c='12 / 3'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum hat „zweimal Münze“ 4 und nicht 3 Ergebnisse?', 'WZ und ZW sind verschiedene Wege: erst Wappen dann Zahl ist ein anderes Ergebnis als erst Zahl dann Wappen.', 'Achte auf die Reihenfolge.',
+                 **wahl('Weil WZ und ZW verschiedene Wege sind.', ['Weil die Münze zwei Seiten hat.', 'Weil man WW doppelt zählt.', 'Weil es 2 + 2 sind.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Jonas füllt eine Vierfeldertafel: Gesamt 40, Spalte „ja“ 25, Feld „ja/ja“ 10, Feld „ja/nein“ 20. Was stimmt?', '10 + 20 = 30 ist mehr als die Spaltensumme 25. Ein Feld ist falsch.', 'Prüfe die Spaltensumme.',
+                 **wahl('Die Felder passen nicht zur Summe 25.', ['Alles richtig.', 'Die Gesamtzahl muss 30 sein.', 'Es fehlt nur das Feld „nein/nein“.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Code besteht aus einem Buchstaben (A, B oder C) und einer Ziffer (0 bis 9). Wie viele Codes gibt es?', 'Baumdiagramm mit 3 · 10 = 30 Wegen.', 'Jeder Buchstabe verzweigt in 10 Ziffern.', o={'wert': 30}, c='3 * 10'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Zweimal Münze werfen. Wie viele Wege gehören zu „genau einmal Wappen“?', 'WZ und ZW: 2 Wege.', o={'wert': 2}, c='2'))
+    for (g, a, b) in ((40, 22, 9), (60, 35, 20), (24, 10, 4)):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Vierfeldertafel: gesamt {g}, Merkmal A bei {a}, davon {b} auch mit B. Wie viele haben A, aber nicht B?', f'A ohne B = A gesamt − A mit B = {a} − {b} = {a - b}.', o={'wert': a - b}, c=f'{a} - {b}'))
+    for (m, n) in ((2, 3), (4, 2), (6, 6), (3, 5), (2, 2), (5, 4)):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein Versuch hat {m} Ausgänge auf der ersten und {n} auf der zweiten Stufe. Wie viele Wege hat das Baumdiagramm?', f'{m} · {n} = {m * n} Wege.', o={'wert': m * n}, c=f'{m} * {n}'))
+    return karte, 'Ergebnisse mehrstufiger Versuche im Baumdiagramm und zwei Merkmale in der Vierfeldertafel darstellen und auszählen', A
+
+
+# ------------------------------------------------------------------ 91 · raumwinkel (RS 7 I 4/K1) – LK-D 3, F3
+def raumwinkel():
+    L = 'raumwinkel'
+    karte = {
+        'lernziel': L, 'titel': 'Winkel im Raum',
+        'einstieg': 'Ein Fahnenmast steht senkrecht auf dem Schulhof, ein Seil führt schräg von der Spitze zum Boden. Zwischen Mast und Boden ist ein rechter Winkel, zwischen Seil und Boden ein spitzer. Solche Winkel im Raum kann man an Körpern ablesen.',
+        'woerter': [['Neigungswinkel', 'Winkel zwischen einer Geraden und einer Ebene'], ['Winkel zwischen Ebenen', 'Winkel zweier Flächen entlang ihrer gemeinsamen Kante']],
+        'regel': 'Steht eine Kante ⟦senkrecht⟧ auf einer Fläche, bilden beide 90°. Am Quader treffen alle Flächen im rechten Winkel aufeinander. Beim geraden Prisma ist der Winkel zwischen zwei Seitenflächen der Innenwinkel der Grundfläche.',
+        'schritte': [{'text': 'Gerades Prisma mit einem gleichseitigen Dreieck als Grundfläche.'},
+                     {'text': 'Zwei Seitenflächen treffen sich an einer senkrechten Kante. Ihr Winkel ist der Dreieckswinkel: ⟦60°⟧.'},
+                     {'text': 'Jede Seitenfläche steht senkrecht auf der Grundfläche: 90°.'}],
+        'fehler': 'Den Winkel im Schrägbild messen: Dort ist der rechte Winkel oft als 45° oder 135° gezeichnet. Im Raum ist er ⟦90°⟧.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Wie groß ist der Winkel zwischen einer senkrechten Quaderkante und der Grundfläche?', 'Die Kante steht senkrecht auf der Grundfläche: 90°.', 'Senkrecht heißt 90°.', o={'wert': 90, 'einheit': '°'}, c='90'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein gerades Prisma hat ein Quadrat als Grundfläche. Unter welchem Winkel treffen zwei benachbarte Seitenflächen aufeinander?', 'Der Winkel ist der Innenwinkel des Quadrats: 90°.', 'Schau auf die Grundfläche.', o={'wert': 90, 'einheit': '°'}, c='90'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welcher Winkel ist ein Neigungswinkel?', 'Ein Neigungswinkel liegt zwischen einer Geraden und einer Ebene, z. B. Seil und Boden.', 'Gerade und Ebene.',
+                 **wahl('zwischen Seil und Boden', ['zwischen zwei Seilen', 'zwischen zwei Böden', 'zwischen zwei Punkten'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Im Schrägbild eines Würfels erscheint die Ecke vorne unten rechts mit 135°. Wie groß ist der Winkel am Würfel?', 'Am Würfel sind alle Winkel zwischen Kanten 90°; das Schrägbild verzerrt.', 'Zeichnung und Körper unterscheiden.',
+                 **wahl('90°', ['135°', '45°', '180°'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?', 'Innenwinkelsumme Sechseck 720°, ein Winkel 720° : 6 = 120°.', 'Erst den Innenwinkel des Sechsecks.', o={'wert': 120, 'einheit': '°'}, c='720 / 6'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein Zelt hat einen dreieckigen Querschnitt mit zwei gleichen Winkeln von 65° am Boden. Wie groß ist der Winkel zwischen den beiden Zeltwänden oben?', '180° − 2 · 65° = 50°.', 'Winkelsumme im Dreieck.', o={'wert': 50, 'einheit': '°'}, c='180 - 2 * 65'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Zwei Seitenflächen eines geraden Prismas mit regelmäßiger Grundfläche bilden 108°. Wie viele Ecken hat die Grundfläche?', 'Regelmäßiges n-Eck mit Innenwinkel 108°: Fünfeck (540° : 5 = 108°).', 'Welches regelmäßige Vieleck hat 108°?', o={'wert': 5}, c='360 / (180 - 108)'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Eine Rampe steigt vom Boden an. Welcher Winkel beschreibt, wie steil sie ist?', 'Der Neigungswinkel zwischen Rampenfläche und Boden.', 'Fläche gegen Boden.',
+                 **wahl('der Winkel zwischen Rampe und Boden', ['der Winkel zwischen zwei Bodenfliesen', 'der Winkel am oberen Ende der Rampe zur Wand', 'der Winkel zwischen zwei Geländerstäben'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'In einem geraden Prisma mit dreieckiger Grundfläche bilden zwei Seitenflächen 70° und 50°. Welchen Winkel bilden die dritte und die zweite Seitenfläche?', 'Die Winkel zwischen Seitenflächen sind die Dreieckswinkel: 180° − 70° − 50° = 60°.', 'Winkelsumme der Grundfläche.', o={'wert': 60, 'einheit': '°'}, c='180 - 70 - 50'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum ist der Winkel zwischen zwei Seitenflächen eines geraden Prismas gleich dem Innenwinkel der Grundfläche?', 'Die Seitenflächen stehen senkrecht auf der Grundfläche; ihr Winkel zeigt sich unverändert in der Grundfläche.', 'Schneide waagrecht durch.',
+                 **wahl('Weil die Seitenflächen senkrecht auf der Grundfläche stehen.', ['Weil alle Kanten gleich lang sind.', 'Weil das Prisma symmetrisch ist.', 'Weil die Deckfläche kleiner ist.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Ben misst im Schrägbild eines Quaders zwischen Vorder- und Seitenfläche 45° und schreibt: „Die Flächen bilden 45°.“ Was stimmt?', 'Im Schrägbild ist der Winkel verzerrt. Am Quader bilden die Flächen 90°.', 'Ist ein Quader schief?',
+                 **wahl('Falsch: am Quader sind es 90°.', ['Richtig.', 'Falsch: es sind 135°.', 'Falsch: es sind 60°.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Dach hat zwei gleich geneigte Flächen. Jede bildet mit dem waagrechten Dachboden 35°. Wie groß ist der Winkel zwischen den beiden Dachflächen am First?', 'Querschnitt Dreieck: 180° − 2 · 35° = 110°.', 'Zeichne den Querschnitt.', o={'wert': 110, 'einheit': '°'}, c='180 - 2 * 35'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Ein gerades Prisma hat ein regelmäßiges Achteck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?', 'Innenwinkel: 1 080° : 8 = 135°.', o={'wert': 135, 'einheit': '°'}, c='(8 - 2) * 180 / 8'))
+    for w in (40, 55, 70):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Zwei gleich geneigte Dachflächen bilden mit dem Dachboden je {w}°. Welchen Winkel bilden sie am First?', f'180° − 2 · {w}° = {180 - 2 * w}°.', o={'wert': 180 - 2 * w, 'einheit': '°'}, c=f'180 - 2 * {w}'))
+    for n in (3, 4, 5, 6, 9, 10):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Gerades Prisma mit regelmäßigem {n}-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?', f'Innenwinkel des {n}-Ecks: ({n} − 2) · 180° : {n} = {z(Fr((n - 2) * 180, n))}°.', o={'wert': (n - 2) * 180 / n if (n - 2) * 180 % n else (n - 2) * 180 // n, 'einheit': '°'}, c=f'({n} - 2) * 180 / {n}'))
+    return karte, 'Winkel zwischen Kanten, Flächen und Geraden an Prismen und Quadern bestimmen', A
+
+
+# ------------------------------------------------------------------ 20 · irrational_beweis (Gym 9 1/k3, Punkt 202) – LK-D 4, A1
+SCHRITTE_W2 = ['Annahme: √2 ist rational, also √2 = p/q mit teilerfremden natürlichen Zahlen p und q.',
+               'Quadrieren und umformen: 2 = p²/q², also p² = 2q².',
+               'p² ist gerade, also ist p gerade: p = 2r. Dann 4r² = 2q², also q² = 2r², und auch q ist gerade.',
+               'Widerspruch: p und q sind beide durch 2 teilbar, sie waren aber teilerfremd. Also ist √2 nicht rational.']
+
+
+def irrational_beweis():
+    L = 'irrational_beweis'
+    karte = {
+        'lernziel': L, 'titel': 'Warum √2 kein Bruch ist',
+        'einstieg': 'Der Taschenrechner zeigt √2 ≈ 1,41421356. Egal wie viele Stellen er anzeigt: Es gibt keinen Bruch, dessen Quadrat genau 2 ist. Das kann man nicht ausprobieren, man muss es beweisen – mit einem ⟦indirekten Beweis⟧.',
+        'woerter': [['indirekter Beweis', 'Man nimmt das Gegenteil an und zeigt, dass daraus ein Widerspruch folgt'],
+                    ['teilerfremd', 'Zwei Zahlen haben außer 1 keinen gemeinsamen Teiler; jeder Bruch lässt sich so kürzen']],
+        'regel': 'Indirekter Beweis: ⟦Gegenteil annehmen⟧, sauber weiterfolgern, auf einen Widerspruch stoßen. Dann war die Annahme falsch. Bei √2: Aus √2 = p/q (gekürzt) folgt, dass p und q beide gerade sind – das passt nicht zu „gekürzt“.',
+        'schritte': [{'text': 'Annahme: √2 = p/q, vollständig gekürzt.'},
+                     {'text': 'Quadrieren: p² = 2q². Also ist p² gerade, und damit ist auch p gerade.'},
+                     {'text': 'Mit p = 2r folgt q² = 2r²: Auch q ist gerade. ⟦Widerspruch⟧ zu „gekürzt“.'}],
+        'fehler': 'Mit Beispielen „beweisen“: Dass 7/5 oder 141/100 nicht passen, zeigt nichts über alle Brüche. Erst der ⟦Widerspruch⟧ gilt für jeden Bruch.',
+    }
+    A = []
+    def ordnen(l, p, s, g, reihe, w, h=None):
+        txt = 'Bringe die Beweisschritte für „√2 ist irrational“ in die richtige Reihenfolge. ' + ' '.join(f'({i + 1}) {SCHRITTE_W2[j]}' for i, j in enumerate(reihe))
+        soll = [reihe.index(j) + 1 for j in range(4)]
+        return auf(l, p, s, g, 'luecken', txt, w, h, o={'werte': soll}) | {'f': {'text': txt, 'schablone': '1. □ · 2. □ · 3. □ · 4. □', 'hinweis': 'Trage die Nummern der Schritte ein.'}}
+    A.append(auf(L, 'uebung', 1, 'direkt', 'auswahl', 'Womit beginnt ein indirekter Beweis für „√2 ist irrational“?', 'Man nimmt das Gegenteil an: √2 ist rational, also ein gekürzter Bruch p/q.', 'Gegenteil der Behauptung.',
+                 **wahl('Annahme: √2 ist ein gekürzter Bruch p/q.', ['Man rechnet √2 auf 10 Stellen aus.', 'Man probiert viele Brüche aus.', 'Annahme: √2 ist irrational.'], 1)))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'auswahl', 'Was folgt aus √2 = p/q durch Quadrieren?', '(p/q)² = 2, also p²/q² = 2 und damit p² = 2q².', 'Beide Seiten quadrieren und mit q² malnehmen.',
+                 **wahl('p² = 2q²', ['p = 2q', 'p² = q² + 2', '2p = q²'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Aussage ist ein Widerspruch, wenn p/q vollständig gekürzt ist?', 'Gekürzt heißt teilerfremd; sind p und q beide gerade, hätten sie den Teiler 2.', 'Was heißt „gekürzt“?',
+                 **wahl('p und q sind beide gerade.', ['p ist ungerade.', 'q ist größer als 1.', 'p ist größer als q.'], 2)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Warum darf man am Anfang annehmen, dass p/q gekürzt ist?', 'Jeder Bruch lässt sich vollständig kürzen; wäre √2 ein Bruch, dann auch ein gekürzter.', 'Kann man jeden Bruch kürzen?',
+                 **wahl('Weil man jeden Bruch vollständig kürzen kann.', ['Weil √2 kleiner als 2 ist.', 'Weil p und q gerade sind.', 'Weil das im Taschenrechner so steht.'], 3)))
+    A.append(ordnen(L, 'uebung', 2, 'mehrschritt', [2, 0, 3, 1], 'Richtig ist: Annahme, Quadrieren, beide gerade, Widerspruch.', 'Was muss zuerst stehen?'))
+    A.append(ordnen(L, 'uebung', 2, 'darstellung', [3, 1, 0, 2], 'Reihenfolge: (3) Annahme, (2) p² = 2q², (4) beide gerade, (1) Widerspruch.', 'Der Widerspruch steht am Ende.'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'auswahl', 'Aus p² = 2q² folgt „p² ist gerade“. Warum ist dann auch p gerade?', 'Wäre p ungerade, dann wäre auch p · p ungerade. Also muss p gerade sein.', 'Ungerade mal ungerade ist …?',
+                 **wahl('Das Quadrat einer ungeraden Zahl ist ungerade.', ['Weil 2 gerade ist.', 'Weil q gerade ist.', 'Weil jede Quadratzahl gerade ist.'], 0)))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'luecken', 'Setze p = 2r in p² = 2q² ein und vereinfache.', '(2r)² = 4r² = 2q², geteilt durch 2: q² = 2r².', 'Erst (2r)² ausrechnen.', o={'werte': [2]}) | {'f': {'text': 'Setze p = 2r in p² = 2q² ein und vereinfache.', 'schablone': 'q² = □ · r²', 'hinweis': 'eine ganze Zahl'}})
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Lena schreibt: „√2 = 1,414 ist ein endlicher Dezimalbruch, also rational. 1,414² = 1,999396 ≈ 2. Also stimmt die Annahme.“ Was ist falsch?', '1,414 ist nur ein Näherungswert; 1,414² ist nicht genau 2. Ein Näherungswert sagt nichts über √2 selbst.', 'Ist 1,999396 genau 2?',
+                 **wahl('1,414 ist nur ein Näherungswert, 1,414² ist nicht genau 2.', ['Sie hat falsch quadriert.', 'Nichts, das ist ein Beweis.', 'Dezimalbrüche sind nie rational.'], 1)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'auswahl', 'Tim beweist: „Aus p² = 2q² folgt p gerade. Also ist √2 irrational.“ Was fehlt?', 'Es fehlt der zweite Teil: auch q ist gerade. Erst dann entsteht der Widerspruch zu „gekürzt“.', 'Wo ist der Widerspruch?',
+                 **wahl('Der Nachweis, dass auch q gerade ist, und damit der Widerspruch.', ['Nichts, der Beweis ist fertig.', 'Eine Probe mit dem Taschenrechner.', 'Dass p größer als q ist.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum zeigt der Widerspruch, dass √2 irrational ist?', 'Aus der Annahme „√2 ist rational“ folgt etwas Unmögliches. Also ist die Annahme falsch, und √2 ist nicht rational.', 'Was folgt, wenn eine Annahme zu etwas Unmöglichem führt?',
+                 **wahl('Die Annahme „√2 ist rational“ führt zu etwas Unmöglichem, also ist sie falsch.', ['Weil p und q gerade sind.', 'Weil √2 unendlich viele Stellen hat.', 'Weil 2 eine Primzahl ist.'], 2)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'auswahl', 'Der gleiche Beweis klappt für √3 mit „durch 3 teilbar“ statt „gerade“. Für welche Zahl klappt er nicht, weil die Wurzel rational ist?', '√9 = 3 ist rational; der Beweis scheitert, weil aus p² = 9q² nicht folgt, dass p und q beide durch 9 teilbar sind.', 'Welche Wurzel geht auf?',
+                 **wahl('√9', ['√5', '√7', '√11'], 3)))
+    A.append(auf(L, 'test', 2, None, 'auswahl', 'Welcher Schritt kommt im Beweis direkt nach „p² = 2q²“?', 'Aus p² = 2q² folgt, dass p² und damit p gerade ist.', **wahl('p ist gerade, also p = 2r.', ['√2 ist irrational.', 'Annahme: √2 = p/q.', 'q ist ungerade.'], 0)))
+    for txt, r, f in (('„p² ist gerade, also ist p gerade.“', 'Begründung: Das Quadrat einer ungeraden Zahl ist ungerade.', ['Weil p² größer als p ist.', 'Weil 2 eine Primzahl ist.']),
+                      ('„Man darf p/q als gekürzt annehmen.“', 'Begründung: Jeder Bruch lässt sich vollständig kürzen.', ['Weil √2 kleiner als 2 ist.', 'Weil q nicht 0 ist.']),
+                      ('„Aus q² = 2r² folgt: q ist gerade.“', 'Begründung: Wie bei p – q² ist gerade, also auch q.', ['Weil r gerade ist.', 'Weil q kleiner als p ist.'])):
+        A.append(auf(L, 'korrektur', 2, None, 'auswahl', f'Welche Begründung gehört zu diesem Schritt? {txt}', r + ' Die anderen Antworten begründen den Schritt nicht.', **wahl(r.replace('Begründung: ', ''), f + ['Weil der Taschenrechner das zeigt.'], 1)))
+    for reihe in ([1, 0, 2, 3], [0, 2, 1, 3], [3, 0, 1, 2], [2, 3, 0, 1], [1, 3, 2, 0], [0, 1, 3, 2]):
+        A.append(ordnen(L, 'sicherung', 2, None, reihe, 'Immer: Annahme gekürzter Bruch → p² = 2q² → p und q gerade → Widerspruch.'))
+    return karte, 'Den indirekten Beweis für die Irrationalität von √2 in Schritten ordnen, begründen und Fehler darin finden', A
+
+
 NEU = {'abbildungen.kongruenz': [vektor_koordinaten, vektor_drehen], 'abbildungen.aehnlichkeit': [streckung_vektor],
-       'geometrie.konstruktion': [vierecke_konstruieren], 'messen.flaechen_vielecke': [drachen_raute], 'raum.schraegbilder': [wahre_groesse]}
+       'geometrie.konstruktion': [vierecke_konstruieren], 'messen.flaechen_vielecke': [drachen_raute], 'raum.schraegbilder': [wahre_groesse, koerper_symmetrie, raumwinkel], 'stochastik.grundbegriffe': [darstellen],
+       'messen.prisma_zylinder': [cavalieri], 'terme.umformen': [gleichungen_binomisch], 'zahlen.reell': [irrational_beweis]}
 ABSCHNITT = 'Lehrplan-Ergänzung (LK)'
 
 

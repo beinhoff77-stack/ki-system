@@ -2,6 +2,137 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LK-D 4, Ergänzung „Rückläufer ChatGPT 942/943“ (lehrplan-lb)
+
+Grundlage: `lernen-app` d722a791. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten in `lk_teilung_2211.md`, Abschnitt „LK-D 4“.
+
+- **A1 – √2:** neue Lernkarte 20 `irrational_beweis` „Warum √2 kein Bruch ist“ (Gym 9, Punkt 202).
+  - 22 Aufgaben: Beweisschritte ordnen, Fehler im Beweis finden, Schritt begründen.
+  - 202 = `zahlarten, irrational_beweis`, also nicht mehr „durch Zahlarten abgedeckt“.
+  - In RS Kür (758/971 verlangen keinen Beweis).
+  - SQL: nur der Begründungstext von 202 ändert sich. Probelauf LP-RS ×2, dann LK-D ×2 bestanden; Klassen unverändert.
+- **B1 – Pflicht/Kür je Etappe, Schulart und Gruppe:**
+  - Jede Etappe hat `status_je_schulart` (status, art, quelle = Punkt-IDs, klasse, gruppe, grund), in den geteilten Themen und in `etappen_kuer` für alle 87 Themen.
+  - „Keine Zuordnung“ ist nicht mehr automatisch Kür. Für Gym, RS I und RS II/III habe ich jede nicht zugeordnete Etappe einzeln entschieden (integrativ Pflicht mit Quellen-Punkt, auch aus einem anderen Thema, oder Kür mit Grund).
+  - Kür ohne Einzelentscheidung gibt es nur noch, wenn das Thema in der Schulart/Gruppe weder Haupt- noch Nebenbezug hat.
+  - **Annahme IB:** Im IB gilt eine Etappe in einem Thema mit IB-Bezug pauschal als Pflicht (nicht einzeln geprüft).
+- **Folgen:**
+  - 101 Teil 1 ist in RS I/II/III Pflicht (Punkte 783/1009), nicht Zusatz.
+  - 26 im Gymnasium: 4 bzw. 3 Pflicht-Etappen (Schlussrechnung, Punkt 41); nur `aenderung` ist Kür.
+  - 46 Teil 3 im Gymnasium: nur `punktspiegelung` Pflicht; `drehung` und `vektor_drehen` sind Kür (Gym 7: nur Achsen- und Punktspiegelung).
+  - Zusatz bleiben: Gym 44 Teil 2 und 46 Teil 2, RS II/III 46 Teil 3, IB Std 91.
+- **Kinder (Gymnasium):**
+  - Kind 2: 29 Teil 2 mit 3/3 vollständig, 99 vollständig.
+  - Kein geflogener Flug wird wieder offen.
+- **Offen:** 58 Etappen stehen in der Themendatei als Vertiefung, sind nach dieser JSON aber in einer Schulart Pflicht (`vertiefung_aber_lehrplanpunkt`). Vorschlag: Die JSON gilt. Entscheidung Sebastian/TL-S.
+- **Für reise-aufbau:** Neue Etappen seit LK-D 3 sind 61 `darstellen`, 91 `raumwinkel` und 20 `irrational_beweis` (kein neuer Flug).
+- Prüfskript ohne Fehler, Tests 141/141.
+
+FERTIG: LK-D 4
+
+## 2026-11-22 – MELDUNG LK-D 4 (lehrplan-lb)
+
+Grundlage: `lernen-app` 723770dd, „Entscheidungen Sebastian (17:05)“. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten stehen in `lk_teilung_2211.md`, Abschnitt „LK-D 4“.
+
+- **(b) Kür je Etappe und Schulart:**
+  - In der JSON hat jede Etappe `kuer_in` und `klasse_je_schulart`, in den geteilten Themen und unter `etappen_kuer` für alle 87 Themen.
+  - Jeder Teil hat `pflicht_etappen_je_schulart`.
+  - Den Stand je Kind habe ich nur über die Pflicht-Etappen neu gerechnet (`stand_je_kind`, der alte Stand steht in `stand_je_kind_vorher`).
+  - **Kind 2, 29 Teil 2, Gymnasium: 3/3, vollständig** (`gleichungen_binomisch` ist dort Kür).
+  - Neu vollständig über die Kür-Regel ist außerdem **Kind 2 in 99** (`drachen_raute` gibt es nur in RS).
+  - Kind 2 hat in 24, 30, 57 und 100 alle Etappen, aber keinen Flug. Annahme: Es fehlt der Flug-Test.
+- **Folge fürs Gymnasium:**
+  - 26 Teil 2, 46 Teil 3, 91 Teil 1, 91 Teil 2 und 101 Teil 2 haben je nur **eine** Pflicht-Etappe.
+  - 44 Teil 2 und 46 Teil 2 sind dort ganz Kür.
+  - TL-S muss klären, ob ein Flug-Test aus einer Etappe reicht.
+- **Widerspruch, offen:**
+  - 47 Etappen stehen in der Themendatei als Vertiefung (heute Kür für alle), haben aber in einer Schulart einen Lehrplanpunkt. Dazu gehören meine LK-Etappen, z. B. 61 `darstellen` und 101 `cavalieri`, die im Gymnasium Pflicht sind.
+  - Vorschlag: Die Schulart-Regel gilt, und `lernziele_vertiefung` gilt nur noch für Etappen ohne Lehrplanpunkt.
+  - Die Liste steht in `vertiefung_aber_lehrplanpunkt`. Sebastian bzw. TL-S entscheidet.
+- **(a) F1 und (c) F3** waren schon vor der Entscheidung von 17:05 geliefert (Commit c7a86ada, Meldung darunter):
+  - Alle Themen sind durchgezählt (62 Fälle).
+  - **57**: Wiederholung ohne neue Etappe, Anzeige „wird in Kl. 7 wieder aufgegriffen“. Kl. 7 verlangt dieselbe Fähigkeit wie Kl. 5 auf höherem Niveau.
+  - **2**: nicht teilen. Der Kl.-8-Punkt 734/749 braucht binomische Formeln und hängt seit LK-D 2 an 29 Teil 2.
+  - **61 Teil 1**: neue Etappe `darstellen` „Baumdiagramm und Vierfeldertafel“.
+- **Für reise-aufbau:** Zusätzlich zu den drei genannten neuen Etappen gibt es **61 `darstellen`** und **91 `raumwinkel`** (je Teil 1). Die Zahl der Teile ändern sie nicht.
+- SQL, Inhalte und Klassen sind seit LK-D 3 (Ergänzung) unverändert.
+
+FERTIG: LK-D 4
+
+## 2026-11-22 – MELDUNG LK-D 3, Ergänzung „Rückläufer ChatGPT 939/940“ (lehrplan-lb)
+
+Grundlage: `lernen-app` 95886f3b. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten in `lk_teilung_2211.md`, Abschnitt „Ergänzung 939/940“.
+
+- **(1) Zählung:** Die 6 Themen ergeben 13 Teile und 7 neue Flüge. Mit 101 sind es 7 Themen, 15 Teile und 8 neue Flüge. Diese Ergänzung ändert daran nichts.
+- **(2) F1:**
+  - Alle Themen habe ich maschinell gegen `lk_daten_2211.json` gezählt: 62 Fälle (Thema × Spur × spätere Klasse). Jeder steht mit Entscheidung, Anzeige und Begründung in `lk_teilung_2211.json` unter `mehrere_klassen`; Wiederholungen zusätzlich unter `wiederholung_anzeige`.
+  - Gymnasium: nur 101 (8 → 10), geteilt.
+  - RS I: 26, 29, 44, 46, 61 und 91 sind geteilt.
+  - **57** (RS 5 → 7, ebenso II/III): Wiederholung ohne neue Etappe, Anzeige „wird in Kl. 7 wieder aufgegriffen“. Kl. 7 verlangt dieselbe Fähigkeit wie Kl. 5 auf höherem Niveau.
+  - **2** hat in RS nur noch Kl. 7. Der Kl.-8-Punkt (734/749) braucht binomische Formeln und hängt seit LK-D 2 an 29 Teil 2 (Etappe `gleichungen_binomisch`); 2 ist dort Nebenthema. Deshalb keine Teilung; Anzeige „wird in Kl. 8 in 29 Teil 2 wieder aufgegriffen“.
+  - 46 II/III Kl. 8: Wiederholung.
+  - II/III (8, 26, 29, 33, 46, 61, 91) und IB: Grenzfälle, keine Teilung.
+- **(3) F2:**
+  - Jede Kante hat `art_je_schulart` mit hart, empfohlen oder Zusatz; jeder Teil hat `status_je_schulart`.
+  - Gym: 46 Teil 3 ← Teil 1 hart, ← Teil 2 empfohlen; 44 Teil 2 und 46 Teil 2 sind Zusatz.
+  - `kanten_je_schulart` führt Zusatz-Teile ausdrücklich mit art „Zusatz“.
+- **(4) F3:**
+  - 61 Teil 1: Baumdiagramm und Vierfeldertafel fehlten. Neu ist die Etappe 61 `darstellen` (Punkte 950, 968, Gym 185). Teil 1 hat damit 3 Etappen und ist kein Kurzflug mehr.
+  - 91: Raumwinkel (881) fehlte. Neu ist die Etappe 91 `raumwinkel` in Teil 1 (RS I 7).
+  - Für 882 und 959 kommt `wahre_groesse` dazu, weil der Verzerrungsfaktor dort steht.
+  - Die übrigen Punkte aus Kl. 7 und 8 waren gedeckt.
+  - Je 22 Aufgaben, Vertiefung, Prüfskript ohne Fehler.
+  - Klassen unverändert; kein Kind hat in 61 oder 91 etwas erledigt.
+- **SQL:** Nur die Begründungstexte von 185 ändern sich; die Zahlen bleiben 33/18/13/187. Probelauf auf dem echten Stand: LP-RS zweimal, dann LK-D zweimal, bestanden; `thema_jahrgang` unverändert. Tests: 141/141.
+- **Offen:**
+  - 57 `irrefuehrend` hat kaum Aufgaben zu „Diagramm berichtigen“. Das sind fehlende Aufgaben, keine fehlende Etappe; nicht geliefert.
+  - Unverändert offen: Kind 2 / 29 Teil 2 (3 von 4 Etappen, neue Etappe nachholen oder als Zusatz führen) – Sebastian entscheidet.
+
+FERTIG: LK-D 3
+
+## 2026-11-22 – MELDUNG LK-D 3 (lehrplan-lb)
+
+Grundlage ist `lernen-app` 13dd8a52, „Entscheidung Teilung (16:20)“. Nichts eingespielt, Kinder nur als Nummern.
+
+- **Zählung berichtigt:** Die Entscheidung nennt „6 Themen → 15 Teile, 9 Flüge“; das war meine falsche Summe. Richtig für die 6 Themen: 13 Teile, 7 neue Flüge. Die Aufteilung je Thema stimmt.
+- **Gym-Audit (ChatGPT 937 A1)** liegt vor (Commit 83d61a2e, `lk_teilung_2211.md` Abschnitt 1):
+  - neue Etappe 101 `cavalieri` (Gym 10 5/k4, schiefe Körper und Volumengleichheit) → **101 wird geteilt** (Teil 2 von 2, Gym 10, RS I 9);
+  - neue Etappen 91 `koerper_symmetrie` und 29 `gleichungen_binomisch` (RS 8).
+  - **Die Liste steht damit bei 7 Themen, 15 Teilen, 8 neuen Flügen.**
+- **Kind 2, Thema 29:** Teil 2 hat jetzt 4 Etappen, Kind 2 hat 3. Teil 2 ist also nicht sofort vollständig, das widerspricht Punkt 4 der Entscheidung. Entweder die neue Etappe nachholen, oder sie in Teil 2 als Zusatz führen (Sebastian).
+- **Zusatz je Teil und Schulart** steht in der JSON (`teile[].zusatz`), dazu die Kanten je Schulart in `kanten_je_schulart`.
+  - Gymnasium: 46 Teil 2 und 44 Teil 2 sind Zusatz; 46 Teil 3 braucht hart nur Teil 1.
+  - RS I und II/III: 101 Teil 1 ist Zusatz (Prismen stehen dort bei 92), deshalb braucht Teil 2 ihn nur empfohlen.
+- **IB:** 2 harte Verstöße je Kurs, nicht 3; berichtigt.
+- **Aufbau:** Gymnasium 0, RS I 0, RS II/III 1 (empfohlen), IB 2 hart und 7 empfohlen.
+- **Kurzflüge:** 44 Teil 2, 61 Teil 1, neu 101 Teil 2 (1 Etappe).
+- `lk_korrektur_2211.sql` ist seit 83d61a2e geändert (Probelauf bestanden); der Probelauf des Haupt-Chats muss wiederholt werden.
+
+FERTIG: LK-D 3
+
+## 2026-11-22 – MELDUNG LK-D 2 Nachtrag: Rückläufer ChatGPT 936/937 (lehrplan-lb)
+
+Grundlage ist `lernen-app` „Stand 15:50 – Rückläufer ChatGPT 936/937“. Nichts eingespielt, Kinder nur als Nummern.
+
+- **Muss A1, Audit an den Übergängen 7→8, 8→9, 9→10** (Gymnasium und RS I), steht in `lk_teilung_2211.md`, Abschnitt 1. Drei Lücken, jeweils als neue Etappe geliefert:
+  - Gym 10 5/k4 schiefe Prismen und Cavalieri: **101 `cavalieri`**. Damit wird 101 geteilt: „Prismen und Zylinder – Teil 2 von 2“, Gym 10, RS I 9 über 9 I 5/K1.
+  - RS 8 I 3/K1 Symmetrie von Körpern: **91 `koerper_symmetrie`**, in 91 Teil 2.
+  - RS 8 I 4/K3 und 8 II/III 3/K3 Gleichungen mit binomischen Ausdrücken: **29 `gleichungen_binomisch`**, in 29 Teil 2.
+  - Teilweise gedeckt, nicht geliefert: Gym 9 indirekter Beweis zu √2 (Vorschlag offen).
+- **Neue Inhalte:** je 22 Aufgaben als Vertiefung. Prüfskript OK, App-Tests 141/141. Die Generatoren erzeugen die Dateien unverändert.
+- **Teilungsliste jetzt 7 Themen, 15 Teile, 8 neue Flüge.** Berichtigung: Die erste Fassung meldete 15 Teile und 9 Flüge für 6 Themen, richtig waren 13 und 7.
+- **Aufbau nach der Teilung:**
+  - Gymnasium 0 Verstöße, RS I 0.
+  - RS II/III 2, darunter neu 101 Teil 2 ← Teil 1.
+  - IB je Kurs 2 hart und 7 empfohlen.
+- **IB Muss B1:** Der LK-D-Bericht nannte fälschlich 3 harte Verstöße, richtig sind 2 (63 ← 61, 29 ← 102). Bericht berichtigt, die JSON war richtig.
+- **Kind 2, Thema 29:** Teil 2 hat durch die neue Etappe 3/4, nicht mehr 3/3. Der Flug-Abschluss bleibt. Vorschlag: die neue Etappe nachholen (Entscheidung Sebastian).
+- **Geändert:**
+  - `lk_daten_2211.json` und **`lk_korrektur_2211.sql`** (285 bekommt die Etappe `cavalieri`; 781 von 92 auf 101; 734 von 2 auf 29; 939 bekommt die Etappe `koerper_symmetrie`).
+  - Probelauf auf dem vollständigen echten Stand erneut bestanden, Klassen unverändert. **Der Probelauf des Haupt-Chats von 15:50 galt der alten Fassung.**
+
+FERTIG: LK-D 2
+
 ## 2026-11-22 – MELDUNG LK-D 2 Teilungsliste nach neuer Regel (lehrplan-lb)
 
 Grundlage ist `lernen-app` 367e31e0 (Teilungsregel 15:30/15:35/15:40). Nichts eingespielt, nichts ergänzt, Kinder nur als Nummern.

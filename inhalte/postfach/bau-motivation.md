@@ -2,6 +2,93 @@
 
 Neueste oben.
 
+## FERTIG: TL-S 4 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/werkzeug/tl_s_daten.py`, neu `supabase/tests/nachbau_graph_live.sql` (Voraussetzungen, Orte, Ort-Themen wie live; keine Kinderdaten). Nicht eingespielt, kein DROP/DELETE.
+
+**Ursache (Fehler, kein gewolltes Delta):** In `lk_teilung_2211.json` steht bei Kanten `art_je_schulart: "Zusatz"`, wenn der **abhängige** Teil in der Schulart Zusatz ist (z. B. 91 Teil 1 ← 52 im IB). Ich hatte „Zusatz“ als „empfohlen“ übersetzt → im IB fiel u. a. 91 ← 52 weg (Ort 109 → 86). Richtig: „Zusatz“ ändert die Kante nicht; nur ausdrückliches „hart“/„empfohlen“ weicht je Schulart ab, und „nur empfohlen“ gilt, wenn die **Voraussetzung** in der Schulart Zusatz ist (Entscheidung 16:20).
+**Zweiter Fund (lokal, live ohne Wirkung):** Teil 1 als Zusatz im Plan (101 Teil 1 in der Realschule) hätte den ganzen Ort 86 auf „zusatz“ gesetzt – dort liegt auch 52. Jetzt nur, wenn am Ort kein anderes Thema liegt.
+
+**Vorher/nachher je Schulart (Graph wie live, lesend übernommen; Migration lokal):**
+- Visum vorher 46 Ort-Paare; nachher je Schulart nach Abbildung der neuen Orte auf den Ort von Teil 1: Gym, RS, IB **ohne fehlende und ohne zusätzliche Paare**. Der Abbruch-Vergleich B4 läuft durch.
+- 102 ← 30 und 29 ← 102 sind in allen drei Schularten hart; Ort 62 braucht 44 in allen Schularten.
+- Neuer Rauchtest 13: keine harte Kante wird je Schulart abgeschwächt, außer ihre Voraussetzung ist dort Zusatz; 102 ← 30 und 29 ← 102 in jeder Schulart hart.
+- Migration lokal zweimal ohne Fehler, Rauchtest vorher/nachher grün.
+
+**Hinweis Kür-Daten (LK-D 4 ist in der JSON angekommen):** Die Migration übernimmt jetzt `pflicht_je_schulart` je Teil. Gegenüber der bisherigen Pflichtliste ändert sich im Gymnasium: 26 Teil 2 `erkennen` wird Pflicht, 44 Teil 2 `vierecke` wird Kür (44 Teil 2 ist dort ohnehin Zusatz). Weitere Abweichungen nur RS/IB. Live gibt es Lernstand-Zeilen nur zu 29 (Kinder 1–3), und dort stimmt die Regel mit dem Bestand überein → kein Abgleich nötig. Bestehende Zeilen werden sonst beim nächsten Teststart des Kindes abgeglichen (`lernziele_anlegen`); einen Sammel-Abgleich schlage ich für KS vor.
+
+## FERTIG: TL-S 3 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql` (nicht eingespielt, kein DROP/DELETE).
+
+**Ursache (lokal nachgestellt):** „Kann er komplett“ steht live als `route.kann_schon` am Ort; `thema_kann_schon`/`thema_kann_wdh` zählen nur Plan-Einträge mit Art „normal“. 46 Teil 2 ist im Gymnasium Zusatz → Plan-Art „zusatz“ → Setzung weg → B4 brach zu Recht ab. Mein Nachbau hatte vereinfachte `thema_kann_schon`/`thema_kann_wdh` – jetzt wie live.
+
+**Lösung:**
+- `thema_kann_schon` und `thema_kann_wdh` zählen auch Plan-Einträge „zusatz“ (Umbau per Anker, wiederholbar). Gesetzt bleibt gesetzt, Plan-Art bleibt „zusatz“, `im_plan` bleibt dort wie bisher nur für „normal“ (erlaubtes Delta).
+- Jeder neue Teil erbt vom Plan-Eintrag des Themas: Platz direkt dahinter, Status, `kann_schon`, `kann_schon_themen`/`kann_wdh_themen`/`ausgelassen` (auf den Teil umgeschrieben), auch Rückreise-Einträge. Wiederholungs-Setzung: je Teil mit dessen Etappen; Karten mit Fälligkeiten ziehen unverändert mit.
+- Live geprüft (lesend): Folgen hat heute nur das Setzen am Ort (`kann_schon`); Einträge „zusatz“ mit Setzung gibt es keine → die Änderung ändert am heutigen Stand nichts.
+
+**Fakten, echter Stand (lesend, nur Nummern):**
+- Bei den 7 geteilten Themen: Kind 2 hat 26 und 46 „Kann er komplett“ (Orte 54, 82), Kind 1 hat 26 im Plan, nicht begonnen; keine Wiederholungs-Setzung, keine Rückreise.
+- Sonst gesetzt (nicht geteilt): Kind 2 „komplett“ bei 23, 22, 21, 17, 15/16/18/67, 25, 28, 1, 42/73, 53, 50, 58, 60 und 19; „wiederholen“ bei 30, 71, 24, 57, 99/100. Zusatz-Einträge (ohne Setzung) bei beiden Kindern.
+
+**Nachbau ergänzt:** gesetzt komplett (Kind 2: 26, 46 inkl. Zusatz-Teil), gesetzt mit Wiederholung (RS-Kind: 46, mit Karten), im Plan nicht begonnen (Kind 1: 26), Rückreise (RS-Kind: 26). Neuer Rauchtest 12: jeder Teil erbt Setzung, Rückreise und Plan-Platz (Zusatz-Teil: als „zusatz“; leerer Teil: nicht im Plan). Migration lokal zweimal ohne Fehler, Rauchtest vorher und nachher grün.
+
+**KS** (Kür im Server: Tages-Wiederholung, Mischkarten, Blocktest-/Korrektur-Auswahl) wie vereinbart als eigener Auftrag nach dem Teilen.
+
+## FERTIG: TL-S 2 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql` (eine atomare Migration, nicht eingespielt, kein DROP/DELETE), `supabase/tests/tl_s_rauchtest.sql` (spielt die Migration ein, Rollback), neu `supabase/werkzeug/tl_s_daten.py` (Datenblock aus `lk_teilung_2211.json`), `supabase/tests/nachbau_live_constraints.sql` (echte Indizes/Constraints für lokale Nachbauten).
+**Reihenfolge:** lk_korrektur (neu) → FP-S 4 → LW-S 2 → LK-S → TL-S.
+
+**Fakten (lokal, Nachbau jetzt mit den echten eindeutigen Indizes/Constraints aus pg_indexes/pg_constraint, `thema_stufe` und `reiseoptionen` wie live):**
+- Abbruch `zuordnung_eintrag_id_idx` lokal nachgestellt und behoben. Lösung: je Punkt bleibt **ein** Hauptbezug – beim Teil mit den meisten Etappen des Punkts (Gleichstand: früherer Teil); die anderen Teile bekommen einen **Nebenbezug** mit `rolle` und ihren Etappen. `thema_lage_klasse` (LK-S) zählt Nebenbezüge von Geschwister-Teilen wie Hauptbezüge (Umbau per Anker, wiederholbar) → jeder Teil behält seine Klassen; `lehrplan_abdeckung` bleibt bei „Punkte mit Hauptthema“. Punkte „ganzes Thema“ (`*`) gelten für alle Teile (Nebenbezug). Index nicht erweitert.
+- Liste: 7 Themen / **15 Teile / 8 neue Flüge**, 34 Kanten inkl. `art_je_schulart` (z. B. 46 T3 ← T1 nur im Gym hart). Neue Etappen aus LK-D 3 (`cavalieri`, `koerper_symmetrie`, `gleichungen_binomisch`, `darstellen`, `raumwinkel`) sind eingeplant; live noch nicht vorhanden → übersprungen und gemeldet. **101 Teil 2** besteht nur aus `cavalieri` → wird als leere Hülle angelegt (Thema, Ort, Einheit im Entwurf, in keinem Plan, sperrt nichts; Zuordnungen folgen der vollen Etappenliste).
+- **B2 – eine Regel:** `schule.pflicht_lernziele(kind, einheit)` = Liste `bewertung.pflicht_je_schulart` der Gruppe (rs_I, rs_II_III, myp_standard …, über `kind_zweig`), sonst der Schulart, sonst `lernziele_pflicht`. `lernziele_anlegen` schreibt `lernziel_stand.pflicht` danach. Damit folgen Flug-Test-Wertung, Korrektur, Flug-Abschluss/Stempel, 100 Ort-Sterne, Nachtests, Ort-/Thema-Stand der Regel (alle lesen `lernziel_stand.pflicht`); `wdh_ablegen` und `konto_wd` auf die Regel umgestellt. `thema_stufe`: Teil mit 0 Pflicht-Etappen → kein Zwangstest; Kür-Fehler machen den Flug nicht „dran“. Teile: „vollständig“ (Stempel/100 Sterne) nur über die Pflicht-Etappen des Kindes.
+- **B3 – Schulartwechsel:** Trigger auf `lernender.schulart/zweig` gleicht `lernziel_stand.pflicht` der Einheiten mit Listen ab. Nichts wird gelöscht; neue Pflicht-Etappe = „offen“ → Flug wieder offen über den vorhandenen Nachtragstest (W177/I-5); Rückwechsel → wieder Kür. Erstabschluss/Stempel/Sterne bleiben, keine Doppelbuchung (Rauchtest 11).
+- Regressionen im Rauchtest: 3/3 Pflicht + 0/1 Kür → geschafft; nach Wechsel 3/4 → offen; Rückwechsel → geschafft; Sterne/Lernstand-Zeilen unverändert; 0 Pflicht → kein Test. Gültiger Testpfad: jede Pflicht-Etappe eines freigegebenen Teils hat eine Test-Aufgabe (Fehler sonst).
+- Ohne Daten aus LK-D 4 (`kuer_in`) ändert sich am Pflicht-Stand der Kinder nichts – Listen gibt es erst, wenn der Datenblock sie enthält (Werkzeug erzeugt sie aus `etappen[].kuer_in`).
+
+**Annahmen / offen:**
+- Live gibt es heute Kür nur als `lernziele_vertiefung` (26: erkennen, aenderung; 46: verschiebung, drehung, gegenvektor; 91: lage, koordinaten). Dadurch hat **46 Teil 2** nach der Teilung keine Pflicht-Etappe (für alle) → Zusatz ohne Zwangstest, kein Stempel. In der Realschule ist er laut Lehrplan Pflicht → LK-D 4 muss das mit `kuer_in` liefern.
+- Datenbank kennt nur `gym_by/rs_by/ib_myp` + `zweig` (rs_I/rs_II_III); IB-Gruppe (standard/extended) hat keinen Platz am Kind → `myp_standard` per `kind_zweig`.
+- Zusatz-**Teile** (Themen-Ebene) beim Schulartwechsel: Plan-Art (`zusatz`/`normal`) wird **nicht** automatisch umgestellt – gehört in Plan/Reise.
+
+**Vorschlag Aufteilung (B2 ist für eine Datei zu groß; in TL-S 2 nur, was die Teilung braucht):**
+1. TL-S 2 (diese Datei): Teilung, Zuordnungen, Kanten je Schulart, die Regel + Abgleich + Schulartwechsel, thema_stufe.
+2. **KS (eigener Auftrag, nach LK-D 4):** Tages-Wiederholung und Mischkarten nur aus Pflicht-Etappen; Blocktest-Auswahl und Korrektur-Test nur Pflicht (heute kommen Kür-Testaufgaben in den Blocktest, zählen aber nicht); `flug_erstabschluss_nachtragen`/`ort_stand` für Teile mit 0 Pflicht klären (Stempel ja/nein); Anzeige „Pflicht im Gym / Kür in der RS“ (Gestalter). Grund: das ändert das Verhalten für alle Flüge mit Vertiefung, nicht nur für die geteilten.
+
+## FERTIG: TL-S (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql` (eine atomare Migration, nicht eingespielt, kein DROP/DELETE), `supabase/tests/tl_s_rauchtest.sql` (spielt die Migration in einer Transaktion ein, prüft, Rollback).
+**Reihenfolge:** nach LK-S und LW-S/LW-S 2 (Schritt 0 prüft beides); einspielen erst nach dem Gym-Audit (LK-D 3).
+
+**Fakten (lokal, PG 16, Nachbau der 6 Themen mit Live-Struktur, echtem `thema_stufe`, `reiseoptionen`, `fehler_endgueltig_am`):**
+- 13 Teile / 7 neue Flüge (Zahl 15 im Kopf berichtigt). Zweimal eingespielt: zweiter Lauf teilt nichts mehr. Rauchtest grün, vor und nach dem Einspielen.
+- **B3a:** Lehrplan-Punkte nach `zuordnung.etappen` auf die Teile (über mehrere Teile → je Teil eine Zuordnung). Alle 28 Kanten der JSON gesetzt, u. a. 31/8/97/35 ← 29 Teil 2, 62/64 ← 61 Teil 2, 93 ← 26 Teil 2, 74 ← 46 Teil 2, 49 ← 46 Teil 3; alte Kanten auf Teil 1 umgehängt, nicht doppelt.
+- **B3b:** Aufgaben ziehen mit gleicher Id in die Einheit ihres Teils → `versuch → aufgabe → einheit` zeigt ohne Lesepfad-Umbau auf den richtigen Teil (Was wackelt, Lernstand, Lehrer-Ansicht, Wertung). Rauchtest 3 erfasst alle alten Antworten vor dem Teilen und prüft danach Teil und Summe der „Was wackelt“-Fehler je Kind.
+- **B3c:** `schule.voraussetzung_schulart` + `v_ort_visum.schulart`; `reiseoptionen` filtert nach der Schulart des Kindes. Gym: 44 T2 und 46 T2 Zusatz, 46 T3 ← T2 nur empfohlen, ← T1 hart. Zusatz-Teile stehen im Plan als Art „zusatz“ und sind nirgends Visum (Rauchtest 5).
+- **B4:** Abbruch-Vergleich je Thema und Kind jetzt mit ganzen Karten-/Lernziel-Zeilen (alle `wdh_*`, `misch_ok_am`), offenen Mischkarten, `thema_stufe`, Reiseoptionen; global zusätzlich Visum je Schulart. Erlaubte Deltas ausdrücklich: im Plan/gesetzt/Rückreise je Teil wie vorher (Zusatz-Teil: als „zusatz“ im Plan); Etappen/begonnen/gelandet/sicher/wieder offen summieren sich zum alten Wert; Stufe je Teil ergibt sich neu; Reiseoptionen/Visum gleich nach Abbildung neuer Orte auf den Ort von Teil 1. Alles andere bricht ab (lokal mehrfach ausgelöst und behoben).
+- **Kind 2, 29 Teil 2:** Stempel, Ort fertig, 100 Ort-Sterne (einmal), Stufe „wiederholung“ statt „Test offen“ – dafür wird der abgeschlossene Flug-Test der alten Einheit als Test-Sitzung des Teils mitgeführt (Einfügen bucht keine Sterne; Trigger nur bei UPDATE).
+- **LW-Rest:** `besprochen_aktiv` nutzt `fehler_endgueltig_am` (LW-S 2). Regression im Rauchtest 8: alte Markierung + endgültiger erster Fehlversuch → wieder offen; offener erster Anlauf → bleibt besprochen; ohne Fehler → bleibt.
+- Neue Teile: freigegebene Einheiten, jede Etappe mit ≥ 1 Test-Aufgabe (lokal 0 Etappen ohne). Live fehlen noch die LK-D-Etappen `vierecke_konstruieren`, `vektor_koordinaten`, `vektor_drehen`, `wahre_groesse` – werden übersprungen und gemeldet; nach Einspielen der Aufgaben gehören sie in den jeweiligen Teil.
+
+**Annahmen (bitte bestätigen oder ändern):**
+- Vorläufige Orte = Kopie des bisherigen Orts („Titel · Teil k“) direkt dahinter; folgende Orte rücken nach.
+- Expeditions-Aufgaben und Aufgaben ohne Etappe im Katalog (29: Potenz-Gruppen, 44: parallelen/winkelsumme, 46: parkett, 91: laengen) bleiben bei Teil 1.
+- Einheit-Texte (Ziel, Merke) gelten noch fürs ganze Thema → Nacharbeit je Teil nötig.
+- Freigegebene Einheit wird in der Transaktion kurz auf 'geprueft' gesetzt (Schutz-Trigger), danach wieder freigegeben.
+- `klasse_fest` von Teil 1 aus der Liste (26 RS 6→5, 61 RS 9→8, 91 RS 8→7). RS II/III nicht nach Zusatz unterschieden.
+- Erweiterung durch LK-D 3 (2, 57, 101): nur der Datenblock `v_daten` wächst, das Verfahren ist allgemein. Nicht berücksichtigt: Live-Abweichungen, die nach meinem Lesestand entstehen – vor dem Einspielen Rauchtest gegen live in Transaktion laufen lassen.
+
+**Rückfrage Flug-Test (Fakten, live gelesen):**
+- Flug-Test (Blocktest, `test_starten_intern`): **alle** Aufgaben des Pools „test“ der Einheit. Verteilung live: 546 Etappen mit 1, 84 mit 2, 1 mit 3 Test-Aufgaben.
+- Wertung (`test_abschliessen_intern`): je Etappe „alle richtig“ (bool_and). Keine Quote: eine falsche Antwort → Etappe „fehler“ → Korrektur-Test (eine Aufgabe je Fehler-Etappe aus Pool „korrektur“) → „korrigiert“. Flug geschafft, wenn alle Pflicht-Etappen nachgewiesen/korrigiert/gesichert sind. Ein Fehler entscheidet also nicht über Bestehen, sondern löst eine Korrektur aus – unabhängig von der Etappenzahl.
+- Nachtests nach 10/25/60 Lerntagen: je Pflicht-Etappe **eine** Aufgabe aus Pool „sicherung“. Einstufung mit Quote: ≥ 0,8 bestanden (Sicherung +1, bei 3 „gesichert“), ≥ 0,6 wiederholen, sonst Rückreise.
+- Folge für kleine Teile: 2 Etappen (z. B. 61 T1, 46 T2/T3 live) → 1 Fehler = 50 % = **Rückreise**; 3 Etappen → 67 % = wiederholen; erst ab 5 Etappen kostet ein Fehler nur eine Stufe nicht.
+- Vorschlag (Meinung): Nachtest mindestens **5 Aufgaben je Flug**, verteilt: 1 Etappe → 5, 2 Etappen → je 3, 3–4 Etappen → je 2, ab 5 → je 1. Dann gilt bei kleinen Teilen: 1 Fehler von 5–6 = 80–83 % = bestanden bzw. wiederholen, nie Rückreise. Dafür je Etappe genug Sicherungs-Aufgaben für 3 Runden ohne Wiederholung: bei 3 je Runde ≥ 9 (live 6–17 vorhanden – bei Etappen mit < 9 nachschreiben). Flug-Test (Blocktest) optional ebenso auf ≥ 2 Test-Aufgaben je Etappe bei Teilen mit ≤ 3 Etappen, damit ein Glückstreffer nicht reicht.
+- Umsetzung braucht Änderung an `test_starten_intern` (Anzahl je Etappe aus Etappenzahl) – eigener Bau-Auftrag, nicht in TL-S.
+
 ## 2026-11-22 – FERTIG: LK-S Test (und Teil-Verfahren nach der neuen Teilungsregel)
 
 Zweig `bau-lehrer`, auf `lernen-app` (Stand 15:50). Nichts eingespielt, kein DROP, kein DELETE.

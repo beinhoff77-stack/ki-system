@@ -2,6 +2,14 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: 0.87.1 – Nachbuchungs-Hinweis beim Server quittiert (Nachtrag FP-S 3), Cache v161
+
+Auf `lernen-app` b359169 (mit FP-S 2: `gesehen_am`, Aktion `schule_landung_nachbuchung_gesehen`). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.
+- Karte „★ Geschenk für deine Landungen“ erscheint nur, wenn `schule_konto.landung_nachbuchung.gesehen_am` leer ist.
+- „Super ›“ schließt die Karte sofort und ruft `schule_landung_nachbuchung_gesehen {lernender_id}` auf (einmal); `gesehen_am` aus der Antwort wird übernommen. Damit gilt „gesehen“ auf allen Geräten.
+- localStorage (`lern.fpnach.<kind>.<am>`) nur noch als Rückfall: wird weiter gesetzt und geprüft, damit die Karte nicht wiederkommt, wenn der Server die Aktion noch nicht kennt oder der Aufruf scheitert. Kein Fehlerhinweis ans Kind.
+
+**Getestet:** neu FP-5 (Quittung genau einmal mit `lernender_id`; nach Neuladen ohne localStorage weg, weil der Server `gesehen_am` liefert; Server-Fehler → Karte bleibt weg über den Rückfall); FP-1–4 weiter grün. Gesamtlauf 306 grün, nur die 9 bekannten Reise-Fehler. **Nicht geprüft:** echter Server (FP-S 2 nicht eingespielt).
 ## 2026-11-22 – FERTIG: FP-S 3 – Nacharbeit ChatGPT 929 (Mischkarte atomar einlösen)
 
 Zweig `bau-lehrer`, auf `lernen-app` b359169. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, gelieferte Migrationen unverändert, kein App-Code, kein Merge nach `main`.

@@ -2,6 +2,38 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: LW-S – „Was wackelt“ mit gespeichertem Status (für LW-3)
+
+Zweig `bau-lehrer`, auf `lernen-app` 22251c0. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, kein App-Code.
+Neue Datei: `supabase/migrations/20261123_lw_s_wackelt_status.sql`. Unabhängig von LK-S und den WD/FP-Dateien; braucht nur LA-3 (`schule.besprochen`, ist live).
+
+**Schnittstelle** (in `lernen-api` freigeschaltet, Version 0.9.2; nur Eltern/Lehrer, Zugriff auf das Kind geprüft)
+- `schule_wackelt_lesen {lernender_id}` → `{ok, lernender_id, zu_besprechen, eintraege: [...]}`
+  - `zu_besprechen` = Zahl für den roten Punkt am Reiter.
+  - Je Eintrag: `thema_id`, `titel`, `einheit_id`/`lernziel` (null = ganzes Thema; gesetzt = Eintrag für eine Etappe), `status` (wirksam: `zu_besprechen` | `beobachten` | `besprochen`), `quelle` (`gespeichert` | `vorgabe`), `status_gespeichert`, `status_am`, `status_von`, `wieder_offen` (gespeichert war besprochen/beobachten, aber danach neue Fehler), `fehler` (endgültig falsche Antworten), `fehler_neu` (seit dem Status), `letzter_fehler_am`, `etappe` (die mit dem letzten Fehler – für die Zeile „Etappe: …“), `etappen` (alle mit Fehlern: `einheit_id`, `lernziel`, `titel`, `fehler`, `letzter_fehler_am`, `wackelt`, `sitzt`, `besprochen_am`).
+  - Sortiert: zu besprechen → beobachten → besprochen, darin neueste Fehler zuerst.
+- `schule_wackelt_setzen {lernender_id, thema_id, status, einheit_id?, lernziel?}` → `{ok, eintrag, zu_besprechen}` (`eintrag` im selben Format, gleich neu berechnet). Erneutes Setzen überschreibt Zeitpunkt und Person.
+- Aufgabe und Antwort zum Aufklappen weiter aus `schule_lernstand` (je Etappe `fehler[]`), dort unverändert.
+
+**Regeln**
+- Neue endgültig falsche Antwort im Thema (bzw. in der Etappe) nach dem Status → wieder `zu_besprechen`. „Endgültig“ wie bei LA-3: der 1. Versuch mit zweiter Chance zählt nicht. Ausgewertet beim Lesen; beim Antworten wird nichts geschrieben.
+- Hat eine Etappe einen eigenen Status, ist sie ein eigener Eintrag und steht nicht mehr im Eintrag ihres Themas.
+- **Annahme (bitte bestätigen):** Ohne gespeicherten Status gilt eine Vorgabe:
+  - `zu_besprechen`, wenn eine Etappe wackelt (Regel wie in der App: nicht gelandet und wieder offen, oder ≥ 3 falsch und mehr falsch als richtig) und nicht als besprochen markiert ist (LA-3);
+  - `besprochen`, wenn alle Etappen mit Fehlern als besprochen markiert sind;
+  - sonst `beobachten`.
+  - Damit entspricht die Zahl am ersten Tag etwa dem heutigen „offen“ (wackelt und nicht besprochen), nur je Thema statt je Etappe.
+- `schule.besprochen` (LA-3, „Besprochen ✓“ je Etappe) bleibt wie es ist; `schule_wackelt_setzen` schreibt dort nicht hinein.
+
+**Test** `supabase/tests/lw_s_rauchtest.sql` (Rollback, nur Testkind, Thema ohne Antworten des Testkinds; lokal grün, Migration zweimal eingespielt)
+1. drei Fehler → `zu_besprechen` (Vorgabe), Zahl +1;
+2. besprochen gesetzt (wer, wann), Zahl zurück, Lernstand/Sterne/Plan/Kinder/Antworten unverändert;
+3. 1. Versuch mit zweiter Chance zählt nicht, danach ein neuer Fehler → wieder `zu_besprechen`;
+4. Etappe mit eigenem Status → eigener Eintrag, kein Doppel, erneutes Setzen überschreibt;
+5. falscher Status, fremde Etappe, halbe Etappe, Aufruf ohne Eltern-/Lehrer-Recht abgelehnt.
+
+Nicht gegen die Live-Datenbank gelaufen (lokal mit Nachbau; die benutzten Spalten habe ich live nachgelesen).
+
 ## 2026-11-22 – FERTIG: 0.87.1 – Nachbuchungs-Hinweis beim Server quittiert (Nachtrag FP-S 3), Cache v161
 
 Auf `lernen-app` b359169 (mit FP-S 2: `gesehen_am`, Aktion `schule_landung_nachbuchung_gesehen`). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.

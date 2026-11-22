@@ -2,6 +2,44 @@
 
 Grundlage: Zweig `lernen-app` e0739529 (einschließlich Nachtrag des Gestalters), Datenbank nur gelesen. Quelle LehrplanPLUS Bayern, **abgerufen 21.11.2026** über die Suche auf lehrplanplus.bayern.de (Seitenauszüge, keine Volltextabrufe). Unbelegtes ist als **Annahme** gekennzeichnet.
 
+## 0d. Nacharbeit aus ChatGPTs Prüfergebnis 907 (22.11.)
+
+Grundlage: `lernen-app` 986d43e7. Runde 30 c ist eingespielt, 102 ← 30 bleibt hart (Entscheidung Sebastian). Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Die eingespielte Datei `20261121_lehrplan_zuordnung_voraussetzungen.sql` ist unverändert.
+
+**Neue Datei** `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`: berichtigte Fassung mit demselben Inhalt.
+- Auf der Datenbank mit eingespielter Runde 30 c ändert ein Lauf nichts; der Rauchtest bestätigt das.
+- Einzuspielen in **einer Transaktion**.
+
+| Punkt aus 907 | Umsetzung |
+|---|---|
+| Rauchtest j: fehlender Vorherstand | Ohne Vorherstand jetzt **EXCEPTION** statt Hinweis. Der Vorherstand ist **transaktionslokal** (`set_config(…, true)`), deshalb kann kein veralteter Stand aus einer früheren Sitzung übrig sein. |
+| Kopfkommentar „kein DELETE“ | Berichtigt: „Kein DROP. DELETE nur in Abschnitt 3c: genau die zwölf einzeln aufgezählten Verbindungen, jede nur nach Prüfung“. In der eingespielten Datei steht noch „kein DELETE“, weil die Kopfzeile beim Neuerzeugen in 30 c verloren ging. Die Datei bleibt so, wie sie eingespielt wurde. |
+| Prüfung vor gezielten Löschungen | Abschnitt 3c ist ein Block mit Schleife über die 12 Paare. Vor jeder Löschung prüft er, dass das aufgelöste Thema der Zeile weiter **keine freigegebene Einheit** hat, sonst Abbruch ohne Löschung. |
+| Testfall „Zielort offen, Voraussetzungs-Ort fehlt“ für 102 ← 30 | **Rauchtest k**, siehe unten. |
+
+**Rauchtest k** prüft zuerst, dass `v_ort_visum` die Zeile „Terme umformen“ → „Potenzen“ enthält. Dann legt er einen erfundenen Test-Lernenden an: Klasse 5, `ist_test`, Anzeigename „Rauchtest 102←30“, mit Route. Er läuft in einem Unterblock, der am Ende sicher zurückgerollt wird; danach prüft der Test, dass kein solcher Lernender übrig ist. Echte Kinderdaten sind nicht beteiligt.
+- k1: „Terme umformen“ offen, „Potenzen“ nicht auf der Route → Der Ort wird angeboten, `visum_fehlt` nennt „Potenzen“.
+- k2: „Potenzen“ offen → ebenso gesperrt.
+- k3: „Potenzen“ fertig → Die Sperre durch „Potenzen“ entfällt.
+
+**Lokal auf Postgres 16 geprüft** (nachgebaute Tabellen und Funktionen, Daten aus dem gelesenen Stand):
+- Erst die eingespielte, dann die neue Datei, jeweils in einer Transaktion: Alles bestanden. j meldet 46 → 46 Visum-Zeilen, die Verbindungen bleiben bei 128, es bleiben 3 Lernende.
+- Auf einer frischen Kopie die neue Datei allein, zweimal hintereinander: bestanden.
+- Gegenproben:
+  - Ohne Abschnitt 0 bzw. ohne Transaktion bricht j mit „kein Vorherstand“ ab.
+  - Wird 48 zum Schein freigegeben, bricht die Migration vor der Löschung 49 ← 48 ab, und alles wird zurückgerollt.
+  - Mit 102 ← 30 als `empfohlen` schlägt k fehl.
+
+## Offene Inhaltspunkte
+
+- **Vektorkoordinaten für Determinanten (RS 7)** – offen, kein Bau beauftragt.
+  - Thema 74 „Zweireihige Determinante“ (RS 7, Ort „Vektoren, Verschiebung und Drehung“) rechnet mit Vektorkoordinaten.
+  - Der Flug dazu (48 Vektoren) ist aufgelöst, seine Etappen „Einen Vektor aus zwei Punkten“ und „Punkte mit Vektoren berechnen“ haben **in keinem freigegebenen Flug ein Gegenstück**.
+  - Teilweise abgedeckt ist es durch 46 Kongruenzabbildungen (Verschiebung, Gegenvektor; RS 6) und 49 Matrizen (Bildpunkt; RS 10).
+  - Seit 30 b ist die Verbindung 74 ← 48 gelöscht, ersatzweise gibt es 74 ← 46 (empfohlen) und 74 ← 50 (hart).
+  - **Vorschlag:** In 46 oder 74 eine Etappe „Vektor aus zwei Punkten / Koordinaten eines Vektors“ ergänzen (Inhaltsauftrag, eigener Prüfgang). Danach prüfen, ob 74 ← 46 hart werden soll; dabei die Reise-Sperre beachten.
+- Weitere Lücken aus Runde 30, nur als Vorschläge: RS 8 (Vierecke, Drehung, Baumdiagramm/Vierfeldertafel) und die Etappen der aufgelösten Themen ohne Gegenstück (Abschnitt 0, Tabelle „Wo der Stoff … heute steht“).
+
 ## 0c. Runde 30 c (21.11., „Rückläufer 21.11. morgens“, Teil A): harte Verbindungen und Reise-Sperren
 
 Grundlage: `lernen-app` d463182a. Die Datenbank habe ich nur gelesen, die Migration auf der echten Datenbank **nicht ausgeführt**.

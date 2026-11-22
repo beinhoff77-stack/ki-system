@@ -2,6 +2,20 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG Nacharbeit 907 (lehrplan-lb)
+
+Grundlage ist `lernen-app` 986d43e7. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Die eingespielte Datei ist unverändert. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0d.
+
+- **Neue Datei** `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`: berichtigte Fassung von Runde 30/30 b/30 c, 102 ← 30 bleibt hart. Auf dem eingespielten Stand ändert ein Lauf nichts. Einspielen in einer Transaktion.
+- **Rauchtest j:** Fehlt der Vorherstand, bricht er mit EXCEPTION ab. Der Vorherstand gilt nur innerhalb der Transaktion.
+- **Kopfkommentar berichtigt:** DELETE nur in Abschnitt 3c, zwölf einzeln aufgezählte Zeilen.
+- **Vor jeder gezielten Löschung** wird geprüft, dass das aufgelöste Thema weiter keinen freigegebenen Flug hat; sonst Abbruch.
+- **Rauchtest k:** Testfall „Zielort offen, Voraussetzungs-Ort fehlt“ für 102 ← 30, mit einem erfundenen Test-Lernenden, der wieder zurückgerollt wird. Abgedeckt sind die Fälle: Voraussetzungs-Ort fehlt, offen, fertig.
+- **Lokal auf Postgres 16 ausgeführt:** Alles bestanden, auch mit den drei Gegenproben (kein Vorherstand, Löschschutz, 102 ← 30 empfohlen).
+- **Offener Inhaltspunkt:** Vektorkoordinaten für Determinanten (RS 7). Kein freigegebener Flug enthält „Vektor aus zwei Punkten“. Vorschlag: eine Etappe in 46 oder 74 ergänzen.
+
+FERTIG: Lehrplan Nacharbeit 907
+
 ## 2026-11-21 – MELDUNG Runde 30 c: harte Verbindungen ohne neue Reise-Sperren
 
 Grundlage ist `lernen-app` d463182a. Die Datenbank habe ich nur gelesen, die Migration auf der echten Datenbank **nicht ausgeführt**. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0c.

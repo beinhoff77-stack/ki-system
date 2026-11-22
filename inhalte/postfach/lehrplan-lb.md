@@ -2,6 +2,43 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LP-RS Realschul-Lehrplan Punkt für Punkt (lehrplan-lb)
+
+Grundlage ist `lernen-app` c9f82c94, Auftrag „Prüf-Auftrag LP-RS“. Die Datenbank habe ich nur gelesen, nichts eingespielt. Lehrplan und Zweitquellen sind am 22.11. neu abgerufen; kein Lehrplantext ist wörtlich übernommen.
+
+- **Bericht:** `inhalte/pruefung/lehrplan/rs_pruefung_2211.md`, je Punkt in `rs_pruefung_2211.json`.
+- **Original gegen DB:**
+  - Stunden: alle 64 RS-Lernbereiche gleich.
+  - Punktzahl RS 7–10: alle 52 gleich. RS 5/6 (und Gym 7/8) sind in der DB feiner geteilt (RS 5 38/45, RS 6 32/40).
+  - Titel: 47 von 52 Lernbereichstiteln RS 7–10 weichen vom Original ab, 17 davon fälschlich als `originaltitel` markiert.
+- **Zuordnungen RS 5–10:**
+  - Vorher hatten 183 von 297 Punkten ein gültiges Hauptthema, nach Korrektur 292.
+  - 26 Punkte werden umgehängt, meist weg vom stillgelegten 48 bzw. von 43/44 hin zu 46/98.
+  - 3 echte Lücken (5 Punkte): Zahlensysteme RS 5, Vektorkoordinaten RS 7 I und II/III, Vektoren drehen RS 8 I.
+  - 4 Punkte sind nur teilweise abgedeckt.
+  - RS 8 ist vollständig bis auf „Vektoren drehen“.
+- **Klassen:**
+  - 61 Zufall und Laplace gehört laut Original in Klasse 8, nicht 9 (Entscheidung offen).
+  - 26 Dreisatz beginnt in 5.
+  - 35, 44, 91 und 92 unterscheiden sich nach Gruppe I / II/III.
+  - Das SQL ändert keine Klasse.
+- **Zweitquellen (Mathe.Logo, ISB):**
+  - 5, 8 I, 8 II/III, 9 I, 9 II/III und 10 I stimmen mit dem Original überein, ohne Widerspruch.
+  - Die Pläne für 6, 7 I, 7 II/III und 10 II/III sind nicht lesbar (offen, Produktlinks im Bericht).
+- **Gym 7/8 (Stichprobe):**
+  - Stunden stimmen.
+  - Hauptthema vorher 14/39 bzw. 23/39 Punkte, keine Lücken.
+  - Zwei falsche Hauptthemen (30 statt 102 bzw. 103).
+  - Nur Bericht; eine Korrektur wäre ein eigener Auftrag.
+- **Korrektur-SQL** `inhalte/pruefung/lehrplan/rs_korrektur_2211.sql`:
+  - Nur INSERT/UPDATE auf `schule.zuordnung`/`schule.eintrag`; kein DROP, kein DELETE. Veraltete Zuordnungen werden auf Neben + `klaerungsbedarf` gesetzt.
+  - Rauchtest: erwartete Zuordnungen, Lücken genau 297/298/871/909/937, `thema_jahrgang` unverändert, kein Hauptbezug auf stillgelegte Themen.
+  - Probelauf auf lokaler Kopie des echten Vorherstands bestanden, auch im zweiten Lauf. Die Gegenprobe bricht ab.
+  - In **einer** Transaktion einspielen (`psql -1`).
+- **Datenmodell-Vorschlag** (Abschnitt 6): Feld `rolle` neu/weitergeführt, Klasse je Zweig (`rs_by_I`/`rs_by_II_III`), Abdeckungsmatrix nach Stunden.
+
+FERTIG: LP-RS
+
 ## 2026-11-22 – MELDUNG Aufgaben nachliefern (lehrplan-lb)
 
 Grundlage ist `lernen-app` 197707e3, Auftrag „Aufgaben nachliefern“ im Bau-Auftrag FP. Die Datenbank habe ich nur gelesen, nichts ausgeführt.

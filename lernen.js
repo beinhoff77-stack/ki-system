@@ -984,7 +984,8 @@ async function viewReise(arg) {
       (() => { const o = ortStand(n.block_id); return o && o.themen > 1 ? el('p', { class: 'lr-leise lr-ortstand' },
         `${n.stadt} hat ${o.themen} Flüge, ${o.erledigt} davon geschafft. Den Stempel gibt es, wenn alle geschafft sind.`) : null; })()));
   } else teile.push(el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Gerade ist nichts offen'), el('p', { class: 'lr-leise' }, 'Neue Orte kommen bald. '), nWdh ? el('a', { class: 'lr-knopf', href: `#/wiederholen/${kind.id}` }, `${nWdh} ${nWdh === 1 ? 'Bordkarte' : 'Bordkarten'} wiederholen`) : el('a', { class: 'lr-knopf-zweit', href: `#/reisepass/${kind.id}` }, 'Zum Reisepass')));
-  teile.push(lernStats(d.konto), el('a', { class: 'lr-textlink', href: `#/reisepass/${kind.id}` }, 'Reisepass und Belohnungen ansehen'));
+  teile.push(lernStats(d.konto), el('a', { class: 'lr-textlink', href: `#/reisepass/${kind.id}` }, 'Reisepass und Belohnungen ansehen'),
+    el('a', { class: 'lr-textlink lr-route-link', href: `#/route/${kind.id}` }, 'Meine Route 5–10 ›')); // LM-6
   const jg = d.konto?.jahrgang;
   if (jg?.themen) teile.push(el('section', { class: 'lr-karte-box lr-jgstand' },
     el('p', { class: 'lr-ueber' }, `MEIN STAND · ${(LERN_SCHULART[jg.schulart] || '').toUpperCase()} KLASSE ${jg.klasse}`),
@@ -1084,6 +1085,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
     wdhRest ? el('a', { class: 'lr-textlink', href: `#/wiederholen/${kind.id}` }, `Noch ${wdhRest} ${wdhRest === 1 ? 'Wiederholung' : 'Wiederholungen'} offen – wenn du magst`) : null,
     lernWdhWartet(ws),
     el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
+    el('a', { class: 'lr-textlink lr-route-link', href: `#/route/${kind.id}` }, 'Meine Route 5–10 ›'), // LM-6
     gruppe('Alle offenen Flüge', weitere.length > maxZ ? weitere : []),
     gruppe('Gelandet oder kann schon – zum Wiederholen', d.kann),
     gruppe('Aus früheren Klassen – zum Auffrischen', d.frueher),
@@ -4558,6 +4560,134 @@ async function viewWackelt(arg) {
       mitFehlern.length ? karten : null,
       el('p', { class: 'small muted' }, '„Wackelt“: mindestens 3 falsche und mehr falsche als richtige Antworten. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten. „Besprochen ✓“ nimmt die Etappe aus „Zu tun“, bis wieder eine Antwort falsch ist.')),
     proEinheit.length ? el('details', { class: 'ls-alle' }, el('summary', {}, `Alle Etappen mit Stand (${alle.length})`), ...proEinheit) : el('p', { class: 'card muted' }, 'Noch nichts gelernt.'));
+}
+
+// ---------- LM-6 (0.86.0): Kinderseite „Meine Route 5–10“ – die Lehrplan-Matrix für das eigene Kind, in Reisewörtern ----------
+// Nur dieses Kind, Lernstand immer an, Schulart fest; keine Schulart-Kennzeichen, keine Pflicht-Zählung, kein Lehrplan-Wortlaut, nichts zum Ändern.
+// Daten: schule_lehrplan_matrix (Lern-Zugang: Kindsicht mit zeile/reihenfolge_kind; Eltern sehen die Seite des Kindes mit der Lehrer-Sicht – dann rechnet die App
+// die Zeile aus jahrgang und der Schulart des Kindes) und beim Antippen schule_lehrplan_thema. Ohne LM-S: ein ehrlicher Hinweis.
+const LERN_RT_TEXT = { komplett: '◉ kannst du', wiederholung: '↻ kommt zur Wiederholung', kommt: '○ kommt noch' };
+const lernRtStand = (s, n) => (!s || !s.stufe || s.stufe === 'nicht_im_plan' ? '' : s.stufe === 'dran'
+  ? `▶ hier bist du${n ? ` – Etappe ${s.etappe_jetzt || Math.min((s.gelandet || 0) + 1, n)} von ${n}` : ''}` : LERN_RT_TEXT[s.stufe] || '');
+async function viewRoute(arg) {
+  setChrome('Meine Route', { back: true, showTabs: false });
+  const live = viewGuard();
+  loading();
+  const d = await lernLadeKind(arg);
+  if (!d || !live()) return;
+  const { kind } = d;
+  let m = null;
+  try { m = await lernCall('schule_lehrplan_matrix', { lernender_id: kind.id, mit_testkind: true }); } catch { m = null; }
+  if (!live()) return;
+  if (!Array.isArray(m?.themen)) {
+    lernErsetze(main, lernRahmen(kind, 'reise', lernKopf('MEINE ROUTE 5–10', 'Deine Route durch die Mathe-Welt'),
+      el('section', { class: 'lr-karte-box' }, el('p', { class: 'lr-leise' }, 'Die Route ist bald da.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zur Abflugtafel'))));
+    return;
+  }
+  const ich = (m.kinder || []).find((c) => c.id === kind.id) || {};
+  const sa = ich.schulart || kind.schulart || 'gym_by';
+  const geb = new Map((m.gebiete || []).map((g) => [g.gebiet_id, g]));
+  const stand = m.lernstand?.[kind.id] || {};
+  const ortVon = new Map((d.orte || []).map((o) => [o.block_id, o.stadt]));
+  const fluege = m.themen.map((t) => {
+    const zeile = t.zeile || (t.jahrgang ? (() => { const x = { jg: t.jahrgang, gebiet: geb.get(t.gebiet_id)?.titel }; const k = lernMxKl(x, sa); return k ? { klasse: k } : { klasse: lernMxZusatz(x, sa).k, eingeordnet: true }; })() : {});
+    return { id: t.thema_id, titel: t.titel, kont: geb.get(t.gebiet_id)?.titel || t.gebiet || 'Weitere', kr: geb.get(t.gebiet_id)?.reihenfolge ?? 99, block: t.block_id, einheit: t.einheit_id || null,
+      ohne: t.ohne_flug === true, n: t.etappen_anzahl || 0, kl: Math.min(10, Math.max(5, Number(zeile.klasse) || 10)), eingeordnet: !!zeile.eingeordnet,
+      r: Number(t.reihenfolge_kind ?? t.lehrplan_reihenfolge?.[sa]) || 999, s: stand[t.thema_id] || { stufe: 'nicht_im_plan' }, ort: ortVon.get(t.block_id) || null };
+  });
+  const by = new Map(fluege.map((f) => [f.id, f]));
+  const vor = new Map(), nach = new Map();
+  for (const v of m.verbindungen || []) { const [a, b, art] = Array.isArray(v) ? v : [v.thema_id, v.braucht_id, v.art]; if (!by.has(a) || !by.has(b)) continue;
+    vor.set(a, [...(vor.get(a) || []), { id: b, art }]); nach.set(b, [...(nach.get(b) || []), { id: a, art }]); }
+  const konts = [...new Set(fluege.slice().sort((a, b) => a.kr - b.kr).map((f) => f.kont))];
+  const imFeld = (k, g) => fluege.filter((f) => f.kl === k && f.kont === g).sort((a, b) => (a.eingeordnet ? 1 : 0) - (b.eingeordnet ? 1 : 0) || a.r - b.r || a.titel.localeCompare(b.titel));
+  const kl = (s) => LERN_STUFE[s.stufe]?.kl || 'st-5';
+  let sel = null; let svg = null; const details = new Map(); let merk = null;
+  const ansicht = el('div', { class: 'rt-ansicht' });
+  const detail = el('section', { class: 'rt-detail lr-karte-box', 'aria-live': 'polite', 'aria-label': 'Flug im Detail' });
+  const handy = () => innerWidth < 1000; // Handy und Tablet: Liste je Klasse (Vorgabe „Handy/Tablet zuerst“); die Matrix erst ab 1000 px
+  const chip = (f) => el('button', { type: 'button', class: `mx-chip rt-chip mx-st ${kl(f.s)}` + (f.s.stufe === 'dran' ? ' mx-dran' : '') + (f.s.stufe === 'nicht_im_plan' || f.ohne ? ' rt-blass' : '') + rolle(f),
+    style: `--f:${LERN_KL_FARBE[f.kl] || '#888'}`, 'data-id': String(f.id), 'aria-expanded': String(sel === f.id), onclick: () => { sel = sel === f.id ? null : f.id; zeichne(); if (sel && !handy()) detail.scrollIntoView({ block: 'nearest' }); } },
+    (nach.get(f.id) || []).length >= 2 ? el('span', { class: 'mx-n', title: `Darauf bauen ${(nach.get(f.id) || []).length} Flüge auf` }, `→ ${(nach.get(f.id) || []).length}`) : null,
+    el('span', { class: 'mx-titel' }, f.titel), f.ort ? el('span', { class: 'rt-ort' }, f.ort) : null,
+    lernRtStand(f.s, f.n) ? el('span', { class: 'mx-stand' }, lernRtStand(f.s, f.n)) : null);
+  const weg = (id) => { const s = new Set(); const st = [id]; while (st.length) { const v = st.pop(); (vor.get(v) || []).forEach((e) => { if (!s.has(e.id)) { s.add(e.id); st.push(e.id); } }); } return s; };
+  let WEG = new Set();
+  function rolle(f) { if (!sel) return ''; if (f.id === sel) return ' mx-sel'; if ((vor.get(sel) || []).some((e) => e.id === f.id)) return ' mx-vor'; if ((nach.get(sel) || []).some((e) => e.id === f.id)) return ' mx-nach'; return WEG.has(f.id) ? ' mx-weg2' : ''; }
+  const kopf = (k) => { const l = fluege.filter((f) => f.kl === k && !f.eingeordnet && !f.ohne); const z = { komplett: 0, wiederholung: 0, dran: 0 }; l.forEach((f) => { if (f.s.stufe in z) z[f.s.stufe]++; });
+    const pz = (v) => (l.length ? (v / l.length) * 100 : 0);
+    return [el('div', { class: 'mx-balken', role: 'img', 'aria-label': `${z.komplett} kannst du, ${z.wiederholung} in Wiederholung, ${z.dran} gerade dran von ${l.length}` },
+      el('span', {}, el('i', { class: 'st-1', style: `width:${pz(z.komplett)}%` }), el('i', { class: 'st-2', style: `width:${pz(z.wiederholung)}%` }), el('i', { class: 'st-3', style: `width:${pz(z.dran)}%` }))),
+      el('small', { class: 'rt-kann' }, `Du kannst schon ${z.komplett} von ${l.length} ${l.length === 1 ? 'Flug' : 'Flügen'}`)]; };
+  const zeichneMatrix = () => {
+    WEG = sel ? weg(sel) : new Set(); svg = null;
+    if (handy()) {
+      lernErsetze(ansicht, el('div', { class: 'mx-liste rt-liste' + (sel ? ' mx-zeigt' : '') }, ...LERN_MX_KL.map((k) => el('section', { class: 'mx-liste-klasse rt-klasse' },
+        el('h2', { class: 'mx-liste-kopf' + (k === 9 ? ' mx-hell' : ''), style: `background:${LERN_KL_FARBE[k]}` }, el('b', {}, `Klasse ${k}`), ...kopf(k)),
+        ...konts.map((g) => { const l = imFeld(k, g); return l.length ? el('div', { class: 'mx-gruppe' }, el('b', { class: 'mx-gruppe-name' }, g), ...l.map(chip)) : null; })))));
+      const c = sel && ansicht.querySelector(`.mx-chip[data-id="${sel}"]`); if (c) c.after(detail); else detail.remove();
+      return;
+    }
+    const zellen = [el('div', { class: 'mx-ecke' }), ...konts.map((g) => el('div', { class: 'mx-geb' }, g))];
+    for (const k of LERN_MX_KL) zellen.push(el('div', { class: 'mx-kl' + (k === 9 ? ' mx-hell' : ''), style: `background:${LERN_KL_FARBE[k]}` }, el('b', {}, `Kl. ${k}`), ...kopf(k)),
+      ...konts.map((g) => el('div', { class: 'mx-zelle' }, ...imFeld(k, g).map(chip))));
+    svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('class', 'mx-linien'); svg.setAttribute('aria-hidden', 'true');
+    lernErsetze(ansicht, el('div', { class: 'mx-wrap' }, el('div', { class: 'mx-matrix mx-z rt-matrix' + (sel ? ' mx-zeigt' : ''), style: `--n:${konts.length}` }, ...zellen), svg));
+    if (!detail.isConnected) ansicht.after(detail);
+    requestAnimationFrame(linien);
+  };
+  function linien() {
+    if (!svg || !svg.isConnected) return; svg.replaceChildren(); if (!sel) return;
+    const w = svg.parentNode.getBoundingClientRect();
+    const r = (id) => { const c = svg.parentNode.querySelector(`.mx-chip[data-id="${id}"]`); if (!c) return null; const b = c.getBoundingClientRect(); return { x: b.left - w.left + b.width / 2, y: b.top - w.top + b.height / 2 }; };
+    const s = r(sel); if (!s) return;
+    svg.setAttribute('viewBox', `0 0 ${w.width} ${w.height}`); svg.setAttribute('width', w.width); svg.setAttribute('height', w.height);
+    const linie = (a, b, k, art) => { const my = (a.y + b.y) / 2; const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      p.setAttribute('d', `M${a.x},${a.y} C${a.x},${my} ${b.x},${my} ${b.x},${b.y}`); p.setAttribute('class', `mx-linie ${k}${art === 'e' || art === 'empfohlen' ? ' mx-empfohlen' : ''}`); svg.append(p); };
+    (vor.get(sel) || []).forEach((e) => { const a = r(e.id); if (a) linie(a, s, 'mx-l-vor', e.art); });
+    (nach.get(sel) || []).forEach((e) => { const b = r(e.id); if (b) linie(s, b, 'mx-l-nach', e.art); });
+  }
+  const zeichen = (f) => el('span', { class: `rt-zeichen ${kl(f.s)}`, 'aria-hidden': 'true' }, LERN_STUFE[f.s.stufe]?.z || '+');
+  const verweis = (id) => { const f = by.get(id); if (!f) return null; const t = lernRtStand(f.s, f.n);
+    return el('li', {}, zeichen(f), el('button', { type: 'button', class: 'rt-link', onclick: () => { sel = id; zeichne(); } }, f.titel), t ? el('small', {}, ` · ${t.replace(/^[◉↻▶○] /, '')}`) : el('small', {}, ' · nicht in deinem Plan')); };
+  const laden = (f) => {
+    if (details.has(f.id)) return;
+    details.set(f.id, 'laedt');
+    Promise.all([lernCall('schule_lehrplan_thema', { thema_id: f.id, lernender_id: kind.id }).catch(() => null), merk ? Promise.resolve(merk) : lernMerkDaten(d).catch(() => [])])
+      .then(([t, mh]) => { merk = mh; details.set(f.id, t || 'fehler'); if (live() && sel === f.id) zeichneDetail(); });
+  };
+  function zeichneDetail() {
+    const f = sel && by.get(sel);
+    if (!f) { lernErsetze(detail, el('p', { class: 'lr-leise rt-tipp' }, 'Tipp einen Flug an: Dann siehst du, was du dort lernst, was du vorher brauchst und wie es danach weitergeht.')); if (handy()) detail.remove(); return; }
+    laden(f); const t = details.get(f.id); const fertig = t && typeof t === 'object';
+    const mh = (merk || []).find((x) => x.einheit_id === f.einheit);
+    const etappen = fertig ? t.etappen || [] : [];
+    const dran = f.s.stufe === 'dran' && f.einheit;
+    const st = lernRtStand(f.s, f.n);
+    lernErsetze(detail,
+      el('p', { class: 'lr-ueber' }, [f.kont, f.ort].filter(Boolean).join(' · ').toUpperCase()),
+      el('h2', { class: 'rt-titel' }, f.titel),
+      st ? el('p', { class: `rt-stand ${kl(f.s)}` }, st) : el('p', { class: 'lr-leise' }, 'Dieser Flug ist gerade nicht in deinem Plan.'),
+      dran ? el('a', { class: 'lr-knopf rt-weiter', href: `#/lerneinheit/${kind.id}-${f.einheit}-ueben` }, 'Weiter lernen ›') : null,
+      t === 'laedt' ? el('p', { class: 'lr-leise' }, 'Einen Moment …') : null,
+      fertig && t.was_gefordert ? [el('h3', {}, 'Was du hier lernst'), el('p', {}, t.was_gefordert)] : null,
+      fertig && (t.merke || []).length ? [el('h3', {}, 'Das muss sitzen'), el('ul', {}, ...t.merke.map((x) => el('li', {}, x)))] : null,
+      (vor.get(f.id) || []).length ? [el('h3', {}, 'Das brauchst du vorher'), el('ul', { class: 'rt-verweise' }, ...vor.get(f.id).map((e) => verweis(e.id)))] : null,
+      (nach.get(f.id) || []).length ? [el('h3', {}, 'Danach geht’s weiter mit'), el('ul', { class: 'rt-verweise' }, ...nach.get(f.id).map((e) => verweis(e.id)))] : null,
+      etappen.length ? [el('h3', {}, `Die Etappen (${etappen.length})`), el('ol', { class: 'rt-etappen' }, ...etappen.map((e) => { const ok = !!mh?.stand?.[e.lernziel]?.fertig;
+        return el('li', { class: ok ? 'rt-gelandet' : '' }, el('span', { class: 'rt-haken', 'aria-label': ok ? 'gelandet' : 'noch nicht gelandet' }, ok ? '✓' : ''), e.titel); }))] : null);
+  }
+  function zeichne() { if (!live()) return; zeichneMatrix(); zeichneDetail(); }
+  let warHandy = handy();
+  const groesse = () => { if (!live()) { removeEventListener('resize', groesse); return; } if (handy() !== warHandy) { warHandy = handy(); zeichne(); } else linien(); };
+  addEventListener('resize', groesse);
+  lernErsetze(main, lernRahmen(kind, 'reise', lernKopf('MEINE ROUTE 5–10', 'Deine Route durch die Mathe-Welt'),
+    el('p', { class: 'lr-leise rt-einleitung' }, 'Jede Spalte ist ein Kontinent, jede Zeile eine Klasse. Tipp einen Flug an: Die Linien zeigen, was du vorher brauchst (gelb) und was darauf aufbaut (blau).'),
+    el('div', { class: 'rt-legende lr-leise' }, ...['komplett', 'wiederholung', 'dran', 'kommt'].map((s) => el('span', {}, el('i', { class: `rt-zeichen ${LERN_STUFE[s]?.kl}`, 'aria-hidden': 'true' }, LERN_STUFE[s]?.z),
+      ({ komplett: 'kannst du', wiederholung: 'kommt zur Wiederholung', dran: 'hier bist du', kommt: 'kommt noch' })[s]))),
+    el('div', { class: 'rt-route' }, ansicht)));
+  zeichne();
+  requestAnimationFrame(() => ansicht.querySelector('.mx-chip.mx-dran')?.scrollIntoView({ block: 'center' })); // beim Öffnen zum ▶-Flug
 }
 
 // ---------- Wiederholen: fällige Lernkarten, je eine Aufgabe ----------

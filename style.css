@@ -4910,3 +4910,42 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .lr-ab-abgelegt-klein .lr-ab-sterne.lr-ab-gold-sterne { color: #3E2C00; }
 .lr-ab-gold-siegel-gross { position: relative; z-index: 3; width: 120px; height: 120px; font-size: 64px; margin: 22px auto 0; }
 @media (min-width: 700px) { .lr-ab-gold-siegel-gross { width: 180px; height: 180px; font-size: 96px; } }
+
+/* ---------- LM-6 (0.86.0): Kinderseite „Meine Route 5–10“ – Matrix in den Farben der Kinderseiten (hell und Nacht) ---------- */
+.lr-route-link { font-weight: 700; }
+.rt-einleitung { margin: 0 0 8px; }
+.rt-legende { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 12px; }
+.rt-legende span { white-space: nowrap; }
+.rt-zeichen { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 99px; font-size: 12px; font-weight: 900; margin-right: 6px; font-style: normal; color: #fff; background: #8A94A6; }
+.rt-zeichen.st-1 { background: var(--st1); } .rt-zeichen.st-2 { background: var(--st2); } .rt-zeichen.st-3 { background: var(--st3r); color: #1F1600; } .rt-zeichen.st-4 { background: #fff; color: #555; box-shadow: inset 0 0 0 1.5px #8A94A6; }
+.rt-route .mx-matrix, .rt-route .mx-liste-klasse { background: var(--lr-flaeche); border-color: var(--lr-linie); }
+.rt-route .mx-geb { background: var(--lr-blass); color: var(--lr-text); border-color: var(--lr-linie); }
+.rt-route .mx-zelle, .rt-route .mx-ecke, .rt-route .mx-gruppe { border-color: var(--lr-linie); }
+.rt-route .mx-gruppe-name { color: var(--lr-leise); }
+.rt-route .mx-chip { background: var(--lr-flaeche); color: var(--lr-text); border-color: var(--lr-linie); border-left-color: var(--f); }
+.rt-route .mx-chip.mx-st.st-1 { background: color-mix(in srgb, var(--st1) 22%, var(--lr-flaeche)); }
+.rt-route .mx-chip.mx-st.st-2 { background: color-mix(in srgb, var(--st2) 16%, var(--lr-flaeche)); }
+.rt-route .mx-chip.mx-st.st-3 { background: color-mix(in srgb, var(--st3r) 30%, var(--lr-flaeche)); box-shadow: 0 0 0 2px var(--st3r); }
+.rt-route .mx-chip.rt-blass { opacity: .45; border-style: dashed; border-left-style: solid; }
+.rt-route .mx-chip .mx-stand, .rt-route .mx-st.st-1 .mx-stand, .rt-route .mx-st.st-2 .mx-stand, .rt-route .mx-st.st-3 .mx-stand { color: var(--lr-text); }
+.rt-route .mx-chip.mx-vor { background: color-mix(in srgb, #F2B233 30%, var(--lr-flaeche)); box-shadow: 0 0 0 2px #E0A21E; }
+.rt-route .mx-chip.mx-weg2 { background: color-mix(in srgb, #F2B233 14%, var(--lr-flaeche)); box-shadow: 0 0 0 1px #D9B26A; }
+.rt-route .mx-chip.mx-nach { background: color-mix(in srgb, #4A90E2 26%, var(--lr-flaeche)); box-shadow: 0 0 0 2px #4A90E2; }
+.rt-route .mx-zeigt .mx-chip.rt-blass.mx-vor, .rt-route .mx-zeigt .mx-chip.rt-blass.mx-nach, .rt-route .mx-zeigt .mx-chip.rt-blass.mx-sel { opacity: 1; }
+.rt-route .mx-n { color: var(--lr-leise); }
+.rt-ort { display: block; font-size: 11px; color: var(--lr-leise); margin-top: 1px; }
+.rt-kann { white-space: normal !important; }
+.rt-route .mx-kl small.rt-kann { font-size: 11px; }
+.rt-detail { margin-top: 14px; }
+.rt-detail h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--lr-leise); margin: 16px 0 6px; }
+.rt-detail ul, .rt-detail ol { margin: 0; padding-left: 20px; }
+.rt-titel { margin: 2px 0 6px; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: normal; }
+.rt-stand { font-weight: 800; margin: 0 0 8px; }
+.rt-weiter { margin: 4px 0 6px; }
+.rt-verweise { list-style: none; padding: 0 !important; } .rt-verweise li { margin: 6px 0; display: flex; align-items: center; flex-wrap: wrap; gap: 2px; }
+.rt-link { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--lr-text); text-decoration: underline; cursor: pointer; text-align: left; min-height: 0; }
+.rt-etappen { list-style: none; padding: 0 !important; counter-reset: rt; } .rt-etappen li { display: flex; gap: 8px; align-items: baseline; margin: 4px 0; }
+.rt-haken { flex: none; width: 20px; height: 20px; border-radius: 99px; border: 1.5px solid var(--lr-linie); display: inline-grid; place-items: center; font-size: 12px; font-weight: 900; }
+.rt-gelandet .rt-haken { background: var(--lr-gut); border-color: var(--lr-gut); color: var(--lr-auf-akzent); }
+.rt-liste .rt-detail { margin: 4px 0 8px; }
+.lr-inhalt:has(.rt-route) { max-width: 1240px; }

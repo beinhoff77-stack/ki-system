@@ -2,6 +2,25 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: 0.86.0 – LM-6 Kinderseite „Meine Route 5–10“, Cache v156
+
+Auf 0.85.0 (gleicher Zweig). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.
+Bilder: `docs/previews/la/lm6-route-nacht-400.png`, `lm6-route-tag-400.png`, `lm6-route-nacht-820.png`, `lm6-route-nacht-1280.png` (jeweils mit geöffnetem ▶-Flug).
+
+**Gebaut** (Vorgabe `inhalte/pruefung/lehrer/matrix/umsetzung.md`, LM-6)
+- **Zugang:** Textlink „Meine Route 5–10 ›“ auf der Abflugtafel (unter „Erst die Erklärungen ansehen“) und im bisherigen Design unter „Reisepass und Belohnungen ansehen“; neue Seite `#/route/<kind>` (in App und Lern-Seite angemeldet). Der große Knopf bleibt.
+- **Nur das eigene Kind:** Lernstand immer an, Schulart fest, keine Leiste, kein Vergleich, keine Kennzeichen „Gym 8 · RS 7“, keine Pflicht-Zählung, kein Lehrplan-Wortlaut, keine Lernbereiche, nichts zum Ändern.
+- **Reisewörter:** Überschrift „Deine Route durch die Mathe-Welt“, Spalten = Kontinente (Titel aus `gebiete[]`), Zeilen = Klasse 5–10, je Flug die Stadt klein darunter. Stufen: „◉ kannst du“, „↻ kommt zur Wiederholung“, „▶ hier bist du – Etappe x von y“, „○ kommt noch“; nicht im Plan blass, ohne Text. Beim Öffnen zum ▶-Flug gescrollt. Kopf je Klasse: Balken (◉ ↻ ▶) und „Du kannst schon n von m Flügen“ (m = Flüge der Klasse mit Inhalt, ohne eingeordnete).
+- **Detail** (beim Antippen `schule_lehrplan_thema {thema_id, lernender_id}`): „Was du hier lernst“, „Das muss sitzen“, „Das brauchst du vorher“ und „Danach geht’s weiter mit“ – je mit eigener Stufe (Zeichen + Wort), antippbar; „Die Etappen (n)“ mit ✓ für gelandete Etappen (aus dem Merkheft). Beim ▶-Flug großer Knopf „Weiter lernen ›“ (`#/lerneinheit/<kind>-<einheit>-ueben`), sonst kein Lern-Knopf.
+- **Verbindungen** wie LM-3 (gelb vorher, blau danach, „→ n“), Linien hinter den Karten.
+- **Handy und Tablet zuerst:** unter 1000 px Liste je Klasse nach Kontinent, Detail direkt unter dem Flug, keine Linien (die Kinderseiten sind höchstens 640–760 px breit – acht Spalten passten dort nicht); ab 1000 px Matrix mit Linien, die Seite dafür bis 1240 px breit. Farben der Kinderseiten (Ozean, Nacht, Dschungel, Wüste) über die `--lr-`-Variablen.
+- **Daten:** Mit Lern-Zugang liefert LM-S die Kindsicht (`zeile`, `reihenfolge_kind`). Öffnen Eltern die Seite des Kindes, liefert der Server die Lehrer-Sicht – dann rechnet die App die Zeile aus `jahrgang` und der Schulart des Kindes (wie `schule.thema_klasse_fuer`) und zeigt nur dieses Kind. Aufruf mit `mit_testkind: true`, damit auch das Testkind seine Route sieht. Ohne LM-S (alter Server): „Die Route ist bald da.“
+- **Info-Seite:** nicht geändert (die Kinderseite erklärt sich mit Einleitung und Legende). Wenn gewünscht, Satz für die Eltern liefern.
+
+**Getestet** (lernen 151, neu 4): Link auf der Abflugtafel, alle Flüge, keine Kennzeichen/Leiste/Knöpfe, Stufen-Texte, Scrollen zum ▶, Kopf je Klasse, Kontinente als Spalten, Reisewörter (keine „Thema/Lehrplan/Gymnasium/Pflicht/Aufgabe“); Detail mit Voraussetzungen (eigene Stufe), Nachfolgern, Linien, Etappen-✓, „Weiter lernen ›“ nur beim ▶-Flug, kein Wortlaut, keine Begründung; Abnahme 400/820/1280 in Nacht und Tag (nichts läuft über, kein Wort ohne Trennstrich gebrochen, kein Querrollen, Liste mit Detail unter dem Flug bzw. Matrix mit Linien); Lehrer-Sicht (Zeile aus jahrgang, kein Geschwister) und alter Server. Suche: nur die bekannten Reise-Fehler.
+
+**Nicht geprüft:** gegen den echten LM-S-Server (Kindsicht über den Lern-Zugang), echte Geräte.
+
 ## 2026-11-22 – FERTIG: 0.85.0 – Wiederholungen dynamisch (WD, App-Teil), Cache v155
 
 Auf `lernen-app` 986d43e. Gebaut gegen die Schnittstelle im „Nachtrag zum Bau-Auftrag WD“. Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, kein Merge nach `main`. Den Server habe ich nicht gesehen (`bau-lehrer` hat noch keinen WD-Stand) – getestet gegen nachgebildete Antworten.

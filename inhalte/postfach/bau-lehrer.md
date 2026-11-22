@@ -2,6 +2,82 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: RD-S
+
+Stand `lernen-app` 6da3aec übernommen. Grundlage `inhalte/reise/aufbau-vorschlag.json` (Reise-Aufbau 4), Datenbank nur gelesen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:
+- `supabase/migrations/20261125_rd_s_reise.sql` – Tabellen, Regeln, Lesefunktion, Aktion.
+- `inhalte/reise/rd_bauen.py` → `inhalte/reise/rd_einspiel_2311.sql` (Daten; Aufruf `python3 -I inhalte/reise/rd_bauen.py`, prüft die JSON vorab, Exit 1 bei Fehler).
+- `supabase/tests/rd_s_rauchtest.sql` – spielt Migration und Daten selbst ein (beide wiederholbar), alles mit Rollback.
+- `supabase/functions/lernen-api/index.ts` 0.9.3: Aktion `schule_reise_karte` (nur Datei, nicht ausgerollt).
+
+**Reihenfolge Einspielen:** Migration → `rd_einspiel_2311.sql` (ein DO-Block: ganz oder gar nicht) → Rauchtest. Edge Function 0.9.3 erst mit RK-App.
+
+**Tabellen (alle neu, RLS an, nur über security-definer-Funktionen)**
+- `reise_kontinent`: Kontinent ↔ Reise-Name. `kontinent.erdteil` bleibt unverändert (Kontinent 4 zeigt bis RK-App weiter „Antarktis“, die Reise heißt „Orient …“).
+- `reise_land`: Flug-Länder und Reserve-Länder in einer Tabelle.
+  - Felder: `thema_id` (eindeutig), `flug_schluessel` („29-2“), Name, ISO, Region, Mittelpunkt, Hauptstadt (deutscher Name + Lage + GeoNames-ID), `hauptort` (nur Landesteile), `kurzflug`, `insel_ausnahme`, `nachbarteil`, `nachbarschaft`, Reihenfolge.
+- `reise_stadt`: Etappen- und Reserve-Städte.
+  - Felder: Thema + Lernziel, Einheit beim Einspielen, Name, Breite, Länge, GeoNames-ID, Reihenfolge, `kuer_vorschlag`.
+  - `kuer_vorschlag` ist nur zum Abgleich da; maßgeblich ist die Pflichtliste der Einheit.
+- `reise_station` + `reise_station_expedition`: je Expedition eine Station.
+- `reise_quelle`: Quellenangaben.
+
+**Regeln**
+- Jedes Land genau einmal: eindeutig nach ISO + Region und nach Name, über Flug- und Reserve-Länder zusammen.
+- Jede Stadt genau einmal: eindeutige GeoNames-ID.
+- Je Etappe höchstens eine Stadt: eindeutig nach Thema + Lernziel.
+- Jede Stadt liegt im Land ihres Flugs (Fremdschlüssel Land + Thema).
+- „Mindestens eine Stadt je Etappe“ prüfen die Sicht `reise_abweichung` und das Einspielen. Es bricht ab bei: Etappe ohne Stadt, Stadt ohne Etappe, freigegebenes Thema ohne Land, Land ohne Freigabe.
+- Die Themen der Teile löst das Einspielen über `teil_stamm` + `teil_nr` auf. Lokal hatten die Teile andere IDs (1000–1007), live sind es 276–283; beide liefen durch.
+
+**Schnittstelle** `api.schule_reise_karte(schluessel, {lernender_id})`
+- Zugriffsprüfung wie `schule_konto` (`schule.zugriff`, Kind aktiv).
+- Antwort: `{ok, lernender_id, gruppe, kontinente[], naechster_start, antarktis, quellen[]}`.
+- `kontinente[]`:
+  - Felder je Kontinent: `id`, `schluessel`, `themengebiet`, `reise`, `zusatz`, `laender`, `geschafft`, `zusatz_laender`, `fluege[]`.
+  - `laender` und `geschafft` zählen ohne Zusatz.
+- `fluege[]`, je Flug:
+  - Thema und Teil: `thema_id`, `flug`, `titel`, `untertitel`, `teil`, `teil_von`, `teil_stamm`.
+  - Land: `land`, `iso`, `region`, `mitte{breite, laenge}`, `hauptstadt{name, breite, laenge}`, `hauptort`, `kurzflug`, `insel_ausnahme`, `nachbarteil`.
+  - Stand des Kindes: `stufe`, `zeichen`, `gesetzt` (aus `thema_stufe`), `stempel` und `stempel_am` (= `flug_erstabschluss`), `golden` (alle Etappen der Regel sicher), `im_plan`, `plan_platz`, `zusatz`, `etappen`, `gelandet`, `sicher`.
+  - `staedte[]`: `nr`, `name`, `breite`, `laenge`, `lernziel`, `titel`, `pflicht`, `stand`.
+- `stand` einer Stadt: `offen` · `begonnen` · `gelandet` · `sicher` · `wieder_offen` (gleiche Zählung wie `thema_stufe`).
+- `pflicht` richtet sich nach der Gruppe des Kindes (`pflicht_lernziele`, gleiche Etappen wie `stufe_etappen`).
+- `naechster_start`:
+  - Auswahl: zuerst ein Flug „dran“, sonst der nächste „kommt“ im Plan, ohne Zusatz.
+  - Inhalt: `thema_id`, `kontinent_id`, `land`, `iso`, `titel`, `grund`, `staedte` (Anzahl) und `stadt{nr, name, lernziel, pflicht}`; die Stadt ist die erste offene, Pflicht vor Kür.
+  - Der Startknopf führt wie heute; das Feld dient nur zum Anzeigen und Hinzoomen.
+- `antarktis.stationen[]`: `name`, `betreiber`, `breite`, `laenge`, `expeditionen[]`.
+- `quellen[]`: GeoNames (CC BY 4.0), Natural Earth (gemeinfrei), COMNAP.
+
+**Abweichungen JSON ↔ Datenbank** (JSON gegen den echten Stand gelesen; die Datenbank hat 95 freigegebene Einheiten)
+- Etappen ohne Stadt: **0**. Städte ohne Etappe: **0**. Reihenfolge anders: **0**. Themen ohne Flug: **0**.
+- `noch_nicht_in_db`: alle 12 so markierten Etappen sind inzwischen in der Datenbank (Teilung und LK-D 4 eingespielt). Das Kennzeichen in der JSON ist veraltet und wird nicht übernommen.
+- Kür:
+  - Die 22 Etappen, die die JSON als Kür markiert (`kuer_in` bzw. `kuer`), stimmen in jeder Gruppe mit der Pflichtliste der Datenbank überein.
+  - Weitere 39 Etappen alter Themen sind laut Pflichtliste der Datenbank in allen Gruppen Kür, in der JSON aber nicht markiert, z. B. 15 `dualsystem`, 63 `venn`. Die Karte nimmt die Datenbank.
+  - Diese Fälle zeigt die Sicht `reise_kuer_abweichung`; der Zähler in der Einspiel-Meldung zählt dabei je Gruppe.
+- Die Zeile `stand` in der JSON lautet noch „Reise-Aufbau 2“, der Inhalt ist aber Reise-Aufbau 4 (95 Flüge, 618 Städte).
+- Umfang: 8 Kontinente, 95 Flug-Länder, 618 Etappen-Städte, 28 Reserve-Länder, 209 Reserve-Städte, 21 Stationen.
+
+**Größe der Karten-Antwort je Kind:** etwa 150 KB als JSON ohne Leerzeichen, etwa 26 KB gepackt (gzip). Lokal gemessen mit kurzen Etappen-Titeln; live kommen die echten Titel dazu, also etwas mehr.
+
+**Lokal geprüft** – im Nachbau mit den echten Etappen aller 95 Einheiten (Live, nur gelesen), dem Stand nach TL-S 7 / NT-S 2 und Teilen mit anderen IDs:
+- Migration lief zweimal, Einspielen ebenfalls zweimal; die Daten sind danach gleich.
+- `rd_s_rauchtest` grün, sowohl auf dem Stand ohne RD als auch mit schon eingespieltem RD:
+  - Test 0: wiederholbar.
+  - Test 1: je Etappe genau eine Stadt.
+  - Test 2: nichts doppelt, Regeln greifen.
+  - Test 3: Karte in allen fünf Gruppen; alle fünf Stände je Etappe; golden.
+  - Test 4: Stufe, Stempel, Pflicht und Zusatz je Kind wie `thema_stufe`, Erstabschluss und `stufe_etappen`.
+  - Test 5: Zugriff wird geprüft.
+  - Test 6: Lernstand, Sterne, Stempel, Route, Ortsnamen und Reiseoptionen unverändert.
+- `tl_s`, `nt_s` und `lk_s` bleiben grün.
+
+**Offen für Sebastian / Haupt-Chat**
+- COMNAP-Daten (Stationen) laut JSON „frei für Bildung, nicht kommerziell“ – vor RK-App klären, wie in Bau-Auftrag RK vorgesehen.
+- Die bisherigen Ortsnamen (`block.stadt/land`) bleiben, bis die RK-App live ist; danach eigener Auftrag.
+
 ## 2026-11-22 – FERTIG: TL-S 7 / NT-S 2
 
 Stand `lernen-app` 00cd00e übernommen (Rückläufer Prüfung 951). Nur Dateien: `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/migrations/20261124_nt_s_nachtest_menge.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/tests/nt_s_rauchtest.sql`, `supabase/tests/lk_s_rauchtest.sql`. Nicht eingespielt, kein DROP/DELETE, kein App-Code.

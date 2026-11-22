@@ -2863,3 +2863,16 @@ Stand `lernen-app` 67f3c88, alles zurückgerollt. Reihenfolge: `lk_korrektur_221
 
 ### Flug-Test und Nachtests bei kleinen Teilen (Antwort `bau-lehrer`, 22.11.) – Entscheidung Sebastian offen
 Fakten: Flug-Test nimmt alle Test-Aufgaben der Einheit; ein Fehler löst nur einen Korrektur-Test der Etappe aus (kein Durchfallen). **Nachtests** (10/25/60 Lerntage): je Pflicht-Etappe eine Sicherungs-Aufgabe, Quote ≥ 0,8 bestanden, ≥ 0,6 wiederholen, sonst Rückreise → bei 2 Etappen bedeutet ein Fehler Rückreise. Vorschlag `bau-lehrer`: Nachtest mindestens 5 Aufgaben je Flug (1 Etappe → 5, 2 → je 3, 3–4 → je 2, ab 5 → je 1); dafür je Etappe mindestens 9 Sicherungs-Aufgaben (live 6–17). Eigener Bau-Auftrag nach Entscheidung.
+
+### Rückläufer ChatGPT 942/943 (22.11., 17:40 Berlin) – Liste LK-D 3, Kür je Etappe, Reise-Aufbau 2
+
+Bestätigt: 7 Themen / 15 Teile / 8 neue Flüge; die drei neuen Etappen (`cavalieri`, `koerper_symmetrie`, `gleichungen_binomisch`) sind vom Lehrplan verlangt und fachlich plausibel; Kanten je Schulart richtig erfasst; Geodaten-Stichprobe plausibel; Lizenzen: GeoNames CC BY 4.0 (Quellenangabe), Natural Earth gemeinfrei, COMNAP nur Bildung/nicht kommerziell.
+Schon erledigt bzw. beauftragt: 2 und 57 (seit LK-D 3 Ergänzung als begründete Wiederholung geführt – ChatGPT las den Stand davor); Salomonen, 101 Teil 2 und neue Etappen-Städte (Reise-Aufbau 3; Zielstand 95 Flüge).
+**Neu, an `lehrplan-lb` (LK-D 4):**
+- **A1 (Muss):** Gym 9 Lernbereich 1: indirekter Beweis zur Irrationalität von √2 – Lernkarte liefern (Beweisschritte ordnen, Fehler im Beweis finden, Schritt begründen), nicht als „durch Zahlarten abgedeckt“ führen.
+- **B1 (Muss):** `etappen[].kuer_in` bzw. Pflicht je Schulart **und Gruppe** aus dem Punkt-Mapping, mit Quellen-Punkt; „keine Zuordnung bekannt“ ist nicht automatisch Kür – bei integrativen Lehrplan-Punkten inhaltlich entscheiden (z. B. 46 Teil 3 im Gymnasium, 26 Etappen ohne Punkt).
+**Neu, an `bau-lehrer` (TL-S 2):**
+- **B2 (Muss):** Pflicht/Kür je Kind (Schulart, Gruppe, Etappe) als **eine** Regel im Server; Flug-Abschluss, Flug-Test, Nachtests, Stempel, 100 Sterne, Visum, Tages-Wiederholung und Mischkarten rechnen nur mit Pflicht-Etappen; Teil mit 0 Pflicht-Etappen = Zusatz ohne Zwangstest; Teil mit 1 Pflicht-Etappe braucht gültigen Testpfad. Regression: Gym-Kind 29 Teil 2 mit 3/3 Pflicht, 0/1 Kür → geschafft; RS-Kind 3/4 → offen.
+- **B3 (Muss):** Schulartwechsel eines Kindes: Historie (Karten, Sterne, Erstabschlüsse, Stempel) bleibt; neue Pflicht-Etappen öffnen den Teil wieder, ohne etwas zu löschen oder doppelt zu buchen; Rückwechsel macht sie wieder zur Kür.
+**An Gestalter / `bau-motivation`:** je Etappe sichtbar „Pflicht im Gymnasium / Kür in der Realschule“ mit Lehrplan-Bezug; Nenner je Kind.
+**Karte (RK):** Marokko–Algerien–Mauretanien nicht als befahrbare Strecke darstellen (Linie nur dekorativ); Antarktis-Stationen als virtuelle Ziele; Quellenangaben auf der Info-Seite.

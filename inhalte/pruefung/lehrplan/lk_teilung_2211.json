@@ -80,7 +80,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
@@ -143,7 +150,14 @@
        "art": "hart",
        "herkunft": "bisher"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     }
    ],
    "flug_geschafft_kinder": []
@@ -233,13 +247,20 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
      "von": 2,
      "titel": "Terme umformen – Teil 2 von 2",
-     "untertitel": "Summe mal Summe, Ausklammern, binomische Formeln",
+     "untertitel": "Summe mal Summe, binomische Formeln, Gleichungen mit Klammern",
      "etappen": [
       {
        "lernziel": "summe_mal_summe",
@@ -252,6 +273,10 @@
       {
        "lernziel": "binomisch",
        "titel": "Binomische Formeln"
+      },
+      {
+       "lernziel": "gleichungen_binomisch",
+       "titel": "Gleichungen mit Klammerprodukten"
       }
      ],
      "etappen_ohne_lehrplanpunkt": [],
@@ -274,13 +299,13 @@
      "stand_je_kind": {
       "1": {
        "erledigt": 0,
-       "etappen": 3,
+       "etappen": 4,
        "vollstaendig": false
       },
       "2": {
        "erledigt": 3,
-       "etappen": 3,
-       "vollstaendig": true
+       "etappen": 4,
+       "vollstaendig": false
       }
      },
      "baut_auf": [
@@ -311,7 +336,14 @@
        "art": "hart",
        "herkunft": "bisher"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     }
    ],
    "flug_geschafft_kinder": [
@@ -403,7 +435,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
@@ -452,7 +491,14 @@
        "herkunft": "Teilung"
       }
      ],
-     "wird_gebraucht_von": []
+     "wird_gebraucht_von": [],
+     "zusatz": {
+      "gym": true,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": true,
+      "ib_extended": true
+     }
     }
    ],
    "flug_geschafft_kinder": []
@@ -544,7 +590,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
@@ -612,7 +665,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": true,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 3,
@@ -673,7 +733,14 @@
        "art": "empfohlen",
        "herkunft": "bisher"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": true,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     }
    ],
    "flug_geschafft_kinder": []
@@ -744,7 +811,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
@@ -816,7 +890,14 @@
        "art": "hart",
        "herkunft": "bisher"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     }
    ],
    "flug_geschafft_kinder": []
@@ -882,13 +963,20 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": true,
+      "ib_extended": true
+     }
     },
     {
      "teil": 2,
      "von": 2,
      "titel": "Schrägbilder und Raumdarstellung – Teil 2 von 2",
-     "untertitel": "Raumkoordinaten und Rotationskörper",
+     "untertitel": "Raumkoordinaten, Körpersymmetrie, Rotationskörper",
      "etappen": [
       {
        "lernziel": "koordinaten",
@@ -901,6 +989,10 @@
       {
        "lernziel": "axialschnitt",
        "titel": "Axialschnitte berechnen"
+      },
+      {
+       "lernziel": "koerper_symmetrie",
+       "titel": "Symmetrie von Körpern"
       }
      ],
      "etappen_ohne_lehrplanpunkt": [],
@@ -919,12 +1011,12 @@
      "stand_je_kind": {
       "1": {
        "erledigt": 0,
-       "etappen": 3,
+       "etappen": 4,
        "vollstaendig": false
       },
       "2": {
        "erledigt": 0,
-       "etappen": 3,
+       "etappen": 4,
        "vollstaendig": false
       }
      },
@@ -935,10 +1027,399 @@
        "herkunft": "Teilung"
       }
      ],
-     "wird_gebraucht_von": []
+     "wird_gebraucht_von": [],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": true,
+      "ib_extended": true
+     }
     }
    ],
    "flug_geschafft_kinder": []
+  },
+  {
+   "thema": 101,
+   "titel": "Prismen und Zylinder",
+   "teile": [
+    {
+     "teil": 1,
+     "von": 2,
+     "titel": "Prismen und Zylinder – Teil 1 von 2",
+     "untertitel": "gerade Prismen und Zylinder",
+     "etappen": [
+      {
+       "lernziel": "prisma_volumen",
+       "titel": "Volumen eines Prismas"
+      },
+      {
+       "lernziel": "prisma_oberflaeche",
+       "titel": "Oberfläche eines Prismas"
+      },
+      {
+       "lernziel": "prisma_umstellen",
+       "titel": "Fehlende Größen am Prisma"
+      },
+      {
+       "lernziel": "zylinder_volumen",
+       "titel": "Zylinder: Volumen begründen"
+      },
+      {
+       "lernziel": "zylinder_oberflaeche",
+       "titel": "Zylinder: Oberfläche über das Netz"
+      },
+      {
+       "lernziel": "sach",
+       "titel": "Prismen und Zylinder im Alltag"
+      },
+      {
+       "lernziel": "verstehen",
+       "titel": "Begründen und beurteilen"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 8,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 9,
+      "rs_I_ohne_eigenen_punkt": true,
+      "rs_II_III": null,
+      "ib_standard": null,
+      "ib_extended": null
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 7,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 7,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "99 Flächen von Parallelogramm, Dreieck und Trapez (Gym 6 · RS I 6)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "100 Volumen (Gym 6 · RS I 6)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "51 Kreisberechnungen (Gym 8 · RS I 9)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "101 Prismen und Zylinder – Teil 2 von 2 (Gym 10 · RS I 9)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": true,
+      "rs_II_III": true,
+      "ib_standard": true,
+      "ib_extended": true
+     }
+    },
+    {
+     "teil": 2,
+     "von": 2,
+     "titel": "Prismen und Zylinder – Teil 2 von 2",
+     "untertitel": "schiefe Körper und Cavalieri",
+     "etappen": [
+      {
+       "lernziel": "cavalieri",
+       "titel": "Schiefe Körper und Cavalieri"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 10,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 9,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       10
+      ],
+      "ib_standard": null,
+      "ib_extended": null
+     },
+     "zu_duenn": true,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 1,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 1,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "101 Prismen und Zylinder – Teil 1 von 2 (Gym 8 · RS I 9)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "92 Pyramide, Kegel, Kugel (Gym 10 · RS I 9)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      }
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": true,
+      "ib_extended": true
+     }
+    }
+   ],
+   "flug_geschafft_kinder": []
+  }
+ ],
+ "zusatz_regel": "Teil ohne Lehrplanpunkt in der Schulart = Zusatz: keine Pflicht, sperrt nichts; Voraussetzungen auf ihn nur empfohlen (Entscheidung 22.11., 16:20).",
+ "kanten_je_schulart": [
+  {
+   "schulart": "gym",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+   "braucht": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+   "braucht": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "empfohlen",
+   "grund": "Vorgänger ist in dieser Schulart Zusatz"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "letzter Pflicht-Teil davor"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
+   "art": "empfohlen",
+   "grund": "Vorgänger ist in dieser Schulart Zusatz"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
+   "art": "empfohlen",
+   "grund": "Vorgänger ist in dieser Schulart Zusatz"
   }
  ],
  "grenzfaelle": [
@@ -2211,7 +2692,7 @@
   },
   {
    "braucht_von": "92 Pyramide, Kegel, Kugel",
-   "braucht": "101 Prismen und Zylinder",
+   "braucht": "101 Prismen und Zylinder – Teil 2 von 2",
    "art": "empfohlen",
    "herkunft": "bisher"
   },
@@ -2318,19 +2799,19 @@
    "herkunft": "bisher"
   },
   {
-   "braucht_von": "101 Prismen und Zylinder",
+   "braucht_von": "101 Prismen und Zylinder – Teil 1 von 2",
    "braucht": "99 Flächen von Parallelogramm, Dreieck und Trapez",
    "art": "empfohlen",
    "herkunft": "bisher"
   },
   {
-   "braucht_von": "101 Prismen und Zylinder",
+   "braucht_von": "101 Prismen und Zylinder – Teil 1 von 2",
    "braucht": "100 Volumen",
    "art": "empfohlen",
    "herkunft": "bisher"
   },
   {
-   "braucht_von": "101 Prismen und Zylinder",
+   "braucht_von": "101 Prismen und Zylinder – Teil 1 von 2",
    "braucht": "51 Kreisberechnungen",
    "art": "empfohlen",
    "herkunft": "bisher"
@@ -2410,6 +2891,12 @@
   {
    "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
    "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "Teilung"
+  },
+  {
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
    "art": "hart",
    "herkunft": "Teilung"
   }
@@ -2559,12 +3046,23 @@
    "sebastian_hart": false
   },
   {
-   "spur": "rs_II_III",
+   "spur": "ib_standard",
    "braucht_von": "92 Pyramide, Kegel, Kugel",
-   "braucht": "101 Prismen und Zylinder",
+   "braucht": "101 Prismen und Zylinder – Teil 2 von 2",
    "art": "empfohlen",
    "herkunft": "bisher",
-   "klasse": 10,
+   "klasse": 3,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "92 Pyramide, Kegel, Kugel",
+   "braucht": "101 Prismen und Zylinder – Teil 2 von 2",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 3,
    "klasse_vor": null,
    "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
    "sebastian_hart": false
@@ -2614,47 +3112,14 @@
    "sebastian_hart": false
   },
   {
-   "spur": "ib_standard",
-   "braucht_von": "101 Prismen und Zylinder",
-   "braucht": "99 Flächen von Parallelogramm, Dreieck und Trapez",
-   "art": "empfohlen",
-   "herkunft": "bisher",
-   "klasse": 1,
-   "klasse_vor": 2,
-   "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
-  },
-  {
-   "spur": "ib_extended",
-   "braucht_von": "101 Prismen und Zylinder",
-   "braucht": "99 Flächen von Parallelogramm, Dreieck und Trapez",
-   "art": "empfohlen",
-   "herkunft": "bisher",
-   "klasse": 1,
-   "klasse_vor": 2,
-   "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
-  },
-  {
-   "spur": "ib_standard",
-   "braucht_von": "101 Prismen und Zylinder",
-   "braucht": "51 Kreisberechnungen",
-   "art": "empfohlen",
-   "herkunft": "bisher",
-   "klasse": 1,
-   "klasse_vor": 2,
-   "befund": "Voraussetzung liegt später",
-   "sebastian_hart": false
-  },
-  {
-   "spur": "ib_extended",
-   "braucht_von": "101 Prismen und Zylinder",
-   "braucht": "51 Kreisberechnungen",
-   "art": "empfohlen",
-   "herkunft": "bisher",
-   "klasse": 1,
-   "klasse_vor": 2,
-   "befund": "Voraussetzung liegt später",
+   "spur": "rs_II_III",
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "Teilung",
+   "klasse": 10,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
    "sebastian_hart": false
   }
  ],
@@ -3703,7 +4168,7 @@
     ]
    },
    "baut_auf": "50 Umfang und Flächeninhalt (Gym 5 · RS I 5) (hart)",
-   "geht_weiter_in": "92 Pyramide, Kegel, Kugel (Gym 10 · RS I 9); 101 Prismen und Zylinder (Gym 8 · RS I 9)"
+   "geht_weiter_in": "92 Pyramide, Kegel, Kugel (Gym 10 · RS I 9); 101 Prismen und Zylinder – Teil 1 von 2 (Gym 8 · RS I 9)"
   },
   {
    "knoten": "52 Körper darstellen",
@@ -4248,7 +4713,7 @@
      3
     ]
    },
-   "baut_auf": "51 Kreisberechnungen (Gym 8 · RS I 9) (hart); 54 Satz des Pythagoras (Gym 9 · RS I 9) (hart); 101 Prismen und Zylinder (Gym 8 · RS I 9)",
+   "baut_auf": "51 Kreisberechnungen (Gym 8 · RS I 9) (hart); 54 Satz des Pythagoras (Gym 9 · RS I 9) (hart); 101 Prismen und Zylinder – Teil 2 von 2 (Gym 10 · RS I 9)",
    "geht_weiter_in": "–"
   },
   {
@@ -4383,7 +4848,7 @@
     ]
    },
    "baut_auf": "50 Umfang und Flächeninhalt (Gym 5 · RS I 5)",
-   "geht_weiter_in": "101 Prismen und Zylinder (Gym 8 · RS I 9)"
+   "geht_weiter_in": "101 Prismen und Zylinder – Teil 1 von 2 (Gym 8 · RS I 9)"
   },
   {
    "knoten": "100 Volumen",
@@ -4405,10 +4870,10 @@
     ]
    },
    "baut_auf": "50 Umfang und Flächeninhalt (Gym 5 · RS I 5); 25 Größen und Einheiten (Gym 5 · RS I 5)",
-   "geht_weiter_in": "101 Prismen und Zylinder (Gym 8 · RS I 9)"
+   "geht_weiter_in": "101 Prismen und Zylinder – Teil 1 von 2 (Gym 8 · RS I 9)"
   },
   {
-   "knoten": "101 Prismen und Zylinder",
+   "knoten": "101 Prismen und Zylinder – Teil 1 von 2",
    "klassen": {
     "gym_by": [
      8
@@ -4417,14 +4882,28 @@
      9
     ],
     "rs_II_III": null,
-    "ib_standard": [
-     1
-    ],
-    "ib_extended": [
-     1
-    ]
+    "ib_standard": null,
+    "ib_extended": null
    },
    "baut_auf": "99 Flächen von Parallelogramm, Dreieck und Trapez (Gym 6 · RS I 6); 100 Volumen (Gym 6 · RS I 6); 51 Kreisberechnungen (Gym 8 · RS I 9)",
+   "geht_weiter_in": "101 Prismen und Zylinder – Teil 2 von 2 (Gym 10 · RS I 9)"
+  },
+  {
+   "knoten": "101 Prismen und Zylinder – Teil 2 von 2",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     10
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "101 Prismen und Zylinder – Teil 1 von 2 (Gym 8 · RS I 9) (hart)",
    "geht_weiter_in": "92 Pyramide, Kegel, Kugel (Gym 10 · RS I 9)"
   },
   {

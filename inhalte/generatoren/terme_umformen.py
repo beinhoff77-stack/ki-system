@@ -783,3 +783,9 @@ if __name__ == '__main__':
     from _potenz_teilen import umformen_datei
     umformen_datei()
 # ---- POTENZ-TEILEN ENDE ----
+
+# ---- LK (22.11., Nachtrag LK-D 2, siehe _lk_etappen_2211.py): zuletzt, hängt nur an ----
+if __name__ == '__main__':
+    from _lk_etappen_2211 import lk_anhaengen
+    lk_anhaengen('terme.umformen')
+# ---- LK ENDE ----

@@ -345,8 +345,124 @@ def wahre_groesse():
     return karte, kann, A
 
 
+# ------------------------------------------------------------------ 101 · cavalieri (Gym 10 LB 5, Nachtrag LK-D 2 / ChatGPT 936 A1)
+def cavalieri():
+    L = 'cavalieri'
+    karte = {
+        'lernziel': L, 'titel': 'Schiefe Körper und Cavalieri',
+        'einstieg': 'Ein Stapel Bierdeckel steht gerade. Schiebt man ihn schräg, sieht er anders aus – aber es sind dieselben Deckel. Das Volumen bleibt gleich. Genau das sagt das Prinzip von Cavalieri.',
+        'woerter': [['Cavalieri-Prinzip', 'gleiche Querschnittsflächen in jeder Höhe und gleiche Höhe ergeben gleiches Volumen'], ['Höhe h', 'senkrechter Abstand von Grund- und Deckfläche, nicht die schräge Kante']],
+        'regel': 'Auch für schiefe Prismen und Zylinder gilt ⟦V = G · h⟧. h ist der senkrechte Abstand der beiden Grundflächen, nicht die Länge der schrägen Kante.',
+        'schritte': [{'text': 'Ein schiefes Prisma hat G = 12 cm², die schräge Kante ist 10 cm lang, der senkrechte Abstand der Grundflächen 8 cm.'},
+                     {'text': 'Es zählt die senkrechte Höhe: V = 12 cm² · 8 cm = ⟦96 cm³⟧. Die 10 cm braucht man nicht.'}],
+        'fehler': 'Mit der schrägen Kante rechnen: 12 · 10 = 120 cm³ ist zu viel. Beim schiefen Körper ⟦nur die senkrechte Höhe⟧ nehmen.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein schiefes Prisma hat die Grundfläche 15 cm² und die Höhe 6 cm. Berechne das Volumen.', 'V = 15 cm² · 6 cm = 90 cm³.', 'Grundfläche mal senkrechte Höhe.', o={'wert': 90, 'einheit': 'cm³'}, c='15 * 6'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein schiefer Zylinder hat eine Grundfläche von 20 cm² und eine Höhe von 9 cm. Wie groß ist sein Volumen?', 'V = 20 cm² · 9 cm = 180 cm³.', 'Wie beim geraden Zylinder.', o={'wert': 180, 'einheit': 'cm³'}, c='20 * 9'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Länge setzt man beim schiefen Prisma für h ein?', 'h ist der senkrechte Abstand der Grundflächen.', 'Miss senkrecht, nicht entlang der Kante.',
+                 **wahl('den senkrechten Abstand der Grundflächen', ['die Länge der schrägen Kante', 'die längste Seite der Grundfläche', 'die Diagonale des Körpers'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Ein gerades und ein schiefes Prisma haben dieselbe Grundfläche und dieselbe Höhe. Was gilt?', 'Nach Cavalieri sind die Volumen gleich.', 'Schräg schieben ändert das Volumen nicht.',
+                 **wahl('Sie haben dasselbe Volumen.', ['Das schiefe hat mehr Volumen.', 'Das gerade hat mehr Volumen.', 'Man kann es nicht sagen.'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein schiefes Prisma hat ein Dreieck als Grundfläche (g = 6 cm, h_D = 4 cm). Die Körperhöhe ist 10 cm. Berechne das Volumen.', 'G = 6 · 4 : 2 = 12 cm². V = 12 · 10 = 120 cm³.', 'Erst die Dreiecksfläche, dann mal Körperhöhe.', o={'wert': 120, 'einheit': 'cm³'}, c='6 * 4 / 2 * 10'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein schräger Turm ist ein schiefer Zylinder mit G = 3 m² und 12 m senkrechter Höhe; seine Wand ist 12,5 m lang. Wie viele m³ fasst er?', 'Es zählt die senkrechte Höhe: V = 3 · 12 = 36 m³.', 'Die Wandlänge ist die schräge Kante.', o={'wert': 36, 'einheit': 'm³'}, c='3 * 12'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Ein schiefes Prisma hat 84 cm³ Volumen und 14 cm² Grundfläche. Wie groß ist die Höhe?', 'h = V : G = 84 : 14 = 6 cm.', 'Teile das Volumen durch die Grundfläche.', o={'wert': 6, 'einheit': 'cm'}, c='84 / 14'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Zwei Münzstapel mit gleich vielen gleichen Münzen: einer gerade, einer schräg. Welche Aussage trifft zu?', 'In jeder Höhe liegt eine gleich große Münzfläche, also gleiches Volumen (Cavalieri).', 'Vergleiche Schicht für Schicht.',
+                 **wahl('gleiches Volumen, weil jede Schicht gleich groß ist', ['der schräge Stapel hat mehr Volumen', 'der gerade Stapel ist höher', 'die Oberflächen sind gleich'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein schiefes und ein gerades Prisma haben gleiches Volumen und gleiche Höhe 8 cm. Das gerade hat G = 9 cm². Wie groß ist G beim schiefen?', 'Gleiches V und gleiches h ⇒ gleiche Grundfläche: 9 cm².', 'V = G · h für beide.', o={'wert': 9, 'einheit': 'cm²'}, c='9 * 8 / 8'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum hat ein schiefes Prisma dieselbe Formel V = G · h wie ein gerades?', 'Schneidet man beide in gleicher Höhe, sind die Schnittflächen gleich groß (= G). Nach Cavalieri sind die Volumen gleich.', 'Denke an die Schnitte parallel zur Grundfläche.',
+                 **wahl('Weil die Querschnitte in jeder Höhe gleich groß sind.', ['Weil die Kanten gleich lang sind.', 'Weil die Oberflächen gleich sind.', 'Weil beide gleich viele Ecken haben.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Paul berechnet ein schiefes Prisma (G = 10 cm², Kante 13 cm, Höhe 12 cm) so: V = 10 · 13 = 130 cm³. Was stimmt?', 'Er hat die schräge Kante genommen. Richtig: 10 · 12 = 120 cm³.', 'Welche Länge ist die Höhe?',
+                 **wahl('Falsch: richtig sind 120 cm³.', ['Alles richtig.', 'Richtig sind 156 cm³.', 'Richtig sind 1 560 cm³.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Tunnelstück verläuft schräg durch einen Berg. Sein Querschnitt ist überall 40 m², der Höhenunterschied der Endflächen senkrecht gemessen 250 m. Wie viel m³ Gestein wurden ausgebrochen?', 'Wie ein schiefes Prisma: 40 · 250 = 10 000 m³.', 'Gleicher Querschnitt überall: G · h.', o={'wert': 10000, 'einheit': 'm³'}, c='40 * 250'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Ein schiefes Prisma hat G = 18 cm² und h = 5 cm, die schräge Kante ist 6 cm lang. Berechne V.', 'V = 18 · 5 = 90 cm³.', o={'wert': 90, 'einheit': 'cm³'}, c='18 * 5'))
+    for (g, h, kante) in ((7, 4, 5), (25, 3, 4), (11, 6, 7)):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Schiefes Prisma: G = {g} cm², senkrechte Höhe {h} cm, schräge Kante {kante} cm. Wie groß ist V?', f'V = {g} · {h} = {g * h} cm³; die Kante zählt nicht.', o={'wert': g * h, 'einheit': 'cm³'}, c=f'{g} * {h}'))
+    for (g, h) in ((12, 7), (30, 2), (16, 5), (9, 9), (40, 3), (22, 4)):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein schiefer Zylinder hat G = {g} cm² und die Höhe {h} cm. Berechne das Volumen.', f'V = {g} · {h} = {g * h} cm³.', o={'wert': g * h, 'einheit': 'cm³'}, c=f'{g} * {h}'))
+    return karte, 'das Volumen schiefer Prismen und Zylinder mit V = G · h berechnen und das Prinzip von Cavalieri begründen', A
+
+
+# ------------------------------------------------------------------ 91 · koerper_symmetrie (RS 8 I LB 3/K1)
+def koerper_symmetrie():
+    L = 'koerper_symmetrie'
+    karte = {
+        'lernziel': L, 'titel': 'Symmetrie von Körpern',
+        'einstieg': 'Eine Schachtel lässt sich so durchschneiden, dass beide Hälften Spiegelbilder sind. Die Schnittfläche heißt Symmetrieebene. Manche Körper haben viele davon, ein Würfel sogar neun.',
+        'woerter': [['Symmetrieebene', 'Ebene, die einen Körper in zwei spiegelbildliche Hälften teilt'], ['Symmetriezentrum', 'Punkt, an dem der Körper punktgespiegelt auf sich selbst fällt']],
+        'regel': 'Quader (alle Kanten verschieden): ⟦3⟧ Symmetrieebenen. Quadratische Säule: 5. Würfel: 9. Gerade Pyramide mit regelmäßigem n-Eck: n Ebenen. Gerades Prisma mit regelmäßigem n-Eck: n + 1.',
+        'schritte': [{'text': 'Quader 6 cm × 4 cm × 2 cm: je eine Ebene parallel zu jedem Flächenpaar, mittig. Das sind 3.'},
+                     {'text': 'Diagonale Schnitte geben beim Quader keine Spiegelhälften, weil die Seiten verschieden lang sind.'}],
+        'fehler': 'Beim Quader auch diagonale Ebenen zählen: Die gibt es nur, wenn zwei Kanten ⟦gleich lang⟧ sind (quadratische Säule, Würfel).',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Wie viele Symmetrieebenen hat ein Quader mit den Kanten 5 cm, 3 cm und 2 cm?', 'Drei Ebenen, je mittig parallel zu einem Flächenpaar.', 'Alle Kanten verschieden.', o={'wert': 3}, c='3'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Wie viele Symmetrieebenen hat ein Würfel?', '3 parallel zu den Flächen + 6 durch gegenüberliegende Kanten = 9.', 'Zähle auch die Ebenen durch die Kanten.', o={'wert': 9}, c='3 + 6'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welcher Körper hat ein Symmetriezentrum?', 'Der Quader fällt bei Punktspiegelung am Mittelpunkt auf sich selbst; Pyramide und Kegel nicht.', 'Punktspiegelung am Mittelpunkt.',
+                 **wahl('Quader', ['Pyramide', 'Kegel', 'Dreiecksprisma'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Eine gerade Pyramide hat ein Quadrat als Grundfläche. Wie viele Symmetrieebenen hat sie?', 'Wie das Quadrat: 4 Ebenen, alle durch die Spitze.', 'Jede Symmetrieachse des Quadrats gibt eine Ebene.',
+                 **wahl('4', ['2', '5', '9'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie viele Symmetrieebenen hat es?', '6 Ebenen durch die Symmetrieachsen des Sechsecks + 1 waagrechte Mittelebene = 7.', 'Achsen der Grundfläche plus die Mittelebene.', o={'wert': 7}, c='6 + 1'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Eine Geschenkschachtel ist 10 cm lang, 10 cm breit und 4 cm hoch. Wie viele Symmetrieebenen hat sie?', 'Quadratische Säule: 3 + 2 Diagonalebenen = 5.', 'Zwei Kanten sind gleich lang.', o={'wert': 5}, c='3 + 2'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Eine gerade Pyramide mit regelmäßiger Grundfläche hat 5 Symmetrieebenen. Wie viele Ecken hat die Grundfläche?', 'Bei der Pyramide ist die Zahl der Ebenen gleich n: 5 Ecken.', 'n-Eck ⇒ n Ebenen.', o={'wert': 5}, c='5'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Durch welche Linien eines Würfels gehen die 6 diagonalen Symmetrieebenen?', 'Jede geht durch zwei gegenüberliegende Kanten.', 'Schneide den Würfel schräg.',
+                 **wahl('durch zwei gegenüberliegende Kanten', ['durch zwei benachbarte Ecken', 'durch die Mitte einer Fläche', 'durch eine einzige Kante'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein gerades Prisma mit regelmäßiger Grundfläche hat 9 Symmetrieebenen und ist kein Würfel. Wie viele Ecken hat die Grundfläche?', 'n + 1 = 9 ⇒ n = 8: ein Achteck.', 'Prisma: n + 1 Ebenen.', o={'wert': 8}, c='9 - 1'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum hat eine Pyramide keine waagrechte Symmetrieebene?', 'Oben ist eine Spitze, unten eine Fläche – die Hälften sind nicht spiegelgleich.', 'Vergleiche oben und unten.',
+                 **wahl('Weil Spitze und Grundfläche verschieden sind.', ['Weil sie zu wenig Ecken hat.', 'Weil sie schief ist.', 'Weil sie kein Volumen hat.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Mia sagt: „Ein Quader mit 6 cm, 4 cm und 2 cm hat 9 Symmetrieebenen wie der Würfel.“ Was stimmt?', 'Nur 3: Diagonalebenen gibt es nur bei gleich langen Kanten.', 'Sind Kanten gleich lang?',
+                 **wahl('Falsch: er hat 3.', ['Richtig.', 'Falsch: er hat 6.', 'Falsch: er hat 5.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Bleistift ist ein gerades Prisma mit regelmäßigem Sechseck und ohne Spitze. Wie viele Symmetrieebenen hat er zusammen mit der Mittelebene quer?', '6 längs + 1 quer = 7.', 'Längsebenen wie die Sechseck-Achsen.', o={'wert': 7}, c='6 + 1'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Wie viele Symmetrieebenen hat eine quadratische Säule (Grundfläche Quadrat, Höhe anders)?', 'Quadratische Säule: 3 Ebenen parallel zu den Flächen und 2 diagonale, zusammen 5.', o={'wert': 5}, c='3 + 2'))
+    for n in (3, 4, 6):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Wie viele Symmetrieebenen hat eine gerade Pyramide mit regelmäßigem {n}-Eck als Grundfläche?', f'Jede der {n} Symmetrieachsen des {n}-Ecks gibt eine Ebene durch die Spitze: {n}.', o={'wert': n}, c=str(n)))
+    for n in (3, 5, 6, 8, 10, 12):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein gerades Prisma hat ein regelmäßiges {n}-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?', f'{n} Ebenen durch die Achsen des {n}-Ecks und 1 waagrechte Mittelebene: {n + 1}.', o={'wert': n + 1}, c=f'{n} + 1'))
+    return karte, 'Symmetrieebenen und Symmetriezentren von Quader, Würfel, Prisma und Pyramide bestimmen', A
+
+
+# ------------------------------------------------------------------ 29 · gleichungen_binomisch (RS 8 I 4/K3, 8 II/III 3/K3)
+def gleichungen_binomisch():
+    L = 'gleichungen_binomisch'
+    karte = {
+        'lernziel': L, 'titel': 'Gleichungen mit Klammerprodukten',
+        'einstieg': 'Ein quadratisches Beet wird an jeder Seite um 3 m länger und ist dann 51 m² größer. Wie lang war die Seite? In der Gleichung stehen Klammern mit Quadrat. Nach dem Ausmultiplizieren fällt x² weg.',
+        'regel': 'Erst beide Seiten ⟦ausmultiplizieren⟧ (binomische Formeln), dann zusammenfassen. Hebt sich x² auf, bleibt eine lineare Gleichung.',
+        'schritte': [{'text': '(x + 3)² = x² + 51. Links: x² + 6x + 9 = x² + 51.'},
+                     {'text': 'x² auf beiden Seiten abziehen: 6x + 9 = 51, also 6x = 42 und ⟦x = 7⟧.'}],
+        'fehler': '(x + 3)² ist nicht x² + 9. Es fehlt das ⟦Doppelte Produkt⟧ 2 · 3 · x = 6x.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Löse (x + 2)² = x² + 20.', 'x² + 4x + 4 = x² + 20 ⇒ 4x = 16 ⇒ x = 4.', 'Erst (x + 2)² ausmultiplizieren.', o={'wert': 4}, c='(20 - 4) / 4'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Löse (x − 1)² = x² − 9.', 'x² − 2x + 1 = x² − 9 ⇒ −2x = −10 ⇒ x = 5.', 'Zweite binomische Formel.', o={'wert': 5}, c='(-9 - 1) / (-2)'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Was ergibt (x + 5)² ausmultipliziert?', 'Mit a² + 2ab + b²: x² + 2 · 5 · x + 25 = x² + 10x + 25.', 'a² + 2ab + b².',
+                 **wahl('x² + 10x + 25', ['x² + 25', 'x² + 5x + 25', '2x + 10'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Warum wird (x + 4)² = x² + 40 eine lineare Gleichung?', 'x² steht auf beiden Seiten und hebt sich auf.', 'Was passiert mit x²?',
+                 **wahl('x² hebt sich auf beiden Seiten weg.', ['Weil 40 gerade ist.', 'Weil man die Wurzel zieht.', 'Weil x positiv ist.'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Löse (x + 3)(x − 3) = x² + 2x − 15.', 'x² − 9 = x² + 2x − 15 ⇒ 6 = 2x ⇒ x = 3.', 'Dritte binomische Formel links.', o={'wert': 3}, c='(-9 + 15) / 2'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein quadratisches Feld wird an jeder Seite 2 m länger und dadurch 36 m² größer. Wie lang war die Seite (in m)?', '(x + 2)² = x² + 36 ⇒ 4x + 4 = 36 ⇒ x = 8.', 'Stelle (x + 2)² = x² + 36 auf.', o={'wert': 8, 'einheit': 'm'}, c='(36 - 4) / 4'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Welche Zahl r muss rechts stehen, damit (x + 3)² = x² + r die Lösung x = 2 hat?', 'Einsetzen: (2 + 3)² = 25 und 2² + r = 4 + r. Also 4 + r = 25, r = 21.', 'Setze x = 2 auf beiden Seiten ein.', o={'wert': 21}, c='(2 + 3) * (2 + 3) - 2 * 2'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Welcher Schritt kommt bei 2(x + 1)² = 2x² + 14 zuerst?', 'Erst (x + 1)² = x² + 2x + 1 ausmultiplizieren, dann mit 2 malnehmen.', 'Potenz vor Punktrechnung.',
+                 **wahl('(x + 1)² ausmultiplizieren', ['durch x teilen', 'die Wurzel ziehen', '14 durch 2 teilen'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein Rechteck ist 3 cm länger als breit. Ein Quadrat hat die Breite als Seite. Das Rechteck ist 27 cm² größer als das Quadrat. Wie breit ist es?', 'x(x + 3) = x² + 27 ⇒ 3x = 27 ⇒ x = 9 cm.', 'Rechteck x(x + 3), Quadrat x².', o={'wert': 9, 'einheit': 'cm'}, c='27 / 3'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Die Gleichung (x + 1)² = x² + 2x + 1 gilt für …', 'Beide Seiten sind gleich: Sie gilt für alle x.', 'Multipliziere links aus.',
+                 **wahl('alle Zahlen x', ['nur x = 0', 'kein x', 'nur x = 1'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Lena löst (x + 3)² = x² + 15 so: x² + 9 = x² + 15 ⇒ 9 = 15, keine Lösung. Was stimmt?', 'Das Glied 6x fehlt. Richtig: 6x + 9 = 15 ⇒ x = 1.', 'Prüfe die binomische Formel.',
+                 **wahl('Falsch: richtig ist x = 1.', ['Alles richtig.', 'Falsch: richtig ist x = 6.', 'Falsch: richtig ist x = 3.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Löse (x + 2)² − (x − 2)² = 24.', '(x² + 4x + 4) − (x² − 4x + 4) = 8x = 24 ⇒ x = 3.', 'Beide Klammern ausmultiplizieren, dann abziehen.', o={'wert': 3}, c='24 / 8'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Löse (x + 5)² = x² + 45.', '10x + 25 = 45 ⇒ x = 2.', o={'wert': 2}, c='(45 - 25) / 10'))
+    for (b, r) in ((1, 13), (4, 40), (6, 84)):
+        x = Fr(r - b * b, 2 * b)
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Löse (x + {b})² = x² + {r}.', f'{2 * b}x + {b * b} = {r} ⇒ x = {z(x)}.', o={'wert': float(x) if x.denominator != 1 else int(x)}, c=f'({r} - {b * b}) / {2 * b}'))
+    for (b, r) in ((2, 28), (3, 45), (5, 65), (1, 7), (4, 56), (2, 16)):
+        x = Fr(r - b * b, 2 * b)
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Bestimme x aus (x + {b})² = x² + {r}.', f'{2 * b}x + {b * b} = {r} ⇒ x = {z(x)}.', o={'wert': float(x) if x.denominator != 1 else int(x)}, c=f'({r} - {b * b}) / {2 * b}'))
+    return karte, 'Gleichungen mit Klammerprodukten und binomischen Formeln lösen, bei denen sich x² aufhebt', A
+
+
 NEU = {'abbildungen.kongruenz': [vektor_koordinaten, vektor_drehen], 'abbildungen.aehnlichkeit': [streckung_vektor],
-       'geometrie.konstruktion': [vierecke_konstruieren], 'messen.flaechen_vielecke': [drachen_raute], 'raum.schraegbilder': [wahre_groesse]}
+       'geometrie.konstruktion': [vierecke_konstruieren], 'messen.flaechen_vielecke': [drachen_raute], 'raum.schraegbilder': [wahre_groesse, koerper_symmetrie],
+       'messen.prisma_zylinder': [cavalieri], 'terme.umformen': [gleichungen_binomisch]}
 ABSCHNITT = 'Lehrplan-Ergänzung (LK)'
 
 

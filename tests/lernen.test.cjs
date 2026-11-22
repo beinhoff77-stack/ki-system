@@ -777,7 +777,7 @@ test('Info-Seite „So funktioniert’s“: ein Tipp von der Startseite und vom 
   await page.getByText('Wie wird gelernt?').click();
   await page.getByText('6 eigene Lösungen (richtig im ersten Versuch ohne Tipp', { exact: false }).waitFor();
   await page.getByText('nach 1, 3, 7, 14 und 30 Lerntagen', { exact: false }).waitFor();
-  await page.getByText('höchstens 6 Wiederholungen', { exact: false }).waitFor();
+  await page.getByText('mindestens 6 und höchstens 12', { exact: false }).waitFor();
   await page.getByText('Zuerst kommt die Erklärung', { exact: false }).waitFor();
   await page.getByText('zuerst einen zweiten Versuch', { exact: false }).waitFor();
   const text = await page.locator('#main').innerText();
@@ -3586,7 +3586,7 @@ test('LM-2/LM-3: Detail mit Verbindungen, Linien hinter den Karten, Blättern, o
   assert.ok(await paths.count() >= 3);
   const z = await page.evaluate(() => [getComputedStyle(document.querySelector('svg.mx-linien')).zIndex, getComputedStyle(document.querySelector('.mx-chip')).zIndex]);
   assert.ok(Number(z[0]) < Number(z[1]), 'Linien hinter den Karten');
-  const oben = await page.evaluate(() => { const c = document.querySelector('.mx-chip[data-id="2"]').getBoundingClientRect(); return document.elementFromPoint(c.left + c.width / 2, c.top + c.height / 2)?.closest('.mx-chip')?.dataset.id; });
+  const oben = await page.evaluate(() => { document.querySelector('.mx-chip[data-id="2"]').scrollIntoView({ block: 'center' }); const c = document.querySelector('.mx-chip[data-id="2"]').getBoundingClientRect(); return document.elementFromPoint(c.left + c.width / 2, c.top + c.height / 2)?.closest('.mx-chip')?.dataset.id; });
   assert.equal(oben, '2', 'Karte liegt über der Linie');
   // empfohlen gestrichelt
   await page.locator('.mx-chip[data-id="35"]').click();
@@ -3731,6 +3731,9 @@ test('LM-5: „Als Matrix ansehen ›“ oben rechts in der Reiterzeile des Plan
 
 // LM-S-2-Format: Raster schule_lehrplan_matrix (knapp, Verbindungen als Tripel), Detail schule_lehrplan_thema. Lehrstoff aus der echten Themenliste,
 // Verbindungen aus der Vorlage, Lernstand erfunden (Kind A, Kind B, Testkind).
+// Eigenständiges Thema im Test: eines ohne Voraussetzung in den Verbindungen der Vorlage (die Vorlage des Gestalters ändert sich – 22.11.: 128 Verbindungen,
+// seitdem braucht Thema 22 etwas; „Eigenständig …“ steht nur, wenn ein Thema keine Voraussetzung hat). Bevorzugt 42 (Geometrie).
+const LMS_EIGEN = [42, ...THEMEN_ECHT.map((q) => q.thema_id)].find((id) => THEMEN_ECHT.some((q) => q.thema_id === id) && !MX_K.some((k) => k[0] === id));
 const LMS_GEB = ['Zahlen', 'Algebra', 'Funktionen', 'Geometrie', 'Fläche und Raum', 'Geld und Verhältnisse', 'Daten und Zufall', 'Entdecker-Inseln'];
 const lmsAnpassen = () => { const ueb = mxAnpassen(); const f = (aktion, e, daten = {}) => {
   if (!['schule_lehrplan_matrix', 'schule_lehrplan_thema'].includes(aktion)) return e ? ueb(aktion, e) : null;
@@ -3741,12 +3744,12 @@ const lmsAnpassen = () => { const ueb = mxAnpassen(); const f = (aktion, e, date
       etappen: echteEtappen(q).map((x, i, a) => ({ lernziel: x.lernziel, titel: x.titel, pflicht: i < a.length - 1 })),
       braucht: MX_K.filter((k) => k[0] === q.thema_id).map((k) => ({ thema_id: k[1], titel: name(k[1]), art: k[2], begruendung: k[3] })),
       baut_darauf: MX_K.filter((k) => k[1] === q.thema_id).map((k) => ({ thema_id: k[0], titel: name(k[0]), art: k[2], begruendung: k[3] })),
-      lehrplan: { gym_by: (q.lehrplan_gym || []).join(' · '), rs_by: (q.lehrplan_rs || []).join(' · ') }, ...(q.thema_id === 22 ? { eigenstaendig: 'Einstieg in die Geometrie, baut auf Grundschulwissen auf' } : {}) }; }
+      lehrplan: { gym_by: (q.lehrplan_gym || []).join(' · '), rs_by: (q.lehrplan_rs || []).join(' · ') }, ...(q.thema_id === LMS_EIGEN ? { eigenstaendig: 'Einstieg in die Geometrie, baut auf Grundschulwissen auf' } : {}) }; }
   const u = ueb('schule_lehrplan_uebersicht', { ok: true, kinder: [], themen: [] });
   const themen = THEMEN_ECHT.map((q) => { const t = u.themen.find((y) => y.thema_id === q.thema_id); const n = echteEtappen(q).length;
     return { thema_id: q.thema_id, schluessel: q.thema_schluessel, titel: q.titel, gebiet_id: LMS_GEB.indexOf(q.gebiet) + 1, block_id: q.block_id,
       ...(q.thema_id === 12 ? { ohne_flug: true } : { einheit_id: q.thema_id, etappen_anzahl: n }), jahrgang: q.klasse, lehrplan_reihenfolge: q.reihenfolge, lernbereich: q.lernbereich,
-      pflicht: Object.keys(q.klasse).filter((s2) => s2 !== 'ib_myp'), ...(q.thema_id === 22 ? { eigenstaendig: true } : {}), _st: t.stufe }; });
+      pflicht: Object.keys(q.klasse).filter((s2) => s2 !== 'ib_myp'), ...(q.thema_id === LMS_EIGEN ? { eigenstaendig: true } : {}), _st: t.stufe }; });
   const lernstand = { 1: {}, 2: {} };
   for (const t of themen) { for (const k of [1, 2]) { const s2 = t._st[k]; if (!s2) continue; const { etappen, gesetzt, ...rest } = s2; // LM-S 2 lässt etappen und gesetzt weg
     lernstand[k][t.thema_id] = { ...rest, ...(k === 1 ? { fehler_offen: s2.stufe === 'dran' } : {}), ...(s2.stufe === 'dran' ? { etappe_jetzt: 3 } : {}) }; } delete t._st; }
@@ -3774,7 +3777,7 @@ test('LM-S 2: Raster aus schule_lehrplan_matrix (Tripel, gebiet_id, etappen_anza
   await page.locator('.mx-chip[data-id="15"]').click();
   await det.getByText('Runde 4 567 891 auf Tausender.').waitFor();
   assert.match(await det.innerText(), /WAS GEFORDERT IST[\s\S]*DAS MUSS SITZEN[\s\S]*Stelle ab[\s\S]*SCHRITTE IN DER APP[\s\S]*freiwillig[\s\S]*IM LEHRPLAN[\s\S]*M5 1\.1/i);
-  await page.locator('.mx-chip[data-id="22"]').click();
+  await page.locator(`.mx-chip[data-id="${LMS_EIGEN}"]`).click();
   await det.getByText(/Eigenständig: braucht keine Voraussetzung – Einstieg in die Geometrie/).waitFor();
   await page.locator('.mx-chip[data-id="2"]').click(); await det.getByText('Äquivalenzumformung baut auf einfachen Gleichungen auf').waitFor();
   assert.equal(calls.filter((c) => c.aktion === 'schule_lehrplan_thema' && c.daten.thema_id === 2).length, 1, 'Detail nur einmal geladen');
@@ -3812,4 +3815,500 @@ test('LM: Filter „Inhalt“ (was fehlt noch?) – Zähler fertig / in Prüfung
   assert.equal(await page.locator('.mx-chip.mx-weg').count(), 0);
   for (const breite of [400, 820]) { await page.setViewportSize({ width: breite, height: 900 }); await page.locator('.mx-chip').first().waitFor();
     assert.deepEqual(await gebrocheneWoerter(g.getByRole('button')), [], `${breite}: Filter`); assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`); }
+});
+
+// ---------- Bau-Auftrag WD (22.11.) – App 0.85.0, angeglichen in 0.86.1 an die Vorgabe „abgelegt“ und WD-S 2 – erfundene Daten ----------
+// Nachgebildeter Server WD-S 2: Runde fest je Lerntag, aufgaben[].pflicht, „gemacht“ setzt der Server, runde_fertig bestätigt nur.
+const wdhServer = ({ runde = 9, faellig = 20, erledigt = 0, gemacht = false, neu = true, sterne_je = null } = {}) => {
+  const s = { runde, faellig, erledigt, gemacht, aufrufe: [], fertig: 0 };
+  s.route = async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}');
+    if (b.aktion === 'schule_wiederholung') { s.aufrufe.push(b.daten);
+      if (!neu) return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, faellig: s.faellig, aufgaben: wdhAufg(Math.min(b.daten.anzahl ? Math.min(b.daten.anzahl, 6) : 3, s.faellig)) } }) });
+      const offen = s.gemacht ? 0 : s.runde - s.erledigt;
+      const auf = [...wdhAufg(offen).map((a) => ({ ...a, pflicht: true })), ...wdhAufg(Math.max(0, s.faellig - s.runde)).map((a) => ({ ...a, pflicht: false }))];
+      return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, faellig: s.faellig, runde: s.runde, runde_gemacht: s.gemacht, gestaffelt: 3, aufgaben: auf, ...(sterne_je ? { sterne_je_richtig: sterne_je } : {}) } }) }); }
+    if (b.aktion === 'schule_wiederholung_runde_fertig') { s.fertig++; return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, runde_gemacht: s.gemacht } }) }); }
+    if (b.aktion === 'schule_uebung_pruefen' && s.antwort) { const e = s.antwort(b.daten); if (e) { s.erledigt++; if (s.erledigt >= s.runde) s.gemacht = true;
+      return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) }); } }
+    if (b.aktion === 'schule_uebung_pruefen' && neu) { s.erledigt++; if (s.erledigt >= s.runde) s.gemacht = true; } // Server zählt jede beantwortete Pflicht-Bordkarte
+    return route.fallback();
+  };
+  return s;
+};
+const wdhAufg = (n) => Array.from({ length: n }, (_, i) => ({ ...AUFG[11], einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?', _i: i }));
+const wdhAntworten = async (page, richtig = true) => { const tf = page.getByRole('group', { name: 'Tastenfeld' }); const z = richtig ? ['2', '0', '0', '0'] : ['9'];
+  if (await tf.count()) { for (const c of z) await tf.getByRole('button', { name: c, exact: true }).click(); await tf.getByRole('button', { name: 'Prüfen' }).click(); }
+  else { await page.locator('main input').first().fill(z.join('')); await page.getByRole('button', { name: 'Prüfen' }).click(); } };
+const wdhRichtig = (page) => wdhAntworten(page, true);
+const kofferZustand = (loc) => loc.evaluate((k) => [...k.querySelectorAll('.lr-koffer-p')].map((p) => [...p.querySelectorAll('i')].map((i) => i.className.replace(/lr-k-/g, '') || '-').join(',')));
+
+test('WD/Vorgabe 1: Ansage „Vorher kurz einchecken“ – Bordkarten, Minuten, Koffer-Leiste (Päckchen bei 6, 9, 12), Startknopf „Weiter geht’s“, keine Rückstandszahl', async (t) => {
+  for (const [runde, paeckchen] of [[6, ['-,-,-,-,-,-']], [9, ['-,-,-', '-,-,-', '-,-,-']], [12, ['-,-,-,-', '-,-,-,-', '-,-,-,-']]]) {
+    const { page } = await setup(t, { gestaltung: 'nacht' }); const srv = wdhServer({ runde, faellig: 41 }); await page.route('**/functions/v1/lernen-api/**', srv.route);
+    await page.goto(origin + '/#/reise/1');
+    const ansage = page.locator('.lr-checkin-ansage'); await ansage.waitFor();
+    assert.match(await ansage.innerText(), new RegExp(`Vorher kurz einchecken[\\s\\S]*${runde} Bordkarten von früher · etwa ${Math.ceil(runde / 2)} Minuten`));
+    assert.deepEqual(await kofferZustand(ansage.locator('.lr-koffer')), paeckchen);
+    assert.equal((await page.locator('.lr-einsteigen-knopf').innerText()).replace(/\s+/g, ' ').trim(), 'Weiter geht’s ›');
+    assert.doesNotMatch(await page.locator('#main').innerText(), /41|Wiederholungen offen|warten noch/, 'keine Rückstandszahl, keine wartenden Etappen');
+    assert.equal(srv.aufrufe[0].anzahl, undefined, 'ohne anzahl');
+  }
+});
+
+test('WD/Vorgabe 2–3 + WD-S 2: Check-in „3 von 9“, Koffer gold/rötlich, +★ nur vom Server, unterbrechen und fortsetzen, „Eingecheckt!“, Extra-Bordkarten – 400/820/1280', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); const srv = wdhServer({ runde: 3, faellig: 9 }); await page.route('**/functions/v1/lernen-api/**', srv.route);
+  let n = 0; srv.antwort = (dd) => { n++; const ok = n !== 2; return { ok: true, format_ok: true, richtig: ok, loesung: { wert: 2000 }, ...(ok ? { wiederholung: { bestanden: true, sterne: 10, naechste_in: 7 } } : {}) }; };
+  await page.goto(origin + '/#/wiederholen/1');
+  await page.getByText('CHECK-IN · 1 VON 3').waitFor();
+  assert.match(await page.locator('.lr-checkin-herkunft').innerText(), /Welchen Wert hat eine Ziffer\? · aus Rom/);
+  await wdhRichtig(page);
+  await page.locator('.lr-plus-stern', { hasText: '+10 ★' }).waitFor();
+  assert.deepEqual(await kofferZustand(page.locator('.lr-koffer')), ['ok,-,-']);
+  // unterbrechen: Pause → Startseite zeigt „Check-in fortsetzen“ mit Stand; zurück geht es bei 2 von 3 weiter
+  await page.getByRole('link', { name: 'Pause – später weiter einchecken' }).click();
+  const ansage = page.locator('.lr-checkin-ansage'); await ansage.waitFor();
+  assert.match(await ansage.innerText(), /Check-in fortsetzen[\s\S]*Noch 2 von 3 Bordkarten von früher · ganz kurz/);
+  await page.goto(origin + '/#/wiederholen/1'); await page.getByText('CHECK-IN · 2 VON 3').waitFor();
+  assert.deepEqual(await kofferZustand(page.locator('.lr-koffer')), ['da,jetzt,-']);
+  await wdhAntworten(page, false);
+  await page.getByText('Kein Problem – diese Bordkarte kommt beim nächsten Mal wieder.').waitFor();
+  assert.equal(await page.locator('.lr-plus-stern').count(), 0, 'falsch: keine Sterne');
+  assert.deepEqual(await kofferZustand(page.locator('.lr-koffer')), ['da,nein,-']);
+  await page.getByRole('button', { name: 'Nächste Bordkarte ›' }).click(); await page.getByText('CHECK-IN · 3 VON 3').waitFor();
+  await wdhRichtig(page); await page.getByRole('button', { name: 'Fertig ›' }).click();
+  await page.getByRole('heading', { name: 'Eingecheckt!' }).waitFor();
+  assert.match(await page.locator('.lr-checkin-fertig').innerText(), /1 von 2 richtig · \+10 ★[\s\S]*Eine Bordkarte kommt beim nächsten Mal wieder\.[\s\S]*Weiter nach Rom ›[\s\S]*Noch 3 Extra-Bordkarten\?/);
+  assert.equal(srv.fertig, 1, 'runde_fertig nur zum Bestätigen'); assert.equal(srv.gemacht, true, 'der Server hat selbst gesetzt');
+  assert.equal(await page.evaluate(() => localStorage.getItem('lern.wdhrunde.1')), null, 'kein Merker auf dem Gerät');
+  // gemacht → Startseite ohne Ansage, Startknopf ins Thema, Extra freiwillig (höchstens 3)
+  await page.goto(origin + '/#/reise/1'); await page.locator('.lr-einsteigen-knopf').waitFor();
+  assert.equal((await page.locator('.lr-einsteigen-knopf').innerText()).replace(/\s+/g, ' ').trim(), 'Weiter nach Rom ›');
+  assert.equal(await page.locator('.lr-checkin-ansage').count(), 0);
+  await page.getByRole('link', { name: 'Noch 3 Extra-Bordkarten?' }).click();
+  await page.getByText('EXTRA · 1 VON 3').waitFor();
+  for (const breite of [400, 820, 1280]) { await page.setViewportSize({ width: breite, height: 900 });
+    assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`); assert.deepEqual(await gebrocheneWoerter(page.locator('.lr-checkin-kopf span, .lr-checkin-sterne')), [], `${breite}`); }
+});
+
+test('WD: alter Server (ohne runde) – wie 0.84.0: fragt einmal mit 6 nach, Merker auf dem Gerät, kein runde_fertig, kein Check-in', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); const srv = wdhServer({ neu: false, faellig: 8 }); await page.route('**/functions/v1/lernen-api/**', srv.route);
+  await page.goto(origin + '/#/reise/1'); await page.locator('.lr-einsteigen-knopf').waitFor();
+  assert.equal((await page.locator('.lr-einsteigen-knopf').innerText()).replace(/\s+/g, ' ').trim(), 'Erst 6 Wiederholungen ›');
+  assert.deepEqual(srv.aufrufe.map((x) => x.anzahl), [undefined, 6]);
+  await page.goto(origin + '/#/wiederholen/1'); await page.getByText('WIEDERHOLEN 1 VON 6', { exact: false }).waitFor();
+  assert.equal(await page.locator('.lr-checkin-kopf, .lr-koffer').count(), 0);
+  for (let i = 0; i < 6; i++) { await wdhRichtig(page); await page.getByRole('button', { name: i < 5 ? 'Nächste' : 'Fertig', exact: true }).click(); }
+  await page.getByRole('heading', { name: '6 von 6 richtig' }).waitFor();
+  assert.equal(srv.fertig, 0); assert.equal(await page.evaluate(() => lernWdhHeute(1)), true);
+});
+
+test('WD-6/Vorgabe 4–5: „Etappe abgelegt“ (Blatt unten auf dem Handy, Karte ab 760, Ticket, Siegel, +30, Flug-Fortschritt, „Weiter einchecken“) und „Flug abgelegt“ (ganzer Bildschirm, ohne Etappen-Blatt, 360×640 ohne Scrollen)', async (t) => {
+  for (const [breite, hoehe] of [[360, 640], [400, 860], [820, 1180], [1280, 900]]) {
+    const { page } = await setup(t, { gestaltung: 'nacht' }); await page.setViewportSize({ width: breite, height: hoehe });
+    const srv = wdhServer({ runde: 2, faellig: 2 }); await page.route('**/functions/v1/lernen-api/**', srv.route);
+    let n = 0; srv.antwort = () => { n++; return { ok: true, format_ok: true, richtig: true, loesung: { wert: 2000 }, wiederholung: { bestanden: true, sterne: 10 },
+      abgelegt: n === 1 ? { etappe: { titel: 'Welchen Wert hat eine Ziffer?', sterne: 30, flug: 'Natürliche Zahlen', etappen_abgelegt: 4, etappen: 7 } }
+        : { etappe: { titel: 'Zahlenstrahl', sterne: 30 }, flug: { titel: 'Natürliche Zahlen', sterne: 100, etappen: 7 }, ort_gold: true, ort: 'Rom' } }; };
+    await page.goto(origin + '/#/wiederholen/1'); await wdhRichtig(page);
+    const klein = page.getByRole('dialog', { name: 'Etappe abgelegt' }); await klein.waitFor();
+    assert.match(await klein.innerText(), /ABGELEGT[\s\S]*Etappe abgelegt![\s\S]*Welchen Wert hat eine Ziffer\?[\s\S]*5-mal wiederholt, über 30 Lerntage\. Raus aus der regelmäßigen Wiederholung – nur noch bei Bedarf zum Auffrischen\.[\s\S]*\+30 ★[\s\S]*Sonder-Sterne fürs Ablegen[\s\S]*Natürliche Zahlen: 4 von 7 Etappen abgelegt – noch 3, dann wird der Flug golden\./);
+    await klein.click({ position: { x: 5, y: 5 } }); await page.waitForTimeout(100); // Antippen beendet die Bewegung
+    const box = await klein.locator('.lr-ab-abgelegt-klein').boundingBox();
+    if (breite < 760) assert.ok(Math.abs(box.y + box.height - hoehe) < 2 && box.height <= hoehe * 0.75 + 1, `${breite}: Blatt von unten`);
+    else assert.ok(box.width <= 520 && box.y > 10 && box.y + box.height < hoehe - 10, `${breite}: Karte in der Mitte`);
+    assert.equal(await klein.locator('.lr-goldbalken span.g').count(), 4);
+    assert.deepEqual(await gebrocheneWoerter(klein.locator('.lr-ab-titel, .lr-ab-ticket small, .lr-ab-flugfort, .lr-ab-gross-text')), [], `${breite}: Etappe`);
+    await page.screenshot({ path: path.join(root, `test-results/wd-etappe-abgelegt-${breite}.png`) });
+    await klein.getByRole('button', { name: /^Weiter einchecken/ }).click(); await klein.waitFor({ state: 'detached' });
+    await page.getByRole('button', { name: 'Nächste Bordkarte ›' }).click(); await wdhRichtig(page);
+    const gross = page.getByRole('dialog', { name: 'Flug abgelegt' }); await gross.waitFor();
+    assert.equal(await page.getByRole('dialog', { name: 'Etappe abgelegt' }).count(), 0, 'Etappen-Blatt entfällt');
+    await gross.locator('.lr-ab-szene').click({ position: { x: 20, y: 120 } }); await page.waitForTimeout(150); // Endzustand
+    assert.match(await gross.innerText(), /ALLE ETAPPEN ABGELEGT[\s\S]*FLUG ABGELEGT![\s\S]*Alle 7 Etappen von Natürliche Zahlen sind abgelegt\. Im Reisepass ist der Flug jetzt golden\.[\s\S]*\+100 ★[\s\S]*für den ganzen Flug[\s\S]*\+30 ★ für die letzte Etappe[\s\S]*Alle Flüge in Rom sind abgelegt\. Dein Stempel ist jetzt golden!/i);
+    assert.equal(await gross.locator('.lr-wird-gold').count(), 1);
+    const knopf = await gross.getByRole('button', { name: /^Weiter/ }).last().boundingBox();
+    assert.ok(knopf.y + knopf.height <= hoehe, `${breite}×${hoehe}: ohne Scrollen`);
+    assert.deepEqual(await gebrocheneWoerter(gross.locator('.lr-ab-gtitel, .lr-ab-gunter, .lr-ab-ortgold, .lr-ab-leise')), [], `${breite}: Flug`);
+    await page.screenshot({ path: path.join(root, `test-results/wd-flug-abgelegt-${breite}.png`) });
+    await gross.getByRole('button', { name: /^Weiter/ }).last().click(); await page.locator('.lr-abschluss').waitFor({ state: 'detached' });
+    await page.getByRole('button', { name: 'Fertig ›' }).click();
+    assert.match(await page.locator('.lr-checkin-ergebnis').innerText(), /2 von 2 richtig · \+180 ★/, 'Summe inkl. 30/100');
+  }
+});
+
+test('WD-3: Mischkarte aus einer fälligen Etappe zählt als bestandene Wiederholung – sichtbar mit Sternen', async (t) => {
+  const misch = (aktion, e) => {
+    if (aktion !== 'schule_einheit_lesen') return null; const x = neueRegel({ strahl: { sitzt: true } })(aktion, e);
+    x.mischkarten = [{ ...zeig(AUFG[14]), stufe: 2, einheit_id: 2, quelle: 'aelter', stadt: 'New York', etappe: 'Große Zahlen lesen' }]; x.misch_jede = 1; x.misch_ab = 1; return x; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: misch });
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}'); if (b.aktion !== 'schule_uebung_pruefen' || !b.daten?.misch) return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, format_ok: true, richtig: true, loesung: AUFG[14].loesung,
+      misch: { etappe: 'Große Zahlen lesen', stadt: 'New York', ok: true }, wiederholung: { bestanden: true, sterne: 5, stufe_neu: 'wiederholung', naechste_in: 14 } } }) });
+  });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+  await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('↻ Zählt als Wiederholung dieser Etappe').waitFor();
+  assert.match(await page.locator('.lr-rueck-ok b').first().innerText(), /\+5 Sterne/i, '0.86.2: nur was der Server meldet (hier wiederholung.sterne 5), keine eigenen +10');
+});
+
+
+test('WD-6/Vorgabe 6: Reisepass – Flüge golden („★ ABGELEGT“), teilweise mit Gold-Leiste, „noch nichts abgelegt“, Stempel „★ GOLD ★“, Satz „Gold heißt …“; ohne Felder wie bisher', async (t) => {
+  const gold = (aktion, e) => { if (aktion !== 'schule_konto') return null; const x = structuredClone(e);
+    x.konto.orte = [{ block_id: 49, abgeschlossen: true, gold: true, themen: 1, erledigt: 1 }];
+    x.konto.fluege = [{ thema_id: 3, einheit_id: 2, titel: 'Zinsen', abgelegt: false, etappen_abgelegt: 1, etappen: 2 }, { thema_id: 1, einheit_id: 1, titel: 'Natürliche Zahlen', abgelegt: true, etappen_abgelegt: 3, etappen: 3 },
+      { thema_id: 5, einheit_id: 9, titel: 'Brüche', abgelegt: false, etappen_abgelegt: 0, etappen: 4 }];
+    return x; };
+  for (const breite of [400, 820, 1280]) {
+    const { page } = await setup(t, { gestaltung: 'nacht', anpassen: gold }); await page.setViewportSize({ width: breite, height: 900 });
+    await page.goto(origin + '/#/reisepass/1');
+    const st = page.locator('.lr-stempel.lr-stempel-gold'); await st.waitFor();
+    assert.match(await st.innerText(), /ROM[\s\S]*★ GOLD ★/i);
+    const e = page.locator('.lr-flug-eintrag');
+    assert.deepEqual(await e.allInnerTexts().then((l) => l.map((x) => x.replace(/\s+/g, ' ').trim())),
+      ['✈ Natürliche Zahlen Rom · alle Etappen abgelegt ★ ABGELEGT', '✈ Zinsen New York 1 von 2 abgelegt', '✈ Brüche noch nichts abgelegt']);
+    assert.equal(await e.nth(1).locator('.lr-mini-gold i.g').count(), 1);
+    await page.getByText('Gold heißt: Alle Etappen sind abgelegt.').waitFor();
+    assert.deepEqual(await gebrocheneWoerter(page.locator('.lr-flug-eintrag b, .lr-flug-eintrag small, .lr-flug-rechts, .lr-stempel b')), [], `${breite}`);
+    assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`);
+    await page.locator('.lr-pass-fluege').screenshot({ path: path.join(root, `test-results/wd-reisepass-${breite}.png`) });
+  }
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reisepass/1'); await page.getByRole('heading', { name: 'Stempel' }).waitFor();
+  assert.equal(await page.locator('.lr-pass-fluege, .lr-stempel-gold').count(), 0);
+});
+
+test('WD: Info-Seite (Eltern) und Kindertext – Check-in, unterbrechen, abgelegt, Gold, Rückfall; Kindertext ohne „fällig“, „endgültig“, „Stufe“', async (t) => {
+  const { page } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
+  await page.addInitScript(() => localStorage.setItem('lern_token', 't'.repeat(64)));
+  await page.goto(origin + '/lernen/#/info'); await page.getByRole('heading', { name: 'Erste Schritte' }).waitFor();
+  await page.evaluate(() => document.querySelectorAll('details').forEach((d) => { d.open = true; }));
+  const text = (await page.locator('#main').innerText()).replace(/\s+/g, ' ');
+  for (const s of ['sonst ein Fünftel der fälligen (aufgerundet), mindestens 6 und höchstens 12 (bis Klasse 6 höchstens 10)', 'Auf der Kinderseite heißt die Runde „Check-in“',
+    'nie die Zahl aller fälligen Etappen', 'auch auf einem anderen Gerät', 'Endgültig abgelegt:', 'der Flug steht im Reisepass golden', 'wird auch der Stempel des Orts golden',
+    'kommt sie am nächsten Lerntag wieder zur Wiederholung; Gold und Sterne bleiben', 'zählt sie als bestandene Wiederholung dieser Etappe', 'Wiederholungen bringen 10 ★, wenn sie selbst gelöst sind',
+    'je Lerntag kommen höchstens 6 solche Etappen neu in den Takt'])
+    assert.ok(text.includes(s), 'fehlt: ' + s);
+  const kind = await page.evaluate(() => lernWdhErklaert(true).textContent);
+  assert.doesNotMatch(kind, /fällig|endgültig|Stufe|Takt/); assert.match(kind, /checkst du kurz ein/);
+});
+
+// ---------- Bau-Auftrag LM, Schritt 3: LM-6 Kinderseite „Meine Route 5–10“ (0.86.0) – erfundene Daten, Testkind ----------
+const rtMock = ({ kindsicht = true, ohne = false } = {}) => async (route) => {
+  const b = JSON.parse(route.request().postData() || '{}');
+  if (!['schule_lehrplan_matrix', 'schule_lehrplan_thema'].includes(b.aktion)) return route.fallback();
+  const antw = (e) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
+  if (ohne) return antw(undefined); // alter Server: Aktion unbekannt
+  const f = lmsAnpassen();
+  if (b.aktion === 'schule_lehrplan_thema') {
+    const t = f('schule_lehrplan_thema', null, b.daten); const { lehrplan, eigenstaendig, ...rest } = t;
+    if (b.daten.thema_id === 1) rest.etappen = ETAPPEN.map((x) => ({ lernziel: x.lernziel, titel: x.titel })); // Merkheft (Einheit 1): stellenwert, strahl gelandet
+    return antw({ ...rest, kindsicht: true, braucht: rest.braucht.map(({ begruendung, ...x }) => x), baut_darauf: rest.baut_darauf.map(({ begruendung, ...x }) => x) });
+  }
+  const r = f('schule_lehrplan_matrix', null, {});
+  r.lernstand = { 1: r.lernstand[1] };
+  if (!kindsicht) { r.kinder = [r.kinder[0], { id: 2, name: 'Kind B', klasse: 5, schulart: 'gym_by' }]; return antw(r); } // Eltern sehen die Seite des Kindes: Lehrer-Sicht
+  r.kinder = [{ id: 1, name: 'Kind A', klasse: 8 }];
+  r.themen = r.themen.map(({ jahrgang, lehrplan_reihenfolge, lernbereich, pflicht, eigenstaendig, ...t }) => ({ ...t,
+    zeile: jahrgang.gym_by ? { klasse: jahrgang.gym_by } : jahrgang.rs_by ? { klasse: jahrgang.rs_by, eingeordnet: true } : jahrgang.ib_myp ? { klasse: jahrgang.ib_myp + 5, eingeordnet: true } : { eingeordnet: true },
+    reihenfolge_kind: lehrplan_reihenfolge.gym_by }));
+  return antw({ ...r, kindsicht: true });
+};
+
+test('LM-6: Kinderseite „Meine Route 5–10“ – Link auf der Abflugtafel, nur das eigene Kind, Stufen in Kinder-Sprache, Kopf je Klasse, Reisewörter', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.setViewportSize({ width: 1280, height: 900 });
+  await page.route('**/functions/v1/lernen-api/**', rtMock());
+  await page.goto(origin + '/#/reise/1');
+  await page.getByRole('link', { name: 'Meine Route 5–10 ›' }).click();
+  await page.waitForURL(/#\/route\/1$/);
+  await page.getByRole('heading', { name: 'Deine Route durch die Mathe-Welt' }).waitFor();
+  const chips = page.locator('.rt-chip'); await chips.first().waitFor();
+  assert.equal(await chips.count(), THEMEN_ECHT.length, 'alle Flüge');
+  assert.equal(await page.locator('.mx-sch, .mx-leiste, [aria-label="Lernstand"], .lern-lp-stufe-knopf').count(), 0, 'keine Kennzeichen, keine Leiste, nichts zum Ändern');
+  const dran = page.locator('.rt-chip.mx-dran').first();
+  assert.match(await dran.locator('.mx-stand').innerText(), /^▶ hier bist du – Etappe 3 von \d+$/);
+  assert.ok(await dran.evaluate((x) => { const r = x.getBoundingClientRect(); return r.top >= 0 && r.bottom <= innerHeight; }), 'zum ▶-Flug gescrollt');
+  assert.match(await page.locator('.rt-chip.st-1 .mx-stand').first().innerText(), /^◉ kannst du$/);
+  assert.match(await page.locator('.rt-chip.st-2 .mx-stand').first().innerText(), /^↻ kommt zur Wiederholung$/);
+  const blass = page.locator('.rt-chip.rt-blass').first(); assert.equal(await blass.locator('.mx-stand').count(), 0, 'nicht im Plan: ohne Text');
+  assert.match(await page.locator('.mx-kl').nth(3).innerText(), /Kl\. 8[\s\S]*Du kannst schon \d+ von \d+ Flügen/);
+  assert.deepEqual(await page.locator('.mx-geb').allInnerTexts(), LMS_GEB, 'Spalten = Kontinente');
+  // Reisewörter: keine Lehrer-Wörter auf der Kinderseite (Flug-Titel und Kontinent-Namen aus der Datenbank ausgenommen)
+  const text = await page.evaluate(() => { const c = document.querySelector('#main').cloneNode(true); c.querySelectorAll('.mx-titel, .mx-geb, .rt-ort').forEach((x) => x.remove()); return c.innerText; });
+  assert.doesNotMatch(text, /Thema|Themen|Lernkarte|Aufgabe|Lehrplan|Gymnasium|Realschule|Pflicht|Lernbereich/);
+});
+
+test('LM-6: Detail eines Flugs – was du lernst, muss sitzen, brauchst du vorher (mit eigener Stufe), danach, Etappen mit ✓; „Weiter lernen ›“ nur beim ▶-Flug', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.setViewportSize({ width: 1280, height: 900 });
+  await page.route('**/functions/v1/lernen-api/**', rtMock());
+  await page.goto(origin + '/#/route/1'); await page.locator('.rt-chip').first().waitFor();
+  const det = page.locator('.rt-detail');
+  await page.locator('.rt-chip[data-id="15"]').click();
+  await det.getByText('Der Wert einer Ziffer hängt von ihrer Stelle ab.').waitFor();
+  assert.match(await det.innerText(), /WAS DU HIER LERNST[\s\S]*DAS MUSS SITZEN/i);
+  // Voraussetzungen und Nachfolger mit eigener Stufe
+  await page.locator('.rt-chip[data-id="2"]').click();
+  await det.getByRole('heading', { name: 'Das brauchst du vorher' }).waitFor();
+  assert.ok(await det.locator('.rt-verweise .rt-zeichen').count() >= 2);
+  assert.match(await det.innerText(), /DANACH GEHT’S WEITER MIT/i);
+  assert.match(await page.locator('.rt-chip[data-id="1"]').getAttribute('class'), /mx-vor/);
+  assert.ok(await page.locator('svg.mx-linien path').count() >= 2, 'Linien wie LM-3');
+  assert.equal(await det.getByRole('link', { name: 'Weiter lernen ›' }).count(), 0, 'kein Lern-Knopf außer beim ▶-Flug');
+  // Etappen mit ✓ für gelandete Etappen (Merkheft)
+  await page.locator('.rt-chip[data-id="1"]').click();
+  await det.locator('.rt-etappen li').first().waitFor();
+  assert.deepEqual(await det.locator('.rt-etappen .rt-haken').evaluateAll((l) => l.map((x) => x.textContent)), ['✓', '✓', ''].concat(Array(ETAPPEN.length - 3).fill('')));
+  // ▶-Flug: großer Knopf öffnet die nächste Etappe
+  const dran = page.locator('.rt-chip.mx-dran').first(); const id = await dran.getAttribute('data-id'); await dran.click();
+  const w = det.getByRole('link', { name: 'Weiter lernen ›' }); await w.waitFor();
+  assert.equal(await w.getAttribute('href'), `#/lerneinheit/1-${id}-ueben`);
+  assert.doesNotMatch(await det.innerText(), /Lehrplan|LehrplanPLUS|M\d \d|weil /, 'kein Wortlaut, keine Begründung');
+});
+
+test('LM-6 Abnahme: 400, 820, 1280 – Liste auf Handy und Tablet (Detail unter dem Flug, keine Linien), Matrix mit Linien ab 1000 px, nichts läuft über, kein Querrollen; hell und Nacht', async (t) => {
+  for (const g of ['nacht', 'tag']) for (const breite of [400, 820, 1280]) {
+    const { page } = await setup(t, { gestaltung: g }); await page.setViewportSize({ width: breite, height: breite < 760 ? 860 : 900 });
+    await page.route('**/functions/v1/lernen-api/**', rtMock());
+    await page.goto(origin + '/#/route/1'); await page.locator('.rt-chip').first().waitFor();
+    assert.deepEqual(await ueberlaeuft(page.locator('.rt-chip, .rt-chip > span, .mx-geb, .mx-kl, .mx-liste-kopf, .rt-legende span')), [], `${g} ${breite}: überläuft`);
+    assert.deepEqual(await gebrocheneWoerter(page.locator('.mx-stand, .rt-kann, .rt-legende span, .rt-ort')), [], `${g} ${breite}: gebrochene Wörter`);
+    assert.ok(await ohneQuerrollen(page), `${g} ${breite}: Querrollen`);
+    await page.locator('.rt-chip.mx-dran').first().click(); await page.locator('.rt-detail h2').waitFor();
+    if (breite < 1000) { assert.equal(await page.locator('.mx-matrix, svg.mx-linien').count(), 0); assert.equal(await page.locator('.rt-chip.mx-dran + .rt-detail').count(), 1, 'Detail unter dem Flug'); }
+    else assert.ok(await page.locator('svg.mx-linien path').count() >= 1, 'Linien');
+    assert.deepEqual(await gebrocheneWoerter(page.locator('.rt-detail h3, .rt-stand, .rt-weiter')), [], `${g} ${breite}: Detail`);
+    assert.ok(await ohneQuerrollen(page), `${g} ${breite}: Querrollen mit Detail`);
+    if (g === 'nacht' || breite === 400) await page.screenshot({ path: path.join(root, `test-results/lm6-route-${g}-${breite}.png`) });
+  }
+});
+
+test('LM-6: Eltern öffnen die Seite des Kindes (Lehrer-Sicht) – Zeile aus Klasse und Schulart, nur das eigene Kind; ohne LM-S ein Hinweis', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.setViewportSize({ width: 1280, height: 900 });
+  await page.route('**/functions/v1/lernen-api/**', rtMock({ kindsicht: false }));
+  await page.goto(origin + '/#/route/1'); await page.locator('.rt-chip').first().waitFor();
+  assert.equal(await page.locator('.rt-chip').count(), THEMEN_ECHT.length);
+  const g8 = THEMEN_ECHT.find((x) => x.klasse.gym_by === 8);
+  assert.equal(await page.locator('.mx-zelle').nth(3 * LMS_GEB.length + LMS_GEB.indexOf(g8.gebiet)).locator(`.rt-chip[data-id="${g8.thema_id}"]`).count(), 1, 'Gym 8 in Zeile Klasse 8');
+  assert.equal(await page.getByText('Kind B').count(), 0, 'kein Geschwister');
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht' });
+  await p2.route('**/functions/v1/lernen-api/**', rtMock({ ohne: true }));
+  await p2.goto(origin + '/#/route/1'); await p2.getByText('Die Route ist bald da.').waitFor();
+});
+
+test('Nachprüfung N1: Matrix am Rechner – ohne gewähltes Thema volle Breite (keine Detail-Spalte), Detail-Spalte erst beim Antippen; Spalten breiter als vorher', async (t) => {
+  const { page } = await mxOeffnen(t, 1280);
+  const breite = () => page.locator('.mx-zelle').first().evaluate((x) => x.getBoundingClientRect().width);
+  assert.equal(await page.locator('.mx-detail').isVisible(), false, 'keine leere Detail-Spalte');
+  const ohne = await breite();
+  assert.ok(ohne >= 125, `Spalte ${ohne} px (vorher rund 95)`);
+  await page.locator('.mx-chip[data-id="2"]').click();
+  await page.locator('.mx-detail h2').waitFor();
+  assert.ok(await page.locator('.mx-haupt').evaluate((x) => getComputedStyle(x).gridTemplateColumns.split(' ').length) === 2, 'Detail als Spalte');
+  await page.locator('.mx-chip[data-id="2"]').click();
+  assert.equal(await page.locator('.mx-detail').isVisible(), false);
+  assert.ok(await ohneQuerrollen(page));
+});
+
+test('WD: „weniger Bewegung“ – Einblendungen zeigen sofort den Endzustand (+100 ★)', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto(origin + '/#/reise/1'); await page.locator('.lr-einsteigen-knopf').waitFor();
+  await page.evaluate(() => { lernAbgelegtZeigen({ id: 1 }, { etappe: { titel: 'A', sterne: 30 }, flug: { titel: 'B', sterne: 100, etappen: 3 } }); });
+  const g = page.getByRole('dialog', { name: 'Flug abgelegt' }); await g.waitFor();
+  assert.equal(await g.locator('[data-ziel]').innerText(), '100');
+  assert.equal(await g.locator('.lr-ab-strahlen').evaluate((x) => getComputedStyle(x).animationName), 'none');
+});
+
+// ---------- 0.86.2: Fehler Mischkarten (22.11.) und ChatGPT 919 – erfundene Daten ----------
+const mischDrei = (aktion, e) => {
+  if (aktion !== 'schule_einheit_lesen') return null; const x = neueRegel({ strahl: { sitzt: true } })(aktion, e);
+  x.mischkarten = [{ ...zeig(AUFG[14]), stufe: 2, einheit_id: 2, quelle: 'flug', stadt: 'New York', etappe: 'Große Zahlen lesen' },
+    { ...zeig(AUFG[11]), stufe: 2, einheit_id: 2, quelle: 'flug', stadt: 'New York', etappe: 'Stellenwert' },
+    { ...zeig(AUFG[13]), stufe: 2, einheit_id: 2, quelle: 'kontinent', stadt: 'Paris', etappe: 'Ausmultiplizieren' }];
+  x.misch_jede = 1; x.misch_ab = 1; return x; };
+
+test('0.86.2: drei Etappen nacheinander – keine Mischkarte doppelt; leere Liste einmal neu vom Server, danach ohne Mischkarte', async (t) => {
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: mischDrei });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  const frage = async () => { await page.locator('.lr-bordkarte, .lr-trotzdem').first().waitFor();
+    if (await page.locator('.lr-trotzdem').count()) await page.locator('.lr-trotzdem').click(); // gelandete Etappe: „Trotzdem weiterüben“
+    await page.locator('.lr-bordkarte').first().waitFor(); return { misch: await page.getByText(/AUS DEINER REISE/).count() > 0, text: await page.locator('.lr-bordkarte').first().innerText() }; };
+  const gezeigt = [];
+  for (let i = 0; i < 3; i++) {
+    const f = await frage(); assert.ok(f.misch, `Etappe ${i + 1}: Mischkarte`); gezeigt.push(f.text.replace(/BORDKARTE \d+ · /, ''));
+    await page.getByRole('button', { name: 'Nächste Etappe' }).last().click().catch(() => page.getByRole('button', { name: 'Vorige Etappe' }).last().click());
+  }
+  assert.equal(new Set(gezeigt).size, 3, 'keine Mischkarte doppelt: ' + gezeigt.map((x) => x.slice(0, 40)).join(' | '));
+  const lesen = calls.filter((c) => c.aktion === 'schule_einheit_lesen').length;
+  // Liste leer: einmal neu holen (der Server liefert hier dieselben drei – sie bleiben verbraucht), dann ohne Mischkarte
+  await page.getByRole('button', { name: 'Vorige Etappe' }).last().click();
+  const f4 = await frage(); assert.equal(f4.misch, false, 'keine vierte Mischkarte');
+  await page.waitForTimeout(200);
+  assert.equal(calls.filter((c) => c.aktion === 'schule_einheit_lesen').length, lesen + 1, 'einmal nachgeladen');
+  await page.getByRole('button', { name: 'Nächste Etappe' }).last().click();
+  assert.equal((await frage()).misch, false);
+  assert.equal(calls.filter((c) => c.aktion === 'schule_einheit_lesen').length, lesen + 1, 'nicht ein zweites Mal');
+});
+
+test('0.86.2: Sterne nur vom Server; misch.gueltig false ohne Lob als Wiederholung; bestanden false nach Hilfe „Richtig – morgen noch einmal ohne Hilfe“', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: mischDrei });
+  let antwort = null;
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}'); if (b.aktion !== 'schule_uebung_pruefen' || !b.daten?.misch || !antwort) return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, format_ok: true, richtig: true, loesung: AUFG[14].loesung, ...antwort } }) });
+  });
+  // ungültige Ausgabe: kein „Das war …“, keine Wiederholung, Sterne laut Server 0
+  antwort = { misch: { gueltig: false }, sterne: 0 };
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click(); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.locator('.lr-rueck-ok').waitFor();
+  assert.doesNotMatch(await page.locator('main').innerText(), /Das war:|Zählt als Wiederholung|\+10|STERNE/i);
+  // richtig mit Hilfe: freundlich, keine Wiederholungs-Sterne
+  antwort = { misch: { etappe: 'Große Zahlen lesen', stadt: 'New York', ok: false }, wiederholung: { bestanden: false, sterne: 0 }, sterne: 0 };
+  await page.goto(origin + '/#/reise/1'); await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click(); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Richtig – morgen noch einmal ohne Hilfe.').waitFor();
+  assert.doesNotMatch(await page.locator('.lr-rueck-ok').innerText(), /Sterne/i);
+  // gültig und bestanden: Sterne genau wie gebucht
+  antwort = { misch: { etappe: 'Große Zahlen lesen', stadt: 'New York', ok: true }, wiederholung: { bestanden: true, sterne: 10 }, sterne: 10 };
+  await page.goto(origin + '/#/reise/1'); await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click(); await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('↻ Zählt als Wiederholung dieser Etappe').waitFor();
+  assert.match(await page.locator('.lr-rueck-ok b').first().innerText(), /\+10 STERNE/i, 'nicht 20');
+});
+
+test('0.86.2: Check-in – richtig mit Hilfe (bestanden false) freundlich, Koffer hell ohne Stern, keine Sterne', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); const srv = wdhServer({ runde: 2, faellig: 2 }); await page.route('**/functions/v1/lernen-api/**', srv.route);
+  srv.antwort = () => ({ ok: true, format_ok: true, richtig: true, loesung: { wert: 2000 }, wiederholung: { bestanden: false, sterne: 0 } });
+  await page.goto(origin + '/#/wiederholen/1'); await wdhRichtig(page);
+  await page.getByText('Richtig – morgen noch einmal ohne Hilfe.').waitFor();
+  assert.equal(await page.locator('.lr-plus-stern').count(), 0);
+  assert.deepEqual(await kofferZustand(page.locator('.lr-koffer')), ['hilfe,-']);
+});
+
+// ---------- 0.86.3: Nachtrag WD-S 4 (ChatGPT 921), Teil bau-motivation – erfundene Daten ----------
+test('0.86.3: Runde gemacht, noch fällig, aber keine wählbare frische Aufgabe – kein Angebot „Extra“, sondern „bleibt für später offen“', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}'); if (b.aktion !== 'schule_wiederholung') return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, faellig: 4, runde: 6, runde_gemacht: true, gestaffelt: 0, aufgaben: [] } }) });
+  });
+  await page.goto(origin + '/#/reise/1');
+  for (const g of ['nacht', 'alt']) {
+    await page.evaluate((x) => localStorage.setItem('lern.gestaltung.1', x), g);
+    await page.reload(); await page.getByText('Heute keine passende frische Aufgabe – bleibt für später offen.').waitFor();
+    assert.equal(await page.getByText(/Noch 3 Extra-Bordkarten/).count(), 0, g);
+  }
+  await page.goto(origin + '/#/wiederholen/1-extra');
+  await page.getByText('Heute keine passende frische Aufgabe – bleibt für später offen.').waitFor();
+  // Check-in fertig, Rest ohne frische Aufgabe: dasselbe statt „Extra“
+  await page.unrouteAll({ behavior: 'ignoreErrors' });
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht' });
+  await p2.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}'); if (b.aktion === 'schule_wiederholung_runde_fertig') return route.fulfill({ contentType: 'application/json', body: '{"ok":true,"ergebnis":{"ok":true}}' });
+    if (b.aktion !== 'schule_wiederholung') return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, faellig: 5, runde: 1, runde_gemacht: false, aufgaben: wdhAufg(1).map((a) => ({ ...a, pflicht: true })) } }) });
+  });
+  await p2.goto(origin + '/#/wiederholen/1'); await wdhRichtig(p2); await p2.getByRole('button', { name: 'Fertig ›' }).click();
+  await p2.getByRole('heading', { name: 'Eingecheckt!' }).waitFor();
+  await p2.getByText('Heute keine passende frische Aufgabe – bleibt für später offen.').waitFor();
+  assert.equal(await p2.getByText(/Noch 3 Extra-Bordkarten/).count(), 0);
+});
+
+test('0.86.3: kein „für immer“ mehr – Siegel und Einblendungen „ABGELEGT“; Wiederholung mit Hilfe zeigt 0 Sterne laut Server', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-einsteigen-knopf').waitFor();
+  await page.evaluate(() => { lernAbgelegtZeigen({ id: 1 }, { etappe: { titel: 'A', sterne: 30 } }); });
+  const k = page.getByRole('dialog', { name: 'Etappe abgelegt' }); await k.waitFor();
+  assert.doesNotMatch(await k.evaluate((x) => x.textContent), /IMMER|immer/);
+  assert.match(await k.locator('.lr-ab-siegel').evaluate((x) => x.textContent), /ABGELEGT/);
+  await k.getByRole('button', { name: /^Weiter/ }).click();
+  await page.evaluate(() => { lernAbgelegtZeigen({ id: 1 }, { etappe: { titel: 'A', sterne: 30 }, flug: { titel: 'B', sterne: 100, etappen: 3 } }); });
+  const g = page.getByRole('dialog', { name: 'Flug abgelegt' }); await g.waitFor();
+  assert.doesNotMatch(await g.evaluate((x) => x.textContent), /IMMER|immer/);
+  // freiwillige Wiederholung mit Hilfe: Server bucht 0 – die App zeigt keine Sterne (auch nicht, wenn wiederholung.sterne fehlt)
+  const srv = wdhServer({ runde: 1, faellig: 3, gemacht: true }); const { page: p2 } = await setup(t, { gestaltung: 'nacht' }); await p2.route('**/functions/v1/lernen-api/**', srv.route);
+  srv.antwort = () => ({ ok: true, format_ok: true, richtig: true, loesung: { wert: 2000 }, sterne: 0, wiederholung: { bestanden: false } });
+  await p2.goto(origin + '/#/wiederholen/1-extra'); await p2.getByText('EXTRA · 1 VON').waitFor(); await wdhRichtig(p2);
+  await p2.getByText('Richtig – morgen noch einmal ohne Hilfe.').waitFor();
+  assert.equal(await p2.locator('.lr-plus-stern').count(), 0);
+  assert.equal(await p2.locator('.lr-checkin-sterne').innerText(), '★ 340', 'Zähler unverändert');
+});
+
+// ---------- Bau-Auftrag FP – faire Punkte (0.87.0), Vorgabe inhalte/pruefung/kind/faire-punkte/umsetzung.md – erfundene Daten ----------
+const fpLandung = async (page, landung, { breite = 400, hoehe = 860 } = {}) => {
+  await page.setViewportSize({ width: breite, height: hoehe });
+  await page.evaluate((l) => { lernAbschlussZu(); const e = { lernziel: 'stellenwert', titel: 'Welchen Wert hat eine Ziffer?', regel: 'Jeder Platz ist zehnmal so viel wert.' };
+    lernAbschlussZeigen({ id: 1 }, lernAbschlussEtappe({ e, nr: 1, von: 3, landung: l, daten: {}, sterne: 60, knopf: lernGrossKnopf('Weiter: Zahlenstrahl', 'Etappe 2 von 3', { onclick: () => {} }), kind: 1 }), { label: 'Etappe gelandet' }); }, landung);
+  const d = page.getByRole('dialog', { name: 'Etappe gelandet' }); await d.waitFor(); await d.locator('.lr-ab-szene').click({ position: { x: 5, y: 5 } }); await page.waitForTimeout(120); return d; };
+
+test('FP-1: Landungs-Bonus als Kachel in allen drei Fassungen (80/40/10), eigene Wörter, Sturmflug ohne Fehlerzahl, ohne landung keine Kachel; 360×640 ohne Scrollen', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-einsteigen-knopf').waitFor();
+  const faelle = [[{ landung_art: 'sauber', bonus: 80, fehler: 0, stufe: 'ohne' }, /Landungs-Bonus[\s\S]*ohne Fehler gelandet[\s\S]*\+80 ★/],
+    [{ landung_art: 'direkt', bonus: 80, fehler: 0, stufe: 'ohne' }, /Landungs-Bonus[\s\S]*ohne Fehler gelandet[\s\S]*\+80 ★/],
+    [{ landung_art: 'sauber', bonus: 40, fehler: 1, stufe: 'wenig' }, /Landungs-Bonus[\s\S]*mit 1 Fehler gelandet[\s\S]*\+40 ★/],
+    [{ landung_art: 'sauber', bonus: 40, fehler: 2, stufe: 'wenig' }, /mit 2 Fehlern gelandet[\s\S]*\+40 ★/],
+    [{ landung_art: 'sturm', bonus: 40, fehler: 2, stufe: 'wenig' }, /Landungs-Bonus[\s\S]*gelandet – geschafft![\s\S]*\+40 ★/],
+    [{ landung_art: 'sturm', bonus: 10, fehler: 5, stufe: 'sonst' }, /gelandet – geschafft![\s\S]*\+10 ★/]];
+  for (const [l, re] of faelle) {
+    const d = await fpLandung(page, l); const k = d.locator('.lr-ab-bonus');
+    assert.match(await k.innerText(), re, JSON.stringify(l));
+    if (l.landung_art === 'sturm') assert.doesNotMatch(await k.innerText(), /\d Fehler/, 'Sturmflug ohne Fehlerzahl');
+    assert.doesNotMatch(await d.innerText(), /Direktflug \+|hätte|wären/, 'eigene Wörter, kein Vergleich');
+    const kn = await d.locator('.lr-ab-gross').boundingBox(); const kb = await k.boundingBox(); assert.ok(kb.y < kn.y, 'Kachel über dem Knopf');
+  }
+  for (const [b, h] of [[360, 640], [400, 860], [820, 1180], [1280, 900]]) {
+    const d = await fpLandung(page, { landung_art: 'sturm', bonus: 40, fehler: 2, stufe: 'wenig', bordkarten: 14 }, { breite: b, hoehe: h });
+    const kn = await d.locator('.lr-ab-gross').boundingBox(); assert.ok(kn.y + kn.height <= h, `${b}×${h}: ohne Scrollen`);
+    assert.deepEqual(await gebrocheneWoerter(d.locator('.lr-ab-bonus-text b, .lr-ab-bonus-zahl')), [], `${b}`);
+    if (b === 360 || b === 1280) await page.screenshot({ path: path.join(root, `test-results/fp-landung-${b}.png`) });
+  }
+  const ohne = await fpLandung(page, { landung_art: 'sauber' });
+  assert.equal(await ohne.locator('.lr-ab-bonus').count(), 0, 'ohne bonus wie bisher');
+});
+
+test('FP-2: Sterne nach der Antwort aus dem Serverwert (ohne Landungs-Bonus); Hinweis bei 5 Sternen höchstens einmal je Etappe und Lerntag, ohne Tadel', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: (aktion, e) => (aktion === 'schule_uebung_pruefen' && e.format_ok ? { ...e, sterne: 5 } : null) });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  const tf = page.getByRole('group', { name: 'Tastenfeld' }); await page.locator('.lr-bordkarte').first().waitFor();
+  if (await tf.count()) { for (const z of ['2', '0', '0', '0']) await tf.getByRole('button', { name: z, exact: true }).click(); await tf.getByRole('button', { name: 'Prüfen' }).click(); }
+  else { await page.locator('main input').first().fill('2000'); await page.getByRole('button', { name: 'Prüfen' }).click(); }
+  await page.locator('.lr-rueck-ok').waitFor();
+  assert.match(await page.locator('.lr-rueck-ok b').first().innerText(), /\+5 Sterne/i, 'Serverwert, nicht 10');
+  assert.equal(await page.locator('.lr-fp-hinweis').count(), 0, 'ohne Tipp/zweiten Versuch kein Hinweis');
+  // Bonus wird nicht in die Bordkarten-Sterne gerechnet
+  const r = await page.evaluate(() => { const ctx = { kind: 1, regeln: { sterne_uebung_richtig: 10 } }; const e = { lernziel: 'x' };
+    const a = lernFuenfHinweis(ctx, e, 5, { hilfe: true, zweiter: false })?.textContent; const b = lernFuenfHinweis(ctx, e, 5, { hilfe: true, zweiter: false });
+    const c = lernFuenfHinweis(ctx, { lernziel: 'y' }, 5, { hilfe: false, zweiter: true })?.textContent; const d = lernFuenfHinweis(ctx, { lernziel: 'z' }, 10, { hilfe: true, zweiter: false });
+    return [a, b, c, d]; });
+  assert.deepEqual(r, ['Ganz ohne Tipp gibt es 10 ★.', null, 'Gleich beim ersten Mal gibt es 10 ★.', null]);
+  assert.doesNotMatch(r.join(' '), /nur|leider|Abzug|weniger/);
+});
+
+test('FP-3: einmaliger Hinweis nach der Nachbuchung („Geschenk für deine Landungen“), „Super ›“ schließt ihn; ohne Nachbuchung nichts – 360/820/1280', async (t) => {
+  const nach = (aktion, e) => (aktion === 'schule_konto' ? { ...structuredClone(e), landung_nachbuchung: { etappen: 25, sterne: 1620, am: '2026-11-22T12:00:00Z' } } : null);
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: nach });
+  for (const b of [360, 820, 1280]) { await page.setViewportSize({ width: b, height: 800 });
+    await page.goto(origin + '/#/reise/1'); const k = page.locator('.lr-fp-geschenk'); await k.waitFor();
+    assert.match(await k.innerText(), /★ Geschenk für deine Landungen[\s\S]*Für deine bisherigen Landungen gibt es nachträglich \+1.620 ★ Landungs-Bonus\./);
+    assert.ok(await ohneQuerrollen(page), `${b}`); }
+  await page.getByRole('button', { name: 'Super ›' }).click(); await page.locator('.lr-fp-geschenk').waitFor({ state: 'detached' });
+  await page.reload(); await page.locator('.lr-einsteigen-knopf').waitFor();
+  assert.equal(await page.locator('.lr-fp-geschenk').count(), 0, 'nur einmal');
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht' }); await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-einsteigen-knopf').waitFor();
+  assert.equal(await p2.locator('.lr-fp-geschenk').count(), 0);
+});
+
+test('FP-4: Info-Seite „Sterne“ nach der Vorgabe', async (t) => {
+  const { page } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
+  await page.addInitScript(() => localStorage.setItem('lern_token', 't'.repeat(64)));
+  await page.goto(origin + '/lernen/#/info'); await page.getByRole('heading', { name: 'Erste Schritte' }).waitFor();
+  await page.evaluate(() => document.querySelectorAll('details').forEach((d) => { d.open = true; }));
+  const text = (await page.locator('#main').innerText()).replace(/\s+/g, ' ');
+  for (const s of ['Jede Übungsaufgabe bringt einmal Sterne: 10 ★, wenn sie im ersten Versuch ohne Tipp gelöst ist, sonst 5 ★.', 'Landungs-Bonus: +80 ★ ohne Fehler, +40 ★ mit 1–2 Fehlern, sonst +10 ★',
+    'Tipps zählen nicht als Fehler.', 'Tests, Wiederholungen und Mischkarten zählen hier nicht mit.', 'Wiederholungen bringen 10 ★, wenn sie selbst gelöst sind',
+    'Für Etappen, die vor dem 22.11. gelandet sind, wurde der Bonus einmal nachgetragen. Gebuchte Sterne werden nie abgezogen.'])
+    assert.ok(text.includes(s), 'fehlt: ' + s);
+  assert.ok(!text.includes('10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist'), 'alter Satz');
 });

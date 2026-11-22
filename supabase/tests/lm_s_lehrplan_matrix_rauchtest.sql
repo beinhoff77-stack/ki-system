@@ -50,8 +50,9 @@ begin
   if v_n <> jsonb_array_length(v_m->'themen') then raise exception 'FEHLER 4 Lernstand: % Themen statt %', v_n, jsonb_array_length(v_m->'themen'); end if;
   if exists (select 1 from jsonb_each(v_m->'lernstand'->v_l::text) s where not (s.value ? 'stufe') or s.value ?| array['etappen', 'gesetzt', 'ohne_test', 'wdh_stufe_min']
                or exists (select 1 from jsonb_each(s.value) f where f.value in ('null'::jsonb, 'false'::jsonb))) then raise exception 'FEHLER 4 Lernstand-Felder'; end if;
-  if exists (select 1 from jsonb_each(v_m->'lernstand'->v_l::text) s where (s.value->>'stufe' = 'dran') <> (s.value ? 'etappe_jetzt')) then
-    raise exception 'FEHLER 4 etappe_jetzt nur und immer bei Stufe dran'; end if;
+  -- Nacharbeit 907: etappe_jetzt = erste noch nicht gelandete Etappe; fehlt bei „dran“, wenn alle gelandet sind
+  if exists (select 1 from jsonb_each(v_m->'lernstand'->v_l::text) s where s.value ? 'etappe_jetzt' and s.value->>'stufe' <> 'dran') then
+    raise exception 'FEHLER 4 etappe_jetzt nur bei Stufe dran'; end if;
   if exists (select 1 from jsonb_each(v_m->'lernstand'->v_l::text) s where s.value ? 'etappe_jetzt'
               and (s.value->>'etappe_jetzt')::int > greatest(coalesce((schule.thema_stufe(v_l, s.key::bigint)->>'etappen')::int, 1), 1)) then raise exception 'FEHLER 4 Etappe x größer als y'; end if;
   raise notice 'ok 4 Lernstand je Thema';

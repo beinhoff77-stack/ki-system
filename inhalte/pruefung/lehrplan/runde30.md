@@ -2,6 +2,123 @@
 
 Grundlage: Zweig `lernen-app` e0739529 (einschließlich Nachtrag des Gestalters), Datenbank nur gelesen. Quelle LehrplanPLUS Bayern, **abgerufen 21.11.2026** über die Suche auf lehrplanplus.bayern.de (Seitenauszüge, keine Volltextabrufe). Unbelegtes ist als **Annahme** gekennzeichnet.
 
+## 0f. Nacharbeit 907 c (22.11., ChatGPT 919, MUSS 4)
+
+Grundlage: `lernen-app` f278a3cf. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Geändert ist nur `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`.
+
+**Gelesen:**
+- `schule.einheit.status` kennt die Werte `entwurf`, `geprueft`, `freigegeben` und `ersetzt`.
+- Die Migrationen der App behandeln `status in ('geprueft','freigegeben')` als für Kinder sichtbar.
+- Heute haben 87 Themen eine freigegebene Einheit. Die zehn stillgelegten Themen haben nur einen Entwurf; `geprueft` kommt nicht vor.
+
+**Löschschutz (Abschnitt 3c):**
+- Er bricht jetzt ab, wenn das stillgelegte Thema der Zeile eine Einheit im Status **`geprueft` oder `freigegeben`** hat. Bisher prüfte er nur `freigegeben`.
+- Damit Rauchtest m den Schutz aufrufen kann, steckt er in einer Sitzungsfunktion `pg_temp.lb907_loeschen()`. Sie verschwindet mit der Sitzung, ein DROP ist nicht nötig.
+- Dieselbe Sichtbarkeitsregel gilt jetzt auch beim Leeren der Klassen (3d) und in den Regeln b und i. Annahme: Ein geprüfter Flug ist für Kinder sichtbar und muss daher wie ein freigegebener behandelt werden. Auf den heutigen Daten ändert das nichts.
+
+**Rauchtest l:** prüft nur noch die zehn stillgelegten Themen 12, 27, 40, 41, 48, 72, 77, 78, 82 und 83, solange sie keine sichtbare Einheit haben. Andere Themen ohne freigegebene Einheit, etwa künftige Entwürfe, prüft er nicht.
+
+**Rauchtest m (neu):**
+- m0: Ohne sichtbare Einheit läuft der Löschschutz durch.
+- Danach legt der Test für das stillgelegte Thema 48 je eine Test-Einheit mit `geprueft` und mit `freigegeben` an. Er tut das in einem Unterblock und rollt alles zurück.
+- Jedes Mal muss der Löschschutz mit „Abbruch vor Löschung …“ abbrechen.
+- Am Ende prüft der Test, dass die Zahl der Verbindungen gleich ist und keine Test-Einheit übrig bleibt.
+
+**Lokal auf Postgres 16 geprüft** (Tabelle `einheit` mit Statusprüfung und den eindeutigen Indizes wie auf der echten Datenbank):
+- Eingespielte Datei, dann die neue Fassung, zweimal: Rauchtests a–m bestanden; 128 Verbindungen, 97 Einheiten, 3 Lernende.
+- Frische Kopie, nur die neue Fassung: bestanden.
+- Gegenprobe 1: Mit dem alten Schutz (nur `freigegeben`) schlägt Rauchtest m fehl, mit „greift nicht bei Status geprueft“.
+- Gegenprobe 2: Hat 48 schon vor dem Lauf eine Einheit `geprueft`, bricht die Migration vor der Löschung 49 ← 48 ab, und alles wird zurückgerollt (70 Verbindungen).
+
+**Hinweis:** Die Datei muss weiterhin in **einer Transaktion** eingespielt werden. Sonst fehlt der Vorherstand für j, und die Sitzungsfunktion für m ist nicht mehr vorhanden.
+
+## 0e. Nacharbeit 907 b (22.11. abends, „Rückläufer 22.11. abends“, Teil B)
+
+Grundlage: `lernen-app` 6ec1c3ef. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Berichtigt ist `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`; sie war noch nicht eingespielt.
+
+**Fehler „cannot insert a non-DEFAULT value into column id“**
+- Tatsache (gelesen): `id` ist in `schule.thema`, `schule.lernender`, `schule.route` und `schule.einheit` jeweils `GENERATED ALWAYS`.
+- Die Datei legt kein Thema an. Der Abbruch kam aus Rauchtest k, der den Test-Lernenden und seine Route mit fester `id` einfügte. Lokal nachgestellt: Die alte Fassung bricht genau dort mit dieser Meldung ab.
+- Behoben: Die `id` wird jetzt vergeben (`insert … returning id`), ohne feste Werte.
+- Nebenwirkung: Die zurückgerollten Einfügungen verbrauchen je Lauf eine Nummer aus der Folge für Lernende und drei für Routen. Das ist harmlos, die Nummern bleiben nur ungenutzt.
+
+**N2: aufgelöste Themen ohne Realschul- und IB-Klasse (Abschnitt 3d)**
+- Klasse über `klasse_fest = null` geleert. `thema_jahrgang` legt `klasse_fest` über die Zuordnung und entfernt danach Nullen, so ist die Klasse auch dann leer, wenn eine Zuordnung eine Klasse liefert.
+- Den Schlüssel in `lehrplan_reihenfolge` habe ich entfernt.
+- Lernbereich- und Lehrplantexte bleiben als Herkunft stehen.
+- Das Update greift nur, solange das Thema keine freigegebene Einheit hat.
+
+| Thema | vorher | nachher |
+|---|---|---|
+| 12 Reinquadratische Gleichungen | RS 9 (Stelle 3), IB 4 (Stelle 10) | – |
+| 27 Verhältnisse und Raten | IB 2 (Stelle 4) | – |
+| 40 Graphentransformation | RS 9 (Stelle 12), IB 5 (Stelle 6) | – |
+| 41 Folgen | IB 5 (Stelle 4) | – |
+| 48 Vektoren und Determinanten | RS 7 (Stelle 5) | – |
+| 72 Zinseszins | IB 4 (Stelle 14) | – |
+| 77 Umkehrfunktionen | RS 10 (Stelle 8), IB 5 (Stelle 10) | – |
+| 78 Parameter und Funktionenscharen | RS 8 (Stelle 7) | – |
+| 82 Bedingte Wahrscheinlichkeit | IB 5 (Stelle 17) | – |
+| 83 Mengen und Venn-Diagramme | IB 3 (Stelle 14) | – |
+
+**Reihenfolgen nachgezogen:** 66 Reihenfolge-Werte in 51 Themen rücken auf; die Reihenfolge untereinander bleibt gleich. Je Klasse geänderte Themen: IB MYP 2: 8, IB MYP 4: 16, IB MYP 5: 11, RS 7: 15, RS 9: 13, RS 10: 3.
+
+Damit hat RS 8 jetzt 6 statt 7 Themen (78 fällt weg). Der Befund „RS 8 dünn“ wird also deutlicher.
+
+**N3:** Bei 83 Mengen ist `eigenstaendig` entfernt, in der Themenliste und in der Migration (`update … set eigenstaendig = null where id = 83`). Eigenständig sind jetzt 6 Themen: 15, 42, 57, 60, 65, 84.
+
+**Rauchtest l (neu):** Kein Thema ohne freigegebene Einheit trägt eine Klasse, einen Reihenfolge-Schlüssel oder `eigenstaendig`. Rauchtest d prüft weiter, dass die Reihenfolge lückenlos ist.
+
+**Folgen für Pläne und Reisen:** keine.
+- Betroffen sind nur Realschule und IB; dort gibt es keine Kinder. Das Gymnasium bleibt unverändert.
+- Keine Verbindung und keine Visum-Zeile ändert sich. Rauchtest j vergleicht die Reiseoptionen.
+
+**Lokal geprüft auf Postgres 16.** Die Kopie hat `id`-Spalten mit `GENERATED ALWAYS` wie die echte Datenbank; die Zuordnungstabellen sind nicht nachgebaut, `thema_jahrgang` liest dort nur `klasse_fest` (Annahme: wirkt wegen der Null-Überlagerung gleich).
+- Eingespielte Datei, dann die alte 907-Fassung: Abbruch „cannot insert a non-DEFAULT value into column id“.
+- Eingespielte Datei, dann die neue Fassung, zweimal: Rauchtests a–l bestanden, 128 Verbindungen, 46 Visum-Zeilen, 3 Lernende.
+- Frische Kopie, nur die neue Fassung: bestanden.
+- Endstand der Kopie = `inhalte/themenliste.json` (Klasse, Reihenfolge, eigenständig): keine Abweichung.
+
+**Tests:** `tests/lernen.test.cjs` mit 150 bestanden, 1 fehlgeschlagen. Das ist „LM-S 2 … eigenständig“, und er schlägt auch ohne meine Änderung fehl (Rückläufer Teil C, `bau-motivation`).
+
+## 0d. Nacharbeit aus ChatGPTs Prüfergebnis 907 (22.11.)
+
+Grundlage: `lernen-app` 986d43e7. Runde 30 c ist eingespielt, 102 ← 30 bleibt hart (Entscheidung Sebastian). Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Die eingespielte Datei `20261121_lehrplan_zuordnung_voraussetzungen.sql` ist unverändert.
+
+**Neue Datei** `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`: berichtigte Fassung mit demselben Inhalt.
+- Auf der Datenbank mit eingespielter Runde 30 c ändert ein Lauf nichts; der Rauchtest bestätigt das.
+- Einzuspielen in **einer Transaktion**.
+
+| Punkt aus 907 | Umsetzung |
+|---|---|
+| Rauchtest j: fehlender Vorherstand | Ohne Vorherstand jetzt **EXCEPTION** statt Hinweis. Der Vorherstand ist **transaktionslokal** (`set_config(…, true)`), deshalb kann kein veralteter Stand aus einer früheren Sitzung übrig sein. |
+| Kopfkommentar „kein DELETE“ | Berichtigt: „Kein DROP. DELETE nur in Abschnitt 3c: genau die zwölf einzeln aufgezählten Verbindungen, jede nur nach Prüfung“. In der eingespielten Datei steht noch „kein DELETE“, weil die Kopfzeile beim Neuerzeugen in 30 c verloren ging. Die Datei bleibt so, wie sie eingespielt wurde. |
+| Prüfung vor gezielten Löschungen | Abschnitt 3c ist ein Block mit Schleife über die 12 Paare. Vor jeder Löschung prüft er, dass das aufgelöste Thema der Zeile weiter **keine freigegebene Einheit** hat, sonst Abbruch ohne Löschung. |
+| Testfall „Zielort offen, Voraussetzungs-Ort fehlt“ für 102 ← 30 | **Rauchtest k**, siehe unten. |
+
+**Rauchtest k** prüft zuerst, dass `v_ort_visum` die Zeile „Terme umformen“ → „Potenzen“ enthält. Dann legt er einen erfundenen Test-Lernenden an: Klasse 5, `ist_test`, Anzeigename „Rauchtest 102←30“, mit Route. Er läuft in einem Unterblock, der am Ende sicher zurückgerollt wird; danach prüft der Test, dass kein solcher Lernender übrig ist. Echte Kinderdaten sind nicht beteiligt.
+- k1: „Terme umformen“ offen, „Potenzen“ nicht auf der Route → Der Ort wird angeboten, `visum_fehlt` nennt „Potenzen“.
+- k2: „Potenzen“ offen → ebenso gesperrt.
+- k3: „Potenzen“ fertig → Die Sperre durch „Potenzen“ entfällt.
+
+**Lokal auf Postgres 16 geprüft** (nachgebaute Tabellen und Funktionen, Daten aus dem gelesenen Stand):
+- Erst die eingespielte, dann die neue Datei, jeweils in einer Transaktion: Alles bestanden. j meldet 46 → 46 Visum-Zeilen, die Verbindungen bleiben bei 128, es bleiben 3 Lernende.
+- Auf einer frischen Kopie die neue Datei allein, zweimal hintereinander: bestanden.
+- Gegenproben:
+  - Ohne Abschnitt 0 bzw. ohne Transaktion bricht j mit „kein Vorherstand“ ab.
+  - Wird 48 zum Schein freigegeben, bricht die Migration vor der Löschung 49 ← 48 ab, und alles wird zurückgerollt.
+  - Mit 102 ← 30 als `empfohlen` schlägt k fehl.
+
+## Offene Inhaltspunkte
+
+- **Vektorkoordinaten für Determinanten (RS 7)** – offen, kein Bau beauftragt.
+  - Thema 74 „Zweireihige Determinante“ (RS 7, Ort „Vektoren, Verschiebung und Drehung“) rechnet mit Vektorkoordinaten.
+  - Der Flug dazu (48 Vektoren) ist aufgelöst, seine Etappen „Einen Vektor aus zwei Punkten“ und „Punkte mit Vektoren berechnen“ haben **in keinem freigegebenen Flug ein Gegenstück**.
+  - Teilweise abgedeckt ist es durch 46 Kongruenzabbildungen (Verschiebung, Gegenvektor; RS 6) und 49 Matrizen (Bildpunkt; RS 10).
+  - Seit 30 b ist die Verbindung 74 ← 48 gelöscht, ersatzweise gibt es 74 ← 46 (empfohlen) und 74 ← 50 (hart).
+  - **Vorschlag:** In 46 oder 74 eine Etappe „Vektor aus zwei Punkten / Koordinaten eines Vektors“ ergänzen (Inhaltsauftrag, eigener Prüfgang). Danach prüfen, ob 74 ← 46 hart werden soll; dabei die Reise-Sperre beachten.
+- Weitere Lücken aus Runde 30, nur als Vorschläge: RS 8 (Vierecke, Drehung, Baumdiagramm/Vierfeldertafel) und die Etappen der aufgelösten Themen ohne Gegenstück (Abschnitt 0, Tabelle „Wo der Stoff … heute steht“).
+
 ## 0c. Runde 30 c (21.11., „Rückläufer 21.11. morgens“, Teil A): harte Verbindungen und Reise-Sperren
 
 Grundlage: `lernen-app` d463182a. Die Datenbank habe ich nur gelesen, die Migration auf der echten Datenbank **nicht ausgeführt**.

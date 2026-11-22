@@ -191,7 +191,7 @@
   "reihenfolge": {
    "gym_by": 11,
    "rs_by": 10,
-   "ib_myp": 6
+   "ib_myp": 5
   },
   "lernbereich": {
    "gym_by": "M5 4 Größen und ihre Einheiten",
@@ -225,7 +225,7 @@
   "reihenfolge": {
    "gym_by": 12,
    "rs_by": 10,
-   "ib_myp": 5
+   "ib_myp": 4
   },
   "lernbereich": {
    "gym_by": "M5 4 Größen und ihre Einheiten",
@@ -327,7 +327,7 @@
   },
   "reihenfolge": {
    "gym_by": 4,
-   "rs_by": 9
+   "rs_by": 8
   },
   "lernbereich": {
    "gym_by": "M5 2 Geometrische Figuren und Lagebeziehungen",
@@ -428,7 +428,7 @@
   "reihenfolge": {
    "gym_by": 9,
    "rs_by": 5,
-   "ib_myp": 12
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
@@ -673,8 +673,8 @@
   },
   "reihenfolge": {
    "gym_by": 9,
-   "rs_by": 16,
-   "ib_myp": 13
+   "rs_by": 15,
+   "ib_myp": 12
   },
   "lernbereich": {
    "gym_by": "M6 3 Prozentrechnung, Daten und Diagramme",
@@ -744,8 +744,8 @@
   },
   "reihenfolge": {
    "gym_by": 11,
-   "rs_by": 18,
-   "ib_myp": 9
+   "rs_by": 17,
+   "ib_myp": 8
   },
   "lernbereich": {
    "gym_by": "M6 3 Prozentrechnung, Daten und Diagramme",
@@ -778,7 +778,7 @@
   },
   "reihenfolge": {
    "gym_by": 4,
-   "rs_by": 14,
+   "rs_by": 13,
    "ib_myp": 5
   },
   "lernbereich": {
@@ -812,7 +812,7 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 13,
+   "rs_by": 12,
    "ib_myp": 4
   },
   "lernbereich": {
@@ -975,8 +975,8 @@
   },
   "reihenfolge": {
    "gym_by": 12,
-   "rs_by": 10,
-   "ib_myp": 16
+   "rs_by": 9,
+   "ib_myp": 14
   },
   "lernbereich": {
    "gym_by": "M8 6 Lineare Gleichungssysteme",
@@ -1080,7 +1080,7 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "ib_myp": 19
+   "ib_myp": 17
   },
   "lernbereich": {
    "gym_by": "M8 3 Elementare gebrochen-rationale Funktionen",
@@ -1146,7 +1146,7 @@
   "reihenfolge": {
    "gym_by": 8,
    "rs_by": 1,
-   "ib_myp": 24
+   "ib_myp": 22
   },
   "lernbereich": {
    "gym_by": "M10 5 Fortführung der Raumgeometrie",
@@ -1180,7 +1180,7 @@
   },
   "reihenfolge": {
    "gym_by": 13,
-   "rs_by": 7,
+   "rs_by": 6,
    "ib_myp": 9
   },
   "lernbereich": {
@@ -1273,7 +1273,7 @@
   },
   "reihenfolge": {
    "gym_by": 15,
-   "rs_by": 8
+   "rs_by": 7
   },
   "lernbereich": {
    "gym_by": "M8 7 Kreis und Zylinder",
@@ -1304,8 +1304,8 @@
   },
   "reihenfolge": {
    "gym_by": 11,
-   "rs_by": 15,
-   "ib_myp": 10
+   "rs_by": 13,
+   "ib_myp": 9
   },
   "lernbereich": {
    "gym_by": "M8 5 Laplace-Experimente",
@@ -1339,8 +1339,8 @@
   },
   "reihenfolge": {
    "gym_by": 4,
-   "rs_by": 17,
-   "ib_myp": 11
+   "rs_by": 15,
+   "ib_myp": 10
   },
   "lernbereich": {
    "gym_by": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen",
@@ -1477,8 +1477,8 @@
   },
   "reihenfolge": {
    "gym_by": 4,
-   "rs_by": 13,
-   "ib_myp": 11
+   "rs_by": 11,
+   "ib_myp": 10
   },
   "lernbereich": {
    "gym_by": "M9 2 Quadratische Funktionen",
@@ -1513,7 +1513,7 @@
   "reihenfolge": {
    "gym_by": 10,
    "rs_by": 6,
-   "ib_myp": 12
+   "ib_myp": 11
   },
   "lernbereich": {
    "gym_by": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs",
@@ -1569,8 +1569,8 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 11,
-   "ib_myp": 17
+   "rs_by": 10,
+   "ib_myp": 15
   },
   "lernbereich": {
    "gym_by": "M9 2 Quadratische Funktionen",
@@ -1606,7 +1606,7 @@
   "reihenfolge": {
    "gym_by": 9,
    "rs_by": 7,
-   "ib_myp": 18
+   "ib_myp": 16
   },
   "lernbereich": {
    "gym_by": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs",
@@ -1639,7 +1639,7 @@
   },
   "reihenfolge": {
    "gym_by": 7,
-   "rs_by": 4,
+   "rs_by": 3,
    "ib_myp": 12
   },
   "lernbereich": {
@@ -1674,7 +1674,7 @@
   },
   "reihenfolge": {
    "gym_by": 11,
-   "rs_by": 5,
+   "rs_by": 4,
    "ib_myp": 13
   },
   "lernbereich": {
@@ -1708,8 +1708,8 @@
   },
   "reihenfolge": {
    "gym_by": 12,
-   "rs_by": 6,
-   "ib_myp": 21
+   "rs_by": 5,
+   "ib_myp": 19
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
@@ -1743,7 +1743,7 @@
   "reihenfolge": {
    "gym_by": 13,
    "rs_by": 1,
-   "ib_myp": 22
+   "ib_myp": 20
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
@@ -1777,7 +1777,7 @@
   "reihenfolge": {
    "gym_by": 14,
    "rs_by": 3,
-   "ib_myp": 13
+   "ib_myp": 10
   },
   "lernbereich": {
    "gym_by": "M9 7 Trigonometrie",
@@ -1810,8 +1810,8 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "rs_by": 16,
-   "ib_myp": 26
+   "rs_by": 14,
+   "ib_myp": 24
   },
   "lernbereich": {
    "gym_by": "M9 3 Wahrscheinlichkeit verknüpfter Ereignisse",
@@ -1844,7 +1844,7 @@
   },
   "reihenfolge": {
    "gym_by": 7,
-   "rs_by": 15,
+   "rs_by": 14,
    "ib_myp": 4
   },
   "lernbereich": {
@@ -1948,7 +1948,7 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 11,
+   "rs_by": 10,
    "ib_myp": 3
   },
   "lernbereich": {
@@ -2017,8 +2017,8 @@
   },
   "reihenfolge": {
    "gym_by": 5,
-   "rs_by": 7,
-   "ib_myp": 7
+   "rs_by": 6,
+   "ib_myp": 6
   },
   "lernbereich": {
    "gym_by": "M7 2 Geometrische Figuren: Symmetrie und Winkel",
@@ -2051,7 +2051,7 @@
   },
   "reihenfolge": {
    "gym_by": 9,
-   "rs_by": 8,
+   "rs_by": 7,
    "ib_myp": 8
   },
   "lernbereich": {
@@ -2086,8 +2086,8 @@
   },
   "reihenfolge": {
    "gym_by": 10,
-   "rs_by": 10,
-   "ib_myp": 23
+   "rs_by": 9,
+   "ib_myp": 21
   },
   "lernbereich": {
    "gym_by": "M7 5 Kongruenz, besondere Dreiecke und Dreieckskonstruktionen",
@@ -2122,8 +2122,8 @@
   },
   "reihenfolge": {
    "gym_by": 8,
-   "rs_by": 19,
-   "ib_myp": 25
+   "rs_by": 18,
+   "ib_myp": 23
   },
   "lernbereich": {
    "gym_by": "M7 4 Kenngrößen von Daten",
@@ -2159,7 +2159,7 @@
   },
   "reihenfolge": {
    "gym_by": 2,
-   "rs_by": 10,
+   "rs_by": 9,
    "ib_myp": 3
   },
   "lernbereich": {
@@ -2215,8 +2215,8 @@
   },
   "reihenfolge": {
    "gym_by": 1,
-   "rs_by": 9,
-   "ib_myp": 9
+   "rs_by": 8,
+   "ib_myp": 7
   },
   "lernbereich": {
    "gym_by": "M10 1 Exponentielles Wachstum und Logarithmus",
@@ -2250,7 +2250,7 @@
   "reihenfolge": {
    "gym_by": 5,
    "rs_by": 2,
-   "ib_myp": 11
+   "ib_myp": 8
   },
   "lernbereich": {
    "gym_by": "M10 3 Sinus- und Kosinusfunktion",
@@ -2282,7 +2282,7 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "ib_myp": 8
+   "ib_myp": 6
   },
   "lernbereich": {
    "gym_by": "M10 4 Ganzrationale Funktionen",
@@ -2311,7 +2311,7 @@
   },
   "reihenfolge": {
    "gym_by": 9,
-   "rs_by": 9,
+   "rs_by": 8,
    "ib_myp": 11
   },
   "lernbereich": {
@@ -2348,8 +2348,8 @@
   },
   "reihenfolge": {
    "gym_by": 3,
-   "rs_by": 11,
-   "ib_myp": 27
+   "rs_by": 10,
+   "ib_myp": 25
   },
   "lernbereich": {
    "gym_by": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen",
@@ -2379,7 +2379,7 @@
    "rs_by": 7
   },
   "reihenfolge": {
-   "rs_by": 6
+   "rs_by": 5
   },
   "lernbereich": {
    "rs_by": "M7 2 Parallelverschiebung"
@@ -2402,12 +2402,8 @@
   "ort": "Lagos",
   "gebiet": "Geometrie",
   "titel": "Vektoren und Determinanten",
-  "klasse": {
-   "rs_by": 7
-  },
-  "reihenfolge": {
-   "rs_by": 5
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "rs_by": "M7 2 Parallelverschiebung"
   },
@@ -2435,8 +2431,8 @@
    "ib_myp": 2
   },
   "reihenfolge": {
-   "rs_by": 20,
-   "ib_myp": 8
+   "rs_by": 19,
+   "ib_myp": 7
   },
   "lernbereich": {
    "rs_by": "M7 8 Auswertung von Daten",
@@ -2462,12 +2458,8 @@
   "ort": "Neumayer-Station III",
   "gebiet": "Funktionen",
   "titel": "Parameter und Funktionenscharen",
-  "klasse": {
-   "rs_by": 8
-  },
-  "reihenfolge": {
-   "rs_by": 7
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "rs_by": "M8 6 Funktionen"
   },
@@ -2512,14 +2504,8 @@
   "ort": "Wostok-Station",
   "gebiet": "Funktionen",
   "titel": "Graphentransformation",
-  "klasse": {
-   "rs_by": 9,
-   "ib_myp": 5
-  },
-  "reihenfolge": {
-   "rs_by": 12,
-   "ib_myp": 6
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "rs_by": "M9 7 Quadratische Funktionen und quadratische Gleichungen",
    "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
@@ -2544,14 +2530,8 @@
   "ort": "Seoul",
   "gebiet": "Algebra",
   "titel": "Reinquadratische Gleichungen",
-  "klasse": {
-   "rs_by": 9,
-   "ib_myp": 4
-  },
-  "reihenfolge": {
-   "rs_by": 3,
-   "ib_myp": 10
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "rs_by": "M9 1 Reelle Zahlen",
    "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
@@ -2580,7 +2560,7 @@
    "rs_by": 9
   },
   "reihenfolge": {
-   "rs_by": 14
+   "rs_by": 12
   },
   "lernbereich": {
    "rs_by": "M9 7 Quadratische Funktionen und quadratische Gleichungen"
@@ -2608,7 +2588,7 @@
   },
   "reihenfolge": {
    "rs_by": 4,
-   "ib_myp": 14
+   "ib_myp": 11
   },
   "lernbereich": {
    "rs_by": "M10 2 Abbildungen",
@@ -2637,14 +2617,8 @@
   "ort": "Halley-Station",
   "gebiet": "Funktionen",
   "titel": "Umkehrfunktionen",
-  "klasse": {
-   "rs_by": 10,
-   "ib_myp": 5
-  },
-  "reihenfolge": {
-   "rs_by": 8,
-   "ib_myp": 10
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "rs_by": "M10 3 Potenzen und Potenzfunktionen",
    "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
@@ -2667,12 +2641,8 @@
   "ort": "Galápagos-Inseln",
   "gebiet": "Entdecker-Inseln",
   "titel": "Mengen und Venn-Diagramme",
-  "klasse": {
-   "ib_myp": 3
-  },
-  "reihenfolge": {
-   "ib_myp": 14
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "ib_myp": "MYP 3 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
@@ -2685,8 +2655,7 @@
    "IB MYP 1: Venn-Diagramme",
    "IB MYP 4–5 Standard: Mengenoperationen und Venn-Diagramme"
   ],
-  "datei": "inhalte/themen/mengen.grundbegriffe.json",
-  "eigenstaendig": "Entdecker-Insel; Mengenbegriff wird hier eingeführt"
+  "datei": "inhalte/themen/mengen.grundbegriffe.json"
  },
  {
   "thema_id": 27,
@@ -2695,12 +2664,8 @@
   "ort": "San Francisco",
   "gebiet": "Geld und Verhältnisse",
   "titel": "Verhältnisse und Raten",
-  "klasse": {
-   "ib_myp": 2
-  },
-  "reihenfolge": {
-   "ib_myp": 4
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "ib_myp": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
   },
@@ -2728,7 +2693,7 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "ib_myp": 16
+   "ib_myp": 13
   },
   "lernbereich": {
    "ib_myp": "MYP 5 Reasoning with data (Daten und Wahrscheinlichkeit)"
@@ -2755,7 +2720,7 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "ib_myp": 15
+   "ib_myp": 12
   },
   "lernbereich": {
    "ib_myp": "MYP 5 Reasoning with data (Daten und Wahrscheinlichkeit)"
@@ -2777,12 +2742,8 @@
   "ort": "Suva",
   "gebiet": "Daten und Zufall",
   "titel": "Bedingte Wahrscheinlichkeit",
-  "klasse": {
-   "ib_myp": 5
-  },
-  "reihenfolge": {
-   "ib_myp": 17
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "ib_myp": "MYP 5 Reasoning with data (Daten und Wahrscheinlichkeit)"
   },
@@ -2807,7 +2768,7 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "ib_myp": 7
+   "ib_myp": 5
   },
   "lernbereich": {
    "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
@@ -2827,12 +2788,8 @@
   "ort": "Palmer-Station",
   "gebiet": "Funktionen",
   "titel": "Folgen",
-  "klasse": {
-   "ib_myp": 5
-  },
-  "reihenfolge": {
-   "ib_myp": 4
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "ib_myp": "MYP 5 Numerical and abstract reasoning (Zahl und Algebra)"
   },
@@ -2857,7 +2814,7 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "ib_myp": 5
+   "ib_myp": 4
   },
   "lernbereich": {
    "ib_myp": "MYP 5 Numerical and abstract reasoning (Zahl und Algebra)"
@@ -2881,7 +2838,7 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "ib_myp": 20
+   "ib_myp": 18
   },
   "lernbereich": {
    "ib_myp": "MYP 4 Thinking with models (Funktionen und Modelle)"
@@ -2908,7 +2865,7 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "ib_myp": 12
+   "ib_myp": 9
   },
   "lernbereich": {
    "ib_myp": "MYP 5 Thinking with models (Funktionen und Modelle)"
@@ -2932,7 +2889,7 @@
    "ib_myp": 5
   },
   "reihenfolge": {
-   "ib_myp": 18
+   "ib_myp": 14
   },
   "lernbereich": {
    "ib_myp": "MYP 5 Reasoning with data (Daten und Wahrscheinlichkeit)"
@@ -2952,12 +2909,8 @@
   "ort": "Boston",
   "gebiet": "Geld und Verhältnisse",
   "titel": "Zinseszins",
-  "klasse": {
-   "ib_myp": 4
-  },
-  "reihenfolge": {
-   "ib_myp": 14
-  },
+  "klasse": {},
+  "reihenfolge": {},
   "lernbereich": {
    "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
   },
@@ -2980,7 +2933,7 @@
    "ib_myp": 4
   },
   "reihenfolge": {
-   "ib_myp": 15
+   "ib_myp": 13
   },
   "lernbereich": {
    "ib_myp": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
@@ -3068,7 +3021,7 @@
   },
   "reihenfolge": {
    "gym_by": 6,
-   "rs_by": 12,
+   "rs_by": 11,
    "ib_myp": 3
   },
   "lernbereich": {
@@ -3103,7 +3056,7 @@
   },
   "reihenfolge": {
    "gym_by": 5,
-   "rs_by": 17,
+   "rs_by": 16,
    "ib_myp": 9
   },
   "lernbereich": {

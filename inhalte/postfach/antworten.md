@@ -602,3 +602,51 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 - **ChatGPT 907:** kein Fremdzugriff über die Matrix-Aktionen gefunden; zwei Muss (Altzustand beim Nachtrag `flug_erstabschluss`; Rauchtest j darf nicht still ausfallen) sind durch Bestandsprüfung und den Einspielweg des Haupt-Chats erledigt. Nacharbeit steht in `AUFTRAEGE.md`, „Nacharbeit aus ChatGPTs Prüfergebnis 907“ – blockiert das Einspielen nicht.
 - Einspielen und App 0.84.0 warten nur noch auf Sebastians „Live“ und seine Entscheidung zu 102 ← 30.
+
+## 22.11. 00:45 (Berlin) – an alle: Paket Lehrplan-Matrix ist eingespielt und live
+
+- **Datenbank** (eine Transaktion, auf Sebastians „Live“): Lehrplan Runde 30 c (128 Verbindungen, 66 hart; `thema.eigenstaendig` als Text; 102 ← 30 bleibt **hart** – Entscheidung Sebastian), LM-S 3 (`api.schule_lehrplan_matrix`, `api.schule_lehrplan_thema`), `schule.flug_erstabschluss` (Nachtrag 4 Flüge). Stufen, Plan, Reiseoptionen und Lernstand aller Kinder in der Transaktion verglichen: unverändert. Rauchtests `lm_s` und `ab_s` danach bestanden.
+- **Server-Funktion** `lernen-api` 0.8.0 ist ausgerollt (zwei neue Aktionen).
+- **App 0.84.0 ist live** (main 44c1e7a): Lehrplan-Matrix für Eltern/Lehrer (LM-1 bis LM-5).
+- **Gestalter:** `schule.voraussetzung` und Themenliste sind aktualisiert; „eigenständig“ steht in `schule.thema.eigenstaendig` (Text = Begründung, null = nicht gekennzeichnet).
+- Nächste Schritte: Nacharbeit aus ChatGPT 907 (bau-lehrer, lehrplan-lb), danach LM-6 Kinderseite (bau-motivation, 0.85.0).
+
+## 22.11. 09:40 (Berlin) – an bau-lehrer, bau-motivation, lehrplan-lb, reise-aufbau, pruefung-kinderansicht
+
+- Alles übernommen (e1900e5). **Nichts eingespielt, nichts live.** Rückläufer A–C in `AUFTRAEGE.md`, „Rückläufer 22.11. abends“:
+  - **bau-lehrer:** Nacharbeit 907 besteht. WD-S läuft, aber der Rauchtest bricht an `sterne_grund_check` ab; dazu ChatGPT 911/912 (Runde serverseitig, ein Fortschritt je Fälligkeit, Rückfall nach dem Ablegen).
+  - **lehrplan-lb:** Nacharbeit bricht ab (`thema.id` GENERATED ALWAYS); N2/N3 des Gestalters.
+  - **bau-motivation:** 0.85.0/0.86.0 übernommen, 150 von 151 Tests; „LM-S 2: Raster/Detail“ schlägt fehl. Angleichen an Vorgabe „abgelegt“ und WD-S 2.
+  - **reise-aufbau:** Vorschlag liegt vor; Entscheidung und Bau nach WD.
+- WD-4b (Stau strecken) im Probelauf: 42 fällige → 14, sonst unverändert.
+
+## 22.11. 10:35 (Berlin) – an bau-lehrer, bau-motivation, lehrplan-lb
+
+- **Alle drei Nachbesserungen übernommen** (6effafa). App 0.86.1: 154/154 Tests. Probelauf auf der echten Datenbank, zurückgerollt: `nacharbeit_907`, `lehrplan_nacharbeit_907` (b), `wd_s_wiederholungen` (WD-S 2) und `wd_4b_stau_strecken` laufen; Rauchtests `wd_s`, `ab_s_nacharbeit_907`, `lm_s_nacharbeit_907` bestanden; Stufen, Plan, Reiseoptionen, Lernstand und Sterne aller Kinder gleich.
+- **Noch nichts eingespielt, nichts live.** Code-Prüfbitte an ChatGPT ist raus (Werkstatt 916). Danach in einem Zug auf Sebastians „Live“: drei Migrationen, lernen-api 0.9.0, App 0.86.1; WD-4b nur mit seinem eigenen Okay.
+
+## 22.11. 10:55 (Berlin) – an bau-lehrer, bau-motivation
+
+- **Fehler Mischkarten** (ein Kind bekam dieselbe Aufgabe dreimal am Tag in drei Etappen): Befund und Aufträge in `AUFTRAEGE.md`, „Fehler Mischkarten (22.11.)“. `bau-lehrer`: WD-S 3. `bau-motivation`: 0.86.2. Das WD-Paket wird erst danach eingespielt.
+
+## 22.11. 11:05 (Berlin) – an bau-lehrer, bau-motivation
+
+- **Entscheidungen Sebastian:** Wiederholung zählt nur im ersten Versuch ohne Tipp (`wdh_nur_selbst` true); `sterne_wdh_richtig` = 10; WD-4b wird eingespielt (nach WD-S 3). Einzelheiten in `AUFTRAEGE.md`, „Entscheidungen Sebastian (22.11., 11:00 Berlin)“.
+
+## 22.11., 11:15 Berlin – Haupt-Chat: WD-Paket zusammengeführt, Probelauf
+
+- `lernen-app` 7675d32: WD-S 3, WD-4b (neu), Nacharbeit 907 c, App 0.86.2, Gestalter-Vorgabe Reise-Aufbau. App-Tests 157/157, Prüfskript ok.
+- Probelauf echte Datenbank (alles zurückgerollt): fünf Migrationen in Reihenfolge ok; Stufen, Reiseoptionen, Lernstand, Sterne vorher = nachher. WD-4b: fällige beim Kind 2 von 42 auf 14.
+- Tests: 907 (zwei), WD-S 2 grün. WD-S 3 bricht in Schritt 2 – Fehler im Test (rechnet nur mit Auswahl-Aufgaben), Funktion richtig; mit angepasster Vorbereitung ganz grün. Auftrag an `bau-lehrer` steht in AUFTRAEGE.md („Nachtrag WD-S 3 – Rauchtest stabil machen“).
+- Noch nichts eingespielt. Offen: Prüfung ChatGPT, dann „Live“ von Sebastian. Beide Kinder üben gerade (11:10).
+
+## 22.11., 11:55 Berlin – Haupt-Chat: ChatGPT 921, faire Punkte
+
+- ChatGPT 921: vier Muss aus 919 zu, fünf neue Muss (Mischkarte beim Einlösen, Sterne bei Wiederholung mit Hilfe, Runde fertig bei gleichzeitigen Antworten, Rückweg Staffel unter Sperre, Rauchtest). Auftrag „Nachtrag WD-S 4“ in AUFTRAEGE.md an `bau-lehrer` und `bau-motivation` (0.86.3). Nichts eingespielt.
+- Neu entschieden (Sebastian): „Bau-Auftrag FP – faire Punkte“ (10/5, Landungs-Bonus 80/40/10, nachträglich). Reihenfolge: WD-S 4 → einspielen → FP.
+
+## 22.11., 12:45 Berlin – Haupt-Chat: WD-S 4, FP-S, 0.87.0 zusammengeführt, Probelauf grün
+
+- `lernen-app` 358145d: WD-S 4, FP-S, Aufgaben frisch (24), App 0.87.0, Vorgabe faire Punkte. App-Tests 163/163, Prüfskript ok.
+- Probelauf echte Datenbank (zurückgerollt): acht Dateien in Reihenfolge ok, fünf Rauchtests grün, Stufen/Reise/Lernstand/Sterne unverändert; fällige Kind 2: 42 → 14; `etappen_wenig_frisch` leer; Nachbuchung Landungs-Bonus: 25 / 28 Etappen, +1620 / +2200 Sterne.
+- Prüfbitte an ChatGPT gesendet. Nichts eingespielt; danach „Live“ von Sebastian.

@@ -2,6 +2,77 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG Aufgaben nachliefern (lehrplan-lb)
+
+Grundlage ist `lernen-app` 197707e3, Auftrag „Aufgaben nachliefern“ im Bau-Auftrag FP. Die Datenbank habe ich nur gelesen, nichts ausgeführt.
+
+**Neu: je 8 Übungen der Stufen 2 und 3** (Stufe 2: einkleidung, mehrschritt, umkehr, darstellung; Stufe 3: vier verschiedene Typen). Die Antwortarten sind gemischt: Zahl, Auswahl, Markierung.
+
+| Einheit | Etappe | Stufe 2 | Stufe 3 | Antwortarten |
+|---|---|---|---|---|
+| 39 `zahlen.ganz` | `zahlengerade` | 4 | 4 (rueckwaerts, begruenden, parameter, fehler) | Markierung, Zahl, Auswahl |
+| 39 `zahlen.ganz` | `ordnen` | 4 | 4 (transfer, begruenden, parameter, fehler) | Zahl, Auswahl |
+| 5 `gleichungen.linear` | `waage` | 4 | 4 (fehler, verknuepfen mit Prozent aus Kl. 6, begruenden, transfer) | Zahl, Auswahl |
+
+- **Erzeugung:** neues Modul `inhalte/generatoren/_frisch_2211.py`. Es ist als letzter Schritt in `zahlen_ganz.py` und `gleichungen_linear.py` eingehängt.
+  - Alle Lösungen werden berechnet, nachgerechnete Zahlaufgaben haben `c`.
+  - Die Texte sind selbst formuliert und für sich allein verständlich (Mischkarten).
+  - Die falschen Auswahlantworten stammen aus typischen Fehlern.
+- **Bestand unverändert:**
+  - Beide Generatoren erzeugen ohne die Ergänzung genau die eingecheckten Dateien.
+  - Mit der Ergänzung sind alle bisherigen Aufgaben, `inhalt` und Kopf identisch. Es kommen nur 16 bzw. 8 Aufgaben am Ende dazu.
+  - Keine der neuen Fragen gleicht einer Frage in der Datenbank, auch keiner gesperrten.
+- **Prüfskript:** `inhalt_pruefen.py` meldet für beide Dateien **OK**; „gleich gebaut hintereinander“: 0. `--alle` ohne Fehler, App-Tests 157/157.
+- **Einspielen (Haupt-Chat):** fertiges SQL in `inhalte/pruefung/lehrplan/aufgaben_frisch_2211.sql`, nicht ausgeführt, in einer Transaktion einzuspielen.
+  - Es arbeitet nur mit INSERT über `schule.aufgaben_einfuegen`, Einheit und `inhalt` bleiben unverändert.
+  - `tools/inhalt_sql.py` geht nicht, weil es die Einheit schon gibt. `einheit_abgleichen` würde `inhalt` neu schreiben, was bei freigegebenen Einheiten nur erlaubt ist, wenn er gleich bleibt, und den Typ `g` nicht mitnehmen.
+  - Gelesen: Der Trigger `aufgabe_schutz` sperrt bei freigegebenen Einheiten nur UPDATE und DELETE.
+  - Die neuen Aufgaben sind sofort sichtbar (`freigegeben` hat den Standard true) und werden hinter die vorhandenen Übungen gereiht.
+  - Die Datei ist wiederholt ausführbar: Ein zweiter Lauf fügt nichts ein.
+  - Der Rauchtest am Ende prüft je Etappe 8 neue Übungen.
+  - Lokal auf Postgres 16 mit den echten Definitionen von `aufgaben_einfuegen` und `aufgabe_schutz` zweimal ausgeführt: 16 und 8 eingefügt, beim zweiten Lauf 0, Rauchtest bestanden.
+
+FERTIG: Aufgaben frisch
+
+## 2026-11-22 – MELDUNG Nacharbeit 907 c (lehrplan-lb)
+
+Grundlage ist `lernen-app` f278a3cf. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Geändert ist `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0f.
+
+- **Löschschutz (3c):** bricht jetzt auch bei Einheiten im Status `geprueft` ab, nicht nur bei `freigegeben`. Er steckt dafür in `pg_temp.lb907_loeschen()`. Dieselbe Regel gilt auch für 3d und die Regeln b und i; auf den heutigen Daten ändert das nichts.
+- **Rauchtest m (neu):** Je eine Test-Einheit `geprueft` und `freigegeben` für das stillgelegte Thema 48 wird angelegt und zurückgerollt. Der Schutz muss beide Male abbrechen; ohne sichtbare Einheit läuft er durch.
+- **Rauchtest l:** prüft nur noch die zehn stillgelegten Themen.
+- **Lokal auf Postgres 16:** Zwei Läufe und ein frischer Lauf bestanden. Die Gegenproben greifen: Mit dem alten Schutz schlägt m fehl; ist 48 echt `geprueft`, bricht die Migration vor der Löschung ab.
+
+FERTIG: Lehrplan Nacharbeit 907 c
+
+## 2026-11-22 – MELDUNG Nacharbeit 907 b (lehrplan-lb)
+
+Grundlage ist `lernen-app` 6ec1c3ef. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Berichtigt ist `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0e.
+
+- **Abbruch „non-DEFAULT value into column id“ behoben.** Ursache war der Test-Lernende in Rauchtest k (`lernender.id` und `route.id` sind GENERATED ALWAYS, ebenso `thema.id`). Die Datei legt kein Thema an. Die ids werden jetzt vergeben (`returning`). Den Fehler habe ich lokal nachgestellt; die neue Fassung läuft.
+- **N2:** Die zehn aufgelösten Themen haben keine RS- und IB-Klasse und keine Reihenfolge mehr, in der Themenliste und in der Migration (Abschnitt 3d). Die Reihenfolgen der übrigen Themen sind lückenlos nachgezogen. RS 8 hat jetzt 6 Themen.
+- **N3:** `eigenstaendig` bei 83 entfernt.
+- **Rauchtest l (neu):** Kein aufgelöstes Thema trägt Klasse, Reihenfolge oder „eigenständig“.
+- **Folgen:** keine für Kinder. Das Gymnasium ist unverändert, Verbindungen und Visa sind gleich; Rauchtest j prüft die Reiseoptionen.
+- **Lokal auf Postgres 16:** zwei Läufe und ein frischer Lauf bestanden. Der Endstand stimmt mit der Themenliste überein.
+- **Hinweis:** Der App-Test „LM-S 2 … eigenständig“ schlägt auch ohne diese Änderung fehl (Teil C).
+
+FERTIG: Lehrplan Nacharbeit 907 b
+
+## 2026-11-22 – MELDUNG Nacharbeit 907 (lehrplan-lb)
+
+Grundlage ist `lernen-app` 986d43e7. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Die eingespielte Datei ist unverändert. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0d.
+
+- **Neue Datei** `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`: berichtigte Fassung von Runde 30/30 b/30 c, 102 ← 30 bleibt hart. Auf dem eingespielten Stand ändert ein Lauf nichts. Einspielen in einer Transaktion.
+- **Rauchtest j:** Fehlt der Vorherstand, bricht er mit EXCEPTION ab. Der Vorherstand gilt nur innerhalb der Transaktion.
+- **Kopfkommentar berichtigt:** DELETE nur in Abschnitt 3c, zwölf einzeln aufgezählte Zeilen.
+- **Vor jeder gezielten Löschung** wird geprüft, dass das aufgelöste Thema weiter keinen freigegebenen Flug hat; sonst Abbruch.
+- **Rauchtest k:** Testfall „Zielort offen, Voraussetzungs-Ort fehlt“ für 102 ← 30, mit einem erfundenen Test-Lernenden, der wieder zurückgerollt wird. Abgedeckt sind die Fälle: Voraussetzungs-Ort fehlt, offen, fertig.
+- **Lokal auf Postgres 16 ausgeführt:** Alles bestanden, auch mit den drei Gegenproben (kein Vorherstand, Löschschutz, 102 ← 30 empfohlen).
+- **Offener Inhaltspunkt:** Vektorkoordinaten für Determinanten (RS 7). Kein freigegebener Flug enthält „Vektor aus zwei Punkten“. Vorschlag: eine Etappe in 46 oder 74 ergänzen.
+
+FERTIG: Lehrplan Nacharbeit 907
+
 ## 2026-11-21 – MELDUNG Runde 30 c: harte Verbindungen ohne neue Reise-Sperren
 
 Grundlage ist `lernen-app` d463182a. Die Datenbank habe ich nur gelesen, die Migration auf der echten Datenbank **nicht ausgeführt**. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0c.

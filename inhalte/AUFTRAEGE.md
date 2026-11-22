@@ -2352,3 +2352,226 @@ Die zwei Muss aus 907 sind erledigt: Der Altzustand (früher fertiger Flug mit n
 3. LM-S: negative Tests über `api.schule_lehrplan_matrix` / `api.schule_lehrplan_thema` mit einem Lern-Zugang des Testkinds (fremde `lernender_id`, `mit_testkind: true`, Detail, gesperrter Zugang) – keine echten Schlüssel in Dateien; `etappe_jetzt` = Nummer der ersten offenen Etappe in Reihenfolge statt „gelandet + 1“; Größenprüfung mit `octet_length`.
 
 **`lehrplan-lb` (nur Dateien):** Rauchtest j: fehlender Vorherstand → EXCEPTION; Kopfkommentar „kein DELETE“ berichtigen; vor jeder gezielten Löschung prüfen, dass das Thema weiter keinen freigegebenen Flug hat; Testfall „Zielort offen, Voraussetzungs-Ort fehlt“ für die Kante 102 ← 30. Restlücke „Vektorkoordinaten für Determinanten (RS 7)“ als offenen Inhaltspunkt im Bericht führen.
+
+---
+
+# Bau-Auftrag WD (22.11.): Wiederholungen dynamisch – Stau vermeiden, Belohnung fürs Ablegen
+
+Anlass: Sebastian und die Kinder. Jede gelandete Etappe erzeugt 5 Wiederholungen (1, 3, 7, 14, 30 Lerntage); die Runde am Anfang hat fest 6 Aufgaben. Bei mehr als etwa 1,2 Landungen pro Lerntag staut es sich; ein Kind hat nach dem Setzen mehrerer Flüge 41 fällige Etappen. **Entscheidungen Sebastians (22.11.):** Die Wiederholungs-Runde am Anfang bleibt (einmal pro Tag); ihre Größe wird errechnet; Mischkarten bleiben und bauen mit ab; **kein Bündeln je Flug – jede Etappe für sich**; Sterne 5 / 30 / 100; kein neues Abzeichen, sondern der vorhandene Stempel wird golden. **Gebaut wird erst nach ChatGPTs Prüfung des Konzepts und der Vorgabe des Gestalters.**
+
+**WD-1 Größe der Runde (Server liefert, App zeigt) – geändert 22.11., Sebastian: lockerer, ein Stau darf sich über 5 Lerntage auflösen:** fällige Etappen bis 6 → alle; darüber **ein Fünftel der fälligen, aufgerundet, mindestens 6, höchstens 12** (bis Klasse 6 höchstens 10). Beispiele: 20 fällig → 6; 41 → 9; 60 → 12. Werte in `schule.regel` (änderbar ohne Bau). Reihenfolge: zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen, dann niedrigste Stufe. Weitere fällige bleiben freiwillig angeboten wie heute.
+
+**WD-2 „Runde heute gemacht“ merkt sich der Server** (heute nur das Gerät, `localStorage`): je Kind und Lerntag (`heute_bis`), damit ein Gerätewechsel keine zweite Pflicht-Runde auslöst.
+
+**WD-3 Mischkarten bauen mit ab:** Die Auswahl der Mischkarten bevorzugt fällige Etappen (sonst wie bisher). Eine Mischkarte aus einer fälligen Etappe, richtig im ersten Versuch ohne Tipp, gilt als bestandene Wiederholung: Die Etappe rückt im Takt weiter wie nach einer richtigen Wiederholung, zusätzlich zum bisherigen Beleg für „sicher“. Falsch bleibt wie heute (am nächsten Lerntag fällig, öffnet nie). Häufigkeit unverändert (jede 4., bis Klasse 6 jede 6., ab 3 gelandeten Etappen im Flug).
+
+**WD-4 Gesetzte Flüge gestaffelt:** „Kann er – aber wiederholen“ bringt je Kind höchstens 6 Etappen pro Lerntag neu in den Takt (ein Flug nach dem anderen, in Plan-Reihenfolge); die übrigen warten sichtbar („kommt ab …“). Für den vorhandenen Stau eine einmalige, verlustfreie Umverteilung vorschlagen (nur Fälligkeiten strecken; keine Landung, kein Stand geht verloren) – als eigene, gut lesbare Migration, die der Haupt-Chat erst nach Probelauf und Sebastians Okay einspielt.
+
+**WD-5 Sterne:** 5 Sterne je richtiger Wiederholung (Runde am Anfang, freiwillige Wiederholung oder Mischkarte nach WD-3; je Etappe und Fälligkeit einmal). Vorher feststellen und melden, was Wiederholungen und Mischkarten heute geben (Mischkarte in der App: 10) – nichts doppelt buchen, nichts stillschweigend kürzen.
+
+**WD-6 „Endgültig abgelegt“:** Besteht eine Etappe die letzte Wiederholung (30 Lerntage), ist sie abgelegt: raus aus dem Takt, **30 Sterne**, Einblendung (einmal je Kind und Etappe, serverseitig festgehalten wie `flug_erstabschluss`). Sind alle Etappen eines Flugs abgelegt: **100 Sterne**, größere Einblendung; im Reisepass wird der vorhandene Eintrag des Flugs **golden** (kein neues Abzeichen). Sind alle Flüge eines Orts abgelegt, wird der **Orts-Stempel golden**. Verhältnis zu „sicher“ (◉) klären und im Bericht vorschlagen: zwei ähnliche Zustände nebeneinander vermeiden. Eine abgelegte Etappe kann durch den Nachtest des Flugs weiter auffallen – Regel dafür vorschlagen (Vorschlag: sie kommt einmalig mit 7 Lerntagen zurück in den Takt, das Gold bleibt).
+
+**Aufteilung:** Server (`bau-lehrer`, Migrationen als Datei mit Rauchtests: Rundengröße, Server-Merker, Mischkarte als Wiederholung, Staffelung, Sterne, Ablegen einmalig; Lernstände bleiben unverändert – Vergleich vorher/nachher im Test). App (`bau-motivation`, nach LM-6): Runde in errechneter Größe, Einblendungen nach Vorgabe des Gestalters, goldener Flug-Eintrag und Stempel, Info-Seite. Gestalter: zwei Einblendungen („Etappe abgelegt“, „Flug abgelegt“) und das Gold im Reisepass, Vorgabe unter `inhalte/pruefung/kind/abgelegt/`.
+
+**Nachtrag zum Bau-Auftrag WD (22.11., Sebastian: „Wiederholungen zuerst“) – Reihenfolge und Schnittstelle.** WD hat Vorrang vor LM-6. Server und App werden **gleichzeitig** gebaut; dafür gilt diese Schnittstelle verbindlich (Abweichungen nur mit Meldung im Postfach, bevor gebaut wird). ChatGPTs Prüfung des Konzepts (Werkstatt 909/910) läuft parallel; ihre Ergebnisse werden eingearbeitet, eingespielt wird erst danach.
+
+- `schule_wiederholung` (bestehende Aktion) liefert zusätzlich: `runde` (Zahl der Pflicht-Aufgaben heute nach WD-1), `faellig` (alle fälligen Etappen), `runde_gemacht` (true, wenn die Pflicht-Runde dieses Lerntags erledigt ist – WD-2), `aufgaben[]` in der Reihenfolge nach WD-1 (die ersten `runde` sind Pflicht, weitere freiwillig), `gestaffelt` (Zahl gesetzter Etappen, die noch warten – WD-4). Neue Aktion `schule_wiederholung_runde_fertig {lernender_id}` setzt den Merker.
+- `schule_uebung_pruefen` liefert bei einer Wiederholung oder einer Mischkarte nach WD-3 zusätzlich `wiederholung: { bestanden, sterne, stufe_neu, naechste_in }` und, wenn dadurch etwas abgelegt wird, `abgelegt: { etappe: { titel, sterne }, flug?: { titel, sterne }, ort_gold?: true }` – höchstens einmal je Kind und Etappe/Flug/Ort.
+- Konto/Reisepass (`schule_konto`): je Flug `abgelegt: true|false` und `etappen_abgelegt`/`etappen`; je Ort `gold: true|false`.
+- Regeln in `schule.regel`: `wdh_runde_min` 6, `wdh_runde_max` 12, `wdh_runde_max_bis_kl6` 10, `wdh_runde_teiler` 5, `wdh_gesetzt_je_lerntag` 6, `sterne_wdh_richtig` 5, `sterne_etappe_abgelegt` 30, `sterne_flug_abgelegt` 100.
+- **Sterne heute:** `sterne_uebung_richtig` = 10. `bau-lehrer` stellt fest, ob eine richtige Wiederholung heute schon 10 Sterne gibt. Wenn ja: **nicht kürzen**, sondern melden – Sebastian entscheidet dann zwischen 5 und 10.
+- App ohne neue Server-Felder (alter Server): Verhalten wie 0.84.0.
+- Einblendungen: `bau-motivation` baut sie im Stil der vorhandenen Abschluss-Ansichten („Etappe abgelegt“ klein, „Flug abgelegt“ groß, Gold im Reisepass); der Gestalter liefert parallel die Vorgabe und prüft nach – Abweichungen werden danach angeglichen.
+
+---
+
+# Vorarbeit „Reise-Aufbau“ (22.11.): Kontinent → Land → Stadt – Festlegungen des Haupt-Chats
+
+Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein Thema = ein Land** auf diesem Kontinent; **Etappe = eine Stadt** in diesem Land; Aufgaben = Highlights der Stadt, ohne Namen; sinnvoll gegliedert. Die Ebene „Ort“ entfällt. **Reihenfolge: erst der Bau-Auftrag WD, dann dieser Umbau.** Bis dahin nur Vorarbeit (Vorschlagsliste, kein Bau). Sebastian hat die Sonderfälle dem Haupt-Chat überlassen; festgelegt (er kann widersprechen):
+
+1. **Antarktis ist kein Lern-Kontinent mehr.** Dort gibt es keine Länder und Städte. Die Antarktis wird Heimat der **Expeditionen** (Forschungsstationen statt Städte) – das passt zum Wort und braucht keine Länder.
+2. **„Funktionen“ zieht in den Orient** (Naher Osten und Kaukasus, als eigener Reise-Kontinent neben Asien): 10 Länder, z. B. Türkei, Georgien, Armenien, Aserbaidschan, Iran, Irak, Jordanien, Saudi-Arabien, Vereinigte Arabische Emirate, Oman. Bisher hat dort kein Kind etwas gelernt – es geht nichts verloren.
+3. **„Algebra“ bleibt Asien** ohne den Orient: Zentral-, Süd-, Ost- und Südostasien (19 Länder). Die heutigen Orte Bagdad und Teheran wechseln in asiatische Länder; **Usbekistan (Samarkand) und Indien (Mumbai) bleiben**, weil dort schon gelernt wurde.
+4. **„Daten und Zufall“ = Australien und Ozeanien:** Australien zählt nach **Bundesstaaten** (New South Wales, Victoria, Queensland, South Australia, Western Australia, Tasmanien, Northern Territory), dazu Neuseeland (Nord- und Südinsel getrennt), Papua-Neuguinea und Fidschi – zusammen 12. Einzige Ausnahme von „ein Land“, weil Ozeaniens Inselstaaten zu wenige Städte haben.
+5. **„Entdecker-Inseln“ = Pazifik:** Hawaii, Französisch-Polynesien, Samoa, Tonga – keine Überschneidung mit Punkt 4.
+6. **Wo schon gelernt wurde, bleibt die Stadt erhalten:** Die heutige Stadt eines Orts wird eine der Städte des neuen Landes; Stempel und Sterne der Kinder bleiben (aus Stadt-Stempeln werden Länder-Stempel). Hat ein Ort heute mehrere Flüge, behält der Flug, den das Kind zuerst abgeschlossen hat, das Land der Stadt; die anderen bekommen Nachbarländer.
+7. **Länder nach Größe:** ein Flug hat 3 bis 12 Etappen – nur Länder mit genug bekannten Städten; Reihenfolge der Länder je Kontinent = Reihenfolge der Klassen als Route, Städte je Land als fahrbare Rundreise.
+8. Eltern/Lehrer sehen weiter „Themengebiet · Thema · Etappe“; die Reise-Namen sind nur die Kinderseite.
+
+**Nachtrag „Reise-Aufbau“ (22.11., zweite Durchsicht des Haupt-Chats; Sebastian: es können Themen dazukommen):**
+
+9. **Wachstum eingeplant.** „Land“ heißt überall **Land oder großer Landesteil** (Bundesstaat, Provinz, Region) – nicht nur in Australien. Große Länder dürfen also geteilt werden (z. B. USA, Kanada, Brasilien, Indien, China), wenn ein Kontinent sonst keine Länder mehr frei hat. Je Kontinent bleibt mindestens ein Drittel der möglichen Länder/Landesteile **unbenutzt als Reserve** (im Vorschlag auflisten); je Land mindestens **drei Reserve-Städte** für spätere Etappen. Neuer Flug = nächstes freies Land auf der Route; neue Etappe = Reserve-Stadt; geteilter Flug (wie bei den Potenzgesetzen) = Nachbarland. Wird ein Flug stillgelegt, bleibt sein Land für immer vergeben (kein Wiederverwenden – Stempel der Kinder).
+10. **Jedes Fach hat seine eigene Reise-Welt.** Die Zuordnung gilt nur für Mathematik (`fach`); ein späteres Fach darf dieselben Länder mit eigenem Reisepass neu belegen.
+11. **Der Mathe-Titel bleibt immer sichtbar.** Stadt und Land sind die Verpackung, nie der einzige Name: „Samarkand · Minus vor der Klammer“, „Usbekistan · Terme umformen“. Das gilt auch für Wiederholungen, Mischkarten („Das war: …“) und Tests.
+12. **Technischer Weg (für die spätere Schätzung von `bau-lehrer`): die Ebene Ort nicht ausbauen, sondern jeden Ort auf genau einen Flug bringen.** Die 18 Orte mit mehreren Flügen werden in Ein-Flug-Orte aufgeteilt (Daten-Migration: `block`, `block_thema`, `route` der Kinder mit richtigem Status je neuem Ort, Voraussetzungen/Visum, Sterne „ort“), der Ort bekommt das Land, die Etappe die Stadt. Plan, Reise-Sperren und Stempel arbeiten dann unverändert weiter – Stempel je Flug und „Visum für ein Land“ ergeben sich von selbst. Vorher/nachher-Vergleich je Kind: Stufen, Plan-Reihenfolge, Reiseoptionen, Sterne.
+13. **Bestehende Erfolge:** Hat ein Kind in einem bisherigen Mehr-Flug-Ort Flüge abgeschlossen, bekommt es für jeden dieser Flüge den Länder-Stempel und die Orts-Sterne nachträglich (einmalig); nichts wird abgezogen.
+14. Vorrang bei Widerspruch: Regel 6 (begonnene Städte bleiben) geht vor Regel 2/3 (Orient/Asien) – liegt eine begonnene Stadt im Orient, bleibt ihr Land beim bisherigen Themengebiet und wird im Orient nicht verwendet.
+
+---
+
+# Rückläufer 22.11. abends – Probelauf des Haupt-Chats und ChatGPT 911/912 (nichts eingespielt, nichts live)
+
+Übernommen (e1900e5): WD-S und Nacharbeit 907 (`bau-lehrer`), App 0.85.0 (WD) und 0.86.0 (LM-6) (`bau-motivation`), Lehrplan-Nacharbeit 907 (`lehrplan-lb`), Vorschlag Reise-Aufbau, Vorgabe „abgelegt“ und Nachprüfung Matrix (Gestalter). Probelauf auf der echten Datenbank, zurückgerollt: `nacharbeit_907` läuft, beide Rauchtests bestanden; `wd_s_wiederholungen` läuft; `wd_4b_stau_strecken` läuft (ein Kind: 42 fällige → 14); Stufen, Plan, Reiseoptionen, Lernstand und Sterne aller Kinder gleich.
+
+**A – `bau-lehrer`, WD-S 2**
+1. **Fehler:** `wd_s_rauchtest.sql` bricht auf der echten Datenbank ab: „new row for relation "sterne" violates check constraint "sterne_grund_check"“. Die neuen Sterne-Gründe fehlen in der Prüfregel der Tabelle `schule.sterne` – in der Migration ergänzen (ohne DROP der Spalte; Constraint ersetzen ist erlaubt), lokal mit der echten Tabellendefinition prüfen.
+2. **ChatGPT 912, MUSS 5:** `schule_wiederholung_runde_fertig` darf kein bloßer Schalter sein. Beim ersten Abruf des Lerntags die Runde festhalten (Tagesziel und zugeordnete Etappen in `schule.wdh_runde`); „gemacht“ setzt der Server selbst, sobald alle Pflicht-Aufgaben der Runde beantwortet sind (richtig oder falsch – falsch zählt als bearbeitet, nicht als bestanden); die Aktion bestätigt nur noch und lehnt ab, wenn Aufgaben fehlen (Ausnahme: 0 fällige, oder Aufgabe inzwischen gesperrt → zählt als bearbeitet). Zweites Gerät setzt dieselbe Runde fort; neue Fälligkeiten am selben Tag erzeugen keine zweite Pflicht-Runde.
+3. **ChatGPT 911, MUSS 3:** je Fälligkeit genau ein Stufenfortschritt und eine Vergütung – auch bei zwei Geräten oder doppelt gesendeter Antwort (Test dazu); eine nicht fällige Mischkarte gibt nur den Misch-Beleg, keinen Fortschritt (Test). Falsche Mischkarte als Wiederholungs-Fehler für die Reihenfolge der nächsten Runde zählen.
+4. **Reihenfolge der Runde:** mindestens ein Drittel der Pflicht-Plätze für die am längsten fälligen Etappen, damit Fehler-Etappen die übrigen nicht verdrängen.
+5. **Nachtest nach dem Ablegen (ChatGPT MUSS 4, statt „7 Lerntage“):** Fällt eine abgelegte Etappe im Nachtest oder beim Üben durch, kommt sie am **nächsten Lerntag** zurück in den Takt (Stufe 2); Gold, Sterne und Einblendung bleiben, ein zweites Ablegen gibt nichts. Als Teil dieser Lieferung bauen. Ablegen bleibt an der bestandenen fünften Wiederholung (30 Lerntage nach der vierten) – nicht zusätzlich an „sicher“ gebunden (Wunsch der Kinder); im Kopf der Migration festhalten: frühestens 55 Lerntage nach der Landung; `abgelegt` ist ein eigenes Ereignis, nie aus `wdh_stufe` abgeleitet.
+6. **Sterne:** `sterne_wdh_richtig` bleibt bis zu Sebastians Entscheidung auf 10. Letzte Wiederholung: Wiederholungs-Sterne + 30 + ggf. 100 kommen zusammen, je einmal.
+7. Im Kopf von `wd_s`: Ziel ist „Stau schrittweise abbauen, etwa fünf Lerntage bei ausreichender Kapazität“ – keine Garantie (ChatGPT MUSS 1); bekannte Grenze: ohne Bündeln trägt die Kapazität dauerhaft etwa 3 Landungen je Lerntag (MUSS 2).
+8. Tests zusätzlich: 20/41/60/100 fällige, keine Mischkarten, zwei Geräte, Abbruch mitten in der Runde, Tageswechsel, letzte Stufe, Rückfall nach dem Ablegen. „FERTIG: WD-S 2“.
+
+**B – `lehrplan-lb`:** `20261122_lehrplan_nacharbeit_907.sql` bricht ab: „cannot insert a non-DEFAULT value into column "id"“ (`schule.thema.id` ist GENERATED ALWAYS – Testthemen ohne feste id anlegen oder `overriding system value`). Dazu aus der Nachprüfung des Gestalters: N2 – fünf aufgelöste Themen tragen noch eine Realschul-Klasse (48, 78, …): Klasse/Reihenfolge RS und IB der zehn aufgelösten Themen leeren, Reihenfolgen nachziehen; N3 – Thema 83 ist aufgelöst und trägt `eigenstaendig`: Kennzeichnung entfernen. „FERTIG: Lehrplan Nacharbeit 907 b“.
+
+**C – `bau-motivation`, 0.86.1:**
+1. **Test schlägt fehl (zweimal, auch einzeln):** „LM-S 2: Raster … Detail …“ wartet vergeblich auf „Eigenständig: braucht keine Voraussetzung – Einstieg in die Geometrie“ im Detail (`tests/lernen.test.cjs:3778`). Ursache finden (App oder Test) und beheben – das betrifft die Lehrer-Matrix, die live ist.
+2. Einblendungen, Gold und Runde an die Vorgabe des Gestalters angleichen: `inhalte/pruefung/kind/abgelegt/umsetzung.md`, `entwurf/abgelegt.html`.
+3. An WD-S 2 anpassen: kein eigenes Setzen von „Runde gemacht“ mehr – der Server setzt es; die Aktion nur noch zum Bestätigen; Aufgaben mit `pflicht`; `anzahl` weglassen. Text: nie „Schulden“/große Rückstandszahl zeigen; Runde sichtbar endlich („3 von 9“), unterbrechen und fortsetzen möglich.
+4. Matrix-Nachprüfung N1: am Rechner (1280) sind die Spalten zu schmal, Titel zerstückelt – Lösung nach `inhalte/pruefung/lehrer/matrix/nachpruefung.md`.
+„FERTIG: 0.86.1“.
+
+---
+
+# Fehler Mischkarten (22.11., gemeldet von einem Kind): dieselbe Aufgabe dreimal am Tag, in drei Etappen
+
+**Befund aus den Daten (ohne Namen):** Eine Aufgabe (Stufe 2, Etappe „Werte von Bruchtermen berechnen“) wurde am selben Tag dreimal beantwortet: 14:23 im normalen Üben ihrer eigenen Etappe, 18:39 als Mischkarte (Ausgabe von 13:10 eingelöst), 20:04 noch einmal als Mischkarte angezeigt – vom Server aber als normale Antwort gebucht, weil keine gültige Ausgabe mehr bestand. Im Pool dieser Etappe liegen 16 passende Aufgaben (Stufe 2–3).
+
+**Ursachen**
+1. **App:** Die Mischkarten-Liste (`ctx.daten.mischkarten`) wird je Flug einmal geladen und **für jede Etappe neu von vorn benutzt** (`mischRest` in `lernen.js`, „keine Wiederholung in der Sitzung“ gilt nur innerhalb einer Etappe). In der nächsten Etappe kommt dieselbe Karte wieder.
+2. **Server:** Eine vorab ausgegebene Mischkarte bleibt bis zu 24 Stunden offen und wird wieder ausgegeben, auch wenn das Kind **dieselbe Aufgabe inzwischen im normalen Üben gelöst** hat. Die Auswahl (`schule.mischkarten_waehlen`) schließt schon bearbeitete Aufgaben nicht aus.
+3. **Anzeige:** Beim dritten Mal zeigt die App „+10 Sterne“, obwohl der Server je Aufgabe nur einmal Sterne bucht.
+
+**Aufträge – Teil des WD-Pakets, vor dem Einspielen (mit WD zählt eine Mischkarte als Wiederholung; eine bekannte Aufgabe wäre dann kein Abruf, vgl. ChatGPT 911 MUSS 3):**
+- **`bau-lehrer`, WD-S 3 (Dateien):** (a) Auswahl der Mischkarten: zuerst Aufgaben, die das Kind **noch nie** beantwortet hat, dann die am längsten zurückliegenden; **nie** eine Aufgabe, die es in den letzten 3 Lerntagen beantwortet hat (egal ob Üben, Wiederholung, Mischkarte, Test); unter gleichwertigen zufällig. (b) Offene Ausgabe verfällt sofort, wenn dieselbe Aufgabe anders beantwortet wird. (c) Dieselbe Regel für die Aufgaben der Wiederholungs-Runde (`schule_wiederholung`): keine Aufgabe von heute oder gestern, wenn die Etappe andere hat. (d) Kommt eine Mischkarte ohne gültige Ausgabe an, antwortet der Server mit `misch: { gueltig: false }`, bucht sie nicht als Wiederholung und liefert die tatsächlich gebuchten Sterne (`sterne`) mit. Tests: gleiche Aufgabe nicht zweimal am Tag; Pool mit nur einer Aufgabe; nach normalem Üben keine Mischkarte derselben Aufgabe. „FERTIG: WD-S 3“.
+- **`bau-motivation`, 0.86.2:** (a) Eine gezeigte Mischkarte wird für die ganze Sitzung des Flugs aus der Liste genommen (nicht je Etappe neu); ist die Liste leer, einmal neu vom Server holen, sonst ohne Mischkarte weiter. (b) Sterne-Anzeige nur aus der Antwort des Servers (keine eigenen „+10“). (c) Bei `misch.gueltig === false` kein „Das war …“-Lob als Wiederholung. Test: drei Etappen nacheinander, keine Mischkarte doppelt. „FERTIG: 0.86.2“.
+
+**Nachtrag „WD-S 3 – frische Aufgaben“ (22.11., Entscheidung Sebastian):**
+- Wiederholungen nach **1, 3 und 7 Lerntagen** (Stufe 0–2) und **jede Mischkarte**: nur Aufgaben, die das Kind **noch nie** beantwortet hat (egal in welcher Rolle: Üben, Wiederholung, Mischkarte, Test, Knobeln).
+- Wiederholungen nach **14 und 30 Lerntagen** (Stufe 3–4): beliebige Aufgabe der Etappe, bevorzugt die am längsten zurückliegende.
+- Ist keine frische Aufgabe mehr da: die am längsten zurückliegende, **nie** eine aus den letzten 3 Lerntagen; gibt es auch die nicht, an diesem Tag keine Aufgabe dieser Etappe (Wiederholung bleibt fällig).
+- **Keine Mischkarte aus einer Etappe, in der das Kind am selben Lerntag schon eine Aufgabe beantwortet hat** (auch nicht, wenn sie fällig ist – dann kommt sie in der Runde am nächsten Lerntag).
+- Lesende Funktion für den Haupt-Chat: je Kind die gelandeten Etappen mit weniger als 3 frischen Aufgaben der Stufen 2–3 (Stand 22.11.: Bestand je Etappe mindestens 14 solche Aufgaben, typisch 16; 3 von 51 selbst gelandeten Etappen liegen unter 3). Dort lässt der Haupt-Chat Aufgaben nachliefern.
+
+---
+
+# ChatGPT 919 zu WD-S 2 / WD-4b / Nacharbeit 907 (22.11.) – vier Muss, alles vor dem Einspielen
+
+(ChatGPT 918 betrifft die alte Fassung von `flug_geschafft` und ist durch `flug_erstabschluss` überholt.)
+
+**`bau-lehrer` – in WD-S 3 mit erledigen (zusätzlich zu „Fehler Mischkarten“ und „WD-S 3 – frische Aufgaben“):**
+1. **MUSS 1 – bestandene Wiederholung.** Heute rückt eine fällige Wiederholung auch mit Tipp oder im zweiten Versuch weiter; damit könnte eine Etappe mit Hilfe „abgelegt“ werden. Neu (vorbehaltlich Sebastians Entscheidung, Standard so bauen, per Regel `wdh_nur_selbst` = true umschaltbar): **Stufenfortschritt, Wiederholungs-Sterne und Ablegen nur bei richtig im ersten Versuch ohne Tipp** – für Runde, freiwillige Wiederholung und Mischkarte gleich. Richtig mit Tipp oder im zweiten Versuch: kein Fortschritt, kein Fehler; die Etappe kommt am nächsten Lerntag wieder. Endgültig falsch: wie bisher. Test über den echten Antwortweg (Stufe 4, Tipp bzw. zweiter Versuch → nicht abgelegt).
+2. **MUSS 2 – WD-4b und die festgehaltene Tagesrunde.** WD-4b nimmt Etappen aus, die in einer offenen Runde von heute stehen (oder aktualisiert die Runde mit). Test „Runde begonnen → WD-4b → offene Pflichtaufgabe zählt“.
+3. **MUSS 3 – WD-4b zählt belegte Folgetage mit:** höchstens `wdh_gesetzt_je_lerntag` erste Wiederholungen je Kind und Lerntag einschließlich der schon von WD-4 geplanten. Test mit vorbelegtem Folgetag.
+4. **Sollte:** Misch-Fehler für die Reihenfolge erst nach endgültiger Wertung (`schule.versuch_wertung`); echter Test mit zwei gleichzeitigen Transaktionen (ein Fortschritt, einmal Sterne) und über die API-Antwort; Rückweg von WD-4b nur ohne Zwischenübung (prüfen und sonst ablehnen), kein zweiter Lauf; Lerntage statt Kalendertage belegen (Test mit eingetragenen Reisetagen); vorhandene Einträge in `flug_erstabschluss` gegenprüfen.
+
+**`lehrplan-lb` – Nacharbeit 907 c:** MUSS 4 – der Löschschutz gilt auch für Einheiten im Status `geprueft` (für Kinder sichtbar), Test dazu; Rauchtest l nur für die zehn stillgelegten Themen, nicht für alle nicht freigegebenen.
+
+**`bau-motivation` – in 0.86.2 mit erledigen:** Text nach dem Ablegen nicht „kommt nicht mehr wieder“, sondern sinngemäß „aus der regelmäßigen Wiederholung – wird nur noch bei Bedarf aufgefrischt“; Antwort `wiederholung.bestanden === false` bei richtig mit Tipp/zweitem Versuch freundlich zeigen („Richtig – morgen noch einmal ohne Hilfe“).
+
+**Entscheidungen Sebastian (22.11., 11:00 Berlin) zum WD-Paket und zum Reise-Aufbau:**
+1. **Wiederholung zählt nur selbstständig:** Fortschritt im Takt, Wiederholungs-Sterne und Ablegen nur bei richtig im ersten Versuch ohne Tipp (`wdh_nur_selbst` = true bleibt). Mit Tipp oder im zweiten Versuch richtig: kein Fehler, die Etappe kommt am nächsten Lerntag wieder.
+2. **10 Sterne je richtiger Wiederholung** (`sterne_wdh_richtig` = 10, keine Kürzung); dazu 30 je abgelegter Etappe und 100 je abgelegtem Flug.
+3. **Stau strecken (WD-4b): ja** – nach WD-S 3, Probelauf und ChatGPT, zusammen mit dem Paket.
+4. **Reise-Aufbau:** nach dem WD-Paket weitermachen (Entwurf des Gestalters, Aufwandsschätzung); für schon abgeschlossene Flüge gibt es Länder-Stempel **und** die 100 Sterne nachträglich.
+5. Kinder-Zugänge sind angelegt (je Kind ein Lern-Zugang) – erledigt.
+
+### Nachtrag WD-S 3 – Rauchtest stabil machen (22.11., 11:15 Berlin) · an `bau-lehrer`
+
+Probelauf des Haupt-Chats gegen die echte Datenbank (Rollback, Commit 7675d32): alle fünf Migrationen laufen, Stufen/Reise/Lernstand/Sterne unverändert, drei Tests grün. `supabase/tests/wd_s3_rauchtest.sql` bricht in Schritt 2 ab („keine frische: nicht die am längsten zurückliegende“).
+
+Ursache liegt im Test, nicht in der Funktion: Der Test rechnet nur mit den Auswahl-Aufgaben der Stufen 2–3 (`v_ids`), `schule.wdh_aufgabe_waehlen` wählt aber richtig aus **allen** freigegebenen Übungsaufgaben der Etappe. In der echten Etappe (Einheit 1, `roemisch_system`: 19 Aufgaben, davon 8 Auswahl Stufe 2–3) gibt es weitere nie beantwortete Aufgaben – die werden zu Recht vor einer alten gewählt. Schritt 2, erste Prüfung, besteht dort nur zufällig.
+
+Bitte nur die Testdatei ändern (keine Migration): Vor Schritt 1 alle übrigen Übungsaufgaben beider Test-Etappen als „innerhalb der Sperre beantwortet“ markieren (z. B. `w3_gesehen` am Vortag, nicht heute) – mit genau dieser Änderung läuft der ganze Test bei mir grün. Meldung im Postfach: „FERTIG: WD-S 3 Test“.
+
+## Bau-Auftrag FP – faire Punkte (22.11., 11:30 Berlin) · Entscheidung Sebastian: „Ja“
+
+**Anlass:** Die Kinder haben bemerkt, dass eine Etappe mit Fehlern mehr Sterne bringt (Daten: 0 Fehler ≈ 5 Aufgaben ≈ 50 Sterne, 3+ Fehler ≈ 15 Aufgaben ≈ 145 Sterne). Je Aufgabe ist es gleich, je Etappe nicht. Sauberes Arbeiten soll sich lohnen, ohne das Kind zu bestrafen, das mehr üben muss.
+
+**Regeln (entschieden):**
+1. Übungsaufgabe richtig **im ersten Versuch ohne Tipp**: 10 Sterne (wie bisher, je Aufgabe einmal). Richtig erst im zweiten Versuch oder mit Tipp: **5** Sterne. Neue Regel `sterne_uebung_mit_hilfe` = 5.
+2. **Landungs-Bonus** je Kind und Etappe genau einmal, im Moment der Landung: ohne Fehler **80**, mit 1–2 Fehlern **40**, sonst **10**. Regeln `sterne_landung_ohne_fehler` 80, `sterne_landung_wenig_fehler` 40, `sterne_landung_sonst` 10, `landung_wenig_fehler_max` 2.
+3. „Fehler“ = falsche Antwort auf eine Übungsaufgabe dieser Etappe bis zur Landung (keine Tests, keine Wiederholungen, keine Mischkarten). Ein genommener Tipp ist kein Fehler (er kostet nur über Regel 1).
+4. **Nachträglich** für alle schon gelandeten Etappen (echte Landung, nicht über „Kann er“ gesetzt): Bonus nach derselben Regel gutschreiben. Schon gebuchte Sterne werden nie gekürzt; Regel 1 gilt erst ab Einspielen.
+5. Wiederholungen bleiben wie in WD entschieden (10, nur selbst gelöst).
+
+### FP-S · an `bau-lehrer` (Datei, nicht einspielen)
+- Neue Migration `supabase/migrations/20261122_fp_s_faire_punkte.sql`, baut auf WD-S 2/3 auf (wird danach eingespielt). Kein DROP, kein DELETE.
+- Neuer Sterne-Grund für den Bonus (Constraint `sterne_grund_check` erweitern), Buchung einmalig je Kind+Etappe (doppelter Aufruf, gleichzeitige Antworten: genau eine Buchung).
+- `schule_uebung_pruefen` liefert bei der Landung zusätzlich `landung {bonus, fehler, stufe: 'ohne'|'wenig'|'sonst'}` und bei jeder Antwort die tatsächlich gebuchten Sterne (`sterne`), damit die App nichts selbst rechnet (Wunsch von bau-motivation). Regeln über `schule_konto`/Regel-Auslieferung mitgeben.
+- Nachbuchung als Funktion `schule.landung_bonus_nachbuchen()` (liefert je Kind Anzahl Etappen und Summe, nur Nummern), einmalig, zweiter Lauf tut nichts. Der Haupt-Chat führt sie nach Probelauf aus.
+- Rauchtest `supabase/tests/fp_s_rauchtest.sql` (begin … rollback, Testkind): 10/5, Bonus 80/40/10, genau einmal, gesetzte Etappe ohne Bonus, Nachbuchung zweimal = einmal, Lernstand/Stufen unverändert. Der Test darf nicht von der Zusammensetzung einer echten Etappe abhängen (siehe Nachtrag WD-S 3).
+- Meldung im Postfach: „FERTIG: FP-S“ mit Vorher/Nachher-Zahlen der Nachbuchung aus einem lesenden Lauf.
+
+### FP-App · an `bau-motivation` (nach FP-S-Schnittstelle, App 0.87.0)
+- Anzeige nach der Antwort aus dem Serverwert `sterne` (10 bzw. 5; bei 5 kurzer Hinweis „selbst gelöst gibt 10“ – ohne Tadel).
+- Landungs-Einblendung zeigt den Bonus: „Direktflug – ohne Fehler +80“, „Fast direkt +40“, „Gelandet +10“ (Wortlaut darf der Gestalter ändern). Fehlt `landung`, bleibt alles wie bisher.
+- Einmaliger Hinweis nach der Nachbuchung („Für deine bisherigen Landungen gab es … Sterne“), wenn der Server ihn liefert; sonst nichts.
+- Info-Seite der Regeln anpassen. Tests ergänzen. Meldung: „FERTIG: 0.87.0“.
+
+### Aufgaben nachliefern · an `lehrplan-lb`
+Etappen mit weniger als 3 nie beantworteten Aufgaben der Stufen 2–3 (aus `schule.etappen_wenig_frisch()`): Einheit 39 „ordnen“ und „zahlengerade“, Einheit 5 „waage“. Je Etappe 8 neue Übungsaufgaben (Stufe 2–3, mindestens zwei Aufgabentypen, eigene Formulierungen, keine Schulbuch-Aufgaben wörtlich), im üblichen Einheiten-Format, Prüfskript grün. Meldung: „FERTIG: Aufgaben frisch“.
+
+### Nachtrag WD-S 4 – Rückläufer ChatGPT 921 (22.11., 11:55 Berlin)
+
+ChatGPT hat WD-S 3 / WD-4b / 907 c bei Commit 7675d32 gelesen: die vier Muss aus 919 sind zu, fünf neue Muss. Bewertung des Haupt-Chats: alle berechtigt, im Alltag selten, aber billig zu schließen – vor dem Einspielen erledigen. **Vor FP-S bearbeiten.**
+
+**An `bau-lehrer`** – neue Datei `supabase/migrations/20261122_wd_s4_nacharbeit_921.sql` (nach WD-S 3 und WD-4b einzuspielen; schon gelieferte Dateien nicht ändern, außer den Tests). Kein DROP, kein DELETE.
+1. **Mischkarte beim Einlösen prüfen (Muss 1):** Eine ausgegebene Mischkarte zählt nicht mehr als Misch-Nachweis/Wiederholung, wenn seit der Ausgabe eine *andere* Aufgabe derselben Etappe beantwortet wurde (Prüfung im Server beim Einlösen). Zweiter Versuch einer schon begonnenen Mischkarte bleibt möglich. Test: A ausgeben → B derselben Etappe beantworten → A ohne Neuladen einlösen → `misch.gueltig` false, keine Wiederholung.
+2. **Wiederholung mit Hilfe: keine Sterne (Muss 2, Festlegung Haupt-Chat):** Jede richtig gelöste *fällige Wiederholung oder Mischkarte* mit Tipp oder im zweiten Versuch bucht 0 Sterne – auch keine Übungssterne. Antwort und Konto stimmen überein. (FP ändert daran nichts: 5 Sterne mit Hilfe gelten nur beim normalen Üben einer Etappe.) Test: Sternsumme und Gründe vorher/nachher.
+3. **Runde fertig bei gleichzeitigen Antworten (Muss 3):** Abschluss der Tagesrunde je Kind und Tag serialisieren (Sperre auf der Runden-Zeile vor dem Zählen). Zwei-Sitzungen-Test an zwei verschiedenen letzten Pflicht-Etappen, Zustand danach direkt per SELECT.
+4. **`wdh_staffel_zurueck`/`_strecken` unter Sperre (Muss 4):** Karten in fester Reihenfolge `for update` sperren, unter der Sperre prüfen und schreiben.
+5. **Tests (Muss 5, Sollte 1, 3):** `wd_s3_rauchtest.sql` wie im Nachtrag „Rauchtest stabil machen“; Teil 7 darf fehlende WD-4b-Funktionen nicht überspringen; `wd_s3_gleichzeitig.sh` bricht bei „FEHLER“ mit Exit ≠ 0 ab; `wdh_aufgabe_da` als deterministisches EXISTS (ohne Zufallswahl); Fälle 0/1 freie Aufgabe und Lerntage mit Pausen.
+6. **Rechte (Sollte 4):** für alle neuen `schule.*`-Helfer aus WD-S 2/3/4 `revoke all … from public, anon, authenticated`, soweit noch nicht geschehen.
+Meldung im Postfach: „FERTIG: WD-S 4“ (ersetzt „FERTIG: WD-S 3 Test“).
+
+**An `bau-motivation`** – App 0.86.3 (vor 0.87.0):
+- Runde gemacht, noch fällige Etappen, aber keine wählbare Aufgabe: kein Angebot „freiwillige Extras“, sondern „Heute keine passende frische Aufgabe – bleibt für später offen.“ (Sollte 2)
+- Siegel-Text „FÜR IMMER GELERNT“ ersetzen (Etappe kann nach einem Fehler zurück in den Takt), z. B. „ABGELEGT“; Wortlaut nach Gestalter-Vorgabe `inhalte/pruefung/kind/abgelegt/`, falls dort anders. (Sollte 4)
+- Anzeige bei Wiederholung/Mischkarte mit Hilfe: 0 Sterne, aus dem Serverwert.
+Meldung: „FERTIG: 0.86.3“.
+
+### Nachtrag FP-S 2 – Rückläufer ChatGPT 924 (22.11., 12:50 Berlin) · an `bau-lehrer`
+
+ChatGPT 924: die fünf Muss aus 921 sind zu (WD-S 4). Ein neues Muss zu FP-S, dazu Sollte. Neue Datei `supabase/migrations/20261122_fp_s2_nacharbeit_924.sql` (nach FP-S einzuspielen; gelieferte Migrationen nicht ändern). Kein DROP, kein DELETE.
+1. **`sterne` in der Antwort (Muss):** nicht mehr als Differenz der ganzen Kind-Sternsumme vor/nach dem Aufruf berechnen (zwei gleichzeitige Antworten desselben Kindes melden sonst fremde Sterne mit), sondern nur die in diesem Aufruf eingefügten Buchungen zählen (RETURNING bzw. aufruf-lokaler Zähler). Gilt auch für `misch.sterne`. Zwei-Sitzungen-Test: zwei Etappen gleichzeitig; Landung gleichzeitig mit Nachbuchung – jede Antwort meldet genau ihre Sterne, Summe stimmt.
+2. **Misch-Gültigkeit einmal entscheiden (Sollte 2):** Ergebnis der einen Prüfung an Antwort und Wertung durchreichen.
+3. **Nachbuchungs-Hinweis (Sollte 3):** „gesehen“ im Server merken (Zeitpunkt je Kind, kleine Aktion mit Zugriffsprüfung) statt nur im Gerät; an `bau-motivation` die Schnittstelle melden.
+4. **Tests (Sollte 1, 4):** `wd_s3_gleichzeitig.sh` wartet auf beide Prozesse einzeln und bricht bei Fehler ab; `fp_s_rauchtest.sql` ergänzt um 1 Fehler, Tipp, zweiter Versuch, Mischkarte, Fehler nach der Landung, Wiederlandung.
+Meldung im Postfach: „FERTIG: FP-S 2“.
+
+## Prüf-Auftrag LP-RS – Realschul-Lehrplan Punkt für Punkt (22.11., 13:00 Berlin) · an `lehrplan-lb`
+
+**Anlass (Sebastian):** „Ich glaube euch irgendwie noch nicht.“ In der Matrix hat RS 7 rund 20 Themen, RS 8 nur 7–10. Stichprobe des Haupt-Chats gegen LehrplanPLUS (Gruppe I, 7 und 8):
+- Lernbereiche und Stunden stimmen (7: 8 Lernbereiche, 8: 7 Lernbereiche, je ca. 112 Std.).
+- RS 8: Lernbereich 1 Vierecke (12 Std.), 2 Drehung (6 Std.), 7 Daten und Zufall (8 Std.) haben kein Thema in Klasse 8; Lernbereich 4 (40 Std.) nur eines – Terme/Gleichungen stehen in Klasse 7, weil ein Thema nur an einer Klasse hängt.
+- Zuordnungen fehlen ganz: RS 7 „Dreiecke“ (5 Punkte), „Ortslinien“ (6 Punkte) – obwohl Themen 44, 45, 73 diesen Lernbereich als Beschriftung tragen; RS 8 „Daten und Zufall“ 2 von 3; RS 9 „Kreis“ 2 von 2. Zuordnungstabelle und `thema.lernbereich` widersprechen sich.
+- Die Kompetenz-Texte ab Klasse 7 sind Kurzfassungen (Quelle-Hinweis „nicht gegen Original geprüft“).
+
+**Aufgabe (nur prüfen und Dateien liefern, nichts einspielen):**
+1. **Original abgleichen:** Realschule Bayern Mathematik 5–10, ab Klasse 7 **beide** Wahlpflichtfächergruppen (I und II/III), jede Seite von lehrplanplus.bayern.de neu abrufen. Je Lernbereich: Nummer, Titel, Stunden, Zahl der Kompetenz- und Inhaltspunkte – gegen `schule.eintrag` (Quellen 7, 8, 24, 25, 12, 26, 13, 14, 15, 16). Abweichungen und fehlende Punkte auflisten. Keine Lehrplantexte wörtlich übernehmen (eigene Kurzfassung bleibt), aber jede Kurzfassung auf Sinn gegen das Original prüfen.
+2. **Zweite Quelle je Klasse und Gruppe:** mindestens ein Stoffverteilungsplan oder Inhaltsverzeichnis eines zugelassenen bayerischen Realschulbuchs (z. B. C.C. Buchner Mathe.Logo, Westermann Mathematik Realschule Bayern, Cornelsen) und, für 9/10, die Themen der Abschlussprüfung (ISB/Kultusministerium). Zweck: Gegenprobe, ob ein Thema in der Praxis in dieser Klasse unterrichtet wird. Quelle mit Link und Abrufdatum nennen; Widersprüche zum amtlichen Plan ausweisen (amtlich gilt).
+3. **Jeder Punkt braucht ein Zuhause:** Für jeden Kompetenz-/Inhaltspunkt entweder Thema (mit Bezug „neu“ oder „weitergeführt“) oder ausdrücklich „Lücke – kein Thema vorhanden“. Tabelle je Klasse/Gruppe: Lernbereich · Stunden · Punkte · zugeordnet · Lücken · Themen.
+4. **Klasse je Thema prüfen:** Für jedes Thema mit `klasse_fest.rs_by`: In welchen Klassen kommt es laut Original vor (erstmals / weitergeführt)? Liste der falsch eingeordneten Themen mit Beleg (Lernbereich-Nummer).
+5. **Gymnasium als Stichprobe:** Klasse 7 und 8 nach demselben Verfahren (Leo). Nur Bericht.
+6. **Vorschlag Datenmodell** (kurz, für `bau-lehrer`): wie ein Thema in mehreren Klassen geführt wird („neu“/„weitergeführt“) und wie die Matrix je Klasse die Abdeckung der Lernbereiche nach Stunden zeigt statt einer Themenzahl.
+
+**Lieferung:** `inhalte/pruefung/lehrplan/rs_pruefung_2211.md` (Bericht mit Tabellen und Quellenliste), `rs_pruefung_2211.json` (maschinenlesbar: Quelle, Lernbereich, Punkt, Thema, Bezug, Befund) und – getrennt – ein Korrektur-SQL als Datei (nur INSERT/UPDATE auf `schule.zuordnung`, `schule.eintrag`, `schule.thema`; kein DROP, kein DELETE), das der Haupt-Chat nach Probelauf einspielt. Trennen: gesichert (am Original belegt) / Annahme / offen. Meldung im Postfach: „FERTIG: LP-RS“.
+
+### Nachtrag FP-S 3 – Rückläufer ChatGPT 929 (22.11., 13:30 Berlin) · an `bau-lehrer`
+
+ChatGPT 929: Muss aus 924 (Sterne aus Summendifferenz) ist zu. Ein Muss bleibt: **Mischkarte atomar einlösen.** FP-S 2 prüft die Gültigkeit ohne Sperre vor und reicht das Ergebnis durch; entschieden wird aber erst in `schule.misch_buchen` (UPDATE … FOR UPDATE SKIP LOCKED). Findet dieser Schritt keine freie Ausgabe (zweite gleichzeitige Antwort auf dieselbe Karte, oder inzwischen andere Aufgabe der Etappe beantwortet), wird normal gebucht – die Antwort meldet trotzdem `misch.gueltig = true`.
+Neue Datei `supabase/migrations/20261122_fp_s3_nacharbeit_929.sql` (nach FP-S 2): Gültigkeit und Beanspruchen der Ausgabe unter einer gemeinsamen Sperre entscheiden; der **tatsächliche** Ausgang geht an Versuch, Wiederholungswertung und Antwort (`misch.gueltig`, `kein_wdh`). Tests: zwei verschiedene `client_id` auf dieselbe ausgegebene Mischkarte; A vorprüfen → B derselben Etappe beantworten → A einlösen; in beiden Fällen keine falsche Misch-Bestätigung, kein Wiederholungsfortschritt im Rückfall. Paralleltest D zusätzlich für gleichzeitiges Beanspruchen desselben Landungs-Bonus. Kein DROP, kein DELETE. Meldung: „FERTIG: FP-S 3“.
+
+**An `bau-motivation`** (App 0.87.1): Nachbuchungs-Hinweis über die neue Aktion `schule_landung_nachbuchung_gesehen` quittieren (Feld `gesehen_am` aus `schule_konto`), localStorage nur noch als Rückfall. Meldung: „FERTIG: 0.87.1“.
+
+### Nachtrag LP-RS – Gegenprobe ChatGPT 927/928/930 (22.11., 13:30 Berlin) · an `lehrplan-lb`
+
+ChatGPT hat alle acht amtlichen Pläne (7–10 × Gruppe I, II/III) unabhängig gelesen. Bitte in die Prüfung einarbeiten und selbst nachprüfen:
+- Stichprobe 7 I / 8 I bestätigt. Stunden laut amtlichem Plan: 7 I 112 / II–III 84; 8 I 112 / 84; 9 I 140 / 84; 10 I 120 / 96.
+- **Die Gruppen unterscheiden sich in der Klassenlage:** Dreiecke I 7 ↔ II/III 8; lineare Funktionen I 8 ↔ II/III 8 (y = mx) und 9 (y = mx + t); quadratische Funktionen/Gleichungen I 9 ↔ II/III 10; Körperberechnungen I 9 ↔ II/III 10; Matrizen-Abbildungen und Potenzfunktionen nur 10 I. Ein einziges `klasse_fest.rs_by` je Thema kann das nicht abbilden.
+- Nicht pauschal verschieben: Extremwerte quadratischer Terme stehen in beiden Gruppen in 8; Schrägbilder 7 I und 8 II/III; Determinanten auch 7 II/III; Baumdiagramme/Vierfeldertafel schon in 8, Laplace 9, Pfadregeln 10.
+- Im Repo auffällig: Themen 48 und 78 ohne RS-Klasse trotz RS-Lernbereich; 91 steht bei RS 8, beschreibt aber auch 7 I; 46 (RS 6) enthält Drehung (8 I); 33 mischt y = mx und y = mx + t.
+- Zweitquellen, die ChatGPT lesen konnte: Inhaltsverzeichnis Westermann 7 I (kapiert.de), Kapitelübersicht 8 II/III (braille.bildung.hessen.de), ISB-Leistungsaufgaben 9, Abschlussprüfung 2026 I und II/III (isb.bayern.de). Die Jahrgangsstufenprofil-Adressen für 8–10 führten auf die Startseite – nicht als Beleg verwenden.
+- **Vorschlag Datenmodell (Punkt 6 des Auftrags) deshalb verbindlich so anlegen:** Zuordnung je `Gruppe × Klasse × Lernbereich × Punkt → Thema/Etappe` mit Bezug „neu/weitergeführt“; Lernstand und Sterne werden nie doppelt geführt. Welche Gruppe die App zeigt, entscheidet Sebastian (offen).

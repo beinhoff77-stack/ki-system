@@ -4789,7 +4789,8 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .mx-leg-vor { background: #FFF4DC; box-shadow: 0 0 0 2px #B7791F; } .mx-leg-weg { background: #FFF9EC; box-shadow: 0 0 0 1px #D9B26A; }
 .mx-leg-nach { background: #E8F1FB; box-shadow: 0 0 0 2px #2B6CB0; } .mx-leg-zu { background: #FBF9F4; border: 1px dashed #8C96A0; }
 .mx-haupt { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
-@media (min-width: 1100px) { .mx-haupt { grid-template-columns: minmax(0, 1fr) 320px; } .mx-detail { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow: auto; } }
+@media (min-width: 1100px) { .mx-haupt.mx-mit-detail { grid-template-columns: minmax(0, 1fr) 320px; } .mx-detail { position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow: auto; }
+  .mx-haupt:not(.mx-mit-detail) > .mx-detail { display: none; } }
 .mx-wrap { position: relative; }
 .mx-matrix { display: grid; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface, #fff); }
 .mx-matrix.mx-z { grid-template-columns: 92px repeat(var(--n), minmax(0, 1fr)); }
@@ -4880,3 +4881,164 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .lern-reiter a.lern-plan-matrix-link { margin-left: auto; color: var(--accent); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
 .lern-reiter:has(.lern-plan-matrix-link) { flex-wrap: wrap; overflow-x: visible; } .lern-reiter a.lern-plan-matrix-link { min-height: 36px; padding: 6px 4px; }
 .mx-chip.mx-ohne { opacity: .5; border-style: dotted; border-left-style: solid; }
+
+/* ---------- LM-6 (0.86.0): Kinderseite „Meine Route 5–10“ – Matrix in den Farben der Kinderseiten (hell und Nacht) ---------- */
+.lr-route-link { font-weight: 700; }
+.rt-einleitung { margin: 0 0 8px; }
+.rt-legende { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 12px; }
+.rt-legende span { white-space: nowrap; }
+.rt-zeichen { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 99px; font-size: 12px; font-weight: 900; margin-right: 6px; font-style: normal; color: #fff; background: #8A94A6; }
+.rt-zeichen.st-1 { background: var(--st1); } .rt-zeichen.st-2 { background: var(--st2); } .rt-zeichen.st-3 { background: var(--st3r); color: #1F1600; } .rt-zeichen.st-4 { background: #fff; color: #555; box-shadow: inset 0 0 0 1.5px #8A94A6; }
+.rt-route .mx-matrix, .rt-route .mx-liste-klasse { background: var(--lr-flaeche); border-color: var(--lr-linie); }
+.rt-route .mx-geb { background: var(--lr-blass); color: var(--lr-text); border-color: var(--lr-linie); }
+.rt-route .mx-zelle, .rt-route .mx-ecke, .rt-route .mx-gruppe { border-color: var(--lr-linie); }
+.rt-route .mx-gruppe-name { color: var(--lr-leise); }
+.rt-route .mx-chip { background: var(--lr-flaeche); color: var(--lr-text); border-color: var(--lr-linie); border-left-color: var(--f); }
+.rt-route .mx-chip.mx-st.st-1 { background: color-mix(in srgb, var(--st1) 22%, var(--lr-flaeche)); }
+.rt-route .mx-chip.mx-st.st-2 { background: color-mix(in srgb, var(--st2) 16%, var(--lr-flaeche)); }
+.rt-route .mx-chip.mx-st.st-3 { background: color-mix(in srgb, var(--st3r) 30%, var(--lr-flaeche)); box-shadow: 0 0 0 2px var(--st3r); }
+.rt-route .mx-chip.rt-blass { opacity: .45; border-style: dashed; border-left-style: solid; }
+.rt-route .mx-chip .mx-stand, .rt-route .mx-st.st-1 .mx-stand, .rt-route .mx-st.st-2 .mx-stand, .rt-route .mx-st.st-3 .mx-stand { color: var(--lr-text); }
+.rt-route .mx-chip.mx-vor { background: color-mix(in srgb, #F2B233 30%, var(--lr-flaeche)); box-shadow: 0 0 0 2px #E0A21E; }
+.rt-route .mx-chip.mx-weg2 { background: color-mix(in srgb, #F2B233 14%, var(--lr-flaeche)); box-shadow: 0 0 0 1px #D9B26A; }
+.rt-route .mx-chip.mx-nach { background: color-mix(in srgb, #4A90E2 26%, var(--lr-flaeche)); box-shadow: 0 0 0 2px #4A90E2; }
+.rt-route .mx-zeigt .mx-chip.rt-blass.mx-vor, .rt-route .mx-zeigt .mx-chip.rt-blass.mx-nach, .rt-route .mx-zeigt .mx-chip.rt-blass.mx-sel { opacity: 1; }
+.rt-route .mx-n { color: var(--lr-leise); }
+.rt-ort { display: block; font-size: 11px; color: var(--lr-leise); margin-top: 1px; }
+.rt-kann { white-space: normal !important; }
+.rt-route .mx-kl small.rt-kann { font-size: 11px; }
+.rt-detail { margin-top: 14px; }
+.rt-detail h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--lr-leise); margin: 16px 0 6px; }
+.rt-detail ul, .rt-detail ol { margin: 0; padding-left: 20px; }
+.rt-titel { margin: 2px 0 6px; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: normal; }
+.rt-stand { font-weight: 800; margin: 0 0 8px; }
+.rt-weiter { margin: 4px 0 6px; }
+.rt-verweise { list-style: none; padding: 0 !important; } .rt-verweise li { margin: 6px 0; display: flex; align-items: center; flex-wrap: wrap; gap: 2px; }
+.rt-link { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--lr-text); text-decoration: underline; cursor: pointer; text-align: left; min-height: 0; }
+.rt-etappen { list-style: none; padding: 0 !important; counter-reset: rt; } .rt-etappen li { display: flex; gap: 8px; align-items: baseline; margin: 4px 0; }
+.rt-haken { flex: none; width: 20px; height: 20px; border-radius: 99px; border: 1.5px solid var(--lr-linie); display: inline-grid; place-items: center; font-size: 12px; font-weight: 900; }
+.rt-gelandet .rt-haken { background: var(--lr-gut); border-color: var(--lr-gut); color: var(--lr-auf-akzent); }
+.rt-liste .rt-detail { margin: 4px 0 8px; }
+.lr-inhalt:has(.rt-route) { max-width: 1240px; }
+
+/* ---------- WD (0.85.0, angeglichen 0.86.1 an die Vorgabe „abgelegt“): Check-in, Etappe/Flug abgelegt, Gold im Reisepass. Gold nur für „abgelegt“. ---------- */
+.lr-checkin-ansage { margin: 6px 0 0; padding: 10px 12px; border-radius: 14px; background: #FFF8DC; border: 1px solid #F0DE9C; color: #0B3B52; display: flex; flex-direction: column; gap: 2px; }
+.lr-checkin-ansage .lr-leise { color: #4E6B78; }
+.lr-koffer { display: flex; gap: 10px; align-items: center; margin: 8px 0 2px; flex-wrap: wrap; }
+.lr-koffer-p { display: flex; gap: 4px; padding: 4px 6px; border-radius: 10px; background: #EFEADC; }
+.lr-koffer-p.lr-koffer-fertig { background: #FFF3C4; }
+.lr-koffer i { width: 22px; height: 20px; border-radius: 5px; background: #fff; border: 2px solid #C9C0A8; position: relative; display: inline-block; box-sizing: border-box; }
+.lr-koffer i::before { content: ""; position: absolute; left: 6px; top: -6px; width: 6px; height: 4px; border: 2px solid #C9C0A8; border-bottom: 0; border-radius: 3px 3px 0 0; }
+.lr-koffer i.lr-k-ok { background: #FFD84D; border-color: #E8B30E; } .lr-koffer i.lr-k-ok::before { border-color: #E8B30E; }
+.lr-koffer i.lr-k-ok::after { content: "★"; position: absolute; inset: 0; display: grid; place-items: center; font-size: 11px; color: #8A6200; }
+.lr-koffer i.lr-k-nein { background: #F3E1DC; border-color: #D9A79A; } .lr-koffer i.lr-k-nein::before { border-color: #D9A79A; }
+.lr-koffer i.lr-k-da { background: #DCE6EA; border-color: #9FB3BC; } .lr-koffer i.lr-k-da::before { border-color: #9FB3BC; }
+.lr-koffer i.lr-k-jetzt { border-color: #0B3B52; box-shadow: 0 0 0 3px #0B3B5233; } .lr-koffer i.lr-k-jetzt::before { border-color: #0B3B52; }
+.lr-nacht .lr-koffer i.lr-k-jetzt { border-color: #E8ECF8; box-shadow: 0 0 0 3px #E8ECF855; }
+.lr-checkin-kopf { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 800; letter-spacing: .1em; color: var(--lr-leise); }
+.lr-checkin-zaehler { margin-left: auto; position: relative; }
+.lr-checkin-sterne { background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: 99px; padding: 3px 10px; color: #8A6200; letter-spacing: 0; font-size: 15px; white-space: nowrap; }
+.lr-nacht .lr-checkin-sterne { color: #FFD84D; }
+.lr-fliegt { position: absolute; right: 10px; top: -4px; color: #B88700; font-weight: 900; opacity: 0; }
+@media (prefers-reduced-motion: no-preference) { .lr-fliegt { animation: lrFliegt .8s ease-out forwards; } }
+@keyframes lrFliegt { 0% { transform: translateY(40px) scale(1.3); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(-6px) scale(.8); opacity: 0; } }
+.lr-checkin-herkunft { margin: 0 0 6px; font-size: 14px; }
+.lr-rueck-ok { display: flex; align-items: center; gap: 8px; }
+.lr-plus-stern { margin-left: auto; background: #FFF3C4; color: #8A6200; border-radius: 99px; padding: 2px 10px; font-weight: 900; white-space: nowrap; }
+.lr-klein-link { font-size: 14px; }
+.lr-checkin-pause { margin-top: 8px; }
+.lr-checkin-fertig { text-align: center; }
+.lr-checkin-fertig .lr-koffer { justify-content: center; }
+.lr-checkin-symbol { font-size: 52px; line-height: 1; }
+.lr-checkin-ergebnis { font-size: 18px; margin: 10px 0 0; }
+.lr-gold-text { color: #B88700; } .lr-nacht .lr-gold-text { color: #FFD84D; }
+.lr-extra-link { font-weight: 700; }
+.lr-misch-wdh { margin: 4px 0 0; font-weight: 700; }
+/* Etappe abgelegt: Blatt von unten (Handy) / Karte in der Mitte (ab 760 px) */
+.lr-abschluss.lr-abschluss-klein { background: #0B1B2Bb3; align-items: center; justify-content: flex-end; }
+@media (min-width: 760px) { .lr-abschluss.lr-abschluss-klein { justify-content: center; padding: 18px; } }
+.lr-ab-abgelegt-klein { flex: 0 1 auto; height: auto; max-height: 72vh; overflow: auto; width: 100%; max-width: 520px; background: linear-gradient(180deg, #FFF9E3 0, #fff 55%); color: #0B3B52;
+  border-radius: 26px 26px 0 0; padding: 20px 20px 22px; --ab-kb: #FFD23F; --ab-kt: #1B0C3A; --ab-ks: #B78D00; }
+@media (min-width: 760px) { .lr-ab-abgelegt-klein { border-radius: 26px; padding: 26px 30px; max-height: none; } }
+.lr-ab-abgelegt-klein .lr-ab-oben { font-size: 12px; font-weight: 900; letter-spacing: .14em; color: #8A6200; padding-right: 0; opacity: 1; }
+.lr-ab-abgelegt-klein .lr-ab-titel { font-size: 30px; line-height: 1.05; margin: 6px 0 4px; text-transform: none; max-width: none; color: #0B3B52; }
+.lr-ab-ticket { position: relative; margin: 14px 0 10px; background: #fff; border: 2px dashed #E3D3A0; border-radius: 16px; padding: 14px 104px 14px 16px; min-height: 92px; }
+.lr-ab-ticket b { display: block; font-size: 18px; hyphens: auto; -webkit-hyphens: auto; } .lr-ab-ticket small { display: block; color: #4E6B78; font-size: 14px; }
+.lr-ab-siegel { position: absolute; right: -6px; top: -14px; width: 108px; height: 108px; transform: rotate(-12deg); }
+.lr-ab-siegel svg { width: 100%; height: 100%; display: block; }
+.lr-ab-sternzeile { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.lr-ab-zahl { font-size: 34px; font-weight: 900; color: #B88700; white-space: nowrap; }
+.lr-ab-flugfort { margin-top: 10px; font-size: 14px; color: #4E6B78; }
+.lr-goldbalken { display: flex; gap: 3px; margin-top: 5px; } .lr-goldbalken span { flex: 1; height: 9px; border-radius: 5px; background: #E9E3D2; } .lr-goldbalken span.g { background: linear-gradient(90deg, #E8B30E, #FFD84D); }
+.lr-ab-funken-gold i { position: absolute; left: 50%; top: 40%; color: #FFD84D; font-size: 16px; opacity: 0; font-style: normal; }
+@media (prefers-reduced-motion: no-preference) {
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-abgelegt-klein { animation: lrHoch .45s cubic-bezier(.2, .9, .3, 1.2); }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-siegel { animation: lrSiegel .7s .35s cubic-bezier(.3, 1.6, .5, 1) both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-goldbalken span.neu { animation: lrGlanz 1s .9s ease-out both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-funken-gold i { animation: lrFunke 1.4s .4s ease-out both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-wird-gold { animation: lrWirdGold 1.2s .6s ease-out both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-strahlen { animation: lrDreh 30s linear infinite; }
+}
+@keyframes lrHoch { from { transform: translateY(60%); opacity: .3; } to { transform: none; opacity: 1; } }
+@keyframes lrSiegel { 0% { transform: scale(2.4) rotate(-30deg); opacity: 0; } 60% { opacity: 1; } 100% { transform: scale(1) rotate(-12deg); opacity: 1; } }
+@keyframes lrGlanz { 0% { background: #E9E3D2; } 50% { background: #FFF2A8; box-shadow: 0 0 12px #FFD84D; } 100% { background: linear-gradient(90deg, #E8B30E, #FFD84D); } }
+@keyframes lrFunke { 0% { transform: translate(0, 0) scale(.4); opacity: 0; } 20% { opacity: 1; } 100% { transform: translate(var(--x), var(--y)) scale(1); opacity: 0; } }
+@keyframes lrWirdGold { 0% { background: #fff; border-color: #E2D6B5; } 40% { background: #FFF7C9; box-shadow: 0 0 22px #FFD84D; } 100% { background: linear-gradient(100deg, #F6D25A, #FFF3B0 40%, #E8B30E 70%, #FFE27A); border-color: #B88700; color: #4A3300; } }
+@keyframes lrDreh { to { transform: rotate(360deg); } }
+/* Flug abgelegt: ganzer Bildschirm, Gold auf Dunkel */
+.lr-ab-gold .lr-ab-szene { background: radial-gradient(120% 70% at 50% 105%, #FFE27A 0, #F2B417 22%, #9C5C00 45%, #2A1A05 75%, #120B02 100%); color: #fff; align-items: center; text-align: center; padding: 22px 22px 34px; }
+.lr-ab-gold .lr-ab-oben { color: #FFE9A6; font-weight: 900; letter-spacing: .16em; padding-right: 0; opacity: 1; position: relative; z-index: 3; }
+.lr-ab-gtitel { font-size: 44px; font-weight: 900; line-height: .95; margin: 10px 0 6px; text-transform: uppercase; position: relative; z-index: 3; max-width: 320px;
+  background: linear-gradient(180deg, #FFF6CC 0, #FFD84D 45%, #E8A800 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lr-ab-gunter { font-size: 16px; max-width: 330px; opacity: .95; position: relative; z-index: 3; margin: 0; }
+.lr-ab-strahlen { position: absolute; left: 50%; top: 58%; width: 900px; height: 900px; margin: -450px 0 0 -450px; z-index: 1; border-radius: 50%; pointer-events: none;
+  background: repeating-conic-gradient(#FFE9A633 0 6deg, transparent 6deg 18deg); -webkit-mask: radial-gradient(circle, #000 0, transparent 65%); mask: radial-gradient(circle, #000 0, transparent 65%); }
+.lr-ab-pass { position: relative; z-index: 3; margin-top: 18px; width: 250px; background: #173B5C; border-radius: 14px; padding: 12px; box-shadow: 0 18px 40px #0008; transform: rotate(-3deg); }
+.lr-ab-pass-seite { background: #F7F1DF; border-radius: 8px; padding: 8px 10px; color: #3B3324; text-align: left; font-size: 13px; }
+.lr-ab-pass-zeile { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 8px; margin: 4px 0; border: 1px solid #E2D6B5; background: #fff; }
+.lr-ab-pass-zeile.lr-wird-gold { background: linear-gradient(100deg, #F6D25A, #FFF3B0 40%, #E8B30E 70%, #FFE27A); border-color: #B88700; color: #4A3300; }
+.lr-ab-pass-stern { margin-left: auto; }
+.lr-ab-gold { --ab-kb: #FFD23F; --ab-kt: #1B0C3A; --ab-ks: #B78D00; }
+.lr-ab-gold .lr-ab-gblatt { --ab-blatt: #fff; --ab-btx: #0B3B52; --ab-ble: #4E6B78; }
+.lr-ab-reihe { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.lr-ab-hundert { font-size: 40px; font-weight: 900; color: #B88700; white-space: nowrap; }
+.lr-ab-ortgold { display: flex; align-items: center; gap: 10px; background: #FFF6D6; border: 1px solid #EBD38A; border-radius: 14px; padding: 8px 10px; margin-top: 10px; font-size: 14.5px; color: #3B2A14; }
+.lr-gold-stempel-klein { flex: none; width: 46px; height: 46px; } .lr-gold-stempel-klein svg { width: 100%; height: 100%; display: block; }
+@media (min-width: 700px) { .lr-ab-gtitel { font-size: 72px; max-width: 640px; } .lr-ab-gunter { font-size: 20px; max-width: 560px; } .lr-ab-pass { width: 340px; margin-top: 26px; } }
+@media (max-height: 700px) { .lr-ab-gold .lr-ab-szene { padding-top: 16px; padding-bottom: 28px; } .lr-ab-gtitel { font-size: 36px; } .lr-ab-pass { margin-top: 10px; } .lr-ab-pass-zeile { padding: 4px 8px; margin: 2px 0; } .lr-ab-hundert { font-size: 32px; } }
+/* Gold im Reisepass */
+.lr-stempel.lr-stempel-gold { border-color: #8A6200; color: #5A3A00; background: #F6D25A; }
+.lr-stempel.lr-stempel-gold small { color: #5A3A00; font-weight: 800; }
+.lr-flug-eintraege { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 8px; }
+.lr-flug-eintrag { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 14px; border: 1px solid var(--lr-linie, #E5DFCF); background: var(--lr-flaeche, #fff); }
+.lr-flug-symbol { font-size: 20px; } .lr-flug-text { min-width: 0; } .lr-flug-text b, .lr-flug-text small { display: block; } .lr-flug-text small { color: var(--lr-leise); }
+.lr-flug-rechts { margin-left: auto; text-align: right; font-size: 12px; color: var(--lr-leise); min-width: 90px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.lr-flug-eintrag.lr-flug-gold { background: linear-gradient(100deg, #F6D25A, #FFF3B0 40%, #E8B30E 75%, #FFE27A); border-color: #B88700; color: #4A3300; }
+.lr-flug-eintrag.lr-flug-gold small, .lr-flug-eintrag.lr-flug-gold .lr-flug-rechts { color: #5A4100; font-weight: 800; }
+.lr-mini-gold { display: flex; gap: 2px; } .lr-mini-gold i { width: 9px; height: 6px; border-radius: 2px; background: #E2DBC8; } .lr-mini-gold i.g { background: #E8B30E; }
+.lr-ab-gold .lr-ab-szene { padding-top: 52px; }
+@media (max-height: 700px) { .lr-ab-gold .lr-ab-szene { padding-top: 48px; padding-bottom: 26px; } .lr-ab-gold .lr-ab-gblatt { padding-top: 12px; padding-bottom: 12px; } .lr-ab-gold .lr-ab-gross { min-height: 54px; margin-top: 10px; } }
+.lr-koffer i.lr-k-hilfe { background: #FFF3C4; border-color: #E8B30E; } .lr-koffer i.lr-k-hilfe::before { border-color: #E8B30E; }
+
+/* ---------- FP (0.87.0): Landungs-Bonus, Hinweis bei 5 Sternen, Geschenk nach der Nachbuchung (Vorgabe „faire Punkte“) ---------- */
+.lr-ab-bonus { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; margin: 10px 0 0; padding: 10px 14px; border-radius: 16px;
+  border: 2px solid var(--ab-bonus-rand, #0E9F6E); background: var(--ab-blatt, #fff); color: var(--ab-btx, #0B3B52); }
+.lr-ab-direkt .lr-ab-bonus { --ab-bonus-rand: #E8B30E; } .lr-ab-sturm .lr-ab-bonus { --ab-bonus-rand: #7C5CD6; }
+.lr-ab-bonus.lr-ab-bonus-ohne { border-color: #E8B30E; background: #FFF6D6; color: #4A3300; }
+.lr-ab-bonus-stern { font-size: 22px; color: #E8B30E; }
+.lr-ab-bonus-text b { display: block; font-size: 15px; } .lr-ab-bonus-text small { display: block; font-size: 13px; opacity: .85; }
+.lr-ab-bonus-zahl { font-size: 22px; font-weight: 900; white-space: nowrap; color: #B88700; }
+.lr-ab-nacht .lr-ab-bonus:not(.lr-ab-bonus-ohne) .lr-ab-bonus-zahl { color: #FFD84D; }
+.lr-ab-bonus-funken i, .lr-fp-geschenk .lr-ab-bonus-funken i { position: absolute; color: #FFD84D; font-style: normal; font-size: 14px; opacity: 0; }
+.lr-ab-bonus-funken i:nth-child(1) { left: 8%; top: -8px; } .lr-ab-bonus-funken i:nth-child(2) { right: 30%; top: -10px; } .lr-ab-bonus-funken i:nth-child(3) { right: 6%; bottom: -8px; }
+@media (prefers-reduced-motion: no-preference) {
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-bonus { animation: lrBonusEin .5s ease-out both .5s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-bonus-funken i { animation: lrFunkeKurz .8s ease-out both .9s; }
+  .lr-fp-geschenk .lr-ab-bonus-funken i { animation: lrFunkeKurz .8s ease-out both .2s; }
+}
+@keyframes lrBonusEin { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes lrFunkeKurz { 0% { opacity: 0; transform: scale(.4); } 40% { opacity: 1; } 100% { opacity: 0; transform: scale(1.2); } }
+@media (max-height: 680px) { .lr-ab-bonus-text small { display: none; } .lr-ab-bonus { padding: 6px 12px; margin-top: 6px; } }
+.lr-fp-hinweis { margin: 4px 0 0; font-size: 13px; }
+.lr-fp-geschenk { position: relative; border: 2px solid #E8B30E; background: #FFF6D6; color: #4A3300; display: flex; flex-direction: column; gap: 4px; }
+.lr-fp-geschenk p { margin: 0; } .lr-fp-geschenk .lr-knopf { align-self: flex-start; margin-top: 6px; }

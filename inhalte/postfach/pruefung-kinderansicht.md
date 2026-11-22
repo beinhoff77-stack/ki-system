@@ -1,5 +1,14 @@
 # Postfach pruefung-kinderansicht (Aufbau der Kinderansicht)
 
+## 2026-11-22 – FERTIG: Vorgabe abgelegt · FERTIG: Nachprüfung Matrix 0.84.0
+
+- Vorgabe WD (Gestalter): `inhalte/pruefung/kind/abgelegt/umsetzung.md` + `entwurf/abgelegt.html` – Check-in (Runde bis 12 als Koffer in Päckchen, „etwa n Minuten“, +5 ★), „Etappe abgelegt“ (Blatt, Siegel „FÜR IMMER“, +30 ★), „Flug abgelegt“ (ganzer Bildschirm Gold, +100 ★, Orts-Stempel golden), Gold im Reisepass; Vorschläge zu „sicher“, Rückfall, Sternen.
+- Nachprüfung: `inhalte/pruefung/lehrer/matrix/nachpruefung.md` – LM-1 bis LM-5 erledigt, Abweichungen einverstanden. Neu: N1 (Sollte) 1280 Spalten zu schmal; N2 (Sollte, Daten lehrplan-lb) fünf aufgelöste Themen mit RS-Klasse; N3 (Kann) Thema 83 aufgelöst und eigenständig. Prüfregeln: Gym erfüllt, RS Regel 1 nur durch N2 verletzt, Regel 2/3 erfüllt.
+- Übersichtsblatt neu erzeugt (128 Verbindungen, eigenständig, aufgelöste blass).
+
+FERTIG: Vorgabe abgelegt
+FERTIG: Nachprüfung Matrix 0.84.0
+
 ## 2026-11-20 – FERTIG: Nachprüfung 5 (App 0.83.0) und Nachprüfung Abschluss
 
 - Lehrer: `inhalte/pruefung/lehrer/nachpruefung-5.md` – N1, N3, N4, N5, Rückgängig, Rückfall, Trennstriche erledigt; N2 teilweise. Info-Seite Teil 7 erledigt, alle drei Abweichungen in Ordnung. Neu: N6 (Sollte) gewählter Themengebiet-Knopf unter der Maus unlesbar; N7 (Sollte) Plan links auf dem Handy Titel fast immer gekürzt; N8 (Kann, Entscheidung Sebastian) „Themen“ vs. Reisewörter.

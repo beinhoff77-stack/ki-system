@@ -1,10 +1,10 @@
 -- Rauchtest LK-S / LK-S 2 (ein Thema in mehreren Klassen). Nach rs_korrektur_2211.sql, lk_korrektur_2211.sql und 20261123_lk_s_thema_je_klasse.sql.
 -- Transaktion mit Rollback, nur Testkind (Schulart/Zweig nur in der Transaktion) und Test-Themen, keine Namen. Hängt nicht von Kinderdaten ab;
--- Lehrplan-Erwartungen aus dem Auftrag: RS 8 I Lernbereich 4 = 40 Std.; Thema 33 in RS II/III 8 und 9; Thema 61 in RS I 8 und 9 (klasse_fest 9).
+-- Einträge des Tests mit bearbeitung = 'annahme' (erlaubte Werte laut eintrag_bearbeitung_check). Lehrplan-Erwartungen aus dem Auftrag: RS 8 I Lernbereich 4 = 40 Std.; Thema 33 in RS II/III 8 und 9; Thema 61 in RS I 8 und 9 (klasse_fest 9).
 begin;
 
 do $$
-declare v_l bigint; r record; w jsonb; x jsonb; v_s0 text; v_s1 text; v_a bigint; v_ea bigint; v_eb bigint; v_neu bigint; v_n int; v_sum0 bigint;
+declare v_t2 bigint; v_t3 bigint; v_e2 bigint; v_e3 bigint; v_er bigint; v_l bigint; r record; w jsonb; x jsonb; v_s0 text; v_s1 text; v_a bigint; v_ea bigint; v_eb bigint; v_neu bigint; v_n int; v_sum0 bigint;
   v_t bigint; v_te bigint; v_q8 bigint; v_q9 bigint; v_q10 bigint; v_k8 bigint; v_k9 bigint; v_k10 bigint; v_plan jsonb; v_alt text[];
 begin
   select id into v_l from schule.lernender where ist_test and aktiv order by id limit 1;
@@ -67,9 +67,9 @@ begin
   insert into schule.thema (fach, schluessel, block, unterthema, reihenfolge, klasse_fest) values ('Mathematik', 'lk_rauchtest.lage', 'Test', 'Rauchtest Lage', 0, '{}') returning id into v_t;
   insert into schule.einheit (thema_id, status, inhalt) values (v_t, 'geprueft', jsonb_build_object('etappen',
     (select jsonb_agg(jsonb_build_object('lernziel', 'l' || i, 'titel', 'L' || i) order by i) from generate_series(1, 6) i))) returning id into v_te;
-  insert into schule.eintrag (quelle_id, pfad, art, text, reihenfolge, bearbeitung) values (v_q8, 'lk-test/k1', 'kompetenz', 'Test', 9999, 'original') returning id into v_k8;
-  insert into schule.eintrag (quelle_id, pfad, art, text, reihenfolge, bearbeitung) values (v_q9, 'lk-test/k1', 'kompetenz', 'Test', 9999, 'original') returning id into v_k9;
-  insert into schule.eintrag (quelle_id, pfad, art, text, reihenfolge, bearbeitung) values (v_q10, 'lk-test/k1', 'kompetenz', 'Test', 9999, 'original') returning id into v_k10;
+  insert into schule.eintrag (quelle_id, pfad, art, text, reihenfolge, bearbeitung) values (v_q8, 'lk-test/k1', 'kompetenz', 'Test', 9999, 'annahme') returning id into v_k8;
+  insert into schule.eintrag (quelle_id, pfad, art, text, reihenfolge, bearbeitung) values (v_q9, 'lk-test/k1', 'kompetenz', 'Test', 9999, 'annahme') returning id into v_k9;
+  insert into schule.eintrag (quelle_id, pfad, art, text, reihenfolge, bearbeitung) values (v_q10, 'lk-test/k1', 'kompetenz', 'Test', 9999, 'annahme') returning id into v_k10;
   insert into schule.zuordnung (eintrag_id, thema_id, bezug, pruefstatus) values (v_k8, v_t, 'haupt', 'geprueft'), (v_k9, v_t, 'haupt', 'geprueft'), (v_k10, v_t, 'haupt', 'geprueft');
   w := schule.lehrplan_rolle_setzen(jsonb_build_array(jsonb_build_object('eintrag_id', v_k8, 'thema_id', v_t, 'rolle', 'neu', 'etappen', jsonb_build_array('l1', 'l2', 'l3')),
                                                       jsonb_build_object('eintrag_id', v_k9, 'thema_id', v_t, 'rolle', 'weitergefuehrt', 'etappen', 'l4, l5, l6')));
@@ -103,61 +103,75 @@ begin
   if (w->>'gleich')::int <> 1 or (w->>'gesetzt')::int <> 0 then raise exception 'FEHLER 6 nicht wiederholbar: %', w; end if;
   raise notice 'ok 6 unbekannte/leere Etappen: Zuordnung unverändert und gemeldet; Befüllen wiederholbar';
 
-  -- 7 B3/B4: Teilen 3 + 3 an einem Test-Thema (Probelauf, echter Lauf in der Transaktion), Bedingungen
-  insert into schule.thema (fach, schluessel, block, unterthema, reihenfolge, klasse_fest) values ('Mathematik', 'lk_rauchtest.teil1', 'Test', 'Rauchtest Teil 1', 0, '{}')
+  -- 7 Teilen nach der Teilungsregel (22.11.): drei Teile ohne Mindestzahl (Teil 1: e1–e2, Teil 2: e3, Teil 3: e4–e6), alte Einheit freigegeben
+  insert into schule.thema (fach, schluessel, block, unterthema, reihenfolge, klasse_fest) values ('Mathematik', 'lk_rauchtest.teil1', 'Test', 'Rauchtest', 0, '{}')
   returning id into v_a;
   insert into schule.einheit (thema_id, status, inhalt) values (v_a, 'entwurf', jsonb_build_object(
     'etappen', (select jsonb_agg(jsonb_build_object('lernziel', 'e' || i, 'titel', 'E' || i) order by i) from generate_series(1, 6) i),
-    'bewertung', jsonb_build_object('lernziele_pflicht', jsonb_build_array('e1', 'e2', 'e3', 'e4', 'e5', 'e6'), 'lernziele_vertiefung', jsonb_build_array('e6'))))
+    'bewertung', jsonb_build_object('lernziele_pflicht', jsonb_build_array('e1', 'e2', 'e3', 'e4', 'e5', 'e6'))))
   returning id into v_ea;
   insert into schule.aufgabe (einheit_id, thema_id, art, antworttyp, frage, loesung, pool, variante_gruppe, stufe, freigegeben)
-  select v_ea, v_a, 'uebung', 'zahl', '{"text": "Test"}', '{"wert": 1}', 'uebung', 'e' || i, 1, false from generate_series(1, 6) i;
-  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am) values (v_l, v_ea, 'e1', true, now()), (v_l, v_ea, 'e4', true, now()), (v_l, v_ea, 'e5', true, now());
+  select v_ea, v_a, 'uebung', 'zahl', '{"text": "Test"}', '{"wert": 1}', 'uebung', 'e' || i, 2, true from generate_series(1, 6) i;
+  update schule.einheit set status = 'freigegeben' where id = v_ea;
+  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am) values (v_l, v_ea, 'e1', true, now()), (v_l, v_ea, 'e3', true, now()), (v_l, v_ea, 'e4', true, now());
   insert into schule.sterne (lernender_id, menge, grund, bezug) values (v_l, 80, 'landung', 'landung:' || v_ea || ':e4');
+  insert into schule.flug_erstabschluss (lernender_id, einheit_id, am) values (v_l, v_ea, now() - interval '1 day');
+  insert into schule.misch_ausgabe (lernender_id, aufgabe_id, einheit_id, lernziel)
+  select v_l, a.id, null, null from schule.aufgabe a where a.einheit_id = v_ea and a.variante_gruppe = 'e5';
   select coalesce(sum(menge), 0) into v_sum0 from schule.sterne where lernender_id = v_l;
-  v_plan := jsonb_build_object('alt_thema', v_a, 'alte_einheit_id', v_ea, 'etappen', jsonb_build_array('e4', 'e5', 'e6'),
-              'neu', jsonb_build_object('schluessel', 'lk_rauchtest.teil2', 'unterthema', 'Rauchtest Teil 2'));
-  -- 7a weniger als 3 im neuen Teil oder im Rest: abgelehnt (der Test teilt nie in 2 + x)
+  v_plan := jsonb_build_object('alt_thema', v_a, 'alte_einheit_id', v_ea, 'untertitel', 'Anfang', 'teile', jsonb_build_array(
+              jsonb_build_object('etappen', jsonb_build_array('e3'), 'untertitel', 'Mitte', 'neu', jsonb_build_object('schluessel', 'lk_rauchtest.teil2')),
+              jsonb_build_object('etappen', jsonb_build_array('e4', 'e5', 'e6'), 'neu', jsonb_build_object('schluessel', 'lk_rauchtest.teil3'))));
+  -- 7a Bedingungen: leerer Teil, Etappe in zwei Teilen, Teil 1 leer – abgelehnt
   v_n := 0;
-  begin perform schule.thema_teilen(v_plan || jsonb_build_object('etappen', jsonb_build_array('e5', 'e6')), false); exception when sqlstate 'P0001' then v_n := v_n + 1; end;
-  begin perform schule.thema_teilen(v_plan || jsonb_build_object('etappen', jsonb_build_array('e3', 'e4', 'e5', 'e6')), false); exception when sqlstate 'P0001' then v_n := v_n + 1; end;
-  if v_n <> 2 then raise exception 'FEHLER 7a Mindestgröße: nur % von 2 abgelehnt', v_n; end if;
-  -- 7b ohne neue Einheit: Thema, Voraussetzung; Katalog und Lernstand bleiben
+  begin perform schule.thema_teilen(jsonb_set(v_plan, '{teile,0,etappen}', '[]'), false); exception when sqlstate 'P0001' then v_n := v_n + 1; end;
+  begin perform schule.thema_teilen(jsonb_set(v_plan, '{teile,0,etappen}', '["e3", "e4"]'), false); exception when sqlstate 'P0001' then v_n := v_n + 1; end;
+  begin perform schule.thema_teilen(jsonb_set(v_plan, '{teile,0,etappen}', '["e1", "e2", "e3"]'), false); exception when sqlstate 'P0001' then v_n := v_n + 1; end;
+  if v_n <> 3 then raise exception 'FEHLER 7a Bedingungen: nur % von 3 abgelehnt', v_n; end if;
+  -- 7b ohne Einheiten: Themen, Benennung „Teil k von 3“, Voraussetzungs-Kette; Lernstand bleibt
   w := schule.thema_teilen(v_plan, false);
-  v_neu := (w->>'neu_thema')::bigint;
-  if not (w->>'einheit_fehlt')::boolean or v_neu is null or not exists (select 1 from schule.voraussetzung where thema_id = v_neu and braucht_id = v_a and art = 'hart')
-     or (select count(*) from schule.karte_stand where einheit_id = v_ea) <> 3 or jsonb_array_length((select inhalt->'etappen' from schule.einheit where id = v_ea)) <> 6 then
+  v_t2 := (w->'themen'->>1)::bigint; v_t3 := (w->'themen'->>2)::bigint;
+  if not (w->>'einheiten_fehlen')::boolean or (w->>'teile')::int <> 3
+     or (select unterthema from schule.thema where id = v_a) <> 'Rauchtest – Teil 1 von 3 · Anfang'
+     or (select unterthema from schule.thema where id = v_t2) <> 'Rauchtest – Teil 2 von 3 · Mitte'
+     or (select unterthema from schule.thema where id = v_t3) <> 'Rauchtest – Teil 3 von 3'
+     or not exists (select 1 from schule.voraussetzung where thema_id = v_t2 and braucht_id = v_a and art = 'hart')
+     or not exists (select 1 from schule.voraussetzung where thema_id = v_t3 and braucht_id = v_t2 and art = 'hart')
+     or (select count(*) from schule.karte_stand where einheit_id = v_ea) <> 3 then
     raise exception 'FEHLER 7b: %', w; end if;
-  -- 7c neue Einheit mit falschem Katalog (ohne e6) und aufgaben_umhaengen = false bei vorhandenem Lernstand: abgelehnt
-  insert into schule.einheit (thema_id, status, inhalt) values (v_neu, 'entwurf', jsonb_build_object('etappen', jsonb_build_array(
-    jsonb_build_object('lernziel', 'e4', 'titel', 'E4'), jsonb_build_object('lernziel', 'e5', 'titel', 'E5')))) returning id into v_eb;
+  -- 7c Einheiten: Rest-Version (e1–e2), Teil 2 (e3), Teil 3 zunächst ohne e6 – abgelehnt; freigegebene alte Einheit ohne Rest-Version – abgelehnt
+  insert into schule.einheit (thema_id, version, status, inhalt) values (v_a, 2, 'entwurf', '{"etappen": [{"lernziel": "e1"}, {"lernziel": "e2"}]}') returning id into v_er;
+  insert into schule.einheit (thema_id, status, inhalt) values (v_t2, 'entwurf', '{"etappen": [{"lernziel": "e3"}]}') returning id into v_e2;
+  insert into schule.einheit (thema_id, status, inhalt) values (v_t3, 'entwurf', '{"etappen": [{"lernziel": "e4"}, {"lernziel": "e5"}]}') returning id into v_e3;
+  v_plan := jsonb_set(jsonb_set(v_plan, '{teile,0,einheit_id}', to_jsonb(v_e2)), '{teile,1,einheit_id}', to_jsonb(v_e3));
   v_n := 0;
-  begin perform schule.thema_teilen(v_plan || jsonb_build_object('neue_einheit_id', v_eb), false); exception when sqlstate 'P0001' then v_n := v_n + 1; end;
-  update schule.einheit set inhalt = jsonb_set(inhalt, '{etappen}', inhalt->'etappen' || jsonb_build_array(jsonb_build_object('lernziel', 'e6', 'titel', 'E6'))) where id = v_eb;
-  begin perform schule.thema_teilen(v_plan || jsonb_build_object('neue_einheit_id', v_eb, 'aufgaben_umhaengen', false), false); exception when sqlstate 'P0001' then v_n := v_n + 1; end;
+  begin perform schule.thema_teilen(v_plan || jsonb_build_object('rest_einheit_id', v_er), false); exception when sqlstate 'P0001' then v_n := v_n + 1; end;
+  update schule.einheit set inhalt = '{"etappen": [{"lernziel": "e4"}, {"lernziel": "e5"}, {"lernziel": "e6"}]}' where id = v_e3;
+  begin perform schule.thema_teilen(v_plan, false); exception when sqlstate 'P0001' then v_n := v_n + 1; end;
   if v_n <> 2 then raise exception 'FEHLER 7c: nur % von 2 abgelehnt', v_n; end if;
-  -- 7d Probelauf: Bericht mit Vorher/Nachher je Kind, nichts geändert
-  w := schule.thema_teilen(v_plan || jsonb_build_object('neue_einheit_id', v_eb));
+  v_plan := v_plan || jsonb_build_object('rest_einheit_id', v_er);
+  -- 7d Probelauf: Bericht mit Vorher/Nachher je Kind und Stand je Teil, nichts geändert
+  w := schule.thema_teilen(v_plan);
   x := (select k from jsonb_array_elements(w->'kinder') k where (k->>'kind')::bigint = v_l);
-  if not (w->>'probelauf')::boolean or (w->'umgehaengt'->>'karte_stand')::int <> 2 or (w->'umgehaengt'->>'aufgabe')::int <> 3
-     or not (x->'bericht_nachher' ?& array['stufe_alt', 'stufe_neu', 'reiseoptionen'])
-     or not (w->'fest_je_kind'->(v_l::text)->'fest' ?& array['etappen', 'lernziel_stand', 'sterne', 'abgelegt', 'plan', 'flug_abschluesse', 'misch_offen'])
-     or (select count(*) from schule.karte_stand where einheit_id = v_eb) <> 0 or jsonb_array_length((select inhalt->'etappen' from schule.einheit where id = v_ea)) <> 6 then
+  if not (w->>'probelauf')::boolean or (w->'umgehaengt'->>'karte_stand_3')::int <> 1 or (w->'umgehaengt'->>'karte_stand_1')::int <> 1
+     or not (x->'bericht_nachher' ?& array['stufen', 'reiseoptionen', 'misch_offen'])
+     or not (w->'fest_je_kind'->(v_l::text)->'fest' ?& array['etappen', 'lernziel_stand', 'sterne', 'abgelegt', 'plan', 'flug_abschluesse'])
+     or (select string_agg((t->>'etappen_erledigt') || '/' || (t->>'etappen'), ' ' order by (t->>'teil')::int) from jsonb_array_elements(x->'teile') t) <> '1/2 1/1 1/3'
+     or (select status from schule.einheit where id = v_ea) <> 'freigegeben' or (select count(*) from schule.karte_stand where einheit_id = v_ea) <> 3 then
     raise exception 'FEHLER 7d Probelauf: %', w; end if;
-  -- 7e echter Lauf: Katalog alt e1–e3, neu e4–e6; Karten, Aufgaben, Sterne-Bezug umgehängt; gelandet bleibt gelandet; Summe gleich, kein zweiter Bonus
-  w := schule.thema_teilen(v_plan || jsonb_build_object('neue_einheit_id', v_eb), false);
-  select array_agg(q->>'lernziel' order by q->>'lernziel') into v_alt from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') q where e.id = v_ea;
-  if (w->>'probelauf')::boolean or v_alt <> array['e1', 'e2', 'e3']
-     or (select inhalt#>'{bewertung,lernziele_pflicht}' from schule.einheit where id = v_ea) <> '["e1", "e2", "e3"]'::jsonb
-     or (select inhalt#>'{bewertung,lernziele_vertiefung}' from schule.einheit where id = v_ea) <> '[]'::jsonb
-     or (select count(*) from schule.karte_stand where lernender_id = v_l and einheit_id = v_eb and sitzt and lernziel in ('e4', 'e5')) <> 2
-     or (select count(*) from schule.karte_stand where lernender_id = v_l and einheit_id = v_ea and sitzt and lernziel = 'e1') <> 1
-     or (select count(*) from schule.aufgabe where einheit_id = v_eb and thema_id = v_neu) <> 3
-     or not exists (select 1 from schule.sterne where lernender_id = v_l and bezug = 'landung:' || v_eb || ':e4')
-     or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) <> v_sum0 then
+  -- 7e echter Lauf: alte Einheit ersetzt (Aufgaben bleiben dort), Lernstand in den Teil-Einheiten, Flug-Abschluss zu Teil 1, Sterne-Bezug mitgezogen, Summe gleich
+  w := schule.thema_teilen(v_plan, false);
+  if (w->>'probelauf')::boolean or (select status from schule.einheit where id = v_ea) <> 'ersetzt'
+     or (select count(*) from schule.aufgabe where einheit_id = v_ea) <> 6
+     or (select count(*) from schule.karte_stand where lernender_id = v_l and sitzt and ((einheit_id = v_er and lernziel = 'e1') or (einheit_id = v_e2 and lernziel = 'e3') or (einheit_id = v_e3 and lernziel = 'e4'))) <> 3
+     or (select count(*) from schule.karte_stand where einheit_id = v_ea) <> 0
+     or not exists (select 1 from schule.flug_erstabschluss where lernender_id = v_l and einheit_id = v_er)
+     or not exists (select 1 from schule.sterne where lernender_id = v_l and bezug = 'landung:' || v_e3 || ':e4')
+     or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) <> v_sum0
+     or exists (select 1 from schule.misch_ausgabe m join schule.aufgabe a on a.id = m.aufgabe_id where a.einheit_id = v_ea and m.verfallen_am is null and m.eingeloest_am is null) then
     raise exception 'FEHLER 7e Teilen: %', w; end if;
-  if schule.landung_bonus(v_l, v_eb, 'e4') is not null then raise exception 'FEHLER 7e zweiter Landungs-Bonus nach dem Umhängen'; end if;
-  raise notice 'ok 7 Teilen 3 + 3: Mindestgröße, Katalog und aufgaben_umhaengen geprüft; Probelauf mit Vorher/Nachher ändert nichts; echter Lauf verkleinert den alten Katalog, hängt um, gelandet bleibt gelandet, Sterne gleich';
+  if schule.landung_bonus(v_l, v_e3, 'e4') is not null then raise exception 'FEHLER 7e zweiter Landungs-Bonus nach dem Umhängen'; end if;
+  raise notice 'ok 7 Teilen in 3 Teile (2 + 1 + 3 Etappen): Bedingungen, „Teil k von 3“, Kette; Probelauf ändert nichts; echter Lauf: alte Einheit ersetzt, Lernstand je Teil, Flug-Abschluss bei Teil 1, Sterne gleich';
   raise notice 'LK-S Rauchtest durchgelaufen';
 end $$;
 

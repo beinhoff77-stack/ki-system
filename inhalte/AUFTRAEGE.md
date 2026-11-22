@@ -2957,3 +2957,17 @@ Meldung: „FERTIG: TL-S 6“.
 4. Nach der Teilung liefert der Haupt-Chat Sebastian die Liste je Kind: neue Teile mit „selbst geschafft“, „teilweise selbst (x von y Pflicht-Etappen)“, „vom alten Thema gesetzt, jetzt offen“.
 Ersetzt die Vorgabe aus „Probelauf TL-S 2“ (Setzung vererbt sich) und Punkt 4 der „Entscheidung Teilung (16:20)“ nur insoweit, als Stempel/100 Sterne an eigene Leistung gebunden sind.
 **An `bau-lehrer` (TL-S 6):** so umsetzen; Abbruch-Vergleich: erlaubtes Delta = neue Teile „nicht im Plan“, Teil 1 unverändert; kein Lernstand geht verloren (gelandete Etappen bleiben gelandet, auch in nicht zugeteilten Teilen). Folgen prüfen: Visum/Reiseoptionen dürfen sich für kein Kind verschlechtern (ein vorher gesetztes Thema, das andere freigeschaltet hat, schaltet sie weiter frei – nötigenfalls über Teil 1 oder eine ausdrückliche Übergangsregel; bitte Lösung vorschlagen und melden).
+
+## Probelauf TL-S 6 / NT-D 2 – ganze Kette (23.11., echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 8d7170e. Reihenfolge: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → lk_einspiel → nt_einspiel (NT-D 2) → TL-S 6 (zweimal) → NT-S.
+
+- Alle acht Schritte laufen durch; TL-S zweimal ohne Änderung. `tl_s_rauchtest` grün. Danach grün: wd_s, wd_s3, fp_s, lw_s, nt_s.
+- Lernstand der Karten je Kind unverändert. Reiseoptionen je Kind unverändert. 97 → 105 Themen, 29854 → 30162 Aufgaben, Versuche unverändert.
+- Kind 2: „Terme umformen – Teil 2 von 2“ gilt als selbst geschafft (Stufe Wiederholung, Erstabschluss, +100 Sterne: 6170 → 6270). Alle anderen neuen Teile „nicht im Plan“. Teil 1 je Thema wie vorher.
+- Kind 1: keine Sterne-Änderung. Thema 15 wechselt von „dran“ auf „Wiederholung“: 12 von 12 Pflicht-Etappen gelandet, Erstabschluss vom 21.11. vorhanden, die 13. Etappe (Dualsystem) ist Kür. Folge der Regel „Stufe zählt die Pflicht-Etappen“ – gewollt.
+- **Offen (nur Test):** `lk_s_rauchtest` Teil 4 „Zweig ändert die Stufen“ schlägt nach TL-S fehl. Grund: Themen 44, 91, 233 haben für Gruppe I und II/III verschieden viele Pflicht-Etappen (5/4, 4/2, 4/2) – das ist die Fünf-Gruppen-Regel (T1). Die Testannahme ist überholt. → Nachtrag an bau-lehrer: Test anpassen (Vergleich ohne Etappenzahl oder nur Themen ohne Liste je Gruppe).
+
+PM 2 (Nachbau) übernommen: `inhalte/pruefmaterial/gym/nachbau/` (104 Arbeiten, 1370 Aufgaben), `inhalte/pruefmaterial/rs/nachbau/` (95 Arbeiten, 1389 Aufgaben). Keine PDFs, keine Originaltexte laut Meldung; Stichprobe einer Arbeit ohne Auffälligkeit.
+
+App 0.89.0 (LW-2): App-Tests 148 von 148.

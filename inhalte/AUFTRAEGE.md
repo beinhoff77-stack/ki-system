@@ -2838,3 +2838,15 @@ ChatGPT hat die sechs Schnitte gegen LehrplanPLUS geprüft: fachlich nachvollzie
 **Auswertung je Klasse:** (1) typischer Aufbau einer Schulaufgabe (Zeit, Punkte, Zahl der Aufgaben, Anteil der Niveaus I/II/III); (2) Häufigkeit je Thema/Etappe; (3) Aufgabentypen, die bei uns fehlen oder selten sind; (4) Etappen, die in Prüfungen nie vorkommen; (5) Abgleich mit unserem Flug-Test (je Etappe eine Testaufgabe): reicht das, um auf eine echte Schulaufgabe vorzubereiten? (6) Vorschlag „Schulaufgaben-Training“ je Klasse – nur als Vorschlag, nichts bauen.
 
 **Lieferung je Chat:** `katalog.json` (maschinenlesbar, eine Zeile je Aufgabe), `katalog.md` (Übersicht je Arbeit), `auswertung.md` (Punkte 1–6, gesichert / Annahme / offen getrennt), `quellen.md` (alle Links mit Abrufdatum, auch die nicht verwertbaren mit Grund). Datenbank und App nicht anfassen, nichts einspielen, kein Merge nach `main`. Meldung in `inhalte/postfach/<chatname>.md`: „FERTIG: PM Gym“ bzw. „FERTIG: PM RS“.
+
+### Entscheidungen Sebastian (22.11., 17:05 Berlin) – Teilung, Stand LK-D 3 und Reise-Aufbau 2
+
+Stand der Liste: **7 Themen, 15 Teile, 8 neue Flüge** (26, 29, 44, 46 ×3, 61, 91, 101). „Ja, so wie du sagst – oder lass GPT nochmal prüfen“:
+1. **Zusatz-Regel auch je Etappe:** Eine Etappe ohne Lehrplan-Punkt in der Schulart des Kindes ist dort **Kür** (zählt nicht für Flug-Abschluss, Flug-Test, Stempel). Folge: Kind 2 hat 29 Teil 2 im Gymnasium vollständig (neue Etappe `gleichungen_binomisch` ist nur RS 8) → Stempel und 100 Sterne nachträglich wie entschieden.
+2. **Salomonen statt Neukaledonien** für 61 Teil 2 (keine strittigen Gebiete).
+3. **Marokko → Algerien → Mauretanien** bleibt für 46.
+4. ChatGPT prüft Liste (Stand LK-D 3), Etappen-Kür und Routen noch einmal.
+
+**An `lehrplan-lb` – LK-D 4:** (a) F1 aus ChatGPT 939 ist noch offen: 2 Lineare Gleichungen (RS I 7 + 8) und 57 Daten erfassen/darstellen (RS 5 + 7) – teilen oder „Wiederholung ohne neue Etappe“ ausdrücklich entscheiden und begründen; alle Themen systematisch durchzählen. (b) Kür je **Etappe** und Schulart in die JSON (`etappen[].kuer_in`), Pflicht-Etappen je Teil und Schulart ausweisen; Stand je Kind danach neu rechnen. (c) F3: 61 Teil 1 – Baumdiagramm/Vierfeldertafel. Meldung: „FERTIG: LK-D 4“.
+**An `reise-aufbau` – Reise-Aufbau 3:** 61 Teil 2 → Salomonen; 101 Teil 2 einplanen (jetzt 8 neue Flüge, 15 Teile); die drei neuen Etappen aus LK-D 3 (101 `cavalieri`, 91 `koerper_symmetrie`, 29 `gleichungen_binomisch`) je eine Stadt; gegen die aktuelle `lk_teilung_2211.json` abgleichen. Meldung: „FERTIG: Reise-Aufbau 3“.
+**An `bau-lehrer` (TL-S):** Liste Stand LK-D 3/4; Pflicht/Kür je Etappe und Schulart muss in Flug-Abschluss, Flug-Test, Stempel und Visum wirken (heute gibt es Kür nur je Etappe für alle – bitte melden, was dafür nötig ist). Geänderte `lk_korrektur_2211.sql` (seit 83d61a2e) ist noch nicht eingespielt.

@@ -2722,3 +2722,19 @@ Bitte `inhalte/reise/aufbau-vorschlag.md`/`.json` fortschreiben:
 4. **Reserve:** je Kontinent mindestens drei freie Länder mit je 6–8 Städten benennen (für neue Themen).
 5. Prüfskript wie bisher (jedes Land einmal, jede Stadt einmal, Stadt im richtigen Land, Städte = Etappen je Flug).
 Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Reise-Aufbau 2“.
+
+### Nachtrag LK – Teilungsregel NEU (22.11., 15:30 Berlin) · Entscheidung Sebastian · ersetzt „Maßstab Gymnasium“
+
+„Ich will eine Teilung! Wenn z. B. Gymnasium in Klasse 7 und Real 7 und 8 – dann im Gymnasium 2 Teile und Realschule 7. und 8. Klasse.“
+
+**Regel:**
+1. Maßstab sind **Gymnasium und Realschule Gruppe I gemeinsam**: Verteilt *eine* der beiden ein Thema auf zwei (oder mehr) Klassen, wird das Thema für **alle** geteilt – je Klassenabschnitt ein eigener Flug mit eigenem Land (Nachbarland des ersten Teils), eigenem Test und Stempel.
+2. Jede Schulart ordnet die Teile ihren Klassen zu: Beispiel „Terme umformen“ – Realschule: Teil 1 in 7, Teil 2 in 8; Gymnasium: **beide Teile in 7**, als zwei Flüge nacheinander. Teil 2 setzt Teil 1 voraus.
+3. Geteilt wird nur, wenn **jeder** Teil mindestens 3 Etappen hat. Sonst bleibt es ein Flug; die Lehrplan-Übersicht zeigt dann „weitergeführt“ (LK-App).
+4. Folge: Jedes (Teil-)Thema liegt je Schulart in genau **einer** Klasse. „Thema in mehreren Klassen“ bleibt nur für die Reste unter 3 Etappen und für IB / RS II/III als Anzeige.
+5. IB und RS Gruppe II/III lösen **keine** Teilung aus (IB ist nur Orientierung, II/III nur Bericht) – Vorschlag Haupt-Chat, Bestätigung Sebastian offen; solche Fälle als Grenzfall listen.
+6. Lernstand: je Etappe in den richtigen Teil umhängen (Muster 21.11.); ist ein Teil dadurch vollständig, gilt er als geschafft, Stempel für den neuen Teil nachträglich, keine doppelten Sterne für schon vergütete Abschlüsse.
+
+**An `lehrplan-lb` (LK-D 2):** Teilungsliste nach dieser Regel neu erstellen (erste Kandidaten aus dem Bericht: 29 Terme umformen RS 7 + 8; 46 Kongruenzabbildungen RS 6 + 7 + 8; 91 Schrägbilder RS 7 + 8; prüfen: 26, 61 – erster bzw. zweiter Teil unter 3 Etappen). Je Teil: Titel, Etappen, Klasse je Schulart (Gym, RS I, RS II/III, IB), Voraussetzungen, Aufbau-Verstöße nach der Teilung, Stand je Kind (nur Nummern). Grenzfälle mit Empfehlung. Datei `inhalte/pruefung/lehrplan/lk_teilung_2211.md` + JSON. Meldung: „FERTIG: LK-D 2“.
+**An `bau-lehrer`:** Das Teil-Verfahren (LK-S, Muss B3/B4 aus ChatGPT 934) wird jetzt gebraucht – Vorrang vor der Mehr-Klassen-Anzeige. Mehrfach-Teilung (drei Teile) muss möglich sein.
+**An `reise-aufbau`:** Nachbarländer für die neuen Teile kommen nach Sebastians Entscheidung der Liste; der Nachtrag „Vorschlag fortschreiben“ gilt sonst weiter (Punkt „kein Thema wird geteilt“ ist überholt).

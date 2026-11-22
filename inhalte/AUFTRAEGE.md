@@ -3051,3 +3051,8 @@ Zusätzlich zu LW-3 an `bau-motivation`:
 2. **Matrix und Fahrplan füllen die Höhe des Fensters** (bis zum unteren Rand, eigene Rollbereiche wie bisher). Der Block „Expeditionen“ steht nicht mehr unter der Matrix, sondern als Link/aufklappbar oder im Überblick.
 3. **„Einordnen“ verständlich:** Beschriftung „Lehrplan von:“ (Gymnasium | Realschule | IB MYP) mit ⓘ-Hinweis „Bestimmt nur, in welcher Klassen-Zeile ein Thema steht und welcher Ring groß ist. Es werden immer alle Themen gezeigt.“ Standard = Schulart des Kindes.
 4. Messung im Test: sichtbare Matrix-Höhe bei 1280 × 800 mindestens 600 px; bei 820 und 400 nichts schlechter als 0.89.1.
+
+## Befund nach der Teilung: Expedition „8-schulfest“ zeigt auf das alte Thema (23.11.) · an `bau-lehrer`, mit RD-S liefern
+
+`schule.expedition.voraussetzungen` nennt Thema + Lernziel. Nach TL-S 7 liegen `laplace` und `grosse_zahlen` in „Zufall und Laplace – Teil 2 von 2“, die Expedition „8-schulfest“ verweist aber noch auf Thema 61 (Teil 1). Folge: Sie kann keinem Kind mehr angeboten werden. Alle anderen 20 Expeditionen passen (geprüft: jede Voraussetzung findet ihre Etappe im genannten Thema). Derzeit kein Kind betroffen.
+Verlangt: Korrektur als Datei (Voraussetzung über `teil_stamm` auf den Teil umstellen, der das Lernziel enthält – keine feste ID), `expedition_voraussetzungen_ok` so, dass eine künftige Teilung das nicht mehr bricht (Familie des Themas statt Thema), Rauchtest „jede Voraussetzung jeder Expedition findet ihre Etappe“.

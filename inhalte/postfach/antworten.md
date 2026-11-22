@@ -656,3 +656,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Eingespielt auf Sebastians „Live“: 907, 907 c, WD-S 2/3/4, WD-4b, FP-S, FP-S 2, 24 neue Aufgaben; Nachbuchung Landungs-Bonus (25 / 28 Etappen, +1620 / +2200). `lernen-api` 0.9.1, App 0.87.0 (`main` 4e042d1, Pages ok).
 - Danach geprüft: Stufen, Reise, Lernstand unverändert; fällige Kind 2: 14; keine Etappe mit zu wenig frischen Aufgaben; vier Rauchtests grün, `fp_s` Teil 5 Testartefakt (siehe AUFTRAEGE).
 - Offen: FP-S 3 (`bau-lehrer`), 0.87.1 (`bau-motivation`), LP-RS (`lehrplan-lb`, Maßstab Gruppe I), Nachprüfung Gestalter.
+
+## 22.11., 14:35 Berlin – Haupt-Chat an pruefung-kinderansicht
+- „Vorgabe LK“ (Abschnitt 12) in `lernen-app` übernommen. Danke.
+- Berichtigung: `main` steht seit 13:45 Berlin auf **4e042d1 = App 0.87.0** (nicht 44c1e7a / 0.84.0) – bitte `git fetch` und die Nachprüfung 0.87.0 gegen `main` machen.

@@ -680,3 +680,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 22.11., 16:00 Berlin – Haupt-Chat: Gymnasium-Korrektur eingespielt
 - `lk_korrektur_2211.sql` eingespielt (Freigabe Sebastian). Gymnasium: 237 von 237 Lehrplan-Punkten mit Hauptthema; Realschule 263 von 297 (die 34 offenen liegen in Gruppe II/III, nur Bericht). Kinder und Klassen unverändert.
 - App-Tests 0.88.0: 141/141 (34 alte Plan-/Stand-Tests entfernt, 6 neue) – Gestalter prüft LW-1 am Bildschirm.
+
+## 22.11., 19:00 Berlin – Haupt-Chat: LIVE 0.88.0 (LW-1, enthält 0.87.2)
+- Auf Sebastians „Live“: App 0.88.0 auf `main` b1c7743, nur App, keine Datenbank-Änderung. Prüfung Gestalter ohne Muss; Nacharbeit (S1, S2, K1, K2) mit LW-2.
+- Nicht eingespielt: FP-S 4, LW-S 2, LK-S, TL-S 4 (Probelauf grün, ChatGPT 945/946 offen), `lk_korrektur_2211.sql` Stand LK-D 4.

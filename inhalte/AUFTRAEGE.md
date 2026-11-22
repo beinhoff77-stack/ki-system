@@ -2629,3 +2629,15 @@ Meldung: „FERTIG: Vorgabe LK“. Die Nachprüfung der Kinderansicht 0.87.0 ble
 Matrix, Lehrplan-Reiter und „Meine Route 5–10“ auf die neue Schnittstelle umstellen (Karte je Klasse neu/weitergeführt, Abdeckung nach Stunden, „Baut auf“/„Geht weiter in“). Fehlen die neuen Felder, bleibt die alte Anzeige. Tests. Meldung: „FERTIG: LK-App“ mit Versionsnummer.
 
 **Reihenfolge:** LK-D, LK-S und LK-G laufen parallel; LK-App danach. Der Reise-Aufbau (Kontinent → Land → Stadt) folgt nach LK.
+
+### Nachtrag LK – vorhandener Lernstand der Kinder (22.11., 14:20 Berlin) · an `bau-lehrer`, `lehrplan-lb`, Gestalter
+
+Sebastian: „Du musst die bestehenden erledigten Sachen der Kinder beachten … du siehst ja die erledigten Etappen.“ Verbindlich:
+1. **Nichts geht verloren, nichts wird neu verlangt, was schon gelandet ist.** Der Lernstand hängt an der Etappe. Wird ein Thema auf mehrere Klassen verteilt, gilt je Klasse: Etappen dieser Klasse gelandet/gesetzt = dieser Teil ist erledigt. Ein Kind, das alle Etappen eines Themas schon hat, sieht es in jeder Klasse als fertig.
+2. **Flug bleibt Flug.** Flug-Abschluss, Stempel, Flug-Test, Nachtests, „abgelegt“ und die Sterne dafür zählen weiter je Thema (alle Pflicht-Etappen), nicht je Klasse. Schon erreichte Abschlüsse (`flug_erstabschluss`, Stempel, Sterne) bleiben unverändert und werden nie ein zweites Mal vergeben.
+3. **„Kann er“ / „Kann er – aber wiederholen“** gilt weiter für das ganze Thema (alle Klassen).
+4. **Plan:** Ein eingeplantes Thema bleibt eingeplant. Etappen, die der Lehrplan erst in einer späteren Klasse verlangt, sind bis dahin freiwillig; hat das Kind sie schon, zählen sie.
+5. **Echtes Teilen eines Themas** (wie bei den Potenzgesetzen) nur, wenn `lehrplan-lb` es begründet vorschlägt und Sebastian zustimmt – dann mit Umhängen des Lernstands nach dem Muster vom 21.11. (Probelauf, Vorher/Nachher je Kind).
+6. **`lehrplan-lb` liefert dazu je Kind (nur Nummern, lesend):** Themen mit Lernstand, die auf mehrere Klassen verteilt werden – je Klasse „Etappen verlangt / davon gelandet oder gesetzt“; und alle Fälle, in denen ein Kind ein Thema als geschafft hat, obwohl Etappen einer späteren Klasse noch fehlen (kein Fehler, nur Hinweis für die Anzeige).
+7. **`bau-lehrer`:** Rauchtest und Probelauf mit Vorher/Nachher je Kind: gelandete Etappen, Flug-Abschlüsse, Stempel, Sterne, Plan, Reiseoptionen identisch.
+8. **Gestalter:** Karte „weitergeführt“ zeigt den Stand nur für die Etappen dieser Klasse („2 von 3 neuen Etappen“), die erste Karte den Stand ihrer Etappen; ein abgeschlossener Flug bleibt in allen Zeilen als geschafft erkennbar.

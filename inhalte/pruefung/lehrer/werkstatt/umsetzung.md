@@ -35,8 +35,8 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
   - **im Plan (kommt noch):** **hellgelb** – Fläche #FFF4CF, gelber Strich links, „Platz 4“, Platznummer goldgelb (#C99600). Im Fahrplan alle „kommt noch“-Einträge hellgelb.
   - **↻ in Wiederholung:** hellgrün (#F0F7E8), hellgrüner Strich, „↻ Wdh 2/5“.
   - **✓ fertig (kann er, auch gesetzt):** durchsichtig, Titel grau, „✓ fertig“ / „✓ gesetzt“; beim Darüberfahren weiß.
-  - **+ einplanen (nicht im Plan):** ruhig sandfarben (#EFEBE2) ohne Rahmen, Text „+ einplanen“ bzw. „1/7 Etappen“; beim Darüberfahren weiß.
-  - **andere Schule:** zusätzlich gestrichelter Rand.
+  - **+ einplanen, gehört zur gewählten Schule:** **weiß** mit feinem Rahmen, Text „+ einplanen“ bzw. „1/7 Etappen“.
+  - **+ einplanen, nur andere Schule:** **grau** (#E6E3DC) ohne Rahmen, Titel grau; beim Darüberfahren weiß. (Ersetzt den gestrichelten Rand.)
   - Ring je Klasse: grün kann er, hellgrün Wiederholung, blau angefangene Etappen.
   - Ganz fertige Klassen zusätzlich eingeklappt (siehe 2).
 - **Blaue Zahl** oben rechts = Platz im Fahrplan; bei Themen außerhalb erscheint beim Darüberfahren ein „+“.

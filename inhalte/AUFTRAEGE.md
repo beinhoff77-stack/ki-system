@@ -2484,3 +2484,31 @@ Probelauf des Haupt-Chats gegen die echte Datenbank (Rollback, Commit 7675d32): 
 Ursache liegt im Test, nicht in der Funktion: Der Test rechnet nur mit den Auswahl-Aufgaben der Stufen 2–3 (`v_ids`), `schule.wdh_aufgabe_waehlen` wählt aber richtig aus **allen** freigegebenen Übungsaufgaben der Etappe. In der echten Etappe (Einheit 1, `roemisch_system`: 19 Aufgaben, davon 8 Auswahl Stufe 2–3) gibt es weitere nie beantwortete Aufgaben – die werden zu Recht vor einer alten gewählt. Schritt 2, erste Prüfung, besteht dort nur zufällig.
 
 Bitte nur die Testdatei ändern (keine Migration): Vor Schritt 1 alle übrigen Übungsaufgaben beider Test-Etappen als „innerhalb der Sperre beantwortet“ markieren (z. B. `w3_gesehen` am Vortag, nicht heute) – mit genau dieser Änderung läuft der ganze Test bei mir grün. Meldung im Postfach: „FERTIG: WD-S 3 Test“.
+
+## Bau-Auftrag FP – faire Punkte (22.11., 11:30 Berlin) · Entscheidung Sebastian: „Ja“
+
+**Anlass:** Die Kinder haben bemerkt, dass eine Etappe mit Fehlern mehr Sterne bringt (Daten: 0 Fehler ≈ 5 Aufgaben ≈ 50 Sterne, 3+ Fehler ≈ 15 Aufgaben ≈ 145 Sterne). Je Aufgabe ist es gleich, je Etappe nicht. Sauberes Arbeiten soll sich lohnen, ohne das Kind zu bestrafen, das mehr üben muss.
+
+**Regeln (entschieden):**
+1. Übungsaufgabe richtig **im ersten Versuch ohne Tipp**: 10 Sterne (wie bisher, je Aufgabe einmal). Richtig erst im zweiten Versuch oder mit Tipp: **5** Sterne. Neue Regel `sterne_uebung_mit_hilfe` = 5.
+2. **Landungs-Bonus** je Kind und Etappe genau einmal, im Moment der Landung: ohne Fehler **80**, mit 1–2 Fehlern **40**, sonst **10**. Regeln `sterne_landung_ohne_fehler` 80, `sterne_landung_wenig_fehler` 40, `sterne_landung_sonst` 10, `landung_wenig_fehler_max` 2.
+3. „Fehler“ = falsche Antwort auf eine Übungsaufgabe dieser Etappe bis zur Landung (keine Tests, keine Wiederholungen, keine Mischkarten). Ein genommener Tipp ist kein Fehler (er kostet nur über Regel 1).
+4. **Nachträglich** für alle schon gelandeten Etappen (echte Landung, nicht über „Kann er“ gesetzt): Bonus nach derselben Regel gutschreiben. Schon gebuchte Sterne werden nie gekürzt; Regel 1 gilt erst ab Einspielen.
+5. Wiederholungen bleiben wie in WD entschieden (10, nur selbst gelöst).
+
+### FP-S · an `bau-lehrer` (Datei, nicht einspielen)
+- Neue Migration `supabase/migrations/20261122_fp_s_faire_punkte.sql`, baut auf WD-S 2/3 auf (wird danach eingespielt). Kein DROP, kein DELETE.
+- Neuer Sterne-Grund für den Bonus (Constraint `sterne_grund_check` erweitern), Buchung einmalig je Kind+Etappe (doppelter Aufruf, gleichzeitige Antworten: genau eine Buchung).
+- `schule_uebung_pruefen` liefert bei der Landung zusätzlich `landung {bonus, fehler, stufe: 'ohne'|'wenig'|'sonst'}` und bei jeder Antwort die tatsächlich gebuchten Sterne (`sterne`), damit die App nichts selbst rechnet (Wunsch von bau-motivation). Regeln über `schule_konto`/Regel-Auslieferung mitgeben.
+- Nachbuchung als Funktion `schule.landung_bonus_nachbuchen()` (liefert je Kind Anzahl Etappen und Summe, nur Nummern), einmalig, zweiter Lauf tut nichts. Der Haupt-Chat führt sie nach Probelauf aus.
+- Rauchtest `supabase/tests/fp_s_rauchtest.sql` (begin … rollback, Testkind): 10/5, Bonus 80/40/10, genau einmal, gesetzte Etappe ohne Bonus, Nachbuchung zweimal = einmal, Lernstand/Stufen unverändert. Der Test darf nicht von der Zusammensetzung einer echten Etappe abhängen (siehe Nachtrag WD-S 3).
+- Meldung im Postfach: „FERTIG: FP-S“ mit Vorher/Nachher-Zahlen der Nachbuchung aus einem lesenden Lauf.
+
+### FP-App · an `bau-motivation` (nach FP-S-Schnittstelle, App 0.87.0)
+- Anzeige nach der Antwort aus dem Serverwert `sterne` (10 bzw. 5; bei 5 kurzer Hinweis „selbst gelöst gibt 10“ – ohne Tadel).
+- Landungs-Einblendung zeigt den Bonus: „Direktflug – ohne Fehler +80“, „Fast direkt +40“, „Gelandet +10“ (Wortlaut darf der Gestalter ändern). Fehlt `landung`, bleibt alles wie bisher.
+- Einmaliger Hinweis nach der Nachbuchung („Für deine bisherigen Landungen gab es … Sterne“), wenn der Server ihn liefert; sonst nichts.
+- Info-Seite der Regeln anpassen. Tests ergänzen. Meldung: „FERTIG: 0.87.0“.
+
+### Aufgaben nachliefern · an `lehrplan-lb`
+Etappen mit weniger als 3 nie beantworteten Aufgaben der Stufen 2–3 (aus `schule.etappen_wenig_frisch()`): Einheit 39 „ordnen“ und „zahlengerade“, Einheit 5 „waage“. Je Etappe 8 neue Übungsaufgaben (Stufe 2–3, mindestens zwei Aufgabentypen, eigene Formulierungen, keine Schulbuch-Aufgaben wörtlich), im üblichen Einheiten-Format, Prüfskript grün. Meldung: „FERTIG: Aufgaben frisch“.

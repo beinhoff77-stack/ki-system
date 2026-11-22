@@ -1393,3 +1393,8 @@ if __name__ == '__main__':
     from _bereinigen import bereinigen_datei
     bereinigen_datei('zahlen.ganz')
 # ---- BEREINIGEN ENDE ----
+# ---- FRISCH (Aufgaben nachliefern, 22.11., siehe _frisch_2211.py): zuletzt, hängt nur an ----
+if __name__ == '__main__':
+    from _frisch_2211 import frisch_anhaengen
+    frisch_anhaengen('zahlen.ganz')
+# ---- FRISCH ENDE ----

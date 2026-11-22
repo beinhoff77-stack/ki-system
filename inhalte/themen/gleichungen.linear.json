@@ -5541,6 +5541,159 @@
    "c": "5 / (1 / 4 + 1 / 6)",
    "w": "Für s km braucht er hin s/4 Stunden und zurück s/6 Stunden. s/4 + s/6 = 5. Hauptnenner 12: 3s/12 + 2s/12 = 5s/12 = 5, also s = 12 km. Probe: 3 h hin + 2 h zurück = 5 h ✓. (Die Durchschnittsgeschwindigkeit ist 24 km : 5 h = 4,8 km/h, nicht 5 km/h.)",
    "h": "Wie lange braucht er für einen Kilometer hin und für einen zurück?"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Paket mit 5 gleich schweren Büchern wiegt zusammen mit der Verpackung von 300 g genau 2,3 kg. Wie viel Gramm wiegt ein Buch?"
+   },
+   "h": "Rechne 2,3 kg in Gramm um und stelle eine Gleichung auf: Bücher plus Verpackung ergeben das Gesamtgewicht.",
+   "w": "2,3 kg = 2300 g. Gleichung: 5x + 300 = 2300. | − 300: 5x = 2000. | : 5: x = 400. Ein Buch wiegt 400 g.",
+   "g": "einkleidung",
+   "o": {
+    "wert": 400,
+    "einheit": "g"
+   },
+   "c": "(2300 - 300) / 5"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Auf der linken Waagschale liegen 2 gleiche Dosen und 3 Ein-Kilo-Gewichte, auf der rechten 11 Ein-Kilo-Gewichte. Die Waage ist im Gleichgewicht. Welche Gleichung passt, wenn x das Gewicht einer Dose in kg ist?"
+   },
+   "h": "Schreibe auf, was links liegt, und setze es gleich dem, was rechts liegt.",
+   "w": "Links: 2 Dosen = 2x, dazu 3 kg. Rechts: 11 kg. Also 2x + 3 = 11 (und damit x = 4).",
+   "g": "darstellung",
+   "a": [
+    "2x = 11 + 3",
+    "2 + 3x = 11",
+    "2x + 3 = 11",
+    "x + 3 = 11"
+   ],
+   "o": {
+    "index": 2
+   }
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gleichung □ · x + 5 = −19 hat die Lösung x = −6. Welche Zahl steht im Kästchen?"
+   },
+   "h": "Setze x = −6 ein. Dann bleibt eine Gleichung, in der nur noch die Zahl im Kästchen fehlt.",
+   "w": "□ · (−6) + 5 = −19. | − 5: □ · (−6) = −24. | : (−6): □ = 4. Probe: 4 · (−6) + 5 = −19 ✓",
+   "g": "umkehr",
+   "o": {
+    "wert": 4
+   },
+   "c": "((-19) - 5) / (-6)"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Wert hat x, wenn 1,5x − 4 = 5 gilt?"
+   },
+   "h": "Erst die Zahl ohne x auf die andere Seite bringen, dann durch die Zahl vor dem x teilen.",
+   "w": "| + 4: 1,5x = 9. | : 1,5: x = 6. Probe: 1,5 · 6 − 4 = 5 ✓",
+   "g": "mehrschritt",
+   "o": {
+    "wert": 6
+   },
+   "c": "(5 + 4) / 1.5"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst 5x + 12 = −3 so: „| − 12: 5x = 9. | : 5: x = 1,8.“ Wo steckt der Fehler?"
+   },
+   "h": "Mach die Probe mit x = 1,8 in der ursprünglichen Gleichung. Prüfe dann jeden Schritt einzeln.",
+   "w": "Probe: 5 · 1,8 + 12 = 21, nicht −3. Der Fehler: −3 − 12 ist −15. Dann 5x = −15 und x = −3.",
+   "g": "fehler",
+   "a": [
+    "Falsch gerechnet: −3 − 12 = −15, nicht 9. Richtig ist x = −3.",
+    "Man hätte zuerst durch 5 teilen müssen.",
+    "9 : 5 ist nicht 1,8.",
+    "Es ist kein Fehler drin."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Preis wird um 20 % gesenkt, danach werden noch 4 € abgezogen. Jetzt kostet die Ware 36 €. Wie viel kostete sie vorher?"
+   },
+   "h": "Nach 20 % Rabatt bleiben 80 % vom Preis, also 0,8 · x. Stelle damit eine Gleichung auf.",
+   "w": "0,8x − 4 = 36. | + 4: 0,8x = 40. | : 0,8: x = 50. Probe: 80 % von 50 € sind 40 €, minus 4 € = 36 € ✓",
+   "g": "verknuepfen",
+   "o": {
+    "wert": 50,
+    "einheit": "€"
+   },
+   "c": "(36 + 4) / 0.8"
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Darf man beim Lösen einer Gleichung beide Seiten mit 0 multiplizieren?"
+   },
+   "h": "Probiere es an 2x = 6 aus. Was steht nach dem Multiplizieren mit 0 da, und welche Zahlen erfüllen das?",
+   "w": "2x = 6 hat die Lösung 3. Mal 0 ergibt 0 = 0 – das gilt für jede Zahl. Die Umformung verändert also die Lösungsmenge; mit 0 multiplizieren ist keine Äquivalenzumformung.",
+   "g": "begruenden",
+   "a": [
+    "Ja, das ist eine Äquivalenzumformung wie jede andere.",
+    "Ja, aber nur, wenn x negativ ist.",
+    "Nein, weil man bei Gleichungen nur addieren und subtrahieren darf.",
+    "Nein. Dann steht auf beiden Seiten 0, und jede Zahl würde passen – die Lösung geht verloren."
+   ],
+   "o": {
+    "index": 3
+   }
+  },
+  {
+   "l": "waage",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet 9 € Grundgebühr im Monat und 15 Cent je Minute. Im März waren es 14,40 €. Wie viele Minuten wurde telefoniert?"
+   },
+   "h": "Stelle eine Gleichung auf: Grundgebühr plus Minuten mal Preis je Minute ergibt den Betrag. Rechne am besten in Cent.",
+   "w": "In Cent: 900 + 15x = 1440. | − 900: 15x = 540. | : 15: x = 36. Es waren 36 Minuten.",
+   "g": "transfer",
+   "o": {
+    "wert": 36
+   },
+   "c": "(1440 - 900) / 15"
   }
  ],
  "offen": [

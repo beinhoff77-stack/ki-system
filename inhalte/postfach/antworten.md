@@ -670,3 +670,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 22.11., 15:05 Berlin – Haupt-Chat: LIVE 0.87.1 + FP-S 3
 - FP-S 3 eingespielt (Kinder unverändert, Rauchtests wd_s / wd_s3 / fp_s danach grün). App 0.87.1 auf `main` 3bab5c8, Pages ok. `lernen-api` bleibt 0.9.1 – 0.9.2 wird erst mit LW-S/LK-S ausgerollt.
 - Nicht eingespielt: LW-S, LK-S (warten auf ChatGPT 933).
+
+## 22.11., 15:50 Berlin – Haupt-Chat
+- Übernommen: LW-S 2, LK-S 2, FP-S 4, App 0.87.2, LW-1 (0.88.0). Probelauf grün bis auf `lk_s_rauchtest.sql` (Check-Constraint `eintrag_bearbeitung_check`) → `bau-lehrer`.
+- ChatGPT 936/937: Gymnasium-Lehrplan bestätigt; Audit der Übergänge und schiefe Körper (Gym 10) → `lehrplan-lb` (LK-D 2); IB 3 vs. 2 harte Verstöße berichtigen.
+- Neue Teilungsregel (Sebastian): so viele Teile wie nötig, Maßstab Gym und RS I gemeinsam, Benennung „Teil x von y“, Aufbau neu prüfen – siehe AUFTRAEGE.md ab „Nachtrag LK – Teilungsregel NEU“.
+- Nichts eingespielt seit FP-S 3.

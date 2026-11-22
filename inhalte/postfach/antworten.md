@@ -676,3 +676,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - ChatGPT 936/937: Gymnasium-Lehrplan bestätigt; Audit der Übergänge und schiefe Körper (Gym 10) → `lehrplan-lb` (LK-D 2); IB 3 vs. 2 harte Verstöße berichtigen.
 - Neue Teilungsregel (Sebastian): so viele Teile wie nötig, Maßstab Gym und RS I gemeinsam, Benennung „Teil x von y“, Aufbau neu prüfen – siehe AUFTRAEGE.md ab „Nachtrag LK – Teilungsregel NEU“.
 - Nichts eingespielt seit FP-S 3.
+
+## 22.11., 16:00 Berlin – Haupt-Chat: Gymnasium-Korrektur eingespielt
+- `lk_korrektur_2211.sql` eingespielt (Freigabe Sebastian). Gymnasium: 237 von 237 Lehrplan-Punkten mit Hauptthema; Realschule 263 von 297 (die 34 offenen liegen in Gruppe II/III, nur Bericht). Kinder und Klassen unverändert.
+- App-Tests 0.88.0: 141/141 (34 alte Plan-/Stand-Tests entfernt, 6 neue) – Gestalter prüft LW-1 am Bildschirm.

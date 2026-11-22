@@ -49,13 +49,14 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 6. **Zusammenhang:** „Braucht vorher“ als kleine Karten mit Stand (✓ / Platz n / fehlt), „Darauf baut auf“; antippen öffnet dieses Thema.
 - Jede Änderung speichert sofort; unten erscheint eine Meldung „‹Thema› als Nächstes eingeplant · ↶ Rückgängig“ (5 s; Rückgängig nur für den letzten Schritt wie heute).
 
-## 6 Werkzeuge der Leiste
-- **Einordnen** Gym/RS/IB: Zeile = Klasse dieser Schulart; Standard = Schulart des Kindes.
-- **Zeigen:** (1) „Lehrplan ‹Schulart›“ = Pflicht dieser Schulart **plus alles, was im Plan, in Wiederholung oder gesetzt ist**; (2) „+ andere Schularten“ (gestrichelt dazu); (3) „Alles“ (inkl. aufgelöst, Inseln).
-- **Einstieg prüfen bis Kl. X** (ersetzt den Reiter „Stand“): alles außer den fehlenden Themen wird blass; im Fahrplan oben ein Kasten „Bis Kl. 8 fehlen 3 Themen · [Alle 3 einplanen (Lehrplan-Reihenfolge)]“.
-- **Suchen:** nicht passende Karten blass.
-- **Auswählen:** Häkchen an jeder Karte; unten schwebende Leiste „3 gewählt · [In den Plan] [Kann er – wiederholen] [Kann er komplett] [Aus dem Plan]“.
-- Kleine **% je Schulart** (heute „Stand“) stehen im Überblick-Reiter, nicht hier (die Ringe zeigen den Stand je Klasse).
+## 6 Werkzeuge der Leiste (vereinfacht nach Sebastians Rückmeldung 22.11.: „ich will alles in unseren Lehrplan aufnehmen“)
+- **Immer alle Themen sichtbar** (alle Schularten, Entdecker-Inseln; nur aufgelöste Themen ohne Flug fehlen). Kein Filter, der Themen ausblendet.
+- **„Klassen nach“ Gymnasium | Realschule | IB:** bestimmt nur, **in welcher Zeile** ein Thema steht (Klasse dieser Schule). Standard = Schulart des Kindes. Themen, die diese Schule nicht hat, stehen gestrichelt in der Klasse der anderen Schule.
+- **„Zeigen“ Alle Themen | Noch nicht im Plan · n | Im Plan · n:** hebt hervor, alles andere wird blass (nichts verschwindet).
+- **„bis Kl. X“** (Auswahl, Standard „alle Klassen“): begrenzt die Hervorhebung auf Klasse ≤ X (ersetzt „Einstieg prüfen“ und den Reiter „Stand“).
+- Bei „Noch nicht im Plan“ oben im Fahrplan: „n Themen (bis Kl. X) noch nicht im Plan · [Alle n einplanen (nach Klasse und Lehrplan)]“ – damit kommt mit einem Klick alles in den Plan.
+- **Suchen**, **Auswählen** (Sammelleiste) wie beschrieben.
+- Kleine % je Schulart stehen im Überblick-Reiter.
 
 ## 7 Tablet (760–1099 px)
 Matrix volle Breite, Karten-Kennzeichen kurz (`G8 R7 I4`), Fahrplan als Schublade von links über Knopf „Fahrplan · 5“ in der Leiste, Detail als Schublade von rechts.

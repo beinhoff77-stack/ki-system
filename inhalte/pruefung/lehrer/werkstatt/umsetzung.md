@@ -30,7 +30,14 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 - Zeile 1: Titel (höchstens 2 Zeilen, Silbentrennung, dann „…“).
 - Zeile 2 links: Stand – `◉ kann er` / `◉ gesetzt` / `↻ Wdh 2/5` / `▶ Etappe 3/7` / `Platz 4` / `2/7 begonnen` / leer.
 - Zeile 2 rechts: **Schul-Kennzeichen** `Gym 8 · RS 7 · IB 4` (gewählte Schulart dunkel, fehlende durchgestrichen, „Gym –“ orange). Tablet/Handy kurz: `G8 R7 I4`.
-- Farbe = Stufe: grün „kann er“, hellgrün „Wiederholung“, gelb mit Ring „gerade dran“, weiß mit blauem Strich „im Plan“, weiß „nicht im Plan“; gestrichelt = nicht im Lehrplan der gewählten Schulart; blass gepunktet = aufgelöst.
+- **Farbe nach Wichtigkeit** (Sebastian 22.11.: Fertiges braucht man nicht mehr, darum zurücknehmen):
+  - **▶ gerade dran:** kräftig gelb, gelber Ring, Titel fett – das Auffälligste auf der Seite.
+  - **im Plan (kommt noch):** weiß, blauer Strich links, blaue Platznummer, Text „Platz 4“.
+  - **↻ in Wiederholung:** weiß, hellgrüner Strich links, „↻ Wdh 2/5“ grün.
+  - **✓ fertig (kann er, auch gesetzt):** **durchsichtig** – kein Hintergrund, heller Rand, Titel grau, Kennzeichen blass, „✓ fertig“ / „✓ gesetzt“; beim Darüberfahren wieder weiß (bleibt antippbar).
+  - **+ nicht im Plan:** weiß, neutral, „+ nicht im Plan“ bzw. „1/7 Etappen“, wenn schon begonnen.
+  - **andere Schule:** gestrichelter Rand (zusätzlich zur Stufe). Aufgelöst: nicht in der Matrix.
+  - Ganz fertige Klassen zusätzlich eingeklappt (siehe 2).
 - **Blaue Zahl** oben rechts = Platz im Fahrplan; bei Themen außerhalb erscheint beim Darüberfahren ein „+“.
 - Rechner: Karte ziehbar (in den Fahrplan).
 
@@ -38,7 +45,7 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 - „Gerade dran“ (gelb, mit Fortschrittsbalken „Etappe 3/7“), darunter „Kommt noch“ nummeriert. Ziehen (Griff ⋮⋮) oder ↑ ↓ (Rechner beim Darüberfahren, Tablet/Handy immer sichtbar).
 - **Reihenfolge-Hinweis:** steht ein Thema vor einer harten Voraussetzung, roter Rand und „braucht ‹Thema› – kommt erst auf Platz n“.
 - „+ Thema hierher ziehen“ (Rechner); Ablegen zwischen zwei Einträgen zeigt eine blaue Linie.
-- Unten zugeklappt: „↻ In Wiederholung (n) ›“, „◉ Kann er (n) ›“ (öffnet die Liste; dort „Wieder in die Wiederholung“).
+- Unten zugeklappt: „↻ In Wiederholung (n) ›“, „✓ Fertig (kann er) (n) ›“ (öffnet die Liste; dort „Wieder in die Wiederholung“).
 - Darüberfahren über einen Fahrplan-Eintrag hebt die Karte in der Matrix hervor.
 
 ## 5 Detail-Schublade (beim Antippen einer Karte)

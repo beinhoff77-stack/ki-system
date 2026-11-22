@@ -66,9 +66,11 @@ font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 .ch .sch b.r{background:var(--akz);color:#fff}.ch .sch b.x{background:transparent;color:#C2BBAD;text-decoration:line-through}.ch .sch b.rx{background:#FDE2C4;color:#8A4B08}
 .ch .pl{position:absolute;top:-7px;right:-5px;min-width:19px;height:19px;border-radius:10px;background:var(--blau);color:#fff;font-size:10.5px;font-weight:800;display:grid;place-items:center;padding:0 4px;box-shadow:0 0 0 2px var(--bg)}
 .ch .pl.plus{background:#fff;color:var(--muted);border:1.5px dashed var(--linie2);box-shadow:none;opacity:0;transition:opacity .12s}.ch:hover .pl.plus{opacity:1}
-.ch.kann{background:var(--kannbg);--sb:var(--kann);--sc:var(--kann)}.ch.wdh{background:var(--wdhbg);--sb:var(--wdh);--sc:#4E7D24}
-.ch.dran{background:var(--dranbg);--sb:var(--dran);--sc:#8A5E00;box-shadow:0 0 0 2px #E9B53A}
-.ch.offen{--sb:var(--blau);--sc:var(--blau)}.ch.raus{--sc:var(--muted)}
+.ch.kann{background:transparent;border-color:#E2DCCD;box-shadow:none;--sb:transparent;--sc:#7A9A70}.ch.kann .t{color:#8C948F;font-weight:500}.ch.kann .sch{opacity:.55}.ch.kann:hover{background:#fff}
+.ch.wdh{background:#fff;--sb:#7CB342;--sc:#4E7D24}
+.ch.dran{background:#FFE9A8;border-color:#E2B033;--sb:#C98A00;--sc:#7A5200;box-shadow:0 0 0 2px #F2C94C,0 4px 12px #C98A0033}.ch.dran .t{font-weight:750}
+.ch.offen{background:#fff;border-color:#B9CCE6;--sb:var(--blau);--sc:var(--blau)}
+.ch.raus{background:#fff;--sc:var(--muted)}
 .ch.fremd{border-style:dashed;background:#FAF8F3}.ch.aufg{opacity:.38;border-style:dotted}
 .ch.sel{outline:2.5px solid var(--text);outline-offset:1px}.ch.hl{box-shadow:0 0 0 3px #1F5FA855}
 .ch.blass{opacity:.28}
@@ -143,7 +145,7 @@ function passt(x){if(bis&&kl(x)>bis)return false;if(zeigen==='fehlt')return imPl
 function fehlt(x){return !x.s&&imPlan(x.id)<0&&!stufe[x.id]&&(!bis||kl(x)<=bis)}
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function schB(x,cls){const p=(s,v)=>{const ref=s===sa;const lab=breite<1100&&cls!=='sch d'?{gym:'G',rs:'R',ib:'I'}[s]:SA[s]+' ';return `<b class="${ref&&v?'r':''}${!v&&ref?'rx':''}${!v&&!ref?'x':''}">${lab}${v?v:(ref?'–':'')}</b>`};return `<span class="${cls||'sch'}">${p('gym',x.k.gym)}${p('rs',x.k.rs)}${p('ib',x.ib)}</span>`}
-function stText(x){const s=st(x),y=stufe[x.id]||{};if(s==='dran')return`▶ Etappe ${dranEt}/${x.e.length}`;if(s==='offen')return`Platz ${imPlan(x.id)+1}`;if(s==='kann')return y.gesetzt?'◉ gesetzt':'◉ kann er';if(s==='wdh')return`↻ Wdh ${y.n}/5`;if(begonnen[x.id])return`${begonnen[x.id]}/${x.e.length} begonnen`;return''}
+function stText(x){const s=st(x),y=stufe[x.id]||{};if(s==='dran')return`▶ Etappe ${dranEt}/${x.e.length}`;if(s==='offen')return`Platz ${imPlan(x.id)+1}`;if(s==='kann')return y.gesetzt?'✓ gesetzt':'✓ fertig';if(s==='wdh')return`↻ Wdh ${y.n}/5`;if(begonnen[x.id])return`${begonnen[x.id]-1}/${x.e.length} Etappen`;return'+ nicht im Plan'}
 function chip(x){const s=st(x),p=imPlan(x.id);const fremd=!(sa==='ib'?x.ib:x.k[sa]);
  const cls=['ch',s,fremd?'fremd':'',x.s?'aufg':'',sel===x.id?'sel':'',gew.has(x.id)?'gew':'',!passt(x)?'blass':'',q&&!(x.t+' '+x.u).toLowerCase().includes(q)?'blass':''].join(' ');
  return `<button class="${cls}" data-id="${x.id}" draggable="${breite>=760}">${p>=0?`<span class="pl">${p+1}</span>`:(x.s?'':'<span class="pl plus">+</span>')}<span class="cb">✓</span><span class="t">${esc(x.t)}</span><span class="m"><span class="st">${x.s?'aufgelöst':stText(x)}</span>${schB(x)}</span></button>`}
@@ -163,7 +165,7 @@ function leiste(){const kompakt=breite<760;const nf=D.filter(fehlt).length;retur
  <div class="rechts">${breite>=760&&breite<1100?`<button class="ik ${railAuf?'an':''}" data-a="rail">Fahrplan · ${plan.length}</button>`:''}
  ${kompakt?'':'<input class="such" placeholder="Suchen" value="'+esc(q)+'" data-a="such">'}
  <button class="ik ${waehlen?'an':''}" data-a="waehlen">${waehlen?'Fertig':'Auswählen'}</button></div></div>
- <div class="legende"${breite<760?' style="font-size:10.5px;gap:8px;padding:5px 12px"':''}><span><i style="background:var(--kannbg);box-shadow:inset 3px 0 var(--kann)"></i>kann er</span><span><i style="background:var(--wdhbg);box-shadow:inset 3px 0 var(--wdh)"></i>Wiederholung</span><span><i style="background:var(--dranbg);box-shadow:0 0 0 1.5px #E9B53A"></i>gerade dran</span><span><i style="background:var(--blau);border-radius:50%"></i>Platz im Fahrplan</span><span><i style="border:1.5px dashed #C9C0A8"></i>gibt es im Lehrplan ${SA[sa]} nicht – steht in der Klasse der anderen Schule</span></div>`}
+ <div class="legende"${breite<760?' style="font-size:10.5px;gap:8px;padding:5px 12px"':''}><span><i style="background:#FFE9A8;box-shadow:0 0 0 1.5px #F2C94C"></i>▶ gerade dran</span><span><i style="background:#fff;box-shadow:inset 3px 0 var(--blau),0 0 0 1px #B9CCE6"></i><b style="color:var(--blau)">2</b> im Plan (Platz)</span><span><i style="background:#fff;box-shadow:inset 3px 0 #7CB342,0 0 0 1px #E4DED1"></i>↻ in Wiederholung</span><span><i style="background:transparent;box-shadow:0 0 0 1px #E2DCCD;opacity:.6"></i><span style="color:#8C948F">◉ kann er – fertig (blass)</span></span><span><i style="background:#fff;box-shadow:0 0 0 1px #E4DED1"></i>+ noch nicht im Plan</span><span><i style="border:1.5px dashed #C9C0A8"></i>andere Schule</span></div>`}
 function rail(){const fz=plan.map((id,i)=>{const x=BY[id];const vor=(VOR[id]||[]).filter(e=>e.art==='h'&&imPlan(e.id)>i);
   return `<div class="fp ${i===0?'dran':''} ${vor.length?'warn':''}" draggable="true" data-fp="${id}"><span class="gr">⋮⋮</span><span class="nr">${i+1}</span><span><span class="ti">${esc(x.t)}</span><span class="me" style="display:block">${esc(x.g)} · ${i===0?`Etappe ${dranEt}/${x.e.length}`:SA[sa]+' '+(x.k[sa]||'–')}</span></span><span class="pf"${breite<1100?' style="display:flex"':''}><button data-auf="${id}" title="hoch">↑</button><button data-ab="${id}" title="runter">↓</button></span>${i===0?`<span class="bar"><i style="width:${Math.round((dranEt-1)/x.e.length*100)}%"></i></span>`:''}${vor.length?`<span class="w">braucht ${esc(BY[vor[0].id].t)} – kommt erst auf Platz ${imPlan(vor[0].id)+1}</span>`:''}</div>`}).join('');
  const nw=D.filter(x=>stufe[x.id]&&stufe[x.id].s==='wdh'&&imPlan(x.id)<0).length,nk=D.filter(x=>stufe[x.id]&&stufe[x.id].s==='kann'&&imPlan(x.id)<0).length;
@@ -172,7 +174,7 @@ function rail(){const fz=plan.map((id,i)=>{const x=BY[id];const vor=(VOR[id]||[]
  ${lue.length?`<div class="luecke"><b>${lue.length} Themen${bis?' bis Kl. '+bis:''} noch nicht im Plan.</b><br>In der Matrix hervorgehoben.<button data-a="luecken">Alle ${lue.length} einplanen (nach Klasse und Lehrplan)</button></div>`:''}
  <div class="rsek">GERADE DRAN</div>${fz.split('</div>').length?fz.replace(/(<div class="fp (?!dran))/,'<div class="rsek">KOMMT NOCH</div>$1'):''}
  ${breite<760?'<div class="dz">Einplanen: unter „Alle Themen“ ein Thema antippen</div>':'<div class="dz" data-dz="1">+ Thema hierher ziehen</div>'}
- <div class="rsek">AUSSERHALB DES FAHRPLANS</div><div class="zu">↻ In Wiederholung <span>${nw} ›</span></div><div class="zu">◉ Kann er <span>${nk} ›</span></div></div></aside>`}
+ <div class="rsek">AUSSERHALB DES FAHRPLANS</div><div class="zu">↻ In Wiederholung <span>${nw} ›</span></div><div class="zu">✓ Fertig (kann er) <span>${nk} ›</span></div></div></aside>`}
 function matrix(){const kls=[5,6,7,8,9,10];const gebs=GEB.filter(([g])=>D.some(x=>x.g===g&&sichtbar(x)));
  let h=`<div class="mx" style="grid-template-columns:78px repeat(${gebs.length},minmax(${breite>=1100?118:96}px,1fr))"><div class="ecke"></div>`+gebs.map(([g,i])=>`<div class="gh"><span class="gi">${i}</span>${esc(g)}</div>`).join('');
  for(const k of kls){if(fertig(k)&&!auf.has(k)){const l=D.filter(x=>kl(x)===k&&sichtbar(x)&&!x.s);const nw=l.filter(x=>st(x)==='wdh').length;h+=`<button class="zu-reihe" data-a="kl-auf" data-k="${k}" style="grid-column:1/-1"><span class="kb" style="background:${FARBE[k]}">${SA[sa]} Kl. ${k}</span><span>✓ Alles gekonnt · ${l.length} Themen${nw?` · davon ${nw} in Wiederholung`:''}</span><span class="leise">aufklappen ▾</span></button>`;continue}

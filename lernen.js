@@ -2176,16 +2176,23 @@ function lernLandungsBonus(landung, art) {
     el('span', { class: 'lr-ab-bonus-text' }, el('b', {}, 'Landungs-Bonus'), el('small', {}, zeile2)),
     el('span', { class: 'lr-ab-bonus-zahl' }, '+', el('span', { 'data-ziel': String(b) }, lernZahl(b)), ' ★'));
 }
-// FP (Vorgabe 3): einmaliger Hinweis nach der Nachbuchung – „Super ›“ schließt ihn (auf diesem Gerät; der Server kennt kein „gesehen“)
+// FP (Vorgabe 3) / FP-S 3: einmaliger Hinweis nach der Nachbuchung – „Super ›“ quittiert beim Server
+// (schule_landung_nachbuchung_gesehen → gesehen_am, gilt auf allen Geräten); localStorage nur als Rückfall
 function lernNachbuchungHinweis(d) {
-  const n = d.landungNachbuchung; const s = Number(n?.sterne || 0); if (!s) return null;
+  const n = d.landungNachbuchung; const s = Number(n?.sterne || 0); if (!s || n.gesehen_am) return null;
   const schl = `lern.fpnach.${d.kind.id}.${n.am || ''}`;
   try { if (localStorage.getItem(schl)) return null; } catch { /* zeigen */ }
+  const quittieren = () => {
+    try { localStorage.setItem(schl, '1'); } catch { /* egal */ }
+    n.gesehen_am = n.gesehen_am || new Date().toISOString(); karte.remove();
+    lernCall('schule_landung_nachbuchung_gesehen', { lernender_id: d.kind.id })
+      .then((r) => { if (r?.gesehen_am) n.gesehen_am = r.gesehen_am; }).catch(() => { /* Rückfall: Gerät */ });
+  };
   const karte = el('section', { class: 'lr-karte-box lr-fp-geschenk', role: 'status' },
     el('span', { class: 'lr-ab-bonus-funken', 'aria-hidden': 'true' }, el('i', {}, '✦'), el('i', {}, '✦'), el('i', {}, '✦')),
     el('b', {}, '★ Geschenk für deine Landungen'),
     el('p', {}, 'Für deine bisherigen Landungen gibt es nachträglich ', el('b', {}, `+${lernZahl(s)} ★`), ' Landungs-Bonus.'),
-    el('button', { type: 'button', class: 'lr-knopf lr-knopf-klein', onclick: () => { try { localStorage.setItem(schl, '1'); } catch { /* egal */ } karte.remove(); } }, 'Super ›'));
+    el('button', { type: 'button', class: 'lr-knopf lr-knopf-klein', onclick: quittieren }, 'Super ›'));
   return karte;
 }
 // 2. Flug geschafft (Bildschirm 1)

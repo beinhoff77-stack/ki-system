@@ -4300,6 +4300,35 @@ test('FP-3: einmaliger Hinweis nach der Nachbuchung („Geschenk für deine Land
   assert.equal(await p2.locator('.lr-fp-geschenk').count(), 0);
 });
 
+test('FP-5 (0.87.1): „Super ›“ quittiert beim Server (schule_landung_nachbuchung_gesehen), gesehen_am vom Server blendet aus, Fehler → Rückfall Gerät', async (t) => {
+  const NB = { etappen: 25, sterne: 1620, am: '2026-11-22T12:00:00Z' };
+  // 1. Quittung geht an den Server; danach liefert der Server gesehen_am → auch ohne localStorage weg
+  const srv = { gesehen: null, aufrufe: [] };
+  const f = (aktion, e, d) => {
+    if (aktion === 'schule_konto' && e) return { ...structuredClone(e), landung_nachbuchung: { ...NB, gesehen_am: srv.gesehen } };
+    if (aktion === 'schule_landung_nachbuchung_gesehen') { srv.aufrufe.push(d); srv.gesehen = srv.gesehen || '2026-11-22T13:40:00Z'; return { ok: true, gesehen_am: srv.gesehen }; }
+    return null; }; f.neueAktionen = true;
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: f });
+  await page.goto(origin + '/#/reise/1'); await page.locator('.lr-fp-geschenk').waitFor();
+  await page.getByRole('button', { name: 'Super ›' }).click(); await page.locator('.lr-fp-geschenk').waitFor({ state: 'detached' });
+  for (let i = 0; i < 20 && !srv.aufrufe.length; i++) await page.waitForTimeout(50);
+  assert.equal(srv.aufrufe.length, 1, 'genau eine Quittung'); assert.ok(srv.aufrufe[0]?.lernender_id, 'mit lernender_id');
+  await page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('lern.fpnach.')).forEach((k) => localStorage.removeItem(k)));
+  await page.reload(); await page.locator('.lr-einsteigen-knopf').waitFor();
+  assert.equal(await page.locator('.lr-fp-geschenk').count(), 0, 'gesehen_am vom Server (zweites Gerät)');
+  assert.equal(srv.aufrufe.length, 1, 'kein zweiter Aufruf');
+  // 2. Server kennt die Aktion nicht / Fehler → Karte trotzdem weg, Gerät merkt es sich
+  const g = (aktion, e) => {
+    if (aktion === 'schule_konto' && e) return { ...structuredClone(e), landung_nachbuchung: { ...NB } };
+    if (aktion === 'schule_landung_nachbuchung_gesehen') return { ok: false, fehler: 'unbekannte Aktion' };
+    return null; }; g.neueAktionen = true;
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht', anpassen: g });
+  await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-fp-geschenk').waitFor();
+  await p2.getByRole('button', { name: 'Super ›' }).click(); await p2.locator('.lr-fp-geschenk').waitFor({ state: 'detached' });
+  await p2.reload(); await p2.locator('.lr-einsteigen-knopf').waitFor();
+  assert.equal(await p2.locator('.lr-fp-geschenk').count(), 0, 'Rückfall localStorage');
+});
+
 test('FP-4: Info-Seite „Sterne“ nach der Vorgabe', async (t) => {
   const { page } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
   await page.addInitScript(() => localStorage.setItem('lern_token', 't'.repeat(64)));

@@ -2,6 +2,26 @@
 
 Neueste oben.
 
+## 2026-11-22 – bau-lehrer – FERTIG: WD-S 3
+
+Auf AUFTRAEGE.md „Fehler Mischkarten (22.11.)“, Nachtrag „WD-S 3 – frische Aufgaben“ und „ChatGPT 919“, Teil bau-lehrer. Nur Dateien, nichts in der echten Datenbank ausgeführt (nur lesende Abfragen), kein App-Code. `sterne_wdh_richtig` bleibt 10.
+
+**Dateien**
+- `supabase/migrations/20261122_wd_s3_frische_aufgaben.sql` – neu, nach WD-S 2 einspielen (eine Transaktion).
+- `supabase/migrations/20261122_wd_4b_stau_strecken.sql` – überarbeitet (nicht eingespielt): jetzt als Funktionen `schule.wdh_staffel_strecken` / `schule.wdh_staffel_zurueck`, nach WD-S 3 einspielen.
+- `supabase/tests/wd_s3_rauchtest.sql` (neu, 7 Teile), `supabase/tests/wd_s3_gleichzeitig.sh` (neu, zwei gleichzeitige Transaktionen – **nur Wegwerf-Datenbank**, schreibt Daten), `supabase/tests/wd_s3_lesend.sql` (neu, nur lesend). `wd_s_rauchtest.sql` Teil 10 nimmt jetzt eine heute noch nicht beantwortete Etappe (sonst sperrt die neue Regel die Mischkarte zu Recht).
+
+**(1) Frische Aufgaben** – eine Auswahl für Wiederholung und Mischkarte (`schule.wdh_aufgabe_waehlen`): nie aus den letzten 3 Lerntagen (heute + 2 vorige **Lerntage**, Reisetage zählen nicht; jede Rolle inkl. Test und Knobeln; Regel `wdh_sperre_lerntage`), zuerst nie beantwortete (darunter zufällig), sonst die am längsten zurückliegende, sonst heute keine (Wiederholung bleibt fällig, in der Runde = bearbeitet). Stufe 3–4: beliebig, bevorzugt die am längsten zurückliegende – „noch nie“ zählt dabei als am längsten zurück; damit fallen beide Regeln in eine Reihenfolge zusammen (Annahme, bitte bestätigen). Mischkarten: nie aus einer Etappe, in der das Kind heute schon geantwortet hat; offene Ausgabe verfällt sofort bei anderer Antwort (Trigger) und beim nächsten Ausgeben, wenn schon beantwortet oder Etappe heute dran. Mischkarte ohne gültige Ausgabe: `misch {gueltig: false, sterne}`, keine Buchung als Wiederholung (Takt bleibt), als normales Üben wie bisher; gültig: `misch.gueltig: true` + `misch.sterne`. `sterne` = in diesem Aufruf tatsächlich gebucht.
+**(2) Nur selbst** (Regel `wdh_nur_selbst` = true): Fortschritt, Wiederholungs-Sterne, Ablegen nur richtig im ersten Versuch ohne Tipp – Runde, freiwillig, Mischkarte. Mit Tipp/zweitem Versuch: `wiederholung {bestanden: false, mit_hilfe: true, naechste_in: 1}`, kein Fehler, am nächsten Lerntag wieder. Dafür zählt eine Mischkarte mit Tipp jetzt als Antwort (richtig + 1, kein Beleg) – sonst bliebe sie in der Runde offen.
+**(3) WD-4b:** Etappen einer offenen Tagesrunde ausgenommen (zählen auf den heutigen Platz); von WD-4 schon belegte Folgetage zählen mit; Rückweg nur ohne Zwischenübung (sonst Ablehnung, nichts geändert); kein zweiter Lauf.
+**(4) Sollte:** Misch-Fehler für die Reihenfolge erst nach endgültiger Wertung; zwei gleichzeitige Transaktionen über die Antwort-Funktion (lokal: Gerät A „bestanden, Stufe 2“, Gerät B wartet auf die Sperre und bekommt „keine Wiederholung“; genau ein Fortschritt, einmal Sterne); Lerntage statt Kalendertage (Test 1: Sperre ab 18.11. bei heute 22.11. = 3 Lerntage über 4 Kalendertage).
+
+**(5) Lesend, Stand 22.11. (echte Datenbank):** gelandete Etappen mit < 3 frischen Aufgaben (Stufe 2–3): **Kind 1: Einheit 39 „ordnen“ und „zahlengerade“ (0 von 18 frisch); Kind 2: Einheit 5 „waage“ (0 von 18)**. Nach WD-S 3 bekommen diese Etappen die am längsten zurückliegende Aufgabe (nie aus den letzten 3 Lerntagen) – Nachliefern empfohlen. Nach dem Einspielen: `select * from schule.etappen_wenig_frisch();`.
+**Gegenprüfung `flug_erstabschluss`:** 5 Einträge, alle stimmig (Sitzung passt, Flug heute fertig, höchstens eine Sitzung mit flug_geschafft).
+
+**Lokal ausgeführt** (Postgres 16, Live-Funktionen byte-gleich inkl. `misch_gueltig`; `uebung_pruefen_intern` als Platzhalter mit echter Auswahl-Wertung, Hilfe/Anlauf/Mischkarte wie live): alle drei Migrationen je zweimal, `wd_s_rauchtest` grün, `wd_s3_rauchtest` grün, Gleichzeitig-Skript grün. Dabei gefunden und behoben: zufällige Aufgabenwahl muss `volatile` sein (sonst wertet Postgres sie doppelt aus).
+**Für bau-motivation (0.86.2):** `misch.gueltig`, `misch.sterne`, `wiederholung.mit_hilfe` sind die neuen Felder.
+
 ## 2026-11-22 – FERTIG: 0.86.1 – Rückläufer 22.11. abends, Teil C (Cache v157)
 
 Auf `lernen-app` 6ec1c3e. Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.

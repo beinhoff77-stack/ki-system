@@ -250,8 +250,8 @@ begin
   update schule.regel set wert = '6' where schluessel = 'wdh_gesetzt_je_lerntag';
   raise notice 'ok 9 gesetzter Flug gestaffelt (je Lerntag höchstens 2: %), gestaffelt %', v_tage, r->'gestaffelt';
 
-  -- 10 WD-3 Auswahl: fällige Etappen zuerst
-  perform pg_temp.wd_karte(v_l, v_e, v_lz[2], 1, 3, 0, 6);
+  -- 10 WD-3 Auswahl: fällige Etappen zuerst (eine heute noch nicht beantwortete Etappe – WD-S 3: keine Mischkarte aus einer Etappe von heute)
+  perform pg_temp.wd_karte(v_l, v_ye, v_ylz, 1, 3, 0, 6);
   r := schule.mischkarten_waehlen(v_l, v_e3, 50);
   if jsonb_array_length(r) = 0 or not (r->0->>'faellig')::boolean then raise exception 'FEHLER 10 Mischkarten: erste nicht fällig'; end if;
   if exists (select 1 from jsonb_array_elements(r) with ordinality x(j, nr) where not (x.j->>'faellig')::boolean

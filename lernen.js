@@ -952,7 +952,7 @@ async function viewReise(arg) {
   loading();
   const d = await lernLadeKind(arg);
   if (!d || !live()) return;
-  const [merk, wdh] = await Promise.all([lernMerkDaten(d).catch(() => []), lernCall('schule_wiederholung', { lernender_id: d.kind.id, anzahl: LERN_WDH_ANFRAGE }).catch(() => null)]);
+  const [merk, wdh] = await Promise.all([lernMerkDaten(d).catch(() => []), lernWdhLaden(d.kind.id).catch(() => null)]);
   if (!live()) return;
   const { kind, naechste: n } = d;
   $('#title').textContent = 'Lernreise ' + kind.name;
@@ -975,8 +975,8 @@ async function viewReise(arg) {
       el('p', { class: 'lr-ueber' }, `JETZT DRAN · ${(n.stadt || '').toUpperCase()}`),
       el('h1', { class: 'lr-titel lr-titel-thema' }, n.titel),
       el('a', { class: 'lr-knopf lr-knopf-start', href: ziel }, n.laeuft ? 'Test weitermachen' : testDran ? 'Zum Test' : et.f || nWdh ? 'Weiter geht’s' : 'Los geht’s'),
-      nWdh && !n.laeuft ? el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`) : null,
-      lernWdhWartet(ws),
+      nWdh && !n.laeuft ? (ws.neu ? lernCheckinAnsage(ws) : el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`)) : null,
+      lernExtraLink(ws, kind.id),
       et.n ? el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${et.f} von ${et.n} Etappen sitzen` }, el('span', { style: `width:${Math.round(100 * et.f / et.n)}%` })), el('b', {}, `${et.f} von ${et.n} Etappen sitzen`)) : null,
       el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
       el('div', { class: 'lr-kartenbild lr-kartenbild-klein' }, lernKarte({ orte: kont, fokus: kont.slice(0, Math.max(3, kont.indexOf(ortN) + 2)), hervor: LERN_ERDTEIL[ortN.kontinent], route: true,
@@ -1003,18 +1003,46 @@ async function viewReise(arg) {
 // W150 Abflug: Startseite als Abflugtafel. Oberste Zeile = jetzt dran, ein gelber Knopf im Daumenbereich.
 // V9: Vor dem Thema höchstens eine Runde Wiederholungen am Tag (bis zu 6 Karten). Ist die Runde heute gemacht, führt der Startknopf ins Thema.
 const LERN_WDH_RUNDE = 6;
-// WD (22.11.): Der neue Server errechnet die Größe der Runde (bis 12) und merkt sich „Runde gemacht“ je Lerntag. Angefragt werden deshalb bis zu 12 –
-// der alte Server begrenzt selbst auf 6 (least(anzahl, 6)), dort bleibt alles wie in 0.84.0.
-const LERN_WDH_ANFRAGE = 12;
+// WD (22.11.) / WD-S 2: Der Server legt die Runde fest (Größe, Pflicht-Bordkarten mit `pflicht`) und setzt „Runde gemacht“ selbst, sobald alle Pflicht-Bordkarten
+// beantwortet sind. Die App fragt ohne `anzahl` (der neue Server liefert alle fälligen). Der alte Server (ohne `runde`) liefert ohne `anzahl` nur 3 – dort
+// fragt die App einmal mit 6 nach und verhält sich wie 0.84.0.
+async function lernWdhLaden(kindId) {
+  let r = await lernCall('schule_wiederholung', { lernender_id: kindId });
+  if (r && (r.runde === undefined || r.runde === null) && Number(r.faellig || 0) > (r.aufgaben || []).length) r = await lernCall('schule_wiederholung', { lernender_id: kindId, anzahl: LERN_WDH_RUNDE });
+  return r;
+}
 function lernWdhStand(wdh, kindId) {
   const auf = wdh?.aufgaben || []; const neu = !!wdh && wdh.runde !== undefined && wdh.runde !== null;
-  const gemacht = neu ? !!wdh.runde_gemacht : lernWdhHeute(kindId);
-  const runde = neu ? Math.min(Math.max(0, Number(wdh.runde) || 0), auf.length) : auf.length;
-  return { neu, gemacht, runde, pflicht: gemacht ? 0 : runde, rest: gemacht ? Number(wdh?.faellig || 0) : 0, gestaffelt: neu ? Number(wdh.gestaffelt || 0) : 0 };
+  if (!neu) { const gemacht = lernWdhHeute(kindId); return { neu, gemacht, runde: auf.length, offen: gemacht ? 0 : auf.length, erledigt: 0, pflicht: gemacht ? 0 : auf.length, rest: gemacht ? Number(wdh?.faellig || 0) : 0, liste: auf, extra: 0 }; }
+  const gemacht = !!wdh.runde_gemacht; const runde = Math.max(0, Number(wdh.runde) || 0);
+  const pfl = auf.some((a) => a.pflicht !== undefined) ? auf.filter((a) => a.pflicht) : auf.slice(0, runde);
+  const offen = gemacht ? 0 : Math.min(pfl.length, runde || pfl.length);
+  const erledigt = gemacht ? runde : Number.isFinite(Number(wdh.runde_erledigt)) ? Number(wdh.runde_erledigt) : Math.max(0, runde - offen);
+  const faellig = Number(wdh.faellig || 0);
+  // „Noch 3 Extra-Bordkarten?“ nur, wenn mehr fällig ist als die Runde (nach der Runde: wenn noch etwas fällig ist). Die Zahl der fälligen sieht das Kind nie.
+  const extra = gemacht ? (faellig > 0 ? 1 : 0) : faellig > runde ? 1 : 0;
+  return { neu, gemacht, runde: Math.max(runde, erledigt + offen), offen, erledigt, pflicht: offen, rest: 0, liste: pfl.slice(0, offen), extra, sterne: Number(wdh.sterne_je_richtig ?? wdh.sterne_wdh_richtig) || null,
+    alle: auf, faellig };
 }
-// WD-4: gesetzte Etappen, die noch warten (der Server bringt höchstens 6 je Lerntag neu in den Takt)
-const lernWdhWartet = (ws) => (ws?.gestaffelt ? el('p', { class: 'lr-leise lr-wdh-wartet' },
-  `${ws.gestaffelt} ${ws.gestaffelt === 1 ? 'Etappe wartet' : 'Etappen warten'} noch auf die erste Wiederholung – sie ${ws.gestaffelt === 1 ? 'kommt' : 'kommen'} ab dem nächsten Lerntag nach und nach dazu.`) : null);
+// Koffer-Leiste (Vorgabe „abgelegt“ 1/2): je Pflicht-Bordkarte ein Koffer; bis 6 ein Päckchen, 7–9 zu 3, 10–12 zu 4 (gleichmäßig)
+function lernKoffer(n, zustand = []) {
+  const groesse = n <= 6 ? n : n <= 9 ? 3 : 4; const zahl = Math.max(1, Math.ceil(n / Math.max(1, groesse)));
+  const teile = Array.from({ length: zahl }, (_, i) => Math.floor(n / zahl) + (i < n % zahl ? 1 : 0)); let k = 0;
+  return el('div', { class: 'lr-koffer', role: 'img', 'aria-label': `${zustand.filter((z) => z === 'ok').length} von ${n} richtig` }, ...teile.map((m) => {
+    const ks = Array.from({ length: m }, () => zustand[k++] || '');
+    return el('span', { class: 'lr-koffer-p' + (ks.every((z) => z && z !== 'jetzt') ? ' lr-koffer-fertig' : '') }, ...ks.map((z) => el('i', { class: z ? 'lr-k-' + z.split(' ').join(' lr-k-') : '' })));
+  }));
+}
+const lernMinuten = (n) => (n * 0.5 < 2 ? 'ganz kurz' : `etwa ${Math.ceil(n * 0.5)} Minuten`);
+// Ansage auf der Startseite: „Vorher kurz einchecken“ (nur neuer Server, Runde offen)
+function lernCheckinAnsage(ws) {
+  if (!ws?.neu || !ws.offen) return null;
+  const zahl = ws.erledigt ? `Noch ${ws.offen} von ${ws.runde} Bordkarten` : `${ws.runde} ${ws.runde === 1 ? 'Bordkarte' : 'Bordkarten'}`;
+  return el('div', { class: 'lr-checkin-ansage' }, el('b', {}, ws.erledigt ? 'Check-in fortsetzen' : 'Vorher kurz einchecken'),
+    el('span', { class: 'lr-leise' }, [`${zahl} von früher`, lernMinuten(ws.offen), ws.sterne ? `je richtig ★ ${ws.sterne}` : null].filter(Boolean).join(' · ')),
+    lernKoffer(ws.runde, Array.from({ length: ws.runde }, (_, i) => (i < ws.erledigt ? 'da' : ''))));
+}
+const lernExtraLink = (ws, kindId) => (ws?.neu && ws.extra ? el('a', { class: 'lr-textlink lr-extra-link', href: `#/wiederholen/${kindId}-extra` }, `Noch 3 Extra-Bordkarten?${ws.sterne ? ` Je richtig ★ ${ws.sterne}` : ''}`) : null);
 function lernWdhHeute(kindId, setzen) {
   const heute = lernHeuteTag(kindId); // Teil 6: Tag des Kindes (heute_bis)
   try { if (setzen) localStorage.setItem('lern.wdhrunde.' + kindId, heute); return localStorage.getItem('lern.wdhrunde.' + kindId) === heute; } catch { return false; }
@@ -1025,9 +1053,9 @@ function lernWdhErklaert(neu = false) {
     el('p', {}, 'Sitzt eine Etappe, kommt sie später zum Wiederholen zurück – jedes Mal mit einer Bordkarte.'),
     el('p', {}, 'Die Abstände werden größer: nach 1, 3, 7, 14 und 30 Lerntagen. Ein Lerntag ist ein Tag, an dem du übst. Machst du Pause, wartet die Etappe.'),
     el('p', {}, 'Stimmt die Bordkarte nicht, kommt die Etappe am nächsten Lerntag wieder. Erst beim zweiten Fehler übst du sie noch einmal von vorn.'),
-    neu ? el('p', {}, 'Am Anfang eines Lerntags kommt eine Runde Wiederholungen: alle fälligen, wenn es höchstens 6 sind – sonst ein Teil davon, damit es nicht zu viel wird. Weitere kannst du freiwillig machen.')
+    neu ? el('p', {}, 'Am Anfang eines Lerntags checkst du kurz ein: ein paar Bordkarten von früher. Du kannst zwischendurch aufhören und später weitermachen. Extra-Bordkarten sind freiwillig.')
       : el('p', {}, 'Vor einem Flug kommen höchstens ' + LERN_WDH_RUNDE + ' Wiederholungen.'),
-    neu ? el('p', {}, 'Jede richtige Wiederholung bringt 5 Sterne. Schaffst du die letzte Wiederholung nach 30 Lerntagen, ist die Etappe endgültig abgelegt: 30 Sterne. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, und der Flug wird im Reisepass golden.') : null,
+    neu ? el('p', {}, 'Jede richtige Bordkarte bringt Sterne. Schaffst du eine Etappe auch beim fünften Mal (nach 30 Lerntagen), ist sie abgelegt und kommt nicht mehr wieder: 30 Sterne. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, und der Flug wird im Reisepass golden.') : null,
     el('p', {}, 'Nach dem Test zu einem Flug folgt später ein kurzer Nachtest.'));
 }
 function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort = null, ws = null }) {
@@ -1081,9 +1109,9 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
     el('div', { class: 'lr-tafelchips' }, el('a', { href: `#/reisepass/${kind.id}` }, `◎ ${d.konto?.stempel ?? 0} Stempel`), el('span', {}, 'Abflug, wann es dir passt')),
     lernKnobelDesTages(d),
     lernExpeditionAngebot(d),
-    nWdh && !n.laeuft && !testDran ? el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`) : null,
+    nWdh && !n.laeuft && !testDran ? (ws?.neu ? lernCheckinAnsage(ws) : el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`)) : null,
     wdhRest ? el('a', { class: 'lr-textlink', href: `#/wiederholen/${kind.id}` }, `Noch ${wdhRest} ${wdhRest === 1 ? 'Wiederholung' : 'Wiederholungen'} offen – wenn du magst`) : null,
-    lernWdhWartet(ws),
+    nWdh ? null : lernExtraLink(ws, kind.id),
     el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
     el('a', { class: 'lr-textlink lr-route-link', href: `#/route/${kind.id}` }, 'Meine Route 5–10 ›'), // LM-6
     gruppe('Alle offenen Flüge', weitere.length > maxZ ? weitere : []),
@@ -1098,7 +1126,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
     el('div', { class: 'lr-dock lr-dock-start' }, el('a', { class: 'lr-knopf lr-einsteigen-knopf', href: ziel },
       // N4: Die Wiederholung kann aus einem anderen Ort stammen – der Knopf nennt deshalb die Anzahl, nicht das Ziel.
       ...(n.laeuft || testDran ? [el('span', {}, n.laeuft ? 'Test weitermachen' : 'Zum Test'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›')]
-        : nWdh ? [el('span', {}, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'} ›`)]
+        : nWdh ? [el('span', {}, ws?.neu ? 'Weiter geht’s ›' : `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'} ›`)] // Vorgabe „abgelegt“ 1: Startknopf bleibt „Weiter geht’s“
         : wdhFertig ? [el('span', {}, `Weiter nach ${n.stadt || n.ort_titel || n.titel} ›`)]
         : [el('span', {}, 'Einsteigen'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›')]))),
   ];
@@ -1129,9 +1157,15 @@ async function viewReisepass(arg) {
   const stempel = d.orte.filter((o) => o.zustand === 'fertig' || fertigeOrte.has(o.block_id));
   // WD-6: Gold im Reisepass – je Ort gold, je Flug abgelegt (etappen_abgelegt von etappen); fehlen die Felder (alter Server), bleibt alles wie bisher
   const goldOrte = new Set((konto?.orte || []).filter((o) => o.gold === true).map((o) => o.block_id));
-  const fluege = (Array.isArray(konto?.fluege) ? konto.fluege : (konto?.orte || []).flatMap((o) => (o.fluege || []).map((f) => ({ block_id: o.block_id, ...f }))))
-    .filter((f) => f.abgelegt === true || Number(f.etappen_abgelegt) > 0);
-  const flugOrt = (f) => d.orte.find((o) => o.block_id === f.block_id)?.stadt || f.ort || '';
+  // Vorgabe „abgelegt“ 6: alle Flüge mit Karten (= gelandet) aus schule_konto; ganz abgelegt golden, teilweise mit Gold-Leiste, sonst „noch nichts abgelegt“
+  const fluege = Array.isArray(konto?.fluege) ? konto.fluege : (konto?.orte || []).flatMap((o) => (o.fluege || []).map((f) => ({ block_id: o.block_id, ...f })));
+  const blockVon = (f) => f.block_id ?? d.mit.find((e) => e.id === f.einheit_id)?.block_id;
+  const flugOrt = (f) => d.orte.find((o) => o.block_id === blockVon(f))?.stadt || f.ort || '';
+  const flugEintrag = (f) => { const a = Number(f.etappen_abgelegt) || 0, n = Number(f.etappen) || 0; const gold = f.abgelegt === true;
+    return el('li', { class: 'lr-flug-eintrag' + (gold ? ' lr-flug-gold' : '') }, el('span', { class: 'lr-flug-symbol', 'aria-hidden': 'true' }, '✈'),
+      el('span', { class: 'lr-flug-text' }, el('b', {}, f.titel || 'Flug'), el('small', {}, [flugOrt(f), gold ? 'alle Etappen für immer gelernt' : null].filter(Boolean).join(' · '))),
+      el('span', { class: 'lr-flug-rechts' }, gold ? '★ ABGELEGT' : a ? `${a} von ${n} abgelegt` : 'noch nichts abgelegt',
+        !gold && a && n ? el('span', { class: 'lr-mini-gold', 'aria-hidden': 'true' }, ...Array.from({ length: n }, (_, i) => el('i', { class: i < a ? 'g' : '' }))) : null)); };
   const belohnungen = d.belohnungen.map((b) => {
     const fehltS = Math.max(0, b.kosten_sterne - (konto?.sterne || 0)), fehltP = Math.max(0, b.kosten_stempel - (konto?.stempel || 0));
     const kann = !fehltS && !fehltP;
@@ -1158,17 +1192,16 @@ async function viewReisepass(arg) {
       el('p', { class: 'lr-abzeichen' }, el('span', { class: 'lr-abz-direkt' }, `⚡ Direkt ${lernZahl(konto.abzeichen.direkt || 0)}`), ' · ',
         el('span', { class: 'lr-abz-sauber' }, `✓ Sauber ${lernZahl(konto.abzeichen.sauber || 0)}`), ' · ',
         el('span', { class: 'lr-abz-sturm' }, `⚡ Ausdauer ${lernZahl(konto.abzeichen.sturm || 0)}`))) : null,
+    fluege.length ? el('section', { class: 'lr-karte-box lr-pass-fluege' }, el('h2', {}, 'Flüge'),
+      el('ul', { class: 'lr-flug-eintraege' }, ...fluege.slice().sort((x, y) => (y.abgelegt === true) - (x.abgelegt === true) || (Number(y.etappen_abgelegt) || 0) - (Number(x.etappen_abgelegt) || 0)).map(flugEintrag)),
+      fluege.some((f) => f.abgelegt === true) || goldOrte.size ? el('p', { class: 'lr-leise lr-gold-hinweis' }, 'Gold heißt: Das sitzt für immer.') : null) : null,
     el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Stempel'),
       stempel.length ? el('div', { class: 'lr-stempelraster' }, ...stempel.map((o, i) => { const gold = goldOrte.has(o.block_id); // WD-6: alle Flüge des Orts abgelegt → Stempel golden
         return el('div', { class: 'lr-stempel' + (gold ? ' lr-stempel-gold' : ''), style: `--dreh:${(i * 37) % 17 - 8}deg`, ...(gold ? { title: 'Alle Flüge abgelegt' } : {}) },
-          el('b', {}, o.stadt), el('small', {}, gold ? `${o.kontinent_titel} · ★ GOLD` : o.kontinent_titel)); }))
+          el('b', {}, o.stadt), el('small', {}, gold ? '★ GOLD ★' : o.kontinent_titel)); }))
         : el('p', { class: 'lr-leise' }, 'Noch kein Stempel. Den ersten gibt es, wenn du alle Flüge eines Ortes geschafft hast.'),
       (konto?.orte || []).filter((o) => !o.abgeschlossen && o.erledigt).map((o) => { const ort = d.orte.find((x) => x.block_id === o.block_id);
         return ort ? el('p', { class: 'lr-leise' }, `${ort.stadt}: ${o.erledigt} von ${o.themen} Flügen geschafft`) : null; })),
-    fluege.length ? el('section', { class: 'lr-karte-box lr-pass-abgelegt' }, el('h2', {}, 'Abgelegt'),
-      el('p', { class: 'lr-leise' }, 'Hat eine Etappe auch die letzte Wiederholung geschafft, ist sie abgelegt. Sind alle Etappen eines Flugs abgelegt, wird der Flug golden.'),
-      el('ul', { class: 'lr-flug-eintraege' }, ...fluege.sort((a, b) => (b.abgelegt === true) - (a.abgelegt === true)).map((f) => el('li', { class: 'lr-flug-eintrag' + (f.abgelegt ? ' lr-flug-gold' : '') },
-        el('b', {}, f.titel || 'Flug'), el('small', {}, [flugOrt(f), f.abgelegt ? '★ GOLD' : `${f.etappen_abgelegt} von ${f.etappen ?? '–'} Etappen abgelegt`].filter(Boolean).join(' · ')))))) : null,
     el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Belohnungen'),
       belohnungen.length ? el('div', { class: 'lr-belohnungen' }, ...belohnungen) : el('p', { class: 'lr-leise' }, 'Mama oder Papa legen hier bald Belohnungen an.'),
       d.einloesungen.length ? el('ul', { class: 'lr-wuensche' }, ...d.einloesungen.slice(0, 5).map((x) => el('li', {}, `${x.titel}: `, el('b', {}, { beantragt: 'wartet auf Bestätigung', bestaetigt: 'bestätigt', abgelehnt: 'abgelehnt' }[x.status] || x.status)))) : null,
@@ -2153,47 +2186,48 @@ function lernAbschlussOrt({ ctx, r, stempelNr, weiter }) {
       lernGrossKnopf('Weiter: neuer Ort', r.naechster_flug?.ort ? `Deine Bordkarte nach ${r.naechster_flug.ort}` : 'Deine neue Bordkarte', { onclick: weiter }),
       el('a', { class: 'lr-ab-pause', href: `#/reisepass/${ctx.kind}` }, 'Reisepass ansehen')));
 }
-// WD-6: endgültig abgelegt – „Etappe abgelegt“ klein (Karte über der Seite), „Flug abgelegt“ groß (Vollbild wie „Flug geschafft“), in Gold
-const lernWdhWeiterText = (w) => (!w?.bestanden ? null : w.stufe_neu === 'abgelegt' || w.naechste_in === null && w.stufe_neu ? null
-  : w.naechste_in ? el('p', { class: 'lr-leise' }, `Nächste Wiederholung in ${w.naechste_in} ${Number(w.naechste_in) === 1 ? 'Lerntag' : 'Lerntagen'}.`) : null);
-function lernAbschlussEtappeAbgelegt({ etappe, weiter }) {
+// WD-6 nach der Vorgabe „abgelegt“ (inhalte/pruefung/kind/abgelegt/umsetzung.md, 4–5): Gold ist die Farbe für „abgelegt“ – nur dafür.
+// „Etappe abgelegt“: Handy Blatt von unten, Tablet/Rechner Karte in der Mitte (≤ 520 px), Bordkarte bleibt erkennbar; „Flug abgelegt“: ganzer Bildschirm.
+const LERN_SIEGEL = '<svg viewBox="0 0 120 120"><defs><radialGradient id="lrsg" cx="40%" cy="35%"><stop offset="0" stop-color="#FFF3B0"/><stop offset=".55" stop-color="#F2C12E"/><stop offset="1" stop-color="#B88700"/></radialGradient></defs><path d="M60 4l9 9 12-4 4 12 13 2-1 13 10 8-7 11 5 12-12 5-1 13-13 0-6 11-12-5-11 7-8-10-13 1-2-13-12-5 4-12-7-11 10-8-1-13 13-2 4-12 12 4z" fill="url(#lrsg)" stroke="#8A6200" stroke-width="2"/><circle cx="60" cy="60" r="32" fill="none" stroke="#8A6200" stroke-width="2" stroke-dasharray="3 3"/><text x="60" y="56" text-anchor="middle" font-size="13" font-weight="900" fill="#5A3A00">FÜR</text><text x="60" y="73" text-anchor="middle" font-size="13" font-weight="900" fill="#5A3A00">IMMER</text></svg>';
+const lernGoldStempel = (ort) => lernGrafik(`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#F6D25A" stroke="#8A6200" stroke-width="5" stroke-dasharray="6 4"/><text x="50" y="58" text-anchor="middle" font-size="22" font-weight="900" fill="#5A3A00">${String(ort || '★').slice(0, 3).toUpperCase().replace(/[<>&"]/g, '')}</text></svg>`, 'lr-gold-stempel-klein');
+function lernAbschlussEtappeAbgelegt({ etappe, checkin, weiter }) {
+  const a = Number(etappe.etappen_abgelegt), n = Number(etappe.etappen); const fort = n > 1 && a >= 1 && a <= n; // Fortschritt des Flugs (Feld-Vorschlag, sonst ohne)
   return el('div', { class: 'lr-ab-app lr-ab-abgelegt lr-ab-abgelegt-klein lr-ab-anim' },
-    el('div', { class: 'lr-ab-gold-siegel', 'aria-hidden': 'true' }, '★'),
-    el('p', { class: 'lr-ab-oben' }, 'ETAPPE ABGELEGT'),
-    el('h2', { class: 'lr-ab-titel' }, etappe.titel || 'Etappe'),
-    el('p', { class: 'lr-ab-unter' }, 'Auch die letzte Wiederholung geschafft. Diese Etappe kommt nicht mehr wieder – sie sitzt.'),
-    el('div', { class: 'lr-ab-sterne lr-ab-gold-sterne' }, `★ +${lernZahl(etappe.sterne ?? 30)}`),
-    lernGrossKnopf('Weiter', null, { onclick: weiter }));
+    el('div', { class: 'lr-ab-funken-gold', 'aria-hidden': 'true' }, ...[[-60, -50], [70, -40], [10, -70]].map(([x, y]) => el('i', { style: `--x:${x}px;--y:${y}px` }, '✦'))),
+    el('p', { class: 'lr-ab-oben' }, 'FÜR IMMER GELERNT'),
+    el('h2', { class: 'lr-ab-titel' }, 'Etappe abgelegt!'),
+    el('div', { class: 'lr-ab-ticket' }, el('b', {}, etappe.titel || 'Etappe'), el('small', {}, '5-mal wiederholt, über 30 Lerntage. Kommt nicht mehr zum Wiederholen.'), lernGrafik(LERN_SIEGEL, 'lr-ab-siegel')),
+    el('div', { class: 'lr-ab-sternzeile' }, el('span', { class: 'lr-ab-zahl' }, `+${lernZahl(etappe.sterne ?? 30)} ★`), el('span', { class: 'lr-leise' }, 'Sonder-Sterne fürs Ablegen')),
+    fort ? el('div', { class: 'lr-ab-flugfort' }, `${etappe.flug || 'Dein Flug'}: `, el('b', {}, `${a} von ${n}`), ` Etappen abgelegt – noch ${n - a}, dann wird der Flug golden.`,
+      el('div', { class: 'lr-goldbalken', 'aria-hidden': 'true' }, ...Array.from({ length: n }, (_, i) => el('span', { class: i < a ? 'g' + (i === a - 1 ? ' neu' : '') : '' })))) : null,
+    lernGrossKnopf(checkin ? 'Weiter einchecken' : 'Weiter', null, { onclick: weiter }));
 }
-function lernAbschlussFlugAbgelegt({ flug, ortGold, kindId, weiter }) {
-  return el('div', { class: 'lr-ab-app lr-ab-flug lr-ab-abgelegt lr-ab-abgelegt-gross lr-ab-anim' },
+function lernAbschlussFlugAbgelegt({ flug, etappe, ortGold, nachbarn = [], kindId, checkin, weiter }) {
+  const andere = nachbarn.filter((t) => t && t !== flug.titel).slice(0, 2);
+  const zeilen = [andere[0], flug.titel, andere[1]].filter((t) => t !== undefined);
+  const n = Number(flug.etappen ?? etappe?.etappen) || 0;
+  return el('div', { class: 'lr-ab-app lr-ab-gold lr-ab-anim' },
     el('button', { type: 'button', class: 'lr-ab-skip', onclick: weiter }, 'Überspringen ›'),
-    el('div', { class: 'lr-ab-szene' },
-      el('div', { class: 'lr-ab-konfetti', 'aria-hidden': 'true' }, ...Array.from({ length: 30 }, (_, i) => el('i', { style: `left:${lernZufall(0, 100).toFixed(1)}%;background:${['#FFD23F', '#F5B700', '#FFF3B0', '#fff'][i % 4]};animation-delay:${lernZufall(0, 0.4).toFixed(2)}s` }))),
-      el('div', { class: 'lr-ab-oben' }, 'ALLE ETAPPEN ABGELEGT'),
-      el('h2', { class: 'lr-ab-titel' }, 'Flug abgelegt'),
-      el('div', { class: 'lr-ab-gold-flug' }, flug.titel || 'Flug'),
-      el('div', { class: 'lr-ab-zaehler' }, el('span', { 'data-ziel': String(flug.sterne ?? 100) }, lernZahl(flug.sterne ?? 100)), ' ★', el('small', {}, 'Sterne fürs Ablegen')),
-      el('div', { class: 'lr-ab-gold-siegel lr-ab-gold-siegel-gross', 'aria-hidden': 'true' }, '★')),
-    el('div', { class: 'lr-ab-blatt' },
-      el('div', { class: 'lr-ab-kann' }, el('b', {}, 'Im Reisepass'), 'Dein Flug ist jetzt golden.'),
-      ortGold ? el('p', { class: 'lr-ab-leise' }, el('b', {}, 'Und mehr: '), `Alle Flüge${ortGold.ort ? ` in ${ortGold.ort}` : ' dieses Orts'} sind abgelegt – dein Stempel ist jetzt golden.`) : null,
+    el('div', { class: 'lr-ab-szene' }, el('div', { class: 'lr-ab-strahlen', 'aria-hidden': 'true' }),
+      el('div', { class: 'lr-ab-oben' }, 'ALLE ETAPPEN FÜR IMMER GELERNT'),
+      el('h2', { class: 'lr-ab-gtitel' }, 'Flug abgelegt!'),
+      el('p', { class: 'lr-ab-gunter' }, `Alle ${n ? n + ' ' : ''}Etappen von `, el('b', {}, flug.titel || 'deinem Flug'), ' sitzen für immer. Im Reisepass ist der Flug jetzt golden.'),
+      el('div', { class: 'lr-ab-pass', 'aria-hidden': 'true' }, el('div', { class: 'lr-ab-pass-seite' }, ...zeilen.map((t) => el('div', { class: 'lr-ab-pass-zeile' + (t === flug.titel ? ' lr-wird-gold' : '') },
+        el('span', {}, '✈'), t === flug.titel ? el('b', {}, t) : el('span', {}, t), t === flug.titel ? el('span', { class: 'lr-ab-pass-stern' }, '★') : null))))),
+    el('div', { class: 'lr-ab-blatt lr-ab-gblatt' },
+      el('div', { class: 'lr-ab-reihe' }, el('span', { class: 'lr-ab-hundert' }, '+', el('span', { 'data-ziel': String(flug.sterne ?? 100) }, lernZahl(flug.sterne ?? 100)), ' ★'),
+        el('span', { class: 'lr-ab-leise' }, 'für den ganzen Flug', etappe ? el('br') : null, etappe ? `+${lernZahl(etappe.sterne ?? 30)} ★ für die letzte Etappe` : null)),
+      ortGold ? el('div', { class: 'lr-ab-ortgold' }, lernGoldStempel(ortGold.ort), el('span', {}, el('b', {}, 'Und: '), `Alle Flüge ${ortGold.ort ? `in ${ortGold.ort}` : 'an diesem Ort'} sind abgelegt. Dein Stempel ist jetzt golden!`)) : null,
       lernGrossKnopf('Weiter', null, { onclick: weiter }),
       el('a', { class: 'lr-ab-pause', href: `#/reisepass/${kindId}` }, 'Reisepass ansehen')));
 }
-// Zeigt nacheinander: Etappe abgelegt → Flug abgelegt (mit goldenem Stempel). Rückgabe: Promise, erfüllt nach dem Schließen.
-function lernAbgelegtZeigen(kindObj, ab) {
+// Zeigt: Flug abgelegt (dann entfällt „Etappe abgelegt“) oder Etappe abgelegt. Promise, erfüllt nach dem Schließen.
+function lernAbgelegtZeigen(kindObj, ab, { checkin = false, nachbarn = [] } = {}) {
   return new Promise((fertig) => {
-    const schritte = [];
-    if (ab?.etappe) schritte.push('etappe'); if (ab?.flug) schritte.push('flug');
-    if (!schritte.length) { fertig(); return; }
-    const naechster = () => {
-      const s = schritte.shift();
-      if (!s) { lernAbschlussZu(); fertig(); return; }
-      if (s === 'etappe') { const h = lernAbschlussZeigen(kindObj, lernAbschlussEtappeAbgelegt({ etappe: ab.etappe, weiter: naechster }), { label: 'Etappe abgelegt' }); h.classList.add('lr-abschluss-klein'); }
-      else lernAbschlussZeigen(kindObj, lernAbschlussFlugAbgelegt({ flug: ab.flug, ortGold: ab.ort_gold ? { ort: ab.ort || ab.flug?.ort || null } : null, kindId: kindObj.id, weiter: naechster }), { label: 'Flug abgelegt' });
-    };
-    naechster();
+    if (!ab?.etappe && !ab?.flug) { fertig(); return; }
+    const zu = () => { lernAbschlussZu(); fertig(); };
+    if (ab.flug) lernAbschlussZeigen(kindObj, lernAbschlussFlugAbgelegt({ flug: ab.flug, etappe: ab.etappe, ortGold: ab.ort_gold ? { ort: ab.ort || ab.flug?.ort || null } : null, nachbarn, kindId: kindObj.id, checkin, weiter: zu }), { label: 'Flug abgelegt' });
+    else { const h = lernAbschlussZeigen(kindObj, lernAbschlussEtappeAbgelegt({ etappe: ab.etappe, checkin, weiter: zu }), { label: 'Etappe abgelegt' }); h.classList.add('lr-abschluss-klein'); }
   });
 }
 // 2/3. Bordkarte zum nächsten Flug (oder: nichts mehr im Plan)
@@ -3919,11 +3953,11 @@ const LERN_INFO_FRAGEN = [
     ['Etappe sicher:', ' gelandet, die Wiederholung nach 14 Lerntagen bestanden und – beides nach der letzten Landung – einmal in einer Mischkarte richtig erkannt und im Nachtest des Flugs die Bordkarte dieser Etappe richtig. Ist nur der Nachtest des Flugs bestanden, steht bei den Eltern „Flug-Nachtest bestanden“.'],
     ['Expeditionen:', ' größere Bordkarten aus 3–5 Teilen (a, b, c …), die Stoff aus mehreren Etappen verbinden – wie in einer Schulaufgabe mit Teil a, b, c. Das Kind bekommt eine Expedition auf der Abflugtafel angeboten, sobald alle ihre Etappen bei ihm gelandet sind; freiwillig, sie zählt nicht für „gelandet“. Jeder Teil hat zwei Versuche, danach steht die Lösung da und es geht mit dem nächsten Teil weiter (jeder Teil nennt seine Zahlen selbst). Richtig im ersten Versuch ist ein Beleg für die Etappe; falsch macht sie am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Eine begonnene Expedition kann das Kind auch dann zu Ende führen, wenn eine ihrer Etappen inzwischen wieder offen ist. Gebucht wird auf die Version der Etappe, die beim Kind gelandet ist. Geschafft: Expeditions-Stempel und 50 Sterne. Alle Expeditionen mit Lösungen: Lehrplan → „Expeditionen ansehen“.'],
     ['Mischkarten:', ' Sind im Flug mindestens 3 Etappen gelandet, ist beim Üben jede 4. Bordkarte (bis Klasse 6 jede 6.) eine aus einer anderen Etappe, die schon gelandet ist – meist aus demselben Flug oder Kontinent, manchmal aus einem älteren Flug. Sie ist gekennzeichnet („Aus deiner Reise – erkennst du, was gefragt ist?“), nach der Lösung steht, aus welcher Etappe sie kam. Das Kind soll selbst erkennen, welches Verfahren passt. Sie zählt nicht für die gerade geübte Etappe; richtig ist ein Beleg für „sicher“, falsch macht die Herkunfts-Etappe am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Ist die Herkunfts-Etappe gerade fällig und die Mischkarte im ersten Versuch ohne Tipp richtig, zählt sie als bestandene Wiederholung dieser Etappe – Mischkarten bauen so fällige Wiederholungen mit ab. Der Server prüft jede Mischkarte (Etappe gelandet, Stufe 2–3, nicht die gerade geübte); sonst zählt sie wie eine normale Bordkarte.'],
-    ['Wiederholung:', ' Ist eine Etappe gelandet, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Am Anfang eines Lerntags kommt eine Runde: sind höchstens 6 Etappen fällig, alle; sonst ein Fünftel der fälligen (aufgerundet), mindestens 6 und höchstens 12 (bis Klasse 6 höchstens 10) – zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen. Weitere werden nur angeboten. Die Runde gilt einmal je Lerntag, auch wenn das Kind das Gerät wechselt. Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal – eigene Lösungen bleiben, es braucht wieder 3 richtige in Folge.'],
-    ['Endgültig abgelegt:', ' Besteht eine Etappe auch die letzte Wiederholung (nach 30 Lerntagen), ist sie abgelegt: Sie kommt nicht mehr zur Wiederholung, das Kind bekommt 30 Sterne und eine kurze Einblendung. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, eine große Einblendung, und der Flug steht im Reisepass golden. Sind alle Flüge eines Orts abgelegt, wird auch der Stempel des Orts golden.'],
+    ['Wiederholung:', ' Ist eine Etappe gelandet, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Am Anfang eines Lerntags kommt eine Runde: sind höchstens 6 Etappen fällig, alle; sonst ein Fünftel der fälligen (aufgerundet), mindestens 6 und höchstens 12 (bis Klasse 6 höchstens 10) – zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen. Weitere werden nur angeboten. Auf der Kinderseite heißt die Runde „Check-in“: Das Kind sieht, wie weit es ist („3 von 9“), nie die Zahl aller fälligen Etappen. Es kann unterbrechen und am selben Lerntag fortsetzen, auch auf einem anderen Gerät; erledigt ist die Runde, wenn alle ihre Bordkarten beantwortet sind (falsch zählt als bearbeitet). Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal – eigene Lösungen bleiben, es braucht wieder 3 richtige in Folge.'],
+    ['Endgültig abgelegt:', ' Besteht eine Etappe auch die letzte Wiederholung (nach 30 Lerntagen), ist sie abgelegt: Sie kommt nicht mehr zur Wiederholung, das Kind bekommt 30 Sterne und eine kurze Einblendung. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, eine große Einblendung, und der Flug steht im Reisepass golden. Sind alle Flüge eines Orts abgelegt, wird auch der Stempel des Orts golden. Fällt eine abgelegte Etappe später im Nachtest oder beim Üben auf, kommt sie am nächsten Lerntag wieder zur Wiederholung; Gold und Sterne bleiben, ein zweites Ablegen bringt nichts.'],
     ['Flug-Test:', ' Ist die letzte Pflicht-Etappe gelandet, führt der Landebildschirm nur noch zum Test („Weiter: Flug-Test“): eine Bordkarte je Etappe, ohne Tipps. Im Ergebnis ist jede Antwort deutlich als RICHTIG oder FALSCH markiert. Bei Fehlern zwei Wege: „Erst üben: ‹Etappe›“ oder „Gleich verbessern“. Alles richtig verbessert → Flug geschafft.'],
     ['Nachtests:', ' später, nach Lerntagen gezählt (nach 10, 25 und 60 Lerntagen); alle Etappen des Flugs, ohne Tipps. Ab 80 %: bestanden. 60–79 %: wiederholen. Unter 60 %: automatische Rückreise im Flugplan.'],
-    ['Belohnungen:', ' 10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist, 5 Sterne für jede richtige Wiederholung (auch über eine Mischkarte), 20 Sterne für jede richtige Bordkarte im Test, 30 Sterne für eine endgültig abgelegte Etappe, 100 Sterne für einen abgelegten Flug, 30 Sterne für eine Knobel-Bordkarte beim ersten Versuch, 100 Sterne und ein Stempel für jeden geschafften Ort. Welche Belohnungen es gibt, legen die Eltern fest, und sie bestätigen jede Einlösung.'],
+    ['Belohnungen:', ' 10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist, Sterne für jede richtige Wiederholung (auch über eine Mischkarte; je Fälligkeit einmal), 20 Sterne für jede richtige Bordkarte im Test, 30 Sterne für eine endgültig abgelegte Etappe, 100 Sterne für einen abgelegten Flug, 30 Sterne für eine Knobel-Bordkarte beim ersten Versuch, 100 Sterne und ein Stempel für jeden geschafften Ort. Welche Belohnungen es gibt, legen die Eltern fest, und sie bestätigen jede Einlösung.'],
     'Keine Zeitvorgaben, keine Uhr, keine Ranglisten.']],
   ['Wie entstehen die Inhalte, und wer prüft sie?', [
     'Erklärungen und Bordkarten erstellt eine KI (Claude) nach festen Regeln: Bezug zum Lehrplan, Alltagseinstieg, einfache Sprache, jede Lösung vom Programm berechnet und geprüft.',
@@ -4381,7 +4415,8 @@ async function viewLehrplan(arg) {
         el('button', { type: 'button', disabled: i > 0 ? null : true, 'aria-label': i > 0 ? `Voriges Thema: ${liste[i - 1].titel}` : 'Kein voriges Thema', onclick: () => springe(liste[i - 1].id) }, '‹ ', i > 0 ? liste[i - 1].titel : ''),
         el('button', { type: 'button', disabled: liste[i + 1] ? null : true, 'aria-label': liste[i + 1] ? `Nächstes Thema: ${liste[i + 1].titel}` : 'Kein nächstes Thema', onclick: () => springe(liste[i + 1].id) }, liste[i + 1] ? liste[i + 1].titel : '', ' ›')) : null);
   }
-  function zeichne() { if (!live()) return; zeichneLeisten(); zeichneMatrix(); zeichneDetail(); if (!handy() && !detail.isConnected) haupt.append(detail); }
+  // N1 (Nachprüfung 22.11.): am Rechner die Detail-Spalte erst beim Antippen – sonst hat die Matrix die volle Breite
+  function zeichne() { if (!live()) return; haupt.classList.toggle('mx-mit-detail', !!zst.sel); zeichneLeisten(); zeichneMatrix(); zeichneDetail(); if (!handy() && !detail.isConnected) haupt.append(detail); }
 
   const haupt = el('div', { class: 'mx-haupt' }, ansicht, detail);
   // nur bei Wechsel Handy ↔ breit neu zeichnen, sonst die Linien neu legen
@@ -4695,36 +4730,55 @@ async function viewWiederholen(arg) {
   setChrome('Wiederholen', { back: true, showTabs: false });
   const live = viewGuard();
   loading();
-  const d = await lernLadeKind(arg);
+  const [kArg, modus] = String(arg || '').split('-'); // „<kind>-extra“: freiwillige Extra-Bordkarten (je Klick höchstens 3)
+  const d = await lernLadeKind(kArg);
   if (!d || !live()) return;
-  const r = await lernCall('schule_wiederholung', { lernender_id: d.kind.id, anzahl: LERN_WDH_ANFRAGE });
+  const r = await lernWdhLaden(d.kind.id);
   if (!live()) return;
   const { kind } = d;
-  // WD-1/WD-2: ist die Pflicht-Runde offen, kommen die ersten „runde“ Bordkarten (Reihenfolge vom Server); danach ist alles freiwillig
-  const ws = lernWdhStand(r, kind.id); const pflichtRunde = ws.neu && !ws.gemacht;
-  const liste = pflichtRunde ? (r.aufgaben || []).slice(0, ws.runde) : r.aufgaben || [];
-  const flaeche = el('div', { class: 'lr-etappe-flaeche' });
+  // Check-in (Vorgabe „abgelegt“ 2/3): neuer Server, Runde offen → die offenen Pflicht-Bordkarten; „extra“ → höchstens 3 freiwillige; alter Server → wie 0.84.0
+  const ws = lernWdhStand(r, kind.id);
+  const checkin = ws.neu && !ws.gemacht && modus !== 'extra' && ws.offen > 0;
+  const extra = ws.neu && !checkin;
+  const liste = checkin ? ws.liste : extra ? (ws.alle || []).filter((a) => !a.pflicht || ws.gemacht).slice(0, 3) : r.aufgaben || [];
+  const n = d.naechste; const nach = n ? n.stadt || n.ort_titel || n.titel : null;
+  const flaeche = el('div', { class: 'lr-etappe-flaeche' + (ws.neu ? ' lr-checkin' : '') });
+  const zustand = Array.from({ length: checkin ? ws.runde : liste.length }, (_, i) => (checkin && i < ws.erledigt ? 'da' : ''));
+  const versatz = checkin ? ws.erledigt : 0;
   let i = 0, richtig = 0, sterne = 0;
+  const kontoSterne = Number(d.konto?.sterne || 0);
+  const zaehler = () => el('span', { class: 'lr-checkin-sterne', 'aria-label': `${lernZahl(kontoSterne + sterne)} Sterne` }, `★ ${lernZahl(kontoSterne + sterne)}`);
+  const kopfZeile = (text, plus) => el('div', { class: 'lr-checkin-kopf' }, el('span', {}, text), el('span', { class: 'lr-checkin-zaehler' }, zaehler(), plus ? el('span', { class: 'lr-fliegt', 'aria-hidden': 'true' }, `+${plus}`) : null));
   const zeige = () => {
     const a = liste[i];
     if (!a) {
-      const offen = liste.length - richtig; // V7: der Haken nur, wenn alles richtig war
-      if (pflichtRunde) lernCall('schule_wiederholung_runde_fertig', { lernender_id: kind.id }).catch(() => lernWdhHeute(kind.id, true)); // WD-2: der Server merkt sich die Runde
+      const falsch = liste.length - richtig; // V7: der Haken nur, wenn alles richtig war
+      if (checkin) lernCall('schule_wiederholung_runde_fertig', { lernender_id: kind.id }).catch(() => null); // WD-S 2: der Server setzt „gemacht“ selbst; hier nur bestätigen
       else if (!ws.neu) lernWdhHeute(kind.id, true); // V9 (alter Server): Runde für heute auf diesem Gerät gemacht
-      const weitere = pflichtRunde ? Math.max(0, Number(r.faellig || 0) - liste.length) : 0;
-      lernErsetze(flaeche, el('section', { class: 'lr-geschafft' }, offen ? null : el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 64)),
+      if (ws.neu) {
+        const nochExtra = checkin ? ws.faellig > ws.runde : Number(r.faellig || 0) > liste.length;
+        lernErsetze(flaeche, kopfZeile(checkin ? 'CHECK-IN' : 'EXTRA'),
+          el('section', { class: 'lr-karte-box lr-geschafft lr-checkin-fertig' }, el('div', { class: 'lr-checkin-symbol', 'aria-hidden': 'true' }, '🧳'),
+            el('h1', { class: 'lr-titel' }, checkin ? 'Eingecheckt!' : 'Geschafft!'), lernKoffer(zustand.length, zustand),
+            el('p', { class: 'lr-checkin-ergebnis' }, el('b', {}, `${richtig} von ${liste.length} richtig`), sterne ? [' · ', el('b', { class: 'lr-gold-text' }, `+${lernZahl(sterne)} ★`)] : null),
+            el('p', { class: 'lr-leise' }, falsch ? `${falsch === 1 ? 'Eine Bordkarte kommt' : `${falsch} Bordkarten kommen`} beim nächsten Mal wieder.` : checkin ? 'Alles richtig – super eingecheckt!' : 'Alles richtig!'),
+            n ? el('a', { class: 'lr-knopf', href: `#/lerneinheit/${kind.id}-${n.id}-ueben` }, `Weiter nach ${nach} ›`) : el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zur Abflugtafel ›'),
+            nochExtra ? el('a', { class: 'lr-textlink lr-extra-link', href: `#/wiederholen/${kind.id}-extra`, onclick: () => setTimeout(render, 0) }, `Noch 3 Extra-Bordkarten?${ws.sterne ? ` Je richtig ★ ${ws.sterne}` : ''}`) : null),
+          lernWdhErklaert(true));
+        return;
+      }
+      lernErsetze(flaeche, el('section', { class: 'lr-geschafft' }, falsch ? null : el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 64)),
         el('p', { class: 'lr-ueber' }, 'WIEDERHOLT'), el('h1', { class: 'lr-titel' }, `${richtig} von ${liste.length} richtig`),
-        sterne ? el('p', { class: 'lr-wdh-sterne' }, `★ +${lernZahl(sterne)} Sterne`) : null,
-        el('p', { class: 'lr-leise' }, offen ? `${offen} ${offen === 1 ? 'Etappe braucht' : 'Etappen brauchen'} noch Übung – morgen ${offen === 1 ? 'kommt sie' : 'kommen sie'} wieder. Die Erklärung findest du im Merkheft.` : 'Super – das sitzt noch.'),
-        lernWdhWartet(ws)),
-        el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Weiter zu Heute'),
-        weitere ? el('a', { class: 'lr-textlink', href: `#/wiederholen/${kind.id}`, onclick: () => setTimeout(render, 0) }, `Noch ${weitere} ${weitere === 1 ? 'Wiederholung' : 'Wiederholungen'} offen – wenn du magst`) : null,
-        lernWdhErklaert(ws.neu));
+        el('p', { class: 'lr-leise' }, falsch ? `${falsch} ${falsch === 1 ? 'Etappe braucht' : 'Etappen brauchen'} noch Übung – morgen ${falsch === 1 ? 'kommt sie' : 'kommen sie'} wieder. Die Erklärung findest du im Merkheft.` : 'Super – das sitzt noch.')),
+        el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Weiter zu Heute'), lernWdhErklaert());
       return;
     }
+    zustand[versatz + i] = zustand[versatz + i] || 'jetzt';
     const auf = lernAufgabe(a); const cid = lernCid();
     const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
     const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
+    const koffer = el('div', {}, ws.neu ? lernKoffer(zustand.length, zustand) : null);
+    const kopf = el('div', {}, ws.neu ? kopfZeile(checkin ? `CHECK-IN · ${versatz + i + 1} VON ${ws.runde}` : `EXTRA · ${i + 1} VON ${liste.length}`) : null);
     pruefen.addEventListener('click', async () => {
       const w = auf.antwort();
       if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
@@ -4733,20 +4787,29 @@ async function viewWiederholen(arg) {
         const x = await lernCall('schule_uebung_pruefen', { lernender_id: kind.id, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe: 0 });
         if (!x.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, x.hinweis)); pruefen.disabled = false; return; }
         auf.sperren(); a.loesung = x.loesung; if (x.richtig) richtig++; auf.zeigeLoesung(x.loesung);
-        const plus = Number(x.wiederholung?.sterne || 0); sterne += plus; // WD-5: 5 Sterne je richtiger Wiederholung (Server)
-        lernErsetze(meldung, x.richtig ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, 'Richtig!' + (plus ? ` · +${plus} Sterne` : '')), lernWdhWeiterText(x.wiederholung))
+        const plus = Number(x.wiederholung?.sterne || 0); // Sterne nur, wenn der Server sie meldet
+        const ab = Number(x.abgelegt?.etappe?.sterne || 0) + Number(x.abgelegt?.flug?.sterne || 0);
+        sterne += plus + ab;
+        zustand[versatz + i] = x.richtig ? 'ok' : 'nein';
+        if (ws.neu) { lernErsetze(koffer, lernKoffer(zustand.length, zustand)); lernErsetze(kopf, kopfZeile(checkin ? `CHECK-IN · ${versatz + i + 1} VON ${ws.runde}` : `EXTRA · ${i + 1} VON ${liste.length}`, plus)); }
+        lernErsetze(meldung, x.richtig ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, 'Richtig!'), plus ? el('span', { class: 'lr-plus-stern' }, `+${plus} ★`) : null)
           : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)), x.loesungsweg ? el('p', {}, lernText(x.loesungsweg)) : null,
-            el('a', { href: `#/lerneinheit/${kind.id}-${a.einheit_id}` }, 'Zur Etappe')));
-        i++; pruefen.replaceWith(el('button', { type: 'button', class: 'lr-knopf', onclick: zeige }, i < liste.length ? 'Nächste' : 'Fertig'));
-        if (x.abgelegt) lernAbgelegtZeigen(kind, x.abgelegt); // WD-6: Etappe (klein) / Flug (groß) endgültig abgelegt
+            ws.neu ? el('p', { class: 'lr-leise' }, 'Kein Problem – diese Bordkarte kommt beim nächsten Mal wieder.') : null,
+            el('a', { class: 'lr-klein-link', href: `#/lerneinheit/${kind.id}-${a.einheit_id}` }, 'Zur Etappe')));
+        i++;
+        const naechste = el('button', { type: 'button', class: 'lr-knopf', onclick: zeige }, ws.neu ? (i < liste.length ? 'Nächste Bordkarte ›' : 'Fertig ›') : i < liste.length ? 'Nächste' : 'Fertig');
+        pruefen.replaceWith(naechste);
+        if (x.abgelegt) lernAbgelegtZeigen(kind, x.abgelegt, { checkin, nachbarn: (d.mit || []).map((e) => e.titel) }).then(() => naechste.focus({ preventScroll: true })); // WD-6
       } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
     });
-    lernErsetze(flaeche, el('header', { class: 'lr-etappe-oben' }, el('p', { class: 'lr-ueber' }, `${pflichtRunde || !ws.neu ? 'WIEDERHOLEN' : 'FREIWILLIG WIEDERHOLEN'} ${i + 1} VON ${liste.length} · ${(a.stadt || '').toUpperCase()}`),
-      el('h1', { class: 'lr-titel' }, a.etappe || 'Bordkarte')),
-      el('section', { class: 'lr-karte-box lr-aufgabe' }, auf.node), meldung, pruefen);
+    lernErsetze(flaeche, ws.neu ? kopf : null, ws.neu ? koffer : null,
+      el('header', { class: 'lr-etappe-oben' }, ws.neu ? null : el('p', { class: 'lr-ueber' }, `WIEDERHOLEN ${i + 1} VON ${liste.length} · ${(a.stadt || '').toUpperCase()}`),
+        ws.neu ? null : el('h1', { class: 'lr-titel' }, a.etappe || 'Bordkarte')),
+      el('section', { class: 'lr-karte-box lr-aufgabe' }, ws.neu ? el('p', { class: 'lr-leise lr-checkin-herkunft' }, [a.etappe, a.stadt ? `aus ${a.stadt}` : null].filter(Boolean).join(' · ')) : null, auf.node), meldung, pruefen,
+      checkin ? el('a', { class: 'lr-ab-pause lr-checkin-pause', href: `#/reise/${kind.id}` }, 'Pause – später weiter einchecken') : null);
     window.scrollTo(0, 0);
   };
-  if (!liste.length) lernErsetze(flaeche, el('p', { class: 'lr-leise' }, 'Gerade ist nichts zum Wiederholen dran.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zu Heute'));
+  if (!liste.length) lernErsetze(flaeche, el('p', { class: 'lr-leise' }, ws.neu && ws.gemacht && modus !== 'extra' ? 'Heute schon eingecheckt.' : 'Gerade ist nichts zum Wiederholen dran.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zu Heute'));
   else zeige();
   lernErsetze(main, lernRahmen(kind, 'reise', flaeche));
 }

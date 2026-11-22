@@ -2,6 +2,33 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: 0.86.1 – Rückläufer 22.11. abends, Teil C (Cache v157)
+
+Auf `lernen-app` 6ec1c3e. Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.
+Bilder: `docs/previews/la/wd-etappe-abgelegt-400.png`, `-1280.png`, `wd-flug-abgelegt-360.png` (360 × 640), `-1280.png`, `wd-reisepass-400.png`.
+
+**1 Test „LM-S 2: Raster … Detail …“ – Ursache: Testdaten, nicht die App.** Der Test nimmt die Verbindungen aus der Vorlage `entwurf/lehrplan-matrix.html`; der Gestalter hat sie am 22.11. neu erzeugt (128 statt 70). Seitdem braucht Thema 22 eine Voraussetzung – und „Eigenständig: braucht keine Voraussetzung …“ steht (richtig) nur bei Themen ohne Voraussetzung; sonst zeigt das Detail die Liste „Braucht vorher“. Behoben: Der Test wählt das eigenständige Thema jetzt aus den Daten (bevorzugt 42, sonst das erste ohne Voraussetzung). Die live laufende Lehrer-Matrix ist davon nicht betroffen. Hinweis zu den Daten (wie N3): Ein Thema mit `eigenstaendig` **und** Voraussetzungen zeigt die Voraussetzungen, die Begründung nicht.
+
+**2 Angleichung an die Vorgabe „abgelegt“** (`inhalte/pruefung/kind/abgelegt/umsetzung.md`, `entwurf/abgelegt.html`)
+- **Ansage (1):** im Kasten über dem Startknopf „Vorher kurz einchecken“ · „{n} Bordkarten von früher · etwa {min} Minuten“ (n × 0,5, unter 2 „ganz kurz“) · Koffer-Leiste in Päckchen (bis 6 eins; 7–9 zu 3; 10–12 zu 4). Startknopf „Weiter geht’s ›“. Unterbrochen: „Check-in fortsetzen · Noch 2 von 3 Bordkarten …“, erledigte Koffer grau. „je richtig ★ n“ nur, wenn der Server `sterne_je_richtig` liefert (**Vorschlag an bau-lehrer**: die Zahl aus `sterne_wdh_richtig` mitschicken – ohne Feld lässt die App den Teil weg, weil 5 oder 10 noch offen ist).
+- **Check-in (2):** „CHECK-IN · i VON n“, Koffer-Leiste, Sterne-Zähler rechts, „+n“ fliegt (abschaltbar), unter der Bordkarte „{Etappe} · aus {Stadt}“; richtig „Richtig!“ mit „+n ★“ (nur mit `wiederholung.sterne`), Koffer gold mit Stern; falsch „Noch nicht. Richtig ist …“ + „Kein Problem – diese Bordkarte kommt beim nächsten Mal wieder.“, Koffer rötlich, „Zur Etappe“ klein; volles Päckchen hellgelb; „Nächste Bordkarte ›“/„Fertig ›“; dazu „Pause – später weiter einchecken“.
+- **Fertig (3):** „Eingecheckt!“, Koffer, „{r} von {n} richtig · +{sterne} ★“ (inkl. 30/100), Fehlersatz bzw. „Alles richtig – super eingecheckt!“, „Weiter nach {Stadt} ›“ ins Thema, „Noch 3 Extra-Bordkarten?“ nur wenn mehr fällig als die Runde (`#/wiederholen/<kind>-extra`, höchstens 3, Kopf „EXTRA · i VON 3“).
+- **Etappe abgelegt (4):** Handy Blatt von unten (≤ 72 % Höhe), ab 760 px Karte in der Mitte (≤ 520 px), Bordkarte bleibt abgedunkelt sichtbar; „FÜR IMMER GELERNT“, „Etappe abgelegt!“, Ticket gestrichelt mit Titel und „5-mal wiederholt, über 30 Lerntage. Kommt nicht mehr zum Wiederholen.“, Siegel „FÜR IMMER“ (fällt gedreht), „+30 ★ Sonder-Sterne fürs Ablegen“, Funken; Knopf „Weiter einchecken ›“ im Check-in, sonst „Weiter ›“. Fortschritt des Flugs mit Gold-Leiste **nur, wenn der Server ihn mitschickt** – **Vorschlag an bau-lehrer:** in `abgelegt.etappe` zusätzlich `flug` (Titel), `etappen_abgelegt`, `etappen`. Wird mit derselben Antwort der Flug abgelegt, entfällt das Blatt.
+- **Flug abgelegt (5):** ganzer Bildschirm Gold auf Dunkel, Strahlen, „ALLE ETAPPEN FÜR IMMER GELERNT“, „FLUG ABGELEGT!“ in Gold-Schrift, „Alle {n} Etappen von {Flug} sitzen für immer. Im Reisepass ist der Flug jetzt golden.“ (`flug.etappen`, sonst ohne Zahl), aufgeschlagener Pass mit drei Flug-Zeilen (Nachbarn aus den Flügen des Kindes), die Zeile wird golden; Blatt „+100 ★ für den ganzen Flug / +30 ★ für die letzte Etappe“, bei `ort_gold` kleiner Gold-Stempel „Und: Alle Flüge in {Ort} sind abgelegt …“ (`abgelegt.ort` – **bitte mitschicken**, sonst „an diesem Ort“). 360 × 640 ohne Scrollen (Test).
+- **Reisepass (6):** Abschnitt „Flüge“ aus `konto.fluege[]` (Ort über `einheit_id`): ganz abgelegt Gold-Verlauf, „★ ABGELEGT“, „{Ort} · alle Etappen für immer gelernt“; teilweise „{a} von {n} abgelegt“ mit Kästchen-Leiste; 0 „noch nichts abgelegt“. Stempel golden „★ GOLD ★“. Satz „Gold heißt: Das sitzt für immer.“ Ohne die Felder bleibt der Reisepass wie bisher.
+- Kindertext „Was kommt wann wieder?“ ohne „fällig“, „endgültig“, „Stufe“, „Takt“ und ohne feste Sternzahl (Test). Wartende gesetzte Etappen sieht das Kind nicht mehr (7); im Plan der Eltern bleibt der Zusatz aus 0.85.0 (`wartet`/`kommt_ab_in`, wenn geliefert).
+
+**3 WD-S 2**
+- `schule_wiederholung` **ohne `anzahl`**. Pflicht-Bordkarten = `aufgaben[]` mit `pflicht: true` (ohne Feld: die ersten `runde`). Stand „3 von 9“ = `runde` − offene Pflicht-Bordkarten (oder `runde_erledigt`, falls geliefert) – so geht es nach einer Pause und auf einem anderen Gerät an der richtigen Stelle weiter.
+- „Runde gemacht“ setzt der Server; die App setzt nichts mehr und schreibt kein `localStorage`. `schule_wiederholung_runde_fertig` ruft sie am Ende nur zum Bestätigen (Fehler werden still ignoriert).
+- Keine Rückstandszahl: `faellig` steht nirgends auf der Kinderseite; „Noch k Wiederholungen offen“ ist ersetzt durch „Noch 3 Extra-Bordkarten?“.
+- Alter Server (ohne `runde`): liefert ohne `anzahl` nur 3 – die App fragt dann einmal mit `anzahl: 6` nach; sonst alles wie 0.84.0 (Test).
+
+**4 Matrix N1:** Am Rechner (≥ 1100 px) gibt es die Detail-Spalte erst beim Antippen; ohne gewähltes Thema hat die Matrix die volle Breite (Spalten bei 1280 ≈ 130 statt 95 px, Test ≥ 125). Mit geöffnetem Detail bleibt es eng – falls das stört, zusätzlich die Kennzeichen bei gewähltem Kind ausblenden (zweiter Vorschlag der Nachprüfung, nicht gebaut).
+
+**Getestet:** lernen 154 von 154 (neu/ersetzt: Ansage mit Päckchen 6/9/12; Check-in mit Unterbrechen/Fortsetzen, Koffer, Sternen, Extra, 400/820/1280; alter Server; Etappe/Flug abgelegt bei 360×640, 400, 820, 1280; Reisepass; Info und Kindertext; N1; weniger Bewegung). Gesamtlauf: nur die bekannten Reise-Fehler (dazu das datumsabhängige „W80: Jede neue Suche“).
+**Nicht geprüft:** echter Server (WD-S 2 noch nicht gebaut), echte Geräte, Safari.
+
 ## 2026-11-22 – FERTIG: 0.86.0 – LM-6 Kinderseite „Meine Route 5–10“, Cache v156
 
 Auf 0.85.0 (gleicher Zweig). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.

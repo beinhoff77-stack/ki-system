@@ -2,6 +2,72 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: LK-S 2 – Nacharbeit ChatGPT 934 (B1–B6, Befüllung aus lk_daten_2211.json)
+
+Zweig `bau-lehrer`, auf `lernen-app` e9a0d66. In der gelieferten, noch nicht eingespielten Datei korrigiert: `supabase/migrations/20261123_lk_s_thema_je_klasse.sql`; Test `supabase/tests/lk_s_rauchtest.sql` neu gefasst. Nichts eingespielt, kein DROP, kein DELETE.
+**Einspielen jetzt nach `rs_korrektur_2211.sql` UND `lk_korrektur_2211.sql`.** Schritt 0 bricht ab, wenn die LK-D-Korrektur fehlt.
+
+**Muss**
+- **B1:** `thema_lage_klasse` zeigt alle belegten Klassen, auch die vor `klasse_fest`.
+  - Neue Spalte `klasse_route`: `klasse_fest`, sonst früheste Klasse; null = nicht in der Route dieser Schulart.
+  - Die früheste Klasse heißt `neu`, die späteren `weitergefuehrt`. Route/Stufen/`thema_jahrgang` bleiben unverändert.
+  - Test: Thema 61 in RS I 8 (neu) und 9 (Start der Route), `thema_jahrgang(61).rs_by` = 9.
+- **B2:** `zuordnung.etappen = null` heißt „unbekannt“, nicht „alle“. Ganzes Thema nur ausdrücklich: `{*}`, beim Befüllen `"ganzes_thema": true`.
+  - Je Klasse gibt es jetzt `etappen` (genannte), `ganzes_thema`, `etappen_unbekannt`. Etappen-`klasse_ab` zählt nur ausdrücklich genannte Etappen.
+  - `klassen_kind`: `etappen_verlangt` und `etappen_erledigt` nur für genannte Etappen; bei nur unbekannten Etappen keine Zahl.
+  - Test: 2 von 3, 1 von 3, unbekannt ohne Zahl, ganzes Thema 3 von 6.
+- **B3** (Teilen): Je Teil mindestens 3 verschiedene Etappen; disjunkt; zusammen genau der alte Katalog; die neue Einheit hat genau die Etappen des neuen Teils.
+  - Atomar wird der alte Katalog verkleinert: `inhalt.etappen`, `bewertung.lernziele_pflicht`, `lernziele_vertiefung`, `testaufgaben_je_lernziel`.
+  - `aufgaben_umhaengen = false` bei vorhandenem Lernstand oder vorhandenen Antworten: abgelehnt.
+  - Offene Test-Sitzung der alten Einheit: abgelehnt (ein laufender Flug-Test lässt sich nicht teilen – erst abschließen).
+  - Der Rauchtest teilt 3 + 3; 2 + 4 und 4 + 2 werden abgelehnt.
+- **B4** (Teilen, Vorher/Nachher je Kind):
+  - Muss gleich bleiben, sonst Abbruch mit Unterschied: Lernstand je Etappe (über beide Einheiten nach Schlüssel), Lernziel-Stand, Sterne-Buchungen mit Bezug (Einheit im Bezug neutralisiert), Flug-Abschlüsse, abgelegt (Stempel), Plan, offene Misch-Ausgaben.
+  - Im Bericht vorher/nachher (darf sich ändern): `thema_stufe` beider Teile (Stufe, `im_plan`), Reiseoptionen, Visum-Regeln.
+  - Umgehängt werden zusätzlich offene Misch-Ausgaben (Lage), Was-wackelt-Einträge je Etappe und Rückmeldungen.
+
+**Sollte**
+- **B5:** Unbekannter Etappen-Schlüssel, leere Liste oder `*` zusammen mit anderen: Die Zuordnung bleibt ganz unverändert und wird mit Grund gemeldet.
+- **B6:** „Abdeckung“ heißt jetzt Zuordnungsgrad.
+  - Spalte `lehrplan_abdeckung.stunden_zugeordnet` (Schätzung: Stunden × Anteil der Punkte mit Thema).
+  - In der Matrix heißt das Feld `lehrplan_zuordnung` statt `abdeckung`, mit `stunden` und `stunden_zugeordnet`; für die App „Lehrplan zugeordnet: x von y Stunden“.
+
+**Befüllung:** jetzt aus `lk_daten_2211.json`: 690 Hauptbezüge aller drei Schularten, alle mit Etappen. Rolle und Etappen aus `rs_pruefung_2211.json` (erste Fassung) sind damit ersetzt, meine Titel-Zuordnung bei Thema 33 entfällt.
+- Gruppe II/III und die IB-Ergänzungsquelle 23 sind in den Sichten nicht dabei (nur aktive Basis-Quellen). Deren Punkte stehen beim Einspielen unter „ohne Zuordnung“ bzw. tragen nur das Feld.
+- Schlüssel, die es in der Datenbank noch nicht gibt (neue Etappen aus LK-D, die noch nicht eingespielt sind), meldet die Migration als „unbekannt“ und lässt die Zuordnung unverändert.
+
+**Schnittstelle für die App (Änderungen gegenüber LK-S)**
+- Matrix: `abdeckung` → `lehrplan_zuordnung` (`stunden_abgedeckt` → `stunden_zugeordnet`).
+- Je Klasse neu: `route_start`, `ganzes_thema`, `etappen_unbekannt`; `etappen` nur ausdrücklich genannte.
+- `klassen_kind`: `etappen_verlangt`/`etappen_erledigt` fehlen bei unbekannten Etappen.
+- `weiter_in` je Klasse mit `ganzes_thema`/`etappen_unbekannt`.
+
+**Test** `lk_s_rauchtest.sql` (lokal grün, Migration zweimal eingespielt; Ausschnitt der echten Lehrplan-Daten, Ersatz für `lehrplan_matrix`/`lehrplan_thema`)
+1. Thema in zwei Klassen.
+2. RS 8 I LB 4: 40 von 40 Std. zugeordnet.
+3. B1 Thema 61.
+4. Zweig II/III: 33 in 8 und 9.
+5. B2 Stand je Klasse.
+6. B5.
+7. B3/B4 Teilen 3 + 3 mit Probelauf und echtem Lauf.
+
+**Hinweis:** Laut LK-D erfüllt derzeit kein Thema die Teilungsregel. `thema_teilen` bleibt eine geprüfte Vorlage und wird nicht aufgerufen.
+
+## 2026-11-22 – FERTIG: LW-S 2 – Nacharbeit ChatGPT 934 (A1, A2)
+
+Zweig `bau-lehrer`, auf `lernen-app` e9a0d66. In der gelieferten, noch nicht eingespielten Datei korrigiert: `supabase/migrations/20261123_lw_s_wackelt_status.sql`; Test `supabase/tests/lw_s_rauchtest.sql`. Nichts eingespielt, kein DROP, kein DELETE. **Die Schnittstelle bleibt gleich.**
+
+- **A1:** „Neuer Fehler öffnet wieder“ richtet sich jetzt nach der endgültigen Wertung. Neue Hilfsfunktion `schule.fehler_endgueltig_am(versuch)` liefert, wann eine Antwort endgültig falsch wurde:
+  - falsche Testantwort und 2. Anlauf bzw. Antwort ohne zweite Chance: sofort;
+  - 1. Anlauf: nach 30 Minuten oder beim Weitergehen, je nachdem, was zuerst kommt (wie `versuch_wertung`);
+  - neutral, ersetzt oder noch offen: zählt nicht.
+  - `wackelt_fehler` und `wackelt_liste` benutzen beide diese Funktion. Verglichen wird mit dem Zeitpunkt, an dem die Antwort endgültig wurde. Darum öffnet auch ein Fehler, der vor dem Status gegeben, aber erst danach endgültig wurde.
+- **A2:** Zugangstest mit Lern-Zugängen, die der Test selbst anlegt (zufällige Schlüssel, Rollback).
+  - Abgelehnt: Kind-Zugang beim eigenen und beim fremden Kind (lesen und setzen), gesperrter Zugang, abgelaufene Sitzung.
+  - Erlaubt: Lehrer liest beide Testkinder und setzt; `status_von` = „lehrer:Name“.
+  - **Hinweis:** Laut `schule.sieht` sehen Eltern/Lehrer mit Lern-Zugang alle Kinder. Ein „fremdes Kind“ gibt es für sie nicht. Council-Schlüssel mit Kind-Freigabe (`schule.zugang`) habe ich nicht getestet, weil das echte Council-Zugänge bräuchte.
+- **Test** (lokal grün, Migration zweimal eingespielt): neu Teil 3 (offener 1. Anlauf öffnet nicht → durch Weitergehen endgültig → wieder „zu besprechen“; neutraler 2. Anlauf öffnet nicht) und Teil 6 (Zugänge).
+
 ## 2026-11-22 – FERTIG: FP-S 4 – Sperrreihenfolge Mischkarte (ChatGPT 932, Sollte 1 und 2)
 
 Zweig `bau-lehrer`, auf `lernen-app` 3f693c4. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, kein App-Code.

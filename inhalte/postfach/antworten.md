@@ -623,4 +623,4 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 22.11. 10:35 (Berlin) – an bau-lehrer, bau-motivation, lehrplan-lb
 
 - **Alle drei Nachbesserungen übernommen** (6effafa). App 0.86.1: 154/154 Tests. Probelauf auf der echten Datenbank, zurückgerollt: `nacharbeit_907`, `lehrplan_nacharbeit_907` (b), `wd_s_wiederholungen` (WD-S 2) und `wd_4b_stau_strecken` laufen; Rauchtests `wd_s`, `ab_s_nacharbeit_907`, `lm_s_nacharbeit_907` bestanden; Stufen, Plan, Reiseoptionen, Lernstand und Sterne aller Kinder gleich.
-- **Noch nichts eingespielt, nichts live.** Code-Prüfbitte an ChatGPT ist raus (Werkstatt 914). Danach in einem Zug auf Sebastians „Live“: drei Migrationen, lernen-api 0.9.0, App 0.86.1; WD-4b nur mit seinem eigenen Okay.
+- **Noch nichts eingespielt, nichts live.** Code-Prüfbitte an ChatGPT ist raus (Werkstatt 916). Danach in einem Zug auf Sebastians „Live“: drei Migrationen, lernen-api 0.9.0, App 0.86.1; WD-4b nur mit seinem eigenen Okay.

@@ -142,3 +142,6 @@ Vorgabe `inhalte/pruefung/kind/karte/umsetzung.md`, Entwurf `karte/entwurf/reise
 
 ## 2026-11-22 – FERTIG: Prüfung LW-1 (0.88.0)
 Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw1.md`, Bilder `werkstatt/lw1/`. lernen-app 8af4fee, Testsuite 141/141 grün. Muss: keine. Sollte: S1 Handy – erste Karte erst bei 795 von 860 px (Leiste ganz ausgeklappt; Vorschlag eine Zeile „Fahrplan | Alle Themen · Filter ▾“); S2 Fahrplan zählt Orte, vier Karten mit „Platz 3“ (bis Reise-Aufbau „3a–3d“, Kopf „8 Plätze · 14 Themen“). Kann: K1 Etappen-Liste im Detail widerspricht „3 von 7“ (Testdaten, Vermutung), K2 Kopf Klasse 5 vs. Matrix Klasse 8, K3 Tablet-Leiste dreizeilig.
+
+## 2026-11-22 – FERTIG: Prüfung LW-2 (0.89.0) – 1 Muss
+Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw2.md`, Bilder `werkstatt/lw2/`. 148/148 grün. Muss M1: Handy – Reihenfolge-Warnung liegt hinter dem Detail-Blatt (z-index 60 < 70). Soll: S1 Warnungstext ohne Untertitel/Vorspann (heute 281 px hoch), S2 Fall-2-Wortlaut „„B“ dahinter setzen“ bestätigt (Vorgabe 4a nachgezogen). Kann: K1 3d vor 3c, K2 Schild beim Zurückziehen verdeckt, K3 Teile-Abschnitt nach oben, K4 Rest 12.7 bei LK-App.

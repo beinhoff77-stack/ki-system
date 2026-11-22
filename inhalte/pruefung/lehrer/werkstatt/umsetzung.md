@@ -60,7 +60,7 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 - **Aus dem Plan ziehen:** Eintrag aus dem Fahrplan zurück in die Matrix ziehen = aus dem Plan genommen. Beim Ziehen über die Matrix wird sie rot gestrichelt mit „Hier loslassen = aus dem Plan nehmen“. Danach Einblendung mit „↶ Rückgängig“. Baut ein Thema im Plan darauf auf, steht das mit ⚠ in derselben Einblendung.
 - **Warnung, keine Sperre:** Nur harte Voraussetzungen (`schule.voraussetzung`, hart) lösen sie aus, empfohlene nicht. Prüfung nach jedem Einplanen, Ziehen, ↑/↓, „Als Nächstes“ und „Ans Ende“:
   1. Thema steht **vor** seiner Voraussetzung → „⚠ „B“ baut auf „A“ auf – das kommt erst auf Platz 4“, Knopf **„„A“ davor setzen“**.
-  2. Voraussetzung wird **hinter** ein Thema geschoben, das darauf aufbaut → „⚠ „B“ baut hierauf auf und steht schon auf Platz 2“, Knopf **„hinter „B“ setzen“**.
+  2. Voraussetzung wird **hinter** ein Thema geschoben, das darauf aufbaut → „⚠ „B“ baut hierauf auf und steht schon auf Platz 2“, Knopf **„„B“ dahinter setzen“** (B rückt hinter die Voraussetzung – die Absicht, A nach hinten zu schieben, bleibt; Wortlaut nach Prüfung LW-2).
   3. Voraussetzung ist **weder gekonnt noch im Plan** → „⚠ … das kann er noch nicht und es ist nicht im Plan“, Knopf **„„A“ davor einplanen“**.
   Die Einblendung ist dunkelrot, Rückgängig bleibt daneben. Der Lehrer darf es trotzdem so lassen.
 - **Dauerhaft im Fahrplan:** betroffener Eintrag mit rotem Rand und Zeile „braucht A – kommt erst auf Platz 4“ bzw. „braucht A – nicht gelernt, nicht im Plan“, solange der Konflikt besteht.

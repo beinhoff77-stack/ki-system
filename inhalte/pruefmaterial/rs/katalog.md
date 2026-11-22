@@ -1,0 +1,1396 @@
+# Katalog Prüfungsmaterial Mathematik Realschule Bayern, Klasse 7 und 8
+
+Stand 22.11.2026 · Chat `pruefmaterial-rs` · erzeugt aus `erfassung.txt` mit `_bauen.py`.
+
+**Katalog, keine Kopie:** Je Aufgabe nur eine eigene Kurzbeschreibung. Aufgaben und Lösungen stehen beim Herausgeber (Link). Niveau (I reproduzieren · II Zusammenhänge · III verallgemeinern/begründen) und die Zuordnung zu Thema/Etappe sind eigene Einschätzung.
+
+**Klasse geschrieben vs. Stoff-Klasse:** Die amtlichen ISB-Tests werden zu Schuljahresbeginn geschrieben und prüfen den Stoff des Vorjahres (Jahrgangsstufentest 8 → Stoff 7; Grundwissentest 9 → Stoff bis 8; Grundwissentest 7 → Stoff bis 6). Gezählt wird nach **Stoff-Klasse**.
+
+## Stoff Klasse 6 (2 Arbeiten)
+
+| Arbeit | Art | Gruppe | Jahr | Nr. | Zeit | Punkte | Lehrplan | Aufg. | Themen zusammen | Zeitpunkt | Link |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| GWT7-2024 | Grundwissentest | alle (vor Gruppenteilung) | 2024 | – | 45 | 23 | LehrplanPLUS | 23 | brueche, dezimal, prozent, rechnen, grundbegriffe, winkel, einfach, einheiten, proportional, flaechen, flaechen_vielecke, volumen, aufstellen, natuerlich | Schuljahresbeginn 7 (prüft Grundwissen bis 6) | [Link](https://isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2024/2024_GWT_Mathe_7_Loesung.pdf) |
+| GWT7-2025 | Grundwissentest | alle (vor Gruppenteilung) | 2025 | – | 45 | 23 | LehrplanPLUS | 23 | kongruenz, brueche, dezimal, prozent, rechnen, darstellen, winkel, einfach, einheiten, flaechen, flaechen_vielecke, volumen, aufstellen, ganz | Schuljahresbeginn 7 (prüft Grundwissen bis 6) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2025/2025_GWT_Mathematik_7_Angabe.pdf) |
+
+## Stoff Klasse 7 (26 Arbeiten)
+
+| Arbeit | Art | Gruppe | Jahr | Nr. | Zeit | Punkte | Lehrplan | Aufg. | Themen zusammen | Zeitpunkt | Link |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| LA-7-I | Beispiel-Leistungsaufgaben (keine vollständige Arbeit) | I | 2019 | – | – | – | LehrplanPLUS | 31 | determinanten2, kongruenz, prozent_grundwert, rechnen, darstellen, kennwerte, stichproben, zinsen, konstruktion, kreis, linear, ungleichungen, einheiten, schraegbilder, potenzgesetze | ganzjährig (Stand 14.05.2019) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Mathematik/Weiterentwicklung_Abschlusspruefung/Exemplarische_Leistungsaufgaben/rs_m_07__leistungsaufgaben_7i.pdf) |
+| JT8-2012-I | Jahrgangsstufentest | I | 2012 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, prozent_grundwert, rechnen, kennwerte, stichproben, grundbegriffe, ortslinien, winkelsaetze, linear, proportional, flaechen, volumen, grundbegriffe, kombinatorik, aufstellen, natuerlich | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2012/jgstt_2012_klasse_8_i_loesungsmuster_end.pdf) |
+| JT8-2014-I | Jahrgangsstufentest | I | 2014 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, prozent_grundwert, darstellen, stichproben, ortslinien, winkelsaetze, bruch, linear, indirekt, kreisberechnung, volumen, grundbegriffe, kombinatorik, potenzgesetze, umformen, potenzen_zehner | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2014/jahrgangsstufe_8_i_loesung_mit_deckblatt.pdf) |
+| JT8-2018-I | Jahrgangsstufentest | I | 2018 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, dezimal, prozent_grundwert, rechnen, kennwerte, konstruktion, winkelsaetze, ungleichungen, kreisberechnung, grundbegriffe, aufstellen, potenzgesetze, ganz | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2018/2018_jt_mathe_8_i_angabe.pdf) |
+| JT8-2019-I | Jahrgangsstufentest | I | 2019 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, prozent_grundwert, rechnen, stichproben, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, kreisberechnung, umformen, ganz, potenzen_zehner | Schuljahresbeginn 8; prüft Stoff 7 nach altem Lehrplan (vor LehrplanPLUS) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2019/2019_jt_mathe_8_i_loesung.pdf) |
+| JT8-2020-I | Jahrgangsstufentest | I | 2020 | – | 45 | 21 | LehrplanPLUS | 21 | determinanten2, kongruenz, rechnen, kennwerte, zinsen, konstruktion, kreis, winkelsaetze, linear, ungleichungen, proportional, schraegbilder, potenzgesetze, umformen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7; erster LehrplanPLUS-Jahrgang) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2020/2020_jt_mathe_8_i_loesung.pdf) |
+| JT8-2021-I | Jahrgangsstufentest | I | 2021 | – | 45 | 21 | LehrplanPLUS | 21 | determinanten2, kongruenz, prozent_grundwert, rechnen, konstruktion, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, schraegbilder, aufstellen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2021/2021_jt_mathe_8_i_loesung.pdf) |
+| JT8-2022-I | Jahrgangsstufentest | I | 2022 | – | 45 | 21 | LehrplanPLUS | 21 | determinanten2, prozent_grundwert, darstellen, kennwerte, konstruktion, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, schraegbilder, aufstellen, potenzgesetze, umformen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2022/_B__2022_JT_Mathe_8_I_Loesung.pdf) |
+| JT8-2023-I | Jahrgangsstufentest | I | 2023 | – | 45 | 21 | LehrplanPLUS | 21 | kongruenz, prozent_grundwert, rechnen, darstellen, kennwerte, konstruktion, kreis, ortslinien, winkelsaetze, linear, indirekt, schraegbilder, aufstellen, potenzgesetze_natuerlich | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2023/2023_JT_Mathe_8_I_Loesung.pdf) |
+| JT8-2024-I | Jahrgangsstufentest | I | 2024 | – | 45 | 21 | LehrplanPLUS | 21 | kongruenz, prozent_grundwert, boxplot, kennwerte, konstruktion, kreis, winkelsaetze, ungleichungen, indirekt, schraegbilder, aufstellen, potenzgesetze, potenzgesetze_natuerlich, umformen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2024/2024_JT_Mathe_8_I_Angabe.pdf) |
+| JT8-2025-I | Jahrgangsstufentest | I | 2025 | – | 45 | 21 | LehrplanPLUS | 21 | kongruenz, prozent_grundwert, rechnen, kennwerte, konstruktion, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, schraegbilder, potenzgesetze_natuerlich, umformen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2025/2025_JT_Mathematik_8_I_Loesung.pdf) |
+| STARK-7I-SA1 | Übungs-Schulaufgabe (Verlag) | I | – | 1 | 45 | 32 | LehrplanPLUS | 9 | determinanten2, kongruenz, winkelsaetze, potenzgesetze, potenzgesetze_natuerlich | 1. Schulaufgabe (Herbst); Zeitangaben je Aufgabe im Lösungsteil | [Link](https://www.lehmanns.ch/media/88673092) |
+| STARK-7I-EX1 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 1 | 18 | – | LehrplanPLUS | nur Themen | potenzgesetze_natuerlich | vor der 1. Schulaufgabe; LehrplanPLUS (Inhalt passt zu M7 I LB1) | [Link](https://www.lehmanns.ch/media/88673092) |
+| JT8-2016-II | Jahrgangsstufentest | II/III | 2016 | – | 45 | 21 | alt (vor LehrplanPLUS) | 27 | kongruenz, prozent, rechnen, darstellen, grundbegriffe, konstruktion, linear, ungleichungen, proportional, flaechen, kreisberechnung, grundbegriffe, aufstellen, potenzgesetze | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2016/_a__2016_jt_mathe_8ii_angabe.pdf) |
+| JT8-2018-II | Jahrgangsstufentest | II/III | 2018 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, dezimal, prozent_grundwert, rechnen, kennwerte, winkelsaetze, ungleichungen, proportional, kreisberechnung, grundbegriffe, aufstellen, potenzgesetze_natuerlich, ganz | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2018/2018_jt_mathe_8_ii_angabe.pdf) |
+| JT8-2019-II | Jahrgangsstufentest | II/III | 2019 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, dezimal, prozent_grundwert, rechnen, stichproben, winkelsaetze, linear, ungleichungen, indirekt, kreisberechnung, grundbegriffe, umformen | Schuljahresbeginn 8; prüft Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2019/2019_jt_mathe_8_ii_loesung.pdf) |
+| JT8-2020-II | Jahrgangsstufentest | II/III | 2020 | – | 45 | 21 | LehrplanPLUS | 21 | determinanten2, kongruenz, rechnen, darstellen, kennwerte, zinsen, kreis, winkelsaetze, linear, ungleichungen, indirekt, proportional, potenzgesetze, umformen | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2020/2020_jt_mathe_8_ii_loesung.pdf) |
+| JT8-2021-II | Jahrgangsstufentest | II/III | 2021 | – | 45 | 21 | LehrplanPLUS | 21 | determinanten2, kongruenz, prozent_grundwert, rechnen, zinsen, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, aufstellen, potenzgesetze, umformen | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2021/2021_jt_mathe_8_ii_loesung.pdf) |
+| JT8-2022-II | Jahrgangsstufentest | II/III | 2022 | – | 45 | 21 | LehrplanPLUS | 21 | determinanten2, kongruenz, prozent_grundwert, rechnen, darstellen, kennwerte, zinsen, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, aufstellen, potenzgesetze_natuerlich, umformen | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2022/_B__2022_JT_Mathe_8_II_Loesung.pdf) |
+| JT8-2023-II | Jahrgangsstufentest | II/III | 2023 | – | 45 | 21 | LehrplanPLUS | 21 | kongruenz, prozent_grundwert, rechnen, darstellen, kennwerte, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, aufstellen, potenzgesetze, potenzgesetze_natuerlich, umformen | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2023/2023_JT_Mathe_8_II_Loesung.pdf) |
+| JT8-2024-II | Jahrgangsstufentest | II/III | 2024 | – | 45 | 21 | LehrplanPLUS | 21 | kongruenz, prozent_grundwert, rechnen, boxplot, kennwerte, zinsen, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, aufstellen, potenzgesetze, potenzgesetze_natuerlich, umformen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2024/2024_JT_Mathe_8_II_Angabe.pdf) |
+| JT8-2025-II | Jahrgangsstufentest | II/III | 2025 | – | 45 | 21 | LehrplanPLUS | 21 | kongruenz, prozent_grundwert, rechnen, kennwerte, zinsen, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, potenzgesetze_natuerlich, umformen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2025/2025_JT_Mathematik_8_II_Loesung.pdf) |
+| KA-3548 | Schulaufgabe | II/III | – | 1 | nicht angegeben | nicht angegeben | unklar | 10 | kongruenz, rechnen, potenzgesetze, potenzgesetze_natuerlich, umformen | Dezember, 1. Schulaufgabe; Lehrplanstand unklar (Annahme: alt, wegen Bruch-/Q-Rechnen) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3548.pdf) |
+| KA-3548b | Übungsblatt zur Schulaufgabe | II/III | – | – | – | – | LehrplanPLUS | 4 | potenzgesetze, potenzgesetze_natuerlich, potenzen_zehner | vor 1. Schulaufgabe (Annahme) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3548.pdf) |
+| KA-3552 | Schulaufgabe | unbekannt | – | 1 (Annahme) | nicht angegeben | nicht angegeben | unklar | 21 | rechnen, potenzgesetze, potenzgesetze_natuerlich, umformen, ganz, potenzen_zehner | 1. Halbjahr (Annahme); Lehrplanstand unklar (Annahme: alt) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3552.pdf) |
+| KA-3563 | Schulaufgabe | unbekannt | – | 2 | nicht angegeben | nicht angegeben (Aufgabe 2: 9 P.) | unklar | 29 | kongruenz, potenzgesetze, potenzgesetze_natuerlich, ganz, natuerlich, potenzen_zehner | Januar, 2. Schulaufgabe; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3563.pdf) |
+
+## Stoff Klasse 8 (48 Arbeiten)
+
+| Arbeit | Art | Gruppe | Jahr | Nr. | Zeit | Punkte | Lehrplan | Aufg. | Themen zusammen | Zeitpunkt | Link |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| LA-8-I | Beispiel-Leistungsaufgaben (keine vollständige Arbeit) | I | 2021 | – | – | – | LehrplanPLUS | 40 | kongruenz, grundbegriffe, linear, konstruktion, bruch, linear, schraegbilder, grundbegriffe, kombinatorik, bruchterme, quadratische_extreme, umformen | ganzjährig (Stand 08.06.2021) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Mathematik/Weiterentwicklung_Abschlusspruefung/Exemplarische_Leistungsaufgaben/rs_m_08_leistungsaufgaben_8i.pdf) |
+| GWT9-2019-I | Grundwissentest | I | 2019 | – | 45 | 23 | alt (vor LehrplanPLUS) | 23 | kongruenz, prozent_grundwert, linear, winkelsaetze, bruch, linear, indirekt, flaechen, volumen, grundbegriffe, aufstellen, quadratische_extreme, umformen | Schuljahresbeginn 9; Grundwissen bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2019/2019_gwt_mathe_9_i_loesung.pdf) |
+| GWT9-2020-I | Grundwissentest | I | 2020 | – | 45 | 23 | alt (vor LehrplanPLUS) | 23 | kongruenz, brueche, prozent_grundwert, darstellen, grundbegriffe, linear, konstruktion, kreis, winkelsaetze, bruch, linear, flaechen, volumen, grundbegriffe, aufstellen, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9; Grundwissen bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2020/2020_gwt_mathe_9_i_angabe.pdf) |
+| GWT9-2021-I | Grundwissentest | I | 2021 | – | 45 | 23 | LehrplanPLUS | 23 | determinanten2, kongruenz, brueche, prozent_grundwert, grundbegriffe, linear, konstruktion, winkelsaetze, bruch, linear, proportional, flaechen, volumen, schraegbilder, grundbegriffe, aufstellen, bruchterme, umformen, natuerlich | Schuljahresbeginn 9 (prüft Grundwissen bis 8; erster LehrplanPLUS-Jahrgang) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2021/2021_gwt_mathe_9_i_loesung.pdf) |
+| GWT9-2022-I | Grundwissentest | I | 2022 | – | 45 | 23 | LehrplanPLUS | 21 | determinanten2, kongruenz, prozent_grundwert, linear, konstruktion, winkelsaetze, bruch, linear, proportional, schraegbilder, grundbegriffe, aufstellen, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2022/_A__2022_GWT_Mathe_9_I_Angabe.pdf) |
+| GWT9-2023-I | Grundwissentest | I | 2023 | – | 45 | 23 | LehrplanPLUS | 22 | determinanten2, kongruenz, brueche, darstellen, linear, konstruktion, kreis, winkelsaetze, bruch, linear, volumen, schraegbilder, grundbegriffe, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2023/2023_GWT_Mathe_9_I_Loesung.pdf) |
+| GWT9-2024-I | Grundwissentest | I | 2024 | – | 45 | 23 | LehrplanPLUS | 22 | determinanten2, kongruenz, darstellen, grundbegriffe, linear, konstruktion, kreis, winkelsaetze, bruch, linear, einheiten, volumen, schraegbilder, grundbegriffe, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2024/2024_GWT_Mathe_9_I_Loesung.pdf) |
+| GWT9-2025-I | Grundwissentest | I | 2025 | – | 45 | 23 | LehrplanPLUS | 23 | determinanten2, kongruenz, prozent_grundwert, linear, konstruktion, winkelsaetze, bruch, linear, einheiten, indirekt, flaechen_vielecke, schraegbilder, grundbegriffe, quadratische_extreme, umformen | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2025/2025_GWT_Mathematik_9_I_Angabe.pdf) |
+| PEARSON-8I-SA7 | Übungs-Schulaufgabe (Verlag) | I | – | 7 (Heft) ≈ 4. Schulaufgabe | 45 | 29 | unklar | 11 | grundbegriffe, linear, indirekt, grundbegriffe, kombinatorik | Schuljahresende (4. Themenblock); Lehrplanstand unklar (Inhaltsverzeichnis nennt „Hyperbeln“, „Relationen“ – evtl. alter Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-SA1 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | I | – | 1 | 45 | – | unklar | nur Themen | konstruktion, quadratische_extreme, umformen | 1. Schulaufgabe (Herbst) (Heft teilt Stoff auf vier Schulaufgaben auf); Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-SA2 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | I | – | 2 | 45 | – | unklar | nur Themen | konstruktion, quadratische_extreme, umformen | 1. Schulaufgabe (Herbst) (Heft teilt Stoff auf vier Schulaufgaben auf); Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-SA3 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | I | – | 3 | 45 | – | unklar | nur Themen | konstruktion, linear, ungleichungen | 2. Schulaufgabe (Winter) (Heft teilt Stoff auf vier Schulaufgaben auf); Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-SA4 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | I | – | 4 | 45 | – | unklar | nur Themen | konstruktion, linear, ungleichungen | 2. Schulaufgabe (Winter) (Heft teilt Stoff auf vier Schulaufgaben auf); Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-SA5 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | I | – | 5 | 45 | – | unklar | nur Themen | grundbegriffe, bruch, schraegbilder, bruchterme | 3. Schulaufgabe (Frühjahr) (Heft teilt Stoff auf vier Schulaufgaben auf); Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-SA6 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | I | – | 6 | 45 | – | unklar | nur Themen | grundbegriffe, bruch, schraegbilder, bruchterme | 3. Schulaufgabe (Frühjahr) (Heft teilt Stoff auf vier Schulaufgaben auf); Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-SA8 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | I | – | 8 | 45 | – | unklar | nur Themen | linear, indirekt, grundbegriffe | 4. Schulaufgabe (Sommer) (Heft teilt Stoff auf vier Schulaufgaben auf); Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-EX1 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 1 | – | – | unklar | nur Themen | umformen | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-EX2 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 2 | – | – | unklar | nur Themen | quadratische_extreme | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-EX3 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 3 | – | – | unklar | nur Themen | linear | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-EX4 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 4 | – | – | unklar | nur Themen | ungleichungen | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-EX5 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 5 | – | – | unklar | nur Themen | bruchterme | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-EX6 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 6 | – | – | unklar | nur Themen | bruch | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-EX7 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 7 | – | – | unklar | nur Themen | linear | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| VERLAG-8I-EX8 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 8 | – | – | unklar | nur Themen | linear | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| GWT9-2019-II | Grundwissentest | II/III | 2019 | – | 45 | 23 | alt (vor LehrplanPLUS) | 22 | kongruenz, prozent_grundwert, grundbegriffe, konstruktion, kreis, winkelsaetze, bruch, linear, proportional, flaechen, volumen, grundbegriffe, aufstellen, quadratische_extreme, umformen | Schuljahresbeginn 9; Grundwissen bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2019/2019_gwt_mathe_9_ii_loesung.pdf) |
+| GWT9-2020-II | Grundwissentest | II/III | 2020 | – | 45 | 23 | alt (vor LehrplanPLUS) | 23 | kongruenz, brueche, prozent_grundwert, darstellen, konstruktion, kreis, ortslinien, winkelsaetze, bruch, linear, proportional, flaechen, volumen, grundbegriffe, aufstellen, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9; Grundwissen bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2020/2020_gwt_mathe_9_ii_loesung.pdf) |
+| GWT9-2021-II | Grundwissentest | II/III | 2021 | – | 45 | 23 | LehrplanPLUS | 23 | determinanten2, kongruenz, brueche, prozent_grundwert, grundbegriffe, linear, konstruktion, winkelsaetze, bruch, linear, proportional, flaechen, volumen, schraegbilder, grundbegriffe, aufstellen, bruchterme, umformen, natuerlich | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2021/2021_gwt_mathe_9_ii_loesung.pdf) |
+| GWT9-2022-II | Grundwissentest | II/III | 2022 | – | 45 | 23 | LehrplanPLUS | 23 | determinanten2, kongruenz, prozent_grundwert, linear, konstruktion, winkelsaetze, bruch, linear, indirekt, proportional, schraegbilder, grundbegriffe, aufstellen, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2022/_B__2022_GWT_Mathe_9_II_Loesung.pdf) |
+| GWT9-2023-II | Grundwissentest | II/III | 2023 | – | 45 | 23 | LehrplanPLUS | 23 | determinanten2, kongruenz, brueche, darstellen, grundbegriffe, linear, konstruktion, kreis, winkelsaetze, bruch, linear, volumen, schraegbilder, grundbegriffe, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2023/2023_GWT_Mathe_9_II_Angabe.pdf) |
+| GWT9-2024-II | Grundwissentest | II/III | 2024 | – | 45 | 23 | LehrplanPLUS | 21 | determinanten2, kongruenz, darstellen, grundbegriffe, linear, konstruktion, winkelsaetze, bruch, linear, einheiten, volumen, schraegbilder, grundbegriffe, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2024/2024_GWT_Mathe_9_II_Angabe.pdf) |
+| GWT9-2025-II | Grundwissentest | II/III | 2025 | – | 45 | 23 | LehrplanPLUS | 23 | determinanten2, prozent_grundwert, linear, konstruktion, winkelsaetze, bruch, linear, einheiten, indirekt, flaechen_vielecke, schraegbilder, grundbegriffe, quadratische_extreme, umformen | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2025/2025_GWT_Mathematik_9_II_Angabe.pdf) |
+| STARK-8II-SA1 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | II/III | – | 1 | – | – | unklar | nur Themen | ortslinien, umformen | 1. Schulaufgabe (Heft: drei Schulaufgaben im Jahr); Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-SA2 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | II/III | – | 2 | – | – | unklar | nur Themen | ortslinien, umformen | 1. Schulaufgabe (Heft: drei Schulaufgaben im Jahr); Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-SA3 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | II/III | – | 3 | – | – | unklar | nur Themen | ortslinien, umformen | 1. Schulaufgabe (Heft: drei Schulaufgaben im Jahr); Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-SA4 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | II/III | – | 4 | – | – | unklar | nur Themen | konstruktion, linear, ungleichungen, grundbegriffe | 2. Schulaufgabe (Heft: drei Schulaufgaben im Jahr); Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-SA5 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | II/III | – | 5 | – | – | unklar | nur Themen | konstruktion, linear, ungleichungen, grundbegriffe | 2. Schulaufgabe (Heft: drei Schulaufgaben im Jahr); Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-SA6 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | II/III | – | 6 | – | – | unklar | nur Themen | konstruktion, linear, ungleichungen, grundbegriffe | 2. Schulaufgabe (Heft: drei Schulaufgaben im Jahr); Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-SA7 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | II/III | – | 7 | – | – | unklar | nur Themen | konstruktion, bruch, bruchterme, quadratische_extreme | 3. Schulaufgabe (Heft: drei Schulaufgaben im Jahr); Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-SA8 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | II/III | – | 8 | – | – | unklar | nur Themen | konstruktion, bruch, bruchterme, quadratische_extreme | 3. Schulaufgabe (Heft: drei Schulaufgaben im Jahr); Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-SA9 | Übungs-Schulaufgabe (Verlag) – nur Themenebene | II/III | – | 9 | – | – | unklar | nur Themen | konstruktion, bruch, bruchterme, quadratische_extreme | 3. Schulaufgabe (Heft: drei Schulaufgaben im Jahr); Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-EX1 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | II/III | – | 1 | – | – | unklar | nur Themen | umformen | laufend; Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-EX2 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | II/III | – | 2 | – | – | unklar | nur Themen | umformen | laufend; Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-EX3 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | II/III | – | 3 | – | – | unklar | nur Themen | linear, ungleichungen | laufend; Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-EX4 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | II/III | – | 4 | – | – | unklar | nur Themen | quadratische_extreme | laufend; Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| STARK-8II-EX5 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | II/III | – | 5 | – | – | unklar | nur Themen | quadratische_extreme | laufend; Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| KA-4020 | Klassenarbeit (Bundesland unklar) | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 14 | rechnen, linear, umformen | unklar; Bayern-Bezug nicht gesichert (Inhalt passt zu RS 7/8 Bayern) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/4020.pdf) |
+| KA-3793 | Schulaufgabe | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 12 | grundbegriffe, linear, indirekt, proportional | vermutlich 2. Halbjahr; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3793.pdf) |
+| KA-4010 | Schulaufgabe | unbekannt (Annahme I wegen Extremwerten) | 2012 | 2 | nicht angegeben | 40 | alt (vor LehrplanPLUS) | 26 | grundbegriffe, ortslinien, linear, quadratische_extreme, umformen | Februar, 2. Schulaufgabe; alter Lehrplan (vor LehrplanPLUS) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/4010.pdf) |
+
+## Aufgaben je Arbeit
+
+### GWT7-2024 – Grundwissentest 2024 Mathematik Jgst. 7
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 7, Stoff Kl. 6 · Gruppe alle (vor Gruppenteilung) · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2024/2024_GWT_Mathe_7_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Rechnung mit Rechenregeln | rechnen | I | M6 LB1 | bruch.rechnen · gemischt |  |
+| 1b | 1 | Division durch Dezimalzahl | rechnen | I | M6 LB1 | bruch.rechnen · dezimal_geteilt |  |
+| 1c | 1 | negative Zahlen und Potenz | rechnen | I | M6 LB1 | bruch.rechnen · potenzen |  |
+| 1d | 1 | Brüche subtrahieren | rechnen | I | M6 LB1 | bruch.rechnen · brueche_plus_minus |  |
+| 2 | 1 | Anteil an Würfelkörper als Bruch | Lücke | II | M6 LB1 | bruch.brueche · anteil_bestimmen |  |
+| 3 | 1 | Punktzahl aus Prozentanteil | Sachaufgabe | II | M6 LB6 | bruch.prozent · prozentwert |  |
+| 4 | 1 | Summen aus Faktorpaaren eines Produkts | ankreuzen | II | M5 LB? | zahlen.natuerlich · stellenwert | Knobel (Annahme Etappe) |
+| 5 | 1 | Bruchteil einer Menge | Sachaufgabe | I | M6 LB1 | bruch.brueche · bruchteil_von |  |
+| 6 | 1 | Teilbarkeitsregeln auf Ziffernfolge | ankreuzen | II | M5/6 | **Lücke** | Vorschlag: Teilbarkeitsregeln als eigene Etappe (z. B. in bruch.brueche vor ggt) |
+| 7 | 1 | Winkel aus Winkelbeziehung | Lücke | I | M5/6 | geometrie.winkel · figuren |  |
+| 8a | 1 | Werte aus Diagramm, Differenz | ablesen | I | M6 LB6 | groessen.proportional · aenderung | Diagramm (Annahme Etappe) |
+| 8b | 1 | Graph bei halbierten Preisen ergänzen | zeichnen | II | M6 LB6 | groessen.proportional · vervielfachen |  |
+| 9 | 1 | Winkel am Geradenschnittpunkt | Lücke | I | M5/6 | geometrie.winkel · kreuzung |  |
+| 10 | 1 | Bruch kürzen | Lücke | I | M6 LB1 | bruch.brueche · kuerzen |  |
+| 11 | 1 | falschen Termwert in Tabelle korrigieren | Fehler finden | II | M6 LB5 | terme.aufstellen · termwert | Fehler finden |
+| 12 | 1 | Fläche einer zusammengesetzten Figur beschreiben | beschreiben | II | M6 LB3 | messen.flaechen_vielecke · zusammengesetzt | Fachsprache |
+| 13 | 1 | lineare Gleichung | rechnen | I | M6 LB5 | gleichungen.einfach · zwei_schritte |  |
+| 14 | 1 | Bruch in Dezimalzahl, runden | rechnen | I | M6 LB1 | bruch.dezimal · bruch_zu_dezimal |  |
+| 15 | 1 | Kartonvolumen aus Maßstabsbild schätzen | Sachaufgabe | III | M6 LB4 | messen.volumen · quader | Modellieren |
+| 16 | 1 | Punkt mit halbem Abstand zu Gerade | konstruieren | II | M5/6 | geometrie.grundbegriffe · lagebeziehungen |  |
+| 17 | 1 | Rechteckseite bei gleichem Umfang wie Dreieck | rechnen | II | M5 LB? | messen.flaechen · verstehen |  |
+| 18 | 1 | falsche Kartenlänge begründen | begründen | II | M5 LB? | groessen.einheiten · massstab |  |
+| 19 | 1 | Drachenfläche aus Diagonalen | rechnen | I | M6 LB3 | messen.flaechen_vielecke · drachen_raute |  |
+
+### GWT7-2025 – Grundwissentest 2025 Mathematik Jgst. 7
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 7, Stoff Kl. 6 · Gruppe alle (vor Gruppenteilung) · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2025/2025_GWT_Mathematik_7_Angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Dezimalzahlen multiplizieren | rechnen | I | M6 LB1 | bruch.rechnen · dezimal_mal |  |
+| 1b | 1 | Bruch und ganze Zahl | rechnen | I | M6 LB1 | bruch.rechnen · brueche_mal |  |
+| 1c | 1 | Klammern und negative Zahlen | rechnen | I | M5 LB? | zahlen.ganz · ketten |  |
+| 1d | 1 | gemischte Zahl und Dezimalzahl | rechnen | I | M6 LB1 | bruch.rechnen · gemischt |  |
+| 2 | 1 | Lose beschriften für vorgegebenen Gewinnanteil | Lücke | II | M6 LB1 | bruch.brueche · anteil_bestimmen | rückwärts |
+| 3 | 1 | Strecke mit Prozentanteil zeichnen | zeichnen | II | M6 LB6 | bruch.prozent · prozentwert |  |
+| 4 | 1 | Aussagen zu zwei Brüchen | ankreuzen | II | M6 LB1 | bruch.brueche · vergleichen |  |
+| 5 | 1 | Zeitangaben addieren | Lücke | I | M5 LB? | groessen.einheiten · zeit |  |
+| 6 | 1 | Zahl mit drei Teilbarkeitseigenschaften | Lücke | II | M5/6 | **Lücke** | Vorschlag: Teilbarkeitsregeln als eigene Etappe |
+| 7 | 1 | Winkel zeichnen | zeichnen | I | M5/6 | geometrie.winkel · ergaenzen | Annahme Etappe |
+| 8a | 1 | falsche Diagrammaussage | ankreuzen | II | M5/6 | daten.darstellen · saeulendiagramm |  |
+| 8b | 1 | Erlös berechnen, Säule ergänzen | Sachaufgabe | II | M5/6 | daten.darstellen · saeulendiagramm |  |
+| 9 | 1 | Winkel an drei sich schneidenden Geraden | Lücke | I | M5/6 | geometrie.winkel · um_punkt |  |
+| 10 | 1 | Zahl in Bruchvergleich einsetzen | Lücke | II | M6 LB1 | bruch.brueche · vergleichen |  |
+| 11 | 1 | äquivalenten Term wählen | ankreuzen | I | M6 LB5 | terme.aufstellen · deuten |  |
+| 12 | 1 | Figur mit gleichem Umfang ergänzen | zeichnen | II | M5 LB? | messen.flaechen · verstehen |  |
+| 13 | 1 | lineare Gleichung über Q | rechnen | I | M6 LB5 | gleichungen.einfach · zwei_schritte |  |
+| 14 | 1 | Dezimalzahl auf Zehner runden | Lücke | I | M6 LB1 | bruch.dezimal · runden |  |
+| 15 | 1 | Tischlänge aus Maßstabszeichnung | Sachaufgabe | II | M5 LB? | groessen.einheiten · massstab | Lösungsweg |
+| 16 | 1 | Spiegelpunkt an Gerade angeben | ablesen | I | M6 LB2 | abbildungen.kongruenz · achsenspiegelung |  |
+| 17 | 1 | flächengleiches Dreieck zu Rechteck | zeichnen | II | M6 LB3 | messen.flaechen_vielecke · dreieck |  |
+| 18 | 1 | Füllhöhe aus Volumen und Grundfläche | Sachaufgabe | II | M6 LB4 | messen.volumen · rueckwaerts |  |
+| 19 | 1 | Parallelogrammfläche | rechnen | I | M6 LB3 | messen.flaechen_vielecke · parallelogramm |  |
+
+### LA-7-I – Illustrierende Aufgaben LehrplanPLUS: Beispiele für Leistungsaufgaben Jgst. 7 (WPFG I)
+
+ISB Bayern · Beispiel-Leistungsaufgaben (keine vollständige Arbeit) · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe I · – min · – Punkte · Hilfsmittel: Kopfrechnen bei Teilen; sonst nicht angegeben · frei zugänglich: ja · Lizenz: ISB; Foto zu Aufgabe 2 fremdes Urheberrecht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Mathematik/Weiterentwicklung_Abschlusspruefung/Exemplarische_Leistungsaufgaben/rs_m_07__leistungsaufgaben_7i.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | – | Termwert im Kopf | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Kopfrechnen |
+| 1b | – | Potenzwert im Kopf | rechnen | I | M7 I LB1 | terme.potenzgesetze · potenz_begriff | Kopfrechnen |
+| 1c | – | gemischter Ausdruck mit Potenzen | rechnen | I | M7 I LB1 | terme.potenzgesetze · negativer_exponent |  |
+| 1d | – | Ausdruck mit Brüchen und Division | rechnen | I | M6 LB1 | bruch.rechnen · gemischt |  |
+| 2 | – | Größe eines Objekts aus Bild schätzen | ankreuzen | II | M6 LB? | groessen.einheiten · schaetzen | Schätzen |
+| 3 | – | Kurzschreibweise einer Verschiebung in Worte fassen | beschreiben | II | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten | Fachsprache |
+| 4 | – | Punkte gleich weit von zwei Geraden, Fachbegriff nennen | zeichnen | II | M7 I LB5 | abbildungen.kongruenz · winkelhalbierende | Fachsprache |
+| 5a | – | Thaleskreis als Ortslinie | zeichnen | II | M7 I LB5 | geometrie.kreis · umkehrung |  |
+| 5b | – | Punkte mit Winkelbedingung markieren | zeichnen | III | M7 I LB5 | geometrie.kreis · umkehrung | Ortsbereich |
+| 6a | – | einfache Gleichung im Kopf | rechnen | I | M7 I LB6 | gleichungen.linear · waage | Kopfrechnen |
+| 6b | – | Gleichung mit Bruch im Kopf | rechnen | I | M7 I LB6 | gleichungen.linear · waage | Kopfrechnen |
+| 6c | – | Gleichung mit Klammern | rechnen | I | M7 I LB6 | gleichungen.linear · klammern |  |
+| 7a | – | passende Ungleichung zu Text | ankreuzen | II | M7 I LB6 | gleichungen.ungleichungen · sachaufgabe | Term aus Text |
+| 7b | – | passende Ungleichungen zu Text (mehrere richtig) | ankreuzen | II | M7 I LB6 | gleichungen.ungleichungen · sachaufgabe | Mehrfachauswahl |
+| 8 | – | Aussagen zu prozentualer Volumenzunahme prüfen | ankreuzen | III | M7 I LB7 | bruch.prozent_grundwert · argumente | Mehrfachauswahl |
+| 9 | – | Reihenfolge zweier Rabatte beurteilen | ankreuzen | III | M7 I LB7 | bruch.prozent_grundwert · mehrfach |  |
+| 10a | – | Kapital aus Zinsen und Zinssatz | Sachaufgabe | I | M7 I LB7 | finanzen.zinsen · kapital |  |
+| 10b | – | Zinsen aus Kapital und Zinssatz | Sachaufgabe | I | M7 I LB7 | finanzen.zinsen · jahreszinsen |  |
+| 10c | – | Zinssatz aus Kapital und Zinsen | Sachaufgabe | I | M7 I LB7 | finanzen.zinsen · zinssatz |  |
+| 11 | – | Einzelwerte zu vorgegebenem Durchschnitt erfinden | Sachaufgabe | III | M7 I LB8 | daten.kennwerte · mittel_rueckwaerts | offen |
+| 12a | – | Kreisdiagramm zu Prozentanteilen | zeichnen | I | M7 I LB8 | daten.darstellen · kreisdiagramm |  |
+| 12b | – | Übertragbarkeit einer Befragung begründen | begründen | II | M7 I LB8 | daten.stichproben · repraesentativ |  |
+| 12c | – | Behauptung aus Befragung prüfen | begründen | III | M7 I LB8 | daten.stichproben · aussagen |  |
+| 13a | – | Parallelogramm zeichnen, fehlende Ecken berechnen | rechnen | II | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 13b | – | Flächengleichheit zweier Dreiecke begründen | begründen | III | M7 I LB2 | abbildungen.determinanten2 · dreieck |  |
+| 14 | – | Existenz eines Dreiecks aus Umfang und Seite begründen | begründen | III | M7 I LB3 | geometrie.konstruktion · konstruierbar |  |
+| 15 | – | geschickten Konstruktionsweg erklären | beschreiben | II | M7 I LB3 | geometrie.konstruktion · planfigur | Konstruktionsbeschreibung |
+| 16a | – | Schrägbild einer Pyramide im Maßstab | zeichnen | I | M7 I LB4 | raum.schraegbilder · pyramide |  |
+| 16b | – | Pyramidenvolumen kleiner als Würfel begründen | begründen | III | M7 I LB4 | raum.schraegbilder · pyramide | anschaulich, ohne Formel |
+| 17a | – | verzerrte Strecken im Schrägbild in Wirklichkeit gleich lang | begründen | II | M7 I LB4 | raum.schraegbilder · wahre_groesse |  |
+| 17b | – | Punkte einer senkrechten Ebene nennen | Lücke | II | M7 I LB4 | raum.schraegbilder · lage |  |
+
+### JT8-2012-I – Jahrgangsstufentest 2012 Mathematik Jgst. 8 WPFG I (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2012/jgstt_2012_klasse_8_i_loesungsmuster_end.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Gewinnchancen zweier Losbuden vergleichen | ankreuzen | II | (alt) | stochastik.grundbegriffe · laplace | alter Lehrplan |
+| 2 | 1 | Spielfeldfläche aus Quadraten und Rand | rechnen | II | M5 LB? | messen.flaechen · zerlegen | Grundwissen |
+| 3 | 1 | Diagramm zu Half-Pipe-Fahrt wählen | ankreuzen | II | M8 LB5 (LP+) | funktionen.grundbegriffe · sachzusammenhang | Graph deuten |
+| 4 | 1 | Gleichung mit Brüchen/Klammern | rechnen | I | M7 LB6 | gleichungen.linear · klammern |  |
+| 5 | 1 | Umfangsterm mit Variable | Lücke | II | M7 LB6 | terme.aufstellen · sachsituation | Term aus Figur |
+| 6 | 1 | Baumanzahl nach Pflanzplan | Sachaufgabe | II | M5 LB? | zahlen.natuerlich · stellenwert | Knobel (Annahme Etappe) |
+| 7 | 1 | Winkel aus Skizze | rechnen | I | M7 LB2 | geometrie.winkelsaetze · figuren |  |
+| 8 | 1 | Abstand paralleler Geraden | Lücke | I | M7 LB5 | geometrie.ortslinien · parallelen |  |
+| 9.1 | 1 | Klammerausdruck berechnen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen |
+| 9.2 | 1 | weiteren Ausdruck berechnen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen |
+| 10 | 1 | Zahlencodes zählen | Sachaufgabe | II | (alt) | stochastik.kombinatorik · bedingungen | alter Lehrplan |
+| 11 | 1 | Befragung mit Mehrfachnennung begründen | begründen | II | M7 LB8 | daten.stichproben · aussagen |  |
+| 12 | 1 | Zahlenfolge ergänzen | Lücke | II | M6 LB5 | terme.aufstellen · muster |  |
+| 13 | 1 | prozentuale Mehrnutzung aus Tabelle | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · prozentsatz |  |
+| 14 | 1 | Würfellagen-Aussage prüfen | ankreuzen | II | M5 LB? | **Lücke** | Vorschlag: Raumvorstellung „Würfel kippen/Netz“ (gehört zu messen.koerper_darstellung bzw. Kl. 5) |
+| 15 | 1 | Tropfmenge pro Tag | Sachaufgabe | II | M6 LB6 | groessen.proportional · sach |  |
+| 16 | 1 | Teilrechteck-Seiten aus Unterteilung | Sachaufgabe | II | M5 LB? | messen.flaechen · zerlegen |  |
+| 17 | 1 | Tageswert aus Gesamtstrecke und Differenz | Sachaufgabe | II | M7 LB6 | gleichungen.linear · sach | Gleichung aufstellen |
+| 18 | 1 | Zahlen zu vorgegebenem Mittelwert finden | rechnen | III | M7 LB8 | daten.kennwerte · mittel_rueckwaerts | offen |
+| 19 | 1 | Unbekannte aus Quadervolumen im Netz | rechnen | II | M5 LB? | messen.volumen · rueckwaerts |  |
+| 20 | 1 | fehlende Parallelogrammecke | rechnen | II | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+
+### JT8-2014-I – Jahrgangsstufentest 2014 Mathematik Jgst. 8 WPFG I (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2014/jahrgangsstufe_8_i_loesung_mit_deckblatt.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Variablen so belegen, dass Potenzgleichung stimmt | Lücke | II | M7 LB1 | terme.potenzgesetze · potenz_begriff | offen |
+| 2 | 1 | kleinster Drehwinkel einer drehsymmetrischen Figur | Lücke | II | M8 I LB2 (LP+) | abbildungen.kongruenz · drehung | alter Lehrplan |
+| 3 | 1 | Ganzes aus Prozentanteil | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck |  |
+| 4 | 1 | Vergleichszeichen zwischen Termen | Lücke | II | M7 LB1 | zahlen.potenzen_zehner · vergleichen_pruefen | Annahme Etappe |
+| 5 | 1 | Unbekannte in Bruchgleichung mit Wurzel | rechnen | II | (alt) | gleichungen.bruch · ein_bruch | alter Lehrplan |
+| 6 | 1 | Terme mit vorgegebenem Wert ankreuzen | ankreuzen | I | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 7 | 1 | Anzahl Kombinationen von Kleidungsstücken | Sachaufgabe | I | (alt) | stochastik.kombinatorik · zaehlprinzip | alter Lehrplan |
+| 8 | 1 | Zahlenmauer mit Produkten ergänzen | rechnen | II | M7 LB6 | terme.umformen · produkte |  |
+| 9 | 1 | Würfelvolumen schätzen | ankreuzen | II | M5 LB? | messen.volumen · quader | Schätzen |
+| 10 | 1 | Flächenverhältnis zweier Pizzen | ankreuzen | III | (alt) | messen.kreisberechnung · verstehen | alter Lehrplan |
+| 11 | 1 | Winkel zweier Dreiecke | rechnen | I | M7 LB2 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 12 | 1 | Gleichung mit Klammern | rechnen | I | M7 LB6 | gleichungen.linear · klammern |  |
+| 13 | 1 | Dreieckswinkel aus Winkelbeziehungen | rechnen | II | M7 LB2 | geometrie.winkelsaetze · innenwinkelsumme | Gleichung aufstellen |
+| 14 | 1 | Gewinnanteil bei anderer Personenzahl | Sachaufgabe | I | M7 LB7 | groessen.indirekt · dreisatz |  |
+| 15 | 1 | Endpreis nach zwei Senkungen | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · mehrfach |  |
+| 16 | 1 | Farben verdeckter Flächen aus Häufigkeiten | Lücke | III | (alt) | stochastik.grundbegriffe · grosse_zahlen | alter Lehrplan |
+| 17 | 1 | Säulendiagramm ergänzen | zeichnen | II | M7 LB8 | daten.darstellen · saeulendiagramm |  |
+| 18 | 1 | Anteilsaussagen auf kleine Gruppe übertragen | ankreuzen | II | M7 LB8 | daten.stichproben · hochrechnen |  |
+| 19 | 1 | Gleichung für Teilbetrag aufstellen | Lücke | II | M7 LB6 | gleichungen.linear · sach | Term aus Text |
+| 20 | 1 | Kreis durch zwei Punkte mit Mittelpunkt auf Gerade | konstruieren | III | M7 LB5 | geometrie.ortslinien · zwei_kreise | mehrere Bedingungen |
+| 21 | 1 | fehlende Parallelogrammecke | rechnen | II | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+
+### JT8-2018-I – Jahrgangsstufentest 2018 Mathematik Jgst. 8 WPFG I (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2018/2018_jt_mathe_8_i_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Dezimalzahl mal negative Zahl | rechnen | I | M6 LB1 | bruch.rechnen · vorzeichen | Grundwissen (1 gesamt 2 P.) |
+| 1b | 1 | Quadrat einer negativen Zahl | rechnen | I | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 2 | 1 | Parallelität aus Winkeln nachweisen | begründen | II | M7 LB2 | geometrie.winkelsaetze · parallel_pruefen |  |
+| 3 | 1 | fehlerhaften Schritt in Ungleichungslösung benennen | Fehler finden | II | M7 LB6 | gleichungen.ungleichungen · pruefen | Fehler finden |
+| 4 | 1 | Durchschnittsgewicht bei mehr Personen | Sachaufgabe | II | M7 LB8 | daten.kennwerte · mittel_rueckwaerts |  |
+| 5 | 1 | Kreisumfang | rechnen | I | M9 LB4 (LP+) | messen.kreisberechnung · umfang | alter Lehrplan |
+| 6 | 1 | Endpunkt aus Mittelpunkt | rechnen | II | M7 LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz |
+| 7 | 1 | Ausgangstemperatur rückwärts | Sachaufgabe | II | M5 LB? | zahlen.ganz · umkehraufgabe | Grundwissen |
+| 8a | 1 | Vektor ablesen | ablesen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten | (8 gesamt 3 P., Annahme je 1) |
+| 8b | 1 | anderen Repräsentanten angeben | Lücke | I | M7 LB2 | abbildungen.kongruenz · verschiebung |  |
+| 8c | 1 | Gegenvektor | rechnen | I | M7 LB2 | abbildungen.kongruenz · gegenvektor |  |
+| 9 | 1 | Glücksrad nicht Laplace begründen | begründen | II | M8 LB7 (LP+) | stochastik.grundbegriffe · laplace_pruefen | alter Lehrplan |
+| 10 | 1 | Punkte gleich weit von zwei Geraden | zeichnen | II | M7 LB5 | abbildungen.kongruenz · winkelhalbierende | Ortslinie |
+| 11 | 1 | gedrehte Figur erkennen | ankreuzen | I | M8 I LB2 (LP+) | abbildungen.kongruenz · drehung | alter Lehrplan |
+| 12 | 1 | fehlende Zahl sinnvoll ergänzen | Lücke | II | M6 LB1 | bruch.rechnen · fehler_finden | Annahme Etappe |
+| 13 | 1 | Drehwinkel angeben | ablesen | I | M8 I LB2 (LP+) | abbildungen.kongruenz · drehung | alter Lehrplan |
+| 14 | 1 | rechtwinkliges Dreieck konstruieren | konstruieren | I | M7 LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 15 | 1 | Nettopreis aus Bruttopreis | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck |  |
+| 16 | 1 | Kreisfläche bei verdoppeltem Radius | ankreuzen | II | M9 LB4 (LP+) | messen.kreisberechnung · verstehen | alter Lehrplan |
+| 17 | 1 | rationale Zahlen ordnen | Lücke | I | M6 LB1 | bruch.dezimal · vergleichen_ordnen | Grundwissen |
+| 18 | 1 | Term aus Wortbeschreibung | Lücke | II | M6 LB5 | terme.aufstellen · uebersetzen | Term aus Text |
+
+### JT8-2019-I – Jahrgangsstufentest 2019 Mathematik Jgst. 8 WPFG I (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Abbildung Aufg. 15 urheberrechtlich geschützt; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2019/2019_jt_mathe_8_i_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Dezimalausdruck mit Vorzeichen | rechnen | I | M6 LB1 | bruch.rechnen · vorzeichen | Grundwissen |
+| 1b | 1 | Ausdruck mit Bruch und Quadrat | rechnen | I | M6 LB1 | bruch.rechnen · potenzen | Grundwissen |
+| 2a | 1 | Bruchdivision | rechnen | I | M6 LB1 | bruch.rechnen · brueche_geteilt | Grundwissen |
+| 2b | 1 | Division ganzer Zahlen | rechnen | I | M5 LB? | zahlen.ganz · ketten | Grundwissen |
+| 3 | 1 | Ursprungspreis aus reduziertem Preis | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck |  |
+| 4 | 1 | Lösungsmenge einer Ungleichung wählen | ankreuzen | I | M7 LB6 | gleichungen.ungleichungen · umdrehen |  |
+| 5 | 1 | lineare Gleichung mit Dezimalzahlen | rechnen | I | M7 LB6 | gleichungen.linear · beide_seiten |  |
+| 6 | 1 | Repräsentativität einer Stichprobe beurteilen | begründen | II | M7 LB8 | daten.stichproben · repraesentativ |  |
+| 7 | 1 | Vektorpfeil in Dreieck einpassen | zeichnen | II | M7 LB2 | abbildungen.kongruenz · verschiebung |  |
+| 8 | 1 | Fläche zusammengesetzter Kreisteile | rechnen | II | M9 LB4 (LP+) | messen.kreisberechnung · zusammengesetzt | alter Lehrplan: Kreis früher |
+| 9 | 1 | Aussage zur Drehung um 180° wählen | ankreuzen | II | M8 I LB2 (LP+) | abbildungen.kongruenz · drehung | alter Lehrplan |
+| 10 | 1 | Rechteck verschieben | zeichnen | I | M7 LB2 | abbildungen.kongruenz · verschiebung |  |
+| 11 | 1 | Vektoraddition zu Pfeilkette wählen | ankreuzen | II | M7 LB2 | **Lücke** | Vorschlag: Etappe „Verschiebungen verketten (Vektoraddition)“ in abbildungen.kongruenz |
+| 12 | 1 | Seite bei gleicher Rechteckfläche | Sachaufgabe | I | M7 LB7 | groessen.indirekt · produkt |  |
+| 13 | 1 | gemeinsame Abstandseigenschaft zu Gerade beschreiben | beschreiben | II | M7 LB5 | geometrie.ortslinien · parallelen | Fachsprache |
+| 14 | 1 | Aussage zu Abstandsbedingungen zu zwei Punkten | ankreuzen | II | M7 LB5 | geometrie.ortslinien · zwei_kreise |  |
+| 15 | 1 | Umkreismittelpunkt zeichnen | konstruieren | I | M7 LB5 | geometrie.kreis · umkreis_inkreis |  |
+| 16 | 1 | Zehnerpotenzzahl ohne Potenz erkennen | ankreuzen | I | M7 LB1 | zahlen.potenzen_zehner · klein_wissenschaftlich |  |
+| 17 | 1 | Drehwinkel für Drehsymmetrie nennen | Lücke | II | M8 I LB2 (LP+) | abbildungen.kongruenz · drehung | alter Lehrplan |
+| 18 | 1 | Dreieckswinkel aus Verhältnisangaben | rechnen | II | M7 LB2 | geometrie.winkelsaetze · innenwinkelsumme | Gleichung aufstellen |
+| 19 | 1 | Lücken für äquivalente Terme füllen | Lücke | II | M7 LB6 | terme.umformen · aequivalenz | rückwärts |
+
+### JT8-2020-I – Jahrgangsstufentest 2020 Mathematik Jgst. 8 WPFG I
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich; Schuljahr 2020/21 freiwillig ohne Benotung (KMS lt. Lösungsheft); Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2020/2020_jt_mathe_8_i_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Ausdruck mit Vorzeichen und Potenzen | rechnen | I | M7 I LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 1b | 1 | Rechnung mit Brüchen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | 1 | Zehnerpotenzschreibweise in Dezimalzahl | Lücke | I | M7 I LB1 | zahlen.potenzen_zehner · gross_wissenschaftlich |  |
+| 3 | 1 | begründen, warum drei Seiten kein Dreieck ergeben | begründen | II | M7 I LB3 | geometrie.konstruktion · konstruierbar |  |
+| 4 | 1 | fehlenden Winkel in Figur | Lücke | II | M7 I LB2 | geometrie.winkelsaetze · figuren |  |
+| 5 | 1 | Gleichung ergänzen, damit Lösung stimmt | Lücke | III | M7 I LB6 | gleichungen.linear · probe | rückwärts |
+| 6 | 1 | falsche Aussage zur Kongruenz erkennen | Fehler finden | II | M7 I LB3 | geometrie.konstruktion · kongruenzsatz | Fehler finden |
+| 7 | 1 | Pfeile für Flächendeterminante wählen | ankreuzen | II | M7 I LB2 | abbildungen.determinanten2 · parallelogramm |  |
+| 8 | 1 | Dreieck verschieben, Bildpunkte ergänzen | zeichnen | I | M7 I LB2 | abbildungen.kongruenz · verschiebung |  |
+| 9 | 1 | Dreieck aus Seite und zwei Winkeln | konstruieren | I | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 10 | 1 | Punkte gleich weit von zwei Punkten | zeichnen | I | M7 I LB5 | abbildungen.kongruenz · mittelsenkrechte | Ortslinie |
+| 11 | 1 | äquivalenten Term wählen | ankreuzen | I | M7 I LB6 | terme.umformen · aequivalenz |  |
+| 12 | 1 | fehlenden Wert aus konstantem Verhältnis | Sachaufgabe | I | M6 LB6 | groessen.proportional · dreisatz | Grundwissen 6 |
+| 13 | 1 | Winkel im Pyramidenschrägbild in wahrer Größe | Lücke | II | M7 I LB4 | raum.schraegbilder · wahre_groesse |  |
+| 14 | 1 | Ungleichung zu Flächenbedingung eines vergrößerten Rechtecks | Sachaufgabe | II | M7 I LB6 | gleichungen.ungleichungen · sachaufgabe | Term aus Figur |
+| 15 | 1 | Jahreszinsen | Sachaufgabe | I | M7 I LB7 | finanzen.zinsen · jahreszinsen |  |
+| 16 | 1 | Lösungsmenge einer Ungleichung wählen | ankreuzen | I | M7 I LB6 | gleichungen.ungleichungen · umdrehen |  |
+| 17 | 1 | Thaleskreis als Ortslinie zeichnen | zeichnen | II | M7 I LB5 | geometrie.kreis · umkehrung |  |
+| 18 | 1 | Lage zweier Quaderkanten (windschief) | ankreuzen | I | M7 I LB4 | raum.schraegbilder · lage |  |
+| 19 | 1 | Häufigkeiten aus vorgegebenem Notendurchschnitt ergänzen | Sachaufgabe | III | M7 I LB8 | daten.kennwerte · mittel_rueckwaerts | rückwärts |
+| 20 | 1 | Parallelität aus Winkeln begründen | ankreuzen | II | M7 I LB2 | geometrie.winkelsaetze · parallel_pruefen |  |
+
+### JT8-2021-I – Jahrgangsstufentest 2021 Mathematik Jgst. 8 WPFG I
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2021/2021_jt_mathe_8_i_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Term mit Grundrechenarten in richtiger Reihenfolge | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 1b | 1 | Differenz von Brüchen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | 1 | 2x2-Determinante berechnen | rechnen | I | M7 I LB2 | abbildungen.determinanten2 · det_berechnen |  |
+| 3 | 1 | große Zahl mit Zehnerpotenz darstellen | ankreuzen | I | M7 I LB1 | zahlen.potenzen_zehner · gross_wissenschaftlich |  |
+| 4 | 1 | mit Pfeilkoordinaten begründen, dass Parallelogramm vorliegt | begründen | II | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 5 | 1 | Lösungsmenge linearer Gleichung | Lücke | I | M7 I LB6 | gleichungen.linear · beide_seiten |  |
+| 6 | 1 | Pfeil nach Koordinaten einzeichnen | zeichnen | I | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 7 | 1 | Winkel an Parallelen | Lücke | I | M7 I LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 8 | 1 | Determinante für Parallelogrammfläche ergänzen | Lücke | II | M7 I LB2 | abbildungen.determinanten2 · parallelogramm |  |
+| 9 | 1 | Punkte mit Abstandsbedingung zu zwei Kreisen markieren | zeichnen | II | M7 I LB5 | geometrie.ortslinien · verknuepfen | Ortsbereich |
+| 10 | 1 | verletzte Eigenschaft bei fehlerhafter Verschiebung nennen | Fehler finden | II | M7 I LB2 | abbildungen.kongruenz · eigenschaften | Fehler finden |
+| 11 | 1 | Dreieck aus Seite und zwei Winkeln konstruieren | konstruieren | I | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 12 | 1 | begründen, dass Dreieck nicht existiert | begründen | II | M7 I LB3 | geometrie.konstruktion · konstruierbar |  |
+| 13 | 1 | passenden Kongruenzsatz wählen | ankreuzen | I | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 14 | 1 | Umkreismittelpunkt eines Dreiecks ermitteln | konstruieren | II | M7 I LB5 | geometrie.kreis · umkreis_inkreis |  |
+| 15 | 1 | Term zu Wertetabelle angeben | Lücke | II | M6 LB5 | terme.aufstellen · termwert | Grundwissen 6 |
+| 16 | 1 | Ungleichung zu Wortbeschreibung wählen | ankreuzen | II | M7 I LB6 | gleichungen.ungleichungen · sachaufgabe | Term aus Text |
+| 17 | 1 | Ursprungspreis aus Rabattpreis | Sachaufgabe | II | M7 I LB7 | bruch.prozent_grundwert · zurueck |  |
+| 18 | 1 | Graph einer indirekten Proportionalität erkennen | ankreuzen | I | M7 I LB7 | groessen.indirekt · graph |  |
+| 19 | 1 | drei Punkte eines Quaders in einer Ebene angeben | Lücke | II | M7 I LB4 | raum.schraegbilder · lage | Raumvorstellung |
+| 20 | 1 | Höhe im Pyramidenschrägbild eintragen | zeichnen | I | M7 I LB4 | raum.schraegbilder · pyramide |  |
+
+### JT8-2022-I – Jahrgangsstufentest 2022 Mathematik Jgst. 8 WPFG I
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2022/_B__2022_JT_Mathe_8_I_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Term mit Zehnerpotenzen berechnen | rechnen | I | M7 I LB1 | zahlen.potenzen_zehner · zehnerpotenz |  |
+| 2 | 1 | Aussage zu negativen Exponenten per Gegenbeispiel widerlegen | begründen | III | M7 I LB1 | terme.potenzgesetze · negativer_exponent | Gegenbeispiel |
+| 3 | 1 | Dreiecksfläche als Determinante aus Pfeilen ansetzen | Lücke | II | M7 I LB2 | abbildungen.determinanten2 · dreieck |  |
+| 4 | 1 | erklären, warum begonnene Dreieckskonstruktion scheitert | begründen | II | M7 I LB3 | geometrie.konstruktion · konstruierbar |  |
+| 5 | 1 | begründen, warum Dreieck mit Angaben nicht existiert | begründen | II | M7 I LB3 | geometrie.konstruktion · konstruierbar |  |
+| 6 | 1 | Vektor zweier nacheinander ausgeführter Verschiebungen | rechnen | II | M7 I LB2 | **Lücke** | Vorschlag: Etappe „Verschiebungen verketten (Vektoraddition)“ in abbildungen.kongruenz; Inhalt steckt sonst nur im stillgelegten abbildungen.vektoren/addition |
+| 7 | 1 | fehlenden Winkel im Dreieck | rechnen | I | M7 I LB2 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 8 | 1 | Winkel an Parallelen (Skizze nicht maßtreu) | rechnen | II | M7 I LB2 | geometrie.winkelsaetze · figuren |  |
+| 9 | 1 | Darstellung mit Zehnerpotenz wählen | ankreuzen | I | M7 I LB1 | zahlen.potenzen_zehner · klein_wissenschaftlich |  |
+| 10a | 1 | Grundfläche einer Pyramide im Schrägbild zeichnen | zeichnen | I | M7 I LB4 | raum.schraegbilder · pyramide |  |
+| 10b | 1 | Pyramide mit Höhe im Schrägbild vervollständigen | zeichnen | II | M7 I LB4 | raum.schraegbilder · pyramide |  |
+| 11 | 1 | Punkte mit festem Abstand zu zwei Punkten markieren | zeichnen | II | M7 I LB5 | geometrie.ortslinien · zwei_kreise |  |
+| 12 | 1 | Umkreis eines rechtwinkligen Dreiecks zeichnen | zeichnen | II | M7 I LB5 | geometrie.kreis · umkreis_inkreis | Thales-Bezug |
+| 13 | 1 | Faktor ergänzen, damit Terme gleich sind | Lücke | II | M7 I LB6 | terme.umformen · aequivalenz |  |
+| 14 | 1 | prozentuale Preisänderung angeben | Lücke | I | M7 I LB7 | bruch.prozent_grundwert · prozentsatz |  |
+| 15 | 1 | Ungleichung zu Flächenbedingung aufstellen | Lücke | II | M7 I LB6 | gleichungen.ungleichungen · sachaufgabe | Term aus Figur |
+| 16 | 1 | Term aus Kärtchen bilden, der nie negativ wird | Lücke | III | M7 I LB6 | terme.aufstellen · deuten | offen |
+| 17 | 1 | Art der Zuordnung aus Wertetabelle | ankreuzen | I | M7 I LB7 | groessen.indirekt · unterscheiden |  |
+| 18 | 1 | lineare Gleichung lösen | rechnen | I | M7 I LB6 | gleichungen.linear · beide_seiten |  |
+| 19 | 1 | Durchschnitt aus Tabelle | Sachaufgabe | I | M7 I LB8 | daten.kennwerte · mittelwert |  |
+| 20 | 1 | passendes Kreisdiagramm zu Prozentangaben wählen | ankreuzen | I | M7 I LB8 | daten.darstellen · kreisdiagramm | Diagramm |
+
+### JT8-2023-I – Jahrgangsstufentest 2023 Mathematik Jgst. 8 WPFG I
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2023/2023_JT_Mathe_8_I_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Bruchterm berechnen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 1b | 1 | Rechnung mit Bruch und Dezimalzahl | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | 1 | Potenzterme auf Äquivalenz prüfen | ankreuzen | II | M7 I LB1 | terme.potenzgesetze_natuerlich · anwenden |  |
+| 3 | 1 | Fehler bei Streckenmitte aus Koordinaten beschreiben | Fehler finden | II | M7 I LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz |
+| 4 | 1 | Punktkoordinaten zu gegebenem Verschiebungspfeil | Lücke | II | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 5 | 1 | Winkel an geschnittenen Parallelen | Lücke | I | M7 I LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 6 | 1 | begründen, dass Dreieck mit zwei Winkeln nicht existiert | begründen | II | M7 I LB2 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 7 | 1 | Strecke ergänzen, damit Dreiecke kongruent sind | konstruieren | II | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 8 | 1 | begründen, welche Seite die längste ist | begründen | II | M7 I LB3 | **Lücke** | Vorschlag: Etappe „Seiten-Winkel-Beziehung“ in geometrie.konstruktion |
+| 9a | 1 | Raumdiagonale im Quader in wahrer Größe | zeichnen | II | M7 I LB4 | raum.schraegbilder · wahre_groesse |  |
+| 9b | 1 | windschiefe Geraden am Quader angeben | Lücke | I | M7 I LB4 | raum.schraegbilder · lage |  |
+| 10 | 1 | Punkte mit festem Abstand zu Gerade markieren | zeichnen | I | M7 I LB5 | geometrie.ortslinien · parallelen |  |
+| 11 | 1 | Vorgehen zur Inkreismitte beschreiben | beschreiben | II | M7 I LB5 | geometrie.kreis · umkreis_inkreis | Fachsprache |
+| 12 | 1 | Umfangsterm mit variabler Seite aufstellen | Lücke | II | M7 I LB6 | terme.aufstellen · sachsituation | Term aus Figur |
+| 13 | 1 | Dreieck aus zwei Seiten und Winkel konstruieren | konstruieren | I | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 14 | 1 | begründen, warum Lösungsmenge leer ist (Grundmenge) | begründen | II | M7 I LB6 | gleichungen.linear · sonderfaelle | Grundmenge |
+| 15 | 1 | lineare Gleichung in Grundmenge lösen | rechnen | I | M7 I LB6 | gleichungen.linear · beide_seiten |  |
+| 16 | 1 | ursprünglichen Preis aus erhöhtem Preis | Sachaufgabe | II | M7 I LB7 | bruch.prozent_grundwert · zurueck |  |
+| 17 | 1 | Leistung bei veränderter Maschinenzahl und Zeit | ankreuzen | III | M7 I LB7 | groessen.indirekt · sach | zwei Größen |
+| 18 | 1 | fehlenden Wert aus Mittelwert | Lücke | II | M7 I LB8 | daten.kennwerte · mittel_rueckwaerts |  |
+| 19 | 1 | begründen, dass zwei Anteile im Diagramm gleich sind | begründen | II | M7 I LB8 | daten.darstellen · relative_haeufigkeit | Diagramm |
+
+### JT8-2024-I – Jahrgangsstufentest 2024 Mathematik Jgst. 8 WPFG I
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2024/2024_JT_Mathe_8_I_Angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Potenzausdruck berechnen | rechnen | I | M7 I LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 1b | 1 | Ausdruck mit negativem Exponenten berechnen | rechnen | I | M7 I LB1 | terme.potenzgesetze · negativer_exponent |  |
+| 2 | 1 | fehlenden Exponenten ergänzen | Lücke | I | M7 I LB1 | terme.potenzgesetze_natuerlich · mal_gleiche_basis |  |
+| 3 | 1 | Pfeilkoordinaten aus zwei Punkten | rechnen | I | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 4 | 1 | Winkel an geschnittenen Parallelen | Lücke | I | M7 I LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 5 | 1 | Winkel im Dreieck am Thaleskreis | Lücke | II | M7 I LB5 | geometrie.kreis · thales |  |
+| 6 | 1 | Winkel im gleichschenkligen Dreieck aus Außenwinkel | Lücke | II | M7 I LB3 | geometrie.konstruktion · gleichschenklig | Außenwinkel |
+| 7 | 1 | Vorratsdauer bei anderer Personenzahl | Sachaufgabe | II | M7 I LB7 | groessen.indirekt · sach |  |
+| 8 | 1 | Punkt mit gleichem Abstand zu drei Punkten finden | konstruieren | II | M7 I LB5 | geometrie.kreis · umkreis_inkreis |  |
+| 9 | 1 | Gegenbeispiel zu falscher Ungleichungsbehauptung | begründen | III | M7 I LB6 | gleichungen.ungleichungen · pruefen | Gegenbeispiel |
+| 10 | 1 | Term zu Wertetabelle erkennen | ankreuzen | II | M6 LB5 | terme.aufstellen · termwert | Grundwissen 6 |
+| 11 | 1 | linearen Term zusammenfassen | rechnen | I | M7 I LB6 | terme.umformen · zusammenfassen |  |
+| 12 | 1 | Mehrwertsteueranteil aus Bruttopreis | Sachaufgabe | II | M7 I LB7 | bruch.prozent_grundwert · zurueck |  |
+| 13 | 1 | Wert ergänzen, damit Spannweite stimmt | Lücke | II | M7 I LB8 | daten.boxplot · kennwerte | rückwärts |
+| 14 | 1 | Säulen aus Durchschnitt und Verhältnis ergänzen | zeichnen | III | M7 I LB8 | daten.kennwerte · mittel_rueckwaerts | Diagramm |
+| 15 | 1 | Zahl mit Zehnerpotenz in Dezimalschreibweise | Lücke | I | M7 I LB1 | zahlen.potenzen_zehner · klein_wissenschaftlich |  |
+| 16 | 1 | Lösungsmenge einer linearen Ungleichung wählen | ankreuzen | I | M7 I LB6 | gleichungen.ungleichungen · umdrehen |  |
+| 17 | 1 | begründen, dass Dreieck durch drei Angaben eindeutig ist | begründen | II | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 18 | 1 | Dreieck aus drei Seiten konstruieren | konstruieren | I | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 19a | 1 | Winkel an Pyramide in wahrer Größe zeichnen | zeichnen | II | M7 I LB4 | raum.schraegbilder · wahre_groesse |  |
+| 19b | 1 | senkrechte Strecken an Pyramide nennen | Lücke | I | M7 I LB4 | raum.schraegbilder · pyramide |  |
+
+### JT8-2025-I – Jahrgangsstufentest 2025 Mathematik Jgst. 8 WPFG I
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: keine angegeben (Rechner nicht vorgesehen, Annahme) · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Abbildungen teils urheberrechtlich geschützt; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2025/2025_JT_Mathematik_8_I_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Potenz/Zehnerpotenz-Produkt ausrechnen | rechnen | I | M7 I LB1 | zahlen.potenzen_zehner · zehnerpotenz |  |
+| 1b | 1 | Bruch-/Dezimalterm berechnen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | 1 | fehlenden Exponenten bei Produkt von Zehnerpotenzen ergänzen | Lücke | I | M7 I LB1 | terme.potenzgesetze_natuerlich · mal_gleiche_basis |  |
+| 3 | 1 | große Entfernung in Zehnerpotenzschreibweise, Hin- und Rückweg | ankreuzen | II | M7 I LB1 | zahlen.potenzen_zehner · gross_wissenschaftlich | Sachkontext |
+| 4 | 1 | weiteren Repräsentanten eines Vektors zeichnen | zeichnen | I | M7 I LB2 | abbildungen.kongruenz · verschiebung |  |
+| 5 | 1 | begründen, warum ein Dreieck mit gegebenem größtem Winkel nicht möglich ist | begründen | II | M7 I LB2 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 6 | 1 | Dreieck aus zwei Seiten und Winkel konstruieren | konstruieren | I | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 7 | 1 | Streckenmittelpunkt aus Koordinaten berechnen | rechnen | I | M7 I LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz (nach vektor_koordinaten) |
+| 8 | 1 | Dreiecksungleichung: begründen, warum kein Dreieck entsteht | begründen | II | M7 I LB3 | geometrie.konstruktion · konstruierbar | Sachkontext Draht |
+| 9 | 1 | Thaleskreis als Ortslinie rechtwinkliger Dreiecksspitzen zeichnen | zeichnen | II | M7 I LB5 | geometrie.kreis · umkehrung |  |
+| 10 | 1 | Term mit Potenzen und Variablen vereinfachen | rechnen | I | M7 I LB1 | terme.potenzgesetze_natuerlich · anwenden |  |
+| 11 | 1 | Lage eines Punkts zu zwei Punkten beschreiben (Mittelsenkrechte) | beschreiben | II | M7 I LB5 | geometrie.ortslinien · zwei_kreise | Fachsprache |
+| 12a | 1 | wahre Länge einer Diagonale am Quader zeichnen | zeichnen | II | M7 I LB4 | raum.schraegbilder · wahre_groesse |  |
+| 12b | 1 | Raumdiagonalen am Quader benennen | Lücke | I | M7 I LB4 | raum.schraegbilder · lage |  |
+| 13 | 1 | Ungleichung zu Sachverhalt (Grundgebühr + Preis je km) wählen | ankreuzen | II | M7 I LB6 | gleichungen.ungleichungen · sachaufgabe | Term aus Text |
+| 14 | 1 | äquivalenten Term zu Term mit Klammer erkennen | ankreuzen | I | M7 I LB6 | terme.umformen · aequivalenz |  |
+| 15 | 1 | lineare Gleichung lösen, um eine Lücke zu füllen | Lücke | II | M7 I LB6 | gleichungen.linear · beide_seiten | rückwärts |
+| 16 | 1 | falsch abgeschriebenes Wertepaar einer indirekten Proportionalität finden | Fehler finden | II | M7 I LB7 | groessen.indirekt · produkt | Fehler finden |
+| 17 | 1 | weiteren Punkt am Graphen einer indirekten Proportionalität angeben | ablesen | II | M7 I LB7 | groessen.indirekt · graph |  |
+| 18 | 1 | Grundwert aus vermehrtem Wert berechnen | Sachaufgabe | II | M7 I LB7 | bruch.prozent_grundwert · zurueck |  |
+| 19 | 1 | Durchschnitte gewichteter Gruppen vergleichen | ankreuzen | III | M7 I LB8 | daten.kennwerte · mittel_tabelle | Tabelle |
+
+### STARK-7I-SA1 – Verlagsvorschau „Schulaufgaben Mathematik 7. Klasse WPFG I Realschule Bayern“: Schulaufgabe 1
+
+STARK Verlag (Vorschau über Buchhandelsseite) · Übungs-Schulaufgabe (Verlag) · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe I · 45 min · 32 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Leseprobe) · Lizenz: Verlagsmaterial urheberrechtlich geschützt; nur Link, Buch kostenpflichtig · abgerufen 2026-11-22 · [Quelle](https://www.lehmanns.ch/media/88673092)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 2 | Fehler in mehrstufiger Potenzrechnung finden und berichtigen | Fehler finden | II | M7 I LB1 | terme.potenzgesetze · fehler_finden | Fehler finden; ca. 4 min |
+| 2a | 3 | verschachtelten Ausdruck mit Potenzen und Brüchen vereinfachen | rechnen | I | M7 I LB1 | terme.potenzgesetze_natuerlich · anwenden | ca. 4 min |
+| 2b | 4 | längeren Ausdruck mit Dezimalzahlen, Brüchen, Potenzen | rechnen | II | M7 I LB1 | terme.potenzgesetze · negativer_exponent | ca. 5 min |
+| 3 | 4 | Winkel an Parallelen bestimmen und jeden Schritt begründen | begründen | II | M7 I LB2 | geometrie.winkelsaetze · beweisen | Begründung je Schritt; ca. 5 min |
+| 4 | 6 | Tabelle Vektor/Punkt/Bildpunkt ergänzen | Lücke | I | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten | ca. 10 min |
+| 5 | 2 | Punkt zweimal verschieben, Gesamtvektor bestimmen | rechnen | II | M7 I LB2 | **Lücke** | Vorschlag: Etappe „Verschiebungen verketten (Vektoraddition)“ in abbildungen.kongruenz; ca. 4 min |
+| 6a | 5 | Dreieck zeichnen, Fläche per Determinante | rechnen | I | M7 I LB2 | abbildungen.determinanten2 · dreieck | ca. 8 min |
+| 6b | 4 | Parallelogramm ergänzen, fehlende Ecke mit Vektoren | rechnen | II | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten | ca. 3 min |
+| 6c | 2 | Parallelogrammfläche aus Dreiecksfläche begründen | begründen | II | M7 I LB2 | abbildungen.determinanten2 · parallelogramm | ca. 2 min |
+
+### JT8-2016-II – Jahrgangsstufentest 2016 Mathematik Jgst. 8 WPFG II/III (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2016/_a__2016_jt_mathe_8ii_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Potenzen und Brüche | rechnen | I | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 2 | 1 | Dezimalzahlen und Brüche | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen |
+| 3 | 1 | Rechenzeichen zwischen Brüchen einsetzen | Lücke | II | M6 LB1 | bruch.rechnen · fehler_finden | rückwärts |
+| 4 | 1 | natürliche Zahl, für die Term positiv wird | Lücke | II | M7 LB4 | terme.aufstellen · termwert |  |
+| 5 | 1 | Durchfahrtszeit eines Zuges | Sachaufgabe | III | M6 LB6 | groessen.proportional · sach | Modellieren |
+| 6 | 1 | Urpunkt einer Verschiebung rückwärts | rechnen | II | M7 LB2 | abbildungen.kongruenz · gegenvektor |  |
+| 7 | 1 | Bedingung Rechteck → Quadrat | Lücke | II | M6 LB2 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 8 | 1 | Länge aus Achteckumfang schätzen | Sachaufgabe | III | M5 LB? | messen.flaechen · verstehen | Schätzen (Annahme Etappe) |
+| 9 | 1 | Winkel aus gleich langen Strecken | rechnen | II | M7 LB2 | geometrie.konstruktion · gleichschenklig |  |
+| 10 | 1 | Figur in zwei kongruente Teile zerlegen | zeichnen | III | M7 LB2 | abbildungen.kongruenz · symmetrie | offen |
+| 11 | 1 | passende Ungleichung ergänzen | Lücke | II | M7 LB4 | gleichungen.ungleichungen · pruefen |  |
+| 12a | 1 | relative Häufigkeit bewerten | ankreuzen | I | M7 LB6 | daten.darstellen · relative_haeufigkeit |  |
+| 12b | 1 | Verhältnis zweier Häufigkeiten | ankreuzen | II | M7 LB6 | daten.darstellen · tabelle_auswerten |  |
+| 12c | 1 | Vorhersage bei Zufall bewerten | ankreuzen | II | (alt) | stochastik.grundbegriffe · grosse_zahlen | alter Lehrplan |
+| 13 | 1 | Prozentanteil berechnen | Sachaufgabe | I | M6 LB6 | bruch.prozent · prozentsatz | Grundwissen |
+| 14 | 1 | Bild zu Füllstand wählen | ankreuzen | II | M8 LB5 (LP+) | funktionen.grundbegriffe · sachzusammenhang | Graph deuten |
+| 15 | 1 | Personenzahl aus zwei Verteilungen | Sachaufgabe | III | M7 LB4 | gleichungen.linear · sach | Gleichung aufstellen |
+| 16 | 1 | Fehler im Gleichungsweg beschreiben | Fehler finden | II | M7 LB4 | gleichungen.linear · probe | Fehler finden |
+| 17 | 1 | Anzahl Teilflächen zum Auslegen | Sachaufgabe | II | M5 LB? | messen.flaechen · sachaufgaben |  |
+| 18 | 1 | Text zu Term zuordnen | ankreuzen | I | M6 LB5 | terme.aufstellen · uebersetzen |  |
+| 19 | 1 | Umfang Kreis vs. einbeschriebenes Vieleck | rechnen | II | M9/M10 (LP+) | messen.kreisberechnung · umfang | alter Lehrplan |
+| 20a | 1 | Geschwindigkeiten aus Weg-Zeit-Diagramm | ablesen | II | M8 LB5 (LP+) | funktionen.grundbegriffe · graph_lesen | Graph deuten |
+| 20b | 1 | Weg zu Zeitpunkt ablesen | ablesen | I | M8 LB5 (LP+) | funktionen.grundbegriffe · graph_lesen |  |
+| 20c | 1 | Gesamtwege vergleichen | ablesen | II | M8 LB5 (LP+) | funktionen.grundbegriffe · graph_lesen |  |
+| 21a | 1 | Prozentanteil aus Strichliste prüfen | ankreuzen | I | M7 LB6 | daten.darstellen · relative_haeufigkeit |  |
+| 21b | 1 | Anteil als Bruch/Verhältnis prüfen | ankreuzen | I | M7 LB6 | daten.darstellen · relative_haeufigkeit |  |
+| 21c | 1 | weiteren Anteil prüfen | ankreuzen | I | M7 LB6 | daten.darstellen · relative_haeufigkeit |  |
+
+### JT8-2018-II – Jahrgangsstufentest 2018 Mathematik Jgst. 8 WPFG II/III (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2018/2018_jt_mathe_8_ii_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | negative Dezimalzahl multiplizieren | rechnen | I | M6 LB1 | bruch.rechnen · vorzeichen | Grundwissen |
+| 1b | 1 | negative Bruchzahl subtrahieren | rechnen | I | M6 LB1 | bruch.rechnen · brueche_plus_minus | Grundwissen |
+| 2 | 1 | Winkel an Parallelen über Nebenwinkel | rechnen | I | M7 LB2 | geometrie.winkelsaetze · scheitel_neben |  |
+| 3 | 1 | Fehler in Ungleichungslösung beschreiben | Fehler finden | II | M7 LB4 | gleichungen.ungleichungen · pruefen | Fehler finden |
+| 4 | 1 | Durchschnittsgewicht bei veränderter Personenzahl | Sachaufgabe | II | M7 LB6 | daten.kennwerte · mittel_rueckwaerts |  |
+| 5 | 1 | Kreisumfang | rechnen | I | M9 LB4 (LP+) | messen.kreisberechnung · umfang | alter Lehrplan |
+| 6 | 1 | Streckenmittelpunkt | rechnen | I | M7 LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz |
+| 7 | 1 | Ausgangstemperatur rückwärts | Sachaufgabe | II | M5 LB? | zahlen.ganz · umkehraufgabe | Grundwissen |
+| 8a | 1 | Vektor ablesen | ablesen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten | (8 gesamt 3 P., Annahme je 1) |
+| 8b | 1 | anderen Repräsentanten angeben | Lücke | I | M7 LB2 | abbildungen.kongruenz · verschiebung |  |
+| 8c | 1 | Gegenvektor | rechnen | I | M7 LB2 | abbildungen.kongruenz · gegenvektor |  |
+| 9 | 1 | Glücksrad kein Laplace-Gerät begründen | begründen | II | M8 LB6 (LP+) | stochastik.grundbegriffe · laplace_pruefen | alter Lehrplan |
+| 10 | 1 | Fahrgäste proportional übertragen | Sachaufgabe | I | M6 LB6 | groessen.proportional · dreisatz |  |
+| 11 | 1 | gedrehte Figur erkennen | ankreuzen | I | (alt) | abbildungen.kongruenz · drehung | alter Lehrplan |
+| 12 | 1 | Exponent in Potenzgleichung ergänzen | Lücke | I | M7 LB1 | terme.potenzgesetze_natuerlich · mal_gleiche_basis |  |
+| 13 | 1 | Nettopreis aus Bruttopreis | Sachaufgabe | II | M7 LB5 | bruch.prozent_grundwert · zurueck |  |
+| 14 | 1 | Drehwinkel ablesen | ablesen | I | (alt) | abbildungen.kongruenz · drehung | alter Lehrplan |
+| 15 | 1 | Punkt-/Achsensymmetrie zuordnen | ankreuzen | I | M6 LB2 | abbildungen.kongruenz · symmetrie | Grundwissen |
+| 16 | 1 | Kreisfläche bei Radiusverdopplung | ankreuzen | II | M9/M10 (LP+) | messen.kreisberechnung · verstehen | alter Lehrplan |
+| 17 | 1 | rationale Zahlen ordnen | Lücke | I | M6 LB1 | bruch.dezimal · vergleichen_ordnen | Grundwissen |
+| 18 | 1 | Term aus Sprachbeschreibung aufstellen | Lücke | II | M6 LB5 | terme.aufstellen · uebersetzen | Term aus Text |
+
+### JT8-2019-II – Jahrgangsstufentest 2019 Mathematik Jgst. 8 WPFG II/III (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Abbildungen teils urheberrechtlich geschützt; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2019/2019_jt_mathe_8_ii_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Dezimalzahlen mit Vorzeichen | rechnen | I | M6 LB1 | bruch.rechnen · vorzeichen | Grundwissen |
+| 1b | 1 | Quadratzahl mal Dezimalzahl | rechnen | I | M6 LB1 | bruch.rechnen · potenzen | Grundwissen |
+| 2a | 1 | Bruchterme dividieren und subtrahieren | rechnen | I | M6 LB1 | bruch.rechnen · brueche_geteilt | Grundwissen |
+| 2b | 1 | Division und Subtraktion | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen |
+| 3 | 1 | fehlenden Winkel in Figur | rechnen | I | M7 LB2 | geometrie.winkelsaetze · figuren |  |
+| 4 | 1 | Lösungsmenge einer Ungleichung mit Vorzeichenwechsel | ankreuzen | I | M7 LB4 | gleichungen.ungleichungen · umdrehen |  |
+| 5 | 1 | leere Lösungsmenge in Z erklären | begründen | II | M7 LB4 | gleichungen.linear · sonderfaelle | Grundmenge |
+| 6 | 1 | Stichprobe beurteilen | begründen | II | M7 LB6 | daten.stichproben · repraesentativ |  |
+| 7 | 1 | Bildpunkt nach Verschiebung | rechnen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 8 | 1 | Fläche eines Kreisteils | rechnen | II | M10 II/III (LP+) | messen.kreisberechnung · flaeche | alter Lehrplan |
+| 9 | 1 | Drehwinkel für Drehsymmetrie | Lücke | II | (alt) | abbildungen.kongruenz · drehung | alter Lehrplan; in LP+ II/III keine Drehung |
+| 10 | 1 | verschobenes Rechteck zeichnen | zeichnen | I | M7 LB2 | abbildungen.kongruenz · verschiebung |  |
+| 11 | 1 | Vektoraddition zu Pfeilkette | ankreuzen | II | M7 LB2 | **Lücke** | Vorschlag: Etappe „Verschiebungen verketten (Vektoraddition)“ in abbildungen.kongruenz |
+| 12 | 1 | Seite bei gleicher Fläche | Sachaufgabe | I | M7 LB5 | groessen.indirekt · produkt |  |
+| 13 | 1 | Pumpenanzahl aus Diagramm | ablesen | II | M7 LB5 | groessen.indirekt · graph | Graph |
+| 14 | 1 | Wahrscheinlichkeitsaussage nach ausbleibendem Ereignis | begründen | III | M8 LB6 (LP+) | stochastik.grundbegriffe · grosse_zahlen | alter Lehrplan |
+| 15 | 1 | Produkt mit Wert, ohne dass ein Faktor ihn hat | Lücke | III | M6 LB1 | bruch.rechnen · fehler_finden | offen (Annahme Etappe fehler_finden/verstehen) |
+| 16 | 1 | Ziffern für wahre Dezimal-Ungleichung | Lücke | II | M6 LB1 | bruch.dezimal · vergleichen_ordnen |  |
+| 17 | 1 | Zahl in der Mitte zweier negativer Dezimalzahlen | Lücke | II | M6 LB1 | bruch.dezimal · vergleichen_ordnen |  |
+| 18 | 1 | Preis vor Reduzierung | Sachaufgabe | II | M7 LB5 | bruch.prozent_grundwert · zurueck |  |
+| 19 | 1 | Lücken im äquivalenten Term | Lücke | II | M7 LB4 | terme.umformen · aequivalenz | rückwärts |
+
+### JT8-2020-II – Jahrgangsstufentest 2020 Mathematik Jgst. 8 WPFG II/III
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich; 2020/21 freiwillig ohne Benotung; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2020/2020_jt_mathe_8_ii_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Ausdruck mit Grundrechenarten | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 1b | 1 | Quadrat einer Dezimalzahl | rechnen | I | M7 II/III LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 2 | 1 | Lösungsmenge einer Ungleichung am Zahlenstrahl | zeichnen | I | M7 II/III LB4 | gleichungen.ungleichungen · intervall |  |
+| 3 | 1 | Seite eines flächengleichen Quadrats an Hyperbel ablesen | ablesen | II | M7 II/III LB5 | groessen.indirekt · graph | Graph |
+| 4 | 1 | fehlenden Winkel in Skizze | rechnen | II | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 5 | 1 | Gleichung so ergänzen, dass Lösung stimmt | Lücke | III | M7 II/III LB4 | gleichungen.linear · probe | rückwärts |
+| 6 | 1 | 2x2-Determinante | rechnen | I | M7 II/III LB2 | abbildungen.determinanten2 · det_berechnen |  |
+| 7 | 1 | Pfeile der Parallelogramm-Determinante erkennen | ankreuzen | II | M7 II/III LB2 | abbildungen.determinanten2 · parallelogramm |  |
+| 8 | 1 | Dreieck verschieben, Bild vervollständigen | zeichnen | I | M7 II/III LB2 | abbildungen.kongruenz · verschiebung |  |
+| 9 | 1 | Jahreszinsen | Sachaufgabe | I | M7 II/III LB5 | finanzen.zinsen · jahreszinsen |  |
+| 10 | 1 | Punkte gleich weit von zwei Punkten konstruieren | konstruieren | I | M7 II/III LB3 | abbildungen.kongruenz · mittelsenkrechte | Ortslinie |
+| 11 | 1 | äquivalenten Term zu quadratischem Term wählen | ankreuzen | II | M7 II/III LB4 | terme.umformen · ausmultiplizieren |  |
+| 12 | 1 | Größe in Verhältnistabelle ergänzen | Lücke | I | M6 LB6 | groessen.proportional · dreisatz | Grundwissen 6 |
+| 13 | 1 | Tangente im Kreispunkt zeichnen | zeichnen | I | M7 II/III LB3 | geometrie.kreis · tangente |  |
+| 14 | 1 | Gleichung zu Flächenbedingung eines verlängerten Rechtecks | Lücke | II | M7 II/III LB4 | gleichungen.linear · sach | Term aus Figur |
+| 15 | 1 | falsche Diagrammaussage begründen (Achse) | begründen | II | M7 II/III LB6 | daten.darstellen · irrefuehrend | Diagramm |
+| 16 | 1 | Ungleichung mit negativem Faktor | ankreuzen | I | M7 II/III LB4 | gleichungen.ungleichungen · umdrehen |  |
+| 17 | 1 | Thaleskreis als Ortslinie zeichnen | zeichnen | II | M7 II/III LB3 | geometrie.kreis · umkehrung |  |
+| 18 | 1 | Winkel an Parallelen mit Schnittgerade | rechnen | I | M7 II/III LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 19 | 1 | Anzahlen in Notentabelle aus Durchschnitt ergänzen | Lücke | III | M7 II/III LB6 | daten.kennwerte · mittel_rueckwaerts | rückwärts |
+| 20 | 1 | richtige Begründung zur Parallelität wählen | ankreuzen | II | M7 II/III LB2 | geometrie.winkelsaetze · parallel_pruefen |  |
+
+### JT8-2021-II – Jahrgangsstufentest 2021 Mathematik Jgst. 8 WPFG II/III
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; freiwillig ohne Benotung 2021/22 laut ISB-Hinweis (Annahme: wie 2020); Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2021/2021_jt_mathe_8_ii_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Rechnung mit Vorrangregeln | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 1b | 1 | Rechnung mit Klammern und Vorzeichen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | 1 | 2x2-Determinante berechnen | rechnen | I | M7 II/III LB2 | abbildungen.determinanten2 · det_berechnen |  |
+| 3 | 1 | Pfeilkoordinaten im Parallelogramm aus anderen Pfeilen | rechnen | II | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 4 | 1 | Pfeil eintragen | zeichnen | I | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 5 | 1 | Zinssatz aus Kredit und Zinsen | Sachaufgabe | II | M7 II/III LB5 | finanzen.zinsen · zinssatz |  |
+| 6 | 1 | Winkel an Parallelen | rechnen | I | M7 II/III LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 7 | 1 | Ursprungspreis aus Rabattpreis | Sachaufgabe | II | M7 II/III LB5 | bruch.prozent_grundwert · zurueck |  |
+| 8 | 1 | Potenz mit Basis −1 und Wert −1 erkennen | ankreuzen | II | M7 II/III LB1 | terme.potenzgesetze · potenz_begriff | Vorzeichen |
+| 9 | 1 | Determinante für Parallelogrammfläche ergänzen | Lücke | II | M7 II/III LB2 | abbildungen.determinanten2 · parallelogramm |  |
+| 10 | 1 | verletzte Eigenschaft bei fehlerhafter Verschiebung | Fehler finden | II | M7 II/III LB2 | abbildungen.kongruenz · eigenschaften | Fehler finden |
+| 11 | 1 | Streckenmittelpunkt berechnen | rechnen | I | M7 II/III LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz |
+| 12 | 1 | lineare Gleichung in Grundmenge lösen | rechnen | I | M7 II/III LB4 | gleichungen.linear · beide_seiten |  |
+| 13 | 1 | Kreismittelpunkt aus drei Kreispunkten konstruieren | konstruieren | II | M7 II/III LB3 | geometrie.kreis · umkreis_inkreis |  |
+| 14 | 1 | Term zu Wertetabelle angeben | Lücke | II | M6 LB5 | terme.aufstellen · termwert | Grundwissen 6 |
+| 15 | 1 | zwei äquivalente Terme ankreuzen | ankreuzen | I | M7 II/III LB4 | terme.umformen · aequivalenz |  |
+| 16 | 1 | Punkte mit Abstand unter Grenze zu einem Punkt einzeichnen | zeichnen | I | M7 II/III LB3 | geometrie.ortslinien · kreislinie | Ortsbereich |
+| 17 | 1 | Punkte gleich weit von zwei Halbgeraden (Winkelhalbierende) | zeichnen | II | M7 II/III LB3 | abbildungen.kongruenz · winkelhalbierende | Ortslinie |
+| 18 | 1 | Ungleichung für ganze Zahl aus Text wählen | ankreuzen | II | M7 II/III LB4 | gleichungen.ungleichungen · sachaufgabe | Term aus Text |
+| 19 | 1 | Ungleichung, bei der x wegfällt, lösen | rechnen | III | M7 II/III LB4 | gleichungen.ungleichungen · pruefen | Sonderfall |
+| 20 | 1 | Graph einer indirekten Proportionalität wählen | ankreuzen | I | M7 II/III LB5 | groessen.indirekt · graph |  |
+
+### JT8-2022-II – Jahrgangsstufentest 2022 Mathematik Jgst. 8 WPFG II/III
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2022/_B__2022_JT_Mathe_8_II_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Term nach Rechenregeln ausrechnen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 1b | 1 | Ausdruck aus Brüchen berechnen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | 1 | Regel „Potenzen gleicher Basis multiplizieren“ formulieren | beschreiben | I | M7 II/III LB1 | terme.potenzgesetze_natuerlich · mal_gleiche_basis | Fachsprache |
+| 3 | 1 | 2x2-Determinante berechnen | rechnen | I | M7 II/III LB2 | abbildungen.determinanten2 · det_berechnen |  |
+| 4 | 1 | Winkel im Dreieck mit Winkelsumme | rechnen | I | M7 II/III LB2 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 5 | 1 | Intervallschreibweise zu Lösungsmenge wählen | ankreuzen | I | M7 II/III LB4 | gleichungen.ungleichungen · intervall |  |
+| 6 | 1 | Pfeilkoordinaten aus Anfangs- und Endpunkt | Lücke | I | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 7 | 1 | falsche Aussage zu Vierecksinnenwinkeln widerlegen | begründen | II | M7 II/III LB2 | geometrie.winkelsaetze · vieleck |  |
+| 8 | 1 | Winkel an Parallelen mit Winkelbeziehungen | rechnen | II | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 9 | 1 | Ungleichung einer Wortaussage zuordnen | ankreuzen | II | M7 II/III LB4 | gleichungen.ungleichungen · sachaufgabe | Term aus Text |
+| 10 | 1 | nötigen Zinssatz ermitteln | Sachaufgabe | II | M7 II/III LB5 | finanzen.zinsen · zinssatz |  |
+| 11 | 1 | Punkte mit festem Abstand zu M einzeichnen | zeichnen | I | M7 II/III LB3 | geometrie.ortslinien · kreislinie |  |
+| 12 | 1 | Umkreis eines rechtwinkligen Dreiecks konstruieren | konstruieren | II | M7 II/III LB3 | geometrie.kreis · umkreis_inkreis | Thales-Bezug |
+| 13 | 1 | Term zusammenfassen | rechnen | I | M7 II/III LB4 | terme.umformen · zusammenfassen |  |
+| 14 | 1 | prozentuale Preisänderung | Sachaufgabe | I | M7 II/III LB5 | bruch.prozent_grundwert · prozentsatz |  |
+| 15 | 1 | Ungleichung zu Flächenbedingung aufstellen | Lücke | II | M7 II/III LB4 | gleichungen.ungleichungen · sachaufgabe | Term aus Figur |
+| 16 | 1 | Term aus Karten bilden, der nie negativ wird | Lücke | III | M7 II/III LB4 | terme.aufstellen · deuten | offen |
+| 17 | 1 | Art der Zuordnung aus Wertetabelle | ankreuzen | I | M7 II/III LB5 | groessen.indirekt · unterscheiden |  |
+| 18 | 1 | lineare Gleichung lösen | rechnen | I | M7 II/III LB4 | gleichungen.linear · beide_seiten |  |
+| 19 | 1 | Mittelwert aus Tabelle | Sachaufgabe | I | M7 II/III LB6 | daten.kennwerte · mittelwert |  |
+| 20 | 1 | passendes Kreisdiagramm wählen | ankreuzen | I | M7 II/III LB6 | daten.darstellen · kreisdiagramm | Diagramm |
+
+### JT8-2023-II – Jahrgangsstufentest 2023 Mathematik Jgst. 8 WPFG II/III
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2023/2023_JT_Mathe_8_II_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Bruch-/Potenzausdruck berechnen | rechnen | I | M7 II/III LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 1b | 1 | Potenz mit Dezimalzahl dividieren | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | 1 | Ausdruck mit Zehnerpotenzen multiplizieren/dividieren | rechnen | I | M7 II/III LB1 | terme.potenzgesetze_natuerlich · geteilt_gleiche_basis |  |
+| 3 | 1 | äquivalenten Potenzterm ankreuzen | ankreuzen | II | M7 II/III LB1 | terme.potenzgesetze_natuerlich · anwenden |  |
+| 4 | 1 | Fehler bei Streckenmitte beschreiben | Fehler finden | II | M7 II/III LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz |
+| 5 | 1 | Punkte zu vorgegebenem Vektor wählen | Lücke | II | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 6 | 1 | Winkel an Parallelen aus Skizze | Lücke | I | M7 II/III LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 7 | 1 | weiterer Winkel an Parallelen | Lücke | II | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 8 | 1 | Punkte mit festem Abstand zu Gerade markieren | zeichnen | I | M7 II/III LB3 | geometrie.ortslinien · parallelen |  |
+| 9 | 1 | rechtwinkliges Dreieck mit Ecke auf Achse ergänzen (Thales) | zeichnen | II | M7 II/III LB3 | geometrie.kreis · umkehrung | Koordinatensystem |
+| 10 | 1 | Vorgehen zur Inkreismitte beschreiben | beschreiben | II | M7 II/III LB3 | geometrie.kreis · umkreis_inkreis | Fachsprache |
+| 11 | 1 | Umfangsterm mit Variable aufstellen | Lücke | II | M7 II/III LB4 | terme.aufstellen · sachsituation | Term aus Figur |
+| 12 | 1 | Term mit Variable vereinfachen | rechnen | I | M7 II/III LB4 | terme.umformen · produkte |  |
+| 13 | 1 | begründen, warum Lösungsmenge leer ist (Grundmenge) | begründen | II | M7 II/III LB4 | gleichungen.linear · sonderfaelle | Grundmenge |
+| 14 | 1 | lineare Gleichung lösen | rechnen | I | M7 II/III LB4 | gleichungen.linear · beide_seiten |  |
+| 15 | 1 | Zahl in Ungleichung so ergänzen, dass Lösungsmenge stimmt | Lücke | III | M7 II/III LB4 | gleichungen.ungleichungen · pruefen | rückwärts |
+| 16 | 1 | Grundwert aus erhöhtem Wert | Sachaufgabe | II | M7 II/III LB5 | bruch.prozent_grundwert · zurueck |  |
+| 17 | 1 | Leistung mehrerer Maschinen in anderer Zeit | Sachaufgabe | III | M7 II/III LB5 | groessen.indirekt · sach | zwei Größen |
+| 18 | 1 | Termwert für negative Zahl | rechnen | I | M6 LB5 | terme.aufstellen · termwert | Grundwissen 6 |
+| 19 | 1 | fehlenden Wert aus Mittelwert | rechnen | II | M7 II/III LB6 | daten.kennwerte · mittel_rueckwaerts |  |
+| 20 | 1 | Gleichheit zweier Anteile im Diagramm begründen | begründen | II | M7 II/III LB6 | daten.darstellen · relative_haeufigkeit | Diagramm |
+
+### JT8-2024-II – Jahrgangsstufentest 2024 Mathematik Jgst. 8 WPFG II/III
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2024/2024_JT_Mathe_8_II_Angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Potenz berechnen | rechnen | I | M7 II/III LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 1b | 1 | Rechnung mit rationalen Zahlen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | 1 | fehlenden Exponenten ergänzen | Lücke | I | M7 II/III LB1 | terme.potenzgesetze_natuerlich · mal_gleiche_basis |  |
+| 3 | 1 | Pfeilkoordinaten aus zwei Punkten | Lücke | I | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 4 | 1 | Winkel an Parallelen bestimmen | Lücke | I | M7 II/III LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 5 | 1 | begründen, dass zwei Geraden nicht parallel sind | begründen | II | M7 II/III LB2 | geometrie.winkelsaetze · parallel_pruefen |  |
+| 6 | 1 | Winkel am Thaleskreis berechnen | rechnen | II | M7 II/III LB3 | geometrie.kreis · thales |  |
+| 7 | 1 | zwei mögliche Winkel in einem Dreieck angeben | Lücke | II | M7 II/III LB2 | geometrie.winkelsaetze · innenwinkelsumme | mehrere Lösungen |
+| 8 | 1 | Punkt gleich weit von drei Punkten | konstruieren | II | M7 II/III LB3 | geometrie.kreis · umkreis_inkreis |  |
+| 9 | 1 | Bereich aus zwei Kreisbedingungen markieren | zeichnen | II | M7 II/III LB3 | geometrie.ortslinien · verknuepfen | Ortsbereich |
+| 10 | 1 | Vorratsdauer bei anderer Personenzahl | Sachaufgabe | II | M7 II/III LB5 | groessen.indirekt · sach |  |
+| 11 | 1 | Zinssatz aus Kreditangebot | Sachaufgabe | II | M7 II/III LB5 | finanzen.zinsen · zinssatz |  |
+| 12 | 1 | Mehrwertsteuer aus Bruttopreis | Sachaufgabe | II | M7 II/III LB5 | bruch.prozent_grundwert · zurueck |  |
+| 13 | 1 | Zahl ohne Zehnerpotenz schreiben | Lücke | I | M7 II/III LB1 | zahlen.potenzen_zehner · gross_wissenschaftlich |  |
+| 14 | 1 | Gegenbeispiel zu Ungleichungsbehauptung | Lücke | III | M7 II/III LB4 | gleichungen.ungleichungen · pruefen | Gegenbeispiel |
+| 15 | 1 | Term zu Wertetabelle wählen | ankreuzen | II | M6 LB5 | terme.aufstellen · termwert | Grundwissen 6 |
+| 16 | 1 | Term zusammenfassen | rechnen | I | M7 II/III LB4 | terme.umformen · zusammenfassen |  |
+| 17 | 1 | lineare Gleichung lösen | rechnen | I | M7 II/III LB4 | gleichungen.linear · beide_seiten |  |
+| 18 | 1 | Textaussage in Gleichung übersetzen | ankreuzen | II | M7 II/III LB4 | gleichungen.linear · sach | Term aus Text |
+| 19 | 1 | Wert ergänzen, damit Spannweite stimmt | Lücke | II | M7 II/III LB6 | daten.boxplot · kennwerte | rückwärts |
+| 20 | 1 | Durchschnitt aus Diagramm berechnen | ablesen | II | M7 II/III LB6 | daten.kennwerte · mittel_tabelle | Diagramm |
+
+### JT8-2025-II – Jahrgangsstufentest 2025 Mathematik Jgst. 8 WPFG II/III
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: keine angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2025/2025_JT_Mathematik_8_II_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | mit Potenzen rechnen | rechnen | I | M7 II/III LB1 | zahlen.potenzen_zehner · zehnerpotenz |  |
+| 1b | 1 | mit Brüchen rechnen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | 1 | fehlenden Exponenten bei Zehnerpotenzen ergänzen | Lücke | I | M7 II/III LB1 | terme.potenzgesetze_natuerlich · mal_gleiche_basis |  |
+| 3 | 1 | Entfernung in Zehnerpotenz, Hin- und Rückweg | ankreuzen | II | M7 II/III LB1 | zahlen.potenzen_zehner · gross_wissenschaftlich | Sachkontext |
+| 4 | 1 | weiteren Vektorrepräsentanten zeichnen | zeichnen | I | M7 II/III LB2 | abbildungen.kongruenz · verschiebung |  |
+| 5 | 1 | Winkelmaß aus Winkelbeziehungen bestimmen | rechnen | I | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 6 | 1 | begründen, warum zwei Geraden nicht parallel sein können | begründen | II | M7 II/III LB2 | geometrie.winkelsaetze · parallel_pruefen |  |
+| 7 | 1 | Streckenmittelpunkt aus Koordinaten | rechnen | I | M7 II/III LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz |
+| 8 | 1 | begründen, warum ein Pfeil kein Repräsentant eines Vektors ist | begründen | II | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 9 | 1 | Punkt mit gleichem Abstand zu zwei Punkten konstruieren | konstruieren | I | M7 II/III LB3 | geometrie.ortslinien · zwei_kreise |  |
+| 10 | 1 | mit Thaleskreis zeigen, dass ein Dreieck rechtwinklig ist | begründen | II | M7 II/III LB3 | geometrie.kreis · thales |  |
+| 11 | 1 | passende Ungleichung zu Mietsachverhalt erkennen | ankreuzen | II | M7 II/III LB4 | gleichungen.ungleichungen · sachaufgabe | Term aus Text |
+| 12 | 1 | lineare Gleichung mit x auf beiden Seiten lösen | rechnen | I | M7 II/III LB4 | gleichungen.linear · beide_seiten |  |
+| 13 | 1 | fehlende Seitenlänge aus Umfang per Gleichung | Sachaufgabe | II | M7 II/III LB4 | gleichungen.linear · sach | Geometrie-Kontext |
+| 14 | 1 | äquivalenten Term mit Klammern finden | ankreuzen | I | M7 II/III LB4 | terme.umformen · aequivalenz |  |
+| 15 | 1 | Koeffizienten so ergänzen, dass Lösungsmenge stimmt | Lücke | III | M7 II/III LB4 | gleichungen.linear · probe | rückwärts |
+| 16 | 1 | Term zusammenfassen | rechnen | I | M7 II/III LB4 | terme.umformen · zusammenfassen |  |
+| 17 | 1 | Jahreszinsen berechnen | Sachaufgabe | I | M7 II/III LB5 | finanzen.zinsen · jahreszinsen |  |
+| 18 | 1 | fehlerhaften Wert in Tabelle indirekter Proportionalität finden | Fehler finden | II | M7 II/III LB5 | groessen.indirekt · produkt | Fehler finden |
+| 19 | 1 | Grundwert aus erhöhtem Wert | Sachaufgabe | II | M7 II/III LB5 | bruch.prozent_grundwert · zurueck |  |
+| 20 | 1 | Durchschnittswerte aus Tabelle vergleichen | ablesen | III | M7 II/III LB6 | daten.kennwerte · mittel_tabelle | Tabelle |
+
+### KA-3548 – 1. Schulaufgabe Mathematik 7. Klasse Realschule (II/III-Zweig), Dezember
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe II/III · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-PDF) · Lizenz: klassenarbeiten.de, kein Lizenzhinweis; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/data/dynamic/pdf/3548.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Bruchterm berechnen und kürzen | rechnen | I | M6 LB1 | bruch.rechnen · brueche_mal | Grundwissen 6 |
+| 2 | – | geschickt ausklammern | rechnen | II | M6 LB1 | bruch.rechnen · rechenvorteile |  |
+| 3a | – | Potenzen zusammenfassen | rechnen | I | M7 II/III LB1 | terme.potenzgesetze_natuerlich · mal_gleiche_basis |  |
+| 3b | – | Potenz- und Divisionsausdruck | rechnen | I | M7 II/III LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 3c | – | Ausdruck mit Vorzeichen und Bruch | rechnen | II | M7 II/III LB1 | terme.potenzgesetze · negativer_exponent |  |
+| 4a | – | Term vereinfachen | rechnen | I | M7 II/III LB4 | terme.umformen · zusammenfassen |  |
+| 4b | – | Term vereinfachen | rechnen | I | M7 II/III LB4 | terme.umformen · produkte |  |
+| 5a | – | Dreieck verschieben (zeichnerisch) | zeichnen | I | M7 II/III LB2 | abbildungen.kongruenz · verschiebung |  |
+| 5b | – | Verschiebungsvektor berechnen | rechnen | I | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 5c | – | Umkehrabbildung mit Gegenvektor | rechnen | II | M7 II/III LB2 | abbildungen.kongruenz · gegenvektor |  |
+
+### KA-3548b – Übung Potenzen 7. Klasse (II) Realschule
+
+klassenarbeiten.de (Schule nicht genannt) · Übungsblatt zur Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe II/III · – min · – Punkte · Hilfsmittel: – · frei zugänglich: ja (Gratis-PDF) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/data/dynamic/pdf/3548.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Division und Potenzen mit negativen Zahlen (6 Teile) | rechnen | I | M7 II/III LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 2 | – | Ausdrücke mit Potenzgesetzen (9 Teile) | rechnen | I | M7 II/III LB1 | terme.potenzgesetze_natuerlich · anwenden |  |
+| 3 | – | Vergleichszeichen zwischen Potenzen (6 Teile) | Lücke | II | M7 II/III LB1 | zahlen.potenzen_zehner · vergleichen_pruefen |  |
+| 4 | – | Zehnerpotenzschreibweise mit Einheiten (7 Teile) | Lücke | I | M7 II/III LB1 | zahlen.potenzen_zehner · vorsilben_klein |  |
+
+### KA-3552 – Schulaufgabe Mathematik 7. Klasse Realschule: Rechnen in Q und Potenzrechnen
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Extrablatt · frei zugänglich: ja (Gratis-PDF) · Lizenz: klassenarbeiten.de, kein Lizenzhinweis; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/data/dynamic/pdf/3552.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1.1 | – | Termwert in Q mit Vorzeichen | rechnen | I | M6 LB1 | bruch.rechnen · vorzeichen | Grundwissen |
+| 1.2 | – | Termwert mit Klammern, Brüchen, Potenz | rechnen | II | M6 LB1 | bruch.rechnen · gemischt |  |
+| 1.3 | – | Bruchterm in Q | rechnen | I | M6 LB1 | bruch.rechnen · brueche_geteilt |  |
+| 1.4 | – | Termwert mit Distributivgesetz | rechnen | II | M6 LB1 | bruch.rechnen · rechenvorteile |  |
+| 2 | – | Term mit einer Variable zusammenfassen | rechnen | I | M7 LB6 | terme.umformen · zusammenfassen |  |
+| 3.1 | – | Temperaturänderung berechnen | Sachaufgabe | I | M5 LB? | zahlen.ganz · sach | Grundwissen |
+| 3.2 | – | Temperaturunterschied | Sachaufgabe | I | M5 LB? | zahlen.ganz · sach | Grundwissen |
+| 4.1 | – | große Zahl mit Zehnerpotenz | Lücke | I | M7 LB1 | zahlen.potenzen_zehner · gross_wissenschaftlich |  |
+| 4.2 | – | kleine Zahl mit Zehnerpotenz | Lücke | I | M7 LB1 | zahlen.potenzen_zehner · klein_wissenschaftlich |  |
+| 5.1 | – | Zehnerpotenzschreibweise ausschreiben | Lücke | I | M7 LB1 | zahlen.potenzen_zehner · gross_wissenschaftlich |  |
+| 5.2 | – | Zehnerpotenzschreibweise ausschreiben | Lücke | I | M7 LB1 | zahlen.potenzen_zehner · klein_wissenschaftlich |  |
+| 6.1 | – | Potenzterm mit Potenzgesetzen | rechnen | I | M7 LB1 | terme.potenzgesetze_natuerlich · mal_gleiche_basis |  |
+| 6.2 | – | Potenzterm mit Potenzgesetzen | rechnen | I | M7 LB1 | terme.potenzgesetze_natuerlich · geteilt_gleiche_basis |  |
+| 7.1 | – | Potenzterm mit Minus | rechnen | II | M7 LB1 | terme.potenzgesetze · potenz_begriff | Vorzeichen |
+| 7.2 | – | Potenzterm mit Brüchen und Vorzeichen | rechnen | II | M7 LB1 | terme.potenzgesetze_natuerlich · gleicher_exponent |  |
+| 7.3 | – | Potenzterm mit Klammern | rechnen | II | M7 LB1 | terme.potenzgesetze_natuerlich · potenz_von_potenz |  |
+| 8.1 | – | negativer Exponent → positiver | Lücke | I | M7 LB1 | terme.potenzgesetze · negativer_exponent |  |
+| 8.2 | – | negativer Exponent → positiver | Lücke | I | M7 LB1 | terme.potenzgesetze · negativer_exponent |  |
+| 8.3 | – | negativer Exponent → positiver | Lücke | I | M7 LB1 | terme.potenzgesetze · negativer_exponent |  |
+| 8.4 | – | Bruchpotenz mit negativem Exponenten | rechnen | II | M7 LB1 | terme.potenzgesetze · negativer_exponent |  |
+| 8.5 | – | Bruchpotenz mit negativem Exponenten | rechnen | II | M7 LB1 | terme.potenzgesetze · negativer_exponent |  |
+
+### KA-3563 – 2. Mathe-Schulaufgabe 7. Klasse Realschule Bayern (Januar)
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben (Aufgabe 2: 9 P.) Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-PDF) · Lizenz: klassenarbeiten.de, kein Lizenzhinweis; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/data/dynamic/pdf/3563.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 2 | Teile einer Division benennen | Lücke | I | M5 LB? | zahlen.natuerlich · stellenwert | Fachbegriffe (Annahme Etappe) |
+| 2a | – | mehrstufiger Term mit Potenzen und Vorzeichen | rechnen | II | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 2b | – | Term mit Dezimalzahlen und Zehnerpotenzen | rechnen | I | M7 LB1 | zahlen.potenzen_zehner · zehnerpotenz |  |
+| 2c | – | Klammerterm mit ganzen Zahlen | rechnen | I | M5 LB? | zahlen.ganz · ketten |  |
+| 2d | – | bruchartiger Klammerterm mit Potenzen | rechnen | II | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 3.1a | 1 | Gleichung aus Wortbeschreibung einer Potenz | Sachaufgabe | II | M7 LB1 | terme.potenzgesetze · potenz_begriff | Term aus Text |
+| 3.1b | 1 | Gleichung aus Wortbeschreibung einer Potenzierung | Sachaufgabe | II | M7 LB1 | terme.potenzgesetze · negativer_exponent | Term aus Text |
+| 3.2 | – | Gleichung mit Potenz und Bruch lösen | rechnen | II | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 3.3a | – | zwei Potenzen vergleichen | Lücke | I | M7 LB1 | zahlen.potenzen_zehner · vergleichen_pruefen |  |
+| 3.3b | – | Potenzprodukt mit Potenzquotient vergleichen | Lücke | II | M7 LB1 | terme.potenzgesetze_natuerlich · anwenden |  |
+| 3.3c | – | negative Zahl mit Bruchpotenz vergleichen | Lücke | II | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 4.1a | – | große Zahl in Zehnerpotenzschreibweise | rechnen | I | M7 LB1 | zahlen.potenzen_zehner · gross_wissenschaftlich |  |
+| 4.1b | – | kleine Zahl in Zehnerpotenzschreibweise | rechnen | I | M7 LB1 | zahlen.potenzen_zehner · klein_wissenschaftlich |  |
+| 4.1c | – | Länge in m mit Zehnerpotenz | rechnen | I | M7 LB1 | zahlen.potenzen_zehner · vorsilben_gross |  |
+| 4.1d | – | kleine Länge in m mit Zehnerpotenz | rechnen | I | M7 LB1 | zahlen.potenzen_zehner · vorsilben_klein |  |
+| 4.1e | – | Bruch mit Zehnerpotenz umwandeln | rechnen | II | M7 LB1 | zahlen.potenzen_zehner · negativer_exponent |  |
+| 4.2a | – | Produkt mit Zehnerpotenz als Dezimalzahl | rechnen | I | M7 LB1 | zahlen.potenzen_zehner · gross_wissenschaftlich |  |
+| 4.2b | – | Quotient/Produkt von Zehnerpotenzen als Dezimalzahl | rechnen | II | M7 LB1 | terme.potenzgesetze_natuerlich · geteilt_gleiche_basis |  |
+| 5a | – | Verschiebungspfeile mit Koordinaten angeben | Lücke | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 5b | – | Eigenschaften von Verschiebungspfeilen nennen | beschreiben | I | M7 LB2 | abbildungen.kongruenz · eigenschaften | Fachsprache |
+| 6a | – | Wahr/falsch: Fixpunkte bei Verschiebung | ankreuzen | II | M7 LB2 | abbildungen.kongruenz · eigenschaften |  |
+| 6b | – | Wahr/falsch: Ur- und Bildpunkt | ankreuzen | I | M7 LB2 | abbildungen.kongruenz · eigenschaften |  |
+| 6c | – | Wahr/falsch: Länge und Parallelität | ankreuzen | I | M7 LB2 | abbildungen.kongruenz · eigenschaften |  |
+| 6d | – | Wahr/falsch: Pfeil und Bildstrecken | ankreuzen | II | M7 LB2 | abbildungen.kongruenz · eigenschaften |  |
+| 6e | – | Wahr/falsch: Bild- zu Urpunkt | ankreuzen | I | M7 LB2 | abbildungen.kongruenz · eigenschaften |  |
+| 6f | – | Wahr/falsch: Lage von Ur- und Bildstrecke | ankreuzen | I | M7 LB2 | abbildungen.kongruenz · eigenschaften |  |
+| 7a | – | Abbildungsvorschrift in Worten | beschreiben | II | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten | Fachsprache |
+| 7b | – | zwei Dreiecke zeichnen | zeichnen | I | M7 LB2 | abbildungen.kongruenz · verschiebung |  |
+| 7c | – | Vektor und fehlende Punkte ablesen | ablesen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+
+### LA-8-I – Illustrierende Aufgaben LehrplanPLUS: Beispiele für Leistungsaufgaben ohne Hilfsmittel Jgst. 8 (WPFG I)
+
+ISB Bayern · Beispiel-Leistungsaufgaben (keine vollständige Arbeit) · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe I · – min · – Punkte · Hilfsmittel: ohne Hilfsmittel · frei zugänglich: ja · Lizenz: ISB; einzelne Bilder © Clipdealer; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Mathematik/Weiterentwicklung_Abschlusspruefung/Exemplarische_Leistungsaufgaben/rs_m_08_leistungsaufgaben_8i.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Winkelsumme in symmetrischem Viereck beurteilen | begründen | II | M8 I LB1 | geometrie.konstruktion · vierecke |  |
+| 2a | – | Sonderviereck aus Eigenschaften bestimmen | ankreuzen | I | M8 I LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 2b | – | Sonderviereck aus Parallelität/Winkeln/Diagonalen | ankreuzen | II | M8 I LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 2c | – | Sonderviereck aus Symmetrie und Diagonalen | ankreuzen | II | M8 I LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 3 | – | Turmhöhe aus Parallelogrammansicht maßstäblich zeichnen | Sachaufgabe | II | M8 I LB1 | geometrie.konstruktion · vierecke_konstruieren | Maßstab, Realbezug |
+| 4 | – | Drehwinkel einer drehsymmetrischen Figur nennen | Lücke | II | M8 I LB2 | abbildungen.kongruenz · drehung |  |
+| 5.1 | – | Winkel am Drehzentrum aus Zackenzahl begründen | begründen | II | M8 I LB2 | abbildungen.kongruenz · drehung |  |
+| 5.2 | – | Zackenzahl eines Sterns ermitteln | Lücke | II | M8 I LB2 | abbildungen.kongruenz · drehung |  |
+| 5.3 | – | Drehzentrum einzeichnen | zeichnen | II | M8 I LB2 | abbildungen.kongruenz · drehung |  |
+| 6a | – | fehlerhafte Drehung erkennen (Winkel) | Fehler finden | II | M8 I LB2 | abbildungen.kongruenz · drehung | Fehler finden |
+| 6b | – | fehlerhafte Drehung erkennen (Richtung) | Fehler finden | II | M8 I LB2 | abbildungen.kongruenz · drehung | Fehler finden |
+| 6c | – | fehlerhafte Drehung erkennen (Zentrum) | Fehler finden | II | M8 I LB2 | abbildungen.kongruenz · drehung | Fehler finden |
+| 6d | – | fehlerhafte Drehung erkennen (Kreisbogen) | Fehler finden | II | M8 I LB2 | abbildungen.kongruenz · drehung | Fehler finden |
+| 7 | – | Abstand über Kegelwinkel maßstäblich bestimmen | Sachaufgabe | III | M8 I LB3 | raum.schraegbilder · axialschnitt | Maßstab, Realbezug |
+| 8 | – | Teilkörper eines Rotationskörpers aus Axialschnitt nennen | Lücke | I | M8 I LB3 | raum.schraegbilder · rotation |  |
+| 9 | – | Rotationskörper nennen, Axialschnitt zeichnen | zeichnen | II | M8 I LB3 | raum.schraegbilder · axialschnitt | Realbezug |
+| 10a | – | Art und Wert des Extremwerts bestimmen | rechnen | I | M8 I LB4 | terme.quadratische_extreme · extremwert |  |
+| 10b | – | zwei Terme mit vorgegebenem Maximum angeben | Lücke | III | M8 I LB4 | terme.quadratische_extreme · extremwert | offen, rückwärts |
+| 10c | – | Term mit gleichem Minimum bestimmen | rechnen | II | M8 I LB4 | terme.quadratische_extreme · scheitelform |  |
+| 11 | – | Terme passender Extremwert-Beschreibung zuordnen | zuordnen | II | M8 I LB4 | terme.quadratische_extreme · extremwert |  |
+| 12 | – | Gleichungen zu Seiten-Umfang-Situation erkennen | ankreuzen | II | M8 I LB4 | gleichungen.linear · sach | Term aus Text |
+| 13a | – | Flächeninhalte neuer Rechtecke rechnerisch vergleichen | rechnen | II | M8 I LB4 | terme.umformen · summe_mal_summe | Term aus Figur |
+| 13b | – | Fehler in Flächenterm (Max statt Min) ohne Rechnung begründen | begründen | III | M8 I LB4 | terme.quadratische_extreme · extremwert | Fehler finden |
+| 14a | – | zwei Bruchterme mit vorgegebener Definitionsmenge angeben | Lücke | III | M8 I LB5 | terme.bruchterme · definitionsmenge | rückwärts |
+| 14b | – | Bruchterm mit zwei ausgeschlossenen Werten angeben | Lücke | III | M8 I LB5 | terme.bruchterme · definitionsmenge | rückwärts |
+| 15 | – | Definitionsmenge einer Bruchgleichung | ankreuzen | I | M8 I LB5 | gleichungen.bruch · definitionsmenge |  |
+| 16 | – | Bruchgleichung mit D lösen | rechnen | II | M8 I LB5 | gleichungen.bruch · hauptnenner |  |
+| 17 | – | Fehler bei Lösungsmenge beschreiben | Fehler finden | II | M8 I LB5 | gleichungen.bruch · scheinloesung | Fehler finden |
+| 18 | – | Geschwindigkeitsverlauf einem Diagramm zuordnen | ankreuzen | II | M8 I LB6 | funktionen.grundbegriffe · sachzusammenhang | Graph deuten |
+| 19a | – | lineare Zuordnung darstellen, Gleichung bestimmen | zeichnen | II | M8 I LB6 | funktionen.linear · aufstellen | Realbezug |
+| 19b | – | Wert mit linearer Funktion berechnen | Sachaufgabe | I | M8 I LB6 | funktionen.linear · deuten |  |
+| 20 | – | Aussagen zu Weg-Zeit-Diagramm prüfen | ankreuzen | II | M8 I LB6 | funktionen.linear · deuten | Graph deuten |
+| 21a | – | linearen Zusammenhang rechnerisch zeigen | rechnen | II | M8 I LB6 | funktionen.linear · aufstellen |  |
+| 21b | – | Funktionswert im Sachkontext | Sachaufgabe | I | M8 I LB6 | funktionen.grundbegriffe · funktionswert |  |
+| 21c | – | Stelle zu gegebenem Wert im Sachkontext | Sachaufgabe | II | M8 I LB6 | funktionen.grundbegriffe · stelle |  |
+| 22 | – | Geradenzeichnungen Zeichenfehlern zuordnen | zuordnen | II | M8 I LB6 | funktionen.linear · graph_ablesen | Fehler finden |
+| 23 | – | relative Häufigkeit gegen absolute Zahl argumentieren | begründen | II | M8 I LB7 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+| 24a | – | Baumdiagramm ohne Zurücklegen zeichnen, Pfade markieren | zeichnen | II | M8 I LB7 | stochastik.kombinatorik · baumdiagramm |  |
+| 24b | – | Unterschied mit Zurücklegen beschreiben | beschreiben | II | M8 I LB7 | stochastik.kombinatorik · baumdiagramm | Fachsprache |
+| 25 | – | Gewinnchance bei veränderlichem Bestand beurteilen | begründen | III | M8 I LB7 | stochastik.grundbegriffe · laplace |  |
+
+### GWT9-2019-I – Grundwissentest 2019 Mathematik Jgst. 9 WPFG I (alter Lehrplan)
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe I · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2019/2019_gwt_mathe_9_i_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Geradengleichung aus Graph | ablesen | I | M8 I LB6 | funktionen.linear · ablesen |  |
+| 1b | 1 | Senkrechte durch Punkt | rechnen | II | M8 I LB6 | funktionen.linear · lage |  |
+| 1c | 1 | y-Achsenabschnitt aus allgemeiner Form | rechnen | II | M8 I LB6 | funktionen.linear · ablesen | allgemeine Form |
+| 2 | 1 | lineare Gleichung mit Klammern | rechnen | I | M8 I LB4 | gleichungen.linear · klammern |  |
+| 3 | 1 | Aussagen über Werte eines quadratischen Terms | ankreuzen | II | M8 I LB4 | terme.quadratische_extreme · extremwert |  |
+| 4 | 1 | Klammerterme ausmultiplizieren | rechnen | I | M8 I LB4 | terme.umformen · summe_mal_summe |  |
+| 5 | 1 | Flächenterm eines vergrößerten Rechtecks | ankreuzen | II | M8 I LB4 | terme.aufstellen · sachsituation | Term aus Figur |
+| 6 | 1 | Eigenschaften von Raute/Drachen | ankreuzen | II | M8 I LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 7 | 1 | Streckenmitte nach Verschiebung eines Endpunkts | ankreuzen | II | M7 LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz |
+| 8 | 1 | prozentuale Zunahme prüfen | ankreuzen | II | M7 LB7 | bruch.prozent_grundwert · argumente |  |
+| 9 | 1 | Scheitel und Extremwert ergänzen | Lücke | II | M8 I LB4 | terme.quadratische_extreme · scheitelform |  |
+| 10a | 1 | Definitionsmenge einer Bruchgleichung | Lücke | I | M8 I LB5 | gleichungen.bruch · definitionsmenge |  |
+| 10b | 1 | Bruchgleichung lösen | rechnen | I | M8 I LB5 | gleichungen.bruch · hauptnenner |  |
+| 11 | 1 | Fehler in Tabelle indirekter Proportionalität | Fehler finden | II | M7 LB7 | groessen.indirekt · produkt | Fehler finden |
+| 12 | 1 | Faktor ausklammern | Lücke | I | M8 I LB4 | terme.umformen · ausklammern |  |
+| 13 | 1 | Aussagen aus Weg-Zeit-Diagramm | ablesen | II | M8 I LB6 | funktionen.linear · deuten | Graph deuten |
+| 14 | 1 | Wahrscheinlichkeit beim Kartenlegen | Lücke | III | M8 I LB7 | stochastik.grundbegriffe · laplace | Abzählen |
+| 15 | 1 | Nährstoffanteil am Tagesbedarf abschätzen | Sachaufgabe | III | M7 LB7 | bruch.prozent_grundwert · prozentsatz | Modellieren |
+| 16a | 1 | Winkel an Parallelen im Dreieck | rechnen | II | M7 LB2 | geometrie.winkelsaetze · figuren |  |
+| 16b | 1 | zweiter Winkel | rechnen | II | M7 LB2 | geometrie.winkelsaetze · figuren |  |
+| 17 | 1 | Umfang aus Flächeninhalten | Sachaufgabe | III | M5 LB? | messen.flaechen · zerlegen | Knobel |
+| 18 | 1 | unmögliche Seitenlänge begründen | begründen | III | M7 LB3 | **Lücke** | Vorschlag: Etappe „Seiten-Winkel-Beziehung“ in geometrie.konstruktion |
+| 19 | 1 | Seite aus Volumen und Füllhöhe | Sachaufgabe | II | M5 LB? | messen.volumen · rueckwaerts | Grundwissen 5/6 |
+
+### GWT9-2020-I – Grundwissentest 2020 Mathematik Jgst. 9 WPFG I (alter Lehrplan)
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe I · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Abbildung Aufg. 13 urheberrechtlich geschützt; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2020/2020_gwt_mathe_9_i_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Gerade aus Gleichung zeichnen | zeichnen | I | M8 I LB6 | funktionen.linear · graph_ablesen |  |
+| 1b | 1 | Punktprobe | rechnen | I | M8 I LB6 | funktionen.grundbegriffe · punkt_graph |  |
+| 1c | 1 | Parallele durch Punkt | rechnen | II | M8 I LB6 | funktionen.linear · lage |  |
+| 2 | 1 | Gleichung mit Klammern und Quadraten | rechnen | II | M8 I LB4 | gleichungen.linear · klammern | binomisch |
+| 3 | 1 | Bruch mit verändertem Zähler/Nenner, Wert verdoppelt | ankreuzen | III | M6 LB1 | bruch.brueche · erweitern | Knobel |
+| 4 | 1 | gemeinsamen Faktor ausklammern | Lücke | I | M8 I LB4 | terme.umformen · ausklammern |  |
+| 5 | 1 | Klammer auflösen, zusammenfassen | rechnen | I | M8 I LB4 | terme.umformen · binomisch |  |
+| 6 | 1 | Flächenterm zusammengesetzter Figur wählen | ankreuzen | II | M7 LB6 | terme.aufstellen · sachsituation | Term aus Figur |
+| 7 | 1 | Sonderviereck aus Eigenschaften benennen | Lücke | II | M8 I LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 8 | 1 | Punkt aus Punkt und Vektor | rechnen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 9 | 1 | Anzahl entfernen für Zielanteil | Sachaufgabe | III | M6 LB1 | bruch.brueche · anteil_bestimmen | Knobel |
+| 10 | 1 | Extremwert und Stelle angeben | ankreuzen | I | M8 I LB4 | terme.quadratische_extreme · extremwert |  |
+| 11 | 1 | Definitionsmenge eines Bruchterms | rechnen | I | M8 I LB5 | terme.bruchterme · definitionsmenge |  |
+| 12 | 1 | Bruchgleichung lösen | rechnen | I | M8 I LB5 | gleichungen.bruch · ueber_kreuz |  |
+| 13 | 1 | Aussagen zu Balkendiagramm prüfen | ablesen | II | M7 LB8 | daten.darstellen · tabelle_auswerten | Diagramm |
+| 14 | 1 | Würfelwahrscheinlichkeit mit Teilbarkeit | Lücke | II | M8 I LB7 | stochastik.grundbegriffe · laplace |  |
+| 15 | 1 | fehlende Höhe eines L-Körpers aus Volumen | rechnen | II | M5 LB? | messen.volumen · rueckwaerts | Grundwissen 5/6 |
+| 16 | 1 | Fliesenpackungen für Wand | Sachaufgabe | III | M5 LB? | messen.flaechen · sachaufgaben | Modellieren |
+| 17a | 1 | Winkel an Parallelen und gleichschenkligem Dreieck | rechnen | II | M7 LB2 | geometrie.winkelsaetze · figuren |  |
+| 17b | 1 | Winkel an Tangente | rechnen | I | M7 LB5 | geometrie.kreis · tangente |  |
+| 18 | 1 | Rechteckfläche aus Umfang und Seitenverhältnis | rechnen | II | M8 I LB4 | gleichungen.linear · sach | Gleichung aufstellen (Annahme) |
+| 19 | 1 | Mindestlänge einer Dreiecksseite begründen | begründen | II | M7 LB3 | geometrie.konstruktion · konstruierbar |  |
+| 20 | 1 | Grundwert aus erhöhtem Preis | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck |  |
+
+### GWT9-2021-I – Grundwissentest 2021 Mathematik Jgst. 9 WPFG I
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe I · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich; 2021/22 freiwillig ohne Benotung (KMS lt. Lösungsheft); Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2021/2021_gwt_mathe_9_i_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Steigung und Achsenabschnitt ablesen | ablesen | I | M8 I LB6 | funktionen.linear · ablesen |  |
+| 1b | 1 | fehlende x-Koordinate eines Geradenpunkts | rechnen | I | M8 I LB6 | funktionen.grundbegriffe · stelle |  |
+| 1c | 1 | Senkrechte mit vorgegebenem Achsenabschnitt | Lücke | II | M8 I LB6 | funktionen.linear · lage |  |
+| 2 | 1 | Geraden durch bestimmten Quadranten erkennen | ankreuzen | II | M8 I LB6 | funktionen.linear · wirkung |  |
+| 3 | 1 | kleinste Zahl mit Ziffernsumme und Stellenzahl | Lücke | II | M5 LB1 | zahlen.natuerlich · stellenwert | Knobel, Grundwissen 5 |
+| 4 | 1 | quadratische Gleichung (x² fällt weg) lösen | Lücke | II | M8 I LB4 | gleichungen.linear · klammern | binomisch |
+| 5 | 1 | Summe mal Differenz ausmultiplizieren | rechnen | I | M8 I LB4 | terme.umformen · binomisch |  |
+| 6 | 1 | Endpunkt aus Startpunkt und Vektor | rechnen | I | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 7 | 1 | Flächenterme einer zusammengesetzten Figur prüfen | ankreuzen | II | M7 I LB6 | terme.aufstellen · sachsituation | Term aus Figur |
+| 8 | 1 | Drachenviereck ergänzen | zeichnen | I | M8 I LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 9 | 1 | Dreiecksfläche aus Vektoren | Lücke | I | M7 I LB2 | abbildungen.determinanten2 · dreieck |  |
+| 10 | 1 | ursprüngliche Menge bei prozentualer Mehrmenge | Lücke | II | M7 I LB7 | bruch.prozent_grundwert · zurueck |  |
+| 11 | 1 | Nenner für vorgegebene D ergänzen | Lücke | II | M8 I LB5 | terme.bruchterme · definitionsmenge | rückwärts |
+| 12 | 1 | Bruchgleichung mit D lösen | Lücke | I | M8 I LB5 | gleichungen.bruch · ueber_kreuz |  |
+| 13 | 1 | Anteilsaussagen prüfen | ankreuzen | II | M6 LB1 | bruch.brueche · anteil_bestimmen | Grundwissen 6 |
+| 14 | 1 | Quaderschrägbild mit Verzerrung zeichnen | zeichnen | I | M7 I LB4 | raum.schraegbilder · wahre_groesse |  |
+| 15 | 1 | Trefferquoten-Behauptung widerlegen | begründen | II | M8 I LB7 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+| 16 | 1 | Wassermenge für Becken mit Tunnel | Sachaufgabe | III | M5 LB? | messen.volumen · zusammengesetzt | Grundwissen 5/6 |
+| 17 | 1 | Flugzeit aus Karte, Geschwindigkeit, Zuschlägen | Sachaufgabe | III | M6 LB6 | groessen.proportional · sach | Modellieren, Lösungsweg |
+| 18 | 1 | Bildpunkt einer Drehung | zeichnen | I | M8 I LB2 | abbildungen.kongruenz · drehung |  |
+| 19a | 1 | Winkel an Parallelen | rechnen | II | M7 I LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 19b | 1 | Winkel im gleichschenkligen Dreieck | rechnen | II | M7 I LB3 | geometrie.konstruktion · gleichschenklig |  |
+| 20 | 1 | Teilfläche einer Quadratfigur aus Umfang | rechnen | III | M5 LB? | messen.flaechen · zerlegen | Grundwissen 5/6, Knobel |
+
+### GWT9-2022-I – Grundwissentest 2022 Mathematik Jgst. 9 WPFG I
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe I · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2022/_A__2022_GWT_Mathe_9_I_Angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Geradengleichung ablesen | Lücke | I | M8 I LB6 | funktionen.linear · ablesen |  |
+| 1b | 1 | Gerade aus Achsenpunkt und Steigung zeichnen | zeichnen | I | M8 I LB6 | funktionen.linear · graph_ablesen |  |
+| 1c | 1 | Geradengleichung aus Achsenschnittpunkten | rechnen | II | M8 I LB6 | funktionen.linear · zwei_punkte |  |
+| 2 | 2 | Distributiv-Lücken füllen | Lücke | II | M8 I LB4 | terme.umformen · ausmultiplizieren | rückwärts |
+| 3 | 1 | Gleichung mit Klammern und Quadraten lösen | rechnen | II | M8 I LB4 | gleichungen.linear · klammern | binomisch |
+| 4 | 1 | gleichschenkliges Trapez vervollständigen | zeichnen | I | M8 I LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 5 | 1 | Klammerterm ausmultiplizieren | rechnen | I | M8 I LB4 | terme.umformen · ausmultiplizieren |  |
+| 6 | 1 | fehlende Parallelogrammecke berechnen | rechnen | II | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 7 | 1 | falschen Umfangsterm erkennen | Fehler finden | II | M7 I LB6 | terme.aufstellen · deuten | Fehler finden |
+| 8 | 1 | Grundfläche aus Schrägbild ermitteln | rechnen | II | M7 I LB4 | raum.schraegbilder · wahre_groesse |  |
+| 9 | 1 | Dreiecksfläche per Determinante aus Zeichnung | rechnen | I | M7 I LB2 | abbildungen.determinanten2 · dreieck |  |
+| 10 | 1 | Definitionsmenge eines Bruchterms wählen | ankreuzen | I | M8 I LB5 | terme.bruchterme · definitionsmenge |  |
+| 11 | 1 | Bruchgleichung mit D lösen | rechnen | I | M8 I LB5 | gleichungen.bruch · ueber_kreuz |  |
+| 12 | 1 | Aussage über Seitenlänge bei gegebenem Umfang | ankreuzen | II | M7 I LB3 | geometrie.konstruktion · konstruierbar |  |
+| 13 | 1 | Füllhöhe nach Zeit und Zufluss | Sachaufgabe | II | M8 I LB6 | funktionen.linear · deuten | Realbezug |
+| 14 | 1 | quadratische Terme mit gegebenem Minimum wählen | ankreuzen | II | M8 I LB4 | terme.quadratische_extreme · extremwert |  |
+| 15 | 1 | begründen, warum +p% und −p% nicht zurückführen | begründen | II | M7 I LB7 | bruch.prozent_grundwert · argumente |  |
+| 16 | 1 | Plattformhöhe aus Geschwindigkeit und Zeit | Sachaufgabe | II | M6 LB6 | groessen.proportional · sach | Lösungsweg angeben |
+| 17 | 1 | Bildpunkt einer Drehung einzeichnen | zeichnen | I | M8 I LB2 | abbildungen.kongruenz · drehung |  |
+| 18 | 2 | zwei Winkel an Parallelen und gleichschenkligem Dreieck | rechnen | II | M7 I LB2 | geometrie.winkelsaetze · figuren |  |
+| 19 | 1 | absolute Anzahl aus relativer Häufigkeit | Sachaufgabe | II | M8 I LB7 | stochastik.grundbegriffe · grosse_zahlen |  |
+
+### GWT9-2023-I – Grundwissentest 2023 Mathematik Jgst. 9 WPFG I
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe I · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2023/2023_GWT_Mathe_9_I_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Gerade einzeichnen | zeichnen | I | M8 I LB6 | funktionen.linear · graph_ablesen |  |
+| 1b | 1 | senkrechte Gerade durch Punkt | Lücke | II | M8 I LB6 | funktionen.linear · lage |  |
+| 1c | 1 | Parallele zur Winkelhalbierenden erkennen | ankreuzen | I | M8 I LB6 | funktionen.linear · lage |  |
+| 2 | 1 | ausklammern, Klammer ergänzen | Lücke | I | M8 I LB4 | terme.umformen · ausklammern |  |
+| 3 | 1 | allgemeingültige Termaussage erkennen | ankreuzen | II | M8 I LB4 | terme.umformen · aequivalenz |  |
+| 4 | 1 | Gleichung mit quadratischen Termen lösen | rechnen | II | M8 I LB4 | gleichungen.linear · klammern | binomisch |
+| 5 | 1 | Raute mit Winkel zeichnen | zeichnen | I | M8 I LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 6 | 1 | Klammerterm auflösen | rechnen | I | M8 I LB4 | terme.umformen · binomisch |  |
+| 7 | 1 | Punkt aus Startpunkt und Pfeil | rechnen | I | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 8 | 1 | Art/Wert/Stelle des Extremwerts erkennen | ankreuzen | I | M8 I LB4 | terme.quadratische_extreme · extremwert |  |
+| 9 | 1 | Gehegefläche aus Zaunlänge und Seitenverhältnis | Sachaufgabe | II | M8 I LB4 | gleichungen.linear · sach | Term aus Figur |
+| 10 | 1 | Fehler im Schrägbild beschreiben | Fehler finden | II | M7 I LB4 | raum.schraegbilder · pyramide | Fehler finden |
+| 11 | 1 | richtigen Determinantenansatz erkennen | ankreuzen | II | M7 I LB2 | abbildungen.determinanten2 · dreieck |  |
+| 12 | 1 | Nenner für vorgegebene Definitionsmenge ergänzen | Lücke | II | M8 I LB5 | terme.bruchterme · definitionsmenge | rückwärts |
+| 13 | 1 | Bruchgleichung lösen | rechnen | I | M8 I LB5 | gleichungen.bruch · ueber_kreuz |  |
+| 14 | 1 | rechtwinkliges Dreieck mit Thaleskreis und Fläche zeichnen | zeichnen | III | M7 I LB5 | geometrie.kreis · thales | mehrere Bedingungen |
+| 15 | 1 | Kartonvolumen aus Würfeln mit Hohlraum | Sachaufgabe | II | M5 LB? | messen.volumen · zusammengesetzt | Grundwissen 5/6 |
+| 16 | 1 | Preis aus Sparbetrag und Preisverhältnis | Sachaufgabe | II | M6 LB1 | bruch.brueche · ganzes_bestimmen | Grundwissen 6 |
+| 17 | 1 | Pfeilerhöhe aus Teillänge und Anteil | Sachaufgabe | II | M6 LB1 | bruch.brueche · ganzes_bestimmen | Grundwissen 6 |
+| 18 | 1 | falsche Aussage zu Diagramm erkennen | ankreuzen | II | M7 I LB8 | daten.darstellen · tabelle_auswerten | Diagramm |
+| 19 | 2 | zwei Winkel in Figur mit Parallelen | rechnen | II | M7 I LB2 | geometrie.winkelsaetze · figuren |  |
+| 20 | 1 | relative Häufigkeit aus Strichliste | Lücke | I | M8 I LB7 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+
+### GWT9-2024-I – Grundwissentest 2024 Mathematik Jgst. 9 WPFG I
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe I · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2024/2024_GWT_Mathe_9_I_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Fehler in Geradenzeichnung erkennen | Fehler finden | II | M8 I LB6 | funktionen.linear · graph_ablesen | Fehler finden |
+| 2a | 1 | Nullstelle einer linearen Funktion | rechnen | I | M8 I LB6 | funktionen.grundbegriffe · nullstellen |  |
+| 2b | 1 | Parallele durch Punkt, fehlende Koordinate | rechnen | II | M8 I LB6 | funktionen.linear · lage |  |
+| 3 | 1 | Lücke beim Ausmultiplizieren | Lücke | II | M8 I LB4 | terme.umformen · ausmultiplizieren | rückwärts |
+| 4 | 1 | Pfeil drehen, neue Koordinaten | rechnen | II | M8 I LB2 | abbildungen.kongruenz · vektor_drehen |  |
+| 5 | 1 | Gleichung mit quadratischen Termen (x² fällt weg) | rechnen | II | M8 I LB4 | gleichungen.linear · klammern | binomisch |
+| 6 | 1 | Parallelogramm aus Seiten und Winkel vervollständigen | zeichnen | I | M8 I LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 7 | 1 | Klammern mit Binomen auflösen, zusammenfassen | rechnen | I | M8 I LB4 | terme.umformen · binomisch |  |
+| 8 | 1 | Vektorkoordinaten aus Repräsentant | rechnen | I | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 9 | 1 | Maximum einer Flächenfunktion in Scheitelform | rechnen | I | M8 I LB4 | terme.quadratische_extreme · extremwert |  |
+| 10 | 1 | Restfläche zwischen zwei Quadraten | rechnen | II | M8 I LB4 | terme.umformen · binomisch | Term aus Figur (Annahme) |
+| 11 | 1 | Teilkörper eines Rotationskörpers aus Schnitt | ablesen | I | M8 I LB3 | raum.schraegbilder · rotation |  |
+| 12 | 1 | Punkte zu vorgegebenem Determinanten-Flächenansatz ergänzen | Lücke | III | M7 I LB2 | abbildungen.determinanten2 · dreieck | rückwärts |
+| 13 | 1 | ausgeschlossene Zahlen eines Bruchterms begründen | begründen | II | M8 I LB5 | terme.bruchterme · definitionsmenge |  |
+| 14 | 1 | Bruchgleichung mit D lösen | rechnen | I | M8 I LB5 | gleichungen.bruch · ueber_kreuz |  |
+| 15 | 1 | falsch markierte Aussage zu Vierecken finden | Fehler finden | II | M8 I LB1 | abbildungen.kongruenz · vierecke_ordnen | Fehler finden |
+| 16 | 1 | Quadervolumen und Anteil | Sachaufgabe | II | M5 LB? | messen.volumen · quader | Grundwissen 5/6 |
+| 17 | 1 | Streckenlänge aus Maßstabsbildern abschätzen | Sachaufgabe | III | M5 LB? | groessen.einheiten · massstab | Modellieren |
+| 18 | 1 | Kreisdiagramm aus Anteilen ergänzen | zeichnen | I | M7 I LB8 | daten.darstellen · kreisdiagramm |  |
+| 19α | 1 | Winkel an Tangente und Parallelen | rechnen | II | M7 I LB5 | geometrie.kreis · tangente |  |
+| 19β | 1 | zweiter Winkel in derselben Figur | rechnen | II | M7 I LB2 | geometrie.winkelsaetze · figuren |  |
+| 20 | 1 | absolute Häufigkeit ablesen | ablesen | I | M8 I LB7 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+
+### GWT9-2025-I – Grundwissentest 2025 Mathematik Jgst. 9 WPFG I
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe I · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben (2024: ohne Taschenrechner und Formelsammlung) · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2025/2025_GWT_Mathematik_9_I_Angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Gerade aus Gleichung zeichnen | zeichnen | I | M8 I LB6 | funktionen.linear · graph_ablesen |  |
+| 1b | 1 | parallele Gerade mit vorgegebener Nullstelle | Lücke | II | M8 I LB6 | funktionen.linear · lage |  |
+| 2 | 1 | Funktionsgleichung für Sparplan wählen | ankreuzen | II | M8 I LB6 | funktionen.linear · deuten | Term aus Text |
+| 3a | 1 | Lücke beim Ausmultiplizieren füllen | Lücke | II | M8 I LB4 | terme.umformen · ausmultiplizieren | rückwärts |
+| 3b | 1 | zweite Distributiv-Lücke füllen | Lücke | II | M8 I LB4 | terme.umformen · ausklammern | rückwärts |
+| 4 | 1 | Endpunkt aus Mittelpunkt und anderem Endpunkt | rechnen | II | M7 I LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz (auch rückwärts) |
+| 5 | 1 | Gleichung mit Klammern und x² (fällt weg) lösen | rechnen | II | M8 I LB4 | gleichungen.linear · klammern | binomisch |
+| 6 | 1 | Drehzentrum eines drehsymmetrischen Dreiecks konstruieren | konstruieren | II | M8 I LB2 | abbildungen.kongruenz · drehung |  |
+| 7 | 1 | Raute mit Seitenlänge ergänzen | zeichnen | I | M8 I LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 8 | 1 | Klammern auflösen und zusammenfassen | rechnen | I | M8 I LB4 | terme.umformen · binomisch |  |
+| 9 | 1 | Denkfehler zum Minimum einer Flächenfunktion begründen | Fehler finden | III | M8 I LB4 | terme.quadratische_extreme · extremwert | Fehler finden |
+| 10 | 1 | Figur erkennen, die kein Rotationskörper ist | ankreuzen | I | M8 I LB3 | raum.schraegbilder · rotation |  |
+| 11 | 1 | Gleichung zu Wiese mit Gehweg wählen | ankreuzen | II | M8 I LB4 | gleichungen.linear · sach | Term aus Figur |
+| 12 | 1 | Pfeile für Vierecksfläche (Determinante) einzeichnen | zeichnen | II | M7 I LB2 | abbildungen.determinanten2 · viereck |  |
+| 13 | 1 | Nenner für vorgegebene Definitionsmenge wählen | ankreuzen | II | M8 I LB5 | gleichungen.bruch · definitionsmenge | rückwärts |
+| 14 | 1 | Bruchgleichung lösen | rechnen | I | M8 I LB5 | gleichungen.bruch · ueber_kreuz |  |
+| 15 | 1 | wahre Höhe eines Dreiecks aus Maßstabszeichnung | Sachaufgabe | I | M5 LB? | groessen.einheiten · massstab | Grundwissen 5/6 |
+| 16 | 1 | Trapezfläche aus Maßstabszeichnung schätzen | Sachaufgabe | II | M6 LB3 | messen.flaechen_vielecke · trapez | Grundwissen 6, Modellieren |
+| 17 | 1 | prozentualer Füllstand aus Pumpleistung | Sachaufgabe | II | M7 I LB7 | bruch.prozent_grundwert · prozentsatz | mehrschrittig |
+| 18 | 1 | Graph bei konstanter Fläche (Hyperbel) wählen | ankreuzen | I | M7 I LB7 | groessen.indirekt · graph |  |
+| 19a | 1 | Nicht-Parallelität mit Winkel begründen | begründen | II | M7 I LB2 | geometrie.winkelsaetze · parallel_pruefen |  |
+| 19b | 1 | fehlenden Winkel bestimmen | rechnen | I | M7 I LB2 | geometrie.winkelsaetze · figuren |  |
+| 20 | 1 | relative Häufigkeit in Prozent | rechnen | I | M8 I LB7 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+
+### PEARSON-8I-SA7 – Verlagsvorschau Übungsheft Schulaufgaben Mathematik 8. Klasse WPFG I Realschule (Produkt 910005): Schulaufgabe 7
+
+Verlag laut Vorschau (Pearson/STARK-Vertrieb; Angabe unsicher) · Übungs-Schulaufgabe (Verlag) · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe I · 45 min · 29 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Leseprobe) · Lizenz: Verlagsmaterial urheberrechtlich geschützt; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.lehmanns.ch/media/88591532)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 4 | Punktprobe an Gerade, Methode beschreiben | rechnen | I | M8 I LB6 | funktionen.grundbegriffe · punkt_graph | Methode beschreiben |
+| 2 | 4 | drei Geraden in ein Koordinatensystem zeichnen | zeichnen | I | M8 I LB6 | funktionen.linear · graph_ablesen |  |
+| 3a | 2 | Nullstelle einer linearen Funktion | rechnen | I | M8 I LB6 | funktionen.grundbegriffe · nullstellen |  |
+| 3b | 1 | Behauptung zur Anzahl der Nullstellen beurteilen | begründen | II | M8 I LB6 | funktionen.linear · wirkung |  |
+| 4 | 4 | Senkrechte durch Punkt bestimmen | rechnen | II | M8 I LB6 | funktionen.linear · lage |  |
+| 5 | 1 | Behauptung zur Parallelität beurteilen | begründen | II | M8 I LB6 | funktionen.linear · lage |  |
+| 6a | 2 | ganzzahlige Seitenpaare bei fester Rechteckfläche | Lücke | I | M7 I LB7 | groessen.indirekt · produkt |  |
+| 6b | 4 | alle Seitenpaare im Koordinatensystem darstellen | zeichnen | II | M7 I LB7 | groessen.indirekt · graph |  |
+| 7a | 3 | Ergebnisraum eines zweistufigen Ziehens mit Zurücklegen (Baum) | zeichnen | II | M8 I LB7 | stochastik.kombinatorik · baumdiagramm |  |
+| 7b | 2 | Wahrscheinlichkeit eines Ergebnisses | rechnen | II | M8 I LB7 | stochastik.grundbegriffe · laplace |  |
+| 7c | 2 | Wahrscheinlichkeit eines anderen Ergebnisses | rechnen | II | M8 I LB7 | stochastik.grundbegriffe · laplace |  |
+
+### GWT9-2019-II – Grundwissentest 2019 Mathematik Jgst. 9 WPFG II/III (alter Lehrplan)
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2019/2019_gwt_mathe_9_ii_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | lineare Gleichung mit Klammern und Bruch | rechnen | I | M8 II/III LB3 | gleichungen.linear · klammern |  |
+| 2 | 1 | Aussagen zu Werten eines quadratischen Terms | ankreuzen | II | M8 II/III LB3 | terme.quadratische_extreme · extremwert |  |
+| 3 | 1 | Drachenviereck zeichnen | zeichnen | I | M8 II/III LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 4 | 1 | rechtwinkliges Dreieck mit Abstandsbedingung | zeichnen | III | M7 II/III LB3 | geometrie.kreis · umkehrung | mehrere Bedingungen |
+| 5 | 1 | Werte für vorgegebenen Extremwert einsetzen | Lücke | II | M8 II/III LB3 | terme.quadratische_extreme · extremwert | rückwärts |
+| 6 | 1 | Vorjahreswert aus prozentualer Zunahme | ankreuzen | II | M7 II/III LB5 | bruch.prozent_grundwert · zurueck |  |
+| 7 | 1 | Klammerprodukt ausmultiplizieren | rechnen | I | M8 II/III LB3 | terme.umformen · summe_mal_summe |  |
+| 8 | 1 | Flächenterm eines vergrößerten Rechtecks | ankreuzen | II | M8 II/III LB3 | terme.aufstellen · sachsituation | Term aus Figur |
+| 9 | 1 | Eigenschaften Raute/Drachen | ankreuzen | II | M8 II/III LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 10 | 1 | Eckpunkt aus Mittelpunkt | rechnen | II | M7 II/III LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz |
+| 11 | 1 | prozentuale Zunahme beurteilen | ankreuzen | II | M7 II/III LB5 | bruch.prozent_grundwert · argumente |  |
+| 12a | 1 | Definitionsmenge einer Bruchgleichung | Lücke | I | M8 II/III LB4 | gleichungen.bruch · definitionsmenge |  |
+| 12b | 1 | Bruchgleichung lösen | rechnen | I | M8 II/III LB4 | gleichungen.bruch · hauptnenner |  |
+| 13 | 1 | Fehler in direkt proportionaler Tabelle | Fehler finden | II | M6 LB6 | groessen.proportional · pruefen | Fehler finden |
+| 14 | 1 | Faktor ausklammern | Lücke | I | M8 II/III LB3 | terme.umformen · ausklammern |  |
+| 15 | 1 | Weg-Zeit-Diagramm deuten | ablesen | II | M8 II/III LB5 | funktionen.grundbegriffe · graph_lesen | Graph deuten |
+| 16 | 1 | Wahrscheinlichkeit beim Kartenlegen | Lücke | III | M8 II/III LB6 | stochastik.grundbegriffe · laplace | Abzählen |
+| 17 | 1 | Nährstoffanteil mit eigenen Annahmen | Sachaufgabe | III | M7 II/III LB5 | bruch.prozent_grundwert · prozentsatz | Modellieren |
+| 18 | 1 | Winkel an Parallelen und im Dreieck | rechnen | II | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 19 | 1 | Umfang eines Teilrechtecks aus Quadrat | Sachaufgabe | II | M5 LB? | messen.flaechen · zerlegen | Knobel |
+| 20 | 1 | unmögliche Seitenlänge begründen | begründen | III | M8 II/III LB1 | **Lücke** | Vorschlag: Etappe „Seiten-Winkel-Beziehung“ in geometrie.konstruktion |
+| 21 | 1 | Raumseite aus Volumen und Füllhöhe | Sachaufgabe | II | M5 LB? | messen.volumen · rueckwaerts | Grundwissen 5/6 |
+
+### GWT9-2020-II – Grundwissentest 2020 Mathematik Jgst. 9 WPFG II/III (alter Lehrplan)
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich; Abbildung Aufg. 17 urheberrechtlich geschützt; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2020/2020_gwt_mathe_9_ii_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Extremwert und Stelle erkennen | ankreuzen | I | M8 II/III LB3 | terme.quadratische_extreme · extremwert |  |
+| 2 | 1 | Klammer ausmultiplizieren | rechnen | I | M8 II/III LB3 | terme.umformen · ausmultiplizieren |  |
+| 3 | 1 | negativen Faktor ausklammern | Lücke | II | M8 II/III LB3 | terme.umformen · ausklammern |  |
+| 4 | 1 | Gleichung mit quadratischem Term (x² fällt weg) | rechnen | II | M8 II/III LB3 | gleichungen.linear · klammern | binomisch |
+| 5 | 1 | Wirkung gleicher Vergrößerung von Zähler und Nenner | ankreuzen | III | M6 LB1 | bruch.brueche · vergleichen |  |
+| 6 | 1 | direkt proportionale Tabelle erkennen | ankreuzen | I | M6 LB6 | groessen.proportional · pruefen |  |
+| 7 | 1 | Flächenterm einer zusammengesetzten Figur | ankreuzen | II | M7 LB4 | terme.aufstellen · sachsituation | Term aus Figur |
+| 8 | 1 | Viereck aus Eigenschaften benennen | Lücke | II | M8 II/III LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 9 | 1 | Punkt aus Punkt und Vektor | rechnen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 10 | 1 | Anzahl entfernen, damit Anteil Zielwert erreicht | Sachaufgabe | III | M6 LB1 | bruch.brueche · anteil_bestimmen | Knobel |
+| 11 | 1 | Punkte mit zwei Bedingungen markieren | zeichnen | II | M7 LB3 | geometrie.ortslinien · verknuepfen | Ortsbereich |
+| 12 | 1 | gleichschenkliges Trapez ergänzen | zeichnen | I | M8 II/III LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 13 | 1 | Definitionsmenge eines Bruchterms | ankreuzen | I | M8 II/III LB4 | terme.bruchterme · definitionsmenge |  |
+| 14 | 1 | Bruchgleichung lösen | rechnen | I | M8 II/III LB4 | gleichungen.bruch · ueber_kreuz |  |
+| 15 | 1 | zwei zutreffende Diagrammaussagen | ablesen | II | M7 LB6 | daten.darstellen · tabelle_auswerten | Diagramm |
+| 16 | 1 | Wahrscheinlichkeit mit zwei Teilbarkeitsbedingungen | Lücke | II | M8 II/III LB6 | stochastik.grundbegriffe · laplace |  |
+| 17 | 1 | Höhe eines zusammengesetzten Quaderkörpers aus Volumen | rechnen | II | M5 LB? | messen.volumen · rueckwaerts | Grundwissen 5/6 |
+| 18 | 1 | Fliesenpackungen für Wand mit Aussparungen | Sachaufgabe | III | M5 LB? | messen.flaechen · sachaufgaben | Modellieren, Lösungsweg |
+| 19a | 1 | Winkel an Parallelen und gleich langen Strecken | rechnen | II | M7 LB2 | geometrie.winkelsaetze · figuren |  |
+| 19b | 1 | Winkel zwischen Tangente und Radius | rechnen | I | M7 LB3 | geometrie.kreis · tangente |  |
+| 20 | 1 | Rechteckbreite aus Fläche und Längenverhältnis | rechnen | II | M8 II/III LB3 | gleichungen.linear · sach | Gleichung aufstellen (Annahme) |
+| 21 | 1 | Mindestlänge einer Dreiecksseite begründen | begründen | II | M8 II/III LB1 | geometrie.konstruktion · konstruierbar |  |
+| 22 | 1 | Grundwert aus erhöhtem Preis | Sachaufgabe | II | M7 LB5 | bruch.prozent_grundwert · zurueck |  |
+
+### GWT9-2021-II – Grundwissentest 2021 Mathematik Jgst. 9 WPFG II/III
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich; 2021/22 freiwillig ohne Benotung; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2021/2021_gwt_mathe_9_ii_loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Gerade eintragen | zeichnen | I | M8 II/III LB5 | funktionen.linear · graph_ablesen |  |
+| 1b | 1 | fehlende Koordinate eines Geradenpunkts | Lücke | I | M8 II/III LB5 | funktionen.grundbegriffe · punkt_graph |  |
+| 2 | 1 | Seiten nach Winkeln ordnen | ankreuzen | II | M8 II/III LB1 | **Lücke** | Vorschlag: Etappe „Seiten-Winkel-Beziehung“ in geometrie.konstruktion |
+| 3 | 1 | quadratische Gleichung (x² fällt weg) | rechnen | II | M8 II/III LB3 | gleichungen.linear · klammern | binomisch |
+| 4 | 1 | Dreieck aus zwei Seiten und Winkel | konstruieren | I | M8 II/III LB1 | geometrie.konstruktion · kongruenzsatz |  |
+| 5 | 1 | größte dreistellige Zahl mit Quersumme | Lücke | II | M5 LB1 | zahlen.natuerlich · stellenwert | Knobel, Grundwissen 5 |
+| 6 | 1 | Klammerterm ausmultiplizieren | rechnen | I | M8 II/III LB3 | terme.umformen · ausmultiplizieren |  |
+| 7 | 1 | gemeinsamen Faktor ausklammern | Lücke | I | M8 II/III LB3 | terme.umformen · ausklammern |  |
+| 8 | 1 | Flächenterme einer zusammengesetzten Figur prüfen | ankreuzen | II | M7 II/III LB4 | terme.aufstellen · sachsituation | Term aus Figur |
+| 9 | 1 | Drachenviereck ergänzen | zeichnen | I | M8 II/III LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 10 | 1 | Dreiecksfläche aus Vektoren | rechnen | I | M7 II/III LB2 | abbildungen.determinanten2 · dreieck |  |
+| 11 | 1 | ursprüngliche Füllmenge aus Mehrmenge | Sachaufgabe | II | M7 II/III LB5 | bruch.prozent_grundwert · zurueck |  |
+| 12 | 1 | Bruchterm mit vorgegebener D erkennen | ankreuzen | II | M8 II/III LB4 | terme.bruchterme · definitionsmenge |  |
+| 13 | 1 | Bruchgleichung mit D lösen | rechnen | I | M8 II/III LB4 | gleichungen.bruch · ueber_kreuz |  |
+| 14 | 1 | Anteilsaussagen prüfen | ankreuzen | II | M6 LB1 | bruch.brueche · anteil_bestimmen | Grundwissen 6 |
+| 15 | 1 | Trefferquoten vergleichen, begründen | begründen | II | M8 II/III LB6 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+| 16 | 1 | Volumen eines teilgefüllten Beckens | Sachaufgabe | III | M5 LB? | messen.volumen · zusammengesetzt | Grundwissen 5/6 |
+| 17 | 1 | Punkt aus Vektorbeziehung | rechnen | II | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 18 | 1 | Quaderschrägbild zeichnen | zeichnen | I | M8 II/III LB2 | raum.schraegbilder · wahre_groesse |  |
+| 19 | 1 | Flugzeit aus Karte und Zuschlägen | Sachaufgabe | III | M6 LB6 | groessen.proportional · sach | Modellieren, Lösungsweg |
+| 20a | 1 | Winkel an Parallelen | Lücke | II | M7 II/III LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 20b | 1 | Winkel im gleichschenkligen Dreieck | Lücke | II | M8 II/III LB1 | geometrie.konstruktion · gleichschenklig |  |
+| 21 | 1 | Teilfläche aus Quadraten und Umfang | Lücke | III | M5 LB? | messen.flaechen · zerlegen | Grundwissen 5/6, Knobel |
+
+### GWT9-2022-II – Grundwissentest 2022 Mathematik Jgst. 9 WPFG II/III
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2022/_B__2022_GWT_Mathe_9_II_Loesung.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Ursprungsgeradengleichung ablesen | Lücke | I | M8 II/III LB5 | funktionen.linear · proportional |  |
+| 1b | 1 | senkrechte Ursprungsgerade erkennen | ankreuzen | II | M8 II/III LB5 | funktionen.linear · lage |  |
+| 2 | 1 | gleichseitiges Dreieck vervollständigen | zeichnen | I | M8 II/III LB1 | geometrie.konstruktion · gleichschenklig |  |
+| 3a | 1 | Lücke beim Ausmultiplizieren | Lücke | I | M8 II/III LB3 | terme.umformen · ausmultiplizieren |  |
+| 3b | 1 | zweite Lücke rückwärts über Distributivgesetz | Lücke | II | M8 II/III LB3 | terme.umformen · ausklammern | rückwärts |
+| 4 | 1 | Gleichung mit Klammern und Quadraten | rechnen | II | M8 II/III LB3 | gleichungen.linear · klammern | binomisch |
+| 5 | 1 | quadrierte Klammer auflösen | rechnen | I | M8 II/III LB3 | terme.umformen · binomisch |  |
+| 6 | 1 | Vektor aus zwei Punkten | rechnen | I | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 7 | 1 | falschen Umfangsterm erkennen | Fehler finden | II | M7 II/III LB4 | terme.aufstellen · deuten | Fehler finden |
+| 8 | 1 | gleichschenkliges Trapez ergänzen | zeichnen | I | M8 II/III LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 9 | 1 | Determinantenansatz aus Zeichnung | Lücke | I | M7 II/III LB2 | abbildungen.determinanten2 · dreieck |  |
+| 10 | 1 | Füllhöhe bei konstantem Zufluss | Sachaufgabe | II | M8 II/III LB5 | funktionen.linear · deuten | Realbezug |
+| 11 | 1 | Definitionsmenge eines Bruchterms | ankreuzen | I | M8 II/III LB4 | terme.bruchterme · definitionsmenge |  |
+| 12 | 1 | Bruchgleichung mit D lösen | rechnen | I | M8 II/III LB4 | gleichungen.bruch · ueber_kreuz |  |
+| 13 | 1 | Grundfläche aus Schrägbild mit Verzerrung | rechnen | II | M8 II/III LB2 | raum.schraegbilder · wahre_groesse |  |
+| 14 | 1 | quadratische Terme mit gegebenem Minimum | ankreuzen | II | M8 II/III LB3 | terme.quadratische_extreme · extremwert |  |
+| 15 | 1 | begründen, warum +p%/−p% nicht zurückführt | begründen | II | M7 II/III LB5 | bruch.prozent_grundwert · argumente |  |
+| 16 | 1 | Plattformhöhe modellieren | Sachaufgabe | III | M6 LB6 | groessen.proportional · sach | Modellieren |
+| 17 | 1 | Wert in indirekt proportionaler Tabelle | Lücke | I | M7 II/III LB5 | groessen.indirekt · produkt |  |
+| 18 | 1 | Seitenaussage aus Dreiecksungleichung und Umfang | ankreuzen | II | M8 II/III LB1 | geometrie.konstruktion · konstruierbar |  |
+| 19α | 1 | Winkel an Parallelen und gleichschenkligem Dreieck | Lücke | II | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 19β | 1 | zweiter Winkel | Lücke | II | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 20 | 1 | absolute aus relativer Häufigkeit | Lücke | I | M8 II/III LB6 | stochastik.grundbegriffe · grosse_zahlen |  |
+
+### GWT9-2023-II – Grundwissentest 2023 Mathematik Jgst. 9 WPFG II/III
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2023/2023_GWT_Mathe_9_II_Angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Ursprungsgerade mit Steigung zeichnen | zeichnen | I | M8 II/III LB5 | funktionen.linear · proportional |  |
+| 1b | 1 | Punktprobe an Gerade | rechnen | I | M8 II/III LB5 | funktionen.grundbegriffe · punkt_graph |  |
+| 2 | 1 | Faktor beim Ausklammern ergänzen | Lücke | I | M8 II/III LB3 | terme.umformen · ausklammern |  |
+| 3 | 1 | allgemeingültige Termaussage erkennen | ankreuzen | II | M8 II/III LB3 | terme.umformen · aequivalenz |  |
+| 4 | 1 | Gleichung mit Klammern und Quadraten lösen | rechnen | II | M8 II/III LB3 | gleichungen.linear · klammern | binomisch |
+| 5 | 1 | symmetrisches Viereck ergänzen | zeichnen | I | M8 II/III LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 6 | 1 | ausmultiplizieren, zusammenfassen | rechnen | I | M8 II/III LB3 | terme.umformen · ausmultiplizieren |  |
+| 7 | 1 | Endpunkt aus Startpunkt und Pfeil | rechnen | I | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 8 | 1 | Extremwert bei Scheitelform erkennen | ankreuzen | I | M8 II/III LB3 | terme.quadratische_extreme · extremwert |  |
+| 9 | 1 | Gehegefläche bei fester Länge und Verhältnis | Sachaufgabe | II | M8 II/III LB3 | gleichungen.linear · sach | Term aus Figur |
+| 10 | 1 | falsche Vorgabe im Pyramidenschrägbild beschreiben | Fehler finden | II | M8 II/III LB2 | raum.schraegbilder · pyramide | Fehler finden |
+| 11 | 1 | Punkte gleich weit von zwei Halbgeraden markieren | zeichnen | II | M7 II/III LB3 | abbildungen.kongruenz · winkelhalbierende | Ortslinie |
+| 12 | 1 | richtigen Determinantenansatz wählen | ankreuzen | II | M7 II/III LB2 | abbildungen.determinanten2 · dreieck |  |
+| 13 | 1 | Nenner für vorgegebene D ergänzen | Lücke | II | M8 II/III LB4 | terme.bruchterme · definitionsmenge | rückwärts |
+| 14 | 1 | Bruchgleichung lösen | rechnen | I | M8 II/III LB4 | gleichungen.bruch · ueber_kreuz |  |
+| 15 | 1 | rechtwinkliges Dreieck mit Thaleskreis und Fläche ergänzen | zeichnen | III | M7 II/III LB3 | geometrie.kreis · thales | mehrere Bedingungen |
+| 16 | 1 | Kartonvolumen aus Würfeln mit Hohlraum | Sachaufgabe | II | M5 LB? | messen.volumen · zusammengesetzt | Grundwissen 5/6 |
+| 17 | 1 | Preis aus Sparbetrag, Rest und Verhältnis | Sachaufgabe | II | M6 LB1 | bruch.brueche · ganzes_bestimmen | Grundwissen 6 |
+| 18 | 1 | Pfeilerhöhe aus Maßstab und Anteil | Sachaufgabe | II | M6 LB1 | bruch.brueche · ganzes_bestimmen | Grundwissen 6 |
+| 19 | 1 | falsche Diagrammaussage ankreuzen | ankreuzen | II | M7 II/III LB6 | daten.darstellen · tabelle_auswerten | Diagramm |
+| 20α | 1 | Winkel in Figur mit Parallelen | rechnen | II | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 20β | 1 | zweiter Winkel | rechnen | II | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 21 | 1 | relative Häufigkeit aus Wurftabelle | Lücke | I | M8 II/III LB6 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+
+### GWT9-2024-II – Grundwissentest 2024 Mathematik Jgst. 9 WPFG II/III
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2024/2024_GWT_Mathe_9_II_Angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Geradengleichung zu Graph wählen | ankreuzen | I | M8 II/III LB5 | funktionen.linear · ablesen |  |
+| 2 | 1 | Nullstelle einer linearen Funktion | rechnen | I | M8 II/III LB5 | funktionen.grundbegriffe · nullstellen |  |
+| 3 | 1 | senkrechte Ursprungsgeraden erkennen | ankreuzen | II | M8 II/III LB5 | funktionen.linear · lage |  |
+| 4 | 1 | Lücken beim Ausmultiplizieren | Lücke | II | M8 II/III LB3 | terme.umformen · ausmultiplizieren | rückwärts |
+| 5 | 1 | konstruierbares Dreieck aus Angaben erkennen | ankreuzen | II | M8 II/III LB1 | geometrie.konstruktion · konstruierbar |  |
+| 6 | 1 | Gleichung mit quadratischen Termen (x² fällt weg) | rechnen | II | M8 II/III LB3 | gleichungen.linear · klammern | binomisch |
+| 7 | 1 | Parallelogramm vervollständigen | zeichnen | I | M8 II/III LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 8 | 1 | Klammern mit Binomen auflösen | rechnen | I | M8 II/III LB3 | terme.umformen · binomisch |  |
+| 9 | 1 | Vektorkoordinaten aus Pfeil | rechnen | I | M7 II/III LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 10 | 1 | Maximum einer Flächenfunktion ablesen | rechnen | I | M8 II/III LB3 | terme.quadratische_extreme · extremwert |  |
+| 11 | 1 | Fläche zwischen zwei Quadraten | rechnen | II | M8 II/III LB3 | terme.umformen · binomisch | Term aus Figur (Annahme) |
+| 12 | 1 | fehlerhaften Determinantenansatz nachvollziehen | rechnen | III | M7 II/III LB2 | abbildungen.determinanten2 · dreieck | Fehler finden |
+| 13 | 1 | Dreieck aus Pyramide in wahrer Größe zeichnen | zeichnen | II | M8 II/III LB2 | raum.schraegbilder · wahre_groesse |  |
+| 14 | 1 | begründen, warum Bruchterm eine Definitionsmenge braucht | begründen | II | M8 II/III LB4 | terme.bruchterme · definitionsmenge |  |
+| 15 | 1 | Bruchgleichung mit D lösen | rechnen | I | M8 II/III LB4 | gleichungen.bruch · ueber_kreuz |  |
+| 16 | 1 | falsch bewertete Vierecksaussage finden | Fehler finden | II | M8 II/III LB1 | abbildungen.kongruenz · vierecke_ordnen | Fehler finden |
+| 17 | 1 | Anteil eines Raumvolumens (Quader, Prozent) | Sachaufgabe | II | M5 LB? | messen.volumen · quader | Grundwissen 5/6 |
+| 18 | 1 | Routenlänge aus Maßstabsbildern schätzen | Sachaufgabe | III | M5 LB? | groessen.einheiten · massstab | Modellieren |
+| 19 | 1 | Kreisdiagramm aus Stimmenzahlen ergänzen | zeichnen | II | M7 II/III LB6 | daten.darstellen · kreisdiagramm |  |
+| 20 | 2 | zwei Winkel an Parallelen | rechnen | I | M7 II/III LB2 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 21 | 1 | absolute Häufigkeit aus Strichliste | ablesen | I | M8 II/III LB6 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+
+### GWT9-2025-II – Grundwissentest 2025 Mathematik Jgst. 9 WPFG II/III
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich veröffentlicht; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2025/2025_GWT_Mathematik_9_II_Angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Gerade aus Gleichung zeichnen | zeichnen | I | M8 II/III LB5 | funktionen.linear · graph_ablesen |  |
+| 1b | 1 | Ursprungsgerade durch Punkt bestimmen | rechnen | I | M8 II/III LB5 | funktionen.linear · proportional |  |
+| 2 | 1 | Gleichung für Sparmonate wählen | ankreuzen | II | M7 II/III LB4 | gleichungen.linear · sach | Term aus Text |
+| 3a | 1 | Distributiv-Lücke füllen | Lücke | II | M8 II/III LB3 | terme.umformen · ausmultiplizieren | rückwärts |
+| 3b | 1 | zweite Distributiv-Lücke füllen | Lücke | II | M8 II/III LB3 | terme.umformen · ausklammern | rückwärts |
+| 4 | 1 | Streckenmittelpunkt berechnen | rechnen | I | M7 II/III LB2 | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz |
+| 5 | 1 | Gleichung mit Klammern und x² lösen | rechnen | II | M8 II/III LB3 | gleichungen.linear · klammern | binomisch |
+| 6 | 1 | falschen Wert in indirekt proportionaler Tabelle korrigieren | Fehler finden | II | M7 II/III LB5 | groessen.indirekt · produkt | Fehler finden |
+| 7 | 1 | Raute mit Seitenlänge ergänzen | zeichnen | I | M8 II/III LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 8 | 1 | Klammern auflösen, zusammenfassen | rechnen | I | M8 II/III LB3 | terme.umformen · binomisch |  |
+| 9 | 1 | Fehler zum Minimum einer Flächenfunktion beschreiben | Fehler finden | III | M8 II/III LB3 | terme.quadratische_extreme · extremwert | Fehler finden |
+| 10 | 1 | Pyramidenschrägbild vervollständigen | zeichnen | I | M8 II/III LB2 | raum.schraegbilder · pyramide |  |
+| 11 | 1 | prozentualer Füllstand aus Pumpleistung | Sachaufgabe | II | M7 II/III LB5 | bruch.prozent_grundwert · prozentsatz | mehrschrittig |
+| 12 | 1 | Gleichung zu Wiese mit Gehweg wählen | ankreuzen | II | M8 II/III LB3 | gleichungen.linear · sach | Term aus Figur |
+| 13 | 1 | Nenner für vorgegebene Definitionsmenge wählen | ankreuzen | II | M8 II/III LB4 | gleichungen.bruch · definitionsmenge | rückwärts |
+| 14 | 1 | Bruchgleichung lösen | rechnen | I | M8 II/III LB4 | gleichungen.bruch · ueber_kreuz |  |
+| 15 | 1 | wahre Höhe aus Maßstabszeichnung | Sachaufgabe | I | M5 LB? | groessen.einheiten · massstab | Grundwissen 5/6 |
+| 16 | 1 | Trapezfläche aus Maßstabszeichnung | Sachaufgabe | II | M6 LB3 | messen.flaechen_vielecke · trapez | Grundwissen 6, Modellieren |
+| 17 | 1 | Parallelogramm aus Determinantenansatz ergänzen | zeichnen | II | M7 II/III LB2 | abbildungen.determinanten2 · parallelogramm | rückwärts |
+| 18 | 1 | Graph bei konstanter Fläche wählen | ankreuzen | I | M7 II/III LB5 | groessen.indirekt · graph |  |
+| 19a | 1 | Nicht-Parallelität begründen | begründen | II | M7 II/III LB2 | geometrie.winkelsaetze · parallel_pruefen |  |
+| 19b | 1 | fehlenden Winkel bestimmen | rechnen | I | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
+| 20 | 1 | relative Häufigkeit in Prozent | rechnen | I | M8 II/III LB6 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+
+### KA-4020 – Klassenarbeit Mathematik Gleichungen Klasse 8 Realschule
+
+klassenarbeiten.de (Schule und Bundesland nicht genannt) · Klassenarbeit (Bundesland unklar) · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-PDF) · Lizenz: klassenarbeiten.de, kein Lizenzhinweis; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/data/dynamic/pdf/4020.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | – | gleichartige Glieder (eine Variable) zusammenfassen | rechnen | I | M7 LB6 | terme.umformen · zusammenfassen |  |
+| 1b | – | Terme mit mehreren Variablen und Vorzeichen zusammenfassen | rechnen | I | M7 LB6 | terme.umformen · zusammenfassen |  |
+| 1c | – | Produkte mehrerer Variablen zusammenfassen | rechnen | I | M7 LB6 | terme.umformen · produkte |  |
+| 2a | – | Minusklammer auflösen | rechnen | I | M7 LB6 | terme.umformen · minusklammer |  |
+| 2b | – | Faktor mal Klammer ausmultiplizieren | rechnen | I | M7 LB6 | terme.umformen · ausmultiplizieren |  |
+| 3 | – | Text in Gleichung übersetzen und lösen | Sachaufgabe | II | M7 LB6 | gleichungen.linear · sach | Term aus Text |
+| 4a | – | Gleichung mit x auf beiden Seiten | rechnen | I | M7 LB6 | gleichungen.linear · beide_seiten |  |
+| 4b | – | Gleichung mit Klammer | rechnen | I | M7 LB6 | gleichungen.linear · klammern |  |
+| 4c | – | Gleichung mit mehreren Klammern | rechnen | II | M7 LB6 | gleichungen.linear · klammern |  |
+| 4d | – | Gleichung mit Bruchfaktor | rechnen | II | M7 LB6 | gleichungen.linear · waage |  |
+| 4e | – | Gleichung mit Bruchkoeffizienten | rechnen | II | M7 LB6 | gleichungen.linear · beide_seiten |  |
+| 5a | – | Bruchrechnung mit Klammern und Vorzeichen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen |
+| 5b | – | Dezimalrechnung mit Klammern | rechnen | I | M6 LB1 | bruch.rechnen · dezimal_mal | Grundwissen |
+| B | – | größtmöglichen Faktor ausklammern | rechnen | II | M7 LB6 | terme.umformen · ausklammern | Bonus |
+
+### KA-3793 – Mathematikschulaufgabe Proportionalität und lineare Funktionen (Bayern)
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 8 (Annahme), Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Extrablatt · frei zugänglich: ja (Gratis-PDF) · Lizenz: klassenarbeiten.de, kein Lizenzhinweis; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/data/dynamic/pdf/3793.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | – | Merkmal direkter Proportionalität bewerten | ankreuzen | I | M6 LB6 | groessen.proportional · erkennen | Wissensquiz |
+| 1b | – | Graph indirekter Proportionalität benennen | ankreuzen | I | M7 I LB7 | groessen.indirekt · graph | Wissensquiz |
+| 1c | – | Begriff Definitionsmenge bewerten | ankreuzen | I | M8 I LB6 | funktionen.grundbegriffe · mengen | Wissensquiz |
+| 1d | – | Begriff Nullstelle bewerten | ankreuzen | I | M8 I LB6 | funktionen.grundbegriffe · nullstellen | Wissensquiz |
+| 1e | – | Funktionsterm direkter Proportionalität zuordnen | ankreuzen | I | M8 I LB6 | funktionen.linear · proportional | Wissensquiz |
+| 1f | – | Proportionalitätskonstante und Steigung | ankreuzen | II | M8 I LB6 | funktionen.linear · proportional | Wissensquiz |
+| 1g | – | ist konstante Vorschrift eine Funktion? | ankreuzen | II | M8 I LB6 | funktionen.grundbegriffe · eindeutig | Wissensquiz |
+| 2a | – | Zusammenhang zweier Messgrößen benennen | begründen | II | M7 I LB7 | groessen.indirekt · unterscheiden | Versuch/Realbezug |
+| 2b | – | Konstante angeben, Tabellenwerte berechnen | Sachaufgabe | I | M7 I LB7 | groessen.indirekt · produkt |  |
+| 2c | – | Aussage zur Graphenform beurteilen | begründen | II | M7 I LB7 | groessen.indirekt · graph |  |
+| 3a | – | Geradengleichung durch zwei Punkte | rechnen | II | M8 I LB6 | funktionen.linear · zwei_punkte |  |
+| 3b | – | Parallele durch Punkt | rechnen | II | M8 I LB6 | funktionen.linear · lage |  |
+
+### KA-4010 – 2. Schulaufgabe Mathematik Klasse 8 Realschule Bayern (Februar 2012)
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt (Annahme I wegen Extremwerten) · nicht angegeben min · 40 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-PDF) · Lizenz: Seitenbetreiber klassenarbeiten.de, kein Lizenzhinweis; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/data/dynamic/pdf/4010.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1,5 | lineare Gleichung mit Dezimalzahlen | rechnen | I | M7 LB6 (alt) | gleichungen.linear · beide_seiten | Grundwissen |
+| 1b | 2,5 | lineare Gleichung mit Klammern | rechnen | I | M7 LB6 (alt) | gleichungen.linear · klammern | Grundwissen |
+| 2a | 2 | verschachtelte Klammern ausmultiplizieren | rechnen | I | M8 LB4 | terme.umformen · minusklammer |  |
+| 2b | 2,5 | Summe mal Differenz mit Potenzen | rechnen | II | M8 LB4 | terme.umformen · binomisch |  |
+| 3a | 1 | vorgegebenen Faktor ausklammern | rechnen | I | M8 LB4 | terme.umformen · ausklammern |  |
+| 3b | 1 | Bruchfaktor ausklammern | rechnen | II | M8 LB4 | terme.umformen · ausklammern |  |
+| 4a | 1 | 3. binomische Formel anwenden | rechnen | I | M8 LB4 | terme.umformen · binomisch |  |
+| 4b | 1 | Binomquadrat ausmultiplizieren | rechnen | I | M8 LB4 | terme.umformen · binomisch |  |
+| 4c | 1 | prüfen, ob Formel passt, sonst ausmultiplizieren | rechnen | II | M8 LB4 | terme.umformen · summe_mal_summe |  |
+| 5a | 1,5 | Glieder zu vollständigem Quadrat ergänzen | Lücke | II | M8 LB4 | terme.quadratische_extreme · ergaenzen |  |
+| 5b | 1,5 | Glieder in Binomquadrat ergänzen | Lücke | II | M8 LB4 | terme.quadratische_extreme · ergaenzen |  |
+| 6a | 1 | als Summe mal Differenz faktorisieren | rechnen | II | M8 LB4 | terme.umformen · binomisch | Faktorisieren |
+| 6b | 1 | als vollständiges Quadrat faktorisieren | rechnen | II | M8 LB4 | terme.umformen · binomisch | Faktorisieren |
+| 7a | 2 | Minimum oder Maximum begründen | begründen | II | M8 LB4 | terme.quadratische_extreme · extremwert |  |
+| 7b | 2 | Wertetabelle in Intervall erstellen | rechnen | I | M8 LB4 | funktionen.grundbegriffe · wertetabelle |  |
+| 7c | 4 | Extremwert per quadratischer Ergänzung | rechnen | II | M8 LB4 | terme.quadratische_extreme · scheitelform |  |
+| 8a | 1 | verschobene Parabel skizzieren, Scheitel nennen | zeichnen | II | M8 LB4 | **Lücke** | Vorschlag: Etappe „Graph des Terms skizzieren“ in terme.quadratische_extreme (Parabeln sonst erst Kl. 9 I / 10 II) |
+| 8b | 1 | verschobene Parabel skizzieren | zeichnen | II | M8 LB4 | **Lücke** | wie 8a |
+| 8c | 1,5 | verschobene Parabel skizzieren, Tiefpunkt | zeichnen | II | M8 LB4 | **Lücke** | wie 8a |
+| 9a | 1 | Extremwert aus Scheitelform ablesen | ablesen | I | M8 LB4 | terme.quadratische_extreme · extremwert |  |
+| 9b | 1 | Extremwert aus Scheitelform ablesen | ablesen | I | M8 LB4 | terme.quadratische_extreme · extremwert |  |
+| 9c | 1 | Extremwert eines einfachen Terms ablesen | ablesen | I | M8 LB4 | terme.quadratische_extreme · extremwert |  |
+| 10 | 3,5 | Terme zu vorgegebenem Extremwert angeben | Lücke | III | M8 LB4 | terme.quadratische_extreme · extremwert | rückwärts, offen |
+| 11a | 1 | Ortsbereich in Worten benennen | beschreiben | I | M7 LB5 | geometrie.ortslinien · kreislinie | Fachsprache |
+| 11b | 1,5 | Ortsbereich zeichnen und färben | zeichnen | I | M7 LB5 | geometrie.ortslinien · kreislinie | Ortsbereich |
+| 11c | 1 | Ortsbereich in Mengenschreibweise | Lücke | II | M7 LB5 | geometrie.ortslinien · verstehen | Mengenschreibweise |
+

@@ -2,6 +2,31 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LK-D 2 Teilungsliste nach neuer Regel (lehrplan-lb)
+
+Grundlage ist `lernen-app` 367e31e0 (Teilungsregel 15:30/15:35/15:40). Nichts eingespielt, nichts ergänzt, Kinder nur als Nummern.
+
+- **Liste** `inhalte/pruefung/lehrplan/lk_teilung_2211.md` und `.json`: feinste gemeinsame Teilung über Gymnasium und RS Gruppe I.
+- **6 Themen werden geteilt, 15 Teile, 9 neue Flüge:**
+  - 26 Proportionalität (RS 5 | 6);
+  - 29 Terme umformen (RS 7 | 8);
+  - 44 Konstruktionen (RS 7 | 8);
+  - 46 Kongruenzabbildungen (RS 6 | 7 | 8, „Teil 1 von 3“ bis „Teil 3 von 3“);
+  - 61 Zufall und Laplace (RS 8 | 9);
+  - 91 Schrägbilder (RS 7 | 8).
+- **Gymnasium:** Alle Teile liegen in derselben Klasse wie bisher und kommen als Teil 1, 2, 3 nacheinander; keine Gym-Klasse ändert sich.
+- **Zu dünn (nur gemeldet):** 44 Teil 2 und 61 Teil 1 mit je 2 Etappen. Vorschlag: Kurzflug.
+- **Lernstand:** Nur Kind 2 betroffen (29, Flug geschafft). Nach der Teilung sind beide Teile vollständig (5/5, 3/3): Stempel für Teil 2 nachtragen, keine doppelten Sterne.
+- **Aufbau:**
+  - Teil n braucht Teil n−1 (hart).
+  - Alle 128 bisherigen Voraussetzungen sind dem passenden Teil zugeordnet (3 davon inhaltlich).
+  - Ergebnis: Gymnasium 0 Verstöße, RS I 0, RS II/III 2 (empfohlen), IB 10 je Kurs. 29 Teil 1 ← 102 ist Sebastians harte Entscheidung und bleibt.
+  - Befund 46 im Gymnasium: Die harte Kette Teil 3 ← Teil 2 führt Gym-Kinder durch einen Teil ohne Gym-Punkt. Vorschlag: im Gymnasium „empfohlen“.
+- **Grenzfälle:** RS II/III bei 8 und 33, im IB viele Themen über zwei Jahre. Empfehlung: nicht teilen, Anzeige „weitergeführt“.
+- **Aufbau-Kette je Teil** für die Anzeige steht im Bericht und in der JSON.
+
+FERTIG: LK-D 2
+
 ## 2026-11-22 – MELDUNG LK-D Daten und Aufbau-Prüfung (lehrplan-lb)
 
 Grundlage ist `lernen-app` 22251c0e: Bau-Auftrag LK, Abschnitt LK-D, mit den Nachträgen 14:20 und 14:25. Die DB habe ich nach dem Live nur gelesen; nichts eingespielt. Kinderdaten nur als Nummern.

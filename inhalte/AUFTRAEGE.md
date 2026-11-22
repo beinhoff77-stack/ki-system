@@ -2850,3 +2850,29 @@ Stand der Liste: **7 Themen, 15 Teile, 8 neue Flüge** (26, 29, 44, 46 ×3, 61, 
 **An `lehrplan-lb` – LK-D 4:** (a) F1 aus ChatGPT 939 ist noch offen: 2 Lineare Gleichungen (RS I 7 + 8) und 57 Daten erfassen/darstellen (RS 5 + 7) – teilen oder „Wiederholung ohne neue Etappe“ ausdrücklich entscheiden und begründen; alle Themen systematisch durchzählen. (b) Kür je **Etappe** und Schulart in die JSON (`etappen[].kuer_in`), Pflicht-Etappen je Teil und Schulart ausweisen; Stand je Kind danach neu rechnen. (c) F3: 61 Teil 1 – Baumdiagramm/Vierfeldertafel. Meldung: „FERTIG: LK-D 4“.
 **An `reise-aufbau` – Reise-Aufbau 3:** 61 Teil 2 → Salomonen; 101 Teil 2 einplanen (jetzt 8 neue Flüge, 15 Teile); die drei neuen Etappen aus LK-D 3 (101 `cavalieri`, 91 `koerper_symmetrie`, 29 `gleichungen_binomisch`) je eine Stadt; gegen die aktuelle `lk_teilung_2211.json` abgleichen. Meldung: „FERTIG: Reise-Aufbau 3“.
 **An `bau-lehrer` (TL-S):** Liste Stand LK-D 3/4; Pflicht/Kür je Etappe und Schulart muss in Flug-Abschluss, Flug-Test, Stempel und Visum wirken (heute gibt es Kür nur je Etappe für alle – bitte melden, was dafür nötig ist). Geänderte `lk_korrektur_2211.sql` (seit 83d61a2e) ist noch nicht eingespielt.
+
+### Probelauf TL-S auf der echten Datenbank (22.11., 17:25 Berlin) – läuft noch nicht · an `bau-lehrer`
+
+Stand `lernen-app` 67f3c88, alles zurückgerollt. Reihenfolge: `lk_korrektur_2211.sql` (neue Fassung), FP-S 4, LW-S 2, LK-S, dann TL-S.
+- Die vier Vorgänger laufen; Rauchtests wd_s, wd_s3, fp_s, lw_s, **lk_s jetzt grün**.
+- **TL-S bricht ab** (Migration und `tl_s_rauchtest.sql`): `duplicate key value violates unique constraint "zuordnung_eintrag_id_idx"`. Die echte Datenbank hat `create unique index zuordnung_eintrag_id_idx on schule.zuordnung (eintrag_id) where bezug = 'haupt'` – je Lehrplan-Punkt genau **ein** Hauptbezug. TL-S legt für Punkte, deren Etappen über mehrere Teile reichen, je Teil eine Hauptzuordnung an. Lösung vorschlagen und umsetzen: ein Hauptbezug (Teil mit den meisten/ersten Etappen), die übrigen Teile als Nebenbezug mit `rolle`/`etappen` – und `thema_lage`/Matrix so, dass Nebenbezüge geteilter Themen als Lehrplan-Lage zählen; oder den Index begründet erweitern (dann mit Prüfung aller Stellen, die „ein Haupt je Punkt“ voraussetzen). Dazu `zuordnung_eintrag_id_thema_id_key (eintrag_id, thema_id)` beachten.
+- Der Abbruch war sauber: Lernstand, Sterne, Reiseoptionen, Themen-/Aufgaben-/Versuchszahl unverändert.
+- **Lokalen Nachbau um die echten Indizes/Constraints ergänzen** (`pg_indexes`, `pg_constraint` der Schemas schule/api lesen) – das ist der dritte Fall heute, in dem ein Test lokal grün und auf dem echten Stand rot ist.
+- Liste erweitern auf **7 Themen / 15 Teile** (101 mit `cavalieri`), neue Etappen aus LK-D 3 (`cavalieri`, `koerper_symmetrie`, `gleichungen_binomisch`, `darstellen`, `raumwinkel`) und Kür je Etappe und Schulart (Entscheidung 17:05).
+- Meldung: „FERTIG: TL-S 2“.
+
+### Flug-Test und Nachtests bei kleinen Teilen (Antwort `bau-lehrer`, 22.11.) – Entscheidung Sebastian offen
+Fakten: Flug-Test nimmt alle Test-Aufgaben der Einheit; ein Fehler löst nur einen Korrektur-Test der Etappe aus (kein Durchfallen). **Nachtests** (10/25/60 Lerntage): je Pflicht-Etappe eine Sicherungs-Aufgabe, Quote ≥ 0,8 bestanden, ≥ 0,6 wiederholen, sonst Rückreise → bei 2 Etappen bedeutet ein Fehler Rückreise. Vorschlag `bau-lehrer`: Nachtest mindestens 5 Aufgaben je Flug (1 Etappe → 5, 2 → je 3, 3–4 → je 2, ab 5 → je 1); dafür je Etappe mindestens 9 Sicherungs-Aufgaben (live 6–17). Eigener Bau-Auftrag nach Entscheidung.
+
+### Rückläufer ChatGPT 942/943 (22.11., 17:40 Berlin) – Liste LK-D 3, Kür je Etappe, Reise-Aufbau 2
+
+Bestätigt: 7 Themen / 15 Teile / 8 neue Flüge; die drei neuen Etappen (`cavalieri`, `koerper_symmetrie`, `gleichungen_binomisch`) sind vom Lehrplan verlangt und fachlich plausibel; Kanten je Schulart richtig erfasst; Geodaten-Stichprobe plausibel; Lizenzen: GeoNames CC BY 4.0 (Quellenangabe), Natural Earth gemeinfrei, COMNAP nur Bildung/nicht kommerziell.
+Schon erledigt bzw. beauftragt: 2 und 57 (seit LK-D 3 Ergänzung als begründete Wiederholung geführt – ChatGPT las den Stand davor); Salomonen, 101 Teil 2 und neue Etappen-Städte (Reise-Aufbau 3; Zielstand 95 Flüge).
+**Neu, an `lehrplan-lb` (LK-D 4):**
+- **A1 (Muss):** Gym 9 Lernbereich 1: indirekter Beweis zur Irrationalität von √2 – Lernkarte liefern (Beweisschritte ordnen, Fehler im Beweis finden, Schritt begründen), nicht als „durch Zahlarten abgedeckt“ führen.
+- **B1 (Muss):** `etappen[].kuer_in` bzw. Pflicht je Schulart **und Gruppe** aus dem Punkt-Mapping, mit Quellen-Punkt; „keine Zuordnung bekannt“ ist nicht automatisch Kür – bei integrativen Lehrplan-Punkten inhaltlich entscheiden (z. B. 46 Teil 3 im Gymnasium, 26 Etappen ohne Punkt).
+**Neu, an `bau-lehrer` (TL-S 2):**
+- **B2 (Muss):** Pflicht/Kür je Kind (Schulart, Gruppe, Etappe) als **eine** Regel im Server; Flug-Abschluss, Flug-Test, Nachtests, Stempel, 100 Sterne, Visum, Tages-Wiederholung und Mischkarten rechnen nur mit Pflicht-Etappen; Teil mit 0 Pflicht-Etappen = Zusatz ohne Zwangstest; Teil mit 1 Pflicht-Etappe braucht gültigen Testpfad. Regression: Gym-Kind 29 Teil 2 mit 3/3 Pflicht, 0/1 Kür → geschafft; RS-Kind 3/4 → offen.
+- **B3 (Muss):** Schulartwechsel eines Kindes: Historie (Karten, Sterne, Erstabschlüsse, Stempel) bleibt; neue Pflicht-Etappen öffnen den Teil wieder, ohne etwas zu löschen oder doppelt zu buchen; Rückwechsel macht sie wieder zur Kür.
+**An Gestalter / `bau-motivation`:** je Etappe sichtbar „Pflicht im Gymnasium / Kür in der Realschule“ mit Lehrplan-Bezug; Nenner je Kind.
+**Karte (RK):** Marokko–Algerien–Mauretanien nicht als befahrbare Strecke darstellen (Linie nur dekorativ); Antarktis-Stationen als virtuelle Ziele; Quellenangaben auf der Info-Seite.

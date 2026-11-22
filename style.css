@@ -5019,3 +5019,26 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .lr-ab-gold .lr-ab-szene { padding-top: 52px; }
 @media (max-height: 700px) { .lr-ab-gold .lr-ab-szene { padding-top: 48px; padding-bottom: 26px; } .lr-ab-gold .lr-ab-gblatt { padding-top: 12px; padding-bottom: 12px; } .lr-ab-gold .lr-ab-gross { min-height: 54px; margin-top: 10px; } }
 .lr-koffer i.lr-k-hilfe { background: #FFF3C4; border-color: #E8B30E; } .lr-koffer i.lr-k-hilfe::before { border-color: #E8B30E; }
+
+/* ---------- FP (0.87.0): Landungs-Bonus, Hinweis bei 5 Sternen, Geschenk nach der Nachbuchung (Vorgabe „faire Punkte“) ---------- */
+.lr-ab-bonus { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; margin: 10px 0 0; padding: 10px 14px; border-radius: 16px;
+  border: 2px solid var(--ab-bonus-rand, #0E9F6E); background: var(--ab-blatt, #fff); color: var(--ab-btx, #0B3B52); }
+.lr-ab-direkt .lr-ab-bonus { --ab-bonus-rand: #E8B30E; } .lr-ab-sturm .lr-ab-bonus { --ab-bonus-rand: #7C5CD6; }
+.lr-ab-bonus.lr-ab-bonus-ohne { border-color: #E8B30E; background: #FFF6D6; color: #4A3300; }
+.lr-ab-bonus-stern { font-size: 22px; color: #E8B30E; }
+.lr-ab-bonus-text b { display: block; font-size: 15px; } .lr-ab-bonus-text small { display: block; font-size: 13px; opacity: .85; }
+.lr-ab-bonus-zahl { font-size: 22px; font-weight: 900; white-space: nowrap; color: #B88700; }
+.lr-ab-nacht .lr-ab-bonus:not(.lr-ab-bonus-ohne) .lr-ab-bonus-zahl { color: #FFD84D; }
+.lr-ab-bonus-funken i, .lr-fp-geschenk .lr-ab-bonus-funken i { position: absolute; color: #FFD84D; font-style: normal; font-size: 14px; opacity: 0; }
+.lr-ab-bonus-funken i:nth-child(1) { left: 8%; top: -8px; } .lr-ab-bonus-funken i:nth-child(2) { right: 30%; top: -10px; } .lr-ab-bonus-funken i:nth-child(3) { right: 6%; bottom: -8px; }
+@media (prefers-reduced-motion: no-preference) {
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-bonus { animation: lrBonusEin .5s ease-out both .5s; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-bonus-funken i { animation: lrFunkeKurz .8s ease-out both .9s; }
+  .lr-fp-geschenk .lr-ab-bonus-funken i { animation: lrFunkeKurz .8s ease-out both .2s; }
+}
+@keyframes lrBonusEin { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes lrFunkeKurz { 0% { opacity: 0; transform: scale(.4); } 40% { opacity: 1; } 100% { opacity: 0; transform: scale(1.2); } }
+@media (max-height: 680px) { .lr-ab-bonus-text small { display: none; } .lr-ab-bonus { padding: 6px 12px; margin-top: 6px; } }
+.lr-fp-hinweis { margin: 4px 0 0; font-size: 13px; }
+.lr-fp-geschenk { position: relative; border: 2px solid #E8B30E; background: #FFF6D6; color: #4A3300; display: flex; flex-direction: column; gap: 4px; }
+.lr-fp-geschenk p { margin: 0; } .lr-fp-geschenk .lr-knopf { align-self: flex-start; margin-top: 6px; }

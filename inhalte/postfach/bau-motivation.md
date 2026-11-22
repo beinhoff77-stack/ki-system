@@ -2,6 +2,27 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: 0.87.0 – faire Punkte (FP-App), Cache v160
+
+Auf `lernen-app` 55d8921 (mit FP-S und Vorgabe „faire Punkte“ des Gestalters). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, Nachbuchung nicht ausgeführt, kein Merge nach `main`.
+Bilder: `docs/previews/la/fp-landung-360.png` (Sturmflug + 40, 360 × 640), `fp-landung-1280.png`.
+
+**Gebaut nach `inhalte/pruefung/kind/faire-punkte/umsetzung.md`** (gilt vor dem Wortlaut im Auftrag)
+- **Sterne nach der Antwort (2):** aus `sterne` der Antwort, **abzüglich** `landung.bonus` und Ablegen-Sterne (die stehen in ihren Einblendungen) – also „+10“ bzw. „+5“. Hinweis darunter klein und grau: mit Tipp „Ganz ohne Tipp gibt es 10 ★.“, im 2. Versuch „Gleich beim ersten Mal gibt es 10 ★.“ (10 aus `regeln.sterne_uebung_richtig`), höchstens einmal je Etappe und Lerntag (Gerät, `localStorage`), keine Wörter wie „nur/leider/weniger“. Fehlt `sterne` (alter Server), bleibt die bisherige Anzeige. Die Rückmeldung heißt im Abflug-Design weiter „✓ An Bord · +5 Sterne“ (bisheriger Stil), nicht „Richtig! +5 ★“ – bei Wunsch angleichen.
+- **Landungs-Bonus (1):** eigene Kachel im Blatt aller drei Fassungen, unter der Sternzeile, über dem Knopf: „★ Landungs-Bonus · ohne Fehler gelandet · +80 ★“ (Gold-Rand, heller Gold-Grund, Funken) / „mit 1 Fehler gelandet“, „mit 2 Fehlern gelandet“ +40 / „gelandet – geschafft!“ +10 (Rand in der Fassungsfarbe). Beim Sturmflug nie eine Fehlerzahl. Kein „Direktflug“, kein Vergleich. Zahl zählt hoch, Kachel schiebt ein (≤ 0,8 s, abschaltbar, Antippen beendet). Unter 680 px Höhe fällt Zeile 2 weg; 360 × 640 ohne Scrollen (Test). Fehlt `landung.bonus`: keine Kachel. **Nicht gebaut:** das Fliegen von „+80“ zu einem Sterne-Zähler oben – die Etappen-Einblendung hat oben keinen Zähler.
+- **Geschenk nach der Nachbuchung (3):** aus `schule_konto.landung_nachbuchung` (oberste Ebene der Antwort, neben `konto`) eine schmale Gold-Karte über der Abflugtafel (und im bisherigen Design oben): „★ Geschenk für deine Landungen – Für deine bisherigen Landungen gibt es nachträglich +n ★ Landungs-Bonus.“ [Super ›]. „Super ›“ merkt sich das **auf dem Gerät** (je Kind und `am`) – der Server kennt kein „gesehen“; auf einem zweiten Gerät erscheint die Karte noch einmal. **Vorschlag an bau-lehrer:** Aktion zum Quittieren oder `gesehen_am` in `landung_nachbuchung`.
+- **Info-Seite (4):** neuer Eintrag „Sterne:“ mit dem Wortlaut der Vorgabe (10/5, Landungs-Bonus 80/40/10, Tipps keine Fehler, Tests/Wiederholungen/Mischkarten zählen nicht, Wiederholungen 10 selbst gelöst, Nachtrag vor dem 22.11., nie abgezogen); „Belohnungen:“ nennt nur noch Test, Ablegen, Knobeln, Ort.
+- **Offen beim Server:** Die Vorgabe sagt, „Flug geschafft“ solle den Bonus nicht noch einmal zählen – „Flug geschafft“ zeigt `sterne_flug.summe` vom Server; ob der Bonus darin steckt, entscheidet die Server-Summe.
+
+**Getestet:** lernen 163 von 163 (neu 4: Bonus-Kachel in allen Fassungen und Stufen, Sturmflug ohne Fehlerzahl, ohne `landung` keine Kachel, 360×640/400/820/1280; Serverwert +5 und Hinweis einmal je Etappe/Tag; Geschenk-Karte einmal, 360/820/1280; Info-Seite). Gesamtlauf sonst nur die bekannten Reise-Fehler. **Nicht geprüft:** echter Server (FP-S nicht eingespielt), echte Geräte.
+
+## 2026-11-22 – FERTIG: 0.86.3 – Nachtrag WD-S 4 (ChatGPT 921), Teil bau-motivation (Cache v159)
+
+Auf `lernen-app` d0e911e. Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.
+- **Keine frische Aufgabe (Sollte 2):** „Noch 3 Extra-Bordkarten?“ erscheint nur noch, wenn mehr fällig ist **und** der Server dafür wählbare Bordkarten liefert (`aufgaben[]` ohne `pflicht` bzw. nach der Runde überhaupt welche). Sonst steht ruhig „Heute keine passende frische Aufgabe – bleibt für später offen.“ – auf der Abflugtafel (beide Designs), nach „Eingecheckt!“ und auf `#/wiederholen/<kind>-extra`.
+- **Kein „für immer“ (Sollte 4):** Etappe abgelegt oben „ABGELEGT“, Siegel „★ ABGELEGT“ (statt „FÜR IMMER“), Flug abgelegt „ALLE ETAPPEN ABGELEGT“ und „Alle n Etappen von … sind abgelegt.“, Reisepass „alle Etappen abgelegt“, Satz „Gold heißt: Alle Etappen sind abgelegt.“ Die Vorgabe des Gestalters (`inhalte/pruefung/kind/abgelegt/`) nennt noch „FÜR IMMER“ – **bitte dort nachziehen** oder anderen Wortlaut liefern.
+- **0 Sterne bei Hilfe:** Wiederholung (Runde, Extra) und Mischkarte zeigen nur den Serverwert; bei `sterne: 0` (bzw. `wiederholung.sterne` 0) keine Sterne, der Zähler bleibt stehen (Test).
+**Getestet:** lernen 159 von 159 (neu 2), Gesamtlauf sonst nur die bekannten Reise-Fehler.
 ## 2026-11-22 – bau-lehrer – FERTIG: WD-S 4
 
 Auf „Nachtrag WD-S 4 – Rückläufer ChatGPT 921“, Teil „An bau-lehrer“ (ersetzt „FERTIG: WD-S 3 Test“). Nur Dateien, nichts eingespielt, kein DROP, kein DELETE.

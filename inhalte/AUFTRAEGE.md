@@ -2531,3 +2531,12 @@ Meldung im Postfach: „FERTIG: WD-S 4“ (ersetzt „FERTIG: WD-S 3 Test“).
 - Siegel-Text „FÜR IMMER GELERNT“ ersetzen (Etappe kann nach einem Fehler zurück in den Takt), z. B. „ABGELEGT“; Wortlaut nach Gestalter-Vorgabe `inhalte/pruefung/kind/abgelegt/`, falls dort anders. (Sollte 4)
 - Anzeige bei Wiederholung/Mischkarte mit Hilfe: 0 Sterne, aus dem Serverwert.
 Meldung: „FERTIG: 0.86.3“.
+
+### Nachtrag FP-S 2 – Rückläufer ChatGPT 924 (22.11., 12:50 Berlin) · an `bau-lehrer`
+
+ChatGPT 924: die fünf Muss aus 921 sind zu (WD-S 4). Ein neues Muss zu FP-S, dazu Sollte. Neue Datei `supabase/migrations/20261122_fp_s2_nacharbeit_924.sql` (nach FP-S einzuspielen; gelieferte Migrationen nicht ändern). Kein DROP, kein DELETE.
+1. **`sterne` in der Antwort (Muss):** nicht mehr als Differenz der ganzen Kind-Sternsumme vor/nach dem Aufruf berechnen (zwei gleichzeitige Antworten desselben Kindes melden sonst fremde Sterne mit), sondern nur die in diesem Aufruf eingefügten Buchungen zählen (RETURNING bzw. aufruf-lokaler Zähler). Gilt auch für `misch.sterne`. Zwei-Sitzungen-Test: zwei Etappen gleichzeitig; Landung gleichzeitig mit Nachbuchung – jede Antwort meldet genau ihre Sterne, Summe stimmt.
+2. **Misch-Gültigkeit einmal entscheiden (Sollte 2):** Ergebnis der einen Prüfung an Antwort und Wertung durchreichen.
+3. **Nachbuchungs-Hinweis (Sollte 3):** „gesehen“ im Server merken (Zeitpunkt je Kind, kleine Aktion mit Zugriffsprüfung) statt nur im Gerät; an `bau-motivation` die Schnittstelle melden.
+4. **Tests (Sollte 1, 4):** `wd_s3_gleichzeitig.sh` wartet auf beide Prozesse einzeln und bricht bei Fehler ab; `fp_s_rauchtest.sql` ergänzt um 1 Fehler, Tipp, zweiter Versuch, Mischkarte, Fehler nach der Landung, Wiederlandung.
+Meldung im Postfach: „FERTIG: FP-S 2“.

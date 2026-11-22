@@ -127,3 +127,6 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 
 ## 2026-11-22 – FERTIG: Vorgabe Unser Lehrplan (LW-1 bis LW-3)
 Sebastian: „das setzen wir so um“. Vorgabe: inhalte/pruefung/lehrer/werkstatt/umsetzung.md, Entwurf: werkstatt/entwurf/unser-lehrplan.html, Bilder: werkstatt/bilder/. LW-1 Seite + Reiter, LW-2 Ziehen/Warnungen/Farben, LW-3 Kinder-Umschalter, Überblick-Karten, Was wackelt als Arbeitsliste (braucht gespeicherten Status). Testkind, erfundene Daten.
+
+## 2026-11-22 – FERTIG: Vorgabe LK
+Vorgabe `inhalte/pruefung/lehrer/werkstatt/umsetzung.md` Abschnitt 12 (12.1 Karte je Klasse neu/weitergeführt mit Stand dieser Etappen, geteilte Themen „✈ Teil 2 · eig. Flug“; 12.2 Kennzeichen als Spannen; 12.3 Ringe nach Etappen der Klasse + Abdeckung nach Stunden; 12.4 Detail „Baut auf“/„Geht weiter in“/„Lage im Lehrplan“; 12.5 Meine Route 5–10 knapp; 12.6 Prüfpunkte). Entwurf mit Beispielwerten, Bilder `werkstatt/bilder/lk-*.png`. LW-1/2 nicht betroffen. Offen: Nachprüfung 0.87.0 – main steht noch auf 0.84.0, wartet auf „0.87.0 live“.

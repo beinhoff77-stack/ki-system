@@ -108,5 +108,41 @@ Ruhige Sandfläche, weiße Karten mit 3-px-Stufenstrich links, nur eine Akzentfa
 2. **LW-2:** Ziehen aus der Matrix und zurück (4a), Reihenfolge-Warnungen mit Reparieren-Knopf (4a), „Alle fehlenden einplanen“, Detail mit Etappen-Stand, Farben nach Abschnitt 3.
 3. **LW-3:** Kinder-Umschalter im Kopf (1a), Überblick-Karten mit Sprüngen, Was wackelt als Arbeitsliste mit gespeichertem Status.
 
+## 12 LK – ein Thema in mehreren Klassen (Vorgabe LK-G, 22.11.)
+Grundlage: Bau-Auftrag LK mit den Nachträgen „vorhandener Lernstand“ und „Route: zweiter Teil fliegt ins Nachbarland“. Daten kommen aus LK-S (`schule_lehrplan_matrix`/`_thema`: Klassen je Thema mit Rolle, Etappen, Stunden; `baut_auf`, `weiter_in`; Abdeckung je Klasse). **Im Entwurf sind Lage und Stunden Beispielwerte** (Terme umformen, Lineare Gleichungen, Lineare Funktionen, Bruchterme), bis LK-D/LK-S liefern. Bilder: `bilder/lk-*.png`. Fehlen die neuen Felder, bleibt die Anzeige aus LW-1/2 (eine Karte je Thema) – **LW-1/2 warten nicht auf LK.**
+
+**12.1 Karte je Klasse**
+- Das Thema steht in **jeder Klassenzeile, in der der Lehrplan es verlangt** (gewählte Schulart, bei RS der Zweig des Kindes).
+- **Erste Klasse („neu“):** normale Karte wie bisher. Stand = Etappen dieser Klasse.
+- **Spätere Klasse („weitergeführt“):** schmalere Karte unter den neuen Themen der Zelle, Kopfzeile „↪ weitergeführt“, Titel, „neu in Kl. 8: Äquivalente Terme +1“ (erste neue Etappe, Rest als Zahl; alle im Tooltip/Detail). Stand nur für **diese** Etappen: „2/3 neue Etappen“, „✓ dieser Teil erledigt“. Antippen öffnet **dasselbe Detail**.
+- Farben wie Abschnitt 3, je Karte nach ihrem Teil: ist das Thema gerade dran und die aktuelle Etappe liegt in diesem Teil → blau; liegt sie in einem anderen Teil → hellgelb „danach“. Nicht im Plan, nichts gelandet → weiß, Rand gestrichelt.
+- **Fertig bleibt fertig:** Thema „kann er“/„Wiederholung“ oder abgeschlossener Flug → in **allen** Zeilen ✓ bzw. ↻ (Nachtrag Lernstand 1–3). Nichts wird doppelt gezählt, Sterne/Stempel je Thema bzw. je Flug unverändert.
+- **Geteiltes Thema (≥ 3 eigene Etappen in der späteren Klasse, Nachtrag Route):** Kopfzeile „✈ Teil 2 · eig. Flug“ statt „↪ weitergeführt“. Nach dem echten Teilen (eigene Themen-Nummer) wird daraus eine normale „neu“-Karte mit Titel von `lehrplan-lb`; bis dahin nur Kennzeichen. Bei 1–2 Etappen bleibt es „weitergeführt“, ein Flug.
+- Fahrplan: ein Platz je Thema (bzw. je Flug nach dem Teilen), Nummer erscheint auf allen Karten des Themas.
+
+**12.2 Kennzeichen**
+- Statt `Gym 8 · RS 7 · IB 4`: je Schulart alle Klassen als Spanne `Gym 8–9 · RS 7–8 · IB 3` (Lücke: `Gym 7, 9`). Gewählte Schulart dunkel, andere hell, nicht verlangt durchgestrichen wie bisher. Kein Zeilenumbruch in einem Kennzeichen.
+
+**12.3 Klassen-Kopf**
+- Ring und „x/y Themen“ rechnen mit den Etappen, die **in dieser Klasse** verlangt werden (Teil zählt als fertig, wenn alle seine Etappen gelandet/gesetzt sind).
+- Neu darunter: **Lehrplan-Abdeckung** „104/112 Std. mit Inhalt“ mit dünnem Balken (Stunden der Lernbereiche, deren Punkte ein Thema haben, aus `lehrplan_abdeckung`; IB ohne Stunden → Punkte „14/16 Punkte“). Nur Eltern/Lehrer, nie Kinderseite. Tooltip erklärt die Zahl.
+
+**12.4 Detail**
+- Etappenliste nach Klassen gegliedert: „KL. 8 · NEU“, „KL. 9 · WEITERGEFÜHRT“ bzw. „KL. 9 · TEIL 2 · EIGENER FLUG“, je Etappe Stand wie bisher.
+- **„Baut auf“** (ersetzt „Braucht vorher“): Voraussetzungen mit Klasse in der gewählten Schulart („Lineare Gleichungen · Kl. 7“), Stand ✓ / Platz / fehlt, empfohlene mit „· empfohlen“; antippbar.
+- **„Geht weiter in“** (ersetzt „Darauf baut auf“): zuerst die späteren Klassen **dieses** Themas mit ihren neuen Etappen (bei Teilung „✈ eigener Flug“), dann Themen, die darauf aufbauen, mit Klasse.
+- **„Lage im Lehrplan“**: je Schulart „Kl. 8 neu (7 Et.) → Kl. 9 weitergeführt (4 Et.)“ oder „kein Pflichtstoff“ (LK-D 3d).
+- Warnung beim Einplanen wie 4a; harte Voraussetzungen kommen aus `baut_auf`. Neu: Warnung auch, wenn die Voraussetzung **in einer späteren Klasse** liegt als das Thema (Aufbau-Verstoß aus LK-D 3a) – Text „⚠ laut Lehrplan erst Kl. 9“, kein Knopf.
+
+**12.5 Kinderseite „Meine Route 5–10“ (knapp)**
+- Gleiche Regel: Thema erscheint in jeder Klasse; spätere Klasse als kleine Zeile „↪ geht weiter: 2 neue Etappen“ mit Stand dieser Etappen. Geschaffte Flüge bleiben in allen Klassen mit Stempel/✓.
+- Geteilte Themen erscheinen als **zwei Flüge** (Teil 2 = Nachbarland, Name aus `reise-aufbau`). Keine Stunden, keine Abdeckung, kein „weitergeführt“-Fachwort: Kindertext „geht weiter“.
+
+**12.6 Prüfen nach LK-App**
+- Ein Thema in zwei Klassen erscheint in beiden; Stand der zweiten Karte = nur ihre Etappen; Kind mit allen Etappen sieht beide fertig.
+- Ring Kl. 8 ändert sich nur durch verlangte Etappen, nicht durch doppelte Zählung; Summe Etappen je Thema über alle Klassen = Etappen des Themas.
+- Kennzeichen-Spannen gegen `lk_daten_2211.json`; Abdeckung RS 8 I Lernbereich 4 = 40 Std.
+- Ohne neue Felder: Anzeige wie LW-2.
+
 ## Prüfen nach dem Bau
 400/820/1280; keine Funktion aus „Plan“ verloren (Auswählen, Sammelaktion, Rückgängig, Konflikt „Neu laden“, Wieder in die Wiederholung); Stand-Zahlen gleich wie in der Matrix unter Nachschlagen; Testkind und erfundene Daten.

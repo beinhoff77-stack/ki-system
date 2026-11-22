@@ -15,6 +15,11 @@ font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 .kopf{display:flex;align-items:center;gap:10px;padding:10px 16px 0;background:var(--karte);border-bottom:1px solid var(--linie)}
 .kopf .zur{width:32px;height:32px;border-radius:10px;border:1px solid var(--linie);display:grid;place-items:center;background:#fff}
 .kopf .name{font-weight:800;font-size:17px}.kopf .name small{font-weight:500;color:var(--leise);font-size:12.5px;margin-left:6px}
+.sch b{white-space:nowrap}.ch .m{flex-wrap:wrap}.ch.wf{padding-top:5px;min-height:0}.ch.wf .wk1{display:block;font-size:10px;font-weight:800;letter-spacing:.02em;color:#6B5E3A;text-transform:none}.ch.wf .t{font-size:12px}.ch.wf .wneu{display:block;font-size:10.5px;color:#6B726E;line-height:1.25;margin:1px 0 2px}
+.ch.wf.raus{border-style:dashed}
+.abd{display:block;margin-top:6px;font-size:9.5px;color:var(--leise);line-height:1.2}.abd i{display:block;height:3px;border-radius:2px;background:#9AA59F;margin-bottom:2px;max-width:60px}.abd b{color:#4A5550}
+.etk{font-size:10.5px;font-weight:800;color:var(--leise);letter-spacing:.04em;margin:8px 0 2px;text-transform:uppercase}
+.zus{font-size:12.5px;display:flex;flex-wrap:wrap;gap:4px}.zus .gw{flex-basis:100%;padding:4px 0}.zus small{color:var(--leise);font-weight:500}.flug2{background:#E8F0FB;color:#1F5FA8;border-radius:6px;padding:1px 6px;font-size:11px;font-weight:700}
 .kw{display:flex;align-items:center;gap:4px;background:#F3EFE6;border-radius:12px;padding:3px}
 .kw button{border:0;background:transparent;border-radius:9px;padding:5px 10px;display:flex;align-items:center;gap:7px;font-weight:700;font-size:13.5px;color:var(--leise);cursor:pointer}
 .kw button i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#E2DCCD;color:#4A5550;font-size:11.5px}
@@ -172,6 +177,21 @@ const KIDS=[{n:'Kind A',sa:'rs',kl:6,kls:[6,7,8],plan:planA,stufe:stufeA,begonne
 let kid=1;
 function kidWechsel(i){const a=KIDS[kid];a.plan=plan;a.stufe=JSON.parse(JSON.stringify(stufe));a.begonnen=begonnen;a.dranEt=dranEt;a.kls=[...kls];
  kid=(i+KIDS.length)%KIDS.length;const b=KIDS[kid];plan=b.plan;Object.keys(stufe).forEach(k=>delete stufe[k]);Object.assign(stufe,JSON.parse(JSON.stringify(b.stufe)));begonnen=b.begonnen;dranEt=b.dranEt;sa=b.sa;kls=new Set(b.kls);sel=null;undo=null;undoText='';gew.clear();render.einmal=0}
+
+// --- LK: Thema in mehreren Klassen (BEISPIEL bis LK-D/LK-S liefern: Anzahl Etappen je Klasse, in Reihenfolge)
+const DEMO={'Terme umformen':{gym:[[7,6],[8,2]],rs:[[7,5],[8,3]]},'Lineare Gleichungen':{gym:[[7,4],[8,2]],rs:[[7,4],[8,2]]},'Lineare Funktionen':{gym:[[8,7],[9,4]],rs:[[8,6],[9,5]]},'Bruchterme':{gym:[[8,5],[9,2]]}};
+function lage(x,schule){const d=DEMO[x.t]&&DEMO[x.t][schule];if(d){let a=0;return d.map(([k,n],i)=>{const idx=[...Array(n).keys()].map(j=>j+a);a+=n;return{k,idx,rolle:i?'weiter':'neu',teil:i+1}})}
+ const k=schule==='ib'?(x.ib?x.ib+5:null):x.k[schule];return k?[{k,idx:x.e.map((_,i)=>i),rolle:'neu',teil:1}]:[]}
+function teile(x){const l=lage(x,sa);if(l.length)return l;const k=kl(x);return k?[{k,idx:x.e.map((_,i)=>i),rolle:'neu',teil:1}]:[]}
+const hatK=(x,k)=>teile(x).some(t=>t.k===k);
+const teilIn=(x,k)=>teile(x).find(t=>t.k===k);
+const geteilt=t=>t.rolle==='weiter'&&t.idx.length>=3;
+function teilStand(x,t){const n=etGel(x),s=st(x),gel=t.idx.filter(i=>i<n).length,len=t.idx.length;
+ if(s==='kann'||s==='wdh')return{c:s,txt:s==='kann'?'✓ fertig':`↻ Wdh ${(stufe[x.id]||{}).n}/5`};
+ if(gel===len)return{c:'kann',txt:'✓ dieser Teil erledigt'};
+ if(s==='dran'){if(t.idx.includes(dranEt-1))return{c:'dran',txt:`▶ ${gel+1}. von ${len} neuen Etappen`};return{c:'offen',txt:`danach · ${gel}/${len} Etappen`}}
+ if(s==='offen')return{c:'offen',txt:t.rolle==='neu'?`Platz ${imPlan(x.id)+1}`:`Platz ${imPlan(x.id)+1} · ${gel}/${len} neu`};
+ return{c:'raus',txt:gel?`${gel}/${len} ${t.rolle==='neu'?'Etappen':'neue Etappen'}`:'+ einplanen'}}
 const KL_NAME={gym:'Gymnasium',rs:'Realschule',ib:'IB'};
 function wackelListe(){const out=[];const dr=BY[plan[0]];if(dr)out.push({id:dr.id,et:dr.e[Math.max(0,dranEt-1)],f:3,a:'besprechen',w:'heute'});
  const beg=Object.keys(begonnen)[0];if(beg){const x=BY[beg];out.push({id:x.id,et:x.e[begonnen[beg]-1],f:2,a:'besprechen',w:'vor 2 Tagen'})}
@@ -179,24 +199,29 @@ function wackelListe(){const out=[];const dr=BY[plan[0]];if(dr)out.push({id:dr.i
 let wStatus={};
 
 function st(x){const p=imPlan(x.id);if(p===0)return'dran';if(p>0)return'offen';const s=stufe[x.id];return s?s.s:'raus'}
-const fertig=k=>{const l=D.filter(x=>kl(x)===k&&sichtbar(x)&&!x.s);return l.length&&l.every(x=>{const z=st(x);return z==='kann'||z==='wdh'})&&zeigen==='alle'&&!q};
+const fertig=k=>{const l=D.filter(x=>hatK(x,k)&&sichtbar(x)&&!x.s);return l.length&&l.every(x=>{const z=st(x);return z==='kann'||z==='wdh'})&&zeigen==='alle'&&!q};
 const kl=x=>x.k[sa]||x.k.gym||x.k.rs||(x.ib?x.ib+5:null);
 function sichtbar(x){return !x.s}
 function passt(x){if(zeigen==='fehlt')return imPlan(x.id)<0&&!stufe[x.id];if(zeigen==='plan')return imPlan(x.id)>=0;return true}
 function fehlt(x){return !x.s&&imPlan(x.id)<0&&!stufe[x.id]&&kls.has(kl(x))}
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function schB(x,cls){const p=(s,v)=>{const ref=s===sa;const lab=breite<1100&&cls!=='sch d'?{gym:'G',rs:'R',ib:'I'}[s]:SA[s]+' ';return `<b class="${ref&&v?'r':''}${!v&&ref?'rx':''}${!v&&!ref?'x':''}">${lab}${v?v:(ref?'–':'')}</b>`};return `<span class="${cls||'sch'}">${p('gym',x.k.gym)}${p('rs',x.k.rs)}${p('ib',x.ib)}</span>`}
+function schB(x,cls){const p=s=>{const ref=s===sa;const ks=lage(x,s).map(t=>t.k);const v=ks.length?(s==='ib'?ks.map(k=>k-5):ks):[];const txt=v.length?(v.length>1?v[0]+'–'+v[v.length-1]:v[0]):'';const lab=breite<1100&&cls!=='sch d'?{gym:'G',rs:'R',ib:'I'}[s]:SA[s]+' ';return `<b class="${ref&&txt?'r':''}${!txt&&ref?'rx':''}${!txt&&!ref?'x':''}">${lab}${txt||(ref?'–':'')}</b>`};return `<span class="${cls||'sch'}">${p('gym')}${p('rs')}${p('ib')}</span>`}
 function stText(x){const s=st(x),y=stufe[x.id]||{};if(s==='dran')return`▶ Etappe ${dranEt}/${x.e.length}`;if(s==='offen')return`Platz ${imPlan(x.id)+1}`;if(s==='kann')return y.gesetzt?'✓ gesetzt':'✓ fertig';if(s==='wdh')return`↻ Wdh ${y.n}/5`;if(begonnen[x.id])return`${begonnen[x.id]-1}/${x.e.length} Etappen`;return'+ einplanen'}
 function chip(x){const s=st(x),p=imPlan(x.id);const fremd=!(sa==='ib'?x.ib:x.k[sa]);
  const cls=['ch',s,fremd?'fremd':'',x.s?'aufg':'',sel===x.id?'sel':'',gew.has(x.id)?'gew':'',!passt(x)?'blass':'',q&&!(x.t+' '+x.u).toLowerCase().includes(q)?'blass':''].join(' ');
  return `<button class="${cls}" data-id="${x.id}" draggable="${breite>=760}">${p>=0?`<span class="pl">${p+1}</span>`:(x.s?'':'<span class="pl plus">+</span>')}<span class="cb">✓</span><span class="t">${esc(x.t)}</span><span class="m"><span class="st">${x.s?'aufgelöst':stText(x)}</span>${schB(x)}</span></button>`}
+function chipW(x,t){const z=teilStand(x,t),p=imPlan(x.id);const neu=t.idx.map(i=>x.e[i]);
+ const cls=['ch','wf',z.c,sel===x.id?'sel':'',gew.has(x.id)?'gew':'',!passt(x)?'blass':'',q&&!(x.t+' '+x.u).toLowerCase().includes(q)?'blass':''].join(' ');
+ return `<button class="${cls}" data-id="${x.id}" draggable="${breite>=760}" title="${esc(x.t)} – neu in Kl. ${t.k}: ${esc(neu.join(', '))}">${p>=0?`<span class="pl">${p+1}</span>`:''}<span class="wk1">${geteilt(t)?'✈ Teil 2 · eig. Flug':'↪ weitergeführt'}</span><span class="t">${esc(x.t)}</span><span class="wneu">neu in Kl. ${t.k}: ${esc(neu[0])}${neu.length>1?` +${neu.length-1}`:''}</span><span class="m"><span class="st">${z.txt}</span></span></button>`}
 function etGel(x){const n=x.e.length,s=st(x);if(s==='kann'||s==='wdh')return n;if(s==='dran')return dranEt-1;return begonnen[x.id]?begonnen[x.id]-1:0}
-function themen(k,schule){return D.filter(x=>!x.s&&(schule==='ib'?x.ib===k-5:x.k[schule]===k))}
-function ringSvg(k,schule,gr){const l=themen(k,schule);if(!l.length)return '';const E=l.reduce((a,x)=>a+x.e.length,0);let g=0,w=0,d=0;l.forEach(x=>{const n=etGel(x),s=st(x);if(s==='kann')g+=n;else if(s==='wdh')w+=n;else d+=n});
+function themen(k,schule){return D.filter(x=>!x.s&&lage(x,schule).some(t=>t.k===k))}
+function ringSvg(k,schule,gr){const l=themen(k,schule);if(!l.length)return '';const T=x=>lage(x,schule).find(t=>t.k===k);const E=l.reduce((a,x)=>a+T(x).idx.length,0);let g=0,w=0,d=0;l.forEach(x=>{const n0=etGel(x),n=T(x).idx.filter(i=>i<n0).length,s=st(x);if(s==='kann')g+=n;else if(s==='wdh')w+=n;else d+=n});
  const r=gr?15:9,sw=gr?6:4,c=gr?20:12,U=2*Math.PI*r;let a=0;const seg=(v,f)=>{if(!v)return'';const len=v/E*U;const o=`<circle r="${r}" cx="${c}" cy="${c}" fill="none" stroke="${f}" stroke-width="${sw}" stroke-dasharray="${len} ${U-len}" stroke-dashoffset="${-a}" transform="rotate(-90 ${c} ${c})"/>`;a+=len;return o};
- const pz=Math.round((g+w+d)/E*100),tf=l.filter(x=>{const s=st(x);return s==='kann'||s==='wdh'}).length;
+ const pz=Math.round((g+w+d)/E*100),tf=l.filter(x=>{const s=st(x);return s==='kann'||s==='wdh'||T(x).idx.every(i=>i<etGel(x))}).length;
  const lab=schule==='ib'?'MYP '+(k-5):SA[schule]+' '+k;
  return `<span class="rg ${gr?'gr':''}" title="${lab}: ${g+w+d} von ${E} Etappen gelandet · ${tf}/${l.length} Themen fertig"><svg width="${2*c}" height="${2*c}"><circle r="${r}" cx="${c}" cy="${c}" fill="none" stroke="#E6E1D4" stroke-width="${sw}"/>${seg(g,'#2E7D32')}${seg(w,'#8BC34A')}${seg(d,'#1F5FA8')}${gr?`<text x="${c}" y="${c+4}" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1E2A26">${pz}%</text>`:''}</svg>${gr?`<span class="kn">${tf}/${l.length} Themen</span>`:`<span class="rl"><b>${lab}</b> ${pz}%</span>`}</span>`}
+const STD={gym:{5:140,6:140,7:112,8:112,9:112,10:112},rs:{5:140,6:140,7:112,8:112,9:112,10:112},ib:{6:120,7:120,8:120,9:120,10:120}};
+function abd(k){const y=(STD[sa]||{})[k];if(!y)return'';const z=y-((k*7+(sa.length*3))%19);return `<span class="abd" title="Lehrplan-Abdeckung (Beispielzahl bis LK-S): Stunden, deren Lehrplan-Punkte ein Thema haben"><i style="width:${Math.round(z/y*100)}%"></i><b>${z}/${y} Std.</b> mit Inhalt</span>`}
 function ring(k){const andere=['gym','rs','ib'].filter(s=>s!==sa);return ringSvg(k,sa,true)+`<span class="rk2">${andere.map(s=>ringSvg(k,s,false)).join('')}</span>`}
 function kopf(){const k=KIDS[kid];const zb=wackelListe().filter(w=>(wStatus[kid+'-'+w.id]||w.a)==='besprechen').length;
  const reiter=`<nav class="reiter"${breite<760?' style="width:100%;margin:0;justify-content:space-around"':''}>${[['ueb','Überblick'],['wack','Was wackelt'+(zb?` <b class="zb">${zb}</b>`:'')],['lp','Lehrplan']].map(([v,t])=>`<a data-seite="${v}" class="${seite===v?'an':''}">${t}</a>`).join('')}</nav>`;
@@ -222,30 +247,31 @@ function rail(){const fz=plan.map((id,i)=>{const x=BY[id];const vor=(VOR[id]||[]
  <div class="rsek">AUSSERHALB DES FAHRPLANS</div><div class="zu">↻ In Wiederholung <span>${nw} ›</span></div><div class="zu">✓ Fertig (kann er) <span>${nk} ›</span></div></div></aside>`}
 function matrix(){const KL=[5,6,7,8,9,10].filter(k=>kls.has(k));const gebs=GEB.filter(([g])=>D.some(x=>x.g===g&&sichtbar(x)));
  let h=`<div class="mx" style="grid-template-columns:78px repeat(${gebs.length},minmax(${breite>=1100?118:96}px,1fr))"><div class="ecke"></div>`+gebs.map(([g,i])=>`<div class="gh"><span class="gi">${i}</span>${esc(g)}</div>`).join('');
- for(const k of KL){if(fertig(k)&&!auf.has(k)){const l=D.filter(x=>kl(x)===k&&sichtbar(x)&&!x.s);const nw=l.filter(x=>st(x)==='wdh').length;h+=`<button class="zu-reihe" data-a="kl-auf" data-k="${k}" style="grid-column:1/-1"><span class="kb" style="background:${FARBE[k]}">${SA[sa]} Kl. ${k}</span><span>✓ Alles gekonnt · ${l.length} Themen${nw?` · davon ${nw} in Wiederholung`:''}</span><span class="leise">aufklappen ▾</span></button>`;continue}
-  h+=`<div class="kz"><span class="kb" style="background:${FARBE[k]}"><small>${sa==='ib'?'MYP':SA[sa]}</small>${sa==='ib'?k-5:'Kl. '+k}</span>${ring(k)}${fertig(k)?`<button class="klzu" data-a="kl-zu" data-k="${k}">einklappen</button>`:''}</div>`;
-  for(const [g] of gebs){const l=D.filter(x=>x.g===g&&kl(x)===k&&sichtbar(x)).sort((a,b)=>((a.r[sa]??999)-(b.r[sa]??999)));h+=`<div class="zel">${l.map(chip).join('')}</div>`}}
+ for(const k of KL){if(fertig(k)&&!auf.has(k)){const l=D.filter(x=>hatK(x,k)&&sichtbar(x)&&!x.s);const nw=l.filter(x=>st(x)==='wdh').length;h+=`<button class="zu-reihe" data-a="kl-auf" data-k="${k}" style="grid-column:1/-1"><span class="kb" style="background:${FARBE[k]}">${SA[sa]} Kl. ${k}</span><span>✓ Alles gekonnt · ${l.length} Themen${nw?` · davon ${nw} in Wiederholung`:''}</span><span class="leise">aufklappen ▾</span></button>`;continue}
+  h+=`<div class="kz"><span class="kb" style="background:${FARBE[k]}"><small>${sa==='ib'?'MYP':SA[sa]}</small>${sa==='ib'?k-5:'Kl. '+k}</span>${ring(k)}${abd(k)}${fertig(k)?`<button class="klzu" data-a="kl-zu" data-k="${k}">einklappen</button>`:''}</div>`;
+  for(const [g] of gebs){const l=D.filter(x=>x.g===g&&hatK(x,k)&&sichtbar(x)).sort((a,b)=>(teilIn(a,k).rolle==='neu'?0:1)-(teilIn(b,k).rolle==='neu'?0:1)||((a.r[sa]??999)-(b.r[sa]??999)));h+=`<div class="zel">${l.map(x=>{const t=teilIn(x,k);return t.rolle==='neu'?chip(x):chipW(x,t)}).join('')}</div>`}}
  return `<div class="mw ${waehlen?'waehlen':''}" id="mw">${h}</div></div>`}
 function handy(){if(htab==='fahr')return `<div style="flex:1;overflow:auto">${rail().replace('<aside class="rail">','<aside class="rail" style="width:100%;border:0">')}</div>`;
- return `<div class="mw ${waehlen?'waehlen':''}"><div class="hliste">`+[5,6,7,8,9,10].filter(k=>kls.has(k)).map(k=>{const gr=GEB.map(([g])=>[g,D.filter(x=>x.g===g&&kl(x)===k&&sichtbar(x))]).filter(([,l])=>l.length);if(!gr.length)return'';if(fertig(k)&&!auf.has(k)){const n=gr.reduce((a,[,l])=>a+l.length,0);return `<button class="zu-reihe" data-a="kl-auf" data-k="${k}" style="width:100%;margin-bottom:10px"><span class="kb" style="background:${FARBE[k]}">${SA[sa]} Kl. ${k}</span><span>✓ Alles gekonnt · ${n}</span><span class="leise">▾</span></button>`}
-  return `<section class="hk"><div class="hkk"><span class="kb" style="background:${FARBE[k]};color:#fff;font-weight:800;border-radius:8px;padding:3px 8px">${SA[sa]} Kl. ${k}</span><span style="margin-left:auto;display:flex;align-items:center;gap:6px" class="kz">${ring(k)}</span></div>`+gr.map(([g,l])=>`<div class="grp"><b>${esc(g)}</b>${l.map(chip).join('')}</div>`).join('')+'</section>'}).join('')+'</div></div>'}
+ return `<div class="mw ${waehlen?'waehlen':''}"><div class="hliste">`+[5,6,7,8,9,10].filter(k=>kls.has(k)).map(k=>{const gr=GEB.map(([g])=>[g,D.filter(x=>x.g===g&&hatK(x,k)&&sichtbar(x))]).filter(([,l])=>l.length);if(!gr.length)return'';if(fertig(k)&&!auf.has(k)){const n=gr.reduce((a,[,l])=>a+l.length,0);return `<button class="zu-reihe" data-a="kl-auf" data-k="${k}" style="width:100%;margin-bottom:10px"><span class="kb" style="background:${FARBE[k]}">${SA[sa]} Kl. ${k}</span><span>✓ Alles gekonnt · ${n}</span><span class="leise">▾</span></button>`}
+  return `<section class="hk"><div class="hkk"><span class="kb" style="background:${FARBE[k]};color:#fff;font-weight:800;border-radius:8px;padding:3px 8px">${SA[sa]} Kl. ${k}</span><span style="margin-left:auto;display:flex;align-items:center;gap:6px" class="kz">${ring(k)}</span></div>`+gr.map(([g,l])=>`<div class="grp"><b>${esc(g)}</b>${l.map(x=>{const t=teilIn(x,k);return t.rolle==='neu'?chip(x):chipW(x,t)}).join('')}</div>`).join('')+'</section>'}).join('')+'</div></div>'}
 function detail(){const x=BY[sel];if(!x)return '<aside class="drawer" id="drawer"></aside>';const s=st(x),y=stufe[x.id]||{},p=imPlan(x.id);
  const pill={dran:['var(--dranbg)','#8A5E00','▶ gerade dran · Platz 1'],offen:['var(--blaubg)','var(--blau)',`○ im Plan · Platz ${p+1}`],kann:['var(--kannbg)','var(--kann)',y.gesetzt?'◉ kann er (gesetzt)':'◉ kann er'],wdh:['var(--wdhbg)','#4E7D24',`↻ in Wiederholung · Wdh ${y.n} von 5 · nächste in ${y.in} Lerntagen`],raus:['#F1EEE6','var(--leise)','+ nicht im Plan']}[s];
  const et=x.e.map((t,i)=>{let d,r;if(s==='kann'||s==='wdh'){d=s==='kann'?'g':'w';r=s==='kann'?'sicher':'gelandet · Wdh'}else if(s==='dran'){d=i<dranEt-1?'g':i===dranEt-1?'d':'';r=i<dranEt-1?'gelandet':i===dranEt-1?'gerade dran · 4 von 6':'offen'}else if(begonnen[x.id]&&i<begonnen[x.id]){d=i===begonnen[x.id]-1?'f':'g';r=i===begonnen[x.id]-1?'begonnen · 2 Fehler':'gelandet'}else{d='';r='offen'}
-  return `<div class="et"><span class="dot ${d}"></span><span>${esc(t)}</span><span class="r">${r}</span></div>`}).join('');
+  const tl=teile(x),tt=tl.find(z=>z.idx.includes(i));const kopfz=tl.length>1&&tt&&tt.idx[0]===i?`<div class="etk">Kl. ${tt.k} · ${tt.rolle==='neu'?'neu':geteilt(tt)?'Teil 2 · eigener Flug':'weitergeführt'}</div>`:'';return kopfz+`<div class="et"><span class="dot ${d}"></span><span>${esc(t)}</span><span class="r">${r}</span></div>`}).join('');
  const segAn=s==='kann'?2:s==='wdh'?1:(s==='dran'||s==='offen')?0:-1;
  const vor=(VOR[x.id]||[]),nach=(NACH[x.id]||[]);
  const stv=id=>{const z=st(BY[id]);return z==='kann'||z==='wdh'?'<span class="ok">✓</span>':z==='dran'||z==='offen'?`<span style="color:var(--blau)">${imPlan(id)+1}</span>`:'<span class="no">fehlt</span>'};
  return `<aside class="drawer auf" id="drawer"><div class="dkopf"><button class="x" data-a="zu" aria-label="Schließen">✕</button><h2>${esc(x.t)}</h2><div class="sub">${esc(x.g)}</div>${schB(x,'sch d')}</div><div class="dinh">
- <div class="dh">STAND VON KIND B</div><span class="stpill" style="background:${pill[0]};color:${pill[1]}">${pill[2]}</span>
+ <div class="dh">STAND VON ${KIDS[kid].n.toUpperCase()}</div><span class="stpill" style="background:${pill[0]};color:${pill[1]}">${pill[2]}</span>
  <div style="margin-top:8px">${et}</div>
  <div class="dh">PLANEN</div>
  ${p>=0?`<div class="tlb"><button data-a="ganzvor">Als Nächstes</button><button data-a="nachhinten">Ans Ende</button><button data-a="raus" style="color:var(--rot)">Aus dem Plan</button></div>`:
  `<div class="split"><button data-a="naechstes">In den Plan: als Nächstes</button><button data-a="menu" aria-label="weitere">▾</button></div><div class="menu" id="menu"><button data-a="ende">… ans Ende</button><button data-a="nachlehrplan">… nach Lehrplan-Reihenfolge einsortieren</button></div>`}
  <div class="dh">STUFE SETZEN</div><div class="sseg">${[['lernen','Lernen'],['wdh','Kann er – wiederholen'],['kann','Kann er komplett']].map(([v,t],i)=>`<button data-stufe="${v}" class="${segAn===i?'an':''}">${t}</button>`).join('')}</div>
  <div class="dh">LEHRSTOFF</div><p style="margin:0 0 8px;color:var(--leise);font-size:12.5px">${esc(x.u)}</p><div class="tlb"><button>Inhalte ansehen (${x.e.length} Etappen) ›</button>${begonnen[x.id]?'<button>Fehler besprechen (2) ›</button>':''}</div>
- <div class="dh">ZUSAMMENHANG</div><div style="font-size:12.5px">Braucht vorher: ${vor.length?vor.map(e=>`<span class="mini" data-id="${e.id}">${stv(e.id)} ${esc(BY[e.id].t)}</span>`).join(''):'<span style="color:var(--leise)">nichts</span>'}</div>
- <div style="font-size:12.5px;margin-top:4px">Darauf baut auf: ${nach.length?nach.slice(0,5).map(e=>`<span class="mini" data-id="${e.id}">${esc(BY[e.id].t)}</span>`).join(''):'<span style="color:var(--leise)">–</span>'}</div>
+ <div class="dh">BAUT AUF</div><div class="zus">${vor.length?vor.map(e=>{const v=BY[e.id],k=teile(v)[0];return `<span class="mini" data-id="${e.id}">${stv(e.id)} ${esc(v.t)}<small>${k?' · Kl. '+k.k:' · andere Schule'}${e.art==='h'?'':' · empfohlen'}</small></span>`}).join(''):'<span style="color:var(--leise)">nichts</span>'}</div>
+ <div class="dh">GEHT WEITER IN</div><div class="zus">${teile(x).slice(1).map(t=>`<div class="gw"><b>Kl. ${t.k}</b> ${geteilt(t)?'<span class="flug2">✈ eigener Flug</span>':''} neu: ${esc(t.idx.map(i=>x.e[i]).join(', '))}</div>`).join('')}${nach.length?nach.slice(0,6).map(e=>{const v=BY[e.id],k=teile(v)[0];return `<span class="mini" data-id="${e.id}">${esc(v.t)}<small>${k?' · Kl. '+k.k:''}</small></span>`}).join(''):''}${!nach.length&&teile(x).length<2?'<span style="color:var(--leise)">–</span>':''}</div>
+ <div class="dh">LAGE IM LEHRPLAN</div><div class="zus" style="font-size:12px">${['gym','rs','ib'].map(sc=>{const l=lage(x,sc);return `<div><b>${{gym:'Gymnasium',rs:'Realschule',ib:'IB MYP'}[sc]}:</b> ${l.length?l.map(t=>`${sc==='ib'?'MYP '+(t.k-5):'Kl. '+t.k} ${t.rolle==='neu'?'neu':'weitergeführt'} (${t.idx.length} Et.)`).join(' → '):'kein Pflichtstoff'}</div>`}).join('')}</div>
  </div></aside>`}
 let toastT=null;
 function konflikt(id){const i=imPlan(id);if(i<0)return null;const v=(VOR[id]||[]).find(e=>e.art==='h'&&imPlan(e.id)>i);if(v)return{art:'vor',id:v.id,txt:`⚠ „${BY[id].t}“ baut auf „${BY[v.id].t}“ auf – das kommt erst auf Platz ${imPlan(v.id)+1}`};const n=(NACH[id]||[]).find(e=>e.art==='h'&&imPlan(e.id)>=0&&imPlan(e.id)<i);if(n)return{art:'nach',id:n.id,txt:`⚠ „${BY[n.id].t}“ baut hierauf auf und steht schon auf Platz ${imPlan(n.id)+1}`};const l=(VOR[id]||[]).find(e=>e.art==='h'&&BY[e.id]&&!BY[e.id].s&&st(BY[e.id])==='raus');if(l)return{art:'fehlt',id:l.id,txt:`⚠ „${BY[id].t}“ baut auf „${BY[l.id].t}“ auf – das kann er noch nicht und es ist nicht im Plan`};return null}

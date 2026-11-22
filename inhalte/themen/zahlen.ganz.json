@@ -9477,6 +9477,326 @@
     "index": 0
    },
    "w": "Für a = −1 und b = 12 gilt |(−1) + 12| = 11, |−1| + |12| = 13: Die Aussage ist falsch. Sie stimmt aber manchmal, zum Beispiel für a = 1 und b = 11: |1 + 11| = 12, |1| + |11| = 12."
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Eine Höhenskala an einer Steilküste reicht von −60 m (Meeresgrund) bis 90 m (Klippe) in 10 gleichen Abschnitten. Tippe an, wo −30 m liegt.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -60,
+     "ende": 90,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "h": "Wie viele Meter ist ein Abschnitt wert? Zähle dann vom Meeresgrund aus.",
+   "w": "Von −60 bis 90 sind es 150 m, verteilt auf 10 Abschnitte: 15 m je Abschnitt. −30 m liegt 2 Abschnitte rechts von −60 m.",
+   "g": "einkleidung",
+   "o": {
+    "index": 2
+   },
+   "zahl": -30
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Zahlengeraden ist jeder Abschnitt 4 wert. Der Punkt P liegt 7 Abschnitte links von 6. Welche Zahl gehört zu P?"
+   },
+   "h": "Wie weit ist P insgesamt von der Zahl entfernt? Nach links heißt: kleiner werden.",
+   "w": "7 Abschnitte zu je 4 sind 28. 6 − 28 = −22.",
+   "g": "mehrschritt",
+   "o": {
+    "wert": -22
+   },
+   "c": "6 - 7 * 4"
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Genau in der Mitte zwischen −14 und einer zweiten Zahl liegt −5. Wie heißt die zweite Zahl?"
+   },
+   "h": "Wie weit ist es von der ersten Zahl bis zur Mitte? Genauso weit geht es auf der anderen Seite weiter.",
+   "w": "Von −14 bis −5 sind es 9 Schritte nach rechts. Noch einmal 9 Schritte: −5 + 9 = 4.",
+   "g": "umkehr",
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * (-5) - (-14)"
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahlengerade beginnt bei −12 und endet bei 18. Dazwischen liegen 6 gleich lange Abschnitte. Welche Zahlen stehen an den Strichen?"
+   },
+   "h": "Rechne zuerst aus, wie viel ein Abschnitt wert ist. Zähle dann vom Anfang aus weiter – auch über die 0 hinweg.",
+   "w": "Von −12 bis 18 sind es 30, verteilt auf 6 Abschnitte: 5 je Abschnitt. Also −12, −7, −2, 3, 8, 13, 18.",
+   "g": "darstellung",
+   "a": [
+    "−12, −6, 0, 6, 12, 18",
+    "−12, −9, −6, −3, 0, 3, 6",
+    "−12, −7, −2, 3, 8, 13, 18",
+    "−12, −7, −2, 2, 7, 12, 18"
+   ],
+   "o": {
+    "index": 2
+   }
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Punkt wird auf der Zahlengeraden erst um 9 nach rechts und danach um 15 nach links geschoben. Jetzt liegt er bei −11. Wo lag er am Anfang?"
+   },
+   "h": "Geh die Wege rückwärts: Was zuletzt passiert ist, machst du zuerst rückgängig – in die andere Richtung.",
+   "w": "Rückwärts: von −11 um 15 nach rechts: 4. Dann um 9 nach links: −5. Probe: −5 + 9 − 15 = −11.",
+   "g": "rueckwaerts",
+   "o": {
+    "wert": -5
+   },
+   "c": "(-11) + 15 - 9"
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Liegt a auf der Zahlengeraden links von b, dann liegt auch −a links von −b.“"
+   },
+   "h": "Probiere es mit zwei Zahlen aus, zum Beispiel a = 2 und b = 5. Wo liegen −2 und −5?",
+   "w": "2 liegt links von 5, aber −2 liegt rechts von −5. Gegenzahlen sind an der 0 gespiegelt; dabei werden links und rechts vertauscht.",
+   "g": "begruenden",
+   "a": [
+    "Ja, das gilt immer.",
+    "Nein. Das Spiegeln an der 0 vertauscht die Seiten: −a liegt dann rechts von −b.",
+    "Nur wenn a und b beide negativ sind.",
+    "Nur wenn a und b beide positiv sind."
+   ],
+   "o": {
+    "index": 1
+   }
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welche Zahl a liegt −3 genau in der Mitte zwischen a und 2 · a?"
+   },
+   "h": "Die Mitte zweier Zahlen ist ihre Summe geteilt durch 2. Stelle damit eine Gleichung für a auf.",
+   "w": "Mitte: (a + 2a) : 2 = 3a : 2 = −3. Also 3a = −6 und a = −2. Probe: zwischen −2 und −4 liegt −3 in der Mitte.",
+   "g": "parameter",
+   "o": {
+    "wert": -2
+   },
+   "c": "2 * (-3) / 3"
+  },
+  {
+   "l": "zahlengerade",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sucht die Mitte zwischen −18 und 6 und rechnet: (18 + 6) : 2 = 12. Was ist falsch?"
+   },
+   "h": "Kann die Mitte zwischen einer negativen und einer kleineren positiven Zahl größer als beide sein?",
+   "w": "Die Mitte muss zwischen −18 und 6 liegen; 12 liegt rechts von beiden. Mit dem Vorzeichen: (−18 + 6) : 2 = −6.",
+   "g": "fehler",
+   "a": [
+    "Man muss subtrahieren: (18 − 6) : 2 = 6.",
+    "Nichts, 12 stimmt.",
+    "Man muss durch 3 teilen, nicht durch 2.",
+    "Das Minus von −18 fehlt. Richtig ist (−18 + 6) : 2 = −6."
+   ],
+   "o": {
+    "index": 3
+   }
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kontostand am Monatsende: Januar −35 €, Februar 12 €, März −80 €, April −5 €. Wie hoch war der niedrigste Kontostand?"
+   },
+   "h": "Der niedrigste Stand ist die kleinste Zahl. Bei negativen Zahlen: Je weiter weg von 0, desto kleiner.",
+   "w": "Negativ sind −35, −80, −5. Am weitesten von 0 entfernt ist −80. Also ist −80 € der niedrigste Stand.",
+   "g": "einkleidung",
+   "o": {
+    "wert": -80,
+    "einheit": "€"
+   },
+   "c": "min(-35, 12, -80, -5)"
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ordne −6, 4, −15, 0, −1 von der größten zur kleinsten Zahl. Welche Reihe stimmt?"
+   },
+   "h": "Zuerst die positiven Zahlen, dann die 0, dann die negativen: Bei ihnen kommt die mit dem kleinsten Betrag zuerst.",
+   "w": "Positiv: 4. Dann 0. Negativ, von nah an 0 nach weit weg: −1, −6, −15. Also 4 > 0 > −1 > −6 > −15.",
+   "g": "mehrschritt",
+   "a": [
+    "4 > 0 > −1 > −6 > −15",
+    "4 > 0 > −15 > −6 > −1",
+    "−15 > −6 > −1 > 0 > 4",
+    "4 > −1 > 0 > −6 > −15"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwischen −14 und einer größeren ganzen Zahl b liegen genau 5 ganze Zahlen. Welche Zahl ist b?"
+   },
+   "h": "Zähle von der ersten Zahl aus nach rechts weiter, ohne sie selbst mitzuzählen.",
+   "w": "Dazwischen liegen −13, −12, −11, −10, −9 – das sind 5. Die nächste Zahl ist b = −8.",
+   "g": "umkehr",
+   "o": {
+    "wert": -8
+   },
+   "c": "(-14) + 5 + 1"
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Auf einer Zahlengeraden liegen die Punkte A, B und C von links nach rechts. Zu ihnen gehören die Zahlen −2, −11, 5 – nicht unbedingt in dieser Reihenfolge. Welche Zahl gehört zu B?"
+   },
+   "h": "Links liegt die kleinste Zahl. B ist der mittlere Punkt.",
+   "w": "Geordnet: −11 < −2 < 5. A = −11, B = −2, C = 5.",
+   "g": "darstellung",
+   "a": [
+    "−11",
+    "−2",
+    "5",
+    "Das kann man nicht sagen."
+   ],
+   "o": {
+    "index": 1
+   }
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Spiel gewinnt, wer am Ende den kleinsten Punktestand hat. Die Endstände sind −12, −30, 4, −7. Auf welchem Platz landet der Spieler mit −7 Punkten?"
+   },
+   "h": "Platz 1 hat die kleinste Zahl. Ordne alle Stände von klein nach groß.",
+   "w": "Von klein nach groß: −30 < −12 < −7 < 4. −7 steht an Stelle 3, also Platz 3.",
+   "g": "transfer",
+   "a": [
+    "Platz 1",
+    "Platz 2",
+    "Platz 3",
+    "Platz 4"
+   ],
+   "o": {
+    "index": 2
+   }
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage? „Jede negative Zahl ist kleiner als jede positive Zahl.“"
+   },
+   "h": "Denk an die Zahlengerade: Wo liegen negative, wo positive Zahlen – und wo die 0?",
+   "w": "Alle negativen Zahlen liegen links von 0, alle positiven rechts. Links bedeutet kleiner. Die Aussage stimmt; der Betrag spielt beim Vergleich mit 0 keine Rolle.",
+   "g": "begruenden",
+   "a": [
+    "Nein: −100 ist größer als 1, weil 100 größer ist als 1.",
+    "Nur wenn die negative Zahl den kleineren Betrag hat.",
+    "Ja. Negative Zahlen liegen links von 0, positive rechts davon.",
+    "Nein: −5 und 5 sind gleich groß, weil sie denselben Betrag haben."
+   ],
+   "o": {
+    "index": 2
+   }
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "a ist eine ganze Zahl mit −9 < a < −3. Welchen Wert kann a höchstens haben?"
+   },
+   "h": "a muss kleiner als −3 sein. Welche ganze Zahl kommt direkt links von −3?",
+   "w": "Möglich sind −8, −7, −6, −5, −4. Die größte davon ist −4.",
+   "g": "parameter",
+   "o": {
+    "wert": -4
+   },
+   "c": "(-3) - 1"
+  },
+  {
+   "l": "ordnen",
+   "t": "ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Liste soll Temperaturen von warm nach kalt ordnen: 4 °C, −1 °C, −12 °C, −7 °C. Wo steckt der Fehler?"
+   },
+   "h": "Prüfe jedes Paar nebeneinander: Ist die erste Temperatur wirklich wärmer als die zweite?",
+   "w": "4 > −1 stimmt, −1 > −12 stimmt, aber −12 > −7 stimmt nicht: −7 °C ist wärmer. Richtig: 4 °C, −1 °C, −7 °C, −12 °C.",
+   "g": "fehler",
+   "a": [
+    "4 °C und −1 °C sind vertauscht.",
+    "−12 °C und −7 °C sind vertauscht.",
+    "−1 °C und −12 °C sind vertauscht.",
+    "Alles ist richtig geordnet."
+   ],
+   "o": {
+    "index": 1
+   }
   }
  ]
 }

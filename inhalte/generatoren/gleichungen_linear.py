@@ -1086,3 +1086,5 @@ if __name__ == '__main__':
     befunde_datei(META['thema_schluessel'], BF)  # BEFUNDE: erst nach der Zehnten Runde anwenden
     durchsicht_datei(META['thema_schluessel'], DS)  # Neunzehnte Runde: zuletzt
     stufen_datei(META['thema_schluessel'], ST)  # Zwanzigste Runde: zuletzt
+    from _frisch_2211 import frisch_anhaengen  # Aufgaben nachliefern (22.11.): danach, hängt nur an
+    frisch_anhaengen(META['thema_schluessel'])

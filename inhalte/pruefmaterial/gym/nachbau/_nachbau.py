@@ -24,6 +24,18 @@ def schluessel(z):
     return ("X", z["vorschlag"])
 
 
+BESCHREIBEND = ("zeichn", "konstru", "begründ", "erklär", "beschreib", "skizz", "beweis", "spiegel", "markier", "erfind", "frage", "regel",
+                "ankreuz", "wissen", "definier", "benenn", "notation", "zuordnen", "puzzle", "netz", "falten", "drehen", "ansicht", "wahr")
+
+
+def pruefart(t, z):
+    if K.PRUEF:
+        return "gegengerechnet"
+    if any(w in (z.get("typ") or "").lower() for w in BESCHREIBEND) or z["kompetenz"] in ("K1", "K4", "K6") or not re.search(r"\d", t.loesung):
+        return "Musterlösung (Zeichnung/Begründung/Wissen)"
+    return "vom Skript berechnet, ohne zweite Rechnung"
+
+
 def punkte_verteilen(arbeit, zeilen):
     bek = [z["punkte"] for z in zeilen if z["punkte"] is not None]
     unb = [z for z in zeilen if z["punkte"] is None]
@@ -126,7 +138,7 @@ def baue(klasse):
                              lernbereich=z.get("lernbereich"), status=z["status"], vorschlag=z.get("vorschlag"),
                              text=minus(t.text), abbildung=t.abb, loesung=minus(t.loesung),
                              weg=[dict(schritt=minus(w), punkte=float(q)) for w, q in schritte_punkte(t.weg, pk)],
-                             gegenpruefung=list(K.PRUEF)))
+                             gegenpruefung=list(K.PRUEF), pruefart=pruefart(t, z)))
         if not aufg:
             continue
         summe = sum(F(a["punkte"]).limit_denominator(2) for a in aufg)
@@ -175,6 +187,7 @@ def schreibe_md(e, zeit_hinweis):
         L.append(f"**{a['nr']}** ({fp(a['punkte'])} P) – Ergebnis: {a['loesung']}")
         for w in a["weg"]:
             L.append(f"- {w['schritt']} ({fp(w['punkte'])} P)")
+        L.append(f"- *Lösungskontrolle: {a['pruefart']}*")
         if a["status"] == "zugeordnet":
             teil = f", {a['teil']}" if a.get("teil") else ""
             L.append(f"- *Zuordnung: {a['thema']} › {a['etappe']} ({a['etappe_titel'] or ''}{teil}); Niveau {a['niveau']}, {a['kompetenz']}*")

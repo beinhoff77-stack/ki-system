@@ -20,3 +20,12 @@ Zweig `pruefmaterial-gym` (von lernen-app), nur `inhalte/pruefmaterial/gym/` + d
   - Kl. 8: A 47 (20 BMT8, 18 BMT10-Auszüge), C 4. Zum laufenden Kl.-8-Stoff gibt es nur 13 echte Arbeiten.
 - Neue Lücken-Schwerpunkte: Quader-/Würfelnetze, Zahlenfolgen (Kl. 5); Zahl in Gleichung passend wählen, Beweisen mit Termen (Kl. 8).
 - `auswertung.md`, `quellen.md` neu; Daten der 2. Runde in `_daten2.py`.
+
+## FERTIG: PM 2 Gym (22.11.)
+
+Teil B (Nachbau), Zweig `pruefmaterial-gym`. Liegt unter `inhalte/pruefmaterial/gym/nachbau/` (je Arbeit `<arbeit_id>.md`, dazu `nachbau.json`, `LIESMICH.md`, Generatoren `_g*.py`, `_nachbau.py`). Datenbank und App unberührt, kein Merge.
+
+- Kl. 8: 51 nachgebaute Schulaufgaben mit 541 Aufgaben. Kl. 5: 53 Schulaufgaben mit 829 Aufgaben. Jede hat Lösungsblatt, Lösungsweg mit Punkten und Zuordnung zu Thema/Etappe/Teil.
+- Niveau, Kompetenz, Punkte und Zeit wie im Katalog. Texte, Zahlen und Kontexte sind eigene; keine Originaltexte.
+- Lösungskontrolle: 999 Aufgaben unabhängig gegengerechnet, 297 Musterlösungen (Zeichnen/Begründen), 74 nur vom Skript berechnet.
+- Offen: Mehrteilige Originalaufgaben sind teils knapper nachgebaut; Abbildungen sind als Text beschrieben.

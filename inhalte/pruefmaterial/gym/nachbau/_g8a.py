@@ -148,6 +148,7 @@ def _(c):
     w = c.nz(-4, 5); u, v = c.nz(-5, 5), c.nz(-8, 8)
     e = P.c(u) * x * x + P.c(v) * x
     val = e.ev(x=w)
+    chk(ev(f"({u}) · ({w}) · ({w}) + ({v}) · ({w})") == val, "Einsetzen unabhängig gerechnet")
     return T(f"Berechne den Wert des Terms {e} für x = {w}.", fz(val), [f"{kl(u)}·{kl(w)}² + {kl(v)}·{kl(w)}", f"= {fz(u*w*w)} + {kl(v*w)} = {fz(val)}"])
 
 
@@ -198,6 +199,7 @@ def _(c):
         ok = [m for m in range(lo, lo + 15) if (m - s) % k == 0 and m > s]
         return T(f"Ein Geländer braucht {k}n + {s} Stäbe (n Felder). Welche Stabzahlen zwischen {lo} und {lo+14} gehen genau auf? Begründe.",
                  ", ".join(map(str, ok)), [f"Stabzahl − {s} muss durch {k} teilbar sein", "Zahlen prüfen"])
+    chk(all(k * nn + s == v for nn, v in werte), "Term passt zu den Figuren")
     return T(f"Eine Folge von Figuren wird aus Hölzern gelegt. Figur 1 hat {werte[0][1]}, Figur 2 hat {werte[1][1]}, Figur 3 hat {werte[2][1]} Hölzer; "
              f"jede neue Figur bekommt gleich viele Hölzer dazu.\nGib einen Term für die Anzahl der Hölzer in Figur n an und berechne die Anzahl für Figur {N}.",
              f"{k}n + {s}; Figur {N}: {k*N+s}", [f"Zuwachs je Figur: {k}", f"Startwert: {werte[0][1]} − {k} = {s}", f"{k}·{N} + {s} = {k*N+s}"])
@@ -282,6 +284,7 @@ def _(c):
 def _(c):
     w = c.ri(2, 9); p = c.ri(1, 5)
     v = F(w * w - 1, w + p)
+    chk(ev(f"({w}·{w} − 1) : ({w} + {p})") == v, "Ausdruck ausgewertet")
     return T(f"Berechne den Wert des Terms (x² − 1)/(x + {p}) für x = {w}. Gib das Ergebnis als gekürzten Bruch an.", fz(v),
              [f"Zähler {w*w-1}, Nenner {w+p}", f"= {fz(v)}"])
 
@@ -320,6 +323,8 @@ def _(c):
     erg = f"{k}" + (f"a{hoch(e)}" if e not in (0, 1) else ("a" if e == 1 else ""))
     neg = f"a{hoch(-e)}" if e < 0 else ""
     los = f"{k}/{('a' + hoch(-e)) if -e != 1 else 'a'}" if e < 0 else erg
+    w_ = F(3)
+    chk(F(k * 2) * w_ ** p * w_ ** q / (2 * w_ ** r * w_ ** (q + 1)) == k * w_ ** e, "Einsetzprobe a = 3")
     return T(f"Vereinfache und gib das Ergebnis ohne negative Exponenten an: ({k*2}a{hoch(p)} · a{hoch(q)}) / (2a{hoch(r)} · a{hoch(q+1)})",
              los, [f"Zahlen: {k*2} : 2 = {k}", f"Exponent: {p} + {q} − {r} − {q+1} = {e}", f"Ergebnis {los}"])
 
@@ -493,6 +498,7 @@ def _(c):
     if c.has("dreieck") or v == "dreieck":
         g_, A_ = c.ri(4, 12), c.ri(10, 60)
         h_ = F(2 * A_, g_)
+        chk(F(1, 2) * g_ * h_ == A_, "Rückeinsetzen")
         return T(f"Stelle die Formel A = ½·g·h nach h um und berechne h für A = {A_} cm² und g = {g_} cm.", f"h = 2A/g = {fd(h_) if endlich(h_) else fz(h_)} cm",
                  ["beide Seiten mal 2, dann durch g", f"h = 2·{A_}/{g_}"])
     if c.has("umfang") or v == "rechteck":
@@ -501,6 +507,7 @@ def _(c):
                  ["−2a, dann :2", f"b = ({u_} − {2*a0})/2"])
     a0, c0, A_ = c.ri(4, 10), c.ri(2, 6), c.ri(20, 80)
     h_ = F(2 * A_, a0 + c0)
+    chk(F(1, 2) * (a0 + c0) * h_ == A_, "Rückeinsetzen")
     return T(f"Stelle die Trapezformel A = ½(a + c)·h nach h um und berechne h für A = {A_} cm², a = {a0} cm, c = {c0} cm.",
              f"h = 2A/(a + c) = {fz(h_, dez=True)} cm", [f"h = 2·{A_}/({a0}+{c0})"])
 
@@ -511,10 +518,12 @@ def _(c):
     if c.has("umrechnung", "steigung") or c.ch((0, 1)):
         Fw = c.ri(50, 104)
         C = F(Fw - 32) / F(9, 5)
+        chk(F(9, 5) * C + 32 == Fw, "Rückeinsetzen")
         return T(f"Die Formel f = 1,8·c + 32 rechnet Grad Celsius c in Grad Fahrenheit f um. Stelle nach c um und berechne c für f = {Fw}.",
                  f"c = (f − 32)/1,8 ≈ {gerundet(C, 1)} °C", ["−32", ":1,8", f"({Fw} − 32)/1,8"])
     v0, s0 = c.ri(30, 90), c.ri(10, 60)
     t_ = F(s0 * 60, v0)
+    chk(F(v0) * t_ / 60 == s0, "s = v·t")
     return T(f"Für eine Fahrt gilt s = v·t (s in km, v in km/h, t in h). Stelle nach t um und berechne die Fahrzeit in Minuten für s = {s0} km und v = {v0} km/h.",
              f"t = s/v = {fz(F(s0,v0))} h = {fd(t_) if endlich(t_) else gerundet(t_,1)} min", ["durch v teilen", f"{s0}/{v0} h · 60"])
 
@@ -638,8 +647,10 @@ def _(c):
     m_ = F(c.nz(-3, 3), c.ch((1, 2, 3))); t_ = c.nz(-4, 4)
     pts = [(xx, m_ * xx + t_) for xx in range(-3, 6) if (m_ * xx + t_).denominator == 1][:3]
     if c.z["etappe"] == "ablesen" or c.has("ablesen"):
+        chk(all(m_ * px + t_ == py for px, py in pts), "Punkte liegen auf der Geraden")
         return T(f"Eine Gerade geht durch die Gitterpunkte {', '.join(f'({px} | {fz(py)})' for px, py in pts)}. Lies Steigung und y-Achsenabschnitt ab und gib die Gleichung an.",
                  f"m = {fz(m_)}, t = {t_}; y = {lin(m_, t_)}", ["Steigungsdreieck zwischen zwei Gitterpunkten", f"Schnitt mit y-Achse bei {t_}"])
+    chk(all(m_ * px + t_ == py for px, py in pts), "Punkte liegen auf der Geraden")
     return T(f"Zeichne den Graphen von y = {lin(m_, t_)} in ein Koordinatensystem (1 LE = 1 cm).", f"Gerade durch {', '.join(f'({px}|{fz(py)})' for px, py in pts[:2])}",
              [f"y-Achsenabschnitt {t_} markieren", f"Steigungsdreieck: {m_.denominator} nach rechts, {abs(m_.numerator)} nach {'oben' if m_>0 else 'unten'}", "Gerade zeichnen"])
 
@@ -677,8 +688,10 @@ def _(c):
     v0, ab = c.ri(200, 500), c.ri(5, 25)
     tt = F(v0, ab)
     if c.z["etappe"] == "wirkung":
+        chk(v0 - F(ab, 2) * 2 * tt == 0, "V(t) = 0 eingesetzt")
         return T(f"Ein Tank enthält {v0} Liter; pro Minute fließen {ab} Liter ab: V(t) = {v0} − {ab}t. Wie ändert sich der Term, wenn nur halb so viel pro Minute abfließt? Nach welcher Zeit ist der Tank dann leer?",
                  f"V(t) = {v0} − {fd(F(ab,2))}t; {fz(2*tt, dez=True)} min", ["Steigung halbiert", f"0 = {v0} − {fd(F(ab,2))}t → t = {fz(2*tt, dez=True)}"])
+    chk(v0 - ab * tt == 0, "V(t) = 0 eingesetzt")
     return T(f"Ein Wassertank enthält zu Beginn {v0} Liter; pro Minute fließen {ab} Liter ab.\n"
              f"a) Gib einen Funktionsterm für das Volumen V(t) an (t in min).\nb) Erkläre die Bedeutung von Steigung und y-Achsenabschnitt.\nc) Nach welcher Zeit ist der Tank leer?",
              f"V(t) = {v0} − {ab}t; leer nach {fz(tt, dez=True) if endlich(tt) else gerundet(tt,1)} min",
@@ -705,9 +718,11 @@ def _(c):
     if c.z["etappe"] == "stelle":
         y0 = c.ri(80, 200)
         s_ = F(y0 - t_, m_)
+        chk(m_ * s_ + t_ == y0, "Rückeinsetzen")
         return T(f"In ein Becken mit {t_} Litern laufen pro Minute {m_} Liter: f(t) = {m_}t + {t_}. Nach welcher Zeit sind {y0} Liter im Becken?",
                  f"t = {fz(s_, dez=True) if endlich(s_) else gerundet(s_,1)} min", [f"{m_}t + {t_} = {y0}", f"t = {fz(s_)}"])
     w = c.ri(3, 12)
+    chk(ev(f"{m_} · {w} + {t_}") == m_ * w + t_, "Ausdruck ausgewertet")
     return T(f"Berechne den Funktionswert von f(x) = {m_}x + {t_} an der Stelle x = {w}.", fz(m_ * w + t_), [f"{m_}·{w} + {t_} = {m_*w+t_}"])
 
 
@@ -723,6 +738,7 @@ def _(c):
 def _(c):
     m_, ns = c.nz(-4, 4), c.nz(-5, 5)
     t_ = -m_ * ns
+    chk(m_ * ns + t_ == 0, "f(Nullstelle) = 0")
     return T(f"Berechne die Nullstelle und den Schnittpunkt mit der y-Achse von f(x) = {lin(m_, t_)}.", f"x = {ns}; S_y(0 | {t_})",
              [f"{lin(m_, t_)} = 0 → x = {ns}", f"f(0) = {t_}"])
 
@@ -731,6 +747,7 @@ def _(c):
 def _(c):
     m_, t_ = c.nz(-3, 3), c.nz(-5, 5); px = c.nz(-4, 4); py = m_ * px + t_ + c.ch((-2, -1, 1, 2))
     lage = "oberhalb" if py > m_ * px + t_ else "unterhalb"
+    chk((py > m_ * px + t_) == (lage == "oberhalb"), "Vergleich mit f(x)")
     return T(f"Liegt der Punkt P({px} | {py}) oberhalb, unterhalb oder auf dem Graphen von f(x) = {lin(m_, t_)}? Begründe rechnerisch.", lage,
              [f"f({px}) = {m_*px+t_}", f"{py} {'>' if lage=='oberhalb' else '<'} {m_*px+t_} → {lage}"])
 
@@ -746,7 +763,7 @@ def _(c):
     for sx in st:
         chk(min(p[1] for p in pts) <= yy, "Schnitt im Bereich")
     return T(f"Ein Graph verbindet die Punkte {' – '.join(f'({px}|{py})' for px, py in pts)} geradlinig. An wie vielen Stellen hat die Funktion den Wert {yy}? Gib die Stellen an.",
-             f"{len(st)} Stellen: " + "; ".join(f"x = {fd(sx) if endlich(sx) else '≈ ' + gerundet(sx,1)}" for sx in st),
+             f"{len(st)} Stellen: " + "; ".join(f"x = {fd(sx)}" if endlich(sx) else f"x ≈ {gerundet(sx,1)}" for sx in st),
              ["waagrechte Linie y = " + str(yy) + " einzeichnen", "auf jedem steigenden/fallenden Teilstück schneiden", "x-Werte durch Verhältnis bestimmen"])
 
 
@@ -777,6 +794,7 @@ def _(c):
         if c.niv == "III":
             return T(f"Gib einen Funktionsterm an, dessen Graph die senkrechte Asymptote x = {p} und die waagrechte Asymptote y = {q} hat.",
                      f"z. B. f(x) = 1/(x {plusminus(-p)}) {plusminus(q)}", ["Nenner null bei x = " + str(p), "Summand " + str(q) + " verschiebt nach oben/unten"])
+        chk(abs(F(k) / (10**6 - p) + q - q) < F(1, 1000), "für große x nahe an y = q")
         return T(f"Gib alle Asymptoten des Graphen von {txt_f} an.", f"x = {p}; y = {q}", ["senkrecht: Nennernullstelle", "waagrecht: für große |x| geht der Bruch gegen 0"])
     if et == "parameter":
         return T(f"Beschreibe, wie der Graph von {txt_f} aus dem Graphen von y = 1/x entsteht, und skizziere ihn.",
@@ -807,8 +825,10 @@ def _(c):
                  ["Graph ist eine Hyperbel (y = k/x)", "z. B. k = 12: (1|12), (2|6), (3|4) liegen nicht auf einer Geraden"])
     if et == "produkt":
         k = n1 * t1
+        chk(all(F(k, aa) * aa == k for aa in (1, 2, 3, 4, 6)), "a·b = A")
         return T(f"Ein Rechteck hat den Flächeninhalt {k} cm². Ergänze die Tabelle der möglichen Seitenlängen a = 1, 2, 3, 4, 6 cm und gib die Formel b(a) an.",
                  f"b = {k}/a: " + ", ".join(f"{fz(F(k,aa), dez=True)}" for aa in (1, 2, 3, 4, 6)), [f"a·b = {k} konstant", f"b = {k}/a"])
+    chk(n2 * t2 == n1 * t1, "Produkt konstant")
     chk(n2 * t2 == n1 * t1, "Produkt konstant")
     return T(f"{n1} Helfer brauchen für das Aufstellen der Stühle {t1} Minuten. Wie lange brauchen {n2} Helfer bei gleichem Arbeitstempo?",
              f"{fz(t2, dez=True)} min", [f"1 Helfer: {n1*t1} min", f"{n2} Helfer: {n1*t1}/{n2} = {fz(t2, dez=True)} min"])

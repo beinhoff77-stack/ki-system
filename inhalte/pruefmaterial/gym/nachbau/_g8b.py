@@ -136,6 +136,7 @@ def _(c):
 def _(c):
     et = c.z["etappe"]; al = c.ri(25, 75)
     if et in ("stufen_wechsel", "scheitel_neben"):
+        chk(4 * al + 4 * (180 - al) == 720, "zwei Vollwinkel")
         return T(f"Zwei parallele Geraden g und h werden von einer Geraden s geschnitten. Ein Winkel an g beträgt {al}°. Gib alle anderen sieben Winkel an und begründe mit Fachbegriffen.",
                  f"je vier Winkel {al}° und {180-al}°", [f"Scheitelwinkel: {al}°", f"Nebenwinkel: {180-al}°", "Stufen-/Wechselwinkel an h gleich groß"])
     if et == "parallel_pruefen":
@@ -149,6 +150,7 @@ def _(c):
     if et == "vieleck":
         nn = c.ri(5, 12)
         su = (nn - 2) * 180
+        chk(su == 180 * nn - 360, "Zerlegung in Dreiecke vom Mittelpunkt")
         if c.has("eckenzahl") or c.niv == "II" and c.ch((0, 1)):
             return T(f"Die Innenwinkel eines Vielecks ergeben zusammen {su}°. Wie viele Ecken hat es?", str(nn), ["(n − 2)·180° = " + str(su) + "°", f"n − 2 = {nn-2} → n = {nn}"])
         w = F(su, nn)
@@ -158,6 +160,7 @@ def _(c):
         return T("In einem gleichschenkligen Dreieck ABC (AC = BC) wird die Seite [AC] über C hinaus verlängert. Zeige: Der Außenwinkel bei C ist doppelt so groß wie ein Basiswinkel.",
                  "Außenwinkel = 2α", ["Basiswinkel α = β", "Außenwinkel = Summe der nicht anliegenden Innenwinkel = α + β", "= 2α"])
     g_ = c.ri(30, 80)
+    chk(g_ + 2 * F(180 - g_, 2) == 180, "Winkelsumme")
     return T(f"In einem gleichschenkligen Dreieck beträgt der Winkel an der Spitze {g_}°. Berechne die Basiswinkel und nenne die verwendeten Sätze.",
              f"je {fz(F(180-g_,2), dez=True)}°", ["Basiswinkel gleich groß", f"(180° − {g_}°) : 2 = {fz(F(180-g_,2), dez=True)}°"])
 
@@ -171,7 +174,7 @@ def _(c):
             eig = {"Quadrat": "4 gleich lange Seiten, 4 rechte Winkel", "Rechteck": "gegenüberliegende Seiten gleich lang und parallel, 4 rechte Winkel",
                    "Parallelogramm": "gegenüberliegende Seiten parallel und gleich lang", "Raute": "4 gleich lange Seiten, gegenüberliegende Seiten parallel",
                    "Drachenviereck": "zwei Paare benachbarter gleich langer Seiten, Diagonalen senkrecht"}[v]
-            return T(f"Nenne drei Eigenschaften eines {v}s.", eig, ["Seiten", "Winkel/Parallelität", "Diagonalen"])
+            return T(f"Nenne drei Eigenschaften dieser Figur: {v}.", eig, ["Seiten", "Winkel/Parallelität", "Diagonalen"])
         A = (1, 1); s_ = c.ri(2, 5)
         return T(f"Die Punkte A(1|1), B({1+s_}|1) und C({1+s_}|{1+s_}) sind Ecken eines Quadrats. Zeichne es in ein Koordinatensystem und gib den fehlenden Eckpunkt D an.",
                  f"D(1|{1+s_})", ["gleiche Seitenlänge " + str(s_), "D liegt senkrecht über A"])
@@ -225,9 +228,10 @@ def _(c):
             e = c.ch((("m²", "dm²", 100), ("dm²", "cm²", 100), ("ha", "a", 100), ("a", "m²", 100), ("km²", "ha", 100), ("cm²", "mm²", 100)))
             w = c.ri(2, 90)
             if c.has("größer"):
-                aufg.append((f"{w*100} {e[1]}", f"{w} {e[0]}"))
+                aufg.append((f"{fz(w*100)} {e[1]}", f"{w} {e[0]}"))
             else:
-                aufg.append((f"{w} {e[0]}", f"{w*100} {e[1]}"))
+                aufg.append((f"{w} {e[0]}", f"{fz(w*100)} {e[1]}"))
+        chk(len(aufg) == 3, "Umrechnungszahl 100")
         return T("Rechne in die angegebene Nachbareinheit um: " + "; ".join(f"{q} = ___" for q, _ in aufg), "; ".join(f"{q} = {z}" for q, z in aufg),
                  ["Umrechnungszahl bei Flächen 100"])
     l_, f_ = c.ri(2, 9), c.ri(3, 9)
@@ -239,20 +243,24 @@ def _(c):
 def _(c):
     a_, b_ = c.ri(8, 30), c.ri(5, 20)
     if c.has("zaun", "umfang", "lauf"):
+        chk(ev(f"2 · ({a_} + {b_})") == 2 * (a_ + b_), "Umfang")
         return T(f"Ein rechteckiger Park ist {a_} m lang und {b_} m breit. Wie lang ist ein Weg einmal ganz außen herum, und wie groß ist die Fläche des Parks?",
                  f"{2*(a_+b_)} m; {a_*b_} m²", [f"u = 2·({a_} + {b_}) = {2*(a_+b_)} m", f"A = {a_}·{b_} = {a_*b_} m²"])
-    d_ = c.ri(2, 4)
-    return T(f"Eine Wand ist {a_ // 3 + 2} m lang und {d_} m hoch; ein Eimer Farbe reicht für {c.ri(8,12)} m². Wie viele Eimer braucht man mindestens?",
-             "Fläche durch Reichweite, aufrunden", [f"A = {a_//3+2}·{d_} = {(a_//3+2)*d_} m²", "durch die Reichweite teilen und aufrunden"])
+    d_ = c.ri(2, 4); rw = c.ri(8, 12); L_ = a_ // 3 + 4
+    eimer = -(-L_ * d_ // rw)
+    chk(eimer * rw >= L_ * d_ > (eimer - 1) * rw, "kleinste ausreichende Anzahl")
+    return T(f"Eine Wand ist {L_} m lang und {d_} m hoch; ein Eimer Farbe reicht für {rw} m². Wie viele Eimer braucht man mindestens?",
+             f"{eimer} Eimer", [f"A = {L_}·{d_} = {L_*d_} m²", f"{L_*d_} : {rw} ≈ {gerundet(F(L_*d_,rw),1)} → aufrunden auf {eimer}"])
 
 
 @reg(("messen.flaechen", "zerlegen"))
 def _(c):
     a_, b_, q_ = c.ri(8, 16), c.ri(6, 12), c.ri(2, 4)
     A_ = a_ * b_ - q_ * q_
+    chk(flaeche([(0, 0), (a_, 0), (a_, b_ - q_), (a_ - q_, b_ - q_), (a_ - q_, b_), (0, b_)]) == A_, "Fläche über Koordinaten (Gaußsche Formel)")
     if not c.k5 and c.niv == "III":
         return T(f"Aus einer rechteckigen Platte ({a_} cm × {b_} cm) sollen zwei gleich große quadratische Löcher geschnitten werden, sodass die Restfläche genau die Hälfte ist. Wie lang ist die Seite eines Lochs?",
-                 f"√({a_*b_}/4) ≈ {gerundet(F(a_*b_,4)**F(1,2) if False else F(round((a_*b_/4)**0.5*10),10),1)} cm",
+                 f"√({a_*b_}/4) ≈ {gerundet(F(round((a_*b_/4)**0.5*10),10),1)} cm",
                  [f"Lochfläche zusammen {fz(F(a_*b_,2))} cm²", f"ein Loch {fz(F(a_*b_,4))} cm²", "Seite = Wurzel daraus"])
     u_ = 2 * (a_ + b_)
     return T(f"Aus einem Rechteck ({a_} cm × {b_} cm) wird an einer Ecke ein Quadrat mit {q_} cm Seitenlänge herausgeschnitten. Berechne Flächeninhalt und Umfang der Restfigur.",
@@ -279,6 +287,7 @@ def _(c):
         e_, f_ = c.ri(4, 12), c.ri(3, 10)
         if c.has("term"):
             return T("Ein Drachenviereck hat die Diagonalen e = 2r und f = 3r. Gib einen Term für den Flächeninhalt an.", "A = 3r²", ["A = ½·e·f = ½·2r·3r = 3r²"])
+        chk(flaeche([(0, F(f_, 2)), (F(e_, 2), 0), (0, F(-f_, 2)), (F(-e_, 2), 0)]) == F(e_ * f_, 2), "Fläche über Koordinaten")
         return T(f"Eine Raute hat die Diagonalen {e_} cm und {f_} cm. Berechne ihren Flächeninhalt und begründe die Formel kurz.", f"{fz(F(e_*f_,2), dez=True)} cm²",
                  ["Raute = halbes Rechteck aus den Diagonalen", f"A = ½·{e_}·{f_}"])
     if et == "trapez":
@@ -317,21 +326,26 @@ def _(c):
     if et == "zusammengesetzt":
         a2 = c.ri(1, a_ - 1) if a_ > 2 else 1
         V = a_ * b_ * h_ - a2 * b_ * (h_ // 2 or 1)
+        chk(V == (a_ - a2) * b_ * h_ + a2 * b_ * (h_ - (h_ // 2 or 1)), "andere Zerlegung ergibt dasselbe")
         return T(f"Ein L-förmiger Körper entsteht aus einem Quader ({a_} cm × {b_} cm × {h_} cm), aus dem oben ein Quader ({a2} cm × {b_} cm × {h_//2 or 1} cm) herausgeschnitten ist. Berechne das Volumen.",
                  f"{V} cm³", [f"großer Quader {a_*b_*h_} cm³", f"minus {a2*b_*(h_//2 or 1)} cm³", f"V = {V} cm³"])
     if et == "liter":
         if c.k5:
             L_ = c.ri(2, 12); g_ = c.ch((200, 250, 500))
+            chk(L_ * 1000 // g_ * g_ <= L_ * 1000, "Anzahl Gläser")
             return T(f"Wie viele Gläser zu je {g_} ml kann man mit {L_} Litern Saft füllen?", fz(F(L_ * 1000, g_), dez=True) + (" (ganze Gläser: " + str(L_ * 1000 // g_) + ")" if (L_ * 1000) % g_ else ""),
                      [f"{L_} l = {L_*1000} ml", f"{L_*1000} : {g_}"])
         s_ = c.ri(2, 9) * 10
+        chk(F(s_ ** 3, 1000) == ev(f"{s_} · {s_} · {s_} : 1000"), "Liter nachgerechnet")
         return T(f"Ein würfelförmiger Behälter hat die Kantenlänge {s_} cm. Wie viele Liter passen hinein?", f"{fz(F(s_**3,1000), dez=True)} l",
                  [f"V = {s_}³ = {s_**3} cm³", "1 l = 1000 cm³"])
     if et == "rueckwaerts":
         if c.k5:
             k_ = c.ri(2, 9)
+            chk(round((k_ ** 3) ** (1 / 3)) == k_, "Kubikwurzel")
             return T(f"Ein Würfel hat das Volumen {k_**3} cm³. Wie lang ist eine Kante?", f"{k_} cm", [f"{k_}·{k_}·{k_} = {k_**3}"])
         L_ = a_ * b_ * h_ // 1
+        chk(F(a_ * b_ * h_ * 1000) / (a_ * 10 * b_ * 10) == h_ * 10, "Höhe = Volumen : Grundfläche")
         return T(f"Ein Aquarium hat eine Grundfläche von {a_*10} cm × {b_*10} cm und soll {fz(F(a_*b_*h_*1000,1000), dez=True)} Liter fassen. Wie hoch steht das Wasser?",
                  f"{h_*10} cm", [f"V = {a_*b_*h_*1000} cm³", f"h = V : ({a_*10}·{b_*10}) = {h_*10} cm"])
     if et == "einheiten":
@@ -352,6 +366,7 @@ def _(c):
     if et == "zylinder_volumen":
         V3 = 3 * r_ * r_ * h_
         if c.has("schätz", "grob", "abschätz") or c.niv != "I":
+            chk(V3 == ev(f"3 · {r_} · {r_} · {h_}"), "nachgerechnet")
             return T(f"Eine Regentonne ist ungefähr zylinderförmig mit Durchmesser {2*r_} dm und Höhe {h_} dm. Schätze das Volumen in Litern ({PI3}).", f"etwa {V3} l",
                      [f"r = {r_} dm", f"V ≈ 3·{r_}²·{h_} = {V3} dm³", "1 dm³ = 1 l"])
         return T(f"Berechne das Volumen eines Zylinders mit r = {r_} cm und h = {h_} cm (π auf zwei Dezimalen).", f"≈ {gerundet(F(314,100)*r_*r_*h_,1)} cm³",
@@ -365,6 +380,7 @@ def _(c):
                  f"{a_*h_} cm²", [f"Rechteck {a_} cm × {h_} cm"])
     g_, hd = c.ri(3, 8), c.ri(2, 6)
     V = F(g_ * hd, 2) * h_
+    chk(V == ev(f"{g_} · {hd} : 2 · {h_}"), "nachgerechnet")
     return T(f"Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Katheten {g_} cm und {hd} cm; seine Höhe ist {h_} cm. Berechne das Volumen.",
              f"{fz(V, dez=True)} cm³", [f"G = ½·{g_}·{hd} = {fz(F(g_*hd,2), dez=True)} cm²", f"V = G·h"])
 
@@ -386,6 +402,7 @@ def _(c):
         return T(f"Eine Ziege ist an einem {r_} m langen Seil angebunden. Wie ändert sich die Weidefläche, wenn das Seil doppelt so lang ist?", "vierfach",
                  ["A = πr²", "(2r)² = 4r²"])
     a_ = 2 * r_
+    chk(4 * a_ * a_ - 6 * r_ * r_ == ev(f"{2*a_} · {2*a_} − 2 · 3 · {r_} · {r_}"), "nachgerechnet")
     return T(f"Aus einem Quadrat mit {2*a_} cm Seitenlänge werden zwei Kreise mit Radius {r_} cm ausgeschnitten. Gib einen Term für die Restfläche an und berechne sie näherungsweise ({PI3}).",
              f"{4*a_*a_} − 2π·{r_*r_} ≈ {4*a_*a_ - 6*r_*r_} cm²", [f"Quadrat {4*a_*a_} cm²", f"zwei Kreise 2π·{r_*r_}", "subtrahieren"])
 

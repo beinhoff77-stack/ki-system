@@ -25,6 +25,15 @@ def chk(bed, was):
     PRUEF.append(was)
 
 
+def ev(ausdruck):
+    """Rechenausdruck in Schreibweise der Aufgabe (·, :, −, ², ³, Klammern) unabhängig auswerten."""
+    import re as _re
+    t = ausdruck.replace("·", "*").replace(":", "/").replace("−", "-").replace("²", "**2").replace("³", "**3").replace(" ", "")
+    t = _re.sub(r"(\d+),(\d+)", r"\1.\2", t)
+    t = _re.sub(r"(\d+(?:\.\d+)?)", r"F('\1')", t)
+    return eval(t, {"F": F})
+
+
 # ------------------------------------------------------------------ Zahlformat
 MINUS = "−"
 

@@ -22,7 +22,8 @@ geo = json.load(open(HIER / "laender_geo.json"))
 def datei_etappen(tid):
     d = json.load(open(REPO / themen[tid]["datei"]))
     return [e["lernziel"] for e in (d.get("etappen") or d["inhalt"]["etappen"])]
-NEU_LKD = {"vektor_koordinaten", "vektor_drehen", "streckung_vektor", "vierecke_konstruieren", "drachen_raute", "wahre_groesse"}
+NEU_LKD = {"vektor_koordinaten", "vektor_drehen", "streckung_vektor", "vierecke_konstruieren", "drachen_raute", "wahre_groesse",
+           "cavalieri", "koerper_symmetrie", "gleichungen_binomisch"}   # LK-D und LK-D 3
 
 def kl_key(t):
     k, r = t["klasse"], t["reihenfolge"]
@@ -127,6 +128,7 @@ for k in KONTINENTE:
             tl = teilung[tid]["teile"][teil - 1]
             lz = [e["lernziel"] for e in tl["etappen"]]
             et_titel = {e["lernziel"]: e["titel"] for e in tl["etappen"]}
+            kuer_in = {e["lernziel"]: e["kuer_in"] for e in tl["etappen"] if e.get("kuer_in")}
             teile_gesehen[tid].append((teil, lz))
             kopf = {"flug_id": key, "thema_id": tid, "teil": teil, "von": tl["von"], "thema": tl["titel"], "untertitel": tl["untertitel"],
                     "einheit_id": db[tid][0] if teil == 1 else None,
@@ -137,7 +139,7 @@ for k in KONTINENTE:
             if tid in teilung:
                 fehler.append(f"Thema {tid} ist laut lk_teilung_2211.json geteilt, im Vorschlag noch ein Flug")
             lz = alle
-            et_titel = {}
+            et_titel, kuer_in = {}, {}
             kopf = {"flug_id": str(tid), "thema_id": tid, "teil": None, "thema": t["titel"], "einheit_id": db[tid][0], "klasse": t["klasse"]}
             if len(st) != len(lz):
                 fehler.append(f"Thema {tid} {land}: {len(st)} Städte, {len(lz)} Etappen (Themendatei)")
@@ -147,6 +149,7 @@ for k in KONTINENTE:
         for i, (s, l) in enumerate(zip(st, lz)):
             extra = {"etappe": i + 1, "lernziel": l}
             if l in et_titel: extra["etappe_titel"] = et_titel[l]
+            if l in kuer_in: extra["kuer_in"] = kuer_in[l]   # aus lk_teilung_2211.json (LK-D 4), sobald geliefert
             if l in NEU_LKD:
                 extra["neu_lkd"] = True
                 if not teil: extra["kuer"] = True   # Vertiefung laut LK-D (bewertung.lernziele_vertiefung)
@@ -221,7 +224,7 @@ for r in res_laender:
     for s in r["staedte"]:
         if s["stadt"] in staedte: fehler.append(f"Reserve-Stadt schon belegt: {s['stadt']}")
 for k in out["reserve"]:
-    if len(k["laender"]) < 3: hinweise.append(f"Reserve {k['reise']}: nur {len(k['laender'])} Länder")
+    if len(k["laender"]) < 3: hinweise.append(f"Reserve {k['reise']}: nur {len(k['laender'])} " + ("Land" if len(k['laender']) == 1 else "Länder"))
     for r in k["laender"]:
         if not 6 <= len(r["staedte"]) <= 8: hinweise.append(f"Reserve {r['land']}: {len(r['staedte'])} Städte (Ziel 6–8)")
 for land, st in out["reserve_staedte_je_land"].items():
@@ -229,7 +232,7 @@ for land, st in out["reserve_staedte_je_land"].items():
         if s["stadt"] in staedte: fehler.append(f"Reserve-Stadt {s['stadt']} ({land}) ist belegt")
 for f in alle_fluege:
     if f["etappen"] > 14: hinweise.append(f"Flug {f['flug_id']} hat {f['etappen']} Etappen")
-    if f["kurzflug"]: hinweise.append(f"Kurzflug {f['flug_id']} {f['land']}: {f['etappen']} Städte (erlaubt, Teilung 16:20 Punkt 3)")
+    if f["kurzflug"]: hinweise.append(f"Kurzflug {f['flug_id']} {f['land']}: {f['etappen']} " + ("Stadt" if f['etappen'] == 1 else "Städte") + " (erlaubt, Teilung 16:20 Punkt 3)")
     if not f["mitte"]: fehler.append(f"Mittelpunkt fehlt: {f['land']}")
 for bid, (stadt, tid, grund) in BEGONNENE_ORTE.items():
     f = next(f for f in alle_fluege if f["thema_id"] == tid and f["teil"] in (None, 1))

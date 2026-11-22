@@ -52,10 +52,31 @@ begin
 
   -- 4 Testkind Realschule Gruppe II/III: lineare Funktionen (33) in 8 und 9; Gruppe I nicht in 9; Stufen durch den Zweig unverändert
   update schule.lernender set schulart = 'rs_by', klasse = 8 where id = v_l;
-  select md5(string_agg(t.id || ':' || coalesce(schule.thema_stufe(v_l, t.id)::text, ''), '|' order by t.id)) into v_s0 from schule.thema t;
+  -- Zweigwechsel (Prüfung 951): Lern- und Sternbuchungen bleiben unverändert – Karten, Versuche, Sterne gleich; bestehende Lernziel-Stände gleich
+  -- (neue „offene“ Zeilen für neue Pflicht-Etappen sind erlaubt); die Etappenzahl der Stufe entspricht der Pflichtliste der Gruppe (nach TL-S: stufe_etappen).
+  -- Gilt vor und nach der Teilung.
+  select md5(coalesce((select string_agg(zz::text, '|' order by zz::text) from schule.karte_stand zz where zz.lernender_id = v_l), ''))
+      || md5(coalesce((select string_agg(zz.id::text || zz.richtig::text, '|' order by zz.id) from schule.versuch zz where zz.lernender_id = v_l), ''))
+      || md5(coalesce((select string_agg(zz::text, '|' order by zz::text) from schule.sterne zz where zz.lernender_id = v_l), '')) into v_s0;
+  create temp table lk_rt_lz on commit drop as select einheit_id, lernziel, status, sicherungen, fehler_anzahl from schule.lernziel_stand where lernender_id = v_l;
   update schule.lernender set zweig = 'rs_II_III' where id = v_l;
-  select md5(string_agg(t.id || ':' || coalesce(schule.thema_stufe(v_l, t.id)::text, ''), '|' order by t.id)) into v_s1 from schule.thema t;
-  if v_s0 <> v_s1 then raise exception 'FEHLER 4 Zweig ändert die Stufen'; end if;
+  select md5(coalesce((select string_agg(zz::text, '|' order by zz::text) from schule.karte_stand zz where zz.lernender_id = v_l), ''))
+      || md5(coalesce((select string_agg(zz.id::text || zz.richtig::text, '|' order by zz.id) from schule.versuch zz where zz.lernender_id = v_l), ''))
+      || md5(coalesce((select string_agg(zz::text, '|' order by zz::text) from schule.sterne zz where zz.lernender_id = v_l), '')) into v_s1;
+  if v_s0 <> v_s1 then raise exception 'FEHLER 4 Zweig ändert Karten, Versuche oder Sterne'; end if;
+  if exists (select 1 from lk_rt_lz a where not exists (select 1 from schule.lernziel_stand zz where zz.lernender_id = v_l and zz.einheit_id = a.einheit_id
+               and zz.lernziel = a.lernziel and zz.status = a.status and zz.sicherungen = a.sicherungen and zz.fehler_anzahl = a.fehler_anzahl))
+     or exists (select 1 from schule.lernziel_stand zz where zz.lernender_id = v_l and zz.status <> 'offen'
+                 and not exists (select 1 from lk_rt_lz a where a.einheit_id = zz.einheit_id and a.lernziel = zz.lernziel)) then
+    raise exception 'FEHLER 4 Zweig ändert Lernziel-Stände'; end if;
+  if to_regprocedure('schule.stufe_etappen(bigint,bigint)') is not null then
+    execute $q$select count(*) from schule.thema t where schule.thema_einheit(t.id) is not null
+                and (schule.thema_stufe($1, t.id)->>'etappen')::int <> cardinality(schule.stufe_etappen($1, schule.thema_einheit(t.id)))$q$ into v_n using v_l;
+  else
+    select count(*) into v_n from schule.thema t where schule.thema_einheit(t.id) is not null
+       and (schule.thema_stufe(v_l, t.id)->>'etappen')::int <> (select jsonb_array_length(coalesce(e.inhalt->'etappen', '[]'::jsonb)) from schule.einheit e where e.id = schule.thema_einheit(t.id));
+  end if;
+  if v_n > 0 then raise exception 'FEHLER 4 Etappenzahl der Stufe passt bei % Themen nicht zur Pflichtliste der Gruppe', v_n; end if;
   w := schule.lehrplan_matrix_lk(schule.lehrplan_matrix(array[v_l], true), v_l);
   select t into x from jsonb_array_elements(w->'themen') t where (t->>'thema_id')::bigint = 33;
   if w->>'zweig' <> 'rs_II_III' or (select array_agg((c->>'klasse')::int order by (c->>'klasse')::int) from jsonb_array_elements(x->'klassen_kind') c) @> array[8, 9] is not true

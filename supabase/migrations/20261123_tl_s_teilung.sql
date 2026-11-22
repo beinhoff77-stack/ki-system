@@ -289,11 +289,11 @@ create or replace function schule.stufe_etappen(p_l bigint, p_e bigint)
 as $function$
   with kat as (select array(select x->>'lernziel' from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) x where e.id = p_e) a),
        pf as (select schule.pflicht_lernziele(p_l, p_e) a)
-  select case when pf.a is null or cardinality(pf.a) = 0 then kat.a
-              else array(select x from unnest(kat.a) x where x = any(pf.a)) end
+  select case when pf.a is null then kat.a                                       -- keine Liste festgelegt: alle Etappen
+              else array(select x from unnest(kat.a) x where x = any(pf.a)) end       -- A2: ausdrücklich leer → keine (Kür zählt nicht)
     from kat, pf;
 $function$;
-comment on function schule.stufe_etappen(bigint, bigint) is 'TL-S 6: Etappen, nach denen sich die Stufe eines Flugs für ein Kind richtet – Pflicht-Etappen (Regel), ohne/leere Liste alle Etappen';
+comment on function schule.stufe_etappen(bigint, bigint) is 'TL-S 6/7: Etappen, nach denen sich die Stufe eines Flugs für ein Kind richtet – Pflicht-Etappen (Regel); ohne Liste alle, ausdrücklich leere Liste keine';
 revoke all on function schule.stufe_etappen(bigint, bigint) from public, anon, authenticated;
 do $$
 declare d text;
@@ -401,6 +401,18 @@ as $function$
 $function$;
 
 -- Stand je Kind für eine Teilung (B4): fest = muss gleich bleiben; neu = was die Teilung hinzufügt (Bericht)
+-- TL-S 7 (A1, Prüfung 951): Abdeckung durch einen alten Test – das Kind hat zu dieser Etappe im alten Flug-Test (Blocktest) oder Korrektur-Test der
+-- alten Einheit eine Aufgabe richtig beantwortet (abgeschlossene Sitzung). Ohne diese Abdeckung: kein Erstabschluss, kein Stempel, keine 100 Sterne.
+create or replace function schule.tl_testabdeckung(p_l bigint, p_e_alt bigint, p_lz text)
+ returns boolean language sql stable set search_path to ''
+as $function$
+  select exists (select 1 from schule.testsitzung ts join schule.versuch v on v.testsitzung_id = ts.id and v.lernender_id = p_l
+                   join schule.aufgabe a on a.id = v.aufgabe_id
+                  where ts.lernender_id = p_l and ts.einheit_id = p_e_alt and ts.art in ('blocktest', 'korrektur') and ts.status = 'abgeschlossen'
+                    and a.variante_gruppe = p_lz and v.richtig);
+$function$;
+comment on function schule.tl_testabdeckung(bigint, bigint, text) is 'TL-S 7: Etappe im alten Flug-Test/Korrektur-Test der alten Einheit richtig beantwortet (Voraussetzung für Erstabschluss eines neuen Teils)';
+
 create or replace function schule.tl_kind_stand(p_einheiten bigint[], p_bloecke_neu bigint[], p_themen bigint[])
  returns jsonb language plpgsql stable set search_path to ''
 as $function$
@@ -558,7 +570,11 @@ begin
               where (select bool_and(schule.tl_erledigt(l.id, v_einh[v_k], x))
                        from unnest(case when schule.pflicht_lernziele(l.id, v_einh[v_k]) is null then v_et
                                         else array(select y from unnest(schule.pflicht_lernziele(l.id, v_einh[v_k])) y where y = any(v_et)) end) x)
-                and coalesce(cardinality(schule.pflicht_lernziele(l.id, v_einh[v_k])), 1) > 0 loop
+                and coalesce(cardinality(schule.pflicht_lernziele(l.id, v_einh[v_k])), 1) > 0
+                -- A1: jede Pflicht-Etappe des Teils vom alten Flug-Test oder Korrektur-Test abgedeckt (richtige Antwort), sonst kein Abschluss
+                and (select bool_and(schule.tl_testabdeckung(l.id, v_e.id, x))
+                       from unnest(case when schule.pflicht_lernziele(l.id, v_einh[v_k]) is null then v_et
+                                        else array(select y from unnest(schule.pflicht_lernziele(l.id, v_einh[v_k])) y where y = any(v_et)) end) x) loop
       insert into schule.flug_erstabschluss (lernender_id, einheit_id, sitzung_id, am)
       values (r.id, v_einh[v_k], null, coalesce((select f.am from schule.flug_erstabschluss f where f.lernender_id = r.id and f.einheit_id = v_e.id), now()))
       on conflict do nothing;
@@ -745,7 +761,9 @@ select l.id lernender_id, t.teil_stamm thema, t.teil_nr teil, t.id thema_id, e.i
                           where u.lernender_id = l.id and u.grund = 'gesetzt') then 'vom alten Thema gesetzt, jetzt offen'
             else 'offen' end zustand,
        exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id
-                where r.lernender_id = l.id and r.status <> 'entfernt') im_plan
+                where r.lernender_id = l.id and r.status <> 'entfernt') im_plan,
+       (select u.grund from schule.visum_uebergang u join schule.block_thema bt on bt.block_id = u.block_id and bt.thema_id = t.id
+         where u.lernender_id = l.id limit 1) visum_aus_altem_thema   -- TL-S 7: bewusste, dauerhafte Ausnahme (fertig | gesetzt); Sebastian bestätigt einmal
   from schule.lernender l cross join schule.thema t join schule.einheit e on e.id = schule.thema_einheit(t.id)
  where l.aktiv and t.teil_nr > 1;
 comment on view schule.tl_teile_je_kind is 'TL-S 6: neue Teile je Kind – selbst geschafft / teilweise selbst (x von y Pflicht-Etappen) / vom alten Thema gesetzt, jetzt offen / offen';
@@ -760,7 +778,7 @@ as $function$
                      'untertitel', t.untertitel, 'zusatz', to_jsonb(t.zusatz)))) end
     from schule.thema t where t.id = p_thema;
 $function$;
-revoke all on function schule.thema_teil_json(bigint), schule.tl_inhalt(jsonb, text[]), schule.tl_erledigt(bigint, bigint, text), schule.tl_kind_stand(bigint[], bigint[], bigint[]),
+revoke all on function schule.thema_teil_json(bigint), schule.tl_inhalt(jsonb, text[]), schule.tl_erledigt(bigint, bigint, text), schule.tl_testabdeckung(bigint, bigint, text), schule.tl_kind_stand(bigint[], bigint[], bigint[]),
   schule.tl_teilen(jsonb), schule.tl_knoten(bigint, int), schule.tl_ort_stamm(bigint), schule.tl_reise_abgebildet(jsonb), schule.tl_reise_ohne(jsonb, text) from public, anon, authenticated;
 revoke all on schule.voraussetzung_schulart, schule.v_ort_visum from public, anon, authenticated;
 

@@ -70,6 +70,48 @@ begin
   v_sel2 := schule.nachtest_auswahl(v_l, v_e, 'e1', 5);
   if cardinality(v_sel2) <> 0 then raise exception 'FEHLER 4 ohne ungestellte Aufgabe nicht erschöpft'; end if;
 
+  -- 6 NT-S 2 (D1): nie ein verkürzter Nachtest – 1 Pflicht-Etappe (Menge 5) mit 1–4 verfügbaren Aufgaben (auch gemischt gestellt/ungestellt) → kein Start, klare Meldung
+  foreach v_x in array array[1, 2, 3, 4] loop
+    insert into schule.thema (fach, schluessel, block, unterthema, reihenfolge, klasse_fest)
+    values ('Mathematik', 'nt_s2_test_' || v_x || '_' || txid_current(), 'X', 'NT-S 2 Test ' || v_x, 0, '{}') returning id into v_t;
+    insert into schule.einheit (thema_id, version, status, inhalt)
+    values (v_t, 1, 'geprueft', jsonb_build_object('etappen', jsonb_build_array(jsonb_build_object('lernziel', 'e1', 'titel', 'E1')),
+                                                  'bewertung', jsonb_build_object('lernziele_pflicht', jsonb_build_array('e1')))) returning id into v_e;
+    insert into schule.aufgabe (einheit_id, thema_id, art, antworttyp, frage, loesung, pool, variante_gruppe, stufe, freigegeben, reihenfolge)
+    select v_e, v_t, 'nachtest', 'zahl', jsonb_build_object('text', 'x' || k), jsonb_build_object('wert', 1), 'sicherung', 'e1', 2, true, k from generate_series(1, v_x) k;
+    -- gemischt: bei 3 und 4 verfügbaren ist eine schon gestellt
+    if v_x >= 3 then
+      insert into schule.versuch (lernender_id, aufgabe_id, client_id, richtig, punkte, punkte_max, hilfe, versuch_nr, am)
+      select v_l, a.id, 'nt-s2-' || a.id, true, 1, 1, 0, 1, now() - interval '50 days' from schule.aufgabe a where a.einheit_id = v_e and a.reihenfolge = 1;
+    end if;
+    perform schule.lernziele_anlegen(v_l, v_e);
+    update schule.lernziel_stand set status = 'nachgewiesen' where lernender_id = v_l and einheit_id = v_e;
+    insert into schule.testsitzung (lernender_id, art, thema_id, einheit_id, aufgaben, status, gestartet_am, abgeschlossen_am)
+    values (v_l, 'blocktest', v_t, v_e, '{}', 'abgeschlossen', now() - interval '40 days', now() - interval '40 days');
+    if cardinality(schule.nachtest_auswahl(v_l, v_e, 'e1', 5)) <> 0 then raise exception 'FEHLER 6 Auswahl verkürzt bei % Aufgaben', v_x; end if;
+    w := schule.test_starten_intern(v_l, jsonb_build_object('einheit_id', v_e, 'art', 'nachtest'));
+    if (w->>'ok')::boolean or w->>'grund' <> 'vorrat_erschoepft' or not (w->'vorrat_erschoepft' ? 'e1')
+       or exists (select 1 from schule.testsitzung where lernender_id = v_l and einheit_id = v_e and art = 'nachtest') then
+      raise exception 'FEHLER 6 % verfügbare Aufgaben: Nachtest gestartet oder Meldung unklar: %', v_x, w; end if;
+  end loop;
+  -- echter Start mit 4 Pflicht-Etappen: je 2 Aufgaben, 8 insgesamt
+  insert into schule.thema (fach, schluessel, block, unterthema, reihenfolge, klasse_fest)
+  values ('Mathematik', 'nt_s2_test_4e_' || txid_current(), 'X', 'NT-S 2 Test 4 Etappen', 0, '{}') returning id into v_t;
+  insert into schule.einheit (thema_id, version, status, inhalt)
+  values (v_t, 1, 'geprueft', jsonb_build_object('etappen', (select jsonb_agg(jsonb_build_object('lernziel', 'e' || i, 'titel', 'E' || i)) from generate_series(1, 4) i),
+                                                'bewertung', jsonb_build_object('lernziele_pflicht', (select jsonb_agg('e' || i) from generate_series(1, 4) i)))) returning id into v_e;
+  insert into schule.aufgabe (einheit_id, thema_id, art, antworttyp, frage, loesung, pool, variante_gruppe, stufe, freigegeben, reihenfolge)
+  select v_e, v_t, 'nachtest', 'zahl', jsonb_build_object('text', 'y' || i || k), jsonb_build_object('wert', 1), 'sicherung', 'e' || i, 2, true, k
+    from generate_series(1, 4) i, generate_series(1, 6) k;
+  perform schule.lernziele_anlegen(v_l, v_e);
+  update schule.lernziel_stand set status = 'nachgewiesen' where lernender_id = v_l and einheit_id = v_e;
+  insert into schule.testsitzung (lernender_id, art, thema_id, einheit_id, aufgaben, status, gestartet_am, abgeschlossen_am)
+  values (v_l, 'blocktest', v_t, v_e, '{}', 'abgeschlossen', now() - interval '40 days', now() - interval '40 days');
+  w := schule.test_starten_intern(v_l, jsonb_build_object('einheit_id', v_e, 'art', 'nachtest'));
+  if not (w->>'ok')::boolean or jsonb_array_length(w->'aufgaben') <> 8
+     or exists (select 1 from jsonb_array_elements(w->'aufgaben') x group by x->>'lernziel' having count(*) <> 2) then
+    raise exception 'FEHLER 6 Start mit 4 Etappen: %', w; end if;
+
   -- 5 Flüge mit 5 und mehr Pflicht-Etappen: Menge 1 wie bisher
   if schule.nachtest_je_etappe(5) <> 1 or schule.nachtest_je_etappe(8) <> 1 or schule.nachtest_je_etappe(4) <> 2 then raise exception 'FEHLER 5 Regel'; end if;
 

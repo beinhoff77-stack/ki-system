@@ -20,6 +20,32 @@ create temp table tl_rt_stufe on commit drop as
     from schule.lernender l cross join (values (26), (29), (44), (46), (61), (91), (101)) s(stamm)
    where coalesce((select (to_jsonb(t)->>'teil_nr')::int from schule.thema t where t.id = s.stamm), 1) = 1;
 
+-- TL-S 7 (A1) Negativfälle vor der Teilung, nur Testkind: a) Thema 26 – alle Karten selbst gelandet, Lernziele „nachgewiesen“, aber kein alter Flug-Test;
+--   b) Thema 61 – alter Flug-Test abgeschlossen, aber nur mit Aufgabe zu einer Etappe (laplace). Erwartet: kein Abschluss, keine Sterne für die neuen Teile.
+do $$
+declare v_l bigint; v_e bigint; v_s bigint;
+begin
+  select id into v_l from schule.lernender where ist_test and aktiv order by id limit 1;
+  if to_regclass('schule.visum_uebergang') is not null then return; end if;   -- schon geteilt: Fälle entfallen
+  foreach v_e in array array[(select schule.thema_einheit(26)), (select schule.thema_einheit(61))] loop
+    insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am)
+    select v_l, v_e, x->>'lernziel', true, now() - interval '30 days' from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') x where e.id = v_e
+    on conflict (lernender_id, einheit_id, lernziel) do update set sitzt = true, sitzt_am = excluded.sitzt_am, gesetzt_am = null;
+    insert into schule.lernziel_stand (lernender_id, einheit_id, lernziel, pflicht, status)
+    select v_l, v_e, x->>'lernziel', true, 'nachgewiesen' from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') x where e.id = v_e
+    on conflict (lernender_id, einheit_id, lernziel) do update set status = 'nachgewiesen';
+  end loop;
+  v_e := schule.thema_einheit(61);
+  insert into schule.testsitzung (lernender_id, art, einheit_id, thema_id, aufgaben, status, gestartet_am, abgeschlossen_am)
+  values (v_l, 'blocktest', v_e, 61, array(select a.id from schule.aufgabe a where a.einheit_id = v_e and a.variante_gruppe = 'laplace' and a.pool = 'test' limit 1),
+          'abgeschlossen', now() - interval '20 days', now() - interval '20 days') returning id into v_s;
+  insert into schule.versuch (lernender_id, aufgabe_id, testsitzung_id, client_id, richtig, punkte, punkte_max, hilfe, versuch_nr, am)
+  select v_l, x, v_s, 'tl-rt-a1-' || x, true, 1, 1, 0, 1, now() - interval '20 days' from unnest((select aufgaben from schule.testsitzung where id = v_s)) x;
+end $$;
+create temp table tl_rt_a1 on commit drop as
+  select (select id from schule.lernender where ist_test and aktiv order by id limit 1) l, (select count(*) from schule.sterne s where s.lernender_id =
+          (select id from schule.lernender where ist_test and aktiv order by id limit 1)) sterne;
+
 \ir ../migrations/20261123_tl_s_teilung.sql
 
 do $$
@@ -248,7 +274,7 @@ begin
   v_sa2 := case when v_sa = 'rs_by' then 'gym_by' else 'rs_by' end;
   select e.id, array(select x->>'lernziel' from jsonb_array_elements(e.inhalt->'etappen') x) into v_e, v_et
     from schule.einheit e join schule.thema t on t.id = e.thema_id
-   where t.teil_stamm in (26, 61) and e.status = 'freigegeben' and jsonb_array_length(e.inhalt->'etappen') >= 2   -- nicht die Teile der Prüfungen 14–17
+   where t.teil_stamm in (26, 44, 61) and t.teil_nr = 1 and e.status = 'freigegeben' and jsonb_array_length(e.inhalt->'etappen') >= 2   -- nicht die Teile der Prüfungen 14–18
      and not exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = e.id)
    order by e.id limit 1;
   if v_e is null then raise exception 'FEHLER 11 Vorbereitung: kein Teil'; end if;
@@ -389,6 +415,17 @@ begin
   perform schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_a2));
   if not exists (select 1 from schule.flug_erstabschluss where lernender_id = v_l and einheit_id = v_e) then raise exception 'FEHLER 17: kein Stempel nach Korrektur'; end if;
   update schule.lernender set schulart = v_sa, zweig = null where id = v_l;
+
+  -- 18 TL-S 7 (A1): ohne Testabdeckung kein Abschluss – a) 26 Teil 2 (Karten gelandet, kein alter Flug-Test), b) 61 Teil 2 (Flug-Test nur mit laplace)
+  if exists (select 1 from tl_rt_a1 a, schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id
+              where f.lernender_id = a.l and e.thema_id in (schule.tl_knoten(26, 2), schule.tl_knoten(61, 2))) then
+    raise exception 'FEHLER 18: Erstabschluss ohne Testabdeckung'; end if;
+  if exists (select 1 from tl_rt_a1 a, schule.sterne s where s.lernender_id = a.l and s.grund = 'ort'
+              and s.bezug in (select 'block:' || bt.block_id from schule.block_thema bt where bt.thema_id in (schule.tl_knoten(26, 2), schule.tl_knoten(61, 2)))) then
+    raise exception 'FEHLER 18: Ort-Sterne ohne Testabdeckung'; end if;
+  if exists (select 1 from tl_rt_a1 a join schule.tl_teile_je_kind k on k.lernender_id = a.l
+              where k.thema_id in (schule.tl_knoten(26, 2), schule.tl_knoten(61, 2)) and (k.im_plan or k.zustand = 'selbst geschafft')) then
+    raise exception 'FEHLER 18: Teil ohne Testabdeckung im Plan oder als geschafft gelistet'; end if;
 
   -- 9 nur einmal teilen: zweites Einspielen ändert nichts
   if (select count(*) from schule.thema t where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101)) <> 15 then raise exception 'FEHLER 9'; end if;

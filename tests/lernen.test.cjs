@@ -3912,7 +3912,7 @@ test('WD-6/Vorgabe 4–5: „Etappe abgelegt“ (Blatt unten auf dem Handy, Kart
         : { etappe: { titel: 'Zahlenstrahl', sterne: 30 }, flug: { titel: 'Natürliche Zahlen', sterne: 100, etappen: 7 }, ort_gold: true, ort: 'Rom' } }; };
     await page.goto(origin + '/#/wiederholen/1'); await wdhRichtig(page);
     const klein = page.getByRole('dialog', { name: 'Etappe abgelegt' }); await klein.waitFor();
-    assert.match(await klein.innerText(), /FÜR IMMER GELERNT[\s\S]*Etappe abgelegt![\s\S]*Welchen Wert hat eine Ziffer\?[\s\S]*5-mal wiederholt, über 30 Lerntage\. Raus aus der regelmäßigen Wiederholung – nur noch bei Bedarf zum Auffrischen\.[\s\S]*\+30 ★[\s\S]*Sonder-Sterne fürs Ablegen[\s\S]*Natürliche Zahlen: 4 von 7 Etappen abgelegt – noch 3, dann wird der Flug golden\./);
+    assert.match(await klein.innerText(), /ABGELEGT[\s\S]*Etappe abgelegt![\s\S]*Welchen Wert hat eine Ziffer\?[\s\S]*5-mal wiederholt, über 30 Lerntage\. Raus aus der regelmäßigen Wiederholung – nur noch bei Bedarf zum Auffrischen\.[\s\S]*\+30 ★[\s\S]*Sonder-Sterne fürs Ablegen[\s\S]*Natürliche Zahlen: 4 von 7 Etappen abgelegt – noch 3, dann wird der Flug golden\./);
     await klein.click({ position: { x: 5, y: 5 } }); await page.waitForTimeout(100); // Antippen beendet die Bewegung
     const box = await klein.locator('.lr-ab-abgelegt-klein').boundingBox();
     if (breite < 760) assert.ok(Math.abs(box.y + box.height - hoehe) < 2 && box.height <= hoehe * 0.75 + 1, `${breite}: Blatt von unten`);
@@ -3925,7 +3925,7 @@ test('WD-6/Vorgabe 4–5: „Etappe abgelegt“ (Blatt unten auf dem Handy, Kart
     const gross = page.getByRole('dialog', { name: 'Flug abgelegt' }); await gross.waitFor();
     assert.equal(await page.getByRole('dialog', { name: 'Etappe abgelegt' }).count(), 0, 'Etappen-Blatt entfällt');
     await gross.locator('.lr-ab-szene').click({ position: { x: 20, y: 120 } }); await page.waitForTimeout(150); // Endzustand
-    assert.match(await gross.innerText(), /ALLE ETAPPEN FÜR IMMER GELERNT[\s\S]*FLUG ABGELEGT![\s\S]*Alle 7 Etappen von Natürliche Zahlen sitzen für immer\. Im Reisepass ist der Flug jetzt golden\.[\s\S]*\+100 ★[\s\S]*für den ganzen Flug[\s\S]*\+30 ★ für die letzte Etappe[\s\S]*Alle Flüge in Rom sind abgelegt\. Dein Stempel ist jetzt golden!/i);
+    assert.match(await gross.innerText(), /ALLE ETAPPEN ABGELEGT[\s\S]*FLUG ABGELEGT![\s\S]*Alle 7 Etappen von Natürliche Zahlen sind abgelegt\. Im Reisepass ist der Flug jetzt golden\.[\s\S]*\+100 ★[\s\S]*für den ganzen Flug[\s\S]*\+30 ★ für die letzte Etappe[\s\S]*Alle Flüge in Rom sind abgelegt\. Dein Stempel ist jetzt golden!/i);
     assert.equal(await gross.locator('.lr-wird-gold').count(), 1);
     const knopf = await gross.getByRole('button', { name: /^Weiter/ }).last().boundingBox();
     assert.ok(knopf.y + knopf.height <= hoehe, `${breite}×${hoehe}: ohne Scrollen`);
@@ -3969,9 +3969,9 @@ test('WD-6/Vorgabe 6: Reisepass – Flüge golden („★ ABGELEGT“), teilweis
     assert.match(await st.innerText(), /ROM[\s\S]*★ GOLD ★/i);
     const e = page.locator('.lr-flug-eintrag');
     assert.deepEqual(await e.allInnerTexts().then((l) => l.map((x) => x.replace(/\s+/g, ' ').trim())),
-      ['✈ Natürliche Zahlen Rom · alle Etappen für immer gelernt ★ ABGELEGT', '✈ Zinsen New York 1 von 2 abgelegt', '✈ Brüche noch nichts abgelegt']);
+      ['✈ Natürliche Zahlen Rom · alle Etappen abgelegt ★ ABGELEGT', '✈ Zinsen New York 1 von 2 abgelegt', '✈ Brüche noch nichts abgelegt']);
     assert.equal(await e.nth(1).locator('.lr-mini-gold i.g').count(), 1);
-    await page.getByText('Gold heißt: Das sitzt für immer.').waitFor();
+    await page.getByText('Gold heißt: Alle Etappen sind abgelegt.').waitFor();
     assert.deepEqual(await gebrocheneWoerter(page.locator('.lr-flug-eintrag b, .lr-flug-eintrag small, .lr-flug-rechts, .lr-stempel b')), [], `${breite}`);
     assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`);
     await page.locator('.lr-pass-fluege').screenshot({ path: path.join(root, `test-results/wd-reisepass-${breite}.png`) });
@@ -4186,4 +4186,52 @@ test('0.86.2: Check-in – richtig mit Hilfe (bestanden false) freundlich, Koffe
   await page.getByText('Richtig – morgen noch einmal ohne Hilfe.').waitFor();
   assert.equal(await page.locator('.lr-plus-stern').count(), 0);
   assert.deepEqual(await kofferZustand(page.locator('.lr-koffer')), ['hilfe,-']);
+});
+
+// ---------- 0.86.3: Nachtrag WD-S 4 (ChatGPT 921), Teil bau-motivation – erfundene Daten ----------
+test('0.86.3: Runde gemacht, noch fällig, aber keine wählbare frische Aufgabe – kein Angebot „Extra“, sondern „bleibt für später offen“', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}'); if (b.aktion !== 'schule_wiederholung') return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, faellig: 4, runde: 6, runde_gemacht: true, gestaffelt: 0, aufgaben: [] } }) });
+  });
+  await page.goto(origin + '/#/reise/1');
+  for (const g of ['nacht', 'alt']) {
+    await page.evaluate((x) => localStorage.setItem('lern.gestaltung.1', x), g);
+    await page.reload(); await page.getByText('Heute keine passende frische Aufgabe – bleibt für später offen.').waitFor();
+    assert.equal(await page.getByText(/Noch 3 Extra-Bordkarten/).count(), 0, g);
+  }
+  await page.goto(origin + '/#/wiederholen/1-extra');
+  await page.getByText('Heute keine passende frische Aufgabe – bleibt für später offen.').waitFor();
+  // Check-in fertig, Rest ohne frische Aufgabe: dasselbe statt „Extra“
+  await page.unrouteAll({ behavior: 'ignoreErrors' });
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht' });
+  await p2.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}'); if (b.aktion === 'schule_wiederholung_runde_fertig') return route.fulfill({ contentType: 'application/json', body: '{"ok":true,"ergebnis":{"ok":true}}' });
+    if (b.aktion !== 'schule_wiederholung') return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, faellig: 5, runde: 1, runde_gemacht: false, aufgaben: wdhAufg(1).map((a) => ({ ...a, pflicht: true })) } }) });
+  });
+  await p2.goto(origin + '/#/wiederholen/1'); await wdhRichtig(p2); await p2.getByRole('button', { name: 'Fertig ›' }).click();
+  await p2.getByRole('heading', { name: 'Eingecheckt!' }).waitFor();
+  await p2.getByText('Heute keine passende frische Aufgabe – bleibt für später offen.').waitFor();
+  assert.equal(await p2.getByText(/Noch 3 Extra-Bordkarten/).count(), 0);
+});
+
+test('0.86.3: kein „für immer“ mehr – Siegel und Einblendungen „ABGELEGT“; Wiederholung mit Hilfe zeigt 0 Sterne laut Server', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-einsteigen-knopf').waitFor();
+  await page.evaluate(() => { lernAbgelegtZeigen({ id: 1 }, { etappe: { titel: 'A', sterne: 30 } }); });
+  const k = page.getByRole('dialog', { name: 'Etappe abgelegt' }); await k.waitFor();
+  assert.doesNotMatch(await k.evaluate((x) => x.textContent), /IMMER|immer/);
+  assert.match(await k.locator('.lr-ab-siegel').evaluate((x) => x.textContent), /ABGELEGT/);
+  await k.getByRole('button', { name: /^Weiter/ }).click();
+  await page.evaluate(() => { lernAbgelegtZeigen({ id: 1 }, { etappe: { titel: 'A', sterne: 30 }, flug: { titel: 'B', sterne: 100, etappen: 3 } }); });
+  const g = page.getByRole('dialog', { name: 'Flug abgelegt' }); await g.waitFor();
+  assert.doesNotMatch(await g.evaluate((x) => x.textContent), /IMMER|immer/);
+  // freiwillige Wiederholung mit Hilfe: Server bucht 0 – die App zeigt keine Sterne (auch nicht, wenn wiederholung.sterne fehlt)
+  const srv = wdhServer({ runde: 1, faellig: 3, gemacht: true }); const { page: p2 } = await setup(t, { gestaltung: 'nacht' }); await p2.route('**/functions/v1/lernen-api/**', srv.route);
+  srv.antwort = () => ({ ok: true, format_ok: true, richtig: true, loesung: { wert: 2000 }, sterne: 0, wiederholung: { bestanden: false } });
+  await p2.goto(origin + '/#/wiederholen/1-extra'); await p2.getByText('EXTRA · 1 VON').waitFor(); await wdhRichtig(p2);
+  await p2.getByText('Richtig – morgen noch einmal ohne Hilfe.').waitFor();
+  assert.equal(await p2.locator('.lr-plus-stern').count(), 0);
+  assert.equal(await p2.locator('.lr-checkin-sterne').innerText(), '★ 340', 'Zähler unverändert');
 });

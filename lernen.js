@@ -1026,8 +1026,11 @@ function lernWdhStand(wdh, kindId) {
   const erledigt = gemacht ? runde : Number.isFinite(Number(wdh.runde_erledigt)) ? Number(wdh.runde_erledigt) : Math.max(0, runde - offen);
   const faellig = Number(wdh.faellig || 0);
   // „Noch 3 Extra-Bordkarten?“ nur, wenn mehr fällig ist als die Runde (nach der Runde: wenn noch etwas fällig ist). Die Zahl der fälligen sieht das Kind nie.
-  const extra = gemacht ? (faellig > 0 ? 1 : 0) : faellig > runde ? 1 : 0;
-  return { neu, gemacht, runde: Math.max(runde, erledigt + offen), offen, erledigt, pflicht: offen, rest: 0, liste: pfl.slice(0, offen), extra, sterne: Number(wdh.sterne_je_richtig ?? wdh.sterne_wdh_richtig) || null,
+  // 0.86.3 (ChatGPT 921, Sollte 2): Extras nur, wenn der Server dafür auch eine wählbare (frische) Bordkarte liefert; sonst ein ruhiger Hinweis
+  const frei = auf.filter((a) => gemacht || !a.pflicht).length;
+  const mehrFaellig = gemacht ? faellig > 0 : faellig > runde;
+  const extra = mehrFaellig && frei > 0 ? 1 : 0; const keineFrische = mehrFaellig && frei === 0;
+  return { neu, gemacht, runde: Math.max(runde, erledigt + offen), offen, erledigt, pflicht: offen, rest: 0, liste: pfl.slice(0, offen), extra, keineFrische, sterne: Number(wdh.sterne_je_richtig ?? wdh.sterne_wdh_richtig) || null,
     alle: auf, faellig };
 }
 // Koffer-Leiste (Vorgabe „abgelegt“ 1/2): je Pflicht-Bordkarte ein Koffer; bis 6 ein Päckchen, 7–9 zu 3, 10–12 zu 4 (gleichmäßig)
@@ -1048,7 +1051,9 @@ function lernCheckinAnsage(ws) {
     el('span', { class: 'lr-leise' }, [`${zahl} von früher`, lernMinuten(ws.offen), ws.sterne ? `je richtig ★ ${ws.sterne}` : null].filter(Boolean).join(' · ')),
     lernKoffer(ws.runde, Array.from({ length: ws.runde }, (_, i) => (i < ws.erledigt ? 'da' : ''))));
 }
-const lernExtraLink = (ws, kindId) => (ws?.neu && ws.extra ? el('a', { class: 'lr-textlink lr-extra-link', href: `#/wiederholen/${kindId}-extra` }, `Noch 3 Extra-Bordkarten?${ws.sterne ? ` Je richtig ★ ${ws.sterne}` : ''}`) : null);
+const LERN_KEINE_FRISCHE = 'Heute keine passende frische Aufgabe – bleibt für später offen.';
+const lernExtraLink = (ws, kindId) => (ws?.neu && ws.extra ? el('a', { class: 'lr-textlink lr-extra-link', href: `#/wiederholen/${kindId}-extra` }, `Noch 3 Extra-Bordkarten?${ws.sterne ? ` Je richtig ★ ${ws.sterne}` : ''}`)
+  : ws?.neu && ws.gemacht && ws.keineFrische ? el('p', { class: 'lr-leise lr-keine-frische' }, LERN_KEINE_FRISCHE) : null);
 function lernWdhHeute(kindId, setzen) {
   const heute = lernHeuteTag(kindId); // Teil 6: Tag des Kindes (heute_bis)
   try { if (setzen) localStorage.setItem('lern.wdhrunde.' + kindId, heute); return localStorage.getItem('lern.wdhrunde.' + kindId) === heute; } catch { return false; }
@@ -1169,7 +1174,7 @@ async function viewReisepass(arg) {
   const flugOrt = (f) => d.orte.find((o) => o.block_id === blockVon(f))?.stadt || f.ort || '';
   const flugEintrag = (f) => { const a = Number(f.etappen_abgelegt) || 0, n = Number(f.etappen) || 0; const gold = f.abgelegt === true;
     return el('li', { class: 'lr-flug-eintrag' + (gold ? ' lr-flug-gold' : '') }, el('span', { class: 'lr-flug-symbol', 'aria-hidden': 'true' }, '✈'),
-      el('span', { class: 'lr-flug-text' }, el('b', {}, f.titel || 'Flug'), el('small', {}, [flugOrt(f), gold ? 'alle Etappen für immer gelernt' : null].filter(Boolean).join(' · '))),
+      el('span', { class: 'lr-flug-text' }, el('b', {}, f.titel || 'Flug'), el('small', {}, [flugOrt(f), gold ? 'alle Etappen abgelegt' : null].filter(Boolean).join(' · '))),
       el('span', { class: 'lr-flug-rechts' }, gold ? '★ ABGELEGT' : a ? `${a} von ${n} abgelegt` : 'noch nichts abgelegt',
         !gold && a && n ? el('span', { class: 'lr-mini-gold', 'aria-hidden': 'true' }, ...Array.from({ length: n }, (_, i) => el('i', { class: i < a ? 'g' : '' }))) : null)); };
   const belohnungen = d.belohnungen.map((b) => {
@@ -1200,7 +1205,7 @@ async function viewReisepass(arg) {
         el('span', { class: 'lr-abz-sturm' }, `⚡ Ausdauer ${lernZahl(konto.abzeichen.sturm || 0)}`))) : null,
     fluege.length ? el('section', { class: 'lr-karte-box lr-pass-fluege' }, el('h2', {}, 'Flüge'),
       el('ul', { class: 'lr-flug-eintraege' }, ...fluege.slice().sort((x, y) => (y.abgelegt === true) - (x.abgelegt === true) || (Number(y.etappen_abgelegt) || 0) - (Number(x.etappen_abgelegt) || 0)).map(flugEintrag)),
-      fluege.some((f) => f.abgelegt === true) || goldOrte.size ? el('p', { class: 'lr-leise lr-gold-hinweis' }, 'Gold heißt: Das sitzt für immer.') : null) : null,
+      fluege.some((f) => f.abgelegt === true) || goldOrte.size ? el('p', { class: 'lr-leise lr-gold-hinweis' }, 'Gold heißt: Alle Etappen sind abgelegt.') : null) : null,
     el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Stempel'),
       stempel.length ? el('div', { class: 'lr-stempelraster' }, ...stempel.map((o, i) => { const gold = goldOrte.has(o.block_id); // WD-6: alle Flüge des Orts abgelegt → Stempel golden
         return el('div', { class: 'lr-stempel' + (gold ? ' lr-stempel-gold' : ''), style: `--dreh:${(i * 37) % 17 - 8}deg`, ...(gold ? { title: 'Alle Flüge abgelegt' } : {}) },
@@ -2194,13 +2199,13 @@ function lernAbschlussOrt({ ctx, r, stempelNr, weiter }) {
 }
 // WD-6 nach der Vorgabe „abgelegt“ (inhalte/pruefung/kind/abgelegt/umsetzung.md, 4–5): Gold ist die Farbe für „abgelegt“ – nur dafür.
 // „Etappe abgelegt“: Handy Blatt von unten, Tablet/Rechner Karte in der Mitte (≤ 520 px), Bordkarte bleibt erkennbar; „Flug abgelegt“: ganzer Bildschirm.
-const LERN_SIEGEL = '<svg viewBox="0 0 120 120"><defs><radialGradient id="lrsg" cx="40%" cy="35%"><stop offset="0" stop-color="#FFF3B0"/><stop offset=".55" stop-color="#F2C12E"/><stop offset="1" stop-color="#B88700"/></radialGradient></defs><path d="M60 4l9 9 12-4 4 12 13 2-1 13 10 8-7 11 5 12-12 5-1 13-13 0-6 11-12-5-11 7-8-10-13 1-2-13-12-5 4-12-7-11 10-8-1-13 13-2 4-12 12 4z" fill="url(#lrsg)" stroke="#8A6200" stroke-width="2"/><circle cx="60" cy="60" r="32" fill="none" stroke="#8A6200" stroke-width="2" stroke-dasharray="3 3"/><text x="60" y="56" text-anchor="middle" font-size="13" font-weight="900" fill="#5A3A00">FÜR</text><text x="60" y="73" text-anchor="middle" font-size="13" font-weight="900" fill="#5A3A00">IMMER</text></svg>';
+const LERN_SIEGEL = '<svg viewBox="0 0 120 120"><defs><radialGradient id="lrsg" cx="40%" cy="35%"><stop offset="0" stop-color="#FFF3B0"/><stop offset=".55" stop-color="#F2C12E"/><stop offset="1" stop-color="#B88700"/></radialGradient></defs><path d="M60 4l9 9 12-4 4 12 13 2-1 13 10 8-7 11 5 12-12 5-1 13-13 0-6 11-12-5-11 7-8-10-13 1-2-13-12-5 4-12-7-11 10-8-1-13 13-2 4-12 12 4z" fill="url(#lrsg)" stroke="#8A6200" stroke-width="2"/><circle cx="60" cy="60" r="32" fill="none" stroke="#8A6200" stroke-width="2" stroke-dasharray="3 3"/><text x="60" y="56" text-anchor="middle" font-size="18" font-weight="900" fill="#5A3A00">★</text><text x="60" y="74" text-anchor="middle" font-size="12" font-weight="900" fill="#5A3A00">ABGELEGT</text></svg>';
 const lernGoldStempel = (ort) => lernGrafik(`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#F6D25A" stroke="#8A6200" stroke-width="5" stroke-dasharray="6 4"/><text x="50" y="58" text-anchor="middle" font-size="22" font-weight="900" fill="#5A3A00">${String(ort || '★').slice(0, 3).toUpperCase().replace(/[<>&"]/g, '')}</text></svg>`, 'lr-gold-stempel-klein');
 function lernAbschlussEtappeAbgelegt({ etappe, checkin, weiter }) {
   const a = Number(etappe.etappen_abgelegt), n = Number(etappe.etappen); const fort = n > 1 && a >= 1 && a <= n; // Fortschritt des Flugs (Feld-Vorschlag, sonst ohne)
   return el('div', { class: 'lr-ab-app lr-ab-abgelegt lr-ab-abgelegt-klein lr-ab-anim' },
     el('div', { class: 'lr-ab-funken-gold', 'aria-hidden': 'true' }, ...[[-60, -50], [70, -40], [10, -70]].map(([x, y]) => el('i', { style: `--x:${x}px;--y:${y}px` }, '✦'))),
-    el('p', { class: 'lr-ab-oben' }, 'FÜR IMMER GELERNT'),
+    el('p', { class: 'lr-ab-oben' }, 'ABGELEGT'), // 0.86.3: nicht „für immer“ – nach einem Fehler kommt sie zurück in die Wiederholung
     el('h2', { class: 'lr-ab-titel' }, 'Etappe abgelegt!'),
     el('div', { class: 'lr-ab-ticket' }, el('b', {}, etappe.titel || 'Etappe'), el('small', {}, '5-mal wiederholt, über 30 Lerntage. Raus aus der regelmäßigen Wiederholung – nur noch bei Bedarf zum Auffrischen.'), lernGrafik(LERN_SIEGEL, 'lr-ab-siegel')),
     el('div', { class: 'lr-ab-sternzeile' }, el('span', { class: 'lr-ab-zahl' }, `+${lernZahl(etappe.sterne ?? 30)} ★`), el('span', { class: 'lr-leise' }, 'Sonder-Sterne fürs Ablegen')),
@@ -2215,9 +2220,9 @@ function lernAbschlussFlugAbgelegt({ flug, etappe, ortGold, nachbarn = [], kindI
   return el('div', { class: 'lr-ab-app lr-ab-gold lr-ab-anim' },
     el('button', { type: 'button', class: 'lr-ab-skip', onclick: weiter }, 'Überspringen ›'),
     el('div', { class: 'lr-ab-szene' }, el('div', { class: 'lr-ab-strahlen', 'aria-hidden': 'true' }),
-      el('div', { class: 'lr-ab-oben' }, 'ALLE ETAPPEN FÜR IMMER GELERNT'),
+      el('div', { class: 'lr-ab-oben' }, 'ALLE ETAPPEN ABGELEGT'),
       el('h2', { class: 'lr-ab-gtitel' }, 'Flug abgelegt!'),
-      el('p', { class: 'lr-ab-gunter' }, `Alle ${n ? n + ' ' : ''}Etappen von `, el('b', {}, flug.titel || 'deinem Flug'), ' sitzen für immer. Im Reisepass ist der Flug jetzt golden.'),
+      el('p', { class: 'lr-ab-gunter' }, `Alle ${n ? n + ' ' : ''}Etappen von `, el('b', {}, flug.titel || 'deinem Flug'), ' sind abgelegt. Im Reisepass ist der Flug jetzt golden.'),
       el('div', { class: 'lr-ab-pass', 'aria-hidden': 'true' }, el('div', { class: 'lr-ab-pass-seite' }, ...zeilen.map((t) => el('div', { class: 'lr-ab-pass-zeile' + (t === flug.titel ? ' lr-wird-gold' : '') },
         el('span', {}, '✈'), t === flug.titel ? el('b', {}, t) : el('span', {}, t), t === flug.titel ? el('span', { class: 'lr-ab-pass-stern' }, '★') : null))))),
     el('div', { class: 'lr-ab-blatt lr-ab-gblatt' },
@@ -4773,14 +4778,16 @@ async function viewWiederholen(arg) {
       if (checkin) lernCall('schule_wiederholung_runde_fertig', { lernender_id: kind.id }).catch(() => null); // WD-S 2: der Server setzt „gemacht“ selbst; hier nur bestätigen
       else if (!ws.neu) lernWdhHeute(kind.id, true); // V9 (alter Server): Runde für heute auf diesem Gerät gemacht
       if (ws.neu) {
-        const nochExtra = checkin ? ws.faellig > ws.runde : Number(r.faellig || 0) > liste.length;
+        const nochExtra = checkin ? ws.extra : Number(r.faellig || 0) > liste.length && (ws.alle || []).length > liste.length;
+        const keineFrische = checkin ? ws.keineFrische : Number(r.faellig || 0) > liste.length && (ws.alle || []).length <= liste.length;
         lernErsetze(flaeche, kopfZeile(checkin ? 'CHECK-IN' : 'EXTRA'),
           el('section', { class: 'lr-karte-box lr-geschafft lr-checkin-fertig' }, el('div', { class: 'lr-checkin-symbol', 'aria-hidden': 'true' }, '🧳'),
             el('h1', { class: 'lr-titel' }, checkin ? 'Eingecheckt!' : 'Geschafft!'), lernKoffer(zustand.length, zustand),
             el('p', { class: 'lr-checkin-ergebnis' }, el('b', {}, `${richtig} von ${liste.length} richtig`), sterne ? [' · ', el('b', { class: 'lr-gold-text' }, `+${lernZahl(sterne)} ★`)] : null),
             el('p', { class: 'lr-leise' }, falsch ? `${falsch === 1 ? 'Eine Bordkarte kommt' : `${falsch} Bordkarten kommen`} beim nächsten Mal wieder.` : checkin ? 'Alles richtig – super eingecheckt!' : 'Alles richtig!'),
             n ? el('a', { class: 'lr-knopf', href: `#/lerneinheit/${kind.id}-${n.id}-ueben` }, `Weiter nach ${nach} ›`) : el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zur Abflugtafel ›'),
-            nochExtra ? el('a', { class: 'lr-textlink lr-extra-link', href: `#/wiederholen/${kind.id}-extra`, onclick: () => setTimeout(render, 0) }, `Noch 3 Extra-Bordkarten?${ws.sterne ? ` Je richtig ★ ${ws.sterne}` : ''}`) : null),
+            nochExtra ? el('a', { class: 'lr-textlink lr-extra-link', href: `#/wiederholen/${kind.id}-extra`, onclick: () => setTimeout(render, 0) }, `Noch 3 Extra-Bordkarten?${ws.sterne ? ` Je richtig ★ ${ws.sterne}` : ''}`)
+              : keineFrische ? el('p', { class: 'lr-leise lr-keine-frische' }, LERN_KEINE_FRISCHE) : null),
           lernWdhErklaert(true));
         return;
       }
@@ -4830,7 +4837,7 @@ async function viewWiederholen(arg) {
       checkin ? el('a', { class: 'lr-ab-pause lr-checkin-pause', href: `#/reise/${kind.id}` }, 'Pause – später weiter einchecken') : null);
     window.scrollTo(0, 0);
   };
-  if (!liste.length) lernErsetze(flaeche, el('p', { class: 'lr-leise' }, ws.neu && ws.gemacht && modus !== 'extra' ? 'Heute schon eingecheckt.' : 'Gerade ist nichts zum Wiederholen dran.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zu Heute'));
+  if (!liste.length) lernErsetze(flaeche, el('p', { class: 'lr-leise' }, ws.neu && ws.keineFrische ? LERN_KEINE_FRISCHE : ws.neu && ws.gemacht && modus !== 'extra' ? 'Heute schon eingecheckt.' : 'Gerade ist nichts zum Wiederholen dran.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zu Heute'));
   else zeige();
   lernErsetze(main, lernRahmen(kind, 'reise', flaeche));
 }

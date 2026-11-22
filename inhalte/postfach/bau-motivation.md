@@ -2,6 +2,14 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: 0.86.3 – Nachtrag WD-S 4 (ChatGPT 921), Teil bau-motivation (Cache v159)
+
+Auf `lernen-app` d0e911e. Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.
+- **Keine frische Aufgabe (Sollte 2):** „Noch 3 Extra-Bordkarten?“ erscheint nur noch, wenn mehr fällig ist **und** der Server dafür wählbare Bordkarten liefert (`aufgaben[]` ohne `pflicht` bzw. nach der Runde überhaupt welche). Sonst steht ruhig „Heute keine passende frische Aufgabe – bleibt für später offen.“ – auf der Abflugtafel (beide Designs), nach „Eingecheckt!“ und auf `#/wiederholen/<kind>-extra`.
+- **Kein „für immer“ (Sollte 4):** Etappe abgelegt oben „ABGELEGT“, Siegel „★ ABGELEGT“ (statt „FÜR IMMER“), Flug abgelegt „ALLE ETAPPEN ABGELEGT“ und „Alle n Etappen von … sind abgelegt.“, Reisepass „alle Etappen abgelegt“, Satz „Gold heißt: Alle Etappen sind abgelegt.“ Die Vorgabe des Gestalters (`inhalte/pruefung/kind/abgelegt/`) nennt noch „FÜR IMMER“ – **bitte dort nachziehen** oder anderen Wortlaut liefern.
+- **0 Sterne bei Hilfe:** Wiederholung (Runde, Extra) und Mischkarte zeigen nur den Serverwert; bei `sterne: 0` (bzw. `wiederholung.sterne` 0) keine Sterne, der Zähler bleibt stehen (Test).
+**Getestet:** lernen 159 von 159 (neu 2), Gesamtlauf sonst nur die bekannten Reise-Fehler.
+
 ## 2026-11-22 – FERTIG: 0.86.2 – Fehler Mischkarten (App-Teil) und ChatGPT 919 (Cache v158)
 
 Auf `lernen-app` f278a3c. Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.

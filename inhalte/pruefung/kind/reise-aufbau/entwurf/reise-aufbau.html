@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entwurf: Reise-Aufbau Kontinent → Land → Stadt</title>
+<style>
+:root{--seite:#EEF0EC;--text:#14202B;--leise:#55606B;--linie:#D9D4C7;--blau:#0B3B52;--sand:#F4F1E8;--gelb:#FFD23F;--gold:#E8B30E;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--seite);color:var(--text);font-size:16px;line-height:1.45}button{font:inherit;cursor:pointer}
+.huelle{max-width:1380px;margin:0 auto;padding:18px 14px 80px}
+.einl h1{font-size:25px;margin:0 0 6px}.einl p{margin:0 0 6px;color:var(--leise);max-width:960px}
+.steuer{position:sticky;top:0;z-index:50;background:#EEF0ECee;backdrop-filter:blur(6px);padding:10px 0;display:flex;flex-wrap:wrap;gap:14px;align-items:center;border-bottom:1px solid var(--linie);margin-bottom:8px}
+.gruppe{display:flex;gap:4px;align-items:center}.gruppe>span{font-size:13px;color:var(--leise);margin-right:4px}
+.gruppe button{border:1px solid var(--linie);background:#fff;border-radius:99px;padding:6px 12px;font-size:14px}.gruppe button.an{background:var(--text);color:#fff;border-color:var(--text)}
+.nav{display:flex;flex-wrap:wrap;gap:6px}.nav a{font-size:14px;padding:5px 10px;border-radius:99px;background:#fff;border:1px solid var(--linie);color:var(--text);text-decoration:none}
+section.fall{background:#fff;border-radius:20px;padding:18px;margin:20px 0;border:1px solid #dcdcd3;scroll-margin-top:70px}
+section.fall>h2{margin:0 0 4px;font-size:21px}section.fall>.wann{margin:0 0 12px;color:var(--leise);font-size:15px;max-width:1000px}
+.buehne{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
+.geraet{width:400px;max-width:100%;border-radius:30px;overflow:hidden;box-shadow:0 8px 30px #0003;border:8px solid #15191d;flex:none;background:var(--sand)}
+body.b820 .geraet{width:820px;border-width:12px}body.b1280 .geraet{width:1280px;border-radius:14px;border-width:10px}
+.notiz{flex:1;min-width:260px;font-size:14.5px;color:var(--leise)}.notiz h4{margin:0 0 4px;color:var(--text);font-size:15px}.notiz ul{margin:0 0 10px;padding-left:18px}
+
+.app{min-height:720px;color:var(--blau);background:var(--sand)}
+.inhalt{width:100%;max-width:720px;margin:0 auto;padding:18px}
+body.b1280 .inhalt.breit{max-width:1100px}
+.kopf{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.1em;color:#4E6B78}
+.kopf .sterne{margin-left:auto;background:#fff;border:1px solid #E5DFCF;border-radius:99px;padding:3px 10px;color:#8A6200;letter-spacing:0;font-size:15px}
+.karte{background:#fff;border:1px solid #E5DFCF;border-radius:20px;padding:16px;margin-top:12px}
+.land{font-size:13px;font-weight:800;letter-spacing:.08em;color:#4E6B78;text-transform:uppercase}
+.gross{font-size:28px;font-weight:900;line-height:1.08;margin:2px 0 2px}
+.mathe{font-size:16px;font-weight:700;color:#2B5A70}
+.leise{color:#4E6B78;font-size:14.5px}
+.knopf{display:flex;justify-content:space-between;align-items:center;width:100%;min-height:58px;border:0;border-radius:18px;background:var(--gelb);color:#1B0C3A;font-weight:900;font-size:18px;padding:10px 18px;margin-top:14px;box-shadow:0 5px 0 #B78D00;text-align:left}
+.knopf small{display:block;font-weight:600;font-size:13px;opacity:.85}
+.textlink{display:block;text-align:center;margin-top:10px;color:#4E6B78;text-decoration:underline;font-size:14px;background:none;border:0;width:100%}
+.flagge{display:inline-block;width:28px;height:19px;border-radius:3px;vertical-align:-3px;margin-right:6px;box-shadow:0 0 0 1px #0002}
+.chip{display:inline-block;font-size:12px;font-weight:800;padding:2px 8px;border-radius:99px;background:#E7EEF1;color:#2B5A70}
+/* Mini-Route auf der Abflugtafel */
+.mini{display:flex;align-items:center;margin:12px 0 2px}
+.mini .p{width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid #9FB6C0;flex:none}
+.mini .p.ok{background:#2E9D6B;border-color:#2E9D6B}.mini .p.gold{background:var(--gold);border-color:#B88700}.mini .p.jetzt{width:18px;height:18px;background:var(--gelb);border-color:#B78D00}
+.mini .l{flex:1;height:3px;background:#C9D6DB}.mini .l.ok{background:#2E9D6B}
+.mininamen{display:flex;justify-content:space-between;font-size:11.5px;color:#4E6B78}
+/* Rundreise */
+.reise{position:relative;margin-top:14px}
+.halt{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;position:relative;padding:8px 0}
+.halt::before{content:"";position:absolute;left:16px;top:0;bottom:0;width:3px;background:#C9D6DB}
+.halt:first-child::before{top:50%}.halt:last-child::before{bottom:50%}
+.halt.ok::before,.halt.gold::before{background:#2E9D6B}
+.halt .pkt{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:900;background:#fff;border:3px solid #9FB6C0;color:#4E6B78;font-size:14px}
+.halt.ok .pkt{background:#2E9D6B;border-color:#2E9D6B;color:#fff}
+.halt.gold .pkt{background:linear-gradient(135deg,#FFE27A,#E8B30E);border-color:#B88700;color:#5A3A00}
+.halt.jetzt .pkt{background:var(--gelb);border-color:#B78D00;color:#1B0C3A;box-shadow:0 0 0 6px #FFD23F55}
+.halt .st b{display:block;font-size:18px;line-height:1.15}.halt .st span{font-size:14px;color:#2B5A70}
+.halt .rechts{font-size:12.5px;color:#4E6B78;text-align:right;max-width:120px}
+.halt.jetzt{background:#FFF8DC;border-radius:16px;margin:4px -8px;padding:8px}
+.halt.jetzt::before{left:24px}
+.halt.grenze .pkt{border-radius:8px;border-style:dashed}
+/* Karte (Tablet/Rechner) */
+.kartezeichnung{display:none;background:#E3EEF1;border-radius:18px;margin-top:14px;padding:8px}
+body.b820 .kartezeichnung,body.b1280 .kartezeichnung{display:block}
+body.b1280 .zweispaltig{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:start}
+/* Etappe */
+.hl{display:flex;gap:6px;margin:8px 0}.hl i{width:28px;height:28px;border-radius:8px;background:#fff;border:2px solid #C9C0A8;display:grid;place-items:center;font-style:normal;font-size:14px;color:#B9AE92}
+.hl i.ok{background:#E3F4E9;border-color:#2E9D6B;color:#2E9D6B}.hl i.jetzt{border-color:var(--blau);color:var(--blau);box-shadow:0 0 0 3px #0B3B5222}
+.aufgabe{font-size:18px;margin:6px 0 10px}.eingabe{border:2px solid #D9D2BF;border-radius:12px;padding:10px 12px;font-size:18px;background:#FFFDF6}
+/* Reisepass */
+.pass-kont{margin-top:14px}.pass-kont h4{display:flex;justify-content:space-between;margin:0 0 8px;font-size:13px;letter-spacing:.1em;color:#4E6B78}
+.stempelreihe{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
+.stp{aspect-ratio:1;border-radius:14px;border:3px dashed #9FB6C0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6px;font-size:11px;color:#4E6B78;background:#fff;transform:rotate(var(--r,0deg))}
+.stp b{font-size:13px;color:#14202B;line-height:1.1}.stp .m{font-size:10.5px;margin-top:3px;line-height:1.15}
+.stp.voll{border-style:solid;border-color:var(--c);color:var(--c)}.stp.voll b{color:var(--c)}
+.stp.gold{background:linear-gradient(135deg,#FFF3B0,#F6D25A 50%,#E8B30E);border-color:#8A6200;color:#5A3A00}.stp.gold b{color:#4A3300}
+.stp.leer{opacity:.55;border-color:#C9C0A8}
+/* Route 5–10 */
+.rmatrix{display:grid;gap:4px;font-size:12px;overflow:hidden}
+.rmatrix .kh{font-weight:800;font-size:11.5px;color:#4E6B78;padding:4px 2px;text-align:center}
+.rmatrix .kl{color:#fff;font-weight:900;border-radius:8px;display:grid;place-items:center;font-size:13px}
+.rmatrix .z{display:flex;flex-direction:column;gap:3px}
+.rc{background:#fff;border:1px solid #E5DFCF;border-left:4px solid var(--c,#9FB6C0);border-radius:8px;padding:4px 6px;line-height:1.2}
+.rc b{display:block;font-size:12.5px}.rc span{color:#4E6B78;font-size:11px}
+.rc.ok{background:#E3F4E9}.rc.gold{background:linear-gradient(100deg,#FFF3B0,#F6D25A)}.rc.jetzt{background:#FFF8DC;box-shadow:0 0 0 2px #B78D00}.rc.raus{opacity:.45}
+/* Antarktis */
+.eis{background:linear-gradient(180deg,#DDEBF2,#F4F8FA);}
+.station{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid #D3E2EA;border-radius:16px;padding:10px 12px;margin-top:8px}
+.station .ic{width:40px;height:40px;border-radius:12px;background:#E7F0F5;display:grid;place-items:center;font-size:20px}
+.station b{display:block}.station span{font-size:13px;color:#4E6B78}
+.station .r{margin-left:auto;font-size:12.5px;color:#4E6B78;text-align:right}
+</style>
+</head>
+<body class="b400">
+<div class="huelle">
+<div class="einl">
+<h1>Entwurf: Reise-Aufbau – Kontinent → Land → Stadt</h1>
+<p>Vorgabe für den späteren Umbau (nach WD). Kontinent = Themengebiet, <b>Flug = ein Land</b>, <b>Etappe = eine Stadt</b>, Aufgaben = Highlights der Stadt ohne Namen. Die Ebene „Ort“ entfällt. <b>Der Mathe-Titel steht immer daneben.</b> Beispiele aus dem Vorschlag <code>inhalte/reise/aufbau-vorschlag.md</code>; Lernstand erfunden.</p>
+<p>Oben die Breite wählen: Handy 400, Tablet 820, Rechner 1280.</p>
+</div>
+<div class="steuer">
+<div class="gruppe"><span>Breite</span><button data-b="400" class="an">Handy 400</button><button data-b="820">Tablet 820</button><button data-b="1280">Rechner 1280</button></div>
+<nav class="nav"><a href="#tafel">1 Abflugtafel</a><a href="#flug">2 Flug = Rundreise</a><a href="#etappe">3 Etappe = Stadt</a><a href="#pass">4 Reisepass</a><a href="#route">5 Meine Route</a><a href="#antarktis">6 Antarktis</a></nav>
+</div>
+
+<!-- 1 Abflugtafel -->
+<section class="fall" id="tafel"><h2>1 · Abflugtafel</h2>
+<p class="wann">Die Startseite zeigt das Land als großen Titel, darunter das Mathe-Thema, dann die heutige Stadt mit Etappen-Titel und eine kleine Route durch die Städte.</p>
+<div class="buehne"><div class="geraet"><div class="app"><div class="inhalt">
+<div class="kopf">ASIEN · JETZT DRAN <span class="sterne">★ 1 240</span></div>
+<div class="karte">
+<div class="land"><span class="flagge" style="background:linear-gradient(#0099B5 0 33%,#fff 33% 66%,#1EB53A 66%)"></span>Usbekistan</div>
+<div class="gross">Potenzgesetze</div>
+<div class="leise">Stadt 3 von 5 · heute in</div>
+<div style="margin-top:6px;font-size:20px;font-weight:900">Samarkand · <span class="mathe" style="font-size:18px">Potenzen von Potenzen</span></div>
+<div class="mini"><span class="p gold"></span><span class="l ok"></span><span class="p ok"></span><span class="l ok"></span><span class="p jetzt"></span><span class="l"></span><span class="p"></span><span class="l"></span><span class="p"></span></div>
+<div class="mininamen"><span>Fergana</span><span>Taschkent</span><span><b>Samarkand</b></span><span>Buchara</span><span>Chiwa</span></div>
+<div style="margin-top:12px;padding:10px 12px;border-radius:14px;background:#FFF8DC;border:1px solid #F0DE9C"><b>Vorher kurz einchecken</b><br><span class="leise">6 Highlights von früher · etwa 3 Minuten</span></div>
+<button class="knopf">Weiter geht’s<span>›</span></button>
+<button class="textlink">Ganze Rundreise ansehen</button>
+</div>
+<div class="karte" style="display:flex;gap:10px;align-items:center"><span style="font-size:26px">🐧</span><span><b>Antarktis-Expedition</b><br><span class="leise">Neumayer-Station III · Wetterstation</span></span><span style="margin-left:auto">›</span></div>
+<p class="leise" style="text-align:center;margin-top:14px"><a href="#route" style="color:inherit">Meine Route 5–10 ›</a> · <a href="#pass" style="color:inherit">Reisepass ›</a></p>
+</div></div></div>
+<div class="notiz"><h4>Regeln</h4><ul>
+<li><b>Drei Zeilen, immer gleich:</b> Land (klein, mit Flagge) – Mathe-Thema (groß) – „Stadt · Etappen-Titel“. So ist der Mathe-Titel nie weg (Festlegung 11).</li>
+<li>Kopf: Kontinent („ASIEN · JETZT DRAN“) statt Ort.</li>
+<li>Mini-Route: ein Punkt je Stadt, Namen nur bis 6 Städte; ab 7: nur erste, aktuelle und letzte Stadt beschriftet.</li>
+<li>Flagge als kleines Bild (nicht als Emoji – Windows zeigt Emoji-Flaggen als Buchstaben).</li>
+<li>Expeditionen: eigene kleine Karte „Antarktis-Expedition“, wenn eine offen ist.</li>
+<li>Check-in heißt weiter Check-in; die Aufgaben darin heißen „Highlights von früher“ (siehe Frage 1 in umsetzung.md).</li></ul></div></div>
+</section>
+
+<!-- 2 Flug -->
+<section class="fall" id="flug"><h2>2 · Flug-Seite = Rundreise durch das Land</h2>
+<p class="wann">Ersetzt die bisherige Orts-/Flug-Übersicht. Jede Stadt ist ein Halt auf einer Linie, mit dem Etappen-Titel darunter. Am Ende die „Grenze“ = Flug-Test. Auf Tablet und Rechner zusätzlich eine einfache Landkarte mit der Strecke.</p>
+<div class="buehne"><div class="geraet"><div class="app"><div class="inhalt breit">
+<div class="kopf">‹ ASIEN <span class="sterne">★ 1 240</span></div>
+<div class="land" style="margin-top:10px"><span class="flagge" style="background:linear-gradient(#0099B5 0 33%,#fff 33% 66%,#1EB53A 66%)"></span>Usbekistan</div>
+<div class="gross">Potenzgesetze</div>
+<div class="leise">Rundreise durch 5 Städte · 2 geschafft · Gym 7</div>
+<div class="zweispaltig">
+<div class="reise">
+<div class="halt gold"><span class="pkt">★</span><span class="st"><b>Fergana</b><span>Gleiche Basis: malnehmen</span></span><span class="rechts">abgelegt</span></div>
+<div class="halt ok"><span class="pkt">✓</span><span class="st"><b>Taschkent</b><span>Gleicher Exponent: Basen zusammen</span></span><span class="rechts">geschafft · Wdh in 3 Tagen</span></div>
+<div class="halt jetzt"><span class="pkt">3</span><span class="st"><b>Samarkand</b><span>Potenzen von Potenzen</span></span><span class="rechts"><b>hier bist du</b><br>Highlight 4 von 6</span></div>
+<div class="halt"><span class="pkt">4</span><span class="st"><b>Buchara</b><span>Gleiche Basis: teilen</span></span><span class="rechts"></span></div>
+<div class="halt"><span class="pkt">5</span><span class="st"><b>Chiwa</b><span>Potenzgesetze geschickt nutzen</span></span><span class="rechts"></span></div>
+<div class="halt grenze"><span class="pkt">🛂</span><span class="st"><b>Grenze</b><span>Flug-Test</span></span><span class="rechts">nach allen Städten</span></div>
+</div>
+<div class="kartezeichnung"><svg viewBox="0 0 400 240" width="100%" aria-label="Karte Usbekistan mit Strecke"><path d="M20 70 L90 40 L170 55 L230 30 L330 60 L385 110 L360 170 L270 200 L190 190 L120 215 L45 170 Z" fill="#F7F2E4" stroke="#B9AE92" stroke-width="2"/><polyline points="345,120 290,95 215,140 165,135 95,105" fill="none" stroke="#9FB6C0" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/><polyline points="345,120 290,95 215,140" fill="none" stroke="#2E9D6B" stroke-width="4" stroke-linecap="round"/><g font-size="13" font-weight="700" fill="#0B3B52"><circle cx="345" cy="120" r="8" fill="#E8B30E" stroke="#8A6200" stroke-width="2"/><text x="330" y="145">Fergana</text><circle cx="290" cy="95" r="8" fill="#2E9D6B"/><text x="262" y="82">Taschkent</text><circle cx="215" cy="140" r="11" fill="#FFD23F" stroke="#B78D00" stroke-width="2"/><text x="185" y="166">Samarkand</text><circle cx="165" cy="135" r="7" fill="#fff" stroke="#9FB6C0" stroke-width="3"/><text x="140" y="122">Buchara</text><circle cx="95" cy="105" r="7" fill="#fff" stroke="#9FB6C0" stroke-width="3"/><text x="70" y="92">Chiwa</text></g><text x="205" y="128" font-size="18">✈</text></svg><p class="leise" style="margin:4px 6px">Vereinfachte Karte; nur Umriss und Punkte, keine echte Kartengrafik nötig.</p></div>
+</div>
+<button class="knopf">Weiter in Samarkand<span>›</span></button>
+</div></div></div>
+<div class="notiz"><h4>Regeln</h4><ul>
+<li><b>Halt</b> = Stadt (groß) + Etappen-Titel (darunter). Zustand: ★ gold = abgelegt, ✓ = geschafft (mit nächster Wiederholung klein), Nummer = kommt noch, gelb = hier bist du (mit „Highlight x von y“).</li>
+<li><b>Grenze = Flug-Test</b> als letzter Halt (gestrichelt), erst offen nach allen Pflicht-Städten. Freiwillige Etappen: Halt mit „· freiwillig“.</li>
+<li>Kopf „‹ ASIEN“ führt zur Kontinent-Übersicht (Länder des Kontinents als Liste, wie bisher die Orte).</li>
+<li><b>Karte</b> nur Tablet/Rechner: vereinfachter Umriss (eine SVG je Land, später ergänzbar). Fehlt die Zeichnung, bleibt nur die Linie – kein Fehler.</li>
+<li>Reihenfolge der Städte = Reihenfolge der Etappen (Vorschlag); Strecke, nicht immer Ring.</li></ul></div></div>
+</section>
+
+<!-- 3 Etappe -->
+<section class="fall" id="etappe"><h2>3 · Etappe = Stadt (Highlights)</h2>
+<p class="wann">Kopf zeigt „Stadt · Etappen-Titel“, darunter klein „Land · Thema · Stadt x von n“. Statt „Bordkarte 4 von 6“ heißt es „Highlight 4 von 6“; die Highlights haben keine Namen.</p>
+<div class="buehne"><div class="geraet"><div class="app"><div class="inhalt">
+<div class="kopf">‹ USBEKISTAN · STADT 3 VON 5 <span class="sterne">★ 1 250</span></div>
+<div style="margin-top:8px;font-size:24px;font-weight:900;line-height:1.1">Samarkand · <span style="color:#2B5A70">Potenzen von Potenzen</span></div>
+<div class="leise">Potenzgesetze</div>
+<div class="hl"><i class="ok">✓</i><i class="ok">✓</i><i class="ok">✓</i><i class="jetzt">4</i><i>5</i><i>6</i></div>
+<div class="karte">
+<div class="leise">Highlight 4 von 6</div>
+<div class="aufgabe">Vereinfache: (a³)⁴</div>
+<div class="eingabe">a¹²</div>
+<button class="knopf">Prüfen<span>›</span></button>
+<button class="textlink">Tipp ansehen</button>
+</div>
+<p class="leise" style="margin-top:12px">Merke: Potenz hoch Zahl → Exponenten malnehmen.</p>
+</div></div></div>
+<div class="notiz"><h4>Regeln</h4><ul>
+<li><b>„Highlight“ ersetzt „Bordkarte“</b> innerhalb einer Stadt. Ohne Namen (kein „Registan“), damit keine Sehenswürdigkeit erfunden oder falsch zugeordnet wird.</li>
+<li>Wiederholung, Mischkarte, Test: immer „Stadt · Etappen-Titel“ oder „Land · Thema“ dazu („Das war: Samarkand · Potenzen von Potenzen“).</li>
+<li>Abschluss „Etappe geschafft“ (AB-A): Titelzeile „Samarkand geschafft!“, darunter der Etappen-Titel. „Flug geschafft“: „Usbekistan geschafft!“ + Thema. Der Länder-Stempel ersetzt den Orts-Stempel.</li></ul></div></div>
+</section>
+
+<!-- 4 Reisepass -->
+<section class="fall" id="pass"><h2>4 · Reisepass mit Länder-Stempeln</h2>
+<p class="wann">Je Land ein Stempel (statt je Ort). Gruppiert nach Kontinent, mit „n von m Ländern“. Noch nicht bereiste Länder der Route als blasse Platzhalter (nur die nächsten 2). Abgelegte Länder golden (Vorgabe „abgelegt“).</p>
+<div class="buehne"><div class="geraet"><div class="app"><div class="inhalt breit">
+<div class="kopf">REISEPASS <span class="sterne">★ 1 420</span></div>
+<div class="pass-kont"><h4><span>EUROPA</span><span>3 von 13 Ländern</span></h4>
+<div class="stempelreihe">
+<div class="stp gold" style="--r:-4deg"><b>ITALIEN</b><span class="m">Natürliche Zahlen</span>★ GOLD</div>
+<div class="stp voll" style="--c:#9A3B2E;--r:3deg"><b>ÖSTERREICH</b><span class="m">Ganze Zahlen</span>12.11.</div>
+<div class="stp voll" style="--c:#1F6FA8;--r:-2deg"><b>SCHWEIZ</b><span class="m">Grundrechenarten</span>18.11.</div>
+<div class="stp leer"><b>Slowenien</b><span class="m">als Nächstes</span></div>
+<div class="stp leer"><b>Griechenland</b><span class="m">danach</span></div>
+</div></div>
+<div class="pass-kont"><h4><span>ASIEN</span><span>1 von 19 Ländern</span></h4>
+<div class="stempelreihe">
+<div class="stp voll" style="--c:#0E7A5F;--r:2deg"><b>USBEKISTAN</b><span class="m">Potenzgesetze</span>20.11.</div>
+<div class="stp leer"><b>Kasachstan</b><span class="m">als Nächstes</span></div>
+</div></div>
+<div class="pass-kont"><h4><span>ANTARKTIS · EXPEDITIONEN</span><span>2 Stationen</span></h4>
+<div class="stempelreihe">
+<div class="stp voll" style="--c:#2F6E8E;--r:-3deg"><b>NEUMAYER III</b><span class="m">Wetterstation</span>🐧</div>
+<div class="stp voll" style="--c:#2F6E8E;--r:2deg"><b>McMURDO</b><span class="m">Flug Toronto</span>🐧</div>
+</div></div>
+<p class="leise" style="margin-top:10px">Abzeichen (Direkt, Sauber, Ausdauer) bleiben darunter wie bisher.</p>
+</div></div></div>
+<div class="notiz"><h4>Regeln</h4><ul>
+<li><b>Stempel = Land</b>: Name groß, Mathe-Thema klein, Datum der Landung. Farbe je Kontinent (fest), Drehung leicht zufällig, aber je Land fest.</li>
+<li><b>Gold</b>, wenn das Land (= Flug) abgelegt ist; Text „★ GOLD“ statt Datum.</li>
+<li><b>Platzhalter</b>: nur die nächsten zwei Länder der Route („als Nächstes“, „danach“), blass. Nicht die ganze Liste – sonst wirkt es wie ein Berg.</li>
+<li>„n von m Ländern“ zählt nur Länder im Plan des Kindes.</li>
+<li>Bisherige Orts-Stempel werden zu Länder-Stempeln (Festlegung 6/13); Kinder mit Mehr-Flug-Orten bekommen die zusätzlichen Länder nachträglich.</li>
+<li>Antarktis: eigene Seite „Expeditionen“, Stempel = Forschungsstation.</li></ul></div></div>
+</section>
+
+<!-- 5 Route -->
+<section class="fall" id="route"><h2>5 · „Meine Route 5–10“ (LM-6) mit Ländern</h2>
+<p class="wann">Spalten = Kontinente (statt Themengebiete), Zeilen = Klassen. Jede Karte: Land (fett) + Mathe-Thema (klein). Farben wie Stufen; gold = abgelegt.</p>
+<div class="buehne"><div class="geraet"><div class="app"><div class="inhalt breit">
+<div class="kopf">MEINE ROUTE 5–10 <span class="sterne">★ 1 420</span></div>
+<p class="leise" style="margin:8px 0">Du kannst schon <b>9 von 14</b> Flügen aus Klasse 5.</p>
+<div class="rmatrix" style="grid-template-columns:40px repeat(4,minmax(0,1fr))">
+<span></span><span class="kh">Europa</span><span class="kh">Asien</span><span class="kh">Afrika</span><span class="kh">Austra­lien</span>
+<span class="kl" style="background:#2E7D32">5</span>
+<div class="z"><div class="rc gold" style="--c:#2E7D32"><b>Italien</b><span>Natürliche Zahlen</span></div><div class="rc ok" style="--c:#2E7D32"><b>Österreich</b><span>Ganze Zahlen</span></div></div>
+<div class="z"><div class="rc ok" style="--c:#2E7D32"><b>Kambodscha</b><span>Einfache Gleichungen</span></div></div>
+<div class="z"><div class="rc ok" style="--c:#2E7D32"><b>Tunesien</b><span>Grundbegriffe</span></div><div class="rc" style="--c:#2E7D32"><b>Ghana</b><span>Mit Winkeln rechnen</span></div></div>
+<div class="z"><div class="rc ok" style="--c:#2E7D32"><b>Victoria</b><span>Zählen</span></div></div>
+<span class="kl" style="background:#6A1B9A">7</span>
+<div class="z"><div class="rc raus"><b>—</b></div></div>
+<div class="z"><div class="rc jetzt" style="--c:#6A1B9A"><b>Usbekistan</b><span>Potenzgesetze · hier bist du</span></div><div class="rc" style="--c:#6A1B9A"><b>Kasachstan</b><span>Terme umformen</span></div></div>
+<div class="z"><div class="rc" style="--c:#6A1B9A"><b>Marokko</b><span>Kongruenz­abbildungen</span></div></div>
+<div class="z"><div class="rc" style="--c:#6A1B9A"><b>Western Australia</b><span>Median, Boxplot</span></div></div>
+</div>
+<p class="leise" style="margin-top:8px">Ausschnitt; Handy zeigt eine Liste je Klasse.</p>
+</div></div></div>
+<div class="notiz"><h4>Regeln</h4><ul>
+<li>Spaltenkopf = Reise-Kontinent; für Eltern/Lehrer bleibt die Matrix bei Themengebieten (Festlegung 8).</li>
+<li>Karte: Land oben fett, Thema darunter klein – nie nur das Land.</li>
+<li>Detail eines Flugs (Antippen): die Rundreise aus Ansicht 2 im Kleinen.</li>
+<li>Bei Australien steht der Bundesstaat (Victoria), bei Neuseeland „Neuseeland – Nordinsel“.</li></ul></div></div>
+</section>
+
+<!-- 6 Antarktis -->
+<section class="fall" id="antarktis"><h2>6 · Antarktis = Heimat der Expeditionen</h2>
+<p class="wann">Kein Lern-Kontinent mehr. Jede Expedition hat eine Forschungsstation; die Seite „Expeditionen“ wird zur Antarktis-Seite.</p>
+<div class="buehne"><div class="geraet"><div class="app eis"><div class="inhalt">
+<div class="kopf">ANTARKTIS · EXPEDITIONEN <span class="sterne">★ 1 420</span></div>
+<div class="gross" style="margin-top:8px">Forschungs­stationen</div>
+<p class="leise">Hier löst du große Aufgaben aus dem Alltag – mit allem, was du schon kannst.</p>
+<div class="station"><span class="ic">🌦️</span><span><b>Neumayer-Station III</b><span>Wetterstation · Deutschland</span></span><span class="r">✓ geschafft</span></div>
+<div class="station" style="border-color:#B78D00;background:#FFF8DC"><span class="ic">🧭</span><span><b>Esperanza-Station</b><span>Schatzsuche · Argentinien</span></span><span class="r"><b>offen</b><br>Kl. 5</span></div>
+<div class="station"><span class="ic">🏛️</span><span><b>Mario-Zucchelli-Station</b><span>Römerstraße · Italien</span></span><span class="r">kommt mit<br>Brüche</span></div>
+</div></div></div>
+<div class="notiz"><h4>Regeln</h4><ul>
+<li>Station (groß) + Expeditions-Titel (darunter) + Betreiberland klein.</li>
+<li>Stempel im Reisepass: Station mit Pinguin, eigene Seite.</li>
+<li>Bisherige Orte in der Antarktis (McMurdo usw. als Funktionen-Orte) entfallen; Funktionen zieht in den Orient. Dort hat noch kein Kind gelernt.</li>
+<li>Bild-Zeichen im Bau als eigene Zeichnungen, nicht als Emoji.</li></ul></div></div>
+</section>
+</div>
+<script>
+document.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{document.body.className='b'+b.dataset.b;document.querySelectorAll('[data-b]').forEach(x=>x.classList.toggle('an',x===b))});
+</script>
+</body>
+</html>

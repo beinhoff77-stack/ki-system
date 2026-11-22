@@ -13,13 +13,16 @@ Stand 22.11.2026 · Chat `pruefmaterial-rs` · erzeugt aus `erfassung.txt` mit `
 | GWT7-2024 | Grundwissentest | alle (vor Gruppenteilung) | 2024 | – | 45 | 23 | LehrplanPLUS | 23 | brueche, dezimal, prozent, rechnen, grundbegriffe, winkel, einfach, einheiten, proportional, flaechen, flaechen_vielecke, volumen, aufstellen, natuerlich | Schuljahresbeginn 7 (prüft Grundwissen bis 6) | [Link](https://isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2024/2024_GWT_Mathe_7_Loesung.pdf) |
 | GWT7-2025 | Grundwissentest | alle (vor Gruppenteilung) | 2025 | – | 45 | 23 | LehrplanPLUS | 23 | kongruenz, brueche, dezimal, prozent, rechnen, darstellen, winkel, einfach, einheiten, flaechen, flaechen_vielecke, volumen, aufstellen, ganz | Schuljahresbeginn 7 (prüft Grundwissen bis 6) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2025/2025_GWT_Mathematik_7_Angabe.pdf) |
 
-## Stoff Klasse 7 (26 Arbeiten)
+## Stoff Klasse 7 (50 Arbeiten)
 
 | Arbeit | Art | Gruppe | Jahr | Nr. | Zeit | Punkte | Lehrplan | Aufg. | Themen zusammen | Zeitpunkt | Link |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | LA-7-I | Beispiel-Leistungsaufgaben (keine vollständige Arbeit) | I | 2019 | – | – | – | LehrplanPLUS | 31 | determinanten2, kongruenz, prozent_grundwert, rechnen, darstellen, kennwerte, stichproben, zinsen, konstruktion, kreis, linear, ungleichungen, einheiten, schraegbilder, potenzgesetze | ganzjährig (Stand 14.05.2019) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Mathematik/Weiterentwicklung_Abschlusspruefung/Exemplarische_Leistungsaufgaben/rs_m_07__leistungsaufgaben_7i.pdf) |
+| JT8-2007-I | Jahrgangsstufentest | I | 2007 | – | 45 | 21 | alt (vor LehrplanPLUS) | 18 | kongruenz, rechnen, darstellen, kennwerte, kreis, winkelsaetze, linear, ungleichungen, einheiten, flaechen, kreisberechnung, kombinatorik, aufstellen | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2007/jahrgangsstufe-8-wpfg_-i-angaben.pdf) |
 | JT8-2012-I | Jahrgangsstufentest | I | 2012 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, prozent_grundwert, rechnen, kennwerte, stichproben, grundbegriffe, ortslinien, winkelsaetze, linear, proportional, flaechen, volumen, grundbegriffe, kombinatorik, aufstellen, natuerlich | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2012/jgstt_2012_klasse_8_i_loesungsmuster_end.pdf) |
 | JT8-2014-I | Jahrgangsstufentest | I | 2014 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, prozent_grundwert, darstellen, stichproben, ortslinien, winkelsaetze, bruch, linear, indirekt, kreisberechnung, volumen, grundbegriffe, kombinatorik, potenzgesetze, umformen, potenzen_zehner | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2014/jahrgangsstufe_8_i_loesung_mit_deckblatt.pdf) |
+| JT8-2016-I | Jahrgangsstufentest | I | 2016 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, rechnen, darstellen, grundbegriffe, kreis, winkelsaetze, linear, ungleichungen, proportional, flaechen, kreisberechnung, volumen, grundbegriffe, aufstellen, potenzgesetze, potenzgesetze_natuerlich | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2016/_a__2016_jt_mathe_8i_angabe.pdf) |
+| JT8-2017-I | Jahrgangsstufentest | I | 2017 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, dezimal, prozent_grundwert, rechnen, darstellen, kennwerte, kreis, winkelsaetze, linear, ungleichungen, indirekt, kreisberechnung, grundbegriffe, aufstellen, potenzgesetze, potenzgesetze_natuerlich, umformen, ganz | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2017/2017_jgt_mathematik_8i_angabe.pdf) |
 | JT8-2018-I | Jahrgangsstufentest | I | 2018 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, dezimal, prozent_grundwert, rechnen, kennwerte, konstruktion, winkelsaetze, ungleichungen, kreisberechnung, grundbegriffe, aufstellen, potenzgesetze, ganz | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2018/2018_jt_mathe_8_i_angabe.pdf) |
 | JT8-2019-I | Jahrgangsstufentest | I | 2019 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, prozent_grundwert, rechnen, stichproben, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, kreisberechnung, umformen, ganz, potenzen_zehner | Schuljahresbeginn 8; prüft Stoff 7 nach altem Lehrplan (vor LehrplanPLUS) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2019/2019_jt_mathe_8_i_loesung.pdf) |
 | JT8-2020-I | Jahrgangsstufentest | I | 2020 | – | 45 | 21 | LehrplanPLUS | 21 | determinanten2, kongruenz, rechnen, kennwerte, zinsen, konstruktion, kreis, winkelsaetze, linear, ungleichungen, proportional, schraegbilder, potenzgesetze, umformen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7; erster LehrplanPLUS-Jahrgang) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2020/2020_jt_mathe_8_i_loesung.pdf) |
@@ -30,6 +33,9 @@ Stand 22.11.2026 · Chat `pruefmaterial-rs` · erzeugt aus `erfassung.txt` mit `
 | JT8-2025-I | Jahrgangsstufentest | I | 2025 | – | 45 | 21 | LehrplanPLUS | 21 | kongruenz, prozent_grundwert, rechnen, kennwerte, konstruktion, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, schraegbilder, potenzgesetze_natuerlich, umformen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2025/2025_JT_Mathematik_8_I_Loesung.pdf) |
 | STARK-7I-SA1 | Übungs-Schulaufgabe (Verlag) | I | – | 1 | 45 | 32 | LehrplanPLUS | 9 | determinanten2, kongruenz, winkelsaetze, potenzgesetze, potenzgesetze_natuerlich | 1. Schulaufgabe (Herbst); Zeitangaben je Aufgabe im Lösungsteil | [Link](https://www.lehmanns.ch/media/88673092) |
 | STARK-7I-EX1 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 1 | 18 | – | LehrplanPLUS | nur Themen | potenzgesetze_natuerlich | vor der 1. Schulaufgabe; LehrplanPLUS (Inhalt passt zu M7 I LB1) | [Link](https://www.lehmanns.ch/media/88673092) |
+| JT8-2007-II | Jahrgangsstufentest | II/III | 2007 | – | 45 | 21 | alt (vor LehrplanPLUS) | 18 | kongruenz, prozent, darstellen, kennwerte, winkelsaetze, linear, ungleichungen, einheiten, flaechen, kreisberechnung, kombinatorik, aufstellen, ganz | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan; weitgehend gleiche Aufgaben wie Gruppe I | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2007/jahrgangsstufe-8-wpfg_-ii-iii-angaben.pdf) |
+| JT8-2009-II | Jahrgangsstufentest | II/III | 2009 | – | 45 | 21 | alt (vor LehrplanPLUS) | 18 | kongruenz, prozent, darstellen, konstruktion, winkelsaetze, linear, proportional, flaechen, kreisberechnung, volumen, aufstellen, potenzgesetze, umformen, ganz | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2009/end_8_ii_iii_test2009_ohne-foto.pdf) |
+| JT8-2011-II | Jahrgangsstufentest | II/III | 2011 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, prozent, prozent_grundwert, rechnen, darstellen, winkelsaetze, linear, ungleichungen, einheiten, proportional, flaechen, grundbegriffe, aufstellen | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2011/jgstt_2011_klasse_8_ii_iii_loesungsmuster.pdf) |
 | JT8-2016-II | Jahrgangsstufentest | II/III | 2016 | – | 45 | 21 | alt (vor LehrplanPLUS) | 27 | kongruenz, prozent, rechnen, darstellen, grundbegriffe, konstruktion, linear, ungleichungen, proportional, flaechen, kreisberechnung, grundbegriffe, aufstellen, potenzgesetze | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2016/_a__2016_jt_mathe_8ii_angabe.pdf) |
 | JT8-2018-II | Jahrgangsstufentest | II/III | 2018 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, dezimal, prozent_grundwert, rechnen, kennwerte, winkelsaetze, ungleichungen, proportional, kreisberechnung, grundbegriffe, aufstellen, potenzgesetze_natuerlich, ganz | Schuljahresbeginn 8; Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2018/2018_jt_mathe_8_ii_angabe.pdf) |
 | JT8-2019-II | Jahrgangsstufentest | II/III | 2019 | – | 45 | 21 | alt (vor LehrplanPLUS) | 21 | kongruenz, dezimal, prozent_grundwert, rechnen, stichproben, winkelsaetze, linear, ungleichungen, indirekt, kreisberechnung, grundbegriffe, umformen | Schuljahresbeginn 8; prüft Stoff 7 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2019/2019_jt_mathe_8_ii_loesung.pdf) |
@@ -41,14 +47,34 @@ Stand 22.11.2026 · Chat `pruefmaterial-rs` · erzeugt aus `erfassung.txt` mit `
 | JT8-2025-II | Jahrgangsstufentest | II/III | 2025 | – | 45 | 21 | LehrplanPLUS | 21 | kongruenz, prozent_grundwert, rechnen, kennwerte, zinsen, kreis, ortslinien, winkelsaetze, linear, ungleichungen, indirekt, potenzgesetze_natuerlich, umformen, potenzen_zehner | Schuljahresbeginn 8 (prüft Stoff 7) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2025/2025_JT_Mathematik_8_II_Loesung.pdf) |
 | KA-3548 | Schulaufgabe | II/III | – | 1 | nicht angegeben | nicht angegeben | unklar | 10 | kongruenz, rechnen, potenzgesetze, potenzgesetze_natuerlich, umformen | Dezember, 1. Schulaufgabe; Lehrplanstand unklar (Annahme: alt, wegen Bruch-/Q-Rechnen) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3548.pdf) |
 | KA-3548b | Übungsblatt zur Schulaufgabe | II/III | – | – | – | – | LehrplanPLUS | 4 | potenzgesetze, potenzgesetze_natuerlich, potenzen_zehner | vor 1. Schulaufgabe (Annahme) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3548.pdf) |
+| KA-3028 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 5 | prozent_grundwert, zinsen | Januar; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/prozentrechnung/3028.htm) |
+| KA-3095 | Klassenarbeit | unbekannt | – | 6 | nicht angegeben | nicht angegeben | unklar | 8 | konstruktion, winkelsaetze, linear, proportional, umformen, ganz | Juni (Jahresende); Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/abschluss/3095.htm) |
+| KA-3207 | Klassenarbeit | unbekannt | – | 3 | nicht angegeben | nicht angegeben | unklar | 5 | rechnen, aufstellen, umformen | Februar; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3207.htm) |
+| KA-3217 | Klassenarbeit | unbekannt | – | 1 | nicht angegeben | nicht angegeben | unklar | 7 | rechnen, ganz | Oktober; Lehrplanstand unklar (in LehrplanPLUS Stoff 6) | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/negative-zahlen/3217.htm) |
+| KA-3249 | Klassenarbeit | unbekannt | – | 4 | nicht angegeben | nicht angegeben | unklar | 4 | umformen | Februar; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3249.htm) |
+| KA-3276 | Klassenarbeit | unbekannt | – | 5 | nicht angegeben | nicht angegeben | unklar | 7 | konstruktion, winkelsaetze, linear | Februar; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/winkel/3276.htm) |
+| KA-3540 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 3 | aufstellen | Juli; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3540.htm) |
+| KA-3542 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 5 | rechnen, ganz | Januar; Lehrplanstand unklar (in LehrplanPLUS Stoff 6) | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/rationale-zahlen/3542.htm) |
+| KA-3544 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 5 | prozent, rechnen, indirekt, proportional | Dezember; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/dreisatz/3544.htm) |
+| KA-3566 | Klassenarbeit | unbekannt | – | 4 | nicht angegeben | nicht angegeben | unklar | 5 | prozent, prozent_grundwert, darstellen | Mai; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/prozentrechnung/3566.htm) |
+| KA-3569 | Klassenarbeit | unbekannt | – | 2 | nicht angegeben | nicht angegeben | unklar | 5 | rechnen, aufstellen, ganz | November; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3569.htm) |
+| KA-3615 | Kurzprobe (Stegreifaufgabe) | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 5 | dezimal, rechnen | Oktober; Lehrplanstand unklar (in LehrplanPLUS Stoff 5/6) | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/dezimalbr%C3%BCche/3615.htm) |
+| KA-3546 | Schulaufgabe | unbekannt | – | 2 (Annahme) | nicht angegeben | nicht angegeben | unklar | 4 | prozent, ungleichungen, indirekt, proportional | Januar; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/prozentrechnung/3546.htm) |
+| KA-3550 | Schulaufgabe | unbekannt | – | 1 (Annahme) | nicht angegeben | nicht angegeben | unklar | 6 | rechnen, potenzgesetze, potenzgesetze_natuerlich | Dezember; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/potenzen-7/3550.htm) |
 | KA-3552 | Schulaufgabe | unbekannt | – | 1 (Annahme) | nicht angegeben | nicht angegeben | unklar | 21 | rechnen, potenzgesetze, potenzgesetze_natuerlich, umformen, ganz, potenzen_zehner | 1. Halbjahr (Annahme); Lehrplanstand unklar (Annahme: alt) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3552.pdf) |
+| KA-3556 | Schulaufgabe | unbekannt | – | 1 | nicht angegeben | nicht angegeben | unklar | 6 | rechnen, linear, ungleichungen, aufstellen | November, 1. Schulaufgabe; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3556.htm) |
+| KA-3560 | Schulaufgabe | unbekannt | – | 1 | nicht angegeben | nicht angegeben | alt (vor LehrplanPLUS) | 5 | dezimal, rechnen, linear, ganz | November, 1. Schulaufgabe; Bayern laut Lösungsblatt; Annahme: alter Lehrplan (rationale Zahlen in 7) | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/rationale-zahlen/3560.htm) |
 | KA-3563 | Schulaufgabe | unbekannt | – | 2 | nicht angegeben | nicht angegeben (Aufgabe 2: 9 P.) | unklar | 29 | kongruenz, potenzgesetze, potenzgesetze_natuerlich, ganz, natuerlich, potenzen_zehner | Januar, 2. Schulaufgabe; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3563.pdf) |
+| KA-3564 | Schulaufgabe | unbekannt | – | 3 | nicht angegeben | nicht angegeben | alt (vor LehrplanPLUS) | 10 | prozent_grundwert, zinsen, ungleichungen, proportional, kreisberechnung | Juni, 3. Schulaufgabe; Annahme: alter Lehrplan (Kreisberechnung in 7) | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/abschluss/3564.htm) |
+| KA-3558 | Stegreifaufgabe | unbekannt | – | – | nicht angegeben (Annahme ca. 20) | nicht angegeben | unklar | 6 | indirekt, proportional | Mai; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/zuordnungen/3558.htm) |
 
-## Stoff Klasse 8 (48 Arbeiten)
+## Stoff Klasse 8 (73 Arbeiten)
 
 | Arbeit | Art | Gruppe | Jahr | Nr. | Zeit | Punkte | Lehrplan | Aufg. | Themen zusammen | Zeitpunkt | Link |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | LA-8-I | Beispiel-Leistungsaufgaben (keine vollständige Arbeit) | I | 2021 | – | – | – | LehrplanPLUS | 40 | kongruenz, grundbegriffe, linear, konstruktion, bruch, linear, schraegbilder, grundbegriffe, kombinatorik, bruchterme, quadratische_extreme, umformen | ganzjährig (Stand 08.06.2021) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Mathematik/Weiterentwicklung_Abschlusspruefung/Exemplarische_Leistungsaufgaben/rs_m_08_leistungsaufgaben_8i.pdf) |
+| GWT9-2017-I | Grundwissentest | I | 2017 | – | 45 | 23 | alt (vor LehrplanPLUS) | 20 | kongruenz, dezimal, prozent_grundwert, linear, konstruktion, winkelsaetze, bruch, linear, indirekt, proportional, volumen, grundbegriffe, quadratische_extreme, umformen | Schuljahresbeginn 9; Stoff bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2017/2017_gwt_mathematik_9i_angabe.pdf) |
+| GWT9-2018-I | Grundwissentest | I | 2018 | – | 45 | 23 | alt (vor LehrplanPLUS) | 22 | prozent_grundwert, darstellen, linear, konstruktion, winkelsaetze, bruch, linear, proportional, grundbegriffe, aufstellen, quadratische_extreme, umformen | Schuljahresbeginn 9; Stoff bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2018/2018_gwt_mathe_9_i_angabe.pdf) |
 | GWT9-2019-I | Grundwissentest | I | 2019 | – | 45 | 23 | alt (vor LehrplanPLUS) | 23 | kongruenz, prozent_grundwert, linear, winkelsaetze, bruch, linear, indirekt, flaechen, volumen, grundbegriffe, aufstellen, quadratische_extreme, umformen | Schuljahresbeginn 9; Grundwissen bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2019/2019_gwt_mathe_9_i_loesung.pdf) |
 | GWT9-2020-I | Grundwissentest | I | 2020 | – | 45 | 23 | alt (vor LehrplanPLUS) | 23 | kongruenz, brueche, prozent_grundwert, darstellen, grundbegriffe, linear, konstruktion, kreis, winkelsaetze, bruch, linear, flaechen, volumen, grundbegriffe, aufstellen, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9; Grundwissen bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2020/2020_gwt_mathe_9_i_angabe.pdf) |
 | GWT9-2021-I | Grundwissentest | I | 2021 | – | 45 | 23 | LehrplanPLUS | 23 | determinanten2, kongruenz, brueche, prozent_grundwert, grundbegriffe, linear, konstruktion, winkelsaetze, bruch, linear, proportional, flaechen, volumen, schraegbilder, grundbegriffe, aufstellen, bruchterme, umformen, natuerlich | Schuljahresbeginn 9 (prüft Grundwissen bis 8; erster LehrplanPLUS-Jahrgang) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2021/2021_gwt_mathe_9_i_loesung.pdf) |
@@ -72,6 +98,8 @@ Stand 22.11.2026 · Chat `pruefmaterial-rs` · erzeugt aus `erfassung.txt` mit `
 | VERLAG-8I-EX6 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 6 | – | – | unklar | nur Themen | bruch | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
 | VERLAG-8I-EX7 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 7 | – | – | unklar | nur Themen | linear | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
 | VERLAG-8I-EX8 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | I | – | 8 | – | – | unklar | nur Themen | linear | laufend vor der jeweiligen Schulaufgabe; Lehrplanstand unklar (Themen wie „Relationen“, „Hyperbeln“, „Dreiecke“ deuten auf alten Lehrplan) | [Link](https://www.lehmanns.ch/media/88591532) |
+| GWT9-2017-II | Grundwissentest | II/III | 2017 | – | 45 | 23 | alt (vor LehrplanPLUS) | 22 | kongruenz, prozent_grundwert, rechnen, konstruktion, ortslinien, winkelsaetze, bruch, linear, indirekt, proportional, volumen, grundbegriffe, potenzgesetze_natuerlich, quadratische_extreme, umformen, potenzen_zehner | Schuljahresbeginn 9; Stoff bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2017/2017_gwt_mathematik_9ii_angabe.pdf) |
+| GWT9-2018-II | Grundwissentest | II/III | 2018 | – | 45 | 23 | alt (vor LehrplanPLUS) | 21 | prozent_grundwert, darstellen, konstruktion, winkelsaetze, bruch, linear, proportional, grundbegriffe, aufstellen, quadratische_extreme, umformen | Schuljahresbeginn 9; Stoff bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2018/2018_gwt_mathe_9_ii_angabe.pdf) |
 | GWT9-2019-II | Grundwissentest | II/III | 2019 | – | 45 | 23 | alt (vor LehrplanPLUS) | 22 | kongruenz, prozent_grundwert, grundbegriffe, konstruktion, kreis, winkelsaetze, bruch, linear, proportional, flaechen, volumen, grundbegriffe, aufstellen, quadratische_extreme, umformen | Schuljahresbeginn 9; Grundwissen bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2019/2019_gwt_mathe_9_ii_loesung.pdf) |
 | GWT9-2020-II | Grundwissentest | II/III | 2020 | – | 45 | 23 | alt (vor LehrplanPLUS) | 23 | kongruenz, brueche, prozent_grundwert, darstellen, konstruktion, kreis, ortslinien, winkelsaetze, bruch, linear, proportional, flaechen, volumen, grundbegriffe, aufstellen, bruchterme, quadratische_extreme, umformen | Schuljahresbeginn 9; Grundwissen bis 8 nach altem Lehrplan | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2020/2020_gwt_mathe_9_ii_loesung.pdf) |
 | GWT9-2021-II | Grundwissentest | II/III | 2021 | – | 45 | 23 | LehrplanPLUS | 23 | determinanten2, kongruenz, brueche, prozent_grundwert, grundbegriffe, linear, konstruktion, winkelsaetze, bruch, linear, proportional, flaechen, volumen, schraegbilder, grundbegriffe, aufstellen, bruchterme, umformen, natuerlich | Schuljahresbeginn 9 (prüft Grundwissen bis 8) | [Link](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2021/2021_gwt_mathe_9_ii_loesung.pdf) |
@@ -93,8 +121,29 @@ Stand 22.11.2026 · Chat `pruefmaterial-rs` · erzeugt aus `erfassung.txt` mit `
 | STARK-8II-EX3 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | II/III | – | 3 | – | – | unklar | nur Themen | linear, ungleichungen | laufend; Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
 | STARK-8II-EX4 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | II/III | – | 4 | – | – | unklar | nur Themen | quadratische_extreme | laufend; Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
 | STARK-8II-EX5 | Übungs-Stegreifaufgabe (Verlag) – nur Themenebene | II/III | – | 5 | – | – | unklar | nur Themen | quadratische_extreme | laufend; Lehrplanstand unklar (Ortslinien in 8 = alter Lehrplan; Dreiecke, Daten und Zufall passen zu LehrplanPLUS) | [Link](https://www.lehmanns.ch/media/88672417) |
+| KA-3627 | Klassenarbeit | unbekannt | – | 1 | nicht angegeben | 22 | unklar | 6 | umformen | Oktober; Lehrplanstand unklar; Bundesland unklar (Annahme nicht Bayern: "mündliche Note") | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/3627.htm) |
+| KA-3631 | Klassenarbeit | unbekannt | – | 1 | nicht angegeben | nicht angegeben | unklar | 7 | prozent, prozent_grundwert, darstellen, indirekt | September; Lehrplanstand unklar; Bundesland unklar (in Bayern Stoff 7) | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/prozentrechnen/3631.htm) |
+| KA-3638 | Klassenarbeit | unbekannt | – | 2 | nicht angegeben | nicht angegeben | unklar | 5 | zinsen, umformen | Dezember; Lehrplanstand unklar; Bundesland unklar (Zinsen in Bayern Stoff 7) | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/prozentrechnen/3638.htm) |
+| KA-3639 | Klassenarbeit | unbekannt | – | 2 | nicht angegeben | 24 | unklar | 6 | linear, umformen | Januar; Lehrplanstand unklar; Bundesland unklar (Annahme nicht Bayern: "mündliche Note") | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/3639.htm) |
+| KA-3643 | Klassenarbeit | unbekannt | – | 3 | nicht angegeben | 24 | unklar | 5 | koerper_darstellung, schraegbilder, aufstellen | Januar; Lehrplanstand unklar; Bundesland unklar (Annahme nicht Bayern) | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/geometrische-k%C3%B6rper-8-klasse/3643.htm) |
+| KA-3646 | Klassenarbeit | unbekannt | – | 3 | nicht angegeben | nicht angegeben | unklar | 3 | linear, umformen | Februar; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/3646.htm) |
+| KA-3649 | Klassenarbeit | unbekannt | – | 4 | nicht angegeben | nicht angegeben | unklar | 4 | bruch, flaechen_vielecke | März; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/fl%C3%A4chen-volumen/3649.htm) |
+| KA-3651 | Klassenarbeit | unbekannt | – | 5 | nicht angegeben | 27 | unklar | 5 | grundbegriffe, linear | Mai; Lehrplanstand unklar; Bundesland unklar (Annahme nicht Bayern: "mündliche Note") | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/linearefunktionen/3651.htm) |
+| KA-3653 | Klassenarbeit | unbekannt | – | 5 | nicht angegeben | nicht angegeben | unklar | 7 | konstruktion, flaechen_vielecke, koerper_darstellung, prisma_zylinder, aufstellen | April; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/fl%C3%A4chen-volumen/3653.htm) |
+| KA-4012 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 4 | linear, umformen | Dezember; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/4012.htm) |
+| KA-4017 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 5 | umformen | November; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/terme-und-gleichungen-8-klasse/4017.htm) |
+| KA-4018 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 10 | aufstellen, umformen | Oktober; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/4018.htm) |
+| KA-4025 | Klassenarbeit | unbekannt | – | 1 | nicht angegeben | nicht angegeben | unklar | 5 | umformen | September; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/4025.htm) |
+| KA-4026 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 5 | kongruenz, konstruktion, winkelsaetze | unklar; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/geometrie-8/4026.htm) |
+| KA-4028 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 6 | boxplot, kennwerte, grundbegriffe | Februar; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/verschiedenes-m8/4028.htm) |
+| KA-4030 | Klassenarbeit | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 5 | linear | September; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/terme-und-gleichungen-8-klasse/4030.htm) |
+| KA-4031 | Klassenarbeit | unbekannt | – | 4 | nicht angegeben | nicht angegeben | unklar | 6 | prozent, prozent_grundwert, darstellen, winkelsaetze, indirekt, umformen | April; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/verschiedenes-m8/4031.htm) |
 | KA-4020 | Klassenarbeit (Bundesland unklar) | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 14 | rechnen, linear, umformen | unklar; Bayern-Bezug nicht gesichert (Inhalt passt zu RS 7/8 Bayern) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/4020.pdf) |
 | KA-3793 | Schulaufgabe | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 12 | grundbegriffe, linear, indirekt, proportional | vermutlich 2. Halbjahr; Lehrplanstand unklar | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/3793.pdf) |
+| KA-3632 | Test (Kurzarbeit) | unbekannt | – | 1 | nicht angegeben | nicht angegeben | unklar | 4 | prozent, prozent_grundwert, zinsen | Oktober; Lehrplanstand unklar; Bundesland unklar (in Bayern Stoff 7) | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/prozentrechnen/3632.htm) |
+| KA-3640 | Test (Kurzarbeit) | unbekannt | – | 2 | nicht angegeben | nicht angegeben | unklar | 5 | linear, koerper_darstellung | Januar; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/terme-und-gleichungen-8-klasse/3640.htm) |
+| KA-3647 | Test (Kurzarbeit) | unbekannt | – | 3 | nicht angegeben | 10 | unklar | 4 | bruchterme, umformen | Januar; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/bruchterme/3647.htm) |
+| KA-4014 | Test (Kurzarbeit) | unbekannt | – | – | nicht angegeben | nicht angegeben | unklar | 6 | umformen | September; Lehrplanstand unklar; Bundesland unklar | [Link](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/terme-und-gleichungen-8-klasse/4014.htm) |
 | KA-4010 | Schulaufgabe | unbekannt (Annahme I wegen Extremwerten) | 2012 | 2 | nicht angegeben | 40 | alt (vor LehrplanPLUS) | 26 | grundbegriffe, ortslinien, linear, quadratische_extreme, umformen | Februar, 2. Schulaufgabe; alter Lehrplan (vor LehrplanPLUS) | [Link](https://www.klassenarbeiten.de/data/dynamic/pdf/4010.pdf) |
 
 ## Aufgaben je Arbeit
@@ -197,6 +246,31 @@ ISB Bayern · Beispiel-Leistungsaufgaben (keine vollständige Arbeit) · geschri
 | 17a | – | verzerrte Strecken im Schrägbild in Wirklichkeit gleich lang | begründen | II | M7 I LB4 | raum.schraegbilder · wahre_groesse |  |
 | 17b | – | Punkte einer senkrechten Ebene nennen | Lücke | II | M7 I LB4 | raum.schraegbilder · lage |  |
 
+### JT8-2007-I – Mathematiktest Jgst. 8 WPFG I, September 2007 (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2007/jahrgangsstufe-8-wpfg_-i-angaben.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Dezimalstunden in Stunden und Minuten | rechnen | I | M5 | groessen.einheiten · zeit | Grundwissen |
+| 2 | – | Einheiten- und Bruchlücken | Lücke | I | M5/6 | groessen.einheiten · kommaschreibweise | Grundwissen |
+| 3 | 1 | Mittelwert aus Temperaturtabelle | Sachaufgabe | I | M7 LB8 | daten.kennwerte · mittel_tabelle |  |
+| 4 | 1 | Eintrag aus gegebenen Zahlen ergänzen | Lücke | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen |
+| 5 | 1 | Gleichung lösen, Lösungsmenge ankreuzen | ankreuzen | I | M7 LB6 | gleichungen.linear · beide_seiten |  |
+| 6 | 1 | Fläche eines Spielfelds schätzen | ankreuzen | I | M5 | messen.flaechen · einheiten | Grundwissen |
+| 7 | 2 | Paketmaße: Höchstmaß berechnen, Regel prüfen | Sachaufgabe | II | M7 LB6 | gleichungen.ungleichungen · sachaufgabe | Modellieren |
+| 8 | 1 | Vierfeldertabelle aus Summen ergänzen | Lücke | II | M7 LB8 | daten.darstellen · tabelle_auswerten |  |
+| 9 | 1 | Quadrat an Achse spiegeln | zeichnen | I | alt: 7 | abbildungen.kongruenz · achsenspiegelung |  |
+| 10 | 1 | Fläche einer runden Figur schätzen | ankreuzen | II | alt: 7 | messen.kreisberechnung · flaeche |  |
+| 11 | 3 | Streichholzmuster: zeichnen, zählen, allgemeinen Term wählen | Lücke | II | M7 LB6 | terme.aufstellen · muster | Term aus Figur |
+| 12 | 1 | Existenz eines Dreiecks mit zwei Winkeln begründen | begründen | II | M7 I LB3 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 13 | 1 | dreistellige Zahlen mit Ziffernsumme 3 zählen | rechnen | II | M6 | stochastik.kombinatorik · systematisch | Knobel |
+| 14 | 1 | Flächenverhältnis an Verkehrsschild | ankreuzen | II | M6 | messen.flaechen · zerlegen | Grundwissen |
+| 15 | 1 | Fliesen: welche Räume reichen | ankreuzen | II | M6 | messen.flaechen · sachaufgaben | Grundwissen |
+| 16 | 1 | Kreismittelpunkt konstruieren | konstruieren | II | M7 LB5 | geometrie.kreis · umkreis_inkreis |  |
+| 17 | 1 | Vektor aus zwei Punkten | rechnen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 18 | 1 | Punkt aus Punkt und Vektor | rechnen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+
 ### JT8-2012-I – Jahrgangsstufentest 2012 Mathematik Jgst. 8 WPFG I (alter Lehrplan)
 
 ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2012/jgstt_2012_klasse_8_i_loesungsmuster_end.pdf)
@@ -252,6 +326,62 @@ ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe
 | 19 | 1 | Gleichung für Teilbetrag aufstellen | Lücke | II | M7 LB6 | gleichungen.linear · sach | Term aus Text |
 | 20 | 1 | Kreis durch zwei Punkte mit Mittelpunkt auf Gerade | konstruieren | III | M7 LB5 | geometrie.ortslinien · zwei_kreise | mehrere Bedingungen |
 | 21 | 1 | fehlende Parallelogrammecke | rechnen | II | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+
+### JT8-2016-I – Jahrgangsstufentest 2016 Mathematik Jgst. 8 WPFG I (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2016/_a__2016_jt_mathe_8i_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Rechnung mit Potenzen | rechnen | I | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 2 | 1 | Term mit Brüchen und Dezimalzahlen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen |
+| 3 | 1 | passendes Rechenzeichen einsetzen | Lücke | II | M6 LB1 | bruch.rechnen · fehler_finden | rückwärts |
+| 4 | 1 | fehlenden Exponenten ergänzen | Lücke | II | M7 LB1 | terme.potenzgesetze_natuerlich · anwenden | rückwärts |
+| 5 | 1 | Zahl finden, für die ein Term positiv wird | Lücke | II | M7 LB6 | terme.aufstellen · termwert | offen |
+| 6 | 1 | Quadrat mit Dreiecken auslegen | Sachaufgabe | II | M5/6 | messen.flaechen · zerlegen | Grundwissen |
+| 7 | 1 | Durchfahrtzeit eines Zuges | Sachaufgabe | II | M7 LB7 | groessen.proportional · sach |  |
+| 8 | 1 | Brückenlänge aus Achteckumfang schätzen | Sachaufgabe | II | M6 | messen.flaechen · sachaufgaben | Modellieren |
+| 9 | 1 | Winkel aus gleich langen Strecken | rechnen | II | M7 I LB3 | geometrie.winkelsaetze · figuren |  |
+| 10 | 1 | passende Ungleichung eintragen | Lücke | II | M7 LB6 | gleichungen.ungleichungen · intervall | rückwärts |
+| 11 | 1 | Füllhöhe 100 ml in Glas wählen | ankreuzen | II | M5/6 | messen.volumen · liter | Grundwissen |
+| 12 | 1 | Urbild aus Bildpunkt und Vektor | rechnen | II | M7 LB2 | abbildungen.kongruenz · gegenvektor | rückwärts |
+| 13 | 1 | Siege und Unentschieden aus Punktestand | Sachaufgabe | III | M7 LB6 | gleichungen.linear · sach | Knobel |
+| 14 | 1 | Anteile aus Strichliste prüfen | ankreuzen | I | M7 LB8 | daten.darstellen · relative_haeufigkeit |  |
+| 15 | 1 | rechten Winkel ohne Messen begründen | begründen | III | M7 I LB3 | geometrie.kreis · thales |  |
+| 16 | 1 | Aussagen zu Glücksrad und relativer Häufigkeit | ankreuzen | II | M8 LB7 | stochastik.grundbegriffe · grosse_zahlen |  |
+| 17 | 1 | Gästeanzahl aus Verteilung | Sachaufgabe | II | M7 LB6 | gleichungen.linear · sach |  |
+| 18 | 1 | passenden Text zu einem Term wählen | ankreuzen | II | M7 LB6 | terme.aufstellen · deuten |  |
+| 19 | 1 | Umfang Kreis vs. einbeschriebenes Sechseck | rechnen | II | alt: 7 | messen.kreisberechnung · umfang | alter Lehrplan |
+| 20 | 1 | Punkt gleich weit von drei Punkten konstruieren | konstruieren | II | M7 LB5 | geometrie.kreis · umkreis_inkreis |  |
+| 21 | 1 | Weg-Zeit-Diagramm deuten | ankreuzen | II | M8 LB6 | funktionen.grundbegriffe · graph_lesen | Graph |
+
+### JT8-2017-I – Jahrgangsstufentest 2017 Mathematik Jgst. 8 WPFG I (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe I · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2017/2017_jgt_mathematik_8i_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | fehlenden Messwert aus Mittelwert | Sachaufgabe | II | M7 LB8 | daten.kennwerte · mittel_rueckwaerts | rückwärts |
+| 2 | 1 | Term mit Brüchen und Potenzen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen |
+| 3 | 1 | Terme mit Wert 64 erkennen | ankreuzen | I | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 4 | 1 | Lücken für äquivalente Terme | Lücke | II | M7 LB6 | terme.umformen · aequivalenz | rückwärts |
+| 5 | 1 | natürliche Zahlen in einem Bereich zählen | ankreuzen | I | M5 | zahlen.ganz · zahlengerade | Grundwissen |
+| 6 | 1 | Kreisumfang | rechnen | I | alt: 7 | messen.kreisberechnung · umfang | alter Lehrplan |
+| 7 | 1 | Ergebnis einer Potenz eines Bruchs ohne Rechnung begründen | begründen | II | M7 LB1 | terme.potenzgesetze_natuerlich · gleicher_exponent |  |
+| 8 | 1 | Gleichung zum Text auswählen | ankreuzen | II | M7 LB6 | terme.aufstellen · uebersetzen | Term aus Text |
+| 9 | 1 | zwei Rabatte nacheinander: ergeben sie 30 %? begründen | begründen | III | M7 LB7 | bruch.prozent_grundwert · mehrfach |  |
+| 10 | 1 | zwei Zahlen vergleichen | Lücke | I | M6 LB1 | bruch.dezimal · vergleichen_ordnen | Grundwissen |
+| 11 | 1 | Punkt aus Vektor berechnen | rechnen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 12 | 1 | Winkel an Parallelen | rechnen | I | M7 I LB3 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 13 | 1 | Fehler bei einer Drehung beschreiben | Fehler finden | II | alt: 7 | abbildungen.kongruenz · drehung | Fehler finden |
+| 14 | 1 | Tagesstrecke bei fester Gesamtstrecke | Sachaufgabe | II | M7 LB7 | groessen.indirekt · sach |  |
+| 15 | 1 | Gleichung zu einer Aussage aufstellen | Sachaufgabe | II | M7 LB6 | gleichungen.linear · sach | Term aus Text |
+| 16 | 1 | Fehler bei Inkreiskonstruktion erklären | Fehler finden | II | M7 I LB3/5 | geometrie.kreis · umkreis_inkreis | Fehler finden |
+| 17 | 1 | Winkel im Teildreieck | rechnen | II | M7 I LB3 | geometrie.winkelsaetze · figuren |  |
+| 18 | 1 | Gewinnwahrscheinlichkeit (Laplace) | rechnen | I | M8 LB7 | stochastik.grundbegriffe · laplace |  |
+| 19 | 1 | Lösbarkeit einer Ungleichung je Grundmenge | ankreuzen | III | M7 LB6 | gleichungen.ungleichungen · pruefen |  |
+| 20 | 1 | Prozentanteil aus Säulendiagramm | ablesen | I | M7 LB8 | daten.darstellen · saeulendiagramm | Diagramm |
+| 21 | 1 | Aussagen zu Winkelpaaren wahr/falsch | ankreuzen | II | M7 I LB3 | geometrie.winkelsaetze · stufen_wechsel |  |
 
 ### JT8-2018-I – Jahrgangsstufentest 2018 Mathematik Jgst. 8 WPFG I (alter Lehrplan)
 
@@ -492,6 +622,84 @@ STARK Verlag (Vorschau über Buchhandelsseite) · Übungs-Schulaufgabe (Verlag) 
 | 6a | 5 | Dreieck zeichnen, Fläche per Determinante | rechnen | I | M7 I LB2 | abbildungen.determinanten2 · dreieck | ca. 8 min |
 | 6b | 4 | Parallelogramm ergänzen, fehlende Ecke mit Vektoren | rechnen | II | M7 I LB2 | abbildungen.kongruenz · vektor_koordinaten | ca. 3 min |
 | 6c | 2 | Parallelogrammfläche aus Dreiecksfläche begründen | begründen | II | M7 I LB2 | abbildungen.determinanten2 · parallelogramm | ca. 2 min |
+
+### JT8-2007-II – Mathematiktest Jgst. 8 WPFG II/III, September 2007 (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2007/jahrgangsstufe-8-wpfg_-ii-iii-angaben.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Dezimalstunden in Stunden und Minuten | Lücke | I | M5 | groessen.einheiten · zeit | Grundwissen |
+| 2 | 1 | Lückenaufgabe (Inhalt unleserlich) | Lücke | I | M5/6 | groessen.einheiten · kommaschreibweise | Grundwissen |
+| 3 | 1 | Mittelwert aus Temperaturtabelle | Sachaufgabe | I | M7 LB6 | daten.kennwerte · mittel_tabelle |  |
+| 4 | 1 | Temperaturfolge ergänzen | Lücke | I | M6 LB1 | zahlen.ganz · sach | Grundwissen |
+| 5 | 1 | Lösungsmenge einer linearen Gleichung ankreuzen | ankreuzen | I | M7 LB4 | gleichungen.linear · beide_seiten |  |
+| 6 | 1 | Fläche eines Spielfelds schätzen | ankreuzen | I | M5 | messen.flaechen · einheiten | Grundwissen |
+| 7 | 2 | Paketmaße: Höchstmaß berechnen | Sachaufgabe | II | M7 LB4 | gleichungen.ungleichungen · sachaufgabe | Modellieren |
+| 8 | 1 | Abstimmungstabelle ergänzen | Lücke | II | M7 LB6 | daten.darstellen · tabelle_auswerten |  |
+| 9 | 1 | Quadrat an Achse spiegeln | zeichnen | I | alt: 7 | abbildungen.kongruenz · achsenspiegelung |  |
+| 10 | 1 | Fläche einer runden Figur schätzen | ankreuzen | II | alt: 7 | messen.kreisberechnung · flaeche |  |
+| 11 | 3 | Streichholzmuster: zeichnen, zählen, Term wählen | Lücke | II | M7 LB4 | terme.aufstellen · muster | Term aus Figur |
+| 12 | 1 | Existenz eines Dreiecks begründen | begründen | II | M7 LB3 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 13 | 1 | Zahlen mit Ziffernsumme 3 zählen | rechnen | II | M6 | stochastik.kombinatorik · systematisch | Knobel |
+| 14 | 1 | Flächenanteile an einem Schild vergleichen | ankreuzen | II | M6 | messen.flaechen · zerlegen | Grundwissen |
+| 15 | 1 | Fliesen: welche Räume reichen | ankreuzen | II | M6 | messen.flaechen · sachaufgaben | Grundwissen |
+| 16 | 1 | Mehrkosten bei Ratenzahlung in Prozent | Sachaufgabe | II | M7 LB5 | bruch.prozent · prozentsatz |  |
+| 17 | 1 | Vektor aus zwei Punkten | rechnen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 18 | 1 | Punkt aus Punkt und Vektor | rechnen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+
+### JT8-2009-II – Jahrgangsstufentest 2009 Mathematik Jgst. 8 WPFG II/III (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2009/end_8_ii_iii_test2009_ohne-foto.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Besucherzahl aus Prozentangaben | Sachaufgabe | II | M7 LB5 | bruch.prozent · prozentwert |  |
+| 2 | 1 | Umfang einer Riesenmünze auf Foto schätzen | Sachaufgabe | III | alt: 7 | messen.kreisberechnung · umfang | Modellieren |
+| 3 | 1 | Fließrichtung aus Höhenangaben begründen | begründen | II | M6 LB1 | zahlen.ganz · deuten | Diagramm |
+| 4 | 1 | Würfel in Kiste zählen | rechnen | II | M5/6 | messen.volumen · einheitswuerfel | Grundwissen |
+| 5 | 2 | Potenz mit negativer Zahl; Bruch mit Potenz | rechnen | I | M7 LB1 | terme.potenzgesetze · potenz_begriff |  |
+| 6 | 1 | Prozentanteil aus Diagramm | ablesen | II | M7 LB5 | bruch.prozent · prozentsatz | Diagramm |
+| 7 | 1 | Flächeneinheiten umrechnen | rechnen | I | M5 | messen.flaechen · einheiten | Grundwissen |
+| 8 | 1 | Aussagen zu c = 5b ankreuzen | ankreuzen | II | M7 LB4 | terme.aufstellen · struktur |  |
+| 9 | 1 | Term vereinfachen | rechnen | I | M7 LB4 | terme.umformen · zusammenfassen |  |
+| 10 | 1 | Graph für dünnere Kerze einzeichnen | zeichnen | III | M7 LB5 | groessen.proportional · aenderung | Graph |
+| 11 | 1 | Kreisdiagramm im Verhältnis 2:1 | zeichnen | I | M7 LB6 | daten.darstellen · kreisdiagramm |  |
+| 12 | 1 | Vektorrichtung aus Koordinaten erklären | begründen | II | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten | Fachsprache |
+| 13 | 1 | passendes Diagramm wählen | ankreuzen | II | M7 LB6 | daten.darstellen · saeulendiagramm | Diagramm |
+| 14 | 1 | gleichschenkliges Dreieck mit Ecken auf Kreis | konstruieren | II | M7 LB3 | geometrie.konstruktion · gleichschenklig |  |
+| 15 | 1 | Dezimal-, Bruch-, Prozentschreibweise ergänzen | Lücke | I | M7 LB5 | bruch.prozent · prozent_bedeutung |  |
+| 16 | 2 | verwischte Zahl einer Gleichung; passende Grundmenge | Fehler finden | II | M7 LB4 | gleichungen.linear · probe | rückwärts |
+| 17 | 2 | Punkt- und Achsensymmetrie von Flaggen | ankreuzen | I | alt: 7 | abbildungen.kongruenz · symmetrie |  |
+| 18 | 1 | Winkel in zwei gleichschenkligen Dreiecken | rechnen | II | M7 LB3 | geometrie.winkelsaetze · figuren | Knobel |
+
+### JT8-2011-II – Jahrgangsstufentest 2011 Mathematik Jgst. 8 WPFG II/III (alter Lehrplan)
+
+ISB Bayern · Jahrgangsstufentest · geschrieben in Kl. 8, Stoff Kl. 7 · Gruppe II/III · 45 min · 21 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2011/jgstt_2011_klasse_8_ii_iii_loesungsmuster.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Würfelbau: Anzahl bestimmen | Sachaufgabe | II | M5 | **Lücke** | Vorschlag: Raumvorstellung „Würfel kippen/Netz“ (gehört zu messen.koerper_darstellung bzw. Kl. 5) |
+| 2.1 | 1 | Zahlen in Symbolgleichungen einsetzen | Lücke | II | M7 LB4 | terme.aufstellen · struktur |  |
+| 2.2 | 1 | Teilbarkeit/gerade-ungerade begründen | begründen | III | M5 | **Lücke** | Vorschlag: Etappe „Teilbarkeit / gerade-ungerade begründen“ (Grundwissen Kl. 5, z. B. in zahlen.natuerlich) |
+| 3 | 1 | Bewegungsgraph zuordnen | ankreuzen | II | M7 LB5 | groessen.proportional · aenderung | Graph |
+| 4 | 1 | Rechenterm berechnen | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen |
+| 5 | 1 | irreführendes Werbediagramm begründen | begründen | II | M7 LB6 | daten.darstellen · irrefuehrend | Diagramm |
+| 6.1 | 1 | Wahlergebnis in Prozent | Sachaufgabe | I | M7 LB5 | bruch.prozent · prozentsatz |  |
+| 6.2 | 1 | Anteil an allen Wahlberechtigten | Sachaufgabe | II | M7 LB5 | bruch.prozent · prozentsatz |  |
+| 7 | 1 | Wahrscheinlichkeit beim Würfeln | Sachaufgabe | I | M8 LB6 | stochastik.grundbegriffe · laplace |  |
+| 8 | 1 | Umfang und Fläche beim Quadrat | ankreuzen | II | M5 | messen.flaechen · rechteck | Grundwissen |
+| 9 | 1 | Wahrscheinlichkeit beim Ziehen | rechnen | I | M8 LB6 | stochastik.grundbegriffe · laplace |  |
+| 10 | 1 | passenden Maßstab wählen | ankreuzen | I | M6 | groessen.einheiten · massstab | Grundwissen |
+| 11 | 1 | Deckungsgleichheit bei Mustern | ankreuzen | I | M7 LB2 | abbildungen.kongruenz · eigenschaften |  |
+| 12 | 1 | Winkel berechnen | rechnen | II | M7 LB3 | geometrie.winkelsaetze · figuren |  |
+| 13 | 1 | Vektoren im Parallelogramm | rechnen | II | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+| 14 | 1 | Graph für halbe Geschwindigkeit zeichnen | zeichnen | II | M7 LB5 | groessen.proportional · aenderung | Graph |
+| 15 | 1 | Gleichung zu Köpfen und Beinen wählen | ankreuzen | II | M7 LB4 | gleichungen.linear · sach | Term aus Text |
+| 16 | 1 | Mehrwertsteuer-Vergleich | Sachaufgabe | II | M7 LB5 | bruch.prozent_grundwert · vermehrt |  |
+| 17 | 1 | Zahl mit Bedingung finden | rechnen | III | M7 LB4 | gleichungen.linear · sach | Knobel |
+| 18 | 1 | Kostenvergleich zweier Angebote | Sachaufgabe | II | M7 LB4 | gleichungen.ungleichungen · sachaufgabe | Modellieren |
+| 19 | 1 | Lösungsmenge einer Gleichung | rechnen | I | M7 LB4 | gleichungen.linear · beide_seiten |  |
 
 ### JT8-2016-II – Jahrgangsstufentest 2016 Mathematik Jgst. 8 WPFG II/III (alter Lehrplan)
 
@@ -779,6 +987,178 @@ klassenarbeiten.de (Schule nicht genannt) · Übungsblatt zur Schulaufgabe · ge
 | 3 | – | Vergleichszeichen zwischen Potenzen (6 Teile) | Lücke | II | M7 II/III LB1 | zahlen.potenzen_zehner · vergleichen_pruefen |  |
 | 4 | – | Zehnerpotenzschreibweise mit Einheiten (7 Teile) | Lücke | I | M7 II/III LB1 | zahlen.potenzen_zehner · vorsilben_klein |  |
 
+### KA-3028 – Klassenarbeit Prozent- und Zinsrechnung Klasse 7
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/prozentrechnung/3028.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Grundwert aus Prozentwert (Tiergewicht) | Sachaufgabe | I | M7 LB7 | bruch.prozent_grundwert · zurueck |  |
+| 2 | – | Produktionsmenge bei Ausschuss (vermehrter Grundwert) | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · vermindert |  |
+| 3 | – | Zinstabelle mit Tages-/Monatszinsen vervollständigen | Lücke | II | M7 LB7 | finanzen.zinsen · zeitanteil | rückwärts |
+| 4 | – | Kontoüberziehung: Kapital aus Tageszinsen | Sachaufgabe | II | M7 LB7 | finanzen.zinsen · kapital | rückwärts |
+| 5 | – | Geldanlage über Zeit | Sachaufgabe | II | M7 LB7 | finanzen.zinsen · jahreszinsen |  |
+
+### KA-3095 – Mathematikarbeit Nr. 6 Klasse 7 (Abschlussarbeit)
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/abschluss/3095.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Klammerterm in Q und Höhen-Sachaufgabe | rechnen | I | M6 LB1 | zahlen.ganz · sach | Grundwissen |
+| 2 | – | Glieder zusammenfassen | rechnen | I | M7 LB6 | terme.umformen · zusammenfassen |  |
+| 3 | – | Klammern auflösen und vereinfachen | rechnen | II | M7 LB6 | terme.umformen · minusklammer |  |
+| 4 | – | ausklammern | rechnen | I | M7 LB6 | terme.umformen · ausklammern |  |
+| 5 | – | lineare Gleichungen mit Klammern | rechnen | II | M7 LB6 | gleichungen.linear · klammern |  |
+| 6 | – | Dreiecke nach WSW und SWS konstruieren | konstruieren | I | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 7 | – | Winkel in Figur berechnen | rechnen | II | M7 I LB3 | geometrie.winkelsaetze · figuren |  |
+| 8 | – | Tabelle einer proportionalen Zuordnung ergänzen | Lücke | I | M7 LB7 | groessen.proportional · vervielfachen |  |
+
+### KA-3207 – Mathematikarbeit Nr. 3 Klasse 7: Terme aufstellen und vereinfachen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Taschenrechner (Annahme, Runden verlangt) · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3207.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Dezimalterme berechnen und runden (8 Teile) | rechnen | I | M6 LB1 | bruch.rechnen · dezimal_mal | Grundwissen |
+| 2 | – | Termwerte durch Einsetzen | rechnen | I | M7 LB6 | terme.aufstellen · termwert |  |
+| 3 | – | gleichartige Glieder zusammenfassen | rechnen | I | M7 LB6 | terme.umformen · zusammenfassen |  |
+| 4 | – | Wortbeschreibung als Term | Lücke | II | M7 LB6 | terme.aufstellen · uebersetzen | Term aus Text |
+| 5 | – | Umfangsterm zu Figuren aufstellen | rechnen | II | M7 LB6 | terme.aufstellen · sachsituation | Term aus Figur |
+
+### KA-3217 – Mathematikarbeit Nr. 1 Klasse 7: rationale Zahlen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/negative-zahlen/3217.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | rationale Dezimalzahlen auf passend skalierter Zahlengerade eintragen | zeichnen | I | M6 LB1 | zahlen.ganz · zahlengerade | Grundwissen 6 |
+| 2 | – | Zahl um einen Betrag größer/kleiner bestimmen | rechnen | I | M6 LB1 | zahlen.ganz · addieren | Grundwissen 6 |
+| 3 | – | fehlende Zahl in Additions-/Subtraktionsgleichung ergänzen | Lücke | II | M6 LB1 | zahlen.ganz · umkehraufgabe | rückwärts |
+| 4 | – | rationale Zahlen der Größe nach ordnen | rechnen | I | M6 LB1 | zahlen.ganz · ordnen |  |
+| 5 | – | Summen/Differenzen rationaler Zahlen | rechnen | I | M6 LB1 | bruch.rechnen · vorzeichen |  |
+| 6 | – | Klammer-zuerst-Regel bei Ketten | rechnen | I | M6 LB1 | zahlen.ganz · ketten |  |
+| 7 | – | Kontostand nach mehreren Buchungen | Sachaufgabe | I | M6 LB1 | zahlen.ganz · sach |  |
+
+### KA-3249 – Mathematikarbeit Nr. 4 Realschule Klasse 7: Terme
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3249.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Produkte/Quotienten von Termen, einfache Klammern (8 Teile) | rechnen | I | M7 LB6 | terme.umformen · produkte |  |
+| 2 | – | verschachtelte Klammern auflösen und zusammenfassen | rechnen | II | M7 LB6 | terme.umformen · minusklammer |  |
+| 3 | – | fehlende Faktoren beim Ausklammern ergänzen | Lücke | II | M7 LB6 | terme.umformen · ausklammern | rückwärts |
+| 4 | – | gemeinsame Faktoren vollständig ausklammern | rechnen | II | M7 LB6 | terme.umformen · ausklammern |  |
+
+### KA-3276 – Mathematikarbeit Nr. 5 Klasse 7: Winkel, Dreiecke, Gleichungen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/winkel/3276.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | dritten Innenwinkel im Dreieck berechnen | rechnen | I | M7 I LB3 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 2 | – | Winkel in Figuren berechnen | rechnen | II | M7 I LB3 | geometrie.winkelsaetze · figuren |  |
+| 3 | – | Basiswinkel im gleichschenkligen Dreieck (Knobelaufgabe) | rechnen | III | M7 I LB3 | geometrie.winkelsaetze · figuren | Knobel |
+| 4 | – | Dreiecke nach SWS und SSS konstruieren | konstruieren | I | M7 I LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 5 | – | lineare Gleichungen mit Klammern (4 Teile) | rechnen | I | M7 LB6 | gleichungen.linear · klammern |  |
+| 6 | – | Zahlenrätsel als Gleichung | Sachaufgabe | II | M7 LB6 | gleichungen.linear · sach | Term aus Text |
+| 7 | – | Preisaufgabe mit Gleichung | Sachaufgabe | II | M7 LB6 | gleichungen.linear · sach |  |
+
+### KA-3540 – Klassenarbeit Terme (Realschule 7)
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Extrablatt · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3540.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Wortbeschreibung dem passenden Term zuordnen | ankreuzen | I | M7 LB6 | terme.aufstellen · uebersetzen | Term aus Text |
+| 2 | – | Umfangs- und Kantenlängenterm aufstellen und vereinfachen | rechnen | II | M7 LB6 | terme.aufstellen · sachsituation | Term aus Figur |
+| 3 | – | Wertetabellen zu Termen | Lücke | I | M7 LB6 | terme.aufstellen · termwert |  |
+
+### KA-3542 – Mathematik-Arbeit Klasse 7: Bruchrechnen mit rationalen Zahlen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/rationale-zahlen/3542.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Vorrangregeln mit Brüchen, Klammer-Varianten vergleichen | rechnen | II | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | – | Bruchterme mit Vorzeichen | rechnen | I | M6 LB1 | bruch.rechnen · brueche_geteilt | Grundwissen 6 |
+| 3 | – | Terme in Dezimaldarstellung | rechnen | I | M6 LB1 | bruch.rechnen · dezimal_mal | Grundwissen 6 |
+| 4 | – | Distributivgesetz an Beispielen überprüfen | begründen | II | M6 LB1 | bruch.rechnen · rechenvorteile |  |
+| 5 | – | Rechenkette Start→Ziel durchlaufen | rechnen | I | M6 LB1 | zahlen.ganz · ketten |  |
+
+### KA-3544 – Mathematikarbeit Dreisatz / rationale Zahlen Klasse 7
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/dreisatz/3544.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Dreisatz mit Tabelle (direkt/indirekt gemischt) | Sachaufgabe | I | M7 LB7 | groessen.proportional · dreisatz |  |
+| 2 | – | Tabelle anlegen und Proportionalität beurteilen | begründen | II | M7 LB7 | groessen.proportional · pruefen |  |
+| 3 | – | Vorrat und Verbrauch (umgekehrt proportional), auch rückwärts | Sachaufgabe | II | M7 LB7 | groessen.indirekt · dreisatz | rückwärts |
+| 4 | – | Prozenttabellen ergänzen | Lücke | I | M7 LB7 | bruch.prozent · prozentwert |  |
+| 5 | – | Summen rationaler Zahlen | rechnen | I | M6 LB1 | bruch.rechnen · vorzeichen | Grundwissen 6 |
+
+### KA-3566 – Klassenarbeit Nr. 4 Prozentrechnung (Realschule 7)
+
+klassenarbeiten.de (Sachkontext aus Bayern, Schule nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/prozentrechnung/3566.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Dezimal-, Bruch- und Prozentschreibweise umwandeln | Lücke | I | M7 LB7 | bruch.prozent · prozent_bedeutung |  |
+| 2 | – | Grundwert vor Preiserhöhung (vermehrter Grundwert) | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck | rückwärts |
+| 3 | – | Anteil der Mädchen aus Prozentangabe | Sachaufgabe | I | M7 LB7 | bruch.prozent · prozentwert |  |
+| 4 | – | Trefferquoten vergleichen und begründen | begründen | II | M7 LB8 | daten.darstellen · relative_haeufigkeit |  |
+| 5 | – | Umfrage: relative Häufigkeiten auswerten | Sachaufgabe | II | M7 LB8 | daten.darstellen · relative_haeufigkeit | Diagramm |
+
+### KA-3569 – Mathematikarbeit Nr. 2 Realschule Klasse 7: Termberechnung
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link (inhaltsgleich mit Nr. 2615) · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3569.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Produkte, Quotienten, Potenzen rationaler Zahlen (8 Teile) | rechnen | I | M6 LB1 | bruch.rechnen · vorzeichen | Grundwissen 6 |
+| 2 | – | Terme mit Klammern und Rechenreihenfolge | rechnen | II | M6 LB1 | bruch.rechnen · gemischt |  |
+| 3 | – | Wortbeschreibung in Term übersetzen und berechnen | rechnen | II | M7 LB6 | terme.aufstellen · uebersetzen | Term aus Text |
+| 4 | – | mittlere Temperaturänderung je Stunde | Sachaufgabe | II | M6 LB1 | zahlen.ganz · sach |  |
+| 5 | – | Höhenunterschiede mit negativen Höhen | Sachaufgabe | I | M6 LB1 | zahlen.ganz · sach |  |
+
+### KA-3615 – Kurzprobe Dezimalbrüche Klasse 7
+
+klassenarbeiten.de (Bayern-Bezug im Sachkontext, Schule nicht genannt) · Kurzprobe (Stegreifaufgabe) · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/dezimalbr%C3%BCche/3615.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Dezimalbrüche der Größe nach ordnen | rechnen | I | M6 LB1 | bruch.dezimal · vergleichen_ordnen | Grundwissen |
+| 2 | – | Geldbeträge auf Cent runden | rechnen | I | M6 LB1 | bruch.dezimal · runden | Grundwissen |
+| 3 | – | schriftlich mit Dezimalzahlen rechnen | rechnen | I | M6 LB1 | bruch.rechnen · dezimal_mal | Grundwissen |
+| 4 | – | Division mit Dezimalzahlen und Probe | rechnen | I | M6 LB1 | bruch.rechnen · dezimal_geteilt | Grundwissen |
+| 5 | – | Eintrittspreise mit Ermäßigung aus Tabelle | Sachaufgabe | II | M6 LB1 | bruch.rechnen · sach | Diagramm/Tabelle |
+
+### KA-3546 – Schulaufgabe Mathematik 7. Klasse: Äquivalenzumformung / Prozentrechnung
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Extrablatt · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/prozentrechnung/3546.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Gleichung und Ungleichung mit Äquivalenzumformungen | rechnen | I | M7 LB6 | gleichungen.ungleichungen · umformen |  |
+| 2.1 | – | Verbrauch direkt proportional | Sachaufgabe | I | M7 LB7 | groessen.proportional · dreisatz |  |
+| 2.2 | – | Reichweite einer Tankfüllung (indirekt proportional) | Sachaufgabe | III | M7 LB7 | groessen.indirekt · sach | Modellieren |
+| 3 | – | Anteile aus Alltagsaussagen als Prozentsätze | rechnen | I | M7 LB7 | bruch.prozent · prozentsatz |  |
+
+### KA-3550 – Schulaufgabe Realschule Klasse 7: Brüche und Potenzen
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/potenzen-7/3550.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Grundwissen: Bruch- und Dezimalrechnung | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | – | rationale Zahlen addieren, multiplizieren, Bruch dividieren | rechnen | I | M6 LB1 | bruch.rechnen · vorzeichen | Grundwissen 6 |
+| 3 | – | Potenzwerte mit negativer Basis/negativem Vorzeichen | rechnen | II | M7 LB1 | terme.potenzgesetze · potenz_begriff | Fehler finden typisch |
+| 4 | – | Zahl als Potenz mit kleinster Basis schreiben | Lücke | II | M7 LB1 | terme.potenzgesetze · potenz_begriff | rückwärts |
+| 5 | – | Potenzgesetze mit gleicher Basis/gleichem Exponenten | rechnen | I | M7 LB1 | terme.potenzgesetze_natuerlich · anwenden |  |
+| 6 | – | Terme mit Potenzen berechnen | rechnen | II | M7 LB1 | terme.potenzgesetze_natuerlich · geteilt_gleiche_basis |  |
+
 ### KA-3552 – Schulaufgabe Mathematik 7. Klasse Realschule: Rechnen in Q und Potenzrechnen
 
 klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Extrablatt · frei zugänglich: ja (Gratis-PDF) · Lizenz: klassenarbeiten.de, kein Lizenzhinweis; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/data/dynamic/pdf/3552.pdf)
@@ -806,6 +1186,31 @@ klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 
 | 8.3 | – | negativer Exponent → positiver | Lücke | I | M7 LB1 | terme.potenzgesetze · negativer_exponent |  |
 | 8.4 | – | Bruchpotenz mit negativem Exponenten | rechnen | II | M7 LB1 | terme.potenzgesetze · negativer_exponent |  |
 | 8.5 | – | Bruchpotenz mit negativem Exponenten | rechnen | II | M7 LB1 | terme.potenzgesetze · negativer_exponent |  |
+
+### KA-3556 – Schulaufgabe Realschule Klasse 7: Termberechnung
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Extrablatt · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/terme/3556.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Termwerte mit Brüchen/Dezimalzahlen und Vorzeichen (4 Teile) | rechnen | I | M6 LB1 | bruch.rechnen · gemischt | Grundwissen 6 |
+| 2 | – | Wortbeschreibung als Term aufstellen und berechnen | rechnen | II | M7 LB6 | terme.aufstellen · uebersetzen | Term aus Text |
+| 3 | – | vorteilhaft rechnen mit Distributivgesetz | rechnen | II | M6 LB1 | bruch.rechnen · rechenvorteile |  |
+| 4a | – | lineare Gleichung über Z | rechnen | I | M7 LB6 | gleichungen.linear · beide_seiten |  |
+| 4b | – | lineare Ungleichung mit Klammer über Q | rechnen | II | M7 LB6 | gleichungen.ungleichungen · klammern |  |
+| 5 | – | Seitenlängen eines Vierecks aus Umfang und Beziehungen | Sachaufgabe | III | M7 LB6 | gleichungen.linear · sach | Modellieren |
+
+### KA-3560 – 1. Schulaufgabe Realschule Bayern Klasse 7: rationale Zahlen, Terme, Gleichungen
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/rationale-zahlen/3560.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Dezimal- und Bruchzahlen ordnen | rechnen | I | M6 LB1 | bruch.dezimal · vergleichen_ordnen | Grundwissen |
+| 2 | – | lange Termwerte in Q mit Potenzen und Betrag (7 Teile) | rechnen | II | M6 LB1 | bruch.rechnen · gemischt |  |
+| 3 | – | Aussagen über Betrag und Abstand prüfen und begründen | begründen | III | M6 LB1 | zahlen.ganz · betrag | Gegenbeispiel |
+| 4 | – | Terme vergleichen, Vergleich durch Rechnung begründen | begründen | II | M6 LB1 | bruch.rechnen · rechenvorteile |  |
+| 5 | – | lineare Gleichung über Z lösen | rechnen | II | M7 LB6 | gleichungen.linear · beide_seiten |  |
 
 ### KA-3563 – 2. Mathe-Schulaufgabe 7. Klasse Realschule Bayern (Januar)
 
@@ -842,6 +1247,36 @@ klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 
 | 7a | – | Abbildungsvorschrift in Worten | beschreiben | II | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten | Fachsprache |
 | 7b | – | zwei Dreiecke zeichnen | zeichnen | I | M7 LB2 | abbildungen.kongruenz · verschiebung |  |
 | 7c | – | Vektor und fehlende Punkte ablesen | ablesen | I | M7 LB2 | abbildungen.kongruenz · vektor_koordinaten |  |
+
+### KA-3564 – 3. Schulaufgabe Realschule Bayern Klasse 7
+
+klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Formelsammlung/Taschenrechner (Annahme, Formeln verlangt) · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/abschluss/3564.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Ungleichung zu Urlaubsbudget aufstellen und lösen, Rest berechnen | Sachaufgabe | II | M7 LB6 | gleichungen.ungleichungen · sachaufgabe | Term aus Text |
+| 2 | – | Ungleichung mit Potenzen durch Umformen lösen | rechnen | II | M7 LB6 | gleichungen.ungleichungen · umdrehen |  |
+| 3 | – | Kosten aufteilen per Dreisatz | Sachaufgabe | I | M7 LB7 | groessen.proportional · dreisatz |  |
+| 4.1 | – | Grundwert vor Preiserhöhung | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck | rückwärts |
+| 4.2 | – | Grundwert vor Preissenkung | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck | rückwärts |
+| 4.3 | – | Prozentsatz Kakaoanteil | Sachaufgabe | I | M7 LB7 | bruch.prozent_grundwert · prozentsatz |  |
+| 5.1 | – | Jahreszinsen berechnen | Sachaufgabe | I | M7 LB7 | finanzen.zinsen · jahreszinsen |  |
+| 5.2 | – | Zinssatz eines Darlehens | Sachaufgabe | II | M7 LB7 | finanzen.zinsen · zinssatz |  |
+| 6.1 | – | Mindestumfang eines Stamms aus Brettbreite | Sachaufgabe | II | M8/9 (alt: 7) | messen.kreisberechnung · umfang | Modellieren |
+| 6.2 | – | Radius eines runden Tisches aus Platzbedarf, Plattengröße prüfen | Sachaufgabe | III | M8/9 (alt: 7) | messen.kreisberechnung · umfang | Modellieren |
+
+### KA-3558 – Stegreifaufgabe Mathematik 7. Klasse Realschule: Proportionalität
+
+klassenarbeiten.de (Bayern laut Seite, Schule nicht genannt) · Stegreifaufgabe · geschrieben in Kl. 7, Stoff Kl. 7 · Gruppe unbekannt · nicht angegeben (Annahme ca. 20) min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse7/mathematik/zuordnungen/3558.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1.1 | – | Tabelle umgekehrt proportional ergänzen | Lücke | I | M7 LB7 | groessen.indirekt · vervielfachen |  |
+| 1.2 | – | Graph zeichnen und Wert ablesen | zeichnen | II | M7 LB7 | groessen.indirekt · graph | Graph |
+| 1.3 | – | Namen des Graphen (Hyperbel) angeben | beschreiben | I | M7 LB7 | groessen.indirekt · graph | Fachsprache |
+| 2.1 | – | Entfernung aus Schallzeit | Sachaufgabe | I | M7 LB7 | groessen.proportional · sach |  |
+| 2.2 | – | Messverfahren beurteilen und mit Rechnung belegen | begründen | III | M7 LB7 | groessen.proportional · sach | Modellieren |
+| 3 | – | Merkmale direkter Proportionalität nennen | beschreiben | I | M7 LB7 | groessen.proportional · erkennen | Fachsprache |
 
 ### LA-8-I – Illustrierende Aufgaben LehrplanPLUS: Beispiele für Leistungsaufgaben ohne Hilfsmittel Jgst. 8 (WPFG I)
 
@@ -889,6 +1324,62 @@ ISB Bayern · Beispiel-Leistungsaufgaben (keine vollständige Arbeit) · geschri
 | 24a | – | Baumdiagramm ohne Zurücklegen zeichnen, Pfade markieren | zeichnen | II | M8 I LB7 | stochastik.kombinatorik · baumdiagramm |  |
 | 24b | – | Unterschied mit Zurücklegen beschreiben | beschreiben | II | M8 I LB7 | stochastik.kombinatorik · baumdiagramm | Fachsprache |
 | 25 | – | Gewinnchance bei veränderlichem Bestand beurteilen | begründen | III | M8 I LB7 | stochastik.grundbegriffe · laplace |  |
+
+### GWT9-2017-I – Grundwissentest 2017 Mathematik Jgst. 9 WPFG I (alter Lehrplan)
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe I · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2017/2017_gwt_mathematik_9i_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 3 | Geradengleichung ablesen, Punktprobe, Gerade durch zwei Punkte | rechnen | II | M8 LB6 | funktionen.linear · zwei_punkte |  |
+| 2 | 1 | Parallele zur y-Achse erkennen | ankreuzen | II | M8 LB6 | funktionen.linear · lage |  |
+| 3 | 1 | Klammer auflösen und zusammenfassen | rechnen | I | M8 LB4 | terme.umformen · binomisch | binomisch |
+| 4 | 1 | Lösung einer Gleichung durch Rechnung prüfen | Fehler finden | II | M8 LB4 | gleichungen.linear · probe | Fehler finden |
+| 5 | 1 | Summe markierter Winkel | rechnen | II | M8 LB1 | geometrie.winkelsaetze · figuren |  |
+| 6 | 1 | Raute mit Seitenabstand ergänzen | zeichnen | II | M8 LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 7 | 1 | Diagonalenschnittpunkt eines Drachens | rechnen | II | M8 LB1 | abbildungen.kongruenz · symmetrie |  |
+| 8 | 1 | zweistufige Kursänderung beurteilen | ankreuzen | II | M7 LB7 | bruch.prozent_grundwert · mehrfach | Grundwissen |
+| 9 | 1 | Definitions- und Lösungsmenge einer Bruchgleichung | rechnen | II | M8 LB5 | gleichungen.bruch · ueber_kreuz |  |
+| 10 | 1 | Größenordnung eines Dezimalterms schätzen | ankreuzen | I | M6 LB1 | bruch.dezimal · runden | Grundwissen |
+| 11 | 1 | quadratischen Term mit vorgegebenem Minimum angeben | Lücke | III | M8 LB4 | terme.quadratische_extreme · scheitelform | offen |
+| 12 | 1 | Wahrscheinlichkeit beim Stapeln | Lücke | II | M8 LB7 | stochastik.grundbegriffe · laplace |  |
+| 13 | 1 | Pumpenaufgabe (umgekehrt proportional) | Sachaufgabe | III | M7 LB7 | groessen.indirekt · sach | Grundwissen |
+| 14 | 1 | Durchschnittsgeschwindigkeit mit Rechenweg | Sachaufgabe | II | M7 LB7 | groessen.proportional · sach | Grundwissen |
+| 15 | 1 | Füllhöhe zu Volumen bestimmen | ablesen | II | M6 | messen.volumen · quader | Grundwissen |
+| 16 | 1 | Symmetrien von Vierecken zuordnen | ankreuzen | I | M8 LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 17 | 1 | Dreieck nach WSW konstruieren | konstruieren | I | M7 LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 18 | 1 | Winkel an Parallelen | rechnen | I | M7 LB3 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 19 | 1 | gleichschenkliges Dreieck mit gegebenen Winkeln möglich? begründen | begründen | II | M7 LB3 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 20 | 1 | Rechteckfläche aus Umfang und Seitenverhältnis | ankreuzen | II | M8 LB4 | gleichungen.linear · sach | Term aus Figur |
+
+### GWT9-2018-I – Grundwissentest 2018 Mathematik Jgst. 9 WPFG I (alter Lehrplan)
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe I · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2018/2018_gwt_mathe_9_i_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | 1 | Ursprungsgerade zeichnen | zeichnen | I | M8 LB6 | funktionen.linear · proportional |  |
+| 1b | 1 | Steigung einer Parallelen ergänzen | Lücke | I | M8 LB6 | funktionen.linear · lage |  |
+| 1c | 1 | Gerade mit vorgegebenen Eigenschaften angeben | Lücke | III | M8 LB6 | funktionen.linear · wirkung | offen |
+| 2 | 1 | fehlende Koordinate eines Geradenpunkts | rechnen | I | M8 LB6 | funktionen.linear · einsetzen |  |
+| 3 | 1 | lineare Gleichung lösen | rechnen | I | M8 LB4 | gleichungen.linear · klammern |  |
+| 4 | 1 | allgemeingültige Termaussagen ankreuzen | ankreuzen | II | M8 LB4 | terme.umformen · aequivalenz |  |
+| 5 | 1 | Lücken für äquivalente Terme | Lücke | II | M8 LB4 | terme.umformen · binomisch | rückwärts |
+| 6 | 1 | Gleichung zur Sachsituation wählen | ankreuzen | II | M8 LB4 | gleichungen.linear · sach | Term aus Text |
+| 7 | 1 | gleichschenkliges Trapez ergänzen | zeichnen | II | M8 LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 8 | 1 | Endpunkt aus Mittelpunkt | rechnen | II | – | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz (auch rückwärts) |
+| 9 | 1 | Prozentanteil in Umfrage | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · prozentsatz | Grundwissen |
+| 10 | 1 | quadratische Terme mit gegebenem Extremum | ankreuzen | II | M8 LB4 | terme.quadratische_extreme · extremwert |  |
+| 11 | 1 | Bruchgleichungen Definitionsmengen zuordnen | ankreuzen | I | M8 LB5 | gleichungen.bruch · definitionsmenge |  |
+| 12 | 1 | Bruchgleichung lösen | rechnen | II | M8 LB5 | gleichungen.bruch · ueber_kreuz |  |
+| 13 | 1 | Faktor 0,5 ausklammern | rechnen | I | M8 LB4 | terme.umformen · ausklammern |  |
+| 14 | 1 | Aussagen zu Diagramm prüfen | ablesen | II | M7 LB8 | daten.darstellen · tabelle_auswerten | Diagramm |
+| 15 | 1 | Wahrscheinlichkeit ohne Zurücklegen | rechnen | II | M8 LB7 | stochastik.grundbegriffe · laplace |  |
+| 16 | 1 | Preis pro Person bei voller Bahn | Sachaufgabe | II | M7 LB7 | groessen.proportional · sach | Grundwissen |
+| 17 | 2 | Winkel in Kreisfigur mit Parallelen | rechnen | II | M8 LB1 | geometrie.winkelsaetze · figuren |  |
+| 18 | 1 | Fläche eines Quadratmusters aus Rechteckumfang | Sachaufgabe | III | M8 LB4 | terme.aufstellen · sachsituation | Knobel |
+| 19 | 1 | Nichtexistenz eines Dreiecks begründen | begründen | III | – | **Lücke** | Vorschlag: Etappe „Seiten-Winkel-Beziehung“ in geometrie.konstruktion |
+| 20 | 1 | Volumenterm eines ausgeschnittenen Würfels | Lücke | II | M8 LB3 | terme.aufstellen · sachsituation | Term aus Figur |
 
 ### GWT9-2019-I – Grundwissentest 2019 Mathematik Jgst. 9 WPFG I (alter Lehrplan)
 
@@ -1114,6 +1605,63 @@ Verlag laut Vorschau (Pearson/STARK-Vertrieb; Angabe unsicher) · Übungs-Schula
 | 7b | 2 | Wahrscheinlichkeit eines Ergebnisses | rechnen | II | M8 I LB7 | stochastik.grundbegriffe · laplace |  |
 | 7c | 2 | Wahrscheinlichkeit eines anderen Ergebnisses | rechnen | II | M8 I LB7 | stochastik.grundbegriffe · laplace |  |
 
+### GWT9-2017-II – Grundwissentest 2017 Mathematik Jgst. 9 WPFG II/III (alter Lehrplan)
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2017/2017_gwt_mathematik_9ii_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | Punkte mit zwei Ortsbedingungen markieren | zeichnen | III | M8 (alt) | geometrie.ortslinien · verknuepfen | mehrere Bedingungen; Ortsbereich |
+| 2 | 1 | Binom auflösen | rechnen | I | M8 LB3 | terme.umformen · binomisch | binomisch |
+| 3 | 1 | Lösung einer Gleichung prüfen | Fehler finden | II | M8 LB3 | gleichungen.linear · probe | Fehler finden |
+| 4 | 1 | fehlenden Term für Äquivalenz ergänzen | Lücke | II | M8 LB3 | terme.umformen · aequivalenz | rückwärts |
+| 5 | 1 | Diagonalenschnittpunkt eines Drachens | rechnen | II | M8 LB1 | abbildungen.kongruenz · symmetrie |  |
+| 6 | 1 | Symmetrien von Vierecken | ankreuzen | I | M8 LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+| 7 | 1 | Parallelogramm ergänzen | zeichnen | II | M8 LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 8 | 1 | Dreieck konstruieren (WSW) | konstruieren | I | M7 LB3 | geometrie.konstruktion · kongruenzsatz |  |
+| 9 | 1 | Kursänderung beurteilen | ankreuzen | II | M7 LB5 | bruch.prozent_grundwert · mehrfach | Grundwissen |
+| 10 | 1 | Bruchgleichung: Definitions- und Lösungsmenge | rechnen | II | M8 LB4 | gleichungen.bruch · ueber_kreuz |  |
+| 11 | 1 | Anteile im Obstsalat prüfen | ankreuzen | II | M6 | bruch.rechnen · sach | Grundwissen |
+| 12 | 1 | Potenzterm zusammenfassen | rechnen | I | M7 LB1 | terme.potenzgesetze_natuerlich · mal_gleiche_basis | Grundwissen |
+| 13 | 1 | Wahrscheinlichkeit beim Stapeln | Sachaufgabe | II | M8 LB6 | stochastik.grundbegriffe · laplace |  |
+| 14 | 1 | Rechteckfläche aus Umfang und Verhältnis | ankreuzen | II | M8 LB3 | gleichungen.linear · sach | Term aus Figur |
+| 15 | 1 | Fahrzeit aus Skizze mit Rechenweg | Sachaufgabe | II | M7 LB5 | groessen.proportional · sach | Grundwissen |
+| 16 | 1 | Größenordnung schätzen | ankreuzen | I | M7 LB1 | zahlen.potenzen_zehner · vergleichen_pruefen |  |
+| 17 | 1 | Restdauer von Pumpen | Sachaufgabe | III | M7 LB5 | groessen.indirekt · sach | Grundwissen |
+| 18 | 1 | quadratischen Term mit Maximum auswählen | ankreuzen | II | M8 LB3 | terme.quadratische_extreme · scheitelform |  |
+| 19 | 1 | Zusatzzeit nach Verlängerung um Prozentsatz | Sachaufgabe | I | M7 LB5 | bruch.prozent_grundwert · vermehrt | Grundwissen |
+| 20 | 1 | Winkel an Parallelen | rechnen | I | M7 LB3 | geometrie.winkelsaetze · stufen_wechsel |  |
+| 21 | 1 | gleichschenkliges Dreieck mit Winkeln möglich? begründen | begründen | II | M7 LB3 | geometrie.winkelsaetze · innenwinkelsumme |  |
+| 22 | 1 | Füllhöhe zu Volumen | ablesen | II | M6 | messen.volumen · quader | Grundwissen |
+
+### GWT9-2018-II – Grundwissentest 2018 Mathematik Jgst. 9 WPFG II/III (alter Lehrplan)
+
+ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2018/2018_gwt_mathe_9_ii_angabe.pdf)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 2 | Klammern auflösen und zusammenfassen | rechnen | I | M8 LB3 | terme.umformen · minusklammer |  |
+| 2 | 1 | Terme den ausgeklammerten Formen zuordnen | ankreuzen | I | M8 LB3 | terme.umformen · ausklammern |  |
+| 3 | 1 | Wahrscheinlichkeit ohne Zurücklegen | Lücke | II | M8 LB6 | stochastik.grundbegriffe · laplace |  |
+| 4 | 1 | allgemeingültige Termaussagen | ankreuzen | II | M8 LB3 | terme.umformen · aequivalenz |  |
+| 5 | 1 | Sandverbrauch übertragen | Sachaufgabe | II | M7 LB5 | groessen.proportional · sach | Grundwissen |
+| 6 | 1 | Winkel im gleichschenkligen Dreieck aus Verhältnis | rechnen | II | M8 LB1 | geometrie.winkelsaetze · figuren |  |
+| 7 | 1 | gleichschenkliges Trapez ergänzen | zeichnen | II | M8 LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 8 | 1 | Endpunkt aus Mittelpunkt | rechnen | II | – | **Lücke** | Vorschlag: Etappe „Mittelpunkt einer Strecke“ in abbildungen.kongruenz (auch rückwärts) |
+| 9 | 1 | Prozentanteil in Umfrage | Sachaufgabe | II | M7 LB5 | bruch.prozent_grundwert · prozentsatz | Grundwissen |
+| 10 | 1 | quadratische Terme mit gegebenem Extremum | ankreuzen | II | M8 LB3 | terme.quadratische_extreme · extremwert |  |
+| 11 | 1 | Ecke eines gleichschenkligen Dreiecks auf Gerade, Winkel | konstruieren | II | M8 LB1 | geometrie.konstruktion · gleichschenklig |  |
+| 12 | 1 | Lücken für gleichwertige quadratische Terme | Lücke | II | M8 LB3 | terme.umformen · binomisch | rückwärts |
+| 13 | 1 | Bruchgleichungen Definitionsmengen zuordnen | ankreuzen | I | M8 LB4 | gleichungen.bruch · definitionsmenge |  |
+| 14 | 1 | Bruchgleichung lösen | rechnen | II | M8 LB4 | gleichungen.bruch · ueber_kreuz |  |
+| 15 | 1 | Gleichung mit Klammer und Quadrat lösen | rechnen | II | M8 LB3 | gleichungen.linear · klammern | binomisch |
+| 16 | 1 | Aussagen zu Diagramm prüfen | ablesen | II | M7 LB6 | daten.darstellen · tabelle_auswerten | Diagramm |
+| 17 | 1 | Nichtexistenz eines Dreiecks begründen | begründen | III | – | **Lücke** | Vorschlag: Etappe „Seiten-Winkel-Beziehung“ in geometrie.konstruktion |
+| 18 | 2 | Winkel an Parallelen mit gleichschenkligem Dreieck | rechnen | II | M8 LB1 | geometrie.winkelsaetze · figuren |  |
+| 19 | 1 | Umfang eines Quadratmusters | Sachaufgabe | III | M8 LB3 | terme.aufstellen · sachsituation | Knobel |
+| 20 | 1 | Preis pro Person | Sachaufgabe | II | M7 LB5 | groessen.proportional · sach | Grundwissen |
+| 21 | 1 | Volumenterm eines ausgeschnittenen Würfels | ankreuzen | II | M8 LB2 | terme.aufstellen · sachsituation | Term aus Figur |
+
 ### GWT9-2019-II – Grundwissentest 2019 Mathematik Jgst. 9 WPFG II/III (alter Lehrplan)
 
 ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/III · 45 min · 23 Punkte · Hilfsmittel: ohne Taschenrechner und Formelsammlung · frei zugänglich: ja · Lizenz: amtlich; Link genügt · abgerufen 2026-11-22 · [Quelle](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2019/2019_gwt_mathe_9_ii_loesung.pdf)
@@ -1321,6 +1869,219 @@ ISB Bayern · Grundwissentest · geschrieben in Kl. 9, Stoff Kl. 8 · Gruppe II/
 | 19b | 1 | fehlenden Winkel bestimmen | rechnen | I | M7 II/III LB2 | geometrie.winkelsaetze · figuren |  |
 | 20 | 1 | relative Häufigkeit in Prozent | rechnen | I | M8 II/III LB6 | stochastik.grundbegriffe · rel_haeufigkeit |  |
 
+### KA-3627 – Mathematikklassenarbeit Nr. 1 Klasse 8: Terme, binomische Formeln
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · 22 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/3627.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 3 | Terme vereinfachen | rechnen | I | M8 LB4 | terme.umformen · zusammenfassen |  |
+| 2 | 4 | Klammern auflösen und zusammenfassen | rechnen | II | M8 LB4 | terme.umformen · minusklammer |  |
+| 3 | 2 | vollständig ausklammern | rechnen | II | M8 LB4 | terme.umformen · ausklammern |  |
+| 4 | 4,5 | Platzhalter in Faktorisierungen und Binomen ergänzen | Lücke | III | M8 LB4 | terme.umformen · binomisch | rückwärts |
+| 5 | 3 | binomische Formeln anwenden | rechnen | I | M8 LB4 | terme.umformen · binomisch | binomisch |
+| 6 | 2,5 | zusammenfassen mit Binomen | rechnen | II | M8 LB4 | terme.umformen · binomisch | binomisch |
+
+### KA-3631 – Mathematikarbeit Nr. 1 Klasse 8: Prozentrechnung, Sachrechnen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/prozentrechnen/3631.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Brüche/Dezimalzahlen als Prozent | rechnen | I | M7 LB7 | bruch.prozent · prozent_bedeutung | Grundwissen |
+| 2 | – | Prozentanteil und Diagramm | zeichnen | I | M7 LB7 | daten.darstellen · kreisdiagramm | Diagramm |
+| 3 | – | Neuwert aus Wertminderung | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck | rückwärts |
+| 4 | – | Grundwert aus Prozentwert | Sachaufgabe | I | M7 LB7 | bruch.prozent_grundwert · zurueck |  |
+| 5 | – | Nachlass und Skonto nacheinander, Gesamtnachlass | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · mehrfach |  |
+| 6 | – | Erhöhung und Senkung um gleichen Prozentsatz | Sachaufgabe | III | M7 LB7 | bruch.prozent_grundwert · mehrfach | Fehler finden typisch |
+| 7 | – | Lastwagen-Dreisatz (umgekehrt proportional) | Sachaufgabe | II | M7 LB7 | groessen.indirekt · dreisatz |  |
+
+### KA-3638 – Klassenarbeit Nr. 2 Klasse 8: Zinsrechnung, Terme
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/prozentrechnen/3638.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Endkapital mit Tageszinsen | Sachaufgabe | II | M7 LB7 | finanzen.zinsen · zeitanteil |  |
+| 2 | – | Zinssatz aus Monatszinsen | Sachaufgabe | II | M7 LB7 | finanzen.zinsen · zinssatz | rückwärts |
+| 3 | – | Kreditsumme aus Quartalszinsen | Sachaufgabe | II | M7 LB7 | finanzen.zinsen · kapital | rückwärts |
+| 4 | – | Anlagedauer bis Zielbetrag (Datum) | Sachaufgabe | III | M7 LB7 | finanzen.zinsen · zeitanteil | Modellieren |
+| 5 | – | Klammerterme vereinfachen | rechnen | II | M8 LB4 | terme.umformen · minusklammer |  |
+
+### KA-3639 – Mathematik Klassenarbeit Nr. 2 Klasse 8: Binome, Faktorisieren, Gleichungen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · 24 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/3639.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 4 | Klammern auflösen und zusammenfassen | rechnen | II | M8 LB4 | terme.umformen · minusklammer |  |
+| 2 | 2 | geschickt ausklammern | rechnen | II | M8 LB4 | terme.umformen · ausklammern |  |
+| 3 | 3 | binomische Formeln anwenden | rechnen | I | M8 LB4 | terme.umformen · binomisch | binomisch |
+| 4 | 2 | mit binomischen Formeln faktorisieren | rechnen | II | M8 LB4 | terme.umformen · binomisch | rückwärts |
+| 5 | 3 | erst ausklammern, dann faktorisieren | rechnen | III | M8 LB4 | terme.umformen · binomisch | rückwärts |
+| 6 | 5 | Lösungsmengen von Gleichungen | rechnen | II | M8 LB4 | gleichungen.linear · klammern | binomisch |
+
+### KA-3643 – Mathematik Klassenarbeit Nr. 3 Klasse 8: Körper, Prisma
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · 24 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/geometrische-k%C3%B6rper-8-klasse/3643.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 4 | Körper benennen | ankreuzen | I | M5/M8 LB3 | messen.koerper_darstellung · ansichten |  |
+| 2 | 1,5 | Aussagen zu Prismen wahr/falsch | ankreuzen | II | M8 LB3 | messen.koerper_darstellung · prisma |  |
+| 3 | 1,5 | Grundfläche im Netz markieren, Höhe angeben | zeichnen | I | M8 LB3 | messen.koerper_darstellung · netz |  |
+| 4 | 2 | Term für Gesamtkantenlänge | rechnen | II | M8 LB4 | terme.aufstellen · sachsituation | Term aus Figur |
+| 5 | 7 | Schrägbild eines Dreiecksprismas zeichnen | zeichnen | II | M8 LB3 | raum.schraegbilder · lage |  |
+
+### KA-3646 – Mathematik KA Nr. 3 Klasse 8: Binome, Gleichungen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/3646.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Binome vorwärts und rückwärts | Lücke | II | M8 LB4 | terme.umformen · binomisch | rückwärts |
+| 2 | – | Gleichungen mit Klammern, Binomen und Brüchen | rechnen | II | M8 LB4 | gleichungen.linear · klammern | binomisch |
+| 3 | – | Lösungsmenge über Z | rechnen | II | M8 LB4 | gleichungen.linear · sonderfaelle |  |
+
+### KA-3649 – Klassenarbeit Nr. 4 Klasse 8: Bruchgleichungen, Flächen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/fl%C3%A4chen-volumen/3649.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Bruchgleichungen lösen (auch mit Faktorisieren) | rechnen | II | M8 LB5 | gleichungen.bruch · hauptnenner |  |
+| 2 | – | fehlende Größen bei Rechteck, Dreieck, Trapez, Raute | rechnen | II | M6 (Grundwissen) | messen.flaechen_vielecke · rueckwaerts | rückwärts |
+| 3 | – | Parallelogramm und flächengleiches Rechteck | Sachaufgabe | I | M6 (Grundwissen) | messen.flaechen_vielecke · parallelogramm |  |
+| 4 | – | zusammengesetzte Figur im Raster | rechnen | II | M6 (Grundwissen) | messen.flaechen_vielecke · zusammengesetzt |  |
+
+### KA-3651 – Mathematikklassenarbeit Nr. 5 Klasse 8: Funktionen, lineare Funktionen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · 27 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/linearefunktionen/3651.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 2 | Zuordnung als Funktion prüfen und begründen | begründen | II | M8 LB6 | funktionen.grundbegriffe · eindeutig |  |
+| 2 | 2 | Pfeile so zuordnen, dass Funktion entsteht | zeichnen | I | M8 LB6 | funktionen.grundbegriffe · eindeutig |  |
+| 3a | – | Wertetabelle einer Geraden | Lücke | I | M8 LB6 | funktionen.grundbegriffe · wertetabelle |  |
+| 3b | – | parallele Gerade / gleicher y-Achsenabschnitt | Lücke | II | M8 LB6 | funktionen.linear · lage |  |
+| 4 | 3 | Ursprungsgerade durch Punkt zeichnen, Steigungsdreieck, Gleichung | zeichnen | II | M8 LB6 | funktionen.linear · proportional |  |
+
+### KA-3653 – Klassenarbeit Nr. 5 Klasse 8: Vielecke, Prisma
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Geodreieck, Zirkel · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/fl%C3%A4chen-volumen/3653.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Viereck aus Seiten und Winkeln konstruieren | konstruieren | II | M8 LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 2 | – | Fläche eines Fünfecks durch Zerlegen | rechnen | II | M6 (Grundwissen) | messen.flaechen_vielecke · zusammengesetzt |  |
+| 3 | – | Flächenformel mit Variablen aufstellen | rechnen | II | M8 LB4 | terme.aufstellen · sachsituation | Term aus Figur |
+| 4 | – | Prisma definieren | beschreiben | I | M8 LB3 | messen.koerper_darstellung · prisma | Fachsprache |
+| 5 | – | Volumen eines Dreiecksprismas | rechnen | I | M9 (in Bayern später) | messen.prisma_zylinder · prisma_volumen |  |
+| 6 | – | Höhe einer Säule aus Volumen | Sachaufgabe | II | M9 (in Bayern später) | messen.prisma_zylinder · prisma_umstellen | rückwärts |
+| 7 | – | Dreieckshöhe aus Prismavolumen | Sachaufgabe | III | M9 (in Bayern später) | messen.prisma_zylinder · prisma_umstellen | rückwärts |
+
+### KA-4012 – Mathearbeit Binomische Formeln (Klasse 8)
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/4012.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Binome auflösen, Lücken in Binomen ergänzen | Lücke | I | M8 LB4 | terme.umformen · binomisch | rückwärts |
+| 2 | – | lineare Gleichungen mit Brüchen | rechnen | II | M8 LB4 | gleichungen.linear · beide_seiten |  |
+| 3 | – | Lösungsmenge über Z (auch leer) | rechnen | II | M8 LB4 | gleichungen.linear · sonderfaelle |  |
+| 4 | – | Zahlenrätsel mit Binom | Sachaufgabe | II | M8 LB4 | gleichungen.linear · sach | binomisch |
+
+### KA-4017 – Mathematikarbeit 8. Klasse: Rechnen mit Termen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/terme-und-gleichungen-8-klasse/4017.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Summe mit Faktor ausmultiplizieren (6 Teile) | rechnen | I | M8 LB4 | terme.umformen · ausmultiplizieren |  |
+| 2 | – | gemeinsame Faktoren ausklammern | rechnen | II | M8 LB4 | terme.umformen · ausklammern |  |
+| 3 | – | Summe mal Summe | rechnen | I | M8 LB4 | terme.umformen · summe_mal_summe |  |
+| 4 | – | Summenterm als Binom schreiben (faktorisieren) | rechnen | II | M8 LB4 | terme.umformen · binomisch | rückwärts |
+| 5 | – | binomische Formeln anwenden | rechnen | I | M8 LB4 | terme.umformen · binomisch | binomisch |
+
+### KA-4018 – Klassenarbeit Binomische Formeln Klasse 8
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/4018.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | ausmultiplizieren | rechnen | I | M8 LB4 | terme.umformen · ausmultiplizieren |  |
+| 2 | – | ausklammern | rechnen | I | M8 LB4 | terme.umformen · ausklammern |  |
+| 3 | – | fehlende Klammern setzen | Fehler finden | II | M8 LB4 | terme.umformen · ausmultiplizieren | Fehler finden |
+| 4 | – | Lücken beim Ausmultiplizieren | Lücke | II | M8 LB4 | terme.umformen · ausmultiplizieren | rückwärts |
+| 5 | – | Summe mal Summe | rechnen | I | M8 LB4 | terme.umformen · summe_mal_summe |  |
+| 6 | – | binomische Formeln anwenden | rechnen | I | M8 LB4 | terme.umformen · binomisch | binomisch |
+| 7 | – | entscheiden, ob binomische Formel anwendbar | begründen | II | M8 LB4 | terme.umformen · binomisch |  |
+| 8 | – | Binom mit Faktor/Summand | rechnen | II | M8 LB4 | terme.umformen · binomisch | binomisch |
+| 9 | – | Kopfrechnen mit binomischen Formeln | rechnen | II | M8 LB4 | terme.umformen · binomisch | Knobel |
+| 10 | – | Wortbeschreibung als Produkt von Summen | rechnen | II | M8 LB4 | terme.aufstellen · uebersetzen | Term aus Text |
+
+### KA-4025 – Mathematikarbeit Nr. 1 Realschule 8. Klasse: binomische Formeln
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/binomische-formeln/4025.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | gleichartige Glieder addieren/subtrahieren | rechnen | I | M8 LB4 | terme.umformen · zusammenfassen |  |
+| 2 | – | Produkte und Quotienten von Termen | rechnen | I | M8 LB4 | terme.umformen · produkte |  |
+| 3 | – | Klammern auflösen inkl. Binome | rechnen | II | M8 LB4 | terme.umformen · binomisch | binomisch |
+| 4 | – | ausmultiplizieren und zusammenfassen | rechnen | II | M8 LB4 | terme.umformen · summe_mal_summe |  |
+| 5 | – | geeignete Faktoren ausklammern | rechnen | II | M8 LB4 | terme.umformen · ausklammern |  |
+
+### KA-4026 – Mathematikarbeit Winkel, Dreiecke, Vierecke (Klasse 8)
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: Geodreieck, Zirkel · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/geometrie-8/4026.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Winkel ohne Messen bestimmen und begründen | begründen | II | M8 LB1 | geometrie.winkelsaetze · figuren |  |
+| 2 | – | Winkelsumme im Fünfeck herleiten | begründen | II | M8 LB1 | geometrie.winkelsaetze · vieleck |  |
+| 3 | – | Dreiecke mit Planfigur konstruieren (SSS, SSW, WSW) | konstruieren | I | M7 I LB3 | geometrie.konstruktion · planfigur |  |
+| 4 | – | Drachen und Trapeze konstruieren | konstruieren | II | M8 LB1 | geometrie.konstruktion · vierecke_konstruieren |  |
+| 5 | – | Vierecke nach Eigenschaften benennen | ankreuzen | I | M8 LB1 | abbildungen.kongruenz · vierecke_ordnen |  |
+
+### KA-4028 – Mathearbeit Klasse 8: Häufigkeit, Durchschnitt, Wahrscheinlichkeit
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/verschiedenes-m8/4028.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1a | – | fehlenden Wert zu vorgegebenem Mittelwert | Lücke | II | M7 LB8 | daten.kennwerte · mittel_rueckwaerts | rückwärts |
+| 1b | – | fehlenden Wert zu vorgegebenem Zentralwert | Lücke | II | M7 LB8 | daten.boxplot · median | rückwärts |
+| 1c | – | absolute aus relativer Häufigkeit | rechnen | I | M8 LB7 | stochastik.grundbegriffe · rel_haeufigkeit |  |
+| 1d | – | Durchschnitt aus Häufigkeitstabelle | rechnen | I | M7 LB8 | daten.kennwerte · mittel_tabelle |  |
+| 2 | – | Kennwerte einer Taschengeld-Liste | rechnen | I | M7 LB8 | daten.kennwerte · mittelwert |  |
+| 3 | – | Wahrscheinlichkeiten (Annahme, Rest nicht sichtbar) | rechnen | I | M8 LB7 | stochastik.grundbegriffe · laplace |  |
+
+### KA-4030 – Klassenarbeit Klasse 8: Gleichungen lösen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/terme-und-gleichungen-8-klasse/4030.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | lineare Gleichungen mit Klammern | rechnen | I | M8 LB4 | gleichungen.linear · klammern |  |
+| 2 | – | Gleichungen mit Quadraten, die wegfallen | rechnen | II | M8 LB4 | gleichungen.linear · klammern | binomisch |
+| 3 | – | Gleichungen mit Binomen auf beiden Seiten | rechnen | II | M8 LB4 | gleichungen.linear · klammern | binomisch |
+| 4 | – | Zahlenrätsel als Gleichung | Sachaufgabe | II | M8 LB4 | gleichungen.linear · sach | Term aus Text |
+| 5 | – | Seitenlängen eines Dreiecks aus Umfang | Sachaufgabe | II | M8 LB4 | gleichungen.linear · sach | Term aus Figur |
+
+### KA-4031 – Mathearbeit Nr. 4 Klasse 8 Realschule: Antiproportion, Prozent, Terme, Winkel
+
+klassenarbeiten.de (Bundesland nicht genannt) · Klassenarbeit · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/verschiedenes-m8/4031.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Geschwindigkeit bei kürzerer Flugzeit (umgekehrt proportional) | Sachaufgabe | II | M7 LB7 | groessen.indirekt · sach |  |
+| 2 | – | Flächenanteile im Kreisdiagramm | zeichnen | I | M7 LB8 | daten.darstellen · kreisdiagramm |  |
+| 3 | – | Prozentwerte berechnen (6 Teile) | rechnen | I | M7 LB7 | bruch.prozent · prozentwert |  |
+| 4 | – | Preis vor Erhöhung | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck | rückwärts |
+| 5 | – | Klammerterme vereinfachen | rechnen | II | M8 LB4 | terme.umformen · minusklammer |  |
+| 6 | – | Winkelberechnung (Annahme, Rest nicht sichtbar) | rechnen | II | M8 LB1 | geometrie.winkelsaetze · figuren |  |
+
 ### KA-4020 – Klassenarbeit Mathematik Gleichungen Klasse 8 Realschule
 
 klassenarbeiten.de (Schule und Bundesland nicht genannt) · Klassenarbeit (Bundesland unklar) · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-PDF) · Lizenz: klassenarbeiten.de, kein Lizenzhinweis; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/data/dynamic/pdf/4020.pdf)
@@ -1360,6 +2121,53 @@ klassenarbeiten.de (Schule nicht genannt) · Schulaufgabe · geschrieben in Kl. 
 | 2c | – | Aussage zur Graphenform beurteilen | begründen | II | M7 I LB7 | groessen.indirekt · graph |  |
 | 3a | – | Geradengleichung durch zwei Punkte | rechnen | II | M8 I LB6 | funktionen.linear · zwei_punkte |  |
 | 3b | – | Parallele durch Punkt | rechnen | II | M8 I LB6 | funktionen.linear · lage |  |
+
+### KA-3632 – Test Nr. 1 Klasse 8: Prozent und Zinsen
+
+klassenarbeiten.de (Bundesland nicht genannt) · Test (Kurzarbeit) · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/prozentrechnen/3632.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 2 | Prozentwert und Prozentsatz im Betrieb | Sachaufgabe | I | M7 LB7 | bruch.prozent · prozentwert |  |
+| 2 | 2 | Preis vor Rabatt | Sachaufgabe | II | M7 LB7 | bruch.prozent_grundwert · zurueck | rückwärts |
+| 3 | 1 | Guthaben nach einem Jahr Zinsen | Sachaufgabe | I | M7 LB7 | finanzen.zinsen · jahreszinsen |  |
+| 4 | 3 | Auszahlung mit anteiligen Zinsen | Sachaufgabe | II | M7 LB7 | finanzen.zinsen · monatszinsen |  |
+
+### KA-3640 – Test Nr. 2 Klasse 8: Textgleichungen, Prisma
+
+klassenarbeiten.de (Bundesland nicht genannt) · Test (Kurzarbeit) · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/terme-und-gleichungen-8-klasse/3640.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 2 | Zahlenrätsel als Gleichung | Sachaufgabe | II | M8 LB4 | gleichungen.linear · sach | Term aus Text |
+| 2 | 3 | Altersrätsel mit drei Personen | Sachaufgabe | III | M8 LB4 | gleichungen.linear · sach | Knobel |
+| 3 | 2 | Altersrätsel mit Zeitverschiebung | Sachaufgabe | III | M8 LB4 | gleichungen.linear · sach | Knobel |
+| 4 | 1,5 | Prisma definieren | beschreiben | I | M8 LB3 | messen.koerper_darstellung · prisma | Fachsprache |
+| 5 | 1,5 | Aussagen zu Prismen wahr/falsch | ankreuzen | II | M8 LB3 | messen.koerper_darstellung · prisma |  |
+
+### KA-3647 – Test Nr. 3 Klasse 8: Bruchterme
+
+klassenarbeiten.de (Bundesland nicht genannt) · Test (Kurzarbeit) · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · 10 Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/bruchterme/3647.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | 1,5 | Binome zusammenfassen und faktorisieren | rechnen | I | M8 LB4 | terme.umformen · binomisch | binomisch |
+| 2 | 2 | Definitionsmenge von Bruchtermen | rechnen | I | M8 LB5 | terme.bruchterme · definitionsmenge |  |
+| 3 | 3,5 | Bruchterme kürzen (mit Faktorisieren) | rechnen | II | M8 LB5 | terme.bruchterme · kuerzen | binomisch |
+| 4 | 3 | Bruchterme addieren | rechnen | II | M8 LB5 | terme.bruchterme · addieren |  |
+
+### KA-4014 – Mathetest Klasse 8: Terme
+
+klassenarbeiten.de (Bundesland nicht genannt) · Test (Kurzarbeit) · geschrieben in Kl. 8, Stoff Kl. 8 · Gruppe unbekannt · nicht angegeben min · nicht angegeben Punkte · Hilfsmittel: nicht angegeben · frei zugänglich: ja (Gratis-Seite) · Lizenz: klassenarbeiten.de; nur Link · abgerufen 2026-11-22 · [Quelle](https://www.klassenarbeiten.de/realschule/klasse8/mathematik/terme-und-gleichungen-8-klasse/4014.htm)
+
+| Nr | P. | Kompetenz (eigene Worte) | Typ | Niv. | Lernbereich | Thema · Etappe | Besonderheit |
+|---|---|---|---|---|---|---|---|
+| 1 | – | Klammern auflösen und zusammenfassen | rechnen | II | M8 LB4 | terme.umformen · minusklammer |  |
+| 2 | – | Terme vereinfachen | rechnen | I | M8 LB4 | terme.umformen · produkte |  |
+| 3 | – | binomische Formeln anwenden | rechnen | I | M8 LB4 | terme.umformen · binomisch | binomisch |
+| 4 | – | Platzhalter in Faktorisierungen/Binomen | Lücke | III | M8 LB4 | terme.umformen · binomisch | rückwärts |
+| 5 | – | Ausdruck mit mehreren Binomen zusammenfassen | rechnen | II | M8 LB4 | terme.umformen · binomisch | binomisch |
+| 6 | – | vollständig ausklammern | rechnen | II | M8 LB4 | terme.umformen · ausklammern |  |
 
 ### KA-4010 – 2. Schulaufgabe Mathematik Klasse 8 Realschule Bayern (Februar 2012)
 

@@ -267,6 +267,13 @@
     -90.4971
    ]
   },
+  "GU": {
+   "name_de_ne": "Guam",
+   "mitte": [
+    13.3542,
+    144.7036
+   ]
+  },
   "HR": {
    "name_de_ne": "Kroatien",
    "mitte": [
@@ -454,13 +461,6 @@
    "mitte": [
     -20.5753,
     17.1082
-   ]
-  },
-  "NC": {
-   "name_de_ne": "Neukaledonien",
-   "mitte": [
-    -21.0647,
-    165.084
    ]
   },
   "NL": {
@@ -680,6 +680,13 @@
     34.5083
    ]
   },
+  "TV": {
+   "name_de_ne": "Tuvalu",
+   "mitte": [
+    -8.5137,
+    179.2096
+   ]
+  },
   "TZ": {
    "name_de_ne": "Tansania",
    "mitte": [
@@ -727,6 +734,13 @@
    "mitte": [
     -15.3715,
     166.9088
+   ]
+  },
+  "WF": {
+   "name_de_ne": "Wallis und Futuna",
+   "mitte": [
+    -14.2864,
+    -178.1374
    ]
   },
   "WS": {

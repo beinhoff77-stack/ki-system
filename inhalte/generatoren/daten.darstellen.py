@@ -872,3 +872,9 @@ SK(lz, SZ('knobel', 'In einem Bild-Diagramm soll ein Wert doppelt so groß darge
 if __name__ == '__main__':
     schreibe(DATEI)
     stufen_datei('daten.darstellen', ST)
+
+# ---- NT-D (22.11., siehe _nt_2211.py): zuletzt, hängt nur Aufgaben an ----
+if __name__ == '__main__':
+    from _nt_2211 import nt_anhaengen
+    nt_anhaengen('daten.darstellen')
+# ---- NT ENDE ----

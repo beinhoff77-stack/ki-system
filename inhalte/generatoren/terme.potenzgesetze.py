@@ -861,3 +861,9 @@ if __name__ == '__main__':
     from _potenz_teilen import gym6_datei
     gym6_datei()
 # ---- POTENZ-TEILEN ENDE ----
+
+# ---- NT-D (22.11., siehe _nt_2211.py): zuletzt, hängt nur Aufgaben an ----
+if __name__ == '__main__':
+    from _nt_2211 import nt_anhaengen
+    nt_anhaengen('terme.potenzgesetze')
+# ---- NT ENDE ----

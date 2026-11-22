@@ -2,6 +2,123 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: LW-2b (0.89.1) – Nachtrag zur Prüfung LW-2, Cache v165
+
+Auf `lernen-app` b2fe4d3 (Prüfung `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw2.md`). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.
+Bilder: `docs/previews/la/lw2b-400-warnung.png` (Warnung über dem Detail-Blatt), `lw2b-820-zurueck.png` (Zurückziehen ohne Meldung).
+
+- **M1:** Meldung/Warnung (`.lw-toast`) liegt jetzt über Detail-Blatt (70) und Filter-Blatt (75): z-index 85. Auf dem Handy volle Breite unten (8 px Rand), ✕ oben rechts, Reparieren-Knopf und ↶ in einer Zeile. Test 400 px: nach „In den Plan: als Nächstes“ ist die Warnung an ihrer Mitte das oberste Element (`elementFromPoint`), der Reparieren-Knopf wird über dem Blatt geklickt und wirkt.
+- **S1:** Warnung nennt Themen ohne Untertitel, bei Teilen „‹Titel› – Teil x von y“; der Vorspann „… als Nächstes eingeplant ·“ fällt bei Warnungen weg (nur „… aus dem Plan genommen · ⚠ …“ behält ihn, weil er dort die Aussage trägt). Ein Titel steht höchstens zweimal (Text und Knopf). Höhe im Teile-Fall auf dem Handy etwa 130 px (vorher 281; Test ≤ 160). Auch die normalen Meldungen („… eingeplant“, „… aus dem Plan genommen“, „… vor … gesetzt“) nehmen die kurzen Namen.
+- **K1:** In einer Matrix-Zelle stehen Themen desselben Platzes in Buchstaben-Reihenfolge (3a, 3b, 3c, 3d); Test prüft jede Zelle.
+- **K2:** Beim Ziehen (Fahrplan → Matrix und Matrix → Fahrplan) wird die laufende Meldung sofort ausgeblendet; „Hier loslassen = aus dem Plan nehmen“ ist frei (Test 820).
+- **K3:** „TEILE DIESES THEMAS“ steht direkt unter der Stand-Zeile, vor den Etappen.
+- **Nicht gebaut:** S2 (Wortlaut „„B“ dahinter setzen“ bleibt), K4 (gehört zu LK-App).
+- **App-Test Kür:** Thema in „Wiederholung“ (alle Pflicht-Etappen gelandet und im Flug-Test nachgewiesen, Flug-Test fertig) mit offener Kür-Etappe: `#/lerneinheit/…-ueben` öffnet die Kür-Etappe (Adresse zeigt ihre Nummer, Bordkarte offen), kein Test, nichts gesperrt. Ohne Code-Änderung grün. **Hinweis:** Steht eine Pflicht-Etappe in `stand` noch mit `status: 'offen'`, bietet die App vorher den „Test zu den neuen Etappen“ an – das ist die bisherige Regel (Nachtrag-Test), kein Fehler.
+
+**Getestet:** neu 3 (M1/S1/K1/K3 bei 400, K2 bei 820, Kür startbar). Lernen alle grün; Gesamtlauf sonst nur die bekannten Reise-Tests (W80 „Jede neue Suche“ schwankt, W175 Tagesdatum). **Nicht geprüft:** echter Server, echte Geräte.
+
+## 2026-11-23 – FERTIG: LW-2 – App 0.89.0 (Ziehen, Reihenfolge-Warnungen, Alle einplanen; Nacharbeit LW-1 S1/S2/K1/K2; Teile 12.7), Cache v164
+
+Auf `lernen-app` e20266e (Prüfung LW-1 des Gestalters, Vorgabe 12.7). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, kein Merge nach `main`.
+Bilder: `docs/previews/la/lw2-400.png`, `lw2-820.png`.
+
+**LW-2 (Abschnitte 4, 4a, 6)**
+- **Matrix → Fahrplan ziehen** (Rechner; Tablet bei offener Fahrplan-Schublade): Karte greifen, ein kleines Schild folgt dem Zeiger, im Fahrplan zeigt eine **blaue Linie** den Platz; losgelassen = an dieser Stelle eingeplant („‹Thema› auf Platz 2 eingeplant · ↶ Rückgängig“). Ziehen öffnet kein Detail. Unten im Fahrplan „+ Thema hierher ziehen“.
+- **Fahrplan → Matrix ziehen** = aus dem Plan (ganzer Platz). Über der Matrix: rot gestrichelt mit „Hier loslassen = aus dem Plan nehmen“.
+- **Reihenfolge-Warnung (4a), keine Sperre:** nach jedem Einplanen, Ziehen, ↑/↓, „Als Nächstes“, „Ans Ende“, Stufe, Sammelaktion. Nur harte Voraussetzungen; gekonnt/Wiederholung/gesetzt gilt als erfüllt; aufgelöste Themen zählen nicht. Dunkelrote Einblendung mit Knopf und „↶ Rückgängig“, bleibt bis ✕:
+  1. „⚠ „B“ baut auf „A“ auf – das kommt erst auf Platz 4“ · **„„A“ davor setzen“**
+  2. „⚠ „B“ baut hierauf auf und steht schon auf Platz 2“ · **„„B“ dahinter setzen“** (Abweichung: Vorgabe „hinter „B“ setzen“ – die Voraussetzung steht ja schon hinter B; repariert wird, indem B hinter die Voraussetzung rückt. Bitte bestätigen oder Wortlaut nennen.)
+  3. „⚠ … das kann er noch nicht und es ist nicht im Plan“ · **„„A“ davor einplanen“**
+  Aus dem Plan genommen, obwohl etwas darauf aufbaut: „… aus dem Plan genommen · ⚠ „B“ im Plan baut darauf auf“. **Dauerhaft im Fahrplan:** roter Rand und „braucht A – kommt erst auf Platz 4“ bzw. „– nicht gelernt, nicht im Plan“. Liegen A und B im selben Ort (bis zum Reise-Aufbau), gibt es keinen Knopf (Reihenfolge im Ort nicht änderbar).
+- **„Alle n einplanen (nach Klasse und Lehrplan)“** oben im Fahrplan bei „Noch nicht im Plan“, nur gewählte Klassen, ohne Zusatz-Teile und aufgelöste Themen, ein Schritt.
+
+**Nacharbeit LW-1**
+- **S1/K3:** Tablet und Handy haben eine Zeile: [Fahrplan · 8] bzw. [Fahrplan · 8 | Alle Themen], **[Filter ▾]** (Blatt mit Einordnen, Zeigen, Klassen, Einstieg prüfen, Suchen, Auswählen; auf dem Handy von unten; „Filter · n“ zeigt aktive Filter), **[ⓘ]** für die Farben, ↶. Handy: Kopf kompakt (Name, „Lernen starten“, „Einstellen“, ⓘ in einer Zeile; Schulart-Zeile ausgeblendet), Ringe kleiner. Erste Karte bei 400 × 860 auf **392 px** (vorher 795). Tablet 820: Leiste einzeilig.
+- **S2:** Fahrplan-Kopf „8 Plätze · 14 Themen“; Themen eines Orts heißen „3a, 3b, 3c, 3d“ (Karte, Stand-Zeile, Liste im Eintrag „Themen ▸“); keine Platznummer doppelt (Test). Im Eintrag „1/4 Themen“ statt „Flüge“.
+- **K1:** Etappen vor `etappe_jetzt` (bzw. die ersten `gelandet`) ohne Karte gelten als gelandet; „gerade dran“ steht an `etappe_jetzt`. Test: „Etappe 3/7“ ↔ Liste 1, 2 gelandet, 3 gerade dran.
+- **K2 – Ursache:** Der Kopf der Kind-Seite nimmt Klasse/Schulart aus `schule_uebersicht`, der Reiter „Lehrplan“ nahm sie zuerst aus `schule_plan_lesen.kind` (bzw. `schule_lehrplan_matrix.kinder`). In den Testdaten stand in der Übersicht Klasse 5, im Plan Klasse 8 – daher der Widerspruch. **Behoben:** Der Reiter nimmt jetzt dieselbe Quelle wie der Kopf (Übersicht; nur wenn dort nichts steht, Plan/Raster). Testdaten angeglichen; neuer Test: widersprechen sich die Quellen, gilt die Klasse im Kopf auch für die Klassen-Auswahl. **Annahme:** Auf dem Server kommen beide aus derselben Spalte – dann trat der Fehler nur mit Testdaten auf; nicht gegen den Server geprüft.
+
+**Vorgabe 12.7 „Teile“ (soweit ohne neue Server-Felder möglich)**
+- Teil-Angaben aus `teil`/`teile`/`untertitel`, sonst aus dem Titel „Grund – Teil 2 von 3 · Untertitel“ (so schreibt LK-S die Titel). Keine feste Zahl.
+- Karte: „Terme umformen“ + Marke „2/3“ (Vorlesetext „Teil 2 von 3“), Untertitel als zweite Zeile mit „…“, voll im Tooltip. Teile in derselben Zelle direkt untereinander mit feiner Klammer links; Darüberfahren lässt die anderen Teile aufleuchten.
+- **Zusatz** (Teil ohne Klasse in der gewählten Schulart oder `zusatz` vom Server): gestrichelt, Marke „Zusatz“, zählt nicht im Ring, nicht bei „Noch nicht im Plan“ und nicht bei „Alle einplanen“.
+- Detail: Kopf „Terme umformen – Teil 2 von 3“, Untertitel, bei Zusatz „Zusatz – kein Pflichtstoff im Gymnasium“; Abschnitt **„TEILE DIESES THEMAS“** (Teil, Untertitel, Klasse, ✓ geschafft / ▶ Platz / Platz / nicht im Plan, antippbar); **„Alle Teile einplanen“** (Zusatz nur mit Haken „auch Zusatz“).
+- Teil n baut hart auf Teil n−1 (Warnung 4a Fall 3), außer bei Zusatz.
+- **Noch nicht gebaut:** „+ Zusatz“-Bogen außen am Ring, Nachbuchungs-Hinweis „Stempel nachgetragen (Teilung 22.11.)“ und die Kinderseite (12.5) – das gehört zu LK-App bzw. braucht die Felder aus LK-S.
+
+**Getestet:** neu 7 (S2/K1/K2, K2 mit widersprüchlichen Quellen, Ziehen in beide Richtungen, Warnungen Fall 1–3 + „aus dem Plan“, Alle einplanen, Teile/Zusatz, S1/K3 400/820/1280). Lernen 148 von 148; Gesamtlauf sonst nur die Reise-Tests (bekannte + W175 Tagesdatum). **Nicht geprüft:** echter Server, echte Geräte, Ziehen mit dem Finger (nur Maus).
+## FERTIG: TL-S 6 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/tests/wd_s_rauchtest.sql` (nur Test). Nicht eingespielt, kein DROP/DELETE.
+**Nachbau:** echtes `lk_einspiel_2211.sql` vor TL-S, Graph wie live, Kind wie Kind 2 (29 geschafft, 26/46 „Kann er komplett“), Testkind mit Lernstand in 29 wie live, Kind 2 mit 93 und 97 im Plan (Visum-Fälle).
+
+**Befund 1 / Entscheidung (a) – Stufe, Stempel, Sterne passen zusammen:**
+- Ursache bestätigt: `thema_stufe` zählte alle Etappen des Katalogs; 29 Teil 2 hat nach dem Einspiel 4 (gleichungen_binomisch ist im Gym Kür) → 3/4 gelandet → „dran“, obwohl Stempel und 100 Sterne gebucht wurden. Lokal nachgestellt (alte Migration → „dran“).
+- Neu `schule.stufe_etappen(Kind, Einheit)`: Stufe, gelandet, sicher, wieder offen zählen nur die Pflicht-Etappen des Kindes (ohne/leere Liste: alle). Kind 2: 29 Teil 1 und Teil 2 „wiederholung“, 2 Erstabschlüsse, 100 Ort-Sterne für Teil 2.
+- Geschafft heißt jetzt: jede Pflicht-Etappe des Teils **selbst gelandet** (Karte gelandet, nicht gesetzt) **und** vom früheren Flug-Test abgedeckt (nachgewiesen/korrigiert/gesichert). Nur dann Stempel, Erstabschluss, Ort „fertig“, 100 Sterne. Rauchtest 6b: kein Teil mit Stempel steht auf „dran“.
+**(b) Keine Vererbung:** neue Teile bekommen keinen Plan-Platz, keine Setzung („Kann er komplett/wiederholen“), keine Stufen-Einträge; Teil 1 behält den Plan-Eintrag unverändert (auch keine Plan-Art-Änderung mehr). Der TL-S-3-Umbau (Setzung auch auf Zusatz-Einträgen) entfällt. Lernstand bleibt vollständig (Karten und Lernziel-Stand Zeile für Zeile verglichen).
+**(c) Visum – Vorschlag umgesetzt (Übergangsregel):** neue Tabelle `schule.visum_uebergang`: Hatte ein Kind das alte Thema vor der Teilung geschafft oder gesetzt (Ort „fertig“ oder „Kann er“ am Ort), gilt der Ort jedes neuen Teils **nur für das Visum** als erfüllt (kein Stempel, keine Sterne, kein Plan-Platz). `reiseoptionen` zählt diese Orte im Visum mit. Lokal: Kind 2 hat 93 (braucht 26 Teil 2) im Plan – ohne Übergang „Visum fehlt: 26 Teil 2“, mit Übergang wie vorher. Gilt nur für den Stand zum Zeitpunkt der Teilung; wer Teil 1 später schafft, braucht Teil 2 selbst.
+**Abbruch-Vergleich (neue erlaubte Deltas):** Teil 1: im Plan/gesetzt/Rückreise wie vorher; neue Teile: nicht gesetzt, keine Rückreise, im Plan nur als selbst geschaffter Teil; Reiseoptionen gleich (mit Übergang); Karten und Lernziel-Stand gleich.
+**Liste je Kind (Entscheidung Punkt 4):** Sicht `schule.tl_teile_je_kind` (Pflicht-Etappen, davon selbst, Zustand „selbst geschafft“ / „teilweise selbst (x von y)“ / „vom alten Thema gesetzt, jetzt offen“ / „offen“, im Plan). Lokal für Kind 2: 29 T2 selbst geschafft; 26 T2, 46 T2, 46 T3 „vom alten Thema gesetzt, jetzt offen“.
+
+**Befund 2 (tl_s_rauchtest FEHLER 11):** Test zu streng. Der Schulartwechsel legt für neue Pflicht-Etappen eine neue Lernstand-Zeile „offen“ an (Testkind: 29 Teil 2 gleichungen_binomisch in der Realschule) – gewollt („öffnet den Teil wieder“). Test prüft jetzt: nichts gelöscht, kein Stand verändert, neue Zeilen nur „offen“, Sterne gleich. Lokal mit Lernstand wie live nachgestellt und grün.
+**Befund 3 (wd_s_rauchtest FEHLER 6):** Testannahme veraltet. Nach Teilung und Einspiel hat 61 Teil 1 im Gymnasium **3** Pflicht-Etappen (darstellen ist dort Pflicht, nicht Kür) – „Flug abgelegt“ (+100) kommt richtig erst nach der dritten. Test wählt jetzt zuerst Flüge ohne Listen je Gruppe und nimmt nach TL-S die Pflicht-Etappen des Testkinds aus der Regel. Vor der Teilung weiter grün.
+
+Lokal: Migration zweimal ohne Fehler, tl_s_rauchtest vor und nach dem Einspielen grün.
+
+## FERTIG: TL-S 5 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/werkzeug/tl_s_daten.py`. Nicht eingespielt, kein DROP/DELETE (eine Constraint ersetzt: `lernender_zweig_check`, s. T1).
+**Reihenfolge (T4, jetzt erzwungen):** lk_korrektur → FP-S 4 → LW-S 2 → LK-S → **LK-D Einspiel** (`lk_einspiel_2211.sql`) → TL-S. Fehlt eine Etappe der Liste im Katalog, bricht TL-S mit Hinweis auf das Einspiel ab (lokal geprüft).
+
+**T2 – leere Pflichtliste (Vorrang):**
+- `pflicht_lernziele` unterscheidet: `null` = keine Liste festgelegt (Aufrufer wie bisher „alle Etappen“), `{}` = ausdrücklich keine Pflicht. Kein `nullif` mehr in tl_teilen, `wdh_ablegen`, `konto_wd`.
+- 0 Pflicht = freiwilliger Zusatz: kein Zwangstest (`thema_stufe`), kein Stempel (`test_abschliessen_intern`: „Einheit fertig“ verlangt ≥ 1 Pflicht-Etappe), kein Ort-Abschluss/100 Sterne (`ort_stand`: Thema ohne Pflicht-Etappe zählt nicht als erledigt), kein „Flug abgelegt“. Für alle heutigen Flüge (alle haben Pflicht-Etappen) ändert sich nichts.
+- Rauchtest 16 (Gym 44 Teil 2): alle Karten gelandet, Flug-Test ohne Fehler → kein Test-offen, kein Stempel, Ort nicht abgeschlossen, Flug nicht abgelegt. Rauchtest 15: RS II/III 46 Teil 3 und IB Standard 91 → Pflichtliste `{}`; 46 Teil 2 im Gym `{}` (Rauchtest 14).
+
+**T1 – fünf Gruppen (in TL-S 5 umgesetzt, weil Zusatz, Visum-Tabelle und Plan-Art von TL-S stammen und vor dem Einspielen stimmen müssen):**
+- Neue Regel `schule.kind_gruppe(Kind)`: gym_by · rs_I/rs_II_III (`lernender.zweig`, leer = rs_I) · myp_standard/myp_extended (`zweig` jetzt auch für IB, leer = myp_standard; `lernender_zweig_check` dafür ersetzt, `kind_zweig` für IB um den Zweig ergänzt). Dieselbe Gruppe nutzen Pflichtlisten (Gruppe vor Schulart), `thema.zusatz`, `voraussetzung_schulart.gruppe`, `v_ort_visum.gruppe`, `reiseoptionen`, Plan-Art „zusatz“, Abbruch-Vergleich und Lehrer-Ansicht (`verbindungen_kind`).
+- Zusatz laut LK-D 4: 44 T2 gym_by · 46 T2 gym_by · 46 T3 rs_II_III · 91 T1/T2 myp_standard (101 T1 nicht mehr).
+- Visum vorher/nachher je Gruppe (Graph wie live): keine fehlenden, keine zusätzlichen Paare; 102 ← 30 und 29 ← 102 in allen fünf Gruppen hart.
+
+**T4 – fertige Flüge:** Nachbau mit dem echten `lk_einspiel_2211.sql` vor TL-S (Einheiten-Id 31 lokal ersetzt): alle 15 Teile mit freigegebener Einheit, Etappen und Test-Aufgaben, keine leere Hülle. **101 Teil 2 (nur cavalieri)** im Rauchtest 17: Flug-Test falsch → Etappe „fehler“, kein Stempel; Korrektur richtig → Stempel.
+**T5:** Rauchtest 14 prüft die echten LK-D-4-Listen (29 T2 Gym 3 / RS mit gleichungen_binomisch, 46 T2/T3, 91, 44 T2, 101 T2). `lk_s_rauchtest` vor und nach der Teilung durchgelaufen.
+
+**T3 → KS (Vorschlag, wie vereinbart eigener Schritt):** Pflichtlisten je Gruppe für alle ungeteilten Themen (u. a. 20 `irrational_beweis`, 47, 99 aus dem LK-D Einspiel), `pflicht_abgleichen` auf vorhandene Lernstände mit Vorher/Nachher je Kind, dazu Tages-Wiederholung, Mischkarten und Blocktest-/Korrektur-Auswahl nur Pflicht. Grund: betrifft alle Flüge, nicht die Teilung.
+
+## FERTIG: NT-S (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261124_nt_s_nachtest_menge.sql` (nach TL-S; nicht eingespielt, kein DROP/DELETE), `supabase/tests/nt_s_rauchtest.sql` (Rollback, Testkind, eigene Test-Flüge).
+
+**Umsetzung:**
+- Regel `schule.nachtest_je_etappe(Pflicht-Etappen)` = aufrunden(5 / n): 1 → 5, 2 → je 3, 3–4 → je 2, ab 5 → je 1 (Mindestzahl als Regel `nachtest_min_aufgaben` = 5). Gezählt: Pflicht-Etappen des Kindes (`lernziel_stand.pflicht`, nach TL-S Pflicht/Kür je Schulart).
+- `test_starten_intern`, nur der Nachtest-Zweig (Umbau per Anker): je Etappe `schule.nachtest_auswahl` – ungestellte Aufgaben zuerst; fehlen welche zur Menge, wird mit schon gestellten aufgefüllt (die am längsten zurückliegenden zuerst), nie doppelt im selben Nachtest. Ohne jede ungestellte Aufgabe bleibt es „Vorrat erschöpft“ wie bisher → für Flüge mit ≥ 5 Pflicht-Etappen ändert sich nichts.
+- Quote, Einstufung (0,8 / 0,6) und Wertung je Etappe unverändert; Flug-Test und Korrektur-Test unverändert.
+- `nachtest_stand`: `vorrat_runden` = Runden mit ungestellten Aufgaben bei dieser Menge, neu `aufgaben_je_etappe`.
+- Sicht `schule.nachtest_vorrat` (Bericht): je Pflicht-Etappe vorhanden / Bedarf für drei Nachtests / fehlen.
+
+**Rauchtest (lokal mit den Live-Funktionen nachgebaut, grün):** 1 Etappe: 5 Aufgaben, 1 Fehler → bestanden (bisher Rückreise); 2: 6 → bestanden (bisher Rückreise); 3: 6 → bestanden (bisher wiederholen); 5: 5 → bestanden (unverändert). Keine Aufgabe doppelt, Etappen gleich verteilt, zweite Runde ohne Wiederholung, Auffüllen 2 ungestellte + 3 älteste, ohne ungestellte → erschöpft.
+Hinweis (Fakt, unverändert): ein Fehler setzt die Etappe weiter auf „fehler“ → vor dem nächsten Nachtest Korrektur-Test, auch wenn der Nachtest bestanden ist.
+
+**Fehlliste Sicherungs-Aufgaben** (Bedarf drei Nachtests: 1 Etappe 15, 2 je 9, 3–4 je 6, ab 5 je 3; vorhanden = echter Stand, lesend):
+*Nach der Teilung – Gymnasium (Kinder 1, 2):*
+- 46 Teil 3 (1 Pflicht-Etappe): punktspiegelung 6 von 15 → **fehlen 9**
+- 91 Teil 2 (2): rotation 6 von 9 → **3**, axialschnitt 6 von 9 → **3**
+- 61 Teil 1 (3): darstellen 0 von 6 → **6** (Etappe kommt mit LK-D-Einspiel)
+- 91 Teil 1 (3): wahre_groesse 0 → **6**, raumwinkel 0 → **6** (kommen mit LK-D)
+- 101 Teil 2 (1): cavalieri 0 von 15 → **15** (kommt mit LK-D)
+- ohne Fehlbedarf: 26 T1/T2, 29 T1/T2, 44 T1, 46 T1, 61 T2, 101 T1; ohne Pflicht (kein Nachtest): 44 T2, 46 T2.
+*Zusätzlich Realschule I:* 29 T2 gleichungen_binomisch **6**; 44 T2 vierecke **3**, vierecke_konstruieren **9**; 46 T2 vektor_koordinaten **6**; 46 T3 vektor_drehen **6**; 91 T2 koerper_symmetrie **6** (dafür 91 T2 rotation/axialschnitt dort ausreichend, 4 Pflicht-Etappen).
+*IB (myp_standard):* wie RS I bei 29 T2, 44 T2, 46 T2/T3, 61 T1, 101 T2; 91 ohne Pflicht.
+*Bestehende Flüge mit ≤ 4 Pflicht-Etappen (vor der Teilung):* nur **30 Potenzen und negative Exponenten** (2): potenz_begriff 6 von 9 → **3**, negativer_exponent 7 von 9 → **2**. Ausreichend: 1, 7, 58, 65, 66, 69, 91, 102, 103.
+Annahme: Pflicht je Schulart aus `lk_teilung_2211.json` (LK-D 4), Etappen, die es noch nicht gibt, mitgezählt.
+
+## FERTIG: LK-S Test 2 (22.11., bau-lehrer)
+
+**Datei:** `supabase/tests/lk_s_rauchtest.sql` (nur Test, keine Migration).
+- Prüfung 3 (Thema 61 in RS I 8 und 9) läuft jetzt über die Teile-Familie (`coalesce(teil_stamm, id) = 61`): zusammen Klassen 8 und 9, „neu“ ab 8, Route-Start 9 beim Teil mit Klasse 9 (ungeteilt: 61 selbst; geteilt: Teil 2), `thema_jahrgang` und `route_start` an diesem Teil. Spalten der Teilung werden über `to_jsonb` gelesen – der Test läuft auch ohne TL-S.
+- Lokal nachgestellt: alter Test nach der Teilung von 61 → „FEHLER 3 Thema 61“ (wie im Probelauf); neuer Test vor und nach der Teilung durchgelaufen (Teil 1: RS 8, Teil 2: RS 9).
+
 ## FERTIG: TL-S 4 (22.11., bau-lehrer)
 
 **Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/werkzeug/tl_s_daten.py`, neu `supabase/tests/nachbau_graph_live.sql` (Voraussetzungen, Orte, Ort-Themen wie live; keine Kinderdaten). Nicht eingespielt, kein DROP/DELETE.

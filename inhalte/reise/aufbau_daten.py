@@ -34,7 +34,7 @@ KONTINENTE = [
    19: ("Spanien", "ES", None, ["Barcelona", "Valencia", "Granada", "Sevilla", ("Córdoba","Cordoba"), "Toledo", "Madrid"]),
    30: ("Frankreich", "FR", None, ["Paris", "Lyon", "Marseille"]),
    68: ("Niederlande", "NL", None, ["Amsterdam", "Haarlem", "Leiden", ("Den Haag","The Hague"), "Rotterdam", "Utrecht"]),
-   20: ("Polen", "PL", None, [("Warschau","Warsaw"), ("Danzig","Gdańsk"), ("Thorn","Toruń"), ("Posen","Poznań"), ("Breslau","Wrocław"), ("Krakau","Kraków"), "Zakopane"]),
+   20: ("Polen", "PL", None, [("Warschau","Warsaw"), ("Danzig","Gdańsk"), ("Thorn","Toruń"), ("Posen","Poznań"), ("Breslau","Wrocław"), ("Krakau","Kraków"), "Zakopane", "Wieliczka"]),
    96: ("Norwegen", "NO", None, ["Oslo", "Lillehammer", "Trondheim", ("Ålesund","Ålesund"), "Bergen", "Stavanger"]),
  }},
  {"kontinent_id": 2, "themengebiet": "Geld und Verhältnisse", "reise": "Nordamerika (mit Mittelamerika und Karibik)", "fluege": {
@@ -108,7 +108,7 @@ KONTINENTE = [
    52: ("Bolivien", "BO", None, ["Copacabana", "La Paz", "Uyuni", ("Potosí","Potosí"), "Sucre", "Cochabamba"]),
    "101-1": ("Brasilien – Südosten", "BR", "BR_SUEDOST", ["Santos", ("São Paulo","São Paulo"), "Campinas", "Belo Horizonte", "Ouro Preto", ("Petrópolis","Petropolis"), "Rio de Janeiro"]),
    "101-2": ("Brasilien – Mittelwesten", "BR", "BR_MITTELWEST", [("Brasília","Brasilia")]),
-   "91-1": ("Paraguay", "PY", None, [("Asunción","Asunción"), "San Bernardino", "Ciudad del Este"]),
+   "91-1": ("Paraguay", "PY", None, [("Asunción","Asunción"), "San Bernardino", ("Encarnación","Encarnación"), "Ciudad del Este"]),
    "91-2": ("Brasilien – Süden", "BR", "BR_SUED", [("Foz do Iguaçu","Foz do Iguaçu"), "Curitiba", ("Florianópolis","Florianopolis"), "Porto Alegre"]),
    92: ("Chile", "CL", None, [("San Pedro de Atacama","San Pedro de Atacama"), "Antofagasta", ("Copiapó","Copiapó"), "La Serena", ("Viña del Mar","Viña del Mar"), ("Valparaíso","Valparaíso"), "Santiago de Chile"]),
  }},
@@ -117,7 +117,7 @@ KONTINENTE = [
    57: ("South Australia", "AU", "05", ["Adelaide", "Hahndorf", "Victor Harbor", "Kingscote", "Port Augusta", "Coober Pedy"]),
    58: ("Tasmanien", "AU", "06", ["Hobart", "Launceston", "Devonport"]),
    95: ("Western Australia", "AU", "08", ["Perth", "Fremantle", "Margaret River", "Albany", "Esperance", "Kalgoorlie"]),
-   "61-1": ("Neuseeland – Nordinsel", "NZ", "NORD", ["Auckland", "Wellington"]),
+   "61-1": ("Neuseeland – Nordinsel", "NZ", "NORD", ["Auckland", "Rotorua", "Wellington"]),
    "61-2": ("Salomonen", "SB", None, ["Honiara", "Tulagi", "Auki", "Kirakira"]),
    63: ("Queensland", "AU", "04", ["Gold Coast", "Brisbane", "Noosa Heads", "Hervey Bay", "Bundaberg", "Rockhampton", "Mackay", "Airlie Beach", "Townsville", "Cairns", "Port Douglas"]),
    62: ("New South Wales", "AU", "02", ["Sydney", "Wollongong", ("Katoomba","Katoomba"), "Bathurst", "Dubbo", "Tamworth", "Coffs Harbour", "Port Macquarie", "Newcastle"]),
@@ -163,7 +163,7 @@ NACHBARSCHAFT = {
  "44-2": "Ruanda ↔ Burundi: gemeinsame Landgrenze",
  "46-2": "Marokko ↔ Algerien: gemeinsame Landgrenze",
  "46-3": "Marokko ↔ Mauretanien: nur über das umstrittene Westsahara-Gebiet; Nachbar von Teil 2 (Algerien) mit Landgrenze",
- "61-2": "Neuseeland – Nordinsel → Salomonen: kein Nachbar (über das Meer, ca. 2 900 km); Entscheidung Sebastian 22.11. 17:05 – keine strittigen Gebiete, Neuseelands Nachbarn sonst belegt",
+ "61-2": "Insel-Ausnahme (kein Nachbarland): Neuseeland – Nordinsel → Salomonen über das Meer; Entscheidung Sebastian 22.11. 17:05 – keine strittigen Gebiete, Neuseelands Nachbarn sonst belegt",
  "101-2": "Brasilien – Südosten ↔ Brasilien – Mittelwesten: gemeinsame Grenze (Minas Gerais ↔ Goiás/Distrito Federal)",
  "91-2": "Paraguay ↔ Brasilien – Süden: gemeinsame Landgrenze (Ciudad del Este ↔ Foz do Iguaçu)",
 }
@@ -183,8 +183,8 @@ RESERVE_STAEDTE = {
  "Kasachstan": [("Karaganda","Karaganda"), "Astana", ("Pawlodar","Pavlodar")],
  "Marokko": [("Meknès","Meknès"), "Essaouira", "Agadir", "Ouarzazate", ("Marrakesch","Marrakesh")],
  "Ruanda": ["Nyanza"],
- "Paraguay": [("Encarnación","Encarnación"), ("Concepción","Concepción")],
- "Neuseeland – Nordinsel": ["Hamilton", "Rotorua", ("Taupō","Taupo"), "Napier"],
+ "Paraguay": [("Concepción","Concepción"), "Pilar", "Villarrica"],
+ "Neuseeland – Nordinsel": ["Hamilton", ("Taupō","Taupo"), "Napier"],
  "Salomonen": [("Gizo","Gizo"), "Noro", "Buala"],
  "Brasilien – Mittelwesten": [("Pirenópolis","Pirenopolis"), ("Goiânia","Goiania"), ("Cuiabá","Cuiaba"), "Campo Grande", ("Corumbá","Corumba")],
 }
@@ -212,10 +212,13 @@ RESERVE = {
  6: [("Brasilien – Nordosten", "BR", "BR_NORDOST", ["Salvador", "Aracaju", ("Maceió","Maceio"), "Recife", "Olinda", ("João Pessoa","Joao Pessoa"), "Natal", "Fortaleza"]),
      ("Brasilien – Norden", "BR", "BR_NORD", [("Macapá","Macapa"), ("Belém","Belem"), ("Santarém","Santarem"), "Manaus", "Boa Vista", "Porto Velho"]),
      ("Suriname", "SR", None, ["Nieuw Nickerie", "Paramaribo", "Lelydorp", "Brownsweg", "Moengo", "Albina"])],
- 7: [("Australian Capital Territory", "AU", "01", ["Canberra", "Gungahlin", "Belconnen", "Tuggeranong"])],
- 8: [("Mikronesien", "FM", None, [("Colonia (Yap)","Colonia"), "Weno", "Kolonia", "Palikir", "Tofol", "Lelu"]),
-     ("Amerikanisch-Samoa", "AS", None, ["Pago Pago", ("Aūa","Aua"), ("Tāfuna","Tafuna"), "Faleniu", "Vaitogi", "Leone"]),
+ 7: [("Australian Capital Territory", "AU", "01", ["Canberra", "Gungahlin", "Belconnen", "Tuggeranong"]),
+     ("Mikronesien", "FM", None, [("Colonia (Yap)","Colonia"), "Weno", "Kolonia", "Palikir", "Tofol", "Lelu"]),
+     ("Guam", "GU", None, [("Hagåtña","Hagatna"), ("Tamuning","Tamuning"), ("Dededo","Dededo Village"), ("Yigo","Yigo Village"), ("Mangilao","Mangilao Village"), ("Inarajan","Inarajan Village"), ("Umatac","Umatac Village"), ("Agat","Agat Village")]),
      ("Palau", "PW", None, ["Koror", "Kloulklubed", "Ngerkeai"])],
+ 8: [("Amerikanisch-Samoa", "AS", None, ["Pago Pago", ("Aūa","Aua"), ("Tāfuna","Tafuna"), "Faleniu", "Vaitogi", "Leone"]),
+     ("Wallis und Futuna", "WF", None, ["Mata-Utu", "Liku", "Alele", "Halalo", "Utufua", ("Leava (Futuna)","Leava"), ("Alo (Futuna)","Alo")]),
+     ("Tuvalu", "TV", None, ["Funafuti", ("Vaiaku","Vaiaku Village"), ("Fakaifou","Fakaifou Village"), ("Alapi","Alapi Village"), ("Senala","Senala Village"), ("Teone","Teone Village")])],
 }
 
 # Deutsche Hauptstadt-Namen je ISO-Code (von Hand; das Prüfskript gleicht mit den GeoNames-Namen der Hauptstadt ab)
@@ -238,6 +241,7 @@ HAUPTSTADT_DE = {
  "PY": "Asunción", "CL": "Santiago de Chile", "SR": "Paramaribo",
  "AU": "Canberra", "NZ": "Wellington", "FJ": "Suva", "VU": "Port Vila", "PG": "Port Moresby", "NC": "Nouméa", "SB": "Honiara",
  "PF": "Papeete", "WS": "Apia", "TO": "Nukuʻalofa", "FM": "Palikir", "AS": "Pago Pago", "PW": "Ngerulmud",
+ "GU": "Hagåtña", "WF": "Mata-Utu", "TV": "Funafuti",
 }
 # Wo GeoNames (geonamescache) eine andere oder veraltete Hauptstadt führt: englischer Suchname der richtigen Hauptstadt
 HAUPTSTADT_SUCHE = {"KZ": "Astana", "PW": "Ngerulmud", "US": "Washington"}
@@ -251,7 +255,8 @@ HAUPTSTADT_HINWEIS = {
  "KZ": "seit 2022 wieder Astana (geonamescache führt noch „Nur-Sultan“)",
  "PW": "Ngerulmud (Melekeok); geonamescache führt „Melekeok“",
  "NC": "französisches Überseegebiet, Hauptort Nouméa", "PF": "französisches Überseegebiet, Hauptort Papeete",
- "AS": "US-Außengebiet, Hauptort Pago Pago",
+ "AS": "US-Außengebiet, Hauptort Pago Pago", "GU": "US-Außengebiet, Hauptort Hagåtña",
+ "WF": "französisches Überseegebiet, Hauptort Mata-Utu", "TV": "Hauptstadt Funafuti (Atoll); Regierungssitz Vaiaku",
 }
 
 # Antarktis = Heimat der Expeditionen: je Expedition eine echte Forschungsstation (Betreiberland in Klammern)

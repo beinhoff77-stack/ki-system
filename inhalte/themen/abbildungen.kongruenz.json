@@ -16460,6 +16460,171 @@
     "0",
     "5"
    ]
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle den Punkt P(5 | 1) am Zentrum Z(2 | 3).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x-Koordinate, dann y-Koordinate"
+   },
+   "w": "Z ist die Mitte von P und P': x = 2 · 2 − 5 = −1, y = 2 · 3 − 1 = 5. Also P'(−1 | 5).",
+   "o": {
+    "werte": [
+     -1,
+     5
+    ]
+   }
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle den Punkt P(−3 | 4) am Zentrum Z(1 | −1).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x-Koordinate, dann y-Koordinate"
+   },
+   "w": "Z ist die Mitte von P und P': x = 2 · 1 − −3 = 5, y = 2 · −1 − 4 = −6. Also P'(5 | −6).",
+   "o": {
+    "werte": [
+     5,
+     -6
+    ]
+   }
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle den Punkt P(0 | −5) am Zentrum Z(−2 | 0).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x-Koordinate, dann y-Koordinate"
+   },
+   "w": "Z ist die Mitte von P und P': x = 2 · −2 − 0 = −4, y = 2 · 0 − −5 = 5. Also P'(−4 | 5).",
+   "o": {
+    "werte": [
+     -4,
+     5
+    ]
+   }
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle den Punkt P(7 | −2) am Zentrum Z(3 | 1).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x-Koordinate, dann y-Koordinate"
+   },
+   "w": "Z ist die Mitte von P und P': x = 2 · 3 − 7 = −1, y = 2 · 1 − −2 = 4. Also P'(−1 | 4).",
+   "o": {
+    "werte": [
+     -1,
+     4
+    ]
+   }
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle den Punkt P(−6 | −3) am Zentrum Z(−1 | −2).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "x-Koordinate, dann y-Koordinate"
+   },
+   "w": "Z ist die Mitte von P und P': x = 2 · −1 − −6 = 4, y = 2 · −2 − −3 = −1. Also P'(4 | −1).",
+   "o": {
+    "werte": [
+     4,
+     -1
+    ]
+   }
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(2 | 5) wird an Z gespiegelt und landet bei P'(8 | −1). Welche x-Koordinate hat Z?"
+   },
+   "w": "Z ist die Mitte von P und P': x = (2 + 8) : 2 = 5.",
+   "o": {
+    "wert": 5
+   },
+   "c": "(2 + 8) / 2"
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−4 | 3) und P'(6 | −7) liegen punktsymmetrisch zu Z. Welche y-Koordinate hat Z?"
+   },
+   "w": "Z ist die Mitte: y = (3 + (−7)) : 2 = −2.",
+   "o": {
+    "wert": -2
+   },
+   "c": "(3 - 7) / 2"
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Strecke AB wird an einem Punkt Z gespiegelt. Wie liegt die Bildstrecke A'B' zu AB?"
+   },
+   "w": "Die Punktspiegelung ist eine Drehung um 180°: Die Bildstrecke ist gleich lang und parallel zu AB, sie zeigt nur in die Gegenrichtung.",
+   "a": [
+    "parallel und gleich lang",
+    "senkrecht und gleich lang",
+    "parallel und doppelt so lang",
+    "auf derselben Geraden, halb so lang"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche dieser Figuren ist immer punktsymmetrisch?"
+   },
+   "w": "Beim Parallelogramm halbieren sich die Diagonalen; ihr Schnittpunkt ist das Symmetriezentrum. Drachen und gleichschenkliges Trapez sind nur achsensymmetrisch.",
+   "a": [
+    "Drachenviereck",
+    "gleichschenkliges Trapez",
+    "Parallelogramm",
+    "gleichschenkliges Dreieck"
+   ],
+   "o": {
+    "index": 2
+   }
   }
  ],
  "offen": [

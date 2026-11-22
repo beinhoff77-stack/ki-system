@@ -7201,6 +7201,113 @@
     "einheit": "°"
    },
    "c": "360 - 130 - 50 - 90"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Parallelogramm ist α = 70°. Wie groß ist β?"
+   },
+   "w": "Benachbarte Winkel im Parallelogramm ergänzen sich zu 180°: β = 180° − 70° = 110°.",
+   "o": {
+    "wert": 110,
+    "einheit": "°"
+   },
+   "c": "180 - 70"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In welchem Viereck stehen die Diagonalen immer senkrecht aufeinander und halbieren sich?"
+   },
+   "w": "In der Raute halbieren sich die Diagonalen (wie im Parallelogramm) und stehen senkrecht aufeinander (wie im Drachen).",
+   "a": [
+    "Rechteck",
+    "Raute",
+    "Parallelogramm",
+    "Trapez"
+   ],
+   "o": {
+    "index": 1
+   }
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einem Parallelogramm ABCD ist α = 65°. Berechne β und γ.",
+    "schablone": "β = □°; γ = □°",
+    "hinweis": "je eine ganze Zahl"
+   },
+   "w": "β = 180° − 65° = 115° (benachbart), γ = α = 65° (gegenüber).",
+   "o": {
+    "werte": [
+     115,
+     65
+    ]
+   }
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Viereck hat die Winkel 100°, 75° und 80°. Berechne den vierten Winkel."
+   },
+   "w": "Die Winkelsumme im Viereck ist 360°: 360° − 100° − 75° − 80° = 105°.",
+   "o": {
+    "wert": 105,
+    "einheit": "°"
+   },
+   "c": "360 - 100 - 75 - 80"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Trapez ABCD hat AB ∥ CD und α = 70°. Wie groß ist δ?"
+   },
+   "w": "α und δ liegen am selben Schenkel AD zwischen den Parallelen und ergänzen sich zu 180°: δ = 110°.",
+   "o": {
+    "wert": 110,
+    "einheit": "°"
+   },
+   "c": "180 - 70"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angaben legen ein Rechteck eindeutig fest?"
+   },
+   "w": "Alle Winkel eines Rechtecks sind 90°. Mit zwei benachbarten Seitenlängen ist es eindeutig konstruierbar.",
+   "a": [
+    "ein Winkel",
+    "eine Seitenlänge",
+    "zwei benachbarte Seitenlängen",
+    "zwei gegenüberliegende Seitenlängen"
+   ],
+   "o": {
+    "index": 2
+   }
   }
  ],
  "offen": [

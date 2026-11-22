@@ -2,6 +2,23 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-22 – FERTIG: TL-S 7 / NT-S 2
+
+Stand `lernen-app` 00cd00e übernommen (Rückläufer Prüfung 951). Nur Dateien: `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/migrations/20261124_nt_s_nachtest_menge.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/tests/nt_s_rauchtest.sql`, `supabase/tests/lk_s_rauchtest.sql`. Nicht eingespielt, kein DROP/DELETE, kein App-Code.
+
+**Muss**
+- **A1 (TL-S):** Vor der Buchung eines Erstabschlusses prüft `tl_teilen` jetzt je Pflicht-Etappe des neuen Teils die Testabdeckung: `schule.tl_testabdeckung(Kind, alte Einheit, Etappe)` = im alten **abgeschlossenen** Flug-Test oder Korrektur-Test der alten Einheit eine Aufgabe dieser Etappe **richtig** beantwortet. Ohne Abdeckung: kein Erstabschluss, kein Stempel, keine 100 Sterne, Teil bleibt „nicht im Plan“ und steht in der Liste je Kind. Echter Stand (lesend): Kind 2 hat im alten Flug-Test von 29 je Etappe eine richtige Antwort → 29 Teil 2 bleibt geschafft.
+  Negativtests (Rauchtest 18, Testkind, vor der Teilung angelegt): a) 26 – alle Karten selbst gelandet, Lernziele „nachgewiesen“, kein alter Flug-Test; b) 61 – Flug-Test abgeschlossen, aber nur mit Aufgabe zu `laplace` → je null neue Abschlüsse, null Ort-Sterne, nicht im Plan. Mit der Fassung von TL-S 6 schlägt der Rauchtest fehl (Gegenprobe).
+- **D1 (NT-S 2):** `nachtest_auswahl` liefert genau die Menge oder nichts; `test_starten_intern` verlangt je Pflicht-Etappe genau `nachtest_je_etappe` Aufgaben, sonst kein Teststart (`grund` = `vorrat_erschoepft`, Liste der Etappen, `nachtest.aufgaben_je_etappe`). Rauchtest 6: 1 Pflicht-Etappe mit 1, 2, 3, 4 verfügbaren Aufgaben (bei 3 und 4 eine schon gestellt) → kein Start, keine Sitzung; echter Start mit 4 Pflicht-Etappen → 8 Aufgaben, je 2.
+
+**Sollte**
+- **A2:** `stufe_etappen` – ausdrücklich leere Pflichtliste → keine Etappen (Kür zählt nicht); ohne Liste wie bisher alle.
+- **D2:** Nachtest-Menge zählt die Pflicht-Etappen des Kindes (`lernziel_stand.pflicht`, gesetzt nach `pflicht_lernziele` der Gruppe); `schule.nachtest_vorrat` jetzt je Gruppe (gym_by, rs_I, rs_II_III, myp_standard, myp_extended) – RS II/III ausgewiesen.
+- **lk_s Teil 4:** statt md5 über das Stufen-JSON: Karten, Versuche, Sterne unverändert, bestehende Lernziel-Stände unverändert (neue offene Zeilen erlaubt), Etappenzahl der Stufe = Pflichtliste der Gruppe (`stufe_etappen`; vor TL-S alle Etappen). Lokal vor und nach der Teilung durchgelaufen.
+- **Liste je Kind:** `schule.tl_teile_je_kind` mit neuer Spalte `visum_aus_altem_thema` (fertig | gesetzt) – bewusste, dauerhafte Ausnahme, Sebastian bestätigt einmal.
+
+**Gesehen/getestet (lokal, Nachbau mit echten Indizes, echtem Graph, echtem `lk_einspiel` vor TL-S, Live-Funktionen):** TL-S zweimal ohne Fehler; `tl_s_rauchtest` vor und nach der Teilung grün; NT-S zweimal ohne Fehler, `nt_s_rauchtest` vor und nach der Teilung grün; `lk_s_rauchtest` vor und nach der Teilung durchgelaufen. Auf der echten Datenbank nicht ausgeführt.
+
 ## 2026-11-20 – FERTIG: LB, Teil 5 – App 0.82.2 (Cache v148)
 
 Stand `lernen-app` 5e3a975 übernommen. Grundlage `inhalte/pruefung/lehrer/nachpruefung-3.md`. Datenbank nicht berührt, keine Migration. Kein Merge.

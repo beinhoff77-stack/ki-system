@@ -36,6 +36,13 @@
 -- (Trigger, nichts gelöscht). Daten: supabase/werkzeug/tl_s_daten.py (aus lk_teilung_2211.json, auch art_je_schulart der Kanten).
 -- TL-S 4 (Probelauf 18:30): „Zusatz“ in art_je_schulart heißt, der abhängige Teil ist dort Zusatz – die Kante bleibt (kein „empfohlen“); nur die
 -- Voraussetzung als Zusatz schwächt ab. Teil 1 wird nur dann „zusatz“ im Plan, wenn am Ort kein anderes Thema liegt (Ort 86: 52 und 101).
+-- TL-S 6 (Entscheidung 20:20 „nach dem Teilen gilt nur selbst Geschafftes“, Probelauf 20:10): neuer Teil geschafft (Stempel, Erstabschluss, 100 Sterne)
+-- nur, wenn das Kind alle Pflicht-Etappen des Teils selbst gelandet hat und der Flug-Test sie abgedeckt hat; keine Vererbung von Setzung oder Plan-Platz,
+-- Teil 1 unverändert; Visum-Übergang (schule.visum_uebergang), damit sich Reiseoptionen für kein Kind verschlechtern; Stufe zählt die Pflicht-Etappen
+-- (schule.stufe_etappen); Liste je Kind: schule.tl_teile_je_kind.
+-- TL-S 5 (ChatGPT 947–950): T1 fünf Gruppen (gym_by, rs_I, rs_II_III, myp_standard, myp_extended) für Pflicht, Zusatz, Visum, Plan und Lehrer-Ansicht –
+-- schule.kind_gruppe; lernender.zweig auch für IB. T2 ausdrücklich leere Pflichtliste = keine Pflicht (kein Rückfall auf „alle Etappen“, kein Stempel,
+-- kein Ort-Abschluss, kein „Flug abgelegt“ allein durch Kür). T4 Reihenfolge: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → LK-D Einspiel → TL-S (sonst Abbruch).
 -- Kür je Etappe und Schulart (17:05): bewertung.pflicht_je_schulart, schule.pflicht_lernziele(kind, einheit), lernziele_anlegen je Kind, wdh_ablegen und
 -- konto_wd auf die Liste des Kindes; die Daten (etappen[].kuer_in) liefert LK-D 4 – ohne sie gilt die bisherige Pflichtliste für alle.
 -- Teile ohne Etappe in der Datenbank (101 Teil 2: cavalieri) werden als leere Hülle angelegt (Entwurf, nicht im Plan); Zuordnungen folgen der vollen Liste.
@@ -97,15 +104,29 @@ comment on column schule.thema.zusatz is 'TL-S: Schularten, in denen dieser Teil
 create table if not exists schule.voraussetzung_schulart (
   thema_id bigint not null references schule.thema(id),
   braucht_id bigint not null references schule.thema(id),
-  schulart text not null,
+  gruppe text not null,
   art text not null,
   begruendung text,
-  primary key (thema_id, braucht_id, schulart),
+  primary key (thema_id, braucht_id, gruppe),
   constraint voraussetzung_schulart_art_check check (art in ('hart', 'empfohlen')),
-  constraint voraussetzung_schulart_schulart_check check (schulart in ('gym_by', 'rs_by', 'ib_myp'))
+  constraint voraussetzung_schulart_gruppe_check check (gruppe in ('gym_by', 'rs_I', 'rs_II_III', 'myp_standard', 'myp_extended'))
 );
 alter table schule.voraussetzung_schulart enable row level security;
-comment on table schule.voraussetzung_schulart is 'TL-S: abweichende Art einer Voraussetzung je Schulart (Zusatz-Regel); ohne Eintrag gilt schule.voraussetzung.art';
+-- TL-S 6 (c): Visum-Übergang je Kind – Ort eines neuen Teils gilt für das Visum als erfüllt, weil das Kind das alte Thema vor der Teilung geschafft
+-- oder gesetzt hatte (grund 'fertig' | 'gesetzt'). Nur für Reiseoptionen/Visum; kein Stempel, keine Sterne, kein Plan-Platz.
+create table if not exists schule.visum_uebergang (
+  lernender_id bigint not null references schule.lernender(id) on delete cascade,
+  block_id bigint not null references schule.block(id),
+  von_block_id bigint references schule.block(id),
+  grund text not null,
+  angelegt_am timestamptz not null default now(),
+  primary key (lernender_id, block_id),
+  constraint visum_uebergang_grund_check check (grund in ('fertig', 'gesetzt'))
+);
+alter table schule.visum_uebergang enable row level security;
+comment on table schule.visum_uebergang is 'TL-S 6: Ort eines neuen Teils gilt für das Visum als erfüllt (altes Thema vor der Teilung geschafft/gesetzt) – Reiseoptionen verschlechtern sich nicht';
+revoke all on schule.visum_uebergang from public, anon, authenticated;
+comment on table schule.voraussetzung_schulart is 'TL-S: abweichende Art einer Voraussetzung je Gruppe (gym_by, rs_I, rs_II_III, myp_standard, myp_extended; Zusatz-Regel); ohne Eintrag gilt schule.voraussetzung.art';
 
 create temp table if not exists tl_visum_vorher (ort_id bigint, braucht_ort_id bigint) on commit drop;
 truncate tl_visum_vorher;
@@ -118,20 +139,50 @@ insert into tl_visum_vorher select distinct v.ort_id, v.braucht_ort_id from schu
 -- – Liste der Gruppe des Kindes, sonst der Schulart, sonst lernziele_pflicht; alle übrigen Etappen der Einheit sind für dieses Kind Kür.
 -- Alle Leser von lernziel_stand.pflicht (Flug-Test-Wertung, Korrektur, Flug-Abschluss/Stempel, 100 Ort-Sterne, Nachtests, Ort-/Thema-Stand) folgen damit der Regel.
 -- Pflicht-Etappen einer Einheit für ein Kind (ohne Rückfall auf „alle Etappen“; den machen die Aufrufer wie bisher selbst)
+-- T1 (ChatGPT 947–950): EINE Gruppe je Kind für Pflichtlisten, Zusatz, Visum, Plan und Lehrer-Ansicht – fünf Gruppen:
+-- gym_by · rs_I · rs_II_III (Realschule, lernender.zweig, leer = rs_I) · myp_standard · myp_extended (IB, lernender.zweig, leer = myp_standard).
+do $$ begin
+  if exists (select 1 from pg_constraint where conname = 'lernender_zweig_check' and conrelid = 'schule.lernender'::regclass
+              and pg_get_constraintdef(oid) not like '%myp_extended%') then
+    alter table schule.lernender drop constraint lernender_zweig_check;   -- Constraint ersetzen (IB-Gruppen dazu), keine Daten betroffen
+  end if;
+  if not exists (select 1 from pg_constraint where conname = 'lernender_zweig_check' and conrelid = 'schule.lernender'::regclass) then
+    alter table schule.lernender add constraint lernender_zweig_check check (zweig is null
+      or (schulart = 'rs_by' and zweig in ('rs_I', 'rs_II_III')) or (schulart = 'ib_myp' and zweig in ('myp_standard', 'myp_extended')));
+  end if;
+end $$;
+comment on column schule.lernender.zweig is 'LK-S / TL-S: Gruppe – Realschule rs_I | rs_II_III (leer = rs_I), IB myp_standard | myp_extended (leer = myp_standard)';
+create or replace function schule.kind_zweig(p_schulart text, p_zweig text)
+ returns text language sql immutable set search_path to ''
+as $function$
+  select case p_schulart when 'rs_by' then coalesce(p_zweig, 'rs_I') when 'ib_myp' then coalesce(p_zweig, 'myp_standard') else 'allgemein' end;   -- TL-S: IB Standard/Extended
+$function$;
+create or replace function schule.kind_gruppe(p_l bigint)
+ returns text language sql stable set search_path to ''
+as $function$
+  select case coalesce(l.schulart, 'gym_by') when 'gym_by' then 'gym_by' else schule.kind_zweig(l.schulart, l.zweig) end
+    from schule.lernender l where l.id = p_l;
+$function$;
+comment on function schule.kind_gruppe(bigint) is 'TL-S (T1): Gruppe des Kindes – gym_by | rs_I | rs_II_III | myp_standard | myp_extended; eine Regel für Pflicht/Kür, Zusatz, Visum und Plan';
+revoke all on function schule.kind_gruppe(bigint) from public, anon, authenticated;
+
 create or replace function schule.pflicht_schluessel(p_l bigint)
  returns text[] language sql stable set search_path to ''
 as $function$
   -- Reihenfolge: Gruppe (rs_I, rs_II_III, myp_standard …; kind_zweig aus LK-S), dann Schulart (gym_by, rs_by, ib_myp)
-  select array[schule.kind_zweig(coalesce(l.schulart, 'gym_by'), l.zweig), coalesce(l.schulart, 'gym_by')] from schule.lernender l where l.id = p_l;
+  select array[schule.kind_gruppe(p_l), coalesce(l.schulart, 'gym_by')] from schule.lernender l where l.id = p_l;
 $function$;
 create or replace function schule.pflicht_lernziele(p_l bigint, p_e bigint)
  returns text[] language sql stable set search_path to ''
 as $function$
-  select coalesce(array(select jsonb_array_elements_text(coalesce(
-           (select e.inhalt#>array['bewertung', 'pflicht_je_schulart', k] from unnest(schule.pflicht_schluessel(p_l)) with ordinality u(k, o)
-             where jsonb_typeof(e.inhalt#>array['bewertung', 'pflicht_je_schulart', k]) = 'array' order by o limit 1),
-           e.inhalt#>'{bewertung,lernziele_pflicht}', '[]'::jsonb))), '{}')
-    from schule.einheit e where e.id = p_e;
+  -- T2: null = keine Pflichtliste festgelegt (Aufrufer fallen wie bisher auf „alle Etappen“ zurück);
+  --     '{}' = ausdrücklich leer: KEINE Pflicht-Etappe (freiwilliger Zusatz, kein Pflicht-Test, kein Stempel, keine 100 Sterne)
+  select case when x.liste is null then null else array(select jsonb_array_elements_text(x.liste)) end
+    from (select coalesce(
+            (select e.inhalt#>array['bewertung', 'pflicht_je_schulart', k] from unnest(schule.pflicht_schluessel(p_l)) with ordinality u(k, o)
+              where jsonb_typeof(e.inhalt#>array['bewertung', 'pflicht_je_schulart', k]) = 'array' order by o limit 1),
+            case when jsonb_typeof(e.inhalt#>'{bewertung,lernziele_pflicht}') = 'array' then e.inhalt#>'{bewertung,lernziele_pflicht}' end) liste
+            from schule.einheit e where e.id = p_e) x;
 $function$;
 comment on function schule.pflicht_lernziele(bigint, bigint) is 'TL-S (B2): die eine Regel Pflicht/Kür je Kind – pflicht_je_schulart der Gruppe, sonst der Schulart des Kindes, sonst lernziele_pflicht; alle übrigen Etappen sind Kür';
 revoke all on function schule.pflicht_lernziele(bigint, bigint), schule.pflicht_schluessel(bigint) from public, anon, authenticated;
@@ -145,7 +196,7 @@ declare v_in jsonb; v_pf text[]; v_je_sa boolean;
 begin
   select e.inhalt into v_in from schule.einheit e where e.id = p_einheit;
   if v_in is null then return; end if;
-  v_pf := schule.pflicht_lernziele(p_lernender, p_einheit);
+  v_pf := coalesce(schule.pflicht_lernziele(p_lernender, p_einheit), '{}');   -- ohne Liste: keine Pflicht-Zeilen (wie bisher)
   -- Abgleich bestehender Zeilen nur bei Einheiten mit Listen je Schulart/Gruppe (ohne: Verhalten wie bisher); so auch beim Rückwechsel der Schulart
   v_je_sa := jsonb_typeof(v_in#>'{bewertung,pflicht_je_schulart}') = 'object' and v_in#>'{bewertung,pflicht_je_schulart}' <> '{}'::jsonb;
   insert into schule.lernziel_stand (lernender_id, einheit_id, lernziel, pflicht)
@@ -192,25 +243,14 @@ do $$ begin
   end if;
 end $$;
 
--- TL-S 3 (Probelauf 18:05): Setzung „Kann er komplett“ / „Kann er – aber wiederholen“ gilt auch auf einem Zusatz-Eintrag im Plan. Sonst verliert ein
--- Zusatz-Teil eines gesetzten Themas (z. B. 46 Teil 2 im Gymnasium) seine Setzung. Gesetzt bleibt gesetzt, Plan-Art bleibt „zusatz“.
-do $$
-declare d text; a text := $a$r.art = 'normal' and r.status <> 'entfernt'$a$; n text := $a$r.art in ('normal', 'zusatz') /* TL-S: auch Zusatz */ and r.status <> 'entfernt'$a$; f text;
-begin
-  foreach f in array array['schule.thema_kann_schon(bigint, bigint)', 'schule.thema_kann_wdh(bigint, bigint)'] loop
-    d := pg_get_functiondef(f::regprocedure);
-    if position('TL-S: auch Zusatz' in d) > 0 then raise notice '% schon umgestellt', f; continue; end if;
-    if (length(d) - length(replace(d, a, ''))) / length(a) <> 1 then raise exception 'TL-S: Anker in % nicht eindeutig', f; end if;
-    execute replace(d, a, n);
-  end loop;
-end $$;
+-- (TL-S 6: der Umbau aus TL-S 3 – Setzung auch auf Zusatz-Einträgen – entfällt; neue Teile erben keine Setzung mehr)
 
 -- thema_stufe (B2): ein Teil ohne Pflicht-Etappe für das Kind hat keinen Zwangstest; Fehler in Kür-Etappen machen den Flug nicht „dran“
 do $$
 declare d text; a1 text := $a$or exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_l and s.einheit_id = v_e and s.status = 'fehler')$a$;
   n1 text := $a$or exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_l and s.einheit_id = v_e and s.pflicht /* TL-S: nur Pflicht */ and s.status = 'fehler')$a$;
   a2 text := $a$or (v_n > 0 and v_gel = v_n and (not exists$a$;
-  n2 text := $a$or (v_n > 0 and v_gel = v_n and cardinality(schule.pflicht_lernziele(p_l, v_e)) > 0 /* TL-S: ohne Pflicht kein Zwangstest */ and (not exists$a$;
+  n2 text := $a$or (v_n > 0 and v_gel = v_n and coalesce(cardinality(schule.pflicht_lernziele(p_l, v_e)), 1) > 0 /* TL-S: ohne Pflicht kein Zwangstest */ and (not exists$a$;
 begin
   d := pg_get_functiondef('schule.thema_stufe(bigint, bigint)'::regprocedure);
   if position('TL-S: nur Pflicht' in d) > 0 then raise notice 'thema_stufe schon umgestellt'; return; end if;
@@ -219,22 +259,84 @@ begin
   execute replace(replace(d, a1, n1), a2, n2);
 end $$;
 
+-- T2: ohne Pflicht-Etappe kein Flug-Abschluss (Stempel) und kein Ort-Abschluss (100 Sterne) allein durch Kür.
+--   test_abschliessen_intern: „Einheit fertig“ verlangt mindestens eine Pflicht-Etappe; ort_stand: Thema ohne Pflicht-Etappe zählt nicht als erledigt.
+--   Für alle Flüge mit Pflicht-Etappen (heute alle) ändert sich nichts.
+do $$
+declare d text;
+  a1 text := $a$and s.pflicht and s.status not in ('nachgewiesen','korrigiert','gesichert')) into v_einheit_fertig;$a$;
+  b1 text := $a$and s.pflicht and s.status not in ('nachgewiesen','korrigiert','gesichert'))
+     and exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_lernender and s.einheit_id = t.einheit_id and s.pflicht) /* TL-S: ohne Pflicht kein Abschluss */ into v_einheit_fertig;$a$;
+  a2 text := $a$      when exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_lernender and s.einheit_id = th.einheit_id and s.pflicht and s.status not in ('nachgewiesen','korrigiert','gesichert')) then 'offen'$a$;
+  b2 text := $a$      when not exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_lernender and s.einheit_id = th.einheit_id and s.pflicht) then 'offen' /* TL-S: ohne Pflicht kein Abschluss */
+$a$ || a2;
+begin
+  d := pg_get_functiondef('schule.test_abschliessen_intern(bigint, jsonb)'::regprocedure);
+  if position('TL-S: ohne Pflicht kein Abschluss' in d) > 0 then raise notice 'test_abschliessen_intern schon umgestellt';
+  elsif (length(d) - length(replace(d, a1, ''))) / length(a1) = 1 then execute replace(d, a1, b1);
+  else raise exception 'TL-S: Anker in test_abschliessen_intern nicht genau einmal gefunden'; end if;
+  d := pg_get_functiondef('schule.ort_stand(bigint, bigint)'::regprocedure);
+  if position('TL-S: ohne Pflicht kein Abschluss' in d) > 0 then raise notice 'ort_stand schon umgestellt';
+  elsif (length(d) - length(replace(d, a2, ''))) / length(a2) = 1 then execute replace(d, a2, b2);
+  else raise exception 'TL-S: Anker in ort_stand nicht genau einmal gefunden'; end if;
+end $$;
+
+-- TL-S 6 (Probelauf 20:10, Befund 1): thema_stufe zählt Etappen, Landungen, Sicherheit und „wieder offen“ über die Etappen der Regel
+-- (Pflicht-Etappen des Kindes; ohne Liste oder bei leerer Liste alle Etappen). Sonst steht z. B. 29 Teil 2 für ein Gym-Kind mit 3/3 Pflicht auf „dran“,
+-- weil die Kür-Etappe gleichungen_binomisch nicht gelandet ist – obwohl Stempel und 100 Sterne gebucht sind.
+create or replace function schule.stufe_etappen(p_l bigint, p_e bigint)
+ returns text[] language sql stable set search_path to ''
+as $function$
+  with kat as (select array(select x->>'lernziel' from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) x where e.id = p_e) a),
+       pf as (select schule.pflicht_lernziele(p_l, p_e) a)
+  select case when pf.a is null then kat.a                                       -- keine Liste festgelegt: alle Etappen
+              else array(select x from unnest(kat.a) x where x = any(pf.a)) end       -- A2: ausdrücklich leer → keine (Kür zählt nicht)
+    from kat, pf;
+$function$;
+comment on function schule.stufe_etappen(bigint, bigint) is 'TL-S 6/7: Etappen, nach denen sich die Stufe eines Flugs für ein Kind richtet – Pflicht-Etappen (Regel); ohne Liste alle, ausdrücklich leere Liste keine';
+revoke all on function schule.stufe_etappen(bigint, bigint) from public, anon, authenticated;
+do $$
+declare d text;
+  a1 text := $a$    select count(*) into v_n from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) x where e.id = v_e;$a$;
+  b1 text := $a$    v_n := cardinality(schule.stufe_etappen(p_l, v_e)); -- TL-S 6: Etappen der Regel$a$;
+  a2 text := $a$       and k.lernziel in (select x->>'lernziel' from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) x where e.id = v_e);$a$;
+  b2 text := $a$       and k.lernziel = any(schule.stufe_etappen(p_l, v_e)); -- TL-S 6$a$;
+begin
+  d := pg_get_functiondef('schule.thema_stufe(bigint, bigint)'::regprocedure);
+  if position('TL-S 6' in d) > 0 then raise notice 'thema_stufe (TL-S 6) schon umgestellt'; return; end if;
+  if (length(d) - length(replace(d, a1, ''))) / length(a1) <> 1 or (length(d) - length(replace(d, a2, ''))) / length(a2) <> 1 then
+    raise exception 'TL-S 6: Anker in thema_stufe nicht genau einmal gefunden'; end if;
+  execute replace(replace(d, a1, b1), a2, b2);
+end $$;
+
 -- Leser der Pflichtliste ohne lernziel_stand: wdh_ablegen („Flug abgelegt“) und konto_wd (Etappen je Flug) – auf die Liste des Kindes umstellen
 do $$
 declare d text; a text; n text;
 begin
   d := pg_get_functiondef('schule.wdh_ablegen(bigint, bigint, text)'::regprocedure);
   a := $a$coalesce(nullif(array(select jsonb_array_elements_text(coalesce(v_ein.inhalt->'bewertung'->'lernziele_pflicht', '[]'::jsonb))), '{}'),$a$;
-  n := $a$coalesce(nullif(schule.pflicht_lernziele(p_l, p_e), '{}') /* TL-S: Pflicht je Schulart */,$a$;
+  n := $a$coalesce(schule.pflicht_lernziele(p_l, p_e) /* TL-S: Pflicht je Gruppe; leer = keine Pflicht */,$a$;
   if position(n in d) > 0 then raise notice 'wdh_ablegen schon umgestellt';
   elsif (length(d) - length(replace(d, a, ''))) / length(a) = 1 then execute replace(d, a, n);
   else raise exception 'TL-S: Anker in wdh_ablegen nicht eindeutig'; end if;
   d := pg_get_functiondef('schule.konto_wd(bigint)'::regprocedure);
   a := $a$coalesce(nullif(array(select jsonb_array_elements_text(coalesce(e.inhalt->'bewertung'->'lernziele_pflicht', '[]'::jsonb))), '{}'),$a$;
-  n := $a$coalesce(nullif(schule.pflicht_lernziele(p_l, e.id), '{}') /* TL-S: Pflicht je Schulart */,$a$;
+  n := $a$coalesce(schule.pflicht_lernziele(p_l, e.id) /* TL-S: Pflicht je Gruppe; leer = keine Pflicht */,$a$;
   if position(n in d) > 0 then raise notice 'konto_wd schon umgestellt';
   elsif (length(d) - length(replace(d, a, ''))) / length(a) = 1 then execute replace(d, a, n);
   else raise exception 'TL-S: Anker in konto_wd nicht eindeutig'; end if;
+end $$;
+
+-- TL-S 6 (c): Reiseoptionen zählen Orte aus dem Visum-Übergang wie geschaffte Orte (nur für „Visum fehlt“)
+do $$
+declare d text := pg_get_functiondef('schule.reiseoptionen(bigint)'::regprocedure);
+  a text := $a$ok as (select block_id from st where status = 'fertig' or kann_schon)$a$;
+  n text := $a$ok as (select block_id from st where status = 'fertig' or kann_schon
+         union select u.block_id from schule.visum_uebergang u where u.lernender_id = p_lernender /* TL-S 6: Visum-Übergang */)$a$;
+begin
+  if position('visum_uebergang' in d) > 0 then raise notice 'reiseoptionen (Visum-Übergang) schon umgebaut'; return; end if;
+  if (length(d) - length(replace(d, a, ''))) / length(a) <> 1 then raise exception 'TL-S 6: Anker in reiseoptionen nicht genau einmal gefunden'; end if;
+  execute replace(d, a, n);
 end $$;
 
 -- Stand vorher – nach den gewollten Regel-Änderungen (Kür zählt nicht, B2), vor der Teilung
@@ -263,8 +365,11 @@ $function$;
 create or replace function schule.tl_erledigt(p_l bigint, p_e bigint, p_lz text)
  returns boolean language sql stable set search_path to ''
 as $function$
-  select exists (select 1 from schule.karte_stand k where k.lernender_id = p_l and k.einheit_id = p_e and k.lernziel = p_lz and (k.sitzt or k.gesetzt_am is not null))
-      or exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_l and s.einheit_id = p_e and s.lernziel = p_lz and s.status in ('nachgewiesen', 'korrigiert', 'gesichert'));
+  -- TL-S 6 (Entscheidung 20:20): nur selbst Geschafftes – Etappe selbst gelandet (nicht gesetzt) UND vom Flug-Test abgedeckt
+  select exists (select 1 from schule.karte_stand k where k.lernender_id = p_l and k.einheit_id = p_e and k.lernziel = p_lz
+                  and (k.sitzt or k.sitzt_am is not null) and k.gesetzt_am is null)
+     and exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_l and s.einheit_id = p_e and s.lernziel = p_lz
+                  and s.status in ('nachgewiesen', 'korrigiert', 'gesichert'));
 $function$;
 
 -- Ort eines Teils auf den Ort von Teil 1 abbilden (für die erlaubten Delta-Regeln bei Reiseoptionen und Visum)
@@ -296,6 +401,18 @@ as $function$
 $function$;
 
 -- Stand je Kind für eine Teilung (B4): fest = muss gleich bleiben; neu = was die Teilung hinzufügt (Bericht)
+-- TL-S 7 (A1, Prüfung 951): Abdeckung durch einen alten Test – das Kind hat zu dieser Etappe im alten Flug-Test (Blocktest) oder Korrektur-Test der
+-- alten Einheit eine Aufgabe richtig beantwortet (abgeschlossene Sitzung). Ohne diese Abdeckung: kein Erstabschluss, kein Stempel, keine 100 Sterne.
+create or replace function schule.tl_testabdeckung(p_l bigint, p_e_alt bigint, p_lz text)
+ returns boolean language sql stable set search_path to ''
+as $function$
+  select exists (select 1 from schule.testsitzung ts join schule.versuch v on v.testsitzung_id = ts.id and v.lernender_id = p_l
+                   join schule.aufgabe a on a.id = v.aufgabe_id
+                  where ts.lernender_id = p_l and ts.einheit_id = p_e_alt and ts.art in ('blocktest', 'korrektur') and ts.status = 'abgeschlossen'
+                    and a.variante_gruppe = p_lz and v.richtig);
+$function$;
+comment on function schule.tl_testabdeckung(bigint, bigint, text) is 'TL-S 7: Etappe im alten Flug-Test/Korrektur-Test der alten Einheit richtig beantwortet (Voraussetzung für Erstabschluss eines neuen Teils)';
+
 create or replace function schule.tl_kind_stand(p_einheiten bigint[], p_bloecke_neu bigint[], p_themen bigint[])
  returns jsonb language plpgsql stable set search_path to ''
 as $function$
@@ -358,6 +475,10 @@ begin
     if v_alle && v_et then raise exception 'TL-S: Thema % – Etappe in zwei Teilen', v_alt; end if;
     v_alle := v_alle || v_et; v_teil_et := v_teil_et || jsonb_build_object(v_k::text, to_jsonb(v_et));
   end loop;
+  -- T4: Reihenfolge LK-D Einspiel (inhalte/pruefung/lehrplan/lk_einspiel_2211.sql) VOR TL-S – fehlt eine Etappe der Liste im Katalog, bricht TL-S ab
+  if cardinality(v_fehlt) > 0 then
+    raise exception 'TL-S: Thema % – Etappen % fehlen in der Einheit; zuerst das LK-D Einspiel (lk_einspiel_2211.sql) einspielen', v_alt, v_fehlt;
+  end if;
   if not v_kat <@ v_alle then raise exception 'TL-S: Thema % – Etappen ohne Teil: %', v_alt, array(select x from unnest(v_kat) x where not x = any(v_alle)); end if;
 
   v_ids := array[v_alt]; v_einh := array[v_e.id];
@@ -413,8 +534,7 @@ begin
      where einheit_id = v_e.id and lernziel = any(v_et) and bezug = 'etappe:' || v_e.id || ':' || lernziel;
     update schule.sterne s set bezug = regexp_replace(s.bezug, '^(landung|wdh):' || v_e.id || ':', '\1:' || v_ne || ':')
      where s.bezug ~ ('^(landung|wdh):' || v_e.id || ':') and split_part(s.bezug, ':', 3) = any(v_et);
-    -- Stufen-Einträge der Kinder („Kann er …“ gilt für das ganze Thema)
-    update schule.lernender set stufen = stufen || jsonb_build_object(v_th::text, stufen->v_alt::text) where stufen ? v_alt::text;
+    -- (TL-S 6: keine Vererbung von „Kann er …“-Stufen auf neue Teile – Entscheidung 20:20)
     v_ids := v_ids || v_th; v_einh := v_einh || v_ne; v_bl := v_bl || v_nb;
   end loop;
 
@@ -430,40 +550,31 @@ begin
   select count(*) into v_verbl from schule.aufgabe a where a.einheit_id = v_e.id and a.pool <> 'expedition' and not coalesce(a.variante_gruppe, '') = any(array(select jsonb_array_elements_text(v_teil_et->'1')));
   select count(*) into v_exp from schule.aufgabe a where a.einheit_id = v_e.id and a.pool = 'expedition';
 
-  -- Plan: neue Orte direkt hinter dem bisherigen Ort (Kinder, die ihn im Plan haben)
-  -- Teil 1 ist in der Schulart des Kindes Zusatz (z. B. 101 Teil 1 in der Realschule): offener Pflicht-Eintrag wird „zusatz“
-  -- (nur wenn am Ort kein anderes Thema liegt, das für das Kind Pflicht bleibt – z. B. Ort 86: 52 und 101)
-  update schule.route ro set art = 'zusatz', geaendert_von = 'TL-S', geaendert_am = now()
-   where ro.block_id = b.id and ro.art = 'normal' and ro.status not in ('fertig', 'entfernt')
-     and not exists (select 1 from schule.block_thema bo where bo.block_id = b.id and bo.thema_id <> v_alt)
-     and (select coalesce(ll.schulart, 'gym_by') from schule.lernender ll where ll.id = ro.lernender_id) = any(array(select jsonb_array_elements_text(p->'teile'->0->'zusatz')));
-  for r in select * from schule.route where block_id = b.id order by lernender_id, id loop
-    for v_k in 2 .. v_n loop
-      continue when jsonb_array_length(v_teil_et->v_k::text) = 0;
-      v_pos := (select x.position from schule.route x where x.id = r.id) + v_k - 1;   -- aktuelle Position (kann sich durch frühere Einfügungen verschoben haben)
-      update schule.route set position = position + 1 where lernender_id = r.lernender_id and position >= v_pos;   -- route_pos ist deferrable
-      v_tp := p->'teile'->(v_k - 1);
-      insert into schule.route (lernender_id, block_id, position, art, status, kann_schon, ziel_themen, geaendert_von, geaendert_am, ausgelassen, status_vor_entfernen,
-                                kann_schon_themen, kann_wdh_themen)
-      values (r.lernender_id, v_bl[v_k - 1], v_pos,
-              case when (select coalesce(l.schulart, 'gym_by') from schule.lernender l where l.id = r.lernender_id) = any(array(select jsonb_array_elements_text(v_tp->'zusatz')))
-                   then 'zusatz' else r.art end,
-              case r.status when 'fertig' then 'offen' when 'laeuft' then 'offen' else r.status end, r.kann_schon,
-              case when v_alt = any(r.ziel_themen) then array[v_ids[v_k]] end, 'TL-S', now(),
-              case when v_alt = any(r.ausgelassen) then array[v_ids[v_k]] else '{}'::bigint[] end, r.status_vor_entfernen,
-              case when v_alt = any(r.kann_schon_themen) then array[v_ids[v_k]] else '{}'::bigint[] end,
-              case when v_alt = any(r.kann_wdh_themen) then array[v_ids[v_k]] else '{}'::bigint[] end);
-    end loop;
-  end loop;
+  -- Plan (TL-S 6, Entscheidung 20:20): neue Teile bekommen KEINEN Plan-Platz und erben keine Setzung; Teil 1 behält den bisherigen Plan-Eintrag unverändert.
+  -- Nur ein selbst geschaffter Teil kommt als „fertig“ in den Plan (unten). Sebastian teilt die übrigen später zu oder setzt sie.
+  -- (c) Visum-Übergang: Hatte das Kind das alte Thema geschafft oder gesetzt (Ort „fertig“ oder „Kann er“ am Ort), gilt der Ort jedes neuen Teils für das
+  -- Visum als erfüllt – so verschlechtern sich die Reiseoptionen für kein Kind (z. B. 93 ← 26 Teil 2, 31/8/97 ← 29 Teil 2).
+  insert into schule.visum_uebergang (lernender_id, block_id, von_block_id, grund)
+  select ro.lernender_id, nb.b, b.id, case when ro.status = 'fertig' then 'fertig' else 'gesetzt' end
+    from schule.route ro cross join unnest(v_bl) nb(b)
+   where ro.block_id = b.id and ro.art = 'normal' and ro.status <> 'entfernt' and (ro.status = 'fertig' or ro.kann_schon or v_alt = any(ro.kann_schon_themen))
+  on conflict (lernender_id, block_id) do nothing;
 
   -- Vollständig übernommene neue Teile: Flug-Abschluss (Stempel) und Ort „fertig“ (100 Sterne über route_sterne)
   for v_k in 2 .. v_n loop
     v_et := array(select jsonb_array_elements_text(v_teil_et->v_k::text));
     continue when cardinality(v_et) = 0;
-    -- Kür zählt nicht (Entscheidung 17:05): nur die Pflicht-Etappen des Kindes; ohne Pflicht-Etappe im Teil alle Etappen (wie wdh_ablegen)
+    -- Kür zählt nicht (Entscheidung 17:05): nur die Pflicht-Etappen des Kindes (ohne festgelegte Liste: alle Etappen).
+    -- T2: ausdrücklich leere Pflichtliste = freiwilliger Zusatz → kein Stempel, keine 100 Sterne
     for r in select l.id from schule.lernender l
               where (select bool_and(schule.tl_erledigt(l.id, v_einh[v_k], x))
-                       from unnest(coalesce(nullif(array(select y from unnest(schule.pflicht_lernziele(l.id, v_einh[v_k])) y where y = any(v_et)), '{}'), v_et)) x) loop
+                       from unnest(case when schule.pflicht_lernziele(l.id, v_einh[v_k]) is null then v_et
+                                        else array(select y from unnest(schule.pflicht_lernziele(l.id, v_einh[v_k])) y where y = any(v_et)) end) x)
+                and coalesce(cardinality(schule.pflicht_lernziele(l.id, v_einh[v_k])), 1) > 0
+                -- A1: jede Pflicht-Etappe des Teils vom alten Flug-Test oder Korrektur-Test abgedeckt (richtige Antwort), sonst kein Abschluss
+                and (select bool_and(schule.tl_testabdeckung(l.id, v_e.id, x))
+                       from unnest(case when schule.pflicht_lernziele(l.id, v_einh[v_k]) is null then v_et
+                                        else array(select y from unnest(schule.pflicht_lernziele(l.id, v_einh[v_k])) y where y = any(v_et)) end) x) loop
       insert into schule.flug_erstabschluss (lernender_id, einheit_id, sitzung_id, am)
       values (r.id, v_einh[v_k], null, coalesce((select f.am from schule.flug_erstabschluss f where f.lernender_id = r.id and f.einheit_id = v_e.id), now()))
       on conflict do nothing;
@@ -519,32 +630,23 @@ begin
   select jsonb_object_agg(k, jsonb_build_object('vorher', v_vor->k->'fest', 'nachher', v_nach->k->'fest')) into v_diff
     from (select jsonb_object_keys(v_vor) k) x where (v_vor->k->'fest') is distinct from (v_nach->k->'fest');
   if v_diff is not null then raise exception 'TL-S: Thema % – Vorher/Nachher je Kind verschieden: %', v_alt, v_diff; end if;
-  -- B4 erlaubte Deltas (jede andere Abweichung bricht ab):
-  --   • im Plan, gesetzt (kann schon / kann wiederholen) und Rückreise: jeder Teil wie das Thema vorher;
-  --   • Etappen, begonnen, gelandet, sicher, wieder offen: verteilen sich ohne Verlust auf die Teile (Summe wie vorher);
-  --   • die Stufe je Teil ergibt sich neu aus seinen Etappen (z. B. Teil 1 schon gelandet → „wiederholung“) – sie wird nicht verglichen;
-  --   • Reiseoptionen: gleich, wenn neue Orte auf den Ort von Teil 1 abgebildet werden.
+  -- B4 erlaubte Deltas (TL-S 6, Entscheidung 20:20; jede andere Abweichung bricht ab):
+  --   • Teil 1: im Plan, gesetzt und Rückreise wie das Thema vorher;
+  --   • neue Teile: nicht gesetzt, keine Rückreise, im Plan nur, wenn selbst geschafft (dann „fertig“); sonst „nicht zugeteilt“;
+  --   • Karten und Lernziel-Stand: Zeile für Zeile wie vorher (über „fest“, auf die Teile verteilt) – kein Lernstand geht verloren;
+  --   • die Stufe je Teil ergibt sich neu aus seinen Pflicht-Etappen – sie wird nicht verglichen;
+  --   • Reiseoptionen: gleich, wenn neue Orte auf den Ort von Teil 1 abgebildet werden (Visum-Übergang, s. o.).
   select jsonb_object_agg(k, jsonb_build_object('vorher', v_vor->k->'neu'->'stufen'->v_alt::text, 'nachher', v_nach->k->'neu'->'stufen',
                                                 'reise_vorher', v_vor->k->'neu'->'reise', 'reise_nachher', v_nach->k->'neu'->'reise')) into v_diff
     from (select jsonb_object_keys(v_vor) k) x
-   where exists (select 1 from unnest(v_ids) i, unnest(array['im_plan', 'gesetzt', 'rueckreise']) f
-                  where (v_nach->k->'neu'->'stufen'->i::text->f) is distinct from (v_vor->k->'neu'->'stufen'->v_alt::text->f)
-                    -- Zusatz-Teil in der Schulart des Kindes: steht als „zusatz“ im Plan (thema_stufe zählt nur „normal“) – erlaubt
-                    -- leerer Teil (Etappen noch nicht in der Datenbank): nicht im Plan – erlaubt
-                    and not (f = 'im_plan' and (v_nach->k->'neu'->'stufen'->i::text->>'etappen')::int = 0)
-                    and not (f = 'im_plan' and (v_nach->k->'neu'->'stufen'->i::text->>'im_plan')::boolean is false
-                             and (select coalesce(ll.schulart, 'gym_by') from schule.lernender ll where ll.id = k::bigint) = any(coalesce((select th.zusatz from schule.thema th where th.id = i), '{}'::text[]))
-                             and ((v_vor->k->'neu'->'stufen'->v_alt::text->>'im_plan')::boolean is not true
-                                  or exists (select 1 from schule.route rr join schule.block_thema bt2 on bt2.block_id = rr.block_id and bt2.thema_id = i
-                                              where rr.lernender_id = k::bigint and rr.art = 'zusatz' and rr.status <> 'entfernt'))))
-      or exists (select 1 from unnest(array['etappen', 'begonnen', 'gelandet', 'sicher', 'wieder_offen']) f
-                  where (select sum(coalesce((v_nach->k->'neu'->'stufen'->i::text->>f)::int, 0)) from unnest(v_ids) i)
-                        is distinct from coalesce((v_vor->k->'neu'->'stufen'->v_alt::text->>f)::int, 0))
-      or (case when (select coalesce(ll.schulart, 'gym_by') from schule.lernender ll where ll.id = k::bigint) = any(array(select jsonb_array_elements_text(p->'teile'->0->'zusatz')))
-               -- Teil 1 ist in der Schulart des Kindes Zusatz: die Option dieses Kontinents darf wegfallen oder wechseln (erlaubtes Delta)
-               then schule.tl_reise_ohne(v_nach->k->'neu'->'reise', (select ko.titel from schule.kontinent ko where ko.id = b.kontinent_id))
-                    is distinct from schule.tl_reise_ohne(v_vor->k->'neu'->'reise', (select ko.titel from schule.kontinent ko where ko.id = b.kontinent_id))
-               else (v_nach->k->'neu'->'reise') is distinct from (v_vor->k->'neu'->'reise') end);
+   where exists (select 1 from unnest(array['im_plan', 'gesetzt', 'rueckreise']) f
+                  where (v_nach->k->'neu'->'stufen'->v_alt::text->f) is distinct from (v_vor->k->'neu'->'stufen'->v_alt::text->f))
+      or exists (select 1 from unnest(v_ids[2:]) i
+                  where (v_nach->k->'neu'->'stufen'->i::text->>'gesetzt') is not null
+                     or coalesce((v_nach->k->'neu'->'stufen'->i::text->>'rueckreise')::boolean, false)
+                     or coalesce((v_nach->k->'neu'->'stufen'->i::text->>'im_plan')::boolean, false)
+                        is distinct from exists (select 1 from schule.flug_erstabschluss f where f.lernender_id = k::bigint and f.einheit_id = v_einh[array_position(v_ids, i)]))
+      or (v_nach->k->'neu'->'reise') is distinct from (v_vor->k->'neu'->'reise');
   if v_diff is not null then raise exception 'TL-S: Thema % – Stufen/Reiseoptionen außerhalb der erlaubten Deltas: %', v_alt, v_diff; end if;
   return jsonb_build_object('thema', v_alt, 'teile', to_jsonb(v_ids), 'einheiten', to_jsonb(v_einh), 'orte_neu', to_jsonb(v_bl),
     'etappen_je_teil', v_teil_et, 'etappen_noch_nicht_in_db', to_jsonb(v_fehlt), 'aufgaben_ohne_etappe_bei_teil_1', v_verbl, 'expeditions_aufgaben_bei_teil_1', v_exp,
@@ -560,7 +662,7 @@ $function$;
 
 -- 3. Teilen, Kanten, Zusatz-Regel
 do $mig$
-declare v_daten jsonb := $json${"plan": [{"thema": 26, "titel": "Direkte Proportionalität und Dreisatz", "teile": [{"teil": 1, "untertitel": "Dreisatz", "etappen": ["einheit", "dreisatz", "geschickt", "sach", "aenderung"], "klasse": {"gym_by": 5, "rs_by": 5, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["einheit", "dreisatz", "geschickt", "sach"], "rs_I": ["einheit", "dreisatz", "geschickt", "sach"], "rs_II_III": ["einheit", "dreisatz", "geschickt", "sach"], "myp_standard": ["einheit", "dreisatz", "geschickt", "sach", "aenderung"], "myp_extended": ["einheit", "dreisatz", "geschickt", "sach", "aenderung"]}}, {"teil": 2, "untertitel": "proportionale Zuordnungen erkennen", "etappen": ["erkennen", "vervielfachen", "pruefen"], "klasse": {"gym_by": 5, "rs_by": 6, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["erkennen", "vervielfachen", "pruefen"], "rs_I": ["erkennen", "vervielfachen", "pruefen"], "rs_II_III": ["erkennen", "vervielfachen", "pruefen"], "myp_standard": ["erkennen", "vervielfachen", "pruefen"], "myp_extended": ["erkennen", "vervielfachen", "pruefen"]}}]}, {"thema": 29, "titel": "Terme umformen", "teile": [{"teil": 1, "untertitel": "zusammenfassen und ausmultiplizieren", "etappen": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "klasse": {"gym_by": 7, "rs_by": 7, "ib_myp": 1}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "rs_I": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "rs_II_III": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "myp_standard": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "myp_extended": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"]}}, {"teil": 2, "untertitel": "Summe mal Summe, binomische Formeln, Gleichungen mit Klammern", "etappen": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"], "klasse": {"gym_by": 7, "rs_by": 8, "ib_myp": 4}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["summe_mal_summe", "ausklammern", "binomisch"], "rs_I": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"], "rs_II_III": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"], "myp_standard": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"], "myp_extended": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"]}}]}, {"thema": 44, "titel": "Konstruktionen, Kongruenz und Beweise", "teile": [{"teil": 1, "untertitel": "Dreiecke konstruieren, Kongruenz", "etappen": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"], "klasse": {"gym_by": 7, "rs_by": 7, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"], "rs_I": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"], "rs_II_III": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur"], "myp_standard": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"], "myp_extended": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"]}}, {"teil": 2, "untertitel": "Vierecke", "etappen": ["vierecke", "vierecke_konstruieren"], "klasse": {"gym_by": 7, "rs_by": 8, "ib_myp": null}, "zusatz": ["gym_by"], "pflicht_je_schulart": {"gym_by": [], "rs_I": ["vierecke", "vierecke_konstruieren"], "rs_II_III": ["vierecke", "vierecke_konstruieren"], "myp_standard": ["vierecke", "vierecke_konstruieren"], "myp_extended": ["vierecke", "vierecke_konstruieren"]}}]}, {"thema": 46, "titel": "Kongruenzabbildungen", "teile": [{"teil": 1, "untertitel": "Spiegeln und Symmetrie", "etappen": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "klasse": {"gym_by": 7, "rs_by": 6, "ib_myp": 3}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "rs_I": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "rs_II_III": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "myp_standard": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "myp_extended": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"]}}, {"teil": 2, "untertitel": "Verschieben und Vektoren", "etappen": ["verschiebung", "gegenvektor", "vektor_koordinaten"], "klasse": {"gym_by": 7, "rs_by": 7, "ib_myp": 3}, "zusatz": ["gym_by"], "pflicht_je_schulart": {"gym_by": [], "rs_I": ["verschiebung", "gegenvektor", "vektor_koordinaten"], "rs_II_III": ["verschiebung", "gegenvektor", "vektor_koordinaten"], "myp_standard": ["verschiebung", "gegenvektor", "vektor_koordinaten"], "myp_extended": ["verschiebung", "gegenvektor", "vektor_koordinaten"]}}, {"teil": 3, "untertitel": "Drehen und Punktspiegelung", "etappen": ["punktspiegelung", "drehung", "vektor_drehen"], "klasse": {"gym_by": 7, "rs_by": 8, "ib_myp": 3}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["punktspiegelung"], "rs_I": ["punktspiegelung", "drehung", "vektor_drehen"], "rs_II_III": [], "myp_standard": ["punktspiegelung", "drehung", "vektor_drehen"], "myp_extended": ["punktspiegelung", "drehung", "vektor_drehen"]}}]}, {"thema": 61, "titel": "Zufall und Laplace", "teile": [{"teil": 1, "untertitel": "Ergebnis, Ereignis, relative Häufigkeit", "etappen": ["begriffe", "rel_haeufigkeit", "darstellen"], "klasse": {"gym_by": 8, "rs_by": 8, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["begriffe", "rel_haeufigkeit", "darstellen"], "rs_I": ["begriffe", "rel_haeufigkeit", "darstellen"], "rs_II_III": ["begriffe", "rel_haeufigkeit", "darstellen"], "myp_standard": ["begriffe", "rel_haeufigkeit", "darstellen"], "myp_extended": ["begriffe", "rel_haeufigkeit", "darstellen"]}}, {"teil": 2, "untertitel": "Laplace-Wahrscheinlichkeit", "etappen": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "klasse": {"gym_by": 8, "rs_by": 9, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "rs_I": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "rs_II_III": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "myp_standard": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "myp_extended": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"]}}]}, {"thema": 91, "titel": "Schrägbilder und Raumdarstellung", "teile": [{"teil": 1, "untertitel": "Schrägbilder und Lage im Raum", "etappen": ["pyramide", "lage", "wahre_groesse", "raumwinkel"], "klasse": {"gym_by": 10, "rs_by": 7, "ib_myp": null}, "zusatz": ["ib_myp"], "pflicht_je_schulart": {"gym_by": ["pyramide", "wahre_groesse", "raumwinkel"], "rs_I": ["pyramide", "lage", "wahre_groesse", "raumwinkel"], "rs_II_III": ["pyramide", "wahre_groesse"], "myp_standard": [], "myp_extended": ["pyramide", "lage", "wahre_groesse", "raumwinkel"]}}, {"teil": 2, "untertitel": "Raumkoordinaten, Körpersymmetrie, Rotationskörper", "etappen": ["koordinaten", "rotation", "axialschnitt", "koerper_symmetrie"], "klasse": {"gym_by": 10, "rs_by": 8, "ib_myp": null}, "zusatz": ["ib_myp"], "pflicht_je_schulart": {"gym_by": ["rotation", "axialschnitt"], "rs_I": ["koordinaten", "rotation", "axialschnitt", "koerper_symmetrie"], "rs_II_III": ["rotation", "axialschnitt"], "myp_standard": [], "myp_extended": ["koordinaten", "rotation", "axialschnitt", "koerper_symmetrie"]}}]}, {"thema": 101, "titel": "Prismen und Zylinder", "teile": [{"teil": 1, "untertitel": "gerade Prismen und Zylinder", "etappen": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "klasse": {"gym_by": 8, "rs_by": 9, "ib_myp": null}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "rs_I": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "rs_II_III": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "myp_standard": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "myp_extended": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"]}}, {"teil": 2, "untertitel": "schiefe Körper und Cavalieri", "etappen": ["cavalieri"], "klasse": {"gym_by": 10, "rs_by": 9, "ib_myp": null}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["cavalieri"], "rs_I": ["cavalieri"], "rs_II_III": ["cavalieri"], "myp_standard": ["cavalieri"], "myp_extended": ["cavalieri"]}}]}], "kanten": [{"thema": 26, "thema_teil": 1, "braucht": 25, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 29, "thema_teil": 1, "braucht": 28, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 8, "thema_teil": null, "braucht": 29, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 49, "thema_teil": null, "braucht": 46, "braucht_teil": 3, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 63, "thema_teil": null, "braucht": 61, "braucht_teil": 1, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 62, "thema_teil": null, "braucht": 61, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 47, "thema_teil": null, "braucht": 46, "braucht_teil": 1, "art": "empfohlen", "herkunft": "bisher (inhaltlich zugeordnet)", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 74, "thema_teil": null, "braucht": 46, "braucht_teil": 2, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 4, "thema_teil": null, "braucht": 29, "braucht_teil": 1, "art": "empfohlen", "herkunft": "bisher (inhaltlich zugeordnet)", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 93, "thema_teil": null, "braucht": 26, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 91, "thema_teil": 1, "braucht": 52, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart"}}, {"thema": 61, "thema_teil": 1, "braucht": 21, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 97, "thema_teil": null, "braucht": 29, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 35, "thema_teil": null, "braucht": 29, "braucht_teil": 2, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 29, "thema_teil": 1, "braucht": 102, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 31, "thema_teil": null, "braucht": 29, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 44, "thema_teil": 1, "braucht": 43, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 44, "thema_teil": 1, "braucht": 98, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 44, "thema_teil": 1, "braucht": 46, "braucht_teil": 1, "art": "empfohlen", "herkunft": "bisher (inhaltlich zugeordnet)", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 46, "thema_teil": 1, "braucht": 42, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 64, "thema_teil": null, "braucht": 61, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 92, "thema_teil": null, "braucht": 101, "braucht_teil": 2, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 101, "thema_teil": 1, "braucht": 99, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 101, "thema_teil": 1, "braucht": 100, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 101, "thema_teil": 1, "braucht": 51, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "empfohlen", "ib_myp": "empfohlen"}}, {"thema": 26, "thema_teil": 2, "braucht": 26, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 29, "thema_teil": 2, "braucht": 29, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 44, "thema_teil": 2, "braucht": 44, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"rs_by": "hart", "ib_myp": "hart"}}, {"thema": 46, "thema_teil": 2, "braucht": 46, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"rs_by": "hart", "ib_myp": "hart"}}, {"thema": 46, "thema_teil": 3, "braucht": 46, "braucht_teil": 2, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "empfohlen", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 61, "thema_teil": 2, "braucht": 61, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 91, "thema_teil": 2, "braucht": 91, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart"}}, {"thema": 101, "thema_teil": 2, "braucht": 101, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_by": "hart", "ib_myp": "hart"}}, {"thema": 46, "thema_teil": 3, "braucht": 46, "braucht_teil": 1, "art": "empfohlen", "herkunft": "Teilung über Zusatz-Teil hinweg", "art_je_schulart": {"gym_by": "hart"}}]}$json$::jsonb; x jsonb; r jsonb; k jsonb; v_a bigint; v_b bigint; v_a0 bigint; v_b0 bigint; z record; v_n int := 0;
+declare v_daten jsonb := $json${"plan": [{"thema": 26, "titel": "Direkte Proportionalität und Dreisatz", "teile": [{"teil": 1, "untertitel": "Dreisatz", "etappen": ["einheit", "dreisatz", "geschickt", "sach", "aenderung"], "klasse": {"gym_by": 5, "rs_by": 5, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["einheit", "dreisatz", "geschickt", "sach"], "rs_I": ["einheit", "dreisatz", "geschickt", "sach"], "rs_II_III": ["einheit", "dreisatz", "geschickt", "sach"], "myp_standard": ["einheit", "dreisatz", "geschickt", "sach", "aenderung"], "myp_extended": ["einheit", "dreisatz", "geschickt", "sach", "aenderung"]}}, {"teil": 2, "untertitel": "proportionale Zuordnungen erkennen", "etappen": ["erkennen", "vervielfachen", "pruefen"], "klasse": {"gym_by": 5, "rs_by": 6, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["erkennen", "vervielfachen", "pruefen"], "rs_I": ["erkennen", "vervielfachen", "pruefen"], "rs_II_III": ["erkennen", "vervielfachen", "pruefen"], "myp_standard": ["erkennen", "vervielfachen", "pruefen"], "myp_extended": ["erkennen", "vervielfachen", "pruefen"]}}]}, {"thema": 29, "titel": "Terme umformen", "teile": [{"teil": 1, "untertitel": "zusammenfassen und ausmultiplizieren", "etappen": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "klasse": {"gym_by": 7, "rs_by": 7, "ib_myp": 1}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "rs_I": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "rs_II_III": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "myp_standard": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"], "myp_extended": ["zusammenfassen", "produkte", "minusklammer", "ausmultiplizieren", "aequivalenz"]}}, {"teil": 2, "untertitel": "Summe mal Summe, binomische Formeln, Gleichungen mit Klammern", "etappen": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"], "klasse": {"gym_by": 7, "rs_by": 8, "ib_myp": 4}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["summe_mal_summe", "ausklammern", "binomisch"], "rs_I": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"], "rs_II_III": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"], "myp_standard": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"], "myp_extended": ["summe_mal_summe", "ausklammern", "binomisch", "gleichungen_binomisch"]}}]}, {"thema": 44, "titel": "Konstruktionen, Kongruenz und Beweise", "teile": [{"teil": 1, "untertitel": "Dreiecke konstruieren, Kongruenz", "etappen": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"], "klasse": {"gym_by": 7, "rs_by": 7, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"], "rs_I": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"], "rs_II_III": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur"], "myp_standard": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"], "myp_extended": ["gleichschenklig", "kongruenzsatz", "konstruierbar", "planfigur", "satz_kehrsatz"]}}, {"teil": 2, "untertitel": "Vierecke", "etappen": ["vierecke", "vierecke_konstruieren"], "klasse": {"gym_by": 7, "rs_by": 8, "ib_myp": null}, "zusatz": ["gym_by"], "pflicht_je_schulart": {"gym_by": [], "rs_I": ["vierecke", "vierecke_konstruieren"], "rs_II_III": ["vierecke", "vierecke_konstruieren"], "myp_standard": ["vierecke", "vierecke_konstruieren"], "myp_extended": ["vierecke", "vierecke_konstruieren"]}}]}, {"thema": 46, "titel": "Kongruenzabbildungen", "teile": [{"teil": 1, "untertitel": "Spiegeln und Symmetrie", "etappen": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "klasse": {"gym_by": 7, "rs_by": 6, "ib_myp": 3}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "rs_I": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "rs_II_III": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "myp_standard": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"], "myp_extended": ["achsenspiegelung", "mittelsenkrechte", "winkelhalbierende", "symmetrie", "vierecke_ordnen", "eigenschaften"]}}, {"teil": 2, "untertitel": "Verschieben und Vektoren", "etappen": ["verschiebung", "gegenvektor", "vektor_koordinaten"], "klasse": {"gym_by": 7, "rs_by": 7, "ib_myp": 3}, "zusatz": ["gym_by"], "pflicht_je_schulart": {"gym_by": [], "rs_I": ["verschiebung", "gegenvektor", "vektor_koordinaten"], "rs_II_III": ["verschiebung", "gegenvektor", "vektor_koordinaten"], "myp_standard": ["verschiebung", "gegenvektor", "vektor_koordinaten"], "myp_extended": ["verschiebung", "gegenvektor", "vektor_koordinaten"]}}, {"teil": 3, "untertitel": "Drehen und Punktspiegelung", "etappen": ["punktspiegelung", "drehung", "vektor_drehen"], "klasse": {"gym_by": 7, "rs_by": 8, "ib_myp": 3}, "zusatz": ["rs_II_III"], "pflicht_je_schulart": {"gym_by": ["punktspiegelung"], "rs_I": ["punktspiegelung", "drehung", "vektor_drehen"], "rs_II_III": [], "myp_standard": ["punktspiegelung", "drehung", "vektor_drehen"], "myp_extended": ["punktspiegelung", "drehung", "vektor_drehen"]}}]}, {"thema": 61, "titel": "Zufall und Laplace", "teile": [{"teil": 1, "untertitel": "Ergebnis, Ereignis, relative Häufigkeit", "etappen": ["begriffe", "rel_haeufigkeit", "darstellen"], "klasse": {"gym_by": 8, "rs_by": 8, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["begriffe", "rel_haeufigkeit", "darstellen"], "rs_I": ["begriffe", "rel_haeufigkeit", "darstellen"], "rs_II_III": ["begriffe", "rel_haeufigkeit", "darstellen"], "myp_standard": ["begriffe", "rel_haeufigkeit", "darstellen"], "myp_extended": ["begriffe", "rel_haeufigkeit", "darstellen"]}}, {"teil": 2, "untertitel": "Laplace-Wahrscheinlichkeit", "etappen": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "klasse": {"gym_by": 8, "rs_by": 9, "ib_myp": 2}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "rs_I": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "rs_II_III": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "myp_standard": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"], "myp_extended": ["laplace", "laplace_pruefen", "gegenereignis", "grosse_zahlen"]}}]}, {"thema": 91, "titel": "Schrägbilder und Raumdarstellung", "teile": [{"teil": 1, "untertitel": "Schrägbilder und Lage im Raum", "etappen": ["pyramide", "lage", "wahre_groesse", "raumwinkel"], "klasse": {"gym_by": 10, "rs_by": 7, "ib_myp": null}, "zusatz": ["myp_standard"], "pflicht_je_schulart": {"gym_by": ["pyramide", "wahre_groesse", "raumwinkel"], "rs_I": ["pyramide", "lage", "wahre_groesse", "raumwinkel"], "rs_II_III": ["pyramide", "wahre_groesse"], "myp_standard": [], "myp_extended": ["pyramide", "lage", "wahre_groesse", "raumwinkel"]}}, {"teil": 2, "untertitel": "Raumkoordinaten, Körpersymmetrie, Rotationskörper", "etappen": ["koordinaten", "rotation", "axialschnitt", "koerper_symmetrie"], "klasse": {"gym_by": 10, "rs_by": 8, "ib_myp": null}, "zusatz": ["myp_standard"], "pflicht_je_schulart": {"gym_by": ["rotation", "axialschnitt"], "rs_I": ["koordinaten", "rotation", "axialschnitt", "koerper_symmetrie"], "rs_II_III": ["rotation", "axialschnitt"], "myp_standard": [], "myp_extended": ["koordinaten", "rotation", "axialschnitt", "koerper_symmetrie"]}}]}, {"thema": 101, "titel": "Prismen und Zylinder", "teile": [{"teil": 1, "untertitel": "gerade Prismen und Zylinder", "etappen": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "klasse": {"gym_by": 8, "rs_by": 9, "ib_myp": null}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "rs_I": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "rs_II_III": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "myp_standard": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"], "myp_extended": ["prisma_volumen", "prisma_oberflaeche", "prisma_umstellen", "zylinder_volumen", "zylinder_oberflaeche", "sach", "verstehen"]}}, {"teil": 2, "untertitel": "schiefe Körper und Cavalieri", "etappen": ["cavalieri"], "klasse": {"gym_by": 10, "rs_by": 9, "ib_myp": null}, "zusatz": [], "pflicht_je_schulart": {"gym_by": ["cavalieri"], "rs_I": ["cavalieri"], "rs_II_III": ["cavalieri"], "myp_standard": ["cavalieri"], "myp_extended": ["cavalieri"]}}]}], "kanten": [{"thema": 26, "thema_teil": 1, "braucht": 25, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 29, "thema_teil": 1, "braucht": 28, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 8, "thema_teil": null, "braucht": 29, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 49, "thema_teil": null, "braucht": 46, "braucht_teil": 3, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 63, "thema_teil": null, "braucht": 61, "braucht_teil": 1, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 62, "thema_teil": null, "braucht": 61, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 47, "thema_teil": null, "braucht": 46, "braucht_teil": 1, "art": "empfohlen", "herkunft": "bisher (inhaltlich zugeordnet)", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 74, "thema_teil": null, "braucht": 46, "braucht_teil": 2, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 4, "thema_teil": null, "braucht": 29, "braucht_teil": 1, "art": "empfohlen", "herkunft": "bisher (inhaltlich zugeordnet)", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 93, "thema_teil": null, "braucht": 26, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 91, "thema_teil": 1, "braucht": 52, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_extended": "hart"}}, {"thema": 61, "thema_teil": 1, "braucht": 21, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 97, "thema_teil": null, "braucht": 29, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 35, "thema_teil": null, "braucht": 29, "braucht_teil": 2, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 29, "thema_teil": 1, "braucht": 102, "braucht_teil": null, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 31, "thema_teil": null, "braucht": 29, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 44, "thema_teil": 1, "braucht": 43, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 44, "thema_teil": 1, "braucht": 98, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 44, "thema_teil": 1, "braucht": 46, "braucht_teil": 1, "art": "empfohlen", "herkunft": "bisher (inhaltlich zugeordnet)", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 46, "thema_teil": 1, "braucht": 42, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 64, "thema_teil": null, "braucht": 61, "braucht_teil": 2, "art": "hart", "herkunft": "bisher", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 92, "thema_teil": null, "braucht": 101, "braucht_teil": 2, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 101, "thema_teil": 1, "braucht": 99, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 101, "thema_teil": 1, "braucht": 100, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 101, "thema_teil": 1, "braucht": 51, "braucht_teil": null, "art": "empfohlen", "herkunft": "bisher", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "empfohlen", "rs_II_III": "empfohlen", "myp_standard": "empfohlen", "myp_extended": "empfohlen"}}, {"thema": 26, "thema_teil": 2, "braucht": 26, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 29, "thema_teil": 2, "braucht": 29, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 44, "thema_teil": 2, "braucht": 44, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 46, "thema_teil": 2, "braucht": 46, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 46, "thema_teil": 3, "braucht": 46, "braucht_teil": 2, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "empfohlen", "rs_I": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 61, "thema_teil": 2, "braucht": 61, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 91, "thema_teil": 2, "braucht": 91, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_extended": "hart"}}, {"thema": 101, "thema_teil": 2, "braucht": 101, "braucht_teil": 1, "art": "hart", "herkunft": "Teilung", "art_je_schulart": {"gym_by": "hart", "rs_I": "hart", "rs_II_III": "hart", "myp_standard": "hart", "myp_extended": "hart"}}, {"thema": 46, "thema_teil": 3, "braucht": 46, "braucht_teil": 1, "art": "empfohlen", "herkunft": "Teilung über Zusatz-Teil hinweg", "art_je_schulart": {"gym_by": "hart"}}]}$json$::jsonb; x jsonb; r jsonb; k jsonb; v_a bigint; v_b bigint; v_a0 bigint; v_b0 bigint; z record; v_n int := 0;
 begin
   for x in select * from jsonb_array_elements(v_daten->'plan') loop
     r := schule.tl_teilen(x);
@@ -582,27 +684,27 @@ begin
       on conflict (thema_id, braucht_id) do update set art = excluded.art;
     end if;
     -- Art je Schulart laut Liste (nur wo „hart“/„empfohlen“ von der Gesamt-Art abweicht)
-    insert into schule.voraussetzung_schulart (thema_id, braucht_id, schulart, art, begruendung)
+    insert into schule.voraussetzung_schulart (thema_id, braucht_id, gruppe, art, begruendung)
     select v_a, v_b, x.key, case when x.value #>> '{}' = 'hart' then 'hart' else 'empfohlen' end, 'TL-S: Kante je Schulart nach lk_teilung_2211'
       from jsonb_each(coalesce(k->'art_je_schulart', '{}'::jsonb)) x
      where x.value #>> '{}' in ('hart', 'empfohlen') and x.value #>> '{}' <> k->>'art'   -- „Zusatz“ (abhängiger Teil ist Zusatz) ändert die Kante nicht
-    on conflict (thema_id, braucht_id, schulart) do update set art = excluded.art;
+    on conflict (thema_id, braucht_id, gruppe) do update set art = excluded.art;
     v_n := v_n + 1;
   end loop;
   -- Zusatz-Regel je Schulart: Voraussetzung, die in der Schulart Zusatz ist, ist dort nur empfohlen; der Folgeteil braucht dort hart den Teil davor
   for z in select v.thema_id x, v.braucht_id p, s.schulart from schule.voraussetzung v join schule.thema t on t.id = v.braucht_id
                                                              cross join lateral unnest(t.zusatz) s(schulart) where v.art = 'hart' loop
-    insert into schule.voraussetzung_schulart (thema_id, braucht_id, schulart, art, begruendung) values (z.x, z.p, z.schulart, 'empfohlen', 'TL-S: Voraussetzung ist in dieser Schulart Zusatz')
-    on conflict (thema_id, braucht_id, schulart) do update set art = excluded.art;
+    insert into schule.voraussetzung_schulart (thema_id, braucht_id, gruppe, art, begruendung) values (z.x, z.p, z.schulart, 'empfohlen', 'TL-S: Voraussetzung ist in dieser Schulart Zusatz')
+    on conflict (thema_id, braucht_id, gruppe) do update set art = excluded.art;
     -- Überbrückung nur, wenn der Folgeteil in dieser Schulart selbst Pflicht ist (ein Zusatz-Teil braucht keine harte Brücke)
     continue when z.schulart = any(coalesce((select t2.zusatz from schule.thema t2 where t2.id = z.x), '{}'));
     insert into schule.voraussetzung (thema_id, braucht_id, begruendung, art)
     select z.x, v.braucht_id, 'TL-S: über einen Zusatz-Teil hinweg (je Schulart hart)', 'empfohlen' from schule.voraussetzung v where v.thema_id = z.p and v.art = 'hart' and v.braucht_id <> z.x
     on conflict (thema_id, braucht_id) do nothing;
-    insert into schule.voraussetzung_schulart (thema_id, braucht_id, schulart, art, begruendung)
+    insert into schule.voraussetzung_schulart (thema_id, braucht_id, gruppe, art, begruendung)
     select z.x, v.braucht_id, z.schulart, 'hart', 'TL-S: Teil davor ist in dieser Schulart Zusatz – hart braucht es den Teil davor'
       from schule.voraussetzung v where v.thema_id = z.p and v.art = 'hart' and v.braucht_id <> z.x
-    on conflict (thema_id, braucht_id, schulart) do update set art = excluded.art;
+    on conflict (thema_id, braucht_id, gruppe) do update set art = excluded.art;
   end loop;
   raise notice 'TL-S: % Kanten verarbeitet; Zusatz-Abweichungen: %', v_n, (select count(*) from schule.voraussetzung_schulart);
 end $mig$;
@@ -628,22 +730,44 @@ end $$;
 create or replace view schule.v_ort_visum as
  SELECT DISTINCT bt.block_id AS ort_id,
     bt2.block_id AS braucht_ort_id,
-    s.schulart
+    s.gruppe
    FROM schule.voraussetzung v
-     CROSS JOIN (VALUES ('gym_by'::text), ('rs_by'::text), ('ib_myp'::text)) s(schulart)
+     CROSS JOIN (VALUES ('gym_by'::text), ('rs_I'::text), ('rs_II_III'::text), ('myp_standard'::text), ('myp_extended'::text)) s(gruppe)
      JOIN schule.block_thema bt ON bt.thema_id = v.thema_id
      JOIN schule.block_thema bt2 ON bt2.thema_id = v.braucht_id
-     LEFT JOIN schule.voraussetzung_schulart o ON o.thema_id = v.thema_id AND o.braucht_id = v.braucht_id AND o.schulart = s.schulart
+     LEFT JOIN schule.voraussetzung_schulart o ON o.thema_id = v.thema_id AND o.braucht_id = v.braucht_id AND o.gruppe = s.gruppe
   WHERE coalesce(o.art, v.art) = 'hart'::text AND bt.block_id <> bt2.block_id;
 
 do $$
 declare d text := pg_get_functiondef('schule.reiseoptionen(bigint)'::regprocedure);
   a text := 'where v.ort_id = n.id and v.braucht_ort_id not in (select block_id from ok)';
 begin
-  if position('v.schulart' in d) > 0 then raise notice 'reiseoptionen schon umgebaut'; return; end if;
+  if position('v.gruppe' in d) > 0 then raise notice 'reiseoptionen schon umgebaut'; return; end if;
   if (length(d) - length(replace(d, a, ''))) / length(a) <> 1 then raise exception 'TL-S: Stelle in reiseoptionen nicht genau einmal gefunden'; end if;
-  execute replace(d, a, a || ' and v.schulart = coalesce((select schulart from l), ''gym_by'') /* TL-S: Visum je Schulart */');
+  execute replace(d, a, a || ' and v.gruppe = schule.kind_gruppe((select id from l)) /* TL-S: Visum je Gruppe */');
 end $$;
+
+-- TL-S 6 (Entscheidung 20:20, Punkt 4): Liste je Kind für Sebastian – neue Teile mit „selbst geschafft“, „teilweise selbst (x von y Pflicht-Etappen)“,
+-- „vom alten Thema gesetzt, jetzt offen“, „offen“. Nur lesen; die Zuteilung macht Sebastian mit den vorhandenen Funktionen (einplanen / „Kann er“).
+create or replace view schule.tl_teile_je_kind as
+select l.id lernender_id, t.teil_stamm thema, t.teil_nr teil, t.id thema_id, e.id einheit_id,
+       cardinality(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) pflicht,
+       (select count(*) from unnest(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) x where schule.tl_erledigt(l.id, e.id, x))::int selbst,
+       case when exists (select 1 from schule.flug_erstabschluss f where f.lernender_id = l.id and f.einheit_id = e.id) then 'selbst geschafft'
+            when (select count(*) from unnest(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) x where schule.tl_erledigt(l.id, e.id, x)) > 0
+              then 'teilweise selbst (' || (select count(*) from unnest(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) x where schule.tl_erledigt(l.id, e.id, x))
+                   || ' von ' || cardinality(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) || ' Pflicht-Etappen)'
+            when exists (select 1 from schule.visum_uebergang u join schule.block_thema bt on bt.block_id = u.block_id and bt.thema_id = t.id
+                          where u.lernender_id = l.id and u.grund = 'gesetzt') then 'vom alten Thema gesetzt, jetzt offen'
+            else 'offen' end zustand,
+       exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id
+                where r.lernender_id = l.id and r.status <> 'entfernt') im_plan,
+       (select u.grund from schule.visum_uebergang u join schule.block_thema bt on bt.block_id = u.block_id and bt.thema_id = t.id
+         where u.lernender_id = l.id limit 1) visum_aus_altem_thema   -- TL-S 7: bewusste, dauerhafte Ausnahme (fertig | gesetzt); Sebastian bestätigt einmal
+  from schule.lernender l cross join schule.thema t join schule.einheit e on e.id = schule.thema_einheit(t.id)
+ where l.aktiv and t.teil_nr > 1;
+comment on view schule.tl_teile_je_kind is 'TL-S 6: neue Teile je Kind – selbst geschafft / teilweise selbst (x von y Pflicht-Etappen) / vom alten Thema gesetzt, jetzt offen / offen';
+revoke all on schule.tl_teile_je_kind from public, anon, authenticated;
 
 -- 5. Schnittstelle: Teil, Untertitel, Zusatz je Thema; Voraussetzungen je Schulart
 create or replace function schule.thema_teil_json(p_thema bigint)
@@ -654,7 +778,7 @@ as $function$
                      'untertitel', t.untertitel, 'zusatz', to_jsonb(t.zusatz)))) end
     from schule.thema t where t.id = p_thema;
 $function$;
-revoke all on function schule.thema_teil_json(bigint), schule.tl_inhalt(jsonb, text[]), schule.tl_erledigt(bigint, bigint, text), schule.tl_kind_stand(bigint[], bigint[], bigint[]),
+revoke all on function schule.thema_teil_json(bigint), schule.tl_inhalt(jsonb, text[]), schule.tl_erledigt(bigint, bigint, text), schule.tl_testabdeckung(bigint, bigint, text), schule.tl_kind_stand(bigint[], bigint[], bigint[]),
   schule.tl_teilen(jsonb), schule.tl_knoten(bigint, int), schule.tl_ort_stamm(bigint), schule.tl_reise_abgebildet(jsonb), schule.tl_reise_ohne(jsonb, text) from public, anon, authenticated;
 revoke all on schule.voraussetzung_schulart, schule.v_ort_visum from public, anon, authenticated;
 
@@ -670,12 +794,12 @@ begin
       raise exception 'TL-S: lehrplan_matrix_lk – Ende nicht gefunden'; end if;
     d := replace(d, '|| jsonb_build_object(''lehrplan_zuordnung'', schule.lehrplan_zuordnung_json());',
       '|| jsonb_build_object(''lehrplan_zuordnung'', schule.lehrplan_zuordnung_json())
-         || jsonb_build_object(''verbindungen_schulart'', (select coalesce(jsonb_agg(jsonb_build_array(o.thema_id, o.braucht_id, o.schulart, case o.art when ''hart'' then ''h'' else ''e'' end)
-                                                         order by o.thema_id, o.braucht_id, o.schulart), ''[]''::jsonb) from schule.voraussetzung_schulart o));   -- TL-S');
+         || jsonb_build_object(''verbindungen_schulart'', (select coalesce(jsonb_agg(jsonb_build_array(o.thema_id, o.braucht_id, o.gruppe, case o.art when ''hart'' then ''h'' else ''e'' end)
+                                                         order by o.thema_id, o.braucht_id, o.gruppe), ''[]''::jsonb) from schule.voraussetzung_schulart o));   -- TL-S');
     d := replace(d, '|| jsonb_build_object(''zweig'', v_zw);',
       '|| jsonb_build_object(''zweig'', v_zw)
            || jsonb_build_object(''verbindungen_kind'', (select coalesce(jsonb_agg(jsonb_build_array(o.thema_id, o.braucht_id, case o.art when ''hart'' then ''h'' else ''e'' end)
-                                                     order by o.thema_id, o.braucht_id), ''[]''::jsonb) from schule.voraussetzung_schulart o where o.schulart = v_sa));   -- TL-S');
+                                                     order by o.thema_id, o.braucht_id), ''[]''::jsonb) from schule.voraussetzung_schulart o where o.gruppe = case when v_sa = ''gym_by'' then ''gym_by'' else v_zw end));   -- TL-S');
     execute d;
   end if;
   d := pg_get_functiondef('schule.lehrplan_thema_lk(jsonb, bigint, bigint, boolean)'::regprocedure);
@@ -694,13 +818,13 @@ begin
   if v_t is not null then raise exception 'TL-S: Stand außerhalb der Teilung verändert (%)', v_t; end if;
   -- B4 Visum je Schulart: nach Abbildung der neuen Orte auf den Ort von Teil 1 (ohne Schleifen) wie vorher
   select string_agg(distinct s.schulart || ':' || coalesce(d.ort_id::text, '') || '→' || coalesce(d.braucht_ort_id::text, ''), ', ') into v_t
-    from (values ('gym_by'), ('rs_by'), ('ib_myp')) s(schulart),
+    from (values ('gym_by'), ('rs_I'), ('rs_II_III'), ('myp_standard'), ('myp_extended')) s(schulart),
          lateral ((select schule.tl_ort_stamm(a.ort_id) ort_id, schule.tl_ort_stamm(a.braucht_ort_id) braucht_ort_id from tl_visum_vorher a
                     where schule.tl_ort_stamm(a.ort_id) <> schule.tl_ort_stamm(a.braucht_ort_id)
-                   except select schule.tl_ort_stamm(v.ort_id), schule.tl_ort_stamm(v.braucht_ort_id) from schule.v_ort_visum v where v.schulart = s.schulart)
+                   except select schule.tl_ort_stamm(v.ort_id), schule.tl_ort_stamm(v.braucht_ort_id) from schule.v_ort_visum v where v.gruppe = s.schulart)
                   union all
                   (select schule.tl_ort_stamm(v.ort_id), schule.tl_ort_stamm(v.braucht_ort_id) from schule.v_ort_visum v
-                    where v.schulart = s.schulart and schule.tl_ort_stamm(v.ort_id) <> schule.tl_ort_stamm(v.braucht_ort_id)
+                    where v.gruppe = s.schulart and schule.tl_ort_stamm(v.ort_id) <> schule.tl_ort_stamm(v.braucht_ort_id)
                    except select schule.tl_ort_stamm(a.ort_id), schule.tl_ort_stamm(a.braucht_ort_id) from tl_visum_vorher a)) d;
   if v_t is not null then raise exception 'TL-S: Visum außerhalb der erlaubten Deltas: %', v_t; end if;
   raise notice 'TL-S: Stufen der übrigen Themen, Karten und Lernziel-Stand anderer Flüge, Sterne (außer neuen Ort-Sternen), Plan-Reihenfolge der bisherigen Orte, Visum (abgebildet) unverändert';

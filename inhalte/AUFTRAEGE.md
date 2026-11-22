@@ -2916,3 +2916,102 @@ Stand `lernen-app` e20266e, zurückgerollt. Reihenfolge lk_korrektur (LK-D 4), F
 - Rauchtests wd_s, wd_s3, fp_s, lw_s nach der Teilung grün.
 - **An `bau-lehrer`:** `lk_s_rauchtest.sql` scheitert **nach** der Teilung („FEHLER 3 Thema 61“, erwartet 61 in Klasse 8 und 9) – Test so umstellen, dass er vor und nach der Teilung gilt (Teile über `teil_stamm`). Meldung: „FERTIG: LK-S Test 2“.
 - **Vor dem Einspielen noch offen:** ChatGPT-Prüfung (945 + Nachtrag), Einspiel-SQL für die neuen Lernkarten aus LK-D (liefert `lehrplan-lb`: 46 `vektor_koordinaten`/`vektor_drehen`, 47 `streckung_vektor`, 44 `vierecke_konstruieren`, 99 `drachen_raute`, 91 `wahre_groesse`/`koerper_symmetrie`/`raumwinkel`, 101 `cavalieri`, 29 `gleichungen_binomisch`, 61 `darstellen`, 20 `irrational_beweis` – als Datei wie `aufgaben_frisch_2211.sql`, Meldung „FERTIG: LK-D Einspiel“), Sebastians „Live“. Länder/Städte folgen mit dem Reise-Aufbau; bis dahin tragen neue Teile vorläufige Orte.
+
+## Auftrag PM 2 – Prüfungsmaterial: Originale privat ablegen (A) und Aufgaben nachbauen (B) (22.11., 19:15 Berlin) · Entscheidung Sebastian: „ja, A und B“
+
+Hintergrund: Das Repo ist öffentlich. Originale Prüfungsaufgaben werden deshalb **nicht** ins Repo kopiert.
+**A – Originale in Sebastians Google Drive (privat):** Ordner „Prüfungsmaterial Mathe (Lernen Schule)“ ist angelegt, darin die Tabelle „Linkliste Prüfungsmaterial (115 Arbeiten)“ (Schulart, Klasse, Gruppe, Art, Titel, Link, Ziel-Unterordner). Ein Chat mit Zugriff auf Sebastians Rechner/Browser lädt die PDFs (Aufgaben und Lösungen) und legt sie in Unterordnern ab; nichts davon ins Repo.
+**B – Nachbau im Repo (`pruefmaterial-gym`, `pruefmaterial-rs`):** Zu jeder katalogisierten Einzelaufgabe eine **eigene** Aufgabe gleichen Typs, gleicher Kompetenz und gleichen Niveaus – eigener Text, eigene Zahlen und Sachkontexte, eigene Abbildungsbeschreibung, mit Lösung, Lösungsweg und Punkteverteilung. Kein Umformulieren Satz für Satz, keine übernommenen Zahlenwerte, kein wiedererkennbarer Aufbau einer einzelnen fremden Aufgabe; Typ und Schwierigkeit dürfen gleich sein. Je Arbeit wird daraus eine **nachgebaute Schulaufgabe** (gleiche Zeit, Punktesumme, Niveauverteilung, Themenmix) als druckbare Datei (Markdown) mit Lösungsblatt. Zuordnung jeder Aufgabe zu Thema/Etappe (auch Teile nach `lk_teilung_2211.json`). Lösungen nachrechnen (Skript). Reihenfolge: zuerst Gym 8 und Gym 5 (Kinder), dann RS 7/8.
+Lieferung: `inhalte/pruefmaterial/<gym|rs>/nachbau/<arbeit_id>.md` + `nachbau.json` (maschinenlesbar, für ein späteres Schulaufgaben-Training in der App – nichts bauen). Meldung: „FERTIG: PM 2 Gym“ / „FERTIG: PM 2 RS“.
+
+### Rückläufer ChatGPT 947–950 (22.11., 19:30 Berlin) – LK-D 4, Reise-Aufbau 3, TL-S 4
+
+Bestätigt: LK-D 4 (Beweis-Lernkarte, 62 Mehrklassen-Fälle, Pflicht/Kür je Etappe mit Quelle), Salomonen und 101 im Reise-Aufbau, TL-S 4 gegenüber TL-S 3 deutlich besser (Pflichtlisten für alle 15 Teile, Zusatz-Marker, Visum-Fehler plausibel behoben, alte Antworten beim richtigen Teil). **Keine Freigabe des Gesamtpakets.** Offen:
+**An `bau-lehrer` – TL-S 5:**
+- **T1 (Muss) Gruppen:** `thema.zusatz`, `voraussetzung_schulart`, `v_ort_visum`, `route.art` kennen nur gym_by/rs_by/ib_myp – die Pflichtlisten aber fünf Gruppen (gym_by, rs_I, rs_II_III, myp_standard, myp_extended). Plan, Visum, Zusatz-Status und Lehrer-Ansicht aus **derselben** Regel je Kind + Gruppe ableiten. Tests: RS I gegen II/III (46 Teil 3), IB Standard gegen Extended (91).
+- **T2 (Muss) leere Pflichtliste:** `coalesce(nullif(pflicht_lernziele(...), '{}'), alle Etappen)` macht aus „0 Pflicht“ wieder „alles Pflicht“ (tl_teilen, wdh_ablegen, konto_wd). Ausdrücklich leer ≠ nicht konfiguriert: 0 Pflicht = freiwilliger Zusatz, kein Pflicht-Test, kein Pflicht-Stempel, keine 100 Sterne allein durch Kür. Tests: Gym 44 Teil 2 / 46 Teil 2, RS II/III 46 Teil 3, IB Standard 91.
+- **T3 (Muss) ungeteilte Themen:** 58 Etappen sind global „Vertiefung“, laut LK-D 4 aber in mindestens einer Schulart Pflicht (z. B. 20 `irrational_beweis` Gym 9). Pflichtlisten je Schulart für **alle** Themen übernehmen und `pflicht_abgleichen` auf vorhandene Lernstände anwenden – als eigener Schritt **KS** (mit Tages-Wiederholung, Mischkarten, Testauswahl nur Pflicht), Vorher/Nachher je Kind; nichts wird aberkannt, nichts doppelt gebucht.
+- **T4 (Muss) fertige Flüge:** Reihenfolge festlegen: LK-D Einspiel (neue Lernkarten) **vor** TL-S; danach hat jeder Teil freigegebene Einheit, Test-Aufgaben, Etappen; Ein-Etappen-Flug (101 Teil 2) mit Test, Korrektur, Stempel prüfen.
+- T5: `lk_s_rauchtest` nach der Teilung (schon beauftragt); zusätzlich echte Listen aus LK-D 4 (29/46/91/101) im Rauchtest statt nur künstlicher.
+**An `reise-aufbau` – Reise-Aufbau 4:** drei Städte fehlen: 20 `irrational_beweis` (Flug zu Thema 20), 61 Teil 1 `darstellen` (Neuseeland – Nordinsel), 91 Teil 1 `raumwinkel` (Paraguay) → Ziel 95 Flüge / 618 Städte; `aufbau_pruefen.py` um die neuen Schlüssel ergänzen und gegen die aktuellen Themendateien neu laufen lassen; Salomonen nicht „Nachbarland“ nennen (Insel-Ausnahme); Reserve Ozeanien auffüllen.
+**An `lehrplan-lb`:** 57 Daten erfassen/darstellen: „verzerrte Diagramme berichtigen/verbessern“ (RS 7) mit Aufgaben ergänzen.
+
+### Probelauf ganze Kette auf der echten Datenbank (22.11., 20:10 Berlin) – drei Befunde · an `bau-lehrer` und `lehrplan-lb`
+
+Stand `lernen-app` 3acac2b, zurückgerollt. Reihenfolge: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → **lk_einspiel** → **nt_einspiel** → TL-S 5 → NT-S.
+Läuft: lk_korrektur, FP-S 4, LW-S 2, LK-S, lk_einspiel (+264 Aufgaben), TL-S 5 (auch zweimal), NT-S. Nachher: Karten-Lernstand je Kind identisch, Reiseoptionen identisch, Versuche 684 = 684, Themen 97 → 105, alle 15 Teile mit freigegebener Einheit (keine leere Hülle). Rauchtests wd_s3, fp_s, lw_s, lk_s, nt_s nach der Teilung grün.
+
+**Befund 1 (Muss) · `bau-lehrer`: Kind 2, Thema 29 Teil 2 steht nach der Teilung auf „dran“** – obwohl Stempel/Erstabschluss und 100 Sterne für den Teil gebucht werden (Erstabschlüsse 4 → 5, Sterne +100). Im Probelauf ohne lk_einspiel (TL-S 4) stand der Teil auf „wiederholung“. Ursache vermutlich die neue Etappe `gleichungen_binomisch` (jetzt im Katalog): Sie ist im Gymnasium Kür (LK-D 4), zählt bei `thema_stufe` aber offenbar als offen. Erwartet (Entscheidung 17:05): Gym-Kind mit 3/3 Pflicht-Etappen → Teil 2 geschafft/„wiederholung“, kein neuer Test offen; Stufe, Stempel und Sterne müssen zusammenpassen. Regression mit den echten Listen **und** eingespieltem lk_einspiel.
+**Befund 2 · `bau-lehrer`: `tl_s_rauchtest.sql` bricht ab:** „FEHLER 11: Wechsel hat Sterne oder Lernstand-Zeilen verändert“ (Schulartwechsel-Test) – auf dem echten Stand mit lk_einspiel davor. Klären: Fehler im Test oder ändert der Wechsel wirklich etwas?
+**Befund 3 · `bau-lehrer`: `wd_s_rauchtest.sql` scheitert nach der Teilung:** „FEHLER 6 Etappe 2 … rel_haeufigkeit … (Sterne +40, erwartet 140)“ – der Test erwartet „Flug abgelegt“ (+100) nach zwei abgelegten Etappen in der Einheit von Thema 61; nach Teilung und Einspiel hat 61 Teil 1 drei Etappen. Klären, ob nur die Testannahme veraltet ist oder „Flug abgelegt“ die Kür-Regel nicht beachtet (Teil 1: `darstellen` ist im Gymnasium Kür? → dann müsste der Flug als abgelegt gelten).
+Meldung: „FERTIG: TL-S 6“.
+**Befund 4 · `lehrplan-lb`: `nt_einspiel_2211.sql` bricht an der eigenen Prüfung ab:** „Rauchtest NT-D: 45 von 44 Aufgaben“ (nach lk_einspiel, vor TL-S). Zählung oder Daten berichtigen. Meldung: „FERTIG: NT-D 2“.
+
+### Entscheidung Sebastian (22.11., 20:20 Berlin) – nach dem Teilen gilt nur selbst Geschafftes
+
+„Leo geschafft nur, wenn er es selber geschafft hat. Den Rest kannst du erstmal wieder rausnehmen – den teilen wir später zu oder markieren ihn als geschafft.“
+**Regel (Lesart des Haupt-Chats, Sebastian vorgelegt):**
+1. Ein neuer Teil gilt nach dem Teilen nur dann als **geschafft** (Stempel, Erstabschluss, 100 Sterne), wenn das Kind **alle Pflicht-Etappen dieses Teils selbst gelandet** hat (Pflicht nach Schulart/Gruppe, Kür zählt nicht) und der frühere Flug-Test diese Etappen abgedeckt hat. Stufe, Stempel und Sterne müssen dabei übereinstimmen.
+2. **Alles andere wird nicht automatisch übertragen:** keine Vererbung von „Kann er komplett“ / „Kann er – aber wiederholen“ auf neue Teile, kein automatischer Plan-Platz für neue Teile, keine nachträglichen Stempel/Sterne ohne eigene Leistung. Teil 1 behält, was das alte Thema hatte.
+3. Neue Teile ohne eigene Leistung stehen danach **nicht im Plan** („noch nicht zugeteilt“). Sebastian teilt sie später zu oder markiert sie als geschafft (vorhandene Funktionen „einplanen“ / „Kann er“).
+4. Nach der Teilung liefert der Haupt-Chat Sebastian die Liste je Kind: neue Teile mit „selbst geschafft“, „teilweise selbst (x von y Pflicht-Etappen)“, „vom alten Thema gesetzt, jetzt offen“.
+Ersetzt die Vorgabe aus „Probelauf TL-S 2“ (Setzung vererbt sich) und Punkt 4 der „Entscheidung Teilung (16:20)“ nur insoweit, als Stempel/100 Sterne an eigene Leistung gebunden sind.
+**An `bau-lehrer` (TL-S 6):** so umsetzen; Abbruch-Vergleich: erlaubtes Delta = neue Teile „nicht im Plan“, Teil 1 unverändert; kein Lernstand geht verloren (gelandete Etappen bleiben gelandet, auch in nicht zugeteilten Teilen). Folgen prüfen: Visum/Reiseoptionen dürfen sich für kein Kind verschlechtern (ein vorher gesetztes Thema, das andere freigeschaltet hat, schaltet sie weiter frei – nötigenfalls über Teil 1 oder eine ausdrückliche Übergangsregel; bitte Lösung vorschlagen und melden).
+
+## Probelauf TL-S 6 / NT-D 2 – ganze Kette (23.11., echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 8d7170e. Reihenfolge: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → lk_einspiel → nt_einspiel (NT-D 2) → TL-S 6 (zweimal) → NT-S.
+
+- Alle acht Schritte laufen durch; TL-S zweimal ohne Änderung. `tl_s_rauchtest` grün. Danach grün: wd_s, wd_s3, fp_s, lw_s, nt_s.
+- Lernstand der Karten je Kind unverändert. Reiseoptionen je Kind unverändert. 97 → 105 Themen, 29854 → 30162 Aufgaben, Versuche unverändert.
+- Kind 2: „Terme umformen – Teil 2 von 2“ gilt als selbst geschafft (Stufe Wiederholung, Erstabschluss, +100 Sterne: 6170 → 6270). Alle anderen neuen Teile „nicht im Plan“. Teil 1 je Thema wie vorher.
+- Kind 1: keine Sterne-Änderung. Thema 15 wechselt von „dran“ auf „Wiederholung“: 12 von 12 Pflicht-Etappen gelandet, Erstabschluss vom 21.11. vorhanden, die 13. Etappe (Dualsystem) ist Kür. Folge der Regel „Stufe zählt die Pflicht-Etappen“ – gewollt.
+- **Offen (nur Test):** `lk_s_rauchtest` Teil 4 „Zweig ändert die Stufen“ schlägt nach TL-S fehl. Grund: Themen 44, 91, 233 haben für Gruppe I und II/III verschieden viele Pflicht-Etappen (5/4, 4/2, 4/2) – das ist die Fünf-Gruppen-Regel (T1). Die Testannahme ist überholt. → Nachtrag an bau-lehrer: Test anpassen (Vergleich ohne Etappenzahl oder nur Themen ohne Liste je Gruppe).
+
+PM 2 (Nachbau) übernommen: `inhalte/pruefmaterial/gym/nachbau/` (104 Arbeiten, 1370 Aufgaben), `inhalte/pruefmaterial/rs/nachbau/` (95 Arbeiten, 1389 Aufgaben). Keine PDFs, keine Originaltexte laut Meldung; Stichprobe einer Arbeit ohne Auffälligkeit.
+
+App 0.89.0 (LW-2): App-Tests 148 von 148.
+
+## Rückläufer Prüfung 951 (Werkstatt 952–955, 22.11. abends) – Nachtrag TL-S 7 / NT-S 2 an bau-lehrer
+
+Einig: Reihenfolge der Kette richtig; Kür-Etappe bleibt erreichbar (Kind 1, Thema 15); `lk_s_rauchtest` Teil 4 ist überholt, kein Fehler im Code.
+
+**Muss vor dem Einspielen (ChatGPT 953–955):**
+- **A1 (TL-S):** `tl_teilen` bucht den Erstabschluss eines neuen Teils über `tl_erledigt` (Karte selbst gelandet + Lernzielstand nachgewiesen/korrigiert/gesichert), ohne zu prüfen, dass ein alter bestandener Flug-Test jede Pflicht-Etappe des Teils abgedeckt hat. Verlangt: Prüfung direkt vor der Buchung (oder Nachweis per Invariante, dass der Lernzielstand nur über Flug-Test/Korrektur entsteht); Negativtests: kein gültiger alter Flug-Test bzw. Test ohne Aufgabe zu einer Pflicht-Etappe → kein Abschluss, keine Sterne.
+- **D1 (NT-S):** `nachtest_auswahl` liefert höchstens, nicht genau die verlangte Menge; `test_starten_intern` lehnt nur die leere Liste ab. Verlangt: je Pflicht-Etappe genau `nachtest_je_etappe` Aufgaben, sonst kein Teststart. Test: 1 Pflicht-Etappe mit 1–4 verfügbaren Aufgaben; echter Start mit 4 Etappen.
+
+**Sollte:**
+- A2: `stufe_etappen` bei ausdrücklich leerer Pflichtliste nicht über alle Kür-Etappen rechnen.
+- D2: Pflicht-Zählung in NT-S und `nachtest_vorrat` nach der Gruppe des Kindes (`pflicht_lernziele`), nicht nach der globalen Liste; Vorrat für RS II/III ausweisen.
+- lk_s Teil 4: nicht md5 über das ganze Stufen-JSON; stattdessen Lern-/Sternbuchungen unverändert und Etappenzahl = Pflichtliste der jeweiligen Gruppe.
+- App-Test: Thema in „Wiederholung“ mit offener Kür-Etappe ist startbar (bau-motivation, später).
+- Visum-Übergang (bewusste Ausnahme, dauerhaft): in der Liste je Kind als eigene Spalte zeigen; Sebastian bestätigt einmal.
+
+PM Gym Runde 3 übernommen (Kl. 8 um 22 Arbeiten erweitert).
+
+## Probelauf TL-S 7 / NT-S 2 – ganze Kette (23.11. früh, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 4240549. Reihenfolge: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → lk_einspiel → nt_einspiel (NT-D 2) → TL-S 7 (zweimal) → NT-S 2 (zweimal).
+
+- Alle Schritte ohne Fehler. **Alle Tests grün:** lk_s vor der Teilung, tl_s (mit Negativtests A1), danach wd_s, wd_s3, fp_s, lw_s, lk_s, nt_s.
+- Karten-Lernstand je Kind unverändert, Reiseoptionen je Kind unverändert, Versuche unverändert; 97 → 105 Themen, 29854 → 30162 Aufgaben.
+- Kind 2: „Terme umformen – Teil 2 von 2“ selbst geschafft, auch mit der Testabdeckung A1 (3 von 3 Pflicht-Etappen; Erstabschluss, +100 Sterne: 6170 → 6270). Vom alten Thema gesetzt, jetzt offen (nicht im Plan, Visum bleibt): Dreisatz Teil 2, Kongruenzabbildungen Teil 2 und Teil 3. Übrige neue Teile offen.
+- Kind 1: keine Buchung; alle neuen Teile offen, nicht im Plan.
+- Liste je Kind: `schule.tl_teile_je_kind` (Spalte `visum_aus_altem_thema`).
+
+## Nachtrag LW-2b an bau-motivation (Prüfung Gestalter `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw2.md`)
+
+Muss M1 (Handy: Reihenfolge-Warnung liegt hinter dem Detail-Blatt), Soll S1 (Warnungstext kürzen), Kann K1–K3. S2 und K4: kein Bau.
+
+## EINGESPIELT: Teilung (TL-S 7) mit ganzer Kette – 23.11., 00:25 Berlin
+
+Freigabe Sebastian („Teilung in die Datenbank einspielen“), Prüfung Werkstatt 958/959 (Freigabe). Migration `tl_s7_teilung_kette_einspielen`, Werkstatt-Änderung 379. Stand der Dateien: `lernen-app` b2fe4d3.
+
+- In einem Durchgang: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → lk_einspiel → nt_einspiel (NT-D 2) → TL-S 7 → NT-S 2.
+- Vorher geprüft: kein Kind in den letzten 30 Minuten aktiv, keine offene Test-Sitzung in den sieben Themen.
+- Ergebnis: 105 Themen, 30162 Aufgaben; Karten-Lernstand, Reiseoptionen, Versuche je Kind unverändert; Kind 2 ein Erstabschluss + 100 Sterne (6270), Kind 1 unverändert (4360), Thema 15 bei Kind 1 „Wiederholung“.
+- Danach auf dem echten Stand (Rollback): tl_s, wd_s, wd_s3, fp_s, lw_s, lk_s, nt_s grün.
+- Edge Function `lernen-api` bleibt 0.9.1; 0.9.2 (Wackelt-Status) mit App 0.89.x.
+- Neue Teile (Thema-ID): 276 Dreisatz T2, 277 Terme umformen T2, 278 Konstruktionen T2, 279/280 Kongruenzabbildungen T2/T3, 281 Zufall und Laplace T2, 282 Schrägbilder T2, 283 Prismen und Zylinder T2.
+- Offen für Sebastian (Liste je Kind): Kind 2 – „vom alten Thema gesetzt, jetzt offen“: 276, 279, 280; alle übrigen neuen Teile offen, nicht im Plan. Kind 1 – alle neuen Teile offen, nicht im Plan.
+- Visum-Übergang bleibt wie gebaut (dauerhaft); Sebastians ausdrückliche Bestätigung steht noch aus.

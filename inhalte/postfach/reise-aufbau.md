@@ -1,5 +1,28 @@
 # Postfach reise-aufbau
 
+## 2026-11-22 19:55 – FERTIG: Reise-Aufbau 4
+
+Grundlage: AUFTRAEGE `lernen-app` 456c6ec2, „Rückläufer ChatGPT 947–950“, Abschnitt „An reise-aufbau – Reise-Aufbau 4“. Nur Vorschlag – kein App-Code, keine DB-Änderung (DB nur gelesen).
+
+**Ergebnis:** Das Prüfskript lief neu gegen die aktuellen Themendateien und `lk_teilung_2211.json` (7 Themen, 15 Teile). Exit 0, keine Fehler.
+- **95 Flüge, 618 Städte:** jede Stadt einmal, alle in GeoNames im richtigen Land/Landesteil und mit Koordinaten.
+- **Datenbank:** unverändert (Prüfsumme identisch); 12 neue Etappen sind noch nicht dort.
+
+**Umgesetzt:**
+- **Drei neue Städte:**
+  - 20 `irrational_beweis` → Wieliczka (Polen)
+  - 61 Teil 1 `darstellen` → Auckland → Rotorua → Wellington (Teil 1 ist damit kein Kurzflug mehr)
+  - 91 Teil 1 `raumwinkel` → Asunción → San Bernardino → Encarnación → Ciudad del Este
+- **Prüfskript:** kennt die neuen Schlüssel `irrational_beweis`, `darstellen`, `raumwinkel` und übernimmt `kuer_in` aus der Teilungsliste. Die gespeicherte Selbstprüfung ist erneuert.
+- **Salomonen:** als **Insel-Ausnahme, kein Nachbarland** geführt (JSON `insel_ausnahme: true`, ebenso in Bericht und Prüfausgabe).
+- **Reserve Ozeanien:** 4 Gebiete – Mikronesien (6 Orte) und Palau (3 Orte, beide geografisch Ozeanien, aus der Pazifik-Reserve übernommen), Guam (8 Orte, neu), Australian Capital Territory (4 Orte).
+- **Reserve Pazifik** (Polynesien): Amerikanisch-Samoa (6), Wallis und Futuna (7, neu), Tuvalu (6, neu).
+
+**Offen:**
+- Die Pazifik-Orte sind kleine Dörfer; Palau und das Australian Capital Territory haben weniger als 6 Orte.
+- Weitere Möglichkeit für Ozeanien, nicht eingetragen: „Papua-Neuguinea – Inselregion“ ohne Bougainville (Flug 80 hieße dann „– Festland“).
+- 57 South Australia hat weiter keinen freien Nachbarn, falls es geteilt wird.
+
 ## 2026-11-22 17:30 – FERTIG: Reise-Aufbau 3
 
 Grundlage: AUFTRAEGE `lernen-app` 723770dd, „Entscheidungen Sebastian (17:05)“, Abschnitt „An reise-aufbau – Reise-Aufbau 3“. Nur Vorschlag – kein App-Code, keine DB-Änderung (DB nur gelesen). Dateien in `inhalte/reise/`.

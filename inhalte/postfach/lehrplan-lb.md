@@ -2,6 +2,73 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG NT-D 2 (lehrplan-lb)
+
+Grundlage: `lernen-app` af01ab5a, „Probelauf ganze Kette (20:10)“, Befund 4. Nichts eingespielt.
+
+- **Ursache von „45 von 44“:**
+  - Die neue Sicherung „Schreibe 10⁻³ als Dezimalzahl.“ (30 `negativer_exponent`) gibt es wortgleich schon als Übung in **Thema 19** (Einheit 42, Aufgabe 19820, gleiche Etappe `negativer_exponent`).
+  - `aufgaben_einfuegen` prüft Dubletten nur in der eigenen Einheit und hat richtig 44 eingefügt. Der Rauchtest zählte aber über alle Einheiten und fand deshalb 45.
+- **Berichtigung, beides:**
+  - Daten: Die Aufgabe heißt jetzt „Schreibe 2⁻³ als Dezimalzahl.“ (0,125) und hat keine Überschneidung mit Thema 19.
+  - Zählung: Der Rauchtest zählt nur Aufgaben der eigenen Themen bzw. ihrer Teile nach TL-S (`thema_id` = Thema oder `teil_stamm`). Gleiche Texte in anderen Themen stören nicht mehr. Prozentzeichen in Aufgabentexten sind für `format()` geschützt.
+- **Datei neu:** `inhalte/pruefung/lehrplan/nt_einspiel_2211.sql`, weiter 44 Aufgaben (35 Sicherung). Themendatei `terme.potenzgesetze.json` und Generator `_nt_2211.py` angepasst. Prüfskript ohne Fehler.
+- **Probelauf** auf einer Kopie mit wortgleicher Aufgabe in Thema 19:
+  - alte Fassung: „45 von 44“ (nachgestellt);
+  - neue Fassung nach lk_einspiel: Lauf 1 +44, Lauf 2 0, Rauchtest grün;
+  - nach nachgestellter Teilung (Einheit unter Teil-Thema): grün.
+- **Hinweis für den Haupt-Chat:** Ist die alte Fassung im echten Probelauf schon teilweise eingespielt gewesen, ist das zurückgerollt worden (Abbruch in der Transaktion). Die neue Fassung kann normal laufen.
+
+FERTIG: NT-D 2
+
+## 2026-11-22 – MELDUNG NT-D und Thema 57 (lehrplan-lb)
+
+Grundlage: `lernen-app` 0149e285: „Bau-Auftrag NT“ (NT-D) mit der Fehlliste aus „FERTIG: NT-S“ und „Rückläufer ChatGPT 947–950“ (An lehrplan-lb). Nichts eingespielt.
+
+- **Sicherungs-Aufgaben nach der Fehlliste**, je Etappe mindestens zwei Aufgabentypen:
+  - 46 `punktspiegelung` +9 (6 → 15)
+  - 91 `rotation` +3, `axialschnitt` +3 (→ je 9)
+  - 101 `cavalieri` +9 (6 → 15)
+  - 44 `vierecke` +3, `vierecke_konstruieren` +3 (→ je 9)
+  - 30 `potenz_begriff` +3 (→ 9), `negativer_exponent` +2 (→ 9)
+- **Ohne neue Aufgaben:** Die Etappen, die NT-S mit „0 vorhanden“ zählte (`darstellen`, `wahre_groesse`, `raumwinkel`, `gleichungen_binomisch`, `vektor_koordinaten`, `vektor_drehen`, `koerper_symmetrie`), bringen mit `lk_einspiel_2211.sql` je 6 Sicherungen mit. Das deckt den Bedarf von 6.
+- **57 `irrefuehrend`:** 9 neue Übungen (Stufe 1–3) zu „verzerrte Diagramme berichtigen/verbessern“: Achse ab 0 neu zeichnen, ehrliche Säulenhöhen, Zeitachse, Bildsymbole, Kreissektor, 3D-Kreisdiagramm.
+- **Inhalte:** `inhalte/generatoren/_nt_2211.py`, eingehängt am Ende der sechs Generatoren; diese erzeugen die Dateien unverändert.
+  - Texte selbst formuliert, Lösungen berechnet.
+  - Prüfskript ohne Fehler, Tests 141/141.
+- **SQL:** `inhalte/pruefung/lehrplan/nt_einspiel_2211.sql`, 44 Aufgaben (35 Sicherung), nur INSERT über `aufgaben_einfuegen`, wiederholbar.
+- **Reihenfolge:** **nach** `lk_einspiel_2211.sql` (sonst bricht es bei 101 `cavalieri` mit Hinweis ab), am besten **vor** TL-S.
+  - Es läuft auch nach TL-S: Es sucht die Einheit, deren Etappen-Katalog die Etappe enthält (Thema oder Teil über `teil_stamm`).
+- **Probelauf** auf einer Kopie der betroffenen Einheiten mit den echten Schutz-Triggern und `aufgaben_einfuegen`:
+  - ohne LK-Einspiel: Abbruch mit Hinweis;
+  - danach Lauf 1: +44, Lauf 2: 0; Einheiten unverändert;
+  - Weg nach der Teilung nachgestellt (Einheit unter Teil-Thema): gefunden.
+- **Hinweis:** `lk_einspiel_2211.sql` habe ich nicht neu erzeugt; es bleibt wie geliefert. Neu erzeugt würde es die NT-Aufgaben zu `cavalieri` und `vierecke_konstruieren` mitnehmen. NT-D fügt sie dann nicht doppelt ein.
+
+FERTIG: NT-D
+
+## 2026-11-22 – MELDUNG LK-D Einspiel (lehrplan-lb)
+
+Grundlage: `lernen-app` 2da31319, „Probelauf TL-S 4 (18:55)“, letzter Punkt. Nichts eingespielt.
+
+- **Datei:** `inhalte/pruefung/lehrplan/lk_einspiel_2211.sql`, erzeugt von `inhalte/generatoren/_lk_einspiel_2211.py` aus den Themen- und Kann-Dateien.
+  - Umfang: 12 Etappen, 264 Aufgaben aller Pools (je 12 Übung, 1 Test, 3 Korrektur, 6 Sicherung), 12 Kann-Sätze.
+  - Enthalten: 46 `vektor_koordinaten`/`vektor_drehen`, 47 `streckung_vektor`, 44 `vierecke_konstruieren`, 99 `drachen_raute`, 91 `wahre_groesse`/`koerper_symmetrie`/`raumwinkel`, 101 `cavalieri`, 29 `gleichungen_binomisch`, 61 `darstellen`, 20 `irrational_beweis`.
+- **Reihenfolge: VOR der Teilung** – nach lk_korrektur und LK-S, vor `20261123_tl_s_teilung.sql`.
+  - Grund: `tl_teilen` verteilt nach dem Etappen-Katalog der Einheit und überspringt Etappen, die es noch nicht gibt. Vorher eingespielt, ziehen Etappe, Aufgaben (gleiche Ids) und Kann-Satz mit TL-S in den richtigen Teil, und 101 Teil 2 wird keine leere Hülle.
+  - Nach einer Teilung bricht das SQL ab (Prüfung auf `thema.teil_von`; Gegenprobe gemacht).
+- **Abweichung vom Muster:** Aufgaben und Kann-Sätze sind nur INSERT. Der **Etappen-Eintrag in der Einheit geht nicht mit INSERT**, weil die Etappen in `einheit.inhalt` stehen und alle 9 Einheiten freigegeben sind (`einheit_schutz`).
+  - Das SQL setzt die Einheit deshalb wie TL-S nur für diesen Schritt kurz auf 'geprueft', hängt Lernkarte, Teilfähigkeit und Vertiefungs-Lernziel an und setzt den alten Status zurück.
+  - Kein DELETE, kein DROP. Bitte bewusst freigeben.
+- **Pflicht/Kür:** Die neuen Etappen kommen als Vertiefung (wie in den Dateien); bestehende Flüge, Tests und Stempel ändern sich nicht. Pflicht je Schulart setzt danach TL-S (`pflicht_je_schulart`).
+  - Offen für bau-lehrer: 20, 47 und 99 werden nicht geteilt – setzt TL-S dort auch `pflicht_je_schulart`?
+- **Probelauf** auf einer Kopie der 9 Einheiten aus der echten DB (Einheit, Aufgaben, Kann-Texte, echte Schutz-Trigger und `aufgaben_einfuegen`):
+  - Lauf 1: +264 Aufgaben, +12 Kann-Sätze, 12 Etappen angelegt; alle Einheiten danach wieder freigegeben.
+  - Lauf 2: ohne Wirkung.
+  - Rauchtest grün.
+
+FERTIG: LK-D Einspiel
+
 ## 2026-11-22 – MELDUNG LK-D 4, Ergänzung „Rückläufer ChatGPT 942/943“ (lehrplan-lb)
 
 Grundlage: `lernen-app` d722a791. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten in `lk_teilung_2211.md`, Abschnitt „LK-D 4“.

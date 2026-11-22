@@ -30,7 +30,7 @@ K = {  # Kürzel -> thema_schluessel
  "IND": "groessen.indirekt", "FGB": "funktionen.gebrochen", "BT": "terme.bruchterme",
  "PGZ": "terme.potenzgesetze_ganzzahlig", "BG": "gleichungen.bruch", "FO": "gleichungen.formeln",
  "STO": "stochastik.grundbegriffe", "LGS": "gleichungen.lgs2", "KRB": "messen.kreisberechnung",
- "KD": "messen.koerper_darstellung", "PZY": "messen.prisma_zylinder",
+ "KD": "messen.koerper_darstellung", "PZY": "messen.prisma_zylinder", "IV": "zahlen.intervalle",
 }
 
 ISB = "https://www.isb.bayern.de/fileadmin/user_upload/Gymnasium/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/"
@@ -628,6 +628,9 @@ BMT(2009, "A", "2009/bmt8-2009-aufgaben-gruppe-a.pdf", """
 10b;1;II;K1;Winkel;WS:figuren;zweiten Winkel begründen;Grad;
 """)
 
+exec(open(os.path.join(HIER, "_daten2.py")).read())
+exec(open(os.path.join(HIER, "_daten3.py")).read())
+
 # ---------------------------------------------------------------- Aufbau
 def laden():
     liste = json.load(open(os.path.join(WURZEL, "inhalte/themenliste.json")))
@@ -657,7 +660,7 @@ def main():
                 fehler.append(f"{a['arbeit_id']}: Feldzahl {len(t)}: {z}"); continue
             nr, pkt, niv, komp, typ, zu, kurz, gr, bes = [s.strip() for s in t]
             r = dict(arbeit_id=a["arbeit_id"], klasse=a["klasse"], aufgabe=nr,
-                     punkte=None if pkt == "?" else int(pkt), niveau=niv, kompetenz=komp, typ=typ,
+                     punkte=None if pkt == "?" else (int(float(pkt)) if float(pkt).is_integer() else float(pkt)), niveau=niv, kompetenz=komp, typ=typ,
                      kurzbeschreibung=kurz, groessenordnung=gr, besonderheit=bes or None,
                      status="zugeordnet", thema_schluessel=None, thema_klasse=None, etappe=None,
                      etappe_titel=None, teil=None, lernbereich=None, vorschlag=None)
@@ -688,6 +691,13 @@ def main():
     for a in ARBEITEN:
         m = {k: v for k, v in a.items() if k != "aufgaben"}
         m["abruf"] = ABRUF
+        bl = m.get("bundesland") or ""
+        if bl.startswith("Bayern") and any(w in m["art"] for w in ("Realschule", "Mittelschule", "Hauptschule")):
+            m["kategorie"] = "B Bayern amtlich, andere Schulart"
+        elif bl.startswith("Bayern"):
+            m["kategorie"] = "A Gymnasium Bayern"
+        else:
+            m["kategorie"] = "C Bundesland unbekannt/anders oder Verlag"
         rs = [r for r in zeilen if r["arbeit_id"] == a["arbeit_id"]]
         m["anzahl_aufgaben"] = len(rs)
         m["themen_gemeinsam"] = sorted({r["thema_schluessel"] for r in rs if r["thema_schluessel"]})
@@ -708,7 +718,7 @@ def main():
                    f"- Quelle: <{m['quelle']}> (abgerufen {ABRUF}) · Herausgeber: {m['herausgeber']} · {m['lizenz']}",
                    f"- Art: {m['art']} · Nummer/Zeitpunkt: {m['nummer']} · Jahr: {m.get('jahr') or 'unbekannt'} · Bundesland: {m['bundesland']}",
                    f"- Zeit: {m.get('zeit_min') or '?'} min · Punkte: {m.get('punkte_gesamt') or '?'} · Hilfsmittel: {m['hilfsmittel']} · frei zugänglich: {'ja' if m['frei'] else 'nein'}",
-                   f"- Passung: {m['passung']}",
+                   f"- Passung: {m['passung']} · Kategorie: {m['kategorie']}",
                    f"- Gemeinsam geprüfte Themen: {', '.join(m['themen_gemeinsam']) or '–'}", "",
                    "| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |", "|---|---|---|---|---|---|---|"]
             for r in rs:
@@ -729,7 +739,9 @@ def main():
         rs = [r for r in zeilen if r["klasse"] == kl]
         print("Arbeiten", len(ms), "Aufgaben", len(rs))
         for gruppe, filt in (("alle", lambda m: True), ("BMT8", lambda m: m["arbeit_id"].startswith("G8-B")),
-                             ("ohne BMT8", lambda m: not m["arbeit_id"].startswith("G8-B"))):
+                             ("ohne BMT8", lambda m: not m["arbeit_id"].startswith("G8-B")),
+                             ("Kat A", lambda m: m["kategorie"].startswith("A")), ("Kat B", lambda m: m["kategorie"].startswith("B")),
+                             ("Kat C", lambda m: m["kategorie"].startswith("C"))):
             ids = {m["arbeit_id"] for m in ms if filt(m)}
             sub = [r for r in rs if r["arbeit_id"] in ids]
             if not sub: continue

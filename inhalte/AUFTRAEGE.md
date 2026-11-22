@@ -2946,3 +2946,14 @@ Läuft: lk_korrektur, FP-S 4, LW-S 2, LK-S, lk_einspiel (+264 Aufgaben), TL-S 5 
 **Befund 3 · `bau-lehrer`: `wd_s_rauchtest.sql` scheitert nach der Teilung:** „FEHLER 6 Etappe 2 … rel_haeufigkeit … (Sterne +40, erwartet 140)“ – der Test erwartet „Flug abgelegt“ (+100) nach zwei abgelegten Etappen in der Einheit von Thema 61; nach Teilung und Einspiel hat 61 Teil 1 drei Etappen. Klären, ob nur die Testannahme veraltet ist oder „Flug abgelegt“ die Kür-Regel nicht beachtet (Teil 1: `darstellen` ist im Gymnasium Kür? → dann müsste der Flug als abgelegt gelten).
 Meldung: „FERTIG: TL-S 6“.
 **Befund 4 · `lehrplan-lb`: `nt_einspiel_2211.sql` bricht an der eigenen Prüfung ab:** „Rauchtest NT-D: 45 von 44 Aufgaben“ (nach lk_einspiel, vor TL-S). Zählung oder Daten berichtigen. Meldung: „FERTIG: NT-D 2“.
+
+### Entscheidung Sebastian (22.11., 20:20 Berlin) – nach dem Teilen gilt nur selbst Geschafftes
+
+„Leo geschafft nur, wenn er es selber geschafft hat. Den Rest kannst du erstmal wieder rausnehmen – den teilen wir später zu oder markieren ihn als geschafft.“
+**Regel (Lesart des Haupt-Chats, Sebastian vorgelegt):**
+1. Ein neuer Teil gilt nach dem Teilen nur dann als **geschafft** (Stempel, Erstabschluss, 100 Sterne), wenn das Kind **alle Pflicht-Etappen dieses Teils selbst gelandet** hat (Pflicht nach Schulart/Gruppe, Kür zählt nicht) und der frühere Flug-Test diese Etappen abgedeckt hat. Stufe, Stempel und Sterne müssen dabei übereinstimmen.
+2. **Alles andere wird nicht automatisch übertragen:** keine Vererbung von „Kann er komplett“ / „Kann er – aber wiederholen“ auf neue Teile, kein automatischer Plan-Platz für neue Teile, keine nachträglichen Stempel/Sterne ohne eigene Leistung. Teil 1 behält, was das alte Thema hatte.
+3. Neue Teile ohne eigene Leistung stehen danach **nicht im Plan** („noch nicht zugeteilt“). Sebastian teilt sie später zu oder markiert sie als geschafft (vorhandene Funktionen „einplanen“ / „Kann er“).
+4. Nach der Teilung liefert der Haupt-Chat Sebastian die Liste je Kind: neue Teile mit „selbst geschafft“, „teilweise selbst (x von y Pflicht-Etappen)“, „vom alten Thema gesetzt, jetzt offen“.
+Ersetzt die Vorgabe aus „Probelauf TL-S 2“ (Setzung vererbt sich) und Punkt 4 der „Entscheidung Teilung (16:20)“ nur insoweit, als Stempel/100 Sterne an eigene Leistung gebunden sind.
+**An `bau-lehrer` (TL-S 6):** so umsetzen; Abbruch-Vergleich: erlaubtes Delta = neue Teile „nicht im Plan“, Teil 1 unverändert; kein Lernstand geht verloren (gelandete Etappen bleiben gelandet, auch in nicht zugeteilten Teilen). Folgen prüfen: Visum/Reiseoptionen dürfen sich für kein Kind verschlechtern (ein vorher gesetztes Thema, das andere freigeschaltet hat, schaltet sie weiter frei – nötigenfalls über Teil 1 oder eine ausdrückliche Übergangsregel; bitte Lösung vorschlagen und melden).

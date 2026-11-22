@@ -36,6 +36,10 @@
 -- (Trigger, nichts gelöscht). Daten: supabase/werkzeug/tl_s_daten.py (aus lk_teilung_2211.json, auch art_je_schulart der Kanten).
 -- TL-S 4 (Probelauf 18:30): „Zusatz“ in art_je_schulart heißt, der abhängige Teil ist dort Zusatz – die Kante bleibt (kein „empfohlen“); nur die
 -- Voraussetzung als Zusatz schwächt ab. Teil 1 wird nur dann „zusatz“ im Plan, wenn am Ort kein anderes Thema liegt (Ort 86: 52 und 101).
+-- TL-S 6 (Entscheidung 20:20 „nach dem Teilen gilt nur selbst Geschafftes“, Probelauf 20:10): neuer Teil geschafft (Stempel, Erstabschluss, 100 Sterne)
+-- nur, wenn das Kind alle Pflicht-Etappen des Teils selbst gelandet hat und der Flug-Test sie abgedeckt hat; keine Vererbung von Setzung oder Plan-Platz,
+-- Teil 1 unverändert; Visum-Übergang (schule.visum_uebergang), damit sich Reiseoptionen für kein Kind verschlechtern; Stufe zählt die Pflicht-Etappen
+-- (schule.stufe_etappen); Liste je Kind: schule.tl_teile_je_kind.
 -- TL-S 5 (ChatGPT 947–950): T1 fünf Gruppen (gym_by, rs_I, rs_II_III, myp_standard, myp_extended) für Pflicht, Zusatz, Visum, Plan und Lehrer-Ansicht –
 -- schule.kind_gruppe; lernender.zweig auch für IB. T2 ausdrücklich leere Pflichtliste = keine Pflicht (kein Rückfall auf „alle Etappen“, kein Stempel,
 -- kein Ort-Abschluss, kein „Flug abgelegt“ allein durch Kür). T4 Reihenfolge: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → LK-D Einspiel → TL-S (sonst Abbruch).
@@ -108,6 +112,20 @@ create table if not exists schule.voraussetzung_schulart (
   constraint voraussetzung_schulart_gruppe_check check (gruppe in ('gym_by', 'rs_I', 'rs_II_III', 'myp_standard', 'myp_extended'))
 );
 alter table schule.voraussetzung_schulart enable row level security;
+-- TL-S 6 (c): Visum-Übergang je Kind – Ort eines neuen Teils gilt für das Visum als erfüllt, weil das Kind das alte Thema vor der Teilung geschafft
+-- oder gesetzt hatte (grund 'fertig' | 'gesetzt'). Nur für Reiseoptionen/Visum; kein Stempel, keine Sterne, kein Plan-Platz.
+create table if not exists schule.visum_uebergang (
+  lernender_id bigint not null references schule.lernender(id) on delete cascade,
+  block_id bigint not null references schule.block(id),
+  von_block_id bigint references schule.block(id),
+  grund text not null,
+  angelegt_am timestamptz not null default now(),
+  primary key (lernender_id, block_id),
+  constraint visum_uebergang_grund_check check (grund in ('fertig', 'gesetzt'))
+);
+alter table schule.visum_uebergang enable row level security;
+comment on table schule.visum_uebergang is 'TL-S 6: Ort eines neuen Teils gilt für das Visum als erfüllt (altes Thema vor der Teilung geschafft/gesetzt) – Reiseoptionen verschlechtern sich nicht';
+revoke all on schule.visum_uebergang from public, anon, authenticated;
 comment on table schule.voraussetzung_schulart is 'TL-S: abweichende Art einer Voraussetzung je Gruppe (gym_by, rs_I, rs_II_III, myp_standard, myp_extended; Zusatz-Regel); ohne Eintrag gilt schule.voraussetzung.art';
 
 create temp table if not exists tl_visum_vorher (ort_id bigint, braucht_ort_id bigint) on commit drop;
@@ -225,18 +243,7 @@ do $$ begin
   end if;
 end $$;
 
--- TL-S 3 (Probelauf 18:05): Setzung „Kann er komplett“ / „Kann er – aber wiederholen“ gilt auch auf einem Zusatz-Eintrag im Plan. Sonst verliert ein
--- Zusatz-Teil eines gesetzten Themas (z. B. 46 Teil 2 im Gymnasium) seine Setzung. Gesetzt bleibt gesetzt, Plan-Art bleibt „zusatz“.
-do $$
-declare d text; a text := $a$r.art = 'normal' and r.status <> 'entfernt'$a$; n text := $a$r.art in ('normal', 'zusatz') /* TL-S: auch Zusatz */ and r.status <> 'entfernt'$a$; f text;
-begin
-  foreach f in array array['schule.thema_kann_schon(bigint, bigint)', 'schule.thema_kann_wdh(bigint, bigint)'] loop
-    d := pg_get_functiondef(f::regprocedure);
-    if position('TL-S: auch Zusatz' in d) > 0 then raise notice '% schon umgestellt', f; continue; end if;
-    if (length(d) - length(replace(d, a, ''))) / length(a) <> 1 then raise exception 'TL-S: Anker in % nicht eindeutig', f; end if;
-    execute replace(d, a, n);
-  end loop;
-end $$;
+-- (TL-S 6: der Umbau aus TL-S 3 – Setzung auch auf Zusatz-Einträgen – entfällt; neue Teile erben keine Setzung mehr)
 
 -- thema_stufe (B2): ein Teil ohne Pflicht-Etappe für das Kind hat keinen Zwangstest; Fehler in Kür-Etappen machen den Flug nicht „dran“
 do $$
@@ -274,6 +281,34 @@ begin
   else raise exception 'TL-S: Anker in ort_stand nicht genau einmal gefunden'; end if;
 end $$;
 
+-- TL-S 6 (Probelauf 20:10, Befund 1): thema_stufe zählt Etappen, Landungen, Sicherheit und „wieder offen“ über die Etappen der Regel
+-- (Pflicht-Etappen des Kindes; ohne Liste oder bei leerer Liste alle Etappen). Sonst steht z. B. 29 Teil 2 für ein Gym-Kind mit 3/3 Pflicht auf „dran“,
+-- weil die Kür-Etappe gleichungen_binomisch nicht gelandet ist – obwohl Stempel und 100 Sterne gebucht sind.
+create or replace function schule.stufe_etappen(p_l bigint, p_e bigint)
+ returns text[] language sql stable set search_path to ''
+as $function$
+  with kat as (select array(select x->>'lernziel' from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) x where e.id = p_e) a),
+       pf as (select schule.pflicht_lernziele(p_l, p_e) a)
+  select case when pf.a is null or cardinality(pf.a) = 0 then kat.a
+              else array(select x from unnest(kat.a) x where x = any(pf.a)) end
+    from kat, pf;
+$function$;
+comment on function schule.stufe_etappen(bigint, bigint) is 'TL-S 6: Etappen, nach denen sich die Stufe eines Flugs für ein Kind richtet – Pflicht-Etappen (Regel), ohne/leere Liste alle Etappen';
+revoke all on function schule.stufe_etappen(bigint, bigint) from public, anon, authenticated;
+do $$
+declare d text;
+  a1 text := $a$    select count(*) into v_n from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) x where e.id = v_e;$a$;
+  b1 text := $a$    v_n := cardinality(schule.stufe_etappen(p_l, v_e)); -- TL-S 6: Etappen der Regel$a$;
+  a2 text := $a$       and k.lernziel in (select x->>'lernziel' from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) x where e.id = v_e);$a$;
+  b2 text := $a$       and k.lernziel = any(schule.stufe_etappen(p_l, v_e)); -- TL-S 6$a$;
+begin
+  d := pg_get_functiondef('schule.thema_stufe(bigint, bigint)'::regprocedure);
+  if position('TL-S 6' in d) > 0 then raise notice 'thema_stufe (TL-S 6) schon umgestellt'; return; end if;
+  if (length(d) - length(replace(d, a1, ''))) / length(a1) <> 1 or (length(d) - length(replace(d, a2, ''))) / length(a2) <> 1 then
+    raise exception 'TL-S 6: Anker in thema_stufe nicht genau einmal gefunden'; end if;
+  execute replace(replace(d, a1, b1), a2, b2);
+end $$;
+
 -- Leser der Pflichtliste ohne lernziel_stand: wdh_ablegen („Flug abgelegt“) und konto_wd (Etappen je Flug) – auf die Liste des Kindes umstellen
 do $$
 declare d text; a text; n text;
@@ -290,6 +325,18 @@ begin
   if position(n in d) > 0 then raise notice 'konto_wd schon umgestellt';
   elsif (length(d) - length(replace(d, a, ''))) / length(a) = 1 then execute replace(d, a, n);
   else raise exception 'TL-S: Anker in konto_wd nicht eindeutig'; end if;
+end $$;
+
+-- TL-S 6 (c): Reiseoptionen zählen Orte aus dem Visum-Übergang wie geschaffte Orte (nur für „Visum fehlt“)
+do $$
+declare d text := pg_get_functiondef('schule.reiseoptionen(bigint)'::regprocedure);
+  a text := $a$ok as (select block_id from st where status = 'fertig' or kann_schon)$a$;
+  n text := $a$ok as (select block_id from st where status = 'fertig' or kann_schon
+         union select u.block_id from schule.visum_uebergang u where u.lernender_id = p_lernender /* TL-S 6: Visum-Übergang */)$a$;
+begin
+  if position('visum_uebergang' in d) > 0 then raise notice 'reiseoptionen (Visum-Übergang) schon umgebaut'; return; end if;
+  if (length(d) - length(replace(d, a, ''))) / length(a) <> 1 then raise exception 'TL-S 6: Anker in reiseoptionen nicht genau einmal gefunden'; end if;
+  execute replace(d, a, n);
 end $$;
 
 -- Stand vorher – nach den gewollten Regel-Änderungen (Kür zählt nicht, B2), vor der Teilung
@@ -318,8 +365,11 @@ $function$;
 create or replace function schule.tl_erledigt(p_l bigint, p_e bigint, p_lz text)
  returns boolean language sql stable set search_path to ''
 as $function$
-  select exists (select 1 from schule.karte_stand k where k.lernender_id = p_l and k.einheit_id = p_e and k.lernziel = p_lz and (k.sitzt or k.gesetzt_am is not null))
-      or exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_l and s.einheit_id = p_e and s.lernziel = p_lz and s.status in ('nachgewiesen', 'korrigiert', 'gesichert'));
+  -- TL-S 6 (Entscheidung 20:20): nur selbst Geschafftes – Etappe selbst gelandet (nicht gesetzt) UND vom Flug-Test abgedeckt
+  select exists (select 1 from schule.karte_stand k where k.lernender_id = p_l and k.einheit_id = p_e and k.lernziel = p_lz
+                  and (k.sitzt or k.sitzt_am is not null) and k.gesetzt_am is null)
+     and exists (select 1 from schule.lernziel_stand s where s.lernender_id = p_l and s.einheit_id = p_e and s.lernziel = p_lz
+                  and s.status in ('nachgewiesen', 'korrigiert', 'gesichert'));
 $function$;
 
 -- Ort eines Teils auf den Ort von Teil 1 abbilden (für die erlaubten Delta-Regeln bei Reiseoptionen und Visum)
@@ -472,8 +522,7 @@ begin
      where einheit_id = v_e.id and lernziel = any(v_et) and bezug = 'etappe:' || v_e.id || ':' || lernziel;
     update schule.sterne s set bezug = regexp_replace(s.bezug, '^(landung|wdh):' || v_e.id || ':', '\1:' || v_ne || ':')
      where s.bezug ~ ('^(landung|wdh):' || v_e.id || ':') and split_part(s.bezug, ':', 3) = any(v_et);
-    -- Stufen-Einträge der Kinder („Kann er …“ gilt für das ganze Thema)
-    update schule.lernender set stufen = stufen || jsonb_build_object(v_th::text, stufen->v_alt::text) where stufen ? v_alt::text;
+    -- (TL-S 6: keine Vererbung von „Kann er …“-Stufen auf neue Teile – Entscheidung 20:20)
     v_ids := v_ids || v_th; v_einh := v_einh || v_ne; v_bl := v_bl || v_nb;
   end loop;
 
@@ -489,31 +538,15 @@ begin
   select count(*) into v_verbl from schule.aufgabe a where a.einheit_id = v_e.id and a.pool <> 'expedition' and not coalesce(a.variante_gruppe, '') = any(array(select jsonb_array_elements_text(v_teil_et->'1')));
   select count(*) into v_exp from schule.aufgabe a where a.einheit_id = v_e.id and a.pool = 'expedition';
 
-  -- Plan: neue Orte direkt hinter dem bisherigen Ort (Kinder, die ihn im Plan haben)
-  -- Teil 1 ist in der Schulart des Kindes Zusatz (z. B. 101 Teil 1 in der Realschule): offener Pflicht-Eintrag wird „zusatz“
-  -- (nur wenn am Ort kein anderes Thema liegt, das für das Kind Pflicht bleibt – z. B. Ort 86: 52 und 101)
-  update schule.route ro set art = 'zusatz', geaendert_von = 'TL-S', geaendert_am = now()
-   where ro.block_id = b.id and ro.art = 'normal' and ro.status not in ('fertig', 'entfernt')
-     and not exists (select 1 from schule.block_thema bo where bo.block_id = b.id and bo.thema_id <> v_alt)
-     and schule.kind_gruppe(ro.lernender_id) = any(array(select jsonb_array_elements_text(p->'teile'->0->'zusatz')));
-  for r in select * from schule.route where block_id = b.id order by lernender_id, id loop
-    for v_k in 2 .. v_n loop
-      continue when jsonb_array_length(v_teil_et->v_k::text) = 0;
-      v_pos := (select x.position from schule.route x where x.id = r.id) + v_k - 1;   -- aktuelle Position (kann sich durch frühere Einfügungen verschoben haben)
-      update schule.route set position = position + 1 where lernender_id = r.lernender_id and position >= v_pos;   -- route_pos ist deferrable
-      v_tp := p->'teile'->(v_k - 1);
-      insert into schule.route (lernender_id, block_id, position, art, status, kann_schon, ziel_themen, geaendert_von, geaendert_am, ausgelassen, status_vor_entfernen,
-                                kann_schon_themen, kann_wdh_themen)
-      values (r.lernender_id, v_bl[v_k - 1], v_pos,
-              case when schule.kind_gruppe(r.lernender_id) = any(array(select jsonb_array_elements_text(v_tp->'zusatz')))
-                   then 'zusatz' else r.art end,
-              case r.status when 'fertig' then 'offen' when 'laeuft' then 'offen' else r.status end, r.kann_schon,
-              case when v_alt = any(r.ziel_themen) then array[v_ids[v_k]] end, 'TL-S', now(),
-              case when v_alt = any(r.ausgelassen) then array[v_ids[v_k]] else '{}'::bigint[] end, r.status_vor_entfernen,
-              case when v_alt = any(r.kann_schon_themen) then array[v_ids[v_k]] else '{}'::bigint[] end,
-              case when v_alt = any(r.kann_wdh_themen) then array[v_ids[v_k]] else '{}'::bigint[] end);
-    end loop;
-  end loop;
+  -- Plan (TL-S 6, Entscheidung 20:20): neue Teile bekommen KEINEN Plan-Platz und erben keine Setzung; Teil 1 behält den bisherigen Plan-Eintrag unverändert.
+  -- Nur ein selbst geschaffter Teil kommt als „fertig“ in den Plan (unten). Sebastian teilt die übrigen später zu oder setzt sie.
+  -- (c) Visum-Übergang: Hatte das Kind das alte Thema geschafft oder gesetzt (Ort „fertig“ oder „Kann er“ am Ort), gilt der Ort jedes neuen Teils für das
+  -- Visum als erfüllt – so verschlechtern sich die Reiseoptionen für kein Kind (z. B. 93 ← 26 Teil 2, 31/8/97 ← 29 Teil 2).
+  insert into schule.visum_uebergang (lernender_id, block_id, von_block_id, grund)
+  select ro.lernender_id, nb.b, b.id, case when ro.status = 'fertig' then 'fertig' else 'gesetzt' end
+    from schule.route ro cross join unnest(v_bl) nb(b)
+   where ro.block_id = b.id and ro.art = 'normal' and ro.status <> 'entfernt' and (ro.status = 'fertig' or ro.kann_schon or v_alt = any(ro.kann_schon_themen))
+  on conflict (lernender_id, block_id) do nothing;
 
   -- Vollständig übernommene neue Teile: Flug-Abschluss (Stempel) und Ort „fertig“ (100 Sterne über route_sterne)
   for v_k in 2 .. v_n loop
@@ -581,32 +614,23 @@ begin
   select jsonb_object_agg(k, jsonb_build_object('vorher', v_vor->k->'fest', 'nachher', v_nach->k->'fest')) into v_diff
     from (select jsonb_object_keys(v_vor) k) x where (v_vor->k->'fest') is distinct from (v_nach->k->'fest');
   if v_diff is not null then raise exception 'TL-S: Thema % – Vorher/Nachher je Kind verschieden: %', v_alt, v_diff; end if;
-  -- B4 erlaubte Deltas (jede andere Abweichung bricht ab):
-  --   • im Plan, gesetzt (kann schon / kann wiederholen) und Rückreise: jeder Teil wie das Thema vorher;
-  --   • Etappen, begonnen, gelandet, sicher, wieder offen: verteilen sich ohne Verlust auf die Teile (Summe wie vorher);
-  --   • die Stufe je Teil ergibt sich neu aus seinen Etappen (z. B. Teil 1 schon gelandet → „wiederholung“) – sie wird nicht verglichen;
-  --   • Reiseoptionen: gleich, wenn neue Orte auf den Ort von Teil 1 abgebildet werden.
+  -- B4 erlaubte Deltas (TL-S 6, Entscheidung 20:20; jede andere Abweichung bricht ab):
+  --   • Teil 1: im Plan, gesetzt und Rückreise wie das Thema vorher;
+  --   • neue Teile: nicht gesetzt, keine Rückreise, im Plan nur, wenn selbst geschafft (dann „fertig“); sonst „nicht zugeteilt“;
+  --   • Karten und Lernziel-Stand: Zeile für Zeile wie vorher (über „fest“, auf die Teile verteilt) – kein Lernstand geht verloren;
+  --   • die Stufe je Teil ergibt sich neu aus seinen Pflicht-Etappen – sie wird nicht verglichen;
+  --   • Reiseoptionen: gleich, wenn neue Orte auf den Ort von Teil 1 abgebildet werden (Visum-Übergang, s. o.).
   select jsonb_object_agg(k, jsonb_build_object('vorher', v_vor->k->'neu'->'stufen'->v_alt::text, 'nachher', v_nach->k->'neu'->'stufen',
                                                 'reise_vorher', v_vor->k->'neu'->'reise', 'reise_nachher', v_nach->k->'neu'->'reise')) into v_diff
     from (select jsonb_object_keys(v_vor) k) x
-   where exists (select 1 from unnest(v_ids) i, unnest(array['im_plan', 'gesetzt', 'rueckreise']) f
-                  where (v_nach->k->'neu'->'stufen'->i::text->f) is distinct from (v_vor->k->'neu'->'stufen'->v_alt::text->f)
-                    -- Zusatz-Teil in der Schulart des Kindes: steht als „zusatz“ im Plan (thema_stufe zählt nur „normal“) – erlaubt
-                    -- leerer Teil (Etappen noch nicht in der Datenbank): nicht im Plan – erlaubt
-                    and not (f = 'im_plan' and (v_nach->k->'neu'->'stufen'->i::text->>'etappen')::int = 0)
-                    and not (f = 'im_plan' and (v_nach->k->'neu'->'stufen'->i::text->>'im_plan')::boolean is false
-                             and schule.kind_gruppe(k::bigint) = any(coalesce((select th.zusatz from schule.thema th where th.id = i), '{}'::text[]))
-                             and ((v_vor->k->'neu'->'stufen'->v_alt::text->>'im_plan')::boolean is not true
-                                  or exists (select 1 from schule.route rr join schule.block_thema bt2 on bt2.block_id = rr.block_id and bt2.thema_id = i
-                                              where rr.lernender_id = k::bigint and rr.art = 'zusatz' and rr.status <> 'entfernt'))))
-      or exists (select 1 from unnest(array['etappen', 'begonnen', 'gelandet', 'sicher', 'wieder_offen']) f
-                  where (select sum(coalesce((v_nach->k->'neu'->'stufen'->i::text->>f)::int, 0)) from unnest(v_ids) i)
-                        is distinct from coalesce((v_vor->k->'neu'->'stufen'->v_alt::text->>f)::int, 0))
-      or (case when schule.kind_gruppe(k::bigint) = any(array(select jsonb_array_elements_text(p->'teile'->0->'zusatz')))
-               -- Teil 1 ist in der Schulart des Kindes Zusatz: die Option dieses Kontinents darf wegfallen oder wechseln (erlaubtes Delta)
-               then schule.tl_reise_ohne(v_nach->k->'neu'->'reise', (select ko.titel from schule.kontinent ko where ko.id = b.kontinent_id))
-                    is distinct from schule.tl_reise_ohne(v_vor->k->'neu'->'reise', (select ko.titel from schule.kontinent ko where ko.id = b.kontinent_id))
-               else (v_nach->k->'neu'->'reise') is distinct from (v_vor->k->'neu'->'reise') end);
+   where exists (select 1 from unnest(array['im_plan', 'gesetzt', 'rueckreise']) f
+                  where (v_nach->k->'neu'->'stufen'->v_alt::text->f) is distinct from (v_vor->k->'neu'->'stufen'->v_alt::text->f))
+      or exists (select 1 from unnest(v_ids[2:]) i
+                  where (v_nach->k->'neu'->'stufen'->i::text->>'gesetzt') is not null
+                     or coalesce((v_nach->k->'neu'->'stufen'->i::text->>'rueckreise')::boolean, false)
+                     or coalesce((v_nach->k->'neu'->'stufen'->i::text->>'im_plan')::boolean, false)
+                        is distinct from exists (select 1 from schule.flug_erstabschluss f where f.lernender_id = k::bigint and f.einheit_id = v_einh[array_position(v_ids, i)]))
+      or (v_nach->k->'neu'->'reise') is distinct from (v_vor->k->'neu'->'reise');
   if v_diff is not null then raise exception 'TL-S: Thema % – Stufen/Reiseoptionen außerhalb der erlaubten Deltas: %', v_alt, v_diff; end if;
   return jsonb_build_object('thema', v_alt, 'teile', to_jsonb(v_ids), 'einheiten', to_jsonb(v_einh), 'orte_neu', to_jsonb(v_bl),
     'etappen_je_teil', v_teil_et, 'etappen_noch_nicht_in_db', to_jsonb(v_fehlt), 'aufgaben_ohne_etappe_bei_teil_1', v_verbl, 'expeditions_aufgaben_bei_teil_1', v_exp,
@@ -706,6 +730,26 @@ begin
   if (length(d) - length(replace(d, a, ''))) / length(a) <> 1 then raise exception 'TL-S: Stelle in reiseoptionen nicht genau einmal gefunden'; end if;
   execute replace(d, a, a || ' and v.gruppe = schule.kind_gruppe((select id from l)) /* TL-S: Visum je Gruppe */');
 end $$;
+
+-- TL-S 6 (Entscheidung 20:20, Punkt 4): Liste je Kind für Sebastian – neue Teile mit „selbst geschafft“, „teilweise selbst (x von y Pflicht-Etappen)“,
+-- „vom alten Thema gesetzt, jetzt offen“, „offen“. Nur lesen; die Zuteilung macht Sebastian mit den vorhandenen Funktionen (einplanen / „Kann er“).
+create or replace view schule.tl_teile_je_kind as
+select l.id lernender_id, t.teil_stamm thema, t.teil_nr teil, t.id thema_id, e.id einheit_id,
+       cardinality(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) pflicht,
+       (select count(*) from unnest(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) x where schule.tl_erledigt(l.id, e.id, x))::int selbst,
+       case when exists (select 1 from schule.flug_erstabschluss f where f.lernender_id = l.id and f.einheit_id = e.id) then 'selbst geschafft'
+            when (select count(*) from unnest(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) x where schule.tl_erledigt(l.id, e.id, x)) > 0
+              then 'teilweise selbst (' || (select count(*) from unnest(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) x where schule.tl_erledigt(l.id, e.id, x))
+                   || ' von ' || cardinality(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) || ' Pflicht-Etappen)'
+            when exists (select 1 from schule.visum_uebergang u join schule.block_thema bt on bt.block_id = u.block_id and bt.thema_id = t.id
+                          where u.lernender_id = l.id and u.grund = 'gesetzt') then 'vom alten Thema gesetzt, jetzt offen'
+            else 'offen' end zustand,
+       exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id
+                where r.lernender_id = l.id and r.status <> 'entfernt') im_plan
+  from schule.lernender l cross join schule.thema t join schule.einheit e on e.id = schule.thema_einheit(t.id)
+ where l.aktiv and t.teil_nr > 1;
+comment on view schule.tl_teile_je_kind is 'TL-S 6: neue Teile je Kind – selbst geschafft / teilweise selbst (x von y Pflicht-Etappen) / vom alten Thema gesetzt, jetzt offen / offen';
+revoke all on schule.tl_teile_je_kind from public, anon, authenticated;
 
 -- 5. Schnittstelle: Teil, Untertitel, Zusatz je Thema; Voraussetzungen je Schulart
 create or replace function schule.thema_teil_json(p_thema bigint)

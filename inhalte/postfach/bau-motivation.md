@@ -2,6 +2,25 @@
 
 Neueste oben.
 
+## FERTIG: TL-S 6 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/tests/wd_s_rauchtest.sql` (nur Test). Nicht eingespielt, kein DROP/DELETE.
+**Nachbau:** echtes `lk_einspiel_2211.sql` vor TL-S, Graph wie live, Kind wie Kind 2 (29 geschafft, 26/46 „Kann er komplett“), Testkind mit Lernstand in 29 wie live, Kind 2 mit 93 und 97 im Plan (Visum-Fälle).
+
+**Befund 1 / Entscheidung (a) – Stufe, Stempel, Sterne passen zusammen:**
+- Ursache bestätigt: `thema_stufe` zählte alle Etappen des Katalogs; 29 Teil 2 hat nach dem Einspiel 4 (gleichungen_binomisch ist im Gym Kür) → 3/4 gelandet → „dran“, obwohl Stempel und 100 Sterne gebucht wurden. Lokal nachgestellt (alte Migration → „dran“).
+- Neu `schule.stufe_etappen(Kind, Einheit)`: Stufe, gelandet, sicher, wieder offen zählen nur die Pflicht-Etappen des Kindes (ohne/leere Liste: alle). Kind 2: 29 Teil 1 und Teil 2 „wiederholung“, 2 Erstabschlüsse, 100 Ort-Sterne für Teil 2.
+- Geschafft heißt jetzt: jede Pflicht-Etappe des Teils **selbst gelandet** (Karte gelandet, nicht gesetzt) **und** vom früheren Flug-Test abgedeckt (nachgewiesen/korrigiert/gesichert). Nur dann Stempel, Erstabschluss, Ort „fertig“, 100 Sterne. Rauchtest 6b: kein Teil mit Stempel steht auf „dran“.
+**(b) Keine Vererbung:** neue Teile bekommen keinen Plan-Platz, keine Setzung („Kann er komplett/wiederholen“), keine Stufen-Einträge; Teil 1 behält den Plan-Eintrag unverändert (auch keine Plan-Art-Änderung mehr). Der TL-S-3-Umbau (Setzung auch auf Zusatz-Einträgen) entfällt. Lernstand bleibt vollständig (Karten und Lernziel-Stand Zeile für Zeile verglichen).
+**(c) Visum – Vorschlag umgesetzt (Übergangsregel):** neue Tabelle `schule.visum_uebergang`: Hatte ein Kind das alte Thema vor der Teilung geschafft oder gesetzt (Ort „fertig“ oder „Kann er“ am Ort), gilt der Ort jedes neuen Teils **nur für das Visum** als erfüllt (kein Stempel, keine Sterne, kein Plan-Platz). `reiseoptionen` zählt diese Orte im Visum mit. Lokal: Kind 2 hat 93 (braucht 26 Teil 2) im Plan – ohne Übergang „Visum fehlt: 26 Teil 2“, mit Übergang wie vorher. Gilt nur für den Stand zum Zeitpunkt der Teilung; wer Teil 1 später schafft, braucht Teil 2 selbst.
+**Abbruch-Vergleich (neue erlaubte Deltas):** Teil 1: im Plan/gesetzt/Rückreise wie vorher; neue Teile: nicht gesetzt, keine Rückreise, im Plan nur als selbst geschaffter Teil; Reiseoptionen gleich (mit Übergang); Karten und Lernziel-Stand gleich.
+**Liste je Kind (Entscheidung Punkt 4):** Sicht `schule.tl_teile_je_kind` (Pflicht-Etappen, davon selbst, Zustand „selbst geschafft“ / „teilweise selbst (x von y)“ / „vom alten Thema gesetzt, jetzt offen“ / „offen“, im Plan). Lokal für Kind 2: 29 T2 selbst geschafft; 26 T2, 46 T2, 46 T3 „vom alten Thema gesetzt, jetzt offen“.
+
+**Befund 2 (tl_s_rauchtest FEHLER 11):** Test zu streng. Der Schulartwechsel legt für neue Pflicht-Etappen eine neue Lernstand-Zeile „offen“ an (Testkind: 29 Teil 2 gleichungen_binomisch in der Realschule) – gewollt („öffnet den Teil wieder“). Test prüft jetzt: nichts gelöscht, kein Stand verändert, neue Zeilen nur „offen“, Sterne gleich. Lokal mit Lernstand wie live nachgestellt und grün.
+**Befund 3 (wd_s_rauchtest FEHLER 6):** Testannahme veraltet. Nach Teilung und Einspiel hat 61 Teil 1 im Gymnasium **3** Pflicht-Etappen (darstellen ist dort Pflicht, nicht Kür) – „Flug abgelegt“ (+100) kommt richtig erst nach der dritten. Test wählt jetzt zuerst Flüge ohne Listen je Gruppe und nimmt nach TL-S die Pflicht-Etappen des Testkinds aus der Regel. Vor der Teilung weiter grün.
+
+Lokal: Migration zweimal ohne Fehler, tl_s_rauchtest vor und nach dem Einspielen grün.
+
 ## FERTIG: TL-S 5 (22.11., bau-lehrer)
 
 **Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/werkzeug/tl_s_daten.py`. Nicht eingespielt, kein DROP/DELETE (eine Constraint ersetzt: `lernender_zweig_check`, s. T1).

@@ -154,6 +154,15 @@ begin
   raise notice 'TL-S Rauchtest 6: vollständig übernommene neue Teile: %', (select count(*) from schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id
      join schule.thema t on t.id = e.thema_id where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and t.teil_nr > 1);
 
+  -- 6b TL-S 6 (Befund 1): Stempel, Sterne und Stufe passen zusammen – ein vollständig übernommener Teil steht nicht auf „dran“
+  --    (Kür-Etappen wie 29 Teil 2 gleichungen_binomisch im Gymnasium zählen für die Stufe nicht)
+  select string_agg(f.lernender_id || ':' || t.id || ':' || (schule.thema_stufe(f.lernender_id, t.id)->>'stufe'), ', ') into v_t
+    from schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id join schule.thema t on t.id = e.thema_id
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and t.teil_nr > 1
+     and schule.thema_stufe(f.lernender_id, t.id)->>'stufe' not in ('wiederholung', 'komplett')
+     and coalesce((schule.thema_stufe(f.lernender_id, t.id)->>'wieder_offen')::int, 0) = 0 and not coalesce((schule.thema_stufe(f.lernender_id, t.id)->>'rueckreise')::boolean, false);
+  if v_t is not null then raise exception 'FEHLER 6b: Stempel gebucht, Stufe passt nicht (Kind:Teil:Stufe): %', v_t; end if;
+
   -- 7 Lehrplan: keine Zuordnung mit Etappen, die ihr Teil nicht führt
   select count(*) into v_n from schule.zuordnung z join schule.thema t on t.id = z.thema_id
    where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and z.etappen is not null and not ('*' = any(z.etappen))
@@ -253,6 +262,7 @@ begin
   update schule.lernziel_stand set status = 'nachgewiesen' where lernender_id = v_l and einheit_id = v_e and pflicht;
   select count(*) into v_st0 from schule.sterne where lernender_id = v_l;
   select count(*) into v_k0 from schule.lernziel_stand where lernender_id = v_l;
+  create temp table tl_rt_lz on commit drop as select einheit_id, lernziel, status, sicherungen, fehler_anzahl from schule.lernziel_stand where lernender_id = v_l;
   if exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = v_e and s.pflicht and s.status not in ('nachgewiesen', 'korrigiert', 'gesichert')) then
     raise exception 'FEHLER 11: Schulart % – alle Pflicht-Etappen nachgewiesen, Flug trotzdem offen', v_sa; end if;
   update schule.lernender set schulart = v_sa2, zweig = null where id = v_l;   -- Wechsel
@@ -261,8 +271,16 @@ begin
   update schule.lernender set schulart = v_sa, zweig = null where id = v_l;      -- Rückwechsel
   if exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = v_e and s.pflicht and s.status not in ('nachgewiesen', 'korrigiert', 'gesichert')) then
     raise exception 'FEHLER 11: nach dem Rückwechsel ist die Etappe nicht wieder Kür'; end if;
-  if (select count(*) from schule.sterne where lernender_id = v_l) <> v_st0 or (select count(*) from schule.lernziel_stand where lernender_id = v_l) <> v_k0 then
-    raise exception 'FEHLER 11: Wechsel hat Sterne oder Lernstand-Zeilen verändert'; end if;
+  -- TL-S 6 (Befund 2): Der Wechsel darf neue Pflicht-Etappen als „offen“ anlegen (z. B. 29 Teil 2 gleichungen_binomisch in der Realschule) –
+  -- aber nichts löschen, keinen Stand ändern und keine Sterne buchen
+  if (select count(*) from schule.sterne where lernender_id = v_l) <> v_st0
+     or exists (select 1 from tl_rt_lz a where not exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = a.einheit_id
+                  and s.lernziel = a.lernziel and s.status = a.status and s.sicherungen = a.sicherungen and s.fehler_anzahl = a.fehler_anzahl))
+     or exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.status <> 'offen'
+                  and not exists (select 1 from tl_rt_lz a where a.einheit_id = s.einheit_id and a.lernziel = s.lernziel)) then
+    raise exception 'FEHLER 11: Wechsel hat Sterne gebucht oder Lernstand gelöscht/verändert'; end if;
+  raise notice 'TL-S Rauchtest 11: Wechsel und Rückwechsel – % neue offene Lernstand-Zeilen, keine gelöscht oder verändert, Sterne unverändert',
+    (select count(*) from schule.lernziel_stand where lernender_id = v_l) - v_k0;
   -- Teil ohne Pflicht-Etappe für das Kind: kein Zwangstest
   update schule.einheit set status = 'geprueft' where id = v_e;
   update schule.einheit set inhalt = jsonb_set(inhalt, array['bewertung', 'pflicht_je_schulart', case v_sa when 'rs_by' then 'rs_I' else v_sa end], '[]'::jsonb) where id = v_e;
@@ -272,19 +290,28 @@ begin
   if (schule.thema_stufe(v_l, (select thema_id from schule.einheit where id = v_e))->>'test_offen')::boolean then
     raise exception 'FEHLER 11: Teil ohne Pflicht-Etappe verlangt einen Test'; end if;
 
-  -- 12 TL-S 3: jeder Teil erbt Setzung („Kann er komplett“ / „… wiederholen“), Plan-Platz und Rückreise des Themas
-  --    (Zusatz-Teil der Schulart: im Plan als „zusatz“, gesetzt bleibt gesetzt; leerer Teil: nicht im Plan)
+  -- 12 TL-S 6 (Entscheidung 20:20): Teil 1 behält Setzung, Plan-Platz und Rückreise des Themas; neue Teile erben nichts –
+  --    nicht gesetzt, keine Rückreise, im Plan nur als selbst geschaffter Teil („fertig“); Visum-Übergang für geschaffte/gesetzte alte Themen
   select string_agg(v.lernender_id || ':' || t.id || ':' || f, ', ') into v_t
-    from tl_rt_stufe v join schule.thema t on t.teil_stamm = v.stamm join schule.lernender l on l.id = v.lernender_id
+    from tl_rt_stufe v join schule.thema t on t.teil_stamm = v.stamm and t.teil_nr = 1
     cross join lateral (select schule.thema_stufe(v.lernender_id, t.id) n) x
     cross join unnest(array['gesetzt', 'rueckreise', 'im_plan']) f
-   where (x.n->f) is distinct from (v.st->f)
-     and not (f = 'im_plan' and ((x.n->>'etappen')::int = 0
-                                 or (schule.kind_gruppe(l.id) = any(coalesce(t.zusatz, '{}'))
-                                     and exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id
-                                                  where r.lernender_id = v.lernender_id and r.art = 'zusatz' and r.status <> 'entfernt'))));
-  if v_t is not null then raise exception 'FEHLER 12: Teil erbt Setzung/Plan/Rückreise nicht (Kind:Teil:Feld): %', v_t; end if;
-  raise notice 'TL-S Rauchtest 12: gesetzt komplett %, gesetzt wiederholen %, Rückreise %, im Plan %', 
+   where (x.n->f) is distinct from (v.st->f);
+  if v_t is not null then raise exception 'FEHLER 12: Teil 1 nicht wie das Thema vorher (Kind:Teil:Feld): %', v_t; end if;
+  select string_agg(v.lernender_id || ':' || t.id, ', ') into v_t
+    from tl_rt_stufe v join schule.thema t on t.teil_stamm = v.stamm and t.teil_nr > 1
+    cross join lateral (select schule.thema_stufe(v.lernender_id, t.id) n) x
+   where x.n->>'gesetzt' is not null or coalesce((x.n->>'rueckreise')::boolean, false)
+      or coalesce((x.n->>'im_plan')::boolean, false) is distinct from exists (select 1 from schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id
+                                                                             where f.lernender_id = v.lernender_id and e.thema_id = t.id);
+  if v_t is not null then raise exception 'FEHLER 12: neuer Teil erbt Setzung/Plan/Rückreise oder fehlt trotz eigener Leistung (Kind:Teil): %', v_t; end if;
+  select string_agg(v.lernender_id || ':' || t.id, ', ') into v_t
+    from tl_rt_stufe v join schule.thema t on t.teil_stamm = v.stamm and t.teil_nr > 1 join schule.block_thema bt on bt.thema_id = t.id
+   where (v.st->>'gesetzt' = 'komplett' or exists (select 1 from schule.route r join schule.block_thema b1 on b1.block_id = r.block_id and b1.thema_id = v.stamm
+                                                     where r.lernender_id = v.lernender_id and r.art = 'normal' and r.status = 'fertig'))
+     and not exists (select 1 from schule.visum_uebergang u where u.lernender_id = v.lernender_id and u.block_id = bt.block_id);
+  if v_t is not null then raise exception 'FEHLER 12: Visum-Übergang fehlt (Kind:Teil): %', v_t; end if;
+  raise notice 'TL-S Rauchtest 12: gesetzt komplett %, gesetzt wiederholen %, Rückreise %, im Plan % (Teil 1 wie vorher, neue Teile ohne Vererbung)',
     (select count(*) from tl_rt_stufe where st->>'gesetzt' = 'komplett'), (select count(*) from tl_rt_stufe where st->>'gesetzt' = 'wiederholen'),
     (select count(*) from tl_rt_stufe where (st->>'rueckreise')::boolean), (select count(*) from tl_rt_stufe where (st->>'im_plan')::boolean);
 

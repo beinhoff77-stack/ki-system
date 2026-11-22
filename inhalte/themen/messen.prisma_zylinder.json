@@ -38,6 +38,12 @@
      "sach",
      "verstehen"
     ]
+   },
+   {
+    "titel": "Lehrplan-Ergänzung (LK)",
+    "lernziele": [
+     "cavalieri"
+    ]
    }
   ],
   "etappen": [
@@ -1411,6 +1417,31 @@
     ],
     "fehler": "Doppelter Radius heißt nicht doppeltes Volumen. Der Radius steht im Quadrat: 4-mal so viel.",
     "regel": "Gleiche Grundfläche, gleiche Höhe: ⟦gleiches Volumen⟧. Die Form der Grundfläche ist egal."
+   },
+   {
+    "lernziel": "cavalieri",
+    "titel": "Schiefe Körper und Cavalieri",
+    "einstieg": "Ein Stapel Bierdeckel steht gerade. Schiebt man ihn schräg, sieht er anders aus – aber es sind dieselben Deckel. Das Volumen bleibt gleich. Genau das sagt das Prinzip von Cavalieri.",
+    "woerter": [
+     [
+      "Cavalieri-Prinzip",
+      "gleiche Querschnittsflächen in jeder Höhe und gleiche Höhe ergeben gleiches Volumen"
+     ],
+     [
+      "Höhe h",
+      "senkrechter Abstand von Grund- und Deckfläche, nicht die schräge Kante"
+     ]
+    ],
+    "regel": "Auch für schiefe Prismen und Zylinder gilt ⟦V = G · h⟧. h ist der senkrechte Abstand der beiden Grundflächen, nicht die Länge der schrägen Kante.",
+    "schritte": [
+     {
+      "text": "Ein schiefes Prisma hat G = 12 cm², die schräge Kante ist 10 cm lang, der senkrechte Abstand der Grundflächen 8 cm."
+     },
+     {
+      "text": "Es zählt die senkrechte Höhe: V = 12 cm² · 8 cm = ⟦96 cm³⟧. Die 10 cm braucht man nicht."
+     }
+    ],
+    "fehler": "Mit der schrägen Kante rechnen: 12 · 10 = 120 cm³ ist zu viel. Beim schiefen Körper ⟦nur die senkrechte Höhe⟧ nehmen."
    }
   ],
   "teilfaehigkeiten": [
@@ -1462,6 +1493,12 @@
     "lernziele": [
      "verstehen"
     ]
+   },
+   {
+    "k": "cavalieri",
+    "lernziele": [
+     "cavalieri"
+    ]
    }
   ],
   "bewertung": {
@@ -1474,7 +1511,9 @@
     "sach",
     "verstehen"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "cavalieri"
+   ],
    "testaufgaben_je_lernziel": 1,
    "hilfen_im_test": false
   },
@@ -9291,6 +9330,402 @@
    },
    "c": "2**2",
    "w": "Gegeben: Länge gleich, r · 2. Gesucht: Faktor des Volumens. Ansatz: V = π · r² · h: r zählt im Quadrat. Rechnung: 2² = 4. Antwort: Es passt 4-mal so viel Wasser hinein."
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat die Grundfläche 15 cm² und die Höhe 6 cm. Berechne das Volumen."
+   },
+   "w": "V = 15 cm² · 6 cm = 90 cm³.",
+   "g": "direkt",
+   "h": "Grundfläche mal senkrechte Höhe.",
+   "o": {
+    "wert": 90,
+    "einheit": "cm³"
+   },
+   "c": "15 * 6"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefer Zylinder hat eine Grundfläche von 20 cm² und eine Höhe von 9 cm. Wie groß ist sein Volumen?"
+   },
+   "w": "V = 20 cm² · 9 cm = 180 cm³.",
+   "g": "direkt",
+   "h": "Wie beim geraden Zylinder.",
+   "o": {
+    "wert": 180,
+    "einheit": "cm³"
+   },
+   "c": "20 * 9"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Länge setzt man beim schiefen Prisma für h ein?"
+   },
+   "w": "h ist der senkrechte Abstand der Grundflächen.",
+   "g": "erkennen",
+   "h": "Miss senkrecht, nicht entlang der Kante.",
+   "a": [
+    "den senkrechten Abstand der Grundflächen",
+    "die Länge der schrägen Kante",
+    "die längste Seite der Grundfläche",
+    "die Diagonale des Körpers"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein gerades und ein schiefes Prisma haben dieselbe Grundfläche und dieselbe Höhe. Was gilt?"
+   },
+   "w": "Nach Cavalieri sind die Volumen gleich.",
+   "g": "erkennen",
+   "h": "Schräg schieben ändert das Volumen nicht.",
+   "a": [
+    "Sie haben dasselbe Volumen.",
+    "Das schiefe hat mehr Volumen.",
+    "Das gerade hat mehr Volumen.",
+    "Man kann es nicht sagen."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat ein Dreieck als Grundfläche (g = 6 cm, h_D = 4 cm). Die Körperhöhe ist 10 cm. Berechne das Volumen."
+   },
+   "w": "G = 6 · 4 : 2 = 12 cm². V = 12 · 10 = 120 cm³.",
+   "g": "mehrschritt",
+   "h": "Erst die Dreiecksfläche, dann mal Körperhöhe.",
+   "o": {
+    "wert": 120,
+    "einheit": "cm³"
+   },
+   "c": "6 * 4 / 2 * 10"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schräger Turm ist ein schiefer Zylinder mit G = 3 m² und 12 m senkrechter Höhe; seine Wand ist 12,5 m lang. Wie viele m³ fasst er?"
+   },
+   "w": "Es zählt die senkrechte Höhe: V = 3 · 12 = 36 m³.",
+   "g": "einkleidung",
+   "h": "Die Wandlänge ist die schräge Kante.",
+   "o": {
+    "wert": 36,
+    "einheit": "m³"
+   },
+   "c": "3 * 12"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat 84 cm³ Volumen und 14 cm² Grundfläche. Wie groß ist die Höhe?"
+   },
+   "w": "h = V : G = 84 : 14 = 6 cm.",
+   "g": "umkehr",
+   "h": "Teile das Volumen durch die Grundfläche.",
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "84 / 14"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Münzstapel mit gleich vielen gleichen Münzen: einer gerade, einer schräg. Welche Aussage trifft zu?"
+   },
+   "w": "In jeder Höhe liegt eine gleich große Münzfläche, also gleiches Volumen (Cavalieri).",
+   "g": "darstellung",
+   "h": "Vergleiche Schicht für Schicht.",
+   "a": [
+    "gleiches Volumen, weil jede Schicht gleich groß ist",
+    "der schräge Stapel hat mehr Volumen",
+    "der gerade Stapel ist höher",
+    "die Oberflächen sind gleich"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes und ein gerades Prisma haben gleiches Volumen und gleiche Höhe 8 cm. Das gerade hat G = 9 cm². Wie groß ist G beim schiefen?"
+   },
+   "w": "Gleiches V und gleiches h ⇒ gleiche Grundfläche: 9 cm².",
+   "g": "rueckwaerts",
+   "h": "V = G · h für beide.",
+   "o": {
+    "wert": 9,
+    "einheit": "cm²"
+   },
+   "c": "9 * 8 / 8"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum hat ein schiefes Prisma dieselbe Formel V = G · h wie ein gerades?"
+   },
+   "w": "Schneidet man beide in gleicher Höhe, sind die Schnittflächen gleich groß (= G). Nach Cavalieri sind die Volumen gleich.",
+   "g": "begruenden",
+   "h": "Denke an die Schnitte parallel zur Grundfläche.",
+   "a": [
+    "Weil die Querschnitte in jeder Höhe gleich groß sind.",
+    "Weil die Kanten gleich lang sind.",
+    "Weil die Oberflächen gleich sind.",
+    "Weil beide gleich viele Ecken haben."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Paul berechnet ein schiefes Prisma (G = 10 cm², Kante 13 cm, Höhe 12 cm) so: V = 10 · 13 = 130 cm³. Was stimmt?"
+   },
+   "w": "Er hat die schräge Kante genommen. Richtig: 10 · 12 = 120 cm³.",
+   "g": "fehler",
+   "h": "Welche Länge ist die Höhe?",
+   "a": [
+    "Falsch: richtig sind 120 cm³.",
+    "Alles richtig.",
+    "Richtig sind 156 cm³.",
+    "Richtig sind 1 560 cm³."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tunnelstück verläuft schräg durch einen Berg. Sein Querschnitt ist überall 40 m², der Höhenunterschied der Endflächen senkrecht gemessen 250 m. Wie viel m³ Gestein wurden ausgebrochen?"
+   },
+   "w": "Wie ein schiefes Prisma: 40 · 250 = 10 000 m³.",
+   "g": "transfer",
+   "h": "Gleicher Querschnitt überall: G · h.",
+   "o": {
+    "wert": 10000,
+    "einheit": "m³"
+   },
+   "c": "40 * 250"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat G = 18 cm² und h = 5 cm, die schräge Kante ist 6 cm lang. Berechne V."
+   },
+   "w": "V = 18 · 5 = 90 cm³.",
+   "o": {
+    "wert": 90,
+    "einheit": "cm³"
+   },
+   "c": "18 * 5"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schiefes Prisma: G = 7 cm², senkrechte Höhe 4 cm, schräge Kante 5 cm. Wie groß ist V?"
+   },
+   "w": "V = 7 · 4 = 28 cm³; die Kante zählt nicht.",
+   "o": {
+    "wert": 28,
+    "einheit": "cm³"
+   },
+   "c": "7 * 4"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schiefes Prisma: G = 25 cm², senkrechte Höhe 3 cm, schräge Kante 4 cm. Wie groß ist V?"
+   },
+   "w": "V = 25 · 3 = 75 cm³; die Kante zählt nicht.",
+   "o": {
+    "wert": 75,
+    "einheit": "cm³"
+   },
+   "c": "25 * 3"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schiefes Prisma: G = 11 cm², senkrechte Höhe 6 cm, schräge Kante 7 cm. Wie groß ist V?"
+   },
+   "w": "V = 11 · 6 = 66 cm³; die Kante zählt nicht.",
+   "o": {
+    "wert": 66,
+    "einheit": "cm³"
+   },
+   "c": "11 * 6"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefer Zylinder hat G = 12 cm² und die Höhe 7 cm. Berechne das Volumen."
+   },
+   "w": "V = 12 · 7 = 84 cm³.",
+   "o": {
+    "wert": 84,
+    "einheit": "cm³"
+   },
+   "c": "12 * 7"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefer Zylinder hat G = 30 cm² und die Höhe 2 cm. Berechne das Volumen."
+   },
+   "w": "V = 30 · 2 = 60 cm³.",
+   "o": {
+    "wert": 60,
+    "einheit": "cm³"
+   },
+   "c": "30 * 2"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefer Zylinder hat G = 16 cm² und die Höhe 5 cm. Berechne das Volumen."
+   },
+   "w": "V = 16 · 5 = 80 cm³.",
+   "o": {
+    "wert": 80,
+    "einheit": "cm³"
+   },
+   "c": "16 * 5"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefer Zylinder hat G = 9 cm² und die Höhe 9 cm. Berechne das Volumen."
+   },
+   "w": "V = 9 · 9 = 81 cm³.",
+   "o": {
+    "wert": 81,
+    "einheit": "cm³"
+   },
+   "c": "9 * 9"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefer Zylinder hat G = 40 cm² und die Höhe 3 cm. Berechne das Volumen."
+   },
+   "w": "V = 40 · 3 = 120 cm³.",
+   "o": {
+    "wert": 120,
+    "einheit": "cm³"
+   },
+   "c": "40 * 3"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefer Zylinder hat G = 22 cm² und die Höhe 4 cm. Berechne das Volumen."
+   },
+   "w": "V = 22 · 4 = 88 cm³.",
+   "o": {
+    "wert": 88,
+    "einheit": "cm³"
+   },
+   "c": "22 * 4"
   }
  ],
  "offen": [

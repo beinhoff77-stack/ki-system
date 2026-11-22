@@ -1,5 +1,7 @@
 # LK-D – ein Thema in mehreren Klassen: Daten und Aufbau-Prüfung (22.11.2026)
 
+**Nachtrag 22.11. (LK-D 2):** Audit an den Klassenübergängen mit drei neuen Etappen (101 `cavalieri`, 91 `koerper_symmetrie`, 29 `gleichungen_binomisch`); Zuordnung, JSON und SQL angepasst. Siehe `lk_teilung_2211.md`, Abschnitt 1.
+
 Bau-Auftrag LK, Abschnitt LK-D, mit den Nachträgen „vorhandener Lernstand der Kinder“ (14:20) und „Route: zweiter Teil fliegt ins Nachbarland“ (14:25).
 
 - Datenbank nur gelesen (Stand nach dem Live vom 22.11.), nichts eingespielt.
@@ -23,7 +25,7 @@ Bau-Auftrag LK, Abschnitt LK-D, mit den Nachträgen „vorhandener Lernstand der
 | umgehängt | 10 | 3 Lücken geschlossen, 2 Lücken über Thema 15, 1 Tausch (944) | 6, dazu 14 weg von stillgelegten Themen |
 | Lücken nachher | 0 | 0 (alle 5 aus LP-RS geschlossen) | 0; 1 Kapitel nur teilweise (Dreiecksarten) |
 | Rolle neu / weitergeführt | 236 / 1 | 251 / 46 | 112 / 44 |
-| Voraussetzungs-Verstöße | **0** | Gruppe I: 0 · II/III: 2 (empfohlen) | 10 je Kurs (3 davon hart) |
+| Voraussetzungs-Verstöße | **0** | Gruppe I: 0 · II/III: 2 (empfohlen) | 10 je Kurs (2 davon hart; berichtigt am 22.11., vorher fälschlich 3) |
 | Klassenänderung durch das SQL | keine | keine | keine |
 
 **Wichtigste Befunde**
@@ -106,7 +108,7 @@ Bau-Auftrag LK, Abschnitt LK-D, mit den Nachträgen „vorhandener Lernstand der
   - 37 Exponentialfunktionen ← 103 Potenzgesetze ganzzahlig;
   - 92 Pyramide/Kegel/Kugel ← 101 Prismen und Zylinder.
   - Vorschlag: Voraussetzung für II/III auf „empfohlen, wenn vorhanden“ oder die Lage prüfen.
-- IB, je Kurs 10; davon 3 hart, siehe Tabelle.
+- IB, je Kurs 10; davon 2 hart (63 ← 61, 29 ← 102), siehe Tabelle.
 
 | IB | Thema | braucht | Art | Lage | Vorschlag |
 |---|---|---|---|---|---|
@@ -536,7 +538,7 @@ Spalten: Lernbereich · Titel · Stunden · Punkte Original/DB · Themen (neu/we
 - Entscheidungen von Sebastian:
   - Teilungsliste (Empfehlung: nichts teilen);
   - 43/69/71 im Gymnasium als Vertiefung;
-  - IB-Voraussetzungen (3 harte).
+  - IB-Voraussetzungen (2 harte; berichtigt, vorher fälschlich 3).
 - Gruppe II/III: Etappen in der JSON, kein SQL.
 - Archivierung der stillgelegten Themendateien.
 - Die Felder `rolle`/`etappen` und die Pflicht je Klasse kommen erst mit LK-S.

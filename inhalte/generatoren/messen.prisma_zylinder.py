@@ -1005,3 +1005,9 @@ if __name__ == '__main__':
     from _bereinigen import bereinigen_datei
     bereinigen_datei('messen.prisma_zylinder')
 # ---- BEREINIGEN ENDE ----
+
+# ---- LK (22.11., Nachtrag LK-D 2, siehe _lk_etappen_2211.py): zuletzt, hängt nur an ----
+if __name__ == '__main__':
+    from _lk_etappen_2211 import lk_anhaengen
+    lk_anhaengen('messen.prisma_zylinder')
+# ---- LK ENDE ----

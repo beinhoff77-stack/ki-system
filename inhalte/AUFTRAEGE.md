@@ -2816,3 +2816,37 @@ ChatGPT hat die sechs Schnitte gegen LehrplanPLUS geprüft: fachlich nachvollzie
 - **B4 (Muss):** Abbruch-Vergleich muss auch `thema_stufe`, Reiseoptionen, Visum, offene Mischkarten und alle Wiederholungsfelder (`wdh_fehler`, `wdh_ab`, `wdh_lerntage`, `wdh_gesetzt_am`, `misch_ok_am`) umfassen; erwartete Änderungen als ausdrücklich erlaubte Delta-Regeln, jede andere Abweichung bricht ab.
 - **LW-Rest (Muss):** `schule.besprochen_aktiv` (LA-3) auf dieselbe endgültige Fehler-Semantik wie LW-S 2 umstellen; Regression: alte Besprochen-Markierung + neuer endgültiger erster Fehlversuch → wieder offen.
 - Sollte: neue Teile sind freigegebene, vollständige Einheiten mit eigenem Flug-Test; Rauchtest in realistischer, zurückgerollter Transaktion.
+
+## Sammel-Auftrag PM – Prüfungsmaterial sammeln, archivieren, Themen zuordnen (22.11., 16:50 Berlin) · Sebastian
+
+„Lass die Klassen 5 und 8 intensiv nach Prüfungsmaterial suchen vom Gymnasium und Klasse 7 und 8 Realschule – also Inhalte von Schulaufgaben. Die sollen sie alle archivieren und unseren Themen schon mal zuordnen.“
+
+**Zwei neue Chats, je eigener Zweig, nur Dateien:**
+- `pruefmaterial-gym` – Gymnasium Bayern Mathematik **Klasse 5 und 8** → `inhalte/pruefmaterial/gym/`
+- `pruefmaterial-rs` – Realschule Bayern Mathematik **Klasse 7 und 8**, beide Wahlpflichtfächergruppen (I getrennt von II/III ausweisen) → `inhalte/pruefmaterial/rs/`
+
+**Was gesucht wird:** echte Leistungsnachweise – Schulaufgaben (große Leistungsnachweise), Stegreifaufgaben/Kurzarbeiten, Probe- und Übungsschulaufgaben mit Lösungen, Jahrgangsstufentests/-arbeiten und Grundwissentests (ISB), zentrale Tests (z. B. BMT 8 Gymnasium), bei der Realschule auch Vorstufen zur Abschlussprüfung, soweit sie 7/8 betreffen. Quellen in dieser Reihenfolge: amtlich (isb.bayern.de, km.bayern.de, mebis/ByCS, Lehrplan-Serviceteil), Schul-Homepages (Fachschaft Mathematik), Verlage/Lernportale mit frei zugänglichen Beispielen, Elternportale. Intensiv suchen: je Klasse mindestens 30 verschiedene Arbeiten anstreben, verteilt über das Schuljahr (1. bis 4. Schulaufgabe) und über alle Lernbereiche; Lücken ausdrücklich benennen.
+
+**Archivieren – Regeln (verbindlich):**
+- **Keine Aufgaben wörtlich übernehmen, keine PDFs/Scans ins Repo, keine Lösungen abschreiben** (Urheberrecht; im Projekt gilt ohnehin: keine Schulbuch-/Prüfungsaufgaben wörtlich). Archiviert wird ein **Katalog**: Quelle mit Link und Abrufdatum, Herausgeber/Schule, Schulart, Klasse, Gruppe (RS), Art (Schulaufgabe/Stegreif/Test), Nummer im Schuljahr falls erkennbar, Jahr, Arbeitszeit, Gesamtpunkte, Hilfsmittel, frei zugänglich ja/nein, Lizenzhinweis der Quelle.
+- **Je Aufgabe der Arbeit** eine Zeile in eigenen Worten: was verlangt wird (Kompetenz), Aufgabentyp (rechnen, Sachaufgabe, begründen, konstruieren, Auswahl, Lückentext …), Anforderungsniveau (I reproduzieren / II Zusammenhänge / III verallgemeinern), Punkte, typische Zahlen-/Größenordnung, Besonderheit (z. B. „Fehler finden“, „Term aufstellen aus Text“). Keine Zahlenwerte oder Formulierungen übernehmen, die die Aufgabe wiedererkennbar kopieren.
+- Amtlich frei veröffentlichte Tests dürfen verlinkt werden; der Link genügt.
+- Keine Namen von Lehrkräften oder Schülern.
+
+**Zuordnen:** je Aufgabe → Lernbereich des LehrplanPLUS und → unser Thema und unsere Etappe (Schlüssel aus `inhalte/themenliste.json`, `inhalte/themen/*.json`; geteilte Themen nach `inhalte/pruefung/lehrplan/lk_teilung_2211.json`). Ohne passende Etappe: „Lücke“ mit Vorschlag. Zusätzlich je Arbeit: welche Themen zusammen geprüft werden (typische Kombination, Zeitpunkt im Schuljahr).
+
+**Auswertung je Klasse:** (1) typischer Aufbau einer Schulaufgabe (Zeit, Punkte, Zahl der Aufgaben, Anteil der Niveaus I/II/III); (2) Häufigkeit je Thema/Etappe; (3) Aufgabentypen, die bei uns fehlen oder selten sind; (4) Etappen, die in Prüfungen nie vorkommen; (5) Abgleich mit unserem Flug-Test (je Etappe eine Testaufgabe): reicht das, um auf eine echte Schulaufgabe vorzubereiten? (6) Vorschlag „Schulaufgaben-Training“ je Klasse – nur als Vorschlag, nichts bauen.
+
+**Lieferung je Chat:** `katalog.json` (maschinenlesbar, eine Zeile je Aufgabe), `katalog.md` (Übersicht je Arbeit), `auswertung.md` (Punkte 1–6, gesichert / Annahme / offen getrennt), `quellen.md` (alle Links mit Abrufdatum, auch die nicht verwertbaren mit Grund). Datenbank und App nicht anfassen, nichts einspielen, kein Merge nach `main`. Meldung in `inhalte/postfach/<chatname>.md`: „FERTIG: PM Gym“ bzw. „FERTIG: PM RS“.
+
+### Entscheidungen Sebastian (22.11., 17:05 Berlin) – Teilung, Stand LK-D 3 und Reise-Aufbau 2
+
+Stand der Liste: **7 Themen, 15 Teile, 8 neue Flüge** (26, 29, 44, 46 ×3, 61, 91, 101). „Ja, so wie du sagst – oder lass GPT nochmal prüfen“:
+1. **Zusatz-Regel auch je Etappe:** Eine Etappe ohne Lehrplan-Punkt in der Schulart des Kindes ist dort **Kür** (zählt nicht für Flug-Abschluss, Flug-Test, Stempel). Folge: Kind 2 hat 29 Teil 2 im Gymnasium vollständig (neue Etappe `gleichungen_binomisch` ist nur RS 8) → Stempel und 100 Sterne nachträglich wie entschieden.
+2. **Salomonen statt Neukaledonien** für 61 Teil 2 (keine strittigen Gebiete).
+3. **Marokko → Algerien → Mauretanien** bleibt für 46.
+4. ChatGPT prüft Liste (Stand LK-D 3), Etappen-Kür und Routen noch einmal.
+
+**An `lehrplan-lb` – LK-D 4:** (a) F1 aus ChatGPT 939 ist noch offen: 2 Lineare Gleichungen (RS I 7 + 8) und 57 Daten erfassen/darstellen (RS 5 + 7) – teilen oder „Wiederholung ohne neue Etappe“ ausdrücklich entscheiden und begründen; alle Themen systematisch durchzählen. (b) Kür je **Etappe** und Schulart in die JSON (`etappen[].kuer_in`), Pflicht-Etappen je Teil und Schulart ausweisen; Stand je Kind danach neu rechnen. (c) F3: 61 Teil 1 – Baumdiagramm/Vierfeldertafel. Meldung: „FERTIG: LK-D 4“.
+**An `reise-aufbau` – Reise-Aufbau 3:** 61 Teil 2 → Salomonen; 101 Teil 2 einplanen (jetzt 8 neue Flüge, 15 Teile); die drei neuen Etappen aus LK-D 3 (101 `cavalieri`, 91 `koerper_symmetrie`, 29 `gleichungen_binomisch`) je eine Stadt; gegen die aktuelle `lk_teilung_2211.json` abgleichen. Meldung: „FERTIG: Reise-Aufbau 3“.
+**An `bau-lehrer` (TL-S):** Liste Stand LK-D 3/4; Pflicht/Kür je Etappe und Schulart muss in Flug-Abschluss, Flug-Test, Stempel und Visum wirken (heute gibt es Kür nur je Etappe für alle – bitte melden, was dafür nötig ist). Geänderte `lk_korrektur_2211.sql` (seit 83d61a2e) ist noch nicht eingespielt.

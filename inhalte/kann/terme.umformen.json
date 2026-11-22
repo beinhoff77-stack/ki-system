@@ -9,6 +9,7 @@
   "summe_mal_summe": "zwei Klammern ausmultiplizieren, jedes Glied mal jedes, und dann zusammenfassen",
   "ausklammern": "den größten gemeinsamen Faktor vor die Klammer ziehen und durch Ausmultiplizieren prüfen",
   "aequivalenz": "prüfen, ob zwei Terme für jede Zahl gleich sind, und sonst ein Gegenbeispiel finden",
-  "binomisch": "mit den binomischen Formeln (x + 10)² oder (a + b)(a − b) ohne Klammern schreiben"
+  "binomisch": "mit den binomischen Formeln (x + 10)² oder (a + b)(a − b) ohne Klammern schreiben",
+  "gleichungen_binomisch": "Gleichungen mit Klammerprodukten und binomischen Formeln lösen, bei denen sich x² aufhebt"
  }
 }

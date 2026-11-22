@@ -2674,3 +2674,11 @@ Migration `supabase/migrations/20261123_lw_s_wackelt_status.sql`: gespeicherter 
 
 ### Entscheidung Sebastian (22.11., 14:25 Berlin) – lange Flüge bleiben
 Die drei Flüge mit 13–14 Etappen (Brüche und Anteile, Grundrechenarten und Rechengesetze, Natürliche Zahlen und Stellenwertsysteme) werden **nicht** geteilt („so lassen – jedes Land hat doch genügend Städte“). Sie liegen in Gym und RS nur in einer Klasse. Im Reise-Aufbau bekommen sie große Länder. Geteilt wird nur nach der Lehrplan-Regel (spätere Klasse mit drei oder mehr eigenen Etappen).
+
+### Nachtrag Kinderansicht 0.87.2 – Nachprüfung des Gestalters (22.11., 14:45 Berlin) · an `bau-motivation`
+
+Bericht: `inhalte/pruefung/kind/nachpruefung_2211.md`, Bilder `inhalte/pruefung/kind/n087/`. Kein Muss, alle sieben Punkte umgesetzt. Bitte als kleine eigene Version **0.87.2** (kann mit 0.87.1 zusammen live gehen), getrennt von LW-1:
+- **S1:** Check-in-Ansage (Wiederholungs-Runde) auf dem Handy nicht im Blick (400×860 hinter dem festen Knopf, 360×640 unter dem Bildschirm). Ansage direkt unter die Abflugtafel oder eine Zeile „Erst 9 Bordkarten Check-in · ca. 5 Min.“ über „Weiter geht’s“ (Zahl aus dem Serverwert).
+- **S2:** Hinweis bei 5 Sternen als eigene Zeile unter der Rückmeldung statt in der schmalen Mittelspalte.
+- **K2:** Pause-Link im Tag-Modus kräftiger. **K3:** lange Zahlwörter in Auswahl-Antworten trennen (`hyphens: auto`, `lang="de"`).
+Tests für 360×640 und 400×860 ergänzen. Meldung: „FERTIG: 0.87.2“.

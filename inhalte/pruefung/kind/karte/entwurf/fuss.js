@@ -11,7 +11,9 @@ let gest='tag',knopf='karte',breite='handy',ansicht='europa',sel=null,vb=null;
 const BY=n=>G.eur.find(x=>x.n===n);
 const ZT={gesch:'geschafft · Stempel',gold:'golden · alle Städte abgelegt',dran:'gerade dran',plan:'im Plan',offen:'offen – kannst du wählen',sperr:'noch gesperrt'};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let flagArt='rund';
 const fl=(a2,w=18)=>FLAG[a2]?`<image href="${FLAG[a2]}" width="${w}" height="${w*.75}" x="${-w/2}" y="${-w*.75}" preserveAspectRatio="none" class="flagge"/>`:'';
+const plakette=(a2,d=13,x=0,y=0)=>FLAG[a2]?`<g transform="translate(${x},${y})"><circle r="${d/2+1.6}" class="plring"/><image href="${FLAG[a2]}" width="${d}" height="${d}" x="${-d/2}" y="${-d/2}" preserveAspectRatio="xMidYMid slice" clip-path="url(#rund)"/><circle r="${d/2}" fill="none" stroke="#0003" stroke-width=".6"/></g>`:'';
 const flHtml=(a2,h=16)=>FLAG[a2]?`<img src="${FLAG[a2]}" style="height:${h}px;width:${h*4/3}px;border-radius:2px;box-shadow:0 0 0 1px #0002;vertical-align:-3px">`:'';
 function bogen(a,b,h=.18){const mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,dx=b[0]-a[0],dy=b[1]-a[1];return `M${a} Q${mx+dy*h},${my-dx*h} ${b}`}
 const flieger=(f='var(--dranR)')=>`<path d="M0,-11 L3,-3 L11,1 L11,3 L3,1 L2,8 L5,10 L5,11.5 L0,10 L-5,11.5 L-5,10 L-2,8 L-3,1 L-11,3 L-11,1 L-3,-3 Z" fill="${f}" stroke="var(--bg)" stroke-width="1.2"/>`;
@@ -19,7 +21,8 @@ const ms=(x,y,inner,cls='',da='')=>`<g transform="translate(${x},${y})" class="$
 function stempel(gold){const c=gold?'var(--goldR)':'var(--geschR)';return `<g class="stempel" transform="rotate(-12)"><circle r="13" fill="${gold?'var(--gold)':'var(--bg)'}" stroke="${c}" stroke-width="2.5"/><circle r="9.5" fill="none" stroke="${c}" stroke-width="1" stroke-dasharray="2 2"/><text text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="900" fill="${c}">${gold?'★':'✓'}</text></g>`}
 // Hauptstadt-Zeichen: Ring mit Punkt (wie im Atlas) – Städte der Reise dagegen: nummerierte Haltestellen
 const hsZ=`<circle r="5" class="hsring"/><circle r="2" class="hspunkt"/>`;
-const landLabel=(a2,name,gross)=>`<g class="landlabel">${fl(a2,gross?20:16)}<text class="lname" y="${gross?13:11}" text-anchor="middle">${esc(name)}</text></g>`;
+const landLabel=(a2,name,gross)=>{const w=name.length*(gross?8:7.7);if(flagArt==='aus')return `<g class="landlabel"><text class="lname" y="4" text-anchor="middle">${esc(name)}</text></g>`;if(flagArt==='eckig')return `<g class="landlabel">${fl(a2,gross?20:16)}<text class="lname" y="${gross?13:11}" text-anchor="middle">${esc(name)}</text></g>`;
+ return `<g class="landlabel">${plakette(a2,gross?14:12,-w/2-(gross?11:10),0)}<text class="lname" y="3.6" text-anchor="middle">${esc(name)}</text></g>`};
 // ---------- Welt ----------
 function welt(){const {W,H}=GW;let s=`<path d="${GW.sph}" fill="var(--meer)"/><path d="${GW.grat}" fill="none" stroke="var(--gitter)" stroke-width="1.5"/>`;
  for(const x of GW.L)s+=`<path class="kont" d="${x.d}" fill="${KF[x.k]||'#ccc'}" fill-opacity="${x.k==='eu'?.95:.6}" stroke="var(--grenze)" stroke-width="1.6" vector-effect="non-scaling-stroke" data-k="${x.k}" data-wl="${x.a2}"/>`;
@@ -41,7 +44,7 @@ function europa(){const [W,H]=G.eurWH;let s=`<defs><pattern id="schraffur" width
  for(let i=0;i<P.length-1;i++)s+=`<path class="route ${i<iD?'war':'kommt'}" d="${bogen(P[i],P[i+1])}"/>`;
  for(const x of G.eur){if(!x.hp)continue;s+=ms(x.hp[0],x.hp[1],`${hsZ}<text class="hsname" x="8" y="4">${esc(x.hs)}</text>`,'zl hs',`data-ar="${ZU[x.n]?9e9:1}"`)}
  for(const x of G.eur){if(!x.eu||!x.lp)continue;const z=ZU[x.n];const KLEIN=['LU','MC','SM','LI','AD','MT','XK','ME','MD','CY','AL','MK','BA'];
-  let mark='';if(z){if(z.s==='gesch'||z.s==='gold')mark=`<g transform="translate(0,-30)">${stempel(z.s==='gold')}</g>`;if(z.s==='plan')mark=`<g class="pin" transform="translate(0,-30)"><circle r="11" fill="var(--planR)"/><text>${z.p}</text></g>`;if(z.s==='sperr')mark=`<g transform="translate(0,-28)"><circle r="10" fill="var(--karte)" stroke="var(--linie)"/><text text-anchor="middle" dominant-baseline="central" font-size="11">🔒</text></g>`;if(z.s==='dran')mark=`<circle class="puls" r="9" cy="-6"/><g transform="translate(0,-34) rotate(35)">${flieger()}</g>`}
+  let mark='';if(z){if(z.s==='gesch'||z.s==='gold')mark=`<g transform="translate(0,${flagArt==='eckig'?-30:-20})">${stempel(z.s==='gold')}</g>`;if(z.s==='plan')mark=`<g class="pin" transform="translate(0,${flagArt==='eckig'?-30:-19})"><circle r="11" fill="var(--planR)"/><text>${z.p}</text></g>`;if(z.s==='sperr')mark=`<g transform="translate(0,${flagArt==='eckig'?-28:-18})"><circle r="10" fill="var(--karte)" stroke="var(--linie)"/><text text-anchor="middle" dominant-baseline="central" font-size="11">🔒</text></g>`;if(z.s==='dran')mark=`<circle class="puls" r="9" cy="0"/><g transform="translate(0,${flagArt==='eckig'?-34:-22}) rotate(35)">${flieger()}</g>`}
   s+=ms(x.lp[0],x.lp[1],landLabel(x.a2,x.de,!!z)+mark,'zl ll',`data-ar="${z?9e9:(KLEIN.includes(x.a2)?50:5000)}"`)}
  return {W,H,svg:s}}
 // ---------- Italien ----------
@@ -50,7 +53,7 @@ function italien(){const [W,H]=G.itWH;let s=`<rect width="${W}" height="${H}" fi
  for(const x of G.ita){if(x.n==='Italy')s+=`<path class="umriss" d="${x.d}" stroke="var(--dranR)" style="stroke-width:2"/>`}
  for(const x of G.ita){if(x.n!=='Italy'&&x.c&&x.c[0]>40&&x.c[0]<W-40&&x.c[1]>40&&x.c[1]<H-40)s+=ms(x.c[0],x.c[1],`<g style="opacity:.55">${landLabel(x.a2,x.de)}</g>`)}
  const S=G.itS;const iD=S.findIndex(c=>IST[c.n]==='dran');
- const ne=S[1].p;s+=ms(ne[0]+150,ne[1]+230,`<g>${fl('IT',30)}<text class="lname gross" y="22" text-anchor="middle">ITALIEN</text><text class="welt-z" y="38">Land · Natürliche Zahlen</text></g>`);
+ const ne=S[1].p;s+=ms(ne[0]+150,ne[1]+230,`<g>${flagArt==='aus'?'':plakette('IT',22,-78,-6)}<text class="lname gross" y="0" text-anchor="middle">ITALIEN</text><text class="welt-z" y="18">Land · Natürliche Zahlen</text></g>`);
  for(let i=0;i<S.length-1;i++){const a=S[i].p,b=S[i+1].p;s+=`<path class="route ${i<iD?'war':'kommt'}" d="${bogen(a,b,.12)}" ${IST[S[i+1].n]==='kuer'?'style="stroke:var(--leise);stroke-dasharray:1 6"':''}/>`}
  S.forEach((c,i)=>{const st=IST[c.n]||(i<iD?'gelandet':'offen');const [x,y]=c.p;
   const fill={abgelegt:'var(--goldR)',gelandet:'var(--geschR)',faellig:'var(--geschR)',dran:'var(--dranR)',offen:'var(--karte)',kuer:'var(--karte)'}[st];const hell=st==='offen'||st==='kuer';
@@ -87,7 +90,7 @@ function render(){const st=document.getElementById('buehne');const v=ansicht==='
   if(ansicht==='europa')fit(REISE.map(n=>BY(n).lp),breite==='handy'?90:200,ub);if(ansicht==='land')fit(G.itS.map(c=>c.p),breite==='handy'?95:170,ub);
   if(ansicht==='welt'){if(breite==='handy'){vb.x=1700;vb.y=180;vb.w=850;vb.h=1500}}}
  const {jetzt,btn}=unten();const bi=blattInhalt();
- const karte=`<div class="kartenrahmen" id="kr">${legende()}<div class="zoom"><button data-z="1.5">+</button><button data-z="0.67">−</button><button data-z="0" title="ganze Karte">⤢</button></div><svg id="sv" xmlns="http://www.w3.org/2000/svg">${v.svg}</svg>${knopf==='karte'&&breite==='handy'?`<div class="schwebe">${jetzt}${btn}</div>`:''}${breite==='handy'?`<div class="blatt ${bi?'auf':''}" id="blatt">${bi?'<button class="x" data-zu>✕</button>'+bi:''}</div>`:''}</div>`;
+ const karte=`<div class="kartenrahmen" id="kr">${legende()}<div class="zoom"><button data-z="1.5">+</button><button data-z="0.67">−</button><button data-z="0" title="ganze Karte">⤢</button></div><svg id="sv" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="rund" clipPathUnits="objectBoundingBox"><circle cx=".5" cy=".5" r=".5"/></clipPath></defs>${v.svg}</svg>${knopf==='karte'&&breite==='handy'?`<div class="schwebe">${jetzt}${btn}</div>`:''}${breite==='handy'?`<div class="blatt ${bi?'auf':''}" id="blatt">${bi?'<button class="x" data-zu>✕</button>'+bi:''}</div>`:''}</div>`;
  let html;
  if(breite==='handy')html=`<div class="geraet handy ${gest}">${kopf()}${karte}${knopf==='unten'?`<div class="unten">${jetzt}${ansicht==='land'?`<div class="stadtliste">${stadtListe()}</div>`:''}${btn}</div>`:''}</div>`;
  else html=`<div class="geraet rechner ${gest}">${kopf()}<div class="koerper">${karte}<div class="seite"><div class="rkarte">${jetzt}<div style="margin-top:12px">${btn}</div></div>${bi?`<div class="rkarte">${bi}</div>`:''}<div class="rkarte"><h4>${ansicht==='land'?'STÄDTE IN ITALIEN':'MEINE ROUTE · LÄNDER'}</h4>${ansicht==='land'?`<div class="stadtliste" style="flex-wrap:wrap">${stadtListe()}</div>`:routeListe()}</div></div></div></div>`;
@@ -99,7 +102,7 @@ function passe(){const kr=document.getElementById('kr'),sv=document.getElementBy
  const px=k*k;for(const g of sv.querySelectorAll('.zl')){const a=+g.dataset.ar/px;g.style.display=a>(g.classList.contains('hs')?(ansicht==='welt'?9000:4500):(ansicht==='welt'?1400:900))?'':'none'}
  for(const g of sv.querySelectorAll('.kl'))g.style.opacity=ansicht==='welt'&&k<1.4?0:1;if(ansicht==='welt')for(const g of sv.querySelectorAll('.ll'))if(k>=1.4&&+g.dataset.ar/px<6000)g.style.display='none'}
 document.addEventListener('click',e=>{const t=e.target;
- const b=t.closest('[data-g]');if(b){const g=b.dataset.g,v=b.dataset.v;if(g==='gest')gest=v;if(g==='knopf')knopf=v;if(g==='breite')breite=v;if(g==='ans'){ansicht=v;sel=null}document.querySelectorAll(`[data-g="${g}"]`).forEach(x=>x.classList.toggle('an',x.dataset.v===v));render();return}
+ const b=t.closest('[data-g]');if(b){const g=b.dataset.g,v=b.dataset.v;if(g==='gest')gest=v;if(g==='knopf')knopf=v;if(g==='breite')breite=v;if(g==='flagge')flagArt=v;if(g==='ans'){ansicht=v;sel=null}document.querySelectorAll(`[data-g="${g}"]`).forEach(x=>x.classList.toggle('an',x.dataset.v===v));render();return}
  const a=t.closest('[data-ans]');if(a){ansicht=a.dataset.ans;sel=null;vb=null;document.querySelectorAll('[data-g="ans"]').forEach(x=>x.classList.toggle('an',x.dataset.v===ansicht));render();return}
  if(t.closest('[data-zu]')){sel=null;render();return}
  const z=t.closest('[data-z]');if(z){const f=+z.dataset.z;if(!f){vb.x=0;vb.y=0;vb.w=vb.W;vb.h=vb.H}else{const cx=vb.x+vb.w/2,cy=vb.y+vb.h/2;vb.w/=f;vb.h/=f;vb.x=cx-vb.w/2;vb.y=cy-vb.h/2}passe();return}

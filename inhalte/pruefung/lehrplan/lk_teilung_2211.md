@@ -1,4 +1,102 @@
-# LK-D 2/3 – Teilungsliste nach der neuen Regel (22.11.2026; LK-D 3 nach „Entscheidung Teilung“ 16:20)
+# LK-D 3 – Teilungsliste nach der neuen Regel (22.11.2026; mit Ergänzung „Rückläufer ChatGPT 939/940“, 16:40)
+
+## LK-D 3, Ergänzung 939/940 – Ergebnis vorab
+
+**(1) Zählung berichtigt.**
+- Die 6 Themen der Entscheidung von 16:20 ergeben **13 Teile und 7 neue Flüge** (26: 2 · 29: 2 · 44: 2 · 46: 3 · 61: 2 · 91: 2). Die Angabe „15 Teile, 9 Flüge“ war mein Zählfehler.
+- Mit 101 aus dem Gym-Audit: **7 Themen, 15 Teile, 8 neue Flüge.** Daran ändert diese Ergänzung nichts.
+
+**(2) Muss F1 – alle Themen mit Hauptpunkten in mehreren Klassen.**
+- Gezählt habe ich maschinell gegen `lk_daten_2211.json`: je Thema und Spur jede Klasse mit Hauptpunkt; als „neu“ zählt eine Etappe, die in keiner früheren Klasse dieser Spur verlangt war.
+- Ergebnis: **62 Fälle** (Thema × Spur × spätere Klasse). In der JSON steht jeder Fall unter `mehrere_klassen`, mit Entscheidung, Anzeige und Begründung.
+- Die Anzeigen für „Wiederholung ohne neue Etappe“ stehen zusätzlich in `wiederholung_anzeige`.
+- **Gymnasium:** nur 101 (8 → 10), bereits geteilt.
+- **RS I:** 26, 29, 44, 46 (zweimal), 61 und 91 sind geteilt, 57 ist Wiederholung.
+- **Thema 2 hat in RS I nur noch Hauptpunkte in Kl. 7.** ChatGPT hat vermutlich den Stand vor LK-D 2 gelesen (Feld `vorher` von 734/749). Begründung siehe unten.
+- **101:** geteilt, siehe Gym-Audit.
+
+| Thema | Spur | Klassen | Punkte (spätere Klasse) | neue Etappen dort | Entscheidung | Anzeige | Begründung |
+|---|---|---|---|---|---|---|---|
+| 8 Quadratische Gleichungen (allgemein) | RS II/III | 9 → 10 | 859, 860 | `ausklammern`, `diskriminante`, `ergaenzung`, `faktorisieren`, `loesungsformel` | **grenzfall** | wird in Kl. 10 weitergeführt | rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“. |
+| 26 Direkte Proportionalität und Dreisatz | RS I | 5 → 6 | 385, 386, 387, 388 | `erkennen`, `pruefen`, `vervielfachen` | **geteilt** | eigener Teil 2 von 2 in Kl. 6 | Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung. |
+| 26 Direkte Proportionalität und Dreisatz | RS II/III | 5 → 6 | 385, 386, 387, 388 | `erkennen`, `pruefen`, `vervielfachen` | **grenzfall** | wird in Kl. 6 weitergeführt | rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“. |
+| 29 Terme umformen | RS I | 7 → 8 | 732, 734 | `ausklammern`, `binomisch`, `gleichungen_binomisch`, `summe_mal_summe` | **geteilt** | eigener Teil 2 von 2 in Kl. 8 | Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung. |
+| 29 Terme umformen | RS II/III | 7 → 8 | 747, 749 | `ausklammern`, `binomisch`, `gleichungen_binomisch`, `summe_mal_summe` | **grenzfall** | wird in Kl. 8 weitergeführt | rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“. |
+| 33 Lineare Funktionen | RS II/III | 8 → 9 | 988, 989, 990, 991 | `ablesen`, `aufstellen`, `bueschel`, `deuten`, `wirkung`, `zwei_punkte` | **grenzfall** | wird in Kl. 9 weitergeführt | rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“. |
+| 44 Konstruktionen, Kongruenz und Beweise | RS I | 7 → 8 | 931 | `vierecke`, `vierecke_konstruieren` | **geteilt** | eigener Teil 2 von 2 in Kl. 8 | Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung. |
+| 46 Kongruenzabbildungen | RS I | 6 → 7 | 868, 869, 870, 871 | `gegenvektor`, `vektor_koordinaten`, `verschiebung` | **geteilt** | eigener Teil 2 von 3 in Kl. 7 | Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung. |
+| 46 Kongruenzabbildungen | RS I | 6 → 8 | 930, 933, 934, 935, 936, 937 | `drehung`, `punktspiegelung`, `vektor_drehen` | **geteilt** | eigener Teil 3 von 3 in Kl. 8 | Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung. |
+| 46 Kongruenzabbildungen | RS II/III | 6 → 7 | 906, 907, 908, 909 | `gegenvektor`, `vektor_koordinaten`, `verschiebung` | **grenzfall** | wird in Kl. 7 weitergeführt | Kl. 8 (Vierecke nach Eigenschaften unterscheiden) steckt in vierecke_ordnen aus Kl. 6; RS II/III löst ohnehin keine Teilung aus. |
+| 46 Kongruenzabbildungen | RS II/III | 6 → 8 | 956 | – | **wiederholung** | wird in Kl. 8 wieder aufgegriffen | Kl. 8 (Vierecke nach Eigenschaften unterscheiden) steckt in vierecke_ordnen aus Kl. 6; RS II/III löst ohnehin keine Teilung aus. |
+| 57 Daten erfassen und darstellen | RS I | 5 → 7 | 900 | – | **wiederholung** | wird in Kl. 7 wieder aufgegriffen | Kl. 7 (8 I 8/K4) verlangt dieselbe Fähigkeit wie Kl. 5 (6/k3, verzerrte Diagramme erkennen/berichtigen) auf höherem Niveau; die Etappe irrefuehrend deckt beides. Keine neue Etappe → kein eigener Flug. |
+| 57 Daten erfassen und darstellen | RS II/III | 5 → 7 | 928 | – | **wiederholung** | wird in Kl. 7 wieder aufgegriffen | wie RS I: Kl. 7 (6/K4) = Kl. 5 (6/k3) auf höherem Niveau; Etappe irrefuehrend. |
+| 61 Zufall und Laplace | RS I | 8 → 9 | 798, 799, 800, 801, 802 | `gegenereignis`, `grosse_zahlen`, `laplace`, `laplace_pruefen` | **geteilt** | eigener Teil 2 von 2 in Kl. 9 | Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung. |
+| 61 Zufall und Laplace | RS II/III | 8 → 9 | 993, 994, 995, 996, 997 | `gegenereignis`, `grosse_zahlen`, `laplace`, `laplace_pruefen` | **grenzfall** | wird in Kl. 9 weitergeführt | rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“. |
+| 91 Schrägbilder und Raumdarstellung | RS I | 7 → 8 | 939, 940, 941 | `axialschnitt`, `koerper_symmetrie`, `koordinaten`, `rotation` | **geteilt** | eigener Teil 2 von 2 in Kl. 8 | Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung. |
+| 91 Schrägbilder und Raumdarstellung | RS II/III | 8 → 10 | 1006 | `axialschnitt`, `rotation` | **grenzfall** | wird in Kl. 10 weitergeführt | rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“. |
+| 101 Prismen und Zylinder | Gym | 8 → 10 | 285 | `cavalieri` | **geteilt** | eigener Teil 2 von 2 in Kl. 10 | Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung. |
+| 2 Lineare Gleichungen | RS I, RS II/III | vorher 7 → 8, jetzt nur 7 | 734, 749 | – | **nicht teilen** | wird in Kl. 8 in „29 Terme umformen – Teil 2 von 2“ wieder aufgegriffen | Der Kl.-8-Punkt verlangt Gleichungen mit Summenprodukten und binomischen Ausdrücken. Das braucht binomische Formeln aus 29 Teil 2; die eigene Etappe gleichungen_binomisch steht deshalb seit LK-D 2 in 29 Teil 2 (Hauptthema 29, 2 bleibt Nebenthema). 2 hat damit nur noch Hauptpunkte in Kl. 7 – kein zweiter Teil, kein zusätzlicher Flug. |
+
+- **IB (nur Orientierung, löst keine Teilung aus):** 32 Grenzfälle mit neuen Etappen in der späteren Klasse (Anzeige „wird in Kl. x weitergeführt“) und 12 Wiederholungen ohne neue Etappe (Anzeige „wird in Kl. x wieder aufgegriffen“).
+  - Die Wiederholungen betreffen: 6 Gleichungssysteme mit 2 Unbekannten (Kl. 4); 33 Lineare Funktionen (Kl. 4); 44 Konstruktionen, Kongruenz und Beweise (Kl. 4); 46 Kongruenzabbildungen (Kl. 4); 53 Volumen und Oberfläche (Kl. 2); 57 Daten erfassen und darstellen (Kl. 2); 59 Zweidimensionale Daten (Kl. 4); 92 Pyramide, Kegel, Kugel (Kl. 4).
+- **Offen bei 57:** Die Etappe `irrefuehrend` übt das Erkennen verzerrter Diagramme. „Berichtigen/verbessern“ (RS 5 und RS 7) kommt in ihren Aufgaben kaum vor.
+  - Das ist keine neue Etappe, sondern eine Lücke in den Aufgaben. Vorschlag: einige Aufgaben „richtige Darstellung wählen“ ergänzen. Nicht geliefert.
+
+**(3) Muss F2 – Zusatz-Regel je Schulart in den JSON-Kanten.**
+- Jede der 137 Kanten in `kanten` hat jetzt `art_je_schulart` mit „hart“, „empfohlen“ oder „Zusatz“ (null = Kante gilt in dieser Schulart nicht).
+- Regeln:
+  - Ist der Teil, der etwas braucht, in der Schulart Zusatz, steht dort „Zusatz“: keine Pflicht, sperrt nichts. Das betrifft 9 Kanten.
+  - Ist die Voraussetzung Zusatz, steht dort „empfohlen“.
+  - Sonst gilt die bisherige Art.
+- Jeder Teil hat `status_je_schulart` (Pflicht/Zusatz).
+- Gymnasium wie verlangt:
+  - **46 Teil 3 ← Teil 1 hart**, ← Teil 2 nur empfohlen;
+  - **44 Teil 2 Zusatz** (← Teil 1: „Zusatz“);
+  - ebenso 46 Teil 2.
+- `kanten_je_schulart` führt die Zusatz-Teile jetzt ausdrücklich mit art „Zusatz“:
+
+| Schulart | Teil | braucht | Art | Grund |
+|---|---|---|---|---|
+| gym | 46 Kongruenzabbildungen – Teil 3 von 3 | 46 Kongruenzabbildungen – Teil 2 von 3 | **empfohlen** | Vorgänger ist in dieser Schulart Zusatz |
+| gym | 46 Kongruenzabbildungen – Teil 3 von 3 | 46 Kongruenzabbildungen – Teil 1 von 3 | **hart** | letzter Pflicht-Teil davor |
+| rs_I | 101 Prismen und Zylinder – Teil 2 von 2 | 101 Prismen und Zylinder – Teil 1 von 2 | **empfohlen** | Vorgänger ist in dieser Schulart Zusatz |
+| rs_II_III | 101 Prismen und Zylinder – Teil 2 von 2 | 101 Prismen und Zylinder – Teil 1 von 2 | **empfohlen** | Vorgänger ist in dieser Schulart Zusatz |
+| gym | 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 | 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
+| ib_standard | 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 | 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
+| ib_extended | 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 | 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
+| gym | 46 Kongruenzabbildungen – Teil 2 von 3 | 46 Kongruenzabbildungen – Teil 1 von 3 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
+| rs_II_III | 46 Kongruenzabbildungen – Teil 3 von 3 | 46 Kongruenzabbildungen – Teil 2 von 3 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
+| ib_standard | 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 | 91 Schrägbilder und Raumdarstellung – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
+| ib_extended | 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 | 91 Schrägbilder und Raumdarstellung – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
+| ib_standard | 101 Prismen und Zylinder – Teil 2 von 2 | 101 Prismen und Zylinder – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
+| ib_extended | 101 Prismen und Zylinder – Teil 2 von 2 | 101 Prismen und Zylinder – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
+
+**(4) Sollte F3 – 61 Teil 1 und 91.**
+- **61 Teil 1 – Baumdiagramm und Vierfeldertafel (RS 8 I 7/K1, Punkt 950; II/III 6/K1, Punkt 968): fehlten.**
+  - Die Etappen `begriffe` und `rel_haeufigkeit` enthalten in keiner Aufgabe ein Baumdiagramm oder eine Vierfeldertafel. Die Nebenbezüge 60 und 63 liegen in RS I erst in Kl. 9 bzw. 10.
+  - Geliefert: **neue Etappe 61 `darstellen` „Baumdiagramm und Vierfeldertafel“** (22 Aufgaben, Vertiefung), zugeordnet zu 950 und 968. Außerdem zu Gym 8 5/k5 (Punkt 185, Baumdiagramm).
+  - **61 Teil 1 hat damit 3 Etappen** und ist kein Kurzflug mehr. Klassen bleiben gleich (Gym 8, RS I 8).
+- **91 gegen die Anforderungen von Kl. 7 und 8 (RS I) geprüft:**
+  - Kl. 7, Punkt 881 – Lage von Geraden/Ebenen und Raumwinkel:
+    - Die Lage war gedeckt (`lage`), **Raumwinkel fehlte**.
+    - Geliefert: **neue Etappe 91 `raumwinkel` „Winkel im Raum“** (22 Aufgaben). Sie kommt in 91 Teil 1 (RS I 7); dort stehen jetzt 4 Etappen.
+  - Kl. 7, Punkt 882 – Schrägbilder mit Verzerrung und Achsenlage zeichnen:
+    - `pyramide` übt nur Ecken, Kanten und Flächen; den Verzerrungsfaktor enthält `wahre_groesse`.
+    - 882 bekommt deshalb zusätzlich `wahre_groesse`; ebenso II/III 959.
+    - Das Zeichnen selbst geht in der App nicht und bleibt Papierarbeit.
+  - Kl. 7, Punkt 883 – wahre Größe: gedeckt (`wahre_groesse`).
+  - Kl. 8, Punkte 939, 940, 941 – Körpersymmetrie, Axialschnitt und Rotation, Koordinaten: gedeckt (`koerper_symmetrie`, `axialschnitt`, `rotation`, `koordinaten`).
+- **Kinder:** Kein Kind hat in 61 oder 91 etwas erledigt, die neuen Etappen ändern also keinen Stand.
+- **SQL:**
+  - Nur die Begründungstexte von 185 haben sich geändert (Etappe `darstellen`).
+  - Die Änderungszahlen bleiben 33/18/13/187.
+  - Die RS-Punkte 950, 968, 881, 882 und 959 sind im SQL nicht enthalten, weil sich an ihrer Themenzuordnung nichts ändert. Ihre Etappen stehen in der JSON.
+  - Probelauf auf dem vollständigen echten Stand: LP-RS zweimal, dann LK-D zweimal, bestanden; `thema_jahrgang` unverändert.
+
+---
+
+
+## Frühere Fassung (LK-D 2/3, Stand nach „Entscheidung Teilung“ 16:20)
 
 ## LK-D 3 – was sich gegenüber der Entscheidung von 16:20 ändert
 
@@ -114,14 +212,14 @@ Daten aus LK-D (`lk_daten_2211.json`, Stand nach dem Live).
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Zufall und Laplace – Teil 1 von 2 · Ergebnis, Ereignis, relative Häufigkeit **(dünn)** | Ergebnis, Ergebnisraum, Ereignis, Relative Häufigkeit | 8 | 8 | 8 | 2 / 2 | 0/2 | 0/2 |
+| 1/2 | Zufall und Laplace – Teil 1 von 2 · Ergebnis, Ereignis, relative Häufigkeit | Ergebnis, Ergebnisraum, Ereignis, Relative Häufigkeit, Baumdiagramm und Vierfeldertafel | 8 | 8 | 8 | 2 / 2 | 0/3 | 0/3 |
 | 2/2 | Zufall und Laplace – Teil 2 von 2 · Laplace-Wahrscheinlichkeit | Laplace-Wahrscheinlichkeit, Ist es ein Laplace-Experiment?, Das Gegenereignis, Gesetz der großen Zahlen | 8 | 9 | 9 | 2 / 2 | 0/4 | 0/4 |
 
 ### 91 Schrägbilder und Raumdarstellung
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Schrägbilder und Raumdarstellung – Teil 1 von 2 · Schrägbilder und Lage im Raum | Pyramiden: Ecken, Kanten, Flächen, Parallel, schneidend oder windschief?, Wahre Größe im Schrägbild | 10 | 7 | 8 | – / – | 0/3 | 0/3 |
+| 1/2 | Schrägbilder und Raumdarstellung – Teil 1 von 2 · Schrägbilder und Lage im Raum | Pyramiden: Ecken, Kanten, Flächen, Parallel, schneidend oder windschief?, Wahre Größe im Schrägbild, Winkel im Raum | 10 | 7 | 8 | – / – | 0/4 | 0/4 |
 | 2/2 | Schrägbilder und Raumdarstellung – Teil 2 von 2 · Raumkoordinaten, Körpersymmetrie, Rotationskörper | Punkte im Raum mit Koordinaten, Rotationskörper, Axialschnitte berechnen, Symmetrie von Körpern | 10 | 8 | 10 | – / – | 0/4 | 0/4 |
 
 ### 101 Prismen und Zylinder
@@ -177,6 +275,15 @@ Ein Teil ohne Lehrplanpunkt in der Schulart ist dort Zusatz: keine Pflicht, sper
 - Gym: 46 Kongruenzabbildungen – Teil 3 von 3 ← 46 Kongruenzabbildungen – Teil 1 von 3: **hart** (letzter Pflicht-Teil davor)
 - RS I: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **empfohlen** (Vorgänger ist in dieser Schulart Zusatz)
 - RS II/III: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **empfohlen** (Vorgänger ist in dieser Schulart Zusatz)
+- Gym: 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 ← 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
+- IB Std: 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 ← 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
+- IB Ext: 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 ← 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
+- Gym: 46 Kongruenzabbildungen – Teil 2 von 3 ← 46 Kongruenzabbildungen – Teil 1 von 3: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
+- RS II/III: 46 Kongruenzabbildungen – Teil 3 von 3 ← 46 Kongruenzabbildungen – Teil 2 von 3: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
+- IB Std: 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 ← 91 Schrägbilder und Raumdarstellung – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
+- IB Ext: 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 ← 91 Schrägbilder und Raumdarstellung – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
+- IB Std: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
+- IB Ext: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
 
 - Im Gymnasium braucht 46 Teil 3 hart nur Teil 1, wie entschieden.
 - 101 Teil 2 braucht Teil 1 in RS I und II/III nur empfohlen: Prismen und Zylinder stehen in der Realschule bei 92. Damit ist der II/III-Verstoß „101 Teil 2 ← Teil 1“ aufgelöst.
@@ -188,7 +295,7 @@ Ein Teil ohne Lehrplanpunkt in der Schulart ist dort Zusatz: keine Pflicht, sper
   - „braucht“ geht an den ersten Teil, dessen Klasse in Gym und RS I nicht vor der Voraussetzung liegt.
   - „wird gebraucht von“ geht an den letzten Teil, der nicht nach dem abhängigen Thema liegt.
   - Drei Fälle sind inhaltlich gesetzt (Annahme): 47, 44 und 4 brauchen nur Teil 1 von 46 bzw. 29.
-- Zusammen 136 Kanten, alle in der JSON.
+- Zusammen 137 Kanten, alle in der JSON.
 
 **Wichtige Zuordnungen:**
 - 29 Terme umformen:

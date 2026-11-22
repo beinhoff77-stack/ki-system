@@ -3674,10 +3674,12 @@
    "bezug": "haupt",
    "rolle": "neu",
    "etappen": [
-    "lage"
+    "lage",
+    "raumwinkel"
    ],
    "etappen_neu_in_dieser_klasse": [
-    "lage"
+    "lage",
+    "raumwinkel"
    ],
    "neben": [],
    "vorher": {
@@ -3685,7 +3687,7 @@
    },
    "veraltet": [],
    "befund": "ok",
-   "notiz": null,
+   "notiz": "Raumwinkel: neue Etappe raumwinkel (LK-D 3, F3)",
    "korrektur_sql": true
   },
   {
@@ -3708,10 +3710,12 @@
    "bezug": "haupt",
    "rolle": "neu",
    "etappen": [
-    "pyramide"
+    "pyramide",
+    "wahre_groesse"
    ],
    "etappen_neu_in_dieser_klasse": [
-    "pyramide"
+    "pyramide",
+    "wahre_groesse"
    ],
    "neben": [
     52
@@ -3722,7 +3726,7 @@
    },
    "veraltet": [],
    "befund": "ok",
-   "notiz": null,
+   "notiz": "Verzerrung/Verkürzung im Schrägbild steckt in wahre_groesse; Zeichnen selbst nur auf Papier (LK-D 3, F3)",
    "korrektur_sql": true
   },
   {
@@ -6256,10 +6260,12 @@
    "bezug": "haupt",
    "rolle": "neu",
    "etappen": [
-    "begriffe"
+    "begriffe",
+    "darstellen"
    ],
    "etappen_neu_in_dieser_klasse": [
-    "begriffe"
+    "begriffe",
+    "darstellen"
    ],
    "neben": [
     60,
@@ -6272,7 +6278,7 @@
    },
    "veraltet": [],
    "befund": "ok",
-   "notiz": null,
+   "notiz": "Baumdiagramm/Vierfeldertafel: neue Etappe darstellen (LK-D 3, F3)",
    "korrektur_sql": true
   },
   {
@@ -6495,10 +6501,12 @@
    "bezug": "haupt",
    "rolle": "neu",
    "etappen": [
-    "pyramide"
+    "pyramide",
+    "wahre_groesse"
    ],
    "etappen_neu_in_dieser_klasse": [
-    "pyramide"
+    "pyramide",
+    "wahre_groesse"
    ],
    "neben": [],
    "vorher": {
@@ -6506,7 +6514,7 @@
    },
    "veraltet": [],
    "befund": "ok",
-   "notiz": null,
+   "notiz": "Verzerrungswinkel/-maßstab steckt in wahre_groesse (LK-D 3, F3)",
    "korrektur_sql": false
   },
   {
@@ -6925,16 +6933,18 @@
    "bezug": "haupt",
    "rolle": "neu",
    "etappen": [
-    "begriffe"
+    "begriffe",
+    "darstellen"
    ],
    "etappen_neu_in_dieser_klasse": [
-    "begriffe"
+    "begriffe",
+    "darstellen"
    ],
    "neben": [],
    "vorher": {},
    "veraltet": [],
    "befund": "ergaenzt",
-   "notiz": null,
+   "notiz": "Baumdiagramm/Vierfeldertafel: Etappe darstellen (LK-D 3, F3)",
    "korrektur_sql": false
   },
   {
@@ -16301,10 +16311,12 @@
    "bezug": "haupt",
    "rolle": "neu",
    "etappen": [
-    "laplace"
+    "laplace",
+    "darstellen"
    ],
    "etappen_neu_in_dieser_klasse": [
-    "laplace"
+    "laplace",
+    "darstellen"
    ],
    "neben": [
     60
@@ -16312,7 +16324,7 @@
    "vorher": {},
    "veraltet": [],
    "befund": "ergaenzt",
-   "notiz": null,
+   "notiz": "Baumdiagramm: Etappe darstellen (LK-D 3, F3)",
    "korrektur_sql": true
   },
   {
@@ -29643,7 +29655,8 @@
       "rel_haeufigkeit",
       "grosse_zahlen",
       "laplace_pruefen",
-      "laplace"
+      "laplace",
+      "darstellen"
      ]
     },
     "hinterlegt": 8
@@ -29657,6 +29670,7 @@
     "etappen_je_klasse": {
      "8": [
       "begriffe",
+      "darstellen",
       "rel_haeufigkeit"
      ],
      "9": [
@@ -29677,6 +29691,7 @@
     "etappen_je_klasse": {
      "8": [
       "begriffe",
+      "darstellen",
       "rel_haeufigkeit"
      ],
      "9": [
@@ -30673,6 +30688,7 @@
     "etappen_je_klasse": {
      "7": [
       "lage",
+      "raumwinkel",
       "pyramide",
       "wahre_groesse"
      ],
@@ -34108,6 +34124,70 @@
    "klasse_b": 6
   },
   {
+   "spur": "rs_I",
+   "thema": 61,
+   "frueher_im_thema": "laplace",
+   "klasse_a": 9,
+   "spaeter_im_thema": "darstellen",
+   "klasse_b": 8
+  },
+  {
+   "spur": "rs_I",
+   "thema": 61,
+   "frueher_im_thema": "laplace_pruefen",
+   "klasse_a": 9,
+   "spaeter_im_thema": "darstellen",
+   "klasse_b": 8
+  },
+  {
+   "spur": "rs_I",
+   "thema": 61,
+   "frueher_im_thema": "gegenereignis",
+   "klasse_a": 9,
+   "spaeter_im_thema": "darstellen",
+   "klasse_b": 8
+  },
+  {
+   "spur": "rs_I",
+   "thema": 61,
+   "frueher_im_thema": "grosse_zahlen",
+   "klasse_a": 9,
+   "spaeter_im_thema": "darstellen",
+   "klasse_b": 8
+  },
+  {
+   "spur": "rs_II_III",
+   "thema": 61,
+   "frueher_im_thema": "laplace",
+   "klasse_a": 9,
+   "spaeter_im_thema": "darstellen",
+   "klasse_b": 8
+  },
+  {
+   "spur": "rs_II_III",
+   "thema": 61,
+   "frueher_im_thema": "laplace_pruefen",
+   "klasse_a": 9,
+   "spaeter_im_thema": "darstellen",
+   "klasse_b": 8
+  },
+  {
+   "spur": "rs_II_III",
+   "thema": 61,
+   "frueher_im_thema": "gegenereignis",
+   "klasse_a": 9,
+   "spaeter_im_thema": "darstellen",
+   "klasse_b": 8
+  },
+  {
+   "spur": "rs_II_III",
+   "thema": 61,
+   "frueher_im_thema": "grosse_zahlen",
+   "klasse_a": 9,
+   "spaeter_im_thema": "darstellen",
+   "klasse_b": 8
+  },
+  {
    "spur": "ib_standard",
    "thema": 63,
    "frueher_im_thema": "verknuepfen",
@@ -34150,7 +34230,31 @@
   {
    "spur": "rs_I",
    "thema": 91,
+   "frueher_im_thema": "koordinaten",
+   "klasse_a": 8,
+   "spaeter_im_thema": "raumwinkel",
+   "klasse_b": 7
+  },
+  {
+   "spur": "rs_I",
+   "thema": 91,
    "frueher_im_thema": "rotation",
+   "klasse_a": 8,
+   "spaeter_im_thema": "wahre_groesse",
+   "klasse_b": 7
+  },
+  {
+   "spur": "rs_I",
+   "thema": 91,
+   "frueher_im_thema": "rotation",
+   "klasse_a": 8,
+   "spaeter_im_thema": "raumwinkel",
+   "klasse_b": 7
+  },
+  {
+   "spur": "rs_I",
+   "thema": 91,
+   "frueher_im_thema": "axialschnitt",
    "klasse_a": 8,
    "spaeter_im_thema": "wahre_groesse",
    "klasse_b": 7
@@ -34160,7 +34264,15 @@
    "thema": 91,
    "frueher_im_thema": "axialschnitt",
    "klasse_a": 8,
-   "spaeter_im_thema": "wahre_groesse",
+   "spaeter_im_thema": "raumwinkel",
+   "klasse_b": 7
+  },
+  {
+   "spur": "rs_I",
+   "thema": 91,
+   "frueher_im_thema": "koerper_symmetrie",
+   "klasse_a": 8,
+   "spaeter_im_thema": "raumwinkel",
    "klasse_b": 7
   },
   {
@@ -34949,7 +35061,8 @@
        "rel_haeufigkeit",
        "grosse_zahlen",
        "laplace_pruefen",
-       "laplace"
+       "laplace",
+       "darstellen"
       ],
       "je_kind": {
        "1": 0,
@@ -34962,6 +35075,7 @@
       "klasse": 8,
       "etappen": [
        "begriffe",
+       "darstellen",
        "rel_haeufigkeit"
       ],
       "je_kind": {
@@ -34988,6 +35102,7 @@
       "klasse": 8,
       "etappen": [
        "begriffe",
+       "darstellen",
        "rel_haeufigkeit"
       ],
       "je_kind": {
@@ -35159,6 +35274,7 @@
       "klasse": 7,
       "etappen": [
        "lage",
+       "raumwinkel",
        "pyramide",
        "wahre_groesse"
       ],

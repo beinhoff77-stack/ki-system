@@ -2,6 +2,37 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LK-D 3, Ergänzung „Rückläufer ChatGPT 939/940“ (lehrplan-lb)
+
+Grundlage: `lernen-app` 95886f3b. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten in `lk_teilung_2211.md`, Abschnitt „Ergänzung 939/940“.
+
+- **(1) Zählung:** Die 6 Themen ergeben 13 Teile und 7 neue Flüge. Mit 101 sind es 7 Themen, 15 Teile und 8 neue Flüge. Diese Ergänzung ändert daran nichts.
+- **(2) F1:**
+  - Alle Themen habe ich maschinell gegen `lk_daten_2211.json` gezählt: 62 Fälle (Thema × Spur × spätere Klasse). Jeder steht mit Entscheidung, Anzeige und Begründung in `lk_teilung_2211.json` unter `mehrere_klassen`; Wiederholungen zusätzlich unter `wiederholung_anzeige`.
+  - Gymnasium: nur 101 (8 → 10), geteilt.
+  - RS I: 26, 29, 44, 46, 61 und 91 sind geteilt.
+  - **57** (RS 5 → 7, ebenso II/III): Wiederholung ohne neue Etappe, Anzeige „wird in Kl. 7 wieder aufgegriffen“. Kl. 7 verlangt dieselbe Fähigkeit wie Kl. 5 auf höherem Niveau.
+  - **2** hat in RS nur noch Kl. 7. Der Kl.-8-Punkt (734/749) braucht binomische Formeln und hängt seit LK-D 2 an 29 Teil 2 (Etappe `gleichungen_binomisch`); 2 ist dort Nebenthema. Deshalb keine Teilung; Anzeige „wird in Kl. 8 in 29 Teil 2 wieder aufgegriffen“.
+  - 46 II/III Kl. 8: Wiederholung.
+  - II/III (8, 26, 29, 33, 46, 61, 91) und IB: Grenzfälle, keine Teilung.
+- **(3) F2:**
+  - Jede Kante hat `art_je_schulart` mit hart, empfohlen oder Zusatz; jeder Teil hat `status_je_schulart`.
+  - Gym: 46 Teil 3 ← Teil 1 hart, ← Teil 2 empfohlen; 44 Teil 2 und 46 Teil 2 sind Zusatz.
+  - `kanten_je_schulart` führt Zusatz-Teile ausdrücklich mit art „Zusatz“.
+- **(4) F3:**
+  - 61 Teil 1: Baumdiagramm und Vierfeldertafel fehlten. Neu ist die Etappe 61 `darstellen` (Punkte 950, 968, Gym 185). Teil 1 hat damit 3 Etappen und ist kein Kurzflug mehr.
+  - 91: Raumwinkel (881) fehlte. Neu ist die Etappe 91 `raumwinkel` in Teil 1 (RS I 7).
+  - Für 882 und 959 kommt `wahre_groesse` dazu, weil der Verzerrungsfaktor dort steht.
+  - Die übrigen Punkte aus Kl. 7 und 8 waren gedeckt.
+  - Je 22 Aufgaben, Vertiefung, Prüfskript ohne Fehler.
+  - Klassen unverändert; kein Kind hat in 61 oder 91 etwas erledigt.
+- **SQL:** Nur die Begründungstexte von 185 ändern sich; die Zahlen bleiben 33/18/13/187. Probelauf auf dem echten Stand: LP-RS zweimal, dann LK-D zweimal, bestanden; `thema_jahrgang` unverändert. Tests: 141/141.
+- **Offen:**
+  - 57 `irrefuehrend` hat kaum Aufgaben zu „Diagramm berichtigen“. Das sind fehlende Aufgaben, keine fehlende Etappe; nicht geliefert.
+  - Unverändert offen: Kind 2 / 29 Teil 2 (3 von 4 Etappen, neue Etappe nachholen oder als Zusatz führen) – Sebastian entscheidet.
+
+FERTIG: LK-D 3
+
 ## 2026-11-22 – MELDUNG LK-D 3 (lehrplan-lb)
 
 Grundlage ist `lernen-app` 13dd8a52, „Entscheidung Teilung (16:20)“. Nichts eingespielt, Kinder nur als Nummern.

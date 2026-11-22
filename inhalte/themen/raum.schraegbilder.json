@@ -41,7 +41,8 @@
     "titel": "Lehrplan-Ergänzung (LK)",
     "lernziele": [
      "wahre_groesse",
-     "koerper_symmetrie"
+     "koerper_symmetrie",
+     "raumwinkel"
     ]
    }
   ],
@@ -897,6 +898,34 @@
      }
     ],
     "fehler": "Beim Quader auch diagonale Ebenen zählen: Die gibt es nur, wenn zwei Kanten ⟦gleich lang⟧ sind (quadratische Säule, Würfel)."
+   },
+   {
+    "lernziel": "raumwinkel",
+    "titel": "Winkel im Raum",
+    "einstieg": "Ein Fahnenmast steht senkrecht auf dem Schulhof, ein Seil führt schräg von der Spitze zum Boden. Zwischen Mast und Boden ist ein rechter Winkel, zwischen Seil und Boden ein spitzer. Solche Winkel im Raum kann man an Körpern ablesen.",
+    "woerter": [
+     [
+      "Neigungswinkel",
+      "Winkel zwischen einer Geraden und einer Ebene"
+     ],
+     [
+      "Winkel zwischen Ebenen",
+      "Winkel zweier Flächen entlang ihrer gemeinsamen Kante"
+     ]
+    ],
+    "regel": "Steht eine Kante ⟦senkrecht⟧ auf einer Fläche, bilden beide 90°. Am Quader treffen alle Flächen im rechten Winkel aufeinander. Beim geraden Prisma ist der Winkel zwischen zwei Seitenflächen der Innenwinkel der Grundfläche.",
+    "schritte": [
+     {
+      "text": "Gerades Prisma mit einem gleichseitigen Dreieck als Grundfläche."
+     },
+     {
+      "text": "Zwei Seitenflächen treffen sich an einer senkrechten Kante. Ihr Winkel ist der Dreieckswinkel: ⟦60°⟧."
+     },
+     {
+      "text": "Jede Seitenfläche steht senkrecht auf der Grundfläche: 90°."
+     }
+    ],
+    "fehler": "Den Winkel im Schrägbild messen: Dort ist der rechte Winkel oft als 45° oder 135° gezeichnet. Im Raum ist er ⟦90°⟧."
    }
   ],
   "teilfaehigkeiten": [
@@ -946,6 +975,12 @@
     "lernziele": [
      "koerper_symmetrie"
     ]
+   },
+   {
+    "k": "raumwinkel",
+    "lernziele": [
+     "raumwinkel"
+    ]
    }
   ],
   "bewertung": {
@@ -958,7 +993,8 @@
     "lage",
     "koordinaten",
     "wahre_groesse",
-    "koerper_symmetrie"
+    "koerper_symmetrie",
+    "raumwinkel"
    ],
    "testaufgaben_je_lernziel": 1
   },
@@ -8673,6 +8709,401 @@
     "wert": 13
    },
    "c": "12 + 1"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Winkel zwischen einer senkrechten Quaderkante und der Grundfläche?"
+   },
+   "w": "Die Kante steht senkrecht auf der Grundfläche: 90°.",
+   "g": "direkt",
+   "h": "Senkrecht heißt 90°.",
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein Quadrat als Grundfläche. Unter welchem Winkel treffen zwei benachbarte Seitenflächen aufeinander?"
+   },
+   "w": "Der Winkel ist der Innenwinkel des Quadrats: 90°.",
+   "g": "direkt",
+   "h": "Schau auf die Grundfläche.",
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Winkel ist ein Neigungswinkel?"
+   },
+   "w": "Ein Neigungswinkel liegt zwischen einer Geraden und einer Ebene, z. B. Seil und Boden.",
+   "g": "erkennen",
+   "h": "Gerade und Ebene.",
+   "a": [
+    "zwischen Seil und Boden",
+    "zwischen zwei Seilen",
+    "zwischen zwei Böden",
+    "zwischen zwei Punkten"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Schrägbild eines Würfels erscheint die Ecke vorne unten rechts mit 135°. Wie groß ist der Winkel am Würfel?"
+   },
+   "w": "Am Würfel sind alle Winkel zwischen Kanten 90°; das Schrägbild verzerrt.",
+   "g": "erkennen",
+   "h": "Zeichnung und Körper unterscheiden.",
+   "a": [
+    "90°",
+    "135°",
+    "45°",
+    "180°"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?"
+   },
+   "w": "Innenwinkelsumme Sechseck 720°, ein Winkel 720° : 6 = 120°.",
+   "g": "mehrschritt",
+   "h": "Erst den Innenwinkel des Sechsecks.",
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "720 / 6"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zelt hat einen dreieckigen Querschnitt mit zwei gleichen Winkeln von 65° am Boden. Wie groß ist der Winkel zwischen den beiden Zeltwänden oben?"
+   },
+   "w": "180° − 2 · 65° = 50°.",
+   "g": "einkleidung",
+   "h": "Winkelsumme im Dreieck.",
+   "o": {
+    "wert": 50,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 65"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Seitenflächen eines geraden Prismas mit regelmäßiger Grundfläche bilden 108°. Wie viele Ecken hat die Grundfläche?"
+   },
+   "w": "Regelmäßiges n-Eck mit Innenwinkel 108°: Fünfeck (540° : 5 = 108°).",
+   "g": "umkehr",
+   "h": "Welches regelmäßige Vieleck hat 108°?",
+   "o": {
+    "wert": 5
+   },
+   "c": "360 / (180 - 108)"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Rampe steigt vom Boden an. Welcher Winkel beschreibt, wie steil sie ist?"
+   },
+   "w": "Der Neigungswinkel zwischen Rampenfläche und Boden.",
+   "g": "darstellung",
+   "h": "Fläche gegen Boden.",
+   "a": [
+    "der Winkel zwischen Rampe und Boden",
+    "der Winkel zwischen zwei Bodenfliesen",
+    "der Winkel am oberen Ende der Rampe zur Wand",
+    "der Winkel zwischen zwei Geländerstäben"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem geraden Prisma mit dreieckiger Grundfläche bilden zwei Seitenflächen 70° und 50°. Welchen Winkel bilden die dritte und die zweite Seitenfläche?"
+   },
+   "w": "Die Winkel zwischen Seitenflächen sind die Dreieckswinkel: 180° − 70° − 50° = 60°.",
+   "g": "rueckwaerts",
+   "h": "Winkelsumme der Grundfläche.",
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 - 70 - 50"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist der Winkel zwischen zwei Seitenflächen eines geraden Prismas gleich dem Innenwinkel der Grundfläche?"
+   },
+   "w": "Die Seitenflächen stehen senkrecht auf der Grundfläche; ihr Winkel zeigt sich unverändert in der Grundfläche.",
+   "g": "begruenden",
+   "h": "Schneide waagrecht durch.",
+   "a": [
+    "Weil die Seitenflächen senkrecht auf der Grundfläche stehen.",
+    "Weil alle Kanten gleich lang sind.",
+    "Weil das Prisma symmetrisch ist.",
+    "Weil die Deckfläche kleiner ist."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ben misst im Schrägbild eines Quaders zwischen Vorder- und Seitenfläche 45° und schreibt: „Die Flächen bilden 45°.“ Was stimmt?"
+   },
+   "w": "Im Schrägbild ist der Winkel verzerrt. Am Quader bilden die Flächen 90°.",
+   "g": "fehler",
+   "h": "Ist ein Quader schief?",
+   "a": [
+    "Falsch: am Quader sind es 90°.",
+    "Richtig.",
+    "Falsch: es sind 135°.",
+    "Falsch: es sind 60°."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dach hat zwei gleich geneigte Flächen. Jede bildet mit dem waagrechten Dachboden 35°. Wie groß ist der Winkel zwischen den beiden Dachflächen am First?"
+   },
+   "w": "Querschnitt Dreieck: 180° − 2 · 35° = 110°.",
+   "g": "transfer",
+   "h": "Zeichne den Querschnitt.",
+   "o": {
+    "wert": 110,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 35"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges Achteck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?"
+   },
+   "w": "Innenwinkel: 1 080° : 8 = 135°.",
+   "o": {
+    "wert": 135,
+    "einheit": "°"
+   },
+   "c": "(8 - 2) * 180 / 8"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleich geneigte Dachflächen bilden mit dem Dachboden je 40°. Welchen Winkel bilden sie am First?"
+   },
+   "w": "180° − 2 · 40° = 100°.",
+   "o": {
+    "wert": 100,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 40"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleich geneigte Dachflächen bilden mit dem Dachboden je 55°. Welchen Winkel bilden sie am First?"
+   },
+   "w": "180° − 2 · 55° = 70°.",
+   "o": {
+    "wert": 70,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 55"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleich geneigte Dachflächen bilden mit dem Dachboden je 70°. Welchen Winkel bilden sie am First?"
+   },
+   "w": "180° − 2 · 70° = 40°.",
+   "o": {
+    "wert": 40,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 70"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 3-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 3-Ecks: (3 − 2) · 180° : 3 = 60°.",
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "(3 - 2) * 180 / 3"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 4-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 4-Ecks: (4 − 2) · 180° : 4 = 90°.",
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "(4 - 2) * 180 / 4"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 5-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 5-Ecks: (5 − 2) · 180° : 5 = 108°.",
+   "o": {
+    "wert": 108,
+    "einheit": "°"
+   },
+   "c": "(5 - 2) * 180 / 5"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 6-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 6-Ecks: (6 − 2) · 180° : 6 = 120°.",
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "(6 - 2) * 180 / 6"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 9-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 9-Ecks: (9 − 2) · 180° : 9 = 140°.",
+   "o": {
+    "wert": 140,
+    "einheit": "°"
+   },
+   "c": "(9 - 2) * 180 / 9"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 10-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 10-Ecks: (10 − 2) · 180° : 10 = 144°.",
+   "o": {
+    "wert": 144,
+    "einheit": "°"
+   },
+   "c": "(10 - 2) * 180 / 10"
   }
  ],
  "offen": [

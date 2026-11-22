@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import _bausatz as _b  # noqa: E402
 from _auffuellen import A, L, Z, baue, etappen_aus_klar, g4 as zt  # noqa: E402
 
-META = {'thema_schluessel': 'zahlen.natuerlich', 'thema_id': 15, 'block_id': 49, 'klasse': {'gym_by': 5}}
+META = {'thema_schluessel': 'zahlen.natuerlich', 'thema_id': 15, 'block_id': 49, 'klasse': {'gym_by': 5, 'rs_by': 5, 'ib_myp': 1}}
 TITEL = [('stellenwert', 'Welchen Wert hat eine Ziffer?'), ('zahlwort_zu_ziffern', 'Große Zahlen schreiben'),
          ('ziffern_zu_zahlwort', 'Große Zahlen lesen'), ('strahl_ablesen', 'Zahlenstrahl ablesen'),
          ('strahl_eintragen', 'Zahl am Zahlenstrahl finden'), ('vergleichen', 'Welche Zahl ist größer?'),

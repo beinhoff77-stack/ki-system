@@ -3,8 +3,9 @@
  "thema_id": 46,
  "block_id": 82,
  "klasse": {
+  "rs_by": 6,
   "gym_by": 7,
-  "rs_by": 6
+  "ib_myp": 3
  },
  "autor": "Claude (Paket Klasse 7)",
  "inhalt": {
@@ -40,6 +41,13 @@
      "symmetrie",
      "vierecke_ordnen",
      "eigenschaften"
+    ]
+   },
+   {
+    "titel": "Lehrplan-Ergänzung (LK)",
+    "lernziele": [
+     "vektor_koordinaten",
+     "vektor_drehen"
     ]
    }
   ],
@@ -2257,6 +2265,62 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "vektor_koordinaten",
+    "titel": "Vektoren in Koordinaten",
+    "einstieg": "Ein Lieferroboter fährt auf einem Gitterplan von der Halle A zur Tür B. Sein Weg lässt sich als Pfeil angeben: so weit nach rechts und so weit nach oben. Diesen Pfeil nennt man ⟦Vektor⟧.",
+    "woerter": [
+     [
+      "Vektor",
+      "Pfeil mit Richtung und Länge, geschrieben als (nach rechts | nach oben)"
+     ],
+     [
+      "Ortsvektor",
+      "Vektor vom Ursprung O zu einem Punkt; er hat dieselben Zahlen wie der Punkt"
+     ]
+    ],
+    "regel": "Vektor von A nach B: ⟦Ende minus Anfang⟧, also (xB − xA | yB − yA). Punkt plus Vektor gibt den Bildpunkt. Vektoren addiert man Zahl für Zahl.",
+    "schritte": [
+     {
+      "text": "A(1 | 2) und B(6 | 5). Rechts: 6 − 1 = 5. Oben: 5 − 2 = 3."
+     },
+     {
+      "text": "Also ist der Vektor von A nach B gleich ⟦(5 | 3)⟧."
+     },
+     {
+      "text": "Probe: A(1 | 2) plus (5 | 3) ergibt (1 + 5 | 2 + 3) = (6 | 5). Das ist B."
+     }
+    ],
+    "fehler": "Anfang minus Ende rechnen: 1 − 6 = −5 ist falsch herum. Der Vektor zeigt dann von B nach A. Immer ⟦Ende minus Anfang⟧."
+   },
+   {
+    "lernziel": "vektor_drehen",
+    "titel": "Vektoren um 90° und 180° drehen",
+    "einstieg": "Ein Kran schwenkt seinen Ausleger um eine Vierteldrehung. Die Spitze bewegt sich auf einem Kreis. Mit den Koordinaten des Auslegers kann man ihre neue Lage genau ausrechnen.",
+    "woerter": [
+     [
+      "Drehung um 90°",
+      "Vierteldrehung gegen den Uhrzeigersinn"
+     ],
+     [
+      "Drehung um −90°",
+      "Vierteldrehung im Uhrzeigersinn"
+     ]
+    ],
+    "regel": "Um +90°: (x | y) wird ⟦(−y | x)⟧. Um −90°: (x | y) wird (y | −x). Um 180°: (x | y) wird (−x | −y).",
+    "schritte": [
+     {
+      "text": "Der Vektor (4 | 1) soll um +90° gedreht werden."
+     },
+     {
+      "text": "Zahlen tauschen und die neue erste Zahl umdrehen: (−1 | 4)."
+     },
+     {
+      "text": "Punkt drehen um Z: erst den Vektor von Z zum Punkt drehen, dann an Z anhängen."
+     }
+    ],
+    "fehler": "Nur tauschen ohne Vorzeichen: (4 | 1) wird nicht (1 | 4). Bei +90° bekommt die ⟦neue erste Zahl ein Minus⟧."
    }
   ],
   "teilfaehigkeiten": [
@@ -2329,6 +2393,18 @@
     "lernziele": [
      "gegenvektor"
     ]
+   },
+   {
+    "k": "vektor_koordinaten",
+    "lernziele": [
+     "vektor_koordinaten"
+    ]
+   },
+   {
+    "k": "vektor_drehen",
+    "lernziele": [
+     "vektor_drehen"
+    ]
    }
   ],
   "bewertung": {
@@ -2344,7 +2420,9 @@
    "lernziele_vertiefung": [
     "verschiebung",
     "drehung",
-    "gegenvektor"
+    "gegenvektor",
+    "vektor_koordinaten",
+    "vektor_drehen"
    ],
    "testaufgaben_je_lernziel": 1
   },
@@ -15388,6 +15466,999 @@
    "c": [
     "(1) - (7)",
     "(5) - (5)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A(2 | 1) und B(7 | 4). Wie viele Einheiten nach rechts zeigt der Vektor von A nach B?"
+   },
+   "w": "Rechts: xB − xA = 7 − 2 = 5.",
+   "g": "direkt",
+   "h": "Ende minus Anfang, nur die erste Zahl.",
+   "o": {
+    "wert": 5
+   },
+   "c": "7 - 2"
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "C(−3 | 5) und D(1 | −2). Berechne die zweite Zahl (nach oben) des Vektors von C nach D."
+   },
+   "w": "Oben: yD − yC = −2 − 5 = −7. Der Pfeil geht 7 nach unten.",
+   "g": "direkt",
+   "h": "Ende minus Anfang bei der zweiten Zahl.",
+   "o": {
+    "wert": -7
+   },
+   "c": "-2 - 5"
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Vektor führt von P(0 | 0) zu Q(4 | −3)?"
+   },
+   "w": "Ende minus Anfang: (4 − 0 | −3 − 0) = (4 | −3).",
+   "g": "erkennen",
+   "h": "Vom Ursprung aus hat der Vektor dieselben Zahlen wie der Zielpunkt.",
+   "a": [
+    "(−4 | 3)",
+    "(4 | −3)",
+    "(−3 | 4)",
+    "(3 | −4)"
+   ],
+   "o": {
+    "index": 1
+   }
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Vektor von A nach B ist (2 | 6). Welcher Vektor führt von B zurück nach A?"
+   },
+   "w": "Der Rückweg ist der Gegenvektor: beide Zahlen mit umgekehrtem Vorzeichen, also (−2 | −6).",
+   "g": "erkennen",
+   "h": "Zurück heißt: alles in die Gegenrichtung.",
+   "a": [
+    "(2 | 6)",
+    "(6 | 2)",
+    "(−2 | −6)",
+    "(−2 | 6)"
+   ],
+   "o": {
+    "index": 2
+   }
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "A(3 | −1) wird mit dem Vektor (−5 | 4) verschoben. Gib die Koordinaten des Bildpunkts A′ an.",
+    "schablone": "A′(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "A′ = (3 + (−5) | −1 + 4) = (−2 | 3).",
+   "g": "mehrschritt",
+   "h": "Punkt plus Vektor, Zahl für Zahl.",
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "c": [
+    "3 + (-5)",
+    "-1 + 4"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Roboter steht bei (2 | 3). Er fährt erst (4 | 1), dann (−1 | 5). Bei welcher x-Koordinate steht er danach?"
+   },
+   "w": "Vektoren addieren: (4 + (−1) | 1 + 5) = (3 | 6). Von (2 | 3) aus: x = 2 + 3 = 5.",
+   "g": "einkleidung",
+   "h": "Addiere zuerst die beiden Fahrten.",
+   "o": {
+    "wert": 5
+   },
+   "c": "2 + 4 + (-1)"
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Nach der Verschiebung mit (3 | −2) liegt der Bildpunkt bei P′(1 | 4). Wo lag P?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "Rückwärts: P = P′ minus Vektor = (1 − 3 | 4 − (−2)) = (−2 | 6).",
+   "g": "umkehr",
+   "h": "Ziehe den Vektor vom Bildpunkt ab.",
+   "o": {
+    "werte": [
+     -2,
+     6
+    ]
+   },
+   "c": [
+    "1 - 3",
+    "4 - (-2)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Strecke AB hat A(−2 | 1) und B(4 | 7). Berechne den Mittelpunkt M der Strecke.",
+    "schablone": "M(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "M = ((−2 + 4) : 2 | (1 + 7) : 2) = (1 | 4).",
+   "g": "darstellung",
+   "h": "Mittelwert der x-Werte und der y-Werte.",
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "(-2 + 4) / 2",
+    "(1 + 7) / 2"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(1 | 1), B(6 | 2) und C(7 | 5). Berechne die vierte Ecke D.",
+    "schablone": "D(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "Im Parallelogramm gilt: Vektor AD = Vektor BC = (7 − 6 | 5 − 2) = (1 | 3). D = A + (1 | 3) = (2 | 4).",
+   "g": "rueckwaerts",
+   "h": "Gegenüberliegende Seiten sind gleiche Vektoren.",
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "c": [
+    "1 + (7 - 6)",
+    "1 + (5 - 2)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vektoren von A nach B und von D nach C sind beide (5 | 2). Was folgt daraus für das Viereck ABCD?"
+   },
+   "w": "Gleiche Vektoren heißen gleich lang und parallel. Zwei Seiten gleich lang und parallel: ABCD ist ein Parallelogramm.",
+   "g": "begruenden",
+   "h": "Was haben gleiche Pfeile gemeinsam?",
+   "a": [
+    "Es ist ein Parallelogramm.",
+    "Es ist ein Quadrat.",
+    "Es ist ein Drachenviereck.",
+    "Es ist ein Trapez, aber kein Parallelogramm."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lina rechnet den Vektor von A(4 | 2) nach B(1 | 6) so: (4 − 1 | 2 − 6) = (3 | −4). Was stimmt?"
+   },
+   "w": "Sie hat Anfang minus Ende gerechnet. Richtig: (1 − 4 | 6 − 2) = (−3 | 4).",
+   "g": "fehler",
+   "h": "Welche Reihenfolge gilt beim Vektor?",
+   "a": [
+    "Falsch herum: richtig ist (−3 | 4).",
+    "Alles richtig.",
+    "Nur die erste Zahl ist falsch.",
+    "Richtig ist (5 | 8)."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schiff fährt von (0 | 0) dreimal hintereinander den Vektor (2 | 5). Welche y-Koordinate hat es danach?"
+   },
+   "w": "Dreimal derselbe Vektor: 3 · (2 | 5) = (6 | 15). y = 15.",
+   "g": "transfer",
+   "h": "Dreimal addieren ist dreimal so viel.",
+   "o": {
+    "wert": 15
+   },
+   "c": "3 * 5"
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme den Vektor von A(−1 | 4) nach B(3 | −2).",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ende minus Anfang: (3 − (−1) | −2 − 4) = (4 | −6).",
+   "o": {
+    "werte": [
+     4,
+     -6
+    ]
+   },
+   "c": [
+    "3 - (-1)",
+    "-2 - 4"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Vektor von A(2 | 5) nach B(8 | 1).",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ende minus Anfang: (8 − 2 | 1 − 5) = (6 | −4).",
+   "o": {
+    "werte": [
+     6,
+     -4
+    ]
+   },
+   "c": [
+    "8 - (2)",
+    "1 - (5)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Vektor von A(−4 | 0) nach B(1 | 3).",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ende minus Anfang: (1 − (−4) | 3 − 0) = (5 | 3).",
+   "o": {
+    "werte": [
+     5,
+     3
+    ]
+   },
+   "c": [
+    "1 - (-4)",
+    "3 - (0)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Vektor von A(0 | −3) nach B(−5 | 2).",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ende minus Anfang: (−5 − 0 | 2 − (−3)) = (−5 | 5).",
+   "o": {
+    "werte": [
+     -5,
+     5
+    ]
+   },
+   "c": [
+    "-5 - (0)",
+    "2 - (-3)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(1 | 1) mit dem Vektor (3 | 4). Wo liegt P′?",
+    "schablone": "P′(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "P′ = (1 + 3 | 1 + 4) = (4 | 5).",
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "1 + (3)",
+    "1 + (4)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(−2 | 5) mit dem Vektor (6 | −1). Wo liegt P′?",
+    "schablone": "P′(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "P′ = (−2 + 6 | 5 + (−1)) = (4 | 4).",
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "c": [
+    "-2 + (6)",
+    "5 + (-1)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(4 | −3) mit dem Vektor (−4 | 2). Wo liegt P′?",
+    "schablone": "P′(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "P′ = (4 + (−4) | −3 + 2) = (0 | −1).",
+   "o": {
+    "werte": [
+     0,
+     -1
+    ]
+   },
+   "c": [
+    "4 + (-4)",
+    "-3 + (2)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(0 | 2) mit dem Vektor (5 | 5). Wo liegt P′?",
+    "schablone": "P′(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "P′ = (0 + 5 | 2 + 5) = (5 | 7).",
+   "o": {
+    "werte": [
+     5,
+     7
+    ]
+   },
+   "c": [
+    "0 + (5)",
+    "2 + (5)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(−1 | −1) mit dem Vektor (2 | −3). Wo liegt P′?",
+    "schablone": "P′(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "P′ = (−1 + 2 | −1 + (−3)) = (1 | −4).",
+   "o": {
+    "werte": [
+     1,
+     -4
+    ]
+   },
+   "c": [
+    "-1 + (2)",
+    "-1 + (-3)"
+   ]
+  },
+  {
+   "l": "vektor_koordinaten",
+   "t": "vektor_koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe P(3 | 0) mit dem Vektor (−2 | 6). Wo liegt P′?",
+    "schablone": "P′(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "P′ = (3 + (−2) | 0 + 6) = (1 | 6).",
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "c": [
+    "3 + (-2)",
+    "0 + (6)"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe den Vektor (3 | 2) um +90°.",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "(x | y) → (−y | x): (−2 | 3).",
+   "g": "direkt",
+   "h": "Tauschen, dann vorne das Vorzeichen umdrehen.",
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "c": [
+    "-2",
+    "3"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe den Vektor (−4 | 5) um 180°.",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Bei 180° wechseln beide Vorzeichen: (4 | −5).",
+   "g": "direkt",
+   "h": "Halbe Drehung: der Pfeil zeigt genau zurück.",
+   "o": {
+    "werte": [
+     4,
+     -5
+    ]
+   },
+   "c": [
+    "4",
+    "-5"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Vektor entsteht, wenn (6 | 1) um −90° gedreht wird?"
+   },
+   "w": "(x | y) → (y | −x): (1 | −6).",
+   "g": "erkennen",
+   "h": "Im Uhrzeigersinn: tauschen, hinten das Vorzeichen umdrehen.",
+   "a": [
+    "(1 | −6)",
+    "(−1 | 6)",
+    "(−6 | −1)",
+    "(1 | 6)"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei welcher Drehung bleibt die Länge eines Vektors gleich?"
+   },
+   "w": "Drehungen ändern die Länge nie, nur die Richtung.",
+   "g": "erkennen",
+   "h": "Denke an den Kranausleger.",
+   "a": [
+    "Bei jeder Drehung",
+    "Nur bei 180°",
+    "Nur bei 90°",
+    "Bei keiner Drehung"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe P(5 | 3) um Z(2 | 1) um +90°. Gib P′ an.",
+    "schablone": "P′(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "Vektor ZP = (3 | 2). Gedreht: (−2 | 3). P′ = Z + (−2 | 3) = (0 | 4).",
+   "g": "mehrschritt",
+   "h": "Erst Vektor ZP, dann drehen, dann an Z anhängen.",
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "c": [
+    "2 + (-2)",
+    "1 + 3"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Zeiger zeigt vom Mittelpunkt aus (0 | 4). Nach einer Vierteldrehung im Uhrzeigersinn: Wohin zeigt er?",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Um −90°: (x | y) → (y | −x) = (4 | 0). Er zeigt nach rechts.",
+   "g": "einkleidung",
+   "h": "Im Uhrzeigersinn heißt −90°.",
+   "o": {
+    "werte": [
+     4,
+     0
+    ]
+   },
+   "c": [
+    "4",
+    "0"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Nach einer Drehung um +90° ist ein Vektor (−3 | 1). Wie lautete er vorher?",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Zurückdrehen um −90°: (x | y) → (y | −x) = (1 | 3). Probe: (1 | 3) um +90° gibt (−3 | 1).",
+   "g": "umkehr",
+   "h": "Drehe in die Gegenrichtung zurück.",
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "1",
+    "3"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Vektor (2 | 0) zeigt nach rechts. Wohin zeigt er nach einer Drehung um 180°?"
+   },
+   "w": "(2 | 0) → (−2 | 0): nach links.",
+   "g": "darstellung",
+   "h": "Halbe Drehung.",
+   "a": [
+    "nach links",
+    "nach rechts",
+    "nach oben",
+    "nach unten"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Das Quadrat ABCD hat A(1 | 1) und B(4 | 2). Die Ecken laufen gegen den Uhrzeigersinn. Berechne D.",
+    "schablone": "D(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "Vektor AB = (3 | 1). AD ist AB um +90° gedreht: (−1 | 3). D = A + (−1 | 3) = (0 | 4).",
+   "g": "rueckwaerts",
+   "h": "AD steht senkrecht auf AB und ist gleich lang.",
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "c": [
+    "1 + (-1)",
+    "1 + 3"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist (−y | x) senkrecht zu (x | y)?"
+   },
+   "w": "Die Determinante bzw. das Produkt x · (−y) + y · x ist 0. Senkrechte Vektoren haben dieses Produkt 0.",
+   "g": "begruenden",
+   "h": "Rechne x · (−y) + y · x.",
+   "a": [
+    "Weil x · (−y) + y · x = 0 ist.",
+    "Weil beide gleich lang sind.",
+    "Weil beide Zahlen getauscht sind.",
+    "Weil x und y positiv sind."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tom dreht (5 | 2) um +90° und erhält (2 | −5). Was stimmt?"
+   },
+   "w": "Das ist die Drehung um −90°. Richtig für +90°: (−2 | 5).",
+   "g": "fehler",
+   "h": "Wo steht bei +90° das Minus?",
+   "a": [
+    "Das ist −90°; richtig ist (−2 | 5).",
+    "Alles richtig.",
+    "Richtig ist (2 | 5).",
+    "Richtig ist (−5 | −2)."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vektor wird viermal nacheinander um +90° gedreht. Um wie viel Grad hat er sich insgesamt gedreht?"
+   },
+   "w": "4 · 90° = 360°: Er zeigt wieder in die alte Richtung.",
+   "g": "transfer",
+   "h": "Vier Vierteldrehungen.",
+   "o": {
+    "wert": 360
+   },
+   "c": "4 * 90"
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe P(4 | 1) um Z(1 | 1) um +90°.",
+    "schablone": "P′(□ | □)",
+    "hinweis": "Trage x und y ein."
+   },
+   "w": "ZP = (3 | 0), gedreht (0 | 3), P′ = (1 | 4).",
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "1 + 0",
+    "1 + 3"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe den Vektor (2 | 5) um 90°.",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ergebnis: (−5 | 2).",
+   "o": {
+    "werte": [
+     -5,
+     2
+    ]
+   },
+   "c": [
+    "-5",
+    "2"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe den Vektor (−3 | 4) um −90°.",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ergebnis: (4 | 3).",
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "c": [
+    "4",
+    "3"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe den Vektor (6 | −1) um 180°.",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ergebnis: (−6 | 1).",
+   "o": {
+    "werte": [
+     -6,
+     1
+    ]
+   },
+   "c": [
+    "-6",
+    "1"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Vektor entsteht aus (1 | 4) bei einer Drehung um 90°?",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ergebnis: (−4 | 1).",
+   "o": {
+    "werte": [
+     -4,
+     1
+    ]
+   },
+   "c": [
+    "-4",
+    "1"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Vektor entsteht aus (5 | 0) bei einer Drehung um −90°?",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ergebnis: (0 | −5).",
+   "o": {
+    "werte": [
+     0,
+     -5
+    ]
+   },
+   "c": [
+    "0",
+    "-5"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Vektor entsteht aus (−2 | −3) bei einer Drehung um 180°?",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ergebnis: (2 | 3).",
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "3"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Vektor entsteht aus (3 | −2) bei einer Drehung um 90°?",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ergebnis: (2 | 3).",
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "3"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Vektor entsteht aus (−4 | 1) bei einer Drehung um −90°?",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ergebnis: (1 | 4).",
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "1",
+    "4"
+   ]
+  },
+  {
+   "l": "vektor_drehen",
+   "t": "vektor_drehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Vektor entsteht aus (0 | −5) bei einer Drehung um 180°?",
+    "schablone": "(□ | □)",
+    "hinweis": "Trage beide Zahlen ein."
+   },
+   "w": "Ergebnis: (0 | 5).",
+   "o": {
+    "werte": [
+     0,
+     5
+    ]
+   },
+   "c": [
+    "0",
+    "5"
    ]
   }
  ],

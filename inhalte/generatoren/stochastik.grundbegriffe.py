@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, L, Z, baue, bruch, ist_endlich, mit_bild, runde, sicher_rundbar, zt  # noqa: E402
 
-META = {'thema_schluessel': 'stochastik.grundbegriffe', 'thema_id': 61, 'block_id': 92, 'klasse': {'gym_by': 8, 'rs_by': 8}}
+META = {'thema_schluessel': 'stochastik.grundbegriffe', 'thema_id': 61, 'block_id': 92, 'klasse': {'gym_by': 8, 'rs_by': 9, 'ib_myp': 2}}
 
 ETAPPEN = [
     {'lernziel': 'begriffe', 'titel': 'Ergebnis, Ergebnisraum, Ereignis',

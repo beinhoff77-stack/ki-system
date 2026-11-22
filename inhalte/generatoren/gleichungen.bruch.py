@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, Z, baue, bruch, cz, ist_endlich, kl, lin, mit_bild, zt  # noqa: E402
 
-META = {'thema_schluessel': 'gleichungen.bruch', 'thema_id': 5, 'block_id': 60, 'klasse': {'gym_by': 8, 'rs_by': 8}}
+META = {'thema_schluessel': 'gleichungen.bruch', 'thema_id': 5, 'block_id': 60, 'klasse': {'gym_by': 8, 'rs_by': 8, 'ib_myp': 4}}
 
 ETAPPEN = [
     {'lernziel': 'definitionsmenge', 'titel': 'Definitionsmenge einer Bruchgleichung',

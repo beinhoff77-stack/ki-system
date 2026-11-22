@@ -11,7 +11,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _auffuellen import A, L, Z, baue, etappen_aus_klar, faktor, term, zt, kl  # noqa: E402
 
-META = {'thema_schluessel': 'terme.umformen', 'thema_id': 29, 'block_id': 62, 'klasse': {'gym_by': 7}}
+META = {'thema_schluessel': 'terme.umformen', 'thema_id': 29, 'block_id': 62, 'klasse': {'gym_by': 7, 'rs_by': 7, 'ib_myp': 3}}
 TITEL = [('zusammenfassen', 'Gleichartige Glieder zusammenfassen'), ('produkte', 'Produkte vereinfachen'),
          ('minusklammer', 'Minus vor der Klammer'), ('ausmultiplizieren', 'Ausmultiplizieren'),
          ('summe_mal_summe', 'Summe mal Summe'), ('ausklammern', 'Gemeinsamen Faktor ausklammern'),

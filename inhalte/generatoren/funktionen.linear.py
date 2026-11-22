@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, L, Z, baue, cz, eur, ist_endlich, kl, lin, mit_bild, zt  # noqa: E402
 
-META = {'thema_schluessel': 'funktionen.linear', 'thema_id': 33, 'block_id': 72, 'klasse': {'gym_by': 8, 'rs_by': 8}}
+META = {'thema_schluessel': 'funktionen.linear', 'thema_id': 33, 'block_id': 72, 'klasse': {'gym_by': 8, 'rs_by': 8, 'ib_myp': 3}}
 
 ETAPPEN = [
     {'lernziel': 'ablesen', 'titel': 'Steigung m und Achsenabschnitt t',

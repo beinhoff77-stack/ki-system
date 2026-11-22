@@ -7,6 +7,7 @@
   "konstruierbar": "prüfen, ob es ein Dreieck mit gegebenen Seiten oder Winkeln überhaupt gibt",
   "planfigur": "mit einer Planfigur die Schritte einer Dreieckskonstruktion ordnen und ergänzen",
   "vierecke": "fehlende Winkel in Parallelogramm, Drachenviereck und Trapez berechnen",
-  "satz_kehrsatz": "zu einem Wenn-dann-Satz den Kehrsatz bilden und ihn mit einem Gegenbeispiel prüfen"
+  "satz_kehrsatz": "zu einem Wenn-dann-Satz den Kehrsatz bilden und ihn mit einem Gegenbeispiel prüfen",
+  "vierecke_konstruieren": "entscheiden, welche Angaben ein Viereck festlegen, und fehlende Winkel in Vierecken berechnen"
  }
 }

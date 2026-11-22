@@ -989,3 +989,9 @@ if __name__ == '__main__':
     from _aufloesen import aufloesen_datei
     aufloesen_datei('abbildungen.aehnlichkeit')
 # ---- AUFLOESEN ENDE ----
+
+# ---- LK (22.11., Lücken aus LP-RS, siehe _lk_etappen_2211.py): zuletzt, hängt nur an ----
+if __name__ == '__main__':
+    from _lk_etappen_2211 import lk_anhaengen
+    lk_anhaengen('abbildungen.aehnlichkeit')
+# ---- LK ENDE ----

@@ -3,8 +3,9 @@
  "thema_id": 64,
  "block_id": 90,
  "klasse": {
-  "gym_by": 8,
-  "rs_by": 9
+  "gym_by": 10,
+  "rs_by": 9,
+  "ib_myp": 2
  },
  "autor": "Claude (Paket Klasse 8)",
  "inhalt": {

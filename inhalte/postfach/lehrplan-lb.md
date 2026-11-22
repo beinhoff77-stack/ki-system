@@ -2,6 +2,42 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LK-D Daten und Aufbau-Prüfung (lehrplan-lb)
+
+Grundlage ist `lernen-app` 22251c0e: Bau-Auftrag LK, Abschnitt LK-D, mit den Nachträgen 14:20 und 14:25. Die DB habe ich nach dem Live nur gelesen; nichts eingespielt. Kinderdaten nur als Nummern.
+
+- **Bericht** `inhalte/pruefung/lehrplan/lk_pruefung_2211.md`, Daten je Punkt in `lk_daten_2211.json` (Rolle, Etappen, neue Etappen je Klasse, Lage, Aufbau-Ketten, Verstöße, Teilungsliste, Stand je Kind).
+- **Gymnasium 5–10:**
+  - Stunden und Titel stimmen mit LehrplanPLUS (22.11.). Die DB teilt die Punkte feiner als das Original.
+  - **134 von 237 Punkten hatten kein Hauptthema**; jetzt haben alle eins, 10 sind umgehängt.
+  - Klassen unverändert, simuliert und im Probelauf geprüft.
+- **Realschule:**
+  - Etappen für alle 297 Punkte.
+  - **Alle 5 Lücken aus LP-RS geschlossen.** Zahlensysteme stehen schon in Thema 15 (Berichtigung zu LP-RS). Vektoren in Koordinaten und Vektoren drehen sind neue Lernkarten in 46.
+- **IB MYP:**
+  - Orientierung (kein amtlicher Jahresplan).
+  - 14 Kapitel weg von stillgelegten Themen umgehängt, 6 weitere umgehängt.
+  - Neu abrufen ließen sich die Verzeichnisse nicht (Freigabe offen).
+- **Aufbau:**
+  - 0 Voraussetzungs-Verstöße in Gymnasium und RS Gruppe I.
+  - RS II/III: 2 (empfohlen).
+  - IB: 10 je Kurs, 3 davon hart, mit Vorschlag.
+  - 87 Hinweise zur Reihenfolge der Lernkarten innerhalb eines Themas.
+  - Kein Pflichtstoff je Spur ist ausgewiesen.
+- **Teilen (Regel 14:25):** Kein Thema erfüllt die Regel, weil im Gymnasium jedes Thema in einer Klasse liegt.
+  - 8 Grenzfälle mit Empfehlung „zusammen lassen“, darunter 29 Terme umformen (RS 8: 3 Etappen; Kind 2 hat 8/8, Flug geschafft).
+  - Sebastian entscheidet.
+- **Lernstand (Nachtrag Punkt 6):** keine verteilten Themen mit Lernstand im Gymnasium; kein „geschafft, aber spätere Etappen offen“.
+- **Neue Inhalte:** 6 Lernkarten mit je 22 Aufgaben (`_lk_etappen_2211.py`, in 5 Generatoren eingehängt), als Vertiefung (Flug und Stempel unverändert). Prüfskript OK, App-Tests 164/164.
+- **Repo-Klassen:** 31 Themendateien und Generatoren an `themenliste.json` angeglichen, darunter 61, 44, 91, 99, 100, 101, 64 und 26. 91 `rs_by` 7 folgt `rs_korrektur_2211.sql`. Die stillgelegten Dateien sind unverändert.
+- **Korrektur-SQL** `inhalte/pruefung/lehrplan/lk_korrektur_2211.sql`:
+  - **nach** `rs_korrektur_2211.sql`, in einer Transaktion;
+  - nur INSERT/UPDATE auf zuordnung und eintrag, kein DROP, kein DELETE;
+  - Rauchtest: erwartete Zuordnungen, Punkte ohne Thema, Klassen unverändert, stillgelegte Themen;
+  - Probelauf auf dem vollständigen echten Stand bestanden, zweimal hintereinander; die Gegenprobe bricht ab.
+
+FERTIG: LK-D
+
 ## 2026-11-22 – MELDUNG LP-RS Nachtrag: Gegenprobe ChatGPT 927/928/930 und Maßstab Gruppe I (lehrplan-lb)
 
 Grundlage sind `lernen-app` b3591695 (Nachtrag 13:30) und 01caab63 (Entscheidung „Gruppe I“, 13:45). Die Datenbank habe ich nach dem Live nur gelesen; nichts eingespielt.

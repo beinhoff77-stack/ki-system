@@ -11,7 +11,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _auffuellen import A, Z, baue, etappen_aus_klar, eur, g4, zt  # noqa: E402
 
-META = {'thema_schluessel': 'finanzen.zinsen', 'thema_id': 71, 'block_id': 52, 'klasse': {'gym_by': 6}}
+META = {'thema_schluessel': 'finanzen.zinsen', 'thema_id': 71, 'block_id': 52, 'klasse': {'gym_by': 6, 'rs_by': 7, 'ib_myp': 4}}
 TITEL = [('begriffe', 'Die drei Größen'), ('rollen', 'Wer zahlt, wer bekommt?'), ('jahreszinsen', 'Jahreszinsen berechnen'),
          ('jahreszinsen_komma', 'Zinssatz mit Komma'), ('zinssatz', 'Zinssatz finden'), ('kapital', 'Kapital finden'),
          ('monatszinsen', 'Zinsen für Monate'), ('zeitanteil', 'Halbes Jahr, Vierteljahr')]

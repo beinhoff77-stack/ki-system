@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, M, Z, baue, cz, mit_bild, zt  # noqa: E402
 
-META = {'thema_schluessel': 'zahlen.intervalle', 'thema_id': 69, 'block_id': 61, 'klasse': {'gym_by': 8, 'rs_by': 7}}
+META = {'thema_schluessel': 'zahlen.intervalle', 'thema_id': 69, 'block_id': 61, 'klasse': {'gym_by': 8, 'rs_by': 7, 'ib_myp': 4}}
 
 ETAPPEN = [
     {'lernziel': 'lesen', 'titel': 'Intervalle lesen',

@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import re
 from _kl7 import A, L, Z, baue, figur, kl, ksys, zt  # noqa: E402
 
-META = {'thema_schluessel': 'abbildungen.kongruenz', 'thema_id': 46, 'block_id': 82, 'klasse': {'gym_by': 7, 'rs_by': 6}}
+META = {'thema_schluessel': 'abbildungen.kongruenz', 'thema_id': 46, 'block_id': 82, 'klasse': {'rs_by': 6, 'gym_by': 7, 'ib_myp': 3}}
 HP = 'Trage die x- und die y-Koordinate des Bildpunkts ein.'
 
 ETAPPEN = [
@@ -1967,3 +1967,9 @@ if __name__ == '__main__':
     from _aufloesen import aufloesen_datei
     aufloesen_datei('abbildungen.kongruenz')
 # ---- AUFLOESEN ENDE ----
+
+# ---- LK (22.11., Lücken aus LP-RS, siehe _lk_etappen_2211.py): zuletzt, hängt nur an ----
+if __name__ == '__main__':
+    from _lk_etappen_2211 import lk_anhaengen
+    lk_anhaengen('abbildungen.kongruenz')
+# ---- LK ENDE ----

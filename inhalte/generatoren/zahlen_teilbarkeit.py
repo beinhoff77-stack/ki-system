@@ -11,7 +11,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _auffuellen import A, L, Z, baue, etappen_aus_klar, g4 as zt  # noqa: E402
 
-META = {'thema_schluessel': 'zahlen.teilbarkeit', 'thema_id': 17, 'block_id': 48, 'klasse': {'gym_by': 5}}
+META = {'thema_schluessel': 'zahlen.teilbarkeit', 'thema_id': 17, 'block_id': 48, 'klasse': {'gym_by': 5, 'rs_by': 5, 'ib_myp': 1}}
 TITEL = [('teiler', 'Teiler finden'), ('vielfache', 'Vielfache'), ('endziffer', 'Teilbar durch 2, 5 und 10'),
          ('quersumme', 'Teilbar durch 3 und 9'), ('primzahl', 'Primzahlen'), ('primfaktoren', 'In Primzahlen zerlegen'),
          ('ggt', 'Größter gemeinsamer Teiler (ggT)'), ('kgv', 'Kleinstes gemeinsames Vielfaches (kgV)')]

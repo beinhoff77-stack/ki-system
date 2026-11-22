@@ -11,6 +11,8 @@
   "drehung": "einen Punkt um den Ursprung um 90° drehen, mit und gegen den Uhrzeigersinn",
   "symmetrie": "bei Figuren Symmetrieachsen zählen und prüfen, ob sie punktsymmetrisch sind",
   "vierecke_ordnen": "symmetrische Vierecke wie Raute, Drachen und Trapez genau benennen und einordnen",
-  "eigenschaften": "sagen, was bei Abbildungen gleich bleibt und welche Abbildung den Umlaufsinn umdreht"
+  "eigenschaften": "sagen, was bei Abbildungen gleich bleibt und welche Abbildung den Umlaufsinn umdreht",
+  "vektor_koordinaten": "aus zwei Punkten den Vektor berechnen, Punkte verschieben und die vierte Ecke eines Parallelogramms bestimmen",
+  "vektor_drehen": "Vektoren und Punkte um 90°, −90° und 180° drehen und die neuen Koordinaten berechnen"
  }
 }

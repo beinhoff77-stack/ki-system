@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, L, Z, baue, cz, ist_endlich, kl, lin, mit_bild, zt  # noqa: E402
 
-META = {'thema_schluessel': 'funktionen.gebrochen', 'thema_id': 34, 'block_id': 71, 'klasse': {'gym_by': 8}}
+META = {'thema_schluessel': 'funktionen.gebrochen', 'thema_id': 34, 'block_id': 71, 'klasse': {'gym_by': 8, 'ib_myp': 4}}
 
 ETAPPEN = [
     {'lernziel': 'indirekt', 'titel': 'Indirekte Proportionalität',

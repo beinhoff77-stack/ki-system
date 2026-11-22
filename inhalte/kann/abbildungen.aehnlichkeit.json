@@ -9,6 +9,7 @@
   "strahlensatz1": "mit dem 1. Strahlensatz fehlende Abschnitte auf den Strahlen berechnen",
   "strahlensatz2": "mit dem 2. Strahlensatz die Länge paralleler Strecken berechnen",
   "flaeche_volumen": "berechnen, wie Fläche und Volumen beim Vergrößern mit k² und k³ wachsen",
-  "anwendung": "über Schatten oder Daumensprung Höhen und Entfernungen mit Strahlensätzen ermitteln"
+  "anwendung": "über Schatten oder Daumensprung Höhen und Entfernungen mit Strahlensätzen ermitteln",
+  "streckung_vektor": "Bildpunkte einer zentrischen Streckung mit Vektoren berechnen und den Streckungsfaktor bestimmen"
  }
 }

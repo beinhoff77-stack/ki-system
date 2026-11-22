@@ -3855,3 +3855,68 @@ test('LW-2 S1/K3: Handy 400 eine Leiste mit „Filter ▾“-Blatt, erste Karte 
     assert.ok(await ohneQuerrollen(page), `${breite}: kein Querrollen`);
   }
 });
+
+// ---------- LW-2b: Thema in „Wiederholung“ mit offener Kür-Etappe bleibt auf der Kinderseite startbar (Probelauf TL-S 7, Kind 1 Thema 15) ----------
+test('LW-2b: Wiederholung mit offener Kür-Etappe – Kinderseite startet die Kür-Etappe (kein Test, nichts gesperrt)', async (t) => {
+  let kuer = null, kuerNr = 0;
+  const f = (aktion, e) => { if (aktion !== 'schule_einheit_lesen' || !e) return null; const r = structuredClone(e);
+    const lz = [...new Set([...(r.inhalt?.etappen || []).map((x) => x.lernziel), ...(r.uebungen || []).map((a) => a.lernziel)])].filter(Boolean); kuer = lz.at(-1); kuerNr = (r.inhalt?.etappen || []).length ? r.inhalt.etappen.findIndex((x) => x.lernziel === kuer) + 1 : lz.length;
+    r.stand = lz.map((l) => ({ lernziel: l, pflicht: l !== kuer, ...((r.stand || []).find((s) => s.lernziel === l) || {}), ...(l === kuer ? { pflicht: false, status: 'offen' } : { pflicht: true, status: 'nachgewiesen' }) })); // Pflicht im Flug-Test nachgewiesen
+    r.etappen_stand = Object.fromEntries(lz.map((l) => [l, l === kuer ? { fertig: false, sitzt: false, serie: 0, ziel: 4 } : { fertig: true, sitzt: true, serie: 4, ziel: 4 }]));
+    r.blocktest_fertig = true; r.laufender_test = null; r.stufe = { stufe: 'wiederholung', wdh_nr: 2 }; return r; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: f });
+  await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/lerneinheit/1-1-ueben');
+  await page.locator('.lr-panel').first().waitFor({ state: 'attached' });
+  assert.ok(kuer, 'Einheit mit Etappen'); assert.equal(await page.locator('.lr-gesperrt').count(), 0, 'nichts gesperrt');
+  assert.equal(await page.getByText(/Flug-Test/).count(), 0, 'kein Test statt Üben');
+  // Die Kür-Etappe ist die empfohlene: Erklärung „Jetzt du ›“ bzw. ihre Bordkarte ist offen
+  const hash = await page.evaluate(() => location.hash); const nr = Number((hash.match(/-(\d+)$/) || [])[1]);
+  assert.equal(nr, kuerNr, `die Kür-Etappe ist dran: ${hash}`);
+  const jetzt = page.getByRole('button', { name: /Jetzt du/ }); if (await jetzt.count()) await jetzt.first().click();
+  await page.locator('.lr-bordkarte').first().waitFor(); // Bordkarte der Kür-Etappe zum Üben offen
+});
+
+test('LW-2b M1/S1/K1/K3 (400): Warnung über dem Detail-Blatt, an ihrer Mitte oberstes Element, Knöpfe bedienbar, kurz (≤ 160 px); Platz-Buchstaben in der Zelle in Reihenfolge; Teile vor den Etappen', async (t) => {
+  const g9 = THEMEN_ECHT.filter((x) => x.klasse.gym_by === 9 && x.thema_id !== 12); const geb = [...new Set(g9.map((x) => x.gebiet))].find((g) => g9.filter((x) => x.gebiet === g).length >= 3);
+  const [T1, T2, T3] = g9.filter((x) => x.gebiet === geb).slice(0, 3);
+  const basis = lmsAnpassen(); const f = (aktion, e, d) => { const r = basis(aktion, e, d);
+    if (aktion === 'schule_lehrplan_matrix' && r) for (const th of r.themen) {
+      if (th.thema_id === T1.thema_id) th.titel = 'Terme umformen – Teil 1 von 3 · zusammenfassen und ausmultiplizieren';
+      if (th.thema_id === T2.thema_id) th.titel = 'Terme umformen – Teil 2 von 3 · Summe mal Summe, Ausklammern, binomische Formeln';
+      if (th.thema_id === T3.thema_id) { th.titel = 'Terme umformen – Teil 3 von 3 · Bruchterme'; th.jahrgang = { rs_by: 9 }; th.pflicht = ['rs_by']; } }
+    return r; }; f.neueAktionen = true;
+  const { page } = await lwOeffnen(t, 400, { anpassen: f });
+  // K1: in jeder Zelle stehen 3a, 3b, 3c … in Reihenfolge
+  const zellen = await page.locator('.lw-gruppe').evaluateAll((gs) => gs.map((g) => [...g.querySelectorAll('.lw-pl:not(.lw-plus)')].map((p) => p.textContent)));
+  for (const z of zellen) { const mitB = z.filter((x) => /[a-z]$/.test(x)); const nachNr = {}; mitB.forEach((x) => { (nachNr[parseInt(x, 10)] ||= []).push(x); });
+    for (const l of Object.values(nachNr)) assert.deepEqual(l, [...l].sort(), `Reihenfolge ${l.join(' ')}`); }
+  assert.ok(zellen.flat().some((x) => /[a-z]$/.test(x)), 'Buchstaben vorhanden');
+  // M1 + S1: Teil 2 einplanen, Teil 1 fehlt → Warnung über dem Blatt
+  await page.locator(`.lw-karte[data-id="${T2.thema_id}"]`).click(); const dr = page.locator('.lw-drawer.lw-auf'); await dr.waitFor(); await page.waitForTimeout(300);
+  // K3: „TEILE DIESES THEMAS“ direkt unter der Stand-Zeile, vor den Etappen
+  assert.equal(await dr.evaluate((d) => { const h = [...d.querySelectorAll('.lw-dh')].map((x) => x.textContent); return h.indexOf('TEILE DIESES THEMAS') === 1 && !!(d.querySelector('.lw-teile').compareDocumentPosition(d.querySelector('.lw-etappen')) & Node.DOCUMENT_POSITION_FOLLOWING); }), true);
+  await dr.getByRole('button', { name: 'In den Plan: als Nächstes' }).click();
+  const toast = page.locator('.lw-toast.lw-warn'); await toast.waitFor();
+  const b = await toast.boundingBox(); const oben = await page.evaluate(([x, y]) => !!document.elementFromPoint(x, y)?.closest('.lw-toast'), [b.x + b.width / 2, b.y + b.height / 2]);
+  assert.ok(oben, 'Warnung an ihrer Mitte oberstes Element');
+  await page.screenshot({ path: 'test-results/lw2b-400-warnung.png' });
+  assert.ok(b.height <= 160, `Höhe ${b.height}`);
+  const txt = await toast.innerText();
+  assert.match(txt, /⚠ „Terme umformen – Teil 2 von 3“ baut auf „Terme umformen – Teil 1 von 3“ auf – das kann er noch nicht und es ist nicht im Plan/);
+  assert.doesNotMatch(txt, /Summe mal Summe|ausmultiplizieren|als Nächstes eingeplant/, 'ohne Untertitel, ohne Vorspann');
+  await toast.getByRole('button', { name: '„Terme umformen – Teil 1 von 3“ davor einplanen' }).click(); // bedienbar über dem Blatt
+  await page.locator('.lw-toast:not(.lw-warn)', { hasText: 'vor „Terme umformen – Teil 2 von 3“ gesetzt' }).waitFor();
+});
+
+test('LW-2b K2 (820): beim Zurückziehen ist die laufende Meldung weg, „Hier loslassen = aus dem Plan nehmen“ frei', async (t) => {
+  const { page } = await lwOeffnen(t, 820);
+  await page.getByRole('button', { name: /^Fahrplan · \d+$/ }).click(); await page.waitForTimeout(300);
+  const fp = page.locator('.lw-rail .lw-fp'); await fp.nth(1).getByRole('button', { name: /nach unten$/ }).click(); await page.locator('.lw-toast:not([hidden])').waitFor();
+  await page.waitForTimeout(300); assert.ok(await page.locator('.lw-rail').isVisible());
+  const g = await fp.nth(1).locator('.lw-gr').boundingBox(); const m = await page.locator('.lw-mw').boundingBox();
+  await page.mouse.move(g.x + 4, g.y + 6); await page.mouse.down(); await page.mouse.move(m.x + m.width * 0.8, m.y + m.height / 2, { steps: 10 });
+  assert.equal(await page.locator('.lw-toast').isVisible(), false, 'Meldung beim Ziehen ausgeblendet');
+  assert.match(await page.locator('.lw-mw').getAttribute('class'), /lw-raus-ziel/);
+  await page.screenshot({ path: 'test-results/lw2b-820-zurueck.png' });
+  await page.mouse.move(g.x + 4, g.y + 6, { steps: 4 }); await page.mouse.up();
+});

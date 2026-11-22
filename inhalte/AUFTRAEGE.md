@@ -2988,3 +2988,17 @@ Einig: Reihenfolge der Kette richtig; Kür-Etappe bleibt erreichbar (Kind 1, The
 - Visum-Übergang (bewusste Ausnahme, dauerhaft): in der Liste je Kind als eigene Spalte zeigen; Sebastian bestätigt einmal.
 
 PM Gym Runde 3 übernommen (Kl. 8 um 22 Arbeiten erweitert).
+
+## Probelauf TL-S 7 / NT-S 2 – ganze Kette (23.11. früh, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 4240549. Reihenfolge: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → lk_einspiel → nt_einspiel (NT-D 2) → TL-S 7 (zweimal) → NT-S 2 (zweimal).
+
+- Alle Schritte ohne Fehler. **Alle Tests grün:** lk_s vor der Teilung, tl_s (mit Negativtests A1), danach wd_s, wd_s3, fp_s, lw_s, lk_s, nt_s.
+- Karten-Lernstand je Kind unverändert, Reiseoptionen je Kind unverändert, Versuche unverändert; 97 → 105 Themen, 29854 → 30162 Aufgaben.
+- Kind 2: „Terme umformen – Teil 2 von 2“ selbst geschafft, auch mit der Testabdeckung A1 (3 von 3 Pflicht-Etappen; Erstabschluss, +100 Sterne: 6170 → 6270). Vom alten Thema gesetzt, jetzt offen (nicht im Plan, Visum bleibt): Dreisatz Teil 2, Kongruenzabbildungen Teil 2 und Teil 3. Übrige neue Teile offen.
+- Kind 1: keine Buchung; alle neuen Teile offen, nicht im Plan.
+- Liste je Kind: `schule.tl_teile_je_kind` (Spalte `visum_aus_altem_thema`).
+
+## Nachtrag LW-2b an bau-motivation (Prüfung Gestalter `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw2.md`)
+
+Muss M1 (Handy: Reihenfolge-Warnung liegt hinter dem Detail-Blatt), Soll S1 (Warnungstext kürzen), Kann K1–K3. S2 und K4: kein Bau.

@@ -2,6 +2,36 @@
 
 Grundlage: Zweig `lernen-app` e0739529 (einschließlich Nachtrag des Gestalters), Datenbank nur gelesen. Quelle LehrplanPLUS Bayern, **abgerufen 21.11.2026** über die Suche auf lehrplanplus.bayern.de (Seitenauszüge, keine Volltextabrufe). Unbelegtes ist als **Annahme** gekennzeichnet.
 
+## 0f. Nacharbeit 907 c (22.11., ChatGPT 919, MUSS 4)
+
+Grundlage: `lernen-app` f278a3cf. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Geändert ist nur `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`.
+
+**Gelesen:**
+- `schule.einheit.status` kennt die Werte `entwurf`, `geprueft`, `freigegeben` und `ersetzt`.
+- Die Migrationen der App behandeln `status in ('geprueft','freigegeben')` als für Kinder sichtbar.
+- Heute haben 87 Themen eine freigegebene Einheit. Die zehn stillgelegten Themen haben nur einen Entwurf; `geprueft` kommt nicht vor.
+
+**Löschschutz (Abschnitt 3c):**
+- Er bricht jetzt ab, wenn das stillgelegte Thema der Zeile eine Einheit im Status **`geprueft` oder `freigegeben`** hat. Bisher prüfte er nur `freigegeben`.
+- Damit Rauchtest m den Schutz aufrufen kann, steckt er in einer Sitzungsfunktion `pg_temp.lb907_loeschen()`. Sie verschwindet mit der Sitzung, ein DROP ist nicht nötig.
+- Dieselbe Sichtbarkeitsregel gilt jetzt auch beim Leeren der Klassen (3d) und in den Regeln b und i. Annahme: Ein geprüfter Flug ist für Kinder sichtbar und muss daher wie ein freigegebener behandelt werden. Auf den heutigen Daten ändert das nichts.
+
+**Rauchtest l:** prüft nur noch die zehn stillgelegten Themen 12, 27, 40, 41, 48, 72, 77, 78, 82 und 83, solange sie keine sichtbare Einheit haben. Andere Themen ohne freigegebene Einheit, etwa künftige Entwürfe, prüft er nicht.
+
+**Rauchtest m (neu):**
+- m0: Ohne sichtbare Einheit läuft der Löschschutz durch.
+- Danach legt der Test für das stillgelegte Thema 48 je eine Test-Einheit mit `geprueft` und mit `freigegeben` an. Er tut das in einem Unterblock und rollt alles zurück.
+- Jedes Mal muss der Löschschutz mit „Abbruch vor Löschung …“ abbrechen.
+- Am Ende prüft der Test, dass die Zahl der Verbindungen gleich ist und keine Test-Einheit übrig bleibt.
+
+**Lokal auf Postgres 16 geprüft** (Tabelle `einheit` mit Statusprüfung und den eindeutigen Indizes wie auf der echten Datenbank):
+- Eingespielte Datei, dann die neue Fassung, zweimal: Rauchtests a–m bestanden; 128 Verbindungen, 97 Einheiten, 3 Lernende.
+- Frische Kopie, nur die neue Fassung: bestanden.
+- Gegenprobe 1: Mit dem alten Schutz (nur `freigegeben`) schlägt Rauchtest m fehl, mit „greift nicht bei Status geprueft“.
+- Gegenprobe 2: Hat 48 schon vor dem Lauf eine Einheit `geprueft`, bricht die Migration vor der Löschung 49 ← 48 ab, und alles wird zurückgerollt (70 Verbindungen).
+
+**Hinweis:** Die Datei muss weiterhin in **einer Transaktion** eingespielt werden. Sonst fehlt der Vorherstand für j, und die Sitzungsfunktion für m ist nicht mehr vorhanden.
+
 ## 0e. Nacharbeit 907 b (22.11. abends, „Rückläufer 22.11. abends“, Teil B)
 
 Grundlage: `lernen-app` 6ec1c3ef. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Berichtigt ist `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`; sie war noch nicht eingespielt.

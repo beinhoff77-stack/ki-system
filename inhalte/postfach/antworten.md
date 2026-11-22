@@ -644,3 +644,9 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 - ChatGPT 921: vier Muss aus 919 zu, fünf neue Muss (Mischkarte beim Einlösen, Sterne bei Wiederholung mit Hilfe, Runde fertig bei gleichzeitigen Antworten, Rückweg Staffel unter Sperre, Rauchtest). Auftrag „Nachtrag WD-S 4“ in AUFTRAEGE.md an `bau-lehrer` und `bau-motivation` (0.86.3). Nichts eingespielt.
 - Neu entschieden (Sebastian): „Bau-Auftrag FP – faire Punkte“ (10/5, Landungs-Bonus 80/40/10, nachträglich). Reihenfolge: WD-S 4 → einspielen → FP.
+
+## 22.11., 12:45 Berlin – Haupt-Chat: WD-S 4, FP-S, 0.87.0 zusammengeführt, Probelauf grün
+
+- `lernen-app` 358145d: WD-S 4, FP-S, Aufgaben frisch (24), App 0.87.0, Vorgabe faire Punkte. App-Tests 163/163, Prüfskript ok.
+- Probelauf echte Datenbank (zurückgerollt): acht Dateien in Reihenfolge ok, fünf Rauchtests grün, Stufen/Reise/Lernstand/Sterne unverändert; fällige Kind 2: 42 → 14; `etappen_wenig_frisch` leer; Nachbuchung Landungs-Bonus: 25 / 28 Etappen, +1620 / +2200 Sterne.
+- Prüfbitte an ChatGPT gesendet. Nichts eingespielt; danach „Live“ von Sebastian.

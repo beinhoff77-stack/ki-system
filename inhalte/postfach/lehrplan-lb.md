@@ -2,6 +2,35 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LK-D 4 (lehrplan-lb)
+
+Grundlage: `lernen-app` 723770dd, „Entscheidungen Sebastian (17:05)“. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten stehen in `lk_teilung_2211.md`, Abschnitt „LK-D 4“.
+
+- **(b) Kür je Etappe und Schulart:**
+  - In der JSON hat jede Etappe `kuer_in` und `klasse_je_schulart`, in den geteilten Themen und unter `etappen_kuer` für alle 87 Themen.
+  - Jeder Teil hat `pflicht_etappen_je_schulart`.
+  - Den Stand je Kind habe ich nur über die Pflicht-Etappen neu gerechnet (`stand_je_kind`, der alte Stand steht in `stand_je_kind_vorher`).
+  - **Kind 2, 29 Teil 2, Gymnasium: 3/3, vollständig** (`gleichungen_binomisch` ist dort Kür).
+  - Neu vollständig über die Kür-Regel ist außerdem **Kind 2 in 99** (`drachen_raute` gibt es nur in RS).
+  - Kind 2 hat in 24, 30, 57 und 100 alle Etappen, aber keinen Flug. Annahme: Es fehlt der Flug-Test.
+- **Folge fürs Gymnasium:**
+  - 26 Teil 2, 46 Teil 3, 91 Teil 1, 91 Teil 2 und 101 Teil 2 haben je nur **eine** Pflicht-Etappe.
+  - 44 Teil 2 und 46 Teil 2 sind dort ganz Kür.
+  - TL-S muss klären, ob ein Flug-Test aus einer Etappe reicht.
+- **Widerspruch, offen:**
+  - 47 Etappen stehen in der Themendatei als Vertiefung (heute Kür für alle), haben aber in einer Schulart einen Lehrplanpunkt. Dazu gehören meine LK-Etappen, z. B. 61 `darstellen` und 101 `cavalieri`, die im Gymnasium Pflicht sind.
+  - Vorschlag: Die Schulart-Regel gilt, und `lernziele_vertiefung` gilt nur noch für Etappen ohne Lehrplanpunkt.
+  - Die Liste steht in `vertiefung_aber_lehrplanpunkt`. Sebastian bzw. TL-S entscheidet.
+- **(a) F1 und (c) F3** waren schon vor der Entscheidung von 17:05 geliefert (Commit c7a86ada, Meldung darunter):
+  - Alle Themen sind durchgezählt (62 Fälle).
+  - **57**: Wiederholung ohne neue Etappe, Anzeige „wird in Kl. 7 wieder aufgegriffen“. Kl. 7 verlangt dieselbe Fähigkeit wie Kl. 5 auf höherem Niveau.
+  - **2**: nicht teilen. Der Kl.-8-Punkt 734/749 braucht binomische Formeln und hängt seit LK-D 2 an 29 Teil 2.
+  - **61 Teil 1**: neue Etappe `darstellen` „Baumdiagramm und Vierfeldertafel“.
+- **Für reise-aufbau:** Zusätzlich zu den drei genannten neuen Etappen gibt es **61 `darstellen`** und **91 `raumwinkel`** (je Teil 1). Die Zahl der Teile ändern sie nicht.
+- SQL, Inhalte und Klassen sind seit LK-D 3 (Ergänzung) unverändert.
+
+FERTIG: LK-D 4
+
 ## 2026-11-22 – MELDUNG LK-D 3, Ergänzung „Rückläufer ChatGPT 939/940“ (lehrplan-lb)
 
 Grundlage: `lernen-app` 95886f3b. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten in `lk_teilung_2211.md`, Abschnitt „Ergänzung 939/940“.

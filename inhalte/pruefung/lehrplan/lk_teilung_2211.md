@@ -1,3 +1,84 @@
+# LK-D 4 – Kür je Etappe und Schulart (22.11.2026, „Entscheidungen Sebastian 17:05“)
+
+**Regel (Entscheidung 17:05, Punkt 1):** Eine Etappe ohne Lehrplanpunkt in der Schulart des Kindes ist dort **Kür**. Sie zählt nicht für Flug-Abschluss, Flug-Test und Stempel.
+- Ein Teil ganz ohne Pflicht-Etappe ist der bisherige „Zusatz“-Teil.
+- Pflicht-Etappe heißt: In dieser Schulart verlangt ein Lehrplanpunkt die Etappe als Hauptthema. Grundlage ist dieselbe Klasse je Etappe wie bei der Teilung.
+
+**JSON (`lk_teilung_2211.json`):**
+- In `teilungsliste`:
+  - jede Etappe hat `kuer_in` (Schularten, in denen sie Kür ist) und `klasse_je_schulart`;
+  - jeder Teil hat `pflicht_etappen_je_schulart`;
+  - `stand_je_kind` ist neu gerechnet (nur Pflicht-Etappen der Schulart des Kindes, beide Kinder Gymnasium); der alte Stand steht in `stand_je_kind_vorher`.
+- `etappen_kuer`: dieselbe Angabe für **alle** 87 Themen (617 Etappen). Kür je Schulart: Gym 204, RS I 275, RS II/III 322, IB Std 416, IB Ext 408.
+- `stand_je_kind_ungeteilt`: Stand der Kinder in ungeteilten Themen nach der Kür-Regel.
+
+### Pflicht-Etappen je Teil und Schulart, Stand je Kind
+
+Spalten Gym bis IB Ext: Pflicht-Etappen / alle Etappen des Teils.
+
+| Teil | Gym | RS I | RS II/III | IB Std | IB Ext | Kür-Etappen (Schulart) | Stand jetzt (nur Pflicht, Gym) | Stand vorher (alle Etappen) |
+|---|---|---|---|---|---|---|---|---|
+| 26 Teil 1/2 | 3/5 | 2/5 | 2/5 | 4/5 | 4/5 | `geschickt`: Gym, RS I, RS II/III, IB Std, IB Ext; `sach`: RS I, RS II/III; `aenderung`: Gym, RS I, RS II/III | K1: 0/3 · K2: 0/3 | K1: 0/5 · K2: 0/5 |
+| 26 Teil 2/2 | 1/3 | 3/3 | 3/3 | 3/3 | 3/3 | `vervielfachen`: Gym; `pruefen`: Gym | K1: 0/1 · K2: 0/1 | K1: 0/3 · K2: 0/3 |
+| 29 Teil 1/2 | 5/5 | 5/5 | 5/5 | 3/5 | 3/5 | `minusklammer`: IB Std, IB Ext; `aequivalenz`: IB Std, IB Ext | K1: 0/5 · K2: 5/5 **vollständig** | K1: 0/5 · K2: 5/5 |
+| 29 Teil 2/2 | 3/4 | 4/4 | 4/4 | 3/4 | 3/4 | `gleichungen_binomisch`: Gym, IB Std, IB Ext | K1: 0/3 · K2: 3/3 **vollständig** | K1: 0/4 · K2: 3/4 |
+| 44 Teil 1/2 | 5/5 | 4/5 | 3/5 | 3/5 | 3/5 | `gleichschenklig`: RS I, RS II/III, IB Std, IB Ext; `planfigur`: IB Std, IB Ext; `satz_kehrsatz`: RS II/III | K1: 0/5 · K2: 0/5 | K1: 0/5 · K2: 0/5 |
+| 44 Teil 2/2 | 0/2 (Zusatz) | 2/2 | 2/2 | 0/2 (Zusatz) | 0/2 (Zusatz) | `vierecke`: Gym, IB Std, IB Ext; `vierecke_konstruieren`: Gym, IB Std, IB Ext | K1: 0/0 · K2: 0/0 | K1: 0/2 · K2: 0/2 |
+| 46 Teil 1/3 | 5/6 | 6/6 | 6/6 | 2/6 | 2/6 | `mittelsenkrechte`: IB Std, IB Ext; `winkelhalbierende`: IB Std, IB Ext; `symmetrie`: IB Std, IB Ext; `vierecke_ordnen`: IB Std, IB Ext; `eigenschaften`: Gym | K1: 0/5 · K2: 0/5 | K1: 0/6 · K2: 0/6 |
+| 46 Teil 2/3 | 0/3 (Zusatz) | 3/3 | 3/3 | 1/3 | 1/3 | `verschiebung`: Gym; `gegenvektor`: Gym, IB Std, IB Ext; `vektor_koordinaten`: Gym, IB Std, IB Ext | K1: 0/0 · K2: 0/0 | K1: 0/3 · K2: 0/3 |
+| 46 Teil 3/3 | 1/3 | 3/3 | 0/3 (Zusatz) | 2/3 | 2/3 | `punktspiegelung`: RS II/III; `drehung`: Gym, RS II/III; `vektor_drehen`: Gym, RS II/III, IB Std, IB Ext | K1: 0/1 · K2: 0/1 | K1: 0/3 · K2: 0/3 |
+| 61 Teil 1/2 | 3/3 | 3/3 | 3/3 | 2/3 | 2/3 | `darstellen`: IB Std, IB Ext | K1: 0/3 · K2: 0/3 | K1: 0/3 · K2: 0/3 |
+| 61 Teil 2/2 | 4/4 | 4/4 | 4/4 | 4/4 | 4/4 | – | K1: 0/4 · K2: 0/4 | K1: 0/4 · K2: 0/4 |
+| 91 Teil 1/2 | 1/4 | 4/4 | 2/4 | 0/4 (Zusatz) | 0/4 (Zusatz) | `pyramide`: IB Std, IB Ext; `lage`: Gym, RS II/III, IB Std, IB Ext; `wahre_groesse`: Gym, IB Std, IB Ext; `raumwinkel`: Gym, RS II/III, IB Std, IB Ext | K1: 0/1 · K2: 0/1 | K1: 0/4 · K2: 0/4 |
+| 91 Teil 2/2 | 1/4 | 4/4 | 2/4 | 0/4 (Zusatz) | 0/4 (Zusatz) | `koordinaten`: Gym, RS II/III, IB Std, IB Ext; `rotation`: IB Std, IB Ext; `axialschnitt`: Gym, IB Std, IB Ext; `koerper_symmetrie`: Gym, RS II/III, IB Std, IB Ext | K1: 0/1 · K2: 0/1 | K1: 0/4 · K2: 0/4 |
+| 101 Teil 1/2 | 7/7 | 0/7 (Zusatz) | 0/7 (Zusatz) | 0/7 (Zusatz) | 0/7 (Zusatz) | `prisma_volumen`: RS I, RS II/III, IB Std, IB Ext; `prisma_oberflaeche`: RS I, RS II/III, IB Std, IB Ext; `prisma_umstellen`: RS I, RS II/III, IB Std, IB Ext; `zylinder_volumen`: RS I, RS II/III, IB Std, IB Ext; `zylinder_oberflaeche`: RS I, RS II/III, IB Std, IB Ext; `sach`: RS I, RS II/III, IB Std, IB Ext; `verstehen`: RS I, RS II/III, IB Std, IB Ext | K1: 0/7 · K2: 0/7 | K1: 0/7 · K2: 0/7 |
+| 101 Teil 2/2 | 1/1 | 1/1 | 1/1 | 0/1 (Zusatz) | 0/1 (Zusatz) | `cavalieri`: IB Std, IB Ext | K1: 0/1 · K2: 0/1 | K1: 0/1 · K2: 0/1 |
+
+- **Kind 2, 29 Teil 2:** Im Gymnasium sind es 3/3, also **vollständig**. `gleichungen_binomisch` ist dort Kür (nur RS 8). Stempel und 100 Sterne also nachträglich, wie entschieden.
+- **Folge für das Gymnasium – viele kurze Pflicht-Flüge:**
+  - Mit einer einzigen Pflicht-Etappe: 26 Teil 2 (`erkennen`), 46 Teil 3 (`punktspiegelung`), 91 Teil 1 (`pyramide`), 91 Teil 2 (`rotation`), 101 Teil 2 (`cavalieri`).
+  - 44 Teil 2 und 46 Teil 2 sind im Gymnasium ganz Kür (Zusatz).
+  - Annahme: Der Flug-Test zieht dann nur aus diesen Etappen. TL-S muss klären, ob ein Test aus einer Etappe reicht.
+- **Etappen ohne Lehrplanpunkt in irgendeiner Schulart** sind jetzt überall Kür, z. B. 26 `geschickt` und `aenderung` (außer IB). Das ist die Regel, aber Sebastian soll es sehen.
+
+### Ungeteilte Themen: wo sich der Stand durch die Kür-Regel verschiebt
+
+Die Tabelle enthält nur Fälle, in denen die Kür-Regel etwas ändert oder Stand und Flug nicht zusammenpassen.
+
+| Kind | Thema | Pflicht erledigt | vorher alle Etappen? | Flug geschafft? |
+|---|---|---|---|---|
+| 1 | 15 Natürliche Zahlen | 12/12 | nein | ja |
+| 2 | 24 Prozent- und Zinsrechnung | 6/6 | ja | nein |
+| 2 | 30 Potenzen und negative Exponenten | 2/2 | ja | nein |
+| 2 | 57 Daten erfassen und darstellen | 6/6 | ja | nein |
+| 2 | 99 Flächen von Parallelogramm, Dreieck und Trapez | 7/7 | nein | nein |
+| 2 | 100 Volumen | 7/7 | ja | nein |
+
+- **Durch die Kür-Regel neu vollständig:** Kind 2 in 99 (die fehlende Etappe `drachen_raute` ist nur RS). Kind 1 in 15 war schon geflogen und ist jetzt auch rechnerisch vollständig (`dualsystem` ist im Gymnasium Kür).
+- **Kind 2 in 24, 30, 57 und 100:** Alle Etappen sind erledigt, aber der Flug ist nicht abgeschlossen. Annahme: Es fehlt der Flug-Test. Das ändert die Kür-Regel nicht; ich nenne es nur.
+
+### Widerspruch zum Inhalt: „Vertiefung“ in der Themendatei, aber mit Lehrplanpunkt
+
+- Heute gibt es Kür nur für alle Schularten gemeinsam (`bewertung.lernziele_vertiefung` in der Themendatei). **47 Etappen** stehen dort als Vertiefung, haben aber in mindestens einer Schulart einen Lehrplanpunkt.
+- Nach der neuen Regel wären sie dort Pflicht. Im Gymnasium betrifft das: 7 `pruefen`, 7 `stufenform`, 7 `eliminieren`, 26 `erkennen`, 33 `wirkung`, 35 `spiegeln`, 61 `darstellen`, 62 `unabhaengig`, 63 `elemente`, 63 `schnitt`, 63 `venn`, 63 `mengen_verstehen`, 98 `aussenwinkel`, 101 `cavalieri`, 102 `geteilt_gleiche_basis`, 102 `anwenden`.
+- Dazu gehören meine neuen LK-Etappen (z. B. 61 `darstellen`, 101 `cavalieri`). Ich hatte sie als Vertiefung angelegt, damit bestehende Flüge unverändert bleiben.
+- **Offen, Sebastian/TL-S:** Welche Angabe gilt?
+  - Mein Vorschlag: Die Schulart-Regel gilt (Lehrplan), und `lernziele_vertiefung` gilt nur noch für Etappen ohne Lehrplanpunkt.
+  - Die Liste steht in `vertiefung_aber_lehrplanpunkt`.
+  - Der Stand je Kind oben ist schon nach der Schulart-Regel gerechnet.
+
+### (a) F1 und (c) F3 – schon geliefert (Commit c7a86ada, vor der Entscheidung von 17:05)
+
+- **(a) F1:**
+  - Alle Themen habe ich systematisch gegen `lk_daten_2211.json` durchgezählt: 62 Fälle in `mehrere_klassen`, jeder mit Entscheidung und Begründung (Abschnitt „Ergänzung 939/940“ unten).
+  - **57:** Wiederholung ohne neue Etappe, Anzeige „wird in Kl. 7 wieder aufgegriffen“.
+  - **2:** In RS hat 2 nur noch Hauptpunkte in Kl. 7. Der Kl.-8-Punkt 734/749 hängt seit LK-D 2 an 29 Teil 2; nicht teilen, Anzeige „wird in Kl. 8 in 29 Teil 2 wieder aufgegriffen“.
+- **(c) F3:** Neue Etappe 61 `darstellen` „Baumdiagramm und Vierfeldertafel“ in 61 Teil 1 (Punkte 950, 968, Gym 185).
+- **Für `reise-aufbau`:** Neben den drei genannten neuen Etappen gibt es zwei weitere: **61 `darstellen`** (Teil 1) und **91 `raumwinkel`** (Teil 1).
+
+---
+
+
 # LK-D 3 – Teilungsliste nach der neuen Regel (22.11.2026; mit Ergänzung „Rückläufer ChatGPT 939/940“, 16:40)
 
 ## LK-D 3, Ergänzung 939/940 – Ergebnis vorab
@@ -183,51 +264,51 @@ Daten aus LK-D (`lk_daten_2211.json`, Stand nach dem Live).
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Direkte Proportionalität und Dreisatz – Teil 1 von 2 · Dreisatz | Auf die Einheit schließen, Der Dreisatz, Geschickte Zwischenschritte °, Sachaufgaben mit Dreisatz, Änderungsraten berechnen ° | 5 | 5 | 5 | 2 / 2 | 0/5 | 0/5 |
-| 2/2 | Direkte Proportionalität und Dreisatz – Teil 2 von 2 · proportionale Zuordnungen erkennen | Was heißt proportional?, Verdoppeln, verdreifachen, halbieren, Ist die Tabelle proportional? | 5 | 6 | 6 | 2 / 2 | 0/3 | 0/3 |
+| 1/2 | Direkte Proportionalität und Dreisatz – Teil 1 von 2 · Dreisatz | Auf die Einheit schließen, Der Dreisatz, Geschickte Zwischenschritte °, Sachaufgaben mit Dreisatz, Änderungsraten berechnen ° | 5 | 5 | 5 | 2 / 2 | 0/5 (Pflicht Gym 0/3) | 0/5 (Pflicht Gym 0/3) |
+| 2/2 | Direkte Proportionalität und Dreisatz – Teil 2 von 2 · proportionale Zuordnungen erkennen | Was heißt proportional?, Verdoppeln, verdreifachen, halbieren, Ist die Tabelle proportional? | 5 | 6 | 6 | 2 / 2 | 0/3 (Pflicht Gym 0/1) | 0/3 (Pflicht Gym 0/1) |
 
 ### 29 Terme umformen · Flug geschafft: Kind 2
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Terme umformen – Teil 1 von 2 · zusammenfassen und ausmultiplizieren | Gleichartige Glieder zusammenfassen, Produkte vereinfachen, Minus vor der Klammer, Ausmultiplizieren, Äquivalente Terme | 7 | 7 | 7 | 1/2 / 1/2 | 0/5 | 5/5 |
-| 2/2 | Terme umformen – Teil 2 von 2 · Summe mal Summe, binomische Formeln, Gleichungen mit Klammern | Summe mal Summe, Gemeinsamen Faktor ausklammern, Binomische Formeln, Gleichungen mit Klammerprodukten | 7 | 8 | 8 | 4 / 4 | 0/4 | 3/4 |
+| 1/2 | Terme umformen – Teil 1 von 2 · zusammenfassen und ausmultiplizieren | Gleichartige Glieder zusammenfassen, Produkte vereinfachen, Minus vor der Klammer, Ausmultiplizieren, Äquivalente Terme | 7 | 7 | 7 | 1/2 / 1/2 | 0/5 (Pflicht Gym 0/5) | 5/5 (Pflicht Gym 5/5) |
+| 2/2 | Terme umformen – Teil 2 von 2 · Summe mal Summe, binomische Formeln, Gleichungen mit Klammern | Summe mal Summe, Gemeinsamen Faktor ausklammern, Binomische Formeln, Gleichungen mit Klammerprodukten | 7 | 8 | 8 | 4 / 4 | 0/4 (Pflicht Gym 0/3) | 3/4 (Pflicht Gym 3/3) |
 
 ### 44 Konstruktionen, Kongruenz und Beweise
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 · Dreiecke konstruieren, Kongruenz | Gleichschenklige Dreiecke, Welcher Kongruenzsatz passt?, Ist das Dreieck konstruierbar?, Planfigur und Konstruktionsbeschreibung, Satz und Kehrsatz | 7 | 7 | 8 | 2/3 / 2/3 | 0/5 | 0/5 |
-| 2/2 | Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 · Vierecke **(dünn)** | Winkel in symmetrischen Vierecken, Vierecke konstruieren | 7 * | 8 | 8 | – / – | 0/2 | 0/2 |
+| 1/2 | Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 · Dreiecke konstruieren, Kongruenz | Gleichschenklige Dreiecke, Welcher Kongruenzsatz passt?, Ist das Dreieck konstruierbar?, Planfigur und Konstruktionsbeschreibung, Satz und Kehrsatz | 7 | 7 | 8 | 2/3 / 2/3 | 0/5 (Pflicht Gym 0/5) | 0/5 (Pflicht Gym 0/5) |
+| 2/2 | Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 · Vierecke **(dünn)** | Winkel in symmetrischen Vierecken, Vierecke konstruieren | 7 * | 8 | 8 | – / – | 0/2 (Pflicht Gym 0/0) | 0/2 (Pflicht Gym 0/0) |
 
 ### 46 Kongruenzabbildungen
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/3 | Kongruenzabbildungen – Teil 1 von 3 · Spiegeln und Symmetrie | An einer Achse spiegeln, Mittelsenkrechte und Lot, Die Winkelhalbierende, Symmetrische Figuren, Symmetrische Vierecke ordnen, Was bleibt bei Abbildungen gleich? | 7 | 6 | 6 | 3 / 3 | 0/6 | 0/6 |
-| 2/3 | Kongruenzabbildungen – Teil 2 von 3 · Verschieben und Vektoren | Figuren verschieben, Gegenvektor und Rückweg, Vektoren in Koordinaten | 7 * | 7 | 7 | 3 / 3 | 0/3 | 0/3 |
-| 3/3 | Kongruenzabbildungen – Teil 3 von 3 · Drehen und Punktspiegelung | An einem Punkt spiegeln, Um einen Punkt drehen, Vektoren um 90° und 180° drehen | 7 | 8 | – | 3 / 3 | 0/3 | 0/3 |
+| 1/3 | Kongruenzabbildungen – Teil 1 von 3 · Spiegeln und Symmetrie | An einer Achse spiegeln, Mittelsenkrechte und Lot, Die Winkelhalbierende, Symmetrische Figuren, Symmetrische Vierecke ordnen, Was bleibt bei Abbildungen gleich? | 7 | 6 | 6 | 3 / 3 | 0/6 (Pflicht Gym 0/5) | 0/6 (Pflicht Gym 0/5) |
+| 2/3 | Kongruenzabbildungen – Teil 2 von 3 · Verschieben und Vektoren | Figuren verschieben, Gegenvektor und Rückweg, Vektoren in Koordinaten | 7 * | 7 | 7 | 3 / 3 | 0/3 (Pflicht Gym 0/0) | 0/3 (Pflicht Gym 0/0) |
+| 3/3 | Kongruenzabbildungen – Teil 3 von 3 · Drehen und Punktspiegelung | An einem Punkt spiegeln, Um einen Punkt drehen, Vektoren um 90° und 180° drehen | 7 | 8 | – | 3 / 3 | 0/3 (Pflicht Gym 0/1) | 0/3 (Pflicht Gym 0/1) |
 
 ### 61 Zufall und Laplace
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Zufall und Laplace – Teil 1 von 2 · Ergebnis, Ereignis, relative Häufigkeit | Ergebnis, Ergebnisraum, Ereignis, Relative Häufigkeit, Baumdiagramm und Vierfeldertafel | 8 | 8 | 8 | 2 / 2 | 0/3 | 0/3 |
-| 2/2 | Zufall und Laplace – Teil 2 von 2 · Laplace-Wahrscheinlichkeit | Laplace-Wahrscheinlichkeit, Ist es ein Laplace-Experiment?, Das Gegenereignis, Gesetz der großen Zahlen | 8 | 9 | 9 | 2 / 2 | 0/4 | 0/4 |
+| 1/2 | Zufall und Laplace – Teil 1 von 2 · Ergebnis, Ereignis, relative Häufigkeit | Ergebnis, Ergebnisraum, Ereignis, Relative Häufigkeit, Baumdiagramm und Vierfeldertafel | 8 | 8 | 8 | 2 / 2 | 0/3 (Pflicht Gym 0/3) | 0/3 (Pflicht Gym 0/3) |
+| 2/2 | Zufall und Laplace – Teil 2 von 2 · Laplace-Wahrscheinlichkeit | Laplace-Wahrscheinlichkeit, Ist es ein Laplace-Experiment?, Das Gegenereignis, Gesetz der großen Zahlen | 8 | 9 | 9 | 2 / 2 | 0/4 (Pflicht Gym 0/4) | 0/4 (Pflicht Gym 0/4) |
 
 ### 91 Schrägbilder und Raumdarstellung
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Schrägbilder und Raumdarstellung – Teil 1 von 2 · Schrägbilder und Lage im Raum | Pyramiden: Ecken, Kanten, Flächen, Parallel, schneidend oder windschief?, Wahre Größe im Schrägbild, Winkel im Raum | 10 | 7 | 8 | – / – | 0/4 | 0/4 |
-| 2/2 | Schrägbilder und Raumdarstellung – Teil 2 von 2 · Raumkoordinaten, Körpersymmetrie, Rotationskörper | Punkte im Raum mit Koordinaten, Rotationskörper, Axialschnitte berechnen, Symmetrie von Körpern | 10 | 8 | 10 | – / – | 0/4 | 0/4 |
+| 1/2 | Schrägbilder und Raumdarstellung – Teil 1 von 2 · Schrägbilder und Lage im Raum | Pyramiden: Ecken, Kanten, Flächen, Parallel, schneidend oder windschief?, Wahre Größe im Schrägbild, Winkel im Raum | 10 | 7 | 8 | – / – | 0/4 (Pflicht Gym 0/1) | 0/4 (Pflicht Gym 0/1) |
+| 2/2 | Schrägbilder und Raumdarstellung – Teil 2 von 2 · Raumkoordinaten, Körpersymmetrie, Rotationskörper | Punkte im Raum mit Koordinaten, Rotationskörper, Axialschnitte berechnen, Symmetrie von Körpern | 10 | 8 | 10 | – / – | 0/4 (Pflicht Gym 0/1) | 0/4 (Pflicht Gym 0/1) |
 
 ### 101 Prismen und Zylinder
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Prismen und Zylinder – Teil 1 von 2 · gerade Prismen und Zylinder | Volumen eines Prismas, Oberfläche eines Prismas, Fehlende Größen am Prisma, Zylinder: Volumen begründen, Zylinder: Oberfläche über das Netz, Prismen und Zylinder im Alltag, Begründen und beurteilen | 8 | 9 * | – | – / – | 0/7 | 0/7 |
-| 2/2 | Prismen und Zylinder – Teil 2 von 2 · schiefe Körper und Cavalieri **(dünn)** | Schiefe Körper und Cavalieri | 10 | 9 | 10 | – / – | 0/1 | 0/1 |
+| 1/2 | Prismen und Zylinder – Teil 1 von 2 · gerade Prismen und Zylinder | Volumen eines Prismas, Oberfläche eines Prismas, Fehlende Größen am Prisma, Zylinder: Volumen begründen, Zylinder: Oberfläche über das Netz, Prismen und Zylinder im Alltag, Begründen und beurteilen | 8 | 9 * | – | – / – | 0/7 (Pflicht Gym 0/7) | 0/7 (Pflicht Gym 0/7) |
+| 2/2 | Prismen und Zylinder – Teil 2 von 2 · schiefe Körper und Cavalieri **(dünn)** | Schiefe Körper und Cavalieri | 10 | 9 | 10 | – / – | 0/1 (Pflicht Gym 0/1) | 0/1 (Pflicht Gym 0/1) |
 
 Legende:
 - `*`: Diese Schulart hat für den Teil keinen eigenen Lehrplanpunkt; die Klasse folgt aus der Reihenfolge.

@@ -3019,3 +3019,25 @@ Freigabe Sebastian („Teilung in die Datenbank einspielen“), Prüfung Werksta
 ## LIVE: App 0.89.1 (LW-2 + LW-2b) – 23.11., 00:35 Berlin
 
 `main` b8ffdd7 = `lernen-app` c941c33, Auslieferung erfolgreich. App-Tests 151 von 151. Prüfung Gestalter LW-2: 1 Muss (behoben in 0.89.1, eigener Test), nicht erneut vom Gestalter angesehen. Edge Function `lernen-api` bleibt 0.9.1.
+
+## Bau-Auftrag RD – Reise-Aufbau in die Datenbank (23.11., 00:40 Berlin) · an `bau-lehrer` (Datei, nicht einspielen)
+
+Schritt 4 der Reihenfolge aus „Bau-Auftrag RK“. Die Teilung ist eingespielt (TL-S 7, 105 Themen). Grundlage: `inhalte/reise/aufbau-vorschlag.json` und `.md` (Reise-Aufbau 4: 95 Flüge, 618 Städte, Prüfskript `inhalte/reise/aufbau_pruefen.py` ohne Fehler), Datenbedarf der Karte: `inhalte/pruefung/kind/karte/umsetzung.md`.
+
+**Liefern**
+1. `supabase/migrations/20261125_rd_s_reise.sql` – Tabellen und Funktionen:
+   - Kontinent (Themengebiet ↔ Reise), Land je Flug (Thema bzw. Teil): Name, ISO-Code, Region/Landesteil, Mittelpunkt, Hauptstadt (deutscher Name, Lage), Kennzeichen Kurzflug / Insel-Ausnahme / Nachbarteil.
+   - Stadt je Etappe (Einheit + Lernziel): Name, Breite, Länge, GeoNames-ID, Reihenfolge, Kür je Gruppe wie in der Pflichtliste.
+   - Reserve-Länder und Reserve-Städte, Antarktis-Stationen der Expeditionen.
+   - Regeln als Constraints: jedes Land genau einmal, jede Stadt genau einmal, je Etappe genau eine Stadt.
+   - Lesefunktion für die Karte je Kind: Kontinente → Flüge (Land, ISO, Mittelpunkt, Hauptstadt, Stufe, Stempel, golden = alles sitzt, im Plan, Zusatz) → Städte (Stand je Etappe: offen · begonnen · gelandet · sicher · wieder offen; Pflicht/Kür der Gruppe des Kindes) → nächster Start. Dazu Quellenangabe (GeoNames CC BY 4.0, Natural Earth) im Ergebnis.
+   - Aktion `api.schule_reise_karte` mit der üblichen Zugriffsprüfung; Eintrag in `supabase/functions/lernen-api/index.ts` (Version 0.9.3, nur Datei).
+2. `inhalte/reise/rd_einspiel_2311.sql` – die Daten, erzeugt aus `aufbau-vorschlag.json` durch ein Skript im Repo (`inhalte/reise/rd_bauen.py`). Themen der neuen Teile über `teil_stamm` + `teil_nr` auflösen, keine festen IDs. Wiederholbar, ohne DROP/DELETE.
+3. `supabase/tests/rd_s_rauchtest.sql` – u. a.: jede freigegebene Etappe jedes Mathe-Themas mit Flug hat genau eine Stadt; kein Land und keine Stadt doppelt; Karte für Testkind in jeder der fünf Gruppen; Stufe/Stempel der Karte = `thema_stufe`/Erstabschluss; Lernstand, Sterne, Reiseoptionen unverändert.
+
+**Nicht ändern:** bestehende Abflugtafel, Reiseoptionen, Visum, Stempel, Sterne – die Kinderseite 0.89.1 muss unverändert weiterlaufen. Die bisherigen Ortsnamen bleiben, bis RK-App live ist.
+**Melden:** Abweichungen zwischen JSON und Datenbank (Etappen ohne Stadt, Städte ohne Etappe, `noch_nicht_in_db`), Größe der Karten-Antwort je Kind. Keine Namen, keine Schlüssel. Meldung „FERTIG: RD-S“ mit Schnittstelle.
+
+## LW-3 kann starten (23.11.) · an `bau-motivation`
+
+LW-S 2 ist eingespielt (`schule_wackelt_lesen` / `schule_wackelt_setzen` in der Datenbank). Edge Function 0.9.2 rollt der Haupt-Chat zusammen mit dem Live von 0.90.0 aus. Auftrag wie „Bau-Auftrag LW“, LW-3; Schnittstelle laut `inhalte/postfach/bau-lehrer.md` (LW-S / LW-S 2).

@@ -136,3 +136,6 @@ Bericht `inhalte/pruefung/kind/nachpruefung_2211.md`, Bilder `kind/n087/`. main 
 
 ## 2026-11-22 – FERTIG: Vorgabe Karte
 Vorgabe `inhalte/pruefung/kind/karte/umsetzung.md`, Entwurf `karte/entwurf/reisekarte.html`, Bilder `karte/bilder/`. Entscheidungen Sebastian: Flaggen-Pin, Startknopf in der Karte, dezente gezeichnete Linie, keine eigene Karte für Eltern/Lehrer. Fehlende Daten: Koordinaten je Stadt der Reise und je Station, deutsche Hauptstadt-Namen aus GeoNames.
+
+## 2026-11-22 – FERTIG: Vorgabe Teile
+„Teil x von y · Untertitel“ und „Zusatz“ ergänzt: `lehrer/werkstatt/umsetzung.md` Abschnitt 12.7 (Matrix-Karte mit Marke 2/2 und Familien-Klammer, Zusatz gestrichelt und ohne Zählung in Ring/Abdeckung, Detail „Teile dieses Themas“, Fahrplan/Warnungen, Stempel nachgetragen) und `kind/karte/umsetzung.md` §11 (Nachbarländer mit feiner Kette, Abzeichen 1/2, Blatt mit allen Teilen, Zusatz mit „+“, Stempel „TEIL 2/2“). 12.1 „✈ Teil 2 · eig. Flug“ ersetzt.

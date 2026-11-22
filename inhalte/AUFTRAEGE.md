@@ -2748,3 +2748,11 @@ Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Rei
 - IB und RS II/III lösen weiterhin keine Teilung aus (Vorschlag Haupt-Chat, als Grenzfälle listen).
 - **`bau-lehrer`:** prüfen und melden, ob irgendwo mindestens 3 Etappen je Flug vorausgesetzt werden (Flug-Test, Mischkarten ab 3 gelandeten Etappen, Abschluss, Nachtests) und was ein Flug mit 1–2 Etappen dort bewirkt; Teil-Verfahren ohne Mindestzahl, beliebig viele Teile, B3 entsprechend anpassen (disjunkt, vollständig, kein Teil leer).
 - **`reise-aufbau`:** Länder dürfen 1–2 Städte haben (Kurzflug).
+
+### Ergänzung Teilungsregel – Benennung und Aufbau (22.11., 15:40 Berlin) · Entscheidung Sebastian
+
+„Mir ist egal, wie viele Etappen es gibt – Hauptsache, die Lehrpläne werden sichtbar. Und wenn du im Gymnasium was teilst, benenne das in Teil 1 von 3 … und prüfe den Aufbau, was aufeinander aufbaut.“
+- **Etappenzahl je Teil ist egal** (auch 1). Kein Ergänzen von Inhalten nur wegen der Größe; „zu dünn“ nur melden.
+- **Benennung:** Geteilte Themen heißen überall „‹Titel› – Teil 1 von 3“, „… – Teil 2 von 3“ (Kinderseite, Lehrplan-Übersicht, Plan, Stempel). Zusätzlich darf ein Untertitel sagen, was der Teil enthält („Teil 2 von 2 · binomische Formeln“). Auch dort, wo eine Schulart alle Teile in derselben Klasse hat (Gymnasium), stehen sie als Teil 1/2/3 nacheinander.
+- **Aufbau prüfen (`lehrplan-lb`, Pflicht in LK-D 2):** nach der Teilung für jede Schulart: Teil n setzt Teil n−1 voraus (hart); alle bisherigen Voraussetzungen des Themas dem richtigen Teil zuordnen (welcher Teil braucht was, welcher Teil wird wovon gebraucht); danach die ganze Kette gegen die Klassenlage prüfen – kein Teil darf etwas brauchen, das in dieser Schulart erst in einer späteren Klasse liegt. Verstöße mit Vorschlag listen; Sebastians harte Entscheidungen (z. B. 102 ← 30) bleiben. Ergebnis als Aufbau-Kette je Teil für die Anzeige („Baut auf“ / „Geht weiter in“).
+- **Gestalter / `bau-motivation`:** „Teil x von y“ in Karte, Detail und Route zeigen.

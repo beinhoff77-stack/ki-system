@@ -2,6 +2,20 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG Nacharbeit 907 b (lehrplan-lb)
+
+Grundlage ist `lernen-app` 6ec1c3ef. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Berichtigt ist `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0e.
+
+- **Abbruch „non-DEFAULT value into column id“ behoben.** Ursache war der Test-Lernende in Rauchtest k (`lernender.id` und `route.id` sind GENERATED ALWAYS, ebenso `thema.id`). Die Datei legt kein Thema an. Die ids werden jetzt vergeben (`returning`). Den Fehler habe ich lokal nachgestellt; die neue Fassung läuft.
+- **N2:** Die zehn aufgelösten Themen haben keine RS- und IB-Klasse und keine Reihenfolge mehr, in der Themenliste und in der Migration (Abschnitt 3d). Die Reihenfolgen der übrigen Themen sind lückenlos nachgezogen. RS 8 hat jetzt 6 Themen.
+- **N3:** `eigenstaendig` bei 83 entfernt.
+- **Rauchtest l (neu):** Kein aufgelöstes Thema trägt Klasse, Reihenfolge oder „eigenständig“.
+- **Folgen:** keine für Kinder. Das Gymnasium ist unverändert, Verbindungen und Visa sind gleich; Rauchtest j prüft die Reiseoptionen.
+- **Lokal auf Postgres 16:** zwei Läufe und ein frischer Lauf bestanden. Der Endstand stimmt mit der Themenliste überein.
+- **Hinweis:** Der App-Test „LM-S 2 … eigenständig“ schlägt auch ohne diese Änderung fehl (Teil C).
+
+FERTIG: Lehrplan Nacharbeit 907 b
+
 ## 2026-11-22 – MELDUNG Nacharbeit 907 (lehrplan-lb)
 
 Grundlage ist `lernen-app` 986d43e7. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Die eingespielte Datei ist unverändert. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0d.

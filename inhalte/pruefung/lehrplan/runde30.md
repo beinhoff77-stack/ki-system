@@ -2,6 +2,55 @@
 
 Grundlage: Zweig `lernen-app` e0739529 (einschließlich Nachtrag des Gestalters), Datenbank nur gelesen. Quelle LehrplanPLUS Bayern, **abgerufen 21.11.2026** über die Suche auf lehrplanplus.bayern.de (Seitenauszüge, keine Volltextabrufe). Unbelegtes ist als **Annahme** gekennzeichnet.
 
+## 0e. Nacharbeit 907 b (22.11. abends, „Rückläufer 22.11. abends“, Teil B)
+
+Grundlage: `lernen-app` 6ec1c3ef. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Berichtigt ist `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`; sie war noch nicht eingespielt.
+
+**Fehler „cannot insert a non-DEFAULT value into column id“**
+- Tatsache (gelesen): `id` ist in `schule.thema`, `schule.lernender`, `schule.route` und `schule.einheit` jeweils `GENERATED ALWAYS`.
+- Die Datei legt kein Thema an. Der Abbruch kam aus Rauchtest k, der den Test-Lernenden und seine Route mit fester `id` einfügte. Lokal nachgestellt: Die alte Fassung bricht genau dort mit dieser Meldung ab.
+- Behoben: Die `id` wird jetzt vergeben (`insert … returning id`), ohne feste Werte.
+- Nebenwirkung: Die zurückgerollten Einfügungen verbrauchen je Lauf eine Nummer aus der Folge für Lernende und drei für Routen. Das ist harmlos, die Nummern bleiben nur ungenutzt.
+
+**N2: aufgelöste Themen ohne Realschul- und IB-Klasse (Abschnitt 3d)**
+- Klasse über `klasse_fest = null` geleert. `thema_jahrgang` legt `klasse_fest` über die Zuordnung und entfernt danach Nullen, so ist die Klasse auch dann leer, wenn eine Zuordnung eine Klasse liefert.
+- Den Schlüssel in `lehrplan_reihenfolge` habe ich entfernt.
+- Lernbereich- und Lehrplantexte bleiben als Herkunft stehen.
+- Das Update greift nur, solange das Thema keine freigegebene Einheit hat.
+
+| Thema | vorher | nachher |
+|---|---|---|
+| 12 Reinquadratische Gleichungen | RS 9 (Stelle 3), IB 4 (Stelle 10) | – |
+| 27 Verhältnisse und Raten | IB 2 (Stelle 4) | – |
+| 40 Graphentransformation | RS 9 (Stelle 12), IB 5 (Stelle 6) | – |
+| 41 Folgen | IB 5 (Stelle 4) | – |
+| 48 Vektoren und Determinanten | RS 7 (Stelle 5) | – |
+| 72 Zinseszins | IB 4 (Stelle 14) | – |
+| 77 Umkehrfunktionen | RS 10 (Stelle 8), IB 5 (Stelle 10) | – |
+| 78 Parameter und Funktionenscharen | RS 8 (Stelle 7) | – |
+| 82 Bedingte Wahrscheinlichkeit | IB 5 (Stelle 17) | – |
+| 83 Mengen und Venn-Diagramme | IB 3 (Stelle 14) | – |
+
+**Reihenfolgen nachgezogen:** 66 Reihenfolge-Werte in 51 Themen rücken auf; die Reihenfolge untereinander bleibt gleich. Je Klasse geänderte Themen: IB MYP 2: 8, IB MYP 4: 16, IB MYP 5: 11, RS 7: 15, RS 9: 13, RS 10: 3.
+
+Damit hat RS 8 jetzt 6 statt 7 Themen (78 fällt weg). Der Befund „RS 8 dünn“ wird also deutlicher.
+
+**N3:** Bei 83 Mengen ist `eigenstaendig` entfernt, in der Themenliste und in der Migration (`update … set eigenstaendig = null where id = 83`). Eigenständig sind jetzt 6 Themen: 15, 42, 57, 60, 65, 84.
+
+**Rauchtest l (neu):** Kein Thema ohne freigegebene Einheit trägt eine Klasse, einen Reihenfolge-Schlüssel oder `eigenstaendig`. Rauchtest d prüft weiter, dass die Reihenfolge lückenlos ist.
+
+**Folgen für Pläne und Reisen:** keine.
+- Betroffen sind nur Realschule und IB; dort gibt es keine Kinder. Das Gymnasium bleibt unverändert.
+- Keine Verbindung und keine Visum-Zeile ändert sich. Rauchtest j vergleicht die Reiseoptionen.
+
+**Lokal geprüft auf Postgres 16.** Die Kopie hat `id`-Spalten mit `GENERATED ALWAYS` wie die echte Datenbank; die Zuordnungstabellen sind nicht nachgebaut, `thema_jahrgang` liest dort nur `klasse_fest` (Annahme: wirkt wegen der Null-Überlagerung gleich).
+- Eingespielte Datei, dann die alte 907-Fassung: Abbruch „cannot insert a non-DEFAULT value into column id“.
+- Eingespielte Datei, dann die neue Fassung, zweimal: Rauchtests a–l bestanden, 128 Verbindungen, 46 Visum-Zeilen, 3 Lernende.
+- Frische Kopie, nur die neue Fassung: bestanden.
+- Endstand der Kopie = `inhalte/themenliste.json` (Klasse, Reihenfolge, eigenständig): keine Abweichung.
+
+**Tests:** `tests/lernen.test.cjs` mit 150 bestanden, 1 fehlgeschlagen. Das ist „LM-S 2 … eigenständig“, und er schlägt auch ohne meine Änderung fehl (Rückläufer Teil C, `bau-motivation`).
+
 ## 0d. Nacharbeit aus ChatGPTs Prüfergebnis 907 (22.11.)
 
 Grundlage: `lernen-app` 986d43e7. Runde 30 c ist eingespielt, 102 ← 30 bleibt hart (Entscheidung Sebastian). Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Die eingespielte Datei `20261121_lehrplan_zuordnung_voraussetzungen.sql` ist unverändert.

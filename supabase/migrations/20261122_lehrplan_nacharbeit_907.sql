@@ -1,4 +1,6 @@
 -- Nacharbeit aus ChatGPTs Prüfergebnis 907 (22.11.) zur Dreißigsten Runde (Lehrplan-Zuordnungen und Voraussetzungen).
+-- Fassung b (22.11. abends): Test-Lernender ohne feste id (ids GENERATED ALWAYS), N2 aufgelöste Themen ohne RS/IB-Klasse und
+-- -Reihenfolge (Abschnitt 3d, Rauchtest l), N3 „eigenständig“ für 83 entfernt.
 -- Ersetzt die eingespielte Datei 20261121_lehrplan_zuordnung_voraussetzungen.sql NICHT, sondern ist ihre berichtigte Fassung:
 -- gleicher Inhalt (Runden 30, 30 b, 30 c; 102 ← 30 bleibt hart, Entscheidung Sebastian), dazu
 --   * Rauchtest j: fehlt der Vorherstand der Reiseoptionen, bricht er mit EXCEPTION ab (statt still zu überspringen);
@@ -8,7 +10,8 @@
 -- Quelle: LehrplanPLUS Bayern, abgerufen 21.11.2026; Belege und Annahmen in inhalte/pruefung/lehrplan/runde30.md.
 -- Wiederholt ausführbar und in EINER Transaktion einzuspielen: Abschnitt 0 merkt den Vorherstand transaktionslokal (set_config … true);
 -- ohne Transaktion fehlt er im Rauchtest j, der dann mit EXCEPTION abbricht (gewollt, kein stilles Überspringen, kein veralteter Stand).
--- Auf der Datenbank mit eingespielter Runde 30 c ändert ein Lauf nichts (alle Schritte sind schon erfüllt); der Rauchtest bestätigt das.
+-- Auf der Datenbank mit eingespielter Runde 30 c ändert ein Lauf nur N2/N3 (Abschnitt 3d, 83 eigenständig); alles andere ist schon erfüllt.
+-- Reiseoptionen ändern sich nicht (Rauchtest j); keine Verbindung und kein Visum ist betroffen.
 -- Kein DROP. DELETE nur in Abschnitt 3c: genau die zwölf einzeln aufgezählten veralteten Verbindungen zu aufgelösten Themen
 -- (ausdrücklich erlaubt im Auftrag „Nachbesserung Dreißigste Runde und LM-S“, Teil A); jede Löschung nur nach Prüfung.
 -- Seit 21.11. sind die Themen 102/103 in der Datenbank; der Schutz für fehlende Themen bleibt, greift aber nicht mehr.
@@ -76,6 +79,80 @@ begin
     delete from schule.voraussetzung where thema_id = r.thema_id and braucht_id = r.braucht_id;
   end loop;
 end $$;
+
+-- 3d) N2 (Nachprüfung Gestalter): Die zehn aufgelösten Themen (keine freigegebene Einheit) verlieren Klasse und Reihenfolge
+--     für Realschule und IB (für das Gymnasium hatten sie schon keine). Klasse über klasse_fest = null, weil thema_jahrgang
+--     klasse_fest über die Zuordnung legt und danach Nullen entfernt. Lernbereich- und Lehrplantexte bleiben als Herkunft stehen.
+--   12: vorher rs_by Kl. 9 / Stelle 3, ib_myp Kl. 4 / Stelle 10
+--   27: vorher ib_myp Kl. 2 / Stelle 4
+--   40: vorher rs_by Kl. 9 / Stelle 12, ib_myp Kl. 5 / Stelle 6
+--   41: vorher ib_myp Kl. 5 / Stelle 4
+--   48: vorher rs_by Kl. 7 / Stelle 5
+--   72: vorher ib_myp Kl. 4 / Stelle 14
+--   77: vorher rs_by Kl. 10 / Stelle 8, ib_myp Kl. 5 / Stelle 10
+--   78: vorher rs_by Kl. 8 / Stelle 7
+--   82: vorher ib_myp Kl. 5 / Stelle 17
+--   83: vorher ib_myp Kl. 3 / Stelle 14
+update schule.thema
+   set klasse_fest = coalesce(klasse_fest, '{}'::jsonb) || '{"gym_by": null, "rs_by": null, "ib_myp": null}'::jsonb,
+       lehrplan_reihenfolge = coalesce(lehrplan_reihenfolge, '{}'::jsonb) - 'gym_by' - 'rs_by' - 'ib_myp'
+ where id in (12, 27, 40, 41, 48, 72, 77, 78, 82, 83)
+   and not exists (select 1 from schule.einheit e where e.thema_id = schule.thema.id and e.status = 'freigegeben');
+-- Reihenfolgen je Schulart und Klasse lückenlos nachziehen (die übrigen Themen rücken auf; Reihenfolge untereinander gleich)
+update schule.thema t set lehrplan_reihenfolge = coalesce(t.lehrplan_reihenfolge, '{}'::jsonb) || v.rf
+from (values
+  (2, '{"rs_by": 11}'::jsonb),
+  (3, '{"rs_by": 13}'::jsonb),
+  (6, '{"rs_by": 9, "ib_myp": 14}'::jsonb),
+  (8, '{"rs_by": 11, "ib_myp": 10}'::jsonb),
+  (9, '{"ib_myp": 11}'::jsonb),
+  (10, '{"rs_by": 9}'::jsonb),
+  (13, '{"rs_by": 12}'::jsonb),
+  (14, '{"ib_myp": 10}'::jsonb),
+  (25, '{"ib_myp": 5}'::jsonb),
+  (26, '{"ib_myp": 4}'::jsonb),
+  (29, '{"rs_by": 10}'::jsonb),
+  (34, '{"ib_myp": 17}'::jsonb),
+  (35, '{"rs_by": 10, "ib_myp": 15}'::jsonb),
+  (36, '{"ib_myp": 16}'::jsonb),
+  (37, '{"rs_by": 8, "ib_myp": 7}'::jsonb),
+  (38, '{"ib_myp": 8}'::jsonb),
+  (39, '{"ib_myp": 6}'::jsonb),
+  (44, '{"rs_by": 7}'::jsonb),
+  (45, '{"rs_by": 9, "ib_myp": 21}'::jsonb),
+  (47, '{"rs_by": 3}'::jsonb),
+  (49, '{"ib_myp": 11}'::jsonb),
+  (51, '{"rs_by": 6}'::jsonb),
+  (54, '{"rs_by": 4}'::jsonb),
+  (55, '{"rs_by": 5, "ib_myp": 19}'::jsonb),
+  (56, '{"ib_myp": 20}'::jsonb),
+  (58, '{"rs_by": 17, "ib_myp": 8}'::jsonb),
+  (59, '{"ib_myp": 13}'::jsonb),
+  (60, '{"ib_myp": 11}'::jsonb),
+  (61, '{"rs_by": 13, "ib_myp": 9}'::jsonb),
+  (62, '{"rs_by": 10, "ib_myp": 25}'::jsonb),
+  (63, '{"rs_by": 14, "ib_myp": 24}'::jsonb),
+  (64, '{"rs_by": 15, "ib_myp": 10}'::jsonb),
+  (65, '{"ib_myp": 18}'::jsonb),
+  (66, '{"ib_myp": 9}'::jsonb),
+  (69, '{"rs_by": 12}'::jsonb),
+  (71, '{"rs_by": 15, "ib_myp": 12}'::jsonb),
+  (73, '{"rs_by": 8}'::jsonb),
+  (74, '{"rs_by": 5}'::jsonb),
+  (75, '{"ib_myp": 5}'::jsonb),
+  (76, '{"ib_myp": 4}'::jsonb),
+  (79, '{"ib_myp": 12}'::jsonb),
+  (80, '{"ib_myp": 14}'::jsonb),
+  (81, '{"rs_by": 19, "ib_myp": 7}'::jsonb),
+  (84, '{"ib_myp": 13}'::jsonb),
+  (91, '{"ib_myp": 22}'::jsonb),
+  (92, '{"rs_by": 8}'::jsonb),
+  (93, '{"rs_by": 16}'::jsonb),
+  (94, '{"rs_by": 14}'::jsonb),
+  (95, '{"rs_by": 18, "ib_myp": 23}'::jsonb),
+  (98, '{"rs_by": 6, "ib_myp": 6}'::jsonb),
+  (101, '{"rs_by": 7}'::jsonb)
+) v(id, rf) where t.id = v.id;
 
 -- 4) Voraussetzungen (nur einfügen oder Art/Begründung angleichen; vorhandene bleiben)
 insert into schule.voraussetzung (thema_id, braucht_id, art, begruendung)
@@ -162,9 +239,10 @@ update schule.thema t set eigenstaendig = v.g from (values
   (57, 'Zählen und Ablesen aus der Grundschule genügen'),
   (60, 'systematisches Zählen; setzt nur Grundschulwissen voraus'),
   (65, 'Entdecker-Insel mit eigenen Begriffen (Knoten, Kanten)'),
-  (83, 'Entdecker-Insel; Mengenbegriff wird hier eingeführt'),
   (84, 'Entdecker-Insel; Aussagen und Wahrheitswerte werden hier eingeführt')
 ) v(id, g) where t.id = v.id and t.eigenstaendig is distinct from v.g;
+-- N3 (Nachprüfung Gestalter): 83 Mengen ist aufgelöst (kein freigegebener Flug) – Kennzeichnung entfernen
+update schule.thema set eigenstaendig = null where id = 83 and eigenstaendig is not null;
 
 -- 6) Rauchtest (liest nur)
 do $$
@@ -253,10 +331,9 @@ begin
     end if;
     select titel into v_vor_titel from schule.block where id = v_vor;
     begin
-      select coalesce(max(id), 0) + 100000 into v_lid from schule.lernender;
-      select coalesce(max(id), 0) + 100000 into v_rid from schule.route;
-      insert into schule.lernender (id, anzeigename, klasse, ist_test, schulart) values (v_lid, 'Rauchtest 102←30 (wird zurückgerollt)', 5, true, 'gym_by');
-      insert into schule.route (id, lernender_id, block_id, position, art, status) values (v_rid, v_lid, v_ziel, 1, 'normal', 'offen');
+      -- ids sind GENERATED ALWAYS: keine feste id, sondern vergeben lassen (returning)
+      insert into schule.lernender (anzeigename, klasse, ist_test, schulart) values ('Rauchtest 102←30 (wird zurückgerollt)', 5, true, 'gym_by') returning id into v_lid;
+      insert into schule.route (lernender_id, block_id, position, art, status) values (v_lid, v_ziel, 1, 'normal', 'offen');
       -- k1
       v_ro := schule.reiseoptionen(v_lid);
       select o into v_opt from jsonb_array_elements(v_ro->'optionen') o where (o->>'ort_id')::bigint = v_ziel;
@@ -265,7 +342,7 @@ begin
         v_fehler := 'k1: visum_fehlt nennt den Voraussetzungs-Ort nicht: ' || v_opt::text; end if;
       -- k2
       if v_fehler is null then
-        insert into schule.route (id, lernender_id, block_id, position, art, status) values (v_rid + 1, v_lid, v_vor, 2, 'normal', 'offen');
+        insert into schule.route (lernender_id, block_id, position, art, status) values (v_lid, v_vor, 2, 'normal', 'offen') returning id into v_rid;
         v_ro := schule.reiseoptionen(v_lid);
         select o into v_opt from jsonb_array_elements(v_ro->'optionen') o where (o->>'ort_id')::bigint = v_ziel;
         if v_opt is null or not exists (select 1 from jsonb_array_elements(v_opt->'visum_fehlt') f where f->>'ort' = v_vor_titel) then
@@ -273,8 +350,8 @@ begin
       end if;
       -- k3 (Status direkt einfügen statt ändern, damit kein Sterne-Auslöser läuft)
       if v_fehler is null then
-        insert into schule.route (id, lernender_id, block_id, position, art, status) values (v_rid + 2, v_lid, v_vor, 3, 'normal', 'fertig');
-        update schule.route set art = 'zusatz' where id = v_rid + 1;
+        insert into schule.route (lernender_id, block_id, position, art, status) values (v_lid, v_vor, 3, 'normal', 'fertig');
+        update schule.route set art = 'zusatz' where id = v_rid;
         v_ro := schule.reiseoptionen(v_lid);
         select o into v_opt from jsonb_array_elements(v_ro->'optionen') o where (o->>'ort_id')::bigint = v_ziel;
         if v_opt is null or exists (select 1 from jsonb_array_elements(v_opt->'visum_fehlt') f where f->>'ort' = v_vor_titel) then
@@ -289,5 +366,12 @@ begin
       raise exception 'Rauchtest k: Test-Lernender nicht zurückgerollt'; end if;
     raise notice 'Rauchtest k: 102 ← 30 sperrt den Ziel-Ort, solange der Voraussetzungs-Ort fehlt oder offen ist, und gibt ihn frei, wenn er fertig ist';
   end;
-  raise notice 'Rauchtest Dreißigste Runde (Nacharbeit 907) bestanden';
+  -- l) N2/N3: aufgelöste Themen ohne Klasse, ohne Reihenfolge, ohne „eigenständig“
+  select string_agg(t.id::text, ', ') into v_txt from schule.thema t
+   where not exists (select 1 from schule.einheit e where e.thema_id = t.id and e.status = 'freigegeben')
+     and (schule.thema_jahrgang(t.id) <> '{}'::jsonb
+          or coalesce(t.lehrplan_reihenfolge, '{}'::jsonb) ?| array['gym_by', 'rs_by', 'ib_myp']
+          or t.eigenstaendig is not null);
+  if v_txt is not null then raise exception 'Rauchtest l: aufgelöste Themen tragen noch Klasse, Reihenfolge oder eigenständig: %', v_txt; end if;
+  raise notice 'Rauchtest Dreißigste Runde (Nacharbeit 907 b) bestanden';
 end $$;

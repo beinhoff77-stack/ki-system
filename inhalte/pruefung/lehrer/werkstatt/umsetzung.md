@@ -8,6 +8,13 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 - Nachschlagen → Lehrplan (LM, alle Kinder, „Beide vergleichen“) bleibt die Übersicht ohne Bearbeiten; im Detail dort zusätzlich „Für ‹Kind› planen ›“ → dieser Reiter mit dem Thema geöffnet.
 - Die Stufen-Knöpfe gibt es danach **nur noch hier** (heute drei Stellen).
 
+### 1a Kopf: Kinder durchklicken, Reiter verknüpft (Sebastian 22.11.)
+- Statt nur „Kind B“: **Kinder-Umschalter** im Kopf: `‹ [A Kind A · Realschule · Kl. 6] [B Kind B · Gymnasium · Kl. 8] ›`. Klick auf ein Kind oder ‹ › wechselt das Kind, **der gewählte Reiter bleibt** (man vergleicht z. B. Lehrplan A und B direkt). Tastatur Alt+← / Alt+→. Handy: nur das aktive Kind ausgeschrieben, andere als Buchstabe.
+- Beim Wechsel: Schule und Klassen-Filter übernehmen die Werte des Kindes, Detail zu, Auswahl leer, Rückgängig verfällt.
+- Reiter „Was wackelt“ zeigt eine **rote Zahl** = Einträge „Zu besprechen“.
+- **Überblick** (Vorschlag, bild ueberblick.png): Karten „Gerade dran“ (Thema, Etappe, Balken, → „Im Lehrplan öffnen“), „Als Nächstes“ (Platz 2–4, → „Fahrplan ändern“), „Zu besprechen“ (Zahl, Themen, → „Was wackelt“), „Diese Woche“, Ringe rund um die Klasse des Kindes. Vorhandene Inhalte des heutigen Überblicks bleiben darunter.
+- **Was wackelt als Arbeitsliste** (bild was-wackelt.png): Gruppen **Zu besprechen · Beobachten · Besprochen**, je Eintrag Thema, Etappe, Anzahl Fehler, wann; Knöpfe „✓ Besprochen“, „Beobachten“, „Im Lehrplan“ (öffnet Lehrplan mit dem Thema). Aufgabe + Antwort des Kindes aufklappbar wie heute. Neue Fehler im selben Thema → Eintrag wieder „Zu besprechen“. Braucht einen gespeicherten Status je Kind und Thema (Datenbank) – eigener Schritt LW-3.
+
 ## 2 Aufbau (Rechner ≥ 1100 px)
 ```
 ┌ Kopf: ‹  Kind B  Gymnasium · Kl. 8                    Überblick · Was wackelt · [Lehrplan] ┐
@@ -98,7 +105,8 @@ Ruhige Sandfläche, weiße Karten mit 3-px-Stufenstrich links, nur eine Akzentfa
 
 ## 11 Schritte
 1. **LW-1:** Seite mit Matrix + Fahrplan + Detail, Reiter „Lehrplan“ ersetzt Stand und Plan, Zeigen-Filter, Einstieg prüfen, fertige Klassen eingeklappt, Handy/Tablet.
-2. **LW-2:** Ziehen aus der Matrix, Reihenfolge-Hinweise, „Alle fehlenden einplanen“, Detail mit Etappen-Stand.
+2. **LW-2:** Ziehen aus der Matrix und zurück (4a), Reihenfolge-Warnungen mit Reparieren-Knopf (4a), „Alle fehlenden einplanen“, Detail mit Etappen-Stand, Farben nach Abschnitt 3.
+3. **LW-3:** Kinder-Umschalter im Kopf (1a), Überblick-Karten mit Sprüngen, Was wackelt als Arbeitsliste mit gespeichertem Status.
 
 ## Prüfen nach dem Bau
 400/820/1280; keine Funktion aus „Plan“ verloren (Auswählen, Sammelaktion, Rückgängig, Konflikt „Neu laden“, Wieder in die Wiederholung); Stand-Zahlen gleich wie in der Matrix unter Nachschlagen; Testkind und erfundene Daten.

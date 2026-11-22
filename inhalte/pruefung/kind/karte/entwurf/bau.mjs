@@ -1,6 +1,6 @@
 import {readFileSync,writeFileSync} from 'fs';
 import * as topo from 'topojson-client';
-import * as d3 from 'd3-geo';
+import * as d3 from 'd3-geo';import {createRequire} from 'module';const require=createRequire(import.meta.url);const ISO=require('i18n-iso-countries');
 const t50=JSON.parse(readFileSync('node_modules/world-atlas/countries-50m.json'));
 const t110=JSON.parse(readFileSync('node_modules/world-atlas/countries-110m.json'));
 const L50=topo.feature(t50,t50.objects.countries).features;
@@ -16,7 +16,7 @@ pE.clipExtent([[-5,-5],[W+5,H+5]]);const gpE=d3.geoPath(pE);
 const r=n=>Math.round(n*10)/10;
 const clip=(p)=>p; 
 const eur=L50.map(f=>{const n=f.properties.name;const d=gpE(f);if(!d)return null;const b=gpE.bounds(f);if(b[1][0]<-50||b[0][0]>W+50||b[1][1]<-50||b[0][1]>H+50)return null;
- const e=EU[n];const fl=FL.findIndex(x=>x[0]===n);return {n,de:e?e[0]:null,hs:e?e[1]:null,hp:e?pE([e[3],e[2]]).map(r):null,c:gpE.centroid(f).map(r),d:d.replace(/X/g,'$1'),eu:!!e,fl:fl}}).filter(Boolean);
+ const e=EU[n];const fl=FL.findIndex(x=>x[0]===n);return {a2:f.id?ISO.numericToAlpha2(f.id):(n==='Kosovo'?'XK':null),n,de:e?e[0]:null,hs:e?e[1]:null,hp:e?pE([e[3],e[2]]).map(r):null,c:gpE.centroid(f).map(r),d:d.replace(/X/g,'$1'),eu:!!e,fl:fl}}).filter(Boolean);
 // Italien
 const IT=[['Rom',41.90,12.50],['Neapel',40.85,14.27],['Pompei',40.75,14.50],['Bari',41.12,16.87],['Bologna',44.49,11.34],['Venedig',45.44,12.33],['Verona',45.44,10.99],['Mailand',45.46,9.19],['Turin',45.07,7.69],['Genua',44.41,8.93],['Pisa',43.72,10.40],['Florenz',43.77,11.25],['Siena',43.32,11.33]];
 const WI=1700,HI=1300;const itF=L50.find(f=>f.properties.name==='Italy');

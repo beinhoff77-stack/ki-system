@@ -4,9 +4,13 @@
 #   B) die zwei letzten Pflicht-Etappen der Tagesrunde gleichzeitig: danach ist die Runde fertig (Abschluss unter Sperre, WD-S 4).
 #   C) Antwort, während eine andere Sitzung für dasselbe Kind Sterne bucht: die Antwort meldet nur ihre eigenen Sterne (FP-S 2).
 #   D) Landung gleichzeitig mit der Nachbuchung: jede Seite meldet genau ihre Sterne, die Summe stimmt (FP-S 2).
-# Setzt alle Migrationen bis FP-S 2 voraus.
+#      D2) zwei Nachbuchungen beanspruchen gleichzeitig denselben Landungs-Bonus: genau einmal gebucht, jede meldet nur ihr Eigenes (FP-S 3).
+#   E) dieselbe ausgegebene Mischkarte mit zwei verschiedenen client_id: genau eine Antwort meldet misch.gueltig, ein Fortschritt (FP-S 3).
+#   F) Antwort auf eine andere Aufgabe derselben Etappe läuft, dann wird die Mischkarte eingelöst: keine Misch-Bestätigung,
+#      kein Wiederholungsfortschritt aus der Mischkarte, Ausgabe nicht eingelöst (FP-S 3).
+# Setzt alle Migrationen bis FP-S 3 voraus.
 # NUR auf einer Wegwerf-Datenbank (Kopie/Branch) – das Skript schreibt und behält Daten (Testkind, Hilfstabelle public.wd3_gleich).
-# Ergebnis: Exit 0 nur, wenn alle vier Teile „ok“ melden; jedes „FEHLER“ oder ein abgebrochener Prozess beendet mit Exit 1.
+# Ergebnis: Exit 0 nur, wenn alle sieben Teile „ok“ melden (A, B, C, D, D2, E, F); jedes „FEHLER“ oder ein abgebrochener Prozess beendet mit Exit 1.
 # Aufruf:  WD_WEGWERF=ja WD_DB='postgresql://…' bash supabase/tests/wd_s3_gleichzeitig.sh
 set -euo pipefail
 : "${WD_DB:?WD_DB = psql-Verbindung der Wegwerf-Datenbank}"
@@ -20,14 +24,14 @@ pruefen() { echo "$1"; AUSGABE="$AUSGABE"$'\n'"$1"; }
 create table if not exists public.wd3_gleich (nr int, l bigint, e bigint, lz text, a1 bigint, a2 bigint, s0 bigint);
 truncate public.wd3_gleich;
 insert into public.wd3_gleich (nr, l, e, lz, a1, a2)
-select row_number() over (order by q.einheit_id, q.lz), l.id, q.einheit_id, q.lz, q.ids[1], q.ids[2]
+select row_number() over (order by q.mischbar desc, q.einheit_id, q.lz), l.id, q.einheit_id, q.lz, q.ids[1], q.ids[2]
   from (select id from schule.lernender where ist_test and aktiv order by id limit 1) l,
-       lateral (select a.einheit_id, a.variante_gruppe lz, array_agg(a.id order by a.id) ids
+       lateral (select a.einheit_id, a.variante_gruppe lz, array_agg(a.id order by a.stufe in (2, 3) desc, a.id) ids, bool_or(a.stufe in (2, 3)) mischbar
                   from schule.aufgabe a join schule.einheit e on e.id = a.einheit_id and e.status = 'freigegeben' and e.id = schule.thema_einheit(e.thema_id)
                  where a.pool = 'uebung' and a.freigegeben and a.antworttyp = 'auswahl' and e.block_id is not null
                    and not exists (select 1 from schule.versuch v join schule.aufgabe b on b.id = v.aufgabe_id
                                     where v.lernender_id = l.id and b.einheit_id = a.einheit_id and b.variante_gruppe = a.variante_gruppe)
-                 group by 1, 2 having count(*) >= 2 order by 1, 2 limit 6) q;
+                 group by 1, 2 having count(*) >= 2 order by 4 desc, 1, 2 limit 9) q;
 insert into schule.lerntag (lernender_id, fach, datum, zeitzone)
 select distinct g.l, 'Mathematik', schule.heute_tag(g.l) - d, 'Europe/Berlin' from public.wd3_gleich g, generate_series(1, 10) d on conflict do nothing;
 insert into schule.karte_stand (lernender_id, einheit_id, lernziel) select l, e, lz from public.wd3_gleich on conflict do nothing;
@@ -53,10 +57,10 @@ on conflict (lernender_id, tag, einheit_id, lernziel) do update set bearbeitet_a
 update schule.wdh_runde w set fertig_am = null from public.wd3_gleich g where g.nr = 1 and w.lernender_id = g.l and w.tag = schule.heute_tag(g.l);
 SQL
 
-antwort() { # $1 = Etappe (nr), $2 = Aufgaben-Spalte, $3 = Gerät, $4 = Wartezeit in der Transaktion; gibt die ganze Antwort aus
+antwort() { # $1 = Etappe (nr), $2 = Aufgaben-Spalte, $3 = Gerät, $4 = Wartezeit in der Transaktion, $5 = Mischkarte (true/false); gibt die ganze Antwort aus
   "${P[@]}" <<SQL
 begin;
-select 'Gerät $3: ' || schule.uebung_pruefen_wd(g.l, jsonb_build_object('aufgabe_id', g.$2, 'client_id', 'gleichzeitig-$3-' || gen_random_uuid(),
+select 'Gerät $3: ' || schule.uebung_pruefen_wd(g.l, jsonb_build_object('aufgabe_id', g.$2, 'client_id', 'gleichzeitig-$3-' || gen_random_uuid(), 'misch', ${5:-false},
          'antwort', jsonb_build_object('index', (select (a.loesung->>'index')::int from schule.aufgabe a where a.id = g.$2))))::text
   from public.wd3_gleich g where g.nr = $1;
 select pg_sleep($4);
@@ -128,7 +132,76 @@ read -r D_STERNE D_BONUS <<<"$D_ANTWORT"
 if [ "$D_BONUS" != "None" ] && [ "$D_STERNE" = "$(( C_SOLL + D_BONUS ))" ] && [ "$D_NACH" -gt 0 ] && [ "$(( S1 - S0 ))" = "$(( D_STERNE + D_NACH ))" ]; then
   pruefen "ok D gleichzeitig: Landung meldet $D_STERNE (Übung + Bonus $D_BONUS), Nachbuchung $D_NACH, Summe +$(( S1 - S0 ))"
 else pruefen "FEHLER D gleichzeitig: Antwort $D_ANTWORT, Nachbuchung $D_NACH, Summe +$(( S1 - S0 ))"; fi
-rm -f /tmp/wd3_g1.$$ /tmp/wd3_g2.$$ /tmp/wd3_c.$$ /tmp/wd3_d.$$
+# Teil D2: zwei Nachbuchungen gleichzeitig, beide finden denselben fehlenden Landungs-Bonus (Etappe 9)
+"${P[@]}" <<'SQL'
+update schule.karte_stand k set sitzt = true, sitzt_am = now() - interval '20 days', gesetzt_am = null, landung = null, wdh_stufe = 2, wdh_lerntage = 7, wdh_ab = now()
+  from public.wd3_gleich g where k.lernender_id = g.l and k.einheit_id = g.e and k.lernziel = g.lz and g.nr = 9;
+SQL
+nach2() { # $1 = Wartezeit in der Transaktion
+  "${P[@]}" <<SQL
+begin;
+select 'Nachbuchung: ' || coalesce(sum(n.sterne), 0) from public.wd3_gleich g, schule.landung_bonus_nachbuchen(g.l) n where g.nr = 1;
+select pg_sleep($1);
+commit;
+SQL
+}
+S0=$("${P[@]}" -c "select coalesce(sum(s.menge), 0) from schule.sterne s join public.wd3_gleich g on g.l = s.lernender_id and g.nr = 1")
+zwei "nach2 2" "nach2 0" > /tmp/wd3_d2.$$
+cat /tmp/wd3_d2.$$
+D2_SUMME=$(grep -o 'Nachbuchung: .*' /tmp/wd3_d2.$$ | sed 's/^Nachbuchung: //' | paste -sd+ | bc)
+S1=$("${P[@]}" -c "select coalesce(sum(s.menge), 0) from schule.sterne s join public.wd3_gleich g on g.l = s.lernender_id and g.nr = 1")
+D2_ZEILEN=$("${P[@]}" -c "select count(*) from schule.sterne s join public.wd3_gleich g on g.l = s.lernender_id and s.grund = 'landung' and s.bezug = 'landung:' || g.e || ':' || g.lz where g.nr = 9")
+if [ "$D2_ZEILEN" = "1" ] && [ "$D2_SUMME" -gt 0 ] && [ "$(( S1 - S0 ))" = "$D2_SUMME" ]; then
+  pruefen "ok D2 gleichzeitig: Landungs-Bonus einmal gebucht, Meldungen zusammen $D2_SUMME = Summe +$(( S1 - S0 ))"
+else pruefen "FEHLER D2 gleichzeitig: $D2_ZEILEN Bonus-Zeilen, Meldungen $D2_SUMME, Summe +$(( S1 - S0 ))"; fi
 
-if grep -q "FEHLER" <<<"$AUSGABE" || [ "$(grep -c '^ok' <<<"$AUSGABE")" -ne 4 ]; then echo "Ergebnis: FEHLER"; exit 1; fi
+# Teil E/F: Etappen 7 und 8 gelandet und fällig, je eine Mischkarte (Aufgabe a1) ausgegeben, Lage: Etappe 1
+"${P[@]}" <<'SQL'
+do $$ begin
+  if (select count(*) from public.wd3_gleich g join schule.aufgabe a on a.id = g.a1 where g.nr in (7, 8) and a.stufe in (2, 3)) <> 2 then
+    raise exception 'FEHLER Vorbereitung E/F: keine zwei Etappen mit Misch-Aufgabe (Stufe 2/3)'; end if;
+end $$;
+update schule.karte_stand k set sitzt = true, sitzt_am = now() - interval '30 days', gesetzt_am = null, wdh_stufe = 1, wdh_lerntage = 3, wdh_fehler = 0,
+       wdh_ab = now() - interval '6 days', faellig_am = now() - interval '3 days' from public.wd3_gleich g
+ where k.lernender_id = g.l and k.einheit_id = g.e and k.lernziel = g.lz and g.nr in (7, 8);
+update schule.misch_ausgabe m set verfallen_am = now() from public.wd3_gleich g
+ where g.nr in (7, 8) and m.lernender_id = g.l and m.aufgabe_id = g.a1 and m.eingeloest_am is null and m.verfallen_am is null;
+insert into schule.misch_ausgabe (lernender_id, aufgabe_id, einheit_id, lernziel)
+select g.l, g.a1, h.e, h.lz from public.wd3_gleich g, public.wd3_gleich h where g.nr in (7, 8) and h.nr = 1
+on conflict (lernender_id, aufgabe_id) where eingeloest_am is null do update set ausgegeben_am = now(), verfallen_am = null, einheit_id = excluded.einheit_id, lernziel = excluded.lernziel;
+SQL
+misch_gueltig_aus() { grep -o "Gerät $1: .*" "$2" | sed "s/^Gerät $1: //" | python3 -c 'import sys,json; print(str((json.loads(sys.stdin.read()).get("misch") or {}).get("gueltig")).lower())'; }
+
+# Teil E: dieselbe Mischkarte von zwei Geräten (zwei client_id)
+zwei "antwort 7 a1 G 2 true" "antwort 7 a1 H 0 true" > /tmp/wd3_e.$$
+cat /tmp/wd3_e.$$
+E_G=$(misch_gueltig_aus G /tmp/wd3_e.$$); E_H=$(misch_gueltig_aus H /tmp/wd3_e.$$)
+E_PRUEF=$("${P[@]}" <<'SQL'
+select k.wdh_stufe || ' ' || (select count(*) from schule.misch_ausgabe m where m.lernender_id = g.l and m.aufgabe_id = g.a1 and m.eingeloest_am is not null and m.ausgegeben_am > now() - interval '1 hour')
+       || ' ' || (select count(*) from schule.versuch v where v.lernender_id = g.l and v.aufgabe_id = g.a1 and v.misch)
+       || ' ' || (select count(*) from schule.sterne s where s.lernender_id = g.l and s.grund = 'wdh' and s.bezug like 'wdh:' || g.e || ':' || g.lz || ':%')
+  from public.wd3_gleich g join schule.karte_stand k on k.lernender_id = g.l and k.einheit_id = g.e and k.lernziel = g.lz where g.nr = 7;
+SQL
+)
+if [ "$E_G" = "true" ] && [ "$E_H" = "false" ] && [ "$E_PRUEF" = "2 1 1 1" ]; then
+  pruefen "ok E gleichzeitig: eine Mischkarte, zwei Geräte – genau eine Bestätigung, ein Fortschritt (Stufe 1 → 2), einmal eingelöst"
+else pruefen "FEHLER E gleichzeitig: Gerät G gueltig=$E_G, Gerät H gueltig=$E_H, Stufe/eingelöst/Misch-Versuche/wdh-Sterne $E_PRUEF (soll 2 1 1 1)"; fi
+
+# Teil F: Gerät I beantwortet eine andere Aufgabe der Etappe 8 (hält 2 s), Gerät J löst währenddessen die Mischkarte der Etappe 8 ein
+zwei "antwort 8 a2 I 2" "antwort 8 a1 J 0 true" > /tmp/wd3_f.$$
+cat /tmp/wd3_f.$$
+F_J=$(misch_gueltig_aus J /tmp/wd3_f.$$)
+F_PRUEF=$("${P[@]}" <<'SQL'
+select k.wdh_stufe || ' ' || (select count(*) from schule.misch_ausgabe m where m.lernender_id = g.l and m.aufgabe_id = g.a1 and m.eingeloest_am is not null and m.ausgegeben_am > now() - interval '1 hour')
+       || ' ' || (select count(*) from schule.versuch v where v.lernender_id = g.l and v.aufgabe_id = g.a1 and v.misch)
+       || ' ' || (select count(*) from schule.sterne s where s.lernender_id = g.l and s.grund = 'wdh' and s.bezug like 'wdh:' || g.e || ':' || g.lz || ':%')
+  from public.wd3_gleich g join schule.karte_stand k on k.lernender_id = g.l and k.einheit_id = g.e and k.lernziel = g.lz where g.nr = 8;
+SQL
+)
+if [ "$F_J" = "false" ] && [ "$F_PRUEF" = "2 0 0 1" ]; then
+  pruefen "ok F gleichzeitig: andere Aufgabe zuerst – Mischkarte nicht bestätigt, nicht eingelöst, nur der eine Fortschritt der normalen Antwort"
+else pruefen "FEHLER F gleichzeitig: Gerät J gueltig=$F_J, Stufe/eingelöst/Misch-Versuche/wdh-Sterne $F_PRUEF (soll 2 0 0 1)"; fi
+rm -f /tmp/wd3_g1.$$ /tmp/wd3_g2.$$ /tmp/wd3_c.$$ /tmp/wd3_d.$$ /tmp/wd3_d2.$$ /tmp/wd3_e.$$ /tmp/wd3_f.$$
+
+if grep -q "FEHLER" <<<"$AUSGABE" || [ "$(grep -c '^ok' <<<"$AUSGABE")" -ne 7 ]; then echo "Ergebnis: FEHLER"; exit 1; fi
 echo "Ergebnis: ok"

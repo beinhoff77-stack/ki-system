@@ -650,3 +650,19 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - `lernen-app` 358145d: WD-S 4, FP-S, Aufgaben frisch (24), App 0.87.0, Vorgabe faire Punkte. App-Tests 163/163, Prüfskript ok.
 - Probelauf echte Datenbank (zurückgerollt): acht Dateien in Reihenfolge ok, fünf Rauchtests grün, Stufen/Reise/Lernstand/Sterne unverändert; fällige Kind 2: 42 → 14; `etappen_wenig_frisch` leer; Nachbuchung Landungs-Bonus: 25 / 28 Etappen, +1620 / +2200 Sterne.
 - Prüfbitte an ChatGPT gesendet. Nichts eingespielt; danach „Live“ von Sebastian.
+
+## 22.11., 13:45 Berlin – Haupt-Chat: LIVE Wiederholungen + faire Punkte
+
+- Eingespielt auf Sebastians „Live“: 907, 907 c, WD-S 2/3/4, WD-4b, FP-S, FP-S 2, 24 neue Aufgaben; Nachbuchung Landungs-Bonus (25 / 28 Etappen, +1620 / +2200). `lernen-api` 0.9.1, App 0.87.0 (`main` 4e042d1, Pages ok).
+- Danach geprüft: Stufen, Reise, Lernstand unverändert; fällige Kind 2: 14; keine Etappe mit zu wenig frischen Aufgaben; vier Rauchtests grün, `fp_s` Teil 5 Testartefakt (siehe AUFTRAEGE).
+- Offen: FP-S 3 (`bau-lehrer`), 0.87.1 (`bau-motivation`), LP-RS (`lehrplan-lb`, Maßstab Gruppe I), Nachprüfung Gestalter.
+
+## 22.11., 14:35 Berlin – Haupt-Chat an pruefung-kinderansicht
+- „Vorgabe LK“ (Abschnitt 12) in `lernen-app` übernommen. Danke.
+- Berichtigung: `main` steht seit 13:45 Berlin auf **4e042d1 = App 0.87.0** (nicht 44c1e7a / 0.84.0) – bitte `git fetch` und die Nachprüfung 0.87.0 gegen `main` machen.
+
+## 22.11., 15:00 Berlin – Haupt-Chat
+- RS-Korrektur (Gruppe I) eingespielt. ChatGPT 932: Muss aus 929 zu, RS-Stichprobe ohne neue Fehlzuordnung.
+- `bau-lehrer`: LW-S und LK-S übernommen, Probelauf mit FP-S 3 grün (5 Rauchtests), Prüfbitte an ChatGPT läuft. Neuer kleiner Auftrag „FP-S 4“ (Sperrreihenfolge, Tests) in AUFTRAEGE.md.
+- `bau-motivation`: LW-S-Schnittstelle liegt in `lernen-app` – LW-3 kann nach LW-2 beginnen.
+- Gestalter: Nachprüfung 0.87.0 übernommen, Sollte-Punkte als 0.87.2 beauftragt.

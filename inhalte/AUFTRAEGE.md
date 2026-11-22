@@ -2575,3 +2575,117 @@ ChatGPT hat alle acht amtlichen Pläne (7–10 × Gruppe I, II/III) unabhängig 
 - Im Repo auffällig: Themen 48 und 78 ohne RS-Klasse trotz RS-Lernbereich; 91 steht bei RS 8, beschreibt aber auch 7 I; 46 (RS 6) enthält Drehung (8 I); 33 mischt y = mx und y = mx + t.
 - Zweitquellen, die ChatGPT lesen konnte: Inhaltsverzeichnis Westermann 7 I (kapiert.de), Kapitelübersicht 8 II/III (braille.bildung.hessen.de), ISB-Leistungsaufgaben 9, Abschlussprüfung 2026 I und II/III (isb.bayern.de). Die Jahrgangsstufenprofil-Adressen für 8–10 führten auf die Startseite – nicht als Beleg verwenden.
 - **Vorschlag Datenmodell (Punkt 6 des Auftrags) deshalb verbindlich so anlegen:** Zuordnung je `Gruppe × Klasse × Lernbereich × Punkt → Thema/Etappe` mit Bezug „neu/weitergeführt“; Lernstand und Sterne werden nie doppelt geführt. Welche Gruppe die App zeigt, entscheidet Sebastian (offen).
+
+### Stand 22.11., 13:45 Berlin – LIVE: Wiederholungen und faire Punkte
+
+Sebastian: „live und gruppe 1“. Eingespielt (eine Transaktion, md5 geprüft): 907, 907 c, WD-S 2/3/4, WD-4b, FP-S, FP-S 2, Aufgaben frisch (24); Nachbuchung Landungs-Bonus ausgeführt. `lernen-api` 0.9.1, App 0.87.0 auf `main` 4e042d1.
+- **Offen bleibt FP-S 3** (Mischkarte atomar einlösen, ChatGPT 929) – bewusst nach dem Live, Entscheidung Sebastian.
+- **An `bau-lehrer` zusätzlich (in FP-S 3 mit erledigen):** `fp_s_rauchtest.sql` Teil 5 scheitert nach dem Einspielen („Hinweis für die App“), weil das Testkind schon eine Zeile in `schule.landung_nachbuchung` hat (ON CONFLICT DO NOTHING behält die erste Zusammenfassung). Test so bauen, dass er mit vorhandener Zeile läuft. Die übrigen vier Rauchtests sind nach dem Einspielen grün.
+- **Entscheidung Realschule: Gruppe I** (Wahlpflichtfächergruppe I) ist der Maßstab der App. `lehrplan-lb`: Prüfung LP-RS weiter für beide Gruppen dokumentieren, Korrektur-SQL und Klassenlage aber nach Gruppe I; II/III nur als Bericht.
+
+## Bau-Auftrag LK – ein Thema in mehreren Klassen, für alle Schularten (22.11., 14:15 Berlin)
+
+**Entscheidung Sebastian:** „Natürlich kann ein Thema in mehreren Klassen vorkommen. Das soll für alle Klassen gelten … für alle Schulen. Du musst dann auch in unserer Lehrplan-Übersicht schauen, was aufeinander aufbaut.“
+
+**Problem heute:** Je Thema und Schulart gibt es genau eine Klasse (`thema.klasse_fest` bzw. die abgeleitete Klasse). „Terme umformen“ steht z. B. nur in RS 7, obwohl es in RS 8 der größte Block ist (40 Std.). Folge: Klassen sehen leer aus (RS 8: 5 Themen), die Anzeige stimmt nicht, und „was baut worauf auf“ ist nicht je Klasse sichtbar.
+
+**Ziel:** Der Lehrplan sagt, *wann* etwas dran ist (Schulart × Gruppe × Klasse × Lernbereich × Punkt), das Thema sagt, *was* gelernt wird (Etappen). Ein Thema erscheint in jeder Klasse, in der der Lehrplan es verlangt – als **„neu“** oder **„weitergeführt“**, mit den Etappen, die in dieser Klasse dazukommen. Lernstand und Sterne gibt es je Thema/Etappe genau einmal. Grundlage: `inhalte/pruefung/lehrplan/rs_pruefung_2211.md`, Abschnitt 6 (Datenmodell) – gilt als Vorgabe.
+
+Geltung: **Gymnasium Bayern 5–10, Realschule Bayern 5–10 (Maßstab Gruppe I, II/III wird mitgeführt), IB MYP 1–5.**
+
+### LK-D · an `lehrplan-lb` (Daten und Aufbau-Prüfung; nur Dateien, nichts einspielen)
+1. **Gymnasium 5–10 und IB MYP 1–5** nach demselben Verfahren wie LP-RS: jede amtliche Seite neu abrufen (IB: die bei uns hinterlegte Quelle; wo kein amtlicher Jahresplan existiert, das ausdrücklich als „Orientierung“ kennzeichnen), Punkt für Punkt gegen `schule.eintrag`; jeder Punkt → Hauptthema oder „Lücke“. Zweitquelle je Klasse (Gym: zugelassenes Schulbuch/Stoffverteilungsplan).
+2. **Für alle drei Schularten je Punkt:** `rolle` (neu / weitergeführt) und `etappen` (Lernziel-Schlüssel der Etappen, die dieser Punkt verlangt; leer nur, wenn wirklich das ganze Thema gemeint ist). Für die Realschule die Lücke aus LP-RS schließen („Etappenzuordnung erst für Themen mit Klassenwechsel“).
+3. **Aufbau prüfen („was baut aufeinander auf“):**
+   a) Jede Voraussetzung in `schule.voraussetzung` (hart und empfohlen) gegen die neue Klassenlage: Die Voraussetzung muss in derselben Schulart in derselben oder einer früheren Klasse liegen. Liste aller Verstöße je Schulart mit Vorschlag (Voraussetzung ändern / Lage prüfen). Sebastians harte Entscheidungen (z. B. 102 ← 30) bleiben und werden nur gemeldet.
+   b) Innerhalb eines Themas: „weitergeführt“-Etappen dürfen nur auf Etappen aufbauen, die in einer früheren oder derselben Klasse „neu“ sind.
+   c) Je Thema eine Aufbau-Kette in Worten für die Anzeige: „baut auf … (Kl. x) · wird weitergeführt in Kl. y: …“.
+   d) Themen, die in einer Schulart in keiner Klasse verlangt werden (z. B. 49, 36, 96 in RS II/III), als „kein Pflichtstoff dieser Schulart/Gruppe“ ausweisen.
+4. **Inhalte für die Lücken aus LP-RS** vorschlagen und liefern: Zahlensysteme (RS 5), Vektoren in Koordinaten (RS 7), Vektoren drehen (RS 8), dazu die vier fehlenden Etappen (Drachenviereck/Raute, wahre Größe, Vierecke konstruieren, Vektorrechnung bei der Streckung) – im Einheiten-Format, Prüfskript grün. Neue Lücken aus Gym/IB ebenso melden.
+5. **Repo nachziehen:** Klassen in `inhalte/themenliste.json` und Themendateien (Widersprüche 61, 44, 91, 99, 100, 101).
+**Lieferung:** `inhalte/pruefung/lehrplan/lk_pruefung_2211.md` (Bericht: je Schulart und Klasse Lernbereich · Stunden · Punkte · Themen neu/weitergeführt · Lücken; Aufbau-Verstöße), `lk_daten_2211.json` (je Punkt: quelle, lernbereich, punkt, thema, bezug, rolle, etappen) und Korrektur-SQL für Gym/IB als Datei (nur INSERT/UPDATE, kein DROP/DELETE). Gesichert / Annahme / offen trennen. Meldung: „FERTIG: LK-D“.
+
+### LK-S · an `bau-lehrer` (Server; Datei, nicht einspielen)
+Migration `supabase/migrations/20261123_lk_s_thema_je_klasse.sql`, einzuspielen nach `rs_korrektur_2211.sql`:
+- `schule.zuordnung`: Felder `rolle` ('neu' | 'weitergefuehrt') und `etappen text[]`; `schule.lernender.zweig` ('rs_I' | 'rs_II_III', Vorgabe rs_I, nur für rs_by).
+- Sicht `schule.thema_lage` (Schulart, Zweig, Thema, Etappe → `klasse_ab`, `klassen[]`, Rolle je Klasse) und `schule.lehrplan_abdeckung` (je Lernbereich Stunden, Punkte, Punkte mit Thema, Stunden abgedeckt) – wie im Entwurf Abschnitt 6, sauber ausgearbeitet (RS 5/6 „allgemein“ gilt für beide Gruppen).
+- Befüllen von `rolle`/`etappen` aus `rs_pruefung_2211.json` (Gruppe I und II/III) als eigener, wiederholbarer Schritt; Gym/IB folgen aus `lk_daten_2211.json` mit derselben Funktion.
+- `schule_lehrplan_matrix` und `schule_lehrplan_thema`: je Thema und Schulart die **Liste der Klassen** mit Rolle, Etappen dieser Klasse, Lernbereich und Stunden; je Klasse die Abdeckung nach Stunden; je Thema `baut_auf` (Voraussetzungen mit Klasse) und `weiter_in` (spätere Klassen). Alte Felder bleiben, bis die App umgestellt ist.
+- **Unverändert bleiben müssen** (Rauchtest, Vorher/Nachher): `thema_stufe`/`im_plan` aller Kinder, Reiseoptionen, Plan, Lernstand, Sterne, Visum-Regeln. `klasse_fest` gewinnt weiter, wo gesetzt. Kein Lernstand wird doppelt geführt.
+- Rauchtest `supabase/tests/lk_s_rauchtest.sql`: ein Thema in zwei Klassen (neu + weitergeführt) erscheint in beiden; Abdeckung RS 8 I Lernbereich 4 = 40 Std.; Kind mit Zweig II/III sieht lineare Funktionen in 8 und 9; Test darf nicht von echten Kinderdaten abhängen.
+- Mit erledigen: `fp_s_rauchtest.sql` Teil 5 scheitert weiterhin auf dem echten Stand („Hinweis für die App“, Testkind hat schon eine Nachbuchungs-Zeile) – bitte so, dass er dort läuft.
+Meldung: „FERTIG: LK-S“ mit der Schnittstelle für `bau-motivation`.
+
+### LK-G · an den Gestalter (`pruefung-kinderansicht`; nur Vorgabe)
+Vorgabe „Unser Lehrplan“ (`inhalte/pruefung/lehrer/werkstatt/umsetzung.md`, jetzt in `lernen-app` übernommen) erweitern:
+- Eine Themen-Karte steht in **jeder Klassenzeile, in der das Thema verlangt wird**: beim ersten Mal normal („neu“), danach als schmalere Karte „↪ weitergeführt · neu in Kl. 8: binomische Formeln, Faktorisieren“ mit demselben Stand. Antippen öffnet dasselbe Detail.
+- Kennzeichen auf der Karte statt `Gym 8 · RS 7 · IB 4`: je Schulart alle Klassen (`RS 7–8`), gewählte Schulart dunkel.
+- Ringe und Klassen-Kopf rechnen mit den Etappen, die **in dieser Klasse** verlangt werden; zusätzlich je Klasse „Lehrplan-Abdeckung: x von y Stunden haben Inhalte“ (nur Eltern/Lehrer).
+- Detail: Abschnitt **„Baut auf“** (Voraussetzungen mit Klasse, antippbar) und **„Geht weiter in“** (spätere Klassen mit den neuen Etappen). Warnung, wenn ein eingeplantes Thema auf etwas aufbaut, das das Kind noch nicht kann.
+- Dasselbe knapp für die Kinderseite „Meine Route 5–10“.
+Meldung: „FERTIG: Vorgabe LK“. Die Nachprüfung der Kinderansicht 0.87.0 bleibt zusätzlich offen.
+
+### LK-App · an `bau-motivation` (nach „FERTIG: LK-S“ und „FERTIG: Vorgabe LK“)
+Matrix, Lehrplan-Reiter und „Meine Route 5–10“ auf die neue Schnittstelle umstellen (Karte je Klasse neu/weitergeführt, Abdeckung nach Stunden, „Baut auf“/„Geht weiter in“). Fehlen die neuen Felder, bleibt die alte Anzeige. Tests. Meldung: „FERTIG: LK-App“ mit Versionsnummer.
+
+**Reihenfolge:** LK-D, LK-S und LK-G laufen parallel; LK-App danach. Der Reise-Aufbau (Kontinent → Land → Stadt) folgt nach LK.
+
+### Nachtrag LK – vorhandener Lernstand der Kinder (22.11., 14:20 Berlin) · an `bau-lehrer`, `lehrplan-lb`, Gestalter
+
+Sebastian: „Du musst die bestehenden erledigten Sachen der Kinder beachten … du siehst ja die erledigten Etappen.“ Verbindlich:
+1. **Nichts geht verloren, nichts wird neu verlangt, was schon gelandet ist.** Der Lernstand hängt an der Etappe. Wird ein Thema auf mehrere Klassen verteilt, gilt je Klasse: Etappen dieser Klasse gelandet/gesetzt = dieser Teil ist erledigt. Ein Kind, das alle Etappen eines Themas schon hat, sieht es in jeder Klasse als fertig.
+2. **Flug bleibt Flug.** Flug-Abschluss, Stempel, Flug-Test, Nachtests, „abgelegt“ und die Sterne dafür zählen weiter je Thema (alle Pflicht-Etappen), nicht je Klasse. Schon erreichte Abschlüsse (`flug_erstabschluss`, Stempel, Sterne) bleiben unverändert und werden nie ein zweites Mal vergeben.
+3. **„Kann er“ / „Kann er – aber wiederholen“** gilt weiter für das ganze Thema (alle Klassen).
+4. **Plan:** Ein eingeplantes Thema bleibt eingeplant. Etappen, die der Lehrplan erst in einer späteren Klasse verlangt, sind bis dahin freiwillig; hat das Kind sie schon, zählen sie.
+5. **Echtes Teilen eines Themas** (wie bei den Potenzgesetzen) nur, wenn `lehrplan-lb` es begründet vorschlägt und Sebastian zustimmt – dann mit Umhängen des Lernstands nach dem Muster vom 21.11. (Probelauf, Vorher/Nachher je Kind).
+6. **`lehrplan-lb` liefert dazu je Kind (nur Nummern, lesend):** Themen mit Lernstand, die auf mehrere Klassen verteilt werden – je Klasse „Etappen verlangt / davon gelandet oder gesetzt“; und alle Fälle, in denen ein Kind ein Thema als geschafft hat, obwohl Etappen einer späteren Klasse noch fehlen (kein Fehler, nur Hinweis für die Anzeige).
+7. **`bau-lehrer`:** Rauchtest und Probelauf mit Vorher/Nachher je Kind: gelandete Etappen, Flug-Abschlüsse, Stempel, Sterne, Plan, Reiseoptionen identisch.
+8. **Gestalter:** Karte „weitergeführt“ zeigt den Stand nur für die Etappen dieser Klasse („2 von 3 neuen Etappen“), die erste Karte den Stand ihrer Etappen; ein abgeschlossener Flug bleibt in allen Zeilen als geschafft erkennbar.
+
+### Nachtrag LK – Route: zweiter Teil eines Themas fliegt ins Nachbarland (22.11., 14:25 Berlin) · Entscheidung Sebastian
+
+„Und wenn der zweite Teil von Terme umformen dann einfach in ein Nachbarland geht?“ – **Ja, so wird es gemacht.**
+- **Regel:** Verlangt der Lehrplan (Maßstab: Gymnasium; ohne Gym-Klasse Realschule Gruppe I, dann IB) von einem Thema in einer späteren Klasse **drei oder mehr eigene Etappen**, wird das Thema dort geteilt: eigener Flug, eigenes Land – ein **Nachbarland** des ersten Teils auf demselben Kontinent. Vorbild: Potenzgesetze (21.11.).
+- Bei nur ein oder zwei Etappen oder reiner Vertiefung bleibt es **ein** Flug (ein Flug braucht mindestens 3 Etappen); die Lehrplan-Übersicht zeigt das Thema trotzdem in beiden Klassen (LK).
+- Ersetzt Punkt 2 und 5 des Nachtrags „vorhandener Lernstand“ für die geteilten Themen: Jeder Teil hat eigenen Flug-Test, Stempel, Abschluss. Lernstand wird je Etappe umgehängt; ist ein Teil dadurch vollständig, gilt er als geschafft – ohne zweite Sterne für schon vergütete Abschlüsse, mit Nachtrag von Stempel/Bonus für den neuen Teil nach derselben Regel wie beim Reise-Aufbau (Festlegung 14).
+- **`lehrplan-lb` (in LK-D):** Liste aller Themen, die nach dieser Regel geteilt werden: Thema, Klassen, Etappen je Teil, Titelvorschlag je Teil, Voraussetzung (Teil 2 braucht Teil 1), Stand je Kind (nur Nummern). Dazu Grenzfälle (genau 3 Etappen, andere Lage in RS/IB) mit Empfehlung „teilen“ / „zusammen lassen“. Sebastian entscheidet die Liste.
+- **Chat `reise-aufbau`:** nach der Liste den Vorschlag ergänzen – je neuem Flug ein Nachbarland mit Städten (aus der Reserve), Skript-Prüfung wie bisher.
+- **`bau-lehrer`:** Teilen als wiederholbares Verfahren (Thema anlegen, Etappen/Aufgaben/Lernstand umhängen, Voraussetzung setzen, Vorher/Nachher je Kind) – als Funktion oder Vorlage, noch nichts einspielen.
+
+## Bau-Auftrag LW – „Unser Lehrplan“ (22.11., 14:30 Berlin) · Sebastian hat freigegeben („das setzen wir so um“)
+
+**Vorgabe (gilt):** `inhalte/pruefung/lehrer/werkstatt/umsetzung.md`, Entwurf zum Anklicken `inhalte/pruefung/lehrer/werkstatt/entwurf/unser-lehrplan.html`, Bilder `werkstatt/bilder/` – in `lernen-app` übernommen (Stand Gestalter-Zweig 22.11.).
+
+### LW-App · an `bau-motivation` (einziger Chat am App-Code) – drei Schritte, je eigene Version
+- **LW-1 (0.88.0):** Kind-Seite mit Reitern **Überblick · Was wackelt · Lehrplan**. „Lehrplan“ ersetzt Stand und Plan (alte Links `-stand`/`-plan` führen dorthin). Matrix + Fahrplan links + Detail als Schublade, Zeigen-Filter, Klassen-Mehrfachauswahl, fertige Klassen eingeklappt, Ringe je Schule, Tablet/Handy.
+- **LW-2 (0.89.0):** Ziehen Matrix → Fahrplan und zurück (zurück = aus dem Plan, mit Rückgängig). Warnungen bei harten Voraussetzungen (3 Fälle, Abschnitt 4a) mit Reparieren-Knopf, keine Sperre. Farben nach Abschnitt 3: gerade dran blau, im Plan hellgelb, Wiederholung hellgrün, fertig durchsichtig, eigene Schule weiß, nur andere Schule grau.
+- **LW-3 (0.90.0, braucht LW-S):** Kinder-Umschalter im Kopf (Reiter bleibt beim Wechsel), Überblick-Karten mit Sprüngen, „Was wackelt“ als Arbeitsliste (Zu besprechen / Beobachten / Besprochen).
+- **Prüfen nach jedem Schritt:** 400 / 820 / 1280; keine Funktion aus „Plan“ verloren (Auswählen, Sammelaktion, Rückgängig, Konflikt „Neu laden“, Wieder in die Wiederholung); Stand-Zahlen gleich wie unter Nachschlagen → Lehrplan. Testkind und erfundene Daten, keine echten Kinderdaten. Tests ergänzen, Info-Seite anpassen.
+- Meldung je Schritt: „FERTIG: LW-1“ / „LW-2“ / „LW-3“ mit Versionsnummer. Merge auf `main` erst nach Sebastians „Live“. Die Prüfung nach dem Bau übernimmt der Gestalter.
+
+### LW-S · an `bau-lehrer` (Server für LW-3; Datei, nicht einspielen)
+Migration `supabase/migrations/20261123_lw_s_wackelt_status.sql`: gespeicherter Status je Kind und Thema (bei Bedarf je Etappe, siehe Vorgabe Abschnitt 1a) für „Was wackelt“: `zu_besprechen` | `beobachten` | `besprochen`, mit Zeitpunkt und wer; neue Fehler im selben Thema setzen einen Eintrag wieder auf „zu besprechen“. Aktionen `schule_wackelt_lesen` / `schule_wackelt_setzen` mit Zugriffsprüfung (nur Eltern/Lehrer), Zahl „zu besprechen“ für den Reiter. Rauchtest (Testkind). Lernstand, Stufen, Plan, Sterne unverändert. Kein DROP, kein DELETE. Meldung: „FERTIG: LW-S“ mit Schnittstelle.
+
+### Zusammenspiel LW und LK (wichtig)
+- **Reihenfolge App:** LW-1 → LW-2 → LW-3 → danach **LK-App** (Thema in mehreren Klassen) auf der neuen Lehrplan-Seite. LK-App wird also nicht mehr in die alte Matrix gebaut.
+- **Gestalter:** „Vorgabe LK“ ist eine Ergänzung derselben Vorgabe-Datei (Karte „weitergeführt“, „Baut auf“/„Geht weiter in“, Abdeckung nach Stunden, geteilte Themen als zwei Flüge). Sie darf LW-1/2 nicht aufhalten.
+- **Server:** LK-S und LW-S sind getrennte Dateien; beide dürfen parallel entstehen.
+- Warnungen bei Voraussetzungen (LW-2) nutzen später die Aufbau-Daten aus LK („Baut auf“).
+
+### Entscheidung Sebastian (22.11., 14:25 Berlin) – lange Flüge bleiben
+Die drei Flüge mit 13–14 Etappen (Brüche und Anteile, Grundrechenarten und Rechengesetze, Natürliche Zahlen und Stellenwertsysteme) werden **nicht** geteilt („so lassen – jedes Land hat doch genügend Städte“). Sie liegen in Gym und RS nur in einer Klasse. Im Reise-Aufbau bekommen sie große Länder. Geteilt wird nur nach der Lehrplan-Regel (spätere Klasse mit drei oder mehr eigenen Etappen).
+
+### Nachtrag Kinderansicht 0.87.2 – Nachprüfung des Gestalters (22.11., 14:45 Berlin) · an `bau-motivation`
+
+Bericht: `inhalte/pruefung/kind/nachpruefung_2211.md`, Bilder `inhalte/pruefung/kind/n087/`. Kein Muss, alle sieben Punkte umgesetzt. Bitte als kleine eigene Version **0.87.2** (kann mit 0.87.1 zusammen live gehen), getrennt von LW-1:
+- **S1:** Check-in-Ansage (Wiederholungs-Runde) auf dem Handy nicht im Blick (400×860 hinter dem festen Knopf, 360×640 unter dem Bildschirm). Ansage direkt unter die Abflugtafel oder eine Zeile „Erst 9 Bordkarten Check-in · ca. 5 Min.“ über „Weiter geht’s“ (Zahl aus dem Serverwert).
+- **S2:** Hinweis bei 5 Sternen als eigene Zeile unter der Rückmeldung statt in der schmalen Mittelspalte.
+- **K2:** Pause-Link im Tag-Modus kräftiger. **K3:** lange Zahlwörter in Auswahl-Antworten trennen (`hyphens: auto`, `lang="de"`).
+Tests für 360×640 und 400×860 ergänzen. Meldung: „FERTIG: 0.87.2“.
+
+### Stand 22.11., 15:00 Berlin – RS-Korrektur eingespielt; Rückläufer ChatGPT 932
+- **Eingespielt:** `rs_korrektur_2211.sql` (Gruppe I, RS 5/6). Punkte ohne Hauptthema 70 → 11; Kinder unverändert.
+- **Probelauf grün (nicht eingespielt):** FP-S 3, LW-S, LK-S mit allen fünf Rauchtests (`fp_s` Teil 5 läuft jetzt). Prüfbitte an ChatGPT gesendet.
+- **An `bau-lehrer` (klein, Datei `20261123_fp_s4_sperrfolge.sql` oder Ergänzung der Tests, nicht einspielen):** ChatGPT 932 Sollte 1 – Sperrreihenfolge prüfen: Mischpfad sperrt Karte → Ausgabe; der normale Antwortpfad kann über den Trigger `versuch_misch_verfall` die Ausgabe vor der Karte anfassen. Reihenfolge vereinheitlichen oder begründen, warum keine zyklische Sperre möglich ist; Paralleltest Misch- gegen normale Antwort zur selben Aufgabe. Sollte 2 – Tests E/F reihenfolgeunabhängig („genau einmal gültig“) statt fester Erwartung. Meldung: „FERTIG: FP-S 4“.
+- **An `lehrplan-lb` (in LK-D mit erledigen):** Repo-Klasse Thema 91 (rs_by 7) nachziehen; „Abdeckung nach Stunden“ ist ein **Zuordnungsgrad** (Lehrplan-Punkt hat ein Thema), keine Lernabdeckung – so benennen; Punkte 931, 937 und die 8er-Inhalte von Thema 61 bleiben als Lücke/teilweise ausgewiesen.
+- **An Gestalter und `bau-motivation` (für LK-App):** Die Zahl je Klasse heißt „Lehrplan zugeordnet: x von y Stunden“, nicht „abgedeckt/gelernt“.

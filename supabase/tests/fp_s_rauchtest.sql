@@ -1,4 +1,4 @@
--- Rauchtest FP-S / FP-S 2 (faire Punkte). Nach WD-S 2, WD-S 3, WD-4b, WD-S 4, 20261122_fp_s_faire_punkte.sql und 20261122_fp_s2_nacharbeit_924.sql. Transaktion mit Rollback, nur Testkind, keine Namen.
+-- Rauchtest FP-S / FP-S 2 / FP-S 3 (faire Punkte). Nach WD-S 2, WD-S 3, WD-4b, WD-S 4, FP-S, FP-S 2 (Teil 9 nur mit FP-S 3, sonst übersprungen). Transaktion mit Rollback, nur Testkind, keine Namen.
 -- Antworten über den echten Antwortweg schule.uebung_pruefen_wd → uebung_pruefen_intern (Auswahl-Aufgaben: richtig = Index der Lösung).
 -- Unabhängig von der Zusammensetzung echter Etappen: nur Etappen, auf die das Testkind nie geantwortet hat; die Landung wird vorbereitet, indem der Test
 -- die Karte des Testkinds kurz vor die Landeschwelle setzt (eine eigene Lösung fehlt) – die Landung selbst passiert über den echten Weg.
@@ -93,13 +93,16 @@ begin
   insert into schule.karte_stand (lernender_id, einheit_id, lernziel) values (v_l, v_e[6], v_lz[6]) on conflict do nothing;
   update schule.karte_stand set sitzt = true, sitzt_am = now() - interval '20 days', gesetzt_am = null, landung = null where lernender_id = v_l and einheit_id = v_e[6] and lernziel = v_lz[6];
   select coalesce(sum(menge), 0) into v_s0 from schule.sterne where lernender_id = v_l;
+  select etappen into v_i from schule.landung_nachbuchung where lernender_id = v_l; -- LK-S: auf dem echten Stand kann das Testkind schon eine Zeile haben
   select * into r from schule.landung_bonus_nachbuchen(v_l);
   if r.etappen is null or r.etappen < 1 or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) - v_s0 <> r.sterne then raise exception 'FEHLER 5 Nachbuchung: %', r; end if;
   if (select menge from schule.sterne where lernender_id = v_l and grund = 'landung' and bezug = 'landung:' || v_e[6] || ':' || v_lz[6]) <> 80 then raise exception 'FEHLER 5 Bonus der Etappe ohne Fehler'; end if;
   if exists (select 1 from schule.sterne where lernender_id = v_l and grund = 'landung' and bezug = 'landung:' || v_e[5] || ':' || v_lz[5]) then raise exception 'FEHLER 5 gesetzte Etappe nachgebucht'; end if;
   select count(*) into v_n from schule.landung_bonus_nachbuchen(v_l);
   if v_n <> 0 or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) - v_s0 <> r.sterne then raise exception 'FEHLER 5 zweiter Lauf bucht'; end if;
-  if (select etappen from schule.landung_nachbuchung where lernender_id = v_l) <> r.etappen then raise exception 'FEHLER 5 Hinweis für die App'; end if;
+  -- Hinweis für die App: eine Zeile je Kind; gab es sie schon, bleibt sie unverändert (on conflict do nothing), sonst trägt sie diese Nachbuchung
+  if (select count(*) from schule.landung_nachbuchung where lernender_id = v_l) <> 1
+     or (select etappen from schule.landung_nachbuchung where lernender_id = v_l) <> coalesce(v_i, r.etappen) then raise exception 'FEHLER 5 Hinweis für die App'; end if;
   raise notice 'ok 4–5 gesetzte Etappe ohne Bonus; Nachbuchung (% Etappen, % Sterne), zweiter Lauf bucht nichts', r.etappen, r.sterne;
 
   -- 8 FP-S 2: 1 Fehler, Tipp, zweiter Versuch (vor der Landung), Mischkarte mit Tipp, Fehler nach der Landung, Wiederlandung
@@ -152,6 +155,33 @@ begin
   if (w->>'gesehen_am') is null or (select gesehen_am from schule.landung_nachbuchung where lernender_id = v_l) is null then
     raise exception 'FEHLER 8g gesehen'; end if;
   raise notice 'ok 8 FP-S 2: 1 Fehler 40, Tipp 80, zweiter Versuch 80, Mischkarte mit Tipp 0, Fehler nach der Landung ohne Wirkung, Wiederlandung ohne zweiten Bonus, Misch-Gültigkeit einmal entschieden, Hinweis gesehen';
+
+  -- 9 FP-S 3: Rückfall beim Einlösen (die Ausgabe aus 8h ist inzwischen eingelöst, die Entscheidung davor lautete „gültig“)
+  if exists (select 1 from pg_proc where proname = 'misch_buchen' and prosrc like '%misch_ausgang%') then
+    update schule.karte_stand set wdh_stufe = 1, wdh_lerntage = 3, wdh_fehler = 0, wdh_ab = now() - interval '6 days', faellig_am = now() - interval '3 days'
+     where lernender_id = v_l and einheit_id = v_e[2] and lernziel = v_lz[2];
+    select k into r from schule.karte_stand k where lernender_id = v_l and einheit_id = v_e[2] and lernziel = v_lz[2];
+    update schule.misch_ausgabe set eingeloest_am = now() where lernender_id = v_l and aufgabe_id = v_n and eingeloest_am is null;
+    v_s0 := (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l);
+    perform set_config('schule.misch_entscheid', v_n || ':t', true);
+    perform set_config('schule.misch_ausgang', '', true);
+    w := schule.uebung_pruefen_intern(v_l, jsonb_build_object('aufgabe_id', v_n, 'misch', true, 'client_id', 'fp3-rueckfall-' || gen_random_uuid(),
+           'antwort', jsonb_build_object('index', (select (a.loesung->>'index')::int from schule.aufgabe a where a.id = v_n))));
+    perform set_config('schule.misch_entscheid', '', true);
+    if current_setting('schule.misch_ausgang', true) <> v_n || ':f' then raise exception 'FEHLER 9 Ausgang nicht als Rückfall gemeldet'; end if;
+    if (select bool_or(misch) from schule.versuch where lernender_id = v_l and aufgabe_id = v_n) then raise exception 'FEHLER 9 Versuch noch als Mischkarte'; end if;
+    if exists (select 1 from schule.karte_stand k where lernender_id = v_l and einheit_id = v_e[2] and lernziel = v_lz[2]
+                and (k.wdh_stufe, k.faellig_am, k.wdh_ab, k.wdh_fehler) is distinct from ((r.k).wdh_stufe, (r.k).faellig_am, (r.k).wdh_ab, (r.k).wdh_fehler)) then
+      raise exception 'FEHLER 9 Wiederholung im Rückfall gewertet'; end if;
+    if (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) - v_s0 <> schule.sterne_regel('sterne_uebung_richtig') then raise exception 'FEHLER 9 Sterne im Rückfall'; end if;
+    if coalesce(current_setting('schule.kein_wdh', true), '') <> '' then raise exception 'FEHLER 9 kein_wdh nicht zurückgesetzt'; end if;
+    perform set_config('schule.misch_ausgang', '', true);
+    -- dieselbe Karte über uebung_pruefen_wd: Ausgabe eingelöst → keine Bestätigung
+    w := schule.uebung_pruefen_wd(v_l, jsonb_build_object('aufgabe_id', v_n, 'misch', true, 'client_id', 'fp3-wd-' || gen_random_uuid(),
+           'antwort', jsonb_build_object('index', (select (a.loesung->>'index')::int from schule.aufgabe a where a.id = v_n))));
+    if coalesce((w->'misch'->>'gueltig')::boolean, true) then raise exception 'FEHLER 9 eingelöste Mischkarte bestätigt: %', w; end if;
+    raise notice 'ok 9 FP-S 3: Rückfall ohne Misch-Bestätigung, Versuch nicht als Mischkarte, keine Wiederholungswertung, Sterne wie Übung';
+  else raise notice 'übersprungen 9 FP-S 3 (Migration nicht eingespielt)'; end if;
 
   -- 6 Regeln für die App
   if not (schule.sterne_regeln() ?& array['sterne_uebung_richtig', 'sterne_uebung_mit_hilfe', 'sterne_landung_ohne_fehler', 'sterne_landung_wenig_fehler', 'sterne_landung_sonst', 'landung_wenig_fehler_max']) then

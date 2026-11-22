@@ -14,6 +14,12 @@ create temp table tl_rt_wackelt on commit drop as
                                        where coalesce((to_jsonb(t2)->>'teil_stamm')::bigint, t2.id) = s.stamm) fehler
     from schule.lernender l cross join (values (26), (29), (44), (46), (61), (91), (101)) s(stamm);
 
+-- TL-S 3: Setzung, Plan und Rückreise je Kind und altem Thema vorher (Fälle: gesetzt komplett, gesetzt mit Wiederholung, im Plan nicht begonnen, Rückreise)
+create temp table tl_rt_stufe on commit drop as
+  select l.id lernender_id, s.stamm, schule.thema_stufe(l.id, s.stamm) st
+    from schule.lernender l cross join (values (26), (29), (44), (46), (61), (91), (101)) s(stamm)
+   where coalesce((select (to_jsonb(t)->>'teil_nr')::int from schule.thema t where t.id = s.stamm), 1) = 1;
+
 \ir ../migrations/20261123_tl_s_teilung.sql
 
 do $$
@@ -249,6 +255,22 @@ begin
   select v_l, v_e, x, true, now() from unnest(v_et) x on conflict do nothing;
   if (schule.thema_stufe(v_l, (select thema_id from schule.einheit where id = v_e))->>'test_offen')::boolean then
     raise exception 'FEHLER 11: Teil ohne Pflicht-Etappe verlangt einen Test'; end if;
+
+  -- 12 TL-S 3: jeder Teil erbt Setzung („Kann er komplett“ / „… wiederholen“), Plan-Platz und Rückreise des Themas
+  --    (Zusatz-Teil der Schulart: im Plan als „zusatz“, gesetzt bleibt gesetzt; leerer Teil: nicht im Plan)
+  select string_agg(v.lernender_id || ':' || t.id || ':' || f, ', ') into v_t
+    from tl_rt_stufe v join schule.thema t on t.teil_stamm = v.stamm join schule.lernender l on l.id = v.lernender_id
+    cross join lateral (select schule.thema_stufe(v.lernender_id, t.id) n) x
+    cross join unnest(array['gesetzt', 'rueckreise', 'im_plan']) f
+   where (x.n->f) is distinct from (v.st->f)
+     and not (f = 'im_plan' and ((x.n->>'etappen')::int = 0
+                                 or (coalesce(l.schulart, 'gym_by') = any(coalesce(t.zusatz, '{}'))
+                                     and exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id
+                                                  where r.lernender_id = v.lernender_id and r.art = 'zusatz' and r.status <> 'entfernt'))));
+  if v_t is not null then raise exception 'FEHLER 12: Teil erbt Setzung/Plan/Rückreise nicht (Kind:Teil:Feld): %', v_t; end if;
+  raise notice 'TL-S Rauchtest 12: gesetzt komplett %, gesetzt wiederholen %, Rückreise %, im Plan %', 
+    (select count(*) from tl_rt_stufe where st->>'gesetzt' = 'komplett'), (select count(*) from tl_rt_stufe where st->>'gesetzt' = 'wiederholen'),
+    (select count(*) from tl_rt_stufe where (st->>'rueckreise')::boolean), (select count(*) from tl_rt_stufe where (st->>'im_plan')::boolean);
 
   -- 9 nur einmal teilen: zweites Einspielen ändert nichts
   if (select count(*) from schule.thema t where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101)) <> 15 then raise exception 'FEHLER 9'; end if;

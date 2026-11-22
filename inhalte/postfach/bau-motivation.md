@@ -14,7 +14,7 @@ Bilder: `docs/previews/la/fp-landung-360.png` (Sturmflug + 40, 360 × 640), `fp-
 - **Info-Seite (4):** neuer Eintrag „Sterne:“ mit dem Wortlaut der Vorgabe (10/5, Landungs-Bonus 80/40/10, Tipps keine Fehler, Tests/Wiederholungen/Mischkarten zählen nicht, Wiederholungen 10 selbst gelöst, Nachtrag vor dem 22.11., nie abgezogen); „Belohnungen:“ nennt nur noch Test, Ablegen, Knobeln, Ort.
 - **Offen beim Server:** Die Vorgabe sagt, „Flug geschafft“ solle den Bonus nicht noch einmal zählen – „Flug geschafft“ zeigt `sterne_flug.summe` vom Server; ob der Bonus darin steckt, entscheidet die Server-Summe.
 
-**Getestet:** lernen 165 von 165 (neu 4: Bonus-Kachel in allen Fassungen und Stufen, Sturmflug ohne Fehlerzahl, ohne `landung` keine Kachel, 360×640/400/820/1280; Serverwert +5 und Hinweis einmal je Etappe/Tag; Geschenk-Karte einmal, 360/820/1280; Info-Seite). Gesamtlauf sonst nur die bekannten Reise-Fehler. **Nicht geprüft:** echter Server (FP-S nicht eingespielt), echte Geräte.
+**Getestet:** lernen 163 von 163 (neu 4: Bonus-Kachel in allen Fassungen und Stufen, Sturmflug ohne Fehlerzahl, ohne `landung` keine Kachel, 360×640/400/820/1280; Serverwert +5 und Hinweis einmal je Etappe/Tag; Geschenk-Karte einmal, 360/820/1280; Info-Seite). Gesamtlauf sonst nur die bekannten Reise-Fehler. **Nicht geprüft:** echter Server (FP-S nicht eingespielt), echte Geräte.
 
 ## 2026-11-22 – FERTIG: 0.86.3 – Nachtrag WD-S 4 (ChatGPT 921), Teil bau-motivation (Cache v159)
 

@@ -52,7 +52,7 @@ Leitregel: Die Karte zeichnet alles **aus den Daten** – keine feste Zahl an Ko
 - **Länder-Route** (Kontinent): Bögen zwischen den Pin-Köpfen in der Reihenfolge des Plans, 2 px, dezent: geflogen grün durchgezogen, kommt noch gelb gepunktet.
 - **Städte-Route** (Land): leicht gebogene Linie zwischen den Haltestellen, gleiche Farben; zur Kür-Stadt grau gepunktet. **Kein Straßenverlauf** (Sebastian).
 - Plan wechselt den Kontinent: am Kartenrand ein Hinweis „Danach: ✈ Usbekistan (Asien) ›“; in der Welt-Ebene die ganze Route über die Kontinente.
-- Thema in zwei Klassen (LK): Blatt des Landes zeigt „Geht weiter in: ✈ Nepal“; Nachbarland mit dünner Verbindungslinie, sobald die Daten es liefern.
+- Geteilte Themen: siehe §11.
 
 ## 6 Beschriften nach Zoom (wichtig fürs Handy)
 - Reihenfolge: Länder mit Flug immer; übrige nach Fläche – große zuerst. Pin-Kopf erscheint ab ca. 60 px² Landfläche auf dem Bildschirm (Welt: 250), Schild (Name + Hauptstadt) ab ca. 2 200 px² (Welt: 2 500).
@@ -81,5 +81,18 @@ Kopfzeile „LAND“, Plakette + Name, „◉ Hauptstadt: Athen · Kontinent Eur
 - Bewegung: Puls am aktuellen Ort (1,8 s, „weniger Bewegung“ → aus); beim Wechsel der Ebene weich zoomen (≤ 0,5 s).
 - Bedienbar ohne Karte: Pfad-Zeile, Blatt und „Meine Route“-Liste (Rechner) enthalten alles; Pins sind Knöpfe mit Text („Italien, Hauptstadt Rom, gerade dran“).
 
+## 11 Teile und Zusatz (Entscheidung Teilung, 22.11., 16:20)
+Ein geteiltes Thema = mehrere Flüge = mehrere **Nachbarländer** (Land je Teil liefert `reise-aufbau`). Heute 6 Themen → 15 Teile; Kurzflüge mit 2 Städten sind erlaubt. Keine feste Zahl annehmen.
+
+- **Karte (Kontinent):** jedes Teil-Land ist ein normaler Flaggen-Pin mit eigenem Zustand. Die Länder eines Themas verbindet eine **feine Kette**: dünne graue Linie Pin-Kopf zu Pin-Kopf, kleine Kettenglied-Punkte, unter der Reise-Route (nicht farbig, damit sie nicht wie eine geflogene Strecke aussieht). Am Pin-Kopf links unten ein kleines Zahl-Abzeichen **„1/2“, „2/2“** (neben dem Zustands-Abzeichen oben rechts).
+- **Pin-Schild:** bleibt LAND + Hauptstadt (keine Mathe-Wörter auf der Karte).
+- **Blatt (Antippen):** „✈ **Terme umformen – Teil 2 von 2**“, darunter der Untertitel; Zeile „Teil 1: 🇰🇿 Kasachstan ✓ · Teil 2: 🇰🇬 Kirgisistan (hier)“ – Länder antippbar (springt hin). Gesperrt durch Teil 1: „Erst Teil 1 in Kasachstan“.
+- **Zusatz** (in der Schulart des Kindes kein Pflichtstoff): Pin mit **„+“-Abzeichen** in Sandfarbe, Landfläche hell mit gestricheltem Rand; Blatt: „**Zusatz** – freiwillig, für Entdecker. Muss nicht sein.“ Sperrt nichts; zählt nicht in „3/13 Länder“ des Kontinents (Anzeige dort: „3/13 Länder · +1 Zusatz“).
+- **Gerade dran / Startknopf:** „Bologna in Italien · Natürliche Zahlen“ wird bei Teilen zu „… in Kirgisistan · Terme umformen – Teil 2 von 2“ (Untertitel nur im Blatt).
+- **Route (Land-Ebene):** unverändert je Teil; am Ende der letzten Stadt ein dezenter Hinweis-Pfeil „Teil 2 geht weiter in Kirgisistan ›“, wenn der nächste Teil existiert.
+- **Stempel (Reisepass):** ein Stempel je Teil, rund wie bisher, unten im Stempelrand klein **„TEIL 2/2“**; nachgetragene Stempel tragen das Datum der Teilung und das Wort „nachgetragen“ (einmalige Nachbuchungs-Karte wie FP-3: „Neuer Stempel: Terme umformen – Teil 2 von 2“). Golden je Teil.
+- **Meine Route 5–10 / Listen:** „Terme umformen · Teil 2 von 2“ mit Untertitel klein; Zusatz mit Marke „Zusatz“.
+
 ## 10 Prüfen nach dem Bau
+(zusätzlich: Thema mit 3 Teilen, ein Zusatz-Teil, ein nachgetragener Stempel)
 400 / 820 / 1280, 360 × 640; Tag und Nacht; Startknopf immer sichtbar, Karte hinter der schwebenden Karte verschiebbar; Kontinent mit 1 und mit 19 Ländern; Land mit 3 und 14 Städten; ein Land je Zustand; Thema in zwei Ländern; Beschriftungen ohne Überdeckung; Ladezeit Kontinent < 1 s bei gutem Netz; Testkind und erfundene Daten.

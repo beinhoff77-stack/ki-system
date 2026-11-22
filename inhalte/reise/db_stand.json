@@ -1,5 +1,5 @@
 {
- "quelle": "schule.einheit status='freigegeben', jsonb_array_length(inhalt->'etappen'), gelesen 22.11.2026",
+ "quelle": "schule.einheit status='freigegeben' (inhalt->'etappen', Reihenfolge und lernziel), gelesen 22.11.2026 ~16:45 Berlin; schule.thema: 97 Themen, 10 ohne freigegebene Einheit (12,27,40,41,48,72,77,78,82,83)",
  "thema_einheit_etappen": {
   "1": [
    6,
@@ -348,6 +348,788 @@
   "103": [
    112,
    5
+  ]
+ },
+ "thema_lernziele": {
+  "1": [
+   "waage",
+   "zwei_schritte",
+   "probe",
+   "aufstellen",
+   "ohne_loesung"
+  ],
+  "2": [
+   "waage",
+   "beide_seiten",
+   "klammern",
+   "probe",
+   "sonderfaelle",
+   "sach"
+  ],
+  "3": [
+   "umformen",
+   "umdrehen",
+   "klammern",
+   "intervall",
+   "pruefen",
+   "grafisch",
+   "sachaufgabe"
+  ],
+  "4": [
+   "ein_schritt",
+   "zwei_schritte",
+   "pruefen",
+   "einsetzen",
+   "geometrie"
+  ],
+  "5": [
+   "definitionsmenge",
+   "ein_bruch",
+   "ueber_kreuz",
+   "hauptnenner",
+   "scheinloesung",
+   "verhaeltnis",
+   "graphisch"
+  ],
+  "6": [
+   "pruefen",
+   "grafisch",
+   "einsetzen",
+   "gleichsetzen",
+   "addition",
+   "verfahren",
+   "loesbarkeit",
+   "loesung_parameter",
+   "sachaufgabe"
+  ],
+  "7": [
+   "pruefen",
+   "stufenform",
+   "eliminieren",
+   "loesen",
+   "parabel",
+   "sachaufgabe"
+  ],
+  "8": [
+   "reinquadratisch",
+   "ausklammern",
+   "faktorisieren",
+   "ergaenzung",
+   "loesungsformel",
+   "bruchgleichung",
+   "diskriminante",
+   "sachaufgabe"
+  ],
+  "9": [
+   "gerade",
+   "ungerade",
+   "anzahl",
+   "umformen",
+   "naeherung",
+   "sachaufgabe"
+  ],
+  "10": [
+   "logarithmus",
+   "gleiche_basis",
+   "mit_log_loesen",
+   "potenzregel",
+   "wachstum",
+   "verstehen"
+  ],
+  "11": [
+   "ausklammern",
+   "nullprodukt",
+   "substitution",
+   "vielfachheit",
+   "verstehen"
+  ],
+  "13": [
+   "definitionsmenge",
+   "quadrieren",
+   "isolieren",
+   "probe",
+   "zwei_seiten",
+   "sachaufgabe"
+  ],
+  "14": [
+   "sinus",
+   "kosinus",
+   "tangens",
+   "anzahl",
+   "umformen",
+   "anwendung"
+  ],
+  "15": [
+   "stellenwert",
+   "zahlwort_zu_ziffern",
+   "ziffern_zu_zahlwort",
+   "strahl_ablesen",
+   "strahl_eintragen",
+   "vergleichen",
+   "runden_regel",
+   "runden_uebertrag",
+   "runden_sinnvoll",
+   "unendlich",
+   "roemisch_schreiben",
+   "roemisch_system",
+   "dualsystem"
+  ],
+  "16": [
+   "deuten",
+   "zahlengerade",
+   "ordnen",
+   "betrag",
+   "schriftlich_plus_minus",
+   "addieren",
+   "subtrahieren",
+   "umkehraufgabe",
+   "ketten",
+   "verstehen",
+   "sach"
+  ],
+  "17": [
+   "teiler",
+   "vielfache",
+   "endziffer",
+   "quersumme",
+   "neunerregel",
+   "primzahl",
+   "primfaktoren"
+  ],
+  "18": [
+   "punkt_strich",
+   "klammern",
+   "termaufbau",
+   "vorteil",
+   "differenz_summe",
+   "verteilen",
+   "kopfrechnen",
+   "mal_ganz",
+   "geteilt_ganz",
+   "umkehraufgabe_mal",
+   "ueberschlag",
+   "schriftlich",
+   "schriftlich_geteilt",
+   "sach"
+  ],
+  "19": [
+   "zehnerpotenz",
+   "gross_wissenschaftlich",
+   "vorsilben_gross",
+   "negativer_exponent",
+   "klein_wissenschaftlich",
+   "vorsilben_klein",
+   "vergleichen_pruefen"
+  ],
+  "20": [
+   "zahlarten",
+   "eingrenzen",
+   "heron",
+   "wurzel_mal",
+   "teilweise",
+   "zusammenfassen",
+   "nenner_rational"
+  ],
+  "21": [
+   "bruchteil_von",
+   "anteil_bestimmen",
+   "ganzes_bestimmen",
+   "erweitern",
+   "ggt",
+   "kuerzen",
+   "verhaeltnis_kuerzen",
+   "gleichwertig",
+   "gemischte_zahlen",
+   "kgv",
+   "vergleichen",
+   "zahlenstrahl",
+   "zahlbereiche",
+   "verstehen"
+  ],
+  "22": [
+   "stellenwerte",
+   "vergleichen_ordnen",
+   "runden",
+   "bruch_zu_dezimal",
+   "dezimal_zu_bruch",
+   "merkwerte",
+   "periodisch",
+   "verstehen"
+  ],
+  "23": [
+   "brueche_plus_minus",
+   "dezimal_plus_minus",
+   "vorzeichen",
+   "brueche_mal",
+   "brueche_geteilt",
+   "dezimal_mal",
+   "dezimal_geteilt",
+   "potenzen",
+   "rechenvorteile",
+   "gemischt",
+   "fehler_finden",
+   "sach"
+  ],
+  "24": [
+   "prozent_bedeutung",
+   "prozentwert",
+   "prozentsatz",
+   "grundwert",
+   "rabatt_aufschlag",
+   "verstehen"
+  ],
+  "25": [
+   "schaetzen",
+   "laenge",
+   "masse",
+   "zeit",
+   "kommaschreibweise",
+   "rechnen",
+   "massstab",
+   "verstehen"
+  ],
+  "26": [
+   "erkennen",
+   "vervielfachen",
+   "pruefen",
+   "einheit",
+   "dreisatz",
+   "geschickt",
+   "sach",
+   "aenderung"
+  ],
+  "28": [
+   "struktur",
+   "termwert",
+   "uebersetzen",
+   "sachsituation",
+   "muster",
+   "deuten"
+  ],
+  "29": [
+   "zusammenfassen",
+   "produkte",
+   "minusklammer",
+   "ausmultiplizieren",
+   "summe_mal_summe",
+   "ausklammern",
+   "aequivalenz",
+   "binomisch"
+  ],
+  "30": [
+   "potenz_begriff",
+   "negativer_exponent",
+   "fehler_finden"
+  ],
+  "31": [
+   "definitionsmenge",
+   "termwert",
+   "kuerzen",
+   "erweitern",
+   "addieren",
+   "multiplizieren",
+   "fehler_finden"
+  ],
+  "32": [
+   "eindeutig",
+   "mengen",
+   "funktionswert",
+   "stelle",
+   "wertetabelle",
+   "graph_lesen",
+   "nullstellen",
+   "punkt_graph",
+   "sachzusammenhang"
+  ],
+  "33": [
+   "ablesen",
+   "graph_ablesen",
+   "zwei_punkte",
+   "proportional",
+   "aufstellen",
+   "schnittpunkte",
+   "lage",
+   "einsetzen",
+   "wirkung",
+   "bueschel",
+   "deuten"
+  ],
+  "34": [
+   "definitionsmenge",
+   "asymptoten",
+   "achsenpunkte",
+   "parameter",
+   "beurteilen"
+  ],
+  "35": [
+   "scheitel",
+   "parameter",
+   "spiegeln",
+   "umformen",
+   "nullstellen",
+   "punkte",
+   "bestimmen",
+   "schnittpunkte",
+   "extremwert"
+  ],
+  "36": [
+   "werte",
+   "symmetrie",
+   "verlauf",
+   "parameter",
+   "negativ",
+   "umkehrbar",
+   "linear",
+   "wurzelfunktion",
+   "quadratisch",
+   "spiegeln"
+  ],
+  "37": [
+   "werte",
+   "faktor",
+   "linear_oder_exponentiell",
+   "modell",
+   "graph",
+   "punkte",
+   "logfunktion"
+  ],
+  "38": [
+   "bogenmass",
+   "werte",
+   "periode",
+   "parameter",
+   "verschiebung_x",
+   "zuordnen",
+   "eigenschaften",
+   "anwendung"
+  ],
+  "39": [
+   "grad",
+   "ausmultiplizieren",
+   "randverhalten",
+   "symmetrie",
+   "nullstellen",
+   "graph_term",
+   "term_bestimmen"
+  ],
+  "42": [
+   "koordinaten",
+   "strecken",
+   "lagebeziehungen",
+   "kreis_lage",
+   "winkelarten",
+   "vierecke",
+   "verstehen"
+  ],
+  "43": [
+   "ergaenzen",
+   "kreuzung",
+   "um_punkt",
+   "uhr",
+   "drehungen",
+   "figuren",
+   "verstehen"
+  ],
+  "44": [
+   "gleichschenklig",
+   "kongruenzsatz",
+   "konstruierbar",
+   "planfigur",
+   "vierecke",
+   "satz_kehrsatz"
+  ],
+  "45": [
+   "thales",
+   "umkehrung",
+   "beweis",
+   "lage",
+   "tangente",
+   "umkreis_inkreis"
+  ],
+  "46": [
+   "achsenspiegelung",
+   "punktspiegelung",
+   "mittelsenkrechte",
+   "winkelhalbierende",
+   "verschiebung",
+   "gegenvektor",
+   "drehung",
+   "symmetrie",
+   "vierecke_ordnen",
+   "eigenschaften"
+  ],
+  "47": [
+   "streckung",
+   "bildgerade",
+   "schwerpunkt",
+   "aehnlich",
+   "strahlensatz1",
+   "strahlensatz2",
+   "flaeche_volumen",
+   "anwendung"
+  ],
+  "49": [
+   "bildpunkt",
+   "abbildungsmatrix",
+   "drehung",
+   "rechnen",
+   "inverse",
+   "skalarprodukt",
+   "abstand"
+  ],
+  "50": [
+   "einheitsquadrate",
+   "rechteck",
+   "einheiten",
+   "kommaschreibweise",
+   "zerlegen",
+   "sachaufgaben",
+   "verstehen"
+  ],
+  "51": [
+   "umfang",
+   "flaeche",
+   "exakt",
+   "verstehen",
+   "sektor",
+   "zusammengesetzt"
+  ],
+  "52": [
+   "prisma",
+   "netz",
+   "zylinder",
+   "schraegbild",
+   "ansichten",
+   "beurteilen"
+  ],
+  "53": [
+   "quader",
+   "oberflaeche",
+   "sachaufgaben",
+   "zusammengesetzt",
+   "verstehen"
+  ],
+  "54": [
+   "hypotenuse",
+   "kathete",
+   "umkehrung",
+   "koordinaten",
+   "raum",
+   "anwendung"
+  ],
+  "55": [
+   "seiten",
+   "verhaeltnisse",
+   "seite",
+   "winkel",
+   "beziehungen",
+   "anwendung",
+   "schnittwinkel"
+  ],
+  "56": [
+   "einheitskreis",
+   "additionstheoreme",
+   "flaeche",
+   "sinussatz_seite",
+   "sinussatz_winkel",
+   "kosinussatz_seite",
+   "kosinussatz_winkel",
+   "satz_waehlen",
+   "anwendung"
+  ],
+  "57": [
+   "absolute_haeufigkeit",
+   "relative_haeufigkeit",
+   "tabelle_auswerten",
+   "saeulendiagramm",
+   "kreisdiagramm",
+   "irrefuehrend"
+  ],
+  "58": [
+   "mittelwert",
+   "mittel_tabelle",
+   "mittel_rueckwaerts"
+  ],
+  "59": [
+   "ablesen",
+   "zusammenhang",
+   "gerade",
+   "ausreisser",
+   "kausal"
+  ],
+  "60": [
+   "systematisch",
+   "zaehlprinzip",
+   "reihenfolgen",
+   "baumdiagramm",
+   "bedingungen",
+   "grenzen",
+   "verstehen"
+  ],
+  "61": [
+   "begriffe",
+   "rel_haeufigkeit",
+   "laplace",
+   "laplace_pruefen",
+   "gegenereignis",
+   "grosse_zahlen"
+  ],
+  "62": [
+   "pfad_mult",
+   "pfad_add",
+   "ohne_zuruecklegen",
+   "unabhaengig",
+   "gegenereignis",
+   "baum_ergaenzen",
+   "simulation",
+   "pi_schaetzen",
+   "verstehen"
+  ],
+  "63": [
+   "elemente",
+   "schnitt",
+   "verknuepfen",
+   "additionssatz",
+   "venn",
+   "mengen_verstehen",
+   "vierfeld",
+   "tafel_wkeit",
+   "bedingt",
+   "rueckschluss",
+   "verstehen"
+  ],
+  "64": [
+   "zufallsgeraet",
+   "regel",
+   "zufallsziffern",
+   "auswerten",
+   "monte_carlo",
+   "beurteilen"
+  ],
+  "65": [
+   "grundbegriffe",
+   "euler",
+   "kuerzester",
+   "spannbaum",
+   "verstehen"
+  ],
+  "66": [
+   "bereich",
+   "aufstellen",
+   "ecken",
+   "optimum",
+   "sach"
+  ],
+  "67": [
+   "schreibweise",
+   "berechnen",
+   "quadrat",
+   "vertauschen",
+   "zehner",
+   "negativ",
+   "sach"
+  ],
+  "68": [
+   "quadratwurzel",
+   "wurzel_dezimal",
+   "kubikwurzel",
+   "abschaetzen",
+   "wurzel_deuten",
+   "wurzel_sache"
+  ],
+  "69": [
+   "lesen",
+   "schreiben",
+   "enthalten",
+   "beurteilen"
+  ],
+  "70": [
+   "grenzen",
+   "messen",
+   "summe",
+   "produkt",
+   "entscheiden"
+  ],
+  "71": [
+   "begriffe",
+   "rollen",
+   "jahreszinsen",
+   "jahreszinsen_komma",
+   "zinssatz",
+   "kapital",
+   "monatszinsen",
+   "zeitanteil"
+  ],
+  "73": [
+   "kreislinie",
+   "parallelen",
+   "zwei_kreise",
+   "verknuepfen",
+   "sachsituationen",
+   "verstehen"
+  ],
+  "74": [
+   "det_berechnen",
+   "parallelogramm",
+   "dreieck",
+   "umlaufsinn",
+   "viereck",
+   "vieleck"
+  ],
+  "75": [
+   "betrag",
+   "graph",
+   "stueckweise",
+   "gleichung",
+   "verstehen"
+  ],
+  "76": [
+   "rekursiv",
+   "arithmetisch",
+   "geometrisch",
+   "summenzeichen",
+   "arith",
+   "geom",
+   "sach",
+   "verstehen"
+  ],
+  "79": [
+   "abweichung",
+   "varianz",
+   "sigma",
+   "eigenschaften",
+   "deuten"
+  ],
+  "80": [
+   "eigenschaften",
+   "regel",
+   "anteile",
+   "zwert",
+   "vergleichen"
+  ],
+  "81": [
+   "begriffe",
+   "hochrechnen",
+   "repraesentativ",
+   "fehlerquellen",
+   "aussagen"
+  ],
+  "84": [
+   "aussagen",
+   "negation",
+   "verknuepfen",
+   "tafel",
+   "folgerung"
+  ],
+  "91": [
+   "pyramide",
+   "lage",
+   "koordinaten",
+   "rotation",
+   "axialschnitt"
+  ],
+  "92": [
+   "pyr_volumen",
+   "pyr_oberflaeche",
+   "kegel_volumen",
+   "kegel_mantel",
+   "kugel",
+   "sachkontext",
+   "verstehen"
+  ],
+  "93": [
+   "erkennen",
+   "vervielfachen",
+   "produkt",
+   "dreisatz",
+   "graph",
+   "unterscheiden",
+   "sach"
+  ],
+  "94": [
+   "faktor",
+   "vermehrt",
+   "vermindert",
+   "zurueck",
+   "prozentsatz",
+   "mehrfach",
+   "formel",
+   "argumente"
+  ],
+  "95": [
+   "median",
+   "kennwerte",
+   "mittel_median",
+   "quartile",
+   "boxplot",
+   "vergleichen"
+  ],
+  "96": [
+   "nte_wurzel",
+   "potenz_wert",
+   "umwandeln",
+   "zusammenfassen",
+   "gleichung_exp",
+   "verstehen"
+  ],
+  "97": [
+   "ergaenzen",
+   "scheitelform",
+   "extremwert",
+   "mit_faktor",
+   "optimierung"
+  ],
+  "98": [
+   "scheitel_neben",
+   "stufen_wechsel",
+   "parallel_pruefen",
+   "innenwinkelsumme",
+   "aussenwinkel",
+   "vieleck",
+   "parkett",
+   "figuren",
+   "beweisen"
+  ],
+  "99": [
+   "parallelogramm",
+   "dreieck",
+   "trapez",
+   "rueckwaerts",
+   "zusammengesetzt",
+   "oberflaeche",
+   "verstehen"
+  ],
+  "100": [
+   "einheitswuerfel",
+   "quader",
+   "einheiten",
+   "liter",
+   "rueckwaerts",
+   "zusammengesetzt",
+   "verstehen"
+  ],
+  "101": [
+   "prisma_volumen",
+   "prisma_oberflaeche",
+   "prisma_umstellen",
+   "zylinder_volumen",
+   "zylinder_oberflaeche",
+   "sach",
+   "verstehen"
+  ],
+  "102": [
+   "mal_gleiche_basis",
+   "gleicher_exponent",
+   "potenz_von_potenz",
+   "geteilt_gleiche_basis",
+   "anwenden"
+  ],
+  "103": [
+   "warum_gilt",
+   "gleiche_basis_ganz",
+   "exponent_und_potenz",
+   "terme_vereinfachen",
+   "fehler_ganz"
   ]
  }
 }

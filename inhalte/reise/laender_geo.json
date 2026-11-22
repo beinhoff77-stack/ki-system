@@ -1,0 +1,862 @@
+{
+ "quelle": "Natural Earth 1:50 m (gemeinfrei): admin_0 LABEL_Y/LABEL_X, admin_1 latitude/longitude",
+ "laender": {
+  "AE": {
+   "name_de_ne": "Vereinigte Arabische Emirate",
+   "mitte": [
+    23.4663,
+    54.5473
+   ]
+  },
+  "AM": {
+   "name_de_ne": "Armenien",
+   "mitte": [
+    40.4591,
+    44.8006
+   ]
+  },
+  "AR": {
+   "name_de_ne": "Argentinien",
+   "mitte": [
+    -33.5012,
+    -64.1733
+   ]
+  },
+  "AS": {
+   "name_de_ne": "Amerikanisch-Samoa",
+   "mitte": [
+    -14.3267,
+    -170.7472
+   ]
+  },
+  "AT": {
+   "name_de_ne": "Österreich",
+   "mitte": [
+    47.5189,
+    14.1305
+   ]
+  },
+  "AU": {
+   "name_de_ne": "Australien",
+   "mitte": [
+    -24.1295,
+    134.0497
+   ]
+  },
+  "AZ": {
+   "name_de_ne": "Aserbaidschan",
+   "mitte": [
+    40.4024,
+    47.211
+   ]
+  },
+  "BD": {
+   "name_de_ne": "Bangladesch",
+   "mitte": [
+    24.215,
+    89.685
+   ]
+  },
+  "BE": {
+   "name_de_ne": "Belgien",
+   "mitte": [
+    50.7854,
+    4.8004
+   ]
+  },
+  "BH": {
+   "name_de_ne": "Bahrain",
+   "mitte": [
+    26.056,
+    50.5548
+   ]
+  },
+  "BI": {
+   "name_de_ne": "Burundi",
+   "mitte": [
+    -3.3328,
+    29.9171
+   ]
+  },
+  "BO": {
+   "name_de_ne": "Bolivien",
+   "mitte": [
+    -16.666,
+    -64.5934
+   ]
+  },
+  "BR": {
+   "name_de_ne": "Brasilien",
+   "mitte": [
+    -12.0987,
+    -49.5594
+   ]
+  },
+  "BT": {
+   "name_de_ne": "Bhutan",
+   "mitte": [
+    27.5367,
+    90.0403
+   ]
+  },
+  "BW": {
+   "name_de_ne": "Botswana",
+   "mitte": [
+    -22.1026,
+    24.1792
+   ]
+  },
+  "CA": {
+   "name_de_ne": "Kanada",
+   "mitte": [
+    60.3243,
+    -101.9107
+   ]
+  },
+  "CH": {
+   "name_de_ne": "Schweiz",
+   "mitte": [
+    46.7191,
+    7.464
+   ]
+  },
+  "CL": {
+   "name_de_ne": "Chile",
+   "mitte": [
+    -38.1518,
+    -72.3189
+   ]
+  },
+  "CN": {
+   "name_de_ne": "Volksrepublik China",
+   "mitte": [
+    32.4982,
+    106.3373
+   ]
+  },
+  "CO": {
+   "name_de_ne": "Kolumbien",
+   "mitte": [
+    3.3731,
+    -73.1743
+   ]
+  },
+  "CR": {
+   "name_de_ne": "Costa Rica",
+   "mitte": [
+    10.0651,
+    -84.0779
+   ]
+  },
+  "CU": {
+   "name_de_ne": "Kuba",
+   "mitte": [
+    21.334,
+    -77.9759
+   ]
+  },
+  "CY": {
+   "name_de_ne": "Republik Zypern",
+   "mitte": [
+    34.9133,
+    33.0842
+   ]
+  },
+  "CZ": {
+   "name_de_ne": "Tschechien",
+   "mitte": [
+    49.8824,
+    15.3776
+   ]
+  },
+  "DE": {
+   "name_de_ne": "Deutschland",
+   "mitte": [
+    50.9617,
+    9.6783
+   ]
+  },
+  "DO": {
+   "name_de_ne": "Dominikanische Republik",
+   "mitte": [
+    19.1041,
+    -70.654
+   ]
+  },
+  "DZ": {
+   "name_de_ne": "Algerien",
+   "mitte": [
+    27.3974,
+    2.8082
+   ]
+  },
+  "EC": {
+   "name_de_ne": "Ecuador",
+   "mitte": [
+    -1.2591,
+    -78.1884
+   ]
+  },
+  "EG": {
+   "name_de_ne": "Ägypten",
+   "mitte": [
+    26.1862,
+    29.4458
+   ]
+  },
+  "ES": {
+   "name_de_ne": "Spanien",
+   "mitte": [
+    40.091,
+    -3.4647
+   ]
+  },
+  "FJ": {
+   "name_de_ne": "Fidschi",
+   "mitte": [
+    -17.8261,
+    177.9754
+   ]
+  },
+  "FM": {
+   "name_de_ne": "Föderierte Staaten von Mikronesien",
+   "mitte": [
+    6.8876,
+    158.234
+   ]
+  },
+  "FR": {
+   "name_de_ne": "Frankreich",
+   "mitte": [
+    46.6961,
+    2.5523
+   ]
+  },
+  "GB": {
+   "name_de_ne": "Vereinigtes Königreich",
+   "mitte": [
+    54.4027,
+    -2.1163
+   ]
+  },
+  "GE": {
+   "name_de_ne": "Georgien",
+   "mitte": [
+    41.8701,
+    43.7357
+   ]
+  },
+  "GH": {
+   "name_de_ne": "Ghana",
+   "mitte": [
+    7.7176,
+    -1.0369
+   ]
+  },
+  "GR": {
+   "name_de_ne": "Griechenland",
+   "mitte": [
+    39.4928,
+    21.7257
+   ]
+  },
+  "GT": {
+   "name_de_ne": "Guatemala",
+   "mitte": [
+    14.9821,
+    -90.4971
+   ]
+  },
+  "HR": {
+   "name_de_ne": "Kroatien",
+   "mitte": [
+    45.8058,
+    16.3724
+   ]
+  },
+  "ID": {
+   "name_de_ne": "Indonesien",
+   "mitte": [
+    -0.9544,
+    101.8929
+   ]
+  },
+  "IE": {
+   "name_de_ne": "Irland",
+   "mitte": [
+    53.0787,
+    -7.7986
+   ]
+  },
+  "IN": {
+   "name_de_ne": "Indien",
+   "mitte": [
+    22.6869,
+    79.3581
+   ]
+  },
+  "IQ": {
+   "name_de_ne": "Irak",
+   "mitte": [
+    33.094,
+    43.2618
+   ]
+  },
+  "IR": {
+   "name_de_ne": "Iran",
+   "mitte": [
+    32.1662,
+    54.9315
+   ]
+  },
+  "IT": {
+   "name_de_ne": "Italien",
+   "mitte": [
+    44.7325,
+    11.0769
+   ]
+  },
+  "JM": {
+   "name_de_ne": "Jamaika",
+   "mitte": [
+    18.1371,
+    -77.3188
+   ]
+  },
+  "JO": {
+   "name_de_ne": "Jordanien",
+   "mitte": [
+    30.805,
+    36.376
+   ]
+  },
+  "JP": {
+   "name_de_ne": "Japan",
+   "mitte": [
+    36.1425,
+    138.4422
+   ]
+  },
+  "KE": {
+   "name_de_ne": "Kenia",
+   "mitte": [
+    0.549,
+    37.9076
+   ]
+  },
+  "KG": {
+   "name_de_ne": "Kirgisistan",
+   "mitte": [
+    41.6685,
+    74.5326
+   ]
+  },
+  "KH": {
+   "name_de_ne": "Kambodscha",
+   "mitte": [
+    12.6476,
+    104.5049
+   ]
+  },
+  "KR": {
+   "name_de_ne": "Südkorea",
+   "mitte": [
+    36.3849,
+    128.1295
+   ]
+  },
+  "KW": {
+   "name_de_ne": "Kuwait",
+   "mitte": [
+    29.4136,
+    47.314
+   ]
+  },
+  "KZ": {
+   "name_de_ne": "Kasachstan",
+   "mitte": [
+    49.0541,
+    68.6855
+   ]
+  },
+  "LA": {
+   "name_de_ne": "Laos",
+   "mitte": [
+    19.4318,
+    102.5339
+   ]
+  },
+  "LK": {
+   "name_de_ne": "Sri Lanka",
+   "mitte": [
+    7.5811,
+    80.7048
+   ]
+  },
+  "MA": {
+   "name_de_ne": "Marokko",
+   "mitte": [
+    31.6507,
+    -7.1873
+   ]
+  },
+  "MG": {
+   "name_de_ne": "Madagaskar",
+   "mitte": [
+    -18.6283,
+    46.7042
+   ]
+  },
+  "MN": {
+   "name_de_ne": "Mongolei",
+   "mitte": [
+    45.9975,
+    104.1504
+   ]
+  },
+  "MR": {
+   "name_de_ne": "Mauretanien",
+   "mitte": [
+    19.5871,
+    -9.7403
+   ]
+  },
+  "MU": {
+   "name_de_ne": "Mauritius",
+   "mitte": [
+    -20.2995,
+    57.5658
+   ]
+  },
+  "MW": {
+   "name_de_ne": "Malawi",
+   "mitte": [
+    -13.3867,
+    33.6081
+   ]
+  },
+  "MX": {
+   "name_de_ne": "Mexiko",
+   "mitte": [
+    23.92,
+    -102.2894
+   ]
+  },
+  "MY": {
+   "name_de_ne": "Malaysia",
+   "mitte": [
+    2.5287,
+    113.8371
+   ]
+  },
+  "NA": {
+   "name_de_ne": "Namibia",
+   "mitte": [
+    -20.5753,
+    17.1082
+   ]
+  },
+  "NC": {
+   "name_de_ne": "Neukaledonien",
+   "mitte": [
+    -21.0647,
+    165.084
+   ]
+  },
+  "NL": {
+   "name_de_ne": "Niederlande",
+   "mitte": [
+    52.4222,
+    5.6114
+   ]
+  },
+  "NO": {
+   "name_de_ne": "Norwegen",
+   "mitte": [
+    61.3571,
+    9.68
+   ]
+  },
+  "NP": {
+   "name_de_ne": "Nepal",
+   "mitte": [
+    28.2979,
+    83.6399
+   ]
+  },
+  "NZ": {
+   "name_de_ne": "Neuseeland",
+   "mitte": [
+    -39.759,
+    172.787
+   ]
+  },
+  "OM": {
+   "name_de_ne": "Oman",
+   "mitte": [
+    22.1204,
+    57.3366
+   ]
+  },
+  "PA": {
+   "name_de_ne": "Panama",
+   "mitte": [
+    8.722,
+    -80.3521
+   ]
+  },
+  "PE": {
+   "name_de_ne": "Peru",
+   "mitte": [
+    -12.9767,
+    -72.9002
+   ]
+  },
+  "PF": {
+   "name_de_ne": "Französisch-Polynesien",
+   "mitte": [
+    -17.6281,
+    -149.4616
+   ]
+  },
+  "PG": {
+   "name_de_ne": "Papua-Neuguinea",
+   "mitte": [
+    -5.6953,
+    143.9102
+   ]
+  },
+  "PH": {
+   "name_de_ne": "Philippinen",
+   "mitte": [
+    11.198,
+    122.465
+   ]
+  },
+  "PK": {
+   "name_de_ne": "Pakistan",
+   "mitte": [
+    29.3284,
+    68.5456
+   ]
+  },
+  "PL": {
+   "name_de_ne": "Polen",
+   "mitte": [
+    51.9903,
+    19.4905
+   ]
+  },
+  "PT": {
+   "name_de_ne": "Portugal",
+   "mitte": [
+    39.6067,
+    -8.2718
+   ]
+  },
+  "PW": {
+   "name_de_ne": "Palau",
+   "mitte": [
+    7.5183,
+    134.5802
+   ]
+  },
+  "PY": {
+   "name_de_ne": "Paraguay",
+   "mitte": [
+    -21.6745,
+    -60.1464
+   ]
+  },
+  "QA": {
+   "name_de_ne": "Katar",
+   "mitte": [
+    25.2374,
+    51.1435
+   ]
+  },
+  "RW": {
+   "name_de_ne": "Ruanda",
+   "mitte": [
+    -1.8972,
+    30.1039
+   ]
+  },
+  "SA": {
+   "name_de_ne": "Saudi-Arabien",
+   "mitte": [
+    23.8069,
+    44.6996
+   ]
+  },
+  "SB": {
+   "name_de_ne": "Salomonen",
+   "mitte": [
+    -8.0295,
+    159.1705
+   ]
+  },
+  "SE": {
+   "name_de_ne": "Schweden",
+   "mitte": [
+    65.8592,
+    19.0171
+   ]
+  },
+  "SI": {
+   "name_de_ne": "Slowenien",
+   "mitte": [
+    46.0608,
+    14.9153
+   ]
+  },
+  "SN": {
+   "name_de_ne": "Senegal",
+   "mitte": [
+    15.1381,
+    -14.7786
+   ]
+  },
+  "SR": {
+   "name_de_ne": "Suriname",
+   "mitte": [
+    4.144,
+    -55.9109
+   ]
+  },
+  "SV": {
+   "name_de_ne": "El Salvador",
+   "mitte": [
+    13.6854,
+    -88.8901
+   ]
+  },
+  "TH": {
+   "name_de_ne": "Thailand",
+   "mitte": [
+    15.4597,
+    101.0732
+   ]
+  },
+  "TJ": {
+   "name_de_ne": "Tadschikistan",
+   "mitte": [
+    38.1998,
+    72.5873
+   ]
+  },
+  "TL": {
+   "name_de_ne": "Osttimor",
+   "mitte": [
+    -8.8037,
+    125.8547
+   ]
+  },
+  "TM": {
+   "name_de_ne": "Turkmenistan",
+   "mitte": [
+    39.8552,
+    58.6766
+   ]
+  },
+  "TN": {
+   "name_de_ne": "Tunesien",
+   "mitte": [
+    33.6873,
+    9.0079
+   ]
+  },
+  "TO": {
+   "name_de_ne": "Tonga",
+   "mitte": [
+    -21.21,
+    -175.163
+   ]
+  },
+  "TR": {
+   "name_de_ne": "Türkei",
+   "mitte": [
+    39.3454,
+    34.5083
+   ]
+  },
+  "TZ": {
+   "name_de_ne": "Tansania",
+   "mitte": [
+    -6.0519,
+    34.9592
+   ]
+  },
+  "UG": {
+   "name_de_ne": "Uganda",
+   "mitte": [
+    1.9726,
+    32.9486
+   ]
+  },
+  "US": {
+   "name_de_ne": "Vereinigte Staaten",
+   "mitte": [
+    39.5385,
+    -97.4826
+   ]
+  },
+  "UY": {
+   "name_de_ne": "Uruguay",
+   "mitte": [
+    -32.9611,
+    -55.9669
+   ]
+  },
+  "UZ": {
+   "name_de_ne": "Usbekistan",
+   "mitte": [
+    41.6936,
+    64.0054
+   ]
+  },
+  "VN": {
+   "name_de_ne": "Vietnam",
+   "mitte": [
+    21.7154,
+    105.3873
+   ]
+  },
+  "VU": {
+   "name_de_ne": "Vanuatu",
+   "mitte": [
+    -15.3715,
+    166.9088
+   ]
+  },
+  "WS": {
+   "name_de_ne": "Samoa",
+   "mitte": [
+    -13.6391,
+    -172.4382
+   ]
+  },
+  "ZA": {
+   "name_de_ne": "Südafrika",
+   "mitte": [
+    -29.7088,
+    23.6657
+   ]
+  },
+  "ZM": {
+   "name_de_ne": "Sambia",
+   "mitte": [
+    -14.6608,
+    26.3953
+   ]
+  },
+  "ZW": {
+   "name_de_ne": "Simbabwe",
+   "mitte": [
+    -18.9116,
+    29.9254
+   ]
+  }
+ },
+ "landesteile": {
+  "02": {
+   "mitte": [
+    -32.4751,
+    146.781
+   ],
+   "art": "Natural-Earth-Punkt"
+  },
+  "03": {
+   "mitte": [
+    -20.1026,
+    133.78
+   ],
+   "art": "Natural-Earth-Punkt"
+  },
+  "04": {
+   "mitte": [
+    -23.1364,
+    144.778
+   ],
+   "art": "Natural-Earth-Punkt"
+  },
+  "05": {
+   "mitte": [
+    -29.6504,
+    135.783
+   ],
+   "art": "Natural-Earth-Punkt"
+  },
+  "06": {
+   "mitte": [
+    -42.1383,
+    146.603
+   ],
+   "art": "Natural-Earth-Punkt"
+  },
+  "07": {
+   "mitte": [
+    -37.0082,
+    144.75
+   ],
+   "art": "Natural-Earth-Punkt"
+  },
+  "08": {
+   "mitte": [
+    -25.8483,
+    121.646
+   ],
+   "art": "Natural-Earth-Punkt"
+  },
+  "01": {
+   "mitte": [
+    -35.4618,
+    148.983
+   ],
+   "art": "Natural-Earth-Punkt"
+  },
+  "HI": {
+   "mitte": [
+    21.4919,
+    -157.999
+   ],
+   "art": "Natural-Earth-Punkt"
+  },
+  "BR_SUEDOST": {
+   "mitte": [
+    -20.7282,
+    -44.1651
+   ],
+   "art": "Mittel aus 4 Bundesstaaten"
+  },
+  "BR_SUED": {
+   "mitte": [
+    -27.1429,
+    -52.0458
+   ],
+   "art": "Mittel aus 3 Bundesstaaten"
+  },
+  "BR_NORDOST": {
+   "mitte": [
+    -8.0766,
+    -39.3248
+   ],
+   "art": "Mittel aus 9 Bundesstaaten"
+  },
+  "BR_MITTELWEST": {
+   "mitte": [
+    -16.4244,
+    -51.9606
+   ],
+   "art": "Mittel aus 4 Bundesstaaten"
+  },
+  "BR_NORD": {
+   "mitte": [
+    -5.062,
+    -58.7347
+   ],
+   "art": "Mittel aus 7 Bundesstaaten"
+  }
+ },
+ "fehlt": []
+}

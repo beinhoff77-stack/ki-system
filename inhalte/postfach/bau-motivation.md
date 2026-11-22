@@ -2,6 +2,18 @@
 
 Neueste oben.
 
+## 2026-11-22 – bau-lehrer – FERTIG: Nacharbeit 907
+
+Auf AUFTRAEGE.md „Nacharbeit aus ChatGPTs Prüfergebnis 907“, Teil bau-lehrer. Neue Dateien; die eingespielten Migrationen bleiben unverändert. Nichts in der echten Datenbank ausgeführt.
+- `supabase/migrations/20261122_nacharbeit_907.sql`:
+  - **Kopf dokumentiert** den Altzustand „früher fertiger Flug (Sitzung NULL oder durch Lesen false) → neue Pflicht-Etappe → erst dann Nachtrag → Nachtragstest“: festgelegtes Ergebnis **flug_geschafft = true** (zweites „Flug geschafft“); beim Einspielen im Bestand ausgeschlossen (Haupt-Chat: 4 von 4 Flügen mit Test fertig, Pflichtlisten vollständig); neue Fälle entstehen nicht. Ebenso festgehalten: erneutes Lesen derselben erfolgreichen Sitzung zeigt wieder true (gewollt).
+  - `schule.flug_erstabschluss_nachtragen`: `sitzung_id` und `am` aus **derselben, zeitlich ersten** Sitzung (`order by abgeschlossen_am, id`).
+  - LM-S: `etappe_jetzt` = Nummer der ersten noch nicht gelandeten Etappe in Etappen-Reihenfolge (neue Funktion `schule.etappe_jetzt`); fehlt, wenn alle gelandet sind. Umbau von `schule.lehrplan_matrix` an genau einer Stelle (live genau einmal vorhanden, gelesen).
+- `supabase/tests/ab_s_nacharbeit_907_rauchtest.sql`: der Altzustand in beiden Formen (NULL / vorher gelesen) → Nachtrag danach → Nachtragstest = true, erneutes Lesen wieder true; Nachtrag mit gegenläufigen ids/Zeiten → beide Werte aus der zeitlich ersten Sitzung.
+- `supabase/tests/lm_s_nacharbeit_907_rauchtest.sql`: Lern-Zugang des Testkinds und ein Eltern-Zugang, beide im Test angelegt (Name „Rauchtest“, Zufalls-Hash, Rollback – kein echter Schlüssel): fremde `lernender_id`, `mit_testkind: true`, Detail als Kind, Eltern = Lehrer-Sicht, gesperrter Zugang und abgelaufene Sitzung abgewiesen („Nicht angemeldet“), Größe mit `octet_length` (Raster < 90 000 Bytes, Detail < 30 000), `etappe_jetzt` (2 / keine / 1) und im Raster stimmig.
+- `supabase/tests/lm_s_lehrplan_matrix_rauchtest.sql` Prüfung 4 angepasst (etappe_jetzt nur bei „dran“, kann jetzt fehlen) – sonst würde der alte Test nach der Nacharbeit fälschlich abbrechen.
+- **Lokal ausgeführt** (Postgres 16): `test_abschliessen_intern`, `lehrplan_matrix`, `flug_erstabschluss_nachtragen` byte-gleich zum Live-Stand (md5 gleich), Zugangsfunktionen (`lern_ich`, `ist_leiter`, `wer_tn`, `sieht`, `zugriff`) wie live; Migration zweimal, beide neuen Tests grün, alter LM-S-Test grün. Gegenprobe: mit dem alten Nachtrag schlägt Prüfung 2 fehl.
+
 ## 2026-11-22 – bau-lehrer – FERTIG: WD-S
 
 Bau-Auftrag WD (Server) nach der Schnittstelle im Nachtrag. Nur Dateien, in der echten Datenbank nichts ausgeführt, kein App-Code, kein Merge nach main, keine Kinderdaten.
